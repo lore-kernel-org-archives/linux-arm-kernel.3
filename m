@@ -4,74 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 817ABCAC5A5
-	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 12:37:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89472CAC5A5
+	for <linux-arm-kernel@archiver.kernel.org>; Thu, 25 Sep 2025 12:45:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iD7D/WniQ0Zxw3Jv/99O/bSelLxFQ6gM67sSZlZ6hik=; b=zRX2bnsTICH3p3J+zegNA/1z2Q
-	D+KIZScNSS6pSgVynzvMuQhejoPgtDdVD2AbkWqfp1ON4Ilipx8gjvF9NHVirB8G5ar2+R3SrA0ht
-	84X75Bl02zOc/hzw0k9X9Ysf1Ocg0B7nO+3LQDWL2KJuXOb9WVgaXYlrN0coIgpMdaSlkDKWN4VQX
-	pAeAFwSZpWa4eSyCD2fNCgF8tWmeDhWV9IP2X2van13HtEKN4AzbOezFfq7b5RMrKkT7iaDspD3eQ
-	Zzhvvzogy0aXElAkSp5xIwFvU/IURCzB8ENk8ewEizokkY7ucg0rJanN4b9pP7kbRJBB0MgeAZQe1
-	tj8WW4NQ==;
+	bh=GLBjfY2oPvan3yMzP4i5sMEedFdBK7RdDs9fze69MGU=; b=xptFkpqfBQPOouXEAnYYt2lTi9
+	VvUZLEFrLlXDP19nxVYeKekgkupKGWQk+LmOspwIUZPCM3FcdrfqyqJzPPRvbKMezci61odnGbIsV
+	uX4qOZvVSvzn9G0TxcXn/RgjzwlwkZB8zsE8B56jhSt/yeDXmctwo9ts5B2nmu1dvSOUYj3VB8KZ+
+	RooEH+M/bWCcWIp6zepRkokCPG9XfxGj3u2Np8d67atQcI3jIHFWr9onExGw5h9gmiNUwHrNHs2Ur
+	5/nrnikjI47aR2rAE0b7DH4vTbPqSFm8W9OVpVT0F9Vv21rJs1zX8FlcVd6YUln5LQE2NhtlM3JwY
+	bXZT784g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1lDR-00000009240-2q5k;
-	Thu, 25 Sep 2025 12:36:53 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v1lLw-000000095ue-1hUF;
+	Thu, 25 Sep 2025 12:45:40 +0000
+Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1lDQ-0000000922g-0Lhd;
-	Thu, 25 Sep 2025 12:36:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 60A8C6013A;
-	Thu, 25 Sep 2025 12:36:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 054A8C4CEF0;
-	Thu, 25 Sep 2025 12:36:50 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758803811;
-	bh=IBUAnul7b8BQqt3zLS4cohInRJ5Mx15MT7PNd8Nz5R4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XkvQ1go55VUCHLla+6DHun6ac9iHj597k6xHzW2ehbWZf1qu17advzm0DOfLaJdX2
-	 CFK1pTszoqCLJrUFasnXEbhaA+1f/RSAgXuAlCqIPBFAunLcZSLWGiS/DqtgPo1lAz
-	 vd59DiKljlaDbik78b3p69oUNn/NqxQnsAOZKEj9miVMPRGtAD7JdxnTW3ZYETd/id
-	 3l8YdBfhuJ0+fEQ/tfJEwaZ73jeDNCtDBWibnzrzLBuVvq+35kOG7RWoaJ9NZ0Zvhk
-	 QMPN3eI4qbedD4PN9VBWseCLjfv6KabHrHPVkDmVcJZq2VK9elqC28msll8ZwXvERx
-	 rJPYbUQBQg33g==
-Date: Thu, 25 Sep 2025 14:36:46 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, Chen-Yu Tsai <wens@csie.org>, 
-	Samuel Holland <samuel@sholland.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
-	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
-	Liu Ying <victor.liu@nxp.com>, Rob Clark <robin.clark@oss.qualcomm.com>, 
-	Dmitry Baryshkov <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>, 
-	Jessica Zhang <jessica.zhang@oss.qualcomm.com>, Sean Paul <sean@poorly.run>, 
-	Marijn Suijten <marijn.suijten@somainline.org>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org, 
-	Daniel Stone <daniels@collabora.com>
-Subject: Re: [PATCH v4 01/10] drm/connector: let drivers declare infoframes
- as unsupported
-Message-ID: <20250925-didactic-spiked-lobster-fefabe@penduick>
-References: <20250909-drm-limit-infoframes-v4-0-53fd0a65a4a2@oss.qualcomm.com>
- <20250909-drm-limit-infoframes-v4-1-53fd0a65a4a2@oss.qualcomm.com>
- <20250910-furry-singing-axolotl-9aceac@houat>
- <z333ysst5ifakomo35jtbpydj44epqwwn4da76rcnsq4are62m@32gsmgx2pcdi>
+	id 1v1lLt-000000095tr-0XnQ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 25 Sep 2025 12:45:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=hAPNNNzpn4OSPgAnPWGhAMI8xpIh8854uOdqWM4D8BSWspBanvEdh/HI7CjA4tudfPhvPug6ytq2/08D668sRZnHeCVW7iLEqwbYWOoM84kw1IcDe+x2F8F/7hMOVUdf05EOq47smMjQuRFOBahIqpLpu7Fcu7r4i+fFv8Xv9YDGoDuluYYPGOqvn9J20rThr6IV1M4gJq6CG5Sd1Nffr9ac/Dh2EIhTKGMiC+cJVN0wNfhYITeLBk2u8P3Ty6XGFpYBV5vWyh5p0b/qWGs+dTsZr8eyjf7GqTvElL+wO9T2GH3H+Xjwig9yGx/NSHP+kyADLv3quN+g9Npg/W9Jtw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=GLBjfY2oPvan3yMzP4i5sMEedFdBK7RdDs9fze69MGU=;
+ b=kqhOTtaocr/AAUVgTZLgrIFO4kE8jq5mIuu+J+eEoN3V/GH8tr4Es+JsziQ6tAZo6ARU0i7d77msbkFnSsueOicJjo86GKqkdJrb9S5E6Ve31Qz7Wvqlnv48vMLg9Fh3S3LxJHssjd+RIMgWLce/doqVCptvpr3jY6eAv+pmTmnHdDXn2LwU6U8rTJscKh7U99e8IudYtqkY/yzRvaTwElVRWMl68CP557GUe3Cp5FYjGYi3r0o3nN2xLO9D07azxJlH89wA6HnM/9Gm3e8fiPsT5gvx56oYRuOjg0/ZBSWac3I5ViTV32tTJfta2cPX1WCktVtsC8YFCMtKzZQD3w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=GLBjfY2oPvan3yMzP4i5sMEedFdBK7RdDs9fze69MGU=;
+ b=RW2j2NP+kXKnMV5getDcLmQtHoUsXMYu9oK2MGri1nLrEExxYdvLnkMZLjw5wIoY5iJTXsKsnFygQ8VUi/LESxCabolPIFzi9WqsSlFUcP4r2vfqrfbm42jhhCE1pW/BtMA576nkpBQRxRbX3aHKVV9pSY0f2D+LSBxSi4zeJTE=
+Received: from LV2PR12MB5869.namprd12.prod.outlook.com (2603:10b6:408:176::16)
+ by MN0PR12MB6101.namprd12.prod.outlook.com (2603:10b6:208:3cb::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9137.20; Thu, 25 Sep
+ 2025 12:30:53 +0000
+Received: from LV2PR12MB5869.namprd12.prod.outlook.com
+ ([fe80::b5c5:3390:35bc:eb9f]) by LV2PR12MB5869.namprd12.prod.outlook.com
+ ([fe80::b5c5:3390:35bc:eb9f%6]) with mapi id 15.20.9160.010; Thu, 25 Sep 2025
+ 12:30:53 +0000
+From: "Neeli, Ajay" <Ajay.Neeli@amd.com>
+To: "andi.shyti@kernel.org" <andi.shyti@kernel.org>, "Simek, Michal"
+	<michal.simek@amd.com>
+CC: "Goud, Srinivas" <srinivas.goud@amd.com>, "Pandey, Radhey Shyam"
+	<radhey.shyam.pandey@amd.com>, "Neeli, Ajay" <Ajay.Neeli@amd.com>, "git
+ (AMD-Xilinx)" <git@amd.com>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-i2c@vger.kernel.org"
+	<linux-i2c@vger.kernel.org>
+Subject: RE: [PATCH v3] i2c: cadence: Add shutdown handler
+Thread-Topic: [PATCH v3] i2c: cadence: Add shutdown handler
+Thread-Index: AQHcAU2ZoL9gJIfogUOBIbrFasmoVbSjxhmg
+Date: Thu, 25 Sep 2025 12:30:42 +0000
+Deferred-Delivery: Thu, 25 Sep 2025 12:30:00 +0000
+Message-ID: <LV2PR12MB5869A142217C335B89EA02218B1FA@LV2PR12MB5869.namprd12.prod.outlook.com>
+References: <20250730122907.18909-1-ajay.neeli@amd.com>
+In-Reply-To: <20250730122907.18909-1-ajay.neeli@amd.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Enabled=True;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_SetDate=2025-09-25T06:20:19.0000000Z;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Name=Open
+ Source;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_ContentBits=3;MSIP_Label_f265efc6-e181-49d6-80f4-fae95cf838a0_Method=Privileged
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: LV2PR12MB5869:EE_|MN0PR12MB6101:EE_
+x-ms-office365-filtering-correlation-id: 7dee9360-ecb1-4ae5-79c2-08ddfc2f5eab
+x-ld-processed: 3dd8961f-e488-4e60-8e11-a82d994e183d,ExtAddr
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|376014|366016|38070700021|7053199007;
+x-microsoft-antispam-message-info: =?us-ascii?Q?MW50IklkJpzRgRxexRnk4rPpaSA2IttuGGQZqDJ4z715UfdCdjD0OwhPgunf?=
+ =?us-ascii?Q?IkDKrVCNxNEZkTnxGXFyLE30Jkb3hcGse6gDm7VjZDS6/pZGMMG73HHkDD0Q?=
+ =?us-ascii?Q?hswgcdpMUgQhAGf0e3uVtnYwloNeKQk9NnwIvi7EPZqj0jASbpI+Hnr33nkU?=
+ =?us-ascii?Q?CN+XPJPJvLUqQJ1mFnwTFwrkAw1VoQSxYeMtGDJwQiExT3zIxM1zB/z6fDC7?=
+ =?us-ascii?Q?zqjiCLuTOmrYRsJ2F645LgtqrTkEx9BgIKG+wnw1ugyPrI8wWbBvdQhNK65y?=
+ =?us-ascii?Q?xyEkEr/HF1UqPw+MNaCwta8tB0/3NNEJljVNTbc1IFF4kjxIHPiM5AVNF7Fh?=
+ =?us-ascii?Q?OLdvhqzOUAksswwNfz0ZYOvdmcm74JMAs9jJ1Ht+eWbiiIvoufm1OnxqsOXc?=
+ =?us-ascii?Q?NwPb+J92rtYqysHKvhF/h6vB6iSrDWPhBWrNf1oe0yDbTmNa2DfD3pethqOZ?=
+ =?us-ascii?Q?ZG6LibS44f0lhByW+pQzoM3xjAo1n8yTy8JvfpsJCoQnedmLj6Y0dSdboBcg?=
+ =?us-ascii?Q?+cNV5PeCU9wbLtkR7jthkDd5IVgVT6dvQwME7hCqJZBjsq83Osp9BsbWXpPK?=
+ =?us-ascii?Q?8EHjihfasehZ+UG9Ddb5idceuE1UXg4XJNb9M+iUMNzwH/xjq1ie5fGQa702?=
+ =?us-ascii?Q?ynuKGUGwx310cgQUmpID4lUwyjyzgXiANhJkt/5RjK9EvUmE5UhCe5Cvbf+A?=
+ =?us-ascii?Q?4Jw62aC8p0VlG1Pb+Ie/jSbu7zaCcTYNxiz5PLAUWeghfZCk4ZGqrKpWPf8K?=
+ =?us-ascii?Q?3PIe41K6DS7efeEzeFeDuNpeiGOfJuzUWIQPmsGPl1e+1dXbdKs/SKhkSM+E?=
+ =?us-ascii?Q?55pZvL2FtA1dH6RFk2IMjwlXHoFAH+iWrd6aLPf16ar7VnibZCkTOFDpipny?=
+ =?us-ascii?Q?h1+7Qx8UbA4Tf1Yiykf6fFQlc/e2gY8kIeP7wy3fVR5YJtfgYnbpDdvXNHla?=
+ =?us-ascii?Q?IWLhD9LfKqqRhea+fZZ2nKWjnEAT5LfTWtVComKNTpPJVWBgOKAdvNgGbydu?=
+ =?us-ascii?Q?Yrkp0/WzRS4lq2OPIEa95IEmhFoVcJ5WqVoHkeHX9ac5FrqQg82xo8tjHf5O?=
+ =?us-ascii?Q?vlaj3XJ1ys4nI8YHv74gD5WwzH/1VX3aZAAEroX8TGMFtSrnQRh2c4q6fPSg?=
+ =?us-ascii?Q?f06s9Ozs0S9407g2Dt8Jc8jPaffiVIZZbmJV1UCk+uZCMGszUhwzyTsZ/2BW?=
+ =?us-ascii?Q?5QJ4Yw8VFd+ESrE5gZi7T/DX4/xTDXaJ1mHDJDCemFxa2ekkdtqNv2uJYYLF?=
+ =?us-ascii?Q?MWI5xrOi18+Ydwl3IBGyXSZUMfEg+pYHHtzRu0Wwl2YEUxt54sUEiX2ur7aW?=
+ =?us-ascii?Q?3uz9Sq/TaeyGP+AZDuysz1T/m/u4iz4hhGFjcvBv0Tjw/v/VOh/KNj1bzcHS?=
+ =?us-ascii?Q?S1m2f6C6zQjDL/Y2bzudYSddQ6UCSV4X66JTQ1277REK1rRFhdHAJju/LOD3?=
+ =?us-ascii?Q?lYCmmQxYmiRDiBCg9h4cO7bvEgi+ESOXNXH4V42nS4fsWJqTHQfus20CDTS/?=
+ =?us-ascii?Q?wQ6w6BweV1RmJec=3D?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:LV2PR12MB5869.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(366016)(38070700021)(7053199007);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?QgLpM7A9Kfeb1FMw7beeXziICMsdPIrbBqr/vaHW6hKLzmjC/h1YqlI1DKoT?=
+ =?us-ascii?Q?99A/EtLd5lytXxDtz/1MNqK4AKXTuoRWLOOvQ4aWHwHHBFG0t6vaWv8UgNWp?=
+ =?us-ascii?Q?Z16dkrnOXYP1QFW9Ht1n/L67xE3KevfefIzRkzR2+rrBQ0eONblP4bXvJn7y?=
+ =?us-ascii?Q?lJhj/OGWjh5xtxI+0a7zOlDoAGxgXhGoJT849UxL8/AZ2CPRhYhDk1gy45Jp?=
+ =?us-ascii?Q?qyNs8NqzFRlVr/K5UK4yPDG1hslTymOk1wGejHbREen7mVg/Ccmhkb01rrJx?=
+ =?us-ascii?Q?/OFb7znfBC8cUju47yjtkFIPoEz3XnoED/9iZ9cTS7y3Both1mkFuH1tWZ5L?=
+ =?us-ascii?Q?z0JPH/bDN7Bg0Fswb5L4Er7/aUR9D0y/+SwZAcFGbOPUXl8GM3kwnlVnMmMQ?=
+ =?us-ascii?Q?1yonqOwDMUw6TDDxsyO2D5gwMKr/+lCP5aQvrUAcdEQPlF5YPhcP1yS2LiwG?=
+ =?us-ascii?Q?bEMeheur6qg0te2HBke279A4jXQ2nqQaSoDD9IKZWwne5RidIujwhbOD9W3X?=
+ =?us-ascii?Q?2iWv1fd+bkGetGVyIsfmgCKveXZtl2qNn+pw+ZRexCx3wbkbyRYYE7S6Gxx6?=
+ =?us-ascii?Q?pnaZ4xuTRrjnSfpTbqeyuzFaaJaZL/RK81BGFUpb5gv2r52sr9b1gajV2bbL?=
+ =?us-ascii?Q?Ha9ZQeWCG5FiSHdOZtcLVA7OJDMNu3fMPT7YHCCTQsoVrJRkCMldRIx5sJ3r?=
+ =?us-ascii?Q?Vd5poxOWR9y7ufiJPb0F3TcteSqghJJWQ9tXyN+1RinNoJOYBQP1KaQ+qLc1?=
+ =?us-ascii?Q?8v2wGIvB7J2gg74D28B4/5mK6HmwTUU07RJEn0PAnkdqFRO+bDmkAg8qbmLu?=
+ =?us-ascii?Q?osUf3ZITS3GEtkQw1Bgn0Nn+DbVceevFWG1Smve7mmiQruq/QUzPU8xJzQmd?=
+ =?us-ascii?Q?3N73nu0gPPDj72JRficrJ6Q01XxbPugHp9cH2hAsIiL2RZ1pIi9CfUpF9OOM?=
+ =?us-ascii?Q?M4XGKRC2AyaNnKr/rIJ84FvTJ5UCnE1DGJp1xkEvH1ceCNiajJUzxoFNvlhr?=
+ =?us-ascii?Q?/+Te7fGvKVRF7+i624rMXRbk5H1LFe3Bitz852ChX1nv3Sk0A8BYb+Ji7Eo3?=
+ =?us-ascii?Q?l1gnk4d+3/X2CqShKdn08nJmLu0cmxvEnTZsZdZz84SVhH7Ds2klaVnSlNZw?=
+ =?us-ascii?Q?E3nLbUm8H9Zg+K/pdlwMqCtxYjgLaqsRD+SCO0QutUZZHjQrmMHA+STbc/0T?=
+ =?us-ascii?Q?juS4+tAjJvQ4FN9zVGxkHEWTlNY9if06elTKM08tOAoZ1FFKApwS19E4oxIR?=
+ =?us-ascii?Q?ihmzza4PBqsfHp7sGhR+v8GCU151gkKaskZtPlrYMchr5sqzLvl2pXJefCLm?=
+ =?us-ascii?Q?KtpKRTpGxW280LmzrkBxHM3QYYbWfgtlxJD/I/5ikXuTwf5EvjuuGBkMke+6?=
+ =?us-ascii?Q?QmcnH9Lj5h4lhxaohsJlRE2HOfuD6JUbCxrKz1pGTg0jGcr++c/5xeAqwmkk?=
+ =?us-ascii?Q?QJtkDzfqb+iR8jG4KtAYWVQhKSH0UbF4a/18dodlnl3nkeXJyr/guT2M+59G?=
+ =?us-ascii?Q?CafrgAQOKJA/7HWW8KMMcdlR4kf8+LCifNzEOsqN+iW6/1eROXQDnsMYxxmC?=
+ =?us-ascii?Q?kJ48k1qJE4cd1tpRfLc=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="5gspsh2yhbs7pucv"
-Content-Disposition: inline
-In-Reply-To: <z333ysst5ifakomo35jtbpydj44epqwwn4da76rcnsq4are62m@32gsmgx2pcdi>
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: LV2PR12MB5869.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 7dee9360-ecb1-4ae5-79c2-08ddfc2f5eab
+X-MS-Exchange-CrossTenant-originalarrivaltime: 25 Sep 2025 12:30:53.8307
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: kGW3BCCI+avmi2TsKm+qlnzRyfCn4AFMpSk8XFK/kiAVd1k1ieNJKzy+MGUPcVzWIGvWSI5BnfdROj+PhAx+sg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB6101
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250925_054537_168602_6A9AB0D4 
+X-CRM114-Status: GOOD (  29.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,175 +168,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+[Public]
 
---5gspsh2yhbs7pucv
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v4 01/10] drm/connector: let drivers declare infoframes
- as unsupported
-MIME-Version: 1.0
+Ping!
 
-On Wed, Sep 10, 2025 at 06:16:25PM +0300, Dmitry Baryshkov wrote:
-> On Wed, Sep 10, 2025 at 01:03:47PM +0200, Maxime Ripard wrote:
-> > On Tue, Sep 09, 2025 at 05:51:59PM +0300, Dmitry Baryshkov wrote:
-> > > Currently DRM framework expects that the HDMI connector driver suppor=
-ts
-> > > all infoframe types: it generates the data as required and calls into
-> > > the driver to program all of them, letting the driver to soft-fail if
-> > > the infoframe is unsupported. This has a major drawback on userspace
-> > > API: the framework also registers debugfs files for all Infoframe typ=
-es,
-> > > possibly surprising the users when infoframe is visible in the debugfs
-> > > file, but it is not visible on the wire. Drivers are also expected to
-> > > return success even for unsuppoted InfoFrame types.
-> > >=20
-> > > Let drivers declare that they support only a subset of infoframes,
-> > > creating a more consistent interface. Make the affected drivers return
-> > > -EOPNOTSUPP if they are asked to program (or clear) InfoFrames which =
-are
-> > > not supported.
-> > >=20
-> > > Acked-by: Liu Ying <victor.liu@nxp.com>
-> > > Acked-by: Daniel Stone <daniels@collabora.com>
-> > > Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-> >=20
-> > Again, I still believe that it's a bad idea, goes against what the spec
-> > states, and the framework was meant to be.
->=20
-> Please correct me if I'm wrong. The specs (HDMI & CEA) define several
-> infoframes and whether we should be sending them. If I'm reading it
-> correctrly, CEA spec explicitly says 'If the Source supports the
-> transmission of [foo] InfoFrame..." (6.4 - AVI, 6.6 - Audio, 6.7 MPEG,
-> 6.9 - DRM). For other InfoFrames (6.5 SPD, 6.8 NTSC VBI) it just defines
-> that sending those frames is optional.
+> -----Original Message-----
+> From: Ajay Neeli <ajay.neeli@amd.com>
+> Sent: Wednesday, July 30, 2025 5:59 PM
+> To: git (AMD-Xilinx) <git@amd.com>; andi.shyti@kernel.org; linux-arm-kern=
+el@lists.infradead.org; linux-i2c@vger.kernel.org;
+> linux-kernel@vger.kernel.org
+> Cc: Simek, Michal <michal.simek@amd.com>; Goud, Srinivas <srinivas.goud@a=
+md.com>; Pandey, Radhey Shyam
+> <radhey.shyam.pandey@amd.com>; Neeli, Ajay <Ajay.Neeli@amd.com>
+> Subject: [PATCH v3] i2c: cadence: Add shutdown handler
+>
+> Implement shutdown function for Cadence I2C driver to suspend the bus
+> during system "reboot" or "shutdown".
+>
+> Interrupts are disabled in the handler to avoid spurious events when the
+> driver is in slave mode.
+>
+> Signed-off-by: Ajay Neeli <ajay.neeli@amd.com>
+> ---
+> Changes v2->v3:
+> Corrected a typo that caused a build error in v2
+>
+> Changes in v1->v2:
+> Disable interrupts
+> ---
+>  drivers/i2c/busses/i2c-cadence.c | 34 +++++++++++++++++++++++++++-------
+>  1 file changed, 27 insertions(+), 7 deletions(-)
+>
+> diff --git a/drivers/i2c/busses/i2c-cadence.c b/drivers/i2c/busses/i2c-ca=
+dence.c
+> index 8df63aa..4f033a6 100644
+> --- a/drivers/i2c/busses/i2c-cadence.c
+> +++ b/drivers/i2c/busses/i2c-cadence.c
+> @@ -192,6 +192,7 @@ enum cdns_i2c_slave_state {
+>   * @transfer_size:   The maximum number of bytes in one transfer
+>   * @atomic:          Mode of transfer
+>   * @err_status_atomic:       Error status in atomic mode
+> + * @irq:             IRQ Number
+>   */
+>  struct cdns_i2c {
+>       struct device           *dev;
+> @@ -224,6 +225,7 @@ struct cdns_i2c {
+>       unsigned int transfer_size;
+>       bool atomic;
+>       int err_status_atomic;
+> +     int irq;
+>  };
+>
+>  struct cdns_platform_data {
+> @@ -1495,7 +1497,7 @@ static int cdns_i2c_probe(struct platform_device *p=
+dev)
+>  {
+>       struct resource *r_mem;
+>       struct cdns_i2c *id;
+> -     int ret, irq;
+> +     int ret;
+>       const struct of_device_id *match;
+>
+>       id =3D devm_kzalloc(&pdev->dev, sizeof(*id), GFP_KERNEL);
+> @@ -1526,9 +1528,9 @@ static int cdns_i2c_probe(struct platform_device *p=
+dev)
+>       if (IS_ERR(id->membase))
+>               return PTR_ERR(id->membase);
+>
+> -     irq =3D platform_get_irq(pdev, 0);
+> -     if (irq < 0)
+> -             return irq;
+> +     id->irq =3D platform_get_irq(pdev, 0);
+> +     if (id->irq < 0)
+> +             return id->irq;
+>
+>       id->adap.owner =3D THIS_MODULE;
+>       id->adap.dev.of_node =3D pdev->dev.of_node;
+> @@ -1590,10 +1592,10 @@ static int cdns_i2c_probe(struct platform_device =
+*pdev)
+>               goto err_clk_notifier_unregister;
+>       }
+>
+> -     ret =3D devm_request_irq(&pdev->dev, irq, cdns_i2c_isr, 0,
+> +     ret =3D devm_request_irq(&pdev->dev, id->irq, cdns_i2c_isr, 0,
+>                                DRIVER_NAME, id);
+>       if (ret) {
+> -             dev_err(&pdev->dev, "cannot get irq %d\n", irq);
+> +             dev_err(&pdev->dev, "cannot get irq %d\n", id->irq);
+>               goto err_clk_notifier_unregister;
+>       }
+>       cdns_i2c_init(id);
+> @@ -1603,7 +1605,7 @@ static int cdns_i2c_probe(struct platform_device *p=
+dev)
+>               goto err_clk_notifier_unregister;
+>
+>       dev_info(&pdev->dev, "%u kHz mmio %08lx irq %d\n",
+> -              id->i2c_clk / 1000, (unsigned long)r_mem->start, irq);
+> +              id->i2c_clk / 1000, (unsigned long)r_mem->start, id->irq);
+>
+>       return 0;
+>
+> @@ -1636,6 +1638,23 @@ static void cdns_i2c_remove(struct platform_device=
+ *pdev)
+>       reset_control_assert(id->reset);
+>  }
+>
+> +/**
+> + * cdns_i2c_shutdown - Shutdown the i2c device
+> + * @pdev:    Handle to the platform device structure
+> + *
+> + * This function handles shutdown sequence
+> + */
+> +static void cdns_i2c_shutdown(struct platform_device *pdev)
+> +{
+> +     struct cdns_i2c *id =3D platform_get_drvdata(pdev);
+> +
+> +     /* Disable interrupts */
+> +     disable_irq(id->irq);
+> +
+> +     /* Initiate failure of client i2c transfers */
+> +     i2c_mark_adapter_suspended(&id->adap);
+> +}
+> +
+>  static struct platform_driver cdns_i2c_drv =3D {
+>       .driver =3D {
+>               .name  =3D DRIVER_NAME,
+> @@ -1644,6 +1663,7 @@ static void cdns_i2c_remove(struct platform_device =
+*pdev)
+>       },
+>       .probe  =3D cdns_i2c_probe,
+>       .remove =3D cdns_i2c_remove,
+> +     .shutdown =3D cdns_i2c_shutdown,
+>  };
+>
+>  module_platform_driver(cdns_i2c_drv);
+> --
+> 1.8.3.1
 
-SPD is indeed optional, but the HDMI spec, (HDMI 1.4b, Section 8.2.1 -
-Auxiliary Video information (AVI) InfoFrame) states that:
-
-  A Source shall always transmit an AVI InfoFrame at least once per two
-  Video Fields if the Source:
-
-   * is ever capable of transmitting an AVI InfoFrame or,
-   * is ever capable of transmitting YCBCR pixel encoding or,
-   * is ever capable of transmitting any colorimetry other than the
-     transmitted video format=E2=80=99s default colorimetry or,
-   * is ever capable of transmitting any xvYCC or future enhanced
-     colorimetry or,
-   * is ever capable of transmitting any Gamut Metadata packet or,
-   * is ever capable of transmitting any video format with multiple
-     allowed pixel repetitions or,
-   * is ever capable of transmitting Content Type other than =E2=80=9Cno da=
-ta=E2=80=9D or,
-   * is ever capable of transmitting YCC Quantization Range.
-
-  The AVI InfoFrame shall be transmitted even while such a Source is
-  transmitting RGB and non-pixel-repeated video. When a Source is not
-  explicitly required to transmit AVI InfoFrames, it is recommended that
-  the Source transmit AVI InfoFrames.
-
-So it's recommended in every case, and the list kind of makes it
-mandatory for how Linux uses HDMI.
-
-Also, did we ever encounter some hardware that couldn't send AVI?
-
-Audio is mandatory when streaming audio, DRM when using HDR, and we
-don't support the others yet.
-
-So the only we support but don't have to send is SPD.
-
-> We can't even infer support for InfoFrames from the Source features.
-> E.g. CEA 6.6.1 defines a case when digital audio is allowed to be sent,
-> without sending Audio InfoFrame.
-
-HDMI 1.4 section 8.2.2 - Audio Infoframe states that:
-
-  Whenever an active audio stream is being transmitted, an accurate
-  Audio InfoFrame shall be transmitted at least once per two Video
-  Fields.
-
-I'd say it takes precedence over CTA-861.
-
-> As we will be getting more and more features, some of the InfoFrames
-> or data packets will be 'good to have, but not required'.
-
-And drivers would be free to ignore those.
-
-> > So, no, sorry. That's still a no for me. Please stop sending that patch
->=20
-> Oops :-)
->=20
-> > unless we have a discussion about it and you convince me that it's
-> > actually something that we'd need.
->=20
-> My main concern is that the drivers should not opt-out of the features.
-> E.g. if we start supporting ISRC packets or MPEG or NTSC VBI InfoFrames
-> (yes, stupid examples), it should not be required to go through all the
-> drivers, making sure that they disable those. Instead the DRM framework
-> should be able to make decisions like:
->=20
-> - The driver supports SPD and the VSDB defines SPD, enable this
->   InfoFrame (BTW, this needs to be done anyway, we should not be sending
->   SPD if it's not defined in VSDB, if I read it correctly).
->=20
-> - The driver hints that the pixel data has only 10 meaninful bits of
->   data per component (e.g. out of 12 for DeepColor 36), the Sink has
->   HF-VSDB, send HF-VSIF.
->=20
-> - The driver has enabled 3D stereo mode, but it doesn't declare support
->   for HF-VSIF. Send only H14b-VSIF.
->=20
-> Similarly (no, I don't have these on my TODO list, these are just
-> examples):
-> - The driver defines support for NTSC VBI, register a VBI device.
->=20
-> - The driver defines support for ISRC packets, register ISRC-related
->   properties.
->=20
-> - The driver defines support for MPEG Source InfoFrame, provide a way
->   for media players to report frame type and bit rate.
->=20
-> - The driver provides limited support for Extended HDR DM InfoFrames,
->   select the correct frame type according to driver capabilities.
->=20
-> Without the 'supported' information we should change atomic_check()
-> functions to set infoframe->set to false for all unsupported InfoFrames
-> _and_ go through all the drivers again each time we add support for a
-> feature (e.g. after adding HF-VSIF support).
-
-=46rom what you described here, I think we share a similar goal and have
-somewhat similar concerns (thanks, btw, it wasn't obvious to me before),
-we just disagree on the trade-offs and ideal solution :)
-
-I agree that we need to sanity check the drivers, and I don't want to go
-back to the situation we had before where drivers could just ignore
-infoframes and take the easy way out.
-
-It should be hard, and easy to catch during review.
-
-I don't think bitflag are a solution because, to me, it kind of fails
-both.
-
-What if, just like the debugfs discussion, we split write_infoframe into
-write_avi_infoframe (mandatory), write_spd_infoframe (optional),
-write_audio_infoframe (checked by drm_connector_hdmi_audio_init?) and
-write_hdr_infoframe (checked in drmm_connector_hdmi_init if max_bpc > 8)
-
-How does that sound?
-
-Maxime
-
---5gspsh2yhbs7pucv
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaNU3XQAKCRAnX84Zoj2+
-duiWAYCEQHaNpq1acegbRGgnWK7idyco+oNyb5OKUdG2mSrF8iG51+HcmQ30rpWH
-OmNB+HsBf3AD+4uAstcClyYSies8sQ9MYWjuxdp67l9l23iryEuQM410hwJTA3iL
-XSaP3z9ISQ==
-=35Cr
------END PGP SIGNATURE-----
-
---5gspsh2yhbs7pucv--
 
