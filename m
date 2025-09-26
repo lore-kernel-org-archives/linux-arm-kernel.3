@@ -4,79 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 544A9CAC5BE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 18:20:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8555BCAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 18:37:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fGGEfFba/o32tiUbmJn0bcEuqb0stWbM89Ybo6PwpRo=; b=u7RpeIoQqQ+liWczInz3Dc+EzE
-	4WuGgjAHvRFWrLQX8tgaqFaxJu6j+hc02G7UezigkBcF3mrhXd5aLiPMpskISshgLHIvgPs6QD49U
-	9I8IdfIm5gU87cz7TnIygxZ3pphRhKu+Fn0WcID/kF8tNFsZ/VxjnhL0ekzIRSBTX356mod8+nu7y
-	0cN+Z3WF1X1c3f7VjAMCh2BjRVmea9VNS4gH3mJvYrBc652dTou2GT7FhvK+r/D4wj4t2q3sPO/VP
-	YwZDwpudweNjR/AUwxEXt5Bn7YZee6EA+g/ZaUp7uRVn6fRtSymc3VVs5ZGpVzQ6+W232/g3hdTfY
-	xQUf0TwA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=f4tLH4zZsU/KCMVQpK5rDpwcnO5VG4igW8/S8Fp/Tqk=; b=eFsOWWxhdMp0fTip6vMMTM78Vd
+	U6w27RixZVnzupJeW87E5npA1I/Q8aAACfTndMeTE+F+I8oMfQK+yeT3z1J6ScOJrZcUA+sURZM62
+	B3ky4z19INKm0Jqpv1AhJvJt4CTshE3kgAajZE8q48djqnm50gDlmqvhWoQlWkIRR8D+EPji0qPC6
+	hLwF/WWzlqmLCKzZg6HgXgAI9iaDDpU8uBtmpvsM/VP3OnrRTVfbDC6ogRtq7l/CSKRExpdRzf1VW
+	ej+tiWgLtCsJJjtI8nOpgSF7auuOrTufbkfJqURq5iL32FmwkmYcMlGBO58HydDz+91s0qjf3sJZ3
+	nU/TCacg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2D30-00000003Y8k-0MWu;
-	Fri, 26 Sep 2025 18:19:58 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v2DK5-00000003edv-424k;
+	Fri, 26 Sep 2025 18:37:37 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2D2r-00000003Y4Z-2zEo
+	id 1v2DK3-00000003edT-3cpJ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 18:19:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BC66A45996;
-	Fri, 26 Sep 2025 18:19:48 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 9C5F2C113CF;
-	Fri, 26 Sep 2025 18:19:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758910788;
-	bh=sm6pk3CdQrw44U2GOQJ7ecMtffanxNcl0ayW6p8ibWQ=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=W7qk1OZaaWme7MPrEnSHLc57hBBoK5kRFT2R0Z6Zgh2YDNWADeocsEDUju0YKl+Lb
-	 pD08+W3Bst7G45EsJCcZXelR8bb7fRJC0/ggI3gmf/Lh6+5IkPHUxKlL3YuZyJEa8L
-	 KJVR/GNIQX/TFm5obTc3RBxoPm58StM8sj23XT3mxsjjgeKo7KVROs/HHWX7WkF9OW
-	 kRtj6DF+BiiDrxYZTVaGTL6Lqg1osCXscw1c81kWKfpKz6RtwblXetDFPv1Hfe+g6q
-	 Rs7dsFotjhn5k5EXaVhUxO25tOx6SuNB1rBLvj2vP9qL6E7SEckqIHwRWLYIzXpeSY
-	 FMmO05Pno4O8w==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8BF8CCAC5BB;
-	Fri, 26 Sep 2025 18:19:48 +0000 (UTC)
-From: Frank Li via B4 Relay <devnull+Frank.Li.nxp.com@kernel.org>
-Date: Fri, 26 Sep 2025 14:19:43 -0400
-Subject: [PATCH v4 4/4] arm64: dts: layerscape: add dma-coherent for usb
- node
+	Fri, 26 Sep 2025 18:37:36 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3f44000626bso1603111f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 11:37:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1758911854; x=1759516654; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=f4tLH4zZsU/KCMVQpK5rDpwcnO5VG4igW8/S8Fp/Tqk=;
+        b=cWWZQlEgmk+zkbADyS+Uj7Bble05WowxOHEGkAWwF1MTwKBHkc9ueNp7/8WvWB2hIc
+         6VADTcccMJiJ3Uo6yulwcmcmdWZqp85ZtSNGDEn7fk6XevfR38P30e/7IQFNcJBYinaJ
+         vk7ZLL4zSDKJbAmmxaTQjz6mBwUcYYvNUUdxjMGUyT8MuK0pqp72ef76UZ+vAD6Ru3dJ
+         Sj8wd8oGZPl/y5wkfRwZGUYOsCkbIYim1lXeFj17iCVm5XUwDlWx10pvr0fs6z0qFLmH
+         ggFaASjEqipHg6P4BA42mKOLS4mSp9G+4MksJZo3eNEKI4ce1Eki0+akWPXeOUVLH3vs
+         dADg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758911854; x=1759516654;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=f4tLH4zZsU/KCMVQpK5rDpwcnO5VG4igW8/S8Fp/Tqk=;
+        b=FtgEZllXucfFfDnr9p9shbD61QfHLhlrTRHpaRYTybAvC8oQ9cOPirf76nk8tQLkbg
+         UGYWZf81l3Br357S2GiVi77+ssOAlD6RZgY4bq8Rp8p9+kuf1R+tJXZ262euIBCCU2Hi
+         Z8mY+wgF3+LwUzl50W+MChlRi4JCwWGevzRdgjGtt6JR7UVRZ3H+X013uQdalTdtqPd/
+         ZHm3f13lfakIO6jO07II52MmNDfgOJG9STKYI7cODtwOJtvaLd4DMMnSFe+0hYGDvBEs
+         PFWLHBpDmEqhe1Q+1vTEdvyWltonX5ZYRTr1pA+FRIxZLw9XZNfSiBLCzqpaGt4cG6xI
+         jfTQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXqPRrwN6NZXlPRpg8qv4XUlP311YM1zE9a8y4EXQQey523BCCbqwKGvy6eZ9Vw6IPq8lkDE8YdJUgUO6uoPKMM@lists.infradead.org
+X-Gm-Message-State: AOJu0YxQZeDgPZtIs88wGIZL+MnZwHMr3+eLw5DtEVgsDFi0PiVFfEJB
+	zPEZw+nnTiLFAWLnP5uHiwvitd+8pDRq47xdfB0BBT6uznRmF9cw6HDe
+X-Gm-Gg: ASbGnctWci5HoMSMkBukUCxWCyY2rDY+OAane/fb6Z/CPsvHON8gzF9osCO5OQTHokZ
+	EXBLZjFNBfIyWu4wejeSPb6fqkZRBQCEQSXGw50N/rIHCpCI2N5Et9mpafWQrElRu2voMCGSizG
+	/6jqBTANrkyr9VkRfEmiEi0a00TxjHxmyXKAXWJIvmQ+iZMQt5EpIrkRE+Npa310BtQaR7mFKJp
+	KOEBJM+Dxb9Ip1BSmViIbBAkE7eYrAcDOM/pRqosIHhRFvjkz1n39lqu271s9qhQHzNPS31PIVg
+	q9vM4ifd4Q/wqMY/4ELb0OAIf0soHzmpJm/xy0ud8plNrjVPR3I51/KgRMYQZZ171ubONBycoHI
+	FrHWs2NEyB5ZKeK5nGxuGJlVhi2cMt49RcclrVLhN9RsLfrDUMXQt/I2RO3pmWZeWnE4Kr/BB84
+	zxFE2I9Uw=
+X-Google-Smtp-Source: AGHT+IGL3QvqfsVcdYoP6UEPTEo7LkSql6GFvlUpYyPH7Az5c/OcA09RHs++MokV2IPq/7GahQRVUA==
+X-Received: by 2002:a5d:5d07:0:b0:3d0:3eae:576d with SMTP id ffacd0b85a97d-40e437370afmr7995364f8f.22.1758911853783;
+        Fri, 26 Sep 2025 11:37:33 -0700 (PDT)
+Received: from radijator.localnet (93-140-141-58.adsl.net.t-com.hr. [93.140.141.58])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-40fc8aa0078sm7876881f8f.59.2025.09.26.11.37.31
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 26 Sep 2025 11:37:32 -0700 (PDT)
+From: Duje =?UTF-8?B?TWloYW5vdmnEhw==?= <dujemihanovic32@gmail.com>
+To: Dan Carpenter <dan.carpenter@linaro.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+ kernel-janitors@vger.kernel.org
+Subject: Re: [PATCH next] clk: mmp: pxa1908: Fix IS_ERR() vs NULL check in probe()
+Date: Fri, 26 Sep 2025 20:37:30 +0200
+Message-ID: <12766491.O9o76ZdvQC@radijator>
+In-Reply-To: <aNYQiRJDmOO0mEWs@stanley.mountain>
+References: <aNYQiRJDmOO0mEWs@stanley.mountain>
 MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250926-ls_dma_coherence-v4-4-21e9c6bdb5cb@nxp.com>
-References: <20250926-ls_dma_coherence-v4-0-21e9c6bdb5cb@nxp.com>
-In-Reply-To: <20250926-ls_dma_coherence-v4-0-21e9c6bdb5cb@nxp.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Shawn Guo <shawnguo@kernel.org>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- bjorn.andersson@oss.qualcomm.com, imx@lists.linux.dev, 
- Frank Li <Frank.Li@nxp.com>, Ze Huang <huang.ze@linux.dev>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758910787; l=8726;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=3lvyIi6EPuFI5jSKT6nJyBbhpNULKOOS4uIt6qtJysI=;
- b=leGYfUfAQDlehredD7ypAlfeodCvH+h1hzmW0R6jOyeA4ftCQip3BgvkhsWNIW0p6DCmMpb0u
- RzTx4OEwQqLBnUVKwzKc7g3Cwnz9IGxXL0CpM8q8RLyQduJD34Nh/Ox
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-Endpoint-Received: by B4 Relay for Frank.Li@nxp.com/20240130 with
- auth_id=121
-X-Original-From: Frank Li <Frank.Li@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_111949_820526_CC62108F 
-X-CRM114-Status: GOOD (  10.34  )
+X-CRM114-CacheID: sfid-20250926_113735_910084_828CF0AF 
+X-CRM114-Status: UNSURE (   7.52  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,236 +99,24 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: Frank.Li@nxp.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Frank Li <Frank.Li@nxp.com>
+On Friday, 26 September 2025 06:03:21 Central European Summer Time Dan Carp=
+enter wrote:
+> The devm_auxiliary_device_create() function returns NULL on error, it
+> never returns error pointers.  Change the IS_ERR() check to a NULL check.
+>=20
+> Fixes: a787ab591c38 ("clk: mmp: pxa1908: Instantiate power driver through=
+ auxiliary bus")
+> Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
+> ---
 
-Add SOC special compatible string, remove fallback snps,dwc3 to let flatten
-dwc3-layerscape driver to be probed and enable dma-coherence for usb node
-since commit add layerscape dwc3 support, which set correct gsbustcfg0
-value.
+Acked-by: Duje Mihanovi=C4=87 <duje@dujemihanovic.xyz>
 
-Add iommus property to run at old uboot, which use fixup add iommus by
-check compatible string snsp,dwc3 compatible string.
-
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
-change in v3 - v4
-- none
----
- arch/arm64/boot/dts/freescale/fsl-ls1012a.dtsi | 3 ++-
- arch/arm64/boot/dts/freescale/fsl-ls1028a.dtsi | 8 ++++++--
- arch/arm64/boot/dts/freescale/fsl-ls1043a.dtsi | 9 ++++++---
- arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi | 9 ++++++---
- arch/arm64/boot/dts/freescale/fsl-ls1088a.dtsi | 8 ++++++--
- arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi | 8 ++++++--
- 6 files changed, 32 insertions(+), 13 deletions(-)
-
-diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1012a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1012a.dtsi
-index fc3e138077b86cd5e3cf95c3d336cb3c6e1c45ef..ef80bf6a604f475c670e2d626a727e94fcb2a17a 100644
---- a/arch/arm64/boot/dts/freescale/fsl-ls1012a.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-ls1012a.dtsi
-@@ -493,10 +493,11 @@ QORIQ_CLK_PLL_DIV(4)>,
- 		};
- 
- 		usb0: usb@2f00000 {
--			compatible = "snps,dwc3";
-+			compatible = "fsl,ls1012a-dwc3", "fsl,ls1028a-dwc3";
- 			reg = <0x0 0x2f00000 0x0 0x10000>;
- 			interrupts = <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>;
- 			dr_mode = "host";
-+			dma-coherent;
- 			snps,quirk-frame-length-adjustment = <0x20>;
- 			snps,dis_rxdet_inp3_quirk;
- 			snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
-diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1028a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1028a.dtsi
-index 7d172d7e5737c4b6e42ee88676c5763fa7415260..e7f9c9319319a69d8c70d1e26446b899c3599f95 100644
---- a/arch/arm64/boot/dts/freescale/fsl-ls1028a.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-ls1028a.dtsi
-@@ -613,9 +613,11 @@ gpio3: gpio@2320000 {
- 		};
- 
- 		usb0: usb@3100000 {
--			compatible = "fsl,ls1028a-dwc3", "snps,dwc3";
-+			compatible = "fsl,ls1028a-dwc3";
- 			reg = <0x0 0x3100000 0x0 0x10000>;
- 			interrupts = <GIC_SPI 80 IRQ_TYPE_LEVEL_HIGH>;
-+			iommus = <&smmu 1>;
-+			dma-coherent;
- 			snps,dis_rxdet_inp3_quirk;
- 			snps,quirk-frame-length-adjustment = <0x20>;
- 			snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
-@@ -623,9 +625,11 @@ usb0: usb@3100000 {
- 		};
- 
- 		usb1: usb@3110000 {
--			compatible = "fsl,ls1028a-dwc3", "snps,dwc3";
-+			compatible = "fsl,ls1028a-dwc3";
- 			reg = <0x0 0x3110000 0x0 0x10000>;
- 			interrupts = <GIC_SPI 81 IRQ_TYPE_LEVEL_HIGH>;
-+			iommus = <&smmu 2>;
-+			dma-coherent;
- 			snps,dis_rxdet_inp3_quirk;
- 			snps,quirk-frame-length-adjustment = <0x20>;
- 			snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
-diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1043a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1043a.dtsi
-index 73315c51703943d9ee5e1aa300c388ff6482423f..50d9b03a284a2aa4e13aa3323c25bbc5fe08f3d0 100644
---- a/arch/arm64/boot/dts/freescale/fsl-ls1043a.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-ls1043a.dtsi
-@@ -833,10 +833,11 @@ aux_bus: bus {
- 			dma-ranges = <0x0 0x0 0x0 0x0 0x100 0x00000000>;
- 
- 			usb0: usb@2f00000 {
--				compatible = "snps,dwc3";
-+				compatible = "fsl,ls1043a-dwc3", "fsl,ls1028a-dwc3";
- 				reg = <0x0 0x2f00000 0x0 0x10000>;
- 				interrupts = <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>;
- 				dr_mode = "host";
-+				dma-coherent;
- 				snps,quirk-frame-length-adjustment = <0x20>;
- 				snps,dis_rxdet_inp3_quirk;
- 				usb3-lpm-capable;
-@@ -845,10 +846,11 @@ usb0: usb@2f00000 {
- 			};
- 
- 			usb1: usb@3000000 {
--				compatible = "snps,dwc3";
-+				compatible = "fsl,ls1043a-dwc3", "fsl,ls1028a-dwc3";
- 				reg = <0x0 0x3000000 0x0 0x10000>;
- 				interrupts = <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>;
- 				dr_mode = "host";
-+				dma-coherent;
- 				snps,quirk-frame-length-adjustment = <0x20>;
- 				snps,dis_rxdet_inp3_quirk;
- 				usb3-lpm-capable;
-@@ -857,10 +859,11 @@ usb1: usb@3000000 {
- 			};
- 
- 			usb2: usb@3100000 {
--				compatible = "snps,dwc3";
-+				compatible = "fsl,ls1043a-dwc3", "fsl,ls1028a-dwc3";
- 				reg = <0x0 0x3100000 0x0 0x10000>;
- 				interrupts = <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>;
- 				dr_mode = "host";
-+				dma-coherent;
- 				snps,quirk-frame-length-adjustment = <0x20>;
- 				snps,dis_rxdet_inp3_quirk;
- 				usb3-lpm-capable;
-diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi
-index 770d91ef0310d971d044a1f55cc5e2cb738acc47..22173d69713d1bd2abca986e76668ad437dd34e4 100644
---- a/arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi
-@@ -749,10 +749,11 @@ aux_bus: bus {
- 			dma-ranges = <0x0 0x0 0x0 0x0 0x100 0x00000000>;
- 
- 			usb0: usb@2f00000 {
--				compatible = "snps,dwc3";
-+				compatible = "fsl,ls1046a-dwc3", "fsl,ls1028a-dwc3";
- 				reg = <0x0 0x2f00000 0x0 0x10000>;
- 				interrupts = <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>;
- 				dr_mode = "host";
-+				dma-coherent;
- 				snps,quirk-frame-length-adjustment = <0x20>;
- 				snps,dis_rxdet_inp3_quirk;
- 				snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
-@@ -760,10 +761,11 @@ usb0: usb@2f00000 {
- 			};
- 
- 			usb1: usb@3000000 {
--				compatible = "snps,dwc3";
-+				compatible = "fsl,ls1046a-dwc3", "fsl,ls1028a-dwc3";
- 				reg = <0x0 0x3000000 0x0 0x10000>;
- 				interrupts = <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>;
- 				dr_mode = "host";
-+				dma-coherent;
- 				snps,quirk-frame-length-adjustment = <0x20>;
- 				snps,dis_rxdet_inp3_quirk;
- 				snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
-@@ -771,10 +773,11 @@ usb1: usb@3000000 {
- 			};
- 
- 			usb2: usb@3100000 {
--				compatible = "snps,dwc3";
-+				compatible = "fsl,ls1046a-dwc3", "fsl,ls1028a-dwc3";
- 				reg = <0x0 0x3100000 0x0 0x10000>;
- 				interrupts = <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>;
- 				dr_mode = "host";
-+				dma-coherent;
- 				snps,quirk-frame-length-adjustment = <0x20>;
- 				snps,dis_rxdet_inp3_quirk;
- 				snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
-diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1088a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1088a.dtsi
-index 9d5726378aa015eff10578bf095908a58b9d9eee..b2f6cd237be046123de9342e2167aa32248a8a16 100644
---- a/arch/arm64/boot/dts/freescale/fsl-ls1088a.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-ls1088a.dtsi
-@@ -489,10 +489,12 @@ esdhc: mmc@2140000 {
- 		};
- 
- 		usb0: usb@3100000 {
--			compatible = "snps,dwc3";
-+			compatible = "fsl,ls1088a-dwc3", "fsl,ls1028a-dwc3";
- 			reg = <0x0 0x3100000 0x0 0x10000>;
- 			interrupts = <GIC_SPI 80 IRQ_TYPE_LEVEL_HIGH>;
- 			dr_mode = "host";
-+			iommus = <&smmu 1>;
-+			dma-coherent;
- 			snps,quirk-frame-length-adjustment = <0x20>;
- 			snps,dis_rxdet_inp3_quirk;
- 			snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
-@@ -500,10 +502,12 @@ usb0: usb@3100000 {
- 		};
- 
- 		usb1: usb@3110000 {
--			compatible = "snps,dwc3";
-+			compatible = "fsl,ls1088a-dwc3", "fsl,ls1028a-dwc3";
- 			reg = <0x0 0x3110000 0x0 0x10000>;
- 			interrupts = <GIC_SPI 81 IRQ_TYPE_LEVEL_HIGH>;
- 			dr_mode = "host";
-+			iommus = <&smmu 2>;
-+			dma-coherent;
- 			snps,quirk-frame-length-adjustment = <0x20>;
- 			snps,dis_rxdet_inp3_quirk;
- 			snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
-diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
-index c9541403bcd8239a48d4ef79c7c4f9e3b607b556..d899c0355e51dd457a4e7259709cea98a488f557 100644
---- a/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
-@@ -1094,24 +1094,28 @@ ftm_alarm0: rtc@2800000 {
- 		};
- 
- 		usb0: usb@3100000 {
--			compatible = "snps,dwc3";
-+			compatible = "fsl,lx2160a-dwc3", "fsl,ls1028a-dwc3";
- 			reg = <0x0 0x3100000 0x0 0x10000>;
- 			interrupts = <GIC_SPI 80 IRQ_TYPE_LEVEL_HIGH>;
- 			dr_mode = "host";
- 			snps,quirk-frame-length-adjustment = <0x20>;
- 			usb3-lpm-capable;
-+			iommus = <&smmu 1>;
-+			dma-coherent;
- 			snps,dis_rxdet_inp3_quirk;
- 			snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
- 			status = "disabled";
- 		};
- 
- 		usb1: usb@3110000 {
--			compatible = "snps,dwc3";
-+			compatible = "fsl,lx2160a-dwc3", "fsl,ls1028a-dwc3";
- 			reg = <0x0 0x3110000 0x0 0x10000>;
- 			interrupts = <GIC_SPI 81 IRQ_TYPE_LEVEL_HIGH>;
- 			dr_mode = "host";
- 			snps,quirk-frame-length-adjustment = <0x20>;
- 			usb3-lpm-capable;
-+			iommus = <&smmu 2>;
-+			dma-coherent;
- 			snps,dis_rxdet_inp3_quirk;
- 			snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
- 			status = "disabled";
-
--- 
-2.34.1
+Regards,
+=2D-
+Duje
 
 
 
