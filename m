@@ -4,54 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68BE3CAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 08:46:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73963CAC5AC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 08:47:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=P+/taiDh5fogO0Q1eGjfIVQW2FvSS2ohgAptmEY4nrs=; b=ieyeMAmN4GS54rR9bKtAlvRP/U
-	Yk5ogOWhuTuIbKX/YiTz/WDtNRp/7FEf+VrdDv1SlmiAq5cmX8Joem974iYAGfyS6bkC6XMz+13tO
-	4ytuNbJhJuEyLFCIN8sVzMiMCt0VVn3eaH3jiMCAiPTV+Czt0etzxXGoenodHTlhuLqUjoOg5riLE
-	Pbkz3dz/BCeBG81XMKcaH/2pai0xlFCusxqopkt/qeGxz1BMqF3yqUnjf1EY5tudjt6+6HB1RxNF4
-	CDFlhrHbSYK30wfmFjBVtmHkL8VrOGdwDwfSsvuOuEoCmy4nYRsSHzCxRLtVf7amJh29esruPRX5W
-	fIRKWHRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CyoQGGF1hszxK+x+zSp2jDLYI3ZfZJfBWPgrZOD47uE=; b=nrH6pbjiFUcUoYh6X/3wvqIK0h
+	UaX+gUNuE3PhNWgeivhuluJefazX/ILdT0JvXoaeKsx7REuH5L2IOgwHE0b9XIHlE/pqJpSNYMqwk
+	N5kZR/HZjAQB2pLtk5YxRfFxsNAuM+7jYeNo3OYTiP6gzZqZCrJVz7lfUImkbVJjP4Prftvq0TAjj
+	EvY413W44bSPKePjkJx1g163BsSDNbtyB3F75iXxKpbu277bdTLN2iTvHJqXrOE//3yCDVSgHIb4w
+	s9YXtylevTpQsbUwOcWYRdu/q2AM/5G2RS8M6ocvoNbKc4/BQCLX36XqYep72FympYN5P3Qwz/gDz
+	BZp3CgnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2463-0000000HH06-0now;
-	Fri, 26 Sep 2025 08:46:31 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1v246q-0000000HHWx-2HQI;
+	Fri, 26 Sep 2025 08:47:20 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2461-0000000HGxy-05JB
+	id 1v246o-0000000HHVH-2MSt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 08:46:30 +0000
-Received: from thinkpad.ideasonboard.com (cpc90716-aztw32-2-0-cust408.18-1.cable.virginm.net [86.26.101.153])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 43FF81807;
-	Fri, 26 Sep 2025 10:45:01 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1758876301;
-	bh=IUA1ANsoSDf4ynFNcNEX5PCTUFJtU9aJS/An4xPjPW4=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=ZrQsmMkvFij0yY31VIvySARzvzdhWNfhnXkQnUrONYi17lCK3I/2qDmzyhBdTSJxL
-	 dN3HbjbpWxRuWVge+mXh5887a+MeWz59bmy6T+ocVoozAj0AHJ1zwKwW1L6iKWBrJi
-	 GQ2d7SrtwAsUz2uQQAegMhsnMOBp5a89Epi8fOsY=
-Content-Type: text/plain; charset="utf-8"
-MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <aNW4zDRAREUZ7v8k@lizhi-Precision-Tower-5810>
-References: <20250925-active-data-lanes-v4-0-8b54e3d5af6c@ideasonboard.com> <20250925-active-data-lanes-v4-3-8b54e3d5af6c@ideasonboard.com> <aNW4zDRAREUZ7v8k@lizhi-Precision-Tower-5810>
-Subject: Re: [PATCH v4 3/4] media: imx-mipi-csis: Store the number of data_lanes configured in dt
-From: Isaac Scott <isaac.scott@ideasonboard.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rui Miguel Silva <rmfrfs@gmail.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Martin Kepplinger <martink@posteo.de>, Purism Kernel Team <kernel@puri.sm>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-To: Frank Li <Frank.li@nxp.com>
-Date: Fri, 26 Sep 2025 09:46:22 +0100
-Message-ID: <175887638283.180868.8800087471301856681@isaac-ThinkPad-T16-Gen-2>
-User-Agent: alot/0.10
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_014629_203447_55DC0BDF 
-X-CRM114-Status: GOOD (  25.73  )
+	Fri, 26 Sep 2025 08:47:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id DC90761562;
+	Fri, 26 Sep 2025 08:47:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CC7AC4CEF4;
+	Fri, 26 Sep 2025 08:47:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758876437;
+	bh=pC6Xo5HsxzIeC/HD0wRUR8XYy10SDXQ1jj7BmJ6w7nk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=M+fnjX+WtJusxq7dtv1f5CK40ICoTBBlmKOj6JAUxOVlU4VT9WdkAA5Xl7C5joCbt
+	 qVWyFbGkOKoEV7zWSZDWG2eGxAxUVHd7DfPKjm3itIex6Wvan0ik4AqhbAj8wPoWsu
+	 uKnT1PcvfpA01ruUkkKIt7XGOBXtxVIUE1C4N5qJ9/eqC6AMKZpyHA8HBz5dt6FwF6
+	 yXmVQ12wXE5eClacB4Kr6W726ueYJ+JSGtltOyvnR1DZlMoG708Q8px+scj8flEJ0N
+	 OTxmLT8UtelMLPMOaNH/SmhCaVFQPDlFwGaxdHYYsE4NDth8tbTZ+6875Bh8k1BG+Q
+	 DN4UAtBgFtSBQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1v246l-00000009bjQ-0TEW;
+	Fri, 26 Sep 2025 08:47:15 +0000
+Date: Fri, 26 Sep 2025 09:47:14 +0100
+Message-ID: <8634891tyl.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Nianyao Tang <tangnianyao@huawei.com>
+Cc: <tglx@linutronix.de>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>,
+	<guoyang2@huawei.com>,
+	<wangwudi@hisilicon.com>,
+	<wangzhou1@hisilicon.com>,
+	<jiangkunkun@huawei.com>,
+	<guozicheng3@hisilicon.com>
+Subject: Re: [PATCH V2] irqchip/gic-v4.1:Check whether indirect table is supported in allocate_vpe_l1_table
+In-Reply-To: <20250918141557.1791041-1-tangnianyao@huawei.com>
+References: <20250918141557.1791041-1-tangnianyao@huawei.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: tangnianyao@huawei.com, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, guoyang2@huawei.com, wangwudi@hisilicon.com, wangzhou1@hisilicon.com, jiangkunkun@huawei.com, guozicheng3@hisilicon.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,109 +86,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank,
+On Thu, 18 Sep 2025 15:15:57 +0100,
+Nianyao Tang <tangnianyao@huawei.com> wrote:
+> 
+> In allocate_vpe_l1_table, it allocates a new vpe table without checking
+> whether indirect table is supported.
+> ARM allows vendors to support only flat tables. Let's first check if
+> indirect tables are supported before using it.
+> 
+> Signed-off-by: Nianyao Tang <tangnianyao@huawei.com>
 
-Thank you for your review!
+As I understand it, this is for the same machines that also requires
+[1] and [2] to be able to use vLPIs and vSGIs.
 
-Quoting Frank Li (2025-09-25 22:49:00)
-> On Thu, Sep 25, 2025 at 04:54:28PM +0100, Isaac Scott wrote:
-> > The number of active data lanes in use on a MIPI CSI2 bus is not
-> > necessarily always the maximum. To allow us to configure the number of
-> > data lanes actively in use, store the maximum to ensure we can configure
-> > a number of data lanes that is supported.
-> >
->=20
-> This patch just add num_data_lanes, and use csis->num_data_lanes instead
-> of bus.num_data_lanes.
->=20
-> So commit message not reflect what you did
->=20
-> "
-> media: imx-mipi-csis: Add num_data_lanes in mipi_csis_device
->=20
-> Add num_data_lanes field in mipi_csis_device, set equal to
-> csis->bus.num_data_lanes. Prepare to support cases where the number of
-> active data lanes differs from the maximum supported lanes.
->=20
-> No functional changes.
-> "
+I seriously doubt that we want *any* of it (creating userspace ABI to
+deal with a broken design is not something I'm keen on).
 
-Yes, that is much better, thank you for your suggestions (on this and
-the next patch), I'll wait to see if there are any other comments and
-improve my commit messages in the next version.
+Frankly, you should consider disabling GICv4.1 on these machines, and
+stick with GICv3 (which I assume works correctly).
 
-Best wishes,
-Isaac
+Thanks,
 
->=20
-> Frank
->=20
-> > Signed-off-by: Isaac Scott <isaac.scott@ideasonboard.com>
-> > ---
-> >  drivers/media/platform/nxp/imx-mipi-csis.c | 11 +++++++----
-> >  1 file changed, 7 insertions(+), 4 deletions(-)
-> >
-> > diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media=
-/platform/nxp/imx-mipi-csis.c
-> > index 7c2a679dca2e..838a1ad123b5 100644
-> > --- a/drivers/media/platform/nxp/imx-mipi-csis.c
-> > +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
-> > @@ -351,6 +351,8 @@ struct mipi_csis_device {
-> >       u32 hs_settle;
-> >       u32 clk_settle;
-> >
-> > +     unsigned int num_data_lanes;
-> > +
-> >       spinlock_t slock;       /* Protect events */
-> >       struct mipi_csis_event events[MIPI_CSIS_NUM_EVENTS];
-> >       struct dentry *debugfs_root;
-> > @@ -573,7 +575,7 @@ static void mipi_csis_system_enable(struct mipi_csi=
-s_device *csis, int on)
-> >       val =3D mipi_csis_read(csis, MIPI_CSIS_DPHY_CMN_CTRL);
-> >       val &=3D ~MIPI_CSIS_DPHY_CMN_CTRL_ENABLE;
-> >       if (on) {
-> > -             mask =3D (1 << (csis->bus.num_data_lanes + 1)) - 1;
-> > +             mask =3D (1 << (csis->num_data_lanes + 1)) - 1;
-> >               val |=3D (mask & MIPI_CSIS_DPHY_CMN_CTRL_ENABLE);
-> >       }
-> >       mipi_csis_write(csis, MIPI_CSIS_DPHY_CMN_CTRL, val);
-> > @@ -623,7 +625,7 @@ static int mipi_csis_calculate_params(struct mipi_c=
-sis_device *csis,
-> >
-> >       /* Calculate the line rate from the pixel rate. */
-> >       link_freq =3D v4l2_get_link_freq(csis->source.pad, csis_fmt->widt=
-h,
-> > -                                    csis->bus.num_data_lanes * 2);
-> > +                                    csis->num_data_lanes * 2);
-> >       if (link_freq < 0) {
-> >               dev_err(csis->dev, "Unable to obtain link frequency: %d\n=
-",
-> >                       (int)link_freq);
-> > @@ -668,7 +670,7 @@ static void mipi_csis_set_params(struct mipi_csis_d=
-evice *csis,
-> >                                const struct v4l2_mbus_framefmt *format,
-> >                                const struct csis_pix_format *csis_fmt)
-> >  {
-> > -     int lanes =3D csis->bus.num_data_lanes;
-> > +     int lanes =3D csis->num_data_lanes;
-> >       u32 val;
-> >
-> >       val =3D mipi_csis_read(csis, MIPI_CSIS_CMN_CTRL);
-> > @@ -1366,8 +1368,9 @@ static int mipi_csis_async_register(struct mipi_c=
-sis_device *csis)
-> >       }
-> >
-> >       csis->bus =3D vep.bus.mipi_csi2;
-> > +     csis->num_data_lanes =3D csis->bus.num_data_lanes;
-> >
-> > -     dev_dbg(csis->dev, "data lanes: %d\n", csis->bus.num_data_lanes);
-> > +     dev_dbg(csis->dev, "max data lanes: %d\n", csis->bus.num_data_lan=
-es);
-> >       dev_dbg(csis->dev, "flags: 0x%08x\n", csis->bus.flags);
-> >
-> >       asd =3D v4l2_async_nf_add_fwnode_remote(&csis->notifier, ep,
-> >
-> > --
-> > 2.43.0
-> >
+	M.
+
+[1] https://lore.kernel.org/r/20250825023954.3516381-1-wangzhou1@hisilicon.com
+[2] https://lore.kernel.org/r/20250909110615.129179-1-wangzhou1@hisilicon.com
+
+-- 
+Without deviation from the norm, progress is not possible.
 
