@@ -4,69 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65D3ECAC5B9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 14:29:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECFB7CAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 14:31:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=26YfjhR80XqVvp3T4GXiOY1ZVSaa9CIx9x33j2hmPnU=; b=MctvGVqzwvCj6IkHsfzaC5Cv9i
-	qTOp7H7iSFcktTAZ/DzuX3oEmdzJyCfF5qxPmJE9EWZ0QUOR/5COha6BPa5YcFcPt6yuR7mHKcJpo
-	cE7XmbO0Zt0smYU6YE7JGV9xGn5HkOepGVDXzVTflLZNzGuG3DSCL4CeFHmVty11rdNWQUjNJDME3
-	hfxZ6Cp/NNGhZiAMkPkN/TQELtO+Th2P2Rhh9QYiKaBFPV3nnUjQDvp3kielGfY6Mz0ATYSjKIdop
-	VfJEch5F7gJy6YelMyPEjMdOX8PqM4bwfPeHPqO8PPN8RuY5gs49ihC+kLODYB6xcY3okGXjo4UjO
-	yarXIwHA==;
+	bh=Y/Xj6MIfy2rEr0XBSI3mnq/0U/KV/IGQQqiSFVW/GHE=; b=iwKkE5ZIwZsaP+x2jShC+cP4/7
+	wJ0TOL0QCyhQkElpUdJIQbv5QeH1ve1HE7c8HauzZGA73bO5AjaEh2X2dAnUlIX+eqZihtzYREmbD
+	WPWCabQZhvN+UTMlk6GTVX8bIRcQ9FFjxkHZHcPkL8ie7ySgYfm6117YALRkvAy42BGDyoIWv7npm
+	TUHink1C1Fz1UPsX/f2JZW5t6Q0BU3fvaR4U8Pd74CSbE0ScrhGk98w0AJqLsy+WVO4EDGkhzUYOv
+	uVByUUrH0ZrSMpqavQO8vfajPKM47K2Qg1y+jzcKdzvDALBoiCyMDKLMCLNNYMSgrMCfJbwkxBteB
+	1/SNSMAQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v29RY-00000001zaD-2fYr;
-	Fri, 26 Sep 2025 14:29:04 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1v29U1-000000021H5-2G4z;
+	Fri, 26 Sep 2025 14:31:37 +0000
+Received: from mgamail.intel.com ([198.175.65.17])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v29RW-00000001zYj-0PN9;
-	Fri, 26 Sep 2025 14:29:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1758896933; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=LiL02BSGQZ5ytPMrAU7fzsgyGu004PQCrF+o3pkV49Gn0Naaaagx2MrWv8h17/ieZ++pzWEfHBvf/QnC+C2tT3Lqwdy8XJEmdpTIgk/xQZMvzFmAmuTDyr0ujrlEnijRtUQTEuHzXmHxHlbtwTYEewNRPkXAGCziAJ77cqhCoMg=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1758896933; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=26YfjhR80XqVvp3T4GXiOY1ZVSaa9CIx9x33j2hmPnU=; 
-	b=Arha/5GW8rJzpUz+TOpn+9ORBNoQxtxhJFG8vE5Gqzi3c40hk6jfC6gyiNNq922ZO7waYSY3++nyDIH4eFUp1ICjzqU4xjhQeXgx/VvyonGqoY5DWiWfot+uZ0UtAettFA1wFwjCC2KXKfIJMuqRQm2U6USOWeFUfomqE5kZPCc=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sjoerd@collabora.com;
-	dmarc=pass header.from=<sjoerd@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1758896933;
-	s=zohomail; d=collabora.com; i=sjoerd@collabora.com;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=26YfjhR80XqVvp3T4GXiOY1ZVSaa9CIx9x33j2hmPnU=;
-	b=FuugvlCaYubKjIun3Ml+KCPMgmQsDCkyyh/gcIASO2PnatTX1la4+bNybAn2e/MG
-	Ol4fJBOMpEHcovpSXMfBvJvsmeTLv927ykfl4RNovCHrf/OZrR/I9UlFcgzWpdu651M
-	KNKe2Utdu20BgSVudn6qATfOCn47yxZYm3wY6A9A=
-Received: by mx.zohomail.com with SMTPS id 1758896931799989.2968902254092;
-	Fri, 26 Sep 2025 07:28:51 -0700 (PDT)
-Message-ID: <638b9565b90714f56caa9535b7b9b96cd86100d6.camel@collabora.com>
-Subject: Re: Support for Rock PI-4b
-From: Sjoerd Simons <sjoerd@collabora.com>
-To: Mostafa Saleh <smostafa@google.com>, devicetree@vger.kernel.org, 
- "moderated list:ARM SMMU DRIVERS" <linux-arm-kernel@lists.infradead.org>,
- linux-rockchip@lists.infradead.org, open list <linux-kernel@vger.kernel.org>
-Cc: Rob Herring <robh@kernel.org>, krzk+dt@kernel.org, conor+dt@kernel.org, 
- Heiko Stuebner
-	 <heiko@sntech.de>
-Date: Fri, 26 Sep 2025 16:28:48 +0200
-In-Reply-To: <CAFgf54oYjUEg9KkQUzneYTZH1Z8cX56va5M0853eWPFaYT+Z2A@mail.gmail.com>
-References: <CAFgf54oYjUEg9KkQUzneYTZH1Z8cX56va5M0853eWPFaYT+Z2A@mail.gmail.com>
-Organization: Collabora
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-3 
+	id 1v29Ty-000000021EI-0Lr4
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 26 Sep 2025 14:31:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1758897095; x=1790433095;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=NVDGDPSRfBOg+IYM2GGQj9xeTSDqNKFZs6gh3u8/io4=;
+  b=RHdOn7/CeTM+HOr8J9NFfz+AWFmrXLJbyRHsIDlAkLRyWO6g7WQo01Oz
+   7WEofFvnXmz1IHV+K15/j/N2R72apBe7gxco38Hpf9xZBNlC4YRJ8tbcZ
+   NSMqvO928wmToqiLSKCwAhUbUxKLcP20ohQAGnFW3qPYhnWN9gA3QfX6d
+   /jXuxjwgGI9oOKvbKM2r9yj+2GvfPPdNxheM27ix081O/EPUp2879wOPA
+   DPGnzCIxOGKfqEKh/0XKWWBaftyp5U8jwaUI3JGgprBSTWrqYGwuCCwl1
+   jP11YiQhV0QHYiLDOJYfDvTB3UAexyBlR8VPUPoBYVjyPD43uXuMnX3fg
+   Q==;
+X-CSE-ConnectionGUID: vET/0Te+QVKOeHXpgrSqBw==
+X-CSE-MsgGUID: tTlEtkjJTgO6DS1B6y0c3Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="61183958"
+X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
+   d="scan'208";a="61183958"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Sep 2025 07:31:33 -0700
+X-CSE-ConnectionGUID: 5AKesJxsQhWElaZ1Al31ag==
+X-CSE-MsgGUID: U1ZXK4swSF2PMznGtDjUgg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,295,1751266800"; 
+   d="scan'208";a="208377174"
+Received: from lkp-server02.sh.intel.com (HELO 84c55410ccf6) ([10.239.97.151])
+  by orviesa002.jf.intel.com with ESMTP; 26 Sep 2025 07:31:29 -0700
+Received: from kbuild by 84c55410ccf6 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1v29Tc-0006JR-30;
+	Fri, 26 Sep 2025 14:31:18 +0000
+Date: Fri, 26 Sep 2025 22:30:25 +0800
+From: kernel test robot <lkp@intel.com>
+To: Cristian Marussi <cristian.marussi@arm.com>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	arm-scmi@vger.kernel.org
+Cc: oe-kbuild-all@lists.linux.dev, sudeep.holla@arm.com,
+	james.quinlan@broadcom.com, f.fainelli@gmail.com,
+	vincent.guittot@linaro.org, etienne.carriere@st.com,
+	peng.fan@oss.nxp.com, michal.simek@amd.com, quic_sibis@quicinc.com,
+	dan.carpenter@linaro.org, d-gole@ti.com, souvik.chakravarty@arm.com,
+	Cristian Marussi <cristian.marussi@arm.com>
+Subject: Re: [PATCH 04/10] uapi: Add ARM SCMI definitions
+Message-ID: <202509262227.VZVSICFi-lkp@intel.com>
+References: <20250925203554.482371-5-cristian.marussi@arm.com>
 MIME-Version: 1.0
-X-ZohoMailClient: External
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250925203554.482371-5-cristian.marussi@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_072902_373888_EED2D381 
-X-CRM114-Status: GOOD (  16.42  )
+X-CRM114-CacheID: sfid-20250926_073134_160112_6998E25E 
+X-CRM114-Status: GOOD (  11.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,48 +93,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2025-09-26 at 15:07 +0100, Mostafa Saleh wrote:
-> Hi,
->=20
-> I am trying to run Linux[1] on my Rock PI-4b, which I see is supported in
-> the kernel in =E2=80=9Crk3399-rock-pi-4b.dts=E2=80=9D.
->=20
-> However, compiling =E2=80=9Cdefconfig=E2=80=9D (ARM64) and flashing my Im=
-age doesn=E2=80=99t
-> work,
-> It just hangs before any console (even with earlycon), I tried to also us=
-e
-> some of the vendor configs with no luck.
-> I did some research and found that [2], which indicates that the upstream
-> support has been broken for some years?
+Hi Cristian,
 
-We've got the Rock 4b in our automated testing lab as part of kernelci and =
-other
-efforts. Upstream works just fine on those boards, so it's likely an issue =
-in
-your setup.
+kernel test robot noticed the following build errors:
 
-See e.g https://lava.collabora.dev/scheduler/job/19978558#L525 for a recent
-upstream kernel boot.
+[auto build test ERROR on soc/for-next]
+[also build test ERROR on trace/for-next linus/master v6.17-rc7 next-20250925]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
 
-Regards,
-  Sjoerd
+url:    https://github.com/intel-lab-lkp/linux/commits/Cristian-Marussi/firmware-arm_scmi-Define-a-common-SCMI_MAX_PROTOCOLS-value/20250926-044350
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
+patch link:    https://lore.kernel.org/r/20250925203554.482371-5-cristian.marussi%40arm.com
+patch subject: [PATCH 04/10] uapi: Add ARM SCMI definitions
+config: x86_64-buildonly-randconfig-005-20250926 (https://download.01.org/0day-ci/archive/20250926/202509262227.VZVSICFi-lkp@intel.com/config)
+compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250926/202509262227.VZVSICFi-lkp@intel.com/reproduce)
 
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202509262227.VZVSICFi-lkp@intel.com/
 
->=20
-> Has anyone tried to flash a recent kernel successfully on it? or any
-> tips are greatly appreciated.
-> Otherwise, maybe it can be removed to avoid misleading other developers
-> (I got this board to do some upstream kernel development on)
->=20
-> [1] base: 4ff71af020ae59ae2d83b174646fc2ad9fcd4dc4
-> [2] https://wiki.radxa.com/Rockpi4/dev/kernel-mainline
->=20
-> Thanks,
-> Mostafa
->=20
-> _______________________________________________
-> Linux-rockchip mailing list
-> Linux-rockchip@lists.infradead.org
-> http://lists.infradead.org/mailman/listinfo/linux-rockchip
+All errors (new ones prefixed by >>):
+
+   In file included from <command-line>:
+>> ./usr/include/linux/scmi.h:43:1: error: C++ style comments are not allowed in ISO C90
+      43 | ///TODO more flags
+         | ^
+   ./usr/include/linux/scmi.h:43:1: note: (this will be reported only once per input file)
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
