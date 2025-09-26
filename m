@@ -4,137 +4,182 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4615CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 16:43:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 448A4CAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 16:48:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OOAJKtszuFOluuG6qYkOjreur/Dr9vuVBO3HUnQ0sBI=; b=i2K9jHWsJEBvMW8ihH43Badotr
-	BLPx2krT49OUykLEj9dUEg5HtH+TVjsTjwwSTER3W3pjUJjWtmEVpc1+T75YfZBzTklsoPse/oqu7
-	1escfQfAcV+HaDU8CdcMeib4bYJtH9a/9ZTRaRE4/iZhPJ9/R2LtcjAi44Kf5GUu7AeWTeMoe+h5k
-	7U39hzo6LuwEOIw1wKqNo530HiepMqbU0xgUDpAR1CdSzv6x+g50ZRLbrC8cO0SkCs7ySaLWM8L8T
-	J45FVnL7g6DE414pEWlSyjp49rnskEGYt/foVnCMpGJ8qo16h3ir5wScc8qDkOIXAut2sVB5MHlpp
-	zPtLnZ5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ut1Uv7e/hO5bPmHa+B9rNjrEa0C0obWESBpOH/MnuWo=; b=tLPP7gNJWBvThtLYlPzXdWpUr5
+	cgiUyLoz/HxX4RaHYBlknX2uWypmkNdSKvCKeVMJbLqZtRrr0AR4KTGdHgu0XA5X8y66P1Y8sCT+z
+	zaSdQQxIWKlhzaJcAHCT3x9eR/0aP1vovyBSVEClrZJ/9VwZTsr19nndOrmWojsvWosGqdGgIQynE
+	di0HgEOEpf4xJtOnTT08hm7H0TOsuCY0K9PiOabkpoG21y4zVSYeGFNapGgFA0sq6D+udpCzzIvOy
+	gtL8MdWrP/ghYHGjW2N6u2Nw3KmB6byh/2qBSDdI/0y1tUaNPEtO606U/YpaIaRpK9tLzmPJttbBt
+	zRpIoFjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2BXm-00000002yIy-0o3i;
-	Fri, 26 Sep 2025 16:43:38 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1v2Bbu-00000002zjL-0WhY;
+	Fri, 26 Sep 2025 16:47:54 +0000
+Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2BXj-00000002yHT-2B9q
+	id 1v2Bbs-00000002zfU-14pa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 16:43:36 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58QEX3Gq020343
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 16:43:35 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	OOAJKtszuFOluuG6qYkOjreur/Dr9vuVBO3HUnQ0sBI=; b=h+iVNCItG8IaNeo1
-	5WKet2QPTfpcZVIJTNHUnA1IGc0tJXiF0e4OMG0eP89dQxPTjv3yUpM8TBpP7DAQ
-	IhgMxGGm26m+RUmIboNHJp9FYOTEs0zvE1UKja8TxVWN01jYtZGZ2b4L7OByN55k
-	nvAF8UZh13tjgob9ioN1jL40C5FnHTr/OhnbunN9yvOMYo7nCmUH9ESTkm7Vm/Cd
-	Y4w6DOwI+N7tepyxyoudTuzUxhkDo5oieO0MmxITVHu+OEfXeGxu5D2ea3vWkkm4
-	34Ju6XGEucVq4FkxEIvY496FdY7jXIIEjEgXTT6jFF3R9nSrsLRIh0JvYbaBfdI4
-	3X+eZQ==
-Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49dsqrgw0p-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 16:43:34 +0000 (GMT)
-Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-780f82484faso1811215b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 09:43:34 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758905014; x=1759509814;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=OOAJKtszuFOluuG6qYkOjreur/Dr9vuVBO3HUnQ0sBI=;
-        b=RRHauC9ej+dLyjqCWPjefZQ1XDmLbm9rxuAmUOhYPUi6ucsEIuK87khke1veSufsHC
-         Kyt5mnUu2IqqRH9IDxENzWX5BWkYuabrIqnKa9S1JEYgBjKBimjkTPbU1xjImRUG32nF
-         3Z4JpjmPtFO6FzfB+qhQss88VxEcSvq3XalbM6nzTVHsBwPug32NYGWTETqgfgINOyZS
-         E08TdIvFCyZrSKSSjiQbgypEE57DdKbvotVpbGO+igLc2PQRv+G+75ISFtz8LtE6YDhU
-         LEuaqsVBx1ylYl3Hg2HmgqkKH5mJi487QU7UMWbrrlnjw4h2ajFz0xOeJFAEvXLuw3Fp
-         EgdQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWXH9hDy6pZ8HNdeXX+R1G0cWKhcEm5npENABFVmcQv9U38A+BxGaxq+MnYRSoO2zRsTQleqJZwIY1uCRnw9Cfa@lists.infradead.org
-X-Gm-Message-State: AOJu0YzPJcxuoPSdl6F2RfYbE2JQh1Gy/NZmFc+oK/LDtJMaLrtzofgt
-	RzQsALtpXepQ8RRpl4oHo0n+uV2mvcl8/h92/7os94zU9Yl2wLPF7i6S/f5ujBvIIYp1+TT1/uP
-	J2IiL5v7X2QSG3ZQI+QzdPMnNzHpeoIld4pnG1BXl2AB/QaiT998O5ZXF67em/dOUUcttimTdoW
-	kUEQ==
-X-Gm-Gg: ASbGncvz62/ttiDDNgBGg2HjHdXdo7jM4Kq8ImQp7cMCgX3YXRnPrlvOBE0r5Bzbd/w
-	/l6abZ96pGhCtfAuitjBG4ZxT5mH7qsp8DVCIJx62V4p0mYF95O84Wf2upyCxUNovKm6I0X457n
-	DysvtShOMW4eOWXKdVKJtHRc+7AIr7YHf+2/odROLJ6fb7zvHlkLyJuOswkl62bYJWM44/P/2Vu
-	5RVKDatO+irCZaAVRzGU0nNY8aqEU/ssurBkyTBCPXw7IX1uZRMAHtGZWMCUfgHt8uNqVrnzBB3
-	9Rw5VVGLLBhaMzt29FdKohpu1LrBGuRsv6xFXcjaPObOeHF6SOZn/9aH16xy1ZfdW47P/2HE+m8
-	=
-X-Received: by 2002:a05:6a00:2186:b0:77f:2899:d443 with SMTP id d2e1a72fcca58-780fce1d14fmr7444714b3a.10.1758905013432;
-        Fri, 26 Sep 2025 09:43:33 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IH5vWBMgBvL7brIlV8nI5zcGRZcgZLch/n6zvZd8dJYGcdbkBvuKaAP5Kh0UT+1HHmZItjGyg==
-X-Received: by 2002:a05:6a00:2186:b0:77f:2899:d443 with SMTP id d2e1a72fcca58-780fce1d14fmr7444655b3a.10.1758905012812;
-        Fri, 26 Sep 2025 09:43:32 -0700 (PDT)
-Received: from [192.168.29.113] ([49.43.224.88])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-781023c8aebsm4809340b3a.28.2025.09.26.09.43.24
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 26 Sep 2025 09:43:32 -0700 (PDT)
-Message-ID: <7cd09815-a657-47cc-9cc2-3751996c3592@oss.qualcomm.com>
-Date: Fri, 26 Sep 2025 22:13:22 +0530
-MIME-Version: 1.0
+	Fri, 26 Sep 2025 16:47:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=tMw2+ihVJx8axcgEZF5McRrTHw+GA5VU0rHTdqsmnusVGwDBmOXphcoDHPCNjgkSBntv2kZOl6C1hWQKqrNP8JUsZTK4811YkUQ/SyAycedzMcWtv26IAS570Z0TnRih3G6ndW41HFNEN+JX5Urzx+PyorgvW2CLakbPxdIxyXLmAteYhS0ZKWmQ5vzIWPru8i7dw+jkOr2KkoJ4mer46f2ufmaSRNflCF4TdCkWWjfyyh2e9tMBGwhMd8s8tMAwn7jiaF3S0dmAsFCeTIN0hPF+V+opFSVs4NXCMOFNX2R7cNp0/VXqXecnUoxssVlrLivN2IJPIRvKkzaezKp0Gw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Ut1Uv7e/hO5bPmHa+B9rNjrEa0C0obWESBpOH/MnuWo=;
+ b=ODp5vifhL17fuLoaszTPCA6YL2DwkU+1sXVmHaY0aH5EcNkVm1HUFGGOROuJtq5UvnpQ/8to0PHf83YC/S1JJMxS+fXH19SLSvPxztcJACQaJBTVrASo+dQACKekMEwevmidu+mO3YZ/CJtL7cjLOlckQgMqyeDQSk7LyefUAdTavKkJrIBeWT7h7zfaPXaYd5kqtHd4MR/OxYxNyaFk2vx2hzhQDeRGX3huJzzgwp5L1jX3NYuXpVQjvuzORFMDaQoAd77lEmhdES/Cm6VWP1OFUPtYL+sadLBCb8WaMDrcAyNJDkUlLAdcLNLNysrkglsmed/yqqbQIJtLOPhdvQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=altera.com; dmarc=pass action=none header.from=altera.com;
+ dkim=pass header.d=altera.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=altera.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Ut1Uv7e/hO5bPmHa+B9rNjrEa0C0obWESBpOH/MnuWo=;
+ b=ASM74b+FaL2Nr/0gx0vAbw3bZYj+vw9tqatmUhqk9C/MvOR0RCGg9aCU0NeEUAHbjDuSwp1ptZIUEFh3YU82HzL3GTc2wsKkdqO0ASMg5CHnp3R0aojWrA2qffgNkGWwbyQT50RaSAAuTx2lby0I2mjEbWnvhBXli3t6AfEAewK74azIuiKSwMTESbQTw0UJq0Tzz0PUBOrx/WLdYKGrur+YqiYzdWOEdboPAfSoWhk/WxerbkcK4GBfIgxU6O754ra6uR4tmnnmFvYT5L0L39i++SGNzr3gYIHq+6fEqnfQeBbpkxWB4J0/+81OWKQji0/K+NcM/FG4j2RF5r3rBg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=altera.com;
+Received: from DM6PR03MB5371.namprd03.prod.outlook.com (2603:10b6:5:24c::21)
+ by LV3PR03MB7753.namprd03.prod.outlook.com (2603:10b6:408:27e::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.10; Fri, 26 Sep
+ 2025 16:47:44 +0000
+Received: from DM6PR03MB5371.namprd03.prod.outlook.com
+ ([fe80::8d3c:c90d:40c:7076]) by DM6PR03MB5371.namprd03.prod.outlook.com
+ ([fe80::8d3c:c90d:40c:7076%4]) with mapi id 15.20.9160.010; Fri, 26 Sep 2025
+ 16:47:43 +0000
+Message-ID: <1e82455f-5668-41fd-bebb-0a0f7139cc3f@altera.com>
+Date: Fri, 26 Sep 2025 22:17:32 +0530
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 8/9] PCI: pwrctrl: Add power control driver for tc9563
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Bjorn Helgaas <bhelgaas@google.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        chaitanya chundru <quic_krichai@quicinc.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        cros-qcom-dts-watchers@chromium.org, Jingoo Han <jingoohan1@gmail.com>,
-        Bartosz Golaszewski <brgl@bgdev.pl>,
-        =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-        Manivannan Sadhasivam <mani@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, quic_vbadigan@quicnic.com,
-        amitk@kernel.org, linux-pci@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-arm-msm@vger.kernel.org, jorge.ramirez@oss.qualcomm.com,
-        linux-arm-kernel@lists.infradead.org,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-References: <20250925143924.GA2160097@bhelgaas>
+Subject: Re: [PATCH net v2 2/2] net: stmmac: Consider Tx VLAN offload tag
+ length for maxSDU
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Rohan G Thomas via B4 Relay
+ <devnull+rohan.g.thomas.altera.com@kernel.org>,
+ Andrew Lunn <andrew+netdev@lunn.ch>, "David S. Miller"
+ <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
+ Paolo Abeni <pabeni@redhat.com>, Maxime Coquelin
+ <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Jose Abreu <Jose.Abreu@synopsys.com>,
+ Rohan G Thomas <rohan.g.thomas@intel.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Matthew Gerlach <matthew.gerlach@altera.com>,
+ "Ng, Boon Khai" <boon.khai.ng@altera.com>
+References: <20250915-qbv-fixes-v2-0-ec90673bb7d4@altera.com>
+ <20250915-qbv-fixes-v2-2-ec90673bb7d4@altera.com>
+ <20250917154920.7925a20d@kernel.org> <20250917155412.7b2af4f1@kernel.org>
+ <a914f668-95b2-4e6d-bd04-01932fe0fe48@altera.com>
+ <20250924160535.12c14ae9@kernel.org>
+ <157d21fc-4745-4fa3-b7b1-b9f33e2e926e@altera.com>
+ <20250925185230.62b4e2a5@kernel.org>
 Content-Language: en-US
-From: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-In-Reply-To: <20250925143924.GA2160097@bhelgaas>
+From: "G Thomas, Rohan" <rohan.g.thomas@altera.com>
+In-Reply-To: <20250925185230.62b4e2a5@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-GUID: UgYrz4sif-zMIwG_a16hr0lAvPjjdSnQ
-X-Authority-Analysis: v=2.4 cv=d8n4CBjE c=1 sm=1 tr=0 ts=68d6c2b6 cx=c_pps
- a=rEQLjTOiSrHUhVqRoksmgQ==:117 a=w+9hNF1SH6wH5mqaHp+xkw==:17
- a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=qleSEWVE8P8leAEWZfgA:9
- a=QEXdDO2ut3YA:10 a=2VI0MkxyNR6bbpdq8BZq:22
-X-Proofpoint-ORIG-GUID: UgYrz4sif-zMIwG_a16hr0lAvPjjdSnQ
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTI2MDEwMyBTYWx0ZWRfX+PxSfABAYRzj
- naQpnVfJ5cg51MrmJJSqNC9U6I6SN5Ql5+shpLYzzyNmsxzL/9mocW48NJTVnPrSJ/YeaO7bBq9
- lUKtxIUMhUeTSj+J09xNXH/5K98X4VTRbwsucxlfVUkOxpm7hrzVeYUpIWlMtojDz4TBRMIHLQv
- RLHLqMydphq7ESuX/B26h8AlnB3QcgOedsy0bYxjiZPNSsoVCtkrMzM9diJUnvWr+2jINiwKggW
- tAUYuWp9sskUZu7B1m3jFUlf7Jp/Vq0lb6AKLrBXfHGty6MpbKrH12tpkga6ZUzBmHqeG5S/VLZ
- lDpM3x1QSAII9jEa4P2oi96c+2eHLvVFLPse5kOy8SHuovafPWyLvkLZgGKEuP/cgdFtr5rNIIi
- KPVdwokVZa3KWq3VAedZdMDrolspfA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-26_05,2025-09-26_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 lowpriorityscore=0 malwarescore=0 spamscore=0 phishscore=0
- bulkscore=0 priorityscore=1501 clxscore=1015 adultscore=0 impostorscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2509150000 definitions=main-2509260103
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: MA0PR01CA0121.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:11d::11) To DM6PR03MB5371.namprd03.prod.outlook.com
+ (2603:10b6:5:24c::21)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR03MB5371:EE_|LV3PR03MB7753:EE_
+X-MS-Office365-Filtering-Correlation-Id: 559d73b5-1685-4ff2-7ebf-08ddfd1c69c7
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?VXBpTEErRkZrOVp3L2wzcC9QTVFsWjJXUW1uZ0kvNTFNUk9tZ2ViY2Q5c0JU?=
+ =?utf-8?B?K2pUN2xsUERTL3F4WEQ3cm9QWHBvRVh0eUY0Y2JVd3ZHaXpROU5MWGUxMkp3?=
+ =?utf-8?B?Sk1LWUROVlhFWGN3WEc0YVVJS3RnVmhrT1RPbVhwbFJsREFibVFreWE0U2p1?=
+ =?utf-8?B?WlhmKzhYR3hMRFB3YnpmUEhucU5HYVdNUFJNLzVJMGkvVzJ5dC94ZU4rUFp6?=
+ =?utf-8?B?L2ZZY3c5bGtRQmlGNnRnamdrM0gxenY5YTRWQ1IvWlRYNCtnc1BMalFZaWVT?=
+ =?utf-8?B?OWphTE5EOFFMU3RDZjh5VC9ZeGt1WEs2WmhPRldRVmFMMUREcm01UkM3azlF?=
+ =?utf-8?B?SHhNNEhzUys3NlBjTGVVcFBVMTNBOFdmR0RQcVNpOFNEZUk3eDIrK21rTWlH?=
+ =?utf-8?B?ZU5kREhiVFRlc00xYWl1VG1pU1NKUGc2VStLWExOdXEwT2UzT3BhRTdJYTh3?=
+ =?utf-8?B?a2x4aDN1a1ljRnQ3dFU4UGdEVHdkVEVmcFV3QWtZM0lqS2ZnV1Y1U0RPZ2Vz?=
+ =?utf-8?B?ejlQOFM2RzdVS0lkWFQ0WWZKRnNFSlVobStIQ2JqbW9mK3I0M1V2c2JyZGIr?=
+ =?utf-8?B?VEVWVEVCT3hTaHRRTUZKTEZ6dDIvS2VCVDIzSTdndDNXKzZZQUFrWFdnUzVL?=
+ =?utf-8?B?S0NDaEZlMjEybVk3U2JPSmF2NXpEOWhCSW1PUmFFd1FEMTgxdXFiTlpLZHBB?=
+ =?utf-8?B?dEM2K2ZJelNjTEo0NGhjQU80dmxIUW5WNFE4VFlUL1c2OWR1M20vb0ZjVGwv?=
+ =?utf-8?B?SndyNzdsUjJlbWNGZm9DMWRIbUJWb1hpcXN4TkxhUmFJenR0K1ZLbnNUQ2xr?=
+ =?utf-8?B?a282WHFrNDJNR3ZObGttV1llNzE5RTJ4cUxBQnEwYlFpNm84RjhESDVRY3Fy?=
+ =?utf-8?B?Ym5WcjcxaXd1TTdCOExtTmJXeTJnNzhRSzhIMXQycTNzRjZnWWtSd1IyNEVK?=
+ =?utf-8?B?MjJLNEk2d2piZi9IUkd0N1ZtOTZ6SmxqQllGWDViQ0xKRUpUMTlaWGgvM0pu?=
+ =?utf-8?B?WG13VytKWlF6S3U0dUlnMyt0L2V6d3hxa0NVUGZ1VkRuVENPQ3hRZG9jcU9U?=
+ =?utf-8?B?dzR5bkRtbEs0Z2Z3TnRkUHJwRXIxMnArcGVNUTVqOE9sVXhoOExKNnRxeG5N?=
+ =?utf-8?B?Vm9OZGVCaUxaYTZ1OVdUNmRFakliNmVuR0xSR2dUNVV1Z3lFb3BlV1A0VW5z?=
+ =?utf-8?B?WGdPR3FjUnZaRlNHMVpIQkhoSy9RK2l0VUJDVGYrV3FNZDZWbzJHQ3ZQMFUr?=
+ =?utf-8?B?cDYvTStVcXBVOUN3ZW1SMWw1UGtlMkxpVTY5dlVKM1pORGVISFFiNjhweG5q?=
+ =?utf-8?B?cndGR2FxWTBhWmlnYWZyZ2VQeWEzWGMyaVZmV3RNVEY0TVRCVmN4SWkvMG9i?=
+ =?utf-8?B?ajVINW1SSFFGeGszS2tWT2ZGdnJaUGp6L05XNXdlUUVTdGs2RXhSTHJmWTA1?=
+ =?utf-8?B?Z3Q5d0N5M3ptTHAxTytXdndvbEhhTGlmd0tiRFRIclgxYjA5TXlDaXRjUVQv?=
+ =?utf-8?B?SVkzcFhlL3orcnF5NmhZODZVYStZZDRLWlFDSTMyWjlIUXF1bXNBdmVFS2s3?=
+ =?utf-8?B?MmVzdkRFRGkyL1hidFB2UjVOUHg1MlByUStFVHA1b0hzcmNrZlkzdWc2Zmxy?=
+ =?utf-8?B?akUzb2N6Y2tRY3lnK1VHVlVIQ1pjV2FYaHIzMml2ZTUwTlJsdGgvWlYyd0RJ?=
+ =?utf-8?B?SVVkMGc3eHlDRnBZdFdUcnViVUF0M1JQb1Y4WUZLYWFscUFyTWwvekFudzlN?=
+ =?utf-8?B?TTFiVXhYeDNEdEJBV0xTOGVEdElCYVJ5L3NkdGFQRU5WYUtLOHJKbVp1Tklx?=
+ =?utf-8?B?YVVQWjY4VzBuRkQ2cTQ1clhzWEN1d0tuS0IrTzd4ZlUzbk0yaGZOUVRFakpI?=
+ =?utf-8?B?cngvb2RKQ2FOYlQrSk4wcEdURVpRY1pqZGZmcnFRT1Y0cmEvMFMwTHhZM2JS?=
+ =?utf-8?Q?cU57qh3UqyFs38Sv1OxUodzeYILnUgCe?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR03MB5371.namprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?bm9qWUVKcWRqbFFrSkFaVGtKcVE1U1o1VUZjby9RZ1JaMnJNQ1N2TWJhT0Fj?=
+ =?utf-8?B?UG9OeXBnd1dzWjl5RnpzRGxOdFAzT1R2Z1dudUxMSnJoMU1ncDRYbzVIVDlI?=
+ =?utf-8?B?Nm9BZ0dJdTJsVU5VR2J2bDBVSkthT3pWWC9IOXRTR2tZNlV1eVNVS1RUMERM?=
+ =?utf-8?B?a3g2WEt6c1lKNDNBdG1WSlJobk96cncxSVZiR1V2cG14Y0tZUWMyUUxSUmRW?=
+ =?utf-8?B?MVhiVTBBU245NzdzNWVWMDVnMUpJNEZYejJKM0hYaW9JdXMxVzhaVkdZMU9K?=
+ =?utf-8?B?K2RiQ1Q0UFlRZ1pKaXB4cEd3RXVKY0NxNEc3RHg3bThWaDhoTkVPa0hyL1Jq?=
+ =?utf-8?B?UDJjNFJDSk1yWGlXNldJcEtoQTY2RzFQb2IwSTQ1YmxRayt4QzRlR2tSL0xj?=
+ =?utf-8?B?OFdmMW04bHdLcUZsQjN4OVEreWFBUllYQSthZ3k2bTRTZDBpeGpmMkdoNTgx?=
+ =?utf-8?B?WE84eXBlQW9WMUJBSGRDN0ZMTkdOUmQvNlZvYy9Kd2ZKU3J3dERKZVNSUGN1?=
+ =?utf-8?B?OHNVcHowSnlUWHU1RGNBWWlOWU5WQTA4WFRkejdrcVJrVWtTN2RMK3hvTnh5?=
+ =?utf-8?B?ZFphdGdXL1pqRk5jY2gvSTlhWmFIV1FYSXJyNFU1TVVGNzZTSFFkVTVvMCtl?=
+ =?utf-8?B?a0Yxa045TDU0K2FlQm9BL2wzajg4bjhjV2plTWNGK3ZsRDJGRlVtaVNXajkr?=
+ =?utf-8?B?RjVIR1RHdzZOVlN4WGdpam85OFpXSktxeEN1NU9Ca25FbG9hd1VyUGVQWWVL?=
+ =?utf-8?B?Q3ViQ0lkNmlRdUZUMm9IQzNjc3RqU0Z3SFhSVExLOVZIREdtY09qOXBrNUM5?=
+ =?utf-8?B?blU5MmVuN0dDMWhGQUVwekVOSWdNblAyVEFEWVE2bWE0MnlwbHRBZ3hOK25B?=
+ =?utf-8?B?dGNvMFJ0cXdIZVVpTVFFVkFjWlVkTlR5alR5Nk1zSnhWd0pZWHNLcWcvUTdq?=
+ =?utf-8?B?c2kwRUt6VmpQY1o5ZC81UHRWa090dmNpZ0FMc3UwOU0zZW5Wcm1ZVmhGamEy?=
+ =?utf-8?B?Q2d2cnA1OVlkUFNpOU5QdnhDV2xiSmY4WTUrWkk1bjlDZnlrZmw2eUhOVjVE?=
+ =?utf-8?B?L2hDSVY1RkZsWHJyd2dmMHlYc0NCZVRPdFRzWEl2UC9xVzVFS0EwblVoaVZ1?=
+ =?utf-8?B?WHhCbG9TNzkxVDNsMndSbGhDdENWVk1XeGxqTDNEK05wRUJoL21tSXBDMDBN?=
+ =?utf-8?B?eTRnTm4rcFpSTzltaHdTZCtxUWlkb1V0RE9RdVYxQnRENjBkQ0JlbnVrVWVW?=
+ =?utf-8?B?V2hVODl6MG5rVTNWeXNXcXN4OGN2VGhnTjN5VlBHK3B4dXlMVkI0Vm1mQlor?=
+ =?utf-8?B?Q0h6Vk1aZXc2NG4zYkx1QTZHNEZlNjYxYVY4ZXFnZ3l1cG9NNGd5MzFEQmJY?=
+ =?utf-8?B?RlBVeWZmNElnd2pUSHNQS2taOGhjSWJXWWpFT2ZIQ1dQU3hrZHVqWXZLUFBo?=
+ =?utf-8?B?QzFYZnd0dys5Q3BFL3ZZdXc3WVpNMi9FSVI5U051bk82MCtYU2NwY2M0cHM4?=
+ =?utf-8?B?ZEpPZlNFMGRHUmFCbHRXTzR2WUlyYlVrV2NkTGRTRFN0cldFVGgvQk5nbm9E?=
+ =?utf-8?B?cEdPcTlQa3h0eUZuQmhodDlJZWtoeXpuNzJPVUd4aVdYWHNwRmxYK29wMHBk?=
+ =?utf-8?B?RW1aL3ZQM280bkMvQ2NpOGd0SDJObzlKODN2N2Q1T1JuOVRHdGJneTVPak1m?=
+ =?utf-8?B?Z0RnbDF0WmhoMU9GeHo0REV4Y3FKcEpwNWFFVElZN0xMdGdtbnpxMEI3amFY?=
+ =?utf-8?B?bGpJTUNydkg1eFFEWWErQ2lqYk80VEozM0w0dkR1YTNKZTBrSisyR0Y2MWFN?=
+ =?utf-8?B?c2lIcktNaExWQ2dna1ovVTU4ODRRNXd6V0REMWxaQWZaSVo2MGRaalk0VG51?=
+ =?utf-8?B?bG5tREsvdUs0b0daOWJYSVg5bzV3RTBINHd4SkcyVlJ1YTlFd3BsdnJEanAv?=
+ =?utf-8?B?eE1LVHRad1NLTXNxSGVhYnlkWTVxNTdRdkx5SXd2alJkaTVicGRRSmtKRWs5?=
+ =?utf-8?B?aWU0Q0VXZjNwVGtIaE5IaEY3Q25nYWpVOUdHTXpKZm1VRzBYdUF1b3BXVThl?=
+ =?utf-8?B?ODI1NEp6ZTlaMkNaaHN4M3R2ZkxOMWlBU0pSSkpCVnBZQVlGWWEvYythM3Ri?=
+ =?utf-8?B?V0Q4VEN4VjRsR1lqdG5zbm1xUzFHNGYraDREZm5IUzBKQ1B2a0VHa3AzYjd2?=
+ =?utf-8?B?Qmc9PQ==?=
+X-OriginatorOrg: altera.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 559d73b5-1685-4ff2-7ebf-08ddfd1c69c7
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR03MB5371.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Sep 2025 16:47:43.7839
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: fbd72e03-d4a5-4110-adce-614d51f2077a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: HJh3r3jG6zHA5ckryx7s564Ttf/1rJTnWQHpmF9D7w19iZceN0TUwleA3FqIPg201XRY/YYu2vR4geDdV3SpjkbikAEVhKYDmOsIn8sD+jo=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR03MB7753
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_094335_570940_B33FA655 
-X-CRM114-Status: GOOD (  33.17  )
+X-CRM114-CacheID: sfid-20250926_094752_297923_4BB87284 
+X-CRM114-Status: GOOD (  15.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,193 +194,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Jakub,
 
-
-On 9/25/2025 8:09 PM, Bjorn Helgaas wrote:
-> On Thu, Aug 28, 2025 at 05:39:05PM +0530, Krishna Chaitanya Chundru wrote:
->> TC9563 is a PCIe switch which has one upstream and three downstream
->> ports. To one of the downstream ports integrated ethernet MAC is connected
->> as endpoint device. Other two downstream ports are supposed to connect to
->> external device. One Host can connect to TC9563 by upstream port. TC9563
->> switch needs to be configured after powering on and before the PCIe link
->> was up.
+On 9/26/2025 7:22 AM, Jakub Kicinski wrote:
+> On Thu, 25 Sep 2025 16:33:21 +0530 G Thomas, Rohan wrote:
+>> While testing 802.1AD with XGMAC hardware using a simple ping test, I
+>> observed an unexpected behavior: the hardware appears to insert an
+>> additional 802.1Q CTAG with VLAN ID 0. Despite this, the ping test
+>> functions correctly.
 >>
->> The PCIe controller driver already enables link training at the host side
->> even before this driver probe happens, due to this when driver enables
->> power to the switch it participates in the link training and PCIe link
->> may come up before configuring the switch through i2c. Once the link is
->> up the configuration done through i2c will not have any affect.To prevent
->> the host from participating in link training, disable link training on the
->> host side to ensure the link does not come up before the switch is
->> configured via I2C.
+>> Here’s a snapshot from the pcap captured at the remote end. Outer VLAN
+>> tag used is 100 and inner VLAN tag used is 200.
+>>
+>> Frame 1: 110 bytes on wire (880 bits), 110 bytes captured (880 bits)
+>> Ethernet II, Src: <src> (<src>), Dst: <dst> (<dst>)
+>> IEEE 802.1ad, ID: 100
+>> 802.1Q Virtual LAN, PRI: 0, DEI: 0, ID: 0(unexpected)
+>> 802.1Q Virtual LAN, PRI: 0, DEI: 0, ID: 200
+>> Internet Protocol Version 4, Src: 192.168.4.10, Dst: 192.168.4.11
+>> Internet Control Message Protocol
 > 
-> s/any affect/any effect/
-> s/.To prevent/. To prevent/
-> 
->> Based up on dt property and type of the port, tc9563 is configured
->> through i2c.
-> 
-> s/up on/on/
-> 
-> Pick "i2c" or "I2C" and use it consistently.
-> 
->> +config PCI_PWRCTRL_TC9563
->> +	tristate "PCI Power Control driver for TC9563 PCIe switch"
->> +	select PCI_PWRCTRL
->> +	help
->> +	  Say Y here to enable the PCI Power Control driver of TC9563 PCIe
->> +	  switch.
->> +
->> +	  This driver enables power and configures the TC9563 PCIe switch
->> +	  through i2c.TC9563 is a PCIe switch which has one upstream and three
->> +	  downstream ports. To one of the downstream ports integrated ethernet
->> +	  MAC is connected as endpoint device. Other two downstream ports are
->> +	  supposed to connect to external device.
-> 
-> s/i2c.TC9563/i2c. TC9563/
-> 
->> +static int tc9563_pwrctrl_bring_up(struct tc9563_pwrctrl_ctx *ctx)
->> +{
->> +	struct tc9563_pwrctrl_cfg *cfg;
->> +	int ret, i;
->> +
->> +	ret = regulator_bulk_enable(ARRAY_SIZE(ctx->supplies), ctx->supplies);
->> +	if (ret < 0)
->> +		return dev_err_probe(ctx->pwrctrl.dev, ret, "cannot enable regulators\n");
->> +
->> +	gpiod_set_value(ctx->reset_gpio, 0);
->> +
->> +	 /*
->> +	  * From TC9563 PORSYS rev 0.2, figure 1.1 POR boot sequence
->> +	  * wait for 10ms for the internal osc frequency to stabilize.
->> +	  */
->> +	usleep_range(10000, 10500);
-> 
-> Possible place for fsleep() unless you have a specific reason for the
-> +500us interval?
-> 
->> +static int tc9563_pwrctrl_probe(struct platform_device *pdev)
->> +{
->> +	struct pci_host_bridge *bridge = to_pci_host_bridge(pdev->dev.parent);
->> +	struct pci_dev *pci_dev = to_pci_dev(pdev->dev.parent);
->> +	struct pci_bus *bus = bridge->bus;
->> +	struct device *dev = &pdev->dev;
->> +	enum tc9563_pwrctrl_ports port;
->> +	struct tc9563_pwrctrl_ctx *ctx;
->> +	struct device_node *i2c_node;
->> +	int ret, addr;
->> +
->> +	ctx = devm_kzalloc(dev, sizeof(*ctx), GFP_KERNEL);
->> +	if (!ctx)
->> +		return -ENOMEM;
->> +
->> +	ret = of_property_read_u32_index(pdev->dev.of_node, "i2c-parent", 1, &addr);
->> +	if (ret)
->> +		return dev_err_probe(dev, ret, "Failed to read i2c-parent property\n");
->> +
->> +	i2c_node = of_parse_phandle(dev->of_node, "i2c-parent", 0);
->> +	ctx->adapter = of_find_i2c_adapter_by_node(i2c_node);
->> +	of_node_put(i2c_node);
->> +	if (!ctx->adapter)
->> +		return dev_err_probe(dev, -EPROBE_DEFER, "Failed to find I2C adapter\n");
->> +
->> +	ctx->client = i2c_new_dummy_device(ctx->adapter, addr);
->> +	if (IS_ERR(ctx->client)) {
->> +		dev_err(dev, "Failed to create I2C client\n");
->> +		i2c_put_adapter(ctx->adapter);
->> +		return PTR_ERR(ctx->client);
->> +	}
->> +
->> +	for (int i = 0; i < TC9563_PWRCTL_MAX_SUPPLY; i++)
->> +		ctx->supplies[i].supply = tc9563_supply_names[i];
->> +
->> +	ret = devm_regulator_bulk_get(dev, TC9563_PWRCTL_MAX_SUPPLY, ctx->supplies);
->> +	if (ret) {
->> +		dev_err_probe(dev, ret,
->> +			      "failed to get supply regulator\n");
->> +		goto remove_i2c;
->> +	}
->> +
->> +	ctx->reset_gpio = devm_gpiod_get(dev, "reset", GPIOD_OUT_HIGH);
->> +	if (IS_ERR(ctx->reset_gpio)) {
->> +		ret = dev_err_probe(dev, PTR_ERR(ctx->reset_gpio), "failed to get reset GPIO\n");
->> +		goto remove_i2c;
->> +	}
->> +
->> +	pci_pwrctrl_init(&ctx->pwrctrl, dev);
->> +
->> +	port = TC9563_USP;
->> +	ret = tc9563_pwrctrl_parse_device_dt(ctx, pdev->dev.of_node, port);
->> +	if (ret) {
->> +		dev_err(dev, "failed to parse device tree properties: %d\n", ret);
->> +		goto remove_i2c;
->> +	}
->> +
->> +	/*
->> +	 * Downstream ports are always children of the upstream port.
->> +	 * The first node represents DSP1, the second node represents DSP2, and so on.
->> +	 */
->> +	for_each_child_of_node_scoped(pdev->dev.of_node, child) {
->> +		ret = tc9563_pwrctrl_parse_device_dt(ctx, child, port++);
->> +		if (ret)
->> +			break;
->> +		/* Embedded ethernet device are under DSP3 */
->> +		if (port == TC9563_DSP3)
->> +			for_each_child_of_node_scoped(child, child1) {
->> +				ret = tc9563_pwrctrl_parse_device_dt(ctx, child1, port++);
->> +				if (ret)
->> +					break;
->> +			}
->> +	}
->> +	if (ret) {
->> +		dev_err(dev, "failed to parse device tree properties: %d\n", ret);
->> +		goto remove_i2c;
->> +	}
->> +
->> +	if (!pcie_link_is_active(pci_dev) && bridge->ops->stop_link)
->> +		bridge->ops->stop_link(bus);
-> 
-> Is this pcie_link_is_active() test backwards?  Seems like you would
-> want to stop the link if it *is* active.
-> 
-you are right pci_dev extracted seems wrong and not pointing to root
-port dev, and  returning always zero. It is pointing to pci_dev in host
-bridge which doesn't point root port.
+> And the packet arrives at the driver with only the .1Q ID 200 pushed?
+>
 
-Thanks for pointing this.
+Yes, the packet arrives the driver with only 802.1Q ID.
 
-I will fix it in next version.
-> pcie_link_is_active() is racy, and this looks like a situation where
-> that could be an issue.  Would something break if you omitted the test
-> and *always* stopped and started the link here?
-if we stop the link if the pcie link is active then we might see AER's &
-linkdown.
+[  210.192912] stmmaceth 10830000.ethernet eth0: >>> frame to be 
+transmitted:
+[  210.192917] len = 46 byte, buf addr: 0x0000000067c78222
+[  210.192923] 00000000: xx xx xx xx xx xx xx xx xx xx xx xx 81 00 00 c8
+[  210.192928] 00000010: 08 06 00 01 08 00 06 04 00 02 46 9b 06 1b 5b b6
+[  210.192931] 00000020: c0 a8 04 0a c8 a3 62 0e d7 04 c0 a8 04 0b
+> Indeed, that looks like a problem with the driver+HW interaction.
+> IDK what the right terminology is but IIRC VLAN 0 is not a real VLAN,
+> just an ID reserved for frames that don't have a VLAN ID but want to
+> use the priority field. Which explains why it "works", receiver just
+> ignores that tag. But it's definitely not correct because switches
+> on the network will no see the real C-TAG after the S-TAG is stripped.
 
-- Krishna Chaitanya.
-> 
->> +	ret = tc9563_pwrctrl_bring_up(ctx);
->> +	if (ret)
->> +		goto remove_i2c;
->> +
->> +	if (!pcie_link_is_active(pci_dev) && bridge->ops->start_link) {
->> +		ret = bridge->ops->start_link(bus);
->> +		if (ret)
->> +			goto power_off;
->> +	}
->> +
->> +	ret = devm_pci_pwrctrl_device_set_ready(dev, &ctx->pwrctrl);
->> +	if (ret)
->> +		goto power_off;
->> +
->> +	platform_set_drvdata(pdev, ctx);
->> +
->> +	return 0;
->> +
->> +power_off:
->> +	tc9563_pwrctrl_power_off(ctx);
->> +remove_i2c:
->> +	i2c_unregister_device(ctx->client);
->> +	i2c_put_adapter(ctx->adapter);
->> +	return ret;
->> +}
+Yes, we are trying to figure out the right configuration for the driver
+so that the right tag is inserted by the driver for double and single
+VLANs. Based on the register configuration options for MAC_VLAN_Incl and
+MAC_Inner_VLAN_Incl registers and descriptor configuration options
+available, the hardware may not support simultaneous offloading of STAG
+for 802.1AD double-tagged packets and CTAG for 802.1Q single-tagged
+packets. If that is the case disable STAG insertion offloading may be
+the right approach.
+
+Best Regards,
+Rohan
 
