@@ -4,70 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE0C2CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 21:32:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32B9DCAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 22:20:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kO1m5LqFHJxf8DWdb/7mVe4tFOYj20Dk1WkRKFf112s=; b=mm5gctY04GxlUvQj1eULLSdYQb
-	IrwIYZwtU4kiedETJLoif3R3R0HdKsMnLuGKt6WLrw4al3opCDDk8IIjzQtDvwr3L8DHe+KhLuYTi
-	YXDkYoPMKHYNLZDHAOHv189ehH+2AXPa/DokvNe11f/rbJcyWc5Poah3+AU9BetQCVJmwouoTLbB2
-	/2zDf0R4o8OyC4pY7ZJIkbyJPGhpxXf3jFQ8GExHHldab2bA68mb5tDyokSh3SMAar4dMaXad+KAm
-	ucN1Umqj5tiuiJrbVy+3EB4wa2FpZSVT8LaYpNE36vuNUF/HH7Eou8eQ5pQYKbLUK/ZE18nqFbvyO
-	oAKzg2Zw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NksBILaSkBw9UGEAQRbdCqPJAkRvqdBt4BJqiMaC01k=; b=T0LfZenL6nsPaWMakwmfDjEQDZ
+	6Rwd1HDJ5b96oAcBhhXitErexL/rK2Rqtedc61sGrzzqkxk+0jTi1xVDCrsHayF8FFfIzvoMP8Q8J
+	Tn+SaIxqVLZr5jh+QdEmZvv1EJpECvImwvhkyYUUoF2H0OthMvdl+6q+sWzGvZ+8BfAc5dm1MgJ8y
+	qlIJFOpsfxCtxNKfGzGfDodv0wXxKTiPaa4kWBWzSoXFTJ9ZiXTvOqh2Hwkh6tsyoR3djtjSxKdwm
+	NDAm8Em98hoEYklVP1upfuEsX7+GwkpBXSq3pSRaOYxhAqBDZNaRHHrBq8St3t8InpSXtKeAh0/cH
+	gTVK7mPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2G2z-00000004hH1-3uvj;
-	Fri, 26 Sep 2025 21:32:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v2Gno-00000004yCG-2NUT;
+	Fri, 26 Sep 2025 22:20:32 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2G2x-00000004hEe-1lAc;
-	Fri, 26 Sep 2025 21:32:08 +0000
+	id 1v2Gnm-00000004yBC-2Xco
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 26 Sep 2025 22:20:31 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D6E9C45A26;
-	Fri, 26 Sep 2025 21:32:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0FA28C4CEF7;
-	Fri, 26 Sep 2025 21:32:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 61DF343FEF;
+	Fri, 26 Sep 2025 22:20:29 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3CCF1C4CEF7;
+	Fri, 26 Sep 2025 22:20:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758922326;
-	bh=s11rU3UFLaS0Sp8EzrbQgKe7uppn0ywvUykAZ5Jlu+o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=KpYdeDfnhMqz1YxGrCTA0V5KRELoLAUV9N8OpcWmOafoCcc2MoUgARxKF4e+LgwYB
-	 bwf8l5nL/62riCbPcp1/3Jg2qR0xVozoaBP7lgUPISAvfDR2qplS0Bsyzth/Rg+sU1
-	 cXfZM3eBYe6rJ5kKYSc7APTXRU+Dnhyj1WAoTvgvEjoG7nKRs4bhVExMyhO0J1s7VB
-	 K6PXj5BZJoLWsY3r/pNNkYyxMUy/javEKi1h0IA/Q6qjYI9OZhzHgefObwy0TB/yyc
-	 h7p+VMuNQgR3oxqKeQ3/Bwc6kgGa2+QxjRmcLxShiJxxmrZaC0A5dpNVc/usPR++dB
-	 5Bvo4nOiPS6yw==
-Date: Fri, 26 Sep 2025 16:32:02 -0500
-From: Rob Herring <robh@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Ryder Lee <ryder.lee@mediatek.com>,
-	Jianjun Wang <jianjun.wang@mediatek.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, upstream@airoha.com
-Subject: Re: [PATCH v3 4/4] PCI: mediatek: add support for Airoha AN7583 SoC
-Message-ID: <20250926213202.GB1573360-robh@kernel.org>
-References: <20250925162332.9794-1-ansuelsmth@gmail.com>
- <20250925162332.9794-5-ansuelsmth@gmail.com>
+	s=k20201202; t=1758925229;
+	bh=Mn3UMaJfnruXtRtYCrhAg9D+oTiCU8m67M2/1hao6II=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=BKRrWxnVjbC9fVex2Q0QqOjaUUpQQZvcOO3sm32kWHQWuUS35HPoCEX/eNSRBoDaP
+	 2PqDTLb3ZPVD/5ulHwbPb2ELHUPoF4YGigYibE+tTVWBXjvHTNz5aRkFbCbyRTBmvM
+	 IhsXIQr0iEj6E5nCEM7uL9uRJ2L9u32HDgr4xz7gLBJVyuvpuxfOnXw+uaQ797Ef/m
+	 ogWWIfVzbDMzUmuY8PVllaGFgt1VBWJlPR9RqYeT3t411LpXUmydMmQ4DuHk7vcL+m
+	 bppaMUvfPn2CArUCuGjaMZTzXC73NG6s46oJ3U0pdpD+gYgGGexg5lmMA+RWpHPUWV
+	 vhfQvpvRDFcKw==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADDFE39D0C3F;
+	Fri, 26 Sep 2025 22:20:25 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250925162332.9794-5-ansuelsmth@gmail.com>
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH v3 0/3] Mainline Protonic PRT8ML board
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <175892522449.77570.18183487624787267544.git-patchwork-notify@kernel.org>
+Date: Fri, 26 Sep 2025 22:20:24 +0000
+References: <20250924-imx8mp-prt8ml-v3-0-f498d7f71a94@pengutronix.de>
+In-Reply-To: <20250924-imx8mp-prt8ml-v3-0-f498d7f71a94@pengutronix.de>
+To: Jonas Rebmann <jre@pengutronix.de>
+Cc: andrew@lunn.ch, olteanv@gmail.com, davem@davemloft.net,
+ edumazet@google.com, kuba@kernel.org, pabeni@redhat.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, lgirdwood@gmail.com,
+ broonie@kernel.org, shengjiu.wang@nxp.com, shawnguo@kernel.org,
+ s.hauer@pengutronix.de, festevam@gmail.com, kernel@pengutronix.de,
+ vladimir.oltean@nxp.com, netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-sound@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, Frank.Li@nxp.com,
+ david@protonic.nl, l.stach@pengutronix.de, o.rempel@pengutronix.de
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_143207_505071_37DC08CD 
-X-CRM114-Status: GOOD (  27.31  )
+X-CRM114-CacheID: sfid-20250926_152030_662726_97D9FAB7 
+X-CRM114-Status: GOOD (  10.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,103 +81,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 25, 2025 at 06:23:18PM +0200, Christian Marangi wrote:
-> Add support for the second PCIe line present on Airoha AN7583 SoC.
+Hello:
+
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
+
+On Wed, 24 Sep 2025 10:34:11 +0200 you wrote:
+> This series adds the Protonic PRT8ML device tree as well as some minor
+> corrections to the devicetree bindings used.
 > 
-> This is based on the Mediatek Gen1/2 PCIe driver and similar to Gen3
-> also require workaround for the reset signals.
-> 
-> Introduce a new bool to skip having to reset signals and also introduce
-> some additional logic to configure the PBUS registers required for
-> Airoha SoC.
-> 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> Signed-off-by: Jonas Rebmann <jre@pengutronix.de>
 > ---
->  drivers/pci/controller/pcie-mediatek.c | 85 +++++++++++++++++++-------
->  1 file changed, 63 insertions(+), 22 deletions(-)
+> Changes in v3:
+> - Add comment on the intentional limitation to 100Mbps RGMII
+> - Link to v2: https://lore.kernel.org/r/20250918-imx8mp-prt8ml-v2-0-3d84b4fe53de@pengutronix.de
 > 
-> diff --git a/drivers/pci/controller/pcie-mediatek.c b/drivers/pci/controller/pcie-mediatek.c
-> index 24cc30a2ab6c..640d1f1a6478 100644
-> --- a/drivers/pci/controller/pcie-mediatek.c
-> +++ b/drivers/pci/controller/pcie-mediatek.c
-> @@ -147,6 +147,7 @@ struct mtk_pcie_port;
->   * @need_fix_class_id: whether this host's class ID needed to be fixed or not
->   * @need_fix_device_id: whether this host's device ID needed to be fixed or not
->   * @no_msi: Bridge has no MSI support, and relies on an external block
-> + * @skip_pcie_rstb: Skip calling RSTB bits on PCIe probe
->   * @device_id: device ID which this host need to be fixed
->   * @ops: pointer to configuration access functions
->   * @startup: pointer to controller setting functions
-> @@ -156,6 +157,7 @@ struct mtk_pcie_soc {
->  	bool need_fix_class_id;
->  	bool need_fix_device_id;
->  	bool no_msi;
-> +	bool skip_pcie_rstb;
->  	unsigned int device_id;
->  	struct pci_ops *ops;
->  	int (*startup)(struct mtk_pcie_port *port);
-> @@ -679,28 +681,30 @@ static int mtk_pcie_startup_port_v2(struct mtk_pcie_port *port)
->  		regmap_update_bits(pcie->cfg, PCIE_SYS_CFG_V2, val, val);
->  	}
->  
-> -	/* Assert all reset signals */
-> -	writel(0, port->base + PCIE_RST_CTRL);
-> -
-> -	/*
-> -	 * Enable PCIe link down reset, if link status changed from link up to
-> -	 * link down, this will reset MAC control registers and configuration
-> -	 * space.
-> -	 */
-> -	writel(PCIE_LINKDOWN_RST_EN, port->base + PCIE_RST_CTRL);
-> -
-> -	/*
-> -	 * Described in PCIe CEM specification sections 2.2 (PERST# Signal) and
-> -	 * 2.2.1 (Initial Power-Up (G3 to S0)). The deassertion of PERST# should
-> -	 * be delayed 100ms (TPVPERL) for the power and clock to become stable.
-> -	 */
-> -	msleep(100);
-> -
-> -	/* De-assert PHY, PE, PIPE, MAC and configuration reset	*/
-> -	val = readl(port->base + PCIE_RST_CTRL);
-> -	val |= PCIE_PHY_RSTB | PCIE_PERSTB | PCIE_PIPE_SRSTB |
-> -	       PCIE_MAC_SRSTB | PCIE_CRSTB;
-> -	writel(val, port->base + PCIE_RST_CTRL);
-> +	if (!soc->skip_pcie_rstb) {
-> +		/* Assert all reset signals */
-> +		writel(0, port->base + PCIE_RST_CTRL);
-> +
-> +		/*
-> +		 * Enable PCIe link down reset, if link status changed from link up to
-> +		 * link down, this will reset MAC control registers and configuration
-> +		 * space.
-> +		 */
-> +		writel(PCIE_LINKDOWN_RST_EN, port->base + PCIE_RST_CTRL);
-> +
-> +		/*
-> +		 * Described in PCIe CEM specification sections 2.2 (PERST# Signal) and
-> +		 * 2.2.1 (Initial Power-Up (G3 to S0)). The deassertion of PERST# should
-> +		 * be delayed 100ms (TPVPERL) for the power and clock to become stable.
-> +		 */
-> +		msleep(100);
-> +
-> +		/* De-assert PHY, PE, PIPE, MAC and configuration reset	*/
-> +		val = readl(port->base + PCIE_RST_CTRL);
-> +		val |= PCIE_PHY_RSTB | PCIE_PERSTB | PCIE_PIPE_SRSTB |
-> +		       PCIE_MAC_SRSTB | PCIE_CRSTB;
-> +		writel(val, port->base + PCIE_RST_CTRL);
-> +	}
->  
->  	/* Set up vendor ID and class code */
->  	if (soc->need_fix_class_id) {
-> @@ -1105,6 +1109,33 @@ static int mtk_pcie_probe(struct platform_device *pdev)
->  	if (err)
->  		goto put_resources;
->  
-> +	if (device_is_compatible(dev, "airoha,an7583-pcie")) {
+> [...]
 
-This should check some match data flag rather than checking compatible 
-again. Otherwise this becomes device_is_compatible() || 
-device_is_compatible() || device_is_compatible()...
+Here is the summary with links:
+  - [v3,1/3] dt-bindings: net: dsa: nxp,sja1105: Add reset-gpios property
+    https://git.kernel.org/netdev/net-next/c/8d5868f8c1b2
+  - [v3,2/3] dt-bindings: arm: fsl: Add Protonic PRT8ML
+    (no matching commit)
+  - [v3,3/3] arm64: dts: add Protonic PRT8ML board
+    (no matching commit)
 
-Rob
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
