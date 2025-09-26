@@ -4,66 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2901CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 21:15:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6416CAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 21:26:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yeliLO8ZX90mVaMXxxRnYo//0RR0ygnkpRiTVxlGOsI=; b=dFxm8DtUAgm5A1VjdQMR+ImpHc
-	dzAn7KOkB67nkOCu/zVobxlHxNFXHzG9a7V0YUzHTluigXs79UMDeqXbEVIdoY9WRK5jjShGTISQZ
-	yriL7xixtwlTEUpf0fT8cQfLAIxmLWtUcn8ndIRiHJURc+XO3rhZeHP1J1T13hyfiqQlgwYt5z9tP
-	rqErrN/dEUNPnb5SKIAFMlGKQhQW9qReTU9mKINJMoYiqa2+mhAbLXGp5DuPrJAihUUMhbwPnpRe5
-	G71SI2NVzi9frkFvi27jAMU1aSAmEb92koF8nw+TZQK+G3KD4IUW1F05r28Q19y3gp8sE4uplfd3H
-	++CDd3wA==;
+	bh=B6eaVQVKSw6AIwR1cEDy3fZbobDbXqGxXRqEl6LACFw=; b=Sf8Rxz3emVEYiUDiYkwwKIKuex
+	Uk+KL9+1t2pxY6hf8V5HGDVb+1VtC6gu6HxXy7FAEGiKqYYsRG7ky59VLMJzAy1t8S2MZYElpVPpZ
+	mLqQ5pxDTFzi8MeXbNEUiGWFuGHy3ofgnyR9/49Uv4R5FCHoR3/dbXq2Htd0VIFbJGH1W9M5jT1dX
+	DITm0OoYuD3STwYdJYnhIbMMBbWBhFxKKNByCq2p1Z1vgXBm9sUMQ3Q6ujeZelAIUSQuF90IJbWDa
+	9VDYaUyJRlIVa8jtihpifVYJMTt5ffUbK2wcZN62evttKxMICeHD42zBXg45eXYyJWCBvZurnUbeI
+	DApgHO7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2FmM-00000004aKQ-1RBU;
-	Fri, 26 Sep 2025 21:14:58 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v2FxT-00000004ebi-40IF;
+	Fri, 26 Sep 2025 21:26:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2FmL-00000004aJJ-10wd;
-	Fri, 26 Sep 2025 21:14:57 +0000
+	id 1v2FxR-00000004eZf-1AJP;
+	Fri, 26 Sep 2025 21:26:26 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AD73361F79;
-	Fri, 26 Sep 2025 21:14:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A175C4CEF4;
-	Fri, 26 Sep 2025 21:14:55 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 8A7F74375A;
+	Fri, 26 Sep 2025 21:26:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB906C4CEF4;
+	Fri, 26 Sep 2025 21:26:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758921296;
-	bh=WEqmaCU0BUDs5OjoAtWYAf0UL/AzG1dPeDjq72rC0sQ=;
+	s=k20201202; t=1758921984;
+	bh=rc40FMK/iH3e7zWd+KjxdrxDzdXmnXRX3uILrqZMdes=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=XE4nCsRfeX1KRU9BbescvWUhEXzKjBfCTlQiq6RXU4SjCmO+CQ6EG7NOgkP2TF+fw
-	 jsFFtzi37veH+wot+rXL5XNBcur565rL2r2nuiOEZXPduUvMNBslnqnrg0jC2sK9y1
-	 auFrD1H9xCn/yrjBF5+c8a1lD8q6Kdozz+bu7kTuEZzg0lyoG7lmCWM+xkjh43xfkv
-	 dvT2YloG43TShqbBJ22bTVF9QQRZkvYgx3l/gK3C74JvpJ8MmpulthRWQw7C69m3Es
-	 j6EdGhc1d0p5ViH3czbtK09JFZN86sCYAupvTSlyYHoKGNdUQubXwgDO7voiOqqvtl
-	 cfXXFL6YjDb7A==
-Date: Fri, 26 Sep 2025 16:14:54 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
+	b=rKr/yStdG0HH9zTUKLSsq5vxa7EbZc/VXyqHeAa+whlTELJrCYjoLK+3/Z/a8BvFZ
+	 VnVOQP/uM9UBqAL8pODw276Kk88v31zYcpTPjVGo0gX1006BDFV9yPojl2f8vwfb0c
+	 26adgO1qivhwGh5QXCIz1r6CBySy5nMSpPC2ZZsUDJ7s1Xo6xK45IS5fc4Iv2YZAR0
+	 xnbsxf9L/eQGxfmUzDsZ3opgpb/usSGqnu458wekWhkLwvt6l7d7jjtsfZDEXfndh7
+	 GfEaqwNRZhCTYE6AU6wt5IaRYjWiL42uhc19avLSYNyjIC6uC66nH/I3aKKFlmN8mP
+	 F1a+qNF3dVEYA==
+Date: Fri, 26 Sep 2025 16:26:12 -0500
+From: Rob Herring <robh@kernel.org>
 To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Jianjun Wang <jianjun.wang@mediatek.com>,
-	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+Cc: Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
 	Matthias Brugger <matthias.bgg@gmail.com>,
 	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>, linux-pci@vger.kernel.org,
-	Bjorn Helgaas <bhelgaas@google.com>, upstream@airoha.com,
-	Ryder Lee <ryder.lee@mediatek.com>, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>
-Subject: Re: [PATCH v3 1/2] dt-bindings: PCI: mediatek-gen3: Add support for
- Airoha AN7583
-Message-ID: <175892129219.1571962.13823264512166648033.robh@kernel.org>
-References: <20250925155330.6779-1-ansuelsmth@gmail.com>
+	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, upstream@airoha.com
+Subject: Re: [PATCH v3 2/4] dt-bindings: PCI: mediatek: Convert to YAML schema
+Message-ID: <20250926212612.GA1573360-robh@kernel.org>
+References: <20250925162332.9794-1-ansuelsmth@gmail.com>
+ <20250925162332.9794-3-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250925155330.6779-1-ansuelsmth@gmail.com>
+In-Reply-To: <20250925162332.9794-3-ansuelsmth@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250926_142625_373074_BDD65524 
+X-CRM114-Status: GOOD (  31.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,31 +82,936 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Thu, 25 Sep 2025 17:53:08 +0200, Christian Marangi wrote:
-> Introduce Airoha AN7583 SoC compatible in mediatek-gen3 PCIe controller
-> binding.
+On Thu, Sep 25, 2025 at 06:23:16PM +0200, Christian Marangi wrote:
+> Convert the PCI mediatek Documentation to YAML schema to enable
+> validation of the supported GEN1/2 Mediatek PCIe controller.
 > 
-> This differ from the Airoha EN7581 SoC by the fact that only one Gen3
-> PCIe controller is present on the SoC.
+> While converting, lots of cleanup were done from the .txt with better
+> specifying what is supported by the various PCIe controller variant and
+> drop of redundant info that are part of the standard PCIe Host Bridge
+> schema.
 > 
-> The compatible have -gen3 tag as the Airoha AN7583 SoC have both GEN2
-> and GEN3 PCIe controller and it's required to differentiate them as
-> different schema are required for the 2 PCIe Controller variant.
+> To reduce schema complexity the .txt is split in 2 YAML, one for
+> mt7623/mt2701 and the other for every other compatible.
 > 
 > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 > ---
-> Changes v3:
-> - Add review tag
-> - Add comments for compatible inconsistency
-> Changes v2:
-> - Fix alphabetical order
+>  .../bindings/pci/mediatek-pcie-mt7623.yaml    | 173 ++++++++
+>  .../devicetree/bindings/pci/mediatek-pcie.txt | 289 -------------
+>  .../bindings/pci/mediatek-pcie.yaml           | 404 ++++++++++++++++++
+>  3 files changed, 577 insertions(+), 289 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/pci/mediatek-pcie-mt7623.yaml
+>  delete mode 100644 Documentation/devicetree/bindings/pci/mediatek-pcie.txt
+>  create mode 100644 Documentation/devicetree/bindings/pci/mediatek-pcie.yaml
 > 
->  .../bindings/pci/mediatek-pcie-gen3.yaml      | 21 +++++++++++++++++++
->  1 file changed, 21 insertions(+)
+> diff --git a/Documentation/devicetree/bindings/pci/mediatek-pcie-mt7623.yaml b/Documentation/devicetree/bindings/pci/mediatek-pcie-mt7623.yaml
+> new file mode 100644
+> index 000000000000..2f201c84e29a
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pci/mediatek-pcie-mt7623.yaml
+> @@ -0,0 +1,173 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pci/mediatek-pcie-mt7623.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: PCIe controller on MediaTek SoCs
+> +
+> +maintainers:
+> +  - Christian Marangi <ansuelsmth@gmail.com>
+> +
+> +properties:
+> +  compatible:
+> +    enum:
+> +      - mediatek,mt2701-pcie
+> +      - mediatek,mt7623-pcie
+> +
+> +  reg:
+> +    minItems: 4
+> +    maxItems: 4
+> +
+> +  reg-names:
+> +    items:
+> +      - const: subsys
+> +      - const: port0
+> +      - const: port1
+> +      - const: port2
+> +
+> +  clocks:
+> +    minItems: 4
+> +    maxItems: 4
+> +
+> +  clock-names:
+> +    items:
+> +      - const: free_ck
+> +      - const: sys_ck0
+> +      - const: sys_ck1
+> +      - const: sys_ck2
+> +
+> +  resets:
+> +    minItems: 3
+> +    maxItems: 3
+> +
+> +  reset-names:
+> +    items:
+> +      - const: pcie-rst0
+> +      - const: pcie-rst1
+> +      - const: pcie-rst2
+> +
+> +  phys:
+> +    minItems: 3
+> +    maxItems: 3
+> +
+> +  phy-names:
+> +    items:
+> +      - const: pcie-phy0
+> +      - const: pcie-phy1
+> +      - const: pcie-phy2
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - reg-names
+> +  - ranges
+> +  - clocks
+> +  - clock-names
+> +  - '#interrupt-cells'
+> +  - resets
+> +  - reset-names
+> +  - phys
+> +  - phy-names
+> +  - power-domains
+> +  - pcie@0,0
+> +  - pcie@1,0
+> +  - pcie@2,0
+> +
+> +allOf:
+> +  - $ref: /schemas/pci/pci-host-bridge.yaml#
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  # MT7623
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +    #include <dt-bindings/clock/mt2701-clk.h>
+> +    #include <dt-bindings/reset/mt2701-resets.h>
+> +    #include <dt-bindings/phy/phy.h>
+> +    #include <dt-bindings/power/mt2701-power.h>
+> +
+> +    soc {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +
+> +        hifsys: syscon@1a000000 {
+> +            compatible = "mediatek,mt7623-hifsys",
+> +                        "mediatek,mt2701-hifsys",
+> +                        "syscon";
+> +            reg = <0 0x1a000000 0 0x1000>;
+> +            #clock-cells = <1>;
+> +            #reset-cells = <1>;
+> +        };
+
+Drop this node. It's not part of this schema.
+
+> +
+> +        pcie@1a140000 {
+> +            compatible = "mediatek,mt7623-pcie";
+> +            device_type = "pci";
+> +            reg = <0 0x1a140000 0 0x1000>, /* PCIe shared registers */
+> +                  <0 0x1a142000 0 0x1000>, /* Port0 registers */
+> +                  <0 0x1a143000 0 0x1000>, /* Port1 registers */
+> +                  <0 0x1a144000 0 0x1000>; /* Port2 registers */
+> +            reg-names = "subsys", "port0", "port1", "port2";
+> +            #address-cells = <3>;
+> +            #size-cells = <2>;
+> +            #interrupt-cells = <1>;
+> +            interrupt-map-mask = <0xf800 0 0 0>;
+> +            interrupt-map = <0x0000 0 0 0 &sysirq GIC_SPI 193 IRQ_TYPE_LEVEL_LOW>,
+> +                            <0x0800 0 0 0 &sysirq GIC_SPI 194 IRQ_TYPE_LEVEL_LOW>,
+> +                            <0x1000 0 0 0 &sysirq GIC_SPI 195 IRQ_TYPE_LEVEL_LOW>;
+> +            clocks = <&topckgen CLK_TOP_ETHIF_SEL>,
+> +                    <&hifsys CLK_HIFSYS_PCIE0>,
+> +                    <&hifsys CLK_HIFSYS_PCIE1>,
+> +                    <&hifsys CLK_HIFSYS_PCIE2>;
+> +            clock-names = "free_ck", "sys_ck0", "sys_ck1", "sys_ck2";
+> +            resets = <&hifsys MT2701_HIFSYS_PCIE0_RST>,
+> +                     <&hifsys MT2701_HIFSYS_PCIE1_RST>,
+> +                     <&hifsys MT2701_HIFSYS_PCIE2_RST>;
+> +            reset-names = "pcie-rst0", "pcie-rst1", "pcie-rst2";
+> +            phys = <&pcie0_phy PHY_TYPE_PCIE>, <&pcie1_phy PHY_TYPE_PCIE>,
+> +                   <&pcie2_phy PHY_TYPE_PCIE>;
+> +            phy-names = "pcie-phy0", "pcie-phy1", "pcie-phy2";
+> +            power-domains = <&scpsys MT2701_POWER_DOMAIN_HIF>;
+> +            bus-range = <0x00 0xff>;
+> +            ranges = <0x81000000 0 0x1a160000 0 0x1a160000 0 0x00010000	/* I/O space */
+> +                      0x83000000 0 0x60000000 0 0x60000000 0 0x10000000>;	/* memory space */
+
+Use <> on each entry.
+
+> +
+> +            pcie@0,0 {
+> +                device_type = "pci";
+> +                reg = <0x0000 0 0 0 0>;
+> +                #address-cells = <3>;
+> +                #size-cells = <2>;
+> +                #interrupt-cells = <1>;
+> +                interrupt-map-mask = <0 0 0 0>;
+> +                interrupt-map = <0 0 0 0 &sysirq GIC_SPI 193 IRQ_TYPE_LEVEL_LOW>;
+> +                ranges;
+> +            };
+> +
+> +            pcie@1,0 {
+> +                device_type = "pci";
+> +                reg = <0x0800 0 0 0 0>;
+> +                #address-cells = <3>;
+> +                #size-cells = <2>;
+> +                #interrupt-cells = <1>;
+> +                interrupt-map-mask = <0 0 0 0>;
+> +                interrupt-map = <0 0 0 0 &sysirq GIC_SPI 194 IRQ_TYPE_LEVEL_LOW>;
+> +                ranges;
+> +            };
+> +
+> +            pcie@2,0 {
+> +                device_type = "pci";
+> +                reg = <0x1000 0 0 0 0>;
+> +                #address-cells = <3>;
+> +                #size-cells = <2>;
+> +                #interrupt-cells = <1>;
+> +                interrupt-map-mask = <0 0 0 0>;
+> +                interrupt-map = <0 0 0 0 &sysirq GIC_SPI 195 IRQ_TYPE_LEVEL_LOW>;
+> +                ranges;
+> +            };
+> +        };
+> +    };
+> diff --git a/Documentation/devicetree/bindings/pci/mediatek-pcie.txt b/Documentation/devicetree/bindings/pci/mediatek-pcie.txt
+> deleted file mode 100644
+> index 684227522267..000000000000
+> --- a/Documentation/devicetree/bindings/pci/mediatek-pcie.txt
+> +++ /dev/null
+> @@ -1,289 +0,0 @@
+> -MediaTek Gen2 PCIe controller
+> -
+> -Required properties:
+> -- compatible: Should contain one of the following strings:
+> -	"mediatek,mt2701-pcie"
+> -	"mediatek,mt2712-pcie"
+> -	"mediatek,mt7622-pcie"
+> -	"mediatek,mt7623-pcie"
+> -	"mediatek,mt7629-pcie"
+> -	"airoha,en7523-pcie"
+> -- device_type: Must be "pci"
+> -- reg: Base addresses and lengths of the root ports.
+> -- reg-names: Names of the above areas to use during resource lookup.
+> -- #address-cells: Address representation for root ports (must be 3)
+> -- #size-cells: Size representation for root ports (must be 2)
+> -- clocks: Must contain an entry for each entry in clock-names.
+> -  See ../clocks/clock-bindings.txt for details.
+> -- clock-names:
+> -  Mandatory entries:
+> -   - sys_ckN :transaction layer and data link layer clock
+> -  Required entries for MT2701/MT7623:
+> -   - free_ck :for reference clock of PCIe subsys
+> -  Required entries for MT2712/MT7622:
+> -   - ahb_ckN :AHB slave interface operating clock for CSR access and RC
+> -	      initiated MMIO access
+> -  Required entries for MT7622:
+> -   - axi_ckN :application layer MMIO channel operating clock
+> -   - aux_ckN :pe2_mac_bridge and pe2_mac_core operating clock when
+> -	      pcie_mac_ck/pcie_pipe_ck is turned off
+> -   - obff_ckN :OBFF functional block operating clock
+> -   - pipe_ckN :LTSSM and PHY/MAC layer operating clock
+> -  where N starting from 0 to one less than the number of root ports.
+> -- phys: List of PHY specifiers (used by generic PHY framework).
+> -- phy-names : Must be "pcie-phy0", "pcie-phy1", "pcie-phyN".. based on the
+> -  number of PHYs as specified in *phys* property.
+> -- power-domains: A phandle and power domain specifier pair to the power domain
+> -  which is responsible for collapsing and restoring power to the peripheral.
+> -- bus-range: Range of bus numbers associated with this controller.
+> -- ranges: Ranges for the PCI memory and I/O regions.
+> -
+> -Required properties for MT7623/MT2701:
+> -- #interrupt-cells: Size representation for interrupts (must be 1)
+> -- interrupt-map-mask and interrupt-map: Standard PCI IRQ mapping properties
+> -  Please refer to the standard PCI bus binding document for a more detailed
+> -  explanation.
+> -- resets: Must contain an entry for each entry in reset-names.
+> -  See ../reset/reset.txt for details.
+> -- reset-names: Must be "pcie-rst0", "pcie-rst1", "pcie-rstN".. based on the
+> -  number of root ports.
+> -
+> -Required properties for MT2712/MT7622/MT7629:
+> --interrupts: A list of interrupt outputs of the controller, must have one
+> -	     entry for each PCIe port
+> -- interrupt-names: Must include the following entries:
+> -	- "pcie_irq": The interrupt that is asserted when an MSI/INTX is received
+> -- linux,pci-domain: PCI domain ID. Should be unique for each host controller
+> -
+> -In addition, the device tree node must have sub-nodes describing each
+> -PCIe port interface, having the following mandatory properties:
+> -
+> -Required properties:
+> -- device_type: Must be "pci"
+> -- reg: Only the first four bytes are used to refer to the correct bus number
+> -  and device number.
+> -- #address-cells: Must be 3
+> -- #size-cells: Must be 2
+> -- #interrupt-cells: Must be 1
+> -- interrupt-map-mask and interrupt-map: Standard PCI IRQ mapping properties
+> -  Please refer to the standard PCI bus binding document for a more detailed
+> -  explanation.
+> -- ranges: Sub-ranges distributed from the PCIe controller node. An empty
+> -  property is sufficient.
+> -
+> -Examples for MT7623:
+> -
+> -	hifsys: syscon@1a000000 {
+> -		compatible = "mediatek,mt7623-hifsys",
+> -			     "mediatek,mt2701-hifsys",
+> -			     "syscon";
+> -		reg = <0 0x1a000000 0 0x1000>;
+> -		#clock-cells = <1>;
+> -		#reset-cells = <1>;
+> -	};
+> -
+> -	pcie: pcie@1a140000 {
+> -		compatible = "mediatek,mt7623-pcie";
+> -		device_type = "pci";
+> -		reg = <0 0x1a140000 0 0x1000>, /* PCIe shared registers */
+> -		      <0 0x1a142000 0 0x1000>, /* Port0 registers */
+> -		      <0 0x1a143000 0 0x1000>, /* Port1 registers */
+> -		      <0 0x1a144000 0 0x1000>; /* Port2 registers */
+> -		reg-names = "subsys", "port0", "port1", "port2";
+> -		#address-cells = <3>;
+> -		#size-cells = <2>;
+> -		#interrupt-cells = <1>;
+> -		interrupt-map-mask = <0xf800 0 0 0>;
+> -		interrupt-map = <0x0000 0 0 0 &sysirq GIC_SPI 193 IRQ_TYPE_LEVEL_LOW>,
+> -				<0x0800 0 0 0 &sysirq GIC_SPI 194 IRQ_TYPE_LEVEL_LOW>,
+> -				<0x1000 0 0 0 &sysirq GIC_SPI 195 IRQ_TYPE_LEVEL_LOW>;
+> -		clocks = <&topckgen CLK_TOP_ETHIF_SEL>,
+> -			 <&hifsys CLK_HIFSYS_PCIE0>,
+> -			 <&hifsys CLK_HIFSYS_PCIE1>,
+> -			 <&hifsys CLK_HIFSYS_PCIE2>;
+> -		clock-names = "free_ck", "sys_ck0", "sys_ck1", "sys_ck2";
+> -		resets = <&hifsys MT2701_HIFSYS_PCIE0_RST>,
+> -			 <&hifsys MT2701_HIFSYS_PCIE1_RST>,
+> -			 <&hifsys MT2701_HIFSYS_PCIE2_RST>;
+> -		reset-names = "pcie-rst0", "pcie-rst1", "pcie-rst2";
+> -		phys = <&pcie0_phy PHY_TYPE_PCIE>, <&pcie1_phy PHY_TYPE_PCIE>,
+> -		       <&pcie2_phy PHY_TYPE_PCIE>;
+> -		phy-names = "pcie-phy0", "pcie-phy1", "pcie-phy2";
+> -		power-domains = <&scpsys MT2701_POWER_DOMAIN_HIF>;
+> -		bus-range = <0x00 0xff>;
+> -		ranges = <0x81000000 0 0x1a160000 0 0x1a160000 0 0x00010000	/* I/O space */
+> -			  0x83000000 0 0x60000000 0 0x60000000 0 0x10000000>;	/* memory space */
+> -
+> -		pcie@0,0 {
+> -			reg = <0x0000 0 0 0 0>;
+> -			#address-cells = <3>;
+> -			#size-cells = <2>;
+> -			#interrupt-cells = <1>;
+> -			interrupt-map-mask = <0 0 0 0>;
+> -			interrupt-map = <0 0 0 0 &sysirq GIC_SPI 193 IRQ_TYPE_LEVEL_LOW>;
+> -			ranges;
+> -		};
+> -
+> -		pcie@1,0 {
+> -			reg = <0x0800 0 0 0 0>;
+> -			#address-cells = <3>;
+> -			#size-cells = <2>;
+> -			#interrupt-cells = <1>;
+> -			interrupt-map-mask = <0 0 0 0>;
+> -			interrupt-map = <0 0 0 0 &sysirq GIC_SPI 194 IRQ_TYPE_LEVEL_LOW>;
+> -			ranges;
+> -		};
+> -
+> -		pcie@2,0 {
+> -			reg = <0x1000 0 0 0 0>;
+> -			#address-cells = <3>;
+> -			#size-cells = <2>;
+> -			#interrupt-cells = <1>;
+> -			interrupt-map-mask = <0 0 0 0>;
+> -			interrupt-map = <0 0 0 0 &sysirq GIC_SPI 195 IRQ_TYPE_LEVEL_LOW>;
+> -			ranges;
+> -		};
+> -	};
+> -
+> -Examples for MT2712:
+> -
+> -	pcie1: pcie@112ff000 {
+> -		compatible = "mediatek,mt2712-pcie";
+> -		device_type = "pci";
+> -		reg = <0 0x112ff000 0 0x1000>;
+> -		reg-names = "port1";
+> -		linux,pci-domain = <1>;
+> -		#address-cells = <3>;
+> -		#size-cells = <2>;
+> -		interrupts = <GIC_SPI 117 IRQ_TYPE_LEVEL_HIGH>;
+> -		interrupt-names = "pcie_irq";
+> -		clocks = <&topckgen CLK_TOP_PE2_MAC_P1_SEL>,
+> -			 <&pericfg CLK_PERI_PCIE1>;
+> -		clock-names = "sys_ck1", "ahb_ck1";
+> -		phys = <&u3port1 PHY_TYPE_PCIE>;
+> -		phy-names = "pcie-phy1";
+> -		bus-range = <0x00 0xff>;
+> -		ranges = <0x82000000 0 0x11400000  0x0 0x11400000  0 0x300000>;
+> -		status = "disabled";
+> -
+> -		#interrupt-cells = <1>;
+> -		interrupt-map-mask = <0 0 0 7>;
+> -		interrupt-map = <0 0 0 1 &pcie_intc1 0>,
+> -				<0 0 0 2 &pcie_intc1 1>,
+> -				<0 0 0 3 &pcie_intc1 2>,
+> -				<0 0 0 4 &pcie_intc1 3>;
+> -		pcie_intc1: interrupt-controller {
+> -			interrupt-controller;
+> -			#address-cells = <0>;
+> -			#interrupt-cells = <1>;
+> -		};
+> -	};
+> -
+> -	pcie0: pcie@11700000 {
+> -		compatible = "mediatek,mt2712-pcie";
+> -		device_type = "pci";
+> -		reg = <0 0x11700000 0 0x1000>;
+> -		reg-names = "port0";
+> -		linux,pci-domain = <0>;
+> -		#address-cells = <3>;
+> -		#size-cells = <2>;
+> -		interrupts = <GIC_SPI 115 IRQ_TYPE_LEVEL_HIGH>;
+> -		interrupt-names = "pcie_irq";
+> -		clocks = <&topckgen CLK_TOP_PE2_MAC_P0_SEL>,
+> -			 <&pericfg CLK_PERI_PCIE0>;
+> -		clock-names = "sys_ck0", "ahb_ck0";
+> -		phys = <&u3port0 PHY_TYPE_PCIE>;
+> -		phy-names = "pcie-phy0";
+> -		bus-range = <0x00 0xff>;
+> -		ranges = <0x82000000 0 0x20000000 0x0 0x20000000 0 0x10000000>;
+> -		status = "disabled";
+> -
+> -		#interrupt-cells = <1>;
+> -		interrupt-map-mask = <0 0 0 7>;
+> -		interrupt-map = <0 0 0 1 &pcie_intc0 0>,
+> -				<0 0 0 2 &pcie_intc0 1>,
+> -				<0 0 0 3 &pcie_intc0 2>,
+> -				<0 0 0 4 &pcie_intc0 3>;
+> -		pcie_intc0: interrupt-controller {
+> -			interrupt-controller;
+> -			#address-cells = <0>;
+> -			#interrupt-cells = <1>;
+> -		};
+> -	};
+> -
+> -Examples for MT7622:
+> -
+> -	pcie0: pcie@1a143000 {
+> -		compatible = "mediatek,mt7622-pcie";
+> -		device_type = "pci";
+> -		reg = <0 0x1a143000 0 0x1000>;
+> -		reg-names = "port0";
+> -		linux,pci-domain = <0>;
+> -		#address-cells = <3>;
+> -		#size-cells = <2>;
+> -		interrupts = <GIC_SPI 228 IRQ_TYPE_LEVEL_LOW>;
+> -		interrupt-names = "pcie_irq";
+> -		clocks = <&pciesys CLK_PCIE_P0_MAC_EN>,
+> -			 <&pciesys CLK_PCIE_P0_AHB_EN>,
+> -			 <&pciesys CLK_PCIE_P0_AUX_EN>,
+> -			 <&pciesys CLK_PCIE_P0_AXI_EN>,
+> -			 <&pciesys CLK_PCIE_P0_OBFF_EN>,
+> -			 <&pciesys CLK_PCIE_P0_PIPE_EN>;
+> -		clock-names = "sys_ck0", "ahb_ck0", "aux_ck0",
+> -			      "axi_ck0", "obff_ck0", "pipe_ck0";
+> -
+> -		power-domains = <&scpsys MT7622_POWER_DOMAIN_HIF0>;
+> -		bus-range = <0x00 0xff>;
+> -		ranges = <0x82000000 0 0x20000000  0x0 0x20000000  0 0x8000000>;
+> -		status = "disabled";
+> -
+> -		#interrupt-cells = <1>;
+> -		interrupt-map-mask = <0 0 0 7>;
+> -		interrupt-map = <0 0 0 1 &pcie_intc0 0>,
+> -				<0 0 0 2 &pcie_intc0 1>,
+> -				<0 0 0 3 &pcie_intc0 2>,
+> -				<0 0 0 4 &pcie_intc0 3>;
+> -		pcie_intc0: interrupt-controller {
+> -			interrupt-controller;
+> -			#address-cells = <0>;
+> -			#interrupt-cells = <1>;
+> -		};
+> -	};
+> -
+> -	pcie1: pcie@1a145000 {
+> -		compatible = "mediatek,mt7622-pcie";
+> -		device_type = "pci";
+> -		reg = <0 0x1a145000 0 0x1000>;
+> -		reg-names = "port1";
+> -		linux,pci-domain = <1>;
+> -		#address-cells = <3>;
+> -		#size-cells = <2>;
+> -		interrupts = <GIC_SPI 229 IRQ_TYPE_LEVEL_LOW>;
+> -		interrupt-names = "pcie_irq";
+> -		clocks = <&pciesys CLK_PCIE_P1_MAC_EN>,
+> -			 /* designer has connect RC1 with p0_ahb clock */
+> -			 <&pciesys CLK_PCIE_P0_AHB_EN>,
+> -			 <&pciesys CLK_PCIE_P1_AUX_EN>,
+> -			 <&pciesys CLK_PCIE_P1_AXI_EN>,
+> -			 <&pciesys CLK_PCIE_P1_OBFF_EN>,
+> -			 <&pciesys CLK_PCIE_P1_PIPE_EN>;
+> -		clock-names = "sys_ck1", "ahb_ck1", "aux_ck1",
+> -			      "axi_ck1", "obff_ck1", "pipe_ck1";
+> -
+> -		power-domains = <&scpsys MT7622_POWER_DOMAIN_HIF0>;
+> -		bus-range = <0x00 0xff>;
+> -		ranges = <0x82000000 0 0x28000000  0x0 0x28000000  0 0x8000000>;
+> -		status = "disabled";
+> -
+> -		#interrupt-cells = <1>;
+> -		interrupt-map-mask = <0 0 0 7>;
+> -		interrupt-map = <0 0 0 1 &pcie_intc1 0>,
+> -				<0 0 0 2 &pcie_intc1 1>,
+> -				<0 0 0 3 &pcie_intc1 2>,
+> -				<0 0 0 4 &pcie_intc1 3>;
+> -		pcie_intc1: interrupt-controller {
+> -			interrupt-controller;
+> -			#address-cells = <0>;
+> -			#interrupt-cells = <1>;
+> -		};
+> -	};
+> diff --git a/Documentation/devicetree/bindings/pci/mediatek-pcie.yaml b/Documentation/devicetree/bindings/pci/mediatek-pcie.yaml
+> new file mode 100644
+> index 000000000000..e3afedb77a01
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/pci/mediatek-pcie.yaml
+> @@ -0,0 +1,404 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/pci/mediatek-pcie.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: PCIe controller on MediaTek SoCs
+> +
+> +maintainers:
+> +  - Christian Marangi <ansuelsmth@gmail.com>
+> +
+> +properties:
+> +  compatible:
+> +    oneOf:
+> +      - enum:
+> +          - mediatek,mt2712-pcie
+> +          - mediatek,mt7622-pcie
+> +          - mediatek,mt7629-pcie
+> +      - items:
+> +          - const: airoha,en7523-pcie
+> +          - const: mediatek,mt7622-pcie
+> +
+> +  reg:
+> +    minItems: 1
+> +    maxItems: 4
+> +
+> +  reg-names:
+> +    minItems: 1
+> +    maxItems: 4
+
+Looks to me like max is 1 entry which is either port0 or port1.
+
+> +
+> +  clocks:
+> +    minItems: 1
+> +    maxItems: 6
+> +
+> +  clock-names:
+> +    minItems: 1
+> +    maxItems: 6
+> +
+> +  interrupts:
+> +    maxItems: 1
+> +
+> +  interrupt-names:
+> +    const: pcie_irq
+> +
+> +  resets:
+> +    minItems: 1
+> +    maxItems: 3
+> +
+> +  reset-names:
+> +    minItems: 1
+> +    maxItems: 3
+> +
+> +  phys:
+> +    minItems: 1
+> +    maxItems: 3
+> +
+> +  phy-names:
+> +    minItems: 1
+> +    maxItems: 3
+
+Isn't the max 1?
+
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  '#interrupt-cells':
+> +    const: 1
+> +
+> +  interrupt-controller:
+> +    description: Interrupt controller node for handling legacy PCI interrupts.
+> +    type: object
+> +    properties:
+> +      '#address-cells':
+> +        const: 0
+> +      '#interrupt-cells':
+> +        const: 1
+> +      interrupt-controller: true
+> +
+> +    required:
+> +      - '#address-cells'
+> +      - '#interrupt-cells'
+> +      - interrupt-controller
+> +
+> +    additionalProperties: false
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - reg-names
+> +  - ranges
+> +  - clocks
+> +  - clock-names
+> +  - '#interrupt-cells'
+> +  - interrupts
+> +  - interrupt-names
+> +  - interrupt-controller
+> +
+> +allOf:
+> +  - $ref: /schemas/pci/pci-host-bridge.yaml#
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          const: mediatek,mt2712-pcie
+> +    then:
+> +      properties:
+> +        reg:
+> +          maxItems: 1
+> +
+> +        reg-names:
+> +          items:
+> +            - enum: [ port0, port1 ]
+
+The point of spliting this into 2 schemas was to reduce or get rid of 
+all the if/then schemas.
+
+> +
+> +        clocks:
+> +          minItems: 2
+> +          maxItems: 2
+> +
+> +        clock-names:
+> +          items:
+> +            - enum: [ sys_ck0, sys_ck1 ]
+> +            - enum: [ ahb_ck0, ahb_ck1 ]
+> +
+> +        reset: false
+> +
+> +        reset-names: false
+> +
+> +        phys:
+> +          maxItems: 1
+> +
+> +        phy-names:
+> +          items:
+> +            - enum: [ pcie-phy0, pcie-phy1 ]
+
+This goes in the top-level.
+
+> +
+> +        power-domains: false
+> +
+> +      required:
+> +        - phys
+> +        - phy-names
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          const: mediatek,mt7622-pcie
+> +    then:
+> +      properties:
+> +        reg:
+> +          maxItems: 1
+> +
+> +        reg-names:
+> +          items:
+> +            - enum: [ port0, port1 ]
+> +
+> +        clocks:
+> +          minItems: 6
+> +          maxItems: 6
+> +
+> +        clock-names:
+> +          items:
+> +            - enum: [ sys_ck0, sys_ck1 ]
+> +            - enum: [ ahb_ck0, ahb_ck1 ]
+> +            - enum: [ aux_ck0, aux_ck1 ]
+> +            - enum: [ axi_ck0, axi_ck1 ]
+> +            - enum: [ obff_ck0, obff_ck1 ]
+> +            - enum: [ pipe_ck0, pipe_ck1 ]
+
+Move this list to the top level and this should only be 'minItems: 6' 
+here.
+
+> +
+> +        reset: false
+> +
+> +        reset-names: false
+> +
+> +        phys: false
+> +
+> +        phy-names: false
+> +
+> +      required:
+> +        - power-domains
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          const: mediatek,mt7629-pcie
+> +    then:
+> +      properties:
+> +        reg:
+> +          maxItems: 1
+> +
+> +        reg-names:
+> +          items:
+> +            - enum: [ port0, port1 ]
+> +
+> +        clocks:
+> +          minItems: 6
+> +          maxItems: 6
+> +
+> +        clock-names:
+> +          items:
+> +            - enum: [ sys_ck0, sys_ck1 ]
+> +            - enum: [ ahb_ck0, ahb_ck1 ]
+> +            - enum: [ aux_ck0, aux_ck1 ]
+> +            - enum: [ axi_ck0, axi_ck1 ]
+> +            - enum: [ obff_ck0, obff_ck1 ]
+> +            - enum: [ pipe_ck0, pipe_ck1 ]
+> +
+> +        reset: false
+> +
+> +        reset-names: false
+> +
+> +        phys:
+> +          maxItems: 1
+> +
+> +        phy-names:
+> +          items:
+> +            - enum: [ pcie-phy0, pcie-phy1 ]
+> +
+> +      required:
+> +        - power-domains
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: airoha,en7523-pcie
+> +    then:
+> +      properties:
+> +        reg:
+> +          maxItems: 1
+> +
+> +        reg-names:
+> +          items:
+> +            - enum: [ port0, port1 ]
+> +
+> +        clocks:
+> +          maxItems: 1
+> +
+> +        clock-names:
+> +          items:
+> +            - enum: [ sys_ck0, sys_ck1 ]
+> +
+> +        reset: false
+> +
+> +        reset-names: false
+> +
+> +        phys: false
+> +
+> +        phy-names: false
+> +
+> +        power-domain: false
+> +
+> +unevaluatedProperties: false
+> +
+> +examples:
+> +  # MT2712
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +    #include <dt-bindings/phy/phy.h>
+> +
+> +    soc_1 {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +
+> +        pcie@112ff000 {
+> +            compatible = "mediatek,mt2712-pcie";
+> +            device_type = "pci";
+> +            reg = <0 0x112ff000 0 0x1000>;
+> +            reg-names = "port1";
+> +            linux,pci-domain = <1>;
+> +            #address-cells = <3>;
+> +            #size-cells = <2>;
+> +            interrupts = <GIC_SPI 117 IRQ_TYPE_LEVEL_HIGH>;
+> +            interrupt-names = "pcie_irq";
+> +            clocks = <&topckgen>, /* CLK_TOP_PE2_MAC_P1_SEL */
+> +                     <&pericfg>; /* CLK_PERI_PCIE1 */
+> +            clock-names = "sys_ck1", "ahb_ck1";
+> +            phys = <&u3port1 PHY_TYPE_PCIE>;
+> +            phy-names = "pcie-phy1";
+> +            bus-range = <0x00 0xff>;
+> +            ranges = <0x82000000 0 0x11400000  0x0 0x11400000  0 0x300000>;
+> +
+> +            #interrupt-cells = <1>;
+> +            interrupt-map-mask = <0 0 0 7>;
+> +            interrupt-map = <0 0 0 1 &pcie_intc1 0>,
+> +                            <0 0 0 2 &pcie_intc1 1>,
+> +                            <0 0 0 3 &pcie_intc1 2>,
+> +                            <0 0 0 4 &pcie_intc1 3>;
+> +            pcie_intc1: interrupt-controller {
+> +                interrupt-controller;
+> +                #address-cells = <0>;
+> +                #interrupt-cells = <1>;
+> +            };
+> +        };
+> +
+> +        pcie@11700000 {
+> +            compatible = "mediatek,mt2712-pcie";
+> +            device_type = "pci";
+> +            reg = <0 0x11700000 0 0x1000>;
+> +            reg-names = "port0";
+> +            linux,pci-domain = <0>;
+> +            #address-cells = <3>;
+> +            #size-cells = <2>;
+> +            interrupts = <GIC_SPI 115 IRQ_TYPE_LEVEL_HIGH>;
+> +            interrupt-names = "pcie_irq";
+> +            clocks = <&topckgen>, /* CLK_TOP_PE2_MAC_P0_SEL */
+> +                     <&pericfg>; /* CLK_PERI_PCIE0 */
+> +            clock-names = "sys_ck0", "ahb_ck0";
+> +            phys = <&u3port0 PHY_TYPE_PCIE>;
+> +            phy-names = "pcie-phy0";
+> +            bus-range = <0x00 0xff>;
+> +            ranges = <0x82000000 0 0x20000000 0x0 0x20000000 0 0x10000000>;
+> +
+> +            #interrupt-cells = <1>;
+> +            interrupt-map-mask = <0 0 0 7>;
+> +            interrupt-map = <0 0 0 1 &pcie_intc0 0>,
+> +                            <0 0 0 2 &pcie_intc0 1>,
+> +                            <0 0 0 3 &pcie_intc0 2>,
+> +                            <0 0 0 4 &pcie_intc0 3>;
+> +            pcie_intc0: interrupt-controller {
+> +                interrupt-controller;
+> +                #address-cells = <0>;
+> +                #interrupt-cells = <1>;
+> +            };
+> +        };
+> +    };
+> +
+> +  # MT7622
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +    #include <dt-bindings/power/mt7622-power.h>
+> +
+> +    soc_2 {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +
+> +        pcie@1a143000 {
+> +            compatible = "mediatek,mt7622-pcie";
+> +            device_type = "pci";
+> +            reg = <0 0x1a143000 0 0x1000>;
+> +            reg-names = "port0";
+> +            linux,pci-domain = <0>;
+> +            #address-cells = <3>;
+> +            #size-cells = <2>;
+> +            interrupts = <GIC_SPI 228 IRQ_TYPE_LEVEL_LOW>;
+> +            interrupt-names = "pcie_irq";
+> +            clocks = <&pciesys>, /* CLK_PCIE_P0_MAC_EN */
+> +                     <&pciesys>, /* CLK_PCIE_P0_AHB_EN */
+> +                     <&pciesys>, /* CLK_PCIE_P0_AUX_EN */
+> +                     <&pciesys>, /* CLK_PCIE_P0_AXI_EN */
+> +                     <&pciesys>, /* CLK_PCIE_P0_OBFF_EN */
+> +                     <&pciesys>; /* CLK_PCIE_P0_PIPE_EN */
+> +            clock-names = "sys_ck0", "ahb_ck0", "aux_ck0",
+> +                          "axi_ck0", "obff_ck0", "pipe_ck0";
+> +
+> +            power-domains = <&scpsys MT7622_POWER_DOMAIN_HIF0>;
+> +            bus-range = <0x00 0xff>;
+> +            ranges = <0x82000000 0 0x20000000  0x0 0x20000000  0 0x8000000>;
+> +
+> +            #interrupt-cells = <1>;
+> +            interrupt-map-mask = <0 0 0 7>;
+> +            interrupt-map = <0 0 0 1 &pcie_intc0_1 0>,
+> +                            <0 0 0 2 &pcie_intc0_1 1>,
+> +                            <0 0 0 3 &pcie_intc0_1 2>,
+> +                            <0 0 0 4 &pcie_intc0_1 3>;
+> +            pcie_intc0_1: interrupt-controller {
+> +                interrupt-controller;
+> +                #address-cells = <0>;
+> +                #interrupt-cells = <1>;
+> +            };
+> +        };
+> +
+> +        pcie@1a145000 {
+> +            compatible = "mediatek,mt7622-pcie";
+> +            device_type = "pci";
+> +            reg = <0 0x1a145000 0 0x1000>;
+> +            reg-names = "port1";
+> +            linux,pci-domain = <1>;
+> +            #address-cells = <3>;
+> +            #size-cells = <2>;
+> +            interrupts = <GIC_SPI 229 IRQ_TYPE_LEVEL_LOW>;
+> +            interrupt-names = "pcie_irq";
+> +            clocks = <&pciesys>, /* CLK_PCIE_P1_MAC_EN */
+> +                     /* designer has connect RC1 with p0_ahb clock */
+> +                     <&pciesys>, /* CLK_PCIE_P0_AHB_EN */
+> +                     <&pciesys>, /* CLK_PCIE_P1_AUX_EN */
+> +                     <&pciesys>, /* CLK_PCIE_P1_AXI_EN */
+> +                     <&pciesys>, /* CLK_PCIE_P1_OBFF_EN */
+> +                     <&pciesys>; /* CLK_PCIE_P1_PIPE_EN */
+> +            clock-names = "sys_ck1", "ahb_ck1", "aux_ck1",
+> +                          "axi_ck1", "obff_ck1", "pipe_ck1";
+> +
+> +            power-domains = <&scpsys MT7622_POWER_DOMAIN_HIF0>;
+> +            bus-range = <0x00 0xff>;
+> +            ranges = <0x82000000 0 0x28000000  0x0 0x28000000  0 0x8000000>;
+> +
+> +            #interrupt-cells = <1>;
+> +            interrupt-map-mask = <0 0 0 7>;
+> +            interrupt-map = <0 0 0 1 &pcie_intc1_1 0>,
+> +                            <0 0 0 2 &pcie_intc1_1 1>,
+> +                            <0 0 0 3 &pcie_intc1_1 2>,
+> +                            <0 0 0 4 &pcie_intc1_1 3>;
+> +            pcie_intc1_1: interrupt-controller {
+> +                interrupt-controller;
+> +                #address-cells = <0>;
+> +                #interrupt-cells = <1>;
+> +            };
+> +        };
+> +    };
+> -- 
+> 2.51.0
 > 
-
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-
 
