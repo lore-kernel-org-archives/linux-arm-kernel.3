@@ -4,83 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25C15CAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 07:40:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C29DFCAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 08:34:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ed+5kxoNWx3Jwxxg6b5MJ/fr9ca6CEUeMaFTMyUKs7E=; b=lh2jMfx4N60H36Cb0oj1xMgk9m
-	Lme1wgVEsx294J/LWWcKQ+DVIx7iIM9Cef+bp0ZexQWNb0FiAfVlkIl0OuRSSDB7yX+t9askeoufY
-	Q5gI1TtTjWFJK5V1IY6oQDJ7pcn8jv6X/+j9tOm3Oy9QYKBqHqSXRFTPfSC/0q0hF8+lGEqBsIAec
-	xBGj4KHbXGT4G6Je10TK9OOUWr8dyK75yLiXqD9JxyDWdhSUATUw5nR/HaaIQoO0WdQWUE/+Qq45S
-	VDjlkNnUbaNehWD2Wao7JEylqUrCytMpjNm52++V+ll57FzREvs3sRenVbM2NnjY7pFhHhiSUkO8D
-	UxbOuK4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fY1rhcUMmAwK/dbcMND+DzQQ6f9robrwHJqphz6/mqQ=; b=lEzXByNzGjfgWt2LZQNeDfGRzp
+	tB12PDxOZdiRuY8xPaYEVW/PqHZrsov5gcR1cy9wU0ai4Ji6bs5RNqHnpQGF74baUpoxrLpTh/71M
+	6vvfZ5QnJXs7iNtWMnFGHeBeFSSWOCl0FKXPp/go6u4WIgN+7iJ6ts/jmaYW5g0yihLmV7GxmVCtO
+	Pyc8/x4MPV4MqGyZVYced6r6fZUHtT3eQf+HAmEjZ0AEm3W6UEYtG9SYZswwbmEBF9/oWkkkU0IiA
+	3qAVPwLMYIqMN+DgR//a8PNFzqnVD0y/9+pldOrL0t8tjda6D+G34zbEKMSy8yvN4LB/AZ8gBp0B5
+	6BNwDT9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v234R-0000000GsHl-0Job;
-	Fri, 26 Sep 2025 07:40:47 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1v23u0-0000000HBt0-3g3z;
+	Fri, 26 Sep 2025 08:34:04 +0000
+Received: from mail-ua1-f48.google.com ([209.85.222.48])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v234I-0000000Gs5k-4A9s
+	id 1v23ty-0000000HBre-2RZN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 07:40:40 +0000
-Received: from epcas2p2.samsung.com (unknown [182.195.41.54])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250926074035epoutp01893acbd7787ce6ff0a869342dd199e6a~oxSky6IXM0960409604epoutp01Y
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 07:40:35 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250926074035epoutp01893acbd7787ce6ff0a869342dd199e6a~oxSky6IXM0960409604epoutp01Y
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1758872435;
-	bh=Ed+5kxoNWx3Jwxxg6b5MJ/fr9ca6CEUeMaFTMyUKs7E=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=ooBcemBwJFZTI1CGR//6gGzFHvHxARnloqJ618aRTs036fyD+m3cJDd/qUy3pU8f8
-	 4sUDV8YHBp7HiHXl8HkOYlKMF/G19QNMALGyOWh9pEQf6NDbXmGHgaDoMXgSXgSUqI
-	 0aVhLKBHX84JL5wDVY7HLgogx1It5osgyVHQicKw=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas2p4.samsung.com (KnoxPortal) with ESMTPS id
-	20250926074034epcas2p43be6732f342e5bec135b40966271129b~oxSkPl-K33226632266epcas2p4e;
-	Fri, 26 Sep 2025 07:40:34 +0000 (GMT)
-Received: from epcas2p3.samsung.com (unknown [182.195.36.68]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4cY2Yt0VLsz6B9mF; Fri, 26 Sep
-	2025 07:40:34 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas2p3.samsung.com (KnoxPortal) with ESMTPA id
-	20250926074033epcas2p371d57850f46c9ecb307f3ea8c6d4a57f~oxSi8tEpt1589115891epcas2p3A;
-	Fri, 26 Sep 2025 07:40:33 +0000 (GMT)
-Received: from asswp146.dsn.sec.samsung.com (unknown [10.229.19.146]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250926074033epsmtip29387fe8aacfb676855f5efede978805c~oxSi3pQiI1189511895epsmtip22;
-	Fri, 26 Sep 2025 07:40:33 +0000 (GMT)
-From: Sanghoon Bae <sh86.bae@samsung.com>
-To: robh@kernel.org, krzk@kernel.org, conor+dt@kernel.org, vkoul@kernel.org,
-	alim.akhtar@samsung.com, kishon@kernel.org, m.szyprowski@samsung.com,
-	jh80.chung@samsung.com, shradha.t@samsung.com
-Cc: krzk+dt@kernel.org, linux-kernel@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
-	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-	sh86.bae@samsung.com
-Subject: [PATCH 0/4] Add support for ExynosAutov920 PCIe PHY
-Date: Fri, 26 Sep 2025 16:39:20 +0900
-Message-ID: <20250926073921.1000866-6-sh86.bae@samsung.com>
-X-Mailer: git-send-email 2.45.2
-In-Reply-To: <20250926073921.1000866-1-sh86.bae@samsung.com>
+	Fri, 26 Sep 2025 08:34:03 +0000
+Received: by mail-ua1-f48.google.com with SMTP id a1e0cc1a2514c-8e1d6fd99c1so707917241.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 01:34:01 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758875641; x=1759480441;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=fY1rhcUMmAwK/dbcMND+DzQQ6f9robrwHJqphz6/mqQ=;
+        b=RR60yKBos5T2IIxH9eIUqz5mMYV1zMM3TZzmnfJ4xTI9v6veLXdl5/4w4G/I+33qEE
+         iTzfFc/T0dfRtuxcUXk41NXR8x+V1Z0zURBN9QA9HDyuOMtaelJidFXlOqfy26Is1wZr
+         7OypnJb81dxZZgg8/7zwrG50K2q38ly3T3aYy8ClGeiCPTpKrPGxfrYHh6NXIyxHjDMz
+         29thjsDgqdJxWnZYenNYvqtRU2rCDjfh3x54INKmPE3IcGWBhWKAswR3oq6gRMbN81KN
+         Z6xuYyHWAhsz/BPyYjD3nyiAlSeX1X9FsQzj0FfGPPQcGbA8i2rk9M0rWdjigmqbKtU8
+         EkeA==
+X-Gm-Message-State: AOJu0YzaZxiCQQ1Jq6FbYnFeudoCwqL5/V5eOM5I05Y/SRCLGJrEdT9L
+	O4cEIR1kOcQ6P5fmhZXRu7tR9CKFfDXKkGWtlb/ATOO7DtvOPU2H3dKKskQLSb6D
+X-Gm-Gg: ASbGncvk9S2+3aAwqVaBtRuRBQqY4WQ1YcjmAxCKBI3wHdz+sqABPDrnc5xlfBktGUX
+	WdlRUvAZw20Tqpt0Qf4usfrOMM8lbb6dXa0mgyjwk7uLeGxejZ818RkCk1N3bbPVtssrPvGQ9Wy
+	AuJQBaSsO9CJz6ElZIZAyhuJf01qsmc2UUHaDOyKyJA2En/Z6dl7aTA0Yoxqrq6b52oci7P/zUL
+	qokVuCIzhbG0HFybHptb7zLGok2ylhHDpkOqDqve+sc1N0j3dvr86cT3Mf2c9Y0fw2cOJzkfgP+
+	PYDdJNN8FAWe3gv6wLlYj/yi86jz22/KdmscABJUkRRNQc/0jo2v5skw7SXxhVvl4hhA22DoOfm
+	4EMwr6U+QOM7QkppkeZ7UG9E2GxETwYTiDmhTWv+AQxwzDauUrca8u5/nw3dZ4g/JZH6+Pv8=
+X-Google-Smtp-Source: AGHT+IHcGE7Yg1J8itqLj94H0W/xknsVBfYQo6pr4uko8Wt4UBtlHelqaO2VKckxFsNom77JnGE6WA==
+X-Received: by 2002:a05:6102:54a0:b0:59e:68dd:4167 with SMTP id ada2fe7eead31-5acc680013bmr2657148137.7.1758875640687;
+        Fri, 26 Sep 2025 01:34:00 -0700 (PDT)
+Received: from mail-ua1-f45.google.com (mail-ua1-f45.google.com. [209.85.222.45])
+        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-91b198fe781sm328485241.3.2025.09.26.01.34.00
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 26 Sep 2025 01:34:00 -0700 (PDT)
+Received: by mail-ua1-f45.google.com with SMTP id a1e0cc1a2514c-8e1d6fd99c1so707900241.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 01:34:00 -0700 (PDT)
+X-Received: by 2002:a05:6102:50a0:b0:520:a44f:3dd6 with SMTP id
+ ada2fe7eead31-5acc83f7509mr2683165137.8.1758875640159; Fri, 26 Sep 2025
+ 01:34:00 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250926074033epcas2p371d57850f46c9ecb307f3ea8c6d4a57f
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-cpgsPolicy: CPGSC10-234,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250926074033epcas2p371d57850f46c9ecb307f3ea8c6d4a57f
-References: <20250926073921.1000866-1-sh86.bae@samsung.com>
-	<CGME20250926074033epcas2p371d57850f46c9ecb307f3ea8c6d4a57f@epcas2p3.samsung.com>
+References: <20250904202838.172579-1-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20250904202838.172579-1-marek.vasut+renesas@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 26 Sep 2025 10:33:48 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdWyWVU9Tzanq9OY2OZP92AMgYnZtYQZ8y=WsEiRxp6TjQ@mail.gmail.com>
+X-Gm-Features: AS18NWCMHBoPzEWPgJF_9P05kxRIgT7Wocv9e9QW467a4AnZ2UK94rlvm-_zDZU
+Message-ID: <CAMuHMdWyWVU9Tzanq9OY2OZP92AMgYnZtYQZ8y=WsEiRxp6TjQ@mail.gmail.com>
+Subject: Re: [PATCH v2] arm64: dts: renesas: r8a779g3: Add RPi Display 2 DTO
+ to Retronix R-Car V4H Sparrow Hawk
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
+	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_004039_334143_F9A2348F 
-X-CRM114-Status: GOOD (  17.64  )
+X-CRM114-CacheID: sfid-20250926_013402_623958_5A8AB5B3 
+X-CRM114-Status: GOOD (  18.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,46 +95,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ExynosAutov920 SoC has two instances of DesignWare-based PCIe PHY IP.
-Each PHY has a different lane specification: one is a 4-lane PHY and
-the other is a 2-lane PHY.
+On Thu, 4 Sept 2025 at 22:28, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+> Add DT overlay to bind RPi Display 2, both 5" and 7" variant, on
+> Retronix R-Car V4H Sparrow Hawk board. All of display output, the
+> touch controller, and backlight control have been tested.
+>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 
-Each PHY can be used by separate controllers through the bifurcation
-option. Therefore, from 2 up to 4 PCIe controllers can be supported
-and connected with this PHY driver.
+> V2: Build also the plain DTBO for each DTO. Each new DTO entry in the
+>     Makefile has three lines, the DTBO, combined and DTB targets. This
+>     is easy to miss, so note this down for myself.
 
-Most of the PHY structure and registers are identical, but some aspects
-need to be distinguished. For this, PCIe lane number added for each PHY
-properties only in ExynosAutov920.
+LGTM, so
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+i.e. will queue in renesas-devel for v6.19.
 
-This patchset includes:
-- DT bindings for ExynosAutov920 FSYS0 sysreg
-- DT bindings for ExynosAutov920 PCIe PHY
-- PCIe PHY properties for ExynosAutov920 in the device tree
-- PHY driver for ExynosAutov920 PCIe
+Gr{oetje,eeting}s,
 
-Note that this patchset does not enable PCIe0 and PCIe2.
-Enabling them requires additional patches for the ExynosAutov920 PCIe
-RC driver, which will be applied later.
-
-Please note that these patch set depends on the Shradha Todi's patchset
-https://lore.kernel.org/lkml/20250811154638.95732-1-shradha.t@samsung.com/
-so need to apply on top of that series, because that adds
-the patches to make Exynos PHY common for all.
-
-Sanghoon Bae (4):
-  dt-bindings: soc: samsung: exynos-sysreg: add hsi0 for ExynosAutov920
-  dt-bindings: phy: Add PCIe PHY support for ExynosAutov920 SoC
-  arm64: dts: ExynosAutov920: add PCIe PHY DT nodes
-  phy: exynos: Add PCIe PHY support for ExynosAutov920 SoC
-
- .../bindings/phy/samsung,exynos-pcie-phy.yaml |  14 ++
- .../soc/samsung/samsung,exynos-sysreg.yaml    |   1 +
- .../arm64/boot/dts/exynos/exynosautov920.dtsi |  28 +++
- drivers/phy/samsung/phy-exynos-pcie.c         | 231 ++++++++++++++++++
- 4 files changed, 274 insertions(+)
+                        Geert
 
 -- 
-2.45.2
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
