@@ -4,59 +4,180 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 622D0CAC5B9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 12:32:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0131CAC5B9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 12:33:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8HG3kiIH5bp7w6PjVT4SYFezQmhrGdtaJJBz0UaU1f4=; b=YQrsgtZBXSWsVygg2to3nCTTdW
-	UFK3bHpMnVcCnW2DPjD3zgb1q2z0xGTtnQ+u6Ooq/9BKWJH23mw6MLTjYYxT7IZFiu8E9r/H17J6z
-	9St43ouKRaDaTsXoaNCAvht3uODHfaJOqmNGF6ajUWBNgy9WzzgxLTGzJOZ4fNdGYv3UZ8WFJs03l
-	VC5F1RORCEaSFS+guSmyaieyzkchHewu6a9rmiJ6Zf+/Vbc8iI2696xY8H1GqGfxHJ68ja5e1ShSF
-	Zewjrtn9eHJT+NAqg150iYuqjAcyWg+rsj3Oy3JURyB3rcDHjnj5tMDlKq62BKyh1kPF7sSw1bbSS
-	8x1aPpTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Q2SbXyOivKdMrftq2+jH5oAg3dLd4Psbhq4kxHhl+bE=; b=pKnP5Fb4vtWb3lo1dKWiriu7oA
+	dCFEoMXzsyjH0npTvQrZq6EVraK//Gq725wW3OUEnSN8PPft2EFOFBFPyo3NEiDCnglwxqkNKmk1Z
+	Aeegu+u2YIdvIjOlTGW/E1cPCjrMBLr2HGAWuO59yvKUo5OoaNkoezatJ4NdzWNotnKbRB4TtWWE3
+	nfJHchTFPKe37ORvWBgq3FWT0z0Dy+td4IvQJNLaau7dxyWfx9EGxrtci06TAHGi9CYfcg5QL+SW1
+	bpfxbijV9K7kZC/zagc/6e+cjrbhCXt2KvSt9i8XDMmQTSJqy3q5OxpHq8dGw70VBTYQT4Ne84wmq
+	MJLmeh/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v27cl-00000001AoO-0UQF;
-	Fri, 26 Sep 2025 12:32:31 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v27cd-00000001Ah0-355u
+	id 1v27e0-00000001Bkx-015c;
+	Fri, 26 Sep 2025 12:33:48 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v27dx-00000001Bhh-47Wk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 12:32:25 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7858D1691;
-	Fri, 26 Sep 2025 05:32:13 -0700 (PDT)
-Received: from oss-apollo7005.oss.cambridge.arm.com (oss-apollo7005.oss.lab.cambridge.arm.com [10.7.15.171])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 725193F5A1;
-	Fri, 26 Sep 2025 05:32:19 -0700 (PDT)
-From: Salman Nabi <salman.nabi@arm.com>
-To: mark.rutland@arm.com,
-	lpieralisi@kernel.org,
-	sudeep.holla@arm.com,
-	andre.przywara@arm.com
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-coco@lists.linux.dev,
-	vsethi@nvidia.com,
-	sdonthineni@nvidia.com,
-	vwadekar@nvidia.com,
-	chao.gao@intel.com,
-	ardb@kernel.org
-Subject: [RFC PATCH v2 1/1] firmware: smccc: Add support for Live Firmware Activation (LFA)
-Date: Fri, 26 Sep 2025 12:31:45 +0000
-Message-Id: <20250926123145.268728-2-salman.nabi@arm.com>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <20250926123145.268728-1-salman.nabi@arm.com>
-References: <20250926123145.268728-1-salman.nabi@arm.com>
+	Fri, 26 Sep 2025 12:33:47 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=iX0KGkWWFdS4RmkW4Sgj9dDzCgkPXD50A9sg895c0F0S476RBk5vH+ZLRjkp6yXAHSSyybZI5dWycT8Y6RfJ+ZtRtFs9eUQaNrpfU+NeXVBYZCJtmEGXWarq7IkbZhCC8Zfls7VCO5/f/TO2DaScwtDxc8SVwPiYT2H3k6zS0brHAnHMvza8F1B7DlPKyvXail+gbF/qmlz9lt58trpcVdZtSqoMs2oBOijHE445SVEaoYmtTnqNwRq6dDCCINWp5zRMLHYYSmtmSivyw9ik3ODuLCfo2hN0z6fyx5gKchNRsKQ6T8A+x3V9fISQGwAKkLzOM1hNqrS7PDzfOpUnLw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Q2SbXyOivKdMrftq2+jH5oAg3dLd4Psbhq4kxHhl+bE=;
+ b=ZBG2tqpP4Q2jB+XAn+bVmoh8Z3xGo/O2+vd570plE93vC3PwYCLKjQ9Y91fgW6N9+y55dlLBIYvFWTxkK8TNyeXsWDj4aA7Pzni4i654SRmmEdkG3cauqFM5Iv9qnA4RGUJig0M0ctkIffB9VtOU8soqF2FsYziYVrPIjmPdUhYEB+6DeLGNme6SsBR18241bN124BLaOSqqJriz6HjPoBFb6JMk7voqqS8eR7IUGk0k+EIWGD04Hv+aeQepQLiPPWOW88r8Z2M+PLUhSCsIuKafm7ycRsYKSCXaQMLM6FGNjsUJIDiclbx6MuzU4VXosZoKeRIfB08J0tkk3z6yBg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Q2SbXyOivKdMrftq2+jH5oAg3dLd4Psbhq4kxHhl+bE=;
+ b=Gahl2KmYtUzlwR4oZtfSPY59pvFOFjhxf8SmUqGaaRwWSvhsEitCx7+Kpciyab7xFeoF8M80/HzELcCyLsh1YQXfPexexnUEUEOmzeuExbGGsEsHEnz482q8YlElX5MKsXQacBcqKAlUzlmpM9V4SZZzhDe6fgycZiN8yP+O+Z8xGkAhLCJZk7i0Tv2L1HnbSt46i3vltCKIelzUgBAoV3E2+FjQyecnA/ggFZZibng5sYsuGyAPVdY+sdv+pbgXFq25O1RlqNgFoThlECV6ULmimHeCN6JeZ7tqh3z4vtOF7lBVQYFOiFHbUZZD6f81XQsV44YI3zP1tXB3PA0SbQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by PR3PR04MB7403.eurprd04.prod.outlook.com (2603:10a6:102:8b::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.11; Fri, 26 Sep
+ 2025 12:33:38 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9160.010; Fri, 26 Sep 2025
+ 12:33:38 +0000
+From: Peng Fan <peng.fan@nxp.com>
+Subject: [PATCH v3 0/6] remoteproc: imx_rproc: Use device managed API to
+ clean up the driver
+Date: Fri, 26 Sep 2025 20:33:14 +0800
+Message-Id: <20250926-imx_rproc_v3-v3-0-4c0ec279cc5f@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAAuI1mgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyjHUUlJIzE
+ vPSU3UzU4B8JSMDI1MDSyMz3czciviigqL85PgyY91EU4PEpNQUYyMLi0QloJaCotS0zAqwcdG
+ xtbUA/glKv14AAAA=
+X-Change-ID: 20250926-imx_rproc_v3-a50abed3288a
+To: Bjorn Andersson <andersson@kernel.org>, 
+ Mathieu Poirier <mathieu.poirier@linaro.org>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Ulf Hansson <ulf.hansson@linaro.org>, 
+ Hiago De Franco <hiago.franco@toradex.com>, Frank Li <Frank.Li@nxp.com>, 
+ Daniel Baluta <daniel.baluta@nxp.com>
+Cc: linux-remoteproc@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Peng Fan <peng.fan@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758890010; l=2129;
+ i=peng.fan@nxp.com; s=20230812; h=from:subject:message-id;
+ bh=hCaq7XkIv5DWOEjYWBRXQ0HOL7Zrek5TPOvsD4qDNBI=;
+ b=BaxVvNmiSHbsFyEKTqa42+6MGmuqnNoUErDyNg80zDW6O6yEkjCPQl93V1q8b9iFvLGY4Mbu3
+ PFQS0ShYMI0Ba2ruw6zWIJXK4bg6sqxQpXdtim1yKOxm6/TdbKQFZc4
+X-Developer-Key: i=peng.fan@nxp.com; a=ed25519;
+ pk=I4sJg7atIT1g63H7bb5lDRGR2gJW14RKDD0wFL8TT1g=
+X-ClientProxiedBy: SG2PR03CA0115.apcprd03.prod.outlook.com
+ (2603:1096:4:91::19) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|PR3PR04MB7403:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6aa172ad-faa2-4d5a-734c-08ddfcf8eadc
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|19092799006|1800799024|366016|38350700014|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Z2hSQnM0Wjh5b3Uvc0h2MWhXZFBqUHBwWXd5VkZMR2pWYitEWHhwNXU5U2p2?=
+ =?utf-8?B?TWwrVDVnWEx3ZGNDbEg0c2VqUng0OWY3V0lmRCtkVnMwZlZYTWxTTEVrVmtm?=
+ =?utf-8?B?UDRxVjVjeElDYjU4N3lOd2VBcFBVaURrRWYvZUYwQlRiVDJBdmYxdmYxMkJx?=
+ =?utf-8?B?bzI4N3J2T20xWjBLVjFSajdpM2JKaGs0R2RpM0MzbHEyckNQV2xlUEdJeXQ4?=
+ =?utf-8?B?b0N1bGNzbTNJbWx1MkJ6bzVKZ2FIaURjK3pKejZ2REVncWhPWEtFYng5ZDF3?=
+ =?utf-8?B?MWp5T2pJK01QQlFzWVBrYlN4MVBlZWc2aUtpRjE4Q0xjWlNpWllWaW44WFNC?=
+ =?utf-8?B?MWpIcmV3V2ZzNEEvWlR4M09mQUg5UnIxM0s5NExuc1p3a29MQWkrZW5ZU3M1?=
+ =?utf-8?B?cVM2dlo3d2pBcUJrV0tmOXB5dEhtbjFMbUZyZGdqelFDY3RmZXFUK3MwaDky?=
+ =?utf-8?B?OHZqUy9uUFZYV0x5eUxRN3dkQ0VZS0w4cm1tQmt3M2V1RE53OCtHa0tObFV0?=
+ =?utf-8?B?QWwvTDIrS1o0Mm9yTHV5WkJWRXpLcktLakZJSzlQUEUwejlBWjhRVEF2UmJw?=
+ =?utf-8?B?TlFqTWI0NmNZWGwrd3BTU1p4MFIxd0lSZTQzMkhJSWMyZFYzU0p4UzJib2Za?=
+ =?utf-8?B?N0dXMnhPSHR1NzNTT1hYaEk3eXpEam5PM2t0Qm05ODQxT1ZGT0xzR1U5aEta?=
+ =?utf-8?B?ZlBXOFBEK2xxWU1ob2xIbm9UcFJ4WVA4U3VaRzZTYXdvMjI4MmM4alpTd24w?=
+ =?utf-8?B?YTBQUjByam1kT1pXM0JjRHVsVFJHeThGYUt2UXlXcUxEbENsK1Z1RHp3TmMw?=
+ =?utf-8?B?aGtOY0VKcmZCTWc5ZXpDNTIvMHFacHRsckRwYlFpSVFlK3Y4Y3dwSGVuQjBh?=
+ =?utf-8?B?RTZCS1RPVmxwV1h1aXFWdUNUM1FZVG8xRDBaKzhhR1RZNUNMRGRUcE1BdDlT?=
+ =?utf-8?B?MG1IUlJZcVk3WGpvT3phNm5UaWJDdFJkL2JSaDMrR0dkc2E2SWFucWF2eS80?=
+ =?utf-8?B?WnVJdkRDdm11V3l3a1RmTHRTUVMwenlKSEIwdVJYUHpjRHdJdTJFVGJYckdk?=
+ =?utf-8?B?MkxIVVlvYmJFZzVtOUJ4d1pabWNncEdsYVJwYSsvQW1DVS9ndE11MXdlYVZN?=
+ =?utf-8?B?R01TdHBOYUZMVjNWNFBxa3c2cXNWenQ5a2YrUGRsQ3hqcDRkajdxSTd5b3Zo?=
+ =?utf-8?B?R0VuTkVUek5YaDhFTHhDV2s4UGhMdVVxcVNtdjhqREk0SUdmdWtSMlpXK1I3?=
+ =?utf-8?B?UTdWMXkyQXRXQ3RjdDNUcE1vNmFLUzJ5NHFuZUI3VFBCRWc0WDZ2UXBJR1dE?=
+ =?utf-8?B?VEJ2NUovNFZIaXVLNE95OEVmTUEwRlNMclRtZVVWckJqOW83UXVmVE5rT3Mz?=
+ =?utf-8?B?MUhYUHl2U29BUDUzOE92MFF4Ymk3Z0FjaVMxTHpmRi9qMVRmS1lpRkxuNGRj?=
+ =?utf-8?B?NzAzTDNnMmNuekw5aWoxdU4ybVQxUVE0VnpmR0ppRm9pS3I1dnZnSzY2bk5G?=
+ =?utf-8?B?amZFLzduQ1MvQ1U4UFRBcmNuTDVEK0RYY0NreCtIMkw2TThHcHFob1ZKYW5l?=
+ =?utf-8?B?QzBieGxWY3d1Y0g3WUhocDl3YnBFVkZNU1dBK0IwOVp1TktEU2FaQjFxZEhR?=
+ =?utf-8?B?RmNIUytrdVRPUFFJcERWMGRzRGo5VlF1VVZTdTdHbWdjRHFBMnQ2Q3h5UE1y?=
+ =?utf-8?B?aFpOQlRXWXhCZnNZWmtxSGF4dXRrMEJIbU1oMWIrQXN2R09yMTdjNk5NdUIv?=
+ =?utf-8?B?ZklhaXVRYVFjN05iUnNVVW1oZEEvNEoxdVMyZW9tdnV5U0RzTXlZQ0loT2V1?=
+ =?utf-8?B?dDQ3OTJyOXBVYmVDSkVnY2E4ZUZ6WWxOZmdldG5uNlNOUEFUV1VqSlFHV0lp?=
+ =?utf-8?B?ZjNQbmxtRUQrVUhETTRkN1RZK2FxMTJKTHdHUjAxM0xhblp5U1MxUjdNVHVk?=
+ =?utf-8?B?VVJ1K2VHMkhqbWd1bE5LcDlOLzl0b1pmbHRjODVqWWZGWHhTVEtEV2VRT0cv?=
+ =?utf-8?B?WlJBTk5hNEJ3QndRR0p6VUMrRi9EOHF5YzdSVGsvOHIrcEVUTW5FQzM0dm9s?=
+ =?utf-8?B?V1J2aXdrME9KbU9vQ3FWTEQzZWtDVGZwd2dGQT09?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(19092799006)(1800799024)(366016)(38350700014)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aFV4UTNWVjJlS1RWT0Fpd1J2KzRqWFI5cUxIUnlxaGV3QmJiby82ekEzYXJq?=
+ =?utf-8?B?WkpLT2FQWTRobnJCQVlaYWhYTGRqcmhIRCswc005eXR6SHdocFBVSGNpSnp2?=
+ =?utf-8?B?SzgzbzlhL0ZGMUJQTzNZcmhKbUxmUzM5TDVIQ1NhSzl6VGtKa00wcXZOTWpE?=
+ =?utf-8?B?OWpZZWNrdjVWMXluWEFFVlNXY0JyZVV1dTdUQks5SUFIMTRUZS82UFJJUE1Y?=
+ =?utf-8?B?d0FZUE5KdEU3c3JYOG91RnVZY1dsUGVKUktlWG5wdVh6ZU5zaFhEUFdBSEI4?=
+ =?utf-8?B?czRYVWN1RjZGeVoxLzVyeHZSb1ZacXp4M3pkVTNIZkxCejdaRUJwdTlVNkRS?=
+ =?utf-8?B?OGM5UC96RVAvQlExbU1TcnB4VG5GQm5vdWU5NFZCT2RvZEpFY1RRTVVxWlZR?=
+ =?utf-8?B?M1hyWXRiTkxQQWt0S0RKOTVZTzcwOFcvcW9BQ08zWFA0TVUrMFpVNWd0MFc2?=
+ =?utf-8?B?Q042NHVXU3BwbDBONjVxakVDWnY2aGo4U3pxZHVXZFIxWlFRRVpucHJuRzEv?=
+ =?utf-8?B?QzdRYmhzdlg3UDNnZmcwZCt5ZlhQTzJkMkRXeWRrSWZBUk5BR0tMTWZyaWcy?=
+ =?utf-8?B?UkV6Lzd2Y2hUS0lvQVBkMXFBMjVrU01BUENQOWpKL3V5amdYbG5EVTVJUTJh?=
+ =?utf-8?B?WnBnbEJ5UE1wem9TWTF4WlZCQ0NkODFHNkt5SmJyZzdrUXBvUURQenlmWVNF?=
+ =?utf-8?B?TnFpcjF5MFR4dC90UEd4RHpXQXhRc2c3aE9YUWtNekpDTmkzcmxFSldBZHR0?=
+ =?utf-8?B?a0JNOWtBeWFzVUNZMk9NZXdQUlZIOURQOTMzYUkzMlRnblV4c0I4a2dSeXlY?=
+ =?utf-8?B?YURPemY5cC9zVzlKd3hYSXlSamJKWXFRT3NzVkRhdkNOMEZXb1pOWkkwWFVM?=
+ =?utf-8?B?UWkzTE5zZUNFTmRVOExndFlJQUtqeDZlVWx3Rjl5YnBzY2VqTVlVN2J6SEln?=
+ =?utf-8?B?QlE3VGVKcjBUYkQvZ2tBZGtCY3dCUFJBR2lQd3FTTTRNeXJRODdnQ1Y2cFpO?=
+ =?utf-8?B?a045YXAvYU9ldGp1ZUJJamE3cUFVbld2VG1WREY4NTZsVU9waDR0T1hmRWVH?=
+ =?utf-8?B?aE1sM3lPTGlHMFVjNGtHUHB4Nk5xeDNpcndiTUVUaTVRZ0t3SFhBSXlKNXI2?=
+ =?utf-8?B?Ylo5Z3VSVzNmR1I3YndJMFBvOXlvSmVaalhiaXhMalFqUDNIbjlMUzJxZzdW?=
+ =?utf-8?B?ZGd5NWF5SVZuaEVIbWRxS0dNT1diY3E1UWhibUg5SzNab3hPRzA5NzBiNGlK?=
+ =?utf-8?B?bHE0WjRFdGxRVVFtRHZBMkIwUWNYa00vMnpDdjZnRzhuK2NIR2pLc0pZTWo1?=
+ =?utf-8?B?Z3VaanJhQk8wQTk5ZzY4ZGlDRjdvdlpGVG13VGQ0b2lMMzZqWHZrN2NDWndt?=
+ =?utf-8?B?V1h1eGRPZnp2bEoxZGp3NGl1MmI3K3ZxSEo3bkd0TERUTWpFVjFXR1hub3kv?=
+ =?utf-8?B?UzdIb0JxZkdwL3l2YmRmZWx4VGJDMHpSeHdEalRENEFJSlBETTRvNCt0Z040?=
+ =?utf-8?B?TktjWWwwZEM2STJPbjZHRjk1RWM1a0pxUHhTZytiNExkKzFnM3BVNFVVYUM4?=
+ =?utf-8?B?REdRbnk4S0V1b2NWZEU2MUEzU2NwZ3l6aGtKWjUwU0lhWm9NakIwdHlUNHZX?=
+ =?utf-8?B?L3grNVcrZXA5K1FOaGFIbHhjNzRKSGpJT21xYWJFbnVobHlsTUNuVUltRkF6?=
+ =?utf-8?B?Q3d0WjJzdXhTdk5Ib2VCQVgyZ1RtRVBZSWRRS1RVNjVOYzJaYytGZUNxV0Fr?=
+ =?utf-8?B?VkZwTDVXODlSZHR0S2pBdDM5aUszbVFkeGtGU2xnZDZlRkRKRE9kb0hJd3Bz?=
+ =?utf-8?B?TzZJcWh1R0l2SnpyMEE0MHlpUjRDMkltaFVvanJGb3haRFpOcldXWXQyWTdx?=
+ =?utf-8?B?Rm1VS2NudGNvK3MyYXRRdzQ4dWhUbGR6dm80ajdHNGloTXpFdDd2V1oyUHZl?=
+ =?utf-8?B?dzZieVJsbEJ1TUJQYWtoaFZndndvRFNlK1RUVzJFUThrcUMrcmVZenRoMDUw?=
+ =?utf-8?B?VGdGcUFOaUR4UHVPRWtuZ3U0N2NFQkxqa1BtMjdTUVpxMU9vcUtHWENJM2NE?=
+ =?utf-8?B?SHZKaVI5UmJpZjFPYzk1SzZsRFNvWTE0SENIaDBFNWhObmVIc2kwQWtVUTBi?=
+ =?utf-8?Q?Wl8rsuZkU7xfidS3k4KDk9LQu?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6aa172ad-faa2-4d5a-734c-08ddfcf8eadc
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Sep 2025 12:33:38.2726
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: M+r23CbFGFBd91yukKDulaquM0caACvNMfxUOmCxc7frfRbJcpmy/qQI2T2UxDtI528jTZuys1x0bzQx2GfXaw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PR3PR04MB7403
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_053223_856632_7DF5C14B 
-X-CRM114-Status: GOOD (  29.45  )
+X-CRM114-CacheID: sfid-20250926_053346_030044_BFAFC998 
+X-CRM114-Status: GOOD (  12.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,559 +192,59 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The Arm Live Firmware Activation (LFA) is a specification [1] to describe
-activating firmware components without a reboot. Those components
-(like TF-A's BL31, EDK-II, TF-RMM, secure paylods) would be updated the
-usual way: via fwupd, FF-A or other secure storage methods, or via some
-IMPDEF Out-Of-Bound method. The user can then activate this new firmware,
-at system runtime, without requiring a reboot.
-The specification covers the SMCCC interface to list and query available
-components and eventually trigger the activation.
+Tested on
+i.MX8MP-EVK, i.MX8MM-EVK, i.MX93-11x11-EVK, i.MX8QXP-MEK, and i.MX8ULP-EVK.
 
-Add a new directory under /sys/firmware to present firmware components
-capable of live activation. Each of them is a directory under lfa/,
-and is identified via its GUID. The activation will be triggered by echoing
-"1" into the "activate" file. The other files reflect the status of the
-firmware image, as reported by the LFA agent, and described in the LFA
-spec.
+Retested all the patches for V3 on above platforms. And pass build
+with patch incremental applied with ARM64 defconfig. pass build for
+imx_v6_v7_defconfig with all patches applied.
 
-"force_cpu_rendezvous" is a boolean flag that controls the CPU rendezvous
-behaviour. Normally when activating a firmware the kernel will gather all
-CPUs to avoid them calling firmware services during the activation. As
-this is disruptive and might not be necessary, depending on the nature of
-the firmware, setting this flag to 0 will let the kernel skip the
-stop_machine() call for the activation.
+This is the 2nd series to cleanup the driver.
 
-==========================================
-/sys/firmware/lfa # ls -l . 6c*
-.:
-total 0
-drwxr-xr-x    2 0 0         0 May 30 13:31 47d4086d-4cfe-9846-9b95-2950cbbd5a00
-drwxr-xr-x    2 0 0         0 May 30 13:31 6c0762a6-12f2-4b56-92cb-ba8f633606d9
-drwxr-xr-x    2 0 0         0 May 30 13:31 d6d0eea7-fcea-d54b-9782-9934f234b6e4
+Patch 1:
+Fix the runtime usage. This is not critical bug fix, so it could be
+defered to 6.18.
 
-6c0762a6-12f2-4b56-92cb-ba8f633606d9:
-total 0
---w-------    1 0        0             4096 May 30 13:31 activate
--r--r--r--    1 0        0             4096 May 30 13:31 activation_capable
--r--r--r--    1 0        0             4096 May 30 13:31 activation_pending
---w-------    1 0        0             4096 May 30 13:31 cancel
--r--r--r--    1 0        0             4096 May 30 13:31 cpu_rendezvous
--rw-r--r--    1 0        0             4096 May 30 13:31 force_cpu_rendezvous
--r--r--r--    1 0        0             4096 May 30 13:31 may_reset_cpu
--r--r--r--    1 0        0             4096 May 30 13:31 name
-/sys/firmware/lfa/6c0762a6-12f2-4b56-92cb-ba8f633606d9 # grep . *
-grep: activate: Permission denied
-activation_capable:1
-activation_pending:1
-grep: cancel: Permission denied
-cpu_rendezvous:1
-force_cpu_rendezvous:1
-may_reset_cpu:0
-name:rmm
-/sys/firmware/lfa/6c0762a6-12f2-4b56-92cb-ba8f633606d9 # echo 1 > activate
-[ 2825.797871] Arm LFA: firmware activation succeeded.
-/sys/firmware/lfa/6c0762a6-12f2-4b56-92cb-ba8f633606d9 #
-==========================================
+Patch 2-6:
+Use devres managed API to cleanup the error handling path and remove path.
 
-[1] https://developer.arm.com/documentation/den0147/latest/
+Thanks to Ulf for the suggestion on the runtime PM fix in patch 1.
+Thanks to Daniel and Frank for the internal reviewing.
 
-Signed-off-by: Salman Nabi <salman.nabi@arm.com>
-[Andre: add actual activation routine, cleanups]
-Signed-off-by: Andre Przywara <andre.przywara@arm.com>
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
+
+Signed-off-by: Peng Fan <peng.fan@nxp.com>
 ---
- drivers/firmware/smccc/Kconfig  |   7 +
- drivers/firmware/smccc/Makefile |   1 +
- drivers/firmware/smccc/lfa_fw.c | 455 ++++++++++++++++++++++++++++++++
- 3 files changed, 463 insertions(+)
- create mode 100644 drivers/firmware/smccc/lfa_fw.c
+Changes in v3:
+- Follow Ulf's suggestion to address the runtime PM in patch 1, and add
+  Ulf's suggested-by tag. I dropped Frank and Daniel's tag in patch 1.
+- With the changes in patch 1, the remove() is kept, then there are very
+  minor conflicts when picking remaining patches in V2, so I still keep
+  R-b tag from Frank and Daniel for patch 2-6.
+- Link to v2: https://lore.kernel.org/r/20250923-imx_rproc_c2-v2-0-d31c437507e5@nxp.com
 
-diff --git a/drivers/firmware/smccc/Kconfig b/drivers/firmware/smccc/Kconfig
-index 15e7466179a6..48b98c14f770 100644
---- a/drivers/firmware/smccc/Kconfig
-+++ b/drivers/firmware/smccc/Kconfig
-@@ -23,3 +23,10 @@ config ARM_SMCCC_SOC_ID
- 	help
- 	  Include support for the SoC bus on the ARM SMCCC firmware based
- 	  platforms providing some sysfs information about the SoC variant.
-+
-+config ARM_LFA
-+	tristate "Arm Live Firmware activation support"
-+	depends on HAVE_ARM_SMCCC_DISCOVERY
-+	help
-+	  Include support for triggering Live Firmware Activation, which
-+	  allows to upgrade certain firmware components without a reboot.
-diff --git a/drivers/firmware/smccc/Makefile b/drivers/firmware/smccc/Makefile
-index 40d19144a860..a6dd01558a94 100644
---- a/drivers/firmware/smccc/Makefile
-+++ b/drivers/firmware/smccc/Makefile
-@@ -2,3 +2,4 @@
- #
- obj-$(CONFIG_HAVE_ARM_SMCCC_DISCOVERY)	+= smccc.o kvm_guest.o
- obj-$(CONFIG_ARM_SMCCC_SOC_ID)	+= soc_id.o
-+obj-$(CONFIG_ARM_LFA) += lfa_fw.o
-diff --git a/drivers/firmware/smccc/lfa_fw.c b/drivers/firmware/smccc/lfa_fw.c
-new file mode 100644
-index 000000000000..1f333237271d
---- /dev/null
-+++ b/drivers/firmware/smccc/lfa_fw.c
-@@ -0,0 +1,455 @@
-+// SPDX-License-Identifier: GPL-2.0-only
-+/*
-+ * Copyright (C) 2025 Arm Limited
-+ */
-+
-+#include <linux/fs.h>
-+#include <linux/init.h>
-+#include <linux/kobject.h>
-+#include <linux/module.h>
-+#include <linux/stop_machine.h>
-+#include <linux/string.h>
-+#include <linux/sysfs.h>
-+#include <linux/arm-smccc.h>
-+#include <linux/psci.h>
-+#include <uapi/linux/psci.h>
-+#include <linux/uuid.h>
-+#include <linux/array_size.h>
-+#include <linux/list.h>
-+
-+#define LFA_ERROR_STRING(name) \
-+	[name] = #name
-+#undef pr_fmt
-+#define pr_fmt(fmt) "Arm LFA: " fmt
-+
-+/* LFA v1.0b0 specification */
-+#define LFA_1_0_FN_BASE			0xc40002e0
-+#define LFA_1_0_FN(n)			(LFA_1_0_FN_BASE + (n))
-+
-+#define LFA_1_0_FN_GET_VERSION		LFA_1_0_FN(0)
-+#define LFA_1_0_FN_CHECK_FEATURE	LFA_1_0_FN(1)
-+#define LFA_1_0_FN_GET_INFO		LFA_1_0_FN(2)
-+#define LFA_1_0_FN_GET_INVENTORY	LFA_1_0_FN(3)
-+#define LFA_1_0_FN_PRIME		LFA_1_0_FN(4)
-+#define LFA_1_0_FN_ACTIVATE		LFA_1_0_FN(5)
-+#define LFA_1_0_FN_CANCEL		LFA_1_0_FN(6)
-+
-+/* LFA return values */
-+#define LFA_SUCCESS			0
-+#define LFA_NOT_SUPPORTED		1
-+#define LFA_BUSY			2
-+#define LFA_AUTH_ERROR			3
-+#define LFA_NO_MEMORY			4
-+#define LFA_CRITICAL_ERROR		5
-+#define LFA_DEVICE_ERROR		6
-+#define LFA_WRONG_STATE			7
-+#define LFA_INVALID_PARAMETERS		8
-+#define LFA_COMPONENT_WRONG_STATE	9
-+#define LFA_INVALID_ADDRESS		10
-+#define LFA_ACTIVATION_FAILED		11
-+
-+static const char * const lfa_error_strings[] = {
-+	LFA_ERROR_STRING(LFA_SUCCESS),
-+	LFA_ERROR_STRING(LFA_NOT_SUPPORTED),
-+	LFA_ERROR_STRING(LFA_BUSY),
-+	LFA_ERROR_STRING(LFA_AUTH_ERROR),
-+	LFA_ERROR_STRING(LFA_NO_MEMORY),
-+	LFA_ERROR_STRING(LFA_CRITICAL_ERROR),
-+	LFA_ERROR_STRING(LFA_DEVICE_ERROR),
-+	LFA_ERROR_STRING(LFA_WRONG_STATE),
-+	LFA_ERROR_STRING(LFA_INVALID_PARAMETERS),
-+	LFA_ERROR_STRING(LFA_COMPONENT_WRONG_STATE),
-+	LFA_ERROR_STRING(LFA_INVALID_ADDRESS),
-+	LFA_ERROR_STRING(LFA_ACTIVATION_FAILED)
-+};
-+
-+enum image_attr_names {
-+	LFA_ATTR_NAME,
-+	LFA_ATTR_ACT_CAPABLE,
-+	LFA_ATTR_ACT_PENDING,
-+	LFA_ATTR_MAY_RESET_CPU,
-+	LFA_ATTR_CPU_RENDEZVOUS,
-+	LFA_ATTR_FORCE_CPU_RENDEZVOUS,
-+	LFA_ATTR_ACTIVATE,
-+	LFA_ATTR_CANCEL,
-+	LFA_ATTR_NR_IMAGES
-+};
-+
-+struct image_props {
-+	struct list_head image_node;
-+	const char *image_name;
-+	int fw_seq_id;
-+	bool activation_capable;
-+	bool activation_pending;
-+	bool may_reset_cpu;
-+	bool cpu_rendezvous;
-+	bool cpu_rendezvous_forced;
-+	struct kobject *image_dir;
-+	struct kobj_attribute image_attrs[LFA_ATTR_NR_IMAGES];
-+};
-+static LIST_HEAD(lfa_fw_images);
-+
-+/* A UUID split over two 64-bit registers */
-+struct uuid_regs {
-+	u64 uuid_lo;
-+	u64 uuid_hi;
-+};
-+
-+static const struct fw_image_uuid {
-+	const char *name;
-+	const char *uuid;
-+} fw_images_uuids[] = {
-+	{
-+		.name = "BL31 runtime",
-+		.uuid = "47d4086d-4cfe-9846-9b95-2950cbbd5a00",
-+	},
-+	{
-+		.name = "BL33 non-secure payload",
-+		.uuid = "d6d0eea7-fcea-d54b-9782-9934f234b6e4",
-+	},
-+	{
-+		.name = "RMM",
-+		.uuid = "6c0762a6-12f2-4b56-92cb-ba8f633606d9",
-+	},
-+};
-+
-+static struct kobject *lfa_dir;
-+
-+static int get_nr_lfa_components(void)
-+{
-+	struct arm_smccc_res res = { 0 };
-+
-+	arm_smccc_1_1_invoke(LFA_1_0_FN_GET_INFO, 0x0, &res);
-+	if (res.a0 != LFA_SUCCESS)
-+		return res.a0;
-+
-+	return res.a1;
-+}
-+
-+static int call_lfa_activate(void *data)
-+{
-+	struct image_props *attrs = data;
-+	struct arm_smccc_res res = { 0 };
-+
-+	do {
-+		/*
-+		 * As we do not support updates requiring a CPU reset (yet),
-+		 * we pass 0 in x3 and x4, holding the entry point and context
-+		 * ID respectively.
-+		 * We want to force CPU rendezvous if either cpu_rendezvous or
-+		 * cpu_rendezvous_forced is set. The flag value is flipped as
-+		 * it is called skip_cpu_rendezvous in the spec.
-+		 */
-+		arm_smccc_1_1_invoke(LFA_1_0_FN_ACTIVATE, attrs->fw_seq_id,
-+			!(attrs->cpu_rendezvous_forced || attrs->cpu_rendezvous),
-+			0, 0, &res);
-+	} while (res.a0 == 0 && res.a1 == 1);
-+
-+	return res.a0;
-+}
-+
-+static int activate_fw_image(struct image_props *attrs)
-+{
-+	struct arm_smccc_res res = { 0 };
-+	int ret;
-+
-+	/*
-+	 * LFA_PRIME/ACTIVATE will return 1 in res.a1 if the firmware
-+	 * priming/activation is still in progress. In that case
-+	 * LFA_PRIME/ACTIVATE will need to be called again.
-+	 * res.a1 will become 0 once the prime/activate process completes.
-+	 */
-+	do {
-+		arm_smccc_1_1_invoke(LFA_1_0_FN_PRIME, attrs->fw_seq_id, &res);
-+		if (res.a0 != LFA_SUCCESS) {
-+			pr_err("LFA_PRIME failed: %s\n",
-+				lfa_error_strings[-res.a0]);
-+
-+			return res.a0;
-+		}
-+	} while (res.a1 == 1);
-+
-+	if (attrs->cpu_rendezvous_forced || attrs->cpu_rendezvous)
-+		ret = stop_machine(call_lfa_activate, attrs, cpu_online_mask);
-+	else
-+		ret = call_lfa_activate(attrs);
-+
-+	return ret;
-+}
-+
-+static void set_image_flags(struct image_props *attrs, int seq_id,
-+			    u32 image_flags)
-+{
-+	attrs->fw_seq_id = seq_id;
-+	attrs->activation_capable = !!(image_flags & BIT(0));
-+	attrs->activation_pending = !!(image_flags & BIT(1));
-+	attrs->may_reset_cpu = !!(image_flags & BIT(2));
-+	/* cpu_rendezvous_optional bit has inverse logic in the spec */
-+	attrs->cpu_rendezvous = !(image_flags & BIT(3));
-+}
-+
-+static ssize_t name_show(struct kobject *kobj, struct kobj_attribute *attr,
-+			 char *buf)
-+{
-+	struct image_props *attrs = container_of(attr, struct image_props,
-+						 image_attrs[LFA_ATTR_NAME]);
-+
-+	return sysfs_emit(buf, "%s\n", attrs->image_name);
-+}
-+
-+static ssize_t activation_capable_show(struct kobject *kobj,
-+				       struct kobj_attribute *attr, char *buf)
-+{
-+	struct image_props *attrs = container_of(attr, struct image_props,
-+					 image_attrs[LFA_ATTR_ACT_CAPABLE]);
-+
-+	return sysfs_emit(buf, "%d\n", attrs->activation_capable);
-+}
-+
-+static ssize_t activation_pending_show(struct kobject *kobj,
-+				       struct kobj_attribute *attr, char *buf)
-+{
-+	struct image_props *attrs = container_of(attr, struct image_props,
-+					 image_attrs[LFA_ATTR_ACT_PENDING]);
-+	struct arm_smccc_res res = { 0 };
-+
-+	/*
-+	 * Activation pending status can change anytime thus we need to update
-+	 * and return its current value
-+	 */
-+	arm_smccc_1_1_invoke(LFA_1_0_FN_GET_INVENTORY, attrs->fw_seq_id, &res);
-+	if (res.a0 == LFA_SUCCESS)
-+		attrs->activation_pending = !!(res.a3 & BIT(1));
-+
-+	return sysfs_emit(buf, "%d\n", attrs->activation_pending);
-+}
-+
-+static ssize_t may_reset_cpu_show(struct kobject *kobj,
-+				  struct kobj_attribute *attr, char *buf)
-+{
-+	struct image_props *attrs = container_of(attr, struct image_props,
-+					 image_attrs[LFA_ATTR_MAY_RESET_CPU]);
-+
-+	return sysfs_emit(buf, "%d\n", attrs->may_reset_cpu);
-+}
-+
-+static ssize_t cpu_rendezvous_show(struct kobject *kobj,
-+				   struct kobj_attribute *attr, char *buf)
-+{
-+	struct image_props *attrs = container_of(attr, struct image_props,
-+					 image_attrs[LFA_ATTR_CPU_RENDEZVOUS]);
-+
-+	return sysfs_emit(buf, "%d\n", attrs->cpu_rendezvous);
-+}
-+
-+static ssize_t force_cpu_rendezvous_store(struct kobject *kobj,
-+					  struct kobj_attribute *attr,
-+					  const char *buf, size_t count)
-+{
-+	struct image_props *attrs = container_of(attr, struct image_props,
-+				image_attrs[LFA_ATTR_FORCE_CPU_RENDEZVOUS]);
-+	int ret;
-+
-+	ret = kstrtobool(buf, &attrs->cpu_rendezvous_forced);
-+	if (ret)
-+		return ret;
-+
-+	return count;
-+}
-+
-+static ssize_t force_cpu_rendezvous_show(struct kobject *kobj,
-+					 struct kobj_attribute *attr, char *buf)
-+{
-+	struct image_props *attrs = container_of(attr, struct image_props,
-+				image_attrs[LFA_ATTR_FORCE_CPU_RENDEZVOUS]);
-+
-+	return sysfs_emit(buf, "%d\n", attrs->cpu_rendezvous_forced);
-+}
-+
-+static ssize_t activate_store(struct kobject *kobj, struct kobj_attribute *attr,
-+			      const char *buf, size_t count)
-+{
-+	struct image_props *attrs = container_of(attr, struct image_props,
-+					 image_attrs[LFA_ATTR_ACTIVATE]);
-+	int ret;
-+
-+	if (attrs->may_reset_cpu) {
-+		pr_err("Firmware component requires unsupported CPU reset\n");
-+
-+		return -EINVAL;
-+	}
-+
-+	ret = activate_fw_image(attrs);
-+	if (ret) {
-+		pr_err("Firmware activation failed: %s\n",
-+			lfa_error_strings[-ret]);
-+
-+		return -ECANCELED;
-+	}
-+
-+	pr_info("Firmware activation succeeded\n");
-+
-+	/* TODO: refresh image flags here*/
-+	return count;
-+}
-+
-+static ssize_t cancel_store(struct kobject *kobj, struct kobj_attribute *attr,
-+			    const char *buf, size_t count)
-+{
-+	struct image_props *attrs = container_of(attr, struct image_props,
-+						 image_attrs[LFA_ATTR_CANCEL]);
-+	struct arm_smccc_res res = { 0 };
-+
-+	arm_smccc_1_1_invoke(LFA_1_0_FN_CANCEL, attrs->fw_seq_id, &res);
-+
-+	/*
-+	 * When firmware activation is called with "skip_cpu_rendezvous=1",
-+	 * LFA_CANCEL can fail with LFA_BUSY if the activation could not be
-+	 * cancelled.
-+	 */
-+	if (res.a0 == LFA_SUCCESS) {
-+		pr_info("Activation cancelled for image %s\n",
-+			attrs->image_name);
-+	} else {
-+		pr_err("Firmware activation could not be cancelled: %s\n",
-+		       lfa_error_strings[-res.a0]);
-+		return -EINVAL;
-+	}
-+
-+	return count;
-+}
-+
-+static struct kobj_attribute image_attrs_group[LFA_ATTR_NR_IMAGES] = {
-+	[LFA_ATTR_NAME]			= __ATTR_RO(name),
-+	[LFA_ATTR_ACT_CAPABLE]		= __ATTR_RO(activation_capable),
-+	[LFA_ATTR_ACT_PENDING]		= __ATTR_RO(activation_pending),
-+	[LFA_ATTR_MAY_RESET_CPU]	= __ATTR_RO(may_reset_cpu),
-+	[LFA_ATTR_CPU_RENDEZVOUS]	= __ATTR_RO(cpu_rendezvous),
-+	[LFA_ATTR_FORCE_CPU_RENDEZVOUS]	= __ATTR_RW(force_cpu_rendezvous),
-+	[LFA_ATTR_ACTIVATE]		= __ATTR_WO(activate),
-+	[LFA_ATTR_CANCEL]		= __ATTR_WO(cancel)
-+};
-+
-+static void clean_fw_images_tree(void)
-+{
-+	struct image_props *attrs, *tmp;
-+
-+	list_for_each_entry_safe(attrs, tmp, &lfa_fw_images, image_node) {
-+		kobject_put(attrs->image_dir);
-+		list_del(&attrs->image_node);
-+		kfree(attrs);
-+	}
-+}
-+
-+static int create_fw_inventory(char *fw_uuid, int seq_id, u32 image_flags)
-+{
-+	const char *image_name = "(unknown)";
-+	struct image_props *attrs;
-+	int ret;
-+
-+	attrs = kzalloc(sizeof(*attrs), GFP_KERNEL);
-+	if (!attrs)
-+		return -ENOMEM;
-+
-+	for (int i = 0; i < ARRAY_SIZE(fw_images_uuids); i++) {
-+		if (!strcmp(fw_images_uuids[i].uuid, fw_uuid))
-+			image_name = fw_images_uuids[i].name;
-+	}
-+
-+	attrs->image_dir = kobject_create_and_add(fw_uuid, lfa_dir);
-+	if (!attrs->image_dir)
-+		return -ENOMEM;
-+
-+	INIT_LIST_HEAD(&attrs->image_node);
-+	attrs->image_name = image_name;
-+	attrs->cpu_rendezvous_forced = 1;
-+	set_image_flags(attrs, seq_id, image_flags);
-+
-+	/*
-+	 * The attributes for each sysfs file are constant (handler functions,
-+	 * name and permissions are the same within each directory), but we
-+	 * need a per-directory copy regardless, to get a unique handle
-+	 * for each directory, so that container_of can do its magic.
-+	 * Also this requires an explicit sysfs_attr_init(), since it's a new
-+	 * copy, to make LOCKDEP happy.
-+	 */
-+	memcpy(attrs->image_attrs, image_attrs_group,
-+	       sizeof(attrs->image_attrs));
-+	for (int i = 0; i < LFA_ATTR_NR_IMAGES; i++) {
-+		struct attribute *attr = &attrs->image_attrs[i].attr;
-+
-+		sysfs_attr_init(attr);
-+		ret = sysfs_create_file(attrs->image_dir, attr);
-+		if (ret) {
-+			pr_err("creating sysfs file for uuid %s: %d\n",
-+			       fw_uuid, ret);
-+			clean_fw_images_tree();
-+
-+			return ret;
-+		}
-+	}
-+	list_add(&attrs->image_node, &lfa_fw_images);
-+
-+	return ret;
-+}
-+
-+static int create_fw_images_tree(void)
-+{
-+	struct arm_smccc_res res = { 0 };
-+	struct uuid_regs image_uuid;
-+	char image_id_str[40];
-+	int ret, num_of_components;
-+
-+	num_of_components = get_nr_lfa_components();
-+	for (int i = 0; i < num_of_components; i++) {
-+		arm_smccc_1_1_invoke(LFA_1_0_FN_GET_INVENTORY, i, &res);
-+		if (res.a0 == LFA_SUCCESS) {
-+			image_uuid.uuid_lo = res.a1;
-+			image_uuid.uuid_hi = res.a2;
-+
-+			snprintf(image_id_str, sizeof(image_id_str), "%pUb",
-+				 &image_uuid);
-+			ret = create_fw_inventory(image_id_str, i, res.a3);
-+			if (ret)
-+				return ret;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+static int __init lfa_init(void)
-+{
-+	struct arm_smccc_res res = { 0 };
-+	int err;
-+
-+	arm_smccc_1_1_invoke(LFA_1_0_FN_GET_VERSION, &res);
-+	if (res.a0 == -LFA_NOT_SUPPORTED) {
-+		pr_err("Arm Live Firmware activation(LFA): no firmware agent found\n");
-+		return -ENODEV;
-+	}
-+
-+	pr_info("Arm Live Firmware Activation (LFA): detected v%ld.%ld\n",
-+		res.a0 >> 16, res.a0 & 0xffff);
-+
-+	lfa_dir = kobject_create_and_add("lfa", firmware_kobj);
-+	if (!lfa_dir)
-+		return -ENOMEM;
-+
-+	err = create_fw_images_tree();
-+	if (err != 0)
-+		kobject_put(lfa_dir);
-+
-+	return err;
-+}
-+module_init(lfa_init);
-+
-+static void __exit lfa_exit(void)
-+{
-+	clean_fw_images_tree();
-+	kobject_put(lfa_dir);
-+}
-+module_exit(lfa_exit);
-+
-+MODULE_DESCRIPTION("ARM Live Firmware Activation (LFA)");
-+MODULE_LICENSE("GPL");
+Changes in v2:
+- Address a build warning in patch 4/6
+- Add R-b from Frank and Daniel
+- Link to v1: https://lore.kernel.org/r/20250917-imx_rproc_c2-v1-0-00ce23dc9c6e@nxp.com
+
+---
+Peng Fan (6):
+      remoteproc: imx_rproc: Fix runtime PM cleanup and improve remove path
+      remoteproc: imx_rproc: Use devm_add_action_or_reset() for workqueue cleanup
+      remoteproc: imx_rproc: Use devm_add_action_or_reset() for mailbox cleanup
+      remoteproc: imx_rproc: Use devm_clk_get_enabled() and simplify cleanup
+      remoteproc: imx_rproc: Use devm_add_action_or_reset() for scu cleanup
+      remoteproc: imx_rproc: Use devm_rproc_add() helper
+
+ drivers/remoteproc/imx_rproc.c | 100 +++++++++++++++++++----------------------
+ 1 file changed, 47 insertions(+), 53 deletions(-)
+---
+base-commit: 8e2755d7779a95dd61d8997ebce33ff8b1efd3fb
+change-id: 20250926-imx_rproc_v3-a50abed3288a
+
+Best regards,
 -- 
-2.25.1
+Peng Fan <peng.fan@nxp.com>
 
 
