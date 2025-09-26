@@ -4,74 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73963CAC5AC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 08:47:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B816DCAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 08:58:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
 	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CyoQGGF1hszxK+x+zSp2jDLYI3ZfZJfBWPgrZOD47uE=; b=nrH6pbjiFUcUoYh6X/3wvqIK0h
-	UaX+gUNuE3PhNWgeivhuluJefazX/ILdT0JvXoaeKsx7REuH5L2IOgwHE0b9XIHlE/pqJpSNYMqwk
-	N5kZR/HZjAQB2pLtk5YxRfFxsNAuM+7jYeNo3OYTiP6gzZqZCrJVz7lfUImkbVJjP4Prftvq0TAjj
-	EvY413W44bSPKePjkJx1g163BsSDNbtyB3F75iXxKpbu277bdTLN2iTvHJqXrOE//3yCDVSgHIb4w
-	s9YXtylevTpQsbUwOcWYRdu/q2AM/5G2RS8M6ocvoNbKc4/BQCLX36XqYep72FympYN5P3Qwz/gDz
-	BZp3CgnQ==;
+	bh=xOjAN36Vto7r1lQLynhf5hll2ljwxwKiDwdKg0zvKiU=; b=SYvlrt86M28wlIuN2LGXSACxdl
+	RWM78z+MsmHxXPXCBCwgDnAlI/aPckZl9cygnQVHB6DcnrVJsU8+zOljql0mWDvwbingsyRgb8akU
+	ji3bLTx/HgWZhaps6CzgB3Fgyn5jkNVN+vk+MIUcBCgZIyvL9hbbTSYdCu/S0YQfOMJytQN0WJO4F
+	x+HBWMXg6U6LRJgnYAk/SggWKRdNk/ixbwW/+N+NkfcalsXAK83AIPcpSRHffYS52VmWn5d2gFIb0
+	+xfgbBoo/qKQTO+MxDV0Ekwerax+NhfLP8w+pkVoYT7r9vIGh2fPsLJG4GYYjSQtBipICu++bVgv2
+	yuzld4VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v246q-0000000HHWx-2HQI;
-	Fri, 26 Sep 2025 08:47:20 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v24HA-0000000HLiz-2bBn;
+	Fri, 26 Sep 2025 08:58:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v246o-0000000HHVH-2MSt
+	id 1v24H8-0000000HLhN-2Pav
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 08:47:18 +0000
+	Fri, 26 Sep 2025 08:57:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DC90761562;
-	Fri, 26 Sep 2025 08:47:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8CC7AC4CEF4;
-	Fri, 26 Sep 2025 08:47:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 88C4343356;
+	Fri, 26 Sep 2025 08:57:57 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67DB6C4CEF4;
+	Fri, 26 Sep 2025 08:57:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758876437;
-	bh=pC6Xo5HsxzIeC/HD0wRUR8XYy10SDXQ1jj7BmJ6w7nk=;
+	s=k20201202; t=1758877077;
+	bh=qurLT89Yq4wV40quik/K4CGBXx3csIfkitBetZbe+v0=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=M+fnjX+WtJusxq7dtv1f5CK40ICoTBBlmKOj6JAUxOVlU4VT9WdkAA5Xl7C5joCbt
-	 qVWyFbGkOKoEV7zWSZDWG2eGxAxUVHd7DfPKjm3itIex6Wvan0ik4AqhbAj8wPoWsu
-	 uKnT1PcvfpA01ruUkkKIt7XGOBXtxVIUE1C4N5qJ9/eqC6AMKZpyHA8HBz5dt6FwF6
-	 yXmVQ12wXE5eClacB4Kr6W726ueYJ+JSGtltOyvnR1DZlMoG708Q8px+scj8flEJ0N
-	 OTxmLT8UtelMLPMOaNH/SmhCaVFQPDlFwGaxdHYYsE4NDth8tbTZ+6875Bh8k1BG+Q
-	 DN4UAtBgFtSBQ==
+	b=MFB2haoX5kW11xmuQK4wWtB6AJhjzOf9V9FbHFNTT4Fvh7mGyaxw7Yi3+MegeG+Oi
+	 LGmYdSyd8wPppK5Xyu+0+5HKZCspgLiEWxxECCNEOszh7j4DVlDS4K5LIPrJNIY6j1
+	 fmqUHx9kJ5al20V2sBSGcfgbbmkLeIQS2a3J0fMnLv6TYf+N/EwLofRZZH9X70kiml
+	 LLrofRPy9bMFeV62ly3oor1yi/Iq2DyEAyFqMozp7/BBa/A7lzyht1OTU822+ihkhf
+	 ml6yp4MrsbZJnlOHvrrOojcVKPRVtAJmECqDSV2jXsFBtAVP1TafM0hS6EoVI89xHn
+	 AdHOiNdSmEwbQ==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1v246l-00000009bjQ-0TEW;
-	Fri, 26 Sep 2025 08:47:15 +0000
-Date: Fri, 26 Sep 2025 09:47:14 +0100
-Message-ID: <8634891tyl.wl-maz@kernel.org>
+	id 1v24H5-00000009brP-0ybJ;
+	Fri, 26 Sep 2025 08:57:55 +0000
+Date: Fri, 26 Sep 2025 09:57:54 +0100
+Message-ID: <861pnt1tgt.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Nianyao Tang <tangnianyao@huawei.com>
-Cc: <tglx@linutronix.de>,
+To: Zhou Wang <wangzhou1@hisilicon.com>
+Cc: <kvmarm@lists.linux.dev>,
 	<linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>,
-	<guoyang2@huawei.com>,
+	<oliver.upton@linux.dev>,
+	<tangnianyao@huawei.com>,
 	<wangwudi@hisilicon.com>,
-	<wangzhou1@hisilicon.com>,
-	<jiangkunkun@huawei.com>,
-	<guozicheng3@hisilicon.com>
-Subject: Re: [PATCH V2] irqchip/gic-v4.1:Check whether indirect table is supported in allocate_vpe_l1_table
-In-Reply-To: <20250918141557.1791041-1-tangnianyao@huawei.com>
-References: <20250918141557.1791041-1-tangnianyao@huawei.com>
+	<liuyonglong@huawei.com>,
+	<prime.zeng@hisilicon.com>
+Subject: Re: [PATCH v2 0/4] Add workaround for HIP10/HIP10C erratum 162200802
+In-Reply-To: <3d518b64-d66b-ca1e-0893-5b1f0faa17ee@hisilicon.com>
+References: <20250825023954.3516381-1-wangzhou1@hisilicon.com>
+	<fc7763d5-bed6-ace6-ace8-a50c031cab36@hisilicon.com>
+	<87wm5uxwvc.wl-maz@kernel.org>
+	<3d518b64-d66b-ca1e-0893-5b1f0faa17ee@hisilicon.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: tangnianyao@huawei.com, tglx@linutronix.de, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, guoyang2@huawei.com, wangwudi@hisilicon.com, wangzhou1@hisilicon.com, jiangkunkun@huawei.com, guozicheng3@hisilicon.com
+X-SA-Exim-Rcpt-To: wangzhou1@hisilicon.com, kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, oliver.upton@linux.dev, tangnianyao@huawei.com, wangwudi@hisilicon.com, liuyonglong@huawei.com, prime.zeng@hisilicon.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250926_015758_651111_96B994C1 
+X-CRM114-Status: GOOD (  22.31  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,31 +91,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 18 Sep 2025 15:15:57 +0100,
-Nianyao Tang <tangnianyao@huawei.com> wrote:
+On Fri, 26 Sep 2025 08:15:16 +0100,
+Zhou Wang <wangzhou1@hisilicon.com> wrote:
 > 
-> In allocate_vpe_l1_table, it allocates a new vpe table without checking
-> whether indirect table is supported.
-> ARM allows vendors to support only flat tables. Let's first check if
-> indirect tables are supported before using it.
+> On 2025/9/19 23:52, Marc Zyngier wrote:
+> > On Mon, 01 Sep 2025 11:55:49 +0100,
+> > Zhou Wang <wangzhou1@hisilicon.com> wrote:
+> >>
+> >> On 2025/8/25 10:39, Zhou Wang wrote:
+> >>> As the discussion from V1 series, V2 series firstly adds GICD.num_LPIs
+> >>> writable support, then add HiSilicon erratum 162200802.
+> >>>
+> >>> Erratum number should be 162200802, make a mistake in V1, so fix it as
+> >>> well.
+> >>>
+> >>> Zhou Wang (4):
+> >>>   KVM: arm64: Allow userspace to write GICD_TYPER.num_LPIs
+> >>>   KVM: arm64: selftests: Add test for GICD.num_LPIs
+> >>>   Documentation: KVM: arm64: Add GICD_TYPER.num_LPIs writable
+> >>>     description
+> >>>   ARM64: errata: Add workaround for HIP10/HIP10C erratum 162200802
+> >>
+> >> Hi Marc and Oliver,
+> >>
+> >> As the discussion in V1 series, this series firstly adds GICD.num_LPIs
+> >> writable support, then add erratum patch.
+> > 
+> > Given the state of this HW (as per [1]), I'd rather we start by
+> > working out the strategy at the GIC level, rather than exposing stuff
+> > to userspace before we agree on a way to make it work in the kernel.
 > 
-> Signed-off-by: Nianyao Tang <tangnianyao@huawei.com>
+> This bug is in GICv4.0([1] is in GICv4.1), and seems having a clear way
+> to fix. How about merging this fix firstly, then continue to try to solve [1]?
 
-As I understand it, this is for the same machines that also requires
-[1] and [2] to be able to use vLPIs and vSGIs.
+No. It has to be worked out the other way around, because this is
+introducing a new userspace ABI, and adding new ABIs to cope with
+design bugs is not really acceptable, specially when you have a
+perfectly good way to deal with the issue (don't enable GICv4).
 
-I seriously doubt that we want *any* of it (creating userspace ABI to
-deal with a broken design is not something I'm keen on).
+I also don't understand your 4.0 vs 4.1 point. This is for HIP10 and
+HIP10C. [1] clearly says that both HIP9/10/10C are GICv4.1
+implementations. So what is what here?
 
-Frankly, you should consider disabling GICv4.1 on these machines, and
-stick with GICv3 (which I assume works correctly).
+I'm mildly annoyed at being spoon-fed bits of errata with
+contradicting statements instead of being given the full picture for
+what looks like an implementation train-wreck. From what I can see,
+these implementations are broken, and not worth salvaging. There is a
+perfectly valid workaround that keeps VMs running without any extra
+change. Why can't you simply use that?
 
 Thanks,
 
 	M.
 
-[1] https://lore.kernel.org/r/20250825023954.3516381-1-wangzhou1@hisilicon.com
-[2] https://lore.kernel.org/r/20250909110615.129179-1-wangzhou1@hisilicon.com
+[1] https://lore.kernel.org/r/20250909110615.129179-1-wangzhou1@hisilicon.com
 
 -- 
 Without deviation from the norm, progress is not possible.
