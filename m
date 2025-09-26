@@ -4,75 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F816CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 14:48:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5998DCAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 14:55:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wSj1BNhFUGS9D6nHDwBENPbvjao7G0oMILplewyKaYo=; b=D9e54rSfqL50GbZXz9ircADh03
-	l0V6IrOwFJ1XtXLvawAjBlzEEhAw49OLiOfGbwK/AQclkU5ohClqkbgA9PWnFx7t8zrSCzF88ZqAz
-	VOVCJMiZzfQ+b97TX65/Ug192DluAP6OivqbXwyzlYXDr+eMbtpIxJoIzRsqKGMUCrXhsi4p+gLrY
-	pBb4Ymoh6Xr2N+6+R53+Gq2WYkQKQ8Z58HwVemiz3Wx1rzh9Vrll0w6QTkEVV7DyBt6mFWBoiTTqC
-	ixhC7VuU+bD+B4E1ikIcGIOh+F2qYqtsPN3Fsl0NGDJCu6nVytFBmwDmEb5AiPSnFDIh+fvrT+3r8
-	W515tU8w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YlHLkEbSJhpN8X8CBqIKJC8pNsm9nxHoaFK6d+v92AY=; b=vbjP7Cv4vRNmYnnxVWxbdsXrdr
+	w+0TqKDd842TpW/pdtHoCEh7OmemBB4LxBauAz+KN6QirwkDYSQbEgmq6Vj3/PHJtf/jjPpklYnnf
+	+NCKSoHOgDvavw4/E8PtORQib/I3DPM+Q6ZZu2XOXKxI5nvvMKfZXzpO8Ssd9IJO2+QPIgPiFFT9+
+	rJulPDyjrlPZqenUnHihJMah7zibBWBuje8EGMOYz9szXuhvK8dS5WdG/0wUNdVb0gWDENr1R7V0f
+	kvNMlfPo1sW4oOsiB/Na04Sw29Xr2eRhiHnUG521nFhfH3nuTL6idMwYFEK/y/akUttYQgm/D9e/G
+	oSKsyeeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v29kD-000000028cf-2qeV;
-	Fri, 26 Sep 2025 14:48:21 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1v29rM-00000002Bg2-1YB1;
+	Fri, 26 Sep 2025 14:55:44 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v29kA-000000028YZ-2Q7Q
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 14:48:20 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cYCzn3mX8z6M4Rs;
-	Fri, 26 Sep 2025 22:45:09 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 53443140278;
-	Fri, 26 Sep 2025 22:48:11 +0800 (CST)
-Received: from localhost (10.47.75.77) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Fri, 26 Sep
- 2025 15:48:09 +0100
-Date: Fri, 26 Sep 2025 15:48:06 +0100
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: James Morse <james.morse@arm.com>, Lorenzo Pieralisi
-	<lpieralisi@kernel.org>, Hanjun Guo <guohanjun@huawei.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-acpi@vger.kernel.org>, D Scott Phillips OS
-	<scott@os.amperecomputing.com>, <carl@os.amperecomputing.com>,
-	<lcherian@marvell.com>, <bobo.shaobowang@huawei.com>,
-	<tan.shaopeng@fujitsu.com>, <baolin.wang@linux.alibaba.com>, Jamie Iles
-	<quic_jiles@quicinc.com>, Xin Hao <xhao@linux.alibaba.com>,
-	<peternewman@google.com>, <dfustini@baylibre.com>, <amitsinght@marvell.com>,
-	David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>, Koba
- Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
-	<fenghuay@nvidia.com>, <baisheng.gao@unisoc.com>, Rob Herring
-	<robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>, "Rafael Wysocki"
-	<rafael@kernel.org>, Len Brown <lenb@kernel.org>, Sudeep Holla
-	<sudeep.holla@arm.com>, Catalin Marinas <catalin.marinas@arm.com>, "Will
- Deacon" <will@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>
-Subject: Re: [PATCH v2 06/29] ACPI / MPAM: Parse the MPAM table
-Message-ID: <20250926154806.0000609e@huawei.com>
-In-Reply-To: <334e0e8b-3f30-48b7-896f-0b31111d2b41@arm.com>
-References: <20250910204309.20751-1-james.morse@arm.com>
-	<20250910204309.20751-7-james.morse@arm.com>
-	<20250911141726.00002f0c@huawei.com>
-	<334e0e8b-3f30-48b7-896f-0b31111d2b41@arm.com>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	id 1v29rK-00000002BfW-14mm;
+	Fri, 26 Sep 2025 14:55:43 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AFEE6403A3;
+	Fri, 26 Sep 2025 14:55:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7740BC4CEF4;
+	Fri, 26 Sep 2025 14:55:41 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758898541;
+	bh=8gj65qVHmn8vegx9eirL41njLH2RQUiHZwCiJ5RZXJA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=VsIMOILFvZt3zXiMnd+saoKFhSWh5zztX+Vkpu8GCGi2SCm9njFLFhSnDPSmZNwfv
+	 SYleGKAfg2B6nSMO8jJOkRwZp/YHbS3Dr++PLIQK9xXPglOmsI0R5WQNP2dlWAPC4M
+	 CeYuH+O4NbFWXni5LxPXR2/gc+hdGL1MGw2FeR0+dBAJxE0z96ICowzveFhLAzoCCQ
+	 caFPk/ln35737kfe6I5VenX7KEpnjhPImpeJLdZsFbaPNnPu1+BwId6SjWg1PLHdN6
+	 XmdlDWwHpw9tCsGkQIr52V/rybBVS936X3o7QcSxbt5TXrYmxM61F4u9YpWu1twaIP
+	 71oqhq8XgRDeg==
+Date: Fri, 26 Sep 2025 09:55:40 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	linux-arm-kernel@lists.infradead.org,
+	John Crispin <john@phrozen.org>, linux-mediatek@lists.infradead.org,
+	linux-watchdog@vger.kernel.org,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Felix Fietkau <nbd@nbd.name>, Conor Dooley <conor+dt@kernel.org>,
+	linux-crypto@vger.kernel.org,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	linux-kernel@vger.kernel.org, Guenter Roeck <linux@roeck-us.net>,
+	Wim Van Sebroeck <wim@linux-watchdog.org>,
+	devicetree@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>
+Subject: Re: [PATCH v3 3/4] dt-bindings: arm64: dts: airoha: Add AN7583
+ compatible
+Message-ID: <175889851158.762885.9694825397072529711.robh@kernel.org>
+References: <20250925164038.13987-1-ansuelsmth@gmail.com>
+ <20250925164038.13987-4-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.47.75.77]
-X-ClientProxiedBy: lhrpeml100009.china.huawei.com (7.191.174.83) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250925164038.13987-4-ansuelsmth@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_074818_909301_34262F0D 
-X-CRM114-Status: GOOD (  56.97  )
+X-CRM114-CacheID: sfid-20250926_075542_315541_60AAA518 
+X-CRM114-Status: GOOD (  11.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,196 +84,27 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-Hi James
+On Thu, 25 Sep 2025 18:40:36 +0200, Christian Marangi wrote:
+> Add Airoha AN7583 compatible to the list of enum for Airoha Supported
+> SoCs.
+> 
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> ---
+>  Documentation/devicetree/bindings/arm/airoha.yaml | 4 ++++
+>  1 file changed, 4 insertions(+)
+> 
 
-Just a few things I've picked out to reply to.
-Absolutely fine with your other replies.
 
-> 
-> >> +	char uid[16];
-> >> +	u32 acpi_id;
-> >> +
-> >> +	if (acpi_disabled || !system_supports_mpam() || IS_ERR(table))
-> >> +		return 0;
-> >> +
-> >> +	if (table->revision < 1)
-> >> +		return 0;
-> >> +
-> >> +	table_end = (char *)table + table->length;
-> >> +
-> >> +	while (table_offset < table_end) {
-> >> +		tbl_msc = (struct acpi_mpam_msc_node *)table_offset;
-> >> +		table_offset += tbl_msc->length;
-> >> +
-> >> +		if (table_offset > table_end) {
-> >> +			pr_debug("MSC entry overlaps end of ACPI table\n");
-> >> +			break;  
-> 
-> > That this isn't considered an error is a bit subtle and made me wonder
-> > if there was a use of uninitialized pdev (there isn't because err == 0)  
-> 
-> Its somewhat a philosophical arguement. I don't expect the kernel to have to validate
-> these tables, they're not provided by the user and there quickly becomes a point where
-> you have to trust them, and they have to be correct.
+Please add Acked-by/Reviewed-by tags when posting new versions. However,
+there's no need to repost patches *only* to add the tags. The upstream
+maintainer will do that for acks received on the version they apply.
 
-Potential buffer overrun is to me always worth error out screaming, but I get your
-broader point.   Maybe just make it a pr_err()
+If a tag was not added on purpose, please state why and what changed.
 
-> At the other extreme is the asusmption the table is line-noise and we should check
-> everything to avoid out of bounds accesses. Dave wanted the diagnostic messages on these.
-> 
-> As this is called from an initcall, the best you get is an inexplicable print message.
-> (what should we say - update your firmware?)
+Missing tags:
 
-Depends on whether you can lean hard on the firmware team. Much easier
-for me if I can tell them the board doesn't boot because they got it wrong.
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
-That would have been safer if we had this upstream in advance of hardware, but indeed
-a little high risk today as who knows what borked tables are out there.
 
-Personal preference though is to error out on things like this and handle the papering
-over at the top level.  Don't put extra effort into checking tables are invalid
-but if we happen to notice as part of code safety stuff like sizes then good to scream
-about it.
 
-> 
-> 
-> Silently failing in this code is always safe as the driver has a count of the number of
-> MSC, and doesn't start accessing the hardware until its found them all.
-> (this is because to find the system wide minimum value - and its not worth starting if
->  its not possible to finish).
-> 
-> 
-> > Why not return here?  
-> 
-> Just because there was no other return in the loop, and I hate surprise returns.
-> 
-> I'll change it if it avoids thinking about how that platform_device_put() gets skipped!
-> 
-> 
-> >   
-> >> +		}
-> >> +
-> >> +		/*
-> >> +		 * If any of the reserved fields are set, make no attempt to
-> >> +		 * parse the MSC structure. This MSC will still be counted,
-> >> +		 * meaning the MPAM driver can't probe against all MSC, and
-> >> +		 * will never be enabled. There is no way to enable it safely,
-> >> +		 * because we cannot determine safe system-wide partid and pmg
-> >> +		 * ranges in this situation.
-> >> +		 */  
-> 
-> > This is decidedly paranoid. I'd normally expect the architecture to be based
-> > on assumption that is fine for old software to ignore new fields.  ACPI itself
-> > has fairly firm rules on this (though it goes wrong sometimes :)  
-> 
-> Yeah - the MPAM table isn't properly structured as subtables. I don't see how they are
-> going to extend it if they need to.
-> 
-> The paranoia is that anything set in these reserved fields probably indicates something
-> the driver needs to know about: a case in point is the way PCC was added.
-> 
-> I'd much prefer we skip creation of MSC devices that have properties we don't understand.
-> acpi_mpam_count_msc() still counts them - which means the driver never finds all the MSC,
-> and never touches the hardware.
-> 
-> MPAM isn't a critical feature, its better that it be disabled than make things worse.
-> (the same attitude holds with the response to the MPAM error interrupt - reset everything
->  and pack up shop. This is bettern than accidentally combining important/unimportant
->  tasks)
-> 
-> 
-> > I'm guessing there is something out there that made this necessary though so
-> > keep it if you actually need it.  
-> 
-> It's a paranoid/violent reaction to the way PCC was added - without something like this,
-> that would have led to the OS trying to map the 0 page and poking around in it - never
-> likely to go well.
-> 
-> Doing this does let them pull another PCC without stable kernels going wrong.
-> Ultimately I think they'll need to replace the table with one that is properly structured.
-> For now - this is working with what we have.
-
-Fair enough. I'm too lazy / behind with reviews to go scream via our channels about
-problems here.  Paranoia it is.  Maybe we'll end up backporting some 'fixes' that
-ignore nicely added fields with appropriate control bits to turn them on.
-So be it if that happens.
-
-> 
-> 
-> >> +		if (tbl_msc->reserved || tbl_msc->reserved1 || tbl_msc->reserved2) {
-> >> +			pr_err_once("Unrecognised MSC, MPAM not usable\n");
-> >> +			pr_debug("MSC.%u: reserved field set\n", tbl_msc->identifier);
-> >> +			continue;
-> >> +		}
-> >> +
-> >> +		if (!tbl_msc->mmio_size) {
-> >> +			pr_debug("MSC.%u: marked as disabled\n", tbl_msc->identifier);
-> >> +			continue;
-> >> +		}
-> >> +
-> >> +		if (decode_interface_type(tbl_msc, &iface)) {
-> >> +			pr_debug("MSC.%u: unknown interface type\n", tbl_msc->identifier);
-> >> +			continue;
-> >> +		}
-> >> +
-> >> +		next_res = 0;
-> >> +		next_prop = 0;
-> >> +		memset(res, 0, sizeof(res));
-> >> +		memset(props, 0, sizeof(props));
-> >> +
-> >> +		pdev = platform_device_alloc("mpam_msc", tbl_msc->identifier);  
-> > 
-> > https://lore.kernel.org/all/20241009124120.1124-13-shiju.jose@huawei.com/
-> > was a proposal to add a DEFINE_FREE() to clean these up.  Might be worth a revisit.
-> > Then Greg was against the use it was put to and asking for an example of where
-> > it helped.  Maybe this is that example.
-> > 
-> > If you do want to do that, I'd factor out a bunch of the stuff here as a helper
-> > so we can have the clean ownership pass of a return_ptr().  
-> > Similar to what Shiju did here (this is the usecase for platform device that
-> > Greg didn't like).
-> > https://lore.kernel.org/all/20241009124120.1124-14-shiju.jose@huawei.com/
-> > 
-> > Even without that I think factoring some of this out and hence being able to
-> > do returns on errors and put the if (err) into the loop would be a nice
-> > improvement to readability.  
-> 
-> If you think its more readable I'll structure it like that.
-
-The refactor yes. I'd keep clear of the the DEFINE_FREE() unless you have
-some spare time ;)
-> 
-> 
-> >> +		if (!pdev) {
-> >> +			err = -ENOMEM;
-> >> +			break;
-> >> +		}
-
-> >> +int acpi_mpam_count_msc(void)
-> >> +{
-> >> +	struct acpi_table_header *table __free(acpi_table) = acpi_get_table_ret(ACPI_SIG_MPAM, 0);
-> >> +	char *table_end, *table_offset = (char *)(table + 1);
-> >> +	struct acpi_mpam_msc_node *tbl_msc;
-> >> +	int count = 0;
-> >> +
-> >> +	if (IS_ERR(table))
-> >> +		return 0;
-> >> +
-> >> +	if (table->revision < 1)
-> >> +		return 0;
-> >> +
-> >> +	table_end = (char *)table + table->length;  
-> 
-> > Trivial so feel free to ignore.
-> > Perhaps should aim for consistency.  Whilst I prefer pointers for this stuff
-> > PPTT did use unsigned longs.  
-> 
-> I prefer the pointers, and as it's a separate file, I don't think it needs to be
-> concistent with PPTT.
-
-Fair enough.  Maybe PPTT is ripe for some cleanup once you are done messing with it.
-I'm certainly going to add churn now.
-
-J
 
