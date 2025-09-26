@@ -4,69 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F68CCAC5B9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 09:10:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C76DCAC5AC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 09:15:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iDJVGOIgKbJqYYn5jCnxxPx6TnAmnI+ZGu9fdXFw8G4=; b=dVxIVhAdeY0IUrsedwGsf2p0DU
-	vaX0C4p8bBkteoRDot/z7Rn8Fw87gxzKoj/zwONKIuekLNvSvFqDB0ctgY1AyqvH/DQipQcdEqCI3
-	Q8iIDniFM2giBem7STa9xyYUQGO3q6BqlvnE8pN7yhue1Fy/qi7gLmOARHGsjCTksizx3bElVxzU2
-	ZtPffd55eI7wALKbttAOcNFZeErZjv5rnXBjj3Fl//WvHMHHMFC/jsPsU5kJvd65bEK3DhicEkTqg
-	VwkZlddOML2uqt5ZrImGkf2DAdhEKF7Rqo3VjUUZBCQq9uA3gcjrPaf6aDXQw8Wph+tUfLwaTaMLR
-	w5fEwTSw==;
+	bh=KFTjY5/OntfnPss18xMJfKbpZ6ztPp46Q2iJkWHJLes=; b=qg+iXSFRQwCYvGoy7VWq8MPYw5
+	mt3jGBdkhnSN3Xc7eXTWeElQh4N65gDDEVYf4A509KU/TE1p4EoWqB2mBMRr/u/wEdV3aLzeFfDUM
+	0NPLvoxS9Ecw8JRZ97Kczz6ntiOFLiUoAkfnesNNyhJwwZqC6c64IdHrAbcn0bzrpo3UcgcWFyaku
+	cSyE6qy7nVeHB8RI7xwe6GgvHF8vEoI5gWqGJ1BIoCSOnWiMaxBBDuyE986famhBGhvBKSAqqZn7V
+	QptKxPEseNzUX6t50tNVAsN/sfVpG9Vy8y9zvWPcplCzKvArZu09eTRO3ECQTnUqYx6DN7rVgoJCE
+	YvcpbeJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v24Ta-0000000HRjp-1UWo;
-	Fri, 26 Sep 2025 09:10:50 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v24TX-0000000HRgy-1nKv
+	id 1v24Xp-0000000HTTs-3wqS;
+	Fri, 26 Sep 2025 09:15:13 +0000
+Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v24Xm-0000000HTRF-2Q8Y
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 09:10:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 47255168F;
-	Fri, 26 Sep 2025 02:10:36 -0700 (PDT)
-Received: from [10.1.38.22] (e122027.cambridge.arm.com [10.1.38.22])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E010D3F66E;
-	Fri, 26 Sep 2025 02:10:38 -0700 (PDT)
-Message-ID: <bab8603f-852a-4581-a6cd-d8958b6f3120@arm.com>
-Date: Fri, 26 Sep 2025 10:10:36 +0100
+	Fri, 26 Sep 2025 09:15:11 +0000
+Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-3f1aff41e7eso1853507f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 02:15:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1758878108; x=1759482908; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=KFTjY5/OntfnPss18xMJfKbpZ6ztPp46Q2iJkWHJLes=;
+        b=VG18ikB+mwg3a3L35BVo/FWRxKAkSMe7pyIQLcpB5rCBlTrOZWCcWg3/U5BYjUOUQ3
+         iJRrxsj1frC7AWCHayGEAYTsK/G6VBVn8ViCBKg3NwFFbN8mKVTCjIVWHUJWTgp2Ekkf
+         FNL2+f5Di0ILqjdgxytmlVztMbHfTNVtGk9teLTkZuL31GUlJvlffBF5WLT9A+nZn2ee
+         5YTce5yLIlLocckKQpC6nW+moZ/u+SkP0UYTPFaImTtWOtpk/iT5DUmmjQqtS6i/isyP
+         Z4/9f7SOGcnTKuIhZ0trDZ3Sid3aNp5GL8z1zoyj3n9l5V12XNELBouTM2L+0vkVjjqH
+         xN5A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758878108; x=1759482908;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=KFTjY5/OntfnPss18xMJfKbpZ6ztPp46Q2iJkWHJLes=;
+        b=ikocCQ6v8ASiU9hL0vYJP8tHyGtSU49MJDUHKXr4hJzMPl4GM5Hpj5un+zDyIcn7hX
+         BMrHfhI1XgwrV9DTvdw9qtzKUXI9MMhLqWfxXwK796a9RsRLdqwwZlPUPt7ZoxVzPrrV
+         ZYJ2JWGVG6GMqopwal0kbrOpBNIG5mGFFNKGPk4qXAAHXMlrEO6zAW4cPzH1JxlMSUgY
+         5kRWPibuwPcOka907viWi8FMf3hkGmEE8+d6OGxkgI7YnTvj5ze71JnV2LMmsreFF3iu
+         6izo8DMtokjeilfU9tJZcT6tbGrb5MZBF29zux9bTs1WXckTlAtpQgmdHNzwbS+0+VM4
+         UFrQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUavI6/x0+Lv5HQhVkAAQFMKE00YvPHZjEFFwhlh/MMgO0CXYfSkfj9gYWW1wFteEuzMVr/WQKLtOWuL0DLIUFb@lists.infradead.org
+X-Gm-Message-State: AOJu0YxAZqOCsqMVLutP43kFWzP8VEUrMhBVCVOMY6gSjptIFj9kLP88
+	6PqCt7WojNSeyT9IA7yQtEz8pDiYJEojhNZ2qGLF9RFMNXgj12HBZMEjcbGhKdBb2FI=
+X-Gm-Gg: ASbGncvSNE32xYUXpT5WTSlgJ10x7Hy/jYMoCNhZRd1+XakVvJPTSHSFpQ6P74N99t4
+	K/g16DW/vXm8PaquC1xaNhRlLYfpAyQrj8YKyfI6kqbEs6SxoODisitfFqbLjNIVQizpzAqwYro
+	wuzXvc2x+haTyyDQ4nomVKNTEZJCkzIYsuBl4/LNsP7Qgicv8eyoIAtn3hEw8vHP8n3GD7SE0cf
+	ZncfHRLLZCXR2i5lLYxIaEapYx9HwKFYxqruh85bnwe/9UcvMCcHQXk6eu73wWLa01Kuk173kpF
+	T68MxSvKOdJwuo3VCPmlPXIcn3sSbE6Kg9we7x9qfAPKAHodgeYoZwFhycCtybt5Irbkg/iGRK9
+	AKAs0aSBAs/g1K2GJe6lo3wuocVR7KduEgObQRPyA+BE=
+X-Google-Smtp-Source: AGHT+IEVX7V7+nffT3CJ9dpetDYPOn1G7WuDY6pTt+HXts5dckr78/uI1tL88mQFYL4fesUlu07JBw==
+X-Received: by 2002:a05:6000:2585:b0:404:ac77:6598 with SMTP id ffacd0b85a97d-40e429c9c4dmr6196945f8f.11.1758878108352;
+        Fri, 26 Sep 2025 02:15:08 -0700 (PDT)
+Received: from [10.11.12.107] ([79.118.185.144])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-40fe4237f32sm6185169f8f.63.2025.09.26.02.15.06
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 26 Sep 2025 02:15:07 -0700 (PDT)
+Message-ID: <586c85d8-7638-4e52-8f96-1aa4640afe64@linaro.org>
+Date: Fri, 26 Sep 2025 10:15:05 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 00/43] arm64: Support for Arm CCA in KVM
-To: "Emi Kisanuki (Fujitsu)" <fj0570is@fujitsu.com>,
- "kvm@vger.kernel.org" <kvm@vger.kernel.org>,
- "kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>
-Cc: Catalin Marinas <catalin.marinas@arm.com>, Marc Zyngier <maz@kernel.org>,
- Will Deacon <will@kernel.org>, James Morse <james.morse@arm.com>,
- Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- Joey Gouly <joey.gouly@arm.com>, Alexandru Elisei
- <alexandru.elisei@arm.com>, Christoffer Dall <christoffer.dall@arm.com>,
- Fuad Tabba <tabba@google.com>,
- "linux-coco@lists.linux.dev" <linux-coco@lists.linux.dev>,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Vishal Annapurve <vannapurve@google.com>
-References: <20250820145606.180644-1-steven.price@arm.com>
- <TYXPR01MB1886ADF1064CBFB7354AD929C31CA@TYXPR01MB1886.jpnprd01.prod.outlook.com>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <TYXPR01MB1886ADF1064CBFB7354AD929C31CA@TYXPR01MB1886.jpnprd01.prod.outlook.com>
+Subject: Re: [PATCH v5 2/5] firmware: exynos-acpm: add DVFS protocol
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Peter Griffin
+ <peter.griffin@linaro.org>, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
+References: <20250924-acpm-clk-v5-0-4cca1fadd00d@linaro.org>
+ <20250924-acpm-clk-v5-2-4cca1fadd00d@linaro.org>
+ <03cbad1f4f311727b4dce9c969404e2bc138c556.camel@linaro.org>
+Content-Language: en-US
+From: Tudor Ambarus <tudor.ambarus@linaro.org>
+In-Reply-To: <03cbad1f4f311727b4dce9c969404e2bc138c556.camel@linaro.org>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_021047_555264_930D496B 
-X-CRM114-Status: GOOD (  42.14  )
+X-CRM114-CacheID: sfid-20250926_021510_642024_63E51D32 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,215 +111,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Emi,
+Hi, André!
 
-Many thanks for testing this!
+On 9/24/25 4:24 PM, André Draszik wrote:
+>> +	unsigned long (*get_rate)(const struct acpm_handle *handle,
+>> +				  unsigned int acpm_chan_id,
+>> +				  unsigned int clk_id, u32 dbg_val);
+> Everything seems self-explanatory except this dbg_val. What are API users meant
+> to put there? Maybe some kerneldoc could explain it?
 
-Regards,
-Steve
+I don't really know, there's no documentation. I can guess by reading the
+downstream code.
 
-On 24/09/2025 03:34, Emi Kisanuki (Fujitsu) wrote:
-> We tested this patch in our internal simulator which is a hardware simulator for Fujitsu's next generation CPU known as Monaka, and it produced the expected results.
-> 
-> I have verified the following
-> 1. Launching the realm VM using Internal simulator -> Successfully launched by disabling MPAM support in the ID register.
-> 2. Running kvm-unit-tests (with lkvm) -> All tests passed except for PMU (as expected, since PMU is not supported by the Internal simulator).[1]
-> 
-> Tested-by: Emi Kisanuki <fj0570is@fujitsu.com> [1] https://gitlab.arm.com/linux-arm/kvmEmi -unit-tests-cca cca/latest
-> 
->> This series adds support for running protected VMs using KVM under the Arm
->> Confidential Compute Architecture (CCA).
->>
->> The related guest support was merged for v6.14-rc1 so you no longer need that
->> separately.
->>
->> There are a few changes since v9, many thanks for the review comments. The
->> highlights are below, and individual patches have a changelog.
->>
->>  * Fix a potential issue where the host was walking the stage 2 page tables on
->>    realm destruction. If the RMM didn't zero when undelegated (which it isn't
->>    required to) then the kernel would attempt to work the junk values and crash.
->>
->>  * Avoid RCU stall warnings by correctly settign may_block in
->>    kvm_free_stage2_pgd().
->>
->>  * Rebased onto v6.17-rc1.
->>
->> Things to note:
->>
->>  * The magic numbers for capabilities and ioctls have been updated. So
->>    you'll need to update your VMM. See below for the updated kvmtool branch.
->>
->>  * This series doesn't attempt to integrate with the guest-memfd changes that
->>    are being discussed (see below).
->>
->>  * Vishal raised an important question about what to do in the case of
->>    undelegate failures (also see below).
->>
->> guest-memfd
->> ===========
->>
->> This series still implements the same API as previous versions, which means only
->> the private memory of the guest is backed by guest-memfd, and the shared
->> portion is accessed using VMAs from the VMM. This approach is compatible with
->> the proposed changes to support guest-memfd backing shared memory but would
->> require the VMM to mmap() the shared memory at the appropriate time so that
->> KVM can access via the VMM's VMAs.
->>
->> Changing to access both shared and private through the guest-memfd API
->> shouldn't be difficult and could be done in a backwards compatible manner (with
->> the VMM choosing which method to use). It's not clear to me whether we want to
->> hold things up waiting for the full guest-memfd (and only support that
->> uAPI) or if it would be fine to just support both approaches and let VMM's switch
->> when they are ready.
->>
->> There is a slight wrinkle around the 'populate' uAPI
->> (KVM_CAP_ARM_RME_POPULATE). At the moment this expects 'double
->> mapping' - the contents to be populated should be in the shared memory region,
->> but the physical pages for the private region are also allocated from the
->> guest_memfd.
->> Arm CCA doesn't support a true 'in-place' conversion so this is required in some
->> form. However it may make sense to allow the populate call to take a user space
->> pointer for the data to be copied rather than require it to be in the shared memory
->> region. We do already have a "flags" argument so there's also scope for easily
->> supporting both options. The current approach integrates quite nicely in kvmtool
->> with the existing logic for setting up a normal
->> (non-CoCo) guest. But I'm aware kvmtool isn't entirely representative of what
->> VMMs do, so I'd welcome feedback on what a good populate uAPI would look like.
->>
->> Undelegation failure
->> ====================
->>
->> When the kernel is tearing down a CCA VM, it will attempt to "undelegate"
->> pages allowing them to be used by the Normal World again. Assuming no bugs
->> then these operations will always succeed. However, the RMM has the ability to
->> return a failure if it considers these pages to still be in use. A failure like this is
->> always a bug in the code, but it would be good to be able to handle these without
->> resorting to an immediate BUG_ON().
->>
->> The current approach in the code is to simply WARN() and use get_page() to take
->> an extra reference to the page to stop it being reused (as it will immediately cause
->> a GPF if the Normal World attempts to access the page).
->>
->> However this will cause problems when we start supporting huge pages. It may be
->> possible to use the HWPOISON infrastructure to flag the page as unusable
->> (although note there is no way of 'scrubbing' a page to recover from this situation).
->> The other option is to just accept this this "should never happen"
->> and upgrade the WARN() to a BUG_ON() so we don't have to deal with the
->> situation. A third option is to do nothing (other than WARN) and let the system run
->> until the inevitable GPF which will probably bring it down (and hope there's
->> enough time for the user to save work etc).
->>
->> I'd welcome thoughts on the best solution.
->>
->> ====================
->>
->> The ABI to the RMM (the RMI) is based on RMM v1.0-rel0 specification[1].
->>
->> This series is based on v6.17-rc1. It is also available as a git
->> repository:
->>
->> https://gitlab.arm.com/linux-arm/linux-cca cca-host/v10
->>
->> Work in progress changes for kvmtool are available from the git repository below:
->>
->> https://gitlab.arm.com/linux-arm/kvmtool-cca cca/v8
->>
->> [1] https://developer.arm.com/documentation/den0137/1-0rel0/
->>
->> Jean-Philippe Brucker (7):
->>   arm64: RME: Propagate number of breakpoints and watchpoints to
->>     userspace
->>   arm64: RME: Set breakpoint parameters through SET_ONE_REG
->>   arm64: RME: Initialize PMCR.N with number counter supported by RMM
->>   arm64: RME: Propagate max SVE vector length from RMM
->>   arm64: RME: Configure max SVE vector length for a Realm
->>   arm64: RME: Provide register list for unfinalized RME RECs
->>   arm64: RME: Provide accurate register list
->>
->> Joey Gouly (2):
->>   arm64: RME: allow userspace to inject aborts
->>   arm64: RME: support RSI_HOST_CALL
->>
->> Steven Price (31):
->>   arm64: RME: Handle Granule Protection Faults (GPFs)
->>   arm64: RME: Add SMC definitions for calling the RMM
->>   arm64: RME: Add wrappers for RMI calls
->>   arm64: RME: Check for RME support at KVM init
->>   arm64: RME: Define the user ABI
->>   arm64: RME: ioctls to create and configure realms
->>   KVM: arm64: Allow passing machine type in KVM creation
->>   arm64: RME: RTT tear down
->>   arm64: RME: Allocate/free RECs to match vCPUs
->>   KVM: arm64: vgic: Provide helper for number of list registers
->>   arm64: RME: Support for the VGIC in realms
->>   KVM: arm64: Support timers in realm RECs
->>   arm64: RME: Allow VMM to set RIPAS
->>   arm64: RME: Handle realm enter/exit
->>   arm64: RME: Handle RMI_EXIT_RIPAS_CHANGE
->>   KVM: arm64: Handle realm MMIO emulation
->>   arm64: RME: Allow populating initial contents
->>   arm64: RME: Runtime faulting of memory
->>   KVM: arm64: Handle realm VCPU load
->>   KVM: arm64: Validate register access for a Realm VM
->>   KVM: arm64: Handle Realm PSCI requests
->>   KVM: arm64: WARN on injected undef exceptions
->>   arm64: Don't expose stolen time for realm guests
->>   arm64: RME: Always use 4k pages for realms
->>   arm64: RME: Prevent Device mappings for Realms
->>   arm_pmu: Provide a mechanism for disabling the physical IRQ
->>   arm64: RME: Enable PMU support with a realm guest
->>   arm64: RME: Hide KVM_CAP_READONLY_MEM for realm guests
->>   KVM: arm64: Expose support for private memory
->>   KVM: arm64: Expose KVM_ARM_VCPU_REC to user space
->>   KVM: arm64: Allow activating realms
->>
->> Suzuki K Poulose (3):
->>   kvm: arm64: Include kvm_emulate.h in kvm/arm_psci.h
->>   kvm: arm64: Don't expose debug capabilities for realm guests
->>   arm64: RME: Allow checking SVE on VM instance
->>
->>  Documentation/virt/kvm/api.rst       |   92 +-
->>  arch/arm64/include/asm/kvm_emulate.h |   38 +
->>  arch/arm64/include/asm/kvm_host.h    |   13 +-
->>  arch/arm64/include/asm/kvm_rme.h     |  135 ++
->>  arch/arm64/include/asm/rmi_cmds.h    |  508 ++++++++
->>  arch/arm64/include/asm/rmi_smc.h     |  269 ++++
->>  arch/arm64/include/asm/virt.h        |    1 +
->>  arch/arm64/include/uapi/asm/kvm.h    |   49 +
->>  arch/arm64/kvm/Kconfig               |    1 +
->>  arch/arm64/kvm/Makefile              |    2 +-
->>  arch/arm64/kvm/arch_timer.c          |   44 +-
->>  arch/arm64/kvm/arm.c                 |  169 ++-
->>  arch/arm64/kvm/guest.c               |  108 +-
->>  arch/arm64/kvm/hypercalls.c          |    4 +-
->>  arch/arm64/kvm/inject_fault.c        |    5 +-
->>  arch/arm64/kvm/mmio.c                |   16 +-
->>  arch/arm64/kvm/mmu.c                 |  209 ++-
->>  arch/arm64/kvm/pmu-emul.c            |    6 +
->>  arch/arm64/kvm/psci.c                |   30 +
->>  arch/arm64/kvm/reset.c               |   23 +-
->>  arch/arm64/kvm/rme-exit.c            |  207 +++
->>  arch/arm64/kvm/rme.c                 | 1746
->> ++++++++++++++++++++++++++
->>  arch/arm64/kvm/sys_regs.c            |   53 +-
->>  arch/arm64/kvm/vgic/vgic-init.c      |    2 +-
->>  arch/arm64/kvm/vgic/vgic.c           |   61 +-
->>  arch/arm64/mm/fault.c                |   31 +-
->>  drivers/perf/arm_pmu.c               |   15 +
->>  include/kvm/arm_arch_timer.h         |    2 +
->>  include/kvm/arm_pmu.h                |    4 +
->>  include/kvm/arm_psci.h               |    2 +
->>  include/linux/perf/arm_pmu.h         |    5 +
->>  include/uapi/linux/kvm.h             |   29 +-
->>  32 files changed, 3778 insertions(+), 101 deletions(-)  create mode 100644
->> arch/arm64/include/asm/kvm_rme.h  create mode 100644
->> arch/arm64/include/asm/rmi_cmds.h  create mode 100644
->> arch/arm64/include/asm/rmi_smc.h  create mode 100644
->> arch/arm64/kvm/rme-exit.c  create mode 100644 arch/arm64/kvm/rme.c
->>
->> --
->> 2.43.0
-> 
+Grepping the downstream sources reveals that this field has a value
+other than zero just for the edgetpu driver.
 
+Looking there I see:
+#define TPU_DEBUG_REQ (1 << 31)
+#define TPU_VDD_TPU_DEBUG (0 << 27)
+#define TPU_VDD_TPU_M_DEBUG (1 << 27)
+#define TPU_VDD_INT_M_DEBUG (2 << 27)
+#define TPU_CLK_CORE_DEBUG (3 << 27)
+#define TPU_CLK_CTL_DEBUG (4 << 27)
+#define TPU_CLK_AXI_DEBUG (5 << 27)
+#define TPU_CLK_APB_DEBUG (6 << 27)
+#define TPU_CLK_UART_DEBUG (7 << 27)
+#define TPU_CORE_PWR_DEBUG (8 << 27)
+#define TPU_DEBUG_VALUE_MASK ((1 << 27) - 1)
+
+And then I see methods like:
+static int edgetpu_ctl_rate_get(void *data, u64 *val)
+{
+        *val = exynos_acpm_get_rate(TPU_ACPM_DOMAIN,
+                                    TPU_DEBUG_REQ | TPU_CLK_CTL_DEBUG);
+        return 0;
+}
+
+or:
+static int edgetpu_vdd_tpu_m_get(void *data, u64 *val)
+{                                                                                                                                                                                              
+        *val = exynos_acpm_get_rate(TPU_ACPM_DOMAIN,
+                                    TPU_DEBUG_REQ | TPU_VDD_TPU_M_DEBUG);
+        return 0;   
+}
+
+These methods are used only to be exposed for debugfs.
+
+So it seems it's used to __get__ clock rates or voltages, and that the dbg_val
+acts as a debug command that also specifies a secondary ID, TPU_ACPM_DOMAIN
+being the first.
+
+I find this a little ambiguous, so I refrained myself from adding a description.
+Since I can't tell what it is, and whether TPU is really the only user or not,
+I propose drop the argument or not describe it, as I already did. What's your
+preference?
+
+Thanks!
+ta
 
