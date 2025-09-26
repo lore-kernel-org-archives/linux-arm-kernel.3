@@ -4,161 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC0D2CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 07:15:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25203CAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 07:15:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N5GI18a0Rv0wtOjT8DjM/6ILXIW8znOVC+f0Lcc44ts=; b=lCHFZBzraLJ30+hcjll/RDbYs+
-	b9wypZriLaSBftblYc1uVN6CgbXtLV2VbHZopdpFRho8WoPo86RCTd7QhjZqzsebYnBT0/T68n673
-	lZb0IGNt0c/saphC/t3zrhFg2/ktmAAA6708tSOgJWje4IHDZkxmuREoZllYPAeN/lI/y1s0A2DwU
-	ZHSVY9IeGwMR8pwQq9FBP4oJckeSb/oielOvEO7AsWAJzMPzTfzK4di/KPD3R0esR9/DyBLPV0KsJ
-	sfc+YPC2XOjw9lgwXVchAdGvdlMt7rMaEaIXOE+lsOLTxWA0mfoHgyxAJ2XiHOVy3M05f4Ofe1oeG
-	7C8TSDxg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KjbTeP/uPO39TwEXrbj1nzgVC7BN96NufmW+FXmSEcI=; b=GhM1uP+GbpZ5pp01U5fTNQcf/Y
+	uYue9j7cX8Ey4jp7uVFM5yUXicHbanQ813uBrsqQp/GsW4XzhC3vkO/jWnVWMojkJ971NFLObym7k
+	kFZQtikQy2bkcN6ziAxtXdhDEO0Vr4lEGMLIcHUc4lpw7I2cxSQHlBfMAALJn/4ylui6XGUnEB9LG
+	02nmRFZBzS8a4fn1dBcNAqxESdCZ1Si18DOH4Tlfr1/hrUuAY2L5coQhNP3oinNZqJee9iV18SFL1
+	hlQJheJuI5uq3kUi2GE3wynKzWZe+yjy498LwXaZI95Dj75C7xkoiuSEnu9WM8BqEwDdRp6c79M1g
+	xgB0w2YA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v22fj-0000000GgSX-3ycb;
-	Fri, 26 Sep 2025 07:15:15 +0000
-Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
+	id 1v22g7-0000000GgfW-3CCP;
+	Fri, 26 Sep 2025 07:15:39 +0000
+Received: from szxga04-in.huawei.com ([45.249.212.190])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v22fh-0000000GgRP-1BMw
+	id 1v22g5-0000000GgcQ-0vqK
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 07:15:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LH0carA2SqlQpK9ib+Y1w08f7LkzuNj+PCvb9cgSqZfSxDYBayk6CmCwDZ6/5DnD4VGbONo7IJRcd5TS5kwSTaB2BuY7gUSmPCa5qx7FlebtgyR/4uURvPLam29fmfbRM+ZhxtamHgZD8Arp7HIgIOaJsORv+Vw4gDU9W8uK58if4NDXjGPmiG8xUnGopY7Pm4oscdDQMaDaopIrMCUiyvFA1KuY1PV4bVEsc8j5+us/Ir2Ud1vduquTwiMcwHqKOu/Y6a7JDQdGP4YY5M7ZiT/Qg6FsUmDtny+NOGRrRQfK6Pty1FVRJZt78iVwkMN9P0WoivNNFIVC7/os0nA54Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=N5GI18a0Rv0wtOjT8DjM/6ILXIW8znOVC+f0Lcc44ts=;
- b=fvkp+4WVE8OynsH1fSSBuyAR9GV4IHTkflKJLLxNLQNCcEB8Y4DUzRMliHiWZUp/EZaxSxl9mLUcExJEQqDH/zag2lSblDpbukHFLUFTPe0MQkTvmtkmSuPmARrwQp8arPk5LlhSW4G+6aTg0caMBYg803BA4mqAcZGRlHkM+0tadRe6I3Z8WvLr1DWAzpo9VFsuc0bbeIOcMWAg+rU3BydIlpUk9GDouJafNHyl1WfQWUo00Z3S4hFZjqKsk0A24RWymC1wd/RE50Uy02Owc+nqHLO2bOZ0clU1F6o1VPee1XUGhuGW6iLAYUBxbRZZM62Sp8xIq47a2v9Ar4mn+Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=N5GI18a0Rv0wtOjT8DjM/6ILXIW8znOVC+f0Lcc44ts=;
- b=soXnLxP5l/QaCiAGYRojRaZ2/rmX35q+/AUCTIGLG5cE8qqn3N1ANceBJCzTaSUAou22rAP+6APIXjljlRb+hBr0J71V0jzCLgOQYiIs9XhswZIEUpPp1OhBFo0zWtXZVue6mGCMScno4qStU2ZbM1QWspgEQzS4hOCdmp7ivDtGbcZPS4g7ZpD2rWw2aqycBGsfTEiixYOF0M0vubSlSXiz0AIkTgYvhlxlYai/676ijohztDRFik5WpVhqIqXN+Hmq9uPdy81xyUy4fmqE+Ep0DDjavEbRc098x8ZCjt/a1/4kLj7WehUtqS9F7ZtXEd3H3/cB7RtKTpi6AQlLhw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by DB8PR04MB7129.eurprd04.prod.outlook.com (2603:10a6:10:127::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.11; Fri, 26 Sep
- 2025 07:15:09 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9160.010; Fri, 26 Sep 2025
- 07:15:09 +0000
-Date: Fri, 26 Sep 2025 16:26:55 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Mathieu Poirier <mathieu.poirier@linaro.org>
-Cc: Ulf Hansson <ulf.hansson@linaro.org>,
-	Bjorn Andersson <andersson@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Hiago De Franco <hiago.franco@toradex.com>,
-	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Frank Li <Frank.Li@nxp.com>, Daniel Baluta <daniel.baluta@nxp.com>
-Subject: Re: [PATCH v2 0/6] remoteproc: imx_rproc: Use device managed API to
- clean up the driver
-Message-ID: <20250926082655.GE8204@nxa18884-linux.ap.freescale.net>
-References: <20250923-imx_rproc_c2-v2-0-d31c437507e5@nxp.com>
- <20250924164650.GA2711@nxa18884-linux.ap.freescale.net>
- <CANLsYkzWQEWKM-_iff7wY-sk_OERFiAMSrXP6Cyf8vJfXqunjg@mail.gmail.com>
- <20250924203115.GB2711@nxa18884-linux.ap.freescale.net>
- <aNVe6MG2HiWNJZQP@p14s>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aNVe6MG2HiWNJZQP@p14s>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SG2PR04CA0212.apcprd04.prod.outlook.com
- (2603:1096:4:187::8) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Fri, 26 Sep 2025 07:15:39 +0000
+Received: from mail.maildlp.com (unknown [172.19.162.112])
+	by szxga04-in.huawei.com (SkyGuard) with ESMTP id 4cY1vX203cz2Cgn6;
+	Fri, 26 Sep 2025 15:10:48 +0800 (CST)
+Received: from dggemv712-chm.china.huawei.com (unknown [10.1.198.32])
+	by mail.maildlp.com (Postfix) with ESMTPS id AAF521402C4;
+	Fri, 26 Sep 2025 15:15:27 +0800 (CST)
+Received: from kwepemq200004.china.huawei.com (7.202.195.237) by
+ dggemv712-chm.china.huawei.com (10.1.198.32) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 26 Sep 2025 15:15:27 +0800
+Received: from [10.67.121.115] (10.67.121.115) by
+ kwepemq200004.china.huawei.com (7.202.195.237) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Fri, 26 Sep 2025 15:15:26 +0800
+Message-ID: <3d518b64-d66b-ca1e-0893-5b1f0faa17ee@hisilicon.com>
+Date: Fri, 26 Sep 2025 15:15:16 +0800
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DB8PR04MB7129:EE_
-X-MS-Office365-Filtering-Correlation-Id: 70935d2d-c927-44f3-64bf-08ddfccc6b55
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|376014|1800799024|7416014|52116014|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?TNhStKUQhedpDaLrrcd5qNv2qWcS6mzVjxTM0llD2Dqrs8VD2/FTiHHGv9IF?=
- =?us-ascii?Q?2XCAWXixLBmBLXr8jLjG6dQXhTkY16HAFVxiqbWEyVqYaGWzyxGB+9Hrj4jD?=
- =?us-ascii?Q?0jCq5ZOoPlQN3OLlg12Eeg6ff47nRFL3ctOyGWx0Iy1sEbGcp/hEcRPnJbdC?=
- =?us-ascii?Q?OjvPTwEe9eoQuGcpqUqh8uBHilwWjdOB/86qqjwbiRDMGRtCcEW7d32jFI4W?=
- =?us-ascii?Q?IPMOpG7+mlCHihXcw60kujhh9LmL1JzNLHD6CrgL4ApA5piWCf2CSOTPKH/z?=
- =?us-ascii?Q?euLWoi5rIOjnzwL78lT/9ITsN2bSVmSR/A2gg4Dy1zxZuwOlNal2D9Nz9MMT?=
- =?us-ascii?Q?E7ogQ29mgdvJmm6bc3V1x3nWcAeG5/0K0M1UYCdFCIWlz+bCPzUfrkue4NBH?=
- =?us-ascii?Q?k1+IDHO60oXADEh3c45RQdDyp871SD4QzuuTRIiL7DYu4yZ1xNriPprVkA7B?=
- =?us-ascii?Q?/YX1Dr+0Y7KlwvqDCTIbZa3G6CjQ6K7hsYUWICAQtOQrgJ5CBy9MLPW03r9s?=
- =?us-ascii?Q?CH8KJRKxSKZUKY60umn36pm3JuVv4iJN/sW3eHTHKxFw35JdGvQUHBH4TS4N?=
- =?us-ascii?Q?3SXHQCYj6To5aA3FZ0CNhERxN86yBTlEIfGQEMC0q1+uD3F/3T4lpDu07hfk?=
- =?us-ascii?Q?MaPSeeonYQ5/2cQIGjb4MrlJ5PKI/z9+wEq5cLyDOY5HPpHVxU28B8zg+BXx?=
- =?us-ascii?Q?RyVlzXRf61UwL8I0amEjaMlt4ir3+Kwvt3Jhh7fdL4ftXYdzzMnb1v6L057O?=
- =?us-ascii?Q?thlb7OXNxPqqFYf4CSMbZgBHNTQui6fqcfkrESwjwmf/mICh2mTRAGSTVgNF?=
- =?us-ascii?Q?o79wtJ+JN29XCnM8dP+EXwa5wEZx7LvFClSobE3on3WQ7eAaSfcIdFT6xJoo?=
- =?us-ascii?Q?v8BCssTc6r8T0NbcFkGwPJah752UC+wjVCRxKe1wgIr4sgHSzUhu059vdrAW?=
- =?us-ascii?Q?9vTcSaxv2fPmX2RhrtVfIrJmwc2KOnAPPwgzwdeIJo7XtgAD1hR13Y4BH5fo?=
- =?us-ascii?Q?wcsRGhae/ohIl7zzE9CPdnRQ0CHCqmEnrUYOydH8u3OrtLmJ7zeF1wBnh9f2?=
- =?us-ascii?Q?zoAa734z88tvjjpXYMwssWhOEbe2b4wmfOhAL9I3Ix/Han5k6qT9NuFEHpTq?=
- =?us-ascii?Q?EU3OJ19iJuSLq5eZs+f6lQ0kxiYEITWrKEwzm1Msr9fkXtPzDI+uI0fpUKGf?=
- =?us-ascii?Q?FSr4TptbR4AxMkUuiwwQK/qlXaXIqiFtbSRomo8ulVh9TbHwTU9hNe5UgeQ+?=
- =?us-ascii?Q?vkHvSgUuotT7B4ZdOR/xmGjLOPLJrX0m7kGpnekGWsiCQ1XSu+6p42TS02zl?=
- =?us-ascii?Q?6tyzLTCjdc3efW5eCAG2iAJhVS507mrOf1hH2seYme+VEKAOht6B8kk7hWh7?=
- =?us-ascii?Q?uU7EMOtubXfqexcQVCYi+avXRx4BoDZyBQU3649KHghfXzYJKj9M0pyW9nOD?=
- =?us-ascii?Q?wCh+dg58vVf9vHxxTBBRJ3JDuJHAuiPNmJlUF1hMJd7i4Ut469gvs6F4cJm6?=
- =?us-ascii?Q?QOH/UqB2oqKIPINIGNnQBnPS3I+Rk2kHIocD?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(376014)(1800799024)(7416014)(52116014)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?PzUNVxtrkBsOs9MONEVI3CZ3JSpAD9t6qS1+y1QDk2h0xJOOXJp3jmQH8uTf?=
- =?us-ascii?Q?KZLO3bOzzS5aOo4Br8Gfk3JWZ5bRMtPRU7bR9A0pcC/W5Q0rpcnoEf0iO51I?=
- =?us-ascii?Q?EJpX+7XJxqAqH+Z2a6HiPD2cXr3uzPjk1mP0oCL8slWoiwdxjgOr7gl68vxw?=
- =?us-ascii?Q?qDGjq/7p1Lo40XTnOjFUNxn2Cb/p8sryxNFf6RgdAZXzd/CnsjIWSZx+ttFM?=
- =?us-ascii?Q?FNbn1Q3aZmYjCdY3wdpZ1Yc2h79WyyklvTLQqghGeSUaeWee6whBcQb8y0fB?=
- =?us-ascii?Q?4aTAI/vBlGRNLpo1EZc4mxaVK36Wvslf4DZiUOBMdVsMabQqcbp711uJWzh6?=
- =?us-ascii?Q?MIvuHNOvxhBvP3+qskSmVuALGEJy5qSxCwShfh7T+80nap2VGUMS2xfx6wsc?=
- =?us-ascii?Q?iJwIUE5yfSY58/r90rDAsZYislqaYNEMp9FIrDZ2P4m53hQudyDLjT0JRHdq?=
- =?us-ascii?Q?BXha8l6zQ1lX/RX++pUFh8TNTyPLNF7STUIk0TraV1ow9nd5SSCHdp6JjCyM?=
- =?us-ascii?Q?nsXuW8Etp7yR1mLmsP5y02/Y5KlV15gV9xdlyXeqoYyhwUPFJzrhTkgLiJU9?=
- =?us-ascii?Q?UDOb9JoMcLQDwdhrjaPCkRsIHQ/0KyenftAKVDtQBJgEOn6pNcNYEpRxuI4B?=
- =?us-ascii?Q?vZ25aB/rc/dJ+O3Vi8xq/zUd9f1yYRkkt32kKywWyPspYUAeyzkQmF3IPuMq?=
- =?us-ascii?Q?Pmkga3jpQnLCZNERR0zDsTgmBfAHeaQe5VCMWzO5DqNokaaD/arp+3oDcM+0?=
- =?us-ascii?Q?89xTx3jigCqDDqea1o4FmKZhIvJja//cjVpGGd+8C/PEoRrzpiI7CAMSa5hR?=
- =?us-ascii?Q?XDQ3Xfd8DU6Bcyi/PpFFAUNyNr4bMvYVM+iLXB77HCUIe6/LCvDKeFf0KOFl?=
- =?us-ascii?Q?SvQZoWvzWqLYOs8wim16NxMdID9ZVwX1UlHtOR9sZBC9XyF1v3dTHrJ62v79?=
- =?us-ascii?Q?Ybl9vIWDtj6idD6Fq7RVj3wsoQCmXzdbSL2xG4cGJ2/gqcL/wV8LsMor/CcC?=
- =?us-ascii?Q?jmQGfgwEkLc9m1rwpL+NOgmc5DM/VjxUC2W9nWupskUHxxs6kKLtU98W3nQw?=
- =?us-ascii?Q?h6qViKF6lem9JMrPlB6C5/NOWAIV/8DmkjshekpAVlipbBa8egfcxZNXUgEM?=
- =?us-ascii?Q?3CINbqBZn/tZyR0skXEo8XXfbf+bwUVnAePU4xYdCXuU9vaJmKVDrqGBbYtr?=
- =?us-ascii?Q?ltr/NzJezbMH8zrjXbVrnM2YOzXP6Ka/HRobIDi9M+8lrsQy4zDydKvepuO7?=
- =?us-ascii?Q?sp0t42T35qSskkG+uzH6yEgievohDusJQGoda1qR/5lZ5/B+gNFdcAkoRvuX?=
- =?us-ascii?Q?Jr8D7XZDwaBt5kDHvvZo9vBXZzr5UBaKJyeRVTjUdr48+I3KbuwDK93wpTJ1?=
- =?us-ascii?Q?6yddeNjmfTggTda1JxKW2+f/pWFR56eIy8R6VCy+jZoo+Vkp2OScvrZxJxlY?=
- =?us-ascii?Q?A8vJDeyGJTAtL8f9uyd8hyF2qOibR0Oa1QeZ0GU1sJJQwoXbZU4k0I6orA3B?=
- =?us-ascii?Q?cfJ/KZ9B+LtaBYXykCbwPZ63+GbZg4azk+0Sk52NC+0Aqhzf4/e8V6rzwbb+?=
- =?us-ascii?Q?dl4UDZN7E1hoZKsAodhhSYHGaOzcFAqgUKU6FZ0d?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 70935d2d-c927-44f3-64bf-08ddfccc6b55
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Sep 2025 07:15:09.2138
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: L+QXRJCPKKTtIViYV85PGUAwckzu4ohbyLCSsQAbGpWm7hqrGMQ3v4uBtieqQdgJuIU1W5OUX7O2xle5xduymg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB8PR04MB7129
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
+ Thunderbird/91.8.0
+Subject: Re: [PATCH v2 0/4] Add workaround for HIP10/HIP10C erratum 162200802
+Content-Language: en-US
+To: Marc Zyngier <maz@kernel.org>
+CC: <kvmarm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+	<oliver.upton@linux.dev>, <tangnianyao@huawei.com>, <wangwudi@hisilicon.com>,
+	<liuyonglong@huawei.com>, <prime.zeng@hisilicon.com>
+References: <20250825023954.3516381-1-wangzhou1@hisilicon.com>
+ <fc7763d5-bed6-ace6-ace8-a50c031cab36@hisilicon.com>
+ <87wm5uxwvc.wl-maz@kernel.org>
+From: Zhou Wang <wangzhou1@hisilicon.com>
+In-Reply-To: <87wm5uxwvc.wl-maz@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.67.121.115]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemq200004.china.huawei.com (7.202.195.237)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_001513_327390_D26DC318 
-X-CRM114-Status: GOOD (  18.50  )
+X-CRM114-CacheID: sfid-20250926_001537_422374_5A097731 
+X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,77 +80,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 25, 2025 at 09:25:28AM -0600, Mathieu Poirier wrote:
->On Thu, Sep 25, 2025 at 04:31:15AM +0800, Peng Fan wrote:
->
->It is fortunate that time was taken to understand the problem and fix it
->correctly.  Otherwise we'd still have a problem and more patches, possibly
->wrong as well, would have been needed.
-
-Thanks for your caution and patience.
-
-> 
->> >
->
->Most people tend to address one problem at a time, especially when subsequent
->patchsets have dependencies on the previous ones.  I'm not sure there is a need
->to document something like that.
-
-I will not post dependent patches in future.
-
-> 
->> I ask because I have other patches queued that are independent of the current
->> series, such as:
->>  - Reintroducing the table_sz clearing
->>  - Misc cleanup in remoteproc core
->
->I'm fine with those, as long as you address just one proble at any given time.
-
-Thanks. So multiple patchsets/patches from one developer are allowed only if
-each patchset/patch focus on a specific area/problem and no dependency.
-
-It is clear to me.
-
->
->> 
->> I understand you may be busy and have limited bandwidth. Would it be feasible
->> to offload part of the review work to Bjorn? I rarely see Bjorn reviewing i.MX
->> patches. Alternatively, could we consider bringing in a third maintainer to
->> help accelerate the review process?
+On 2025/9/19 23:52, Marc Zyngier wrote:
+> On Mon, 01 Sep 2025 11:55:49 +0100,
+> Zhou Wang <wangzhou1@hisilicon.com> wrote:
 >>
->
->How fast do you want to go?  By and large, I reply to patchsets within a week,
->sometimes two when things are busy.  And when I can't meet those standards, I
->send out an email to the mailing list with the review order of the patches in
->my queue.  What else are you expecting?
+>> On 2025/8/25 10:39, Zhou Wang wrote:
+>>> As the discussion from V1 series, V2 series firstly adds GICD.num_LPIs
+>>> writable support, then add HiSilicon erratum 162200802.
+>>>
+>>> Erratum number should be 162200802, make a mistake in V1, so fix it as
+>>> well.
+>>>
+>>> Zhou Wang (4):
+>>>   KVM: arm64: Allow userspace to write GICD_TYPER.num_LPIs
+>>>   KVM: arm64: selftests: Add test for GICD.num_LPIs
+>>>   Documentation: KVM: arm64: Add GICD_TYPER.num_LPIs writable
+>>>     description
+>>>   ARM64: errata: Add workaround for HIP10/HIP10C erratum 162200802
+>>
+>> Hi Marc and Oliver,
+>>
+>> As the discussion in V1 series, this series firstly adds GICD.num_LPIs
+>> writable support, then add erratum patch.
+> 
+> Given the state of this HW (as per [1]), I'd rather we start by
+> working out the strategy at the GIC level, rather than exposing stuff
+> to userspace before we agree on a way to make it work in the kernel.
 
-I have been blocked once [1], this make me delay about two months to post out
-i.MX95 (: For i.MX95 reviewing cycle, it is not that smooth. Anyway, I get
-lesson learned and will follow the rules.
+This bug is in GICv4.0([1] is in GICv4.1), and seems having a clear way
+to fix. How about merging this fix firstly, then continue to try to solve [1]?
 
-More and more, we(NXP) are taking upstream first. And I have requested Daniel
-and Frank(both are very experienced Linux Kernel developer) to help review, so
-hope we could move a bit smoothly.
+Best,
+Zhou
 
-For now,
-To imx_rproc.c, the queue:
-cleanup patchset2(at here now), cleanup patchset3, i.MX95 support, i.MX943 support
-
-To imx_dsp_rproc.c, the queue:
-Drop method, switch to use ops
-
-To remoteproc_core.c, the queue:
-Introduce back clearing table_sz.
-Use scoped API
-
-Nothing special to expect from you. I get the message that non-relevant
-patchsets could be posted out for reviewing, and one or two weeks is good for
-me.
-
-Appreciate for your time.
-
-[1] https://lore.kernel.org/linux-remoteproc/CANLsYkyEhhQA5KOsNveGSHUc3ZpckoL-CCHNZ0DZLMNYdNGzdQ@mail.gmail.com/
-
-Thanks,
-Peng
+> 
+> Thanks,
+> 
+> 	M.
+> 
+> [1] https://lore.kernel.org/r/20250909110615.129179-1-wangzhou1@hisilicon.com
+> 
 
