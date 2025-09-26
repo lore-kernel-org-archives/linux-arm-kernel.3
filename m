@@ -4,89 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEF27CAC5B9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 13:54:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6FDDFCAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 14:02:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0oKPt5B2BYzle8pqRjAR1Qbv4tzNfaR8uywq90JI968=; b=bjsRICfL+67MAjq1KAViXeuAED
-	8omob2LbuaXsxYkMa0BHC8OO8meH4td6t8wxWH+4VpVBrr0WWNe9GEu4WzMUNe6uyNQC3t2leZBq4
-	w4xLLit64UCQEWDuwjkT6zMo5XLjBvAEUfPIPhsdDmR9w4raDqkvuhkBDWC5n4lEgnejPsaSJa631
-	1FIg7nj5Y3Pq+wKhyPZEn1xrdjacxcoOkFrs8JR/t1VuMD8pt3WWFVi4ZC88mnvnLHib9SSLVaBW5
-	/DDh+XzXj5p+p2lA/h9m4b4KYd/ZTRHPGvISr4Mz3M+/ldNCrJtVPBy4JwEsixKuNbqfIwM+57Pth
-	RUSnamfw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yERYZKAmasuZ/BSavJp6xCAb/h6Db5ozQC9J2oDZci8=; b=Fk8s0+sChasH+WzyjY90u2Neyw
+	ZyeFUCAtXT2YZqKxUnQoV9S4w3O7xJRKHJtMPdgeF5gOnVJY5oje4xukE4MBZLQNCKdjCWEoq4/F9
+	VgF1uIc//lmSSdzDTF7TT+0XylPutqf91gX9qMbqcpgzzLctdEcsQF7UDscD+/1DXJvanIWpII50O
+	ZopYflOLTKNwOTXviBG//22W8d6DizgM8VA1EHIIwvHylbk5RkcqbUboMlKnDYxzS/CUV1iFwDQyI
+	MvLUIVqviZ1npUYslj3ch+19LwMOcgTyvBKShBBmwgGEfgdRdBH1PhhwzqcGXPTd7kNjW2mHO8blk
+	T3/0W6Qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v28th-00000001jYC-2ZqS;
-	Fri, 26 Sep 2025 13:54:05 +0000
-Received: from smtp-out3.simply.com ([94.231.106.210])
+	id 1v2923-00000001nNk-1W9Y;
+	Fri, 26 Sep 2025 14:02:43 +0000
+Received: from mail-pj1-x1032.google.com ([2607:f8b0:4864:20::1032])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v28ta-00000001jR6-2HbR
+	id 1v2920-00000001nLq-26H6
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 13:54:01 +0000
-Received: from localhost (localhost [127.0.0.1])
-	by smtp.simply.com (Simply.com) with ESMTP id 4cYBrd72t9z1DDr7;
-	Fri, 26 Sep 2025 15:53:53 +0200 (CEST)
-Received: from [10.10.15.8] (h-98-128-223-123.NA.cust.bahnhof.se [98.128.223.123])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(Client did not present a certificate)
-	by smtp.simply.com (Simply.com) with ESMTPSA id 4cYBrc5B6bz1Fb38;
-	Fri, 26 Sep 2025 15:53:52 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gaisler.com;
-	s=simplycom2; t=1758894833;
-	bh=0oKPt5B2BYzle8pqRjAR1Qbv4tzNfaR8uywq90JI968=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To;
-	b=exUyD7xU1FFoAo0zIaGO8L1T0an8JyysSniNaBEN284brN/McStsyIZqRxq8PWEKU
-	 4xjl2QjrfL3v6vRMcSOZA6TsputTD4TBzNeEmQkcG3KIUuhpPXP+zEXF3Yz/NS7pmB
-	 PcxjXfIwjxcneymF0BZH9kKiWkU57AHDRlm5Of+kNpRF0jGMlR6JwP/sN6nrYrb0Z0
-	 guRP8WAhweSnyJbReXLTERryS4IR1w0uYknNh+L2dgFLhbTwnQE2kx++CD7JJaeLrS
-	 PJLHZmJ4jqQSjfHyyxYla7ZzLAyJTcxvyTl+OUIQNZsx642Tr8lLuLkTgoW04lH9tr
-	 uEVtlAUR67olA==
-Message-ID: <76d9171c-4a74-499e-a598-ec51fdfa4e94@gaisler.com>
-Date: Fri, 26 Sep 2025 15:53:52 +0200
+	Fri, 26 Sep 2025 14:02:42 +0000
+Received: by mail-pj1-x1032.google.com with SMTP id 98e67ed59e1d1-32eb76b9039so2574980a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 07:02:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1758895359; x=1759500159; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=yERYZKAmasuZ/BSavJp6xCAb/h6Db5ozQC9J2oDZci8=;
+        b=KvFp7M/OsWam8oJBiNH66r3eFZmKRoIYUaZYLRD4NztbhW0Z4Qs+AVNFHqcSePFwNs
+         49rg4reyGQc0s5TMR5AQNUc00eU0FWP7K8+zUzhipl4nWDb84IY/yJjS7hYKlrwq5WvR
+         O3mGopzKjgnYsiMMItnDKmZiHVVh0jMthy79CipeNdg0ao9To4z81hpNjkbqPIUZG0fc
+         fy4aIhxsAKA06rQa7AKQtjeZN3Df5wU15L3Yr0e0wqpD2Xk3M7CeSQK62l14pHj/CRDb
+         phhYwx3bASseg3Q5NfksLSl9vtVDG7Dk15Ga2m/OKtclPjk82zH9AzS3GtOja2uh5GDE
+         OTkQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758895359; x=1759500159;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=yERYZKAmasuZ/BSavJp6xCAb/h6Db5ozQC9J2oDZci8=;
+        b=vP9O4Fry7jWHHaCl/FwAQH+CjNcwDbaVtZQd9DF2fWfGF39ef6xiQSUmpS2np+rodc
+         EwXWKq2Uty470m+M4ZlnCHcI+GcVtpJSiWxLxTBqXwWN/xE7YG5k9+mNJSqHv4t7Qkh+
+         MnOXdrq+4EVvsKf825Vr0hJ2GrVGM9r5MqKko4AgLVGwUdCTF66xVlzsJUohjlyXXyKN
+         qghhewMiZFXC/M1Bf+ZChv2BDTIYKP1V/Hkhx/SKprVmf2woNVf1NMaSpj1H/ifvPeMX
+         QfXKYAllHptsFMS04og0pujxqLmSEcOf+L2ER1GKUeSx8Ngv8eN4bh2VrWK6ewYITPpE
+         DgTQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXAvHRx4FB3pvgC+8CR+GGAm/Ohqsy6icNLeOOr+bA4IBvz++w7h5746jgTl8mn7yU6t+CmkmL+oaVuFCHurqHZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwyzcNogMOyaLllNU9FPT2dUdw+xViOtkT4YpUyQkLLrnBScL+S
+	xZqRPPA6tu+eYK7JSjmSa43q2QoOAyDJkHdJfwDHy/JxWGZ2jjZDSKBfrTaeXJ62GeVQYqGDSwM
+	E0dS6eWlSytsRQ59Cy7Mg4iEOWP8bgnsTwpC2CwvONQ==
+X-Gm-Gg: ASbGncs0jR7Cjcjjw28o+kb/7XYbtxouE+aBsN2CiIjCtbr/eg6Yp0U7yIxMxnq6MRh
+	rN4Mn/2iNWtVqE6jWYpbDb97NF9Mu0jrZSr37t7/yMWzf32wBVauGZjAQ64XKq3QbAPzC29YLGg
+	XS412CDg6RWiJquJLOc8E0Rg6NX3m6NxJLrfUFI3cyPH4ZVW5tNga9qyc+XIxcPswD+D9rko2eo
+	Zi6Mmni
+X-Google-Smtp-Source: AGHT+IHXnqoMg81n1oZNyu6iZPivIXwdopJ8n0yiICX3kvwf6T0B9tedJFN2SuTVNDEPDP3oxSRPMHBonvsas5kZm/0=
+X-Received: by 2002:a17:90b:33c8:b0:32d:90c7:c63b with SMTP id
+ 98e67ed59e1d1-3342a2c9fe9mr7941641a91.30.1758895359124; Fri, 26 Sep 2025
+ 07:02:39 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 00/36] sparc64: vdso: Switch to the generic vDSO
- library
-To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
- Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Vincenzo Frascino <vincenzo.frascino@arm.com>, Arnd Bergmann
- <arnd@arndb.de>, "David S. Miller" <davem@davemloft.net>,
- Nick Alcock <nick.alcock@oracle.com>, John Stultz <jstultz@google.com>,
- Stephen Boyd <sboyd@kernel.org>,
- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
- Shuah Khan <shuah@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>,
- "Jason A. Donenfeld" <Jason@zx2c4.com>, Russell King
- <linux@armlinux.org.uk>, Madhavan Srinivasan <maddy@linux.ibm.com>,
- Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
- Christophe Leroy <christophe.leroy@csgroup.eu>,
- Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
- Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
- Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
- Alexander Gordeev <agordeev@linux.ibm.com>,
- Christian Borntraeger <borntraeger@linux.ibm.com>,
- Sven Schnelle <svens@linux.ibm.com>,
- Nagarathnam Muthusamy <nagarathnam.muthusamy@oracle.com>,
- Shannon Nelson <sln@onemain.com>
-Cc: linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, linux-s390@vger.kernel.org,
- Arnd Bergmann <arnd@kernel.org>
-References: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de>
-Content-Language: en-US
-From: Andreas Larsson <andreas@gaisler.com>
-In-Reply-To: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com>
+ <20250915-arm_coresight_power_management_fix-v3-1-ea49e91124ec@arm.com>
+In-Reply-To: <20250915-arm_coresight_power_management_fix-v3-1-ea49e91124ec@arm.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Fri, 26 Sep 2025 15:02:27 +0100
+X-Gm-Features: AS18NWBa88fxNXPYZZLmzDj39yPWJeoJhvSdhWngZdt82FlkYkX2khplsVuffq4
+Message-ID: <CAJ9a7VhAkpH-K62bB5bb9neyu-bemx2n5wROUQVA2e+QRebwBA@mail.gmail.com>
+Subject: Re: [PATCH v3 01/31] coresight: Change device mode to atomic type
+To: Leo Yan <leo.yan@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
+	Yeoreum Yun <yeoreum.yun@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Yabin Cui <yabinc@google.com>, 
+	Keita Morisaki <keyz@google.com>, Yuanfang Zhang <quic_yuanfang@quicinc.com>, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_065358_951669_EEF7ED89 
-X-CRM114-Status: GOOD (  23.57  )
+X-CRM114-CacheID: sfid-20250926_070240_724674_85B2ECF5 
+X-CRM114-Status: GOOD (  26.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,140 +97,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025-09-17 16:00, Thomas Weißschuh wrote:
-> The generic vDSO provides a lot common functionality shared between
-> different architectures. SPARC is the last architecture not using it,
-> preventing some necessary code cleanup.
-> 
-> Make use of the generic infrastructure.
-> 
-> Follow-up to and replacement for Arnd's SPARC vDSO removal patches:
-> https://lore.kernel.org/lkml/20250707144726.4008707-1-arnd@kernel.org/
-> 
-> Tested on a Niagara T4 and QEMU.
-> 
-> This has a semantic conflict with my series "vdso: Reject absolute
-> relocations during build". The last patch of this series expects all users
-> of the generic vDSO library to use the vdsocheck tool.
-> This is not the case (yet) for SPARC64. I do have the patches for the
-> integration, the specifics will depend on which series is applied first.
-> 
-> Based on tip/timers/vdso.
-> 
-> [0] https://lore.kernel.org/lkml/20250812-vdso-absolute-reloc-v4-0-61a8b615e5ec@linutronix.de/
-> 
-> Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+On Mon, 15 Sept 2025 at 11:33, Leo Yan <leo.yan@arm.com> wrote:
+>
+> The device mode is defined as local type. This type cannot promise
+> SMP-safe access.
+>
+> Change to atomic type and impose relax ordering, which ensures the
+> SMP-safe synchronisation and the ordering between the mode setting and
+> relevant operations.
+>
+> Fixes: 22fd532eaa0c ("coresight: etm3x: adding operation mode for etm_enable()")
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
 > ---
-> Changes in v3:
-> - Allocate vDSO data pages dynamically (and lots of preparations for that)
-> - Drop clock_getres()
-> - Fix 32bit clock_gettime() syscall fallback
-> - Link to v2: https://lore.kernel.org/r/20250815-vdso-sparc64-generic-2-v2-0-b5ff80672347@linutronix.de
-> 
-> Changes in v2:
-> - Rebase on v6.17-rc1
-> - Drop RFC state
-> - Fix typo in commit message
-> - Drop duplicate 'select GENERIC_TIME_VSYSCALL'
-> - Merge "sparc64: time: Remove architecture-specific clocksource data" into the
->   main conversion patch. It violated the check in __clocksource_register_scale()
-> - Link to v1: https://lore.kernel.org/r/20250724-vdso-sparc64-generic-2-v1-0-e376a3bd24d1@linutronix.de
-> 
-> ---
-> Arnd Bergmann (1):
->       clocksource: remove ARCH_CLOCKSOURCE_DATA
-> 
-> Thomas Weißschuh (35):
->       selftests: vDSO: vdso_test_correctness: Handle different tv_usec types
->       arm64: vDSO: getrandom: Explicitly include asm/alternative.h
->       arm64: vDSO: gettimeofday: Explicitly include vdso/clocksource.h
->       arm64: vDSO: compat_gettimeofday: Add explicit includes
->       ARM: vdso: gettimeofday: Add explicit includes
->       powerpc/vdso/gettimeofday: Explicitly include vdso/time32.h
->       powerpc/vdso: Explicitly include asm/cputable.h and asm/feature-fixups.h
->       LoongArch: vDSO: Explicitly include asm/vdso/vdso.h
->       MIPS: vdso: Add include guard to asm/vdso/vdso.h
->       MIPS: vdso: Explicitly include asm/vdso/vdso.h
->       random: vDSO: Add explicit includes
->       vdso/gettimeofday: Add explicit includes
->       vdso/helpers: Explicitly include vdso/processor.h
->       vdso/datapage: Remove inclusion of gettimeofday.h
->       vdso/datapage: Trim down unnecessary includes
->       random: vDSO: trim vDSO includes
->       random: vDSO: remove ifdeffery
->       random: vDSO: split out datapage update into helper functions
->       random: vDSO: only access vDSO datapage after random_init()
->       s390/time: Set up vDSO datapage later
->       vdso/datastore: Reduce scope of some variables in vvar_fault()
->       vdso/datastore: Drop inclusion of linux/mmap_lock.h
->       vdso/datastore: Map pages through struct page
->       vdso/datastore: Allocate data pages dynamically
->       sparc64: vdso: Link with -z noexecstack
->       sparc64: vdso: Remove obsolete "fake section table" reservation
->       sparc64: vdso: Replace code patching with runtime conditional
->       sparc64: vdso: Move hardware counter read into header
->       sparc64: vdso: Move syscall fallbacks into header
->       sparc64: vdso: Introduce vdso/processor.h
->       sparc64: vdso: Switch to the generic vDSO library
->       sparc64: vdso2c: Drop sym_vvar_start handling
->       sparc64: vdso2c: Remove symbol handling
->       sparc64: vdso: Implement clock_gettime64()
->       clocksource: drop include of asm/clocksource.h from linux/clocksource.h
-> 
->  arch/arm/include/asm/vdso/gettimeofday.h           |   2 +
->  arch/arm64/include/asm/vdso/compat_gettimeofday.h  |   3 +
->  arch/arm64/include/asm/vdso/gettimeofday.h         |   2 +
->  arch/arm64/kernel/vdso/vgetrandom.c                |   2 +
->  arch/loongarch/kernel/process.c                    |   1 +
->  arch/loongarch/kernel/vdso.c                       |   1 +
->  arch/mips/include/asm/vdso/vdso.h                  |   5 +
->  arch/mips/kernel/vdso.c                            |   1 +
->  arch/powerpc/include/asm/vdso/gettimeofday.h       |   1 +
->  arch/powerpc/include/asm/vdso/processor.h          |   3 +
->  arch/s390/kernel/time.c                            |   4 +-
->  arch/sparc/Kconfig                                 |   3 +-
->  arch/sparc/include/asm/clocksource.h               |   9 -
->  arch/sparc/include/asm/processor.h                 |   3 +
->  arch/sparc/include/asm/processor_32.h              |   2 -
->  arch/sparc/include/asm/processor_64.h              |  25 --
->  arch/sparc/include/asm/vdso.h                      |   2 -
->  arch/sparc/include/asm/vdso/clocksource.h          |  10 +
->  arch/sparc/include/asm/vdso/gettimeofday.h         | 184 ++++++++++
->  arch/sparc/include/asm/vdso/processor.h            |  41 +++
->  arch/sparc/include/asm/vdso/vsyscall.h             |  10 +
->  arch/sparc/include/asm/vvar.h                      |  75 ----
->  arch/sparc/kernel/Makefile                         |   1 -
->  arch/sparc/kernel/time_64.c                        |   6 +-
->  arch/sparc/kernel/vdso.c                           |  69 ----
->  arch/sparc/vdso/Makefile                           |   8 +-
->  arch/sparc/vdso/vclock_gettime.c                   | 380 ++-------------------
->  arch/sparc/vdso/vdso-layout.lds.S                  |  26 +-
->  arch/sparc/vdso/vdso.lds.S                         |   2 -
->  arch/sparc/vdso/vdso2c.c                           |  24 --
->  arch/sparc/vdso/vdso2c.h                           |  45 +--
->  arch/sparc/vdso/vdso32/vdso32.lds.S                |   4 +-
->  arch/sparc/vdso/vma.c                              | 274 +--------------
->  drivers/char/random.c                              |  75 ++--
->  include/linux/clocksource.h                        |   8 -
->  include/linux/vdso_datastore.h                     |   6 +
->  include/vdso/datapage.h                            |  23 +-
->  include/vdso/helpers.h                             |   1 +
->  init/main.c                                        |   2 +
->  kernel/time/Kconfig                                |   4 -
->  lib/vdso/datastore.c                               |  73 ++--
->  lib/vdso/getrandom.c                               |   3 +
->  lib/vdso/gettimeofday.c                            |  17 +
->  .../testing/selftests/vDSO/vdso_test_correctness.c |   8 +-
->  44 files changed, 451 insertions(+), 997 deletions(-)
-> ---
-> base-commit: 5f84f6004e298bd41c9e4ed45c18447954b1dce6
-> change-id: 20250722-vdso-sparc64-generic-2-25f2e058e92c
+>  include/linux/coresight.h | 25 +++++++++++--------------
+>  1 file changed, 11 insertions(+), 14 deletions(-)
+>
+> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
+> index 6de59ce8ef8ca45c29e2f09c1b979eb7686b685f..3e5e5acd0c7fcde7d312d440da4355faaf682c7b 100644
+> --- a/include/linux/coresight.h
+> +++ b/include/linux/coresight.h
+> @@ -251,15 +251,11 @@ struct coresight_trace_id_map {
+>   *             by @coresight_ops.
+>   * @access:    Device i/o access abstraction for this device.
+>   * @dev:       The device entity associated to this component.
+> - * @mode:      This tracer's mode, i.e sysFS, Perf or disabled. This is
+> - *             actually an 'enum cs_mode', but is stored in an atomic type.
+> - *             This is always accessed through local_read() and local_set(),
+> - *             but wherever it's done from within the Coresight device's lock,
+> - *             a non-atomic read would also work. This is the main point of
+> - *             synchronisation between code happening inside the sysfs mode's
+> - *             coresight_mutex and outside when running in Perf mode. A compare
+> - *             and exchange swap is done to atomically claim one mode or the
+> - *             other.
+> + * @mode:      The device mode, i.e sysFS, Perf or disabled. This is actually
+> + *             an 'enum cs_mode' but stored in an atomic type. Access is always
+> + *             through atomic APIs, ensuring SMP-safe synchronisation between
+> + *             racing from sysFS and Perf mode. A compare-and-exchange
+> + *             operation is done to atomically claim one mode or the other.
+>   * @refcnt:    keep track of what is in use. Only access this outside of the
+>   *             device's spinlock when the coresight_mutex held and mode ==
+>   *             CS_MODE_SYSFS. Otherwise it must be accessed from inside the
+> @@ -288,7 +284,7 @@ struct coresight_device {
+>         const struct coresight_ops *ops;
+>         struct csdev_access access;
+>         struct device dev;
+> -       local_t mode;
+> +       atomic_t mode;
+>         int refcnt;
+>         bool orphan;
+>         /* sink specific fields */
+> @@ -621,13 +617,14 @@ static inline bool coresight_is_percpu_sink(struct coresight_device *csdev)
+>  static inline bool coresight_take_mode(struct coresight_device *csdev,
+>                                        enum cs_mode new_mode)
+>  {
+> -       return local_cmpxchg(&csdev->mode, CS_MODE_DISABLED, new_mode) ==
+> -              CS_MODE_DISABLED;
+> +       int curr = CS_MODE_DISABLED;
+> +
+> +       return atomic_try_cmpxchg_acquire(&csdev->mode, &curr, new_mode);
+>  }
+>
+>  static inline enum cs_mode coresight_get_mode(struct coresight_device *csdev)
+>  {
+> -       return local_read(&csdev->mode);
+> +       return atomic_read_acquire(&csdev->mode);
+>  }
+>
+>  static inline void coresight_set_mode(struct coresight_device *csdev,
+> @@ -643,7 +640,7 @@ static inline void coresight_set_mode(struct coresight_device *csdev,
+>         WARN(new_mode != CS_MODE_DISABLED && current_mode != CS_MODE_DISABLED &&
+>              current_mode != new_mode, "Device already in use\n");
+>
+> -       local_set(&csdev->mode, new_mode);
+> +       atomic_set_release(&csdev->mode, new_mode);
+>  }
+>
+>  struct coresight_device *coresight_register(struct coresight_desc *desc);
+>
+> --
+> 2.34.1
+>
 
-Tested-by: Andreas Larsson <andreas@gaisler.com>
-Reviewed-by: Andreas Larsson <andreas@gaisler.com>
-Acked-by: Andreas Larsson <andreas@gaisler.com> # arch/sparc
+Reviewed-by: Mike Leach <mike.leach@linaro.org>
 
-Thanks,
-Andreas
-
+--
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
