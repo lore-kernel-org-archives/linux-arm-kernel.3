@@ -4,125 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF459CAC5BC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 13:54:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEF27CAC5B9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 13:54:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Yi4YzfqCRhtpYtMSpi4c2pxvl7JbhY/mvPEjH/nHU/A=; b=KUPEtqCQFBJOqACBj8BmONNkgr
-	+iFKLYMPj3/ufvlVtebxb69HlQVz0dZwGJBhx4bXV5YKQoGRfVia4NMTOs6fqYS7izIUhbYzPQh5G
-	ElTp8xsQVG3jR0NLtqytGVsuvaNZ/deMyS+UzO/UQQ5Xvrub8vVVUuxPjne0hfWwlRC3lt7kbiYHU
-	v5uygZaSiLsU/zwbbMzjTyY2q5MJrActiwdgTbBUqIORcLTzr/JvFHmawzN3CLSRWEDHeoNbm3TUM
-	g0uDJOUc++srl86ASB8mLmBkMRMDqN+kdxs9OfzN9iKjgF/7psVeMzJev9C/HuGZE3q75UN+Up4qx
-	vhudiQkg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0oKPt5B2BYzle8pqRjAR1Qbv4tzNfaR8uywq90JI968=; b=bjsRICfL+67MAjq1KAViXeuAED
+	8omob2LbuaXsxYkMa0BHC8OO8meH4td6t8wxWH+4VpVBrr0WWNe9GEu4WzMUNe6uyNQC3t2leZBq4
+	w4xLLit64UCQEWDuwjkT6zMo5XLjBvAEUfPIPhsdDmR9w4raDqkvuhkBDWC5n4lEgnejPsaSJa631
+	1FIg7nj5Y3Pq+wKhyPZEn1xrdjacxcoOkFrs8JR/t1VuMD8pt3WWFVi4ZC88mnvnLHib9SSLVaBW5
+	/DDh+XzXj5p+p2lA/h9m4b4KYd/ZTRHPGvISr4Mz3M+/ldNCrJtVPBy4JwEsixKuNbqfIwM+57Pth
+	RUSnamfw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v28tb-00000001jTq-1FCk;
-	Fri, 26 Sep 2025 13:53:59 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1v28th-00000001jYC-2ZqS;
+	Fri, 26 Sep 2025 13:54:05 +0000
+Received: from smtp-out3.simply.com ([94.231.106.210])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v28tY-00000001jRi-3HnA
+	id 1v28ta-00000001jR6-2HbR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 13:53:57 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58Q8vYlt020683
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 13:53:56 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=Yi4YzfqCRhtpYtMSpi4c2pxv
-	l7JbhY/mvPEjH/nHU/A=; b=Q6lo/YR9Xww7cyAqG2tiisx9896ylw2lmlhsi1kw
-	ohTR9fLm5V8++Jwg6DlKftwyxU8ebwyPmtw3soLo+vY4/F9ttxvcrhDtHQNxZ2zY
-	nbsGvln+/gULtI4PVzp+1z1xvWszL4ArwaJhGIUSWfkhjZAvyEloNWQ0bXyvoF1F
-	p1+byedn7jC34PreGn9bOlTEB7B6jNgKG1/D7nuBuhNbwUxKtz00Qp/5gplFufs5
-	z8aApQK0vHd7+PtPeKCTAKwjEX4rXbLvb4Yl3sIlnJuMdLNJQPnTowtr5VoJxVEa
-	bKXXNrTASPK+FmJZNFw9VXEY7nQ5LNP0umsD/SUtD6VNcw==
-Received: from mail-qt1-f197.google.com (mail-qt1-f197.google.com [209.85.160.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49db0qu2kg-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 13:53:56 +0000 (GMT)
-Received: by mail-qt1-f197.google.com with SMTP id d75a77b69052e-4d905ce4749so44058381cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 06:53:56 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758894835; x=1759499635;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Yi4YzfqCRhtpYtMSpi4c2pxvl7JbhY/mvPEjH/nHU/A=;
-        b=sO8bccMzdP/PP3EsXirU0VVFzWT1SaLlhtg6EUJVEx/uZvJAEqd7XurUe+bgI3fy84
-         syFGeb4e/pwSES9WG+YaV3dHS5X6dtDg91jLzvWxY8qK4zZae02HTrnQcMAQhmDG9FPJ
-         b/bg9xcUDshCTzoQspwoYaDEjIbSgi9xNfCmKNPtzABy8KvY/9hgkZDJu4RQYufCsM/0
-         u8an+5EzdNaJF/hD9sqVdrdqWs1fwNka1LaXxVCEEG6+XgR+CdIuY0oDoq2mUnFH9nRd
-         PaBXRPA3dPfRG1Vk3vBEEEaj44LR1hjIhcmtMgmZ1aLqOP/OYIJ7Sh5Znk6tm5290IVF
-         OHfg==
-X-Forwarded-Encrypted: i=1; AJvYcCX4ZwI3B/x7jzU0KA0zhR0MvZSAsJknRLsJUEmj0LuDzLBGHBFSkf8gF9rHivfnZ3+gCNLgbdKlVleHXEUpUCuA@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5HOgkiXv1TyPAzxfZifkzWbK+CnJGguqBsLWIGQo6vyuD7X29
-	EPx6JCVOhP9d8ULHVSq90JIP7sukdLgW5NRUG0yx6A2U5eXxa6exqjWBo8FG2hoZvqc3tIuvaCX
-	ZEZVE5N6D0QI86IFxP7IyYcXS50ZjH3umAd6qBihlOV3xDE4iRfAsQC31RD1hHsSuu1ujaeg/JE
-	xyeQ==
-X-Gm-Gg: ASbGncvGOj+GxB1Y8e8w+Yy2R+ERIHxgqyusaQjMTdwuWvL+8rzRGYzXJr4dNAvIiaT
-	MXAp1UsB2DpViCvx+XC4ngj47e/3bh3D3q/fuwZzpdXiQLNWRR+VxVi7uIMNjA1vv1pWM2wlKen
-	sELiHd3eMzsWlfE2g1kTMBhDvx4VDez7bUa6LRWBN7dL8ziGV2uS03j+kp9YBEAVntY4TB4MIHK
-	5EUE/dWkNc6ufBHqQHS/Q9PU2Vwz7l/C3K6AIpYE7db296anSYnixCdEzaRyBwsy2ioC08/NeCF
-	CCiDDFiOeLUriHfWWCSPS4098c2dLWoqXf+xw24ZqBVZx6sdxTdUES/m3eDXuemCy544CqAVKBn
-	cMC53bBqLap4N0Lwpaa5ruCCzfIsiyPGQTMEdJEgPNmCyV9o202h3
-X-Received: by 2002:a05:622a:4a8e:b0:4c8:79b4:93a0 with SMTP id d75a77b69052e-4da4b1406e7mr95494481cf.47.1758894834813;
-        Fri, 26 Sep 2025 06:53:54 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGOQIkyN74txiM9v6NI3108EID0DXdgO7j0P2wRzxlXTBsHtrmHH2UgL3y0BBRZ8yy0boNzTA==
-X-Received: by 2002:a05:622a:4a8e:b0:4c8:79b4:93a0 with SMTP id d75a77b69052e-4da4b1406e7mr95493941cf.47.1758894834250;
-        Fri, 26 Sep 2025 06:53:54 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-583173d1c08sm1814560e87.147.2025.09.26.06.53.53
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 26 Sep 2025 06:53:53 -0700 (PDT)
-Date: Fri, 26 Sep 2025 16:53:51 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>
-Cc: marijn.suijten@somainline.org, swboyd@chromium.org, mripard@kernel.org,
-        abel.vesa@linaro.org, andersson@kernel.org, konradybcio@kernel.org,
-        robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-        robin.clark@oss.qualcomm.com, jessica.zhang@oss.qualcomm.com,
-        abhinav.kumar@linux.dev, sean@poorly.run, airlied@gmail.com,
-        simona@ffwll.ch, alex.vinarskis@gmail.com,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        freedreno@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
-        quic_rajeevny@quicinc.com, quic_vproddut@quicinc.com,
-        quic_riteshk@quicnic.com, quic_amitsi@quicnic.com
-Subject: Re: [PATCH 3/4] arm64: dts: qcom: lemans-ride: Enable dispcc1
-Message-ID: <v4b35cmwbkoosdgs3d6ftml4yvdkyh27q65ssqojplb7uyniwp@wuxbeof7cikr>
-References: <20250926085956.2346179-1-quic_mkuntuma@quicinc.com>
- <20250926085956.2346179-4-quic_mkuntuma@quicinc.com>
+	Fri, 26 Sep 2025 13:54:01 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by smtp.simply.com (Simply.com) with ESMTP id 4cYBrd72t9z1DDr7;
+	Fri, 26 Sep 2025 15:53:53 +0200 (CEST)
+Received: from [10.10.15.8] (h-98-128-223-123.NA.cust.bahnhof.se [98.128.223.123])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(Client did not present a certificate)
+	by smtp.simply.com (Simply.com) with ESMTPSA id 4cYBrc5B6bz1Fb38;
+	Fri, 26 Sep 2025 15:53:52 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gaisler.com;
+	s=simplycom2; t=1758894833;
+	bh=0oKPt5B2BYzle8pqRjAR1Qbv4tzNfaR8uywq90JI968=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To;
+	b=exUyD7xU1FFoAo0zIaGO8L1T0an8JyysSniNaBEN284brN/McStsyIZqRxq8PWEKU
+	 4xjl2QjrfL3v6vRMcSOZA6TsputTD4TBzNeEmQkcG3KIUuhpPXP+zEXF3Yz/NS7pmB
+	 PcxjXfIwjxcneymF0BZH9kKiWkU57AHDRlm5Of+kNpRF0jGMlR6JwP/sN6nrYrb0Z0
+	 guRP8WAhweSnyJbReXLTERryS4IR1w0uYknNh+L2dgFLhbTwnQE2kx++CD7JJaeLrS
+	 PJLHZmJ4jqQSjfHyyxYla7ZzLAyJTcxvyTl+OUIQNZsx642Tr8lLuLkTgoW04lH9tr
+	 uEVtlAUR67olA==
+Message-ID: <76d9171c-4a74-499e-a598-ec51fdfa4e94@gaisler.com>
+Date: Fri, 26 Sep 2025 15:53:52 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250926085956.2346179-4-quic_mkuntuma@quicinc.com>
-X-Proofpoint-GUID: _RSKFGcOTD0vmlLr0gTApvqdzAnLs4_e
-X-Proofpoint-ORIG-GUID: _RSKFGcOTD0vmlLr0gTApvqdzAnLs4_e
-X-Authority-Analysis: v=2.4 cv=api/yCZV c=1 sm=1 tr=0 ts=68d69af4 cx=c_pps
- a=EVbN6Ke/fEF3bsl7X48z0g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=yJojWOMRYYMA:10 a=COk6AnOGAAAA:8 a=bQGRJ9mVl6_deHTFyO4A:9 a=CjuIK1q_8ugA:10
- a=a_PwQJl-kcHnX1M80qC6:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTI1MDE3MSBTYWx0ZWRfX+J/PzJYwSDxu
- 8HFLLWIV5/ekXHQAH/xFYdk9s+i6uUAZxSY6WFLvq+GtJ1Fb3u6R52wa1rJ0erPvwUVJmMjIQ7T
- +KiA18v0idHGAyHGpWtGiwrrdbxeYwoT9NHLvUbszXJgQi6rgOOvJ41Rb55K53FCwKeEGfFQCGP
- RKXJ24XF1XYg04ZP+VLxRv/5oMik80quZ0zxqMmICJejPxTXdx3/zahQnJ1+sB0Tlx+MxEG1Dh8
- XGW8PG6fP+4ZNAoLf/RrglPhVnQEb9XipQEYPg6dGaeSngYSrhiy5PQXn4w6FDnYSAgedMpy0u9
- 1bsFk8o/j0NBMrT5lSbYrrlI2vCT1+hN3tcvSMuqWJi7iaAQ91oPt4szIT0LxuE3n+MYWgnT/8R
- eudDAFnVGcybeMIfKlW/no1Sb8n3JQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-26_04,2025-09-26_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- lowpriorityscore=0 malwarescore=0 suspectscore=0 adultscore=0 spamscore=0
- priorityscore=1501 bulkscore=0 phishscore=0 impostorscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2509150000 definitions=main-2509250171
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 00/36] sparc64: vdso: Switch to the generic vDSO
+ library
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+ Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>, Arnd Bergmann
+ <arnd@arndb.de>, "David S. Miller" <davem@davemloft.net>,
+ Nick Alcock <nick.alcock@oracle.com>, John Stultz <jstultz@google.com>,
+ Stephen Boyd <sboyd@kernel.org>,
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ Shuah Khan <shuah@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>,
+ "Jason A. Donenfeld" <Jason@zx2c4.com>, Russell King
+ <linux@armlinux.org.uk>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Christophe Leroy <christophe.leroy@csgroup.eu>,
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>,
+ Nagarathnam Muthusamy <nagarathnam.muthusamy@oracle.com>,
+ Shannon Nelson <sln@onemain.com>
+Cc: linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linux-s390@vger.kernel.org,
+ Arnd Bergmann <arnd@kernel.org>
+References: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de>
+Content-Language: en-US
+From: Andreas Larsson <andreas@gaisler.com>
+In-Reply-To: <20250917-vdso-sparc64-generic-2-v3-0-3679b1bc8ee8@linutronix.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_065356_824055_C5FAB96A 
-X-CRM114-Status: GOOD (  18.48  )
+X-CRM114-CacheID: sfid-20250926_065358_951669_EEF7ED89 
+X-CRM114-Status: GOOD (  23.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -137,38 +101,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 26, 2025 at 02:29:55PM +0530, Mani Chandana Ballary Kuntumalla wrote:
-> This change enables display1 clock controller.
+On 2025-09-17 16:00, Thomas Weißschuh wrote:
+> The generic vDSO provides a lot common functionality shared between
+> different architectures. SPARC is the last architecture not using it,
+> preventing some necessary code cleanup.
 > 
-> Signed-off-by: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>
+> Make use of the generic infrastructure.
+> 
+> Follow-up to and replacement for Arnd's SPARC vDSO removal patches:
+> https://lore.kernel.org/lkml/20250707144726.4008707-1-arnd@kernel.org/
+> 
+> Tested on a Niagara T4 and QEMU.
+> 
+> This has a semantic conflict with my series "vdso: Reject absolute
+> relocations during build". The last patch of this series expects all users
+> of the generic vDSO library to use the vdsocheck tool.
+> This is not the case (yet) for SPARC64. I do have the patches for the
+> integration, the specifics will depend on which series is applied first.
+> 
+> Based on tip/timers/vdso.
+> 
+> [0] https://lore.kernel.org/lkml/20250812-vdso-absolute-reloc-v4-0-61a8b615e5ec@linutronix.de/
+> 
+> Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 > ---
->  arch/arm64/boot/dts/qcom/lemans-ride-common.dtsi | 4 ++++
->  1 file changed, 4 insertions(+)
+> Changes in v3:
+> - Allocate vDSO data pages dynamically (and lots of preparations for that)
+> - Drop clock_getres()
+> - Fix 32bit clock_gettime() syscall fallback
+> - Link to v2: https://lore.kernel.org/r/20250815-vdso-sparc64-generic-2-v2-0-b5ff80672347@linutronix.de
 > 
-> diff --git a/arch/arm64/boot/dts/qcom/lemans-ride-common.dtsi b/arch/arm64/boot/dts/qcom/lemans-ride-common.dtsi
-> index c69aa2f41ce2..d4436bc473ba 100644
-> --- a/arch/arm64/boot/dts/qcom/lemans-ride-common.dtsi
-> +++ b/arch/arm64/boot/dts/qcom/lemans-ride-common.dtsi
-> @@ -436,6 +436,10 @@ vreg_l8e: ldo8 {
->  	};
->  };
->  
-> +&dispcc1 {
-> +	status = "okay";
-
-I think this one should be enabled by default. Unless Konrad or Bjorn
-disagrees, please fix lemans.dtsi.
-
-> +};
-> +
->  &i2c11 {
->  	clock-frequency = <400000>;
->  	status = "okay";
-> -- 
-> 2.34.1
+> Changes in v2:
+> - Rebase on v6.17-rc1
+> - Drop RFC state
+> - Fix typo in commit message
+> - Drop duplicate 'select GENERIC_TIME_VSYSCALL'
+> - Merge "sparc64: time: Remove architecture-specific clocksource data" into the
+>   main conversion patch. It violated the check in __clocksource_register_scale()
+> - Link to v1: https://lore.kernel.org/r/20250724-vdso-sparc64-generic-2-v1-0-e376a3bd24d1@linutronix.de
 > 
+> ---
+> Arnd Bergmann (1):
+>       clocksource: remove ARCH_CLOCKSOURCE_DATA
+> 
+> Thomas Weißschuh (35):
+>       selftests: vDSO: vdso_test_correctness: Handle different tv_usec types
+>       arm64: vDSO: getrandom: Explicitly include asm/alternative.h
+>       arm64: vDSO: gettimeofday: Explicitly include vdso/clocksource.h
+>       arm64: vDSO: compat_gettimeofday: Add explicit includes
+>       ARM: vdso: gettimeofday: Add explicit includes
+>       powerpc/vdso/gettimeofday: Explicitly include vdso/time32.h
+>       powerpc/vdso: Explicitly include asm/cputable.h and asm/feature-fixups.h
+>       LoongArch: vDSO: Explicitly include asm/vdso/vdso.h
+>       MIPS: vdso: Add include guard to asm/vdso/vdso.h
+>       MIPS: vdso: Explicitly include asm/vdso/vdso.h
+>       random: vDSO: Add explicit includes
+>       vdso/gettimeofday: Add explicit includes
+>       vdso/helpers: Explicitly include vdso/processor.h
+>       vdso/datapage: Remove inclusion of gettimeofday.h
+>       vdso/datapage: Trim down unnecessary includes
+>       random: vDSO: trim vDSO includes
+>       random: vDSO: remove ifdeffery
+>       random: vDSO: split out datapage update into helper functions
+>       random: vDSO: only access vDSO datapage after random_init()
+>       s390/time: Set up vDSO datapage later
+>       vdso/datastore: Reduce scope of some variables in vvar_fault()
+>       vdso/datastore: Drop inclusion of linux/mmap_lock.h
+>       vdso/datastore: Map pages through struct page
+>       vdso/datastore: Allocate data pages dynamically
+>       sparc64: vdso: Link with -z noexecstack
+>       sparc64: vdso: Remove obsolete "fake section table" reservation
+>       sparc64: vdso: Replace code patching with runtime conditional
+>       sparc64: vdso: Move hardware counter read into header
+>       sparc64: vdso: Move syscall fallbacks into header
+>       sparc64: vdso: Introduce vdso/processor.h
+>       sparc64: vdso: Switch to the generic vDSO library
+>       sparc64: vdso2c: Drop sym_vvar_start handling
+>       sparc64: vdso2c: Remove symbol handling
+>       sparc64: vdso: Implement clock_gettime64()
+>       clocksource: drop include of asm/clocksource.h from linux/clocksource.h
+> 
+>  arch/arm/include/asm/vdso/gettimeofday.h           |   2 +
+>  arch/arm64/include/asm/vdso/compat_gettimeofday.h  |   3 +
+>  arch/arm64/include/asm/vdso/gettimeofday.h         |   2 +
+>  arch/arm64/kernel/vdso/vgetrandom.c                |   2 +
+>  arch/loongarch/kernel/process.c                    |   1 +
+>  arch/loongarch/kernel/vdso.c                       |   1 +
+>  arch/mips/include/asm/vdso/vdso.h                  |   5 +
+>  arch/mips/kernel/vdso.c                            |   1 +
+>  arch/powerpc/include/asm/vdso/gettimeofday.h       |   1 +
+>  arch/powerpc/include/asm/vdso/processor.h          |   3 +
+>  arch/s390/kernel/time.c                            |   4 +-
+>  arch/sparc/Kconfig                                 |   3 +-
+>  arch/sparc/include/asm/clocksource.h               |   9 -
+>  arch/sparc/include/asm/processor.h                 |   3 +
+>  arch/sparc/include/asm/processor_32.h              |   2 -
+>  arch/sparc/include/asm/processor_64.h              |  25 --
+>  arch/sparc/include/asm/vdso.h                      |   2 -
+>  arch/sparc/include/asm/vdso/clocksource.h          |  10 +
+>  arch/sparc/include/asm/vdso/gettimeofday.h         | 184 ++++++++++
+>  arch/sparc/include/asm/vdso/processor.h            |  41 +++
+>  arch/sparc/include/asm/vdso/vsyscall.h             |  10 +
+>  arch/sparc/include/asm/vvar.h                      |  75 ----
+>  arch/sparc/kernel/Makefile                         |   1 -
+>  arch/sparc/kernel/time_64.c                        |   6 +-
+>  arch/sparc/kernel/vdso.c                           |  69 ----
+>  arch/sparc/vdso/Makefile                           |   8 +-
+>  arch/sparc/vdso/vclock_gettime.c                   | 380 ++-------------------
+>  arch/sparc/vdso/vdso-layout.lds.S                  |  26 +-
+>  arch/sparc/vdso/vdso.lds.S                         |   2 -
+>  arch/sparc/vdso/vdso2c.c                           |  24 --
+>  arch/sparc/vdso/vdso2c.h                           |  45 +--
+>  arch/sparc/vdso/vdso32/vdso32.lds.S                |   4 +-
+>  arch/sparc/vdso/vma.c                              | 274 +--------------
+>  drivers/char/random.c                              |  75 ++--
+>  include/linux/clocksource.h                        |   8 -
+>  include/linux/vdso_datastore.h                     |   6 +
+>  include/vdso/datapage.h                            |  23 +-
+>  include/vdso/helpers.h                             |   1 +
+>  init/main.c                                        |   2 +
+>  kernel/time/Kconfig                                |   4 -
+>  lib/vdso/datastore.c                               |  73 ++--
+>  lib/vdso/getrandom.c                               |   3 +
+>  lib/vdso/gettimeofday.c                            |  17 +
+>  .../testing/selftests/vDSO/vdso_test_correctness.c |   8 +-
+>  44 files changed, 451 insertions(+), 997 deletions(-)
+> ---
+> base-commit: 5f84f6004e298bd41c9e4ed45c18447954b1dce6
+> change-id: 20250722-vdso-sparc64-generic-2-25f2e058e92c
 
--- 
-With best wishes
-Dmitry
+Tested-by: Andreas Larsson <andreas@gaisler.com>
+Reviewed-by: Andreas Larsson <andreas@gaisler.com>
+Acked-by: Andreas Larsson <andreas@gaisler.com> # arch/sparc
+
+Thanks,
+Andreas
+
 
