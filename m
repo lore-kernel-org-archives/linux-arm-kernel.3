@@ -4,129 +4,126 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16277CAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 13:52:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7452CCAC5B9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 13:53:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e/Miwyy5nX5tiT7Mz4fzifIfuWqRaBy8itcynQspnpE=; b=yG1TMqzdwUfx/zZrtZiY9FdjCD
-	C+h3K20Os8+HnexQXoPyaB8GhdmETgOb8y6bN/AE4MSD5JD+r4iHfmqcsPG93LU4axlHA43rvPQyW
-	UHFU09jXzpMrtZrB20E7nN67KOsVoM0DbuKSg+ls0nuh4ViHpQF49M5k6mEi9bODu/h3moG6CxuyZ
-	NAsZJjvzqjT/XJkMXrM7X2v2QQIQjznHF7+H4hkRzWgEgN4I0oONAtZq4BNB2WjigVHYCgWLeKyrP
-	/MhvPcsisJdtRTVR02B59USYTAGVSB0eckYULGo8/gPp8P6dQJ8o1iv3OE4z/bErLgrUdPmavf3Vh
-	EwTs9LYQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nj2RnivyVd0n/WCOVEL7yqPGa2Dwqhx2efpqU1IBZH0=; b=ekpFFlYQFgSnBlx0syvtMWpaI9
+	eIMACnicDId/jbnG1XilDHP0jTieJEUbttMzQ9DT9HaVpMcbOJ8chGAXLJb/MKseqa8/CLABNeEcN
+	2LNoONJUE5FkoRN5wCvkkydHD5RlyNzbKjFR02EKhMa1nGuu6iJcvnaFrRygC6l9tEVwFNdHe9Cn1
+	rFUxTAe+xOF6oOV1/vEDho3hQ6YNXhWMZj9gLHyqV+pl9AENoAtJBXpIQFz0DsBRth0AQC7UgEKt/
+	yVMm3enAbHJ33Uyj8qdlgN9i4+DzZH8qYP9vVL6pfHrX2cGKgwMOZaTgv7YBxVTmPWw7NqH8FBs1V
+	d25qbPXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v28s4-00000001iY3-23G8;
-	Fri, 26 Sep 2025 13:52:24 +0000
-Received: from flow-b5-smtp.messagingengine.com ([202.12.124.140])
+	id 1v28sr-00000001jCv-3yVf;
+	Fri, 26 Sep 2025 13:53:13 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v28s2-00000001iVO-0LUA;
-	Fri, 26 Sep 2025 13:52:23 +0000
-Received: from phl-compute-01.internal (phl-compute-01.internal [10.202.2.41])
-	by mailflow.stl.internal (Postfix) with ESMTP id 921741300055;
-	Fri, 26 Sep 2025 09:52:19 -0400 (EDT)
-Received: from phl-imap-09 ([10.202.2.99])
-  by phl-compute-01.internal (MEProxy); Fri, 26 Sep 2025 09:52:20 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sebastianwick.net; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:from:from:in-reply-to
-	:in-reply-to:message-id:mime-version:references:reply-to:subject
-	:subject:to:to; s=fm2; t=1758894739; x=1758901939; bh=e/Miwyy5nX
-	5tiT7Mz4fzifIfuWqRaBy8itcynQspnpE=; b=gZvzVX+vMtwY/Eh184vtzfOksT
-	U0e7pUqZqA8iBvWDxl9s+GF+yVTOAPb43e7lq4gcr5Qs68M8QCAQYuOYHA53fysm
-	jg3FOkFj033tYbiZ3mvm7c/spjJ7uAMGvjT++1hURVdsphlRTVMoWg3sp8XdsKWo
-	lk91rjdD7+dZB2fh+hSyl/o4/dpVsrfFqH/ICVqwW8PMrGe96XjJtcozKjaP9OnE
-	/T/cb07sTZ1nJabL0PqOkpa6ttGPKYUgLbxfCavCAI2x8WnN+Vj2OZTC6zY7O49E
-	pzb1OWVAkkBQUjjYMluXL9Z8i/D5D5gQ8l92p9GA56VpL8I3NEO7DT6edURA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1758894739; x=
-	1758901939; bh=e/Miwyy5nX5tiT7Mz4fzifIfuWqRaBy8itcynQspnpE=; b=K
-	LQJJxIryFfwXUbUMVLG7mHaCl7f+PyLuuZbLMxvJkVsLQCI03s9qvdIkY90sB9bC
-	4rJx8ZnSYRqF1W+/wNPKjUIra7beOBviriSV//wEiDv1mzHadNpHUzvC0y3WxVUL
-	RYCKnkxjbOokLceQXLBCvjINZcVmQdFv2eWKAzcG1av8n6py0OfxTtd7L0ZTqmK9
-	JPD+wyj6uiLfnir3idi71yDyIqYcR42387KKoBrFN6Pw7ymsULosAJwZFvtGfR9u
-	4bRmdh5yH07HOsosels1Lr8PC0ez6tEkVD0f4KUScw9jpt0/01UuMNxQtfW12zCH
-	x7/FbVu6cCKXwTFzhrupw==
-X-ME-Sender: <xms:kZrWaBC-Z_teyeytGOi2qhBgUNr9tw5PJxq7XDWHdbD35RunVIe1rQ>
-    <xme:kZrWaKUgPTIPUxLaccLLHUAOj2ReAF8Vex6huoPtAw77k8Xe0TUZnKXMCrvFPdOu8
-    F0WNUGUUgsAlKclRY5wRvdsaqxmwcpZU4jm6voMDrJCw-UqdAmWuN0>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdeileehgecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthhqredtredtjeenucfhrhhomhepfdfuvggsrghs
-    thhirghnucghihgtkhdfuceoshgvsggrshhtihgrnhesshgvsggrshhtihgrnhifihgtkh
-    drnhgvtheqnecuggftrfgrthhtvghrnhepveetfeetleevfeevtdelhffhuefgheekkeel
-    hfehfeegvdfhfefhlefhieefledtnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrg
-    hmpehmrghilhhfrhhomhepshgvsggrshhtihgrnhesshgvsggrshhtihgrnhifihgtkhdr
-    nhgvthdpnhgspghrtghpthhtohepgeegpdhmohguvgepshhmthhpohhuthdprhgtphhtth
-    hopegrlhgvgidrhhhunhhgsegrmhgurdgtohhmpdhrtghpthhtohephhgrrhhrhidrfigv
-    nhhtlhgrnhgusegrmhgurdgtohhmpdhrtghpthhtoheplhgvohdrlhhiuhesrghmugdrtg
-    homhdprhgtphhtthhopehshhgrshhhrghnkhdrshhhrghrmhgrsegrmhgurdgtohhmpdhr
-    tghpthhtoheplhhivhhiuhdrughuuggruhesrghrmhdrtghomhdprhgtphhtthhopehloh
-    huihhsrdgthhgruhhvvghtsegsohhothhlihhnrdgtohhmpdhrtghpthhtoheprghnghgv
-    lhhoghhiohgrtggthhhinhhordguvghlrhgvghhnohestgholhhlrggsohhrrgdrtghomh
-    dprhgtphhtthhopegurghnihgvlhhssegtohhllhgrsghorhgrrdgtohhmpdhrtghpthht
-    ohepkhgvrhhnvghlsegtohhllhgrsghorhgrrdgtohhm
-X-ME-Proxy: <xmx:kprWaMdLdGN2spLhtNCNS67Klt1G4DqUzXgUG5qHuc-bEV83ycKSlQ>
-    <xmx:kprWaM0BvbL8ZDrn2YSg496OCpHA33bgktoge4OW1Bp3_Ic0O-21yw>
-    <xmx:kprWaNKBzp0_vxj_swcEwac56RCEoo-XznFcZCRExAuwSYq6vvkj0A>
-    <xmx:kprWaIJTsQOYCLALftDKAFNX28i3MG_FLV2281tt7ltk7KKeZhvr6A>
-    <xmx:k5rWaKDq6aODF1168FNykMnX-9PLei9JflP268c1DX6UH65jH9pbJXS0>
-Feedback-ID: i460949e8:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id D68CF3020073; Fri, 26 Sep 2025 09:52:17 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	id 1v28sp-00000001jAQ-0mbD
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 26 Sep 2025 13:53:12 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58Q8vY8f020680
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 13:53:11 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=Nj2RnivyVd0n/WCOVEL7yqPG
+	a2Dwqhx2efpqU1IBZH0=; b=hg2wO8C+R0urRtBfZxtj2aG7BOq4ov0hngmLSsaO
+	X5KuzdguO8iTvI1k6mXqGMiRPYJhwB94qyXgwQWNc541Kz9d66RpEXEz0bjCYVXT
+	0GO4tHcML2p8xnAtjveHkOLeCRCbY/FFYtvoNPnggr3izeH0iDy8t2Iumh6RbF7Z
+	f+jLphKHo8upBAAeyGYNhpDo565cesigtjO92ZjDLPYo6Ty0WTGD8Q+uePLX0jVh
+	ZWCSJmRKCMrSHOMcC+cFW8ZleEqi7inzPWqClG4zSHQZmI0YUPF87j0ciz/qN+qH
+	vyYAXw2tlmrzlvWE1AbAXFTf1CEqoRPvQRhuba1yuwBANw==
+Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49db0qu2hk-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 13:53:10 +0000 (GMT)
+Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-7f821f8716eso55788936d6.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 06:53:10 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758894789; x=1759499589;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Nj2RnivyVd0n/WCOVEL7yqPGa2Dwqhx2efpqU1IBZH0=;
+        b=AnLbNNCteMaU5cu+Ii/4vNZoFwttw3uCQaloBPmU1UstWcSWDJKqaDGwdtXIZRU5wS
+         ypPPCGc/d+7OU3FgJi/DNahBhiY/wgp8HOykP4LI2ZRjKMR0xNMkBMzvowbcZ222OXkX
+         4AWn/tiid215wJT+Wj2dFTw0cMiZCaK5FdpWmsVLtkpDG1SS6T2Pk8r5G4fOtFp89PD8
+         09l7ShkySVCkFE5ptVpWz65x7k2OmQmgazsUdQy+6/NYkTQDS6PIan+jtJP7kBZ5Pjwm
+         +SP8vMCvkIoLqr3LjBDFZqNy1IdGk6DgLE/A2T4Nj+DREHWptxDrf99rr+R/gw7VsU1+
+         wyag==
+X-Forwarded-Encrypted: i=1; AJvYcCX0UWqgYsCjw9XKs6XCSOqMIBL5xaPL1GfFdH2ep8X8C8dm0uOSY9tgNZuLlwtaK0bSmTzdX0kC0cWdbByBeIDG@lists.infradead.org
+X-Gm-Message-State: AOJu0YwigDmqlNSTH63ao0czfhStj56+ciPcUzTxcj8Mh+/7YSkJJwGT
+	pEuOnlFQ4NsBw5oBhBPD6Qxavm5GaV3192LlDZ58bsgFHFsD3VG5bPqfBzg5Dc15ZO2ci72P5om
+	p7ZTdAoS/RdIyPoMG+bKMZaPvVpuTIOID7f4HiG5rKP82VGLwfqKb6U17AEtdF69hqfkdHaPFE2
+	uTIw==
+X-Gm-Gg: ASbGnctSPECIcqLfwFjL9+Hld7KOEPoWdRX9L/S3m5HfTDF5GB00DACTI+ra+v+Z4U5
+	wlX4A16tNvENkqdl36pSRRvrrPQQ2NZmt/GW+uevi/C9oIkzqdCJDZ64tJbk80qFMmbCZlX0lf7
+	u8UmIgKp4uPRz6r90MWC1JuH83ucG7xQ9jTVm97YChG/RYDO5ean7QcmJfHINu/bAfY9Z8pSnEE
+	GB3DnJr0xSK4SWjsUcJ8LIfLz2dHHXbKmHBjFovSp85YSXJBx6Ijb6ASsjctgBaIaswmdHCMFsL
+	kVzjjNepx/a6GK/Zr3wHi8QZdQy0SvJzTbOTGyAHqomsRG5gnp8WxZxDY9I/DtfsriyzNKJJVO/
+	UBNr0xXY8+3GdSIQlveptYhQQo4lP6sxtMPUGlYucOPOo1MJABWS9
+X-Received: by 2002:a05:622a:1389:b0:4b7:a1b6:cf29 with SMTP id d75a77b69052e-4dace86b1e7mr81075491cf.41.1758894789330;
+        Fri, 26 Sep 2025 06:53:09 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGMoJDS8aWtbyVs7IfWYIbTpQ5DxMdjd7gKuy6V247TUGZ3bJClP3qwuMmbDr8kW0U3F2DuOg==
+X-Received: by 2002:a05:622a:1389:b0:4b7:a1b6:cf29 with SMTP id d75a77b69052e-4dace86b1e7mr81075101cf.41.1758894788737;
+        Fri, 26 Sep 2025 06:53:08 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-58316ff55acsm1846590e87.129.2025.09.26.06.53.07
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 26 Sep 2025 06:53:07 -0700 (PDT)
+Date: Fri, 26 Sep 2025 16:53:06 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>
+Cc: marijn.suijten@somainline.org, swboyd@chromium.org, mripard@kernel.org,
+        abel.vesa@linaro.org, andersson@kernel.org, konradybcio@kernel.org,
+        robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+        robin.clark@oss.qualcomm.com, jessica.zhang@oss.qualcomm.com,
+        abhinav.kumar@linux.dev, sean@poorly.run, airlied@gmail.com,
+        simona@ffwll.ch, alex.vinarskis@gmail.com,
+        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
+        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        freedreno@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
+        quic_rajeevny@quicinc.com, quic_vproddut@quicinc.com,
+        quic_riteshk@quicnic.com, quic_amitsi@quicnic.com
+Subject: Re: [PATCH 2/4] arm64: dts: qcom: lemans: add mdss1 displayPort
+ device nodes
+Message-ID: <kxy6p3fj656utoubj37ujzycmmszebmwb4c4u7zkb7t46ddwuk@xwg3xht5elj4>
+References: <20250926085956.2346179-1-quic_mkuntuma@quicinc.com>
+ <20250926085956.2346179-3-quic_mkuntuma@quicinc.com>
 MIME-Version: 1.0
-X-ThreadId: AC10qL-M5Mko
-Date: Fri, 26 Sep 2025 15:51:57 +0200
-From: "Sebastian Wick" <sebastian@sebastianwick.net>
-To: "Daniel Stone" <daniel@fooishbar.org>,
- =?UTF-8?Q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>
-Cc: "Xaver Hugl" <xaver.hugl@gmail.com>,
- "Maarten Lankhorst" <maarten.lankhorst@linux.intel.com>,
- "Maxime Ripard" <mripard@kernel.org>,
- "Thomas Zimmermann" <tzimmermann@suse.de>,
- "David Airlie" <airlied@gmail.com>, "Simona Vetter" <simona@ffwll.ch>,
- "Chun-Kuang Hu" <chunkuang.hu@kernel.org>,
- "Philipp Zabel" <p.zabel@pengutronix.de>,
- "Matthias Brugger" <matthias.bgg@gmail.com>,
- "AngeloGioacchino Del Regno" <angelogioacchino.delregno@collabora.com>,
- "Alex Hung" <alex.hung@amd.com>, wayland-devel@lists.freedesktop.org,
- harry.wentland@amd.com, leo.liu@amd.com, ville.syrjala@linux.intel.com,
- pekka.paalanen@collabora.com, mwen@igalia.com, jadahl@redhat.com,
- sebastian.wick@redhat.com, shashank.sharma@amd.com, agoins@nvidia.com,
- joshua@froggi.es, mdaenzer@redhat.com, aleixpol@kde.org,
- victoria@system76.com, uma.shankar@intel.com, quic_naseer@quicinc.com,
- quic_cbraga@quicinc.com, quic_abhinavk@quicinc.com, marcan@marcan.st,
- Liviu.Dudau@arm.com, sashamcintosh@google.com,
- chaitanya.kumar.borah@intel.com, louis.chauvet@bootlin.com,
- mcanal@igalia.com, kernel@collabora.com, daniels@collabora.com,
- dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- "Simona Vetter" <simona.vetter@ffwll.ch>
-Message-Id: <7a25beb8-6b81-4652-b509-b6410ae1dec1@app.fastmail.com>
-In-Reply-To: <CAPj87rMhsFy+uzKmNecrQG4e+BEoeX1FyEobO7bnHdQqhy1_2Q@mail.gmail.com>
-References: <20250822-mtk-post-blend-color-pipeline-v1-0-a9446d4aca82@collabora.com>
- <20250822-mtk-post-blend-color-pipeline-v1-1-a9446d4aca82@collabora.com>
- <CAPj87rPAoD2D99zTdsvJ=9K8+G17mTS2jDYHMPYmXNtUyp2L_Q@mail.gmail.com>
- <CAFZQkGwotQ6cxVCSgp-BhUi5DaZ7MyVvbnrDJW11Z7ztzqy58g@mail.gmail.com>
- <CAPj87rMTOD3_tC70QX4xz3G4zdG=tmwt5VgPhq6jNyf8bbW49Q@mail.gmail.com>
- <269ca85a59f613568543f45867fba7e604cc9f11.camel@collabora.com>
- <CAPj87rMhsFy+uzKmNecrQG4e+BEoeX1FyEobO7bnHdQqhy1_2Q@mail.gmail.com>
-Subject: Re: [PATCH RFC 1/5] drm: Support post-blend color pipeline API
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250926085956.2346179-3-quic_mkuntuma@quicinc.com>
+X-Proofpoint-GUID: 7TTmCF23TDtypc51HoVBd294hXXvkrmT
+X-Proofpoint-ORIG-GUID: 7TTmCF23TDtypc51HoVBd294hXXvkrmT
+X-Authority-Analysis: v=2.4 cv=api/yCZV c=1 sm=1 tr=0 ts=68d69ac6 cx=c_pps
+ a=wEM5vcRIz55oU/E2lInRtA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=yJojWOMRYYMA:10 a=COk6AnOGAAAA:8 a=jz6_z25kcqxLI5rURXQA:9 a=CjuIK1q_8ugA:10
+ a=OIgjcC2v60KrkQgK7BGD:22 a=TjNXssC_j7lpFel5tvFf:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTI1MDE3MSBTYWx0ZWRfX2sCFjtCjw2BZ
+ jM4g6UYn05oxRzor58QiEC7L1Ft1SYRLeh8wjNxjQygTHHJ4L29Hx5cpIpiaHLQKBYXSH1v4HVI
+ vQHYM4mT9I+7Rp86eZr1HlpHk1WP3srmOzcMqDk5Jvfo6FNAnywt/GH9bUkmU0+nVh/8n2d5vSL
+ K93NUDUOJGY91RQH591EDNrylYDdGJBzSoubK9/ivZ7RmJwH18vXydMzrHYcW0wjpjdYZM9Z3bW
+ CKzLVuaooZbPGaQSbD9YGN6qBLqi4M/pGKFkOtFxlnhNMMW5yNt7ZucRkyRAiS/DSvpp3doIFg8
+ C4NHDLGm2qY38lumFhnS4JsOH3A8fjQRK38skvq7zzicYW9cHV/ckRU59eWoLYj/kBaJKKhVzI7
+ wsMSbgVbzMB8pJM2NpTsN0m02GijAg==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-26_04,2025-09-26_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ lowpriorityscore=0 malwarescore=0 suspectscore=0 adultscore=0 spamscore=0
+ priorityscore=1501 bulkscore=0 phishscore=0 impostorscore=0 clxscore=1015
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2509150000 definitions=main-2509250171
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_065222_175378_99F29B14 
-X-CRM114-Status: GOOD (  37.03  )
+X-CRM114-CacheID: sfid-20250926_065311_230603_C5242073 
+X-CRM114-Status: GOOD (  13.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -141,107 +138,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-(Sorry for re-sending; used a web mail client which send html)
+On Fri, Sep 26, 2025 at 02:29:54PM +0530, Mani Chandana Ballary Kuntumalla wrote:
+> Add device tree nodes for the mdss1 DPTX0 and DPTX1 controllers
+> with their corresponding PHYs.
+> 
+> Signed-off-by: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>
+> ---
+>  arch/arm64/boot/dts/qcom/lemans.dtsi | 245 +++++++++++++++++++++++++++
+>  1 file changed, 245 insertions(+)
+> 
 
-On Mon, Sep 15, 2025, at 2:31 PM, Daniel Stone wrote:
-> Hi N=C3=ADcolas,
->=20
-> On Wed, 3 Sept 2025 at 19:43, N=C3=ADcolas F. R. A. Prado
-> <nfraprado@collabora.com> wrote:
-> > On Tue, 2025-08-26 at 13:25 +0100, Daniel Stone wrote:
-> > Based on this discussion, this is my understanding for the changes
-> > desired on the series and their reasonings:
-> >
-> > 1. Add a driver cap, DRM_CAP_POST_BLEND_COLOR_PIPELINE, which drivers
-> > will use to signal they support post-blend color pipelines.
-> >   - Reason: Allow userspace to figure out that the driver doesn't
-> > support post-blend color pipelines and choose to not set the client
-> > cap, DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE, so it can use legacy
-> > color management instead.
-> > 2. Make it so setting the client cap,
-> > DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE, fails if the driver cap,
-> > DRM_CAP_POST_BLEND_COLOR_PIPELINE, isn't set
-> >   - Reason: Prevent userspace from making color management unusable =
-if
-> > the driver doesn't support post-blend color pipelines, as the legacy
-> > color-management properties (GAMMA_LUT, DEGAMMA_LUT, CTM) would be
-> > unwriteable with the client cap set.
->=20
-> Definitely.
->=20
-> > 3. Make legacy color-management properties (GAMMA_LUT, DEGAMMA_LUT,
-> > CTM) read-only if the client cap,
-> > DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE, is set
-> >   - Reason: Allow drm_info to print legacy color management
-> > configuration while still enabling post-blend color pipelines through
-> > the client cap. Also to allow smooth handover from pre-colorop
-> > userspace client to colorop-ready userspace client, as the latter can
-> > now replicate the legacy color configuration through the colorops.
->=20
-> I think yes, but I don't really feel strongly about this. If others
-> involved have stronger opinions, I'm happy to yield.
+Squash together with the series adding mdss1. There should be exactly
+three patches: fix for DP, addition of mdss1 to the lemans.dtsi,
+addition of mdss1 to lemans-ride.dtsi.
 
-So I'm going to argue that making the properties read-only or read-write=
- is useless.
-
-The only case where knowing the color pipeline of the previous user woul=
-d be useful is if you want to re-use the framebuffer of said user. Other=
-wise, the color pipeline and the generated framebuffer have to somehow j=
-ust match to produce the desired output and that does not require any pr=
-evious state, making the legacy properties useless.
-
-If we genuinely believe that this is something to be supported, then my =
-question is why the new color pipeline should not be able to accurate re=
-flect the state of the previous user, even if they used the legacy props?
-
-The hardware was able to get into some state based on the legacy props, =
-so it will be able to get into the same state with the color pipeline pr=
-ops; it's "just" a matter of exposing the right pipeline.
-
-If we are not able to accurate reflect the previous state with the pipel=
-ine props, then use space will see inconsistent state between the legacy=
- and color pipeline props. Which state is the right one? We cannot know.=
- The previous user could have used either one. So having the legacy prop=
-s does not help because we don't know if we should use them or the pipel=
-ine state.
-
-So, I would argue that we should *remove* the legacy props if DRM_CLIENT=
-_CAP_POST_BLEND_COLOR_PIPELINE is set. If the handover is relevant for a=
- driver, they should ensure the legacy props state translates to the cor=
-rect color pipeline state.=20
-
-> > Side note: Smooth handover back to pre-colorop userspace after tweak=
-ing
-> > the colorops to something else would not be possible without making =
-the
-> > legacy properties writable too, so that the client could update them=
- to
-> > match the colorops setting before switching back. I don't imagine th=
-is
-> > would be a common use case, and colorops are a superset of the legacy
-> > properties so there are cases where it wouldn't even be possible to
-> > replicate the colorop setting on the legacy properties, but thought =
-I'd
-> > mention this limitation for completeness' sake.
->=20
-> That's a totally acceptable tradeoff. We don't have a standard
-> inter-client capability handshake, so if downgrading from a
-> newer/more-capable to an older/less-capable client is a bit janky,
-> that's OK. There's only so much we can do given the original design
-> decision for the KMS core to not be opinionated about a 'golden state'
-> that could be used as a reference for userspace to work from as a
-> base.
->=20
-> > Also, as Xaver noted, this feedback also applies to pre-blend pipeli=
-nes
-> > and its legacy color-management properties (COLOR_ENCODING,
-> > COLOR_RANGE), so the same changes would be desirable there for the s=
-ame
-> > reasons. So we should share this feedback on that series as well.
->=20
-> Yep.
->=20
-> Cheers,
-> Daniel
->=20
+-- 
+With best wishes
+Dmitry
 
