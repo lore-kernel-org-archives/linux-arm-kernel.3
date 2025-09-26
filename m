@@ -4,90 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A3E3CAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 10:05:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7883BCAC5B9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 10:06:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=miMbC+wFOoOlKiV7MAf6dHd1ZDQUknKrGY0xfQXgt9Q=; b=rjFOoddWxB7aNhsa/hvHyTLRo0
-	Y9iiViu30cer5CsUouqNU0wUH7NNzJrhHAlaJFC9HeSgIi7Kwolqmd3hhgRkf5H8iDFgYpdkUYH4d
-	sbvvDDszagVx5d/XzK2VdSp6ayVag1ub06n7V7lA628s3neHbgH8MegzbInUgkHAeiYDh2Q+5tiU/
-	QJvvFzl6aj6BKjkdsjAmZL8wNLj2wYg60jr0jagifoFsWND1BBGvzi2O+c3v+cW5OgUijzIPbFouW
-	S0CU8UN4NTVAoRRYN3LLutA8zVPSwRWnkKpAhkNKL0tuQeRLDnxYxgLCehAVQqK9f4/Crnmggk016
-	0HyJF2gA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=fvLsk9QKyQp/yVdLhE3qJAQkBSlK5XgZUJpLjMgY4Vk=; b=nbx8H+BdxCzbHq
+	QZN/kvLVHgCFqa7upup9cAGDrBPT8BZ8jOtWoSByQFDn04fT1lsgkCvkwQwR/L3PzP5NLIwU7TAhd
+	0B+e8i+OqipRY2AuGtwMHQXMZM5k75ACLQ6EYWUWIMs0thOwnFKq5LfPnSdbWicjZD5ftQkytxogo
+	FwLTGXYHZJp8hm61KqucJNyp3YRdiAnCV07MolbXTg0C5RzW3QR2RauuICMdHNMbQa9JKcCAWTW5d
+	xkZL/jEojv59pKcbtJtCbHWrM6r07xTLEWniTckLzjZHilsAAA9D7hpT53kcupqBEOYz9ktZ5bT9D
+	YHPVMniz5B4mMrQ5a8TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v25Kf-00000000Ea1-0QWh;
-	Fri, 26 Sep 2025 10:05:41 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1v25Kt-00000000El8-1lK0;
+	Fri, 26 Sep 2025 10:05:55 +0000
+Received: from mail.simonwunderlich.de ([2a01:4f8:c17:e8c0::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v25Kc-00000000EYX-2KAk
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 10:05:40 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-329a41dc2ebso1558278a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 03:05:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1758881137; x=1759485937; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=miMbC+wFOoOlKiV7MAf6dHd1ZDQUknKrGY0xfQXgt9Q=;
-        b=WAGtVSv/BI6OnnJ16dYENfdJLWp5XYtbCgC2gAf8+ySzIG83a4smEAxN14JDh2zHdn
-         bj/4QippYuWpcxxuXq0jftRSlKuVMIv3OiDyU7wlI+23a0EteSWo8goGDSC1UP7QuXnx
-         us8Bmv1k5bgava7S838SHVLQ7hu7tVCseZdW+XnMrAVwVW6auoOBdI2fqnh8QWEaOKC4
-         kjkpYSANP7aN0SUwTe0ZiE6PKwHJ2/x9RnhUlsDDdzY0lGGj5vNPo32yJyv5WEovhKG2
-         yoNhNMbZ/SBWE1G0RrJe6Tpfrs41vNvl/dPd027L6vQxZB6ZJyKbGNYzKFLbaloR7rI2
-         0yyg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758881137; x=1759485937;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=miMbC+wFOoOlKiV7MAf6dHd1ZDQUknKrGY0xfQXgt9Q=;
-        b=Eyxn5yY+QKYaZpZfbwHqV+rE5amHBsZEiiOGB2D7897Fzq+UHoIXU7+zq4IvYvdHjQ
-         QB/nUBRya3/9dUcxlI5FsRDb0HO1J3SqWjvFCVFR3pwpRc6mrfQqYJiMuGOS2CDxYI7L
-         ol4zQxyGXsJ4hKNcDIA/KsmJPL9yGWvcMYPFE/Zl+KhpA9ZdJzUJN8Bw4213i9kIe0Y8
-         WjtuIxlvXgE+L3f8jVaE7bI0FqXS3/jJPJlVBtOvS8VRbRxCwLJBp37f5+i7q/dL0W1p
-         Fu/eRO5IWU45/i1Gs+ek6uC+qmmvwMTYaXAaegn8ojF/hCHvDT8x4/J+SCdvBvq1Pbr5
-         0hag==
-X-Forwarded-Encrypted: i=1; AJvYcCUEfWq6jM8XrSwOKzCDL6N8fI8d0T5y4ua7tGqA2MSPqwS+lKjWeAcmZ1mwZSWtivMJG1K/eB7ljYtT5VwVFxC0@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywbz7s1pvlfRubJrvVXWSyIuDx76TWi58ATuesnCzYXWn2rcyib
-	zVDDAviVAeUBdhkY9RnJAwZ9AvnfenbrBbUv0WJNIxtYExYfh0s5qd6eGsJoYvZs3ZFvQ+yNY/n
-	0iFrRg3ihOV4+oXidmu3FZ9xBvBnEyuIWFMSNZXDFgw==
-X-Gm-Gg: ASbGncuKdKb+/uUHOTHXcz6M235CuqaY7ON7z1XASksqdkHf6AvcFMwxxsCzx5cRPud
-	yIXny6uChZf3KjA4ydcGfdRHsWL6QIiRoVQeTJGYR3HQEPO/Uya71IgmWpVWvB3UmlEckUIkNcl
-	79EBe+0GyvyLTKLbvind/uvhahpOm0VRHJe+GXULRW5a3WO12cqC70sfJLh2dp7SkmwkDMHnvW0
-	AlRr3Ni
-X-Google-Smtp-Source: AGHT+IEMalXyUAnyGSz62XZRT5YFJWbI5kdvTffoImyStrvRVjF3+40V1XYpBrzribrK2v+XrhzX3WPi4NoLw9+2PrM=
-X-Received: by 2002:a17:90b:4f8e:b0:32e:7270:94a4 with SMTP id
- 98e67ed59e1d1-3342a22f5c5mr6887375a91.14.1758881137573; Fri, 26 Sep 2025
- 03:05:37 -0700 (PDT)
+	id 1v25Kq-00000000EhM-3D8N;
+	Fri, 26 Sep 2025 10:05:54 +0000
+Received: from sven-desktop.home.narfation.org (p200300c597166be00000000000000c00.dip0.t-ipconnect.de [IPv6:2003:c5:9716:6be0::c00])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mail.simonwunderlich.de (Postfix) with ESMTPSA id 5AB0AFA12C;
+	Fri, 26 Sep 2025 12:05:49 +0200 (CEST)
+From: "Sven Eckelmann (Plasma Cloud)" <se@simonwunderlich.de>
+Subject: [PATCH mt76 v2 0/3] wifi: mt76: mt7915: Beamforming backoff limit
+ table
+Date: Fri, 26 Sep 2025 12:04:51 +0200
+Message-Id: <20250926-backoff-table-support-v2-0-16d3726646c4@simonwunderlich.de>
 MIME-Version: 1.0
-References: <20250922-fix_helper_data-v1-0-905e8115a24e@oss.qualcomm.com>
- <20250922-fix_helper_data-v1-1-905e8115a24e@oss.qualcomm.com>
- <874isuo0m2.fsf@rasp.cworth.amperemail.amperecomputing.com>
- <f7be3833-9b33-4935-b821-a2e0000a2557@oss.qualcomm.com> <CAJ9a7VjaUE+iy=FFwPhCdfXgoGR3rP9WSx-ZkKYeCHhqJ2yzMg@mail.gmail.com>
- <3b16607f-8995-46b1-aecf-c6aa79f66f9d@arm.com> <635ba698-d7a9-40d0-9285-4ec108d4a536@linaro.org>
- <20250925160440.GD7985@e132581.arm.com>
-In-Reply-To: <20250925160440.GD7985@e132581.arm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Fri, 26 Sep 2025 11:05:26 +0100
-X-Gm-Features: AS18NWCbpLCP6YCuwI_-fvwo1ZyLR7pxEbvV2zcB8LL4Hx314A6kIEBoWPgSxQk
-Message-ID: <CAJ9a7VgvWHO5h9-VbSruAqLfgocbkRjzsY+THPHVbJT2OXUO1w@mail.gmail.com>
-Subject: Re: [PATCH RFC 1/3] coresight: tmc: add the handle of the event to
- the path
-To: Leo Yan <leo.yan@arm.com>
-Cc: James Clark <james.clark@linaro.org>, Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Jie Gan <jie.gan@oss.qualcomm.com>, Carl Worth <carl@os.amperecomputing.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAENl1mgC/3WPwXKEIBBEf8XiHFKAAo6n/EdqDwJjpKJiAN2kt
+ vz3sG6SW449Xd2v50YSRo+JdNWNRNx98mEpQjxVxI798obUu6KJYEIy4Jqa3r6HYaC5NxPStK1
+ riJkCCN62opZaOVKya8TBf569r2TOWpHL4xrxYyuQ/GP9MQryl1CCdA1XjHTys8+JSotMG4Bat
+ bzb+b3f9AmpDXPxu8rUykmpOBNc9qCVUJqDds4Cb4AJ20CjmXT63DD6lEP8Oh8uXfcRD7Jo/vl
+ t55RRwVCywVgJDl+Sn8Ny3RaHcfJ2fHZILsdxfAP7OpHHTQEAAA==
+X-Change-ID: 20250917-backoff-table-support-99218823576d
+To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, 
+ Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>, 
+ Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+ Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+ Johannes Berg <johannes@sipsolutions.net>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-stm32@st-md-mailman.stormreply.com, devicetree@vger.kernel.org, 
+ "Sven Eckelmann (Plasma Cloud)" <se@simonwunderlich.de>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3232; i=se@simonwunderlich.de;
+ h=from:subject:message-id; bh=b3/ybPY9EaJmt4SNpWg+0Y0d2UPRyNHmWizTO630UoI=;
+ b=owGbwMvMwCXmy1+ufVnk62nG02pJDBnXUss9ct29d7r4R67WnH+CVbb8VDvbsvZPJebO5xdFn
+ m1l2ZPWUcrCIMbFICumyLLnSv75zexv5T9P+3gUZg4rE8gQBi5OAZhI7S6G/5GaPVoMHNeX8fGc
+ eKQlskXcetLiy0Wuqpvl2CfZce/fws/wPyAwytbUWUZ9Uv+mm1M3u7/hPKfr0xUr+jj9elm48Yd
+ MXgA=
+X-Developer-Key: i=se@simonwunderlich.de; a=openpgp;
+ fpr=522D7163831C73A635D12FE5EC371482956781AF
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_030538_771830_5E537E3D 
-X-CRM114-Status: GOOD (  23.09  )
+X-CRM114-CacheID: sfid-20250926_030552_954439_0726AE07 
+X-CRM114-Status: GOOD (  12.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,46 +86,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 25 Sept 2025 at 17:04, Leo Yan <leo.yan@arm.com> wrote:
->
-> On Thu, Sep 25, 2025 at 11:10:51AM +0100, James Clark wrote:
->
-> > > > I would suggest in the csdev (coresight_device) structure itself. We
-> > > > already have some sink specific data in here e.g. perf_sink_id_map.
->
-> [...]
->
-> > > I think this data is specific to the session we are enabling the
-> > > device(s) in. e.g., we keep the trace-id in the path.
-> > > So, I don't mind having this in the path structure.
-> > > Instead of modifying csdev with additional locking from "etm-perf"
-> > > it is always cleaner to handle this in the path.
-> >
-> > Yeah, and perf_sink_id_map only "needs" to be in the csdev because it
-> > controls sharing IDs between multiple paths which can't be accomplished by
-> > storing it in the path.
->
-> This is a bit off-topic: do we really need to maintain an id_map in
-> every sink device, or could we simply use a global id_map?
->
-> I might miss some info; anyway, consolidating trace IDs is a low
-> priority for me and not critical to this thread. But this might be
-> benefit for later refactoring.
->
-> Thanks,
-> Leo
+It was noticed that Mediatek's MT7915 does not only require calibration of
+the normal rates (configured via DT) but also some backoff values for
+beamforming. The proprietary driver loads this from some file in the
+firmware folder. But for the the upstream driver, it is necessary to get
+them from the same place as the normal limits - in this case from the
+devicetree.
 
-There is a limit to the number of IDs that can be used - using ID map
-per sink means that IDs can be re-used in different sinks.
+They released the support for this [1,2] in their own SDK but
+without any kind of documentation. And it was (to my knowledge) never
+forwarded to upstream. But since also (in my case) OpenWrt needs correct
+calibration for this WiFi chip, we should get this upstreamed.
 
-This was added to overcome this problem in large multi-core systems
-where there are more PEs than Available IDs.
+I try to my best to provide some sensible information about the patch and
+the DT entries. If anyone else has more information about it (to improve
+the descriptions), please feel free to comment and provide some
+enhanced/corrected version.
 
-Mike
+The patch from Shayne Chen was only rebased and modified to perform byte
+reads from the DT [3]. Besides this, only a commit message was added,
+MTK_DEBUG parts were dropped and some checkpatch problems were fixed.
 
+Regards,
+	Sven
 
+[1] https://git01.mediatek.com/plugins/gitiles/openwrt/feeds/mtk-openwrt-feeds/+/f0d2527deb4f91592b6486a5c98ea3f584f76a61
+[2] https://git01.mediatek.com/plugins/gitiles/openwrt/feeds/mtk-openwrt-feeds/+/737340322ab22b138fd200e020d61ffdbe3e36a9/autobuild/autobuild_5.4_mac80211_release/package/kernel/mt76/patches/1022-wifi-mt76-mt7915-add-bf-backoff-limit-table-support.patch
+[3] https://lore.kernel.org/r/20250917-fix-power-limits-v1-1-616e859a9881@simonwunderlich.de
+
+Signed-off-by: Sven Eckelmann (Plasma Cloud) <se@simonwunderlich.de>
+---
+Changes in v2:
+- add [PATCH mt76] as requested by Zhi-Jun You
+- Link to v1: https://lore.kernel.org/r/20250924-backoff-table-support-v1-0-20e50fbc59de@simonwunderlich.de
+
+---
+Shayne Chen (1):
+      wifi: mt76: mt7915: add bf backoff limit table support
+
+Sven Eckelmann (Plasma Cloud) (2):
+      dt-bindings: net: wireless: mt76: Document power-limits country property
+      dt-bindings: net: wireless: mt76: introduce backoff limit properties
+
+ .../bindings/net/wireless/mediatek,mt76.yaml       |  65 ++++++++
+ drivers/net/wireless/mediatek/mt76/debugfs.c       |   4 +-
+ drivers/net/wireless/mediatek/mt76/eeprom.c        |  38 ++++-
+ drivers/net/wireless/mediatek/mt76/mt76.h          |   8 +
+ .../net/wireless/mediatek/mt76/mt7915/debugfs.c    |  74 ++++++++-
+ drivers/net/wireless/mediatek/mt76/mt7915/init.c   |   7 +
+ drivers/net/wireless/mediatek/mt76/mt7915/main.c   |   2 +-
+ drivers/net/wireless/mediatek/mt76/mt7915/mcu.c    | 182 ++++++++++++++++-----
+ drivers/net/wireless/mediatek/mt76/mt7915/mcu.h    |   6 +
+ drivers/net/wireless/mediatek/mt76/mt7915/mt7915.h |   9 +-
+ .../net/wireless/mediatek/mt76/mt7915/testmode.c   |   2 +-
+ 11 files changed, 342 insertions(+), 55 deletions(-)
+---
+base-commit: b36d55610215a976267197ddc914902c494705d7
+change-id: 20250917-backoff-table-support-99218823576d
+prerequisite-change-id: 20250917-fix-power-limits-5ce07b993681:v1
+prerequisite-patch-id: 964626eea847052cefc907ef0f01286a080fdc3c
+
+Best regards,
 -- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+Sven Eckelmann (Plasma Cloud) <se@simonwunderlich.de>
+
 
