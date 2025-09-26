@@ -4,112 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9814ECAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 09:00:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B34A8CAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 09:05:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MetohwjwvOYA1z+2un8SEpyxdESThTLxbBvqw+Nz3Ss=; b=qCP7LMclOz7GEsf3Qf0/PT2dm4
-	hROEjoGf+iI9PaJty3F4diD3PfvU2MuQXmVaLqEQLeZ+p9dWLyA0qUDKhNUdESXoAelDwjL9hX/ln
-	Pfs6CuugwE3vpsJUP5QbCCKzu1Mko4v8K5hm6ILQgIDtIUvVebgP8tICqXb/vj6KBRZCQAe+ZO4kl
-	HeaQZjaDwyoovhodWO5dSsrO64w05Mp1vua47q7/8LghkqXwazmSODLXLoT65kxCuW5ZkWAv6JWiR
-	mhdkfHjTSPKbzGTeCLNx+wm3ytWQfcXPOUzLt+tXvBlqibyuRgRCu2LeCfJb/Xi2a50KjfE6PCta+
-	Pm99MhWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fUJfv7mrUNSJLxysVEndj63sK2LC+Qrq359CtGzel5M=; b=P0WaAExbeLcdYrm/nU07y7RdPO
+	nfqA3BWYFk+NfSDwvzpiaab/piuuSJO+F6A+mR1ND5HijH1058Yywxk8bvE/5zdzivqLKh5H4vmyp
+	Frp7cuQ7YIBw44sPete7wCR+aijjq5Yyw3zghuZcwXteUi7vaB+OMbIyFoZHaSQFiFrPdahGP3bzF
+	LjnWBqNqJRLqMUKK1/FTenHq+5vRg6GQfeXIYs6nYt/3zrxZv7dgV5geNbG27Gy8IgdiyBQNa1eB1
+	XdUiiEDIUiddT20LO17Cv4iOEawTUwDClVtcO2dbaV2LHEp0Wn8WUbfsFgArS17LAKQTyd1h03YUa
+	nN7nfXKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v24Ji-0000000HMlU-45hq;
-	Fri, 26 Sep 2025 09:00:39 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1v24OE-0000000HPJs-0VHa;
+	Fri, 26 Sep 2025 09:05:18 +0000
+Received: from mailgw01.mediatek.com ([216.200.240.184])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v24Ja-0000000HMeZ-0aSl
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 09:00:32 +0000
-Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58Q8wgwc004224;
-	Fri, 26 Sep 2025 09:00:20 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:date:from:in-reply-to:message-id
-	:mime-version:references:subject:to; s=qcppdkim1; bh=MetohwjwvOY
-	A1z+2un8SEpyxdESThTLxbBvqw+Nz3Ss=; b=PIY6UrXnlbVk2vUlUFYrZ0UVC1W
-	KaFXQe8pqK4Jnx0TchDyopW1xfqlIz+RSGLlXc0GzzXc8xMByAcF1+P7/pbKRrOk
-	VY+yDopiGkiY0TrbqWEXi3ghvt4fEW+7zD8PnHlWod02MJo8GJELoOtxPKVgNtLl
-	8tLYNUbBrVlnTWdl5PxIsM185aifxX6WI5U/of7CD2tAQ4pCCV/P2h7HCGYaz+Oe
-	vssIJFYguwKRnh/h189Vp4GuJITR884gVcr/Z168KZYz7skBX1feyRyNlsc0yBL0
-	s0vBiXlJPjJOcBWJK5nxd0o4R1k1VDxdJ5lrVQ+eS/C9/brh/bpxQVLvr9g==
-Received: from apblrppmta01.qualcomm.com (blr-bdr-fw-01_GlobalNAT_AllZones-Outside.qualcomm.com [103.229.18.19])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49db0u26s7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 26 Sep 2025 09:00:20 +0000 (GMT)
-Received: from pps.filterd (APBLRPPMTA01.qualcomm.com [127.0.0.1])
-	by APBLRPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTP id 58Q90AAn008598;
-	Fri, 26 Sep 2025 09:00:10 GMT
-Received: from pps.reinject (localhost [127.0.0.1])
-	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTPS id 499nbmgtnu-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 26 Sep 2025 09:00:10 +0000
-Received: from APBLRPPMTA01.qualcomm.com (APBLRPPMTA01.qualcomm.com [127.0.0.1])
-	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 58Q90Atg008574;
-	Fri, 26 Sep 2025 09:00:10 GMT
-Received: from hu-devc-hyd-u22-c.qualcomm.com (hu-mkuntuma-hyd.qualcomm.com [10.213.97.145])
-	by APBLRPPMTA01.qualcomm.com (PPS) with ESMTPS id 58Q90AiM008570
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 26 Sep 2025 09:00:10 +0000
-Received: by hu-devc-hyd-u22-c.qualcomm.com (Postfix, from userid 4582077)
-	id 8F658587; Fri, 26 Sep 2025 14:30:09 +0530 (+0530)
-From: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>
-To: dmitry.baryshkov@oss.qualcomm.com, marijn.suijten@somainline.org,
-        swboyd@chromium.org, mripard@kernel.org, abel.vesa@linaro.org,
-        andersson@kernel.org, konradybcio@kernel.org, robh@kernel.org,
-        krzk+dt@kernel.org, conor+dt@kernel.org, robin.clark@oss.qualcomm.com,
-        jessica.zhang@oss.qualcomm.com, abhinav.kumar@linux.dev,
-        sean@poorly.run, airlied@gmail.com, simona@ffwll.ch,
-        alex.vinarskis@gmail.com
-Cc: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>,
-        linux-arm-msm@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-        freedreno@lists.freedesktop.org, dri-devel@lists.freedesktop.org,
-        quic_rajeevny@quicinc.com, quic_vproddut@quicinc.com,
-        quic_riteshk@quicnic.com, quic_amitsi@quicnic.com
-Subject: [PATCH 2/4] arm64: dts: qcom: lemans: add mdss1 displayPort device nodes
-Date: Fri, 26 Sep 2025 14:29:54 +0530
-Message-Id: <20250926085956.2346179-3-quic_mkuntuma@quicinc.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250926085956.2346179-1-quic_mkuntuma@quicinc.com>
-References: <20250926085956.2346179-1-quic_mkuntuma@quicinc.com>
+	id 1v24OB-0000000HPHY-365Z;
+	Fri, 26 Sep 2025 09:05:16 +0000
+X-UUID: e7f4811c9ab711f09f706fa2197c6ceb-20250926
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=fUJfv7mrUNSJLxysVEndj63sK2LC+Qrq359CtGzel5M=;
+	b=D9FV5DaBKfG1dNbmV8HVl+UoOxRugTGzC76qkuqFE2lrYOpMKnfCgPEV5KVyjK7LsSl5khYwk4V7j3joeBtZmlxczJjauuc7CzTENkvOpMj5/rofLm0V3pDn4K/ywz0b7IdvtBAskHt9gM5q+k29krq71MKvryYaIftK58vKL+0=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:173d684f-c4d3-4134-9a71-94038127b834,IP:0,UR
+	L:0,TC:0,Content:100,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:100
+X-CID-META: VersionHash:a9d874c,CLOUDID:6e49b6e9-2ff9-4246-902c-2e3f7acb03c4,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:3|15|5
+	0,EDM:-3,IP:nil,URL:99|1,File:130,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI
+	:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: e7f4811c9ab711f09f706fa2197c6ceb-20250926
+Received: from mtkmbs10n1.mediatek.inc [(172.21.101.34)] by mailgw01.mediatek.com
+	(envelope-from <jjian.zhou@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1397745156; Fri, 26 Sep 2025 02:05:10 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ MTKMBS14N1.mediatek.inc (172.21.101.75) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1258.39; Fri, 26 Sep 2025 17:05:06 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1748.10 via Frontend Transport; Fri, 26 Sep 2025 17:05:06 +0800
+From: Jjian Zhou <jjian.zhou@mediatek.com>
+To: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Jjian Zhou
+	<Jjian.Zhou@mediatek.com>, Chen-Yu Tsai <wenst@chromium.org>
+CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Jjian Zhou
+	<jjian.zhou@mediatek.corp-partner.google.com>
+Subject: [PATCH v6 0/2] add VCP mailbox driver
+Date: Fri, 26 Sep 2025 17:04:58 +0800
+Message-ID: <20250926090505.26267-1-jjian.zhou@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-QCInternal: smtphost
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: 7yMejbh05JZB-ATB_HOhn8l0HL69M7h-
-X-Authority-Analysis: v=2.4 cv=PYXyRyhd c=1 sm=1 tr=0 ts=68d65624 cx=c_pps
- a=Ou0eQOY4+eZoSc0qltEV5Q==:117 a=Ou0eQOY4+eZoSc0qltEV5Q==:17
- a=yJojWOMRYYMA:10 a=COk6AnOGAAAA:8 a=JTynpAiUPC9epHm8WU0A:9
- a=TjNXssC_j7lpFel5tvFf:22 a=nl4s5V0KI7Kw-pW0DWrs:22 a=pHzHmUro8NiASowvMSCR:22
- a=xoEH_sTeL_Rfw54TyV31:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTI1MDE3MSBTYWx0ZWRfX3iu3vgPfhlKq
- Onm6V1HRFx5rQDY3YQL8lxGkwNyKPoRBbmij2ilrNrGOG2Ucc+jRO7DjH+SIpmwWj8mpnDQ7boO
- XVMBYRXtyBaFyyuEXNWo/DaOVtkiUUdq6p+v6DMoA9PQQ7NvEbj+KYHBChtv6T62mSKWjBUuuSo
- YXFe5ZYPy1nuT2sfBieG3PYBG319vHrDhy+BuYXaoSNMF6dYRDjIG7/gO5HLG4W9UzSQx+po1Hv
- ke5H/yoIlK+NPPr5pDUllldP7E+64+CZNDKXJwrnwu966Z1xIrAEf07JIRmf/mUNpfQLpFo66EG
- diQDMgoSYE+4rwXfzT18vmOE5xniDIulVjWAbNN+hlWtdkQv7S3LzgCn5/wpqpgnj/24dQGcPkW
- N386yb1fqlQdReoy3ft2DDk8tADcrQ==
-X-Proofpoint-ORIG-GUID: 7yMejbh05JZB-ATB_HOhn8l0HL69M7h-
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-26_02,2025-09-26_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 priorityscore=1501 phishscore=0 adultscore=0 impostorscore=0
- lowpriorityscore=0 malwarescore=0 bulkscore=0 suspectscore=0 clxscore=1011
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2509150000 definitions=main-2509250171
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_020030_337601_211AFB59 
-X-CRM114-Status: GOOD (  11.48  )
+X-CRM114-CacheID: sfid-20250926_020515_793308_3388B028 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,285 +89,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree nodes for the mdss1 DPTX0 and DPTX1 controllers
-with their corresponding PHYs.
+From: Jjian Zhou <jjian.zhou@mediatek.corp-partner.google.com>
 
-Signed-off-by: Mani Chandana Ballary Kuntumalla <quic_mkuntuma@quicinc.com>
----
- arch/arm64/boot/dts/qcom/lemans.dtsi | 245 +++++++++++++++++++++++++++
- 1 file changed, 245 insertions(+)
+Hi everyone,
 
-diff --git a/arch/arm64/boot/dts/qcom/lemans.dtsi b/arch/arm64/boot/dts/qcom/lemans.dtsi
-index a78daa827fcd..4af9a439d68f 100644
---- a/arch/arm64/boot/dts/qcom/lemans.dtsi
-+++ b/arch/arm64/boot/dts/qcom/lemans.dtsi
-@@ -6839,6 +6839,27 @@ mdss1_mdp: display-controller@22001000 {
- 				interrupt-parent = <&mdss1>;
- 				interrupts = <0>;
- 
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+
-+						dpu1_intf0_out: endpoint {
-+							remote-endpoint = <&mdss1_dp0_in>;
-+						};
-+					};
-+
-+					port@1 {
-+						reg = <1>;
-+
-+						dpu1_intf4_out: endpoint {
-+							remote-endpoint = <&mdss1_dp1_in>;
-+						};
-+					};
-+				};
-+
- 				mdss1_mdp_opp_table: opp-table {
- 					compatible = "operating-points-v2";
- 
-@@ -6863,6 +6884,228 @@ opp-650000000 {
- 					};
- 				};
- 			};
-+
-+			mdss1_dp0_phy: phy@220c2a00 {
-+				compatible = "qcom,sa8775p-edp-phy";
-+
-+				reg = <0x0 0x220c2a00 0x0 0x200>,
-+				      <0x0 0x220c2200 0x0 0xd0>,
-+				      <0x0 0x220c2600 0x0 0xd0>,
-+				      <0x0 0x220c2000 0x0 0x1c8>;
-+
-+				clocks = <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_AUX_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_AHB_CLK>;
-+				clock-names = "aux",
-+					      "cfg_ahb";
-+
-+				#clock-cells = <1>;
-+				#phy-cells = <0>;
-+
-+				status = "disabled";
-+			};
-+
-+			mdss1_dp1_phy: phy@220c5a00 {
-+				compatible = "qcom,sa8775p-edp-phy";
-+
-+				reg = <0x0 0x220c5a00 0x0 0x200>,
-+				      <0x0 0x220c5200 0x0 0xd0>,
-+				      <0x0 0x220c5600 0x0 0xd0>,
-+				      <0x0 0x220c5000 0x0 0x1c8>;
-+
-+				clocks = <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_AUX_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_AHB_CLK>;
-+				clock-names = "aux",
-+					      "cfg_ahb";
-+
-+				#clock-cells = <1>;
-+				#phy-cells = <0>;
-+
-+				status = "disabled";
-+			};
-+
-+			mdss1_dp0: displayport-controller@22154000 {
-+				compatible = "qcom,sa8775p-dp";
-+
-+				reg = <0x0 0x22154000 0x0 0x104>,
-+				      <0x0 0x22154200 0x0 0x0c0>,
-+				      <0x0 0x22155000 0x0 0x770>,
-+				      <0x0 0x22156000 0x0 0x09c>,
-+				      <0x0 0x22157000 0x0 0x09c>,
-+				      <0x0 0x22158000 0x0 0x09c>,
-+				      <0x0 0x22159000 0x0 0x09c>,
-+				      <0x0 0x2215a000 0x0 0x23c>,
-+				      <0x0 0x2215b000 0x0 0x23c>;
-+
-+				interrupt-parent = <&mdss1>;
-+				interrupts = <12>;
-+
-+				clocks = <&dispcc1 MDSS_DISP_CC_MDSS_AHB_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_AUX_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_LINK_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_LINK_INTF_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL0_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL1_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL2_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL3_CLK>;
-+				clock-names = "core_iface",
-+					      "core_aux",
-+					      "ctrl_link",
-+					      "ctrl_link_iface",
-+					      "stream_pixel",
-+					      "stream_1_pixel",
-+					      "stream_2_pixel",
-+					      "stream_3_pixel";
-+				assigned-clocks = <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_LINK_CLK_SRC>,
-+						  <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL0_CLK_SRC>,
-+						  <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL1_CLK_SRC>,
-+						  <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL2_CLK_SRC>,
-+						  <&dispcc1 MDSS_DISP_CC_MDSS_DPTX0_PIXEL3_CLK_SRC>;
-+				assigned-clock-parents = <&mdss1_dp0_phy 0>,
-+							 <&mdss1_dp0_phy 1>,
-+							 <&mdss1_dp0_phy 1>,
-+							 <&mdss1_dp0_phy 1>,
-+							 <&mdss1_dp0_phy 1>;
-+				phys = <&mdss1_dp0_phy>;
-+				phy-names = "dp";
-+
-+				operating-points-v2 = <&mdss1_dp_opp_table>;
-+				power-domains = <&rpmhpd SA8775P_MMCX>;
-+
-+				#sound-dai-cells = <0>;
-+
-+				status = "disabled";
-+
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+
-+						mdss1_dp0_in: endpoint {
-+							remote-endpoint = <&dpu1_intf0_out>;
-+						};
-+					};
-+
-+					port@1 {
-+						reg = <1>;
-+
-+						mdss1_dp0_out: endpoint { };
-+					};
-+				};
-+
-+				mdss1_dp_opp_table: opp-table {
-+					compatible = "operating-points-v2";
-+
-+					opp-160000000 {
-+						opp-hz = /bits/ 64 <160000000>;
-+						required-opps = <&rpmhpd_opp_low_svs>;
-+					};
-+
-+					opp-270000000 {
-+						opp-hz = /bits/ 64 <270000000>;
-+						required-opps = <&rpmhpd_opp_svs>;
-+					};
-+
-+					opp-540000000 {
-+						opp-hz = /bits/ 64 <540000000>;
-+						required-opps = <&rpmhpd_opp_svs_l1>;
-+					};
-+
-+					opp-810000000 {
-+						opp-hz = /bits/ 64 <810000000>;
-+						required-opps = <&rpmhpd_opp_nom>;
-+					};
-+				};
-+			};
-+
-+			mdss1_dp1: displayport-controller@2215c000 {
-+				compatible = "qcom,sa8775p-dp";
-+
-+				reg = <0x0 0x2215c000 0x0 0x104>,
-+				      <0x0 0x2215c200 0x0 0x0c0>,
-+				      <0x0 0x2215d000 0x0 0x770>,
-+				      <0x0 0x2215e000 0x0 0x09c>,
-+				      <0x0 0x2215f000 0x0 0x09c>,
-+				      <0x0 0x22160000 0x0 0x09c>,
-+				      <0x0 0x22161000 0x0 0x09c>,
-+				      <0x0 0x22162000 0x0 0x23c>,
-+				      <0x0 0x22163000 0x0 0x23c>;
-+
-+				interrupt-parent = <&mdss1>;
-+				interrupts = <13>;
-+
-+				clocks = <&dispcc1 MDSS_DISP_CC_MDSS_AHB_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_AUX_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_LINK_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_LINK_INTF_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_PIXEL0_CLK>,
-+					 <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_PIXEL1_CLK>;
-+				clock-names = "core_iface",
-+					      "core_aux",
-+					      "ctrl_link",
-+					      "ctrl_link_iface",
-+					      "stream_pixel",
-+					      "stream_1_pixel";
-+				assigned-clocks = <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_LINK_CLK_SRC>,
-+						  <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_PIXEL0_CLK_SRC>,
-+						  <&dispcc1 MDSS_DISP_CC_MDSS_DPTX1_PIXEL1_CLK_SRC>;
-+				assigned-clock-parents = <&mdss1_dp1_phy 0>,
-+							 <&mdss1_dp1_phy 1>,
-+							 <&mdss1_dp1_phy 1>;
-+				phys = <&mdss1_dp1_phy>;
-+				phy-names = "dp";
-+
-+				operating-points-v2 = <&mdss1_dp1_opp_table>;
-+				power-domains = <&rpmhpd SA8775P_MMCX>;
-+
-+				#sound-dai-cells = <0>;
-+
-+				status = "disabled";
-+
-+				ports {
-+					#address-cells = <1>;
-+					#size-cells = <0>;
-+
-+					port@0 {
-+						reg = <0>;
-+
-+						mdss1_dp1_in: endpoint {
-+							remote-endpoint = <&dpu1_intf4_out>;
-+						};
-+					};
-+
-+					port@1 {
-+						reg = <1>;
-+
-+						mdss1_dp1_out: endpoint { };
-+					};
-+				};
-+
-+				mdss1_dp1_opp_table: opp-table {
-+					compatible = "operating-points-v2";
-+
-+					opp-160000000 {
-+						opp-hz = /bits/ 64 <160000000>;
-+						required-opps = <&rpmhpd_opp_low_svs>;
-+					};
-+
-+					opp-270000000 {
-+						opp-hz = /bits/ 64 <270000000>;
-+						required-opps = <&rpmhpd_opp_svs>;
-+					};
-+
-+					opp-540000000 {
-+						opp-hz = /bits/ 64 <540000000>;
-+						required-opps = <&rpmhpd_opp_svs_l1>;
-+					};
-+
-+					opp-810000000 {
-+						opp-hz = /bits/ 64 <810000000>;
-+						required-opps = <&rpmhpd_opp_nom>;
-+					};
-+				};
-+			};
- 		};
- 
- 		dispcc1: clock-controller@22100000 {
-@@ -6872,6 +7115,8 @@ dispcc1: clock-controller@22100000 {
- 				 <&rpmhcc RPMH_CXO_CLK>,
- 				 <&rpmhcc RPMH_CXO_CLK_A>,
- 				 <&sleep_clk>,
-+				 <&mdss1_dp0_phy 0>, <&mdss1_dp0_phy 1>,
-+				 <&mdss1_dp1_phy 0>, <&mdss1_dp1_phy 1>,
- 				 <0>, <0>, <0>, <0>,
- 				 <0>, <0>, <0>, <0>;
- 			power-domains = <&rpmhpd SA8775P_MMCX>;
--- 
-2.34.1
+This is v6 of my VCP mailbox driver.
+
+Changes since v6:
+- mtk-vcp-mailbox.c:
+  - Replace mtk_vcp_mbox_priv with mtk_vcp_mbox.
+  - Move mbox_controller to the first member.
+  - Define "struct mbox_chan chan"; Remove allocate one during the probe.
+  - Remove API get_mtk_vcp_mbox_priv.
+  - Pass the private data since there's only one mailbox.
+  - Modify mtk_vcp_mbox_xlate "return &mbox->chans[0]".
+
+Changes since v5:
+- binding:
+  - Patch 1 fix 'make dt_binding_check' errors.
+  - Link to v5
+    https://patchwork.kernel.org/project/linux-mediatek/patch/20250822021217.1598-2-jjian.zhou@mediatek.com/
+
+Changes since v4:
+- binding:
+  - Match the binding file name and compatible.
+- mtk-vcp-mailbox.c:
+  - Drop 'dev_dbg(dev, "MTK VCP mailbox initialized\n")'.
+- Since the reviewer hopes to combine the VCP IPC driver and
+  the VCP driver for a unified review, the original three patches
+  have been split into two parts: the VCP mailbox driver and
+  the binding remain together, while the VCP IPC driver is merged
+  with the VCP driver and submitted as one.
+- Link to v4
+  https://lore.kernel.org/all/20250820094545.23821-1-jjian.zhou@mediatek.com/
+
+Changes since v3:
+- binding:
+  - Remove unused lable '|' and 'vcp_mailbox0'.
+- Link to v3
+  https://lore.kernel.org/all/20250317110331.2776-1-jjian.zhou@mediatek.com/
+
+Changes since v1:
+- Link to v1
+  https://lore.kernel.org/all/20250305082047.15746-1-jjian.zhou@mediatek.com/
+
+In the v2 version, there is ongoing discussion about whether the VCP's
+IPC should use mailbox or rpmsg. To prevent the discussion records
+from being lost, the previous discussion link is attached.
+https://lore.kernel.org/all/CAGXv+5FXqZb_v2dQNgCKbFpJrLhbVk3f0sWrrMCVk3jaWwoBqA@mail.gmail.com/
+
+Jjian Zhou (2):
+  dt-bindings: mailbox: mediatek,mt8196-vcp-mbox: add mtk vcp-mbox
+    document
+  mailbox: mediatek: Add mtk-vcp-mailbox driver
+
+ .../mailbox/mediatek,mt8196-vcp-mbox.yaml     |  49 +++++
+ drivers/mailbox/Kconfig                       |   9 +
+ drivers/mailbox/Makefile                      |   2 +
+ drivers/mailbox/mtk-vcp-mailbox.c             | 168 ++++++++++++++++++
+ include/linux/mailbox/mtk-vcp-mailbox.h       |  32 ++++
+ 5 files changed, 260 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/mailbox/mediatek,mt8196-vcp-mbox.yaml
+ create mode 100644 drivers/mailbox/mtk-vcp-mailbox.c
+ create mode 100644 include/linux/mailbox/mtk-vcp-mailbox.h
+
+--
+2.45.2
 
 
