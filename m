@@ -4,68 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55403CAC5B9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 09:33:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D794CAC5B9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 09:37:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
 	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
 	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7/L7YYDOWwlU+D3FfZyTbXiGx2QzxPsXvcQaHU+1ji0=; b=VSKi/eSLpMcuj5Fl6cMOi9nprd
-	XjAHaSy4i99ubqWZwy6Fk3gXe6ucTnJc0yAcMgMofBRArvHlaiETkyOPt6Vo/gSML+dek0W+Zs70c
-	qLMWY+rHQEjBA2UPtFmk5A4SgsEu7itDfDJc/A8wdOtW9cTg6UrZLPJdLXb8Fvw34zLQvL+wDtoSx
-	opAzHusoZIb1Qtw8r7enKpmd0ej20jNGWJ9bC0ywRmF6JoXQiCT2H+csbPbDP42xVGtoD1T7SR63y
-	mxiCv5uhSftmNFHFBw0xoGBFART+hJeZkAVMSP7cZ5BlnJrVBPMy6SLuBMtPAvTtPCO87xW+v5t3i
-	uXdKrLVA==;
+	bh=UoStl/6O0pPwy/s/NQABzja2ZbIsUSjfUYP6v+Jyo+o=; b=I48iKgJxkOctzH0XYrPn4HoYAC
+	51jt6fJZmtkICnbZfsRZbOYocjvVLyCtBr/UVCBd4i5TM0TY1OYdB5ksZQ2AiTRJIO51husBU6+LY
+	YcX2b3dTpy1Zvki3HMDLW6L1N5mnFEzmkrkb3NexDI0wHujuqI5bi2muzVqpIp1LijAc4KL8CmWJs
+	/AM+45YsF2QxQPpwOjxB9ryqkefazOWhzEZhaYuiTluEITW0eL+Ffbhp/UOGXcnYpPImx1jOxoiey
+	LRAQily0oLnheqko56Re/FCqzb9W3mbJ5oCCUBXwImn96qlkzNQIoUSh0i48hfGx8SirWzV/rn8zc
+	m2bnfxHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v24ps-000000000Ds-2kmR;
-	Fri, 26 Sep 2025 09:33:52 +0000
-Received: from mail.simonwunderlich.de ([23.88.38.48])
+	id 1v24tf-000000002Yj-2IQJ;
+	Fri, 26 Sep 2025 09:37:47 +0000
+Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v24pp-000000000CH-2jYP;
-	Fri, 26 Sep 2025 09:33:51 +0000
-Received: from sven-desktop.home.narfation.org (p200300C597166bE00000000000000C00.dip0.t-ipconnect.de [IPv6:2003:c5:9716:6be0::c00])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail.simonwunderlich.de (Postfix) with ESMTPSA id 55A2DFA12C;
-	Fri, 26 Sep 2025 11:33:45 +0200 (CEST)
-From: "Sven Eckelmann (Plasma Cloud)" <se@simonwunderlich.de>
-Date: Fri, 26 Sep 2025 11:32:54 +0200
-Subject: [PATCH v2] wifi: mt76: Fix DTS power-limits on little endian
- systems
+	id 1v24tc-000000002WZ-3E2W
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 26 Sep 2025 09:37:45 +0000
+Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-3304a57d842so1543044a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 02:37:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1758879463; x=1759484263; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=UoStl/6O0pPwy/s/NQABzja2ZbIsUSjfUYP6v+Jyo+o=;
+        b=V6bDAnTJfeVHoXVn8IvJpJ8PpNuwqHPZfhcRgPYgnxooVq4ZqA7ysSBvZeZxfGInWN
+         P/JsmxU+uJz4TXUVgCb3UJTAQSqnlAMYzqIPtAYNUJy2tkzu6kknmdvmov0sDDtjqK55
+         URqRvirPvRqBh8F+SF3Oh40JTdsbz5hWQoesZ1GLYObFvvQ8PqBjr7Z0ozBkTuHFKzUX
+         PHgCdgytyxMMfSCKFl1wphqPf/V2DFE/J+W1dA1oy0yPIlsTZt+jiJwFqgZ3cv33kNm2
+         D+hpjagEuNFgdgL6D0e+FpfnsyCGEm6eIP4wk2a4Y65NmSLK95bsR/zR9oVMiIahXR3r
+         sqrA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758879463; x=1759484263;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=UoStl/6O0pPwy/s/NQABzja2ZbIsUSjfUYP6v+Jyo+o=;
+        b=DPY8VJel2kK1aw7apOaBSKVUgoY1jSfPMVyacRdHjfLqJVLoksKfpFm3BgwblxtxX1
+         CvSXZ/Tzh59mRsbY3tLTBfFHMA5pxE96a8fTIPvMZe1TB1Pu+7SaAyoXy7GdTrpy1Paw
+         A/ZB4M9wjCPhw5JNaFkJhtipZfemkLcfBUI2NgQX53Sc/uzJrAtsiIM2TzrBXzJHyB0S
+         1CxVdz9nKBlpIQ9tV9fIBkwcY12v5lRz2/V7GduaSQ7Qyf8AaQFRpjDlk42uWT8yAq8G
+         RHIbaDBw+JddtPdAchTswTFS1DciCAi7jeHajBtzvNu2bdzQhFNvLY4BkJ3gVYYZbX35
+         icrQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVOr+uZVOJwnuwLLc8sPS2K/xAFb+rxMP+ss/3j5vFV3ad0N4pLCFZbihxIyom0G8UtdFPcqwb0qCeyQ9Z6rhBl@lists.infradead.org
+X-Gm-Message-State: AOJu0YxyAQ1NXTHDGj4QQl5D9fQAa7JGl4YWnsYLh8DVDv0UFf52lFeQ
+	mH6expFksXbeatw97UdWEkQHBqZ4bZab5E/1TmooZCuMfg4JgoNRFwCA
+X-Gm-Gg: ASbGncvqA42C2gwGjZIIaYiFPv0rMCNUSnm67zZnuV6ojbNyKuuhpZz9pyiA2I2/TvD
+	vstC7r6kghZWnN7lQ95fsln+mALaI8/a7YClUT5bhw2GbY97HkZfrm7cewT2CvPnZ0L8zz6rdjD
+	zPcnfCtbQbi8wDvKy6Bb97+5uZZB2ykoSIFN8/YiCIygowntF+OQ2ZQ7+ngMsn+SmA52LXk7WYQ
+	xhHxOVtUrMM5fPMVIX9Al2fg0UpOhGEv18CysXIKSBSZEdUc2CBLRanfoQmVffJlVKnxSmgaUuS
+	TnP+Bf2Ow4L+VDppQM+8GBtr1UanRXYu/LAax3TUwAIGvc1fdLEdJR3i9v4KHQ0DWsNgVfu38cF
+	8iXcgyWlVZWHlPerpVV22S83e0RCX9tntsqDvFIPb4x1Udg3BkPjJyV/8o3c=
+X-Google-Smtp-Source: AGHT+IH2wN/vTNpoB41B7wJ4UIGDQlG1DOtuFCeTQt8xZvPtyijptE31fGlsQRHND0LCJie+ahas4g==
+X-Received: by 2002:a17:90b:33c4:b0:330:8c87:8668 with SMTP id 98e67ed59e1d1-3342a259df0mr7079061a91.14.1758879463298;
+        Fri, 26 Sep 2025 02:37:43 -0700 (PDT)
+Received: from [172.17.0.3] (125-227-29-20.hinet-ip.hinet.net. [125.227.29.20])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b57c55bd160sm4211056a12.47.2025.09.26.02.37.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 26 Sep 2025 02:37:42 -0700 (PDT)
+From: Leo Wang <leo.jt.wang@gmail.com>
+Date: Fri, 26 Sep 2025 17:37:29 +0800
+Subject: [PATCH] ARM: dts: aspeed: clemente: Add HDD LED GPIO
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250926-fix-power-limits-v2-1-c2bc7881eb6d@simonwunderlich.de>
-X-B4-Tracking: v=1; b=H4sIAMVd1mgC/32NQQ6CMBBFr0Jm7RimBmhdcQ/DAukok0BLWgQN4
- e5WDuDy/fz//gaRg3CEa7ZB4EWieJdAnTLo+tY9GcUmBpWrIjdU4UPeOPmVAw4yyhyx6Div7sZ
- cSk2QZlPg1DmUtyZxL3H24XM8LPRL/8gWQsKSStaFaY3WVEcZvVtfznIYpOvPlqHZ9/0LdN4Qb
- rkAAAA=
-X-Change-ID: 20250917-fix-power-limits-5ce07b993681
-To: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, 
- Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>, 
- Sean Wang <sean.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
- stable@vger.kernel.org, 
- "Sven Eckelmann (Plasma Cloud)" <se@simonwunderlich.de>
+Message-Id: <20250926-leo-dts-add-shunt-resistor-v1-1-c871a68792f0@gmail.com>
+X-B4-Tracking: v=1; b=H4sIANhe1mgC/x3MSwqDMBAA0KvIrDsQ06rYqxQX+Yw6IEmZiSKId
+ 2/o8m3eBUrCpPBuLhA6WDmnivbRQFhdWgg5VoM1tjOj7XGjjLEouhhR1z0VFFLWkgVN8O71nIf
+ OB4IafIVmPv/5Z7rvHwEMnJFsAAAA
+X-Change-ID: 20250926-leo-dts-add-shunt-resistor-0cba43f75bce
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ george.kw.lee@fii-foxconn.com, bruce.jy.hung@fii-foxconn.com, 
+ leo.jt.wang@fii-foxconn.com, Leo Wang <leo.jt.wang@gmail.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=5112; i=se@simonwunderlich.de;
- h=from:subject:message-id; bh=L6Pca3P0pknz3JY6jYwTU3eI8BhWMQZtzDoR7Jozi6U=;
- b=owGbwMvMwCXmy1+ufVnk62nG02pJDBnXYs8v0WH4HM6U2KKWalXE1JSRoN+al+KhKBr1zzSVP
- 6+s/npHKQuDGBeDrJgiy54r+ec3s7+V/zzt41GYOaxMIEMYuDgFYCLb/BgZ5r1htPhyfXn4zQ3T
- UlmvB97L2bfgwLRnnsc2FmhIhMyW42D4K3jrmdfck+x90llr4/tmbCuavCdtFuvphbNf/PjwdFG
- YDSMA
-X-Developer-Key: i=se@simonwunderlich.de; a=openpgp;
- fpr=522D7163831C73A635D12FE5EC371482956781AF
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758879460; l=1436;
+ i=leo.jt.wang@gmail.com; s=20250618; h=from:subject:message-id;
+ bh=thNDQviaGyibFyGAqfP3goBA/6Fj0do4LHltc3WJriE=;
+ b=T71P6S/+uzqAe2pm19qHzYoz2nhygnZpGVvbKLhyWQcQWVsDSelLeccTY+VnuA6uzE1BPL8L4
+ Lvp20VxcTRFDYgHucePFNrm13q3hBU7efTHRYQ5iBAKOa87ktB1nm+E
+X-Developer-Key: i=leo.jt.wang@gmail.com; a=ed25519;
+ pk=x+DKjAtU/ZbbMkkAVdwfZzKpvNUVgiV1sLJbidVIwSQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_023350_016924_6E5ACE8C 
-X-CRM114-Status: GOOD (  14.08  )
+X-CRM114-CacheID: sfid-20250926_023744_813292_B05BB773 
+X-CRM114-Status: GOOD (  11.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,142 +111,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The power-limits for ru and mcs and stored in the devicetree as bytewise
-array (often with sizes which are not a multiple of 4). These arrays have a
-prefix which defines for how many modes a line is applied. This prefix is
-also only a byte - but the code still tried to fix the endianness of this
-byte with a be32 operation. As result, loading was mostly failing or was
-sending completely unexpected values to the firmware.
+Define a GPIO expander pin for the HDD LED and expose it via the
+LED subsystem. This allows the BMC to control the front panel
+HDD activity LED.
 
-Since the other rates are also stored in the devicetree as bytewise arrays,
-just drop the u32 access + be32_to_cpu conversion and directly access them
-as bytes arrays.
+Changes include:
+ - Add `led-hdd` node under the LED definitions
+ - Name the expander pin "HDD_LED_N" in io_expander13
 
-Cc: stable@vger.kernel.org
-Fixes: 22b980badc0f ("mt76: add functions for parsing rate power limits from DT")
-Fixes: a9627d992b5e ("mt76: extend DT rate power limits to support 11ax devices")
-Signed-off-by: Sven Eckelmann (Plasma Cloud) <se@simonwunderlich.de>
+Signed-off-by: Leo Wang <leo.jt.wang@gmail.com>
 ---
-Changes in v2:
-- Fix second Fixes line, thanks Zhi-Jun You
-- Link to v1: https://lore.kernel.org/r/20250917-fix-power-limits-v1-1-616e859a9881@simonwunderlich.de
----
- drivers/net/wireless/mediatek/mt76/eeprom.c | 37 +++++++++++++++++++----------
- 1 file changed, 24 insertions(+), 13 deletions(-)
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/wireless/mediatek/mt76/eeprom.c b/drivers/net/wireless/mediatek/mt76/eeprom.c
-index a987c5e4eff6c6b0a014b4b069dc1259ffa82d31..6ce8e4af18fe53c10a0cb7290bf65962ce9cdde4 100644
---- a/drivers/net/wireless/mediatek/mt76/eeprom.c
-+++ b/drivers/net/wireless/mediatek/mt76/eeprom.c
-@@ -253,6 +253,19 @@ mt76_get_of_array(struct device_node *np, char *name, size_t *len, int min)
- 	return prop->value;
- }
- 
-+static const s8 *
-+mt76_get_of_array_s8(struct device_node *np, char *name, size_t *len, int min)
-+{
-+	struct property *prop = of_find_property(np, name, NULL);
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
+index a614f947dafc9a6628c3f3d45b62ff3ca9d2b618..450446913e36b1418fab901cde44280468990c7a 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
+@@ -95,6 +95,11 @@ led-3 {
+ 			label = "bmc_ready_cpld_noled";
+ 			gpios = <&gpio0 ASPEED_GPIO(P, 5) (GPIO_ACTIVE_HIGH|GPIO_TRANSITORY)>;
+ 		};
 +
-+	if (!prop || !prop->value || prop->length < min)
-+		return NULL;
-+
-+	*len = prop->length;
-+
-+	return prop->value;
-+}
-+
- struct device_node *
- mt76_find_channel_node(struct device_node *np, struct ieee80211_channel *chan)
- {
-@@ -294,7 +307,7 @@ mt76_get_txs_delta(struct device_node *np, u8 nss)
- }
++		led-hdd {
++			label = "hdd_led";
++			gpios = <&io_expander13 1 GPIO_ACTIVE_LOW>;
++		};
+ 	};
  
- static void
--mt76_apply_array_limit(s8 *pwr, size_t pwr_len, const __be32 *data,
-+mt76_apply_array_limit(s8 *pwr, size_t pwr_len, const s8 *data,
- 		       s8 target_power, s8 nss_delta, s8 *max_power)
- {
- 	int i;
-@@ -303,15 +316,14 @@ mt76_apply_array_limit(s8 *pwr, size_t pwr_len, const __be32 *data,
- 		return;
- 
- 	for (i = 0; i < pwr_len; i++) {
--		pwr[i] = min_t(s8, target_power,
--			       be32_to_cpu(data[i]) + nss_delta);
-+		pwr[i] = min_t(s8, target_power, data[i] + nss_delta);
- 		*max_power = max(*max_power, pwr[i]);
- 	}
- }
- 
- static void
- mt76_apply_multi_array_limit(s8 *pwr, size_t pwr_len, s8 pwr_num,
--			     const __be32 *data, size_t len, s8 target_power,
-+			     const s8 *data, size_t len, s8 target_power,
- 			     s8 nss_delta, s8 *max_power)
- {
- 	int i, cur;
-@@ -319,8 +331,7 @@ mt76_apply_multi_array_limit(s8 *pwr, size_t pwr_len, s8 pwr_num,
- 	if (!data)
- 		return;
- 
--	len /= 4;
--	cur = be32_to_cpu(data[0]);
-+	cur = data[0];
- 	for (i = 0; i < pwr_num; i++) {
- 		if (len < pwr_len + 1)
- 			break;
-@@ -335,7 +346,7 @@ mt76_apply_multi_array_limit(s8 *pwr, size_t pwr_len, s8 pwr_num,
- 		if (!len)
- 			break;
- 
--		cur = be32_to_cpu(data[0]);
-+		cur = data[0];
- 	}
- }
- 
-@@ -346,7 +357,7 @@ s8 mt76_get_rate_power_limits(struct mt76_phy *phy,
- {
- 	struct mt76_dev *dev = phy->dev;
- 	struct device_node *np;
--	const __be32 *val;
-+	const s8 *val;
- 	char name[16];
- 	u32 mcs_rates = dev->drv->mcs_rates;
- 	u32 ru_rates = ARRAY_SIZE(dest->ru[0]);
-@@ -392,21 +403,21 @@ s8 mt76_get_rate_power_limits(struct mt76_phy *phy,
- 
- 	txs_delta = mt76_get_txs_delta(np, hweight16(phy->chainmask));
- 
--	val = mt76_get_of_array(np, "rates-cck", &len, ARRAY_SIZE(dest->cck));
-+	val = mt76_get_of_array_s8(np, "rates-cck", &len, ARRAY_SIZE(dest->cck));
- 	mt76_apply_array_limit(dest->cck, ARRAY_SIZE(dest->cck), val,
- 			       target_power, txs_delta, &max_power);
- 
--	val = mt76_get_of_array(np, "rates-ofdm",
--				&len, ARRAY_SIZE(dest->ofdm));
-+	val = mt76_get_of_array_s8(np, "rates-ofdm",
-+				   &len, ARRAY_SIZE(dest->ofdm));
- 	mt76_apply_array_limit(dest->ofdm, ARRAY_SIZE(dest->ofdm), val,
- 			       target_power, txs_delta, &max_power);
- 
--	val = mt76_get_of_array(np, "rates-mcs", &len, mcs_rates + 1);
-+	val = mt76_get_of_array_s8(np, "rates-mcs", &len, mcs_rates + 1);
- 	mt76_apply_multi_array_limit(dest->mcs[0], ARRAY_SIZE(dest->mcs[0]),
- 				     ARRAY_SIZE(dest->mcs), val, len,
- 				     target_power, txs_delta, &max_power);
- 
--	val = mt76_get_of_array(np, "rates-ru", &len, ru_rates + 1);
-+	val = mt76_get_of_array_s8(np, "rates-ru", &len, ru_rates + 1);
- 	mt76_apply_multi_array_limit(dest->ru[0], ARRAY_SIZE(dest->ru[0]),
- 				     ARRAY_SIZE(dest->ru), val, len,
- 				     target_power, txs_delta, &max_power);
+ 	memory@80000000 {
+@@ -1199,7 +1204,7 @@ io_expander13: gpio@14 {
+ 		#gpio-cells = <2>;
+ 		gpio-line-names =
+ 			"rmc_en_dc_pwr_on",
+-			"",
++			"HDD_LED_N",
+ 			"",
+ 			"",
+ 			"",
 
 ---
-base-commit: b36d55610215a976267197ddc914902c494705d7
-change-id: 20250917-fix-power-limits-5ce07b993681
+base-commit: c65261717599d419e9c683d85f515d3ca2261549
+change-id: 20250926-leo-dts-add-shunt-resistor-0cba43f75bce
 
 Best regards,
 -- 
-Sven Eckelmann (Plasma Cloud) <se@simonwunderlich.de>
+Leo Wang <leo.jt.wang@gmail.com>
 
 
