@@ -4,70 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 491B6CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 17:52:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6545CAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 17:53:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4gZZXL3eBMAAkVUcN/HVmnQNY3B0f6L7/Q5vgnoV7kY=; b=TDTZwACPpPGWqRKRPEcAVOcvB2
-	tjuSk/tb4JX9swXo5O702RE5Mv9I2DFaEb2qcmodgrL6ivxV7/Gtdkotl5aFV0BkscfEt+LLq3AmM
-	xj3mI673XPFUd7Z3xB+xTzUaDUMp+K8dOdOmzZRAQBoRZ8nmnujBB1w5Rj6BcwFTk742nD3eeW9wk
-	S9QxRS1WFBphc13IwouO09xxw0SKZ5nMjkVGlBRb/SOlFd8TTUvPBcHSEYrCOfk55suUGwBsrdruz
-	dPdc2k4hzfrre0BekSvF4yliMwSwvYxSosZ7Gp0wJjbS3gGkD2azmy1Ln/oARmOtlI5aOLMu/qLfC
-	zG657ViQ==;
+	bh=PFy5Kagavb7weVQ8JkDJqX8Ea2jchIkzHw+JAA52LGw=; b=R1r6ZNjF1al8LlLD1RgK3Zl2Zm
+	x3pPr4QFFCWMQMhWTPpac+Hp58rU+fDCpEEZKuIEVrbDexs945ElgYRljBhZ2dKVdraVJyH+DRr2Y
+	1FQmV3Z/YR54mI0FjUuR0Gj2QcH4fnmKUq/74Pu3umyeAmtd0VdYFbVDcI3Gh3WsYiFzPAjwkF20j
+	H14hY0iSwH3aBgF1+fAvPwQMYGKY6zPkAYAVYvP4XqspkXGw+evbJ5KP4N+ejLsgGaiI9gjKA6SLt
+	4ynuCEDji2CVR2abBKFBM25OmNC3XTZiORw17NCU+IlayOHO4qSTsQn+0/qfD55+F94dZlt/6xT7z
+	L5hMrZWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2Ccc-00000003Me5-1ojW;
-	Fri, 26 Sep 2025 17:52:42 +0000
+	id 1v2Ccv-00000003Mmy-41xz;
+	Fri, 26 Sep 2025 17:53:01 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2CcY-00000003McW-3NuT
+	id 1v2Cct-00000003Mm8-2Xvw
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 17:52:41 +0000
+	Fri, 26 Sep 2025 17:53:00 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 21127168F;
-	Fri, 26 Sep 2025 10:52:26 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 63E891691;
+	Fri, 26 Sep 2025 10:52:50 -0700 (PDT)
 Received: from [10.1.197.69] (eglon.cambridge.arm.com [10.1.197.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 223233F5A1;
-	Fri, 26 Sep 2025 10:52:28 -0700 (PDT)
-Message-ID: <9ad4ae7a-2151-4d60-8303-87f38d7695d8@arm.com>
-Date: Fri, 26 Sep 2025 18:52:27 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 998DF3F5A1;
+	Fri, 26 Sep 2025 10:52:51 -0700 (PDT)
+Message-ID: <88f45c7f-9769-478b-9abd-749ec8f8d43b@arm.com>
+Date: Fri, 26 Sep 2025 18:52:49 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 08/29] arm_mpam: Add the class and component structures
  for firmware described ris
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-acpi@vger.kernel.org,
- D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- fenghuay@nvidia.com, baisheng.gao@unisoc.com, Rob Herring <robh@kernel.org>,
- Rohit Mathew <rohit.mathew@arm.com>, Rafael Wysocki <rafael@kernel.org>,
- Len Brown <lenb@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+To: Markus Elfring <Markus.Elfring@web.de>, linux-acpi@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org
+Cc: LKML <linux-kernel@vger.kernel.org>,
+ Amit Singh Tomar <amitsinght@marvell.com>,
+ Baisheng Gao <baisheng.gao@unisoc.com>,
+ Baolin Wang <baolin.wang@linux.alibaba.com>, Ben Horgan
+ <ben.horgan@arm.com>, Carl Worth <carl@os.amperecomputing.com>,
+ Catalin Marinas <catalin.marinas@arm.com>,
+ D Scott Phillips <scott@os.amperecomputing.com>,
+ Danilo Krummrich <dakr@kernel.org>, Dave Martin <Dave.Martin@arm.com>,
+ David Hildenbrand <david@redhat.com>, Drew Fustini <dfustini@baylibre.com>,
+ Fenghua Yu <fenghuay@nvidia.com>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>, Ben Horgan <ben.horgan@arm.com>
-References: <20250910204309.20751-1-james.morse@arm.com>
- <20250910204309.20751-9-james.morse@arm.com>
- <20250911152244.000047db@huawei.com>
+ Hanjun Guo <guohanjun@huawei.com>, Jamie Iles <quic_jiles@quicinc.com>,
+ Jonathan Cameron <Jonathan.Cameron@huawei.com>, Koba Ko <kobak@nvidia.com>,
+ Len Brown <lenb@kernel.org>, Linu Cherian <lcherian@marvell.com>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Peter Newman <peternewman@google.com>, "Rafael J. Wysocki"
+ <rafael@kernel.org>, Rob Herring <robh@kernel.org>,
+ Rohit Mathew <rohit.mathew@arm.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>,
+ Sudeep Holla <sudeep.holla@arm.com>, Shaopeng Tan
+ <tan.shaopeng@fujitsu.com>, Wang ShaoBo <bobo.shaobowang@huawei.com>,
+ Will Deacon <will@kernel.org>, Xin Hao <xhao@linux.alibaba.com>
+References: <20250910204309.20751-9-james.morse@arm.com>
+ <5a80cb91-6095-4f44-b576-53badc4575f5@web.de>
 Content-Language: en-GB
 From: James Morse <james.morse@arm.com>
-In-Reply-To: <20250911152244.000047db@huawei.com>
+In-Reply-To: <5a80cb91-6095-4f44-b576-53badc4575f5@web.de>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_105238_932030_04D653D0 
-X-CRM114-Status: GOOD (  43.10  )
+X-CRM114-CacheID: sfid-20250926_105259_690074_24D605F8 
+X-CRM114-Status: UNSURE (   8.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,260 +88,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
+Hi Markus,
 
-On 11/09/2025 15:22, Jonathan Cameron wrote:
-> On Wed, 10 Sep 2025 20:42:48 +0000
-> James Morse <james.morse@arm.com> wrote:
-> 
->> An MSC is a container of resources, each identified by their RIS index.
->> Some RIS are described by firmware to provide their position in the system.
->> Others are discovered when the driver probes the hardware.
->>
->> To configure a resource it needs to be found by its class, e.g. 'L2'.
->> There are two kinds of grouping, a class is a set of components, which
->> are visible to user-space as there are likely to be multiple instances
->> of the L2 cache. (e.g. one per cluster or package)
->>
->> Add support for creating and destroying structures to allow a hierarchy
->> of resources to be created.
-
-> Various minor things inline.
-> 
-> Biggest is I think maybe just moving to explicit reference counts
-> rather than using the empty list for that might end up easier to
-> read. Mostly because everyone knows what a kref_put() is about.
-> 
-> Obviously a bit pointless in practice, but I prefer not to think too
-> hard.
-
-I've spent a while playing with this - its the wrong shape for what is going on here.
-
-This builds that tree structure during driver probing. (and adds 'unknown' entries to it
-when poking the hardware). But by the time mpam_enable() is called - its basically
-read-only. After that point the only 'write' that will happen is the error interrupt which
-just free's everything. The deferred free from SRCU makes that safe.
-(some of this will be clearer when I add the block comment about the 'phases' the driver
- goes through that Dave asked for)
-
-Making it 'reference counted' instead is pointless because callers would be get/put-ing
-references - but the structure is basically read-only, and not going to go away while the
-SRCU reference is held.
-One of the things reference counting breaks is the devm_kzalloc() usage - as an error from
-the driver probe function will free all of those regions, regardless of what the reference
-count says.
-
-I'll look to rename the existing 'get' functions so folk don't immediatly think of get/put!
-
-('find' doesn't really cut it as it does the allocation if it doesn't 'find' anything)
-
-
->> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->> index efc4738e3b4d..c7f4981b3545 100644
->> --- a/drivers/resctrl/mpam_devices.c
+On 11/09/2025 17:30, Markus Elfring wrote:
+> …
 >> +++ b/drivers/resctrl/mpam_devices.c
->> @@ -18,7 +18,6 @@
->>  #include <linux/printk.h>
->>  #include <linux/slab.h>
->>  #include <linux/spinlock.h>
->> -#include <linux/srcu.h>
-> 
-> Why does this include no longer make sense?
-
-It gets moved to mpam_internal.h because of the srcu_struct declaration that is needed for
-callers in the resctrl code to walk the classes list.
-
-I can add it to the mpam_internal.h header from the beginning.
-
-
->> @@ -31,7 +30,7 @@
->>  static DEFINE_MUTEX(mpam_list_lock);
->>  static LIST_HEAD(mpam_all_msc);
->>  
->> -static struct srcu_struct mpam_srcu;
->> +struct srcu_struct mpam_srcu;
-> 
-> ...
-> 
->> +/* List of all objects that can be free()d after synchronise_srcu() */
->> +static LLIST_HEAD(mpam_garbage);
->> +
->> +#define init_garbage(x)	init_llist_node(&(x)->garbage.llist)
-> 
-> Whilst this obviously works, I'd rather pass garbage to init_garbage
-> instead of the containing structure (where type varies)
-
-Sure,
-
-
->> +static struct mpam_component *
->> +mpam_component_get(struct mpam_class *class, int id)
->> +{
->> +	struct mpam_component *comp;
->> +
->> +	lockdep_assert_held(&mpam_list_lock);
->> +
->> +	list_for_each_entry(comp, &class->components, class_list) {
->> +		if (comp->comp_id == id)
->> +			return comp;
->> +	}
->> +
->> +	return mpam_component_alloc(class, id);
->> +}
-> 
->> +static struct mpam_class *
->> +mpam_class_get(u8 level_idx, enum mpam_class_types type)
->> +{
->> +	bool found = false;
->> +	struct mpam_class *class;
->> +
->> +	lockdep_assert_held(&mpam_list_lock);
->> +
->> +	list_for_each_entry(class, &mpam_classes, classes_list) {
->> +		if (class->type == type && class->level == level_idx) {
->> +			found = true;
->> +			break;
->> +		}
->> +	}
->> +
->> +	if (found)
->> +		return class;
-> 
-> Maybe this gets more complex later, but if it doesn't, just return class where you set
-> found above.  Matches with pattern used in mpam_component_get() above.
-
-Yup, this is a relic of more complex locking.
-
-
->> +
->> +	return mpam_class_alloc(level_idx, type);
->> +}
-> 
-> 
->> +static void mpam_ris_destroy(struct mpam_msc_ris *ris)
->> +{
->> +	struct mpam_vmsc *vmsc = ris->vmsc;
->> +	struct mpam_msc *msc = vmsc->msc;
->> +	struct platform_device *pdev = msc->pdev;
->> +	struct mpam_component *comp = vmsc->comp;
->> +	struct mpam_class *class = comp->class;
->> +
->> +	lockdep_assert_held(&mpam_list_lock);
->> +
->> +	/*
->> +	 * It is assumed affinities don't overlap. If they do the class becomes
->> +	 * unusable immediately.
->> +	 */
->> +	cpumask_andnot(&comp->affinity, &comp->affinity, &ris->affinity);
->> +	cpumask_andnot(&class->affinity, &class->affinity, &ris->affinity);
->> +	clear_bit(ris->ris_idx, &msc->ris_idxs);
->> +	list_del_rcu(&ris->vmsc_list);
->> +	list_del_rcu(&ris->msc_list);
->> +	add_to_garbage(ris);
->> +	ris->garbage.pdev = pdev;
->> +
->> +	if (list_empty(&vmsc->ris))
-
-> See below. I think it is worth using an explicit reference count even
-> though that will only reach zero when the list is empty.
-
-By the time eveything is probed, its an almost entirely read-only structure. The only
-writer will free absolutely everything. Changing this to structure-by-structure reference
-counting will cause busy-work for readers, who are already protected by SRCU.
-
-
->> +		mpam_vmsc_destroy(vmsc);
->> +}
-> 
-> 
->> +static int mpam_ris_create_locked(struct mpam_msc *msc, u8 ris_idx,
->> +				  enum mpam_class_types type, u8 class_id,
->> +				  int component_id)
+> …
+>>> +int mpam_ris_create(struct mpam_msc *msc, u8 ris_idx,
+>> +		    enum mpam_class_types type, u8 class_id, int component_id)
 >> +{
 >> +	int err;
->> +	struct mpam_vmsc *vmsc;
->> +	struct mpam_msc_ris *ris;
->> +	struct mpam_class *class;
->> +	struct mpam_component *comp;
 >> +
->> +	lockdep_assert_held(&mpam_list_lock);
->> +
->> +	if (ris_idx > MPAM_MSC_MAX_NUM_RIS)
->> +		return -EINVAL;
->> +
->> +	if (test_and_set_bit(ris_idx, &msc->ris_idxs))
->> +		return -EBUSY;
->> +
->> +	ris = devm_kzalloc(&msc->pdev->dev, sizeof(*ris), GFP_KERNEL);
->> +	if (!ris)
->> +		return -ENOMEM;
->> +	init_garbage(ris);
->> +
->> +	class = mpam_class_get(class_id, type);
->> +	if (IS_ERR(class))
->> +		return PTR_ERR(class);
->> +
->> +	comp = mpam_component_get(class, component_id);
->> +	if (IS_ERR(comp)) {
->> +		if (list_empty(&class->components))
->> +			mpam_class_destroy(class);
+>> +	mutex_lock(&mpam_list_lock);
+>> +	err = mpam_ris_create_locked(msc, ris_idx, type, class_id,
+>> +				     component_id);
+>> +	mutex_unlock(&mpam_list_lock);
+> …
 > 
-> Maybe just reference count the classes with a kref and do a put here?
-> 
->> +		return PTR_ERR(comp);
->> +	}
->> +
->> +	vmsc = mpam_vmsc_get(comp, msc);
->> +	if (IS_ERR(vmsc)) {
->> +		if (list_empty(&comp->vmsc))
->> +			mpam_comp_destroy(comp);
+> Under which circumstances would you become interested to apply a statement
+> like “guard(mutex)(&mpam_list_lock);”?
+> https://elixir.bootlin.com/linux/v6.17-rc5/source/include/linux/mutex.h#L228
 
-> Similar to classes I wonder if simple reference counting is cleaner.
+None! The bit of this you cut out is a call to mpam_free_garbage() which calls
+synchronize_srcu(). That may sleep for a while. The whole point of the deferred free-ing
+is it does not happen under the lock. The 'guard' magic means the compiler gets to choose
+when to call unlock.
 
-(I spent a few days on it - its prettier, but more work for things like the resctrl code
- to get/put references when SRCU already has the write side covered)
-
-
->> +		return PTR_ERR(vmsc);
->> +	}
->> +
->> +	err = mpam_ris_get_affinity(msc, &ris->affinity, type, class, comp);
->> +	if (err) {
->> +		if (list_empty(&vmsc->ris))
-> 
-> and here as well.
-> 
->> +			mpam_vmsc_destroy(vmsc);
->> +		return err;
->> +	}
->> +
->> +	ris->ris_idx = ris_idx;
->> +	INIT_LIST_HEAD_RCU(&ris->vmsc_list);
->> +	ris->vmsc = vmsc;
->> +
->> +	cpumask_or(&comp->affinity, &comp->affinity, &ris->affinity);
->> +	cpumask_or(&class->affinity, &class->affinity, &ris->affinity);
->> +	list_add_rcu(&ris->vmsc_list, &vmsc->ris);
->> +
->> +	return 0;
->> +}
-> 
->>  /*
->>   * An MSC can control traffic from a set of CPUs, but may only be accessible
->>   * from a (hopefully wider) set of CPUs. The common reason for this is power
->> @@ -74,10 +469,10 @@ static void mpam_msc_drv_remove(struct platform_device *pdev)
->>  		return;
->>  
->>  	mutex_lock(&mpam_list_lock);
->> -	platform_set_drvdata(pdev, NULL);
->> -	list_del_rcu(&msc->all_msc_list);
->> -	synchronize_srcu(&mpam_srcu);
->> +	mpam_msc_destroy(msc);
-> 
-> I'd suggest introducing mpam_msc_destroy() in the earlier patch. Doesn't make a huge
-> difference but 2 out of 3 things removed here would be untouched if you do that.
-
-Sure. This is remnant of a patch from Carl that moved all this around.
 
 
 Thanks,
