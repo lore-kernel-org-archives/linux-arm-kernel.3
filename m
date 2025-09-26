@@ -4,162 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D86EACAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 09:18:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4E9DCAC5AC
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 09:25:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6EjK9vFG7sg4FIwJV9tktgdlkYR+4sV4FEdF6HY9pk8=; b=PJgAq2DZp3pVltXCPZIIVhyTUK
-	VnQMuxRy0ngJVDRgvU+OkdZ2owf0D+XAM7x5G6oy07+et+Sa31BOMyL5SXpO3W2SJ0VbwBmrM6rcW
-	LNI7eS+Qm2/t7Z59JhmdgEyN6Hil/Y0VR9CwYDhmhHtG6hlEtK9OlrvmkAJWrAFXs5J+9XRm3NtOZ
-	4qH0J0gejxe3HsdrFL3eTpHDrTz+GzAFV+c41y4RqsvROfT/brIBqAmspy7FzosuOdjKwfjmQ2qNN
-	w7qvZrh40YzhQdKYQNJx9oVJYkKEjdimr+WAqQiidYuGGW0uqOmfQ00yBW7xtn5e3mcLcG1WKTQMS
-	Cqhyhvjw==;
+	bh=k/7KnSoEHO6Q+y10Pw4nJ0Fx1mX0Xj32P5DNhE4ALAw=; b=gmYcaHugkVa+pXSOZ3ps/mahJN
+	3Rzgr7PS+LqIGYHfXGvP3UladNecBu134ftD+53Rc+lTA/8J0IMIVcPL4lMWvHGcG6XiM2CQl+CT5
+	9ZfPopbjwwrHWkCFfE5GpUz9hML0gdmod3nq9ewRhlhQxf3WS0bustTU03yfcCPneEEVhR3zHuwdC
+	4qKUDLGruAkuc3D4pcXwxH21eIf95w2mkh3j6vD4pW9yMQf8GSTLzTmXxbzC7Zgqlr2bACv7dCsCI
+	51PPKNHAtv8lNU35503fdpqpRuoUqewxpVbCzODftpPPLtTmTnAloSStDSEow03jvE1BGoGcTkGZp
+	vJRKx1GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v24bD-0000000HUuw-1SpS;
-	Fri, 26 Sep 2025 09:18:43 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1v24hg-0000000HXXL-0fcp;
+	Fri, 26 Sep 2025 09:25:24 +0000
+Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v24bB-0000000HUqa-0XUh
+	id 1v24hc-0000000HXU5-1caB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 09:18:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=BggETP2l3/AVxgUmRm1ADrf1NTc73Tymw+H3vF8xN1reYH0dyVKquUeZ9DDQ3bAawvboWcvSow1LZDHTmpwdOg6OBxG9RqEXVXbl/MPhlPr2Py7vDhQybYRZ7gsC1VvKd48hg2+R7ueZk1V9s/PWLagZRORyjtpBXAZEssoi9Uur13N6qUKoHThGYgv0S/U1OZVDLiqBNm8/BmcqP6AwNlPKns83NxJdtf2zgTDbMegC7FnS+R56ra00hr+OJ1iSCpGDBFBroAKYsnj7RIUpwhY3X1Y06lR2mjvRUEPTLq9Q5kr5DzzRZJU/yi8dZBsrQiNuUUro4Xj+ttKAzE+c3Q==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=6EjK9vFG7sg4FIwJV9tktgdlkYR+4sV4FEdF6HY9pk8=;
- b=ZJHEqoMsXAHm4njsr/P9oBxdMsUxluVwi1PHEOgYoIo8S5QNU4z6zhfs2CACvOEw0q/rA/n2WzWsE+5qR3uto6Etp8A0lUTO8DbB2KXcx2UA0KQjH1fH/UhOOdsUPq9Ott7IVIk93IxLX/MUeqfJHtGPIDJD3k7yI+7wqHhPtN4bhBvObVaB5Ym5mBgJZm9fNUwc2LpB7VI6BspVgosQrtGeimSiBfzG6IoTnYvHQGDAADDacPz0IrljUS6lI7qaZF2PqK6mzLA6PCJT2k/rABxapsNiLVkdYSdpDmi/J3Ye4D7yYdCKpaFOVgoX4222ZqoFQlOP98Qd+L7mNvttdw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=6EjK9vFG7sg4FIwJV9tktgdlkYR+4sV4FEdF6HY9pk8=;
- b=itHjOMlelTkKIAgsNcd0g32Ar/LdCSM8UZyel63YP88dbGwFALOLzoU6Jx5uKZcwmsrmJw+4oTM/E1/PsXZgtulCabOwNeJsRzTm67wsoL8Dcc7UTlZWAOm3LQ+xNgEHuq4EjQ2RwpyoxR7b0H4hmecT3daOCL72PhlMTDO9wofw0Q3heloCYlnM85VPZwe4V0CMcTapTTuzDbvJ3qGuS+lVoRoKhWheTx0mJJOHg6xTSeU5TsPv1+vOhUp8aj1BBN0F6ooGrGK/HX2P1ATKEtjUby/cLvdk1eBBPBX/iI/syNEeHCTUtHnE1q9R4dTvXjNn04xFOHrHdikxyP9x9w==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
- by GVXPR04MB11543.eurprd04.prod.outlook.com (2603:10a6:150:2c1::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.10; Fri, 26 Sep
- 2025 09:18:29 +0000
-Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
- ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9160.008; Fri, 26 Sep 2025
- 09:18:29 +0000
-Date: Fri, 26 Sep 2025 17:18:34 +0800
-From: Rain Yang <jiyu.yang@oss.nxp.com>
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: marek.vasut@mailbox.org, airlied@gmail.com,
-	boris.brezillon@collabora.com, conor+dt@kernel.org,
-	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	festevam@gmail.com, imx@lists.linux.dev, kernel@pengutronix.de,
-	krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
-	liviu.dudau@arm.com, maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org, p.zabel@pengutronix.de, peng.fan@nxp.com,
-	robh@kernel.org, s.hauer@pengutronix.de, shawnguo@kernel.org,
-	simona@ffwll.ch, sre@kernel.org, steven.price@arm.com,
-	tzimmermann@suse.de
-Subject: Re: [PATCH v2 4/9] drm/panthor: Implement optional reset
-Message-ID: <aNZaatnVRRkaPrnD@oss.nxp.com>
-References: <20250904160445.1671f140@fedora>
- <36298ed9-05e4-4871-8e99-dfe814342c29@mailbox.org>
- <20250904172019.58e5f589@fedora>
- <4147d10f-fb54-4f1b-ac1b-58cf657a3aeb@mailbox.org>
- <aMk1CISrn2_p0qzJ@oss.nxp.com>
- <c34dc4bc-de12-42fc-aaf5-50474dc53042@mailbox.org>
- <aMoTtr9KmdrgDUiE@oss.nxp.com>
- <c1a45cfa-a249-4782-b5c8-0ee2d173fc97@mailbox.org>
- <aMrDKkIoZvAlBD8d@oss.nxp.com>
- <609113fa-6af3-4e7e-b47a-45b3152d8581@mailbox.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <609113fa-6af3-4e7e-b47a-45b3152d8581@mailbox.org>
-X-ClientProxiedBy: SG2P153CA0027.APCP153.PROD.OUTLOOK.COM (2603:1096:4:c7::14)
- To PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
-MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|GVXPR04MB11543:EE_
-X-MS-Office365-Filtering-Correlation-Id: ec90f83a-c4dc-4d3a-6cd6-08ddfcdda7bc
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|19092799006|376014|7416014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5y7jZ4t3OZDGJY+d7OFxG+wd/4jIltHJiBkaBtdaLjpfdZm9QIXpN2P03FK4?=
- =?us-ascii?Q?vT2wp1yfrVJtz6OGvVHLJtF8Rs6rnIQKSyzctaGY6heYBBfRPPxG6Jel5P7n?=
- =?us-ascii?Q?iKeEWQNm/Ros0MHS41xIbB9yBWIfIbjW9b6i3xWbth/rL4TInx1JjiJIdiN7?=
- =?us-ascii?Q?MkvIeuk+T/jYXzLJ4+d0DtPxjv3LsrdpJUchckL8tCoSuk6CizrCwC7SAxyn?=
- =?us-ascii?Q?j4fMm07hqPJ9Yo1PfDUZHL97f8zXgSajkpEy+6JhQ1c/0PpRBmN1DkjfLPey?=
- =?us-ascii?Q?oYgK8fr6vs1szyP5pBhFppsP8nlpt9siUNNxpSO2uQpu35DLwa8USlA3bTym?=
- =?us-ascii?Q?rbVYxLV+9ODFsb0j/XxWBEun9cLUUZpNX4lRzDtX3wl4lhJHJINfwrai26H0?=
- =?us-ascii?Q?5Y4btdSn0OlEcBLvKL5fb79a8YvYe4z+jUe8o9bhIAZYyym6OwGoUyJILshp?=
- =?us-ascii?Q?hcXTOUBN7AqLcmi5Vo1OGHNz76YI5NEUlbCn7iMCbfQs9+RRLEu1OnO1Xbs2?=
- =?us-ascii?Q?pMgh9B4vG0OugrMTT1yGO0Zd/r+eZHg05LxIsQBEghHl++lGhhIf781yIYR/?=
- =?us-ascii?Q?EK7UCdrgbVMl3rpzRK5DDIOH8jlbQsJjDioSCQGXR9MT5armD5YXZQiz+VuS?=
- =?us-ascii?Q?fRhidC5H+m7bCrvWZrVtxZyRRfjuxaa5QaHXJdnaApefbPA07JySmOF9hdvK?=
- =?us-ascii?Q?pmbNBLJF+rKBbvC77YTGO0AZUOG3JQqlROsrdh5YjCldzDeb+SELsmIFiSP4?=
- =?us-ascii?Q?JdJMJtaDh1bbYVfaEQcceah8GR0hrqYPtgVzAmOYnW92Nw79RugwnSav1Qmu?=
- =?us-ascii?Q?7c5fVmiVbFzxlP/u88NPonQMVgPinEirm/RSlyWavVYJkAzkxu8bmd/iLMYr?=
- =?us-ascii?Q?Kth5aXOdwgPlcq2MSze1BaJ4E3ZPurMVy+8eKs/uQ+M5AO7sF3CG8tjbcFBA?=
- =?us-ascii?Q?XWszo50J1W2YujMXm2nBld0KMPySczm8E5OVcGlZaz2ki10ntVcG/MWWoKlb?=
- =?us-ascii?Q?zhgn5ZYYfFWPY9tT05oq+fHzom9cvngLob+v6bPh6ALLtzzw38uW7mlD2GCc?=
- =?us-ascii?Q?fOVjrK5MSD6BeqwBScRHL4QN7SMmOb4PtTKHAOh1G3Hy4wmMZFRKAJI/pOAJ?=
- =?us-ascii?Q?slYamd4jyUKCgC3XAxEY5gQw51RObarPry9N7WkQdDR7wU4O/HisH7Zg3BML?=
- =?us-ascii?Q?d/BsGcfSvF/O41xp1GkqEUZgh46SSWBZyFaicgDafsqsAyHP4mF6mv/k2oo4?=
- =?us-ascii?Q?jUNWf+Ch6Le/4H+BqZu7iEQh7J/6QDMVkksl/TXDuFcN/2M4r/t5WuDxe//e?=
- =?us-ascii?Q?pMhGcViPfLJChTeVhRmZKhjwYDAM5aoG5XzKBGUg4X1ITVvHRK3fVqI+/LCS?=
- =?us-ascii?Q?D3sB9i9aSQGMbGWQS+N+6CqraP8Ix1v5o5Qg90Rfh2VKxPtc2KGs8hL4ggjz?=
- =?us-ascii?Q?+nc/48c5wuFXvS5SKs9o4mrqvDNuVgGTKf5H/HJbRHixzSM/2uxo6g=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(19092799006)(376014)(7416014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WAvjhFecc8Zoigpu9fwiRhZSilhker28FxgNAE5mAnwPM8pxi0eGyXdRn0gR?=
- =?us-ascii?Q?lHwwXvleIgRP/3+kZ8ZY+jo8Th13iMa0JW4HiXJdeFvEkP1DqHoFc/7moFc4?=
- =?us-ascii?Q?xmDkO94S+Gd9Bv5vD/tUPjUWcLsyLLf0YIwvs3jG1oAfu9B/NhzkxL+jvq3z?=
- =?us-ascii?Q?EDjVy0sdnl1WM1CA7RA/DlGEMkFlbt6SBUZV89aXL1FAfYCcXRvjr2oFvI6Q?=
- =?us-ascii?Q?+Yb3kTghTzsU7lq7FETuEn2qyC7cTN6+5A4MfkxjpyoXzxqC0dKCznAVu2+h?=
- =?us-ascii?Q?iwf1TEgdkb7okx0eM87+wdlm1HQMGULUAKL2PkKbz6tcubrQrKvO4JEsBL/x?=
- =?us-ascii?Q?wmBX+W6ryyqvjUPzJfscGGao8PAlZyLO7ir77GeK7ngYRyfYdnp4Af4Dd6Vt?=
- =?us-ascii?Q?F4E01G7FIMO/HcZ7BBD6SeLpjb2EQuqHgYh52hnc50lDN/S82Mb4OBgpVl+6?=
- =?us-ascii?Q?EcsESkzFb/PzStvRogqt5KxypQFAlKByKDmibujnJqM5K85Ykee5FxxKhM8W?=
- =?us-ascii?Q?DUkTELFWKY1ha8pE4c5UcwbqHjQ2IuRE8AQZx83MwWKweatZSQTW8oapmGt8?=
- =?us-ascii?Q?9efWeC/LlisJe6z2waN6a6ZfQYMPJZdjpTZb01PtKDjiYjvPeFc+75tInQce?=
- =?us-ascii?Q?Nl6ULWLNNRcBMPM01SHhp0epIFCKfzzd4CHhZeW1uD9lDwRchQhsrk9tRuFY?=
- =?us-ascii?Q?7lH3qW7FZ+RMplq7LMDVP3F1sfuZtrmEClDjxBTAPbscpW30Ym80PjvEaS0m?=
- =?us-ascii?Q?s2wibAgmpLsWAgGm2Ypga8Nv0RSbTfyxJK4cQR1/dshQsC/VQG1Eh9gSZAjq?=
- =?us-ascii?Q?hFlGhKF8fo2Ck7ziAgAfn5GCjxtnuN87P8nBixki1i3vNaXKKBBtwfdKTpqD?=
- =?us-ascii?Q?SQX14Mbs4F8LynAs8gbQ5V3MdTb3R+VnX9LZNnuIaG7FMgy+eJjXhuPVBhVc?=
- =?us-ascii?Q?JjLWO5soalJaiGMrjhFCDtLZvNBjSNSR/nYvL/TtWDY4ithuOr8OjB7LVO2c?=
- =?us-ascii?Q?tXouSFLrGoNzKFOqqrNjM6uDagRXOu4BULZ+TzGY4mpRUseorjb7IlfoqgDa?=
- =?us-ascii?Q?46mPCol6JN1CdwQQ60OT4NcJKcbqLsUPxr+4aN9TtwjzyHnpVvJZmhCvQRr1?=
- =?us-ascii?Q?eGeAF4c+w1m9ISGeyJ0dv+1wIGo09oHc0dtCbldC+pNFUTUjC8IWA20vc3lG?=
- =?us-ascii?Q?mT2/zqYrUH5+gSYEcUiO2eAhc0wHj9GriltJZ2B1xLv8+Nq/pHQBvsAghOVS?=
- =?us-ascii?Q?psr9FRIuv6/a01rmdN38QPCCe1zBp8m9+FqEJ/49iq/EacG+z6Ug/TSXBgMz?=
- =?us-ascii?Q?1rHNqHuXbcI6ptZmrsEYfgNTUWRFp2R1tlRL2liuvxiLeiKPUnmJvIoVfI8Q?=
- =?us-ascii?Q?KFTQ17/PpwyCEE9so3+nbS13I/Tl725ZhEQw7MLFRhut2wOZ+pzDvi6wfwfd?=
- =?us-ascii?Q?7hspKYbfc4sw4wOqIr1tPoFOghHZXm3kC1M7ZWXGOwJFly2Ba4pf2MbWSDci?=
- =?us-ascii?Q?7P2cD/bm5sHwXGOrNJ9GJqwYl/qn0Ug2Ulln8oIpijv6cLUVaO3ClCrayQW+?=
- =?us-ascii?Q?hUpD9+XdYJFCauaIowyWuFkcROqBUSmvfkVsSRXy?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ec90f83a-c4dc-4d3a-6cd6-08ddfcdda7bc
-X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Sep 2025 09:18:29.0159
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vIWa3cQ3WD824jkWYZGJHqit8GrYp15//1age1P2m80nwnFKZ+bW28uv719yyqQe7eWh0GIbPMHKudl9/+L4IQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB11543
+	Fri, 26 Sep 2025 09:25:22 +0000
+Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-62fa99bcfcdso3820039a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 02:25:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1758878718; x=1759483518; darn=lists.infradead.org;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=k/7KnSoEHO6Q+y10Pw4nJ0Fx1mX0Xj32P5DNhE4ALAw=;
+        b=t9Ds2MeXxOD5HcOGv7cQgTnSTLEEPg9UtuB1r43Ww1rOPxCTp5DyXI877pix7k5arg
+         N4PNMqu6l5Bse5zC1Qxpk4DT7l6cbpudZ6eLa1Etk4dZoj6zyxmz1pnr1PWhCeaClD2c
+         1jVZF2AlRAXX9aATPs1JYM4oFFDSkSjgbugjPlk0lbD07SrlwQslX4Xg3G44kXuQAGbL
+         r+ukp9v1RcutgKS4ngYDox5s2Dv/ZyuEtaE/bnoaRgHjGWvQPceR548X3rV7t4algdwQ
+         o6IaKh0k1QaRsayDdfGzzX4L4hW5n3CD5tabDwGYnXMkbM98vIJmG/b7XEpLUFexkhDj
+         kg+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758878718; x=1759483518;
+        h=in-reply-to:references:to:from:subject:cc:message-id:date
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=k/7KnSoEHO6Q+y10Pw4nJ0Fx1mX0Xj32P5DNhE4ALAw=;
+        b=dw9OwJNNX31pE63EUEGk00fQk0h/Fle7Z95uJqoRqIB35Fgq2/DBwooJGpwaq1Crgi
+         9pPkKLmbmfz5J/w+2TdUq/MrC8o00dmJQrtLuLz0TASHFpW3BIRFLiNHBWpVCmLRihak
+         H8rfxJx9zKcRBKH05Ooob/XOa3f1YREi5yw4NGGez+93GGOJ2BtbdF9eXOeRqOuc/uvK
+         jJEDXkpDlB8tvJ1JEzhakG31wLkyaoKbyvt6sPnWL2ipQTInCQuwmplJnVcRj86xNiAP
+         1+k8J7bl+PT2XsripYkldRz2m+xbtOh0IX61y8Toi8/O3txY0W/tVM9qsGtYQHqUJ3q+
+         49pA==
+X-Forwarded-Encrypted: i=1; AJvYcCW43rmHo20RhbcpabXrjJnlAbF9N40WYegwn7HMXIEwEYK2034/Kh2WZjRZR3vP1vH03dUGLrikGoegGrDRNL4A@lists.infradead.org
+X-Gm-Message-State: AOJu0YzIO2mOkaTyMog2w9cKc2RdZAWQRMdFqOeBFUtuyZGhAYiXuu/z
+	Y8BzUIKO6rU4UIWfcIJ5d9abdNG/A66cikzbug0XSCXo8MsemdoR+z5GfOgKz3SZCyc=
+X-Gm-Gg: ASbGncsbId5xRUpTUV/iKlTt4qpaTVv7W+ifDy8tVFlrE5BE4YEZz64Z2ScFyiapBTR
+	mR0o5JKPPqm+JPVAuEGtLWm5FSmRPCeBk6RRw/IjYjRAN1P30yOMTDZVg9whZ8ZwaaMlv7G4WPP
+	4fwNhsRoW6QuEJqRn/osL3EveO8uiL2191dNzffTrIrKIrdyaycZ/ry4DqZ2aEzjj9aU9KSLkTg
+	s0wC5NL44ch6VlMdxZzOxizv0CoK0LqzZyBqNzNdiwUQBAsGDts+hjJ2WsujtVPaMk4Ry0C2H3/
+	IJApOCQy5uJOsAHfnRZ+8Kmc/6/StJZU2hAFI2AXUdF+ZBS9CZTXBXcN4/O+osgktZLMj6wUFjs
+	yD0IeKZZRlo/s/js/aNFgJvZcILfFKWGFEYJe
+X-Google-Smtp-Source: AGHT+IEJQrKUnSzYQN5L/Z3qQi8ycCnSGseY5gC0pPJuGx7RQ4p3T8BSAU1abLUUr8cnY3qJZ6eTXw==
+X-Received: by 2002:a17:907:9451:b0:b2d:a098:ad01 with SMTP id a640c23a62f3a-b34bbebe257mr719981766b.51.1758878718079;
+        Fri, 26 Sep 2025 02:25:18 -0700 (PDT)
+Received: from localhost ([195.52.63.148])
+        by smtp.gmail.com with UTF8SMTPSA id 4fb4d7f45d1cf-634a364fd05sm2553079a12.13.2025.09.26.02.25.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 26 Sep 2025 02:25:16 -0700 (PDT)
+Mime-Version: 1.0
+Content-Type: multipart/signed;
+ boundary=49a9f11264181de2036887cb7d9491dd520f43cb0d8ef1d42acfc07ce21a;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Fri, 26 Sep 2025 11:24:56 +0200
+Message-Id: <DD2MGMEFW5NT.1L6C0O4J23ZE5@baylibre.com>
+Cc: "Nishanth Menon" <nm@ti.com>, "Tero Kristo" <kristo@kernel.org>,
+ "Santosh Shilimkar" <ssantosh@kernel.org>, "Vishal Mahaveer"
+ <vishalm@ti.com>, "Kevin Hilman" <khilman@baylibre.com>, "Dhruva Gole"
+ <d-gole@ti.com>, "Sebin Francis" <sebin.francis@ti.com>, "Akashdeep Kaur"
+ <a-kaur@ti.com>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v7 2/2] firmware: ti_sci: Partial-IO support
+From: "Markus Schneider-Pargmann" <msp@baylibre.com>
+To: "Kendall Willis" <k-willis@ti.com>, "Markus Schneider-Pargmann"
+ <msp@baylibre.com>
+X-Mailer: aerc 0.21.0
+References: <20250812-topic-am62-partialio-v6-12-b4-v7-0-ac10865c2d87@baylibre.com> <20250812-topic-am62-partialio-v6-12-b4-v7-2-ac10865c2d87@baylibre.com> <20250923174904.s6jqj35uizclpsxd@uda0506412>
+In-Reply-To: <20250923174904.s6jqj35uizclpsxd@uda0506412>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_021841_163319_C86DA14D 
-X-CRM114-Status: GOOD (  21.45  )
+X-CRM114-CacheID: sfid-20250926_022520_696836_482052C5 
+X-CRM114-Status: GOOD (  33.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -174,53 +104,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 25, 2025 at 10:41:37PM +0200, Marek Vasut wrote:
->On 9/17/25 4:18 PM, Rain Yang wrote:
->
->Hello Jiyu,
->
->sorry for the late reply.
->
->> > > sorry for the inconvienence. this uboot version don't include SM-184's change.
->> > > I heard you're using i.MX95 A1 Chip, so you can extract the uboot in below link[1],
->> > > or build from source, or raise one ticket in this website[2].
->> > 
->> > I use mainline U-Boot 2025.07 with about 10 extra patches, but nothing
->> > significant. I don't think this is U-Boot issue, is it ?
->> > 
->> > I can rebuild SM, which commit in SM (from imx-sm repository) do I need to
->> > use ?
->> > 
->> > -- 
->> > Best regards,
->> > Marek Vasut
->> Hi Marek,
->> I think the problem may be about the multi power domain, the second power domain named perf
->> is for frequency change only, you can try to power on gpumix power domain only.
->
->I dropped that one.
->
->> as the 0x4d810008 is a write-once register and whose operation has been moved into the SM side,
->> so please drop the reset change.
->> can you also change the label of the gpu node from gpu to mali like "mali: gpu@4d900000",
->> as the internal driver use mali label to control the thermal up/low limitation.
->
->I updated all of the AHAB container, imx-oei and imx-sm components, and the
->reset controller is no longer needed indeed.
+--49a9f11264181de2036887cb7d9491dd520f43cb0d8ef1d42acfc07ce21a
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-thanks, please update the gpu node label if possibly.
+Hi Kendall,
 
+On Tue Sep 23, 2025 at 7:49 PM CEST, Kendall Willis wrote:
+> Hi Markus,
 >
->> BTW, does the dynamic frequency work well on your side so far with perf domain?
+> On 11:19-20250812, Markus Schneider-Pargmann wrote:
+>> Add support for Partial-IO poweroff. In Partial-IO pins of a few
+>> hardware units can generate system wakeups while DDR memory is not
+>> powered resulting in a fresh boot of the system. These hardware units in
+>> the SoC are always powered so that some logic can detect pin activity.
+>>=20
+>> If the system supports Partial-IO as described in the fw capabilities, a
+>> sys_off handler is added. This sys_off handler decides if the poweroff
+>> is executed by entering normal poweroff or Partial-IO instead. The
+>> decision is made by checking if wakeup is enabled on all devices that
+>> may wake up the SoC from Partial-IO.
+>>=20
+>> The possible wakeup devices are found by checking which devices
+>> reference a "Partial-IO" system state in the list of wakeup-source
+>> system states. Only devices that are actually enabled by the user will
+>> be considered as an active wakeup source. If none of the wakeup sources
+>> is enabled the system will do a normal poweroff. If at least one wakeup
+>> source is enabled it will instead send a TI_SCI_MSG_PREPARE_SLEEP
+>> message from the sys_off handler. Sending this message will result in an
+>> immediate shutdown of the system. No execution is expected after this
+>> point. The code will wait for 5s and do an emergency_restart afterwards
+>> if Partial-IO wasn't entered at that point.
+>>=20
+>> A short documentation about Partial-IO can be found in section 6.2.4.5
+>> of the TRM at
+>>   https://www.ti.com/lit/pdf/spruiv7
+>>=20
+>> Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
+>> ---
+>>  drivers/firmware/ti_sci.c | 131 +++++++++++++++++++++++++++++++++++++++=
+++++++-
+>>  drivers/firmware/ti_sci.h |   5 ++
+>>  2 files changed, 135 insertions(+), 1 deletion(-)
+>>=20
+>> diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
+>> index c187fb714b3a4c658d0593c844716d4b160e4fa9..fb6f3d7f7413917cf9534ba6=
+5f0a9786d1183c71 100644
+>> --- a/drivers/firmware/ti_sci.c
+>> +++ b/drivers/firmware/ti_sci.c
+>> @@ -3750,6 +3750,116 @@ static const struct dev_pm_ops ti_sci_pm_ops =3D=
+ {
+>>  #endif
+>>  };
+>> =20
+>> +/*
+>> + * Enter Partial-IO, which disables everything including DDR with only =
+a small
+>> + * logic being active for wakeup.
+>> + */
+>> +static int ti_sci_enter_partial_io(struct ti_sci_info *info)
+>> +{
+>> +	struct ti_sci_msg_req_prepare_sleep *req;
+>> +	struct ti_sci_xfer *xfer;
+>> +	struct device *dev =3D info->dev;
+>> +	int ret =3D 0;
+>> +
+>> +	xfer =3D ti_sci_get_one_xfer(info, TI_SCI_MSG_PREPARE_SLEEP,
+>> +				   TI_SCI_FLAG_REQ_GENERIC_NORESPONSE,
+>> +				   sizeof(*req), sizeof(struct ti_sci_msg_hdr));
+>> +	if (IS_ERR(xfer)) {
+>> +		ret =3D PTR_ERR(xfer);
+>> +		dev_err(dev, "Message alloc failed(%d)\n", ret);
+>> +		return ret;
+>> +	}
+>> +
+>> +	req =3D (struct ti_sci_msg_req_prepare_sleep *)xfer->xfer_buf;
+>> +	req->mode =3D TISCI_MSG_VALUE_SLEEP_MODE_PARTIAL_IO;
+>> +	req->ctx_lo =3D 0;
+>> +	req->ctx_hi =3D 0;
+>> +	req->debug_flags =3D 0;
+>> +
+>> +	dev_info(dev, "Entering Partial-IO because a powered wakeup-enabled de=
+vice was found.\n");
+>> +
 >
->How do I test that ?
+> IMO this print should be in the ti_sci_sys_off_handler since that is
+> where the check is to find the wakeup-enabled device.
+>
+>> +	ret =3D ti_sci_do_xfer(info, xfer);
+>> +	if (ret) {
+>> +		dev_err(dev, "Mbox send fail %d\n", ret);
+>> +		goto fail;
+>> +	}
+>> +
+>> +fail:
+>> +	ti_sci_put_one_xfer(&info->minfo, xfer);
+>> +
+>> +	return ret;
+>> +}
+>> +
+>
+> Just something to think about: another way to implement this function
+> would be to change ti_sci_cmd_prepare_sleep to add a parameter of flags
+> for ti_sci_get_one_xfer in order to be able to choose if the
+> TI_SCI_FLAG_REQ_GENERIC_NORESPONSE or TI_SCI_FLAG_REQ_ACK_ON_PROCESSED
+> is used. This would make it so there's not duplicated code and
+> ti_sci_cmd_prepare_sleep could be used to enter partial IO.
 
-cat /sys/kernel/debug/clk/gpu/clk_rate, although its name in dts is core.
-it is an read-only scmi-clk.
-the clk rate should be fixed, as it can be changed only via scmi_perf in i.MX95.
+Thanks for the suggestion, I just tried your approach and I personally
+prefer the code as it is. I needed two additional ifs to switch to a
+different rx_message_size and handle or not handle a response. In the
+end there is not much common code left. Also the pattern is quite common
+between many of the functions doing transfers.
 
->
->-- 
->Best regards,
->Marek Vasut
+Thanks for your review, I fixed the rest.
+
+Best
+Markus
+
+--49a9f11264181de2036887cb7d9491dd520f43cb0d8ef1d42acfc07ce21a
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iKMEABYKAEsWIQSJYVVm/x+5xmOiprOFwVZpkBVKUwUCaNZb6BsUgAAAAAAEAA5t
+YW51MiwyLjUrMS4xMSwyLDIRHG1zcEBiYXlsaWJyZS5jb20ACgkQhcFWaZAVSlN7
+9gD+MBLHhYe5W5TwXxMM41fCqweBpTb+287RKDd7uveEnkoBANYk3/Jp+jqTvqmL
+4kBV9d8V0PxSPIA9hkCuwvPCoo4I
+=GyNH
+-----END PGP SIGNATURE-----
+
+--49a9f11264181de2036887cb7d9491dd520f43cb0d8ef1d42acfc07ce21a--
 
