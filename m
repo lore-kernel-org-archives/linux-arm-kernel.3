@@ -4,76 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C76DCAC5AC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 09:15:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65ACDCAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 09:16:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KFTjY5/OntfnPss18xMJfKbpZ6ztPp46Q2iJkWHJLes=; b=qg+iXSFRQwCYvGoy7VWq8MPYw5
-	mt3jGBdkhnSN3Xc7eXTWeElQh4N65gDDEVYf4A509KU/TE1p4EoWqB2mBMRr/u/wEdV3aLzeFfDUM
-	0NPLvoxS9Ecw8JRZ97Kczz6ntiOFLiUoAkfnesNNyhJwwZqC6c64IdHrAbcn0bzrpo3UcgcWFyaku
-	cSyE6qy7nVeHB8RI7xwe6GgvHF8vEoI5gWqGJ1BIoCSOnWiMaxBBDuyE986famhBGhvBKSAqqZn7V
-	QptKxPEseNzUX6t50tNVAsN/sfVpG9Vy8y9zvWPcplCzKvArZu09eTRO3ECQTnUqYx6DN7rVgoJCE
-	YvcpbeJA==;
+	bh=CYShG4odej5vYKThNx262uoG6FdT0LyVmxecSIMK0Uk=; b=EN8UNPr88u+bIn/trl98/jsz3o
+	tJU8OVrl+q0TcAbWhi7dDCVag5fCaotyG3NfYJrqIpV/n+Ql48Q/FtqVfyv0HBDCFVb/hmN0AAYvU
+	bm8bnnwvnMMpBW5qxQq4/UqKjSR6DR4UG15JlAWZXUcfzNb3rQ2uPMlnix7Td5s2zLqJCf9V2NGvL
+	8IMmIiRW+LGR1kGV0y+q4hSP11/B0oMnvUrImj12XloqqdH9H4vvC22SW8egofs1w374DL0BXGJo5
+	r4etRUuaBBQptNPbGXm7EtALCsHMUcUM6JHYnlXS5n2ld9D24Vg9dJrRnPMFp8POnl5WgjEgb7vWI
+	e8dZciBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v24Xp-0000000HTTs-3wqS;
-	Fri, 26 Sep 2025 09:15:13 +0000
-Received: from mail-wr1-x42d.google.com ([2a00:1450:4864:20::42d])
+	id 1v24Yv-0000000HU6F-1Yv8;
+	Fri, 26 Sep 2025 09:16:21 +0000
+Received: from mail-wm1-x32c.google.com ([2a00:1450:4864:20::32c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v24Xm-0000000HTRF-2Q8Y
+	id 1v24Yt-0000000HU4W-2JbC
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 09:15:11 +0000
-Received: by mail-wr1-x42d.google.com with SMTP id ffacd0b85a97d-3f1aff41e7eso1853507f8f.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 02:15:09 -0700 (PDT)
+	Fri, 26 Sep 2025 09:16:20 +0000
+Received: by mail-wm1-x32c.google.com with SMTP id 5b1f17b1804b1-46cb53c5900so21035975e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 02:16:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1758878108; x=1759482908; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1758878177; x=1759482977; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=KFTjY5/OntfnPss18xMJfKbpZ6ztPp46Q2iJkWHJLes=;
-        b=VG18ikB+mwg3a3L35BVo/FWRxKAkSMe7pyIQLcpB5rCBlTrOZWCcWg3/U5BYjUOUQ3
-         iJRrxsj1frC7AWCHayGEAYTsK/G6VBVn8ViCBKg3NwFFbN8mKVTCjIVWHUJWTgp2Ekkf
-         FNL2+f5Di0ILqjdgxytmlVztMbHfTNVtGk9teLTkZuL31GUlJvlffBF5WLT9A+nZn2ee
-         5YTce5yLIlLocckKQpC6nW+moZ/u+SkP0UYTPFaImTtWOtpk/iT5DUmmjQqtS6i/isyP
-         Z4/9f7SOGcnTKuIhZ0trDZ3Sid3aNp5GL8z1zoyj3n9l5V12XNELBouTM2L+0vkVjjqH
-         xN5A==
+        bh=CYShG4odej5vYKThNx262uoG6FdT0LyVmxecSIMK0Uk=;
+        b=XVJCuNpwolAoJ9ert97TnqpJGytNf4dIag84RF6ccD9vXNvYcI73QIf1sf4GYwgkKz
+         TfL9A/XiPuNJCKzo/7CFLfVpGqO9ftU64sxRPx7SwRf2aj+PGKg15A93kO3YcFqUxC9v
+         kIcZXePhyPKuxkSkHN1czxWT8lQ8vglFb71yR2tR+nWeE0cLN2K6wUx2YvVh77OJ0ds9
+         fy5M6hpGrudOg+cBkdf934Rmaiu7l1Z3+sEJ8TrQ9DQg/vYVt/j+0F+4eDxxTUMxYqFr
+         TT0yf1/kiVf0UjSrGhu/Z59cy372mjvRisp03hrq4942Y51dl8s2725K1z7Zi6cCPMIC
+         N6kA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758878108; x=1759482908;
+        d=1e100.net; s=20230601; t=1758878177; x=1759482977;
         h=content-transfer-encoding:in-reply-to:from:content-language
          :references:cc:to:subject:user-agent:mime-version:date:message-id
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=KFTjY5/OntfnPss18xMJfKbpZ6ztPp46Q2iJkWHJLes=;
-        b=ikocCQ6v8ASiU9hL0vYJP8tHyGtSU49MJDUHKXr4hJzMPl4GM5Hpj5un+zDyIcn7hX
-         BMrHfhI1XgwrV9DTvdw9qtzKUXI9MMhLqWfxXwK796a9RsRLdqwwZlPUPt7ZoxVzPrrV
-         ZYJ2JWGVG6GMqopwal0kbrOpBNIG5mGFFNKGPk4qXAAHXMlrEO6zAW4cPzH1JxlMSUgY
-         5kRWPibuwPcOka907viWi8FMf3hkGmEE8+d6OGxkgI7YnTvj5ze71JnV2LMmsreFF3iu
-         6izo8DMtokjeilfU9tJZcT6tbGrb5MZBF29zux9bTs1WXckTlAtpQgmdHNzwbS+0+VM4
-         UFrQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUavI6/x0+Lv5HQhVkAAQFMKE00YvPHZjEFFwhlh/MMgO0CXYfSkfj9gYWW1wFteEuzMVr/WQKLtOWuL0DLIUFb@lists.infradead.org
-X-Gm-Message-State: AOJu0YxAZqOCsqMVLutP43kFWzP8VEUrMhBVCVOMY6gSjptIFj9kLP88
-	6PqCt7WojNSeyT9IA7yQtEz8pDiYJEojhNZ2qGLF9RFMNXgj12HBZMEjcbGhKdBb2FI=
-X-Gm-Gg: ASbGncvSNE32xYUXpT5WTSlgJ10x7Hy/jYMoCNhZRd1+XakVvJPTSHSFpQ6P74N99t4
-	K/g16DW/vXm8PaquC1xaNhRlLYfpAyQrj8YKyfI6kqbEs6SxoODisitfFqbLjNIVQizpzAqwYro
-	wuzXvc2x+haTyyDQ4nomVKNTEZJCkzIYsuBl4/LNsP7Qgicv8eyoIAtn3hEw8vHP8n3GD7SE0cf
-	ZncfHRLLZCXR2i5lLYxIaEapYx9HwKFYxqruh85bnwe/9UcvMCcHQXk6eu73wWLa01Kuk173kpF
-	T68MxSvKOdJwuo3VCPmlPXIcn3sSbE6Kg9we7x9qfAPKAHodgeYoZwFhycCtybt5Irbkg/iGRK9
-	AKAs0aSBAs/g1K2GJe6lo3wuocVR7KduEgObQRPyA+BE=
-X-Google-Smtp-Source: AGHT+IEVX7V7+nffT3CJ9dpetDYPOn1G7WuDY6pTt+HXts5dckr78/uI1tL88mQFYL4fesUlu07JBw==
-X-Received: by 2002:a05:6000:2585:b0:404:ac77:6598 with SMTP id ffacd0b85a97d-40e429c9c4dmr6196945f8f.11.1758878108352;
-        Fri, 26 Sep 2025 02:15:08 -0700 (PDT)
+        bh=CYShG4odej5vYKThNx262uoG6FdT0LyVmxecSIMK0Uk=;
+        b=YYke9Hn2x8rdqzANKyxOk5eL1QheKe36WlHX5Najur9JX3PaWid5lupn+OVZ2DVTIb
+         s7+o5eaE0d5BWKznS57Qg3OF3ho1yJJNc6JK4ucFa2VL0IDRhowegi+ISFxrcPLU99To
+         kbDyhxIaDU+1qB0lY0pu8lT6QkVgE3H+00BMgpvd36VakmnCtzIyZnW8wY0xRJHBICPr
+         ctEfjvvG5onMSpi8gm0aDpVC9+BVSGIJ1LRbgW5vy5u7eQlht2Zi2hpSRK7OVzubnCnI
+         JpX62p0YOEm8ctSBHfrfQK8559RlF38x7mguDgT10o1SVHKyS4aHG30S0Ab++W7Y28qw
+         l9Lg==
+X-Forwarded-Encrypted: i=1; AJvYcCUIR7KxPAeLMM8WLI4H/9EG+tkeAjLKfVjFEDDXupQ+Xfkno63A4fj6A7LBw1PwocRcrEplXgZieZa70uZSqfVH@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7M5YpWRdbZNyyWJ9uuqIyDDppYaRcDzBy3b+Pv9myPYN2fR98
+	02fK/ZlW8oR3eLEHAcWuJ2W9RvrbeFMwslcJyNohk9nXD+F6LkdegiV2az6zrV8P+5M=
+X-Gm-Gg: ASbGncvxqY2h6Xd+YkQKljazrprFW70Sqk5AR6CkTTDRxDSB8t2dZKZfNpqTz9vq7iO
+	rAsA+ad1d3BUn/1zM8sJruVioKzofptSreQXpef3b5qB+2OrFwXNqUPwfUsd24fPByNVOdIS2KN
+	JPeQ83YlHG73Gn3gREyBjJqaWU9+HF2roaYDe+WGleTJ7Uww2jyztnpi+480r5v6gN5uI5PYuAK
+	7jLYfv3Lpfv5dxwd2EsJkPWLdI+xxItzFXzutfaYJf+Khllzu3aM7DRsZhFzj+qjivsw91MjFX+
+	rOc+MbSrjuGF+YJOI4n8LGH8qmHkoeMkn3D7M32+yVr1B7EDAkIxzyTli3Eui5e1aE1vzpnXrW4
+	kbo31GT7dXrzTphL4G3CuGfZ4RpUztMQ1
+X-Google-Smtp-Source: AGHT+IHWIpWJkFH6MgSaK7Lwa2sAdlk8StsGUnX1BeyXoXscm4t51npqgFevzyhLcqPW6OMTyJKXjg==
+X-Received: by 2002:a05:600c:8b33:b0:46e:1fc2:f9ba with SMTP id 5b1f17b1804b1-46e32a0d5e7mr75187965e9.25.1758878177511;
+        Fri, 26 Sep 2025 02:16:17 -0700 (PDT)
 Received: from [10.11.12.107] ([79.118.185.144])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-40fe4237f32sm6185169f8f.63.2025.09.26.02.15.06
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-40fb72fb71esm6152127f8f.1.2025.09.26.02.16.15
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 26 Sep 2025 02:15:07 -0700 (PDT)
-Message-ID: <586c85d8-7638-4e52-8f96-1aa4640afe64@linaro.org>
-Date: Fri, 26 Sep 2025 10:15:05 +0100
+        Fri, 26 Sep 2025 02:16:17 -0700 (PDT)
+Message-ID: <ec25789f-eb79-4a52-b93a-3005756cb572@linaro.org>
+Date: Fri, 26 Sep 2025 10:16:15 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 2/5] firmware: exynos-acpm: add DVFS protocol
+Subject: Re: [PATCH v5 4/5] clk: samsung: add Exynos ACPM clock driver
 To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
  Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Peter Griffin
@@ -87,16 +87,17 @@ Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com
 References: <20250924-acpm-clk-v5-0-4cca1fadd00d@linaro.org>
- <20250924-acpm-clk-v5-2-4cca1fadd00d@linaro.org>
- <03cbad1f4f311727b4dce9c969404e2bc138c556.camel@linaro.org>
+ <20250924-acpm-clk-v5-4-4cca1fadd00d@linaro.org>
+ <798600a43825818bcf828da7060f38105f7f3225.camel@linaro.org>
 Content-Language: en-US
 From: Tudor Ambarus <tudor.ambarus@linaro.org>
-In-Reply-To: <03cbad1f4f311727b4dce9c969404e2bc138c556.camel@linaro.org>
+In-Reply-To: <798600a43825818bcf828da7060f38105f7f3225.camel@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_021510_642024_63E51D32 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20250926_021619_599293_4124F637 
+X-CRM114-Status: UNSURE (   7.47  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,61 +112,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, André!
 
-On 9/24/25 4:24 PM, André Draszik wrote:
->> +	unsigned long (*get_rate)(const struct acpm_handle *handle,
->> +				  unsigned int acpm_chan_id,
->> +				  unsigned int clk_id, u32 dbg_val);
-> Everything seems self-explanatory except this dbg_val. What are API users meant
-> to put there? Maybe some kerneldoc could explain it?
 
-I don't really know, there's no documentation. I can guess by reading the
-downstream code.
+On 9/24/25 5:00 PM, André Draszik wrote:
+>> +	ACPM_CLK("b0"),
+> The last one should be 'bo' (bigocean), not b0.
 
-Grepping the downstream sources reveals that this field has a value
-other than zero just for the edgetpu driver.
-
-Looking there I see:
-#define TPU_DEBUG_REQ (1 << 31)
-#define TPU_VDD_TPU_DEBUG (0 << 27)
-#define TPU_VDD_TPU_M_DEBUG (1 << 27)
-#define TPU_VDD_INT_M_DEBUG (2 << 27)
-#define TPU_CLK_CORE_DEBUG (3 << 27)
-#define TPU_CLK_CTL_DEBUG (4 << 27)
-#define TPU_CLK_AXI_DEBUG (5 << 27)
-#define TPU_CLK_APB_DEBUG (6 << 27)
-#define TPU_CLK_UART_DEBUG (7 << 27)
-#define TPU_CORE_PWR_DEBUG (8 << 27)
-#define TPU_DEBUG_VALUE_MASK ((1 << 27) - 1)
-
-And then I see methods like:
-static int edgetpu_ctl_rate_get(void *data, u64 *val)
-{
-        *val = exynos_acpm_get_rate(TPU_ACPM_DOMAIN,
-                                    TPU_DEBUG_REQ | TPU_CLK_CTL_DEBUG);
-        return 0;
-}
-
-or:
-static int edgetpu_vdd_tpu_m_get(void *data, u64 *val)
-{                                                                                                                                                                                              
-        *val = exynos_acpm_get_rate(TPU_ACPM_DOMAIN,
-                                    TPU_DEBUG_REQ | TPU_VDD_TPU_M_DEBUG);
-        return 0;   
-}
-
-These methods are used only to be exposed for debugfs.
-
-So it seems it's used to __get__ clock rates or voltages, and that the dbg_val
-acts as a debug command that also specifies a secondary ID, TPU_ACPM_DOMAIN
-being the first.
-
-I find this a little ambiguous, so I refrained myself from adding a description.
-Since I can't tell what it is, and whether TPU is really the only user or not,
-I propose drop the argument or not describe it, as I already did. What's your
-preference?
-
-Thanks!
+Oh, yes! Will change it, thanks!
 ta
 
