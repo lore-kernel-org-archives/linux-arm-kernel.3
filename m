@@ -4,76 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5430CAC5B9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 14:03:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 934B2CAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 14:03:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=b34wGs9nD0Y9CaZ4JvoEB/jenHfEgOrSeC6h74K8yrA=; b=PT5XktrKqZ5ByL5Gy5NBVx8zhD
-	uqNTehOk7LYq2pxN5np0et/esHYggMSdmtPh1rs+mhrwNiRmkRp7X1vYihWltnS5cie1TYHJJw21Q
-	Zd+hyFUDIMSUqLcCPtL5DI2VVdiYb1D51YL5XMlpaK+pJ+6ObyX8SIqpxdrfLs+LXaUf6mmH8lnHt
-	xU5f9qhDr27zBloyxDYgJuRw8FtA0c+/wDxtQ3mm4R0DLmDgM5hVK3PO6tUbYpCRWg1aNy3JgdW53
-	jo/8BMLy1jRw4zL9Y/DWqXdIY11IoaXfu1QaxzLLhQp6WrMKVsHEPqNKrJ7x0dnGu948qCvNrqkao
-	tc9zpcKg==;
+	bh=FAQFz5KzQ5PJDFpmxMd37ypf2wb4q8c+gi1YbDBNReA=; b=Q1aFLDNGqvnulSmw530wN6cbYd
+	TwOs3GAGWu/lJ2uuCxNBrtIuxGy77ZMxFe6FKPqeqbBSscNrYRJpkxQ/pxSoEuL6m7ASlXV6yzU12
+	dUWwvS+8Ioj4qyP5A4P8lHaNgpBkPD1lgGsEmA/MatVhYGf3+A1/hCYF/UvRFecZ3HpVOK9XKLP+B
+	gWblXzWS+BUErUVtza/N5Qilljn1QcVfui8uD9ad9rxPxiG10V8r7hSBSmb7jbRvahEbjTz/0JoGg
+	j+klT/SXrcwJd2J9YsEsm9HQZ70SXXAcMYjrOe6MyOk52wdANuE+GsDUTcBbvkLNrcCQpIyjuZ5fj
+	tKzIA8Tg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v292N-00000001ndx-0NSC;
+	id 1v292N-00000001neO-1afL;
 	Fri, 26 Sep 2025 14:03:03 +0000
-Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v292C-00000001nUQ-2i3s
+	id 1v292E-00000001nVy-1oTO
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 14:02:53 +0000
-Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-7704f3c46ceso2164829b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 07:02:52 -0700 (PDT)
+	Fri, 26 Sep 2025 14:02:55 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-77f68fae1a8so3075827b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 07:02:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1758895372; x=1759500172; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1758895373; x=1759500173; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=b34wGs9nD0Y9CaZ4JvoEB/jenHfEgOrSeC6h74K8yrA=;
-        b=M5EPBqhwEPUUlSzi95YjzGkOcFxgFsmbVD2Zv6H3yxAM2nSEiHJhMhWWoYjGTBXJ+0
-         xRYoQWWOdo/ko6jEAlwKn423hV07imG7qIZzCnAfKVA5i1R/nUlOSMblgAbKS/YRYQK0
-         Be0R+9QTnVC8E75mL2iAcqA9tqMbuT4Ry9zn1YX1grX5+Aih/ANZJszs8/jlRBROKc4y
-         tJx95uCmU4RPtdfSAgvLU+Izmyc5TqFJblB2BjjU2hetkL5wUwkamE0PnMr1edBWc8/m
-         dVAAgOIMPMFRmCuEwdJcEsurTPOzYe4flw3NIjDIPMq9ApzUP6HRTsP0A7xz9SfwHJK2
-         NOxA==
+        bh=FAQFz5KzQ5PJDFpmxMd37ypf2wb4q8c+gi1YbDBNReA=;
+        b=Cehx/8Iw0+d3n9fQTxFK55apOwNjbGGG5mqPgtTuN8Z7e8gzfq5/EuS9wrdnaWrxrf
+         ZoaC3e+4fgualqVD6h+/w2QykXcNfz9DgE+Y9lFe/y+ICHxYVIlODt4wKrtjORQouFuC
+         SfDttFt64vNE6aEAYxqm1Y6L1POO4AkvU0OPPesr5z82M+QOtNX1h+KgO2nvrERyTCA7
+         nR7k5O/gz8Xz/K0X3XCNJJMh3YdOdXZFO3nFh1mYbQhjHSOEm53hCefAmsvBCIzX90eI
+         CFXgrl7birrb8NuxcUKZlrj1geeq8pt+SnqMoIunzQhh5xE/VfoWXOcWsGCpedV+8KXd
+         oPqQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758895372; x=1759500172;
+        d=1e100.net; s=20230601; t=1758895373; x=1759500173;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=b34wGs9nD0Y9CaZ4JvoEB/jenHfEgOrSeC6h74K8yrA=;
-        b=ElbmZDaDLFFV/jh7S4z8d5AaJEkpa0WL6OCu/KYP+lljHCSTwX+47ny8x9Uo08B+cX
-         DKPR18EhuoZGOdnk0KUmcI8JAXmMiSWK1pRTfVT3y2Qswn/eceUFLd1XnxeO9gvDvHfc
-         b5fxry880Mo8t2fq9Bq9pqI3bE/fd1Q6RjqLqsoiB0YIXCOMzyz3K93oDQF14jrQLzOi
-         7lt4Dqfq0DDofJthWEargrpd1gi8LmQAEZEBZ3mw/eYcazgwlrSQD62cbcNXox7z4515
-         csqhNI4K3rJZt16LVdHrneTo1fvzbIBZOZ0THWPBeNVUiTN57RU9IPcZm/D2ToGmTswz
-         aGFg==
-X-Forwarded-Encrypted: i=1; AJvYcCUzFucqA0oKJA9tWmD8nRFsck14GL+RhDhbT+AINNyHVt7JwE3L7at+y+fr6ASnz5L9ijRUBiVVTEjPgaEjSAsN@lists.infradead.org
-X-Gm-Message-State: AOJu0YxW+3Y7E6VZRM0X1MYUo/rSZxpkFOLTMIzYttCd1RPmD/W2Xlc8
-	eqscfefLcygWAny4hc4t8MqAnVgPvPMwFa2pONWna9da5c5X+7GZX5GVVJ9swylGuGcDohpCq7B
-	o7tAgAdGzL8OG38HrRrQ6+OF0z/s0Y2PCY5YqupLKRQ==
-X-Gm-Gg: ASbGncsNhYcZPJ1tJ9kqxpzxqoX7Dv35IqBjPM/hP2GEVzzlj7CDkzpE+Ar5IQqLpyB
-	Hv4Q/5q1WzePoHEZvF7EJEUy+y7UZ/jjxLQcd6eg2maJo6DzjYGnYSn+I7OS7VqFhFuFU/H6Xtp
-	D2GM7eYKfbe8PKsxInrSZN4HAWwyZS+3JQQYKopafpK5L/iwBkGkI6ccI1IIZKx1aygMErycwdP
-	OL8nP5fKo+fLmODHAeThAJr1Fw=
-X-Google-Smtp-Source: AGHT+IHNVQTA/69oU/CUQR/qzRklnjI8rfcKmvQcJDYQudYDMOwxgD081JACtBJAStB/G2wUf0OyzRhddDm5971nSG4=
-X-Received: by 2002:a17:90b:3b92:b0:330:4604:3ae8 with SMTP id
- 98e67ed59e1d1-3342a299079mr7973533a91.21.1758895369114; Fri, 26 Sep 2025
- 07:02:49 -0700 (PDT)
+        bh=FAQFz5KzQ5PJDFpmxMd37ypf2wb4q8c+gi1YbDBNReA=;
+        b=g4jsSFcYQYBw6vmHVbqiuh1PkML2pSdAcn9T2+iAOc2ZZ3fYs4otHwvNdGv23Omjl2
+         2KWVFHFTHcFHpdLIM3pI3MFw67eLAAgydrFuCoutG7psACFy+Tlu/cR2eHj6NqW0RAc/
+         VEZeSXt4y8D3VhrHi2TnHKRqNJcoZOo/SltW/D7DCHOb96uW0pxnV0I1KcAV82A5q9KE
+         n/zgw/onLQC4A//d2Sv7uVqAR5N/fl7Jnje+hxpYdPxgcJzTjSh5rd+IZZFE+fzPnDM3
+         YBuG2ZAecCo/itKTtEb8rm5qNO0NOt0SpIuCzw14HGV25ObNOW96JrpMr4vknd0KzDN2
+         eoLg==
+X-Forwarded-Encrypted: i=1; AJvYcCV3eZUjjTuV12oqIWIKm+drs+KbFLyQ4Poi5jJ4tgfhMg8fIIYpw39yfTWikGTVwJ6jLYnMgi9HXkRHjOdbziCU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyx8DnOaIdJSfOc3SjWtaHOIN515kWmYJB4Zsk8175r2gop2iRh
+	PP5OQT5GirQo6oCXZsMgTTZyI8zsn2NCRxqzVC3NdOab6SOE3SkmYHWZ4EmQHKxAY7SEQKzgQLV
+	QRDKS7QetL4F0xl589KUgMg2MUdhg2KLOPx7r7tz9bQ==
+X-Gm-Gg: ASbGncuFuDEQ88r/tNjvgxCWnnJYu/bfpbWnCJzpxHtq5PEtwHOzmRhpj+2zCviiYGh
+	+kT/0GN+2paipN+rLO/NSnTJev1Gk8Z7CaLNJbc3KT1xkk0iiEMTCIs03wPKpD2Tb4DAOEiwOUa
+	+Em5bWAr1Kg/jrQv9VG5wITWdcnAlX5QSrKgl5DFNiO40o/wz8fV0895Qi8QP5fDOSXWaZV5Trj
+	mqB7fHr
+X-Google-Smtp-Source: AGHT+IFz6AI7lpE5Q8kgnAqtCZAxYnmhG/Rvd7Wo9Nq9LiN4mzX6xr07OsoVvbyMiYwIlavJn8NpCdDVr0w8GwFvOQA=
+X-Received: by 2002:a05:6a00:189a:b0:776:20c2:d58b with SMTP id
+ d2e1a72fcca58-780fced5d67mr9642567b3a.24.1758895373218; Fri, 26 Sep 2025
+ 07:02:53 -0700 (PDT)
 MIME-Version: 1.0
 References: <20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com>
- <20250915-arm_coresight_power_management_fix-v3-3-ea49e91124ec@arm.com>
-In-Reply-To: <20250915-arm_coresight_power_management_fix-v3-3-ea49e91124ec@arm.com>
+ <20250915-arm_coresight_power_management_fix-v3-4-ea49e91124ec@arm.com>
+In-Reply-To: <20250915-arm_coresight_power_management_fix-v3-4-ea49e91124ec@arm.com>
 From: Mike Leach <mike.leach@linaro.org>
-Date: Fri, 26 Sep 2025 15:02:37 +0100
-X-Gm-Features: AS18NWDTcb7oxwMgCuAkf5sEgmhUv6FvzbyMYKujmlMyb_diOW8BQdP0dPPl23g
-Message-ID: <CAJ9a7ViRQFonAp4kxP5icC5pNCqJjT0AY=saWnkEiEkBOi6wVg@mail.gmail.com>
-Subject: Re: [PATCH v3 03/31] coresight: etm3x: Always set tracer's device
- mode on target CPU
+Date: Fri, 26 Sep 2025 15:02:41 +0100
+X-Gm-Features: AS18NWBe4V8nLEoUoypK6jQgD9k-iP_QbmBBzaexAk56LLbPgca2pL60e12kz6Q
+Message-ID: <CAJ9a7Vg2OcN9LKZRP4GAu9YE4Kvj99Ti+=QWneZCjNE1s+D=DA@mail.gmail.com>
+Subject: Re: [PATCH v3 04/31] coresight: etm4x: Correct polling IDLE bit
 To: Leo Yan <leo.yan@arm.com>
 Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
 	Yeoreum Yun <yeoreum.yun@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
@@ -82,8 +81,8 @@ Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.o
 	linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_070252_689875_5835E6B6 
-X-CRM114-Status: GOOD (  27.31  )
+X-CRM114-CacheID: sfid-20250926_070254_477785_6196484F 
+X-CRM114-Status: GOOD (  18.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,152 +99,32 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 On Mon, 15 Sept 2025 at 11:33, Leo Yan <leo.yan@arm.com> wrote:
 >
-> The ETMv3 driver shares the same issue as ETMv4 regarding race
-> conditions when accessing the device mode.
+> Since commit 4ff6039ffb79 ("coresight-etm4x: add isb() before reading
+> the TRCSTATR"), the code has incorrectly been polling the PMSTABLE bit
+> instead of the IDLE bit.
 >
-> This commit applies the same fix: ensuring that the device mode is
-> modified only by the target CPU to eliminate race conditions across
-> CPUs.
+> This commit corrects the typo.
 >
-> Fixes: 22fd532eaa0c ("coresight: etm3x: adding operation mode for etm_enable()")
+> Fixes: 4ff6039ffb79 ("coresight-etm4x: add isb() before reading the TRCSTATR")
+> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
 > Signed-off-by: Leo Yan <leo.yan@arm.com>
 > ---
->  drivers/hwtracing/coresight/coresight-etm3x-core.c | 54 +++++++++++++++-------
->  1 file changed, 37 insertions(+), 17 deletions(-)
+>  drivers/hwtracing/coresight/coresight-etm4x-core.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
 >
-> diff --git a/drivers/hwtracing/coresight/coresight-etm3x-core.c b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-> index 45630a1cd32fbd05ec8b2a6979f0174cacce365e..f759a47eaed9e804e30530a232370c9504912ac6 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm3x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm3x-core.c
-> @@ -442,10 +442,23 @@ struct etm_enable_arg {
->  static void etm_enable_hw_smp_call(void *info)
->  {
->         struct etm_enable_arg *arg = info;
-> +       struct coresight_device *csdev;
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index 02ad41da7356547a67c53ff0a9146aec844f89da..382ec1a1cdd035e76d451d0112afd3f029ecbdb6 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -1926,7 +1926,7 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
+>                 state->trcpdcr = etm4x_read32(csa, TRCPDCR);
 >
->         if (WARN_ON(!arg))
->                 return;
-> +
-> +       csdev = arg->drvdata->csdev;
-> +       if (!coresight_take_mode(csdev, CS_MODE_SYSFS)) {
-> +               /* Someone is already using the tracer */
-> +               arg->rc = -EBUSY;
-> +               return;
-> +       }
-> +
->         arg->rc = etm_enable_hw(arg->drvdata);
-> +
-> +       /* The tracer didn't start */
-> +       if (arg->rc)
-> +               coresight_set_mode(csdev, CS_MODE_DISABLED);
->  }
->
->  static int etm_cpu_id(struct coresight_device *csdev)
-> @@ -464,17 +477,26 @@ static int etm_enable_perf(struct coresight_device *csdev,
->                            struct perf_event *event,
->                            struct coresight_path *path)
->  {
-> +       int ret = 0;
->         struct etm_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
->
->         if (WARN_ON_ONCE(drvdata->cpu != smp_processor_id()))
->                 return -EINVAL;
->
-> +       if (!coresight_take_mode(csdev, CS_MODE_PERF))
-> +               return -EBUSY;
-> +
->         /* Configure the tracer based on the session's specifics */
->         etm_parse_event_config(drvdata, event);
->         drvdata->traceid = path->trace_id;
->
->         /* And enable it */
-> -       return etm_enable_hw(drvdata);
-> +       ret = etm_enable_hw(drvdata);
-> +       /* The tracer didn't start */
-> +       if (ret)
-> +               coresight_set_mode(csdev, CS_MODE_DISABLED);
-> +
-> +       return ret;
->  }
->
->  static int etm_enable_sysfs(struct coresight_device *csdev, struct coresight_path *path)
-> @@ -517,12 +539,6 @@ static int etm_enable(struct coresight_device *csdev, struct perf_event *event,
->                       enum cs_mode mode, struct coresight_path *path)
->  {
->         int ret;
-> -       struct etm_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> -
-> -       if (!coresight_take_mode(csdev, mode)) {
-> -               /* Someone is already using the tracer */
-> -               return -EBUSY;
-> -       }
->
->         switch (mode) {
->         case CS_MODE_SYSFS:
-> @@ -535,17 +551,12 @@ static int etm_enable(struct coresight_device *csdev, struct perf_event *event,
->                 ret = -EINVAL;
->         }
->
-> -       /* The tracer didn't start */
-> -       if (ret)
-> -               coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
-> -
->         return ret;
->  }
->
-> -static void etm_disable_hw(void *info)
-> +static void etm_disable_hw(struct etm_drvdata *drvdata)
->  {
->         int i;
-> -       struct etm_drvdata *drvdata = info;
->         struct etm_config *config = &drvdata->config;
->         struct coresight_device *csdev = drvdata->csdev;
->
-> @@ -567,6 +578,15 @@ static void etm_disable_hw(void *info)
->                 "cpu: %d disable smp call done\n", drvdata->cpu);
->  }
->
-> +static void etm_disable_hw_smp_call(void *info)
-> +{
-> +       struct etm_drvdata *drvdata = info;
-> +
-> +       etm_disable_hw(drvdata);
-> +
-> +       coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
-> +}
-> +
->  static void etm_disable_perf(struct coresight_device *csdev)
->  {
->         struct etm_drvdata *drvdata = dev_get_drvdata(csdev->dev.parent);
-> @@ -588,6 +608,8 @@ static void etm_disable_perf(struct coresight_device *csdev)
->
->         CS_LOCK(drvdata->csa.base);
->
-> +       coresight_set_mode(drvdata->csdev, CS_MODE_DISABLED);
-> +
->         /*
->          * perf will release trace ids when _free_aux()
->          * is called at the end of the session
-> @@ -612,7 +634,8 @@ static void etm_disable_sysfs(struct coresight_device *csdev)
->          * Executing etm_disable_hw on the cpu whose ETM is being disabled
->          * ensures that register writes occur when cpu is powered.
->          */
-> -       smp_call_function_single(drvdata->cpu, etm_disable_hw, drvdata, 1);
-> +       smp_call_function_single(drvdata->cpu, etm_disable_hw_smp_call,
-> +                                drvdata, 1);
->
->         spin_unlock(&drvdata->spinlock);
->         cpus_read_unlock();
-> @@ -652,9 +675,6 @@ static void etm_disable(struct coresight_device *csdev,
->                 WARN_ON_ONCE(mode);
->                 return;
->         }
-> -
-> -       if (mode)
-> -               coresight_set_mode(csdev, CS_MODE_DISABLED);
->  }
->
->  static const struct coresight_ops_source etm_source_ops = {
+>         /* wait for TRCSTATR.IDLE to go up */
+> -       if (etm4x_wait_status(csa, TRCSTATR_PMSTABLE_BIT, 1)) {
+> +       if (etm4x_wait_status(csa, TRCSTATR_IDLE_BIT, 1)) {
+>                 dev_err(etm_dev,
+>                         "timeout while waiting for Idle Trace Status\n");
+>                 etm4_os_unlock(drvdata);
 >
 > --
 > 2.34.1
