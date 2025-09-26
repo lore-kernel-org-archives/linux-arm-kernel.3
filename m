@@ -4,77 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 861E1CAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 10:11:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1C6ECAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 10:16:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=nahzOWRsnAxDDWbnoY7+EEzku1ZXFizlLixWhDklayU=; b=0DJbqt7qxrW4EZq7r0R99iWF1P
-	6SZOfh9F93AUFnW1vYFfoojkZc8mavGas28MJxuQsvqMxSqV6LCOG6ZZng6oHIEN78AqUFx3AM56c
-	QmbeycKQf1P4qXGXdWrbqECnYRSMEWppr+oOZC1/ifdhMwM+xt/v/lXq8XlJq9u8oJoxI87ykb1cf
-	BFsesur5dpX2tSZfxS4Um+ZSqPCurKvRPCuK7zbKKYTkcielpe0AeTlz19Oq0PeH/RmNbzIMhYXGK
-	JlssgmU7XAz1CEaCldWzwAg92d+bOFo5xIlnm3WZgPB04J5FOgWw5IQWFuzxYhTv1PjU33f0x0DbB
-	SdJA4SQQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=cCkO+D9kDGCy/+XSUswKupu9H0vZnu+FUXkBu6uOVwg=; b=Tpr08+6OWrzH7Y/ZFujxrYDw0B
+	kXVx09MfilhAPJGblOjTxPgnTo0QGBGch5mV5dc4B8TSlG4OhlfS334FkS3KLXjM50LUbnOSwPeSl
+	ku+N8J2QMgk96GBYyYU7/1jlBbsd9cHdUY33k1OwRjfjzHlTuyt8TuprG9hX1VD7l7sOvMLyQ/pKF
+	iEFm81Ty1+skeL8Xnvux5RsDtkgr1/2ltMaryS99juE9RqfiKJquxs41Arn0IuMfz7L6frUJ/XWsv
+	nIHYV4GhT8SjZd0U65Ih5W4HWx0kQGCpM814fR6eCKH2s7mqEfIMnwNCRVzyesj/vvqXL0aQLoWQv
+	lKtq5Slg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v25Pp-00000000HHD-38bN;
-	Fri, 26 Sep 2025 10:11:01 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1v25VR-00000000KPQ-26vA;
+	Fri, 26 Sep 2025 10:16:49 +0000
+Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v25Pn-00000000HD6-15Mg;
-	Fri, 26 Sep 2025 10:11:00 +0000
-X-UUID: 151dcb549ac111f0a52f393f94899d25-20250926
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=nahzOWRsnAxDDWbnoY7+EEzku1ZXFizlLixWhDklayU=;
-	b=sD1ZH08UQWFLI0+88n+/vkigrs7enZS3ZZNARiJnPAMZSOxFVqKn2nF0+0IeqFJFAMqMuc0biRbIg6JzfAgjeeCWJSPhLhPFhaFD/3Kusv2TvkLnBGpvN5kJu0Ml5J+R6Hzyd3wejmce/dx9EpdA3caBwScrP4NhHvQToWIXITQ=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:373aa0dc-4ea3-49e2-a7bb-28e689b4aeb8,IP:0,UR
-	L:0,TC:0,Content:-5,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:
-	release,TS:-5
-X-CID-META: VersionHash:a9d874c,CLOUDID:5a29fa6c-8443-424b-b119-dc42e68239b0,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:0|15|5
-	0,EDM:-3,IP:nil,URL:0,File:130,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI:0,
-	OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 151dcb549ac111f0a52f393f94899d25-20250926
-Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
-	(envelope-from <ot_zhangchao.zhang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 255290080; Fri, 26 Sep 2025 03:10:52 -0700
-Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
- MTKMBS09N2.mediatek.inc (172.21.101.94) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Fri, 26 Sep 2025 18:10:48 +0800
-Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
- mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
- 15.2.1748.10 via Frontend Transport; Fri, 26 Sep 2025 18:10:47 +0800
-From: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>
-To: Marcel Holtmann <marcel@holtmann.org>, Matthias Brugger
-	<matthias.bgg@gmail.com>, Luiz Von Dentz <luiz.dentz@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-CC: Krzysztof Kozlowski <krzk@kernel.org>, Sean Wang <sean.wang@mediatek.com>,
-	Deren Wu <deren.Wu@mediatek.com>, Chris Lu <chris.lu@mediatek.com>, Hao Qin
-	<Hao.qin@mediatek.com>, linux-bluetooth <linux-bluetooth@vger.kernel.org>,
-	linux-kernel <linux-kernel@vger.kernel.org>, linux-arm-kernel
-	<linux-arm-kernel@lists.infradead.org>, linux-mediatek
-	<linux-mediatek@lists.infradead.org>, Zhangchao Zhang
-	<ot_zhangchao.zhang@mediatek.com>
-Subject: [PATCH v9] Bluetooth: mediatek: add gpio pin to reset bt
-Date: Fri, 26 Sep 2025 18:10:46 +0800
-Message-ID: <20250926101046.26559-1-ot_zhangchao.zhang@mediatek.com>
-X-Mailer: git-send-email 2.46.0
+	id 1v25VO-00000000KMZ-2w2l
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 26 Sep 2025 10:16:47 +0000
+Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-7704f3c46ceso1953885b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 03:16:46 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1758881806; x=1759486606; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=cCkO+D9kDGCy/+XSUswKupu9H0vZnu+FUXkBu6uOVwg=;
+        b=o2CYSSazGKXIK2jTEEw/9F9Ml9Rur9TOFHufr0epGgDugHf8KrlP1OV4YoMbaRzLkw
+         ir7neM0ZUA3gUgk557/PhynKTlRjkWhFQbXKh3c5vz7+qnzXrBWFE0GKXC6cmOnhOZ+D
+         /VibTb+xmUf/lE5qsC9FPkMKWcSn7YAOUzPHSV/e7C39FaiWyytDbn6xSQAtkd3DHUDQ
+         x/0EOjrwP02RFtJctidD9noXfEtVlW1m38nrdOnCuBC87FrEfEasP1alfOlruONX2fWg
+         YztVBL5L5WcjJDw3Ac4y06KHy5pr/cevxXtwjmDs4HZLwxAGEG4bLe0EvX104jWC+GCu
+         av2g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758881806; x=1759486606;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=cCkO+D9kDGCy/+XSUswKupu9H0vZnu+FUXkBu6uOVwg=;
+        b=MmLYKYGhf/bHKGZOoflH3WuTMq2XiN5a0X57G2/sJhxnHIToiPbSOwY+Ot1DsylGtC
+         Q2oZHW/uslHiMqRnLM8Ka2F4TbRrA6mPnemQztwZJPQtaV6CF3z3oSFdySX2EZnFuBv2
+         kf/POWyKU8JM/4TRNjpE1cIdgj89mmjaELhOLXIk27Jq6VAsDfPBdKELSBsq5yj/gk8c
+         VLhGPAcA/2EgSrxhaPByivswThR3v7qBpjPCqHYr87zlsDzY/qZt8UEoi5OWgS1FOVx0
+         L1B7+MZBsMkElPrml/ZDFQaEpQm6phLtm18ury+fvuRlch10dg6hqdlZBbsqiRL7PS4t
+         DBpA==
+X-Forwarded-Encrypted: i=1; AJvYcCUyz791tTJiHXhVdXxjxqilJkLnQYDV/eTHwwCQ1UQda9MqmBGAGe/yO+5Ln9RlIZQkn+L0DeU/zFuQn1auzPJA@lists.infradead.org
+X-Gm-Message-State: AOJu0YyTJYF2mGAZ53+oUTGVajZVxWJ+7KK0XCOPV2le3DlUhaqWkS9n
+	LgQcJseui3BCb3UMJ8w7VqZu9uu+vjPDlbJoPHMztusLfprFaOHGiLYqx6vyweazdnR8MJIoR55
+	0m91h1h3BIdOaRj6GuRDwppZiEWGjTH9NwMszWIUssA==
+X-Gm-Gg: ASbGncuYCBL+ku36jwEIQjbhB71FxCnw2SBPP0VmfikJlUAXje55kNmA8TP0cWOpDE5
+	Wj7wsR/wpjZGS7LjNVPVjU50OSDC7/7MOKoxO3iMTxNM7XiIjAhJV22tDbRlHYTrBo/8EzEDvvz
+	wLoayPEm0JuzF09b+BhqrDaCDi9KD5/up4zYcN/o8PDRiNU8VRzEfkEfr4gGaQrpimPTUS32Xjp
+	2EvKEB4
+X-Google-Smtp-Source: AGHT+IGzJlxVn5fvoyaE5bTUyWB/9v7sczw+G/GMyXP2+K7YbYeP/z9Wa8AjIVmPF5mdgTCRh5nZo7e/gi20TgvnbRo=
+X-Received: by 2002:a17:90b:3b43:b0:32e:329d:3064 with SMTP id
+ 98e67ed59e1d1-3342a22be07mr6857155a91.9.1758881805764; Fri, 26 Sep 2025
+ 03:16:45 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+References: <20250925150342.1845615-1-sean.anderson@linux.dev> <20250925150342.1845615-2-sean.anderson@linux.dev>
+In-Reply-To: <20250925150342.1845615-2-sean.anderson@linux.dev>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Fri, 26 Sep 2025 11:16:34 +0100
+X-Gm-Features: AS18NWDTsCHFtCAPW1bDwfDXkfQeZu6rm2BiGOisJ47um5m78Fo0JSROz43i8Ck
+Message-ID: <CAJ9a7ViDJKRCMn6wqHC-F+ohU_gRa3BzgaFoGzcd0TeDmNLKVg@mail.gmail.com>
+Subject: Re: [PATCH v5 1/3] coresight: Fix fwnode leak in coresight_register
+ error path
+To: Sean Anderson <sean.anderson@linux.dev>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org, Leo Yan <leo.yan@arm.com>, 
+	Yeoreum Yun <yeoreum.yun@arm.com>, Linu Cherian <lcherian@marvell.com>, linux-kernel@vger.kernel.org, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, James Clark <james.clark@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_031059_312084_88A6B641 
-X-CRM114-Status: GOOD (  23.73  )
+X-CRM114-CacheID: sfid-20250926_031646_741980_D7AC1816 
+X-CRM114-Status: GOOD (  17.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,117 +96,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Support the platform Bluetooth to be reset by hardware pin,
-when a Bluetooth exception occurs, attempt to reset the
-Bluetooth module using the hardware reset pin, as this
-method is generally more stable and reliable than a
-software reset. If the hardware reset pin is not specified
-in the device tree, fall back to the existing software
-reset mechanism to ensure backward compatibility.
+On Thu, 25 Sept 2025 at 16:04, Sean Anderson <sean.anderson@linux.dev> wrote:
+>
+> If registering the CPU map fails, we need to put the fwnode. free_percpu
+> works when called with a NULL pointer, so just use
+> coresight_device_release.
+>
+> Fixes: 5ad628a76176 ("coresight: Use per-sink trace ID maps for Perf sessions")
+> Signed-off-by: Sean Anderson <sean.anderson@linux.dev>
+> ---
+>
+> (no changes since v4)
+>
+> Changes in v4:
+> - New
+>
+>  drivers/hwtracing/coresight/coresight-core.c | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+> index fa758cc21827..022c8384b98d 100644
+> --- a/drivers/hwtracing/coresight/coresight-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-core.c
+> @@ -1352,7 +1352,7 @@ struct coresight_device *coresight_register(struct coresight_desc *desc)
+>                 raw_spin_lock_init(&csdev->perf_sink_id_map.lock);
+>                 csdev->perf_sink_id_map.cpu_map = alloc_percpu(atomic_t);
+>                 if (!csdev->perf_sink_id_map.cpu_map) {
+> -                       kfree(csdev);
+> +                       coresight_device_release(&csdev->dev);
+>                         ret = -ENOMEM;
+>                         goto err_out;
+>                 }
+> --
+> 2.35.1.1320.gc452695387.dirty
+>
 
-Co-developed: Sean Wang <Sean.Wang@mediatek.com>
-Co-developed: Hao Qin <hao.qin@mediatek.com>
-Co-developed: Chris Lu <chris.lu@mediatek.com>
-Signed-off-by: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>
+Reviewed-by: Mike Leach <mike.leach@linaro.org>
 
-V8-->V9 modifications:
--Corrected the if judgment in the patch from data->rest_gpio
-   to data->reset_gpio.
-
-V7-->V8 modifications:
--Currently, the universal reset GPIO can be found by configuring DTS.
-   USB bus can get the device node and reset GPIO in the probe phase.
-   It is fully compatible with other vendors' methods of getting reset
-   GPIO. Therefore, the previous complex methods of adding the compatible
-   string in btmtk.c to get GPIO is discarded. Abi files and yaml files
-   are no longer needed. When a Bluetooth exception occurs, the existence
-   of GPIO will be determined first. This change improves the robustness
-   of Bluetooth recovery on platforms that support hardware reset, while
-   maintaining support for platforms that do not.
-
-V6-->V7 modifications:
--Change the gpio_direction_output interface to the gpiod_set_value_cansleep
-   and gpiod_put interface.
--Remove the schedule_delayed_work asynchronous operation.
--Delete the #gpio-cell attribute in the yaml file, remove the #gpio-cell
-   in the required field, and simplify the contents of the descriptions.
-
-V5-->V6 modifications:
--Add specific revisions in the changes from v4 to v5.
--Add hardware pin title and descriptions to dt-binding submission
-   information.
--Modify the title descriptions in the dt-binding file.
--Add 7925 what is it.
--Wrap the descriptions of MT7925 chip uses the USB bus appropriately.
--Change the compatible string to mediatek,mt7925-bluetooth in
-   the dt-binding file and driver code.
--Drop gpio-controlelr properties in the dt-binding file.
--Modify the descriptions of the reset-gpios
-   properties in the dt-binding file.
--Change the node information of reset-gpios in bluetooth
-   from high level valid to low level valid.
-
-V4-->V5 modifications:
--Correct the spelling error of word provides mentioned in V1.
--Drop the xhci0 node and status property in the dt-binding file.
--Modify the bt_reset tag node to bluetooth in the dt-binding file.
--Add #gpio-cell descriptions to properties, nodes and requests.
--Make a separate patch for the changes to dt-binding.
-
-V3-->V4 modifications:
--Modify submission information why use hardware pin to reset Bluetooth.
--Write historical commit information into the cover letter.
--Modify dt binding format information and
-   the explanation text in the dt-binding file.
-
-V2-->V3 modifications:
--Changed the capitalization of co-developer names,
-   using the correct capitalization of abbreviations and full
-   name, and corrected obvious spelling errors.
--Add a revision history.
--Remove the "BT Driver" in the prefix.
--Add the bt-binding document, include inforamtion related to reset
-   pin and compatibility matching.
--Add a comment before the schedule_delayed_work function call,
-   although schedule_delayed_work is asynchronous, there is no risk.
-   Even if it is not completed within 200ms, it will only postpone
-   the subsequent probe and will not have any impact.
--Add a comment before the btmtk_reset_by_gpio function call,
-   if the compatibility filed or pin cannot be found in the dts
-   files, it can still reset bluetooth using software reset.
-
-V2 modifications:
--Modify gpio to GPIO, SW to software,
-   and fix other obvious spelling errors.
----
- drivers/bluetooth/btusb.c | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
-
-diff --git a/drivers/bluetooth/btusb.c b/drivers/bluetooth/btusb.c
-index ef44817cad34..f972332840f5 100644
---- a/drivers/bluetooth/btusb.c
-+++ b/drivers/bluetooth/btusb.c
-@@ -2745,6 +2745,19 @@ static int btusb_mtk_reset(struct hci_dev *hdev, void *rst_data)
- 	btusb_stop_traffic(data);
- 	usb_kill_anchored_urbs(&data->tx_anchor);
- 
-+	/* Toggle the hard reset line. The MediaTek device is going to
-+	 * yank itself off the USB and then replug. The cleanup is handled
-+	 * correctly on the way out (standard USB disconnect), and the new
-+	 * device is detected cleanly and bound to the driver again like
-+	 * it should be.
-+	 */
-+	if (data->reset_gpio) {
-+		gpiod_set_value_cansleep(data->reset_gpio, 1);
-+		msleep(200);
-+		gpiod_set_value_cansleep(data->reset_gpio, 0);
-+		return 0;
-+	}
-+
- 	err = btmtk_usb_subsys_reset(hdev, btmtk_data->dev_id);
- 
- 	usb_queue_reset_device(data->intf);
 -- 
-2.45.2
-
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
