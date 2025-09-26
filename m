@@ -4,141 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9BCECAC5AC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 08:40:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E444BCAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 08:42:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QJH3H/0kmdW6w7MgCtEBO34/S0w4O3IKZVUmNKMzmxs=; b=HXGk3TOSaI7lMTdws3gcYTAXo2
-	+DJi9LTE0AFvwsEzYYM7/FL+qDbksmer51bbr0imGp7ExqXXylIgyh4bYvc+G/zQo57Wgo+zjHIn6
-	qLz+SSbjBsGqCE5gxUNz2lks6UjGzMeI1EUc5vSojtpIIsUFDiReSZWdkQfsLmJvTFiqc87MjxMHf
-	HUsxBXop0PDodEQVm0GoZjmSgHLPZ2JikY1+qI2fC98kZh/aS46Nu8SPzT6ANkL6vCKXAoRxRQFIW
-	VYJRyIX2cGQo9F5dQsDuQpxoNkOoskIQbLTrPbOlMvaEV9wIWnc258zVFPxRC5dltVK3umeaLKDIO
-	Zhtgn2Tw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hh5uxEyK6OvB8UynZ99mPLkC/3fYPS/LIg1UGviPL70=; b=iE8HcLIxvJwINgB/0ZRw5d7Evq
+	BnT+kyIBrtC9El/KUOLwA5MPsqVRkdSOUpkTDG6tEdP7QXPu3Ub7d3L8wTjPLp1Ka1iJ800imVyE9
+	txXFdDl/Z1VGkQaeuseUKoGQQ6Lls4lMS7WySCRLQseIwIAVpLc9f3cNsWiBdstk+LEkkehW/GZyU
+	9zcYidhKaKVr+zHl4s0dl1wTVd/ThvzvvINUW9cXz47cXit9Vh6jxC7Nf869JYRURHGCY2mwfKpRR
+	5puDA4nbRiP7i5gPvRdo7w82blvGIMBX8skC7xABtOLnp1vk2f49emLjqbKzBM7dUaI8gIoqoyJaZ
+	sXtEndjg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v240T-0000000HEVr-2lT0;
-	Fri, 26 Sep 2025 08:40:45 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1v242A-0000000HFSH-0ESe;
+	Fri, 26 Sep 2025 08:42:30 +0000
+Received: from mail-ua1-f53.google.com ([209.85.222.53])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v240Q-0000000HEUT-3Ze6
+	id 1v2427-0000000HFQ5-1ieg
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 08:40:44 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58Q70T1J025396
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 08:40:41 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	QJH3H/0kmdW6w7MgCtEBO34/S0w4O3IKZVUmNKMzmxs=; b=TW6ltXRzQyf5A7om
-	E18NnxeB03KQyW2HIqMhNtSSpsj8daU4M3DoSJiF+CN8Ob3AOMMvzlM4mN2ls++K
-	lrOthPpxhzyxOQbPvBVEBVA0rzWNe2lUaLCuItVXgdQ0/nGr/H9nWkPMR7rmrckJ
-	rU+AvuwfmzVhlD/iI39A6TtD2ZIepde1jdDt74ujELry+hgSe/qOnh00kayYDXTb
-	prbcPCRSvg8qYjZiAZdnt/stB8QpyxDTHB45bEICq106dailIXO/si7EGsO0SwQa
-	r2r70ePAFVD08PQVJW7G6ZCaDH5QvaSakNtEFVKtydxUDFyql70//cVqyXW0NM13
-	8PL0pw==
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49db0u24g4-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 08:40:41 +0000 (GMT)
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-269880a7bd9so22399615ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 01:40:41 -0700 (PDT)
+	Fri, 26 Sep 2025 08:42:28 +0000
+Received: by mail-ua1-f53.google.com with SMTP id a1e0cc1a2514c-905b08b09f5so631677241.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 01:42:27 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758876040; x=1759480840;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=QJH3H/0kmdW6w7MgCtEBO34/S0w4O3IKZVUmNKMzmxs=;
-        b=pp91+jXxmk4EBXsnih4K5fpPLV+0Avpw6SvwOFElSeEe8LjKvqvGsfjGU29BLleuK7
-         NGeaZfD+/mdzTJXQRQcPUfm64gxShByJbmccG1WvjnptTN2BHYNk52onBoGQvrwi3rwp
-         gRjQ5MkQzS+TzOV5id2ldAwldxBhAOy5umDuVteL0SRr86Yp6hhukErYmEhn0Ju0we3f
-         P1lFc/GPpYlm6C/xG044HUMLjZM8e2VFvwS3WW+a5REoVyXKgl23bk58f1qFOEx42P7g
-         ST7qrzW2Rr3pK2amVUQkKowJxNPjyNRr5DqwsZdVp86zu1HVpTdOAN1rN5gdImxScYJn
-         6xPA==
-X-Forwarded-Encrypted: i=1; AJvYcCXvevhQQPdvACWcmkVlK2cDd7qao5aLFssFnwn3+ts5XURL4dMJCIk2k7V2oJ/ldBMrDzIfFum5eWWDkfHZwHuQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzELgQKGF1zv84FwDXNYYD4RaugdV5ePLy+JOr3npJgCpFouWzl
-	6vuoBlrOaLzYjnRHpmLvb+csgj42lbAPgwPnNEQ7vqLD1EvRX/YPGAM1AbHrIoWl6s7AkDV0gsB
-	JUOrhFtQTS0V6zzE+IuybLgO5K9RbL6bBRPs0ca2Vo9EBq8i0+Mwrrm9xOia03uBuoAm9u+JvPU
-	bmag==
-X-Gm-Gg: ASbGncuPLnwz3K05+F12akUuRszpjNE7qO0gKVwxxaiTvRQDsfjCY62tmpVX7PuTPwt
-	YMD35x0StxC/G26AK8kfQEuWP2UR/ECoMXahpJaw3AeBsZblDKY+SAdBB/Hf2iqsdHR+mrUI3yV
-	L/Najzd0ZwBeit+RvWWpbyn8bmE82KKogEATjjqTiqmbfhNvBHSBkn/61pSi6FBnPpNHiELK2fM
-	AQf8mZ/G2OCVpcM5AXG1VNvfGd8enf2vM3iIKzkLljjtLORCcYflhG61RUPVy/uH4dcPsR258+e
-	PlIDS9m1U8R6A7kEye0Petg6jKk0EV7Vh7OonscY4wDMJUm6gVqfmSeYdbHwOK8YxPGD
-X-Received: by 2002:a17:902:e787:b0:266:e8c3:4731 with SMTP id d9443c01a7336-27ed4a4e69fmr57199505ad.23.1758876040423;
-        Fri, 26 Sep 2025 01:40:40 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGSYjbgxz3ZpRa0D00ZVNPgHg9O0ctAAj1epWv0U96tMdUGtuWmJ8IJY2bgSO3VYP/MfK11Rw==
-X-Received: by 2002:a17:902:e787:b0:266:e8c3:4731 with SMTP id d9443c01a7336-27ed4a4e69fmr57199205ad.23.1758876039860;
-        Fri, 26 Sep 2025 01:40:39 -0700 (PDT)
-Received: from [10.217.216.188] ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-27ed6733a63sm47601845ad.64.2025.09.26.01.40.33
+        d=1e100.net; s=20230601; t=1758876146; x=1759480946;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=hh5uxEyK6OvB8UynZ99mPLkC/3fYPS/LIg1UGviPL70=;
+        b=LqQ8GPw0GglxhEVQD0HoZZgNkKSYrzXPEH1hlRAqbwLq9bU1Cz43ehQGuMrIPXnTiT
+         8k9EUDdiNX/tWoRZpcpeNK/EeHRsaZWjvH79qpVoFjKiTR8semqHt0f2PaOy69GFI1ln
+         sZWi8vPi6+/GEP7dMCwg7sq4X+mLrt6+Nm+5m8DJ4M+lukSwfTpTCiwUu7v6EtJM6/Xm
+         u6I78rpPlS6lkMqHwxpr+leKbqkKCDPcwIqlxXKSearwDksjkz31dVRzpg6xUBSZmwqH
+         sRTYPkAZkETiPQt5y9qAHe9SgBtJXIdclpO+KdFkRPjPAwgGjQh/MDaKS77jN/F2Giz5
+         C59A==
+X-Gm-Message-State: AOJu0Yy7N7+Qt7fkvBzYoAf4gf1ifecjJ/Q2NMayg4Otz73F/IGotyKH
+	5TEFesxXP9HlDIzz86+V5J7avU+xvIt0zyw30eGOFqacDaDJ6qy/XUm+jq0dU662
+X-Gm-Gg: ASbGnct0D/43d+suzQ9htNGfm7b7hfJON/x82576qWHh6MbQRM3jXslrYg0K5Sb94vd
+	MpYUZR0crTHgBmrFRcJotes8AfGTsljMVtdi9M5tlPMBUPncLbkPd2aJN3XG2QYM6xHoZ2Q+nlW
+	8cOCmpQ3ydjCxa3oG2eWdeem//NBB/VkV4LlfvGPkejUyiHEEQU71faSFJ2GqWwi/vhQBWORArd
+	gwhsjmtTmkdM2KSLMiv85aGtliWXFLGwO/i9rLR8XpURhJ+EIoXgkxr/mVPvKnYUYDH5mAv1sGq
+	Execz+fnh9MzOWDB0ld3jjuBIZLAs9gu5JsxE38Satvbl9NLtveGBWPrjqhJClFNfwqwXnppjxh
+	95atZqwehYauS1xgkcy2W3F+99pD/9H7yjlps9tnGq+y2MaDTBOp4XZPxDZBVBnN2WdHUEBY=
+X-Google-Smtp-Source: AGHT+IE2McYaLl7j1sPV/GKyW+ZpZ7koEPhjOL77h87c+iFsY6p8G/fvsLxsPbi/ubVmH8ZMPQYFaQ==
+X-Received: by 2002:a05:6102:e07:b0:4e5:980a:d164 with SMTP id ada2fe7eead31-5acb7e5e7c4mr2747438137.0.1758876145971;
+        Fri, 26 Sep 2025 01:42:25 -0700 (PDT)
+Received: from mail-ua1-f46.google.com (mail-ua1-f46.google.com. [209.85.222.46])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-54bed8b2010sm788704e0c.12.2025.09.26.01.42.24
+        for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 26 Sep 2025 01:40:39 -0700 (PDT)
-Message-ID: <d55b42b6-1b2b-4a52-8eaf-78c4ed78958c@oss.qualcomm.com>
-Date: Fri, 26 Sep 2025 14:10:31 +0530
+        Fri, 26 Sep 2025 01:42:24 -0700 (PDT)
+Received: by mail-ua1-f46.google.com with SMTP id a1e0cc1a2514c-89018e97232so498114241.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 01:42:24 -0700 (PDT)
+X-Received: by 2002:a05:6102:41a4:b0:55d:cfa5:9d60 with SMTP id
+ ada2fe7eead31-5acc6805581mr2527265137.12.1758876143956; Fri, 26 Sep 2025
+ 01:42:23 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 7/9] clk: qcom: camcc: Add support for camera clock
- controller for Kaanapali
-To: Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-        Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-        Jagadeesh Kona <quic_jkona@quicinc.com>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org, aiqun.yu@oss.qualcomm.com,
-        tingwei.zhang@oss.qualcomm.com, trilok.soni@oss.qualcomm.com,
-        yijie.yang@oss.qualcomm.com
-References: <20250924-knp-mmclk-v1-0-d7ea96b4784a@oss.qualcomm.com>
- <20250924-knp-mmclk-v1-7-d7ea96b4784a@oss.qualcomm.com>
- <d18c5196-dd8e-47d6-87bd-de0ac94fbf3b@linaro.org>
-Content-Language: en-US
-From: Taniya Das <taniya.das@oss.qualcomm.com>
-In-Reply-To: <d18c5196-dd8e-47d6-87bd-de0ac94fbf3b@linaro.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-ORIG-GUID: Au74ZuvkjKWWMv0XgzcnPu7OksBS5yTv
-X-Proofpoint-GUID: Au74ZuvkjKWWMv0XgzcnPu7OksBS5yTv
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTI1MDE3MSBTYWx0ZWRfX6mB4jbJ+SWw7
- SAKC2/uQmHTALgOSazbZOPVkEFi+al3/KMjUI7F2oqPptCct0q73brIUKgk1FOozb/5RplcKejW
- G2VxSkK3D+PAzZh1+uk36ypBa/TF6uPFN7vS1ktUy4oyPf5jijIBd0KgFFNleklT3B8caj3geqZ
- oiZnUXnIZr54GlrM9joh0CxJKeP7i06IUPTgASeg7psn8ACFmOXjvmUf2U5Hai2GkqlFf2JvO54
- l5fYNxdZFGXFzu+niUh2PwVWbYG69pmT/uSJWd1ai3WR1OHBxlM8X+5AU/GHS/Yut8ZLxv01EzX
- Tyw6evJP+QGAdHqqZh+v09KrdTFfgYY5DMAPEHneO8L6bHQ+m56jacjCAcZgUVhq4xuYRAqQzON
- BdzpwU9LxPMUJBEVLSCW8oOYh9FisA==
-X-Authority-Analysis: v=2.4 cv=ZsHg6t7G c=1 sm=1 tr=0 ts=68d65189 cx=c_pps
- a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=txcd_wJ1IAhHlW4x_IwA:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=zZCYzV9kfG8A:10
- a=GvdueXVYPmCkWapjIL-Q:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-26_02,2025-09-26_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 spamscore=0 malwarescore=0 lowpriorityscore=0 adultscore=0
- priorityscore=1501 impostorscore=0 bulkscore=0 suspectscore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2509150000 definitions=main-2509250171
+References: <20250907161130.218470-1-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20250907161130.218470-1-marek.vasut+renesas@mailbox.org>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Fri, 26 Sep 2025 10:42:11 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdU+X47H=_7y8rXGkXU+wCXq61LgD_VyWw-quq3O0KBzQQ@mail.gmail.com>
+X-Gm-Features: AS18NWDJaK7VikVNhpA9q5HvjdDy559ovF-XoDoqQf-Yk5Qz5FJG5_rrh8fqJYk
+Message-ID: <CAMuHMdU+X47H=_7y8rXGkXU+wCXq61LgD_VyWw-quq3O0KBzQQ@mail.gmail.com>
+Subject: Re: [PATCH v3] arm64: dts: renesas: r8a779g3: Add Argon40 fan HAT DTO
+ to Retronix R-Car V4H Sparrow Hawk
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org, 
+	Wolfram Sang <wsa+renesas@sang-engineering.com>, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
+	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
+	linux-renesas-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_014043_012260_BD0F392B 
-X-CRM114-Status: GOOD (  13.11  )
+X-CRM114-CacheID: sfid-20250926_014227_452018_22447689 
+X-CRM114-Status: GOOD (  17.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -153,34 +96,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Marek,
 
-
-On 9/25/2025 2:40 PM, Bryan O'Donoghue wrote:
-> On 25/09/2025 00:56, Jingyi Wang wrote:
->> +static u32 cam_cc_kaanapali_critical_cbcrs[] = {
->> +    0x21398, /* CAM_CC_DRV_AHB_CLK */
->> +    0x21390, /* CAM_CC_DRV_XO_CLK */
->> +    0x21364, /* CAM_CC_GDSC_CLK */
->> +    0x21368, /* CAM_CC_SLEEP_CLK */
->> +};
-> 
-> How is this critical list decided ?
-> 
-
-Bryan, these are list based on design recommendations.
-
-> For example why is the AHB clock critical but the CAMNOC and AXI clocks
-> not critical ?
-> 
-
-AHB clock is required for access and NOC & AXI needs to be managed by
-the client SW driver.
-
+On Sun, 7 Sept 2025 at 18:11, Marek Vasut
+<marek.vasut+renesas@mailbox.org> wrote:
+> Add DT overlay to bind Argon40 fan HAT, on Retronix R-Car V4H
+> Sparrow Hawk board. Fan RPM control and full RPM on reboot has
+> been tested.
+>
+> Tested-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 > ---
-> bod
+> NOTE: Depends on series:
+>       https://lore.kernel.org/linux-hwmon/20250904202157.170600-1-marek.vasut+renesas@mailbox.org/
+
+Thanks for your patch!
+
+Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
+i.e. will queue in renesas-devel for v6.19, with the one-line summary
+changed to "arm64: dts: renesas: sparrow-hawk: ...".
+
+Gr{oetje,eeting}s,
+
+                        Geert
 
 -- 
-Thanks,
-Taniya Das
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
 
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
