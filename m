@@ -4,71 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D7CCCAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 16:08:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82C30CAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 16:09:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=xHipo+pggRfpXziUsYIufG0S9whHgvjhiUL4CZMkWCQ=; b=YzmCiRU6+XtLf08oni4gtG/033
-	NPdDs/E+Dgv0bXgs8TlU0RY9JKTpCfTiw3XdF0eH2DhoQ3dr4OWw0JKhHe7pLgcP5ZjVtizDkfLm5
-	13HmJ8PTG2xzEupInG8m1DZfdQa94XWAM639KjmmS5z/KG5yMWJlRMJUDvAsAuXtcQ6EUcJfvd7AN
-	GWSVU1lyywniqLQbB/Lv9fERzYsUWyCsUVRoNRoNLgh4BRZhUdEXKBtmePNmvod4tR9zTs+WbeWB9
-	aMWjkzSFCBD4RQw+dFmpgZ9rk5QRarpAmHh/vR78EWKXHhz73+kzYEercGRUbZSd+S1ZoewjoM+FU
-	FeSO2ngw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vIjK8L0zmx3vzH4+wepEoghbzlgv5uJqUNT8+cEOMRw=; b=lNDSDmuFwhi1NSm6oArGdh0Jv+
+	jBM+WqRgdSyx3hMM8GUEn1bAA370q4z58igRMlVh6noaVj78FqKBraqSDYUTmqXr0rI4GW1N5eLn9
+	pmOFjixYeS+tuQqIF+l/RQUCQWpbHtrXRm3C5VbFE+Kw1eN38j6Z55BIKnhKvj8KHHO+NtE4XMNlC
+	2Sj7phuuH2nXGkt4ZoQZOwIrsBka3nhC8si5nlzmkMAgEFXsDeBj6XzFErOi561i2pcFvy3YhcBF3
+	0/jfEFzF5I6QAHF1kiaCxQpNU9GWXcOU4GtaNMAt7z9bw5AKcLxo56t6ex2pQQPXmARhr4ZXHwHJq
+	i87PdLIA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2Azi-00000002iaW-3rRi;
-	Fri, 26 Sep 2025 16:08:26 +0000
-Received: from mgamail.intel.com ([192.198.163.19])
+	id 1v2B0Z-00000002j4u-3CT7;
+	Fri, 26 Sep 2025 16:09:19 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2Azg-00000002iYb-1t5I
+	id 1v2B0Y-00000002j42-1bMe
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 16:08:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1758902904; x=1790438904;
-  h=date:from:to:cc:subject:message-id;
-  bh=YUxMXaZJZJ6ZlDXaqn9svKfoXnPATnQ9RaM+ULJQcgs=;
-  b=kkfvAakrhIbs2eW4OFnQO70u/rduSxCflRUkTy9NvZ1M3SirvG7nx9hc
-   NPq2o5fRAI1oyj5ylFKkDCoyBafrgalHVZTYkE1ggmtQMt3lIwnJrXDi8
-   +BUrUAqhqAYjWa0jXnzUOP6EwVJQJR2DsEY8T81b6coN7stcOX+ohRwmp
-   Z0GO789bmkwwSFERfYRnem6B1o10beImCspJTdmh6v5IXP+8I2H18Qrb4
-   BRGF6V2c4NkCZSf/p/ZGOlboTazGUfp0AIe6pFFe+08vWO5JnIJ1ikz33
-   0lq5yh9jgvxoXyrGsEWeeTf1vxiXWZiIybv4mLqrVzOTTg1gAzxwVL3zP
-   A==;
-X-CSE-ConnectionGUID: h7DbXl7jRz2d/6jLm7rInw==
-X-CSE-MsgGUID: kRdxm8OcRGqUqk+UWbWLpw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11565"; a="60277176"
-X-IronPort-AV: E=Sophos;i="6.18,295,1751266800"; 
-   d="scan'208";a="60277176"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa113.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Sep 2025 09:08:24 -0700
-X-CSE-ConnectionGUID: N9UzIF+8RYatDNcpexC9ag==
-X-CSE-MsgGUID: kM0CHi5uQGiskw80Rzq5NA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,295,1751266800"; 
-   d="scan'208";a="177578631"
-Received: from lkp-server02.sh.intel.com (HELO 84c55410ccf6) ([10.239.97.151])
-  by fmviesa006.fm.intel.com with ESMTP; 26 Sep 2025 09:08:23 -0700
-Received: from kbuild by 84c55410ccf6 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1v2AzW-0006Op-2K;
-	Fri, 26 Sep 2025 16:08:16 +0000
-Date: Sat, 27 Sep 2025 00:07:18 +0800
-From: kernel test robot <lkp@intel.com>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
-Subject: [soc:for-next] BUILD SUCCESS
- 205ceac7f90a518c01375ba71c45b581167b52ff
-Message-ID: <202509270010.8SxWmbcN-lkp@intel.com>
-User-Agent: s-nail v14.9.24
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_090824_498061_0D8C9B97 
-X-CRM114-Status: UNSURE (   5.26  )
-X-CRM114-Notice: Please train this message.
+	Fri, 26 Sep 2025 16:09:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 67AAA61EBE;
+	Fri, 26 Sep 2025 16:09:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BD350C4CEF4;
+	Fri, 26 Sep 2025 16:09:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758902957;
+	bh=vIjK8L0zmx3vzH4+wepEoghbzlgv5uJqUNT8+cEOMRw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=GS6E0EXmr6Vld7SgTsA6FsDXzrFcXM4Yi1Aq10B9ivoONfTJAD+oQn55Ab6o7OTdk
+	 4MF14UppV3queoLGGMs0YlliihhIJFCM7yLwRQAvUivnBPazOLDz3XhXsDw0EoyBu8
+	 LfjN2t0HyCSMSO8I7uXdEjyPIDGLu/8IVAEReVyi+McMCXO2lJ64JmkhcvaMr0aHxe
+	 0kKRLwgcqk6k6prx621TO8IsOjicUaSx6WvhusVX66hrawa8z2UTBZoXGlArt6mKEH
+	 d98+Gg5z1RTlFQPwQu6YNyYUKrj6gNRM+1pJr33Qd/oVE2ARxEvXfUxEUODVPiTS17
+	 Dxj7TrI8u8MhA==
+Date: Fri, 26 Sep 2025 17:09:08 +0100
+From: Mark Brown <broonie@kernel.org>
+To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
+Cc: "adhemerval.zanella@linaro.org" <adhemerval.zanella@linaro.org>,
+	"nsz@port70.net" <nsz@port70.net>,
+	"brauner@kernel.org" <brauner@kernel.org>,
+	"shuah@kernel.org" <shuah@kernel.org>,
+	"debug@rivosinc.com" <debug@rivosinc.com>,
+	"fweimer@redhat.com" <fweimer@redhat.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"dalias@libc.org" <dalias@libc.org>,
+	"jeffxu@google.com" <jeffxu@google.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"yury.khrustalev@arm.com" <yury.khrustalev@arm.com>,
+	"wilco.dijkstra@arm.com" <wilco.dijkstra@arm.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"codonell@redhat.com" <codonell@redhat.com>,
+	"libc-alpha@sourceware.org" <libc-alpha@sourceware.org>,
+	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>
+Subject: Re: [PATCH RFC 0/3] arm64/gcs: Allow reuse of user managed shadow
+ stacks
+Message-ID: <5397025d-7528-4b9c-b38d-b843ab004f47@sirena.org.uk>
+References: <20250921-arm64-gcs-exit-token-v1-0-45cf64e648d5@kernel.org>
+ <760447dc3e5805bf5668e80a94bf32356e2eb2d3.camel@intel.com>
+ <8aab0f36-52ad-4fd6-98c3-bcdba45dbe16@sirena.org.uk>
+ <ac0ceb09ffaeb1f0925b61ed1b82ee6475df2368.camel@intel.com>
+ <604190c7-5931-4e74-a1c9-467e52d3001b@sirena.org.uk>
+ <eab692794cbc82080b708c581efd5973b6004be0.camel@intel.com>
+MIME-Version: 1.0
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ptvvVk1i1ZxvsU15"
+Content-Disposition: inline
+In-Reply-To: <eab692794cbc82080b708c581efd5973b6004be0.camel@intel.com>
+X-Cookie: Your canceled check is your receipt.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,122 +91,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
-branch HEAD: 205ceac7f90a518c01375ba71c45b581167b52ff  soc: document merges
 
-elapsed time: 1511m
+--ptvvVk1i1ZxvsU15
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-configs tested: 102
-configs skipped: 2
+On Fri, Sep 26, 2025 at 03:46:26PM +0000, Edgecombe, Rick P wrote:
+> On Fri, 2025-09-26 at 01:44 +0100, Mark Brown wrote:
 
-The following configs have been built successfully.
-More configs may be tested in the coming days.
+> > I agree it seems clearly better from a security point of view to have
+> > writable shadow stacks than none at all, I don't think there's much
+> > argument there other than the concerns about the memory consumption
+> > and performance tradeoffs.
 
-tested configs:
-alpha                             allnoconfig    gcc-15.1.0
-alpha                            allyesconfig    gcc-15.1.0
-arc                               allnoconfig    gcc-15.1.0
-arc                   randconfig-001-20250926    gcc-8.5.0
-arc                   randconfig-002-20250926    gcc-9.5.0
-arm                               allnoconfig    clang-22
-arm                         nhk8815_defconfig    clang-22
-arm                   randconfig-001-20250926    clang-22
-arm                   randconfig-002-20250926    clang-17
-arm                   randconfig-003-20250926    clang-22
-arm                   randconfig-004-20250926    clang-22
-arm                        shmobile_defconfig    gcc-15.1.0
-arm64                             allnoconfig    gcc-15.1.0
-arm64                 randconfig-001-20250926    gcc-8.5.0
-arm64                 randconfig-002-20250926    gcc-12.5.0
-arm64                 randconfig-003-20250926    gcc-9.5.0
-arm64                 randconfig-004-20250926    clang-22
-csky                              allnoconfig    gcc-15.1.0
-csky                  randconfig-001-20250926    gcc-15.1.0
-csky                  randconfig-002-20250926    gcc-14.3.0
-hexagon                          allmodconfig    clang-17
-hexagon                           allnoconfig    clang-22
-hexagon                          allyesconfig    clang-22
-hexagon               randconfig-001-20250926    clang-22
-hexagon               randconfig-002-20250926    clang-22
-i386                             allmodconfig    gcc-14
-i386                              allnoconfig    gcc-14
-i386        buildonly-randconfig-001-20250926    clang-20
-i386        buildonly-randconfig-002-20250926    clang-20
-i386        buildonly-randconfig-003-20250926    clang-20
-i386        buildonly-randconfig-004-20250926    clang-20
-i386        buildonly-randconfig-005-20250926    clang-20
-i386        buildonly-randconfig-006-20250926    clang-20
-i386                                defconfig    clang-20
-loongarch                        allmodconfig    clang-19
-loongarch                         allnoconfig    clang-22
-loongarch             randconfig-001-20250926    gcc-15.1.0
-loongarch             randconfig-002-20250926    clang-22
-m68k                             allmodconfig    gcc-15.1.0
-m68k                              allnoconfig    gcc-15.1.0
-m68k                             allyesconfig    gcc-15.1.0
-microblaze                       allmodconfig    gcc-15.1.0
-microblaze                        allnoconfig    gcc-15.1.0
-microblaze                       allyesconfig    gcc-15.1.0
-mips                              allnoconfig    gcc-15.1.0
-nios2                             allnoconfig    gcc-11.5.0
-nios2                 randconfig-001-20250926    gcc-11.5.0
-nios2                 randconfig-002-20250926    gcc-8.5.0
-openrisc                          allnoconfig    gcc-15.1.0
-openrisc                            defconfig    gcc-15.1.0
-parisc                            allnoconfig    gcc-15.1.0
-parisc                randconfig-001-20250926    gcc-10.5.0
-parisc                randconfig-002-20250926    gcc-10.5.0
-powerpc                           allnoconfig    gcc-15.1.0
-powerpc                          g5_defconfig    gcc-15.1.0
-powerpc                      mgcoge_defconfig    clang-22
-powerpc                   motionpro_defconfig    clang-22
-powerpc               randconfig-001-20250926    clang-22
-powerpc               randconfig-002-20250926    clang-18
-powerpc               randconfig-003-20250926    clang-22
-powerpc64             randconfig-001-20250926    clang-22
-powerpc64             randconfig-002-20250926    clang-16
-powerpc64             randconfig-003-20250926    gcc-15.1.0
-riscv                             allnoconfig    gcc-15.1.0
-riscv                 randconfig-001-20250926    clang-22
-riscv                 randconfig-002-20250926    clang-22
-s390                             allmodconfig    clang-18
-s390                              allnoconfig    clang-22
-s390                             allyesconfig    gcc-15.1.0
-s390                  randconfig-001-20250926    clang-22
-s390                  randconfig-002-20250926    gcc-8.5.0
-sh                               allmodconfig    gcc-15.1.0
-sh                                allnoconfig    gcc-15.1.0
-sh                               allyesconfig    gcc-15.1.0
-sh                             espt_defconfig    gcc-15.1.0
-sh                    randconfig-001-20250926    gcc-12.5.0
-sh                    randconfig-002-20250926    gcc-15.1.0
-sparc                            allmodconfig    gcc-15.1.0
-sparc                             allnoconfig    gcc-15.1.0
-sparc                 randconfig-001-20250926    gcc-14.3.0
-sparc                 randconfig-002-20250926    gcc-15.1.0
-sparc64               randconfig-001-20250926    gcc-12.5.0
-sparc64               randconfig-002-20250926    clang-22
-um                               allmodconfig    clang-19
-um                                allnoconfig    clang-22
-um                               allyesconfig    gcc-14
-um                    randconfig-001-20250926    clang-22
-um                    randconfig-002-20250926    clang-22
-x86_64                            allnoconfig    clang-20
-x86_64                           allyesconfig    clang-20
-x86_64      buildonly-randconfig-001-20250926    clang-20
-x86_64      buildonly-randconfig-002-20250926    clang-20
-x86_64      buildonly-randconfig-003-20250926    gcc-14
-x86_64      buildonly-randconfig-004-20250926    gcc-14
-x86_64      buildonly-randconfig-005-20250926    gcc-14
-x86_64      buildonly-randconfig-006-20250926    gcc-14
-x86_64                              defconfig    gcc-14
-x86_64                          rhel-9.4-rust    clang-20
-xtensa                            allnoconfig    gcc-15.1.0
-xtensa                generic_kc705_defconfig    gcc-15.1.0
-xtensa                randconfig-001-20250926    gcc-14.3.0
-xtensa                randconfig-002-20250926    gcc-8.5.0
+> IIRC the WRSS equivalent works the same for ARM where you need to use a
+> special instruction, right? So we are not talking about full writable
 
---
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Yes, it's GCSSTR for arm64.
+
+> shadow stacks that could get attacked from any overflow, rather,
+> limited spots that have the WRSS (or similar) instruction. In the
+> presence of forward edge CFI, we might be able to worry less about
+> attackers being able to actually reach it? Still not quite as locked
+> down as having it disabled, but maybe not such a huge gap compared to
+> the mmap/munmap() stuff that is the alternative we are weighing.
+
+Agreed, as I said it's a definite win still - just not quite as strong.
+
+--ptvvVk1i1ZxvsU15
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmjWuqQACgkQJNaLcl1U
+h9C0tQf/bJT4tz0mWt/tJVu1pg6AwGbm5/vbqNjvsiVUkegN4TV1NVKgmCA9mnG8
+YhPNEYEZ0H8rdL3+zsXN7nFrlzwdh8L/+Kds+ktFeh+86DSA9tAb9v8paIU8Z2Mo
+rqW11WJ5+znEADjTcS/dr3Dos9jru2S9z9VOdtNvX7/aaXn5XZEsjPto3ecwL+tl
+vFkliUWV/ZgRYV5r5FUBiVldrfHZoUpbe1sL/qPxan+hNnXCteaOhqP4hmO71BHt
+18HbfNDN+tswNVbbWCzdi1sUo2/2YJ+ueL0A/rKqL+ns8v9YWThVOJgkSh22Yy6i
+Qq1dnnSRhfstXWIi/s4XBmlh6QEwCA==
+=sqXy
+-----END PGP SIGNATURE-----
+
+--ptvvVk1i1ZxvsU15--
 
