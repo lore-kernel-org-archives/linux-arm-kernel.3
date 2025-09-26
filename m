@@ -4,77 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9BB23CAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 00:44:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF114CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 00:56:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U7YyrJDzQOczG8/kyN9bJGbKapTwf6CwqNIlJ6mgdew=; b=TEX5TlYBYWr13bmFulRpyRmAK9
-	PdzAHUPQTk1PfWIL8fvWa7QvFNNy2QapPrnT36dHmhONVFyIiM03l3qX+5H1iq4ubexevAhPbSboE
-	fZfxfEaI7TcRT4vOl0q7rjocg0Znv7sPwNSonXYuv7UCuEXvGF4pk8eWrAcLZZ/2C5jmmBYz22Vkv
-	1jwlc34RMRcGx7cd3yvZXTmjotwMXhoFtQyU4WfFcq/iIhRUWv1tfeTLOPMtmDT5qlc4X0jZnzHZQ
-	ehLnRYP4V0fLC3B6u0+jZHLEPtgfuRjW9t4JiFU+G49Nroae8GF5geZqKrR6QBy3RtsXtxhuKhb6D
-	WYjuIDlg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9e9NdOcaym+Fuz3o7AoDLOamjILGzKfxxMvCkH865N8=; b=17zZBeD38HpSyrplW0DT2twspy
+	VXqfFFjrWnzRghofMkqG0HNpyOvqPnfFEPUDv2Vp3FpH4ZQ4gtoq1qrRH8Tzq6lyKHEvr1WbTbE+6
+	Qfx73Br/2/W03E4ZjzUToWluzI6MF+8CyprncdmDYcGstwa4XWqf0HqU5UgStm8Lk9I2qcmd+3+/M
+	3xaI5KGzRrDqk7Exk2YeXPG/loEmttqQnYFNy6Y2R89Lik+Ni/hz5GajCxV0DQTUuLGvehh2tzNul
+	wVjTTAuwKUbiNNuZmjgNEyNgxWufT1IXGibkMpbk+elj6xv12/XcikJb5bBFApssfOr7bv7MbuwZ9
+	JGQ3wqiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1wZX-0000000ER1J-1AsN;
-	Fri, 26 Sep 2025 00:44:27 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v1wkg-0000000EUow-30xE;
+	Fri, 26 Sep 2025 00:55:58 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1wZW-0000000ER0d-2WZq
+	id 1v1wke-0000000EUmO-0ImV
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 00:44:26 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BEB8F61353;
-	Fri, 26 Sep 2025 00:44:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1EEF8C4CEF0;
-	Fri, 26 Sep 2025 00:44:21 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758847465;
-	bh=8EHTqyyVT8V2rSv9sFT+vRqsC+aiKGrtiaHCp2wsEnA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=RYbg8P+VMnfDAmfFvFBfMB7RgFSGpcJcENDUTYJYEqW9klZ/XRoW5VWRcc9hc4RAt
-	 cuFznzSeQuS9djb+jeNKZdGHsmhSdvrUrHroQMOHNR7OxkUZv9sg0TVNZ3gn0Sag1Y
-	 mdyV+uX3G2QsFa9pLsc6g/KpidHgnaRO03bIDbYxRJ7gmSfHkreUGd11ZAiTSpqVnK
-	 +Ty56MFXA9zQcKz6H6/o8j5KQf219jkVJb+Ts2Ulgl0hnYRlIjjj/bsClGDUrfgB3h
-	 JeHFEMZ8cgXCsDa8WhrdsMFG29oDUfE8MkpGSA98KN8r9YS2g1YVCgD9ZFWPgkpp1b
-	 q13YADjlsPyAw==
-Date: Fri, 26 Sep 2025 01:44:19 +0100
-From: Mark Brown <broonie@kernel.org>
-To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
-Cc: "adhemerval.zanella@linaro.org" <adhemerval.zanella@linaro.org>,
-	"nsz@port70.net" <nsz@port70.net>,
-	"brauner@kernel.org" <brauner@kernel.org>,
-	"shuah@kernel.org" <shuah@kernel.org>,
-	"debug@rivosinc.com" <debug@rivosinc.com>,
-	"fweimer@redhat.com" <fweimer@redhat.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"dalias@libc.org" <dalias@libc.org>,
-	"jeffxu@google.com" <jeffxu@google.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"yury.khrustalev@arm.com" <yury.khrustalev@arm.com>,
-	"wilco.dijkstra@arm.com" <wilco.dijkstra@arm.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"codonell@redhat.com" <codonell@redhat.com>,
-	"libc-alpha@sourceware.org" <libc-alpha@sourceware.org>,
-	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>
-Subject: Re: [PATCH RFC 0/3] arm64/gcs: Allow reuse of user managed shadow
- stacks
-Message-ID: <604190c7-5931-4e74-a1c9-467e52d3001b@sirena.org.uk>
-References: <20250921-arm64-gcs-exit-token-v1-0-45cf64e648d5@kernel.org>
- <760447dc3e5805bf5668e80a94bf32356e2eb2d3.camel@intel.com>
- <8aab0f36-52ad-4fd6-98c3-bcdba45dbe16@sirena.org.uk>
- <ac0ceb09ffaeb1f0925b61ed1b82ee6475df2368.camel@intel.com>
+	Fri, 26 Sep 2025 00:55:57 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-46b303f7469so10799255e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Sep 2025 17:55:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1758848154; x=1759452954; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=9e9NdOcaym+Fuz3o7AoDLOamjILGzKfxxMvCkH865N8=;
+        b=H+EadbU3bX3uxhINwjRQSSZF34iOMZPBVp7SDIHYz13+BDtO/eSYp2fUL2IvzQJUiB
+         AY63g2RWCTKjqRM/l9yTfWXpH1CiJFYPoqxtksnbM/p5YYrQ/kHgqRQypKoGYaT0uUox
+         oGs6N9BNl0mgGeSrqwYp5ZpO3A2/tc4FSBIhRP1WrkrB9WP3uMmjF63O1qTLrZr9CF/9
+         6Dx0UBL9JD4nn6sy7NMpVCe4ms1nyCoDHjNSWAbRcLZ1tvStx8iCyynEo7++0+Yzr+nv
+         EWF8NHM448OEPOukzM/9FABnbSmOAm5fKPysKOpIqf3UIFF37yoaDmHHHNBEU8z2HXvG
+         Ierg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758848154; x=1759452954;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=9e9NdOcaym+Fuz3o7AoDLOamjILGzKfxxMvCkH865N8=;
+        b=WRSlOe8a99EifdXZCKfrxQynYaHumSiDWUFdAEf6aZWIDDRXlvr8yv6zdGdcF/iDzn
+         0KRHFfjYB8tw7kpcW/h2wOXMwKbq3E5pojcY+vJzNYJh3AWZYyATWEHz7QdLFkglugpU
+         a4oCmmUyu4nKQWzVJ79XKWwnGru9Bc4+lxTUTY14MIWzY+mfHcOVm46e7pKLa+9oyuTu
+         /Qzi5U5beTOt1Lkw7kcSnC4EyrpxoADy84Iz6BJrWY55C4gR0isxXLZxMH2JBmDkqw/V
+         fVJRUk8JD2QBzxWWSUFIbLSV4OMJzMbhfenYB+IOw0uJIHLVAA2mzYklQxUzmY3wFAnI
+         5GJw==
+X-Forwarded-Encrypted: i=1; AJvYcCX/qnC+KptsnKY2kdWmEEUPFTN8m5JqJ4Qh9xcPGgNU88sk1bH10aptfEf3ftTVGyC/mwQcJlzzkKIzicPfepDh@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBpdZBJD5U77eOrP7Z9+rgeVkK7S5J65NdYwYVSsvPTZD5QtTw
+	I+8S4Z6LdjcZjNKWqbaqrLXLy+gwAwprqscJQwsFiK8FcSC2mIfUJdDcxsp4KW3zOyQ=
+X-Gm-Gg: ASbGncsAYE46E3utj3kiXn5TwMrkumyFWTYqxdxeC9bC98xVBrS2qVy0Z3fT0b1RTqU
+	btluBLVFvG8gey8ypSTU4XwokHGIXlLzYN9WxrJ6QTn94BhdsUBSM4hzOhe9xw0Pn79Yx/aOBAY
+	hbI05OiBNBO8v+a7xW6gGu7k9oCfWEnQCN50cqVy4JdTKL/8XlFDGD4F7dr8ZFlAyGjm3O1NzNn
+	EdhK3drk4IQ+rnnUeOF6ES2RUrpu4Fd+U1lmOzy2tDbI3ipfgVFJ2kWy7GQURcZflOAas7eieG2
+	qjSaCFjItcDs9qcVNXX9Nc2q9ZAOJ0PW9TR6WYx8hh6vsxfWINRqBz5wPs1gQr2+HmndJUVKRKW
+	XQUfgKVgfqpDcPvvKnP5I6Y6H7LPtYoRytUw8V1Aul4E+VxB0U7CNstnmsCy0RJPhOcKZLzvtXf
+	x+KFWop9gA7BVesoPraVC5
+X-Google-Smtp-Source: AGHT+IEi7fDGWCixHLoidioieRVuXJUMu0nnRncjPtslMOdDH/jitf97iTqziYXoLsGnOKsP4maIXg==
+X-Received: by 2002:a05:600c:3551:b0:46d:a04:50c6 with SMTP id 5b1f17b1804b1-46e32a10ef4mr59198215e9.30.1758848154080;
+        Thu, 25 Sep 2025 17:55:54 -0700 (PDT)
+Received: from [192.168.0.19] (188-141-3-146.dynamic.upc.ie. [188.141.3.146])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46e2ab62233sm97057095e9.21.2025.09.25.17.55.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 25 Sep 2025 17:55:53 -0700 (PDT)
+Message-ID: <f705e9b3-864d-46bf-a6b3-f3be4756293b@linaro.org>
+Date: Fri, 26 Sep 2025 01:55:51 +0100
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="A/R+sHCzHj56QgUT"
-Content-Disposition: inline
-In-Reply-To: <ac0ceb09ffaeb1f0925b61ed1b82ee6475df2368.camel@intel.com>
-X-Cookie: Take your Senator to lunch this week.
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 8/9] clk: qcom: Add support for VideoCC driver for
+ Kaanapali
+To: Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
+ Bjorn Andersson <andersson@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
+ Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
+ Jagadeesh Kona <quic_jkona@quicinc.com>,
+ Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+ Alexandre Torgue <alexandre.torgue@foss.st.com>,
+ Taniya Das <taniya.das@oss.qualcomm.com>,
+ Konrad Dybcio <konradybcio@kernel.org>
+Cc: linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, aiqun.yu@oss.qualcomm.com,
+ tingwei.zhang@oss.qualcomm.com, trilok.soni@oss.qualcomm.com,
+ yijie.yang@oss.qualcomm.com
+References: <20250924-knp-mmclk-v1-0-d7ea96b4784a@oss.qualcomm.com>
+ <20250924-knp-mmclk-v1-8-d7ea96b4784a@oss.qualcomm.com>
+From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Content-Language: en-US
+In-Reply-To: <20250924-knp-mmclk-v1-8-d7ea96b4784a@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250925_175556_145128_83898D17 
+X-CRM114-Status: UNSURE (   9.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,153 +121,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 25/09/2025 00:56, Jingyi Wang wrote:
+> +	/*
+> +	 *	Maximize ctl data download delay and enable memory redundancy:
+> +	 *	MVS0A CFG3
+> +	 *	MVS0 CFG3
+> +	 *	MVS0 VPP1 CFG3
+> +	 *	MVS0 VPP0 CFG3
+> +	 *	MVS0C CFG3
+> +	 */
+> +	regmap_set_bits(regmap, 0x8088, ACCU_CFG_MASK);
+> +	regmap_set_bits(regmap, 0x80b4, ACCU_CFG_MASK);
+> +	regmap_set_bits(regmap, 0x8100, ACCU_CFG_MASK);
+> +	regmap_set_bits(regmap, 0x812c, ACCU_CFG_MASK);
+> +	regmap_set_bits(regmap, 0x8158, ACCU_CFG_MASK);
+> +}
 
---A/R+sHCzHj56QgUT
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+How ?
 
-On Thu, Sep 25, 2025 at 11:58:01PM +0000, Edgecombe, Rick P wrote:
-> On Fri, 2025-09-26 at 00:22 +0100, Mark Brown wrote:
+You're doing the right thing commenting on what is being done but, 
+you're not providing any context on what that thing is done.
 
-> > I think those were around the use of alt stacks, which we don't
-> > currently do for shadow stacks at all because we couldn't figure out
-> > those edge cases.  Possibly there's others as well, though - the alt
-> > stacks issues dominated discussion a bit.
+Write a set of unnamed bits ?
 
-> For longjmp, IIRC there were some plans to search for a token on the targ=
-et
-> stack and use it, which seems somewhat at odds with the quick efficient j=
-ump
-> that longjmp() gets usually used for. But it also doesn't solve the probl=
-em of
-> taking a signal while you are unwinding.
++#define ACCU_CFG_MASK GENMASK(25, 21)
 
-Yeah, that all seemed very unclear to me.
+It's only five of them, please name in your comment at least a give a 
+clue as to what they do.
 
-> Like say you do calls all the way to the end of a shadow stack, and it's =
-about
-> to overflow. Then the thread swaps to another shadow stack. If you longjm=
-p back
-> to the original stack you will have to transition to the end of the first=
- stack
-> as you unwind. If at that point the thread gets a signal, it would overfl=
-ow the
-> shadow stack. This is a subtle difference in behavior compared to non-sha=
-dow
-> stack. You also need to know that nothing else could consume that token o=
-n that
-> stack in the meantime. So doing it safely is not nearly as simple as norm=
-al
-> longjmp().
-
-> Anyway, I think you don't need alt shadow stack to hit that. Just normal
-> userspace threading?
-
-Ah, the backtrack through a pivot case - yes, I don't think anyone had a
-good story for how that was going to work sensibly without making the
-stack writable.  Sorry, I'd written off that case as entirely so it didn't
-cross my mind.
-
-> > > As far as re-using allocated shadow stacks, there is always the optio=
-n to enable
-> > > WRSS (or similar) to write the shadow stack as well as longjmp at wil=
-l.
-
-> > That's obviously a substantial downgrade in security though.
-
-> I don't know about substantial, but I'd love to hear some offensive secur=
-ity
-> persons analysis. There definitely was a school of thought though, that s=
-hadow
-> stack should be turned on as widely as possible. If we need WRSS to make =
-that
-> happen in a sane way, you could argue there is sort of a security at scale
-> benefit.
-
-I agree it seems clearly better from a security point of view to have
-writable shadow stacks than none at all, I don't think there's much
-argument there other than the concerns about the memory consumption and
-performance tradeoffs.
-
-> > > But for automatic thread created shadow stacks, there is no need to a=
-llow
-> > > userspace to unmap a shadow stack, so the automatically created stack=
-s could
-> > > simply be msealed on creation and unmapped from the kernel. For a lot=
- of apps
-> > > (most?) this would work perfectly fine.
-
-> > Indeed, we should be able to just do that if we're mseal()ing system
-> > mappings I think - most likely anything that has a problem with it
-> > probably already has a problem the existing mseal() stuff.  Yet another
-> > reason we should be factoring more of this code out into the generic
-> > code, like I say I'll try to look at that.
-
-> Agree. But for the mseal stuff, I think you would want to have map_shadow=
-_stack
-> not available.
-
-That seems like something userspace could enforce with existing security
-mechanisms?  I can imagine a system might want different policies for
-different programs.
-
-> > I think the important thing from a kernel ABI point of view is to give
-> > userspace the tools to do whatever it wants and get out of the way, and
-> > that ideally this should include options that don't just make the shadow
-> > stack writable since that's a substantial step down in protection.
-
-> Yes I hear that. But also try to avoid creating maintenance issues by add=
-ing
-> features that didn't turn out to be useful. It sounds like we agree that =
-we need
-> more proof that this will work out in the long run.
-
-Yes, we need at least some buy in from userspace.
-
-> > That said your option 2 is already supported with the existing clone3()
-> > on both arm64 and x86_64, policy for switching between that and kernel
-> > managed stacks could be set by restricting the writable stacks flag on
-> > the enable prctl(), and/or restricting map_shadow_stack().
-
-> You mean userspace could already re-use shadow stacks if they enable writ=
-able
-> shadow stacks? Yes I agree.
-
-Yes, exactly.
-
-> > > This RFC seems to be going down the path of addressing one edge case =
-at a time.
-> > > Alone it's fine, but I'd rather punt these types of usages to (2) by =
-default.=20
-
-> > For me this is in the category of "oh, of course you should be able to
-> > do that" where it feels like an obvious usability thing than an edge
-> > case.
-
-> True. I guess I was thinking more about the stack unwinding. Badly phrase=
-d,
-> sorry.
-
-I'm completely with you on stack unwinding over pivot stuff, I wasn't
-imagining we could address that.  There's so many landmines there that
-we'd need a super solid story before doing anything specific to that
-case.
-
---A/R+sHCzHj56QgUT
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmjV4eIACgkQJNaLcl1U
-h9DHTgf/f4tSxFTnVI4O8vF1sNsgpSWdCPgLFDFEkHzstxue18M7OOSA56I9l2aV
-ygiokn9rp6N1qftLP3GR36irfjVxLrM1PF+3oqbLJCtnngZ1No4JiNeyGE59fNwX
-ifQ5hLF96aWsc+O2uzFADQ1AFeeMjJeVfFYqcCtnbDsUSdn7E/YDLN+S1MFtdGyx
-c3+5vagLCiPmHKTN99oDEagV9NBAK/PjqR3k+hu3kGyQ+z4xeMoPxMsHR2NaXJPu
-Eu6fujx6KkwGrgH/WGzMj9QA82L0ZR5qYBl/a06l/RKds7TZGlHSSWs3JL+/zAhj
-fZOBv8+/nRREYi4EKB12mliRRUuLKA==
-=5j/V
------END PGP SIGNATURE-----
-
---A/R+sHCzHj56QgUT--
+---
+bod
 
