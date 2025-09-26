@@ -4,72 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 105ACCAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 23:03:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0F11CAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 23:33:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=6m3ovm2oaXJHg6gBcl0SS6WVJEgbg7g6sYcAHh5DceM=; b=4nrJbwQnWSF1zjX8oLnxVFLsJ8
-	QiRTVfTLZkz3delBZ8h/GBQQl/Z1mTQkBrbK1AKhykDolc/rVZrf3/WpM1N72+N2xem191PO3s5+i
-	t+mLRm/YsgfvAc0P4YLUDelhIpnSvuiTOY+G5lD6MTA26k70k4m+oOF8x8iAFByj+O1yAN0THjab+
-	TcPuwORg4BZwpGKMJqzj0cdbFslGvfAivkjbzOvN2GOKTCfy4f9xuJDdiExTF0YMMhzHtFjvZe6G5
-	MNLj3izEDbqzpqvVjyzBt7d4D+2bDH47JUnmi+0pg7zXMwqfjSapRG0LQ9fdmqdLCDdlAQTmAwptQ
-	pwR8MsjA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=wflYc4YQb6A8Z1rTcxgA3eMcIt4OrA2ZGNLwT+I6CnY=; b=eWZQ9rvOk+MMeAKewuOeyn2CZO
+	dGpSkHw0ROi4h9KGWDhY7y+OmmWky4vCvd+sR2kyA1a0t+DPhufLuZHEwFAW9S1HMRtj91lbJzRvS
+	zbuTOxy2b/Ep6m1nTtXHyN0RYrm7lRVULQDBQ1OvF0U1eN11qUlDoKPA5lMsIoElW/aDkiG9D2c70
+	0Ad9T2O/wDjbt2TMpyuDLEuLpbe9lwFK1kpkdBDbgnnOxG1mvnkRNl3LgxaEs9vlZqxi46mEONGGq
+	6Cvs0qQbz0qSX2ZDFry+u+MV9uS4HQjBKvVGumrN6GXoSd3tafxTiAdOH/C1WNdxkfoXAXf/RjzGK
+	hpoXkw7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2HT9-00000005EBB-2gVZ;
-	Fri, 26 Sep 2025 23:03:15 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1v2Hvz-00000005NZa-0l4r;
+	Fri, 26 Sep 2025 23:33:03 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2HT6-00000005E8Q-2JJ6
+	id 1v2Hvw-00000005NYW-3vPt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 23:03:15 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1758927789;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=6m3ovm2oaXJHg6gBcl0SS6WVJEgbg7g6sYcAHh5DceM=;
-	b=YElG1YaOtebCd5H6ieGFUS/U+E41UvbR/Nw5NFewo0x+5qFzNMsrFYtMjZUJsgJZxKlboA
-	7MP5/69fHqOGsEM0N2w/YBkwhw2bU3A5A1fiPLn7rxjUcy4mFt+kNhbyDiV0uuUETMV8wN
-	8mNIQB1Aenbahi2Lt0iv/3bYqhAY9WY=
-Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-101-UNnD4AIUNpGSAbptn5Ldwg-1; Fri,
- 26 Sep 2025 19:03:05 -0400
-X-MC-Unique: UNnD4AIUNpGSAbptn5Ldwg-1
-X-Mimecast-MFC-AGG-ID: UNnD4AIUNpGSAbptn5Ldwg_1758927784
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 86CDC1800577;
-	Fri, 26 Sep 2025 23:03:04 +0000 (UTC)
-Received: from [172.20.26.51] (unknown [10.30.44.116])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 9B29A30001BD;
-	Fri, 26 Sep 2025 23:03:03 +0000 (UTC)
-From: cki-project@redhat.com
-Subject: =?utf-8?b?4pyF?= PASS (MISSED 11 of 56): Test report for for-kernelci
- (6.17.0-rc7, upstream-arm-next, 2213e57a)
-Date: Fri, 26 Sep 2025 23:03:03 -0000
-To: will@kernel.org, catalin.marinas@arm.com,
- linux-arm-kernel@lists.infradead.org
+	Fri, 26 Sep 2025 23:33:02 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Jxav+Lh6MoKLTvPSWGdKbB6DIPsWu9H86OOXBZ41kAMgWZnmWZtyw6RV/XLCkcmMq3JkwdiebQDRQD2JqgqNWY+2d/t40okHd83cCz6HkHgme3iQLAm+VFWnIZayMaq9QVYHpae54zuyUH29uRQLrxZj990YSh0fD9NjjGchO6H3U6gJWq2gO+SaC29K6FWs/bTNNuDx+y5DSJ7xd9/iUQ7VHZl846+E+9xzgaXdd6FA5PUrI8DD21eMzn971TP2HmUUle5uIt7q66KPLBI6o/7Gqs7FA9eC1396Xg912tYqNMWPEYdykRCHVNU1Skc+nWaulKiq+fwAUFV9x1cZIw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=wflYc4YQb6A8Z1rTcxgA3eMcIt4OrA2ZGNLwT+I6CnY=;
+ b=fO8bgdv43TS5qV1EDIh4EvOeMXj9CMsuDUfrXYthCASZSjgB1wcnVPaMEIoHcEsYQsh5Sj7CyzZiv6Ttv2sEydZ59caclChYb6ZKqrk6zaeOeZB9HetufnyogMxTJeGsTiVaNJCxURvo1DHgbETZgYQ3cXIwKiUTiPyuvKcV/lIBncRQZITdTFrvVFo69pAYSmmfYVYaL5V6KyFNSFGEiGzUJNUU4FjuW3nd3bc2i9yXedEfcMfCnX37UnYxKYBG9abXAH7UC8OAle1JpIzZlT5QjD6yidUTqtA6GuVAbKdFKuHQmWnmo1TNRmSf28k41lMWztzHqGsjDsBxzmlEhg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=wflYc4YQb6A8Z1rTcxgA3eMcIt4OrA2ZGNLwT+I6CnY=;
+ b=OX6QPVAXu1kTFVl3quSNE2lW146bsL58invsHQHQhu4LeS81QKTp5vzUEpUFTjRxYMNd/AR9cPVGgQCql9etd3LozdHl6+TE0UjgQvZsHuX9Qj7igj8a3M2tuJWTdpq7r71fbqsRLiKFCXX/fyNtAViAN6Bkdzg0bF/Ewro3QQJyIxjWIB+m0psJWYrhJeRQOn90WjLFXuET8D47AceLTtA2UwjP5KrWM37hKVDITvD71hgGL192bVw2XNolLMLHj+m4fBGfkdFOQDy47n5WtMPNk2YjzKbfzFzKPpBEeWmpHSaDWjABmLdOoilU7+BmUpKY/sPYxKxJ26wDmSjnXw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com (2603:10a6:10:309::18)
+ by DB9PR04MB9556.eurprd04.prod.outlook.com (2603:10a6:10:304::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.11; Fri, 26 Sep
+ 2025 23:32:53 +0000
+Received: from DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd]) by DB9PR04MB9626.eurprd04.prod.outlook.com
+ ([fe80::55ef:fa41:b021:b5dd%5]) with mapi id 15.20.9160.008; Fri, 26 Sep 2025
+ 23:32:53 +0000
+Date: Fri, 26 Sep 2025 19:32:43 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	"linux-usb@vger.kernel.org" <linux-usb@vger.kernel.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"bjorn.andersson@oss.qualcomm.com" <bjorn.andersson@oss.qualcomm.com>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	Ze Huang <huang.ze@linux.dev>
+Subject: Re: [PATCH v4 3/4] usb: dwc3: dwc3-generic-plat: Add layerscape dwc3
+ support
+Message-ID: <aNcim7GUT0/1rDb8@lizhi-Precision-Tower-5810>
+References: <20250926-ls_dma_coherence-v4-0-21e9c6bdb5cb@nxp.com>
+ <20250926-ls_dma_coherence-v4-3-21e9c6bdb5cb@nxp.com>
+ <20250926224256.xxf5lobht4dndixz@synopsys.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250926224256.xxf5lobht4dndixz@synopsys.com>
+X-ClientProxiedBy: BY5PR20CA0022.namprd20.prod.outlook.com
+ (2603:10b6:a03:1f4::35) To DB9PR04MB9626.eurprd04.prod.outlook.com
+ (2603:10a6:10:309::18)
 MIME-Version: 1.0
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
-Message-Id: <97788.125092619030500255@us-mta-101.us.mimecast.lan>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: _Cxr0QlQfi4soW71KkRQC78A6QWqcBwT84NrwEa1TuQ_1758927784
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR04MB9626:EE_|DB9PR04MB9556:EE_
+X-MS-Office365-Filtering-Correlation-Id: 61c68959-e48c-4957-09cf-08ddfd5503ac
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|52116014|7416014|376014|366016|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?9/6YN5zxUO1TkyfLALbve42MLEX697c5sfpvxJ5VbfV/711pGXeW2MU4FmJI?=
+ =?us-ascii?Q?WFAniXVVkEWdwnAp+chU19fQFsCE1u0m8WEi9UcrZBQfdj4KVfD2BTtRt6XO?=
+ =?us-ascii?Q?cItv5dPE3WhHID7pPWj/HnYDsIFFhpenpCHyeA3ofaKL3sH6NImNEk9HYKAx?=
+ =?us-ascii?Q?sPFiz76MY6WqdKxz6AOCI9L7iU5yNxcJNOhvgQOZa88PSgDvFq88FwCcp32z?=
+ =?us-ascii?Q?E993dKcLmdcRBiMimVEUms7NpFSXjpnEHfrKfbBuVhM5wlrAuJFSWTk5/Q8y?=
+ =?us-ascii?Q?HrbEkcXRKpErgGkDgdItsDd7c526u5fUnhLSgRGOqhFINXsqSg0ZDuxJbydf?=
+ =?us-ascii?Q?om4bmkTEU+8dFPk1/iOzG4NHe5f4APSkEMuHzx1i9DM1lQG5tauAPNieAIwW?=
+ =?us-ascii?Q?Cq4xEHFz3q12zapWgJv6O1qNh7KIrygAle91P1MmcxGYRiBWqMKNaxf6ozLT?=
+ =?us-ascii?Q?pcTfPtu1R15/10DDNrOqu3Bt8Y/uMGKn4rFkHVknXesyPrdzin7X6QNOhA6p?=
+ =?us-ascii?Q?5LyjX4N1G7M8opq5a8L0I33YiQcX0nFPr0iSGl81CPcUNsgeRBwcPx41IklU?=
+ =?us-ascii?Q?FqAUwX8U77d/jaF6xsFkhGnZrgCyCFKbQ1c2/nV1xPsBDW9ilKtI3vc7Ykv+?=
+ =?us-ascii?Q?iNjq8xK36BvA9cAg371cKAxnme8uGcIyhYC0TQT9MSzdoj5j27IJStPIxKRZ?=
+ =?us-ascii?Q?Gb/Iom9NWP8XXQe+070qmRd/lYsQe66riEZ+GfGBtAL+R8NoR0HXEYXmxEm+?=
+ =?us-ascii?Q?sYeOFbxlrBQNw7HYbjsgcSR3SHamu3W8l+HS1+/Yl33agonNWoiXgWv+H9OV?=
+ =?us-ascii?Q?s3O+AuXjRfGc8qI1yWCHnGacFTPLvjxuvsg2W/aEOveLfw9knHEdCB5tMyBs?=
+ =?us-ascii?Q?BzAECbNzLnM+9vQFGuQflBTZH4b4hWvy3uOwoqXwXuuJruZPXTeDZbCFc8bA?=
+ =?us-ascii?Q?Tso57gNi6Ghn9rORela5XwBeMbVVYDr0wiAP9bezb/Q3LdHhWtaNF/1iuSXL?=
+ =?us-ascii?Q?HNT7rmT5w0ks7IWTIGVBrvdoghjNk5CainNAq2Q3E1a4TFckk1a/8KxTR719?=
+ =?us-ascii?Q?VM1yZfHe0MyDADV9evPMLvxcY7OvqVjaZ3AOYX2Nya5INHnt+66qDOFH921O?=
+ =?us-ascii?Q?+8WDGGpbv8fcJswCYEb4LJdp79RL2/xDztRaxhNwBNY+IffQGn+0/Ts9bAcC?=
+ =?us-ascii?Q?2PW9oyFnvr3UCJl5nb5b88KLfy3oKRbujgx0eien6kh5mTUf6JBvJX0UM1Dj?=
+ =?us-ascii?Q?Ut1Gxbplbv88D/R+N2LNJOcevLH6yybvj7v9m/vm60I5d94+USmQsw7fQufR?=
+ =?us-ascii?Q?j7a3D41RPMQBifQpSbkzfoG6ZUcC17P+dCKaF8RG2pxRIZ4g8lIJUDwzG+yk?=
+ =?us-ascii?Q?HJumpF6KGuYlVH8XjqyjL4fpwJ8btjmnw39abxC+V+rUufkGqUkKYENPBFMn?=
+ =?us-ascii?Q?tKmJhNf1H7l2Qnxo0eJn5NG5cZvXygCh2vSN2dnhU5KX1c7SdRRVsVJoi2yZ?=
+ =?us-ascii?Q?mj46sqmwuKpsSgVGnwSJXhH5KHB+mkZHtjp/?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR04MB9626.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(52116014)(7416014)(376014)(366016)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?n/9FGcEkoC/GoQXTRRsVJIllzShUbBxdm4FFE9LkgtR8uQVsHl23P/rSg6ps?=
+ =?us-ascii?Q?fT8rW6Gk5z7CRzMEiFgKMyWPReftFzG7GhRdS5NEInAAb9wt7SuSwd3vwAZ6?=
+ =?us-ascii?Q?0Q0KTSRoVTYoAMF9cOL9IYXNZu2G9L5ggHwoiFQIT42h/UBRC0AoQ/ihu3k7?=
+ =?us-ascii?Q?g18Vj1iizILmXchU5DZuwlSBQx4xeu03Z7yuHQV95kZD1lg8Fv5r7ANdupDK?=
+ =?us-ascii?Q?WDI6/KYqERQ9DfkMj3gWVUQJ4mU0kcK4Vy4GBdZvNYseq+LyDW3jE0OyOSKj?=
+ =?us-ascii?Q?YXzUUcCf/3qri0OWB12AurvRF5LviTIIlHLe18bKI/wIcrIihOKumiXpJxFM?=
+ =?us-ascii?Q?a26vq+mviA4fdT/rC1FBxRJc5YI4JbyZb+7TJb1n0hAkRdWmx6WBvIAOsWzW?=
+ =?us-ascii?Q?gkmo++qt+2LHxSpAIvCtAo0CDVGiUdYGDAJbupPVMGSnT5qkL8CY/O1O+Tpd?=
+ =?us-ascii?Q?u10eTsE+XhzeJroEU3Y1vpHsoN0u2DmPgv9alkIih/AJq1oA45gUA8AX44wk?=
+ =?us-ascii?Q?LPuMHpdZQBJgNwUjIxfddPBxRTnUT+p6e48XIfDn87+nv1iIAJ3Rmlc9Rona?=
+ =?us-ascii?Q?9B43a1d12msGrbARM/vwomg4KvBHeAFh+qeT6x4u5ep2aJe7meaOQ615LeBE?=
+ =?us-ascii?Q?sU4eMgMqSxQwpNXtAVSqgSw06rmv8c5G6OPiVhq0PY/YgkSgNBaUTaPhYio/?=
+ =?us-ascii?Q?WN+fNPQN0EnmLwVpiPCTmOI8UwzEP8aUDSfqbg6bPgGXW/Xd4vvZFWPmTO80?=
+ =?us-ascii?Q?nUyuNuYrRY00Yt9Yl2aA9JjtfzQJVP5Kin+5iNJeNHFUVZSRss1o8LXG5R7x?=
+ =?us-ascii?Q?gcOWYgQt4f/oGqxj843tbRitFZl3kHC6h8WdFDyYaC5spx7zHTFlj3pqry5q?=
+ =?us-ascii?Q?YKMCuFU7luipt/ffYlv8ftElA9uj8qrMzYcdsQbLGm5mW1+w8TuYgBFDIdaC?=
+ =?us-ascii?Q?3Od1an/nlGbTX15pYFU832io6CvPBQnRjMqrV2/ZWrZ0ct9qXt+PdXqXg7Fj?=
+ =?us-ascii?Q?Hotk42vAOzK4l8mTFrCsLKnVlzZAgRREGAq1+yeSFueqS+w82RXBUujCRHZ+?=
+ =?us-ascii?Q?Oi2/7/4oUPVmZ/fm6KIOp3XuYMGIEUD0WNYENQOR7mDt2onU4yWyxz6FP+Dw?=
+ =?us-ascii?Q?jn+yTijFEWCumCVLl6rZqtdU48kCuWy7ylyme6PsYg/kb+bnJS3cjlNutDcp?=
+ =?us-ascii?Q?mmwDtWK4dnS8whLSCjghzyJr0YPTBplfqdq+7/8YYvL7mmB4QzrVWMhvSowx?=
+ =?us-ascii?Q?Qo7UdWy8QFFf8IaFuXFPmI3Lu8usygJKQr60wd1rwghU9G3wYagryJMc+QDj?=
+ =?us-ascii?Q?4BTYfNzuKwINma5j59ubAjsKikflvNfMDmk2VqHbKH4TfoXFFZXtYvWBwkZy?=
+ =?us-ascii?Q?Zy/2n+60qVrD2moAYMekiftGGxpb1gjbmOzDnlLrVdVgnX/eb4NGYM0dxYs9?=
+ =?us-ascii?Q?FAnVnCeT5I0hqjkR70xxrlehTSeNlZNYxtrIw1XsnmR64TAMSLperNfDQyL7?=
+ =?us-ascii?Q?mfrzFqSnPOT2yKB3re8RCVaROxfJAgZB3dRCm4z+b6kovVuj0cSm9n8DbuoA?=
+ =?us-ascii?Q?jBIGUZSv2JBO6PtYWeBINe91E+Z5/CP2WQmmoYNu?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 61c68959-e48c-4957-09cf-08ddfd5503ac
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Sep 2025 23:32:53.6528
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: X49mb6UrltsrK2IXE4qQK0vMqdFpSh6SsqqSxRGjyYsIj0BspT5qPMb2zYliykdRKzZnU7N7EOA/abevNSgMkw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9556
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_160313_013068_427F058D 
-X-CRM114-Status: UNSURE (   6.39  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250926_163300_984200_8FA562EF 
+X-CRM114-Status: GOOD (  27.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,51 +168,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi, we tested your kernel and here are the results:
+On Fri, Sep 26, 2025 at 10:43:03PM +0000, Thinh Nguyen wrote:
+> On Fri, Sep 26, 2025, Frank Li via B4 Relay wrote:
+> > From: Frank Li <Frank.Li@nxp.com>
+> >
+> > Add layerscape dwc3 support by using flatten dwc3 core library. Layerscape
+> > dwc3 need set gsbuscfg0-reqinfo as 0x2222 when dma-coherence set.
+> >
+> > Signed-off-by: Frank Li <Frank.Li@nxp.com>
+> > ---
+> > chagne in v4
+> > - rename gsbuscfg0 to gsbuscfg0_reqinfo
+> > - use flatten core's properties.
+> >
+> > change in v3 (skipped)
+> > ---
+> >  drivers/usb/dwc3/dwc3-generic-plat.c | 15 ++++++++++++++-
+> >  1 file changed, 14 insertions(+), 1 deletion(-)
+> >
+> > diff --git a/drivers/usb/dwc3/dwc3-generic-plat.c b/drivers/usb/dwc3/dwc3-generic-plat.c
+> > index af95a527dcc27a7a14d38dcc887f74a888ed91e6..cfcefeffd7ad6c0a21ccc9aaa4483b9acb9dc4e0 100644
+> > --- a/drivers/usb/dwc3/dwc3-generic-plat.c
+> > +++ b/drivers/usb/dwc3/dwc3-generic-plat.c
+> > @@ -8,6 +8,7 @@
+> >   */
+> >
+> >  #include <linux/clk.h>
+> > +#include <linux/of_address.h>
+> >  #include <linux/platform_device.h>
+> >  #include <linux/reset.h>
+> >  #include "glue.h"
+> > @@ -29,6 +30,7 @@ static void dwc3_generic_reset_control_assert(void *data)
+> >
+> >  static int dwc3_generic_probe(struct platform_device *pdev)
+> >  {
+> > +	const struct dwc3_properties *properties;
+> >  	struct dwc3_probe_data probe_data = {};
+> >  	struct device *dev = &pdev->dev;
+> >  	struct dwc3_generic *dwc3g;
+> > @@ -75,7 +77,13 @@ static int dwc3_generic_probe(struct platform_device *pdev)
+> >  	probe_data.dwc = &dwc3g->dwc;
+> >  	probe_data.res = res;
+> >  	probe_data.ignore_clocks_and_resets = true;
+> > -	probe_data.properties = DWC3_DEFAULT_PROPERTIES;
+> > +
+> > +	properties = of_device_get_match_data(dev);
+> > +	if (of_dma_is_coherent(pdev->dev.of_node) && properties)
+>
+> Why do we need the check of_dma_is_coherent() here? Is this specific to
+> your platform to determine whether set gsbuscfg0_reqinfo only?
 
-    Overall result: PASSED
-             Merge: OK
-           Compile: OK
-              Test: OK
+I remember someone's review feedback. Anyway, 0x2222 works for both.
 
-Tested-by: CKI Project <cki-project@redhat.com>
+Frank
 
-Kernel information:
-    Commit message: Merge branch 'for-next/core' into for-kernelci
-
-You can find all the details about the test run at
-    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2066034693
-
-Tests that were not ran because of internal issues:
-    /distribution/check-install [aarch64]
-    /distribution/command [aarch64]
-    /test/misc/machineinfo [aarch64]
-    Boot test [aarch64]
-    CKI/restraint [aarch64]
-    Reboot test [aarch64]
-    SELinux Custom Module Setup [aarch64]
-    Storage - blktests - throtl [aarch64]
-    Storage - blktests - ublk [aarch64]
-    stress: stress-ng - cpu-cache [aarch64]
-    stress: stress-ng - memory [aarch64]
-
-
-If you find a failure unrelated to your changes, please ask the test mainta=
-iner to review it.
-This will prevent the failures from being incorrectly reported in the futur=
-e.
-
-Please reply to this email if you have any questions about the tests that w=
-e
-ran or if you have any suggestions on how to make future tests more effecti=
-ve.
-
-        ,-.   ,-.
-       ( C ) ( K )  Continuous
-        `-',-.`-'   Kernel
-          ( I )     Integration
-           `-'
-___________________________________________________________________________=
-___
-
+>
+> > +		probe_data.properties = *properties;
+> > +	else
+> > +		probe_data.properties = DWC3_DEFAULT_PROPERTIES;
+> > +
+> >  	ret = dwc3_core_probe(&probe_data);
+> >  	if (ret)
+> >  		return dev_err_probe(dev, ret, "failed to register DWC3 Core\n");
+> > @@ -146,8 +154,13 @@ static const struct dev_pm_ops dwc3_generic_dev_pm_ops = {
+> >  		       dwc3_generic_runtime_idle)
+> >  };
+> >
+> > +static const struct dwc3_properties fsl_ls1028_dwc3 = {
+> > +	.gsbuscfg0_reqinfo = 0x2222,
+> > +};
+> > +
+> >  static const struct of_device_id dwc3_generic_of_match[] = {
+> >  	{ .compatible = "spacemit,k1-dwc3", },
+> > +	{ .compatible = "fsl,ls1028a-dwc3", &fsl_ls1028_dwc3},
+> >  	{ /* sentinel */ }
+> >  };
+> >  MODULE_DEVICE_TABLE(of, dwc3_generic_of_match);
+> >
+> > --
+> > 2.34.1
+> >
+> >
+>
+> BR,
+> Thinh
 
