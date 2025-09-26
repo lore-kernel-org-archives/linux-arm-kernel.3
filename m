@@ -4,178 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CB31CAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 02:36:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3E0DCAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 02:44:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MfZHEWkEwWySyLkDW4DgA2cT7oxhXgixRJSs20hIsA4=; b=QaLJ6exl89Qm2mE2XKt92BqSf3
-	h0Cq1+sdrV1xcv98N2kWGwjKuCj+VQk6g4EIhkTcakEafMpMYbJR7THZdRMx2pz5fJVKDfnDebhOl
-	07JafQBFQKGGH0P7NS4p+lAVtnYvQGg+Xn+v2wAlKMMpDMb4PZads7wf/1Ht5GZVLjIWxzDV8Ys6e
-	2bOx4VaHwAHh3PtGHkstcVIkV9Wa8s9a84iUzbSzpvyxoEMZvFWoU8iy0MvbqY7Okyt8smu+svrGH
-	kK5727q3BTnbxpjOR/2f6cSQCvJjQ674D//TsgD8KrC3vUlchu/+MSHL3aSwHNZsOttSuudBDlXZz
-	AodIcwLQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
+	List-Owner; bh=sgSHx5gd/okIIL/2XXUMd4N66tFBNvZWpbFxgPkoVtQ=; b=v5aHYEfxPlolOo
+	xf/O4uYIrv2PHlHWrGokr5OBzozK/G/RMUhI+lLXpZWioBtO4GSdWLiSbOeuCpu+ad+rVERZZYua1
+	JPa1wM7ihYgAdSm9bu43lM0iDo6f1u4oRw1nBkSevu3woVt7vCGPkCjzv2Rr6Qh0SZPsCYfrLZbqS
+	f8/3kY3SbNgb8fEK7g5cmvjUNSM+pJwIvlhY1kCw9QGePeF15rpXUqX7Y405CvuRlDdz1hgmXfjb5
+	XV6KBqqR79JjMfSmYF1NlIVuN/1vCsdOauEw1YLLYF9eNsoaCwGOvPpnWd/MuMVNK+6ydcVLbqAHS
+	pJHeMpthdI+HPWjbssag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1yKA-0000000F3xh-46S7;
-	Fri, 26 Sep 2025 02:36:42 +0000
-Received: from mail-westus3azlp170100009.outbound.protection.outlook.com ([2a01:111:f403:c107::9] helo=PH7PR06CU001.outbound.protection.outlook.com)
+	id 1v1yRn-0000000F7EV-3j62;
+	Fri, 26 Sep 2025 02:44:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1yK8-0000000F3vC-42AI
+	id 1v1yRm-0000000F7Ca-1h3E
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 02:36:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=V+6UJbSD4XQwWsNuPfxlH33LFu7s4MgOWnnaiqbhkLnt+DyD3U3lQVeW/LjptgCL2VfkP0/S1c4MuxPm6QoFdMlTBRX0CN7NMU1vsGNfVfe18D4oLA0W7Zf1j4XCFns8lF92R3vYgaKQPb/g/hCEU5Djy2f5NAaeAqSUimodvzd24+AjejybpP51dknLk8V9s5KvX6ip0JykNNJQ4bWK6CQH0DxVzFJeE0oy+hE/xsQ52AhO0XXIlz9kf0e0meKmDINncrVV1rNQ6YqwJdHVcs7C7BoIo7eIaYl23RanUWrkHvS1o+KbEalSWyJgFcko/OEKaBKwbYyMkK8Z3QiKSQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=MfZHEWkEwWySyLkDW4DgA2cT7oxhXgixRJSs20hIsA4=;
- b=schcSUrDWwoZap38tlSZECz+CQxXgvDqfBw58iqRbiHN7CO1ktIWlbY2Jd1HHc7h6M19METfACcArGOHK3VH74qCG6O5YPQgyTC9rsa/d6Rgn/cWonZtYKXO8FJWhmsUhsDzH0Cn18hj7hThG05kHsl178lRnBjQA1cBQKnhqWZsQIaLbihKs2U4Qb2S9pznvlPV0m0XcsbpbCH6i7imwEKlL4UStvXpgS5KKW8ukK9jxy1bKthSg1wzWTubV1cqfJnjFFNhaCdjtWlVCAc4CY0pMvw6Oy3xMZoDKwWotmBCCWln03SFBJtHy4VkCv78vMU662+hP990Ep1zdji0aw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=MfZHEWkEwWySyLkDW4DgA2cT7oxhXgixRJSs20hIsA4=;
- b=mXjPp13sKhzSLMZK+eNqEyDvfBwn7sx6jlNWsbUrYkPg8qSIxfc15NEpge9+NzJdelcfp/vjlWcWa/pZzmklaJG0j1uk+F9Umzgxqa6WwPKlhEIk+bwk98GJMtxkUZlXTtssLK2KDLfA4dmKBnJ8cWtd+gwYT7T88FaGw4jAoGWDQI7O8uU8pa3yjl9NqgJMZUOzUfCFLuOgz+gryxU39ffXzuHugw703BvfZsPe2jViSQCcO3P9owmr649m5vSycdOQvF5pqlQQJXmY+GbQCbFPOaUcvqSrSzU1Rioke8k+KK8wZVXD8sPN5PeOdQ57cHut0tJtwerhzCojsuv/WQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DM6PR12MB2667.namprd12.prod.outlook.com (2603:10b6:5:42::28) by
- MN0PR12MB5787.namprd12.prod.outlook.com (2603:10b6:208:376::9) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9160.10; Fri, 26 Sep 2025 02:36:27 +0000
-Received: from DM6PR12MB2667.namprd12.prod.outlook.com
- ([fe80::bd88:b883:813d:54a2]) by DM6PR12MB2667.namprd12.prod.outlook.com
- ([fe80::bd88:b883:813d:54a2%6]) with mapi id 15.20.9137.015; Fri, 26 Sep 2025
- 02:36:27 +0000
-Message-ID: <1c0907cc-5cfe-448e-a308-c347566c1f68@nvidia.com>
-Date: Thu, 25 Sep 2025 19:36:24 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 29/29] arm_mpam: Add kunit tests for props_mismatch()
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
-Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
- Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>
-References: <20250910204309.20751-1-james.morse@arm.com>
- <20250910204309.20751-30-james.morse@arm.com>
-Content-Language: en-US
-From: Fenghua Yu <fenghuay@nvidia.com>
-In-Reply-To: <20250910204309.20751-30-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SJ0PR03CA0077.namprd03.prod.outlook.com
- (2603:10b6:a03:331::22) To DM6PR12MB2667.namprd12.prod.outlook.com
- (2603:10b6:5:42::28)
+	Fri, 26 Sep 2025 02:44:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id CC5A261405;
+	Fri, 26 Sep 2025 02:44:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4CEC2C4CEF0;
+	Fri, 26 Sep 2025 02:44:32 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758854672;
+	bh=WGgd9HbXf3muDxpRoOGtKDqq/H+jWq+KkhqeNuZt26k=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:From;
+	b=eY6FtYvabCSorn6RAdJj1vjmjePcCz7dFiqVxMmcfJH4sgooxBzvUdNi1Q+eKdZ+b
+	 OODafboTEd+3Lwtn6jvOGIUfjca2owH71ZvCcGLnEVSmd8BGHzPHBCoaEdrxyX3uku
+	 wSP7OIKfNbXHMh+87f1Ml6x9vh4tuf8f5pJzoS/OKbT9tK0VozyKp+RwgEVt+F6N88
+	 tHGSSGzfngiMMOnL5/OIQsIWQ82v4MkIhO6zRzvEYyQ7vqDfXo5MXzbl0SqAfMQJKw
+	 BEvv3mKXe4qjZIbGBV94KMFy/TWBHkc9ARHEv5938VWDcwP1EnW0uKL6TC8E3ToEuO
+	 heZBsyIpAt8ZA==
+Date: Thu, 25 Sep 2025 21:44:30 -0500
+From: Bjorn Helgaas <helgaas@kernel.org>
+To: Hongxing Zhu <hongxing.zhu@nxp.com>
+Cc: Frank Li <frank.li@nxp.com>,
+	"jingoohan1@gmail.com" <jingoohan1@gmail.com>,
+	"l.stach@pengutronix.de" <l.stach@pengutronix.de>,
+	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
+	"kwilczynski@kernel.org" <kwilczynski@kernel.org>,
+	"mani@kernel.org" <mani@kernel.org>,
+	"robh@kernel.org" <robh@kernel.org>,
+	"bhelgaas@google.com" <bhelgaas@google.com>,
+	"shawnguo@kernel.org" <shawnguo@kernel.org>,
+	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
+	"kernel@pengutronix.de" <kernel@pengutronix.de>,
+	"festevam@gmail.com" <festevam@gmail.com>,
+	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v5 2/2] PCI: imx6: Add a method to handle CLKREQ#
+ override active low
+Message-ID: <20250926024430.GA2217977@bhelgaas>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR12MB2667:EE_|MN0PR12MB5787:EE_
-X-MS-Office365-Filtering-Correlation-Id: e76e6679-9462-43e0-a64f-08ddfca57e03
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Q3hVbmRYMkFLL2E4K0o3RjV2K3BXMGNRQ2hFcmFVNVlZUTF2SlhRR3lZNUhK?=
- =?utf-8?B?OG15Wk53cW80TFdlVC9za3ZJY3E4VmM0S0E2RXlDd054bHVvVGpiMXpZbm5I?=
- =?utf-8?B?QUhCTThRdkgrWnQ4VzJLWTNLdVlGcWE1V3oxdGp4aWNrNEFra2FnWWhycW1M?=
- =?utf-8?B?cnluT2NESnAwZSt2bC9MbmRNb3NsZG83R05jN2xiUE5EZ2NZMFYvZ2VaSllU?=
- =?utf-8?B?clBpbWRlOXV0UjBWY2ZCLyswd0w3N2tFY1NlVjJJemlDbjhLV1dMU0plUkRl?=
- =?utf-8?B?OWxJMFJMTGM2SkV4N3FKSFYzTzJvbVJLbnRlVWlRblpXTzZIb1FLMG9VN1J4?=
- =?utf-8?B?Y0VDVGdBdm1Ham5ZZmZheCtka2dabm5lQ0hkVnF0ZTY5VVRrZlJ0WnVpSDBJ?=
- =?utf-8?B?SHRmKzV2ZTRSR0VyZkgrTlFMSnEwbFpkdWhYb0NpZ0dTbFJVVXA2VVIweGN3?=
- =?utf-8?B?alJsbkdQUVdIQVB3Y1N2VUsrNUFhR0JzL3NxdFNSQkNwQ2x2ZVEybVg0eVhG?=
- =?utf-8?B?dDBaczdKbVFvVTEzU253VUFaVDVrcmZJS1VBSnBEeEdMY1hiaGxMQ0V6U1ZD?=
- =?utf-8?B?VHZWTVFtdEpSSy9XZkdNZkZJZUU5NnZ3bGlMTkNVVkdFcFU3cG9NMHJFOTk1?=
- =?utf-8?B?L29nVTNUcTVLSHRoeDdWRGprYVBqelpLd25IVmlXeTBVMnFRQzhOSGh4Q25i?=
- =?utf-8?B?dDV4S0Iza2JmcVFZQTVGYThHTjNwTWd3MTZscFVNajdhVDZONUQzUXhHSHJL?=
- =?utf-8?B?UHJJOHkwQlN3UXhVVEpFSmlVTTVMZ0dGNjF3WWpQZEFWcndDdzhmekJyeUZG?=
- =?utf-8?B?VHd2WkdkajA0M0paMnJ0N0lGUFhoUlZjTjU0TEJGR1F1b09nUGZYa28xejZT?=
- =?utf-8?B?bjlWTFBHU1Y1cHhpalB2MGlvNHUrVENrT3FZZUxnY3d6UHdsdDhqYmd4QjIx?=
- =?utf-8?B?d2Q3NFBGMGVBRWxuL3VQSTZVTklDeHNGeDlKbEN1N2I3RFRNbXdVYU5QTEdn?=
- =?utf-8?B?WUhhMlF4UlJLc0prYkNaa3hpY3A2aWdyN1ZLQWNJazkxTnFTcU1EdlMzVE9I?=
- =?utf-8?B?eUpjTm1mb1dobGtTNEZWTlB1UDF0V3Q3Nk1ETmd6bXp5cGNPaFliWGdTU1BO?=
- =?utf-8?B?OXEvTXhSQVRvcFF5NDhXWEI0ajV2TnczSk9SQ1pLWmRzWkttaTZjdzRyL3Z2?=
- =?utf-8?B?TUR1eDZHZmtSSnRVUkcwRDBOeVNCZ2pmejZWSDJpdW1TWm8yWFptSTNZZk9Z?=
- =?utf-8?B?V2FoN2U4VmZsU1VibThBWWdZL1FScm5UbE1zN3g3bkF3eE5lMzRjc2xkdDdi?=
- =?utf-8?B?c3RNeTc2eHdqK2diN3RvMnI4OXFsQUhlZ056eDVMSy8yd2pxVmQwalFyZkJE?=
- =?utf-8?B?MzlxdWN1L1hicXNwdTdVQmNVZTY3UGpaUGRZQ0kxZytORFU4TVYwMHdvN0d2?=
- =?utf-8?B?Uis5ZGx4QjVsd2tBRktVQVpkZHBCZkJvb1JVZEFlV2xMalN4TUhibUl6aXN5?=
- =?utf-8?B?UHhPc2hnc1IrK2YwLy8zMFhVa0lUcWVPWkRkdmJxRWkvK3ZzMDNiQkRDbWVv?=
- =?utf-8?B?RzMzc0k1aGdxVnVyTy95TTBIeCtNOGhVWUhBTFpyc2EyelpHa1hoalMrWTEw?=
- =?utf-8?B?Q1BGSlZPWUMyTkpzZVZmZzkxbjcrWERveU92UXRzRFQzOVFjVHFwR2x4WmJw?=
- =?utf-8?B?cE9tVnlzWUZZM3RLd25YT0lBUGdnSXJWaysxU1VZdXVlMWxpck91SEgzS0lU?=
- =?utf-8?B?cmRIQXRMT3diby81cXhHNUN3eFE2VXRPNnNmOUV3bXR3NVg5RzluR0VnUmRk?=
- =?utf-8?B?dGdJNnF0U2JCYkZuYVV1KzJ0VnlMZlg1V2V4bzhkSGMyR2RRRTF1VFNQMy9a?=
- =?utf-8?B?SVZjT1MxZXN6MTNjQ3I0QnpQditBdHdSVHl4eHlQOGFWamc9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB2667.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?Mkp6YVNSeFpVUVlGWDVJNko3TVBVdlZsQVQvbVRhMkJJZmtvRkQvTm16akNZ?=
- =?utf-8?B?SHZSVWVuWGM5T1FCSDluQVU4YktUZFduQzhQVzVMVHRLdmZObGRXSTN5Q1Js?=
- =?utf-8?B?NjA0TExXVDFON3hGR0dOakxuUzhNQ3hCMjZjbURXbXlYS2U3WEJLcGNUZkgr?=
- =?utf-8?B?Z3FtR0c1NU0yamJjUFZhcjFmZ2x3d2l0WkovakpnSEdyQ29qUWZOT3M4MUll?=
- =?utf-8?B?eGFNemFFWVNqZDNyZDZYVWtnaWg4dXhZQkpPNVdDQkwrLzBYb2tXMXpCWE1V?=
- =?utf-8?B?bXlaYkFPYXlNZnpKS3VLUzdVVC9GUnVGQTRUVjNHVGd0SFRuckJXMVl4bTQy?=
- =?utf-8?B?dFNJRS9LTDFkK1hyMGY2ajdjYkE1R1RzUUZISWlyall5b1ZzYVY1a3d2bGtO?=
- =?utf-8?B?VjdheW9keGRRSzlIM0J5SUhIZzhmenFVMnBNY1ZPQzZQaE85VG5Pck10ZHNn?=
- =?utf-8?B?TzVmUTVVQXRxc1lQWnVjYkVYYTBLTWRLOC9KWWhDNVNGUGYwd0c1dlZLZWJ2?=
- =?utf-8?B?ZXlmWkxPWEhRUkxzSmVtY1crMUphMWFaelZHVy9ENEtJMlVGcURpakRtdFV0?=
- =?utf-8?B?b2dDQU9neTVyMzZQWEdQRkZOSHMyR1pIQURwd0FkVFQ0VkhLa3pRdUdFcmQ4?=
- =?utf-8?B?NlVla2V1YWtBTmZOSmtUU1FWeVJiQzZKUTBKV3dQOFZId2xSMlpQZWtDNE5K?=
- =?utf-8?B?Qm9iNGNlNmwxSGVPdWFpRW5hdXowcHBRSTk4OE5CdEFxMXU1R1Q5TkJ5emhD?=
- =?utf-8?B?c2RpcVlvOHZ6S3Y0ZmhNTGZvWFBlMmEvQ0ZNUzJnT0IvbTIzb0hCclpyVXJN?=
- =?utf-8?B?SVIyQTVURW5PSFl5VGUwUVA4eklmY0c3SVROKytmN3BqZ0ZoK1JpR3ZPWUZ4?=
- =?utf-8?B?UUpncG5RZkpTMUFTMFo2QVllZEJGUmNIOG01bjFwd0M0SFl5OURLaUVKT29T?=
- =?utf-8?B?RVVZM0lodDNQTk5vQ2VxdC9vNHh0NHVSWDRlNUptU3VjcWZpOXh6TWpTdEpG?=
- =?utf-8?B?Qzh0cXRUdXFtT21rb2JFZTRvL3ZGZDVOSFRPckVYQ0FHK09NbkdqWEdwLzlu?=
- =?utf-8?B?RkxvNE0wd1g4djlqWTVOUnZwalgrZVA3eU1XbnZNdWhvaWt1bXpPZkhTTW5V?=
- =?utf-8?B?cjRXVUhNRkN4Z2ZXUnhLa3RZblI5V01nTzU5WXBwcFN6akxHbGRuZ0ZuT3Ex?=
- =?utf-8?B?ZW1oQ0VkTXA0bVZtNTB4OWlBNHp5MWxxVmlka0ZQYkpQcmkwWDgzTGllTHRu?=
- =?utf-8?B?UkdTenROS2J0eXRwK2tFVjErV1JnN1d4UTlVYjdtcDUwZTJnYmpLWi91cERv?=
- =?utf-8?B?UVA2RDN5aFBvaHE0MEdNSUxUczE1SnE5QjFMZ1BsbnhtSGlSRS9RbGRiV01Y?=
- =?utf-8?B?d3Y5c3RwdHB0RTdkSWx5ZXhXeUFwWGY0bHZtQ1lINlNVU092WHRqclV6MlJX?=
- =?utf-8?B?SnFnM3dhTHdTUEdGK0JOTWU0VlFnN1NkTjU5T1BJUTQ4RDR2SDgzZlRvVlJ2?=
- =?utf-8?B?MHloZ0ttY09ZU1pCNVB2MlBRcGhpc243dWcyTDY5cmcyOSt6UzZiQWI1Z3V0?=
- =?utf-8?B?SkZlVy9lQ1ZOblB5c3l6NmR4SEVBOFlOSXdqaE9yWGxWQkk0Uld1QmdNalht?=
- =?utf-8?B?OEtpY2xqY2dOQjFrZnZSdTI4YiswMVhxdDYwR3RYbXhWVllYclJJN0RtcWFB?=
- =?utf-8?B?eXlSZEF0NmExTVJNa1A2LzlUT2YycDVJb1Z4cXY0VUxUOEExRXRaN1JEdE1L?=
- =?utf-8?B?M0RDWnJXWE9oMkJqUW5UUlhuSmg1d2g0Wk9Va1JZSHdLVitqK1ppNC9NLzFz?=
- =?utf-8?B?Q016TWpqZXgwVzNGek1jQnBSb09YMENQZGdjRUx4amJmSU5SVEFybjJENVg3?=
- =?utf-8?B?MEtCNXVQTmo5QUZnWDJRLzlTMnBoQVhFWXFETkdNNWcxekh3ckJQNnBFOTc2?=
- =?utf-8?B?dGp5NCtYNzc5Z05Pb3ROTU85VFIvZHVYUkZjREVJSVNXQ3VnaHRBMzM5Mkkv?=
- =?utf-8?B?RXNpL2NIaFJ0a09nVUtyRXMrWE94TG5aVWEwQ1hpOFZNei9GUDRsVjBrU3RQ?=
- =?utf-8?B?c2w4aXcwK3djU1djNi9JZzA4MitLZUpIQVJrYUcwSXRwN1NYT1VTQklnWUpS?=
- =?utf-8?Q?Drkawbdk5RjS4bIe6BNQQKMGv?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e76e6679-9462-43e0-a64f-08ddfca57e03
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB2667.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Sep 2025 02:36:27.1890
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: yrr0Gd/OxK3LTVux8QxR4ufZCarSr5+IPK84yQZSDaU7CA/IgojRtx/ABVb8zn5S+SLTLAkJYfgUi7Rq2AJ8bg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN0PR12MB5787
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_193641_007941_19D580A3 
-X-CRM114-Status: UNSURE (   8.11  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <DU2PR04MB884007655AC6BAF8AFD9AD198C1EA@DU2PR04MB8840.eurprd04.prod.outlook.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -190,20 +82,205 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On 9/10/25 13:43, James Morse wrote:
-> When features are mismatched between MSC the way features are combined
-> to the class determines whether resctrl can support this SoC.
+On Fri, Sep 26, 2025 at 02:19:37AM +0000, Hongxing Zhu wrote:
+> > -----Original Message-----
+> > From: Bjorn Helgaas <helgaas@kernel.org>
+> > On Tue, Sep 23, 2025 at 03:39:13PM +0800, Richard Zhu wrote:
+> > > The CLKREQ# is an open drain, active low signal that is driven low by
+> > > the card to request reference clock. It's an optional signal added in
+> > > PCIe CEM r4.0, sec 2. Thus, this signal wouldn't be driven low if it's
+> > > reserved.
+> > >
+> > > Since the reference clock controlled by CLKREQ# may be required by
+> > > i.MX PCIe host too. To make sure this clock is ready even when the
+> > > CLKREQ# isn't driven low by the card(e.x the scenario described
+> > > above), force CLKREQ# override active low for i.MX PCIe host during
+> > initialization.
+> > >
+> > > The CLKREQ# override can be cleared safely when supports-clkreq is
+> > > present and PCIe link is up later. Because the CLKREQ# would be driven
+> > > low by the card at this time.
+> > 
+> > What happens if we clear the CLKREQ# override (so the host doesn't assert
+> > it), and the link is up but the card never asserts CLKREQ# (since it's an
+> > optional signal)?
+> > 
+> > Does the i.MX host still work?
 >
-> Add some tests to illustrate the sort of thing that is expected to
-> work, and those that must be removed.
->
-> Signed-off-by: James Morse <james.morse@arm.com>
+> The CLKREQ# override active low only be cleared when link is up and
+>  supports-clkreq is present. In the other words, there is a remote endpoint
+>  device, and the CLKREQ# would be driven active low by this endpoint device.
 
-Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+Assume an endpoint designed to CEM r2.0.  CLKREQ# doesn't exist in CEM
+r2.0, so even if the endpoint is present and the link is up, the
+endpoint will not assert CLKREQ#.
 
-Thanks.
+Will the i.MX host still work?
 
--Fenghua
+IIUC, CLKREQ# is required for ASPM L1 PM Substates.  Maybe the CLKREQ#
+override should only be cleared if the endpoint advertises L1 PM
+Substates support?
 
+Sorry, I'm just really confused about this.  Here's another question:
+Even if the endpoint is designed to CEM r4.0, it supports L1 PM
+Substates, and it asserts CLKREQ#, my understanding is that the
+endpoint won't assert CLKREQ# *all* the time.  For example, when the
+link enters L1, the device deasserts CLKREQ# (CEM r5.0, sec 2.8.2).
+
+What happens to the i.MX host when the endpoint isn't asserting
+CLKREQ#?  I guess i.MX doesn't need refclk in that situation?
+
+> > > Signed-off-by: Richard Zhu <hongxing.zhu@nxp.com>
+> > > Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> > > ---
+> > >  drivers/pci/controller/dwc/pci-imx6.c | 43
+> > > ++++++++++++++++++++++++++-
+> > >  1 file changed, 42 insertions(+), 1 deletion(-)
+> > >
+> > > diff --git a/drivers/pci/controller/dwc/pci-imx6.c
+> > > b/drivers/pci/controller/dwc/pci-imx6.c
+> > > index 80e48746bbaf..6b03b1111d06 100644
+> > > --- a/drivers/pci/controller/dwc/pci-imx6.c
+> > > +++ b/drivers/pci/controller/dwc/pci-imx6.c
+> > > @@ -52,6 +52,8 @@
+> > >  #define IMX95_PCIE_REF_CLKEN			BIT(23)
+> > >  #define IMX95_PCIE_PHY_CR_PARA_SEL		BIT(9)
+> > >  #define IMX95_PCIE_SS_RW_REG_1			0xf4
+> > > +#define IMX95_PCIE_CLKREQ_OVERRIDE_EN		BIT(8)
+> > > +#define IMX95_PCIE_CLKREQ_OVERRIDE_VAL		BIT(9)
+> > >  #define IMX95_PCIE_SYS_AUX_PWR_DET		BIT(31)
+> > >
+> > >  #define IMX95_PE0_GEN_CTRL_1			0x1050
+> > > @@ -136,6 +138,7 @@ struct imx_pcie_drvdata {
+> > >  	int (*enable_ref_clk)(struct imx_pcie *pcie, bool enable);
+> > >  	int (*core_reset)(struct imx_pcie *pcie, bool assert);
+> > >  	int (*wait_pll_lock)(struct imx_pcie *pcie);
+> > > +	void (*clr_clkreq_override)(struct imx_pcie *pcie);
+> > >  	const struct dw_pcie_host_ops *ops;
+> > >  };
+> > >
+> > > @@ -149,6 +152,7 @@ struct imx_pcie {
+> > >  	struct gpio_desc	*reset_gpiod;
+> > >  	struct clk_bulk_data	*clks;
+> > >  	int			num_clks;
+> > > +	bool			supports_clkreq;
+> > >  	struct regmap		*iomuxc_gpr;
+> > >  	u16			msi_ctrl;
+> > >  	u32			controller_id;
+> > > @@ -239,6 +243,16 @@ static unsigned int imx_pcie_grp_offset(const
+> > struct imx_pcie *imx_pcie)
+> > >  	return imx_pcie->controller_id == 1 ? IOMUXC_GPR16 : IOMUXC_GPR14;
+> > > }
+> > >
+> > > +static void  imx95_pcie_clkreq_override(struct imx_pcie *imx_pcie,
+> > > +bool enable) {
+> > > +	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_1,
+> > > +			   IMX95_PCIE_CLKREQ_OVERRIDE_EN,
+> > > +			   enable ? IMX95_PCIE_CLKREQ_OVERRIDE_EN : 0);
+> > > +	regmap_update_bits(imx_pcie->iomuxc_gpr, IMX95_PCIE_SS_RW_REG_1,
+> > > +			   IMX95_PCIE_CLKREQ_OVERRIDE_VAL,
+> > > +			   enable ? IMX95_PCIE_CLKREQ_OVERRIDE_VAL : 0); }
+> > > +
+> > >  static int imx95_pcie_init_phy(struct imx_pcie *imx_pcie)  {
+> > >  	/*
+> > > @@ -685,7 +699,7 @@ static int imx6q_pcie_enable_ref_clk(struct
+> > imx_pcie *imx_pcie, bool enable)
+> > >  	return 0;
+> > >  }
+> > >
+> > > -static int imx8mm_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool
+> > > enable)
+> > > +static void imx8mm_pcie_clkreq_override(struct imx_pcie *imx_pcie,
+> > > +bool enable)
+> > >  {
+> > >  	int offset = imx_pcie_grp_offset(imx_pcie);
+> > >
+> > > @@ -695,6 +709,11 @@ static int imx8mm_pcie_enable_ref_clk(struct
+> > imx_pcie *imx_pcie, bool enable)
+> > >  	regmap_update_bits(imx_pcie->iomuxc_gpr, offset,
+> > >  			   IMX8MQ_GPR_PCIE_CLK_REQ_OVERRIDE_EN,
+> > >  			   enable ? IMX8MQ_GPR_PCIE_CLK_REQ_OVERRIDE_EN : 0);
+> > > +}
+> > > +
+> > > +static int imx8mm_pcie_enable_ref_clk(struct imx_pcie *imx_pcie, bool
+> > > +enable) {
+> > > +	imx8mm_pcie_clkreq_override(imx_pcie, enable);
+> > >  	return 0;
+> > >  }
+> > >
+> > > @@ -1298,6 +1317,16 @@ static void imx_pcie_host_exit(struct
+> > dw_pcie_rp *pp)
+> > >  		regulator_disable(imx_pcie->vpcie);
+> > >  }
+> > >
+> > > +static void imx8mm_pcie_clr_clkreq_override(struct imx_pcie
+> > > +*imx_pcie) {
+> > > +	imx8mm_pcie_clkreq_override(imx_pcie, false); }
+> > > +
+> > > +static void imx95_pcie_clr_clkreq_override(struct imx_pcie *imx_pcie)
+> > > +{
+> > > +	imx95_pcie_clkreq_override(imx_pcie, false); }
+> > > +
+> > >  static void imx_pcie_host_post_init(struct dw_pcie_rp *pp)  {
+> > >  	struct dw_pcie *pci = to_dw_pcie_from_pp(pp); @@ -1322,6 +1351,12
+> > @@
+> > > static void imx_pcie_host_post_init(struct dw_pcie_rp *pp)
+> > >  		dw_pcie_writel_dbi(pci, GEN3_RELATED_OFF, val);
+> > >  		dw_pcie_dbi_ro_wr_dis(pci);
+> > >  	}
+> > > +
+> > > +	/* Clear CLKREQ# override if supports_clkreq is true and link is up */
+> > > +	if (dw_pcie_link_up(pci) && imx_pcie->supports_clkreq) {
+> > > +		if (imx_pcie->drvdata->clr_clkreq_override)
+> > > +			imx_pcie->drvdata->clr_clkreq_override(imx_pcie);
+> > > +	}
+> > >  }
+> > >
+> > >  /*
+> > > @@ -1745,6 +1780,8 @@ static int imx_pcie_probe(struct platform_device
+> > *pdev)
+> > >  	pci->max_link_speed = 1;
+> > >  	of_property_read_u32(node, "fsl,max-link-speed",
+> > > &pci->max_link_speed);
+> > >
+> > > +	imx_pcie->supports_clkreq =
+> > > +		of_property_read_bool(node, "supports-clkreq");
+> > >  	imx_pcie->vpcie = devm_regulator_get_optional(&pdev->dev, "vpcie");
+> > >  	if (IS_ERR(imx_pcie->vpcie)) {
+> > >  		if (PTR_ERR(imx_pcie->vpcie) != -ENODEV) @@ -1873,6 +1910,7 @@
+> > > static const struct imx_pcie_drvdata drvdata[] = {
+> > >  		.mode_mask[1] = IMX8MQ_GPR12_PCIE2_CTRL_DEVICE_TYPE,
+> > >  		.init_phy = imx8mq_pcie_init_phy,
+> > >  		.enable_ref_clk = imx8mm_pcie_enable_ref_clk,
+> > > +		.clr_clkreq_override = imx8mm_pcie_clr_clkreq_override,
+> > >  	},
+> > >  	[IMX8MM] = {
+> > >  		.variant = IMX8MM,
+> > > @@ -1883,6 +1921,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+> > >  		.mode_off[0] = IOMUXC_GPR12,
+> > >  		.mode_mask[0] = IMX6Q_GPR12_DEVICE_TYPE,
+> > >  		.enable_ref_clk = imx8mm_pcie_enable_ref_clk,
+> > > +		.clr_clkreq_override = imx8mm_pcie_clr_clkreq_override,
+> > >  	},
+> > >  	[IMX8MP] = {
+> > >  		.variant = IMX8MP,
+> > > @@ -1893,6 +1932,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+> > >  		.mode_off[0] = IOMUXC_GPR12,
+> > >  		.mode_mask[0] = IMX6Q_GPR12_DEVICE_TYPE,
+> > >  		.enable_ref_clk = imx8mm_pcie_enable_ref_clk,
+> > > +		.clr_clkreq_override = imx8mm_pcie_clr_clkreq_override,
+> > >  	},
+> > >  	[IMX8Q] = {
+> > >  		.variant = IMX8Q,
+> > > @@ -1913,6 +1953,7 @@ static const struct imx_pcie_drvdata drvdata[] = {
+> > >  		.core_reset = imx95_pcie_core_reset,
+> > >  		.init_phy = imx95_pcie_init_phy,
+> > >  		.wait_pll_lock = imx95_pcie_wait_for_phy_pll_lock,
+> > > +		.clr_clkreq_override = imx95_pcie_clr_clkreq_override,
+> > >  	},
+> > >  	[IMX8MQ_EP] = {
+> > >  		.variant = IMX8MQ_EP,
+> > > --
+> > > 2.37.1
+> > >
 
