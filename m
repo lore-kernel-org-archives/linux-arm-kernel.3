@@ -4,87 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4987CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 01:04:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F947CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 01:48:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c1PTcenWwYJQDqIWAGafXJtH7Gx1jBmVYXi2cXCmKlM=; b=gHnfAg+ixCj708G31P3YbyciT+
-	Ocb7st0msp+MqB+kyiugi0BnbqOyW3eccR0KpHcY5Vk74jNhcn8FHnwG5cytpCoXly6znlFIGyq76
-	U+xZUSn0mqc9dwgWRFBrTufDqN6nXRlNzvr73gMah5s7TBsnKInkUNpPEshEP/4Kujcal7ssIqwUo
-	hxIr+h0Tf8oxbFyvcSF9U9Bj9AJwvAshFv3+YqbBNEQGbch2Lax0TFMG0vhPLxZS+gAAW+F63NsPm
-	/kDgnImMBclTlqxkK9Cu9o95VIgryJFd34cCZ/FavIqdBNWDO2ghsygzLNUgfA8cITQNoiyPDIpmd
-	bQTYcO1A==;
+	bh=uL75prvgW+wJB6okTWkfXgiVRAHI/46T0CBY4F1eUuY=; b=5AaNz09nNIhzICE1pdv9mgA2J2
+	Qh5GcHnXCC++fgdkPEJvz9Ouk3ZN5HhdhZ1RAJIWyHNTyGlHgIADc0TORJseI1baCqVwZW4VfxpoD
+	a77yufJUzGMB7ZBxdYV04BBe7J1wOGikMxXHfSLqQYrocDFLNe1G7nfOW2QHCfidfHh2SrlzGtHG4
+	/SV5hQAO4xexUDGuBQ1KltwLApjm0icb9mKdltpja8NnJylmgKX1JDZQyfSrttS7I258VOVPf4qos
+	6Z0CY8nCv5Fqf9hYoVHwySQj3Q+4uc7PO8Bl2QTdMK8SxEq642odm2EnL8JCwKuTFtN9v6qJ7TAzL
+	15Djlmyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1wtF-0000000EXV5-2kzv;
-	Fri, 26 Sep 2025 01:04:49 +0000
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	id 1v1xZK-0000000EmHJ-2shh;
+	Fri, 26 Sep 2025 01:48:18 +0000
+Received: from mail-m21466.qiye.163.com ([117.135.214.66])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1wtB-0000000EXRL-3tM1
+	id 1v1xZH-0000000EmDW-3E6r
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 01:04:48 +0000
-Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-3612c38b902so13539791fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Sep 2025 18:04:45 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758848684; x=1759453484; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=c1PTcenWwYJQDqIWAGafXJtH7Gx1jBmVYXi2cXCmKlM=;
-        b=dPE0AGOJwdj7BZ8jHvRfIGfIcOukqepuI5UrkfR8TypOmAyqIIdpVTdxIaDnHyeYpA
-         GClwyR9xP2NO3k7c+Z8+nDGh31HbMfC2GRD5LUKiVExoZDQU3FbBWmNt4+p7SDzDU8N5
-         /iXfhqR6DKcOi7QUe+2fBL5oPYdMinOSE1EaRMzXthbaI7jRdoZ3dbjxh0Pzc77LpKHb
-         R3SMX7Qr2YBEvWGfnsB1NPw0wbkk0pssLek+zfIgr3kSrKoJqwSSg3TeJUvXGC4s08Xd
-         e/U1+vnVb+CLxwIZEbSzvizKJrKuPEY6Gx9tP9DNejsoUcrtRE0r/JvaNz3a1+FsaykJ
-         IOZQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758848684; x=1759453484;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=c1PTcenWwYJQDqIWAGafXJtH7Gx1jBmVYXi2cXCmKlM=;
-        b=eNMZi/w6kReUn0F56nDfX09w/VCiJl2x1bWda+sewkB4zKk3NUlAmtNgZr6qdEytr0
-         hMcsh9Z/LxlBQH+6dmHGqPcBZtm9GHNr4lXTW7R8vvEttjXej2MlwtFH+X6ANOilE7HS
-         XrrVQVGeGLqUajLbWoGYsiGZ0QcNp7pCU3i5t13JBdajkvrQRFUeeX3xo5yru3QBSxuZ
-         Jc/jh7h5NjOGesTb5Vn5sQiM+BTUExzKDGVlveKclxxqQO5RTUZGkh6V3fTLxg73BX9U
-         2xINxU8pyoZ4I6MI+IzKuIiZ8SEFXn1inr9QEY9qhxlclAB1F62oJIGcCXLylga8PlwO
-         JXEw==
-X-Forwarded-Encrypted: i=1; AJvYcCVLhODJbKMJZIBd8udNSYoT+zSrK0oFMQ6fyZaCj4Ye+i3v0uEXJQROEdu6JxbGYxZwQVQXqAlpSSh1X//K6LDp@lists.infradead.org
-X-Gm-Message-State: AOJu0YzftbSHYtXcVMqcNkYSIh/wwpUsOSDFQ1S+fJ4irLzVd3ok7jOn
-	v3AdE9jlht29xl8VWatX/qWEUR4CkWt4evU8B1sp+2RKX2GbXNVZmYz1pCmYt/z5PMjq7QO7u5X
-	YTuKcPnEi8Pm5Fv27+ykJqavDT3P/77s=
-X-Gm-Gg: ASbGncuq199pJDyuRyzDzsj3AAueFG9x3BJ7+J5/HJJgMq9n1t3LeblsXRk8BQu8st1
-	2lcMJ4A764k6+BClEw4DOzH58itZj6RKbMyQj/cbGe96DqUJPedwJgrsNHXVefiCILvtuyX+eXv
-	RFQs6xagAOjFwIxuWCHxo0K14ejNjuqK9FlYyhBKh7gWy9wifoAPnpqBt+8UN6xKXMeW/vUIdNx
-	sGtL6T4YAJbJc/75BHtKNvfTKv8qGadycs+3PCv0sNU+vl83Q==
-X-Google-Smtp-Source: AGHT+IF60TM5C+nAEavr2hjyLt4InfjHbymmnuKiT3q3qe2EKbyjz8AweucVXMC9Vaf26fmcfOScUPJF+Jt3PPMgBJU=
-X-Received: by 2002:a2e:a54f:0:b0:354:8a7:2f7a with SMTP id
- 38308e7fff4ca-36f7f2489cbmr16533621fa.20.1758848683520; Thu, 25 Sep 2025
- 18:04:43 -0700 (PDT)
+	Fri, 26 Sep 2025 01:48:17 +0000
+Received: from albert-OptiPlex-7080.. (unknown [117.184.129.134])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 241b800cb;
+	Fri, 26 Sep 2025 09:48:08 +0800 (GMT+08:00)
+From: Albert Yang <yangzh0906@thundersoft.com>
+To: arnd@arndb.de
+Cc: adrian.hunter@intel.com,
+	bst-upstream@bstai.top,
+	catalin.marinas@arm.com,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	gordon.ge@bst.ai,
+	krzk+dt@kernel.org,
+	krzysztof.kozlowski@linaro.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mmc@vger.kernel.org,
+	robh@kernel.org,
+	ulf.hansson@linaro.org,
+	will@kernel.org,
+	yangzh0906@thundersoft.com
+Subject: Re: [PATCH 0/9] arm64: introduce Black Sesame Technologies C1200 SoC and CDCU1.0 board
+Date: Fri, 26 Sep 2025 09:48:07 +0800
+Message-ID: <20250926014807.2919409-1-yangzh0906@thundersoft.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <f64b0e00-1c30-47a1-b6b0-1bc28cc7f8ac@app.fastmail.com>
+References: <f64b0e00-1c30-47a1-b6b0-1bc28cc7f8ac@app.fastmail.com>
 MIME-Version: 1.0
-References: <20250925-imx6_dts_cleanup-v1-0-748380dd0d22@nxp.com> <20250925-imx6_dts_cleanup-v1-8-748380dd0d22@nxp.com>
-In-Reply-To: <20250925-imx6_dts_cleanup-v1-8-748380dd0d22@nxp.com>
-From: Fabio Estevam <festevam@gmail.com>
-Date: Thu, 25 Sep 2025 22:04:32 -0300
-X-Gm-Features: AS18NWBj6BcwvJ3vSrAqizOdTksjhpkILyWLhm4qyX1--PNMSLiRuSdyQPA3LCc
-Message-ID: <CAOMZO5BVbm+Vh=XOiR9peP0oW77GiqaSNCbawK_j2+_-vFj7mA@mail.gmail.com>
-Subject: Re: [PATCH 08/11] ARM: dts: imx6-tbs2910: rename ir_recv to ir
-To: Frank Li <Frank.Li@nxp.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9983b4cc3a09cckunm02b014f18bacab
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCHRpCVk4ZSx5PTBkfGk5LTlYVFAkWGhdVEwETFh
+	oSFyQUDg9ZV1kYEgtZQVlKSkxVSkNPVUpJQlVKSE9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0hVSk
+	tLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=dw80sa2cDL14SK4ldMNnUd3MPXuHA84uZtjN7fE0A7GNysxx1MCj/4tXyZeh8fFHSkI2wIYFXO8PFveocuCppX18lLF50mod2zj8AZn4RZDP4tRcH7BUrrkyRUszhdYd3iyKGdlpsEOGdI1Gw28c789g7ED83x2vuJyULwUzEqo=; c=relaxed/relaxed; s=default; d=thundersoft.com; v=1;
+	bh=uL75prvgW+wJB6okTWkfXgiVRAHI/46T0CBY4F1eUuY=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_180445_968635_737CF980 
-X-CRM114-Status: UNSURE (   7.83  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250925_184816_387435_F3746096 
+X-CRM114-Status: GOOD (  21.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,12 +82,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 25, 2025 at 6:14=E2=80=AFPM Frank Li <Frank.Li@nxp.com> wrote:
+On Thu, Sep 25, 2025 at 03:38:44PM +0200, Arnd Bergmann wrote:
+> On Thu, Sep 25, 2025, at 15:34, Ulf Hansson wrote:
+> > On Thu, 25 Sept 2025 at 14:12, Albert Yang <yangzh0906@thundersoft.com> wrote:
+> >> On Thu, Sep 25, 2025 at 05:03:57PM +0800, Albert Yang wrote:
+> >>
+> >> Hi Arnd,
+> >>
+> >> I may have missed an important detail in my previous note. If I split
+> >> out the MMC-related patches and submit only the SoC parts first, I
+> >> cannot validate the SoC on real hardware: both the kernel and the root
+> >> filesystem live on the MMC device. Without the MMC stack (DT bindings
+> >> and the controller driver), the board does not boot to userspace, so I
+> >> cannot properly verify the SoC/DT changes in isolation.
+> >
+> > At least to me, I would not consider that a problem. As long as you
+> > can test the pieces together "manually" that's fine, I think.
+> >
+> > I mean, the platform was not supported in the first place, so it's not
+> > like we would be introducing a regression - or break something, right?
+>
+> Agreed, it's rare for newly added platforms to immediately have
+> everything working, and we can still fix things if they don't.
+>
+> It's also possible to test userspace by using a standalone
+> initramfs with a login shell or an automated test suite, but
+> I don't require that.
 
-> -       ir_recv {
-> +       ir {
+Hi Arnd, Ulf,
 
-ir-receiver would be more informative.
+Thank you both for the clarifications.
 
-This is what gpio-ir-receiver.yaml uses in the example.
+Understood regarding validation expectations. I'll proceed with the split:
+  * v5 SoC series (no MMC binding/driver, no mmc nodes in dtsi)
+  * Separate MMC series (binding + driver) to linux-mmc
+  * Follow-up enable patch once the driver lands
+
+
+If any critical fix is found while iterating on the MMC series, I'll send
+a follow-up patch depending on timing.
+
+I'll move ahead with preparing v5 accordingly.
+
+Thanks again for the guidance.
+
+Best regards,
+Albert Yang
 
