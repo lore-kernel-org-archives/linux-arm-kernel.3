@@ -4,70 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9F947CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 01:48:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9B54CAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 01:52:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uL75prvgW+wJB6okTWkfXgiVRAHI/46T0CBY4F1eUuY=; b=5AaNz09nNIhzICE1pdv9mgA2J2
-	Qh5GcHnXCC++fgdkPEJvz9Ouk3ZN5HhdhZ1RAJIWyHNTyGlHgIADc0TORJseI1baCqVwZW4VfxpoD
-	a77yufJUzGMB7ZBxdYV04BBe7J1wOGikMxXHfSLqQYrocDFLNe1G7nfOW2QHCfidfHh2SrlzGtHG4
-	/SV5hQAO4xexUDGuBQ1KltwLApjm0icb9mKdltpja8NnJylmgKX1JDZQyfSrttS7I258VOVPf4qos
-	6Z0CY8nCv5Fqf9hYoVHwySQj3Q+4uc7PO8Bl2QTdMK8SxEq642odm2EnL8JCwKuTFtN9v6qJ7TAzL
-	15Djlmyg==;
+	bh=O8SEbiV6bsY5wk64SP2GhKRTTTiaEXDFSuX28Ph1mjg=; b=f7B//vcokETJf0lW4PIWzluCWG
+	olQyIiFPdcLI4/jaOzCw6TaoNjOPCD+OEdEZs2lkGNwiexfDIu7ENf+0soc5cu3pJPiCzW056g9Mq
+	pq9BCaBNSru7HAwROcNf0j7OVXXwUA2iiu/QM4ktUO3dw6gOHNkjkjW7kmbR3mKznekqm0Pq5wZ1M
+	6wmk4g2IDnUyKRVAgodsjv9dPxM7qqLvDxUkiHttqkyqJlN5INey0DkUL45TzPFpq+d6h2rNy9hGY
+	sBMOVIBUEycChd+uZ7vsCa0wLkS+ePm2cSPR1GTjyGQO3fUbhF1w0ELxnzt7C5zC2+fWEa4flT4Jk
+	CeSqxiRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1xZK-0000000EmHJ-2shh;
-	Fri, 26 Sep 2025 01:48:18 +0000
-Received: from mail-m21466.qiye.163.com ([117.135.214.66])
+	id 1v1xdT-0000000EnjW-2XaA;
+	Fri, 26 Sep 2025 01:52:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1xZH-0000000EmDW-3E6r
+	id 1v1xdR-0000000Enhw-2l8w
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 01:48:17 +0000
-Received: from albert-OptiPlex-7080.. (unknown [117.184.129.134])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 241b800cb;
-	Fri, 26 Sep 2025 09:48:08 +0800 (GMT+08:00)
-From: Albert Yang <yangzh0906@thundersoft.com>
-To: arnd@arndb.de
-Cc: adrian.hunter@intel.com,
-	bst-upstream@bstai.top,
-	catalin.marinas@arm.com,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	gordon.ge@bst.ai,
-	krzk+dt@kernel.org,
-	krzysztof.kozlowski@linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	linux-mmc@vger.kernel.org,
-	robh@kernel.org,
-	ulf.hansson@linaro.org,
-	will@kernel.org,
-	yangzh0906@thundersoft.com
-Subject: Re: [PATCH 0/9] arm64: introduce Black Sesame Technologies C1200 SoC and CDCU1.0 board
-Date: Fri, 26 Sep 2025 09:48:07 +0800
-Message-ID: <20250926014807.2919409-1-yangzh0906@thundersoft.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <f64b0e00-1c30-47a1-b6b0-1bc28cc7f8ac@app.fastmail.com>
-References: <f64b0e00-1c30-47a1-b6b0-1bc28cc7f8ac@app.fastmail.com>
+	Fri, 26 Sep 2025 01:52:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A644A4477D;
+	Fri, 26 Sep 2025 01:52:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C302BC4CEF0;
+	Fri, 26 Sep 2025 01:52:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758851552;
+	bh=O8SEbiV6bsY5wk64SP2GhKRTTTiaEXDFSuX28Ph1mjg=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=FMB7Xx9105TLqKoh1eoqR0qRNhgr14jO3tRI1OchdSW2gQCzp3jbBaNCQqBxfDSNg
+	 KqqJFu2EKPQMUEOdCOx+tlE0pubYwQ2IqPpHXDmyB1j5P7y0+6Q7grJymYg5sANG6d
+	 uH7lsHvSva+WWyHgufaCC9jStvSoFTJhTtUG2umoHBevxEIicsu3OcTgo0uSqOMisS
+	 3RS/BzofuflXzDC0oHFqgOPSkD9a8Glc0SpTQS2xoPSLXl3C9wmNkIyBDPGkYYWMpJ
+	 NvJnOcYkzd7xM76Ql2RLLL/0oE1jdFecH0EOm0jhiyRDvMWemB1IcNVw2MSSODcbS9
+	 MfnadFklajciw==
+Date: Thu, 25 Sep 2025 18:52:30 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: "G Thomas, Rohan" <rohan.g.thomas@altera.com>
+Cc: Rohan G Thomas via B4 Relay
+ <devnull+rohan.g.thomas.altera.com@kernel.org>, Andrew Lunn
+ <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
+ Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Maxime
+ Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
+ <alexandre.torgue@foss.st.com>, Jose Abreu <Jose.Abreu@synopsys.com>, Rohan
+ G Thomas <rohan.g.thomas@intel.com>, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Matthew
+ Gerlach <matthew.gerlach@altera.com>, "Ng, Boon Khai"
+ <boon.khai.ng@altera.com>
+Subject: Re: [PATCH net v2 2/2] net: stmmac: Consider Tx VLAN offload tag
+ length for maxSDU
+Message-ID: <20250925185230.62b4e2a5@kernel.org>
+In-Reply-To: <157d21fc-4745-4fa3-b7b1-b9f33e2e926e@altera.com>
+References: <20250915-qbv-fixes-v2-0-ec90673bb7d4@altera.com>
+	<20250915-qbv-fixes-v2-2-ec90673bb7d4@altera.com>
+	<20250917154920.7925a20d@kernel.org>
+	<20250917155412.7b2af4f1@kernel.org>
+	<a914f668-95b2-4e6d-bd04-01932fe0fe48@altera.com>
+	<20250924160535.12c14ae9@kernel.org>
+	<157d21fc-4745-4fa3-b7b1-b9f33e2e926e@altera.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9983b4cc3a09cckunm02b014f18bacab
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlCHRpCVk4ZSx5PTBkfGk5LTlYVFAkWGhdVEwETFh
-	oSFyQUDg9ZV1kYEgtZQVlKSkxVSkNPVUpJQlVKSE9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0hVSk
-	tLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=dw80sa2cDL14SK4ldMNnUd3MPXuHA84uZtjN7fE0A7GNysxx1MCj/4tXyZeh8fFHSkI2wIYFXO8PFveocuCppX18lLF50mod2zj8AZn4RZDP4tRcH7BUrrkyRUszhdYd3iyKGdlpsEOGdI1Gw28c789g7ED83x2vuJyULwUzEqo=; c=relaxed/relaxed; s=default; d=thundersoft.com; v=1;
-	bh=uL75prvgW+wJB6okTWkfXgiVRAHI/46T0CBY4F1eUuY=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_184816_387435_F3746096 
-X-CRM114-Status: GOOD (  21.62  )
+X-CRM114-CacheID: sfid-20250925_185233_714318_E74F2351 
+X-CRM114-Status: UNSURE (   8.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,50 +88,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 25, 2025 at 03:38:44PM +0200, Arnd Bergmann wrote:
-> On Thu, Sep 25, 2025, at 15:34, Ulf Hansson wrote:
-> > On Thu, 25 Sept 2025 at 14:12, Albert Yang <yangzh0906@thundersoft.com> wrote:
-> >> On Thu, Sep 25, 2025 at 05:03:57PM +0800, Albert Yang wrote:
-> >>
-> >> Hi Arnd,
-> >>
-> >> I may have missed an important detail in my previous note. If I split
-> >> out the MMC-related patches and submit only the SoC parts first, I
-> >> cannot validate the SoC on real hardware: both the kernel and the root
-> >> filesystem live on the MMC device. Without the MMC stack (DT bindings
-> >> and the controller driver), the board does not boot to userspace, so I
-> >> cannot properly verify the SoC/DT changes in isolation.
-> >
-> > At least to me, I would not consider that a problem. As long as you
-> > can test the pieces together "manually" that's fine, I think.
-> >
-> > I mean, the platform was not supported in the first place, so it's not
-> > like we would be introducing a regression - or break something, right?
->
-> Agreed, it's rare for newly added platforms to immediately have
-> everything working, and we can still fix things if they don't.
->
-> It's also possible to test userspace by using a standalone
-> initramfs with a login shell or an automated test suite, but
-> I don't require that.
+On Thu, 25 Sep 2025 16:33:21 +0530 G Thomas, Rohan wrote:
+> While testing 802.1AD with XGMAC hardware using a simple ping test, I
+> observed an unexpected behavior: the hardware appears to insert an
+> additional 802.1Q CTAG with VLAN ID 0. Despite this, the ping test
+> functions correctly.
+>=20
+> Here=E2=80=99s a snapshot from the pcap captured at the remote end. Outer=
+ VLAN
+> tag used is 100 and inner VLAN tag used is 200.
+>=20
+> Frame 1: 110 bytes on wire (880 bits), 110 bytes captured (880 bits)
+> Ethernet II, Src: <src> (<src>), Dst: <dst> (<dst>)
+> IEEE 802.1ad, ID: 100
+> 802.1Q Virtual LAN, PRI: 0, DEI: 0, ID: 0(unexpected)
+> 802.1Q Virtual LAN, PRI: 0, DEI: 0, ID: 200
+> Internet Protocol Version 4, Src: 192.168.4.10, Dst: 192.168.4.11
+> Internet Control Message Protocol
 
-Hi Arnd, Ulf,
+And the packet arrives at the driver with only the .1Q ID 200 pushed?
 
-Thank you both for the clarifications.
-
-Understood regarding validation expectations. I'll proceed with the split:
-  * v5 SoC series (no MMC binding/driver, no mmc nodes in dtsi)
-  * Separate MMC series (binding + driver) to linux-mmc
-  * Follow-up enable patch once the driver lands
-
-
-If any critical fix is found while iterating on the MMC series, I'll send
-a follow-up patch depending on timing.
-
-I'll move ahead with preparing v5 accordingly.
-
-Thanks again for the guidance.
-
-Best regards,
-Albert Yang
+Indeed, that looks like a problem with the driver+HW interaction.
+IDK what the right terminology is but IIRC VLAN 0 is not a real VLAN,
+just an ID reserved for frames that don't have a VLAN ID but want to
+use the priority field. Which explains why it "works", receiver just
+ignores that tag. But it's definitely not correct because switches
+on the network will no see the real C-TAG after the S-TAG is stripped.
 
