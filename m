@@ -4,140 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64D6BCAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 07:24:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCB7CCAC5BF
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 07:28:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xahJWVIETX5BgulbVmZ+wNN4Sel4PSrkSaX8qRSlVNo=; b=CUz4aVxsYNuvvbiavQULymUrCu
-	yg6cQIIs7qCpPiefoFQdbToAcG6Q5rmuFrAvAe6fOuNBE3VOyavWiaahfdnnrROxqnsUBKyHGW8lq
-	ehihjahsa6284QSN5xpwzZPR0gB22U6ipl5R1BbJl6o7H+OY/rds6sS5gVZtI4wT1gYNIdjDHcaPQ
-	rkL63ptWGaAbJI1f6nFYBNkc+79S8R3USNcRE5xMLJSCIlJGoNHFpuJy59tRbzeRQgENNqiCO5Zip
-	gPtxzPpaGUsw4DFZ0Zg6u5bHb7JdipxvFjJ5SGqg6kJMoTfdhfX6z2f6+hm5lwp7JrRllK+vKVYXR
-	Tw4ayDdA==;
+	bh=vfTqJAeUpyWDWUY0mZYgZGj49ET2JHgaUA22xnXpmkY=; b=M9WywkRS/Wx1XQdaHWCNEcOTI+
+	ClRvOBIepXDg4ukdBmpNdsZ1pbBqGtARAX2ZZpMzygrCLShMGGBvvSgKTVJSGm23zLbIaphNtQZqt
+	97og2Szbdp7uW7AMTPTSg+XLJ8RS0drXtCij9WzGZcDvrW5e9gPcs7taHA6j0U60ZCiGY1YwtV5s9
+	kZQxlFPXUvL218Eu9BT8uQ+PgWZ7LemyaTPHW0SRwfYr8YEMwTQirm4cohkuOAYYYUKrKNZY0O6x6
+	FB2bq7JxLEPweRmX+olKNI+76FzPCBVhMjTwilZlLA7VWBbx1IGpHJ+YLwYXewrVaM8jGWjhfbKiU
+	coi33XVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v22os-0000000GkZX-1e4f;
-	Fri, 26 Sep 2025 07:24:42 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1v22s0-0000000GmBA-28DY;
+	Fri, 26 Sep 2025 07:27:56 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v22op-0000000GkY2-3mxq
+	id 1v22rw-0000000Gm2A-3cln
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 07:24:41 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58Q73c2n007834
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 07:24:39 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	xahJWVIETX5BgulbVmZ+wNN4Sel4PSrkSaX8qRSlVNo=; b=DzaNUATVlO1Gg7R7
-	FrvPqSJJIGWbwHp+bb3iIjTSqI28zM5DONHQJWFuNRPeWeAGKgq+Ejof3czeF3Wz
-	AShaUdVw4iggr2N7363Ps1yU11M1y+B2UuEkC3YEYn+4xJwkEM6CsIXIjinRGCNC
-	qRnkb5zKtMegdDELXBEasVDZWRw5rK0X0SEAsSy9cwejgdkOEota6ULJ80NbK60d
-	5oL40vw6MakX0YR5+FBGormVagK3lCUZWGsx6RmgbWuqFgOKfw1gWnlkHeOuZ4ZW
-	+GMoUjkkTWaWmIU6OurCgXr8hZ8Js4MzlUP635Ef959hpNHahQTdRYizbwMt+TQf
-	oS1KMQ==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49db0vsvjh-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 07:24:38 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-277f0ea6ee6so23497215ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 00:24:38 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758871477; x=1759476277;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=xahJWVIETX5BgulbVmZ+wNN4Sel4PSrkSaX8qRSlVNo=;
-        b=uO84rqP+yuRbPGLorfTCm4CTIqE4XLAs0EheUKCZcYD0oOfNx3n6WQJWZD+DCprZ+J
-         8/3ooBQWuN3g2vzk8/IjlRe0BUS46NxTSIKovw1STVi7KION/pk22ycv8d1mYj1gyP8e
-         avGERBFLFiyzVb/5QFSSPsszgQP6a9auw9jmJtayZZS6xq0vGWVA7hDY09QMyXqUYFxH
-         xS1SPotmrSiuv/qM0SSbgkLhBdmWVkAIPrsVJ/m9A+xk6Ea/utc/aLBxJgx3zsDI4yUX
-         5dmvLSu6KtoQFt3yaXNUw0Kg85ElrOXenQBZCaa+ILB30gt9jvD5wewCzXA8LzO5URmb
-         yVsA==
-X-Forwarded-Encrypted: i=1; AJvYcCUrVR3ORRIt247pSkaUQMx1KBPE2+d2M4neBoeT6N5SS6ebmRbVfB9atfuNgVVZ2n87Ioeuna8KfePAw/VoToSR@lists.infradead.org
-X-Gm-Message-State: AOJu0YyuAQsU4a+hfEXW0ngrPsH/HseRr2ouNtRkzMLJ+MF0W8XOu/rC
-	5MHegC8HzspBlw15roQpUuAL3gcD3aUfaMeJBLlHqEGivImwQ5U+vsIxGKT3oDPvADjtSYzeDNX
-	twZ5E5q164ZoQhXkCsmB1CR6211CC7/t4u/EEyJ8Z0+qo+k1O71/kPesWKTxK99ydhf8xzxdaz2
-	oFkQ==
-X-Gm-Gg: ASbGncttOuizk/8RTYL9yam+079uQqQXP5g4h7OZAu2rcstWkFc1uRi8NP9H6R/nAmI
-	Bv7jpnHM18MKR7ojx2QXkGL1AdR1rG72QAt2iQHjIZKCrck3CtkwHLLmODGoYqrOQ3B66uio9cB
-	vuaLqBk/VK+uewE8HsScQVRATYvRVe8/I0VBLY5ubm/2xIuEe8ryQR4YCsLESLmkCcV7Vp7PVhL
-	cidnWkaK95nIG5rrI+Ow2BquH8drpFo7ll4D8thV4nPWfcQamdvajqr8+m5h35WgJxO2RKANKW5
-	+Oh5R+km+b3DMP+ebrpVSlbhxkMQFf4Tw0KE0ebvurYaKKOIr6cgGvLXOap83k7J4ggp
-X-Received: by 2002:a17:903:2445:b0:27e:ef09:4ab6 with SMTP id d9443c01a7336-27eef094bc5mr16653795ad.0.1758871477456;
-        Fri, 26 Sep 2025 00:24:37 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE9mU7hMFwtT2lvjIBnrzMBSX54y4ICW695ZcgZtsa6DZblU9rRmj4e5eTtaAR5LsZo4bmixg==
-X-Received: by 2002:a17:903:2445:b0:27e:ef09:4ab6 with SMTP id d9443c01a7336-27eef094bc5mr16653455ad.0.1758871476971;
-        Fri, 26 Sep 2025 00:24:36 -0700 (PDT)
-Received: from [10.217.216.188] ([202.46.22.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-27ed66d43b8sm45147795ad.9.2025.09.26.00.24.30
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 26 Sep 2025 00:24:36 -0700 (PDT)
-Message-ID: <b01e5413-c8d2-4e4d-af9f-106bdbab6e07@oss.qualcomm.com>
-Date: Fri, 26 Sep 2025 12:54:28 +0530
+	Fri, 26 Sep 2025 07:27:55 +0000
+Received: from eucas1p1.samsung.com (unknown [182.198.249.206])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250926072746euoutp01897003564b3e0b18d5af2e4b4988c619~oxHYcF6v91678416784euoutp01Q
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 07:27:46 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250926072746euoutp01897003564b3e0b18d5af2e4b4988c619~oxHYcF6v91678416784euoutp01Q
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1758871666;
+	bh=vfTqJAeUpyWDWUY0mZYgZGj49ET2JHgaUA22xnXpmkY=;
+	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
+	b=SXqxsBnupU76fIpOgWpc3cxxUgtojx8A4U9ZVmc3fjzLt8Sai/y7EnEfFFn8i25Fc
+	 zpM07Ptxl+rmYuluBBD0NxZSbiKLTU0oFTxEj74zJPuHnq/8s/p0OZmMxAVi7MNVtT
+	 HUD0rXWmiHD+q5rhEnZr7Pcmr1EVqMIgBFaTMBsI=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20250926072745eucas1p139b192b8a0342c448f1917a867b91b23~oxHXwfdhJ1038710387eucas1p1w;
+	Fri, 26 Sep 2025 07:27:45 +0000 (GMT)
+Received: from [106.210.134.192] (unknown [106.210.134.192]) by
+	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250926072743eusmtip144b115372f153f8c07ba60b620d2d799~oxHWbRlP82061920619eusmtip1S;
+	Fri, 26 Sep 2025 07:27:43 +0000 (GMT)
+Message-ID: <1e5d1625-1326-4565-8407-71a58a91d230@samsung.com>
+Date: Fri, 26 Sep 2025 09:27:42 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 9/9] drivers: clk: qcom: Add support for GPUCC and GFXCLK
- for Kaanapali
-To: Bjorn Andersson <andersson@kernel.org>,
-        Jingyi Wang <jingyi.wang@oss.qualcomm.com>
-Cc: Michael Turquette <mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Neil Armstrong <neil.armstrong@linaro.org>,
-        Vladimir Zapolskiy <vladimir.zapolskiy@linaro.org>,
-        Jagadeesh Kona <quic_jkona@quicinc.com>,
-        Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
-        Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-        Alexandre Torgue <alexandre.torgue@foss.st.com>,
-        Konrad Dybcio <konradybcio@kernel.org>, linux-arm-msm@vger.kernel.org,
-        linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-kernel@vger.kernel.org,
-        Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
-        linux-stm32@st-md-mailman.stormreply.com,
-        linux-arm-kernel@lists.infradead.org, aiqun.yu@oss.qualcomm.com,
-        tingwei.zhang@oss.qualcomm.com, trilok.soni@oss.qualcomm.com,
-        yijie.yang@oss.qualcomm.com
-References: <20250924-knp-mmclk-v1-0-d7ea96b4784a@oss.qualcomm.com>
- <20250924-knp-mmclk-v1-9-d7ea96b4784a@oss.qualcomm.com>
- <ba4vkdcbudvyoj3i7eufd27luhmn6ai4mgkefza6sfbjzfwgp7@rvnpins2bruh>
+User-Agent: Betterbird (Windows)
+Subject: Re: [PATCH v2 2/5] clk: bcm: rpi: Turn firmware clock on/off when
+ preparing/unpreparing
+To: Stefan Wahren <wahrenst@gmx.net>, =?UTF-8?Q?Ma=C3=ADra_Canal?=
+	<mcanal@igalia.com>, Michael Turquette <mturquette@baylibre.com>, Stephen
+	Boyd <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>, Florian
+	Fainelli <florian.fainelli@broadcom.com>, Maxime Ripard
+	<mripard@kernel.org>, Melissa Wen <mwen@igalia.com>, Iago Toral Quiroga
+	<itoral@igalia.com>, Dom Cobley <popcornmix@gmail.com>, Dave Stevenson
+	<dave.stevenson@raspberrypi.com>, Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
+	Broadcom internal kernel review list
+	<bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com
 Content-Language: en-US
-From: Taniya Das <taniya.das@oss.qualcomm.com>
-In-Reply-To: <ba4vkdcbudvyoj3i7eufd27luhmn6ai4mgkefza6sfbjzfwgp7@rvnpins2bruh>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Proofpoint-ORIG-GUID: aMXCp6vEVFfUCFogqJkm4IZQIOwgTIw_
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTI1MDE3MSBTYWx0ZWRfXwvIXkQRV7or2
- 0g6pYewbT0B/fOq0asRYBPjSZ0Atw+e0C2zhNYi83dy79BiUSZ3G77J7+u3S8g6jd6KoxHzhPbr
- +ziZD4EbEi8DcK7CnxqMKDOBIh3bVpgpuCy4WLaB0V/paEgeaxf1yiUytx49fX+pJeOcq1uDWs3
- G6zYfzc49SjYU87p4E/JwJy0GbVsiEp813OHUaHyma7E5ob+/HwWQnv3qJqcBPeg7XU1UnpAGOC
- uxEzImXZ+Hc2j69SEAOD8S6eB4HUlxKhqzYy5e622HkEJ0vcRZwgJk7gxG6ykm2BWKDXve4nXQM
- sHPY2horYTXUNKyoQ6lUB2QSp8HuhmybzMaFGYtlvPe6wL8bbDlQU3rQ64RPgCsYB+PwNg1V9NQ
- eOmFlWL+JzLxQQs2f1T80XNEqLLvtw==
-X-Authority-Analysis: v=2.4 cv=OstCCi/t c=1 sm=1 tr=0 ts=68d63fb6 cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=fChuTYTh2wq5r3m49p7fHw==:17
- a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=EUspDBNiAAAA:8 a=U7xz_n88CXcP0GAGSGYA:9
- a=QEXdDO2ut3YA:10 a=324X-CrmTo6CU4MGRt3R:22
-X-Proofpoint-GUID: aMXCp6vEVFfUCFogqJkm4IZQIOwgTIw_
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-26_02,2025-09-26_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 clxscore=1015 suspectscore=0 lowpriorityscore=0
- priorityscore=1501 malwarescore=0 bulkscore=0 spamscore=0 phishscore=0
- impostorscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2509150000
- definitions=main-2509250171
+From: Marek Szyprowski <m.szyprowski@samsung.com>
+In-Reply-To: <2b1537c1-93e4-4c6c-8554-a2d877759201@gmx.net>
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20250926072745eucas1p139b192b8a0342c448f1917a867b91b23
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+X-RootMTR: 20250925075711eucas1p26efbb194311a6e22ab593a39b43e12c3
+X-EPHeader: CA
+X-CMS-RootMailID: 20250925075711eucas1p26efbb194311a6e22ab593a39b43e12c3
+References: <20250731-v3d-power-management-v2-0-032d56b01964@igalia.com>
+	<20250731-v3d-power-management-v2-2-032d56b01964@igalia.com>
+	<CGME20250925075711eucas1p26efbb194311a6e22ab593a39b43e12c3@eucas1p2.samsung.com>
+	<727aa0c8-2981-4662-adf3-69cac2da956d@samsung.com>
+	<2b1537c1-93e4-4c6c-8554-a2d877759201@gmx.net>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_002440_060651_6BA5007D 
-X-CRM114-Status: GOOD (  20.24  )
+X-CRM114-CacheID: sfid-20250926_002753_495755_6E4889EF 
+X-CRM114-Status: GOOD (  28.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,63 +95,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 25.09.2025 18:48, Stefan Wahren wrote:
+> Am 25.09.25 um 09:57 schrieb Marek Szyprowski:
+>> On 31.07.2025 23:06, Maíra Canal wrote:
+>>> Currently, when we prepare or unprepare RPi's clocks, we don't actually
+>>> enable/disable the firmware clock. This means that
+>>> `clk_disable_unprepare()` doesn't actually change the clock state at
+>>> all, nor does it lowers the clock rate.
+>>>
+>>> >From the Mailbox Property Interface documentation [1], we can see that
+>>> we should use `RPI_FIRMWARE_SET_CLOCK_STATE` to set the clock state
+>>> off/on. Therefore, use `RPI_FIRMWARE_SET_CLOCK_STATE` to create a
+>>> prepare and an unprepare hook for RPi's firmware clock.
+>>>
+>>> As now the clocks are actually turned off, some of them are now marked
+>>> CLK_IS_CRITICAL, as those are required to be on during the whole system
+>>> operation.
+>>>
+>>> Link:https://github.com/raspberrypi/firmware/wiki/Mailbox-property-interface 
+>>> [1]
+>>> Signed-off-by: Maíra Canal<mcanal@igalia.com>
+>>>
+>>> ---
+>>>
+>>> About the pixel clock: currently, if we actually disable the pixel
+>>> clock during a hotplug, the system will crash. This happens in the
+>>> RPi 4.
+>>>
+>>> The crash happens after we disabled the CRTC (thus, the pixel clock),
+>>> but before the end of atomic commit tail. As vc4's pixel valve doesn't
+>>> directly hold a reference to its clock – we use the HDMI encoder to
+>>> manage the pixel clock – I believe we might be disabling the clock
+>>> before we should.
+>>>
+>>> After this investigation, I decided to keep things as they current are:
+>>> the pixel clock is never disabled, as fixing it would go out of
+>>> the scope of this series.
+>>> ---
+>>>    drivers/clk/bcm/clk-raspberrypi.c | 56 
+>>> ++++++++++++++++++++++++++++++++++++++-
+>>>    1 file changed, 55 insertions(+), 1 deletion(-)
+>> This patch landed recently in linux-next as commit 919d6924ae9b ("clk:
+>> bcm: rpi: Turn firmware clock on/off when preparing/unpreparing"). In my
+>> tests I found that it breaks booting of RaspberryPi3B+ board in ARM
+>> 32bit mode. Surprisingly the same board in ARM 64bit mode correctly
+>> boots a kernel compiled from the same source. The RPi3B+ board freezes
+>> after loading the DRM modules (kernel compiled from 
+>> arm/multi_v7_defconfig):
+> thanks for spotting and bisecting this. Sorry, I only reviewed the 
+> changes and didn't had the time to test any affected board.
+>
+> I was able to reproduce this issue and the following workaround avoid 
+> the hang in my case:
+>
+> diff --git a/drivers/clk/bcm/clk-raspberrypi.c 
+> b/drivers/clk/bcm/clk-raspberrypi.c
+> index 1a9162f0ae31..94fd4f6e2837 100644
+> --- a/drivers/clk/bcm/clk-raspberrypi.c
+> +++ b/drivers/clk/bcm/clk-raspberrypi.c
+> @@ -137,6 +137,7 @@ raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] = {
+>         [RPI_FIRMWARE_V3D_CLK_ID] = {
+>                 .export = true,
+>                 .maximize = true,
+> +               .flags = CLK_IS_CRITICAL,
+>         },
+>         [RPI_FIRMWARE_PIXEL_CLK_ID] = {
+>                 .export = true,
+>
+Right, this fixes (frankly speaking 'hides') the issue. Feel free to add:
+
+Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
+Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
 
 
-On 9/25/2025 6:47 PM, Bjorn Andersson wrote:
-> On Wed, Sep 24, 2025 at 04:56:50PM -0700, Jingyi Wang wrote:
->> From: Taniya Das <taniya.das@oss.qualcomm.com>
->>
->> Support the graphics clock controller for Kaanapali for Graphics SW
->> driver to use the clocks.
-> 
-> GFXCLKCTL is a new thing, please describe what it is.
-> 
+> The proper fix should be in the clock consumer drivers. I found that 
+> vc4_v3d doesn't ensure that the clock is enabled before accessing the 
+> registers. Unfortunately the following change doesn't fix the issue 
+> for me :-(
+>
+> diff --git a/drivers/gpu/drm/vc4/vc4_v3d.c 
+> b/drivers/gpu/drm/vc4/vc4_v3d.c
+> index bb09df5000bd..5e43523732b4 100644
+> --- a/drivers/gpu/drm/vc4/vc4_v3d.c
+> +++ b/drivers/gpu/drm/vc4/vc4_v3d.c
+> @@ -441,7 +441,7 @@ static int vc4_v3d_bind(struct device *dev, struct 
+> device *master, void *data)
+>         vc4->v3d = v3d;
+>         v3d->vc4 = vc4;
+>
+> -       v3d->clk = devm_clk_get_optional(dev, NULL);
+> +       v3d->clk = devm_clk_get_optional_enabled(dev, NULL);
+>         if (IS_ERR(v3d->clk))
+>                 return dev_err_probe(dev, PTR_ERR(v3d->clk), "Failed 
+> to get V3D clock\n");
 
-Sure Bjorn, will update more details of the GFXCLKCTL.
+Well, this can be sorted out in the drivers as a next step.
 
->>
-> [..]
->> diff --git a/drivers/clk/qcom/gxclkctl-kaanapali.c b/drivers/clk/qcom/gxclkctl-kaanapali.c
-> [..]
->> +static struct platform_driver gx_clkctl_kaanapali_driver = {
->> +	.probe = gx_clkctl_kaanapali_probe,
->> +	.driver = {
->> +		.name = "gxclkctl-kaanapali",
->> +		.of_match_table = gx_clkctl_kaanapali_match_table,
->> +	},
->> +};
->> +
->> +static int __init gx_clkctl_kaanapali_init(void)
->> +{
->> +	return platform_driver_register(&gx_clkctl_kaanapali_driver);
->> +}
->> +subsys_initcall(gx_clkctl_kaanapali_init);
-> 
-> We're not starting up the GPU at subsys initlevel. Can't this just be
-> module_platform_driver()? If not please document why.
-> 
 
-You are right, we could move it to module_platform_driver().
-
-> Regards,
-> Bjorn
-> 
->> +
->> +static void __exit gx_clkctl_kaanapali_exit(void)
->> +{
->> +	platform_driver_unregister(&gx_clkctl_kaanapali_driver);
->> +}
->> +module_exit(gx_clkctl_kaanapali_exit);
->> +
->> +MODULE_DESCRIPTION("QTI GFXCLKCTL KAANAPALI Driver");
->> +MODULE_LICENSE("GPL");
->>
->> -- 
->> 2.25.1
->>
-
+Best regards
 -- 
-Thanks,
-Taniya Das
+Marek Szyprowski, PhD
+Samsung R&D Institute Poland
 
 
