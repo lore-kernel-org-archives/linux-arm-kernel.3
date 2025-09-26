@@ -4,66 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEE44CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 20:54:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 345DBCAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 20:57:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=lvqOX7K3pxnXUNSGNoCGRqsawY65lsfr8y51TadcBc0=; b=hSCFhCykoz7/di
-	ZkHTH8dp+qmsNM/JKWajeAIFKQ58iyO+8MymdjMIFgYLLnKfcRIHVmLCyC3tpEb6+1b2XYr12M/Y/
-	1/zvhr8ZjQlGfJ4Jyo/1WFuKCqQIPqkrdEwLUCunEEeXwvNhousxlgX94YDS395+hz4rSRTSB2pph
-	IgwZiv+5biGgTPqV6sERyGehOPrCWivMDA+S2KqVKy97+l5+38WPVwgUijaaZiLn2E5hsDXx8NJTa
-	ZJyJdzcf1iSlyAgYsV5wtuqU4HYkH3HoAeovnff2N0E/y5pbH5OLTrebjhx/kcznfRj7VJtijXaP3
-	NUyJvFArIGAUiMnIg1Yg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lH2Sfk58/GaFMno98E5ZZZ0Jezt1oWfRMccsDmLi3+U=; b=htXLDlS+UzWD6zjaN/2g3psTi5
+	BlsUF5rhvDNAv2KFJkOLmtV4L+wEJIsaR3LGBipvVAFGkzf6MKLUTctpyUcEX9hxZgQTUN8ZCVywb
+	TVPtPHwdhziahrrKM1GSXn+7t2soZkk/ai4ewORkmbKp7rcCOhmI6aPahC/nldWvOLz3fOW1rlv59
+	ZC490nUECsiBCoYlopfLh2jivzcfjUR5CEYxtCe2vMzZafrdBBFSNC1YPvImD+SSAZicJ587C+wRE
+	Yh9lCyccxdvuZQbiZ2BM3RGAbGwrmTn89AcBOuAg4KagNx/BAoRZrBvG7Q54rxFZ3Lv2PP0I9mx5Z
+	epoRdoHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2FS3-00000004SLF-1f2s;
-	Fri, 26 Sep 2025 20:53:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v2FVk-00000004Tgj-1IJt;
+	Fri, 26 Sep 2025 20:57:48 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2FRz-00000004SGU-0ntX;
-	Fri, 26 Sep 2025 20:53:55 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9533361F74;
-	Fri, 26 Sep 2025 20:53:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 24A17C113CF;
-	Fri, 26 Sep 2025 20:53:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758920034;
-	bh=i45xzC7yA1PYW8/tIOpUf6+frrJsG6ExocWAVAZkri8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=E4OhCUsGZLnOGQzGap8V0RvGV/q7cB1oUFGaQK06dzU7yCeO7oKvIz7cbaJBoWqwf
-	 s5HzYqQOTrZkFlnbxV5OcgfDzwuBygEod8Sd9rbUoMDWML7oAEOKeo3pCzB0ITsILt
-	 iAY5aNmisBkcmfhgmFFL321klL/mXxPC0OhwHZoaNlBnKhgy7wCrd0PVQ3e4/nHuu+
-	 cS5rR5TrEVd3jXBKEWLydBGnZwUeCYA/ATHIcCN62ogZm9fu+UsqONSGHWaNfwkKHa
-	 lpo7Oa7O+OOkTXowrpk9C6G2+5G3kv5N14nRKnjm91yzlt2tn/sjo7o39/ndOhMLwd
-	 wfIQGGj6g8XiA==
-Date: Fri, 26 Sep 2025 15:53:52 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Christian Marangi <ansuelsmth@gmail.com>
-Cc: Ryder Lee <ryder.lee@mediatek.com>,
-	Jianjun Wang <jianjun.wang@mediatek.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, upstream@airoha.com
-Subject: Re: [PATCH v3 1/4] ARM: dts: mediatek: drop wrong syscon hifsys
- compatible for MT2701/7623
-Message-ID: <20250926205352.GA2266604@bhelgaas>
+	id 1v2FVh-00000004TeI-2c1m
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 26 Sep 2025 20:57:46 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-77f68fae1a8so3624816b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 13:57:44 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1758920264; x=1759525064; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=lH2Sfk58/GaFMno98E5ZZZ0Jezt1oWfRMccsDmLi3+U=;
+        b=LoBjKzxOhuR9tDnUYSCoC1iwyxVX06g+as4+KaryPxkY/Kgh//56YdP9ze5rB4/fJw
+         BGMojXXqmSXtcGpBEkSgJzMxxxCpaxUSdpXUMhHOdE9lp5A5MBx1bKOy22Lr1TtY3N5S
+         IVkvwnX7uLOFyOkZRGD0qdMf2j3y1TuFIbhG0=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758920264; x=1759525064;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=lH2Sfk58/GaFMno98E5ZZZ0Jezt1oWfRMccsDmLi3+U=;
+        b=jM/CxxSrsmQYA18ykzX+RVpaQtlPYg+Ue7glY3sGTTH0QT9jXefEokdZ6MqrlSeueL
+         gcb1GtaTnGFEknTUSv7SYZ3CSX/UZJE/9hhNh3oBV+cZuidSXXtD9ThXh8OzoRB6e+RI
+         O0hPUnAa4xB8XewOgcMhTlJUQcZEQYb5Bd8S5bmADjPEqTqGQd0HhNKG03fy9fI4PWNG
+         K+eIx6gjRurStaVKE2HX/O52ueGMNJ4yFjXH8BUjs+v93/6sraG2UXOAeW+4SbRUfnP9
+         U4TwCTLiEwP5zEFXlbQPlOY+IkMwXV+vTQK4MUSAURbM5UZTa7Q9j3OH9nB6QnEFBurr
+         lb0g==
+X-Forwarded-Encrypted: i=1; AJvYcCXT8Kop2O9GXYLORS5wZBElMJF3uC5vN3j9ikEit1h+0LxCldeOrZgdcg3jW2mC8adPtuvyIq2m1YrSSuhT7i9n@lists.infradead.org
+X-Gm-Message-State: AOJu0YwrH83kOddaDx5xnx/WwzP3nisolPfUgsIdZoK/73OebtF4LLNL
+	kT841KVaLsQypp4s3yPhadIbB/jlhJKPIYmQ8s5zwcnk/J/d2fliFrNjsHEzXpg5VO/Z1UZHfoo
+	zCG4=
+X-Gm-Gg: ASbGncsbb2burx/LHurAEX6cEwxTO39fFEs3763AMhrQedEfZTNlL+rUTveWMarHMNP
+	pMXyzgk2Aq8+6i9HQ9XfFbUntfNhPaV6P0o3b4IDWWRUaJIKRJVhzFFJVM2u69KQowy679cBNww
+	aOGpk4rHqFGocFKj8CiND8CqIxI1Pqp3oZ4QMzBUAlpy+djGeREDoQr1hR2cOi0HWu+jswqcc/s
+	2YjXAYAuQLJfffxsyV2txKyCgRn0P0fNt4XYSQQM4AfndCYI5bPrrqGGqhX3OgINMvrKC/MJXMA
+	KUbZDFTSAyfmnmwRHGJE24w/Jv3pUKWhvZKHr5MS3Sv9jLy3aOR613c0SdB1yvb7YWRKOyhAtho
+	5mAP5o+th6V0CNQxeASniNXTtGPFo+q9PZAEQhNVU+HlPS72WeuVUNW43ht3jNgaUMg==
+X-Google-Smtp-Source: AGHT+IEW88SqOi6LZtTpw6qOmpTLnjM3a/2/XfBrctKiFCztXVwR+XWWLPjBwB11wSJigz1wNW0z7g==
+X-Received: by 2002:a17:90b:1d8a:b0:335:2eef:4ca8 with SMTP id 98e67ed59e1d1-3352eef4edcmr4087090a91.33.1758920264491;
+        Fri, 26 Sep 2025 13:57:44 -0700 (PDT)
+Received: from mail-pl1-f173.google.com (mail-pl1-f173.google.com. [209.85.214.173])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3341be1474asm9846009a91.17.2025.09.26.13.57.44
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 26 Sep 2025 13:57:44 -0700 (PDT)
+Received: by mail-pl1-f173.google.com with SMTP id d9443c01a7336-271067d66fbso27834895ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 13:57:44 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCV/nubEo0jcc0ts3Ymib6eBE2Ua3x9vOgQAABs2LEb4zSvEjoMXrJklm4pTeF8sWnhGMA6iqY+tjjxTcbwcBdgt@lists.infradead.org
+X-Received: by 2002:a17:902:c402:b0:25c:d4b6:f119 with SMTP id
+ d9443c01a7336-27ed49df307mr105837165ad.12.1758920263386; Fri, 26 Sep 2025
+ 13:57:43 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250925162332.9794-2-ansuelsmth@gmail.com>
+References: <20250925084806.89715-1-cuiyunhui@bytedance.com>
+ <20250925084806.89715-2-cuiyunhui@bytedance.com> <CAD=FV=VZLYqPQCOEhbH4QtndeG5e1-0wey24fgYNTeFiqd8qJg@mail.gmail.com>
+ <CAEEQ3wnwNdTgt6ByHCzM43fhZMLSxwXvYx-AGBpsktraXqif2Q@mail.gmail.com>
+In-Reply-To: <CAEEQ3wnwNdTgt6ByHCzM43fhZMLSxwXvYx-AGBpsktraXqif2Q@mail.gmail.com>
+From: Doug Anderson <dianders@chromium.org>
+Date: Fri, 26 Sep 2025 13:57:31 -0700
+X-Gmail-Original-Message-ID: <CAD=FV=X6Xv_WYPMXKtOWLJX7skCoQmia3JbQej_u38qxqAbqDg@mail.gmail.com>
+X-Gm-Features: AS18NWDVMqIM3NdX-t4tF69rrS3UxfWVNc7ZvIbAVZlF3PJHNdBYWzKZ9mUJzVc
+Message-ID: <CAD=FV=X6Xv_WYPMXKtOWLJX7skCoQmia3JbQej_u38qxqAbqDg@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH v2 1/2] watchdog: move arm64 watchdog_hld
+ into common code
+To: yunhui cui <cuiyunhui@bytedance.com>
+Cc: akpm@linux-foundation.org, alex@ghiti.fr, anup@brainfault.org, 
+	aou@eecs.berkeley.edu, atish.patra@linux.dev, catalin.marinas@arm.com, 
+	johannes@sipsolutions.net, lihuafei1@huawei.com, mark.rutland@arm.com, 
+	masahiroy@kernel.org, maz@kernel.org, mingo@kernel.org, 
+	nicolas.schier@linux.dev, palmer@dabbelt.com, paul.walmsley@sifive.com, 
+	suzuki.poulose@arm.com, thorsten.blum@linux.dev, wangjinchao600@gmail.com, 
+	will@kernel.org, yangyicong@hisilicon.com, zhanjie9@hisilicon.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250926_135745_704604_C0D2AD3F 
+X-CRM114-Status: GOOD (  25.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,56 +115,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 25, 2025 at 06:23:15PM +0200, Christian Marangi wrote:
-> The syscon compatible for the hifsys node for Mediatek MT2701/MT7623 SoC
-> was wrongly added following the pattern of other clock node but it's
-> actually not needed as the register are not used by other device on the
-> SoC.
-> 
-> On top of this it does against the schema for hifsys amnd cause
-> dtbs_check warning.
+Hi,
 
-s/does/<something else, not sure what you mean>/
-s/amnd/and/ ?
-s/cause/causes a/
+On Fri, Sep 26, 2025 at 2:37=E2=80=AFAM yunhui cui <cuiyunhui@bytedance.com=
+> wrote:
+>
+> Hi Doug,
+>
+> On Fri, Sep 26, 2025 at 4:00=E2=80=AFAM Doug Anderson <dianders@chromium.=
+org> wrote:
+> >
+> > Hi,
+> >
+> > On Thu, Sep 25, 2025 at 1:48=E2=80=AFAM Yunhui Cui <cuiyunhui@bytedance=
+.com> wrote:
+> > >
+> > > @@ -17,6 +17,7 @@
+> > >  #include <linux/cpu_pm.h>
+> > >  #include <linux/export.h>
+> > >  #include <linux/kernel.h>
+> > > +#include <linux/nmi.h>
+> > >  #include <linux/perf/arm_pmu.h>
+> > >  #include <linux/slab.h>
+> > >  #include <linux/sched/clock.h>
+> > > @@ -696,10 +697,12 @@ static int armpmu_get_cpu_irq(struct arm_pmu *p=
+mu, int cpu)
+> > >         return per_cpu(hw_events->irq, cpu);
+> > >  }
+> > >
+> > > -bool arm_pmu_irq_is_nmi(void)
+> > > +#ifdef CONFIG_HARDLOCKUP_DETECTOR_PERF
+> > > +bool arch_perf_nmi_is_available(void)
+> > >  {
+> > >         return has_nmi;
+> > >  }
+> > > +#endif
+> >
+> > Should the previous comment move here, AKA:
+> >
+> > /*
+> >  * hardlockup_detector_perf_init() will success even if Pseudo-NMI turn=
+s off,
+>
+> Okay, we also need to change it to =E2=80=9Cwatchdog_hardlockup_probe()=
+=E2=80=9D
+>
+> >  * however, the pmu interrupts will act like a normal interrupt instead=
+ of
+> >  * NMI and the hardlockup detector would be broken.
+> > */
+> >
+> >
+> > > +static int __init init_watchdog_freq_notifier(void)
+> > > +{
+> > > +       return cpufreq_register_notifier(&watchdog_freq_notifier,
+> > > +                                        CPUFREQ_POLICY_NOTIFIER);
+> >
+> > I think you need to do something to prevent this from happening on any
+> > platforms that override hw_nmi_get_sample_period(), right? These
+> > cpufreq notifiers will be useless in that case...
+>
+> I understand this is not a problem. watchdog_perf uses
+> PERF_COUNT_HW_CPU_CYCLES, which means it is inherently limited by the
+> CPU's main frequency. After we make such a change, a larger value may
+> be used as the period, so the NMI period will become longer, but this
+> value will not change after the system starts.
 
-> Drop the "syscon" compatible to mute the warning and reflect the
-> compatible property described in the mediatek,mt2701-hifsys.yaml schema.
-> 
-> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
-> ---
->  arch/arm/boot/dts/mediatek/mt2701.dtsi | 2 +-
->  arch/arm/boot/dts/mediatek/mt7623.dtsi | 3 +--
->  2 files changed, 2 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm/boot/dts/mediatek/mt2701.dtsi b/arch/arm/boot/dts/mediatek/mt2701.dtsi
-> index ce6a4015fed5..128b87229f3d 100644
-> --- a/arch/arm/boot/dts/mediatek/mt2701.dtsi
-> +++ b/arch/arm/boot/dts/mediatek/mt2701.dtsi
-> @@ -597,7 +597,7 @@ larb1: larb@16010000 {
->  	};
->  
->  	hifsys: syscon@1a000000 {
-> -		compatible = "mediatek,mt2701-hifsys", "syscon";
-> +		compatible = "mediatek,mt2701-hifsys";
->  		reg = <0 0x1a000000 0 0x1000>;
->  		#clock-cells = <1>;
->  		#reset-cells = <1>;
-> diff --git a/arch/arm/boot/dts/mediatek/mt7623.dtsi b/arch/arm/boot/dts/mediatek/mt7623.dtsi
-> index fd7a89cc337d..4b1685b93989 100644
-> --- a/arch/arm/boot/dts/mediatek/mt7623.dtsi
-> +++ b/arch/arm/boot/dts/mediatek/mt7623.dtsi
-> @@ -744,8 +744,7 @@ vdecsys: syscon@16000000 {
->  
->  	hifsys: syscon@1a000000 {
->  		compatible = "mediatek,mt7623-hifsys",
-> -			     "mediatek,mt2701-hifsys",
-> -			     "syscon";
-> +			     "mediatek,mt2701-hifsys";
->  		reg = <0 0x1a000000 0 0x1000>;
->  		#clock-cells = <1>;
->  		#reset-cells = <1>;
-> -- 
-> 2.51.0
-> 
+I'm not sure I follow. On x86, hw_nmi_get_sample_period() is:
+
+u64 hw_nmi_get_sample_period(int watchdog_thresh)
+{
+  return (u64)(cpu_khz) * 1000 * watchdog_thresh;
+}
+
+On PowerPC it's:
+
+u64 hw_nmi_get_sample_period(int watchdog_thresh)
+{
+  return ppc_proc_freq * watchdog_thresh;
+}
+
+Neither of those are necessarily based on the results the cpufreq
+reports. ...so therefore I don't think you should be taking the
+cpufreq reported numbers and assuming they're OK on x86 and powerpc.
+
+-Doug
 
