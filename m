@@ -4,81 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECFB7CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 14:31:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9A96CAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 14:33:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y/Xj6MIfy2rEr0XBSI3mnq/0U/KV/IGQQqiSFVW/GHE=; b=iwKkE5ZIwZsaP+x2jShC+cP4/7
-	wJ0TOL0QCyhQkElpUdJIQbv5QeH1ve1HE7c8HauzZGA73bO5AjaEh2X2dAnUlIX+eqZihtzYREmbD
-	WPWCabQZhvN+UTMlk6GTVX8bIRcQ9FFjxkHZHcPkL8ie7ySgYfm6117YALRkvAy42BGDyoIWv7npm
-	TUHink1C1Fz1UPsX/f2JZW5t6Q0BU3fvaR4U8Pd74CSbE0ScrhGk98w0AJqLsy+WVO4EDGkhzUYOv
-	uVByUUrH0ZrSMpqavQO8vfajPKM47K2Qg1y+jzcKdzvDALBoiCyMDKLMCLNNYMSgrMCfJbwkxBteB
-	1/SNSMAQ==;
+	bh=Z4He8DvFvL1dh/MxjkfNIXzNzaswx/ysDh66+XD0Vvo=; b=SVRhVM7zPBvBXoRLIBzZLUCW1X
+	H1/HqbaDXZvgAt37JfS9ejmTgPDcUMU5kU6lxtXYI6ikjonWJKqS+NAdejFBJTxDP/NCkL2fPItpu
+	G5+Kz96JJSD4n5TNCuYtQp1oCGykulu772rBxNJHyM44d+UkDlFBuJjaKFnpFOAx/zTUwJWhadAHt
+	ctlrOquDMf4k96gZDVqvqmtsdivO4VAXzbWAmgcReD8mCOuGpuw4bJYDnDCCgiOP0qLCk6X18/9CN
+	51UISm+G6CUwntAS483fo1ujvwKYSWEULhenOMas5iRtsWfmm9CiqNwDlUWicWpOZ+nJcIzyYqLto
+	g3VtbafA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v29U1-000000021H5-2G4z;
-	Fri, 26 Sep 2025 14:31:37 +0000
-Received: from mgamail.intel.com ([198.175.65.17])
+	id 1v29Va-000000021z6-3s4P;
+	Fri, 26 Sep 2025 14:33:14 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v29Ty-000000021EI-0Lr4
+	id 1v29VZ-000000021yw-3MWR
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 14:31:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1758897095; x=1790433095;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=NVDGDPSRfBOg+IYM2GGQj9xeTSDqNKFZs6gh3u8/io4=;
-  b=RHdOn7/CeTM+HOr8J9NFfz+AWFmrXLJbyRHsIDlAkLRyWO6g7WQo01Oz
-   7WEofFvnXmz1IHV+K15/j/N2R72apBe7gxco38Hpf9xZBNlC4YRJ8tbcZ
-   NSMqvO928wmToqiLSKCwAhUbUxKLcP20ohQAGnFW3qPYhnWN9gA3QfX6d
-   /jXuxjwgGI9oOKvbKM2r9yj+2GvfPPdNxheM27ix081O/EPUp2879wOPA
-   DPGnzCIxOGKfqEKh/0XKWWBaftyp5U8jwaUI3JGgprBSTWrqYGwuCCwl1
-   jP11YiQhV0QHYiLDOJYfDvTB3UAexyBlR8VPUPoBYVjyPD43uXuMnX3fg
-   Q==;
-X-CSE-ConnectionGUID: vET/0Te+QVKOeHXpgrSqBw==
-X-CSE-MsgGUID: tTlEtkjJTgO6DS1B6y0c3Q==
-X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="61183958"
-X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
-   d="scan'208";a="61183958"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by orvoesa109.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Sep 2025 07:31:33 -0700
-X-CSE-ConnectionGUID: 5AKesJxsQhWElaZ1Al31ag==
-X-CSE-MsgGUID: U1ZXK4swSF2PMznGtDjUgg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,295,1751266800"; 
-   d="scan'208";a="208377174"
-Received: from lkp-server02.sh.intel.com (HELO 84c55410ccf6) ([10.239.97.151])
-  by orviesa002.jf.intel.com with ESMTP; 26 Sep 2025 07:31:29 -0700
-Received: from kbuild by 84c55410ccf6 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1v29Tc-0006JR-30;
-	Fri, 26 Sep 2025 14:31:18 +0000
-Date: Fri, 26 Sep 2025 22:30:25 +0800
-From: kernel test robot <lkp@intel.com>
-To: Cristian Marussi <cristian.marussi@arm.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, sudeep.holla@arm.com,
-	james.quinlan@broadcom.com, f.fainelli@gmail.com,
-	vincent.guittot@linaro.org, etienne.carriere@st.com,
-	peng.fan@oss.nxp.com, michal.simek@amd.com, quic_sibis@quicinc.com,
-	dan.carpenter@linaro.org, d-gole@ti.com, souvik.chakravarty@arm.com,
-	Cristian Marussi <cristian.marussi@arm.com>
-Subject: Re: [PATCH 04/10] uapi: Add ARM SCMI definitions
-Message-ID: <202509262227.VZVSICFi-lkp@intel.com>
-References: <20250925203554.482371-5-cristian.marussi@arm.com>
+	Fri, 26 Sep 2025 14:33:13 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id EB08A61E23;
+	Fri, 26 Sep 2025 14:33:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 84764C4CEF4;
+	Fri, 26 Sep 2025 14:33:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758897192;
+	bh=RFIOttVJp0eh/XAlE3x53bbYZOC5tbTcft+rUVFuLtw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=dYUWlJbG6nnFq6TmgkPCUvJrKhSOr//l2/p9YO9Ob/mS79D4oFiTdapaQWgNvE0Tp
+	 d/vCDqpw50xMSBlk3aVLOoeuaOU4Flxrd56aMguc7oRiVNj0q6AU2XUmY7xmZGdRxu
+	 yzvEHEz66UsLqIhGLS5TxmJVhzOSIieMbM2IQUCN7s18qZz+JDhAXKNMJgcPOg7GLu
+	 G8DS28biYdg1311fE2giZqug6ZU0/T98pwCuu7T7rl2DSOAxkvDj3/RAEi8bpsnrPW
+	 j/b2ihU2NVzZ9jZRiUCwLRy/gCm3LcdbKtiwae+0N+ASIwwY/Gq0RWtAa9tDE9acYS
+	 l5Kc8mI9MFUYw==
+Date: Fri, 26 Sep 2025 15:33:06 +0100
+From: Will Deacon <will@kernel.org>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+	suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, robin.murphy@arm.com,
+	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
+	jgg@ziepe.ca, mark.rutland@arm.com, praan@google.com
+Subject: Re: [PATCH v4 02/28] KVM: arm64: Donate MMIO to the hypervisor
+Message-ID: <aNakIop0jdz9gH-t@willie-the-truck>
+References: <20250819215156.2494305-1-smostafa@google.com>
+ <20250819215156.2494305-3-smostafa@google.com>
+ <aMA13Sowq91XEqP9@willie-the-truck>
+ <aMlly_9kDE04Inn2@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20250925203554.482371-5-cristian.marussi@arm.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_073134_160112_6998E25E 
-X-CRM114-Status: GOOD (  11.71  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <aMlly_9kDE04Inn2@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,38 +77,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cristian,
+On Tue, Sep 16, 2025 at 01:27:39PM +0000, Mostafa Saleh wrote:
+> On Tue, Sep 09, 2025 at 03:12:45PM +0100, Will Deacon wrote:
+> > On Tue, Aug 19, 2025 at 09:51:30PM +0000, Mostafa Saleh wrote:
+> > > diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > > index 861e448183fd..c9a15ef6b18d 100644
+> > > --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > > +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
+> > > @@ -799,6 +799,70 @@ int ___pkvm_host_donate_hyp(u64 pfn, u64 nr_pages, enum kvm_pgtable_prot prot)
+> > >  	return ret;
+> > >  }
+> > >  
+> > > +int __pkvm_host_donate_hyp_mmio(u64 pfn)
+> > > +{
+> > > +	u64 phys = hyp_pfn_to_phys(pfn);
+> > > +	void *virt = __hyp_va(phys);
+> > > +	int ret;
+> > > +	kvm_pte_t pte;
+> > > +
+> > > +	host_lock_component();
+> > > +	hyp_lock_component();
+> > > +
+> > > +	ret = kvm_pgtable_get_leaf(&host_mmu.pgt, phys, &pte, NULL);
+> > > +	if (ret)
+> > > +		goto unlock;
+> > > +
+> > > +	if (pte && !kvm_pte_valid(pte)) {
+> > > +		ret = -EPERM;
+> > > +		goto unlock;
+> > > +	}
+> > 
+> > Shouldn't we first check that the pfn is indeed MMIO? Otherwise, testing
+> > the pte for the ownership information isn't right.
+> 
+> I will add it, although the input should be trusted as it comes from the
+> hypervisor SMMUv3 driver.
 
-kernel test robot noticed the following build errors:
+(more on this below)
 
-[auto build test ERROR on soc/for-next]
-[also build test ERROR on trace/for-next linus/master v6.17-rc7 next-20250925]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+> > > +int __pkvm_hyp_donate_host_mmio(u64 pfn)
+> > > +{
+> > > +	u64 phys = hyp_pfn_to_phys(pfn);
+> > > +	u64 virt = (u64)__hyp_va(phys);
+> > > +	size_t size = PAGE_SIZE;
+> > > +
+> > > +	host_lock_component();
+> > > +	hyp_lock_component();
+> > 
+> > Shouldn't we check that:
+> > 
+> >   1. pfn is mmio
+> >   2. pfn is owned by hyp
+> >   3. The host doesn't have something mapped at pfn already
+> > 
+> > ?
+> > 
+> 
+> I thought about this initially, but as
+> - This code is only called from the hypervisor with trusted
+>   inputs (only at boot)
+> - Only called on error path
+> 
+> So WARN_ON in case of failure to unmap MMIO pages seemed is good enough,
+> to avoid extra code.
+> 
+> But I can add the checks if you think they are necessary, we will need
+> to add new helpers for MMIO state though.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Cristian-Marussi/firmware-arm_scmi-Define-a-common-SCMI_MAX_PROTOCOLS-value/20250926-044350
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
-patch link:    https://lore.kernel.org/r/20250925203554.482371-5-cristian.marussi%40arm.com
-patch subject: [PATCH 04/10] uapi: Add ARM SCMI definitions
-config: x86_64-buildonly-randconfig-005-20250926 (https://download.01.org/0day-ci/archive/20250926/202509262227.VZVSICFi-lkp@intel.com/config)
-compiler: gcc-14 (Debian 14.2.0-19) 14.2.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250926/202509262227.VZVSICFi-lkp@intel.com/reproduce)
+I'd personally prefer to put the checks here so that callers don't have
+to worry (or forget!) about them. That also means that the donation
+function can be readily reused in the same way as the existing functions
+which operate on memory pages.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202509262227.VZVSICFi-lkp@intel.com/
+How much work is it to add the MMIO helpers?
 
-All errors (new ones prefixed by >>):
+> > > +	WARN_ON(kvm_pgtable_hyp_unmap(&pkvm_pgtable, virt, size) != size);
+> > > +	WARN_ON(host_stage2_try(kvm_pgtable_stage2_set_owner, &host_mmu.pgt, phys,
+> > > +				PAGE_SIZE, &host_s2_pool, PKVM_ID_HOST));
+> > > +	hyp_unlock_component();
+> > > +	host_unlock_component();
+> > > +
+> > > +	return 0;
+> > > +}
+> > > +
+> > >  int __pkvm_host_donate_hyp(u64 pfn, u64 nr_pages)
+> > >  {
+> > >  	return ___pkvm_host_donate_hyp(pfn, nr_pages, PAGE_HYP);
+> > > diff --git a/arch/arm64/kvm/hyp/pgtable.c b/arch/arm64/kvm/hyp/pgtable.c
+> > > index c351b4abd5db..ba06b0c21d5a 100644
+> > > --- a/arch/arm64/kvm/hyp/pgtable.c
+> > > +++ b/arch/arm64/kvm/hyp/pgtable.c
+> > > @@ -1095,13 +1095,8 @@ static int stage2_unmap_walker(const struct kvm_pgtable_visit_ctx *ctx,
+> > >  	kvm_pte_t *childp = NULL;
+> > >  	bool need_flush = false;
+> > >  
+> > > -	if (!kvm_pte_valid(ctx->old)) {
+> > > -		if (stage2_pte_is_counted(ctx->old)) {
+> > > -			kvm_clear_pte(ctx->ptep);
+> > > -			mm_ops->put_page(ctx->ptep);
+> > > -		}
+> > > -		return 0;
+> > > -	}
+> > > +	if (!kvm_pte_valid(ctx->old))
+> > > +		return stage2_pte_is_counted(ctx->old) ? -EPERM : 0;
+> > 
+> > Can this code be reached for the guest? For example, if
+> > pkvm_pgtable_stage2_destroy() runs into an MMIO-guarded pte on teardown?
+> 
+> AFAICT, VMs page table is destroyed from reclaim_pgtable_pages() =>
+> kvm_pgtable_stage2_destroy() => kvm_pgtable_stage2_destroy_range() ... =>
+> stage2_free_walker()
+> 
+> Which doesn't interact with “stage2_unmap_walker”, so that should be
+> fine.
 
-   In file included from <command-line>:
->> ./usr/include/linux/scmi.h:43:1: error: C++ style comments are not allowed in ISO C90
-      43 | ///TODO more flags
-         | ^
-   ./usr/include/linux/scmi.h:43:1: note: (this will be reported only once per input file)
+Fair enough. I feel like this might bite us later on but, with what you
+have, we'll see the -EPERM and then we can figure out what to do then.
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Will
 
