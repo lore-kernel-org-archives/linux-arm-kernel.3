@@ -4,67 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECD6DCAC5B9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 11:04:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 79FF7CAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 11:14:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=uY/bZ/DOR4fCv4k7FYfsaKSLi5+VNzGncLisVOgV3Vk=; b=gF782wtro0F4XAHcP2UTPfWOts
-	fyMcA8kcfwvBQZ6ozgNV01l4EbeKxCUXiXvxFO2hju8XeO3aZpQDAaD3YXokd5y6NSkYKGNNRG7Xj
-	LJ5mRf4M9kHU84G3gljqzN59Gc+UvTZdFxjkd02r2n3ILbTj03Rnjh2VmgbVpRNUAMwTIsgGcIzev
-	OmtCLTqIisepFaRGhc8ZEJV7a6WaVa5Glx4K+PogRO+rv/AkJtrvVnfqQnNgvVnkoa7jvPgHF3ERh
-	Xk7BGaNvxy2jaA2CBbrdUadRoUkVVj4F2JH5sPLLzm0JV7VizUfXjla8NvGG/VUi6pIEFkFdUCwFu
-	/iO5WlQg==;
+	bh=0/HpmQTuKd1i7N85FGj9fWCDA1xza9YQMkwoZYoSd/Y=; b=C0eXo3mqoLnw6zw5ED2cNvZ37s
+	BEqSE0RgCaGELomzWxFoNrVzxCafKHVZEXn3RTefF8NQnZhGl5dioCoiMUWsB+hrt1w3oX/z0UImf
+	DmAQF0+gi/EsrRlY4ZapOjz0iHTmwrkuVF6U/4TG4ucUIkggqaqM6jmjL9lLWRX1HS9u92/yjmyMr
+	qriOyjnvNuhuitFrTDYsi8sNqGUeI7fXUlggdWCVYWUNbzyr/tKvDs8kgps9MgCSOugcIAnuE1MIV
+	BNrXxl1V7rZfdoNyXZyEevbrqwhI9mF/m5WDdDc5kI2OCj7zX2BYP42dD2ua2A6ESGKG9MpOw3zyr
+	g2DIN5Fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v26F1-00000000dOa-48Id;
-	Fri, 26 Sep 2025 11:03:55 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v26PG-00000000hQu-0KXm;
+	Fri, 26 Sep 2025 11:14:30 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v26F1-00000000dNS-2MeA
+	id 1v26PD-00000000hPY-3S6l
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 11:03:55 +0000
+	Fri, 26 Sep 2025 11:14:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B043D61D2F;
-	Fri, 26 Sep 2025 11:03:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75C95C4CEF4;
-	Fri, 26 Sep 2025 11:03:52 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758884633;
-	bh=oFiQWbwuMiUmrHeiM7kpOIvvMtVbg4RkhQvdzmxPAVg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=fZ1Qi3j8r7Sw7NeiAHv01bt2HBG1bcs26+uNQ/74PK0QKJTt369rG6rnYDb2RxKH/
-	 3S/28UMPQuj7/BLCoqO1ODHI8g4ckMJHk9kMeSvoKhd8fEpR/jlm385+GF2F94kZ9c
-	 z2DNYVGxwKVGZvzpR9S8NxNfe5ooEkhqHHXFN/spRCCWLT789OmWbr+NsfisJeouFk
-	 DIPDjZYlMVRaPmSf1ui68j6d5lAFvxVurq9A91LcoMMcVa2SQqsZkeKKH5zWIFmnQB
-	 8cINIstdLtIFoguyo2dx30CgnqDtGNVETeH3ftBjG32lJSgDplPcV84zJgGHucvrnw
-	 wo9yXyrA73pUg==
-Date: Fri, 26 Sep 2025 12:03:49 +0100
-From: Will Deacon <will@kernel.org>
-To: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Emanuele Rocca <emanuele.rocca@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [BUG] ARM64 regression: NULL pointer dereference in
- arm_smccc_version_init+0x90/0x1ac
-Message-ID: <aNZzFabuivNXCenZ@willie-the-truck>
-References: <Z5tuaxgDyFJPAvR0@J2N7QTR9R3>
- <Z5uTCnhfKo5D-_bV@NH27D9T0LF>
- <20250131124103.GA29766@willie-the-truck>
- <Z5zWMU4M_L5k6kII@J2N7QTR9R3>
- <20250204100014.GA777@willie-the-truck>
- <Z6OWxUFxkK9plrm0@NH27D9T0LF>
- <20250206131154.GD3204@willie-the-truck>
- <Z6TqBQKSILZUnYbJ@NH27D9T0LF>
- <20250313220835.GD8101@willie-the-truck>
- <aNZssv1cA_KIMvF1@stanley.mountain>
+	by sea.source.kernel.org (Postfix) with ESMTP id 2FACB43435;
+	Fri, 26 Sep 2025 11:14:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67574C4CEF4;
+	Fri, 26 Sep 2025 11:14:24 +0000 (UTC)
+Date: Fri, 26 Sep 2025 12:14:21 +0100
+From: Catalin Marinas <catalin.marinas@arm.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: Will Deacon <will@kernel.org>, Christian Brauner <brauner@kernel.org>,
+	Adhemerval Zanella Netto <adhemerval.zanella@linaro.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>,
+	Wilco Dijkstra <wilco.dijkstra@arm.com>,
+	Carlos O'Donell <codonell@redhat.com>,
+	Florian Weimer <fweimer@redhat.com>, Szabolcs Nagy <nsz@port70.net>,
+	Rich Felker <dalias@libc.org>, libc-alpha@sourceware.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH RFC 1/3] arm64/gcs: Support reuse of GCS for exited
+ threads
+Message-ID: <aNZ1jVLhc_Zg99Jb@arm.com>
+References: <20250921-arm64-gcs-exit-token-v1-0-45cf64e648d5@kernel.org>
+ <20250921-arm64-gcs-exit-token-v1-1-45cf64e648d5@kernel.org>
+ <aNVx9vlgi8t81V6Y@arm.com>
+ <38d629f2-99bb-4b13-a6ed-a4126d130b1f@sirena.org.uk>
+ <aNWLwkn1fJDvWUyu@arm.com>
+ <41929a12-59f4-419e-9f15-eaa09f0df0f3@sirena.org.uk>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <aNZssv1cA_KIMvF1@stanley.mountain>
+In-Reply-To: <41929a12-59f4-419e-9f15-eaa09f0df0f3@sirena.org.uk>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250926_041427_881831_10645824 
+X-CRM114-Status: GOOD (  19.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,34 +76,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 26, 2025 at 01:36:34PM +0300, Dan Carpenter wrote:
-> On Thu, Mar 13, 2025 at 10:08:36PM +0000, Will Deacon wrote:
-> > On Thu, Feb 06, 2025 at 05:57:41PM +0100, Emanuele Rocca wrote:
-> > > On 2025-02-06 01:11, Will Deacon wrote:
-> > > > In your screenshot, x6 looks like it's retained its poison value, but
-> > > > that was the register being corrupted in the initial report. Maybe you
-> > > > could share the diff you made?
-> > > 
-> > > Sure, please see [1]. A kernel built with that patch crashes and all
-> > > registers retain their poison values.
-> > 
-> > Okey doke, at least it sounds like the firmware isn't taking advantage
-> > of the broken spec, then.
-> > 
-> > In any case, I think the right way forward here is to use the
-> > out-of-line 1.2 helpers whenever we can (the spectre mitigations can
-> > stay as they are).
-> > 
-> > Will
-> > 
+On Thu, Sep 25, 2025 at 08:00:40PM +0100, Mark Brown wrote:
+> On Thu, Sep 25, 2025 at 07:36:50PM +0100, Catalin Marinas wrote:
+> > On Thu, Sep 25, 2025 at 06:01:07PM +0100, Mark Brown wrote:
+> > > On Thu, Sep 25, 2025 at 05:46:46PM +0100, Catalin Marinas wrote:
+> > > > On Sun, Sep 21, 2025 at 02:21:35PM +0100, Mark Brown wrote:
 > 
-> Any updates on this?  I guess it only affects gcc13?  Clang seems to boot
-> okay.
+> > > We can't have scheduled?  That's actually a pleasant surprise, that was
+> > > the main hole I was thinking of in the cover letter.
+> 
+> > Well, double-check. AFAICT, gcs_free() is only called on the exit_mm()
+> > path when a thread dies.
+> 
+> > I think gcs_free() may have been called in other contexts before the
+> > cleanups you had in 6.16 (there were two more call sites for
+> > gcs_free()). If that's the case, we could turn these checks into
+> > WARN_ON_ONCE().
+> 
+> Yeah, just I need to convince myself that we're always running the
+> exit_mm() path in the context of the exiting thread.  Like you say it
+> needs checking but hopefully you're right and the current code is more
+> correct than I had thought.
 
-I don't recall seeing a patch but we should just move to the out-of-line
-SMCCC helpers wherever we can. The inline macros are fiddly to use,
-especially when you have to pad things out with zeroes at the caller to
-prevent registers from getting corrupted.
+The only path to gcs_free() is via mm_release() -> deactivate_mm().
+mm_release() is called from either exit_mm_release() or
+exec_mm_release(). These two functions are only called with current and
+current->mm.
 
-Will
+I guess for historical reasons, they take task and mm parameters but in
+recent mainline, they don't seem to get anything other than current.
+
+-- 
+Catalin
 
