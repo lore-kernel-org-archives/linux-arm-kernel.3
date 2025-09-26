@@ -4,69 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EF4ECAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 11:28:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95A6ECAC5B9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 11:37:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vBMibXEk5KyuaFRlx1Ip9L6NchxzqGNhvyyjzYsR7TE=; b=gFb2prnznTN2x3S3lDtVZcuOwY
-	84b+fzHseUzE6v7qUEogEk8+w5gki+R9TDTwn7UswMsLZT0dYyGman0jKMKzibG/x9i+tZ920Ff2o
-	JPmas8GfXNaxZAWigEhjOMXGNK+B96bX4PgwsMaF33Gw51tqXa1WIMjU+SJqcjHcGcj7+xQumRjLG
-	d/C6ZrIR1h83t1CDJsStXvskRyO6VnEd2aAJzW7K5WvGY3o4pLgZKa6IfNxXuB84Z03fKzrZL5LB4
-	wJdwali1tcxUBCUxrRvK1Qkl8zUBZNWGbvSaKXJtVtadzDZbmJ3tlY/+Dy0E+QEM8EIC1w0meC8aI
-	EwUuB7Rg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TgfeYWAxei3FO5Y9wJFrVf+vZ1amgQoeFdKCanHQzA0=; b=COsTNooN+WdsHzetG1isEW1pLi
+	LZeeaHTZ4E+Vz+OyxIjcAa5UD99T7r+bthmV37053EGqYJ1jtn0/IPalSFaZx7wU76hDYdBrgKdou
+	4qupwOxa0Ub8xEUGuvGHmSM8vD78+2A7r2EpTPOm8Sm92L+Ps7OOkg7EzHK/7KzelBwbs5DKT/P1k
+	NaQnn5mvg6bVVyj5dKAvCcEbv2r3HCaZxhE8VFqu4Jz5F5ndkADzxTDuDLQnLfQ1khh1XDXlxeBWd
+	xEOFHMAcpeMHnPHHn8HUixwf3wv5BrxDxY2mmd8CrBU+Hc49od/+mlJp0YBU+4d/eRaA2imAMwBvV
+	oyhdcd8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v26cd-00000000n0y-3xGw;
-	Fri, 26 Sep 2025 11:28:19 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1v26lt-00000000qRS-3mOd;
+	Fri, 26 Sep 2025 11:37:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v26ca-00000000mxC-1oeE
+	id 1v26lr-00000000qPj-2LG7
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 11:28:18 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.214])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4cY7Xk0gyvz1R9XG;
-	Fri, 26 Sep 2025 19:24:54 +0800 (CST)
-Received: from dggemv705-chm.china.huawei.com (unknown [10.3.19.32])
-	by mail.maildlp.com (Postfix) with ESMTPS id E613A1A016C;
-	Fri, 26 Sep 2025 19:28:03 +0800 (CST)
-Received: from kwepemq200004.china.huawei.com (7.202.195.237) by
- dggemv705-chm.china.huawei.com (10.3.19.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 26 Sep 2025 19:28:03 +0800
-Received: from [10.67.121.115] (10.67.121.115) by
- kwepemq200004.china.huawei.com (7.202.195.237) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Fri, 26 Sep 2025 19:28:03 +0800
-Message-ID: <d7027fe7-01fc-d72f-078b-ed28564a413f@hisilicon.com>
-Date: Fri, 26 Sep 2025 19:28:02 +0800
+	Fri, 26 Sep 2025 11:37:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id ED38D419DA;
+	Fri, 26 Sep 2025 11:37:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BC3EDC4CEF4;
+	Fri, 26 Sep 2025 11:37:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758886670;
+	bh=meuVtUA1LPUH2heOJSuuknADu9bGrGrTvWW+pcoXU94=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=BjZWBx2d0lMQf6lujW5938UHnDj0Dy7zGpTf3KFTc+I13iL2OHwl/ZT09wCl46Z3k
+	 s/nPJmK/qp/JrHwW7L4R4yL0evyZX+3UykrlIhrnaapgyTugcVSYPJseMt1vLyDDm7
+	 ro7deMBvlkhMTs6N6D6WGqN+vSvg1ojkGuq4SVnWgPBnQUIzQa/6gNmp/4hW7kfPDP
+	 1o2vKEL/0XFrJLVIDlmV8Kx0LDpFSypMU/GLf3p8zOVZBMyMTYz8LIxLWHi0Z5EDPt
+	 fzU0dMwHJ7zbCk12gNvVEr5tDU0jbvIVoV8wdXzSJn/RjfHEGOM6zjTxH/DHqV63c9
+	 X6bmrl94+qfNQ==
+Date: Fri, 26 Sep 2025 12:37:44 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: Will Deacon <will@kernel.org>, Christian Brauner <brauner@kernel.org>,
+	Adhemerval Zanella Netto <adhemerval.zanella@linaro.org>,
+	Shuah Khan <shuah@kernel.org>,
+	Rick Edgecombe <rick.p.edgecombe@intel.com>,
+	Deepak Gupta <debug@rivosinc.com>,
+	Wilco Dijkstra <wilco.dijkstra@arm.com>,
+	Carlos O'Donell <codonell@redhat.com>,
+	Florian Weimer <fweimer@redhat.com>, Szabolcs Nagy <nsz@port70.net>,
+	Rich Felker <dalias@libc.org>, libc-alpha@sourceware.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-kselftest@vger.kernel.org
+Subject: Re: [PATCH RFC 1/3] arm64/gcs: Support reuse of GCS for exited
+ threads
+Message-ID: <13c4ada9-bc32-46cc-a7b4-3def7a4e94fb@sirena.org.uk>
+References: <20250921-arm64-gcs-exit-token-v1-0-45cf64e648d5@kernel.org>
+ <20250921-arm64-gcs-exit-token-v1-1-45cf64e648d5@kernel.org>
+ <aNVx9vlgi8t81V6Y@arm.com>
+ <38d629f2-99bb-4b13-a6ed-a4126d130b1f@sirena.org.uk>
+ <aNWLwkn1fJDvWUyu@arm.com>
+ <41929a12-59f4-419e-9f15-eaa09f0df0f3@sirena.org.uk>
+ <aNZ1jVLhc_Zg99Jb@arm.com>
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:91.0) Gecko/20100101
- Thunderbird/91.8.0
-Subject: Re: [PATCH v2 0/4] Add workaround for HIP10/HIP10C erratum 162200802
-Content-Language: en-US
-To: Marc Zyngier <maz@kernel.org>
-CC: <kvmarm@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<oliver.upton@linux.dev>, <tangnianyao@huawei.com>, <wangwudi@hisilicon.com>,
-	<liuyonglong@huawei.com>, <prime.zeng@hisilicon.com>
-References: <20250825023954.3516381-1-wangzhou1@hisilicon.com>
- <fc7763d5-bed6-ace6-ace8-a50c031cab36@hisilicon.com>
- <87wm5uxwvc.wl-maz@kernel.org>
- <3d518b64-d66b-ca1e-0893-5b1f0faa17ee@hisilicon.com>
- <861pnt1tgt.wl-maz@kernel.org>
-From: Zhou Wang <wangzhou1@hisilicon.com>
-In-Reply-To: <861pnt1tgt.wl-maz@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.115]
-X-ClientProxiedBy: kwepems200002.china.huawei.com (7.221.188.68) To
- kwepemq200004.china.huawei.com (7.202.195.237)
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="o4ImZ3Z05RybO8Cj"
+Content-Disposition: inline
+In-Reply-To: <aNZ1jVLhc_Zg99Jb@arm.com>
+X-Cookie: Your canceled check is your receipt.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_042816_858318_C2952272 
-X-CRM114-Status: GOOD (  16.57  )
+X-CRM114-CacheID: sfid-20250926_043751_617294_B1D73652 
+X-CRM114-Status: GOOD (  16.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,64 +89,44 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/9/26 16:57, Marc Zyngier wrote:
-> On Fri, 26 Sep 2025 08:15:16 +0100,
-> Zhou Wang <wangzhou1@hisilicon.com> wrote:
->>
->> On 2025/9/19 23:52, Marc Zyngier wrote:
->>> On Mon, 01 Sep 2025 11:55:49 +0100,
->>> Zhou Wang <wangzhou1@hisilicon.com> wrote:
->>>>
->>>> On 2025/8/25 10:39, Zhou Wang wrote:
->>>>> As the discussion from V1 series, V2 series firstly adds GICD.num_LPIs
->>>>> writable support, then add HiSilicon erratum 162200802.
->>>>>
->>>>> Erratum number should be 162200802, make a mistake in V1, so fix it as
->>>>> well.
->>>>>
->>>>> Zhou Wang (4):
->>>>>   KVM: arm64: Allow userspace to write GICD_TYPER.num_LPIs
->>>>>   KVM: arm64: selftests: Add test for GICD.num_LPIs
->>>>>   Documentation: KVM: arm64: Add GICD_TYPER.num_LPIs writable
->>>>>     description
->>>>>   ARM64: errata: Add workaround for HIP10/HIP10C erratum 162200802
->>>>
->>>> Hi Marc and Oliver,
->>>>
->>>> As the discussion in V1 series, this series firstly adds GICD.num_LPIs
->>>> writable support, then add erratum patch.
->>>
->>> Given the state of this HW (as per [1]), I'd rather we start by
->>> working out the strategy at the GIC level, rather than exposing stuff
->>> to userspace before we agree on a way to make it work in the kernel.
->>
->> This bug is in GICv4.0([1] is in GICv4.1), and seems having a clear way
->> to fix. How about merging this fix firstly, then continue to try to solve [1]?
-> 
-> No. It has to be worked out the other way around, because this is
-> introducing a new userspace ABI, and adding new ABIs to cope with
-> design bugs is not really acceptable, specially when you have a
-> perfectly good way to deal with the issue (don't enable GICv4).
-> 
-> I also don't understand your 4.0 vs 4.1 point. This is for HIP10 and
-> HIP10C. [1] clearly says that both HIP9/10/10C are GICv4.1
-> implementations. So what is what here?
 
-HIP09/10/10C support both 4.0 and 4.1, which could be selected by a BIOS
-switch.
+--o4ImZ3Z05RybO8Cj
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> 
-> I'm mildly annoyed at being spoon-fed bits of errata with
-> contradicting statements instead of being given the full picture for
-> what looks like an implementation train-wreck. From what I can see,
-> these implementations are broken, and not worth salvaging. There is a
-> perfectly valid workaround that keeps VMs running without any extra
-> change. Why can't you simply use that?
-> 
-> Thanks,
-> 
-> 	M.
-> 
-> [1] https://lore.kernel.org/r/20250909110615.129179-1-wangzhou1@hisilicon.com
-> 
+On Fri, Sep 26, 2025 at 12:14:21PM +0100, Catalin Marinas wrote:
+> On Thu, Sep 25, 2025 at 08:00:40PM +0100, Mark Brown wrote:
+
+> > Yeah, just I need to convince myself that we're always running the
+> > exit_mm() path in the context of the exiting thread.  Like you say it
+> > needs checking but hopefully you're right and the current code is more
+> > correct than I had thought.
+
+> The only path to gcs_free() is via mm_release() -> deactivate_mm().
+> mm_release() is called from either exit_mm_release() or
+> exec_mm_release(). These two functions are only called with current and
+> current->mm.
+
+> I guess for historical reasons, they take task and mm parameters but in
+> recent mainline, they don't seem to get anything other than current.
+
+Thanks for checking for me.  I guess some refactoring might be in
+order to make all this clear.
+
+--o4ImZ3Z05RybO8Cj
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEyBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmjWewgACgkQJNaLcl1U
+h9CucgfzBm+/4GRXodVm5zfzNvgYFKgTeyWxa44ut0CO5vAZRgdupDDGVW7HNADQ
+CRf/avO2tj4REnLqO6dOIxeFYeDJmuVAvRUleh4STLNjo58ayjUzbjW7JEpO2Thj
+EgwwUhUPxwLzDEyNAu9Knt4PVzBx0hPI/AqXtS+jjEjhWMDijy7T98iJGjZ+egCr
+b+cSIp/DW8wtZ9rB7JybMLCOV8ELy+rnhDXUHfcNBG1QXuw8saSsAu7GbzDRfGpa
+RjEGm7vAxPJxTbmHkeThF/OMzvvjMA4qZaGrLGNpqmfGI0l8cPmG1ni+cFHv4ljm
+JJXC+geWEjlK/fSO0fsXkt3SklP5
+=c8l5
+-----END PGP SIGNATURE-----
+
+--o4ImZ3Z05RybO8Cj--
 
