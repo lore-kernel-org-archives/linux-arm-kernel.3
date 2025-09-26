@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5F67CAC5B9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 14:18:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F5CCCAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 14:20:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A7yndU7EdmsewRkYVTUdUNuXw/bKzL3LuIcL9+JimBI=; b=kngbwfcq2TMYb3nDYTMrqivzl6
-	FTnV02Hg2JhL01aYlgSoEYy2T0dhYJI8EPromBGk0eDcXJ1U0MGUlqOhxofX+Pk7HjSsyXwK/HI6Q
-	F+lWAWBhKOM8QJj7o/7APi0ahCp/A31irhcBzI60kp9SuvR/BnFTdhqEZ3rbyuvx7gmcp42d+mUSR
-	XD+q8InbzxLq43OMJwG9w11BRAMa2MEAjz0ogitTIpMf7PiRFpybN3KUaaSbL2AIYpKUOwaoXxCYp
-	jElyFjpz1h7So79kGqtQbxkPKBZsFPwTEDukvVIJ1pTwujsFb02Tsyu09lZQYXQjFHLMDVkqz848p
-	0+psEycA==;
+	bh=gS6I9+pn+T6EshQ8kERlfqfUoiq0QQuAAxssnEC3ucQ=; b=bfQOWJpw5z5nm3+Uqg5Y7u7h2t
+	rekkBXrXSWaf06hh+psQCgq4BbvVR7oRSNxqRbuZV5upUsnenFTYPL8OqCkA35EmPHx2zW2KUHrg8
+	hnKrJyglDWLolw2SCUuE+EJwC/Mvv0p1w/Dn8lrcF4AMOSvoXzCFQqwHUqBtlaSKA3yuHkJOYcI/5
+	ppxz5h3qc5WO9OZRMsizDWLVOmC1Y129itROyz+uWvk4hkYVikMj6Zl+BrF2MIUMp3DAz+ybAkBY3
+	TNvWbjULjRsw667NZDZlJMNDrnyNzqvkvZlWhNYh5cMGww2/kpAyIrpG1nCnu+um5+ttROGaMTUUr
+	4FMMVPig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v29H6-00000001u8D-0wJY;
-	Fri, 26 Sep 2025 14:18:16 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v29JB-00000001vXe-2pvo;
+	Fri, 26 Sep 2025 14:20:25 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v29H4-00000001u6B-3EJP
+	id 1v29J8-00000001vTe-3uh2
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 14:18:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id EF8AA452B1
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 14:18:13 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD15DC19421
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 14:18:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758896293;
-	bh=ovRK5c7wZT8POELugcGy2OQZLq61t1b/lN/zUBC5q+I=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=q1uB84gYsGTyrhgMURnnoz/CFNt2sCxD4dWKUs3bJOVFnrYZ3TaIx9Rkn3j/Mg2M1
-	 H50v2Na3Xzu2hEnVjEvrkf/ffT3I11EsoXUIS7MT+GufDf4my3ukfT4pbWN+oLZdwC
-	 8P3YSgRwGDR9cjhLdY49zuVBoNQw4GgEwo5VI7uJ87stnyf2Feyfg/1vV0EEF000AD
-	 efxUpkEIC2xgVKffpnlbAgD+8L8M78MLG7pOScwL3BrewpwZekvWWzp4lTIWo3Nvkd
-	 1Irkaoim6AThnLjYOAgLN9OQ+bhDyTT3936Wudh3I6Fv/YsVXDoM56SqaAwdceJf7n
-	 hfBL4Bdf/esEg==
-Received: by mail-ed1-f54.google.com with SMTP id 4fb4d7f45d1cf-62fa0653cd1so3326834a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 07:18:13 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXlMzKlJq/cpRVcf0bFD4BjI1oW5/7vcgj0Kc5AhN5sX934gx1j6YBVy8Z7eRAPcUB+InMC8wQIdwMXNIUNKgas@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3cqNnzSXcQxdRlHTPYCc5sQfKhcOAM3WXRNxisp1DhSr7dzrD
-	jBeLbJTL4Iau5OflXB4Je+lUkH6xWjWYyYEzVEKvBe60F8AWBv2YGkfTiD1ziuI/vLoRrEml9l9
-	vOqE02/LiV/DPwStRg0pgocyzl8YQCw==
-X-Google-Smtp-Source: AGHT+IE5CRm41wAWa2CrClw2VSy83ReWu352foMXpDkXsta+N2WvoCGKuTDsi9qX3wkbts1/ms47yyeQSn9EBlyrs5E=
-X-Received: by 2002:aa7:da45:0:b0:62f:97ab:6062 with SMTP id
- 4fb4d7f45d1cf-6349fa942c5mr5046024a12.32.1758896292321; Fri, 26 Sep 2025
- 07:18:12 -0700 (PDT)
+	Fri, 26 Sep 2025 14:20:24 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1758896420;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=gS6I9+pn+T6EshQ8kERlfqfUoiq0QQuAAxssnEC3ucQ=;
+	b=Hxj+rRUyaKzul/MsgEG+Dx5i6h6Pu2mvwtUpn8yPaJJfuVU5PBUJn3vR60Q53A3kmrqnle
+	64CFqYWJG2JQySUWrt7uFVYe59eH/lzmv5ZzuJVpmvui/EUtD7CNMjg/jUaoyTuskrlA3v
+	LsoOaQj7JK4OE4iQCTaeZEh0DRI/YDo=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-25-WqYyI61VP8-lq6wwfy1Pag-1; Fri,
+ 26 Sep 2025 10:20:18 -0400
+X-MC-Unique: WqYyI61VP8-lq6wwfy1Pag-1
+X-Mimecast-MFC-AGG-ID: WqYyI61VP8-lq6wwfy1Pag_1758896416
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 301F51800586;
+	Fri, 26 Sep 2025 14:20:16 +0000 (UTC)
+Received: from warthog.procyon.org.com (unknown [10.42.28.155])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id B0E3F195419F;
+	Fri, 26 Sep 2025 14:20:12 +0000 (UTC)
+From: David Howells <dhowells@redhat.com>
+To: 
+Cc: David Howells <dhowells@redhat.com>,
+	Eric Biggers <ebiggers@kernel.org>,
+	"Jason A . Donenfeld" <Jason@zx2c4.com>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Herbert Xu <herbert@gondor.apana.org.au>,
+	Stephan Mueller <smueller@chronox.de>,
+	linux-crypto@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v3 2/8] arm64/sha3: Rename conflicting functions
+Date: Fri, 26 Sep 2025 15:19:45 +0100
+Message-ID: <20250926141959.1272455-3-dhowells@redhat.com>
+In-Reply-To: <20250926141959.1272455-1-dhowells@redhat.com>
+References: <20250926141959.1272455-1-dhowells@redhat.com>
 MIME-Version: 1.0
-References: <CAL_JsqJMibSgsEFeUvHswVy6zsHMn7ZXkpbhch06oQxPY9NocQ@mail.gmail.com>
- <20250925191520.GA2175949@bhelgaas>
-In-Reply-To: <20250925191520.GA2175949@bhelgaas>
-From: Rob Herring <robh@kernel.org>
-Date: Fri, 26 Sep 2025 09:18:00 -0500
-X-Gmail-Original-Message-ID: <CAL_Jsq++S5C+9xFsXBJyaRfS5uO_2c+VtCMKJfRg2_ERHyRAgQ@mail.gmail.com>
-X-Gm-Features: AS18NWAk7P-VFFKYhli2Rr8XOPLqBnC-mvDYbm-Fwop3vyyqN_Q7TWJokqE9yg8
-Message-ID: <CAL_Jsq++S5C+9xFsXBJyaRfS5uO_2c+VtCMKJfRg2_ERHyRAgQ@mail.gmail.com>
-Subject: Re: [PATCH 2/3 v2] PCI: s32g: Add initial PCIe support (RC)
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Vincent Guittot <vincent.guittot@linaro.org>, chester62515@gmail.com, mbrugger@suse.com, 
-	ghennadi.procopciuc@oss.nxp.com, s32@nxp.com, bhelgaas@google.com, 
-	jingoohan1@gmail.com, lpieralisi@kernel.org, kwilczynski@kernel.org, 
-	mani@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com, Ghennadi.Procopciuc@nxp.com, 
-	ciprianmarian.costea@nxp.com, bogdan.hamciuc@nxp.com, Frank.li@nxp.com, 
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	cassel@kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_071814_844801_CF378ADC 
-X-CRM114-Status: GOOD (  18.78  )
+X-CRM114-CacheID: sfid-20250926_072023_043649_05C1C24A 
+X-CRM114-Status: GOOD (  13.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,44 +91,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 25, 2025 at 2:15=E2=80=AFPM Bjorn Helgaas <helgaas@kernel.org> =
-wrote:
->
-> On Mon, Sep 22, 2025 at 09:52:21AM -0500, Rob Herring wrote:
-> > On Fri, Sep 19, 2025 at 10:58=E2=80=AFAM Vincent Guittot
-> > > Add initial support of the PCIe controller for S32G Soc family. Only
-> > > host mode is supported.
->
-> > > +++ b/drivers/pci/controller/dwc/Kconfig
-> > > @@ -255,6 +255,17 @@ config PCIE_TEGRA194_EP
-> > >           in order to enable device-specific features PCIE_TEGRA194_E=
-P must be
-> > >           selected. This uses the DesignWare core.
-> > >
-> > > +config PCIE_S32G
-> > > +       bool "NXP S32G PCIe controller (host mode)"
-> > > +       depends on ARCH_S32 || (OF && COMPILE_TEST)
-> >
-> > Why the OF dependency? All the DT API should be available with !CONFIG_=
-OF.
->
-> We have lots of similar OF dependencies.  Do we really want it to be
-> possible to build a non-working driver in the !COMPILE_TEST case?
+Rename the arm64 sha3_* functions to have an "arm64_" prefix to avoid
+conflict with generic code.
 
-We do. IMO, they should all be removed. The only real purpose it
-serves is hiding drivers on non-OF architectures. But the whole point
-of COMPILE_TEST is to *not* hide things. (CONFIG_IOMEM dependencies
-are similar and really only hide drivers on UML.)
+Signed-off-by: David Howells <dhowells@redhat.com>
+cc: Eric Biggers <ebiggers@kernel.org>
+cc: Jason A. Donenfeld <Jason@zx2c4.com>
+cc: Ard Biesheuvel <ardb@kernel.org>
+cc: Catalin Marinas <catalin.marinas@arm.com>
+cc: Will Deacon <will@kernel.org>
+cc: Herbert Xu <herbert@gondor.apana.org.au>
+cc: Stephan Mueller <smueller@chronox.de>
+cc: linux-crypto@vger.kernel.org
+cc: linux-arm-kernel@lists.infradead.org
+---
+ arch/arm64/crypto/sha3-ce-glue.c | 22 +++++++++++-----------
+ 1 file changed, 11 insertions(+), 11 deletions(-)
 
->
-> Maybe we should retain the OF dependency but only for !COMPILE_TEST,
-> like this:
->
->   config PCIE_S32G
->          depends on (ARCH_S32 && OF) || COMPILE_TEST
+diff --git a/arch/arm64/crypto/sha3-ce-glue.c b/arch/arm64/crypto/sha3-ce-glue.c
+index b4f1001046c9..426d8044535a 100644
+--- a/arch/arm64/crypto/sha3-ce-glue.c
++++ b/arch/arm64/crypto/sha3-ce-glue.c
+@@ -31,7 +31,7 @@ MODULE_ALIAS_CRYPTO("sha3-512");
+ asmlinkage int sha3_ce_transform(u64 *st, const u8 *data, int blocks,
+ 				 int md_len);
+ 
+-static int sha3_update(struct shash_desc *desc, const u8 *data,
++static int arm64_sha3_update(struct shash_desc *desc, const u8 *data,
+ 		       unsigned int len)
+ {
+ 	struct sha3_state *sctx = shash_desc_ctx(desc);
+@@ -55,8 +55,8 @@ static int sha3_update(struct shash_desc *desc, const u8 *data,
+ 	return len;
+ }
+ 
+-static int sha3_finup(struct shash_desc *desc, const u8 *src, unsigned int len,
+-		      u8 *out)
++static int arm64_sha3_finup(struct shash_desc *desc, const u8 *src, unsigned int len,
++			    u8 *out)
+ {
+ 	struct sha3_state *sctx = shash_desc_ctx(desc);
+ 	struct crypto_shash *tfm = desc->tfm;
+@@ -90,8 +90,8 @@ static int sha3_finup(struct shash_desc *desc, const u8 *src, unsigned int len,
+ static struct shash_alg algs[] = { {
+ 	.digestsize		= SHA3_224_DIGEST_SIZE,
+ 	.init			= crypto_sha3_init,
+-	.update			= sha3_update,
+-	.finup			= sha3_finup,
++	.update			= arm64_sha3_update,
++	.finup			= arm64_sha3_finup,
+ 	.descsize		= SHA3_STATE_SIZE,
+ 	.base.cra_name		= "sha3-224",
+ 	.base.cra_driver_name	= "sha3-224-ce",
+@@ -102,8 +102,8 @@ static struct shash_alg algs[] = { {
+ }, {
+ 	.digestsize		= SHA3_256_DIGEST_SIZE,
+ 	.init			= crypto_sha3_init,
+-	.update			= sha3_update,
+-	.finup			= sha3_finup,
++	.update			= arm64_sha3_update,
++	.finup			= arm64_sha3_finup,
+ 	.descsize		= SHA3_STATE_SIZE,
+ 	.base.cra_name		= "sha3-256",
+ 	.base.cra_driver_name	= "sha3-256-ce",
+@@ -114,8 +114,8 @@ static struct shash_alg algs[] = { {
+ }, {
+ 	.digestsize		= SHA3_384_DIGEST_SIZE,
+ 	.init			= crypto_sha3_init,
+-	.update			= sha3_update,
+-	.finup			= sha3_finup,
++	.update			= arm64_sha3_update,
++	.finup			= arm64_sha3_finup,
+ 	.descsize		= SHA3_STATE_SIZE,
+ 	.base.cra_name		= "sha3-384",
+ 	.base.cra_driver_name	= "sha3-384-ce",
+@@ -126,8 +126,8 @@ static struct shash_alg algs[] = { {
+ }, {
+ 	.digestsize		= SHA3_512_DIGEST_SIZE,
+ 	.init			= crypto_sha3_init,
+-	.update			= sha3_update,
+-	.finup			= sha3_finup,
++	.update			= arm64_sha3_update,
++	.finup			= arm64_sha3_finup,
+ 	.descsize		= SHA3_STATE_SIZE,
+ 	.base.cra_name		= "sha3-512",
+ 	.base.cra_driver_name	= "sha3-512-ce",
 
-That's completely redundant because ARCH_S32 is only enabled on ARM
-which selects OF.
-
-Rob
 
