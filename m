@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 698D1CAC5AC
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E227CAC5AE
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 07:40:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,47 +12,47 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cqFvsweeMIydvpkKRbWUDCT5Z9vdCXOgwYUao+S7sbw=; b=BXpBBCy8pFNa15HoOp0eyXf9PD
-	byw4lhgLnwhN9oYVCKskmvlni1gOtTdFSFy/6Png8VvKhdg/NpGFuwnHcIehfJqrVB35kc38ahkBe
-	rfSsnQ+1tpNuM8Yr2tk/I8qXNcj3dvr7OIfjZwirm+uUfcqN82u3QmgizbOYOQv5mI3Z5FYoLTRc+
-	oU6LntV+mjEHafYWFNr3ALuHpsGcwclFpeLGb5Y4f6nMvfaEAcvuIxafQEX0jguhPeVcxtzlwD7u+
-	7SEANSqaDE12p1ufuv0z4ucbksiDikhmVQJnPuWq8iLr933S/nP7m8shfElT6fvqOAB43b1xAB/iV
-	FRdsu67w==;
+	bh=aZjO/7aUY2BQ0jofA/G8I/j0xLETJuzN3cVoRjzP220=; b=LkuF2t+lwfZLQ5juBVm2mzxwjK
+	akpm0YQSCQJEfbZpsvlWBMu0rCchgsyoS6ekrgL27+9IUjmohjUhWZzJ/BMqnEo6ps00bMpqrL7UQ
+	ZidhS/1OiWv+SjLSVuWWYArS/gQaxAXaNFPNCqmGUV3QO36q9rVZzTYqb93x6opzLKwTZ2hlekkso
+	RRc/sRrWZYwZsz7H2eNsK5MbNHMvuS1h6dhcY+jTA4YGs8Xjsg+s6m9efxZorqKq8iTC/vfMbC4kM
+	r4/SjTRdFOa0KdESfwG9ayKpB1E4Y/1P93M7dRX+4XfSIXAbUdFC2XUYZKLROvEUH8u/fJnAX0Qd7
+	XtrJe+uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2349-0000000Grvv-0CqU;
+	id 1v2349-0000000GrxC-2kIg;
 	Fri, 26 Sep 2025 07:40:29 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2342-0000000Grno-1xOo
+	id 1v2345-0000000Grq0-0m7Q
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 07:40:24 +0000
+	Fri, 26 Sep 2025 07:40:26 +0000
 Received: from epcas2p2.samsung.com (unknown [182.195.41.54])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250926074019epoutp02216b7ae0af62809a8f0452eb903e473a~oxSWPCYvq1823518235epoutp022
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 07:40:19 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250926074019epoutp02216b7ae0af62809a8f0452eb903e473a~oxSWPCYvq1823518235epoutp022
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250926074023epoutp032bacf1a4aa50c1f33247d668e33ce532~oxSZmnQzk1448814488epoutp03P
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 07:40:23 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250926074023epoutp032bacf1a4aa50c1f33247d668e33ce532~oxSZmnQzk1448814488epoutp03P
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1758872419;
-	bh=cqFvsweeMIydvpkKRbWUDCT5Z9vdCXOgwYUao+S7sbw=;
+	s=mail20170921; t=1758872423;
+	bh=aZjO/7aUY2BQ0jofA/G8I/j0xLETJuzN3cVoRjzP220=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Ub9dHQf1rIPisddjJW49nGx0PC5pU4jXQaHDXUdBuLk77U0MsnGic7KbuNw2hmL6R
-	 bgBFN0tffJ4aa3wLcrYdXPT9QNSGoV0EGyMtAeEdO6ZlFwxSMBnux0tFOv3isEFE6m
-	 H7elaL6YXOztmK3u3y4j/E6Ytkv4bBfhHIPUzHXg=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas2p4.samsung.com (KnoxPortal) with ESMTPS id
-	20250926074019epcas2p416e087caf4fd9cf6e956961f1cf6d333~oxSVuwDt-2914429144epcas2p4G;
-	Fri, 26 Sep 2025 07:40:19 +0000 (GMT)
-Received: from epcas2p2.samsung.com (unknown [182.195.36.69]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4cY2YZ0hjmz6B9m9; Fri, 26 Sep
-	2025 07:40:18 +0000 (GMT)
+	b=lAgR5Ux2j98meDZ1r60coZPkzQ9W4ZHeb+8/Y68Lb1BIKsfQHVGl3UGkbr/RAHj4w
+	 UkQI7PIN0at7S4pa0qcsGdqIGueLk4AaYH64/msi76VS/wMCYPP2fH9bZ7q/Z3mwFP
+	 WLTBkBwjMgB5OuibxjzfYbvxVdzK+/46+6S1TiOI=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas2p3.samsung.com (KnoxPortal) with ESMTPS id
+	20250926074022epcas2p387dc5ee0d8c4676e7236c804746ceeca~oxSY5OMK61530715307epcas2p3q;
+	Fri, 26 Sep 2025 07:40:22 +0000 (GMT)
+Received: from epcas2p2.samsung.com (unknown [182.195.36.68]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4cY2Yd6GH7z2SSKg; Fri, 26 Sep
+	2025 07:40:21 +0000 (GMT)
 Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas2p1.samsung.com (KnoxPortal) with ESMTPA id
-	20250926074017epcas2p18fb2fc616b92dc04ad9e018151c2ba29~oxSUQRHA61723517235epcas2p1N;
-	Fri, 26 Sep 2025 07:40:17 +0000 (GMT)
+	epcas2p3.samsung.com (KnoxPortal) with ESMTPA id
+	20250926074021epcas2p36a8dc02c84c9ca11e2318a1a8931d68a~oxSXvVrYl2057720577epcas2p3b;
+	Fri, 26 Sep 2025 07:40:21 +0000 (GMT)
 Received: from asswp146.dsn.sec.samsung.com (unknown [10.229.19.146]) by
 	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250926074017epsmtip2605014d87cb2a679f123ac72d62d40f4~oxSULQqe31191711917epsmtip21;
-	Fri, 26 Sep 2025 07:40:17 +0000 (GMT)
+	20250926074021epsmtip2d9a38292d8fdfabc0655d0e0ed648b74~oxSXmH4d41194111941epsmtip2r;
+	Fri, 26 Sep 2025 07:40:21 +0000 (GMT)
 From: Sanghoon Bae <sh86.bae@samsung.com>
 To: robh@kernel.org, krzk@kernel.org, conor+dt@kernel.org, vkoul@kernel.org,
 	alim.akhtar@samsung.com, kishon@kernel.org, m.szyprowski@samsung.com,
@@ -61,27 +61,26 @@ Cc: krzk+dt@kernel.org, linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
 	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
 	sh86.bae@samsung.com
-Subject: [PATCH 2/4] dt-bindings: phy: Add PCIe PHY support for
- ExynosAutov920 SoC
-Date: Fri, 26 Sep 2025 16:39:17 +0900
-Message-ID: <20250926073921.1000866-3-sh86.bae@samsung.com>
+Subject: [PATCH 3/4] arm64: dts: ExynosAutov920: add PCIe PHY DT nodes
+Date: Fri, 26 Sep 2025 16:39:18 +0900
+Message-ID: <20250926073921.1000866-4-sh86.bae@samsung.com>
 X-Mailer: git-send-email 2.45.2
 In-Reply-To: <20250926073921.1000866-1-sh86.bae@samsung.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250926074017epcas2p18fb2fc616b92dc04ad9e018151c2ba29
+X-CMS-MailID: 20250926074021epcas2p36a8dc02c84c9ca11e2318a1a8931d68a
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 X-Sendblock-Type: AUTO_CONFIDENTIAL
 CMS-TYPE: 102P
 cpgsPolicy: CPGSC10-234,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250926074017epcas2p18fb2fc616b92dc04ad9e018151c2ba29
+X-CMS-RootMailID: 20250926074021epcas2p36a8dc02c84c9ca11e2318a1a8931d68a
 References: <20250926073921.1000866-1-sh86.bae@samsung.com>
-	<CGME20250926074017epcas2p18fb2fc616b92dc04ad9e018151c2ba29@epcas2p1.samsung.com>
+	<CGME20250926074021epcas2p36a8dc02c84c9ca11e2318a1a8931d68a@epcas2p3.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_004022_889902_EC616D5F 
-X-CRM114-Status: GOOD (  13.69  )
+X-CRM114-CacheID: sfid-20250926_004025_550732_B997BDBC 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,70 +95,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Since the Exynosautov920 SoC uses the Samsung PCIe PHY, add support
-for it in the Exynosautov920 PCIe PHY bindings.
+Add pcie_4l_phy, pcie_2l_phy dt node for all PCIe PHY instances
+in ExynosAutov920 SoC.
 
-The Exynosautov920 SoC includes two PHY instances: one for a 4-lane PHY
-and another for a 2-lane PHY. Each PHY can be used by separate
-controllers through the bifurcation option. Therefore, from 2 up to 4
-PCIe controllers can be supported and connected with this PHY driver.
-
-PCIe lane number is used to distinguish each PHY instance.
-This is required since two PHY instances on ExynosAutov920 is not
-identical.
-On PHY driver code, need to check each instance and different settings.
+Add HSI sysreg to control PCIe sysreg registers.
 
 Signed-off-by: Sanghoon Bae <sh86.bae@samsung.com>
 ---
- .../bindings/phy/samsung,exynos-pcie-phy.yaml      | 14 ++++++++++++++
- 1 file changed, 14 insertions(+)
+ .../arm64/boot/dts/exynos/exynosautov920.dtsi | 28 +++++++++++++++++++
+ 1 file changed, 28 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/phy/samsung,exynos-pcie-phy.yaml b/Documentation/devicetree/bindings/phy/samsung,exynos-pcie-phy.yaml
-index 6295472696db..1e8b88d2cd56 100644
---- a/Documentation/devicetree/bindings/phy/samsung,exynos-pcie-phy.yaml
-+++ b/Documentation/devicetree/bindings/phy/samsung,exynos-pcie-phy.yaml
-@@ -19,6 +19,7 @@ properties:
-       - samsung,exynos5433-pcie-phy
-       - tesla,fsd-pcie-phy0
-       - tesla,fsd-pcie-phy1
-+      - samsung,exynosautov920-pcie-phy
+diff --git a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
+index 2cb8041c8a9f..9e45bfcd7980 100644
+--- a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
++++ b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
+@@ -1021,12 +1021,40 @@ cmu_hsi0: clock-controller@16000000 {
+ 				      "noc";
+ 		};
  
-   reg:
-     minItems: 1
-@@ -34,6 +35,10 @@ properties:
-     description: phandle for FSYS sysreg interface, used to control
-                  sysreg registers bits for PCIe PHY
- 
-+  num-lanes:
-+    $ref: /schemas/types.yaml#/definitions/uint32
-+    enum: [2, 4]
++		syscon_hsi0: syscon@16030000 {
++			compatible = "samsung,exynosautov920-hsi0-sysreg",
++				     "syscon";
++			reg = <0x16030000 0x1000>;
++		};
 +
- allOf:
-   - if:
-       properties:
-@@ -42,6 +47,7 @@ allOf:
-             enum:
-               - tesla,fsd-pcie-phy0
-               - tesla,fsd-pcie-phy1
-+              - samsung,exynosautov920-pcie-phy
-     then:
-       properties:
-         reg:
-@@ -52,6 +58,14 @@ allOf:
-       properties:
-         reg:
-           maxItems: 1
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            const: samsung,exynosautov920-pcie-phy
-+    then:
-+      required:
-+        - num-lanes
+ 		pinctrl_hsi0: pinctrl@16040000 {
+ 			compatible = "samsung,exynosautov920-pinctrl";
+ 			reg = <0x16040000 0x10000>;
+ 			interrupts = <GIC_SPI 442 IRQ_TYPE_LEVEL_HIGH>;
+ 		};
  
- required:
-   - "#phy-cells"
++		pcie_2l_phy: pcie-phy2l@161c6000{
++			compatible = "samsung,exynosautov920-pcie-phy";
++			reg = <0x161c6000 0x2000>,
++			      <0x161d0000 0xb000>;
++			#phy-cells = <0>;
++			samsung,pmu-syscon = <&pmu_system_controller>;
++			samsung,fsys-sysreg = <&syscon_hsi0>;
++			num-lanes = <2>;
++			status = "disabled";
++		};
++
++		pcie_4l_phy: pcie-phy4l@163c6000{
++			compatible = "samsung,exynosautov920-pcie-phy";
++			reg = <0x163c6000 0x2000>,
++			      <0x163d0000 0xb000>;
++			#phy-cells = <0>;
++			samsung,pmu-syscon = <&pmu_system_controller>;
++			samsung,fsys-sysreg = <&syscon_hsi0>;
++			num-lanes = <4>;
++			status = "disabled";
++		};
++
+ 		cmu_hsi1: clock-controller@16400000 {
+ 			compatible = "samsung,exynosautov920-cmu-hsi1";
+ 			reg = <0x16400000 0x8000>;
 -- 
 2.45.2
 
