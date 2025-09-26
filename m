@@ -4,157 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18EFCCAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 16:35:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4615CAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 16:43:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ML4BHztNDGklZNqW+2j9xEMQB8Wg9hNG61Rm64ubzg4=; b=rPt6lItc3pryXh6b7+6vin85tP
-	dX+OryaBzjUhkkBNNQwmCw8xBhJq8ljzZjMQKZdGngejsKe8xHn9Js5k8o2SVpZhvGGbsp2Z5jdzy
-	FaDk+Trhq6T/rxyKU0sCQs8bW3lZ4FUHsELe6c7kRhYI7ts+y20buyHMYYWLtiU0fVhzJIrrUqz7B
-	iCek/cyCri4Aevqnrl41b6kaAJtYwUTpJN0VqVWtkAHt5KoS1o8eC3BDJDvcrDPX9UB5gyBjSrNXo
-	vFzp7pLSNv+8RMeo9Xm0X/uStw0kFC/QihxPosB5t1II1Usd0W1yVsJ8eyesMkvdLq+jYPLhT2Gdr
-	gT8dk4IQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OOAJKtszuFOluuG6qYkOjreur/Dr9vuVBO3HUnQ0sBI=; b=i2K9jHWsJEBvMW8ihH43Badotr
+	BLPx2krT49OUykLEj9dUEg5HtH+TVjsTjwwSTER3W3pjUJjWtmEVpc1+T75YfZBzTklsoPse/oqu7
+	1escfQfAcV+HaDU8CdcMeib4bYJtH9a/9ZTRaRE4/iZhPJ9/R2LtcjAi44Kf5GUu7AeWTeMoe+h5k
+	7U39hzo6LuwEOIw1wKqNo530HiepMqbU0xgUDpAR1CdSzv6x+g50ZRLbrC8cO0SkCs7ySaLWM8L8T
+	J45FVnL7g6DE414pEWlSyjp49rnskEGYt/foVnCMpGJ8qo16h3ir5wScc8qDkOIXAut2sVB5MHlpp
+	zPtLnZ5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2BQ1-00000002ucj-33Jc;
-	Fri, 26 Sep 2025 16:35:37 +0000
-Received: from mail-centralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c111::5] helo=DM1PR04CU001.outbound.protection.outlook.com)
+	id 1v2BXm-00000002yIy-0o3i;
+	Fri, 26 Sep 2025 16:43:38 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2BPz-00000002ubZ-2xHR
+	id 1v2BXj-00000002yHT-2B9q
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 16:35:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=dJoM8c6nxdcCzmAq576O/5+RU4Cqt4RGlXequW+QPEc9g3Znv8nrJTsI8e8egTp3Brn6gL3VBJjYlhZS2gb9DoscTVH2Zn19jB2cL9ycQiTuAgAYQfTH6OAskd7BBe19d689PodyXPpiPPmRCTx230od7wwKRWbE0MyLtHPQw6rn4XdezepflCplBLzkEAKyOFSVgxjXIldy8LZbi6EtkZVCMUpp+eOmsav68brZqqy26JBivYFbvEWynCEuaFZeRUS5wblW9C1rqb253lwIaI2uEfF6UNd36YzfbOoV3Y6y7Ky1FXi+lFRaWXPqEbzt37yBTJ7KSKYiNdTWbyaXNg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=ML4BHztNDGklZNqW+2j9xEMQB8Wg9hNG61Rm64ubzg4=;
- b=QzRoYndbIukn8L28QMFYgQDLYr5uLbPOhVgENId8+NKTFUET/fPJU/eGdC3PFL6/nuGMtSMOkeJilWi1hz051N3B1KIsaeorC4MmmqpBnVH87ip4WmJkHDd91vPC6GxkwIwlc6sj7y9QR05fRcdcH4vdD6F5T0IAj9mDaQSr3ROsdxRyUS8MGfE9h1iyyeaxrNMWC1eFAshLOn9jNgkmE1ZLX/VFeodfbh3/9OkLB4OG0dQ1IZ6lEeX3CpjDyuVk9mSBf+FvGcib8C9xLCK5hA8CSD4+mD4aph8VcTFVMQTtmpS1R8GpjlwkvTn8HkvRShj4JU+j6g1D8U+PweUoww==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=ML4BHztNDGklZNqW+2j9xEMQB8Wg9hNG61Rm64ubzg4=;
- b=D3NWyVPl/QcZDK053ny6pzdQBlpPOb0cSXxUCH9TJtThUJ74nLcGWtKbTHeHPng9QkVSB0AoO+yuDgftLopm+Kwro0COOP/qFwssLPkdELC/LSvaYVDGjHH7QLiZSttyQwMJ9qPQtzwJUrGNta65GrQSXJo+8dgdubsl+iY3CQWNjlecgEoqbdkd6UuNjE+q33bcrlGL1vO1gB1VaECEBsyxFlqsPitOvX2fImbFPa3MZ6FtRH7oiDdVGGhN70ir2QqkqJ2czRfKwW7fiBsQWPB7pXbkPftwN5iQCLa5N3R1U+E1bKctaf6p4SOgwXCyggMgWe1gNjx5Oi5jrdBH7A==
-Received: from SJ0PR12MB5676.namprd12.prod.outlook.com (2603:10b6:a03:42e::8)
- by SJ1PR12MB6194.namprd12.prod.outlook.com (2603:10b6:a03:458::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.10; Fri, 26 Sep
- 2025 16:35:26 +0000
-Received: from SJ0PR12MB5676.namprd12.prod.outlook.com
- ([fe80::abdb:7990:cc95:89ce]) by SJ0PR12MB5676.namprd12.prod.outlook.com
- ([fe80::abdb:7990:cc95:89ce%4]) with mapi id 15.20.9137.022; Fri, 26 Sep 2025
- 16:35:25 +0000
-From: Besar Wicaksono <bwicaksono@nvidia.com>
-To: Robin Murphy <robin.murphy@arm.com>, "will@kernel.org" <will@kernel.org>,
-	"ilkka@os.amperecomputing.com" <ilkka@os.amperecomputing.com>
-CC: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-tegra@vger.kernel.org"
-	<linux-tegra@vger.kernel.org>, "suzuki.poulose@arm.com"
-	<suzuki.poulose@arm.com>, "mark.rutland@arm.com" <mark.rutland@arm.com>,
-	Thierry Reding <treding@nvidia.com>, Jon Hunter <jonathanh@nvidia.com>,
-	Vikram Sethi <vsethi@nvidia.com>, Rich Wiley <rwiley@nvidia.com>, Shanker
- Donthineni <sdonthineni@nvidia.com>
-Subject: RE: [PATCH v2 5/5] perf/arm_cspmu: nvidia: Add pmevfiltr2 support
-Thread-Topic: [PATCH v2 5/5] perf/arm_cspmu: nvidia: Add pmevfiltr2 support
-Thread-Index: AQHcLB//WoupxwU/dECKu9IJoVgrvbSlSVcAgABiohA=
-Date: Fri, 26 Sep 2025 16:35:25 +0000
-Message-ID: <SJ0PR12MB56762F9D281C3667A5C60087A01EA@SJ0PR12MB5676.namprd12.prod.outlook.com>
-References: <20250923001840.1586078-1-bwicaksono@nvidia.com>
- <20250923001840.1586078-6-bwicaksono@nvidia.com>
- <1ff12bce-1369-48e9-8807-3a7ecd8e1559@arm.com>
-In-Reply-To: <1ff12bce-1369-48e9-8807-3a7ecd8e1559@arm.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: SJ0PR12MB5676:EE_|SJ1PR12MB6194:EE_
-x-ms-office365-filtering-correlation-id: f7bca1cd-dd44-40c3-c02f-08ddfd1ab1f8
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|366016|1800799024|38070700021;
-x-microsoft-antispam-message-info: =?us-ascii?Q?qiM34hF/h8Es69f47Hncrn/Ud+8WYIrVzpTmQKSmFIiS3DkBoxKVl99Mbyri?=
- =?us-ascii?Q?7pdLAcXy2BD/Tx9kT9y/0kOQ7irIxhoiWJxH4cS+kyFTMmiF06U0iY+mVNAc?=
- =?us-ascii?Q?zy80kqTg4oMEtE+mKQRnTdBZLs3MJG5LvmLmMsmcwodQ0rRn6JRO+TTq7u/O?=
- =?us-ascii?Q?5RB5EH7LRI98NG7LQ9JtpOe+RJLA6BfKEsDyw5u5LQ/FJ+iuEmfU9HUuWevt?=
- =?us-ascii?Q?wTqw1Qk3MXOjUKEwyDGhX8z1wzJDvfRdUPzRbVc01sjy4qj5Q0CrzAOdMbOi?=
- =?us-ascii?Q?Uhdd+SmNFdhfkSgxLZ3lksQiBuGwf+0RBu0hiPfR15nsKina+sECAJj5Qkcn?=
- =?us-ascii?Q?2uAZmGg4j2rRfqmkfHdKnco+jAYFSktLBeFrnOhsPkLdEj5T5rdoJW3+33WQ?=
- =?us-ascii?Q?Q88WVy6XsleBLTqDkyVILOiTpZnL+EqwL19XkJmZb4tcahNFiMQH8E5mlHoN?=
- =?us-ascii?Q?SD4alOv0xYl+omIgDsvLj1T+so3OK4ncJGi0CK/U/CK0mXtQy2xwSYmziUY0?=
- =?us-ascii?Q?b++4frRkz1BVGfsJ+oA6mq0Ib2U19zRMMpF+rxB7cmUZ3DA/ouhQlxyh/LAK?=
- =?us-ascii?Q?trOoXEOxmQ09zKuWJvgAoBk69zEf1Bt5lWfNP95IAUFxSKbVcOWLjVEDXb9O?=
- =?us-ascii?Q?L41jzBpjaEIfGz0eLmDsopfA+oED1MO3ggmQq/9Lu6gLgB4P9NOjzb0PYWJ9?=
- =?us-ascii?Q?aMV85Gi7FnVaN/OWg5uZAqtDVIpe5e3xER5AYfca6mwu7Iz4n4QZFDyUsSPc?=
- =?us-ascii?Q?sM6fzsH9YPCZPnn0pEVfwCuglTGyvhOpeEWWEtiFvUSqqSYQPWgL7nqpVcNQ?=
- =?us-ascii?Q?KqAzA9RRdLvO1GvcC7S0P5EOGlcmPQWMbgdjI8KT0PNv3710eMj/igwaaroO?=
- =?us-ascii?Q?o4zySo+3H/9Uf+ZKJ6IXrySdpSSmcRvlhZs64Pme/gjfP3cSoYB3zwrVkeuS?=
- =?us-ascii?Q?qWASxsW9tQW2e0+q/FHbRGp1ZcWy+a12ilA1l4FzNZ6ge0tFZS4RlTgqrj7D?=
- =?us-ascii?Q?I1+VKgkjE3gdSR3WgWTqUCgX1rS9mjDxN9T0HIqo7CeuLmJvha22SOr8jApb?=
- =?us-ascii?Q?C0/d7TSfqs1lrwznI77QNbT2kF/ukO3/uJrzmCwEfT1eruXXxHhpi8ZwbJhK?=
- =?us-ascii?Q?eHGQn8s3a8jw3jUltOLBYS1amoVYixZOekr7VRphBi6qAUvc4o5hBXT2E4Gi?=
- =?us-ascii?Q?MuzX8OUfuKNcxU8Sk9sI2ppnZ+0JpkMCtjxf5cbY8YN6RMNlBGseIm9c7Thg?=
- =?us-ascii?Q?KkVn8jcZCJTyhipmO2dcWoBAymfS+fzw5nOYyzZcKuBrTL0PQW0iPqDSlqg1?=
- =?us-ascii?Q?d8l00wmOaHKtQ3eaKLX2d0E4NRAJ8isjwe/H0FH2CBiH72xPLIq7uA270Z/r?=
- =?us-ascii?Q?rop07xeh4oF4djtInuVVZ+PlvBesEKd0djFszq2kowpcBStNJPcUeGZLII9o?=
- =?us-ascii?Q?p4fGZraGuXVO1gKTWLUxPDULbi7dGMWi66OvGBJJzZUb1TJ9SOPUUWKL+gLB?=
- =?us-ascii?Q?r1H/7FA7o7cSeFKeY60EAC4QtcXgTPHdk7Rk?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ0PR12MB5676.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?hx+vo7EdYMO5ONXjNlK9D1kZsYo3t12jRLorq3LQvYi+cPS4CnUAfzhO7paf?=
- =?us-ascii?Q?NZ+V+ZnDNa3Xlbx5mY/NCULqFjx1C05T9E0go8aGAi2vWogWa0F3RC/ThW9r?=
- =?us-ascii?Q?uSUExfXdVhK427qoo5htyLQY790GJktbgnr5e1bx9BlYW9TPWmlPr3Qw8416?=
- =?us-ascii?Q?sQrPnK8oW+FjPIDt+RuxA0QDckjObeQDRGQSwsy4ouSaBZduDOatbV01g0dC?=
- =?us-ascii?Q?7VYR24MHwP4y/mUAxXqVOKlJj3GCpEBPTZD0VekXMRS6LnHjzb/A+AtveqCX?=
- =?us-ascii?Q?rTyRcDDMPa9+G5fhKyxJkZeGVO7e8+GXbblc8FYztP/dg0G9a6F7dXMPHoS3?=
- =?us-ascii?Q?1EUzRmVj5Y+iDcgut/JF1xYmts+nM0ISzr7G9M+Ttt8hAgQFBaCF9IunLHbr?=
- =?us-ascii?Q?RbFTYTYLAcelIuTiz9mCAHi7GcSyNKie0BwSknLIPEJ1OPXEMYOIOAyb5Sw8?=
- =?us-ascii?Q?VzMUaKkvF4RzWlYIyI177HSb1x37sNifcI3N75D5RWpfTGMvmsrqAg17NM2Z?=
- =?us-ascii?Q?4uezqFLO6Ng77XjaOgfIVMp0/9f4v56qhsJuUTphc4DHHi7oiyqWgePE/DLr?=
- =?us-ascii?Q?Y4XHzZRB9dsbbNUY0Lqw4HH8ikXIhTdaBAXkZUtjrDH/R1a0OGocH7WQ54sj?=
- =?us-ascii?Q?b8mG+A1QgF1WKcIieqK4iOX5Rf7jiYIUOxBpxcktBALaKtsSW0zKPbVpWI22?=
- =?us-ascii?Q?PGdAxaufPGn1Y2rVJiIjuMwywIy6AK5I30tjltATq4e46zNwNKsb+zxNfHh0?=
- =?us-ascii?Q?P2IBqUm4a/PskvZ0RGf31TBGfx9BXTp5h1hc/GSHw+eGCEYSWHH7H6g8Fcjj?=
- =?us-ascii?Q?rKvpUhbBgE60N/AKMYPD32TW+Ng9BjuEwK9tptVZKY6pBrJJfyo5J7veVRh1?=
- =?us-ascii?Q?6rBjg6A2Rw1xSHgh+M4mY5T8m7mY7NuTXdzIjiC/ps+Tnh2ODOBMYlIAukFL?=
- =?us-ascii?Q?KwWM2kmNcoyaM8q381fAr+lXiZ0ptzMDXULtdZOh6tUbGxOdMswdZs4mDld7?=
- =?us-ascii?Q?sOHA77sgOVv+gQsJJ1Krcg31xIE+H17LhLq400pCAoDG4bB1+IywvNDVjI/p?=
- =?us-ascii?Q?/01nlRdXgyvNvcq/iwwmhVTGGYZ0AsEAMa5mChvraEq8gOMSnuP0W0rCGbPG?=
- =?us-ascii?Q?CCCKBy1MXW+gLHJaTXf3jKIuSEAHeSMaGzrVzyYKkI+eNfS6u3sd6hfAz8iD?=
- =?us-ascii?Q?N3KHNzq0HuQaWZLnwEeojwa/ZFEXyac+pfZ6ja1g6cqHMT3gn+Ai+Ew8otVT?=
- =?us-ascii?Q?WL0gIAYoQsWs2J3AKtIp6aYEkwWfn+r9zHhiecM8ZzFM1LNNYGiaiJgW1lXb?=
- =?us-ascii?Q?rodPdOh6AhjsbNqIirUzPEq+wse3Nogk8dvIoLjqaMOAoZC0ugoXa1R6Tqbv?=
- =?us-ascii?Q?DLsV3Jf6ugwL0UvXphG/7aRt9plBc8b/BkQwiIwKaQMDTEo7qNDMGElYa6n/?=
- =?us-ascii?Q?GPcjFCUE9Retq0f39OaoJoR6dFmVvRM3P4rdid3WV+PKIiXCpR65sA+bxLHB?=
- =?us-ascii?Q?PH65TU7TUE4vzE0D7hM3jkB82fcQKH/TEKKeljkU1PcZi/khg/Rm6t+5tTRO?=
- =?us-ascii?Q?s0HbkUWMSHy3ZfeSuDBhETrcibBY3eASFmx7pu90?=
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Fri, 26 Sep 2025 16:43:36 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58QEX3Gq020343
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 16:43:35 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	OOAJKtszuFOluuG6qYkOjreur/Dr9vuVBO3HUnQ0sBI=; b=h+iVNCItG8IaNeo1
+	5WKet2QPTfpcZVIJTNHUnA1IGc0tJXiF0e4OMG0eP89dQxPTjv3yUpM8TBpP7DAQ
+	IhgMxGGm26m+RUmIboNHJp9FYOTEs0zvE1UKja8TxVWN01jYtZGZ2b4L7OByN55k
+	nvAF8UZh13tjgob9ioN1jL40C5FnHTr/OhnbunN9yvOMYo7nCmUH9ESTkm7Vm/Cd
+	Y4w6DOwI+N7tepyxyoudTuzUxhkDo5oieO0MmxITVHu+OEfXeGxu5D2ea3vWkkm4
+	34Ju6XGEucVq4FkxEIvY496FdY7jXIIEjEgXTT6jFF3R9nSrsLRIh0JvYbaBfdI4
+	3X+eZQ==
+Received: from mail-pf1-f197.google.com (mail-pf1-f197.google.com [209.85.210.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49dsqrgw0p-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 16:43:34 +0000 (GMT)
+Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-780f82484faso1811215b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 09:43:34 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758905014; x=1759509814;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=OOAJKtszuFOluuG6qYkOjreur/Dr9vuVBO3HUnQ0sBI=;
+        b=RRHauC9ej+dLyjqCWPjefZQ1XDmLbm9rxuAmUOhYPUi6ucsEIuK87khke1veSufsHC
+         Kyt5mnUu2IqqRH9IDxENzWX5BWkYuabrIqnKa9S1JEYgBjKBimjkTPbU1xjImRUG32nF
+         3Z4JpjmPtFO6FzfB+qhQss88VxEcSvq3XalbM6nzTVHsBwPug32NYGWTETqgfgINOyZS
+         E08TdIvFCyZrSKSSjiQbgypEE57DdKbvotVpbGO+igLc2PQRv+G+75ISFtz8LtE6YDhU
+         LEuaqsVBx1ylYl3Hg2HmgqkKH5mJi487QU7UMWbrrlnjw4h2ajFz0xOeJFAEvXLuw3Fp
+         EgdQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWXH9hDy6pZ8HNdeXX+R1G0cWKhcEm5npENABFVmcQv9U38A+BxGaxq+MnYRSoO2zRsTQleqJZwIY1uCRnw9Cfa@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPJcxuoPSdl6F2RfYbE2JQh1Gy/NZmFc+oK/LDtJMaLrtzofgt
+	RzQsALtpXepQ8RRpl4oHo0n+uV2mvcl8/h92/7os94zU9Yl2wLPF7i6S/f5ujBvIIYp1+TT1/uP
+	J2IiL5v7X2QSG3ZQI+QzdPMnNzHpeoIld4pnG1BXl2AB/QaiT998O5ZXF67em/dOUUcttimTdoW
+	kUEQ==
+X-Gm-Gg: ASbGncvz62/ttiDDNgBGg2HjHdXdo7jM4Kq8ImQp7cMCgX3YXRnPrlvOBE0r5Bzbd/w
+	/l6abZ96pGhCtfAuitjBG4ZxT5mH7qsp8DVCIJx62V4p0mYF95O84Wf2upyCxUNovKm6I0X457n
+	DysvtShOMW4eOWXKdVKJtHRc+7AIr7YHf+2/odROLJ6fb7zvHlkLyJuOswkl62bYJWM44/P/2Vu
+	5RVKDatO+irCZaAVRzGU0nNY8aqEU/ssurBkyTBCPXw7IX1uZRMAHtGZWMCUfgHt8uNqVrnzBB3
+	9Rw5VVGLLBhaMzt29FdKohpu1LrBGuRsv6xFXcjaPObOeHF6SOZn/9aH16xy1ZfdW47P/2HE+m8
+	=
+X-Received: by 2002:a05:6a00:2186:b0:77f:2899:d443 with SMTP id d2e1a72fcca58-780fce1d14fmr7444714b3a.10.1758905013432;
+        Fri, 26 Sep 2025 09:43:33 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH5vWBMgBvL7brIlV8nI5zcGRZcgZLch/n6zvZd8dJYGcdbkBvuKaAP5Kh0UT+1HHmZItjGyg==
+X-Received: by 2002:a05:6a00:2186:b0:77f:2899:d443 with SMTP id d2e1a72fcca58-780fce1d14fmr7444655b3a.10.1758905012812;
+        Fri, 26 Sep 2025 09:43:32 -0700 (PDT)
+Received: from [192.168.29.113] ([49.43.224.88])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-781023c8aebsm4809340b3a.28.2025.09.26.09.43.24
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 26 Sep 2025 09:43:32 -0700 (PDT)
+Message-ID: <7cd09815-a657-47cc-9cc2-3751996c3592@oss.qualcomm.com>
+Date: Fri, 26 Sep 2025 22:13:22 +0530
 MIME-Version: 1.0
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: SJ0PR12MB5676.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f7bca1cd-dd44-40c3-c02f-08ddfd1ab1f8
-X-MS-Exchange-CrossTenant-originalarrivaltime: 26 Sep 2025 16:35:25.2767
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: n5Ednta/UN8uNqkmI/aRyHx1NbwTIJIaSoxAalcAx0pG8HSvg7sPU4Z672Kgj8/++dgLr9y/K2zWog+0URheRQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR12MB6194
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v6 8/9] PCI: pwrctrl: Add power control driver for tc9563
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Bjorn Helgaas <bhelgaas@google.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        chaitanya chundru <quic_krichai@quicinc.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>,
+        cros-qcom-dts-watchers@chromium.org, Jingoo Han <jingoohan1@gmail.com>,
+        Bartosz Golaszewski <brgl@bgdev.pl>,
+        =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+        Manivannan Sadhasivam <mani@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>, quic_vbadigan@quicnic.com,
+        amitk@kernel.org, linux-pci@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+        linux-arm-msm@vger.kernel.org, jorge.ramirez@oss.qualcomm.com,
+        linux-arm-kernel@lists.infradead.org,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+References: <20250925143924.GA2160097@bhelgaas>
+Content-Language: en-US
+From: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+In-Reply-To: <20250925143924.GA2160097@bhelgaas>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-GUID: UgYrz4sif-zMIwG_a16hr0lAvPjjdSnQ
+X-Authority-Analysis: v=2.4 cv=d8n4CBjE c=1 sm=1 tr=0 ts=68d6c2b6 cx=c_pps
+ a=rEQLjTOiSrHUhVqRoksmgQ==:117 a=w+9hNF1SH6wH5mqaHp+xkw==:17
+ a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=qleSEWVE8P8leAEWZfgA:9
+ a=QEXdDO2ut3YA:10 a=2VI0MkxyNR6bbpdq8BZq:22
+X-Proofpoint-ORIG-GUID: UgYrz4sif-zMIwG_a16hr0lAvPjjdSnQ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTI2MDEwMyBTYWx0ZWRfX+PxSfABAYRzj
+ naQpnVfJ5cg51MrmJJSqNC9U6I6SN5Ql5+shpLYzzyNmsxzL/9mocW48NJTVnPrSJ/YeaO7bBq9
+ lUKtxIUMhUeTSj+J09xNXH/5K98X4VTRbwsucxlfVUkOxpm7hrzVeYUpIWlMtojDz4TBRMIHLQv
+ RLHLqMydphq7ESuX/B26h8AlnB3QcgOedsy0bYxjiZPNSsoVCtkrMzM9diJUnvWr+2jINiwKggW
+ tAUYuWp9sskUZu7B1m3jFUlf7Jp/Vq0lb6AKLrBXfHGty6MpbKrH12tpkga6ZUzBmHqeG5S/VLZ
+ lDpM3x1QSAII9jEa4P2oi96c+2eHLvVFLPse5kOy8SHuovafPWyLvkLZgGKEuP/cgdFtr5rNIIi
+ KPVdwokVZa3KWq3VAedZdMDrolspfA==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-26_05,2025-09-26_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 lowpriorityscore=0 malwarescore=0 spamscore=0 phishscore=0
+ bulkscore=0 priorityscore=1501 clxscore=1015 adultscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2509150000 definitions=main-2509260103
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_093535_742601_666D2876 
-X-CRM114-Status: GOOD (  18.08  )
+X-CRM114-CacheID: sfid-20250926_094335_570940_B33FA655 
+X-CRM114-Status: GOOD (  33.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -171,68 +151,191 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-> -----Original Message-----
-> From: Robin Murphy <robin.murphy@arm.com>
-> Sent: Friday, September 26, 2025 5:32 AM
-> To: Besar Wicaksono <bwicaksono@nvidia.com>; will@kernel.org;
-> ilkka@os.amperecomputing.com
-> Cc: linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org; l=
-inux-
-> tegra@vger.kernel.org; suzuki.poulose@arm.com; mark.rutland@arm.com;
-> Thierry Reding <treding@nvidia.com>; Jon Hunter <jonathanh@nvidia.com>;
-> Vikram Sethi <vsethi@nvidia.com>; Rich Wiley <rwiley@nvidia.com>; Shanker
-> Donthineni <sdonthineni@nvidia.com>
-> Subject: Re: [PATCH v2 5/5] perf/arm_cspmu: nvidia: Add pmevfiltr2 suppor=
-t
->=20
-> External email: Use caution opening links or attachments
->=20
->=20
-> On 2025-09-23 1:18 am, Besar Wicaksono wrote:
-> > Support NVIDIA PMU that utilizes the optional event filter2 register.
-> >
-> > Signed-off-by: Besar Wicaksono <bwicaksono@nvidia.com>
-> > ---
-> >   drivers/perf/arm_cspmu/nvidia_cspmu.c | 176 +++++++++++++++++++---
-> ----
-> >   1 file changed, 133 insertions(+), 43 deletions(-)
-> >
-> > diff --git a/drivers/perf/arm_cspmu/nvidia_cspmu.c
-> b/drivers/perf/arm_cspmu/nvidia_cspmu.c
-> > index ac91dc46501d..e06a06d3407b 100644
-> > --- a/drivers/perf/arm_cspmu/nvidia_cspmu.c
-> > +++ b/drivers/perf/arm_cspmu/nvidia_cspmu.c
-> > @@ -40,10 +40,21 @@
-> >
-> >   struct nv_cspmu_ctx {
-> >       const char *name;
-> > -     u32 filter_mask;
-> > -     u32 filter_default_val;
-> > +
-> >       struct attribute **event_attr;
-> >       struct attribute **format_attr;
-> > +
-> > +     u32 filter_mask;
-> > +     u32 filter_default_val;
-> > +     u32 filter2_mask;
-> > +     u32 filter2_default_val;
-> > +
-> > +     u32 (*get_filter)(const struct perf_event *event);
-> > +     u32 (*get_filter2)(const struct perf_event *event);
->=20
-> Callbacks for this seem like complete overkill - you already know
-> whether a given implementation cares about each filter via
-> .filter{,2}_mask being nonzero, so unless you intend to have wildly
-> different event encodings across implementations, a simple conditional
-> extension of the existing nv_cspmu_event_filter() logic should be all
-> you need.
->=20
+On 9/25/2025 8:09 PM, Bjorn Helgaas wrote:
+> On Thu, Aug 28, 2025 at 05:39:05PM +0530, Krishna Chaitanya Chundru wrote:
+>> TC9563 is a PCIe switch which has one upstream and three downstream
+>> ports. To one of the downstream ports integrated ethernet MAC is connected
+>> as endpoint device. Other two downstream ports are supposed to connect to
+>> external device. One Host can connect to TC9563 by upstream port. TC9563
+>> switch needs to be configured after powering on and before the PCIe link
+>> was up.
+>>
+>> The PCIe controller driver already enables link training at the host side
+>> even before this driver probe happens, due to this when driver enables
+>> power to the switch it participates in the link training and PCIe link
+>> may come up before configuring the switch through i2c. Once the link is
+>> up the configuration done through i2c will not have any affect.To prevent
+>> the host from participating in link training, disable link training on the
+>> host side to ensure the link does not come up before the switch is
+>> configured via I2C.
+> 
+> s/any affect/any effect/
+> s/.To prevent/. To prevent/
+> 
+>> Based up on dt property and type of the port, tc9563 is configured
+>> through i2c.
+> 
+> s/up on/on/
+> 
+> Pick "i2c" or "I2C" and use it consistently.
+> 
+>> +config PCI_PWRCTRL_TC9563
+>> +	tristate "PCI Power Control driver for TC9563 PCIe switch"
+>> +	select PCI_PWRCTRL
+>> +	help
+>> +	  Say Y here to enable the PCI Power Control driver of TC9563 PCIe
+>> +	  switch.
+>> +
+>> +	  This driver enables power and configures the TC9563 PCIe switch
+>> +	  through i2c.TC9563 is a PCIe switch which has one upstream and three
+>> +	  downstream ports. To one of the downstream ports integrated ethernet
+>> +	  MAC is connected as endpoint device. Other two downstream ports are
+>> +	  supposed to connect to external device.
+> 
+> s/i2c.TC9563/i2c. TC9563/
+> 
+>> +static int tc9563_pwrctrl_bring_up(struct tc9563_pwrctrl_ctx *ctx)
+>> +{
+>> +	struct tc9563_pwrctrl_cfg *cfg;
+>> +	int ret, i;
+>> +
+>> +	ret = regulator_bulk_enable(ARRAY_SIZE(ctx->supplies), ctx->supplies);
+>> +	if (ret < 0)
+>> +		return dev_err_probe(ctx->pwrctrl.dev, ret, "cannot enable regulators\n");
+>> +
+>> +	gpiod_set_value(ctx->reset_gpio, 0);
+>> +
+>> +	 /*
+>> +	  * From TC9563 PORSYS rev 0.2, figure 1.1 POR boot sequence
+>> +	  * wait for 10ms for the internal osc frequency to stabilize.
+>> +	  */
+>> +	usleep_range(10000, 10500);
+> 
+> Possible place for fsleep() unless you have a specific reason for the
+> +500us interval?
+> 
+>> +static int tc9563_pwrctrl_probe(struct platform_device *pdev)
+>> +{
+>> +	struct pci_host_bridge *bridge = to_pci_host_bridge(pdev->dev.parent);
+>> +	struct pci_dev *pci_dev = to_pci_dev(pdev->dev.parent);
+>> +	struct pci_bus *bus = bridge->bus;
+>> +	struct device *dev = &pdev->dev;
+>> +	enum tc9563_pwrctrl_ports port;
+>> +	struct tc9563_pwrctrl_ctx *ctx;
+>> +	struct device_node *i2c_node;
+>> +	int ret, addr;
+>> +
+>> +	ctx = devm_kzalloc(dev, sizeof(*ctx), GFP_KERNEL);
+>> +	if (!ctx)
+>> +		return -ENOMEM;
+>> +
+>> +	ret = of_property_read_u32_index(pdev->dev.of_node, "i2c-parent", 1, &addr);
+>> +	if (ret)
+>> +		return dev_err_probe(dev, ret, "Failed to read i2c-parent property\n");
+>> +
+>> +	i2c_node = of_parse_phandle(dev->of_node, "i2c-parent", 0);
+>> +	ctx->adapter = of_find_i2c_adapter_by_node(i2c_node);
+>> +	of_node_put(i2c_node);
+>> +	if (!ctx->adapter)
+>> +		return dev_err_probe(dev, -EPROBE_DEFER, "Failed to find I2C adapter\n");
+>> +
+>> +	ctx->client = i2c_new_dummy_device(ctx->adapter, addr);
+>> +	if (IS_ERR(ctx->client)) {
+>> +		dev_err(dev, "Failed to create I2C client\n");
+>> +		i2c_put_adapter(ctx->adapter);
+>> +		return PTR_ERR(ctx->client);
+>> +	}
+>> +
+>> +	for (int i = 0; i < TC9563_PWRCTL_MAX_SUPPLY; i++)
+>> +		ctx->supplies[i].supply = tc9563_supply_names[i];
+>> +
+>> +	ret = devm_regulator_bulk_get(dev, TC9563_PWRCTL_MAX_SUPPLY, ctx->supplies);
+>> +	if (ret) {
+>> +		dev_err_probe(dev, ret,
+>> +			      "failed to get supply regulator\n");
+>> +		goto remove_i2c;
+>> +	}
+>> +
+>> +	ctx->reset_gpio = devm_gpiod_get(dev, "reset", GPIOD_OUT_HIGH);
+>> +	if (IS_ERR(ctx->reset_gpio)) {
+>> +		ret = dev_err_probe(dev, PTR_ERR(ctx->reset_gpio), "failed to get reset GPIO\n");
+>> +		goto remove_i2c;
+>> +	}
+>> +
+>> +	pci_pwrctrl_init(&ctx->pwrctrl, dev);
+>> +
+>> +	port = TC9563_USP;
+>> +	ret = tc9563_pwrctrl_parse_device_dt(ctx, pdev->dev.of_node, port);
+>> +	if (ret) {
+>> +		dev_err(dev, "failed to parse device tree properties: %d\n", ret);
+>> +		goto remove_i2c;
+>> +	}
+>> +
+>> +	/*
+>> +	 * Downstream ports are always children of the upstream port.
+>> +	 * The first node represents DSP1, the second node represents DSP2, and so on.
+>> +	 */
+>> +	for_each_child_of_node_scoped(pdev->dev.of_node, child) {
+>> +		ret = tc9563_pwrctrl_parse_device_dt(ctx, child, port++);
+>> +		if (ret)
+>> +			break;
+>> +		/* Embedded ethernet device are under DSP3 */
+>> +		if (port == TC9563_DSP3)
+>> +			for_each_child_of_node_scoped(child, child1) {
+>> +				ret = tc9563_pwrctrl_parse_device_dt(ctx, child1, port++);
+>> +				if (ret)
+>> +					break;
+>> +			}
+>> +	}
+>> +	if (ret) {
+>> +		dev_err(dev, "failed to parse device tree properties: %d\n", ret);
+>> +		goto remove_i2c;
+>> +	}
+>> +
+>> +	if (!pcie_link_is_active(pci_dev) && bridge->ops->stop_link)
+>> +		bridge->ops->stop_link(bus);
+> 
+> Is this pcie_link_is_active() test backwards?  Seems like you would
+> want to stop the link if it *is* active.
+> 
+you are right pci_dev extracted seems wrong and not pointing to root
+port dev, and  returning always zero. It is pointing to pci_dev in host
+bridge which doesn't point root port.
 
-Indeed, this is the reason. All the new PMUs we are planning to support
-have unique requirements on the filter configuration.
+Thanks for pointing this.
 
-Regards,
-Besar
+I will fix it in next version.
+> pcie_link_is_active() is racy, and this looks like a situation where
+> that could be an issue.  Would something break if you omitted the test
+> and *always* stopped and started the link here?
+if we stop the link if the pcie link is active then we might see AER's &
+linkdown.
 
-
+- Krishna Chaitanya.
+> 
+>> +	ret = tc9563_pwrctrl_bring_up(ctx);
+>> +	if (ret)
+>> +		goto remove_i2c;
+>> +
+>> +	if (!pcie_link_is_active(pci_dev) && bridge->ops->start_link) {
+>> +		ret = bridge->ops->start_link(bus);
+>> +		if (ret)
+>> +			goto power_off;
+>> +	}
+>> +
+>> +	ret = devm_pci_pwrctrl_device_set_ready(dev, &ctx->pwrctrl);
+>> +	if (ret)
+>> +		goto power_off;
+>> +
+>> +	platform_set_drvdata(pdev, ctx);
+>> +
+>> +	return 0;
+>> +
+>> +power_off:
+>> +	tc9563_pwrctrl_power_off(ctx);
+>> +remove_i2c:
+>> +	i2c_unregister_device(ctx->client);
+>> +	i2c_put_adapter(ctx->adapter);
+>> +	return ret;
+>> +}
 
