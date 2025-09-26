@@ -4,156 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81BEBCAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 03:02:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1686BCAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 03:02:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wnNaYTF/3Sd7owCl8RuY5D6FfLuyZD80KrYKr89d1+Q=; b=ZOXGx9Sz1gMd0UAVrUfLiNIROH
-	lTtwhDXeH4rDKLqSb06zGKcfIDsLAbpi0LGTp6EEUnCRVxMMUozUOjwWg6+yiMKbp8zeqAZrBjj00
-	glCGJe5uaM3lDljcQNmeQvccH9RSr1gESiIjTT926/dbuT4QqAasjk0JaAemSnqbxNXTFuBEG+5IX
-	ggo/eJRUckTi9T57jsLTOeX35LQjnShX3Ku2MAO2bSmNrPN9KsaFJv5oetfZdFgRzMRrupEh5POw5
-	KPlDE9fRTHh0tBAYx0+HCqozGSkuVrxJVfS5T0YeEfduqVbCHINS0PnSEG9roSOvlj//jrG2evMAJ
-	j1NieTaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oAJYYsubH767ZAAG6Ssy/u0Z9S4icmj/JgueQ+Oc+lI=; b=hzcohR4i7J0NQ+O8JXtkwMmHEJ
+	3UBRiBi/TAS06lUOoDxRwStr55kZGvqD8rWkQCrAMUj5g/ukAbpnnn8oCGzyROHiQLAJ48EcVepCi
+	0E3LkPcRLOwilC9utxuLNlQMNORQYJkntS1R9CaBycTCRTAe9v15quGNeiAYULwE7cDEhwH5SHSFd
+	AYpS7lafQia3l5OuXCkJwEuDWdZFkLjGbIwM0IHzuQccf+PsU7SSILq4JFa1gP0zWmiTe/WcxZ4lu
+	i6OlfQ2XX15gKIN9LfuAs4N6eh38r/dZszyiX9Ke2JXm2fQRss1TB6XxyW+sd88ZbQBEWNXxEXSoG
+	0Tdb0ufA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1yiv-0000000FDep-0VED;
-	Fri, 26 Sep 2025 03:02:17 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1v1yjA-0000000FDnv-1oHE;
+	Fri, 26 Sep 2025 03:02:32 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1yis-0000000FDbX-2Nlk
+	id 1v1yj8-0000000FDmB-2RkD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 03:02:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=viIxatDxPUXy182aN5S73Z6laTM8abqG8fYZMds5h7b9Ssw8/pp8u3HhkKFsHJ7XHZLEIX3EccdF2PN6A9EU3RndyDMSVcjdgbQ5Zu/o4KRmb2FS0Tf8hKn5QAT9KBdBS76tvbwy0KvxIX13vpjLNgn54YDWLb+rQFfn4FzILyUSy1NWiDqFT68KFCoX6dkyIfZW+KGS5GUQCoyt+lezsVG2pOZMQDd103Xk/rGd2ZzGFwAABIiDf84pIZTuVoUKoozixdXvgM4mfZrV8f3MVLJnprRd0O+mS4Ye0vtTSmeCC47DE+ugScNuGI5AOdBHMlMkA2FCHaGC07L4yWUl8w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wnNaYTF/3Sd7owCl8RuY5D6FfLuyZD80KrYKr89d1+Q=;
- b=jfVR1EcFhRvhp702D5qXyXYQkqOBmE4yL8RFEnhl+22cIzktpEgC2ejiP8ATNWj9U09ANprj8F2lZ71gud3jCh7NBoWD7gl7f9txX4QUlDTjqZm7JLzyPXd5XGn7U1qwu02+aEZdzseUg8v4XPhguY52TeXCa+PjKf0sn1Q3i9sFS6NPBepRGzQxt4oZpOhK17aGstFxALPi+kg1OSaQwIEzVa15PGrrVMaEJXdNbpwcnELi1iDbuuXj6eru168rK/zWce0cQbrG5CoRt7aXzFwceROymHcUWAHyOFZ4g6OsOn9trVtRi/RITVl3PfnsTczinD1FBDd6xxFZKCXzkg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wnNaYTF/3Sd7owCl8RuY5D6FfLuyZD80KrYKr89d1+Q=;
- b=FO5bTKJCNaa5IIoto+dn4r0waXYc8Sp09OBYwJcUr57iF3ADBVvwN5xUczueRojqNM5dFBPL8/uVSb3xrCE2T8fSsKlSk/VQ+4jzCnm/KVzeT1D0oZcsPvVwfM9DRtx6lAaHyMwFz0d9NFdIsq4yZeo9mCMf/FuKGAG7CkLNm3awBPI+29Y0eMMR66vBV6Um3nP4Q+DYfGCkUs6DLOUh+u/5Zbyu+kQQbTE5cY8kp2Vy9vT+QEi7iUJBrvx1EmlmqMJC+/YlRn7g3bFVyWFxln0An+CKHvc0Pj7zoeTPgZhxoqE9fND4zrL/b7eg9zp1bGN1U99USVp3PW+54IiRCw==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
- by PA2PR04MB10311.eurprd04.prod.outlook.com (2603:10a6:102:413::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.11; Fri, 26 Sep
- 2025 03:02:01 +0000
-Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::c67b:71cd:6338:9dce]) by DU2PR04MB8822.eurprd04.prod.outlook.com
- ([fe80::c67b:71cd:6338:9dce%4]) with mapi id 15.20.9160.011; Fri, 26 Sep 2025
- 03:02:01 +0000
-Date: Fri, 26 Sep 2025 10:55:51 +0800
-From: Xu Yang <xu.yang_2@nxp.com>
-To: Will Deacon <will@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Namhyung Kim <namhyung@kernel.org>
-Cc: Frank Li <Frank.li@nxp.com>, Mark Rutland <mark.rutland@arm.com>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
-	John Garry <john.g.garry@oracle.com>, James Clark <james.clark@linaro.org>, 
-	Mike Leach <mike.leach@linaro.org>, Leo Yan <leo.yan@linux.dev>, 
-	Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
-	Arnaldo Carvalho de Melo <acme@kernel.org>, Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
-	Jiri Olsa <jolsa@kernel.org>, Ian Rogers <irogers@google.com>, 
-	Adrian Hunter <adrian.hunter@intel.com>, catalin.marinas@arm.com, kernel-team@android.com, 
-	linux-arm-kernel@lists.infradead.org, linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org, 
-	imx@lists.linux.dev, Peng Fan <peng.fan@nxp.com>, 
-	Conor Dooley <conor.dooley@microchip.com>
-Subject: Re: [PATCH v2 0/5] add imx94 DDR Performance Monitor support
-Message-ID: <md3k463rj4ehlpnkqgfi6dkt4clkbax3der5i7xqvjqqaknrh5@iujmrwv6l6cc>
-References: <20250821-imx94-ddr-pmu-v2-0-052c6420605d@nxp.com>
- <175819950650.3462177.6226529699819628940.b4-ty@kernel.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <175819950650.3462177.6226529699819628940.b4-ty@kernel.org>
-X-ClientProxiedBy: AM0PR10CA0011.EURPRD10.PROD.OUTLOOK.COM
- (2603:10a6:208:17c::21) To DU2PR04MB8822.eurprd04.prod.outlook.com
- (2603:10a6:10:2e1::11)
+	Fri, 26 Sep 2025 03:02:31 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-77c1814ca1dso1369995b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 25 Sep 2025 20:02:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1758855749; x=1759460549; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=oAJYYsubH767ZAAG6Ssy/u0Z9S4icmj/JgueQ+Oc+lI=;
+        b=dER/DPzoi77rZyLHQ444KbqIhzEnTFW3nkB2lKuxa9oaVELuSH20DjVUurIHosaiPl
+         sMAe5ptE9iN+IJiTFFRkUdqLcDKpS6Aukcm7W2iw5bJqdL0q2IIFf5irZTIynYKsI2dc
+         d3YjvtpvHO7Z2SH6exKQkI6FZfLz3rpz6Vkp0yjv+1t5gXHnVzGdtGCU1N+jAsvya6yc
+         yeVMtfLZstM5u9k+/mhVIj5ALs85gh8j4B/j0CxHEBduSIn5YwARxdpvWUPxJGw9AxdF
+         IZrG1FmZx8MB/7f3Weaankb45VMREEvAncAkWH0V/foz9TXUhKP34w992wbSBI9Jthra
+         CBLw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758855749; x=1759460549;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=oAJYYsubH767ZAAG6Ssy/u0Z9S4icmj/JgueQ+Oc+lI=;
+        b=IkF9RLtOlEkC1XQIYQXSAyF/Yxs40yoHvDLiQToIIodbeXt5uTN/tZEQlNnpUFaSfW
+         zqsDC1gdZvExS960ofQVDjxhcOgV0ecsR+21zZKscUbnszKcz1erK9YkfwJ7KDg46C2q
+         v81w1GPYk33iwO4gspLTm5+1YBrW86ENRft6Gmcnd9H/0km898TEQsAxMKdYmLcxembK
+         co47UZq4xc3UmPFhcLvmjboGC5roa+o7OaUalg1FcNb9jyJYS9KrFIyKLmaD9PZpVC/w
+         kFKN/EDbyUIGYjifj9JE5TwTo9S37ZTQMJWUaimoEq3JND8iYpIpitg0wLxMvAuuJATT
+         fN0w==
+X-Forwarded-Encrypted: i=1; AJvYcCVGs33YZS5T8pxy7D+GJAy7yDOqAbZByD+UJGyu+KIiYoR8+vi9n+UL9EZlFeKu4Vzj6+NzlGlX0rZdXm5R5m8S@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz57kejjIJAgXyQ8cCgb5xMj5KRjIpj8C51gELYDeh5YbRcrUnr
+	WPPtV3OTeXwq/YydRnLwpt/g+1LEw551pR6eTjv5194lvrzSDlZTv7BN
+X-Gm-Gg: ASbGnctdOZqjZm/X8tvjpetmugJs1+OcKpyeCzvcz4yUsuKz2DyT+AEKlWsjdeo76Uj
+	dRX3RfBBKI0dhnS/1zmd2ydUd7S26JK8ntcsJba1FrLEdNUB+eoendsVpPAitN2oybGTrVsubcV
+	vRgWJ95V0e9Cg1fTAB6mLk45/WO9O7dCRYpoCeLN0E7SCBkSST4oao+AleKiqJMbVxg40FEQyTO
+	vZNIePm0aw2dIuuKX3GjYej7gUoiYAsfbYUeHigQGxzK802JsYDua19HaPOLo1/4uEo4PAYEkG1
+	8h5f5wrTK9YSdjbehoj9OScW5P904P1Yn2ZL+IxAo9lrESQWWAwLCbi+sYZuf+at8CaH09NsGGl
+	wiRMG7DTX73gG9D67cgv3Ru2g3GtDkzHvI7pYlzYswSdVYhqEot3v0DgZwj3yxKNZ2wfLjrRv+d
+	HCQIig7mfqIw0iNfex6A==
+X-Google-Smtp-Source: AGHT+IGVVE0b3+ap6KgQf8MQgQkYuBpIvq9eSH0KSUWAfnMr6DmONE0rdbX167dWHQYcpP6jeWd61w==
+X-Received: by 2002:a05:6a00:1ac6:b0:781:15d0:8848 with SMTP id d2e1a72fcca58-78115d09690mr1084933b3a.13.1758855749399;
+        Thu, 25 Sep 2025 20:02:29 -0700 (PDT)
+Received: from bu9-daniel.dhcpserver.bu9bmc.local (61-220-246-151.hinet-ip.hinet.net. [61.220.246.151])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7810238c1e8sm3225384b3a.12.2025.09.25.20.02.27
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 25 Sep 2025 20:02:28 -0700 (PDT)
+From: Daniel Hsu <d486250@gmail.com>
+X-Google-Original-From: Daniel Hsu <Daniel-Hsu@quantatw.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	joel@jms.id.au,
+	andrew@codeconstruct.com.au
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-aspeed@lists.ozlabs.org,
+	linux-kernel@vger.kernel.org,
+	Daniel Hsu <Daniel-Hsu@quantatw.com>
+Subject: [PATCH v1] ARM: dts: aspeed: harma: Add MCTP I2C controller node
+Date: Fri, 26 Sep 2025 10:59:52 +0800
+Message-ID: <20250926025952.3098933-1-Daniel-Hsu@quantatw.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|PA2PR04MB10311:EE_
-X-MS-Office365-Filtering-Correlation-Id: eb4b90d9-6520-494c-458c-08ddfca91074
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|52116014|19092799006|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?MwCZzl9w3j6B0DXZnlMjsd2X90SkjA4PKXd3K82mKrqsjvZad0cDP41Qxf0W?=
- =?us-ascii?Q?EhwgRiSKEedoEE6Ykk9BPn9Wn9cV1JE3W1Bi9xigYlC8s7xqezko3ICzrXX1?=
- =?us-ascii?Q?Laz4HAyYZHqkQ4gmzcvfK8gpWT4ZigHCuPsfVyTk9r9xtzEpJCFOb1OZ1eNr?=
- =?us-ascii?Q?kmjqeHgBX6bRJdcJbHlhNdNSg+32vk6uYqsXgw7mGxn6IvGXbGjMVNzLDVX3?=
- =?us-ascii?Q?KpaftQkEPCKS1VkOZjBmC15BiV+YrzEFU6kfvHmt0/P0Ea0TGPpPtdDUeP0P?=
- =?us-ascii?Q?7rRypDtZeijHIkMwNff9nvTN4oQj8QULwNJU+shwsP23GXReibCyyoG7RArE?=
- =?us-ascii?Q?Mb0X0XTOiDI1enddPQMEUKIO6YzsfOhnzk4Zxc237BRgGDLtfkdqyLhOehwd?=
- =?us-ascii?Q?+0nVHSydXccnpMnhFwC1l3TKUxczAdfHMOsxGNm0Z5T0GStcafzDwTbDYeaK?=
- =?us-ascii?Q?ACbQwoUl1koGsqjxV6XsmTiknbDkE3paaIMVJGpD+drsiWqC5qjDkO5iGCBF?=
- =?us-ascii?Q?xm5KRl+yq+fGs+Z2aorqI3HCcfWIRA9jjOOXytuLU6iMvqwDD+vOA6WrRuK9?=
- =?us-ascii?Q?XW2CorgKHY911Ykw2bhexGkoIIhsJTSli4JwRAdxL1EmQB29eydHAOMpCGM8?=
- =?us-ascii?Q?1gYBiy62dd0bTMVLZz2AdRh/6tJNKN4PfHvGhGWFPSpY/OSql53Mh7LDiLSE?=
- =?us-ascii?Q?IGRNrOhnFMV7gPifDYMQh/+bBKCyvOmEvgNxZZJTtegg3v0U6h+9KE9nsCtl?=
- =?us-ascii?Q?MI2rLXPN6E0+ScMTR83aOp+UbK6SWW5hoxjYAR2GjgjY3bWMHzvrKXWCpRih?=
- =?us-ascii?Q?RrG1lcR7HLfDMUL4/rqYGTRBagyWWCD2NGc0+ftPGX9+9TKaSiayU3SIEDWh?=
- =?us-ascii?Q?+m9DD4aGBPFViGi9klJ69aswgAp9AeAWe+o+IZu7ZpFj2+hEsEv2Yy7fP4lL?=
- =?us-ascii?Q?4La3Hz34cAcz9GQz/tTbvXFxdyBHAmA5gFxb4IAqCu/eT2nlGZwOauxEh6sY?=
- =?us-ascii?Q?4rAgJywn0dgRO5eRs7Dcuz+lyAarhpCnUvNvqxBI8mRtnvWJEnANZ95zCQwl?=
- =?us-ascii?Q?0jdgIgdcXr8++JtF2vrWvwc6+h9DWIE+jg6X5rQFYubNNu0n0A9kXPoTuy1J?=
- =?us-ascii?Q?8+QaAvJEKo29eJSguPlkpupm2rduEz+uL2KjjNLEfxUrpGMzBX2UyMtWCSRk?=
- =?us-ascii?Q?Wi444fGAh2VAyJZlgNy3g11jYV5VWla4lKqeGDOBVywK9vr2LBaK/rWEaVGo?=
- =?us-ascii?Q?uOOwDiWtPEmreD2QzOFbmxg4S6H+28TjkIyQ+JPUOag2TDXqvYcJhmUlgE2g?=
- =?us-ascii?Q?o4HCW7xJtOxnV82YBaqeilkfd0gT4KCA8R1Utb0E0juWuqalv5WincJDJ5le?=
- =?us-ascii?Q?aybt8wGvdumZBUGekE4dx9+oJK7v6IiSeSDKo2GsaJF0aZ2sJ0D36woQOo+f?=
- =?us-ascii?Q?Q1qAbPJmnTByzTvI5m3SBbGG0lDCFpzs?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(52116014)(19092799006)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Us8+rSEsmZ9XUaFCzffwlAYtyKMBtLCY8ThxJJuDnklWfZ+eSJ47+RUx9+D5?=
- =?us-ascii?Q?qgUm2aBlHcwirFAdwLcaw638artnFhY6fmhSpEWD5wsgmKYnkUGf6DA3wFOp?=
- =?us-ascii?Q?lEpa8aiTpWke0/V7sg+hvoJN5rHIy3ww8rPMAxuZ73DPtcMRI0UllMOeE55m?=
- =?us-ascii?Q?4StFMRVx9NuY2PbG33dNdRodmV+dMKwwuFw7CZiQuoWqhrTGXuEkgjPc3phW?=
- =?us-ascii?Q?sosrtjirGW3gytKPWJAwv1breOBSQLrouSbGbNE3HyblVFfhp5hOBORNhYdq?=
- =?us-ascii?Q?r9xwhUpXR4+/jJG4cEPQQZckHX+RzcIrpQXd5gcC2dmmcUU2Dg7v5zb0IwKe?=
- =?us-ascii?Q?jxiR/JahEPKm9fcSn7Eu+sKxKuqVhZlHgx8QYTlfre1Zakc/Oo4tTg0bqJdb?=
- =?us-ascii?Q?Jq3hgiSP2LF2a4H8LUmvuV8W/idNtGSZmoTehzeZBloNWYWlMnEau4s27MvF?=
- =?us-ascii?Q?hsdYPXvv/i0NNYZl8AZsCCmNp1yux2P3McJiDSPx8GAASm0NSNU82OqTXYbA?=
- =?us-ascii?Q?9wJ9vgAWZ9OLpeiFHMa5JLZUP2DqaxuxdVETkTQPUVZ7uFgNrTRCUQQfsAdd?=
- =?us-ascii?Q?TU9TdkTvCjAMm3uxPB5n3O6Jeid6OoLFwNQ9jTJcDOxv+Ft67HaOI3XI25Sl?=
- =?us-ascii?Q?7sNZp7nDnj6JsptW7yY/m1YK6ZA4DHGZgcKjtzKMyV1vlY3d0xo+Oi/R82gQ?=
- =?us-ascii?Q?Y/+YTHdXvsj5at/V8HsVN+KgUm+iUKKd44h205mliBvqp4bUhnSGFa8b7PxT?=
- =?us-ascii?Q?61Ybdh0b0idhQ4ZCyM+wtmU4J8990ZguqSVEW7PKkOoX1hfGlWKbyfEo0nEd?=
- =?us-ascii?Q?LkEZo3xbynO7DHDPCugvVLn9je0AFKz/aSBJC0vNT7ndhtR/h6m6bWf/Ykf1?=
- =?us-ascii?Q?nevuQc9uuttpFbsLqH//cjsBQRfnm+ohzZ0TM3uS8JNfyOdKfAIldwzbCTQ6?=
- =?us-ascii?Q?m9bLWcAXlOg0MFCj6mqHrbKfouQJ/9Rx5GydSZ4+nApjFgCC7eA5ONuqwHaa?=
- =?us-ascii?Q?8LDQI0J8Fv1pIT0v8Nz1JkEoeIlXCpfPzwRZUr1bfffs9mTehf9rRvRPHw64?=
- =?us-ascii?Q?hqjcZWuE/kPzBHGnIIlqGNB0mP7Rt9Fs5GnmUzCqz5/H+0cnoKM+gbHpQIs3?=
- =?us-ascii?Q?0JqrDuJZKVgv2GhSqL7n75618EktHWj1FC8TpfeoSqxNMXmccfaeL5nzU+mh?=
- =?us-ascii?Q?SN4kXSozJXkivwzjxfxS8lFrLu20/MXCXVSbAzdHubeYbXv3kDZzd1lDXlad?=
- =?us-ascii?Q?z+eLDK7+3FmTVdXBz1Gqm0sE/vhSygaOpEh0/uvcvMBgkXW4Ss4JTXwWTJNh?=
- =?us-ascii?Q?+CPYXlO8QZHeyFWSRS/EUFEuJuOBRSfJmUVsASBl+R9jm2Nuy9szhCrrCcKC?=
- =?us-ascii?Q?ejueba0kAOLgna2L0hZ0N2sAftJD/87GbH3inU+DZu7LyYahSrYOCc6hNkPE?=
- =?us-ascii?Q?NWs+SUIQis1qv+2FPsiQvybtckm7ePg0K7deTiknI7vXtkAePjMSiJXgavrt?=
- =?us-ascii?Q?MzlAdR+h6dOtDDKFyQLMjygTIpXHjMoLI1fehbjspGDXYVvPU/VTkQEfCvq5?=
- =?us-ascii?Q?HlgeqIZfbHM2EsoLgr9vZz0k1n9boSdJhrSxZ05p?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: eb4b90d9-6520-494c-458c-08ddfca91074
-X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Sep 2025 03:02:01.5600
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: s+r+R3Ca9e7Ha83ZPGyz+Nc52v57HCRk5Wd07386ZpdFBDejJSyGwrW5jicqdKWQ9x+nGTOgxdkJjsrdy/SQsw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10311
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_200214_626004_3FF91029 
-X-CRM114-Status: GOOD (  14.98  )
+X-CRM114-CacheID: sfid-20250925_200230_621842_56E96F22 
+X-CRM114-Status: GOOD (  10.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,43 +104,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Shawn and Namhyung,
+The Facebook Harma BMC uses I2C1 as an MCTP (Management Component
+Transport Protocol) bus. This patch enables the controller by
+adding the `mctp-i2c-controller` node under I2C1, with multi-master
+support.
 
-Could you pick up below two patches?
+Signed-off-by: Daniel Hsu <Daniel-Hsu@quantatw.com>
+---
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-[3/5] perf vendor events arm64:: Add i.MX94 DDR Performance Monitor metrics
-[5/5] arm64: dts: imx94: add DDR Perf Monitor node
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts
+index b9a93f23bd0a..2b7019c55eb6 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-harma.dts
+@@ -242,6 +242,14 @@ gpio@12 {
+ &i2c1 {
+ 	status = "okay";
+ 
++	mctp-controller;
++	multi-master;
++
++	mctp@10 {
++		compatible = "mctp-i2c-controller";
++		reg = <(0x10 | I2C_OWN_SLAVE_ADDRESS)>;
++	};
++
+ 	temperature-sensor@4b {
+ 		compatible = "ti,tmp75";
+ 		reg = <0x4b>;
+-- 
+2.43.0
 
-On Thu, Sep 18, 2025 at 05:43:10PM +0100, Will Deacon wrote:
-> On Thu, 21 Aug 2025 19:01:48 +0800, Xu Yang wrote:
-> > The i.MX94 Soc has a DDR Performance Monitor Unit (PMU), this will
-> > add support for it.
-> > 
-> 
-> Applied drivers and bindings updates to will (for-next/perf), thanks!
-> 
-> You'll need to route the .dts and tools changes via their respective
-> trees.
-
-Thank you Will Deacon!
-
-Thanks,
-Xu Yang
-
-> 
-> [1/5] dt-bindings: perf: fsl-imx-ddr: Add a compatible string fsl,imx94-ddr-pmu for i.MX94
->       https://git.kernel.org/will/c/f8cc02321bfc
-> [2/5] perf: imx_perf: add support for i.MX94 platform
->       https://git.kernel.org/will/c/e4d9e8fb406b
-> 
-> [4/5] MAINTAINERS: include fsl_imx9_ddr_perf.c and some perf metric files
->       https://git.kernel.org/will/c/2c599c68c43e
-> 
-> Cheers,
-> -- 
-> Will
-> 
-> https://fixes.arm64.dev
-> https://next.arm64.dev
-> https://will.arm64.dev
 
