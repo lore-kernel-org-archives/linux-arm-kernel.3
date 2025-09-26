@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7320DCAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 07:40:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69044CAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 07:40:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=Ed+5kxoNWx3Jwxxg6b5MJ/fr9ca6CEUeMaFTMyUKs7E=; b=aXKS/xi+kieBZVbhpFDpm/L8NU
-	QyHD/ZmncmCQxjbT7AxXA8NN4lyMtfPo3N1Kk1EkurIB5EsRP5K0ZFi7qFz8gY5djo0NLX9nyLx7l
-	kOEUOVZl0xkb1JTJ8ZMD7bHalR5eCnuhjefcsBrD6V974kVFaaGU3luDbguTYb8zyup5o2Y6y06pf
-	fS7e1cLFzn54fZ0mO3h8tmx3C+Iub7SdyPcLBuHQZ2pEoeWokIrR93hEIBk0L2rbVWNE86dhzUfBP
-	nniLwjzOeMb6cl95yUvAQ5JpH9qAT5jlJ2T+KEZtheqf9i47Q6ULf6ImXYBbzK6FJfSiK5STcQb1Q
-	pv3wa5bg==;
+	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4Po68KLFilpwQWxw9CyNZz80qkVt9zVydR1HkDC6YYQ=; b=ovzOj+g7OcI59p4KyHssc5B0Vn
+	fR63xnHvvG3C1hQ3TttloHCoNKpwfBvC1ZBJTctxGNp7wywfMfW6e8KyR2UokjNw7mu4kQefAHN6d
+	3LI0aL+TTHy4iNBxN1ho98pXd2KJhe9xBate04b7y3lW/caBE0Ut3M0a7WOTs9zztLk+nZ/WNABEw
+	JOmSrzfKdMDYM3nJgY+h9JMBPx53aSoX3gd1ZndBBIkYqS3IYf7WODjZx3mJq8xqiTZ+/Mv87gh6u
+	ULANePTOJeDgFEGSzag7vNMohjboWwwMyPQ4X095P9R6USZ6JR2rG0IyJZnfqoYhB853QvNMDxhMq
+	Sb3E2VXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v233j-0000000GraR-1u4N;
-	Fri, 26 Sep 2025 07:40:03 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1v2340-0000000Grn3-2AFW;
+	Fri, 26 Sep 2025 07:40:20 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v233g-0000000GrXN-3W5C
+	id 1v233x-0000000GriK-0REh
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 07:40:02 +0000
-Received: from epcas2p2.samsung.com (unknown [182.195.41.54])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250926073956epoutp02ba53101540f6b697a88aa4e8fbcf704f~oxSA2rSSe1846318463epoutp02O
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 07:39:56 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250926073956epoutp02ba53101540f6b697a88aa4e8fbcf704f~oxSA2rSSe1846318463epoutp02O
+	Fri, 26 Sep 2025 07:40:18 +0000
+Received: from epcas2p4.samsung.com (unknown [182.195.41.56])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250926074013epoutp037e1bc32caa77b2c1f5b09b42d4ca697c~oxSQ3ToWe1383313833epoutp03n
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 07:40:13 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250926074013epoutp037e1bc32caa77b2c1f5b09b42d4ca697c~oxSQ3ToWe1383313833epoutp03n
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1758872396;
-	bh=Ed+5kxoNWx3Jwxxg6b5MJ/fr9ca6CEUeMaFTMyUKs7E=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=WHD5tGIG5QrmybbVc1rzwlihvsaLvo/2NGNq577Ao3XaUAXfjxFxpnZ3bWVKsRA4G
-	 XTzGQRdDxct59ZRAzUFKvSjfswHEJFT9HD/asmIezOulgxlvArg6KVm2hcvwG3ldvb
-	 eExURASMxKMlHtA4ohXglq23flaYh2iO/fwmZTuI=
-Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
-	epcas2p4.samsung.com (KnoxPortal) with ESMTPS id
-	20250926073956epcas2p4e0831378871edb628034c6e8e7a0c31d~oxSAT3qfW0615906159epcas2p4g;
-	Fri, 26 Sep 2025 07:39:56 +0000 (GMT)
-Received: from epcas2p3.samsung.com (unknown [182.195.36.97]) by
-	epsnrtp02.localdomain (Postfix) with ESMTP id 4cY2Y72vjTz2SSKq; Fri, 26 Sep
-	2025 07:39:55 +0000 (GMT)
+	s=mail20170921; t=1758872413;
+	bh=4Po68KLFilpwQWxw9CyNZz80qkVt9zVydR1HkDC6YYQ=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=Y/KbEVBjmokg4+rbkbl3LnNgD+ybwZi0ZJHpJWYRAn4PRB/rmdlxP9hji9hz0Z+tE
+	 flK4XM4SjHwWetBjYBgRu649Vul9FOjF+y+6O8+mGpEcFHDy0DEjetNqZKWmFDfp7r
+	 nPhS43qc8OwIkg8ZsSrXypEHjsIXE6FbTVtkvf5c=
+Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
+	epcas2p3.samsung.com (KnoxPortal) with ESMTPS id
+	20250926074013epcas2p329a4df283d64467842604511dd0aebfc~oxSQRMzSv1530715307epcas2p3K;
+	Fri, 26 Sep 2025 07:40:13 +0000 (GMT)
+Received: from epcas2p2.samsung.com (unknown [182.195.36.100]) by
+	epsnrtp04.localdomain (Postfix) with ESMTP id 4cY2YS2nM0z6B9m5; Fri, 26 Sep
+	2025 07:40:12 +0000 (GMT)
 Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
 	epcas2p4.samsung.com (KnoxPortal) with ESMTPA id
-	20250926073954epcas2p4b8bb4206e526b7d7860ed4378ed75f78~oxR_4fYk71317313173epcas2p46;
-	Fri, 26 Sep 2025 07:39:54 +0000 (GMT)
+	20250926074011epcas2p438f7edb31c720c0950e9df986983f5a5~oxSO-KU-m1317313173epcas2p4B;
+	Fri, 26 Sep 2025 07:40:11 +0000 (GMT)
 Received: from asswp146.dsn.sec.samsung.com (unknown [10.229.19.146]) by
 	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250926073954epsmtip210aab09bd6750df88f1647162d5c1287~oxR_y2Ce_1108911089epsmtip2F;
-	Fri, 26 Sep 2025 07:39:54 +0000 (GMT)
+	20250926074011epsmtip2f18560c1e912ca2ce076f493e09534a4~oxSO31j4l1189111891epsmtip2G;
+	Fri, 26 Sep 2025 07:40:11 +0000 (GMT)
 From: Sanghoon Bae <sh86.bae@samsung.com>
 To: robh@kernel.org, krzk@kernel.org, conor+dt@kernel.org, vkoul@kernel.org,
 	alim.akhtar@samsung.com, kishon@kernel.org, m.szyprowski@samsung.com,
@@ -61,24 +61,27 @@ Cc: krzk+dt@kernel.org, linux-kernel@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
 	linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
 	sh86.bae@samsung.com
-Subject: [PATCH 0/4] Add support for ExynosAutov920 PCIe PHY
-Date: Fri, 26 Sep 2025 16:39:15 +0900
-Message-ID: <20250926073921.1000866-1-sh86.bae@samsung.com>
+Subject: [PATCH 1/4] dt-bindings: soc: samsung: exynos-sysreg: add hsi0 for
+ ExynosAutov920
+Date: Fri, 26 Sep 2025 16:39:16 +0900
+Message-ID: <20250926073921.1000866-2-sh86.bae@samsung.com>
 X-Mailer: git-send-email 2.45.2
+In-Reply-To: <20250926073921.1000866-1-sh86.bae@samsung.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250926073954epcas2p4b8bb4206e526b7d7860ed4378ed75f78
+X-CMS-MailID: 20250926074011epcas2p438f7edb31c720c0950e9df986983f5a5
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 X-Sendblock-Type: AUTO_CONFIDENTIAL
 CMS-TYPE: 102P
 cpgsPolicy: CPGSC10-234,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250926073954epcas2p4b8bb4206e526b7d7860ed4378ed75f78
-References: <CGME20250926073954epcas2p4b8bb4206e526b7d7860ed4378ed75f78@epcas2p4.samsung.com>
+X-CMS-RootMailID: 20250926074011epcas2p438f7edb31c720c0950e9df986983f5a5
+References: <20250926073921.1000866-1-sh86.bae@samsung.com>
+	<CGME20250926074011epcas2p438f7edb31c720c0950e9df986983f5a5@epcas2p4.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_004001_188145_CF849C6C 
-X-CRM114-Status: GOOD (  14.78  )
+X-CRM114-CacheID: sfid-20250926_004017_300039_11EE64B9 
+X-CRM114-Status: GOOD (  10.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,45 +96,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The ExynosAutov920 SoC has two instances of DesignWare-based PCIe PHY IP.
-Each PHY has a different lane specification: one is a 4-lane PHY and
-the other is a 2-lane PHY.
+Add hsi0 compatible for ExynosAutov920 PCIe settings for:
+- PCIe PHY power control
+- PLL settings for PCIe
+- PCIe device direction (RC/EP)
 
-Each PHY can be used by separate controllers through the bifurcation
-option. Therefore, from 2 up to 4 PCIe controllers can be supported
-and connected with this PHY driver.
+Signed-off-by: Sanghoon Bae <sh86.bae@samsung.com>
+---
+ .../devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml   | 1 +
+ 1 file changed, 1 insertion(+)
 
-Most of the PHY structure and registers are identical, but some aspects
-need to be distinguished. For this, PCIe lane number added for each PHY
-properties only in ExynosAutov920.
-
-This patchset includes:
-- DT bindings for ExynosAutov920 FSYS0 sysreg
-- DT bindings for ExynosAutov920 PCIe PHY
-- PCIe PHY properties for ExynosAutov920 in the device tree
-- PHY driver for ExynosAutov920 PCIe
-
-Note that this patchset does not enable PCIe0 and PCIe2.
-Enabling them requires additional patches for the ExynosAutov920 PCIe
-RC driver, which will be applied later.
-
-Please note that these patch set depends on the Shradha Todi's patchset
-https://lore.kernel.org/lkml/20250811154638.95732-1-shradha.t@samsung.com/
-so need to apply on top of that series, because that adds
-the patches to make Exynos PHY common for all.
-
-Sanghoon Bae (4):
-  dt-bindings: soc: samsung: exynos-sysreg: add hsi0 for ExynosAutov920
-  dt-bindings: phy: Add PCIe PHY support for ExynosAutov920 SoC
-  arm64: dts: ExynosAutov920: add PCIe PHY DT nodes
-  phy: exynos: Add PCIe PHY support for ExynosAutov920 SoC
-
- .../bindings/phy/samsung,exynos-pcie-phy.yaml |  14 ++
- .../soc/samsung/samsung,exynos-sysreg.yaml    |   1 +
- .../arm64/boot/dts/exynos/exynosautov920.dtsi |  28 +++
- drivers/phy/samsung/phy-exynos-pcie.c         | 231 ++++++++++++++++++
- 4 files changed, 274 insertions(+)
-
+diff --git a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
+index d27ed6c9d61e..a44fd24ed0ea 100644
+--- a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
++++ b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
+@@ -30,6 +30,7 @@ properties:
+               - samsung,exynos8895-fsys1-sysreg
+               - samsung,exynos8895-peric0-sysreg
+               - samsung,exynos8895-peric1-sysreg
++              - samsung,exynosautov920-hsi0-sysreg
+               - samsung,exynosautov920-peric0-sysreg
+               - samsung,exynosautov920-peric1-sysreg
+               - tesla,fsd-cam-sysreg
 -- 
 2.45.2
 
