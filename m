@@ -4,103 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 345DBCAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 20:57:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2901CAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 21:15:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lH2Sfk58/GaFMno98E5ZZZ0Jezt1oWfRMccsDmLi3+U=; b=htXLDlS+UzWD6zjaN/2g3psTi5
-	BlsUF5rhvDNAv2KFJkOLmtV4L+wEJIsaR3LGBipvVAFGkzf6MKLUTctpyUcEX9hxZgQTUN8ZCVywb
-	TVPtPHwdhziahrrKM1GSXn+7t2soZkk/ai4ewORkmbKp7rcCOhmI6aPahC/nldWvOLz3fOW1rlv59
-	ZC490nUECsiBCoYlopfLh2jivzcfjUR5CEYxtCe2vMzZafrdBBFSNC1YPvImD+SSAZicJ587C+wRE
-	Yh9lCyccxdvuZQbiZ2BM3RGAbGwrmTn89AcBOuAg4KagNx/BAoRZrBvG7Q54rxFZ3Lv2PP0I9mx5Z
-	epoRdoHQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yeliLO8ZX90mVaMXxxRnYo//0RR0ygnkpRiTVxlGOsI=; b=dFxm8DtUAgm5A1VjdQMR+ImpHc
+	dzAn7KOkB67nkOCu/zVobxlHxNFXHzG9a7V0YUzHTluigXs79UMDeqXbEVIdoY9WRK5jjShGTISQZ
+	yriL7xixtwlTEUpf0fT8cQfLAIxmLWtUcn8ndIRiHJURc+XO3rhZeHP1J1T13hyfiqQlgwYt5z9tP
+	rqErrN/dEUNPnb5SKIAFMlGKQhQW9qReTU9mKINJMoYiqa2+mhAbLXGp5DuPrJAihUUMhbwPnpRe5
+	G71SI2NVzi9frkFvi27jAMU1aSAmEb92koF8nw+TZQK+G3KD4IUW1F05r28Q19y3gp8sE4uplfd3H
+	++CDd3wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2FVk-00000004Tgj-1IJt;
-	Fri, 26 Sep 2025 20:57:48 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1v2FmM-00000004aKQ-1RBU;
+	Fri, 26 Sep 2025 21:14:58 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2FVh-00000004TeI-2c1m
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 20:57:46 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-77f68fae1a8so3624816b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 13:57:44 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1758920264; x=1759525064; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lH2Sfk58/GaFMno98E5ZZZ0Jezt1oWfRMccsDmLi3+U=;
-        b=LoBjKzxOhuR9tDnUYSCoC1iwyxVX06g+as4+KaryPxkY/Kgh//56YdP9ze5rB4/fJw
-         BGMojXXqmSXtcGpBEkSgJzMxxxCpaxUSdpXUMhHOdE9lp5A5MBx1bKOy22Lr1TtY3N5S
-         IVkvwnX7uLOFyOkZRGD0qdMf2j3y1TuFIbhG0=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758920264; x=1759525064;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=lH2Sfk58/GaFMno98E5ZZZ0Jezt1oWfRMccsDmLi3+U=;
-        b=jM/CxxSrsmQYA18ykzX+RVpaQtlPYg+Ue7glY3sGTTH0QT9jXefEokdZ6MqrlSeueL
-         gcb1GtaTnGFEknTUSv7SYZ3CSX/UZJE/9hhNh3oBV+cZuidSXXtD9ThXh8OzoRB6e+RI
-         O0hPUnAa4xB8XewOgcMhTlJUQcZEQYb5Bd8S5bmADjPEqTqGQd0HhNKG03fy9fI4PWNG
-         K+eIx6gjRurStaVKE2HX/O52ueGMNJ4yFjXH8BUjs+v93/6sraG2UXOAeW+4SbRUfnP9
-         U4TwCTLiEwP5zEFXlbQPlOY+IkMwXV+vTQK4MUSAURbM5UZTa7Q9j3OH9nB6QnEFBurr
-         lb0g==
-X-Forwarded-Encrypted: i=1; AJvYcCXT8Kop2O9GXYLORS5wZBElMJF3uC5vN3j9ikEit1h+0LxCldeOrZgdcg3jW2mC8adPtuvyIq2m1YrSSuhT7i9n@lists.infradead.org
-X-Gm-Message-State: AOJu0YwrH83kOddaDx5xnx/WwzP3nisolPfUgsIdZoK/73OebtF4LLNL
-	kT841KVaLsQypp4s3yPhadIbB/jlhJKPIYmQ8s5zwcnk/J/d2fliFrNjsHEzXpg5VO/Z1UZHfoo
-	zCG4=
-X-Gm-Gg: ASbGncsbb2burx/LHurAEX6cEwxTO39fFEs3763AMhrQedEfZTNlL+rUTveWMarHMNP
-	pMXyzgk2Aq8+6i9HQ9XfFbUntfNhPaV6P0o3b4IDWWRUaJIKRJVhzFFJVM2u69KQowy679cBNww
-	aOGpk4rHqFGocFKj8CiND8CqIxI1Pqp3oZ4QMzBUAlpy+djGeREDoQr1hR2cOi0HWu+jswqcc/s
-	2YjXAYAuQLJfffxsyV2txKyCgRn0P0fNt4XYSQQM4AfndCYI5bPrrqGGqhX3OgINMvrKC/MJXMA
-	KUbZDFTSAyfmnmwRHGJE24w/Jv3pUKWhvZKHr5MS3Sv9jLy3aOR613c0SdB1yvb7YWRKOyhAtho
-	5mAP5o+th6V0CNQxeASniNXTtGPFo+q9PZAEQhNVU+HlPS72WeuVUNW43ht3jNgaUMg==
-X-Google-Smtp-Source: AGHT+IEW88SqOi6LZtTpw6qOmpTLnjM3a/2/XfBrctKiFCztXVwR+XWWLPjBwB11wSJigz1wNW0z7g==
-X-Received: by 2002:a17:90b:1d8a:b0:335:2eef:4ca8 with SMTP id 98e67ed59e1d1-3352eef4edcmr4087090a91.33.1758920264491;
-        Fri, 26 Sep 2025 13:57:44 -0700 (PDT)
-Received: from mail-pl1-f173.google.com (mail-pl1-f173.google.com. [209.85.214.173])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3341be1474asm9846009a91.17.2025.09.26.13.57.44
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 26 Sep 2025 13:57:44 -0700 (PDT)
-Received: by mail-pl1-f173.google.com with SMTP id d9443c01a7336-271067d66fbso27834895ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 13:57:44 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCV/nubEo0jcc0ts3Ymib6eBE2Ua3x9vOgQAABs2LEb4zSvEjoMXrJklm4pTeF8sWnhGMA6iqY+tjjxTcbwcBdgt@lists.infradead.org
-X-Received: by 2002:a17:902:c402:b0:25c:d4b6:f119 with SMTP id
- d9443c01a7336-27ed49df307mr105837165ad.12.1758920263386; Fri, 26 Sep 2025
- 13:57:43 -0700 (PDT)
+	id 1v2FmL-00000004aJJ-10wd;
+	Fri, 26 Sep 2025 21:14:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id AD73361F79;
+	Fri, 26 Sep 2025 21:14:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0A175C4CEF4;
+	Fri, 26 Sep 2025 21:14:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758921296;
+	bh=WEqmaCU0BUDs5OjoAtWYAf0UL/AzG1dPeDjq72rC0sQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=XE4nCsRfeX1KRU9BbescvWUhEXzKjBfCTlQiq6RXU4SjCmO+CQ6EG7NOgkP2TF+fw
+	 jsFFtzi37veH+wot+rXL5XNBcur565rL2r2nuiOEZXPduUvMNBslnqnrg0jC2sK9y1
+	 auFrD1H9xCn/yrjBF5+c8a1lD8q6Kdozz+bu7kTuEZzg0lyoG7lmCWM+xkjh43xfkv
+	 dvT2YloG43TShqbBJ22bTVF9QQRZkvYgx3l/gK3C74JvpJ8MmpulthRWQw7C69m3Es
+	 j6EdGhc1d0p5ViH3czbtK09JFZN86sCYAupvTSlyYHoKGNdUQubXwgDO7voiOqqvtl
+	 cfXXFL6YjDb7A==
+Date: Fri, 26 Sep 2025 16:14:54 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Jianjun Wang <jianjun.wang@mediatek.com>,
+	linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>, linux-pci@vger.kernel.org,
+	Bjorn Helgaas <bhelgaas@google.com>, upstream@airoha.com,
+	Ryder Lee <ryder.lee@mediatek.com>, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>
+Subject: Re: [PATCH v3 1/2] dt-bindings: PCI: mediatek-gen3: Add support for
+ Airoha AN7583
+Message-ID: <175892129219.1571962.13823264512166648033.robh@kernel.org>
+References: <20250925155330.6779-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-References: <20250925084806.89715-1-cuiyunhui@bytedance.com>
- <20250925084806.89715-2-cuiyunhui@bytedance.com> <CAD=FV=VZLYqPQCOEhbH4QtndeG5e1-0wey24fgYNTeFiqd8qJg@mail.gmail.com>
- <CAEEQ3wnwNdTgt6ByHCzM43fhZMLSxwXvYx-AGBpsktraXqif2Q@mail.gmail.com>
-In-Reply-To: <CAEEQ3wnwNdTgt6ByHCzM43fhZMLSxwXvYx-AGBpsktraXqif2Q@mail.gmail.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Fri, 26 Sep 2025 13:57:31 -0700
-X-Gmail-Original-Message-ID: <CAD=FV=X6Xv_WYPMXKtOWLJX7skCoQmia3JbQej_u38qxqAbqDg@mail.gmail.com>
-X-Gm-Features: AS18NWDVMqIM3NdX-t4tF69rrS3UxfWVNc7ZvIbAVZlF3PJHNdBYWzKZ9mUJzVc
-Message-ID: <CAD=FV=X6Xv_WYPMXKtOWLJX7skCoQmia3JbQej_u38qxqAbqDg@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH v2 1/2] watchdog: move arm64 watchdog_hld
- into common code
-To: yunhui cui <cuiyunhui@bytedance.com>
-Cc: akpm@linux-foundation.org, alex@ghiti.fr, anup@brainfault.org, 
-	aou@eecs.berkeley.edu, atish.patra@linux.dev, catalin.marinas@arm.com, 
-	johannes@sipsolutions.net, lihuafei1@huawei.com, mark.rutland@arm.com, 
-	masahiroy@kernel.org, maz@kernel.org, mingo@kernel.org, 
-	nicolas.schier@linux.dev, palmer@dabbelt.com, paul.walmsley@sifive.com, 
-	suzuki.poulose@arm.com, thorsten.blum@linux.dev, wangjinchao600@gmail.com, 
-	will@kernel.org, yangyicong@hisilicon.com, zhanjie9@hisilicon.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_135745_704604_C0D2AD3F 
-X-CRM114-Status: GOOD (  25.34  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250925155330.6779-1-ansuelsmth@gmail.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,89 +78,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-On Fri, Sep 26, 2025 at 2:37=E2=80=AFAM yunhui cui <cuiyunhui@bytedance.com=
-> wrote:
->
-> Hi Doug,
->
-> On Fri, Sep 26, 2025 at 4:00=E2=80=AFAM Doug Anderson <dianders@chromium.=
-org> wrote:
-> >
-> > Hi,
-> >
-> > On Thu, Sep 25, 2025 at 1:48=E2=80=AFAM Yunhui Cui <cuiyunhui@bytedance=
-.com> wrote:
-> > >
-> > > @@ -17,6 +17,7 @@
-> > >  #include <linux/cpu_pm.h>
-> > >  #include <linux/export.h>
-> > >  #include <linux/kernel.h>
-> > > +#include <linux/nmi.h>
-> > >  #include <linux/perf/arm_pmu.h>
-> > >  #include <linux/slab.h>
-> > >  #include <linux/sched/clock.h>
-> > > @@ -696,10 +697,12 @@ static int armpmu_get_cpu_irq(struct arm_pmu *p=
-mu, int cpu)
-> > >         return per_cpu(hw_events->irq, cpu);
-> > >  }
-> > >
-> > > -bool arm_pmu_irq_is_nmi(void)
-> > > +#ifdef CONFIG_HARDLOCKUP_DETECTOR_PERF
-> > > +bool arch_perf_nmi_is_available(void)
-> > >  {
-> > >         return has_nmi;
-> > >  }
-> > > +#endif
-> >
-> > Should the previous comment move here, AKA:
-> >
-> > /*
-> >  * hardlockup_detector_perf_init() will success even if Pseudo-NMI turn=
-s off,
->
-> Okay, we also need to change it to =E2=80=9Cwatchdog_hardlockup_probe()=
-=E2=80=9D
->
-> >  * however, the pmu interrupts will act like a normal interrupt instead=
- of
-> >  * NMI and the hardlockup detector would be broken.
-> > */
-> >
-> >
-> > > +static int __init init_watchdog_freq_notifier(void)
-> > > +{
-> > > +       return cpufreq_register_notifier(&watchdog_freq_notifier,
-> > > +                                        CPUFREQ_POLICY_NOTIFIER);
-> >
-> > I think you need to do something to prevent this from happening on any
-> > platforms that override hw_nmi_get_sample_period(), right? These
-> > cpufreq notifiers will be useless in that case...
->
-> I understand this is not a problem. watchdog_perf uses
-> PERF_COUNT_HW_CPU_CYCLES, which means it is inherently limited by the
-> CPU's main frequency. After we make such a change, a larger value may
-> be used as the period, so the NMI period will become longer, but this
-> value will not change after the system starts.
+On Thu, 25 Sep 2025 17:53:08 +0200, Christian Marangi wrote:
+> Introduce Airoha AN7583 SoC compatible in mediatek-gen3 PCIe controller
+> binding.
+> 
+> This differ from the Airoha EN7581 SoC by the fact that only one Gen3
+> PCIe controller is present on the SoC.
+> 
+> The compatible have -gen3 tag as the Airoha AN7583 SoC have both GEN2
+> and GEN3 PCIe controller and it's required to differentiate them as
+> different schema are required for the 2 PCIe Controller variant.
+> 
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> ---
+> Changes v3:
+> - Add review tag
+> - Add comments for compatible inconsistency
+> Changes v2:
+> - Fix alphabetical order
+> 
+>  .../bindings/pci/mediatek-pcie-gen3.yaml      | 21 +++++++++++++++++++
+>  1 file changed, 21 insertions(+)
+> 
 
-I'm not sure I follow. On x86, hw_nmi_get_sample_period() is:
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-u64 hw_nmi_get_sample_period(int watchdog_thresh)
-{
-  return (u64)(cpu_khz) * 1000 * watchdog_thresh;
-}
-
-On PowerPC it's:
-
-u64 hw_nmi_get_sample_period(int watchdog_thresh)
-{
-  return ppc_proc_freq * watchdog_thresh;
-}
-
-Neither of those are necessarily based on the results the cpufreq
-reports. ...so therefore I don't think you should be taking the
-cpufreq reported numbers and assuming they're OK on x86 and powerpc.
-
--Doug
 
