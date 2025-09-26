@@ -4,75 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9B54CAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 01:52:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9CC9ECAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 01:54:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:References:Message-ID:Subject:Cc:To:
 	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O8SEbiV6bsY5wk64SP2GhKRTTTiaEXDFSuX28Ph1mjg=; b=f7B//vcokETJf0lW4PIWzluCWG
-	olQyIiFPdcLI4/jaOzCw6TaoNjOPCD+OEdEZs2lkGNwiexfDIu7ENf+0soc5cu3pJPiCzW056g9Mq
-	pq9BCaBNSru7HAwROcNf0j7OVXXwUA2iiu/QM4ktUO3dw6gOHNkjkjW7kmbR3mKznekqm0Pq5wZ1M
-	6wmk4g2IDnUyKRVAgodsjv9dPxM7qqLvDxUkiHttqkyqJlN5INey0DkUL45TzPFpq+d6h2rNy9hGY
-	sBMOVIBUEycChd+uZ7vsCa0wLkS+ePm2cSPR1GTjyGQO3fUbhF1w0ELxnzt7C5zC2+fWEa4flT4Jk
-	CeSqxiRA==;
+	bh=yJRwjslA1m8b68t1p7DBZl0nVGL0Pem0NuYvSd9eV20=; b=iUycQij7+jFJxUuuZL6LscVEPo
+	d2IVOBV2LQKoBhIcVrT6GY8Evl7T0F8M1h/+LJGELM0/V507Arnn05Gk+prf4zbMtaKNZ0oQS37Wt
+	ZEAUco8dsnTIHrZ5ukz0UKU4gBwyBEsgZQsXZu11cdmuui9KOgyIny/dmyYtCRHSFPDDyGwLf9LdL
+	nAd0VGNtfadsROeUTzrb8iM1x7gqMekNZjjz7FNyd8qvKOooDKnwxwsMyDH28TQsxwF2PNFh+iuSc
+	vABAw5+Q4WlCHoCnIu3LkqYPhstjljIIwYL0D9DmDOU2D3WgjW8HUsUYXpqW6Rjf2uP6RInU0UtjJ
+	EKC3O4sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1xdT-0000000EnjW-2XaA;
-	Fri, 26 Sep 2025 01:52:35 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v1xek-0000000EoRR-0EiQ;
+	Fri, 26 Sep 2025 01:53:54 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v1xdR-0000000Enhw-2l8w
+	id 1v1xeh-0000000EoNe-3Mmv
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 01:52:34 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A644A4477D;
-	Fri, 26 Sep 2025 01:52:32 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C302BC4CEF0;
-	Fri, 26 Sep 2025 01:52:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758851552;
-	bh=O8SEbiV6bsY5wk64SP2GhKRTTTiaEXDFSuX28Ph1mjg=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=FMB7Xx9105TLqKoh1eoqR0qRNhgr14jO3tRI1OchdSW2gQCzp3jbBaNCQqBxfDSNg
-	 KqqJFu2EKPQMUEOdCOx+tlE0pubYwQ2IqPpHXDmyB1j5P7y0+6Q7grJymYg5sANG6d
-	 uH7lsHvSva+WWyHgufaCC9jStvSoFTJhTtUG2umoHBevxEIicsu3OcTgo0uSqOMisS
-	 3RS/BzofuflXzDC0oHFqgOPSkD9a8Glc0SpTQS2xoPSLXl3C9wmNkIyBDPGkYYWMpJ
-	 NvJnOcYkzd7xM76Ql2RLLL/0oE1jdFecH0EOm0jhiyRDvMWemB1IcNVw2MSSODcbS9
-	 MfnadFklajciw==
-Date: Thu, 25 Sep 2025 18:52:30 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: "G Thomas, Rohan" <rohan.g.thomas@altera.com>
-Cc: Rohan G Thomas via B4 Relay
- <devnull+rohan.g.thomas.altera.com@kernel.org>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>, Eric
- Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Maxime
- Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue
- <alexandre.torgue@foss.st.com>, Jose Abreu <Jose.Abreu@synopsys.com>, Rohan
- G Thomas <rohan.g.thomas@intel.com>, netdev@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, Matthew
- Gerlach <matthew.gerlach@altera.com>, "Ng, Boon Khai"
- <boon.khai.ng@altera.com>
-Subject: Re: [PATCH net v2 2/2] net: stmmac: Consider Tx VLAN offload tag
- length for maxSDU
-Message-ID: <20250925185230.62b4e2a5@kernel.org>
-In-Reply-To: <157d21fc-4745-4fa3-b7b1-b9f33e2e926e@altera.com>
-References: <20250915-qbv-fixes-v2-0-ec90673bb7d4@altera.com>
-	<20250915-qbv-fixes-v2-2-ec90673bb7d4@altera.com>
-	<20250917154920.7925a20d@kernel.org>
-	<20250917155412.7b2af4f1@kernel.org>
-	<a914f668-95b2-4e6d-bd04-01932fe0fe48@altera.com>
-	<20250924160535.12c14ae9@kernel.org>
-	<157d21fc-4745-4fa3-b7b1-b9f33e2e926e@altera.com>
+	Fri, 26 Sep 2025 01:53:53 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=GHTnbAbPDK5GkNvElJ5luD3QcsjApmDnz0o3x6dWWfJnTK2KkK0zVzoNSuid9onTAEqSLhEFQ+IiEL72qrOkON2JUKXl9RcOzrfnRGVdkwt2bVi0+EEgbJS1JBi5H18/K1e1nq6CZVnKrik0jmeeIXZVf24FB/8rBObyawr/QtlP545cePmiS3NOp9VE+uUH3SKU9QcMGGH+jIJaXvSr4cBTpC8fgWe7e5jhGc31imGAMhnHrcsYfgY3j2WeH1NN1gHI0Lgvq1xCR4B0hBM7TAjEMzLAfCw63/2Xhv5qcbnC8snYq+JRfejgjI3pu4M6AuiitFH7F3PUo8KjvZWFQw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=kvtUaFf9nNt2cNog4WGuY4gtmcgyZ7/Gb6Ym2IaIbUY=;
+ b=eGCNA3jijfAdKjHNb2hd23IAyHGmcwqkWnCLN0LrdPr4OZiMXXZ6csIp+6XZRxbweFeJ/HxHKs5NeElMPaAWg5Krp4vzYA/yNyDzo/D/ZZpEREb3NkRvQyl/ZhSiZdBYXYgLyP6ftqo1hJ4PXbmIgfxeGBO3yeoc9BAJ4ZwpOvl5w7RPOqIBlBlh7ouIOS5Ieo2d4DRIM5ZLJx37tlMGv9Gcx1yDqlQ1ZHOLdJmqkg+so3WBf4EafO39b5bunt9e6vW77pndMb0nAKEzX8tp9LIBIGE4RkEu1Sl56xn1twqSnwxnyvXBXWqFCH7nAaelRMlVcojRLtE8suBiB1s68g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=kvtUaFf9nNt2cNog4WGuY4gtmcgyZ7/Gb6Ym2IaIbUY=;
+ b=V5afHx7UbLF8VXz94CZCgnvoar7aGMRg5B7PHql25Khad56q7sgYb2tyRUbi1n2Ac2W2IX1tdsi2z2lC+BjgJBGuZ+VS++6NsGT2EO2kkGgRPSHsgkEaPupQbbvR9Twys+baVNhJf0m/2urTNQoqTfFudGIs4G/FzuRbhaPTNnm/s2ns62Yr+89eGVScsUaAAJT4hWML1L6bILL0PC0SuoWsv/WO4Q3M3eq2pigIN5gnIPFh7rzu09cQ0AZmYEyyVgA3GW6uJjanNvH7mn017tkZQFB5bZnVceaR5jhPBzlLhICE+Hu1dief+cpXB9pPjCact2l1sfrbcrWcwaTQPw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by DU2PR04MB9018.eurprd04.prod.outlook.com (2603:10a6:10:2d9::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.11; Fri, 26 Sep
+ 2025 01:53:40 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9160.010; Fri, 26 Sep 2025
+ 01:53:40 +0000
+Date: Fri, 26 Sep 2025 11:05:24 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	Fabio Estevam <festevam@gmail.com>,
+	=?iso-8859-1?Q?Jo=E3o_Paulo_Gon=E7alves?= <joao.goncalves@toradex.com>,
+	Alexander Stein <alexander.stein@ew.tq-group.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Francesco Dolcini <francesco.dolcini@toradex.com>,
+	Frieder Schrempf <frieder.schrempf@kontron.de>,
+	Hiago De Franco <hiago.franco@toradex.com>,
+	Joao Goncalves <jpaulo.silvagoncalves@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Max Merchel <Max.Merchel@ew.tq-group.com>,
+	Michael Walle <mwalle@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Shawn Guo <shawnguo@kernel.org>, Tim Harvey <tharvey@gateworks.com>,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/2] arm64: dts: freescale: add initial support for
+ i.MX 95 Verdin Evaluation Kit (EVK)
+Message-ID: <20250926020829.GA8204@nxa18884-linux.ap.freescale.net>
+References: <20250925205211.171699-1-marek.vasut@mailbox.org>
+ <20250925205211.171699-2-marek.vasut@mailbox.org>
+Content-Type: text/plain; charset=iso-8859-1
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250925205211.171699-2-marek.vasut@mailbox.org>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SG2PR01CA0157.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:28::13) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|DU2PR04MB9018:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3d8f8136-0dc6-43e3-093d-08ddfc9f83d1
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|1800799024|366016|7416014|52116014|376014|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?iso-8859-1?Q?qwmA+NUTV7PjWSw3QyFuTidIpE4CF1+dDWySVp/f1ZCci1zgxDlkhdengw?=
+ =?iso-8859-1?Q?nLSf0laWTEQhxRGGxmRg20pj+lvWr31V/yBJGfehI0F2Vb4gttVrCtqchR?=
+ =?iso-8859-1?Q?eDyWWglclDjFowy/037cn59nTAXshaKA4LzPssY3NzZoCsEyImjvlbk2UB?=
+ =?iso-8859-1?Q?dElNynBM6nnwGIeJQDi19WavmwWIoMrdldjHi0730GeYI6f0gHZF8V2Q2s?=
+ =?iso-8859-1?Q?74izJ9eiYNzdO864n+D03r6iEDAKV0QcXBszM09fyqlUsbzL2mj+FRS9eY?=
+ =?iso-8859-1?Q?jLcSZW2y9gu6N8hu5X17EsuBioPd0Fjn0/jQtIRn2AON9/34Y3zaCnS+jA?=
+ =?iso-8859-1?Q?2sZqAjKqVxjWdqV0cbPnPtXLZ1HCRfPa+HUd0DLZ+nF0/K678UnpVJbQ60?=
+ =?iso-8859-1?Q?oJwNgmnhMthz51x+KiRh4CPrLKsgzWf4c0/Q0HT51ccal8D3LGMW8Cyvuc?=
+ =?iso-8859-1?Q?s1pzTYfW06XbHUSXD/YV0/AsUsiecSgI5xaF/QdH/mYR0CEys1uvdpw0aj?=
+ =?iso-8859-1?Q?gL3IQDvezIdPZO0NpdSRagKl475B3GhrzXNEBWqtqgI/jTpUmBdgJ4/2o0?=
+ =?iso-8859-1?Q?9m5HIXTwgTJeNZssute1T0MKzQtt04q2JPuf/BL8wpx0apZBgQB8wqrlBI?=
+ =?iso-8859-1?Q?B/b84rFBxvpyy0q7zt7jvEiMCjyB8BkSLVnIQzODFfB/XXALMWM9Z+n2Um?=
+ =?iso-8859-1?Q?3FlcoeUc31cuttuIM3pGgiMLoYfts+PHW/zv29cbYc4A8eV19d9XZBuXUY?=
+ =?iso-8859-1?Q?902D8nmjuBUuowzBjPjBl14UlS3pwnEoV73t6obHC63usmYNjzLMZf1+Ql?=
+ =?iso-8859-1?Q?IfPvg7XCvl1Nu3V40ilyiv4ixJuMWys0oXtPSJPO77YLy/ld2fZubIQcml?=
+ =?iso-8859-1?Q?I8PrjmYMCBHSYWpYA5SJCRLeSg+liTvxq9i0OLzwQ0/BnTF0WNdw6OfR2g?=
+ =?iso-8859-1?Q?lMV3tIwS+70MJI+gecrgXqTepveT5F59xtuv2lvrywI5xwOlnAaToNe1jf?=
+ =?iso-8859-1?Q?RxsdXTnvQU1weG6r5vrqNSWPW5c0ijFOE+XZZxmAi55yLpMyOSzVagXOUi?=
+ =?iso-8859-1?Q?PTQVssyMyzRGpY7oxY8RsDpQ1YppVxF3fTwXxw7Z9sQKgtwFeVkngDAkPf?=
+ =?iso-8859-1?Q?71ff7ngLtE1TeN9nXNkzQjhj/HPOs7McuOcQeC9bC1fBmDimjiUjRwTPWT?=
+ =?iso-8859-1?Q?GGkXnBedIImtp/uviKG0Kax1BFMbP6ewBcWNuTzGCuMBjICjKAU1M8ItCd?=
+ =?iso-8859-1?Q?OANzD/kuNImOTyUPAQI7VW/+fG/cL4qKgVyk+xgoOONLpcdIvD0gtSe24U?=
+ =?iso-8859-1?Q?F8rJ5hojKoar/PVozR5+g9T7yqq5HbdhljL/Ke26ILMruBJqL56gZLDNrA?=
+ =?iso-8859-1?Q?3iHrtND6ySKUDtnNh4wsldu7/UvtLeoA/v9W+304mjxBBb4Dd7onHg0R3y?=
+ =?iso-8859-1?Q?QZ7IwfDtyWBNfzSU6soUT+LgxWpmIFajugdK6HnpckAM4vAw29EppVjhzm?=
+ =?iso-8859-1?Q?jMJ4YpvPYzTTft/X6uJVpyS+L2k/9ynxnjaVZ4GTtE5w=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(1800799024)(366016)(7416014)(52116014)(376014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?iso-8859-1?Q?vidRb1zflxVm3hKvI9uk9TvXvGtwzJuK0DMZrykskPyKkIeu/LisnyyKWD?=
+ =?iso-8859-1?Q?m8cVa+IxwMOrUJcO446liJ4fRPKlM3KeDIx7z8kC8y9eTqUXPHHwJWkAyZ?=
+ =?iso-8859-1?Q?eVc+Q3KuGXtE8DSGobWoOS+aOleS+YKkeKYPAwBbmuY5KFYbsFGUB/imj9?=
+ =?iso-8859-1?Q?bKjE0FPo6QO8OoZ6Al/sokeJaC/oKVsrVq2+GyrF6G5W6oc3eT2nsvzb9w?=
+ =?iso-8859-1?Q?zmwhw52PY1uVXek7rJr/3hdVgAx3wTq16Pxj9AE+orbdqvUL+4y40nG539?=
+ =?iso-8859-1?Q?rpI2TS358LQ3Ae6x7K4GA5KxqG9GVnZkeSMOiy7Bm9hENYqjsQSDDy6PtT?=
+ =?iso-8859-1?Q?rl2HqTUFDxM6EumFr0lkfUb3bkm15EWBIKigL7TQEhGhanTFehx0X6c8Aa?=
+ =?iso-8859-1?Q?XSiTI+Qobl/kZcbOSWzkJUj+uBBOPnbNLW6ReZaDWS1FI4GAw6fSiPS5Sw?=
+ =?iso-8859-1?Q?M8rNjUjkejWONUbqgJsK6aSUOkUUSpMHL6BVbLp/iFZr6VOrFpKrzRHKX/?=
+ =?iso-8859-1?Q?8H1Txfps3b8PGMHqFmTaWIMpdXqSEddUHok8s4ctTqXIDgYNpPY+w0n6Dn?=
+ =?iso-8859-1?Q?AIPJOXEn3fW1fRa37GA2chaEJPW8/a0U34j9Yl8XEDxHvMYLuITsAUE1KI?=
+ =?iso-8859-1?Q?Bbkf01PYzqRpBLwGcu4Ot9MbzWi2ZiXV7uplcDsSxaVorzthna7kjzSxM4?=
+ =?iso-8859-1?Q?Q4jp4WUL3QKN/CH2CIv5Q4XxPaIIHtNi7xJmpWNPSw++kV2F2Ocp/Wjimt?=
+ =?iso-8859-1?Q?J9MRACbJ8o46kZqG6GZfKDvUpkeWD+HzidtG+NS5wfmuL7B+ma6fNmOd5D?=
+ =?iso-8859-1?Q?Xf8rvK6BwM6YyibbD93yvcTPzHpAb0QYbqzlGdjxls0Zp9REEzHRnzjjvf?=
+ =?iso-8859-1?Q?mZt6pHkfmGESRwzGMoIlHVf+CHQh7TseWrSKFRm1n5VhG1YPazGUSculuD?=
+ =?iso-8859-1?Q?B+9BYjVt1i6tJuR6ZTdZl4KpNWDOWCN6BXMN7FCz30TPDaxwwUBmencztt?=
+ =?iso-8859-1?Q?+C2gbuslzjW2ibUe//OYA48K1Pavt9dX9xv6+fsF9C6qr5jywK48XZ0msJ?=
+ =?iso-8859-1?Q?hlQDYLYLFacqMFBjmTDDDOiZxELDolJ2YoNlnYh2c8uTpfkSdK+YblSbhW?=
+ =?iso-8859-1?Q?6zVJbLe9K3e/xty3m8ufyYesV1ZBQPSA+/Rejr+xNbsP8DTHd53QlXV/5h?=
+ =?iso-8859-1?Q?AfWA+HdyiQ4IGnscoBijDTwrbO3otBSv8ZYqELixFgY0RgRRvrewJiJkFx?=
+ =?iso-8859-1?Q?YOTfx5RRLgSe4l0306Pyb0aOhtNBukP2+KA0PydgONQ8OO3PVjOh35Q80w?=
+ =?iso-8859-1?Q?a7rltf+WYULSbFligVr0XFUQwwsuALdu56wkO0J/xddIe+kKtpUeOk57Cs?=
+ =?iso-8859-1?Q?u+ERP6NCqVjr//+xT89VdgzhPMCzbKTAgL3Eje8MKcpXrsf1kwqWhTYTMh?=
+ =?iso-8859-1?Q?5i74Ih/DSPmS+wtiFHCCP/1iMjhZ3jZFfOWE1Q1mszOE/UB+IhYl8S/g6g?=
+ =?iso-8859-1?Q?ifgjenZz7OicaD/XXpoweNSex1vrS35sN0HGr+QCvM3tEbLjuwB7hMkVdS?=
+ =?iso-8859-1?Q?e2MI3EzbBVR8BOtbDT1icQOVDhdQMtLJMFndhZRWgs2cg5anxaWq2llbD+?=
+ =?iso-8859-1?Q?KClmgrUuIOXPAYvBW+gwElcFDlBVph4k3G?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3d8f8136-0dc6-43e3-093d-08ddfc9f83d1
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Sep 2025 01:53:40.2192
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: T1MNmxI6Qq5zMk1BUKgoTZOTgSH8T2kSAfDEPy4ELPPPj8HaBBSbWzgC0c7J/Rv7GhSa4leyzrLqusMcDdkjBA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB9018
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250925_185233_714318_E74F2351 
-X-CRM114-Status: UNSURE (   8.78  )
+X-CRM114-CacheID: sfid-20250925_185351_839177_AC856523 
+X-CRM114-Status: UNSURE (   7.94  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,30 +182,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 25 Sep 2025 16:33:21 +0530 G Thomas, Rohan wrote:
-> While testing 802.1AD with XGMAC hardware using a simple ping test, I
-> observed an unexpected behavior: the hardware appears to insert an
-> additional 802.1Q CTAG with VLAN ID 0. Despite this, the ping test
-> functions correctly.
->=20
-> Here=E2=80=99s a snapshot from the pcap captured at the remote end. Outer=
- VLAN
-> tag used is 100 and inner VLAN tag used is 200.
->=20
-> Frame 1: 110 bytes on wire (880 bits), 110 bytes captured (880 bits)
-> Ethernet II, Src: <src> (<src>), Dst: <dst> (<dst>)
-> IEEE 802.1ad, ID: 100
-> 802.1Q Virtual LAN, PRI: 0, DEI: 0, ID: 0(unexpected)
-> 802.1Q Virtual LAN, PRI: 0, DEI: 0, ID: 200
-> Internet Protocol Version 4, Src: 192.168.4.10, Dst: 192.168.4.11
-> Internet Control Message Protocol
+On Thu, Sep 25, 2025 at 10:51:55PM +0200, Marek Vasut wrote:
+>Add initial support for i.MX 95 Verdin Evaluation Kit (EVK), which
+>used to be the Titan EVK. Currently supported is lpuart1 as console,
+>SDHC1/2/3 as storage, WM8904 Audio, USB3.0 and ENETC ethernet RGMII
+>Gigabit port.
+>
+>Note that the SoM used in this EVK is a derivative SoM from Verdin
+>line of SoMs, an actual i.MX95 Verdin SoM is under development.
+>
+>[1] https://www.toradex.com/computer-on-modules/verdin-arm-family/nxp-imx95-evaluation-kit
+>
+>Reviewed-by: Fabio Estevam <festevam@gmail.com>
+>Reviewed-by: João Paulo Gonçalves <joao.goncalves@toradex.com>
+>Tested-by: João Paulo Gonçalves <joao.goncalves@toradex.com> # i.MX95 Verdin EVK
+>Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
 
-And the packet arrives at the driver with only the .1Q ID 200 pushed?
-
-Indeed, that looks like a problem with the driver+HW interaction.
-IDK what the right terminology is but IIRC VLAN 0 is not a real VLAN,
-just an ID reserved for frames that don't have a VLAN ID but want to
-use the priority field. Which explains why it "works", receiver just
-ignores that tag. But it's definitely not correct because switches
-on the network will no see the real C-TAG after the S-TAG is stripped.
+Reviewed-by: Peng Fan <peng.fan@nxp.com>
 
