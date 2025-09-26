@@ -4,99 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D794CAC5B9
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 09:37:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21645CAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 09:38:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=UoStl/6O0pPwy/s/NQABzja2ZbIsUSjfUYP6v+Jyo+o=; b=I48iKgJxkOctzH0XYrPn4HoYAC
-	51jt6fJZmtkICnbZfsRZbOYocjvVLyCtBr/UVCBd4i5TM0TY1OYdB5ksZQ2AiTRJIO51husBU6+LY
-	YcX2b3dTpy1Zvki3HMDLW6L1N5mnFEzmkrkb3NexDI0wHujuqI5bi2muzVqpIp1LijAc4KL8CmWJs
-	/AM+45YsF2QxQPpwOjxB9ryqkefazOWhzEZhaYuiTluEITW0eL+Ffbhp/UOGXcnYpPImx1jOxoiey
-	LRAQily0oLnheqko56Re/FCqzb9W3mbJ5oCCUBXwImn96qlkzNQIoUSh0i48hfGx8SirWzV/rn8zc
-	m2bnfxHw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=V5FmCZ7m0CyShB1Ycdtz4U9JEqoB4MdA/m7HVOlr6mo=; b=nquxd+ocUboubo6IYaDYchR94T
+	lPh6jLcp9W9HhGkClETVZ4QMADZrGDE2uFwdzizUfEcrfTxqiIQJgGimTGWVz+4vfN5AShlWUabIj
+	fcrsgMqH7KBBoakMw3lnHnhNRC9rerssSA0gH0tgdprjNNkacvw0bfcrGfYnzw5B8T/u/2BF9+l41
+	4PFMDdDbzOrL74doHH0uzw2gcGsZP1ppKk/R6gIXliP+6Tf5dL4im3r1dIo5sKLu4oswVCFxtRBsA
+	QiyT2ZrxYcZ/Vc9OcjB/juuzrO0k//Op521R0LBTNIpq4mg9gOi/EPewiHYa8d0q+r2kbULz5tJgl
+	O70haQlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v24tf-000000002Yj-2IQJ;
-	Fri, 26 Sep 2025 09:37:47 +0000
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
+	id 1v24tu-000000002lJ-3bhy;
+	Fri, 26 Sep 2025 09:38:02 +0000
+Received: from mail-oo1-xc2a.google.com ([2607:f8b0:4864:20::c2a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v24tc-000000002WZ-3E2W
+	id 1v24ts-000000002gw-0WQa
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 09:37:45 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-3304a57d842so1543044a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 02:37:44 -0700 (PDT)
+	Fri, 26 Sep 2025 09:38:01 +0000
+Received: by mail-oo1-xc2a.google.com with SMTP id 006d021491bc7-61bd4a3f39cso671476eaf.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 02:37:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758879463; x=1759484263; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=UoStl/6O0pPwy/s/NQABzja2ZbIsUSjfUYP6v+Jyo+o=;
-        b=V6bDAnTJfeVHoXVn8IvJpJ8PpNuwqHPZfhcRgPYgnxooVq4ZqA7ysSBvZeZxfGInWN
-         P/JsmxU+uJz4TXUVgCb3UJTAQSqnlAMYzqIPtAYNUJy2tkzu6kknmdvmov0sDDtjqK55
-         URqRvirPvRqBh8F+SF3Oh40JTdsbz5hWQoesZ1GLYObFvvQ8PqBjr7Z0ozBkTuHFKzUX
-         PHgCdgytyxMMfSCKFl1wphqPf/V2DFE/J+W1dA1oy0yPIlsTZt+jiJwFqgZ3cv33kNm2
-         D+hpjagEuNFgdgL6D0e+FpfnsyCGEm6eIP4wk2a4Y65NmSLK95bsR/zR9oVMiIahXR3r
-         sqrA==
+        d=bytedance.com; s=google; t=1758879475; x=1759484275; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=V5FmCZ7m0CyShB1Ycdtz4U9JEqoB4MdA/m7HVOlr6mo=;
+        b=CbYmUsqiqSGNApYLv5o2xTS60ZFmGhh6UZXwXJ+whM284cEljzl/fOGzjHiv2b2MGp
+         SELFoxOy0JZ++1CRv6rADjlQl4hgPlLe1sUw5LXfx5EbFHTQ+S6Q7ZUMbWlPneQLtEuq
+         4jyXmllX1GkXF6DrzAiZmPz/8kpKtr9qPxpX23QUCHFCCAy5XOl5NOA87cGFfK70/v59
+         rrHNvLbwiHVYFrU3CnqWCB6U0nyr5DluQ3IPL0Xv644BtZxzWkwuzuHKoff+89G4eB6d
+         Un/9hNhv3qa2GapaKuUO7ReElF6ExZ9l8OuFEttfQPMbjfp1feTag0f4+ppZvbHmSXva
+         Tp0A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758879463; x=1759484263;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=UoStl/6O0pPwy/s/NQABzja2ZbIsUSjfUYP6v+Jyo+o=;
-        b=DPY8VJel2kK1aw7apOaBSKVUgoY1jSfPMVyacRdHjfLqJVLoksKfpFm3BgwblxtxX1
-         CvSXZ/Tzh59mRsbY3tLTBfFHMA5pxE96a8fTIPvMZe1TB1Pu+7SaAyoXy7GdTrpy1Paw
-         A/ZB4M9wjCPhw5JNaFkJhtipZfemkLcfBUI2NgQX53Sc/uzJrAtsiIM2TzrBXzJHyB0S
-         1CxVdz9nKBlpIQ9tV9fIBkwcY12v5lRz2/V7GduaSQ7Qyf8AaQFRpjDlk42uWT8yAq8G
-         RHIbaDBw+JddtPdAchTswTFS1DciCAi7jeHajBtzvNu2bdzQhFNvLY4BkJ3gVYYZbX35
-         icrQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVOr+uZVOJwnuwLLc8sPS2K/xAFb+rxMP+ss/3j5vFV3ad0N4pLCFZbihxIyom0G8UtdFPcqwb0qCeyQ9Z6rhBl@lists.infradead.org
-X-Gm-Message-State: AOJu0YxyAQ1NXTHDGj4QQl5D9fQAa7JGl4YWnsYLh8DVDv0UFf52lFeQ
-	mH6expFksXbeatw97UdWEkQHBqZ4bZab5E/1TmooZCuMfg4JgoNRFwCA
-X-Gm-Gg: ASbGncvqA42C2gwGjZIIaYiFPv0rMCNUSnm67zZnuV6ojbNyKuuhpZz9pyiA2I2/TvD
-	vstC7r6kghZWnN7lQ95fsln+mALaI8/a7YClUT5bhw2GbY97HkZfrm7cewT2CvPnZ0L8zz6rdjD
-	zPcnfCtbQbi8wDvKy6Bb97+5uZZB2ykoSIFN8/YiCIygowntF+OQ2ZQ7+ngMsn+SmA52LXk7WYQ
-	xhHxOVtUrMM5fPMVIX9Al2fg0UpOhGEv18CysXIKSBSZEdUc2CBLRanfoQmVffJlVKnxSmgaUuS
-	TnP+Bf2Ow4L+VDppQM+8GBtr1UanRXYu/LAax3TUwAIGvc1fdLEdJR3i9v4KHQ0DWsNgVfu38cF
-	8iXcgyWlVZWHlPerpVV22S83e0RCX9tntsqDvFIPb4x1Udg3BkPjJyV/8o3c=
-X-Google-Smtp-Source: AGHT+IH2wN/vTNpoB41B7wJ4UIGDQlG1DOtuFCeTQt8xZvPtyijptE31fGlsQRHND0LCJie+ahas4g==
-X-Received: by 2002:a17:90b:33c4:b0:330:8c87:8668 with SMTP id 98e67ed59e1d1-3342a259df0mr7079061a91.14.1758879463298;
-        Fri, 26 Sep 2025 02:37:43 -0700 (PDT)
-Received: from [172.17.0.3] (125-227-29-20.hinet-ip.hinet.net. [125.227.29.20])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b57c55bd160sm4211056a12.47.2025.09.26.02.37.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 26 Sep 2025 02:37:42 -0700 (PDT)
-From: Leo Wang <leo.jt.wang@gmail.com>
-Date: Fri, 26 Sep 2025 17:37:29 +0800
-Subject: [PATCH] ARM: dts: aspeed: clemente: Add HDD LED GPIO
+        d=1e100.net; s=20230601; t=1758879475; x=1759484275;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=V5FmCZ7m0CyShB1Ycdtz4U9JEqoB4MdA/m7HVOlr6mo=;
+        b=LFzdnL10TRiJiLP6SLDYHMPRhZAUjOB3z4vaIL7Xsz3ocwFUr3b+P5601C8TIStYnn
+         iQj8fVoPVNf02nrkazr8rje/DRNswDZGg4DKPQAoqTx/i9sQFUyLR9EWeTWOixGL/WPI
+         DS3eVLmkjcKJGRgd2/JyaFq8rhNcijIfgvktxmMWEDguu+hYhRN66w91SXFGIkukAkMf
+         FatFQU1h8906Q7YQG/JezFSrK3o3RM/SKV6U+HHHsYiYw1SmQFrnXzFgAEfu9YSS4Ef/
+         xMMq2EcUAh7JGku/b5A793VlWqfsud6EXkKuRrhRbAI19xnfyKWpOzAS0YTulB5Knzd4
+         xDVg==
+X-Forwarded-Encrypted: i=1; AJvYcCUBazyPSAOEcXBxUYGkI+0c/x1sSaMJfG2EN//GJFuT090NtdAEnNmPWzjUj5s2je5aTmK6arQykhVv+SEAU9oS@lists.infradead.org
+X-Gm-Message-State: AOJu0YxuTFg7WlxRrM1c5Yk4Z8/3Ld9DNPCGL1euGFaVi+luaAj4OG1G
+	I/PGQxkgzNpuTywIMikLbfxQVYCPn+/rX5gA2/rf+qhCd04m0E29NpIGIL227ppJ9ut5j4rIha6
+	ZWjCIzgK/nwPwzQwpDQICzJjjMrBC/itnicOq/UxVUA==
+X-Gm-Gg: ASbGncsnFlzdbvLCEgHO0BCPnYKIRNPIYKq5og8okTDXWLd9XO3T1iKZwk88AbjM5lF
+	PTo9yN+uDL5cP+p38pAye7TEcocmJRdtcaO42Np8dyeNQ/ROA5Mjx6B4GLH3u+YchAQOqjlEhfZ
+	n4VDyXNV3dYHC0ehb9hEFr47sFqkas8KlJHgHg0My78I7mQ8bb3dUDJeNfq7KCeLM5awNo22dko
+	kwHzsYZtHunljYEM0f2XfqgIdNG3W1b9m44ZQ==
+X-Google-Smtp-Source: AGHT+IEc3BE14yCdZtCENJr4UXyf6Y8XkhqfpWh+WHahYzWW5GLDg7SSMeNNAS+2Kw/XzX0+d+blEeRda/r+amoNwkc=
+X-Received: by 2002:a05:6808:8843:10b0:43f:5218:878a with SMTP id
+ 5614622812f47-43f52188986mr2126658b6e.22.1758879475127; Fri, 26 Sep 2025
+ 02:37:55 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250926-leo-dts-add-shunt-resistor-v1-1-c871a68792f0@gmail.com>
-X-B4-Tracking: v=1; b=H4sIANhe1mgC/x3MSwqDMBAA0KvIrDsQ06rYqxQX+Yw6IEmZiSKId
- 2/o8m3eBUrCpPBuLhA6WDmnivbRQFhdWgg5VoM1tjOj7XGjjLEouhhR1z0VFFLWkgVN8O71nIf
- OB4IafIVmPv/5Z7rvHwEMnJFsAAAA
-X-Change-ID: 20250926-leo-dts-add-shunt-resistor-0cba43f75bce
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
- Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
- george.kw.lee@fii-foxconn.com, bruce.jy.hung@fii-foxconn.com, 
- leo.jt.wang@fii-foxconn.com, Leo Wang <leo.jt.wang@gmail.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758879460; l=1436;
- i=leo.jt.wang@gmail.com; s=20250618; h=from:subject:message-id;
- bh=thNDQviaGyibFyGAqfP3goBA/6Fj0do4LHltc3WJriE=;
- b=T71P6S/+uzqAe2pm19qHzYoz2nhygnZpGVvbKLhyWQcQWVsDSelLeccTY+VnuA6uzE1BPL8L4
- Lvp20VxcTRFDYgHucePFNrm13q3hBU7efTHRYQ5iBAKOa87ktB1nm+E
-X-Developer-Key: i=leo.jt.wang@gmail.com; a=ed25519;
- pk=x+DKjAtU/ZbbMkkAVdwfZzKpvNUVgiV1sLJbidVIwSQ=
+References: <20250925084806.89715-1-cuiyunhui@bytedance.com>
+ <20250925084806.89715-2-cuiyunhui@bytedance.com> <CAD=FV=VZLYqPQCOEhbH4QtndeG5e1-0wey24fgYNTeFiqd8qJg@mail.gmail.com>
+In-Reply-To: <CAD=FV=VZLYqPQCOEhbH4QtndeG5e1-0wey24fgYNTeFiqd8qJg@mail.gmail.com>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Fri, 26 Sep 2025 17:37:44 +0800
+X-Gm-Features: AS18NWBUD0z6jg0TusFj1nphukSzt5aTNsZRJ0rH-JxFSgQYIIkepAcYdgJLzRk
+Message-ID: <CAEEQ3wnwNdTgt6ByHCzM43fhZMLSxwXvYx-AGBpsktraXqif2Q@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH v2 1/2] watchdog: move arm64 watchdog_hld
+ into common code
+To: Doug Anderson <dianders@chromium.org>
+Cc: akpm@linux-foundation.org, alex@ghiti.fr, anup@brainfault.org, 
+	aou@eecs.berkeley.edu, atish.patra@linux.dev, catalin.marinas@arm.com, 
+	johannes@sipsolutions.net, lihuafei1@huawei.com, mark.rutland@arm.com, 
+	masahiroy@kernel.org, maz@kernel.org, mingo@kernel.org, 
+	nicolas.schier@linux.dev, palmer@dabbelt.com, paul.walmsley@sifive.com, 
+	suzuki.poulose@arm.com, thorsten.blum@linux.dev, wangjinchao600@gmail.com, 
+	will@kernel.org, yangyicong@hisilicon.com, zhanjie9@hisilicon.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_023744_813292_B05BB773 
-X-CRM114-Status: GOOD (  11.43  )
+X-CRM114-CacheID: sfid-20250926_023800_507149_A4B10A93 
+X-CRM114-Status: GOOD (  18.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,51 +104,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Define a GPIO expander pin for the HDD LED and expose it via the
-LED subsystem. This allows the BMC to control the front panel
-HDD activity LED.
+Hi Doug,
 
-Changes include:
- - Add `led-hdd` node under the LED definitions
- - Name the expander pin "HDD_LED_N" in io_expander13
+On Fri, Sep 26, 2025 at 4:00=E2=80=AFAM Doug Anderson <dianders@chromium.or=
+g> wrote:
+>
+> Hi,
+>
+> On Thu, Sep 25, 2025 at 1:48=E2=80=AFAM Yunhui Cui <cuiyunhui@bytedance.c=
+om> wrote:
+> >
+> > @@ -17,6 +17,7 @@
+> >  #include <linux/cpu_pm.h>
+> >  #include <linux/export.h>
+> >  #include <linux/kernel.h>
+> > +#include <linux/nmi.h>
+> >  #include <linux/perf/arm_pmu.h>
+> >  #include <linux/slab.h>
+> >  #include <linux/sched/clock.h>
+> > @@ -696,10 +697,12 @@ static int armpmu_get_cpu_irq(struct arm_pmu *pmu=
+, int cpu)
+> >         return per_cpu(hw_events->irq, cpu);
+> >  }
+> >
+> > -bool arm_pmu_irq_is_nmi(void)
+> > +#ifdef CONFIG_HARDLOCKUP_DETECTOR_PERF
+> > +bool arch_perf_nmi_is_available(void)
+> >  {
+> >         return has_nmi;
+> >  }
+> > +#endif
+>
+> Should the previous comment move here, AKA:
+>
+> /*
+>  * hardlockup_detector_perf_init() will success even if Pseudo-NMI turns =
+off,
 
-Signed-off-by: Leo Wang <leo.jt.wang@gmail.com>
----
- arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts | 7 ++++++-
- 1 file changed, 6 insertions(+), 1 deletion(-)
+Okay, we also need to change it to =E2=80=9Cwatchdog_hardlockup_probe()=E2=
+=80=9D
 
-diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
-index a614f947dafc9a6628c3f3d45b62ff3ca9d2b618..450446913e36b1418fab901cde44280468990c7a 100644
---- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
-+++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
-@@ -95,6 +95,11 @@ led-3 {
- 			label = "bmc_ready_cpld_noled";
- 			gpios = <&gpio0 ASPEED_GPIO(P, 5) (GPIO_ACTIVE_HIGH|GPIO_TRANSITORY)>;
- 		};
-+
-+		led-hdd {
-+			label = "hdd_led";
-+			gpios = <&io_expander13 1 GPIO_ACTIVE_LOW>;
-+		};
- 	};
- 
- 	memory@80000000 {
-@@ -1199,7 +1204,7 @@ io_expander13: gpio@14 {
- 		#gpio-cells = <2>;
- 		gpio-line-names =
- 			"rmc_en_dc_pwr_on",
--			"",
-+			"HDD_LED_N",
- 			"",
- 			"",
- 			"",
+>  * however, the pmu interrupts will act like a normal interrupt instead o=
+f
+>  * NMI and the hardlockup detector would be broken.
+> */
+>
+>
+> > +static int __init init_watchdog_freq_notifier(void)
+> > +{
+> > +       return cpufreq_register_notifier(&watchdog_freq_notifier,
+> > +                                        CPUFREQ_POLICY_NOTIFIER);
+>
+> I think you need to do something to prevent this from happening on any
+> platforms that override hw_nmi_get_sample_period(), right? These
+> cpufreq notifiers will be useless in that case...
 
----
-base-commit: c65261717599d419e9c683d85f515d3ca2261549
-change-id: 20250926-leo-dts-add-shunt-resistor-0cba43f75bce
+I understand this is not a problem. watchdog_perf uses
+PERF_COUNT_HW_CPU_CYCLES, which means it is inherently limited by the
+CPU's main frequency. After we make such a change, a larger value may
+be used as the period, so the NMI period will become longer, but this
+value will not change after the system starts.
 
-Best regards,
--- 
-Leo Wang <leo.jt.wang@gmail.com>
+>
+>
+> -Doug
+>
 
+Thanks,
+Yunhui
 
