@@ -4,81 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A197FCAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 13:05:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D11A7CAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 13:09:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q184UYcB8USHI8/Gl+wcEL7IgQOCmWfgZZA6BkRSvBw=; b=cLixHnlqski0nxVpjorpsoSZql
-	H4s1NM3Pc47wekDucPH6RsO4qAKihVOC5wcqSvD8051X1m+HMXqpH8PPlDAW0KZTpX0ydcRYwrw6Y
-	+HOqKBVPqNyGyCSm1VIf4y3SmVU/vd6KnPt1VliPGX0lpwLQbb8VFGNRQjTfd93Td2TkzTFrFBikv
-	bzLNlPfYtKvfBXwr4w5o2GY4cREozIzA2fZYy2YPF40p83dnBpJ/G7Z3Dtl92/ssYXd+Wkh8GS/Yf
-	dy1py2xqm9lfqGfyj07Z3D3oYCBMWq14Ynk/rgNIunxp8BHtKYKz0felSIaFqQ8fky25rIZ7ulhmO
-	DQKVKPtA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Subject:References:In-Reply-To:Message-ID:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PtyV6PRmbGQ26cR1Yf8W9GPsIiuuem2tM8ucnMedeAc=; b=lB3NvcYdn+yC8SSBWlz0+0VwG2
+	zREtcVDe0Xwb7qaXF1KBdv+cXbK7XaTFtjzQPiHzR153sC3USsSWJMjVukC7ZB4kZZdkmZc78+F3c
+	f8i8AKmNboh9LJ+1U8qAlcvEVcetsPw5tvZudjqf2VqR5GywN606jImthJxPhpEbIPyZa9AN5cZff
+	WLQ9epTj4LVsSJpvzVuu2SLez+Dr76O5WRss+vkL8SHs39jCJkwv+wxFGo0a/ohFdvMdxwyyvupxT
+	ySlLn/3EIz0QHErDVQD9RiohP+VJ9CBGhqZDeTRMOe//XzFmRWJTxHG8fiiDjsEm+f0NOwKyXC33l
+	l8VFaSzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2890-00000001PGo-3UgP;
-	Fri, 26 Sep 2025 13:05:50 +0000
-Received: from mgamail.intel.com ([198.175.65.10])
+	id 1v28CJ-00000001Qqo-3bv7;
+	Fri, 26 Sep 2025 13:09:15 +0000
+Received: from server.couthit.com ([162.240.164.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v288y-00000001PEh-0ITo
+	id 1v28CI-00000001QqE-0CNT
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 13:05:49 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1758891948; x=1790427948;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=5EckeHvLXOfXBu+wiRZ3U0nu3PJn69N0Omj53rP0XeY=;
-  b=BFKUHGgqY28TRaEAC02bnfhx/Wu+efTzlRhFIU3rFiDO6OOzsbpXU5lD
-   zFxplLjiez0RGauc75sxeGYb/GmgP/h/GKtuRBGCdxMV5umNpenhoygX4
-   GxxZ3meefeDUCNmSaw1SJnl56WrPPkDDrYyi0JvI7L/Tv6zkdBFcqvIyk
-   bZuI/32e3DT5r/DWyMXY7ek+oFBVJ9V5PVpre/Ai13ZT6QM58sSTmtJ4q
-   lFnjW8OfYiaBFHDKPjYK9x/GJcgrp7rOIjwHjbZisoY+77FfIVoRgJY0f
-   nLaaDO/tXVyERIg8wGIs6KR1P9GlKGuuGfrLm7AJoYiukbFCJy9yScJBN
-   A==;
-X-CSE-ConnectionGUID: p8rdppQATnu8i78nprJBIA==
-X-CSE-MsgGUID: 6s6bpKNRTK6sDk+O2L6tiw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11564"; a="78656094"
-X-IronPort-AV: E=Sophos;i="6.18,295,1751266800"; 
-   d="scan'208";a="78656094"
-Received: from orviesa005.jf.intel.com ([10.64.159.145])
-  by orvoesa102.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 26 Sep 2025 06:05:48 -0700
-X-CSE-ConnectionGUID: bpvbqfG6SXy3K8p9KFjrog==
-X-CSE-MsgGUID: rGbEM9WqQCOK7rxoIgHIkA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,295,1751266800"; 
-   d="scan'208";a="182777895"
-Received: from lkp-server02.sh.intel.com (HELO 84c55410ccf6) ([10.239.97.151])
-  by orviesa005.jf.intel.com with ESMTP; 26 Sep 2025 06:05:43 -0700
-Received: from kbuild by 84c55410ccf6 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1v288q-0006F7-0z;
-	Fri, 26 Sep 2025 13:05:40 +0000
-Date: Fri, 26 Sep 2025 21:05:31 +0800
-From: kernel test robot <lkp@intel.com>
-To: Cristian Marussi <cristian.marussi@arm.com>,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	arm-scmi@vger.kernel.org
-Cc: oe-kbuild-all@lists.linux.dev, sudeep.holla@arm.com,
-	james.quinlan@broadcom.com, f.fainelli@gmail.com,
-	vincent.guittot@linaro.org, etienne.carriere@st.com,
-	peng.fan@oss.nxp.com, michal.simek@amd.com, quic_sibis@quicinc.com,
-	dan.carpenter@linaro.org, d-gole@ti.com, souvik.chakravarty@arm.com,
-	Cristian Marussi <cristian.marussi@arm.com>
-Subject: Re: [PATCH 10/10] firmware: arm_scmi: Use new Telemetry traces
-Message-ID: <202509262034.xwphcmtO-lkp@intel.com>
-References: <20250925203554.482371-11-cristian.marussi@arm.com>
+	Fri, 26 Sep 2025 13:09:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:
+	References:In-Reply-To:Message-ID:Cc:To:From:Date:Sender:Reply-To:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=PtyV6PRmbGQ26cR1Yf8W9GPsIiuuem2tM8ucnMedeAc=; b=aKx7BLn6PGRgrEIG0c/4hgZrk4
+	JUaJCJaMZJEbJaMWjkT6lPwpj+QSYsUqFrnryxbzl5484EfHKV8YD2EvCRjVwJGeju9jg5f1ogXDP
+	obOOvOQ/yJlBNKEg9iiuun3XXS3b+FF4obLwUqI9o4i20E4dJ/OV4DK3RE4SUIw66fmQXAZKYAQIh
+	5kb8QsQsisYT2DN/nPHDA6WWvuPDbhRdvPSxyPuz8jMyI7vDkvhABKQWwCPOkoncq23O9oNGUpVDh
+	x6Tigq9l4LSzX4Whu1m0wky27ZCLJrfPbRmZ4U/2qPcP2mU46vKsfoW3wAIsQygyt4TKr4K0kVppg
+	Ap9VUmRg==;
+Received: from [122.175.9.182] (port=48006 helo=zimbra.couthit.local)
+	by server.couthit.com with esmtpsa  (TLS1.2) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.1)
+	(envelope-from <parvathi@couthit.com>)
+	id 1v28CF-00000006Ytd-0KRX;
+	Fri, 26 Sep 2025 09:09:10 -0400
+Received: from zimbra.couthit.local (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTPS id 125421783FF9;
+	Fri, 26 Sep 2025 18:39:06 +0530 (IST)
+Received: from localhost (localhost [127.0.0.1])
+	by zimbra.couthit.local (Postfix) with ESMTP id E37941783FF3;
+	Fri, 26 Sep 2025 18:39:05 +0530 (IST)
+Received: from zimbra.couthit.local ([127.0.0.1])
+	by localhost (zimbra.couthit.local [127.0.0.1]) (amavisd-new, port 10026)
+	with ESMTP id bvkrUVJt43l9; Fri, 26 Sep 2025 18:39:05 +0530 (IST)
+Received: from zimbra.couthit.local (zimbra.couthit.local [10.10.10.103])
+	by zimbra.couthit.local (Postfix) with ESMTP id 53A021781C3D;
+	Fri, 26 Sep 2025 18:39:05 +0530 (IST)
+Date: Fri, 26 Sep 2025 18:39:05 +0530 (IST)
+From: Parvathi Pudi <parvathi@couthit.com>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: parvathi <parvathi@couthit.com>, andrew+netdev <andrew+netdev@lunn.ch>, 
+	davem <davem@davemloft.net>, edumazet <edumazet@google.com>, 
+	kuba <kuba@kernel.org>, pabeni <pabeni@redhat.com>, 
+	danishanwar <danishanwar@ti.com>, rogerq <rogerq@kernel.org>, 
+	pmohan <pmohan@couthit.com>, basharath <basharath@couthit.com>, 
+	afd <afd@ti.com>, linux-kernel <linux-kernel@vger.kernel.org>, 
+	netdev <netdev@vger.kernel.org>, 
+	linux-arm-kernel <linux-arm-kernel@lists.infradead.org>, 
+	pratheesh <pratheesh@ti.com>, Prajith Jayarajan <prajith@ti.com>, 
+	Vignesh Raghavendra <vigneshr@ti.com>, praneeth <praneeth@ti.com>, 
+	srk <srk@ti.com>, rogerq <rogerq@ti.com>, 
+	krishna <krishna@couthit.com>, mohan <mohan@couthit.com>
+Message-ID: <773982362.433508.1758892145106.JavaMail.zimbra@couthit.local>
+In-Reply-To: <0080e79a-cf10-43a1-9fc5-864e2b5f5d7a@lunn.ch>
+References: <20250925141246.3433603-1-parvathi@couthit.com> <0080e79a-cf10-43a1-9fc5-864e2b5f5d7a@lunn.ch>
+Subject: Re: [PATCH net-next 0/3] RSTP SWITCH support for PRU-ICSSM Ethernet
+ driver
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250925203554.482371-11-cristian.marussi@arm.com>
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.10.10.103]
+X-Mailer: Zimbra 8.8.15_GA_3968 (ZimbraWebClient - GC138 (Linux)/8.8.15_GA_3968)
+Thread-Topic: RSTP SWITCH support for PRU-ICSSM Ethernet driver
+Thread-Index: baBJgWRemsOFlllaDdRIwjoAJGMMPQ==
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: smtp@couthit.com
+X-Authenticated-Sender: server.couthit.com: smtp@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_060548_155939_134290C1 
-X-CRM114-Status: GOOD (  12.20  )
+X-CRM114-CacheID: sfid-20250926_060914_166963_436CD858 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,67 +111,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Cristian,
+Hi,
 
-kernel test robot noticed the following build warnings:
+> On Thu, Sep 25, 2025 at 07:32:09PM +0530, Parvathi Pudi wrote:
+>> Hi,
+>> 
+>> The DUAL-EMAC patch series for Megabit Industrial Communication Sub-system
+>> (ICSSM), which provides the foundational support for Ethernet functionality
+>> over PRU-ICSS on the TI SOCs (AM335x, AM437x, and AM57x), was merged into
+>> net-next recently [1].
+>> 
+>> This patch series enhances the PRU-ICSSM Ethernet driver to support
+>> RSTP SWITCH mode, which has been implemented based on "switchdev" and
+>> interacts with "mstp daemon" to support Rapid Spanning Tree Protocol
+>> (RSTP) as well.
+> 
+> Is there anything in this patchset which is specific to RSTP? In
+> general, there is no difference between STP and RSTP. STP is generally
+> done in the kernel as part of the kernel bridge code. RSTP does it in
+> user space. But the hardware driver does not care if it is STP or
+> RSTP, it is the same API to the layer above.
+> 
+> 	Andrew
 
-[auto build test WARNING on soc/for-next]
-[also build test WARNING on trace/for-next linus/master v6.17-rc7 next-20250925]
-[If your patch is applied to the wrong git tree, kindly drop us a note.
-And when submitting patch, we suggest to use '--base' as documented in
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+No, this patch-set applies to both STP and RSTP. The driver and firmware
+responds to the port-state transitions and FDB operations through the
+standard Linux switchdev/bridge interfaces, with no STP/RSTP related
+logic executed in driver/firmware.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/Cristian-Marussi/firmware-arm_scmi-Define-a-common-SCMI_MAX_PROTOCOLS-value/20250926-044350
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git for-next
-patch link:    https://lore.kernel.org/r/20250925203554.482371-11-cristian.marussi%40arm.com
-patch subject: [PATCH 10/10] firmware: arm_scmi: Use new Telemetry traces
-config: nios2-randconfig-001-20250926 (https://download.01.org/0day-ci/archive/20250926/202509262034.xwphcmtO-lkp@intel.com/config)
-compiler: nios2-linux-gcc (GCC) 11.5.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250926/202509262034.xwphcmtO-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202509262034.xwphcmtO-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
-   drivers/firmware/arm_scmi/telemetry.c: In function 'scmi_telemetry_tdcf_blkts_parse':
->> drivers/firmware/arm_scmi/telemetry.c:1039:46: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
-    1039 |         trace_scmi_tlm_collect(bts->last_ts, (u64)payld,
-         |                                              ^
+We referred to RSTP in the commit message as it is our primary use case
+and it implies support for STP as well.
 
 
-vim +1039 drivers/firmware/arm_scmi/telemetry.c
-
-  1017	
-  1018	static void scmi_telemetry_tdcf_blkts_parse(struct telemetry_info *ti,
-  1019						    struct payload __iomem *payld,
-  1020						    struct telemetry_shmti *shmti)
-  1021	{
-  1022		struct telemetry_block_ts *bts;
-  1023	
-  1024		/* Check for spec compliance */
-  1025		if (USE_LINE_TS(payld) || USE_BLK_TS(payld) ||
-  1026		    DATA_INVALID(payld) || (PAYLD_ID(payld) != 0)) {
-  1027			trace_scmi_tlm_access(0, "BLK_TS_INVALID", 0, 0);
-  1028			return;
-  1029		}
-  1030	
-  1031		/* A BLK_TS descriptor MUST be returned: it is found or it is crated */
-  1032		bts = scmi_telemetry_blkts_lookup(ti->dev, &ti->xa_bts, payld);
-  1033		if (WARN_ON(!bts))
-  1034			return;
-  1035	
-  1036		/* Update the descriptor with the lastest TS*/
-  1037		scmi_telemetry_blkts_update(shmti->last_magic, bts);
-  1038	
-> 1039		trace_scmi_tlm_collect(bts->last_ts, (u64)payld,
-  1040				       bts->last_magic, "SHMTI_BLK_TS");
-  1041	}
-  1042	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Thanks and Regards,
+Parvathi.
 
