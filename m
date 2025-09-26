@@ -4,84 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E444BCAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 08:42:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 68BE3CAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 08:46:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hh5uxEyK6OvB8UynZ99mPLkC/3fYPS/LIg1UGviPL70=; b=iE8HcLIxvJwINgB/0ZRw5d7Evq
-	BnT+kyIBrtC9El/KUOLwA5MPsqVRkdSOUpkTDG6tEdP7QXPu3Ub7d3L8wTjPLp1Ka1iJ800imVyE9
-	txXFdDl/Z1VGkQaeuseUKoGQQ6Lls4lMS7WySCRLQseIwIAVpLc9f3cNsWiBdstk+LEkkehW/GZyU
-	9zcYidhKaKVr+zHl4s0dl1wTVd/ThvzvvINUW9cXz47cXit9Vh6jxC7Nf869JYRURHGCY2mwfKpRR
-	5puDA4nbRiP7i5gPvRdo7w82blvGIMBX8skC7xABtOLnp1vk2f49emLjqbKzBM7dUaI8gIoqoyJaZ
-	sXtEndjg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=P+/taiDh5fogO0Q1eGjfIVQW2FvSS2ohgAptmEY4nrs=; b=ieyeMAmN4GS54rR9bKtAlvRP/U
+	Yk5ogOWhuTuIbKX/YiTz/WDtNRp/7FEf+VrdDv1SlmiAq5cmX8Joem974iYAGfyS6bkC6XMz+13tO
+	4ytuNbJhJuEyLFCIN8sVzMiMCt0VVn3eaH3jiMCAiPTV+Czt0etzxXGoenodHTlhuLqUjoOg5riLE
+	Pbkz3dz/BCeBG81XMKcaH/2pai0xlFCusxqopkt/qeGxz1BMqF3yqUnjf1EY5tudjt6+6HB1RxNF4
+	CDFlhrHbSYK30wfmFjBVtmHkL8VrOGdwDwfSsvuOuEoCmy4nYRsSHzCxRLtVf7amJh29esruPRX5W
+	fIRKWHRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v242A-0000000HFSH-0ESe;
-	Fri, 26 Sep 2025 08:42:30 +0000
-Received: from mail-ua1-f53.google.com ([209.85.222.53])
+	id 1v2463-0000000HH06-0now;
+	Fri, 26 Sep 2025 08:46:31 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2427-0000000HFQ5-1ieg
+	id 1v2461-0000000HGxy-05JB
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 08:42:28 +0000
-Received: by mail-ua1-f53.google.com with SMTP id a1e0cc1a2514c-905b08b09f5so631677241.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 01:42:27 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758876146; x=1759480946;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=hh5uxEyK6OvB8UynZ99mPLkC/3fYPS/LIg1UGviPL70=;
-        b=LqQ8GPw0GglxhEVQD0HoZZgNkKSYrzXPEH1hlRAqbwLq9bU1Cz43ehQGuMrIPXnTiT
-         8k9EUDdiNX/tWoRZpcpeNK/EeHRsaZWjvH79qpVoFjKiTR8semqHt0f2PaOy69GFI1ln
-         sZWi8vPi6+/GEP7dMCwg7sq4X+mLrt6+Nm+5m8DJ4M+lukSwfTpTCiwUu7v6EtJM6/Xm
-         u6I78rpPlS6lkMqHwxpr+leKbqkKCDPcwIqlxXKSearwDksjkz31dVRzpg6xUBSZmwqH
-         sRTYPkAZkETiPQt5y9qAHe9SgBtJXIdclpO+KdFkRPjPAwgGjQh/MDaKS77jN/F2Giz5
-         C59A==
-X-Gm-Message-State: AOJu0Yy7N7+Qt7fkvBzYoAf4gf1ifecjJ/Q2NMayg4Otz73F/IGotyKH
-	5TEFesxXP9HlDIzz86+V5J7avU+xvIt0zyw30eGOFqacDaDJ6qy/XUm+jq0dU662
-X-Gm-Gg: ASbGnct0D/43d+suzQ9htNGfm7b7hfJON/x82576qWHh6MbQRM3jXslrYg0K5Sb94vd
-	MpYUZR0crTHgBmrFRcJotes8AfGTsljMVtdi9M5tlPMBUPncLbkPd2aJN3XG2QYM6xHoZ2Q+nlW
-	8cOCmpQ3ydjCxa3oG2eWdeem//NBB/VkV4LlfvGPkejUyiHEEQU71faSFJ2GqWwi/vhQBWORArd
-	gwhsjmtTmkdM2KSLMiv85aGtliWXFLGwO/i9rLR8XpURhJ+EIoXgkxr/mVPvKnYUYDH5mAv1sGq
-	Execz+fnh9MzOWDB0ld3jjuBIZLAs9gu5JsxE38Satvbl9NLtveGBWPrjqhJClFNfwqwXnppjxh
-	95atZqwehYauS1xgkcy2W3F+99pD/9H7yjlps9tnGq+y2MaDTBOp4XZPxDZBVBnN2WdHUEBY=
-X-Google-Smtp-Source: AGHT+IE2McYaLl7j1sPV/GKyW+ZpZ7koEPhjOL77h87c+iFsY6p8G/fvsLxsPbi/ubVmH8ZMPQYFaQ==
-X-Received: by 2002:a05:6102:e07:b0:4e5:980a:d164 with SMTP id ada2fe7eead31-5acb7e5e7c4mr2747438137.0.1758876145971;
-        Fri, 26 Sep 2025 01:42:25 -0700 (PDT)
-Received: from mail-ua1-f46.google.com (mail-ua1-f46.google.com. [209.85.222.46])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-54bed8b2010sm788704e0c.12.2025.09.26.01.42.24
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 26 Sep 2025 01:42:24 -0700 (PDT)
-Received: by mail-ua1-f46.google.com with SMTP id a1e0cc1a2514c-89018e97232so498114241.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 01:42:24 -0700 (PDT)
-X-Received: by 2002:a05:6102:41a4:b0:55d:cfa5:9d60 with SMTP id
- ada2fe7eead31-5acc6805581mr2527265137.12.1758876143956; Fri, 26 Sep 2025
- 01:42:23 -0700 (PDT)
+	Fri, 26 Sep 2025 08:46:30 +0000
+Received: from thinkpad.ideasonboard.com (cpc90716-aztw32-2-0-cust408.18-1.cable.virginm.net [86.26.101.153])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 43FF81807;
+	Fri, 26 Sep 2025 10:45:01 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1758876301;
+	bh=IUA1ANsoSDf4ynFNcNEX5PCTUFJtU9aJS/An4xPjPW4=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=ZrQsmMkvFij0yY31VIvySARzvzdhWNfhnXkQnUrONYi17lCK3I/2qDmzyhBdTSJxL
+	 dN3HbjbpWxRuWVge+mXh5887a+MeWz59bmy6T+ocVoozAj0AHJ1zwKwW1L6iKWBrJi
+	 GQ2d7SrtwAsUz2uQQAegMhsnMOBp5a89Epi8fOsY=
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-References: <20250907161130.218470-1-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20250907161130.218470-1-marek.vasut+renesas@mailbox.org>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Fri, 26 Sep 2025 10:42:11 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdU+X47H=_7y8rXGkXU+wCXq61LgD_VyWw-quq3O0KBzQQ@mail.gmail.com>
-X-Gm-Features: AS18NWDJaK7VikVNhpA9q5HvjdDy559ovF-XoDoqQf-Yk5Qz5FJG5_rrh8fqJYk
-Message-ID: <CAMuHMdU+X47H=_7y8rXGkXU+wCXq61LgD_VyWw-quq3O0KBzQQ@mail.gmail.com>
-Subject: Re: [PATCH v3] arm64: dts: renesas: r8a779g3: Add Argon40 fan HAT DTO
- to Retronix R-Car V4H Sparrow Hawk
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
-	Wolfram Sang <wsa+renesas@sang-engineering.com>, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Magnus Damm <magnus.damm@gmail.com>, 
-	Rob Herring <robh@kernel.org>, devicetree@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <aNW4zDRAREUZ7v8k@lizhi-Precision-Tower-5810>
+References: <20250925-active-data-lanes-v4-0-8b54e3d5af6c@ideasonboard.com> <20250925-active-data-lanes-v4-3-8b54e3d5af6c@ideasonboard.com> <aNW4zDRAREUZ7v8k@lizhi-Precision-Tower-5810>
+Subject: Re: [PATCH v4 3/4] media: imx-mipi-csis: Store the number of data_lanes configured in dt
+From: Isaac Scott <isaac.scott@ideasonboard.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rui Miguel Silva <rmfrfs@gmail.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Martin Kepplinger <martink@posteo.de>, Purism Kernel Team <kernel@puri.sm>, Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Sakari Ailus <sakari.ailus@linux.intel.com>, linux-media@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+To: Frank Li <Frank.li@nxp.com>
+Date: Fri, 26 Sep 2025 09:46:22 +0100
+Message-ID: <175887638283.180868.8800087471301856681@isaac-ThinkPad-T16-Gen-2>
+User-Agent: alot/0.10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_014227_452018_22447689 
-X-CRM114-Status: GOOD (  17.69  )
+X-CRM114-CacheID: sfid-20250926_014629_203447_55DC0BDF 
+X-CRM114-Status: GOOD (  25.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,34 +66,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marek,
+Hi Frank,
 
-On Sun, 7 Sept 2025 at 18:11, Marek Vasut
-<marek.vasut+renesas@mailbox.org> wrote:
-> Add DT overlay to bind Argon40 fan HAT, on Retronix R-Car V4H
-> Sparrow Hawk board. Fan RPM control and full RPM on reboot has
-> been tested.
->
-> Tested-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-> ---
-> NOTE: Depends on series:
->       https://lore.kernel.org/linux-hwmon/20250904202157.170600-1-marek.vasut+renesas@mailbox.org/
+Thank you for your review!
 
-Thanks for your patch!
+Quoting Frank Li (2025-09-25 22:49:00)
+> On Thu, Sep 25, 2025 at 04:54:28PM +0100, Isaac Scott wrote:
+> > The number of active data lanes in use on a MIPI CSI2 bus is not
+> > necessarily always the maximum. To allow us to configure the number of
+> > data lanes actively in use, store the maximum to ensure we can configure
+> > a number of data lanes that is supported.
+> >
+>=20
+> This patch just add num_data_lanes, and use csis->num_data_lanes instead
+> of bus.num_data_lanes.
+>=20
+> So commit message not reflect what you did
+>=20
+> "
+> media: imx-mipi-csis: Add num_data_lanes in mipi_csis_device
+>=20
+> Add num_data_lanes field in mipi_csis_device, set equal to
+> csis->bus.num_data_lanes. Prepare to support cases where the number of
+> active data lanes differs from the maximum supported lanes.
+>=20
+> No functional changes.
+> "
 
-Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-i.e. will queue in renesas-devel for v6.19, with the one-line summary
-changed to "arm64: dts: renesas: sparrow-hawk: ...".
+Yes, that is much better, thank you for your suggestions (on this and
+the next patch), I'll wait to see if there are any other comments and
+improve my commit messages in the next version.
 
-Gr{oetje,eeting}s,
+Best wishes,
+Isaac
 
-                        Geert
-
--- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
+>=20
+> Frank
+>=20
+> > Signed-off-by: Isaac Scott <isaac.scott@ideasonboard.com>
+> > ---
+> >  drivers/media/platform/nxp/imx-mipi-csis.c | 11 +++++++----
+> >  1 file changed, 7 insertions(+), 4 deletions(-)
+> >
+> > diff --git a/drivers/media/platform/nxp/imx-mipi-csis.c b/drivers/media=
+/platform/nxp/imx-mipi-csis.c
+> > index 7c2a679dca2e..838a1ad123b5 100644
+> > --- a/drivers/media/platform/nxp/imx-mipi-csis.c
+> > +++ b/drivers/media/platform/nxp/imx-mipi-csis.c
+> > @@ -351,6 +351,8 @@ struct mipi_csis_device {
+> >       u32 hs_settle;
+> >       u32 clk_settle;
+> >
+> > +     unsigned int num_data_lanes;
+> > +
+> >       spinlock_t slock;       /* Protect events */
+> >       struct mipi_csis_event events[MIPI_CSIS_NUM_EVENTS];
+> >       struct dentry *debugfs_root;
+> > @@ -573,7 +575,7 @@ static void mipi_csis_system_enable(struct mipi_csi=
+s_device *csis, int on)
+> >       val =3D mipi_csis_read(csis, MIPI_CSIS_DPHY_CMN_CTRL);
+> >       val &=3D ~MIPI_CSIS_DPHY_CMN_CTRL_ENABLE;
+> >       if (on) {
+> > -             mask =3D (1 << (csis->bus.num_data_lanes + 1)) - 1;
+> > +             mask =3D (1 << (csis->num_data_lanes + 1)) - 1;
+> >               val |=3D (mask & MIPI_CSIS_DPHY_CMN_CTRL_ENABLE);
+> >       }
+> >       mipi_csis_write(csis, MIPI_CSIS_DPHY_CMN_CTRL, val);
+> > @@ -623,7 +625,7 @@ static int mipi_csis_calculate_params(struct mipi_c=
+sis_device *csis,
+> >
+> >       /* Calculate the line rate from the pixel rate. */
+> >       link_freq =3D v4l2_get_link_freq(csis->source.pad, csis_fmt->widt=
+h,
+> > -                                    csis->bus.num_data_lanes * 2);
+> > +                                    csis->num_data_lanes * 2);
+> >       if (link_freq < 0) {
+> >               dev_err(csis->dev, "Unable to obtain link frequency: %d\n=
+",
+> >                       (int)link_freq);
+> > @@ -668,7 +670,7 @@ static void mipi_csis_set_params(struct mipi_csis_d=
+evice *csis,
+> >                                const struct v4l2_mbus_framefmt *format,
+> >                                const struct csis_pix_format *csis_fmt)
+> >  {
+> > -     int lanes =3D csis->bus.num_data_lanes;
+> > +     int lanes =3D csis->num_data_lanes;
+> >       u32 val;
+> >
+> >       val =3D mipi_csis_read(csis, MIPI_CSIS_CMN_CTRL);
+> > @@ -1366,8 +1368,9 @@ static int mipi_csis_async_register(struct mipi_c=
+sis_device *csis)
+> >       }
+> >
+> >       csis->bus =3D vep.bus.mipi_csi2;
+> > +     csis->num_data_lanes =3D csis->bus.num_data_lanes;
+> >
+> > -     dev_dbg(csis->dev, "data lanes: %d\n", csis->bus.num_data_lanes);
+> > +     dev_dbg(csis->dev, "max data lanes: %d\n", csis->bus.num_data_lan=
+es);
+> >       dev_dbg(csis->dev, "flags: 0x%08x\n", csis->bus.flags);
+> >
+> >       asd =3D v4l2_async_nf_add_fwnode_remote(&csis->notifier, ep,
+> >
+> > --
+> > 2.43.0
+> >
 
