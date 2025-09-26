@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B45FECAC5AE
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 11:03:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27ED2CAC5AE
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 11:03:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y76ZuxV2sO+96Gx3kjXiPdeDtsERO1nVfoX+0YCHAJo=; b=wUwnZtawbes9xk+TezY5hYy42t
-	ZwzFsJ72YFSlV3VM4dEMuxIB6qCY6ZhKGu+OcAtmwPqAvUsAAb7J9wreLLfrOJDLP06lBrXjsWB0v
-	CLjFnoLxWo6m1uC7dzcDFbjm379g1I+TqX5sTmuMb7N4J369rTJsqJOvkFU48KnQvUK9XGAKBhT1C
-	YnP9qv4TWrRIReB4CTmoFgFnZ5FPH4CJStV/109iQVIfvsBSt0cvqg++I3gyZSbUTV1LPv8ZBsmFw
-	D6LrGCU8lB7zVpdJhHVsQFgXhzUroimR4+/hRlo2LceQHJ5a6SrAsyMxaxLDxwcGXj//s5BheBGOi
-	N0uZ3pow==;
+	bh=DPmDjeujU3Bo+YZQaWeW2SoJUxAZOD42vrkhKvbNQcQ=; b=PzYpovFcHw5bNkMr299hES5VEc
+	cOhsS4TNUBmM8FPfQGK4OxF73JXpONTmc4pqFaY3ziF8Za/XvBxs0XYU6vR/LTSiq81xtmEPbs4cN
+	mUMJhIX+c9AEHpxhud5+if8stlZg5/qGIbgpbztc2jFd4mSGMubq8W5A83jFnIFVLOqZ0V7mtmxPv
+	btMwl6fRwwIBd1sJRgxQAF0rc16x4CCQobGu6l4+IM5eHa1bzQzBOTmvUUm5sWUkB/ZUu46rC8CO2
+	+boXAcX/iVqDb8BdHA3AFN8Eyqdzcr6BanhLNrKNtieqH1remtPd+7Y29lEvFnAlgI4L4RPeTwrGX
+	KZ2H9/rA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v26EX-00000000cpj-2sql;
-	Fri, 26 Sep 2025 11:03:25 +0000
+	id 1v26Eh-00000000d16-3GKS;
+	Fri, 26 Sep 2025 11:03:35 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v26EP-00000000cgp-1SGc
+	id 1v26Ea-00000000cuZ-3dMb
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 11:03:18 +0000
+	Fri, 26 Sep 2025 11:03:30 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7674F1691;
-	Fri, 26 Sep 2025 04:03:08 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 35699168F;
+	Fri, 26 Sep 2025 04:03:20 -0700 (PDT)
 Received: from e122027.cambridge.arm.com (e122027.cambridge.arm.com [10.1.38.22])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 15C0E3F66E;
-	Fri, 26 Sep 2025 04:03:12 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D63AF3F66E;
+	Fri, 26 Sep 2025 04:03:24 -0700 (PDT)
 From: Steven Price <steven.price@arm.com>
 To: kvm@vger.kernel.org,
 	kvmarm@lists.linux.dev
@@ -55,17 +55,17 @@ Cc: Catalin Marinas <catalin.marinas@arm.com>,
 	Emi Kisanuki <fj0570is@fujitsu.com>,
 	Vishal Annapurve <vannapurve@google.com>,
 	Steven Price <steven.price@arm.com>
-Subject: [RFC PATCH 2/5] arm64: RME: Handle auxiliary RTT trees
-Date: Fri, 26 Sep 2025 12:02:51 +0100
-Message-ID: <20250926110254.55449-3-steven.price@arm.com>
+Subject: [RFC PATCH 5/5] arm64: RME: Support num_aux_places & rtt_tree_pp realm parameters
+Date: Fri, 26 Sep 2025 12:02:54 +0100
+Message-ID: <20250926110254.55449-6-steven.price@arm.com>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <20250926110254.55449-1-steven.price@arm.com>
 References: <20250926110254.55449-1-steven.price@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_040317_469920_E2BFFC4D 
-X-CRM114-Status: GOOD (  24.25  )
+X-CRM114-CacheID: sfid-20250926_040329_002834_E87444C0 
+X-CRM114-Status: GOOD (  15.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,417 +80,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When a guest is executing with multiple planes, then faults from a plane
-other than a primary plane can indicate that there are missing entries
-in the auxiliary RTT trees that need to be populated. Handle this by
-allocating the necessary tables.
-
-The auxiliary trees also need to be handled when tearing down realm
-resources, so in these cases iterate over the auxiliary trees to
-perform the same operations as in the primary tree.
+CCA planes provides new parameters to the VMM:
+ - num_aux_planes defines the number of extra planes
+ - rtt_tree_pp controls whether each plane has it's own page table tree,
+   of if they share one tree.
 
 Signed-off-by: Steven Price <steven.price@arm.com>
 ---
- arch/arm64/include/asm/kvm_rme.h |   6 +
- arch/arm64/kvm/mmu.c             |  15 ++-
- arch/arm64/kvm/rme-exit.c        |   6 +-
- arch/arm64/kvm/rme.c             | 206 +++++++++++++++++++++++++++++--
- 4 files changed, 213 insertions(+), 20 deletions(-)
+ arch/arm64/include/uapi/asm/kvm.h | 12 +++++
+ arch/arm64/kvm/rme.c              | 77 +++++++++++++++++++++++++++++--
+ 2 files changed, 86 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/asm/kvm_rme.h
-index 3ed04b309cda..e5c0c8274bf8 100644
---- a/arch/arm64/include/asm/kvm_rme.h
-+++ b/arch/arm64/include/asm/kvm_rme.h
-@@ -54,6 +54,8 @@ enum realm_state {
-  * @num_aux: The number of auxiliary pages required by the RMM
-  * @vmid: VMID to be used by the RMM for the realm
-  * @ia_bits: Number of valid Input Address bits in the IPA
-+ * @num_aux_planes: Number of auxiliary planes
-+ * @rtt_tree_pp: True if each plane has its own RTT tree
-  */
- struct realm {
- 	enum realm_state state;
-@@ -64,6 +66,8 @@ struct realm {
- 	unsigned long num_aux;
- 	unsigned int vmid;
- 	unsigned int ia_bits;
-+	unsigned int num_aux_planes;
-+	bool rtt_tree_pp;
- };
+diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
+index 9b5d67ecbc5e..1d83da0f3aaa 100644
+--- a/arch/arm64/include/uapi/asm/kvm.h
++++ b/arch/arm64/include/uapi/asm/kvm.h
+@@ -440,6 +440,8 @@ enum {
+ /* List of configuration items accepted for KVM_CAP_ARM_RME_CONFIG_REALM */
+ #define ARM_RME_CONFIG_RPV			0
+ #define ARM_RME_CONFIG_HASH_ALGO		1
++#define ARM_RME_CONFIG_NUM_AUX_PLANES		2
++#define ARM_RME_CONFIG_RTT_TREE_PP		3
  
- /**
-@@ -107,6 +111,8 @@ int kvm_rec_enter(struct kvm_vcpu *vcpu);
- int kvm_rec_pre_enter(struct kvm_vcpu *vcpu);
- int handle_rec_exit(struct kvm_vcpu *vcpu, int rec_run_status);
+ #define ARM_RME_CONFIG_HASH_ALGO_SHA256		0
+ #define ARM_RME_CONFIG_HASH_ALGO_SHA512		1
+@@ -459,6 +461,16 @@ struct arm_rme_config {
+ 			__u32	hash_algo;
+ 		};
  
-+int realm_aux_map(struct kvm_vcpu *vcpu, phys_addr_t ipa);
++		/* cfg == ARM_RME_CONFIG_NUM_AUX_PLANES */
++		struct {
++			__u32	num_aux_planes;
++		};
 +
- void kvm_realm_unmap_range(struct kvm *kvm,
- 			   unsigned long ipa,
- 			   unsigned long size,
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index a36ece6c3bf2..a433926e214b 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1502,11 +1502,12 @@ static bool kvm_vma_mte_allowed(struct vm_area_struct *vma)
- 	return vma->vm_flags & VM_MTE_ALLOWED;
- }
- 
--static int realm_map_ipa(struct kvm *kvm, phys_addr_t ipa,
-+static int realm_map_ipa(struct kvm_vcpu *vcpu, phys_addr_t ipa,
- 			 kvm_pfn_t pfn, unsigned long map_size,
- 			 enum kvm_pgtable_prot prot,
- 			 struct kvm_mmu_memory_cache *memcache)
- {
-+	struct kvm *kvm = vcpu->kvm;
- 	struct realm *realm = &kvm->arch.realm;
- 
- 	/*
-@@ -1517,6 +1518,14 @@ static int realm_map_ipa(struct kvm *kvm, phys_addr_t ipa,
- 	if (WARN_ON(!(prot & KVM_PGTABLE_PROT_W)))
- 		return -EFAULT;
- 
-+	if (vcpu->arch.rec.run->exit.rtt_tree > 0) {
-+		int ret;
++		/* cfg == ARM_RME_CONFIG_RTT_TREE_PP */
++		struct {
++			__u32	rtt_tree_pp;
++		};
 +
-+		ret = realm_aux_map(vcpu, ipa);
-+		if (ret <= 0)
-+			return ret;
-+	}
-+
- 	ipa = ALIGN_DOWN(ipa, PAGE_SIZE);
- 	if (!kvm_realm_is_private_address(realm, ipa))
- 		return realm_map_non_secure(realm, ipa, pfn, map_size,
-@@ -1571,7 +1580,7 @@ static int private_memslot_fault(struct kvm_vcpu *vcpu,
- 		return ret;
- 
- 	/* FIXME: Should be able to use bigger than PAGE_SIZE mappings */
--	ret = realm_map_ipa(kvm, fault_ipa, pfn, PAGE_SIZE, KVM_PGTABLE_PROT_W,
-+	ret = realm_map_ipa(vcpu, fault_ipa, pfn, PAGE_SIZE, KVM_PGTABLE_PROT_W,
- 			    memcache);
- 	if (!ret)
- 		return 1; /* Handled */
-@@ -1917,7 +1926,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 		prot &= ~KVM_NV_GUEST_MAP_SZ;
- 		ret = KVM_PGT_FN(kvm_pgtable_stage2_relax_perms)(pgt, fault_ipa, prot, flags);
- 	} else if (kvm_is_realm(kvm)) {
--		ret = realm_map_ipa(kvm, fault_ipa, pfn, vma_pagesize,
-+		ret = realm_map_ipa(vcpu, fault_ipa, pfn, vma_pagesize,
- 				    prot, memcache);
- 	} else {
- 		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, fault_ipa, vma_pagesize,
-diff --git a/arch/arm64/kvm/rme-exit.c b/arch/arm64/kvm/rme-exit.c
-index 1a8ca7526863..04c8af8642af 100644
---- a/arch/arm64/kvm/rme-exit.c
-+++ b/arch/arm64/kvm/rme-exit.c
-@@ -44,11 +44,7 @@ static int rec_exit_sync_dabt(struct kvm_vcpu *vcpu)
- 
- static int rec_exit_sync_iabt(struct kvm_vcpu *vcpu)
- {
--	struct realm_rec *rec = &vcpu->arch.rec;
--
--	vcpu_err(vcpu, "Unhandled instruction abort (ESR: %#llx).\n",
--		 rec->run->exit.esr);
--	return -ENXIO;
-+	return kvm_handle_guest_abort(vcpu);
- }
- 
- static int rec_exit_sys_reg(struct kvm_vcpu *vcpu)
+ 		/* Fix the size of the union */
+ 		__u8	reserved[256];
+ 	};
 diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
-index 299473298720..c420546d26f3 100644
+index 6cb938957510..fca305da1843 100644
 --- a/arch/arm64/kvm/rme.c
 +++ b/arch/arm64/kvm/rme.c
-@@ -225,6 +225,17 @@ static int realm_rtt_create(struct realm *realm,
- 	return rmi_rtt_create(virt_to_phys(realm->rd), phys, addr, level);
+@@ -43,6 +43,28 @@ bool kvm_rme_supports_sve(void)
+ 	return rme_has_feature(RMI_FEATURE_REGISTER_0_SVE_EN);
  }
  
-+static int realm_rtt_aux_create(struct realm *realm,
-+				unsigned long addr,
-+				int level,
-+				phys_addr_t phys,
-+				int rtt_tree_idx)
++static bool kvm_rme_supports_rtt_tree_single(void)
 +{
-+	addr = ALIGN_DOWN(addr, rme_rtt_level_mapsize(level - 1));
-+	return rmi_rtt_aux_create(virt_to_phys(realm->rd), phys, addr, level,
-+				  rtt_tree_idx);
++	int i = u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_RTT_PLANE);
++
++	switch (i) {
++	case RMI_RTT_PLANE_AUX:
++		return false;
++	case RMI_RTT_PLANE_AUX_SINGLE:
++	case RMI_RTT_PLANE_SINGLE:
++		return true;
++	default:
++		WARN(1, "Unknown encoding for RMI_FEATURE_REGISTER_0_RTT_PLANE: %#x", i);
++	}
++	return false;
 +}
 +
- static int realm_rtt_fold(struct realm *realm,
- 			  unsigned long addr,
- 			  int level,
-@@ -244,13 +255,17 @@ static int realm_rtt_fold(struct realm *realm,
- 
- static int realm_rtt_destroy(struct realm *realm, unsigned long addr,
- 			     int level, phys_addr_t *rtt_granule,
--			     unsigned long *next_addr)
-+			     unsigned long *next_addr, int rtt_tree_idx)
++static unsigned int rme_get_max_num_aux_planes(void)
++{
++	return u64_get_bits(rmm_feat_reg0,
++			    RMI_FEATURE_REGISTER_0_MAX_NUM_AUX_PLANES);
++}
++
+ static int rmi_check_version(void)
  {
- 	unsigned long out_rtt;
- 	int ret;
+ 	struct arm_smccc_res res;
+@@ -1077,6 +1099,14 @@ int realm_map_protected(struct realm *realm,
+ 	return -ENXIO;
+ }
  
--	ret = rmi_rtt_destroy(virt_to_phys(realm->rd), addr, level,
--			      &out_rtt, next_addr);
-+	if (rtt_tree_idx == 0)
-+		ret = rmi_rtt_destroy(virt_to_phys(realm->rd), addr, level,
-+				      &out_rtt, next_addr);
-+	else
-+		ret = rmi_rtt_aux_destroy(virt_to_phys(realm->rd), addr, level,
-+					  rtt_tree_idx, &out_rtt, next_addr);
++static unsigned long pi_index_to_s2tte(unsigned long idx)
++{
++	return FIELD_PREP(BIT(PTE_PI_IDX_0), (idx >> 0) & 1) |
++	       FIELD_PREP(BIT(PTE_PI_IDX_1), (idx >> 1) & 1) |
++	       FIELD_PREP(BIT(PTE_PI_IDX_2), (idx >> 2) & 1) |
++	       FIELD_PREP(BIT(PTE_PI_IDX_3), (idx >> 3) & 1);
++}
++
+ int realm_map_non_secure(struct realm *realm,
+ 			 unsigned long ipa,
+ 			 kvm_pfn_t pfn,
+@@ -1101,9 +1131,17 @@ int realm_map_non_secure(struct realm *realm,
+ 		 * so for now we permit both read and write.
+ 		 */
+ 		unsigned long desc = phys |
+-				     PTE_S2_MEMATTR(MT_S2_FWB_NORMAL) |
+-				     KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R |
+-				     KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
++				     PTE_S2_MEMATTR(MT_S2_FWB_NORMAL);
++		/*
++		 * FIXME: Read+Write permissions for now, and no support yet
++		 * for setting RMI_REALM_PARAM_FLAG1_RTT_S2AP_ENCODING
++		 */
++		if (1)
++			desc |= KVM_PTE_LEAF_ATTR_LO_S2_S2AP_R |
++				KVM_PTE_LEAF_ATTR_LO_S2_S2AP_W;
++		else
++			desc |= pi_index_to_s2tte(RMI_BASE_PERM_RW_INDEX);
++
+ 		ret = rmi_rtt_map_unprotected(rd, ipa, map_level, desc);
  
- 	*rtt_granule = out_rtt;
- 
-@@ -289,8 +304,44 @@ static int realm_create_rtt_levels(struct realm *realm,
+ 		if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT) {
+@@ -1653,6 +1691,33 @@ static int config_realm_hash_algo(struct realm *realm,
  	return 0;
  }
  
-+static int realm_create_rtt_aux_levels(struct realm *realm,
-+				       unsigned long ipa,
-+				       int level,
-+				       int max_level,
-+				       int tree_idx,
-+				       struct kvm_mmu_memory_cache *mc)
++static int config_num_aux_planes(struct realm *realm,
++				 struct arm_rme_config *cfg)
 +{
-+	if (level == max_level)
-+		return 0;
-+	if (tree_idx == 0)
-+		return realm_create_rtt_levels(realm, ipa,
-+					       level, max_level, mc);
++	if (cfg->num_aux_planes > rme_get_max_num_aux_planes())
++		return -EINVAL;
 +
-+	while (level++ < max_level) {
-+		phys_addr_t rtt = alloc_delegated_granule(mc);
-+		int ret;
-+
-+		if (rtt == PHYS_ADDR_MAX)
-+			return -ENOMEM;
-+
-+		ret = realm_rtt_aux_create(realm, ipa, level, rtt, tree_idx);
-+
-+		if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT_AUX &&
-+		    RMI_RETURN_INDEX(ret) == level - 1) {
-+			/* The RTT already exists, continue */
-+			continue;
-+		} else if (RMI_RETURN_STATUS(ret) != RMI_SUCCESS) {
-+			free_delegated_granule(rtt);
-+			return -ENXIO;
-+		}
-+	}
++	realm->num_aux_planes = cfg->num_aux_planes;
++	realm->params->num_aux_planes = cfg->num_aux_planes;
 +
 +	return 0;
 +}
 +
- static int realm_tear_down_rtt_level(struct realm *realm, int level,
--				     unsigned long start, unsigned long end)
-+				     unsigned long start, unsigned long end,
-+				     int rtt_tree_idx)
- {
- 	ssize_t map_size;
- 	unsigned long addr, next_addr;
-@@ -315,20 +366,22 @@ static int realm_tear_down_rtt_level(struct realm *realm, int level,
- 			ret = realm_tear_down_rtt_level(realm,
- 							level + 1,
- 							addr,
--							min(next_addr, end));
-+							min(next_addr, end),
-+							rtt_tree_idx);
- 			if (ret)
- 				return ret;
- 			continue;
- 		}
- 
- 		ret = realm_rtt_destroy(realm, addr, level,
--					&rtt_granule, &next_addr);
-+					&rtt_granule, &next_addr, rtt_tree_idx);
- 
- 		switch (RMI_RETURN_STATUS(ret)) {
- 		case RMI_SUCCESS:
- 			free_rtt(rtt_granule);
- 			break;
- 		case RMI_ERROR_RTT:
-+		case RMI_ERROR_RTT_AUX:
- 			if (next_addr > addr) {
- 				/* Missing RTT, skip */
- 				break;
-@@ -354,7 +407,8 @@ static int realm_tear_down_rtt_level(struct realm *realm, int level,
- 			ret = realm_tear_down_rtt_level(realm,
- 							level + 1,
- 							addr,
--							next_addr);
-+							next_addr,
-+							rtt_tree_idx);
- 			if (ret)
- 				return ret;
- 			/*
-@@ -372,15 +426,52 @@ static int realm_tear_down_rtt_level(struct realm *realm, int level,
- 	return 0;
- }
- 
--static int realm_tear_down_rtt_range(struct realm *realm,
--				     unsigned long start, unsigned long end)
-+static void realm_unmap_aux_unprotected(struct realm *realm,
-+					unsigned long start,
-+					unsigned long end,
-+					int rtt_tree_idx)
- {
-+	unsigned long rd = virt_to_phys(realm->rd);
-+	unsigned long next;
-+	int ret;
++static int config_rtt_tree_pp(struct realm *realm,
++			      struct arm_rme_config *cfg)
++{
++	if (!kvm_rme_supports_rtt_tree_single() && !cfg->rtt_tree_pp)
++		return -EINVAL;
 +
-+	while (start < end) {
-+		ret = rmi_rtt_aux_unmap_unprotected(rd, start, rtt_tree_idx,
-+						    &next);
++	realm->rtt_tree_pp = !!cfg->rtt_tree_pp;
++	if (realm->rtt_tree_pp)
++		realm->params->flags1 |= RMI_REALM_PARAM_FLAG1_RTT_TREE_PP;
++	else
++		realm->params->flags1 &= ~RMI_REALM_PARAM_FLAG1_RTT_TREE_PP;
 +
-+		if (WARN_ON(ret))
-+			return;
-+
-+		start = next;
-+	}
++	return 0;
 +}
 +
-+static void realm_tear_down_rtt_range(struct realm *realm, u32 ia_bits,
-+				      int rtt_tree_idx)
-+{
-+	int ret;
-+	int sl = get_start_level(realm);
-+	unsigned long end = 1UL << ia_bits;
-+
-+	if (rtt_tree_idx) {
-+		unsigned long start = end >> 1;
-+
-+		/*
-+		 * AUX trees cannot destroy the RTTs in the unprotected region,
-+		 * instead we must unmap the region.
-+		 */
-+		realm_unmap_aux_unprotected(realm, start, end, rtt_tree_idx);
-+		end = start;
-+	}
-+
- 	/*
- 	 * Root level RTTs can only be destroyed after the RD is destroyed. So
- 	 * tear down everything below the root level
- 	 */
--	return realm_tear_down_rtt_level(realm, get_start_level(realm) + 1,
--					 start, end);
-+	ret = realm_tear_down_rtt_level(realm, sl + 1,
-+					0, end, rtt_tree_idx);
-+
-+	WARN_ON(ret);
- }
- 
- /*
-@@ -443,7 +534,14 @@ void kvm_realm_destroy_rtts(struct kvm *kvm, u32 ia_bits)
+ static int kvm_rme_config_realm(struct kvm *kvm, struct kvm_enable_cap *cap)
  {
- 	struct realm *realm = &kvm->arch.realm;
- 
--	WARN_ON(realm_tear_down_rtt_range(realm, 0, (1UL << ia_bits)));
-+	if (realm->rtt_tree_pp) {
-+		int idx;
-+
-+		for (idx = 1; idx <= realm->num_aux_planes; idx++)
-+			realm_tear_down_rtt_range(realm, ia_bits, idx);
-+	}
-+
-+	realm_tear_down_rtt_range(realm, ia_bits, 0);
- }
- 
- static int realm_destroy_private_granule(struct realm *realm,
-@@ -476,6 +574,17 @@ static int realm_destroy_private_granule(struct realm *realm,
- 			return -ENXIO;
- 		}
- 		goto retry;
-+	} else if (RMI_RETURN_STATUS(ret) == RMI_ERROR_RTT_AUX) {
-+		int idx;
-+
-+		WARN_ON(!realm->rtt_tree_pp);
-+
-+		for (idx = 1; idx <= realm->num_aux_planes; idx++) {
-+			ret = rmi_rtt_aux_unmap_protected(rd, ipa, idx, NULL);
-+			if (WARN_ON(ret))
-+				return -1;
-+		}
-+		goto retry;
- 	} else if (WARN_ON(ret)) {
- 		return -ENXIO;
+ 	struct arm_rme_config cfg;
+@@ -1672,6 +1737,12 @@ static int kvm_rme_config_realm(struct kvm *kvm, struct kvm_enable_cap *cap)
+ 	case ARM_RME_CONFIG_HASH_ALGO:
+ 		r = config_realm_hash_algo(realm, &cfg);
+ 		break;
++	case ARM_RME_CONFIG_NUM_AUX_PLANES:
++		r = config_num_aux_planes(realm, &cfg);
++		break;
++	case ARM_RME_CONFIG_RTT_TREE_PP:
++		r = config_rtt_tree_pp(realm, &cfg);
++		break;
+ 	default:
+ 		r = -EINVAL;
  	}
-@@ -1100,6 +1209,79 @@ static int populate_region(struct kvm *kvm,
- 	return ret;
- }
- 
-+/*
-+ * Return values:
-+ *  0: Success
-+ *  1: Primary RTT is invalid at IPA
-+ * <0: Error
-+ */
-+int realm_aux_map(struct kvm_vcpu *vcpu, phys_addr_t ipa)
-+{
-+	int ret;
-+	int level, max_level;
-+	struct kvm_mmu_memory_cache *mc = &vcpu->arch.mmu_page_cache;
-+	struct realm *realm = &vcpu->kvm->arch.realm;
-+	phys_addr_t rd = virt_to_phys(realm->rd);
-+	unsigned long rtt_tree_idx = vcpu->arch.rec.run->exit.rtt_tree;
-+
-+	kvm_mmu_topup_memory_cache(mc, kvm_mmu_cache_min_pages(vcpu->arch.hw_mmu));
-+
-+loop:
-+	if (kvm_realm_is_private_address(realm, ipa)) {
-+		ret = rmi_rtt_aux_map_protected(rd, ipa, rtt_tree_idx,
-+						NULL, NULL);
-+	} else {
-+		int sl = get_start_level(realm);
-+		unsigned long esr = vcpu->arch.rec.run->exit.esr;
-+
-+		if (WARN_ON(!esr_is_data_abort(esr) ||
-+			    !esr_fsc_is_translation_fault(esr)))
-+			return -EINVAL;
-+
-+		if ((esr & ESR_ELx_FSC) != ESR_ELx_FSC_FAULT_L(sl)) {
-+			/*
-+			 * Unprotected AUX RTT trees are shared. So if the
-+			 * level is not at the start level the fault must be
-+			 * due to a missing primary RTT (not an AUX RTT).
-+			 */
-+			return 1;
-+		}
-+		/* For the AUX RTT the IPA needs aligning to the start level. */
-+		ipa = ALIGN_DOWN(ipa, rme_rtt_level_mapsize(sl));
-+		ret = rmi_rtt_aux_map_unprotected(rd, ipa, rtt_tree_idx);
-+	}
-+
-+	switch (RMI_RETURN_STATUS(ret)) {
-+	case RMI_SUCCESS:
-+		return 0;
-+	case RMI_ERROR_RTT:
-+		return 1;
-+	case RMI_ERROR_RTT_AUX:
-+		/*
-+		 * Attempt to create RTTs and try again.
-+		 * Try to block level first.
-+		 */
-+		level = RMI_RETURN_INDEX(ret);
-+		if (level < RMM_RTT_BLOCK_LEVEL)
-+			max_level = RMM_RTT_BLOCK_LEVEL;
-+		else
-+			max_level = RMM_RTT_MAX_LEVEL;
-+
-+		ret = realm_create_rtt_aux_levels(realm, ipa,
-+						  level, max_level,
-+						  rtt_tree_idx, mc);
-+		if (WARN_ON(ret))
-+			return -EIO;
-+		goto loop;
-+	default:
-+		WARN_ON(1);
-+		ret = -EIO;
-+	}
-+
-+	WARN_ON(1);
-+	return -EIO;
-+}
-+
- static int kvm_populate_realm(struct kvm *kvm,
- 			      struct arm_rme_populate_realm *args)
- {
 -- 
 2.43.0
 
