@@ -4,93 +4,178 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC684CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 15:02:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6621FCAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 15:06:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s7Baoif17kvHRJvWC6HYyOG9IuJ9PffDdtqs0FozkFg=; b=bwFt9C/Vn7a/cxW6F+APd9E1jJ
-	BYhvDw+jrCJkOj7VMf4LRKQbWMDgY3c5eFi3301GMWdfigPdgRQwfrq+0eTXTaCkeLJ9xC2mHkCL8
-	lGBzxXQo91mZiMHbXjHTbXbB41LHv35G9EE9xTbEGnlBSYnRmW08LLmacfE4SCHJwU2htFxq1UHC1
-	u8TDMZt9es3/bhqNoq5zRsfr8CkBw3SeC2KAoFDSCfMGSQuTboQsdz+f49SkO2uOS2++MsO6eBn1J
-	Bbo+sLNFqp4/rHTirlWRpTRNuP9UjACY0cfFOeQXSlQS/h2Q1jeRfMopy/7rUnOUrwYL5P95FPwgS
-	KekH7OVQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	Content-Transfer-Encoding:Content-Type:Message-Id:Date:Subject:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=IgUSNDMdPhnsdoKn/zWjvSaTRimO85Q+gG/e3sbKMqk=; b=ECFPnZsvpECqBsEoqtVaYVDTYZ
+	pvqwxBBAw5aMskX5q8Q8lWOC2vFIZCejz3JHUva/4K0wIQob5qB8N66SZApg3BYyPrVvAiV5ZyaQ9
+	JW1RTPqr22eLkDyw/nkmj02oN2tmOmlBwoUUjD10mrtjspOB0JhbKvmKZvUCciPLovGdyK1VLj8Js
+	fWsP/D5JpHJfOhd7sYFmUI6cBGwvcblXJTw4WHj+ZmfIcX7fkeRiP7hAh/KESJ0Y5IsquX+VFR1Aj
+	V/w3ev1FVorchn7Zx8g+VanWe4kOBX4tsMVA1g6tuEv+Elx18ZIZV8OCTkF3tIxhDPRsKOmbvWQ26
+	1/Kbvj/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v29xg-00000002FDy-2Hl7;
-	Fri, 26 Sep 2025 15:02:16 +0000
-Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
+	id 1v2A1T-00000002H0w-3eoP;
+	Fri, 26 Sep 2025 15:06:11 +0000
+Received: from mail-northeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c200::3] helo=DU2PR03CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v29xd-00000002FBB-483C
+	id 1v2A1P-00000002Gzg-3DnY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 15:02:15 +0000
-Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-46e2b7eee0dso64615e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 08:02:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1758898932; x=1759503732; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=s7Baoif17kvHRJvWC6HYyOG9IuJ9PffDdtqs0FozkFg=;
-        b=CvhyGr+OjUi3EEGv+8XVcklA3vhXgp/lwHwgAPYk0pVRoFwZ9gAI+4SJxTAroXd602
-         RjXdlXfmHCWfh46zaMs3Erz2wA2PC+jBY65d/S1/vpQOlr1BdT1P/b24dhHWlNVIZ9BC
-         tW73cfNhCBPtXZnEn6zszQ3L9GKkdRfjhZMbS6SHdDJb1f+TcUAge0dbku8biuA63fC8
-         jGTUuvVTCINO2ZQem+vjA+JVvCPGvVOl0QzXzLC3tRtVFbbA5bXmYo9aD8XsmMuIAzJK
-         y9aXjFTtme2A/gy+OkHS6L3EW3oxNLLh0N2ED9Bfm/y9pRQqw/5pa2ouKcHvYNfqTzPg
-         pLAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758898932; x=1759503732;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=s7Baoif17kvHRJvWC6HYyOG9IuJ9PffDdtqs0FozkFg=;
-        b=o3soakYYBJe8u2/OWB6MzFjnJsxJthTAfdVu4cTWkkfEiheiL/ZBrxxWub9Xt/3y/S
-         JtI/iJFJ7CDJ7CkJBNVSTlUivzbUt9sXtt49PV21SoQS9el5AlunXsh93nBgK/wN8P+g
-         JxuPO4zKfHzsczSFdN3nGu7M+m83aJuvOz/XJY2AYgtACHg7wskD86VmtXmp2vq6dAIO
-         8XB2DXr5RdT9gFdWmg1XHlArmPKLdpZ0y1z6lIbubpk38w+qLzhnP8lZ5pQ0kikxcvS7
-         RYM0qq6c/ZRvPkoRW56i56Hes1vyMEyjeCGY+JWDSuSVarF4wHUfG655+8w2c68Z+IsG
-         prEA==
-X-Forwarded-Encrypted: i=1; AJvYcCUV1WIZJr+Aktm0gpDGILx5zfBXqEx/DaWwLQf7TrfEYHCwrFUGFxe1NpZC7I5YgOK88aoPGY2YkE04Ax2e6b5D@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQhGpt2y3jh3jtofmxEdeLxg0dKGXRV2JdjzesybBRKS0Fo8Dc
-	tHsjR1kR+kuAybPHkErTgEXn9LYYOFRUjfXDPpSzHrdWH8NJBiFixHij+iYLImsVuQ==
-X-Gm-Gg: ASbGncspyjPuDBgqfR2QaXafzhhfMWU+WBC/k0VHZjheUZZf6Wy1xdD7URYat/HFTjB
-	+eVzURN15FV/M1rHCCvkpdDWf//s85fNAtWFHRO7LThIA5AFvLfADq7nz0wSv7uE33libgjX6jI
-	a3vH3WzIkFrDKiL8GAPv9rmUt6sm1OtK7WibaXJjOQLleVhUVCXdqTipkm9cwTr/OYO09cab4Km
-	bJSb0ytFWFUjsMO1CmH/h+tzYcRIjViw4FDAFPOY++IP+M6McZTUMEtoBaOxNL/r0UZzGpdP/TK
-	K4iWdFO2EUaz9ls600qa6NuQfZApR92mnAhqek75zPACp5o6JF5c3kfNnctFqP8xqNutHcgchuh
-	0heciQxFdJT/wnG2u0VEtdc0D7YC0oZCk6NeASHqauw3dQXrdRDMpmdipBdjk3TewS03oNYVONl
-	YL2w==
-X-Google-Smtp-Source: AGHT+IGGXmNBTu4UEfqjidL+GDIizhadTfvXaAwFgVVLBzv8UsZYzurqe8WWNcR71jr76VBG7flshQ==
-X-Received: by 2002:a05:600c:40c4:b0:45f:2e6d:ca01 with SMTP id 5b1f17b1804b1-46e3b009830mr1290175e9.4.1758898931549;
-        Fri, 26 Sep 2025 08:02:11 -0700 (PDT)
-Received: from google.com (140.240.76.34.bc.googleusercontent.com. [34.76.240.140])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46e2a9ac5basm141572865e9.7.2025.09.26.08.02.10
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 26 Sep 2025 08:02:10 -0700 (PDT)
-Date: Fri, 26 Sep 2025 15:02:07 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Sjoerd Simons <sjoerd@collabora.com>
-Cc: devicetree@vger.kernel.org,
-	"moderated list:ARM SMMU DRIVERS" <linux-arm-kernel@lists.infradead.org>,
-	linux-rockchip@lists.infradead.org,
-	open list <linux-kernel@vger.kernel.org>,
-	Rob Herring <robh@kernel.org>, krzk+dt@kernel.org,
-	conor+dt@kernel.org, Heiko Stuebner <heiko@sntech.de>
-Subject: Re: Support for Rock PI-4b
-Message-ID: <aNaq72xKS4QaNjwx@google.com>
-References: <CAFgf54oYjUEg9KkQUzneYTZH1Z8cX56va5M0853eWPFaYT+Z2A@mail.gmail.com>
- <638b9565b90714f56caa9535b7b9b96cd86100d6.camel@collabora.com>
+	Fri, 26 Sep 2025 15:06:10 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=lrfS5TRRo1PD0IGH+0kYHwrzwVZxQ0JN7aZZ14q931N4fqLssdSOycjTxmUjzUOE4ZNAAjc8DY2tbucUtvDkyJwnYXEUErW4KvuR3HrmxqchJ1UB5gZNg5yjgRFnkIYeNzeQ+eGDhK3vnuTK+eLDu729uhLjvSKE7OX+V7A657gMI4crmfaQXA0nTSIzqL4YRGkLUSZaVO3+4utrGDKGCFy6juQdaqgweYsJ6JlZyyn5paZZssSziD6Sv8ONELAss4NArIcLaxuZaK1zcCHlP3GCATUyJ9mxwk3IsqYKrVS+Wnq1Nc3fjgQ5N5dZtx9U9DRjFPZ77UPzFu6sV2O/8Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=IgUSNDMdPhnsdoKn/zWjvSaTRimO85Q+gG/e3sbKMqk=;
+ b=o/D8KPhOyZaErO8Ed8WyfB2qxFxZFMTAeBgQ8Tuq5YF//O6Ja8RbW/bsLKq4jSSCejXIGDdKnjpH6UpKQGXw4p++T9qMn3aqE9bKQd5FCeql3KEu149frBqrKe8TvZntzJ02RbBUHe5peYMA76mwQq3CqGIssmgy7LUSvLgNcfmiybENvcrrQ6v7qW4Q+n4BOiIZBKuOU/utBTAKcAeq/4Oqq8qdCNl+Z+4fbpEiOGnrC/0RSGzc05HQJGOQG3Bs8zoif5XrwBshvmEl1jwv7bfNPDx2SH2b+QCShbNBX6qfm6k5ZnLnS5WiCd3GT0ZIxyj7fLe7WA5Qa4U5isSlSA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=IgUSNDMdPhnsdoKn/zWjvSaTRimO85Q+gG/e3sbKMqk=;
+ b=haUhhkMm/Q9fDCOmhNUWxvNR27MgjNiizj7hbQ0yTBuso654+ldUKiYBlkMsqXseQ9HfpLIbicl5NKFcHQmzPvsYm9kIJYUj60ILap/r3yljKlwuuC81qwlzy5Fdoo8ZOy4zE49AjlmqQr3E+UMFVcGcFnwrHRkKX5soTAn2BVET4oclZJTffBTwXC3cFyLdUPxHqB65Ja++xm8nPxqiB7Cwe+WSfQYYa6wMvGJq//S0NcmVrwQ21SIiABRyMrmHtLkfZaQs0LD2ZG8Ji1g6jC53Blf7vnuAjh2nc4hyk/vtGavfMEkY/fHnz2GmDhh2ISvThfUxxeSNp7Ln7UTr/Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by PAXPR04MB8960.eurprd04.prod.outlook.com (2603:10a6:102:20f::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.11; Fri, 26 Sep
+ 2025 15:06:02 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9160.008; Fri, 26 Sep 2025
+ 15:06:02 +0000
+From: Frank Li <Frank.Li@nxp.com>
+Subject: [PATCH v3 0/3] usb: dwc3: add layerscape platform driver use
+ flatten dwc3 core
+Date: Fri, 26 Sep 2025 11:05:47 -0400
+Message-Id: <20250926-ls_dma_coherence-v3-0-602b1c0ce6b4@nxp.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAMur1mgC/32NwQ6CMBAFf4X0bE3ZYhFP/ocxhG4XaaItaU2DI
+ fy7hQsX43FeMvNmFilYiuxSzCxQstF6l0EeCoZD5x7ErcnMQMBJKAH8GVvz6lr0AwVySBwlglZ
+ 93RgNLGtjoN5OW/J2zzzY+Pbhsz2kcl3/xFLJBUdVV+fKqE6r6uqm8Yj+xdZUgl1vQP7QYdVJl
+ rWSjdJG7/qyLF+2/CPb7QAAAA==
+X-Change-ID: 20250602-ls_dma_coherence-c3c2b6f79db2
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Shawn Guo <shawnguo@kernel.org>
+Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ bjorn.andersson@oss.qualcomm.com, imx@lists.linux.dev, 
+ Frank Li <Frank.Li@nxp.com>, Ze Huang <huang.ze@linux.dev>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758899159; l=3299;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=p8ByMieyHd8xhybHZuwhL62HeyTNBY85lOMLDA60/z8=;
+ b=QdGcwwz7QV2td925fzahtS5Z3hsNYWXt8VzBJlGl+RE2GQ/CRBGaK/GYZo2iy80pvK6vLQgH1
+ uhaBoVoXWKEAtYechyDtFl9hQtdIto13k21d2gxPE5BDuBcskj++cKb
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: BYAPR05CA0072.namprd05.prod.outlook.com
+ (2603:10b6:a03:74::49) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <638b9565b90714f56caa9535b7b9b96cd86100d6.camel@collabora.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|PAXPR04MB8960:EE_
+X-MS-Office365-Filtering-Correlation-Id: 6aab82fc-f7c0-42e4-4078-08ddfd0e3577
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|19092799006|52116014|376014|7416014|366016|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?N2JHOVlOcW94UGxON2lvenlzZzhGOTI3bWNkdDRvSWRkVjh0NVdQcWEwd2dC?=
+ =?utf-8?B?QjFpeTF0UDVIRjM4TjRqWWV0c3d0M3RjVVhIZFRjeng3WDJ4YXo3ZHZDRW9S?=
+ =?utf-8?B?M2REei9PUDl4NjZNVjlpWkoxRkxTY0l4dmVLMXpCT0FidmowaHkydTczZFd4?=
+ =?utf-8?B?dHZIaGRvUnhvVUE0dzFZL2dNT1Y1T2drRjNBMmE3SFUyRkpwYlhndVNOSVYx?=
+ =?utf-8?B?dUJmTlNNWjAvT2F3a09YdUFvZXF1ZjhyT3JUU29ucXVqTEtIUmJtS2tFc1BU?=
+ =?utf-8?B?b2NTWXh3dVBzRjRiQjhmSWQ2LyttRGprVTZ1eVAvV0RxdmQrWjBBOHBudXk5?=
+ =?utf-8?B?SXhiejd1K082R3FUdDI1OEF6NWJET3VjUTczdGlGV3llMW42VFZha29CQU9K?=
+ =?utf-8?B?L2tUZXZsUzhEWXFBUi8vdmNhZ3VLa0p6REQ4cDhwUU10WXoxNXVyZTd4bkJ1?=
+ =?utf-8?B?ZEtFdjdkNlpWRXVnb2lIaTNCMGVkNXoza2xGWU96WXJEcjE4eXRYcG5BSFBE?=
+ =?utf-8?B?c2ViMzBsN2hGWjJnUEw3dmU4M2gxVHRKYndwZFB1RzBScGttcnZHSUhRdXpD?=
+ =?utf-8?B?bUsyMGtQTVdybUpITGZoQUI3d3Q2MzBWWUlzSWVQWGMrSi9NQmp4VmdVN0ZQ?=
+ =?utf-8?B?NDRQRzNDbXhLcWt1d2dyVUs0RVBFOGNNR2duRjRlUE9wUTVEUlk3c0Jyc2xN?=
+ =?utf-8?B?MHM3VzVybi9mUXFvUzJWeGZDdk50a3F2VVREOWRXL3drYVFSdlFHMVNMOHYv?=
+ =?utf-8?B?VXNoT1BjSmNYTHYvdURxamU1ajVzV3pkOGtQazE0YUMrcUtHUDUzYzh1aU8w?=
+ =?utf-8?B?djRuS1F1dDM1WkU0aDJhR2ZDSGJwbndVOEUyV3lnZlN0R0NVakxGOXdLZUds?=
+ =?utf-8?B?N0dkV096UG9ycjd5RHN0RElFdXFHM0Q2MXNQMktMLzh5ZzlMUlJxeWlYN0I1?=
+ =?utf-8?B?NXRmd0VLcXRkdlo4OVhsbVRWd1VJanZPRXhxeUlwV1pPYVYyNUY3QTJhZ2Vo?=
+ =?utf-8?B?bG9nTE5HNERWRlpTUDh3N1liWTZLK2prMnF5ZFErWW5Hemh3Q3BadlNsS1pC?=
+ =?utf-8?B?aWY2WG5LQ2pqK3FVQkZGS2xqUlRGQ1dEdVZ1ZzM3WmZmWEw3RzNhaysxcHVi?=
+ =?utf-8?B?ZkNkZGtXblRUN24vWG1BdGFCZTBYZ1hIaW92MzNBMWRnWm9JaWVaSWl5bWQz?=
+ =?utf-8?B?ckNkZW9xQStSMW5DUUpCZStjcEptUWZPYXk3Y01Zb1dNaHZOc0dzR1JwZnZh?=
+ =?utf-8?B?OXltUmRMRzBpYUFKYVRXQWhNcEhWMmR0M2YvWkVHMFZjSmFvbExkMm1vWHJI?=
+ =?utf-8?B?bWpJbFlEaWVoUld0SDF6Q0ZNRGlzREFQSmEwQjVJQUVQMzBRZ2pEU1VlQnpI?=
+ =?utf-8?B?aUg2K050cFY4SGFVM0YxOWVWOUc0MFlRaWs4VDlkdnNHc2NWMkduQ2ZldXBx?=
+ =?utf-8?B?eTYrWXJPT3BVQnNxQW0rWGx1UEFkSTFyTFRoOWkvMk8yRytxQUNjM0o1QjhJ?=
+ =?utf-8?B?TUlic3k1U0xsQkZCOStVM3hvQWJJSU1ackNSTnNmbnd3cEh2NzV0akltbWNy?=
+ =?utf-8?B?MkMyWXozT2hzWlk5NnZPTk50dklDdFl5Q1lLb29tNnlNbkplbllUV2pxckdq?=
+ =?utf-8?B?bG1WY3JDRVE0aXBhdzM4VXJiaWFERlA4T1Mwc0RPQU1URDZ2b3ZXUURHd1Fo?=
+ =?utf-8?B?aDJZTjVXV1hhNStnVGlhc0tsRlplT3lxSHFSck5XaExHY3lRYVBGS1pFc3Vq?=
+ =?utf-8?B?TzJQeHYzSElISjVITEx5bjFGYWIzUGMvS29Ed21SeGdnaUREdm5xQVJEOURo?=
+ =?utf-8?B?c3BNZXJJR2ZEUHJTWUJxR2VCaS9aY3VHdUY1cnZYN1o0QlgrcktPcXlya1pV?=
+ =?utf-8?B?a0lFNUgwYkUvRFkwbS9uaHFHWnlIV0d1SExLcGhMa0tUa1FZbTJHZVBwalVx?=
+ =?utf-8?B?NVAyUm4zTW5QLzhTLytVNUpWWHV4T0UxZENtbkZZU1htRm9lRW5HRlpKcW9R?=
+ =?utf-8?B?am1JY2VlTFVBPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(19092799006)(52116014)(376014)(7416014)(366016)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?OFdsSEt4eTlMNkxpY2NYY3dRUG9oaklwd1gyWDd1dGU5TzVuVFhiS09xT0dQ?=
+ =?utf-8?B?enFyVzFJVTlGZlhOV3lKUGFTMzB4bElKUlZSYk9BZk9uc043YWNjUWhsTWFY?=
+ =?utf-8?B?RUZTQWNKZVV3YkxuL21LMmphYllURWtrdUNpVEJ2YWltZFU1M2JCaDI4MzNW?=
+ =?utf-8?B?N245amQ3dWJ0a1l0TFMzK3NjRVZkQytpS2JxVEprVXhSUmtWdjJVM3RRYktl?=
+ =?utf-8?B?L0ppVUJjbEcrNFFNWWJ3Vi8rOE1qS3NSbzZFU1RvNGZiSXdqTi9rY1VmcVkr?=
+ =?utf-8?B?MzJQSVpHaVRYN3dXNE9rVlpONUlVSDhQMllGMFB6R1FvVTJVOER3bmxLczg3?=
+ =?utf-8?B?QjN2N1lwZ1NvVStISXFyMzZTNzNST3IxdnlGNUY4SnhwSmJzY1VDNitaQU40?=
+ =?utf-8?B?RGxsZjc0bXhJOURmWXVlTzJTbGdWYWtQWG5VOGN6bW5qLzk3aDdzWDJUaDJs?=
+ =?utf-8?B?dlB1N0JjWE84N2NnZ1pNMm9sd0dRT241NnhTSUE1ZmFobVJzejdaSkJKdlJL?=
+ =?utf-8?B?TzJObmR6d0thOXBYS2JnTUVZc2hDZHlqdUoybTJtcUc1R0FITU1wbWJqV0R1?=
+ =?utf-8?B?bjlZazJ5V2lEZC9rZnVTUW9tSTJSQmd3TG9VSEkzQ0dtaVk1dFhrcW8wYTVO?=
+ =?utf-8?B?SDE5cUxRK2VOczQwWVNYZVBlTUdVUU5ZcGlZdU1pYkNrQ1k4SVg1NTFQd2Ry?=
+ =?utf-8?B?d0pDTDJmRTZDdnlFOUVIc0w0VUFmdmd2Z1pmdFVjU2RaM25VNDhpL1ZJOVJz?=
+ =?utf-8?B?TFJ1bnZ6YUdEL1RIWXZCaEhwbXRIMTZwZjBrTVJrRlhvK3IxcGljZHJVOCtx?=
+ =?utf-8?B?dVhrb1BzMFREV0dnVm1GKzZsR1pJbmVCYlpwcGFmaVI3NGUzSkRqQ0pNdm1r?=
+ =?utf-8?B?T2lrS1JpcjY3MTl6dzJnYUR2M2Z3Y25RZFNMK0xVNVdhbE11WlB0WkZiZTJL?=
+ =?utf-8?B?REthanZJMWpXYUNKTVkwVTl6Uzh0ZS9lMkNXbGhxVEVBSWhyMU94TmhGZjJ0?=
+ =?utf-8?B?M1lxbWJsZXdpZ25EM0pyaEtieml5OUhlaFIxUTRsaXd4WmlON0Z3ZjhDRFdx?=
+ =?utf-8?B?dkxzMEtsc1ZCOVB4VnE3ZDJLWUtHOUdJSTVjOWpEYlBDZXFhQkZPRXRpWm43?=
+ =?utf-8?B?dFRZQXdUMlZieG9CUXcreFFrUUxONGZYNFRvZ2tnbkk3SGxYYWhINnRBcDNT?=
+ =?utf-8?B?TUhkQnRYWktXYU96OGxHaXdWTHpSL1Q2MFR3dTl0NHBMT1ZJLzRoYVY0R0I0?=
+ =?utf-8?B?ZmVaM2tZQ01xK1A0RnlvUGJVZVNaK1ZxdDVQa0xvdHhaTTNyNEttSkhGYU5C?=
+ =?utf-8?B?R2tjdHh6eHhNenFOVXdUUFVUbTFqL0UwaEFlRTNZRnY5Z3hpMEVwN0IweE5q?=
+ =?utf-8?B?Y0QvNkVpMkJkakQ2L1VRK0V2Q3FjbnloUTE1eE8yUWVzc21yYUg0U1VVbGpZ?=
+ =?utf-8?B?ZHpVeUJXTzgvNE1nZHZwaTJXQ2FqQkoxUGM2YnduSjVydENxdDFHMkJJZlFn?=
+ =?utf-8?B?UkdDanpFeC90NFNYVkZPRW9OOXQ4dzVxekR0TFhDQmZaQmxSWU43TkJER2lG?=
+ =?utf-8?B?WHVHMDZ3ZFhaeVdJaFZqRm1GV3BWd0x4R3NsdXhzVmVoS3JkeENTblVsajI3?=
+ =?utf-8?B?dGRibXZEME4ybklja2x3SVR6K1F5Um0yYXN0MXYwc2QydmRvOCtCaGFubGJX?=
+ =?utf-8?B?T1psUXRrRHlqR2Fnb3hrVkVqWmNUbUFhd2Z5VHBoWG1HNTRQdm5Wd3Fmdm9u?=
+ =?utf-8?B?QklKeFZxT0NsWTVHdjBEWGVzYnZqdlkrOE1MUTVucy9VZVlqMVRGUm5yQjNW?=
+ =?utf-8?B?T3VtT0JvTUxLd2orUnA5U0JLblJxNzQ1SWlIbU9ER0pjcFNlWXl4T1dHVE5v?=
+ =?utf-8?B?NFFjSTVmNDVWanpNZ3c2NVBlYzRueW8rby9FRzBLaW9TekMwVHBhaHNLamVC?=
+ =?utf-8?B?RG13M0FTRnBrdGNWbTFCSEp2Nms2MFBDcUJINDV6d1l1dndDL3lUbW5xTzRu?=
+ =?utf-8?B?c1R0OGZSZWRmS1JlbnQzejE1TkRXZWZNM003aWJoWHdieW9qTWFWS2IvTVJw?=
+ =?utf-8?B?OG5GMEkrdWN1disxZFozeWFmY3VEa1hhQnU5VW9CblZUcUpFYzJaUWhKbzRM?=
+ =?utf-8?Q?5+jSpWIzpHkwxaPZt0TlOa0d5?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6aab82fc-f7c0-42e4-4078-08ddfd0e3577
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Sep 2025 15:06:02.6242
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 0PunWlqydNpDQVo0DA6TvyFnMz6CRetNFAjo0kT43XCR9pjW4ktGR7R3GyIwOnn21yex+ZJnDq3cFbpBSPcT/Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8960
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_080214_060445_DBE2A955 
-X-CRM114-Status: GOOD (  29.36  )
+X-CRM114-CacheID: sfid-20250926_080607_812038_A486F816 
+X-CRM114-Status: GOOD (  13.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,66 +190,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 26, 2025 at 04:28:48PM +0200, Sjoerd Simons wrote:
-> On Fri, 2025-09-26 at 15:07 +0100, Mostafa Saleh wrote:
-> > Hi,
-> > 
-> > I am trying to run Linux[1] on my Rock PI-4b, which I see is supported in
-> > the kernel in “rk3399-rock-pi-4b.dts”.
-> > 
-> > However, compiling “defconfig” (ARM64) and flashing my Image doesn’t
-> > work,
-> > It just hangs before any console (even with earlycon), I tried to also use
-> > some of the vendor configs with no luck.
-> > I did some research and found that [2], which indicates that the upstream
-> > support has been broken for some years?
-> 
-> We've got the Rock 4b in our automated testing lab as part of kernelci and other
-> efforts. Upstream works just fine on those boards, so it's likely an issue in
-> your setup.
-> 
-> See e.g https://lava.collabora.dev/scheduler/job/19978558#L525 for a recent
-> upstream kernel boot.
+Add layerscape platform driver use flatten dwc3 core to enable dma-coherence.
+It needs set gsburstcfg0 to 0x2222.
 
-Thanks a lot for the quick response!
+There are some several try before:
+[1] https://lore.kernel.org/imx/20240710-ls-dwc-v1-0-62f8cbed31d7@nxp.com/
+[2] https://lore.kernel.org/imx/20240123170206.3702413-1-Frank.Li@nxp.com/
 
-I can see some differences between this log and my setup.
+[2]: add new property, which was reject because there are no varience in
+the soc. Fortunately the below commit resolve this problem by use software
+managed property.
 
-1- My uboot seems ancient
-   U-Boot 2017.09-00026-g2431fa34678 Compared to U-Boot 2024.07-rc4
+d504bfa6cfd1a usb: dwc3: enable CCI support for AMD-xilinx DWC3 controller
 
-2- The board model in this log is not 4b as mine
-   Model: Radxa ROCK Pi 4A while mine shows Model: Radxa ROCK Pi 4B
+[1] was reject because there are not actually dwc wrap at layerscape
+platform. Fortunately Bjorn Andersson's below patch to make it possible
+by use correct dts dwc3 node layer out.
 
-3- I am using LLVM not GCC (I don't think that matters though)
+613a2e655d4dc usb: dwc3: core: Expose core driver as library
 
-4- I am using MMC to boot and not TFTP
+This resolve problem [1] and [2] by use flatten dwc3 core library.
 
-I will try to look more into the differences, and update this thread in
-case I was successful.
+1. add soc specific compatible string at dt-binding.
+2. create platform driver for layerscape chips and pass down gsbuscfg0 if
+dma-coherence enabled.
+3. update layerscape dts files.
 
-Thanks,
-Mostafa
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Rob Herring <robh@kernel.org>
+To: Krzysztof Kozlowski <krzk+dt@kernel.org>
+To: Conor Dooley <conor+dt@kernel.org>
+To: Thinh Nguyen <Thinh.Nguyen@synopsys.com>
+To: Shawn Guo <shawnguo@kernel.org>
+Cc: linux-usb@vger.kernel.org
+Cc: devicetree@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: bjorn.andersson@oss.qualcomm.com
+Cc: imx@lists.linux.dev
 
-> 
-> Regards,
->   Sjoerd
-> 
-> 
-> > 
-> > Has anyone tried to flash a recent kernel successfully on it? or any
-> > tips are greatly appreciated.
-> > Otherwise, maybe it can be removed to avoid misleading other developers
-> > (I got this board to do some upstream kernel development on)
-> > 
-> > [1] base: 4ff71af020ae59ae2d83b174646fc2ad9fcd4dc4
-> > [2] https://wiki.radxa.com/Rockpi4/dev/kernel-mainline
-> > 
-> > Thanks,
-> > Mostafa
-> > 
-> > _______________________________________________
-> > Linux-rockchip mailing list
-> > Linux-rockchip@lists.infradead.org
-> > http://lists.infradead.org/mailman/listinfo/linux-rockchip
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
+---
+Changes in v3:
+- rename gsbuscfg0 to gsbuscfg0_reqinfo
+- Link to v2: https://lore.kernel.org/r/20250923-ls_dma_coherence-v2-0-ce3176396bdb@nxp.com
+
+Changes in v2:
+- base on drivers/usb/dwc3/dwc3-generic-plat.c
+
+commit e0b6dc00c701e600e655417aab1e100b73de821a
+Author: Ze Huang <huang.ze@linux.dev>
+Date:   Sat Sep 13 00:53:48 2025 +0800
+
+    usb: dwc3: add generic driver to support flattened
+
+    To support flattened dwc3 dt model and drop the glue layer, introduce the
+    `dwc3-generic` driver. This enables direct binding of the DWC3 core driver
+    and offers an alternative to the existing glue driver `dwc3-of-simple`.
+
+- Link to v1: https://lore.kernel.org/r/20250602-ls_dma_coherence-v1-0-c67484d6ab64@nxp.com
+
+---
+Frank Li (3):
+      dt-bindings: usb: add missed compatible string for arm64 layerscape
+      usb: dwc3: dwc3-generic-plat: add layerscape dwc3 support
+      arm64: dts: layerscape: add dma-coherent for usb node
+
+ .../devicetree/bindings/usb/fsl,ls1028a.yaml       | 33 ++++++++++++----------
+ arch/arm64/boot/dts/freescale/fsl-ls1012a.dtsi     |  3 +-
+ arch/arm64/boot/dts/freescale/fsl-ls1028a.dtsi     |  8 ++++--
+ arch/arm64/boot/dts/freescale/fsl-ls1043a.dtsi     |  9 ++++--
+ arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi     |  9 ++++--
+ arch/arm64/boot/dts/freescale/fsl-ls1088a.dtsi     |  8 ++++--
+ arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi     |  8 ++++--
+ drivers/usb/dwc3/dwc3-generic-plat.c               | 33 +++++++++++++++++++++-
+ 8 files changed, 82 insertions(+), 29 deletions(-)
+---
+base-commit: c45d2c21b3889c520bf141d576eaecb25666895c
+change-id: 20250602-ls_dma_coherence-c3c2b6f79db2
+
+Best regards,
+--
+Frank Li <Frank.Li@nxp.com>
+
 
