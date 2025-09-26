@@ -4,77 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 563ABCAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 20:39:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B72E9CAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 20:44:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Date:Message-Id:
+	References:In-Reply-To:From:Subject:Reply-To:MIME-Version:Content-Type:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=tswpO0bn33EppkxfBCRpVv8MY6X4lWNAHQdfiqTbRlA=; b=c0FY+d+9xM/R9f
-	ccF675L1K3vLl65eAlaJxP3T9NbG5EatuxezCCj/NkaRVf90s+RsGBfAqQpfHI59RLXo4BlI6dxBa
-	OFh8A1TvQ17NH24LP/irgY1SW7AOO3B4NaEjTCiVPEwmNjCDtXo8GaowwjhWi7S+fdF/tpuQxmTso
-	sQD9lmPlbw31beKkfu5RfrJ7Tji6cksGu1VNVgDeu4/DHTQbir7/mj1574lJOGgN5r0kY61ybngLY
-	+w/VGlGN8jbCah0U6/htQ3FGBgsY5dRBiWZJ63j+7f7Ue5ltNFWPwMToE7jEmo+dkEm1Wn54HHMV0
-	weKQ/P3VhTL6p7BSRsog==;
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=9yMPl4ZKifSPGmgzH6tla29PwWr0sr+rO69J+eVLu8E=; b=OBG3SI/MhM/RDsVhiIj820+lnB
+	c/VWkIOXSsS7njhOB6l7Nd45BXagE+i+lIju22ThMPBkxuMxMXSNlYZCJW8kcJY/dVFL1nKws3SsE
+	n/CmhPVvQmRSeRqOG30yLqp0OvjbPlGaJNDbqGJyV4PmwfZGdDfFxoCCo4NBV/duVwQHNv7poherM
+	qTc0g2gtdi1jIXehX5GRBuqzP+1ScQGNyOf/f3Qb1DZa4RsKXHgp0DheZQ4vaF38A2GNL218T1lr9
+	ibVtywJ3NJW6khSEfrKtP9E9eV2XCcgID7s2E8W5twMYtwkAUMTrfhpyOsBFVT5Hx5RCfkc1vRtgO
+	6yAGiisw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2FDt-00000004MQr-2glY;
-	Fri, 26 Sep 2025 20:39:21 +0000
+	id 1v2FIo-00000004OmE-1X3X;
+	Fri, 26 Sep 2025 20:44:26 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2FDr-00000004MQU-0wO1
+	id 1v2FIl-00000004OlO-2oub
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 20:39:20 +0000
+	Fri, 26 Sep 2025 20:44:24 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 961B94432B;
-	Fri, 26 Sep 2025 20:39:18 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42628C4CEF4;
-	Fri, 26 Sep 2025 20:39:18 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 95CF7459E8;
+	Fri, 26 Sep 2025 20:44:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7399BC4CEF4;
+	Fri, 26 Sep 2025 20:44:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758919158;
-	bh=DN6Qwr15i5uFVBUupd5QlMIvaTum5HUKi8sCfH8FrpI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=siIOIe/Jddewm5lK6in8+WPYGB83DvHTHmJw3qcHCKgl88DH9uAFCnU/alvTGc771
-	 HZ12gzaoeJTS2ZkiYCJxQzvubH66i1yvLvWqsXZThEA2S4AUp8IBYfDtF3wmLthmwl
-	 Zv8lVXGvZWxl0wCFVwRTCzbA3kl76iI3kx4k3oF027IRHXN1J6qdwSPh/+LecMZDVL
-	 IJ4rK4CW9SH0NU08vEURQ0FbvY3v57TZWJfd05qWly7IM3b6wd/kCvJcAt/i1j4SHI
-	 qQlk5c1Tb+Pp3R8+mV3n7mdHgce6ljgKFjzO3hdzrCwrBoTxvDZwZxk12Nzlxs7NlL
-	 5yD7MXLqyUDtw==
-Date: Fri, 26 Sep 2025 15:39:16 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-Cc: Manivannan Sadhasivam <mani@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	chaitanya chundru <quic_krichai@quicinc.com>,
-	Bjorn Andersson <andersson@kernel.org>,
-	Konrad Dybcio <konradybcio@kernel.org>,
-	cros-qcom-dts-watchers@chromium.org,
-	Jingoo Han <jingoohan1@gmail.com>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, quic_vbadigan@quicnic.com,
-	amitk@kernel.org, linux-pci@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, jorge.ramirez@oss.qualcomm.com,
-	linux-arm-kernel@lists.infradead.org,
-	Dmitry Baryshkov <lumag@kernel.org>
-Subject: Re: [PATCH v6 5/9] PCI: dwc: Implement .start_link(), .stop_link()
- hooks
-Message-ID: <20250926203916.GA2266029@bhelgaas>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <4a3f9494-27a2-47d6-bdef-0b1bcbd99903@oss.qualcomm.com>
+	s=k20201202; t=1758919462;
+	bh=gbih4vMxJwa0NyttLI9rVwuk5qr34L04OnrZlGsM3dg=;
+	h=Subject:From:In-Reply-To:References:Date:To:Cc:From;
+	b=YwjjsIoD4jPmkhi8AgTdhzQGK+X0fNbSDKJy4Nk6E1A6yOrgwnO/sq01F4Z0IloF8
+	 LYPeTA0mqFq4jfvPs4wPANjCG0fIoxpNV0+5i/H3uR3LG9ICTgB7IVS/PRTvyXMKZ+
+	 477F8MJNzQ1XN6TyxAOcsHujLEYitV+mofzTYZ55m99KGCvRlH9/KSrgPIjIWBLV5p
+	 AZT/rrFVkPSEtrX0vJQqWXPgUWKJeLw1ELRpDHleBZjCoIbx5Lxd/MPl/2lgv39PTe
+	 Vr44Z/FbFm8dhTsxJN0vvsiOt/O/eFFd7iJMV9A3rGSbDRWdhx4wlKFwtVl1ooqShm
+	 f15jg66QZx+nQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EAD5339D0C3F;
+	Fri, 26 Sep 2025 20:44:18 +0000 (UTC)
+Subject: Re: [GIT PULL] pmdomain fixes for v6.17-rc8
+From: pr-tracker-bot@kernel.org
+In-Reply-To: <20250926124327.212581-1-ulf.hansson@linaro.org>
+References: <20250926124327.212581-1-ulf.hansson@linaro.org>
+X-PR-Tracked-List-Id: <linux-pm.vger.kernel.org>
+X-PR-Tracked-Message-Id: <20250926124327.212581-1-ulf.hansson@linaro.org>
+X-PR-Tracked-Remote: git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.17-rc2-2
+X-PR-Tracked-Commit-Id: 5fc4ab3269dea6a0b00c7256cb6f6c0101b6a44b
+X-PR-Merge-Tree: torvalds/linux.git
+X-PR-Merge-Refname: refs/heads/master
+X-PR-Merge-Commit-Id: 0d97ef77425e591669111ebf819ceb5d5e2dc329
+Message-Id: <175891945757.51956.2518306762590478395.pr-tracker-bot@kernel.org>
+Date: Fri, 26 Sep 2025 20:44:17 +0000
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Linus <torvalds@linux-foundation.org>, linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org, Ulf Hansson <ulf.hansson@linaro.org>, linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_133919_304873_9BBB687F 
-X-CRM114-Status: GOOD (  42.36  )
+X-CRM114-CacheID: sfid-20250926_134423_730885_D14D7B36 
+X-CRM114-Status: UNSURE (   4.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,75 +78,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 26, 2025 at 07:09:17PM +0530, Krishna Chaitanya Chundru wrote:
-> On 9/25/2025 10:55 PM, Bjorn Helgaas wrote:
-> > On Thu, Sep 25, 2025 at 09:49:16PM +0530, Manivannan Sadhasivam wrote:
-> > > On Thu, Sep 25, 2025 at 09:54:16AM -0500, Bjorn Helgaas wrote:
-> > > > On Thu, Aug 28, 2025 at 05:39:02PM +0530, Krishna Chaitanya Chundru wrote:
-> > > > > Implement stop_link() and  start_link() function op for dwc drivers.
-> > > > > 
-> > > > > Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-> > > > > ---
-> > > > >   drivers/pci/controller/dwc/pcie-designware-host.c | 18 ++++++++++++++++++
-> > > > >   1 file changed, 18 insertions(+)
-> > > > > 
-> > > > > diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-> > > > > index 952f8594b501254d2b2de5d5e056e16d2aa8d4b7..bcdc4a0e4b4747f2d62e1b67bc1aeda16e35acdd 100644
-> > > > > --- a/drivers/pci/controller/dwc/pcie-designware-host.c
-> > > > > +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-> > > > > @@ -722,10 +722,28 @@ void __iomem *dw_pcie_own_conf_map_bus(struct pci_bus *bus, unsigned int devfn,
-> > > > >   }
-> > > > >   EXPORT_SYMBOL_GPL(dw_pcie_own_conf_map_bus);
-> > > > > +static int dw_pcie_op_start_link(struct pci_bus *bus)
-> > > > > +{
-> > > > > +	struct dw_pcie_rp *pp = bus->sysdata;
-> > > > > +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> > > > > +
-> > > > > +	return dw_pcie_host_start_link(pci);
-> > > > 
-> > > > This takes a pci_bus *, which could be any PCI bus, but this only
-> > > > works for root buses because it affects the link from a Root Port.
-> > > > 
-> > > > I know the TC9563 is directly below the Root Port in the current
-> > > > topology, but it seems like the ability to configure a Switch with
-> > > > I2C or similar is potentially of general interest, even if the
-> > > > switch is deeper in the hierarchy.
-> > > > 
-> > > > Is there a generic way to inhibit link training, e.g., with the
-> > > > Link Disable bit in the Link Control register?  If so, this could
-> > > > potentially be done in a way that would work for any vendor and
-> > > > for any Downstream Port, including Root Ports and Switch
-> > > > Downstream Ports.
-> > > 
-> > > FWIW, the link should not be stopped for a single device, since it
-> > > could affect other devices in the bus. Imagine if this switch is
-> > > connected to one of the downstream port of another switch. Then
-> > > stopping and starting the link will affect other devices connected
-> > > to the upstream switch as well.
-> > 
-> > Link Disable would affect all devices downstream of the bridge where
-> > it is set, same as dw_pcie_op_stop_link().
-> > 
-> > > This driver is doing it right now just because, there is no other
-> > > way to control the switch state machine. Ideally, we would want the
-> > > PERST# to be in asserted stage to keep the device from starting the
-> > > state machine, then program the registers over I2C and deassert
-> > > PERST#. This will work across all of the host controller drivers (if
-> > > they support pwrctrl framework).
-> > 
-> > I don't think there's a way to implement .start_link() and
-> > .stop_link() for ACPI unless it's by using Link Disable, which is why
-> > I asked about this.  If Link Disable *does* work, it would be a very
-> > generic way to do this because it's part of the PCIe base spec.
-> 
-> We did test as you suggested but unfortunately the setting are not
-> getting reflected we need to explicitly assert perst to make sure
-> pcie is in reset state while applying these settings.
+The pull request you sent on Fri, 26 Sep 2025 14:43:27 +0200:
 
-Maybe ".stop_link()" is the wrong name if what's actually required is
-PERST#?
+> git://git.kernel.org/pub/scm/linux/kernel/git/ulfh/linux-pm.git tags/pmdomain-v6.17-rc2-2
 
-This feels like the kind of problem we are likely to see again in
-different topologies, e.g., a switch in an external enclosure that
-needs configuration.
+has been merged into torvalds/linux.git:
+https://git.kernel.org/torvalds/c/0d97ef77425e591669111ebf819ceb5d5e2dc329
+
+Thank you!
+
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/prtracker.html
 
