@@ -4,92 +4,169 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4E9DCAC5AC
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 09:25:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41FD8CAC5B9
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 26 Sep 2025 09:31:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
-	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k/7KnSoEHO6Q+y10Pw4nJ0Fx1mX0Xj32P5DNhE4ALAw=; b=gmYcaHugkVa+pXSOZ3ps/mahJN
-	3Rzgr7PS+LqIGYHfXGvP3UladNecBu134ftD+53Rc+lTA/8J0IMIVcPL4lMWvHGcG6XiM2CQl+CT5
-	9ZfPopbjwwrHWkCFfE5GpUz9hML0gdmod3nq9ewRhlhQxf3WS0bustTU03yfcCPneEEVhR3zHuwdC
-	4qKUDLGruAkuc3D4pcXwxH21eIf95w2mkh3j6vD4pW9yMQf8GSTLzTmXxbzC7Zgqlr2bACv7dCsCI
-	51PPKNHAtv8lNU35503fdpqpRuoUqewxpVbCzODftpPPLtTmTnAloSStDSEow03jvE1BGoGcTkGZp
-	vJRKx1GQ==;
+	bh=Yri90RlP39Bp+d0/wXGLp+l3FpKKx1aegV6kXSLzCQs=; b=reYSG9rNVhjV19EZKKSOqC/GHU
+	3mbjLP3BqbcS9e3cqrZ1Dbgb5gG8WKxeG4dg/EduGmGIEYa9ftpJtWgKjZDjdotjvZp2XdReswpGE
+	PqpTil4r970+E+2mOq+ozHPI03Zeka4Zep6WfEmjPXDoFiwENpzv/JptQgNECmmLnVsJ17BhVyt+0
+	jh9Gzzr0lZgIl37c9zaH1mqXwx6zkQ8h0BVmaUzLAV3aj3QeSB7KRUOmkOIdmiy8SZYWGEmfnJasJ
+	/xuMzcGBFJYSwvOjx2idYJelom6KhQGfd5u+tNfLPIg4rjeq2MpDpDXtxuqrAa1jwcPhsG6I8Ieki
+	qt1Fv6EQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v24hg-0000000HXXL-0fcp;
-	Fri, 26 Sep 2025 09:25:24 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1v24nQ-0000000Ha6s-176W;
+	Fri, 26 Sep 2025 09:31:20 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v24hc-0000000HXU5-1caB
+	id 1v24nN-0000000Ha4a-0HfA
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 26 Sep 2025 09:25:22 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-62fa99bcfcdso3820039a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 26 Sep 2025 02:25:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1758878718; x=1759483518; darn=lists.infradead.org;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=k/7KnSoEHO6Q+y10Pw4nJ0Fx1mX0Xj32P5DNhE4ALAw=;
-        b=t9Ds2MeXxOD5HcOGv7cQgTnSTLEEPg9UtuB1r43Ww1rOPxCTp5DyXI877pix7k5arg
-         N4PNMqu6l5Bse5zC1Qxpk4DT7l6cbpudZ6eLa1Etk4dZoj6zyxmz1pnr1PWhCeaClD2c
-         1jVZF2AlRAXX9aATPs1JYM4oFFDSkSjgbugjPlk0lbD07SrlwQslX4Xg3G44kXuQAGbL
-         r+ukp9v1RcutgKS4ngYDox5s2Dv/ZyuEtaE/bnoaRgHjGWvQPceR548X3rV7t4algdwQ
-         o6IaKh0k1QaRsayDdfGzzX4L4hW5n3CD5tabDwGYnXMkbM98vIJmG/b7XEpLUFexkhDj
-         kg+w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758878718; x=1759483518;
-        h=in-reply-to:references:to:from:subject:cc:message-id:date
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=k/7KnSoEHO6Q+y10Pw4nJ0Fx1mX0Xj32P5DNhE4ALAw=;
-        b=dw9OwJNNX31pE63EUEGk00fQk0h/Fle7Z95uJqoRqIB35Fgq2/DBwooJGpwaq1Crgi
-         9pPkKLmbmfz5J/w+2TdUq/MrC8o00dmJQrtLuLz0TASHFpW3BIRFLiNHBWpVCmLRihak
-         H8rfxJx9zKcRBKH05Ooob/XOa3f1YREi5yw4NGGez+93GGOJ2BtbdF9eXOeRqOuc/uvK
-         jJEDXkpDlB8tvJ1JEzhakG31wLkyaoKbyvt6sPnWL2ipQTInCQuwmplJnVcRj86xNiAP
-         1+k8J7bl+PT2XsripYkldRz2m+xbtOh0IX61y8Toi8/O3txY0W/tVM9qsGtYQHqUJ3q+
-         49pA==
-X-Forwarded-Encrypted: i=1; AJvYcCW43rmHo20RhbcpabXrjJnlAbF9N40WYegwn7HMXIEwEYK2034/Kh2WZjRZR3vP1vH03dUGLrikGoegGrDRNL4A@lists.infradead.org
-X-Gm-Message-State: AOJu0YzIO2mOkaTyMog2w9cKc2RdZAWQRMdFqOeBFUtuyZGhAYiXuu/z
-	Y8BzUIKO6rU4UIWfcIJ5d9abdNG/A66cikzbug0XSCXo8MsemdoR+z5GfOgKz3SZCyc=
-X-Gm-Gg: ASbGncsbId5xRUpTUV/iKlTt4qpaTVv7W+ifDy8tVFlrE5BE4YEZz64Z2ScFyiapBTR
-	mR0o5JKPPqm+JPVAuEGtLWm5FSmRPCeBk6RRw/IjYjRAN1P30yOMTDZVg9whZ8ZwaaMlv7G4WPP
-	4fwNhsRoW6QuEJqRn/osL3EveO8uiL2191dNzffTrIrKIrdyaycZ/ry4DqZ2aEzjj9aU9KSLkTg
-	s0wC5NL44ch6VlMdxZzOxizv0CoK0LqzZyBqNzNdiwUQBAsGDts+hjJ2WsujtVPaMk4Ry0C2H3/
-	IJApOCQy5uJOsAHfnRZ+8Kmc/6/StJZU2hAFI2AXUdF+ZBS9CZTXBXcN4/O+osgktZLMj6wUFjs
-	yD0IeKZZRlo/s/js/aNFgJvZcILfFKWGFEYJe
-X-Google-Smtp-Source: AGHT+IEJQrKUnSzYQN5L/Z3qQi8ycCnSGseY5gC0pPJuGx7RQ4p3T8BSAU1abLUUr8cnY3qJZ6eTXw==
-X-Received: by 2002:a17:907:9451:b0:b2d:a098:ad01 with SMTP id a640c23a62f3a-b34bbebe257mr719981766b.51.1758878718079;
-        Fri, 26 Sep 2025 02:25:18 -0700 (PDT)
-Received: from localhost ([195.52.63.148])
-        by smtp.gmail.com with UTF8SMTPSA id 4fb4d7f45d1cf-634a364fd05sm2553079a12.13.2025.09.26.02.25.15
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 26 Sep 2025 02:25:16 -0700 (PDT)
-Mime-Version: 1.0
-Content-Type: multipart/signed;
- boundary=49a9f11264181de2036887cb7d9491dd520f43cb0d8ef1d42acfc07ce21a;
- micalg=pgp-sha512; protocol="application/pgp-signature"
-Date: Fri, 26 Sep 2025 11:24:56 +0200
-Message-Id: <DD2MGMEFW5NT.1L6C0O4J23ZE5@baylibre.com>
-Cc: "Nishanth Menon" <nm@ti.com>, "Tero Kristo" <kristo@kernel.org>,
- "Santosh Shilimkar" <ssantosh@kernel.org>, "Vishal Mahaveer"
- <vishalm@ti.com>, "Kevin Hilman" <khilman@baylibre.com>, "Dhruva Gole"
- <d-gole@ti.com>, "Sebin Francis" <sebin.francis@ti.com>, "Akashdeep Kaur"
- <a-kaur@ti.com>, <linux-arm-kernel@lists.infradead.org>,
- <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v7 2/2] firmware: ti_sci: Partial-IO support
-From: "Markus Schneider-Pargmann" <msp@baylibre.com>
-To: "Kendall Willis" <k-willis@ti.com>, "Markus Schneider-Pargmann"
- <msp@baylibre.com>
-X-Mailer: aerc 0.21.0
-References: <20250812-topic-am62-partialio-v6-12-b4-v7-0-ac10865c2d87@baylibre.com> <20250812-topic-am62-partialio-v6-12-b4-v7-2-ac10865c2d87@baylibre.com> <20250923174904.s6jqj35uizclpsxd@uda0506412>
-In-Reply-To: <20250923174904.s6jqj35uizclpsxd@uda0506412>
+	Fri, 26 Sep 2025 09:31:19 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=vsBD6eyoZWKUxsjGwzREgYSSwVWY+XgGe5DRLMMyUYhphvwqZla9XwW4mxSKohI9eBT9oCqphuj9ojQnzN7pUAEmyYD0qk2ZMvTgewD77Eu0tK24tkcKMh7mqiMjvSoOU/LnLCp1jo4L0hGI01OkdIIm8YVsSeH/EL3Ax1GPg71F5dk4ld2iXFILX4KlXYZaZ4aETOLAL4jscSd5HKv/TMGeCoFO6URlG5DkKfF55ejJUVR3WOpavIItYv+hZzQc97pEqRq3H9mAe/C+i+3LEzVPNS1QdFxOegBESvTU471BMQRjsniLO6FSpBC0Zpf0l/39GYYEbFqfpgmrqDAjNg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Yri90RlP39Bp+d0/wXGLp+l3FpKKx1aegV6kXSLzCQs=;
+ b=vdgtH0uWxyP3AfdOTgVMSbJXnVBfZVzResezhNpGaKfejijJpSLl4JWP5j32MLG6qrjFBjuwlIFP6idPJE1JArZeSeHpdou8Ir/+4XkUfcCjMUHRW/wqsbk7YsQkNG7Ee3QnG6l9VsqQOtvF9XmqYO6XWABMU8bv34A4BoiVYJYEztdFmrP+vjq+eo8cLrgv6xF8Uke9AOW/d8OO86ZevW6tgj5C61g10G2+Y382L1dZD60s5fuDolTVncuV18dzQ7G4XTNK+YIyfsIBc3r+l04dvtEUVDzwFXvx76VMshzgtA5dXv0yQFTDan3iX61NtDTWirhblY9aDYAJFRHJTA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=prevas.dk; dmarc=pass action=none header.from=prevas.dk;
+ dkim=pass header.d=prevas.dk; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=prevas.dk;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Yri90RlP39Bp+d0/wXGLp+l3FpKKx1aegV6kXSLzCQs=;
+ b=HkwksE4dt1zAoiqlxQFj8gp/gENzu69oqFmwTmmo5a/6UWsYx+TuSOtFLEsctegxkS422Zrb22sqvPIumRcQ8lWKMUxZU7IKSNQPSUY0vutlOUsJ0W+4t3DzJRL+gYnTLS7R2Rnhp5pwHtISrw/iEOpIaSZRN/i+5qHaXm0X2cM=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=prevas.dk;
+Received: from DB9PR10MB4747.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:254::16)
+ by AS1PR10MB5746.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:20b:47d::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.13; Fri, 26 Sep
+ 2025 09:31:06 +0000
+Received: from DB9PR10MB4747.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::7956:ad04:35d8:6f0b]) by DB9PR10MB4747.EURPRD10.PROD.OUTLOOK.COM
+ ([fe80::7956:ad04:35d8:6f0b%5]) with mapi id 15.20.9137.018; Fri, 26 Sep 2025
+ 09:31:06 +0000
+Message-ID: <4a97f86d-a466-41bb-860c-ed64715d1bd0@prevas.dk>
+Date: Fri, 26 Sep 2025 11:31:05 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] ARM: dts: imx6qdl: make VAR-SOM SoM SoC-agnostic
+To: Frank Li <Frank.li@nxp.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250925104942.4148376-1-stefan.prisacariu@prevas.dk>
+ <aNXAaewv/MpqL78M@lizhi-Precision-Tower-5810>
+Content-Language: en-US
+From: Stefan Prisacariu <stefan.prisacariu@prevas.dk>
+In-Reply-To: <aNXAaewv/MpqL78M@lizhi-Precision-Tower-5810>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MM0P280CA0017.SWEP280.PROD.OUTLOOK.COM (2603:10a6:190:a::6)
+ To DB9PR10MB4747.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:254::16)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB9PR10MB4747:EE_|AS1PR10MB5746:EE_
+X-MS-Office365-Filtering-Correlation-Id: b5338154-4a5b-4c0a-898a-08ddfcdf6b69
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?dS92ZlFSN2tBUUp3bGlRNkpSZGhUUWgyQVJscGVUU1lPQTR4M1YxcllyYnYz?=
+ =?utf-8?B?dVdGcWcxaTlyN3RHM2ljbmt4dzVRdEZ2emR3a0kvSTZnZGt1Y2l4ZTZRWXVC?=
+ =?utf-8?B?Z3AzQ3NlMUE2TnVueWIrOHQ1YjlNdnQvQ1hZOWllVEpjVzI2ektKdFBrOFNh?=
+ =?utf-8?B?WTNYSDIzYy9qclBGWGo3M2RYenVSUzIxaVZSc0k1cFVqMURFQmpHSXdRRjNT?=
+ =?utf-8?B?ZVI0ZFIvM2ExODBFRWlseCtZR1luRFdIOFBCVGtXZ3JCNjZHNktlOFNieG1T?=
+ =?utf-8?B?RVRYRHFqTllmdmxSNko4TUNENkRBQXpWZnZGclQ0Y0VxSWdJTXFmVG9rS3Fq?=
+ =?utf-8?B?VGVPbnZBUWE0cDBVZDVreThiNGpSNTZ0clBIczlRanJOZ2p3SG1rU1RjQklz?=
+ =?utf-8?B?cUVidC9WNjZaWHh2am10NTBsTDg1RkF3Z3VZSkNYVmVoVzVGclpESFNYTVg4?=
+ =?utf-8?B?cGxENWdmNGQxUktQd3V1V09Way9rWllCWEd3Q004N2R4dmhMdzVwVE1xZyt0?=
+ =?utf-8?B?VmN1NlZCR01GVExFREZhVnY0OERTdFRtK0hsdVpOd0o4Tzd2Ujl1NU9NT2Fp?=
+ =?utf-8?B?cDZvM2FSOVNGbmdPaC9QN3U5RVVGQktzbE1ncGY3WmQ0Z25CTzg3R2hJTndO?=
+ =?utf-8?B?R1grOHI2T3oxcXFCdzVBUExLNnhSa1dJek9vMWdWblpsNEtIcm1ndUE4SEpw?=
+ =?utf-8?B?SGhoOFE5TnR3Q2ZSbnlkdGRadVA3dTE2MXowaURERzZ6UzdIRUpHUDQvRG03?=
+ =?utf-8?B?bklHdWNuTFVVTWVNTFNYWmtPSXVqUnBvSTd5ZUVnNTZ6b3NwbHJydlNuSnJj?=
+ =?utf-8?B?RmVXQTEvc3JBUTUvbEZxUDE5MncrU2xXQ3ZjNldlT0xVNDBuV0xEempOYVlS?=
+ =?utf-8?B?bVVFV0tMVU5MRkVtbjZBY2xYd1RNbWhLb25kMXVqSXdXZTBUT3JCLy81QWZZ?=
+ =?utf-8?B?QWVEUmUvdGJSdDRBblI1K3BOeURmUDlwdENSbWpiTXovMTRJTSthSGE0cDNS?=
+ =?utf-8?B?dXNIYnZadkxWU1BrdmdqanRjc2MrbEk1OGlkbzRiUkNXaHhVNEdWZnBRbWx3?=
+ =?utf-8?B?eGJ0SmpUZ29ObDdrd2J3QS9kM3NWTzNqWEFKMk5OdHBDWFNpcHpCM0JEUGIx?=
+ =?utf-8?B?SVAyd3JUL0FEc2JqMERzT1VWekE4RmgwU2EwdXVUenFYSUNtUzQ2MkMraTND?=
+ =?utf-8?B?NmM1cE5hTFlWSnErenIxYWxkcGlGMDBFL3BTTVFHV2w1YlUxRUVRQ0RVaVJV?=
+ =?utf-8?B?bFp5cERId0JKMXZjdFArTXhyaGR4WE0yQjB0UFIwUGcrTWJpRGxtR1BrZ1Fx?=
+ =?utf-8?B?Qk5CRmNSbnYyQVBYQmxMVmphMXNGOVhOdG92U2pvQlhncEtLNzBiNGRyY1Vz?=
+ =?utf-8?B?QXFkVUhDcWs3QUMvYk9KTUhIUDhybGNVLzZpMlZoS2xTaUNaQURoQTVaUGc3?=
+ =?utf-8?B?ZlExdDVaSEFVaWhDT20rUjBOODlvSWZGRGg5bjd6NVpXUnJ3clBnajNhRUFw?=
+ =?utf-8?B?emxmV1l3QzdlYlQzbVV5cDVtLzQrc0NCdHNNTGZ1YWUzU0J6STVsNEc2dk1O?=
+ =?utf-8?B?TlVBNTVuNjUrbTV3cGpzY0VUVGxrVVVDTWFiUFVCWWZRUmFPUE84bXI5WlVW?=
+ =?utf-8?B?dmxNNk1ibUt2RUFUOWtDdFJiS0x6dVpOWHpidmlSYTdaUnkya1grMDJCQ1JX?=
+ =?utf-8?B?MVVXbkdsbmo4R1hTTlZEMWlzM01zTEcyOE50OEJkd0lWeHZIUWpuZ2NlZUpB?=
+ =?utf-8?B?S3JocnlVVkQwbTNXYk1zcGtVSHROa2pJWjlkbFRjS2NuencxOS9tRDREdzl0?=
+ =?utf-8?B?c2RNN0F0OWV6ZVQrRVd6VktVNng3Ly8rYk5pZDJwcUVNRVczT2hKZlQvSXpt?=
+ =?utf-8?B?VC9aSktTYXQ0ZGpLa0hvOWVWVXVnSlNaYS9Vd3ZwUTNCQS9GWkJnSE9sWDlr?=
+ =?utf-8?Q?O4S3uUJ1cCIu7kc/y4ugSBFUuokD2RHZ?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9PR10MB4747.EURPRD10.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eTFpbUIyZGFKZERWdHRnRTFJMWlnL1dKeXVQUW9qS3l1WmhWQVUwOVkxRnF4?=
+ =?utf-8?B?NHR3dUNUTytnb1V1WGFSaEYyWDVjb0FFWUc2NFpZR2w2OVEzS2FNUXNjRkZa?=
+ =?utf-8?B?TGdNaCtmWDB2cUF4elVvcWJKUUlIbnBObm1TYjZzRUhTK2NwN0FaK1d4dmZ2?=
+ =?utf-8?B?L3dFb0Erc3BTY2l5eXNJY1JkTFRSdUthM2VnZGhyaE5TSkllaU1SVk9UQ2xr?=
+ =?utf-8?B?U1NiWXRnajJUL2lRcmYvdGxTM0REeWhvSW5GNFYwSHBmWkJUamxOay9oNGlU?=
+ =?utf-8?B?MmVsOXZXNGNjMFB5aGg2SFN3TUZ4KzZOSGtRMVBSTm43SWFaVURERmV4c1Z0?=
+ =?utf-8?B?YlJrVXVPL1BOWkVOQkFjWDlSVFVqM0lpM0orYmE3elo2N2xZQ1ZsamREanpa?=
+ =?utf-8?B?U3NxV09adHhUb1RlQUhPZGhnWHVGKzZJWmN1VXVEL0xGSUNZWm1NV25lT21p?=
+ =?utf-8?B?NXJUZjdyM2p4OWlQN0YyVnRuV2xSOEZ4MHdqQldEYTBOZm96MXB1d1hkSkJt?=
+ =?utf-8?B?U0MvVmU2TEtETGRNK1djTUFMTVBMLzZYemtrdlF2SW0xaWs3c1NTdlBZV1JV?=
+ =?utf-8?B?NCsrWVJ4dDB4bkcxRm5OVUE0c0o3Und1ZmFibVlxYXk5VXQ3Q2pJNExjK2lr?=
+ =?utf-8?B?dks5NllFSVFxSjZvODRUMW5EZTJ2bGxSV3VRUGtvNEliRVJoQlVITUJVODN5?=
+ =?utf-8?B?VHBaUFhVOS9CZDlBa1dSRVhjeHNWL0JwTTZ0QzIyUFZJb2tCM2tjS0ZsQnF5?=
+ =?utf-8?B?cDArN0ZVVHFHd1lSVVVlUks5VUl0aEVHVEhsV25DS1pPQVU4cXo4SGtYZ1Ry?=
+ =?utf-8?B?eDd5eTNoZ0RBSXZMTXlNdXFzbUdaMzdZTUVkR0ZnLzBWQ0cvZlhURGplZU1t?=
+ =?utf-8?B?a25la3NQbC84SDFZanRHL2paUEJMMGIwV0hwcVRnUnczc1JzZmN6T05zWERh?=
+ =?utf-8?B?Ti9qdENzL2xUVmhmWkh0bllkVGdQaGdwMExsYmJuQlFlbUE3dWk1SEtwRXhH?=
+ =?utf-8?B?azFYVlZ4WEMzY2Y1Y1JwSkVmeG5wc3VkT1hDclRFY243K05zZTVjSVl5UnNk?=
+ =?utf-8?B?YlppTXo5WTB6RXFqd1labFdwdnN2dkVGb2d2eWdqdld4Skw2Q1hzclJTWWxM?=
+ =?utf-8?B?KzZUUnpHbEY3cjhDdS9WK0FyaUhtUVVMdFNtWTE5TFVEQXBUNmdOZWJJekNV?=
+ =?utf-8?B?VTVDdit2dXg5NGpYSVZWWENsMmxBWmtxNGhobUZYWVhrT2VsZnF1SitXcEto?=
+ =?utf-8?B?OXBoVmd1OVIvdkNBUTZxSU5zMm93Q0p1anJmb2ZTVEJYeUFRVS9vcklTbk9R?=
+ =?utf-8?B?cjJMSktFYmVucVM2NTRNczVFYVRiK3ZhSys3WTl0cUNleGhLeXZGUVBFR2hk?=
+ =?utf-8?B?SHN1bDlXWFBtSUZvZ1lUVW14TmloUEs3QTJEL2VacnU1RitFaU5hbUM3dncw?=
+ =?utf-8?B?NTlkNVQzL1BDOTJGQkZaRGFvUHZaM2w3Yk5oMVMrQmxUZW5yMmRLYjUvVm5u?=
+ =?utf-8?B?TWY5ck01bFNqTjVmNWlQUXpZeHlqc3FsdmxJamlkWVV6Mkp0N2xTK0VtVXd0?=
+ =?utf-8?B?TGlGY1ZMNkk1YlVkTURYRUIzcW40WXhSWGpDUzR4ZEFQNVdpbnp1akRWYjFq?=
+ =?utf-8?B?M1JyaXJ1QU51NlBwNkhNMzZOZ3hWeTNRVjFOR2xuV2JPNEtMYTJ2R0ZIekNM?=
+ =?utf-8?B?a2NJY2xmWjg4U3ZRalJtSkNmakNUaGx0TzR4UWl5NjFnQjlpVy9uRXJPTS9H?=
+ =?utf-8?B?eG1nMzc5dkVmUE90TExFM1M0ZGJxaGU3cGxuQ2QwaGY0a3BXeGMrVWZKRDFO?=
+ =?utf-8?B?NW85TERUU3BQdmhxSS9paUsxVVVybFpIVUtUS3FVdFZJV2hQSEhVLzNTMTdp?=
+ =?utf-8?B?UFF6YWlBVTkvQ3RmNFljVnJyQ1ZjOUwySlh6dFJyQTNkdmM0ZS9kcFVVYkVS?=
+ =?utf-8?B?QnFvaGRmQ0RIV1lLOEI0VmxHMkVxcC82TENhaEdpL3Y0cnFlUGVPYW9FeTJr?=
+ =?utf-8?B?MzdSQW9CcHlIL2FGZ2dONDhUQmFkREpLWDUvQXJ0UTBRSTBSZldQS21uZzNU?=
+ =?utf-8?B?bktSRUtNWjZYYmNLSW5TY1AwOWhmODFEZU15enFQNk1HSENDWE43d01IUDY4?=
+ =?utf-8?B?ZHRIZHo2QjdHajQxSEZlRHY2U1NSM3B1NDhybC9rNm4vNGtjT0JVaTdwZEI5?=
+ =?utf-8?B?SWc9PQ==?=
+X-OriginatorOrg: prevas.dk
+X-MS-Exchange-CrossTenant-Network-Message-Id: b5338154-4a5b-4c0a-898a-08ddfcdf6b69
+X-MS-Exchange-CrossTenant-AuthSource: DB9PR10MB4747.EURPRD10.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 26 Sep 2025 09:31:06.7670
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: d350cf71-778d-4780-88f5-071a4cb1ed61
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: A5CBV84AweOwPX7YqwyIirflQzKhr6S6MXNumnZ8unOvtG0S0L3+xscVIhTWERUpDhwTd6O7dYnhhWoTDN6VjhDFmzt9QYMVTMol9NvdW+s=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR10MB5746
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_022520_696836_482052C5 
-X-CRM114-Status: GOOD (  33.78  )
+X-CRM114-CacheID: sfid-20250926_023117_426784_FF8C9AFF 
+X-CRM114-Status: GOOD (  20.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,135 +181,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
---49a9f11264181de2036887cb7d9491dd520f43cb0d8ef1d42acfc07ce21a
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset=UTF-8
 
-Hi Kendall,
-
-On Tue Sep 23, 2025 at 7:49 PM CEST, Kendall Willis wrote:
-> Hi Markus,
+On 26/09/2025 00.21, Frank Li wrote:
+> On Thu, Sep 25, 2025 at 12:49:40PM +0200, stefan.prisacariu@prevas.dk wrote:
+>> From: Stefan Prisacariu <stefan.prisacariu@prevas.dk>
+>>
+>> Make SoM .dtsi SoC-agnostic by moving SoC include to board level
+>>
+>> imx6qdl-var-som.dtsi currently includes imx6q.dtsi, which makes this SoM
+>> description Quad/Dual specific and prevents reuse from i.MX6DL boards.
+>>
+>> Move the SoC selection to the board level:
+>>   - Drop the imx6q.dtsi include from the SoM .dtsi.
+>>   - Add imx6q.dtsi include to imx6q-var-mx6customboard.dts.
+> move imx6q.dtsi from imx6qdl-var-som.dtsi to imx6q-var-mx6customboard.dts.
 >
-> On 11:19-20250812, Markus Schneider-Pargmann wrote:
->> Add support for Partial-IO poweroff. In Partial-IO pins of a few
->> hardware units can generate system wakeups while DDR memory is not
->> powered resulting in a fresh boot of the system. These hardware units in
->> the SoC are always powered so that some logic can detect pin activity.
->>=20
->> If the system supports Partial-IO as described in the fw capabilities, a
->> sys_off handler is added. This sys_off handler decides if the poweroff
->> is executed by entering normal poweroff or Partial-IO instead. The
->> decision is made by checking if wakeup is enabled on all devices that
->> may wake up the SoC from Partial-IO.
->>=20
->> The possible wakeup devices are found by checking which devices
->> reference a "Partial-IO" system state in the list of wakeup-source
->> system states. Only devices that are actually enabled by the user will
->> be considered as an active wakeup source. If none of the wakeup sources
->> is enabled the system will do a normal poweroff. If at least one wakeup
->> source is enabled it will instead send a TI_SCI_MSG_PREPARE_SLEEP
->> message from the sys_off handler. Sending this message will result in an
->> immediate shutdown of the system. No execution is expected after this
->> point. The code will wait for 5s and do an emergency_restart afterwards
->> if Partial-IO wasn't entered at that point.
->>=20
->> A short documentation about Partial-IO can be found in section 6.2.4.5
->> of the TRM at
->>   https://www.ti.com/lit/pdf/spruiv7
->>=20
->> Signed-off-by: Markus Schneider-Pargmann <msp@baylibre.com>
+>> This keeps the SoM .dtsi SoC-agnostic (it already relies on imx6qdl.dtsi
+>> for family-common parts) and allows boards using the DualLite or Solo to
+>> include imx6dl.dtsi instead.
+>>
+>> Why this is needed:
+>> I need to reuse imx6qdl-var-som.dtsi for a board based on i.MX6DL
+>> (VAR-SOM SoM + custom carrier). Without this change, the SoM .dtsi
+>> forces imx6q.dtsi, which is incorrect for DL and breaks the layering
+>> model used upstream.
+> Can use simple words
+>
+> To reuse imx6qdl-var-som.dtsi on i.MX6DL board.
+>
+>> Verification:
+>> The DTB for imx6q-var-mx6customboard was rebuilt before and after this
+>> change. Both the binary DTB and the decompiled DTS
+>> (via dtc -I dtb -O dts -s) are identical, confirming no functional change
+>> for the existing board.
+> Needn't this section (good place for these informaiton is cover letter).
+>
+>> Alignment:
+>> This also aligns the layering with how it is already done for
+>> imx6q-var-dt6customboard.dts, where the SoC include is handled at the
+>> board level.
+> Needn't this section
+>
+>> No functional changes for imx6q-var-mx6customboard are intended.
+> good
+>
+>> Files were introduced in:
+>> commit e5c810848d2a ("ARM: dts: imx6qdl: Add Variscite VAR-SOM-MX6
+>> SoM support")
+>> commit a5b59a3f41bd ("ARM: dts: imx6q: Add Variscite MX6 Custom board
+>> support")
+> Needn't this section.
+>
+>> Signed-off-by: Stefan Prisacariu <stefan.prisacariu@prevas.dk>
 >> ---
->>  drivers/firmware/ti_sci.c | 131 +++++++++++++++++++++++++++++++++++++++=
-++++++-
->>  drivers/firmware/ti_sci.h |   5 ++
->>  2 files changed, 135 insertions(+), 1 deletion(-)
->>=20
->> diff --git a/drivers/firmware/ti_sci.c b/drivers/firmware/ti_sci.c
->> index c187fb714b3a4c658d0593c844716d4b160e4fa9..fb6f3d7f7413917cf9534ba6=
-5f0a9786d1183c71 100644
->> --- a/drivers/firmware/ti_sci.c
->> +++ b/drivers/firmware/ti_sci.c
->> @@ -3750,6 +3750,116 @@ static const struct dev_pm_ops ti_sci_pm_ops =3D=
- {
->>  #endif
->>  };
->> =20
->> +/*
->> + * Enter Partial-IO, which disables everything including DDR with only =
-a small
->> + * logic being active for wakeup.
->> + */
->> +static int ti_sci_enter_partial_io(struct ti_sci_info *info)
->> +{
->> +	struct ti_sci_msg_req_prepare_sleep *req;
->> +	struct ti_sci_xfer *xfer;
->> +	struct device *dev =3D info->dev;
->> +	int ret =3D 0;
->> +
->> +	xfer =3D ti_sci_get_one_xfer(info, TI_SCI_MSG_PREPARE_SLEEP,
->> +				   TI_SCI_FLAG_REQ_GENERIC_NORESPONSE,
->> +				   sizeof(*req), sizeof(struct ti_sci_msg_hdr));
->> +	if (IS_ERR(xfer)) {
->> +		ret =3D PTR_ERR(xfer);
->> +		dev_err(dev, "Message alloc failed(%d)\n", ret);
->> +		return ret;
->> +	}
->> +
->> +	req =3D (struct ti_sci_msg_req_prepare_sleep *)xfer->xfer_buf;
->> +	req->mode =3D TISCI_MSG_VALUE_SLEEP_MODE_PARTIAL_IO;
->> +	req->ctx_lo =3D 0;
->> +	req->ctx_hi =3D 0;
->> +	req->debug_flags =3D 0;
->> +
->> +	dev_info(dev, "Entering Partial-IO because a powered wakeup-enabled de=
-vice was found.\n");
->> +
+>>   arch/arm/boot/dts/nxp/imx/imx6q-var-mx6customboard.dts | 1 +
+>>   arch/arm/boot/dts/nxp/imx/imx6qdl-var-som.dtsi         | 3 ---
+>>   2 files changed, 1 insertion(+), 3 deletions(-)
+>>
+>> diff --git a/arch/arm/boot/dts/nxp/imx/imx6q-var-mx6customboard.dts b/arch/arm/boot/dts/nxp/imx/imx6q-var-mx6customboard.dts
+>> index 18a620832a2a..a55644529c67 100644
+>> --- a/arch/arm/boot/dts/nxp/imx/imx6q-var-mx6customboard.dts
+>> +++ b/arch/arm/boot/dts/nxp/imx/imx6q-var-mx6customboard.dts
+>> @@ -8,6 +8,7 @@
+>>
+>>   /dts-v1/;
+>>
+>> +#include "imx6q.dtsi"
+>>   #include "imx6qdl-var-som.dtsi"
+>>   #include <dt-bindings/pwm/pwm.h>
+>>
+>> diff --git a/arch/arm/boot/dts/nxp/imx/imx6qdl-var-som.dtsi b/arch/arm/boot/dts/nxp/imx/imx6qdl-var-som.dtsi
+>> index 59833e8d11d8..51bcaf04546b 100644
+>> --- a/arch/arm/boot/dts/nxp/imx/imx6qdl-var-som.dtsi
+>> +++ b/arch/arm/boot/dts/nxp/imx/imx6qdl-var-som.dtsi
+>> @@ -9,9 +9,6 @@
+>>    * Copyright 2022 Bootlin
+>>    */
+>>
+>> -/dts-v1/;
+> why drop this line.
+
+As far as I know this line should be present in the dts not dtsi files,
+also this will remove the requirement to have this dtsi file first 
+included in
+the dts files
+
+Stefan
+
 >
-> IMO this print should be in the ti_sci_sys_off_handler since that is
-> where the check is to find the wakeup-enabled device.
->
->> +	ret =3D ti_sci_do_xfer(info, xfer);
->> +	if (ret) {
->> +		dev_err(dev, "Mbox send fail %d\n", ret);
->> +		goto fail;
->> +	}
->> +
->> +fail:
->> +	ti_sci_put_one_xfer(&info->minfo, xfer);
->> +
->> +	return ret;
->> +}
->> +
->
-> Just something to think about: another way to implement this function
-> would be to change ti_sci_cmd_prepare_sleep to add a parameter of flags
-> for ti_sci_get_one_xfer in order to be able to choose if the
-> TI_SCI_FLAG_REQ_GENERIC_NORESPONSE or TI_SCI_FLAG_REQ_ACK_ON_PROCESSED
-> is used. This would make it so there's not duplicated code and
-> ti_sci_cmd_prepare_sleep could be used to enter partial IO.
-
-Thanks for the suggestion, I just tried your approach and I personally
-prefer the code as it is. I needed two additional ifs to switch to a
-different rx_message_size and handle or not handle a response. In the
-end there is not much common code left. Also the pattern is quite common
-between many of the functions doing transfers.
-
-Thanks for your review, I fixed the rest.
-
-Best
-Markus
-
---49a9f11264181de2036887cb7d9491dd520f43cb0d8ef1d42acfc07ce21a
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iKMEABYKAEsWIQSJYVVm/x+5xmOiprOFwVZpkBVKUwUCaNZb6BsUgAAAAAAEAA5t
-YW51MiwyLjUrMS4xMSwyLDIRHG1zcEBiYXlsaWJyZS5jb20ACgkQhcFWaZAVSlN7
-9gD+MBLHhYe5W5TwXxMM41fCqweBpTb+287RKDd7uveEnkoBANYk3/Jp+jqTvqmL
-4kBV9d8V0PxSPIA9hkCuwvPCoo4I
-=GyNH
------END PGP SIGNATURE-----
-
---49a9f11264181de2036887cb7d9491dd520f43cb0d8ef1d42acfc07ce21a--
+> Frank
+>> -
+>> -#include "imx6q.dtsi"
+>>   #include <dt-bindings/clock/imx6qdl-clock.h>
+>>   #include <dt-bindings/gpio/gpio.h>
+>>   #include <dt-bindings/sound/fsl-imx-audmux.h>
+>>
+>> base-commit: 8f5ff9784f3262e6e85c68d86f8b7931827f2983
+>> --
+>> 2.49.1
+>>
 
