@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 296E8CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Sep 2025 14:04:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BA0CCAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Sep 2025 14:04:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ki7EFu0Nl7B4/VDVsO/DBVKCcttxWy3Q8gg0aWtl8E4=; b=HsrRNg1TLPs1Le0PCjQrGFhDaA
-	m98fdiZCvKcgNWojd7vzTsLNFBwpGd/TbQ26e44VdjOOYRZy9gfFhKDrPuKqfFtmi1G2H0Qu7PpbN
-	SyEZbMxVi/TGBnf6ZspDfjOEjS4UH95P3d1JWTi+V2AozGob09Fl5y+SKxRFGixh1WrCXyoofi+2j
-	V1ReejM1SpfHU0EDrEnEqCWk2IyUa6onFNd2KcTHql0naRBvjo0rETaA2xPbIjLMwuPFMn7W8OOUx
-	bofsI/v7O8Ub3IxjMfwChFAIGPDkypZlpdda+1aO9MZw08o6nRNwgDYLRz6uRgXDjzdLuseiQpWgB
-	71DLaMGg==;
+	bh=5+ZH3pbKJzgQuL6QnKATr6OafkTPOMr9HqWaVe0b6Lg=; b=TKwBiZ5AmZBxjFuy0hIazpoBHN
+	jnj6fXmMoaNVbB9ob0qPuuKTIQ9VLxqxnyVppLnv4mWd51+zkoagRTre9ZwNBRURrt8LEqZaOmPEF
+	0pVnIjk0a8xiB38FReHSgpTB3xfO2RaTT3ZvmN5Tdah1c6H9oNBr7PAu0a9r38xYpyJyfrILxKHvy
+	QB9j4PejdniivdLcg4bBxy2U4tJ2brXPF8KrKwBQFZh+yx+w6tuatZkhUuVpLgYRwd8wnnol5SPgd
+	FBGfXEOg+jolsbP0IrxgIgoteamM2DswXcCzGsnYX5sGy8KcdySv8o+JMqdWQD6h5WtK5s9ljgaf8
+	JE/VZx7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2VX2-0000000ACWF-0oaT;
-	Sat, 27 Sep 2025 14:04:12 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v2VX7-0000000ACcM-38h0;
+	Sat, 27 Sep 2025 14:04:17 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2VWy-0000000ACSU-1xPL;
-	Sat, 27 Sep 2025 14:04:09 +0000
+	id 1v2VX1-0000000ACVC-0MYy;
+	Sat, 27 Sep 2025 14:04:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A907E444A1;
-	Sat, 27 Sep 2025 14:04:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B2BDC4CEE7;
-	Sat, 27 Sep 2025 14:04:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7E458601DE;
+	Sat, 27 Sep 2025 14:04:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CE652C113CF;
+	Sat, 27 Sep 2025 14:04:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758981847;
-	bh=EYs89Jn2WO18lvHPSIvjiHZSODy76dkZb7stpKU2PPA=;
+	s=k20201202; t=1758981850;
+	bh=oZNjK/4YkXKBAfZRaTcNP360qMktPQ4k62wG/OV1jdU=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=kyWQz9MDPeW4oJ+FpK16EgdYGzGud9+/rOgx6+zE8C6NshKuttiHoOQuu+Ia7Gx1y
-	 KJovtAAJQmfLHhQasJMckkhgr7aaFQWahgUXq1aFVM66ZLVuS5XJ0GX65bW88tHRfP
-	 G0q2v8oHVWgFAJA7eb/muxT1budaWIf8aYCdxNIxzWaOWKAwwj+7ceXXDCTo4+mpB3
-	 936EBaUUrZ7R77gAlKg0j5d1iu562o7PSWfRK8yseosvDklXMxJodpuY9orNbZqQdi
-	 PoPiaiScbTrIKFJ6WMo5J0IlWJJtaZ5x7CemH4QqaxIt7RH03YQA0dkxlUsxwXaS8r
-	 rdMZQtqydosCA==
+	b=rmnNOz6GYHaPpr/Ur5N1WRbWUGyYd76XOsTc4sR0AN+EiVM5WbZY4RulcQDd1IBAY
+	 EyWvNcBGEF0EcRvBPTrPwc8aila/+QXEPNNqjx0kAL+pBTcAngQa8y8zDFrzGUi4u+
+	 TEZGO0srUm4BB3g6nxE29k/mDi5+6HlsEIS2rsusdhCukse1C4f7TtO4nzIPxy1tAH
+	 d6eICDMdf21DJ/+gnmNdbrZh0lBv+JL5J4PwJIUljx65cbtng3DrOecYQY75v8w7Wa
+	 KmHlZMxYlRFy60Ar2rLd0Wf21VpIBLFop/xeHLNUNFtoA7+CkouqNjBe2XpCWc4q8+
+	 zo+01I1sJy9pg==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Sat, 27 Sep 2025 16:03:40 +0200
-Subject: [PATCH net-next v2 1/3] dt-bindings: net: airoha: npu: Add AN7583
- support
+Date: Sat, 27 Sep 2025 16:03:41 +0200
+Subject: [PATCH net-next v2 2/3] net: airoha: npu: Add airoha_npu_soc_data
+ struct
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250927-airoha-npu-7583-v2-1-e12fac5cce1f@kernel.org>
+Message-Id: <20250927-airoha-npu-7583-v2-2-e12fac5cce1f@kernel.org>
 References: <20250927-airoha-npu-7583-v2-0-e12fac5cce1f@kernel.org>
 In-Reply-To: <20250927-airoha-npu-7583-v2-0-e12fac5cce1f@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
@@ -59,10 +59,6 @@ To: Andrew Lunn <andrew+netdev@lunn.ch>,
 Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
 X-Mailer: b4 0.14.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250927_070408_520003_012C7030 
-X-CRM114-Status: UNSURE (   7.40  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,25 +73,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce AN7583 NPU support to Airoha EN7581 NPU device-tree bindings.
+Introduce airoha_npu_soc_data structure in order to generalize per-SoC
+NPU firmware info. Introduce airoha_npu_load_firmware utility routine.
+This is a preliminary patch in order to introduce AN7583 NPU support.
 
 Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
- Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/net/ethernet/airoha/airoha_npu.c | 77 +++++++++++++++++++++-----------
+ 1 file changed, 51 insertions(+), 26 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml b/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
-index c7644e6586d329d8ec2f0a0d8d8e4f4490429dcc..59c57f58116b568092446e6cfb7b6bd3f4f47b82 100644
---- a/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
-+++ b/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
-@@ -18,6 +18,7 @@ properties:
-   compatible:
-     enum:
-       - airoha,en7581-npu
-+      - airoha,an7583-npu
+diff --git a/drivers/net/ethernet/airoha/airoha_npu.c b/drivers/net/ethernet/airoha/airoha_npu.c
+index 8c883f2b2d36b74053282bc299f0a0572b2e0e71..41944cc5f6b062129528e9357511fd9e05cbe1e6 100644
+--- a/drivers/net/ethernet/airoha/airoha_npu.c
++++ b/drivers/net/ethernet/airoha/airoha_npu.c
+@@ -103,6 +103,16 @@ enum {
+ 	QDMA_WAN_PON_XDSL,
+ };
  
-   reg:
-     maxItems: 1
++struct airoha_npu_fw {
++	const char *name;
++	int max_size;
++};
++
++struct airoha_npu_soc_data {
++	struct airoha_npu_fw fw_rv32;
++	struct airoha_npu_fw fw_data;
++};
++
+ #define MBOX_MSG_FUNC_ID	GENMASK(14, 11)
+ #define MBOX_MSG_STATIC_BUF	BIT(5)
+ #define MBOX_MSG_STATUS		GENMASK(4, 2)
+@@ -182,49 +192,53 @@ static int airoha_npu_send_msg(struct airoha_npu *npu, int func_id,
+ 	return ret;
+ }
+ 
+-static int airoha_npu_run_firmware(struct device *dev, void __iomem *base,
+-				   struct resource *res)
++static int airoha_npu_load_firmware(struct device *dev, void __iomem *addr,
++				    const struct airoha_npu_fw *fw_info)
+ {
+ 	const struct firmware *fw;
+-	void __iomem *addr;
+ 	int ret;
+ 
+-	ret = request_firmware(&fw, NPU_EN7581_FIRMWARE_RV32, dev);
++	ret = request_firmware(&fw, fw_info->name, dev);
+ 	if (ret)
+ 		return ret == -ENOENT ? -EPROBE_DEFER : ret;
+ 
+-	if (fw->size > NPU_EN7581_FIRMWARE_RV32_MAX_SIZE) {
++	if (fw->size > fw_info->max_size) {
+ 		dev_err(dev, "%s: fw size too overlimit (%zu)\n",
+-			NPU_EN7581_FIRMWARE_RV32, fw->size);
++			fw_info->name, fw->size);
+ 		ret = -E2BIG;
+ 		goto out;
+ 	}
+ 
+-	addr = devm_ioremap_resource(dev, res);
+-	if (IS_ERR(addr)) {
+-		ret = PTR_ERR(addr);
+-		goto out;
+-	}
+-
+ 	memcpy_toio(addr, fw->data, fw->size);
++out:
+ 	release_firmware(fw);
+ 
+-	ret = request_firmware(&fw, NPU_EN7581_FIRMWARE_DATA, dev);
+-	if (ret)
+-		return ret == -ENOENT ? -EPROBE_DEFER : ret;
++	return ret;
++}
+ 
+-	if (fw->size > NPU_EN7581_FIRMWARE_DATA_MAX_SIZE) {
+-		dev_err(dev, "%s: fw size too overlimit (%zu)\n",
+-			NPU_EN7581_FIRMWARE_DATA, fw->size);
+-		ret = -E2BIG;
+-		goto out;
+-	}
++static int airoha_npu_run_firmware(struct device *dev, void __iomem *base,
++				   struct resource *res)
++{
++	const struct airoha_npu_soc_data *soc;
++	void __iomem *addr;
++	int ret;
+ 
+-	memcpy_toio(base + REG_NPU_LOCAL_SRAM, fw->data, fw->size);
+-out:
+-	release_firmware(fw);
++	soc = of_device_get_match_data(dev);
++	if (!soc)
++		return -EINVAL;
+ 
+-	return ret;
++	addr = devm_ioremap_resource(dev, res);
++	if (IS_ERR(addr))
++		return PTR_ERR(addr);
++
++	/* Load rv32 npu firmware */
++	ret = airoha_npu_load_firmware(dev, addr, &soc->fw_rv32);
++	if (ret)
++		return ret;
++
++	/* Load data npu firmware */
++	return airoha_npu_load_firmware(dev, base + REG_NPU_LOCAL_SRAM,
++					&soc->fw_data);
+ }
+ 
+ static irqreturn_t airoha_npu_mbox_handler(int irq, void *npu_instance)
+@@ -597,8 +611,19 @@ void airoha_npu_put(struct airoha_npu *npu)
+ }
+ EXPORT_SYMBOL_GPL(airoha_npu_put);
+ 
++static const struct airoha_npu_soc_data en7581_npu_soc_data = {
++	.fw_rv32 = {
++		.name = NPU_EN7581_FIRMWARE_RV32,
++		.max_size = NPU_EN7581_FIRMWARE_RV32_MAX_SIZE,
++	},
++	.fw_data = {
++		.name = NPU_EN7581_FIRMWARE_DATA,
++		.max_size = NPU_EN7581_FIRMWARE_DATA_MAX_SIZE,
++	},
++};
++
+ static const struct of_device_id of_airoha_npu_match[] = {
+-	{ .compatible = "airoha,en7581-npu" },
++	{ .compatible = "airoha,en7581-npu", .data = &en7581_npu_soc_data },
+ 	{ /* sentinel */ }
+ };
+ MODULE_DEVICE_TABLE(of, of_airoha_npu_match);
 
 -- 
 2.51.0
