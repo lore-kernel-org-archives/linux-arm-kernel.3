@@ -4,48 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D3A8CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Sep 2025 05:00:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0393CAC5B9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Sep 2025 05:01:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DWdXLvFu30yYvjltQxnE0pJ9kE3gyhS9Vq00c5VUKSU=; b=ZU+e2sjZUTByCrUluz/t1YYr51
-	EPCHE6jiAEgTxnETLKUblrbHKWrVBDVHNkTTVo3ehnc25BPYi6Ti3lPI4KCoqfP/KsEvld+PKPksQ
-	G7b/LF8ttYD+R8MH03hQ9qLPYiUbmekyExDe5RYn8h/dVCJr/lPO9cKWMh8GFe8JznlNOcyVYpFUk
-	MdOddOD2IYMbPyIKZy25w7T5q/BhScNWjXtwiHxBg9qiX/LLcANCrXf386Iis/NHx6VX7vIUGpeYD
-	89QAj9gm/IXRetL3CqIEgnCPd1x2POWNNNbjEm60cEWgX/zXg5YEeiX1t9LGKvQNDI2O4P6UgVf5x
-	/Zw21rAg==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=wiywbGUArM2TQ2jnZnO3jhnLS3BT0xyRgYF6NOHEeCA=; b=4+PH/GNvPm/YVs
+	Cr7G+KL0QdRGxnj5YQ5lKsEgUPGXnHzvAk8iOfzkojQv1OC0KtCkYi8a15eABNJo1MdGF5xGQgKZ/
+	7Lp+NUtaqNL7OmEaQw5I65h83EfVNIMRoj1CCvykkoewp8Ss1Ec4FgfMD6x8ooRMznDbTPTNbvb+0
+	hyvBANX98sxFq7Sub+otHpOEUAiGCGV5+DI9E9yWzjjM94ieMBdAZCMIsonWTXOx7Agl4ddAQ7xeL
+	s0P5d5VjSKe1Fr7QYLv3FQk3SAC2N2FePZHh6iIS1+BpFevHhJq7Y14xLsYppKs6rA7ts/nXFrWzK
+	xY5M6nECawpIzewRFZQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2N3D-00000007BNY-0qng;
-	Sat, 27 Sep 2025 05:00:51 +0000
+	id 1v2N41-00000007BZC-2FA6;
+	Sat, 27 Sep 2025 05:01:41 +0000
 Received: from mail.mainlining.org ([5.75.144.95])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2N3A-00000007BMx-0kUA;
-	Sat, 27 Sep 2025 05:00:49 +0000
+	id 1v2N3y-00000007BYW-14ag;
+	Sat, 27 Sep 2025 05:01:39 +0000
 DKIM-Signature: v=1; a=rsa-sha256; s=202507r; d=mainlining.org; c=relaxed/relaxed;
-	h=To:Message-Id:Subject:Date:From; t=1758949156; bh=DWdXLvFu30yYvjltQxnE0pJ
-	9kE3gyhS9Vq00c5VUKSU=; b=squFCJkGPyKQGu2syC4oXR3X0o5JP4wYYRdGY8WjUIK+wLQu5a
-	b2fDD1QFZ1UMC2A18BjynkKrUh1VdG2Uo07QwUkW0zRQ/eHIQ+Z47jI3Z++HfY10XadHQB6NYwP
-	FljSqk8MomKME7YYPOhPofg1XCr/dRVKhB3mUnj99OLU2KSuhO5qWlR6KoUoJmP3RGR3AkeSRMr
-	ekDrI0/3urVjcj2PeMU0EC9lqybN2FNx7zLqpXdCP2QVLEhGIQ0donb3xfWP3B1t9KasZoP/8b1
-	x/NjqhabtuVcDNEYAtUDZIDQ3krNmLZqXvVwFcUuKCrifvLnvaFOfhS5lluSO6ldE6A==;
+	h=To:Message-Id:Date:Subject:From; t=1758949150; bh=wiywbGUArM2TQ2jnZnO3jhn
+	LS3BT0xyRgYF6NOHEeCA=; b=iQ9cw2vI8QxFct2o8MH27UteoPUKwqq19TixtBcEwsWZGJXIdq
+	W+IWQ6b6ojLpdK0cUC35hXWVxILAlAwTKm4/bbjKZq2zOLIaRHmboo8GLqDLyE5No9sv+4ymC7l
+	xIF9FJ+CZPoa5Laeq15iWmphoRDV5oMClZe+xBcbUVs99YZRKO9VqQD4fBrLnQ53aTbUOEw5gwN
+	DY0KP9dyR/zfc8/gYlrRoZ+QVR95Mw5pXN/UsuegDJj5vonh50vqkVLOckFIF6lCyR+X/UUDkWp
+	dDsClMJdSAZ8sItP75yYspZbwUgBoIl9BcrEQXpbgd/NxtQkOIGOu0I8kW0uWyk1P5w==;
 DKIM-Signature: v=1; a=ed25519-sha256; s=202507e; d=mainlining.org; c=relaxed/relaxed;
-	h=To:Message-Id:Subject:Date:From; t=1758949156; bh=DWdXLvFu30yYvjltQxnE0pJ
-	9kE3gyhS9Vq00c5VUKSU=; b=xE6S+r2yuMtthxGPUz48JuxFTe3Lc6QqhYjub/HRYdMGg7pIoT
-	Z2aTXtfPzEkPlgL7L0TD03lIbCv30yTGuGBA==;
+	h=To:Message-Id:Date:Subject:From; t=1758949150; bh=wiywbGUArM2TQ2jnZnO3jhn
+	LS3BT0xyRgYF6NOHEeCA=; b=KkS437eXQbphejCILSt2qSlQaxkC4ms05KgUvohaEhHAKPGi8i
+	72CND7y6VRqSAuMbiRKohE9wy+ieZje3FIDg==;
 From: Dang Huynh <dang.huynh@mainlining.org>
-Date: Sat, 27 Sep 2025 11:59:07 +0700
-Subject: [PATCH v3 2/3] gpio: rda: Make IRQ optional
+Subject: [PATCH v3 0/3] RDA8810PL GPIO fixes
+Date: Sat, 27 Sep 2025 11:59:05 +0700
+Message-Id: <20250927-rda8810pl-gpio-fix-v3-0-3641cdcf6c1e@mainlining.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250927-rda8810pl-gpio-fix-v3-2-3641cdcf6c1e@mainlining.org>
-References: <20250927-rda8810pl-gpio-fix-v3-0-3641cdcf6c1e@mainlining.org>
-In-Reply-To: <20250927-rda8810pl-gpio-fix-v3-0-3641cdcf6c1e@mainlining.org>
+X-B4-Tracking: v=1; b=H4sIABlv12gC/x2MWwqAIBAArxL73YLZQ+sq0YflZgthohCBdPekz
+ xmYyZAoMiWYqgyRbk58+QJtXcF2GO8I2RYGKWQvRtljtEbrRoQTXeALd37QrsOuuk6SIQUlDJG
+ K/qfz8r4fb5qMN2QAAAA=
+X-Change-ID: 20250925-rda8810pl-gpio-fix-db6f7442eae7
 To: Manivannan Sadhasivam <mani@kernel.org>, 
  Linus Walleij <linus.walleij@linaro.org>, 
  Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
@@ -53,18 +55,19 @@ To: Manivannan Sadhasivam <mani@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>
 Cc: linux-arm-kernel@lists.infradead.org, linux-unisoc@lists.infradead.org, 
  linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Dang Huynh <dang.huynh@mainlining.org>
+ linux-kernel@vger.kernel.org, Dang Huynh <dang.huynh@mainlining.org>, 
+ Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1758949147; l=961;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758949147; l=1382;
  i=dang.huynh@mainlining.org; s=20250917; h=from:subject:message-id;
- bh=MpdOunzwRix8r+I6dz4W5XzomAmmpf9+SZqztmWlQWc=;
- b=FbBM848buke3ZFLTeEqaWSbtCt9iSjXfoKtgadZUBCbL0o6C85MggUTDyTusPlRHhTEWOI9Ub
- Ho0FsXs8vibAwBYtHPJGLAt7nm5TUJPRnjE5MKr3OpVE/Tvq+F9yrHj
+ bh=DI2L0s38OFZ3kmt5elmBX6ywpaznAAhIuFMkreoguPs=;
+ b=tEr871K0fXKTRnsUIazo974JxiDPEzxnp6VPDZtrqbXbUKfc9zGsgYwiW2Fea/Jsbw7OWuMQq
+ p89UgMS1Gi+CCcTQXOf4Kd71tWBYkAF6BGp1GlwdVkBgI3ef72ZJr8C
 X-Developer-Key: i=dang.huynh@mainlining.org; a=ed25519;
  pk=RyzH4CL4YU/ItXYUurA51EVBidfx4lIy8/E4EKRJCUk=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_220048_362392_1059E9E5 
-X-CRM114-Status: UNSURE (   9.80  )
+X-CRM114-CacheID: sfid-20250926_220138_435721_46401522 
+X-CRM114-Status: UNSURE (   6.42  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -80,32 +83,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Not all GPIO have IRQ. When we use this driver with
-GPIOC (handled by modem) we get:
+This patchset fixes two issues with the RDA GPIO driver:
+- Makes GPIO IRQ optional for modem-handled GPIO block
+- GPIO output direction misbehaviors
 
-rda-gpio 11a08000.gpioc: error -ENXIO: IRQ index 0 not found
+This change should not affect any existing users of the RDA Micro
+platform.
 
-Let's mark IRQ as optional so this error doesn't show up.
+This patchset is considered to be a v3, as I did not tag the previous
+patchset as v2 and is a split from both of my v1/v2 patchset.
+
+Changes in v3:
+- Use bidirectional direction register for dirin register which truly
+  fixes the previous issue.
+- Link to v2: https://lore.kernel.org/all/20250919-rda8810pl-mmc-v1-0-d4f08a05ba4d@mainlining.org/
+
+Changes in v2:
+- Update commit message for "gpio: rda: Make direction register unreadable"
+- Link to v1: https://lore.kernel.org/all/20250917-rda8810pl-drivers-v1-0-74866def1fe3@mainlining.org/
 
 Signed-off-by: Dang Huynh <dang.huynh@mainlining.org>
 ---
- drivers/gpio/gpio-rda.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Dang Huynh (3):
+      dt-bindings: gpio: rda: Make interrupts optional
+      gpio: rda: Make IRQ optional
+      gpio: rda: Use bidirectional GPIO register for direction input
 
-diff --git a/drivers/gpio/gpio-rda.c b/drivers/gpio/gpio-rda.c
-index fb479d13eb01a49218ad4229e7d4f70f096f5a2e..7d20dbbb6ec41149a1dbf4d9ef9ac86449773c35 100644
---- a/drivers/gpio/gpio-rda.c
-+++ b/drivers/gpio/gpio-rda.c
-@@ -229,7 +229,7 @@ static int rda_gpio_probe(struct platform_device *pdev)
- 	 * RDA8810PL, GPIOC doesn't support interrupt. So we must handle
- 	 * those also.
- 	 */
--	rda_gpio->irq = platform_get_irq(pdev, 0);
-+	rda_gpio->irq = platform_get_irq_optional(pdev, 0);
- 
- 	rda_gpio->base = devm_platform_ioremap_resource(pdev, 0);
- 	if (IS_ERR(rda_gpio->base))
+ Documentation/devicetree/bindings/gpio/gpio-rda.yaml | 3 ---
+ drivers/gpio/gpio-rda.c                              | 5 ++---
+ 2 files changed, 2 insertions(+), 6 deletions(-)
+---
+base-commit: 846bd2225ec3cfa8be046655e02b9457ed41973e
+change-id: 20250925-rda8810pl-gpio-fix-db6f7442eae7
 
+Best regards,
 -- 
-2.51.0
+Dang Huynh <dang.huynh@mainlining.org>
 
