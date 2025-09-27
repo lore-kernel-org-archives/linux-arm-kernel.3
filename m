@@ -4,68 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 982CFCAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Sep 2025 02:56:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42F09CAC5B9
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Sep 2025 03:53:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yI6gK1u+SSlZMGjiWcAQCjC134z2KdglVZTgaQtrcHY=; b=FycnzmZY/oOjMKDanNOWM7Qby8
-	2YKJjIRZq2iDyFgZ9AL9GeXIMxkLA+z172Dx/ifWXAqAAXXLc8hQbmpV57TOtrUEj86TBDjV9fL00
-	BYBM5Nb62cxPFs+MCUpyFq9/eZRyHyGgG/P2v+FSEFODnQZry1tB8zJ+i8Y/5o9tv7f9LPIo1ARBC
-	IzCA1Gotfi4sjGqRS6mIAAkhTuJRykz8/gpoU4nnzDbI4eJILFWLZNjoSgVd5qmNlCs85Uj53QH8A
-	FYffvf5J3qErtcPTVX8rcMP7NUTH6NyKLlCHFRpwF+V0c45lz9H1sPSNSTM21MsWOetoAToPBp5Lx
-	bsjlm1Kg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YZaujxbR87IWPXawB0juYj+itNZtrWXuBYx+nqx7Q/0=; b=vxEuI9AS0iQEYffHa/n2PKROh6
+	slDzg+3L4UUeklMjUZmaQOruSpGWAWxJhwIisGc5+Bb/+zIHwTV3hkPuG+Q7HdUEazCGozINJQIj3
+	QEUnfxgETXbEaq+30udPWhQ/g8QRaeInnUYpa4/sd2Sm0CXfoFi/w3nkDj570oLDNCm5QhjmWCOWP
+	9ezwdjn9wYGZN+QVrQeZWjL3IhDVPlPjFhQi1Q8qUx+OAJlKxeFE+qbSm46+2Zn7eib6TxZTWLbq7
+	vfukp5Lj+Vgl6kdm82wrk9POvJFItQAlQ9bHSdeuV6R7+xr3UI7JesbNo1PioGQFFTNgwLEkbNDP7
+	ZW6/KzjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2L6R-00000006Vgx-1vUa;
-	Sat, 27 Sep 2025 02:56:03 +0000
-Received: from szxga05-in.huawei.com ([45.249.212.191])
+	id 1v2LzV-00000006od3-11Fp;
+	Sat, 27 Sep 2025 03:52:57 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2L6O-00000006VdH-132i
+	id 1v2LzT-00000006obN-07zT
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 27 Sep 2025 02:56:02 +0000
-Received: from mail.maildlp.com (unknown [172.19.162.112])
-	by szxga05-in.huawei.com (SkyGuard) with ESMTP id 4cYX7C19WHz1R8ds;
-	Sat, 27 Sep 2025 10:52:39 +0800 (CST)
-Received: from dggpemf500002.china.huawei.com (unknown [7.185.36.57])
-	by mail.maildlp.com (Postfix) with ESMTPS id 48E7114011F;
-	Sat, 27 Sep 2025 10:55:49 +0800 (CST)
-Received: from [10.174.178.247] (10.174.178.247) by
- dggpemf500002.china.huawei.com (7.185.36.57) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Sat, 27 Sep 2025 10:55:48 +0800
-Subject: Re: [PATCH v3] ACPI: AGDI: Add interrupt signaling mode support
-To: "Kazuhiro Abe (Fujitsu)" <fj1078ii@fujitsu.com>, 'Ilkka Koskinen'
-	<ilkka@os.amperecomputing.com>, 'Sudeep Holla' <sudeep.holla@arm.com>
-CC: 'Lorenzo Pieralisi' <lpieralisi@kernel.org>, "'Rafael J. Wysocki'"
-	<rafael@kernel.org>, 'Len Brown' <lenb@kernel.org>,
-	"'linux-acpi@vger.kernel.org'" <linux-acpi@vger.kernel.org>,
-	"'linux-arm-kernel@lists.infradead.org'"
-	<linux-arm-kernel@lists.infradead.org>, "'linux-kernel@vger.kernel.org'"
-	<linux-kernel@vger.kernel.org>
-References: <20250905042751.945616-1-fj1078ii@aa.jp.fujitsu.com>
- <bd45c06a-77cc-2ab3-122e-41dee1aee0ac@os.amperecomputing.com>
- <TY3PR01MB99836C3D57503E70C8B8C9E9D509A@TY3PR01MB9983.jpnprd01.prod.outlook.com>
- <TY3PR01MB9983025D434CAA2CDF83656BD511A@TY3PR01MB9983.jpnprd01.prod.outlook.com>
-From: Hanjun Guo <guohanjun@huawei.com>
-Message-ID: <3bbdc50e-a55c-96ed-a8db-6bbce1760ee4@huawei.com>
-Date: Sat, 27 Sep 2025 10:55:47 +0800
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101
- Thunderbird/68.6.0
+	Sat, 27 Sep 2025 03:52:56 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id B038B45A18;
+	Sat, 27 Sep 2025 03:52:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8ACF4C4CEE7;
+	Sat, 27 Sep 2025 03:52:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758945173;
+	bh=W/z5cqAffsitkvS3CbuGOrlcjmQu/FBVIDqgLsCp8p8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=afLb2RSqGIIpgahmXAMZRfTysN7c1Dd/ZiZIsaQk5XOLHULfcAdf4deyC2gcAOHfx
+	 BWgtesSCx/m/1oPyP18AO7ij+rcOpqM7jaDuyOGijs3UY9j6G3NswqLY5WsPcqk2PA
+	 SIZ2JesLIyC30hmZP5h90FESCR1VIwjaS/0xy+9gXZDqhbr0qMAOjjgIoG57x0pw92
+	 /qucid6M0/DYR3toxdvqvMh9HWbvrFtRJtCIwNa/oXPTiwfNkwLej/iKwBfOsLR1Gg
+	 mViNAN8nqAlZSheI95C2THZMAGXjxGnLvzHnIPsPu4lzwdZnasycb4bORvZFdiYRsb
+	 JjKXwMSmipjEQ==
+Date: Sat, 27 Sep 2025 09:22:41 +0530
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Bjorn Helgaas <helgaas@kernel.org>
+Cc: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
+	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, chaitanya chundru <quic_krichai@quicinc.com>, 
+	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
+	cros-qcom-dts-watchers@chromium.org, Jingoo Han <jingoohan1@gmail.com>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, quic_vbadigan@quicnic.com, 
+	amitk@kernel.org, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, jorge.ramirez@oss.qualcomm.com, 
+	linux-arm-kernel@lists.infradead.org, Dmitry Baryshkov <lumag@kernel.org>
+Subject: Re: [PATCH v6 5/9] PCI: dwc: Implement .start_link(), .stop_link()
+ hooks
+Message-ID: <3tuxxskusi5ck7cu2nqfkilqdqvzqjy77qgpvuo4nhcugdebug@geqxeslmxmdr>
+References: <4a3f9494-27a2-47d6-bdef-0b1bcbd99903@oss.qualcomm.com>
+ <20250926203916.GA2266029@bhelgaas>
 MIME-Version: 1.0
-In-Reply-To: <TY3PR01MB9983025D434CAA2CDF83656BD511A@TY3PR01MB9983.jpnprd01.prod.outlook.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Language: en-GB
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.174.178.247]
-X-ClientProxiedBy: kwepems100002.china.huawei.com (7.221.188.206) To
- dggpemf500002.china.huawei.com (7.185.36.57)
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250926203916.GA2266029@bhelgaas>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_195600_479602_1DB9D160 
-X-CRM114-Status: GOOD (  11.97  )
+X-CRM114-CacheID: sfid-20250926_205255_114757_71B2AE83 
+X-CRM114-Status: GOOD (  44.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,44 +83,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/9/19 13:05, Kazuhiro Abe (Fujitsu) wrote:
-> Hi Hanjun & Sudeep
+On Fri, Sep 26, 2025 at 03:39:16PM -0500, Bjorn Helgaas wrote:
+> On Fri, Sep 26, 2025 at 07:09:17PM +0530, Krishna Chaitanya Chundru wrote:
+> > On 9/25/2025 10:55 PM, Bjorn Helgaas wrote:
+> > > On Thu, Sep 25, 2025 at 09:49:16PM +0530, Manivannan Sadhasivam wrote:
+> > > > On Thu, Sep 25, 2025 at 09:54:16AM -0500, Bjorn Helgaas wrote:
+> > > > > On Thu, Aug 28, 2025 at 05:39:02PM +0530, Krishna Chaitanya Chundru wrote:
+> > > > > > Implement stop_link() and  start_link() function op for dwc drivers.
+> > > > > > 
+> > > > > > Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
+> > > > > > ---
+> > > > > >   drivers/pci/controller/dwc/pcie-designware-host.c | 18 ++++++++++++++++++
+> > > > > >   1 file changed, 18 insertions(+)
+> > > > > > 
+> > > > > > diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
+> > > > > > index 952f8594b501254d2b2de5d5e056e16d2aa8d4b7..bcdc4a0e4b4747f2d62e1b67bc1aeda16e35acdd 100644
+> > > > > > --- a/drivers/pci/controller/dwc/pcie-designware-host.c
+> > > > > > +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
+> > > > > > @@ -722,10 +722,28 @@ void __iomem *dw_pcie_own_conf_map_bus(struct pci_bus *bus, unsigned int devfn,
+> > > > > >   }
+> > > > > >   EXPORT_SYMBOL_GPL(dw_pcie_own_conf_map_bus);
+> > > > > > +static int dw_pcie_op_start_link(struct pci_bus *bus)
+> > > > > > +{
+> > > > > > +	struct dw_pcie_rp *pp = bus->sysdata;
+> > > > > > +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
+> > > > > > +
+> > > > > > +	return dw_pcie_host_start_link(pci);
+> > > > > 
+> > > > > This takes a pci_bus *, which could be any PCI bus, but this only
+> > > > > works for root buses because it affects the link from a Root Port.
+> > > > > 
+> > > > > I know the TC9563 is directly below the Root Port in the current
+> > > > > topology, but it seems like the ability to configure a Switch with
+> > > > > I2C or similar is potentially of general interest, even if the
+> > > > > switch is deeper in the hierarchy.
+> > > > > 
+> > > > > Is there a generic way to inhibit link training, e.g., with the
+> > > > > Link Disable bit in the Link Control register?  If so, this could
+> > > > > potentially be done in a way that would work for any vendor and
+> > > > > for any Downstream Port, including Root Ports and Switch
+> > > > > Downstream Ports.
+> > > > 
+> > > > FWIW, the link should not be stopped for a single device, since it
+> > > > could affect other devices in the bus. Imagine if this switch is
+> > > > connected to one of the downstream port of another switch. Then
+> > > > stopping and starting the link will affect other devices connected
+> > > > to the upstream switch as well.
+> > > 
+> > > Link Disable would affect all devices downstream of the bridge where
+> > > it is set, same as dw_pcie_op_stop_link().
+> > > 
+> > > > This driver is doing it right now just because, there is no other
+> > > > way to control the switch state machine. Ideally, we would want the
+> > > > PERST# to be in asserted stage to keep the device from starting the
+> > > > state machine, then program the registers over I2C and deassert
+> > > > PERST#. This will work across all of the host controller drivers (if
+> > > > they support pwrctrl framework).
+> > > 
+> > > I don't think there's a way to implement .start_link() and
+> > > .stop_link() for ACPI unless it's by using Link Disable, which is why
+> > > I asked about this.  If Link Disable *does* work, it would be a very
+> > > generic way to do this because it's part of the PCIe base spec.
+> > 
+> > We did test as you suggested but unfortunately the setting are not
+> > getting reflected we need to explicitly assert perst to make sure
+> > pcie is in reset state while applying these settings.
 > 
->> Hi Ilkka
->>
->>> Hi Kazuhiro,
->>>
->>> On Fri, 5 Sep 2025, Kazuhiro Abe wrote:
->>>> AGDI has two types of signaling modes: SDEI and interrupt.
->>>> Currently, the AGDI driver only supports SDEI.
->>>> Therefore, add support for interrupt signaling mode The interrupt
->>>> vector is retrieved from the AGDI table, and call panic function
->>>> when an interrupt occurs.
->>>>
->>>> Signed-off-by: Kazuhiro Abe <fj1078ii@aa.jp.fujitsu.com>
->>>
->>>
->>> Looks good to me.
->>>
->>> Reviewed-by: Ilkka Koskinen <ilkka@os.amperecomputing.com>
->>>
->>
->> Thanks for your review.
->>
->> Best Regards,
->> Kazuhiro Abe
->>
->>>
->>> Hanjun & Sudeep, what's your thought on enabling the use of regular
->>> interrupts here? I do agree the spec talks about non-maskable ones and
->>> to my understanding that's what the idea was indeed.
+> Maybe ".stop_link()" is the wrong name if what's actually required is
+> PERST#?
 > 
-> Do you have any thoughts on this matter?
 
-For the real use case, if the system is in failure state, for example,
-the system is panic, the CPU will not handle regular interrupts, so
-what's the use case do you have to use regular interrupt?
+If we rename this callback to foo_perst(), then it will be similar to my Pwrctrl
+PERST# integration series [1]. I'm wondering why shouldn't we merge it instead
+and get rid of this callback from this series for good?
 
-Thanks
-Hanjun
+- Mani
+
+[1] https://lore.kernel.org/linux-pci/20250912-pci-pwrctrl-perst-v3-0-3c0ac62b032c@oss.qualcomm.com/
+
+-- 
+மணிவண்ணன் சதாசிவம்
 
