@@ -4,98 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01D24CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Sep 2025 12:48:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04E6ACAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Sep 2025 12:50:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UsESWwnwp015hRUHy0tyfeYRri9Veb0bA0cwbwBzOD4=; b=25jzH4bNoLyX6tIYi6JHofik0x
-	ChEP3shy29QpoIDGrg66c+bB5XHr3NY7LqBTIYvRYjHJj7CiTzPGf6Z10x7BT+EAhpFiFp0nfOwpC
-	/a+N0xtGCtgP70XdPHR8y8Ynl8OOPR5xdBYnSbwdptW9DcPqtKTNKDrTgY5gwUl7MadpFX4vAuHRV
-	bNFj/UT0lqMjLI1wjK3gBwLXdGupqrPCuHX8Y8dI6yU/q3OAgZ9/6vBtCZxesK+onFLFUGuCW5hSM
-	jc2pD91lQgM0SxqU6scw9M+JexnXIh/nY6+w8HSdErX0DwVZjb1uQKMPBs5wQrgKbpgt85ZeShPUz
-	xtUBCdyQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=SDIgvocR7eSGyBef7vxMCGlKJolA7WVr3JO0DUc8Zu4=; b=bAl1L2DHUFs8vSDk2JpgrwxSAC
+	TBYQzIx5NEuJ2EZ/bVSD6+RqZKw8sSdLgqKQFb6VMHNPQjUZAQWjLGBntlkWyeEBcs+JdK6QzvPEL
+	O4XPF5Khq8qHWx4zyeyonDUebhKGhbwCa9PUiUXbECY1n/5EDx3cD2PVT8ffx+CMA5VZaIBPO+23d
+	vi8nLjn1M5QHVy0TZ7Yv5OQQb+59bEkiOnRFvW7ZyOlnl/IZ760wsB1ncQAbZdfwjkOWn3ZGYC+mC
+	cDcwd0Qe/jY8Q02/DkRTqNzCA3HQnX5vFj93DQ34s2nkOWyaSEXx+M88HKBsUQu5V1FymQkICdfR5
+	l/YfT4ZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2UM5-00000009mcM-0rSU;
-	Sat, 27 Sep 2025 12:48:49 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1v2UNT-00000009nOa-3U7H;
+	Sat, 27 Sep 2025 12:50:15 +0000
+Received: from mail-wr1-x42f.google.com ([2a00:1450:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2UM3-00000009mbB-1bUp;
-	Sat, 27 Sep 2025 12:48:48 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1758977327; x=1790513327;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=0W45DesrwvOL7dwAbK4Wk7k7PmMheNSI1z8Zd+4XNIw=;
-  b=MILHCeOzXJ2wuvHHzEi4M7vNrEv6fqI3D7w3cb25fvmIwkkcjuKOmEgS
-   5IXkOklmy28bB2yxhHYkAMqLDOiCkE0w86ispFEbKrT+cCjygymj53Mh4
-   dR9Z8OBhjBBHhdJRYf48nBHT4VC0Olt6Qu6e7t3kXYWZdupO0Xppt38+j
-   Bj3dMlxuqTVhM1Ruyuw5RGpirodfJ+BiSpJwp1FqgBIjJNv3F/pG42VQJ
-   l9nD/gF5gFRE/VlMs52746UBWnEmCG6/Ujqp6q79w4Ej8ILKDFa6WHl2x
-   04CW5HjG3410bErfNDzN6zzJRM5pMDtHalJXjk86C6g4v7NYn9bNTzZiB
-   A==;
-X-CSE-ConnectionGUID: IchtO2O4QXaZY+e6pg8d+w==
-X-CSE-MsgGUID: Idcy6ueJTLG2FYN1F2oTKw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11565"; a="86734725"
-X-IronPort-AV: E=Sophos;i="6.18,297,1751266800"; 
-   d="scan'208";a="86734725"
-Received: from orviesa002.jf.intel.com ([10.64.159.142])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Sep 2025 05:48:45 -0700
-X-CSE-ConnectionGUID: EtxiiekZTFm3ZEexcFIrlg==
-X-CSE-MsgGUID: PAlpPQWsRdGdV4Lp7P0oNQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,297,1751266800"; 
-   d="scan'208";a="208568713"
-Received: from lkp-server02.sh.intel.com (HELO 84c55410ccf6) ([10.239.97.151])
-  by orviesa002.jf.intel.com with ESMTP; 27 Sep 2025 05:48:38 -0700
-Received: from kbuild by 84c55410ccf6 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1v2ULr-00073X-2Y;
-	Sat, 27 Sep 2025 12:48:35 +0000
-Date: Sat, 27 Sep 2025 20:48:05 +0800
-From: kernel test robot <lkp@intel.com>
-To: Dmitry Baryshkov <lumag@kernel.org>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-	Liu Ying <victor.liu@nxp.com>,
-	Andrzej Hajda <andrzej.hajda@intel.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Robert Foss <rfoss@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Rob Clark <robin.clark@oss.qualcomm.com>,
-	Abhinav Kumar <abhinav.kumar@linux.dev>,
-	Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
-	Sean Paul <sean@poorly.run>,
-	Marijn Suijten <marijn.suijten@somainline.org>,
-	Sandy Huang <hjc@rock-chips.com>,
-	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
-	Andy Yan <andy.yan@rock-chips.com>, Chen-Yu Tsai <wens@csie.org>,
-	Samuel Holland <samuel@sholland.org>
-Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
-	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
+	id 1v2UNR-00000009nLa-1ike
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 27 Sep 2025 12:50:14 +0000
+Received: by mail-wr1-x42f.google.com with SMTP id ffacd0b85a97d-3ecde0be34eso2188787f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 27 Sep 2025 05:50:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1758977411; x=1759582211; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=SDIgvocR7eSGyBef7vxMCGlKJolA7WVr3JO0DUc8Zu4=;
+        b=cOpra0qOvmkLwgsFs/sEpalecygSBEOMNuVPDSdkl9w4caAyw5rm3YSaUL2jCqAPax
+         4ErUsgVKiV8Ch7BMMvqOCKO0fNgT1OdWutDJKVgyyroQQwPyTwQ7j67Nx/Jt4aQ7uk2u
+         jRLjfrC1BoZqFvvT7iNR9o6a3OdHYxsJUpZZezkl2TmviTTNCyK0yxyYy6D4KwsKbVt8
+         heATUQFHddYU+zRsIsWpQpT1kHoTNZWXBn7P91M4+kbpWm0mOGLbzsgnVFIQBeU4Y8Yo
+         z57a80uWrrTroh7wkf4jkHay8Yb7IlzDIuqJyAzwjHJXW3vs/H2uOQxmcgX/d+ubbvW+
+         Yrmg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1758977411; x=1759582211;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=SDIgvocR7eSGyBef7vxMCGlKJolA7WVr3JO0DUc8Zu4=;
+        b=qzcVtKVBKrKO5WG682WVkuFgYgzpzDL/pglZ/rwQpISXXqBje05AAJ0CSxxaWHZFbv
+         wz4L/jMYH8ba96uPPRtaQqT9xx/XWtEBpGbrVRWLmNr0oJyXEjZ0Khi1J8SYXZHeXjwV
+         n2mbVBRGxqyX2mz2NIhwFbVZ0tW3aKAzWp9NcRBYgL7i/M0fm8UCMLYCtlMatNNlAO+y
+         sifgbCfhvF6NCba7NbffxP01z5eHP3ls9P/BFjNKRrlGjKJWmCZ1+KdAwJ1sdlJm655L
+         gVNUN+fcyQETfLq/ApJOpeBHBNOm+vT7gTnRfMpg0jkiC7uQzFg7Ah6C3t0hga1nraqk
+         eGrQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUo1d8tczOhTR+CNNvncSmNdKOtWL5IlQqNUpyfxB873FNlDsQokaU39FM7kfX0WeAEIq8M7WwOkBQTrGUM8bCc@lists.infradead.org
+X-Gm-Message-State: AOJu0YwlL46ntnGDAc4wF3baYdD3y5SgK685Bp4QqP/jH06oJwWn/Wm/
+	b7YT8+GzfLtmHBAfHdCMtsYWwre2zPF3vBEoFlFfWpMwy3tSgqUMClHF7fTgB+pKFAU=
+X-Gm-Gg: ASbGnctFQRFNQgA+BEWy2BSb5/WRXgr7U8LDTsP1jDE5N6NdzOSdz1bv6SbO2DdzrI8
+	N0ynkhdT1f/Mk0b5L+Yv5OWWgn/uMdz9nQFOoFSrPoF6RBtal21qVhIuDQ4LoBV71ypZpRrUV6/
+	uLqdhboDes2f5oHVLyxzWZeXnQHG/XRVKVx2+TJTp+Ygobu8YJr1duC+rpV/JtulZj53Xfb8kle
+	n+JrH45ajXIkys7VkluUkbOo/GFDuco2qx5Uta5xW3M4ydqZKzLcltbZkmP+juTa0fSqs1ifRmH
+	Cm2s/TzH6sJFnglTHI4JLSoZyfyc5zyPswcmrja8NugNnKxLLjaBRb8YRvM/gtsv0UOpSn7jQMq
+	pwmYvhk+TDTJXrklCrybcX2rOylANHzsARZ/tzg==
+X-Google-Smtp-Source: AGHT+IGHl/MrvnBmwYJlng90W0ae6rxBIE9Nf84TxnL8stOE8Xyl9IXCEHjFwJhjKBi77KUw7CW0SQ==
+X-Received: by 2002:a05:6000:1ac7:b0:404:2fe4:3a80 with SMTP id ffacd0b85a97d-418069559cbmr2197982f8f.25.1758977410844;
+        Sat, 27 Sep 2025 05:50:10 -0700 (PDT)
+Received: from toolbox.. ([87.200.95.144])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46e33bede39sm115338255e9.18.2025.09.27.05.50.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sat, 27 Sep 2025 05:50:10 -0700 (PDT)
+From: Christian Hewitt <christianshewitt@gmail.com>
+To: Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev
-Subject: Re: [PATCH 1/9] drm/display: hdmi-state-helpers: warn on unsupported
- InfoFrame types
-Message-ID: <202509272013.GAc17rsa-lkp@intel.com>
-References: <20250927-limit-infoframes-2-v1-1-697511bd050b@oss.qualcomm.com>
+	linux-amlogic@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH 1/2] dt-bindings: arm: amlogic: add support for Tanix TX9 Pro
+Date: Sat, 27 Sep 2025 12:50:05 +0000
+Message-Id: <20250927125006.824293-1-christianshewitt@gmail.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250927-limit-infoframes-2-v1-1-697511bd050b@oss.qualcomm.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250927_054847_437244_58D937D1 
-X-CRM114-Status: GOOD (  10.22  )
+X-CRM114-CacheID: sfid-20250927_055013_460765_AEDC4951 
+X-CRM114-Status: UNSURE (   9.42  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,58 +103,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dmitry,
+The Oranth Tanix TX9 Pro is an Android STB using the Amlogic S912 chip
 
-kernel test robot noticed the following build errors:
+Signed-off-by: Christian Hewitt <christianshewitt@gmail.com>
+---
+ Documentation/devicetree/bindings/arm/amlogic.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
-[auto build test ERROR on bf2602a3cb2381fb1a04bf1c39a290518d2538d1]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Dmitry-Baryshkov/drm-display-hdmi-state-helpers-warn-on-unsupported-InfoFrame-types/20250927-090630
-base:   bf2602a3cb2381fb1a04bf1c39a290518d2538d1
-patch link:    https://lore.kernel.org/r/20250927-limit-infoframes-2-v1-1-697511bd050b%40oss.qualcomm.com
-patch subject: [PATCH 1/9] drm/display: hdmi-state-helpers: warn on unsupported InfoFrame types
-config: x86_64-buildonly-randconfig-002-20250927 (https://download.01.org/0day-ci/archive/20250927/202509272013.GAc17rsa-lkp@intel.com/config)
-compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250927/202509272013.GAc17rsa-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202509272013.GAc17rsa-lkp@intel.com/
-
-All errors (new ones prefixed by >>):
-
->> drivers/gpu/drm/display/drm_hdmi_state_helper.c:924:17: error: use of undeclared identifier 'it'
-     924 |                 dev_warn_once(it->dev, "unsupported HDMI infoframe 0x%x\n", frame->any.type);
-         |                               ^
->> drivers/gpu/drm/display/drm_hdmi_state_helper.c:924:63: error: use of undeclared identifier 'frame'
-     924 |                 dev_warn_once(it->dev, "unsupported HDMI infoframe 0x%x\n", frame->any.type);
-         |                                                                             ^
-   drivers/gpu/drm/display/drm_hdmi_state_helper.c:953:17: error: use of undeclared identifier 'it'
-     953 |                 dev_warn_once(it->dev, "unsupported HDMI infoframe 0x%x\n", frame->any.type);
-         |                               ^
-   3 errors generated.
-
-
-vim +/it +924 drivers/gpu/drm/display/drm_hdmi_state_helper.c
-
-   916	
-   917	static int clear_infoframe(struct drm_connector *connector,
-   918				   struct drm_connector_hdmi_infoframe *old_frame)
-   919	{
-   920		int ret;
-   921	
-   922		ret = clear_device_infoframe(connector, old_frame->data.any.type);
-   923		if (ret == -EOPNOTSUPP)
- > 924			dev_warn_once(it->dev, "unsupported HDMI infoframe 0x%x\n", frame->any.type);
-   925		if (ret)
-   926			return ret;
-   927	
-   928		return 0;
-   929	}
-   930	
-
+diff --git a/Documentation/devicetree/bindings/arm/amlogic.yaml b/Documentation/devicetree/bindings/arm/amlogic.yaml
+index 2a096e060ed3..08d9963fe925 100644
+--- a/Documentation/devicetree/bindings/arm/amlogic.yaml
++++ b/Documentation/devicetree/bindings/arm/amlogic.yaml
+@@ -134,6 +134,7 @@ properties:
+               - libretech,aml-s912-pc
+               - minix,neo-u9h
+               - nexbox,a1
++              - oranth,tx9-pro
+               - tronsmart,vega-s96
+               - ugoos,am3
+               - videostrong,gxm-kiii-pro
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.34.1
+
 
