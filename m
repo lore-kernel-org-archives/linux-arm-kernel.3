@@ -4,71 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42F09CAC5B9
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Sep 2025 03:53:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0D89CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Sep 2025 05:00:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YZaujxbR87IWPXawB0juYj+itNZtrWXuBYx+nqx7Q/0=; b=vxEuI9AS0iQEYffHa/n2PKROh6
-	slDzg+3L4UUeklMjUZmaQOruSpGWAWxJhwIisGc5+Bb/+zIHwTV3hkPuG+Q7HdUEazCGozINJQIj3
-	QEUnfxgETXbEaq+30udPWhQ/g8QRaeInnUYpa4/sd2Sm0CXfoFi/w3nkDj570oLDNCm5QhjmWCOWP
-	9ezwdjn9wYGZN+QVrQeZWjL3IhDVPlPjFhQi1Q8qUx+OAJlKxeFE+qbSm46+2Zn7eib6TxZTWLbq7
-	vfukp5Lj+Vgl6kdm82wrk9POvJFItQAlQ9bHSdeuV6R7+xr3UI7JesbNo1PioGQFFTNgwLEkbNDP7
-	ZW6/KzjQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=nZCMvyWJd/0l+d8DwDHIgR7fMdp6Hhhxk/Ql0PW2G5o=; b=n3NqwAe6KgoRc0daPJM5NoLEEk
+	WG/uUo4jwXF68hMNRR4YL7sMBg7z5AbJ2ZUrWeU/QIKTwheNuiXjJJYpaQeQatajHpYeYwyWfTacT
+	btVEbyTmr0BNYWg/HCs0OSw7Kr4TBWfRMtKSrxq+dcXC4/MKxf+49o/SjqDavE+2vvbfmaNeA4lwV
+	NikttzD8EnF4A98yyiiTSrzsLlMLOBth/sT973BJd7ayQ26DAqt7THALL3C/CQqjBKL7U509rqyzc
+	UYm6X6dRs2mHLV7oBGidZ7ezLWYl9Vn4fcN495uUnDq95vC6cYGY2xzWNCV+kwX6kAtGEJ5/oEgbT
+	nGLhy5/w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2LzV-00000006od3-11Fp;
-	Sat, 27 Sep 2025 03:52:57 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v2N2e-00000007BE8-0mx6;
+	Sat, 27 Sep 2025 05:00:16 +0000
+Received: from mail.mainlining.org ([5.75.144.95])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2LzT-00000006obN-07zT
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 27 Sep 2025 03:52:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B038B45A18;
-	Sat, 27 Sep 2025 03:52:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8ACF4C4CEE7;
-	Sat, 27 Sep 2025 03:52:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758945173;
-	bh=W/z5cqAffsitkvS3CbuGOrlcjmQu/FBVIDqgLsCp8p8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=afLb2RSqGIIpgahmXAMZRfTysN7c1Dd/ZiZIsaQk5XOLHULfcAdf4deyC2gcAOHfx
-	 BWgtesSCx/m/1oPyP18AO7ij+rcOpqM7jaDuyOGijs3UY9j6G3NswqLY5WsPcqk2PA
-	 SIZ2JesLIyC30hmZP5h90FESCR1VIwjaS/0xy+9gXZDqhbr0qMAOjjgIoG57x0pw92
-	 /qucid6M0/DYR3toxdvqvMh9HWbvrFtRJtCIwNa/oXPTiwfNkwLej/iKwBfOsLR1Gg
-	 mViNAN8nqAlZSheI95C2THZMAGXjxGnLvzHnIPsPu4lzwdZnasycb4bORvZFdiYRsb
-	 JjKXwMSmipjEQ==
-Date: Sat, 27 Sep 2025 09:22:41 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Bjorn Helgaas <helgaas@kernel.org>
-Cc: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>, 
-	Bjorn Helgaas <bhelgaas@google.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, chaitanya chundru <quic_krichai@quicinc.com>, 
-	Bjorn Andersson <andersson@kernel.org>, Konrad Dybcio <konradybcio@kernel.org>, 
-	cros-qcom-dts-watchers@chromium.org, Jingoo Han <jingoohan1@gmail.com>, 
-	Bartosz Golaszewski <brgl@bgdev.pl>, Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, quic_vbadigan@quicnic.com, 
-	amitk@kernel.org, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org, jorge.ramirez@oss.qualcomm.com, 
-	linux-arm-kernel@lists.infradead.org, Dmitry Baryshkov <lumag@kernel.org>
-Subject: Re: [PATCH v6 5/9] PCI: dwc: Implement .start_link(), .stop_link()
- hooks
-Message-ID: <3tuxxskusi5ck7cu2nqfkilqdqvzqjy77qgpvuo4nhcugdebug@geqxeslmxmdr>
-References: <4a3f9494-27a2-47d6-bdef-0b1bcbd99903@oss.qualcomm.com>
- <20250926203916.GA2266029@bhelgaas>
+	id 1v2N2b-00000007B9g-03I8;
+	Sat, 27 Sep 2025 05:00:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; s=202507r; d=mainlining.org; c=relaxed/relaxed;
+	h=To:Message-Id:Subject:Date:From; t=1758949158; bh=nZCMvyWJd/0l+d8DwDHIgR7
+	fMdp6Hhhxk/Ql0PW2G5o=; b=I/IHR/ZBehD1zCce6Zf+RIlfFIkv8B873wDBg96cWIrHduo557
+	/1MfQJV5GhPBhy6NILg8C4/q+OPQKKSQnsCAtNBFgUXq4mULRPZYifBeL20HoVB7fexWPcrljAq
+	vQXJNue1Jv6QK18wdEmgvryymT5rr2NR48YVViFkkHfWHxJgTeat/RfySPINdbHQumPzhn3fVnZ
+	sBW+p4X1ceV+61Hv9xRqZa9ciYAj59xVLca4KEIY+OA6JpES91hcNfkP4m4627/i/qElpC2wAbY
+	Tl6xYxU6aNMJ3yLm2Dgy0UX9ZyVHmZG/6EYSUgKTqepNxbWBj2HRxd94Fl+Le05xAAw==;
+DKIM-Signature: v=1; a=ed25519-sha256; s=202507e; d=mainlining.org; c=relaxed/relaxed;
+	h=To:Message-Id:Subject:Date:From; t=1758949158; bh=nZCMvyWJd/0l+d8DwDHIgR7
+	fMdp6Hhhxk/Ql0PW2G5o=; b=ScRC0d9urjAzTpmviEOOd2PNwtf09CsGN+AqdKAxtvTOTSevdk
+	KoZN/RL4rrO3VsQZNk3QXhyMknEjX9DUkpDQ==;
+From: Dang Huynh <dang.huynh@mainlining.org>
+Date: Sat, 27 Sep 2025 11:59:08 +0700
+Subject: [PATCH v3 3/3] gpio: rda: Use bidirectional GPIO register for
+ direction input
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250926203916.GA2266029@bhelgaas>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250927-rda8810pl-gpio-fix-v3-3-3641cdcf6c1e@mainlining.org>
+References: <20250927-rda8810pl-gpio-fix-v3-0-3641cdcf6c1e@mainlining.org>
+In-Reply-To: <20250927-rda8810pl-gpio-fix-v3-0-3641cdcf6c1e@mainlining.org>
+To: Manivannan Sadhasivam <mani@kernel.org>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org, linux-unisoc@lists.infradead.org, 
+ linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Dang Huynh <dang.huynh@mainlining.org>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1758949147; l=1179;
+ i=dang.huynh@mainlining.org; s=20250917; h=from:subject:message-id;
+ bh=plcpw2T9B0QjZiLTHHwxIiFvD6CVvF2W7wuatitb7c4=;
+ b=h8bm/jYJCPp076VvjNf3NuBUvvZXtwNyl/IgNI3unR8XASZV8DEetcampybSESkX8cdFR5EVp
+ RVqpIB59SZDDr9w+ar/lPTXgEyhzNw+QVJ4JItIposuWH+DY3RRnq8c
+X-Developer-Key: i=dang.huynh@mainlining.org; a=ed25519;
+ pk=RyzH4CL4YU/ItXYUurA51EVBidfx4lIy8/E4EKRJCUk=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250926_205255_114757_71B2AE83 
-X-CRM114-Status: GOOD (  44.78  )
+X-CRM114-CacheID: sfid-20250926_220013_226591_5964C8C3 
+X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,84 +80,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 26, 2025 at 03:39:16PM -0500, Bjorn Helgaas wrote:
-> On Fri, Sep 26, 2025 at 07:09:17PM +0530, Krishna Chaitanya Chundru wrote:
-> > On 9/25/2025 10:55 PM, Bjorn Helgaas wrote:
-> > > On Thu, Sep 25, 2025 at 09:49:16PM +0530, Manivannan Sadhasivam wrote:
-> > > > On Thu, Sep 25, 2025 at 09:54:16AM -0500, Bjorn Helgaas wrote:
-> > > > > On Thu, Aug 28, 2025 at 05:39:02PM +0530, Krishna Chaitanya Chundru wrote:
-> > > > > > Implement stop_link() and  start_link() function op for dwc drivers.
-> > > > > > 
-> > > > > > Signed-off-by: Krishna Chaitanya Chundru <krishna.chundru@oss.qualcomm.com>
-> > > > > > ---
-> > > > > >   drivers/pci/controller/dwc/pcie-designware-host.c | 18 ++++++++++++++++++
-> > > > > >   1 file changed, 18 insertions(+)
-> > > > > > 
-> > > > > > diff --git a/drivers/pci/controller/dwc/pcie-designware-host.c b/drivers/pci/controller/dwc/pcie-designware-host.c
-> > > > > > index 952f8594b501254d2b2de5d5e056e16d2aa8d4b7..bcdc4a0e4b4747f2d62e1b67bc1aeda16e35acdd 100644
-> > > > > > --- a/drivers/pci/controller/dwc/pcie-designware-host.c
-> > > > > > +++ b/drivers/pci/controller/dwc/pcie-designware-host.c
-> > > > > > @@ -722,10 +722,28 @@ void __iomem *dw_pcie_own_conf_map_bus(struct pci_bus *bus, unsigned int devfn,
-> > > > > >   }
-> > > > > >   EXPORT_SYMBOL_GPL(dw_pcie_own_conf_map_bus);
-> > > > > > +static int dw_pcie_op_start_link(struct pci_bus *bus)
-> > > > > > +{
-> > > > > > +	struct dw_pcie_rp *pp = bus->sysdata;
-> > > > > > +	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
-> > > > > > +
-> > > > > > +	return dw_pcie_host_start_link(pci);
-> > > > > 
-> > > > > This takes a pci_bus *, which could be any PCI bus, but this only
-> > > > > works for root buses because it affects the link from a Root Port.
-> > > > > 
-> > > > > I know the TC9563 is directly below the Root Port in the current
-> > > > > topology, but it seems like the ability to configure a Switch with
-> > > > > I2C or similar is potentially of general interest, even if the
-> > > > > switch is deeper in the hierarchy.
-> > > > > 
-> > > > > Is there a generic way to inhibit link training, e.g., with the
-> > > > > Link Disable bit in the Link Control register?  If so, this could
-> > > > > potentially be done in a way that would work for any vendor and
-> > > > > for any Downstream Port, including Root Ports and Switch
-> > > > > Downstream Ports.
-> > > > 
-> > > > FWIW, the link should not be stopped for a single device, since it
-> > > > could affect other devices in the bus. Imagine if this switch is
-> > > > connected to one of the downstream port of another switch. Then
-> > > > stopping and starting the link will affect other devices connected
-> > > > to the upstream switch as well.
-> > > 
-> > > Link Disable would affect all devices downstream of the bridge where
-> > > it is set, same as dw_pcie_op_stop_link().
-> > > 
-> > > > This driver is doing it right now just because, there is no other
-> > > > way to control the switch state machine. Ideally, we would want the
-> > > > PERST# to be in asserted stage to keep the device from starting the
-> > > > state machine, then program the registers over I2C and deassert
-> > > > PERST#. This will work across all of the host controller drivers (if
-> > > > they support pwrctrl framework).
-> > > 
-> > > I don't think there's a way to implement .start_link() and
-> > > .stop_link() for ACPI unless it's by using Link Disable, which is why
-> > > I asked about this.  If Link Disable *does* work, it would be a very
-> > > generic way to do this because it's part of the PCIe base spec.
-> > 
-> > We did test as you suggested but unfortunately the setting are not
-> > getting reflected we need to explicitly assert perst to make sure
-> > pcie is in reset state while applying these settings.
-> 
-> Maybe ".stop_link()" is the wrong name if what's actually required is
-> PERST#?
-> 
+The current implementation uses both DIRIN and DIROUT registers, but
+the bgpio library expects 1 to be output direction, which on this IP
+is reversed (0 = output, 1 = input).
 
-If we rename this callback to foo_perst(), then it will be similar to my Pwrctrl
-PERST# integration series [1]. I'm wondering why shouldn't we merge it instead
-and get rid of this callback from this series for good?
+To fix this, use GPIO_OEN_VAL for input direction register which
+expects 1 = input, 0 = output.
 
-- Mani
+This change should not affect any mainline users as none of them have
+any peripherals hooked up to a GPIO.
 
-[1] https://lore.kernel.org/linux-pci/20250912-pci-pwrctrl-perst-v3-0-3c0ac62b032c@oss.qualcomm.com/
+Signed-off-by: Dang Huynh <dang.huynh@mainlining.org>
+---
+ drivers/gpio/gpio-rda.c | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/drivers/gpio/gpio-rda.c b/drivers/gpio/gpio-rda.c
+index 7d20dbbb6ec41149a1dbf4d9ef9ac86449773c35..145b61fc83fb6eee2415e979a144616d81595736 100644
+--- a/drivers/gpio/gpio-rda.c
++++ b/drivers/gpio/gpio-rda.c
+@@ -243,8 +243,7 @@ static int rda_gpio_probe(struct platform_device *pdev)
+ 		.dat = rda_gpio->base + RDA_GPIO_VAL,
+ 		.set = rda_gpio->base + RDA_GPIO_SET,
+ 		.clr = rda_gpio->base + RDA_GPIO_CLR,
+-		.dirout = rda_gpio->base + RDA_GPIO_OEN_SET_OUT,
+-		.dirin = rda_gpio->base + RDA_GPIO_OEN_SET_IN,
++		.dirin = rda_gpio->base + RDA_GPIO_OEN_VAL,
+ 		.flags = BGPIOF_READ_OUTPUT_REG_SET,
+ 	};
+ 
 
 -- 
-மணிவண்ணன் சதாசிவம்
+2.51.0
 
