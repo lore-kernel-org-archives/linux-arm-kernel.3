@@ -4,55 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63BCDCAC5BD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Sep 2025 14:04:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 296E8CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Sep 2025 14:04:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=wb6sZ+c3yKQM/tcEc4SNtuOGZPQiSEEYEWgDlTqRwD8=; b=sUNKHCW9CugFsE
-	obvPCAN+KKlMR8ADSyAfagV1IQqdYtrbGwTNfkR0g0SliUVz3Gt7dZs+cJB/7GgOXKUfxAmtS+3SL
-	90XScVAIL4FD9Gv1yDXZVYWp4Xr2VmYMyzMTryhtWTw8f4Pp81nMrWj33pRcbCy/qAEYxLDbPlXWO
-	SOgaaGhwLLKbOxcGZZ81deirxV25MsSuAj5gZh8F4Wb0qMRj4noW+JskjvPbbWn7stmclHt1+Ftx0
-	LThrwDUNfmG+hTxtwTMyFJtp9SDsw/njrH16cBNcskOKkAf/a0DM0P9e0O56orLcC9yys0PK4//we
-	0Q+PhJooRyg6NTHjnUgA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ki7EFu0Nl7B4/VDVsO/DBVKCcttxWy3Q8gg0aWtl8E4=; b=HsrRNg1TLPs1Le0PCjQrGFhDaA
+	m98fdiZCvKcgNWojd7vzTsLNFBwpGd/TbQ26e44VdjOOYRZy9gfFhKDrPuKqfFtmi1G2H0Qu7PpbN
+	SyEZbMxVi/TGBnf6ZspDfjOEjS4UH95P3d1JWTi+V2AozGob09Fl5y+SKxRFGixh1WrCXyoofi+2j
+	V1ReejM1SpfHU0EDrEnEqCWk2IyUa6onFNd2KcTHql0naRBvjo0rETaA2xPbIjLMwuPFMn7W8OOUx
+	bofsI/v7O8Ub3IxjMfwChFAIGPDkypZlpdda+1aO9MZw08o6nRNwgDYLRz6uRgXDjzdLuseiQpWgB
+	71DLaMGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2VWw-0000000ACQp-2eoy;
-	Sat, 27 Sep 2025 14:04:06 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v2VX2-0000000ACWF-0oaT;
+	Sat, 27 Sep 2025 14:04:12 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2VWv-0000000ACQ8-3dUX;
-	Sat, 27 Sep 2025 14:04:05 +0000
+	id 1v2VWy-0000000ACSU-1xPL;
+	Sat, 27 Sep 2025 14:04:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 428A4601DE;
-	Sat, 27 Sep 2025 14:04:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 71C6BC4CEE7;
-	Sat, 27 Sep 2025 14:04:04 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A907E444A1;
+	Sat, 27 Sep 2025 14:04:07 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3B2BDC4CEE7;
+	Sat, 27 Sep 2025 14:04:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1758981844;
-	bh=mGr2EMGRgUnBXBgYyHfdnuWKDBCqqz3YASJ/ym88WdU=;
-	h=From:Subject:Date:To:Cc:From;
-	b=JZ/+ZWVK1MJMw8WwpkRJzaMVWsf7Mgux6URVM8FXcX2pYxausVn8xARS0VT1RleYG
-	 JXIlS50WKgOin7NcHIddcJIgP8oJZzVNjMZsSd2MTL7XCd84M/oxeQWiLiUveuls31
-	 KQu9zqrA/wR7hYHybxiYd9dkAGi4cahd7W53AiSaTamSK1ilFAYqa03scmnWZjiDMG
-	 TFbbXsIU7NQRHs5LtNiqhlQT6gUHgBn8dMum7rx8pY5d9TzoPtdTrrQBITCtmeF/+M
-	 xP9ZILAARPrOxONbNW4iJPbIhfOhnzZ40bDZUkq+ykrX+IYDeDmn+G6KTt7WOVZ3NF
-	 N3qUxCFy24HLw==
+	s=k20201202; t=1758981847;
+	bh=EYs89Jn2WO18lvHPSIvjiHZSODy76dkZb7stpKU2PPA=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=kyWQz9MDPeW4oJ+FpK16EgdYGzGud9+/rOgx6+zE8C6NshKuttiHoOQuu+Ia7Gx1y
+	 KJovtAAJQmfLHhQasJMckkhgr7aaFQWahgUXq1aFVM66ZLVuS5XJ0GX65bW88tHRfP
+	 G0q2v8oHVWgFAJA7eb/muxT1budaWIf8aYCdxNIxzWaOWKAwwj+7ceXXDCTo4+mpB3
+	 936EBaUUrZ7R77gAlKg0j5d1iu562o7PSWfRK8yseosvDklXMxJodpuY9orNbZqQdi
+	 PoPiaiScbTrIKFJ6WMo5J0IlWJJtaZ5x7CemH4QqaxIt7RH03YQA0dkxlUsxwXaS8r
+	 rdMZQtqydosCA==
 From: Lorenzo Bianconi <lorenzo@kernel.org>
-Subject: [PATCH net-next v2 0/3] net: airoha: npu: Introduce support for
- Airoha 7583 NPU
-Date: Sat, 27 Sep 2025 16:03:39 +0200
-Message-Id: <20250927-airoha-npu-7583-v2-0-e12fac5cce1f@kernel.org>
+Date: Sat, 27 Sep 2025 16:03:40 +0200
+Subject: [PATCH net-next v2 1/3] dt-bindings: net: airoha: npu: Add AN7583
+ support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIALvu12gC/3WNQQ6CMBBFr0Jm7Zi2lIKsvIdhQWCAiaYlUyUa0
- rtb2bt8L/nv7xBJmCK0xQ5CG0cOPoM5FTAsvZ8JecwMRplKXYzDniUsPfr1hXXVlOhKsrpU2jk
- 7QF6tQhO/j+Kty7xwfAb5HAeb/tn/rU2jQmtrqsiMk2rG653E0+McZIYupfQFdiv8Na8AAAA=
-X-Change-ID: 20250926-airoha-npu-7583-63e41301664c
+Message-Id: <20250927-airoha-npu-7583-v2-1-e12fac5cce1f@kernel.org>
+References: <20250927-airoha-npu-7583-v2-0-e12fac5cce1f@kernel.org>
+In-Reply-To: <20250927-airoha-npu-7583-v2-0-e12fac5cce1f@kernel.org>
 To: Andrew Lunn <andrew+netdev@lunn.ch>, 
  "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
  Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
@@ -61,6 +59,10 @@ To: Andrew Lunn <andrew+netdev@lunn.ch>,
 Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
 X-Mailer: b4 0.14.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250927_070408_520003_012C7030 
+X-CRM114-Status: UNSURE (   7.40  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,28 +77,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce support for Airoha 7583 SoC NPU.
+Introduce AN7583 NPU support to Airoha EN7581 NPU device-tree bindings.
 
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 ---
-Changes in v2:
-- Introduce airoha_npu_soc_data struct and generalize firmware load
-- Link to v1: https://lore.kernel.org/r/20250926-airoha-npu-7583-v1-0-447e5e2df08d@kernel.org
+ Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
----
-Lorenzo Bianconi (3):
-      dt-bindings: net: airoha: npu: Add AN7583 support
-      net: airoha: npu: Add airoha_npu_soc_data struct
-      net: airoha: npu: Add 7583 SoC support
+diff --git a/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml b/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
+index c7644e6586d329d8ec2f0a0d8d8e4f4490429dcc..59c57f58116b568092446e6cfb7b6bd3f4f47b82 100644
+--- a/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
++++ b/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
+@@ -18,6 +18,7 @@ properties:
+   compatible:
+     enum:
+       - airoha,en7581-npu
++      - airoha,an7583-npu
+ 
+   reg:
+     maxItems: 1
 
- .../devicetree/bindings/net/airoha,en7581-npu.yaml |  1 +
- drivers/net/ethernet/airoha/airoha_npu.c           | 93 ++++++++++++++++------
- 2 files changed, 68 insertions(+), 26 deletions(-)
----
-base-commit: 1493c18fe8696bfc758a97130a485fc4e08387f5
-change-id: 20250926-airoha-npu-7583-63e41301664c
-
-Best regards,
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.51.0
 
 
