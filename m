@@ -4,97 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 972D3CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Sep 2025 11:03:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34F50CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Sep 2025 11:30:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tkNWDYlAClljJacvPFHJT9/32vyeFE8E70qgHvwmkb8=; b=LUeBFzZY2VhJ90g9h4lQL+8IIU
-	Sn5Ho5lIihtfz/xTgHU+2jqkYhW8TJHITBACXyF9CPkvnKaZPUjAEtY4mQ0g0JJOYlm3PlcxQGdIC
-	qmSbd+0THgBHT5Bg/Lxh5D+Y4rv3GKsPf7wh0eemd2xqzwSu2kSjejvX5UHeHUfTyQ5yi1n0FZUxB
-	IpLKqjMVFUi7nKnHH59gcm7649Yw0/Gjb7v6hlCVXjv+Dr0yZ2nu+KN0SKT02J5YUJbsVPcH/Kheb
-	QbE9LNE71S8PHMp5xvd+N+BuBjj+FnEc6vQu6mCMaSMPecUozPjSPM7eEsIPWpkI9Mtb6NKdrYCCG
-	Gv2q56Dg==;
+	bh=tCU7v9P/MJ30ZurEFjUc6Z8kHq4xzsD3/KiXCSsv1l4=; b=c9lI0u8ItmlJ4dHHsuP7iAwzK2
+	idlOg2c6IkCaZPe0wI/cWuh6LTuq9J1LXbJPJh7DlFUi+xcaIQZqmBor4ZRKXWvYQIboYYViKGjPY
+	GzEVK5AzzSvPnEANxAgDzGZSJfU8V3j3cWubuw9ghqXt7NtzWs+HLgdU/cMgR9lWLdVyCJS5a/H+E
+	BdEUHGgVAHYr5z0aBWXhoqZyfTqm0Vi3gF7XlsPwF8WgScY441619yI21VfajyKLHW5oCrhUqZtPx
+	eZ12PqK91VBFem7VTy2WWYuqj3VVpTOqS2+1t/mkkh5k+Ac/ZqswWaUL0FMX8FpFvk+tLW/PLmFLa
+	ZpNAqt+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2Shy-00000009Bmz-1RTc;
-	Sat, 27 Sep 2025 11:03:18 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1v2T7h-00000009Kjq-2Chp;
+	Sat, 27 Sep 2025 11:29:53 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2Shw-00000009BlZ-3Wou
+	id 1v2T7f-00000009KjR-1i5j
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 27 Sep 2025 11:03:17 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-46e2e6a708fso18428925e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 27 Sep 2025 04:03:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1758970994; x=1759575794; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=tkNWDYlAClljJacvPFHJT9/32vyeFE8E70qgHvwmkb8=;
-        b=GZ62+TG8rZuaRmmN8D+cTnZxwNxce2FwKtzH6HmT1iF6Rt1322ywamGBRt4qMySi/Y
-         mwo6bEqU9I9/CfevQKawWI+IDIitNpbqWlhW4QMvGyKrle/D7zBycOhJeUeChgttQ392
-         SQH67S3cVZEAbzNUxpCDCxT0x11aJBIz0jspNNbFGQu5Gumsq+V+cWyfZK6OflRjpuZw
-         1vigCPi0p6va7/RKvJCewmAyJ3zYDaPNQq7NjRxG+cVG4g6mE7pRmZpBu4nSGI2rLaaU
-         HZYqCUXR0yE2xgYOYE7pPXHCEZu+9SNUCFK5BraEF31mTCYlvgUO5GaF+4hfWS2SdTLr
-         kl3g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758970994; x=1759575794;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=tkNWDYlAClljJacvPFHJT9/32vyeFE8E70qgHvwmkb8=;
-        b=r6Y85OXst8HOS0ZySiWKnX22Xb0N65JHkwNHw3nMsdvkzi5e+Hj7hjudyje3U9yFvD
-         eJrl+x46bK4nKiGFIOkww+XL5LUJ1tzajgsVt78nGv6GbhYb7RiPftomNp8whHK8IjIA
-         Z+P5ptQVf+QLOOOm+TUPeenFzv0/CNn5m5SJxy2FKXWjDz4nnHYIY/xBIUi/zelBuahL
-         qhXf/ToMAHGrfoUe/y18JG1NxAD+OEojy8bGSmkqstK6hCtUIf3AN8Erzrydlw+oLPMz
-         T45lEJMJpapMPiwBSmB7lBDJVQGxEwtW9zsLLIbTJ1AwYFUaqstEreH3v3k3Rp/zf7CG
-         uSwg==
-X-Forwarded-Encrypted: i=1; AJvYcCUJLOZD+BvVF3QR2x0wkeXBLYBgXVnjOb5fVUE8S/5YGbzJ317vqaKm2kRwyDXUQXbGbn380OCgMwPk1Gt9tQSJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQquJ1yHMuzL2b5uJ7wP7/mvIbqsrkmC1uFXryeXyIxuBKOZXs
-	we6SPFO86sih/kjanB0uv5SQ41+VNDX8Nfa/xMWYftlEr0HvF+qYXYGHcCKkCg==
-X-Gm-Gg: ASbGncuVGdZF/3xwRIIF/09sh9RbrPeHC0CW8WVjgM4ZCLxTTuemhuZsOM2kQ6pqelp
-	YRcAZh/HZmOAW60XmoAXIVVClZJW4v7mJjEiP8puXavTLYE3tP6/qj9dz511MM0Ev4rcsSC52w1
-	rbI9qffdYKnYBIvJ1gMNwyl02bsmLJxKpxcAFoW0stzSJtMxLFjkzLooGUFxjowTy7/n3FFYp9q
-	WdC00678JueTU1cprUEqdhK4rFJaV9qy3kqsGOJyBrrEmP9bfShIvpltIOic6lnov6JP3OfKnvh
-	dI3y3U8eKq1Xgcfhw6VbwQQVLU7Fb4VkbSzWAy0RG5NwBXCjrEwV+OFQE2StCy4CR2xQRzOC0f3
-	8YWPoyN07R+OqfM0fIKzVGROMl7cxJAld6Y/PnRaowpDRt7P/+giEpjYH773ey8T84mcM6wIDbX
-	zhKvfvjLv4sWCwWg==
-X-Google-Smtp-Source: AGHT+IF79XdU3MiveCiJWHuSLef1NIT2fZqNrN2anDonGJumcYidxmAS11xssMvpXUUEBE8RsYnPGQ==
-X-Received: by 2002:a05:600c:3e86:b0:46e:4784:cdf5 with SMTP id 5b1f17b1804b1-46e4784d03cmr11911565e9.15.1758970994270;
-        Sat, 27 Sep 2025 04:03:14 -0700 (PDT)
-Received: from Radijator.localdomain (93-140-175-232.adsl.net.t-com.hr. [93.140.175.232])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46e33bf70b5sm106190035e9.21.2025.09.27.04.03.12
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 27 Sep 2025 04:03:13 -0700 (PDT)
-From: "=?utf-8?q?Duje_Mihanovi=C4=87?=" <dujemihanovic32@gmail.com>
-X-Google-Original-From: =?utf-8?q?Duje_Mihanovi=C4=87?= <duje@dujemihanovic.xyz>
-To: Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, 
- =?utf-8?q?Duje_Mihanovi=C4=87?= <dujemihanovic32@gmail.com>
-Cc: David Wronek <david@mainlining.org>, Karel Balej <balejk@matfyz.cz>, 
- phone-devel@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht, 
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-pm@vger.kernel.org
-In-Reply-To: <20250913-pxa1908-genpd-v4-0-55e4cf32f619@dujemihanovic.xyz>
-References: <20250913-pxa1908-genpd-v4-0-55e4cf32f619@dujemihanovic.xyz>
-Subject: Re: (subset) [PATCH v4 0/4] Marvell PXA1908 power domains
-Message-Id: <175897099249.11004.17270115916151643401.b4-ty@dujemihanovic.xyz>
-Date: Sat, 27 Sep 2025 13:03:12 +0200
+	Sat, 27 Sep 2025 11:29:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 456A4444DE;
+	Sat, 27 Sep 2025 11:29:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 21754C4CEE7;
+	Sat, 27 Sep 2025 11:29:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1758972590;
+	bh=woOJMQVx2gK/ZTrYKUvp8Kze1O8Xv6dnLbcVNoWtA9U=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=SVgcX3cww3I4jhHCG7p2ABBDtOytr0l9MxhhncYqy5LR8JN5xjlQyUF3pl5FRss0U
+	 kyeZAAZrF01Cms/Qa0DPHwW8Jjzr0pNLck4xq5y7BTLcUW/oKuLos+2GxbPcsGa/8i
+	 BYMt7JRiLicMmrc26p6bmo82Wyf4/jl+8OJngpMBtWqT8k6SRHtKyvDeHNtuafos98
+	 8PREpN34kn2BwkHuHiFubyMPM3l/tYJmn+subZv71IHRQVn4bk39d8IiA/VnN5bHJ8
+	 4Jr5gAjstzMheamBOOVLdgUUxsnsA0ix7Y8S+hJ7CniqBhq4gX+zxMoOhLSkWQ4l3b
+	 FD21L0Hje1EPQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1v2T7b-00000009rcA-2IVo;
+	Sat, 27 Sep 2025 11:29:47 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: Oliver Upton <oliver.upton@linux.dev>,
+	Sean Christopherson <seanjc@google.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Sebastian Ott <sebott@redhat.com>
+Subject: Re: [PATCH] KVM: selftests: Track width of arm64's timer counter as "int", not "uint64_t"
+Date: Sat, 27 Sep 2025 12:29:01 +0100
+Message-ID: <175897248729.2798309.11771785872259733527.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20250926155838.2612205-1-seanjc@google.com>
+References: <20250926155838.2612205-1-seanjc@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-Mailer: b4 0.14.2
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, seanjc@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, sebott@redhat.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250927_040316_890450_B9F404D4 
-X-CRM114-Status: UNSURE (   8.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250927_042951_476417_FF555B99 
+X-CRM114-Status: GOOD (  10.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,21 +85,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Sat, 13 Sep 2025 23:12:47 +0200, Duje Mihanović wrote:
-> This series implements support for the power domains found in Marvell's
-> PXA1908 SoC. The domains control power for the graphics, video and image
-> processors along with the DSI PHY.
+On Fri, 26 Sep 2025 08:58:38 -0700, Sean Christopherson wrote:
+> Store the width of arm64's timer counter as an "int", not a "uint64_t".
+> ilog2() returns an "int", and more importantly using what is an "unsigned
+> long" under the hood makes clang unhappy due to a type mismatch when
+> clamping the width to a sane value.
 > 
+>   arm64/arch_timer_edge_cases.c:1032:10: error: comparison of distinct pointer types
+>      ('typeof (width) *' (aka 'unsigned long *') and 'typeof (56) *' (aka 'int *'))
+>      [-Werror,-Wcompare-distinct-pointer-types]
+>    1032 |         width = clamp(width, 56, 64);
+>         |                 ^~~~~~~~~~~~~~~~~~~~
+>   tools/include/linux/kernel.h:47:45: note: expanded from macro 'clamp'
+>      47 | #define clamp(val, lo, hi)      min((typeof(val))max(val, lo), hi)
+>         |                                                  ^~~~~~~~~~~~
+>   tools/include/linux/kernel.h:33:17: note: expanded from macro 'max'
+>      33 |         (void) (&_max1 == &_max2);              \
+>         |                 ~~~~~~ ^  ~~~~~~
+>   tools/include/linux/kernel.h:39:9: note: expanded from macro 'min'
+>      39 |         typeof(x) _min1 = (x);                  \
+>         |                ^
 > 
+> [...]
 
-Applied, thanks!
+Applied to fixes, thanks!
 
-[4/4] arm64: dts: marvell: pxa1908: Add power domains
-      commit: 1ee5305033c227610c072f32c4ac8ba0adbd42bd
+[1/1] KVM: selftests: Track width of arm64's timer counter as "int", not "uint64_t"
+      commit 34f46fecfe96b404ef14e97b8e59cde693276f28.
 
-Best regards,
+Cheers,
+
+	M.
 -- 
-Duje Mihanović <duje@dujemihanovic.xyz>
+Without deviation from the norm, progress is not possible.
+
 
 
