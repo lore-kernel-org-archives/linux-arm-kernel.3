@@ -4,87 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B6B6CAC5BD
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Sep 2025 12:26:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01D24CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 27 Sep 2025 12:48:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=q1CQFEKaI/Sy/SZOKDp8joIn6sS6FqYKFWGC9eEth2o=; b=b/gNrxebY3TQM6OPYb0K6ODFNb
-	2rkUg8aFwLB3GA/I+PQZpB+LGDvxgbvYn/u+2fkFiswvZdXmPYUn3Cyq9yU7OTJ41glDG/8MQ7rQS
-	4mdOC++zbzTleoEt26Jx3iuTugkxbmr/wtEHpVCFQxq9Dt2uN4sOe3RgD6TvaSHsMw2IOLoQ+uM/P
-	ju5cX+PabT19+fjyUwo5eYFMZTutnneKzsZvMI2JrSNjPiLiSZO0XlFStciq5/YahqAG8ehaDWcBF
-	e3mcNDiHYTlbQ2DWauJgSgrnt4voV3dJScwyIX1TDbRXuaP6dzCrPgkSsSnKgw0IhspO0yMa93Q0N
-	it7RlxQA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UsESWwnwp015hRUHy0tyfeYRri9Veb0bA0cwbwBzOD4=; b=25jzH4bNoLyX6tIYi6JHofik0x
+	ChEP3shy29QpoIDGrg66c+bB5XHr3NY7LqBTIYvRYjHJj7CiTzPGf6Z10x7BT+EAhpFiFp0nfOwpC
+	/a+N0xtGCtgP70XdPHR8y8Ynl8OOPR5xdBYnSbwdptW9DcPqtKTNKDrTgY5gwUl7MadpFX4vAuHRV
+	bNFj/UT0lqMjLI1wjK3gBwLXdGupqrPCuHX8Y8dI6yU/q3OAgZ9/6vBtCZxesK+onFLFUGuCW5hSM
+	jc2pD91lQgM0SxqU6scw9M+JexnXIh/nY6+w8HSdErX0DwVZjb1uQKMPBs5wQrgKbpgt85ZeShPUz
+	xtUBCdyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2U0E-00000009f97-1g9m;
-	Sat, 27 Sep 2025 12:26:14 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1v2UM5-00000009mcM-0rSU;
+	Sat, 27 Sep 2025 12:48:49 +0000
+Received: from mgamail.intel.com ([192.198.163.7])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2U0B-00000009f6J-2mzz
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 27 Sep 2025 12:26:12 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-414f48bd785so1186017f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 27 Sep 2025 05:26:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1758975969; x=1759580769; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=q1CQFEKaI/Sy/SZOKDp8joIn6sS6FqYKFWGC9eEth2o=;
-        b=n/Lmhc1Vg38Uv+7UkiIypBUaUtgcvjl3MiqGsU+LeHKtw/kjSUO+hqVtbIAFY4pAZ1
-         yzBAhZINBMYaQCNojUHwwgpZDLqLJ4qSlvdx1LNMpyFlDATkzFgK8lCcfVn7tobSl+7a
-         odjdEl3KMUdkYavtbRMv50uLdSj3kA0UFSbPIKNjv0ybtxzi1nVNQP0KsemPkbqiufi+
-         IMDy4/SE39h9SD9oU52uAonMe1R81431sUtxgCRsDgImvQ4vD5/awtnCLuRBRgiYzbeP
-         cHdfuVscuUHEWcauneKHepDVwXTNtVQ1k1d9CzQTAFuWG5UPYbXcnILCBRhROOqNO7R1
-         Ii2A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1758975969; x=1759580769;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=q1CQFEKaI/Sy/SZOKDp8joIn6sS6FqYKFWGC9eEth2o=;
-        b=f+Lr4buqGvyXKzbZcoiNS+p9e0byWtS+xOXGAOjeK/nOBWm3Yq8zdtFxISvFp4jhhi
-         XNoOFeou5jv0R3soWyGHzK3pc8etEtAEavRmrE3dOcChtn+rkOTQmOsORAGcWYRlWr4p
-         yJGb2k9bRoA38K3QGrg0YaNm27EDnIhYzWdDchRUb3sR0ByajBpdunpDTi8B4lv9CJtB
-         MMvsiVAK86PMORok2j8mpariwqbfFWm+cjvzwZUI+EDwhop6dn3bINmErBfMAEACQDZI
-         ktk1r8txozK9uYAjh7/p7oJO4cM9BGNia6iKWKpUc/cDbZrvZ8Ab0k4fflysx8s1Yf+j
-         9JbQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXum6lV5tFq57SgTrtjYHwBAJL8YRAqdNl8tAsr5Go63zypNfB43pUeB4diHU+gNFuaqzmbyVPvZsF/DP2seHmo@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw+J7vffYfG47MJah5AinObLsXaNr9N71aDE2+VjZoIoLUDx7JP
-	GXWPsW6ywt0yK/KfG9V5mg5vjkGyJPPfjrh26ttUc7R9qe4h9b9oW2RVAnaDWSJVVUc=
-X-Gm-Gg: ASbGncsbFkTFBsbVkdWZ+5u8ENv4rXqHmrhNmzgd1joETfHjzyCn7Vzhszm81tApOQn
-	9rapKGOQs8QsTWiUtw7/uUoHcWJwQKkXdWICCvviuMzgJlESr0BZW6x6fx/Iw+ovWjCMZmObxZE
-	mo9t93f+45+Yoxtlz3MZFG7Sih9wiJhtJsYd0W95kf7VbUsBKJ1QB/96U/2eSqnE0/zG5LVAemM
-	9MwOynrWBeVMAaIWY1Y2iu1cV4bIhJRGxmpaCbcdrvW3a9TZJgAt+RRtTxwjg7tuG8YA2wrAPMm
-	cA6PLI6+WS8O6CpizuPF/w0wEnUu8b/vDihdpG4wuvs4ZNYIb91o2BmiYHACikQW+Ejyp/b41lM
-	/tn2IK3f+rWg4sMFdA4ExrX+JB2jsxEeJiH8kbqhGzQEai/1qaQ==
-X-Google-Smtp-Source: AGHT+IHsxb/x4MSuZGgdkKW/ZTkoD1gTaQGZDhqAYNlhS+sWUJEsl7l8ii9uzN93TtclonUe8lxATA==
-X-Received: by 2002:a5d:5885:0:b0:3eb:f90a:f6cd with SMTP id ffacd0b85a97d-40e49e728c9mr9989172f8f.60.1758975969377;
-        Sat, 27 Sep 2025 05:26:09 -0700 (PDT)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-46e2a996bf1sm154772885e9.1.2025.09.27.05.26.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 27 Sep 2025 05:26:08 -0700 (PDT)
-Date: Sat, 27 Sep 2025 15:26:05 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: Ryan Chen <ryan_chen@aspeedtech.com>
-Cc: Eddie James <eajames@linux.ibm.com>,
-	Thomas Gleixner <tglx@linutronix.de>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
+	id 1v2UM3-00000009mbB-1bUp;
+	Sat, 27 Sep 2025 12:48:48 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1758977327; x=1790513327;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=0W45DesrwvOL7dwAbK4Wk7k7PmMheNSI1z8Zd+4XNIw=;
+  b=MILHCeOzXJ2wuvHHzEi4M7vNrEv6fqI3D7w3cb25fvmIwkkcjuKOmEgS
+   5IXkOklmy28bB2yxhHYkAMqLDOiCkE0w86ispFEbKrT+cCjygymj53Mh4
+   dR9Z8OBhjBBHhdJRYf48nBHT4VC0Olt6Qu6e7t3kXYWZdupO0Xppt38+j
+   Bj3dMlxuqTVhM1Ruyuw5RGpirodfJ+BiSpJwp1FqgBIjJNv3F/pG42VQJ
+   l9nD/gF5gFRE/VlMs52746UBWnEmCG6/Ujqp6q79w4Ej8ILKDFa6WHl2x
+   04CW5HjG3410bErfNDzN6zzJRM5pMDtHalJXjk86C6g4v7NYn9bNTzZiB
+   A==;
+X-CSE-ConnectionGUID: IchtO2O4QXaZY+e6pg8d+w==
+X-CSE-MsgGUID: Idcy6ueJTLG2FYN1F2oTKw==
+X-IronPort-AV: E=McAfee;i="6800,10657,11565"; a="86734725"
+X-IronPort-AV: E=Sophos;i="6.18,297,1751266800"; 
+   d="scan'208";a="86734725"
+Received: from orviesa002.jf.intel.com ([10.64.159.142])
+  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 27 Sep 2025 05:48:45 -0700
+X-CSE-ConnectionGUID: EtxiiekZTFm3ZEexcFIrlg==
+X-CSE-MsgGUID: PAlpPQWsRdGdV4Lp7P0oNQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,297,1751266800"; 
+   d="scan'208";a="208568713"
+Received: from lkp-server02.sh.intel.com (HELO 84c55410ccf6) ([10.239.97.151])
+  by orviesa002.jf.intel.com with ESMTP; 27 Sep 2025 05:48:38 -0700
+Received: from kbuild by 84c55410ccf6 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1v2ULr-00073X-2Y;
+	Sat, 27 Sep 2025 12:48:35 +0000
+Date: Sat, 27 Sep 2025 20:48:05 +0800
+From: kernel test robot <lkp@intel.com>
+To: Dmitry Baryshkov <lumag@kernel.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Liu Ying <victor.liu@nxp.com>,
+	Andrzej Hajda <andrzej.hajda@intel.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Robert Foss <rfoss@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Jonas Karlman <jonas@kwiboo.se>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Rob Clark <robin.clark@oss.qualcomm.com>,
+	Abhinav Kumar <abhinav.kumar@linux.dev>,
+	Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+	Sean Paul <sean@poorly.run>,
+	Marijn Suijten <marijn.suijten@somainline.org>,
+	Sandy Huang <hjc@rock-chips.com>,
+	Heiko =?iso-8859-1?Q?St=FCbner?= <heiko@sntech.de>,
+	Andy Yan <andy.yan@rock-chips.com>, Chen-Yu Tsai <wens@csie.org>,
+	Samuel Holland <samuel@sholland.org>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
-	kernel-janitors@vger.kernel.org
-Subject: [PATCH next] irqchip/aspeed-scu-ic: Fix an IS_ERR() vs NULL check
-Message-ID: <aNfX3RiyIfr3A0ZG@stanley.mountain>
+	linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev
+Subject: Re: [PATCH 1/9] drm/display: hdmi-state-helpers: warn on unsupported
+ InfoFrame types
+Message-ID: <202509272013.GAc17rsa-lkp@intel.com>
+References: <20250927-limit-infoframes-2-v1-1-697511bd050b@oss.qualcomm.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-X-Mailer: git-send-email haha only kidding
+In-Reply-To: <20250927-limit-infoframes-2-v1-1-697511bd050b@oss.qualcomm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250927_052611_711474_48A17111 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20250927_054847_437244_58D937D1 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,31 +110,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The of_iomap() function doesn't return error pointers, it returns NULL.
-Fix the error checking to check for NULL pointers.
+Hi Dmitry,
 
-Fixes: 86cd4301c285 ("irqchip/aspeed-scu-ic: Refactor driver to support variant-based initialization")
-Signed-off-by: Dan Carpenter <dan.carpenter@linaro.org>
----
- drivers/irqchip/irq-aspeed-scu-ic.c | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+kernel test robot noticed the following build errors:
 
-diff --git a/drivers/irqchip/irq-aspeed-scu-ic.c b/drivers/irqchip/irq-aspeed-scu-ic.c
-index 5584e0f82cce..bee59c8c4c93 100644
---- a/drivers/irqchip/irq-aspeed-scu-ic.c
-+++ b/drivers/irqchip/irq-aspeed-scu-ic.c
-@@ -215,8 +215,8 @@ static int aspeed_scu_ic_of_init_common(struct aspeed_scu_ic *scu_ic,
- 	int irq, rc = 0;
- 
- 	scu_ic->base = of_iomap(node, 0);
--	if (IS_ERR(scu_ic->base)) {
--		rc = PTR_ERR(scu_ic->base);
-+	if (!scu_ic->base) {
-+		rc = -ENOMEM;
- 		goto err;
- 	}
- 
+[auto build test ERROR on bf2602a3cb2381fb1a04bf1c39a290518d2538d1]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Dmitry-Baryshkov/drm-display-hdmi-state-helpers-warn-on-unsupported-InfoFrame-types/20250927-090630
+base:   bf2602a3cb2381fb1a04bf1c39a290518d2538d1
+patch link:    https://lore.kernel.org/r/20250927-limit-infoframes-2-v1-1-697511bd050b%40oss.qualcomm.com
+patch subject: [PATCH 1/9] drm/display: hdmi-state-helpers: warn on unsupported InfoFrame types
+config: x86_64-buildonly-randconfig-002-20250927 (https://download.01.org/0day-ci/archive/20250927/202509272013.GAc17rsa-lkp@intel.com/config)
+compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20250927/202509272013.GAc17rsa-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202509272013.GAc17rsa-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/gpu/drm/display/drm_hdmi_state_helper.c:924:17: error: use of undeclared identifier 'it'
+     924 |                 dev_warn_once(it->dev, "unsupported HDMI infoframe 0x%x\n", frame->any.type);
+         |                               ^
+>> drivers/gpu/drm/display/drm_hdmi_state_helper.c:924:63: error: use of undeclared identifier 'frame'
+     924 |                 dev_warn_once(it->dev, "unsupported HDMI infoframe 0x%x\n", frame->any.type);
+         |                                                                             ^
+   drivers/gpu/drm/display/drm_hdmi_state_helper.c:953:17: error: use of undeclared identifier 'it'
+     953 |                 dev_warn_once(it->dev, "unsupported HDMI infoframe 0x%x\n", frame->any.type);
+         |                               ^
+   3 errors generated.
+
+
+vim +/it +924 drivers/gpu/drm/display/drm_hdmi_state_helper.c
+
+   916	
+   917	static int clear_infoframe(struct drm_connector *connector,
+   918				   struct drm_connector_hdmi_infoframe *old_frame)
+   919	{
+   920		int ret;
+   921	
+   922		ret = clear_device_infoframe(connector, old_frame->data.any.type);
+   923		if (ret == -EOPNOTSUPP)
+ > 924			dev_warn_once(it->dev, "unsupported HDMI infoframe 0x%x\n", frame->any.type);
+   925		if (ret)
+   926			return ret;
+   927	
+   928		return 0;
+   929	}
+   930	
+
 -- 
-2.51.0
-
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
