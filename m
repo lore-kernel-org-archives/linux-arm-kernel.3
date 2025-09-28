@@ -4,86 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B7E2CAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Sep 2025 17:48:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19537CAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Sep 2025 17:57:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bb144XaT3ozq0w1qVMTiSOGlsjiwTNHYJ14plQdks2w=; b=J13hTyMQC1kRSXeXtRRZW2bCSZ
-	vUaVWNJDY3vgd65EYbjH1vdjKOckiYGBnry2hhEHSbMsmY5d9Xgx1DqXNkOvVhhDm5QcDXRGjH9Hd
-	e1OdqEIitL+RLFF2bSJhbdQAVVc3ohDK0mP55aOwqR4j0RdFAZqJwF2llQRMkmQmecHFUqDjOwp9R
-	eiV+vekaXat6rSUmFilAeKmNsG8NCBhCkGVy3E7Go/M6LJDE8lqRg1FBfxNterrXNUZ2E8w9YtkN/
-	wM2g9E1P+Aem4ubhaz6rCk13vdm1ImNC1lrSOy2XeBKRvC/JkujEp1Ft1gieRrPsW/Z6op9k0CX4E
-	qDNeN5Mw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=0ciR1C/IVnj/vENo8LbPpdYWcLodjsrqqDkSsgSAD4U=; b=3DKXD0vPbn+6mu
+	K1vPhxZ5rFs2ioVyE4M9DYruQJKdu3pT9EKCbkn8BISVb1y7Ot/mvVGa2W+bQRtGHCX3s4HG6kd5d
+	bRdaEPM9xw9wlzOy4mgVF4CVRiraMToM10MuAlC5OZkvqPLleqAA90GOrm7D3lpcQ+ODv/ZCaZ5EW
+	xzbK8OFoQ36t2xkoXbHteonHW4lDeRlCdoD8nvqvLVbpCYyTZssIik5LldhmJ/9JwZX3aXJXrhE2F
+	4merkhaB5+mRZr0dE4MZ54QhphOB6p/61JSzHWDqrBAoC3HtCyZJNkUV+KjMq0yFazGyGQkKAtIu4
+	bFNg2xjxFr9XIXFjs8sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2vVG-0000000GwT0-2EMg;
-	Sun, 28 Sep 2025 17:48:06 +0000
-Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
+	id 1v2ve7-0000000GzEX-0ILf;
+	Sun, 28 Sep 2025 17:57:15 +0000
+Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2vVE-0000000GwSH-0MWH
+	id 1v2ve2-0000000GzBr-3mqQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 28 Sep 2025 17:48:05 +0000
-Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-b5526b7c54eso2359161a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Sep 2025 10:48:03 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1759081682; x=1759686482; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=bb144XaT3ozq0w1qVMTiSOGlsjiwTNHYJ14plQdks2w=;
-        b=iLEljCnGxwrJzRnYp2+9PtFXEZ6OXf9mZE1bScUHmpeVg9Y+NcwD7Qan/Uvm4cNwR/
-         jkdPg/Gz3tMdynXPp0wWdclNs/2oMNfvTduWW5WyzBiU1NVmEByzmpGjZuBEBYDp77hT
-         eZGaRbPk6FsURVIpNWpk1j+CatMsyE2YgMKC0KTgq9vOyIAhrBJJJKrEce8sTaZnaiic
-         hoGjhbk62wR/lD+i0/06dzoR0rjXv5vCKzLyXz1+OzqfMElHB0aIglo4ZVrp/wAWYM7L
-         lS9Ae/IrrE7CJnVeWnQUDRIptAMwpNFE1op+bEBZYJzDcCMfS0bDY50JJJfX7I/LLj5N
-         5jBA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759081682; x=1759686482;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=bb144XaT3ozq0w1qVMTiSOGlsjiwTNHYJ14plQdks2w=;
-        b=hhH4rIdXd+M9rXo/qX3XK2fajxKVOk9jOAAiOE5Rqi2u4Yu+qbJIhUQtV8FL9Ik5T8
-         AavDlX8MooeK1rN9dYukRyJ/Ylz95HHln35lKdYfrT/goHX2Vv7GTFh5Wza2iyZSMURW
-         XhTeVLCZCa8uhQWgxqbpwPlQOfP+0AMFcy+fa/WjL4x9SJVzBYWo0QE4APH7SyUOLeg2
-         IHP5Nq0fB6T9cUpsduNL/xEnbuwRkzAKBm5/Mf4h+mfSVk9OWMOrH1+TWkIv/n2WAL+3
-         6ah/9gQl/+zMSb0MUuSEmCsTm5+o0FoRZRNDyHhH/k3H+pGrPYf1KCX+XtVwNcUPSk1W
-         3RBQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWs8ayWp7TXsZgDTjC+UClmhl30mtQo3tbGFAF4nLGZ8FwvrydBbvUQTT4V/3u85gpQ+9uDfEgbTAn++9ztnZzC@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyl36m+l3ozieI1oKaAAlNZnIuVzq9NPLMk6n69l4HSVR6agPwH
-	4oiV+11+S4qT1DVPVB9kGhu2Kp5U95vyxIEFcTtheakcTkGzivLOBfoYHZjY+k6lwyR9dEB9sW6
-	KeMirNsb6Y+T83MOxm1peKMKk3hoOCGk=
-X-Gm-Gg: ASbGncupFTGMJmrpfqbMpD+MLidPsxiCa5rAUUTpAM7z+IVZP4hRGBCEV4chEDGlbTR
-	Re5mZ33AJ1HbgYI8BY4zJREtJg/5seJsYg8xJU/3rPzupZRkF6g1XKYLf3G0f2p736VDFpu9Fct
-	r2/lGdOaEyZLYxWB0eTyQ8U2OUz5xZ3MZsLGL1RL9t83X/tJpO1TannaT1MfipmXAIWls6Sovur
-	KQbFQzlUDKvzMIEmHI=
-X-Google-Smtp-Source: AGHT+IGIhTRX0vPWXRnKGbM7/t9PfWgMfG3icRhXm/bikRRYDgSLLR3zWm4hL7da1xUZ+6JNLVBVdbp7N1oWnUBqBMY=
-X-Received: by 2002:a17:902:cf0d:b0:27d:69bd:cc65 with SMTP id
- d9443c01a7336-27ed4a96a83mr141161955ad.45.1759081681919; Sun, 28 Sep 2025
- 10:48:01 -0700 (PDT)
+	Sun, 28 Sep 2025 17:57:12 +0000
+Received: from mail01.disroot.lan (localhost [127.0.0.1])
+	by disroot.org (Postfix) with ESMTP id 516F226173;
+	Sun, 28 Sep 2025 19:57:07 +0200 (CEST)
+X-Virus-Scanned: SPAM Filter at disroot.org
+Received: from layka.disroot.org ([127.0.0.1])
+ by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
+ id 8ivMluFyA8AD; Sun, 28 Sep 2025 19:57:06 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
+	t=1759082226; bh=8py30CHyigZviZ2rpSpVxQKrO0mgBy5ZGBCf1zEeL8Q=;
+	h=From:Subject:Date:To:Cc;
+	b=MQT1JnPeQVJhHYBKZrK2Vu0LQRKywq3nBTQ7YhDKQQFbw8PnDou+7xq21v16CZtAu
+	 S/hzPa8CWFLFDHuK3PQHX8gySmnybBPenqu8eryyq0bOnUIZ1zljgym1tTKMO1kguc
+	 m4Gtl8VHMLG4Pa+zkjui9UiPaQsYewIqA8KVbZdwawUrHXWTOn3yF1qwmuCGfTX073
+	 e8q+GS4iyBEv1SOBiHD22WZ5mUBBqQIIlC3Cjj6k6QpUSaR78Ha56UmX+y4VNaK4L2
+	 GhkAMflRh87eln7E9THguM9CSs0YnHiaBLhBlbNUaqElMVM+bZx1n63p1hapnBsiVv
+	 ZL5LsUby49h2g==
+From: Kaustabh Chakraborty <kauschluss@disroot.org>
+Subject: [PATCH v3 0/6] Support for Exynos7870's display stack (DECON,
+ MIPIPHY, DSIM, etc.)
+Date: Sun, 28 Sep 2025 23:26:34 +0530
+Message-Id: <20250928-exynos7870-drm-dts-v3-0-bb7d8e570860@disroot.org>
 MIME-Version: 1.0
-References: <CAOprWosSvBmORh9NKk-uxoWZpD6zdnF=dODS-uxVnTDjmofL6g@mail.gmail.com>
- <20250919-lurking-agama-of-genius-96b832-mkl@pengutronix.de>
- <CAOprWott046xznChj7JBNmVw3Z65uOC1_bqTbVB=LA+YBw7TTQ@mail.gmail.com>
- <20250922-eccentric-rustling-gorilla-d2606f-mkl@pengutronix.de> <CAOprWoucfBm_BZOwU+qzo3YrpDE+f-x4YKNDS6phtOD2hvjsGg@mail.gmail.com>
-In-Reply-To: <CAOprWoucfBm_BZOwU+qzo3YrpDE+f-x4YKNDS6phtOD2hvjsGg@mail.gmail.com>
-From: Alexander Shiyan <eagle.alexander923@gmail.com>
-Date: Sun, 28 Sep 2025 20:47:49 +0300
-X-Gm-Features: AS18NWDPKklTiLrxKFeYvofRAgeM8OwBQfBPUfJA357z4XaPxxHtrQTv3DSxvMw
-Message-ID: <CAP1tNvTD2uhK79VB_PT0JByv_VVy245WH-3a1ZaG1-Khw5_vaw@mail.gmail.com>
-Subject: Re: Possible race condition of the rockchip_canfd driver
-To: Andrea Daoud <andreadaoud6@gmail.com>
-Cc: Marc Kleine-Budde <mkl@pengutronix.de>, Heiko Stuebner <heiko@sntech.de>, 
-	Elaine Zhang <zhangqing@rock-chips.com>, kernel@pengutronix.de, linux-can@vger.kernel.org, 
-	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIANV22WgC/23NQQ6DIBCF4as0rEsDQ3Wgq96j6QIBlUWlAUM0x
+ rsX7aZNXP4vmW8Wklz0LpHbaSHRZZ98GEqI84mYXg+do96WJsCgYhUI6qZ5CAklMmrji9oxUYn
+ G6AYFb7Qi5fAdXeunHX08S/c+jSHO+4/Mt/XL1RyOuMwpo1Iahqh0W5vmbn2KIYyXEDuygRl+E
+ MBDBApir7pSwFAoZv+RdV0/5LeXUfsAAAA=
+X-Change-ID: 20250523-exynos7870-drm-dts-87ccab731ba9
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Kaustabh Chakraborty <kauschluss@disroot.org>
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1759082219; l=3858;
+ i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
+ bh=8py30CHyigZviZ2rpSpVxQKrO0mgBy5ZGBCf1zEeL8Q=;
+ b=/q0ya9ZZafrks/RtT4YDPlXOFvihPaELzrwMJYW8FCOpMFEuYSs9f6XwNIPgl0eORsl7boygW
+ C2hIKUqanxPCaBSwjnco859JWtfWt8lm+PkMh7j7iaZL3KklOQgHaSk
+X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
+ pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250928_104804_126167_AC6DC440 
-X-CRM114-Status: GOOD (  15.38  )
+X-CRM114-CacheID: sfid-20250928_105711_495256_6FDE0507 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,22 +85,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello.
+Exynos7870 has a IP subsystem in its architecture dedicated to display
+management. Notably, this block includes the Display Enhancement
+Controller (DECON), and the DSI Master (DSIM).
 
-> > > Could you please let me know how to check whether my RK3568 is v2 or v3?
-> >
-> > Alexander Shiyan (Cc'ed) reads the information from an nvmem cell:
-> >
-> > | https://github.com/MacroGroup/barebox/blob/macro/arch/arm/boards/diasom-rk3568/board.c#L239-L257
-> >
-> > The idea is to fixup the device tree in the bootloader depending on the
-> > SoC revision, so that the CAN driver uses only the needed workarounds.
-> >
->
-> Thanks, it is not easy to correlate this because I am currently not using
-> barebox. I'll try this later.
+The following series and its sub-series implement all components for a
+functioning display pipeline. All vital information which helped shaping
+up the patches have been retrieved from Exynos7870 vendor kernel sources
+as provided by Samsung.
 
-I think this can be done from the userspace.
-Build the driver as a module, get the SoC version, then modprobe it
-with an alias for the desired version.
+Testing has been done on all three devices available upstream, i.e.
+Samsung Galaxy J7 Prime (samsung-on7xelte), Samsung Galaxy A2 Core
+(samsung-a2corelte), and Samsung Galaxy J6 (samsung-j6lte). Regrettably,
+I've only been able to test the functionality on video mode, as none of
+the devices have panels working in command mode.
+
+This series implements changes in the SoC subsystem, which includes
+devicetree additions. It depends on all sub-series listed below:
+(Legend: [R]eviewed, [A]ccepted)
+
+exynos-sysmmu-resv-regions A https://lore.kernel.org/r/20250712-exynos-sysmmu-resv-regions-v1-1-e79681fcab1a@disroot.org
+exynos7870-mipi-phy        A https://lore.kernel.org/r/20250612-exynos7870-mipi-phy-v1-0-3fff0b62d9d3@disroot.org
+exynos7870-mipi-phy-fix    A https://lore.kernel.org/r/20250710-exynos7870-mipi-phy-fix-v2-1-5cf50d69c9d7@disroot.org
+exynos7870-dsim            A https://lore.kernel.org/r/20250706-exynos7870-dsim-v3-0-9879fb9a644d@disroot.org
+exynosdrm-decon            A https://lore.kernel.org/r/20250706-exynosdrm-decon-v4-0-735fd215f4b3@disroot.org
+panel-samsung-s6e8aa5x01   A https://lore.kernel.org/r/20250721-panel-samsung-s6e8aa5x01-v5-0-1a315aba530b@disroot.org
+panel-synaptics-tddi       - https://lore.kernel.org/r/20250625-panel-synaptics-tddi-v2-0-7a62ab1d13c7@disroot.org
+
+Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+---
+Changes in v3:
+- fixed minor issues with devicetree in regards to compliance
+- added memory-region to framebuffer region for decon device
+- added related patchset to list: exynos-sysmmu-resv-regions
+- replaced exynos7870-pmu with exynos7-pmu compatible to the list
+  allowing a MIPI PHY subnode (krzk)
+- updated compatible string and dt node for j6lte's panel
+- reorder properties: ${x}, followed by ${x}-names (krzk)
+- Link to v2: https://lore.kernel.org/r/20250627-exynos7870-drm-dts-v2-0-d4a59207390d@disroot.org
+
+Changes in v2:
+- modified compatible hierarchy to use non-deprecated syntax (krzk)
+- fixed subject prefixes of [v1 2/5], [v1 3/5], [v1 4/5], [v1 5/5] (krzk)
+- removed simplefb nodes instead of disabling it (krzk)
+- added dt-bindings patch to allow mipi-phy node under PMU
+- changed clock names of dsim node
+- Link to v1: https://lore.kernel.org/r/20250612-exynos7870-drm-dts-v1-0-88c0779af6cb@disroot.org
+
+---
+Kaustabh Chakraborty (6):
+      dt-bindings: samsung: exynos-sysreg: add exynos7870 sysregs
+      dt-bindings: soc: samsung: exynos-pmu: allow mipi-phy subnode for Exynos7 PMU
+      arm64: dts: exynos7870: add DSI support
+      arm64: dts: exynos7870-on7xelte: enable display panel support
+      arm64: dts: exynos7870-a2corelte: enable display panel support
+      arm64: dts: exynos7870-j6lte: enable display panel support
+
+ .../bindings/soc/samsung/exynos-pmu.yaml           |  1 +
+ .../soc/samsung/samsung,exynos-sysreg.yaml         |  2 +
+ .../arm64/boot/dts/exynos/exynos7870-a2corelte.dts | 57 +++++++++++----
+ arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts    | 38 ++++++----
+ arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts | 57 +++++++++++----
+ arch/arm64/boot/dts/exynos/exynos7870.dtsi         | 84 ++++++++++++++++++++++
+ 6 files changed, 197 insertions(+), 42 deletions(-)
+---
+base-commit: 262858079afde6d367ce3db183c74d8a43a0e83f
+change-id: 20250523-exynos7870-drm-dts-87ccab731ba9
+
+Best regards,
+-- 
+Kaustabh Chakraborty <kauschluss@disroot.org>
+
 
