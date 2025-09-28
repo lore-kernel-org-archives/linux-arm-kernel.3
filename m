@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89F3DCAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Sep 2025 09:32:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6F89CAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Sep 2025 09:33:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8aiXDtmruNLuZaCIi/8fYIwSLjqO4iwy3QzCz5kzjo4=; b=0vor2XCjH9pBsJ2vyHhicjiTKu
-	Mc0nZanNOPpZkOWIJwEWjLxsgAsVXeAPRYxWvkh6UuX1S8kuCC/d0n6wEGJdBKjqAV6H5lEZR96Ko
-	QYpG+0r3Oll2KnW8vv2tMPXaJW4eqlEyyNwgViok1/B3aBzaMYKP/Og1MZCEdluXBR7GEKaRMkcdT
-	ZdlUgZWop0aZzlE+ShlzE9FwB1CZun8Y+Fscni0stfeqLjGzInXMWojgCuv4wg0kbbj4z9E2NY8e2
-	eb7ckXOJLbttsjO8FbuEJ78dedqG3adewsCHi1Tu229r29JbhxRwb0UVhGCXdcp4C649b+gjUlSn4
-	5B91LaYA==;
+	bh=VPEZ2slxEgiEnEN/yw8WRtg0U6RJVIXJDPY6/ShvA0Y=; b=JxWf5j6x99sATlEc1W9tgQ1dkZ
+	hDloHpnL//E0S/s4Ym6msIGn+ykrl+7Pbf/Cm2TmqzYsa16uutm0bRjNRUpmuL5FhI/o9kOldlg6H
+	vC9Jkiuh2HTizUEdgATczbp4yi/q1iF0U1EnF3rHlc0z956PL6Cocw4dFa26dpJRWLpIcu0kkyr5r
+	BEPg/nFbA682fYI5aSA5NFRI+sdrh0PWKa8TLzr1KdnBPhLpMD/P+e4ZqUSPnM2GA0rDrhh8nYW/n
+	s1sDUoR+Ngxy60z8ejbdjDYo9ihJjgrYmS8a5speBPTLOu093kCO2gPP0DfzSr2eMw+hEkwxh8QSj
+	udVknZyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2nls-0000000Egke-1KzZ;
-	Sun, 28 Sep 2025 09:32:44 +0000
+	id 1v2nmP-0000000Eh5y-2m8j;
+	Sun, 28 Sep 2025 09:33:17 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2nln-0000000EggV-3GcU
+	id 1v2nmN-0000000Eh3y-1nZd
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 28 Sep 2025 09:32:40 +0000
+	Sun, 28 Sep 2025 09:33:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=8aiXDtmruNLuZaCIi/8fYIwSLjqO4iwy3QzCz5kzjo4=; b=bTv/Y3x5sDFLdwy2i38rR8j23L
-	gTftrZVpkxMuCLpRFxz29VycBHnTyZFK7xgeth/LRwXRmTMDGqn2Fx8VnaCLkOCr6aIBm8Qk47NuR
-	ey7CPGUeld48jsqgMKvRh1JhIbIkheLde6NQB/e+LpkySpXNj+bhcTYlEXYuQOevCNdW0MkAUctQa
-	iPT5Vjmq3GH2UEw8EPAy6DKKS3tVOJhKz3Mi7Q2TPiKz6SAl9is+gytIsptNqcwH9Tc6yMB8qdeYX
-	3Rl6Z8XancNxAM0+WEzdd81aKrF7hjC/ledIs+tpDeLvtr+nK9mkoXTeMRsLGp16g5c9T5iLWPRVK
-	6mTJrQeQ==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:39910 helo=rmk-PC.armlinux.org.uk)
+	bh=VPEZ2slxEgiEnEN/yw8WRtg0U6RJVIXJDPY6/ShvA0Y=; b=cQ9hWWBeyxlEtK8maNLOHv142T
+	ltuJVinY5M6saGBBPY7k0mRIsioIU2MZIbe+CFc5b03i1DMqmSVmUOTyjINj+tZFLcrujl6fkFQ/3
+	vi9WZeaqq5JG5kWpcZb58qTKBdjidoCNzUiknBuYdUtztpmbNb+1xMviU2GvYG/wSwuuE+u1HF9z5
+	Z5hqdQhynzm48PNVYjERTuLspPo6OScBUR07bli+7ZpMHGAL9j6Kfi0PKlC01VXzmEGTK8ZIYUw+f
+	TwiiL54IctItylllafNtwx3cgziCsjyNTNLHFQ4PhZLV44bgv9awuse7/7cjtwie3PWRdclO0VQXy
+	bZkJ+rSQ==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:34138 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1v2nb3-000000005Jp-1GqD;
-	Sun, 28 Sep 2025 10:21:33 +0100
+	id 1v2nao-000000005IM-1c1s;
+	Sun, 28 Sep 2025 10:21:19 +0100
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1v2nb1-00000007oLG-1Cka;
-	Sun, 28 Sep 2025 10:21:31 +0100
+	id 1v2naa-00000007oHA-3GXU;
+	Sun, 28 Sep 2025 10:21:04 +0100
 In-Reply-To: <aNj8U4xPJ0JepmZs@shell.armlinux.org.uk>
 References: <aNj8U4xPJ0JepmZs@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -96,17 +96,17 @@ Cc: Abhishek Chauhan <quic_abchauha@quicinc.com>,
 	Vladimir Oltean <olteanv@gmail.com>,
 	Vladimir Oltean <vladimir.oltean@nxp.com>,
 	Yu-Chun Lin <eleanor15x@gmail.com>
-Subject: [PATCH RFC net-next v2 17/19] net: stmmac: configure AN control
- according to phylink
+Subject: [PATCH RFC net-next v2 12/19] net: stmmac: only call
+ stmmac_pcs_ctrl_ane() for integrated SGMII PCS
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1v2nb1-00000007oLG-1Cka@rmk-PC.armlinux.org.uk>
-Date: Sun, 28 Sep 2025 10:21:31 +0100
+Message-Id: <E1v2naa-00000007oHA-3GXU@rmk-PC.armlinux.org.uk>
+Date: Sun, 28 Sep 2025 10:21:04 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250928_023239_819204_934EEFFC 
-X-CRM114-Status: GOOD (  13.03  )
+X-CRM114-CacheID: sfid-20250928_023315_473654_4D0BD13C 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,63 +121,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Provide phylink with the autonegotiation capabilities for this PCS, and
-configure the PCS's AN settings according to phylink's requested
-requirements.
+The internal PCS registers only exist if the core is synthesized with
+SGMII, TBI or RTBI support. They have no relevance for RGMII.
 
-This may cause regressions.
+However, priv->hw->pcs contains a STMMAC_PCS_RGMII flag, which is set
+if a PCS has been synthesized but we are operating in RGMII mode. As
+the register has no effect for RGMII, there is no point calling
+stmmac_pcs_ctrl_ane() in this case. Add a comment describing this
+and make it conditional on STMMAC_PCS_SGMII.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../net/ethernet/stmicro/stmmac/stmmac_pcs.c  | 23 +++++++++++++++++--
- 1 file changed, 21 insertions(+), 2 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 6 +++++-
+ 1 file changed, 5 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
-index e2f531c11986..77d38936d898 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_pcs.c
-@@ -2,6 +2,15 @@
- #include "stmmac.h"
- #include "stmmac_pcs.h"
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index e2d9c08aace8..ee48991d336d 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -3488,7 +3488,11 @@ static int stmmac_hw_setup(struct net_device *dev)
+ 		}
+ 	}
  
-+static unsigned int dwmac_integrated_pcs_inband_caps(struct phylink_pcs *pcs,
-+						     phy_interface_t interface)
-+{
-+	if (interface != PHY_INTERFACE_MODE_SGMII)
-+		return 0;
-+
-+	return LINK_INBAND_ENABLE | LINK_INBAND_DISABLE;
-+}
-+
- static int dwmac_integrated_pcs_enable(struct phylink_pcs *pcs)
- {
- 	struct stmmac_pcs *spcs = phylink_pcs_to_stmmac_pcs(pcs);
-@@ -32,13 +41,23 @@ static int dwmac_integrated_pcs_config(struct phylink_pcs *pcs,
- 				       bool permit_pause_to_mac)
- {
- 	struct stmmac_pcs *spcs = phylink_pcs_to_stmmac_pcs(pcs);
--
--	dwmac_ctrl_ane(spcs->base, 0, 1, spcs->priv->hw->reverse_sgmii_enable);
-+	void __iomem *an_control = spcs->base + GMAC_AN_CTRL(0);
-+	u32 ctrl;
-+
-+	ctrl = readl(an_control) & ~(GMAC_AN_CTRL_ANE | GMAC_AN_CTRL_SGMRAL);
-+	if (spcs->priv->hw->reverse_sgmii_enable)
-+		ctrl |= GMAC_AN_CTRL_SGMRAL | GMAC_AN_CTRL_ANE;
-+	else if (neg_mode == PHYLINK_PCS_NEG_INBAND_ENABLED)
-+		ctrl |= GMAC_AN_CTRL_ANE;
-+	else
-+		ctrl |= GMAC_AN_CTRL_SGMRAL;
-+	writel(ctrl, an_control);
+-	if (priv->hw->pcs)
++	/* The PCS control register is only relevant for SGMII, TBI and RTBI
++	 * modes. We no longer support TBI or RTBI, so only configure this
++	 * register when operating in SGMII mode with the integrated PCS.
++	 */
++	if (priv->hw->pcs & STMMAC_PCS_SGMII)
+ 		stmmac_pcs_ctrl_ane(priv, 1, priv->hw->reverse_sgmii_enable);
  
- 	return 0;
- }
- 
- static const struct phylink_pcs_ops dwmac_integrated_pcs_ops = {
-+	.pcs_inband_caps = dwmac_integrated_pcs_inband_caps,
- 	.pcs_enable = dwmac_integrated_pcs_enable,
- 	.pcs_disable = dwmac_integrated_pcs_disable,
- 	.pcs_get_state = dwmac_integrated_pcs_get_state,
+ 	/* set TX and RX rings length */
 -- 
 2.47.3
 
