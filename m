@@ -4,80 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B8B5CAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Sep 2025 08:56:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E708FCAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Sep 2025 08:59:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=eaEshSke7WWsFjbgjKG91woJG61C7g3CnfzoHwJbTuA=; b=fmrgMDGiKLEhNs33FqTFQH8WFk
-	a3pHUevKklpSrca1WU21nqPt0a7Rl6AtKLWmSr7Y8pknWvHS1PjyuhQxR+iRXz35F9DakAmPW7ymH
-	2y82ZWi/RH+XDLmBLGYAU8U/ffxbUCC7lcW5mERqdeeugdxznM30x3I27+jypFdFLnUdzr9DVVZVa
-	hTvDXIQ7FAW6LgfbJmKoBjfAFPERvLZbUYn+b3/rDn7qgOudIf+d5n0LJazzYV2sC3/wqCZ7cVwTt
-	1L/Nr6pjbC0AJc0FENV54VEJvAXP+wNaROaNU93Z1OQ8GGH62qBPmnh4ad16yGY8U5uVh7weZr/xL
-	NysLuufA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gu5CfNLtZRXzS+mClkrGSXL7Px/goHLl4BLV18Mh0Lw=; b=ba16JZNxTFMcGAHdE/B8Ab6bSV
+	A76dhkre7vTzEjCQCmq1uyZo9kxv2GhwYh9CpVejKEQMmMAuugT0ggS/KCN++MQ7dLVNg0pUwi0+a
+	pm2tnt109CG3CIGqA7x7x3UWm0eTKzibJ7q4CiQ+KkPwcHA7pg4ld/2dUtl7DYENjdFGPW0I+QylQ
+	z1xXM00auqnuo7Bj4YU4iVS90tcQY/vgiqVke+Od0HScHdfiqckAfM+oC1AkjV1TIOc/6gn3NHTmO
+	J+N1ZFYmuUb8/acmSwqRbsy2HcIviB5eISY1SLuOU0AjRtI3aOUxd7bOPPOVMQ8Y69UFRgwZu71cN
+	w5euJ0XA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2nCb-0000000ETeZ-0gSQ;
-	Sun, 28 Sep 2025 08:56:17 +0000
+	id 1v2nFP-0000000EUal-45F7;
+	Sun, 28 Sep 2025 08:59:11 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2nCY-0000000ETcm-47m2
+	id 1v2nFO-0000000EUYV-0L7r
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 28 Sep 2025 08:56:16 +0000
+	Sun, 28 Sep 2025 08:59:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=eaEshSke7WWsFjbgjKG91woJG61C7g3CnfzoHwJbTuA=; b=oZuzW/vIzUPgZYfnMIHlje/k9/
-	W6/8bkTFGJGj6A70h1Qv4oljN7MCn5VGdznOvEhJ0Ouf26iOZParIaKSaw+kOvwEtwUncHnH56IeM
-	fCVFx/jpMWQje9yB0HJzWM2I+0xii4aqCTkELyDZ+ZN10PWMsQq3N0rghTPiLfTbN0V0gFVAzJFXp
-	Ozpy7EFJtSN03M21ToYmNXJSiSdCi4BeTZPv3OyVsx9nweswCO+7fyhvAveQZtcC3BJiy06PIceBY
-	drZ0PIJAX+j8MQYy5bX5PehiEqi+pIsHclH1VU0DHLCpFw9fqF6fvdPWex+0l5YEEl+02hAjChCR1
-	5HqI/vOw==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54172)
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
+	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=gu5CfNLtZRXzS+mClkrGSXL7Px/goHLl4BLV18Mh0Lw=; b=VzPMhNExNUWP+FCng16dWadnLb
+	rCCms0cjwIpnVk0fA2RHBml+ZbMaUREyrvU/mXsA7thyGkWIhYw2/YcWsWUxoJJAftljeAtEeN1Fq
+	zcC/IUiubpcp3Flrm6jBrv9Qws+eO61JuzavWg6CVRHExbQsSDEQcF+y4WH09JWixdbZ5pBTqlH1F
+	Ft2pjM22N1aXSic6KUSVI035S5goKprqqhEJtwjdMXxPCgwOBMaJWpin46Dny7lJa+0cRDCKgOJqC
+	wMiwffI1ueh5dMsHcdJ2py/S0Av1ZTL32I/XLJCcJe9/2ljuwdZKr06bmb4nlkwDjA2vzmefFsh8M
+	O4PUJV6w==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:53250 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1v2nCL-0000000059y-1F6D;
-	Sun, 28 Sep 2025 09:56:01 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1v2nCH-000000002RM-2cRk;
-	Sun, 28 Sep 2025 09:55:57 +0100
-Date: Sun, 28 Sep 2025 09:55:57 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1v2nF8-000000005Ab-426O;
+	Sun, 28 Sep 2025 09:58:55 +0100
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1v2nF8-00000007jXJ-0BUZ;
+	Sun, 28 Sep 2025 09:58:54 +0100
+In-Reply-To: <aNj4HY_mk4JDsD_D@shell.armlinux.org.uk>
+References: <aNj4HY_mk4JDsD_D@shell.armlinux.org.uk>
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
 	Florian Fainelli <florian.fainelli@broadcom.com>,
-	Gatien Chevallier <gatien.chevallier@foss.st.com>
+	 Gatien Chevallier <gatien.chevallier@foss.st.com>
 Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	Andrew Lunn <andrew@lunn.ch>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
 	Christophe Roullier <christophe.roullier@foss.st.com>,
 	Conor Dooley <conor+dt@kernel.org>,
-	"David S. Miller" <davem@davemloft.net>, devicetree@vger.kernel.org,
+	"David S. Miller" <davem@davemloft.net>,
+	devicetree@vger.kernel.org,
 	Eric Dumazet <edumazet@google.com>,
 	Heiner Kallweit <hkallweit1@gmail.com>,
 	Jakub Kicinski <kuba@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
 	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
 	Simon Horman <horms@kernel.org>,
 	Tristram Ha <Tristram.Ha@microchip.com>
-Subject: [PATCH RFC net-next 0/6] net: add phylink managed WoL and convert
- stmmac
-Message-ID: <aNj4HY_mk4JDsD_D@shell.armlinux.org.uk>
+Subject: [PATCH RFC net-next 1/6] net: phy: add phy_can_wakeup()
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1v2nF8-00000007jXJ-0BUZ@rmk-PC.armlinux.org.uk>
+Date: Sun, 28 Sep 2025 09:58:54 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250928_015615_021941_E81416A8 
-X-CRM114-Status: GOOD (  18.41  )
+X-CRM114-CacheID: sfid-20250928_015910_114516_5B457184 
+X-CRM114-Status: UNSURE (   9.49  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,71 +101,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Add phy_can_wakeup() to report whether the PHY driver has marked the
+PHY device as being wake-up capable as far as the driver model is
+concerned.
 
-This experimental series is implementing the thoughts of Andrew,
-Florian and myself in an attempt to improve the quality of Wake-on-Lan
-(WoL) implementations.
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ include/linux/phy.h | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-This changes nothing for MAC drivers that do not wish to participate in
-this, but if they do, then they gain the benefit of phylink configuring
-WoL at the point closest to the media as possible.
-
-We first need to solve the problem that the multitude of PHY drivers
-report their device supports WoL, but are not capable of waking the
-system. Correcting this is fundamental to choosing where WoL should be
-enabled - a mis-reported WoL support can render WoL completely
-ineffective.
-
-The only PHY drivers which uses the driver model's wakeup support is
-drivers/net/phy/broadcom.c, and until recently, realtek. This means
-we have the opportunity for PHY drivers to be _correctly_ converted
-to use this method of signalling wake-up capability only when they can
-actually wake the system, and thus providing a way for phylink to
-know whether to use PHY-based WoL at all.
-
-However, a PHY driver not implementing that logic doesn't become a
-blocker to MACs wanting to convert. In full, the logic is:
-
-- phylink supports a flag, wol_phy_legacy, which forces phylink to use
-  the PHY-based WoL even if the MDIO device is not marked as wake-up
-  capable.
-
-- when wol_phy_legacy is not set, we check whether the PHY MDIO device
-  is wake-up capable. If it is, we offer the WoL request to the PHY.
-
-- if neither wol_phy_legacy is set, or the PHY is not wake-up capable,
-  we do not offer the WoL request to the PHY.
-
-In both cases, after setting any PHY based WoL, we remove the options
-that the PHY now reports are enabled from the options mask, and offer
-these (if any) to the MAC. The mac will get a "mac_set_wol()" method
-call when any settings change.
-
-Phylink mainatains the WoL state for the MAC, so there's no need for
-a "mac_get_wol()" method. There may be the need to set the initial
-state but this is not supported at present.
-
-I've also added support for doing the PHY speed-up/speed-down at
-suspend/resume time depending on the WoL state, which takes another
-issue from the MAC authors.
-
-Lastly, with phylink now having the full picture for WoL, the
-"mac_wol" argument for phylink_suspend() becomes redundant, and for
-MAC drivers that implement mac_set_wol(), the value passed becomes
-irrelevant.
-
- drivers/net/ethernet/stmicro/stmmac/stmmac.h       | 11 +--
- .../net/ethernet/stmicro/stmmac/stmmac_ethtool.c   | 31 +-------
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  | 45 ++++++-----
- .../net/ethernet/stmicro/stmmac/stmmac_platform.c  |  4 +-
- drivers/net/phy/phy_device.c                       | 14 +++-
- drivers/net/phy/phylink.c                          | 89 +++++++++++++++++++++-
- include/linux/phy.h                                | 21 +++++
- include/linux/phylink.h                            | 28 +++++++
- 8 files changed, 179 insertions(+), 64 deletions(-)
-
+diff --git a/include/linux/phy.h b/include/linux/phy.h
+index b377dfaa6801..7f6758198948 100644
+--- a/include/linux/phy.h
++++ b/include/linux/phy.h
+@@ -1379,6 +1379,18 @@ static inline void phy_disable_eee_mode(struct phy_device *phydev, u32 link_mode
+ 	linkmode_clear_bit(link_mode, phydev->advertising_eee);
+ }
+ 
++/**
++ * phy_can_wakeup() - indicate whether PHY has driver model wakeup capabilities
++ * @phydev: The phy_device struct
++ *
++ * Returns: true/false depending on the PHY driver's device_set_wakeup_capable()
++ * setting.
++ */
++static inline bool phy_can_wakeup(struct phy_device *phydev)
++{
++	return device_can_wakeup(&phydev->mdio.dev);
++}
++
+ void phy_resolve_aneg_pause(struct phy_device *phydev);
+ void phy_resolve_aneg_linkmode(struct phy_device *phydev);
+ 
 -- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+2.47.3
+
 
