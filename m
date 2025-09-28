@@ -4,144 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA57DCAC5BD
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Sep 2025 02:09:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B34E6CAC5BC
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Sep 2025 02:38:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eFwFGuMoBlO4UnFHFhFZsqW80xbz11TQVfcLYBTWIYY=; b=RVkdxSiTUKv56rm99wys1jfzTD
-	xNscbcDWvOBLZTc2Z34ho7jDP8B7nqpcvSbZ42LTB6LkgNqHOikXqDRrMsJixr4a2DwAe5oSxegyq
-	Ed4tzUUs/vnw9rOBfxxa5CS0bqank5lubthDD9GVX05IogBYrIrVQ/vUqB5y7Vqd1NxkgHjTDbnzv
-	SpB5/D9dtG6+6NTZ8hhpz85/xSCTyWAlCCZsfUyQdR+kO+cw7FKNLWiYgRVRmG02aa7FeG7grdVbh
-	a5wSi8YCY6jaY2trWQjby5EIapmKbbkiqqIqsZ+T9q6uL1kX3IXPhja3zR9Y4VRJfbdKlVt6kVLOn
-	kjbIPgkA==;
+	bh=YDDVDZIdgHY10IxWeSmThIWnM3Kfl8SB2Uc8qwV0eGM=; b=agsNzGU30T8hAasIMqDYsUjmpx
+	fwyEY/UBKEkrkVaAcdZbiiEn9JSLwGnco20WNGBaFP1ogZgha/87jw+G2+6aYbF6X2S+KcphK5f6g
+	D/weU5XckXqjTqfsHp0NzezBmA0Y/+E/ogpOedOElGgpf1/uTVOKtjIrVqoX5ibX7UlefKI7b33ie
+	QRjqALzPTDGHiVigH1/GiQ0u3gxoqLdZyXwatOUp+QkLiKIQWS9RDKHZmdYzEZlwECRgvHHzYkkDE
+	1QFaJbBY8YexfS1dMMzi1gqMkXnY13SWXJ37X557J4AOnaOr0u0dyXyczU5d6IBP95VwINEeOKxB/
+	CutsJRrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2gqq-0000000DH6u-0mHb;
-	Sun, 28 Sep 2025 02:09:24 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1v2hIz-0000000DIx2-0cCa;
+	Sun, 28 Sep 2025 02:38:29 +0000
+Received: from mail-oo1-xc2f.google.com ([2607:f8b0:4864:20::c2f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2gqn-0000000DH6U-3e18
+	id 1v2hIx-0000000DIvm-0JdK
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 28 Sep 2025 02:09:23 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-27edcbbe7bfso35621345ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 27 Sep 2025 19:09:21 -0700 (PDT)
+	Sun, 28 Sep 2025 02:38:28 +0000
+Received: by mail-oo1-xc2f.google.com with SMTP id 006d021491bc7-62189987b47so2209359eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 27 Sep 2025 19:38:22 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1759025361; x=1759630161; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=eFwFGuMoBlO4UnFHFhFZsqW80xbz11TQVfcLYBTWIYY=;
-        b=CqClk8PNJZcboy3hkVerGSJOdYPjpbq7WHEJ0Cq8LUHQhDCfmS4WQUSBzGc59rEifF
-         RyAnLuhWahtM5NmGw2rcr5i5l1WtjdrxuWbk4SMaRm/RLZ5sj5zntqMkOucPr0xMidf/
-         nltWJFuGgavY/yJK9Hn9tNaoCFYsLR47Vwj8bvGIkTZH0P479mgt+ZZp5DWVtoowPdAK
-         Wl/vQ++KlVrEe8N+1/EUe9p8gEJzxfsJhDNmSudnD8pKvWGu6otGMUnx0eXzPe013tVo
-         4dfs1I7G/L9at/dPGrUuPS0HkUkcXyvkcW6rOpgqt2AH6kfRwjBRGdnuf6haEdZuCAcY
-         oZkA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759025361; x=1759630161;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
+        d=bytedance.com; s=google; t=1759027102; x=1759631902; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=eFwFGuMoBlO4UnFHFhFZsqW80xbz11TQVfcLYBTWIYY=;
-        b=efyfQGoqtvv0QmE3dqKiN2ks6jXxgI4vut6fIfys3SmHBr3X04SkJNJ1JmzzD/+b65
-         KSwS5dTXornovY0srkI6z+B6YpAmg8+aydrOJMLQYEbnKNhuUgtGVN5N5mxEwXbMUSrt
-         DE66FOITLk6lb+0yPgTYJI+IZAMuiOWOTTyEpQhneLGwM0CzIl9Clzs6maQ/XkxIvtn8
-         3N49ZWyoCFkf9X6OmcLjjEx+E9qgtWiODQfSvQRhjEaHC4HHacVSc+U4+wxVi9lqncQr
-         fZx4bZ5frsZZxoBkoozmt+cElpwe3zIXGgtlBddVwVC9r8r0WcW/MtfxTxqdqLHCXv6f
-         E36Q==
-X-Forwarded-Encrypted: i=1; AJvYcCXqXs79OMWHZEgQfO3LBWRM9j/c5lHgoPqyUBL8M3GMIVE0QRHYRBT8WRsBP2HQuEQAqIN8rK8ClYxvD7xerXqX@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzl9q7emO/UXWFGHOzn9USun+wAq3+gs29iSi8BpLj2hsKPh5bP
-	MlkBJ2VjEN0Iv4zJy7393HAUkjr8XOtCecBFGXgjv+KL7lhK4ukHUaVqrlbGs4sE
-X-Gm-Gg: ASbGncvqZmxIqDLJgQbotA5EtXT82RCEiFI7hyjMsI7o4uuZa8CmW2OTCqNgBqQZ+kT
-	J/Zgq+Bk8OrGNaoywOLiIErq56+a801vx0R010wtR1OUPYbfL1/8LNml4p+pH3fREDiguNFS6pO
-	c0GEMIu88O+FfE+Q1osyXpvIarJZVuCgs1sbEZOMUsqyxpvJ3EA0XTdBYrytr/iS9mJMoHaLPOw
-	Fo12I53+BCmF+7QSduf8zDvQTFHzJvwTHkzu9tdxYEDF45nlEtqVigQH701Mlhcv7XbNVhAmY6o
-	3+BWAK+qfR6Efohlik+fKkYvnGxLbFaaLoVDmnRjTzAeGq4P1aZgsTxpBYojlzf6u1tQ7LyIfDP
-	hAJbB1632PKRpfGQ7Fgu8B7i5NAQyp975m4PySXpzmWh4sK9UJSMhuTo4oqBn24QLLpL2+oI=
-X-Google-Smtp-Source: AGHT+IENLcEnP9fle5P0/XBhhJQoZV1aQkW9RdCjU8CtjMNudeKurmLux3aZ05laluYZdZcozVy1ig==
-X-Received: by 2002:a17:903:38cd:b0:27e:d4a8:56ad with SMTP id d9443c01a7336-27ed4a85a82mr131587345ad.61.1759025360628;
-        Sat, 27 Sep 2025 19:09:20 -0700 (PDT)
-Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-27ed6ae693fsm90315405ad.152.2025.09.27.19.09.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Sat, 27 Sep 2025 19:09:20 -0700 (PDT)
-Message-ID: <827f50ac-9994-4e04-bf48-51774f5d504b@roeck-us.net>
-Date: Sat, 27 Sep 2025 19:09:18 -0700
+        bh=YDDVDZIdgHY10IxWeSmThIWnM3Kfl8SB2Uc8qwV0eGM=;
+        b=gX6R41Oh6FTv9J388VaO0bd+nEZ6DZXoMmYiKEP2RYjVs4vfgPfc1tBpXaYpAjryWv
+         0kGrsRTbzY3mgoQHMP6uenXu7/inSyG25NaV3HsJmJp0PyRWcCqaOR0PLSU1UgRl8yjo
+         J8urotKLEFuJI4PzbgffaULOzbXaDkOXSch0S/8gUBtuK7YBwZ4kG+tz/aM1mTQeG6Oo
+         N5nDYTuskdMLlnfvgNQErwnhUTZneEEcI3SqpK81ok7MTd70aiOlLJLIFymp6j1D5W21
+         9ouz41QEk+pzknmmpWV5MVtsYTXmDLpG+Hpn1d8oja7N0nEdinvL0+VnHXWO0rJX55Ku
+         +ARA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759027102; x=1759631902;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=YDDVDZIdgHY10IxWeSmThIWnM3Kfl8SB2Uc8qwV0eGM=;
+        b=NGmFZh4rgruTdmu17XkO6mNjYj45/LrGhC+W2qgJS00GdEXHpFEIzACNLBjOAZ7STu
+         XN+D8aR6NKYAw78g7SK7YyJoXPh5MspjK8EqYmCyTgt9A9PO4MPwhQXVw8mHTUCF/aog
+         otng5nM8Zhby+fgstR9/VwS59IlHDkcE1UFgWNKQf0bHqcAMcEB8sj9bxLRzgzuR4glQ
+         ETwupMLUvyAlCz6r33S3qIAEiJEdJ/1UuJcV6rCsALIwg0z8rw8+Xj4ykmErut+vM6rE
+         MG+Wi0jGxA9jb1nM0/JwOAPCn16znz7lCx6jd4C7OoVr94WXXFMebu/Wien6StYg7Dv3
+         AOTg==
+X-Forwarded-Encrypted: i=1; AJvYcCX8EhtMbEQ4/F892H/9TxOAyie80Fv8kYDXkL0si0CWd1/9vBnGohRDswrjvhScp9MXrjTZBRqyc/CVkTHEpiY0@lists.infradead.org
+X-Gm-Message-State: AOJu0YwERSn+j8Nt5Z9+uQB1CH0QAkbDpwPCRDakrGf4gzsktOLytOKq
+	sCdmzSZ5D+4KHNVOD61xg2qm7M5NoYNceGqOc03o+xvwuobBG7+eeKMGCA5Zih4oDGA4esikaVN
+	F7zv7yHD8YEplabEcjPe6b3+TtIJuSuxmMD07M3k1ZQ==
+X-Gm-Gg: ASbGnctmijN83XbZSRWGwWVU7Dg6uCSJK16MKz3Eh3MVzeFGsjOEdMZ/zwBdxjqV2gO
+	X/bYuepPTJ4crZGC0mAHqKSB3O7GQ7ifrELKhZMPsaR5N0V7Oq/mmIjuJ5d8I0EUmdOqqnzo6lO
+	M9c1GxZOWLyJe7JdGUZa6TiaCifhMcXiPsKQgfN6cB4AW/zzAhFenf41SLKGA6PXGv/3s8RJSJE
+	Wq3mzQzNb/F067aAQXFyYqVN+myaSw=
+X-Google-Smtp-Source: AGHT+IHN9SZKPMfskn9LtN56hlvjdE/PVxPJY1sD2/2M2FEMKbIx55CZ1Hog94gS2psvQYARXktJ5bJrXOdSq0er7i4=
+X-Received: by 2002:a05:6808:3022:b0:43f:7287:a5d0 with SMTP id
+ 5614622812f47-43f7287b062mr1202461b6e.34.1759027101799; Sat, 27 Sep 2025
+ 19:38:21 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 02/11] dt-bindings: hwmon: Add Apple System Management
- Controller hwmon schema
-To: James Calligeros <jcalligeros99@gmail.com>, Janne Grunau <j@jannau.net>,
- Rob Herring <robh@kernel.org>
-Cc: Sven Peter <sven@kernel.org>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
- Neal Gompa <neal@gompa.dev>, Lee Jones <lee@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Jean Delvare <jdelvare@suse.com>, Dmitry Torokhov
- <dmitry.torokhov@gmail.com>, asahi@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org,
- linux-hwmon@vger.kernel.org, linux-input@vger.kernel.org
-References: <20250827-macsmc-subdevs-v2-0-ce5e99d54c28@gmail.com>
- <20250925204925.GA637503@robin.jannau.net>
- <CAL_JsqK-9n3_H6vS80bZuZiSPi9UNuMzHEPFL_EzYTeyNS1cYg@mail.gmail.com>
- <2537878.PYKUYFuaPT@setsuna>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
-In-Reply-To: <2537878.PYKUYFuaPT@setsuna>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20250925084806.89715-1-cuiyunhui@bytedance.com>
+ <20250925084806.89715-2-cuiyunhui@bytedance.com> <CAD=FV=VZLYqPQCOEhbH4QtndeG5e1-0wey24fgYNTeFiqd8qJg@mail.gmail.com>
+ <CAEEQ3wnwNdTgt6ByHCzM43fhZMLSxwXvYx-AGBpsktraXqif2Q@mail.gmail.com> <CAD=FV=X6Xv_WYPMXKtOWLJX7skCoQmia3JbQej_u38qxqAbqDg@mail.gmail.com>
+In-Reply-To: <CAD=FV=X6Xv_WYPMXKtOWLJX7skCoQmia3JbQej_u38qxqAbqDg@mail.gmail.com>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Sun, 28 Sep 2025 10:38:10 +0800
+X-Gm-Features: AS18NWAN-ZpVjYdN0iAwRHsiQoYm1lDRDU85PF8Qq2B5t-2l3rsp0TxumU2MhVA
+Message-ID: <CAEEQ3wn0UckgNTJCPCNDtHW8DwWAJR1PXURvH57yfHATYqs7Gw@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH v2 1/2] watchdog: move arm64 watchdog_hld
+ into common code
+To: Doug Anderson <dianders@chromium.org>, Thomas Gleixner <tglx@linutronix.de>, 
+	Ingo Molnar <mingo@redhat.com>, bp@alien8.de, dave.hansen@linux.intel.com, 
+	x86@kernel.org, hpa@zytor.com, ziqianlu@bytedance.com
+Cc: akpm@linux-foundation.org, alex@ghiti.fr, anup@brainfault.org, 
+	aou@eecs.berkeley.edu, atish.patra@linux.dev, catalin.marinas@arm.com, 
+	johannes@sipsolutions.net, lihuafei1@huawei.com, mark.rutland@arm.com, 
+	masahiroy@kernel.org, maz@kernel.org, mingo@kernel.org, 
+	nicolas.schier@linux.dev, palmer@dabbelt.com, paul.walmsley@sifive.com, 
+	suzuki.poulose@arm.com, thorsten.blum@linux.dev, wangjinchao600@gmail.com, 
+	will@kernel.org, yangyicong@hisilicon.com, zhanjie9@hisilicon.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250927_190921_916105_11490D6A 
-X-CRM114-Status: GOOD (  15.36  )
+X-CRM114-CacheID: sfid-20250927_193827_262091_9689253F 
+X-CRM114-Status: GOOD (  32.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,59 +107,130 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/27/25 17:36, James Calligeros wrote:
-> Hi Rob,
-> 
-> On Friday, 26 September 2025 7:43:23 am Australian Eastern Standard Time Rob
-> Herring wrote:
->> On Thu, Sep 25, 2025 at 3:49 PM Janne Grunau <j@jannau.net> wrote:
->>> On Fri, Aug 29, 2025 at 11:40:57AM -0500, Rob Herring wrote:
->>>>
->>>> This should be something like this:
->>>>
->>>> "^current-[A-Za-z0-9]{4}$":
->>>>    $ref: "#/$defs/sensor"
->>>>    unevaluatedProperties: false
->>>>
->>>> With the $defs/sensor being:
->>>>
->>>> $defs:
->>>>    sensor:
->>>>      type: object
->>>>      
->>>>      properties:
->>>>        apple,key-id:
->>>>          $ref: /schemas/types.yaml#/definitions/string
->>>>          pattern: "^[A-Za-z0-9]{4}$"
->>>>          
->>>>          description:
->>>>            The SMC FourCC key of the desired sensor. Must match the
->>>>            node's suffix.
->>>>        
->>>>        label:
->>>>          description: Human-readable name for the sensor
->>>>      
->>>>      required:
->>>>        - apple,key-id
->>>>        - label
->>>>
->>>> Though in general, 'label' should never be required being just for human
->>>> convenience.
->>>
->>> That does not sound as it would be compatible with skipping nodes in the
->>> driver if the node misses label. The driver could of course fall back
->>> to create a hwmon sensors without labels.
->>
->> The driver absolutely should.
-> 
-> The original submission (and our downstream version) do this, but I changed
-> it for v2 per Sven's feedback [1]. Outside of development/experimentation,
-> we will (should) never have a sensor in the Devicetree of uknown utility.
-> If we know what a sensor is for, then we should have a label for it.
-> 
+Hi Doug,
 
-Label attributes are optional in hwmon drivers. Period.
+On Sat, Sep 27, 2025 at 4:58=E2=80=AFAM Doug Anderson <dianders@chromium.or=
+g> wrote:
+>
+> Hi,
+>
+> On Fri, Sep 26, 2025 at 2:37=E2=80=AFAM yunhui cui <cuiyunhui@bytedance.c=
+om> wrote:
+> >
+> > Hi Doug,
+> >
+> > On Fri, Sep 26, 2025 at 4:00=E2=80=AFAM Doug Anderson <dianders@chromiu=
+m.org> wrote:
+> > >
+> > > Hi,
+> > >
+> > > On Thu, Sep 25, 2025 at 1:48=E2=80=AFAM Yunhui Cui <cuiyunhui@bytedan=
+ce.com> wrote:
+> > > >
+> > > > @@ -17,6 +17,7 @@
+> > > >  #include <linux/cpu_pm.h>
+> > > >  #include <linux/export.h>
+> > > >  #include <linux/kernel.h>
+> > > > +#include <linux/nmi.h>
+> > > >  #include <linux/perf/arm_pmu.h>
+> > > >  #include <linux/slab.h>
+> > > >  #include <linux/sched/clock.h>
+> > > > @@ -696,10 +697,12 @@ static int armpmu_get_cpu_irq(struct arm_pmu =
+*pmu, int cpu)
+> > > >         return per_cpu(hw_events->irq, cpu);
+> > > >  }
+> > > >
+> > > > -bool arm_pmu_irq_is_nmi(void)
+> > > > +#ifdef CONFIG_HARDLOCKUP_DETECTOR_PERF
+> > > > +bool arch_perf_nmi_is_available(void)
+> > > >  {
+> > > >         return has_nmi;
+> > > >  }
+> > > > +#endif
+> > >
+> > > Should the previous comment move here, AKA:
+> > >
+> > > /*
+> > >  * hardlockup_detector_perf_init() will success even if Pseudo-NMI tu=
+rns off,
+> >
+> > Okay, we also need to change it to =E2=80=9Cwatchdog_hardlockup_probe()=
+=E2=80=9D
+> >
+> > >  * however, the pmu interrupts will act like a normal interrupt inste=
+ad of
+> > >  * NMI and the hardlockup detector would be broken.
+> > > */
+> > >
+> > >
+> > > > +static int __init init_watchdog_freq_notifier(void)
+> > > > +{
+> > > > +       return cpufreq_register_notifier(&watchdog_freq_notifier,
+> > > > +                                        CPUFREQ_POLICY_NOTIFIER);
+> > >
+> > > I think you need to do something to prevent this from happening on an=
+y
+> > > platforms that override hw_nmi_get_sample_period(), right? These
+> > > cpufreq notifiers will be useless in that case...
+> >
+> > I understand this is not a problem. watchdog_perf uses
+> > PERF_COUNT_HW_CPU_CYCLES, which means it is inherently limited by the
+> > CPU's main frequency. After we make such a change, a larger value may
+> > be used as the period, so the NMI period will become longer, but this
+> > value will not change after the system starts.
+>
+> I'm not sure I follow. On x86, hw_nmi_get_sample_period() is:
+>
+> u64 hw_nmi_get_sample_period(int watchdog_thresh)
+> {
+>   return (u64)(cpu_khz) * 1000 * watchdog_thresh;
+> }
 
-Guenter
+I have added the maintainers for arch/x86.
 
+1. cpu_khz can be understood as returning the base operating frequency
+of a CPU, such as 2.3GHz. In practice, the CPU's core frequency may
+downclock to 800MHz under low load and overclock to 4.4GHz under high
+load.
+
+2. Because the event provided to the PMU has the
+PERF_COUNT_HW_CPU_CYCLES attribute, and the counter's value is based
+on 2.3GHz, the execution cycle of watchdog_overflow_callback() is not
+fixed; it varies with the CPU's core frequency. When the CPU runs at a
+frequency higher than 2.3GHz, the NMI cycle will shorten; otherwise,
+it will lengthen.
+
+3. After our modification, if the architecture is not integrated with
+cpufreq, it returns 0 and will not update the cycle. If integrated
+with cpufreq, it returns the maximum frequency supported by the CPU,
+so the NMI cycle is only slightly lengthened, with no impact on the
+actual hardlockup detection function.
+
+4. I have also conducted tests:
+stress-ng --cpu 1 --taskset 1 --cpu-load 80
+echo 800000 > scaling_max_freq
+turbostat shows that Bzy_MHz and TSC_MHz are 800 and 2300 respectively.
+And the NMI cycle became approximately 30 seconds:
+[ 2309.442743] NMI watchdog: ------ watchdog overflow callback, cpu =3D 1
+[ 2341.526032] NMI watchdog: ------ watchdog overflow callback, cpu =3D 1
+
+
+
+>
+> On PowerPC it's:
+>
+> u64 hw_nmi_get_sample_period(int watchdog_thresh)
+> {
+>   return ppc_proc_freq * watchdog_thresh;
+> }
+>
+> Neither of those are necessarily based on the results the cpufreq
+> reports. ...so therefore I don't think you should be taking the
+> cpufreq reported numbers and assuming they're OK on x86 and powerpc.
+>
+> -Doug
+>
+
+Thanks,
+Yunhui
 
