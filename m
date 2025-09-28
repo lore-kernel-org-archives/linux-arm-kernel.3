@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5700CAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Sep 2025 09:21:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB832CAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Sep 2025 09:29:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
 	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ubf8ru2yeav1iqcn4xlDDDTK5MJ9RiF2NcA/K6NqMrw=; b=nHTmI7rS1YlYrcuQegeRrNbKRH
-	4fJPmrzfXeptRNa2ebHlbUWGyq2YVUxRMJoP3Y8bY+/YLSW38WdO0I6XC0IXsmm880pXEzTALSbP9
-	dotSOlbNpmETsFVThe3q3qytlPbTBGlTCekoRcfs2HTWNx1lPJxfBA8IGdp8ZBaWWRpXPQrU/r7y2
-	c193eVQNnyItH/6EzWbnfxSn056D6jVrBLyiN2rB+Y2C8KTswlQPyepOJJcuYLvIz3EawTUDhGgS1
-	ZWcCuXBUkNZ0ijXYmwKKqEqPcDqznl9WVtSlsjkAQo08GnkBU7g6dL3Swe3zlJckZZSheSjERTa/y
-	3c8YEexg==;
+	bh=zfzbvxzTQoEqODEMoNNlZ/eCy7Ue1+toCRb4MMoMOM0=; b=qN0hJW8NEuj/JMj8fW7Pjw3g1A
+	dmt9f38ga0BCTNTubn6lMs8pIaIEpfKgNe8kiP4XLivAoxDDO4B5QmHyhAdHiMUOJcSvEi1iqZyDg
+	1ml0tIwtySWJSYT2WjpcMPZyfSPL7hDC/niA8mks45nyd9B+G9FMYsqd8j2288caSzYL9CPNbLIWQ
+	4HIQ4zFn9Pe3S+tKDXP9mmfrpckcKNeCLubeFC/yaWT5bI56JGdZ+TkY79gFMuPfK/NvcUnI/fDBy
+	nGXi2WNesjt+/dPZrvYUJmGDPsGsrPlNPZFlq5pC6KMDLQlcZ9WAQa147D8ugdoYGOayGJ6bH9OIS
+	8SACDwmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2nbA-0000000EcSW-2mca;
-	Sun, 28 Sep 2025 09:21:40 +0000
+	id 1v2niE-0000000Ef14-1huF;
+	Sun, 28 Sep 2025 09:28:58 +0000
 Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2nb5-0000000EcMQ-3mhn
+	id 1v2niB-0000000Eez4-2gl4
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 28 Sep 2025 09:21:38 +0000
+	Sun, 28 Sep 2025 09:28:57 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:References:
 	In-Reply-To:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:
 	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=ubf8ru2yeav1iqcn4xlDDDTK5MJ9RiF2NcA/K6NqMrw=; b=mwJiwUxIRZyNFQ0GqD2Qyni4QA
-	qWPP5tAXPRJbKg551zuXI5Vb0+L+SNSn0HMPwWY+IYLCTjS7a96+ojWoxIojQAdv8b+NK7N8P3hww
-	gDkgb4HTJfRv9c/Di1UQ/o4rU6YAimKivaZ0E/IIJKhLqah3aS9GaUMR0r3ikAeqP67DN149zeB0o
-	4w8j3kTF0wyaEvryEvOU0ShH76HIdQX5ASNCHte4ZEbiP2p8IfQDeeIQxEmpxl3G9I9mr//kALDFi
-	E8IJEqISwHEGp2aiSMDGAUligtNuAj3UIZ0vlK1oSWQ999TNS/r2e2Z68h0o/Qi4MH8H53FieDeaa
-	xymGlC6A==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:52256 helo=rmk-PC.armlinux.org.uk)
+	bh=zfzbvxzTQoEqODEMoNNlZ/eCy7Ue1+toCRb4MMoMOM0=; b=rcBuxI2g/As/f/Oj6y83atdtQh
+	wJQtkfwXEgan78WLBq3muhdLIJhgTGmabQLbE1HqRKY7tov/5EdpK1Y2I3OCuoLdIf01sMb/10V04
+	cqwMqP+n2hwLTemuhAbeioGr+igdG8SdPg3qc4IGKvmg/ZvMzIcxlDZY66Nxkf4UCJTdEWRMSne7O
+	js2DN1t6YbtRkWr9/S/oq5vFJfvOfWZ0+YxcO45lw6fq+t+BBXLfNdShMdQJjNrTZyvRPrCOoQo+P
+	MDZsCe5dhg9feCRHRszqcYjA1p9sDLTQzwSefxmn3Xh87+hDrjqcjbqBRd/ghkacVKhO8khCjF4Qz
+	mFvaZZ9A==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:54354 helo=rmk-PC.armlinux.org.uk)
 	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <rmk@armlinux.org.uk>)
-	id 1v2naJ-000000005H2-420C;
-	Sun, 28 Sep 2025 10:20:48 +0100
+	id 1v2nau-000000005J8-0oFE;
+	Sun, 28 Sep 2025 10:21:24 +0100
 Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
 	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1v2naF-00000007oET-3Q5a;
-	Sun, 28 Sep 2025 10:20:44 +0100
+	id 1v2naq-00000007oJa-0gWU;
+	Sun, 28 Sep 2025 10:21:20 +0100
 In-Reply-To: <aNj8U4xPJ0JepmZs@shell.armlinux.org.uk>
 References: <aNj8U4xPJ0JepmZs@shell.armlinux.org.uk>
 From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
@@ -96,17 +96,17 @@ Cc: Abhishek Chauhan <quic_abchauha@quicinc.com>,
 	Vladimir Oltean <olteanv@gmail.com>,
 	Vladimir Oltean <vladimir.oltean@nxp.com>,
 	Yu-Chun Lin <eleanor15x@gmail.com>
-Subject: [PATCH RFC net-next v2 08/19] net: stmmac: move reverse-"pcs" mode
- setup to stmmac_check_pcs_mode()
+Subject: [PATCH RFC net-next v2 15/19] net: stmmac: add
+ stmmac_mac_irq_modify()
 MIME-Version: 1.0
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1v2naF-00000007oET-3Q5a@rmk-PC.armlinux.org.uk>
-Date: Sun, 28 Sep 2025 10:20:43 +0100
+Message-Id: <E1v2naq-00000007oJa-0gWU@rmk-PC.armlinux.org.uk>
+Date: Sun, 28 Sep 2025 10:21:20 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250928_022135_976459_0FC34B75 
-X-CRM114-Status: GOOD (  15.45  )
+X-CRM114-CacheID: sfid-20250928_022855_837383_50F5DF89 
+X-CRM114-Status: GOOD (  17.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,65 +121,217 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The broken reverse-mode, selected by snps,ps-speed, is configured when
-the platform provides a valid port speed and a PCS is being used.
-
-Both these remain constant after the driver has probed, so the software
-state doesn't need to be re-initialised each time stmmac_hw_setup() is
-called (which is called at open and resume time.)
-
-Move the software setup of reverse-mode to stmmac_check_pcs_mode()
-which is called from the driver probe function.
+Add a function to allow interrupts to be enabled and disabled in a
+core independent manner.
 
 Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 ---
- .../net/ethernet/stmicro/stmmac/stmmac_main.c | 26 +++++++++----------
- 1 file changed, 13 insertions(+), 13 deletions(-)
+ drivers/net/ethernet/stmicro/stmmac/common.h    |  5 +++++
+ .../ethernet/stmicro/stmmac/dwmac1000_core.c    | 15 +++++++++++++++
+ .../net/ethernet/stmicro/stmmac/dwmac4_core.c   | 17 +++++++++++++++++
+ .../net/ethernet/stmicro/stmmac/dwxgmac2_core.c | 16 ++++++++++++++++
+ drivers/net/ethernet/stmicro/stmmac/hwif.c      |  2 ++
+ drivers/net/ethernet/stmicro/stmmac/hwif.h      |  4 ++++
+ .../net/ethernet/stmicro/stmmac/stmmac_fpe.c    |  3 +++
+ 7 files changed, 62 insertions(+)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index f90742ab68ae..414a00ab5012 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -1091,6 +1091,19 @@ static void stmmac_check_pcs_mode(struct stmmac_priv *priv)
- 		netdev_dbg(priv->dev, "PCS SGMII support enabled\n");
- 		priv->hw->pcs = STMMAC_PCS_SGMII;
- 	}
+diff --git a/drivers/net/ethernet/stmicro/stmmac/common.h b/drivers/net/ethernet/stmicro/stmmac/common.h
+index 9758d768fd0a..fd6635d36801 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/common.h
++++ b/drivers/net/ethernet/stmicro/stmmac/common.h
+@@ -605,6 +605,11 @@ struct mac_device_info {
+ 	u8 vlan_fail_q;
+ 	bool hw_vlan_en;
+ 	bool reverse_sgmii_enable;
 +
-+	/* PS and related bits will be programmed according to the speed */
-+	if (priv->hw->pcs) {
-+		int speed = priv->plat->mac_port_sel_speed;
-+
-+		if ((speed == SPEED_10) || (speed == SPEED_100) ||
-+		    (speed == SPEED_1000)) {
-+			priv->hw->ps = speed;
-+		} else {
-+			dev_warn(priv->device, "invalid port speed\n");
-+			priv->hw->ps = 0;
-+		}
-+	}
++	/* This spinlock protects read-modify-write of the interrupt
++	 * mask/enable registers.
++	 */
++	spinlock_t irq_ctrl_lock;
+ };
+ 
+ struct stmmac_rx_routing {
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
+index 571e48362444..2ca94bfd3f71 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac1000_core.c
+@@ -61,6 +61,20 @@ static void dwmac1000_core_init(struct mac_device_info *hw,
+ #endif
  }
  
- /**
-@@ -3436,19 +3449,6 @@ static int stmmac_hw_setup(struct net_device *dev)
- 	stmmac_set_umac_addr(priv, priv->hw, dev->dev_addr, 0);
- 	phylink_rx_clk_stop_unblock(priv->phylink);
++static void dwmac1000_irq_modify(struct mac_device_info *hw, u32 disable,
++				 u32 enable)
++{
++	void __iomem *int_mask = hw->pcsr + GMAC_INT_MASK;
++	unsigned long flags;
++	u32 value;
++
++	spin_lock_irqsave(&hw->irq_ctrl_lock, flags);
++	value = readl(int_mask) | disable;
++	value &= ~enable;
++	writel(value, int_mask);
++	spin_unlock_irqrestore(&hw->irq_ctrl_lock, flags);
++}
++
+ static int dwmac1000_rx_ipc_enable(struct mac_device_info *hw)
+ {
+ 	void __iomem *ioaddr = hw->pcsr;
+@@ -445,6 +459,7 @@ static void dwmac1000_set_mac_loopback(void __iomem *ioaddr, bool enable)
+ const struct stmmac_ops dwmac1000_ops = {
+ 	.pcs_init = dwmac1000_pcs_init,
+ 	.core_init = dwmac1000_core_init,
++	.irq_modify = dwmac1000_irq_modify,
+ 	.set_mac = stmmac_set_mac,
+ 	.rx_ipc = dwmac1000_rx_ipc_enable,
+ 	.dump_regs = dwmac1000_dump_regs,
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
+index 0b785389b7ef..6269407d70cd 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwmac4_core.c
+@@ -57,6 +57,20 @@ static void dwmac4_core_init(struct mac_device_info *hw,
+ 		init_waitqueue_head(&priv->tstamp_busy_wait);
+ }
  
--	/* PS and related bits will be programmed according to the speed */
--	if (priv->hw->pcs) {
--		int speed = priv->plat->mac_port_sel_speed;
--
--		if ((speed == SPEED_10) || (speed == SPEED_100) ||
--		    (speed == SPEED_1000)) {
--			priv->hw->ps = speed;
--		} else {
--			dev_warn(priv->device, "invalid port speed\n");
--			priv->hw->ps = 0;
--		}
--	}
--
- 	/* Initialize the MAC Core */
- 	stmmac_core_init(priv, priv->hw, dev);
++static void dwmac4_irq_modify(struct mac_device_info *hw, u32 disable,
++			      u32 enable)
++{
++	void __iomem *int_mask = hw->pcsr + GMAC_INT_EN;
++	unsigned long flags;
++	u32 value;
++
++	spin_lock_irqsave(&hw->irq_ctrl_lock, flags);
++	value = readl(int_mask) & ~disable;
++	value |= enable;
++	writel(value, int_mask);
++	spin_unlock_irqrestore(&hw->irq_ctrl_lock, flags);
++}
++
+ static void dwmac4_update_caps(struct stmmac_priv *priv)
+ {
+ 	if (priv->plat->tx_queues_to_use > 1)
+@@ -885,6 +899,7 @@ static int dwmac4_config_l4_filter(struct mac_device_info *hw, u32 filter_no,
+ const struct stmmac_ops dwmac4_ops = {
+ 	.pcs_init = dwmac4_pcs_init,
+ 	.core_init = dwmac4_core_init,
++	.irq_modify = dwmac4_irq_modify,
+ 	.update_caps = dwmac4_update_caps,
+ 	.set_mac = stmmac_set_mac,
+ 	.rx_ipc = dwmac4_rx_ipc_enable,
+@@ -920,6 +935,7 @@ const struct stmmac_ops dwmac4_ops = {
+ const struct stmmac_ops dwmac410_ops = {
+ 	.pcs_init = dwmac4_pcs_init,
+ 	.core_init = dwmac4_core_init,
++	.irq_modify = dwmac4_irq_modify,
+ 	.update_caps = dwmac4_update_caps,
+ 	.set_mac = stmmac_dwmac4_set_mac,
+ 	.rx_ipc = dwmac4_rx_ipc_enable,
+@@ -957,6 +973,7 @@ const struct stmmac_ops dwmac410_ops = {
+ const struct stmmac_ops dwmac510_ops = {
+ 	.pcs_init = dwmac4_pcs_init,
+ 	.core_init = dwmac4_core_init,
++	.irq_modify = dwmac4_irq_modify,
+ 	.update_caps = dwmac4_update_caps,
+ 	.set_mac = stmmac_dwmac4_set_mac,
+ 	.rx_ipc = dwmac4_rx_ipc_enable,
+diff --git a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+index 0430af27da40..b40b3ea50e25 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
++++ b/drivers/net/ethernet/stmicro/stmmac/dwxgmac2_core.c
+@@ -28,6 +28,20 @@ static void dwxgmac2_core_init(struct mac_device_info *hw,
+ 	writel(XGMAC_INT_DEFAULT_EN, ioaddr + XGMAC_INT_EN);
+ }
  
++static void dwxgmac2_irq_modify(struct mac_device_info *hw, u32 disable,
++				u32 enable)
++{
++	void __iomem *int_mask = hw->pcsr + XGMAC_INT_EN;
++	unsigned long flags;
++	u32 value;
++
++	spin_lock_irqsave(&hw->irq_ctrl_lock, flags);
++	value = readl(int_mask) & ~disable;
++	value |= enable;
++	writel(value, int_mask);
++	spin_unlock_irqrestore(&hw->irq_ctrl_lock, flags);
++}
++
+ static void dwxgmac2_update_caps(struct stmmac_priv *priv)
+ {
+ 	if (!priv->dma_cap.mbps_10_100)
+@@ -1411,6 +1425,7 @@ static void dwxgmac2_set_arp_offload(struct mac_device_info *hw, bool en,
+ 
+ const struct stmmac_ops dwxgmac210_ops = {
+ 	.core_init = dwxgmac2_core_init,
++	.irq_modify = dwxgmac2_irq_modify,
+ 	.update_caps = dwxgmac2_update_caps,
+ 	.set_mac = dwxgmac2_set_mac,
+ 	.rx_ipc = dwxgmac2_rx_ipc,
+@@ -1466,6 +1481,7 @@ static void dwxlgmac2_rx_queue_enable(struct mac_device_info *hw, u8 mode,
+ 
+ const struct stmmac_ops dwxlgmac2_ops = {
+ 	.core_init = dwxgmac2_core_init,
++	.irq_modify = dwxgmac2_irq_modify,
+ 	.set_mac = dwxgmac2_set_mac,
+ 	.rx_ipc = dwxgmac2_rx_ipc,
+ 	.rx_queue_enable = dwxlgmac2_rx_queue_enable,
+diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.c b/drivers/net/ethernet/stmicro/stmmac/hwif.c
+index 3f7c765dcb79..aa9e06be4a79 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/hwif.c
++++ b/drivers/net/ethernet/stmicro/stmmac/hwif.c
+@@ -351,6 +351,8 @@ int stmmac_hwif_init(struct stmmac_priv *priv)
+ 	if (!mac)
+ 		return -ENOMEM;
+ 
++	spin_lock_init(&mac->irq_ctrl_lock);
++
+ 	/* Fallback to generic HW */
+ 	for (i = ARRAY_SIZE(stmmac_hw) - 1; i >= 0; i--) {
+ 		entry = &stmmac_hw[i];
+diff --git a/drivers/net/ethernet/stmicro/stmmac/hwif.h b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+index 82cfb6bec334..cb8fc09caf86 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/hwif.h
++++ b/drivers/net/ethernet/stmicro/stmmac/hwif.h
+@@ -319,6 +319,8 @@ struct stmmac_ops {
+ 	void (*core_init)(struct mac_device_info *hw, struct net_device *dev);
+ 	/* Update MAC capabilities */
+ 	void (*update_caps)(struct stmmac_priv *priv);
++	/* Change the interrupt enable setting. Enable takes precedence. */
++	void (*irq_modify)(struct mac_device_info *hw, u32 disable, u32 enable);
+ 	/* Enable the MAC RX/TX */
+ 	void (*set_mac)(void __iomem *ioaddr, bool enable);
+ 	/* Enable and verify that the IPC module is supported */
+@@ -421,6 +423,8 @@ struct stmmac_ops {
+ 	stmmac_do_void_callback(__priv, mac, core_init, __args)
+ #define stmmac_mac_update_caps(__priv) \
+ 	stmmac_do_void_callback(__priv, mac, update_caps, __priv)
++#define stmmac_mac_irq_modify(__priv, __args...) \
++	stmmac_do_void_callback(__priv, mac, irq_modify, (__priv)->hw, __args)
+ #define stmmac_mac_set(__priv, __args...) \
+ 	stmmac_do_void_callback(__priv, mac, set_mac, __args)
+ #define stmmac_rx_ipc(__priv, __args...) \
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c
+index 75b470ee621a..c54c70224351 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_fpe.c
+@@ -70,8 +70,10 @@ static void stmmac_fpe_configure_pmac(struct ethtool_mmsv *mmsv, bool pmac_enabl
+ 	struct stmmac_priv *priv = container_of(cfg, struct stmmac_priv, fpe_cfg);
+ 	const struct stmmac_fpe_reg *reg = cfg->reg;
+ 	void __iomem *ioaddr = priv->ioaddr;
++	unsigned long flags;
+ 	u32 value;
+ 
++	spin_lock_irqsave(&priv->hw->irq_ctrl_lock, flags);
+ 	value = readl(ioaddr + reg->int_en_reg);
+ 
+ 	if (pmac_enable) {
+@@ -86,6 +88,7 @@ static void stmmac_fpe_configure_pmac(struct ethtool_mmsv *mmsv, bool pmac_enabl
+ 	}
+ 
+ 	writel(value, ioaddr + reg->int_en_reg);
++	spin_unlock_irqrestore(&priv->hw->irq_ctrl_lock, flags);
+ }
+ 
+ static void stmmac_fpe_send_mpacket(struct ethtool_mmsv *mmsv,
 -- 
 2.47.3
 
