@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12699CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Sep 2025 16:44:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E1A4CAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Sep 2025 16:44:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V8s07+aHOBm+Wl7Dfgxd61dpla9aGuKbeOIqU8IwWe0=; b=RjSVE1jyv4WGxBsA6ZaRIZMe4x
-	feF6JbaMOQg4C9e7sQzZjTLJHXuEHgaQKaiA6xDCpORdaOguecGrwFB8z0LQdHdysLSjLrert3WfG
-	KPOIfDx7NZC1SImoxzPl8IP+JRWHhKb4ImkSpeGjgGsPm9kqhFeDXgtOnikVM2qovf3sbnkW+jpsR
-	+NEL+RA+lpdrUX/53T2l3/xVw2gJM+GEck0m17UhSYcdQtSTwq2jvp8Z2ZtMfXI9TDzYBF/5d/3AV
-	yFNmiYnWxPeK2KxxrSNMVswto4dxq8bM7ksgHhi3OLc8JxBcfVG+K1l+JZBT2xSUrWx+UmXjQZ2+S
-	5tmhHcxw==;
+	bh=fnnxBO/trXxFdYV+mLFnB0D7KCLEBJYTl4aWicE4Wa4=; b=Rd8ejWXidym6lhs9B50f73cwWU
+	Q1a8ESynFC5XLYe+rxS/960CJhWhbKzNxcDrK2aerfzfRrYT3tPgAFV7JK970XaS/mKUt+V8hQsjf
+	PO/+g5t11g/TUAAvuy8B5nT5xYpWm+VDul5p0HVb9ghxj0vYfrmFiVV2x5wX2iIokw8LVa2ohqsF5
+	Rt/1LPqbzwTczwl6YbM0NX+VPNK5eIHp3kggXGWuL9NFNI5sKsxC9dZKsO7s/Y5Mbrde7HrXHbcg/
+	/nbcFsVbe67GnOSxqxMW6GWoJsL+MQFoLMsNrAYOkEBsIIn6ojpBYqFVJh9ydOxQBMzPjeiO0MzLF
+	WYdGbdFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2uVw-0000000Geww-1M6Z;
+	id 1v2uVw-0000000GexR-2ams;
 	Sun, 28 Sep 2025 16:44:44 +0000
 Received: from layka.disroot.org ([178.21.23.139])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2uVp-0000000GepL-3Nst
+	id 1v2uVt-0000000GetD-2FWh
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 28 Sep 2025 16:44:39 +0000
+	Sun, 28 Sep 2025 16:44:42 +0000
 Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id F297720545;
-	Sun, 28 Sep 2025 18:44:34 +0200 (CEST)
+	by disroot.org (Postfix) with ESMTP id EC646209E1;
+	Sun, 28 Sep 2025 18:44:39 +0200 (CEST)
 X-Virus-Scanned: SPAM Filter at disroot.org
 Received: from layka.disroot.org ([127.0.0.1])
  by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id WlNmfzM4vBb3; Sun, 28 Sep 2025 18:44:34 +0200 (CEST)
+ id J-bgODHrDlbP; Sun, 28 Sep 2025 18:44:39 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1759077874; bh=9kz9dMsV6oTsNdTem4b3h8GxVUiRsET4OUStPQfyat4=;
+	t=1759077878; bh=ksoTUkd6e56IfHNaydxIqPi7FDPhrc+WNf3R95tILQY=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=iOpkOiga+mCUd38B0dutlperEK2+hSwNpno/hexRdxAbt2K3bS5QWugSoMyAdfXze
-	 D+f5QeqkxtiEYYzJf69udopJtUaZxnWWlMBuZVOL4hBjU4tujrbS6CsL0z2UaqD/it
-	 0Ggan6eQed08NjxzhTNE7XBpCv2gp2OvlFc7TKpr9E0mdh/bffojo4flwmWrB6/VZn
-	 k/opnz6fpN7z0cAPBz5eCpOKMa7i8aj+jMJSqbWQBcjiBcmDj/GAgwDDetVlOGvSt5
-	 QnQEoZTCLX7HML37ZC+KsvA/ACnLpcD2ZGZxkgf2jJq5TtgAdOjkft1YWhj/sBv5AZ
-	 3Cu9bsBnPk4Ug==
+	b=b+3c+N47kxW5mkMUiwDOJtWtkH/9CUql9yPk7yLn0xiTud7jUqu2PafGm2AxJMLRq
+	 2ljrUowR5meoW/l68rCUMsoUxh6ytpmV8T7c3htDK7iS+gti6gghry5alVuhQIdPmg
+	 QvGIni5DXdWZB4V1Rh6WvwwnMWEi5FTT0hPbCWN6BlFIkK2vXgu9NPWxQB0NMuGluI
+	 LSRol3AxI91FKG6K1Sgz2ejNdfakavGaIbRBSOddqUN2hnH2TUrOYLNHC2bjotyG/I
+	 l19Ey3gWZr7Pmjp9xK11rU9P0MRqxyMu6gPgk+EnwiQ69GuAzJ4Gru74besk4DbF0a
+	 55Q+z/7fGIfvQ==
 From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Date: Sun, 28 Sep 2025 22:13:56 +0530
-Subject: [PATCH 5/7] arm64: dts: exynos7870-a2corelte: add bus-width to
- mmc0 node
+Date: Sun, 28 Sep 2025 22:13:57 +0530
+Subject: [PATCH 6/7] arm64: dts: exynos7870-j6lte: add bus-width to mmc0
+ node
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250928-exynos7870-dt-fixes-v1-5-a40e77a73f16@disroot.org>
+Message-Id: <20250928-exynos7870-dt-fixes-v1-6-a40e77a73f16@disroot.org>
 References: <20250928-exynos7870-dt-fixes-v1-0-a40e77a73f16@disroot.org>
 In-Reply-To: <20250928-exynos7870-dt-fixes-v1-0-a40e77a73f16@disroot.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -58,15 +58,15 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
  Kaustabh Chakraborty <kauschluss@disroot.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1759077839; l=1075;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1759077839; l=1055;
  i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
- bh=9kz9dMsV6oTsNdTem4b3h8GxVUiRsET4OUStPQfyat4=;
- b=TpZn57CPBUNWhNCookdBkAfjZgnpTSTIVzRTVW4sldOljeTMK8X488tDVVrb1STH6GyBmYAae
- /oMhOJrc/RjDI8FoU4ubpWV5lZAni1cfIsyv5qXv1g/z0+L+A+T19sG
+ bh=ksoTUkd6e56IfHNaydxIqPi7FDPhrc+WNf3R95tILQY=;
+ b=siBZbTKsPqnPyE5bdSEYk4L2JwO/0vWzC4Fg0i5oGGrY+qdBzCX5qrnOv04KPbJLHtmZqQVFy
+ I7g/Nj3Uep6A3mnP4gv2NlR2pE/+iurU1ng5V8mb0dnCeWQI22lcQbT
 X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
  pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250928_094438_009045_DBE624D1 
+X-CRM114-CacheID: sfid-20250928_094441_778970_6EB31C3E 
 X-CRM114-Status: UNSURE (   9.75  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -91,14 +91,14 @@ the bus-width property the hardware description remains incomplete.
 
 Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
 ---
- arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dts | 1 +
+ arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dts b/arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dts
-index f8a7610abeb77cab9f38aaf48d441d99ec61ab5f..1193f0f7dcc171762fefccee23c2c294a41c46c9 100644
---- a/arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dts
-+++ b/arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dts
-@@ -447,6 +447,7 @@ &mmc0 {
+diff --git a/arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts b/arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts
+index b2990b5466c949c18a61d1b1c4427986b19804ba..4aa80ea3a1cc94e69d88a5e5a135eb7ac5510fdf 100644
+--- a/arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts
++++ b/arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts
+@@ -430,6 +430,7 @@ &mmc0 {
  	vmmc-supply = <&vdd_ldo26>;
  	vqmmc-supply = <&vdd_ldo27>;
  
