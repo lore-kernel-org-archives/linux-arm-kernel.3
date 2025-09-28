@@ -4,86 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDF47CAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Sep 2025 10:09:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1A0ECAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Sep 2025 10:38:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=O7VH5GloSW9zlV5MKDiGfn6qUlpNBb/HaUQn6uAJYa0=; b=Dpy7pkRGJO8nA3V2ge1TowdGaJ
-	raFpAt8qSmMowlJFRgfbp3F+pf+40etE+29ECBmaNPOKqxkKYUJilLqb5Q36g402f/rRkpu4DVfSl
-	Jo5vexTymPt1IBXkXfkc9dnoRJ7uUzUNQZflu5t/nudb6aHSMPPlDlkdvAKbRsqXBxv8h5KhwoeX2
-	kvDLq+WHhmsBYa0K0XN/EOeB1elbGA9N39+FW1xOg7sa6F65k7VmTwI8G1cL51reeaeaUIxClYlU4
-	wPwqW44UZOhTVWukNaHYuqQR6ohGN/o5Gspsty26ovqSt+O4bMbbk6f6SmtsGD3qJE9X+Jc5wRRZ0
-	snEAtdnw==;
+	bh=OajlQ+6PdIYG+fmsAAOl6Cm5I8NVlpLVeebHG26Kl94=; b=X7MAtAaD8tSOtuToGkK9SZlG3L
+	idLJscB3jyD0buX8qbghbaOfNS5y1EDTPyWH8jcZIfeoCgRD2yALHekklL+CVerfjV2oz+gbGHUfB
+	HN7FA++013wSEdXdFdQqVLGCVBRKq+SHHZeRVfj/EP/7vpoWMuK9K3xX647L01jgd6yFmvsAt0rR9
+	05nR1vlDpK0k+KJux73FS+fCPv2GtslajOsbVHR9/FbtVrsRvHcw9d80GZck8/OzeZ2BAR6JPBnPV
+	ltoz9RRk66BHGbVMyVkVVCWPwAkw3eoFjLAVzevAhQLgTloZO8yiF9F1OyQ63sw2vgmwGqGvQt6VU
+	NtZFezWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2oLf-0000000Erbs-1bc3;
-	Sun, 28 Sep 2025 10:09:43 +0000
-Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
+	id 1v2onJ-0000000EzlX-2ZNs;
+	Sun, 28 Sep 2025 10:38:17 +0000
+Received: from mail-m15579.qiye.163.com ([101.71.155.79])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2oLc-0000000Era3-3uH6
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 28 Sep 2025 10:09:42 +0000
-Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-46e3af7889fso17440445e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Sep 2025 03:09:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1759054178; x=1759658978; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:subject:to:from
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=O7VH5GloSW9zlV5MKDiGfn6qUlpNBb/HaUQn6uAJYa0=;
-        b=EbqnS8etNO6LUFrT/FIwkBsHfn3oT0kcX3am0n3oRhQlawKBO6p/i85U9cU8OZh1Mz
-         8TzTjf9Iz6cDjti6AfswsbZjhP5tXEqGm3BCiflaqxxJSdjh1K6Jo8XngJ9PfABX7GrF
-         3S1OfH3Aq4y6TqsK+9DglV121I1ZHsnFikxYqkV4z47UZGKOwEWffJTdBjHtbeoSHqai
-         kuxup+7617q+mB4nMLIMPZ6wnJTcAvkV4UIZ8Lx4oJSCJ8nIDlXXh4eYji2veUCwlnG1
-         wdZtNvuOK2cYPexjr9erfyNWFj/kJn5Si+Yh1QlkJmy8CPo5GFX9fOq9IUVA18R0bO2V
-         pJ4g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759054178; x=1759658978;
-        h=content-transfer-encoding:mime-version:message-id:subject:to:from
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=O7VH5GloSW9zlV5MKDiGfn6qUlpNBb/HaUQn6uAJYa0=;
-        b=SQkNVd2oMipaDScKYOgHGNWBMf/HpAoTc5HAX+PXMR+OYuGKy9LmYpJwSGTzPfZg22
-         O5NmWne5mSZXoYabdPsZB/QL2dXhVhclGLsMiSZwrq/SKveSL5I5P8oRxLMD4l7hpTwk
-         muZTky4Cp2T5jV2stpIrFzEVZZoiT1bAhT4982r6/chHGw/B+GBGEvIEcVhqOO32Fu/B
-         tfLzLuOLavbYT339OExFs+QdZw83uQb/0ptMNpzgWS5FHEpMMjAgZ2SwcN7p292uFrXs
-         rhbB8on/GelGNyq8AOZvxI19+PTF26gXd0R4g6DlJi3CxMphkv4VxUZwErLUFRne0a2+
-         lFpQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUuASXtZ+dAhYv1pN6eArCvGr1f2dj13mzGm2qU1nn5FkuouWQ8WOPiRuaRdsUjBB8YOL8LcyAUNHPHZJtN6STu@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz6uyow6aEdVuBa3TGRvsOCBNJI+Iy4/qQNMG8NYGfFR+ZoolIz
-	H1rugv+NpPzKc/68iELJUMeS0DZp1Lrr3Rn106uviiDpQQXtDoHx8mZj
-X-Gm-Gg: ASbGncsBvo+VHVEKSGM9CDNSxTSiMpytfl3mwEeDygwpznMWXenCyTGdGrgn6wCNzJF
-	qOd7SdDP1ioRK00wBjjGmE+tLCzJBe7imFkb9TgK5sFDouQLnx99zMjIJR+mY9ZEWJe6ngmbCKP
-	EcAvmwVy9/KkFoscyeZFrtfPQIgbbGIrbN1rz/KmmXeoRKRnykwQLfav5zUfJfOVzcmAb6fC4ST
-	bmtchNjjQ4Y2n+8zUr/+lfMgK2LljkkdJ7e5sH9+uqQdgDADX0ORS6T2zaxEbTvnMHcCs7yvx6c
-	ax4lvJRvS+d+RBNxKtGt2oCxW+0lzDPg+DmYux///Ph7NtpcosvQftTF18//8YTBjl6GGgHLomp
-	3DqOG/BRO+1aTv1wcflM5T+Wpdd1iFn1qHZIioBxxd346FMGvUdjAxBMccuBhBmT57TEPzcPJ0x
-	1GAsA=
-X-Google-Smtp-Source: AGHT+IEqCtc23uR91vJX1oENcguv3h+oXK5yd4n5mW5QIEhXCja0/eHYFgJA/f94YSrqA0IKGpmApQ==
-X-Received: by 2002:a05:600c:1508:b0:458:c094:8ba5 with SMTP id 5b1f17b1804b1-46e329b62bcmr82520475e9.12.1759054178464;
-        Sun, 28 Sep 2025 03:09:38 -0700 (PDT)
-Received: from deskilmich.example.net (host-79-36-214-146.retail.telecomitalia.it. [79.36.214.146])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46e2a996bf1sm185811095e9.1.2025.09.28.03.09.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 28 Sep 2025 03:09:38 -0700 (PDT)
-Date: Sun, 28 Sep 2025 12:07:49 +0200
-From: Michele Zuccala <ardutu@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Alex
- Bee <knaerzche@gmail.com>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org
-Subject: [PATCH] ARM: dts: rockchip: add hdmi simple-audio-card for RK322x
-Message-ID: <20250928120749.36df6a8c@deskilmich.example.net>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.50; x86_64-slackware-linux-gnu)
+	id 1v2onF-0000000Ezgl-3MX9;
+	Sun, 28 Sep 2025 10:38:15 +0000
+Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2456910da;
+	Sun, 28 Sep 2025 18:38:03 +0800 (GMT+08:00)
+From: Damon Ding <damon.ding@rock-chips.com>
+To: heiko@sntech.de,
+	andy.yan@rock-chips.com,
+	hjc@rock-chips.com
+Cc: maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Damon Ding <damon.ding@rock-chips.com>,
+	Sebastian Reichel <sebastian.reichel@collabora.com>
+Subject: [PATCH v3] drm/rockchip: analogix_dp: Apply devm_clk_get_optional() for &rockchip_dp_device.grfclk
+Date: Sun, 28 Sep 2025 18:37:34 +0800
+Message-Id: <20250928103734.4007257-1-damon.ding@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a998fe6ad8303a3kunm5a055eb71de05e
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQkxMGlZPQxodTk4dQkJKShpWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=CFQEKBdLzj3RmovydjJ/6w0J+Z+ocOD7NCH8UCPOUnv9joMoyk3Hp31PZpKDFASAdryKQpPfo22/0OLo8xKgWTdFvb6BSK4uvk7rCil7kPubAqF6r/HV/LaZ1SZvZbsaZWPWfEHUcXLYs9WozLnsbAmpMFRDfa/nBcp2LaJry8g=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=OajlQ+6PdIYG+fmsAAOl6Cm5I8NVlpLVeebHG26Kl94=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250928_030940_991889_4D1C94A8 
-X-CRM114-Status: GOOD (  11.72  )
+X-CRM114-CacheID: sfid-20250928_033814_026585_10028BC0 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,60 +78,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add "simple-audio-card" definition for hdmi-sound. While at
-that also add the missing #sound-dai-cells for i2s0 and hdmi nodes.
+The "grf" clock is optional for Rockchip eDP controller(RK3399 needs
+while RK3288 and RK3588 do not).
 
-Signed-off-by: Alex Bee <knaerzche@gmail.com>
-Signed-off-by: Michele Zuccala <ardutu@gmail.com>
+It can make the code more concise to use devm_clk_get_optional()
+instead of devm_clk_get() with extra checks.
+
+In addtion, DRM_DEV_ERROR() is replaced by dev_err_probe().
+
+Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
+Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
+
+------
+
+Changes in v2:
+- Replace DRM_DEV_ERROR() with dev_err_probe().
+
+Changes in v3:
+- Update Reviewed-by tag.
+- Fix the spelling error 'consice' to 'concise'.
 ---
- arch/arm/boot/dts/rockchip/rk322x.dtsi | 18 ++++++++++++++++++
- 1 file changed, 18 insertions(+)
+ drivers/gpu/drm/rockchip/analogix_dp-rockchip.c | 12 +++---------
+ 1 file changed, 3 insertions(+), 9 deletions(-)
 
-diff --git a/arch/arm/boot/dts/rockchip/rk322x.dtsi
-b/arch/arm/boot/dts/rockchip/rk322x.dtsi index
-cd11a018105b..a6b3c934c8ab 100644 ---
-a/arch/arm/boot/dts/rockchip/rk322x.dtsi +++
-b/arch/arm/boot/dts/rockchip/rk322x.dtsi @@ -108,6 +108,22 @@ arm-pmu {
- 		interrupt-affinity = <&cpu0>, <&cpu1>, <&cpu2>,
-<&cpu3>; };
+diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+index d30f0983a53a..937f83cf42fc 100644
+--- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
++++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
+@@ -335,15 +335,9 @@ static int rockchip_dp_of_probe(struct rockchip_dp_device *dp)
+ 		return PTR_ERR(dp->grf);
+ 	}
  
-+	hdmi_sound: hdmi-sound {
-+		compatible = "simple-audio-card";
-+		simple-audio-card,format = "i2s";
-+		simple-audio-card,mclk-fs = <256>;
-+		simple-audio-card,name = "HDMI";
-+		status = "disabled";
-+
-+		simple-audio-card,codec {
-+			sound-dai = <&hdmi>;
-+		};
-+
-+		simple-audio-card,cpu {
-+			sound-dai = <&i2s0>;
-+		};
-+	};
-+
- 	psci {
- 		compatible = "arm,psci-1.0", "arm,psci-0.2";
- 		method = "smc";
-@@ -156,6 +172,7 @@ i2s0: i2s0@100c0000 {
- 		clocks = <&cru SCLK_I2S0>, <&cru HCLK_I2S0_8CH>;
- 		dmas = <&pdma 11>, <&pdma 12>;
- 		dma-names = "tx", "rx";
-+		#sound-dai-cells = <0>;
- 		status = "disabled";
- 	};
+-	dp->grfclk = devm_clk_get(dev, "grf");
+-	if (PTR_ERR(dp->grfclk) == -ENOENT) {
+-		dp->grfclk = NULL;
+-	} else if (PTR_ERR(dp->grfclk) == -EPROBE_DEFER) {
+-		return -EPROBE_DEFER;
+-	} else if (IS_ERR(dp->grfclk)) {
+-		DRM_DEV_ERROR(dev, "failed to get grf clock\n");
+-		return PTR_ERR(dp->grfclk);
+-	}
++	dp->grfclk = devm_clk_get_optional(dev, "grf");
++	if (IS_ERR(dp->grfclk))
++		return dev_err_probe(dev, PTR_ERR(dp->grfclk), "failed to get grf clock\n");
  
-@@ -732,6 +749,7 @@ hdmi: hdmi@200a0000 {
- 		phys = <&hdmi_phy>;
- 		phy-names = "hdmi";
- 		rockchip,grf = <&grf>;
-+		#sound-dai-cells = <0>;
- 		status = "disabled";
- 
- 		ports {
+ 	dp->pclk = devm_clk_get(dev, "pclk");
+ 	if (IS_ERR(dp->pclk)) {
 -- 
-2.51.0
-
+2.34.1
 
 
