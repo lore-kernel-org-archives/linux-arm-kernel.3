@@ -4,86 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4071CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Sep 2025 08:55:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B8B5CAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Sep 2025 08:56:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HQsWcOOQOPFRh+csyXpVaXXlYECUrdq9XpTTlGCeshY=; b=lkzcY9o2GkCPpK1sksCwmYSsgM
-	8L7BJ63gORMTgidtkn+xMw2nu2wGKBIFMJxZ4YGIiauZHRfkk1LP598o7MRUe6LkzY3Rwle7swRyV
-	6fpf7mgTVqwpWvdZWaRXd3iH9zFEAexRvK/1CcfvrDbVHwPSCOVhCsgIXUXHRoTkXgn2wuPX76V2Y
-	ixFY6zDGjGxRtp8HDCIOHJxrdwXWZWfT5Fg74c1glbNcObYpcfIEdX4a44+NCU6N9Z7erBXdG0k78
-	NU6SYgiIcKS+GV95r5zPjbRHHRNGzOMOsOZTLItBtZEl3ab7UziA5LgMclraD6zG/cizRSJTjfweX
-	Eli3bCJw==;
+	bh=eaEshSke7WWsFjbgjKG91woJG61C7g3CnfzoHwJbTuA=; b=fmrgMDGiKLEhNs33FqTFQH8WFk
+	a3pHUevKklpSrca1WU21nqPt0a7Rl6AtKLWmSr7Y8pknWvHS1PjyuhQxR+iRXz35F9DakAmPW7ymH
+	2y82ZWi/RH+XDLmBLGYAU8U/ffxbUCC7lcW5mERqdeeugdxznM30x3I27+jypFdFLnUdzr9DVVZVa
+	hTvDXIQ7FAW6LgfbJmKoBjfAFPERvLZbUYn+b3/rDn7qgOudIf+d5n0LJazzYV2sC3/wqCZ7cVwTt
+	1L/Nr6pjbC0AJc0FENV54VEJvAXP+wNaROaNU93Z1OQ8GGH62qBPmnh4ad16yGY8U5uVh7weZr/xL
+	NysLuufA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2nBw-0000000ETHS-2K0k;
-	Sun, 28 Sep 2025 08:55:36 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1v2nCb-0000000ETeZ-0gSQ;
+	Sun, 28 Sep 2025 08:56:17 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2nBu-0000000ETFn-2BXI;
-	Sun, 28 Sep 2025 08:55:34 +0000
+	id 1v2nCY-0000000ETcm-47m2
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 28 Sep 2025 08:56:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:MIME-Version:
-	Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
-	Content-Description:In-Reply-To:References;
-	bh=HQsWcOOQOPFRh+csyXpVaXXlYECUrdq9XpTTlGCeshY=; b=eoLvKu4ksJ4WLw5t0JSu/6zmtD
-	RNM7Rqqku+Ag4jXgRozXjzd+ZqEZcPSLzMCP50v3gl1/Ioaa3T2QTjdKa3DdlyDhpNuRVVeFIigZs
-	6lf+VUcvQHweFK+SE5xLrwISApTcQAHzNOekL1IisN/RPhu53r6cKGniRSWOa+yFBPTujf6DZtEbg
-	kRswIPvYP4CjHFJnK67lU+HN97cpxnbu46gDHzPJP4KwuoVxXQvVWOyzVM/T39JItn/B2s9VSSO2g
-	4rIiLBffjkHxqvNEi9Vpk7HVo/a9Z7BtTrAxcweuQEg2bZ1i+ohmzCC0jv4HjDSukTuGdAeT+gdlO
-	7MlzBUFQ==;
-Received: from mail.loongson.cn ([114.242.206.163])
-	by casper.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2nBp-0000000H078-0mnk;
-	Sun, 28 Sep 2025 08:55:33 +0000
-Received: from loongson.cn (unknown [113.200.148.30])
-	by gateway (Coremail) with SMTP id _____8Dx_tLz99hoBswPAA--.33201S3;
-	Sun, 28 Sep 2025 16:55:16 +0800 (CST)
-Received: from linux.localdomain (unknown [113.200.148.30])
-	by front1 (Coremail) with SMTP id qMiowJBxpeTw99hoCnK5AA--.60733S2;
-	Sun, 28 Sep 2025 16:55:12 +0800 (CST)
-From: Tiezhu Yang <yangtiezhu@loongson.cn>
-To: Ard Biesheuvel <ardb@kernel.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
-	Huacai Chen <chenhuacai@kernel.org>
-Cc: loongarch@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-riscv@lists.infradead.org,
-	linux-efi@vger.kernel.org,
-	linux-kbuild@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] efistub: Only link libstub to final vmlinux
-Date: Sun, 28 Sep 2025 16:55:06 +0800
-Message-ID: <20250928085506.4471-1-yangtiezhu@loongson.cn>
-X-Mailer: git-send-email 2.42.0
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=eaEshSke7WWsFjbgjKG91woJG61C7g3CnfzoHwJbTuA=; b=oZuzW/vIzUPgZYfnMIHlje/k9/
+	W6/8bkTFGJGj6A70h1Qv4oljN7MCn5VGdznOvEhJ0Ouf26iOZParIaKSaw+kOvwEtwUncHnH56IeM
+	fCVFx/jpMWQje9yB0HJzWM2I+0xii4aqCTkELyDZ+ZN10PWMsQq3N0rghTPiLfTbN0V0gFVAzJFXp
+	Ozpy7EFJtSN03M21ToYmNXJSiSdCi4BeTZPv3OyVsx9nweswCO+7fyhvAveQZtcC3BJiy06PIceBY
+	drZ0PIJAX+j8MQYy5bX5PehiEqi+pIsHclH1VU0DHLCpFw9fqF6fvdPWex+0l5YEEl+02hAjChCR1
+	5HqI/vOw==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:54172)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1v2nCL-0000000059y-1F6D;
+	Sun, 28 Sep 2025 09:56:01 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1v2nCH-000000002RM-2cRk;
+	Sun, 28 Sep 2025 09:55:57 +0100
+Date: Sun, 28 Sep 2025 09:55:57 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Gatien Chevallier <gatien.chevallier@foss.st.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew@lunn.ch>, Andrew Lunn <andrew+netdev@lunn.ch>,
+	Christophe Roullier <christophe.roullier@foss.st.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>, devicetree@vger.kernel.org,
+	Eric Dumazet <edumazet@google.com>,
+	Heiner Kallweit <hkallweit1@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>, Rob Herring <robh@kernel.org>,
+	Simon Horman <horms@kernel.org>,
+	Tristram Ha <Tristram.Ha@microchip.com>
+Subject: [PATCH RFC net-next 0/6] net: add phylink managed WoL and convert
+ stmmac
+Message-ID: <aNj4HY_mk4JDsD_D@shell.armlinux.org.uk>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qMiowJBxpeTw99hoCnK5AA--.60733S2
-X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
-X-Coremail-Antispam: 1Uk129KBj93XoWxZF4rCF15tF13uFykWry5Jrc_yoWrCFykpa
-	nakr4qvrWkWrWvq3s7G3yUWw15KFn8trZIqFyDCFZ0yr4UZwn29rZxJrZrAFZ8Xr1DAFWS
-	qr1xKFyakF1DA3gCm3ZEXasCq-sJn29KB7ZKAUJUUUU5529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUUkYb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW8Jr0_Cr1UM28EF7xvwVC2z280aVCY1x0267AK
-	xVWxJr0_GcWle2I262IYc4CY6c8Ij28IcVAaY2xG8wAqjxCEc2xF0cIa020Ex4CE44I27w
-	Aqx4xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_Jrv_JF1lYx0Ex4A2jsIE
-	14v26r1j6r4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvY0x0EwIxGrwCF04k20xvY0x
-	0EwIxGrwCFx2IqxVCFs4IE7xkEbVWUJVW8JwC20s026c02F40E14v26r1j6r18MI8I3I0E
-	7480Y4vE14v26r106r1rMI8E67AF67kF1VAFwI0_Jw0_GFylIxkGc2Ij64vIr41lIxAIcV
-	C0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7CjxVAFwI0_Jr0_Gr1lIxAIcVCF
-	04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v26r1j6r4UMIIF0xvEx4A2jsIEc7
-	CjxVAFwI0_Jr0_GrUvcSsGvfC2KfnxnUUI43ZEXa7IU1QVy3UUUUU==
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250928_095530_432453_FAB1AC3B 
-X-CRM114-Status: UNSURE (   8.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250928_015615_021941_E81416A8 
+X-CRM114-Status: GOOD (  18.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,118 +92,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When compiling with LLVM and CONFIG_LTO_CLANG is set, there exists
-the following objtool warning on LoongArch:
+Hi,
 
-  vmlinux.o: warning: objtool: __efistub_efi_boot_kernel()
-  falls through to next function __efistub_exit_boot_func()
+This experimental series is implementing the thoughts of Andrew,
+Florian and myself in an attempt to improve the quality of Wake-on-Lan
+(WoL) implementations.
 
-This is because efi_boot_kernel() doesn't end with a return instruction
-or an unconditional jump, then objtool has determined that the function
-can fall through into the next function.
+This changes nothing for MAC drivers that do not wish to participate in
+this, but if they do, then they gain the benefit of phylink configuring
+WoL at the point closest to the media as possible.
 
-At the beginning, try to do something to make efi_boot_kernel() ends with
-an unconditional jump instruction, but this modification seems not proper.
+We first need to solve the problem that the multitude of PHY drivers
+report their device supports WoL, but are not capable of waking the
+system. Correcting this is fundamental to choosing where WoL should be
+enabled - a mis-reported WoL support can render WoL completely
+ineffective.
 
-Since the efistub functions are useless for stack unwinder, they can be
-ignored by objtool. After many discussions, no need to link libstub to
-the vmlinux.o, only link libstub to the final vmlinux.
+The only PHY drivers which uses the driver model's wakeup support is
+drivers/net/phy/broadcom.c, and until recently, realtek. This means
+we have the opportunity for PHY drivers to be _correctly_ converted
+to use this method of signalling wake-up capability only when they can
+actually wake the system, and thus providing a way for phylink to
+know whether to use PHY-based WoL at all.
 
-Do the similar things for arm64 and riscv, otherwise there may be objtool
-warnings when arm64 and riscv support objtool, this is to make consistent
-with the archs that use libstub.
+However, a PHY driver not implementing that logic doesn't become a
+blocker to MACs wanting to convert. In full, the logic is:
 
-Link: https://lore.kernel.org/lkml/pq4h7jgndnt6p45lj4kgubxjd5gidfetugcuf5rcxzxxanzetd@6rrlpjnjsmuy/
-Suggested-by: Josh Poimboeuf <jpoimboe@kernel.org>
-Signed-off-by: Tiezhu Yang <yangtiezhu@loongson.cn>
----
- Makefile                | 1 +
- arch/arm64/Makefile     | 5 ++++-
- arch/loongarch/Makefile | 5 ++++-
- arch/riscv/Makefile     | 5 ++++-
- scripts/link-vmlinux.sh | 5 ++---
- 5 files changed, 15 insertions(+), 6 deletions(-)
+- phylink supports a flag, wol_phy_legacy, which forces phylink to use
+  the PHY-based WoL even if the MDIO device is not marked as wake-up
+  capable.
 
-diff --git a/Makefile b/Makefile
-index 10355ecf32cb..8ba2e28ef3d1 100644
---- a/Makefile
-+++ b/Makefile
-@@ -1201,6 +1201,7 @@ KBUILD_VMLINUX_OBJS := built-in.a $(patsubst %/, %/lib.a, $(filter %/, $(libs-y)
- KBUILD_VMLINUX_LIBS := $(filter-out %/, $(libs-y))
- 
- export KBUILD_VMLINUX_LIBS
-+export KBUILD_VMLINUX_LIBS_PRELINK
- export KBUILD_LDS          := arch/$(SRCARCH)/kernel/vmlinux.lds
- 
- ifdef CONFIG_TRIM_UNUSED_KSYMS
-diff --git a/arch/arm64/Makefile b/arch/arm64/Makefile
-index 73a10f65ce8b..038f37ef2143 100644
---- a/arch/arm64/Makefile
-+++ b/arch/arm64/Makefile
-@@ -156,7 +156,10 @@ KBUILD_CPPFLAGS += -DKASAN_SHADOW_SCALE_SHIFT=$(KASAN_SHADOW_SCALE_SHIFT)
- KBUILD_AFLAGS += -DKASAN_SHADOW_SCALE_SHIFT=$(KASAN_SHADOW_SCALE_SHIFT)
- 
- libs-y		:= arch/arm64/lib/ $(libs-y)
--libs-$(CONFIG_EFI_STUB) += $(objtree)/drivers/firmware/efi/libstub/lib.a
-+
-+ifdef CONFIG_EFI_STUB
-+KBUILD_VMLINUX_LIBS_PRELINK += $(objtree)/drivers/firmware/efi/libstub/lib.a
-+endif
- 
- # Default target when executing plain make
- boot		:= arch/arm64/boot
-diff --git a/arch/loongarch/Makefile b/arch/loongarch/Makefile
-index ae419e32f22e..4eb904c20718 100644
---- a/arch/loongarch/Makefile
-+++ b/arch/loongarch/Makefile
-@@ -169,7 +169,10 @@ CHECKFLAGS += $(shell $(CC) $(KBUILD_CPPFLAGS) $(KBUILD_CFLAGS) -dM -E -x c /dev
- endif
- 
- libs-y += arch/loongarch/lib/
--libs-$(CONFIG_EFI_STUB) += $(objtree)/drivers/firmware/efi/libstub/lib.a
-+
-+ifdef CONFIG_EFI_STUB
-+KBUILD_VMLINUX_LIBS_PRELINK += $(objtree)/drivers/firmware/efi/libstub/lib.a
-+endif
- 
- drivers-y		+= arch/loongarch/crypto/
- 
-diff --git a/arch/riscv/Makefile b/arch/riscv/Makefile
-index df57654a615e..cfd82b2c1bbf 100644
---- a/arch/riscv/Makefile
-+++ b/arch/riscv/Makefile
-@@ -173,7 +173,10 @@ boot-image-$(CONFIG_XIP_KERNEL)		:= xipImage
- KBUILD_IMAGE				:= $(boot)/$(boot-image-y)
- 
- libs-y += arch/riscv/lib/
--libs-$(CONFIG_EFI_STUB) += $(objtree)/drivers/firmware/efi/libstub/lib.a
-+
-+ifdef CONFIG_EFI_STUB
-+KBUILD_VMLINUX_LIBS_PRELINK += $(objtree)/drivers/firmware/efi/libstub/lib.a
-+endif
- 
- ifeq ($(KBUILD_EXTMOD),)
- ifeq ($(CONFIG_MMU),y)
-diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
-index 51367c2bfc21..b3cbff31d8a9 100755
---- a/scripts/link-vmlinux.sh
-+++ b/scripts/link-vmlinux.sh
-@@ -61,12 +61,11 @@ vmlinux_link()
- 	shift
- 
- 	if is_enabled CONFIG_LTO_CLANG || is_enabled CONFIG_X86_KERNEL_IBT; then
--		# Use vmlinux.o instead of performing the slow LTO link again.
- 		objs=vmlinux.o
--		libs=
-+		libs="${KBUILD_VMLINUX_LIBS_PRELINK}"
- 	else
- 		objs=vmlinux.a
--		libs="${KBUILD_VMLINUX_LIBS}"
-+		libs="${KBUILD_VMLINUX_LIBS} ${KBUILD_VMLINUX_LIBS_PRELINK}"
- 	fi
- 
- 	if is_enabled CONFIG_GENERIC_BUILTIN_DTB; then
+- when wol_phy_legacy is not set, we check whether the PHY MDIO device
+  is wake-up capable. If it is, we offer the WoL request to the PHY.
+
+- if neither wol_phy_legacy is set, or the PHY is not wake-up capable,
+  we do not offer the WoL request to the PHY.
+
+In both cases, after setting any PHY based WoL, we remove the options
+that the PHY now reports are enabled from the options mask, and offer
+these (if any) to the MAC. The mac will get a "mac_set_wol()" method
+call when any settings change.
+
+Phylink mainatains the WoL state for the MAC, so there's no need for
+a "mac_get_wol()" method. There may be the need to set the initial
+state but this is not supported at present.
+
+I've also added support for doing the PHY speed-up/speed-down at
+suspend/resume time depending on the WoL state, which takes another
+issue from the MAC authors.
+
+Lastly, with phylink now having the full picture for WoL, the
+"mac_wol" argument for phylink_suspend() becomes redundant, and for
+MAC drivers that implement mac_set_wol(), the value passed becomes
+irrelevant.
+
+ drivers/net/ethernet/stmicro/stmmac/stmmac.h       | 11 +--
+ .../net/ethernet/stmicro/stmmac/stmmac_ethtool.c   | 31 +-------
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c  | 45 ++++++-----
+ .../net/ethernet/stmicro/stmmac/stmmac_platform.c  |  4 +-
+ drivers/net/phy/phy_device.c                       | 14 +++-
+ drivers/net/phy/phylink.c                          | 89 +++++++++++++++++++++-
+ include/linux/phy.h                                | 21 +++++
+ include/linux/phylink.h                            | 28 +++++++
+ 8 files changed, 179 insertions(+), 64 deletions(-)
+
 -- 
-2.42.0
-
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
