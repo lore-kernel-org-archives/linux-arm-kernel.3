@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 045B6CAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Sep 2025 14:41:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B6CECAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Sep 2025 16:27:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dTn9nM0R9whZQqi9uwlAHyks98tvQ6iAIEijambx9D8=; b=XWo4t70PZP3bdIpjOUf1QhfbXi
-	b4LQsgbHJ9DyOuEtw40H4GE51KCncEtcEWK0qeRLsn/5rGo+JNQz4EvmmZFiom/UoIOHKHygQt/sP
-	c+Lt4cy/lTtjKqstkVgM12yCkNq6+nTLOVfKLAGwG3RKYqdPLjfT7MY87gmL1slJ+u7/i2+qr37cQ
-	yB+kNwfxQyIdOBQzlyyCV9w0GaHDzGh6YICSv0/meK40LyeXJav9Vmu0JCE9T0K9DsSaRPv2nB7gx
-	lr+z6PX19Dt8qcJLu2c25dzM7ERlG+9r58MR4hR6x1M6qR/y12WAWJ9VL2wV84mvqRxnJNUQAbJ4n
-	lcX2R5AQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MSRaQ+ObtkD3Po8EdVDm3zfPKQVhGfP4jfrtmOzXWk8=; b=4/t3WW3SQUDizST7Of1IMowFfv
+	FYjhcJCm23aYWUVcwaGCrao143zzGg+oGTfIpLLgF2pF0Y8KFA6xMsuUbZ55jwm/vVsNeX4zB6rLk
+	Nig0A1w5bzbE/hbHI9E77hhQcXPYjGGy/vQMPvNidwedvZhNPxqb80qf4OAmaUfQeIwjUU6rQLIGR
+	vT5Ng2Ua+g3RrZfnXkfeVre0VLpzZe/OPZzfQFuK7hq41BM0qOI6A40tjYqoBXjzVHMruoI0hsrnp
+	yZl7dzgF3rCSz5ca3xXpfw7gkH1PuOsS/7qM+YUZFGYnR2l0kgfDQU4I4ut5hTvGFm1o4uBjscsar
+	URuj757Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2sae-0000000G4NV-3bBz;
-	Sun, 28 Sep 2025 14:41:28 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v2uFF-0000000GZyi-3e6r;
+	Sun, 28 Sep 2025 16:27:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2sac-0000000G4N7-3VWi
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 28 Sep 2025 14:41:26 +0000
+	id 1v2uFD-0000000GZx2-1KZ8;
+	Sun, 28 Sep 2025 16:27:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0665E62179
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Sep 2025 14:41:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AC3CBC19421
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Sep 2025 14:41:25 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E440D438D2;
+	Sun, 28 Sep 2025 16:27:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48B1AC4CEF0;
+	Sun, 28 Sep 2025 16:27:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759070485;
-	bh=zEl3HK9Huv3wAo8Gz3obptdVAl3BiTe7KlwyVun45hk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=KQHRjPwLC5G8brFRuLi7o+fpS7n5vnimwAp70vgaHEgFmGnQ+8/JXmEMwOpYluWwc
-	 gPh8y3NdWf05BAJsL1h89OUxuFiv9K0M0HAyMqKJAYGCpmKa3ACFswAt33tdsAo0Uw
-	 WdTCh+3Jn7TMW4j+oJj7r1EF6IJOs7ve0Px1LcHX9VnhjdE0r+UEpc5Xm6wBzwl3Yu
-	 a8fnF/rbiGqU15Qg4uTENsF6mjnkIPDm1zebsaCCre5mcLnUqjqOoCMEqJWnK6oHig
-	 l3Ae2UGbCke7CAP4d0CH4r2FibiszgEoGSh6Cq/uBnrxy4QLsw0AP9aujqJ9E7H1Ur
-	 kFjd+rIM8OAoQ==
-Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-57bc9775989so3571152e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Sep 2025 07:41:25 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUzBvI0MCQ8bMpTj5wRyp++JEtVoW893GRPLR3XJd1VRLltbSruXrJ8q6Jb1Mcbneb4H86Ol6bT8ZPqpZ7W8RMQ@lists.infradead.org
-X-Gm-Message-State: AOJu0YxNYmVRxlWIf/IC8EhfRLFAZzB+bRHlJ3l6HyTmzZBGrJcRz4EF
-	knIgRbI+evw2P+FMRMOQWiLPqlDfwVN2bhJ+c8r6MUVS4w7lt3ibEYmArdK/ocd1osE+2GF7DJy
-	at97WOYrmNYsdHJrCDdEzcZTnPpU0J4I=
-X-Google-Smtp-Source: AGHT+IFWQQN6QdQWgcfYnmBFENB0KuvC1Z/xcGcpQuzj5V+hESZTuEgEU7p0gTVxJK5oi7ZFD+wA09OxaRIm8jBNjGM=
-X-Received: by 2002:ac2:4f07:0:b0:55b:8afb:e638 with SMTP id
- 2adb3069b0e04-582d295ce23mr4091918e87.28.1759070484041; Sun, 28 Sep 2025
- 07:41:24 -0700 (PDT)
+	s=k20201202; t=1759076845;
+	bh=FnampJXSHrU0rM+ZuwqnJeG9CYsIVyW79tDZuVj+Tlc=;
+	h=From:Date:Subject:To:Cc:From;
+	b=E3hevEsRkAecdgEYvHKNhZ8v4gsgm28pIuhVG+LL+Eu/q7VgguRHflI57Rdj2v29j
+	 vXQjtAg6q1qb60SebttOHthzVm2IRUwxTbbYBjOf4JeYYbFUMo8Q2DUMxVTQbSqfhj
+	 4pT34ONqp3P8BO325vhssd0Pum4old6ek0zs3n+qi8CAB47zdBBGAHJ1TeYck8+zFl
+	 o0TkpHFL1wXBJRjwRyr7URiYHeK/X4tC18SpUDT1yaUjNCcBKVGlT13nDBdaG7YL3V
+	 4TmEKqPW0q1TuMzlwufsd6QleGGiUbUdwdGpFGUfOtFleEzbK9NSwnuSM9zoCVbswz
+	 OkUqNU4gEp/mA==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Sun, 28 Sep 2025 18:27:01 +0200
+Subject: [PATCH mt76] wifi: mt76: mt7996: Add missing CHANCTX_STA_CSA
+ property
 MIME-Version: 1.0
-References: <20250928085506.4471-1-yangtiezhu@loongson.cn> <CAMj1kXG8Wi+THa2SeLxiDT=+t_TKx0AL4H-azZO4DNJvyyv96g@mail.gmail.com>
- <CAAhV-H7xOf8DEwOrNh+GQGHktOT4Ljp+7SqutGvvDZp6GLXJrA@mail.gmail.com> <CAMj1kXG=EFkRAMkvKMSjPixoGqU-tZXVoRkJJ6Wcnzs3x52X6Q@mail.gmail.com>
-In-Reply-To: <CAMj1kXG=EFkRAMkvKMSjPixoGqU-tZXVoRkJJ6Wcnzs3x52X6Q@mail.gmail.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Sun, 28 Sep 2025 16:41:12 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXHWe2uGY3S1NJ6mckqD4n116rPmaOzw3_Qbvxyjh7ECMw@mail.gmail.com>
-X-Gm-Features: AS18NWDKeRljEYzTakhM3NRe_gYKBPPHlUPXn-bSPODAX07vV2YYljZFZWHKAg0
-Message-ID: <CAMj1kXHWe2uGY3S1NJ6mckqD4n116rPmaOzw3_Qbvxyjh7ECMw@mail.gmail.com>
-Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
-To: Huacai Chen <chenhuacai@kernel.org>
-Cc: Tiezhu Yang <yangtiezhu@loongson.cn>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250928-mt7996_chanctx_sta_csa-v1-1-82e455185990@kernel.org>
+X-B4-Tracking: v=1; b=H4sIANRh2WgC/x2M0QoCIRAAf0X2OcHz0PJ+JUIW22of8g5XQhD/P
+ etxGGY6CBUmgU11KPRh4T1PWE4K0gvzkzTfJ4M11plgL/pdzyH4+JOptigVYxLUJqy4OuM8OYQ
+ ZH4Ue3P7j622ML4eAnYhoAAAA
+X-Change-ID: 20250928-mt7996_chanctx_sta_csa-093a35056e5a
+To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
+ Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, Lorenzo Bianconi <lorenzo@kernel.org>
+X-Mailer: b4 0.14.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250928_092727_381635_FA28AD1B 
+X-CRM114-Status: UNSURE (   6.70  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,57 +78,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 28 Sept 2025 at 16:39, Ard Biesheuvel <ardb@kernel.org> wrote:
->
-> On Sun, 28 Sept 2025 at 15:52, Huacai Chen <chenhuacai@kernel.org> wrote:
-> >
-> > Hi, Ard,
-> >
-> > On Sun, Sep 28, 2025 at 9:42=E2=80=AFPM Ard Biesheuvel <ardb@kernel.org=
-> wrote:
-> > >
-> > > On Sun, 28 Sept 2025 at 10:55, Tiezhu Yang <yangtiezhu@loongson.cn> w=
-rote:
-> > > >
-> > > > When compiling with LLVM and CONFIG_LTO_CLANG is set, there exists
-> > > > the following objtool warning on LoongArch:
-> > > >
-> > > >   vmlinux.o: warning: objtool: __efistub_efi_boot_kernel()
-> > > >   falls through to next function __efistub_exit_boot_func()
-> > > >
-> > > > This is because efi_boot_kernel() doesn't end with a return instruc=
-tion
-> > > > or an unconditional jump, then objtool has determined that the func=
-tion
-> > > > can fall through into the next function.
-> > > >
-> > > > At the beginning, try to do something to make efi_boot_kernel() end=
-s with
-> > > > an unconditional jump instruction, but this modification seems not =
-proper.
-> > > >
-> > > > Since the efistub functions are useless for stack unwinder, they ca=
-n be
-> > > > ignored by objtool. After many discussions, no need to link libstub=
- to
-> > > > the vmlinux.o, only link libstub to the final vmlinux.
-> > > >
-> > >
-> > > Please try keeping these changes confined to arch/loongarch. This
-> > > problem does not exist on other architectures, and changing the way
-> > > vmlinux is constructed might create other issues down the road.
-> > ARM, RISC-V and LoongArch do things exactly in the same way. Now
-> > LoongArch is the first of the three to enable objtool, so we meet the
-> > problem first.
-> >
-> > But yes, I also don't want to change the way of constructing vmlinux.
-> > So I prefer the earliest way to fix this problem.
-> > https://lore.kernel.org/loongarch/CAAhV-H7fRHGFVKV8HitRgmuoDPt5ODt--iSu=
-V0EmeeUb9d5FNw@mail.gmail.com/T/#meef7411abd14f4c28c85e686614aa9211fccdca0
-> >
->
-> Can we just drop the __noreturn annotation from kernel_entry_t, and
-> return EFI_SUCCESS from efi_boot_kernel()?
+Enable missing CHANCTX_STA_CSA property required for MLO.
 
-... or add efi_boot_kernel() to ./tools/objtool/noreturns.h?
+Fixes: f5160304d57c ("wifi: mt76: mt7996: Enable MLO support for client interfaces")
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/wireless/mediatek/mt76/mt7996/init.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/drivers/net/wireless/mediatek/mt76/mt7996/init.c b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
+index 5e95a36b42d1645dbf63d8bf6717ac6a29a91a5c..5048f8cf175c2ef4ba6ff343830bdab79fafc441 100644
+--- a/drivers/net/wireless/mediatek/mt76/mt7996/init.c
++++ b/drivers/net/wireless/mediatek/mt76/mt7996/init.c
+@@ -521,6 +521,7 @@ mt7996_init_wiphy(struct ieee80211_hw *hw, struct mtk_wed_device *wed)
+ 	ieee80211_hw_set(hw, SUPPORTS_RX_DECAP_OFFLOAD);
+ 	ieee80211_hw_set(hw, NO_VIRTUAL_MONITOR);
+ 	ieee80211_hw_set(hw, SUPPORTS_MULTI_BSSID);
++	ieee80211_hw_set(hw, CHANCTX_STA_CSA);
+ 
+ 	hw->max_tx_fragments = 4;
+ 
+
+---
+base-commit: 56d9de46715245c9cc46dbe16830e431056abbc3
+change-id: 20250928-mt7996_chanctx_sta_csa-093a35056e5a
+
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
+
 
