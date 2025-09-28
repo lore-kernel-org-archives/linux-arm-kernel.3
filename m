@@ -4,71 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F60FCAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Sep 2025 17:57:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F12BCCAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Sep 2025 20:56:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2rCWXm3oR7Q5xI1GaxkjUiMi5GbI6j7q7dpvjpbIdZc=; b=I0/h9S9HCRj18N/YIbMdp3QXfx
-	/+rJwXD32l6NOfBo3Incy4E6028d8NHbeL4SeKOltCR8x6amcqSpNdv5PUCNou+AdIDuKrPHFpViQ
-	zYKKScoMKu2S+4VJFCgW56xwU+pqYrYLCKR0B7hT5wmS9EVzjVNgNpoFwKRTI3A6MBFOXOBuI2eLE
-	wHZLnhYxCKEKYeoY2uqofw6SbT0qeXSkurRus/+BkGJLCfF9o6rzuU8jW5epOZOE0NwNkNE7f3oQR
-	8+uoytkg9XNhJDiImLuGrQod5WeZNJf9yXewAWCYSq02Cx0YQCQA6z3d+g3WYF0DyAzvEZVsEZNem
-	GWXYQvJQ==;
+	bh=UiGIGqDPqEAG/fx/GyBcjXyYsr3F4pTYCf0xPL9HStc=; b=Ky//rPv2481ouVzabZEQ7drQrK
+	oGDxwrB5SVCoPZgJeIKk+0ESSgJSEGIx5xvmTAjVrJsb7OwIh+rOkRTiKZ5hsHr4lpIW1ZHS4M16C
+	bcOJNFjzWSCTxgNj5/RtESwfOBik8dOfRgFzoDMEwERdAp7oDL7TeWJhT6z45BdY0tEWs5faCMpDz
+	PWkLhfJnGoTXzUJfjYhJYObA5L7YuinaRlg8zxOQC9GT9C1VpMG2SykwQSWTBQD0coYHCHLNwbRey
+	sXxTGwz4YNySXyOWtkHaEWzJkyE/f3LwVngtzI6Z8dibUikkGUL8qQTIzRPtMaHQc6hPm7IBAHK91
+	wXWfsufg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2vej-0000000Gzjt-170O;
-	Sun, 28 Sep 2025 17:57:53 +0000
-Received: from layka.disroot.org ([178.21.23.139])
+	id 1v2yRE-0000000041C-1m1g;
+	Sun, 28 Sep 2025 20:56:08 +0000
+Received: from mail-pl1-x632.google.com ([2607:f8b0:4864:20::632])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2vef-0000000Gzf7-2dcK
+	id 1v2yR8-000000003zr-25gg
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 28 Sep 2025 17:57:50 +0000
-Received: from mail01.disroot.lan (localhost [127.0.0.1])
-	by disroot.org (Postfix) with ESMTP id 311BD26151;
-	Sun, 28 Sep 2025 19:57:48 +0200 (CEST)
-X-Virus-Scanned: SPAM Filter at disroot.org
-Received: from layka.disroot.org ([127.0.0.1])
- by localhost (disroot.org [127.0.0.1]) (amavis, port 10024) with ESMTP
- id 5jDSkinZ6OKr; Sun, 28 Sep 2025 19:57:47 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=disroot.org; s=mail;
-	t=1759082267; bh=G8POg89qhc3YFRtRay2TG6zhQ5wGIWVmGavGeCYc1jg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc;
-	b=avOpMxvagnWapndS0g6pkU9rOzu32Ge0/JqVNiSg3Mhadtw5QIjgH0FnmGeTHnVoN
-	 VLEV6c/dT/+UWJB9GpOgjebZVJtq1KldJs01HTIUD910mxozBOeND+w1yd3WLz4OO2
-	 B/GGCP6EqjBiutggRBWs/CBFE+GkU2keCncqJfxmicNmlbtZjoP+b/pfB7s2A/stLs
-	 WilxswbPT2xx6tNvaquQ+LzAAkGc+HoHkpFY9lDBcVgFqIOCFXH3NN4UI8+GTidGO+
-	 aGZgiVMl47a3/SqGsYduly+ZJLo3fTeDoiYSZ5Vg6582JbLXp/7y3CZZoHa9DyUGB9
-	 kk/Ki9vyra6ow==
-From: Kaustabh Chakraborty <kauschluss@disroot.org>
-Date: Sun, 28 Sep 2025 23:26:40 +0530
-Subject: [PATCH v3 6/6] arm64: dts: exynos7870-j6lte: enable display panel
- support
+	Sun, 28 Sep 2025 20:56:07 +0000
+Received: by mail-pl1-x632.google.com with SMTP id d9443c01a7336-28a5b8b12a1so1231505ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Sep 2025 13:56:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=googlemail.com; s=20230601; t=1759092961; x=1759697761; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UiGIGqDPqEAG/fx/GyBcjXyYsr3F4pTYCf0xPL9HStc=;
+        b=QL/dHKwQm15FVRx0SFelBFgb9CQ/VEcR+vwWwvJVCd7dIunJQMqVsbJC0n9zeEV6po
+         Wpmh082Pi3mpUFzbKgoFFy22DGGKqrZ1qu5Cce0YKFd4Qu7oLU3h3EcO7d4E7kGTsRt7
+         LrixPuWclhSkQxXpvUBUgaeKyfAA7L6l1NDf3Yl9JQcNM5BaYc2AoZssnaHuhb/6VYxc
+         YxGJpIwJBR7NqitsxYGu69xtkwjFpB/8JFwf4mhrvL7t1u25yHGzJXnG1+59xzO6qq3E
+         RqoFNgaDYg/0IoQg6AuFjb5W86MiD1T9BUvONJLCRmoQt6skrxUW3CeekX68C1Iz692Q
+         dhZg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759092961; x=1759697761;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=UiGIGqDPqEAG/fx/GyBcjXyYsr3F4pTYCf0xPL9HStc=;
+        b=ETf+eESF61yLnYYAvvpUXywlg7VsYCpqlCFU038DZCEBg7nO1LWqagswk6Rqbkwhvc
+         CUToOpm0Qt09O0f7n6pu6IBemrqUVt234wWPK/0uhIOu80cKoHiqJOgEMNBKt6wbvcct
+         xCw3BRt3XQt/7DpUrJgu8GWNm5ijSvn7rKmUBWKmV/jzw52WZxxvLYIKojNvsbaSluvw
+         yqdqgh3xnJ8PFBwXp+ZfHod3R5u4TbFOluGmaeBtgu0zEJi7uq4GxmwYNTRy7uaIhW3U
+         RFyh8eEo48VP3QTmtVQ0sBZS0KPsA+dMkZ7QTMFQOADLixLZhwFkoCj4JAjs4gH09lzR
+         aI7Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUebiZ5a8whgeMHODJlWm10yjSDVQvNtaXRuilQNm0p8rffd4y6wxNmIlZwgF6vSLfzbvs1oIKTGfViZ2Y1qaui@lists.infradead.org
+X-Gm-Message-State: AOJu0YzDzumRtGL2a5ZzYlOfyEn6ZGEta+eskmBpd9gl65mXUMuirm4E
+	VsUjV9yXM6FlrA3TE2MzWCfeLa2lJXqdL494gMR7xD+eXKW/qWxyLDtXXeRe8pMjp8tptapMDGp
+	ISlPOYnK0IOhEvI7EkpPSTPWZjo2j7II=
+X-Gm-Gg: ASbGncvPCZd2aN6WuJtyxHeUULgRe9DxzKyHQhW5FLLOVrXI3Z9y5fjPRrkqS+9iFJ+
+	plL8BGKAUAqFUto0e+IOV9U0IGZ+PVPIC7pRxZF+hEDqBj+ST79kVmY+l2n7054O4umESRyViuK
+	AGFPcCVgmxX5hT1Yn0CstAoXJ5LrAC038F3Ga++8vnD1kAsX7OspZcq7IFklk2mXxf453/J4W9U
+	tPoazMddheRBNbB6nyRkG9BXUtSYdZ2yjOdMQcFip2nXKicpoY=
+X-Google-Smtp-Source: AGHT+IF7c1Vuxskwry28TIxl0fMtYzqbtx+tBLSfDt71UAkuiIb3LaxfXzXjmqXnRcWpmOVNDKsjmYs5K4EhIxamz+w=
+X-Received: by 2002:a17:903:22cc:b0:248:ff5a:b768 with SMTP id
+ d9443c01a7336-27ed4a29f9amr152736995ad.10.1759092961471; Sun, 28 Sep 2025
+ 13:56:01 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250928-exynos7870-drm-dts-v3-6-bb7d8e570860@disroot.org>
-References: <20250928-exynos7870-drm-dts-v3-0-bb7d8e570860@disroot.org>
-In-Reply-To: <20250928-exynos7870-drm-dts-v3-0-bb7d8e570860@disroot.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Kaustabh Chakraborty <kauschluss@disroot.org>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1759082219; l=1965;
- i=kauschluss@disroot.org; s=20250202; h=from:subject:message-id;
- bh=G8POg89qhc3YFRtRay2TG6zhQ5wGIWVmGavGeCYc1jg=;
- b=yWWgBnadulfkxT6DEECzwI8LcB08R6butKr1fh8Ucd/eC0QfgCDlbARd9CHx+0r8IKeV4b1Gx
- zUpkQ9zSo+lAnwbGwQky/XHHTa110+oGWMw/zmHwFA3XAXUvXQkHZpi
-X-Developer-Key: i=kauschluss@disroot.org; a=ed25519;
- pk=h2xeR+V2I1+GrfDPAhZa3M+NWA0Cnbdkkq1bH3ct1hE=
+References: <20240929-fix_glitch_free-v1-0-22f9c36b7edf@amlogic.com>
+ <20240929-fix_glitch_free-v1-2-22f9c36b7edf@amlogic.com> <CAFBinCBd5-s6vaBoJNerXavQiHgsv4Fm3v0svUX7geL=kJvVYg@mail.gmail.com>
+ <20178015-4075-40e9-bbf4-20ae558c2bef@amlogic.com> <1jldyzrv2t.fsf@starbuckisacylon.baylibre.com>
+ <e70e9aaa-f448-4f67-9149-cb5970c9bbd6@amlogic.com> <9834c7c5-9334-4c78-a2fe-588ff03cf935@amlogic.com>
+In-Reply-To: <9834c7c5-9334-4c78-a2fe-588ff03cf935@amlogic.com>
+From: Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Date: Sun, 28 Sep 2025 22:55:50 +0200
+X-Gm-Features: AS18NWCJbZWjP8ynFS6Veu9yFpZpvyV0QmDxpZo6qHFoQpkPGQRYQgKjOrmkB50
+Message-ID: <CAFBinCCoX5+6+KQAtbhKx9KdSZhXVxS=cz8DfMVhjPX1c0iSPw@mail.gmail.com>
+Subject: Re: [PATCH 2/2] clk: meson: Fix glitch free mux related issues
+To: Chuan Liu <chuan.liu@amlogic.com>
+Cc: Jerome Brunet <jbrunet@baylibre.com>, Michael Turquette <mturquette@baylibre.com>, 
+	Stephen Boyd <sboyd@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Kevin Hilman <khilman@baylibre.com>, linux-clk@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250928_105749_815610_6EDC613A 
-X-CRM114-Status: UNSURE (   8.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250928_135602_540626_B809DBCF 
+X-CRM114-Status: GOOD (  21.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,85 +101,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable DECON and DSI nodes, and add the compatible display panel and
-appropriate panel timings for this device. Also, remove the
-simple-framebuffer node in favor of the panel.
+Hello,
 
-This device has a 720x1480 AMOLED Samsung AMS561RA01 panel with
-S6E8AA5X01 controller.
+On Sun, Sep 28, 2025 at 8:41=E2=80=AFAM Chuan Liu <chuan.liu@amlogic.com> w=
+rote:
+>
+>
+> On 9/28/2025 2:05 PM, Chuan Liu wrote:
+> > Hi Jerome & Martin:
+> >
+> > Sorry for the imprecise description of the glitch-free mux earlier.
+> >
+> > Recently, while troubleshooting a CPU hang issue caused by glitches,
+> > I realized there was a discrepancy from our previous understanding,
+> > so I'd like to clarify it here.
+[...]
+> An example of the clock waveform is shown below:
+>
+>
+>         __    __    __    __    __    __    __    __
+> ori:  =E2=86=91  |__=E2=86=91  |__=E2=86=91  |__=E2=86=91  |__=E2=86=91  =
+|__=E2=86=91  |__=E2=86=91  |__=E2=86=91  |__=E2=86=91
+>                    ^
+>                    1 * cycle original channel.
+>         _   _   _   _   _   _   _   _   _   _   _   _
+> new:  =E2=86=91 |_=E2=86=91 |_=E2=86=91 |_=E2=86=91 |_=E2=86=91 |_=E2=86=
+=91 |_=E2=86=91 |_=E2=86=91 |_=E2=86=91 |_=E2=86=91 |_=E2=86=91 |_=E2=86=91=
+ |_=E2=86=91
+>                                        ^
+>                                        5 * cycles new channel.
+>         __    __                        _   _   _   _
+> out:  =E2=86=91  |__=E2=86=91  |______________________=E2=86=91 |_=E2=86=
+=91 |_=E2=86=91 |_=E2=86=91 |_=E2=86=91
+>               ^                        ^
+>               start switching mux.     switch to new channel.
+Thank you for the detailed report!
+This is indeed problematic behavior. I guess the result is somewhat
+random: depending on load (power draw), silicon lottery (quality),
+temperature, voltage supply, ... - one may or may not see crashes
+caused by this.
 
-Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
----
- arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts | 38 ++++++++++++++++---------
- 1 file changed, 24 insertions(+), 14 deletions(-)
+Based on the previous discussion on this topic, my suggestion is to
+split the original patch:
+- one to add CLK_SET_RATE_GATE where needed (I think the meson8b.c
+driver already has this where needed) to actually enable the
+glitch-free mux behavior
+- another one with the CLK_OPS_PARENT_ENABLE change (meson8b.c would
+also need to be updated) to prevent the glitch-free mux from
+temporarily outputting an electrical low signal. Jerome also asked to
+document the behavior so we don't forget why we set this flag
 
-diff --git a/arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts b/arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts
-index b8ce433b93b1b488da31bbe4846f8092243611ad..f92e1f8fabf3e01b69583f82cf842178a21002a2 100644
---- a/arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts
-+++ b/arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts
-@@ -27,20 +27,7 @@ aliases {
- 	};
- 
- 	chosen {
--		#address-cells = <2>;
--		#size-cells = <1>;
--		ranges;
--
- 		stdout-path = &serial2;
--
--		framebuffer@67000000 {
--			compatible = "simple-framebuffer";
--			reg = <0x0 0x67000000 (720 * 1480 * 4)>;
--			width = <720>;
--			height = <1480>;
--			stride = <(720 * 4)>;
--			format = "a8r8g8b8";
--		};
- 	};
- 
- 	gpio-hall-effect-sensor {
-@@ -119,8 +106,9 @@ ramoops@46e00000 {
- 			pmsg-size = <0x4000>;
- 		};
- 
--		framebuffer@67000000 {
-+		cont_splash_mem: framebuffer@67000000 {
- 			reg = <0x0 0x67000000 (720 * 1480 * 4)>;
-+			iommu-addresses = <&decon 0x67000000 (720 * 1480 * 4)>;
- 			no-map;
- 		};
- 	};
-@@ -133,6 +121,28 @@ vibrator {
- 	};
- };
- 
-+&decon {
-+	memory-region = <&cont_splash_mem>;
-+
-+	status = "okay";
-+};
-+
-+&dsi {
-+	#address-cells = <1>;
-+	#size-cells = <0>;
-+
-+	samsung,burst-clock-frequency = <500000000>;
-+	samsung,esc-clock-frequency = <16000000>;
-+	samsung,pll-clock-frequency = <26000000>;
-+
-+	status = "okay";
-+
-+	panel@0 {
-+		compatible = "samsung,s6e8aa5x01-ams561ra01";
-+		reg = <0>;
-+	};
-+};
-+
- &gpu {
- 	status = "okay";
- };
+Both patches should get the proper "Fixes" tags.
+I think it would also be great if you could include the waveform
+example in at least the commit message as it helps understand the
+problem.
 
--- 
-2.51.0
+Let's also give Jerome some time to comment before you send patches.
 
+
+Best regards,
+Martin
 
