@@ -4,79 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7B240CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Sep 2025 09:53:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BDF47CAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Sep 2025 10:09:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=r6bywD2WUzTYm4ELUvERid8tPQSU5/IWu32J6FLL1ok=; b=SCMHLIc4wdWbONIIAxHGHGtcai
-	DsUWxuxb+HhszKumQ8Cawfwj016u6+S0R5iSgpSKP9TKLqjga8lJ5RQk5qCjsCfiDz+nOax8Sxjsj
-	Qre3lARnNiGzhi9Dxq3WE327bN11RHXuViwUDaY1VzStwxD8QAY1RpxT2UQMMaSF0UwSpvUqXvB3e
-	Fj4VTK7fGfRyPkUHIGOUHOXFZfYGG79R09KiF8MrYPntabkexk1U0shStPY1IyRQmw7y55aT/ddCK
-	6HXj0JLVOht3KYnsUiWBDh9bOIWywop60VCLrbR3PGXwvrNh0TIT7Z8P01CnAgjpS+OoNeUy4H1C3
-	ISDz4ejQ==;
+	Content-Type:MIME-Version:Message-ID:Subject:To:From:Date:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=O7VH5GloSW9zlV5MKDiGfn6qUlpNBb/HaUQn6uAJYa0=; b=Dpy7pkRGJO8nA3V2ge1TowdGaJ
+	raFpAt8qSmMowlJFRgfbp3F+pf+40etE+29ECBmaNPOKqxkKYUJilLqb5Q36g402f/rRkpu4DVfSl
+	Jo5vexTymPt1IBXkXfkc9dnoRJ7uUzUNQZflu5t/nudb6aHSMPPlDlkdvAKbRsqXBxv8h5KhwoeX2
+	kvDLq+WHhmsBYa0K0XN/EOeB1elbGA9N39+FW1xOg7sa6F65k7VmTwI8G1cL51reeaeaUIxClYlU4
+	wPwqW44UZOhTVWukNaHYuqQR6ohGN/o5Gspsty26ovqSt+O4bMbbk6f6SmtsGD3qJE9X+Jc5wRRZ0
+	snEAtdnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2o5M-0000000Emmy-1Wur;
-	Sun, 28 Sep 2025 09:52:52 +0000
-Received: from mail-m3299.qiye.163.com ([220.197.32.99])
+	id 1v2oLf-0000000Erbs-1bc3;
+	Sun, 28 Sep 2025 10:09:43 +0000
+Received: from mail-wm1-x334.google.com ([2a00:1450:4864:20::334])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2o5J-0000000EmiW-1x0R;
-	Sun, 28 Sep 2025 09:52:50 +0000
-Received: from [172.16.12.153] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 2455d07b1;
-	Sun, 28 Sep 2025 17:52:36 +0800 (GMT+08:00)
-Message-ID: <ede70598-c451-4352-ab3e-0e278ce33ad7@rock-chips.com>
-Date: Sun, 28 Sep 2025 17:52:35 +0800
+	id 1v2oLc-0000000Era3-3uH6
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 28 Sep 2025 10:09:42 +0000
+Received: by mail-wm1-x334.google.com with SMTP id 5b1f17b1804b1-46e3af7889fso17440445e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Sep 2025 03:09:39 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1759054178; x=1759658978; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:subject:to:from
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=O7VH5GloSW9zlV5MKDiGfn6qUlpNBb/HaUQn6uAJYa0=;
+        b=EbqnS8etNO6LUFrT/FIwkBsHfn3oT0kcX3am0n3oRhQlawKBO6p/i85U9cU8OZh1Mz
+         8TzTjf9Iz6cDjti6AfswsbZjhP5tXEqGm3BCiflaqxxJSdjh1K6Jo8XngJ9PfABX7GrF
+         3S1OfH3Aq4y6TqsK+9DglV121I1ZHsnFikxYqkV4z47UZGKOwEWffJTdBjHtbeoSHqai
+         kuxup+7617q+mB4nMLIMPZ6wnJTcAvkV4UIZ8Lx4oJSCJ8nIDlXXh4eYji2veUCwlnG1
+         wdZtNvuOK2cYPexjr9erfyNWFj/kJn5Si+Yh1QlkJmy8CPo5GFX9fOq9IUVA18R0bO2V
+         pJ4g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759054178; x=1759658978;
+        h=content-transfer-encoding:mime-version:message-id:subject:to:from
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=O7VH5GloSW9zlV5MKDiGfn6qUlpNBb/HaUQn6uAJYa0=;
+        b=SQkNVd2oMipaDScKYOgHGNWBMf/HpAoTc5HAX+PXMR+OYuGKy9LmYpJwSGTzPfZg22
+         O5NmWne5mSZXoYabdPsZB/QL2dXhVhclGLsMiSZwrq/SKveSL5I5P8oRxLMD4l7hpTwk
+         muZTky4Cp2T5jV2stpIrFzEVZZoiT1bAhT4982r6/chHGw/B+GBGEvIEcVhqOO32Fu/B
+         tfLzLuOLavbYT339OExFs+QdZw83uQb/0ptMNpzgWS5FHEpMMjAgZ2SwcN7p292uFrXs
+         rhbB8on/GelGNyq8AOZvxI19+PTF26gXd0R4g6DlJi3CxMphkv4VxUZwErLUFRne0a2+
+         lFpQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUuASXtZ+dAhYv1pN6eArCvGr1f2dj13mzGm2qU1nn5FkuouWQ8WOPiRuaRdsUjBB8YOL8LcyAUNHPHZJtN6STu@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz6uyow6aEdVuBa3TGRvsOCBNJI+Iy4/qQNMG8NYGfFR+ZoolIz
+	H1rugv+NpPzKc/68iELJUMeS0DZp1Lrr3Rn106uviiDpQQXtDoHx8mZj
+X-Gm-Gg: ASbGncsBvo+VHVEKSGM9CDNSxTSiMpytfl3mwEeDygwpznMWXenCyTGdGrgn6wCNzJF
+	qOd7SdDP1ioRK00wBjjGmE+tLCzJBe7imFkb9TgK5sFDouQLnx99zMjIJR+mY9ZEWJe6ngmbCKP
+	EcAvmwVy9/KkFoscyeZFrtfPQIgbbGIrbN1rz/KmmXeoRKRnykwQLfav5zUfJfOVzcmAb6fC4ST
+	bmtchNjjQ4Y2n+8zUr/+lfMgK2LljkkdJ7e5sH9+uqQdgDADX0ORS6T2zaxEbTvnMHcCs7yvx6c
+	ax4lvJRvS+d+RBNxKtGt2oCxW+0lzDPg+DmYux///Ph7NtpcosvQftTF18//8YTBjl6GGgHLomp
+	3DqOG/BRO+1aTv1wcflM5T+Wpdd1iFn1qHZIioBxxd346FMGvUdjAxBMccuBhBmT57TEPzcPJ0x
+	1GAsA=
+X-Google-Smtp-Source: AGHT+IEqCtc23uR91vJX1oENcguv3h+oXK5yd4n5mW5QIEhXCja0/eHYFgJA/f94YSrqA0IKGpmApQ==
+X-Received: by 2002:a05:600c:1508:b0:458:c094:8ba5 with SMTP id 5b1f17b1804b1-46e329b62bcmr82520475e9.12.1759054178464;
+        Sun, 28 Sep 2025 03:09:38 -0700 (PDT)
+Received: from deskilmich.example.net (host-79-36-214-146.retail.telecomitalia.it. [79.36.214.146])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46e2a996bf1sm185811095e9.1.2025.09.28.03.09.37
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 28 Sep 2025 03:09:38 -0700 (PDT)
+Date: Sun, 28 Sep 2025 12:07:49 +0200
+From: Michele Zuccala <ardutu@gmail.com>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Alex
+ Bee <knaerzche@gmail.com>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+Subject: [PATCH] ARM: dts: rockchip: add hdmi simple-audio-card for RK322x
+Message-ID: <20250928120749.36df6a8c@deskilmich.example.net>
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.50; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 5/7] drm/rockchip: cdn-dp: Add multiple bridges to
- support PHY port selection
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Chaoyi Chen <kernel@airkyi.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
- Andy Yan <andy.yan@rock-chips.com>,
- Yubing Zhang <yubing.zhang@rock-chips.com>,
- Frank Wang <frank.wang@rock-chips.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Amit Sunil Dhamne <amitsd@google.com>,
- Heikki Krogerus <heikki.krogerus@linux.intel.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
- Diederik de Haas <didi.debian@cknow.org>,
- Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
-References: <20250922012039.323-1-kernel@airkyi.com>
- <20250922012039.323-6-kernel@airkyi.com>
- <idyrlzhd5sotg3ylr7vbwmczimglffc75nafxbnhhm3ot2jn4w@ixerm6elfmre>
-Content-Language: en-US
-From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <idyrlzhd5sotg3ylr7vbwmczimglffc75nafxbnhhm3ot2jn4w@ixerm6elfmre>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a998fbd11a503abkunma2c1ce0f943b8a
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGhlLGlZNSk0YGE9JTx5PGkNWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpPSE
-	xVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=fkmaC9JhLsx9ypREA2gyK2saMIt0xQXv11bYSJmDDFFpI7xmfpCJWCu/QwNzs8iObZJwhYNAOBXT0AKdgryMB/HWPPuwHP4cE9dr6FPYq6oyYCBt+9FMdhF+19j6+JMmlgQdJWNrnY2U734Idzqo3Sisf0O1F72QkVhyE4zITHI=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=r6bywD2WUzTYm4ELUvERid8tPQSU5/IWu32J6FLL1ok=;
-	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250928_025249_676943_0F27A89C 
-X-CRM114-Status: GOOD (  12.00  )
+X-CRM114-CacheID: sfid-20250928_030940_991889_4D1C94A8 
+X-CRM114-Status: GOOD (  11.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,37 +98,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/23/2025 9:50 AM, Dmitry Baryshkov wrote:
+Add "simple-audio-card" definition for hdmi-sound. While at
+that also add the missing #sound-dai-cells for i2s0 and hdmi nodes.
 
-[...]
+Signed-off-by: Alex Bee <knaerzche@gmail.com>
+Signed-off-by: Michele Zuccala <ardutu@gmail.com>
+---
+ arch/arm/boot/dts/rockchip/rk322x.dtsi | 18 ++++++++++++++++++
+ 1 file changed, 18 insertions(+)
 
-
->> +	/* One endpoint may correspond to one HPD bridge. */
->> +	for_each_of_graph_port_endpoint(port, dp_ep) {
->> +		/* Try to get "port" node of correspond PHY device */
->> +		struct device_node *phy_ep __free(device_node) =
->> +			of_graph_get_remote_endpoint(dp_ep);
->> +		struct device_node *phy_port __free(device_node) =
->> +			of_get_parent(phy_ep);
->> +
->> +		if (!phy_port) {
->> +			continue;
->> +		}
->> +
->> +		/*
->> +		 * A PHY port may contain two endpoints: USB connector port or CDN-DP port.
->> +		 * Try to find the node of USB connector.
-> And then there can be a retimer between PHY and the USB-C connector. Or
-> some signal MUX. Or DP-to-HDMI bridge. Please, don't parse DT for other
-> devices. Instead you can add drm_aux_bridge to your PHY and let DRM core
-> build the bridge chain following OF graph.
->
-I think building a bridge chain across multiple drm_aux_hpd_bridge may be difficult. First, drm_dp_hpd_bridge_register() cannot register the bridge immediately; instead, it is deferred until drm_aux_hpd_bridge_probe(). When it is added to the bridge_list, it may not yet be attached, and attempting to attach it at that point is too late.
-
-But, if I only use drm_aux_bridge on the USB-C connector, and use my own custom bridge on the PHY device and managing the alloc and attach bridge process myself, then things would become much easier.
-
+diff --git a/arch/arm/boot/dts/rockchip/rk322x.dtsi
+b/arch/arm/boot/dts/rockchip/rk322x.dtsi index
+cd11a018105b..a6b3c934c8ab 100644 ---
+a/arch/arm/boot/dts/rockchip/rk322x.dtsi +++
+b/arch/arm/boot/dts/rockchip/rk322x.dtsi @@ -108,6 +108,22 @@ arm-pmu {
+ 		interrupt-affinity = <&cpu0>, <&cpu1>, <&cpu2>,
+<&cpu3>; };
+ 
++	hdmi_sound: hdmi-sound {
++		compatible = "simple-audio-card";
++		simple-audio-card,format = "i2s";
++		simple-audio-card,mclk-fs = <256>;
++		simple-audio-card,name = "HDMI";
++		status = "disabled";
++
++		simple-audio-card,codec {
++			sound-dai = <&hdmi>;
++		};
++
++		simple-audio-card,cpu {
++			sound-dai = <&i2s0>;
++		};
++	};
++
+ 	psci {
+ 		compatible = "arm,psci-1.0", "arm,psci-0.2";
+ 		method = "smc";
+@@ -156,6 +172,7 @@ i2s0: i2s0@100c0000 {
+ 		clocks = <&cru SCLK_I2S0>, <&cru HCLK_I2S0_8CH>;
+ 		dmas = <&pdma 11>, <&pdma 12>;
+ 		dma-names = "tx", "rx";
++		#sound-dai-cells = <0>;
+ 		status = "disabled";
+ 	};
+ 
+@@ -732,6 +749,7 @@ hdmi: hdmi@200a0000 {
+ 		phys = <&hdmi_phy>;
+ 		phy-names = "hdmi";
+ 		rockchip,grf = <&grf>;
++		#sound-dai-cells = <0>;
+ 		status = "disabled";
+ 
+ 		ports {
 -- 
-Best,
-Chaoyi
+2.51.0
+
 
 
