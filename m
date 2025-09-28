@@ -4,92 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DBC6CAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Sep 2025 08:25:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 59917CCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Sep 2025 08:25:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=rc2O4wz2Xp3rHoz8/mUbsMfKLduyX74HJKpJIAxeyFQ=; b=sAXFWhs0mJvC42
-	5gvUq4Rbn/Pxgwjf6i0Tr6KD2nHgZt61jFg9VhtthNjfJ0aHZss759VQLYOE5v9lqnEWgYHgwrQcS
-	St1o+fj07l6ezmbeS0B1VPnma4ZIuHbbj0oN74hGMwWdLfOT1+9qVoE5v3lXO8xbgpILcMSLC5Y3C
-	KNdvwvUH3bA1B71dT0ejnrm4mthLE7ZUVWeHKGlPIVnKQ2FyFAMRJjTcszsoJrBfiq5uU5ke20hj7
-	IZnlxERr3Sa3cf8TpUBLGGTZhe0xcnY7uwWu0+LpOD46oxBGwj6Ir9UGDfEGTsRKozN67EpEx3aK8
-	t2MTUcGhlktzdOPfR3CQ==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bdzGoFZ5vldYBAKIaUfbr5FtLEdMR0eBXKVSBRB4ksQ=; b=kj0Qlk3M6Y6LSjGqiu4R7ZUNYX
+	tR2FjHofRS4/O4trvcKTEfNMjQudi724UzIddZMvjVMME/BV6pDNcyJ2G22UV5VvurMkfuufGc3Ha
+	Sx763oSrTadfIcis2ybOOxNSgMQ9Jo5VZzKTl2dLLVSdrfm6uEjiunIxwkcqaBR485YJzl41mSGk8
+	P7mqh75DKG8bslg2qvRdawwnoeWgwiQk7TdQv6j6ZmUqfud8M+FwiblSRK1F01Gp6FR+4eufQIp32
+	530DRo1wcQYAhmX95ZQu9r3S8sBFvCSkA8urnD8LMbDfIGLP+9pz53Ah/eWsseFaE4q9Xt00pnqcK
+	myconE7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2miZ-0000000EJJs-22gm;
-	Sun, 28 Sep 2025 08:25:15 +0000
+	id 1v2mia-0000000EJLh-2Xme;
+	Sun, 28 Sep 2025 08:25:16 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2miJ-0000000EJ55-0hKe
+	id 1v2miP-0000000EJBG-2rOp
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 28 Sep 2025 08:25:00 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58S5D1Oq019049
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Sep 2025 08:24:57 GMT
+	Sun, 28 Sep 2025 08:25:06 +0000
+Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58RNawP3008082
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Sep 2025 08:25:05 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:message-id
-	:mime-version:subject:to; s=qcppdkim1; bh=rc2O4wz2Xp3rHoz8/mUbsM
-	fKLduyX74HJKpJIAxeyFQ=; b=IMqOPF2RwTNjYzv3tzCtFIDfj53rMbYzw9zi5a
-	Y9LeTo/S+tjjGF9oJRxXAfKeFY3aIlPfVF7ujyjbB4MuT9rzcb703ByiNhpuxby1
-	qY0pQRVdJB2gbPUSLPeC/V20uBZlwzoVbN2DgFnVxwXKYzHQnBqoXB+3wj89AXTv
-	T5iQOHTFezAh18vkMe3bQuChogXu+EPxkSeoMcBmKrv1gVIRYH6ojpNWd/7URQAt
-	HHBtgI5Qh0P598ZSc0tiu+zecOUipf5VdRGswtuO7JomOBiXqVek9SRrPBZ1H2MM
-	5uJMjr/0yRfOhNGRl7NkImgXclV789e+a33pyEW5mTgSz5IQ==
-Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49e6x5jfph-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	bdzGoFZ5vldYBAKIaUfbr5FtLEdMR0eBXKVSBRB4ksQ=; b=LxJ3zEoXn4xTjN3G
+	SQH4Vtq2q0AsIs+qTuvPQ+dRa/vm1wAOkFOy8SYuUba1RRiZu53ndc4LUm2AVtdv
+	n4qwjBfmAWnaOEZN0QmdmGgfjDOvAPbwJXkZRM7yyVZp/fionxLbgmuJI9AXSQSM
+	o/vfLBOWBuovDrfa8f2CA0yGZ6Wu7fu6kekGx+SivxQa/3gvF92NWMT58OoWFzdD
+	AQIx1nnwrYx9VaZiLJxv76sowzdWM3G+W3i9sGI8TMizpb+YlIeMld32g0picEUu
+	hOskKdtredV8Cij2Aax/PMmfy96lqLYQAt8o5CRSSF57u63xnU3u08xZfmwen3KO
+	h4xrnQ==
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49e8a5tcpr-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Sep 2025 08:24:57 +0000 (GMT)
-Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4d9a3ca3ec8so69428041cf.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Sep 2025 01:24:57 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Sep 2025 08:25:04 +0000 (GMT)
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-4bf1e8c996eso78434811cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Sep 2025 01:25:04 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759047896; x=1759652696;
-        h=cc:to:content-transfer-encoding:mime-version:message-id:date
-         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=rc2O4wz2Xp3rHoz8/mUbsMfKLduyX74HJKpJIAxeyFQ=;
-        b=Aw3GTVPpmtZ29HaEZUtnyqTvMR1fiVMi12jNDIdo6xyEx7mS70Xk5XJ+H2md2Pg8Kg
-         nbjQJ1TjvzjKtGkTclRcki7/mWsWM+Pm8vDJ0ucv+N19ctgS8qMXuGWxVSjEZAm29bj0
-         lw8vC5U9EKqPEIAdX9LI3CeTDWP4k8uw/ejhLWLIAydt555TXmkPx1VfWmiJQ7qqjHfz
-         s+2iNF8zAOaU/cKddYwzoy2/c4jhiRL0T/h+k+qJldAvgaJ5jR9yme2Z7H3aDd1UHwmg
-         EPWjeDiZWpa3rF5AQ5rnEwLmGBvRp8stb8pEZOIXCVQwbkJ6IiuhMbJw7dQj7LZ2Rsu2
-         YytA==
-X-Forwarded-Encrypted: i=1; AJvYcCUiC6FU0oK8Kb41Ikx+X2bTp8tdpOYpr2GqBkYFJbqUsKZLw7GKQieo8oYoGDDGRWk2+xKnWRiKaVdY4GawiTFV@lists.infradead.org
-X-Gm-Message-State: AOJu0YxOB6xeQRm0CYSBMfk9IXZxYPty9K7tcoAHLHmuQdRU1EO0y22B
-	cUofutUzKW8XFyfT+RZhS5YeAhHLBQieWwCWfYkzn5j7IaH6r9J5VUB6/HhVfqusXLr3jGdSIsK
-	xMLMFmoxN0Ax8FJvo7Gt5yOgRrETYTqP3BOfjyaEaqklH+OOe2RUl4kXD1Kt923jFemPImpm5E/
-	NAQQ==
-X-Gm-Gg: ASbGnctEGpNivC3I/KSz9nMNKa/6xH/8E76SpQgE7/sitxg2dzINsIfUCEytiyz6Pq/
-	A8PPOGClDjXI3IuQtaa51ZVmAqrwad6C0I6xLzNa84lRlbKmIxuTuK72f+mQEfVSfacuYI1HtgZ
-	9JdrBlOQmCi2+Z+WhtxRwbbICaHckQ5DCFtYemCGIElXPDEpcZCJ16O9RDnGv2QxMJ4yJfCkTgH
-	eGa/tv5LR92vszLJMcorqqwKfEImBYGXrDst3lnaMLZm2L3y61Sy3tNvvjtTn2mOZT9bvJT/L1H
-	nwhcDGIi/uySG3qZNpl4gCgro94cTUFzEXIF2Wj7zu2y7fobEMVIp432EF2wAhR1IX7K7VCjkIK
-	oVg/TllJzKNLy80fHMmw5tvcmaSg23KLFchMRinuSyJXvk2njfObY
-X-Received: by 2002:a05:622a:19a3:b0:4df:194:b46d with SMTP id d75a77b69052e-4df0194c12cmr55269021cf.80.1759047895993;
-        Sun, 28 Sep 2025 01:24:55 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGSQGqS4aJ7VDAivVQk/ANpuwQy7ctS7IE9D3fgBdrHjHXtkW+JEen25AcKMFhLLPIqmo1upQ==
-X-Received: by 2002:a05:622a:19a3:b0:4df:194:b46d with SMTP id d75a77b69052e-4df0194c12cmr55268701cf.80.1759047895487;
-        Sun, 28 Sep 2025 01:24:55 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1759047902; x=1759652702;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=bdzGoFZ5vldYBAKIaUfbr5FtLEdMR0eBXKVSBRB4ksQ=;
+        b=oG9PJt/L9VBJm+N1cDvnvyhZdm3ymBOm1mHFaSvY7y1SUL80/OvOdegbaIbPp4P3ND
+         vJtgABwDKrgVmMaI0BfbNl+0rHgnDScPfiuG7cq8VuvfPRmYeZhw42LGNjCxvxlKy2yX
+         RyicykHRNV5So71oAyZSBaC+p85NACV5+ePwNX+3nAzGegltCrO6owU16HT3wcsfppWo
+         91YrBXzkQfB6C5C6qwxQ1oPtfgr14oT/jtpyj/SX5db5+ghen5l66/+NEZmrPigNp8Ky
+         gppquSQpmu4V/N28Woc25/51s4yrFa56P4prb5COBmkJiDcG6RzXoV4AnHpQWvlDTl/I
+         4zfg==
+X-Forwarded-Encrypted: i=1; AJvYcCWs/1xUti814OqArefgJxZV4NL95A7dbGG4JhXuNTZhWoRqjEk4AtWAx+Y4/ezbbB2GVunfiOiIZY/uPQusW9gL@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5NiBzbhCYLdOB1OnWIZaIBEZSKv6jjO1/GLT798pxID1lcq79
+	ExuJtlq4Uef6TDmksgVYIzT8F8usc3ojBiV7o0dqn8u8IUTTIHv/uCpuhfT2PKb6w9ASHDmtQur
+	xQLR218wk3CHkJGQLZscBXpxaYkqUI9vVaEzOvhdzN7UzQ+352xT4ql91ZpgvJzpX8lraSDego3
+	H1aQ==
+X-Gm-Gg: ASbGncuzmh5DUK/S8fzdgPZaJr/aX5TsnIlptnbuBbu13EKfIIcLJLdTp6tX59eV4i3
+	UY3OhOTwRPn0YPTLE/tChEyO+8y2R/COgL673oLn2B6XOwFo7W0DI0s0j08ou+CsD9pIND4eezu
+	kI+WiVeGxaAOKILkaMkYUwOwgimffsKxkFPjuWTjB+K2njTwJIJOs4JZrajU2TlZVZbeKOChOPj
+	Q6/GueSzyvSrpD0y49dThcnLaADuypS+eG2ErjWkY0Ro3bPE7BnvyxGCvvBSthHFKRP+pXjjnPp
+	4nlTTnNvh7zEOCBNYpflgG5s4iVPaNP/GO1pnLTL8ctB7OYTf4zp/N6ebMy3eBTjbHpGaWv0MA4
+	TWc1OJDJu7zZuGuglDrHsQ0Q1hZhOcXHfcXxGKBcdEOae8RY3kMua
+X-Received: by 2002:ac8:5716:0:b0:4b3:a2f3:47f9 with SMTP id d75a77b69052e-4da4d220650mr149550041cf.62.1759047902101;
+        Sun, 28 Sep 2025 01:25:02 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFtFk8H4RKfXlQWtvvLw51nsL8yQliUuZJcfQS6snZsdM39Enms7DNwGsz+hvLT3ZcB+X6JPQ==
+X-Received: by 2002:ac8:5716:0:b0:4b3:a2f3:47f9 with SMTP id d75a77b69052e-4da4d220650mr149549611cf.62.1759047901607;
+        Sun, 28 Sep 2025 01:25:01 -0700 (PDT)
 Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-583166561c0sm3244298e87.81.2025.09.28.01.24.53
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-583166561c0sm3244298e87.81.2025.09.28.01.24.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 28 Sep 2025 01:24:53 -0700 (PDT)
+        Sun, 28 Sep 2025 01:24:59 -0700 (PDT)
 From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Subject: [PATCH v2 0/9] drm/connector: hdmi: limit infoframes per driver
- capabilities, second approach
-Date: Sun, 28 Sep 2025 11:24:45 +0300
-Message-Id: <20250928-limit-infoframes-2-v2-0-6f8f5fd04214@oss.qualcomm.com>
+Date: Sun, 28 Sep 2025 11:24:47 +0300
+Subject: [PATCH v2 2/9] drm/bridge: adv7511: handle unsupported InfoFrames
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-B4-Tracking: v=1; b=H4sIAM3w2GgC/32NQQqDMBBFryKz7kiSEiVd9R7FRdSxDhjTZqy0i
- Hdv6gG6+fA+/Pc3EEpMApdig0QrC8c5gzkV0I1+vhNynxmMMlY5U+PEgRfkeYhD8oEEDVatO5N
- 1jmrnIQ8fiQZ+H9Jbk3lkWWL6HB+r/rV/datGhZWrrdZtr6xqr1GkfL781MUQyhzQ7Pv+BWNgR
- Ue7AAAA
-X-Change-ID: 20250927-limit-infoframes-2-6b93e599e79a
+Message-Id: <20250928-limit-infoframes-2-v2-2-6f8f5fd04214@oss.qualcomm.com>
+References: <20250928-limit-infoframes-2-v2-0-6f8f5fd04214@oss.qualcomm.com>
+In-Reply-To: <20250928-limit-infoframes-2-v2-0-6f8f5fd04214@oss.qualcomm.com>
 To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
         Maxime Ripard <mripard@kernel.org>,
         Thomas Zimmermann <tzimmermann@suse.de>,
@@ -115,42 +112,42 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
         linux-arm-kernel@lists.infradead.org,
         linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2537;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2261;
  i=dmitry.baryshkov@oss.qualcomm.com; h=from:subject:message-id;
- bh=wXdpgIK2nMReHeFFkBUwQqE/S6v5i1Ns3S0QQzaiDpU=;
- b=owEBbAGT/pANAwAKAYs8ij4CKSjVAcsmYgBo2PDTB73mP/OiC/2SDbHHGonN3evfKMNBf+mFV
- TAqz55+BLGJATIEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCaNjw0wAKCRCLPIo+Aiko
- 1QGaB/dCkhCFXM3rS/LZOxNFSLK33p0eqjXUwRLj/k1HSm4nPT5ACqB10fJ3tODSDVscNubP0oR
- jfmyJiJzo6t6DoZD77G8Nj64HnQj5ie1loe2Gq8taQC/i6+qO0ReHUV68PcRZJ4/RjIU3SFWYGr
- B0zT0V5KzHabbu+gztU9ddfmCS5QCau8INJXipea8RT1wLTnGNAWjHjycLW4akzsWGYMGmTD3dy
- eYpOMrWIfTBaRqxQh18GUkTypkJLT/cx0JwTR2Tg040mVGp2fCpVCbTwweZgCSWyuuaRHRVeK52
- pmZkVNSrt+Wnj6FEnoqFtN3ELK6yNEwAzYWXHwb2GyWEDPE=
+ bh=RSyQmL3DOBdLluC0mSQhrTNOeUIpwQM2CI/HP9Sdsjg=;
+ b=owEBbQGS/pANAwAKAYs8ij4CKSjVAcsmYgBo2PDTzUzaZJp29ycMmG2wiJQ8CQv6AiE3Huv86
+ QOzLbdX9AWJATMEAAEKAB0WIQRMcISVXLJjVvC4lX+LPIo+Aiko1QUCaNjw0wAKCRCLPIo+Aiko
+ 1bRHB/9ZjQ3i6ODCvlC8kHJqQmp+BMbnjHu7eHQ6dlWCRwTGbec8cJ8pUEOwXVArbsB/tXUek1Q
+ HgczeUkd/5Yk6k1Fji2tKIa1Kvje94YIVlPsM0F3BO3kANjvD8z/jeiMrM7drR2iyWyKl+erXzy
+ 17ORLOpVUUbSI1WqursgSTSOWhhotsqgAbGiZWKjtxK+bhwA3yAFucPTQsInzOhaGtxfkxx1766
+ o7UfybNWfhI1RVmA6KLPi84+IKf1vS+nsFU/vjt8C9bKTkS2pO8nDf6a+sLwRIuwjsWXd40lkWv
+ kWFbjZS8V0oblNyrBSDE9iBEqUAdfJoQJu4ViT33wChiVcvX
 X-Developer-Key: i=dmitry.baryshkov@oss.qualcomm.com; a=openpgp;
  fpr=8F88381DD5C873E4AE487DA5199BF1243632046A
-X-Proofpoint-GUID: tv6KZSVrn1KE2PMUq8lkammwxBwzQKao
-X-Proofpoint-ORIG-GUID: tv6KZSVrn1KE2PMUq8lkammwxBwzQKao
-X-Authority-Analysis: v=2.4 cv=ZtPg6t7G c=1 sm=1 tr=0 ts=68d8f0d9 cx=c_pps
- a=JbAStetqSzwMeJznSMzCyw==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
- a=yJojWOMRYYMA:10 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=BiG78YgtQv3mHEaFN1cA:9
- a=QEXdDO2ut3YA:10 a=uxP6HrT_eTzRwkO_Te1X:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTI3MDAxOCBTYWx0ZWRfXykk8sWlSstxo
- uBS6+5ikKgpp2zDlhd3athWpjd1izixKKRcy3vvz6VkU9CCdDh+dZOgeXAQ6UxI7iRewPbQ+uSk
- X03RGwgUKdhIseTJ7ezsfJFcmNWnOttfpP8aCax3sNt3RDLLMjFDSvY/yDOhP55pntR5DFuj0EN
- Rs/OMzGeMXGsfiRdv9JpMb11Ipgb37iaQPJ9og2QsnD85QK2wkVEK5zCfUAXvDex/1U1WNxN50J
- VJH+bu3ckDiiftGRF9TawebqiomyYPGKTCt4AfS0AB0rbitaSlsXy51jOTwqb2ljPwQJm/rvRBN
- u9V9UnFT4Z/07rPbID5W9Q522HRE4hT5BDMGPbFyUJQ+pf2r8o0xRdmyuYCJQLcG6U5T8WovmMD
- LoRZ4wvoUChHAQTB39POCPuImMLyHA==
+X-Authority-Analysis: v=2.4 cv=RZKdyltv c=1 sm=1 tr=0 ts=68d8f0e0 cx=c_pps
+ a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=yJojWOMRYYMA:10 a=EUspDBNiAAAA:8 a=XNEcMcDYeHr5uxMbIEwA:9 a=QEXdDO2ut3YA:10
+ a=dawVfQjAaf238kedN5IG:22
+X-Proofpoint-GUID: QRFkIlw0yVgnavx0b2TCx3R_jg_i-IFJ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTI3MDAzMyBTYWx0ZWRfXzUrdaNtVPJy6
+ g92aKqcxO2c6Tl0NTZuXKt1uWcCTwlEq2QScTU7i1VBGgPU5p0paN8oaCM+/KjF85nLg9HLG646
+ KwC+XUBT+L8ZvMKbPucaumPLWS3nvf/w+ZHIQaTagL+ElDVGyAgJ8iQQq58PEttdaXfysLqFVMs
+ BrN1SRFof4rBD5r32AxFKj2dbN3Wqx70A5bJNxFXo79iwg9JdRY0uGjpOeNJ7TYqV5GQRBL4N4T
+ SpgAl/QByk5do3qoJkvjCOlu0ge6tvmqCOJ5LoRhtcEZnCKeG2JbOBaV7t+RnCCBeOH8RoUGHET
+ YRjv9T9sKLGFXwr31bJabgqu7IEjiTkCJ1gr0Zm2JV7Df+xEyREslewasskskjMyzG6ulpZ77jr
+ NQtRLr9rJkA3L0eVZOHK+2iNefx4Vw==
+X-Proofpoint-ORIG-GUID: QRFkIlw0yVgnavx0b2TCx3R_jg_i-IFJ
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-09-28_04,2025-09-26_01,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 spamscore=0 priorityscore=1501 malwarescore=0 bulkscore=0
- suspectscore=0 clxscore=1015 lowpriorityscore=0 adultscore=0 phishscore=0
+ clxscore=1015 malwarescore=0 priorityscore=1501 adultscore=0 phishscore=0
+ impostorscore=0 spamscore=0 bulkscore=0 lowpriorityscore=0 suspectscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2509150000 definitions=main-2509270018
+ reason=mlx scancount=1 engine=8.19.0-2509150000 definitions=main-2509270033
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250928_012459_318125_46A0F1FC 
-X-CRM114-Status: GOOD (  14.14  )
+X-CRM114-CacheID: sfid-20250928_012505_862779_E037F276 
+X-CRM114-Status: GOOD (  15.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -165,57 +162,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It's not uncommon for the particular device to support only a subset of
-HDMI InfoFrames. Currently it's mostly ignored by the framework: it
-calls write_infoframe() / clear_infoframe() callbacks for all frames and
-expects them to return success even if the InfoFrame is not supported.
-
-Sort that out, making sure that all interfaces are consistent:
-- In atomic_check() callback verify and disable unsupported InfoFrames.
-- In write_infoframe() / clear_infoframe() callbacks return -EOPNOTSUPP
-  for unsupported InfoFrames.
-- In write_device_infoframe() / clear_infoframe() functions warn if the
-  callback returns -EOPNOTSUPP for the frame which is set (or was set
-  beforehand).
+Make hdmi_write_hdmi_infoframe() and hdmi_clear_infoframe() callbacks
+return -EOPNOTSUPP for unsupported InfoFrames and make sure that
+atomic_check() callback doesn't allow unsupported InfoFrames to be
+enabled.
 
 Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 ---
-Changes in v2:
-- Fixed build issue in common code
-- Fixed comments regarding HDR / audio frames (Diedrik)
-- In adv7511 actually check for the HDR frame (the comment was correct)
-  rather than the audio infoframe (c&p error).
-- Link to v1: https://lore.kernel.org/r/20250927-limit-infoframes-2-v1-0-697511bd050b@oss.qualcomm.com
+ drivers/gpu/drm/bridge/adv7511/adv7511_drv.c | 20 ++++++++++++++++----
+ 1 file changed, 16 insertions(+), 4 deletions(-)
 
----
-Dmitry Baryshkov (9):
-      drm/display: hdmi-state-helpers: warn on unsupported InfoFrame types
-      drm/bridge: adv7511: handle unsupported InfoFrames
-      drm/bridge: ite-it6263: handle unsupported InfoFrames
-      drm/bridge: lontium-lt9611: handle unsupported InfoFrames
-      drm/bridge: synopsys/dw-hdmi-qp: handle unsupported InfoFrames
-      drm/msm: hdmi: handle unsupported InfoFrames
-      drm/rockchip: rk3066_hdmi: handle unsupported InfoFrames
-      drm/rockchip: inno-hdmi: handle unsupported InfoFrames
-      drm/sun4i: hdmi: handle unsupported InfoFrames
+diff --git a/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c b/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
+index b9be8654130758e69ac7ccbc73a82cc25d731a5c..241f02143f59322a814b4b277082637d59be7d5f 100644
+--- a/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
++++ b/drivers/gpu/drm/bridge/adv7511/adv7511_drv.c
+@@ -906,8 +906,7 @@ static int adv7511_bridge_hdmi_clear_infoframe(struct drm_bridge *bridge,
+ 		adv7511_packet_disable(adv7511, ADV7511_PACKET_ENABLE_SPARE1);
+ 		break;
+ 	default:
+-		drm_dbg_driver(adv7511->bridge.dev, "Unsupported HDMI InfoFrame %x\n", type);
+-		break;
++		return -EOPNOTSUPP;
+ 	}
+ 
+ 	return 0;
+@@ -966,19 +965,32 @@ static int adv7511_bridge_hdmi_write_infoframe(struct drm_bridge *bridge,
+ 		adv7511_packet_enable(adv7511, ADV7511_PACKET_ENABLE_SPARE1);
+ 		break;
+ 	default:
+-		drm_dbg_driver(adv7511->bridge.dev, "Unsupported HDMI InfoFrame %x\n", type);
+-		break;
++		return -EOPNOTSUPP;
+ 	}
+ 
+ 	return 0;
+ }
+ 
++static int adv7511_bridge_atomic_check(struct drm_bridge *bridge,
++				       struct drm_bridge_state *bridge_state,
++				       struct drm_crtc_state *crtc_state,
++				       struct drm_connector_state *conn_state)
++{
++	/* should not happen, HDR support not enabled */
++	if (drm_WARN_ON_ONCE(bridge->encoder->dev,
++			     conn_state->hdmi.infoframes.hdr_drm.set))
++		return -EOPNOTSUPP;
++
++	return 0;
++}
++
+ static const struct drm_bridge_funcs adv7511_bridge_funcs = {
+ 	.mode_valid = adv7511_bridge_mode_valid,
+ 	.attach = adv7511_bridge_attach,
+ 	.detect = adv7511_bridge_detect,
+ 	.edid_read = adv7511_bridge_edid_read,
+ 
++	.atomic_check = adv7511_bridge_atomic_check,
+ 	.atomic_enable = adv7511_bridge_atomic_enable,
+ 	.atomic_disable = adv7511_bridge_atomic_disable,
+ 	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
 
- drivers/gpu/drm/bridge/adv7511/adv7511_drv.c    | 20 ++++++++--
- drivers/gpu/drm/bridge/ite-it6263.c             | 27 ++++++++++++-
- drivers/gpu/drm/bridge/lontium-lt9611.c         | 22 ++++++++---
- drivers/gpu/drm/bridge/synopsys/dw-hdmi-qp.c    | 20 ++++++++--
- drivers/gpu/drm/display/drm_hdmi_state_helper.c |  6 +++
- drivers/gpu/drm/msm/hdmi/hdmi_bridge.c          | 19 +++++++--
- drivers/gpu/drm/rockchip/inno_hdmi.c            | 47 +++++++++++++++++------
- drivers/gpu/drm/rockchip/rk3066_hdmi.c          | 39 +++++++++++++++----
- drivers/gpu/drm/sun4i/sun4i_hdmi_enc.c          | 51 ++++++++++++++++++++++---
- 9 files changed, 208 insertions(+), 43 deletions(-)
----
-base-commit: bf2602a3cb2381fb1a04bf1c39a290518d2538d1
-change-id: 20250927-limit-infoframes-2-6b93e599e79a
-
-Best regards,
 -- 
-With best wishes
-Dmitry
+2.47.3
 
 
