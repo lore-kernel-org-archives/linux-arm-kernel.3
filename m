@@ -4,81 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34828CAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Sep 2025 16:57:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B7E2CAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Sep 2025 17:48:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=q3CPsXihGUBBwniCQJtpfCea9ZS+16bumyYVi9msdPY=; b=ngh3KlXLxpJH1mAvTZDSMBH01G
-	rejMvcJQcQmDhKJLyyUdXzoGR3pIM0x+BWr5xpXpXYDo6d81UxrzJfS3TRRXumRgOa/0XHd2imqyW
-	5rWf66voEzG8HRuicNNN8VZjSyuCFhlj5LpRS2Jj8QZ06hrNkusZ+YgMI0srwB2CLJZFnxO/SUH2l
-	Gzp8QfyKBjzu7EmoiinNh82u0h5CzPwbRio2DVG92k9I73Y5OJvIchwCn9pemAO8Ap8P+3RYnxAFq
-	O8CtnoEnOUBE7xABw8FSJ8e8mKRu0ZqV0x1Bp590BIt1YnGFv37b4yNhWWXqunjIAWcyAQqsgkgfz
-	NZmEe2mg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bb144XaT3ozq0w1qVMTiSOGlsjiwTNHYJ14plQdks2w=; b=J13hTyMQC1kRSXeXtRRZW2bCSZ
+	vUaVWNJDY3vgd65EYbjH1vdjKOckiYGBnry2hhEHSbMsmY5d9Xgx1DqXNkOvVhhDm5QcDXRGjH9Hd
+	e1OdqEIitL+RLFF2bSJhbdQAVVc3ohDK0mP55aOwqR4j0RdFAZqJwF2llQRMkmQmecHFUqDjOwp9R
+	eiV+vekaXat6rSUmFilAeKmNsG8NCBhCkGVy3E7Go/M6LJDE8lqRg1FBfxNterrXNUZ2E8w9YtkN/
+	wM2g9E1P+Aem4ubhaz6rCk13vdm1ImNC1lrSOy2XeBKRvC/JkujEp1Ft1gieRrPsW/Z6op9k0CX4E
+	qDNeN5Mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2ui3-0000000Gj5L-41PM;
-	Sun, 28 Sep 2025 16:57:15 +0000
-Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
+	id 1v2vVG-0000000GwT0-2EMg;
+	Sun, 28 Sep 2025 17:48:06 +0000
+Received: from mail-pg1-x533.google.com ([2607:f8b0:4864:20::533])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2ui0-0000000Gj1q-2Zng
+	id 1v2vVE-0000000GwSH-0MWH
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 28 Sep 2025 16:57:14 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [IPv6:2001:67c:2050:b231:465::2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4cZVpy4LP0z9sST;
-	Sun, 28 Sep 2025 18:56:58 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1759078618;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=q3CPsXihGUBBwniCQJtpfCea9ZS+16bumyYVi9msdPY=;
-	b=xHuubiMSI1U7n2AhL8UbwNP5D24fqsTalz73+pLetWsJpayvL0H7U0vNPv/fXMsI76dT9Y
-	BA0jodO4DTAljzh5/955NxjTofoDmHZfTNUOzlkDS3J171LiYOLyY2SDUBvNsaq1Zwh5zL
-	6JrhLKl4TghKRUMVY2QndMe/TNc8ZCO/SBDtDQGLdUowAIqGUQIJk4QRKEjbHGiHF0Kkkb
-	ssTiWE8H09QNuZwWRR85eCbezsFXR7izc2l8Wz8JgyHv/B3EUqnTEKNDmL32N1AHcrAcSI
-	mz6nzP+67SteciLT+nVZFgYGAuATIL2UgbA4E/I23JKuFiecI4PRluLDgCXXUw==
-Message-ID: <a8d62ed4-38c7-4ff7-a283-3708761d94a7@mailbox.org>
-Date: Sun, 28 Sep 2025 18:56:48 +0200
+	Sun, 28 Sep 2025 17:48:05 +0000
+Received: by mail-pg1-x533.google.com with SMTP id 41be03b00d2f7-b5526b7c54eso2359161a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 28 Sep 2025 10:48:03 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1759081682; x=1759686482; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=bb144XaT3ozq0w1qVMTiSOGlsjiwTNHYJ14plQdks2w=;
+        b=iLEljCnGxwrJzRnYp2+9PtFXEZ6OXf9mZE1bScUHmpeVg9Y+NcwD7Qan/Uvm4cNwR/
+         jkdPg/Gz3tMdynXPp0wWdclNs/2oMNfvTduWW5WyzBiU1NVmEByzmpGjZuBEBYDp77hT
+         eZGaRbPk6FsURVIpNWpk1j+CatMsyE2YgMKC0KTgq9vOyIAhrBJJJKrEce8sTaZnaiic
+         hoGjhbk62wR/lD+i0/06dzoR0rjXv5vCKzLyXz1+OzqfMElHB0aIglo4ZVrp/wAWYM7L
+         lS9Ae/IrrE7CJnVeWnQUDRIptAMwpNFE1op+bEBZYJzDcCMfS0bDY50JJJfX7I/LLj5N
+         5jBA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759081682; x=1759686482;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=bb144XaT3ozq0w1qVMTiSOGlsjiwTNHYJ14plQdks2w=;
+        b=hhH4rIdXd+M9rXo/qX3XK2fajxKVOk9jOAAiOE5Rqi2u4Yu+qbJIhUQtV8FL9Ik5T8
+         AavDlX8MooeK1rN9dYukRyJ/Ylz95HHln35lKdYfrT/goHX2Vv7GTFh5Wza2iyZSMURW
+         XhTeVLCZCa8uhQWgxqbpwPlQOfP+0AMFcy+fa/WjL4x9SJVzBYWo0QE4APH7SyUOLeg2
+         IHP5Nq0fB6T9cUpsduNL/xEnbuwRkzAKBm5/Mf4h+mfSVk9OWMOrH1+TWkIv/n2WAL+3
+         6ah/9gQl/+zMSb0MUuSEmCsTm5+o0FoRZRNDyHhH/k3H+pGrPYf1KCX+XtVwNcUPSk1W
+         3RBQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWs8ayWp7TXsZgDTjC+UClmhl30mtQo3tbGFAF4nLGZ8FwvrydBbvUQTT4V/3u85gpQ+9uDfEgbTAn++9ztnZzC@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyl36m+l3ozieI1oKaAAlNZnIuVzq9NPLMk6n69l4HSVR6agPwH
+	4oiV+11+S4qT1DVPVB9kGhu2Kp5U95vyxIEFcTtheakcTkGzivLOBfoYHZjY+k6lwyR9dEB9sW6
+	KeMirNsb6Y+T83MOxm1peKMKk3hoOCGk=
+X-Gm-Gg: ASbGncupFTGMJmrpfqbMpD+MLidPsxiCa5rAUUTpAM7z+IVZP4hRGBCEV4chEDGlbTR
+	Re5mZ33AJ1HbgYI8BY4zJREtJg/5seJsYg8xJU/3rPzupZRkF6g1XKYLf3G0f2p736VDFpu9Fct
+	r2/lGdOaEyZLYxWB0eTyQ8U2OUz5xZ3MZsLGL1RL9t83X/tJpO1TannaT1MfipmXAIWls6Sovur
+	KQbFQzlUDKvzMIEmHI=
+X-Google-Smtp-Source: AGHT+IGIhTRX0vPWXRnKGbM7/t9PfWgMfG3icRhXm/bikRRYDgSLLR3zWm4hL7da1xUZ+6JNLVBVdbp7N1oWnUBqBMY=
+X-Received: by 2002:a17:902:cf0d:b0:27d:69bd:cc65 with SMTP id
+ d9443c01a7336-27ed4a96a83mr141161955ad.45.1759081681919; Sun, 28 Sep 2025
+ 10:48:01 -0700 (PDT)
 MIME-Version: 1.0
-Subject: Re: [PATCH v2 4/9] drm/panthor: Implement optional reset
-To: Rain Yang <jiyu.yang@oss.nxp.com>
-Cc: airlied@gmail.com, boris.brezillon@collabora.com, conor+dt@kernel.org,
- devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
- festevam@gmail.com, imx@lists.linux.dev, kernel@pengutronix.de,
- krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
- liviu.dudau@arm.com, maarten.lankhorst@linux.intel.com, mripard@kernel.org,
- p.zabel@pengutronix.de, peng.fan@nxp.com, robh@kernel.org,
- s.hauer@pengutronix.de, shawnguo@kernel.org, simona@ffwll.ch,
- sre@kernel.org, steven.price@arm.com, tzimmermann@suse.de
-References: <20250904172019.58e5f589@fedora>
- <4147d10f-fb54-4f1b-ac1b-58cf657a3aeb@mailbox.org>
- <aMk1CISrn2_p0qzJ@oss.nxp.com>
- <c34dc4bc-de12-42fc-aaf5-50474dc53042@mailbox.org>
- <aMoTtr9KmdrgDUiE@oss.nxp.com>
- <c1a45cfa-a249-4782-b5c8-0ee2d173fc97@mailbox.org>
- <aMrDKkIoZvAlBD8d@oss.nxp.com>
- <609113fa-6af3-4e7e-b47a-45b3152d8581@mailbox.org>
- <aNZaatnVRRkaPrnD@oss.nxp.com>
- <32fffaad-7738-4fa6-80cc-2f8eba7ca099@mailbox.org>
- <aNjwyIgs9fzWiprq@oss.nxp.com>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <aNjwyIgs9fzWiprq@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-ID: 09c0d8297a0a9a440e3
-X-MBO-RS-META: axcuj6fk8qs9i65ufsbua5pb77z3odbx
+References: <CAOprWosSvBmORh9NKk-uxoWZpD6zdnF=dODS-uxVnTDjmofL6g@mail.gmail.com>
+ <20250919-lurking-agama-of-genius-96b832-mkl@pengutronix.de>
+ <CAOprWott046xznChj7JBNmVw3Z65uOC1_bqTbVB=LA+YBw7TTQ@mail.gmail.com>
+ <20250922-eccentric-rustling-gorilla-d2606f-mkl@pengutronix.de> <CAOprWoucfBm_BZOwU+qzo3YrpDE+f-x4YKNDS6phtOD2hvjsGg@mail.gmail.com>
+In-Reply-To: <CAOprWoucfBm_BZOwU+qzo3YrpDE+f-x4YKNDS6phtOD2hvjsGg@mail.gmail.com>
+From: Alexander Shiyan <eagle.alexander923@gmail.com>
+Date: Sun, 28 Sep 2025 20:47:49 +0300
+X-Gm-Features: AS18NWDPKklTiLrxKFeYvofRAgeM8OwBQfBPUfJA357z4XaPxxHtrQTv3DSxvMw
+Message-ID: <CAP1tNvTD2uhK79VB_PT0JByv_VVy245WH-3a1ZaG1-Khw5_vaw@mail.gmail.com>
+Subject: Re: Possible race condition of the rockchip_canfd driver
+To: Andrea Daoud <andreadaoud6@gmail.com>
+Cc: Marc Kleine-Budde <mkl@pengutronix.de>, Heiko Stuebner <heiko@sntech.de>, 
+	Elaine Zhang <zhangqing@rock-chips.com>, kernel@pengutronix.de, linux-can@vger.kernel.org, 
+	netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250928_095712_789086_09046EC0 
-X-CRM114-Status: GOOD (  12.54  )
+X-CRM114-CacheID: sfid-20250928_104804_126167_AC6DC440 
+X-CRM114-Status: GOOD (  15.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,45 +98,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/28/25 10:24 AM, Rain Yang wrote:
-> On Fri, Sep 26, 2025 at 03:32:46PM +0200, Marek Vasut wrote:
->> On 9/26/25 11:18 AM, Rain Yang wrote:
->>
->> Hello Jiyu,
->>
->>>>> as the 0x4d810008 is a write-once register and whose operation has been moved into the SM side,
->>>>> so please drop the reset change.
->>>>> can you also change the label of the gpu node from gpu to mali like "mali: gpu@4d900000",
->>>>> as the internal driver use mali label to control the thermal up/low limitation.
->>>>
->>>> I updated all of the AHAB container, imx-oei and imx-sm components, and the
->>>> reset controller is no longer needed indeed.
->>>
->>> thanks, please update the gpu node label if possibly.
->>
->> Which label do you refer to, and which one would you prefer to have there ?
-> 
-> "mali: gpu@4d900000", not "gpu: gpu@4d900000".
-All of imx*.dts* use gpu: or gpu2d:/gpu3d:/vpuvg: for the GPU label.
+Hello.
 
-I see allwinner does use mali: label, but maybe it would be better to 
-stay consistent with the i.MX labels ?
+> > > Could you please let me know how to check whether my RK3568 is v2 or v3?
+> >
+> > Alexander Shiyan (Cc'ed) reads the information from an nvmem cell:
+> >
+> > | https://github.com/MacroGroup/barebox/blob/macro/arch/arm/boards/diasom-rk3568/board.c#L239-L257
+> >
+> > The idea is to fixup the device tree in the bootloader depending on the
+> > SoC revision, so that the CAN driver uses only the needed workarounds.
+> >
+>
+> Thanks, it is not easy to correlate this because I am currently not using
+> barebox. I'll try this later.
 
-Also, variants of gpu: label seems more popular:
-
-linux$ grep -hro '[a-z0-9_]\+: gpu@' arch/ | sort | uniq -c
-       3 adreno_gpu: gpu@
-       1 bb2d: gpu@
-       1 gpu2d: gpu@
-       1 gpu3d: gpu@
-      80 gpu: gpu@
-       4 gpu_2d: gpu@
-       1 gpu_3d0: gpu@
-       4 gpu_3d: gpu@
-       6 gpu_mem: gpu@
-       1 gpu_reserved: gpu@
-       2 gpu_vg: gpu@
-      17 mali: gpu@
-       1 v3d: gpu@
-       2 zap_shader_region: gpu@
+I think this can be done from the userspace.
+Build the driver as a module, get the SoC version, then modprobe it
+with an alias for the desired version.
 
