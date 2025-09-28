@@ -4,66 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1A0ECAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Sep 2025 10:38:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D729CAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 28 Sep 2025 11:27:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=OajlQ+6PdIYG+fmsAAOl6Cm5I8NVlpLVeebHG26Kl94=; b=X7MAtAaD8tSOtuToGkK9SZlG3L
-	idLJscB3jyD0buX8qbghbaOfNS5y1EDTPyWH8jcZIfeoCgRD2yALHekklL+CVerfjV2oz+gbGHUfB
-	HN7FA++013wSEdXdFdQqVLGCVBRKq+SHHZeRVfj/EP/7vpoWMuK9K3xX647L01jgd6yFmvsAt0rR9
-	05nR1vlDpK0k+KJux73FS+fCPv2GtslajOsbVHR9/FbtVrsRvHcw9d80GZck8/OzeZ2BAR6JPBnPV
-	ltoz9RRk66BHGbVMyVkVVCWPwAkw3eoFjLAVzevAhQLgTloZO8yiF9F1OyQ63sw2vgmwGqGvQt6VU
-	NtZFezWA==;
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kNC29xo2Oju4FNTLwauE84cDif4ZKmEqMXzXqRGThAY=; b=deJjn8Teldjbqqzo2S4VOLiU22
+	nfr1Ho/gOIMgUy9rLvHsWHSmzD5bPLCjzVlhMeBChasyK75mry/230I/hPv/FS3Ix/QWMevvBjMRk
+	NRUIDpL6SL++uMV373m60N+tfJweSwfH7JXOqioghkYgnzAMLpuCR/5hcsbS42OfRfknSxp0HuitW
+	wCzPw28kANaAtye/pU770sh+JqmZePEAoWrGTIgVQuub11AEdvyRwGBBo9B2GmNIRy87bsIawJY/K
+	7jyWHEJ+DV+KIIMIuel+Y/olunYyL48Df/4sWAUaNHsCBSWKfenP3Lj84u7pZbu/gW7FRvu5DA9Dy
+	IZODCLoQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2onJ-0000000EzlX-2ZNs;
-	Sun, 28 Sep 2025 10:38:17 +0000
-Received: from mail-m15579.qiye.163.com ([101.71.155.79])
+	id 1v2pZA-0000000FDJ0-0LGH;
+	Sun, 28 Sep 2025 11:27:44 +0000
+Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v2onF-0000000Ezgl-3MX9;
-	Sun, 28 Sep 2025 10:38:15 +0000
-Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 2456910da;
-	Sun, 28 Sep 2025 18:38:03 +0800 (GMT+08:00)
-From: Damon Ding <damon.ding@rock-chips.com>
-To: heiko@sntech.de,
-	andy.yan@rock-chips.com,
-	hjc@rock-chips.com
-Cc: maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Damon Ding <damon.ding@rock-chips.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>
-Subject: [PATCH v3] drm/rockchip: analogix_dp: Apply devm_clk_get_optional() for &rockchip_dp_device.grfclk
-Date: Sun, 28 Sep 2025 18:37:34 +0800
-Message-Id: <20250928103734.4007257-1-damon.ding@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
+	id 1v2pZ7-0000000FDEb-0zRw
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 28 Sep 2025 11:27:43 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=kNC29xo2Oju4FNTLwauE84cDif4ZKmEqMXzXqRGThAY=;
+	b=MFweJCNkJkCRBZNcz+nfn33DwMc2XANO/SdftOX3ToXpjpKSkajogomX1g3tVbBFfspi4YbbW
+	sb0l2yxtrGDqLme8n7yTVrSVZKdGDN6CHSjQeN4ULEmDoN8GGiTgkKs+Shi55BAKNjHOTTwj8bG
+	+gg3s0DO3qheXJvP0BiL+QM=
+Received: from mail.maildlp.com (unknown [172.19.88.105])
+	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4cZMVV11WGz1prKR;
+	Sun, 28 Sep 2025 19:27:14 +0800 (CST)
+Received: from kwepemk200017.china.huawei.com (unknown [7.202.194.83])
+	by mail.maildlp.com (Postfix) with ESMTPS id 5D62A140155;
+	Sun, 28 Sep 2025 19:27:24 +0800 (CST)
+Received: from [10.174.178.219] (10.174.178.219) by
+ kwepemk200017.china.huawei.com (7.202.194.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Sun, 28 Sep 2025 19:27:23 +0800
+Subject: Re: [GIT PULL] arm64 updates for 6.18
+To: Will Deacon <will@kernel.org>
+CC: <torvalds@linux-foundation.org>, <catalin.marinas@arm.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<kernel-team@android.com>, <brauner@kernel.org>
+References: <aNbJ0YiL7Us_eicz@willie-the-truck>
+From: Zenghui Yu <yuzenghui@huawei.com>
+Message-ID: <4016897f-42a5-bb18-4ebb-80de97f99a60@huawei.com>
+Date: Sun, 28 Sep 2025 19:27:17 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.12.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a998fe6ad8303a3kunm5a055eb71de05e
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQkxMGlZPQxodTk4dQkJKShpWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=CFQEKBdLzj3RmovydjJ/6w0J+Z+ocOD7NCH8UCPOUnv9joMoyk3Hp31PZpKDFASAdryKQpPfo22/0OLo8xKgWTdFvb6BSK4uvk7rCil7kPubAqF6r/HV/LaZ1SZvZbsaZWPWfEHUcXLYs9WozLnsbAmpMFRDfa/nBcp2LaJry8g=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=OajlQ+6PdIYG+fmsAAOl6Cm5I8NVlpLVeebHG26Kl94=;
-	h=date:mime-version:subject:message-id:from;
+In-Reply-To: <aNbJ0YiL7Us_eicz@willie-the-truck>
+Content-Type: text/plain; charset="utf-8"
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.174.178.219]
+X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
+ kwepemk200017.china.huawei.com (7.202.194.83)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250928_033814_026585_10028BC0 
-X-CRM114-Status: UNSURE (   9.33  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250928_042741_768363_4EEED4B6 
+X-CRM114-Status: GOOD (  10.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,53 +80,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The "grf" clock is optional for Rockchip eDP controller(RK3399 needs
-while RK3288 and RK3588 do not).
+On 2025/9/27 1:13, Will Deacon wrote:
+> ACPI, EFI and PSCI:
+>  - Decouple Arm's "Software Delegated Exception Interface" (SDEI)
+>    support from the ACPI GHES code so that it can be used by platforms
+>    booted with device-tree.
+> 
+>  - Remove unnecessary per-CPU tracking of the FPSIMD state across EFI
+>    runtime calls.
+> 
+>  - Fix a node refcount imbalance in the PSCI device-tree code.
+> 
+> CPU Features:
+>  - Ensure register sanitisation is applied to fields in ID_AA64MMFR4.
+> 
+>  - Expose AIDR_EL1 to userspace via sysfs, primarily so that KVM guests
+>    can reliably query the underlying CPU types from the VMM.
+> 
+>  - Re-enabling of SME support (CONFIG_ARM64_SME) as a result of fixes
+>    to our context-switching, signal handling and ptrace code.
 
-It can make the code more concise to use devm_clk_get_optional()
-instead of devm_clk_get() with extra checks.
+IIRC they're 6.16 stuff [*].
 
-In addtion, DRM_DEV_ERROR() is replaced by dev_err_probe().
+[*] https://lore.kernel.org/all/20250528114103.GA27965@willie-the-truck
 
-Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-Reviewed-by: Sebastian Reichel <sebastian.reichel@collabora.com>
-
-------
-
-Changes in v2:
-- Replace DRM_DEV_ERROR() with dev_err_probe().
-
-Changes in v3:
-- Update Reviewed-by tag.
-- Fix the spelling error 'consice' to 'concise'.
----
- drivers/gpu/drm/rockchip/analogix_dp-rockchip.c | 12 +++---------
- 1 file changed, 3 insertions(+), 9 deletions(-)
-
-diff --git a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-index d30f0983a53a..937f83cf42fc 100644
---- a/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-+++ b/drivers/gpu/drm/rockchip/analogix_dp-rockchip.c
-@@ -335,15 +335,9 @@ static int rockchip_dp_of_probe(struct rockchip_dp_device *dp)
- 		return PTR_ERR(dp->grf);
- 	}
- 
--	dp->grfclk = devm_clk_get(dev, "grf");
--	if (PTR_ERR(dp->grfclk) == -ENOENT) {
--		dp->grfclk = NULL;
--	} else if (PTR_ERR(dp->grfclk) == -EPROBE_DEFER) {
--		return -EPROBE_DEFER;
--	} else if (IS_ERR(dp->grfclk)) {
--		DRM_DEV_ERROR(dev, "failed to get grf clock\n");
--		return PTR_ERR(dp->grfclk);
--	}
-+	dp->grfclk = devm_clk_get_optional(dev, "grf");
-+	if (IS_ERR(dp->grfclk))
-+		return dev_err_probe(dev, PTR_ERR(dp->grfclk), "failed to get grf clock\n");
- 
- 	dp->pclk = devm_clk_get(dev, "pclk");
- 	if (IS_ERR(dp->pclk)) {
--- 
-2.34.1
-
+Thanks,
+Zenghui
 
