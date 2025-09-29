@@ -4,100 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B978CAC5BE
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 12:36:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 01C35CAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 12:47:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t5TiAseZcVQOtO3WU44wqIk3ETdplagD04sSEDVxBRM=; b=YI7sWl9PmHuu2bIqzUAwJ64gC5
-	8sLSkiPCXclBJ/aSK+wS2gA0gqIX3/oR3Vq24sRMrMyPvvcglIwvakyzDF+W9qgsLgHnA74JXYnby
-	4hN1hkrkGoaDa2YDvp+/awrvMKnoQy64G/4slXFsQRZKI4PV/JFy/4fojNStj0HFIu3TIg5P29cbJ
-	ZC6mxunxjwhpTMRKr6G+17sO5szB0BvpwiQZrYU1Mty/oAmWZx2qRB2k/H8tNDFCsxkmepJArEbUW
-	yxBLYWlrASDSzfDWretWszSAQZUip7C919Cq0gqVqfUZ2gkt9b/YiBxzUEJtewW4yeMk1qX5oLDGB
-	EbIOf3HA==;
+	bh=eM9Sb17d2wXHQmFbrZTrBs7g3dLHXZeM4mN9jnHjrl0=; b=emjWjq7kGWMrmHZrMv7UO45Mds
+	27FpE8LToZJBxtKOQWtWLGUmebwzl5GBmfO0Wnm2JzxqRHuDKZDhFOGjhVBUtLmrxJokUhln4ZO8z
+	t9Y4/o9vF7KkpTuV/j/VmvHgpSoICtmmJeM/MtAqNYzDi80PcXe4lKZsmMiU9GvRMZixe9cD91SuB
+	yCilVS6kPPJC4+vsNdHt4ikNl0JBdYGJwAsq6Y9E4i0LKslKwg/mkUnI7vtcNeVuJwp85+91t7gKv
+	mnQcmKMiU2hEsTfck8HP0+H6QqXBNAqozR1vsWvmLqyv0ZJdqoCj1cvUDmnhVMbedOWni9FSSyRq2
+	BV7fPOOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3D7I-00000002TsE-1pxY;
-	Mon, 29 Sep 2025 12:36:32 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1v3DI8-00000002Ugw-3X5e;
+	Mon, 29 Sep 2025 12:47:44 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3D7D-00000002TrL-2v6P
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 12:36:30 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-46e3a50bc0fso29347055e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 05:36:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1759149386; x=1759754186; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:user-agent
-         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=t5TiAseZcVQOtO3WU44wqIk3ETdplagD04sSEDVxBRM=;
-        b=J28mLzcQbd+aD0s7VfEfCc5RLrDX4JzXrcWxH17iQfuJv0gcjSnnFPgfP0WwdTAptt
-         Rj+mrSwfcdVwiSYMQY6/uxbb3U4HIKZpl1wX4tqwj7ptxTrduXljA2Pi8DejV+0MdWUs
-         Jde0I4eqI2JjETGWWAFXy6367fSWaFlkveDcysQgkqB3U6LBnEqFLd1OMkbr6i10lq07
-         7TBysiA1+eZUQK90cfNS8clDl2KVCuLwzjxBRuy+osH8DBjlbVUvO5GA2+f/cxJmEG+W
-         TKsPMGDKjRpm0jWYWurYlsgF6iJKXqep6G4zzMDl8OwdTVuOZxCDIBlWq8gt8ENf3drr
-         46DA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759149386; x=1759754186;
-        h=content-transfer-encoding:mime-version:message-id:date:user-agent
-         :references:in-reply-to:subject:cc:to:from:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=t5TiAseZcVQOtO3WU44wqIk3ETdplagD04sSEDVxBRM=;
-        b=Kle2+IrmqEmkLWQeKADGVziBWubZZzqedt9lMdjoZSywnCTs4EJdGkCnZwcPJ7W/kO
-         Kf7Jlm4H5uCNOvYlf+u74oSSG90gtmWfAJaW82eX3tBo0UjW88Q8kt80YTOlIeNFOhSY
-         na71Zo82He2vVPWKW8MW3z4/N0uW91y1vB3j18FHAKTEVfiKNbJ7Pit82zLGAFQSgX34
-         4iX/sBu5/EmxO3/vIiXJW5pEvmvkiFIWIXWFkuf1cWyh+sbc8Do6g5cu0ofolWnuBufQ
-         nmypJms8k+m/29gzETzw1xe1heVB8Cz75slnjDUE0yDFB+Dn3fobxSJPIvdOdaWz2csJ
-         Zp0Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWeXaJjaLIItXqG2FRM5czhG8gXKwD/BQpwAqXyI9g3YcV1YBzz5UK8w3kg4nUoq4U8NgMyO+DSyX8P5xjeuAn2@lists.infradead.org
-X-Gm-Message-State: AOJu0YwPGWmohiKJqfKZCGNr6es+bMunILmLcwZb5RJjG6P1EM49l4L4
-	+GhBSetUSz2qQsE8rqzlDNQVbDqhvf/KajqL4jeJj781PRB1Da5tB+QGL6ReZm4PVJg=
-X-Gm-Gg: ASbGnctd2DUhpOQp1L3fJeVNl3ZsNC9ps0UvO31H30wK/1qsU3bUcXAeYoCeBVXklLy
-	oJf2+1SP45bIsWChTk1iwdwC/J0gEHhiokW7Or/mj78ZEuup+SlX8QdQ6OweK3nvGkNUFMpzb/f
-	6luiItYMcMVn3r+etmuFy5qwIThZsUiWvDWIa/xm9qguxBEHpC2Bjhkxsx71/K4iTsBffCoihD0
-	ul0Q3Am2n2NJVisXVVAa/Aea3pvbqk4a8SqPm1eBG6Bk4ioh7/mI5fAf6YjqA61GaozHFvCHNpl
-	+X/pe4rsmTB0VFGLi67a3LbazoUFSdNi1ZA2tAc8W7du/Zr5RpLM7NLSn/Xc3X/e+dvhVrMDzV+
-	W3h6xbdw08urDYnMVafka/0fV9ahVuJ0=
-X-Google-Smtp-Source: AGHT+IHo0QKRizwsJhQ5D0tkdyBpVp2YHvhvxBq16FZ5DocejNzdXKBFoyHjJt0irT3wdJx8Oxn2bA==
-X-Received: by 2002:a05:600c:4453:b0:46d:cfc9:1d20 with SMTP id 5b1f17b1804b1-46e329fa931mr124081375e9.22.1759149385782;
-        Mon, 29 Sep 2025 05:36:25 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:9ad:4617:2761:d4d0])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-46e2a9af27dsm229660415e9.8.2025.09.29.05.36.24
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Sep 2025 05:36:25 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Chuan Liu <chuan.liu@amlogic.com>
-Cc: Martin Blumenstingl <martin.blumenstingl@googlemail.com>,  Michael
- Turquette <mturquette@baylibre.com>,  Stephen Boyd <sboyd@kernel.org>,
-  Neil Armstrong <neil.armstrong@linaro.org>,  Kevin Hilman
- <khilman@baylibre.com>,  linux-clk@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  linux-amlogic@lists.infradead.org,
-  linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/2] clk: meson: Fix glitch free mux related issues
-In-Reply-To: <eee93d9d-2977-449d-8792-b2416f0c09ad@amlogic.com> (Chuan Liu's
-	message of "Mon, 29 Sep 2025 11:15:46 +0800")
-References: <20240929-fix_glitch_free-v1-0-22f9c36b7edf@amlogic.com>
-	<20240929-fix_glitch_free-v1-2-22f9c36b7edf@amlogic.com>
-	<CAFBinCBd5-s6vaBoJNerXavQiHgsv4Fm3v0svUX7geL=kJvVYg@mail.gmail.com>
-	<20178015-4075-40e9-bbf4-20ae558c2bef@amlogic.com>
-	<1jldyzrv2t.fsf@starbuckisacylon.baylibre.com>
-	<e70e9aaa-f448-4f67-9149-cb5970c9bbd6@amlogic.com>
-	<9834c7c5-9334-4c78-a2fe-588ff03cf935@amlogic.com>
-	<CAFBinCCoX5+6+KQAtbhKx9KdSZhXVxS=cz8DfMVhjPX1c0iSPw@mail.gmail.com>
-	<eee93d9d-2977-449d-8792-b2416f0c09ad@amlogic.com>
-User-Agent: mu4e 1.12.9; emacs 30.1
-Date: Mon, 29 Sep 2025 14:36:24 +0200
-Message-ID: <1ja52d5tbr.fsf@starbuckisacylon.baylibre.com>
+	id 1v3DI5-00000002Ug8-2DGP;
+	Mon, 29 Sep 2025 12:47:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1759150047; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=n/vEwH+icZvAJ+wPzCv3oMoOoJXMpjE6uyaRXrEdinYA5mUpUfd1RSxQHi1WRgkfBb3kfGtw8C+IEiliFF45xYRimVF48MHqSD2JUeUgdcQ+Qr2ldFocfgtRMpEEqim0kV0bHtWnsDVXZQLaGMhI1QFbHpf5tuz6+3SUSDnJbGc=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1759150047; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=eM9Sb17d2wXHQmFbrZTrBs7g3dLHXZeM4mN9jnHjrl0=; 
+	b=Vmv/WoItTpQS0hRkpFSlxbfmbmZ/B3aYli3H6mgY9rqjcLZyIYCPxRXcciSvwPHVkPlBVVAB8TQ7dD1rXRVavmNSRRa25u9eMfYRJ1xbIG0ha8h0lU8/Hkmkml/6jIWS58/z2tdzHq0p8TwjKM4AsiyzTPhys2AiE3UpGyFPfjQ=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=detlev.casanova@collabora.com;
+	dmarc=pass header.from=<detlev.casanova@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1759150047;
+	s=zohomail; d=collabora.com; i=detlev.casanova@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=eM9Sb17d2wXHQmFbrZTrBs7g3dLHXZeM4mN9jnHjrl0=;
+	b=il1zHjhaaXVDFOdcexPGAxw/XiOtxreugDTpWq4k8JnCRu8KWgdyfr0agmmzKv/H
+	EXZW4UdY7Mt/Eb4LxlZflVvqlBR/o6GzU8xepxcJ4Q2nueSKZZTVhwcXL76MJ8F2192
+	gpiWbG6d/gdCP/Aq6ihti5lycHI6eQ2xrInKzagg=
+Received: by mx.zohomail.com with SMTPS id 1759150044812903.0717172368667;
+	Mon, 29 Sep 2025 05:47:24 -0700 (PDT)
+Message-ID: <969d4f9d-457e-4188-8741-8d88dda59dc9@collabora.com>
+Date: Mon, 29 Sep 2025 08:47:22 -0400
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 11/12] media: rkvdec: Add HEVC support for the VDPU381
+ variant
+To: Diederik de Haas <didi.debian@cknow.org>, linux-kernel@vger.kernel.org
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Heiko Stuebner <heiko@sntech.de>, linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ kernel@collabora.com
+References: <20250808200340.156393-1-detlev.casanova@collabora.com>
+ <20250808200340.156393-12-detlev.casanova@collabora.com>
+ <DCXPZ9JSN7H2.3B76IQI8N4O6H@cknow.org>
+Content-Language: en-US
+From: Detlev Casanova <detlev.casanova@collabora.com>
+In-Reply-To: <DCXPZ9JSN7H2.3B76IQI8N4O6H@cknow.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_053628_004002_A4EA753D 
-X-CRM114-Status: GOOD (  35.08  )
+X-CRM114-CacheID: sfid-20250929_054741_603973_F4126AC9 
+X-CRM114-Status: GOOD (  20.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,130 +83,181 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon 29 Sep 2025 at 11:15, Chuan Liu <chuan.liu@amlogic.com> wrote:
+Hi Diederik
 
-> Hi Martin:
+Thanks for spotting that ! I'll change it in the next patch set :)
+
+Detlev.
+
+On 9/20/25 11:07, Diederik de Haas wrote:
+> Hi again,
 >
-> Thanks for the detailed explanation.
+> I think I've found a similar issue here as I did for H264.
 >
->
-> On 9/29/2025 4:55 AM, Martin Blumenstingl wrote:
->> [ EXTERNAL EMAIL ]
+> On Fri Aug 8, 2025 at 10:03 PM CEST, Detlev Casanova wrote:
+>> The VDPU381 supports HEVC decoding up to 7680x4320@30fps.
+>> It could double that when using both decoder cores.
 >>
->> Hello,
+>> It support YUV420 (8 and 10 bits) as well as AFBC (not implemented
+>> here)
 >>
->> On Sun, Sep 28, 2025 at 8:41=E2=80=AFAM Chuan Liu <chuan.liu@amlogic.com=
-> wrote:
->>>
->>> On 9/28/2025 2:05 PM, Chuan Liu wrote:
->>>> Hi Jerome & Martin:
->>>>
->>>> Sorry for the imprecise description of the glitch-free mux earlier.
->>>>
->>>> Recently, while troubleshooting a CPU hang issue caused by glitches,
->>>> I realized there was a discrepancy from our previous understanding,
->>>> so I'd like to clarify it here.
->> [...]
->>> An example of the clock waveform is shown below:
->>>
->>>
->>>          __    __    __    __    __    __    __    __
->>> ori:  =E2=86=91  |__=E2=86=91  |__=E2=86=91  |__=E2=86=91  |__=E2=86=91=
-  |__=E2=86=91  |__=E2=86=91  |__=E2=86=91  |__=E2=86=91
->>>                     ^
->>>                     1 * cycle original channel.
->>>          _   _   _   _   _   _   _   _   _   _   _   _
->>> new:  =E2=86=91 |_=E2=86=91 |_=E2=86=91 |_=E2=86=91 |_=E2=86=91 |_=E2=
-=86=91 |_=E2=86=91 |_=E2=86=91 |_=E2=86=91 |_=E2=86=91 |_=E2=86=91 |_=E2=86=
-=91 |_=E2=86=91
->>>                                         ^
->>>                                         5 * cycles new channel.
->>>          __    __                        _   _   _   _
->>> out:  =E2=86=91  |__=E2=86=91  |______________________=E2=86=91 |_=E2=
-=86=91 |_=E2=86=91 |_=E2=86=91 |_=E2=86=91
->>>                ^                        ^
->>>                start switching mux.     switch to new channel.
->> Thank you for the detailed report!
->> This is indeed problematic behavior. I guess the result is somewhat
->> random: depending on load (power draw), silicon lottery (quality),
->> temperature, voltage supply, ... - one may or may not see crashes
->> caused by this.
->
->
-> Yes, our glitch-free mux is designed to prevent glitches caused by
-> excessively short high or low levels in the clock output.
->
->
+>> The fluster score is 146/147 for JCT-VC-HEVC_V1, tested on ROCK 5B.
+>> None of the other test suites works.
 >>
->> Based on the previous discussion on this topic, my suggestion is to
->> split the original patch:
->> - one to add CLK_SET_RATE_GATE where needed (I think the meson8b.c
->> driver already has this where needed) to actually enable the
->> glitch-free mux behavior
->> - another one with the CLK_OPS_PARENT_ENABLE change (meson8b.c would
->> also need to be updated) to prevent the glitch-free mux from
->> temporarily outputting an electrical low signal. Jerome also asked to
->> document the behavior so we don't forget why we set this flag
+>> Signed-off-by: Detlev Casanova <detlev.casanova@collabora.com>
+>> ---
+>>   .../media/platform/rockchip/rkvdec/Kconfig    |    1 +
+>>   .../media/platform/rockchip/rkvdec/Makefile   |    2 +
+>>   .../platform/rockchip/rkvdec/rkvdec-cabac.c   | 3435 +++++++++++++++++
+>>   .../rockchip/rkvdec/rkvdec-hevc-common.c      |  546 +++
+>>   .../rockchip/rkvdec/rkvdec-hevc-common.h      |  101 +
+>>   .../rockchip/rkvdec/rkvdec-vdpu381-hevc.c     |  596 +++
+>>   .../media/platform/rockchip/rkvdec/rkvdec.c   |   81 +
+>>   .../media/platform/rockchip/rkvdec/rkvdec.h   |    1 +
+>>   8 files changed, 4763 insertions(+)
+>>   create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.c
+>>   create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-hevc-common.h
+>>   create mode 100644 drivers/media/platform/rockchip/rkvdec/rkvdec-vdpu381-hevc.c
 >>
->> Both patches should get the proper "Fixes" tags.
->> I think it would also be great if you could include the waveform
->> example in at least the commit message as it helps understand the
->> problem.
+>> diff --git a/drivers/media/platform/rockchip/rkvdec/Kconfig b/drivers/media/platform/rockchip/rkvdec/Kconfig
+>> index 5f3bdd848a2cf..3303b0ce32809 100644
+>> --- a/drivers/media/platform/rockchip/rkvdec/Kconfig
+>> +++ b/drivers/media/platform/rockchip/rkvdec/Kconfig
+>> @@ -8,6 +8,7 @@ config VIDEO_ROCKCHIP_VDEC
+>>   	select VIDEOBUF2_VMALLOC
+>>   	select V4L2_MEM2MEM_DEV
+>>   	select V4L2_H264
+>> +	select V4L2_HEVC
+>>   	select V4L2_VP9
+>>   	help
+>>   	  Support for the Rockchip Video Decoder IP present on Rockchip SoCs,
 >>
->> Let's also give Jerome some time to comment before you send patches.
->
->
-> A V2 version was submitted later with changes based on your suggestions.
-> Regarding the "Fixes" tag, Jerome had proposed some modifications.
->
-> [PATCH v2 0/3] clk: Fix issues related to CLK_IGNORE_UNUSED failures and
-> amlogic glitch free mux - Chuan Liu via B4 Relay
-> <https://lore.kernel.org/all/20241111-fix_glitch_free-v2-0-0099fd9ad3e5@a=
-mlogic.com/>
->
-
-The comments I've provided on this still stands.
-
->
-> Adding CLK_OPS_PARENT_ENABLE causes the CLK_IGNORE_UNUSED configuration
-> of it's parent clocks on the chain to become ineffective, so this patch
-> depends on fixing that issue before it can proceed.
-
-Unused clocks are NOT a configuration.
-
-They are by-product of the bootloader. You cannot rely on them. If
-anything depends on them, you have a(nother) problem to solve.=20
-
->
->
-> Jerome and I have submitted patches to address the issue of
-> CLK_IGNORE_UNUSED becoming ineffective. I originally planned to wait
-> for progress on this patch and then incorporate Jerome's feedback before
-> sending the V3 version.
-
-I've provided a suggestion but this something happening in clock core.
-I suggest that you split this out of your series so things that need to
-go through Stephen are not mixed with Amlogic stuff.
-
-But again, you cannot rely on the state of clock just because it has
-CLK_IGNORE_UNUSED:
-
-* Nothing says it is enabled to begin with
-* Nothing says it will stay on if a consumer comes and goes
-* ... and yes, it does not survive CCF usage checking down the road.
-
-It is unreliable and it is not meant to be more than that, AFAIK
-
->
-> Hi Jerome, sorry if this caused any misunderstanding on your part; I
-> will provide timely feedback moving forward.
->
->
+>> ...
 >>
->>
->> Best regards,
->> Martin
-
---=20
-Jerome
+>> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.c b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+>> index dab34a2322c95..cd01f1e41beb5 100644
+>> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+>> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.c
+>> @@ -257,6 +257,60 @@ static const struct rkvdec_ctrls rkvdec_h264_ctrls = {
+>>   	.num_ctrls = ARRAY_SIZE(rkvdec_h264_ctrl_descs),
+>>   };
+>>   
+>> +static const struct rkvdec_ctrl_desc rkvdec_hevc_ctrl_descs[] = {
+>> +	{
+>> +		.cfg.id = V4L2_CID_STATELESS_HEVC_DECODE_PARAMS,
+>> +	},
+>> +	{
+>> +		.cfg.id = V4L2_CID_STATELESS_HEVC_SPS,
+>> +		.cfg.ops = &rkvdec_ctrl_ops,
+>> +	},
+>> +	{
+>> +		.cfg.id = V4L2_CID_STATELESS_HEVC_PPS,
+>> +	},
+>> +	{
+>> +		.cfg.id = V4L2_CID_STATELESS_HEVC_SCALING_MATRIX,
+>> +	},
+>> +	{
+>> +		.cfg.id = V4L2_CID_STATELESS_HEVC_DECODE_MODE,
+>> +		.cfg.min = V4L2_STATELESS_HEVC_DECODE_MODE_FRAME_BASED,
+>> +		.cfg.max = V4L2_STATELESS_HEVC_DECODE_MODE_FRAME_BASED,
+>> +		.cfg.def = V4L2_STATELESS_HEVC_DECODE_MODE_FRAME_BASED,
+>> +	},
+>> +	{
+>> +		.cfg.id = V4L2_CID_STATELESS_HEVC_START_CODE,
+>> +		.cfg.min = V4L2_STATELESS_HEVC_START_CODE_ANNEX_B,
+>> +		.cfg.def = V4L2_STATELESS_HEVC_START_CODE_ANNEX_B,
+>> +		.cfg.max = V4L2_STATELESS_HEVC_START_CODE_ANNEX_B,
+>> +	},
+>> +	{
+>> +		.cfg.id = V4L2_CID_MPEG_VIDEO_HEVC_PROFILE,
+>> +		.cfg.min = V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN,
+>> +		.cfg.max = V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_10,
+>> +		.cfg.menu_skip_mask =
+>> +			BIT(V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN_STILL_PICTURE),
+>> +		.cfg.def = V4L2_MPEG_VIDEO_HEVC_PROFILE_MAIN,
+>> +	},
+>> +	{
+>> +		.cfg.id = V4L2_CID_MPEG_VIDEO_HEVC_LEVEL,
+>> +		.cfg.min = V4L2_MPEG_VIDEO_HEVC_LEVEL_1,
+>> +		.cfg.max = V4L2_MPEG_VIDEO_HEVC_LEVEL_6_1,
+>> +	},
+>> +	{
+>> +		.cfg.id = V4L2_CID_STATELESS_HEVC_EXT_SPS_ST_RPS,
+>> +		.cfg.dims = { 65 },
+>> +	},
+>> +	{
+>> +		.cfg.id = V4L2_CID_STATELESS_HEVC_EXT_SPS_LT_RPS,
+>> +		.cfg.dims = { 65 },
+>> +	},
+>> +};
+>> +
+>> +static const struct rkvdec_ctrls rkvdec_hevc_ctrls = {
+>> +	.ctrls = rkvdec_hevc_ctrl_descs,
+>> +	.num_ctrls = ARRAY_SIZE(rkvdec_hevc_ctrl_descs),
+>> +};
+>> +
+>>   static const struct rkvdec_decoded_fmt_desc rkvdec_h264_decoded_fmts[] = {
+>>   	{
+>>   		.fourcc = V4L2_PIX_FMT_NV12,
+>> @@ -276,6 +330,17 @@ static const struct rkvdec_decoded_fmt_desc rkvdec_h264_decoded_fmts[] = {
+>>   	},
+>>   };
+>>   
+>> +static const struct rkvdec_decoded_fmt_desc rkvdec_hevc_decoded_fmts[] = {
+>> +	{
+>> +		.fourcc = V4L2_PIX_FMT_NV12,
+>> +		.image_fmt = RKVDEC_IMG_FMT_420_8BIT,
+>> +	},
+>> +	{
+>> +		.fourcc = V4L2_PIX_FMT_NV15,
+>> +		.image_fmt = RKVDEC_IMG_FMT_420_10BIT,
+>> +	},
+>> +};
+>> +
+>>   static const struct rkvdec_ctrl_desc rkvdec_vp9_ctrl_descs[] = {
+>>   	{
+>>   		.cfg.id = V4L2_CID_STATELESS_VP9_FRAME,
+>> @@ -354,6 +419,22 @@ static const struct rkvdec_coded_fmt_desc vdpu381_coded_fmts[] = {
+>>   		.decoded_fmts = rkvdec_h264_decoded_fmts,
+>>   		.subsystem_flags = VB2_V4L2_FL_SUPPORTS_M2M_HOLD_CAPTURE_BUF,
+>>   	},
+>> +	{
+>> +		.fourcc = V4L2_PIX_FMT_HEVC_SLICE,
+>> +		.frmsize = {
+>> +			.min_width = 16,
+>> +			.max_width = 65472,
+>> +			.step_width = 16,
+>> +			.min_height = 16,
+>> +			.max_height = 65472,
+>> +			.step_height = 16,
+>> +		},
+> In the RK3588 TRM Part 1 paragraph 5.4.3, I see "Supported image size" :
+> 64x64 to 65472x65472; step size 16 pixels
+>
+> So I think .min_width and .min_height should be 64, not 16.
+>
+> Cheers,
+>    Diederik
+>
+>> +		.ctrls = &rkvdec_hevc_ctrls,
+>> +		.ops = &rkvdec_vdpu381_hevc_fmt_ops,
+>> +		.num_decoded_fmts = ARRAY_SIZE(rkvdec_hevc_decoded_fmts),
+>> +		.decoded_fmts = rkvdec_hevc_decoded_fmts,
+>> +		.subsystem_flags = VB2_V4L2_FL_SUPPORTS_M2M_HOLD_CAPTURE_BUF,
+>> +	},
+>>   };
+>>   
+>>   static const struct rkvdec_coded_fmt_desc vdpu383_coded_fmts[] = {
+>> diff --git a/drivers/media/platform/rockchip/rkvdec/rkvdec.h b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+>> index acb9d72b130bb..df56bc0516ac9 100644
+>> --- a/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+>> +++ b/drivers/media/platform/rockchip/rkvdec/rkvdec.h
+>> @@ -173,6 +173,7 @@ extern const struct rkvdec_coded_fmt_ops rkvdec_vp9_fmt_ops;
+>>   
+>>   /* VDPU381 ops */
+>>   extern const struct rkvdec_coded_fmt_ops rkvdec_vdpu381_h264_fmt_ops;
+>> +extern const struct rkvdec_coded_fmt_ops rkvdec_vdpu381_hevc_fmt_ops;
+>>   
+>>   /* VDPU383 ops */
+>>   extern const struct rkvdec_coded_fmt_ops rkvdec_vdpu383_h264_fmt_ops;
 
