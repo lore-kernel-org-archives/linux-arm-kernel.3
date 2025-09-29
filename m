@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E47C6CCA46F
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E38CCAC5B9
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 16:05:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,41 +12,41 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fSZ81Bbw+7LGCUebjT26vPdVEaBPyZdLaJTfLQGieHI=; b=ihmkrJYczxALgOqo47Jl2iR9Fh
-	tLQN/qnBk9HiT1tXeMUh9mid/kOq3HA+0p1lGwDWspGXtZRF0NDkyTSlJW4M6Qc8O+hEUHvnFJnY8
-	TeIP7p1anhsiv8rp8dQKnDYXrbcbMx08XU8mixO5GRzAfrxLfTQMiXJppA/hUKYEqPuO0pAzxBlg3
-	CDpsU380IhwgFjmaMgQruNra2P2+Zbso16oyzBj+Ymgry19JcTSA7bhdw9f3jLWYTIZ/okrXOovyL
-	TdE4FgwWxNhaECouRjXW1dHmmmm4TeySb5syqAZ4Q2WczV/izSNBy+LCRjLRmZnYH+Zp2CtGC7qKP
-	IeuTJ/OA==;
+	bh=gQx/cfF/b4xd0t5H1hY9350lLZiCXvHE6YrYkjtJq2o=; b=yyhxSnf4WfmFRyiZXQVRZqood0
+	58CICHRQvgTfOwCpaLNR1AfdQNz500D3ipphosxLksNfcRVVyIrz5VxOr3tDN0ZoGKD1udMiOL4n/
+	4jx51L+26o6XELW352nh+uf3un117aCnQgBCr+nL2451fDySX4Gs2tdpn4VlF+gxRNnrgmQPbGpLd
+	zxt1tKw6YqIYQaKkLBV7YjLS0n04Dp3RqFbouAmeM3bdGbz1uCPJSxnLso1X2fcRj45Ct1BrDTcX/
+	+cNI7cx4E9H/rPYhUw+ssxVJC0nl917ItMyBmI5e2nolDGyEIvx/De1ipL2E6Iadig7qbrxMFyJ4Q
+	DMy+LwOg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3GNB-00000002tyQ-1ny5;
+	id 1v3GNB-00000002tyn-38pc;
 	Mon, 29 Sep 2025 16:05:09 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3GN9-00000002tu2-12FM
+	id 1v3GN9-00000002tu4-1hgc
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 29 Sep 2025 16:05:07 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A93F8625F2;
+	by tor.source.kernel.org (Postfix) with ESMTP id C466C625F5;
 	Mon, 29 Sep 2025 16:05:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A49AC4CEF4;
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75BADC116B1;
 	Mon, 29 Sep 2025 16:05:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1759161906;
-	bh=+R9Ysx4E7t/BLtOfZcuyafnu20V9cRN3ygXcqoeEjbc=;
+	bh=5tQEXQDyC9vxxdE7mqQF1/f3C1/wRXDxUYy358duArk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=K5H5NiDMxRsM/YeLbg3+34C6jxa+OW4eEecx9g1UYqYak28SF7Sbxx/rzBW1HQDUa
-	 Q1ezLZivy3pJLL3AnX2VVGOCU+QQ7ln2Zh1tx0k92BpYNPwBzSElxInJBF9WoEQAkY
-	 NCtwFm1yDXcOVBDOwKAW31ypRb7E8qNDhRWhHsS5+VdAXO/sg/0H1erbCr5rrzw3jn
-	 2D1kSiVEuKptsdtU7Yg21PuAvWriOci42/gAOeqnYCCv3jDnX0GZZVeEvCkpUDHm32
-	 JQJJWL/9hf8VWUg5VD+2RBTSsWnu5KuHHzLyuxEJtcRnqpb4VtFinLPgtT4x8/S8ST
-	 1muI3WkPbL41g==
+	b=mguS8PJ5es/pXZHYSoUzE5f0pJHxXShYNFeHBATXJCfJPpnIjqDmin7B9UFwA6NS8
+	 D2Mce+VHPJlEfE7aGWv7wzg8kL3xtBu0XlUfStAQDF9zCglTqyxOAyBRuQiMwwfuwh
+	 fhQzeSFOU6UfqBKmZTd/lScxHViysNxPdFUH26C3m+B+exPp2PeqxDsWoKyhJGjpUS
+	 bqehRPK182VHHyk5A1OcrIUKsKshfjXqy2UdW9eETGhplzKIi91DZplPslPpEan2Lp
+	 lipbvtqUZt6FlYeczaSzyHcXbfEpaK1a0si9a/Uie9Y0Zrcr8sw13M08xKORfv4tVB
+	 3lMOf8klTDaQA==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1v3GN6-0000000AHqo-1J5v;
+	id 1v3GN6-0000000AHqo-2L5H;
 	Mon, 29 Sep 2025 16:05:04 +0000
 From: Marc Zyngier <maz@kernel.org>
 To: kvmarm@lists.linux.dev,
@@ -56,9 +56,9 @@ Cc: Joey Gouly <joey.gouly@arm.com>,
 	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Oliver Upton <oliver.upton@linux.dev>,
 	Zenghui Yu <yuzenghui@huawei.com>
-Subject: [PATCH 04/13] KVM: arm64: Make timer_set_offset() generally accessible
-Date: Mon, 29 Sep 2025 17:04:48 +0100
-Message-ID: <20250929160458.3351788-5-maz@kernel.org>
+Subject: [PATCH 05/13] KVM: arm64: Add timer UAPI workaround to sysreg infrastructure
+Date: Mon, 29 Sep 2025 17:04:49 +0100
+Message-ID: <20250929160458.3351788-6-maz@kernel.org>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20250929160458.3351788-1-maz@kernel.org>
 References: <20250929160458.3351788-1-maz@kernel.org>
@@ -82,55 +82,112 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the timer_set_offset() helper to arm_arch_timer.h, so that it
-is next to timer_get_offset(), and accessible by the rest of KVM.
+Amongst the numerous bugs that plague the KVM/arm64 UAPI, one of
+the most annoying thing is that the userspace view of the virtual
+timer has its CVAL and CNT encodings swapped.
+
+In order to reduce the amount of code that has to know about this,
+start by adding handling for this bug in the sys_reg code.
+
+Nothing is making use of it yet, as the code responsible for userspace
+interaction is catching the accesses early.
 
 Signed-off-by: Marc Zyngier <maz@kernel.org>
 ---
- arch/arm64/kvm/arch_timer.c  | 10 ----------
- include/kvm/arm_arch_timer.h | 10 ++++++++++
- 2 files changed, 10 insertions(+), 10 deletions(-)
+ arch/arm64/kvm/sys_regs.c | 33 ++++++++++++++++++++++++++++++---
+ arch/arm64/kvm/sys_regs.h |  6 ++++++
+ 2 files changed, 36 insertions(+), 3 deletions(-)
 
-diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-index c832c293676a3..27662a3a3043e 100644
---- a/arch/arm64/kvm/arch_timer.c
-+++ b/arch/arm64/kvm/arch_timer.c
-@@ -146,16 +146,6 @@ static void timer_set_cval(struct arch_timer_context *ctxt, u64 cval)
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index 9f2f4e0b042e8..8e6f50f54b4bf 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -5231,15 +5231,28 @@ static int demux_c15_set(struct kvm_vcpu *vcpu, u64 id, void __user *uaddr)
  	}
  }
  
--static void timer_set_offset(struct arch_timer_context *ctxt, u64 offset)
--{
--	if (!ctxt->offset.vm_offset) {
--		WARN(offset, "timer %d\n", arch_timer_ctx_index(ctxt));
--		return;
--	}
--
--	WRITE_ONCE(*ctxt->offset.vm_offset, offset);
--}
--
- u64 kvm_phys_timer_read(void)
- {
- 	return timecounter->cc->read(timecounter->cc);
-diff --git a/include/kvm/arm_arch_timer.h b/include/kvm/arm_arch_timer.h
-index d8e400cb2bfff..5f7f2ed8817c5 100644
---- a/include/kvm/arm_arch_timer.h
-+++ b/include/kvm/arm_arch_timer.h
-@@ -179,4 +179,14 @@ static inline u64 timer_get_offset(struct arch_timer_context *ctxt)
- 	return offset;
- }
- 
-+static inline void timer_set_offset(struct arch_timer_context *ctxt, u64 offset)
++static u64 kvm_one_reg_to_id(const struct kvm_one_reg *reg)
 +{
-+	if (!ctxt->offset.vm_offset) {
-+		WARN(offset, "timer %d\n", arch_timer_ctx_index(ctxt));
-+		return;
++	switch(reg->id) {
++	case KVM_REG_ARM_TIMER_CVAL:
++		return TO_ARM64_SYS_REG(CNTV_CVAL_EL0);
++	case KVM_REG_ARM_TIMER_CNT:
++		return TO_ARM64_SYS_REG(CNTVCT_EL0);
++	default:
++		return reg->id;
 +	}
-+
-+	WRITE_ONCE(*ctxt->offset.vm_offset, offset);
 +}
 +
- #endif
+ int kvm_sys_reg_get_user(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg,
+ 			 const struct sys_reg_desc table[], unsigned int num)
+ {
+ 	u64 __user *uaddr = (u64 __user *)(unsigned long)reg->addr;
+ 	const struct sys_reg_desc *r;
++	u64 id = kvm_one_reg_to_id(reg);
+ 	u64 val;
+ 	int ret;
+ 
+-	r = id_to_sys_reg_desc(vcpu, reg->id, table, num);
++	r = id_to_sys_reg_desc(vcpu, id, table, num);
+ 	if (!r || sysreg_hidden(vcpu, r))
+ 		return -ENOENT;
+ 
+@@ -5272,13 +5285,14 @@ int kvm_sys_reg_set_user(struct kvm_vcpu *vcpu, const struct kvm_one_reg *reg,
+ {
+ 	u64 __user *uaddr = (u64 __user *)(unsigned long)reg->addr;
+ 	const struct sys_reg_desc *r;
++	u64 id = kvm_one_reg_to_id(reg);
+ 	u64 val;
+ 	int ret;
+ 
+ 	if (get_user(val, uaddr))
+ 		return -EFAULT;
+ 
+-	r = id_to_sys_reg_desc(vcpu, reg->id, table, num);
++	r = id_to_sys_reg_desc(vcpu, id, table, num);
+ 	if (!r || sysreg_hidden(vcpu, r))
+ 		return -ENOENT;
+ 
+@@ -5338,10 +5352,23 @@ static u64 sys_reg_to_index(const struct sys_reg_desc *reg)
+ 
+ static bool copy_reg_to_user(const struct sys_reg_desc *reg, u64 __user **uind)
+ {
++	u64 idx;
++
+ 	if (!*uind)
+ 		return true;
+ 
+-	if (put_user(sys_reg_to_index(reg), *uind))
++	switch (reg_to_encoding(reg)) {
++	case SYS_CNTV_CVAL_EL0:
++		idx = KVM_REG_ARM_TIMER_CVAL;
++		break;
++	case SYS_CNTVCT_EL0:
++		idx = KVM_REG_ARM_TIMER_CNT;
++		break;
++	default:
++		idx = sys_reg_to_index(reg);
++	}
++
++	if (put_user(idx, *uind))
+ 		return false;
+ 
+ 	(*uind)++;
+diff --git a/arch/arm64/kvm/sys_regs.h b/arch/arm64/kvm/sys_regs.h
+index 317abc490368d..b3f904472fac5 100644
+--- a/arch/arm64/kvm/sys_regs.h
++++ b/arch/arm64/kvm/sys_regs.h
+@@ -257,4 +257,10 @@ int kvm_finalize_sys_regs(struct kvm_vcpu *vcpu);
+ 	(val);								       \
+ })
+ 
++#define TO_ARM64_SYS_REG(r)	ARM64_SYS_REG(sys_reg_Op0(SYS_ ## r),	\
++					      sys_reg_Op1(SYS_ ## r),	\
++					      sys_reg_CRn(SYS_ ## r),	\
++					      sys_reg_CRm(SYS_ ## r),	\
++					      sys_reg_Op2(SYS_ ## r))
++
+ #endif /* __ARM64_KVM_SYS_REGS_LOCAL_H__ */
 -- 
 2.47.3
 
