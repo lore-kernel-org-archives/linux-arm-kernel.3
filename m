@@ -4,85 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2450DCAC5B9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 20:06:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 085ADCAC5B9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 20:07:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=PNXWXlHT5+84YH+qmxDCb+3VQowVLVSncoXOi7xa9mU=; b=WPWQ04a6aMO2WmpirqMSbIWjYu
-	CvJeV55OS4fr/yXNlbKTwryYYi8ynRMYCteFlYDV9MjLrXjlc4hj1ANXqWT1ycahU+o3G+BvR3Rg7
-	rcUmtg34ZrFoY749o2YlKvCQAop0g9oAcQP407QQqfsBWcRJYlAqTGpFkn9wB7HNqdngbjy8P1e4t
-	jJLpJtgZHw9gUEPkDfgLO3Qm/bwJBUDX+/f+stPNLg0b+SUDLkxwStvxAWQCE71NuUVv96FFpXVya
-	yL+A10eI18Hg1bk13rgXsLDl8neLNKIHO5LbNF3aMx7OGfLyfR18A5nRFtKdjefjXVSZugsMoi9H+
-	cIwWPo8A==;
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SqovZHXYm5Oo5CU4XtE9N0uxOF2JJp5QxUlgkpF6rV8=; b=lblnKhGw2jOC61jr7TlSn6CHJ3
+	9YFyhTbTIn+gtG5JU1tlBoXhj480gaobDwpeS8doinTbheAf+odHxJ5dpu4T1fY8EfvNJVoTJyu9J
+	aGHYXgprNT2shitBsnorK8SzLKYmLGZBXxZIKaoj/atnuQyOy6uYMOGULe1sZDGPzt6GVLrPLNsZi
+	eOMUGq2Nunevz4fNSOS4lNU0L7IVOrNXyXRVjKXiw+9j3kEderaq7t8tN9JwewU9h34g1mjUurAxw
+	ML8Px2owr35XX0QZivSNraH9fMuzwMhCyJQ2hoD2292+ExMtrzFSJGpqI1NIAKj8D7WdrTbLop7C1
+	u8223v/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3K8w-00000003PpT-2tIo;
-	Mon, 29 Sep 2025 20:06:42 +0000
-Received: from mail-pg1-x565.google.com ([2607:f8b0:4864:20::565])
+	id 1v3K9H-00000003PuL-4Atn;
+	Mon, 29 Sep 2025 20:07:03 +0000
+Received: from mail-pl1-x663.google.com ([2607:f8b0:4864:20::663])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3K8u-00000003Pp3-03oY
+	id 1v3K9F-00000003Ptm-1280
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 20:06:41 +0000
-Received: by mail-pg1-x565.google.com with SMTP id 41be03b00d2f7-b523fb676efso4989281a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 13:06:39 -0700 (PDT)
+	Mon, 29 Sep 2025 20:07:02 +0000
+Received: by mail-pl1-x663.google.com with SMTP id d9443c01a7336-27eceb38eb1so62095315ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 13:07:01 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759176399; x=1759781199;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:dkim-signature:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=PNXWXlHT5+84YH+qmxDCb+3VQowVLVSncoXOi7xa9mU=;
-        b=N2uDnrLbf4wlwWShzufDlFTQ2Pqwoy2Fv3urFXhNnKAz5ZyLSX6mvxtBR5kFyVXoLh
-         5P7a4fqSBB/7lGRv24BZG7SEyg2kqBW+9M70feAJF2k532DNF4hss+e2uCY8Zf5j9DF4
-         LG5ITXB3JQpFuyU9Wc1cZkBOR8CIgiZv7o9lZuvoGlzxdJwuZ9xurHuPvGUNqjloCfqX
-         QPiUX4z9HbGOypGgVrj5OuEb/CZWA5+2nbGzJESueGS/AO1pU7A3S+P5C4u/YRSYfyec
-         UaKq8vjrapzFQ2EaKpT3WOAMv+GwA9xF5AM0LuPv67knhO6CyfGW48p9g1Ms2X08PyKX
-         /HOg==
-X-Forwarded-Encrypted: i=1; AJvYcCVTiLgYKnXieP+oSsowE4vY94+ZR8DjVL38rpmlGNNVqhW9G66/AKhOrjEZhcR8Ed3C6IrtGlWIKxhOhVSJYNoz@lists.infradead.org
-X-Gm-Message-State: AOJu0YzAWzMtYFU5og7Pn9OoJwO6q3Qeuvb8C+TDnRL3q533vbQkzDGh
-	nVugPpcrECrCaWiY/8u/nlmUS/LjVJMQwcfcMvGqhnwIhrzz5pdbLfA0WPxIKlnFHZbOXOOhpCp
-	wkSxNDDJ5qaHCqPujiHnNEo+VN7bT0NS0KnGDQXyrYE7lhyStxSoo78DKkcY9f3Kg6Cc5J77TCg
-	t57xh3Xl6lS7BhvvYL0ludem+eFmbIL6UVOsGBEG4gqPI1WbKot4OeTRoVIUm1uZfmaP2Yu04lV
-	/+Z3hHTovWapsEeN/yxj9R77/FyHg==
-X-Gm-Gg: ASbGncsIyXjh1fFeenJGBFEiIBAXTUB1pkQnn+uVP7NzFs8kWEkyXnWVLN3Os4tLMpa
-	+8UnidbUV+KS35IOrxpMtlW6kbbXRGxn+YGoXXT0Few1x7OS4+pCzu6/tXjEPpfcokl5Rx3+BaN
-	RFgD7vxh7e/K87Zy94miQ7jhtItC/U9J8B3XXaxOVrKtuE10zQ7JOKyn7LK8go8WfJfVkmBInnb
-	7On9eFOQfIFbPMfqMwVYOShgVE+NqEyVCtnqUAPVuLN/6ZFX3C32NzKrOWJZ+NXImSMApvyprnA
-	1OOcBhK0n9FNNoEL2aCVMzoKZDDSv1L3sA5HiH2hJfezqeWo3ZS1xHKnMkb8SC+qZSRBjL8g3+O
-	eE9vpF/6ngdLmWmigC1dT1sH7Aae9kqKR4T0wMMxXjJd1Cai/qI0jixl7eH6M88SA1gPFmHedW3
-	A=
-X-Google-Smtp-Source: AGHT+IFOCdrQI77lE8iRG0Xi+AeKp+X6DbULhPjq/WFfRboSetwKOkKLFI1N0zIfTGnUORU0Mj41EzT4X4Ee
-X-Received: by 2002:a17:902:f688:b0:269:9adf:839 with SMTP id d9443c01a7336-27ed49d0be2mr203344725ad.19.1759176398729;
-        Mon, 29 Sep 2025 13:06:38 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-100.dlp.protect.broadcom.com. [144.49.247.100])
-        by smtp-relay.gmail.com with ESMTPS id d9443c01a7336-27ed66dc6fcsm10348035ad.16.2025.09.29.13.06.38
+        d=1e100.net; s=20230601; t=1759176420; x=1759781220;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=SqovZHXYm5Oo5CU4XtE9N0uxOF2JJp5QxUlgkpF6rV8=;
+        b=UXN4/roOx5EUQkTtQ+DOiUqZ1ixMBmzYB0gZ+Wda9HXwfUqCVEs+9ZD5EoGbcjCRJy
+         RIsXrd1DfbGeWUs4kcOruZbOhipICeSXnhM3TnS4UbasqAPFrKl/EMQfnQzgjOF37YqZ
+         s5zIF3W2t5/PaYJwezmygmsqI2O/Y+GG4Rll2+8z6b9V34hGelcHnPFhfJrBJVNDGWYr
+         TbeIvL2TtfeTvdH/066u2INO6Mm6vhbVRazDKOgfCc0OjmUI1JTVGrkBMJyn3c3coICW
+         Deza8MEWS2WaktY7W5zfAHugg53uZEwP1zchJ2uToffdyzaIB3CaGTVUE2f3E0bPfTrA
+         ERQw==
+X-Forwarded-Encrypted: i=1; AJvYcCVjBu84MBMpOd5VL7eFfwnYA4ojafej0iZm6RQujgcxb0iv7st2wd7KVouUQRyMXDhx/wOwzlsZNzYPRcCaEs00@lists.infradead.org
+X-Gm-Message-State: AOJu0YyVicD9841LAcYl+7YY9X8GnHpCerbAJEKmLIBIQas6IWWDnLlI
+	AfvdyImzX2fcUsfrwDhjzDKaNjDV8wM0UNOCIKz2KsdQ09zVfGg5IbQeFVz0OQB9FYPBQGABlKd
+	VHQMSOKnVsZawaWuTBwsToUy/DWgn7kgHNqoXNNoD6zDl7exVLHWSMaHesjdOO3hanuvj/QyUS/
+	p45bQMx1k96+1sF5T91C64SeGZ7ggi+dPyxjKCDoGDrVaStcrAHVr5LSgIuzS6WfRJqDyE+Z2yx
+	MDmS+aFz5LICIWcXxxHgC9fdlk=
+X-Gm-Gg: ASbGnctA10bUzirWy/pmoDhUHJjEkLpR6avhzlnuTE3A2GIBY2kxxDlEir1ikLG2LrU
+	Sl+izSFWdvRTZwDv9NZozYwPw/yKsBURbX64gSt4Fb1WGMzFaiB6vZagfuSHpEk1Zl1tId/agb4
+	NxmJBSL7gtQCYolL6o/dM+7PbQz90V9FSHIx9m1BPGr2EsKxvkVS29S08l6LhQhQ3imJtlfTpMt
+	QY2Qj06kR4t7QSzyoCXeKnm2afUuwZOFVH9evYQYR4rEi2iUoizcEQPksTy50RQplNrcMNOeR/f
+	eKYQxw1ORp8AOULuSUrEtzcD6RyMCwfR5MLAvpnyWgQimcHBkPWm3JKi1yDB8wDOJKUR5lIo4oX
+	IZfTQ1XrWURT4//hJrNdi
+X-Google-Smtp-Source: AGHT+IH7LNf3NMsH8aSk5qfYVTX4A/54Z9ExdbMVRk2iT163PnRh00A5p3jPIaGe4ubaGZ36ZyCzD2HsTEB+
+X-Received: by 2002:a17:902:d54a:b0:283:c950:a783 with SMTP id d9443c01a7336-283c96f3137mr90124875ad.56.1759176420277;
+        Mon, 29 Sep 2025 13:07:00 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com ([144.49.247.127])
+        by smtp-relay.gmail.com with ESMTPS id d9443c01a7336-27ed67e6700sm10641715ad.42.2025.09.29.13.06.59
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 29 Sep 2025 13:06:38 -0700 (PDT)
+        Mon, 29 Sep 2025 13:07:00 -0700 (PDT)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-b55153c5ef2so3400964a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 13:06:37 -0700 (PDT)
+Received: by mail-pj1-f69.google.com with SMTP id 98e67ed59e1d1-336b646768eso3236393a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 13:06:59 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1759176397; x=1759781197; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=PNXWXlHT5+84YH+qmxDCb+3VQowVLVSncoXOi7xa9mU=;
-        b=Vep7dTKm8UTp8LzPvJqcTNW4klRBCacNhdQ0S76xIbCu8pYCMywZjHSS3yGoD+RaZU
-         5hIpjSBZAfYb7rfNqH8+F9P2AFaUH/1hmPfsI4lsi5TzPUS3CuXl4tXfALnIWIO5HQCT
-         t64CwWJbdh7PcqDIFogfKK0z+Ws8EEOKTM6E0=
-X-Forwarded-Encrypted: i=1; AJvYcCUA6tQsvG62e7J1xpw0DPdfIzFqLgEUWqgzoHt5FOGg/dm1Lw6fW6DKeOA3ZNsLnBJ9k66VkouZAJ+K4RZ4WIa3@lists.infradead.org
-X-Received: by 2002:a17:90b:4b90:b0:330:a301:35f4 with SMTP id 98e67ed59e1d1-3342a296f22mr20564265a91.20.1759176396992;
-        Mon, 29 Sep 2025 13:06:36 -0700 (PDT)
-X-Received: by 2002:a17:90b:4b90:b0:330:a301:35f4 with SMTP id 98e67ed59e1d1-3342a296f22mr20564239a91.20.1759176396554;
-        Mon, 29 Sep 2025 13:06:36 -0700 (PDT)
+        d=broadcom.com; s=google; t=1759176418; x=1759781218; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=SqovZHXYm5Oo5CU4XtE9N0uxOF2JJp5QxUlgkpF6rV8=;
+        b=BXNub+w/dopMyWrHT3Sr/XZ0AmJGNvreDSEb8jHJWhrqKDQwfVCojZ/fbPnlskzpcW
+         fNuswRnROQpKkHid7UOpRexDjISCDLnxftyv1XyjJRuhvkbf3ETH57xuR5Ce2peiaR43
+         OIG7opYPca+zo0oVLMwziIxzKHQz3oh8e1png=
+X-Forwarded-Encrypted: i=1; AJvYcCU1ctRMbjsGy77tmuTJaYuJpMJNPLj0stlxHXBdv3eNO3vEZ8JEp0JAuo4CFw7toGwhhWAkkP5sX7xqB8Wn37sf@lists.infradead.org
+X-Received: by 2002:a17:90b:1d06:b0:336:9e78:c4c1 with SMTP id 98e67ed59e1d1-3369e78d5c6mr11368277a91.15.1759176418531;
+        Mon, 29 Sep 2025 13:06:58 -0700 (PDT)
+X-Received: by 2002:a17:90b:1d06:b0:336:9e78:c4c1 with SMTP id 98e67ed59e1d1-3369e78d5c6mr11368259a91.15.1759176418122;
+        Mon, 29 Sep 2025 13:06:58 -0700 (PDT)
 Received: from mail.broadcom.net ([192.19.144.250])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-33838735194sm2121479a91.22.2025.09.29.13.06.34
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-33838735194sm2121479a91.22.2025.09.29.13.06.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Sep 2025 13:06:36 -0700 (PDT)
+        Mon, 29 Sep 2025 13:06:57 -0700 (PDT)
 From: Kamal Dasu <kamal.dasu@broadcom.com>
 To: bcm-kernel-feedback-list@broadcom.com,
 	andersson@kernel.org,
@@ -96,16 +96,18 @@ Cc: linux-remoteproc@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
 	Kamal Dasu <kamal.dasu@broadcom.com>
-Subject: [PATCH 0/3] Adding brcmstb-hwspinlock support
-Date: Mon, 29 Sep 2025 16:06:23 -0400
-Message-Id: <20250929200628.3699525-1-kamal.dasu@broadcom.com>
+Subject: [PATCH 1/3] dt-bindings: hwlock:  Adding brcmstb-hwspinlock support
+Date: Mon, 29 Sep 2025 16:06:24 -0400
+Message-Id: <20250929200628.3699525-2-kamal.dasu@broadcom.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20250929200628.3699525-1-kamal.dasu@broadcom.com>
+References: <20250929200628.3699525-1-kamal.dasu@broadcom.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_130640_366353_C2505E4D 
-X-CRM114-Status: GOOD (  11.72  )
+X-CRM114-CacheID: sfid-20250929_130701_287022_DFDBFAE2 
+X-CRM114-Status: GOOD (  13.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,33 +122,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This is standalone patch for the harware semaphore feature for
-brcnstb SoCs. The initial patch was sent as part of different patch
-set shown below. That was not accepted, however the hwspinlock feature
-is geenric for all brcmstb SoCs.
+Adding brcmstb-hwspinlock bindings.
 
-Intial patch:
-url:    https://github.com/intel-lab-lkp/linux/commits/Kamal-Dasu/dt-bindings-brcmstb-hwspinlock-support-for-hwspinlock/20250712-034624
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
-patch link:    https://lore.kernel.org/r/20250711154221.928164-4-kamal.dasu%40broadcom.com
-patch subject: [PATCH 2/4] hwspinlock: brcmstb hardware semaphore support
-
-All the review comments and build warning have been fixed in the current version.
-
-Kamal Dasu (3):
-  dt-bindings: hwlock:  Adding brcmstb-hwspinlock support
-  hwspinlock: brcmstb hardware semaphore support
-  MAINTAINERS: adding entry for BRCMSTB HWSPINLOCK driver
-
- .../hwlock/brcm,brcmstb-hwspinlock.yaml       | 36 +++++++
- MAINTAINERS                                   |  8 ++
- drivers/hwspinlock/Kconfig                    |  9 ++
- drivers/hwspinlock/Makefile                   |  1 +
- drivers/hwspinlock/brcmstb_hwspinlock.c       | 98 +++++++++++++++++++
- 5 files changed, 152 insertions(+)
+Signed-off-by: Kamal Dasu <kamal.dasu@broadcom.com>
+---
+ .../hwlock/brcm,brcmstb-hwspinlock.yaml       | 36 +++++++++++++++++++
+ 1 file changed, 36 insertions(+)
  create mode 100644 Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml
- create mode 100644 drivers/hwspinlock/brcmstb_hwspinlock.c
 
+diff --git a/Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml b/Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml
+new file mode 100644
+index 000000000000..f45399b4fe0b
+--- /dev/null
++++ b/Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml
+@@ -0,0 +1,36 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/hwlock/brcm,brcmstb-hwspinlock.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Broadcom settop Hardware Spinlock
++
++maintainers:
++  - Kamal Dasu <kamal.dasu@broadcom.com>
++
++properties:
++  compatible:
++    const: brcm,brcmstb-hwspinlock
++
++  "#hwlock-cells":
++    const: 1
++
++  reg:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - "#hwlock-cells"
++
++additionalProperties: false
++
++examples:
++  - |
++    hwlock@8404038 {
++        compatible = "brcm,brcmstb-hwspinlock";
++        reg = <0x8404038 0x40>;
++        #hwlock-cells = <1>;
++    };
++
 -- 
 2.34.1
 
