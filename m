@@ -4,91 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7E52CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 13:10:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E58ACAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 13:10:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A1TScXo9HlddRXxyVV537w+xJu4r/bR5+Sl4AGG4P1c=; b=zbcSJGbP8gWExIlbNC6bL7nPSa
-	Yzx+Awicz9FFdJbaHslMcRA1oBJ4zGf5NJ5AmHfoxiI0U5H9Dm4H5fTsnE0Ma4Dq077UGBYjxLce/
-	z+f0yOY31VkxX33rtXgyrMqsn3uRsNmDqqNkhjqe+I6SA5bVo+z7W3pPo3J3f4HjOpyvpaJiP1BYC
-	7auGZR8/KCy84//p1nuwTUhZzVSz0y89QZICNzdr9fcyT/Sx4odJmSVUz1gNHR9dB2DHTP9D4n+GU
-	nFoY50KxOBgXyJu4DDyOMLV9NAZSaU5LL0CYvL+CtRy3HFwxGA6lBHMfeZEwJsStRO/KNraarA35E
-	Mc+s2TpA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TIgtSwakb4S2F49hv2ah0ceDD3kdcrnl68lJO2bz2SI=; b=2l0el46LhsTYc3M//Jgq3dQll/
+	h8rzME5M9F/r7jFs7CAUN+El5N0aDF3WSF77QPzky3oTM7/y6H4b2qonbPM27ivBEzPvtqj1JMZ6A
+	iOjiCBRoBHm8zpYNXLayVmbY1HF3tEmLwM5W5c3k9yajiXw7QpbSfe97sfDnY0uBg7G2XmQ0NTGLs
+	5OhlsyFg2dLHDwZM8aWNXmyI1ds3ElIiS/WU6SuzJRK3WaspGFN7ZgRPh6GhFRravlInqP/zGmV5O
+	zEA6Ty12LELTJ0bqssJyqDNu1Y84FDaj8FDbdTC2DBTZboMY6E0ldml5iHJGk0e6pmM+J4gl7YPb3
+	2xBmhHpA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3De2-00000002Wil-30AM;
-	Mon, 29 Sep 2025 13:10:22 +0000
-Received: from mail-lj1-x22a.google.com ([2a00:1450:4864:20::22a])
+	id 1v3DeF-00000002WnI-06tJ;
+	Mon, 29 Sep 2025 13:10:35 +0000
+Received: from mail-yw1-x1135.google.com ([2607:f8b0:4864:20::1135])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3De0-00000002WiN-0hmw
+	id 1v3DeC-00000002Wll-2odV
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 13:10:21 +0000
-Received: by mail-lj1-x22a.google.com with SMTP id 38308e7fff4ca-36d77ae9de5so41021661fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 06:10:19 -0700 (PDT)
+	Mon, 29 Sep 2025 13:10:33 +0000
+Received: by mail-yw1-x1135.google.com with SMTP id 00721157ae682-71d603cebd9so58643877b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 06:10:32 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1759151418; x=1759756218; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=A1TScXo9HlddRXxyVV537w+xJu4r/bR5+Sl4AGG4P1c=;
-        b=UhrOF2ssElaKpCQt6SYYtd2nWDqLA72PYNC5iyTw3s6Qi1NbetMo/+4FFjIHj53zqy
-         FEla4vn3cRMyPLKAQVi/fqxWlfbTNPyTmiZBsEsQ5T7kRuQOOHNygaMMKgHWf1h8qpJ0
-         R6qzUO6g3xUm4nv/dSGosT4GtUvFPDB2w8HfI7XSkGXY/bgJ5VxPusXFCb+wPkGFiAq8
-         xFQKbv/CJqNgCnm3llr6p/lOoEgBAZPWHN3//pjkfPLMcPbMt+GgBwO5WXRSIYgv0N80
-         3tknVm8EcLOpVm1C7NKon1pFfIpfLMOrR5R0wXgWboWQ3k3zV1AwqhW2pmNUsC8rTCd1
-         wRXQ==
+        d=linaro.org; s=google; t=1759151431; x=1759756231; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=TIgtSwakb4S2F49hv2ah0ceDD3kdcrnl68lJO2bz2SI=;
+        b=rcBrosrgiZ0y6mNEUiurEE+TMk1tVo52FC05A9130qTjckl0WlFayS8KMsvYxE/m6T
+         +gssBbwRfRbyQj7KaGSI+AosMuot9wVsn3+MAHtsEy+ZKxKDEMDpSul17J3bo3RUVf42
+         CR2eVYviyTDIGpDGmdDio2FmA/Ua6ANsYausV0lJomS8Fgotb5Vsy0RMt3s3iGMF6Etp
+         Yke5FtsO35Ysghl82QFlm3CFi26+7DC29BWp+Z/XLfzNVLuBG/d36uysoPdA5qIx9Hlx
+         xZ6yrwLfmb89blYBlLqwN7BjWE5VBKejSGVu6wqLM74/SO2GmX1uQsiFq/I1G6Vmr4B9
+         HGIA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759151418; x=1759756218;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=A1TScXo9HlddRXxyVV537w+xJu4r/bR5+Sl4AGG4P1c=;
-        b=AHRdOj8CaT1DaUmIkY2iFEEAlr+FGlRO2lyzz0+WH+yYRLwYBJau1jJQd6Ka0uA0/Y
-         ImbM5WQnSme0lREV6gtFwCe5gdKkJq2mx1+K5uax3dpYCBqo8ANBv7aFjD5cqx6lBEs/
-         QxhkxOVqBTAaiNijWhAuq5fL7dQt1aKkR4v+r5pO8+/tSXEavtCnMP6dQNCOuVzLoQxA
-         X0gDZtjEzG6OuitZl+ks4mI57c4gI0PSV4yfP9HJvy8A8TWtxSqeoCSdNIitVsXuHT6B
-         424B3MAsyxAgO8schdpV0yHjGEKqHeOOU5/vM5I0EH0olXB7Zq1mNjGm7lAzYNyXLl1F
-         yvIQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUAK/Y9FM5lG55db9VM6+YuoqBMa+N3WNS2C8wxhjP8CQZxJh5Vd8wcbPLWLCo12z1gFbp3ydV8gZ0hp8/nKEzu@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw6WHse3k+E+e0tdvxoFc+t29pO12ZZSCp85yIVpu4yMDNRuWoj
-	ND5+DglUmGNClkURw9DQmqAinWVa3Yf/M6JDdBhNN6QpwsKCvYGwytjY
-X-Gm-Gg: ASbGncvpUznJefobFywD9tNkH5r+arfnlIIvGDkVW/H2BvkxUqg8Bt9sRQBsQcXzSON
-	cBxaCpQHkRcBO660i6dflfY/0SyFIALQ9Re+XofhaBCIDtXq6uNwX7vEb2D1AaVq/vYzuNIe0V0
-	jRxAYWf6jGSLxbwK0Nnyyv9a7ZCFKIpEMU3jLENJ54hULPED8VLKwDzbxfDi6UY+PjLvwl8m65X
-	3xbrbukeJoJsDYx4QQkGfoUVZ5i3InBFac+1tgyS3+Qb9mxiEmCH31jkcbF7uGcoPHpoPY5Vf9y
-	u5A4PCdAugnzTbl0tQB8HiSyeoZRXVigPyTQpO5myAxDdOOtwsR8a7VEi8/Hx4Q3aB+4HfWXqPK
-	5QtXErzVFobAwd6bll+Hdbz2u5Bgn1LjCoXD3DCZ5InUfreapSqlEihh4JrtkWA==
-X-Google-Smtp-Source: AGHT+IEcUX+DjySA65AZ4EirRuxBQ8lIGoA5qOge8LkJpCU+G4WGmi1HxUDdlfwOC7g7+7QmeV3SjQ==
-X-Received: by 2002:a2e:bea0:0:b0:36d:6ae3:8146 with SMTP id 38308e7fff4ca-36f7f247f42mr47225651fa.26.1759151417546;
-        Mon, 29 Sep 2025 06:10:17 -0700 (PDT)
-Received: from NB-6746.corp.yadro.com ([188.243.183.84])
-        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-36fb7bfb413sm26246441fa.56.2025.09.29.06.10.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Sep 2025 06:10:17 -0700 (PDT)
-From: Artem Shimko <artyom.shimko@gmail.com>
-X-Google-Original-From: Artem Shimko <a.shimko.dev@gmail.com>
-To: Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>
-Cc: a.shimko.dev@gmail.com,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/1] rivers: scmi: Add completion timeout handling for raw mode transfers
-Date: Mon, 29 Sep 2025 16:10:10 +0300
-Message-ID: <20250929131011.524842-2-a.shimko.dev@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250929131011.524842-1-a.shimko.dev@gmail.com>
-References: <20250929131011.524842-1-a.shimko.dev@gmail.com>
+        d=1e100.net; s=20230601; t=1759151431; x=1759756231;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=TIgtSwakb4S2F49hv2ah0ceDD3kdcrnl68lJO2bz2SI=;
+        b=ngPq1Oj6x1VgZc3llGb+5dionBGDnN+56K9LKeRwzMa1xu61+eheg/2BRkxi1QL221
+         DC/9HWq8lYdqADiqs0MOo3d8SU+dZR0fmcd27uHGGYAnwi+1HWZHSEHuIKbjv2uVayi3
+         9YB0KFOUTCv+ePzNhTDNZH/wY9CrCVkA407gfWoMTkC9sbepLRFwqYKka9HCe9Rpdgt/
+         K1dI/Rx7bwaTBHmz/b1TPV6Xz4x3XW9oQE8zOTrRoGfypihh2IpWmqay6fJ40MVLiYgS
+         FGLChAgLWePANfZaC3ihapwgyOj1ouf53WszXdTN7OeBu/hsExDpZU9wBaa9EE+i7sWz
+         i9aw==
+X-Forwarded-Encrypted: i=1; AJvYcCX1e+9v2B0BmwZKX7+XC2/U5lYjz4peN9AHGpPOWRxFGnZUd41IFWJekefVIaDL5pdFXgA49DHFkzf6uRObcU2Y@lists.infradead.org
+X-Gm-Message-State: AOJu0YzoKpOTcWKZpIO1L1nRTlIuezXzBdPdYqOX+wBpVA80L2itsOVJ
+	xs69MEOXY4wCa3Zf+pJTA7/iqqX0wztbwkNTqACHgjEjZZVJSfI9ZBLbWaDDanARD8S3hDQPdmR
+	onz3SUmnRSWFuuRJnntUfG9tUly63tRwA2YVcKMWH9A==
+X-Gm-Gg: ASbGncte6ymkAapM2Ar02qBw3DJ6ld84B7zsTH3Ulb0MzTRtJ45cXeKvIujHMMrDGxD
+	76HALjs0wVdabnp4wIfm5zzhkqWOqnnQNhIH2ILabgSMaKE/u5PH72e2Sz4CHpHGMNNOjvYri97
+	oMCwQWwuHxxIMMTMk/myC1e2y5KZvdgZf3GoKoUm03PuLTBFcfX++sXC9XvuMa65kAUA2tft7jK
+	ygy7KbOrkGePFjbT0E=
+X-Google-Smtp-Source: AGHT+IEaqhle1COgySgMHCGl7/RAGDslrMpVmtc/WxzU5IvlxnhajJDxwCn8WYXyXNTN50BLyVZqReaPXPJrWYY1F9w=
+X-Received: by 2002:a05:690e:154c:20b0:639:2794:3416 with SMTP id
+ 956f58d0204a3-639279436b2mr3662726d50.19.1759151431542; Mon, 29 Sep 2025
+ 06:10:31 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20250926-imx_rproc_v3-v3-0-4c0ec279cc5f@nxp.com> <20250926-imx_rproc_v3-v3-1-4c0ec279cc5f@nxp.com>
+In-Reply-To: <20250926-imx_rproc_v3-v3-1-4c0ec279cc5f@nxp.com>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Mon, 29 Sep 2025 15:09:55 +0200
+X-Gm-Features: AS18NWBrMVxKi_O1xz826dCqJxNTtrsBYTk49Oo4lKT0mm4rt1UcT29ebmOL9cg
+Message-ID: <CAPDyKFqsDjn2+6XxY=Dkv9qZ6weTaeChwsSHvnHFnFzbYQ9bUg@mail.gmail.com>
+Subject: Re: [PATCH v3 1/6] remoteproc: imx_rproc: Fix runtime PM cleanup and
+ improve remove path
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier <mathieu.poirier@linaro.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, 
+	Hiago De Franco <hiago.franco@toradex.com>, Frank Li <Frank.Li@nxp.com>, 
+	Daniel Baluta <daniel.baluta@nxp.com>, linux-remoteproc@vger.kernel.org, 
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_061020_226749_025A8933 
-X-CRM114-Status: GOOD (  13.07  )
+X-CRM114-CacheID: sfid-20250929_061032_901825_411A6EDD 
+X-CRM114-Status: GOOD (  21.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,63 +99,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix race conditions in SCMI raw mode implementation by adding proper
-completion timeout handling. Multiple tests in the SCMI test suite
-were failing due to early clearing of SCMI_XFER_FLAG_IS_RAW flag in
-scmi_xfer_raw_put() function.
+On Fri, 26 Sept 2025 at 14:33, Peng Fan <peng.fan@nxp.com> wrote:
+>
+> Proper cleanup should be done when rproc_add() fails by invoking both
+> pm_runtime_disable() and pm_runtime_put_noidle() to avoid leaving the
+> device in an inconsistent power state.
+>
+> Fix it by adding pm_runtime_put_noidle() and pm_runtime_disable()
+> in the error path.
+>
+> Also Update the remove() callback to use pm_runtime_put_noidle() instead of
+> pm_runtime_put(), to clearly indicate that only need to restore the usage
+> count.
+>
+> Fixes: a876a3aacc43 ("remoteproc: imx_rproc: detect and attach to pre-booted remote cores")
+> Cc: Ulf Hansson <ulf.hansson@linaro.org>
+> Cc: Hiago De Franco <hiago.franco@toradex.com>
+> Suggested-by: Ulf Hansson <ulf.hansson@linaro.org>
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
 
-The root cause:
-Tests were failing on poll() system calls with this condition:
-    if (!raw || (idx == SCMI_RAW_REPLY_QUEUE && !SCMI_XFER_IS_RAW(xfer)))
-        return;
+Reviewed-by: Ulf Hansson <ulf.hansson@linaro.org>
 
-The SCMI_XFER_FLAG_IS_RAW flag was being cleared prematurely before
-the transfer completion was properly acknowledged, causing the poll
-to return on timeout and tests to fail.
+Kind regards
+Uffe
 
-Сhanges implemented:
-1. Add completion wait with timeout in  scmi_xfer_raw_worker()
-2. Signal completion in scmi_raw_message_report()
 
-This ensures:
-- Proper synchronization between transfer completion and flag clearing
-- Prevention of indefinite blocking with timeout safety mechanism
-- Stable test execution by maintaining correct flag states
-
-arm scmi tests: https://gitlab.arm.com/tests/scmi-tests/-/releases
-
-Signed-off-by: Artem Shimko <a.shimko.dev@gmail.com>
----
- drivers/firmware/arm_scmi/raw_mode.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
-
-diff --git a/drivers/firmware/arm_scmi/raw_mode.c b/drivers/firmware/arm_scmi/raw_mode.c
-index 73db5492ab44..fb83beb42e7b 100644
---- a/drivers/firmware/arm_scmi/raw_mode.c
-+++ b/drivers/firmware/arm_scmi/raw_mode.c
-@@ -468,6 +468,12 @@ static void scmi_xfer_raw_worker(struct work_struct *work)
- 
- 		ret = scmi_xfer_raw_wait_for_message_response(cinfo, xfer,
- 							      timeout_ms);
-+		if (!ret)
-+			if (!wait_for_completion_timeout(&xfer->done, timeout_ms))
-+				dev_err(dev,
-+					"timed out in RAW resp - HDR:%08X\n",
-+					pack_scmi_header(&xfer->hdr));
-+
- 		if (!ret && xfer->hdr.status)
- 			ret = scmi_to_linux_errno(xfer->hdr.status);
- 
-@@ -1381,6 +1387,8 @@ void scmi_raw_message_report(void *r, struct scmi_xfer *xfer,
- 	if (!raw || (idx == SCMI_RAW_REPLY_QUEUE && !SCMI_XFER_IS_RAW(xfer)))
- 		return;
- 
-+	complete(&xfer->done);
-+
- 	dev = raw->handle->dev;
- 	q = scmi_raw_queue_select(raw, idx,
- 				  SCMI_XFER_IS_CHAN_SET(xfer) ? chan_id : 0);
--- 
-2.43.0
-
+> ---
+>  drivers/remoteproc/imx_rproc.c | 9 +++++++--
+>  1 file changed, 7 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/remoteproc/imx_rproc.c b/drivers/remoteproc/imx_rproc.c
+> index bb25221a4a8987ff427d68e2a5535f0e156b0097..8424e6ea5569b9ba6b07525643ce795faaeb2898 100644
+> --- a/drivers/remoteproc/imx_rproc.c
+> +++ b/drivers/remoteproc/imx_rproc.c
+> @@ -1136,11 +1136,16 @@ static int imx_rproc_probe(struct platform_device *pdev)
+>         ret = rproc_add(rproc);
+>         if (ret) {
+>                 dev_err(dev, "rproc_add failed\n");
+> -               goto err_put_clk;
+> +               goto err_put_pm;
+>         }
+>
+>         return 0;
+>
+> +err_put_pm:
+> +       if (dcfg->method == IMX_RPROC_SCU_API) {
+> +               pm_runtime_disable(dev);
+> +               pm_runtime_put_noidle(dev);
+> +       }
+>  err_put_clk:
+>         clk_disable_unprepare(priv->clk);
+>  err_put_scu:
+> @@ -1160,7 +1165,7 @@ static void imx_rproc_remove(struct platform_device *pdev)
+>
+>         if (priv->dcfg->method == IMX_RPROC_SCU_API) {
+>                 pm_runtime_disable(priv->dev);
+> -               pm_runtime_put(priv->dev);
+> +               pm_runtime_put_noidle(priv->dev);
+>         }
+>         clk_disable_unprepare(priv->clk);
+>         rproc_del(rproc);
+>
+> --
+> 2.37.1
+>
 
