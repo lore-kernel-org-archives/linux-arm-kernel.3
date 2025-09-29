@@ -4,149 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 767EDCAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 08:59:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70B8ACAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 09:04:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xl95bTUTlV83yjMEHHx1/9TXDYhS2owNoq4IXEhJqKY=; b=hUY/xxi7jYOQxwrtNQg8xozJs7
-	aVe5yN7+Y86Ixm8MgDR720MK8eyQbOqipWrf++qVwXmGlOvmDVWj77j0JPl22Zv2LVze7hBFXyaEe
-	f5ngRvLT/A23q4aAv7VgrGw7yWOdUUagAOt27vW9glwBh1jOTLcbrlIoKb6S233/Q9d/CSqb80xYs
-	YikbSpzuYJp2gimhGdVBlsH11JsETngXZ2xGkxeIkDoewKMckVGOaCWXQb/oMBDVJLK5BGtkcHTlz
-	A6082rCo+mqcJaGHH2bNK+6kqqu72/AagsCWl7lLCoryuR83kWLc1PQBB4KTx89FUR66+Oh/atS43
-	+aP0ZJZA==;
+	bh=/HWtjlVeP9SWCpKiQq9t3W3n3XGxDg3Htcl9KL67snA=; b=XcCv8+bwRnxEgPGljevSHI9gWX
+	PtqQZYcQeQxJ/oP6+VCOU8CLpFFf62E6vO/4BYLYN1H8NeANgrq71YXWKn1EDFHkYf7LZtw/2zhmK
+	k6w+iS+jxd5RKRw7OhjFkYmEtPkSyfUMG3q2EtLrynO28mJLh6Or8KWlDqd4+OxXPNEACCrJOE6Z7
+	h8aszML5flSoM9cTE3ZwmPiQlaaivNZKDU1/yoAJ2Mxqham+OZSO2NtNX4YqqQImqPQi7mPwwyWZL
+	OEn7DjbzY8qYg8J23K1TALrI2ODgVU9Lm4hYl1TuBfCdGIZ7jaeNOHIrMbaGRsY17O+FbvD6T8kxh
+	pqOA4NCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v39is-00000001r91-2neT;
-	Mon, 29 Sep 2025 08:59:06 +0000
-Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1v39np-00000001sBe-2YQz;
+	Mon, 29 Sep 2025 09:04:13 +0000
+Received: from canpmsgout05.his.huawei.com ([113.46.200.220])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v39ih-00000001r1t-3zeH
+	id 1v39nm-00000001sAZ-245n
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 08:58:59 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=vauDIEXv2krL7sJ+HOfEsKxo5L81knakjP542sF8BIBNB5sbcSlAclhBwAzxY31OkJRm7ozHREsTCFZ61DW10y4FH1CFvYwYKmp/4Y78e/OmdvxUzfQhdkdMsubZRon20J0ar+YwSiRr8jZ9RYjiXNDKbXkzEXEME+weFkYIs8bhqUIXqUx+SRGRvZt6v2j8snH6ou8A8/w51V48Slq/TcspddX5gEmiBrN0Rb/R9NP+5LDyKrbAVMbDNigFu15QIjO/lVGMpU5YDNqIp+MJFrCwc0U0Yn8hr61lu6ZGW1ghOiUIPIL1+50QphoWGwk7gIKo0KeemqZSLfmHNPvqFQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=xl95bTUTlV83yjMEHHx1/9TXDYhS2owNoq4IXEhJqKY=;
- b=ltx2XhntwiNuGeawMlVEBBe+6iZQQrQCFU/3qHxIW6YcAztmylZaDkcBXtnvlfUIQSWUhiDVbDMyTVCOWoV8cPk71coz4dbG7/jBN/wgTZf7PgCzrwgM1dTduADQaF3p7+pdLIwnybF1oq5BlFEaD25NlxeY4umHry3J0B9zHxz7J1/OS5862LPOp1ei4XcpfFE2fKIO3INqbVKq9KK9XYbyj9EGtQlrcmS7ss/YUeX379iobI83Vu92pFbo4HXgNtZUoDE72uvbs/GpFRQXufglcEvnERDHwySowTsp6UAOEhE6CjoG54C0ZxVHdUoEDzQPZy5r4jECtF8p2NHY/w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 50.233.182.194) smtp.rcpttodomain=lists.infradead.org
- smtp.mailfrom=axiado.com; dmarc=none action=none header.from=axiado.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axiado.com;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=xl95bTUTlV83yjMEHHx1/9TXDYhS2owNoq4IXEhJqKY=;
- b=cWs72gwQv4tsavdBiJoVF4XAAhpOhPBLrm6QOF1xsPaC5qnsfynYJsil3BSqnizm5vZrX15KgkwTJq+NoVyF8IcKTcLDBeJOumnfp7w53dPcWuzUoSqiF7bLy5Sl5Onr7bs/C0ZN4f5b2X2Brqgy7WtooVAImvD8itJ9E3OeCimejXsXys0cvEOspKqWTtuLzfGl0xw70yunvR4H1I9dJrTpoZ2WMZu7TQkhyBL8bT1+rXli/ZE13qZmfl5RJW6wekfQc2cui8zSeiD04icu37a/NYo3bRAJP4iqovbhba947AtYjs8On/gG6iXJwPsT4IzV8953GUkpNI3FH6nlCg==
-Received: from BYAPR07CA0077.namprd07.prod.outlook.com (2603:10b6:a03:12b::18)
- by LV3PR18MB5661.namprd18.prod.outlook.com (2603:10b6:408:1a6::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.17; Mon, 29 Sep
- 2025 08:58:34 +0000
-Received: from SJ5PEPF000001E9.namprd05.prod.outlook.com
- (2603:10b6:a03:12b:cafe::62) by BYAPR07CA0077.outlook.office365.com
- (2603:10b6:a03:12b::18) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9160.17 via Frontend Transport; Mon,
- 29 Sep 2025 08:58:34 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 50.233.182.194)
- smtp.mailfrom=axiado.com; dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=axiado.com;
-Received-SPF: Fail (protection.outlook.com: domain of axiado.com does not
- designate 50.233.182.194 as permitted sender)
- receiver=protection.outlook.com; client-ip=50.233.182.194;
- helo=vm-swbuild15.axiadord;
-Received: from vm-swbuild15.axiadord (50.233.182.194) by
- SJ5PEPF000001E9.mail.protection.outlook.com (10.167.242.197) with Microsoft
- SMTP Server (version=TLS1_3, cipher=TLS_AES_256_GCM_SHA384) id 15.20.9160.9
- via Frontend Transport; Mon, 29 Sep 2025 08:58:34 +0000
-From: Vladimir Moravcevic <vmoravcevic@axiado.com>
-Date: Mon, 29 Sep 2025 01:58:01 -0700
-Subject: [PATCH v2 1/3] dt-bindings: spi: axiado,ax3000-spi: Add binding
- for Axiado SPI DB controller
+	Mon, 29 Sep 2025 09:04:12 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=/HWtjlVeP9SWCpKiQq9t3W3n3XGxDg3Htcl9KL67snA=;
+	b=hFqxCdsEfRxs/FrcxYa4h9sSffmskYQpWXOj8ApJEsUTmk86LI/ialmiYmGTL18eGQy99luT8
+	HPrNDS9CmOr9U4HVet1tsGDllEIEsbFAzhgec5mvR1c9ZPsZq/WHYoPiwSJPKu6LkEZ2rkGzM7y
+	67jd7anWvZ9AjtvIkNfDHQM=
+Received: from mail.maildlp.com (unknown [172.19.162.254])
+	by canpmsgout05.his.huawei.com (SkyGuard) with ESMTPS id 4cZwGv3b0Yz12LGD;
+	Mon, 29 Sep 2025 17:04:07 +0800 (CST)
+Received: from dggpemf500002.china.huawei.com (unknown [7.185.36.57])
+	by mail.maildlp.com (Postfix) with ESMTPS id 3C615180488;
+	Mon, 29 Sep 2025 17:03:59 +0800 (CST)
+Received: from [10.174.178.247] (10.174.178.247) by
+ dggpemf500002.china.huawei.com (7.185.36.57) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Mon, 29 Sep 2025 17:03:58 +0800
+Subject: Re: [PATCH v3] ACPI: AGDI: Add interrupt signaling mode support
+To: "Kazuhiro Abe (Fujitsu)" <fj1078ii@fujitsu.com>, 'Ilkka Koskinen'
+	<ilkka@os.amperecomputing.com>, 'Sudeep Holla' <sudeep.holla@arm.com>
+CC: 'Lorenzo Pieralisi' <lpieralisi@kernel.org>, "'Rafael J. Wysocki'"
+	<rafael@kernel.org>, 'Len Brown' <lenb@kernel.org>,
+	"'linux-acpi@vger.kernel.org'" <linux-acpi@vger.kernel.org>,
+	"'linux-arm-kernel@lists.infradead.org'"
+	<linux-arm-kernel@lists.infradead.org>, "'linux-kernel@vger.kernel.org'"
+	<linux-kernel@vger.kernel.org>
+References: <20250905042751.945616-1-fj1078ii@aa.jp.fujitsu.com>
+ <bd45c06a-77cc-2ab3-122e-41dee1aee0ac@os.amperecomputing.com>
+ <TY3PR01MB99836C3D57503E70C8B8C9E9D509A@TY3PR01MB9983.jpnprd01.prod.outlook.com>
+ <TY3PR01MB9983025D434CAA2CDF83656BD511A@TY3PR01MB9983.jpnprd01.prod.outlook.com>
+ <3bbdc50e-a55c-96ed-a8db-6bbce1760ee4@huawei.com>
+ <TY3PR01MB9983E784E31A612B9BA23255D51BA@TY3PR01MB9983.jpnprd01.prod.outlook.com>
+From: Hanjun Guo <guohanjun@huawei.com>
+Message-ID: <b8ab020f-8298-cadd-70ee-9325c32b968f@huawei.com>
+Date: Mon, 29 Sep 2025 17:03:57 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:68.0) Gecko/20100101
+ Thunderbird/68.6.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+In-Reply-To: <TY3PR01MB9983E784E31A612B9BA23255D51BA@TY3PR01MB9983.jpnprd01.prod.outlook.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Language: en-GB
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250929-axiado-ax3000-soc-spi-db-controller-driver-v2-1-b0c089c3ba81@axiado.com>
-References: <20250929-axiado-ax3000-soc-spi-db-controller-driver-v2-0-b0c089c3ba81@axiado.com>
-In-Reply-To: <20250929-axiado-ax3000-soc-spi-db-controller-driver-v2-0-b0c089c3ba81@axiado.com>
-To: Mark Brown <broonie@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>, 
- Tzu-Hao Wei <twei@axiado.com>, 
- Axiado Reviewers <linux-maintainer@axiado.com>
-Cc: linux-spi@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Vladimir Moravcevic <vmoravcevic@axiado.com>, 
- Prasad Bolisetty <pbolisetty@axiado.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1759136313; l=2005;
- i=vmoravcevic@axiado.com; s=20250904; h=from:subject:message-id;
- bh=W3V7aZCDCEVXFxeaLAFKOJZXCNmDZRtJP81SX4bU7pE=;
- b=OTrdGaDNd1+61GOkVucw7D/FK7UQfAOqlWmVP3JRCSjb2y4saTIUHi9z65YadiJlQTRvOYXnX
- sYp1YBTb2w8AjXwjGH3T7DwipeYNSnkhTd/jioQLrTlkAKYqqoPSloE
-X-Developer-Key: i=vmoravcevic@axiado.com; a=ed25519;
- pk=iiyhWhM1F4HlCbbW3I3qKZhPCE8JsCrDQMgCBRg4YMA=
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ5PEPF000001E9:EE_|LV3PR18MB5661:EE_
-X-MS-Office365-Filtering-Correlation-Id: a4e003de-0abc-4258-d97f-08ddff365ef3
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?V0tyZ1JxdXdFZWRpcVUxSmx0WDVqNzZnakNJSlZsZDBHR0FtNmlvdWdMRnls?=
- =?utf-8?B?NmhDK3Zrem5xSy9pUzJ5ZnNDU3BSeGFmdGxIeVhRWkUySHJ4VnhLclV1ZmJn?=
- =?utf-8?B?UXNncloxRE5zYWc0b3dUNDEwMkxBRVZVRE1Wc1RPRkt1RXZvc1dHcUpwUXIv?=
- =?utf-8?B?V1I1MjJoZlF6a0F0N2plZ0FWTXNPMUdMTXBPZUpoTmxaT0xFZE9KVHVISEtI?=
- =?utf-8?B?aEZjdWFhcHVRN2MzaEhGbkdERHA2UUVpeFZqakdSQnUwY3ZBdzR3UkxTYk9P?=
- =?utf-8?B?UnZRdmNzYlJwalMwUTFzWVlMc2NERTZxZmQydFYzVWZzNnU0eWxzclZtNmRG?=
- =?utf-8?B?cTdFVy8xRVphaVRJTDc1UUQ4S0R1VDlHR09vVHNwd1ZLS0RkT0lVTVQ5VVRl?=
- =?utf-8?B?ZlRoRjdLRy9rRmFTV09MWUZiZ0VKU0NhUWZQejhzUlRhVDk5cS94L1RxWXRX?=
- =?utf-8?B?YWViMm1zOHd3aHVCZWFpVlJwNzAzTHg0NklZV2QrN2tMWFRtaWZiVlBLbzho?=
- =?utf-8?B?cDhib1hYRzV2Z041cjdBVnRJdzFGL3dCcEE4Q3hwMDZCWi9Pem8yWEVxdmlH?=
- =?utf-8?B?ZENjVHUvdVNCa0VmSS9Cd1A2dzY0b1VWbUhkc291Wm51QkhHQkphQ09XTVpS?=
- =?utf-8?B?dHRSUURxZWwrUWxGcVh2bzRHNkswcHlUd1NMTEY5UnYxbG52S3ZDNFZBUXdw?=
- =?utf-8?B?ZmRBUzBUdjRGbThvN1VNMnZVaG9qa2ZLQXcweFVJQVJMVkZyM0ZmS09CNmZ3?=
- =?utf-8?B?aXpRMW5qRFdUMW5rOGU1T1drUEZ3dFBqSDRkZkFBMkQxTHd0U04ydU56cEFW?=
- =?utf-8?B?VG55SEJlNGt3U1B2V1lVeHF3MC9aZElQL1hxNWxqcFVRQ0NxWnFlalo0QlBZ?=
- =?utf-8?B?alpWZEhZVjVuQlgwcDd4bVBQVzVtY1hxa3RkSXRKS21nNXoweVlpdzhXOHVU?=
- =?utf-8?B?RGJEMm9RbnFPR3JLckVEa0NXNGRENmR2UXlRak05ZVNtdmRQTWw1QkVkaENJ?=
- =?utf-8?B?dWNQd0NqQzgxMlUvWlpZbWxvcndFTEVRMHAzQ01uZElIOU1qazhYbXN3SWhm?=
- =?utf-8?B?SmxNRW5oNjRzVklqVlhCbGwxK2ZTdkM2UHlDcis5cEsvaWdoSEtCTFFCYWhD?=
- =?utf-8?B?L1E4enNLNmNJWWpwRDBzUHN4QVBIWkVQU2VPSm0xNkt6RVhzL2RQOUtZanV6?=
- =?utf-8?B?em1wak1HTk5EMlN2alEvMTJva0lzR3F6a2ptM0dQNXRINHJIRkMxaU5oTWxp?=
- =?utf-8?B?VVFwUExYUkpTUW1pd1FtVVd1WFAwWk5LbTVuS1FvYTFTWHplR0xmMjBSYk5x?=
- =?utf-8?B?c055bVBJSENRTko5T085ZFpzWERQb1hJOXNWTndtSUkzZm5WMXpMdFpaQTY2?=
- =?utf-8?B?Wm1zZWdmbytHZXFHbzdsRFRxaWxYalZNV3VSWGFURWJQeWxEK0cxZS9PRFRG?=
- =?utf-8?B?TzM2bVVieUFOSE4zaXpRT2R4OWh6Vy9ZcGt3bGl1cnZoR2JIU0FHay9qQ212?=
- =?utf-8?B?YzhLTjJPQWhBSnIrbkhWNVc1MTBUVmF2OTlkTGtRVlhFS0d2dmFYMGJYcjRD?=
- =?utf-8?B?L1ZzalhmTmVMY2Z4ZjRSL0drTHNoQlFOOTJveTlobGQxQlZBRkJmY01xdkNT?=
- =?utf-8?B?UnI1aFV2S1pRVnRiNDhjNi8zWUZkSzQzUWt1QSs5TFdDcmlGUWkxS3lrUkZR?=
- =?utf-8?B?dS9vRFQ4dFhBVlA0Vk1nNkdtOFNMWmhCRVYzeE5RNVQzdXk2VUYvTGh2dHEz?=
- =?utf-8?B?OGpBOHpzSmt1TmtLYkdKN0E4VmNEU2p6STNiQ3dZYXg1ZS9YNUJEZWgvc1NH?=
- =?utf-8?B?RDV5bC9OZ3Uxb2ZwMG15VVM1VVNhU3k3UWhMNXZPYk1FUW1BL3dhYjh4L1V0?=
- =?utf-8?B?VG1odlZJNHc3Ukw5b1JiTDFOb1RWNmszM3NPa2EwUW5wS3dNS0FPeFA0eWJs?=
- =?utf-8?B?VXBJYngyeS9QWEp0Zmc2aTdqbHhHalZKbytDZ01mWGoxdmU1Tm03cG44WGd6?=
- =?utf-8?B?L1MyN2ZIWUxrVVNGdjJYdFBoSWpJdk1FRU8wdkxGYmxDemtSTVNaOFF3MjV4?=
- =?utf-8?Q?PVvSni?=
-X-Forefront-Antispam-Report: CIP:50.233.182.194;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:vm-swbuild15.axiadord;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(1800799024)(36860700013);DIR:OUT;SFP:1102;
-X-OriginatorOrg: axiado.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2025 08:58:34.2406
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: a4e003de-0abc-4258-d97f-08ddff365ef3
-X-MS-Exchange-CrossTenant-Id: ff2db17c-4338-408e-9036-2dee8e3e17d7
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=ff2db17c-4338-408e-9036-2dee8e3e17d7;Ip=[50.233.182.194];Helo=[vm-swbuild15.axiadord]
-X-MS-Exchange-CrossTenant-AuthSource: SJ5PEPF000001E9.namprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV3PR18MB5661
+X-Originating-IP: [10.174.178.247]
+X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
+ dggpemf500002.china.huawei.com (7.185.36.57)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_015856_076079_D34C7040 
-X-CRM114-Status: GOOD (  11.14  )
+X-CRM114-CacheID: sfid-20250929_020411_101720_62B83504 
+X-CRM114-Status: GOOD (  15.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,85 +89,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add documentation for Axiado Digital Block SPI controller.
+On 2025/9/29 15:32, Kazuhiro Abe (Fujitsu) wrote:
+> Hi Hanjun,
+> 
+>>> Hi Hanjun & Sudeep
+>>>
+>>>> Hi Ilkka
+>>>>
+>>>>> Hi Kazuhiro,
+>>>>>
+>>>>> On Fri, 5 Sep 2025, Kazuhiro Abe wrote:
+>>>>>> AGDI has two types of signaling modes: SDEI and interrupt.
+>>>>>> Currently, the AGDI driver only supports SDEI.
+>>>>>> Therefore, add support for interrupt signaling mode The interrupt
+>>>>>> vector is retrieved from the AGDI table, and call panic function
+>>>>>> when an interrupt occurs.
+>>>>>>
+>>>>>> Signed-off-by: Kazuhiro Abe<fj1078ii@aa.jp.fujitsu.com>
+>>>>>
+>>>>> Looks good to me.
+>>>>>
+>>>>> Reviewed-by: Ilkka Koskinen<ilkka@os.amperecomputing.com>
+>>>>>
+>>>> Thanks for your review.
+>>>>
+>>>> Best Regards,
+>>>> Kazuhiro Abe
+>>>>
+>>>>> Hanjun & Sudeep, what's your thought on enabling the use of regular
+>>>>> interrupts here? I do agree the spec talks about non-maskable ones
+>>>>> and to my understanding that's what the idea was indeed.
+>>> Do you have any thoughts on this matter?
+>> For the real use case, if the system is in failure state, for example, the system is
+>> panic, the CPU will not handle regular interrupts, so what's the use case do you
+>> have to use regular interrupt?
+> This driver is designed to operate with NMI enabled.
+> 
+> However, on current ARM64 platforms, NMI functionality may not be active unless
+> "pseudo NMI" is explicitly specified via a kernel command-line parameter.
+> In such scenarios, we've included regular interrupt handling as a last resort,
+> anticipating rare cases where some cores might still be able to receive regular
+> interrupts even if other cores are unresponsive.
+> 
+> To reiterate, the underlying assumption is that NMI(now pseudo NMI) is enabled for use.
 
-Signed-off-by: Vladimir Moravcevic <vmoravcevic@axiado.com>
-Signed-off-by: Prasad Bolisetty <pbolisetty@axiado.com>
----
- .../devicetree/bindings/spi/axiado,ax3000-spi.yaml | 63 ++++++++++++++++++++++
- 1 file changed, 63 insertions(+)
+OK. Please send a new version, I will ack it
+if you address my comments.
 
-diff --git a/Documentation/devicetree/bindings/spi/axiado,ax3000-spi.yaml b/Documentation/devicetree/bindings/spi/axiado,ax3000-spi.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..34fa96778dfdec89bc14782265ec23c0bc455a20
---- /dev/null
-+++ b/Documentation/devicetree/bindings/spi/axiado,ax3000-spi.yaml
-@@ -0,0 +1,63 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/spi/axiado,ax3000-spi.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Axiado AX3000 SoC SPI controller
-+
-+maintainers:
-+  - Vladimir Moravcevic <vmoravcevic@axiado.com>
-+  - Tzu-Hao Wei <twei@axiado.com>
-+
-+allOf:
-+  - $ref: spi-controller.yaml#
-+
-+properties:
-+  compatible:
-+    enum:
-+      - axiado,ax3000-spi
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  clock-names:
-+    items:
-+      - const: ref
-+      - const: pclk
-+
-+  clocks:
-+    maxItems: 2
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - clock-names
-+  - clocks
-+
-+unevaluatedProperties: false
-+
-+examples:
-+  - |
-+   #include <dt-bindings/interrupt-controller/irq.h>
-+   #include <dt-bindings/interrupt-controller/arm-gic.h>
-+
-+   soc {
-+      #address-cells = <2>;
-+      #size-cells = <2>;
-+
-+      spi0: spi@80510000 {
-+         compatible = "axiado,ax3000-spi";
-+         reg = <0x00 0x80510000 0x00 0x1000>;
-+         clock-names = "ref", "pclk";
-+         clocks = <&spi_clk>, <&apb_pclk>;
-+         interrupt-parent = <&gic500>;
-+         interrupts = <GIC_SPI 115 IRQ_TYPE_LEVEL_HIGH>;
-+         num-cs = <1>;
-+      };
-+   };
-+...
-
--- 
-2.25.1
-
+Thanks
+Hanjun
 
