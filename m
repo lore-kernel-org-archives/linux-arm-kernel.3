@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B849ECAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 15:47:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34777CAC5B9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 15:50:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OsBmI5SIo5G4sDK/R4AHPA5uH7TsY2UfdpliLn+M1X0=; b=o+P83vsYzPqSl3g3E/beoXuvG8
-	muRP74fN2fp5PEghtO3lPpSmNAE9+Eiky0xkbXxcAy5AULSvr7eTYVPI/WfOXuFAHwAKOxHzxonUF
-	5zSoalqzS+G8OlCVbVo1zNnO9DbO/Vpsd82WUTn9lbv0sEHHbFfL7k8djknvNIrDwTZ/rcOKdhC63
-	mMkQ2tr0r4JzP2pfSbGCXxTbU2LXQPZGDtuOhoo5lXLK2LinooNF+tGIF/MXZOjSr08t9kigALtTn
-	Tco3m3HT5WYLVWgvCHwD89KyGFq6kGphtSGhcMk9/5OSskjgad35aYGM0J4V7KCfaTFRWgJDrdj4z
-	7NI3YNvA==;
+	bh=Lpdr13Dtlhg01cWCXIYI35AG1Y3QRBsSx2SpN+S+hFU=; b=oVdY3U9H/1pN0JUWRxjCGFZIVS
+	paNtn5D8YWQ/LziTq3KK3s9+SJCAtO5yr47GUzQMSoL/LYfhrbIAEqzhpOmGEej56Vt3kwUs+MiQs
+	crmY3uwDsnlkMAevwOQBeTWu+PlSblljuXNMDDQq1Cq7nRDXR2auXMHx3W/9Rtomx9JQjO2CEk9Ba
+	+bNQrUjHv1qq6MKZsSMyKjxP8iz3ZqQa3tQgcjC4X3DV7SdR4Yv+o/Xx+8pt9zCIJ+VUBFdEzI1Op
+	bpPNQ3CmAIVZGKzHQP5uYA+EmmKJCt+L/56E3iz81888JwK5gKcptIcfkOiRXTcPtf/98AJ2nIw7N
+	qBS/XGfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3G6L-00000002p8r-3QNi;
-	Mon, 29 Sep 2025 15:47:45 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v3G8i-00000002pY1-3Sag;
+	Mon, 29 Sep 2025 15:50:12 +0000
+Received: from mail-ej1-x649.google.com ([2a00:1450:4864:20::649])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3G6J-00000002p8i-41yw
+	id 1v3G8g-00000002pWk-2koM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 15:47:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 5B11D625C2;
-	Mon, 29 Sep 2025 15:47:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B373C4CEF4;
-	Mon, 29 Sep 2025 15:47:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759160863;
-	bh=URoRiJpvfzY/qJO4BWJD2PxiH4IP1gLR8iG4C2gTC4k=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=PxuNIqIS/y7SFX7DqksrGpsfRi9OmW7w639bH4FW/ongQuHKKAzK/QBZSW+olYIz5
-	 FTxX7MSXzTPgjY/QcTjdIqQCZ2ojwg/kzzik0fz+w31Z3NG6RMiXeOThNCLfR6b9pI
-	 DlwUsmMHbnMoe78TDnk7tYxes59781XRKoMtE9QTJL6zMMAJJWr7Mt7jRdrT4x2sf8
-	 XFlBEfm1l8KYAB3v6l2LDNC+jfrtjFMbLSC/qFAaG6aKtP1E1enccObKCzYHc9wSTn
-	 v/4FlelTf8huZjN2kdlZIHn+2uz1YxOAIb+5KDpZ18q0YlnHjWO3XvHI3UdSgvz/M3
-	 NqqegVZIdoG4w==
-Date: Mon, 29 Sep 2025 16:47:36 +0100
-From: Mark Brown <broonie@kernel.org>
-To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>
-Cc: "adhemerval.zanella@linaro.org" <adhemerval.zanella@linaro.org>,
-	"nsz@port70.net" <nsz@port70.net>,
-	"brauner@kernel.org" <brauner@kernel.org>,
-	"shuah@kernel.org" <shuah@kernel.org>,
-	"debug@rivosinc.com" <debug@rivosinc.com>,
-	"fweimer@redhat.com" <fweimer@redhat.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"dalias@libc.org" <dalias@libc.org>,
-	"jeffxu@google.com" <jeffxu@google.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"yury.khrustalev@arm.com" <yury.khrustalev@arm.com>,
-	"wilco.dijkstra@arm.com" <wilco.dijkstra@arm.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"codonell@redhat.com" <codonell@redhat.com>,
-	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>,
-	"libc-alpha@sourceware.org" <libc-alpha@sourceware.org>
-Subject: Re: [PATCH RFC 0/3] arm64/gcs: Allow reuse of user managed shadow
- stacks
-Message-ID: <edd79fba-c5e0-4020-aef3-57dc01c077d2@sirena.org.uk>
-References: <20250921-arm64-gcs-exit-token-v1-0-45cf64e648d5@kernel.org>
- <760447dc3e5805bf5668e80a94bf32356e2eb2d3.camel@intel.com>
- <aNasTpkYm8n1AHZ7@arm.com>
- <04dc6271e11b453204255779fcd3c29573c9c296.camel@intel.com>
- <5c616340-2767-48f0-8727-326deebf718f@sirena.org.uk>
- <80f8389c5c136ce21d922be10e4978d1ae5f1139.camel@intel.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="TB4gd7jcOJO5ieTv"
-Content-Disposition: inline
-In-Reply-To: <80f8389c5c136ce21d922be10e4978d1ae5f1139.camel@intel.com>
-X-Cookie: Stay away from hurricanes for a while.
+	Mon, 29 Sep 2025 15:50:11 +0000
+Received: by mail-ej1-x649.google.com with SMTP id a640c23a62f3a-afcb7338319so388486366b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 08:50:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1759161008; x=1759765808; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Lpdr13Dtlhg01cWCXIYI35AG1Y3QRBsSx2SpN+S+hFU=;
+        b=3smDbdZpAaYpIlgGWgWys0WTH+AhUvuyLCE4Lgtm96ZV5sKR/qCYyGKLeF0UD3qBgQ
+         TAos0YVOJVmMk3AzKabENplv/yuHgo0KINbobTNyKe89pQHy9bSaR7ktObgXzLCRJZw9
+         /NSmw9ZvBHXK8hO+utu6hkniAYcP8hNjCBuCZk7R8zCsnBx21InjdmzpP/C/w5dh631J
+         GQXze6pUcUxxOP32xkUIuh21IAHddqD158ewS9fH7MS3U/AJc8bYP4VrLkBy9z9YNjxr
+         dE12zSlqjm1M9LKwfwI8+Y//7MjLuV2w8eTkqaCIZrPLltv4IcZVsdZqDUD/f0EGS4ST
+         TN0A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759161008; x=1759765808;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Lpdr13Dtlhg01cWCXIYI35AG1Y3QRBsSx2SpN+S+hFU=;
+        b=fwL6BQ+o05aOrdiUzbx3RSjXDHKlyVuzX1xzNe55WybuepUWWs7aWORntzlJGgzg0S
+         EH6WDSjioYL6pg/moa5VguTU0yFN/PFNCUJIvQDQaMJnNvYNixjqot/gWyWauBQV4dIA
+         9tuGEznA9k6OhM6XOdFhyySdXLma54v7geYxH9fJqshaZJr2ftnruNKXD94WaOn7fN17
+         JxSJ17PVIBC8bGJhuUY9/OcLaDNey6f+YTZgTP816f4xGVQXTPHP2fi6ECxYXY2j5VPr
+         9ZWBiyQxsAKkSMaJ+es6ihECGrG1gwW1zx4Iq7xPQh3Y+rIHdP70+C9dvN3l3SQ6aV5d
+         OkyA==
+X-Forwarded-Encrypted: i=1; AJvYcCVFJ0ayZn9fEnIZZjOu5kiIE2oqdDBCtZVv6I5GXiVIzEgQC8P9yOEqsDu/d1LdgcDTLcCORO+67Y7je3JUu0Nl@lists.infradead.org
+X-Gm-Message-State: AOJu0YwpXdV+weBzA4ATa+ctPrP6LfoRFKVeBVXtYMYyUF1EuipuKxkm
+	NFB4+Qw1dm8PSzGiNS7IJZYw7KK4do05Uc99Ab0lKSigPBevhu4pmPWqqx2z9sBXotso9ZOMUgk
+	Gwswu28tf5jtaTg==
+X-Google-Smtp-Source: AGHT+IFx3LiQcFYe261z/EWWagWvnj6dQR302njS+xm6S18t3FOG1/h2C5xa6C/Nr1sj0mZq6rNxxvXG2ayzJg==
+X-Received: from ejrn23.prod.google.com ([2002:a17:906:6897:b0:b3c:699c:2f83])
+ (user=smostafa job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:906:6a0e:b0:b3e:c7d5:4cbb with SMTP id a640c23a62f3a-b3ec7f3d880mr431947266b.35.1759161008650;
+ Mon, 29 Sep 2025 08:50:08 -0700 (PDT)
+Date: Mon, 29 Sep 2025 15:49:56 +0000
+In-Reply-To: <20250929155001.3287719-1-smostafa@google.com>
+Mime-Version: 1.0
+References: <20250929155001.3287719-1-smostafa@google.com>
+X-Mailer: git-send-email 2.51.0.536.g15c5d4f767-goog
+Message-ID: <20250929155001.3287719-2-smostafa@google.com>
+Subject: [PATCH v5 1/4] iommu/io-pgtable-arm: Simplify error prints for selftests
+From: Mostafa Saleh <smostafa@google.com>
+To: iommu@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Cc: robin.murphy@arm.com, will@kernel.org, joro@8bytes.org, jgg@ziepe.ca, 
+	praan@google.com, Mostafa Saleh <smostafa@google.com>, Jason Gunthorpe <jgg@nvidia.com>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250929_085010_707911_9AA39D24 
+X-CRM114-Status: GOOD (  13.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,72 +90,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+At the moment, if the self test fails it prints a lot of information
+about the page table (size, levels...) this requires access to many
+internals, which has to be exposed in the next patch moving the
+tests out.
 
---TB4gd7jcOJO5ieTv
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Instead, we can simplify the print, using ias, oas, pgsize_bitmap
+and fmt is enough to identify the failed case, and the rest can
+be deduced from the code.
 
-On Fri, Sep 26, 2025 at 07:17:16PM +0000, Edgecombe, Rick P wrote:
-> On Fri, 2025-09-26 at 17:03 +0100, Mark Brown wrote:
-> > On Fri, Sep 26, 2025 at 03:39:46PM +0000, Edgecombe, Rick P wrote:
+Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+Reviewed-by: Pranjal Shrivastava <praan@google.com>
+Signed-off-by: Mostafa Saleh <smostafa@google.com>
+---
+ drivers/iommu/io-pgtable-arm.c | 10 +++-------
+ 1 file changed, 3 insertions(+), 7 deletions(-)
 
-> > > > What do you mean by "a fuller solution from the glibc side"? A
-> > > > solution
-> > > > for re-using shadow stacks?=A0
+diff --git a/drivers/iommu/io-pgtable-arm.c b/drivers/iommu/io-pgtable-arm.c
+index 7e8e2216c294..00218af5d5f7 100644
+--- a/drivers/iommu/io-pgtable-arm.c
++++ b/drivers/iommu/io-pgtable-arm.c
+@@ -1299,14 +1299,10 @@ static const struct iommu_flush_ops dummy_tlb_ops __initconst = {
+ 
+ static void __init arm_lpae_dump_ops(struct io_pgtable_ops *ops)
+ {
+-	struct arm_lpae_io_pgtable *data = io_pgtable_ops_to_data(ops);
+-	struct io_pgtable_cfg *cfg = &data->iop.cfg;
++	struct io_pgtable_cfg *cfg = &io_pgtable_ops_to_pgtable(ops)->cfg;
+ 
+-	pr_err("cfg: pgsize_bitmap 0x%lx, ias %u-bit\n",
+-		cfg->pgsize_bitmap, cfg->ias);
+-	pr_err("data: %d levels, 0x%zx pgd_size, %u pg_shift, %u bits_per_level, pgd @ %p\n",
+-		ARM_LPAE_MAX_LEVELS - data->start_level, ARM_LPAE_PGD_SIZE(data),
+-		ilog2(ARM_LPAE_GRANULE(data)), data->bits_per_level, data->pgd);
++	pr_err("cfg: pgsize_bitmap 0x%lx, ias %u-bit oas %u-bit\n",
++		cfg->pgsize_bitmap, cfg->ias, cfg->oas);
+ }
+ 
+ #define __FAIL(ops, i)	({						\
+-- 
+2.51.0.536.g15c5d4f767-goog
 
-> > > I mean some code or a fuller explained solution that uses this new
-> > > kernel functionality. I think the scheme that Florian suggested in
-> > > the
-> > > thread linked above (longjmp() to the start of the stack) will have
-> > > trouble if the thread pivots to a new shadow stack before exiting
-> > > (e.g.
-> > > ucontext).
-
-> > Is that supported even without user managed stacks?
-
-> IIUC longjmp() is sometimes used to implement user level thread
-> switching. So for non-shadow stack my understanding is that longjmp()
-> between user level threads is supported.
-
-Yes, that was more a "does it actually work?" query than a "might
-someone reasonably want to do this?".
-
-> For shadow stack, I think user level threads are intended to be
-> supported. So I don't see why a thread could never exit from another
-> shadow stack? Is that what you are asking? Maybe we need to discuss
-> this with the glibc folks.
-
-There's a selection of them directly on this thread, and libc-alpha on
-CC, so hopefully they'll chime in.  Unless I'm getting confused the code
-does appear to be doing an unwind, there's a lot of layers there so I
-might've got turned around though.
-
-> Again, I'm just thinking that we should vet the solution a bit more
-> before actually adding this to the kernel. If the combined shadow stack
-> effort eventually throws its hands up in frustration and goes with
-> WRSS/GCSSTR for apps that want to do more advanced threading patterns,
-> then we are already done on the kernel side.
-
-Some more input from the glibc side would indeed be useful, I've not
-seen any thoughts on either this series or just turning on writability
-both of which are kind of orthogonal to clone3() (which has been dropped
-=66rom -next today).
-
---TB4gd7jcOJO5ieTv
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmjaqhgACgkQJNaLcl1U
-h9CVxQf/eWHRRunA9pDbxljpsxxDZVq5oza9BFSJWETarOjElVwdpN0C1zOuNgV9
-Of4pK7kfkOO7cGw5HNxZlCvk/ixi78Fw7K9EA2WPxKb6JsbbCB6C2ZeCNNl112Y2
-yBSweBPKCMLVl/hjC8vE5RjPX0K5eNsifF1FT75fvouXnl0vrUE1dG160d0C1dps
-3Cy5m1OS4AiqHJFWNmm3j6wXDSwpuWjcJXQWG7A7+5ZZvlbxv8u2ThZ1xs77NgGZ
-ZRteYOMjf6cjg0E+yexveJn7Ld/IMo6iz2NAgJV7Fk4iNkQiKRaT52ultSgwvdsK
-CY3CZYU96MfAGENjVVWWwjWuxTJaEw==
-=J5MO
------END PGP SIGNATURE-----
-
---TB4gd7jcOJO5ieTv--
 
