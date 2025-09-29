@@ -4,74 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BE62CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 07:35:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B659CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 07:36:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=knrLUhXeoiOlB4nnqjnw/1cMO8Rc0qOwfxrKrTkleEg=; b=jB+7H4UnGoRwHShqPTKkxxgJnY
-	tMawp48tFXJ/iM/y/pyFGSisfF1s9vSdOe4Jk9ERzmO/J4QG7brYtLF+UOzG2i1Roj6Q2nwi3a827
-	+Fj17Qt3XluLbe5uUDuWaEBideDe/1DSkPzz8cMTwBJQ0XrSosoiS1GZchO/98YJz27D7sKEpjat2
-	gSQwcdMYUbi81d9Khy9OhDWwVfzrdrsG7AEjwNwiE3qNBfIq2xgwG7aKsK7RuSuOh0r8DfCyR1uma
-	SyFw6H9+CTAuMaqeHeP8HUTe04diIZb/ajg11Tl1bIEV92oZI6AWzAHRPuXAD9R8eeUhfR078gm2r
-	osuAb1nA==;
+	bh=WtpldhRDbRzoGsO+8pMp+y65v40hHUOFZZcRghWlbXo=; b=1pB5OQaTJZpyhVKStOQ52p4RR+
+	I5kTRq02YZt8htwBq6Dby8bH7J/ln4IvP414uTXtiF/eLjNBjhoZmc9QrWSQv9Kn9xPIIQbjBgSJr
+	gWNGd8XC1xmSqjJ4e5jbThrWabyiofq8Amh55j72U+9Ud4XwbCik+3SMwpWF+IBswbNeenktXFrso
+	TEIc5BK1knAkzgWhFevgC1AhUY5wlilXTx9D2rgapKOYKXbC0oKQNSqQVSRyBxO6slDEJvpNG8WkZ
+	72Y+fxEQKE0fWdxwHUi9FxJlG/vfP4qCPgzQacrDVOXqewnaQ0ukNhzSDvOcUfz5IikGjv/UD2la+
+	frB0GfJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v38Pt-00000001cec-26CF;
-	Mon, 29 Sep 2025 07:35:25 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v38Ql-00000001dGf-1RS6;
+	Mon, 29 Sep 2025 07:36:19 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v38Pn-00000001cag-2RDU;
-	Mon, 29 Sep 2025 07:35:19 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1998E62319;
-	Mon, 29 Sep 2025 07:35:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 8DFE7C4AF0B;
-	Mon, 29 Sep 2025 07:35:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759131313;
-	bh=Bay7gvRD8WEKKONQKFBF0O+fwmVm+YlEq+tKHT0KRKA=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=CaAg0DaBk5igaM4TpFf1Au1liTovydHaKRSmeHMjrQndyPaQw//SrhK55m5PfGPFT
-	 Y75bhR+ulDCix/+e3cjFIVBgyA2kbATTNzy3Y88lLyyHBzU1KzM0HAVhmH2DiLRj1+
-	 rKIcE+yKlSGYg5K8mEYBKrqrRboZ2XsALfrL9mEzDn4omnmMNRjWiLbt/2YcFxn2bf
-	 PuNUTZodimMQ/ssoCXIg/K+5+ruIhXOFR8qVHdx/oycZZ6aXiYpFxv4jtJFFG741pS
-	 D6IqXKMDKTXjlvHPiW67gabuuZlBmV063n7LPTQ3ZhUzxx8ihDWb/3czQQvdch8VZt
-	 SOkrtRiPAFoyg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 7A8A4CAC5B5;
-	Mon, 29 Sep 2025 07:35:13 +0000 (UTC)
-From: Rudraksha Gupta via B4 Relay <devnull+guptarud.gmail.com@kernel.org>
-Date: Mon, 29 Sep 2025 00:35:13 -0700
-Subject: [PATCH v4 2/4] arm64: dts: rk3399-pinephone-pro: Add accelerometer
- sensor support
+	id 1v38Qh-00000001dDy-3QYY
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 29 Sep 2025 07:36:17 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-b593def09e3so1425249a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 00:36:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1759131375; x=1759736175; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=WtpldhRDbRzoGsO+8pMp+y65v40hHUOFZZcRghWlbXo=;
+        b=GngNaX0fsdvqgVb9P342j+P+erCZE1tNCRguv7GpdbF5HtDpg0yflwCg3Bhw52h3Fk
+         sLaximbG5qsD5gTuv7eM0syS8RQS+vOfolyHbOtXpOoKcHeO0WoujGwBvlab5TKsLYda
+         MKzdx9w+I7Dk6Q8JF+vZfhI159riB8EcrcxTGrKGx1hTwOSOl5c56rw7EYTkVUsgR6zd
+         8lvsOnl5B1cYLxcgat3ouTRhWgXEXHRoSM0FeI4Drer/O4CLLFpNiLEmm3sRYakeDkGS
+         +4y4WVC6ANPCDsYLnfC1zEK0l2iqDsSCq2QBdb9BJeyibNBLbExW3Jx735yq2xtsC7+x
+         T2HA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759131375; x=1759736175;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=WtpldhRDbRzoGsO+8pMp+y65v40hHUOFZZcRghWlbXo=;
+        b=gkFh1ebxKS6iKvHv2P6PqpQbA1cxmTs9RTIsaOKlPTlnJxfGrpKs6tsylh+J+4rHOy
+         s7pEG45vh5LGLIqRtqgOREaWLL7z+umXAlVpPcGa5uNSSNT2QE0VzLafs4IzbMufHxJW
+         Q2w2BDnmnFTDft8FTe5cteeGpcnMLNfJ6QMIxjde2zctJycZb5JiUuzooDAlb/7ayHvM
+         t2UCNujaYbLOxeevaOtG15o/s01ZPE01Qr5pTZ3TNec22DpZexcMk0ap+/RAPopGjXcX
+         WXGEZHfBX9z5zHSTuvpcJihBVLUbCxPbf3XmDU9ot/ujlmLBrUOswlWR1zn1ixjuM4Hb
+         VL2A==
+X-Forwarded-Encrypted: i=1; AJvYcCW31tU6hBLqp8e4TiOslq8mOFsuWE6Tk3yzRwQPq3IiwWsvBW4MU5FwxzQEW6Bz6YZQjZD39QbK9+dGrP9LlF4Q@lists.infradead.org
+X-Gm-Message-State: AOJu0YwaHc0DvvLU+yqUdTcnOIBISjbXplkXMFDv06crNcOI4vPdMSVu
+	+uZnRR5Z9hcbvQEo2xbig/7M4OjcBQ4ntTwdkHZDrk8VBsQqCs4VgSuA
+X-Gm-Gg: ASbGncujYuIREsZvpA5ng7ubyveFHXt+tmuMf7Mg9WJAuNCVgcHBHq3Ux9KK7Bi3UN6
+	4H78OZIvoGf7tfVLWwacCy9LIbV1MZY3qrk742hN1Lk6agwKDpjesvX0hC8Fl14+1gUqCWU/v0v
+	BjgUUEZ4fsPBfPTrpPYYLQFTZUnS9CwJ2mBkbvemH/o5Bw/p40+7JQPSZXUCer3Cdwu8aGGCCGY
+	no6KdRtZ/kJw6WQnbOX602fg10EQXMwJ/z0FCU8IOBb9xVqZ74vikntT5ZqpT4TcL5o8MkDoxrM
+	P1o4kqNeRk6/oJ1ETbTEVCKp6yUOB1TIK5f66rN9ri4TrCSbkDOXTwTwhw1niHhXxpE674lWvei
+	9b8Z/kzfhe+JIAIYhYhOmEVhLQzYGeXQ55BsNF+4avZgXkjkrKEj/cqmmtL0f4Hliy1FRqgy3ev
+	Hf
+X-Google-Smtp-Source: AGHT+IEWeCcdaLlQLuxHrfc5zv7vJMgw2RSY5WHEZHUZu8lif8TvLDvdNna1pOwRzpAobj4aitc+pg==
+X-Received: by 2002:a17:903:110e:b0:266:64b7:6e38 with SMTP id d9443c01a7336-27ed4a47150mr170404685ad.46.1759131374689;
+        Mon, 29 Sep 2025 00:36:14 -0700 (PDT)
+Received: from [192.168.68.63] (104-12-136-65.lightspeed.irvnca.sbcglobal.net. [104.12.136.65])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-27eec33b775sm92844965ad.12.2025.09.29.00.36.13
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 29 Sep 2025 00:36:14 -0700 (PDT)
+Message-ID: <5658a127-617c-464a-9651-5ab114161f84@gmail.com>
+Date: Mon, 29 Sep 2025 00:36:13 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20250929-ppp_light_accel_mag_vol-down-v4-2-6598f22d3451@gmail.com>
-References: <20250929-ppp_light_accel_mag_vol-down-v4-0-6598f22d3451@gmail.com>
-In-Reply-To: <20250929-ppp_light_accel_mag_vol-down-v4-0-6598f22d3451@gmail.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Rudraksha Gupta <guptarud@gmail.com>, Ondrej Jirman <megi@xff.cz>, 
- Martijn Braam <martijn@brixit.nl>, 
- =?utf-8?q?Kamil_Trzci=C5=84ski?= <ayufan@ayufan.eu>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1759131312; l=1864;
- i=guptarud@gmail.com; s=20240916; h=from:subject:message-id;
- bh=BRZsP1UdL6OFWqM2mRykWAS8dysAco3k6Kyv3eBDv+E=;
- b=qUkXHOgkg9QDIAccXCuh9iCn8uQ3DvTVFAEX5pjOxmDyP/Lb8YzSzOTQ9g1e2KPPpd/59qbKB
- g0enuB+eYi2Cnr3VE6toJhAopuGqneFWjEEu9KY9/XFj1TSugfTHMNz
-X-Developer-Key: i=guptarud@gmail.com; a=ed25519;
- pk=ETrudRugWAtOpr0OhRiheQ1lXM4Kk4KGFnBySlKDi2I=
-X-Endpoint-Received: by B4 Relay for guptarud@gmail.com/20240916 with
- auth_id=211
-X-Original-From: Rudraksha Gupta <guptarud@gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/5] Upstreaming Pinephone Pro Patches
+To: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ Heiko Stuebner <heiko@sntech.de>, "Leonardo G. Trombetta"
+ <lgtrombetta@gmx.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ linux-kernel@vger.kernel.org, Ondrej Jirman <megi@xff.cz>
+References: <20250921-ppp_light_accel_mag_vol-down-v3-0-7af6651f77e4@gmail.com>
+ <175856183851.499898.2147562889507523573.robh@kernel.org>
+Content-Language: en-US
+From: Rudraksha Gupta <guptarud@gmail.com>
+In-Reply-To: <175856183851.499898.2147562889507523573.robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250929_003615_865623_99C149AF 
+X-CRM114-Status: GOOD (  15.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,72 +102,40 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: guptarud@gmail.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ondrej Jirman <megi@xff.cz>
+Hi,
 
-Pinephone Pro uses mpu6500 according to the schematic.
 
-Tests:
-// Setup: This watches the raw values from the device. The variable with
-// the biggest magnitude and its sign will be recorded
-$ sudo systemctl stop iio-sensor-proxy
-$ cat /sys/bus/iio/devices/iio:device3/in_accel_{x,y,z}_raw
+> My bot found new DTB warnings on the .dts files added or changed in this
+> series.
+>
+> Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+> are fixed by another series. Ultimately, it is up to the platform
+> maintainer whether these warnings are acceptable or not. No need to reply
+> unless the platform maintainer has comments.
+>
+> If you already ran DT checks and didn't see these error(s), then
+> make sure dt-schema is up to date:
+>
+>    pip3 install dtschema --upgrade
+>
+>
+> This patch series was applied (using b4) to base:
+>   Base: using specified base-commit f83ec76bf285bea5727f478a68b894f5543ca76e
+>
+> If this is not the correct base, please add 'base-commit' tag
+> (or use b4 which does this automatically)
+>
+> New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for 20250921-ppp_light_accel_mag_vol-down-v3-0-7af6651f77e4@gmail.com:
+>
+> arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dtb: light-sensor@48 (sensortek,stk3311): 'leda-supply', 'vdd-supply' do not match any of the regexes: '^pinctrl-[0-9]+$'
+> 	from schema $id: http://devicetree.org/schemas/iio/light/stk33xx.yaml#
 
-// Let's start with phone screen facing up to the sky and the charger
-// port closer to you than the front camera.
-z: -16000
+Thanks, addressed in v4!
 
-// Tilt the phone onto it's left edge
-x: -16000
 
-// Tilt the phone onto it's right edge
-x: 16000
-
-// Tilt the phone so that the charger port is pointing straight up to
-// the sky
-y: -16000
-
-// Tilt the phone so that the top of the phone is pointing straight up
-// to the sky
-y: 16000
-
-// Put the phone face down so the screen is touching the table
-z: 16000
-
-Co-developed-by: Martijn Braam <martijn@brixit.nl>
-Signed-off-by: Martijn Braam <martijn@brixit.nl>
-Co-developed-by: Kamil Trzciński <ayufan@ayufan.eu>
-Signed-off-by: Kamil Trzciński <ayufan@ayufan.eu>
-Signed-off-by: Ondrej Jirman <megi@xff.cz>
-Signed-off-by: Rudraksha Gupta <guptarud@gmail.com>
----
- arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts | 6 ++++++
- 1 file changed, 6 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-index 71d32c4bae0d0336ac0c912043618fc9b94919ef..d9f18a8005f15f3ec26e086e5b451bf1bbdc21c0 100644
---- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-+++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-@@ -542,7 +542,13 @@ mpu6500@68 {
- 		reg = <0x68>;
- 		interrupt-parent = <&gpio1>;
- 		interrupts = <RK_PC6 IRQ_TYPE_LEVEL_LOW>;
-+		vdd-supply = <&vcc_1v8>;
- 		vddio-supply = <&vcc_1v8>;
-+
-+		mount-matrix =
-+			"1", "0", "0",
-+			"0", "1", "0",
-+			"0", "0", "-1";
- 	};
- };
- 
-
--- 
-2.51.0
-
+Rudraksha
 
 
