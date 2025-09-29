@@ -4,68 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05F63CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 17:28:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5551DCAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 17:31:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xLd5xqCzvOGBJ6bHUFEXXiosXuoWQxZ6JNWwQvoPPBA=; b=BkvVhjQXgkJapuIFUV+D5otoQA
-	lOywrIL0L4qvG9lBEL3QEVIbZHRkoS+jrY9k4UGeLbIIlGo/gjUkB4s+235GKuY/uhFNi+A0Cwgbg
-	cK49wL5f0toI40YGnkQ5TEfNMpq+7klWU1ZwfpQynTHHnJAg303/FewZTs35mcbJGFHXzjgGUn6q+
-	GgTXNGc+obn/gjh0AUkvXGTh82KvAPQ2Q2fLrBcjuW4V2lHrcvXkLkZ9NcA7eLBqBmpND5WdN4p/R
-	h0E5Eg9BFnrRIif94AcdnRtsRvnEq6QDAO2tk57fC4yqjZuBDs0WiBhKrVTM4lts7SPOUzPQwQSgj
-	JHUOv7eA==;
+	bh=T67zK9Vz4Jc4fcP89icAwJtwafnVSm8SPy/tBpYc5v0=; b=x/WYpO2ggn7aylPnmeo07p9PWc
+	HUdpHqKHZbA2YeCsYMRitfz4jr2+dS5WawEKD8xec61tAjBSkyjK06ZxfuSmIMzI2p8uud6ELWown
+	f0ma03z/cayWPbi36wRZ4IOAjBQEgDksJCKTkmNbx9vx7VCi6HoIAXMgiPUSwkwkwsLOFn8u+okKI
+	iVsd2l11f2E3MxkDiSSu90XWi3fasWImvOREu8MFqL2yJ5ZHXjijrIV4tpwoBORlATmxCPrprWxN+
+	a8QDmH6eUzQ+zw6J2Fshomi0/JCUh865S9SCtimFNasGKFR6qvXRXhipyMzKK0Wc4/xZEGsN0KP50
+	EY7h3aXw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Hg9-000000037sq-3eh7;
-	Mon, 29 Sep 2025 17:28:49 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v3Hiy-000000038EK-3qy2;
+	Mon, 29 Sep 2025 17:31:44 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Hg7-000000037sU-3VBe
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 17:28:48 +0000
+	id 1v3Hiy-000000038E5-13kk;
+	Mon, 29 Sep 2025 17:31:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D249340401;
-	Mon, 29 Sep 2025 17:28:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7D85C4CEF4;
-	Mon, 29 Sep 2025 17:28:45 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 79F4462656;
+	Mon, 29 Sep 2025 17:31:42 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A73DEC4CEF4;
+	Mon, 29 Sep 2025 17:31:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759166926;
-	bh=xKSdXyclKtURS/6958s8l+F1kXgju1+RQlV/tYc2Sck=;
+	s=k20201202; t=1759167102;
+	bh=L5taQOZ5fy1HPwxCZ3NhYxZGxI2dRfW/9CQ4Tx0pvww=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=OZT3ER36gaOdwjVxchhpXqYhDp1qyDLzaMkoICEu1xsXmAL24HH1Q8zjhw0biljAB
-	 wTqKksQ1DAigHYHb2kOrmne5R/bqqEovtrV/3OcNCvMtKyH9Ry1SbRe4lH03mdCw7t
-	 MCmgMDyAB1H7jstxrjCtfKlyEtM3UWzJmVWK/WKLU5NQlUym2EYQLM0Eg7zxH3QetX
-	 FXkuamFKphRhIxBDRGE361UrsiL6cYCJyt0jwdlM8sBBTnArX4uN/3b6ybxCiODmDh
-	 uvj9OkjMLk6R4t4k8ntF+TSqmBzwET21pNiFNFh32gQk8AsoZG9bC3nUM1Y3fHCLuc
-	 10rt/RKRFDdsQ==
-Date: Mon, 29 Sep 2025 18:28:39 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Vladimir Moravcevic <vmoravcevic@axiado.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>,
-	Tzu-Hao Wei <twei@axiado.com>,
-	Axiado Reviewers <linux-maintainer@axiado.com>,
-	linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	Prasad Bolisetty <pbolisetty@axiado.com>
-Subject: Re: [PATCH v2 2/3] spi: axiado: Add driver for Axiado SPI DB
- controller
-Message-ID: <aNrBx4KTgGT5OE72@finisterre.sirena.org.uk>
-References: <20250929-axiado-ax3000-soc-spi-db-controller-driver-v2-0-b0c089c3ba81@axiado.com>
- <20250929-axiado-ax3000-soc-spi-db-controller-driver-v2-2-b0c089c3ba81@axiado.com>
+	b=E2H/+TEkd8fEL8/p0gb75SpCX8X6iF6IxTCTi3qfbM2zU9bOFClp7xXuFFCOYQx32
+	 ISexCizfVvTtpJlrJnLUj9FcyyMi1cZ+iLl5FMQWkLhjYkbLefB32LaJgI2aJWh3WQ
+	 eyiv5rt6d1iELQ2nDhnJfWPB7dWasVAwYy2HSC2IP9f7LCq/RjzLsBJDdcRDOWyTDk
+	 l958AiHye4QE5ChB8naMrouHvdgeGayukpBjRoZjt+1xvICR5d8CpeZZfQb6/vB+Fj
+	 Af4+mAKLlgDZtD4Aygg7RYj2PiDr8JhDQqWEhiTXjU1/IrZ4Xy4pAYLulQRtTlJvOR
+	 DZiiMip4bNMQA==
+Date: Mon, 29 Sep 2025 18:31:36 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Guangjie Song <guangjie.song@mediatek.com>,
+	Laura Nao <laura.nao@collabora.com>,
+	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>,
+	Yassine Oudjana <y.oudjana@protonmail.com>, kernel@collabora.com,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH 1/4] dt-bindings: clock: mediatek: Add clocks for MT8196
+ mfgpll
+Message-ID: <20250929-whoops-kennel-5f54fb6559a8@spud>
+References: <20250929-mtk-pll-rpm-v1-0-49541777878d@collabora.com>
+ <20250929-mtk-pll-rpm-v1-1-49541777878d@collabora.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="cZ9/Y9e1KhVhzbDv"
+	protocol="application/pgp-signature"; boundary="u4M+BrM+qE9Xid1p"
 Content-Disposition: inline
-In-Reply-To: <20250929-axiado-ax3000-soc-spi-db-controller-driver-v2-2-b0c089c3ba81@axiado.com>
-X-Cookie: The star of riches is shining upon you.
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_102847_918565_0393ADA3 
-X-CRM114-Status: GOOD (  24.36  )
+In-Reply-To: <20250929-mtk-pll-rpm-v1-1-49541777878d@collabora.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,114 +83,106 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---cZ9/Y9e1KhVhzbDv
+--u4M+BrM+qE9Xid1p
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-On Mon, Sep 29, 2025 at 01:58:02AM -0700, Vladimir Moravcevic wrote:
-> The Axiado SPI controller is present in AX3000 SoC and Evaluation Board.
-> This controller is operating in Host only mode.
-
-This looks mostly good, but the formatting is a bit odd, one small bug
-and there are licensing problems.
-
-> Signed-off-by: Vladimir Moravcevic <vmoravcevic@axiado.com>
-> Signed-off-by: Prasad Bolisetty <pbolisetty@axiado.com>
-
-The signoff of the person sending the mail should be last.
-
-> +++ b/drivers/spi/spi-axiado.c
-> @@ -0,0 +1,1029 @@
-> +// SPDX-License-Identifier: GPL-2.0-or-later
-> +/*
-> + * Axiado SPI controller driver (Host mode only)
-> + *
-> + * Copyright (C) 2022-2025 Axiado Corporation (or its affiliates). All rights reserved.
-> + *
-> + */
-
-All rights reserved or GPL?
-
-Please make the entire comment a C++ one so things look more
-intentional.
-
-> +	/* xspi->clk_rate - AMBA Slave clock frequency
-> +	 * transfer->speed_hz - Slave clock required frequency
-> +	 * As per data sheet - SCD = (AMBA Slave clock/SCK) - 2
-> +	 */
-
-Please use terms like "device" rather than outdated ones like slave.
-
-> +}
-> +/**
-
-Blank line between functions please.
-
-> +	/* Process any remaining bytes in the RX FIFO */
-> +	u32 avail_bytes = ax_spi_read(xspi, AX_SPI_RX_FBCAR);
+On Mon, Sep 29, 2025 at 02:13:20PM +0200, Nicolas Frattaroli wrote:
+> The clock controllers for mfgpll, mfgpll-sc0, and mfgpll-sc1 all need
+> CLK_TOP_MFG_EB to be on if their clock control registers are touched in
+> any way.
+>=20
+> This was not known at the time this binding was written, as this
+> dependency only came to light when I started poking at the MFlexGraphics
+> hardware, where this undocumented peculiarity made itself known through
+> SErrors being thrown during register reads.
+>=20
+> Add a clocks property to the binding to describe this relationship, and
+> mark it as required for the affected clocks.
+>=20
+> Fixes: dd240e95f1be ("dt-bindings: clock: mediatek: Describe MT8196 clock=
+ controllers")
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> ---
+>  .../bindings/clock/mediatek,mt8196-sys-clock.yaml  | 28 ++++++++++++++++=
+++++++
+>  1 file changed, 28 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8196-sys-=
+clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8196-sys-cl=
+ock.yaml
+> index 660ab64f390d2e722b7d3e25cf057926da318bc0..41aacd8d5f69050eebdf8392f=
+7b652427632f491 100644
+> --- a/Documentation/devicetree/bindings/clock/mediatek,mt8196-sys-clock.y=
+aml
+> +++ b/Documentation/devicetree/bindings/clock/mediatek,mt8196-sys-clock.y=
+aml
+> @@ -45,6 +45,9 @@ properties:
+>    reg:
+>      maxItems: 1
+> =20
+> +  clocks:
+> +    maxItems: 1
 > +
-> +	// This loop handles bytes that are already staged from a previous word read
-> +	while (xspi->bytes_left_in_current_rx_word_for_irq &&
+>    '#clock-cells':
+>      const: 1
+> =20
+> @@ -90,6 +93,23 @@ required:
+> =20
+>  additionalProperties: false
+> =20
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - mediatek,mt8196-mfgpll-pll-ctrl
+> +              - mediatek,mt8196-mfgpll-sc0-pll-ctrl
+> +              - mediatek,mt8196-mfgpll-sc1-pll-ctrl
+> +    then:
+> +      properties:
+> +        clocks:
+> +          items:
+> +            - description: mfg_eb clock
+> +      required:
+> +        - clocks
 
-The mix of /* and // seems a bit random, does it mean something?
+Don't you want an else: properties: clocks: false here?
 
-> +	 * Handle "Message Transfer Complete" interrupt.
-> +	 * This means all bytes have been shifted out of the TX FIFO.
-> +	 * It's time to harvest the final incoming bytes from the RX FIFO.
-> +	 */
-> +	if (intr_status & AX_SPI_IVR_MTCV) {
-
-> +		ax_spi_process_rx_and_finalize(ctlr);
-> +		return IRQ_HANDLED;
-> +	}
-
-> +	if (intr_status & AX_SPI_IVR_RFFV) {
-
-We can't get incoming and outgoing data interrupts simultaneously
-asserted?
-
-> +	drain_limit = AX_SPI_RX_FIFO_DRAIN_LIMIT; // Sane limit to prevent infinite loop on HW error
-> +	while (ax_spi_read(xspi, AX_SPI_RX_FBCAR) > 0 && drain_limit-- > 0)
-> +		(void)ax_spi_read(xspi, AX_SPI_RXFIFO); // Read and discard
 > +
+>  examples:
+>    - |
+>      apmixedsys_clk: syscon@10000800 {
+> @@ -104,4 +124,12 @@ examples:
+>          mediatek,hardware-voter =3D <&scp_hwv>;
+>          #clock-cells =3D <1>;
+>      };
+> +  - |
+> +    #include <dt-bindings/clock/mediatek,mt8196-clock.h>
+> =20
+> +    clock-controller@4b810000 {
+> +        compatible =3D "mediatek,mt8196-mfgpll-pll-ctrl", "syscon";
+> +        reg =3D <0x4b810000 0x400>;
+> +        clocks =3D <&topckgen CLK_TOP_MFG_EB>;
+> +        #clock-cells =3D <1>;
+> +    };
+>=20
+> --=20
+> 2.51.0
+>=20
 
-If you need the cast to void there something is going wrong.
-
-> +	ax_spi_setup_transfer(spi, transfer);
-> +	ax_spi_fill_tx_fifo(xspi);
-> +	ax_spi_write(xspi, AX_SPI_CR2, (AX_SPI_CR2_HTE | AX_SPI_CR2_SRD | AX_SPI_CR2_SWD));
-> +
-> +	spi_transfer_delay_exec(transfer);
-
-The core will implement any per transfer delays, this will double them.
-
-> +	fifo_total_bytes = xspi->tx_fifo_depth;
-> +	/* Calculate protocol overhead bytes according to the real operation each time. */
-> +	protocol_overhead_bytes = op->cmd.nbytes + op->addr.nbytes + op->dummy.nbytes;
-
-/*
- *
- */
-
-
-> +	/*Calculate the maximum data payload that can fit into the FIFO. */
-
-/* Calculate
-
---cZ9/Y9e1KhVhzbDv
+--u4M+BrM+qE9Xid1p
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmjawcMACgkQJNaLcl1U
-h9D7uAf/ezOiFJAnnp9OphHFZ36w2sWLfl3KC6kZn/2aKFTkXioJE01EmJO8HPPJ
-RJDxyTI2cAGVkS2LoZiXTWf0YL16mI17L4M3lhHT7ce/s5DRdGVz6l49oXvNsod3
-M/K4RdzPhQ0f8cJPbFGkiAhEoeh6vCcBY1V2du2DUQgci2QnhNpEaUaoL/+WRbv5
-teS3pnjbOq/JgkNtI72x41qLK1930i33S79IMulm03r95rEtCA0ucaB/QaI+81px
-YZrlk9W8s7pD8gFqmwVM2bN2GS6AzIsi3TfetTA7I0vVlKTg83PytJpzRNQFzgNr
-3rzwhnjnTo6jZxQag5ZFxNVstjMwsA==
-=WP3J
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaNrCeAAKCRB4tDGHoIJi
+0iJxAP4mU6+C8Eh7IxIoYQL1Qb0tkSwfwCjYaPhrKJSDWD8nUwEAx0m/G5GfkzGq
+vzTWSFTPy8nqiETYWXzWi/6gx3Yqpwo=
+=JKYV
 -----END PGP SIGNATURE-----
 
---cZ9/Y9e1KhVhzbDv--
+--u4M+BrM+qE9Xid1p--
 
