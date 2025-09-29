@@ -4,111 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F527CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 20:07:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A2AACAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 20:17:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wA3uOR00VQG2MYj5nJtUQY0pkQ46ZSnhVcxuOfdZq+A=; b=ReoG0UAcDjnU0eA5o1fechC0ox
-	xT+xJ9Loi1orQpqNdvfSUYy9EazmAMH0hw2R9I3QHKpVVrF6ZBAKwpEqtNr0frzhoZJ7cDeXlpW4F
-	MvrFv4+1z7uD4eQqt+qDAk2pbdsUgkn3eO3bJ6x1Olaj3hCqs7DBXNUpkSvJ/gY8MoGNKxyEpLQ8j
-	uJ3iiK0QYbx0CU2RytXMg3+oVN/BsHtHJX6YQMEOMHrg7OyigFRxp0+VxrkrvUCo/MB8uASJL/yG+
-	sloXQnaTDc1nOZVNOkT4G/VG+qm5xpwze7UBNjx2t58WYuwp/5sGUJVrJt8hp9KhitzpN4a//jUBg
-	tgdVoj3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QMjZjSk/NUdEuGMznjuRyqqZQEGpcR7yIi0JJqqV7h8=; b=eELi+PZ5Hqph23gF6NdsG7PU34
+	9UVcIhvkMtHDeIHM5nxoW0JrNZAQSbF/95ZYwKpOm43vbbYfO6SjP5gT2bWVt6q7lAktkVcF4XArP
+	wPA+o8+8sFPEfP8uGwagZjKCfRfFISBs7q/c4Uj6BkcO7/OkQ8CNBxol3y2jTzIF4P5Jp4b3OByd6
+	Spx6P6c9wvUu+xBLq8d+5EFQqvujLP5Lv/XQ9pmAThoye+TQ74es1mkab5O7LpPHC05c1keZNn/qK
+	0wf73w+0rjdCNszq92BlYnErB/hCqkv0KUsCkhzAoKBVFIZRdeG8UNPufiBRS07bmG0j0PUJ8BxnE
+	6bSdjGCQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3K9W-00000003Q2U-0Lj7;
-	Mon, 29 Sep 2025 20:07:18 +0000
-Received: from mail-io1-xd64.google.com ([2607:f8b0:4864:20::d64])
+	id 1v3KIp-00000003Quw-1oWQ;
+	Mon, 29 Sep 2025 20:16:55 +0000
+Received: from mout.gmx.net ([212.227.17.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3K9S-00000003Q08-4Bfd
+	id 1v3KIm-00000003QuX-0TMl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 20:07:16 +0000
-Received: by mail-io1-xd64.google.com with SMTP id ca18e2360f4ac-9335a918867so7000739f.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 13:07:14 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759176431; x=1759781231;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=wA3uOR00VQG2MYj5nJtUQY0pkQ46ZSnhVcxuOfdZq+A=;
-        b=WvqCFnMulOX89zgaeGQ1g/Xp3kM5vL2T7xnotUWhBAtDLoALpBjMyYwrbePV/eub85
-         /afoXa/Ce7QUJp7y+yogCtILGXgzdIVwgFdlPr2HhW/y47Tk1rSgVZzwbsdOHvOJbVQT
-         K5HOvWdTObCBGtDj7QIOfg44vEK36gPVnYrLUwfjaVTXQEUNH6Uf/K3yVkbVAGp8OflF
-         0gXDVFAFUnr6NX8+l4pjquFzfUypI0dfJ3Ywkh50NunmvRgpgXofQhxx68F332AFFkb8
-         a6hYc254sVhrrW7TWPQ4bWJnhNEBDVxOwGTuuoUO9nb+2eEj7HxKDTBec0o+UN1n9a5c
-         WQcA==
-X-Forwarded-Encrypted: i=1; AJvYcCWCKxj+XDPvMPJugbFOu99G2ZQSIXn+0fYSvn17fKU05LaRxufO0VIUsYjnmKMOoZCLV9tBItsKseWsNcrzb6jH@lists.infradead.org
-X-Gm-Message-State: AOJu0YyC5kJZshw1ogYCu6RrDeB/ayYSN+4msN89ewO2VHBwKc8eiPIy
-	oPnXILWsiP7B3tzSOVC86LRoMLLt1D0VuxfQ4Rrm0bZU3UZo6xuqE3L9svQJicdRhNxm8+GJoC8
-	XH12Wgz98LfhI9YUUWJku/cyX1+HLJdC0FlbScy4t563FbigVSUDCbdvcxQUp/HcunlDGKRr7z9
-	xZ7vFa6K4/MMtpLk8wLsi57Yy6EMjnxckzYKS+NLLrkpMSNlMNHTr0lAP+u2R301kBJbJvg6v+l
-	lPZZ9Rrv8wnNBwEA7CHI8vDg7M=
-X-Gm-Gg: ASbGncuajw9H73ZVhwszam0Md4GxlCEvBDAkC2hvR7d0fXJBRP1HDo4UJfwuhHt06O1
-	a7pBTR/ML10IQTqZYxuoH65yri69A7MwyUEphuVHkg32IVk/N3b53SSJVqiMpCcWsMzayDMt0v+
-	hSISCPLqgrUjG6nIW/c44l3H3FjgTBveuBmkQhTfm27wwTE3uzZkXNSTqAQj9BqrPOgWH8vEiXK
-	VJ+AiJFPdXNAZ+Juc7T4Qt1oL3L1UaNLtXs0q1TNwm0BBqONShXsakFfwFo+K+/rBeKpdjhklow
-	SMDTxdD9eyaNiAqtMGiJDisauDxfgxAbQKDyC7d1DiXrldO6MMcx7enY9H9Wo85VFx7cZERZSqP
-	ljMbxiDPZ+RhwBEALNxN9kqHYCGG1nYhKKhXc/INrcT20zl5fE8527aURnOFX9fHOUvo4t2rOlc
-	E=
-X-Google-Smtp-Source: AGHT+IERmLYZzwMHrqgDjgcfqcNnCE5zUO+ZJDv5SzcLiU8L8/wieKxt7WiGdhxrRv1qwN6FQXL6GL/yoBk7
-X-Received: by 2002:a05:6602:484:b0:8fd:765f:3142 with SMTP id ca18e2360f4ac-929c2f2057dmr675315639f.11.1759176430770;
-        Mon, 29 Sep 2025 13:07:10 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-121.dlp.protect.broadcom.com. [144.49.247.121])
-        by smtp-relay.gmail.com with ESMTPS id 8926c6da1cb9f-56a64211cb2sm720209173.7.2025.09.29.13.07.10
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Mon, 29 Sep 2025 13:07:10 -0700 (PDT)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-b55443b4114so3507719a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 13:07:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1759176429; x=1759781229; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wA3uOR00VQG2MYj5nJtUQY0pkQ46ZSnhVcxuOfdZq+A=;
-        b=QA1uQrie0CiducPTFHvZKaz9tx/ieg7+Ru9IxByAsLxeVnzx8wbhtKp80iT1lGbhf7
-         PwMlBue3twShgNlsyp8e5qKc9FgSPkhpe5F+MaQnkLIIOR01kDVD1Uz4qNCwEpevQzS+
-         uDsnkqFUujrQPKcObRLens+3jvopsK8pXdWtU=
-X-Forwarded-Encrypted: i=1; AJvYcCWUd5wUzsrAG8+GOtSUW9RetfYXNrM6mET+dQg4Z4Idr9YXRlYcjrlVVFxBIQPE68fTuvLFkFnPCLrXf7h6VkaN@lists.infradead.org
-X-Received: by 2002:a17:90b:3143:b0:32e:1ff5:5af4 with SMTP id 98e67ed59e1d1-3342a2fe9ddmr18545841a91.35.1759176429381;
-        Mon, 29 Sep 2025 13:07:09 -0700 (PDT)
-X-Received: by 2002:a17:90b:3143:b0:32e:1ff5:5af4 with SMTP id 98e67ed59e1d1-3342a2fe9ddmr18545816a91.35.1759176428992;
-        Mon, 29 Sep 2025 13:07:08 -0700 (PDT)
-Received: from mail.broadcom.net ([192.19.144.250])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-33838735194sm2121479a91.22.2025.09.29.13.07.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Sep 2025 13:07:08 -0700 (PDT)
-From: Kamal Dasu <kamal.dasu@broadcom.com>
-To: bcm-kernel-feedback-list@broadcom.com,
-	andersson@kernel.org,
-	baolin.wang@linux.alibaba.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	florian.fainelli@broadcom.com
-Cc: linux-remoteproc@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Kamal Dasu <kamal.dasu@broadcom.com>
-Subject: [PATCH 2/3] hwspinlock: brcmstb hardware semaphore support
-Date: Mon, 29 Sep 2025 16:06:26 -0400
-Message-Id: <20250929200628.3699525-4-kamal.dasu@broadcom.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250929200628.3699525-1-kamal.dasu@broadcom.com>
-References: <20250929200628.3699525-1-kamal.dasu@broadcom.com>
+	Mon, 29 Sep 2025 20:16:53 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1759176995; x=1759781795; i=j.neuschaefer@gmx.net;
+	bh=QMjZjSk/NUdEuGMznjuRyqqZQEGpcR7yIi0JJqqV7h8=;
+	h=X-UI-Sender-Class:Date:From:To:Cc:Subject:Message-ID:References:
+	 MIME-Version:Content-Type:Content-Transfer-Encoding:In-Reply-To:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=pYj3N+T4IN7ZiCP6twpcc0jCgYyisyQu/E1wNIL27K/bN3C1UvcA6dW0ej1aMf+8
+	 1/CpOdnh2Yz9XpLMH2tKrJTverdK5cFV6SZaW//sBclbk7Au9UoQlD+5CuqCbW0t9
+	 fCtOh1PwU3qvIEZnWl6Al1ZY+qhhsi9R7bjNZfohAO8h8KDhuvI/udtQ1///F0MnS
+	 hcqenVqFaCUyPyh3Ff7q2F2pNZGN1eBTJscI1pp6aywhI26vxp6H+93CoaxIjuhkU
+	 zbavl4dYnI8aiSO2muGpmo86mbc0SIISFqjpcoVzkQAva/+jC2c3CCZw5bLohmZ8Y
+	 56xs2undk0tFBmuLgw==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from probook ([89.1.211.158]) by mail.gmx.net (mrgmx105
+ [212.227.17.168]) with ESMTPSA (Nemesis) id 1Mr9G2-1uYvkz0OYQ-00ngiw; Mon, 29
+ Sep 2025 22:16:35 +0200
+Date: Mon, 29 Sep 2025 22:16:33 +0200
+From: =?utf-8?Q?J=2E_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: =?utf-8?Q?J=2E_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>,
+	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
+	Marc Zyngier <maz@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
+	Arnd Bergmann <arnd@arndb.de>, Hanjun Guo <guohanjun@huawei.com>,
+	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
+	Guenter Roeck <linux@roeck-us.net>,
+	Jens Reidel <adrian@mainlining.org>
+Subject: Re: [PATCH] arm64: Kconfig: Make CPU_BIG_ENDIAN depend on BROKEN
+Message-ID: <aNrpIY4_2bfJm5XK@probook>
+References: <20250919184025.15416-1-will@kernel.org>
+ <aNnQb9gH8pzwfRJ5@probook>
+ <aNplAOAzJKOUigPC@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <aNplAOAzJKOUigPC@arm.com>
+X-Provags-ID: V03:K1:ynWIxZ1tNUOtNq3OpSo1gVYFL39JkXSxaiKX8oqOFqkEVgtpz8J
+ 9qNFZMZwwKaLfnPzISwqX7SOCwRnvVq7/RTq5mA0hTQdVxjvtTVvcTCQ3hBsFarzVbwBHHX
+ bZPewIyvfR1/jNJAF9YAgeuYhXfMszO9H/kMAX6GMjgZttOcO3+CL/CNgnHeJ5VC5QYWQzE
+ VitCpmWnvJpXJ8fg71/5A==
+UI-OutboundReport: notjunk:1;M01:P0:18xmb1yJEfk=;DTU36Y/5P/nHrDyN1sYEg89YYrG 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
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_130715_048903_A2E4B069 
-X-CRM114-Status: GOOD (  22.72  )
+X-CRM114-CacheID: sfid-20250929_131652_525264_825E7BB4 
+X-CRM114-Status: GOOD (  26.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,155 +87,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Added support for brmstb_hwspinlock driver that makes use of
-the hwspinlock framework. Driver uses SUN_TOP_CTRL_SEMAPHORE_[1:15]
-registers to implement the hardware semaphore. With this change
-other brcmstb drivers can use hwspin_trylock() and hwspin_unlock()
-apis and make use of this hwspinlock framework. Other driver dt nodes
-just need to use a reference to the &hwspinlock and the lock id
-they want to use.
-e.g. hwlocks = <&hwspinlock0 0>;
+On Mon, Sep 29, 2025 at 11:52:48AM +0100, Catalin Marinas wrote:
+> On Mon, Sep 29, 2025 at 02:18:55AM +0200, J. Neusch=C3=A4fer wrote:
+> > On Fri, Sep 19, 2025 at 07:40:25PM +0100, Will Deacon wrote:
+> > > Big-endian arm64 configurations are vanishingly rare, yet we still c=
+laim
+> > > to support them in Linux despite very limited testing or visible
+> > > interest. Supporting big-endian adds unnecessary burden to reviewers=
+ and
+> > > contributors which, without any known active users, is hard to justi=
+fy.
+> > > For example, recent work to improve our futex routines and to implem=
+ent
+> > > nested virtualisation support is non-trivially complicated by having=
+ to
+> > > support both big- and little-endianness.
+> > >=20
+> > > Back in 2019 [1], it was claimed that Huawei were using arm64 big-en=
+dian
+> > > machines in their telecommunication products but I don't know whethe=
+r
+> > > that's still the case and certainly haven't seen any patch contribut=
+ions
+> > > to help support or maintain it.
+> > >=20
+> > > Make CPU_BIG_ENDIAN depend on BROKEN as an initial deprecation step
+> > > towards its removal.
+> >=20
+> > As of this month (September 2025) there's a new community project [1,2=
+]
+> > to revive aarch64_be. Jens Reidel (CC'd) and I are involved in it. We'=
+ve
+> > been fixing several aarch64_be-related bugs, but mostly[3] in userspac=
+e,
+> > because the kernel support is pretty solid.
+> >=20
+> > So, just so it doesn't go unmentioned, there is interest in keeping
+> > big-endian ARM64 alive.
+>=20
+> It's nice to see it gets testing but is there any actual beyond you and
+> Jens (i.e. in production somewhere like Huawei's case)? We want to
+> assess whether it's worth the kernel maintenance and testing hassle and
+> for how long.
 
-Signed-off-by: Kamal Dasu <kamal.dasu@broadcom.com>
----
- drivers/hwspinlock/Kconfig              |  9 +++
- drivers/hwspinlock/Makefile             |  1 +
- drivers/hwspinlock/brcmstb_hwspinlock.c | 98 +++++++++++++++++++++++++
- 3 files changed, 108 insertions(+)
- create mode 100644 drivers/hwspinlock/brcmstb_hwspinlock.c
+We don't have any commercial or large deployments, no. It's currently
+one build host and manual testing on additional machines.
 
-diff --git a/drivers/hwspinlock/Kconfig b/drivers/hwspinlock/Kconfig
-index 3874d15b0e9b..551afa8df2d0 100644
---- a/drivers/hwspinlock/Kconfig
-+++ b/drivers/hwspinlock/Kconfig
-@@ -63,4 +63,13 @@ config HSEM_U8500
- 
- 	  If unsure, say N.
- 
-+config HWSPINLOCK_BRCMSTB
-+	tristate "Broadcom Setttop Hardware Semaphore functionality"
-+	depends on ARCH_BRCMSTB || COMPILE_TEST
-+	help
-+	  Broadcom settop hwspinlock driver.
-+	  Say y here to support the Broadcom Hardware Semaphore functionality, which
-+	  provides a synchronisation mechanism on the SoC.
-+
-+	  If unsure, say N.
- endif # HWSPINLOCK
-diff --git a/drivers/hwspinlock/Makefile b/drivers/hwspinlock/Makefile
-index a0f16c9aaa82..4f5c05403209 100644
---- a/drivers/hwspinlock/Makefile
-+++ b/drivers/hwspinlock/Makefile
-@@ -10,3 +10,4 @@ obj-$(CONFIG_HWSPINLOCK_SPRD)		+= sprd_hwspinlock.o
- obj-$(CONFIG_HWSPINLOCK_STM32)		+= stm32_hwspinlock.o
- obj-$(CONFIG_HWSPINLOCK_SUN6I)		+= sun6i_hwspinlock.o
- obj-$(CONFIG_HSEM_U8500)		+= u8500_hsem.o
-+obj-$(CONFIG_HWSPINLOCK_BRCMSTB)	+= brcmstb_hwspinlock.o
-diff --git a/drivers/hwspinlock/brcmstb_hwspinlock.c b/drivers/hwspinlock/brcmstb_hwspinlock.c
-new file mode 100644
-index 000000000000..56206431a94c
---- /dev/null
-+++ b/drivers/hwspinlock/brcmstb_hwspinlock.c
-@@ -0,0 +1,98 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * brcmstb HWSEM driver
-+ *
-+ * Copyright (C) 2025 Broadcom
-+ *
-+ */
-+
-+#include <linux/module.h>
-+#include <linux/delay.h>
-+#include <linux/io.h>
-+#include <linux/slab.h>
-+#include <linux/spinlock.h>
-+#include <linux/hwspinlock.h>
-+#include <linux/platform_device.h>
-+#include <linux/mod_devicetable.h>
-+#include "hwspinlock_internal.h"
-+
-+#define BRCMSTB_MAX_SEMAPHORES		16
-+#define RESET_SEMAPHORE			0
-+
-+#define HWSPINLOCK_VAL			'L'
-+
-+static int brcmstb_hwspinlock_trylock(struct hwspinlock *lock)
-+{
-+	void __iomem *lock_addr = (void __iomem *)lock->priv;
-+
-+	writel(HWSPINLOCK_VAL, lock_addr);
-+
-+	return (readl(lock_addr) == HWSPINLOCK_VAL);
-+}
-+
-+static void brcmstb_hwspinlock_unlock(struct hwspinlock *lock)
-+{
-+	void __iomem *lock_addr = (void __iomem *)lock->priv;
-+
-+	/* release the lock by writing 0 to it */
-+	writel(RESET_SEMAPHORE, lock_addr);
-+}
-+
-+static void brcmstb_hwspinlock_relax(struct hwspinlock *lock)
-+{
-+	ndelay(50);
-+}
-+
-+static const struct hwspinlock_ops brcmstb_hwspinlock_ops = {
-+	.trylock	= brcmstb_hwspinlock_trylock,
-+	.unlock		= brcmstb_hwspinlock_unlock,
-+	.relax		= brcmstb_hwspinlock_relax,
-+};
-+
-+static int brcmstb_hwspinlock_probe(struct platform_device *pdev)
-+{
-+	struct hwspinlock_device *bank;
-+	struct hwspinlock *hwlock;
-+	void __iomem *io_base;
-+	int i, num_locks = BRCMSTB_MAX_SEMAPHORES;
-+
-+	io_base = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(io_base)) {
-+		dev_err(&pdev->dev, "semaphore iobase mapping error\n");
-+		return PTR_ERR(io_base);
-+	}
-+
-+	bank = devm_kzalloc(&pdev->dev, struct_size(bank, lock, num_locks),
-+			    GFP_KERNEL);
-+	if (!bank)
-+		return -ENOMEM;
-+
-+	platform_set_drvdata(pdev, bank);
-+
-+	for (i = 0, hwlock = &bank->lock[0]; i < num_locks; i++, hwlock++)
-+		hwlock->priv = (void __iomem *)(io_base + sizeof(u32) * i);
-+
-+	return devm_hwspin_lock_register(&pdev->dev, bank,
-+					 &brcmstb_hwspinlock_ops,
-+					 0, num_locks);
-+}
-+
-+static const struct of_device_id brcmstb_hwspinlock_ids[] = {
-+	{ .compatible = "brcm,brcmstb-hwspinlock", },
-+	{ /* end */ },
-+};
-+MODULE_DEVICE_TABLE(of, brcmstb_hwspinlock_ids);
-+
-+static struct platform_driver brcmstb_hwspinlock_driver = {
-+	.probe		= brcmstb_hwspinlock_probe,
-+	.driver		= {
-+		.name	= "brcmstb_hwspinlock",
-+		.of_match_table = brcmstb_hwspinlock_ids,
-+	},
-+};
-+
-+module_platform_driver(brcmstb_hwspinlock_driver);
-+
-+MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("Hardware Spinlock driver for brcmstb");
-+MODULE_AUTHOR("Kamal Dasu <kdasu.dasu@broadcom.com>");
--- 
-2.34.1
+I'd be sad to see big-endian arm64 support removed because it's an
+opportunity to test for endian-related bugs (in various packages, not
+just the kernel) on widely available and reasonably fast hardware.
 
+I understand the maintenance cost argument, and I'm fine with the
+CONFIG_BROKEN dependency, even if it might be applied to features that
+cause problems in the future (such as nested virt) =E2=80=94 it's easy to =
+work
+around, and features can be fixed as needed. A complete removal will
+likely be harder to revert, though, especially once code simplifications
+are made based on supporting only little-endian. That's my concern.
+
+
+Best regards,
+J. Neusch=C3=A4fer
 
