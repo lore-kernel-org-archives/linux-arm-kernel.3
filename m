@@ -4,63 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04227CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 10:19:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8EB4CAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 10:21:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z3WUpioTqTeLQl/EiFm/Ll2GqsQinrWIJKqgIS4qAv8=; b=HbL4kN7v1IBexwHXHxtSYXwxnl
-	AbzhPQ1c1q0uY4TRTfhvASS9qMgM1QPdlrGWteFOH6DmkvHSEPv1cg3ErfJKII+ALmW4ZzEBTwo9/
-	DkaDxJeY6d7kvkL5k88ai3a/V8q21MqFFrID8wlguRxZTpXnrN+RZRMhXHfvM2/+FmYgdvVl+/Hd9
-	FhIRDRP90smLk320qp169B3vqIB1zzsRJRhZyyFaRHBeSWP25UKUzvgSpxXG89Gzt7MpRjj7SFqNV
-	wPDLCOSSsJT9HQYFs2dDiLBy2c1d857nvrbkdkW24MYWmfOse7daf7H1grlyYuAGbXgpL8YRh3bcj
-	03m2aGZA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Mbhu+qHT9sgoCc33RJBFnXb9kyOGGNiTxZ7rlYKda5M=; b=bb0lATmKLD2xg9F2sq71WmDu1R
+	rGIEAZ0lM20iU9zNz+eVSpY+0x17fr0n5y/bMCuzkJGlOrmgpfaZ9oNtqj3FuQ9fn2owvZDdqcejT
+	gByhX89N7KdUfOTRgZa5fr02GcdPeDosVh26nC42FneVo8wQBcc7vzylwcOFwWod5nOYqKyK/hUN2
+	5Ml7R8ZXPExzJ8hiBNqqwGTR5FhTMUM4RKCmItGf+C+0uciaFqA/MhVCMAnh1jSCvtI0L+78RyE2x
+	RcbB58xcCH6SSZStFWbCga4k9kO1Acb3o0uWarNtrGxcjQg+PQlOUjKnLNbqL+rxLb8JKr4iNtN8o
+	c4CHQLLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Ayc-000000029kr-2uZi;
-	Mon, 29 Sep 2025 10:19:26 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1v3B0D-00000002ACU-3KAK;
+	Mon, 29 Sep 2025 10:21:05 +0000
+Received: from out-183.mta1.migadu.com ([95.215.58.183])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3AyZ-000000029kD-3GUL;
-	Mon, 29 Sep 2025 10:19:25 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1759141161;
-	bh=uM45QtBn2WkfbUnPuyU78VZp3d+wVITSNdBrjE11qNY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=GyiWhITq98tH44d7S5usBLHJen2tc/eXRgP5Yjq+Gq35KcSMyD2JpvcN7ADRc4KDM
-	 NxsGK4H6NFnr6PAhKQFNhgjcq7RIM+ahuFu7sFEonc3bwrE8C13pw4wXz42PBPbqAx
-	 Uk6/KtciEcZGhtvkKIsTnDWQ/DRKgTnrrf7VNfD/pnFeCtvJG/mEXrI2iGnumcBP/n
-	 /IsSuokA7tN2EFHaK+PAFom4Sn6nIp5K7/wjh/rC1CrRL5SlRHUtNP0oRePtLUhuYa
-	 EOZZy1g45ehwTH2RRAXOBoR31/5ja4GevqgqlQ306qK5lQHDi4TXyiIslNpkkwLyb8
-	 P5zw+0o7QfzMQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7080417E0125;
-	Mon, 29 Sep 2025 12:19:21 +0200 (CEST)
-Message-ID: <0b4d16a1-e125-4d99-babc-a08aa6fb9cbf@collabora.com>
-Date: Mon, 29 Sep 2025 12:19:20 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] i2c: mt65xx: convert set_speed function to void
-To: Wolfram Sang <wsa+renesas@sang-engineering.com>, linux-i2c@vger.kernel.org
-Cc: Qii Wang <qii.wang@mediatek.com>, Andi Shyti <andi.shyti@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20250925210517.9873-2-wsa+renesas@sang-engineering.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250925210517.9873-2-wsa+renesas@sang-engineering.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+	id 1v3B0A-00000002AAT-3AAt
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 29 Sep 2025 10:21:04 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1759141249;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Mbhu+qHT9sgoCc33RJBFnXb9kyOGGNiTxZ7rlYKda5M=;
+	b=cdURmXl/TEpUnukbrz/vjDzW8vbikibsWOeWapU9jc7K7o1GKhmF04qfRal36aqveOLNF/
+	M8HwPQjlWt+CjXISHQBFiC2qITPn1iW0pyF55gm5O+oVkWXUez9Ou3HYumxHkrCsSe4Nj2
+	f/Kid8hQx+fp395KB3Wfs+R9PtvnZTAhpW4OaqQx7eU02sffE63RFc0l8TkHOg/35/Bqv2
+	Ev6XebOT32IvRsktwont2k9pqN3ARTjhAGtdmp/g+CFVus6FuFgTSd4B0P8+xz1YKnweqN
+	BeAH0xaYTLuaYJkYYALOpiFpyr0IoF1i+ACDG8H8xoY3XKzCbpo6XvPhx98U2A==
+Content-Type: multipart/signed;
+ boundary=ee8eb54230dbf014845d09a9401c721f636de595bbad24edb5099a7626ce;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Mon, 29 Sep 2025 12:20:45 +0200
+Message-Id: <DD57IZJQ4FQM.3T5791FLUQ8KQ@cknow.org>
+Cc: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 0/3] arm64: dts: rockchip: introduce LinkEase EasePi
+ R1
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "Liangbin Lian" <jjm2473@gmail.com>, <robh@kernel.org>,
+ <krzk+dt@kernel.org>, <conor+dt@kernel.org>, <heiko@sntech.de>,
+ <quentin.schulz@cherry.de>, <kever.yang@rock-chips.com>, <naoki@radxa.com>,
+ <honyuenkwun@gmail.com>, <inindev@gmail.com>, <ivan8215145640@gmail.com>,
+ <neil.armstrong@linaro.org>, <mani@kernel.org>, <dsimic@manjaro.org>,
+ <pbrobinson@gmail.com>, <alchark@gmail.com>, <jbx6244@gmail.com>
+References: <20250929065714.27741-1-jjm2473@gmail.com>
+In-Reply-To: <20250929065714.27741-1-jjm2473@gmail.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_031923_985610_7E4D0C70 
-X-CRM114-Status: GOOD (  15.97  )
+X-CRM114-CacheID: sfid-20250929_032102_948555_25D27855 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,55 +76,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 25/09/25 23:05, Wolfram Sang ha scritto:
-> cppcheck rightfully reports:
-> drivers/i2c/busses/i2c-mt65xx.c:1464:6: warning: Condition 'ret' is always false [knownConditionTrueFalse]
-> 
-> Make the function void and simplify the code.
-> 
-> Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
+--ee8eb54230dbf014845d09a9401c721f636de595bbad24edb5099a7626ce
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-
+On Mon Sep 29, 2025 at 8:57 AM CEST, Liangbin Lian wrote:
+> LinkEase EasePi R1 [1] is a high-performance mini router.
+> ...
+> [1] https://doc.linkease.com/zh/guide/easepi-r1/hardware.html
+>
+> Signed-off-by: Liangbin Lian <jjm2473@gmail.com>
 > ---
->   drivers/i2c/busses/i2c-mt65xx.c | 11 ++---------
->   1 file changed, 2 insertions(+), 9 deletions(-)
-> 
-> diff --git a/drivers/i2c/busses/i2c-mt65xx.c b/drivers/i2c/busses/i2c-mt65xx.c
-> index dee40704825c..aefdbee1f03c 100644
-> --- a/drivers/i2c/busses/i2c-mt65xx.c
-> +++ b/drivers/i2c/busses/i2c-mt65xx.c
-> @@ -868,7 +868,7 @@ static int mtk_i2c_calculate_speed(struct mtk_i2c *i2c, unsigned int clk_src,
->   	return 0;
->   }
->   
-> -static int mtk_i2c_set_speed(struct mtk_i2c *i2c, unsigned int parent_clk)
-> +static void mtk_i2c_set_speed(struct mtk_i2c *i2c, unsigned int parent_clk)
->   {
->   	unsigned int clk_src;
->   	unsigned int step_cnt;
-> @@ -938,9 +938,6 @@ static int mtk_i2c_set_speed(struct mtk_i2c *i2c, unsigned int parent_clk)
->   
->   		break;
->   	}
-> -
-> -
-> -	return 0;
->   }
->   
->   static void i2c_dump_register(struct mtk_i2c *i2c)
-> @@ -1460,11 +1457,7 @@ static int mtk_i2c_probe(struct platform_device *pdev)
->   
->   	strscpy(i2c->adap.name, I2C_DRV_NAME, sizeof(i2c->adap.name));
->   
-> -	ret = mtk_i2c_set_speed(i2c, clk_get_rate(i2c->clocks[speed_clk].clk));
-> -	if (ret) {
-> -		dev_err(&pdev->dev, "Failed to set the speed.\n");
-> -		return -EINVAL;
-> -	}
-> +	mtk_i2c_set_speed(i2c, clk_get_rate(i2c->clocks[speed_clk].clk));
->   
->   	if (i2c->dev_comp->max_dma_support > 32) {
->   		ret = dma_set_mask(&pdev->dev,
+>
+> Changes in v2:
+> - Change deprecated "rockchip,system-power-controller" to "system-power-c=
+ontroller"
+> - Link to v1: https://lore.kernel.org/r/20250925055906.83375-1-jjm2473@gm=
+ail.com/
 
+You received an Acked-by on patch 1 and 2 in v1 of this patch set.
+You're supposed to add that to the next/new version(s) or explain why
+you choose not to do that (bc f.e. there was a major change, but that
+does not seem applicable to those patches).
+
+Cheers,
+  Diederik
+
+> Changes in v3:
+> - Fix typo ('status =3D "disable"' -> 'status =3D "disabled"') found by k=
+ernel test robot https://lore.kernel.org/all/202509261328.Grjhp029-lkp@inte=
+l.com/
+> - Link to v2: https://lore.kernel.org/r/20250925092037.13582-1-jjm2473@gm=
+ail.com/
+>
+> ---
+>
+> Liangbin Lian (3):
+>   dt-bindings: vendor-prefixes: Document LinkEase
+>   dt-bindings: arm: rockchip: Add LinkEase EasePi R1
+>   arm64: dts: rockchip: add LinkEase EasePi R1
+>
+>  .../devicetree/bindings/arm/rockchip.yaml     |   5 +
+>  .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+>  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+>  .../boot/dts/rockchip/rk3568-easepi-r1.dts    | 692 ++++++++++++++++++
+>  4 files changed, 700 insertions(+)
+>  create mode 100644 arch/arm64/boot/dts/rockchip/rk3568-easepi-r1.dts
+>
+>
+> base-commit: d0ca0df179c4b21e2a6c4a4fb637aa8fa14575cb
+
+
+--ee8eb54230dbf014845d09a9401c721f636de595bbad24edb5099a7626ce
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaNpdgQAKCRDXblvOeH7b
+bom1AQCfTswrFfDluNNV0dFculfDTyDmVKKRZ2crWGkMgZeo3QD+IhxsVqmnFLwb
+Y6aWblLbHF2szDiC2O8HwzlysYVA4gY=
+=DNJx
+-----END PGP SIGNATURE-----
+
+--ee8eb54230dbf014845d09a9401c721f636de595bbad24edb5099a7626ce--
 
