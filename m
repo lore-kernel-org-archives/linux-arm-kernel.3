@@ -4,66 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48CB3CAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 03:19:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00F39CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 03:56:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=zCjAA38WHCg+MXqF3kGXwWOXS+/+KMwtcI5UNPsSod0=; b=IZ/6M2Jx86YgtAx9kMLzfvTYvF
-	tI1+v7jJKUz5nAfp2Koi1PsnTfVqSQ1O9n6cPvGrAn2b7iqt+XN2JHy/u2cTEatgWPFZ/x3Ngd009
-	uLoxbEEMSlqpd/O+tCLFz9oRB2//0PEKbO3z4WYG9Xv8dAPBadbAMJmBEq6nC6WQ8o6NF3rRODQrb
-	12DxSVdjtvJNZL97i9Ol4tsRSw0dB3ctq55LzdjN28cghClWpOjGuljLldWonJMW0dV7+nrv/AOgp
-	bE/y0BiiOnY6zLngH7FJgboltpFJug9XL3L14fWFaG8mX0lCu26sL1Ldjwwj3QADO+n8V0lFaenEg
-	wAf8ZXHw==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vM6i8BgSabuk/duHJbVX0Gnp95HLl19dL4T224ShB2g=; b=ic0h03Ph18mwtfve6RZ6V3Naaf
+	HIkPie5eiJ8IiLZ5cqEiS2SjIOUC4ZvsyMkuCIysHo6W4vD0YJuaQMdA2XPND1Jo5jz0r0OLyKlrD
+	UoIqGI/zRIdYmHFokp54kpyCe6MkdasD6+yA5X4HZpRAxuB1WsEhbzoAG3nk2TXeGHZrkYRarvWMQ
+	uXvNESwhD5q+OHISMwqDsJLVi9fmrfZk8EYPF5oUImzemgxcEzczSInshgsazHfW6MUFQbFDsHlVa
+	YS11DdhN8owcn9fzv0eoml7nqyzBeBuOy6/3dMBa+lPbFKEMFScd2d0urN8uWRfWSSb42PK6LYtji
+	5kfYCPbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v34Pz-00000001Dix-1767;
-	Mon, 29 Sep 2025 03:19:15 +0000
-Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
+	id 1v34zX-00000001G0m-14qG;
+	Mon, 29 Sep 2025 03:55:59 +0000
+Received: from mail-m15592.qiye.163.com ([101.71.155.92])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v34Pw-00000001Dhy-3DfQ
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 03:19:14 +0000
-Received: from DESKTOP-L0HPE2S (unknown [124.16.141.245])
-	by APP-05 (Coremail) with SMTP id zQCowAB3GROt+tloGaKNCA--.46972S2;
-	Mon, 29 Sep 2025 11:19:10 +0800 (CST)
-From: Haotian Zhang <vulab@iscas.ac.cn>
-To: Nicolas Ferre <nicolas.ferre@microchip.com>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Claudiu Beznea <claudiu.beznea@tuxon.dev>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Haotian Zhang <vulab@iscas.ac.cn>
-Subject: [PATCH] pwm: atmel-hlcdc: fix missing clk_disable_unprepare on error paths
-Date: Mon, 29 Sep 2025 11:19:08 +0800
-Message-ID: <20250929031908.2320-1-vulab@iscas.ac.cn>
-X-Mailer: git-send-email 2.50.1.windows.1
+	id 1v34zT-00000001Fzp-14TA;
+	Mon, 29 Sep 2025 03:55:57 +0000
+Received: from [172.16.12.153] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 24652f4a9;
+	Mon, 29 Sep 2025 11:55:46 +0800 (GMT+08:00)
+Message-ID: <42f41be2-9afb-4087-9ce9-1e711df98df8@rock-chips.com>
+Date: Mon, 29 Sep 2025 11:55:44 +0800
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: zQCowAB3GROt+tloGaKNCA--.46972S2
-X-Coremail-Antispam: 1UD129KBjvJXoWxJr47WF48CF1rWFW3uw4rZrb_yoW8uryxpF
-	47GayjvrWIvws8Wasaqr97JF1Ska18AFW3urW0ka40vrs0yr1IvFyrGF92qFn8CFs7A3W7
-	A3yUtFyruF4jkaDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvG14x267AKxVWUJVW8JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
-	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
-	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26F4j
-	6r4UJwA2z4x0Y4vEx4A2jsIE14v26r4UJVWxJr1l84ACjcxK6I8E87Iv6xkF7I0E14v26F
-	4UJVW0owAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG6I80ewAv
-	7VC0I7IYx2IY67AKxVWUAVWUtwAv7VC2z280aVAFwI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r
-	1j6r4UM4x0Y48IcxkI7VAKI48JM4x0x7Aq67IIx4CEVc8vx2IErcIFxwCY1x0262kKe7AK
-	xVWUAVWUtwCY02Avz4vE14v_Gr4l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr
-	0_Gr1lx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zVAF1VAY
-	17CE14v26r126r1DMIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_JFI_Gr1lIxAIcV
-	C0I7IYx2IY6xkF7I0E14v26r4j6F4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCwCI42IY
-	6I8E87Iv67AKxVW8JVWxJwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnIWIevJa
-	73UjIFyTuYvjfUUksqDUUUU
-X-Originating-IP: [124.16.141.245]
-X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiBgsAA2jZ399mzQAAsU
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 5/7] drm/rockchip: cdn-dp: Add multiple bridges to
+ support PHY port selection
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Chaoyi Chen <kernel@airkyi.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Yubing Zhang <yubing.zhang@rock-chips.com>,
+ Frank Wang <frank.wang@rock-chips.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Amit Sunil Dhamne <amitsd@google.com>,
+ Heikki Krogerus <heikki.krogerus@linux.intel.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
+ Diederik de Haas <didi.debian@cknow.org>,
+ Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
+References: <20250922012039.323-1-kernel@airkyi.com>
+ <20250922012039.323-6-kernel@airkyi.com>
+ <idyrlzhd5sotg3ylr7vbwmczimglffc75nafxbnhhm3ot2jn4w@ixerm6elfmre>
+ <ede70598-c451-4352-ab3e-0e278ce33ad7@rock-chips.com>
+ <pwk4ylrxyedq33qivpwy4kly3yx25yjkv75ja3prf5ynxosiez@lb53gculvj3x>
+Content-Language: en-US
+From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+In-Reply-To: <pwk4ylrxyedq33qivpwy4kly3yx25yjkv75ja3prf5ynxosiez@lb53gculvj3x>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a99939cbbf503abkunmf7f47fbafa8c8
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZQ04fT1YfTkxDGBgYGBhCTx5WFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpPSE
+	xVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=UVyf33FqlputOQa4i79XGybq+AHVBKpYG2XhkZ6ZsqEY+uBjh+doRGcpDIIyihJwJzLoZuBaP8YAxS1iEJ8+T496AL+scaEHMn+JL13fmHgyixWLNleRn15RaeUrcxUFa8lPcxDbkRBf/tFKJtLx0+uQh/Rz1zRor79EWuMmPyI=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=vM6i8BgSabuk/duHJbVX0Gnp95HLl19dL4T224ShB2g=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250928_201913_175888_AC6D7C80 
-X-CRM114-Status: GOOD (  10.33  )
+X-CRM114-CacheID: sfid-20250928_205555_829891_93BCF680 
+X-CRM114-Status: GOOD (  23.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,78 +93,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-atmel_hlcdc_pwm_apply() enables a new clock before updating register
-settings. If any of the subsequent regmap operations fail, the clock
-was left prepared and enabled.
+On 9/29/2025 5:27 AM, Dmitry Baryshkov wrote:
 
-Add a common error path to disable the newly enabled clock.
+> On Sun, Sep 28, 2025 at 05:52:35PM +0800, Chaoyi Chen wrote:
+>> On 9/23/2025 9:50 AM, Dmitry Baryshkov wrote:
+>>
+>> [...]
+>>
+>>
+>>>> +	/* One endpoint may correspond to one HPD bridge. */
+>>>> +	for_each_of_graph_port_endpoint(port, dp_ep) {
+>>>> +		/* Try to get "port" node of correspond PHY device */
+>>>> +		struct device_node *phy_ep __free(device_node) =
+>>>> +			of_graph_get_remote_endpoint(dp_ep);
+>>>> +		struct device_node *phy_port __free(device_node) =
+>>>> +			of_get_parent(phy_ep);
+>>>> +
+>>>> +		if (!phy_port) {
+>>>> +			continue;
+>>>> +		}
+>>>> +
+>>>> +		/*
+>>>> +		 * A PHY port may contain two endpoints: USB connector port or CDN-DP port.
+>>>> +		 * Try to find the node of USB connector.
+>>> And then there can be a retimer between PHY and the USB-C connector. Or
+>>> some signal MUX. Or DP-to-HDMI bridge. Please, don't parse DT for other
+>>> devices. Instead you can add drm_aux_bridge to your PHY and let DRM core
+>>> build the bridge chain following OF graph.
+>>>
+>> I think building a bridge chain across multiple drm_aux_hpd_bridge may be difficult. First, drm_dp_hpd_bridge_register() cannot register the bridge immediately; instead, it is deferred until drm_aux_hpd_bridge_probe(). When it is added to the bridge_list, it may not yet be attached, and attempting to attach it at that point is too late.
+>>
+>> But, if I only use drm_aux_bridge on the USB-C connector, and use my own custom bridge on the PHY device and managing the alloc and attach bridge process myself, then things would become much easier.
+> Well... consider a your board, but add onnn,nb7vpq904m retimer between
+> the CDP and usb-c connector (it's not an uncommon device nowadays). Or
+> add fsa4480 analog audio switch. Build all the drivers as modules. You
+> should not need any changes to your drivers to handle such boards and
+> such kernel config.
+>
+> With those devices you can't handle everything inside the DP driver,
+> since there are two "streams" of probe events: the DRM bridge needs the
+> "next" bridge (in the direction from the SoC to the connector), but the
+> USB-C events code needs "previous" mux, switch or retirmer. After some
+> trial and error we have ended up with having a chain of drm_aux_bridge
+> devices ending up with the drm_aux_hpd_bridge inside the Type-C port
+> manager driver. This way the typec_* depetencies are resolved first,
+> going from the SoC to the Type-C controller driver then the DRM bridge
+> devices probe backwards, creating the chain, which is finally consumer
+> by the DP driver inside the SoC.
 
-Fixes: a56960e8b406 ("[media] cec: add HDMI CEC framework (core)")
-Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
----
- drivers/pwm/pwm-atmel-hlcdc.c | 17 ++++++++++-------
- 1 file changed, 10 insertions(+), 7 deletions(-)
+Sorry, I kept trying to look for the "next bridge" in "drm_hpd_aux_bridge", and I didn't notice that "drm_aux_bridge" already had a similar implementation about "next bridge". Thanks again for your patience.
 
-diff --git a/drivers/pwm/pwm-atmel-hlcdc.c b/drivers/pwm/pwm-atmel-hlcdc.c
-index 387a0d1fa4f2..0791a97c2fb4 100644
---- a/drivers/pwm/pwm-atmel-hlcdc.c
-+++ b/drivers/pwm/pwm-atmel-hlcdc.c
-@@ -98,9 +98,6 @@ static int atmel_hlcdc_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm,
- 			if (ret)
- 				return ret;
- 
--			clk_disable_unprepare(atmel->cur_clk);
--			atmel->cur_clk = new_clk;
--
- 			if (new_clk == hlcdc->sys_clk)
- 				gencfg = ATMEL_HLCDC_CLKPWMSEL;
- 
-@@ -109,7 +106,9 @@ static int atmel_hlcdc_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm,
- 						 ATMEL_HLCDC_CLKPWMSEL,
- 						 gencfg);
- 			if (ret)
--				return ret;
-+				goto err_disable_clk;
-+			clk_disable_unprepare(atmel->cur_clk);
-+			atmel->cur_clk = new_clk;
- 		}
- 
- 		do_div(pwmcval, state->period);
-@@ -134,19 +133,19 @@ static int atmel_hlcdc_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm,
- 					 ATMEL_HLCDC_PWMPOL,
- 					 pwmcfg);
- 		if (ret)
--			return ret;
-+			goto err_disable_clk;
- 
- 		ret = regmap_write(hlcdc->regmap, ATMEL_HLCDC_EN,
- 				   ATMEL_HLCDC_PWM);
- 		if (ret)
--			return ret;
-+			goto err_disable_clk;
- 
- 		ret = regmap_read_poll_timeout(hlcdc->regmap, ATMEL_HLCDC_SR,
- 					       status,
- 					       status & ATMEL_HLCDC_PWM,
- 					       10, 0);
- 		if (ret)
--			return ret;
-+			goto err_disable_clk;
- 	} else {
- 		ret = regmap_write(hlcdc->regmap, ATMEL_HLCDC_DIS,
- 				   ATMEL_HLCDC_PWM);
-@@ -165,6 +164,10 @@ static int atmel_hlcdc_pwm_apply(struct pwm_chip *chip, struct pwm_device *pwm,
- 	}
- 
- 	return 0;
-+
-+err_disable_clk:
-+	clk_disable_unprepare(new_clk);
-+	return ret;
- }
- 
- static const struct pwm_ops atmel_hlcdc_pwm_ops = {
+
+BTW the devm_drm_of_get_bridge(&auxdev->dev, auxdev->dev.of_node, 0, 0) in drm_aux_bridge cannot be used directly with tcphy->dev. I may need to create a device for the dp-port child node, and then use drm_aux_bridge_register(). But this is no longer a big issue :)
+
 -- 
-2.50.1.windows.1
+Best,
+Chaoyi
 
 
