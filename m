@@ -4,82 +4,156 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93587CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 04:29:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE298CAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 05:37:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
-	bh=D5wRPUu5G4Y4BWyRfH1H7IBbVKWaqq7gWN8q6OvyK9M=; b=Rvv4Tsw3oBVYpWzhmU7mEDM/p+
-	4LdoPvy9Iq+7hybDudOyZNZAVCJHIBm1/IAxnkrGYY0WIvdvOcLu4iNd7keKW3EIAr4EEi5SzRBzs
-	6Zh08wbvn5i4XBveP5+3dJOs4emhra33acpsEyF/qkfbqTBvL7FGCRwxQcXOEGniEt1EG7YugkfMF
-	CUlDw8AAKJVXcZ6nVXgN5g5a0ktRXf+2QEXGQD4Xh8M1nZjs2W+9fR+YAHsVjdahgkW4jWeDQ1hO7
-	XM5gy4iC0/YovOZI0C1gsyFSG74sA6CfhYMoz0qWr9AwHMmGeXJpJCP45L+zHnK/E3lBGcHCN+Gwd
-	DgWLrr4g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=H773GghB59iaLVCqgdbkSh6KdK3ukTHO0MgoUBVYou8=; b=1jcPUMtbGKZ9j8zKj0M9N+gyrD
+	ired2wqnxfw6s7ksbK1tHF2prFElK+W0B1YkAibR2kT8inhNgIc44as6Q4/QFmy2xExTdcJggTvs3
+	+qq4OGqxbcASrpQqhqrDtMpn6Ycn7Y6VXJSF/1w9Qrt4lsbm3MOd/kpKyS0RzLuzamEkmwhysydv5
+	hiQPOQiBtIAqocNPtcSmvdjJaqP68+HjDkYRrzIS7bV9Ew6Z9GIlHJd4Z/2ZATkWs9t2J6UZm8qfi
+	M7rrlpirORvirKW8b3UZT83SpRL1APpXvHbOEbd4jY8Uf0PtwHn1478teGpJ8iVdgp3xY2XHwIOm3
+	xWlLesRg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v35Vy-00000001JKk-3EQV;
-	Mon, 29 Sep 2025 04:29:30 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1v36Zq-00000001Opf-1ULb;
+	Mon, 29 Sep 2025 05:37:34 +0000
+Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v35Vu-00000001JIc-2MDK
+	id 1v36Zn-00000001Op3-264n
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 04:29:29 +0000
-Received: from epcas2p2.samsung.com (unknown [182.195.41.54])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250929042918epoutp01a2d65d2d8c06aa0b062efd98e69ead2d~ppnbDqMNP0608906089epoutp01G
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 04:29:18 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250929042918epoutp01a2d65d2d8c06aa0b062efd98e69ead2d~ppnbDqMNP0608906089epoutp01G
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1759120158;
-	bh=D5wRPUu5G4Y4BWyRfH1H7IBbVKWaqq7gWN8q6OvyK9M=;
-	h=From:To:Cc:Subject:Date:References:From;
-	b=s+v406U+PLcaD+EY0XDxC+20eJv3QWSeozFIVY7UsAN4tfULGnTc8F7vQSD3zdzyO
-	 rhzpEmMEGY6CAL4L3PLWXI/qKFUKe3zAZMSrtlp/1C6Zd+ZZoMYrbxOFkv98iJV29r
-	 f8slEvX3yQwMPcvUiHi6ykaMs8z9bAvV5r6Izqaw=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas2p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250929042918epcas2p273bdddf86958b34ea115371bc3f2d25b~ppnar_-kI1350313503epcas2p2L;
-	Mon, 29 Sep 2025 04:29:18 +0000 (GMT)
-Received: from epcas2p4.samsung.com (unknown [182.195.38.202]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4cZp9n5Csbz6B9mH; Mon, 29 Sep
-	2025 04:29:17 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas2p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250929042917epcas2p26f004fefc4b491c5190f0854a7fe1f86~ppnZ0b28b1831418314epcas2p2N;
-	Mon, 29 Sep 2025 04:29:17 +0000 (GMT)
-Received: from tayo (unknown [10.229.9.198]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20250929042917epsmtip15533e0f7be7361ed94f2258f0311f7a2~ppnZvhldn2403224032epsmtip1h;
-	Mon, 29 Sep 2025 04:29:17 +0000 (GMT)
-From: Hoyoung Lee <hy_fifty.lee@samsung.com>
-To: Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>,
-	Kyungmin Park <kyungmin.park@samsung.com>, David Airlie <airlied@gmail.com>,
-	Simona Vetter <simona@ffwll.ch>, Krzysztof Kozlowski <krzk@kernel.org>, Alim
-	Akhtar <alim.akhtar@samsung.com>
-Cc: Hoyoung Lee <hy_fifty.lee@samsung.com>, dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 0/3] drm/exynos: KMS cleanups for off-screen planes and
- mode_config
-Date: Mon, 29 Sep 2025 13:31:07 +0900
-Message-ID: <20250929043110.3631025-1-hy_fifty.lee@samsung.com>
-X-Mailer: git-send-email 2.50.1
+	Mon, 29 Sep 2025 05:37:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=pZdvBRHIReKfyuwT9j23OJF8hzpDC6d82qCEJslrnO56yylifmD4qEytkv6iVWbL5YOjSLJ6wCsrEcwE4mc+e6pJa6s8lrTDQp0BBE5jGE1BU8WeH5FCn0PA2/5zMs5sRDYGgu1IYdLKoN1+obhO0nbr8rFvBy02YowGqMaGlLqMkOIjqu2z0p/3aiiPInNies53s2J90JMlb0+0fyruILfpGFOwPG7Kp1PJC1u+I3N2PhC8q9XLO9k0LpM9dT0sDoTVEHOBZNRKZ1do5uBc61CaKjZKkOFAepCW2vyIJK2/rrMObhnTmltW/hYIsMhZr2SifB1mhaArbj5OyV/V8A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=H773GghB59iaLVCqgdbkSh6KdK3ukTHO0MgoUBVYou8=;
+ b=JqRzo3ci4l62Xnx5qczOVRvITPaziRjULS92m0eWhWlsSHhIeoTpFxu6zzQGzOT2DuohPNP1f179u/4GhDECUHtXEZWKt2vDEZ2s5S6oqDWJE2VWgHu4NoM5xdADhzxdHVF60xbfozSH+hZ9kumV6akLBHZtf2PQUdTV6/ojxH+FzcscbVr+Ljz+05AaZEYzzAnQHtNcCpGCgLINayhNbLX8qg7+vMYQeNeR8o2H8KivhVJB5Y95wVx2zBXqMsUwYZhxkLQiWCrzmVIfCXuTAfTR9QFHkeVyOJzZcIDPaoKUQCCY/D69+B1/PM2ai0zReGsSASz+zQR6PCUw6B2hxg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=H773GghB59iaLVCqgdbkSh6KdK3ukTHO0MgoUBVYou8=;
+ b=0g07cX5r87t89/BWHdC/kMlp77Mmi8X8LFU24Ti/XA/9eT34a88BJX1JpGyZZvWPnS6M3u4VBgKOc/gUyA6rx3PSvTN5xImGA5VfOo9THMT37Hqaqd77k+FM/DD78nVXPCax/N13i/OhAGzbj9gDsbZs6cO1AISNk6+JIbjJTLw=
+Received: from MN0PR12MB5953.namprd12.prod.outlook.com (2603:10b6:208:37c::15)
+ by CY5PR12MB6058.namprd12.prod.outlook.com (2603:10b6:930:2d::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.16; Mon, 29 Sep
+ 2025 05:36:58 +0000
+Received: from MN0PR12MB5953.namprd12.prod.outlook.com
+ ([fe80::6798:13c6:d7ba:e01c]) by MN0PR12MB5953.namprd12.prod.outlook.com
+ ([fe80::6798:13c6:d7ba:e01c%5]) with mapi id 15.20.9160.015; Mon, 29 Sep 2025
+ 05:36:58 +0000
+From: "Pandey, Radhey Shyam" <radhey.shyam.pandey@amd.com>
+To: "Gupta, Suraj" <Suraj.Gupta2@amd.com>, "vkoul@kernel.org"
+	<vkoul@kernel.org>, "Simek, Michal" <michal.simek@amd.com>
+CC: "dmaengine@vger.kernel.org" <dmaengine@vger.kernel.org>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+Subject: RE: [PATCH 1/3] dmaengine: xilinx_dma: Fix channel idle state
+ management in interrupt handler
+Thread-Topic: [PATCH 1/3] dmaengine: xilinx_dma: Fix channel idle state
+ management in interrupt handler
+Thread-Index: AQHcJ9gPk7EbJetffUKQ1IMMmS1EErSptfbw
+Date: Mon, 29 Sep 2025 05:36:58 +0000
+Message-ID: <MN0PR12MB595389852415C5833530F1ADB71BA@MN0PR12MB5953.namprd12.prod.outlook.com>
+References: <20250917133609.231316-1-suraj.gupta2@amd.com>
+ <20250917133609.231316-2-suraj.gupta2@amd.com>
+In-Reply-To: <20250917133609.231316-2-suraj.gupta2@amd.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+msip_labels: MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Enabled=True;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SiteId=3dd8961f-e488-4e60-8e11-a82d994e183d;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_SetDate=2025-09-29T05:35:12.0000000Z;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Name=AMD
+ Internal Distribution
+ Only;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_ContentBits=3;MSIP_Label_dce362fe-1558-4fb5-9f64-8a6240d76441_Method=Standard
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: MN0PR12MB5953:EE_|CY5PR12MB6058:EE_
+x-ms-office365-filtering-correlation-id: 6d2b712a-6d1d-4ed6-5e5c-08ddff1a3553
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7053199007|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?AGoyMCeQLhsM0q4z/tuGVb8/OmZuVwFqHXmjUdLn932LCaN71uOZh4kVRl2y?=
+ =?us-ascii?Q?TMU0sbB8BOn2vwdeejaj2BM0iOMV8+bId0mmJHCeT9WpY6auKBKsmb4P7H+J?=
+ =?us-ascii?Q?Gu29bNojuneUFxHsEweb8QEHItLtu3un6mM/Xe8hfgj5dRK++V1YC0GBLKWY?=
+ =?us-ascii?Q?L03Muu8MmnlOuiqEwkmEai2AuOlXG64t7roVSIE2/3KBSUuxTQbHBdruhQtT?=
+ =?us-ascii?Q?crGRAtHsgQw30FtQW8lh9QWYh0WOLtBQYcrveYY5STtT1B1973AYJcT4j0/e?=
+ =?us-ascii?Q?PfjkqmSrqox9/l19Nr16h3QFIadLA4NRaNRAlTFpoR+ABe/U2WOJ08wLb0KC?=
+ =?us-ascii?Q?NanaOr+pF5b0MiaaPWwr8wxr5Egb/VZj8hLf83QlRTlairmwxkx2MpLuyd4L?=
+ =?us-ascii?Q?o5rOsLI3nUGWQGILWeNjM+osNPiPLMWHWz2FZrxaGzmcHGKwQftrmmCP7beV?=
+ =?us-ascii?Q?iptSeSNjLNOtTtab0Y8ulPt1arJAiMrWS4PwcG202t21O4YCVrb3qX/CwOGu?=
+ =?us-ascii?Q?rFPE2e22+R/g7T6qwiuQkGWDWfwJ+4GkiofCluAxQoSF1ym4jH6d3M37GyKF?=
+ =?us-ascii?Q?HaLdgh0gCVgzXHilk7BZHbULqMXz0xbRaeUwF7h/OypLRfxDZYpg7wiSB2H2?=
+ =?us-ascii?Q?LgVDXGrdLMozhFBSS908o7LxK9Um6eCSq63aZMyO6K0SBNWir3dfKmScOpKF?=
+ =?us-ascii?Q?HTpiEAKdW72SDt9MZlh+ATJDJsC0rjEts4DhV8fCaKO/2rkVRD52/4gAZs/i?=
+ =?us-ascii?Q?MXjonaHoBWrDg8hNLE7drKZF7yzk7N6+S0p64yW2ndUnX528MMgdMImqbJFR?=
+ =?us-ascii?Q?3N3AW6j1XFRMyI1im9sgVWUTYrZIOPt9nbRmECntReE0Wy1KumE41/EeQ/Hc?=
+ =?us-ascii?Q?N2TfOEHPZmBH/g9eK0Rok6JB0plfrkwLfFQXEODJX//9qbFziVUld+2D9O7s?=
+ =?us-ascii?Q?6Wiz6IFPizB2nCAWiJsfeGwmQ7F18aVLmjpkHjB/FljJGfybIhA8O+JIdYM9?=
+ =?us-ascii?Q?5hCkT9q5WKeOdcYrqeNLHem/RNmlV8t0LecA+e+J2FRQavK76efDq5gtaQUT?=
+ =?us-ascii?Q?cf0cUqBJQDahQN6W54eMZezl2bGnc/Ze1xXu6sXKWrd3iPE32hmdRwFfJRDW?=
+ =?us-ascii?Q?W+0V8gOwF8txmo1V4ygZt2mb79TR1sNYoCP2r/A1EyeKFBRWHVDQb6Q9jau5?=
+ =?us-ascii?Q?uCmOw9wrrOb4uhahB5xMeIZWYHbEoa1zcxRd9r3HFbibA+n+h/3ByA2EN6b0?=
+ =?us-ascii?Q?zD3V9Nz7qvpgRGYd2nkwQOvJchtQXv/nTinkMz/f0C03RzZRLiKWbsTzuHao?=
+ =?us-ascii?Q?0VoLtWaJ7C/pn90gUArwmnqDHxYZPu9Aua8AeC5FSITDUIrl8zIwJwMP2OvC?=
+ =?us-ascii?Q?6Ikk0VLHtSMpIX0406FQ3IvCaHYkxTUZ8qmvd0sE9VZKmKH0JQZ9uynMo7cL?=
+ =?us-ascii?Q?ID8A6LU0diNEbyaLj6s1DDul/WYdjagWzfzu07/26hHoD2lp7Z0INf4TIAGk?=
+ =?us-ascii?Q?X3HBteADAX2YnHRjfOE5YO75dDKShHL2qIWw?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:MN0PR12MB5953.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7053199007)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?luEZ8+CFqZS5mTl/t9J1kLkPZQLLhhZxr6mFAuLHIKx+DjuRRaNnuLrnDiwj?=
+ =?us-ascii?Q?8rM05GKg66JTUbc/IjARcf+uDCbszF0xJt7cSowwG0oQGqcHJ9NX5pDKP8Ab?=
+ =?us-ascii?Q?wyqCsJIXtRh+tmy+fitJv/J2h3AiQVHwI2mjnN2AJHABS3ihgBJKKTINGypX?=
+ =?us-ascii?Q?J/px62xQJQuyUwpDPlCsXMUw5DXJIBdekmOwTms2UqjDnWK+Ja9hzeQRhvnh?=
+ =?us-ascii?Q?XrXTU2z1fYsqXs1DPCC/S+Qyqqh47mWgup9Oa/r+84nDHWoZIkMI3+b4GLql?=
+ =?us-ascii?Q?jbuOEyow7nKbIsgzqHAFMngyccwK6DqpuQXWBy69LPprtZvIBEfslPMdXkW6?=
+ =?us-ascii?Q?MmEAhZEJYHdqQxj/kuDj42UmAaNOZ+G5vXVwTTp85tLavDaLebGU9iUuz+Qj?=
+ =?us-ascii?Q?zcLQdJf2ak4WPxXsnvewdc8JZlV8slZSmlXdxTk4YleQJApAQO6aKtEIX3/L?=
+ =?us-ascii?Q?TVLJ7LkhDK+vU+6bNRYYle0Yl8LLcNJM2RT0tq/Vv77rXr8gsnu0YrPgGwNa?=
+ =?us-ascii?Q?Jp8d847UdgagDVaTzb07S0pCczJsxJaIAUIJE0B6MQBfQvIdyTXjGF6Kwo5T?=
+ =?us-ascii?Q?qE1aiHJ9J+GcMlvKsUIuZM1zHEaH9Lp6Ef33EvDY9UE/5dCriL/dGfMoPUBr?=
+ =?us-ascii?Q?grbAYQU/BjOUXcof0bCVWGlcVJhFjWiMA3ajs5wkkSkYHTDZ+BaeBpOrs6LU?=
+ =?us-ascii?Q?MMOteJl+Cg0hwK6x/nb8cQuh5Gnzow4UxwIBjW29sBSCxV/KbnM65VM+hKPl?=
+ =?us-ascii?Q?PWshzPHTwv/mUxBeFltR0SsKq7ULf7MrkmrCozALdvfy0TYd1OMFyD0NKUeL?=
+ =?us-ascii?Q?ZLLnTMzR/ISIl8pTzCZNehfA1znEquofJS/ruG1zHKjxAEnOu8k4ySGa+CAf?=
+ =?us-ascii?Q?cn+8p1903Wcrn0sCLgIoGs9WF+amvpn0MOzBm/Dn7n5DkaBvVOxCrFZqKCL1?=
+ =?us-ascii?Q?V+U8i5sIExGCSWKFXmc52/09qDAo4ZqyQqBUTkeqAnpcEKH9zNnCbcMMTKhh?=
+ =?us-ascii?Q?cupd3lv2e7pdGSbo0x6jYrDRZuwThMsD6VG3CW74viMMrraKfArXgII7ytNV?=
+ =?us-ascii?Q?Y7EKA8Zxi5Zu4Nn6BhfZt7BosLL+nd6Na4iDN9QljqpMe7vCqM0W6lRvVVri?=
+ =?us-ascii?Q?QmDiG2wVcyUJHCf10piFbf8BBW7g3mcMfaexMB13MhB+pkx3esvGeDcZalr5?=
+ =?us-ascii?Q?jF76FBqEf2vAACC+62SkeTNqfbu4XqpSV5wTwBgxArIu810A8VP+oruLW1k5?=
+ =?us-ascii?Q?/lkqUQyxxIUw+ghIoli4XmXdo77Ew7qAghQOPBM9aXIW+p7Y23xcm6sG4N2m?=
+ =?us-ascii?Q?jRzwB0ZEtPmngzIDAGGJGA8xG0omxzPcLAJoK2fsJtz78BTFcdce34HahD1L?=
+ =?us-ascii?Q?87GK7aKOcPiNEdckOiH7mb4dK6LFSF+Nc5O/117KAJtGsWJAUiK8GOJ/EN4W?=
+ =?us-ascii?Q?872nL08agwYRm8tEblAXvc58C+TDC2Nzp9PZNocXIJIF5fKlsddxrJXrIz4P?=
+ =?us-ascii?Q?uwljIh4VaX/cRleJrZ4X8IqRro30V7cZRhx+6WZJ/I/tYIYL932ZPMGgMDzy?=
+ =?us-ascii?Q?vHLydqMbvhFZ82OyaLU=3D?=
+Content-Type: text/plain; charset="us-ascii"
+Content-Transfer-Encoding: quoted-printable
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250929042917epcas2p26f004fefc4b491c5190f0854a7fe1f86
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-Sendblock-Type: AUTO_CONFIDENTIAL
-CMS-TYPE: 102P
-cpgsPolicy: CPGSC10-234,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250929042917epcas2p26f004fefc4b491c5190f0854a7fe1f86
-References: <CGME20250929042917epcas2p26f004fefc4b491c5190f0854a7fe1f86@epcas2p2.samsung.com>
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: MN0PR12MB5953.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 6d2b712a-6d1d-4ed6-5e5c-08ddff1a3553
+X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Sep 2025 05:36:58.5170
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: wnSc8JiHG2RCPdgxbktZ7XRw4ps2RHUG5KYuRFOf5dvA+G2ecVNOzkCJyFs9Q9lK
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY5PR12MB6058
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250928_212926_921878_8F1330E4 
-X-CRM114-Status: GOOD (  14.21  )
+X-CRM114-CacheID: sfid-20250928_223731_535614_207EF825 
+X-CRM114-Status: GOOD (  16.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,49 +168,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi all,
+[AMD Official Use Only - AMD Internal Distribution Only]
 
-This small series makes Exynos KMS a bit more robust and better aligned
-with common DRM layering:
+> -----Original Message-----
+> From: Suraj Gupta <suraj.gupta2@amd.com>
+> Sent: Wednesday, September 17, 2025 7:06 PM
+> To: vkoul@kernel.org; Pandey, Radhey Shyam <radhey.shyam.pandey@amd.com>;
+> Simek, Michal <michal.simek@amd.com>
+> Cc: dmaengine@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linu=
+x-
+> kernel@vger.kernel.org
+> Subject: [PATCH 1/3] dmaengine: xilinx_dma: Fix channel idle state manage=
+ment in
+> interrupt handler
+>
+> Only mark the channel as idle and start new transfers when the active lis=
+t is actually
+> empty, ensuring proper channel state management and avoiding spurious tra=
+nsfer
+> attempts.
 
-- Patch 1 treats fully off-screen planes as not visible and routes them
-through the explicit disable path instead of programming zero-sized
-dimensions in ->atomic_update(). This ensures the proper disable
-semantics run when a plane contributes nothing to the frame, and avoids
-keeping a logically enabled window around.
-
-- Patch 2 converts mode-config initialization to
-drmm_mode_config_init(), tying the lifetime to drm_device and dropping
-the now-unnecessary manual drm_mode_config_cleanup() in error/unbind
-paths.
-
-- Patch 3 moves the device-wide mode_config setup (funcs/helpers and
-limits) from exynos_drm_fb.c to exynos_drm_drv.c and calls
-drm_mode_config_init() from inside exynos_drm_mode_config_init().
-Historically Exynos put this in fb.c when the driver grew around fbdev
-helpers; today it obscures ownership and ordering. Placing it in drv.c
-matches other vendors, makes the init order explicit (before creating
-CRTC/planes/connectors and binding components), and centralizes device-
-level policy in the core driver.
-
-No userspace ABI changes. Comments and reviews are very welcome.
-
-Thanks,
-Hoyoung Lee.
-
-Hoyoung Lee (3):
-  drm/exynos: plane: Disable fully off-screen planes instead of
-    zero-sized update
-  drm/exynos: Convert to drmm_mode_config_init() and drop manual cleanup
-  drm/exynos: Move mode_config setup from fb.c to drv.c
-
- drivers/gpu/drm/exynos/exynos_drm_drv.c   | 49 +++++++++++++++++++----
- drivers/gpu/drm/exynos/exynos_drm_fb.c    | 34 +---------------
- drivers/gpu/drm/exynos/exynos_drm_fb.h    |  7 +++-
- drivers/gpu/drm/exynos/exynos_drm_plane.c | 12 +++++-
- 4 files changed, 60 insertions(+), 42 deletions(-)
-
---
-2.34.1
+Nit - also explain the spurious transfer scenario so that fixes tag is just=
+ified.
+>
+> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
+> Fixes: c0bba3a99f07 ("dmaengine: vdma: Add Support for Xilinx AXI Direct =
+Memory
+> Access Engine")
+> ---
+>  drivers/dma/xilinx/xilinx_dma.c | 6 ++++--
+>  1 file changed, 4 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_=
+dma.c index
+> a34d8f0ceed8..9f416eae33d0 100644
+> --- a/drivers/dma/xilinx/xilinx_dma.c
+> +++ b/drivers/dma/xilinx/xilinx_dma.c
+> @@ -1914,8 +1914,10 @@ static irqreturn_t xilinx_dma_irq_handler(int irq,=
+ void
+> *data)
+>                     XILINX_DMA_DMASR_DLY_CNT_IRQ)) {
+>               spin_lock(&chan->lock);
+>               xilinx_dma_complete_descriptor(chan);
+> -             chan->idle =3D true;
+> -             chan->start_transfer(chan);
+> +             if (list_empty(&chan->active_list)) {
+> +                     chan->idle =3D true;
+> +                     chan->start_transfer(chan);
+> +             }
+>               spin_unlock(&chan->lock);
+>       }
+>
+> --
+> 2.25.1
 
 
