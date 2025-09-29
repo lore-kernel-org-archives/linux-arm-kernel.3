@@ -4,81 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70D56CAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 00:52:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7DFBCAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 02:14:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Djnb22vXs0nO5rPbjymOk32EmHdD+HDxTwWNm9+Bfns=; b=OaI9YdJmd/NJu3TegZl1Qc0Qfa
-	cNnkd4JimiZ78iJECPBkv1v6U9EdssuIVIoHR+EbK41wPi4+nmltF1x/b4Kpx4b7hYm5PMhM3Y0KN
-	4CREjFCS0jH4BIQTBL9EieXJrXJap2DxSHrNxJ2SZJE8Da+8FhJnMyvk044+FORiTnjEnkqTiFzLu
-	IY9aV75LQjUKyMISCcvahxgy4n8ImyMJsT/N+SvJPzXx6oZUybQahirnrL3Gmtae/7eYnCs8xBwwq
-	ZlXGyYkyEBWQKaGkMYtLp20m/J0i4brLgWxPt4cDnO45VLL0bP9WaGvdN475UKYuwpu7R9n7vcIS7
-	N9Yo8IwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aXirfFB2n383yYogw+P5fy4nsEGhJgn8ssbZoqpCJow=; b=K8Xlbu/xRzZKlaBtK0K04Bgv8s
+	fJgEF0h1yd6p2mH67TGs+8FkXhF/5TWf0yZwpY3hZzHKp7lBFZE6f0OROlAmZhxjyZLRwd+46uTv6
+	NirfVzJL3CDnlOY9iTbK7eSL+H5rjcPBKZfCfohJTBLKssHa+Bmpxi5I6qZztNcCU/jN1HD+DMUyS
+	t2bwmgdU8cInJZTi8GEX2F8H4+X0YSqcebAuxQzvrByCTpILYMKLKx3HUq8hQ11Ek/7Irc3nAthJx
+	DTh9goBYJqEZYvIBD8Pz8Z0fMA8Vok/6Zf/CUWkLedEvtvGUBYWJpo4G2zlXMUeh+nHU8paGv1dx2
+	QRteT0nw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v327j-00000000tBF-20jA;
-	Mon, 29 Sep 2025 00:52:15 +0000
-Received: from mout-p-102.mailbox.org ([2001:67c:2050:0:465::102])
+	id 1v33PA-000000016dZ-2UPQ;
+	Mon, 29 Sep 2025 02:14:20 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v327g-00000000t8b-2Yi9
+	id 1v33P7-000000016cy-48TJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 00:52:14 +0000
-Received: from smtp2.mailbox.org (smtp2.mailbox.org [10.196.197.2])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4cZjM51BFTz9sm2;
-	Mon, 29 Sep 2025 02:52:01 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1759107121;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=Djnb22vXs0nO5rPbjymOk32EmHdD+HDxTwWNm9+Bfns=;
-	b=TQlEZ+TpP5RCDXXFkZm8omA8mNSEamptg9t1ji7874wLDbDSnOwUQmzLS6d1uEqPUm547X
-	C9/i75UD/4Rgk8z8Hg8zU7zzy5/UzAb2TtYPQCXi3u6XVooBmpOlEldYK6nFo+8JOcbCmZ
-	IA8UX8et4qJzg4DrMAmstnMnjGfFcA91ueGLlIvVrdMe3YZKAKBKfBKPCVA0QG16u2wA47
-	GJHg9Rjn1dycE8tH7fk9dVIssucguMHaCSOorXR/f8gJomjVg4uBEfl4bRaA5s5n2Wg3sT
-	ADrJxbIscWHmRtSXpRa7V/YYIV0g7Eg6ifjM2GrS2riYhGA4pTb1xFqGj8ABGQ==
-Message-ID: <8f4ed393-f94a-4abb-9cdd-60dd693f3ec6@mailbox.org>
-Date: Mon, 29 Sep 2025 02:23:01 +0200
+	Mon, 29 Sep 2025 02:14:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 541EE481EC;
+	Mon, 29 Sep 2025 02:14:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 91F43C4CEF0;
+	Mon, 29 Sep 2025 02:14:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759112057;
+	bh=G5w/Gi7/SywoEXrdoaNmBLuZNS13bH4Gh3+sacTDOqU=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=H7QZgRO9jlFpt/b7/QIxRVfffjqoQ28juW/5XEHB6ytdiHMLchCAaBfJvadIyH+Es
+	 UzblBJQRUQtn3ZB19UHXCCytA1SErbAHerieNMlCdY4A0dwLbUpiLg8PsCYWV+OGYU
+	 456TBVc8PlMe+Zjk+AClajsA0TXETgUbhZy3QMNdxx+rd2rc1nEFHP3F4Ujha8LLxh
+	 MuX70wXlVtgwMcH5/DyEZym9Xc2Zm2g5RVMW1uhoD1E8rPQc62DMNskkhd4cAj1up1
+	 iS0TeLsKMmfhbj0pgRbGulvdM3JROc1h5H/osUnOv/M4GfFDMasvheK96mlCP4oN/5
+	 YccAtXFJbSRjA==
+Date: Sun, 28 Sep 2025 21:14:10 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-Subject: Re: [PATCH v3 2/2] arm64: dts: imx95: Describe Mali G310 GPU
-To: Peng Fan <peng.fan@oss.nxp.com>
-Cc: linux-arm-kernel@lists.infradead.org,
- Boris Brezillon <boris.brezillon@collabora.com>,
- Conor Dooley <conor+dt@kernel.org>, David Airlie <airlied@gmail.com>,
- Fabio Estevam <festevam@gmail.com>, "Jiyu Yang (OSS)"
- <jiyu.yang@oss.nxp.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Liviu Dudau <liviu.dudau@arm.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>,
- Pengutronix Kernel Team <kernel@pengutronix.de>,
- Philipp Zabel <p.zabel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Sascha Hauer <s.hauer@pengutronix.de>, Sebastian Reichel <sre@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Simona Vetter <simona@ffwll.ch>,
- Steven Price <steven.price@arm.com>, Thomas Zimmermann
- <tzimmermann@suse.de>, Xianzhong Li <xianzhong.li@nxp.com>,
- devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
- imx@lists.linux.dev
-References: <20250925203938.169880-1-marek.vasut@mailbox.org>
- <20250925203938.169880-2-marek.vasut@mailbox.org>
- <20250926055701.GC8204@nxa18884-linux.ap.freescale.net>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <20250926055701.GC8204@nxa18884-linux.ap.freescale.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-ID: 24eeff4a72bf94b4f8a
-X-MBO-RS-META: kgs4shqh8jgam9h18x7hnwfqw7yfhu9n
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
+ linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org
+To: Kaustabh Chakraborty <kauschluss@disroot.org>
+In-Reply-To: <20250928-exynos7870-drm-dts-v3-0-bb7d8e570860@disroot.org>
+References: <20250928-exynos7870-drm-dts-v3-0-bb7d8e570860@disroot.org>
+Message-Id: <175911189634.2556697.2474466935066391775.robh@kernel.org>
+Subject: Re: [PATCH v3 0/6] Support for Exynos7870's display stack (DECON,
+ MIPIPHY, DSIM, etc.)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250928_175212_801689_B4880C46 
-X-CRM114-Status: GOOD (  10.59  )
+X-CRM114-CacheID: sfid-20250928_191418_066984_91B8F409 
+X-CRM114-Status: GOOD (  25.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,34 +75,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/26/25 7:57 AM, Peng Fan wrote:
 
-Hello Peng,
-
-> On Thu, Sep 25, 2025 at 10:38:31PM +0200, Marek Vasut wrote:
->> The instance of the GPU populated in i.MX95 is the G310, describe this
->> GPU in the DT. Include dummy GPU voltage regulator and OPP tables.
->>
->>
->> +		gpu: gpu@4d900000 {
->> +			compatible = "nxp,imx95-mali", "arm,mali-valhall-csf";
->> +			reg = <0 0x4d900000 0 0x480000>;
->> +			clocks = <&scmi_clk IMX95_CLK_GPU>, <&scmi_clk IMX95_CLK_GPUAPB>;
->> +			clock-names = "core", "coregroup";
->> +			interrupts = <GIC_SPI 289 IRQ_TYPE_LEVEL_HIGH>,
->> +				     <GIC_SPI 290 IRQ_TYPE_LEVEL_HIGH>,
->> +				     <GIC_SPI 288 IRQ_TYPE_LEVEL_HIGH>;
->> +			interrupt-names = "job", "mmu", "gpu";
->> +			mali-supply = <&gpu_fixed_reg>;
->> +			operating-points-v2 = <&gpu_opp_table>;
->> +			power-domains = <&scmi_devpd IMX95_PD_GPU>;
->> +			#cooling-cells = <2>;
->> +			dynamic-power-coefficient = <1013>;
+On Sun, 28 Sep 2025 23:26:34 +0530, Kaustabh Chakraborty wrote:
+> Exynos7870 has a IP subsystem in its architecture dedicated to display
+> management. Notably, this block includes the Display Enhancement
+> Controller (DECON), and the DSI Master (DSIM).
 > 
-> Sorry for my ignorance, would you please share how to get the value?
-Copy-pasted from NXP downstream kernel fork DT bindings, see:
+> The following series and its sub-series implement all components for a
+> functioning display pipeline. All vital information which helped shaping
+> up the patches have been retrieved from Exynos7870 vendor kernel sources
+> as provided by Samsung.
+> 
+> Testing has been done on all three devices available upstream, i.e.
+> Samsung Galaxy J7 Prime (samsung-on7xelte), Samsung Galaxy A2 Core
+> (samsung-a2corelte), and Samsung Galaxy J6 (samsung-j6lte). Regrettably,
+> I've only been able to test the functionality on video mode, as none of
+> the devices have panels working in command mode.
+> 
+> This series implements changes in the SoC subsystem, which includes
+> devicetree additions. It depends on all sub-series listed below:
+> (Legend: [R]eviewed, [A]ccepted)
+> 
+> exynos-sysmmu-resv-regions A https://lore.kernel.org/r/20250712-exynos-sysmmu-resv-regions-v1-1-e79681fcab1a@disroot.org
+> exynos7870-mipi-phy        A https://lore.kernel.org/r/20250612-exynos7870-mipi-phy-v1-0-3fff0b62d9d3@disroot.org
+> exynos7870-mipi-phy-fix    A https://lore.kernel.org/r/20250710-exynos7870-mipi-phy-fix-v2-1-5cf50d69c9d7@disroot.org
+> exynos7870-dsim            A https://lore.kernel.org/r/20250706-exynos7870-dsim-v3-0-9879fb9a644d@disroot.org
+> exynosdrm-decon            A https://lore.kernel.org/r/20250706-exynosdrm-decon-v4-0-735fd215f4b3@disroot.org
+> panel-samsung-s6e8aa5x01   A https://lore.kernel.org/r/20250721-panel-samsung-s6e8aa5x01-v5-0-1a315aba530b@disroot.org
+> panel-synaptics-tddi       - https://lore.kernel.org/r/20250625-panel-synaptics-tddi-v2-0-7a62ab1d13c7@disroot.org
+> 
+> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+> ---
+> Changes in v3:
+> - fixed minor issues with devicetree in regards to compliance
+> - added memory-region to framebuffer region for decon device
+> - added related patchset to list: exynos-sysmmu-resv-regions
+> - replaced exynos7870-pmu with exynos7-pmu compatible to the list
+>   allowing a MIPI PHY subnode (krzk)
+> - updated compatible string and dt node for j6lte's panel
+> - reorder properties: ${x}, followed by ${x}-names (krzk)
+> - Link to v2: https://lore.kernel.org/r/20250627-exynos7870-drm-dts-v2-0-d4a59207390d@disroot.org
+> 
+> Changes in v2:
+> - modified compatible hierarchy to use non-deprecated syntax (krzk)
+> - fixed subject prefixes of [v1 2/5], [v1 3/5], [v1 4/5], [v1 5/5] (krzk)
+> - removed simplefb nodes instead of disabling it (krzk)
+> - added dt-bindings patch to allow mipi-phy node under PMU
+> - changed clock names of dsim node
+> - Link to v1: https://lore.kernel.org/r/20250612-exynos7870-drm-dts-v1-0-88c0779af6cb@disroot.org
+> 
+> ---
+> Kaustabh Chakraborty (6):
+>       dt-bindings: samsung: exynos-sysreg: add exynos7870 sysregs
+>       dt-bindings: soc: samsung: exynos-pmu: allow mipi-phy subnode for Exynos7 PMU
+>       arm64: dts: exynos7870: add DSI support
+>       arm64: dts: exynos7870-on7xelte: enable display panel support
+>       arm64: dts: exynos7870-a2corelte: enable display panel support
+>       arm64: dts: exynos7870-j6lte: enable display panel support
+> 
+>  .../bindings/soc/samsung/exynos-pmu.yaml           |  1 +
+>  .../soc/samsung/samsung,exynos-sysreg.yaml         |  2 +
+>  .../arm64/boot/dts/exynos/exynos7870-a2corelte.dts | 57 +++++++++++----
+>  arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts    | 38 ++++++----
+>  arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts | 57 +++++++++++----
+>  arch/arm64/boot/dts/exynos/exynos7870.dtsi         | 84 ++++++++++++++++++++++
+>  6 files changed, 197 insertions(+), 42 deletions(-)
+> ---
+> base-commit: 262858079afde6d367ce3db183c74d8a43a0e83f
+> change-id: 20250523-exynos7870-drm-dts-87ccab731ba9
+> 
+> Best regards,
+> --
+> Kaustabh Chakraborty <kauschluss@disroot.org>
+> 
+> 
+> 
 
-https://github.com/nxp-imx/linux-imx.git
 
-11495de7c24a ("MGS-7621-4 dts: gpu: update devfreq para")
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: using specified base-commit 262858079afde6d367ce3db183c74d8a43a0e83f
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/exynos/' for 20250928-exynos7870-drm-dts-v3-0-bb7d8e570860@disroot.org:
+
+arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dtb: /soc@0/dsi@14800000/panel@0: failed to match any schema with compatible: ['syna,td4300-panel']
+arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dtb: /soc@0/dsi@14800000/panel@0: failed to match any schema with compatible: ['syna,td4101-panel']
+
+
+
+
+
 
