@@ -4,75 +4,174 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A2AACAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 20:17:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D52A2CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 20:24:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QMjZjSk/NUdEuGMznjuRyqqZQEGpcR7yIi0JJqqV7h8=; b=eELi+PZ5Hqph23gF6NdsG7PU34
-	9UVcIhvkMtHDeIHM5nxoW0JrNZAQSbF/95ZYwKpOm43vbbYfO6SjP5gT2bWVt6q7lAktkVcF4XArP
-	wPA+o8+8sFPEfP8uGwagZjKCfRfFISBs7q/c4Uj6BkcO7/OkQ8CNBxol3y2jTzIF4P5Jp4b3OByd6
-	Spx6P6c9wvUu+xBLq8d+5EFQqvujLP5Lv/XQ9pmAThoye+TQ74es1mkab5O7LpPHC05c1keZNn/qK
-	0wf73w+0rjdCNszq92BlYnErB/hCqkv0KUsCkhzAoKBVFIZRdeG8UNPufiBRS07bmG0j0PUJ8BxnE
-	6bSdjGCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=8EMxCL06LNByN1UHB2EoOFYkFyhA1vWBerzpYyGeXlM=; b=gkvwWL6Dy+5j/8Bi32XBTquIj2
+	cistHa9O74Re5zGJEa58cRvfTZcGTLKs6SJyZFT9TR9NbUEsJhnMpts7u9ecEpmO3Xrl/2F3sgwvB
+	kEvXcClztrwu5Y/FmM3nx12s0ALcLCmPlOfQOmNrLaSYaGWkeX8sN95LG9v7ppnVgHABj30TGXo1j
+	Niqv04/xIfvTlo0c1IedK0tx4qiz+cBQBUDl9vM7m48CAqEDrP+EeirMu/lOccC/jZw9ryBeuhPYG
+	ttLWxzOzPgEAJTl2IsB3XG2sD7YMmnGKFjS7VMywVP+swLibuownSrKBD0f4kt6YtFyCIibdBxklF
+	OYLaLrfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3KIp-00000003Quw-1oWQ;
-	Mon, 29 Sep 2025 20:16:55 +0000
-Received: from mout.gmx.net ([212.227.17.20])
+	id 1v3KQE-00000003RTX-3Uc9;
+	Mon, 29 Sep 2025 20:24:34 +0000
+Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3KIm-00000003QuX-0TMl
+	id 1v3KQC-00000003RSZ-1zjJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 20:16:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
-	s=s31663417; t=1759176995; x=1759781795; i=j.neuschaefer@gmx.net;
-	bh=QMjZjSk/NUdEuGMznjuRyqqZQEGpcR7yIi0JJqqV7h8=;
-	h=X-UI-Sender-Class:Date:From:To:Cc:Subject:Message-ID:References:
-	 MIME-Version:Content-Type:Content-Transfer-Encoding:In-Reply-To:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=pYj3N+T4IN7ZiCP6twpcc0jCgYyisyQu/E1wNIL27K/bN3C1UvcA6dW0ej1aMf+8
-	 1/CpOdnh2Yz9XpLMH2tKrJTverdK5cFV6SZaW//sBclbk7Au9UoQlD+5CuqCbW0t9
-	 fCtOh1PwU3qvIEZnWl6Al1ZY+qhhsi9R7bjNZfohAO8h8KDhuvI/udtQ1///F0MnS
-	 hcqenVqFaCUyPyh3Ff7q2F2pNZGN1eBTJscI1pp6aywhI26vxp6H+93CoaxIjuhkU
-	 zbavl4dYnI8aiSO2muGpmo86mbc0SIISFqjpcoVzkQAva/+jC2c3CCZw5bLohmZ8Y
-	 56xs2undk0tFBmuLgw==
-X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
-Received: from probook ([89.1.211.158]) by mail.gmx.net (mrgmx105
- [212.227.17.168]) with ESMTPSA (Nemesis) id 1Mr9G2-1uYvkz0OYQ-00ngiw; Mon, 29
- Sep 2025 22:16:35 +0200
-Date: Mon, 29 Sep 2025 22:16:33 +0200
-From: =?utf-8?Q?J=2E_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: =?utf-8?Q?J=2E_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>,
-	Will Deacon <will@kernel.org>, linux-arm-kernel@lists.infradead.org,
-	Marc Zyngier <maz@kernel.org>, Ard Biesheuvel <ardb@kernel.org>,
-	Arnd Bergmann <arnd@arndb.de>, Hanjun Guo <guohanjun@huawei.com>,
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Jens Reidel <adrian@mainlining.org>
-Subject: Re: [PATCH] arm64: Kconfig: Make CPU_BIG_ENDIAN depend on BROKEN
-Message-ID: <aNrpIY4_2bfJm5XK@probook>
-References: <20250919184025.15416-1-will@kernel.org>
- <aNnQb9gH8pzwfRJ5@probook>
- <aNplAOAzJKOUigPC@arm.com>
+	Mon, 29 Sep 2025 20:24:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=X42ryLJhmKijPNIM4cUaCoi/EUpnK8mcMzuBPKLYDsIbx5Cs2qiO6uHSLKLp1maCl55eEuB29dp8VkpAl+KlG6LymRzFCETZwP3d7JcHFx01+0wY5WUilzLsqa1s2lq2y5Sy/3/8EuhLV7WbLRwRXPlhtWWQt+RYlrZDe/p7+LIL+xzmaS7AbbkfUi9hAhj8KOCSDoxx9Qch9eNmVsPncxBWQRTdiwXvDfIPafJyRYObQSb9Ik9Kgl37vw9SD1T7imsVDo2/9SK3vhfOCVa8fpNfCUc5+XBZmCIzBhf8y2i1Iw39vaO/reo3HGBX2v2NCqBQFKecDs1jjIyMSI5v0A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=8EMxCL06LNByN1UHB2EoOFYkFyhA1vWBerzpYyGeXlM=;
+ b=oUnutL2MXqG9sKs5vbZ//nJ1oAC1yebvbewl1w2ZvnygF6hje58sCb4tIO0Q3dvrizTO73nkP6JS2z+P2EJZbaKXrQTqWc4t1jnSwlxVdWDXkThsA9GQgWVsO8qqvXAvfK89+5pUhZ6Lyqy1aEFFPLZqpi+66nNMcI/YCtSanCIc2xWGisd7go2u9c3m/TE4xpE/l07F17tdjtB9DI7OPbJy9+PH4Y++V/gyBx5UP7aC0ugLqUU4oz2vLytS8a211QJZWBaW+NZFv6ui9WRjA6UXmP5ggp5931RN2V89C8XYNnQRTzbNFysQqA8dlGx4Jbzz+pZz5s2d5AgMbGpMRw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=8EMxCL06LNByN1UHB2EoOFYkFyhA1vWBerzpYyGeXlM=;
+ b=OvZWiuOUpS8lC+1E/V0za6C8FkvnvHmAd8/tL/eC8TptFMYI7il3q8YYTqEfHelxZ63eZtGIA8AcW1jFU0A3VHvBP7185iEGC+EWINPHylNJCVEx1Lnt+swNhU5nr49+NTVGgLn9yoLtYbtwnpuLPQT5cqCw27SXwnJpNKWM+P4=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ DM8PR01MB6982.prod.exchangelabs.com (2603:10b6:8:17::20) with Microsoft SMTP
+ Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9160.17; Mon, 29 Sep 2025 20:24:20 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460%3]) with mapi id 15.20.9160.015; Mon, 29 Sep 2025
+ 20:24:20 +0000
+From: Yang Shi <yang@os.amperecomputing.com>
+To: muchun.song@linux.dev,
+	osalvador@suse.de,
+	david@redhat.com,
+	akpm@linux-foundation.org,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	anshuman.khandual@arm.com,
+	carl@os.amperecomputing.com,
+	cl@gentwo.org
+Cc: yang@os.amperecomputing.com,
+	linux-mm@kvack.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [v2 PATCH] mm: hugetlb: avoid soft lockup when mprotect to large memory area
+Date: Mon, 29 Sep 2025 13:24:02 -0700
+Message-ID: <20250929202402.1663290-1-yang@os.amperecomputing.com>
+X-Mailer: git-send-email 2.51.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: DS2PEPF0000455B.namprd21.prod.outlook.com
+ (2603:10b6:f:fc00::518) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <aNplAOAzJKOUigPC@arm.com>
-X-Provags-ID: V03:K1:ynWIxZ1tNUOtNq3OpSo1gVYFL39JkXSxaiKX8oqOFqkEVgtpz8J
- 9qNFZMZwwKaLfnPzISwqX7SOCwRnvVq7/RTq5mA0hTQdVxjvtTVvcTCQ3hBsFarzVbwBHHX
- bZPewIyvfR1/jNJAF9YAgeuYhXfMszO9H/kMAX6GMjgZttOcO3+CL/CNgnHeJ5VC5QYWQzE
- VitCpmWnvJpXJ8fg71/5A==
-UI-OutboundReport: notjunk:1;M01:P0:18xmb1yJEfk=;DTU36Y/5P/nHrDyN1sYEg89YYrG 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
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|DM8PR01MB6982:EE_
+X-MS-Office365-Filtering-Correlation-Id: 1436f454-51fe-434b-84a0-08ddff962bbb
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|52116014|7416014|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?c3hhMms4UnJlZHRSZ1ptTmhoSUN2SDYwekVzMURwSUFuR3c4M0RtYWJLT1Rh?=
+ =?utf-8?B?NEdSWTB0aXUxdGVNUmhjU1RjVCtkYzVjVXJmV1czc3JlVnlqQWcvZnpZSjdV?=
+ =?utf-8?B?YVRPSkVjQXRGbXBjK1g2emkra09HR3RzOHBPY0dXV3hyOVFuVGZTclZULzRy?=
+ =?utf-8?B?RFhmSkFoUmdXVk1HdG5ucTQ1MU1ESUpVMCtyWjY3SHBMSUtoaE5ZMjlwNU9H?=
+ =?utf-8?B?TlczczNXL3g1TjUzNzU5Z3FqWUhSQUM0SmtDSXJLWHZNS2M2SGNRNTJod0cz?=
+ =?utf-8?B?OFRZZ3JsVUNyYnRPN0JsTzZCZ1lOaHp2enpRK1NCbndrUEMwM0NSQ0VMdno2?=
+ =?utf-8?B?Z09xaEt6SzZhY1gwblBNREllWW9FVy8ySVlXd2I5UllRM2RoNGZNR2gzbU9X?=
+ =?utf-8?B?UXFFdDdZYnY4dzVHTk9rTC9LdGR2QmRybjVwV3k2RTNCdExCQ2NScGxmMnZn?=
+ =?utf-8?B?T0g1RTEvdnVLOUhiWjM2KytZWlhscStIWmhSRXF1TkxTbXduNzVXV1I2bjFV?=
+ =?utf-8?B?Z2cxRjJ0VSttL0RhalZ3bi9uNExyREVrRE13ek9iRE9ZaHBDckhsckV3bGc3?=
+ =?utf-8?B?SG9mZjgvUWcwRDZXUjhVK3hEMzE4U0RlaFl2Zk9lVnNrK29xWnBHY0lnUFNj?=
+ =?utf-8?B?KzBLOHRxUllYa2xjK2pHdXhUQTVqbEh2b0tEZStFRG9aS3diQzBTU3pEcXJO?=
+ =?utf-8?B?NFNPa1FCQ25rT3YzSDFBNVNSNkRHV0FnM2xjdW9pSnM0M0xMV1N2ZW1zNEwx?=
+ =?utf-8?B?eVFYY1ZKQVMzcjVWSU9RNUhYaXR5ZlRNT2VmWEtFMU9EMVljVnNMd1p6eWlQ?=
+ =?utf-8?B?OHNBMktOdms4eW1ESHNFMmJlKzB5Rm1EKzVDc0pRL1Awa2dEMkx4a251UnpM?=
+ =?utf-8?B?akt0R09PcTFEOXpJU05rTVNvYjNUN2w2U2dSLy9VeWx0bWE0UzBmTHpyVzJB?=
+ =?utf-8?B?aU5jRUVBNDdWems0Ny9EZ0NqYjQ4OGV4U0ZUdU1QemNtUVVpRllPTGMrTVdZ?=
+ =?utf-8?B?MDlvMWUxcmJnN3g1T0VwZnB3Vm42NW52N0VWMlEySkxXUnJ0cE5CYUU4WFdz?=
+ =?utf-8?B?TnJrc0NPN0Z6c3dyQ2tmUCtvTWV2SVE2dkpHVFZUYk02bGdaamYxdUJiRVFj?=
+ =?utf-8?B?ZVJCdkZDSXYrbjVLM1hDUDZGNDFtNzB6a0dmOU9yWmRJaUZyek1RRHp1S3BC?=
+ =?utf-8?B?ZElOQnJuclpSQ05wMVIrQ2dqY1B1SjdvQUE2SEpQWENKMXF2cHJoNVIvT3JS?=
+ =?utf-8?B?a2pER3NGbmxHQy82OFdVKzRRTklBR08yTEVlRFZEYlF3OHNaR01mZDk5a2hN?=
+ =?utf-8?B?UE1WQjg5QWNXbHExbHBqZWpRaituR1hKdTJjQitLNVRUdVJGcHB6YlBQVEFu?=
+ =?utf-8?B?aFc0eThIeVFGTlF3Zm82UXFWaXZDQ1lpSWlEaExpR1BsaE0wbkt0Tkpld1Ju?=
+ =?utf-8?B?ckpORWxoam9HTVc5SkdHTmF3blY2SHpJRzFlNzVXaDJuRVd6MFIyaTFTZ09C?=
+ =?utf-8?B?NTh0akh1d25UV0RDTW54dHJnSDg5M21YYzhHMGcxcDFMMUdsb1ZlZ005NWdJ?=
+ =?utf-8?B?bi9iNXJ6R2lRczN5NmUrdUZrR3E4RlF2ajZ3ejlQMVNMbzl5d1ZJWmRWK015?=
+ =?utf-8?B?TFZzcnNlOUh4MjJieVd1aC9URDVZQ0JCb0hsTVJTSEcxaThDVnpaV0w1VUov?=
+ =?utf-8?B?RGM1Z0R6QzB4dFBZKzVTSXc4dm9tazhDRTg4Qy9jREtqUVg4STNOWUp4WWti?=
+ =?utf-8?B?S2QxdDBGM05SbmtocFlaR2dhcjBYTWxBZkRkRFJhamNHU29JM2VsK21lV09z?=
+ =?utf-8?B?RUp0bndzRlJxR3BkVmFLYjZ1dGJWeXRhTVkxZ3hMWmExVFV3TGh5Mzc1QkU0?=
+ =?utf-8?B?VWptN1NlZ0FndWFTZUhFUkJvZlRYZ0VjczNUOEZ2ekhSUmwzbFE2TmhudWhJ?=
+ =?utf-8?B?Y3RWUHNhbzdGUmJsVEFZOU5RWXZwM2tUUndiTkNTM01FNXRHdFhockYwZlFI?=
+ =?utf-8?B?MCtCSlNuU2wvTWF5V0hVeFR2V2N4Z2ZYNkd5c2dCWW9lb2NuZXRqQVJCQUFO?=
+ =?utf-8?Q?NKFvMQ?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(52116014)(7416014)(376014)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ejMrcDYzUGsvdDVKRXZhdlNXWmgxelJySlJxYlFuaG54bHVBckNxaVowSEE2?=
+ =?utf-8?B?eldPRW42NFh5a2dEeEQ5T3VOa3dOZHVTL3Y2ajdFYlJ6V2MxTW1GVWw2SE1R?=
+ =?utf-8?B?ZEs2OEFxVEZVRGkwUzRIMXJvTDYwbGkzRzVka3BQRUU4KzhKcXFWWTJweU0w?=
+ =?utf-8?B?M0hCcFdmZm9vOU1oUjNjNXdqTm02N0xWcXZqeDB0c2Vwc1R0NHZwV0NoVnB3?=
+ =?utf-8?B?bVVMdWprMXhUZ2FwdVlpZmZhL3Y5UFVQU0ViRzdraXgzU0hWVHdybldWQjVV?=
+ =?utf-8?B?Q0FVZkdXNzA1dDExeEZyN1F5dElpOXdKS1kwaVpzVDlZdjBsVURNdzNjVm0w?=
+ =?utf-8?B?c3dDeEpBT2prS0UrVTJMSi9kZVQ2R21lT1JobU9LbkZrU013MjB2TDRBL2lT?=
+ =?utf-8?B?RHNycTRIdnJFaG1kSENXWVc1T0FVR05nYVhXTjlqUWRXdmMyUElqVTNOS3Bp?=
+ =?utf-8?B?eGtJQ3JpclYzRTlwSEhocDhlU0VRQWV5bENNYUJ0YWdySmlkVzVjdGhKSWxy?=
+ =?utf-8?B?UVl1Y1JHY1lCaGFxTXVScURYSjFFbUp3Sm85VmwyeDJCUUhiakllWURGSEpO?=
+ =?utf-8?B?OVpmTDdTdHBKd25UQTBzQXl1TktFMFc3cjYzcTd5S3Nka2VRTWFtdGJmTWZ6?=
+ =?utf-8?B?Sm5JOG9UZ2l2UmN3aks3RUdmbytaUGFSbzhwQ1JzOWpGTHloSWxHRUxad0F2?=
+ =?utf-8?B?RHVQbGx5elJvdEQzdzhUTldlU1pQYVZ6YVV5U2FXc1Vjb0JTd1FGcUtVNThF?=
+ =?utf-8?B?TXNIUDNsTDZ1VXBvQVk5MlIydldaTWpxOWU2R2dKNFkrMTZEdFQweGVwQ3NQ?=
+ =?utf-8?B?bzRLNmJmNHlsVGFUQTBDMFUwd0Y2YnJzSHZ3QWJXZmFmNWxRZGJsYzQwb1li?=
+ =?utf-8?B?MTN1aXJsajFqQjhnWmhFQVZ6WVl3d0hPVVVGa2l2VkpGSzBYSGZtNHphWmVi?=
+ =?utf-8?B?VnVtRTNvejRkYnFXOTlvQlNkdkE5MTF5RjYvU3VHMVJtMmNoalJZcjcvU0dJ?=
+ =?utf-8?B?Z2oybXFQSXJCTDNQM0hXUmRpWXZROU01Y3NBZlBQMHpuMTNWbVZWRnBNTE0v?=
+ =?utf-8?B?Vk1mL0ZWWjVUQzU4NEU5d1A3Ukx0ck8yQ0ZsZlhreFgwMVBlYkd1d0hBNHE1?=
+ =?utf-8?B?RkxTLzRoeW9ROTg5cExhUFRxNDRBTEc1N3ZhZS9nMkRoVFViQkMvU1RXMHgr?=
+ =?utf-8?B?Y1RpcUF2WkZWbzVRSWFMa3d2Tm1UbVZyZkNZb1JQSlBBbHBzMEEzQWxCZGlj?=
+ =?utf-8?B?a0NROVBmRmRIY0c5dzhqZkloR1pHRU1TR0YyL0JKUmVEOEM2SW16Qi82Y0lu?=
+ =?utf-8?B?VWxvQVQ0V2FvYUFtUVY1SE1OV0NOYnh0TmlTZldLWms0U1RUOGVpQnc1Y0Ir?=
+ =?utf-8?B?T3Q1RmVUd2tUWFppNjQ5WTBXc1FSQzM3UHpIdiswbEZIeFZaeHZ5aG15RG1N?=
+ =?utf-8?B?ODd6YlpiUmZJT1U0c01Xa3ZKdnFKSHVManN1bThuTk01WlBLNFJ0ang4NlFZ?=
+ =?utf-8?B?SXp3L2VrYVVIM29WcS8ySUpYVjdnUDBidS9YRjVZcEU0dlcwakdRdG1wbzdN?=
+ =?utf-8?B?bUpGcW9sQ3RSeEk3a0dHRmsxcVJjZFZob3lsRkhUL3R1UHExQlNhc3VxN0Er?=
+ =?utf-8?B?aHJuVG1DUSs2eTZ6YzZqY2JLRmNVdTZnQ3dRMWlPcGNxN25YL1lxQXhnb2RV?=
+ =?utf-8?B?ekZhZnlUdkt0SlJkckl0eXNOOUdyTWNtcjBWL2tMRFlQcE9jT00yYzY5SVJp?=
+ =?utf-8?B?Y3hUUVBSaU10dGdhUlJudXVEMjQzRmdQYU0xSEU2NFNnTjhJVVAyRTJndHVJ?=
+ =?utf-8?B?ZTBsN1gwY1A3a3d2Wm82Mk5NVHlBSk11S0pmMjFBbUZVRWR2N3dsbkdUbGJP?=
+ =?utf-8?B?RVRydlQ3c0hDdll4TDRFYkhwWlN3Q25MMjBCWmVxY20vZS9kN0U1MDNmeWlR?=
+ =?utf-8?B?OXVKY29rcFhSaG9MTncvZmZZQU85WTNxc0gzdDZqNGlBNW1YamNhRE1RTmZ1?=
+ =?utf-8?B?OUR1ZDAyOFo5eTlZeVRyRy9EcTc3SDQrbUlBdkNJbmVoNWFCRGUveWNqc2pI?=
+ =?utf-8?B?V1kzWlpXbHIzRFRZd1hxNHpQYml1T1FDS3ZrS3ZzWExuWU8zZG1xSnZ4bldJ?=
+ =?utf-8?B?TmVRQ3dRZzdic0ZNcGlsTTJTVDNqU3F2aFJseTVabVB6NnZGVFhtRzhpb0NK?=
+ =?utf-8?Q?pGyfVZepNTvmq1tjcFumA6k=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 1436f454-51fe-434b-84a0-08ddff962bbb
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2025 20:24:20.2206
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: eY1Mb1PUvCDPS09yteqPcTwaCy6Pc9T7+dzvhRzj0c/qg7vd54XcjIbtOHQVanWY6U6PbqEhPnT/Ka5VRUkxiFtPOrmsKrKkXdlJS87vRF8=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM8PR01MB6982
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_131652_525264_825E7BB4 
-X-CRM114-Status: GOOD (  26.04  )
+X-CRM114-CacheID: sfid-20250929_132432_517254_68554B02 
+X-CRM114-Status: GOOD (  11.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,65 +186,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 29, 2025 at 11:52:48AM +0100, Catalin Marinas wrote:
-> On Mon, Sep 29, 2025 at 02:18:55AM +0200, J. Neusch=C3=A4fer wrote:
-> > On Fri, Sep 19, 2025 at 07:40:25PM +0100, Will Deacon wrote:
-> > > Big-endian arm64 configurations are vanishingly rare, yet we still c=
-laim
-> > > to support them in Linux despite very limited testing or visible
-> > > interest. Supporting big-endian adds unnecessary burden to reviewers=
- and
-> > > contributors which, without any known active users, is hard to justi=
-fy.
-> > > For example, recent work to improve our futex routines and to implem=
-ent
-> > > nested virtualisation support is non-trivially complicated by having=
- to
-> > > support both big- and little-endianness.
-> > >=20
-> > > Back in 2019 [1], it was claimed that Huawei were using arm64 big-en=
-dian
-> > > machines in their telecommunication products but I don't know whethe=
-r
-> > > that's still the case and certainly haven't seen any patch contribut=
-ions
-> > > to help support or maintain it.
-> > >=20
-> > > Make CPU_BIG_ENDIAN depend on BROKEN as an initial deprecation step
-> > > towards its removal.
-> >=20
-> > As of this month (September 2025) there's a new community project [1,2=
-]
-> > to revive aarch64_be. Jens Reidel (CC'd) and I are involved in it. We'=
-ve
-> > been fixing several aarch64_be-related bugs, but mostly[3] in userspac=
-e,
-> > because the kernel support is pretty solid.
-> >=20
-> > So, just so it doesn't go unmentioned, there is interest in keeping
-> > big-endian ARM64 alive.
->=20
-> It's nice to see it gets testing but is there any actual beyond you and
-> Jens (i.e. in production somewhere like Huawei's case)? We want to
-> assess whether it's worth the kernel maintenance and testing hassle and
-> for how long.
+When calling mprotect() to a large hugetlb memory area in our customer's
+workload (~300GB hugetlb memory), soft lockup was observed:
 
-We don't have any commercial or large deployments, no. It's currently
-one build host and manual testing on additional machines.
+watchdog: BUG: soft lockup - CPU#98 stuck for 23s! [t2_new_sysv:126916]
 
-I'd be sad to see big-endian arm64 support removed because it's an
-opportunity to test for endian-related bugs (in various packages, not
-just the kernel) on widely available and reasonably fast hardware.
+CPU: 98 PID: 126916 Comm: t2_new_sysv Kdump: loaded Not tainted 6.17-rc7
+Hardware name: GIGACOMPUTING R2A3-T40-AAV1/Jefferson CIO, BIOS 5.4.4.1 07/15/2025
+pstate: 20400009 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+pc : mte_clear_page_tags+0x14/0x24
+lr : mte_sync_tags+0x1c0/0x240
+sp : ffff80003150bb80
+x29: ffff80003150bb80 x28: ffff00739e9705a8 x27: 0000ffd2d6a00000
+x26: 0000ff8e4bc00000 x25: 00e80046cde00f45 x24: 0000000000022458
+x23: 0000000000000000 x22: 0000000000000004 x21: 000000011b380000
+x20: ffff000000000000 x19: 000000011b379f40 x18: 0000000000000000
+x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
+x11: 0000000000000000 x10: 0000000000000000 x9 : ffffc875e0aa5e2c
+x8 : 0000000000000000 x7 : 0000000000000000 x6 : 0000000000000000
+x5 : fffffc01ce7a5c00 x4 : 00000000046cde00 x3 : fffffc0000000000
+x2 : 0000000000000004 x1 : 0000000000000040 x0 : ffff0046cde7c000
 
-I understand the maintenance cost argument, and I'm fine with the
-CONFIG_BROKEN dependency, even if it might be applied to features that
-cause problems in the future (such as nested virt) =E2=80=94 it's easy to =
-work
-around, and features can be fixed as needed. A complete removal will
-likely be harder to revert, though, especially once code simplifications
-are made based on supporting only little-endian. That's my concern.
+Call trace:
+  mte_clear_page_tags+0x14/0x24
+  set_huge_pte_at+0x25c/0x280
+  hugetlb_change_protection+0x220/0x430
+  change_protection+0x5c/0x8c
+  mprotect_fixup+0x10c/0x294
+  do_mprotect_pkey.constprop.0+0x2e0/0x3d4
+  __arm64_sys_mprotect+0x24/0x44
+  invoke_syscall+0x50/0x160
+  el0_svc_common+0x48/0x144
+  do_el0_svc+0x30/0xe0
+  el0_svc+0x30/0xf0
+  el0t_64_sync_handler+0xc4/0x148
+  el0t_64_sync+0x1a4/0x1a8
 
+Soft lockup is not triggered with THP or base page because there is
+cond_resched() called for each PMD size.
 
-Best regards,
-J. Neusch=C3=A4fer
+Although the soft lockup was triggered by MTE, it should be not MTE
+specific. The other processing which takes long time in the loop may
+trigger soft lockup too.
+
+So add cond_resched() for hugetlb to avoid soft lockup.
+
+Fixes: 8f860591ffb2 ("[PATCH] Enable mprotect on huge pages")
+Tested-by: Carl Worth <carl@os.amperecomputing.com>
+Reviewed-by: Christoph Lameter (Ampere) <cl@gentwo.org>
+Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+Acked-by: David Hildenbrand <david@redhat.com>
+Acked-by: Oscar Salvador <osalvador@suse.de>
+Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
+---
+v2: - Made the subject and commit message less MTE specific and fixed
+      the fixes tag.
+    - Collected all R-bs and A-bs.
+
+ mm/hugetlb.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/mm/hugetlb.c b/mm/hugetlb.c
+index cb5c4e79e0b8..fe6606d91b31 100644
+--- a/mm/hugetlb.c
++++ b/mm/hugetlb.c
+@@ -7242,6 +7242,8 @@ long hugetlb_change_protection(struct vm_area_struct *vma,
+ 						psize);
+ 		}
+ 		spin_unlock(ptl);
++
++		cond_resched();
+ 	}
+ 	/*
+ 	 * Must flush TLB before releasing i_mmap_rwsem: x86's huge_pmd_unshare
+-- 
+2.47.0
+
 
