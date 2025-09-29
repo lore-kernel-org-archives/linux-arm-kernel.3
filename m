@@ -4,152 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24E13CAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 09:35:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3BB37CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 09:38:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KAsdQ30U7UlBYHNCXBDFfYjLVOpQXKdEbXylncUjBmc=; b=yJNdmZNEmNwZaxeIyCyfRHVUnV
-	yeE5JhQP4mKh0VpOxECBBw7YrhzOAnmJ8ja31V0y1Bj2KvwHjYFneL6snH6pVKe7jQzomJpptgqHR
-	kAZotcAZpk70EKKXZutYo3z3snkQT6qQvnAIPIBQIMGxFL/O3kfiVRp6fCkWGgdtKoHDh+gMhFaRX
-	0n2Z8J78x581ciaT5NnRW2VP8wkgyzwKEy3BXZzX3ARXEYxwVoGiyAGpU3GbWikHtaCKR+rswuh/S
-	m++hiIX0rhipRnfgu6ipmUAYx6x/fN3zocNTRrhF3/iP6nSNUt2i1oAJ+WP7kUdg1CjbcilwsjA8y
-	6BAK9WNQ==;
+	bh=ZZOWUVpIw61KHM85AdnPz6vomTChz2t/QIwYRGjaPM8=; b=VRZKdD48pBsw8qLy13QbNebyuZ
+	hU6B0tIABpDDQ9nRTvqKPcBtPIM6ixxG02Q0939xRKXKmMCailPPBt0P7e8csbljmRlcubE/7in2W
+	haKeI6kp5PBI1a9opiyJI+FyfjKxqdbpF4pW1vqVYaHlaoVx5xnvOCpVR5I/MBvf3fq8KuKe+HcTo
+	s7QBg3tlqBL5hijahnf0npoGbLhEA0g83XLA/8ZTRr5B37bbwfhWOByvP1njm8NfN1aP6MF4ZAmIR
+	qqKQoh24m/bi/CYqiekkNkerNofJjR4G2IqwdWhZ+c85dZSCvRw3ux1rJBwxA3dU/y8IF3lxE3WP2
+	9BcPW6sA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3AIN-00000001zoM-0VjJ;
-	Mon, 29 Sep 2025 09:35:47 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1v3AL5-000000020Lg-2TH5;
+	Mon, 29 Sep 2025 09:38:35 +0000
+Received: from mail-vk1-f171.google.com ([209.85.221.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3AIK-00000001znT-4AwK
+	id 1v3AL2-000000020KP-1lO9
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 09:35:46 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VVKWIg+a1Ty9kGTa8VV6F2pG5gEqvukIm/o2rWei5MljZM0OnfunQGnuMzNeiOgff/x/z500VSh1isQwOL64LS4EP7HBB4YVZd4MXnW6GeRlKTfNxflfbXK3fdpkVu0EXZOaH1Tr9Jtwrv8adcJrpAzxDz4SpjK3fc8OtKb3N8TSNUXFMxPHm7tA189Zhi3lmjixL2bGOqEj7+dfCcpJHd9gn5ghyCs7JQH3XJ9nRtVMR12YD8JpnMEV+2T3IWqwRBUhHr0FQtL3q61HyzY0RTe2I+b+J9jJHSa6+b5naNz8qfEIrCrDWuyYr6vTpbGIqub2bR0PIU2e0+2QmXO5Ug==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=KAsdQ30U7UlBYHNCXBDFfYjLVOpQXKdEbXylncUjBmc=;
- b=kaMkPBIvIdij+om232XcrcOOOMub44Ph8rFHTb3yUqAfHaQgMWJH3htLGE9xZeRy1mrO2dGUzAte8WF51SpxxbXeympf/atuyFKqazbEJ0gZ+W3LhjcNy42Dh5uYqBBETEcGWAJ0pUeZKUMC8m2NE2ZVTZJdrfHx0Xo8utjFC2VvRDSUqtyY+1FvKM8HmaW3YXVJy2u4+WP+jr76wgnTKsxvMrTRRvI5esjVXupQhqp34rbYBZl/WTfsFkzVBKtANfXtN80AZUK4u+rxp/Hj8Z5jzmdzAOhB0PrkTjNRlCJT0KKABQFboZAdT56QNbGqJ7LqQ/7k5/CgtxEKeahWvw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=KAsdQ30U7UlBYHNCXBDFfYjLVOpQXKdEbXylncUjBmc=;
- b=nHIUlAHCKqDq0jw6CRCb4cMpv2DIzY4hQkq5DldOq0ZYaB7V1OkbIr7ww+j7lRLzhevWGwHARkpw/kqV2IlTEHKUdjS6KjQyenCSldk3LMhDyb4j4T3lG9IPkdtwvZd5G/4GssDhWHO7ffmsroXNz6/xBXCjtdD+2bYm7NX6IHLneAt6kQCE3vGmuDtTPHMRQPmFj3/GgjnQ6BFIlSr2Zi3tXnNwaZ0OHoIvqdRYFjTgoSBWcRRsS5tDk6TrvnDFSEmkNrg7Kdz6WxngBav098iG8cM0YF11wPczt61wNPu6focdFGASb9Od3okdoo/bitPWMadjAfs8I0TkUzqNdQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by AS8PR04MB8311.eurprd04.prod.outlook.com (2603:10a6:20b:3b3::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.17; Mon, 29 Sep
- 2025 09:35:34 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9160.015; Mon, 29 Sep 2025
- 09:35:33 +0000
-Date: Mon, 29 Sep 2025 18:47:30 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Harini T <harini.t@amd.com>
-Cc: jassisinghbrar@gmail.com, michal.simek@amd.com, peng.fan@nxp.com,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	git@amd.com
-Subject: Re: [PATCH V2 3/4] mailbox: zynqmp-ipi: Fix out-of-bounds access in
- mailbox cleanup loop
-Message-ID: <20250929104730.GC15568@nxa18884-linux.ap.freescale.net>
-References: <20250929073723.139130-1-harini.t@amd.com>
- <20250929073723.139130-4-harini.t@amd.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250929073723.139130-4-harini.t@amd.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SG2PR04CA0204.apcprd04.prod.outlook.com
- (2603:1096:4:187::16) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	Mon, 29 Sep 2025 09:38:33 +0000
+Received: by mail-vk1-f171.google.com with SMTP id 71dfb90a1353d-54aa6a0babeso3966717e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 02:38:32 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759138711; x=1759743511;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ZZOWUVpIw61KHM85AdnPz6vomTChz2t/QIwYRGjaPM8=;
+        b=K1b63VQmYPltYVBT76BSt3P43OCLFqgN5t0Vdca/nq+3e9czhlHtvIGbSFaiaV4IjZ
+         3zQPzbl2mfc48yzT1hjvEolwWX80aut/5caB4aYHNitq5OF0q6e39ZTUy09HgnJF4pyf
+         SYHTFwqB0De/1m+g5/7ZnZzND6gSA/AZ8rdvM2ukBTxb4cZyQu+oEUD1rZnlErIqSAwR
+         Xd2rK0WlJAvj/6J8mOLHc01RHML+hVnNi5AwT1UF6eO3TfZDC+IMtDZX0d2uvpIoT7mh
+         1aHJaQJPpT/OCMDDVUQRH12noDplTR0Zxwqxtm6+3XrqGi+nUdWxjpfsU9OVJayC6tw6
+         N39g==
+X-Forwarded-Encrypted: i=1; AJvYcCWaaeXyvkdz7sq+qKz/90w9VvIKd+89rSgW+iTn/g9m+OiPM5mM6IJGbbZiY4hjzDralMvj666Y58f+VEGyts9s@lists.infradead.org
+X-Gm-Message-State: AOJu0YwDL+6AUj8TYGyAlWNXzh59UpjIFWMCxw14v1KlgskHgEt4b/pO
+	uAu4+8WKR4+3SYj8Cu3hTvgHPVZFwslkE4swjTPSMrNSy6mq31jg6eYoMv9lIwbV
+X-Gm-Gg: ASbGnctMycRqV48LSZlGPqRan+LYscbLHzIbEMr3TtI6l/dHEa9fpp//o8fNjlW07Og
+	LQl487m5f8Gdq1hssIjW1H+jrhYt9aRWy3OsuQI3WKl/GQy/Is5eBeQPa/kxHdQwLKFbaMh4yJ8
+	kZqSvp/aYRsiXX2gWQfeSYGrrBgA4OW5PLvoqph96BIh8mhPyZbMJmhmYxv2OzZ+nRxPzlMRP2h
+	SP7eIFYCyhvcNB2gJRF+d9OWbrdYPvDRlg4WrytM5ryECE3ly34WuwTdxFBjD8+nGhAsS3PvNOT
+	GdcBBluv9TMXwXB9IJoHfQzPxVBUnAoPxQSsnF5I6WFMiwJZKenB6Jje35m47PJx9qNOJ5yUrmc
+	GeC/tdckUNHUIWdEvK/m7oBpqAyLT7CNgmLkVKX1KYYJCoAadk4DAJKFzJ+Q79VsXPm9ekKs=
+X-Google-Smtp-Source: AGHT+IEt8NM9ZkT1kAB1yOFS4K4gqPumveYe2bM+L3bnjlFAtmNSpMfhKc+iB5gdsZ2IOs8p6K58Jg==
+X-Received: by 2002:a05:6122:2d6:b0:54a:a2a3:b16b with SMTP id 71dfb90a1353d-54c0c3d4d2amr2324158e0c.3.1759138710773;
+        Mon, 29 Sep 2025 02:38:30 -0700 (PDT)
+Received: from mail-vs1-f42.google.com (mail-vs1-f42.google.com. [209.85.217.42])
+        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-54bedca040bsm2145252e0c.15.2025.09.29.02.38.29
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 29 Sep 2025 02:38:29 -0700 (PDT)
+Received: by mail-vs1-f42.google.com with SMTP id ada2fe7eead31-5b99f5d5479so1647102137.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 02:38:29 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCU+OF9pucUSWZt7d/+rEb8ZeCpMcQBfGfdFyKrLeKXndsXLxTaM4OHJGye7ZTHZZk+pERgpj1Yt6co6c18Kj9Ww@lists.infradead.org
+X-Received: by 2002:a05:6102:44da:10b0:5cd:e513:384d with SMTP id
+ ada2fe7eead31-5cde51341ffmr109116137.0.1759138709242; Mon, 29 Sep 2025
+ 02:38:29 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|AS8PR04MB8311:EE_
-X-MS-Office365-Filtering-Correlation-Id: 27fa9bd2-9c66-478a-626a-08ddff3b89d9
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|52116014|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?jgMolGBCXJLhm1bhEVVUSYTej3ySAyQc+7y33U5eJcX3RaQ27XkA9ID+QaLa?=
- =?us-ascii?Q?pXcqhSsrZ8Jfl00M71bPp7nXYVkCcOrGauAYp+HE4DBu9Azuuh2CkRNsZRn3?=
- =?us-ascii?Q?MtEg40Ev50QvsQFd4KsMXTH73Seaq+9j6w3FzQGIltkLo5aD816fqhepPYqW?=
- =?us-ascii?Q?Pe7JK5IBZgoKwUl7LnsROd5wrQ8lW+7e5902a05+1noIxF3IVUAJ8gHLAFgU?=
- =?us-ascii?Q?g/ZKsLvKzb3O7bCmWe+GDcmevu+CckWvJBKGWJ3ELMHMDXGF2TD74GMfvpvW?=
- =?us-ascii?Q?Pn4+MGQByYpkumzsoRjJdOa9SlZXPeJP8XAngZkIpiPWY52GQ7apMBAhEumu?=
- =?us-ascii?Q?OycBLXCthFGJjxDSzzWotjn+bRO44lp6NMHXS8spGeTQWrhtBebn9+4xAEi/?=
- =?us-ascii?Q?Mj7fnawM6PWTo06RG1nHM5YyQ/adrropzt06ccfjbItZF9AbsXibJD4H2JW9?=
- =?us-ascii?Q?gHG6FtIarpB3D0JVLyc9FLzqj5FxM0xXJovMOh4he1ba3xKKLzALkMB4z6hs?=
- =?us-ascii?Q?bwuyG7BS7JYoUl9E6+hxrNMmTciqdtyqAtKbi/UurDLpaguYtJKq+418fQcF?=
- =?us-ascii?Q?riAkcYRSiO69W7UzMigES8wq9ahXnYTJ35rpFUk35N/q0cFY1MM6gpINs74S?=
- =?us-ascii?Q?VV+2T+bcFm1bsTKGifrrATNm+7rFvpjYDLWt1j0ZAMvUhPjTRYSs1EznLROq?=
- =?us-ascii?Q?A0sAMhjF8HZgXGFMQDjB9f3yzVLKMzjhAVpw3qlIsR3qYpLKwpSYVoPvoiBa?=
- =?us-ascii?Q?+bEaTuRCz56maXTcTMdDLvAqQy8rJybcH9LyOA3NqlMmwoWnHBjjjhylLGMM?=
- =?us-ascii?Q?iCDUqdbGKZMcNjIHeOHsAnZYX5iNsXDXX9Aj1JYnb3FHfPFysIv1jDCOFlSW?=
- =?us-ascii?Q?MajBj+wHdL9Nb1/K7NHh+dfr3jOxdaMTt6+pqtOelHXVPy6lQ1tuzK6NCam2?=
- =?us-ascii?Q?Xrg5Vqt9TxbWt5pJOp3fSMmVBeIC21fPYRxFnAyzBWpM5oVcifbkfYBUVQDh?=
- =?us-ascii?Q?nmfLN5tyR+HvNLY+qZa0BzuN9GPnTk6nM/F54VSgbayPUYabUt8q/ZMqaLnm?=
- =?us-ascii?Q?/Q5H8ZRAP3S8d9goawasfLO/x3XyluCCkmI7/BKsDegC6lP3th3ZkNX6aST5?=
- =?us-ascii?Q?EJUwz0l7dgcF2fvlOx3PxBDJbdEDd+uipdvUkQRAYHk3E54NHqL0xN3w2R9/?=
- =?us-ascii?Q?jFbc8romp6vWiXAgKDn7sTKXneAxgkkUfQXVVRZKk++WvlBMyaHQCLfE3bB/?=
- =?us-ascii?Q?wiUqocQb+EACVuTB4wDFt1i9vtRMBCHf/7D0XB5hcRJl03WyH1PcjsLpTtt/?=
- =?us-ascii?Q?H84hSL2LwlK98jf54dYL+seYOUmAMKpc1QRB2T6RP8AIn1M6GRx29Dumn2IK?=
- =?us-ascii?Q?JXOGslGspceGUJk4BB9wxH4K2qy3qTPY0tbGYVpHe0unkDQCTdRZFp9TzWjD?=
- =?us-ascii?Q?Ojo7tu39EROgsDeFpBzHy7M1XPTRvYcboOJHB0SPRvdpmRybN+XOjR+F9mrb?=
- =?us-ascii?Q?uLe+mKevYc/j/DOX5fw1BWfF+Tt8zbmGX+4L?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(52116014)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?sGYCjlgu/nKikb5L4/9P1XHkQEhWQmN4NuFLQB+EkLCVMpYr1SIpYiuph/O0?=
- =?us-ascii?Q?pKmgkSdAIP2dYOYqadIaVwS1dB1NsbtxRjdOVaYhNLriAzAeLYjDX54C5sJf?=
- =?us-ascii?Q?k/+L2Lq/mdQP6mgyay7j8kBPxuBwVHfzhD11TYt5c8IhePWGjV2KsjqdK3eR?=
- =?us-ascii?Q?AhMjo2R8J8P70PN84t4ZiftnoILJaLySGibg+ddILDM6QQuN8NfSuR0dqeVp?=
- =?us-ascii?Q?qYFcyRs8H4wNB2UKxQmq4cvtJXxTuGcxlB9WtK/5uN0FRGKkJZF7hAwpX1SR?=
- =?us-ascii?Q?mp5qIDeS8nOiTfTIXgR8nBV4Vjoe60Mlxel90T6ci4jwkJpZ5TUd/Gf/TLuT?=
- =?us-ascii?Q?3+VTzbqWKY9w0nqC59UaH2UhZyd2VCTbrs7a7gpLjjEfmAibccY+7uJavbFn?=
- =?us-ascii?Q?wSSzIg1cSgSe3SOSB3QobhDG93dxDHRbkauDVY+fnXAFGHdIRpCy20AYwVEw?=
- =?us-ascii?Q?z8pt3sQne54DnKHRcTCZP24LRndNCZ/Cjz7WgAnh3opY1LkfBzQLhsbNGdmu?=
- =?us-ascii?Q?5hlkzsoYx5ljo3yr5Ppz4TfGMreE4e2eXhwtwuMan+sfMeI5lTcLiNBpCxad?=
- =?us-ascii?Q?OP6ROW+y6nhWkIFa4+3rkU9f5gKsb+dXghn+6m3NnbIdqFcyAGnB+a2xR31+?=
- =?us-ascii?Q?0hKPvkXqGOO6wVe9O7mFKwYm0ce68ad0y1P7X1fGe0QdxeRToXczwAYqUhIG?=
- =?us-ascii?Q?uYXuFvNldYeJmr8O9j4GL+P4YC7r6IJGLveULJnhuYV6DFT2qqbb2GZvLmT5?=
- =?us-ascii?Q?YHXuKkeLZqTxVgrduwdhYKZ1uiL623vr8o78nfMQHODkLXzB08Snw7J/0fju?=
- =?us-ascii?Q?gX2xqKEN/p7RJ1uERfAUsvhiifGpu+JbAfv1bDujHoNkVVCDKA6QWrWAG/ru?=
- =?us-ascii?Q?gpcvqwFqCUHtjTfDbTX97mzWJknGfO4qNOwC0JAquo/c+lJTt+o4X5hUyQdN?=
- =?us-ascii?Q?9g3i1Ibj9mtdVcd59fNSMLWTAcJ8Oi1dsGqckTBtL+ErldZVMW1cZm3OJC0j?=
- =?us-ascii?Q?HNNoTxpzxbPwSIVzDBHadsqDc/PESbASV7oI4+TTZlGMhVl+efDszMUe7dx+?=
- =?us-ascii?Q?KEBtWpdjx1voOEnIN1qN2lUxqqGTlmCCaWMa3ebLJimjqAanosGzAgkvScJW?=
- =?us-ascii?Q?19DAFaXkrrG1PolHLGtbtyeCogs9pjNHfyhsaXa+m5EIkx55dIKOKbCFL0Db?=
- =?us-ascii?Q?oQywMPmCbMmujne0Y0Cxo4x3d2zD/o0AquWeLorKSIlf8piRSwo2q/Rm/PUP?=
- =?us-ascii?Q?y88tqOG0ppqczOo8iUdbeZPH/m/qyKy5mikRKTOQxqzjmasg4c7ymgxzIYgS?=
- =?us-ascii?Q?0S3pT5asJX9gpa+63yOpnsz88qSVCV/6HBosJYdSykrMdy8ZLCV/2G7HzFsY?=
- =?us-ascii?Q?l/K55AtIXEEqw1mR4Ykbt/0hpZwbE+2rlcdemtfwQOQht4RRNy+haMxU36iI?=
- =?us-ascii?Q?FwLizie5jWqZLIAHEKWSbyIQsCrnf5emm44pHq//QUWBKyUa6DakedTcE6zm?=
- =?us-ascii?Q?VIFC3pJhjVuPrAVBAYAaVYE53umTDNVNy8bhUah+9cXXBpmW4LNhk0R55rC3?=
- =?us-ascii?Q?hZgRHmzTT+eadpFMEe89z75c9r76SJ1iLBfm9yYo?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 27fa9bd2-9c66-478a-626a-08ddff3b89d9
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2025 09:35:33.9233
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 9TUMjc9OWDgqI4k9o2a0QnHZ79CckRQVaqZ2ItIVRcW/8goFPzqyWJ/xkFKceyV4cNCHyans89p9HZnZ3xG4pg==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8311
+References: <20250916163004.674341701@linutronix.de> <20250916163252.100835216@linutronix.de>
+ <20250916184440.GA1245207@ax162> <87ikhi9lhg.ffs@tglx> <87frcm9kvv.ffs@tglx>
+In-Reply-To: <87frcm9kvv.ffs@tglx>
+From: Geert Uytterhoeven <geert@linux-m68k.org>
+Date: Mon, 29 Sep 2025 11:38:17 +0200
+X-Gmail-Original-Message-ID: <CAMuHMdVvAQbN8g7TJyK2MCLusGPwDbzrQJHw8uxDhOvjAh7_Pw@mail.gmail.com>
+X-Gm-Features: AS18NWBdCAubwt71LwkVRoRA7LVpa5BFQK_dgundxdrnw5KTmaxVCF_m7ZP3vyo
+Message-ID: <CAMuHMdVvAQbN8g7TJyK2MCLusGPwDbzrQJHw8uxDhOvjAh7_Pw@mail.gmail.com>
+Subject: Re: [patch V2a 2/6] kbuild: Disable CC_HAS_ASM_GOTO_OUTPUT on clang <
+ version 17
+To: Thomas Gleixner <tglx@linutronix.de>
+Cc: Nathan Chancellor <nathan@kernel.org>, LKML <linux-kernel@vger.kernel.org>, 
+	Linus Torvalds <torvalds@linux-foundation.org>, Peter Zijlstra <peterz@infradead.org>, 
+	kernel test robot <lkp@intel.com>, Russell King <linux@armlinux.org.uk>, 
+	linux-arm-kernel@lists.infradead.org, 
+	Christophe Leroy <christophe.leroy@csgroup.eu>, Darren Hart <dvhart@infradead.org>, 
+	Davidlohr Bueso <dave@stgolabs.net>, =?UTF-8?Q?Andr=C3=A9_Almeida?= <andrealmeid@igalia.com>, 
+	x86@kernel.org, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>, linux-fsdevel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_023545_041742_9E6199C4 
-X-CRM114-Status: UNSURE (   6.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250929_023832_467108_B38E1F12 
+X-CRM114-Status: GOOD (  35.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -164,14 +102,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 29, 2025 at 01:07:22PM +0530, Harini T wrote:
->The cleanup loop was starting at the wrong array index, causing
->out-of-bounds access.
->Start the loop at the correct index for zero-indexed arrays to prevent
->accessing memory beyond the allocated array bounds.
->
->Fixes: 4981b82ba2ff ("mailbox: ZynqMP IPI mailbox controller")
->Signed-off-by: Harini T <harini.t@amd.com>
+Hi Thomas,
 
-Reviewed-by: Peng Fan <peng.fan@nxp.com>
+On Wed, 17 Sept 2025 at 07:51, Thomas Gleixner <tglx@linutronix.de> wrote:
+> clang < 17 fails to use scope local labels with CONFIG_CC_HAS_ASM_GOTO_OUTPUT=y:
+>
+>      {
+>         __label__ local_lbl;
+>         ...
+>         unsafe_get_user(uval, uaddr, local_lbl);
+>         ...
+>         return 0;
+>         local_lbl:
+>                 return -EFAULT;
+>      }
+>
+> when two such scopes exist in the same function:
+>
+>   error: cannot jump from this asm goto statement to one of its possible targets
+>
+> There are other failure scenarios. Shuffling code around slightly makes it
+> worse and fail even with one instance.
+>
+> That issue prevents using local labels for a cleanup based user access
+> mechanism.
+>
+> After failed attempts to provide a simple enough test case for the 'depends
+> on' test in Kconfig, the initial cure was to mark ASM goto broken on clang
+> versions < 17 to get this road block out of the way.
+>
+> But Nathan pointed out that this is a known clang issue and indeed affects
+> clang < version 17 in combination with cleanup(). It's not even required to
+> use local labels for that.
+>
+> The clang issue tracker has a small enough test case, which can be used as
+> a test in the 'depends on' section of CC_HAS_ASM_GOTO_OUTPUT:
+>
+> void bar(void **);
+> void* baz();
+>
+> int  foo (void) {
+>     {
+>             asm goto("jmp %l0"::::l0);
+>             return 0;
+> l0:
+>             return 1;
+>     }
+>     void *x __attribute__((cleanup(bar))) = baz();
+>     {
+>             asm goto("jmp %l0"::::l1);
+>             return 42;
+> l1:
+>             return 0xff;
+>     }
+> }
+>
+> Add another dependency to config CC_HAS_ASM_GOTO_OUTPUT for it and use the
+> clang issue tracker test case for detection by condensing it to obfuscated
+> C-code contest format. This reliably catches the problem on clang < 17 and
+> did not show any issues on the non known to be broken GCC versions.
+>
+> That test might be sufficient to catch all issues and therefore could
+> replace the existing test, but keeping that around does no harm either.
+>
+> Thanks to Nathan for pointing to the relevant clang issue!
+>
+> Suggested-by: Nathan Chancellor <nathan@kernel.org>
+> Signed-off-by: Thomas Gleixner <tglx@linutronix.de>
+> Cc: Nathan Chancellor <nathan@kernel.org>
+> Link: https://github.com/ClangBuiltLinux/linux/issues/1886
+> Link: https://github.com/llvm/llvm-project/commit/f023f5cdb2e6c19026f04a15b5a935c041835d14
+
+Thanks for your patch, which is now commit e2ffa15b9baa447e ("kbuild:
+Disable CC_HAS_ASM_GOTO_OUTPUT on clang < 17") in v6.17.
+
+> --- a/init/Kconfig
+> +++ b/init/Kconfig
+> @@ -99,7 +99,10 @@ config GCC_ASM_GOTO_OUTPUT_BROKEN
+>  config CC_HAS_ASM_GOTO_OUTPUT
+>         def_bool y
+>         depends on !GCC_ASM_GOTO_OUTPUT_BROKEN
+> +       # Find basic issues
+>         depends on $(success,echo 'int foo(int x) { asm goto ("": "=r"(x) ::: bar); return x; bar: return 0; }' | $(CC) -x c - -c -o /dev/null)
+> +       # Detect buggy clang, fixed in clang-17
+> +       depends on $(success,echo 'void b(void **);void* c();int f(void){{asm goto("jmp %l0"::::l0);return 0;l0:return 1;}void *x __attribute__((cleanup(b))) = c();{asm goto("jmp %l0"::::l1);return 2;l1:return 1;}}' | $(CC) -x c - -c -o /dev/null)
+
+This is supposed to affect only clang builds, right?  I am using
+gcc version 13.3.0 (Ubuntu 13.3.0-6ubuntu2~24.04) to build for
+arm32/arm64/riscv, and thus have:
+
+    CONFIG_CC_IS_GCC=y
+
+Still, this commit causes
+
+    CONFIG_CC_HAS_ASM_GOTO_OUTPUT=y
+    CONFIG_CC_HAS_ASM_GOTO_TIED_OUTPUT=y
+
+to disappear from my configs? Is that expected?
+
+Thanks!
+
+Gr{oetje,eeting}s,
+
+                        Geert
+
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+                                -- Linus Torvalds
 
