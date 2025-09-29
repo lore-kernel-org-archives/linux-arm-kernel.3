@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EC79CAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 04:29:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3834BCAC5BD
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 04:29:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Y74o6IOjQgwfeEIGmmm1c1vskXSR4OXN85rOUOM1PX8=; b=RYJd1lNDBopbV1msI7fqVgYugH
-	BFFHR5GtTTe3Tu9xhQ3R36wbH4FCGvqSyxaNhynengwjaNHW6SmiG29QGHjjjXB4CMCa0rmxrAM86
-	N6ih0GAqZvGqMGKgxmyUiUz7MttwsFlv27/cAXxw5nyzpd21vUPo8CxBUbPR63AwUCMr9WJSaOTeq
-	BPYj5ibaxgYD1RPpzbiOraM0SrsjoHokvNybDXsl0r4ViHB52l/whHD+RkPtDx2VD/EgycU1ptfMA
-	dbmSCC843aBQLk8BgetzpD7fp7mbjc0Ky0ryJ/0xutAFAe0aFomAw0ad3L2MrenAVpuV/TZoSN7r/
-	HOgi9h6A==;
+	bh=6sXHbeK++urRgXFZ0q5BURM+QBMH1xJNpaG+x/fCF18=; b=3N2OBZ/OuzgBG+bU+s1kkVJATk
+	L5K4iR0kA0GZWFz8C2QMCwh4YJZ7yaOXprJLdljGIDJSJj3TE/iG65JYcaBn7gSVunw2VvIVE5/Jy
+	IsBUevmTUc/bnoN0sJy4tAY2wY9gj5oPX7NjkxMjTP+hcnIyAA7ovQifKsVXaTu+Nu/3mrOQCnKWw
+	1HlnJTWMC/MKoAEg6sM8ynG5hnGvaoVzB5rhyCojpRbPUf4MExp1ZLKhfyj0v+V1ur7ejg0gnHUAJ
+	Qu3M2ujtYmZnoH7SLv13mfmLmKB2ETT958qXvrCCSYltjKWN/sMXGA936hfFvWWKu5yU+vkXUTf8r
+	HVV1kYbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v35Vx-00000001JK5-3DLx;
-	Mon, 29 Sep 2025 04:29:29 +0000
-Received: from [203.254.224.33] (helo=mailout3.samsung.com)
+	id 1v35Vy-00000001JKb-0SfD;
+	Mon, 29 Sep 2025 04:29:30 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v35Vs-00000001JIV-1fOC
+	id 1v35Vs-00000001JIX-3U1K
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 29 Sep 2025 04:29:28 +0000
-Received: from epcas2p3.samsung.com (unknown [182.195.41.55])
-	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250929042918epoutp03b551d2408e317b3f1cf457465e73b2dc~ppnbCPZnJ0476904769epoutp03R
+Received: from epcas2p1.samsung.com (unknown [182.195.41.53])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250929042918epoutp0229c70a2096fa7c2a2799b8471e0cebcc~ppnbVs6vF2998629986epoutp02N
 	for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 04:29:18 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250929042918epoutp03b551d2408e317b3f1cf457465e73b2dc~ppnbCPZnJ0476904769epoutp03R
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250929042918epoutp0229c70a2096fa7c2a2799b8471e0cebcc~ppnbVs6vF2998629986epoutp02N
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
 	s=mail20170921; t=1759120158;
-	bh=Y74o6IOjQgwfeEIGmmm1c1vskXSR4OXN85rOUOM1PX8=;
+	bh=6sXHbeK++urRgXFZ0q5BURM+QBMH1xJNpaG+x/fCF18=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=R0XsjvQO+w1Ywh/1MWZByziR5BfBr4OS6m4H5t/GbWJBGk96Xb/JCHvlf+g67jDlC
-	 d3EJbm23myQ3qL4Tf8Ls24OmhMo2avzGux+usuUDPXTdrfMJnnbeqx0Mvr4YvkijTT
-	 G0YjvAWsx3vMmqs9xaDfH0Dq+0Up3HB37e6Y3sJM=
+	b=j2npnJQweQ8Jqvw+0Wu5fGPU529Yz6EacXJlvGNDrYqr6bhquYsB1epkEUfh//UuI
+	 369eJP+muCc2j6TG441PD55Y8oQm0BKL2ByAQKwBiuAfxxA3+S8FJNk75WTnTdedXR
+	 b3i6sKou3zMvdGfEBwceCJMducCVfXSFawyBBiM8=
 Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas2p2.samsung.com (KnoxPortal) with ESMTPS id
-	20250929042918epcas2p2580ef12c45a153d3b0312026dfaf0c63~ppnavDpyh1831418314epcas2p2S;
+	epcas2p4.samsung.com (KnoxPortal) with ESMTPS id
+	20250929042918epcas2p48ba6d48b41c6fdd147cf6c6850617c73~ppnbAiqdy1362413624epcas2p4W;
 	Mon, 29 Sep 2025 04:29:18 +0000 (GMT)
-Received: from epcas2p3.samsung.com (unknown [182.195.38.208]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4cZp9n5bpbz6B9mJ; Mon, 29 Sep
-	2025 04:29:17 +0000 (GMT)
+Received: from epcas2p3.samsung.com (unknown [182.195.38.205]) by
+	epsnrtp01.localdomain (Postfix) with ESMTP id 4cZp9p0Y7Mz6B9mL; Mon, 29 Sep
+	2025 04:29:18 +0000 (GMT)
 Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
 	epcas2p4.samsung.com (KnoxPortal) with ESMTPA id
-	20250929042917epcas2p4c8f375cc2355b3a48141cdddb04a01c4~ppnZ5GzZ60613506135epcas2p4p;
+	20250929042917epcas2p43d95408c9c43ff49ff6674136d7c64d3~ppnaD-lQX0591205912epcas2p4u;
 	Mon, 29 Sep 2025 04:29:17 +0000 (GMT)
 Received: from tayo (unknown [10.229.9.198]) by epsmtip1.samsung.com
 	(KnoxPortal) with ESMTPA id
-	20250929042917epsmtip1030b8011b124a863d36bf014cdf0ad72~ppnZ0uSI12522725227epsmtip1m;
+	20250929042917epsmtip1dc25e0c7a28d5a3a5ce6ffb1ebdba5be~ppnZ-VBh52522725227epsmtip1n;
 	Mon, 29 Sep 2025 04:29:17 +0000 (GMT)
 From: Hoyoung Lee <hy_fifty.lee@samsung.com>
 To: Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>,
@@ -61,27 +61,26 @@ To: Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>,
 Cc: Hoyoung Lee <hy_fifty.lee@samsung.com>, dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/3] drm/exynos: plane: Disable fully off-screen planes
- instead of zero-sized update
-Date: Mon, 29 Sep 2025 13:31:08 +0900
-Message-ID: <20250929043110.3631025-2-hy_fifty.lee@samsung.com>
+Subject: [PATCH 3/3] drm/exynos: Move mode_config setup from fb.c to drv.c
+Date: Mon, 29 Sep 2025 13:31:10 +0900
+Message-ID: <20250929043110.3631025-4-hy_fifty.lee@samsung.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250929043110.3631025-1-hy_fifty.lee@samsung.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250929042917epcas2p4c8f375cc2355b3a48141cdddb04a01c4
+X-CMS-MailID: 20250929042917epcas2p43d95408c9c43ff49ff6674136d7c64d3
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 X-Sendblock-Type: AUTO_CONFIDENTIAL
 CMS-TYPE: 102P
 cpgsPolicy: CPGSC10-234,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250929042917epcas2p4c8f375cc2355b3a48141cdddb04a01c4
+X-CMS-RootMailID: 20250929042917epcas2p43d95408c9c43ff49ff6674136d7c64d3
 References: <20250929043110.3631025-1-hy_fifty.lee@samsung.com>
-	<CGME20250929042917epcas2p4c8f375cc2355b3a48141cdddb04a01c4@epcas2p4.samsung.com>
+	<CGME20250929042917epcas2p43d95408c9c43ff49ff6674136d7c64d3@epcas2p4.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250928_212925_078430_2B26040A 
-X-CRM114-Status: GOOD (  16.55  )
+X-CRM114-CacheID: sfid-20250928_212925_181362_E673BC44 
+X-CRM114-Status: GOOD (  18.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,68 +95,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Some configurations require additional actions when all windows are
-disabled to keep DECON operating correctly. Programming a zero-sized window
-in ->atomic_update() leaves the plane logically enabled and can bypass
-those disable semantics.
+Relocate exynos_drm_mode_config_init() and the mode_config funcs/helpers
+from exynos_drm_fb.c to exynos_drm_drv.c, and invoke
+drm_mode_config_init() from inside exynos_drm_mode_config_init().
 
-Treat a fully off-screen plane as not visible and take the explicit disable
-path.
+Rationale: resolve the historical fb.c placement, align with common DRM
+layering (mode_config is device-wide policy that belongs in the core
+driver), and make initialization order explicit before creating KMS
+objects and binding components.
 
-Implementation details:
-- exynos_plane_mode_set(): if computed actual_w/actual_h is zero, mark
-  state->visible = false and return early.
-- exynos_plane_atomic_check(): if !visible, skip further checks and
-  return 0.
-- exynos_plane_atomic_update(): if !visible, call ->disable_plane();
-  otherwise call ->update_plane().
-
-No functional change for visible planes; off-screen planes are now cleanly
-disabled, ensuring the disable hooks run consistently.
+No functional change intended.
 
 Signed-off-by: Hoyoung Lee <hy_fifty.lee@samsung.com>
 ---
- drivers/gpu/drm/exynos/exynos_drm_plane.c | 12 +++++++++++-
- 1 file changed, 11 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/exynos/exynos_drm_drv.c | 47 ++++++++++++++++++++++---
+ drivers/gpu/drm/exynos/exynos_drm_fb.c  | 34 ++----------------
+ drivers/gpu/drm/exynos/exynos_drm_fb.h  |  7 ++--
+ 3 files changed, 49 insertions(+), 39 deletions(-)
 
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_plane.c b/drivers/gpu/drm/exynos/exynos_drm_plane.c
-index 7c3aa77186d3..842974154d79 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_plane.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_plane.c
-@@ -91,6 +91,11 @@ static void exynos_plane_mode_set(struct exynos_drm_plane_state *exynos_state)
- 	actual_w = exynos_plane_get_size(crtc_x, crtc_w, mode->hdisplay);
- 	actual_h = exynos_plane_get_size(crtc_y, crtc_h, mode->vdisplay);
- 
-+	if (!actual_w || !actual_h) {
-+		state->visible = false;
-+		return;
-+	}
-+
- 	if (crtc_x < 0) {
- 		if (actual_w)
- 			src_x += ((-crtc_x) * exynos_state->h_ratio) >> 16;
-@@ -244,6 +249,9 @@ static int exynos_plane_atomic_check(struct drm_plane *plane,
- 	/* translate state into exynos_state */
- 	exynos_plane_mode_set(exynos_state);
- 
-+	if (!new_plane_state->visible)
-+		return 0;
-+
- 	ret = exynos_drm_plane_check_format(exynos_plane->config, exynos_state);
- 	if (ret)
- 		return ret;
-@@ -263,8 +271,10 @@ static void exynos_plane_atomic_update(struct drm_plane *plane,
- 	if (!new_state->crtc)
- 		return;
- 
--	if (exynos_crtc->ops->update_plane)
-+	if (new_state->visible && exynos_crtc->ops->update_plane)
- 		exynos_crtc->ops->update_plane(exynos_crtc, exynos_plane);
-+	else if (exynos_crtc->ops->disable_plane)
-+		exynos_crtc->ops->disable_plane(exynos_crtc, exynos_plane);
+diff --git a/drivers/gpu/drm/exynos/exynos_drm_drv.c b/drivers/gpu/drm/exynos/exynos_drm_drv.c
+index 1aea71778ab1..6362cd417a4e 100644
+--- a/drivers/gpu/drm/exynos/exynos_drm_drv.c
++++ b/drivers/gpu/drm/exynos/exynos_drm_drv.c
+@@ -233,6 +233,43 @@ static struct component_match *exynos_drm_match_add(struct device *dev)
+ 	return match ?: ERR_PTR(-ENODEV);
  }
  
- static void exynos_plane_atomic_disable(struct drm_plane *plane,
++static struct drm_mode_config_helper_funcs exynos_drm_mode_config_helpers = {
++	.atomic_commit_tail = drm_atomic_helper_commit_tail_rpm,
++};
++
++static const struct drm_mode_config_funcs exynos_drm_mode_config_funcs = {
++	.fb_create = exynos_user_fb_create,
++	.atomic_check = drm_atomic_helper_check,
++	.atomic_commit = drm_atomic_helper_commit,
++};
++
++static int exynos_drm_mode_config_init(struct drm_device *dev)
++{
++	int ret;
++
++	ret = drmm_mode_config_init(dev);
++	if (ret)
++		return ret;
++
++	dev->mode_config.min_width = 0;
++	dev->mode_config.min_height = 0;
++
++	/*
++	 * set max width and height as default value(4096x4096).
++	 * this value would be used to check framebuffer size limitation
++	 * at drm_mode_addfb().
++	 */
++	dev->mode_config.max_width = 4096;
++	dev->mode_config.max_height = 4096;
++
++	dev->mode_config.funcs = &exynos_drm_mode_config_funcs;
++	dev->mode_config.helper_private = &exynos_drm_mode_config_helpers;
++
++	dev->mode_config.normalize_zpos = true;
++
++	return 0;
++}
++
+ static int exynos_drm_bind(struct device *dev)
+ {
+ 	struct exynos_drm_private *private;
+@@ -257,9 +294,9 @@ static int exynos_drm_bind(struct device *dev)
+ 	dev_set_drvdata(dev, drm);
+ 	drm->dev_private = (void *)private;
+ 
+-	drmm_mode_config_init(drm);
+-
+-	exynos_drm_mode_config_init(drm);
++	ret = exynos_drm_mode_config_init(drm);
++	if (ret)
++		goto err_free_private;
+ 
+ 	/* setup possible_clones. */
+ 	clone_mask = 0;
+@@ -272,7 +309,7 @@ static int exynos_drm_bind(struct device *dev)
+ 	/* Try to bind all sub drivers. */
+ 	ret = component_bind_all(drm->dev, drm);
+ 	if (ret)
+-		goto err_mode_config_cleanup;
++		goto err_free_private;
+ 
+ 	ret = drm_vblank_init(drm, drm->mode_config.num_crtc);
+ 	if (ret)
+@@ -296,7 +333,7 @@ static int exynos_drm_bind(struct device *dev)
+ 	drm_kms_helper_poll_fini(drm);
+ err_unbind_all:
+ 	component_unbind_all(drm->dev, drm);
+-err_mode_config_cleanup:
++err_free_private:
+ 	exynos_drm_cleanup_dma(drm);
+ 	kfree(private);
+ 	dev_set_drvdata(dev, NULL);
+diff --git a/drivers/gpu/drm/exynos/exynos_drm_fb.c b/drivers/gpu/drm/exynos/exynos_drm_fb.c
+index ddd73e7f26a3..c118a079d308 100644
+--- a/drivers/gpu/drm/exynos/exynos_drm_fb.c
++++ b/drivers/gpu/drm/exynos/exynos_drm_fb.c
+@@ -8,8 +8,7 @@
+  *	Seung-Woo Kim <sw0312.kim@samsung.com>
+  */
+ 
+-#include <drm/drm_atomic.h>
+-#include <drm/drm_atomic_helper.h>
++#include <drm/drm_modeset_helper.h>
+ #include <drm/drm_crtc.h>
+ #include <drm/drm_framebuffer.h>
+ #include <drm/drm_fourcc.h>
+@@ -93,7 +92,7 @@ exynos_drm_framebuffer_init(struct drm_device *dev,
+ 	return ERR_PTR(ret);
+ }
+ 
+-static struct drm_framebuffer *
++struct drm_framebuffer *
+ exynos_user_fb_create(struct drm_device *dev, struct drm_file *file_priv,
+ 		      const struct drm_format_info *info,
+ 		      const struct drm_mode_fb_cmd2 *mode_cmd)
+@@ -150,32 +149,3 @@ dma_addr_t exynos_drm_fb_dma_addr(struct drm_framebuffer *fb, int index)
+ 	exynos_gem = to_exynos_gem(fb->obj[index]);
+ 	return exynos_gem->dma_addr + fb->offsets[index];
+ }
+-
+-static struct drm_mode_config_helper_funcs exynos_drm_mode_config_helpers = {
+-	.atomic_commit_tail = drm_atomic_helper_commit_tail_rpm,
+-};
+-
+-static const struct drm_mode_config_funcs exynos_drm_mode_config_funcs = {
+-	.fb_create = exynos_user_fb_create,
+-	.atomic_check = drm_atomic_helper_check,
+-	.atomic_commit = drm_atomic_helper_commit,
+-};
+-
+-void exynos_drm_mode_config_init(struct drm_device *dev)
+-{
+-	dev->mode_config.min_width = 0;
+-	dev->mode_config.min_height = 0;
+-
+-	/*
+-	 * set max width and height as default value(4096x4096).
+-	 * this value would be used to check framebuffer size limitation
+-	 * at drm_mode_addfb().
+-	 */
+-	dev->mode_config.max_width = 4096;
+-	dev->mode_config.max_height = 4096;
+-
+-	dev->mode_config.funcs = &exynos_drm_mode_config_funcs;
+-	dev->mode_config.helper_private = &exynos_drm_mode_config_helpers;
+-
+-	dev->mode_config.normalize_zpos = true;
+-}
+diff --git a/drivers/gpu/drm/exynos/exynos_drm_fb.h b/drivers/gpu/drm/exynos/exynos_drm_fb.h
+index fdc6cb40cc9c..0c79ce5d4a8d 100644
+--- a/drivers/gpu/drm/exynos/exynos_drm_fb.h
++++ b/drivers/gpu/drm/exynos/exynos_drm_fb.h
+@@ -19,8 +19,11 @@ exynos_drm_framebuffer_init(struct drm_device *dev,
+ 			    struct exynos_drm_gem **exynos_gem,
+ 			    int count);
+ 
+-dma_addr_t exynos_drm_fb_dma_addr(struct drm_framebuffer *fb, int index);
++struct drm_framebuffer *
++exynos_user_fb_create(struct drm_device *dev, struct drm_file *file_priv,
++		      const struct drm_format_info *info,
++		      const struct drm_mode_fb_cmd2 *mode_cmd);
+ 
+-void exynos_drm_mode_config_init(struct drm_device *dev);
++dma_addr_t exynos_drm_fb_dma_addr(struct drm_framebuffer *fb, int index);
+ 
+ #endif
 -- 
 2.34.1
 
