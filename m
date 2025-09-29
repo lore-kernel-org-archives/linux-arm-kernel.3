@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3167DCAC5B0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2EC79CAC5B5
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 04:29:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,46 +12,46 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-ID:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YSVaMtuyuSZZ1up/bnEVaaqJsX9Frjk4SuqMGWpTs64=; b=BQFnW0u/gSVhQqcmDdEToCutBO
-	XSAzyRJkSHDmAAMo7IyGvuGaLikqo0VSXFxXPS6/5yWs9tySo+rFBzH1I3z5dacoudj8T63iVSalF
-	3wgeRc+76//BFgAnNKda+/qoXPEh/88GCBln7FCmgAkjKEmSBjOJ1Utwbted09lLvdufKGKHQGzmC
-	hOnmogmFfb/aI8SdWl4+wM/QzY1npH/sZjxof8lvkVtr9tXVKE4CT5uZkrOGsPCugcdoTkm4bGPtR
-	jow2grIgVHIudzuvuCJoTcn3TQwEAKOpgbPdjw7kJung4u9uF6+PfTKVFh4AQcGbl6iFuzi2rC4J5
-	1uKSxYGQ==;
+	bh=Y74o6IOjQgwfeEIGmmm1c1vskXSR4OXN85rOUOM1PX8=; b=RYJd1lNDBopbV1msI7fqVgYugH
+	BFFHR5GtTTe3Tu9xhQ3R36wbH4FCGvqSyxaNhynengwjaNHW6SmiG29QGHjjjXB4CMCa0rmxrAM86
+	N6ih0GAqZvGqMGKgxmyUiUz7MttwsFlv27/cAXxw5nyzpd21vUPo8CxBUbPR63AwUCMr9WJSaOTeq
+	BPYj5ibaxgYD1RPpzbiOraM0SrsjoHokvNybDXsl0r4ViHB52l/whHD+RkPtDx2VD/EgycU1ptfMA
+	dbmSCC843aBQLk8BgetzpD7fp7mbjc0Ky0ryJ/0xutAFAe0aFomAw0ad3L2MrenAVpuV/TZoSN7r/
+	HOgi9h6A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v35Vy-00000001JKf-1htL;
-	Mon, 29 Sep 2025 04:29:30 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1v35Vx-00000001JK5-3DLx;
+	Mon, 29 Sep 2025 04:29:29 +0000
+Received: from [203.254.224.33] (helo=mailout3.samsung.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v35Vv-00000001JJ5-1Oyb
+	id 1v35Vs-00000001JIV-1fOC
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 29 Sep 2025 04:29:28 +0000
-Received: from epcas2p2.samsung.com (unknown [182.195.41.54])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250929042918epoutp02c1e2e137cf6a70e87dc488ebbb114692~ppnbTtyO02973729737epoutp02h
+Received: from epcas2p3.samsung.com (unknown [182.195.41.55])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250929042918epoutp03b551d2408e317b3f1cf457465e73b2dc~ppnbCPZnJ0476904769epoutp03R
 	for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 04:29:18 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250929042918epoutp02c1e2e137cf6a70e87dc488ebbb114692~ppnbTtyO02973729737epoutp02h
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250929042918epoutp03b551d2408e317b3f1cf457465e73b2dc~ppnbCPZnJ0476904769epoutp03R
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
 	s=mail20170921; t=1759120158;
-	bh=YSVaMtuyuSZZ1up/bnEVaaqJsX9Frjk4SuqMGWpTs64=;
+	bh=Y74o6IOjQgwfeEIGmmm1c1vskXSR4OXN85rOUOM1PX8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=X5vFgjR2l4L6b7NiucO1Gnr+xHkgGl7MZYoIVi7/uLllwe5iBIprnPGKf3ll2Zguf
-	 cu/LtcY53z+eZg9Xst/Aoi8cRnWVpdkmvD5DBBITb7R9hDBy8Enyynq0XV1LVBLCjD
-	 2aLer6162rjBn6jLXpdKON84Mub2r+6cUmDCEtGU=
+	b=R0XsjvQO+w1Ywh/1MWZByziR5BfBr4OS6m4H5t/GbWJBGk96Xb/JCHvlf+g67jDlC
+	 d3EJbm23myQ3qL4Tf8Ls24OmhMo2avzGux+usuUDPXTdrfMJnnbeqx0Mvr4YvkijTT
+	 G0YjvAWsx3vMmqs9xaDfH0Dq+0Up3HB37e6Y3sJM=
 Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas2p3.samsung.com (KnoxPortal) with ESMTPS id
-	20250929042918epcas2p389736ec498c2e1e07be26be0e12c7636~ppna6NSXN1841018410epcas2p3d;
+	epcas2p2.samsung.com (KnoxPortal) with ESMTPS id
+	20250929042918epcas2p2580ef12c45a153d3b0312026dfaf0c63~ppnavDpyh1831418314epcas2p2S;
 	Mon, 29 Sep 2025 04:29:18 +0000 (GMT)
-Received: from epcas2p3.samsung.com (unknown [182.195.38.205]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4cZp9p0SkJz6B9mG; Mon, 29 Sep
-	2025 04:29:18 +0000 (GMT)
+Received: from epcas2p3.samsung.com (unknown [182.195.38.208]) by
+	epsnrtp01.localdomain (Postfix) with ESMTP id 4cZp9n5bpbz6B9mJ; Mon, 29 Sep
+	2025 04:29:17 +0000 (GMT)
 Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas2p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250929042917epcas2p2569e213500997dfa6ba43c8f361f50f7~ppnZ_6lVS1831418314epcas2p2O;
+	epcas2p4.samsung.com (KnoxPortal) with ESMTPA id
+	20250929042917epcas2p4c8f375cc2355b3a48141cdddb04a01c4~ppnZ5GzZ60613506135epcas2p4p;
 	Mon, 29 Sep 2025 04:29:17 +0000 (GMT)
 Received: from tayo (unknown [10.229.9.198]) by epsmtip1.samsung.com
 	(KnoxPortal) with ESMTPA id
-	20250929042917epsmtip1cd0804751a75e6720cbf5da675545d7a~ppnZ5hi7v2403224032epsmtip1i;
+	20250929042917epsmtip1030b8011b124a863d36bf014cdf0ad72~ppnZ0uSI12522725227epsmtip1m;
 	Mon, 29 Sep 2025 04:29:17 +0000 (GMT)
 From: Hoyoung Lee <hy_fifty.lee@samsung.com>
 To: Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>,
@@ -61,27 +61,27 @@ To: Inki Dae <inki.dae@samsung.com>, Seung-Woo Kim <sw0312.kim@samsung.com>,
 Cc: Hoyoung Lee <hy_fifty.lee@samsung.com>, dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org
-Subject: [PATCH 2/3] drm/exynos: Convert to drmm_mode_config_init() and drop
- manual cleanup
-Date: Mon, 29 Sep 2025 13:31:09 +0900
-Message-ID: <20250929043110.3631025-3-hy_fifty.lee@samsung.com>
+Subject: [PATCH 1/3] drm/exynos: plane: Disable fully off-screen planes
+ instead of zero-sized update
+Date: Mon, 29 Sep 2025 13:31:08 +0900
+Message-ID: <20250929043110.3631025-2-hy_fifty.lee@samsung.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20250929043110.3631025-1-hy_fifty.lee@samsung.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250929042917epcas2p2569e213500997dfa6ba43c8f361f50f7
+X-CMS-MailID: 20250929042917epcas2p4c8f375cc2355b3a48141cdddb04a01c4
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 X-Sendblock-Type: AUTO_CONFIDENTIAL
 CMS-TYPE: 102P
 cpgsPolicy: CPGSC10-234,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250929042917epcas2p2569e213500997dfa6ba43c8f361f50f7
+X-CMS-RootMailID: 20250929042917epcas2p4c8f375cc2355b3a48141cdddb04a01c4
 References: <20250929043110.3631025-1-hy_fifty.lee@samsung.com>
-	<CGME20250929042917epcas2p2569e213500997dfa6ba43c8f361f50f7@epcas2p2.samsung.com>
+	<CGME20250929042917epcas2p4c8f375cc2355b3a48141cdddb04a01c4@epcas2p4.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250928_212927_683698_92637813 
-X-CRM114-Status: GOOD (  13.04  )
+X-CRM114-CacheID: sfid-20250928_212925_078430_2B26040A 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,46 +96,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Switch mode-config initialization to drmm_mode_config_init() so that the
-lifetime is tied to drm_device. Remove explicit drm_mode_config_cleanup()
-from error and unbind paths since cleanup is now managed by DRM.
+Some configurations require additional actions when all windows are
+disabled to keep DECON operating correctly. Programming a zero-sized window
+in ->atomic_update() leaves the plane logically enabled and can bypass
+those disable semantics.
 
-No functional change intended.
+Treat a fully off-screen plane as not visible and take the explicit disable
+path.
+
+Implementation details:
+- exynos_plane_mode_set(): if computed actual_w/actual_h is zero, mark
+  state->visible = false and return early.
+- exynos_plane_atomic_check(): if !visible, skip further checks and
+  return 0.
+- exynos_plane_atomic_update(): if !visible, call ->disable_plane();
+  otherwise call ->update_plane().
+
+No functional change for visible planes; off-screen planes are now cleanly
+disabled, ensuring the disable hooks run consistently.
 
 Signed-off-by: Hoyoung Lee <hy_fifty.lee@samsung.com>
 ---
- drivers/gpu/drm/exynos/exynos_drm_drv.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+ drivers/gpu/drm/exynos/exynos_drm_plane.c | 12 +++++++++++-
+ 1 file changed, 11 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/gpu/drm/exynos/exynos_drm_drv.c b/drivers/gpu/drm/exynos/exynos_drm_drv.c
-index 6cc7bf77bcac..1aea71778ab1 100644
---- a/drivers/gpu/drm/exynos/exynos_drm_drv.c
-+++ b/drivers/gpu/drm/exynos/exynos_drm_drv.c
-@@ -257,7 +257,7 @@ static int exynos_drm_bind(struct device *dev)
- 	dev_set_drvdata(dev, drm);
- 	drm->dev_private = (void *)private;
+diff --git a/drivers/gpu/drm/exynos/exynos_drm_plane.c b/drivers/gpu/drm/exynos/exynos_drm_plane.c
+index 7c3aa77186d3..842974154d79 100644
+--- a/drivers/gpu/drm/exynos/exynos_drm_plane.c
++++ b/drivers/gpu/drm/exynos/exynos_drm_plane.c
+@@ -91,6 +91,11 @@ static void exynos_plane_mode_set(struct exynos_drm_plane_state *exynos_state)
+ 	actual_w = exynos_plane_get_size(crtc_x, crtc_w, mode->hdisplay);
+ 	actual_h = exynos_plane_get_size(crtc_y, crtc_h, mode->vdisplay);
  
--	drm_mode_config_init(drm);
-+	drmm_mode_config_init(drm);
++	if (!actual_w || !actual_h) {
++		state->visible = false;
++		return;
++	}
++
+ 	if (crtc_x < 0) {
+ 		if (actual_w)
+ 			src_x += ((-crtc_x) * exynos_state->h_ratio) >> 16;
+@@ -244,6 +249,9 @@ static int exynos_plane_atomic_check(struct drm_plane *plane,
+ 	/* translate state into exynos_state */
+ 	exynos_plane_mode_set(exynos_state);
  
- 	exynos_drm_mode_config_init(drm);
++	if (!new_plane_state->visible)
++		return 0;
++
+ 	ret = exynos_drm_plane_check_format(exynos_plane->config, exynos_state);
+ 	if (ret)
+ 		return ret;
+@@ -263,8 +271,10 @@ static void exynos_plane_atomic_update(struct drm_plane *plane,
+ 	if (!new_state->crtc)
+ 		return;
  
-@@ -297,7 +297,6 @@ static int exynos_drm_bind(struct device *dev)
- err_unbind_all:
- 	component_unbind_all(drm->dev, drm);
- err_mode_config_cleanup:
--	drm_mode_config_cleanup(drm);
- 	exynos_drm_cleanup_dma(drm);
- 	kfree(private);
- 	dev_set_drvdata(dev, NULL);
-@@ -317,7 +316,6 @@ static void exynos_drm_unbind(struct device *dev)
- 	drm_atomic_helper_shutdown(drm);
+-	if (exynos_crtc->ops->update_plane)
++	if (new_state->visible && exynos_crtc->ops->update_plane)
+ 		exynos_crtc->ops->update_plane(exynos_crtc, exynos_plane);
++	else if (exynos_crtc->ops->disable_plane)
++		exynos_crtc->ops->disable_plane(exynos_crtc, exynos_plane);
+ }
  
- 	component_unbind_all(drm->dev, drm);
--	drm_mode_config_cleanup(drm);
- 	exynos_drm_cleanup_dma(drm);
- 
- 	kfree(drm->dev_private);
+ static void exynos_plane_atomic_disable(struct drm_plane *plane,
 -- 
 2.34.1
 
