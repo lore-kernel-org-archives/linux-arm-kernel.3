@@ -4,161 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAB04CAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 02:29:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C077CCAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 02:36:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4HaP2cpl+/9d+FCMjSJnbTXS6xlVGHejKsnqdDroPDM=; b=voOBS6Jcax2WTBlBXFSpqOefZd
-	v9m8nKXGIngz9IRHgkKoLRdRmyoJjORizl7DoGDijAJxNYFDANv1zesJMJ7wr9hvI7Ecb1V7z7vgv
-	pmbItbIaSah2umcdTUF2gZD2Z2gSl0qyqdD2SXhzAi8JED7t1vc2bhFuYhIPFdC/rGdtt5wGw68Q+
-	GAx/19XvUpKjj5LflAh8yOzbTZX5zNZbKgoYcDdRbTcmRTYOqIKImxeUFJ5GtLZHo7wQNKY6ukirC
-	oayzD4nrxy7jWrPIETkRKarl+6lufsdwBQNeFd8ZPV6u+pQQMxMowkS28pX6+Q9Ymcd1SdwF1Elr7
-	th3YUZ5A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=t+3WBiuhzkliva6qQ60VQN5Z/fBMQIWgWbfshrrlReo=; b=OoPTWvjiQeVkoGsJhxYxG0rQ8b
+	qNeeqzITXn0nZkjD12qKitKkH5NTCdTFa61bxQGHxevSCnLFPLGfjdFJjx43E6/0HkkRIvpGDxuVK
+	XqIf4XrBJ1fuiRwruX5wUCvdsVGhjcPq/2KJmHKa7nzFiovO0SninL3CdzYfyKGJv0JnOF66LaorM
+	/IRk8o33ndOljfaU+7rmlssQJeq1hR2lUmQSMNaUiyv9rB3LBlo/q3LqhTKbxfZpPm/zWytZ8kEkQ
+	4coodf1OWlA68Dhg8HXgG6GDM8iShT51rq8AQ2dEJOFwqUXZXVOHZgB468ChEiAERRP9eJghjJOJL
+	+wmFdETQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v33dm-000000017in-0WPl;
-	Mon, 29 Sep 2025 02:29:26 +0000
-Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	id 1v33km-00000001841-29b0;
+	Mon, 29 Sep 2025 02:36:40 +0000
+Received: from smtp84.cstnet.cn ([159.226.251.84] helo=cstnet.cn)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v33dj-000000017i4-2dtO
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 02:29:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hImux4v3jDjdFheZSjVp6eGvQf9UFf+OIBucF0Yq9SHsuWz35rnT6xSnwN3/XoVaSlm2Q0VSR4TPKGWhsl0dTyttwK/KfHy2GinWtrY9yclq8VTzmR1ohcXibyyjR7ibrd3XeL3fImg9UiGjcx7Xw9/0K0v1cIYT0KrD+SEM5fXf2vVLxu/Om21cjC6biVlqzEvDVz1uSS2pzTQhepXxht7e0LuXAO/gZoBsaFR7YtTn2wEBrm9mJAKdPA/AeAElMxObUow68sG2pB00eE+QfaOulD29K8LCe1ga9NVuJiNp5BqOLIrsWYp+NjSyR+T/JhkNnMMHu9YvyDpykmN8lw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4HaP2cpl+/9d+FCMjSJnbTXS6xlVGHejKsnqdDroPDM=;
- b=F1DaUD07vdu/P1Njx7MJPhRZTuKJizkZunbGc1QIMx2VAF5kVaG3hLdidzYrrzgfXQKSylRFN5I6idkudh/NFvlCSi20rGbikKtZ7A/qiMcRJYGfMuLZPVKCOs8po2pfhchOP24/noIyNoGtLNeDA64hZrEsf128SG2E/w/trudaUIUrTM0dczVlZ7VffXDTOnOC4BLx+uE8qir7vhHPcLe0Q/scr6o/DwyIh6qVfEjVbWdU0BgPFCtHlR1sdMT6iORieE/B2DI+bNs3L7fycNi7qqNQhpfrIfSwEsvYfbHyunh1mWTUIuKgn+Yl3x9EfBSmFZK61EGNO2KFJExLdw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
- dkim=pass header.d=oss.nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
- s=selector1-NXP1-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4HaP2cpl+/9d+FCMjSJnbTXS6xlVGHejKsnqdDroPDM=;
- b=CMxH4KEUIKiIQ+4hLoVky2VpclOZR3XpaqaZ/yG4o/+ges75a9beIMQsLSBO0OVoAM+7U07y8p0zOzCp1Hyq+/t10CNn7ygkxa4WN001eaGL2hKqcULPHhWjmx2y+vQ4Ts4smWSIgPpeDnYvNbDSsWEg0xL9p/leMJryLzC085C0E5Ei1RRhEglJSayeJyItc0GUORA5I3TEwGUGouYkgyfJ7EG0gItjsEjE5IdAwcO0yIKqzG7MEMHucmxghA38NDyvaGK8iDuFoQ5+6lL5WJjvf1jBXfERiOGkxI1HohNW3yj/11zYcGkV3KfLzD9F2nlNTyw1RcTDrR9Rqhz88g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=oss.nxp.com;
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by GVXPR04MB10753.eurprd04.prod.outlook.com (2603:10a6:150:219::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.16; Mon, 29 Sep
- 2025 02:28:55 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9160.015; Mon, 29 Sep 2025
- 02:28:55 +0000
-Date: Mon, 29 Sep 2025 11:40:48 +0800
-From: Peng Fan <peng.fan@oss.nxp.com>
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: "Rafael J. Wysocki" <rafael@kernel.org>, Peng Fan <peng.fan@nxp.com>,
-	Pavel Machek <pavel@kernel.org>, Len Brown <lenb@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>,
-	Peter Chen <peter.chen@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, linux-pm@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	Xu Yang <xu.yang_2@nxp.com>
-Subject: Re: [PATCH v4 0/5] pmdomain: core: Introduce
- device_set_out_band_wakeup and use it in usb
-Message-ID: <20250929034048.GD29690@nxa18884-linux.ap.freescale.net>
-References: <20250922-pm-v4-v4-0-ef48428e8fe0@nxp.com>
- <CAPDyKFqQgS9j4uGkTL_taPTL96su1tqpyoek1cpZgTiaaBMpCA@mail.gmail.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAPDyKFqQgS9j4uGkTL_taPTL96su1tqpyoek1cpZgTiaaBMpCA@mail.gmail.com>
-User-Agent: Mutt/1.10.1 (2018-07-13)
-X-ClientProxiedBy: SG2PR01CA0173.apcprd01.prod.exchangelabs.com
- (2603:1096:4:28::29) To PAXPR04MB8459.eurprd04.prod.outlook.com
- (2603:10a6:102:1da::15)
+	id 1v33ki-0000000183P-2Zor;
+	Mon, 29 Sep 2025 02:36:38 +0000
+Received: from DESKTOP-L0HPE2S (unknown [124.16.141.245])
+	by APP-05 (Coremail) with SMTP id zQCowABX+RKr8NloAxaICA--.65038S2;
+	Mon, 29 Sep 2025 10:36:29 +0800 (CST)
+From: Haotian Zhang <vulab@iscas.ac.cn>
+To: Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org,
+	Haotian Zhang <vulab@iscas.ac.cn>
+Subject: [PATCH] clk: mediatek: Use devm_alloc for clk_data allocation to fix memory leak on probe error
+Date: Mon, 29 Sep 2025 10:36:20 +0800
+Message-ID: <20250929023621.1968-1-vulab@iscas.ac.cn>
+X-Mailer: git-send-email 2.50.1.windows.1
 MIME-Version: 1.0
-X-MS-Exchange-MessageSentRepresentingType: 1
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|GVXPR04MB10753:EE_
-X-MS-Office365-Filtering-Correlation-Id: f0218efe-a1ba-4f93-bdf6-08ddfefff00a
-X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|7416014|376014|52116014|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?t+Q7E88RvXEL8cZz9XTXaUSD/kzo6FFZ2SEZ4hSMnBW0XmciNtLZamzI1GYu?=
- =?us-ascii?Q?V4Rl6MGqcB3jBv+PI2Rm2wxoyFXoitcRfEvMfGw8DosNGUrjGTBuVCPp6DQP?=
- =?us-ascii?Q?r54iqQz8jDQjjARhgwp0CtMv3JRA+A+vYH0PHO+DGWIgY+0Mm91uPJ7tDsx5?=
- =?us-ascii?Q?7DPucGn+aCJ9R6JGq1umhTpNQ8VvvdMkfYf8qJ51BqTrkSA6z8pJSHQWUo4h?=
- =?us-ascii?Q?9v24HvpQCe1zuc8X6m+aXD25KplrjO18mX699mKx0BnVu7uj9kWYlloJ3gET?=
- =?us-ascii?Q?s09QdhdQ6AVfQws9dLwQ8PUkoDoButUcEJw3N/Pj/iwbbOJmwExrRp30L76r?=
- =?us-ascii?Q?mCa0JqfGjHbrKBh1wIYA8hi0UCgG7YP8zmWJt/k5ZItfsLVmQCiOVwWgXEOz?=
- =?us-ascii?Q?zpOIqEzCwesyDCSBprtkANzNMPhf7EB4l1u5dtrqQm01gsN60EJZ3UT9FVBg?=
- =?us-ascii?Q?jD3LFFVio8l4jtThEIU1hlr1KLpoo1YvDI8TU4fcBofjn071OtuN70NNvgUW?=
- =?us-ascii?Q?EcqYX7jpL8ws9qSZ0N/PT7nFn3CVcUKKHLE1eBLTqryZujGMuvnIpOldcnZD?=
- =?us-ascii?Q?XEgovwI/yEudjJyXe5FUA/5k+EjNd5DdwZhMhdXorjUroskm+FXkMuQazWSr?=
- =?us-ascii?Q?1PZyXrO1JNwyyD2VTNj9VKWQtVkUN5T3k0Piev7u7vuU5+q/WsP9aJ1YuPTh?=
- =?us-ascii?Q?j+yKM3FzhyuKAJ5b5J4HANWMxIMNnFUZoLUD8NwMXtJPma6Z/tZS8XvCUsY3?=
- =?us-ascii?Q?TQkw1QLBbpL5N+HKvPLCyrtY1DbY8Pl/RhOnpqwU/ZLF6SdvwL+vLc+BBmJO?=
- =?us-ascii?Q?ktxLy5JCuv/exkLfGM+AC7evOTVF++s7R0b6VKqKq4anOKvxJwog0Ewq/6CM?=
- =?us-ascii?Q?66dSakwbSMEDx6935F8LEIgyMMGInhEeB6wJN1Fb7TSOy2DNNUklwjYhAFDq?=
- =?us-ascii?Q?0M6t+nqHgrt8/CP5w/RTTunFj1P2CmiKqdFupLVPFI2VM/gCNMlLeu4h5jGP?=
- =?us-ascii?Q?IVmAUiRDA/wCWLabAb1HhlteLscm1u5graDzio/bJ76IZaVFekSFU+gaROQp?=
- =?us-ascii?Q?u/nAKrv8gzQAuPV6MTGFekmhKrTw/EYrlLefbe97tw4569JD9KaKd7yP6bI6?=
- =?us-ascii?Q?Qg2XvOC2cKo7/k9ENV6XSdUO29ufi2lDZ2C2ORY41knaMnXot0dPF/hm9ols?=
- =?us-ascii?Q?MS/863QcavaZ9Z0tkKWYPM4iK6m+B5mZZ+1aQoU42l+AjVcLurIITg6b3Acq?=
- =?us-ascii?Q?Qh6ysIPxNs6Zd1X0rtOW4P7GssIMrYloi/Hu7gr9PkLW0F0KZ22/t/QobJRI?=
- =?us-ascii?Q?1zB0N34S10gR0v2sV2WmBkzZgnCwrV3LPrlPIo4S1k35p7XhZ2M3NppfOrXE?=
- =?us-ascii?Q?OnXXFdg5mX3np+ETTuUqO4mrmuyc4XgTnjc+uKmNYwCVDXi8z+CEeGeA3VEA?=
- =?us-ascii?Q?3cN+0bG721AKaEIpxfyanVopP8E1+oLY+A71gg0oTordu9+ij3i6aTi6onLk?=
- =?us-ascii?Q?oF1z8lhIPcXkquXmcvFr08MLx/S5jIOY0EG9?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(7416014)(376014)(52116014)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?RS6xAgoJxu5mvD/R0Sqh3DDrZZv7QjnJzWsLTIbcA2Bw/303oAcEwpi8I3nJ?=
- =?us-ascii?Q?Cbso26+BFBgDQI0LYMKO4VOS8e2EzgehYeaDpmJ1kdJCAuvimjSnUOJfZPyi?=
- =?us-ascii?Q?xi3bPtSfsB/KzffkXJ8YGC5F8NGdI1jCVEnVRd/8Y2ALsc4JDEDcy5YjSm0B?=
- =?us-ascii?Q?Etb7wfyoP1a3eadX7B97N5HL8y/lJv7/rwJID8EfI6zyZPwCtcStUFmCtmRj?=
- =?us-ascii?Q?mDaxIE5rVJgC6KzBvllBmOOR15q99tbR56tUKuyB/VF9zM758oBYtjw5TPNl?=
- =?us-ascii?Q?Y1cNpmBfHkMvLX6/hFzIbPtnqqo2L7SqfmRoAScmJkVpAuu1vAeJEQSmwd76?=
- =?us-ascii?Q?5AWAj15aCLWRyvEyNRutK0T9rA8lTClDaa0TMiGZ29wNNUQTQD/dkwC2PJ8t?=
- =?us-ascii?Q?z9jEyQLqgoCCAjyZ3m5dQtKr9b+JQkA9dySD4ysRCawYVFhZzqSeZkqHrc6F?=
- =?us-ascii?Q?Aq/qboFVkzo9aAAGzTwjl3tI4KzmG2VtBa6wPEe+5JOAdC+Ahfe3p6b3qUjg?=
- =?us-ascii?Q?zyfvXo51GFUmqn89dTvptdXgeDgeCvFKmIKmO8Nddc3C7OGHvEywOX1cBpn6?=
- =?us-ascii?Q?flmOHzv1lBtC3MImcHWVnMQroXiDIpCyUKo1CI958DRfzg8Z/Z8zhFRco5R0?=
- =?us-ascii?Q?uw9H2RTy34IZbftGISPotrMVI4MEAZBorHMPBQkfi8EuFI4fvMzKWlLGCIYq?=
- =?us-ascii?Q?61eCU+Fi0UEISyC1dxk2Rxkbk2lcqR8r01tiRJp78qHzS9sOdvPD1O5uff81?=
- =?us-ascii?Q?SBHnLIGwewQQH02MhuU5ZYfMH8t0eyKYk8abebFwjSxr5SpbLhFDXaLFEJE9?=
- =?us-ascii?Q?9jFUIbPiIayfomi1V7fiRtbsbNpAFLuftuoavY0yvTitRP9eWIas+sevWkAt?=
- =?us-ascii?Q?L1vu6P7w12OpXWy34dqLzUKoh0MKvYpsDXwEsWV5n/kN4jHpsuE/P8v159/z?=
- =?us-ascii?Q?ah5GJdy2+DXAUwwHz3rpMAAq01ZlmI9VYiK7bRsEk/LZrqiuAKW98NhfALB9?=
- =?us-ascii?Q?7Khn915kET0yh31U2YzwWNvYLfAmI0I5N10fdM+w1fIthbWn6NsZRJQz94WY?=
- =?us-ascii?Q?upokLrrp9ugv8Z0LjXjhad5tkfJhrBu+Q8zMn3+F7Mn3suk87H9I+wA7D+KB?=
- =?us-ascii?Q?hmY8ZEsn18WNjdtZkVsX/nOgRMos52S160i6zjnTNrdYTNaYKVM6SW9FXPoa?=
- =?us-ascii?Q?kkjPCUN418X39bm0YkExGo9LRIw6YRniTYpUfYF5ECXsE+ciUxPkz7EvZK98?=
- =?us-ascii?Q?qzPdT7WcSJiw44J12DKPWUYge0GPLMLDv9GUANS/R/kPwyH0T7AcETZZQFJ6?=
- =?us-ascii?Q?qlTLZ7tdCF0qy2Q6xmwK1/waMWyRlVR5Smvo3wgi1PI+vdGoQzhbsIgXJGQn?=
- =?us-ascii?Q?ehEjxex3teoNxiu6HHykQmO159ezHBHCU7h8FcpsJhW/L2KQr6DyClKeDA9m?=
- =?us-ascii?Q?xAm2HZWteVH3GDoOWAWCZCWgrHonhzwF0BMGdUHjbnhJiRDZu63lxuvpiv4N?=
- =?us-ascii?Q?dRe7qjWAbkqDEFN19OXhuTbAFwffx/nkIMt5GWmYqLGpjD4V554NmmjaKhEq?=
- =?us-ascii?Q?acyTDKICdbHSU4fplaxw0CXz7kzI15ThibWwuiTP?=
-X-OriginatorOrg: oss.nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: f0218efe-a1ba-4f93-bdf6-08ddfefff00a
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2025 02:28:55.6078
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: L3/fjjHZkK6OVrLnIv9uPC8WY93XoXFkcBDpHwsX+P76cFlam0c8RVMX4lxXk8iPtYmuP5favhtKAvx3vGi1SQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB10753
+Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: zQCowABX+RKr8NloAxaICA--.65038S2
+X-Coremail-Antispam: 1UD129KBjvJXoW7uF13tr1DZry8Ww47WrW5GFg_yoW8WFy3pF
+	ykGFWYya4ayw47KFW8tr4kK3WSy340ga4UKF15u3s7u345Gr4jkFZYk3sYva4IyrZ2kFy2
+	qrn09r48ZayUuFDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
+	9KBjDU0xBIdaVrnRJUUUkC14x267AKxVWUJVW8JwAFc2x0x2IEx4CE42xK8VAvwI8IcIk0
+	rVWrJVCq3wAFIxvE14AKwVWUJVWUGwA2ocxC64kIII0Yj41l84x0c7CEw4AK67xGY2AK02
+	1l84ACjcxK6xIIjxv20xvE14v26r4j6ryUM28EF7xvwVC0I7IYx2IY6xkF7I0E14v26r4j
+	6F4UM28EF7xvwVC2z280aVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_Cr
+	1j6rxdM2AIxVAIcxkEcVAq07x20xvEncxIr21l5I8CrVACY4xI64kE6c02F40Ex7xfMcIj
+	6xIIjxv20xvE14v26r1j6r18McIj6I8E87Iv67AKxVWUJVW8JwAm72CE4IkC6x0Yz7v_Jr
+	0_Gr1lF7xvr2IYc2Ij64vIr41lF7I21c0EjII2zVCS5cI20VAGYxC7MxkF7I0En4kS14v2
+	6r126r1DMxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrV
+	AFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUAVWUtwCI
+	c40Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267
+	AKxVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_
+	Gr1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuYvjfUehL0UU
+	UUU
+X-Originating-IP: [124.16.141.245]
+X-CM-SenderInfo: pyxotu46lvutnvoduhdfq/1tbiDAUAA2jZ4CVDngAAsj
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250928_192923_671129_C51AA16F 
-X-CRM114-Status: UNSURE (   9.00  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250928_193637_022859_86C24784 
+X-CRM114-Status: GOOD (  11.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -173,33 +78,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ulf,
+The probe functions for the mt6765 apmixed, top, and infrasys clocks
+use mtk_alloc_clk_data() to allocate memory. This requires manual
+freeing of the memory in all error handling paths and in the driver's
+remove function.
 
-On Tue, Sep 23, 2025 at 12:07:02PM +0200, Ulf Hansson wrote:
->On Mon, 22 Sept 2025 at 04:21, Peng Fan <peng.fan@nxp.com> wrote:
->>
-...
->> ---
->> Peng Fan (4):
->>       PM: wakeup: Add out-of-band system wakeup support for devices
->>       PM: domains: Allow power-off for out-of-band wakeup-capable devices
->>       usb: chipidea: ci_hdrc_imx: Set out of band wakeup for i.MX95
->>       usb: dwc3: imx8mp: Set out of band wakeup for i.MX95
->>
->> Xu Yang (1):
->>       usb: chipidea: core: detach power domain for ci_hdrc platform device
-...
->
->Rafael, I intend to pick up this series via my pmdomain tree shortly,
->unless you have some objections, of course.
+Switch to mtk_devm_alloc_clk_data() in order to fix the memory leak in the
+probe function.
 
-Sorry for an early ping. I see v6.17 is released. Just want to know whether
-you would pick this up for 6.18.
+Fixes: 1aca9939bf72 ("clk: mediatek: Add MT6765 clock support")
+Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
+---
+ drivers/clk/mediatek/clk-mt6765.c | 6 +++---
+ 1 file changed, 3 insertions(+), 3 deletions(-)
 
-Thanks,
-Peng
+diff --git a/drivers/clk/mediatek/clk-mt6765.c b/drivers/clk/mediatek/clk-mt6765.c
+index d53731e7933f..5cfb9a3a5ee3 100644
+--- a/drivers/clk/mediatek/clk-mt6765.c
++++ b/drivers/clk/mediatek/clk-mt6765.c
+@@ -736,7 +736,7 @@ static int clk_mt6765_apmixed_probe(struct platform_device *pdev)
+ 	if (IS_ERR(base))
+ 		return PTR_ERR(base);
+ 
+-	clk_data = mtk_alloc_clk_data(CLK_APMIXED_NR_CLK);
++	clk_data = mtk_devm_alloc_clk_data(CLK_APMIXED_NR_CLK);
+ 	if (!clk_data)
+ 		return -ENOMEM;
+ 
+@@ -770,7 +770,7 @@ static int clk_mt6765_top_probe(struct platform_device *pdev)
+ 	if (IS_ERR(base))
+ 		return PTR_ERR(base);
+ 
+-	clk_data = mtk_alloc_clk_data(CLK_TOP_NR_CLK);
++	clk_data = mtk_devm_alloc_clk_data(CLK_TOP_NR_CLK);
+ 	if (!clk_data)
+ 		return -ENOMEM;
+ 
+@@ -810,7 +810,7 @@ static int clk_mt6765_ifr_probe(struct platform_device *pdev)
+ 	if (IS_ERR(base))
+ 		return PTR_ERR(base);
+ 
+-	clk_data = mtk_alloc_clk_data(CLK_IFR_NR_CLK);
++	clk_data = mtk_devm_alloc_clk_data(CLK_IFR_NR_CLK);
+ 	if (!clk_data)
+ 		return -ENOMEM;
+ 
+-- 
+2.50.1.windows.1
 
->
->Kind regards
->Uffe
 
