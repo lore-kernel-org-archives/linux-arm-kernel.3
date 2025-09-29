@@ -4,41 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFED7CCA468
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 17:44:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14AC6CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 17:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1l9IfLP3+rrA1UJ5hrFOAryqrmCaYK5XKLxN/haV5wc=; b=0SwctCbLpvK+QwNXsCjtg6O+5a
-	QTUVvINiRGX+xR/3tCvpmSCeeSlzepV+gEiOQVKea3OJL2kvDyfzDdds/HZoe/MZh4ZItHFjDTJaf
-	Qj+ujlyMd+H3rWqS81jbaFsznHh+LSBguKDvW13tErJgJmF/yvwLMRAOlipOVeSkUbI69a0yfenbm
-	ii7UsjBGoROmtU4UwKITXA4+9mistzgbaq64xarRge5cUNPr19HPyA6Z9QYBXuPQu/FuIMIBkdrFC
-	rAuuq3hKCPFMbH5RL7L9HOVpiwqodoPaTP4DA6WEIwXAA7iJ1dQMw//iFk/eU44gFptfOYJ/LeGeR
-	6EqiKZ+w==;
+	bh=R5hVd2xneFLHKLgqmKlfgGcJL9pR5lHfmpJjOwfLGvw=; b=wR8Vx89rguOoxJuKw7WxKYN2Dh
+	6kQxLXz6J/ileNa+sc+ysBBMPaOwSRvPBDP23A+9CKyPB2GbbdtBLBxJ9mNNoEtBYIJSt8jej9QuQ
+	r8CUDaAmFY6CzIbRvaMtkTib1u1TBfhPKLD7eakuUs43dYx5CogWzWQoBdQK58H8eUQujUwI4Uqcb
+	uQ1PZoC9krUD8hWbVGKHywClta6yNlMrtuYI8vRybNoxcDdDgoRavHqQswneF9gDW2e+nfjL8OqFZ
+	lI2kfYv1XkEv7JyQaeOiH89zAshzKGoRavHNee8dg/d9K/AxCixZ1WvGFpCSaNY5M4L/Y8zbkS0dC
+	/bYdtySQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3HvP-000000039kv-2lng;
-	Mon, 29 Sep 2025 17:44:35 +0000
+	id 1v3Hvq-00000003A0f-0DoQ;
+	Mon, 29 Sep 2025 17:45:02 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3HvL-000000039iH-3WlX
+	id 1v3HvW-000000039pg-2VF7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 17:44:33 +0000
+	Mon, 29 Sep 2025 17:44:43 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0C286150C;
-	Mon, 29 Sep 2025 10:44:23 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 0F47C150C;
+	Mon, 29 Sep 2025 10:44:34 -0700 (PDT)
 Received: from [10.1.197.69] (eglon.cambridge.arm.com [10.1.197.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id F2F473F59E;
-	Mon, 29 Sep 2025 10:44:25 -0700 (PDT)
-Message-ID: <31c1cea8-8265-4d86-b9a7-d8f8955405bf@arm.com>
-Date: Mon, 29 Sep 2025 18:44:25 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B1C543F59E;
+	Mon, 29 Sep 2025 10:44:36 -0700 (PDT)
+Message-ID: <628b42e2-6605-4f19-8ee8-e1c8707a6f96@arm.com>
+Date: Mon, 29 Sep 2025 18:44:35 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 10/29] arm_mpam: Add cpuhp callbacks to probe MSC
- hardware
+Subject: Re: [PATCH v2 11/29] arm_mpam: Probe hardware to find the supported
+ partid/pmg values
 To: Jonathan Cameron <jonathan.cameron@huawei.com>
 Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-acpi@vger.kernel.org,
@@ -56,18 +56,18 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>, Lecopzer Chen <lecopzerc@nvidia.com>
+ Danilo Krummrich <dakr@kernel.org>
 References: <20250910204309.20751-1-james.morse@arm.com>
- <20250910204309.20751-11-james.morse@arm.com>
- <20250911160737.0000492f@huawei.com>
+ <20250910204309.20751-12-james.morse@arm.com>
+ <20250911161850.00005667@huawei.com>
 Content-Language: en-GB
 From: James Morse <james.morse@arm.com>
-In-Reply-To: <20250911160737.0000492f@huawei.com>
+In-Reply-To: <20250911161850.00005667@huawei.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_104431_965789_93620470 
-X-CRM114-Status: GOOD (  28.74  )
+X-CRM114-CacheID: sfid-20250929_104442_725556_C4F18D81 
+X-CRM114-Status: GOOD (  26.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,116 +82,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
-
-On 11/09/2025 16:07, Jonathan Cameron wrote:
-> On Wed, 10 Sep 2025 20:42:50 +0000
+On 11/09/2025 16:18, Jonathan Cameron wrote:
+> On Wed, 10 Sep 2025 20:42:51 +0000
 > James Morse <james.morse@arm.com> wrote:
 > 
->> Because an MSC can only by accessed from the CPUs in its cpu-affinity
->> set we need to be running on one of those CPUs to probe the MSC
->> hardware.
+>> CPUs can generate traffic with a range of PARTID and PMG values,
+>> but each MSC may also have its own maximum size for these fields.
+>> Before MPAM can be used, the driver needs to probe each RIS on
+>> each MSC, to find the system-wide smallest value that can be used.
+>> The limits from requestors (e.g. CPUs) also need taking into account.
 >>
->> Do this work in the cpuhp callback. Probing the hardware will only
->> happen before MPAM is enabled, walk all the MSCs and probe those we can
->> reach that haven't already been probed as each CPU's online call is made.
+>> While doing this, RIS entries that firmware didn't describe are created
+>> under MPAM_CLASS_UNKNOWN.
 >>
->> This adds the low-level MSC register accessors.
+>> While we're here, implement the mpam_register_requestor() call
+>> for the arch code to register the CPU limits. Future callers of this
+>> will tell us about the SMMU and ITS.
 >>
->> Once all MSCs reported by the firmware have been probed from a CPU in
->> their respective cpu-affinity set, the probe-time cpuhp callbacks are
->> replaced.  The replacement callbacks will ultimately need to handle
->> save/restore of the runtime MSC state across power transitions, but for
->> now there is nothing to do in them: so do nothing.
->>
->> The architecture's context switch code will be enabled by a static-key,
->> this can be set by mpam_enable(), but must be done from process context,
->> not a cpuhp callback because both take the cpuhp lock.
->> Whenever a new MSC has been probed, the mpam_enable() work is scheduled
->> to test if all the MSCs have been probed. If probing fails, mpam_disable()
->> is scheduled to unregister the cpuhp callbacks and free memory.
+>> Signed-off-by: James Morse <james.morse@arm.com>
 
-> Trivial suggestion inline. Either way
+> Trivial stuff inline.
 > Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 
 Thanks!
 
 
->> +/* Before mpam is enabled, try to probe new MSC */
->> +static int mpam_discovery_cpu_online(unsigned int cpu)
+>>  drivers/resctrl/mpam_devices.c  | 150 +++++++++++++++++++++++++++++++-
+>>  drivers/resctrl/mpam_internal.h |   6 ++
+>>  include/linux/arm_mpam.h        |  14 +++
+>>  3 files changed, 169 insertions(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> index c265376d936b..24dc81c15ec8 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
+> 
+> 
+>> +int mpam_register_requestor(u16 partid_max, u8 pmg_max)
 >> +{
 >> +	int err = 0;
->> +	struct mpam_msc *msc;
->> +	bool new_device_probed = false;
 >> +
->> +	guard(srcu)(&mpam_srcu);
->> +	list_for_each_entry_srcu(msc, &mpam_all_msc, all_msc_list,
->> +				 srcu_read_lock_held(&mpam_srcu)) {
->> +		if (!cpumask_test_cpu(cpu, &msc->accessibility))
->> +			continue;
->> +
->> +		mutex_lock(&msc->probe_lock);
->> +		if (!msc->probed)
->> +			err = mpam_msc_hw_probe(msc);
->> +		mutex_unlock(&msc->probe_lock);
->> +
->> +		if (!err)
->> +			new_device_probed = true;
->> +		else
->> +			break;
+>> +	spin_lock(&partid_max_lock);
 
-> Unless this going to get more complex why not
-> 
-> 		if (err)
-> 			break;
-> 
-> 		new_device_probed = true;
+> guard() perhaps so you can return early in the error pat and avoid
+> need for local variable err.
 
-Sure - its been both simpler and more complex in the past!
+Negh ... okay. I dislike the guard thing as its never clear when the lock is unlocked.
+I'm not a fan of spooky action at a distance!
 
 
+>> +	if (!partid_max_init) {
+>> +		mpam_partid_max = partid_max;
+>> +		mpam_pmg_max = pmg_max;
+>> +		partid_max_init = true;
+>> +	} else if (!partid_max_published) {
+>> +		mpam_partid_max = min(mpam_partid_max, partid_max);
+>> +		mpam_pmg_max = min(mpam_pmg_max, pmg_max);
+>> +	} else {
+>> +		/* New requestors can't lower the values */
+>> +		if (partid_max < mpam_partid_max || pmg_max < mpam_pmg_max)
+>> +			err = -EBUSY;
 >> +	}
->> +
->> +	if (new_device_probed && !err)
->> +		schedule_work(&mpam_enable_work);
->> +	if (err) {
->> +		mpam_disable_reason = "error during probing";
->> +		schedule_work(&mpam_broken_work);
->> +	}
+>> +	spin_unlock(&partid_max_lock);
 >> +
 >> +	return err;
 >> +}
+>> +EXPORT_SYMBOL(mpam_register_requestor);
 > 
->> +static void mpam_enable_once(void)
+>> @@ -470,9 +547,37 @@ int mpam_ris_create(struct mpam_msc *msc, u8 ris_idx,
+>> +static struct mpam_msc_ris *mpam_get_or_create_ris(struct mpam_msc *msc,
+>> +						   u8 ris_idx)
 >> +{
->> +	mpam_register_cpuhp_callbacks(mpam_cpu_online, mpam_cpu_offline);
+>> +	int err;
+>> +	struct mpam_msc_ris *ris, *found = ERR_PTR(-ENOENT);
 >> +
->> +	pr_info("MPAM enabled\n");
+>> +	lockdep_assert_held(&mpam_list_lock);
+>> +
+>> +	if (!test_bit(ris_idx, &msc->ris_idxs)) {
+>> +		err = mpam_ris_create_locked(msc, ris_idx, MPAM_CLASS_UNKNOWN,
+>> +					     0, 0);
+>> +		if (err)
+>> +			return ERR_PTR(err);
+>> +	}
+>> +
+>> +	list_for_each_entry(ris, &msc->ris, msc_list) {
+>> +		if (ris->ris_idx == ris_idx) {
+>> +			found = ris;
+> I'd return ris;
+> 
+> Then can do return ERR_PTR(-ENOENT) below and not bother with found.
+> 
+> Ignore if this gets more complex later.
 
-> Feels too noisy given it should be easy enough to tell. pr_dbg() perhaps.
-
-I was aiming for the driver to only print one thing - once all the hardware has been
-probed. Once the driver is assembled, this prints the number of PARTID/PMG that were
-discovered as the system wide limits.
-
-The reason to print something is that if you see this message, but don't have resctrl
-appear in /proc/filesystems - its never going to appear because the resctrl glue code
-couldn't find anything it could use. As this isn't an error, so nothing gets printed in
-this case.
-This is the most common complaint I get - "our platform doesn't look like a Xeon - why
-doesn't resctrl work with it?"
-
-It also matters for other requesters, like the SMMU. If they probe after this point, they
-can't reduce the PARTID/PMG range - and may get an error and have their MPAM abilities
-disabled. Having an entry in the boot log makes this easier to debug.
+Thank - this is another relic of more complex locking...
+Fixed as you suggested.
 
 
-The alternative would be to keep track of what the driver is up to, and expose that
-through debugfs - but information that only exists for debug purposes is likely to be
-wrong. It also doesn't help work out what order different drivers tried to probe in.
+>> +			break;
+>> +		}
+>> +	}
+>> +
+>> +	return found;
+>> +}
+> 
+>> @@ -675,9 +813,18 @@ static struct platform_driver mpam_msc_driver = {
+>>  
+>>  static void mpam_enable_once(void)
+>>  {
+>> +	/*
+>> +	 * Once the cpuhp callbacks have been changed, mpam_partid_max can no
+>> +	 * longer change.
+>> +	 */
+>> +	spin_lock(&partid_max_lock);
+>> +	partid_max_published = true;
+>> +	spin_unlock(&partid_max_lock);
+>> +
+>>  	mpam_register_cpuhp_callbacks(mpam_cpu_online, mpam_cpu_offline);
+>>  
+>> -	pr_info("MPAM enabled\n");
+>> +	printk(KERN_INFO "MPAM enabled with %u PARTIDs and %u PMGs\n",
+>> +	       mpam_partid_max + 1, mpam_pmg_max + 1);
+
+> Not sure why pr_info before and printk now.  
+
+That looks like a conflict gone wrong!
+Fixed.
 
 
 Thanks,
 
 James
+
 
