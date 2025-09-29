@@ -4,90 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A10DCAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 16:02:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B854CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 16:05:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tBhdtn4WywjV8YX0pSLDWDcNcDkRLFjP5hlSSBzqSms=; b=D3yJoRnHFE58CZneP4a5fMeUi5
-	1YpLh3/AVdgOt31hoNmZ829uNYV0h3dmMm37wo2O8uLQMZfzYVC42nCY+Vf0DowoF12OihpNDpk9L
-	fxDHRuSZB2daxeYi32oDcimAKtu1aDiU6NHTRNHwcvzUSeOAfqzbUfmpr6SJIgk7LrCys0KxzTMP0
-	k/TbyE2Vvx1kPPDe2piZEXlcVH2mLbCSGuAYT01kATTxt9fjAqmwbGoCk2KIiYxfuBjag/Wy4XVdV
-	iOoRIutiINDBfcxdT6gA16g7VNSDWgGwxJqFmymnClrR5YUlJ3GynP2UZZ+KsD5HCgd5yEs/o3rBs
-	1FXCX1Rw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JB3rFF/TfYIMFzTMx1USjmdHmsIPs/5+U8L7g7nSl1U=; b=uWX3MciK3y4gs/yPfS7OtsuHAq
+	AYIrKA41UX3F245pqGEfAc3/uE2rH0e5BuwGIP/zeVunITyqt0P5CI9RiKMntgeANJUIwUE2hnm0M
+	IZwk3q57SRjWpUCzys2BKuJU1dpiZg04v8V5bk74BACbXK2lhjpoh0+NvMfx7PqzF1xZGCs85kg2D
+	CBbWn4vOChph0Q+GvG6PUcQJhwaDk/vW/OXtIYOW18KLZTuwIjrFsOApBHaOG1mfKCyx/0HL4O69z
+	aSAcWnrPkfLFVwBlLFGnuTiTIvUzQcfFkNWt4orpwmbwEsy6M02T9WYKJzo7L/TkbClgJEhOOproh
+	iyLCja1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3GKC-00000002st5-42JI;
-	Mon, 29 Sep 2025 16:02:04 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1v3GNA-00000002two-2a0q;
+	Mon, 29 Sep 2025 16:05:08 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3GK9-00000002ssV-2zDE;
-	Mon, 29 Sep 2025 16:02:02 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1759161649; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=lO4XkvatoUXQvbjF88NEo4GQV304NUsNzGnfLfpAGQJACgtdT6ns9sqamBDeq5T3rrLNKdsMf5rTsiniDa3tJWa/86fe0pQYx0iN0L5IDHhkJqeNA7IlkLDk/UNDQjKhz5/8rGOPQljktYtoDkNRPLtpPwyO4kdAEK/YNnxGO5I=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1759161649; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=tBhdtn4WywjV8YX0pSLDWDcNcDkRLFjP5hlSSBzqSms=; 
-	b=lVLGTmETVkCIP0WKjmObmfrsZtGUq1ZYWjIVjC8VqJrB4aS4A5ggVHhmXiQIREqehiPffKh/8rJAxzL+50geybX9h7y5p84pJK2E31LxkhYaVa87FqJQhD8htU20NLiJWF+HYRbmrJE1EAF17YQXRe/JLlubBSh4bRbsimFGL68=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nfraprado@collabora.com;
-	dmarc=pass header.from=<nfraprado@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1759161648;
-	s=zohomail; d=collabora.com; i=nfraprado@collabora.com;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=tBhdtn4WywjV8YX0pSLDWDcNcDkRLFjP5hlSSBzqSms=;
-	b=FVF4tF848aJT71bWiRy++xWwA9rP30861XDd6VJanlPKxOzcEwMkNT5gxumr/gid
-	RGj1Z4ASg6BM+hhQSEj2Bbs32NY8JjgpZsmiJRz05Gpee1bJzyqwggVI8cMSCLp2Era
-	LWQsvLIkjLNilz17UTXRFEFBYPa2wjDsDxtsIY4M=
-Received: by mx.zohomail.com with SMTPS id 1759161645995986.0060307420077;
-	Mon, 29 Sep 2025 09:00:45 -0700 (PDT)
-Message-ID: <7307e84f9e4b0a8c67b82f7234f90bf83f201037.camel@collabora.com>
-Subject: Re: [PATCH RFC v2 05/20] drm: Introduce
- DRM_CAP_POST_BLEND_COLOR_PIPELINE
-From: =?ISO-8859-1?Q?N=EDcolas?= "F. R. A. Prado" <nfraprado@collabora.com>
-To: Harry Wentland <harry.wentland@amd.com>, Louis Chauvet	
- <louis.chauvet@bootlin.com>, Maarten Lankhorst	
- <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
- Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>,
- Simona Vetter <simona@ffwll.ch>,  Chun-Kuang Hu <chunkuang.hu@kernel.org>,
- Philipp Zabel <p.zabel@pengutronix.de>, Matthias Brugger	
- <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno	
- <angelogioacchino.delregno@collabora.com>, Haneen Mohammed	
- <hamohammed.sa@gmail.com>, Melissa Wen <melissa.srw@gmail.com>
-Cc: Alex Hung <alex.hung@amd.com>, wayland-devel@lists.freedesktop.org, 
-	leo.liu@amd.com, ville.syrjala@linux.intel.com,
- pekka.paalanen@collabora.com, 	contact@emersion.fr, mwen@igalia.com,
- jadahl@redhat.com, sebastian.wick@redhat.com, 	shashank.sharma@amd.com,
- agoins@nvidia.com, joshua@froggi.es, mdaenzer@redhat.com, 
-	aleixpol@kde.org, xaver.hugl@gmail.com, victoria@system76.com, 
-	uma.shankar@intel.com, quic_naseer@quicinc.com, quic_cbraga@quicinc.com, 
-	quic_abhinavk@quicinc.com, marcan@marcan.st, Liviu.Dudau@arm.com, 
-	sashamcintosh@google.com, chaitanya.kumar.borah@intel.com,
- mcanal@igalia.com, 	kernel@collabora.com, daniels@collabora.com,
- leandro.ribeiro@collabora.com, 	dri-devel@lists.freedesktop.org,
- linux-kernel@vger.kernel.org, 	linux-mediatek@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org,  Simona Vetter
- <simona.vetter@ffwll.ch>
-Date: Mon, 29 Sep 2025 12:00:40 -0400
-In-Reply-To: <52cce852-f4fb-4692-9318-1602fe878644@amd.com>
-References: <20250917-mtk-post-blend-color-pipeline-v2-0-ac4471b44758@collabora.com>
-	 <20250917-mtk-post-blend-color-pipeline-v2-5-ac4471b44758@collabora.com>
-	 <ff53599d-fd7f-4791-a3e1-3269386c6b3e@bootlin.com>
-	 <52cce852-f4fb-4692-9318-1602fe878644@amd.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-2+b1 
+	id 1v3GN8-00000002tte-3n39
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 29 Sep 2025 16:05:07 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0AEE6625C9;
+	Mon, 29 Sep 2025 16:05:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B1147C4CEF4;
+	Mon, 29 Sep 2025 16:05:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759161905;
+	bh=vM2LsAfY9nrvp2BkddcX72dJdqZ7gW3wqW7BXtGgiIk=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=mkUoQwcrtyBt9lrr7rqDlQ/M6DrrpdxDFoGWd5jlWOiNzlc1U7/a2anrvbOOcHySE
+	 TgnOOdEpwuk9vSUDb4UJrWzil4xu69lrJoprxm4nJnbZS3deolPSO6oD6ZNMflIZDv
+	 pxEgPWlYo6kk/fijdj6kh2BjRs/yLIId9gt4N4w9fiEIBPeaESIHzre9t5jScpYbSV
+	 1qRKOgkHRABQg82eaFoz4RlbjYyJiWtxTvchJcTSHYiqvJND/17GakZjogTPH2WO/d
+	 OxQHjxBoql1IScTOVKA/MC0xFYp11iQjAV1RnLwHARZWB4f8iqlZJY1NaizjqQ8Yju
+	 /PtQkSrIIGPsw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1v3GN5-0000000AHqo-1kXi;
+	Mon, 29 Sep 2025 16:05:03 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: kvmarm@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: [PATCH 01/13] KVM: arm64: Hide CNTHV_*_EL2 from userspace for nVHE guests
+Date: Mon, 29 Sep 2025 17:04:45 +0100
+Message-ID: <20250929160458.3351788-2-maz@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20250929160458.3351788-1-maz@kernel.org>
+References: <20250929160458.3351788-1-maz@kernel.org>
 MIME-Version: 1.0
-X-ZohoMailClient: External
-X-ZohoMail-Owner: <7307e84f9e4b0a8c67b82f7234f90bf83f201037.camel@collabora.com>+zmo_0_nfraprado@collabora.com
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_090201_803113_0351C6E0 
-X-CRM114-Status: GOOD (  22.70  )
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, kvm@vger.kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,120 +82,71 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2025-09-29 at 05:40 -0400, Harry Wentland wrote:
->=20
->=20
-> On 2025-09-19 08:42, Louis Chauvet wrote:
-> >=20
-> >=20
-> > Le 18/09/2025 =C3=A0 02:43, N=C3=ADcolas F. R. A. Prado a =C3=A9crit=C2=
-=A0:
-> > > Add a new cap that drivers can set to signal they support post-
-> > > blend
-> > > color pipelines.
-> > >=20
-> > > Signed-off-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
-> >=20
-> > Reviewed-by: Louis Chauvet <louis.chauvet@bootlin.com>
-> >=20
-> > > ---
-> > > =C2=A0 drivers/gpu/drm/drm_ioctl.c | 3 +++
-> > > =C2=A0 include/drm/drm_drv.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 6 =
-++++++
-> > > =C2=A0 include/uapi/drm/drm.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 6 +++++=
+Although we correctly UNDEF any CNTHV_*_EL2 access from the guest
+when E2H==0, we still expose these registers to userspace, which
+is a bad idea.
+
+Drop the ad-hoc UNDEF injection and switch to a .visibility()
+callback which will also hide the register from userspace.
+
+Fixes: 0e45981028550 ("KVM: arm64: timer: Don't adjust the EL2 virtual timer offset")
+Signed-off-by: Marc Zyngier <maz@kernel.org>
+---
+ arch/arm64/kvm/sys_regs.c | 26 +++++++++++++-------------
+ 1 file changed, 13 insertions(+), 13 deletions(-)
+
+diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+index ee8a7033c85bf..9f2f4e0b042e8 100644
+--- a/arch/arm64/kvm/sys_regs.c
++++ b/arch/arm64/kvm/sys_regs.c
+@@ -1594,16 +1594,6 @@ static bool access_arch_timer(struct kvm_vcpu *vcpu,
+ 	return true;
+ }
+ 
+-static bool access_hv_timer(struct kvm_vcpu *vcpu,
+-			    struct sys_reg_params *p,
+-			    const struct sys_reg_desc *r)
+-{
+-	if (!vcpu_el2_e2h_is_set(vcpu))
+-		return undef_access(vcpu, p, r);
+-
+-	return access_arch_timer(vcpu, p, r);
+-}
+-
+ static s64 kvm_arm64_ftr_safe_value(u32 id, const struct arm64_ftr_bits *ftrp,
+ 				    s64 new, s64 cur)
+ {
+@@ -2831,6 +2821,16 @@ static unsigned int s1pie_el2_visibility(const struct kvm_vcpu *vcpu,
+ 	return __el2_visibility(vcpu, rd, s1pie_visibility);
+ }
+ 
++static unsigned int cnthv_visibility(const struct kvm_vcpu *vcpu,
++				     const struct sys_reg_desc *rd)
++{
++	if (vcpu_has_nv(vcpu) &&
++	    !vcpu_has_feature(vcpu, KVM_ARM_VCPU_HAS_EL2_E2H0))
++		return 0;
 +
-> > > =C2=A0 3 files changed, 15 insertions(+)
-> > >=20
-> > > diff --git a/drivers/gpu/drm/drm_ioctl.c
-> > > b/drivers/gpu/drm/drm_ioctl.c
-> > > index=20
-> > > ff193155129e7e863888d8958458978566b144f8..01592d10e3465ddceddef94
-> > > bc417f98d3ec12087 100644
-> > > --- a/drivers/gpu/drm/drm_ioctl.c
-> > > +++ b/drivers/gpu/drm/drm_ioctl.c
-> > > @@ -304,6 +304,9 @@ static int drm_getcap(struct drm_device *dev,
-> > > void=20
-> > > *data, struct drm_file *file_
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 req->value =3D=
- drm_core_check_feature(dev, DRIVER_ATOMIC)
-> > > &&
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 dev->mode_config.async_page_flip;
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 break;
-> > > +=C2=A0=C2=A0=C2=A0 case DRM_CAP_POST_BLEND_COLOR_PIPELINE:
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 req->value =3D drm_core_c=
-heck_feature(dev,=20
-> > > DRIVER_POST_BLEND_COLOR_PIPELINE);
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 break;
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 default:
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 return -EINVAL=
-;
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 }
-> > > diff --git a/include/drm/drm_drv.h b/include/drm/drm_drv.h
-> > > index=20
-> > > 42fc085f986dee9261f8b08c4fc7d93b8d6d9769..6b0f4904e69766232283d43
-> > > 0c2540d30afef850f 100644
-> > > --- a/include/drm/drm_drv.h
-> > > +++ b/include/drm/drm_drv.h
-> > > @@ -122,6 +122,12 @@ enum drm_driver_feature {
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 * the cursor planes to work corr=
-ectly).
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 */
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 DRIVER_CURSOR_HOTSPOT=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 =3D BIT(9),
-> > > +=C2=A0=C2=A0=C2=A0 /**
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0 * @DRIVER_POST_BLEND_COLOR_PIPELINE:
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0 *
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0 * Driver supports post-blend color pipeline=
-.
-> > > +=C2=A0=C2=A0=C2=A0=C2=A0 */
-> > > +=C2=A0=C2=A0=C2=A0 DRIVER_POST_BLEND_COLOR_PIPELINE=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0 =3D BIT(10),
->=20
-> Is this to let userspace know that the driver supports a
-> post-blending color pipeline? Why couldn't userspace simply
-> check whether crtc objects have "Color Pipeline" properties?
++	return REG_HIDDEN;
++}
++
+ static bool access_mdcr(struct kvm_vcpu *vcpu,
+ 			struct sys_reg_params *p,
+ 			const struct sys_reg_desc *r)
+@@ -3691,9 +3691,9 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+ 	EL2_REG(CNTHP_CTL_EL2, access_arch_timer, reset_val, 0),
+ 	EL2_REG(CNTHP_CVAL_EL2, access_arch_timer, reset_val, 0),
+ 
+-	{ SYS_DESC(SYS_CNTHV_TVAL_EL2), access_hv_timer },
+-	EL2_REG(CNTHV_CTL_EL2, access_hv_timer, reset_val, 0),
+-	EL2_REG(CNTHV_CVAL_EL2, access_hv_timer, reset_val, 0),
++	{ SYS_DESC(SYS_CNTHV_TVAL_EL2), access_arch_timer, .visibility = cnthv_visibility },
++	EL2_REG_FILTERED(CNTHV_CTL_EL2, access_arch_timer, reset_val, 0, cnthv_visibility),
++	EL2_REG_FILTERED(CNTHV_CVAL_EL2, access_arch_timer, reset_val, 0, cnthv_visibility),
+ 
+ 	{ SYS_DESC(SYS_CNTKCTL_EL12), access_cntkctl_el12 },
+ 
+-- 
+2.47.3
 
-It is, and yes userspace could figure it out that way, though since the
-property is only exposed after the client cap is set, it requires a
-more involved setup: set the client cap, check for the property, if not
-present unset the client cap.
-
-With the driver cap introduced here, setting the client cap would fail
-in the first place if the driver cap is not set, so in this case
-userspace just tries to set the client cap, if it succeeds it knows it
-can use color pipelines, if it fails it knows to use the legacy color
-properties.
-
---=20
-Thanks,
-
-N=C3=ADcolas
-
->=20
-> Harry
->=20
-> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 /* IMPORTANT: Below are all the legacy=
- flags, add new ones=20
-> > > above. */
-> > > diff --git a/include/uapi/drm/drm.h b/include/uapi/drm/drm.h
-> > > index=20
-> > > 27cc159c1d275c7a7fe057840ef792f30a582bb7..c6c53e57958e951204154ce
-> > > 41a69696a6876f0e8 100644
-> > > --- a/include/uapi/drm/drm.h
-> > > +++ b/include/uapi/drm/drm.h
-> > > @@ -812,6 +812,12 @@ struct drm_gem_change_handle {
-> > > =C2=A0=C2=A0 * commits.
-> > > =C2=A0=C2=A0 */
-> > > =C2=A0 #define DRM_CAP_ATOMIC_ASYNC_PAGE_FLIP=C2=A0=C2=A0=C2=A0 0x15
-> > > +/**
-> > > + * DRM_CAP_POST_BLEND_COLOR_PIPELINE
-> > > + *
-> > > + * If set to 1, the driver supports post-blend color pipelines.
-> > > + */
-> > > +#define DRM_CAP_POST_BLEND_COLOR_PIPELINE=C2=A0=C2=A0=C2=A0 0x16
-> > > =C2=A0 /* DRM_IOCTL_GET_CAP ioctl argument type */
-> > > =C2=A0 struct drm_get_cap {
-> > >=20
-> >=20
 
