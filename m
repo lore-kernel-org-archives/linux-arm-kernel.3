@@ -4,101 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C8B82CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 12:55:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E350DCAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 13:00:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=p4AJhIRDhtQztFOcWyZbbOIS6wbTlWTjViXERoklQ24=; b=z02P6IEY0uqIAegQWfu8hnoQ5D
-	ZVe6CkPs7rlDS3PoZH5yKc3oVYb+WE8bBINX5YxP4eJKYurWvwL/p/jhYSBLpNOOXrqPHOKcLW6cC
-	UVCaHrohFnXw33mquSjxlyFUaFs/jW5mwxiiaJy3vE3EXDiBym7VgOC00DQ0sUBbQFOiqgJBYqGWL
-	6axB1MTaV91A2fev7VEpeMNdM5lulEw87oONAQbg8zManB1ZpLXkYEa7F0jQAtx/Qf5qhGGV4Lj5V
-	cat3xc4WetrmN9Rpn5PzCradus0ElZuajg1Kj/vnTM59KUikvlKx/hBgz1Xp/HbTcldigj1mV88ig
-	BL9BzHCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WWN09e1ExuGSiGEWOipe17yKpFWEQ3Pdou/x4FJyVyc=; b=fpnr+jDrbcvhUfpXMZ5/Rx9vvV
+	4L4VUzf69FrWp2XOTsV7LPLXrC/Ly8tN8sFb5brOEMkSInNPntFQ7CBlC0phB1n9naRvw+XV+pess
+	5hR0PhSKp519cdZZDLXZcyCxDmnpP37yoW5lY8SHePzrqsuUkQ3dSMUGPVNnA6c3tO1aO7OWg4eNB
+	ricM0HL86K59rxv9Ke3YSCrwf4bcO6o24B62G4PWDTy8/6Eo1MCGw0bILHKS4Y4VbkphYKsvIeRYM
+	leYGdlOZuPCeIyvzn7JoZ0fUScn9NhOalewdYgLeTlw8jAoSlALzIhPemK7F6x1nINicSLn1HrEo0
+	nP14e5aQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3DPa-00000002VNh-3Elj;
-	Mon, 29 Sep 2025 12:55:26 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1v3DUC-00000002VqY-3HuQ;
+	Mon, 29 Sep 2025 13:00:12 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3DPY-00000002VMs-0q56
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 12:55:26 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-46e425de753so16347465e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 05:55:23 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1759150522; x=1759755322; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:user-agent
-         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=p4AJhIRDhtQztFOcWyZbbOIS6wbTlWTjViXERoklQ24=;
-        b=a2wQsJbJ4CnEj88R5M1v0nU2z0aFXXDk7BQA50VfjPco0ax+Mm+vWZjhusKvTwBu6U
-         8I6wqCcGmSgyRzRRR9cMqCsjwSq6EWLsR0ukZ1FTmIwl1MBK9c+5zDk1JPsQrH/zeXxp
-         3ew/XjQUaYEq+6r1cOM43VuSDI7LebiHHeSqXIdFHknniTOAutkfyhRcM+uJHTLDt7Xi
-         NeBdgnlZGMUn3xYWe4+yvmiVGOR16ZInM0zEaP4W5lXAM2bykD0dcjyUXLOQHoA4nDM3
-         8lifhqYQQQN4Kwv/PQ1UkR9h8Ruw7lI/4knUP2W+AlD+dz9l41kyKY9mzU6fvlys4EB1
-         ThNA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759150522; x=1759755322;
-        h=content-transfer-encoding:mime-version:message-id:date:user-agent
-         :references:in-reply-to:subject:cc:to:from:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=p4AJhIRDhtQztFOcWyZbbOIS6wbTlWTjViXERoklQ24=;
-        b=HoyrGxg3kgPDgpwtlrGlfE8haMHDEKkGqL2i+SnCc5eaqAj4BF1hKdLAtPCABm37VC
-         fRkxQO4O9FS08lrQ+YyWgF7fEESq3DTEhdLEsIQjvebLgSG3oN1O4AHfTCAnhl4TyWDG
-         alIz+050XhGshx0FxPN3xKx0mbdcHybsLpoGOtZaMRVuOpFQX6IQa9l1DQ/uSPNDTtlv
-         MtNrHXc7ihqRZnbNlRLfTLWtZrTHfbsrX+fn82KueYdacpp5H1XeS4GzTYEXgdYIXANQ
-         ekkF5pkAPzgAL77iqGRZsFe/TgyG3XTkZXwOKFJCTL6lwDfWGMH6IVJTzEtr7UXv0grz
-         JEZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVY+/nIcQDiTqagr69jQxvbAHFSljPC80Qu/KXlQFwgUBLVZCdVR0L5sAnw9pcU2+RqQLQx9FAuyMWUFr/exSTY@lists.infradead.org
-X-Gm-Message-State: AOJu0YzvBkGDzzb4zl2F8AAjhHn19p7eImuNfqbC4nPqQqdZC4mNSIP5
-	KEUN8h3/RCGp4kE66uQ9Ozkc7JYavCpisyrnPTt2BlohSyKfWuBZgK7k2uySRnMJl6o=
-X-Gm-Gg: ASbGncsjYa63PQIURU4r3r1hHXr3Tft6uMK97cIWQUZeFrKmPaf+LgU0vPwfIJUmWc/
-	uDuTN0MTqArjeJ5EoYdb7Btmz1RxX+JQKLfhL/050gs0It0mJQUVhDQT68ukjyqrSeMGp19m0jM
-	nzxgDjP+r87o990FT6dHzGgTHQxhs1tdhERIKI2uJ9o8ET7FLQv3swku/Uo0Blj3OIhA15kFPtB
-	yEXGRB+rBdEJy0ll6M5uKKPKlwRW/pYxiTWCypJC+PkIS44rTpTkP+Ow/kVuP3k9JLq/dkKiAmb
-	hpYDjyVeaXhTwf7WZFXycIyVVxg+i5FcW4bUV2W+2LgPaogZhHAYUtb4WyTfIKGVBEtL2vSOWAB
-	4Au/QZylg08RVjyowGub2w9INCihuyWs=
-X-Google-Smtp-Source: AGHT+IFVFN0XLFy2t2r8lsVdrqYeMn/8TCLqXkS7DTElSFf2//cTI3KRbqZwOsdLupaXoEn5NrWF2w==
-X-Received: by 2002:a05:600c:3b23:b0:46e:32dd:1b1a with SMTP id 5b1f17b1804b1-46e32dd1cbemr151873375e9.7.1759150522095;
-        Mon, 29 Sep 2025 05:55:22 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:9ad:4617:2761:d4d0])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-46e56f64849sm12304965e9.11.2025.09.29.05.55.21
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Sep 2025 05:55:21 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Chuan Liu <chuan.liu@amlogic.com>
-Cc: Martin Blumenstingl <martin.blumenstingl@googlemail.com>,  Michael
- Turquette <mturquette@baylibre.com>,  Stephen Boyd <sboyd@kernel.org>,
-  Neil Armstrong <neil.armstrong@linaro.org>,  Kevin Hilman
- <khilman@baylibre.com>,  linux-clk@vger.kernel.org,
-  linux-kernel@vger.kernel.org,  linux-amlogic@lists.infradead.org,
-  linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 2/2] clk: meson: Fix glitch free mux related issues
-In-Reply-To: <36cd6282-ae1d-43f3-8738-592f043d0ba6@amlogic.com> (Chuan Liu's
-	message of "Mon, 29 Sep 2025 17:31:07 +0800")
-References: <20240929-fix_glitch_free-v1-0-22f9c36b7edf@amlogic.com>
-	<20240929-fix_glitch_free-v1-2-22f9c36b7edf@amlogic.com>
-	<CAFBinCBd5-s6vaBoJNerXavQiHgsv4Fm3v0svUX7geL=kJvVYg@mail.gmail.com>
-	<20178015-4075-40e9-bbf4-20ae558c2bef@amlogic.com>
-	<1jldyzrv2t.fsf@starbuckisacylon.baylibre.com>
-	<e70e9aaa-f448-4f67-9149-cb5970c9bbd6@amlogic.com>
-	<9834c7c5-9334-4c78-a2fe-588ff03cf935@amlogic.com>
-	<CAFBinCCoX5+6+KQAtbhKx9KdSZhXVxS=cz8DfMVhjPX1c0iSPw@mail.gmail.com>
-	<1jfrc563wa.fsf@starbuckisacylon.baylibre.com>
-	<36cd6282-ae1d-43f3-8738-592f043d0ba6@amlogic.com>
-User-Agent: mu4e 1.12.9; emacs 30.1
-Date: Mon, 29 Sep 2025 14:55:20 +0200
-Message-ID: <1j1pnp5sg7.fsf@starbuckisacylon.baylibre.com>
+	id 1v3DUA-00000002Vpi-0dDw;
+	Mon, 29 Sep 2025 13:00:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D323340AE1;
+	Mon, 29 Sep 2025 13:00:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3639AC4CEF4;
+	Mon, 29 Sep 2025 13:00:06 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759150806;
+	bh=v14ZqLeXTqvnBbKfvaWvZF9NSLmuvJRKsZQBeOmW5Wk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=jz8wwdhF/Yk6MGtZ5Kdn5W8KFDTZFtIhNpHLM8je6/OG7jVFn/717TBkjRnVxmSPy
+	 VI1Dku+c1ztJrRasrV2hmU/nNli7IsX8XRIGI5PCB9xbYnmwPj4pjsb4xFcXXvCftj
+	 IGkGfw9u6XLg7PdBvq/L4qevkPuOrYAAbXa0HjFMi/gj/RUXV860hs6msyfOP2l43H
+	 3kPkDzyiPpaIwploKLOSx8yoBoCD4+9f+UNSRUcMaLxTKBhC7hKg4vrrlS/TvSomde
+	 e7XsEjO2ZImnkX2A/V6Ub3iFY0snOBM3YLzqDbLzkbboJAY2kJkoai/xENtnwBglub
+	 +WuX5P/Ynzd+w==
+Date: Mon, 29 Sep 2025 15:00:04 +0200
+From: Maxime Ripard <mripard@kernel.org>
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: Daniel Stone <daniel@fooishbar.org>, 
+	Andrzej Hajda <andrzej.hajda@intel.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
+	Robert Foss <rfoss@kernel.org>, Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, 
+	Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Sandy Huang <hjc@rock-chips.com>, Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, 
+	Andy Yan <andy.yan@rock-chips.com>, Chen-Yu Tsai <wens@csie.org>, 
+	Samuel Holland <samuel@sholland.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
+	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
+	Liu Ying <victor.liu@nxp.com>, Rob Clark <robin.clark@oss.qualcomm.com>, 
+	Dmitry Baryshkov <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>, 
+	Jessica Zhang <jessica.zhang@oss.qualcomm.com>, Sean Paul <sean@poorly.run>, 
+	Marijn Suijten <marijn.suijten@somainline.org>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev, 
+	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org
+Subject: Re: [PATCH v3 00/11] drm/connector: hdmi: limit infoframes per
+ driver capabilities
+Message-ID: <20250929-gregarious-worm-of-memory-c5354d@houat>
+References: <CAPj87rNDtfEYV88Ue0bFXJwQop-zy++Ty7uQ9XfrQ2TbAijeRg@mail.gmail.com>
+ <57ekub6uba7iee34sviadareqxv234zbmkr7avqofxes4mqnru@vgkppexnj6cb>
+ <20250901-voracious-classy-hedgehog-ee28ef@houat>
+ <voknqdv3zte2jzue5yxmysdiixxkogvpblvrccp5gu55x5ycca@srrcscly4ch4>
+ <st6wob5hden6ypxt2emzokfhl3ezpbuypv2kdtf5zdrdhlyjfw@l2neflb4uupo>
+ <pe6g2fanw65p67kfy5blbtiytngxmr6nkbazymojs4a66yvpl3@7j4ccnsvc6az>
+ <20250910-didactic-honored-chachalaca-f233b2@houat>
+ <x562ueky2z5deqqmhl222moyrbylfwi35u4hb34dpl3z52ra4c@dyw4iayrewnz>
+ <20250925-fervent-merry-beagle-2baba3@penduick>
+ <qx5ashx62pufott6hnsfna3qntnoyvxwxze4rihhuxcsdxi37s@bbdvc3sfsgne>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="5omahayljejanoli"
+Content-Disposition: inline
+In-Reply-To: <qx5ashx62pufott6hnsfna3qntnoyvxwxze4rihhuxcsdxi37s@bbdvc3sfsgne>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_055524_262780_4A24700B 
-X-CRM114-Status: GOOD (  25.50  )
+X-CRM114-CacheID: sfid-20250929_060010_237835_94F6893A 
+X-CRM114-Status: GOOD (  74.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,107 +95,241 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon 29 Sep 2025 at 17:31, Chuan Liu <chuan.liu@amlogic.com> wrote:
 
-> On 9/29/2025 4:48 PM, Jerome Brunet wrote:
->> [ EXTERNAL EMAIL ]
->>
->> On Sun 28 Sep 2025 at 22:55, Martin Blumenstingl
->> <martin.blumenstingl@googlemail.com> wrote:
->>
->>> Hello,
->>>
->>> On Sun, Sep 28, 2025 at 8:41=E2=80=AFAM Chuan Liu <chuan.liu@amlogic.co=
-m> wrote:
->>>>
->>>> On 9/28/2025 2:05 PM, Chuan Liu wrote:
->>>>> Hi Jerome & Martin:
->>>>>
->>>>> Sorry for the imprecise description of the glitch-free mux earlier.
->>>>>
->>>>> Recently, while troubleshooting a CPU hang issue caused by glitches,
->>>>> I realized there was a discrepancy from our previous understanding,
->>>>> so I'd like to clarify it here.
->>> [...]
->>>> An example of the clock waveform is shown below:
->>>>
->>>>
->>                       1                  2
->>                       v                  v
->>>>          __    __    __    __    __    __    __    __
->>>> ori:  =E2=86=91  |__=E2=86=91  |__=E2=86=91  |__=E2=86=91  |__=E2=86=
-=91  |__=E2=86=91  |__=E2=86=91  |__=E2=86=91  |__=E2=86=91
->>>>                     ^
->>>>                     1 * cycle original channel.
->>>>          _   _   _   _   _   _   _   _   _   _   _   _
->>>> new:  =E2=86=91 |_=E2=86=91 |_=E2=86=91 |_=E2=86=91 |_=E2=86=91 |_=E2=
-=86=91 |_=E2=86=91 |_=E2=86=91 |_=E2=86=91 |_=E2=86=91 |_=E2=86=91 |_=E2=86=
-=91 |_=E2=86=91
->>>>                                         ^
->>>>                                         5 * cycles new channel.
->>>>          __    __                        _   _   _   _
->>>> out:  =E2=86=91  |__=E2=86=91  |______________________=E2=86=91 |_=E2=
-=86=91 |_=E2=86=91 |_=E2=86=91 |_=E2=86=91
->>>>                ^                        ^
->>>>                start switching mux.     switch to new channel.
->> Ok ... but when is it safe to disable the "ori" clock ?
->> Can you do it at '1' already ? or do you have to wait for '2' ?
->
->
-> It should wait for "2", because there is a state machine in the
-> glitch-free mux, this state machine is driven by the working clock
-> provided by its channel 0.
+--5omahayljejanoli
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v3 00/11] drm/connector: hdmi: limit infoframes per
+ driver capabilities
+MIME-Version: 1.0
 
-Then I don't think the 2 flags are enough to make it safe
+On Thu, Sep 25, 2025 at 05:16:07PM +0300, Dmitry Baryshkov wrote:
+> On Thu, Sep 25, 2025 at 03:13:47PM +0200, Maxime Ripard wrote:
+> > On Wed, Sep 10, 2025 at 06:26:56PM +0300, Dmitry Baryshkov wrote:
+> > > On Wed, Sep 10, 2025 at 09:30:19AM +0200, Maxime Ripard wrote:
+> > > > On Wed, Sep 03, 2025 at 03:03:43AM +0300, Dmitry Baryshkov wrote:
+> > > > > On Tue, Sep 02, 2025 at 08:06:54PM +0200, Maxime Ripard wrote:
+> > > > > > On Tue, Sep 02, 2025 at 06:45:44AM +0300, Dmitry Baryshkov wrot=
+e:
+> > > > > > > On Mon, Sep 01, 2025 at 09:07:02AM +0200, Maxime Ripard wrote:
+> > > > > > > > On Sun, Aug 31, 2025 at 01:29:13AM +0300, Dmitry Baryshkov =
+wrote:
+> > > > > > > > > On Sat, Aug 30, 2025 at 09:30:01AM +0200, Daniel Stone wr=
+ote:
+> > > > > > > > > > Hi Dmitry,
+> > > > > > > > > >=20
+> > > > > > > > > > On Sat, 30 Aug 2025 at 02:23, Dmitry Baryshkov
+> > > > > > > > > > <dmitry.baryshkov@oss.qualcomm.com> wrote:
+> > > > > > > > > > > It's not uncommon for the particular device to suppor=
+t only a subset of
+> > > > > > > > > > > HDMI InfoFrames. It's not a big problem for the kerne=
+l, since we adopted
+> > > > > > > > > > > a model of ignoring the unsupported Infoframes, but i=
+t's a bigger
+> > > > > > > > > > > problem for the userspace: we end up having files in =
+debugfs which do
+> > > > > > > > > > > mot match what is being sent on the wire.
+> > > > > > > > > > >
+> > > > > > > > > > > Sort that out, making sure that all interfaces are co=
+nsistent.
+> > > > > > > > > >=20
+> > > > > > > > > > Thanks for the series, it's a really good cleanup.
+> > > > > > > > > >=20
+> > > > > > > > > > I know that dw-hdmi-qp can support _any_ infoframe, by =
+manually
+> > > > > > > > > > packing it into the two GHDMI banks. So the supported s=
+et there is
+> > > > > > > > > > 'all of the currently well-known ones, plus any two oth=
+ers, but only
+> > > > > > > > > > two and not more'. I wonder if that has any effect on t=
+he interface
+> > > > > > > > > > you were thinking about for userspace?
+> > > > > > > > >=20
+> > > > > > > > > I was mostly concerned with the existing debugfs interfac=
+e (as it is
+> > > > > > > > > also used e.g. for edid-decode, etc).
+> > > > > > > > >=20
+> > > > > > > > > It seems "everything + 2 spare" is more or less common (A=
+DV7511, MSM
+> > > > > > > > > HDMI also have those. I don't have at hand the proper dat=
+asheet for
+> > > > > > > > > LT9611 (non-UXC one), but I think its InfoFrames are also=
+ more or less
+> > > > > > > > > generic).  Maybe we should change debugfs integration to =
+register the
+> > > > > > > > > file when the frame is being enabled and removing it when=
+ it gets unset.
+> > > > > > > >=20
+> > > > > > > > But, like, for what benefit?
+> > > > > > > >=20
+> > > > > > > > It's a debugfs interface for userspace to consume. The curr=
+ent setup
+> > > > > > > > works fine with edid-decode already. Why should we complica=
+te the design
+> > > > > > > > that much and create fun races like "I'm running edid-decod=
+e in parallel
+> > > > > > > > to a modeset that would remove the file I just opened, what=
+ is the file
+> > > > > > > > now?".
+> > > > > > >=20
+> > > > > > > Aren't we trading that with the 'I'm running edid-decode in p=
+aralle with
+> > > > > > > to a modeset and the file suddenly becomes empty'?
+> > > > > >=20
+> > > > > > In that case, you know what the file is going to be: empty. And=
+ you went
+> > > > > > from a racy, straightforward, design to a racy, complicated, de=
+sign.
+> > > > > >=20
+> > > > > > It was my question before, but I still don't really see what be=
+nefits it
+> > > > > > would have, and why we need to care about it in the core, when =
+it could
+> > > > > > be dealt with in the drivers just fine on a case by case basis.
+> > > > >=20
+> > > > > Actually it can not: debugfs files are registered from the core, =
+not
+> > > > > from the drivers. That's why I needed all the supported_infoframes
+> > > > > (which later became software_infoframes).
+> > > >=20
+> > > > That's one thing we can change then.
+> > > >=20
+> > > > > Anyway, I'm fine with having empty files there.
+> > > > >=20
+> > > > > > > > > Then in the long run we can add 'slots' and allocate some=
+ of the frames
+> > > > > > > > > to the slots. E.g. ADV7511 would get 'software AVI', 'sof=
+tware SPD',
+> > > > > > > > > 'auto AUDIO' + 2 generic slots (and MPEG InfoFrame which =
+can probably be
+> > > > > > > > > salvaged as another generic one)). MSM HDMI would get 'so=
+ftware AVI',
+> > > > > > > > > 'software AUDIO' + 2 generic slots (+MPEG + obsucre HDMI =
+which I don't
+> > > > > > > > > want to use). Then the framework might be able to priorit=
+ize whether to
+> > > > > > > > > use generic slots for important data (as DRM HDR, HDMI) o=
+r less important
+> > > > > > > > > (SPD).
+> > > > > > > >=20
+> > > > > > > > Why is it something for the framework to deal with? If you =
+want to have
+> > > > > > > > extra infoframes in there, just go ahead and create additio=
+nal debugfs
+> > > > > > > > files in your driver.
+> > > > > > > >=20
+> > > > > > > > If you want to have the slot mechanism, check in your atomi=
+c_check that
+> > > > > > > > only $NUM_SLOT at most infoframes are set.
+> > > > > > >=20
+> > > > > > > The driver can only decide that 'we have VSI, SPD and DRM Inf=
+oFrames
+> > > > > > > which is -ETOOMUCH for 2 generic slots'. The framework should=
+ be able to
+> > > > > > > decide 'the device has 2 generic slots, we have HDR data, use=
+ VSI and
+> > > > > > > DRM InfoFrames and disable SPD for now'.
+> > > > > >=20
+> > > > > > I mean... the spec does? The spec says when a particular feature
+> > > > > > requires to send a particular infoframe. If your device cannot =
+support
+> > > > > > to have more than two "features" enabled at the same time, so b=
+e it. It
+> > > > > > something that should be checked in that driver atomic_check.
+> > > > >=20
+> > > > > Sounds good to me. Let's have those checks in the drivers until we
+> > > > > actually have seveal drivers performing generic frame allocation.
+> > > > >=20
+> > > > > > Or just don't register the SPD debugfs file, ignore it, put a c=
+omment
+> > > > > > there, and we're done too.
+> > > > >=20
+> > > > > It's generic code.
+> > > > >=20
+> > > > > > > But... We are not there yet and I don't have clear usecase (w=
+e support
+> > > > > > > HDR neither on ADV7511 nor on MSM HDMI, after carefully readi=
+ng the
+> > > > > > > guide I realised that ADV7511 has normal audio infoframes). M=
+aybe I
+> > > > > > > should drop all the 'auto' features, simplifying this series =
+and land
+> > > > > > > [1] for LT9611UXC as I wanted origianlly.
+> > > > > > >=20
+> > > > > > > [1] https://lore.kernel.org/dri-devel/20250803-lt9611uxc-hdmi=
+-v1-2-cb9ce1793acf@oss.qualcomm.com/
+> > > > > >=20
+> > > > > > Looking back at that series, I think it still has value to rely=
+ on the
+> > > > > > HDMI infrastructure at the very least for the atomic_check sani=
+tization.
+> > > > > >=20
+> > > > > > But since you wouldn't use the generated infoframes, just skip =
+the
+> > > > > > debugfs files registration. You're not lying to userspace anymo=
+re, and
+> > > > > > you get the benefits of the HDMI framework.
+> > > > >=20
+> > > > > We create all infoframe files for all HDMI connectors.
+> > > >=20
+> > > > Then we can provide a debugfs_init helper to register all of them, =
+or
+> > > > only some of them, and let the drivers figure it out.
+> > > >=20
+> > > > Worst case scenario, debugfs files will not get created, which is a=
+ much
+> > > > better outcome than having to put boilerplate in every driver that =
+will
+> > > > get inconsistent over time.
+> > >=20
+> > > debugfs_init() for each infoframe or taking some kind of bitmask?
+> >=20
+> > I meant turning hdmi_debugfs_add and create_hdmi_*_infoframe_file into
+> > public helpers. That way, drivers that don't care can use the (renamed)
+> > hdmi_debugfs_add, and drivers with different constraints can register
+> > the relevant infoframes directly.
+>=20
+> Doesn't that mean more boilerplate?
 
-Nothing guarantees that CCF will wait for those 5 cycles to turn off
-the clock noted 'ori' above.
+I don't think it would? In the general case, it wouldn't change
+anything, and in special cases, then it's probably going to be different
+=66rom one driver to the next so there's not much we can do.
 
-I think you need new specific ops for this mux
+> In the end, LT9611UXC is a special case, for which I'm totally fine
+> not to use HDMI helpers at this point: we don't control infoframes
+> (hopefully that can change), we don't care about the TMDS clock, no
+> CEC, etc.
 
-Something that would
-* protect both parents before changing the mux
-* do the actual change
-* wait for it to settle
-* remove the protection
+Not using the helpers sound pretty reasonable here too.
 
->
->
->>
->>> Thank you for the detailed report!
->>> This is indeed problematic behavior. I guess the result is somewhat
->>> random: depending on load (power draw), silicon lottery (quality),
->>> temperature, voltage supply, ... - one may or may not see crashes
->>> caused by this.
->>>
->>> Based on the previous discussion on this topic, my suggestion is to
->>> split the original patch:
->>> - one to add CLK_SET_RATE_GATE where needed (I think the meson8b.c
->>> driver already has this where needed) to actually enable the
->>> glitch-free mux behavior
->>> - another one with the CLK_OPS_PARENT_ENABLE change (meson8b.c would
->>> also need to be updated) to prevent the glitch-free mux from
->>> temporarily outputting an electrical low signal. Jerome also asked to
->>> document the behavior so we don't forget why we set this flag
->> Yes please split the changes and visit all the controllers shipping this
->> type of muxes.
->>
->>> Both patches should get the proper "Fixes" tags.
->> ... and proper fixes tag maybe different depending on the controller so
->> there might more that just 2 changes.
->>
->>> I think it would also be great if you could include the waveform
->>> example in at least the commit message as it helps understand the
->>> problem.
->>>
->>> Let's also give Jerome some time to comment before you send patches.
->>>
->>>
->>> Best regards,
->>> Martin
->> --
->> Jerome
+> For all other usecases I'm fine with having atomic_check() unset all
+> unsupported infoframes and having empty files in debugfs. Then we can
+> evolve over the time, once we see a pattern. We had several drivers
+> which had very limited infoframes support, but I think this now gets
+> sorted over the time.
 
---=20
-Jerome
+I never talked about atomic_check()? You were initially concerned that
+the framework would expose data in debugfs that it's not using. Not
+registering anything in debugfs solves that, but I'm not sure we need to
+special case atomic_check.
+
+Worst case scenario, we're going to generate infoframes the driver will
+ignore.
+
+Maxime
+
+--5omahayljejanoli
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaNqC0wAKCRAnX84Zoj2+
+diX/AYD7tGMpz//OLeUzSg3QYHAZkitZyXT00YfJmgxYpCUMSnb6h8ucgQ8Om8Vk
+gbiiQX0Bf2U6KVN7HpvEuga5AMtIOqqgCE/fQHox7oXRJiC3nuzlZW5e70PMzD7l
+uQgN/qqEkQ==
+=aZZH
+-----END PGP SIGNATURE-----
+
+--5omahayljejanoli--
 
