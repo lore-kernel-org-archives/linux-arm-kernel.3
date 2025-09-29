@@ -4,62 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A5BCCAC5B9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 16:10:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DB8CCAC5B9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 16:11:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=C7tiW1lLlQHK3c8uKDQKHKYSmxBluixy+3xVj6FtqBw=; b=3Y7DqiqHFytJbPO6GQj4Au7EaX
-	iaaRK/hkH4okvVZjc0/XxB7JyHwxD9rqZLjh5wRODo6ebiQdU9gOzHTCuvJMh0g1wsnBB99Zk8Pwx
-	de9UY30C7q/fHcEzL7/xiIVdFGw1g+V3AOE2YI5gGCfLNLO18AwHXYg7b19UonYNNTaNxq4Cm6kxD
-	9btjIY5+G186TcyPgnN84H1rd6yAHLsVYP/BzNiZinhzR592MZk8vF+B/R/l/FhnEPY5emDYF3q9n
-	n5JpjQAxIPuxW+fiNewllc+yHWz1cQ4+2FfPWI4O1/k6p7YhM0NgKQEJQLD2nqdIRt7Er+DVPanO9
-	kKfQdUAQ==;
+	bh=nsKPUt3eG1q3iH3bagp9B5OmN4M1u1/cbfqKMwybfCo=; b=D8dqf8tQKFJ51QYLRLgyhcm39c
+	GTIMZ9zSYd+Qlq2e8tqWxqVn072lFO7UGlDtpu2r81CzYLv+KuwIxt5movD/O7EW45eJ3J2L+w/Ye
+	8OStb5FLiQrSM0Sc1sZyrVoZDqI1PXrPwsdKBqCUKIYUz4xq7KK3WgdAdlx693iaDMnlo7vmdZKry
+	FdcgalqSPrMHaSv7ynCRp1rZrOhC5Jz8JUw2++rQ/vPaZv2SjV9PRuXXLERAIqp+fQ60iZREwHa9e
+	vCd/hNc+KpENPvWm5uq83h96tVL89BjZoatMiv7zAiivOcKHk0/DwtTY1pnOpgdWGBNpvc7QuiUQK
+	EzA6QR0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3GS9-00000002vuv-0GOs;
-	Mon, 29 Sep 2025 16:10:17 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v3GSw-00000002w7v-2gzF;
+	Mon, 29 Sep 2025 16:11:06 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3GS7-00000002vug-0qwS;
-	Mon, 29 Sep 2025 16:10:15 +0000
+	id 1v3GSu-00000002w76-09qo
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 29 Sep 2025 16:11:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 76382625EC;
-	Mon, 29 Sep 2025 16:10:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1C5ABC4CEF4;
-	Mon, 29 Sep 2025 16:10:14 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5B21C44B0D
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 16:11:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39F6BC4CEF7
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 16:11:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759162214;
-	bh=VwMhtKXqp3LJwH0OUSm1EemiOWjyAmIPXaZUF2o60sw=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=PBhj9yc8jaOsTTukyhZ4zNItFdk5J8xaZApDb4/6SYHiICmDC/IuAqFxlhXNTJDKH
-	 PVnBh8tl0KS/ONXvfe117/uz4HNw2WhXYxCHWkqqBmGMyCC7luKvuANlX36uIjPbHs
-	 YiogN9tGiCrEkSLJ1CSINU9O4VnxTwbh9RmUrpiw/FzVLJPtNrFEczLYor4LdpSbHp
-	 AOXHNb27OmXHcGfBaPIWKxq5YXMeJuhWNANXHBqS0EErebR7hNV0YohGMXPZXL95/x
-	 iPYMZuZxvn9cx6do++dx6HV5KKwqhEXZa7/YM1L0iE4obi0Dv795/jMwslB+tqb7qu
-	 vKOC+7QA79Kcw==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EBB1D39D0C1A;
-	Mon, 29 Sep 2025 16:10:08 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	s=k20201202; t=1759162263;
+	bh=TnRd13LTY/MfKHuFsX9dGJLSiRHknR2IKwuhqq8+DcU=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=DFJUZ6ab25RklS9kO8oV+tivtUHwZbSDaUluINK09aygf28NgXYFZ+PI6YaW/JAv+
+	 n3z/M3Wo85Nqdoz4psMCxK7E9r03URDojGzc5qPUCdsnXuoF+UDVCDRrNU5gdvvJpY
+	 koHbVdbYYxCIuUnxIVJSwwrArrLIfJ8HCqismRwWLlhECRDwGGadxd/RSf55sPK1i7
+	 x7VzBbBTmu/EyS9V5qA3ndYOOORON8gyac4qn73YqOt3O7HNOBL3s+vfDb985nLifb
+	 WdgxuSM4jEcixnsDoLy2NYcWZ6dPxp9zyNvj1+Kb4bhMdIb2qfqwlPOzbnQVZ6+pPF
+	 RnAySxeFdHwrg==
+Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-3737d0920e6so2275361fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 09:11:03 -0700 (PDT)
+X-Gm-Message-State: AOJu0Yz0m2ir2l8e1wU14FYqK09FRpXXnidBz3MyFvm9vZUM5wsCtY6Y
+	ICe2visaRWQ3Fp4zhTS1dj3SjhP6OZ4VMtLnmBGUaNPF0z0Z0ixrTo7gBHVZ4EjB4VvLMv1DG/r
+	geEHbJEbO0wvD+4xdvO8SDHbiWjwM6sU=
+X-Google-Smtp-Source: AGHT+IETanXcswW69UMb0c9QLJbA83VZbKW5ySv3KY5vq4DrpUIMFVRtBjjjKR6of/ifN5P4H0F2sjZNeyUHIEGCoZI=
+X-Received: by 2002:a2e:a917:0:b0:336:9e1b:b640 with SMTP id
+ 38308e7fff4ca-36f8020caf5mr41859811fa.24.1759162261600; Mon, 29 Sep 2025
+ 09:11:01 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v9] Bluetooth: mediatek: add gpio pin to reset bt
-From: patchwork-bot+bluetooth@kernel.org
-Message-Id: <175916220774.1630000.3594430707404440573.git-patchwork-notify@kernel.org>
-Date: Mon, 29 Sep 2025 16:10:07 +0000
-References: <20250926101046.26559-1-ot_zhangchao.zhang@mediatek.com>
-In-Reply-To: <20250926101046.26559-1-ot_zhangchao.zhang@mediatek.com>
-To: Zhangchao Zhang <ot_zhangchao.zhang@mediatek.com>
-Cc: marcel@holtmann.org, matthias.bgg@gmail.com, luiz.dentz@gmail.com,
- angelogioacchino.delregno@collabora.com, krzk@kernel.org,
- sean.wang@mediatek.com, deren.Wu@mediatek.com, chris.lu@mediatek.com,
- Hao.qin@mediatek.com, linux-bluetooth@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
+References: <20250922130427.2904977-1-abarnas@google.com>
+In-Reply-To: <20250922130427.2904977-1-abarnas@google.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Mon, 29 Sep 2025 18:10:49 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXHfDVXXZwFhNk=b25Uz6aVDW-NmNHJdWGOzy6j=YpKsRQ@mail.gmail.com>
+X-Gm-Features: AS18NWD4BtMfXpGmuN2UIzHJaQT_CZZXKftd2Kvqw_-tFPRBtvNfc-lJsFN37gc
+Message-ID: <CAMj1kXHfDVXXZwFhNk=b25Uz6aVDW-NmNHJdWGOzy6j=YpKsRQ@mail.gmail.com>
+Subject: Re: [PATCH v2 0/2] arm64: modules: Reject loading of malformed modules
+To: =?UTF-8?Q?Adrian_Barna=C5=9B?= <abarnas@google.com>
+Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Dylan Hatch <dylanbhatch@google.com>, Mark Rutland <mark.rutland@arm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250929_091104_101378_0D656FF1 
+X-CRM114-Status: GOOD (  12.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,30 +83,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+On Mon, 22 Sept 2025 at 15:04, Adrian Barna=C5=9B <abarnas@google.com> wrot=
+e:
+>
+> Hi all,
+>
+> Here is version two of the patches I previously posted here:
+>
+>   v1: https://lore.kernel.org/all/20250919122321.946462-1-abarnas@google.=
+com/
+>
+> Changes:
+>   * Renamed the parameter `is_module` to `skip_dry_run` in scs_patch()
+>   * Moved comments to module_finalize() and improve justification
+>   * Instead of rejecting all modules with callback, reject those with cb
+>     pointing outside core kernel text
+>   * Replace -EPERM to -ENOEXEC when rejecting modules with incorrect cb
+>   * Fix missing return in apply_alternatives_module() placeholder
+>
+> Best regards
+> Adrian
+>
+> Cc: Catalin Marinas <catalin.marinas@arm.com>
+> Cc: Will Deacon <will@kernel.org>
+> Cc: Ard Biesheuvel <ardb@kernel.org>
+> Cc: Dylan Hatch <dylanbhatch@google.com>
+> Cc: Mark Rutland <mark.rutland@arm.com>
+>
+> Adrian Barna=C5=9B (2):
+>   arch: arm64: Fail module loading if dynamic SCS patching fails
+>   arch: arm64: Reject modules with internal alternative callbacks
+>
 
-This patch was applied to bluetooth/bluetooth-next.git (master)
-by Luiz Augusto von Dentz <luiz.von.dentz@intel.com>:
-
-On Fri, 26 Sep 2025 18:10:46 +0800 you wrote:
-> Support the platform Bluetooth to be reset by hardware pin,
-> when a Bluetooth exception occurs, attempt to reset the
-> Bluetooth module using the hardware reset pin, as this
-> method is generally more stable and reliable than a
-> software reset. If the hardware reset pin is not specified
-> in the device tree, fall back to the existing software
-> reset mechanism to ensure backward compatibility.
-> 
-> [...]
-
-Here is the summary with links:
-  - [v9] Bluetooth: mediatek: add gpio pin to reset bt
-    https://git.kernel.org/bluetooth/bluetooth-next/c/8fe90a5ad3d9
-
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Reviewed-by: Ard Biesheuvel <ardb@kernel.org>
 
