@@ -4,93 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B603DCAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 07:44:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C12F3CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 07:44:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4IugYQww6ZMP7fZxYkyvyMGRoB8H1RfKni966hm3Oic=; b=MOWNj/V7yE7zSkADc+JtRGndY6
-	ikdNCw7B1gdnDSDugefkdumRq9S54IeVVSQe4v3iqRhiDQwkcBsyt8etjTnYJQYXaUm3xLOTwFGSr
-	h/atuCFmuDn6Nq+3W1D+rBTkHg+5XHAGxG2gBrA/IArTJ6MS9HkeRPqwPAN1mRpD01P+EEuwuJOp9
-	c8wyTCvbxr7t1r+UNAQBXa3Jsf40DGqct0nB2+wvTVVyYqE6vjBZUJgzBNb/Mqy9fSsZwzaKSlQgq
-	z7It4bybCClKMx9pcWup99LbmzFPBJkccqqxEe6gBIBs71cvb49oKbbGmx5++iNkdYFLnGVewLZPk
-	rOyKwDfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
+	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=AZ7xCl2wQqwqFo37e1wZWKGTGABfy99i1vqF6wtYlaY=; b=IUYUtzBh0nCzIMx0CQEultifgu
+	hqCUNXLIy68tpyTSyqsigqSNIlPPg9LzkHjl4koE2WxRLOzMWN4o1IWfV0U45CiglNE5uopIBaWFS
+	2dsRlW98TBR60WDH1C82iHL6QJcMzbNhnAFLtyaZKJlV1OL468rNBtxT+z5Twg0eWKnI0cJY8fqIE
+	YtkUiI3bRBa1sihlYQamqy7TAprmLGILKo9lNacVKwUdyLSMEZ25hQ0tLyeh+5DoIYuJha5hvPuBJ
+	LW6hS7356NrAuEfnxV6KsQsYpUqVJiIQTgee5E+JIAh3r3f3x2yf3lPM2K4RZw5yeL99hMRuCDaX6
+	6daSQPEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v38YJ-00000001eY8-3B6w;
-	Mon, 29 Sep 2025 07:44:07 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1v38YR-00000001ebA-1QNd;
+	Mon, 29 Sep 2025 07:44:15 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v38YH-00000001eWs-1mhA
+	id 1v38YH-00000001eWp-3Pp2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 07:44:06 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-279e2554b5fso35974845ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 00:44:05 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1759131844; x=1759736644; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=4IugYQww6ZMP7fZxYkyvyMGRoB8H1RfKni966hm3Oic=;
-        b=EtQGLl+bAupkfjFyn8+7Lm0eVQHhUnwIRt2BNQOGV+dXMMRFDsWA3eIhtuCOm34hUR
-         /hFqnZGws4e+4YWbAKMfW9VcZY5tVEMweAfmdDJVovqkYT8mAEQRlKOcwgRTaJL0WHVJ
-         Wy//SAMqCqnJIxQBg2P0DyWfaVSj//riSnqzGFcYkUjhCLKy8/uOZPuGDtK28lyti4+4
-         brB/rGqGjxUCMFsSW2mRjdgBG/QXpVQR3VTTrcyWvxrEghD0lzXgWnhQkaEfkUfe+5in
-         dFqsvbJCp753OT1+QUY2Splvi/56kylbXZfsavNxJQyETYty5XJpAndxNDPgj2NUiSrO
-         uMlw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759131844; x=1759736644;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=4IugYQww6ZMP7fZxYkyvyMGRoB8H1RfKni966hm3Oic=;
-        b=j2UhZGPrlmockCB83Fpr2rYUM0y7sK9IcYyEQKUpxF/suQUUT1FqPsI6ZMSVUHwtfZ
-         b6q+3UvWRl7+kDw3I7Sb8if432wf4HWb0kIi1bIJij85ijAtLpdY3V9+GM37eT7cVF23
-         kPwBQWoPDSu4EzzqIX6qs3UXGaZUsZwlJSmWk3CewoSSO4CcHr3yajMdAu5u6RZIY3Jp
-         heIeuC6pEDMEy96mGnoxhhLHrR5ZJQninFts9LleoU6B84IcrGtK+9EbB3ff6/RthNwh
-         B436pjgLrDJCmndUXiHGlpaROmQgOiChzVAXJFQCtO0KMDuafHt/FUnYKEqlkZvbj4KZ
-         AB/w==
-X-Forwarded-Encrypted: i=1; AJvYcCXk7TgK4Rcx1m9yC+GnY7LnFdgmpG0an5Mxes5YkHz2WSihUOaZpf00OPLGqq1SSBZvTMTF+0zfYV1skx+zaWZT@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx0swOAilFRo+n3x3u6jo3I8wzP5n/YfKgB9/QRplFlsp7oBpE1
-	ZoGdXIRvWHEoDLO/2awq97NVV1+3fBlB2AuwYEoh1Ntghpefqjd9d2/k
-X-Gm-Gg: ASbGncuPI1McJvXJz0MogZs7H81QuwYryxu9BrK1qV2+zTrlG9VmzLY+xxJF3jgx09+
-	CUwbbNpKunlH4b0ui2PK/m6rk+AnqcmsnCLSDejvIWKLzdnBs/4wOAZeJwiwCHReXhp1cDyg/S8
-	ZxpdQlt9i4ADmw2t9vSqG/dCaTyOKtbpypZM/nGHiHPzGgYaExj65tYLTBwWFOFeB4a/BDDrNLl
-	Z585YI8sJ9792Ox99JUErsfvjcXHDBlGMJR5sx1kVqws064XVuRUKn4EwA4qfxuBMEf6XNPEygc
-	NKYaUK9T8lSHMsbG6gmF8lqCeWRhwqhXuC7Gt76hhCV0O3edclJoQt1GbIxbHtxOplmtwAp/cfS
-	kjVoRfsP499Z7DUkgAFvDZOvYRdmb/B1B5Cp5KTwucTyEjDECYhWcuZBNK6CoeRDGA/zQ1qVK8F
-	9y
-X-Google-Smtp-Source: AGHT+IGYbzLtndPlp4Q3FPkBFfn1YLlMmp9JRJofGAotrhQINUZyvBL0AAPnW2NjXrzXu64Iv6JAsg==
-X-Received: by 2002:a17:902:e84b:b0:269:8eba:e9b2 with SMTP id d9443c01a7336-27ed7222952mr159612065ad.29.1759131844132;
-        Mon, 29 Sep 2025 00:44:04 -0700 (PDT)
-Received: from [192.168.68.63] (104-12-136-65.lightspeed.irvnca.sbcglobal.net. [104.12.136.65])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-27ed66d3fe7sm123321985ad.7.2025.09.29.00.44.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 29 Sep 2025 00:44:03 -0700 (PDT)
-Message-ID: <b01ed528-8b29-4a6a-bdff-88f2e3b5dd2e@gmail.com>
-Date: Mon, 29 Sep 2025 00:44:03 -0700
+	Mon, 29 Sep 2025 07:44:07 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
+	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
+	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
+	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=AZ7xCl2wQqwqFo37e1wZWKGTGABfy99i1vqF6wtYlaY=; b=PvKEk3awO1om3h6K37Kd+aGVTP
+	3iH+zwB8JaNnXrRJKI5aFojaxxzNwuDmpEqKWgXPpGymWoLYxDbwvLw8lcujRbLN/+Bh0DyvDV+WA
+	tIIuIKzguIB76P7Arlqz+cjxipozoPL/s37GvxgzOeu2bME+KzXPtrpfWustiAknfkSm3ZRVp+Y8x
+	QVKh16WjpClYRLRwuUxcLF1N+VPKEgsXtM+U1CPAZos7pLV21Eml+NnF4f5HO3cHtQwgsS2GXd69P
+	EQsj31cl9lzbLFr+k8gApPoPe1Rryr/sxrY6uLeQ+q4ww25s3y/4rd017e470tvbFI4b/T1N9rGJ+
+	7jRUoHeg==;
+Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:51940 helo=rmk-PC.armlinux.org.uk)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <rmk@armlinux.org.uk>)
+	id 1v38Y8-000000006KV-2uOd;
+	Mon, 29 Sep 2025 08:43:56 +0100
+Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
+	id 1v38Y7-00000008UCQ-3w27;
+	Mon, 29 Sep 2025 08:43:55 +0100
+From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+To: Andrew Lunn <andrew@lunn.ch>,
+	Heiner Kallweit <hkallweit1@gmail.com>
+Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Furong Xu <0x1207@gmail.com>,
+	Jakub Kicinski <kuba@kernel.org>,
+	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	netdev@vger.kernel.org,
+	Paolo Abeni <pabeni@redhat.com>,
+	Richard Cochran <richardcochran@gmail.com>
+Subject: [PATCH net-next] net: stmmac: remove stmmac_hw_setup() excess
+ documentation parameter
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 0/5] Upstreaming Pinephone Pro Patches
-To: Dragan Simic <dsimic@manjaro.org>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Ondrej Jirman <megi@xff.cz>, "Leonardo G. Trombetta" <lgtrombetta@gmx.com>
-References: <20250921-ppp_light_accel_mag_vol-down-v3-0-7af6651f77e4@gmail.com>
- <53eabe34a310ea9c74315fa09a604e4a@manjaro.org>
-Content-Language: en-US
-From: Rudraksha Gupta <guptarud@gmail.com>
-In-Reply-To: <53eabe34a310ea9c74315fa09a604e4a@manjaro.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Message-Id: <E1v38Y7-00000008UCQ-3w27@rmk-PC.armlinux.org.uk>
+Date: Mon, 29 Sep 2025 08:43:55 +0100
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_004405_485491_681A00D2 
-X-CRM114-Status: GOOD (  17.72  )
+X-CRM114-CacheID: sfid-20250929_004406_137022_3D25A2B0 
+X-CRM114-Status: GOOD (  11.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,47 +90,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The kernel build bot reports:
 
+Warning: drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:3438 Excess function parameter 'ptp_register' description in 'stmmac_hw_setup'
 
-> Thanks for submitting these patches.  However, please expand the patch
-> descriptions, because their current forms are too terse and, as such,
-> simply not acceptable.  This applies to all patches in this series.
+Fix it.
 
-Gotcha, will do! I've added the testing that I did. From 
-https://docs.kernel.org/process/submitting-patches.html
+Reported-by: kernel test robot <lkp@intel.com>
+Fixes: 98d8ea566b85 ("net: stmmac: move timestamping/ptp init to stmmac_hw_setup() caller")
+Closes: https://lore.kernel.org/oe-kbuild-all/202509290927.svDd6xuw-lkp@intel.com/
+Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+---
+ drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 1 -
+ 1 file changed, 1 deletion(-)
 
- > The text should be written in such detail so that when read weeks, 
-months or even years later, it can give the reader the needed details to 
-grasp the reasoning for why the patch was created.
-
-It felt like saying more than "adding x sensor" seemed like adding fluff 
-to me, so that is why I kept it short. Let me know if there is something 
-else I should add beside the tests I have done.
-
-
-> I'm also under impression that you're submitting these patches upstream
-> blindly and without researching the rules that apply well enough, which
-> may not be the best possible approach.
-
-Sorry! I've read https://docs.kernel.org/process/submitting-patches.html 
-a bunch of times during the years I have contributed to the Linux kernel 
-and inevitably forget something. Please feel free to tell me what I've 
-done wrong! I've corrected my mistakes in v4 (and undoubtedly probably 
-introduced more, but feel free to tell me that ;) )
-
-
->
-> Finally, please refrain yourself from sending multiple versions of the
-> same patch series in the same day.  Doing so makes reviewing the patches
-> unnecessarily hard. 
-
-Sorry about that once again! I'm mostly a hobbyist that loves working on 
-Linux over the weekend. I wanted to get correct my mistakes so that I 
-can get reviews over the week. I wish lkml used a forge, so I didn't 
-have to spam you, but I digress. I will keep this in mind moving forward.
-
-
-Rudraksha
+diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+index be064f240895..650d75b73e0b 100644
+--- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
++++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
+@@ -3400,7 +3400,6 @@ static void stmmac_safety_feat_configuration(struct stmmac_priv *priv)
+ /**
+  * stmmac_hw_setup - setup mac in a usable state.
+  *  @dev : pointer to the device structure.
+- *  @ptp_register: register PTP if set
+  *  Description:
+  *  this is the main function to setup the HW in a usable state because the
+  *  dma engine is reset, the core registers are configured (e.g. AXI,
+-- 
+2.47.3
 
 
