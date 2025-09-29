@@ -4,75 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0F205CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 10:09:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B4A1CCA468
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 10:11:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XnJhiN601P3ew198/i9MwVOF6i7+38zU2SJEfw4YPKo=; b=02TDEUhrfx2tEM9wpsuZJEx+oW
-	lr/30RW3AGclJaoawd+eWM5sfk7VEvH6tXetLjW/mWLWHK4nf2iaCwATwLvdAvERYT+Z+ftxgUKEU
-	foIUN3Tfnc0tOAgJxk5nq3jnHdcgB+U1e1qfPuZRgZLTXsXO00g1Qne1xBOZvxLKMM31DERLbqhnG
-	gmbb7a8qBdlEzyn6lfEtXwGApKojy32w/WnpfEM5kgsAfIGymC1AYoX+naj8fsyd8SH82Et2Mnux/
-	aXWl340ZJAcEMfCwJpN3FxN0BtwjTVR7ffJKrB2BqjAZKKAkfsUY6NUt7KzMllJtePdISgvqhLQdG
-	/63teQeA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Nq6jhWhqFYu86W0WPvq5nngq+igyEPYcUkXesgVhfaw=; b=KHpiWMJJqPfDoSCO8kSk1oSuPi
+	UxN8gZbvXp/c+fyiAQoHtcWv0hFHVFzv4os8NzsGAeYGJmfX2a+oiGxuoX8qZ1Qxvspu6bC0YQA5H
+	I+6eo6rY3gM9ZomxLHfQ+v85oS+fMsbop+IKtaDrYj1Hx1KZqQZH0rE0FxbPjI4mf4oc5CXH+8La2
+	tCExZF+8K/sg42FT4moeiqiqheJPOHBQBbKn5QZRDaqKvG/CLt30lrtOMtTj2hWBuwWwXqFWTsPac
+	nH+alBWM7Zhw+W7UDWOPM/TeXnSiALC7lGMWAxgYeQn6DOGDYSvl24bbQEdpuQqouCbw8qVmsu1jv
+	6WObnbFQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3AoV-000000025jP-0ORD;
-	Mon, 29 Sep 2025 10:08:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v3AqP-0000000262c-2QEX;
+	Mon, 29 Sep 2025 10:10:57 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3AoT-000000025j2-0y3T
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 29 Sep 2025 10:08:57 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=XnJhiN601P3ew198/i9MwVOF6i7+38zU2SJEfw4YPKo=; b=WsnY2zux4CAPir1U6HXtb1DJ8Z
-	44lwryJj3mziO8Wkb/2id+nIx5+ITV4KcHimY9dJd5z3/Bp/YMWjHB6xLc80D6fO9IjP7OYLTXMkJ
-	HXLrHsA2+epLKqTOGXQMfz2gTiWc7D6dF37ClT0LljfqhM8CJe/kBnl5tH6OwJ2LaFHj7duQ9A6iM
-	N4P517Rnw/gb6Ulp6QRZjTqiK3e/YDACh49l129LdijDKavqxc2VOzEksx+vgut/HNfnJaEGwWfkq
-	JQCl9r4o2RhCvOx71tXLHUJaTTwO0rm2KOnGkl7UsvEGuofMlSWjX4jr7ZQR6E0oW48Egrm59sKq8
-	7Wt7H1Rw==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3AoP-0000000Bz2f-2aYv;
-	Mon, 29 Sep 2025 10:08:54 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 35245300359; Mon, 29 Sep 2025 12:08:52 +0200 (CEST)
-Date: Mon, 29 Sep 2025 12:08:52 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Nathan Chancellor <nathan@kernel.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	kernel test robot <lkp@intel.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Darren Hart <dvhart@infradead.org>,
-	Davidlohr Bueso <dave@stgolabs.net>,
-	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
-	x86@kernel.org, Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
-	linux-fsdevel@vger.kernel.org
-Subject: Re: [patch V2a 2/6] kbuild: Disable CC_HAS_ASM_GOTO_OUTPUT on clang
- < version 17
-Message-ID: <20250929100852.GD3245006@noisy.programming.kicks-ass.net>
-References: <20250916163004.674341701@linutronix.de>
- <20250916163252.100835216@linutronix.de>
- <20250916184440.GA1245207@ax162>
- <87ikhi9lhg.ffs@tglx>
- <87frcm9kvv.ffs@tglx>
- <CAMuHMdVvAQbN8g7TJyK2MCLusGPwDbzrQJHw8uxDhOvjAh7_Pw@mail.gmail.com>
+	id 1v3AqM-00000002625-2JuK;
+	Mon, 29 Sep 2025 10:10:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1759140651;
+	bh=oOq/K7RTeSRws70Trwj2HjoDrovM9ft5yZ0P7I05xrw=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=btlpg6OccvX6sm6yAdU5r0isl8r5hNC5dQcMow5Y2wBFpXXp86cTCxmNF9X3EgQWb
+	 8uuWVuphWoD0MNJ+LaWccoPE5Y8z+AUvQj9b8FaF8mJg+met5EfmkAZJbmcUwOKoK8
+	 V148lh+aYG0nk8zV/AFgVbHDaQE1mW4lFuuPIc6MHZ/za4FHTkLM6MVrxx6XpvIJGJ
+	 gp1OXGDV+hWRaDwg52EQ8jAviSp9gPBqp3vvruYgdEvqYrwJ2uzWQ5VvjTl3xnaFP5
+	 K9ZRRf91E9rdcW5mMPI0NUl35ac/5H+zQMrQg6iONIts417VRJL10H/SqCv2L2DrHX
+	 /38M5hwnFc9oQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7F60817E003B;
+	Mon, 29 Sep 2025 12:10:50 +0200 (CEST)
+Message-ID: <38e03c8d-a038-474a-b62a-897694299642@collabora.com>
+Date: Mon, 29 Sep 2025 12:10:49 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <CAMuHMdVvAQbN8g7TJyK2MCLusGPwDbzrQJHw8uxDhOvjAh7_Pw@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/4] ARM: dts: mediatek: drop wrong syscon hifsys
+ compatible for MT2701/7623
+To: Christian Marangi <ansuelsmth@gmail.com>,
+ Ryder Lee <ryder.lee@mediatek.com>, Jianjun Wang
+ <jianjun.wang@mediatek.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>, Krzysztof Kozlowski
+ <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>, linux-pci@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ upstream@airoha.com
+References: <20250925162332.9794-1-ansuelsmth@gmail.com>
+ <20250925162332.9794-2-ansuelsmth@gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250925162332.9794-2-ansuelsmth@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250929_031054_753484_29D6317D 
+X-CRM114-Status: GOOD (  10.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,24 +84,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 29, 2025 at 11:38:17AM +0200, Geert Uytterhoeven wrote:
+Il 25/09/25 18:23, Christian Marangi ha scritto:
+> The syscon compatible for the hifsys node for Mediatek MT2701/MT7623 SoC
+> was wrongly added following the pattern of other clock node but it's
+> actually not needed as the register are not used by other device on the
+> SoC.
+> 
+> On top of this it does against the schema for hifsys amnd cause
+> dtbs_check warning.
+> 
+> Drop the "syscon" compatible to mute the warning and reflect the
+> compatible property described in the mediatek,mt2701-hifsys.yaml schema.
+> 
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 
-> > +       # Detect buggy clang, fixed in clang-17
-> > +       depends on $(success,echo 'void b(void **);void* c();int f(void){{asm goto("jmp %l0"::::l0);return 0;l0:return 1;}void *x __attribute__((cleanup(b))) = c();{asm goto("jmp %l0"::::l1);return 2;l1:return 1;}}' | $(CC) -x c - -c -o /dev/null)
-> 
-> This is supposed to affect only clang builds, right?  I am using
-> gcc version 13.3.0 (Ubuntu 13.3.0-6ubuntu2~24.04) to build for
-> arm32/arm64/riscv, and thus have:
-> 
->     CONFIG_CC_IS_GCC=y
-> 
-> Still, this commit causes
-> 
->     CONFIG_CC_HAS_ASM_GOTO_OUTPUT=y
->     CONFIG_CC_HAS_ASM_GOTO_TIED_OUTPUT=y
-> 
-> to disappear from my configs? Is that expected?
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-Not expected -- that means your GCC is somehow failing that test case.
-Ideally some GCC person will investigate why this is so.
+
 
