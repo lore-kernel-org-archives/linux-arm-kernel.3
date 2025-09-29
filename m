@@ -4,77 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38462CAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 11:04:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 497FCCAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 11:10:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kZxsy4ehieQIjfLWTzJ+0WnOyHLVTM4StVaGaTf2H2M=; b=Mh28Vh4aRlETfklyae8evYe5tf
-	zM3JLo9mGFPeNBAtV+GNGe1DvkuWEwvZESvm/T3gadWwoUt4XIm+I9G7WBvTKb6KXSD9xLTlkL+Ei
-	1wcjWBLbksDw+zVwjdOjTT4NW91myHSJEr27iytm4dGPx0wcxoGjy9phnkt9bCRLhqEG2ILCP8pUR
-	6PDStRMWeU71qwUYH0Uo25S/zYb3GannrRvoNKsoB5eEcAfseNnfL+Q617wCC0vgxS3/ZQBf+goGr
-	+TCd//A9taWLPOvhNOa+H6f69YqdMENCi0Sg3yF+4CYhYM/KpdNk9FklIGjZkn2uTwOj03Z1OO2Sd
-	gWsu0IDA==;
+	bh=KBw4ejj4fmMEafZBPpzx+wYOwZgdJDUmWT9JGV8MXfA=; b=JRk5+h5qun1Vyr+7eEX7gD8GNI
+	0Wpm6WYrbOz/kyufEjq4EmDLsQk6iDWUfCtch26JJPMe1mdu1pKDlO902yRpRieX+35xMXNF+G2Dg
+	WMS2kshot4+gSB2RF4PBpLrNZaIbqHOXvtqZeAOZKgfOVXImalfbEb60CtSWHhXprSJ99Gew4KxJa
+	jCgTZ5DZosbQPjyYfgc1g2NPC6W84gkZNUYEz9VjMtF9arf2a2ldUKP60X0BLuz+ZEOQU+OF72Jlm
+	8iTIFMqsYfrdpYYOX+QK+/Sp3xtXL/7Ut3u0UOyT4k6Q6CBTU/RGflepWvKIEtJ3Q/E8M6+mq+a8q
+	JunJCtMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Bfq-00000002HMB-14tn;
-	Mon, 29 Sep 2025 11:04:06 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v3Blt-00000002I1r-0TUh;
+	Mon, 29 Sep 2025 11:10:21 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Bfp-00000002HLn-1Y7g
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 29 Sep 2025 11:04:05 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=In-Reply-To:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=kZxsy4ehieQIjfLWTzJ+0WnOyHLVTM4StVaGaTf2H2M=; b=RO7GZ0ifeCyolkGY1Y7ATx6sss
-	e//DjYdx0nRYSUIreaoUR++VLt+tyLZ1Eb/Hxlu4pY1uiwp8PPy6P8Koex0e43ru9hP/6zV2+ku/O
-	8qVYKgQyCOXxjTSHhKVW5yDFQ+fmxIZaIeAKdp6MOyNkL17jgP9wO0lbGXgBm5ZohhpN1NeYbTnTU
-	tB0u/XlKTRloBeLGuHUNINGnoMIDrPUaql9LQfDaNK8baXt5fxfVJ3HhoE12p+ELHvx/7vupEtwL8
-	DWhI/M5s9ZguDkUvDKrxaXoc9Is7GsJFlY0ELM9nt/OLIY7nrGA9ubRFiBDcMx6mzU+toyK/faqbg
-	gTdUlCsQ==;
-Received: from 77-249-17-252.cable.dynamic.v4.ziggo.nl ([77.249.17.252] helo=noisy.programming.kicks-ass.net)
-	by desiato.infradead.org with esmtpsa (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Bfk-0000000C4Ix-3xC7;
-	Mon, 29 Sep 2025 11:04:01 +0000
-Received: by noisy.programming.kicks-ass.net (Postfix, from userid 1000)
-	id 10F5830039F; Mon, 29 Sep 2025 13:04:00 +0200 (CEST)
-Date: Mon, 29 Sep 2025 13:04:00 +0200
-From: Peter Zijlstra <peterz@infradead.org>
-To: Geert Uytterhoeven <geert@linux-m68k.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>,
-	Nathan Chancellor <nathan@kernel.org>,
-	LKML <linux-kernel@vger.kernel.org>,
-	Linus Torvalds <torvalds@linux-foundation.org>,
-	kernel test robot <lkp@intel.com>,
-	Russell King <linux@armlinux.org.uk>,
-	linux-arm-kernel@lists.infradead.org,
-	Christophe Leroy <christophe.leroy@csgroup.eu>,
-	Darren Hart <dvhart@infradead.org>,
-	Davidlohr Bueso <dave@stgolabs.net>,
-	=?iso-8859-1?Q?Andr=E9?= Almeida <andrealmeid@igalia.com>,
-	x86@kernel.org, Alexander Viro <viro@zeniv.linux.org.uk>,
-	Christian Brauner <brauner@kernel.org>, Jan Kara <jack@suse.cz>,
-	linux-fsdevel@vger.kernel.org
-Subject: Re: [patch V2a 2/6] kbuild: Disable CC_HAS_ASM_GOTO_OUTPUT on clang
- < version 17
-Message-ID: <20250929110400.GL3419281@noisy.programming.kicks-ass.net>
-References: <20250916163004.674341701@linutronix.de>
- <20250916163252.100835216@linutronix.de>
- <20250916184440.GA1245207@ax162>
- <87ikhi9lhg.ffs@tglx>
- <87frcm9kvv.ffs@tglx>
- <CAMuHMdVvAQbN8g7TJyK2MCLusGPwDbzrQJHw8uxDhOvjAh7_Pw@mail.gmail.com>
- <20250929100852.GD3245006@noisy.programming.kicks-ass.net>
- <CAMuHMdW_5QOw69Uyrrw=4BPM3DffG2=k5BAE4Xr=gfei7vV=+g@mail.gmail.com>
+	id 1v3Blq-00000002I0T-2Eum
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 29 Sep 2025 11:10:19 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-46e32c0e273so101915e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 04:10:17 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1759144216; x=1759749016; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=KBw4ejj4fmMEafZBPpzx+wYOwZgdJDUmWT9JGV8MXfA=;
+        b=AgSVEA9ztu5jW8nCP3rKS6jCRB6o947zgODOi+ty0+NKY0DsX73TqFyeVGABfBQO1S
+         hUz91nRIcQSyFEjwXgVoijXbYO0JiEb6PXBW9tiyJtOsSqF1FCO3ItstsPIaDPIpy5iI
+         bT4Yc4TM9AO8Ahy5Kk47YrE/9Qd6gFFJgAQYupT8Qv6VTzFxVFSVXK+HOonAS3/DtKSg
+         v9XAGCRWwIkxbvf9LRG8O8nzR8kTU243AAZ53isB5hG8a05/qMft4zicdYL9cScA+Lva
+         tQqVuhdH0TCynXxgUE3uLleCbas6ezknIcgzgDZM6KxuugxmOKs9xqphh8bAHSnUfMw6
+         ZjAA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759144216; x=1759749016;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=KBw4ejj4fmMEafZBPpzx+wYOwZgdJDUmWT9JGV8MXfA=;
+        b=WgjPrCoNFz1839tspOyHonpORie4yN/ErQmaTT4TCqFfM10DCJxSCOpzLBAKPTKGb6
+         SWC1ia6Sh7pdLotIqwPTnEhuJAPoFwh8gQXdqbMbnoYEMxo4iBsHngBJQLH9/ODiflNo
+         6rYrtzmDT5aPWhLxUr8AyN5xeCY4k8G0uR3E3v5Z5jBUzEi3NEEbYiV6Es3HMJHBf4v+
+         BYHhZSD1ULLne7UQxbwEMRZg5M3hODTdxhevkb4Zy6dnoZkbIWGSI9ikj39R+LFX4Y7p
+         xH3u9nN35cDIFODhB7AMGURF1cfOTsaZPEuqELmJrxbkHNbmskI7+bFmoIh63WHrXLMV
+         CxwA==
+X-Forwarded-Encrypted: i=1; AJvYcCWrs7QOkrlsu/O+eEQqMVCwLKwwTtsEcL3jE0Wbuc+0Z0QCWsdsOZ2p6BmVkHVJyNzKQWLWDakO404Py39mHxTO@lists.infradead.org
+X-Gm-Message-State: AOJu0YwRTgtT3sNZ3VbpWmyizaG7wRnioR2vUefsriv/wt2JE82nzBmv
+	E4VQt1xMBPD+sCHsxbqevKgKqmw0xK2/xv0jbWDKbd82+WwgOu2yeQSICoWk1/XqSQ==
+X-Gm-Gg: ASbGncuWKAi5oonsJmtf+cwzd1gPcC0cU87NC5/Vd4KYzJ2PJhh3bHGOXuarfj+NU/I
+	8diOQtadkK9OmWbz+d+6TEN/BfyozuAKFiuPZGCrhZ2Rnzab1q9mCxKBTNWTVSxg2sTTtBmawqL
+	Qs8ZDQEOfD80U5PPFu6LfDJDIrwp5N7Z2HI/cwkxj9kyI4j6E3wpE89XaJJHxrnjaMR4hJXM7f6
+	4mAQHXioDm4K+0nU7lqm7/n2tJ6fMEI66z3biXH3nrVkZoIyExxNksUt5JU7SrQqupkQqy0kF0L
+	l+fthuhq3RooV74ahgWNRX3khOPRupZmrUjWmRuSy681McErInzyNV3N9EYnlu5ItVRAmvz6WB2
+	raL4ZKyDfl78/fQK4jB6qVgJMfbbiYlm2IkSDU4fdnW3S+8XoCCFOCCoYsGOcTZO6HIY=
+X-Google-Smtp-Source: AGHT+IFGf4k+JJs/tMEbOwTNQ+j0uedEPD+8WOGLeH7x1gD8a+XVxRfw6dvXWns5XmMqAfUaxJmdrw==
+X-Received: by 2002:a05:600c:37c3:b0:45b:9bcb:205 with SMTP id 5b1f17b1804b1-46e575a08e6mr402015e9.5.1759144216266;
+        Mon, 29 Sep 2025 04:10:16 -0700 (PDT)
+Received: from google.com (140.240.76.34.bc.googleusercontent.com. [34.76.240.140])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-40fc5603365sm18381901f8f.37.2025.09.29.04.10.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 29 Sep 2025 04:10:15 -0700 (PDT)
+Date: Mon, 29 Sep 2025 11:10:11 +0000
+From: Mostafa Saleh <smostafa@google.com>
+To: Jason Gunthorpe <jgg@ziepe.ca>
+Cc: Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, maz@kernel.org, oliver.upton@linux.dev,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, robin.murphy@arm.com,
+	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
+	mark.rutland@arm.com, praan@google.com
+Subject: Re: [PATCH v4 15/28] iommu/arm-smmu-v3: Load the driver later in KVM
+ mode
+Message-ID: <aNppE9A3PDiDg_1W@google.com>
+References: <20250819215156.2494305-1-smostafa@google.com>
+ <20250819215156.2494305-16-smostafa@google.com>
+ <aMQmA9cLaeYWG5_C@willie-the-truck>
+ <aNKwROPzDCWgJBGQ@google.com>
+ <20250923173806.GF2547959@ziepe.ca>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <CAMuHMdW_5QOw69Uyrrw=4BPM3DffG2=k5BAE4Xr=gfei7vV=+g@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250923173806.GF2547959@ziepe.ca>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250929_041018_590052_753208F4 
+X-CRM114-Status: GOOD (  21.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,36 +109,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 29, 2025 at 12:58:14PM +0200, Geert Uytterhoeven wrote:
-> On Mon, 29 Sept 2025 at 12:09, Peter Zijlstra <peterz@infradead.org> wrote:
-> > On Mon, Sep 29, 2025 at 11:38:17AM +0200, Geert Uytterhoeven wrote:
-> >
-> > > > +       # Detect buggy clang, fixed in clang-17
-> > > > +       depends on $(success,echo 'void b(void **);void* c();int f(void){{asm goto("jmp %l0"::::l0);return 0;l0:return 1;}void *x __attribute__((cleanup(b))) = c();{asm goto("jmp %l0"::::l1);return 2;l1:return 1;}}' | $(CC) -x c - -c -o /dev/null)
-> > >
-> > > This is supposed to affect only clang builds, right?  I am using
-> > > gcc version 13.3.0 (Ubuntu 13.3.0-6ubuntu2~24.04) to build for
-> > > arm32/arm64/riscv, and thus have:
-> > >
-> > >     CONFIG_CC_IS_GCC=y
-> > >
-> > > Still, this commit causes
-> > >
-> > >     CONFIG_CC_HAS_ASM_GOTO_OUTPUT=y
-> > >     CONFIG_CC_HAS_ASM_GOTO_TIED_OUTPUT=y
-> > >
-> > > to disappear from my configs? Is that expected?
-> >
-> > Not expected -- that means your GCC is somehow failing that test case.
-> > Ideally some GCC person will investigate why this is so.
+On Tue, Sep 23, 2025 at 02:38:06PM -0300, Jason Gunthorpe wrote:
+> On Tue, Sep 23, 2025 at 02:35:48PM +0000, Mostafa Saleh wrote:
+> > If we really want to avoid the current approach, we can keep deferring probe,
+> > until a check for a new flag set from “finalize_pkvm” which is called
+> > unconditionally of KVM state.
 > 
-> Oh, "jmp" is not a valid mnemonic on arm and riscv, and several other
-> architectures...
+> I still think the pkvm drivers should be bound to some special pkvm
+> device_driver and the driver core should handle all this special
+> dancing:
+>  - Wait for pkvm to decide if it will start or not
+>  - Claim a device for pkvm and make it visible in some generic way,eg
+>    in sysfs
+>  - Fall back to using the normal driver once we conclude pkvm won't
+>    run.
+> 
+> It sounds like a pain to open code all this logic in every pkvm
+> driver? How many do you have?
 
-Ah, d'0h indeed.
+I though more about this, I think involving the driver core will be
+useful in the future for init, as it will ensure power domains are
+probed before the SMMUs when RPM is supported.
 
-void b(void **);void* c();int f(void){{asm goto(""::::l0);return 0;l0:return 1;}void *x __attribute__((cleanup(b))) = c();{asm goto(""::::l1);return 2;l1:return 1;}}
+One simple way to do that, is the make the KVM SMMUv3 driver bind to
+the SMMUs first until KVM finish init, then it unbinds them so the
+main driver can be bind to them, that will not require any changes
+or assumptions from the main driver, but in runtime the KVM driver
+can't interact with the driver model.
 
-Seems to still finger the issue on x86_64. That should build on !x86
-too, right?
+Another possible solution, to keep a device bound to the KVM driver,
+is to probe the SMMUs from the KVM driver, then to create child devices;
+possibly use something as device_set_of_node_from_dev to bind those to
+the main SMMUv3 or find another way to probe the main SMMUv3 without
+changes.
+
+Then we have a clear parent/child representation in the kernel, we can
+also use sysfs/debugfs. But this might be more challenging, I will
+look more into both and will update the logic in v5.
+
+Thanks,
+Mostafa
+
+> 
+> Jason
 
