@@ -4,68 +4,190 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A1B9CAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 10:33:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2AEFCAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 10:33:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i87Vh+dTLbpXFKETkPxqqgMDVzPbOtus/f00ro6pLrk=; b=03Lq/4uWKiC3kRQz8jvt11q7EK
-	scxptXqD28mx26zre0vBnB5tzaYJLMe39ddoQFVoqRcCyb4w8QTdYb0T0Ip1Wm8Hr/X5GC4LKyd1O
-	I3hELG0am7CB8tX9Unpqun37b4H+ZmBLklSWc/1Yb0QC5nm0JvmgGtneNfQTzDxObDWDonuKd1Ykd
-	+fNSK7XM40QKAJnqi65oKz+o2OMfPkAnvAJXzmYkfkdvYIKNNmoFsPKjb+bm58s6E8ZRcsPpKhcQP
-	pnjV8QSBxnQ53rFmT/ZGA4LgGrvO6AVZAGguqfEQ2fgMKVMg4tWR4NbuBsY3I/4jQFw/KmKjXmOyM
-	Z2zYwabQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=h5aCZvL66BcX8YSkpYsZrG5E/TZw2wHrXdc9VadFAks=; b=hzGNVLX1I9NX/ROi/4ue9pfEuI
+	S6gnQL/a6EeX1C7+2Y/ZPPt/orjL7uP/AHddjpPuaaT+X6aRAFncmJ6hXKDKEv9U+rnYAMz9yHwP0
+	eK6RnzGUOKeo5fR4CauGzQILJKt8brBYp/Wg4QvbG6ayC1xQXJbJFS7PYKiv2Jfp4tkQLo0W7P3l5
+	8Dnd9F07D8IT8qYeB4tdeGPoYJIv4BTJByXgi900HNMz0w1SwaO7Bu2266IbkVjI5wSAgA6n0zM0p
+	nC2Ly1C6AQ9S42etvO+JU0RikwTJs9mOiDLl5L42K2okhGmDat2jLfyuluE1U4WnkY3ljRBtJvYDW
+	14odczDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3BCM-00000002C63-0LZ0;
-	Mon, 29 Sep 2025 10:33:38 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1v3BCT-00000002CCe-41WV;
+	Mon, 29 Sep 2025 10:33:45 +0000
+Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3BCE-00000002C09-0Za2;
-	Mon, 29 Sep 2025 10:33:31 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1759142008;
-	bh=VnSH6QTa5NpwE1TNlzdQCXuXVLs4Gn0vTe5U6PFFyig=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PMayS3MeXGIR3X4kukcqHEuV7MXltaopARkXd3WrmcEx/bMqdlh7Vw2I5czb3ZWQ0
-	 7dmnejiiyauAFmNf39VDrwELTBTB4Aadtulxe/AMyuNFD1k2FBFFNilXcYmhdnERrd
-	 d8BDoZNIgfj5fA+KGVsU9bSRVt8d4Zd8Z3kwQbfwxc+gHMrQimIC/Emol81/qv5Zlq
-	 LpFgbyomMCmNSrhsHfeuYgukjxcAiKBJGsoAzgECpRPbbZNPWiE8NEDJ6JQF52+Jnx
-	 J7OjN0OhQCypMxq/er9JTYfaBm8AWyfRS4Dg3T1Ohk3GUx+rrFSsy1CniTn8hAqrDM
-	 Zmmp3W7/4uSfA==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A23F017E108C;
-	Mon, 29 Sep 2025 12:33:27 +0200 (CEST)
-Message-ID: <b62611ef-7ead-4bbe-8c96-d39e3c5c8dd8@collabora.com>
-Date: Mon, 29 Sep 2025 12:33:27 +0200
-MIME-Version: 1.0
+	id 1v3BCK-00000002C3q-00Im;
+	Mon, 29 Sep 2025 10:33:38 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PQuFZTRygnhd5RSJXX2o34pBZHoqdXSTN2Q++2dGpYWp1C+0MuSltExWH45XZeT5TSgic96/3gamDKexNn+ZJVICfNHbct5t5POi4BjtvfRsIgvy19TSi6EmmSglhXT1IwFlGsR6VWYwOfZFq8cLU+z9koZvoXV2NQZFHdR77hCUB5xtyF9o7lxNapwLkuRfndtXVPyHTw7yaEMFfgx5G78Fcy1q1qyYWZxjQV2LTyMdp7w6ppu5OPs39K2MBWzDoKt7vSqZhWOV1tlp+2zLHN14ZSS4hwq/sodAbFF8+5gwhyJGitFMKv6KTM3j3iedYjcPuAChjzfFLtqtNWMx1g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=h5aCZvL66BcX8YSkpYsZrG5E/TZw2wHrXdc9VadFAks=;
+ b=sLNHyaZxFJC1UHCpyh9eVSJ3Y2ON07k32/8L21e11GctcKpFuJspXYuWz6tJNdV7nTlsEdru+FHqcofaHtUhP+iEoCCK5VPKAIhHHlLdatEjI7D2SKY2jFRuWFdJNqDQVHYGmeZd4lpS+5A9P5+OTudYiJbwUjVgYgR7b2zTWu2IyBbyFkUbbXpunIjD93hICWhzVYqccCMAqyMUjiC8XcuJoGFbl2xUn70gUmtsh9hDWVVOafGzQBH0IJBr5CKpKVdIIh7knd6e6Hw3R1Woy0EpDsgx5iC1Rb4bKeoJ7wpsaylirOpRy0xRbInwxTkeLEwU7bdfPlbMuOzq129uuA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=h5aCZvL66BcX8YSkpYsZrG5E/TZw2wHrXdc9VadFAks=;
+ b=kalq+PR8T+QrW/RI9+MlTZvc0/w35ziwiOtVrMUd+JcQN2wtBxF9li4GW5Yv1XdnU6eQ5BeLbHRaYydVGLsKYytXlkJE1XuwOzyIibHsGJ1AiSJ5Dga1q8je50+CkHbldM5YgynYD9KbGEn7ASNUlkgQVthqtCmRa39xeNho21k=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CO6PR12MB5427.namprd12.prod.outlook.com (2603:10b6:5:358::13)
+ by DM6PR12MB4138.namprd12.prod.outlook.com (2603:10b6:5:220::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.17; Mon, 29 Sep
+ 2025 10:33:26 +0000
+Received: from CO6PR12MB5427.namprd12.prod.outlook.com
+ ([fe80::9e93:67dd:49ac:bc14]) by CO6PR12MB5427.namprd12.prod.outlook.com
+ ([fe80::9e93:67dd:49ac:bc14%6]) with mapi id 15.20.9160.008; Mon, 29 Sep 2025
+ 10:33:26 +0000
+Message-ID: <35328505-8e2c-48df-840d-25e1a7521442@amd.com>
+Date: Mon, 29 Sep 2025 06:33:03 -0400
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 2/2] mailbox: mediatek: Add mtk-vcp-mailbox driver
-To: Jjian Zhou <jjian.zhou@mediatek.com>,
- Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Chen-Yu Tsai <wenst@chromium.org>
-Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- Project_Global_Chrome_Upstream_Group@mediatek.com
-References: <20250926090505.26267-1-jjian.zhou@mediatek.com>
- <20250926090505.26267-3-jjian.zhou@mediatek.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH RFC 1/5] drm: Support post-blend color pipeline API
+To: Sebastian Wick <sebastian@sebastianwick.net>,
+ Daniel Stone <daniel@fooishbar.org>,
+ =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>
+Cc: Xaver Hugl <xaver.hugl@gmail.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Alex Hung <alex.hung@amd.com>, wayland-devel@lists.freedesktop.org,
+ leo.liu@amd.com, ville.syrjala@linux.intel.com,
+ pekka.paalanen@collabora.com, mwen@igalia.com, jadahl@redhat.com,
+ sebastian.wick@redhat.com, shashank.sharma@amd.com, agoins@nvidia.com,
+ joshua@froggi.es, mdaenzer@redhat.com, aleixpol@kde.org,
+ victoria@system76.com, uma.shankar@intel.com, quic_naseer@quicinc.com,
+ quic_cbraga@quicinc.com, quic_abhinavk@quicinc.com, marcan@marcan.st,
+ Liviu.Dudau@arm.com, sashamcintosh@google.com,
+ chaitanya.kumar.borah@intel.com, louis.chauvet@bootlin.com,
+ mcanal@igalia.com, kernel@collabora.com, daniels@collabora.com,
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ Simona Vetter <simona.vetter@ffwll.ch>
+References: <20250822-mtk-post-blend-color-pipeline-v1-0-a9446d4aca82@collabora.com>
+ <20250822-mtk-post-blend-color-pipeline-v1-1-a9446d4aca82@collabora.com>
+ <CAPj87rPAoD2D99zTdsvJ=9K8+G17mTS2jDYHMPYmXNtUyp2L_Q@mail.gmail.com>
+ <CAFZQkGwotQ6cxVCSgp-BhUi5DaZ7MyVvbnrDJW11Z7ztzqy58g@mail.gmail.com>
+ <CAPj87rMTOD3_tC70QX4xz3G4zdG=tmwt5VgPhq6jNyf8bbW49Q@mail.gmail.com>
+ <269ca85a59f613568543f45867fba7e604cc9f11.camel@collabora.com>
+ <CAPj87rMhsFy+uzKmNecrQG4e+BEoeX1FyEobO7bnHdQqhy1_2Q@mail.gmail.com>
+ <7a25beb8-6b81-4652-b509-b6410ae1dec1@app.fastmail.com>
 Content-Language: en-US
-In-Reply-To: <20250926090505.26267-3-jjian.zhou@mediatek.com>
+From: Harry Wentland <harry.wentland@amd.com>
+In-Reply-To: <7a25beb8-6b81-4652-b509-b6410ae1dec1@app.fastmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: VI1PR10CA0117.EURPRD10.PROD.OUTLOOK.COM
+ (2603:10a6:803:28::46) To CO6PR12MB5427.namprd12.prod.outlook.com
+ (2603:10b6:5:358::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO6PR12MB5427:EE_|DM6PR12MB4138:EE_
+X-MS-Office365-Filtering-Correlation-Id: 00580b76-069a-4066-4a33-08ddff439f86
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|10070799003|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?NUJjaExQY1lBZjlWbjI0VUlnWVBnWHkyU1lLbTYveXZEQVVNQTdTUHJnRlNV?=
+ =?utf-8?B?NUJ4V0F2Vjc5UUxpb01HRU9oMk9oT1NiRWRqd1IyRVVHeGo3K1h0OUM1dDdt?=
+ =?utf-8?B?N096dGhzZnRoYlI3b0drWW9OeS9yNjNuNkNRbHRiMTR5dGUxaklBR21LQlBN?=
+ =?utf-8?B?KytKY3ZodTFkUE0vdmNvbkRiVTFjMVIrVUpqNW5qOUdBa1g2MVVpb01Udllx?=
+ =?utf-8?B?Z2lPUWRRNTVuMTNRcGZ2MzJwdE9EV2VVdGZUOWx6QlRPK20wd2tlM0lIUmZS?=
+ =?utf-8?B?Q0NCRktmVzlraVcrQ2ozaUROb1J1RnpGaTZSSVd2Mm44cExoWUVyRGZuUjBp?=
+ =?utf-8?B?MTRucnp5UXhpVndmS3lidXl6b2F1SklMNkxWeDZMWDlBaERJc1FtUmJ2Ukxl?=
+ =?utf-8?B?YnExdnJtY0NGOGhOR0puMDVsRlVNMHNaRDJaVTBWcnNablJTRnNkbTEzSEM3?=
+ =?utf-8?B?eEdjaDdYa0djZGlSMkErWldTanBYZUY5NlpIL1VLVytIMG1WZFpYSWdqRU43?=
+ =?utf-8?B?VG5uQzRtT1dwR0JoYllZSWI2WGZHbUZoTkU1RXRDaGlyQVZRUGt4TVN5UUlD?=
+ =?utf-8?B?K24xMFZoOEhHYU5mUy95UFNKRWV0eXhyRkxITDN1VENEZXk1ZG5ZZE5ZdGNr?=
+ =?utf-8?B?bWlxNjZhcmlhSjlENkYycktjaGlhdHNWejhaSDNmSlVrOVRoWVZYeVBPNXhE?=
+ =?utf-8?B?NkFWRGV5UHN3OXhSU09xQ29Xb3AxR2VXOXRTVHFDZWhUWEhtZXpnOUhhL2ZJ?=
+ =?utf-8?B?emkxL3lIanNZK3lmNVg0VWJpL0J5U3Uxbm4wK1VwOVFkaDlReC9zWFBzSEZW?=
+ =?utf-8?B?MGRiMTRIQTZsNjBzU0FkTklwdGsxZm54ckRWOVI5OUFXOUpyb1JDd3hJZkdJ?=
+ =?utf-8?B?eGhkRWpCeUREOFB2b0hsMWhiNjFPU1pWU0tvaUJMeEoza3BNdXV3WkFMaFpV?=
+ =?utf-8?B?ekwzcUFJdE5PM1dZMU8vcVJ6Q2d5NEV5RWFZM21HRVZLTHNIeGtObUVBMW8r?=
+ =?utf-8?B?OFRva0Fua0ZiOXBEUjNiZWo1a0FGRlk5Zzd3d1ZaU3o5RFhDZzV4UitzOWZj?=
+ =?utf-8?B?RXdXVVl0aFNHY1lrazhJc21RaHNka2RrcVM5ei8wZG1QMWcreEU5T0Q0MmhB?=
+ =?utf-8?B?RlAxRjVvSUtEdXdLSUgzZVhZdzJ3WERLNDZlN1k1aUdyd2dUVmNabmFCOEpX?=
+ =?utf-8?B?MGNRSXN1UkUrSlJ3ZUs2ZG12bWNUN3Q4T3cxa0M2M2lGY2Fja3h6dmVnQnRm?=
+ =?utf-8?B?YytRQk4wcHQ5U1FoZkg1dEZ2NDh3YWZObDJGVVZFaUlPbmNoaFVVODd0SDNx?=
+ =?utf-8?B?RE5xYjZFOVk5elZORTRveHR3VGhkcTJEYjJweC9qclNPRUtZZEdFOHh6eXN2?=
+ =?utf-8?B?ejlMUE50OUx2Wm9wZXkxZTNoVW5yeFZWR1hxQWI5SlhJYTZsNWFnaDBKdGli?=
+ =?utf-8?B?N01tbDFkcTk5S1p5Zm51VDJveG8wSHlmNjVheDFvc2hNc2ljbWZYcWZmRnNX?=
+ =?utf-8?B?TGdhaGRQeXMzV2VKcVBqY29UMTRkQTB0VElMelA4S1JZNFp1eWRKTFZHRmlx?=
+ =?utf-8?B?WGxJQ3ZBSHBkeFZuR2xYbUtXbHBXYXRCUFhpVUtPV0N4SWxkWjdJejVqWE9Z?=
+ =?utf-8?B?aVV3eDVYQXZ1L2JHWFh0dHdZV05vWWNUamFYT2ZCdU1hUTBHVmw5UDVUeTV1?=
+ =?utf-8?B?MUVHbFZ5SWhvb05JMitOMDIwR3hLMVNpSlVQOHBwN2lyR0RmK3lQbndTRWtT?=
+ =?utf-8?B?L1ZTRWU5dmtpZzh1dlh3dERhL0c1YWFjNUZ5c3JxUkMyeUhDYks1YW1TTktE?=
+ =?utf-8?B?SFhTSEJJRmN1eXZWdWhyT21FUjJHamJVc3p1eUZkNy9YUGwxeFp3QkdvbFpV?=
+ =?utf-8?B?dU02am5hZmtsdng5Z3RjV0xqT3ZqWU1FZmFkK01OeEdBYWxDNUU0WmRjU2Vp?=
+ =?utf-8?Q?7c1UuYILsHqVO/CmVyAShLCa38GTmAds?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR12MB5427.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(10070799003)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SHNYbzRZdUxOTHNpYk5xM1FTUFkrTXVXNHpRUGl0cm9Qb0xyWGVIdjd3QjJG?=
+ =?utf-8?B?QXBITnpsQktPbkdXUSt3S0ZoWXpma1Q3NG9LbG14Z0N1WWFjd2FwRnF0YjJP?=
+ =?utf-8?B?ZWVUNkp1RzZEM1c2cHZTa1g0QmhCVzU3NGVOQUhsai90dGZHOHBBR2kvS2xD?=
+ =?utf-8?B?Skp2MDA4R05FVHltRHFwNWx6UDVpY0Z1MVl2OTJTWDhnV3dFU1JxT1ZzNlFs?=
+ =?utf-8?B?S09YM0xZWGMwOVRBZzhsWllzclU2bkhzMzVmUVBUeHVvU2dXNWx5bEcxMHJJ?=
+ =?utf-8?B?L2l4Z2hSNW5aalpKZEZ6VjJSSjB0dnJxdS9IeWJzZmM5QzZ4YjB4dzBJN041?=
+ =?utf-8?B?MHZSRnRCTmJkbjc3aWxGcE5HR0VzOC94Q3BQNEE3MmhFSHg3YXJsSkxjZ2k0?=
+ =?utf-8?B?cUxXdXBEejI1YlNPSGVzT25rNjl3dzVLaEdGeTVkRXBZRXc0aEliNjlaWWFC?=
+ =?utf-8?B?RmpHbHlFU011Tjh0WkYyMEMxeDJUT0puRFV5Z0JieERIRU1FcXFBVlVTeUlh?=
+ =?utf-8?B?eHBUZS9TTVdHTEZrcHh0UlVDazRaTjBoWUczcWVDQnBZM2VtOVNHSGl1cnVs?=
+ =?utf-8?B?ZVdnTlNDaUFWdnpSdEFWMXZVZWt5YUNLbkRxQ0VYNlJ5ekRES0FjZXpFa2VL?=
+ =?utf-8?B?NE9YcjVWVlArTlFwc01EWGhIMjFKaXNmbXMzT1RNeEliNEpLNFZENm4vZTJl?=
+ =?utf-8?B?UWhHaWxNU0dZM016WFBOZHlScjRDdjZWV1psN2x1UmlNRDBHRVRGOGp5MHJB?=
+ =?utf-8?B?a21zeFlRd0F1UzNDQlk2amI5aUExYXpoZHpyMnN5ZTVoYjQ5M1pCOTNlVTdU?=
+ =?utf-8?B?Tis3Zk1LWCtCSldVWXBNN1ZsSE9qUThWYTFjWTJ1dzBjK1VucjY5Sm9hM1Bx?=
+ =?utf-8?B?MzEydHRvcTk2d29NNWsxRzJ3aCs2VTRLaVgyUk5jVHhpUmVBZWRHeEVBM3NV?=
+ =?utf-8?B?WTFSZERpME9kR09BTytvS0ZhdzlsTjRDMTJQcEJ1dHVNRytiTVVNK3ZqSW5P?=
+ =?utf-8?B?ZFAzVC96VnllenZCTU1iZUMxM1RwdjhqU3NQb0lId0dTZGU0VmpGQUJyN3lV?=
+ =?utf-8?B?N2d2SXJ6QW1ydUFmbThndmE2RHpudXF5M01DeU1oQ3ljRTdhL0YzSU85Ti9Y?=
+ =?utf-8?B?OTFtMGluWDFVNGkzditOTkRZYm5HNklrRWlsMWEwVDZjZFZmVkhxZXBLbWFv?=
+ =?utf-8?B?WFp5Zm13YkRJUjhKMjlsTFA2Q3o2WE5ad1dtQUNNYW13NWdFS2ZrTGREaldl?=
+ =?utf-8?B?bzk2U204VVVBZndPVWZQQXlyTmdqNXVZcmN3UVNKN3hvWHJpMDVMTVRLblBP?=
+ =?utf-8?B?RWJvZ1dzb0p0RmQ0L0NaQ0svLzh0MFNUQUhYTmJySkFYWWhGeGVKOVNtVmFi?=
+ =?utf-8?B?VVRacDYrWGptQ3ErTHlSM1c4dVFVNVo2UTJ3RGlkanlqb1JVeHhjNzVVTHQx?=
+ =?utf-8?B?T3lPUStkektRZTdkeWZtbVNZNk9MVjd6bDk5UVdPNkgxZXBoenBUdjRSMmJm?=
+ =?utf-8?B?V0cvRFI2TDNZeHFwN0o5b1Jaa2l2RU5DeEhINDRkNUd6SFdmUzdSMTQ3d3Jj?=
+ =?utf-8?B?MkptdjVadFBVRjNTbUxQT0EwbGlJWXhPNWc5SW5KTkoxVnRDNFdPZ2RZdWZr?=
+ =?utf-8?B?QWtTRU8ySWtOMFFSNjdKNmVRdFQyYnEyZzQ3VUZLYjJ2YmdweVBPdVQ1ditj?=
+ =?utf-8?B?NzBTcXZiZHgxMFdQKzdaR3pncThLOHNjeHZBU0g0R2FoMWJBaEpTZVF1YkYx?=
+ =?utf-8?B?MnV5TmY4U2pGcFNLSWh1eHNYVVljaGE1Z3pmckN5OHRWNU5XVXpYSExxZDNw?=
+ =?utf-8?B?aXY1M3ZnclhJdUJMQ2MwU0I0RVhMWVg5WTRKekh6bE0ycHowdlA2eW9scHpu?=
+ =?utf-8?B?NWhTSVY3T2FKOGh2QUh4T0VNcWJXT1A4d09WemRoNW9IVWR5KzdOKzIvY04y?=
+ =?utf-8?B?L2lCMU1QQTQwNjNLUGRRU3JXZ25WSDdNTE9hWEFSSENPWFR5Vkw4NVVUeEVL?=
+ =?utf-8?B?eDdjUHhGRXJrclg4cDJEQW5TQ3dkdzFoR1Z0TDNxU3FNWlZYNWJOTm1PK2FO?=
+ =?utf-8?B?cm5pVE9Bc2p2OEZhWnFiUXdZdjJlQkJKcnA5UlRWbHJibVRaN0U0bTljZEs0?=
+ =?utf-8?B?Wk9yU1JzVjFWaSszZTc1aDNyTHNkeldidERtNzd1Z3IrVTBGNnVxbkk4RlJ4?=
+ =?utf-8?Q?tbzxZrbTzB/M2ynhtkwlzoE=3D?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 00580b76-069a-4066-4a33-08ddff439f86
+X-MS-Exchange-CrossTenant-AuthSource: CO6PR12MB5427.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2025 10:33:26.4149
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: UDJzDCjc4KGcg+HbCUm42iLtFOEaH65ljW5OZ7cpLJ67sZ2G+mFgIUHXGIYbp0/GVqBkYcLcCpAvJ9PfCcj4fA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR12MB4138
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_033330_375409_EA055737 
-X-CRM114-Status: GOOD (  35.06  )
+X-CRM114-CacheID: sfid-20250929_033336_186627_58FB1697 
+X-CRM114-Status: GOOD (  28.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,284 +202,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 26/09/25 11:05, Jjian Zhou ha scritto:
-> Add mtk-vcp-mailbox driver to support the communication with
-> VCP remote microprocessor.
+
+
+On 2025-09-26 09:51, Sebastian Wick wrote:
+> (Sorry for re-sending; used a web mail client which send html)
 > 
-> Signed-off-by: Jjian Zhou <jjian.zhou@mediatek.com>
-> ---
->   drivers/mailbox/Kconfig                 |   9 ++
->   drivers/mailbox/Makefile                |   2 +
->   drivers/mailbox/mtk-vcp-mailbox.c       | 168 ++++++++++++++++++++++++
->   include/linux/mailbox/mtk-vcp-mailbox.h |  32 +++++
->   4 files changed, 211 insertions(+)
->   create mode 100644 drivers/mailbox/mtk-vcp-mailbox.c
->   create mode 100644 include/linux/mailbox/mtk-vcp-mailbox.h
+> On Mon, Sep 15, 2025, at 2:31 PM, Daniel Stone wrote:
+>> Hi Nícolas,
+>>
+>> On Wed, 3 Sept 2025 at 19:43, Nícolas F. R. A. Prado
+>> <nfraprado@collabora.com> wrote:
+>>> On Tue, 2025-08-26 at 13:25 +0100, Daniel Stone wrote:
+>>> Based on this discussion, this is my understanding for the changes
+>>> desired on the series and their reasonings:
+>>>
+>>> 1. Add a driver cap, DRM_CAP_POST_BLEND_COLOR_PIPELINE, which drivers
+>>> will use to signal they support post-blend color pipelines.
+>>>    - Reason: Allow userspace to figure out that the driver doesn't
+>>> support post-blend color pipelines and choose to not set the client
+>>> cap, DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE, so it can use legacy
+>>> color management instead.
+>>> 2. Make it so setting the client cap,
+>>> DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE, fails if the driver cap,
+>>> DRM_CAP_POST_BLEND_COLOR_PIPELINE, isn't set
+>>>    - Reason: Prevent userspace from making color management unusable if
+>>> the driver doesn't support post-blend color pipelines, as the legacy
+>>> color-management properties (GAMMA_LUT, DEGAMMA_LUT, CTM) would be
+>>> unwriteable with the client cap set.
+>>
+>> Definitely.
+>>
+>>> 3. Make legacy color-management properties (GAMMA_LUT, DEGAMMA_LUT,
+>>> CTM) read-only if the client cap,
+>>> DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE, is set
+>>>    - Reason: Allow drm_info to print legacy color management
+>>> configuration while still enabling post-blend color pipelines through
+>>> the client cap. Also to allow smooth handover from pre-colorop
+>>> userspace client to colorop-ready userspace client, as the latter can
+>>> now replicate the legacy color configuration through the colorops.
+>>
+>> I think yes, but I don't really feel strongly about this. If others
+>> involved have stronger opinions, I'm happy to yield.
 > 
-> diff --git a/drivers/mailbox/Kconfig b/drivers/mailbox/Kconfig
-> index 02432d4a5ccd..c28bdb855663 100644
-> --- a/drivers/mailbox/Kconfig
-> +++ b/drivers/mailbox/Kconfig
-> @@ -294,6 +294,15 @@ config MTK_CMDQ_MBOX
->   	  critical time limitation, such as updating display configuration
->   	  during the vblank.
->   
-> +config MTK_VCP_MBOX
-> +	tristate "MediaTek VCP Mailbox Support"
-> +	depends on ARCH_MEDIATEK || COMPILE_TEST
-> +	help
-> +	  Say yes here to add support for the MediaTek VCP mailbox driver.
-> +	  The mailbox implementation provides access from the application
-> +	  processor to Video Companion Processor Unit.
-> +	  If unsure say N.
-> +
->   config ZYNQMP_IPI_MBOX
->   	tristate "Xilinx ZynqMP IPI Mailbox"
->   	depends on ARCH_ZYNQMP && OF
-> diff --git a/drivers/mailbox/Makefile b/drivers/mailbox/Makefile
-> index 98a68f838486..07278871d254 100644
-> --- a/drivers/mailbox/Makefile
-> +++ b/drivers/mailbox/Makefile
-> @@ -63,6 +63,8 @@ obj-$(CONFIG_MTK_ADSP_MBOX)	+= mtk-adsp-mailbox.o
->   
->   obj-$(CONFIG_MTK_CMDQ_MBOX)	+= mtk-cmdq-mailbox.o
->   
-> +obj-$(CONFIG_MTK_VCP_MBOX)	+= mtk-vcp-mailbox.o
-> +
->   obj-$(CONFIG_ZYNQMP_IPI_MBOX)	+= zynqmp-ipi-mailbox.o
->   
->   obj-$(CONFIG_SUN6I_MSGBOX)	+= sun6i-msgbox.o
-> diff --git a/drivers/mailbox/mtk-vcp-mailbox.c b/drivers/mailbox/mtk-vcp-mailbox.c
-> new file mode 100644
-> index 000000000000..a2a80d124e50
-> --- /dev/null
-> +++ b/drivers/mailbox/mtk-vcp-mailbox.c
-> @@ -0,0 +1,168 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (c) 2025 MediaTek Corporation. All rights reserved.
-> + * Author: Jjian Zhou <jjian.zhou.@mediatek.com>
-> + */
-> +
-> +#include <linux/interrupt.h>
-> +#include <linux/io.h>
-> +#include <linux/kernel.h>
-> +#include <linux/mailbox_controller.h>
-> +#include <linux/mailbox/mtk-vcp-mailbox.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/slab.h>
-> +
-> +struct mtk_vcp_mbox {
-> +	struct mbox_controller mbox;
-> +	void __iomem *base;
-> +	struct device *dev;
-> +	const struct mtk_vcp_mbox_cfg *cfg;
-> +	struct mtk_ipi_info ipi_recv;
-> +	struct mbox_chan chans;
-> +};
-> +
-> +struct mtk_vcp_mbox_cfg {
-> +	u32 set_in;
-> +	u32 clr_out;
+> So I'm going to argue that making the properties read-only or read-write is useless.
+> 
+> The only case where knowing the color pipeline of the previous user would be useful is if you want to re-use the framebuffer of said user. Otherwise, the color pipeline and the generated framebuffer have to somehow just match to produce the desired output and that does not require any previous state, making the legacy properties useless.
+> 
+> If we genuinely believe that this is something to be supported, then my question is why the new color pipeline should not be able to accurate reflect the state of the previous user, even if they used the legacy props?
+> 
+> The hardware was able to get into some state based on the legacy props, so it will be able to get into the same state with the color pipeline props; it's "just" a matter of exposing the right pipeline.
+> 
+> If we are not able to accurate reflect the previous state with the pipeline props, then use space will see inconsistent state between the legacy and color pipeline props. Which state is the right one? We cannot know. The previous user could have used either one. So having the legacy props does not help because we don't know if we should use them or the pipeline state.
+> 
+> So, I would argue that we should *remove* the legacy props if DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE is set. If the handover is relevant for a driver, they should ensure the legacy props state translates to the correct color pipeline state.
 
-u16 is enough for both register offsets, at least for now - and I suspect it's
-going to be enough forever.
+I tend to agree. The DRM driver cap seems to complicate the handling for 
+userspace and drivers, which makes the whole mechanism more fragile, all 
+to work around a commonly known short-coming of DRM/KMS, which is the 
+default state problem when transitioning between userspace clients.
 
-> +};
-> +
-> +static irqreturn_t mtk_vcp_mbox_irq_thread(int irq, void *data)
-> +{
-> +	struct mtk_vcp_mbox *priv = data;
-> +
-> +	/* get irq status */
-> +	priv->ipi_recv.irq_status = readl(priv->base + priv->cfg->clr_out);
-> +
-> +	__ioread32_copy(priv->ipi_recv.msg, priv->base, MBOX_SLOT_MAX_SIZE / 4);
-> +
-> +	mbox_chan_received_data(&priv->chans, &priv->ipi_recv);
-> +
-> +	/* clear irq status */
-> +	writel(priv->ipi_recv.irq_status, priv->base + priv->cfg->clr_out);
-> +
-> +	return IRQ_HANDLED;
-> +}
-> +
-> +static struct mbox_chan *mtk_vcp_mbox_xlate(struct mbox_controller *mbox,
-> +					    const struct of_phandle_args *sp)
-> +{
-> +	if (sp->args_count)
-> +		return NULL;
-> +
-> +	return &mbox->chans[0];
-> +}
-> +
-> +static int mtk_vcp_mbox_send_data(struct mbox_chan *chan, void *data)
-> +{
-> +	struct mtk_vcp_mbox *priv = chan->con_priv;
-> +	struct mtk_ipi_info *ipi_info = data;
-> +	u32 status;
-> +
-> +	if (!ipi_info->msg) {
-> +		dev_err(priv->dev, "msg buffer is NULL.\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	status = readl(priv->base + priv->cfg->set_in) & BIT(ipi_info->index);
+Harry
 
-status = readl(priv->base + priv->cfg->set_in);
-if (status & BIT(ipi_info->index) {
-  ....
-}
-
-> +	if (status) {
-> +		dev_warn(priv->dev, "mailbox IPI %d is busy.\n", ipi_info->id);
-> +		return -EBUSY;
-> +	}
-> +
-> +	if (ipi_info->slot_ofs + ipi_info->len > MBOX_SLOT_MAX_SIZE)
-> +		return -EINVAL;
-> +	__iowrite32_copy(priv->base + ipi_info->slot_ofs, ipi_info->msg,
-> +			 ipi_info->len);
-> +
-> +	writel(BIT(ipi_info->index), priv->base + priv->cfg->set_in);
-> +
-> +	return 0;
-> +}
-> +
-> +static bool mtk_vcp_mbox_last_tx_done(struct mbox_chan *chan)
-> +{
-> +	struct mtk_ipi_info *ipi_info = chan->active_req;
-> +	struct mtk_vcp_mbox *priv = chan->con_priv;
-> +
-> +	return !(readl(priv->base + priv->cfg->set_in) & BIT(ipi_info->index));
-> +}
-> +
-> +static const struct mbox_chan_ops mtk_vcp_mbox_chan_ops = {
-> +	.send_data	= mtk_vcp_mbox_send_data,
-> +	.last_tx_done	= mtk_vcp_mbox_last_tx_done,
-> +};
-> +
-> +static int mtk_vcp_mbox_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct mtk_vcp_mbox *priv;
-> +	struct mbox_controller *mbox;
-> +	int ret, irq;
-> +
-> +	priv = devm_kzalloc(dev, sizeof(*priv), GFP_KERNEL);
-> +	if (!priv)
-> +		return -ENOMEM;
-> +
-> +	priv->dev = dev;
-> +	priv->chans.con_priv = priv;
-> +	mbox = &priv->mbox;
-> +	mbox->dev = dev;
-> +	mbox->ops = &mtk_vcp_mbox_chan_ops;
-> +	mbox->txdone_irq = false;
-> +	mbox->txdone_poll = true;
-> +	mbox->of_xlate = mtk_vcp_mbox_xlate;
-> +	mbox->num_chans = 1;
-> +	mbox->chans = &priv->chans;
-> +
-> +	priv->ipi_recv.msg = devm_kzalloc(dev, MBOX_SLOT_MAX_SIZE, GFP_KERNEL);
-> +	if (!priv->ipi_recv.msg)
-> +		return -ENOMEM;
-> +
-> +	priv->base = devm_platform_ioremap_resource(pdev, 0);
-> +	if (IS_ERR(priv->base))
-> +		return PTR_ERR(priv->base);
-> +
-> +	priv->cfg = of_device_get_match_data(dev);
-> +	if (!priv->cfg)
-> +		return -EINVAL;
-> +
-> +	irq = platform_get_irq(pdev, 0);
-> +	if (irq < 0)
-> +		return irq;
-> +
-
-Please set the driver data before requesting the interrupt: what happens if the
-ISR is run before having driver data available otherwise?! :-)
-
-> +	ret = devm_request_threaded_irq(dev, irq, NULL,
-> +					mtk_vcp_mbox_irq_thread, IRQF_ONESHOT,
-> +					dev_name(dev), priv);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	platform_set_drvdata(pdev, priv);
-> +
-> +	return devm_mbox_controller_register(dev, &priv->mbox);
-> +}
-> +
-> +static const struct mtk_vcp_mbox_cfg mt8196_cfg = {
-> +	.set_in		= 0x100,
-> +	.clr_out	= 0x10c,
-> +};
-> +
-> +static const struct of_device_id mtk_vcp_mbox_of_match[] = {
-> +	{ .compatible = "mediatek,mt8196-vcp-mbox", .data = &mt8196_cfg },
-> +	{},
-> +};
-> +MODULE_DEVICE_TABLE(of, mtk_vcp_mbox_of_match);
-> +
-> +static struct platform_driver mtk_vcp_mbox_driver = {
-> +	.probe		= mtk_vcp_mbox_probe,
-> +	.driver = {
-> +		.name	= "mtk_vcp_mbox",
-> +		.of_match_table = mtk_vcp_mbox_of_match,
-> +	},
-> +};
-> +module_platform_driver(mtk_vcp_mbox_driver);
-> +
-> +MODULE_AUTHOR("Jjian Zhou <jjian.zhou@mediatek.com>");
-> +MODULE_DESCRIPTION("MTK VCP Mailbox Controller");
-> +MODULE_LICENSE("GPL");
-> diff --git a/include/linux/mailbox/mtk-vcp-mailbox.h b/include/linux/mailbox/mtk-vcp-mailbox.h
-> new file mode 100644
-> index 000000000000..143fb0d06e30
-> --- /dev/null
-> +++ b/include/linux/mailbox/mtk-vcp-mailbox.h
-> @@ -0,0 +1,32 @@
-> +/* SPDX-License-Identifier: (GPL-2.0 OR MIT) */
-> +/*
-> + * Copyright (c) 2025 MediaTek Inc.
-> + */
-> +
-> +#ifndef __MTK_VCP_MAILBOX_H__
-> +#define __MTK_VCP_MAILBOX_H__
-> +
-> +#define MBOX_SLOT_MAX_SIZE	0x100 /* mbox max slot size */
-
-Please, change this definition to MTK_VCP_MBOX_SLOT_MAX_SIZE
-
-Cheers,
-Angelo
-
-> +
-> +/**
-> + * struct mtk_ipi_info - mailbox message info for mtk-vcp-mailbox
-> + * @msg: The share buffer between IPC and mailbox driver
-> + * @len: Message length
-> + * @id: This is for identification purposes and not actually used
-> + *	by the mailbox hardware.
-> + * @index: The signal number of the mailbox message.
-> + * @slot_ofs: Data slot offset.
-> + * @irq_status: Captures incoming signals for the RX path.
-> + *
-> + * It is used between IPC with mailbox driver.
-> + */
-> +struct mtk_ipi_info {
-> +	void *msg;
-> +	u32 len;
-> +	u32 id;
-> +	u32 index;
-> +	u32 slot_ofs;
-> +	u32 irq_status;
-> +};
-> +
-> +#endif
+> 
+>>> Side note: Smooth handover back to pre-colorop userspace after tweaking
+>>> the colorops to something else would not be possible without making the
+>>> legacy properties writable too, so that the client could update them to
+>>> match the colorops setting before switching back. I don't imagine this
+>>> would be a common use case, and colorops are a superset of the legacy
+>>> properties so there are cases where it wouldn't even be possible to
+>>> replicate the colorop setting on the legacy properties, but thought I'd
+>>> mention this limitation for completeness' sake.
+>>
+>> That's a totally acceptable tradeoff. We don't have a standard
+>> inter-client capability handshake, so if downgrading from a
+>> newer/more-capable to an older/less-capable client is a bit janky,
+>> that's OK. There's only so much we can do given the original design
+>> decision for the KMS core to not be opinionated about a 'golden state'
+>> that could be used as a reference for userspace to work from as a
+>> base.
+>>
+>>> Also, as Xaver noted, this feedback also applies to pre-blend pipelines
+>>> and its legacy color-management properties (COLOR_ENCODING,
+>>> COLOR_RANGE), so the same changes would be desirable there for the same
+>>> reasons. So we should share this feedback on that series as well.
+>>
+>> Yep.
+>>
+>> Cheers,
+>> Daniel
+>>
 
 
