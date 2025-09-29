@@ -4,138 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BA40CAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 07:39:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B603DCAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 07:44:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aIJ3xA1SPOEd2mgilRha1ETEgH03qNaHwcw6RvQZfNM=; b=GHFcLcwJEeUrtHW9WKvJUuMZVR
-	gQVOKydZbeKoFKrH1aDDzBBlD2Xxz3Y9QE5fdifgcIFfrNbQTOq6E5lqVu7An6UKd3OFz+5Y4U5Z+
-	UJJXy7Su2HjAbiJwrpsZbY23sw6VEWz5/P7K5E51dHGZ6by7C3nHqPnRFi67cVu+GF8DNmKbZZutp
-	96CmhuHcd1PQGOzPbVQsAITo8CbMbuEEmfCrLpF8lELiFtMP0tAjcgMmza2eGYBrEIaBTPeQWYtw9
-	PPurjUpr4oB1u64/9qcvaPSZonBotjUuTQblGmCXh4gzAZ88na3rX2Ijiud41IwAiI32m1ahCWTs3
-	3LVZpG+w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4IugYQww6ZMP7fZxYkyvyMGRoB8H1RfKni966hm3Oic=; b=MOWNj/V7yE7zSkADc+JtRGndY6
+	ikdNCw7B1gdnDSDugefkdumRq9S54IeVVSQe4v3iqRhiDQwkcBsyt8etjTnYJQYXaUm3xLOTwFGSr
+	h/atuCFmuDn6Nq+3W1D+rBTkHg+5XHAGxG2gBrA/IArTJ6MS9HkeRPqwPAN1mRpD01P+EEuwuJOp9
+	c8wyTCvbxr7t1r+UNAQBXa3Jsf40DGqct0nB2+wvTVVyYqE6vjBZUJgzBNb/Mqy9fSsZwzaKSlQgq
+	z7It4bybCClKMx9pcWup99LbmzFPBJkccqqxEe6gBIBs71cvb49oKbbGmx5++iNkdYFLnGVewLZPk
+	rOyKwDfg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v38TT-00000001drO-36L9;
-	Mon, 29 Sep 2025 07:39:07 +0000
-Received: from mail-westusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c000::1] helo=BYAPR05CU005.outbound.protection.outlook.com)
+	id 1v38YJ-00000001eY8-3B6w;
+	Mon, 29 Sep 2025 07:44:07 +0000
+Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v38TE-00000001dhy-1wi6
+	id 1v38YH-00000001eWs-1mhA
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 07:38:53 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lqj3KpZfJfI3GtBvQpKvfePdS8UYlrC2aOGSU6nZqO7F3sxLUVln9z0M///lTYRQSF/4G20mQzoWR2Lt6rgrscPl3g6mPeuN/kkeZCSYtIHkv5OqcjQyj6GqhpOse+st2hoFG8FZGOQDctrxkXKbhRNvJdqFsd0IJ34SaUn2mS0eymTvIC88yxAyhBO+Xtny4O7WPoIUTZk0vzDhwP1C9SIr9c0dRDs/gsYgWUFgJyKYdtIAZONQxOHARgWFCh6SAvs603mAb43gY9LCO14JNbyheOa74Yo39Vk6T7I9+RTCuKdZkynmeOc6RUglJkmP7mkHKPHFSpi6W1JA8loKlQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=aIJ3xA1SPOEd2mgilRha1ETEgH03qNaHwcw6RvQZfNM=;
- b=udN6HvZJoPpDPKpwquG/qMyO0WgNJeMd4ce8hv9TgbdUp8Q132CCBhgvQ/qcXYzMxtPeNiyFugByyYXGJVs2bP35yxvc84Kpe79FV71GXHpb5uqbM24pdqSxyZJ/N9AfwHfWSeSbG10W5UIP4nmGMSd7jItN/+EbcXkbYp/9m95W1BpvfT1IGVi1rshDqskc+JBL2qwBvi/LhUc+zD8NS5Ti1naLyzJViwznShagBIvtU0BWOriDdjhZMeVGLQXkTt07z46FMNoSRAejs8onXRi/7fB1OfS3KyebucWuHpjpbdoebZIWgjq6uTZM6e93/9Vfwm+tWrtKduHc64q5LQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=gmail.com smtp.mailfrom=amd.com; dmarc=pass
- (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=aIJ3xA1SPOEd2mgilRha1ETEgH03qNaHwcw6RvQZfNM=;
- b=NfkMvMhLZcPlheCo3PwniKCHO0Pyle3e/NzQDSnasBiHdgNtJUkl6XZs2Lk3lbfMZZrs27xarDQM7nfCBfiCsy8vk5WzNbPHMsRggu0P6erpcw+U2EFGaNiL2bWftoDZZKoLcrX8cVwMMWVHFH1SQRHwKaCx8Rml0AIM5zik+2g=
-Received: from BY3PR10CA0024.namprd10.prod.outlook.com (2603:10b6:a03:255::29)
- by CY1PR12MB9650.namprd12.prod.outlook.com (2603:10b6:930:105::17) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.13; Mon, 29 Sep
- 2025 07:38:24 +0000
-Received: from SJ1PEPF00001CE6.namprd03.prod.outlook.com
- (2603:10b6:a03:255:cafe::c8) by BY3PR10CA0024.outlook.office365.com
- (2603:10b6:a03:255::29) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9160.16 via Frontend Transport; Mon,
- 29 Sep 2025 07:38:24 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
-Received: from satlexmb07.amd.com (165.204.84.17) by
- SJ1PEPF00001CE6.mail.protection.outlook.com (10.167.242.22) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9160.9 via Frontend Transport; Mon, 29 Sep 2025 07:38:24 +0000
-Received: from SATLEXMB04.amd.com (10.181.40.145) by satlexmb07.amd.com
- (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.17; Mon, 29 Sep
- 2025 00:37:55 -0700
-Received: from satlexmb08.amd.com (10.181.42.217) by SATLEXMB04.amd.com
- (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Mon, 29 Sep
- 2025 02:37:53 -0500
-Received: from xhdharinit40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Mon, 29 Sep 2025 00:37:51 -0700
-From: Harini T <harini.t@amd.com>
-To: <jassisinghbrar@gmail.com>, <michal.simek@amd.com>, <peng.fan@nxp.com>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<git@amd.com>, Harini T <harini.t@amd.com>
-Subject: [PATCH V2 1/4] mailbox: zynqmp-ipi: Remove redundant mbox_controller_unregister() call
-Date: Mon, 29 Sep 2025 13:07:20 +0530
-Message-ID: <20250929073723.139130-2-harini.t@amd.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250929073723.139130-1-harini.t@amd.com>
-References: <20250929073723.139130-1-harini.t@amd.com>
+	Mon, 29 Sep 2025 07:44:06 +0000
+Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-279e2554b5fso35974845ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 00:44:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1759131844; x=1759736644; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=4IugYQww6ZMP7fZxYkyvyMGRoB8H1RfKni966hm3Oic=;
+        b=EtQGLl+bAupkfjFyn8+7Lm0eVQHhUnwIRt2BNQOGV+dXMMRFDsWA3eIhtuCOm34hUR
+         /hFqnZGws4e+4YWbAKMfW9VcZY5tVEMweAfmdDJVovqkYT8mAEQRlKOcwgRTaJL0WHVJ
+         Wy//SAMqCqnJIxQBg2P0DyWfaVSj//riSnqzGFcYkUjhCLKy8/uOZPuGDtK28lyti4+4
+         brB/rGqGjxUCMFsSW2mRjdgBG/QXpVQR3VTTrcyWvxrEghD0lzXgWnhQkaEfkUfe+5in
+         dFqsvbJCp753OT1+QUY2Splvi/56kylbXZfsavNxJQyETYty5XJpAndxNDPgj2NUiSrO
+         uMlw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759131844; x=1759736644;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=4IugYQww6ZMP7fZxYkyvyMGRoB8H1RfKni966hm3Oic=;
+        b=j2UhZGPrlmockCB83Fpr2rYUM0y7sK9IcYyEQKUpxF/suQUUT1FqPsI6ZMSVUHwtfZ
+         b6q+3UvWRl7+kDw3I7Sb8if432wf4HWb0kIi1bIJij85ijAtLpdY3V9+GM37eT7cVF23
+         kPwBQWoPDSu4EzzqIX6qs3UXGaZUsZwlJSmWk3CewoSSO4CcHr3yajMdAu5u6RZIY3Jp
+         heIeuC6pEDMEy96mGnoxhhLHrR5ZJQninFts9LleoU6B84IcrGtK+9EbB3ff6/RthNwh
+         B436pjgLrDJCmndUXiHGlpaROmQgOiChzVAXJFQCtO0KMDuafHt/FUnYKEqlkZvbj4KZ
+         AB/w==
+X-Forwarded-Encrypted: i=1; AJvYcCXk7TgK4Rcx1m9yC+GnY7LnFdgmpG0an5Mxes5YkHz2WSihUOaZpf00OPLGqq1SSBZvTMTF+0zfYV1skx+zaWZT@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx0swOAilFRo+n3x3u6jo3I8wzP5n/YfKgB9/QRplFlsp7oBpE1
+	ZoGdXIRvWHEoDLO/2awq97NVV1+3fBlB2AuwYEoh1Ntghpefqjd9d2/k
+X-Gm-Gg: ASbGncuPI1McJvXJz0MogZs7H81QuwYryxu9BrK1qV2+zTrlG9VmzLY+xxJF3jgx09+
+	CUwbbNpKunlH4b0ui2PK/m6rk+AnqcmsnCLSDejvIWKLzdnBs/4wOAZeJwiwCHReXhp1cDyg/S8
+	ZxpdQlt9i4ADmw2t9vSqG/dCaTyOKtbpypZM/nGHiHPzGgYaExj65tYLTBwWFOFeB4a/BDDrNLl
+	Z585YI8sJ9792Ox99JUErsfvjcXHDBlGMJR5sx1kVqws064XVuRUKn4EwA4qfxuBMEf6XNPEygc
+	NKYaUK9T8lSHMsbG6gmF8lqCeWRhwqhXuC7Gt76hhCV0O3edclJoQt1GbIxbHtxOplmtwAp/cfS
+	kjVoRfsP499Z7DUkgAFvDZOvYRdmb/B1B5Cp5KTwucTyEjDECYhWcuZBNK6CoeRDGA/zQ1qVK8F
+	9y
+X-Google-Smtp-Source: AGHT+IGYbzLtndPlp4Q3FPkBFfn1YLlMmp9JRJofGAotrhQINUZyvBL0AAPnW2NjXrzXu64Iv6JAsg==
+X-Received: by 2002:a17:902:e84b:b0:269:8eba:e9b2 with SMTP id d9443c01a7336-27ed7222952mr159612065ad.29.1759131844132;
+        Mon, 29 Sep 2025 00:44:04 -0700 (PDT)
+Received: from [192.168.68.63] (104-12-136-65.lightspeed.irvnca.sbcglobal.net. [104.12.136.65])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-27ed66d3fe7sm123321985ad.7.2025.09.29.00.44.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 29 Sep 2025 00:44:03 -0700 (PDT)
+Message-ID: <b01ed528-8b29-4a6a-bdff-88f2e3b5dd2e@gmail.com>
+Date: Mon, 29 Sep 2025 00:44:03 -0700
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 0/5] Upstreaming Pinephone Pro Patches
+To: Dragan Simic <dsimic@manjaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Ondrej Jirman <megi@xff.cz>, "Leonardo G. Trombetta" <lgtrombetta@gmx.com>
+References: <20250921-ppp_light_accel_mag_vol-down-v3-0-7af6651f77e4@gmail.com>
+ <53eabe34a310ea9c74315fa09a604e4a@manjaro.org>
+Content-Language: en-US
+From: Rudraksha Gupta <guptarud@gmail.com>
+In-Reply-To: <53eabe34a310ea9c74315fa09a604e4a@manjaro.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-Received-SPF: None (SATLEXMB04.amd.com: harini.t@amd.com does not designate
- permitted sender hosts)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: SJ1PEPF00001CE6:EE_|CY1PR12MB9650:EE_
-X-MS-Office365-Filtering-Correlation-Id: e4ca2b92-7aaa-443d-4a1c-08ddff2b2bec
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|376014|82310400026;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?S/w/C653G3o7Hr3ZTeEd/TMY7/zBVJe7/v5UNCG0+eI9WJzh9WmEobczEOk8?=
- =?us-ascii?Q?N1oDaqkqmX+rNr7vkGw9RsBlbSwHKN77kQPMEjNCbNNZVWUPWyR8MyaALVEy?=
- =?us-ascii?Q?PyEKa3WrMA2pwrL3S+Ay+t7iFdwD3s4Ou+cdjEI9BSpyU4LdrY9dZUBnkB1B?=
- =?us-ascii?Q?pShF5nSqhGtQSG75DFYVGoWEmgolb17bVSK1BcXMvzSkuEDfA0DOlt1Dq/gO?=
- =?us-ascii?Q?87Bq3fVyEmrOZWbEeb2eKxaRQy9/JlQVfNuS25ymVnQ1TljNnbkeFexZTZwC?=
- =?us-ascii?Q?+2K/qhhVL6FgRqQ2vpPQpWoe/TjqljoW2mPVCp0loaz0XRGAhlykh16L1/L3?=
- =?us-ascii?Q?MeLJ07Zm6uwWdSLFOijqeB9RndDW/jBV60DkmpCw9tKiEML96z5I84mtDlf9?=
- =?us-ascii?Q?QmHLxpM1xDND26dtkCjTfMkv1dr2aUGrE2f2hRgolRpyo1uq2BYY/a78kjEB?=
- =?us-ascii?Q?2dM5OK0+OEVxFn6PFkq6lPU778CghoSvBG+cSgxtmO/EEiN/D7+At+/yKTRE?=
- =?us-ascii?Q?oL/QLMhYX/3A2NaznpX/csFBKTFAdmWoAxwoRswLfwV/ZLp1IQA8P42dHU+c?=
- =?us-ascii?Q?8+e7/e5Sr1kRiq7zxhWy+hcMByHK5FJPGKEO/zxyaUNCftvR/MTYaqNWAwf7?=
- =?us-ascii?Q?adAU/56CJj4Qq/Igb6OiT7w/m6dPPhbl6ediQbC+cc0LeeOSJ4V16jkmD2/w?=
- =?us-ascii?Q?23ldmIBFJ4SCiXKJfn2+3qIBVvn2Avc7cRNvVlwwt+9/JlvidnxtzY7SZUH6?=
- =?us-ascii?Q?h5Srh35HodVzoy/LXx3j6Dld7uU45kfSk0RWs35u2WvWYK0roMyUulne6Iuo?=
- =?us-ascii?Q?l79xV2HIZTZEmmFnBgEXwwMdMZyyOaf3GPnFfJA2/gYXIDQC8Qhj+5nrqlps?=
- =?us-ascii?Q?mCtdt0rAT0L/Lt7+uLcTm7vCoa3UWmAlPVYay4VNtdXT2RFTiSUklhlKWkA+?=
- =?us-ascii?Q?CcSd14oZ4yssJs3TdR+H4Ke32ujjH+Kx8l16STBkPnIF5mtZxLhyPs80s64t?=
- =?us-ascii?Q?qyWYrcJVA6d9ZUBfEGVEefShcDJ1QZS9AU1q5CtGJTrH48tTnXDfX2pt/Klg?=
- =?us-ascii?Q?+pPLXbYDfA9q95lGckYjIpz7n5YavlnFjH5+FErDGcCH8ppg/uiIeq//ZEMn?=
- =?us-ascii?Q?gNOXUqTfQhfvV+cfjIJ9xWx03Meyh23dyt/mSZgOMIQDru7VbVRDWeBvjqg4?=
- =?us-ascii?Q?a/xkcAgbvoTLGm1iNhRGU1YGBkhQaQ2c8piWWWRTHvfmlx/evcbl5njnzkeR?=
- =?us-ascii?Q?jdv4zDufR5YHJJ7s7YVVV8zlf1qIR24hwMfYRFKSTg5gFWxF9ILgIq/UiDB2?=
- =?us-ascii?Q?QTZQor9gGNq6QiIZUIKQgO1Mk9AowWlrhHZdoQd26bVCue8ih3vv57dY8DsH?=
- =?us-ascii?Q?4VYUGcRAP1wUFxd9X9bKUigY5Uhq9ewxtzFa9Be/QYt7e4zhh2EpxUHqvQLC?=
- =?us-ascii?Q?6ua7zVKsJoG70FksLVo9mvzdpmuovOqicM5yVQFIxhJLYOjKZlQFHWJrWp4L?=
- =?us-ascii?Q?/7PGeNTXCzsDX4WmRfKdR5++uy5b/W5qlCx1nsRO3T5wqxhVYctBKjWIAu0+?=
- =?us-ascii?Q?FW1tI0v5Zkz9Sb/Mw9Q=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(376014)(82310400026);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2025 07:38:24.0802
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: e4ca2b92-7aaa-443d-4a1c-08ddff2b2bec
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF00001CE6.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY1PR12MB9650
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_003852_503784_5780F31A 
-X-CRM114-Status: GOOD (  11.82  )
+X-CRM114-CacheID: sfid-20250929_004405_485491_681A00D2 
+X-CRM114-Status: GOOD (  17.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,34 +105,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The controller is registered using the device-managed function
-'devm_mbox_controller_register()'. As documented in mailbox.c, this
-ensures the devres framework automatically calls
-mbox_controller_unregister() when device_unregister() is invoked, making
-the explicit call unnecessary.
+Hi,
 
-Remove redundant mbox_controller_unregister() call as
-device_unregister() handles controller cleanup.
 
-Fixes: 4981b82ba2ff ("mailbox: ZynqMP IPI mailbox controller")
-Signed-off-by: Harini T <harini.t@amd.com>
----
- drivers/mailbox/zynqmp-ipi-mailbox.c | 1 -
- 1 file changed, 1 deletion(-)
+> Thanks for submitting these patches.  However, please expand the patch
+> descriptions, because their current forms are too terse and, as such,
+> simply not acceptable.  This applies to all patches in this series.
 
-diff --git a/drivers/mailbox/zynqmp-ipi-mailbox.c b/drivers/mailbox/zynqmp-ipi-mailbox.c
-index 0c143beaafda..263a3413a8c7 100644
---- a/drivers/mailbox/zynqmp-ipi-mailbox.c
-+++ b/drivers/mailbox/zynqmp-ipi-mailbox.c
-@@ -894,7 +894,6 @@ static void zynqmp_ipi_free_mboxes(struct zynqmp_ipi_pdata *pdata)
- 	for (; i >= 0; i--) {
- 		ipi_mbox = &pdata->ipi_mboxes[i];
- 		if (ipi_mbox->dev.parent) {
--			mbox_controller_unregister(&ipi_mbox->mbox);
- 			if (device_is_registered(&ipi_mbox->dev))
- 				device_unregister(&ipi_mbox->dev);
- 		}
--- 
-2.43.0
+Gotcha, will do! I've added the testing that I did. From 
+https://docs.kernel.org/process/submitting-patches.html
+
+ > The text should be written in such detail so that when read weeks, 
+months or even years later, it can give the reader the needed details to 
+grasp the reasoning for why the patch was created.
+
+It felt like saying more than "adding x sensor" seemed like adding fluff 
+to me, so that is why I kept it short. Let me know if there is something 
+else I should add beside the tests I have done.
+
+
+> I'm also under impression that you're submitting these patches upstream
+> blindly and without researching the rules that apply well enough, which
+> may not be the best possible approach.
+
+Sorry! I've read https://docs.kernel.org/process/submitting-patches.html 
+a bunch of times during the years I have contributed to the Linux kernel 
+and inevitably forget something. Please feel free to tell me what I've 
+done wrong! I've corrected my mistakes in v4 (and undoubtedly probably 
+introduced more, but feel free to tell me that ;) )
+
+
+>
+> Finally, please refrain yourself from sending multiple versions of the
+> same patch series in the same day.  Doing so makes reviewing the patches
+> unnecessarily hard. 
+
+Sorry about that once again! I'm mostly a hobbyist that loves working on 
+Linux over the weekend. I wanted to get correct my mistakes so that I 
+can get reviews over the week. I wish lkml used a forge, so I didn't 
+have to spam you, but I digress. I will keep this in mind moving forward.
+
+
+Rudraksha
 
 
