@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41C00CAC5BE
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DB79CAC5B0
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 11:49:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,64 +12,63 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:To:From:Reply-To:
 	Cc:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0mIMwirLGWfi6Q5dJnPwjrLRkS6cp6VZXhnc2huda+M=; b=IbS+J1ejQ4s1quOxevveXOc75M
-	ADjE5dq100hykp0adMSubLO1wvqJhvniAMltErWbhgDyhy8ZCD3FcYTJVGZwSsYlrvEgOAph9BfBI
-	WUoe8uL7IYDHDhqSZUy14+GPjNeRuS/ShvHpaEwWklmQg52hL5gN7ljGs3WrFoOyOMiEJvT4rHq+T
-	0DaJYPxt0a4fp9vLDsrlpm866nH/1A9qLsUlYXQ0oyU0WEGhaTvJJTGOTk/47qnbre89szmfi7H/m
-	FgQRW11LBfMahO5wKp4Duz5tk7cNOnzWmNIPMnmhkwIPFDLZij6FfKdQuVdnpxje1BEe29gBRdVV5
-	czc6fh3A==;
+	bh=eYKIS6AUB4jbN6LRMHpfAVlAKJeZBTFDpfK2oWN9FEQ=; b=PUizZ4rQMUIgCQ7C4vXYJhaGhm
+	tdO+TXN8+L+Bki3KbPzMRMRPF0bxkHHS1IzzBN7Kn4qtIy5BlQPUW7fol1JaDg6Q79YnGOJ10l2yh
+	78TSnFjNOU6sDI3Vo2GntT2XAUb4JL3FrqdxVKHJYf6QeOmeYFmk3bFboIWeuPGeglvaxw/fkO6YM
+	Vb5RQfYxfzQrMlzDIY3wx6uy+SsX4RcK6SGchyT04e3Tz8YdXKihNQP83+wwkdV8LYVZuhpfGZhOo
+	337YLOQA50vKF9iT9xdoWpek1tVdYS7e3ia/nv4h0GBWIayMn1sqTGa4Mk2Rs+PqpH9JanMO/xGPo
+	xemlDT/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3CNq-00000002Ocb-2x3Q;
-	Mon, 29 Sep 2025 11:49:34 +0000
-Received: from mail-wm1-x32f.google.com ([2a00:1450:4864:20::32f])
+	id 1v3CNp-00000002ObG-3ZyW;
+	Mon, 29 Sep 2025 11:49:33 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3CNn-00000002OYm-0NYn
+	id 1v3CNk-00000002OXS-313K
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 11:49:32 +0000
-Received: by mail-wm1-x32f.google.com with SMTP id 5b1f17b1804b1-46e3a50bc0fso28853245e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 04:49:30 -0700 (PDT)
+	Mon, 29 Sep 2025 11:49:29 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-46e48d6b95fso19525185e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 04:49:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1759146569; x=1759751369; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1759146567; x=1759751367; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=0mIMwirLGWfi6Q5dJnPwjrLRkS6cp6VZXhnc2huda+M=;
-        b=a8UwSuaK+CHP4K4oCpXkcne78DvupsF01rQkWgLfgPpKHAPvRKaphAzOd4LqN2lahV
-         kiOssMCtjbltL3Y3TtuaMN5Hdygcy0KIGFwr4WXgQq6I6iLKxwayPp7Hbgtevao9mb43
-         NGgRqgzfyaxdCe2JXM1EV9DrhLxdC7AzGkyCTmBF/1Vc41PX3guX4fKq/TqQjXmFdOS7
-         H3M+lmfmhYjHTjsj+fNlYMnd59TKWovED7KgSWn8yyQjUxv6EtAVW5vBXlzycntczLBD
-         gLYVoTTemmlb19fpCwTErJAUwfk3KFVM74yTepV/jflth7xlNdojXTswsa7SI/3uSuYL
-         waew==
+        bh=eYKIS6AUB4jbN6LRMHpfAVlAKJeZBTFDpfK2oWN9FEQ=;
+        b=H7GTstg0lkiugMuFPHkNJG9/v/nXxkN3IrowTRr41SlIkt92Crnqxxn3Y1No2h3k/s
+         DrDxQnkkCyy+vYO06MHE7TkDI/kOTgemnZUQqcz4R0vmlKEdfXiIdm6muye5rrybPfp7
+         momq0GWgbRAytfofmYIGO3I4c9NPdicCsLvgQt00oqtvy7GFSCSh6ry2eMtC+OI0CMbS
+         wq0Yo3kCjcl+ekMeR8ybDU1Sm7rNDAV1KmKYx1h3SZmaDSyhdf6bgDjqtK9h4ftuuJZ1
+         yAIYhF+VH9a1hBO48BlOg99B4Oa+WR1APgzXED0M4SO49O0jqLu3W6TJPjS3NqK9OrlZ
+         0Kbg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759146569; x=1759751369;
+        d=1e100.net; s=20230601; t=1759146567; x=1759751367;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=0mIMwirLGWfi6Q5dJnPwjrLRkS6cp6VZXhnc2huda+M=;
-        b=aZI0770FMh0k2d0q/hnUixaX1C2NzrNNZM0JS0mfylCB3xs1Cdp6L7FPOSQ2B9WRlK
-         EQyhMuF8C584Rgt/KpfxSJu7odWEWrla1Eqci9ON0XBkBNotFWEnMhsUVgJVBj0Gzlhw
-         VXxarA65gckCFsMLnYM5JLmfUuvlqXCwsRx8vJMBoXuCiGlXZORb/W6+9LTs9veYusF6
-         uUpnOt11SoeoS0aD4IlYUul+0KnXtwzipYYi0X6WHtou0p9m/3Eh3AgUdMuxVS11mClN
-         20TlH8Xpfhdx3abQo+40xfLocQZ1aqMYZg+3xpdpk8rpELO2OCDkfgtL4fvTetTlqM8K
-         z6TA==
-X-Forwarded-Encrypted: i=1; AJvYcCUaQdsKzYdzkuXjCWo6otYx0/64Pwvb8epealUrhp2Zruaa50eqKgywvw8huCtpi080y/nkx1eaeQP0CL8irVzJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YyZ2hfava3zAF0i91tuGx/+0vbAgYY0UhnCD+9plUmmXJ+zVNR5
-	REURtj6uF9ijhmXFlv08a2GT/tObFFqC95D5Vw+gM0xPIdabaji+5RwI
-X-Gm-Gg: ASbGnctII6oSxWEA1P5j5agWVcvNL+ZVeObMcyMrsZckbX6WLtDC93GipnA6pi5OLom
-	9qdDpfK/LkRq5JWz6DvMHAEilWz3Y3ojZRDPnLawCcZR0PWGlTRgIVJ1r6X8/Ip7Q8ba4KQqkh7
-	JPr921K07Joyyt525QgZwb1w4CymdG/+khFecOz5bfmq8ZVWghVkCFaTIsf1/ribOlHOuvLfXMV
-	oPETsvR4HsXACXyDTujxuPUv1IkpXKqGpJhjY7yZHGm3/8vQ5ZVpvQifI/XTvVQuerZlBzUq7ml
-	hMbQWFrb+GbzPgU1qqDkZu23i7YuORGCnSCi2vKoyYhQqapclgUQEw+SrJL5t6DAgkkt3tMEEWq
-	ERmZt809cqwuxjT8IPv7GXFWUHGTTvtl3Mbl2FZAYxqpTRjsUjVH64xMttAOaTZjQtdrYohTsK/
-	UCOz3/Ag==
-X-Google-Smtp-Source: AGHT+IHHeeXxNQFuhvyiL0e2I2I/uphT8IlYRgLGojEB+ic7yYz9UM+mWAZxKobXSmkeRjFhavSFKQ==
-X-Received: by 2002:a05:600c:19d0:b0:468:9e79:bee0 with SMTP id 5b1f17b1804b1-46e3292ea3emr151179445e9.0.1759146569045;
-        Mon, 29 Sep 2025 04:49:29 -0700 (PDT)
+        bh=eYKIS6AUB4jbN6LRMHpfAVlAKJeZBTFDpfK2oWN9FEQ=;
+        b=bl+kOXjhiTRfMakUHAH/nMMiWlaif+xAViePoqN2FTVEc33ORvM61hGrOp2uP3fqd3
+         /MeLGI0Rk11A5jSbILXufs+5BqfVK66jVeZhBfG1JzuFAbImG/CXGGWLirqoEODU/Ffm
+         1PMeF6zjxbZjLtrkwMQ19XnpSVOldBKKGKmqw+ACmcsGRkGaGgM/ju9t9qeYyA+HNCg8
+         cFEvScKCY71ijgrmrafTChmYvK4BLZ8oHNfFHIXErjv3cDL7SRZfbxJa1+oN2rfiJZE3
+         ht3HBKuySfWhvEO28t5CCLdj5r0u89yz0vR/IbHV5DjnjE5HrV8waJOOH26QAIjgXzka
+         0YMg==
+X-Forwarded-Encrypted: i=1; AJvYcCW2wTxTXpWiJU0JWDaY8ZpQKPJgzjCEIEnxt4myhVK2iIZCNSMjK4uXPnuTeGP8k8Ea38aU+g5H5z/74l0mDD/n@lists.infradead.org
+X-Gm-Message-State: AOJu0YzWRJEmPcOhix6g+zk6LIx1ZeSRgrE0Jv1rxERujAr2Zwvgizfv
+	WjcjdLlRUC7RiXOSEzc60hWoyhqOxsBEWDcflq++vEUKYTioE8ygV4OV
+X-Gm-Gg: ASbGncvek9AqIKW23LMRX3s4A+WNwTSdhliHFRozM72W6BkQIoFEu3BS2Cz49pyUUY0
+	E4FC170WeqTJtkwHRlLUPzetW0+m67U671caemLOQIEomuPfZerhNh/IXRZVdPL0Yk6zxuP65Pw
+	d/4EcuKOxKoLcG5fQ7bm6f3732J7hIW5i+HKqfIcamYNxszbV8okdxksEVxMHU70TniJurqHSrN
+	drQDHQmxg8Z9FPElCj7gR3Red9OZIFQnSC0pwIhuITGVvTRhq0bPJcfvoMxXwxT/fHiz9CV4p3D
+	WRPp0SdO7uB+g/cE/vBcblLouumKu7p43mKAl/wcQpZQR33nYbK69emFCPYERcn3xuTLhpKMUx0
+	keS3hNH48zliwPJcBE7r4v8cdNANm0KZNev54NW9lw0uHa37h7KW4D2pMLPDxpE7QrFIvd0A=
+X-Google-Smtp-Source: AGHT+IGuqXMPmewneHZfTKdYco1M53FvKmmiliFcGFMcT7OaxUtdD6+QR3/I0y4H9RP2qzHFLrfHpg==
+X-Received: by 2002:a05:600c:468a:b0:46e:4705:4958 with SMTP id 5b1f17b1804b1-46e47054a6fmr69438625e9.30.1759146566851;
+        Mon, 29 Sep 2025 04:49:26 -0700 (PDT)
 Received: from Ansuel-XPS24 (host-95-249-236-54.retail.telecomitalia.it. [95.249.236.54])
-        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-46e56f77956sm10030835e9.20.2025.09.29.04.49.27
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-46e56f77956sm10030835e9.20.2025.09.29.04.49.23
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Sep 2025 04:49:28 -0700 (PDT)
+        Mon, 29 Sep 2025 04:49:25 -0700 (PDT)
 From: Christian Marangi <ansuelsmth@gmail.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -89,17 +88,17 @@ To: Rob Herring <robh@kernel.org>,
 	linux-watchdog@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-mediatek@lists.infradead.org
-Subject: [PATCH v4 2/4] dt-bindings: watchdog: airoha: Add support for Airoha AN7583 SoC
-Date: Mon, 29 Sep 2025 13:49:13 +0200
-Message-ID: <20250929114917.5501-3-ansuelsmth@gmail.com>
+Subject: [PATCH v4 1/4] dt-bindings: crypto: Add support for Airoha AN7583 SoC
+Date: Mon, 29 Sep 2025 13:49:12 +0200
+Message-ID: <20250929114917.5501-2-ansuelsmth@gmail.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20250929114917.5501-1-ansuelsmth@gmail.com>
 References: <20250929114917.5501-1-ansuelsmth@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_044931_153298_7F95705B 
-X-CRM114-Status: GOOD (  11.63  )
+X-CRM114-CacheID: sfid-20250929_044928_794468_C498AF93 
+X-CRM114-Status: GOOD (  11.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,26 +120,24 @@ ones.
 Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- .../devicetree/bindings/watchdog/airoha,en7581-wdt.yaml     | 6 +++++-
- 1 file changed, 5 insertions(+), 1 deletion(-)
+ .../bindings/crypto/inside-secure,safexcel-eip93.yaml         | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/watchdog/airoha,en7581-wdt.yaml b/Documentation/devicetree/bindings/watchdog/airoha,en7581-wdt.yaml
-index 6bbab3cb28e5..6259478bdae5 100644
---- a/Documentation/devicetree/bindings/watchdog/airoha,en7581-wdt.yaml
-+++ b/Documentation/devicetree/bindings/watchdog/airoha,en7581-wdt.yaml
-@@ -14,7 +14,11 @@ allOf:
- 
+diff --git a/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml b/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
+index 997bf9717f9e..2269d78a4a80 100644
+--- a/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
++++ b/Documentation/devicetree/bindings/crypto/inside-secure,safexcel-eip93.yaml
+@@ -30,6 +30,10 @@ description: |
  properties:
    compatible:
--    const: airoha,en7581-wdt
-+    oneOf:
+     oneOf:
 +      - items:
-+          - const: airoha,an7583-wdt
-+          - const: airoha,en7581-wdt
-+      - const: airoha,en7581-wdt
- 
-   reg:
-     maxItems: 1
++          - const: airoha,an7583-eip93
++          - const: airoha,en7581-eip93
++          - const: inside-secure,safexcel-eip93ies
+       - items:
+           - const: airoha,en7581-eip93
+           - const: inside-secure,safexcel-eip93ies
 -- 
 2.51.0
 
