@@ -4,56 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADB4ECCA46F
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 07:47:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5337CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 07:48:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UJP0eLgRH0wRaLU3TMJnGjeyircwL3R7LtmsPmO+Txo=; b=fSZZuZ152zL5RKJqgXwnWBaWNS
-	1jQPO5eqiDL34/gduaSoDNzAGdkhsFba1yBdwBv8gaP538bCjvnSLAZwaia82U8Qyymg4qh3NaoX+
-	zqMuMeGKPW4TnPomAnr9Vpq8LDODKxF9kdsCyyBpXTW2DfA3Fuaek5FotGRQnEeZ6tEfNjPm29V8d
-	zsPIGPdgKXoLXhJKoNTVgYBr6OZAYzLQjsXH/eyqPHJno8AeiJGClR7BwwcD2IBk8iY6DLnuRrldV
-	eNtR3cnPlQHoUEbj5yYDRsf0ZE0O3fu4hWKjsSj7NHCZwy9Q54V4RUloR/OHIFKx6dZyn17ugHwHi
-	5ObOkQCg==;
+	bh=Wltohi1m5SDbJkLhV1v5gx0uRt+qjskx2yr9lkFdxy8=; b=ArDzeKoBYb2v1MKtXNpSpSm2O9
+	Keg/lqmLx6YmGE1OeOYl/TfEed0hGWrfHhKqcPPIuA3rYyGWNf1EDs2f8FH60A9OdF2Mw3glQ9Cw4
+	cegYhrKTdOXALW/k6TiUgg7cGi5t6x453DEj0JuFQfB6/oL2chYTXnRYa/1w22eH/9is1Y9JZIsOC
+	fBYulnt2rndKRUuQJb9fz9hrKTOtCuumdiq7fuo7S9R+s3UjDFb3sZAOET5yIWz3S4PGzyjMi3WqI
+	u1m9dQN2u3ZFWR/aEC1eYmfGwD09A5BnntZrY0A9r2AbsrS/Lou3iFjjnhG+rFxL2PvqT1YLSpVs2
+	qmzi4FEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v38bs-00000001fGD-09Gh;
-	Mon, 29 Sep 2025 07:47:48 +0000
+	id 1v38by-00000001fLL-2PmR;
+	Mon, 29 Sep 2025 07:47:54 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v38bk-00000001fDX-2Vuc;
-	Mon, 29 Sep 2025 07:47:42 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1759132047; cv=none; 
+	id 1v38br-00000001fFk-2eAa;
+	Mon, 29 Sep 2025 07:47:49 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1759132053; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=XrA3wGSrk5E5/3gwXbRmmLyS2j4up4PPwPAuj4ZQrzPPhKnbDt5D2wqY0t0p2afvjkD2q06NFG2UalzPSd+ByhPJcdaWSyTQcAMP7ogpUY6AZ5k0fMPZ8JjpK3NPX72aIZLwQhEKnJUxKTirOsjJaEyRD24QiQLJwHPlJ11vHLU=
+	b=SOWnuBfyx4wo4O6Bu1lVkbkC7iJ1X4ODVrZTSc1gVUqrKbXoWMeNxzhOKmtwHY4RkQnX+FW0NFJzPD7WQrWBvbwikNsdfeT8pBtG/Ay8otTLQXtHr+DqbfBcdS+3EoV7z5eH/8TxeCN2jpqmI3j+TLqc+MN4Noagsu6XNi0Ke2o=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1759132047; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=UJP0eLgRH0wRaLU3TMJnGjeyircwL3R7LtmsPmO+Txo=; 
-	b=BJJi++CSoGopb1HMVF87w9f+S7h0y+Dt88ViX0AFM14kXyDk4dgXd5QkM+/PB4gZayzWB0+YbumYYMTEjO4S+PqnjFYmRhMIrtvSWLewzvn/3HlA3EFo9Xw4l3kxs/1WX2vg+vjsELCnavz+EYgQGh6eCj+06WuLqTKjYcpLEy8=
+	t=1759132053; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=Wltohi1m5SDbJkLhV1v5gx0uRt+qjskx2yr9lkFdxy8=; 
+	b=IE6fehIL+J9Vd8swLUDD34BBANiQLaxz0WsM6vHNW4ogBBZLdBCu3xEoFsIKQJAkVfFgFiaWICi9ope1MvwpKvTJIkwqF5D0G4IA76BZ0UNxhKXHtzFDhGuvufarMzcqHk1gM6eEMeZpLMnuQ8udxMuo2363oxo21p4tKzJU8h8=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1759132046;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1759132052;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=UJP0eLgRH0wRaLU3TMJnGjeyircwL3R7LtmsPmO+Txo=;
-	b=c0/GGHrpltjJlVrLtPSds4b4HVRFlOCpnDJ/5ZobxZrrWsZRvKeewzgloVJSvwFo
-	+QneZ1d+1N7zOeQuBbVDJQxcvMlRStNMZyMYmeuBlQAJia6uaR0ADVUEousC/+Yg/Mj
-	osdZHongSG3SDID6QemhsjPLVoHXUTFjtUaSU0N0=
-Received: by mx.zohomail.com with SMTPS id 1759132044551607.6876139326214;
-	Mon, 29 Sep 2025 00:47:24 -0700 (PDT)
+	bh=Wltohi1m5SDbJkLhV1v5gx0uRt+qjskx2yr9lkFdxy8=;
+	b=dyOwIEQ+0F8omspo+25ci3ExlwsUtZW7790twj/InISQ8Hc4rgj32dCVUYGTDmUY
+	c248G44tzRGVbXQBj2b0rMIK4UAIp4WpUcCjJ3c+ur8FP1JGdbcEe6rj2p4pSiJqFct
+	0/HCOn+NrPmIYobx+Ra9bllEItMfAG/9XQU9KAzY=
+Received: by mx.zohomail.com with SMTPS id 1759132050265403.9411869295931;
+	Mon, 29 Sep 2025 00:47:30 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Mon, 29 Sep 2025 09:46:45 +0200
-Subject: [PATCH v5 2/7] dt-bindings: power: Add MT8196 GPU frequency
- control binding
+Date: Mon, 29 Sep 2025 09:46:46 +0200
+Subject: [PATCH v5 3/7] dt-bindings: mailbox: Add MT8196 GPUEB Mailbox
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250929-mt8196-gpufreq-v5-2-3056e5ecf765@collabora.com>
+Message-Id: <20250929-mt8196-gpufreq-v5-3-3056e5ecf765@collabora.com>
 References: <20250929-mt8196-gpufreq-v5-0-3056e5ecf765@collabora.com>
 In-Reply-To: <20250929-mt8196-gpufreq-v5-0-3056e5ecf765@collabora.com>
 To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
@@ -73,11 +72,12 @@ Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
  linux-hardening@vger.kernel.org, linux-pm@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+ Conor Dooley <conor.dooley@microchip.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_004740_705331_1F3E196D 
-X-CRM114-Status: GOOD (  13.96  )
+X-CRM114-CacheID: sfid-20250929_004747_727531_EFBFD825 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,143 +92,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On the MT8196 and MT6991 SoCs, the GPU power and frequency is controlled
-by some integration logic, referred to as "MFlexGraphics" by MediaTek,
-which comes in the form of an embedded controller running
-special-purpose firmware.
+The MediaTek MT8196 SoC includes an embedded MCU referred to as "GPUEB",
+acting as glue logic to control power and frequency of the Mali GPU.
+This MCU runs special-purpose firmware for this use, and the main
+application processor communicates with it through a mailbox.
 
-This controller takes care of the regulators and PLL clock frequencies
-to squeeze the maximum amount of power out of the silicon.
+Add a binding that describes this mailbox.
 
-Add a binding which models it as a power domain.
-
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- .../bindings/power/mediatek,mt8196-gpufreq.yaml    | 117 +++++++++++++++++++++
- 1 file changed, 117 insertions(+)
+ .../mailbox/mediatek,mt8196-gpueb-mbox.yaml        | 64 ++++++++++++++++++++++
+ 1 file changed, 64 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/power/mediatek,mt8196-gpufreq.yaml b/Documentation/devicetree/bindings/power/mediatek,mt8196-gpufreq.yaml
+diff --git a/Documentation/devicetree/bindings/mailbox/mediatek,mt8196-gpueb-mbox.yaml b/Documentation/devicetree/bindings/mailbox/mediatek,mt8196-gpueb-mbox.yaml
 new file mode 100644
-index 0000000000000000000000000000000000000000..b9e43abaf8a42ce981ce16648fb3350b9c262015
+index 0000000000000000000000000000000000000000..ab5b780cb83a708a3897ca1a440131d97b56c3a6
 --- /dev/null
-+++ b/Documentation/devicetree/bindings/power/mediatek,mt8196-gpufreq.yaml
-@@ -0,0 +1,117 @@
++++ b/Documentation/devicetree/bindings/mailbox/mediatek,mt8196-gpueb-mbox.yaml
+@@ -0,0 +1,64 @@
 +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
 +%YAML 1.2
 +---
-+$id: http://devicetree.org/schemas/power/mediatek,mt8196-gpufreq.yaml#
++$id: http://devicetree.org/schemas/mailbox/mediatek,mt8196-gpueb-mbox.yaml#
 +$schema: http://devicetree.org/meta-schemas/core.yaml#
 +
-+title: MediaTek MFlexGraphics Power and Frequency Controller
++title: MediaTek MFlexGraphics GPUEB Mailbox Controller
 +
 +maintainers:
 +  - Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 +
-+description:
-+  A special-purpose embedded MCU to control power and frequency of GPU devices
-+  using MediaTek Flexible Graphics integration hardware.
-+
 +properties:
-+  $nodename:
-+    pattern: '^power-controller@[a-f0-9]+$'
-+
 +  compatible:
 +    enum:
-+      - mediatek,mt8196-gpufreq
++      - mediatek,mt8196-gpueb-mbox
 +
 +  reg:
 +    items:
-+      - description: GPR memory area
-+      - description: RPC memory area
-+      - description: SoC variant ID register
++      - description: mailbox data registers
++      - description: mailbox control registers
 +
 +  reg-names:
 +    items:
-+      - const: gpr
-+      - const: rpc
-+      - const: hw-revision
++      - const: data
++      - const: ctl
 +
 +  clocks:
 +    items:
-+      - description: main clock of the embedded controller (EB)
-+      - description: core PLL
-+      - description: stack 0 PLL
-+      - description: stack 1 PLL
++      - description: main clock of the GPUEB MCU
 +
-+  clock-names:
++  interrupts:
 +    items:
-+      - const: eb
-+      - const: core
-+      - const: stack0
-+      - const: stack1
++      - description: fires when a new message is received
 +
-+  mboxes:
-+    items:
-+      - description: FastDVFS events
-+      - description: frequency control
-+      - description: sleep control
-+      - description: timer control
-+      - description: frequency hopping control
-+      - description: hardware voter control
-+      - description: FastDVFS control
-+
-+  mbox-names:
-+    items:
-+      - const: fast-dvfs-event
-+      - const: gpufreq
-+      - const: sleep
-+      - const: timer
-+      - const: fhctl
-+      - const: ccf
-+      - const: fast-dvfs
-+
-+  memory-region:
-+    items:
-+      - description: phandle to the GPUEB shared memory
-+
-+  "#clock-cells":
++  "#mbox-cells":
 +    const: 1
-+
-+  "#power-domain-cells":
-+    const: 0
++    description:
++      The number of the mailbox channel.
 +
 +required:
 +  - compatible
 +  - reg
 +  - reg-names
 +  - clocks
-+  - clock-names
-+  - mboxes
-+  - mbox-names
-+  - memory-region
-+  - "#clock-cells"
-+  - "#power-domain-cells"
++  - interrupts
++  - "#mbox-cells"
 +
 +additionalProperties: false
 +
 +examples:
 +  - |
 +    #include <dt-bindings/clock/mediatek,mt8196-clock.h>
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++    #include <dt-bindings/interrupt-controller/irq.h>
 +
-+    power-controller@4b09fd00 {
-+        compatible = "mediatek,mt8196-gpufreq";
-+        reg = <0x4b09fd00 0x80>,
-+              <0x4b800000 0x1000>,
-+              <0x4b860128 0x4>;
-+        reg-names = "gpr", "rpc", "hw-revision";
-+        clocks = <&topckgen CLK_TOP_MFG_EB>,
-+                 <&mfgpll CLK_MFG_AO_MFGPLL>,
-+                 <&mfgpll_sc0 CLK_MFGSC0_AO_MFGPLL_SC0>,
-+                 <&mfgpll_sc1 CLK_MFGSC1_AO_MFGPLL_SC1>;
-+        clock-names = "eb", "core", "stack0", "stack1";
-+        mboxes = <&gpueb_mbox 0>, <&gpueb_mbox 1>, <&gpueb_mbox 2>,
-+                 <&gpueb_mbox 3>, <&gpueb_mbox 4>, <&gpueb_mbox 5>,
-+                 <&gpueb_mbox 7>;
-+        mbox-names = "fast-dvfs-event", "gpufreq", "sleep", "timer", "fhctl",
-+                     "ccf", "fast-dvfs";
-+        memory-region = <&gpueb_shared_memory>;
-+        #clock-cells = <1>;
-+        #power-domain-cells = <0>;
++    mailbox@4b09fd80 {
++        compatible = "mediatek,mt8196-gpueb-mbox";
++        reg = <0x4b09fd80 0x280>,
++              <0x4b170000 0x7c>;
++        reg-names = "data", "ctl";
++        clocks = <&topckgen CLK_TOP_MFG_EB>;
++        interrupts = <GIC_SPI 608 IRQ_TYPE_LEVEL_HIGH 0>;
++        #mbox-cells = <1>;
 +    };
 
 -- 
