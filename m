@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70DF1CAC5B9
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BB7E3CCA468
 	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 17:45:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,37 +12,36 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RYV70oq/OnKMbAb5dEwpgmItKSj3Zmpmd3feYv85zac=; b=WNI+TPiykC8kkX2kEUV5iOfpx3
-	Xf8d5vFPUyhU8brw0bn5c6fy6cQQCHWPNnF1hx1s7VkRQs/Do3sd1ihKnwSvXmDDl3a65FTiuvuw+
-	cr1HY/edHQnWtG+47RKxvsbdqNhi4f9BTNOrq48p+EDZF6oRAaz/T2ludAN10Bhtn6ykK47RU6L4i
-	arLTErWfNrHEY6tiuWDdRbImGGGHp3ttO+GbIBOnRIt5Stv0CFue/OTqA+af2fKIyt8h0obKFG9Mg
-	JM6ys03gEtV/g9oJw77OGoccbqkWelAGwvGemcXe0PoK5yro99sNinXF6r7ahDcxfhl8DNi5VGLBj
-	XdUoTziw==;
+	bh=xxOy9NVXUKo2r8viMGsfOm+H8eQBo5JltBhPtU+i+fI=; b=gkpmiWqW+lPhpz0R5YuhEm+2u/
+	cuFIX8C+p4/5wYaX0SczXL1pGnRJJdHCdKK3kba0PWtz87IQOGcwregjkyXmrxn4TmFSiBrE7ynH6
+	eqM+k0nX7R+aWf2QkrW2XJOkltCUgFvDouBQZBZFFsfSPSZhcPiI3esYM1uArRZa+wHEaub50ahtD
+	Vb/zWZ8sBKtOl9sB/TY+UPz9JO9zOEk5RhmV/afIkhGPe4wyL4Dl5Tdk3Oi9XxD5y51QDe2+XGwYG
+	FZ6A3KfpLj7/QGJZYn0j7FKj2pIQ0zAv+++nupkIgYW4RWJ+mdiTSB1HS5C5zaoHHvFIGxY216sKn
+	KNE5wP5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Hvq-00000003A1U-3agV;
+	id 1v3Hvq-00000003A19-2Mli;
 	Mon, 29 Sep 2025 17:45:02 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Hvh-000000039vx-3nnh
+	id 1v3Hvc-000000039tH-2cPt
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 17:44:55 +0000
+	Mon, 29 Sep 2025 17:44:49 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 53E271BCB;
-	Mon, 29 Sep 2025 10:44:45 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DF1491758;
+	Mon, 29 Sep 2025 10:44:39 -0700 (PDT)
 Received: from [10.1.197.69] (eglon.cambridge.arm.com [10.1.197.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4C6903F59E;
-	Mon, 29 Sep 2025 10:44:48 -0700 (PDT)
-Message-ID: <d7447533-1261-4d9c-b8c9-0f0eded042e0@arm.com>
-Date: Mon, 29 Sep 2025 18:44:46 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6E5123F59E;
+	Mon, 29 Sep 2025 10:44:42 -0700 (PDT)
+Message-ID: <a37c2e80-56c3-4bae-b1cf-13829e16947a@arm.com>
+Date: Mon, 29 Sep 2025 18:44:39 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 12/29] arm_mpam: Add helpers for managing the locking
- around the mon_sel registers
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-acpi@vger.kernel.org,
- D Scott Phillips OS <scott@os.amperecomputing.com>,
+Subject: Re: [PATCH v2 11/29] arm_mpam: Probe hardware to find the supported
+ partid/pmg values
+To: Ben Horgan <ben.horgan@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
  carl@os.amperecomputing.com, lcherian@marvell.com,
  bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
  baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
@@ -50,24 +49,26 @@ Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  dfustini@baylibre.com, amitsinght@marvell.com,
  David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
  Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- fenghuay@nvidia.com, baisheng.gao@unisoc.com, Rob Herring <robh@kernel.org>,
- Rohit Mathew <rohit.mathew@arm.com>, Rafael Wysocki <rafael@kernel.org>,
- Len Brown <lenb@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
+ <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
  Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Danilo Krummrich <dakr@kernel.org>
 References: <20250910204309.20751-1-james.morse@arm.com>
- <20250910204309.20751-13-james.morse@arm.com>
- <20250911162440.0000600b@huawei.com>
+ <20250910204309.20751-12-james.morse@arm.com>
+ <0382ea8a-8f15-4983-8659-0471f9090012@arm.com>
 Content-Language: en-GB
 From: James Morse <james.morse@arm.com>
-In-Reply-To: <20250911162440.0000600b@huawei.com>
+In-Reply-To: <0382ea8a-8f15-4983-8659-0471f9090012@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_104454_077311_43AA3891 
-X-CRM114-Status: GOOD (  17.45  )
+X-CRM114-CacheID: sfid-20250929_104448_713156_6A9D13E1 
+X-CRM114-Status: GOOD (  10.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,57 +83,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
+Hi Ben,
 
-On 11/09/2025 16:24, Jonathan Cameron wrote:
-> On Wed, 10 Sep 2025 20:42:52 +0000
-> James Morse <james.morse@arm.com> wrote:
+On 12/09/2025 12:11, Ben Horgan wrote:
+> On 9/10/25 21:42, James Morse wrote:
+>> CPUs can generate traffic with a range of PARTID and PMG values,
+>> but each MSC may also have its own maximum size for these fields.
+>> Before MPAM can be used, the driver needs to probe each RIS on
+>> each MSC, to find the system-wide smallest value that can be used.
+>> The limits from requestors (e.g. CPUs) also need taking into account.
+>>
+>> While doing this, RIS entries that firmware didn't describe are created
+>> under MPAM_CLASS_UNKNOWN.
+>>
+>> While we're here, implement the mpam_register_requestor() call
+>> for the arch code to register the CPU limits. Future callers of this
+>> will tell us about the SMMU and ITS.
+
+> Looks good to me. I think Jonathan's comment on getting rid of the local
+> variable, 'found', is worthwhile.
 > 
->> The MSC MON_SEL register needs to be accessed from hardirq for the overflow
->> interrupt, and when taking an IPI to access these registers on platforms
->> where MSC are not accesible from every CPU. This makes an irqsave
->> spinlock the obvious lock to protect these registers. On systems with SCMI
->> mailboxes it must be able to sleep, meaning a mutex must be used. The
->> SCMI platforms can't support an overflow interrupt.
->>
->> Clearly these two can't exist for one MSC at the same time.
->>
->> Add helpers for the MON_SEL locking. The outer lock must be taken in a
->> pre-emptible context before the inner lock can be taken. On systems with
->> SCMI mailboxes where the MON_SEL accesses must sleep - the inner lock
->> will fail to be 'taken' if the caller is unable to sleep. This will allow
->> callers to fail without having to explicitly check the interface type of
->> each MSC.
+> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
 
-> Comments talk about outer locks, but not actually seeing that in the current code.
+Thanks!
 
-Ugh - I squashed them all together because without the DT support the DT:SCMI support
-ceases to be relevant, the ACPI PCC support isn't here yet, and Dave complained this
-was complex. I forgot to rewrite the commit message!
-
-The last paragraph is rewritten as:
-------------%<------------
-Add helpers for the MON_SEL locking. For now, use a irqsave spinlock and
-only support 'real' MMIO platforms.
-
-In the future this lock will be split in two allowing SCMI/PCC platforms
-to take a mutex. Because there are contexts where the SCMI/PCC platforms
-can't make an access, mpam_mon_sel_lock() needs to be able to fail. Do
-this now, so that all the error handling on these paths is present. This
-allows the relevant paths to fail if they are needed on a platform where
-this isn't possible, instead of having to make explicit checks of the
-interface type.
-------------%<------------
-
-It took invasive changes to make the control path safe for these firmware backed
-platforms. I really don't want to 'simplify' it pretending they don't exist, to
-then spend the following month retrofitting this.
-I expect the firmware backed platforms to expose one or two global MSC, so they
-should never hit a case where a mon_sel register access was sent via IPI.
-
-
-
-Thanks,
 
 James
 
