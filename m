@@ -4,107 +4,145 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B51D9CAC5B9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 18:38:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A4C39CAC5B9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 18:52:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iJLpaj/c6dWR6gSCWApgd6FdexxQb0VtbiytQ5OXSGA=; b=oJlAehsM2EoZRrJmOIZJTkj/Ex
-	wu/VktPO3Vlah3GU6YadxC/W65NbXpAvCU8Jiyyc4X9M/ceD4W5DMvhbVndapWsFVF7SMUoXvKI+p
-	Oz7IOVQ1ee+nVHzb8ao02bzdeVcxPH0JhAxDvxJe/MsOn5D9Asji4YMgpgDHCBA7U2JbZENsEM64n
-	EdoCk43gFVv9WO55Rn77GNO8c4+8tR8efEPivCW+myTvGQOxqMj+QrIWLYcVTnihFIrcytxdF+uF3
-	2IIVi7HMrtpICjOhzFwhE9toxTLkxEDGV3iRNy84dJu1b/c6XMjEjfGTh0Y0LGaVqFWhNQEkHAWvE
-	tkp1VfoA==;
+	bh=ApiJD5gUL20hRszC2BGL7GpljeEYeG7HJuXEt16GsyM=; b=HlFhJlPqAJuKvqfEKkHy6QxSTu
+	NCuAhfDC/ZmE4YeO126MKRp1gA+JEHOtC21iJ1NiVqHjI6vQhdiFe03NAoKvsiL7qgBzNJI88sUx2
+	cQcYczTI3ScKcTd0UqUxmaN9Ej2b38uagXQU0yjprk29BsCOh4u9TJybKlITOC3wiq+A8knO/In7v
+	7sk1IqShCc12HqefYLFGSTdoXU+Ptu8NIgBWPjSkSFI2sViuS8byNkB7wQ0nYgOgMLF25s64pEric
+	dJJXCyRe4zJMramLyz7eJnFbzMWE9MXrRA3pEyKKR1/Imhc+21Cvp7JEKQ3/I2sDT1tGdrVVbKCtS
+	X9HpdTpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Il1-00000003GcB-0sUp;
-	Mon, 29 Sep 2025 18:37:55 +0000
-Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
+	id 1v3IzB-00000003HiG-1JQ3;
+	Mon, 29 Sep 2025 18:52:33 +0000
+Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Iky-00000003Gbl-49Ci
+	id 1v3Iz9-00000003Hhr-2OIo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 18:37:54 +0000
-Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-78100be28easo3671381b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 11:37:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=rivosinc.com; s=google; t=1759171072; x=1759775872; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=iJLpaj/c6dWR6gSCWApgd6FdexxQb0VtbiytQ5OXSGA=;
-        b=WymJDuJd0OQo4sWoSgZW6y8j5pkH7OCVDKmVSkiNKH37pywsAqFnXrTvIYic6PmeOL
-         EreEgeIauDTWl59O78dVaWhDoeuYWjQHUWxpVuhTY6gBtJJK++PBPpB9odxkIMjye+g1
-         8m1r9ZSKgRF3ZhZXJWIhtVJcnAcYzhC5odiL+N9xPvRyzVVEaPi+YtsxVdLDhcI1ElHF
-         cX8RCj/QfJKXDx2oVdiehyuC+BE3OTHnDd4EiR+eIz9ibl4AacAHtsNyN8/bzP8UrwYh
-         iPyPDyKgV1Hb/KNhj/K1XgCovBieMQyrtiUIdAFV2tXbNU0MTyh4ZuHz3sJOs1zl4DC7
-         JYAg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759171072; x=1759775872;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=iJLpaj/c6dWR6gSCWApgd6FdexxQb0VtbiytQ5OXSGA=;
-        b=pliMsiAdXZJpk6YDnQ9PmQxJIQAcTA8tIxbxqFBd87qp5plm0PQDNXNvT9mqOFsPJL
-         HVjtdxJTXYt5NdTDj41ZM3bEmEP9dj3nFI1gfp6sll7aMc3yE337zlkL8jXN0JQdAWEi
-         qOPQLgA1mkM/MKZhFlxc7ISnxIYvn07nAW531Hwr76//spVhJtdC8h4Luo8SWTK/ie2W
-         GDirkCkjUnElmDazGw6iKuFxGBPHrBqh3HBqsRLlXobqfPSR21dylzePXIe1j1X/iC3P
-         iNvIjZv+Si48ZroTWx47+Fwg047CoEypvb7TOltuTGjDcBKEysnNyIE3huZLi2W/YxSB
-         v6sA==
-X-Forwarded-Encrypted: i=1; AJvYcCW+aCeU+Tn82yULpegoyMcqEE5bUwBCmLVxVGVaR8HiuWocQ2xlL2TdnFlLggycyhH+m9cddd5TzRvX9yCzf9ev@lists.infradead.org
-X-Gm-Message-State: AOJu0YzdvfeY8z+CAeNcXoIRauULiJBIbdm4eL1BSnq9y8tWEH5pGFXy
-	B4LsdxBIEMN5n+QdLiXLS2S9u5Xi/NcoXC3XrozjCEfP47t3VmV6yE9TIGb+ypuqynY=
-X-Gm-Gg: ASbGncuMxLGt7hwk1Fz4Wfc4oTI7oG3GdFM4EzaYU8v1dfjtbvfECpEFVnIKULeMW/G
-	P5ULwgLu37qJ3+wbHh8ORkAEzHInIeQR/6xNy/facZ3C71+ZTB0d4VP7lZBAulnDKaF9NKrvtig
-	2paQ7P/WghYMrcpZPg1O+Ul8/C8HpeQad97K+IxwJFfsTNYjmLS14QRdKHqEi8EnpohwHyq2BAs
-	DOsfELdlxSQXCOLK/WZnX15u5arOKLnBTMCa2bYQPTZc0l3tnLfx9sOvRLBzER6ccyfhbaP7v1S
-	XOFAEeV+zw11/jKMG3ZBmI14QIHNweA9C3hJnp/KSi95qdxUwMvDXhDbPF41zSI0EAi/rtyie5c
-	bx0DO+VBZmqI8HBiYwtmlZK4FSCWMl1N4
-X-Google-Smtp-Source: AGHT+IHBfLpwSOdsOZ3rlXG6ZEpP4ToRS6T8QkcIX5AOO47fspaa/84bLNk9yI3gfkzoA6f1KMT5jQ==
-X-Received: by 2002:a05:6a00:138d:b0:781:15b0:bed9 with SMTP id d2e1a72fcca58-78115b0c301mr15805467b3a.17.1759171071800;
-        Mon, 29 Sep 2025 11:37:51 -0700 (PDT)
-Received: from debug.ba.rivosinc.com ([64.71.180.162])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-781023c1873sm11683639b3a.23.2025.09.29.11.37.50
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Sep 2025 11:37:51 -0700 (PDT)
-Date: Mon, 29 Sep 2025 11:37:49 -0700
-From: Deepak Gupta <debug@rivosinc.com>
-To: Mark Brown <broonie@kernel.org>
-Cc: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
-	"adhemerval.zanella@linaro.org" <adhemerval.zanella@linaro.org>,
-	"nsz@port70.net" <nsz@port70.net>,
-	"brauner@kernel.org" <brauner@kernel.org>,
-	"shuah@kernel.org" <shuah@kernel.org>,
-	"fweimer@redhat.com" <fweimer@redhat.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
-	"dalias@libc.org" <dalias@libc.org>,
-	"jeffxu@google.com" <jeffxu@google.com>,
-	"will@kernel.org" <will@kernel.org>,
-	"yury.khrustalev@arm.com" <yury.khrustalev@arm.com>,
-	"wilco.dijkstra@arm.com" <wilco.dijkstra@arm.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"codonell@redhat.com" <codonell@redhat.com>,
-	"libc-alpha@sourceware.org" <libc-alpha@sourceware.org>,
-	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>
-Subject: Re: [PATCH RFC 0/3] arm64/gcs: Allow reuse of user managed shadow
- stacks
-Message-ID: <aNrR_TD5JB5dHJ5b@debug.ba.rivosinc.com>
-References: <20250921-arm64-gcs-exit-token-v1-0-45cf64e648d5@kernel.org>
- <760447dc3e5805bf5668e80a94bf32356e2eb2d3.camel@intel.com>
- <8aab0f36-52ad-4fd6-98c3-bcdba45dbe16@sirena.org.uk>
- <ac0ceb09ffaeb1f0925b61ed1b82ee6475df2368.camel@intel.com>
- <604190c7-5931-4e74-a1c9-467e52d3001b@sirena.org.uk>
- <eab692794cbc82080b708c581efd5973b6004be0.camel@intel.com>
- <5397025d-7528-4b9c-b38d-b843ab004f47@sirena.org.uk>
+	Mon, 29 Sep 2025 18:52:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=t2alMpWYQOHjUShcs1Kv0efR5wBVXkwZ0KpWVqGB5namSBUV0rxMl92n9hoXSOxbhud6SIYv3qsgotf84QwOE/roM82qeNLQsuLCDMKdS5EZ7b6x38b3JmNzlEBMf+KCyX4P6IftPpoK5jkkstaPw7R52bfpijT4URmGYJXytecRbFgUjI4TZDCW5GpfCRYcLWLQDFpJCwRTWc1xngCjggrrIgzXVT/+5Tt4SZn9rEjFCw44pUCo8HcVrnM//rRNzKG4hrDQasFtYAOCWqOYAkBKqzIRdyzW4qjCwmINyCZ/PIK+7+ksk2v7pJtJZFgZOz/SbRUh5BXkLDfDvBVBng==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ApiJD5gUL20hRszC2BGL7GpljeEYeG7HJuXEt16GsyM=;
+ b=FCYm1PrFo5ymG+EAsvmzNhFFWUhHP9Dzg+QghAX0OOAN4RpUQ1ASCHtt/taPFT2fyEXX2Xr/y6yCJACmzsgEJ7B8zJLnClrMg1C2Xui2MEmokHdorvp8t2+9bztz9u0ig1KfOrL63f71QQofSGrsV49gA978Hze+EO5rh0l3uSKroGA3/iMYe9VqmnSwQF5TcpWNp8i2aCyzCTRcAukYB9T91BYW7iPAw6cRI6MzdZA7kRHWcOUhaQzC+XNNH0K0NeWGPs8Sb9E2rakB5wVWe6JXBiZ4LXz28/2q3qfSsuP0dDY3quyybl4XvULC2ArBGcFvocBHO6fwooyazkEe3A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ApiJD5gUL20hRszC2BGL7GpljeEYeG7HJuXEt16GsyM=;
+ b=K4LHu9UurdUW+5AjPvMUi3auF2Z/CIpvTpEbxvPgcddNlv9YplegcPyRz8mNa7jy7gLRbNhTBPvF8qwsMUFXPQkE7v/hqnBRPydLP3JAWn2YQNTPN4ZlLISdHbirEJzvBwXw0npRcjxqJI2REzUisAty7gPWl+bLZUjfhC6X79QZRq+7WI3qR/2DlEyAjRw8WI6PPfyl789DV5dDK2g6LJvJne+jDDnzysIcdHNGXIqrnw9y4FMhI8IPLG01+K6/QTn8z4V4uzRby0uPDrIDdRFORubP+jmbQ3K5JEGsoRAYJYGFdxnirjWJVpCudgA+8eCcaSbNRXur0W9f+qnxXA==
+Received: from PH8PR15CA0018.namprd15.prod.outlook.com (2603:10b6:510:2d2::11)
+ by SA0PR12MB4398.namprd12.prod.outlook.com (2603:10b6:806:9f::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.15; Mon, 29 Sep
+ 2025 18:52:27 +0000
+Received: from SN1PEPF000252A3.namprd05.prod.outlook.com
+ (2603:10b6:510:2d2:cafe::89) by PH8PR15CA0018.outlook.office365.com
+ (2603:10b6:510:2d2::11) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9160.10 via Frontend Transport; Mon,
+ 29 Sep 2025 18:52:20 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ SN1PEPF000252A3.mail.protection.outlook.com (10.167.242.10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9160.9 via Frontend Transport; Mon, 29 Sep 2025 18:52:26 +0000
+Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 29 Sep
+ 2025 11:52:11 -0700
+Received: from drhqmail201.nvidia.com (10.126.190.180) by
+ drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Mon, 29 Sep 2025 11:52:11 -0700
+Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.126.190.180)
+ with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 29 Sep 2025 11:52:10 -0700
+Date: Mon, 29 Sep 2025 11:52:09 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<jean-philippe@linaro.org>, <miko.lenczewski@arm.com>, <balbirs@nvidia.com>,
+	<peterz@infradead.org>, <smostafa@google.com>, <kevin.tian@intel.com>,
+	<praan@google.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<patches@lists.linux.dev>
+Subject: Re: [PATCH rfcv2 4/8] iommu/arm-smmu-v3: Introduce a per-domain
+ arm_smmu_invs array
+Message-ID: <aNrVWfF69EU1xvBB@Asurada-Nvidia>
+References: <cover.1757373449.git.nicolinc@nvidia.com>
+ <80310b98efa4bd7e95d7b3ca302f40d4d69e59c5.1757373449.git.nicolinc@nvidia.com>
+ <20250924212912.GP2617119@nvidia.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <5397025d-7528-4b9c-b38d-b843ab004f47@sirena.org.uk>
+In-Reply-To: <20250924212912.GP2617119@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SN1PEPF000252A3:EE_|SA0PR12MB4398:EE_
+X-MS-Office365-Filtering-Correlation-Id: 054106ee-2895-4e22-ed62-08ddff8955a8
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|82310400026|1800799024|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?MQGZBIOO9yEMRC4CozVt8SY9ydZxlWOKNc4cdWxKb6aeYIAxR8vJPP7ztfuC?=
+ =?us-ascii?Q?8RKCfSNgV8V5ZtQ9etF0KHbphy22qp7ZvWaDf3xrsxhsh72TsryAGbJyWMqF?=
+ =?us-ascii?Q?wXCWeR8pb4W1gqv3X5Mf05MBKc9Sm+mqP9RDB9XkUghyhCYc2pVCKSWJTC74?=
+ =?us-ascii?Q?m42NfXsb8rJ5CNMPyghYMiquOAaZ97E2uK43v8ZwedFeP93RA3dzIwtoRXEY?=
+ =?us-ascii?Q?22mga/dDIARs8Auch2cjPdRfnSDSPhwMv5uQm8x3gwo9uEhciRoQ4nqJZ8xm?=
+ =?us-ascii?Q?o4ID7UruryNm8yDr1HmNnXUwqlRBvR7E4Hhw6zhzSrjEUeDu8Rfv4NWARU8A?=
+ =?us-ascii?Q?zebKktQNXNwYD5XNUe7BgDJH4bQ/AiGky3rHxfGV8FddKO1Kf90d3zQANodN?=
+ =?us-ascii?Q?GkRHO198vLi573oahnJQwcXpQarftTi906vuhtTpm5HX1/bOOuCWQOmFBvvS?=
+ =?us-ascii?Q?c15F451Ci3airvD8bVP40UoA9fak4VvjhaSg23AEOV/0cIbMwNo74MXncEku?=
+ =?us-ascii?Q?EHECncjBaNJRnsl6YFxbu2QaYBNHJ9KuF4eocbB8jXrqVtwf9bAqJKA3MPQ2?=
+ =?us-ascii?Q?qRIkqIhg/nZCL6abVnvyOauVp9Q7jL/5oeK1XVz2mInE5hyUuy/wClniDeM1?=
+ =?us-ascii?Q?nuSkATFrEieFGUs8Ph1wWCfWLROY1l6wW8nSIb6JfOy936YW6cGSUG0ZZ1Rg?=
+ =?us-ascii?Q?ZxZXu8sb9Q9tA/keorIXob3ADrpPycjtOPs9J0PpK0SWldy8ysinfqcazF+0?=
+ =?us-ascii?Q?/jS2Gvl8LasQeoDyysgXzB1lJYxgFtClpqLRYOqnrgRgYnuVLhetCNatg6Ro?=
+ =?us-ascii?Q?j02RhpY9oGMn8rIL9tkFKusdPaXxRKIfi+HxHulbrZCE/tmRHdMR+1mVuIz+?=
+ =?us-ascii?Q?Rz9EYYCcpZTU9+qroR9TEa0PfCZN9D+HZ7QIrjscg0jn+8kNKvRGPxZu+cGj?=
+ =?us-ascii?Q?FfdRd5QRHMoGNzZKn24igGeUipPJ15o5lEsxZbnx/VDhb0eclZvQCRWAVnO5?=
+ =?us-ascii?Q?oMLgvSB/1M8ixQZbs0zdoHoIHRsi7/vSENWJ2gz1R24f4vVfJv5E4NjMXzrQ?=
+ =?us-ascii?Q?9s1YDcUqU5uHU9NMmtCIKkMKtCPpZaVRPDgEkwVnjtbbC+tGHynqfNAjPB5k?=
+ =?us-ascii?Q?sKbvVGK4MhCxP3oOU0Bob8oKHyQ8Qrkf9XtSMQuLjAp0jSqEr6lQMnmdC3Xm?=
+ =?us-ascii?Q?5vGrsTEE7F9OYEOM/sK6hIPDN3QIvveIeea7q2trip03l3c6V+IrDiH20W3H?=
+ =?us-ascii?Q?pwP/1L0umAgtGNoDy2Q8audFhPwByBx5v3z9ArPVS4sP+DGZlPe4/KAUwdoL?=
+ =?us-ascii?Q?2I/6QYs2jNH7a5vzZl7p67t885BostbAqWrySjMuSNfIkrpbQVPscpCRvTHu?=
+ =?us-ascii?Q?koW5dls7V21uT3lf62XFQnzndo4qRpajC5nGIVtJYFgENEFaAhYRUqhbnuq6?=
+ =?us-ascii?Q?hdZz0tHbIGOy560uy8ljijv2yi6T3QkhM6EdJsIEzi/+9IL95tNDOKD4ZSy0?=
+ =?us-ascii?Q?PIiPGbNc8PXEqBJtnNvgDwVzcKq9tKi6T6mPQaMURxSq95AYYYxl+gupgQC7?=
+ =?us-ascii?Q?C1fRMkznj7X9wITaTOw=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(82310400026)(1800799024)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2025 18:52:26.7962
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 054106ee-2895-4e22-ed62-08ddff8955a8
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SN1PEPF000252A3.namprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA0PR12MB4398
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_113753_202961_3C2232E5 
-X-CRM114-Status: GOOD (  20.34  )
+X-CRM114-CacheID: sfid-20250929_115231_622439_579666CD 
+X-CRM114-Status: GOOD (  13.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,53 +157,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 26, 2025 at 05:09:08PM +0100, Mark Brown wrote:
->On Fri, Sep 26, 2025 at 03:46:26PM +0000, Edgecombe, Rick P wrote:
->> On Fri, 2025-09-26 at 01:44 +0100, Mark Brown wrote:
->
->> > I agree it seems clearly better from a security point of view to have
->> > writable shadow stacks than none at all, I don't think there's much
->> > argument there other than the concerns about the memory consumption
->> > and performance tradeoffs.
->
->> IIRC the WRSS equivalent works the same for ARM where you need to use a
->> special instruction, right? So we are not talking about full writable
->
->Yes, it's GCSSTR for arm64.
+On Wed, Sep 24, 2025 at 06:29:12PM -0300, Jason Gunthorpe wrote:
+> On Mon, Sep 08, 2025 at 04:26:58PM -0700, Nicolin Chen wrote:
+> > +
+> > +	WARN_ON(new != new_invs->inv + new_invs->num_invs);
+> > +
+> > +	return new_invs;
+> 
+> A debugging check that the output list is sorted would be a nice touch
+> for robustness.
 
-sspush / ssamoswap on RISC-V provides write mechanisms to shadow stack.
+Sure. The second for loop generating "new" could run a sanity.
 
+> I think this looks OK and has turned out to be pretty simple.
+> 
+> I've been thinking about generalizing it to core code and I think it
+> would hold up well there as well?
 
->
->> shadow stacks that could get attacked from any overflow, rather,
->> limited spots that have the WRSS (or similar) instruction. In the
->> presence of forward edge CFI, we might be able to worry less about
->> attackers being able to actually reach it? Still not quite as locked
->> down as having it disabled, but maybe not such a huge gap compared to
->> the mmap/munmap() stuff that is the alternative we are weighing.
->
->Agreed, as I said it's a definite win still - just not quite as strong.
+How would you like it to be written in the core: a generalized
+structure or a general macro that generates driver structures?
 
-If I have to put philosopher's hat, in order to have wider deployment and
-adoption, its better to have to have better security posture for majority
-users rather than making ultra secure system which is difficult to use.
+And potentially we need a new drivers/iommu/iommu-invs.c?
 
-This just means that mechanism(s) to write-to-shadow stack flows in user space
-have to be carefully done.
-
-- Sparse and not part of compile codegen. Mostly should be hand coded and
-   reviewed.
-
-- Reachability of such gadgets and their usage by adversary should be threat
-   modeled.
-
-
-If forward cfi is enabled, I don't expect gadget of write to shadow stack
-itself being reachable without disabling fcfi or pivoting/corrupting shadow
-stack. The only other way to achieve something like that would be to re-use
-entire function (where sswrite is present) to achieve desired effect. I think
-we should be focussing more on those.
-
-
-
+Thanks
+Nicolin
 
