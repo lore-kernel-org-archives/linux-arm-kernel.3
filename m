@@ -4,91 +4,208 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF97DCAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 13:14:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8402ACAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 13:26:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A1TScXo9HlddRXxyVV537w+xJu4r/bR5+Sl4AGG4P1c=; b=zLKhHITBONoNNrXUc3MTEyBN15
-	45Es4g3Fw6kHHkdvbiPKNNBjHkToGcVREGKdeekse3Dxo9exNuaE4F+rt+BidQLTELxtwb2N95qCt
-	OqBRXfCyWRavZgEEJHv05ighs/HvIq9uEutGGIpmusVf+T0hQEWVDtk22wjE2p50/ZYLP0Eg+tugI
-	odYBLYs4WzMkFxZY/LgImEQZF79JosvBz7muoHtdQdAYj971vqCCeKRQYF5i3oWiwwrFArYKKcUpQ
-	cfUYTmhyN2APjRQpaFw9jf3crg51m4wrucwtcNvyGVDyZej+Pgg6+91XflNF35bKCq9EOrOgV6BJI
-	Kjstq1xQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bvkSmnsbjWgCRk7WoYGPZ2rCFT7QBrcPm9Gt+BRzlj0=; b=t56H92Jn/D5O3nfHj2Aw+0b+3l
+	Li6vTqzZAoJd5gooEMPCWoZ3XZmK5zN+hhQkyDwSH1GkG6WGq2raH5xPbsYumfAUwg3iV51Bi8DVJ
+	Ne4iH5KwRnvcCyt2qlvxSvpjtzNA1fJuPAa6I88NzFGV/IZ+2TWY93rkITBCiJxy8QlmgwJ/GNj2L
+	q80AEhi8yGwe3aarN1WsY67Z8J08vVK37xCOVzVyQoqf9iBhPqdtlDB/YSnKaiv8qa1LMUZ18OoNe
+	NDmNRA6Cpi6R9afVskBfrouKYt0ui/qv/Br0D4yjjlqtjbVKp4n4hDAqaFGEJW6n7T2fgwCxMppSd
+	LswR0w3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Di2-00000002XDH-2yYn;
-	Mon, 29 Sep 2025 13:14:30 +0000
-Received: from mail-lf1-x134.google.com ([2a00:1450:4864:20::134])
+	id 1v3DtO-00000002Y1e-1cRp;
+	Mon, 29 Sep 2025 13:26:14 +0000
+Received: from mgamail.intel.com ([198.175.65.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Di0-00000002XCs-0kiR
+	id 1v3DtH-00000002Y16-49hw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 13:14:29 +0000
-Received: by mail-lf1-x134.google.com with SMTP id 2adb3069b0e04-57d5ccd73dfso4780686e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 06:14:27 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1759151666; x=1759756466; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=A1TScXo9HlddRXxyVV537w+xJu4r/bR5+Sl4AGG4P1c=;
-        b=TdyR4LaDA9kAjGFcj3I4+wS5Y7GCmpbglk/UgfS5DpdPiQjwbkvh2qJeCW+SZdXh+E
-         hlXo5BVwBfm0R65frCOLFila7ShC1BH1ES9prYIONM3piM8TO8jxycZJluu3x+lr4JbL
-         BB64QC4R9onVZVExKKWMqb/pWxN69Uk0k6kxUBozebOUEHDQaKiviYcBOvKec/YwIUKt
-         YEPD8mVEwawFh7EhasX3xjXTopTv/9UEO31+FPnZ4quoB7d9SZxHA+PT2oIj4xK1+2N6
-         eVi7EE1EJheB6uZv4VeSc7NHRGKdvZggtezK7bhmpN/gbdOCkfkorn+c3KxmKZ8bsL+f
-         p78g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759151666; x=1759756466;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=A1TScXo9HlddRXxyVV537w+xJu4r/bR5+Sl4AGG4P1c=;
-        b=XAfAZbg5FxxQ6NgmG2XFDW7XzA7lDxQSNZKIkRPPKe2myMsws0pMOffkIddTTiRo48
-         RBB4/y6zjnh3OWSmmqNgbVYtb1sN1Di1pZL1IUitvkeU0AVQe1Qu5fmN0Hp25Gqd++oX
-         /FpOfy2UNrzTgiLZ9UjUk0SMQWmAxF6yCfSfp7CMp9efvXo7fpjWHtDTlXXjmK/P7nnT
-         3xGMJR/C90IbZ0vILWM/thwrbggW3R7ppuLQur3Mdk+a/0lLnI2OhG7WPyyz25JjiMxB
-         p5Vcurmfk+4JmqgYgtIzTC6uQeJAXXe1eGqehqqlArwWyad2u+u4hTUgr+xv5eeFIwjp
-         sYAQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWHU4TeS/uqqZYsvQXNkZmTP+50Y3YUozqrHPeOLaVPpeyEpeMzXKOO0K5I0x93Yh6XWZjyts6ZlHSABc1jl3mR@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXMpIMwHBsgGK08LvkKkv037WwZRzO52nCiBCtI880N7QFhgdr
-	fJrOM0/Fzz+EQKCsD3dt5cHJMmks3Mx/M6/VVYuzW0nwJHkcNCMWg8MGYAzW6jM3
-X-Gm-Gg: ASbGncuMuKODhuqocy8fOTi0HpLg89VzjAnvgwKLLB5At1p/mpGVXnI2XglGXc/becB
-	XMpNH1zUWq9TvvCzWQpsKJ9exsR+q8ab/GTOlypM6LawTB8u8krWVKyLWIoRdqt1e061YXum3SJ
-	Q6jsdb3GUVF10SzR0gBl3h5rQ7kLBGYIuyKcjzvosL9HN4HNsnpfodTy8GhiuejyMgWssoxmaWQ
-	cbAMKUbTQodKVr5Kwt2uyglNx8qaQoFLsEM9ZhHhki/vCcrvY/vPtDx8BUrLHFI7xxirLsrpphA
-	4uqLtpy8rHJNmwoEmztaiZnHWUZWm7P3RH4MT2jqzN6kEWBP+z373vuzHo1bYcPP1Fhi5wrI9jm
-	plRhlB9DjO6qiaFofslCq7PNIBqVSbIkCnjjzraGN
-X-Google-Smtp-Source: AGHT+IFdZvltpHwZV1hUFDUAn+X1LBVfg1iTgq2zM08qx+yjkvQ6KOYUEgmP09Fpq9EwiTOtStUDCw==
-X-Received: by 2002:a05:6512:224f:b0:57b:7ca2:f02e with SMTP id 2adb3069b0e04-582d092db20mr5490234e87.12.1759151665722;
-        Mon, 29 Sep 2025 06:14:25 -0700 (PDT)
-Received: from NB-6746.corp.yadro.com ([188.243.183.84])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-588767b72e3sm461758e87.41.2025.09.29.06.14.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Sep 2025 06:14:25 -0700 (PDT)
-From: Artem Shimko <artyom.shimko@gmail.com>
-X-Google-Original-From: Artem Shimko <a.shimko.dev@gmail.com>
-To: Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>
-Cc: a.shimko.dev@gmail.com,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH 1/1] rivers: scmi: Add completion timeout handling for raw mode transfers
-Date: Mon, 29 Sep 2025 16:14:21 +0300
-Message-ID: <20250929131422.525315-2-a.shimko.dev@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250929131422.525315-1-a.shimko.dev@gmail.com>
-References: <20250929131422.525315-1-a.shimko.dev@gmail.com>
+	Mon, 29 Sep 2025 13:26:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1759152368; x=1790688368;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=vHB3fZ7lfQ6n6/ozYeTJY/XXXl1ajw2g+egvngCwaMQ=;
+  b=JMijRwFDNhiFGPCq0UsThwaCZnOSlzSty9oMPZGfQigYU87gnUzKk2Ee
+   Bvmz838OtQL/Rvyx0zTvnvoAJQohNGE9VY6ZcwpCyykrs6jlJ6JKoNeLy
+   vuyVEjltmiky99TW7lDMjC1OwznMzDzsyLd6MpJpvxwF/v0CfBAGBVtD2
+   YHVXMCaWocOXTpMQTcRrYm4RAqyuHz6P8HKsK7k4rEVVNEiT+MbCCT81Z
+   d+FdV0bmZPFY549dy3toLHTlCMES7USLMeny56RhWIwS6vw2jqc33F8Be
+   v6sSUtUJA6tD+V/14QYWuhUqh1ZAFZCRCZnW/kAXsnBhu6pQ/eb5G/oxI
+   Q==;
+X-CSE-ConnectionGUID: I1WYPI1tQA6zSydUMVuLbg==
+X-CSE-MsgGUID: n+G6kAPkQxqpRbIcIPKaAA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11568"; a="65027504"
+X-IronPort-AV: E=Sophos;i="6.18,301,1751266800"; 
+   d="scan'208";a="65027504"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by orvoesa107.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Sep 2025 06:26:03 -0700
+X-CSE-ConnectionGUID: ZknXnwDCSxCHo0PZN6UobA==
+X-CSE-MsgGUID: NYgH4JXlSZC24FHCvyW5OQ==
+X-ExtLoop1: 1
+Received: from fmsmsx901.amr.corp.intel.com ([10.18.126.90])
+  by fmviesa003.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 29 Sep 2025 06:26:02 -0700
+Received: from FMSMSX903.amr.corp.intel.com (10.18.126.92) by
+ fmsmsx901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27; Mon, 29 Sep 2025 06:26:01 -0700
+Received: from fmsedg901.ED.cps.intel.com (10.1.192.143) by
+ FMSMSX903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27 via Frontend Transport; Mon, 29 Sep 2025 06:26:01 -0700
+Received: from SA9PR02CU001.outbound.protection.outlook.com (40.93.196.22) by
+ edgegateway.intel.com (192.55.55.81) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27; Mon, 29 Sep 2025 06:26:00 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=O+aPBWGJWyAp7NdoircAqoB/+NHKp88pbzCd0cTX1v5GYK7yRjfQS/ljxXpeFMMrsqxzyep1+TB+kzrK2QZTyOrMLUZsiMpeYrAfSXbnYArcVZoEbm5q8cvYJKUSvrqE9ma7Y0OQbJEXlSjLggkcEjN7/TNGyftdNpfjAx9/v57uKJIooPuCWcbjs0Ly8nKXWDSZ+pZntBqf4xEweyq68RRVduin4VTccHEjENRf/cCsDMZG4fkJuib7fJwfNU/2HkW5zcfHt44tMs5JvhN1NkHgjfWU310Ckp9gj2UQJFrFUMwf/pmogc5Kixicu951nS+DQNr6p5JOPYynk8vr1Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bvkSmnsbjWgCRk7WoYGPZ2rCFT7QBrcPm9Gt+BRzlj0=;
+ b=TDCxeumQGMWQCSY+rgVPS1M8YW8oIdRUqMaxGoD9cQowymlz9ggafkrxlmo1kIs9fez0Asli7MDOFNgMvBVhRpY1mLUMxXghHHu2250IE0A63Lk/zf4tAsC8fFSevm0Tm4Zzva7B2CerS6een9UhGUrBnjfezZTBaiT97uxSh1eMXksU+o6AoELG+CBA1y+BmHNkC+UC5As45MP9/EDFFuqBKN6lB/0NpK+bpRqH6ek971eRBGX+acI++IuBoP0ykgk3UIoXndT04Khhx2NdmoSkyZU/6KipAzPfn8kTSWKOxEirFqZQgPUrN7ZtuI1Uj+Gn0N14ERLXzMkT+tV3Vg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from IA1PR11MB7198.namprd11.prod.outlook.com (2603:10b6:208:419::15)
+ by SJ1PR11MB6131.namprd11.prod.outlook.com (2603:10b6:a03:45e::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.17; Mon, 29 Sep
+ 2025 13:25:57 +0000
+Received: from IA1PR11MB7198.namprd11.prod.outlook.com
+ ([fe80::eeac:69b0:1990:4905]) by IA1PR11MB7198.namprd11.prod.outlook.com
+ ([fe80::eeac:69b0:1990:4905%5]) with mapi id 15.20.9160.015; Mon, 29 Sep 2025
+ 13:25:57 +0000
+Message-ID: <72c6b6cd-943b-465e-9281-5ad7fb195433@intel.com>
+Date: Mon, 29 Sep 2025 16:25:51 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 5/9] mmc: sdhci: add Black Sesame Technologies BST C1200
+ controller driver
+To: Albert Yang <yangzh0906@thundersoft.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Ge Gordon <gordon.ge@bst.ai>, BST Linux Kernel Upstream Group
+	<bst-upstream@bstai.top>, Catalin Marinas <catalin.marinas@arm.com>, "Will
+ Deacon" <will@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, Arnd
+ Bergmann <arnd@arndb.de>
+CC: <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mmc@vger.kernel.org>,
+	<soc@lists.linux.dev>
+References: <20250923-v4-patch-final-v1-0-2283ad7cbf88@thundersoft.com>
+ <20250923-v4-patch-final-v1-5-2283ad7cbf88@thundersoft.com>
+Content-Language: en-US
+From: Adrian Hunter <adrian.hunter@intel.com>
+Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park,
+ 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 -
+ 4, Domiciled in Helsinki
+In-Reply-To: <20250923-v4-patch-final-v1-5-2283ad7cbf88@thundersoft.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: LO2P265CA0410.GBRP265.PROD.OUTLOOK.COM
+ (2603:10a6:600:a0::14) To IA1PR11MB7198.namprd11.prod.outlook.com
+ (2603:10b6:208:419::15)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR11MB7198:EE_|SJ1PR11MB6131:EE_
+X-MS-Office365-Filtering-Correlation-Id: 74722f8c-5fbd-4ef4-f322-08ddff5bb8f0
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|7053199007|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?TnBFWnlMdnh3WGFiMDRYTHBSaFBtSWROcUZtc0Q3M3M2MW16UDEwWFJ6Y0Na?=
+ =?utf-8?B?ZGZaa0JuQk9oTnM2eTQ0WEFjQThkdmVsc3haa1JvWDRvU1ZqVUpwWS82ZlBF?=
+ =?utf-8?B?VlYyNkZ1aXZVSGprK3JyVXVPVmFTZGJEVFRoV2tneXNRN0VKdmJzNnJsc0Ur?=
+ =?utf-8?B?M0pFdWZrVThMVzZmQjNvTjNuSGhvRHprMFlkYlNacjZ6aFo0WFBpVXlNM1NB?=
+ =?utf-8?B?QlpQZDVGbzYwckZVWnBvREg5bC95N3V3VlRZL00vZnlFaGZLcDB6eE55MmUw?=
+ =?utf-8?B?Z0xVWWVYQ01odlNDZXNQeHM2UWdKaTNxWlg1UVJ2YlRqSHNIMU9qMEkyUm8x?=
+ =?utf-8?B?TGhLQXhRR0pVU29tb1ZYNlNLcFhJdCt6K2lxQ0tzNHR6bmtRR0UxakJNYlRo?=
+ =?utf-8?B?emU3T3p5Qm5tb3FMQzRYbVJBTDQrVy9maDRKV0ZWc3pxeDlvMjVRdlpkc2d0?=
+ =?utf-8?B?bCtTVG5lNHNDWXoyK1BBdStobHRXc0haVitEcUFaU0E5Y1ZpOTRiejhhbmRG?=
+ =?utf-8?B?WmFyWk5TNFV1ajZPWGFZUE1hRHRuNng2V09nTkJYc2xBaVBsM2g3cUtDbElu?=
+ =?utf-8?B?R01GbTNpUm9HQ0lGKzVrNTgyMlVKZXlhektwa0NQVi91MEZCOEl5TVpjVWxz?=
+ =?utf-8?B?bklvMGtlOENORDZqWnhFN2pkejR6d0lvUHRiNDk3T0dtcjRoalRmSkRLYzFi?=
+ =?utf-8?B?cHNWbFJyVVg2R2djUG91Nm5xL0VxYU9JUDR4VUR3eWRtMmhqVEV4VEpLNDNm?=
+ =?utf-8?B?VEhhYzgvWmtNcmZCMEdxQktMQ1RYN3E3bUlGN0F3TWh0bTUzV0FyNVJUdk9K?=
+ =?utf-8?B?cC9MSFdFRC9SL0kzaVN5Vmo3M1BNN0JTTHVqOXVwTE5MUTNRRERFdU5JY2JV?=
+ =?utf-8?B?dmdBZGNSZGpJRnVOWCszSjJ1UUoxaVg4ZFJwbDNBNEZLVjFiYUF0ZCswVG9m?=
+ =?utf-8?B?Q3NuMUNYN0FNUmdXMWkvU3RQU3lKdEpCa0Z6VzE3WnZzSU90Zkx6SjU0OCtD?=
+ =?utf-8?B?WXdPaDJoQnFSMmZLWnQ1Q2FhOWNYT3ExV1hlK1pqS1FaT2Uxc1MyRW0rYW5F?=
+ =?utf-8?B?UTNCbjlaV0dtNzdaU2FhQmFyelhqalIzbUlXWDFtN3JmY3E3N2dsQkgwNWJV?=
+ =?utf-8?B?SGUrQkNQSXhFUG9CUnZweVFSd3lRYm5RL3Q3TnhNKzNMY1B1eUVDaGtzZWhq?=
+ =?utf-8?B?amVmYTl4TDh3blhpRG41SkFvNzBaOWlyRjFwS0EyanVBbzN4YmZ4RzRSZW1V?=
+ =?utf-8?B?ZnJMb2ZJd21kSTFCR0FzcGtBTUtJcitNbjdKcWhEdFNPSzk5aEh6VmhZYzZJ?=
+ =?utf-8?B?ZFdGalZ1cXBPTUpNUU9NZnNrdUNKZjhBU3FkZS9lak5aL0xmUERQWUpzN2Uv?=
+ =?utf-8?B?eFFzQzFxKzBNaVMxeUhFMCs3cVRvc2FyanE1YlJJOEpGYis1Sm1XTE1zNVRJ?=
+ =?utf-8?B?RXJIZ2lOVUh0bE0zTklRWUFnTjhpLzVyK09OaC94NTBHb0ZRbW9SOWtkNTRo?=
+ =?utf-8?B?V2NYa2x0dlJ1anhhQ0dTdDRNZm9MSHYxdS9tWm1OcUlrT3VqRmo1RDEwb0RS?=
+ =?utf-8?B?ZElmM2dOSVBjazQzTTZ2dVFDTmd1c3R2ODg0bjRqSjYyVGs2SVYyUjd1YzZQ?=
+ =?utf-8?B?UWVOT0I4d0VJNWZoNk0xRnRLT09vaEtUVW9jNTBDRnRFZzZxYnhHTnhwMDZx?=
+ =?utf-8?B?WDVoR2JIeGoxbzVhOVB6OWg4dkVSSWhWclRQc0Q3YWJCd0IvamhwZitvNkFX?=
+ =?utf-8?B?aU1HTU8wNWhCZ3VuU295SGQ5cHozblVlWUtKeDdJbGZLcVNBZk9FVTJvaXc3?=
+ =?utf-8?B?UVUrK2ErejYyckxja3lHQ0FFT3RXdWxjdTlGTG9sWnNlaURieWhSZ0pmeW1t?=
+ =?utf-8?B?NDl3Y2hEeUVkRTZ5RWUyamtIcWo5dUNTWFJtNDNVRFZHbXIyYnI2SlIrWTVZ?=
+ =?utf-8?B?S0VTb3Qvb1FhcG56RUYzUVZZaXk0U1A2ZmtKR01KcWlDZkFtUlRUbHZ2OHFH?=
+ =?utf-8?Q?AAwHDl9ATqmwh1u6TjUiNzSclEf8IM=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR11MB7198.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(7053199007)(921020);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WVFXR1BPZjM4S21NcU5KQzdsT0lzVTVvc0dXaU1td2I4NVhvV2dNeXBJU1Rt?=
+ =?utf-8?B?bUZRTnlWanpLVmtoc0pqclppZHM2WWt6WDRMRHZBdDBlZTFRWS9uSGV6dnJr?=
+ =?utf-8?B?VlRGUngxNmZhaGZCd2drbDBTbzR4MEYvbE9LS2Z2VGhUY1RGK05odjF6OVhl?=
+ =?utf-8?B?MCtGb3hUMGVkZ01jT0lYaEJVN1RrQXBHeE1KTm91K3dISnlPZjBvNHhXRUVJ?=
+ =?utf-8?B?Tjh0Slk2eUVvZUlpa3JhRVhSUldXTGFTSTZVZjdGeFZEN1IwckFRWFc5U1Zz?=
+ =?utf-8?B?UDduRlJPbVZ0SE9RQ3U0aGZoU0ZUWVNEdEFtdXNlRm9QaURrbzY3ZUJJVGtr?=
+ =?utf-8?B?ZElqeHBMaUl5eGR6R1RLeUFiNURuL2RoKzNLMnpJQnIrVFNwMkF4L1ljTjRJ?=
+ =?utf-8?B?L1V0bW93dS9YbWNtLzMxUFc5YjI3cnJTSWNIVTFMcSs5WXkwZXNEM2ZGT09W?=
+ =?utf-8?B?TnpELzVlT1Y5M1pGTldDWld6cUc1VHh0RldRWHpPUVhueGxmZjR3WjZiQjJO?=
+ =?utf-8?B?UWptdEkzbFdteUEwU0U3TmU3aFQxMXBLYzNabVgrSk9BdENIV3c2UzRyL0ty?=
+ =?utf-8?B?VmgyZlZpMVk2K2YyS2VuVVNzVlZ6YUtib2w2ZEthejRJK09IRDUwc1ZPYWp0?=
+ =?utf-8?B?TXUyNUhlQ05OL0V1ZVNJQTR1TFJ4d3MvUXNPUXBwUzA0Wm03ald1WXlvbTdP?=
+ =?utf-8?B?anhrcWRCTXJtWEdjamk1V2c1amwxc1FUYzFlVGgwbWhLWmZWL2hxNDRhZHMx?=
+ =?utf-8?B?Qk9vNVlSUlV3MWdlMm9NcUpnbkxCS0VxK3RUVEdiNGVHaEhJWGhYbUZuS29y?=
+ =?utf-8?B?NEVyTU9vZ29wV0c2MVJOOFZTUjZoSUkyQ3FhbURjSmlYMU9vd0VTdER0dmdZ?=
+ =?utf-8?B?ZXl3QURPaDYwTjF5Y210Q0lXUTFOVFB0TWpGM3cwb251cDJEd29YeUZRMFpi?=
+ =?utf-8?B?MmJGb1dwY1VKTlRjWXNEZWRFYW1ISTJKSktQa00yVmpzMVo3bU1xYUFJQkxD?=
+ =?utf-8?B?Wm9kV09hOXQ5eTQ0SEpjVEdUWS9WWFk0aXgwNUdNZWh5QXB2am1qWS92ZEp1?=
+ =?utf-8?B?ZXlYN1NwMUk2STRkbHJDSWZkN3lXU3FJTFprVTd1UG1uQTJ2cEUvWGJ1TTU3?=
+ =?utf-8?B?NlN4Uml3dTRyUkJRSDR1eVdlMThYUUpFTVJiWk9KYUo3WElMcmhKUWdwRExV?=
+ =?utf-8?B?RzNwOGUrMVVHZlN4SDB5OHZJaGZpblBnWi9vS2QzcG9qOWZuOWhubEEwZ3FZ?=
+ =?utf-8?B?WjhhcnQ3WTdpdENLTW1jcERQVTcvUHM4aSt6TVM1TUFQbzNHMDBHa3RtMHFl?=
+ =?utf-8?B?elZqbGxzd0FkOWhNenp2MjUvZ25oYndmVW9XV0h0Vkt3dEE2blQzcVFUWjds?=
+ =?utf-8?B?OWI3S2dFV3VYOEhQeXhFcDZ6Q2RUNG1ZVTdwQnNxWFAvKzVROVNiY3RLWTA3?=
+ =?utf-8?B?WGcvNXhnSHFGdEhZSTk2TGdQUTZRTWR2RzUxLy9SeHlXcU4zcEtXZ29iTUJ1?=
+ =?utf-8?B?RnZSZ0wvM29ZMU9aWGNjazJFS3o4enJJZGg3K2FYRTNMREdzQjY4emtDVjFH?=
+ =?utf-8?B?c01aUWx2RDFWMFNybTBHbFhrbk9ubFNDaWo3T2NTT1pSSzZOTEN3WGVzcVlT?=
+ =?utf-8?B?SFdydk8zVExTTjZtTXVEcW5mMzA5U2dzZjJ2bWZ1Slp6SGs3SjhaNUdwVnZQ?=
+ =?utf-8?B?Q0I4elYvQXdrRjRCVE0zcGl1NGoxcWI0QjMwZGhzdHh4bDRBdExQdVplOTdr?=
+ =?utf-8?B?elpTUVhVRDRncWR6cCtNWHI1SmZsZUF4ZDNZVGozTHpyWUFrTjNOTXo5bEl4?=
+ =?utf-8?B?cEp1QTVTU2ZMa2pYY2NZdzRkVzJDSFgwMGFBbzRPd1pzMFdSU3ZhSW1Kbnl3?=
+ =?utf-8?B?cDRBZG1wWlhOREdMYnU1dytiNDAxdjVGS0RhQ05MNGhMS0EzeUM1YUxVMW5I?=
+ =?utf-8?B?TGc0WVBuNHVjazdOR2hSZ2NoTDF6YTZ0R01scUhxcEFwSUoxd1VaZVlCaUph?=
+ =?utf-8?B?VTlxUmh2d24wYTRrTE1RNWlMWCthbE1FTzJiNWJJRThLVTdXSmRmTjRTYkhy?=
+ =?utf-8?B?TE1tMGxiNE9veEVhaDJSRVN3MnN3MkhZclJpVnFIajAxYVZ5QlpydmJIbklo?=
+ =?utf-8?B?VVQxeHdzR1U3blQvenhQaGNFNVF6QmduamJWVElRRzR2dW1JdmRTSit0Vngx?=
+ =?utf-8?B?T1E9PQ==?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 74722f8c-5fbd-4ef4-f322-08ddff5bb8f0
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR11MB7198.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2025 13:25:57.2155
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: TkpEqHvKUv8/gTNOt9PHKXia0BJn7oqJnW+EuYnR1+f6d74R8bHzy0ghwx1vLfOfAtEZ2ZM4Yhr4heJ3BBdlxQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR11MB6131
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_061428_232036_2EB6775F 
-X-CRM114-Status: GOOD (  13.17  )
+X-CRM114-CacheID: sfid-20250929_062608_149827_1B7A4116 
+X-CRM114-Status: GOOD (  17.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,63 +220,743 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix race conditions in SCMI raw mode implementation by adding proper
-completion timeout handling. Multiple tests in the SCMI test suite
-were failing due to early clearing of SCMI_XFER_FLAG_IS_RAW flag in
-scmi_xfer_raw_put() function.
+On 23/09/2025 09:10, Albert Yang wrote:
+> Add SDHCI controller driver for Black Sesame Technologies C1200 SoC.
+> 
+> This driver supports the DWCMSHC SDHCI controller with BST-specific
+> enhancements including:
+> - Custom clock management and tuning
+> - Power management support
+> - BST-specific register configurations
+> - Support for eMMC and SD card interfaces
+> - Hardware limitation workaround for 32-bit DMA addressing
+> 
+> The driver addresses specific hardware constraints where:
+> - System memory uses 64-bit bus, eMMC controller uses 32-bit bus
+> - eMMC controller cannot access memory through SMMU due to hardware bug
+> - All system DRAM is configured outside 4GB boundary (ZONE_DMA32)
+> - Uses SRAM-based bounce buffer within 32-bit address space
+> 
+> Signed-off-by: Ge Gordon <gordon.ge@bst.ai>
+> Signed-off-by: Albert Yang <yangzh0906@thundersoft.com>
+> Acked-by: Arnd Bergmann <arnd@arndb.de>
+> 
+> ---
+> Changes for v4:
+> - Rename all functions from bst_* to sdhci_bst_* for better namespace consistency
+> - Rename driver file from sdhci-of-bst-c1200.c to sdhci-of-bst.c
+> - Rename dwcmshc_priv structure to sdhci_bst_priv for clarity
+> - Update driver name from "sdhci-dwcmshc" to "sdhci-bst" throughout
+> - Add comprehensive register bit mask definitions and named constants
+> - Replace manual polling loops with read_poll_timeout() for clock stability
+> - Add dedicated sdhci_bst_wait_int_clk() function for internal clock management
+> - Completely rewrite power management with proper power-off handling
+> - Enhance clock control with read-modify-write operations to avoid clobbering
+> - Add MBIU burst mode configuration based on power state
+> - Improve error handling and cleanup in probe/remove functions
+> - Simplify bounce buffer allocation and remove redundant MMC parameter adjustments
+> - Add SDHCI_QUIRK_BROKEN_ADMA quirk for hardware limitation
+> - Replace ioread32/iowrite32 with readl/writel for consistency
+> - Update copyright year and simplify license text
+> - Improve tuning algorithm with clearer variable naming
+> - Enhance register access patterns with proper bit field manipulation
+> - Add power-off clock management to reduce idle power consumption
+> - Add Acked-by: Arnd Bergmann
 
-The root cause:
-Tests were failing on poll() system calls with this condition:
-    if (!raw || (idx == SCMI_RAW_REPLY_QUEUE && !SCMI_XFER_IS_RAW(xfer)))
-        return;
+Thanks for making all these changes.  There are a few minor comments
+below.
 
-The SCMI_XFER_FLAG_IS_RAW flag was being cleared prematurely before
-the transfer completion was properly acknowledged, causing the poll
-to return on timeout and tests to fail.
+> 
+> Changes for v3:
+> - Simplify dwcmshc_priv structure by removing unused fields
+> - Improve helper functions with better encapsulation
+> - Use devm_platform_ioremap_resource() for resource management
+> - Update Kconfig description and alphabetical ordering
+> - Clarify documentation on hardware limitations and bounce buffer approach
+> - Remove duplicate sdhci_writew SDHCI_CLOCK_CONTROL
+> 
+> Changes for v2:
+> - Remove COMMON_CLK dependency from Kconfig (MMC_SDHCI_BST)
+> - Add ARCH_BST || COMPILE_TEST dependency from Kconfig (MMC_SDHCI_BST)
+> - Replace temporary ioremap with persistent mapping
+> - Map CRM registers once during probe instead of per-access
+> - Add proper cleanup in remove callback
+> - Refactor bounce buffer allocation with simplified error handling
+> - Remove unnecessary DMA configuration layers
+> - Prune unused headers and legacy vendor debug code
+> - Remove deprecated sdhci_bst_print_vendor() export
+> - Convert internal functions to static scope
+> - Standardize naming conventions (DRIVER_NAME, DEFAULT_MAX_FREQ)
+> - Optimize clock configuration routines
+> - Fix register access macros for EMMC_CTRL with proper offset calculation
+> - Correct device tree compatibility string to "bst,c1200-dwcmshc-sdhci"
+> - Add robust ioremap error checking
+> - Improve bounce buffer allocation failure handling
+> - Update MODULE_DESCRIPTION and AUTHOR fields
+> - Add explanatory comments for hardware limitations
+> - Remove redundant multi-host setup infrastructure
+> - Fix build warnings from lkp (kernel test robot)
+> ---
+>  drivers/mmc/host/Kconfig        |  14 ++
+>  drivers/mmc/host/Makefile       |   1 +
+>  drivers/mmc/host/sdhci-of-bst.c | 544 ++++++++++++++++++++++++++++++++++++++++
+>  3 files changed, 559 insertions(+)
+> 
+> diff --git a/drivers/mmc/host/Kconfig b/drivers/mmc/host/Kconfig
+> index 7232de1c068873d9bccec0b3b43ece939cb84894..75c37be559d23bff773bbe3f018b76c34ad710ca 100644
+> --- a/drivers/mmc/host/Kconfig
+> +++ b/drivers/mmc/host/Kconfig
+> @@ -429,6 +429,20 @@ config MMC_SDHCI_BCM_KONA
+>  
+>  	  If you have a controller with this interface, say Y or M here.
+>  
+> +config MMC_SDHCI_BST
+> +	tristate "SDHCI support for Black Sesame Technologies BST C1200 controller"
+> +	depends on ARCH_BST || COMPILE_TEST
+> +	depends on MMC_SDHCI_PLTFM
+> +	depends on OF
+> +	help
+> +	  This selects the Secure Digital Host Controller Interface (SDHCI)
+> +	  for Black Sesame Technologies BST C1200 SoC. The controller is
+> +	  based on Synopsys DesignWare Cores Mobile Storage Controller but
+> +	  requires platform-specific workarounds for hardware limitations.
+> +
+> +	  If you have a controller with this interface, say Y or M here.
+> +	  If unsure, say N.
+> +
+>  config MMC_SDHCI_F_SDH30
+>  	tristate "SDHCI support for Fujitsu Semiconductor F_SDH30"
+>  	depends on MMC_SDHCI_PLTFM
+> diff --git a/drivers/mmc/host/Makefile b/drivers/mmc/host/Makefile
+> index 5057fea8afb696e210e465a6a2aafc68adad7854..ee412e6b84d6c91f80654e53d0a05b549d4b6171 100644
+> --- a/drivers/mmc/host/Makefile
+> +++ b/drivers/mmc/host/Makefile
+> @@ -13,6 +13,7 @@ obj-$(CONFIG_MMC_MXS)		+= mxs-mmc.o
+>  obj-$(CONFIG_MMC_SDHCI)		+= sdhci.o
+>  obj-$(CONFIG_MMC_SDHCI_UHS2)	+= sdhci-uhs2.o
+>  obj-$(CONFIG_MMC_SDHCI_PCI)	+= sdhci-pci.o
+> +obj-$(CONFIG_MMC_SDHCI_BST)	        += sdhci-of-bst.o
 
-Сhanges implemented:
-1. Add completion wait with timeout in  scmi_xfer_raw_worker()
-2. Signal completion in scmi_raw_message_report()
+This would be better positioned so that it is not between
+	obj-$(CONFIG_MMC_SDHCI_PCI) and sdhci-pci-y
 
-This ensures:
-- Proper synchronization between transfer completion and flag clearing
-- Prevention of indefinite blocking with timeout safety mechanism
-- Stable test execution by maintaining correct flag states
+>  sdhci-pci-y			+= sdhci-pci-core.o sdhci-pci-o2micro.o sdhci-pci-arasan.o \
+>  				   sdhci-pci-dwc-mshc.o sdhci-pci-gli.o
+>  obj-$(CONFIG_MMC_SDHCI_ACPI)	+= sdhci-acpi.o
+> diff --git a/drivers/mmc/host/sdhci-of-bst.c b/drivers/mmc/host/sdhci-of-bst.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..b19b763f216a25f58d37c8e288a8aa791f1e20f7
+> --- /dev/null
+> +++ b/drivers/mmc/host/sdhci-of-bst.c
+> @@ -0,0 +1,544 @@
+> +// SPDX-License-Identifier: GPL-2.0+
+> +/*
+> + * SDHCI driver for Black Sesame Technologies C1200 controller
+> + *
+> + * Copyright (c) 2025 Black Sesame Technologies
+> + */
+> +
+> +#include <linux/delay.h>
+> +#include <linux/dma-mapping.h>
+> +#include <linux/ioport.h>
 
-arm scmi tests: https://gitlab.arm.com/tests/scmi-tests/-/releases
+Is linux/ioport.h needed?
 
-Signed-off-by: Artem Shimko <a.shimko.dev@gmail.com>
----
- drivers/firmware/arm_scmi/raw_mode.c | 8 ++++++++
- 1 file changed, 8 insertions(+)
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/of_reserved_mem.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/iopoll.h>
 
-diff --git a/drivers/firmware/arm_scmi/raw_mode.c b/drivers/firmware/arm_scmi/raw_mode.c
-index 73db5492ab44..fb83beb42e7b 100644
---- a/drivers/firmware/arm_scmi/raw_mode.c
-+++ b/drivers/firmware/arm_scmi/raw_mode.c
-@@ -468,6 +468,12 @@ static void scmi_xfer_raw_worker(struct work_struct *work)
- 
- 		ret = scmi_xfer_raw_wait_for_message_response(cinfo, xfer,
- 							      timeout_ms);
-+		if (!ret)
-+			if (!wait_for_completion_timeout(&xfer->done, timeout_ms))
-+				dev_err(dev,
-+					"timed out in RAW resp - HDR:%08X\n",
-+					pack_scmi_header(&xfer->hdr));
-+
- 		if (!ret && xfer->hdr.status)
- 			ret = scmi_to_linux_errno(xfer->hdr.status);
- 
-@@ -1381,6 +1387,8 @@ void scmi_raw_message_report(void *r, struct scmi_xfer *xfer,
- 	if (!raw || (idx == SCMI_RAW_REPLY_QUEUE && !SCMI_XFER_IS_RAW(xfer)))
- 		return;
- 
-+	complete(&xfer->done);
-+
- 	dev = raw->handle->dev;
- 	q = scmi_raw_queue_select(raw, idx,
- 				  SCMI_XFER_IS_CHAN_SET(xfer) ? chan_id : 0);
--- 
-2.43.0
+Also:
+
+#include <linux/bits.h>
+
+And if you use FIELD_PREP():
+
+#include <linux/bitfield.h>
+
+
+> +#include "sdhci.h"
+> +#include "sdhci-pltfm.h"
+> +
+> +/* SDHCI standard register extensions */
+> +#define SDHCI_CLOCK_PLL_EN		0x0008
+
+Already defined in sdhci.h
+
+> +#define SDHCI_TUNING_COUNT		0x20
+
+For SD cards the limit is 40.  This number seems to be
+driver-specific so should be named accordingly e.g.
+
+#define SDHCI_BST_TUNING_COUNT		0x20
+
+> +#define SDHCI_VENDOR_PTR_R		0xE8
+> +
+> +/* Synopsys vendor specific registers */
+> +#define SDHC_EMMC_CTRL_R_OFFSET		0x2C
+> +#define MBIU_CTRL			0x510
+> +
+> +/* MBIU burst control bits */
+> +#define BURST_INCR16_EN			BIT(3)
+> +#define BURST_INCR8_EN			BIT(2)
+> +#define BURST_INCR4_EN			BIT(1)
+> +#define BURST_EN			(BURST_INCR16_EN | BURST_INCR8_EN | BURST_INCR4_EN)
+> +#define MBIU_BURST_MASK			GENMASK(3, 0)
+> +
+> +/* CRM (Clock/Reset/Management) register offsets */
+> +#define SDEMMC_CRM_BCLK_DIV_CTRL	0x08
+> +#define SDEMMC_CRM_TIMER_DIV_CTRL	0x0C
+> +#define SDEMMC_CRM_RX_CLK_CTRL		0x14
+> +#define SDEMMC_CRM_VOL_CTRL		0x1C
+> +#define REG_WR_PROTECT			0x88
+> +#define DELAY_CHAIN_SEL			0x94
+> +
+> +/* CRM register values and bit definitions */
+> +#define REG_WR_PROTECT_KEY		0x1234abcd
+> +#define BST_VOL_STABLE_ON		BIT(7)
+> +#define BST_TIMER_DIV_MASK		GENMASK(7, 0)
+> +#define BST_TIMER_DIV_VAL		0x20
+> +#define BST_TIMER_LOAD_BIT		BIT(8)
+> +#define BST_BCLK_EN_BIT			BIT(10)
+> +#define BST_RX_UPDATE_BIT		BIT(11)
+> +#define BST_EMMC_CTRL_BIT2		BIT(2)
+
+BST_EMMC_CTRL_BIT2 is not a very descriptive name
+
+> +
+> +/* Clock frequency limits */
+> +#define BST_DEFAULT_MAX_FREQ		2000000UL
+
+2 MHz looks too low?
+
+> +#define BST_DEFAULT_MIN_FREQ		400000UL
+> +
+> +/* Clock control bit definitions */
+> +#define BST_CLOCK_DIV_MASK		GENMASK(7, 0)
+> +#define BST_CLOCK_DIV_SHIFT		8
+
+Can use just:
+
+#define BST_CLOCK_DIV_MASK		GENMASK(15, 8)
+
+and FIELD_PREP() so that BST_CLOCK_DIV_SHIFT is not needed
+
+> +#define BST_BCLK_DIV_MASK		GENMASK(9, 0)
+> +
+> +/* Clock frequency thresholds */
+> +#define BST_CLOCK_THRESHOLD_LOW		1500
+> +
+> +/* Clock stability polling parameters */
+> +#define BST_CLK_STABLE_POLL_US		1000	/* Poll interval in microseconds */
+> +#define BST_CLK_STABLE_TIMEOUT_US	20000	/* Timeout for internal clock stabilization (us) */
+> +
+> +struct sdhci_bst_priv {
+> +	void __iomem *crm_reg_base;
+> +};
+> +
+> +union sdhci_bst_rx_ctrl {
+> +	struct {
+> +		u32 rx_revert:1,
+> +		    rx_clk_sel_sec:1,
+> +		    rx_clk_div:4,
+> +		    rx_clk_phase_inner:2,
+> +		    rx_clk_sel_first:1,
+> +		    rx_clk_phase_out:2,
+> +		    rx_clk_en:1,
+> +		    res0:20;
+> +	};
+> +	u32 reg;
+> +};
+> +
+> +static u32 sdhci_bst_crm_read(struct sdhci_pltfm_host *pltfm_host, u32 offset)
+> +{
+> +	struct sdhci_bst_priv *priv = sdhci_pltfm_priv(pltfm_host);
+> +
+> +	return readl(priv->crm_reg_base + offset);
+> +}
+> +
+> +static void sdhci_bst_crm_write(struct sdhci_pltfm_host *pltfm_host, u32 offset, u32 value)
+> +{
+> +	struct sdhci_bst_priv *priv = sdhci_pltfm_priv(pltfm_host);
+> +
+> +	writel(value, priv->crm_reg_base + offset);
+> +}
+> +
+> +static int sdhci_bst_wait_int_clk(struct sdhci_host *host)
+> +{
+> +	u16 clk;
+> +
+> +	if (read_poll_timeout(sdhci_readw, clk, (clk & SDHCI_CLOCK_INT_STABLE),
+> +			      BST_CLK_STABLE_POLL_US, BST_CLK_STABLE_TIMEOUT_US, false,
+> +			      host, SDHCI_CLOCK_CONTROL))
+> +		return -EBUSY;
+> +	return 0;
+> +}
+> +
+> +static unsigned int sdhci_bst_get_max_clock(struct sdhci_host *host)
+> +{
+> +	return BST_DEFAULT_MAX_FREQ;
+> +}
+> +
+> +static unsigned int sdhci_bst_get_min_clock(struct sdhci_host *host)
+> +{
+> +	return BST_DEFAULT_MIN_FREQ;
+> +}
+> +
+> +static void sdhci_bst_enable_clk(struct sdhci_host *host, unsigned int clk)
+> +{
+> +	struct sdhci_pltfm_host *pltfm_host;
+> +	unsigned int div;
+> +	u32 val;
+> +	union sdhci_bst_rx_ctrl rx_reg;
+> +
+> +	pltfm_host = sdhci_priv(host);
+> +	if (clk == 0) {
+> +		div = clk;
+> +	} else if (clk > BST_DEFAULT_MAX_FREQ) {
+> +		div = clk / 1000;
+> +		div = BST_DEFAULT_MAX_FREQ / div;
+> +	} else if (clk < BST_CLOCK_THRESHOLD_LOW) {
+> +		div = clk;
+> +	} else {
+> +		div = BST_DEFAULT_MAX_FREQ * 100;
+> +		div = div / clk;
+> +		div /= 100;
+> +	}
+> +
+> +	clk = sdhci_readw(host, SDHCI_CLOCK_CONTROL);
+> +	clk &= ~SDHCI_CLOCK_CARD_EN;
+> +	sdhci_writew(host, clk, SDHCI_CLOCK_CONTROL);
+> +
+> +	clk &= ~SDHCI_CLOCK_PLL_EN;
+> +	sdhci_writew(host, clk, SDHCI_CLOCK_CONTROL);
+> +
+> +	val = sdhci_bst_crm_read(pltfm_host, SDEMMC_CRM_TIMER_DIV_CTRL);
+> +	val &= ~BST_TIMER_LOAD_BIT;
+> +	sdhci_bst_crm_write(pltfm_host, SDEMMC_CRM_TIMER_DIV_CTRL, val);
+> +
+> +	val = sdhci_bst_crm_read(pltfm_host, SDEMMC_CRM_TIMER_DIV_CTRL);
+> +	val &= ~BST_TIMER_DIV_MASK;
+> +	val |= BST_TIMER_DIV_VAL;
+> +	sdhci_bst_crm_write(pltfm_host, SDEMMC_CRM_TIMER_DIV_CTRL, val);
+> +
+> +	val = sdhci_bst_crm_read(pltfm_host, SDEMMC_CRM_TIMER_DIV_CTRL);
+> +	val |= BST_TIMER_LOAD_BIT;
+> +	sdhci_bst_crm_write(pltfm_host, SDEMMC_CRM_TIMER_DIV_CTRL, val);
+> +
+> +	val = sdhci_bst_crm_read(pltfm_host, SDEMMC_CRM_RX_CLK_CTRL);
+> +	val &= ~BST_RX_UPDATE_BIT;
+> +	sdhci_bst_crm_write(pltfm_host, SDEMMC_CRM_RX_CLK_CTRL, val);
+> +
+> +	rx_reg.reg = sdhci_bst_crm_read(pltfm_host, SDEMMC_CRM_RX_CLK_CTRL);
+> +
+> +	rx_reg.rx_revert = 0;
+> +	rx_reg.rx_clk_sel_sec = 1;
+> +	rx_reg.rx_clk_div = 4;
+> +	rx_reg.rx_clk_phase_inner = 2;
+> +	rx_reg.rx_clk_sel_first = 0;
+> +	rx_reg.rx_clk_phase_out = 2;
+> +
+> +	sdhci_bst_crm_write(pltfm_host, SDEMMC_CRM_RX_CLK_CTRL, rx_reg.reg);
+> +
+> +	val = sdhci_bst_crm_read(pltfm_host, SDEMMC_CRM_RX_CLK_CTRL);
+> +	val |= BST_RX_UPDATE_BIT;
+> +	sdhci_bst_crm_write(pltfm_host, SDEMMC_CRM_RX_CLK_CTRL, val);
+> +
+> +	/* Disable clock first */
+> +	val = sdhci_bst_crm_read(pltfm_host, SDEMMC_CRM_BCLK_DIV_CTRL);
+> +	val &= ~BST_BCLK_EN_BIT;
+> +	sdhci_bst_crm_write(pltfm_host, SDEMMC_CRM_BCLK_DIV_CTRL, val);
+> +
+> +	/* Setup clock divider */
+> +	val = sdhci_bst_crm_read(pltfm_host, SDEMMC_CRM_BCLK_DIV_CTRL);
+> +	val &= ~BST_BCLK_DIV_MASK;
+> +	val |= div;
+> +	sdhci_bst_crm_write(pltfm_host, SDEMMC_CRM_BCLK_DIV_CTRL, val);
+> +
+> +	/* Enable clock */
+> +	val = sdhci_bst_crm_read(pltfm_host, SDEMMC_CRM_BCLK_DIV_CTRL);
+> +	val |= BST_BCLK_EN_BIT;
+> +	sdhci_bst_crm_write(pltfm_host, SDEMMC_CRM_BCLK_DIV_CTRL, val);
+> +
+> +	/* RMW the clock divider bits to avoid clobbering other fields */
+> +	clk = sdhci_readw(host, SDHCI_CLOCK_CONTROL);
+> +	clk &= ~(BST_CLOCK_DIV_MASK << BST_CLOCK_DIV_SHIFT);
+> +	clk |= (div & BST_CLOCK_DIV_MASK) << BST_CLOCK_DIV_SHIFT;
+> +	sdhci_writew(host, clk, SDHCI_CLOCK_CONTROL);
+> +
+> +	clk = sdhci_readw(host, SDHCI_CLOCK_CONTROL);
+> +	clk |= SDHCI_CLOCK_PLL_EN;
+> +	sdhci_writew(host, clk, SDHCI_CLOCK_CONTROL);
+> +
+> +	clk |= SDHCI_CLOCK_CARD_EN;
+> +	sdhci_writew(host, clk, SDHCI_CLOCK_CONTROL);
+> +
+> +	clk |= SDHCI_CLOCK_INT_EN;
+> +	sdhci_writew(host, clk, SDHCI_CLOCK_CONTROL);
+> +}
+> +
+> +static void sdhci_bst_set_clock(struct sdhci_host *host, unsigned int clock)
+> +{
+> +	/* Turn off card/internal/PLL clocks when clock==0 to avoid idle power */
+> +	u32 clk_reg = sdhci_readw(host, SDHCI_CLOCK_CONTROL);
+
+Could be inside the 'if (!clock) {' block e.g.
+
+	if (!clock) {
+		u32 clk_reg = sdhci_readw(host, SDHCI_CLOCK_CONTROL);
+
+> +
+> +	if (!clock) {
+> +		clk_reg &= ~(SDHCI_CLOCK_CARD_EN | SDHCI_CLOCK_INT_EN | SDHCI_CLOCK_PLL_EN);
+> +		sdhci_writew(host, clk_reg, SDHCI_CLOCK_CONTROL);
+> +		return;
+> +	}
+> +	sdhci_bst_enable_clk(host, clock);
+> +}
+> +
+> +/**
+> + * sdhci_bst_reset - Reset the SDHCI host controller
+> + * @host: SDHCI host controller
+> + * @mask: Reset mask
+> + *
+> + * Performs a reset of the SDHCI host controller with special handling for eMMC.
+> + */
+
+Kernel style is not to put kernel-doc comments on call-back function
+implementations.
+
+> +static void sdhci_bst_reset(struct sdhci_host *host, u8 mask)
+> +{
+> +	u16 vendor_ptr, emmc_ctrl_reg;
+> +	u32 reg;
+> +
+> +	if (host->mmc->caps2 & MMC_CAP2_NO_SD) {
+> +		vendor_ptr = sdhci_readw(host, SDHCI_VENDOR_PTR_R);
+> +		emmc_ctrl_reg = vendor_ptr + SDHC_EMMC_CTRL_R_OFFSET;
+> +
+> +		reg = sdhci_readw(host, emmc_ctrl_reg);
+> +		reg &= ~BST_EMMC_CTRL_BIT2;
+> +		sdhci_writew(host, reg, emmc_ctrl_reg);
+> +		sdhci_reset(host, mask);
+> +		usleep_range(10, 20);
+> +		reg = sdhci_readw(host, emmc_ctrl_reg);
+> +		reg |= BST_EMMC_CTRL_BIT2;
+> +		sdhci_writew(host, reg, emmc_ctrl_reg);
+> +	} else {
+> +		sdhci_reset(host, mask);
+> +	}
+> +}
+> +
+> +/**
+> + * sdhci_bst_set_timeout - Set timeout value for commands
+> + * @host: SDHCI host controller
+> + * @cmd: MMC command
+> + *
+> + * Sets the timeout control register to maximum value (0xE).
+> + */
+
+Kernel style is not to put kernel-doc comments on call-back function
+implementations.
+
+> +static void sdhci_bst_set_timeout(struct sdhci_host *host, struct mmc_command *cmd)
+> +{
+> +	sdhci_writeb(host, 0xE, SDHCI_TIMEOUT_CONTROL);
+> +}
+> +
+> +/**
+> + * sdhci_bst_set_power - Set power mode and voltage
+> + * @host: SDHCI host controller
+> + * @mode: Power mode to set
+> + * @vdd: Voltage to set
+> + *
+> + * Sets power mode and voltage, also configures MBIU control register.
+> + */
+
+Kernel style is not to put kernel-doc comments on call-back function
+implementations.
+
+> +static void sdhci_bst_set_power(struct sdhci_host *host, unsigned char mode,
+> +				unsigned short vdd)
+> +{
+> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+> +	u32 reg;
+> +	u32 val;
+> +
+> +	sdhci_set_power(host, mode, vdd);
+> +
+> +	if (mode == MMC_POWER_OFF) {
+> +		/* Disable MBIU burst mode */
+> +		reg = sdhci_readw(host, MBIU_CTRL);
+> +		reg &= ~BURST_EN; /* Clear all burst enable bits */
+> +		sdhci_writew(host, reg, MBIU_CTRL);
+> +
+> +		/* Disable CRM BCLK */
+> +		val = sdhci_bst_crm_read(pltfm_host, SDEMMC_CRM_BCLK_DIV_CTRL);
+> +		val &= ~BST_BCLK_EN_BIT;
+> +		sdhci_bst_crm_write(pltfm_host, SDEMMC_CRM_BCLK_DIV_CTRL, val);
+> +
+> +		/* Disable RX clock */
+> +		val = sdhci_bst_crm_read(pltfm_host, SDEMMC_CRM_RX_CLK_CTRL);
+> +		val &= ~BST_RX_UPDATE_BIT;
+> +		sdhci_bst_crm_write(pltfm_host, SDEMMC_CRM_RX_CLK_CTRL, val);
+> +
+> +		/* Turn off voltage stable power */
+> +		val = sdhci_bst_crm_read(pltfm_host, SDEMMC_CRM_VOL_CTRL);
+> +		val &= ~BST_VOL_STABLE_ON;
+> +		sdhci_bst_crm_write(pltfm_host, SDEMMC_CRM_VOL_CTRL, val);
+> +	} else {
+> +		/* Configure burst mode only when powered on */
+> +		reg = sdhci_readw(host, MBIU_CTRL);
+> +		reg &= ~MBIU_BURST_MASK; /* Clear burst related bits */
+> +		reg |= BURST_EN; /* Enable burst mode for better bandwidth */
+> +		sdhci_writew(host, reg, MBIU_CTRL);
+> +	}
+> +}
+> +
+> +/**
+> + * sdhci_bst_execute_tuning - Execute tuning procedure
+> + * @host: SDHCI host controller
+> + * @opcode: Opcode to use for tuning
+> + *
+> + * Performs tuning procedure by trying different values and selecting the best one.
+> + *
+> + * Return: 0 on success, negative errno on failure
+> + */
+
+Kernel style is not to put kernel-doc comments on call-back function
+implementations.
+
+> +static int sdhci_bst_execute_tuning(struct sdhci_host *host, u32 opcode)
+> +{
+> +	struct sdhci_pltfm_host *pltfm_host;
+> +	int ret = 0, error;
+> +	int first_start = -1, first_end = -1, best = 0;
+> +	int second_start = -1, second_end = -1, has_failure = 0;
+> +	int i;
+> +
+> +	pltfm_host = sdhci_priv(host);
+> +
+> +	for (i = 0; i < SDHCI_TUNING_COUNT; i++) {
+> +		/* Protected write */
+> +		sdhci_bst_crm_write(pltfm_host, REG_WR_PROTECT, REG_WR_PROTECT_KEY);
+> +		/* Write tuning value */
+> +		sdhci_bst_crm_write(pltfm_host, DELAY_CHAIN_SEL, (1ul << i) - 1);
+> +
+> +		/* Wait for internal clock stable before tuning */
+> +		if (sdhci_bst_wait_int_clk(host)) {
+> +			dev_err(mmc_dev(host->mmc), "Internal clock never stabilised\n");
+> +			return -EBUSY;
+> +		}
+> +
+> +		ret = mmc_send_tuning(host->mmc, opcode, &error);
+> +		if (ret != 0) {
+> +			has_failure = 1;
+> +		} else {
+> +			if (has_failure == 0) {
+> +				if (first_start == -1)
+> +					first_start = i;
+> +				first_end = i;
+> +			} else {
+> +				if (second_start == -1)
+> +					second_start = i;
+> +				second_end = i;
+> +			}
+> +		}
+> +	}
+> +
+> +	/* Calculate best tuning value */
+> +	if (first_end - first_start >= second_end - second_start)
+> +		best = ((first_end - first_start) >> 1) + first_start;
+> +	else
+> +		best = ((second_end - second_start) >> 1) + second_start;
+> +
+> +	if (best < 0)
+> +		best = 0;
+> +
+> +	sdhci_bst_crm_write(pltfm_host, DELAY_CHAIN_SEL, (1ul << best) - 1);
+> +	/* Confirm internal clock stable after setting best tuning value */
+> +	if (sdhci_bst_wait_int_clk(host)) {
+> +		dev_err(mmc_dev(host->mmc), "Internal clock never stabilised\n");
+> +		return -EBUSY;
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+> +/**
+> + * sdhci_bst_voltage_switch - Perform voltage switch
+> + * @host: SDHCI host controller
+> + *
+> + * Enables voltage stable power.
+> + */
+
+Kernel style is not to put kernel-doc comments on call-back function
+implementations.
+
+> +static void sdhci_bst_voltage_switch(struct sdhci_host *host)
+> +{
+> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+> +
+> +	/* Enable voltage stable power */
+> +	sdhci_bst_crm_write(pltfm_host, SDEMMC_CRM_VOL_CTRL, BST_VOL_STABLE_ON);
+> +}
+> +
+> +static const struct sdhci_ops sdhci_bst_ops = {
+> +	.set_clock		= sdhci_bst_set_clock,
+> +	.set_bus_width		= sdhci_set_bus_width,
+> +	.set_uhs_signaling	= sdhci_set_uhs_signaling,
+> +	.get_min_clock		= sdhci_bst_get_min_clock,
+> +	.get_max_clock		= sdhci_bst_get_max_clock,
+> +	.reset			= sdhci_bst_reset,
+> +	.set_power		= sdhci_bst_set_power,
+> +	.set_timeout		= sdhci_bst_set_timeout,
+> +	.platform_execute_tuning = sdhci_bst_execute_tuning,
+> +	.voltage_switch		= sdhci_bst_voltage_switch,
+> +};
+> +
+> +static const struct sdhci_pltfm_data sdhci_bst_pdata = {
+> +	.ops = &sdhci_bst_ops,
+> +	.quirks = SDHCI_QUIRK_BROKEN_ADMA |
+> +		  SDHCI_QUIRK_DELAY_AFTER_POWER |
+> +		  SDHCI_QUIRK_CAP_CLOCK_BASE_BROKEN |
+> +		  SDHCI_QUIRK_INVERTED_WRITE_PROTECT,
+> +	.quirks2 = SDHCI_QUIRK2_BROKEN_DDR50 |
+> +		   SDHCI_QUIRK2_TUNING_WORK_AROUND |
+> +		   SDHCI_QUIRK2_ACMD23_BROKEN,
+> +};
+> +
+> +static int sdhci_bst_alloc_bounce_buffer(struct sdhci_host *host)
+> +{
+> +	struct mmc_host *mmc = host->mmc;
+> +	unsigned int bounce_size;
+> +	int ret;
+> +
+> +	/* Fixed SRAM bounce size to 32KB: verified config under 32-bit DMA addressing limit */
+> +	bounce_size = SZ_32K;
+> +
+> +	ret = of_reserved_mem_device_init_by_idx(mmc_dev(mmc), mmc_dev(mmc)->of_node, 0);
+> +	if (ret) {
+> +		dev_err(mmc_dev(mmc), "Failed to initialize reserved memory\n");
+> +		return ret;
+> +	}
+> +
+> +	host->bounce_buffer = dma_alloc_coherent(mmc_dev(mmc), bounce_size,
+> +						 &host->bounce_addr, GFP_KERNEL);
+> +	if (!host->bounce_buffer)
+> +		return -ENOMEM;
+> +
+> +	host->bounce_buffer_size = bounce_size;
+> +
+> +	return 0;
+> +}
+> +
+> +static int sdhci_bst_probe(struct platform_device *pdev)
+> +{
+> +	struct sdhci_pltfm_host *pltfm_host;
+> +	struct sdhci_host *host;
+> +	struct sdhci_bst_priv *priv;
+> +	int err;
+> +
+> +	host = sdhci_pltfm_init(pdev, &sdhci_bst_pdata, sizeof(struct sdhci_bst_priv));
+> +	if (IS_ERR(host))
+> +		return PTR_ERR(host);
+> +
+> +	pltfm_host = sdhci_priv(host);
+> +	priv = sdhci_pltfm_priv(pltfm_host); /* Get platform private data */
+> +
+> +	err = mmc_of_parse(host->mmc);
+> +	if (err)
+> +		return err;
+> +
+> +	sdhci_get_of_property(pdev);
+> +
+> +	/* Get CRM registers from the second reg entry */
+> +	priv->crm_reg_base = devm_platform_ioremap_resource(pdev, 1);
+> +	if (IS_ERR(priv->crm_reg_base)) {
+> +		err = PTR_ERR(priv->crm_reg_base);
+> +		return err;
+> +	}
+> +
+> +	/*
+> +	 * Silicon constraints for BST C1200:
+> +	 * - System RAM base is 0x800000000 (above 32-bit addressable range)
+> +	 * - The eMMC controller DMA engine is limited to 32-bit addressing
+> +	 * - SMMU cannot be used on this path due to hardware design flaws
+> +	 * - These are fixed in silicon and cannot be changed in software
+> +	 *
+> +	 * Bus/controller mapping:
+> +	 * - No registers are available to reprogram the address mapping
+> +	 * - The 32-bit DMA limit is a hard constraint of the controller IP
+> +	 *
+> +	 * Given these constraints, an SRAM-based bounce buffer in the 32-bit
+> +	 * address space is required to enable eMMC DMA on this platform.
+> +	 */
+> +	err = sdhci_bst_alloc_bounce_buffer(host);
+> +	if (err) {
+> +		dev_err(&pdev->dev, "Failed to allocate bounce buffer: %d\n", err);
+> +		return err;
+> +	}
+> +
+> +	err = sdhci_add_host(host);
+> +	if (err)
+> +		goto err_free_bounce_buffer;
+> +
+> +	return 0;
+> +
+> +err_free_bounce_buffer:
+> +	if (host->bounce_buffer) {
+> +		dma_free_coherent(mmc_dev(host->mmc), host->bounce_buffer_size,
+> +				  host->bounce_buffer, host->bounce_addr);
+> +		host->bounce_buffer = NULL;
+> +	}
+> +	of_reserved_mem_device_release(mmc_dev(host->mmc));
+> +
+> +	return err;
+> +}
+> +
+> +static void sdhci_bst_remove(struct platform_device *pdev)
+> +{
+> +	struct sdhci_host *host = platform_get_drvdata(pdev);
+> +
+> +	/* Free bounce buffer if allocated */
+> +	if (host->bounce_buffer) {
+> +		dma_free_coherent(mmc_dev(host->mmc), host->bounce_buffer_size,
+> +				  host->bounce_buffer, host->bounce_addr);
+> +		host->bounce_buffer = NULL;
+> +	}
+
+Same 5 lines of code further above.  Could be a separate little helper function.
+
+> +
+> +	/* Release reserved memory */
+> +	of_reserved_mem_device_release(mmc_dev(host->mmc));
+> +
+> +	/* Use platform helper for remove */
+> +	sdhci_pltfm_remove(pdev);
+> +}
+> +
+> +static const struct of_device_id sdhci_bst_ids[] = {
+> +	{ .compatible = "bst,c1200-dwcmshc-sdhci" },
+> +	{}
+> +};
+> +MODULE_DEVICE_TABLE(of, sdhci_bst_ids);
+> +
+> +static struct platform_driver sdhci_bst_driver = {
+> +	.driver = {
+> +		.name = "sdhci-bst",
+> +		.of_match_table = sdhci_bst_ids,
+> +	},
+> +	.probe = sdhci_bst_probe,
+> +	.remove = sdhci_bst_remove,
+> +};
+> +module_platform_driver(sdhci_bst_driver);
+> +
+> +MODULE_DESCRIPTION("Black Sesame Technologies SDHCI driver (BST)");
+> +MODULE_AUTHOR("Black Sesame Technologies Co., Ltd.");
+> +MODULE_LICENSE("GPL");
+> 
 
 
