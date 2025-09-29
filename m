@@ -4,78 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CF45CAC5B9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 17:10:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05F63CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 17:28:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0n/n2aPG/kzPYvO+2OVEYL5klvnYOH3rxCzc5hQBZE4=; b=24mYFJWoCullO3RqDweFtv1w9d
-	Qknruj2Zl9tnMHv/anbIHe8dOB/cHGCEp/bewY7n5c6yk+PWFa4YQjzfZKJtbCD/u5h9DuyVoMNgv
-	ugUyOzaSOOEYkETnjchKdI6MCwnG0Pd2y+V6smk9iEd+lNSqXOwAh0qcOTKaKQWhlG3njpWDjn47J
-	0DjeFB5Tr75G+9SOb0B0Lol9dCFmiVl3kxcEB7eaR4GzCNpHWZ27y7imzmXMDTjohZYkgvIjy76rM
-	c7MgLuwTptv8z5mDo2DGhyra3S7zNH849srIHzsFJ0pZFVWoyr1a8Ji/eoSnrc4vyAIDZuEGrrX1y
-	bYYrbfaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xLd5xqCzvOGBJ6bHUFEXXiosXuoWQxZ6JNWwQvoPPBA=; b=BkvVhjQXgkJapuIFUV+D5otoQA
+	lOywrIL0L4qvG9lBEL3QEVIbZHRkoS+jrY9k4UGeLbIIlGo/gjUkB4s+235GKuY/uhFNi+A0Cwgbg
+	cK49wL5f0toI40YGnkQ5TEfNMpq+7klWU1ZwfpQynTHHnJAg303/FewZTs35mcbJGFHXzjgGUn6q+
+	GgTXNGc+obn/gjh0AUkvXGTh82KvAPQ2Q2fLrBcjuW4V2lHrcvXkLkZ9NcA7eLBqBmpND5WdN4p/R
+	h0E5Eg9BFnrRIif94AcdnRtsRvnEq6QDAO2tk57fC4yqjZuBDs0WiBhKrVTM4lts7SPOUzPQwQSgj
+	JHUOv7eA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3HOZ-000000034bY-0hod;
-	Mon, 29 Sep 2025 17:10:39 +0000
-Received: from mout-p-102.mailbox.org ([2001:67c:2050:0:465::102])
+	id 1v3Hg9-000000037sq-3eh7;
+	Mon, 29 Sep 2025 17:28:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3HOW-000000034Yd-1TZO
+	id 1v3Hg7-000000037sU-3VBe
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 17:10:37 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4cb73q0D68z9t2F;
-	Mon, 29 Sep 2025 19:10:15 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1759165815;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=0n/n2aPG/kzPYvO+2OVEYL5klvnYOH3rxCzc5hQBZE4=;
-	b=Ufxi6mHO2aR5i7X58ZBpLwHEL1pIEx9MUkoEvGNpNObkP7xQV8LyFtXd+zAp0BDCtSjssN
-	oh3l4R5h3ZSSr8rHmiulD6gD7roOpmZj+8qTTWOdTuHN01EcIqy/F2sT6yNjxRRSL3JJoM
-	6hlUATmJVZNi+HeQ7DnGYXjYvKQAvNEKDA7WcmlM4G9TzUvxCHx/gH9cnLziVGmgzs22sN
-	NplepLhy45jkBrUeePGTyDTs2RefZgWdrzzhBAwPeATwArcHygRT15vwKggU/gGatN1UzK
-	aF4Ls9sMYg2NPD9DakRPnpnPzCiC0KbXcam/xj78mXXAcOj1V1bJBLmlEtXhZg==
-Message-ID: <86bc3866-4188-45d2-8046-da82e44333c0@mailbox.org>
-Date: Mon, 29 Sep 2025 19:10:00 +0200
+	Mon, 29 Sep 2025 17:28:48 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id D249340401;
+	Mon, 29 Sep 2025 17:28:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B7D85C4CEF4;
+	Mon, 29 Sep 2025 17:28:45 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759166926;
+	bh=xKSdXyclKtURS/6958s8l+F1kXgju1+RQlV/tYc2Sck=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=OZT3ER36gaOdwjVxchhpXqYhDp1qyDLzaMkoICEu1xsXmAL24HH1Q8zjhw0biljAB
+	 wTqKksQ1DAigHYHb2kOrmne5R/bqqEovtrV/3OcNCvMtKyH9Ry1SbRe4lH03mdCw7t
+	 MCmgMDyAB1H7jstxrjCtfKlyEtM3UWzJmVWK/WKLU5NQlUym2EYQLM0Eg7zxH3QetX
+	 FXkuamFKphRhIxBDRGE361UrsiL6cYCJyt0jwdlM8sBBTnArX4uN/3b6ybxCiODmDh
+	 uvj9OkjMLk6R4t4k8ntF+TSqmBzwET21pNiFNFh32gQk8AsoZG9bC3nUM1Y3fHCLuc
+	 10rt/RKRFDdsQ==
+Date: Mon, 29 Sep 2025 18:28:39 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Vladimir Moravcevic <vmoravcevic@axiado.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Harshit Shah <hshah@axiado.com>,
+	Tzu-Hao Wei <twei@axiado.com>,
+	Axiado Reviewers <linux-maintainer@axiado.com>,
+	linux-spi@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Prasad Bolisetty <pbolisetty@axiado.com>
+Subject: Re: [PATCH v2 2/3] spi: axiado: Add driver for Axiado SPI DB
+ controller
+Message-ID: <aNrBx4KTgGT5OE72@finisterre.sirena.org.uk>
+References: <20250929-axiado-ax3000-soc-spi-db-controller-driver-v2-0-b0c089c3ba81@axiado.com>
+ <20250929-axiado-ax3000-soc-spi-db-controller-driver-v2-2-b0c089c3ba81@axiado.com>
 MIME-Version: 1.0
-Subject: Re: [PATCH v3 2/2] arm64: dts: imx95: Describe Mali G310 GPU
-To: Rain Yang <jiyu.yang@oss.nxp.com>
-Cc: Frank.Li@nxp.com, airlied@gmail.com, alexander.stein@ew.tq-group.com,
- boris.brezillon@collabora.com, conor+dt@kernel.org,
- devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
- festevam@gmail.com, imx@lists.linux.dev, kernel@pengutronix.de,
- krzk+dt@kernel.org, linux-arm-kernel@lists.infradead.org,
- liviu.dudau@arm.com, maarten.lankhorst@linux.intel.com, mripard@kernel.org,
- p.zabel@pengutronix.de, robh@kernel.org, s.hauer@pengutronix.de,
- shawnguo@kernel.org, simona@ffwll.ch, sre@kernel.org, steven.price@arm.com,
- tzimmermann@suse.de, xianzhong.li@nxp.com
-References: <20250925203938.169880-1-marek.vasut@mailbox.org>
- <20250925203938.169880-2-marek.vasut@mailbox.org>
- <20250926055701.GC8204@nxa18884-linux.ap.freescale.net>
- <8f4ed393-f94a-4abb-9cdd-60dd693f3ec6@mailbox.org>
- <aNpYG5VITPmKkNgl@oss.nxp.com>
- <cc873c8b-435c-467f-b1e9-dc78ddbfb483@mailbox.org>
- <aNqx6XrUGBgUJ-pF@oss.nxp.com>
-Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <aNqx6XrUGBgUJ-pF@oss.nxp.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-MBO-RS-ID: 216c242169d189a438d
-X-MBO-RS-META: 694cwbhaseu15wsa8xaqtfy7753b3yym
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="cZ9/Y9e1KhVhzbDv"
+Content-Disposition: inline
+In-Reply-To: <20250929-axiado-ax3000-soc-spi-db-controller-driver-v2-2-b0c089c3ba81@axiado.com>
+X-Cookie: The star of riches is shining upon you.
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_101036_570077_34B1D708 
-X-CRM114-Status: GOOD (  27.15  )
+X-CRM114-CacheID: sfid-20250929_102847_918565_0393ADA3 
+X-CRM114-Status: GOOD (  24.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,121 +80,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/29/25 6:20 PM, Rain Yang wrote:
-> On Mon, Sep 29, 2025 at 03:09:01PM +0200, Marek Vasut wrote:
->> On 9/29/25 11:57 AM, Rain Yang wrote:
->>> On Mon, Sep 29, 2025 at 02:23:01AM +0200, Marek Vasut wrote:
->>>> On 9/26/25 7:57 AM, Peng Fan wrote:
->>>>
->>>> Hello Peng,
->>>>
->>>>> On Thu, Sep 25, 2025 at 10:38:31PM +0200, Marek Vasut wrote:
->>>>>> The instance of the GPU populated in i.MX95 is the G310, describe this
->>>>>> GPU in the DT. Include dummy GPU voltage regulator and OPP tables.
->>>>>>
->>>>>>
->>>>>> +		gpu: gpu@4d900000 {
->>>>>> +			compatible = "nxp,imx95-mali", "arm,mali-valhall-csf";
->>>>>> +			reg = <0 0x4d900000 0 0x480000>;
->>>>>> +			clocks = <&scmi_clk IMX95_CLK_GPU>, <&scmi_clk IMX95_CLK_GPUAPB>;
->>>>>> +			clock-names = "core", "coregroup";
->>>>>> +			interrupts = <GIC_SPI 289 IRQ_TYPE_LEVEL_HIGH>,
->>>>>> +				     <GIC_SPI 290 IRQ_TYPE_LEVEL_HIGH>,
->>>>>> +				     <GIC_SPI 288 IRQ_TYPE_LEVEL_HIGH>;
->>>>>> +			interrupt-names = "job", "mmu", "gpu";
->>>>>> +			mali-supply = <&gpu_fixed_reg>;
->>>>>> +			operating-points-v2 = <&gpu_opp_table>;
->>>>>> +			power-domains = <&scmi_devpd IMX95_PD_GPU>;
->>>>>> +			#cooling-cells = <2>;
->>>>>> +			dynamic-power-coefficient = <1013>;
->>>>>
->>>>> Sorry for my ignorance, would you please share how to get the value?
->>>> Copy-pasted from NXP downstream kernel fork DT bindings, see:
->>>>
->>>> https://github.com/nxp-imx/linux-imx.git
->>>>
->>>> 11495de7c24a ("MGS-7621-4 dts: gpu: update devfreq para")
->>> Hi Marek,
->>>
->>> 1. this "mali: gpu@4d900000" label can be found in this commit you showed.
->>> please correct this to be compatible with the downstream
->>
->> No, sorry, that's not how it works. Upstream is not being adjusted to match
->> decisions made by downstream kernel forks unless there is a good rationale
->> for such a change. "Downstream does this" is not a good one. (*)
->>
->>> and upstream kernel
->>
->> All of imx*.dts* use gpu: or gpu2d:/gpu3d:/vpuvg: for the GPU label.
->> Also, variants of gpu: label seems more popular:
->>
->> linux$ grep -hro '[a-z0-9_]\+: gpu@' arch/ | sort | uniq -c
->>       3 adreno_gpu: gpu@
->>       1 bb2d: gpu@
->>       1 gpu2d: gpu@
->>       1 gpu3d: gpu@
->>      80 gpu: gpu@
->>       4 gpu_2d: gpu@
->>       1 gpu_3d0: gpu@
->>       4 gpu_3d: gpu@
->>       6 gpu_mem: gpu@
->>       1 gpu_reserved: gpu@
->>       2 gpu_vg: gpu@
->>      17 mali: gpu@
->>       1 v3d: gpu@
->>       2 zap_shader_region: gpu@
->>
-> 
-> Existence does not necessarily imply validity. Since a single SoC may contain
-> multiple GPUs, it's generally better to use the specific GPU name as a label
-> rather than simply using 'gpu', to avoid potential conflicts.
 
-Does the MX95 contain multiple GPUs ?
+--cZ9/Y9e1KhVhzbDv
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-If no, then the statement above does not apply.
+On Mon, Sep 29, 2025 at 01:58:02AM -0700, Vladimir Moravcevic wrote:
+> The Axiado SPI controller is present in AX3000 SoC and Evaluation Board.
+> This controller is operating in Host only mode.
 
-If yes, then there is the gpu/gpu2d/gpu3d option.
+This looks mostly good, but the formatting is a bit odd, one small bug
+and there are licensing problems.
 
->>> 2. the compatible string is different from our downstream kernel,
->>
->> See above (*)
-> Additionally, there are still some performance differences between the upstream
-> driver and the Mali property driver. If compatibility with both can be achieved,
-> it would allow users to choose the driver that best suits their needs.
-> Personally, I find it convenient to switch between the two drivers using insmod
-> and rmmod, which allows for quick testing and comparison.
+> Signed-off-by: Vladimir Moravcevic <vmoravcevic@axiado.com>
+> Signed-off-by: Prasad Bolisetty <pbolisetty@axiado.com>
 
-Update the downstream fork to match upstream bindings, not the other way 
-around.
+The signoff of the person sending the mail should be last.
 
->>> also you dropped the "nxp,imx95-mali" compatible patch in the panthor
->>> driver, why?
->>
->> Because it is unnecessary, the generic compatible string is sufficient for
->> the in-tree kernel driver.
->>
->>> this will impact the mali property driver too, which
->>> has already been used in many customer project.
->>
->> See above (*)
->>
->> All the more reason to focus on upstream and avoid deployment of various
->> downstream components, blobs and so on. They cannot be maintained in the long
->> run, they break, and cause all kinds of maintenance problems.
->>
->> Upstream cannot be hindered by downstream blobs and their issues, sorry.
->>
->>> 3. the number of frequency in opp-table is only one, but there are two clocks
->>> in clocks property, this really make people confused.
->>> CLK/CLK_COREGROUP/CLK_STACK in i.MX95 are from the same source
->>> <&scmi_clk IMX95_CLK_GPU>, the other clock <&scmi_clk IMX95_CLK_GPUAPB>
->>> is always-on APB clock, which can't be changed by A-cores, and has been removed
->>> from clocks property in the latest release.
->>
->> Can the APB clock be enabled/disabled from Linux, e.g. to save power ?
-> 
-> please note that the APB clock can't be turned off on the A-core.
+> +++ b/drivers/spi/spi-axiado.c
+> @@ -0,0 +1,1029 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + * Axiado SPI controller driver (Host mode only)
+> + *
+> + * Copyright (C) 2022-2025 Axiado Corporation (or its affiliates). All rights reserved.
+> + *
+> + */
 
-I think if the clock are connected to the GPU, then they should be 
-described in the DT.
+All rights reserved or GPL?
+
+Please make the entire comment a C++ one so things look more
+intentional.
+
+> +	/* xspi->clk_rate - AMBA Slave clock frequency
+> +	 * transfer->speed_hz - Slave clock required frequency
+> +	 * As per data sheet - SCD = (AMBA Slave clock/SCK) - 2
+> +	 */
+
+Please use terms like "device" rather than outdated ones like slave.
+
+> +}
+> +/**
+
+Blank line between functions please.
+
+> +	/* Process any remaining bytes in the RX FIFO */
+> +	u32 avail_bytes = ax_spi_read(xspi, AX_SPI_RX_FBCAR);
+> +
+> +	// This loop handles bytes that are already staged from a previous word read
+> +	while (xspi->bytes_left_in_current_rx_word_for_irq &&
+
+The mix of /* and // seems a bit random, does it mean something?
+
+> +	 * Handle "Message Transfer Complete" interrupt.
+> +	 * This means all bytes have been shifted out of the TX FIFO.
+> +	 * It's time to harvest the final incoming bytes from the RX FIFO.
+> +	 */
+> +	if (intr_status & AX_SPI_IVR_MTCV) {
+
+> +		ax_spi_process_rx_and_finalize(ctlr);
+> +		return IRQ_HANDLED;
+> +	}
+
+> +	if (intr_status & AX_SPI_IVR_RFFV) {
+
+We can't get incoming and outgoing data interrupts simultaneously
+asserted?
+
+> +	drain_limit = AX_SPI_RX_FIFO_DRAIN_LIMIT; // Sane limit to prevent infinite loop on HW error
+> +	while (ax_spi_read(xspi, AX_SPI_RX_FBCAR) > 0 && drain_limit-- > 0)
+> +		(void)ax_spi_read(xspi, AX_SPI_RXFIFO); // Read and discard
+> +
+
+If you need the cast to void there something is going wrong.
+
+> +	ax_spi_setup_transfer(spi, transfer);
+> +	ax_spi_fill_tx_fifo(xspi);
+> +	ax_spi_write(xspi, AX_SPI_CR2, (AX_SPI_CR2_HTE | AX_SPI_CR2_SRD | AX_SPI_CR2_SWD));
+> +
+> +	spi_transfer_delay_exec(transfer);
+
+The core will implement any per transfer delays, this will double them.
+
+> +	fifo_total_bytes = xspi->tx_fifo_depth;
+> +	/* Calculate protocol overhead bytes according to the real operation each time. */
+> +	protocol_overhead_bytes = op->cmd.nbytes + op->addr.nbytes + op->dummy.nbytes;
+
+/*
+ *
+ */
+
+
+> +	/*Calculate the maximum data payload that can fit into the FIFO. */
+
+/* Calculate
+
+--cZ9/Y9e1KhVhzbDv
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmjawcMACgkQJNaLcl1U
+h9D7uAf/ezOiFJAnnp9OphHFZ36w2sWLfl3KC6kZn/2aKFTkXioJE01EmJO8HPPJ
+RJDxyTI2cAGVkS2LoZiXTWf0YL16mI17L4M3lhHT7ce/s5DRdGVz6l49oXvNsod3
+M/K4RdzPhQ0f8cJPbFGkiAhEoeh6vCcBY1V2du2DUQgci2QnhNpEaUaoL/+WRbv5
+teS3pnjbOq/JgkNtI72x41qLK1930i33S79IMulm03r95rEtCA0ucaB/QaI+81px
+YZrlk9W8s7pD8gFqmwVM2bN2GS6AzIsi3TfetTA7I0vVlKTg83PytJpzRNQFzgNr
+3rzwhnjnTo6jZxQag5ZFxNVstjMwsA==
+=WP3J
+-----END PGP SIGNATURE-----
+
+--cZ9/Y9e1KhVhzbDv--
 
