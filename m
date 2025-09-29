@@ -4,70 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F0E3CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 17:45:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46B41CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 17:49:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UjFCpZps/QMJgRTcesKPzrW6emXYgHeUJw7GpoV2dpA=; b=OKlC8h/y5pTjdJ7PidJJHpxAmQ
-	WjqebbljW+t6+Wh+KYVDJd32LMjYn5EyjkVt77aFlQn2v7ad7dn6fk6KUO7QM5D6ZhE+NEawdBNcY
-	gWFk7Y5imfQ0Yi5gHBUni4FgvxnmqkTQaz7DbzqvF9PttIKvrB/C/0EKvTiz3AoUjd4KxrzFbz3w8
-	EGye5MCJ6n9oXWSrwAheg3ebliy7eNrhEo5XOX03UE93X0JbVjd9I2OEvw88lsZ4lWnrE5ImW6WcU
-	ras1/gf4Ns9REsRzz8LaxfI19zfQ6iJPWE0aZI0QuXu2qxXeGLceknFdHKArk+npXc1wPGVynw25O
-	LD5bG2LQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=soLluZgeSmqgsmOBHJcCPda1vU0ZJi0dJXO96pm9yUQ=; b=4wah6cOrhj65desVzKek40HXhp
+	tBfyy3E/H+VoBtIPFd+wcWlTuqEGjiXTiv0FqBpa/0DMem+z7+FwH+3XmrO54JuHEsNKH7wqluGjc
+	6mIODwOq2p0/Zw3RfAeYBGrS6l2kcYa9Eoj/WpDzPVBx/oKD3Syfv9JVA8avXLHA2fantRwF5hK5R
+	NMAFlOyVq2563wmc43ZJDH6OeTIT26+noce4I1Ee3YUXSPHY2QcllUaH/JpExeJA2vlMnoJKDWKnv
+	g0XyQURpMqLnYDI6X7XdAHFhUOq2t3VCKbcQ1j3fYVMYQJSfSN443D2ZBx1SBdiCely1+1axrSRke
+	KixtpYjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3HwV-00000003AS9-3sQD;
-	Mon, 29 Sep 2025 17:45:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Hw8-00000003AEf-2dc3
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 17:45:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A8993150C;
-	Mon, 29 Sep 2025 10:45:11 -0700 (PDT)
-Received: from [10.1.197.69] (eglon.cambridge.arm.com [10.1.197.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 48C423F59E;
-	Mon, 29 Sep 2025 10:45:14 -0700 (PDT)
-Message-ID: <cde5498f-d470-49a3-89b7-6af8bd0f1de7@arm.com>
-Date: Mon, 29 Sep 2025 18:45:13 +0100
+	id 1v3I06-00000003BXb-2TRB;
+	Mon, 29 Sep 2025 17:49:26 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v3I03-00000003BWf-3qPy;
+	Mon, 29 Sep 2025 17:49:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6EC054050D;
+	Mon, 29 Sep 2025 17:49:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08AF0C4CEF4;
+	Mon, 29 Sep 2025 17:49:20 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759168163;
+	bh=soLluZgeSmqgsmOBHJcCPda1vU0ZJi0dJXO96pm9yUQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ViAKnlkzzXET5wwfMyvm1xC0DmknH7EfkpmjRb92WixqJFyGvCn2z+WMV9Fyc6kUc
+	 H7OgHGIJoSxQ6sp63SxWJUQ+d3uW7xsuXRSMPo1zlTvcJP8YBZ8ZNi0iScJG+oKz9K
+	 JowbAnDH6kijVEakdb1PhYFroGKY/haao1MB9R5iz6H5lhnJMKjNj8ZPSnwXkLls5a
+	 h5U/LKY5Bz11JiJjmSAJ0+2GAEZ/wb5FXdvkv745DMqMm/Iq0P0Sg218nOboa4jabs
+	 +OuKHWOKQg/6mIU6oDd6uXfWLNdt9i+evAa35I1fbX1COi4jBu4GhtI0zOHG8Rq88E
+	 sLXKhjX0DomIg==
+Date: Mon, 29 Sep 2025 18:49:18 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Christian Hewitt <christianshewitt@gmail.com>
+Cc: Neil Armstrong <neil.armstrong@linaro.org>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 1/2] dt-bindings: arm: amlogic: add support for Tanix TX9
+ Pro
+Message-ID: <20250929-geometric-massive-7ebe6c6c7c15@spud>
+References: <20250927125006.824293-1-christianshewitt@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 14/29] arm_mpam: Merge supported features during
- mpam_enable() into mpam_class
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-acpi@vger.kernel.org,
- D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- fenghuay@nvidia.com, baisheng.gao@unisoc.com, Rob Herring <robh@kernel.org>,
- Rohit Mathew <rohit.mathew@arm.com>, Rafael Wysocki <rafael@kernel.org>,
- Len Brown <lenb@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>, Ben Horgan <ben.horgan@arm.com>
-References: <20250910204309.20751-1-james.morse@arm.com>
- <20250910204309.20751-15-james.morse@arm.com>
- <20250912124937.00004250@huawei.com>
-Content-Language: en-GB
-From: James Morse <james.morse@arm.com>
-In-Reply-To: <20250912124937.00004250@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="jdhi7zx2CJL1nOyr"
+Content-Disposition: inline
+In-Reply-To: <20250927125006.824293-1-christianshewitt@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_104520_812712_79BC9208 
-X-CRM114-Status: GOOD (  37.25  )
+X-CRM114-CacheID: sfid-20250929_104923_971917_0C9BAED9 
+X-CRM114-Status: UNSURE (   6.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,262 +80,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
 
-On 12/09/2025 12:49, Jonathan Cameron wrote:
-> On Wed, 10 Sep 2025 20:42:54 +0000
-> James Morse <james.morse@arm.com> wrote:
-> 
->> To make a decision about whether to expose an mpam class as
->> a resctrl resource we need to know its overall supported
->> features and properties.
->>
->> Once we've probed all the resources, we can walk the tree
->> and produce overall values by merging the bitmaps. This
->> eliminates features that are only supported by some MSC
->> that make up a component or class.
->>
->> If bitmap properties are mismatched within a component we
->> cannot support the mismatched feature.
->>
->> Care has to be taken as vMSC may hold mismatched RIS.
+--jdhi7zx2CJL1nOyr
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-> A trivial things inline.
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
-Thanks!
+--jdhi7zx2CJL1nOyr
+Content-Type: application/pgp-signature; name="signature.asc"
 
+-----BEGIN PGP SIGNATURE-----
 
->> +/*
->> + * Combine two props fields.
->> + * If this is for controls that alias the same resource, it is safe to just
->> + * copy the values over. If two aliasing controls implement the same scheme
->> + * a safe value must be picked.
->> + * For non-aliasing controls, these control different resources, and the
->> + * resulting safe value must be compatible with both. When merging values in
->> + * the tree, all the aliasing resources must be handled first.
->> + * On mismatch, parent is modified.
->> + */
->> +static void __props_mismatch(struct mpam_props *parent,
->> +			     struct mpam_props *child, bool alias)
->> +{
->> +	if (CAN_MERGE_FEAT(parent, child, mpam_feat_cpor_part, alias)) {
->> +		parent->cpbm_wd = child->cpbm_wd;
->> +	} else if (MISMATCHED_FEAT(parent, child, mpam_feat_cpor_part,
->> +				   cpbm_wd, alias)) {
->> +		pr_debug("%s cleared cpor_part\n", __func__);
->> +		mpam_clear_feature(mpam_feat_cpor_part, &parent->features);
->> +		parent->cpbm_wd = 0;
->> +	}
->> +
->> +	if (CAN_MERGE_FEAT(parent, child, mpam_feat_mbw_part, alias)) {
->> +		parent->mbw_pbm_bits = child->mbw_pbm_bits;
->> +	} else if (MISMATCHED_FEAT(parent, child, mpam_feat_mbw_part,
->> +				   mbw_pbm_bits, alias)) {
->> +		pr_debug("%s cleared mbw_part\n", __func__);
->> +		mpam_clear_feature(mpam_feat_mbw_part, &parent->features);
->> +		parent->mbw_pbm_bits = 0;
->> +	}
->> +
->> +	/* bwa_wd is a count of bits, fewer bits means less precision */
->> +	if (alias && !mpam_has_bwa_wd_feature(parent) && mpam_has_bwa_wd_feature(child)) {
-> 
-> Seems like an overly long line given other local wrapping.
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaNrGngAKCRB4tDGHoIJi
+0lVDAQCj0EH8sKppN9fcZi8CL0ZzlYbuvLG5lN9ZfMsnhBU5fgD+PywrSMAcHnqO
+7xsSNakZ8ZVUV/XWH+AOuRzZicayCg0=
+=p03h
+-----END PGP SIGNATURE-----
 
-Fixed.
-
-
->> +		parent->bwa_wd = child->bwa_wd;
->> +	} else if (MISMATCHED_HELPER(parent, child, mpam_has_bwa_wd_feature,
->> +				     bwa_wd, alias)) {
-
->> +		pr_debug("%s took the min bwa_wd\n", __func__);
-
-These __func__ arguments need to go as pr_fmt has this covered.
-
-
->> +		parent->bwa_wd = min(parent->bwa_wd, child->bwa_wd);
->> +	}
->> +
->> +	/* For num properties, take the minimum */
->> +	if (CAN_MERGE_FEAT(parent, child, mpam_feat_msmon_csu, alias)) {
->> +		parent->num_csu_mon = child->num_csu_mon;
->> +	} else if (MISMATCHED_FEAT(parent, child, mpam_feat_msmon_csu,
->> +				   num_csu_mon, alias)) {
->> +		pr_debug("%s took the min num_csu_mon\n", __func__);
->> +		parent->num_csu_mon = min(parent->num_csu_mon, child->num_csu_mon);
->> +	}
->> +
->> +	if (CAN_MERGE_FEAT(parent, child, mpam_feat_msmon_mbwu, alias)) {
->> +		parent->num_mbwu_mon = child->num_mbwu_mon;
->> +	} else if (MISMATCHED_FEAT(parent, child, mpam_feat_msmon_mbwu,
->> +				   num_mbwu_mon, alias)) {
->> +		pr_debug("%s took the min num_mbwu_mon\n", __func__);
->> +		parent->num_mbwu_mon = min(parent->num_mbwu_mon, child->num_mbwu_mon);
->> +	}
-
-
->> +
->> +/*
->> + * If a vmsc doesn't match class feature/configuration, do the right thing(tm).
->> + * For 'num' properties we can just take the minimum.
->> + * For properties where the mismatched unused bits would make a difference, we
->> + * nobble the class feature, as we can't configure all the resources.
->> + * e.g. The L3 cache is composed of two resources with 13 and 17 portion
->> + * bitmaps respectively.
->> + */
->> +static void
->> +__class_props_mismatch(struct mpam_class *class, struct mpam_vmsc *vmsc)
-> 
-> I'm not really sure what the __ prefix denotes here.
-
-Just that its the innards of something and needs comprehending as part of its caller.
-
-
->> +{
->> +	struct mpam_props *cprops = &class->props;
->> +	struct mpam_props *vprops = &vmsc->props;
->> +
->> +	lockdep_assert_held(&mpam_list_lock); /* we modify class */
->> +
->> +	pr_debug("%s: Merging features for class:0x%lx &= vmsc:0x%lx\n",
->> +		 dev_name(&vmsc->msc->pdev->dev),
->> +		 (long)cprops->features, (long)vprops->features);
-
-> According to https://docs.kernel.org/core-api/printk-formats.html
-> should be fine using %x for u16 values. So why dance through a cast to long?
-
-To isolate it from a subsequent change that makes that field a u32, the existence of which
-means one day it'll be a u64. If it ever gets bigger than unsigned-long, it'll need to be
-a bitmap array, which would need this code to change. Until then doing, it like this makes
-changes to the size less churny.
-
-
->> +
->> +	/* Take the safe value for any common features */
->> +	__props_mismatch(cprops, vprops, false);
->> +}
->> +
->> +static void
->> +__vmsc_props_mismatch(struct mpam_vmsc *vmsc, struct mpam_msc_ris *ris)
->> +{
->> +	struct mpam_props *rprops = &ris->props;
->> +	struct mpam_props *vprops = &vmsc->props;
->> +
->> +	lockdep_assert_held(&mpam_list_lock); /* we modify vmsc */
->> +
->> +	pr_debug("%s: Merging features for vmsc:0x%lx |= ris:0x%lx\n",
->> +		 dev_name(&vmsc->msc->pdev->dev),
->> +		 (long)vprops->features, (long)rprops->features);
-> 
-> Same as above comment on casts being unnecessary.
-
-I expect to have to change this in the future.
-
-As these two debug messages have a dev to hand, they should probably use dev_debug()
-instead of manually printing the dev_name().
-
-
->> +
->> +	/*
->> +	 * Merge mismatched features - Copy any features that aren't common,
->> +	 * but take the safe value for any common features.
->> +	 */
->> +	__props_mismatch(vprops, rprops, true);
->> +}
->> +
->> +/*
->> + * Copy the first component's first vMSC's properties and features to the
->> + * class. __class_props_mismatch() will remove conflicts.
->> + * It is not possible to have a class with no components, or a component with
->> + * no resources. The vMSC properties have already been built.
-> 
-> If it's not possible do we need the defensive _or_null and error checks?
-
-This is just paranoia. I've removed it.
-
-
->> + */
->> +static void mpam_enable_init_class_features(struct mpam_class *class)
->> +{
->> +	struct mpam_vmsc *vmsc;
->> +	struct mpam_component *comp;
->> +
->> +	comp = list_first_entry_or_null(&class->components,
->> +					struct mpam_component, class_list);
->> +	if (WARN_ON(!comp))
->> +		return;
->> +
->> +	vmsc = list_first_entry_or_null(&comp->vmsc,
->> +					struct mpam_vmsc, comp_list);
->> +	if (WARN_ON(!vmsc))
->> +		return;
->> +
->> +	class->props = vmsc->props;
->> +}
-> 
->> +/*
->> + * Merge all the common resource features into class.
->> + * vmsc features are bitwise-or'd together, this must be done first.
-> 
-> I'm not sure what 'this' is here - I think it's a missing plural that has
-> me confused.  Perhaps 'these must be done first.'
-
-The bitwise-or. It's singular because its done for each class/component at a time.
-
-The reason is so that mpam_enable_init_class_features() see's all the features in the
-first vmsc, not a subset of them. It's because vmsc hold non-overlapping features, which
-is all to support a platform that has two RIS with different types of control that do the
-same thing. (made up example:) memory min/max on ingress and memory portions on egress.
-Both are memory bandwidth for the same hardware block, but for whatever structural reason,
-it gets exposed as separate RIS.
-
-Rephrased as:
-| * vmsc features are bitwise-or'd together as the first step so that
-| * mpam_enable_init_class_features() can initialise the class with a
-| * representive set of features.
-
-
-
->> + * Next the class features are the bitwise-and of all the vmsc features.
->> + * Other features are the min/max as appropriate.
->> + *
->> + * To avoid walking the whole tree twice, the class->nrdy_usec property is
->> + * updated when working with the vmsc as it is a max(), and doesn't need
->> + * initialising first.
-> 
-> Perhaps state that this comment is about what happens in each call of
-> mpam_enable_merge_vmsc_features()  Or move the comment to that function.
-
-Sure. The comment is to try and stop people 'fixing' it to only loop over
-class->components once. That'll work on 99% of platforms, but discard all the
-controls on a few strange ones.
-
-
->> + */
->> +static void mpam_enable_merge_features(struct list_head *all_classes_list)
->> +{
->> +	struct mpam_class *class;
->> +	struct mpam_component *comp;
->> +
->> +	lockdep_assert_held(&mpam_list_lock);
->> +
->> +	list_for_each_entry(class, all_classes_list, classes_list) {
->> +		list_for_each_entry(comp, &class->components, class_list)
->> +			mpam_enable_merge_vmsc_features(comp);
->> +
->> +		mpam_enable_init_class_features(class);
->> +
->> +		list_for_each_entry(comp, &class->components, class_list)
->> +			mpam_enable_merge_class_features(comp);
->> +	}
->> +}
-> 
-> 
-
-
-Thanks,
-
-James
-
+--jdhi7zx2CJL1nOyr--
 
