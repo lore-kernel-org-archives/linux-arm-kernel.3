@@ -4,56 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CE41CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 09:55:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 773FFCAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 09:57:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Khx8t87VP2N9V4ijYQGSbhtjRbGRVKetYymJ2WDPclM=; b=dxZuwWbrF+IQbYa+Wei/EQQMkd
-	6tAlHTmKxelmPpYvp3SWvxBu24eEIpgNlmwUxXdfzXTxJkBvRnx+KwqUpgGSBnsto+mCS2obBG5yZ
-	/1l4y1/FptDenFGtcEUuDQzeDS+6/XcfXyZ31Nr2SnAfJIE2AsfUt1ufoacqp8iOEqOvOgBIDykRG
-	iPgzsI1tRSS/vSq/Qc9XwFdl7vF+mpRcqYg+zmH6YpHgQctUsR/ZbojSz+SSOpPjhDDnVmBOmjTzA
-	6QIyRUjjohZGdmOFcp2rHMZvThL8mjhj5sIR3gn2qr74y/9AZ+Rpcl891BcUXaWySR3TWCRBRj9W/
-	9sWBQeDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o/FsUHZpUwtMtFiC6QiXyV09jlQR1OM6fWOKHvw5+8w=; b=WtB0izmAx+WzqgbXfpgVZquZzO
+	w73/xwyiUKeWYwQLnl/JYfzbaoDtQE8Q+DDQ4EaB2LMfIFGO03Nsxw7q3IXuR1IYrDaBnAbGjHYS6
+	atR8WojO74xSpEAeBEr8rHIC4XFRg02mPset6gBFu8m3OfjtUvbfDJ4lWMO/3AGvQBjOdV4HpiwPv
+	8t0+UIb68SVyUEXFyQgAx7eWHTrns8zJGScCTU/sL1tUaXVy/uHMVUAqLe9cE/NLiFHiz2IOntTcH
+	mV7JeHqNPOOxQSK2+EvP5H0HH+TCUYZ9K+wdkXyK0iicFBK/ep/+CT2ODDhOqlnz7WhBvfGB73YPU
+	C/fqutaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3AbY-000000023pW-3zZ6;
-	Mon, 29 Sep 2025 09:55:36 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3AbW-000000023o5-172Y
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 09:55:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 028D5150C;
-	Mon, 29 Sep 2025 02:55:22 -0700 (PDT)
-Received: from [10.163.32.148] (unknown [10.163.32.148])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 920603F66E;
-	Mon, 29 Sep 2025 02:55:26 -0700 (PDT)
-Message-ID: <738db21f-5026-4bcb-a102-969c4379c015@arm.com>
-Date: Mon, 29 Sep 2025 15:25:23 +0530
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] mm: hugetlb: avoid soft lockup when mprotect with
- PROT_MTE
-To: Yang Shi <yang@os.amperecomputing.com>, muchun.song@linux.dev,
- osalvador@suse.de, david@redhat.com, akpm@linux-foundation.org,
- catalin.marinas@arm.com, will@kernel.org, carl@os.amperecomputing.com,
- cl@gentwo.org
-Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250926162034.1785899-1-yang@os.amperecomputing.com>
-Content-Language: en-US
-From: Anshuman Khandual <anshuman.khandual@arm.com>
-In-Reply-To: <20250926162034.1785899-1-yang@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+	id 1v3Ade-0000000245H-1ifq;
+	Mon, 29 Sep 2025 09:57:46 +0000
+Received: from out-180.mta0.migadu.com ([2001:41d0:1004:224b::b4])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v3Adb-0000000244U-2Leg;
+	Mon, 29 Sep 2025 09:57:45 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1759139856;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=o/FsUHZpUwtMtFiC6QiXyV09jlQR1OM6fWOKHvw5+8w=;
+	b=SOxFflLEf6Rjwp29LFayU4mIroCapYlknZs8TqHsmxnrfbpo+GDA33o/QoqwHB4ux2EFBT
+	IWU+totZ3Rtgvbj0qDHteY1N/vVjeBH8ERUnec9/pkdyrQvnyca1TYrqH1NZ0IXvA3YYsY
+	lBnkBe2PhX+VEb+zQHGcaHiIob424plaOfQ4SRdy8TChu7bm1pgO3oLHAfSGLZs/2ixgZ7
+	yP+IVPvlQpGSapgxMYd8p+WW7T5Oj0Q9jRl9/JbTlRA92mkkp9LCtkHPHNhYxvHlEW4lvM
+	QzkSHqcJvYWHkHYUdMmKFt+vahEfVCHopzUgWrDU4Ay5vAbe+XxT9j9vczU1PA==
+Content-Type: multipart/signed;
+ boundary=cb0678fa4e25dcc650e6f47f2c81c7a9ab6e010a75fd318cadeb60384faa;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Mon, 29 Sep 2025 11:57:26 +0200
+Message-Id: <DD5714TDL1NA.26WS3YF7EMZ5I@cknow.org>
+Cc: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+ "Ondrej Jirman" <megi@xff.cz>, "Martijn Braam" <martijn@brixit.nl>,
+ =?utf-8?q?Kamil_Trzci=C5=84ski?= <ayufan@ayufan.eu>
+Subject: Re: [PATCH v4 1/4] arm64: dts: rk3399-pinephone-pro: Add
+ light/proximity sensor support
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: <guptarud@gmail.com>, "Rob Herring" <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, "Conor Dooley" <conor+dt@kernel.org>,
+ "Heiko Stuebner" <heiko@sntech.de>
+References: <20250929-ppp_light_accel_mag_vol-down-v4-0-6598f22d3451@gmail.com> <20250929-ppp_light_accel_mag_vol-down-v4-1-6598f22d3451@gmail.com>
+In-Reply-To: <20250929-ppp_light_accel_mag_vol-down-v4-1-6598f22d3451@gmail.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_025534_339688_E53726A5 
-X-CRM114-Status: GOOD (  13.47  )
+X-CRM114-CacheID: sfid-20250929_025744_217977_65283A57 
+X-CRM114-Status: GOOD (  13.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,75 +74,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+--cb0678fa4e25dcc650e6f47f2c81c7a9ab6e010a75fd318cadeb60384faa
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
+Hi,
 
-On 26/09/25 9:50 PM, Yang Shi wrote:
-> When calling mprotect() with PROT_MTE, kernel will initialize MTE tags
-> for every single page in the affected area. Soft lockup was observed
-> when doing this for large HugeTLB memory area in our customer's workload
-> (~300GB memory):
-> 
-> watchdog: BUG: soft lockup - CPU#98 stuck for 23s! [t2_new_sysv:126916]
-> 
-> CPU: 98 PID: 126916 Comm: t2_new_sysv Kdump: loaded Not tainted 6.17-rc7
-> Hardware name: GIGACOMPUTING R2A3-T40-AAV1/Jefferson CIO, BIOS 5.4.4.1 07/15/2025
-> pstate: 20400009 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
-> pc : mte_clear_page_tags+0x14/0x24
-> lr : mte_sync_tags+0x1c0/0x240
-> sp : ffff80003150bb80
-> x29: ffff80003150bb80 x28: ffff00739e9705a8 x27: 0000ffd2d6a00000
-> x26: 0000ff8e4bc00000 x25: 00e80046cde00f45 x24: 0000000000022458
-> x23: 0000000000000000 x22: 0000000000000004 x21: 000000011b380000
-> x20: ffff000000000000 x19: 000000011b379f40 x18: 0000000000000000
-> x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
-> x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
-> x11: 0000000000000000 x10: 0000000000000000 x9 : ffffc875e0aa5e2c
-> x8 : 0000000000000000 x7 : 0000000000000000 x6 : 0000000000000000
-> x5 : fffffc01ce7a5c00 x4 : 00000000046cde00 x3 : fffffc0000000000
-> x2 : 0000000000000004 x1 : 0000000000000040 x0 : ffff0046cde7c000
-> 
-> Call trace:
->   mte_clear_page_tags+0x14/0x24
->   set_huge_pte_at+0x25c/0x280
->   hugetlb_change_protection+0x220/0x430
->   change_protection+0x5c/0x8c
->   mprotect_fixup+0x10c/0x294
->   do_mprotect_pkey.constprop.0+0x2e0/0x3d4
->   __arm64_sys_mprotect+0x24/0x44
->   invoke_syscall+0x50/0x160
->   el0_svc_common+0x48/0x144
->   do_el0_svc+0x30/0xe0
->   el0_svc+0x30/0xf0
->   el0t_64_sync_handler+0xc4/0x148
->   el0t_64_sync+0x1a4/0x1a8
-> 
-> Soft lockup is not triggered with THP or base page because there is
-> cond_resched() called for each PMD size.
-> 
-> So add cond_resched() for hugetlb to avoid soft lockup.
-> 
-> Fixes: 25c17c4b55de ("hugetlb: arm64: add mte support")
-> Tested-by: Carl Worth <carl@os.amperecomputing.com>
-> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
+On Mon Sep 29, 2025 at 9:35 AM CEST, Rudraksha Gupta via B4 Relay wrote:
+> From: Ondrej Jirman <megi@xff.cz>
+>
+> Pinephone Pro uses STK3311 according to the schematics.
+> ...
+> Co-developed-by: Martijn Braam <martijn@brixit.nl>
+> Signed-off-by: Martijn Braam <martijn@brixit.nl>
+> Co-developed-by: Kamil Trzci=C5=84ski <ayufan@ayufan.eu>
+> Signed-off-by: Kamil Trzci=C5=84ski <ayufan@ayufan.eu>
+> Signed-off-by: Ondrej Jirman <megi@xff.cz>
+> Signed-off-by: Rudraksha Gupta <guptarud@gmail.com>
 > ---
->  mm/hugetlb.c | 2 ++
->  1 file changed, 2 insertions(+)
-> 
-> diff --git a/mm/hugetlb.c b/mm/hugetlb.c
-> index cb5c4e79e0b8..fe6606d91b31 100644
-> --- a/mm/hugetlb.c
-> +++ b/mm/hugetlb.c
-> @@ -7242,6 +7242,8 @@ long hugetlb_change_protection(struct vm_area_struct *vma,
->  						psize);
->  		}
->  		spin_unlock(ptl);
+>  arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts | 15 +++++++++++++=
+++
+>  1 file changed, 15 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch=
+/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> index 6f97e57f36f5599f4027a0f3db98bcbc69cef5e5..71d32c4bae0d0336ac0c91204=
+3618fc9b94919ef 100644
+> --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
+> @@ -520,6 +520,15 @@ touchscreen@14 {
+>  		touchscreen-size-x =3D <720>;
+>  		touchscreen-size-y =3D <1440>;
+>  	};
 > +
-> +		cond_resched();
->  	}
->  	/*
->  	 * Must flush TLB before releasing i_mmap_rwsem: x86's huge_pmd_unshare
+> +	light-sensor@48 {
+> +		compatible =3D "sensortek,stk3311";
+> +		reg =3D <0x48>;
+> +		interrupt-parent =3D <&gpio4>;
+> +		interrupts =3D <RK_PD3 IRQ_TYPE_EDGE_FALLING>;
+> +		pinctrl-names =3D "default";
+> +		pinctrl-0 =3D <&stk3311_int>;
+> +	};
+>  };
+> =20
+>  &i2c4 {
+> @@ -689,6 +698,12 @@ vcc1v8_codec_en: vcc1v8-codec-en {
+>  		};
+>  	};
+> =20
+> +	stk3311 {
+> +		stk3311_int: stk3311-int {
+> +			rockchip,pins =3D <4 RK_PD3 RK_FUNC_GPIO &pcfg_input_pull_up>;
 
-LGTM
+On page 11 and 17 of PPP schematic V1.0-20211127 I see LIGHT_INT_L as
+identifier so it's best to use that identifier here, thus
+``light_int_l: light-int-l {``
+and update the pinctrl-0 reference accordingly.
 
-Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+Cheers,
+  Diederik
+
+> +		};
+> +	};
+> +
+>  	wireless-bluetooth {
+>  		bt_wake_pin: bt-wake-pin {
+>  			rockchip,pins =3D <2 RK_PD2 RK_FUNC_GPIO &pcfg_pull_none>;
+
+
+--cb0678fa4e25dcc650e6f47f2c81c7a9ab6e010a75fd318cadeb60384faa
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaNpYCAAKCRDXblvOeH7b
+bvsuAPsEC/G3fJAw/u6yVlNjqrrlLRyZ1BAsI/p7LKdixd2uOgEAkW/WYh9W3sk7
+dKjhmsr7Dc8j5Hx0B0dGqOs3NS6jzgY=
+=zCuL
+-----END PGP SIGNATURE-----
+
+--cb0678fa4e25dcc650e6f47f2c81c7a9ab6e010a75fd318cadeb60384faa--
 
