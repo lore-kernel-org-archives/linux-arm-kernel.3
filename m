@@ -4,78 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C12F3CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 07:44:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5ABC2CAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 07:47:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Date:Message-Id:Content-Type
-	:Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=AZ7xCl2wQqwqFo37e1wZWKGTGABfy99i1vqF6wtYlaY=; b=IUYUtzBh0nCzIMx0CQEultifgu
-	hqCUNXLIy68tpyTSyqsigqSNIlPPg9LzkHjl4koE2WxRLOzMWN4o1IWfV0U45CiglNE5uopIBaWFS
-	2dsRlW98TBR60WDH1C82iHL6QJcMzbNhnAFLtyaZKJlV1OL468rNBtxT+z5Twg0eWKnI0cJY8fqIE
-	YtkUiI3bRBa1sihlYQamqy7TAprmLGILKo9lNacVKwUdyLSMEZ25hQ0tLyeh+5DoIYuJha5hvPuBJ
-	LW6hS7356NrAuEfnxV6KsQsYpUqVJiIQTgee5E+JIAh3r3f3x2yf3lPM2K4RZw5yeL99hMRuCDaX6
-	6daSQPEg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MyTZIankaLF5a06YDy1KIdFXkQpVaw5MiopvoWPWCGU=; b=L/kaMU4IVBviJVAd05TnyA03vS
+	DHXBaIi0qDHINfJSloxotLxE9/GTDT9dNKT03i7uid0GlUhSsYr8J/0MijC+nXFSooFVNzzJij/FW
+	AY7BqnrhLmqAC/RufReHq6IreSAkEMj0yCNeFxRlC08zXdourxbuH9uyKfTSJJxeU5gD2sobeTTVI
+	O6KKGvolMffNW4/guw/2eCwTM5kS4/q5//ZVotvBj/cI1NR68m+vxCVaMejffEaIkRXoprOEnuz17
+	boWEGddAbnLFYu2ZaenY5+cLhutgrvc+y+abSZ/+lCGO9ye3M08PTwVrVq0huQMkhmkGEk4UDvimK
+	BmTS6tZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v38YR-00000001ebA-1QNd;
-	Mon, 29 Sep 2025 07:44:15 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1v38bh-00000001fBK-3iXX;
+	Mon, 29 Sep 2025 07:47:37 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v38YH-00000001eWp-3Pp2
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 07:44:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Date:Sender:Message-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Subject:Cc:To:From:Reply-To:Content-ID
-	:Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:
-	Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Id:List-Help:
-	List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=AZ7xCl2wQqwqFo37e1wZWKGTGABfy99i1vqF6wtYlaY=; b=PvKEk3awO1om3h6K37Kd+aGVTP
-	3iH+zwB8JaNnXrRJKI5aFojaxxzNwuDmpEqKWgXPpGymWoLYxDbwvLw8lcujRbLN/+Bh0DyvDV+WA
-	tIIuIKzguIB76P7Arlqz+cjxipozoPL/s37GvxgzOeu2bME+KzXPtrpfWustiAknfkSm3ZRVp+Y8x
-	QVKh16WjpClYRLRwuUxcLF1N+VPKEgsXtM+U1CPAZos7pLV21Eml+NnF4f5HO3cHtQwgsS2GXd69P
-	EQsj31cl9lzbLFr+k8gApPoPe1Rryr/sxrY6uLeQ+q4ww25s3y/4rd017e470tvbFI4b/T1N9rGJ+
-	7jRUoHeg==;
-Received: from e0022681537dd.dyn.armlinux.org.uk ([fd8f:7570:feb6:1:222:68ff:fe15:37dd]:51940 helo=rmk-PC.armlinux.org.uk)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <rmk@armlinux.org.uk>)
-	id 1v38Y8-000000006KV-2uOd;
-	Mon, 29 Sep 2025 08:43:56 +0100
-Received: from rmk by rmk-PC.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <rmk@rmk-PC.armlinux.org.uk>)
-	id 1v38Y7-00000008UCQ-3w27;
-	Mon, 29 Sep 2025 08:43:55 +0100
-From: "Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-To: Andrew Lunn <andrew@lunn.ch>,
-	Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Andrew Lunn <andrew+netdev@lunn.ch>,
-	"David S. Miller" <davem@davemloft.net>,
-	Eric Dumazet <edumazet@google.com>,
-	Furong Xu <0x1207@gmail.com>,
-	Jakub Kicinski <kuba@kernel.org>,
-	Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	netdev@vger.kernel.org,
-	Paolo Abeni <pabeni@redhat.com>,
-	Richard Cochran <richardcochran@gmail.com>
-Subject: [PATCH net-next] net: stmmac: remove stmmac_hw_setup() excess
- documentation parameter
+	id 1v38be-00000001fAX-2tsG;
+	Mon, 29 Sep 2025 07:47:36 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1759132040; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=AXJeHHdVsYunpaGV0EZwwtuCO2/LTO0cyhejNvyZZVABct3cRRyqAFBBmX3OWha1HiMDoROtUPiJ/dP00g1q553HlHaIEAnRNlzE1pTPnLdGg4VGLMEY66Q8RCkcUV/qK4M8l8JCDLPwhSLBzFu7+mr2zeR1S81nV7AVoD1o7/I=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1759132040; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=MyTZIankaLF5a06YDy1KIdFXkQpVaw5MiopvoWPWCGU=; 
+	b=BOMCXIf5TalahWald9axZvlXR3O3mF9OXUDF9UyyYdn8RS4yDxfN1JU75jqPw6BgLD25zvyi08jlcnxy/s+lauJk3NTtrcIakUBIGKeKjdk3eHnjuk1G/fvRccQjNuPRqM9q8tl4vNi/Sn/QuoUS+uiz/DLle3MFggQK3utD1WM=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1759132040;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=MyTZIankaLF5a06YDy1KIdFXkQpVaw5MiopvoWPWCGU=;
+	b=iVYsrEUydxJTh+wVLyYnd0P9NcdQIEOWP2mX2GSfvY7rMGrULt87vUuhNujPNa69
+	476/2aY39X82/Olsc7jF8hT/wMaBC1pKE6J8txvj7XpqPiDODGzmxYzYCZvjLh/VxzO
+	lHCpXG7LlkbK+bi4hecYNrsVFFaJmQ75wcBeeTRY=
+Received: by mx.zohomail.com with SMTPS id 1759132038945581.1909983747233;
+	Mon, 29 Sep 2025 00:47:18 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Mon, 29 Sep 2025 09:46:44 +0200
+Subject: [PATCH v5 1/7] dt-bindings: gpu: mali-valhall-csf: add
+ mediatek,mt8196-mali variant
 MIME-Version: 1.0
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
 Content-Type: text/plain; charset="utf-8"
-Message-Id: <E1v38Y7-00000008UCQ-3w27@rmk-PC.armlinux.org.uk>
-Date: Mon, 29 Sep 2025 08:43:55 +0100
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250929-mt8196-gpufreq-v5-1-3056e5ecf765@collabora.com>
+References: <20250929-mt8196-gpufreq-v5-0-3056e5ecf765@collabora.com>
+In-Reply-To: <20250929-mt8196-gpufreq-v5-0-3056e5ecf765@collabora.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Boris Brezillon <boris.brezillon@collabora.com>, 
+ Jassi Brar <jassisinghbrar@gmail.com>, Chia-I Wu <olvaffe@gmail.com>, 
+ Chen-Yu Tsai <wenst@chromium.org>, Steven Price <steven.price@arm.com>, 
+ Liviu Dudau <liviu.dudau@arm.com>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, Kees Cook <kees@kernel.org>, 
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>, 
+ Ulf Hansson <ulf.hansson@linaro.org>
+Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
+ linux-hardening@vger.kernel.org, linux-pm@vger.kernel.org, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_004406_137022_3D25A2B0 
-X-CRM114-Status: GOOD (  11.50  )
+X-CRM114-CacheID: sfid-20250929_004734_787336_0360EB69 
+X-CRM114-Status: GOOD (  11.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,33 +92,94 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The kernel build bot reports:
+The Mali-based GPU on the MediaTek MT8196 SoC uses a separate MCU to
+control the power and frequency of the GPU. This is modelled as a power
+domain and clock provider.
 
-Warning: drivers/net/ethernet/stmicro/stmmac/stmmac_main.c:3438 Excess function parameter 'ptp_register' description in 'stmmac_hw_setup'
+It lets us omit the OPP tables from the device tree, as those can now be
+enumerated at runtime from the MCU.
 
-Fix it.
+Add the necessary schema logic to handle what this SoC expects in terms
+of clocks and power-domains.
 
-Reported-by: kernel test robot <lkp@intel.com>
-Fixes: 98d8ea566b85 ("net: stmmac: move timestamping/ptp init to stmmac_hw_setup() caller")
-Closes: https://lore.kernel.org/oe-kbuild-all/202509290927.svDd6xuw-lkp@intel.com/
-Signed-off-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/net/ethernet/stmicro/stmmac/stmmac_main.c | 1 -
- 1 file changed, 1 deletion(-)
+ .../bindings/gpu/arm,mali-valhall-csf.yaml         | 40 ++++++++++++++++++++--
+ 1 file changed, 38 insertions(+), 2 deletions(-)
 
-diff --git a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-index be064f240895..650d75b73e0b 100644
---- a/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-+++ b/drivers/net/ethernet/stmicro/stmmac/stmmac_main.c
-@@ -3400,7 +3400,6 @@ static void stmmac_safety_feat_configuration(struct stmmac_priv *priv)
- /**
-  * stmmac_hw_setup - setup mac in a usable state.
-  *  @dev : pointer to the device structure.
-- *  @ptp_register: register PTP if set
-  *  Description:
-  *  this is the main function to setup the HW in a usable state because the
-  *  dma engine is reset, the core registers are configured (e.g. AXI,
+diff --git a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+index 7ad5a3ffc5f5c753322eda9e74cc65de89d11c73..860691ce985e560536b6c515b82441ba6d367c46 100644
+--- a/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
++++ b/Documentation/devicetree/bindings/gpu/arm,mali-valhall-csf.yaml
+@@ -45,7 +45,9 @@ properties:
+     minItems: 1
+     items:
+       - const: core
+-      - const: coregroup
++      - enum:
++          - coregroup
++          - stacks
+       - const: stacks
+ 
+   mali-supply: true
+@@ -92,7 +94,6 @@ required:
+   - interrupts
+   - interrupt-names
+   - clocks
+-  - mali-supply
+ 
+ additionalProperties: false
+ 
+@@ -109,6 +110,29 @@ allOf:
+         power-domains:
+           maxItems: 1
+         power-domain-names: false
++      required:
++        - mali-supply
++  - if:
++      properties:
++        compatible:
++          contains:
++            const: mediatek,mt8196-mali
++    then:
++      properties:
++        mali-supply: false
++        sram-supply: false
++        operating-points-v2: false
++        power-domains:
++          maxItems: 1
++        power-domain-names: false
++        clocks:
++          maxItems: 2
++        clock-names:
++          items:
++            - const: core
++            - const: stacks
++      required:
++        - power-domains
+ 
+ examples:
+   - |
+@@ -144,5 +168,17 @@ examples:
+             };
+         };
+     };
++  - |
++    gpu@48000000 {
++        compatible = "mediatek,mt8196-mali", "arm,mali-valhall-csf";
++        reg = <0x48000000 0x480000>;
++        clocks = <&gpufreq 0>, <&gpufreq 1>;
++        clock-names = "core", "stacks";
++        interrupts = <GIC_SPI 606 IRQ_TYPE_LEVEL_HIGH 0>,
++                     <GIC_SPI 605 IRQ_TYPE_LEVEL_HIGH 0>,
++                     <GIC_SPI 604 IRQ_TYPE_LEVEL_HIGH 0>;
++        interrupt-names = "job", "mmu", "gpu";
++        power-domains = <&gpufreq>;
++    };
+ 
+ ...
+
 -- 
-2.47.3
+2.51.0
 
 
