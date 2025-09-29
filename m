@@ -4,97 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CA2A8CAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 11:01:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE92BCAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 11:02:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rg8kwxsOK3RvjQ0Oy8bn6on+o39qQD/CbdbTzAEerLQ=; b=gr6rvf7juvyi5g/w//5XET1ZOR
-	1JP+r7bxLmDynDddnzCtNHMYScBWlV2/hlD/dhnHcrvMfU7twBoOIc5+yQh21KQ52HGN6setPELbG
-	ji+dPp1YcgaYpmPWcR+FoQrG5ZLMnFGXJQ+OkxSxkKP85TXo/G0NVW+gzNHK2gjHzYQsk1I2m042D
-	BKRIAOfaQSebhMSxq64WYlefPhMthDvnO2QZddG5Ejk8C6tzexFxX2CtvAB6ELkaKcBZWNLfdvfCj
-	7FHPpKZmoAHKe9U5zkYhn2dZO8r3xSYzVUrAhMKRL2VO3tXh9IiDNIGHtIlyREV44jMIkO/8qtPLQ
-	6maHCoTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6NrYEKHZKKMl0rBkf2LoZ0vgZAgfnfYI8w4AqKbnxjI=; b=e+jzzHBxyUD5z8f9KeMc5qwFN+
+	93Oy6nrA0nK9v0TSDpKVHnwgAKmpB5QQTxj+dZrRQeELQJCAVohR5bhBPbAsdgX0ZQbwfFCfGoQjZ
+	9Ryq8npaKesO/rUNIZQ/Gv6sId2dncae0CiPXwAxdXJhjivf21TBJDkjj8ihSzg1/mujywp9ipTHh
+	C0G6ary0CLzmwktDIVSehcHcpdjpAkq211KVKhn4s3Mry2k5X8p56mTx9v+NYI66fvtm2B/9aEN94
+	sAjkNQrMTCgnKG9lTHH/FEFN97bcPb+fDwKtxQ2Cf3cbZeOloxHMsjmG3na703+dlAA2XGx1sl1fH
+	dyfy6+Lg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Bd9-00000002GHu-18U6;
-	Mon, 29 Sep 2025 11:01:19 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1v3Be7-00000002GWf-2iUL;
+	Mon, 29 Sep 2025 11:02:19 +0000
+Received: from mail-northcentralusazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c105::5] helo=CH5PR02CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Bd6-00000002GGq-3IWJ
+	id 1v3Be5-00000002GVL-1QMv
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 11:01:17 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-46e32c0e273so101335e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 04:01:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1759143675; x=1759748475; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=Rg8kwxsOK3RvjQ0Oy8bn6on+o39qQD/CbdbTzAEerLQ=;
-        b=l4ROIYN9loNkF70M4G/EP9dd7/th3RQxcbx95yBS8G2MoWQtx26bx+hPEJdP/oHHvL
-         FCSvLTObFR97V8gtM8iASkXFhiuDB98FHhjGkFELpNEQiXZ7KqUi6IceSzMo8Y4pMCGq
-         thMmMfW0qczbyocjVUsEECzEEVh7W8y3eMheMCo3IjCXGlnqkK755QfSEtLF7j0UnzWb
-         ekXKl+KVhEHvH/I8eOpYxQV2yIzQSjT/YEdl+LG7W+nDFks2L0hxYwHYiLMh7pRIi+S5
-         71NX8VYugXl94xo2sl9QvK0MuqKnp/IErYOLibhDbWhAzIaMd7GvROSVp1dVlPt291cd
-         Nn/Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759143675; x=1759748475;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Rg8kwxsOK3RvjQ0Oy8bn6on+o39qQD/CbdbTzAEerLQ=;
-        b=gUR86bemoyC41BwmkKomlL+HYBvR9lCV6oE2pN6SrAOs6D9+JD8TGMZDf2HM9irWpg
-         D1NP/C8XMxDQVvDSYX+fnl7pzFg2GANd2tBLji2CaBCxLHrR9l4dXDdy0ZAN5snvpH2h
-         Amq3ppvNDd4y9BCHog1M0eEpSDkiRb+kTe95zkyUyDIjVeZCkT9+5VNc9jxKHMhG35PO
-         N5yD/U09YmzKWDzOXNSlLja7n0xW7h/2FJEenCOwHf5cxOzMxdbyJxBdzo8VERadIUBz
-         aKmslgNlP4F2Xh41EmgS+9Y2JFn4xj+6rL/rIpReAP2KRYLqvO8ukUjvec+FoxQe6ilf
-         WweA==
-X-Forwarded-Encrypted: i=1; AJvYcCXwagyVEj05X2rs6z0qonx/3kVhjHZtcZF1VaTrU7xK5GbnMbAhNf+wr9gQJp9UjVwqMm2rO2GU44nxFSsrrWNF@lists.infradead.org
-X-Gm-Message-State: AOJu0Yym5GLiR5Hpl52fGFb/e59wYOytOqLOUh3lut33TpFKfDR3riDH
-	gqThkEfDcvbrQTVTbR9QYTdI61oORbXXWWQyW/aw7orFHVZsxUaQHf+ntEdkc2ydWQ==
-X-Gm-Gg: ASbGncuMGJnC7zzPF1wVH0rhW0R7Toh4vjFuizFil5GQMROJuoOF0CQwXlwx9A/+5ye
-	IoAGAds1pCp3lqKiQh7VXvhcJC233vJ5q8gGbwuP4a8nvVPsNclbGATCb51FLOz1a6jTjlhYlEs
-	Cjek9UYJh4KLWss+g5lZFO/RGcXI6E7z8geT8p5VSbr2zrmI8KsQcxhTCvuiqB1Osk4gizjRo1k
-	90+VuVyUKAps6u0DYvR9ggMLSWl7Hyd4wWdEKiwYsZG2R90eTjIBBwwu5PGSNYdTZEHkIX7tLZ+
-	AtpUmfB8ePjCWfDrpmTUQTRl25w07lkB+68ErlidroSz7YHd2G2CVKJK6tx6y6WtZN2/wE0ngdX
-	BTFodNXDHiIT0dfZJ0/qpxpMQ8X2+lPlj/+bKtuRpY+Txm5liosT6Ehfo4AefqfyYnes=
-X-Google-Smtp-Source: AGHT+IFg+hCsYGMP/Ez1tXXALpy4mbn6kahyoJaMM4qeV/gbtw19iOEwbJlDUZ+YOlPn2J+hesMSFw==
-X-Received: by 2002:a05:600c:a31b:b0:45d:f51c:193 with SMTP id 5b1f17b1804b1-46e575a116emr243565e9.7.1759143674689;
-        Mon, 29 Sep 2025 04:01:14 -0700 (PDT)
-Received: from google.com (140.240.76.34.bc.googleusercontent.com. [34.76.240.140])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46e4ab0bf62sm70168175e9.9.2025.09.29.04.01.13
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 29 Sep 2025 04:01:13 -0700 (PDT)
-Date: Mon, 29 Sep 2025 11:01:10 +0000
-From: Mostafa Saleh <smostafa@google.com>
-To: Will Deacon <will@kernel.org>
-Cc: linux-kernel@vger.kernel.org, kvmarm@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
-	maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, robin.murphy@arm.com,
-	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
-	jgg@ziepe.ca, mark.rutland@arm.com, praan@google.com
-Subject: Re: [PATCH v4 10/28] KVM: arm64: iommu: Shadow host stage-2 page
- table
-Message-ID: <aNpm9odmzv__2RyA@google.com>
-References: <20250819215156.2494305-1-smostafa@google.com>
- <20250819215156.2494305-11-smostafa@google.com>
- <aMA8vz0v0Vn-02QP@willie-the-truck>
- <aMlzLsj5slPQhWEr@google.com>
- <aNamXlTErXDs1K8Z@willie-the-truck>
+	Mon, 29 Sep 2025 11:02:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=BMyVYM+Ckbehk0QXLfjhyt6VxoNd7jiQnJHWgoVxc9vUzp/mdDyb/MqxU8mtUxKe3+/fDT+2D9JZz8DrcKDEBpC9QYDqx0G9h6uv3ZY9BAJmwcH1h01KzYuBE10Gkh2hZcsMV39h/aOy/xLmgffKCl+8QEtoQnDQ4HfVq8KzQ9bWUt98t6PB1KzHOuA2PKn1dXV1PTwxEchR3Y9SKEWaLZNi4tjOV8oelK8Pyl6MKuOh6d7+hmMKQCPOxq3X1HUOWPmvQKv1VginC5VPuyu5ZuRkn/QZGd5IG35OoolPxA+LaBE06tO0ql4U+l0R+M/O/bU07WfscAEGPbTNlzuobw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=6NrYEKHZKKMl0rBkf2LoZ0vgZAgfnfYI8w4AqKbnxjI=;
+ b=RH3xHcC9cp2MMV0k0qaZ+aoBytRZSs6cP/WGbO+uWFHNpFiWVE/QYLkXywDhp5ESa8GMT2XVV+mhVKrR4J6ilMJlZ9t8gMw4peKtRxtjrKz+Yuvahgct2JUbojL2ywvuRJimnvo3XnSP6nVeFYWiJHUaTEfDp+pm7vzhEOuZIJpkVeSseZiZ28z1f3yDAM9qoWnfhcVI3GfEzyZZzufeMl92a9gnn3rtN+6O53iPazZUrdlafpyit/sYAnHv+YbQuluYHiIazOJAKoJS7A+1HY6RnscVud9zgKshjo+ZjRyqgk8WMPdfmRaGOTumqB2Y+4e46441dwRzS2T1aluZZw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=6NrYEKHZKKMl0rBkf2LoZ0vgZAgfnfYI8w4AqKbnxjI=;
+ b=hXNairQKt2BtArPLxNwDhGGs5HrNx8buL90f8cuPi3VMbTOJdJsDtS0J+APvFfpVlQ/Ks8T6tqYhc0zgjfA2W/t2qF6uhnqc0CELsPeuNfI8fphM+DWYlzwt8Ky6tKmiCYhP+EjcygbVkPwP2UBAT1WvE6M5D3yVk+TuWIytytZYocafEYLKUzQaDYpoJn4L2xarLTAuMpPPKK4Ig8kLpHAdBtQCYONLBn56TM1I1cSNgvDG7SxjecqA1i/kXpCxxxWCRctTJ3o0bgRXpmQRRj1mvHwYAauxybhdXgUeVVe7z7ynoadVlSWudeHTfVQAkixlT2GO+DrKGLRvGLsVog==
+Received: from DM6PR08CA0024.namprd08.prod.outlook.com (2603:10b6:5:80::37) by
+ DS7PR12MB5838.namprd12.prod.outlook.com (2603:10b6:8:79::17) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9160.16; Mon, 29 Sep 2025 11:02:01 +0000
+Received: from DS3PEPF000099DA.namprd04.prod.outlook.com
+ (2603:10b6:5:80:cafe::59) by DM6PR08CA0024.outlook.office365.com
+ (2603:10b6:5:80::37) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9160.17 via Frontend Transport; Mon,
+ 29 Sep 2025 11:02:01 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.232) by
+ DS3PEPF000099DA.mail.protection.outlook.com (10.167.17.11) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9160.9 via Frontend Transport; Mon, 29 Sep 2025 11:02:01 +0000
+Received: from drhqmail201.nvidia.com (10.126.190.180) by mail.nvidia.com
+ (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Mon, 29 Sep
+ 2025 04:01:54 -0700
+Received: from drhqmail203.nvidia.com (10.126.190.182) by
+ drhqmail201.nvidia.com (10.126.190.180) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Mon, 29 Sep 2025 04:01:53 -0700
+Received: from sheetal.nvidia.com (10.127.8.13) by mail.nvidia.com
+ (10.126.190.182) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
+ Transport; Mon, 29 Sep 2025 04:01:49 -0700
+From: "Sheetal ." <sheetal@nvidia.com>
+To: Vinod Koul <vkoul@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Thierry
+ Reding" <thierry.reding@gmail.com>, Marc Zyngier <maz@kernel.org>, "Thomas
+ Gleixner" <tglx@linutronix.de>, Liam Girdwood <lgirdwood@gmail.com>, "Mark
+ Brown" <broonie@kernel.org>
+CC: Jonathan Hunter <jonathanh@nvidia.com>, Sameer Pujar <spujar@nvidia.com>,
+	<dmaengine@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-tegra@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-sound@vger.kernel.org>,
+	sheetal <sheetal@nvidia.com>
+Subject: [PATCH V2 0/4] Add tegra264 audio device tree support
+Date: Mon, 29 Sep 2025 16:29:26 +0530
+Message-ID: <20250929105930.1767294-1-sheetal@nvidia.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <aNamXlTErXDs1K8Z@willie-the-truck>
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS3PEPF000099DA:EE_|DS7PR12MB5838:EE_
+X-MS-Office365-Filtering-Correlation-Id: 82cf6ced-8208-4117-7c63-08ddff479de6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|82310400026|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?BqDXYlfNu6Iunk4jQ0b2Ij1Q8Gk4TrS3LM5//WbjfLtFHNbnMXiqqS/d7ZMl?=
+ =?us-ascii?Q?lDzULhAHK5q3AE7q6KwBaHiPbycXy5pGMc3dEC0fsyqP/ryqqMcSDutg1ngt?=
+ =?us-ascii?Q?aqZ/ykVZL2Hp8ijYirPLGSeSmArh3LQj/cidrSPy2X+Y2mIMvg0/G5hklplj?=
+ =?us-ascii?Q?UJiuqy8t+cTzUguXEuokfu9acNbpXNE+mXSFR9t63Inww1JqF54mkUfeDIaX?=
+ =?us-ascii?Q?hpF8JFnszcc7LUyaHm4ZERg1fwrEU5il0GZMPPfyTMvoRjz1jQ/eX16Hg1DV?=
+ =?us-ascii?Q?X0Cbrr3/WgLBR+pvJWn4TfH06jOPURqyj5W47lU+B3GUfYSoz2Y6i/aeXQcv?=
+ =?us-ascii?Q?LrQnuG7vZOCg3NrItR8i7YW6AibAV9M7ldEp+Q9z6r371dFAG3djcY4RHtnZ?=
+ =?us-ascii?Q?m4HyNE2lsro5ypqhkWpff3Ra+u75D+PdRhfmcuwNYXnrppHCKjejqKiK9hbz?=
+ =?us-ascii?Q?HzZT1F3gc6TQBnal6ZWhnQ0HwiG12OYaplQ/Meflw4JTu7Wct2cVtI1mQNZt?=
+ =?us-ascii?Q?8RMHro8gCum9GtZdy/aMu+0yue5W8AKQYGLzMPfQWYWf3BRLny/aIQdQeB/V?=
+ =?us-ascii?Q?BJHWkxJgp5UrgA8RcgXya71I3KqUsx381ZqSRefTgizbfdOuIW9Xua7lhcze?=
+ =?us-ascii?Q?KPuArlq2bdlgqs0kUC1t+2IUKNv4qoPqwctRkR6mS7/V2tGgEwhwiNJWni8+?=
+ =?us-ascii?Q?eIIBjLS2hl8faJHNl3m+M3A2EpkFrPQMjzpnQsxntK+X5rj6N69M7O8ilTIa?=
+ =?us-ascii?Q?PUbSjqvGP1VBl9kAV4EXdVNV/38DIlQa/bN1G8udidIaYMf1wiO5xUeHx2tk?=
+ =?us-ascii?Q?jOWn/u4hbjRbG0A9zU+4MVzGDlx3mLYLhdlPwYmVElcVFLJ5jN/DwAhjFfVh?=
+ =?us-ascii?Q?g0jEyDTUzCfRFdizr5IzbslT5zvQ6xXB3lAHzCO2p4Wf/z1l53MAtuSJa4Ar?=
+ =?us-ascii?Q?QCNc4QFd7mqHnTw4aCpqZ8SjEVS+J6wDB2v5oEaha93eS4AMh0gSQn5kpgVH?=
+ =?us-ascii?Q?CDcJqQoz9bTwgMsEv46U/kL4F4ZE8wHvNCJVdx8H7oQ7B0pKZHkT5+mw/nPD?=
+ =?us-ascii?Q?C4L1c7K5H+U3RHYDFBXi41pQQZOqHLn8dTrZEkvTnI7myZjyGvCgX+x3OdGA?=
+ =?us-ascii?Q?i1LGUvxKdy+ZckEsWbvkI2h2vVhrxaiTi4SIE8FQHk4tVidklO6BxfuOcdjC?=
+ =?us-ascii?Q?5oeyEq/ZpMH+Kr4+XGzzaBer+rF9CcStGB3K68SGsN1RR856cJi9yEdsdm9h?=
+ =?us-ascii?Q?8f8fn/4pmLgfuNTRc7GlUh8NGgmkEovmMYeXCl8tTQdL0uCfS45SZgBO8F7J?=
+ =?us-ascii?Q?fZ/yoL0k2b9ZEsLweeRfMPvWHrYQBu263OpMKunjlC/G6ovvmwmMqox1XV3S?=
+ =?us-ascii?Q?m1gmcqAdiNLpjvVpxyVUJ7oMd2SEbVVzq9vT4iMb//3eK8h0zHaaX+Z+wQTS?=
+ =?us-ascii?Q?2iFcG1W1i2bGd+XZJt02oog2TiEHeBi7w1HUMkppTHcJH2T6OoB0mUQdUJDV?=
+ =?us-ascii?Q?ZkS8ccLQL5Gh2KHjp3Sc7pofWRzi5cM4X8lF4ZHZHWIblrcE0pgez/g/yBed?=
+ =?us-ascii?Q?zGlfL4oJduZVK0Ukznw=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(82310400026)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2025 11:02:01.1931
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 82cf6ced-8208-4117-7c63-08ddff479de6
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: DS3PEPF000099DA.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS7PR12MB5838
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_040116_853055_4E937390 
-X-CRM114-Status: GOOD (  39.16  )
+X-CRM114-CacheID: sfid-20250929_040217_373068_2B352EA9 
+X-CRM114-Status: UNSURE (   8.30  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,109 +155,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 26, 2025 at 03:42:38PM +0100, Will Deacon wrote:
-> On Tue, Sep 16, 2025 at 02:24:46PM +0000, Mostafa Saleh wrote:
-> > On Tue, Sep 09, 2025 at 03:42:07PM +0100, Will Deacon wrote:
-> > > On Tue, Aug 19, 2025 at 09:51:38PM +0000, Mostafa Saleh wrote:
-> > > > diff --git a/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c b/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
-> > > > index a01c036c55be..f7d1c8feb358 100644
-> > > > --- a/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
-> > > > +++ b/arch/arm64/kvm/hyp/nvhe/iommu/iommu.c
-> > > > @@ -4,15 +4,94 @@
-> > > >   *
-> > > >   * Copyright (C) 2022 Linaro Ltd.
-> > > >   */
-> > > > +#include <linux/iommu.h>
-> > > > +
-> > > >  #include <nvhe/iommu.h>
-> > > > +#include <nvhe/mem_protect.h>
-> > > > +#include <nvhe/spinlock.h>
-> > > >  
-> > > >  /* Only one set of ops supported */
-> > > >  struct kvm_iommu_ops *kvm_iommu_ops;
-> > > >  
-> > > > +/* Protected by host_mmu.lock */
-> > > > +static bool kvm_idmap_initialized;
-> > > > +
-> > > > +static inline int pkvm_to_iommu_prot(enum kvm_pgtable_prot prot)
-> > > > +{
-> > > > +	int iommu_prot = 0;
-> > > > +
-> > > > +	if (prot & KVM_PGTABLE_PROT_R)
-> > > > +		iommu_prot |= IOMMU_READ;
-> > > > +	if (prot & KVM_PGTABLE_PROT_W)
-> > > > +		iommu_prot |= IOMMU_WRITE;
-> > > > +	if (prot == PKVM_HOST_MMIO_PROT)
-> > > > +		iommu_prot |= IOMMU_MMIO;
-> > > 
-> > > This looks a little odd to me.
-> > > 
-> > > On the CPU side, the only different between PKVM_HOST_MEM_PROT and
-> > > PKVM_HOST_MMIO_PROT is that the former has execute permission. Both are
-> > > mapped as cacheable at stage-2 because it's the job of the host to set
-> > > the more restrictive memory type at stage-1.
-> > > 
-> > > Carrying that over to the SMMU would suggest that we don't care about
-> > > IOMMU_MMIO at stage-2 at all, so why do we need to set it here?
-> > 
-> > Unlike the CPU, the host can set the SMMU to bypass, in that case the
-> > hypervisor will attach its stage-2 with no stage-1 configured. So,
-> > stage-2 must have the correct attrs for MMIO.
-> 
-> I'm not sure about that.
-> 
-> If the SMMU is in stage-1 bypass, we still have the incoming memory
-> attributes from the transaction (modulo MTCFG which we shouldn't be
-> setting) and they should combine with the stage-2 attributes in roughly
-> the same way as the CPU, no?
+From: sheetal <sheetal@nvidia.com>
 
-Makes sense, we can remove that for now and map all stage-2 with
-IOMMU_CACHE. However, that might not be true for other IOMMUs,
-as they might not combine attributes as SMMUv3 stage-2, but we
-can ignore that for now. I will update the logic in v5.
+Add device tree support for tegra264 audio subsystem including:
+- Binding update for
+  - 64-channel ADMA controller
+  - 32 RX/TX ADMAIF channels
+  - tegra264-agic binding for arm,gic  
+- Add device tree nodes for
+  - APE subsystem (ACONNECT, AGIC, ADMA, AHUB and children (ADMAIF, I2S,
+    DMIC, DSPK, MVC, SFC, ASRC, AMX, ADX, OPE and Mixer) nodes
+  - HDA controller
+  - sound
 
-Thanks,
-Mostafa
+Note:
+ The change is dependent on https://patchwork.ozlabs.org/project/linux-tegra/patch/20250818135241.3407180-1-thierry.reding@gmail.com/
 
-> 
-> > > > +static int __snapshot_host_stage2(const struct kvm_pgtable_visit_ctx *ctx,
-> > > > +				  enum kvm_pgtable_walk_flags visit)
-> > > > +{
-> > > > +	u64 start = ctx->addr;
-> > > > +	kvm_pte_t pte = *ctx->ptep;
-> > > > +	u32 level = ctx->level;
-> > > > +	u64 end = start + kvm_granule_size(level);
-> > > > +	int prot =  IOMMU_READ | IOMMU_WRITE;
-> > > > +
-> > > > +	/* Keep unmapped. */
-> > > > +	if (pte && !kvm_pte_valid(pte))
-> > > > +		return 0;
-> > > > +
-> > > > +	if (kvm_pte_valid(pte))
-> > > > +		prot = pkvm_to_iommu_prot(kvm_pgtable_stage2_pte_prot(pte));
-> > > > +	else if (!addr_is_memory(start))
-> > > > +		prot |= IOMMU_MMIO;
-> > > 
-> > > Why do we need to map MMIO regions pro-actively here? I'd have thought
-> > > we could just do:
-> > > 
-> > > 	if (!kvm_pte_valid(pte))
-> > > 		return 0;
-> > > 
-> > > 	prot = pkvm_to_iommu_prot(kvm_pgtable_stage2_pte_prot(pte);
-> > > 	kvm_iommu_ops->host_stage2_idmap(start, end, prot);
-> > > 	return 0;
-> > > 
-> > > but I think that IOMMU_MMIO is throwing me again...
-> > 
-> > We have to map everything pro-actively as we don’t handle page faults
-> > in the SMMUv3 driver.
-> > This would be a future work where the CPU stage-2 page table is shared with
-> > the SMMUv3.
-> 
-> Ah yes, I'd forgotten about that.
-> 
-> Thanks,
-> 
-> Will
+...
+Changes in V2:
+ - Update the allOf condition in Patch 2/4.
+
+sheetal (4):
+  dt-bindings: dma: Update ADMA bindings for tegra264
+  dt-bindings: sound: Update ADMAIF bindings for tegra264
+  dt-bindings: interrupt-controller: arm,gic: Add tegra264-agic
+  arm64: tegra: Add tegra264 audio support
+
+ .../bindings/dma/nvidia,tegra210-adma.yaml    |   15 +-
+ .../interrupt-controller/arm,gic.yaml         |    1 +
+ .../sound/nvidia,tegra210-admaif.yaml         |  106 +-
+ .../arm64/boot/dts/nvidia/tegra264-p3971.dtsi |  106 +
+ arch/arm64/boot/dts/nvidia/tegra264.dtsi      | 3190 +++++++++++++++++
+ 5 files changed, 3377 insertions(+), 41 deletions(-)
+
+-- 
+2.34.1
+
 
