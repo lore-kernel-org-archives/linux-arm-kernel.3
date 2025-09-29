@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60A19CAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 07:35:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BE62CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 07:35:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hy2vAfbkyCkAR5fR+wgER4dU2dkzO8VJA/bvqnn5UnM=; b=1hczvwZWJbB5cd3TXL2P8aGzph
-	x7RaMLbFViOW6SxKR+QZqlIwqHaSG07nyKFsumm99ednzEHJ3FWMf86aO2rYUOO3s4HpkMiEHUw/m
-	jcfgKAb+JyuJ7icyMMzO91YjNpf56BH9KfeJhKYRGTuRC4ZaTrvjOsX50pvLAq1BYd2ScZK+GUfSU
-	FF4BFz1mBKX3z1NmwpTSgLnK+uDaePye92JpEQPqG8/GMhAe1IbhAlZtRLyHKTi90Ad7LpeEbFTPl
-	tXFZRYFzDBxDCYSG7aLUdsCWUiY3tgP+Sw/3+5NSIPjQZtrMcckJaoKqYQqQsNsN5Q2D2gmBmSXC5
-	WdWxkqhA==;
+	bh=knrLUhXeoiOlB4nnqjnw/1cMO8Rc0qOwfxrKrTkleEg=; b=jB+7H4UnGoRwHShqPTKkxxgJnY
+	tMawp48tFXJ/iM/y/pyFGSisfF1s9vSdOe4Jk9ERzmO/J4QG7brYtLF+UOzG2i1Roj6Q2nwi3a827
+	+Fj17Qt3XluLbe5uUDuWaEBideDe/1DSkPzz8cMTwBJQ0XrSosoiS1GZchO/98YJz27D7sKEpjat2
+	gSQwcdMYUbi81d9Khy9OhDWwVfzrdrsG7AEjwNwiE3qNBfIq2xgwG7aKsK7RuSuOh0r8DfCyR1uma
+	SyFw6H9+CTAuMaqeHeP8HUTe04diIZb/ajg11Tl1bIEV92oZI6AWzAHRPuXAD9R8eeUhfR078gm2r
+	osuAb1nA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v38Pt-00000001ce6-0k5H;
+	id 1v38Pt-00000001cec-26CF;
 	Mon, 29 Sep 2025 07:35:25 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v38Pn-00000001cai-2RLh;
+	id 1v38Pn-00000001cag-2RDU;
 	Mon, 29 Sep 2025 07:35:19 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0EEDE62317;
+	by tor.source.kernel.org (Postfix) with ESMTP id 1998E62319;
 	Mon, 29 Sep 2025 07:35:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id A536AC19423;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 8DFE7C4AF0B;
 	Mon, 29 Sep 2025 07:35:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1759131313;
-	bh=ihi3rYla53IgJpcZ5+Rg8bD/8aOc1SIfXRzrBf28D1k=;
+	bh=Bay7gvRD8WEKKONQKFBF0O+fwmVm+YlEq+tKHT0KRKA=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=IUrCWLjhlUyXCqlWiUUBi93SzYibO2iSA3sqGvCMjcINkd6gBzRtjdt3N30hkqnv4
-	 ErOVCCoJ+uT207gngLCwNpIuqNwnY1BBFshFz87zNRhmb4YtM4oEKLBligbHpYHkq9
-	 O3XKauKyttEgAa2z1VLuOU4XMZJx/hSkMhQ7uo1DKAo98U6eS+G09dPp01LqT0hH+u
-	 MIY9tLX94mkd6k9TM+D07gIdKPNpftrWvfAKoIwKdfPQzE2XTWciAJFn58HKI4FrhU
-	 W3ydoRY9DBTe5g8u7qWaQM6H+ZYAv6DNsphWqFufHRkSs+hr+bamAxnndm89KmLZJE
-	 rrHB+96UlW+xg==
+	b=CaAg0DaBk5igaM4TpFf1Au1liTovydHaKRSmeHMjrQndyPaQw//SrhK55m5PfGPFT
+	 Y75bhR+ulDCix/+e3cjFIVBgyA2kbATTNzy3Y88lLyyHBzU1KzM0HAVhmH2DiLRj1+
+	 rKIcE+yKlSGYg5K8mEYBKrqrRboZ2XsALfrL9mEzDn4omnmMNRjWiLbt/2YcFxn2bf
+	 PuNUTZodimMQ/ssoCXIg/K+5+ruIhXOFR8qVHdx/oycZZ6aXiYpFxv4jtJFFG741pS
+	 D6IqXKMDKTXjlvHPiW67gabuuZlBmV063n7LPTQ3ZhUzxx8ihDWb/3czQQvdch8VZt
+	 SOkrtRiPAFoyg==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 8AE7ECCA468;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7A8A4CAC5B5;
 	Mon, 29 Sep 2025 07:35:13 +0000 (UTC)
 From: Rudraksha Gupta via B4 Relay <devnull+guptarud.gmail.com@kernel.org>
-Date: Mon, 29 Sep 2025 00:35:14 -0700
-Subject: [PATCH v4 3/4] arm64: dts: rk3399-pinephone-pro: Add magnetometer
+Date: Mon, 29 Sep 2025 00:35:13 -0700
+Subject: [PATCH v4 2/4] arm64: dts: rk3399-pinephone-pro: Add accelerometer
  sensor support
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250929-ppp_light_accel_mag_vol-down-v4-3-6598f22d3451@gmail.com>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20250929-ppp_light_accel_mag_vol-down-v4-2-6598f22d3451@gmail.com>
 References: <20250929-ppp_light_accel_mag_vol-down-v4-0-6598f22d3451@gmail.com>
 In-Reply-To: <20250929-ppp_light_accel_mag_vol-down-v4-0-6598f22d3451@gmail.com>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -59,13 +59,14 @@ To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
  Rudraksha Gupta <guptarud@gmail.com>, Ondrej Jirman <megi@xff.cz>, 
- "Leonardo G. Trombetta" <lgtrombetta@gmx.com>
+ Martijn Braam <martijn@brixit.nl>, 
+ =?utf-8?q?Kamil_Trzci=C5=84ski?= <ayufan@ayufan.eu>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1759131312; l=4263;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1759131312; l=1864;
  i=guptarud@gmail.com; s=20240916; h=from:subject:message-id;
- bh=S5umEu3plIvdlAlu0DHnlI56aihH8rzrPou0aCxlWwA=;
- b=8A+MabpmYTKjEWg8Kdhs+k4P7zheIaYFrC3Dy3SKD6aShC215FksWT1sZq/X/9j+p7JN/alAD
- C8NAQmZqzsfA4uEwZU39mjFYc8HgGC31p31CBwFsm5M62i9VJZVm1hn
+ bh=BRZsP1UdL6OFWqM2mRykWAS8dysAco3k6Kyv3eBDv+E=;
+ b=qUkXHOgkg9QDIAccXCuh9iCn8uQ3DvTVFAEX5pjOxmDyP/Lb8YzSzOTQ9g1e2KPPpd/59qbKB
+ g0enuB+eYi2Cnr3VE6toJhAopuGqneFWjEEu9KY9/XFj1TSugfTHMNz
 X-Developer-Key: i=guptarud@gmail.com; a=ed25519;
  pk=ETrudRugWAtOpr0OhRiheQ1lXM4Kk4KGFnBySlKDi2I=
 X-Endpoint-Received: by B4 Relay for guptarud@gmail.com/20240916 with
@@ -88,139 +89,63 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ondrej Jirman <megi@xff.cz>
 
-Pinephone Pro uses AF8133J according to the schematic.
+Pinephone Pro uses mpu6500 according to the schematic.
 
-The mount-matrix was added by Leonardo on top of Ondrej's work of adding
-the magnetometer.
+Tests:
+// Setup: This watches the raw values from the device. The variable with
+// the biggest magnitude and its sign will be recorded
+$ sudo systemctl stop iio-sensor-proxy
+$ cat /sys/bus/iio/devices/iio:device3/in_accel_{x,y,z}_raw
 
-Test:
+// Let's start with phone screen facing up to the sky and the charger
+// port closer to you than the front camera.
+z: -16000
 
-Script:
-```
-DEVICE="/sys/bus/iio/devices/iio:device2"
+// Tilt the phone onto it's left edge
+x: -16000
 
-X=$(cat $DEVICE/in_magn_x_raw)
-Y=$(cat $DEVICE/in_magn_y_raw)
-Z=$(cat $DEVICE/in_magn_z_raw)
+// Tilt the phone onto it's right edge
+x: 16000
 
-X_MIN=$X; X_MAX=$X
-Y_MIN=$Y; Y_MAX=$Y
-Z_MIN=$Z; Z_MAX=$Z
+// Tilt the phone so that the charger port is pointing straight up to
+// the sky
+y: -16000
 
-START_TIME=$(date +%s)
+// Tilt the phone so that the top of the phone is pointing straight up
+// to the sky
+y: 16000
 
-while [ $(($(date +%s) - START_TIME)) -lt 10 ]; do
-    X=$(cat $DEVICE/in_magn_x_raw)
-    Y=$(cat $DEVICE/in_magn_y_raw)
-    Z=$(cat $DEVICE/in_magn_z_raw)
+// Put the phone face down so the screen is touching the table
+z: 16000
 
-    [ "$X" -lt "$X_MIN" ] && X_MIN=$X
-    [ "$X" -gt "$X_MAX" ] && X_MAX=$X
-
-    [ "$Y" -lt "$Y_MIN" ] && Y_MIN=$Y
-    [ "$Y" -gt "$Y_MAX" ] && Y_MAX=$Y
-
-    [ "$Z" -lt "$Z_MIN" ] && Z_MIN=$Z
-    [ "$Z" -gt "$Z_MAX" ] && Z_MAX=$Z
-done
-
-echo "X_MIN: $X_MIN  X_MAX: $X_MAX"
-echo "Y_MIN: $Y_MIN  Y_MAX: $Y_MAX"
-echo "Z_MIN: $Z_MIN  Z_MAX: $Z_MAX"
-```
-
-Link: https://github.com/torvalds/linux/blob/master/Documentation/devicetree/bindings/iio/mount-matrix.txt#L93
-
-// phone on a flat surface
-top of the phone pointing north and bottom of phone pointing south
-x (between -2379 and -2263)
-y (between 109 and 207)
-z (between -2340 and -2132)
-top of the phone pointing south and bottom of phone pointing north
-x (between -1079 and -956)
-y (between -54 and 46)
-z (between -1831 and -1621)
-top of the phone pointing east and bottom of phone pointing west
-x (between -1587 and -1473)
-y (between -448 and -339)
-z (between -1850 and -1602)
-top of the phone pointing west and bottom of phone pointing east
-x (between -1426 and -1300)
-y (between 554 and 661)
-z (between -1917 and -1706)
-
-// the following tests are where the phone is tilted at a 45 degree
-// angle and the top of phone is pointing up to the sky:
-top of the phone pointing north and bottom of phone pointing south
-x (between -1300 and -1189)
-y (between 117 and 227)
-z (between -1819 and -1614)
-top of the phone pointing south and bottom of phone pointing north
-x (between -539 and -422)
-y (between 23 and 143)
-z (between -1160 and -922)
-top of the phone pointing east and bottom of phone pointing west
-x (between -1038 and -915)
-y (between -408 and -313)
-z (between -1570 and -1345)
-top of the phone pointing west and bottom of phone pointing east
-x (between -965 and -849)
-y (between 540 and 641)
-z (between -1542 and -1336)
-
-// the following tests are where the phone is tilted at a 45 degree
-// angle and the top of phone is pointing down to the ground:
-top of the phone pointing north and bottom of phone pointing south
-x (between -2345 and -2237)
-y (between 80 and 189)
-z (between -1207 and -971)
-top of the phone pointing south and bottom of phone pointing north
-x (between -1805 and -1691)
-y (between 5 and 112)
-z (between -1896 and -1651)
-top of the phone pointing east and bottom of phone pointing west
-x (between -2127 and -2013)
-y (between 460 and 563)
-z (between -1621 and -1378)
-top of the phone pointing west and bottom of phone pointing east
-x (between -2158 and -2054)
-y (between -376 and -264)
-z (between -1540 and -1262)
-
-Co-developed-by: Leonardo G. Trombetta <lgtrombetta@gmx.com>
-Signed-off-by: Leonardo G. Trombetta <lgtrombetta@gmx.com>
+Co-developed-by: Martijn Braam <martijn@brixit.nl>
+Signed-off-by: Martijn Braam <martijn@brixit.nl>
+Co-developed-by: Kamil Trzciński <ayufan@ayufan.eu>
+Signed-off-by: Kamil Trzciński <ayufan@ayufan.eu>
 Signed-off-by: Ondrej Jirman <megi@xff.cz>
 Signed-off-by: Rudraksha Gupta <guptarud@gmail.com>
 ---
- arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts | 15 +++++++++++++++
- 1 file changed, 15 insertions(+)
+ arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
 diff --git a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-index d9f18a8005f15f3ec26e086e5b451bf1bbdc21c0..05aaf152b5efa5a87663fc97ce034e75131670bb 100644
+index 71d32c4bae0d0336ac0c912043618fc9b94919ef..d9f18a8005f15f3ec26e086e5b451bf1bbdc21c0 100644
 --- a/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
 +++ b/arch/arm64/boot/dts/rockchip/rk3399-pinephone-pro.dts
-@@ -552,6 +552,21 @@ mpu6500@68 {
+@@ -542,7 +542,13 @@ mpu6500@68 {
+ 		reg = <0x68>;
+ 		interrupt-parent = <&gpio1>;
+ 		interrupts = <RK_PC6 IRQ_TYPE_LEVEL_LOW>;
++		vdd-supply = <&vcc_1v8>;
+ 		vddio-supply = <&vcc_1v8>;
++
++		mount-matrix =
++			"1", "0", "0",
++			"0", "1", "0",
++			"0", "0", "-1";
  	};
  };
  
-+&i2c4 {
-+	af8133j: compass@1c {
-+		compatible = "voltafield,af8133j";
-+		reg = <0x1c>;
-+		reset-gpios = <&gpio1 RK_PA1 GPIO_ACTIVE_LOW>;
-+		avdd-supply = <&vcc_3v0>;
-+		dvdd-supply = <&vcc_1v8>;
-+
-+		mount-matrix =
-+			"0", "1", "0",
-+			"1", "0", "0",
-+			"0", "0", "-1";
-+	};
-+};
-+
- &io_domains {
- 	bt656-supply = <&vcc1v8_dvp>;
- 	audio-supply = <&vcca1v8_codec>;
 
 -- 
 2.51.0
