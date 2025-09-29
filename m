@@ -4,71 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7B7BCAC5B9
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 16:32:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D3D5CAC5B9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 16:38:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=N/bDCeIzaZZtKwcJz6u779UQNRAaT5dwV9KbKU3IAyw=; b=ccE6uEqabrWl9iZDh4yixbcJeX
-	FY/2zqFgZdoaEPJh0cB1qV3BTS1SL9BVKzZl8F5qUSDH6kD3aDu6/mFXfi4b/vaP2DMRBgPvoLYGy
-	XNezhkjE6fFBGrV/UBh4cPJyF3nfAETtFIaO63U0aD8Vgi5A3XmLrFPA6VY/DjjaCYqQpm/+0V9Dn
-	+DRsEvDT3+uj3JUbKsTjHOLh8mMwQev72aOiCXYV1x+xKFFONEceEYrI4CM8jnClwwBlEvQs6niEJ
-	KzRKZ1W2e4ntvLEo8avdVD61hoTUU1yaKsWvb+WdkZ3oZm3wBTODH3j0/i7P1CrehMwZzLBhconS3
-	QiYgkOMQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ma7svIBwp3Tl5z6twROb3PYfD40sAqcIj05u0PggGeY=; b=aE61tJyDf1L5cK644nct4cONXS
+	WXTnumAfZJsf825g/ZPPA5Xcr+1qFuwMtZOLVPzHe9oP9Lf7QwJNVQt+R0vRlQ2sg4v37zHD3rKk/
+	Kb2r5RzTLNLNP2WKhtvcUm9jfzSm441PvOVAB74KDc9dDed/639ImU9WnKAcu05WVaiF0RXxPBhaN
+	qczFGytxCBqScEsmVMPP5pnG1xyl6wgupkP9eUx4Q5jcOzPnz/j8TXc9NX5C//MeoPvju7op65Q+7
+	uD4fGNa+orkNEtMngOjcoGIXeG6fnpL1VKwrWlRERGfvRqa+F14d/AJxhbd5iPfggFhYlHPuMtyBF
+	VV6sJriQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Gnx-00000002ysm-0Itg;
-	Mon, 29 Sep 2025 16:32:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Gnu-00000002ysN-3RWg
+	id 1v3Gsz-00000002zM5-3Rl4;
+	Mon, 29 Sep 2025 16:38:01 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v3Gsx-00000002zKg-2iHp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 16:32:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4654E407B8;
-	Mon, 29 Sep 2025 16:32:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8AFFC4CEF4;
-	Mon, 29 Sep 2025 16:32:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759163566;
-	bh=00sU9i2+IMQ2HaKjeSE/V2mVCUpqM5rcBpzmZjk3ga8=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=HAdycMFqGnevhFuZjQV+y/lH0d8Khsf+9oRa+hz+ueJLA6nf0nm04lTsdktX8Tjr0
-	 kdKVtdRrPjPsHwV4CgknI6aHLPsifuoRBSBPtEyMRlBe2/2enF9t47MFWPIpxK8A8f
-	 empkHAWjQqVjjsyfv2EXwUjEAZ0bwSMWFg0xvzYjrWle7g0ZDVTBkjPvgQrE0eGAXv
-	 x6/QGri5YE9/CIFv+HAa6oQ59SvTueYS5KQ2wWtxprHHdSaAlzNKRkr9zWMJc0IEs5
-	 ysFRmWvJolOUvz7bjnMw3DZOztGtg90aKXAr4DwR7UybuAdJyDN3jYDS14B66oPJTb
-	 78hTI6C7GhUeA==
-Date: Mon, 29 Sep 2025 22:02:27 +0530
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Vincent Guittot <vincent.guittot@linaro.org>
-Cc: chester62515@gmail.com, mbrugger@suse.com, 
-	ghennadi.procopciuc@oss.nxp.com, s32@nxp.com, bhelgaas@google.com, jingoohan1@gmail.com, 
-	lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com, 
-	Ghennadi.Procopciuc@nxp.com, ciprianmarian.costea@nxp.com, bogdan.hamciuc@nxp.com, 
-	Frank.li@nxp.com, linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
-	cassel@kernel.org
-Subject: Re: [PATCH 2/3 v2] PCI: s32g: Add initial PCIe support (RC)
-Message-ID: <xmjgs5ssolugcq2ogjc5j3ccwalcc4q3whl64fcra2aiebhtci@qwobbjtb2wcl>
-References: <20250919155821.95334-1-vincent.guittot@linaro.org>
- <20250919155821.95334-3-vincent.guittot@linaro.org>
- <4ee5tqdjv5ogcdtysiebtoxmrvrzhkar4bjcsqi47dxtgwac4c@rezn4waubroh>
- <CAKfTPtAEkegCV-9_x-dXSWQFOoG6kO5JbJq_LToY9YuuRusoVA@mail.gmail.com>
- <lmczw5agheqbcl6xcomlhf7yfbdvfx45pozmaxjmbkkqudsxlu@c7u6s5h4xm6j>
- <CAKfTPtCacFhJztYvWycSdoWMUStaf1WAcGJKHwk3y4n-uEELSw@mail.gmail.com>
+	Mon, 29 Sep 2025 16:38:00 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2645F1CC4;
+	Mon, 29 Sep 2025 09:37:49 -0700 (PDT)
+Received: from e132581.arm.com (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C13973F66E;
+	Mon, 29 Sep 2025 09:37:55 -0700 (PDT)
+From: Leo Yan <leo.yan@arm.com>
+Date: Mon, 29 Sep 2025 17:37:38 +0100
+Subject: [PATCH 02/25] perf arm_spe: Unify operation naming
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAKfTPtCacFhJztYvWycSdoWMUStaf1WAcGJKHwk3y4n-uEELSw@mail.gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250929-perf_support_arm_spev1-3-v1-2-1150b3c83857@arm.com>
+References: <20250929-perf_support_arm_spev1-3-v1-0-1150b3c83857@arm.com>
+In-Reply-To: <20250929-perf_support_arm_spev1-3-v1-0-1150b3c83857@arm.com>
+To: Arnaldo Carvalho de Melo <acme@kernel.org>, 
+ Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>, 
+ Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>, 
+ James Clark <james.clark@linaro.org>
+Cc: Arnaldo Carvalho de Melo <acme@redhat.com>, 
+ linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ Leo Yan <leo.yan@arm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1759163872; l=4831;
+ i=leo.yan@arm.com; s=20250604; h=from:subject:message-id;
+ bh=G2/h7Cz3kpY9a4X3zZdlt9hLzKN/SrbioEaOWhtErXY=;
+ b=IvJDrCFuyZCBwfJ0wVwwp2g+z4EVNbaActptccZeFDVsdTMKIqwPkgu22cCs5JMci/EVZV/Ct
+ D3p0WYARxMZBWEBwejFa5FU1L0/sMpPLZB6jG/hX+5gdlfXeS+EANn1
+X-Developer-Key: i=leo.yan@arm.com; a=ed25519;
+ pk=k4BaDbvkCXzBFA7Nw184KHGP5thju8lKqJYIrOWxDhI=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_093246_900027_F89EEC4A 
-X-CRM114-Status: GOOD (  21.43  )
+X-CRM114-CacheID: sfid-20250929_093759_781644_CACE9CD4 
+X-CRM114-Status: GOOD (  12.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,66 +74,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 29, 2025 at 06:23:05PM +0200, Vincent Guittot wrote:
+Rename extended subclass and SVE/SME register access subclass, so that
+the naming can be consistent cross all sub classes.
 
-[...]
+Add an log "SVE-SME-REG" for the SVE/SME register access, this is easier
+for parsing.
 
-> > > > > +static int s32g_pcie_resume(struct device *dev)
-> > > > > +{
-> > > > > +     struct s32g_pcie *s32g_pp = dev_get_drvdata(dev);
-> > > > > +     struct dw_pcie *pci = &s32g_pp->pci;
-> > > > > +     struct dw_pcie_rp *pp = &pci->pp;
-> > > > > +     int ret = 0;
-> > > > > +
-> > > > > +     ret = s32g_pcie_init(dev, s32g_pp);
-> > > > > +     if (ret < 0)
-> > > > > +             return ret;
-> > > > > +
-> > > > > +     ret = dw_pcie_setup_rc(pp);
-> > > > > +     if (ret) {
-> > > > > +             dev_err(dev, "Failed to resume DW RC: %d\n", ret);
-> > > > > +             goto fail_host_init;
-> > > > > +     }
-> > > > > +
-> > > > > +     ret = dw_pcie_start_link(pci);
-> > > > > +     if (ret) {
-> > > > > +             /*
-> > > > > +              * We do not exit with error if link up was unsuccessful
-> > > > > +              * Endpoint may not be connected.
-> > > > > +              */
-> > > > > +             if (dw_pcie_wait_for_link(pci))
-> > > > > +                     dev_warn(pci->dev,
-> > > > > +                              "Link Up failed, Endpoint may not be connected\n");
-> > > > > +
-> > > > > +             if (!phy_validate(s32g_pp->phy, PHY_MODE_PCIE, 0, NULL)) {
-> > > > > +                     dev_err(dev, "Failed to get link up with EP connected\n");
-> > > > > +                     goto fail_host_init;
-> > > > > +             }
-> > > > > +     }
-> > > > > +
-> > > > > +     ret = pci_host_probe(pp->bridge);
-> > > >
-> > > > Oh no... Do not call pci_host_probe() directly from glue drivers. Use
-> > > > dw_pcie_host_init() to do so. This should simplify suspend and resume functions.
-> > >
-> > > dw_pcie_host_init() is doing much more than just init the controller
-> > > as it gets resources which we haven't released during suspend.
-> > >
-> >
-> > Any specific reason to keep resources enabled, even though you were removing the
-> > Root bus? This doesn't make sense to me.
-> 
-> By ressources I mean everything before  dw_pcie_setup_rc()  in
-> dw_pcie_host_init() which are still there after dw_pcie_host_deinit()
-> in addition to being a waste of time. Also we don't need to remove
-> edma and free msi
-> 
+Signed-off-by: Leo Yan <leo.yan@arm.com>
+---
+ tools/perf/util/arm-spe-decoder/arm-spe-decoder.c   |  2 +-
+ .../perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c | 21 ++++++++++-----------
+ .../perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h |  4 ++--
+ 3 files changed, 13 insertions(+), 14 deletions(-)
 
-Let me take a step back and ask, why do you need to remove Root bus during
-suspend() and not just disable LTSSM with dw_pcie_stop_link()?
-
-- Mani
+diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
+index 96eb7cced6fd1574f5d823e4c67b9051dcf183ed..b0fb896abad48de93aa1ed560029f9bc9ae969e9 100644
+--- a/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
++++ b/tools/perf/util/arm-spe-decoder/arm-spe-decoder.c
+@@ -200,7 +200,7 @@ static int arm_spe_read_record(struct arm_spe_decoder *decoder)
+ 					decoder->record.op |= ARM_SPE_OP_ST;
+ 				else
+ 					decoder->record.op |= ARM_SPE_OP_LD;
+-				if (SPE_OP_PKT_IS_LDST_SVE(payload))
++				if (SPE_OP_PKT_LDST_SUBCLASS_SVE_SME_REG(payload))
+ 					decoder->record.op |= ARM_SPE_OP_SVE_LDST;
+ 				break;
+ 			case SPE_OP_PKT_HDR_CLASS_OTHER:
+diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
+index 1a1ffe50ee73ab4400fd1163d0e84e54f4d8ab0b..f6e9c58ce62f3ae227a79d91caefaef4bd87d98a 100644
+--- a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
++++ b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
+@@ -362,31 +362,30 @@ static int arm_spe_pkt_desc_op_type(const struct arm_spe_pkt *packet,
+ 		arm_spe_pkt_out_string(&err, &buf, &buf_len,
+ 				       payload & 0x1 ? "ST" : "LD");
+ 
+-		if (SPE_OP_PKT_IS_LDST_ATOMIC(payload)) {
++		if (SPE_OP_PKT_LDST_SUBCLASS_EXTENDED(payload)) {
+ 			if (payload & SPE_OP_PKT_AT)
+ 				arm_spe_pkt_out_string(&err, &buf, &buf_len, " AT");
+ 			if (payload & SPE_OP_PKT_EXCL)
+ 				arm_spe_pkt_out_string(&err, &buf, &buf_len, " EXCL");
+ 			if (payload & SPE_OP_PKT_AR)
+ 				arm_spe_pkt_out_string(&err, &buf, &buf_len, " AR");
+-		}
+-
+-		if (SPE_OP_PKT_LDST_SUBCLASS_SIMD_FP(payload))
++		} else if (SPE_OP_PKT_LDST_SUBCLASS_SIMD_FP(payload)) {
+ 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " SIMD-FP");
+-		else if (SPE_OP_PKT_LDST_SUBCLASS_GP_REG(payload))
++		} else if (SPE_OP_PKT_LDST_SUBCLASS_GP_REG(payload)) {
+ 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " GP-REG");
+-		else if (SPE_OP_PKT_LDST_SUBCLASS_UNSPEC_REG(payload))
++		} else if (SPE_OP_PKT_LDST_SUBCLASS_UNSPEC_REG(payload)) {
+ 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " UNSPEC-REG");
+-		else if (SPE_OP_PKT_LDST_SUBCLASS_NV_SYSREG(payload))
++		} else if (SPE_OP_PKT_LDST_SUBCLASS_NV_SYSREG(payload)) {
+ 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " NV-SYSREG");
+-		else if (SPE_OP_PKT_LDST_SUBCLASS_MTE_TAG(payload))
++		} else if (SPE_OP_PKT_LDST_SUBCLASS_MTE_TAG(payload)) {
+ 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " MTE-TAG");
+-		else if (SPE_OP_PKT_LDST_SUBCLASS_MEMCPY(payload))
++		} else if (SPE_OP_PKT_LDST_SUBCLASS_MEMCPY(payload)) {
+ 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " MEMCPY");
+-		else if (SPE_OP_PKT_LDST_SUBCLASS_MEMSET(payload))
++		} else if (SPE_OP_PKT_LDST_SUBCLASS_MEMSET(payload)) {
+ 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " MEMSET");
++		} else if (SPE_OP_PKT_LDST_SUBCLASS_SVE_SME_REG(payload)) {
++			arm_spe_pkt_out_string(&err, &buf, &buf_len, " SVE-SME-REG");
+ 
+-		if (SPE_OP_PKT_IS_LDST_SVE(payload)) {
+ 			/* SVE effective vector length */
+ 			arm_spe_pkt_out_string(&err, &buf, &buf_len, " EVLEN %d",
+ 					       SPE_OP_PKG_SVE_EVL(payload));
+diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
+index 75e355fe3438cc07704cb61a66ca162bd0904042..cb947e625918922dc1fa25cf8843b09661197782 100644
+--- a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
++++ b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
+@@ -133,14 +133,14 @@ enum arm_spe_events {
+ #define SPE_OP_PKT_LDST_SUBCLASS_MEMCPY(v)	(((v) & GENMASK_ULL(7, 1)) == 0x20)
+ #define SPE_OP_PKT_LDST_SUBCLASS_MEMSET(v)	(((v) & GENMASK_ULL(7, 0)) == 0x25)
+ 
+-#define SPE_OP_PKT_IS_LDST_ATOMIC(v)		(((v) & (GENMASK_ULL(7, 5) | BIT(1))) == 0x2)
++#define SPE_OP_PKT_LDST_SUBCLASS_EXTENDED(v)	(((v) & (GENMASK_ULL(7, 5) | BIT(1))) == 0x2)
+ 
+ #define SPE_OP_PKT_AR				BIT(4)
+ #define SPE_OP_PKT_EXCL				BIT(3)
+ #define SPE_OP_PKT_AT				BIT(2)
+ #define SPE_OP_PKT_ST				BIT(0)
+ 
+-#define SPE_OP_PKT_IS_LDST_SVE(v)		(((v) & (BIT(3) | BIT(1))) == 0x8)
++#define SPE_OP_PKT_LDST_SUBCLASS_SVE_SME_REG(v)	(((v) & (BIT(3) | BIT(1))) == 0x8)
+ 
+ #define SPE_OP_PKT_SVE_SG			BIT(7)
+ /*
 
 -- 
-மணிவண்ணன் சதாசிவம்
+2.34.1
+
 
