@@ -4,86 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC825CAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 15:27:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE9A3CAC5B9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 15:29:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lD/ZRIRPRoD4eeilEpQ/Ax8KbRLZBttE2gusXUBy/7U=; b=JU8Ah7X2PEPxwuVS5NuJqUvRAl
-	08RVZbJfy081hLrt3311zy2XWWgSo+gOfb5KYnuEM5NvrP62UvUMSXfdtK6+lHmjup/mphwfBCTpv
-	W/LaQuLyou9SQJXa9QuwMqrnQ8PBJTNWEw/LgnW6BnMRKRYkskPGWN2dg9Yl+Nqi57SkRfmwZb8BH
-	WC8tbgEinSDje9r587YHOCn48823EgLvY2T5OZocwMzq7gGISc3r6DmXQZ/XdLxQPrlpWOroWXGTy
-	pbkH3zy3rMXDFPPmTRY9WQMjBrdQhCWEOFgHVWUslfGwZBdbMFFBWdNGeSjL8GwVVhYZwu0hmC2M6
-	bdOxeMAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Z+adMNBQQ46Q15D+cExi+t8AUMiYDPgGyOTzXNqgJms=; b=h5Ldm4fmX69EWB4XGIxYhF80fo
+	7qYU7HfT7dw3MnQn+RBfQjzZ1SBMALSP0XAmGWvh4UNCoq+uBdiLmJ9UTJHF3dZK389VoJjyWGd2K
+	RIZl0X053d0vTrPNR2okHUaJYgc0T3p1ht1UJwcmk+ClxDTCVBwT6lSuICmKiJLMh1Q+IyD4CkViB
+	lGfyqn1M+uUc74tcvTfyYnuFw7TkRQtep3i/hEPhab1xUxmVch5W2cqmhqEPpJpEMZ+n+KvWchiK0
+	lPPwGyn0nUNgf5C+O9NHavhMrbOADciS/Am4jIMgQj/xsGQw/yV7ssGBPIno25uOIlkfD9mXqfuqA
+	oVu825Ww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3FmG-00000002mnj-46Ia;
-	Mon, 29 Sep 2025 15:27:00 +0000
-Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
+	id 1v3FoE-00000002n5F-1z2Z;
+	Mon, 29 Sep 2025 15:29:02 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3FmD-00000002mmp-2xRj
+	id 1v3FoD-00000002n58-1464
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 15:26:59 +0000
-Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-366ce79fbeeso43559611fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 08:26:56 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1759159615; x=1759764415; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lD/ZRIRPRoD4eeilEpQ/Ax8KbRLZBttE2gusXUBy/7U=;
-        b=YYTIc2jZHZLROPB1u44+vCBM/89/CdLLjjG/HoLv25VU5WcCwGfV/d6ue6upT+LhrZ
-         X89mcs/0q5fxNLXAFu/l4m9YOtVspGCsPk2UVKVKhMwUzv0xYpeuznOogSQCA7ECaxHg
-         PlqGuEinVJ49TxjCYWuSF5fBCMbH6FBjhmg74n4MTKmaWLo6dBTo7XxYJfvp+nzt56Uz
-         A5EXDJvpWzKvqVJM1v9Rqn4c5ggRIGBeHLdAVPLkwcaf+TuS6FK6BRSEgATjthLwWGYd
-         p4tWorrVvGTMQe0t2WDD0xyWVupgUjxA8UdIE31NQbp2tXuA44wWNXRCgbWaRXiUwRpQ
-         AMhQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759159615; x=1759764415;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=lD/ZRIRPRoD4eeilEpQ/Ax8KbRLZBttE2gusXUBy/7U=;
-        b=N0QcQ2xc2GakSmNO1csqJ4eTibOh6bJ+VFOmaYpXEOu5YfEyqTTCtROHLatKkPuBA9
-         rhTHa0KgaizBRg00Zbjdl8kuW6JG7yGO+Qgd/x0pbMkT4bR+I8DMplfdafXXgEyLTM0A
-         1wdXkuidTsD5rK0e07RA08jp3X1yG0ECvATDUcPE5WwOM6KIHbcCY6tXDUvmryQtIoFd
-         WSJ1KUZ41wDKV/k7MfjTZ0yqldjrG95yaro5fG1nOrnhBkjukPwGiGOdCE5zm45OV5fc
-         iM0SsVU+/HWF+tp7Jqwmvc3Dx9e9gng+I3pcMbYBWyVtEcJ2cW7YIIwbTxHb18dOR3wT
-         XYlA==
-X-Forwarded-Encrypted: i=1; AJvYcCX/B7iIbt6mCFGIjMd1vUokaBGTpkpYzEvFG2i9UnqmwFEQhwb+NFJNOxBWMAil4yMOMv9Ep/6NTayCGFbwGDRk@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxo2pMYXRQFsY6c231IXNiWHyj2cyhAEqPIEpApheWmKHYXwJAe
-	zlyZHOEOuiZdm/BBgnAjgKocDut6gQF2/n8yCw3i64ZPZe9zFdhlLwUgHpmyYlqjsnCJGObNvpw
-	Gh6cFY7mPHNyK0KFvEXlslZr4U6cTT41lINANGqPMRb878GOS5Cs9qLaHPVxa
-X-Gm-Gg: ASbGncugCsInCYH11lFcTQpprRUwDUTPPUQJO953k5ewqSzTQ2vsE+MmT4zwk+NRb/3
-	WX98ddiNhhb3J7HEf2FDCkCqs/ZR5HqelyirAy3RNs+EIymU7e0o6LoQypNZXMODT4BbXaObuva
-	JIazZWOOnBPdVFf8gSley/VjHhuxEu8BkpgY3JyJFI5YQJ52WE7KDc+bxW0e3js8xQcP+ypst+G
-	A+Uol8eWYB/tTavwg==
-X-Google-Smtp-Source: AGHT+IEtN2lUKLnGoQ7WbW57ONBR/QKmzEKKycsDkK+DioqKXixXXuBeSvK0yyrJ+ATSRroRyWJm9ggSxHWFJcUI9/Y=
-X-Received: by 2002:a05:651c:25d3:10b0:372:950f:2ae2 with SMTP id
- 38308e7fff4ca-372950f3057mr14578111fa.5.1759159615153; Mon, 29 Sep 2025
- 08:26:55 -0700 (PDT)
+	Mon, 29 Sep 2025 15:29:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 130C5625BD;
+	Mon, 29 Sep 2025 15:29:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B2D72C116B1;
+	Mon, 29 Sep 2025 15:28:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759159739;
+	bh=zz+GUmVsy2vB+3ANMPWPbJpVcNFY2jQbjEDvoTACVOw=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=LieiEkf/My5IzhSHvnx4xacBLRykPFVF30XNtrgPaxvt2XruntfGF75FreaDo5sBd
+	 7xIR+u+UDMeWUdKANsMbUYIezK3qC+eBLGFYhBfbwlCZp/dWe7mpLGu1lF2BWlcHIk
+	 A8SYBu5x4+tJ2dvEy1iXzJO04Slrd60iufQ0d5V7EBMv6kxh/iPMaOxV/+77aJZzuC
+	 d61H5tM8BVpft6iJid+miAYFAIBLgkso9EXESl+Cv0Z6HtLz35zjtQ7vjNe/9Yl4ix
+	 4pKSEvUXKrIQLuwqjrlKISh9VE34TmD2amQ3kMZBmQ/MdXd6yUGUQSxnUFTxjndsRh
+	 dvSafSW63W2JA==
+Date: Mon, 29 Sep 2025 10:28:58 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-References: <20250929025358.2064-1-vulab@iscas.ac.cn>
-In-Reply-To: <20250929025358.2064-1-vulab@iscas.ac.cn>
-From: David Lechner <dlechner@baylibre.com>
-Date: Mon, 29 Sep 2025 17:26:44 +0200
-X-Gm-Features: AS18NWC2Vrzn89dFO6i3Pc5PcwsDZZtJqDcKNUIw8w9lRMGluo4z28T9Y4iCLNQ
-Message-ID: <CAMknhBFm1HPKv6bPnYALc_=wGBHWB3SKnWmnBZ82Pan9z9TPVw@mail.gmail.com>
-Subject: Re: [PATCH] iio: adc: mt6360: Handle error in cleanup path correctly
-To: Haotian Zhang <vulab@iscas.ac.cn>
-Cc: Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Jonathan Cameron <Jonathan.Cameron@huawei.com>, =?UTF-8?B?TnVubyBTw6E=?= <nuno.sa@analog.com>, 
-	Andy Shevchenko <andriy.shevchenko@linux.intel.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_082658_002488_D2386BE4 
-X-CRM114-Status: GOOD (  21.60  )
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: devicetree@vger.kernel.org, Sameer Pujar <spujar@nvidia.com>, 
+ linux-sound@vger.kernel.org, Mark Brown <broonie@kernel.org>, 
+ dmaengine@vger.kernel.org, Vinod Koul <vkoul@kernel.org>, 
+ Thomas Gleixner <tglx@linutronix.de>, 
+ Jonathan Hunter <jonathanh@nvidia.com>, linux-tegra@vger.kernel.org, 
+ Thierry Reding <thierry.reding@gmail.com>, Marc Zyngier <maz@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-kernel@vger.kernel.org, 
+ Liam Girdwood <lgirdwood@gmail.com>
+To: "Sheetal ." <sheetal@nvidia.com>
+In-Reply-To: <20250929105930.1767294-1-sheetal@nvidia.com>
+References: <20250929105930.1767294-1-sheetal@nvidia.com>
+Message-Id: <175915953199.54406.1457670691076635405.robh@kernel.org>
+Subject: Re: [PATCH V2 0/4] Add tegra264 audio device tree support
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,71 +75,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It looks like you missed the IIO mailing list in the CC, so this might
-not show up in Jonathan's queue.
 
-On Mon, Sep 29, 2025 at 4:54=E2=80=AFAM Haotian Zhang <vulab@iscas.ac.cn> w=
-rote:
->
-> The return value of a regmap_raw_write() in the cleanup path was
-> being ignored.
->
-> Fix this by checking the return value and propagating the error.
->
-> Fixes: 1f4877218f7e ("iio: adc: mt6360: Add ADC driver for MT6360")
-> Signed-off-by: Haotian Zhang <vulab@iscas.ac.cn>
-> ---
->  drivers/iio/adc/mt6360-adc.c | 7 ++++++-
->  1 file changed, 6 insertions(+), 1 deletion(-)
->
-> diff --git a/drivers/iio/adc/mt6360-adc.c b/drivers/iio/adc/mt6360-adc.c
-> index 69b3569c90e5..97c4af8a93fc 100644
-> --- a/drivers/iio/adc/mt6360-adc.c
-> +++ b/drivers/iio/adc/mt6360-adc.c
-> @@ -70,6 +70,7 @@ static int mt6360_adc_read_channel(struct mt6360_adc_da=
-ta *mad, int channel, int
->         ktime_t predict_end_t, timeout;
->         unsigned int pre_wait_time;
->         int ret;
-> +       int cleanup_ret;
->
->         mutex_lock(&mad->adc_lock);
->
-> @@ -130,11 +131,15 @@ static int mt6360_adc_read_channel(struct mt6360_ad=
-c_data *mad, int channel, int
->  out_adc_conv:
->         /* Only keep ADC enable */
->         adc_enable =3D cpu_to_be16(MT6360_ADCEN_MASK);
-> -       regmap_raw_write(mad->regmap, MT6360_REG_PMUADCCFG, &adc_enable, =
-sizeof(adc_enable));
-> +       cleanup_ret =3D regmap_raw_write(mad->regmap, MT6360_REG_PMUADCCF=
-G,
-> +                               &adc_enable, sizeof(adc_enable));
-> +       if (ret >=3D 0)
-> +               ret =3D cleanup_ret;
-
-This overwrites the original return error, which is IIO_VAL_INT on
-success or an error code. In either case, changing the return value
-will break things.
-
-In cleanup paths, there really isn't anything we can do with return
-values other than ignore them like we were already doing or log an
-error message.
-
->         mad->last_off_timestamps[channel] =3D ktime_get();
->         /* Config prefer channel to NO_PREFER */
->         regmap_update_bits(mad->regmap, MT6360_REG_PMUADCRPT1, MT6360_PRE=
-FERCH_MASK,
-
-The return value here is also being ignored. If we decide that we
-should add error messages, then we should add one here as well.
-
->                            MT6360_NO_PREFER << MT6360_PREFERCH_SHFT);
-> +
->  out_adc_lock:
->         mutex_unlock(&mad->adc_lock);
->
+On Mon, 29 Sep 2025 16:29:26 +0530, Sheetal . wrote:
+> From: sheetal <sheetal@nvidia.com>
+> 
+> Add device tree support for tegra264 audio subsystem including:
+> - Binding update for
+>   - 64-channel ADMA controller
+>   - 32 RX/TX ADMAIF channels
+>   - tegra264-agic binding for arm,gic
+> - Add device tree nodes for
+>   - APE subsystem (ACONNECT, AGIC, ADMA, AHUB and children (ADMAIF, I2S,
+>     DMIC, DSPK, MVC, SFC, ASRC, AMX, ADX, OPE and Mixer) nodes
+>   - HDA controller
+>   - sound
+> 
+> Note:
+>  The change is dependent on https://patchwork.ozlabs.org/project/linux-tegra/patch/20250818135241.3407180-1-thierry.reding@gmail.com/
+> 
+> ...
+> Changes in V2:
+>  - Update the allOf condition in Patch 2/4.
+> 
+> sheetal (4):
+>   dt-bindings: dma: Update ADMA bindings for tegra264
+>   dt-bindings: sound: Update ADMAIF bindings for tegra264
+>   dt-bindings: interrupt-controller: arm,gic: Add tegra264-agic
+>   arm64: tegra: Add tegra264 audio support
+> 
+>  .../bindings/dma/nvidia,tegra210-adma.yaml    |   15 +-
+>  .../interrupt-controller/arm,gic.yaml         |    1 +
+>  .../sound/nvidia,tegra210-admaif.yaml         |  106 +-
+>  .../arm64/boot/dts/nvidia/tegra264-p3971.dtsi |  106 +
+>  arch/arm64/boot/dts/nvidia/tegra264.dtsi      | 3190 +++++++++++++++++
+>  5 files changed, 3377 insertions(+), 41 deletions(-)
+> 
 > --
-> 2.50.1.windows.1
->
+> 2.34.1
+> 
+> 
+> 
+
+
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: attempting to guess base-commit...
+ Base: tags/v6.17-rc1-57-g635ae6f0a3ad (exact match)
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/nvidia/' for 20250929105930.1767294-1-sheetal@nvidia.com:
+
+In file included from arch/arm64/boot/dts/nvidia/tegra264-p3834.dtsi:3,
+                 from arch/arm64/boot/dts/nvidia/tegra264-p3834-0008.dtsi:3,
+                 from arch/arm64/boot/dts/nvidia/tegra264-p3971-0089+p3834-0008.dts:5:
+arch/arm64/boot/dts/nvidia/tegra264.dtsi:8:10: fatal error: dt-bindings/power/nvidia,tegra264-powergate.h: No such file or directory
+    8 | #include <dt-bindings/power/nvidia,tegra264-powergate.h>
+      |          ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+compilation terminated.
+make[3]: *** [scripts/Makefile.dtbs:132: arch/arm64/boot/dts/nvidia/tegra264-p3971-0089+p3834-0008.dtb] Error 1
+make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/nvidia] Error 2
+make[2]: Target 'arch/arm64/boot/dts/nvidia/tegra264-p3971-0089+p3834-0008.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1480: nvidia/tegra264-p3971-0089+p3834-0008.dtb] Error 2
+make: *** [Makefile:248: __sub-make] Error 2
+make: Target 'nvidia/tegra210-p2371-2180.dtb' not remade because of errors.
+make: Target 'nvidia/tegra210-p3450-0000.dtb' not remade because of errors.
+make: Target 'nvidia/tegra234-p3737-0000+p3701-0008.dtb' not remade because of errors.
+make: Target 'nvidia/tegra234-p3740-0002+p3701-0008.dtb' not remade because of errors.
+make: Target 'nvidia/tegra234-p3737-0000+p3701-0000.dtb' not remade because of errors.
+make: Target 'nvidia/tegra186-p2771-0000.dtb' not remade because of errors.
+make: Target 'nvidia/tegra210-p2371-0000.dtb' not remade because of errors.
+make: Target 'nvidia/tegra194-p3509-0000+p3668-0000.dtb' not remade because of errors.
+make: Target 'nvidia/tegra234-p3768-0000+p3767-0000.dtb' not remade because of errors.
+make: Target 'nvidia/tegra234-sim-vdk.dtb' not remade because of errors.
+make: Target 'nvidia/tegra186-p3509-0000+p3636-0001.dtb' not remade because of errors.
+make: Target 'nvidia/tegra194-p2972-0000.dtb' not remade because of errors.
+make: Target 'nvidia/tegra210-smaug.dtb' not remade because of errors.
+make: Target 'nvidia/tegra194-p3509-0000+p3668-0001.dtb' not remade because of errors.
+make: Target 'nvidia/tegra234-p3768-0000+p3767-0005.dtb' not remade because of errors.
+make: Target 'nvidia/tegra210-p2571.dtb' not remade because of errors.
+make: Target 'nvidia/tegra264-p3971-0089+p3834-0008.dtb' not remade because of errors.
+make: Target 'nvidia/tegra132-norrin.dtb' not remade because of errors.
+make: Target 'nvidia/tegra210-p2894-0050-a08.dtb' not remade because of errors.
+
+
+
+
+
 
