@@ -4,97 +4,181 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29BB1CAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 07:53:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0F4DCAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 07:55:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QUXSFceWb25g9n2jWqeSmoB7pNwdYGNyiAtsuATGVG8=; b=W9OW+5LgAN4OPXDuEHrxN53bua
-	QTJ9xP2fy0+FQnllyQtpYWZRTEFSZIV7nEXuSRyigZFt/kVuXUCh/74hNSwNdA52H+G+Gm/3HvgoP
-	O2linJTPn6CQc/jRMhyql+fLF2swo83QygXSviaMQmk7v+5sJP8qraae8ylKOwyLgimmyeDLoRquq
-	dv9Pahu7GTZX5Qtlu0aGQ81F+OK0kSa42BmcB67+l2JKuUFpcXF/D6PFYwDvdTyGYeHQM/IO0ymSC
-	Remkc99b1YKqw0YfwJR4ISOTpf0dFJUTvvimbkyRGbgT8Q6+McPG18GQx/1TvlVAbujgpu4jlDp5D
-	TazPebOA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FGpN2YKLA3WqQLAnfjAzEIn1Q5947fDktnHF27+sjWo=; b=ZZH4/AlmBCpiu1BIqmLULucNAO
+	eZNfnQURLiSsM4SHUZXIGf+uJqYDRrx/bJeRvvfTFKrk4kykXUd0zt7ZnLmkzEqUzRVArj7TmbAoN
+	KDJmLDMfES/vNsfBMIDL2Xe98c/e4UskMpuNmvvFpaqCqmsfCnT4a3Lo1fTD3oPbBeyzz//UGFENz
+	lD2TDEFxPD/R4HFk1SH9QulOlcbY1EsVsd7YqJtECXgYouSgwHrZWV3OULLInT+1Kspp+mMveDyAJ
+	640cabVwepVatzPFl2g1bR9TRMDhSkNjmHvuhELIXXsY1Vdlz8rheNxt2jnFKaRaHVOrb1zI4s2Kg
+	El+3sKcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v38he-00000001gpE-2MBM;
-	Mon, 29 Sep 2025 07:53:46 +0000
-Received: from mail-vs1-f52.google.com ([209.85.217.52])
+	id 1v38jF-00000001h60-1O0q;
+	Mon, 29 Sep 2025 07:55:25 +0000
+Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v38hb-00000001goT-3x5T
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 07:53:45 +0000
-Received: by mail-vs1-f52.google.com with SMTP id ada2fe7eead31-59d576379b9so2185118137.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 00:53:43 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759132421; x=1759737221;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=QUXSFceWb25g9n2jWqeSmoB7pNwdYGNyiAtsuATGVG8=;
-        b=oISMD+f6wcCYlexlOmX2W1caUHfDh0gONHVJO2doxYZvKkOKk/brySjhOuyvicfRXD
-         z2f9Co/1cv96iyQuqUcbbHx21htQXNV2HiwK+Hg9CXLSKbwV2Zz4eDPo1qMHQZMiFSBN
-         BfRNYPR0Wm4biBBv+uhCjX+RkebEq3BfnfPuZllK82XT0v3mawb/Zu8W5DAajpZIrtdB
-         +2ap2b42hSPLW/7kNNUjc6zKTLzkZd5v7NT7BSmQSJ0HxtEPcKGcEQHQKm+t0sZ+ErAC
-         SjaJ9R2zky7Wsl+TYvOZz5mQIxvtWY5xOZ2EsGuHYk8Qmhe2K8AwAQr1vx7PDxiVyFni
-         HPnQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV1g9Bqwun+/edOw7jiU5VdmR4g1hf9+rbizeGUxXSIGoFJfu5/fVCZGYupUt7Kos3sLHvZYQf/L17cvhT7YF34@lists.infradead.org
-X-Gm-Message-State: AOJu0YwF+jczF/R6JXKtSWA/Hz6cZb421ULjZYlFTCrsdZLnaApvVhiP
-	maK695tOITWSpGBk/oIEkJirFOZ7B2BjttO38y/Li3u3pMipuG0GvQ7Ji5nipT+i
-X-Gm-Gg: ASbGncvswa6GIIMwi/hVjBNxj2GSr+BNPVSbptgFn4owJVRYBF3wke4Og0fL1lyz4Fb
-	1/oKbNMkADk61fii02yS+rziRe6byf1pJDh/BXNADdxvFMCDc7snsXSsTKx5iqGWx36QJJHndbX
-	jdqlJARB5gT/y/0n0qYVWfeo00xQwbwQ69yYIn7B8TDe/xhVaDttnkOjOyvbyvNFe/JUccBb3gH
-	LN02diCPmBRqjijWyRC/HD+/y2H2Zj5g1K+DjROvasKRnJUkMEMkKxj7bGTXrYpWrlKWoJN3un2
-	wkNvzWY8Osd7xGyFlcOHoyN79UPGz2GmZ50E6LKWIii3wSnISlV9cdBcAQQv4nrcjaklTcfkxKy
-	NYbRfzLKeufh3lgfoHaCAXSncsXKVoiJZD3U7aCsNFheRCxP4iKyrioerJvSy9HnSNF63410=
-X-Google-Smtp-Source: AGHT+IGcHcGt3dRNAJtS+cs7Fkn7UmPLcREbdKR2NIf5OE4CV0/a+XtSSJa63Fb+jGSV6GmKw05+Nw==
-X-Received: by 2002:a05:6102:370d:b0:527:8b63:78e1 with SMTP id ada2fe7eead31-5acc4632c1fmr6110960137.1.1759132420819;
-        Mon, 29 Sep 2025 00:53:40 -0700 (PDT)
-Received: from mail-vs1-f51.google.com (mail-vs1-f51.google.com. [209.85.217.51])
-        by smtp.gmail.com with ESMTPSA id ada2fe7eead31-5ae39efda42sm3184401137.13.2025.09.29.00.53.39
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 29 Sep 2025 00:53:40 -0700 (PDT)
-Received: by mail-vs1-f51.google.com with SMTP id ada2fe7eead31-5b59694136bso1919706137.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 00:53:39 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUbBqBDRHp2Ad1W+/fpuyyH7RWmFIHMwhtdF4XHJVwvvH0qTNBBgEVqcbJuTpALrjYiVn56k82p+OUuHCOvt11P@lists.infradead.org
-X-Received: by 2002:a05:6102:304c:b0:55d:b35e:7a58 with SMTP id
- ada2fe7eead31-5acce758205mr5685599137.23.1759132419534; Mon, 29 Sep 2025
- 00:53:39 -0700 (PDT)
+	id 1v38jC-00000001h5H-3ly5;
+	Mon, 29 Sep 2025 07:55:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=y8pnEL55wpT87hIqkxPiAJc4V3q3SxF5OWTytgPvBVojpu9k6vXdIeBGfWLW9o87rRRH3aYQNih2zuwK/l8LwEwR3EOWgMCwddtQmaB1NenVifMlXgSFw5EL29AsJUgHNSq5siMH9KuViUkXY9d90oO5nx9GpHi1WoGeHA783nksT4WcAcjK5hDEwzTu+z2GCzv1AkAaaQMq5OKaVhRGx9EaWZKen0fn6eQSTiZn2nUydgOLjGlr7DDJj7x5bCfKXXBnzoOs/fK/mTxJ4ozDdcqlEofJNu59RyrCMnhrgoeU04pj964AdAHeFSleazkSC1nKN2z2lBBEoe6e1sWTOg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=FGpN2YKLA3WqQLAnfjAzEIn1Q5947fDktnHF27+sjWo=;
+ b=AqBEXUHeOapekEkDXwV8UlnKXfqEmsf1O/GyvXJxqS5AzqLrByHhoXnfbWzG409vU1C0RWMbr/grvMqIDibVKT/cvFvQGRy5Nozewl08PflOao4+L1XjYeLQMOpdUi3gW2UZySacwYGLs1jzVOTCDQhlfW1rSQ4nXH2rlQYoDz7NOPokDP1Oz5Wu1g1qN+3yDtuD36KlTymfeiEPb/9DrGO5dvvbZvD1i9ffTwDtyAcCB9HyCkdw5wdu9ig2hpYIiR7S/+rnorbnIj6NESxjf784JlwrwKazYtvUgFA+HN5hYWSFbJBe3T0mEU6zPmuHeUSn+qTqo/n8IyKNifM3bg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=FGpN2YKLA3WqQLAnfjAzEIn1Q5947fDktnHF27+sjWo=;
+ b=a2MlVNzvFhIWDalBGYrJlO7733smUPcLJ3P9bIVf8MVhFyVftAiCkWcp9Dhi3/2gl6MQSndx4K4cVdowOP9Ye7VOLooMNtlMU1ON7QrT54FVZFhMdQve8Spw2/O83q6PAf5sYnRTc+SmiYcqQ2Ki6Lfd5Kqeu1MJkML7Mnv/CkBNmkQKwvEQYM6qWaIWfJlc3h0hIc7F4a5pPfDNDWkxxa1zm2YZRHUSoM06FUn/lNDY7nkXffgyDD/psuRQ7us+S8cFN9gi8ohC8uZVwI8t9BiuHGYmHAeAzzmf82Elj+qCwgZAc+MQCQ64PBDm3pzIc2v15TCe+LlSiZCUtfBHog==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com (2603:10a6:20b:113::22)
+ by AS5PR04MB11419.eurprd04.prod.outlook.com (2603:10a6:20b:6c4::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.10; Mon, 29 Sep
+ 2025 07:55:04 +0000
+Received: from AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64]) by AM7PR04MB7046.eurprd04.prod.outlook.com
+ ([fe80::4609:64af:8a4b:fd64%6]) with mapi id 15.20.9160.015; Mon, 29 Sep 2025
+ 07:55:03 +0000
+Message-ID: <a7f0ced8-d704-4a59-bcc7-e0bd4db113fd@nxp.com>
+Date: Mon, 29 Sep 2025 15:56:31 +0800
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/9] drm/bridge: ite-it6263: handle unsupported
+ InfoFrames
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Andrzej Hajda <andrzej.hajda@intel.com>,
+ Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>,
+ Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+ Jonas Karlman <jonas@kwiboo.se>, Jernej Skrabec <jernej.skrabec@gmail.com>,
+ Rob Clark <robin.clark@oss.qualcomm.com>, Dmitry Baryshkov
+ <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>,
+ Jessica Zhang <jessica.zhang@oss.qualcomm.com>, Sean Paul <sean@poorly.run>,
+ Marijn Suijten <marijn.suijten@somainline.org>,
+ Sandy Huang <hjc@rock-chips.com>, =?UTF-8?Q?Heiko_St=C3=BCbner?=
+ <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>,
+ Samuel Holland <samuel@sholland.org>
+Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+ linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-sunxi@lists.linux.dev
+References: <20250928-limit-infoframes-2-v2-0-6f8f5fd04214@oss.qualcomm.com>
+ <20250928-limit-infoframes-2-v2-3-6f8f5fd04214@oss.qualcomm.com>
+From: Liu Ying <victor.liu@nxp.com>
+Content-Language: en-US
+In-Reply-To: <20250928-limit-infoframes-2-v2-3-6f8f5fd04214@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SI2PR02CA0002.apcprd02.prod.outlook.com
+ (2603:1096:4:194::22) To AM7PR04MB7046.eurprd04.prod.outlook.com
+ (2603:10a6:20b:113::22)
 MIME-Version: 1.0
-References: <20250701114733.636510-1-ulf.hansson@linaro.org>
- <CAPDyKFr=u0u2ijczExkntHK1miWZ6hRrEWBMiyUwShS3m6c29g@mail.gmail.com>
- <CAMuHMdX1BacUfqtmV8g7NpRnY9aTdL=fh+jC7OryMLz4ijaOCg@mail.gmail.com>
- <CAPDyKFqANQZmGXd8ccA5qWiGrCor2N=W_7dmV+OK8hMd_+zmmw@mail.gmail.com>
- <CAMuHMdVrkr56XsRsbG7H-tLHVzmP+g-7=5Nrv9asC25ismwiYA@mail.gmail.com>
- <CAGETcx-L-KypYZEkdKRBfZHDhFMTUuwKEGVQ-7QPv=++6uwLSw@mail.gmail.com>
- <CAMuHMdWjhXjjw9wFw5Me-wAX0nA+gK2mdGxLyBJJCWDHZ58LeQ@mail.gmail.com> <CAPDyKFr4t7KjV+bSB2_4wRM0tsSNB7fosoJHAN+yDgc1g=7FgA@mail.gmail.com>
-In-Reply-To: <CAPDyKFr4t7KjV+bSB2_4wRM0tsSNB7fosoJHAN+yDgc1g=7FgA@mail.gmail.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 29 Sep 2025 09:53:28 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdXYs1w=GtQEQ=iMYxCfAnY4MDrrEQYV+_dNc_sKWCz6zA@mail.gmail.com>
-X-Gm-Features: AS18NWDHIeKax_oc2j3zUm5LN96ZK89sUlSKJb1MXuYCTNKdArFExfgAY_xANms
-Message-ID: <CAMuHMdXYs1w=GtQEQ=iMYxCfAnY4MDrrEQYV+_dNc_sKWCz6zA@mail.gmail.com>
-Subject: Re: [PATCH v3 00/24] pmdomain: Add generic ->sync_state() support to genpd
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Saravana Kannan <saravanak@google.com>, Stephen Boyd <sboyd@kernel.org>, linux-pm@vger.kernel.org, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Michael Grzeschik <m.grzeschik@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
-	Abel Vesa <abel.vesa@linaro.org>, Peng Fan <peng.fan@oss.nxp.com>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Johan Hovold <johan@kernel.org>, 
-	Maulik Shah <maulik.shah@oss.qualcomm.com>, Michal Simek <michal.simek@amd.com>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
-	Jonathan Hunter <jonathanh@nvidia.com>, Hiago De Franco <hiago.franco@toradex.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	Linux-Renesas <linux-renesas-soc@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM7PR04MB7046:EE_|AS5PR04MB11419:EE_
+X-MS-Office365-Filtering-Correlation-Id: 601b5fae-8cba-4db1-c4e9-08ddff2d7f4c
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|7416014|376014|921020|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Y1FsdjR4bVNDS0ZtbmtUWDRXVXFxN3VLaWdwdURpK09pTWMwdk51RjFTTHlF?=
+ =?utf-8?B?QWE0MExnb0MrM0JuV29lcHRKZDhvVGlBcCtXT2JMOENZQ0Z0TWQwNXhzdTJE?=
+ =?utf-8?B?ckNVNEwzRlVxeGlTRWtHOHFhTkkzMWx2eFFFV3ErWm52R0FtVmRJTkhlRHVt?=
+ =?utf-8?B?dEk1a21JZmdyUjRRay9XSFFkNC9LdnpDVDB2TDdCc1NCUmpEeWN0MER3OG90?=
+ =?utf-8?B?TWljc29aMVRoT0UvMnZiTkRpUGpoOUtQYisyb2xqOEtraGJLWlNLOHYrTTQ5?=
+ =?utf-8?B?L3JnOHlielREWVFtdFVJMk05N0tQQmw5SlNHSnR1eUllQkVKU2FZVWxvZVo3?=
+ =?utf-8?B?QzVpNWQ0bVd0QjJzOFVnUzA5RUxVZDVVd2VkOThETmQwbm53d041Z1dydFZ1?=
+ =?utf-8?B?RU1vb0dEWm4yRDJDSExsYm15Z2xHVklVSzZKOVFFMm5PdEp2dldUcjZrZmpk?=
+ =?utf-8?B?U1lUck8zTjhFcUpSaHZNMXQ5SXcxTUNwajF5K2dZU28zRFhDeEpaQjEvZjAy?=
+ =?utf-8?B?Um9GMlZraHNvYUFHMExBMlpVTFYvVTBhY3B3TCtWL2k3a3pveXRKWW5EYkl4?=
+ =?utf-8?B?NHpKRDloeFJCM1RkblJFRUlwV0JZSC8vMnQxaExHOTVMVDU2Y3JoUjBSN1Jj?=
+ =?utf-8?B?ak5oU1pUYWlBOSs0RG5ISVlvN2RiT3JWV1NEdWh2d1FYZDJjWjAxcytYZEkz?=
+ =?utf-8?B?UGtxUnd6US9QRytTQ3RJRmJVUGdDaUlPSlVmWkhGQjJkeGtQS2lQV3hvZndV?=
+ =?utf-8?B?alRRVC81VS9jbUZuM0dTcFlBVzVka3gwTGNvVDczZ01sWFlwMzJ4ZXJURDJh?=
+ =?utf-8?B?Si85Rmd4c1Q2Z2ZHUk9YTGN6RmVORjA5U2JVV0JINlg2RURlR3pKeStoZFNi?=
+ =?utf-8?B?bm1TZm0xNGdobEdoQTd6SmVGRGtveU5MemNZVVlhNUFZWHdWdEdNZjBKL2li?=
+ =?utf-8?B?Z1NoOFhVcGxDT2IxdlN6Z2NSbXFJczRkbGxrVlhVbDVNQUcydk9ZcldoclFP?=
+ =?utf-8?B?NW9ESjMrZGtKSTkzL2M1SFh5SzNwYWYvMVc4ZUNRVmsyUnBmQ21nbGliMFF2?=
+ =?utf-8?B?RHVmRUJEeWEwNWVFN0hnbjIwalI3bDkwMFg5ZTcrckxaWGlqK0dsck9wSTdi?=
+ =?utf-8?B?bGRhTWN3cUUwQVd1UThOdm0xMGNWei9HbDE0NEp6ZGVBZnlPY2VkSVNZeHJN?=
+ =?utf-8?B?aXU3ck84bndQZFp6VDkzRDRZZnVPZmR3SXBpWjlQK0xKL0dFNnZxZEYzeXFO?=
+ =?utf-8?B?cElXNTc0QVpuTnVZUjBYQm4wREQ3NEorY3ZiMHYzalc1ZG8zWDE0OU8rcmNE?=
+ =?utf-8?B?V2trQWszM2ZoQ0UxRmtiZ29Id2hPZGl4Y3BpcGo5WkUyMXh5T3ByVTMvTHov?=
+ =?utf-8?B?VjZydU5KTzZOYXE1SlQwU1lkQlRocXNUZ05yZjFsaVV3T0dUZ2w2RkJNRDhH?=
+ =?utf-8?B?dE5FY09HdmVLU1BFVGVHVllhTWt2U3FFSEErUEpLSVlJMDR6b3NJZXhWYitO?=
+ =?utf-8?B?cmNITmRTMUwxUmQxMXBpMGE0YjNRUXA3dkRDWWtjOWhHaEw5M1ovdVBsSDBD?=
+ =?utf-8?B?NlhFS1hDV3NmZjdyVDhmOGIrMlJGVTFLMlEvdDM0YkZQSUZZbVpBWWpSUXds?=
+ =?utf-8?B?Z21nS05ZMzZuRk81ZGNWVHZmbXNQeTd3TzVZWm5yTGZEM1FzeExLS0hCOXNy?=
+ =?utf-8?B?akVwWnY3czJWMUl6VTh1UXJtS2xUZ0Q3MkZ3Vkw4UkdJMFBmVWVtSWN6ZHVl?=
+ =?utf-8?B?T2g1QmhzNzRmemJEcCtMdEsrcnpYOXd5Wk4xd3dLNWFtWFlmOU1VSW41bmdH?=
+ =?utf-8?B?ZEdoaUtYNGRiSzRTZnRHYkNFYldIditwZDdvZHdFNEpDa0ZUOVg2aFl2Z1B0?=
+ =?utf-8?B?TWVudDVlSjhuS1FtbVRTVU94T1h5TTRYMzNTeUY2OUE4VmZ4YUZDVTBwL2F6?=
+ =?utf-8?B?RFZ3UlB4SHFtOFE0UGVSLzRGTUdEdUgvYUxCSExhcDhZMUpSZzZNbk9rcWxS?=
+ =?utf-8?Q?ciV/foHmKKVXubfCJmfmrB46AIPss8=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AM7PR04MB7046.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(7416014)(376014)(921020)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?MVJEUXNFOXp6ajloc2dqK1BrSTQxOEJIVTJSNXBZUzA0NmNyRnpzSFJ6TElu?=
+ =?utf-8?B?WHZZaXNyeXQzU1VqdEJoLytNLzU3V0ZpK1V4bGxXV25zcnlab3BrVmV2SVZH?=
+ =?utf-8?B?RGdjaWJBem5qOEozS0JjVDV4K1FWeFdJOWZVTTZZYkVGRXgxSS8zYndkNk5L?=
+ =?utf-8?B?eGxvem5LRW5MUmZabHBQZlh2b2JGSUJCNjlHazFqY3pQSkVEU3MvSWRja3Zw?=
+ =?utf-8?B?b1pHZnhTTmVNOCs4Nk8vbithMkkwekx2WHVQTkwxQXJ6K2Vrcnlld3puUzM3?=
+ =?utf-8?B?NU11bjlUcnBTMkJMZXpuOFI3MTE2UEo3VW9tNlB3RjdEa05NRE5TSzNSQXFM?=
+ =?utf-8?B?NVozYkV4N3JyemlTdnlzakt2Zis3cVZDOXJNL21QN0V0T1l1b1RiSy9rdHhy?=
+ =?utf-8?B?dXNicXhidnJJbW5OeThYZ01QRWZadHVHcmFLV21lTGV6ZFlQcGVDZWhYanBv?=
+ =?utf-8?B?Z1dXTlo3NWhscVg5THFZUW5GWjJaYWpCRUY2a2FxOFE1Y2VQdEs0dnNReTE0?=
+ =?utf-8?B?YnNRS25mRDc3WEtiOG1PaVEzR1Y1THpwWmFwS3dWZGRFWEx3bkRrT05pOGVQ?=
+ =?utf-8?B?cm9NcVp0OFova0tzd1hkejdEaWFSWUdMbWpISnhEVjRldTNMV2NsNEhkZkxx?=
+ =?utf-8?B?VVdUck8ycDlYTEg3SVhVUXlNSmkxWUl6akQ3Z1RhckdaN05sUCtaRjU0UW5R?=
+ =?utf-8?B?R2RVM3hwbTJoN29jbXM5dWdwZWJzZjBrQ1hBZ3dnUEJ5d1dnQXh6bStSaWRh?=
+ =?utf-8?B?UkFVdmFKRSs3YVFZQ1B4c29HSUhITk5YKzdUdUpmRjlKZGhSTWlXT3hXb2Fz?=
+ =?utf-8?B?QkJoUHFWeC9wV1hYTWs3KzhKdDFpeXBNMW9IaGdGYXFlb2s5SXhma2NUYldS?=
+ =?utf-8?B?dkdGa05DSmNYOFJzaUlUV1AwLzh5NHQyR0s1Q1ZSQXlQUjdxbDhvdDFWT3g0?=
+ =?utf-8?B?VksrZmw5dkIxSFdLc0w0TkUvVDRvQXgvV2VjL1kwZDMwcGZQdUJpUlREd2tX?=
+ =?utf-8?B?Qi94SytTOE5BUmsyWTJRUFlCWHB2SmpzZHRsc2s4VUVMY2Z1b2ZEZVNZbWhu?=
+ =?utf-8?B?Qk5RMFJsVDQ5TTRudEVHZURhQmVKK3J2Q3c1NFBoQ1l2ODgrVUNSVU4yamRs?=
+ =?utf-8?B?dFUxODFMSFdzOEFGVVlGbndsUXc5TjlQb2VWeEQvYnpRY1pWYXdBejRPN0Jp?=
+ =?utf-8?B?ZkhMV2k1cUloeHAwNnJrdVFQNDljd3Y4UG5ac2MvWG5QS05tM3dva2tFL3dE?=
+ =?utf-8?B?Ky96dGU5NmVZb2FMNldHWDQ1ZlVnVENWalpOdzZmdmpJb1U4Z3AyQXAzcXBD?=
+ =?utf-8?B?dXhTaEwzcExWdTl4RWhSMWMrTWxJb3JTbHpYcldvbGNCbG9qeE1SdkR3SGdU?=
+ =?utf-8?B?VkNCN2NKSGduZkxkaHVUZzZ4Q1ladld2c3FWRnhmN1JSZjQ5R0hialhhWFA1?=
+ =?utf-8?B?MDNQbEVWeEJjZXJ0TDc1SWMxenAyVkJLU1NQeFozOWF5ZFNGb1hWWmxXZTZS?=
+ =?utf-8?B?cFlZTTBqem5OYmY4Z3cwaFNQMUFmUXJwckI0V3pIbXVOVkpHNTA1OU9DVXI2?=
+ =?utf-8?B?bXdORjNMWFd1dUNDRUh3Qi9qVjBqelhmdk1WUjk0WjkvSERsNE52aWwzVitR?=
+ =?utf-8?B?ZTNoQnlsY3BKRkxWc2F2OTJwc3RQSUdpVXowZDc3V1JlaGV3MDdjL2tqQkJL?=
+ =?utf-8?B?TEovYnBYZ3VhdWtxU1VuZHN0N2RiZFVLY2U0RzNEK2dYUTlXOTc3SzR5bW5H?=
+ =?utf-8?B?bGZmVFc4N2c2UktsVlBIRm54OW9kdHU2L01INFV6Uzc3SnBVak5waHowV1ZN?=
+ =?utf-8?B?YmpLTFlRZkk5QldLcUxKSExHajBGaEEvVUJZbWFnalRyZlB1WnBvOFlwbTJv?=
+ =?utf-8?B?VWZIK2djS0dZaS9jTS9QM1VReGM3aktSOC91Y1Ezd3EwUFJCM0FudGdnL2Z5?=
+ =?utf-8?B?N2dWVDZxVHBua0x0Rk9HSlRJNzFldFY1NDZsVGZESTlrWWJwL2NQMzVZRUF2?=
+ =?utf-8?B?T3NscHBEZkpxRzJKWUcxRjc5cmlaTUtaNlkweXg2SHZNN3pWdVYyYU91aWl3?=
+ =?utf-8?B?MG96NG5hbnN3MWZBZ2l5eWxZbStwOW96QmZhRVJpNTB3US9zaHBPWFVCSWFB?=
+ =?utf-8?Q?WnxGfR+gJP/WwR6JO2EcxqCyh?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 601b5fae-8cba-4db1-c4e9-08ddff2d7f4c
+X-MS-Exchange-CrossTenant-AuthSource: AM7PR04MB7046.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2025 07:55:03.6288
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Y2k00bEZk84p0qmE31cSepeNrNS2duRRfs3sO2f46DHsBW+SiK33oAaRxde+sEfa1qVJfRXnLyxkUnMzW8BYUw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS5PR04MB11419
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_005344_000165_5462CE2C 
-X-CRM114-Status: GOOD (  54.07  )
+X-CRM114-CacheID: sfid-20250929_005523_145901_BC16A2D7 
+X-CRM114-Status: GOOD (  22.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,118 +193,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ulf,
+On 09/28/2025, Dmitry Baryshkov wrote:
+> Make hdmi_write_hdmi_infoframe() and hdmi_clear_infoframe() callbacks
+> return -EOPNOTSUPP for unsupported InfoFrames and make sure that
+> atomic_check() callback doesn't allow unsupported InfoFrames to be
+> enabled.
+> 
+> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+> ---
+>  drivers/gpu/drm/bridge/ite-it6263.c | 27 +++++++++++++++++++++++++--
+>  1 file changed, 25 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/bridge/ite-it6263.c b/drivers/gpu/drm/bridge/ite-it6263.c
+> index 2eb8fba7016cbf0dcb19aec4ca8849f1fffaa64c..cf3d76d748dde51e93b2b19cc2cbe023ca2629b8 100644
+> --- a/drivers/gpu/drm/bridge/ite-it6263.c
+> +++ b/drivers/gpu/drm/bridge/ite-it6263.c
+> @@ -26,6 +26,7 @@
+>  #include <drm/drm_crtc.h>
+>  #include <drm/drm_edid.h>
+>  #include <drm/drm_of.h>
+> +#include <drm/drm_print.h>
+>  #include <drm/drm_probe_helper.h>
+>  
+>  /* -----------------------------------------------------------------------------
+> @@ -772,7 +773,7 @@ static int it6263_hdmi_clear_infoframe(struct drm_bridge *bridge,
+>  		regmap_write(it->hdmi_regmap, HDMI_REG_PKT_NULL_CTRL, 0);
+>  		break;
+>  	default:
+> -		dev_dbg(it->dev, "unsupported HDMI infoframe 0x%x\n", type);
+> +		return -EOPNOTSUPP;
+>  	}
+>  
+>  	return 0;
+> @@ -812,13 +813,35 @@ static int it6263_hdmi_write_infoframe(struct drm_bridge *bridge,
+>  			     ENABLE_PKT | REPEAT_PKT);
+>  		break;
+>  	default:
+> -		dev_dbg(it->dev, "unsupported HDMI infoframe 0x%x\n", type);
+> +		return -EOPNOTSUPP;
+>  	}
+>  
+>  	return 0;
+>  }
+>  
+> +static int it6263_bridge_atomic_check(struct drm_bridge *bridge,
+> +				      struct drm_bridge_state *bridge_state,
+> +				      struct drm_crtc_state *crtc_state,
+> +				      struct drm_connector_state *conn_state)
+> +{
+> +	/* not supported by the driver */
+> +	conn_state->hdmi.infoframes.spd.set = false;
+> +
+> +	/* should not happen, audio support not enabled */
+> +	if (drm_WARN_ON_ONCE(bridge->encoder->dev,
+> +			     conn_state->connector->hdmi.infoframes.audio.set))
 
-On Fri, 26 Sept 2025 at 14:23, Ulf Hansson <ulf.hansson@linaro.org> wrote:
-> On Fri, 26 Sept 2025 at 08:57, Geert Uytterhoeven <geert@linux-m68k.org> =
-wrote:
-> > On Fri, 26 Sept 2025 at 00:41, Saravana Kannan <saravanak@google.com> w=
-rote:
-> > > On Thu, Aug 7, 2025 at 2:43=E2=80=AFAM Geert Uytterhoeven <geert@linu=
-x-m68k.org> wrote:
-> > > > On Wed, 30 Jul 2025 at 12:29, Ulf Hansson <ulf.hansson@linaro.org> =
-wrote:
-> > > > > On Wed, 30 Jul 2025 at 11:56, Geert Uytterhoeven <geert@linux-m68=
-k.org> wrote:
-> > > > > > BTW, the "pending due to"-messages look weird to me.
-> > > > > > On R-Car M2-W (r8a7791.dtsi) I see e.g.:
-> > > > > >
-> > > > > >     genpd_provider ca15-cpu0: sync_state() pending due to e6020=
-000.watchdog
-> > > > > >     renesas-cpg-mssr e6150000.clock-controller: sync_state() pe=
-nding
-> > > > > > due to e6020000.watchdog
-> > > > > >
-> > > > > > ca15-cpu0 is the PM Domain holding the first CPU core, while
-> > > > > > the watchdog resides in the always-on Clock Domain, and uses th=
-e
-> > > > > > clock-controller for PM_CLK handling.
-> > > >
-> > > > Unfortunately the first PM Domain is "ca15-cpu0", which is blocked =
-on
-> > > > these bogus pending states, and no PM Domain is powered off.
-> > >
-> > > Can you explain why you call these as bogus? Sorry if you already
-> > > explained it. But the reason I'm asking is to see if you can set a
-> > > flag for the watchdog device so fw_devlink will completely ignore it.
-> >
-> > "bogus" refers to "1." below.
-> >
-> > Furthermore, devices that are located in an alway-on domain should
-> > not block the sync state.
-> >
-> > > It looks like there's a driver for this watchdog node? Why is it not
-> > > probing then?
-> >
-> > Because this particular revision of the SoC has a hardware bug that
-> > prevents the watchdog timer from rebooting the system, and the driver
-> > detects that.
-> >
-> > Anyway, if the driver is not available, unused power domains should
-> > still be powered down, like before.
-> >
-> > > > If I remove the "sync_state =3D false" above, genpd_provider_sync_s=
-tate()
-> > > > considers all domains, and does power down all unused domains (even
-> > > > multiple times, as expected).
-> > > >
-> > > > Upon closer look, all "pending due to" messages I see claim that th=
-e
-> > > > first (index 0) PM Domain is pending on some devices, while all of
-> > > > these devices are part of a different domain (usually the always-on
-> > > > domain, which is always the last (32 or 64) on R-Car).
-> > > >
-> > > > So I think there are two issues:
-> > > >   1. Devices are not attributed to the correct PM Domain using
-> > > >      fw_devlink sync_state,
-> > >
-> > > Is it a fw_devlink issue? Or is this a multi-domain controller?
-> >
-> > This is a multi-domain controller.
-> >
-> > > >   2. One PM Domain of a multi-domain controller being blocked shoul=
-d
-> > > >      not block all other domains handled by the same controller.
-> > >
-> > > This is going to take a while to sort out. But the current behavior i=
-s
-> > > the safest. How grumpy will you be if we don't fix this :)
-> >
-> > Depending on your definition of "safe".  Keeping all power domains on
-> > increases power consumption and heat generation, and may cause e.g. CPU
-> > frequency throttling to kick in, slowing down operation of the system.
->
-> FYI, I agree that we need to address these problems, in one way or the
-> other. I am trying to summarize them and have also proposed a CFP for
-> LPC (power/thermal MC) to discuss and try to solve them.
+Maybe use drm_err_once() instead to provide the reason for the warning in
+a string?
 
-OK, CU there! ;-)
+> +		return -EOPNOTSUPP;
 
-> Now, as I also proposed in the other thread [1] just now. How about
-> changing the default behaviour from FW_DEVLINK_SYNC_STATE_STRICT to
-> FW_DEVLINK_SYNC_STATE_TIMEOUT? I think that would solve a lot of
-> problems for us, as it would provide a more similar behaviour to what
-> we had in genpd originally, hence it would be a smoother transition.
->
-> I think this would be true when trying to add ->sync_state() support
-> for other subsystems too, like clocks and regulators.
->
-> In the end, when platforms are ready to move to the "strict" mode,
-> they can do that via the command-line parameter, for example.
+As this check could return error, it should be moved before
+'conn_state->hdmi.infoframes.spd.set = false;' to gain a little performance.
 
-Thanks, changing the default to timeout sounds good to me!
+> +
+> +	/* should not happen, HDR support not enabled */
+> +	if (drm_WARN_ON_ONCE(bridge->encoder->dev,
+> +			     conn_state->hdmi.infoframes.hdr_drm.set))
+> +		return -EOPNOTSUPP;
 
-Gr{oetje,eeting}s,
+I don't think IT6263 chip supports DRM infoframe.  The drm_WARN_ON_ONCE()
+call could make driver readers think that DRM infoframe could be enabled
+in the future as audio infoframe has the same warning and IT6263 chip does
+support audio infoframe.  So, maybe:
 
-                        Geert
+/* IT6263 chip doesn't support DRM infoframe. */
+conn_state->hdmi.infoframes.hdr_drm.set = false;
 
---=20
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k=
-.org
+> +
+> +	return 0;
+> +}
+> +
+>  static const struct drm_bridge_funcs it6263_bridge_funcs = {
+> +	.atomic_check = it6263_bridge_atomic_check,
+>  	.atomic_duplicate_state = drm_atomic_helper_bridge_duplicate_state,
+>  	.atomic_destroy_state = drm_atomic_helper_bridge_destroy_state,
+>  	.atomic_reset = drm_atomic_helper_bridge_reset,
+> 
 
-In personal conversations with technical people, I call myself a hacker. Bu=
-t
-when I'm talking to journalists I just say "programmer" or something like t=
-hat.
-                                -- Linus Torvalds
+
+-- 
+Regards,
+Liu Ying
 
