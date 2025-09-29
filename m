@@ -4,176 +4,186 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CB833CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 14:25:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2AB8CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 14:26:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
-	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
-	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QVJl4bB8QiGoef0MB55ljZ5MSBlUEiekfe3RurAVcac=; b=sHQKzyNeN3Dk1KkKgUhen8Cd8A
-	l5yLUJ5ntEOFjHGlb6eNc/lOkEsNVV8ukIEg/j90XsjHXIv3c6nJP9V/IWFDavrO7k1SzFrOgWcga
-	R6ginx0LrlWDBlGmuKtG/LNy9ms2/LQjuiHL0MVfBQu71lWE0H6cyMOarFjEuB6ZmonDw9+/eS+xj
-	QRSJBhYgaaz/vL+Q4D6GxR8om4enztHmxWkjTY2YIHd2Q7pa1iaCF3eenhloQhVSf+QwugSm6slkP
-	QWLF7yDzTVDYlOYyI7TV15Q9LL2J41q9txxzgY8fokKZ9wxE6DH/GUQKZi2L3T+9fV7s/87cAAcYe
-	E71zIIEg==;
+	bh=cv6lqwHflTZO2FaF/5SKKmfhOIQBsLFh6rucuxhfQUw=; b=2AcvRp9rpBatjyXe6/07ohuCEB
+	XSvUBHGbIpFH7Vf2yW9yf4RXMUcq3dB9ubBX4jnB+ktzL29g5zBm6j9r/YmOJ+r+zNxtfgrAuhOKs
+	EIPx/KFs9iK0tQPlCV2/0h9idpiq9PkdnssKZ0QoDxEwYeVVLOmki38d6uzmyDXOse1afg+mmCPP6
+	3bTGjvxGT2T7nx032Uda5CydLcXRvu70gFuGRwU4111waDN6GjbDKQUDAEwmYeiauQT03KXpDUu8v
+	JR9v3li2elrAeGS4wiS2ngZHtTRmXBaJtyfktdx4NfJW1MH3lshzVJ77HN3RQ5trZcWJLOgXy2GLe
+	b4VsgkWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3EoH-00000002eN9-23Vl;
-	Mon, 29 Sep 2025 14:25:01 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1v3EpL-00000002eyj-3wH4;
+	Mon, 29 Sep 2025 14:26:07 +0000
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Eo9-00000002eHI-1Ypq
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 14:24:54 +0000
+	id 1v3EpJ-00000002ewr-0GXD;
+	Mon, 29 Sep 2025 14:26:06 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=n9D8INc2Xu1xYpDBIYTMb1nuTakt3FfMY/BcUZyo1T08AI3+spVfB3dD9Zj+pd+JhjIKg4s6Y+6Qgr5qk5pWJtuLdSKG8bW1mvtTbBkLviUci0hZjqhxZMaa1dyhsIM7rU0YVTja4jApsYU6sY2Dbmw2AzUJ66lkzvr4HRzbyh/2LhHuhNadx0Pf88jpfr8N4UaNp8Z9VhsB6qoaEeJsS8tUHmTIm5H27KPaYJXs7eW1Zsrv0lRafOQyDZFygKIqPVe/8LlTT7bAvUfMQ0nhRCMZ6oqMu8yxwjV98syOaKSVrNTD6a1GpQ8+d/hJKxW8vXpqZ8bF49sP4USU+Q/pew==
+ b=RB8GCWOIYPN81EAZW2peQy46oJWKRF9MZmZvJrc5QxFqbo55LVYatNX7Euy3rR0Y3yvvgnhvmW2VGH65KknDSYMhebez2oDQoKd+Oq2TBYsNHMLgvxzSob4WDpjHtxC0XhqFWqcSHpHWG8/RM2gof9WzDdknSTgnBrdF2T2C11U9oAhH6QcUUFZ8QharKbh/BdA8rt+xyl0rUZLolJ+Z1LMbCVophsYVTi+DOZhJlKvrCsPWNcQ5pH/s5H32lsfPCNdPuakibeGkDJTXYNG7hN+wz1eDFBCEIcEpzi66urAqICS/YZF+KaHkG29xYAYR8nbDtzYHZrvwL18sU6fQhQ==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=QVJl4bB8QiGoef0MB55ljZ5MSBlUEiekfe3RurAVcac=;
- b=O8bGmsu/lTf5E/BdCyslJASvTysv6T59H9CkKKQMDUeXVfCW7/WvuUIYdDt8/a0/oaO+NNaEmnU9xkbmPOhAwtoaFNjLMsqyXBhlZQyV8p+uajTWhKzBHldKQEN73M69eQlzgZQPbzz9kfL/bPQfYJ6MEBxQWwGr5bVwYX9UJYBUpStDhkM1ktuPRzyIoEF3pXJWbJOql3AqtZvVrUIzPndsK70rwAmZ+lyWc9h8JsRPB0Bzmhez/fWFqopXnZnl6XTCP6tLj7banEHNbt4jbvtxf5fGEeXQik6pS70nicrd5UBW5jP2ZN6na6planeX/PBD5IggPWBDGmOn3MgJxA==
+ bh=cv6lqwHflTZO2FaF/5SKKmfhOIQBsLFh6rucuxhfQUw=;
+ b=mQ36XVjwxcb5QDUZPIU6Fse37/LVAVZUrdPCgJ/60CWTCxVfGcBMoxv/TjyXiFLvahLzueSf9dCUfQfGwdVgANmPQgnboa0vtl7IQeHygKMFtPwSxH3cpya9yruZ+gF+stUd0uQnb3/+Fhpk92zZPfeDz3USZyxWGObDjxWdWKdHjHUTGQMyOWigCJmMaPCMouc4ZWhONXAmi9PeZ8/xGfOecBS8lDRJz/uvXC/h1d6ExKdSVY9bj6+RoFpfA0Gyjf2cHYkC5qolgSwh2fVaeyVEvcT3sCgH2Gsg1PwXMrU/oRqhbE97H/Vkgz1h3TYE6OKLy9G9I6Y0fxC5ooRwww==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=QVJl4bB8QiGoef0MB55ljZ5MSBlUEiekfe3RurAVcac=;
- b=RZQ1ipg//d2kUeQeT+H6vMwzxmlRFsaX0JGxfJ5//Xkdt7vGVNcr5m8N3L3/C9ui9TdIgDx3sLI8uUxdtTGawzKDE4jGHMzGdR6Dx8XhQBHXg3mvF3kuAEKxqRXW1YJlmbEAZ9kN3LMiWhRJugiXj8nAYtrWEgo73nRmQpTva8VDZahC3hILobuv/5rC9KKhgys+Ms60bHaHLVOFXZlMEKVP4u8dLXkYyllTI8wKB2JKGjdlNc4G0mSwn3uyV/tzLKz1wAM7Mkny1YT2HQw2tL9jnBzWj7dHdxyTo9RUVK03T79INjTnsWsZUmms8/9jUGR83GIxFTGoShFu09Zc0A==
+ bh=cv6lqwHflTZO2FaF/5SKKmfhOIQBsLFh6rucuxhfQUw=;
+ b=0pT2Nl21JdzU5xMwGT04JAmuq2u6HdmK8ArBt9wNO6tBZLjEXSMZWKn76DLhwJhpPppBmwVNcQietlQVAh9+WrnDVkxj5NgEADjR+bNQYpY7GHrJdyNSoZI2qclUu1+wPU9cGy36N5twfzNn8M6RDJd115gaaaYEuqUdZu06s1s=
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS4PR04MB9621.eurprd04.prod.outlook.com (2603:10a6:20b:4ff::22)
- by PAXPR04MB8607.eurprd04.prod.outlook.com (2603:10a6:102:21a::14) with
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from CO6PR12MB5427.namprd12.prod.outlook.com (2603:10b6:5:358::13)
+ by IA1PR12MB6113.namprd12.prod.outlook.com (2603:10b6:208:3eb::8) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.17; Mon, 29 Sep
- 2025 14:24:44 +0000
-Received: from AS4PR04MB9621.eurprd04.prod.outlook.com
- ([fe80::a84d:82bf:a9ff:171e]) by AS4PR04MB9621.eurprd04.prod.outlook.com
- ([fe80::a84d:82bf:a9ff:171e%4]) with mapi id 15.20.9160.014; Mon, 29 Sep 2025
- 14:24:44 +0000
-From: Frank Li <Frank.Li@nxp.com>
-Date: Mon, 29 Sep 2025 10:24:17 -0400
-Subject: [PATCH v5 4/4] arm64: dts: layerscape: add dma-coherent for usb
- node
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20250929-ls_dma_coherence-v5-4-2ebee578eb7e@nxp.com>
-References: <20250929-ls_dma_coherence-v5-0-2ebee578eb7e@nxp.com>
-In-Reply-To: <20250929-ls_dma_coherence-v5-0-2ebee578eb7e@nxp.com>
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>, Shawn Guo <shawnguo@kernel.org>
-Cc: linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- bjorn.andersson@oss.qualcomm.com, imx@lists.linux.dev, 
- Frank Li <Frank.Li@nxp.com>, Ze Huang <huang.ze@linux.dev>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1759155863; l=8726;
- i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=3lvyIi6EPuFI5jSKT6nJyBbhpNULKOOS4uIt6qtJysI=;
- b=C9ZbLT8rfFK6Boq6s+MDumbV7G/EmJlEJv8zmKodKqQHlAgvUPaNRY7qnHzFnoiwi8gm+b9tg
- SOaTVrlgeD1BUJF+YX4KfwZOND9+xOQZ29r9NVIKScDXMO2T7bmJqRg
-X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
- pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
-X-ClientProxiedBy: SJ0PR13CA0099.namprd13.prod.outlook.com
- (2603:10b6:a03:2c5::14) To DB9PR04MB9626.eurprd04.prod.outlook.com
- (2603:10a6:10:309::18)
+ 2025 14:25:53 +0000
+Received: from CO6PR12MB5427.namprd12.prod.outlook.com
+ ([fe80::9e93:67dd:49ac:bc14]) by CO6PR12MB5427.namprd12.prod.outlook.com
+ ([fe80::9e93:67dd:49ac:bc14%6]) with mapi id 15.20.9160.008; Mon, 29 Sep 2025
+ 14:25:53 +0000
+Message-ID: <7884e68f-48bc-4218-ac21-150751a79723@amd.com>
+Date: Mon, 29 Sep 2025 10:25:20 -0400
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC v2 00/20] Introduce support for post-blend color
+ pipeline
+To: Melissa Wen <mwen@igalia.com>,
+ =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Haneen Mohammed <hamohammed.sa@gmail.com>,
+ Melissa Wen <melissa.srw@gmail.com>
+Cc: Alex Hung <alex.hung@amd.com>, wayland-devel@lists.freedesktop.org,
+ leo.liu@amd.com, ville.syrjala@linux.intel.com,
+ pekka.paalanen@collabora.com, contact@emersion.fr, jadahl@redhat.com,
+ sebastian.wick@redhat.com, shashank.sharma@amd.com, agoins@nvidia.com,
+ joshua@froggi.es, mdaenzer@redhat.com, aleixpol@kde.org,
+ xaver.hugl@gmail.com, victoria@system76.com, uma.shankar@intel.com,
+ quic_naseer@quicinc.com, quic_cbraga@quicinc.com, quic_abhinavk@quicinc.com,
+ marcan@marcan.st, Liviu.Dudau@arm.com, sashamcintosh@google.com,
+ chaitanya.kumar.borah@intel.com, louis.chauvet@bootlin.com,
+ mcanal@igalia.com, kernel@collabora.com, daniels@collabora.com,
+ leandro.ribeiro@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, Simona Vetter <simona.vetter@ffwll.ch>
+References: <20250917-mtk-post-blend-color-pipeline-v2-0-ac4471b44758@collabora.com>
+ <4d4170fc-f91a-4e15-b8a0-317b1af8324e@igalia.com>
+Content-Language: en-US
+From: Harry Wentland <harry.wentland@amd.com>
+In-Reply-To: <4d4170fc-f91a-4e15-b8a0-317b1af8324e@igalia.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: VI1PR07CA0240.eurprd07.prod.outlook.com
+ (2603:10a6:802:58::43) To CO6PR12MB5427.namprd12.prod.outlook.com
+ (2603:10b6:5:358::13)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4PR04MB9621:EE_|PAXPR04MB8607:EE_
-X-MS-Office365-Filtering-Correlation-Id: fcd41e99-3cdb-42e8-ff11-08ddff63ef98
+X-MS-TrafficTypeDiagnostic: CO6PR12MB5427:EE_|IA1PR12MB6113:EE_
+X-MS-Office365-Filtering-Correlation-Id: d1894f00-a49a-47fc-4fd2-08ddff64185c
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|19092799006|1800799024|366016|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?SFJjYmRtMzg1ZmxZa2djK0FNa056ZUllVEc5YU9udVRYSHpYVi84S3FYMVYz?=
- =?utf-8?B?M04zejFnNGdiaUFlbS9odnJnNldZVGJxbU9PVStiVmdPeTVTaTdGNTRNT3RF?=
- =?utf-8?B?aEIwcVlwejJ0NzhJbnFiWU1WTVhKYWZwUmhMZW5PdnMxTGduYjZSeXVBYWFR?=
- =?utf-8?B?WXl2cHc4SWNsMFN3bHNISjBPZ09NVUhIM05sR0NPNncrRkowa2dvKy9HTnI4?=
- =?utf-8?B?bnprRm5LOWJ6S1dXMHdmME1CODFXMDRtcnZOOU5xa2dzMk9nNTlGRmx3L0tw?=
- =?utf-8?B?d05pK096bU1mUno2a2N1alRJTGhrU0NiWFA1MXZOQXZqNWxPTTdrNHFkbzVQ?=
- =?utf-8?B?NHZrd0o5Rmg0L3d4WGhLdXdtck8xMlpUQko3YkpIZS9jcSs4VnI1a3lQN0NL?=
- =?utf-8?B?VDZDNldrTlF2bVN4dG1GY0gwV1FzK25FWEl5YVNvY25ja2QvakY2R3RqcEp4?=
- =?utf-8?B?cFBmRUNuWE9acnNzc2ZOMzgrajZRMy9IcWdvQWRGd2QyUkkvdURteVFmVmpn?=
- =?utf-8?B?SW1GSzVuTmtGQWgvS3ZVRXdQRXpRSzBMb0lkMVNKTVdBdlcyQUIySWhMVkdY?=
- =?utf-8?B?NGJTbFNzaytSOWJMVWZVczVUeGl3WmtPdmcrdDY1NWV2U0ZmZ3htcXFERUZ3?=
- =?utf-8?B?V0d0Z1BLOXkvMmY3Y2pkaFhkNWIwSzBjckQreFJFZmxFQUlONEFvWHNkSmtn?=
- =?utf-8?B?bHdmMDdwZkp1MVVyTjdydmdLOWhUYnZkWE80NFJWR1lnWWJqNE5BejRkRDRD?=
- =?utf-8?B?TGU4RXk0L0JveENCLzdtU0VtMTVNY1hHd2haTHY3ZlR5MXlnOVFXZ2hSekR5?=
- =?utf-8?B?YXZ6UmNmOUtmaHlXbC8zTFlaallCNlFtV25BZG9mSDlkamxXd0NGSjNUMXBr?=
- =?utf-8?B?emE4NUl3V1hlUFhPMzNONU03WkFaWnhBUEtpbGNuNEkxRFlFN1dsRGRiT0hW?=
- =?utf-8?B?dnJEYlBBM2F2NDkwejM2bVpZaGptNmhaUUQ3MjBjM2RrbENqRjRDZmJnNzR5?=
- =?utf-8?B?UDNpYllISHlnTFVLVWlvZHBacitZU1FpMWJYWkZ2WGdRdUw5cGFiK1pFdFQ1?=
- =?utf-8?B?RUNZTlUwY1dJWnhDMG0xaVhWVmRBR3ZyOFpTVzkxdU5Ca1F1cE1oSDJIdFBT?=
- =?utf-8?B?MW5BYnZFbGQ4WTFnVEprc3BrZVF1UTQ3RngwaWo1cU85NmxLaHBWM2t3SGZW?=
- =?utf-8?B?bjQwRnhwdFlpQUNtMTY1UzlCckVRamtEak5KYVJTZThiVDcxeXVRdDBPS2k4?=
- =?utf-8?B?cjN3cTEzcEo0VHMwS3RBUDIxQmlrWGpVZlhCQlRYNGo4RXhtSFYySXNVREo0?=
- =?utf-8?B?T3ZFcEdrM01xbUtxaUVzR2JGVDRORWIrUUJhZm4vZnZEY3JacVgyOG1nTm5r?=
- =?utf-8?B?Mm1YUTg3aC9jSDlzbHJvVVdYN1gwRGg4SzIvK3F0TllrZlpZQ1BUQzlLeDN1?=
- =?utf-8?B?dzFSTEx6NGYyeHZFWExvVFpKWTdDeTQxekUxZEJHRVBaVVZBRHdEY211aGta?=
- =?utf-8?B?QVJyL2RVajVKQTVRN2tGUW5haFJITmV3NGIrVWRMRFNibkM1ZlVHcXpNU3Rw?=
- =?utf-8?B?QnkwSnhsalFreU1nMUNLZ1NxNS9JRExENmpTcDVDMThzaUpzYS83VFQzS202?=
- =?utf-8?B?WXRDTVZaNVJxVlVxL0U0RVpIZFJUUGc0YjdLeTJBTG9jRHhJQ1ZuSm5vQU8w?=
- =?utf-8?B?SjcwRTcxbEVNTXJJRGZNc2V3dmpRYlVFdE9VMy9jcXVPSm43Q2VCUFE2NWx5?=
- =?utf-8?B?aXJXRnZ0bnhjZk9ub3gyVUFxVzNQbWxZS3d6a0h4cThPWHJrUm9BY2ZoNW9h?=
- =?utf-8?B?VW9ZODV0S2NjRkE1U1BpNXFQK3V3cE9kNVJ2ZkZQdDN2WThzRlI0WHRwN0pE?=
- =?utf-8?B?NzNZWmtLNEZ2ZXc5dTRyUllkc1lqTDY5L1NOR3NNREo2ZVoyWEltaTBQNmJw?=
- =?utf-8?B?WU9kSEgzdWhSeWFzQTdDaDU4eUtCSDVlZWV1d2pKaGlZeG1ob2ZrSk54ZGd0?=
- =?utf-8?B?d0VBaWkrOThCZ3Y3RERhNS85bE5LRDdORWpUU1RKNDhkV2t0TE9lbTVzcmY1?=
- =?utf-8?Q?P+vuvZ?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9621.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(19092799006)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|10070799003|1800799024|366016|376014|7416014|921020|13003099007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bDZjVlRrWHB6Z1p5b2ozU1REelloNlhjbnI5aXBjMWxLZGZDNjJ6R1AvUVg2?=
+ =?utf-8?B?VTRGMnhpV2JLbHdBWDNqVWtkK0c5REhqeU4rdlFKdzFzRDk0OEdIOFcweFFv?=
+ =?utf-8?B?cWlYS2lyMXdHTmd3eSt6MFV4cHJTSnh5WWEvRzZZdzd0TUVReFZWM1VDZFZX?=
+ =?utf-8?B?VDk0dVhIQVI0elFiTGk5SnZRdzlTYVp2bHlqWjUxSkdUb3lHZzRRMExkbGFD?=
+ =?utf-8?B?cmwyZ04rOUcrMjB3SWg4bGZ5WE1Td2VIUGdwMTkxNFZKUGszdHB5NmJpMHdG?=
+ =?utf-8?B?TWs4amh6YnNJUFVnRXZ3Y3F4U0dXNW9sZEFHczZNeEs4dTlwWTR1cDc2YnVV?=
+ =?utf-8?B?STBoaFJzZHdoV2t0blBrOWxrOXlCVUpaOEFOQStQTlc0Rno3UFExUjJGRFll?=
+ =?utf-8?B?UzFSWmN5SUc4SUdRWitaeUNPb0lCeHJtZFM3aUJRdFJPRVFQNjBxL3FzLzJp?=
+ =?utf-8?B?dXljK2FqdlNJcHNxL1VIR2huNGVPeGhscUhoWGR4cksxbEttbUVQTUxmbmdx?=
+ =?utf-8?B?RlZLQklvTkMzZzV6SVZBOWRZVzhxVTBXV2wrTFdhbGRNM2lLaVdUSU9ZS0Vs?=
+ =?utf-8?B?RG5aZjRFeWhMQVgrYktNV25ManlkVGVpM0MxZ21xNnN4eHl5aVl6M1lnYjBH?=
+ =?utf-8?B?QmxsTWxiTEZtT1pISjBnSEZrOUpOcjhUMHk0d2pmdzZYUFVTOXdsRHRudzdi?=
+ =?utf-8?B?Y1M0RlgwUUZNR0g2RG9YamVhQXR2eDdLczJ0VmN4dmxVRVo5eWdVRzkxL3U1?=
+ =?utf-8?B?bzdXM3dtU1V5OUU5QVRuNy8zY2J3d1pET21mQ0toVndRcFdQdkJYcFBCaHM1?=
+ =?utf-8?B?U0JyNkpsZVJJUGpqU3hQMnM1TW1DVGNBdFJmUk8zSjJoZTQ4UndMNmJhaGla?=
+ =?utf-8?B?cWxrejYzRTFDS0U4UkNDbUZFekd5bkR3TEhPNzBPeFc1eXM0MzFqV283d251?=
+ =?utf-8?B?WlFPVU9rdXJHekFVS09OZDFHdDNONXhnK0hXZk9UWU1kVHRxNy90THY2U3l0?=
+ =?utf-8?B?SUhmOUtNOWlQbkxKVVFCTkJBcTZ2S01GcG00MVl1azM4WHJEcjA1YVAvZld6?=
+ =?utf-8?B?MDB0U09KTlp6YnBqZU5YODliaFpUM0VZcjIzNU92SGJoRWtybVBnMlc1THRQ?=
+ =?utf-8?B?bWxtajNZNVZqcDVlWG1TR1pPNy9SVHN5UE41MlBXclhWSXZRbHcxWUVBK3ZM?=
+ =?utf-8?B?UDRKNng2T0ZsRVpOcHV5K3loNWgrMktVaHhGOUUwZjlYOU1tUXFmeE5nTGJK?=
+ =?utf-8?B?OG81SmloRWZiK2hiMjNxNTRwZ0JLWHovRC8rbWJzZ0xmd3VoNG9BZExUaHA3?=
+ =?utf-8?B?THdvNENtclh0UGQybWZzaDAxNjRyZVB4VlBTQzBNczA5T2dqS3F0anYxek1Q?=
+ =?utf-8?B?R1h2cS9HZGlmSE9LeWlsaHM1d3JLUlhwWkZGZkhoWHVEUytyTFFDZDhpTmdM?=
+ =?utf-8?B?eWhXYlJMR0ZiVjNTdE12bXBBWmVvWmVlcGV1WXh3OU9IUmh0NFRha3NyYVlB?=
+ =?utf-8?B?K0ZPZ0lzNGpkN2h2cVVWQTZEaHMwMjBqc0NlblVOQi85OVhHZDZsNXczY3NK?=
+ =?utf-8?B?OERCMm9kWGlUWlRheU8rV0dSYmpvMEhsMlR3YW9iM1lIRWhNV29rOG8rNnhs?=
+ =?utf-8?B?S2tqaW5qQUM4RThpZVNEeEIrQ0FVUzdUTDg4R3ZaeFdyVDhBMzBvL05WcGJv?=
+ =?utf-8?B?WWN3WDlXVTBqN1BoSWZ2YklyM2xTa1ZMSU9YbFdTNmZvenhQZlVycThiM0Jz?=
+ =?utf-8?B?NHhHZVJDOXo5RkVUTUtYc0dUOUV2NE4wdEhHeWdCZnJSOVBncFgramNtd2li?=
+ =?utf-8?B?d2x5R2pLTlFLL3VSQy83NzRxeW1SRWs2N3hGd3lkSkJPTk9DR3JFdGtGQXFw?=
+ =?utf-8?B?WXpReHhjdGk5YzFiTUZSUDZKMnBvcjZ4amRQeVYvNjA2My9wQUdhMCtKNERZ?=
+ =?utf-8?B?a2pzYUtvYXBJNlZoeGZSdlB0RkZjLy9WWHVNb2xuc3Iwc2plSi9xWklSblY5?=
+ =?utf-8?B?L25MNjNuZGhBPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR12MB5427.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(10070799003)(1800799024)(366016)(376014)(7416014)(921020)(13003099007);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RC9HU1QvaHVDc1A4emNvdWhJOTExU3g5amE5TUJ2N3ppTkYyMkhDcnYxQkQ4?=
- =?utf-8?B?SnRTYm5jNkJXbGk2d0Z1M3lHeHpYYmJJckl5ZGI5NnNIMVhpeEYwamtvZEpN?=
- =?utf-8?B?YytCU2RKb3Zyd3dFc1lKd0FVaHVuMVNUTC9EbkFZNTl6Um9BU084ejJNK3RB?=
- =?utf-8?B?cEd0ZlhmN0MwOEE4eDNaM241eHVwZ0g0SHhxaDV0dzIxNFd3RTNiQW9qUTVY?=
- =?utf-8?B?UHpYc2l6ZDZ5T2JHQ2w1cHVKWVVGQ3Q0THV5N25IbkR3RHhZVDhkWVJ4Umti?=
- =?utf-8?B?ODM3eFZoMlJESElRRmkxSGw1VytIL0YvVVpsdVUwVkl3RjducGQ4M3E4blRZ?=
- =?utf-8?B?NUhUTkl3eDFnNXIwaTRtYlVhbi9vempvZ0o1S1NsZHhabWFmRmN3QS95ZWtH?=
- =?utf-8?B?c2MrZGlBWnJtOTQ5U0JIazJjNWg4WmJyaGY4WmNQWUdBWWtpVU15S2lZRG0w?=
- =?utf-8?B?QTZEeXA5di9IM3dmRVVwc0J1TXpPZFYrNFI5MGowRXVUVTJPdys2N2JJNnJs?=
- =?utf-8?B?WGU3d0V6ZDZhNm4rU0NKRDJJT1Y4MGpQWVllczQ5cldsbFB1dUtHVVhJY1lu?=
- =?utf-8?B?Z1JQNDdMUmRVOGNMRkFqUUFuai9TMnFUZ3lkR1JzTC96eGt6NTBNRmRMMjZu?=
- =?utf-8?B?Qi9PQWJBdW1SYWxsNWh0SStSSDhjY3U4eU1iN0Z5d0tOeVpId1Z3VGQrdytj?=
- =?utf-8?B?RmxZWHBvMmMyeGVWbTU3N3pxUVNuTEVhQXlvRkVOQk1UY1JZb1Z6R0d5MzZD?=
- =?utf-8?B?WWM4T3BYOUIveGtEd1pPS21NRGNyM3podTNmUGFlYVN4VW03VWlycUpSWXh3?=
- =?utf-8?B?RjNsZXg3Tzh2eTdkbVdsR2Y3N3l3bEtubWNNY016NXc3dHNHbnU4NTNZQWdY?=
- =?utf-8?B?YmNuUFNva2FWeUtVQit0UnpXMjh1anYwN3pNUEhKWEVTQ1o4WmRYZGdkRFND?=
- =?utf-8?B?OEVQdE00NWYyamFYWTNaZGxJckdiZjFHMGVRZlUyMERTTjBrRHBGODhSY2g2?=
- =?utf-8?B?UTcvNk9GVjlpeVZlSzIzTjV6dzYxT3g1K1d3UUhKSkd1RHU3ZWJ1QnF3T0V1?=
- =?utf-8?B?bFRTb3ZQWWtyQXh4LzhMajR2RWhwTFBsdTVSbTNZcVlVQjdtYVhscmM0QXZP?=
- =?utf-8?B?dDdzNEFrTUxTZHNzc3oxenZaMGROaVRxcHcxVkZVNjNRNE5sL3R2eWpFbHM1?=
- =?utf-8?B?U0dqQ1VYMzVGRnJSVG5lam5uSk1Pd3V3QUV1MUNWKzA4V0d4czVlNERtQkpM?=
- =?utf-8?B?RkQxQ3Z6akdBR3JtbWQ1RGdXQXdIaExNQVhscCt1UmFmanA3UFJxMklwemk2?=
- =?utf-8?B?bmdyYSt1Z3JrRG5HWSthTzJKVFBGamZ5eGNTVXA0RnJ2cjhkdTZ3Y1JhUWlS?=
- =?utf-8?B?RUFTeWFrNEdXVkJjc2I3Wkk2NU5zYnZtT0h6WGtTajNFQVZ4Rkd1OFloYlZy?=
- =?utf-8?B?WWNIN1pPdEpDRExJT1lWdUFsMWtrR1lYYlNWbXFGcXNRTDQraFNkOWJ4RVlG?=
- =?utf-8?B?NU8zb0hzeUpMbGxBREJjdGFPZ3B0L2phTm5Qa093MUZGbElzanFQRjc3Zkp1?=
- =?utf-8?B?TGYxWUNTS052Tm16b0lCT2x5WU40YlMweWZBcXF2dHhLL2s5UDZvWWVGQ2k4?=
- =?utf-8?B?Nk5DS29KRGFiUWVIUndJekduTHpDQ1FjMXQ0YUZDQ05VN3ZCeGpMRUZNbFRp?=
- =?utf-8?B?QUxjZnNXTE1QRlpaNlBkQWtXMngvWlZ6ZXl0WDQvVFgxak1SeHQrYklJNzZQ?=
- =?utf-8?B?dmNKcVNzS3VqY0x5TG5ZRW0vSkhpVE03VE1JSFU1bjk0bTVXZWt6cmZ4Umd5?=
- =?utf-8?B?Ymd0UjJlTm5Gd1VaYXBjMXJNSkxHckowa0MvV01uMUh6S3JMZmdkWGlKbHFR?=
- =?utf-8?B?alY2U3REaHZONnF2TGlsR3hETVUxRDRiV0h2N2pycXR3aUNuYUVjMWdLUnhN?=
- =?utf-8?B?Y0xLY1ZlTXVmYllISUtuWExJTDd5Z1RDN0l4WDY5QmJNVzd4UzM4blI3UVNX?=
- =?utf-8?B?UzNLOHJBcXMxKzlZSjFRT1JWeFhvTVpoR3NJSWRaUHp4aUN3ZnRsckh6R3h5?=
- =?utf-8?B?SDB3T3NwdUxUb1Z3cFZCQTlyRXcwdkZhSmNVMzcyL1Yxd3VJZUNSNHh3ZHVw?=
- =?utf-8?Q?9gR0=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: fcd41e99-3cdb-42e8-ff11-08ddff63ef98
-X-MS-Exchange-CrossTenant-AuthSource: DB9PR04MB9626.eurprd04.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UXdKUGRCbG9tclRQcXlmOHpENFRLelBDanRJZlFZTFVIMG9CQnEzRXE5M0pK?=
+ =?utf-8?B?ejI0MHZKZGpLa2o3OFVXa0dqalFlbU1tSjYwcnN0dE05TCtWQnRYbEcwNmhk?=
+ =?utf-8?B?NFFFeGhabVhRZmROZzFVMnQzUkZqRGFlK0YzeEU5b2EybE5aM1RVb1N0Mms5?=
+ =?utf-8?B?UmpWTzhVajVQQ0tkRjh4RVJpcTBiYTJob2Jrc2RFZTdpV3dUcXU3czJVYlMw?=
+ =?utf-8?B?SHpvRVBzL3BCaEpad1dQLytEVWZZYXFTVHdxWTBJTXFmR3RHdmtsc0txWDhm?=
+ =?utf-8?B?NUp2Ym03VzhMa2ZYSGp6RDJSWTA1cE1zUSs0UlhpZlFGWlZlYjQySnlKZDlV?=
+ =?utf-8?B?bHA3aWs1V05Xd1N3cDJuNmpuY3NQa0NFTVJrMHdLWVNEcndPZ0Q4MG4rSUdo?=
+ =?utf-8?B?Wk9UWnRkWEJnekZJenZNWXMvSGlITVVZYWNBSVBkTndBdEVlcG5QTGhBTk12?=
+ =?utf-8?B?QWdCb3pFZVMzclhWeS9rSHBXaitNeHE0N2hSWlZoRDZYSlFSSXRXbmxMRzlr?=
+ =?utf-8?B?aFVQZkcvRklSY3hVRHZ4OHN1Tnd6OFNhQUVDaWVHVGtkNHdQQmMxSlAzQlpy?=
+ =?utf-8?B?RXNrUmRsbExpbTZuZlE3QWlQZm1Oa29QcTdnQWVyeVRpRERFUXAwd3N5OXJa?=
+ =?utf-8?B?akE3VnNJeWNDNTk0VVZtWmY0UlJjTlpsRjNNMjA4ak52VC9lZ3c3R1VXRUU0?=
+ =?utf-8?B?UUFERGFlK3VXQnpTVEhEUkdhMWEzNitGSVNaVTRjN2g5N0JMMEgvdVhpelRL?=
+ =?utf-8?B?RW44YmMxMVFiVDFDbHU5TzJDbzVUdmFJaUIvNVYrZ3c4VFRMZVBOUGMrbEFJ?=
+ =?utf-8?B?TzhmOEIwejFsVGpUakdjWlZSRU5GRWt4UlBYQU5sYXR1bWJjeW5URjhTNU1I?=
+ =?utf-8?B?bENQVlAyOUNZTC8rRFZIMWRVdnRBUVNsc2huVklRY3l1V2N1VTZRNVRqZks1?=
+ =?utf-8?B?S1lKNW54SEYyTksrS1cydFlqWW5tS3VHdHcxaW9IbGVoazF6RmJpVGg0OXF0?=
+ =?utf-8?B?K2ovVjN0Y3F5RVovemFUT1o3S2FnV2VDaFVqQ3p5YTRLSDl4V0huQkJUWWZO?=
+ =?utf-8?B?WkRscEtKdXRDYmlRcXc1OC9xaWswOC9VODhxd0J5U3lubk5EVVZua2oxQjRn?=
+ =?utf-8?B?Z0xMTjlnUXhKbEFEMVdMMjJlTGdhb2U0L2VEN2p4T3BlajdKbWRoUWJXZkNY?=
+ =?utf-8?B?bnBFN2hldWxjL2ZtT2xuQWV2N3ZaNnl0bkZjVFc4STloVFh0cXlOay80Q2dz?=
+ =?utf-8?B?SGE4TE1CTTAxWHk5NE1DL0dMSEJJUEdrbHVvWldoWmpkSEdHMVRoVTR6OXZi?=
+ =?utf-8?B?NjRROVFKNVdranpnc1NYQkJmVS9BaUZkS1JyU200ckxsWEJRSmh6ekJQNDg4?=
+ =?utf-8?B?TUlTK01KanZxdW5NaUpBazBPTHRtOEJDdFhYSXdWaGl5UXgyaHoveVpWZ3E3?=
+ =?utf-8?B?enJWd3dOMlF3aHlzeGNXeHoxcThHY0U1UWdXL1NUMnZ6a3F5d3p6NzVmL0w4?=
+ =?utf-8?B?Mk1BeFlFY1FmZ1lqZWJYUDdOK2R6MWRVQyszd3dWR1MzbCtIZndEYjJPOFpa?=
+ =?utf-8?B?R2NReExKcDJ5SGIvN1Mvc1ZMTlk4QmMyQnBBd0ptVnNkaHIyb3Q4NjVOVEg0?=
+ =?utf-8?B?aXRXVzg2Y2RETWdDU3pENVJzUkhwc0NKUVFJM09HRFk5cWNaVUZjMHJ3M0tT?=
+ =?utf-8?B?akhjcU5iMTE0WGttUnpxcUJLSHNkdnh0SmhLd2tMUHlKZEM1QVk5RTZWVkpa?=
+ =?utf-8?B?UmFnNm9sRzVyajdQd2hzMU9Oc3Fuay9jcm9UVFBLaksxc1FEdXRUNG9DRVVt?=
+ =?utf-8?B?MnczVFJ5aTcwWGRuSjBNOEJhUEFkWGVrUHZRK25xNkhHaEQ2cGJBSEVhNEJz?=
+ =?utf-8?B?eklSZFI1eUZ6bG91ODQ0V2M4U2J5b2hmc3dBR1I5OGc1bGpoWlVsKzdPSm1D?=
+ =?utf-8?B?d3B5UndSYkJ6Z0RBNHJnaEhIaGh1TlkrN2prOHU5YmU2TlYxWUc1NFF3aWMv?=
+ =?utf-8?B?QVBGYlB3RGFGSWFsdkJpMldnVUc2T2d2QTdwbUhrWUdFK3VUbjU2SUFSMVRj?=
+ =?utf-8?B?QmFEWG1PZi9wR3A2V05XTkdON3NBa3B1WnBhY3h0TzBxaUVkcGZIT1VQYnRE?=
+ =?utf-8?B?RWN5cnFpL0EzZU5odXVON2FSZ0ZJQ2o3WVFZNWYwWVhmaWJlcHRrbnJGTndW?=
+ =?utf-8?Q?18kHHzcdqgV5BS4kAFmh38SBg8Q2MXI1+K8lp/daY0Jp?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: d1894f00-a49a-47fc-4fd2-08ddff64185c
+X-MS-Exchange-CrossTenant-AuthSource: CO6PR12MB5427.namprd12.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2025 14:24:44.7989
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 29 Sep 2025 14:25:53.3658
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: oDPUEkXJ47jsTd7MPS/hDg6O/MYP3WqK0fS7dPceFfSH2OSElo6RsfwekAfz76YKQaBkjkIkaBrPv7UYWdxN8A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB8607
+X-MS-Exchange-CrossTenant-UserPrincipalName: q8bZ6ZOF9S3nlBI6eNZwCWlfjG1RC/7mnv5QwtHUn9WUYKbHEH/SYG0xoeB4FYyhH7f9202OIDr0ph3yMnX2sQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6113
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_072453_565989_D2ACBA30 
-X-CRM114-Status: GOOD (  11.77  )
+X-CRM114-CacheID: sfid-20250929_072605_169335_93B42C27 
+X-CRM114-Status: GOOD (  27.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,229 +198,159 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add SOC special compatible string, remove fallback snps,dwc3 to let flatten
-dwc3-layerscape driver to be probed and enable dma-coherence for usb node
-since commit add layerscape dwc3 support, which set correct gsbustcfg0
-value.
 
-Add iommus property to run at old uboot, which use fixup add iommus by
-check compatible string snsp,dwc3 compatible string.
 
-Signed-off-by: Frank Li <Frank.Li@nxp.com>
----
-change in v3 - v4
-- none
----
- arch/arm64/boot/dts/freescale/fsl-ls1012a.dtsi | 3 ++-
- arch/arm64/boot/dts/freescale/fsl-ls1028a.dtsi | 8 ++++++--
- arch/arm64/boot/dts/freescale/fsl-ls1043a.dtsi | 9 ++++++---
- arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi | 9 ++++++---
- arch/arm64/boot/dts/freescale/fsl-ls1088a.dtsi | 8 ++++++--
- arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi | 8 ++++++--
- 6 files changed, 32 insertions(+), 13 deletions(-)
+On 2025-09-29 08:05, Melissa Wen wrote:
+> 
+> 
+> On 17/09/2025 21:43, Nícolas F. R. A. Prado wrote:
+>> This series is based on "Color Pipeline API w/ VKMS" [1]. It reuses the
+>> same concept of a color pipeline API but for the post-blend stage
+>> instead of pre-blend, by attaching the COLOR_PIPELINE property to the
+>> CRTC rather than a plane.
+> 
+> Hi all,
+> 
+> I'm confused about the timing of this series being reviewed.
+> Hadn't we agreed in past hackfest on discussing post-blending color API 
+> only after we have sorted out pre-blending color properties?
 
-diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1012a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1012a.dtsi
-index fc3e138077b86cd5e3cf95c3d336cb3c6e1c45ef..ef80bf6a604f475c670e2d626a727e94fcb2a17a 100644
---- a/arch/arm64/boot/dts/freescale/fsl-ls1012a.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-ls1012a.dtsi
-@@ -493,10 +493,11 @@ QORIQ_CLK_PLL_DIV(4)>,
- 		};
- 
- 		usb0: usb@2f00000 {
--			compatible = "snps,dwc3";
-+			compatible = "fsl,ls1012a-dwc3", "fsl,ls1028a-dwc3";
- 			reg = <0x0 0x2f00000 0x0 0x10000>;
- 			interrupts = <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>;
- 			dr_mode = "host";
-+			dma-coherent;
- 			snps,quirk-frame-length-adjustment = <0x20>;
- 			snps,dis_rxdet_inp3_quirk;
- 			snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
-diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1028a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1028a.dtsi
-index 7d172d7e5737c4b6e42ee88676c5763fa7415260..e7f9c9319319a69d8c70d1e26446b899c3599f95 100644
---- a/arch/arm64/boot/dts/freescale/fsl-ls1028a.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-ls1028a.dtsi
-@@ -613,9 +613,11 @@ gpio3: gpio@2320000 {
- 		};
- 
- 		usb0: usb@3100000 {
--			compatible = "fsl,ls1028a-dwc3", "snps,dwc3";
-+			compatible = "fsl,ls1028a-dwc3";
- 			reg = <0x0 0x3100000 0x0 0x10000>;
- 			interrupts = <GIC_SPI 80 IRQ_TYPE_LEVEL_HIGH>;
-+			iommus = <&smmu 1>;
-+			dma-coherent;
- 			snps,dis_rxdet_inp3_quirk;
- 			snps,quirk-frame-length-adjustment = <0x20>;
- 			snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
-@@ -623,9 +625,11 @@ usb0: usb@3100000 {
- 		};
- 
- 		usb1: usb@3110000 {
--			compatible = "fsl,ls1028a-dwc3", "snps,dwc3";
-+			compatible = "fsl,ls1028a-dwc3";
- 			reg = <0x0 0x3110000 0x0 0x10000>;
- 			interrupts = <GIC_SPI 81 IRQ_TYPE_LEVEL_HIGH>;
-+			iommus = <&smmu 2>;
-+			dma-coherent;
- 			snps,dis_rxdet_inp3_quirk;
- 			snps,quirk-frame-length-adjustment = <0x20>;
- 			snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
-diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1043a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1043a.dtsi
-index 73315c51703943d9ee5e1aa300c388ff6482423f..50d9b03a284a2aa4e13aa3323c25bbc5fe08f3d0 100644
---- a/arch/arm64/boot/dts/freescale/fsl-ls1043a.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-ls1043a.dtsi
-@@ -833,10 +833,11 @@ aux_bus: bus {
- 			dma-ranges = <0x0 0x0 0x0 0x0 0x100 0x00000000>;
- 
- 			usb0: usb@2f00000 {
--				compatible = "snps,dwc3";
-+				compatible = "fsl,ls1043a-dwc3", "fsl,ls1028a-dwc3";
- 				reg = <0x0 0x2f00000 0x0 0x10000>;
- 				interrupts = <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>;
- 				dr_mode = "host";
-+				dma-coherent;
- 				snps,quirk-frame-length-adjustment = <0x20>;
- 				snps,dis_rxdet_inp3_quirk;
- 				usb3-lpm-capable;
-@@ -845,10 +846,11 @@ usb0: usb@2f00000 {
- 			};
- 
- 			usb1: usb@3000000 {
--				compatible = "snps,dwc3";
-+				compatible = "fsl,ls1043a-dwc3", "fsl,ls1028a-dwc3";
- 				reg = <0x0 0x3000000 0x0 0x10000>;
- 				interrupts = <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>;
- 				dr_mode = "host";
-+				dma-coherent;
- 				snps,quirk-frame-length-adjustment = <0x20>;
- 				snps,dis_rxdet_inp3_quirk;
- 				usb3-lpm-capable;
-@@ -857,10 +859,11 @@ usb1: usb@3000000 {
- 			};
- 
- 			usb2: usb@3100000 {
--				compatible = "snps,dwc3";
-+				compatible = "fsl,ls1043a-dwc3", "fsl,ls1028a-dwc3";
- 				reg = <0x0 0x3100000 0x0 0x10000>;
- 				interrupts = <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>;
- 				dr_mode = "host";
-+				dma-coherent;
- 				snps,quirk-frame-length-adjustment = <0x20>;
- 				snps,dis_rxdet_inp3_quirk;
- 				usb3-lpm-capable;
-diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi
-index 770d91ef0310d971d044a1f55cc5e2cb738acc47..22173d69713d1bd2abca986e76668ad437dd34e4 100644
---- a/arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-ls1046a.dtsi
-@@ -749,10 +749,11 @@ aux_bus: bus {
- 			dma-ranges = <0x0 0x0 0x0 0x0 0x100 0x00000000>;
- 
- 			usb0: usb@2f00000 {
--				compatible = "snps,dwc3";
-+				compatible = "fsl,ls1046a-dwc3", "fsl,ls1028a-dwc3";
- 				reg = <0x0 0x2f00000 0x0 0x10000>;
- 				interrupts = <GIC_SPI 60 IRQ_TYPE_LEVEL_HIGH>;
- 				dr_mode = "host";
-+				dma-coherent;
- 				snps,quirk-frame-length-adjustment = <0x20>;
- 				snps,dis_rxdet_inp3_quirk;
- 				snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
-@@ -760,10 +761,11 @@ usb0: usb@2f00000 {
- 			};
- 
- 			usb1: usb@3000000 {
--				compatible = "snps,dwc3";
-+				compatible = "fsl,ls1046a-dwc3", "fsl,ls1028a-dwc3";
- 				reg = <0x0 0x3000000 0x0 0x10000>;
- 				interrupts = <GIC_SPI 61 IRQ_TYPE_LEVEL_HIGH>;
- 				dr_mode = "host";
-+				dma-coherent;
- 				snps,quirk-frame-length-adjustment = <0x20>;
- 				snps,dis_rxdet_inp3_quirk;
- 				snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
-@@ -771,10 +773,11 @@ usb1: usb@3000000 {
- 			};
- 
- 			usb2: usb@3100000 {
--				compatible = "snps,dwc3";
-+				compatible = "fsl,ls1046a-dwc3", "fsl,ls1028a-dwc3";
- 				reg = <0x0 0x3100000 0x0 0x10000>;
- 				interrupts = <GIC_SPI 63 IRQ_TYPE_LEVEL_HIGH>;
- 				dr_mode = "host";
-+				dma-coherent;
- 				snps,quirk-frame-length-adjustment = <0x20>;
- 				snps,dis_rxdet_inp3_quirk;
- 				snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
-diff --git a/arch/arm64/boot/dts/freescale/fsl-ls1088a.dtsi b/arch/arm64/boot/dts/freescale/fsl-ls1088a.dtsi
-index 9d5726378aa015eff10578bf095908a58b9d9eee..b2f6cd237be046123de9342e2167aa32248a8a16 100644
---- a/arch/arm64/boot/dts/freescale/fsl-ls1088a.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-ls1088a.dtsi
-@@ -489,10 +489,12 @@ esdhc: mmc@2140000 {
- 		};
- 
- 		usb0: usb@3100000 {
--			compatible = "snps,dwc3";
-+			compatible = "fsl,ls1088a-dwc3", "fsl,ls1028a-dwc3";
- 			reg = <0x0 0x3100000 0x0 0x10000>;
- 			interrupts = <GIC_SPI 80 IRQ_TYPE_LEVEL_HIGH>;
- 			dr_mode = "host";
-+			iommus = <&smmu 1>;
-+			dma-coherent;
- 			snps,quirk-frame-length-adjustment = <0x20>;
- 			snps,dis_rxdet_inp3_quirk;
- 			snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
-@@ -500,10 +502,12 @@ usb0: usb@3100000 {
- 		};
- 
- 		usb1: usb@3110000 {
--			compatible = "snps,dwc3";
-+			compatible = "fsl,ls1088a-dwc3", "fsl,ls1028a-dwc3";
- 			reg = <0x0 0x3110000 0x0 0x10000>;
- 			interrupts = <GIC_SPI 81 IRQ_TYPE_LEVEL_HIGH>;
- 			dr_mode = "host";
-+			iommus = <&smmu 2>;
-+			dma-coherent;
- 			snps,quirk-frame-length-adjustment = <0x20>;
- 			snps,dis_rxdet_inp3_quirk;
- 			snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
-diff --git a/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi b/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
-index c9541403bcd8239a48d4ef79c7c4f9e3b607b556..d899c0355e51dd457a4e7259709cea98a488f557 100644
---- a/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
-+++ b/arch/arm64/boot/dts/freescale/fsl-lx2160a.dtsi
-@@ -1094,24 +1094,28 @@ ftm_alarm0: rtc@2800000 {
- 		};
- 
- 		usb0: usb@3100000 {
--			compatible = "snps,dwc3";
-+			compatible = "fsl,lx2160a-dwc3", "fsl,ls1028a-dwc3";
- 			reg = <0x0 0x3100000 0x0 0x10000>;
- 			interrupts = <GIC_SPI 80 IRQ_TYPE_LEVEL_HIGH>;
- 			dr_mode = "host";
- 			snps,quirk-frame-length-adjustment = <0x20>;
- 			usb3-lpm-capable;
-+			iommus = <&smmu 1>;
-+			dma-coherent;
- 			snps,dis_rxdet_inp3_quirk;
- 			snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
- 			status = "disabled";
- 		};
- 
- 		usb1: usb@3110000 {
--			compatible = "snps,dwc3";
-+			compatible = "fsl,lx2160a-dwc3", "fsl,ls1028a-dwc3";
- 			reg = <0x0 0x3110000 0x0 0x10000>;
- 			interrupts = <GIC_SPI 81 IRQ_TYPE_LEVEL_HIGH>;
- 			dr_mode = "host";
- 			snps,quirk-frame-length-adjustment = <0x20>;
- 			usb3-lpm-capable;
-+			iommus = <&smmu 2>;
-+			dma-coherent;
- 			snps,dis_rxdet_inp3_quirk;
- 			snps,incr-burst-type-adjustment = <1>, <4>, <8>, <16>;
- 			status = "disabled";
+I don't think it's a problem to have people with bandwidth looking
+at the post-blending portion, especially if they weren't involved
+in the pre-blending patchset.
 
--- 
-2.34.1
+I find it helpful to look at this and it proofs (to me) that the
+direction of the pre-blending design is correct. I don't (necessarily) 
+like how it re-opens questions that we discussed previously, such
+as hiding legacy properties, and would be hesitant to change this
+on the pre-blending patches and therefore delay the merge even
+further.
+
+> There are still open questions around color_encoding and color_range, 
+> for example...
+
+I apologize if I missed key bits that might require attention. Could
+you elaborate on the open questions?
+
+> How assertive can we be evaluating the post-blending API now?
+
+As people wait on the pre-blending pipeline to merged it makes sense
+to start looking at the next steps.
+
+I would like the IGT patches to be reviewed before we merge the pre-
+blending pipeline. Otherwise I think it's ready.
+
+Harry
+
+> 
+> Best Regards,
+> 
+> Melissa
+> 
+>>
+>> The patches in the series first implement the necessary changes in the
+>> DRM core to allow for post-blend color pipelines and expose it through
+>> the uAPI, and then implement support in both the MediaTek KMS driver and
+>> in VKMS.
+>>
+>> This series has been tested with IGT, with the "Support post-blend color
+>> pipeline API" series [2] applied, on top of VKMS, as well as with
+>> Weston, with a WIP branch [3], on a MT8195-Tomato Chromebook, where both
+>> gamma LUT and CTM color transformations have been simultaneously
+>> configured in hardware through the API and validated (test commits for
+>> weston at [4] and for kernel at [5]).
+>>
+>> [1] https://lore.kernel.org/all/20250815035047.3319284-1- 
+>> alex.hung@amd.com/
+>> [2] https://lore.kernel.org/igt-dev/20250912-post-blend-colorops- 
+>> v1-0-83fc62420cba@collabora.com/T/#t
+>> [3] https://gitlab.collabora.com/nfraprado/weston/-/tree/post-blend- 
+>> colorops?ref_type=heads
+>> [4] https://gitlab.collabora.com/nfraprado/weston/-/tree/post-blend- 
+>> color-pipeline-lut-ctm-test?ref_type=tags
+>> [5] https://gitlab.collabora.com/nfraprado/linux/-/tree/debug-ctm-lut- 
+>> data-post-blend-colorop?ref_type=tags
+>>
+>> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+>> ---
+>> Changes in v2:
+>> - Split core DRM changes for post-blend color pipelines from single
+>>    commit into smaller changes
+>> - Added post-blend color pipeline support in VKMS
+>> - Introduced driver cap, and made client cap depend on it (daniels)
+>> - Made deprecated color props (GAMMA_LUT, DEGAMMA_LUT, CTM) available as
+>>    read-only when post-blend color pipelines are enabled (daniels)
+>> - Created colorop_modeset_lock/unlock to commonize locking pattern for
+>>    colorops (louis.chauvet)
+>> - Added helper for post-blend 1D curve colorop creation
+>> - Link to v1: https://lore.kernel.org/r/20250822-mtk-post-blend-color- 
+>> pipeline-v1-0-a9446d4aca82@collabora.com
+>>
+>> ---
+>> Nícolas F. R. A. Prado (20):
+>>        drm/crtc: Add color pipeline to CRTC state
+>>        drm/colorop: Allow parenting colorop to CRTC
+>>        drm: Factor out common color_pipeline property initialization code
+>>        drm/crtc: Add COLOR_PIPELINE property
+>>        drm: Introduce DRM_CAP_POST_BLEND_COLOR_PIPELINE
+>>        drm: Introduce DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE
+>>        drm/atomic: Pass post_blend_color_pipeline client cap to atomic 
+>> check
+>>        drm/atomic: Print the color pipeline as part of the CRTC state 
+>> print
+>>        drm/colorop: Factor out common paths from colorops helpers
+>>        drm/colorop: Introduce colorop helpers for crtc
+>>        drm/colorop: Export drm_colorop_cleanup() so drivers can extend it
+>>        drm/crtc: Track post-blend color pipeline client cap in 
+>> drm_crtc_state
+>>        drm/mediatek: Support post-blend colorops for gamma and ctm
+>>        drm/mediatek: ccorr: Support post-blend color pipeline API
+>>        drm/mediatek: gamma: Support post-blend color pipeline API
+>>        drm/mediatek: Set post-blend color pipeline driver cap
+>>        drm/vkms: Rename existing color pipeline helpers to contain 
+>> "pre_blend"
+>>        drm/vkms: Prepare pre_blend_color_transform() for post-blend 
+>> pipelines
+>>        drm/vkms: Introduce support for post-blend color pipeline
+>>        drm/vkms: Set post-blend color pipeline driver cap
+>>
+>>   drivers/gpu/drm/drm_atomic.c              |   9 +-
+>>   drivers/gpu/drm/drm_atomic_uapi.c         |  65 +++++++-
+>>   drivers/gpu/drm/drm_colorop.c             | 245 ++++++++++++++++++++ 
+>> ++++------
+>>   drivers/gpu/drm/drm_connector.c           |   1 +
+>>   drivers/gpu/drm/drm_crtc.c                |  77 ++++++++++
+>>   drivers/gpu/drm/drm_crtc_internal.h       |   6 +
+>>   drivers/gpu/drm/drm_ioctl.c               |  12 ++
+>>   drivers/gpu/drm/drm_mode_object.c         |   9 ++
+>>   drivers/gpu/drm/drm_plane.c               |  36 +----
+>>   drivers/gpu/drm/mediatek/mtk_crtc.c       | 208 ++++++++++++++++++++ 
+>> ++++-
+>>   drivers/gpu/drm/mediatek/mtk_ddp_comp.c   |   6 +-
+>>   drivers/gpu/drm/mediatek/mtk_ddp_comp.h   |   2 +
+>>   drivers/gpu/drm/mediatek/mtk_disp_ccorr.c | 100 ++++++++++--
+>>   drivers/gpu/drm/mediatek/mtk_disp_drv.h   |   6 +-
+>>   drivers/gpu/drm/mediatek/mtk_disp_gamma.c | 107 ++++++++++---
+>>   drivers/gpu/drm/mediatek/mtk_drm_drv.c    |   3 +-
+>>   drivers/gpu/drm/vkms/vkms_colorop.c       | 106 ++++++++++++-
+>>   drivers/gpu/drm/vkms/vkms_composer.c      |  13 +-
+>>   drivers/gpu/drm/vkms/vkms_crtc.c          |   1 +
+>>   drivers/gpu/drm/vkms/vkms_drv.c           |   3 +-
+>>   drivers/gpu/drm/vkms/vkms_drv.h           |   3 +-
+>>   drivers/gpu/drm/vkms/vkms_plane.c         |   2 +-
+>>   include/drm/drm_atomic.h                  |  20 +++
+>>   include/drm/drm_atomic_uapi.h             |   2 +
+>>   include/drm/drm_colorop.h                 |  22 ++-
+>>   include/drm/drm_crtc.h                    |  27 ++++
+>>   include/drm/drm_drv.h                     |   6 +
+>>   include/drm/drm_file.h                    |   7 +
+>>   include/uapi/drm/drm.h                    |  25 +++
+>>   29 files changed, 994 insertions(+), 135 deletions(-)
+>> ---
+>> base-commit: 342e5ee08797cde0e8af30e6110a5dc1cba61e9c
+>> change-id: 20250730-mtk-post-blend-color-pipeline-498e1a9cc53e
+>>
+>> Best regards,
+> 
 
 
