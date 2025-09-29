@@ -4,91 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52B31CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 18:21:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B51D9CAC5B9
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 18:38:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YtEAn6CmDr27aj5SF5YUmQQCee6wbRGfkRsR46WrjSo=; b=GAKO0AcG/Fp4caD5qMKHYud07c
-	1ZAQhXFvPaeSGRbA+aPTM7s/aUJIS8QHEYqoTPNmp9nOjegmk0bAA1q/XrQ3KicnSBQIZBrP/b24Z
-	d9UVT84IKNflWpIwrymP4NGMEef5EpMM37hnlZfzEz/n303785yR2rCrAV6oiVqAwyPmo44Yn/2O+
-	OB/8ePp9DE/odS07gxSXq6qDLJDXmRldlGW5LjWC0aH5YH1BcdHpjP5Jyaq5pkSBg+IhjjHRdQnvW
-	d1d26CmCI2EnsIPlQ43+Q+ndRKxFP69B9nT29ufJo011H6nzHV8utPyQXDlIRJC/1tMkRQdH7cR2m
-	DGZ/MkWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iJLpaj/c6dWR6gSCWApgd6FdexxQb0VtbiytQ5OXSGA=; b=oJlAehsM2EoZRrJmOIZJTkj/Ex
+	wu/VktPO3Vlah3GU6YadxC/W65NbXpAvCU8Jiyyc4X9M/ceD4W5DMvhbVndapWsFVF7SMUoXvKI+p
+	Oz7IOVQ1ee+nVHzb8ao02bzdeVcxPH0JhAxDvxJe/MsOn5D9Asji4YMgpgDHCBA7U2JbZENsEM64n
+	EdoCk43gFVv9WO55Rn77GNO8c4+8tR8efEPivCW+myTvGQOxqMj+QrIWLYcVTnihFIrcytxdF+uF3
+	2IIVi7HMrtpICjOhzFwhE9toxTLkxEDGV3iRNy84dJu1b/c6XMjEjfGTh0Y0LGaVqFWhNQEkHAWvE
+	tkp1VfoA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3IUr-00000003EMk-26jX;
-	Mon, 29 Sep 2025 18:21:13 +0000
-Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
+	id 1v3Il1-00000003GcB-0sUp;
+	Mon, 29 Sep 2025 18:37:55 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3IUp-00000003EMA-0tTl
+	id 1v3Iky-00000003Gbl-49Ci
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 18:21:12 +0000
-Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-4db0b56f6e7so43101541cf.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 11:21:10 -0700 (PDT)
+	Mon, 29 Sep 2025 18:37:54 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-78100be28easo3671381b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 11:37:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1759170070; x=1759774870; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YtEAn6CmDr27aj5SF5YUmQQCee6wbRGfkRsR46WrjSo=;
-        b=jwtoynMueB+K4lOyQ8g8mL2D1Q9F09+DoLGBwNcim5wqVwqPOCO9XKCLR+htu1+qwX
-         YRnNi7Z+25nS8dzhVUdPnv993EaCdfXHZomalR79neUoQvdMcaeJFdQKRMarfdj11y3U
-         zkgFRKv1MwpC3TJHvDiwQPrqKjhBGYOIixJac8JINqZVBzq1s50N3zIzU5fcuIne0gTt
-         8OP/3m7CrYTDhj7L5XBP8vFwfk3yZG1ErH1/WV4v9zWM6oTgJf4PbOCHs6K+YgzcXGBH
-         AmVVWVRNM4lBaNevrNCnAecrf3cHp+syFCUXFRE7yqo5+tr6hNaxrrFMj67xFeJEu2Lu
-         RZmA==
+        d=rivosinc.com; s=google; t=1759171072; x=1759775872; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=iJLpaj/c6dWR6gSCWApgd6FdexxQb0VtbiytQ5OXSGA=;
+        b=WymJDuJd0OQo4sWoSgZW6y8j5pkH7OCVDKmVSkiNKH37pywsAqFnXrTvIYic6PmeOL
+         EreEgeIauDTWl59O78dVaWhDoeuYWjQHUWxpVuhTY6gBtJJK++PBPpB9odxkIMjye+g1
+         8m1r9ZSKgRF3ZhZXJWIhtVJcnAcYzhC5odiL+N9xPvRyzVVEaPi+YtsxVdLDhcI1ElHF
+         cX8RCj/QfJKXDx2oVdiehyuC+BE3OTHnDd4EiR+eIz9ibl4AacAHtsNyN8/bzP8UrwYh
+         iPyPDyKgV1Hb/KNhj/K1XgCovBieMQyrtiUIdAFV2tXbNU0MTyh4ZuHz3sJOs1zl4DC7
+         JYAg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759170070; x=1759774870;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=YtEAn6CmDr27aj5SF5YUmQQCee6wbRGfkRsR46WrjSo=;
-        b=FhflMU5vfDxae2q4R0zpPsJpXeY/ZvYa/oD6+fk/YbKHO95FmHNDk+gDD/NwQbI2c3
-         3vlL76bepp8q2o5yE+qzrMwjSDOsWziZif5Bd2K5oBsROtTY53ubH7HKsILKbP+1YXEo
-         COF+t19TIFsw1La0GO2q+6i5L2tGsL5KEraeAHJjcOmc+WuGGQoO5pliLssr01b/ImDI
-         CNLvNH5PskhYVtnXalLgEkD7ditWzxh9mT0IfzNTLUqaUuKJKjerePZgSksaesXovp3w
-         g3QENecas0Q+qV6gVggqMzI8W6LBVuhVM53g3XNsJn3nfOL0psZq07xgGfzYUwR29OM8
-         AqAg==
-X-Forwarded-Encrypted: i=1; AJvYcCVlM/RlPAr4Dpkz9ijo9R9ANppXnrViPaU0s8Ga939WmUv7NW5mrEeUpile2Jcw47NDGXDLZ3AebZwD8hkP5VCS@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyd7pfcvoBYlIf4f1CVlcHHTSlYrEI/a3Lt6arSvHTaY6S9pGRN
-	/3twivjR8xYvrEjrxrrThAT+jToXqBI1sUJSXnFELzCjmx0AyX1DbgLHuQQhqp+ubMfo51c1ppP
-	WMyN7jgPc1MYa6eoKQqji49Z+JNgBv/M=
-X-Gm-Gg: ASbGncu53JKoHgnQA7svKWACJ8/5IhU8S+PULtk1SqfPY55UyiIYdD1O0xT0wriZdzv
-	phgljsMOb5gbCMPX1Vj3YFYmJNRAsYE4JuS386vdGUQi6PWEqa4ZG9R1HEIQw7PWmpsn5AysQ6X
-	VpRWFBn3mXONV+rYO2qmN7fl85RFsE77Mpm5LreXs8/0fqG/Aa1r7CTaicCylQ4wMs/8+d6WBlB
-	HMcqFfa
-X-Google-Smtp-Source: AGHT+IFrBeJSgMsR3HaccN16cnXjcttv9tgaaLMJKzDwaIqr0lNEmWSIpPm9V69kQrLev4/WKIw2zOmNYU6wfZ7+6Po=
-X-Received: by 2002:a05:6214:2625:b0:78e:5985:92f1 with SMTP id
- 6a1803df08f44-869973a156fmr24287356d6.11.1759170069962; Mon, 29 Sep 2025
- 11:21:09 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1759171072; x=1759775872;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=iJLpaj/c6dWR6gSCWApgd6FdexxQb0VtbiytQ5OXSGA=;
+        b=pliMsiAdXZJpk6YDnQ9PmQxJIQAcTA8tIxbxqFBd87qp5plm0PQDNXNvT9mqOFsPJL
+         HVjtdxJTXYt5NdTDj41ZM3bEmEP9dj3nFI1gfp6sll7aMc3yE337zlkL8jXN0JQdAWEi
+         qOPQLgA1mkM/MKZhFlxc7ISnxIYvn07nAW531Hwr76//spVhJtdC8h4Luo8SWTK/ie2W
+         GDirkCkjUnElmDazGw6iKuFxGBPHrBqh3HBqsRLlXobqfPSR21dylzePXIe1j1X/iC3P
+         iNvIjZv+Si48ZroTWx47+Fwg047CoEypvb7TOltuTGjDcBKEysnNyIE3huZLi2W/YxSB
+         v6sA==
+X-Forwarded-Encrypted: i=1; AJvYcCW+aCeU+Tn82yULpegoyMcqEE5bUwBCmLVxVGVaR8HiuWocQ2xlL2TdnFlLggycyhH+m9cddd5TzRvX9yCzf9ev@lists.infradead.org
+X-Gm-Message-State: AOJu0YzdvfeY8z+CAeNcXoIRauULiJBIbdm4eL1BSnq9y8tWEH5pGFXy
+	B4LsdxBIEMN5n+QdLiXLS2S9u5Xi/NcoXC3XrozjCEfP47t3VmV6yE9TIGb+ypuqynY=
+X-Gm-Gg: ASbGncuMxLGt7hwk1Fz4Wfc4oTI7oG3GdFM4EzaYU8v1dfjtbvfECpEFVnIKULeMW/G
+	P5ULwgLu37qJ3+wbHh8ORkAEzHInIeQR/6xNy/facZ3C71+ZTB0d4VP7lZBAulnDKaF9NKrvtig
+	2paQ7P/WghYMrcpZPg1O+Ul8/C8HpeQad97K+IxwJFfsTNYjmLS14QRdKHqEi8EnpohwHyq2BAs
+	DOsfELdlxSQXCOLK/WZnX15u5arOKLnBTMCa2bYQPTZc0l3tnLfx9sOvRLBzER6ccyfhbaP7v1S
+	XOFAEeV+zw11/jKMG3ZBmI14QIHNweA9C3hJnp/KSi95qdxUwMvDXhDbPF41zSI0EAi/rtyie5c
+	bx0DO+VBZmqI8HBiYwtmlZK4FSCWMl1N4
+X-Google-Smtp-Source: AGHT+IHBfLpwSOdsOZ3rlXG6ZEpP4ToRS6T8QkcIX5AOO47fspaa/84bLNk9yI3gfkzoA6f1KMT5jQ==
+X-Received: by 2002:a05:6a00:138d:b0:781:15b0:bed9 with SMTP id d2e1a72fcca58-78115b0c301mr15805467b3a.17.1759171071800;
+        Mon, 29 Sep 2025 11:37:51 -0700 (PDT)
+Received: from debug.ba.rivosinc.com ([64.71.180.162])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-781023c1873sm11683639b3a.23.2025.09.29.11.37.50
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 29 Sep 2025 11:37:51 -0700 (PDT)
+Date: Mon, 29 Sep 2025 11:37:49 -0700
+From: Deepak Gupta <debug@rivosinc.com>
+To: Mark Brown <broonie@kernel.org>
+Cc: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
+	"adhemerval.zanella@linaro.org" <adhemerval.zanella@linaro.org>,
+	"nsz@port70.net" <nsz@port70.net>,
+	"brauner@kernel.org" <brauner@kernel.org>,
+	"shuah@kernel.org" <shuah@kernel.org>,
+	"fweimer@redhat.com" <fweimer@redhat.com>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>,
+	"dalias@libc.org" <dalias@libc.org>,
+	"jeffxu@google.com" <jeffxu@google.com>,
+	"will@kernel.org" <will@kernel.org>,
+	"yury.khrustalev@arm.com" <yury.khrustalev@arm.com>,
+	"wilco.dijkstra@arm.com" <wilco.dijkstra@arm.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"codonell@redhat.com" <codonell@redhat.com>,
+	"libc-alpha@sourceware.org" <libc-alpha@sourceware.org>,
+	"linux-kselftest@vger.kernel.org" <linux-kselftest@vger.kernel.org>
+Subject: Re: [PATCH RFC 0/3] arm64/gcs: Allow reuse of user managed shadow
+ stacks
+Message-ID: <aNrR_TD5JB5dHJ5b@debug.ba.rivosinc.com>
+References: <20250921-arm64-gcs-exit-token-v1-0-45cf64e648d5@kernel.org>
+ <760447dc3e5805bf5668e80a94bf32356e2eb2d3.camel@intel.com>
+ <8aab0f36-52ad-4fd6-98c3-bcdba45dbe16@sirena.org.uk>
+ <ac0ceb09ffaeb1f0925b61ed1b82ee6475df2368.camel@intel.com>
+ <604190c7-5931-4e74-a1c9-467e52d3001b@sirena.org.uk>
+ <eab692794cbc82080b708c581efd5973b6004be0.camel@intel.com>
+ <5397025d-7528-4b9c-b38d-b843ab004f47@sirena.org.uk>
 MIME-Version: 1.0
-References: <20250929065714.27741-1-jjm2473@gmail.com> <20250929065714.27741-3-jjm2473@gmail.com>
- <5700676.tIAgqjz4sF@phil>
-In-Reply-To: <5700676.tIAgqjz4sF@phil>
-From: jjm2473 <jjm2473@gmail.com>
-Date: Tue, 30 Sep 2025 02:20:57 +0800
-X-Gm-Features: AS18NWBViMs8caAfXLXKamwDlPSJ-YJ_sCg4Ny2_8taIjH_4vuLBQ4TYDgmLkh0
-Message-ID: <CAP_9mL6e8ekL14xycSfPmVSkL7pANLeyewWd=rjxbtMgMQXxxw@mail.gmail.com>
-Subject: Re: [PATCH v3 2/3] dt-bindings: arm: rockchip: Add LinkEase EasePi R1
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	quentin.schulz@cherry.de, kever.yang@rock-chips.com, naoki@radxa.com, 
-	honyuenkwun@gmail.com, inindev@gmail.com, ivan8215145640@gmail.com, 
-	neil.armstrong@linaro.org, mani@kernel.org, dsimic@manjaro.org, 
-	pbrobinson@gmail.com, alchark@gmail.com, didi.debian@cknow.org, 
-	jbx6244@gmail.com, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii; format=flowed
+Content-Disposition: inline
+In-Reply-To: <5397025d-7528-4b9c-b38d-b843ab004f47@sirena.org.uk>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_112111_254131_2841AAD4 
-X-CRM114-Status: UNSURE (   9.37  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20250929_113753_202961_3C2232E5 
+X-CRM114-Status: GOOD (  20.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,23 +119,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Heiko Stuebner <heiko@sntech.de> =E4=BA=8E2025=E5=B9=B49=E6=9C=8829=E6=97=
-=A5=E5=91=A8=E4=B8=80 20:28=E5=86=99=E9=81=93=EF=BC=9A
+On Fri, Sep 26, 2025 at 05:09:08PM +0100, Mark Brown wrote:
+>On Fri, Sep 26, 2025 at 03:46:26PM +0000, Edgecombe, Rick P wrote:
+>> On Fri, 2025-09-26 at 01:44 +0100, Mark Brown wrote:
 >
-> Am Montag, 29. September 2025, 08:57:13 Mitteleurop=C3=A4ische Sommerzeit=
- schrieb Liangbin Lian:
-> > LinkEase EasePi R1 is a high-performance mini router based on RK3568.
-> >
-> > Signed-off-by: Liangbin Lian <jjm2473@gmail.com>
+>> > I agree it seems clearly better from a security point of view to have
+>> > writable shadow stacks than none at all, I don't think there's much
+>> > argument there other than the concerns about the memory consumption
+>> > and performance tradeoffs.
 >
-> In v1 this patch received an
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
+>> IIRC the WRSS equivalent works the same for ARM where you need to use a
+>> special instruction, right? So we are not talking about full writable
 >
->
->
+>Yes, it's GCSSTR for arm64.
 
-In the next version, I will add 'Acked-by' to the commit message
-and then run `git format-patch` to avoid missing it.
+sspush / ssamoswap on RISC-V provides write mechanisms to shadow stack.
 
-Thanks!
+
+>
+>> shadow stacks that could get attacked from any overflow, rather,
+>> limited spots that have the WRSS (or similar) instruction. In the
+>> presence of forward edge CFI, we might be able to worry less about
+>> attackers being able to actually reach it? Still not quite as locked
+>> down as having it disabled, but maybe not such a huge gap compared to
+>> the mmap/munmap() stuff that is the alternative we are weighing.
+>
+>Agreed, as I said it's a definite win still - just not quite as strong.
+
+If I have to put philosopher's hat, in order to have wider deployment and
+adoption, its better to have to have better security posture for majority
+users rather than making ultra secure system which is difficult to use.
+
+This just means that mechanism(s) to write-to-shadow stack flows in user space
+have to be carefully done.
+
+- Sparse and not part of compile codegen. Mostly should be hand coded and
+   reviewed.
+
+- Reachability of such gadgets and their usage by adversary should be threat
+   modeled.
+
+
+If forward cfi is enabled, I don't expect gadget of write to shadow stack
+itself being reachable without disabling fcfi or pivoting/corrupting shadow
+stack. The only other way to achieve something like that would be to re-use
+entire function (where sswrite is present) to achieve desired effect. I think
+we should be focussing more on those.
+
+
+
 
