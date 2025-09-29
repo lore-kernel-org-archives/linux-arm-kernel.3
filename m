@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DAC89CCA468
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 10:17:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCE3CCAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 10:17:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pwNG8vJ2/dFVGTHMH5f891JHbQZiazfcv6W54xCxSws=; b=G6FZ2mRxzwe3BobdD7aQJwxPpv
-	VltWSyUMbl50hch+4hVcH/SQi9eE8N0/XcIAfEs0YTFcz9pdN2am9k5MviNK8Li3u6o7AbclUokh5
-	t9s6lgslUUZ02yPDIYMUlVWQ4KdS5a2E0dsnJTNCVbePfzPX4SjI6FO5zOj72Wx8mH5wwDC5L7SX5
-	Oo+Y2ebY/hImOHxlUK2O5BRZNCxmmB2X8LV+MJSsLpmhHRXsbnuxdJrtj8FT5dfTLbKnCPDszaykd
-	4kGX7lp19dVp/nPuoMCM8HoRVnDIWRUpao2SYnUN9vdz3XfZXbrFxxkm4wmLFplDRf+GCO7aODPN+
-	WvDrab2A==;
+	bh=HkPZ0thlY+2xfAUc6YweOnf0L2U5PNyKNeAI+ZAfz0g=; b=CfMBfFS6HSrL6iCHaJlY/oJvSZ
+	4dwvNb0iOxATC1LvRzo1At40vaa2tpoDZ88wE7qPgZ8hs8rjh4wrwXra6+LLMdBfnbPNzDTbKggfQ
+	7BZvT3edEmE4rNWxm6sswghxbMq+EiZG2NQNUwDnQgGrWFk9r+ywHU3cWAYDlpfTwjvJO4oe9Mp+v
+	1HaQEWY9waDJHfOgQ3mQ8W3nx8IVBBN2TvwfL2csgF4F2J+oVhxsYu+zeoAEArpFohxYr9siEmufZ
+	kwsIkvHtIz1cU75bF+TxlIAZH+shFJWajJkuFZr8jAvzynu1AXLhz6Sw+uuZTTINsBU5iq8i0pC1w
+	pHyRTLOQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3AwK-0000000296V-2Tej;
-	Mon, 29 Sep 2025 10:17:04 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1v3AwJ-0000000295T-46oG;
+	Mon, 29 Sep 2025 10:17:03 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3AwF-00000002926-2xsW;
-	Mon, 29 Sep 2025 10:17:00 +0000
+	id 1v3AwE-0000000291N-2Lxh;
+	Mon, 29 Sep 2025 10:16:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1759141017;
-	bh=f/1OQ8c/GwYQsJs2PTABxuE9dPKn0z3P5+u3vtzOc+w=;
+	s=mail; t=1759141016;
+	bh=gFFRfxU0C4D89u0f4bM0By/gaq3tBosyxmopf1mr5K0=;
 	h=Date:Subject:To:References:From:In-Reply-To:From;
-	b=h8f51fsBhnrIl9AhdurBpnywg7Cjn+965XIxuTAQPShRk6hebrrHEA2WfujwGaoCq
-	 qE2UJuWmNoSCaUPbR1kslC+/WvS5NkOHjmX4EMQeJKK10K1n5FLdH+lo/61T6hmdxu
-	 linoFifW235JxejaxrjLjg6xpBQLmeXWqJCqmQzQyyD0FECq+IrD1yvGYkrCrSgHEJ
-	 cceONvKGu0ky+24BcFZVksh2q8Hs+N07wgWqUb2ulMu+Ga2YExkHchWevtiKeg/sL6
-	 ieoxgtlai4IsADMLDwdphsIha4iEaxjOQbIKfwBttOoxSPMAYzij1m6FBaLbCybmrB
-	 FeZEAFtO0wv0Q==
+	b=WUC9/Ngkd/07HEYXLlEz5Yi8hfBjhKsC56RBiI1T79cwtzQl3n2eAdJtoeDBH81tx
+	 X13ajlzJrgwkByssvOjhrwIYh5WHSGtGWr9GIJ7G89KUEoDn2GeWdhGEWJ1x2wYD9H
+	 kloSZSqhs3xnujYQmwsRIhN2+lR6y1hxVAulKUFER2QVWXd22+Efk4zHvYMf4QO9sY
+	 C5uufMLLl0is97pZZOE5J+40teVdC6mtumDIT19WLo5JZ8N8cERaVtR7hSml5AQOwO
+	 11c62ZNviRXlS6gYLVdPyY1reA2kxy9SQeJkncIoz/AsegSWqps2+Q10QmKhyu3QLx
+	 RShiy6FC+eB/Q==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id CBF4E17E13B8;
-	Mon, 29 Sep 2025 12:16:56 +0200 (CEST)
-Message-ID: <48940f1f-520e-47fe-8f6f-2a9d852f80bd@collabora.com>
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A7EA017E12E4;
+	Mon, 29 Sep 2025 12:16:55 +0200 (CEST)
+Message-ID: <8780b731-950a-490a-9dd9-7ec916e3f992@collabora.com>
 Date: Mon, 29 Sep 2025 12:16:55 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/4] dt-bindings: arm64: dts: airoha: Add AN7583
- compatible
+Subject: Re: [PATCH v3 2/4] dt-bindings: watchdog: airoha: Add support for
+ Airoha AN7583 SoC
 To: Christian Marangi <ansuelsmth@gmail.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Herbert Xu <herbert@gondor.apana.org.au>,
@@ -60,15 +60,15 @@ To: Christian Marangi <ansuelsmth@gmail.com>, Rob Herring <robh@kernel.org>,
  linux-crypto@vger.kernel.org, linux-watchdog@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
 References: <20250925164038.13987-1-ansuelsmth@gmail.com>
- <20250925164038.13987-4-ansuelsmth@gmail.com>
+ <20250925164038.13987-3-ansuelsmth@gmail.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20250925164038.13987-4-ansuelsmth@gmail.com>
+In-Reply-To: <20250925164038.13987-3-ansuelsmth@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_031659_946210_6F152DFA 
-X-CRM114-Status: UNSURE (   6.32  )
+X-CRM114-CacheID: sfid-20250929_031658_758039_91359509 
+X-CRM114-Status: UNSURE (   7.20  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -85,8 +85,9 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Il 25/09/25 18:40, Christian Marangi ha scritto:
-> Add Airoha AN7583 compatible to the list of enum for Airoha Supported
-> SoCs.
+> Add compatible for Airoha AN7583 SoC. The implementation is exactly the
+> same of Airoha EN7581 hence we add the compatible in addition to EN7581
+> ones.
 > 
 > Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
 
