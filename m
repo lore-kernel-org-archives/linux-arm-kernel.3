@@ -4,59 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 415FBCAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 14:38:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7812CAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 14:40:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NVeiBXs03x1jC4upn1ck23a8nVsdwG7wDhiz4PogKGQ=; b=nqvHwVu2tx6recztv6ct11IhxE
-	9BkhQVXllzlQo7EeoC5xnUv7QKrUlZ4+gKwlBo6+cwee03OVjtpOcULI2BS2PUXJJbOYBRxfpJ9pd
-	PKuB+cy4ywyEWmEygcOt9BDKMr8X7T75EePf6QyTkpWxAGOswp6vFTSNluAzgvPn3nePQqS8LOljQ
-	+haACOpvYXDF2fVCCipPXtVVQh7Vh6AHScU6UoYwiWYLY6MdbSVtsGu2qHV7RQ5eMfBNogiV9Lhpy
-	IgnQMxnsdUtYkHpoP3Wac4ZJv6XA7wvAD1fhwRDWTfkINedCQZPEUn5Vz7ACNd5zewFEbgyqQflSq
-	9+rC0fVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4SehLwPwCIWjGCByLFgpIVLB4JRGEWglrJ0hg9NjAVc=; b=FU3OWuf3NvPhtXAsPZjgQ3A+h7
+	TPDljkmJoBza08DN03QLD+aoKFq03nx9VesFUb+qDU4hO4IwfoMsigvvc+eyO180u0l1kBpbie2OU
+	Bi+EqnjJ0/lAC/dzpt+svGsoR+kZsnML9H1sTEliDQlh6HM/n0ejSXw2WtXhYzmWi3q/A8Hsf3szB
+	9i4S8K9xNVjMBsaAOVgLZmV0qdqzciqa7PkiCfmlV/ZeGkwxQeVZjeNkj4MSBElpkt0tawfD0PG4R
+	n+cW9A2bU3Rbue20ySe+Hw3TGXhsOMYFTNvoGnEpUTimoEjiPfHqWsrLbJGW26MwTW3WVlzVh5C7+
+	FgOVhvJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3F1H-00000002grN-0YGt;
-	Mon, 29 Sep 2025 14:38:27 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v3F3C-00000002hNv-42WS;
+	Mon, 29 Sep 2025 14:40:26 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3F1F-00000002grC-1e8U
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 14:38:25 +0000
+	id 1v3F3A-00000002hN3-3B50;
+	Mon, 29 Sep 2025 14:40:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id ABA806254E;
-	Mon, 29 Sep 2025 14:38:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4DD6C4CEF4;
-	Mon, 29 Sep 2025 14:38:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6A19943214;
+	Mon, 29 Sep 2025 14:40:24 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22704C4CEF7;
+	Mon, 29 Sep 2025 14:40:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759156704;
-	bh=sLDFL9Wl+Iuq12IDgheionrwfrRHgVXtiDYtXHXsCrY=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=YJ3zrcQLw5rDQWPYhH77bBI8hSRc5rpFYkP9UrVEJCDJhjwfRy/TNVb4CjibWExaX
-	 YAcIwsq/RWB3pHd8Zr3yAwxFKU4dY+CCPhezjfxwJjYOK55JhYT7d3d86M0oGDkpO2
-	 vfgB0ecsvfPzBlDJNNs8n/Zl3xE2koAiu1xRZ8w3bqrWdK2yyVyY+H82v9S5PeqjXh
-	 tZLH1qdn0QFCxXZ+BlkDmokQX3Jht8zTLvGSvK+rSL81LHsmzSLRUAggA3vER/mplb
-	 pI9dODQQEaAITpyeuQt/iOBib9HMLB+bK3QyDTJUBtUBmK1kc9JHxs2ICdDczDf+3j
-	 7X5r12Veu556A==
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: lpieralisi@kernel.org, kwilczynski@kernel.org, robh@kernel.org, 
- bhelgaas@google.com, mcoquelin.stm32@gmail.com, 
- alexandre.torgue@foss.st.com, Christian Bruel <christian.bruel@foss.st.com>
-Cc: linux-pci@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20250902122641.269725-1-christian.bruel@foss.st.com>
-References: <20250902122641.269725-1-christian.bruel@foss.st.com>
-Subject: Re: [PATCH] PCI: stm32: Remove link_status in PCIe EP.
-Message-Id: <175915669921.12348.6942864048975237850.b4-ty@kernel.org>
-Date: Mon, 29 Sep 2025 20:08:19 +0530
+	s=k20201202; t=1759156824;
+	bh=HPTDRYIkQ98sc0e+r+R4VGK7Iy87o2rFwoVWJNtJgAY=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Z2A2NXZCqN5MtuZNW+W12uuSdgwhWSq/PmM06GYl+XIWyAAzW53QOmCe9g+S1Cuj1
+	 PC3mSm+BNg+pSH/J8wsDk6tO5RtWCqA7Tv33IuHss1lMqmDJwKeOkx1DEVTiRiyr86
+	 wY4qFWEXxvPHyAD91Qy170zF8jMM9fCSfzBnK9wBVIk5eO+1Ue0qfSaSnDPS04dnsF
+	 59Sk9KOfzunRJjf0V+vJEFn3q5Eh3jO4KHawZmlvVdxjMJ22ys1fwxPjwBgJLJb4IN
+	 0GNcHTG+oGtvR5wmOy7icrsbqIXcq5Ge3h6uOZI1wVIdEz/8o1ZVpSSAP+BA876s45
+	 p/oFaWfZQzTRg==
+Date: Mon, 29 Sep 2025 09:40:23 -0500
+From: Rob Herring <robh@kernel.org>
+To: Christian Marangi <ansuelsmth@gmail.com>
+Cc: Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	linux-pci@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v4 3/5] dt-bindings: PCI: mediatek: Add support for
+ Airoha AN7583
+Message-ID: <20250929144023.GA4111165-robh@kernel.org>
+References: <20250929113806.2484-1-ansuelsmth@gmail.com>
+ <20250929113806.2484-4-ansuelsmth@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250929113806.2484-4-ansuelsmth@gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250929_074024_835110_DCE78247 
+X-CRM114-Status: GOOD (  21.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,21 +83,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 02 Sep 2025 14:26:41 +0200, Christian Bruel wrote:
-> Guarding enable_irq/disable_irq against successive link start
-> link does not seem necessary, since it is not possible to start
-> the link twice. Similarly for stop.
+On Mon, Sep 29, 2025 at 01:38:02PM +0200, Christian Marangi wrote:
+> Introduce Airoha AN7583 SoC compatible in mediatek PCIe controller
+> binding.
 > 
+> Similar to GEN3, the Airoha AN7583 GEN2 PCIe controller require the
+> PBUS csr property to permit the correct functionality of the PCIe
+> controller.
+
+I guess I didn't get my point across before. Test your crap before 
+sending or I'm going to stop reviewing your stuff.
+
 > 
+> Signed-off-by: Christian Marangi <ansuelsmth@gmail.com>
+> ---
+>  .../bindings/pci/mediatek-pcie.yaml           | 110 ++++++++++++++++++
+>  1 file changed, 110 insertions(+)
+> 
+> diff --git a/Documentation/devicetree/bindings/pci/mediatek-pcie.yaml b/Documentation/devicetree/bindings/pci/mediatek-pcie.yaml
+> index fca6cb20d18b..b91b13a0220c 100644
+> --- a/Documentation/devicetree/bindings/pci/mediatek-pcie.yaml
+> +++ b/Documentation/devicetree/bindings/pci/mediatek-pcie.yaml
+> @@ -13,6 +13,7 @@ properties:
+>    compatible:
+>      oneOf:
+>        - enum:
+> +          - airoha,an7583-pcie
+>            - mediatek,mt2712-pcie
+>            - mediatek,mt7622-pcie
+>            - mediatek,mt7629-pcie
+> @@ -55,6 +56,17 @@ properties:
+>    power-domains:
+>      maxItems: 1
+>  
+> +  mediatek,pbus-csr:
+> +    $ref: /schemas/types.yaml#/definitions/phandle-array
+> +    items:
+> +      - items:
+> +          - description: phandle to pbus-csr syscon
+> +          - description: offset of pbus-csr base address register
+> +          - description: offset of pbus-csr base address mask register
+> +    description:
+> +      Phandle with two arguments to the syscon node used to detect if
+> +      a given address is accessible on PCIe controller.
+> +
+>    '#interrupt-cells':
+>      const: 1
+>  
+> @@ -90,6 +102,45 @@ required:
+>  allOf:
+>    - $ref: /schemas/pci/pci-host-bridge.yaml#
+>  
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          const: airoha,an7583-pcie
+> +    then:
+> +      properties:
+> +        reg:
+> +          maxItems: 1
 
-Applied, thanks!
+That's already the maximum. Drop.
 
-[1/1] PCI: stm32: Remove link_status in PCIe EP.
-      commit: 7d1c807cd2ddf8ef771f214ae4dab9bebbc61522
+> +
+> +        reg-names:
+> +          const: port1
+> +
+> +        clocks:
+> +          maxItems: 1
+> +
+> +        clock-names:
+> +          const: sys_ck1
+> +
+> +        reset:
+> +          maxItems: 1
 
-Best regards,
--- 
-Manivannan Sadhasivam <mani@kernel.org>
+That's already the maximum. Drop.
 
+> +
+> +        reset-names:
+> +          const: pcie-rst1
+> +
+> +        phys:
+> +          maxItems: 1
+
+That's already the maximum. Drop.
+
+> +
+> +        phy-names:
+> +          const: pcie-phy1
+> +
+> +        power-domain: false
+> +
+> +      required:
+> +        - resets
+> +        - reset-names
+> +        - phys
+> +        - phy-names
+> +        - mediatek,pbus-csr
+> +
+>    - if:
+>        properties:
+>          compatible:
+> @@ -106,6 +157,8 @@ allOf:
+>  
+>          power-domains: false
+>  
+> +        mediatek,pbus-csr: false
+> +
+>        required:
+>          - phys
+>          - phy-names
+> @@ -123,6 +176,8 @@ allOf:
+>  
+>          phy-names: false
+>  
+> +        mediatek,pbus-csr: false
+> +
+>        required:
+>          - power-domains
+>  
+> @@ -135,6 +190,8 @@ allOf:
+>          clocks:
+>            minItems: 6
+>  
+> +        mediatek,pbus-csr: false
+> +
+>        required:
+>          - power-domains
+>  
+> @@ -157,6 +214,8 @@ allOf:
+>  
+>          power-domain: false
+>  
+> +        mediatek,pbus-csr: false
+> +
+>  unevaluatedProperties: false
+>  
+>  examples:
+> @@ -316,3 +375,54 @@ examples:
+>              };
+>          };
+>      };
+> +
+> +  # AN7583
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/clock/en7523-clk.h>
+> +
+> +    soc_3 {
+> +        #address-cells = <2>;
+> +        #size-cells = <2>;
+> +
+> +        pcie@1fa92000 {
+> +            compatible = "airoha,an7583-pcie";
+> +            device_type = "pci";
+> +            linux,pci-domain = <1>;
+> +            #address-cells = <3>;
+> +            #size-cells = <2>;
+> +
+> +            reg = <0x0 0x1fa92000 0x0 0x1670>;
+> +            reg-names = "port1";
+> +
+> +            clocks = <&scuclk EN7523_CLK_PCIE>;
+> +            clock-names = "sys_ck1";
+> +
+> +            phys = <&pciephy>;
+> +            phy-names = "pcie-phy1";
+> +
+> +            ranges = <0x02000000 0 0x24000000 0x0 0x24000000 0 0x4000000>;
+> +
+> +            resets = <&scuclk>; /* AN7583_PCIE1_RST */
+> +            reset-names = "pcie-rst1";
+> +
+> +            mediatek,pbus-csr = <&pbus_csr 0x8 0xc>;
+> +
+> +            interrupts = <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>;
+> +            interrupt-names = "pcie_irq";
+> +            bus-range = <0x00 0xff>;
+> +            #interrupt-cells = <1>;
+> +            interrupt-map-mask = <0 0 0 7>;
+> +            interrupt-map = <0 0 0 1 &pcie_intc1 0>,
+> +                            <0 0 0 2 &pcie_intc1 1>,
+> +                            <0 0 0 3 &pcie_intc1 2>,
+> +                            <0 0 0 4 &pcie_intc1 3>;
+> +
+> +            pcie_intc1_4: interrupt-controller {
+> +                interrupt-controller;
+> +                #address-cells = <0>;
+> +                #interrupt-cells = <1>;
+> +            };
+> +        };
+> +    };
+> -- 
+> 2.51.0
+> 
 
