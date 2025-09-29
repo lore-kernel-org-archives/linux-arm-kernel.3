@@ -4,180 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8AFCCAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 12:06:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8065DCAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 12:06:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RwE1otnQxBTp2ZLyEVam6dykJsa1r0+X5zQCK52tWsg=; b=5F2KdAlkvgigQthOG9lfMFY/WP
-	9RVjIK7fQdOhw4ff2XcB5ogdihKG66T9R9lGFHTSK6B+wcnnbuafKOy+V2b+dUdQp2aowyuLI3iDn
-	a0kpUWW5xgBGyrguYVGAPb/RiSTPjCNGvFbxKWDnGnGjw9gzQQKccOTMWNRZR8tELy0O3MnRVPtYI
-	OGwdkSt9VXN4FF5ClnJGB51dFK2NusqwQ/gcHdPPt3PNRbmGAI61iHklrR4R7FX2+YzeLsGVQa744
-	zDrkNWc7QGVkDBPuaLTEaCQ8CqgoN8I7B0DpvMwNNJHDJNegZ/0CsvJPZBDbxhQsiv2Fs3VbuO+TD
-	HCWBr3gA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Kc1aln7O6Klwy7V6249j4vaMIKKG3rs2LpAcPtA4y6Q=; b=eNQqUPK4pnTDJn+8CCrQVe3dgC
+	UzUx5zPzOAd+lwt24D1xAzt77iuuAyngy5EtxwxNdWA6V/n7hj4ncBaWKzhG0uS6Xj0mLtLy38n4c
+	m4BS0+LSBwCWEBHTfJRDHwHatH5udSh3SLlQpnQRgnn49tc9f/bM+Zb/uc1cMym7s76rPT5ePYK/W
+	zQoEGMRiqcbaaGSDqdJiXZCo54uT8k5lp3G2K7y1QG9CzMAIqjs32Q8FzB79j7eXkOPPgMvWD9U5K
+	y7jtJo8YGe1QQZ5yZf6jxfNmh2VPdhaoWrMfvDe2vgFzJnT4TqTnrabfKr2hh8NkTBXX+dAW2gxL/
+	SdXC3krQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Ce2-00000002QcH-07Nd;
-	Mon, 29 Sep 2025 12:06:18 +0000
-Received: from mail-northeuropeazlp170120005.outbound.protection.outlook.com ([2a01:111:f403:c200::5] helo=DUZPR83CU001.outbound.protection.outlook.com)
+	id 1v3CeQ-00000002QhC-2UXk;
+	Mon, 29 Sep 2025 12:06:42 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Cdz-00000002Qbi-25jV
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 12:06:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wIPLsAxuin3oT1J2ay4uZ/g3KKsZQI1BN575ke/d4WddqO4UD+nGEHbqrrgGafub4XGICCd/WU65VonfjtDOwI3Nmw5hz28xTuF0IqiIRx87ZZmQcgvIAiaz1l6uCdbSeDWukZJF8e1OdPhd2OdgZVvCIcJdOTpzMOKXMjNAS4Yp+tZqKzmLZg9v8g8uYf8uxCg6zlIm+eTQEGsLrnGiD6J20eGKwwrxtIizBe3dj44qr1ggOQ7nwhcoM2C2L/d3rXZnxIo/daP992YEkgIMkeccibMR8cUndRD2i0Rri4hVyVdaPaJGaZ2EkqJxwuiomImA5cWsJa2Qz+BVYAQsvw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=RwE1otnQxBTp2ZLyEVam6dykJsa1r0+X5zQCK52tWsg=;
- b=wswVkxTAny97MyvX4f1cKIEeeU6mP39szJlbWjdPppIjuHaJnCgF1m0DK3qCUbm6DBvZ2P19NXIaU4piT/hElyTVWglkvmgJj/vm3DCaa7M3fbQ22XYY+7HQt24JLDRnv16Sw7apXmI9if2ogmh/7EpVKWvaeML45QbiHmMtZlIsVDHqflFScWUueyv0/ZvcTOQG6uxnwBjifq2YyKMkAVRMYVD9NQ6CU8nHxZrP3jLKMw6I2hWGYRxnYZzeN7Q0Z11sqyL1IAAmm27zsbIi3sLkKFhvl/Pd/lpSKa+MVA69Irs7SFh7WHP1MJqE2Z0TIXD9rexuCSazK62xROo+9w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=RwE1otnQxBTp2ZLyEVam6dykJsa1r0+X5zQCK52tWsg=;
- b=KS0kjnNHEG0nbOxOS0qxah8vYVMi/XCrB1gDm7HLYnKIBkXSJJZ9J9QKx5E5T5K2iXDhQeMgTzRuhKPnzQ5rukJbmZZ8kMHaQ1TfAw622bwstqRCQ9uNMJnDGtXmg+jtXLRm0e9n/ekQ7jRpxBShlI9YipPFs2b4tsSazQPlF0nrQ994JjkvUvVq1qvRewkGfeMMtki6okf5mSg/ok+KV/eD0UkJ559Y3fEjF8ofIlfuYalYBhfsDCIpwXLqSSJr/UMDoYAPEszocdr0CYl/v2uNsrigEo3f9gks+kenuI/jiwfW6WbVYbNLdFNxbADMjvwWHesD71r/xAqpMEcYJQ==
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
- by VI0PR04MB11700.eurprd04.prod.outlook.com (2603:10a6:800:2fc::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.15; Mon, 29 Sep
- 2025 12:06:06 +0000
-Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
- ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9160.015; Mon, 29 Sep 2025
- 12:06:06 +0000
-From: Peng Fan <peng.fan@nxp.com>
-To: Ulf Hansson <ulf.hansson@linaro.org>, "Peng Fan (OSS)"
-	<peng.fan@oss.nxp.com>
-CC: "Rafael J. Wysocki" <rafael@kernel.org>, Pavel Machek <pavel@kernel.org>,
-	Len Brown <lenb@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Danilo Krummrich <dakr@kernel.org>, Peter Chen <peter.chen@kernel.org>, Shawn
- Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix
- Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>, "linux-pm@vger.kernel.org"
-	<linux-pm@vger.kernel.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-usb@vger.kernel.org"
-	<linux-usb@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, Xu Yang <xu.yang_2@nxp.com>
-Subject: RE: [PATCH v4 0/5] pmdomain: core: Introduce
- device_set_out_band_wakeup and use it in usb
-Thread-Topic: [PATCH v4 0/5] pmdomain: core: Introduce
- device_set_out_band_wakeup and use it in usb
-Thread-Index: AQHcK2eXc3Qg1iO+uE+ovysSEhEJ9LSgjM0AgAkCFACAAGHMAIAAKxhQ
-Date: Mon, 29 Sep 2025 12:06:06 +0000
-Message-ID: <PAXPR04MB845918DD700C45DA1599B7D1881BA@PAXPR04MB8459.eurprd04.prod.outlook.com>
-References: <20250922-pm-v4-v4-0-ef48428e8fe0@nxp.com>
- <CAPDyKFqQgS9j4uGkTL_taPTL96su1tqpyoek1cpZgTiaaBMpCA@mail.gmail.com>
- <20250929034048.GD29690@nxa18884-linux.ap.freescale.net>
- <CAPDyKFp1NrdA6nZMQFrgrpc5Ub4osgYTiSJ=Gf1m1q4X8RYCmA@mail.gmail.com>
-In-Reply-To: <CAPDyKFp1NrdA6nZMQFrgrpc5Ub4osgYTiSJ=Gf1m1q4X8RYCmA@mail.gmail.com>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PAXPR04MB8459:EE_|VI0PR04MB11700:EE_
-x-ms-office365-filtering-correlation-id: e2d2c79c-7bee-49d6-28ac-08ddff5091ab
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|7416014|376014|19092799006|38070700021;
-x-microsoft-antispam-message-info: =?utf-8?B?TzBCSHR4cUFDbzNKQVBoTUVvYXJJQTBKQkJuUXcvdTBlcFRmemdpUm1pWkZ6?=
- =?utf-8?B?Wll4UGU3QmxQekZWUytCQUFITFlZakI2MndTclYrMUl1TTdrY0NiSGJyVXJ2?=
- =?utf-8?B?SDU1MVliL0F2UlR0cVR6VXBjTEhnNGpWNEMrSW1ZQVY0TjNDclEyUDlYNXBI?=
- =?utf-8?B?VkNybFpCc0tzQ1Fvdm1zSVlWM0hqZndOOGRTVjFEVWU3L1FUYk5zZVlibjJX?=
- =?utf-8?B?VnJmNVFwd3BjanVZWEF2UWliM3c1MTZUVWVhNGsrbkl5YXExaFBvM1Jvd1hC?=
- =?utf-8?B?T2krZUdMWnNpTjN1djkyNUpNVFNIRDRlL2JrNkdBaitub2FEbU5rdzBqcTRh?=
- =?utf-8?B?MHNiRDlhK3JaWGNUOUx5RDZ1Y1FTblZEc2dROU9DSlhHNGtXS29lWW13dzRC?=
- =?utf-8?B?SzNrdjJWMUFLdmRwVUI0Mk9OcUxHZzhWUURmNFB0and2anRSaTBpWmdvZWY4?=
- =?utf-8?B?bkhwekcyQ25ZV0ZIM2NGRjg5bWRDdGVFVGVuS0NGZFh5WVBrb3NxbDdHb3BZ?=
- =?utf-8?B?UWFaVmJ1N08xa3FiczZRT3orK3JvN2ZyRTNmL1BVODNvcUExenFydStwWE1L?=
- =?utf-8?B?UkFvRk1jeFNwQVppalRDMU5xcVhnQ2ZvdWJDOE9vYzVHUStkK1pPaTNZZkw4?=
- =?utf-8?B?aWkzZ1R5VGpBKzlDMXNia1d5MEc3MTRpclJRNTMvdUNXMG9icTVXNmd2OFFi?=
- =?utf-8?B?dnVHUU9MQytMcUFrZ0w2aFkvY2hsTW43QTJtM0lxd2kzZkZXRXNYUk1Ca3pB?=
- =?utf-8?B?aDNqd0xqQXZic3JjWm5kQTN2bzdSaWNqQjZldkFTeEViL05BU1dCcHFFL2hz?=
- =?utf-8?B?SDJlenFCOGlvZmUvUlJtb1pzazFVWjdmYnZIVUdqdzdjK05LejhOT0ZRV0tT?=
- =?utf-8?B?dmtEMmxIU3FIck56L2Z0bW9yR3NzVWY2bEJwM1pKbFlEVzdOdyttdjMyaWJF?=
- =?utf-8?B?NXNWR3VHYklQOGxMQVVjRHY4dzc2NDdickhsd2RvQWNGTUtZVnh0WURmL3V4?=
- =?utf-8?B?eVFrNng2YlduenBrSWlXN2FWbnJFaUtFNHRBUjVGNys1Q01ITy8wMWxQTERo?=
- =?utf-8?B?cHlyRTVHVmsrT3ZHM3lta3RhenpNZ2o2U1V5RGtJdFkxb0xkT2p2VktMd2FQ?=
- =?utf-8?B?YnlaSSs3UTZablh4SlloRTUrUHErVFFJYy9OdG1mcTVrWXFsd0JnbjdHOU9h?=
- =?utf-8?B?ejJnemNZaEp6SU04TDBOdFBUQ2JlMFhEYkxTcW1Vc3FRN1dZbjdKMTdxU3JX?=
- =?utf-8?B?V2tSSFIyUWJvTW1oTUlWU2ZuZXUwYVBVdkRjMStlQjhKaTZhMDBRTkxwRW1N?=
- =?utf-8?B?TG4vdXFCYjZ1VGIzLzJWZk1PQzlnTWdwdnhReDd6R052QTFmZC9vTTVWVmFh?=
- =?utf-8?B?YnJiTXZiQ2FBenVHM1F1MW9wZWVrLzVlWkM2NUg3MjZoMTRQYzFBTnRPWVZ5?=
- =?utf-8?B?OGVwSzBrUXRnVW55UDllaWRqQTB5Tkx5RWROdjFHZ0ZQSUN4VFZ5MG1ucVFI?=
- =?utf-8?B?ZWlyMGwzbUtwL1VrdEl4YU5UQVNJUGUwL09SQVJwbmlENmplaGd0UzU0V2gv?=
- =?utf-8?B?Nysxby96SnMwZ0p3YUVqbzAzR0orY0FXMzdTSVJCZnI4dXljMGZLczFHOU11?=
- =?utf-8?B?OWdaWStKQWVoclNVSHNsNXVtcyt5emk2THJOWThlSCtGbWpSWUtoeHNCZmRo?=
- =?utf-8?B?QzFBY3NJaEpsTmpjS0ZJRzdLN1Q1RzcwbDVUdFhqM2xqeGlEbU1vakpSZzJq?=
- =?utf-8?B?c1A5NWw2c1gwUEtsNjFMODlXM2RiZ0YxQjJiOGVQU0JZb1RxbmttNi9oMEoy?=
- =?utf-8?B?bEhwSER0OFNjVGlROUgzR3ZoTTNNSDlGVURpS3pYWjg2TUhEeE1uaE1WamJG?=
- =?utf-8?B?LzRrRHVoWlB5MjhRR3M1RDFYZlFKbnZES1Q4ZHZDaVpOVE14bzdHMEdvODZj?=
- =?utf-8?B?bStSdCtTSVM3TlU1UGVIa2JBMXQ5UllwMVNVb0FyWExlam41NTBadVVtWE5W?=
- =?utf-8?B?VVRORG9vUlhmbGlwM00xTVFjNjhjTWxGK0s3Kzc2S2NROTJSN3FrMFVhS01u?=
- =?utf-8?Q?l1raGG?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(7416014)(376014)(19092799006)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?SG1nbmpBZVJNc0dwQzhlb3IwSTl0VGJLVlgrQml3ZTRVQTFmSHJ4ak1uWnFD?=
- =?utf-8?B?TjZxVWxXWUllclFwcjN0QnZnZWlZWC9MNHJTWFZaYjFINDdqVllOV242ZFVa?=
- =?utf-8?B?S3JHZWRxVXJwSllyWnNQZVVBc1FxWTlPT2FRaVhRSURUcFpsMlJYWlNMQzJP?=
- =?utf-8?B?NTVzNnNmcHdrTTBMaHJRU2N0V2N5Z0hHSDVxMlNpRFoyMVdmRHZyZis3SFlx?=
- =?utf-8?B?bjErbUhaelEzekpMejJzUVBTbkVrWk5MaTJoZ1BCY0F1VjJ5VExpTVpvY2xl?=
- =?utf-8?B?WXVMbnFFMS9KKzlnR1NkbjRsWHlpUWdmNCsyM2wzODIxWUFwaHV4aFFzWTVZ?=
- =?utf-8?B?WUpZdDRSOTY1UzZvWk0rOStybjBVbS9VZytQaXZEdjdjektldWY2bTBCUWxo?=
- =?utf-8?B?czFZaHN6VlgyUUczenJHRGttNVVjamczS2hORlhETjNCclJpbDdwOUJISEx3?=
- =?utf-8?B?cEhOaWJkZk1wRmF4NUQ3ZUthSXE4Snphbk1Pb0E2UXlDRWtmdlVjTzllQWh2?=
- =?utf-8?B?MjhTSlRaT3ZxOTRkU2tKN3FGbitEWUJpbjlzRTV5WFF3Qkt5UDZUMmhlY2J4?=
- =?utf-8?B?Z1U1YmltTCtzU2VtVDJDdFJ5eDFCN01uc3JLVGFoaDJPbGZTQjg1YmIwWTds?=
- =?utf-8?B?bC9FSHQrck1BZGVWUEZMWEY2Rm1lVk1LMUEyaHQrSSsxYjI0aEp1MVJSZTY1?=
- =?utf-8?B?dHFBTllSZDVhdWdQR1h6U0Y4V0ZSTDhLRFhKYm1IVFhZQXJ3ZGl3NnRXZmtQ?=
- =?utf-8?B?MXVFbk1zWVpUNHJJaTU5NVY3dS9GWWdXbG5IZzdITGVTWFlQK2I5aHNDWmt1?=
- =?utf-8?B?eTZXOStJOXVvTVVVdzhpaDYzMUlqeFpMV1ZselkrenU2ZkN4WDRGNGo4NWtO?=
- =?utf-8?B?aXNoL0hndXF4c1c4N2N4VmhoNzVVb0xmZHJEeW00bEpmaURTYXRvU0w0ckJ2?=
- =?utf-8?B?VzBvZFJ2UVhUc2h1NktqM1QxR1ZLRkUzVkJNbnVNYStxWVVvbkVYYmZON3NQ?=
- =?utf-8?B?ZEo3L3RkekhrZVYwR3ZoazBRclFuK2NBbjRQdzhWQVFjTVF1SWQzQWVkNXkx?=
- =?utf-8?B?YU11UXo2SDNYKy9ya3ZRT0JSSldob2hWRVpyelBmU1R1WHk0VUg3VXQ2VzlP?=
- =?utf-8?B?UFR1NEVHd0Joci9kVWM5cHhMb3RLTGhUU05NMTNsUk5xVHcwR0N4MXVnZEU4?=
- =?utf-8?B?dWFRUUNGSFpJYXFXNENEQXFQUnBXWjY3djZSdGhWWHlSK0tFbkFxdnkrMTJF?=
- =?utf-8?B?aWNlQVZPWmxRbFlWVUsveW1Od25WdzFPcCtvSitVY3VZZmpjTngzY2JnRnR5?=
- =?utf-8?B?TTZKNVBkNWY3V0hqWG9nbkpXTDFIWEFRTm9mUXoyTTFOaVVKTFkwVnVad3A5?=
- =?utf-8?B?VWFiUG4vaDE4d2EzRVc5VWhpODRzNnREQklpZ0xMU0luSVVReEtMMUVUN2lV?=
- =?utf-8?B?N3c5WjRrV2dONDduMkZwRHc2OVJ0VDJYd3Fjc2pDRjZXZHAvY21IS01WWEkz?=
- =?utf-8?B?UGV1d3lVV05sMHFpSVhvK2RGdTN1TitCU0NtNmN0OHluT0M0M3diaFpPVVJD?=
- =?utf-8?B?ZU5MaGE0aUZVYUhIMU5uT3hHYXBJQWNwcVYrZmRXWnR1ZG40ZzlHVVlqMk5o?=
- =?utf-8?B?N0dYV2JGTmRxSDcxaFd1RFI1ZnJxNlI0RGMyYVphSnIrLzhRbENJS3ZiajhN?=
- =?utf-8?B?QW5jZFYzbnRkVk4ydjlQRG5mNHJnNU1Dc3JKeXVvMnJraFJVZ3NlYjZtQTVQ?=
- =?utf-8?B?V0kzMUhCRFVKSHFtY0RqM1UxS3FnbVpBbi96NERReHJFT3kveE54eEE3dEZF?=
- =?utf-8?B?d01KV0kvWmNQMmpQbUY0WXBIdFZOTnFmSzhlekpJaWh0c3NuT2NOQUpxT1lu?=
- =?utf-8?B?Q3B2bHhvT1N0MnpJWUxxdE5vZmJlZ1RPaHVzNVEzdHg2c29Jd3RRV1M2Wi9Z?=
- =?utf-8?B?U3JyVVNQS2ZLUktoUG1lWmdVazNUQURnTHJpT1hxbGFwNmZ1U2NReTVnMnh1?=
- =?utf-8?B?NFJKbnlreTIyRE1MNnRxaEM1alNLMzRuSno5M05tYUJrRm9kQzMrN1E0amZV?=
- =?utf-8?B?MlUvUnV4ZktNQmJVVVFXeXhZbVNMTFFselV1b2QvbTJ4YmNTN0tTVTV0aGVY?=
- =?utf-8?Q?VFcI=3D?=
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: base64
+	id 1v3CeO-00000002Qfp-02up;
+	Mon, 29 Sep 2025 12:06:41 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=Kc1aln7O6Klwy7V6249j4vaMIKKG3rs2LpAcPtA4y6Q=; b=Pj/0eqJ/2S7dT2RilNqu2UU2en
+	gSL409zLBZqK5ReMvaYAR8ySZwvmWR5VWZ/8/DSgj1NtkZPn6thrmribxiZ08P/18vxRWoaIZ/q77
+	Ha4ExYs0ILQ6p6o0BKVON0PuyoNmjeD4hfL5QDEt7eZYWuAcTiANzICAcFyie6eDItCqhHPgK3fGw
+	BgYuh+jOZcuQwpON+xR/U4bZI6UdxngBza/DHl6wahXCRtEtT0GD1BUu78fXIQdYH+q1Jbzotbs/g
+	vdBf/aaHnONir3HjZT0adIHiQXgKfis+MMmwAtjs3cfuYQZynA7r/Kw0xwo0sxQnng7bfhjWRCqR9
+	1Rr59igQ==;
+Received: from [189.6.12.111] (helo=[192.168.0.55])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1v3CdD-001j7G-Va; Mon, 29 Sep 2025 14:05:28 +0200
+Message-ID: <4d4170fc-f91a-4e15-b8a0-317b1af8324e@igalia.com>
+Date: Mon, 29 Sep 2025 09:05:08 -0300
 MIME-Version: 1.0
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e2d2c79c-7bee-49d6-28ac-08ddff5091ab
-X-MS-Exchange-CrossTenant-originalarrivaltime: 29 Sep 2025 12:06:06.2763
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: QLodGI9A57ydEHGIj/FMx8mAXkVN3BtJ8Y/BYDI8y9GXqRXXCDtirB3smLUjudTuFsgeWIrUuDQsPBJc/h1HSQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI0PR04MB11700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC v2 00/20] Introduce support for post-blend color
+ pipeline
+To: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Haneen Mohammed <hamohammed.sa@gmail.com>,
+ Melissa Wen <melissa.srw@gmail.com>
+Cc: Alex Hung <alex.hung@amd.com>, wayland-devel@lists.freedesktop.org,
+ harry.wentland@amd.com, leo.liu@amd.com, ville.syrjala@linux.intel.com,
+ pekka.paalanen@collabora.com, contact@emersion.fr, jadahl@redhat.com,
+ sebastian.wick@redhat.com, shashank.sharma@amd.com, agoins@nvidia.com,
+ joshua@froggi.es, mdaenzer@redhat.com, aleixpol@kde.org,
+ xaver.hugl@gmail.com, victoria@system76.com, uma.shankar@intel.com,
+ quic_naseer@quicinc.com, quic_cbraga@quicinc.com, quic_abhinavk@quicinc.com,
+ marcan@marcan.st, Liviu.Dudau@arm.com, sashamcintosh@google.com,
+ chaitanya.kumar.borah@intel.com, louis.chauvet@bootlin.com,
+ mcanal@igalia.com, kernel@collabora.com, daniels@collabora.com,
+ leandro.ribeiro@collabora.com, dri-devel@lists.freedesktop.org,
+ linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, Simona Vetter <simona.vetter@ffwll.ch>
+References: <20250917-mtk-post-blend-color-pipeline-v2-0-ac4471b44758@collabora.com>
+Content-Language: en-US
+From: Melissa Wen <mwen@igalia.com>
+In-Reply-To: <20250917-mtk-post-blend-color-pipeline-v2-0-ac4471b44758@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_050615_540944_8E96CAEE 
-X-CRM114-Status: GOOD (  14.19  )
+X-CRM114-CacheID: sfid-20250929_050640_214160_F7CD97F2 
+X-CRM114-Status: GOOD (  22.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,13 +94,117 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-PiBTdWJqZWN0OiBSZTogW1BBVENIIHY0IDAvNV0gcG1kb21haW46IGNvcmU6IEludHJvZHVjZQ0K
-PiBkZXZpY2Vfc2V0X291dF9iYW5kX3dha2V1cCBhbmQgdXNlIGl0IGluIHVzYg0KPiA+DQo+ID4g
-U29ycnkgZm9yIGFuIGVhcmx5IHBpbmcuIEkgc2VlIHY2LjE3IGlzIHJlbGVhc2VkLiBKdXN0IHdh
-bnQgdG8ga25vdw0KPiA+IHdoZXRoZXIgeW91IHdvdWxkIHBpY2sgdGhpcyB1cCBmb3IgNi4xOC4N
-Cj4gDQo+IElmIHdlIGhhdmUgaGFkIGFub3RoZXIgd2VlaywgdGhlbiB2Ni4xOCBzaG91bGQgaGF2
-ZSB3b3JrZWQuIFRoYXQNCj4gc2FpZCwgSSBwbGFuIHRvIHF1ZXVlIHRoaXMgZm9yIHY2LjE5IGFz
-IHNvb24gYXMgd2UgaGF2ZSB2Ni4xOC1yYzEuDQoNClRoYW5rcyBmb3IgbGV0dGluZyBtZSBrbm93
-LiBBcHByZWNpYXRlIHlvdXIgaGVscC4NCg0KVGhhbmtzLA0KUGVuZy4NCg0KPiANCj4gS2luZCBy
-ZWdhcmRzDQo+IFVmZmUNCg==
+
+
+On 17/09/2025 21:43, Nícolas F. R. A. Prado wrote:
+> This series is based on "Color Pipeline API w/ VKMS" [1]. It reuses the
+> same concept of a color pipeline API but for the post-blend stage
+> instead of pre-blend, by attaching the COLOR_PIPELINE property to the
+> CRTC rather than a plane.
+
+Hi all,
+
+I'm confused about the timing of this series being reviewed.
+Hadn't we agreed in past hackfest on discussing post-blending color API 
+only after we have sorted out pre-blending color properties?
+There are still open questions around color_encoding and color_range, 
+for example...
+How assertive can we be evaluating the post-blending API now?
+
+Best Regards,
+
+Melissa
+
+>
+> The patches in the series first implement the necessary changes in the
+> DRM core to allow for post-blend color pipelines and expose it through
+> the uAPI, and then implement support in both the MediaTek KMS driver and
+> in VKMS.
+>
+> This series has been tested with IGT, with the "Support post-blend color
+> pipeline API" series [2] applied, on top of VKMS, as well as with
+> Weston, with a WIP branch [3], on a MT8195-Tomato Chromebook, where both
+> gamma LUT and CTM color transformations have been simultaneously
+> configured in hardware through the API and validated (test commits for
+> weston at [4] and for kernel at [5]).
+>
+> [1] https://lore.kernel.org/all/20250815035047.3319284-1-alex.hung@amd.com/
+> [2] https://lore.kernel.org/igt-dev/20250912-post-blend-colorops-v1-0-83fc62420cba@collabora.com/T/#t
+> [3] https://gitlab.collabora.com/nfraprado/weston/-/tree/post-blend-colorops?ref_type=heads
+> [4] https://gitlab.collabora.com/nfraprado/weston/-/tree/post-blend-color-pipeline-lut-ctm-test?ref_type=tags
+> [5] https://gitlab.collabora.com/nfraprado/linux/-/tree/debug-ctm-lut-data-post-blend-colorop?ref_type=tags
+>
+> Signed-off-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
+> ---
+> Changes in v2:
+> - Split core DRM changes for post-blend color pipelines from single
+>    commit into smaller changes
+> - Added post-blend color pipeline support in VKMS
+> - Introduced driver cap, and made client cap depend on it (daniels)
+> - Made deprecated color props (GAMMA_LUT, DEGAMMA_LUT, CTM) available as
+>    read-only when post-blend color pipelines are enabled (daniels)
+> - Created colorop_modeset_lock/unlock to commonize locking pattern for
+>    colorops (louis.chauvet)
+> - Added helper for post-blend 1D curve colorop creation
+> - Link to v1: https://lore.kernel.org/r/20250822-mtk-post-blend-color-pipeline-v1-0-a9446d4aca82@collabora.com
+>
+> ---
+> Nícolas F. R. A. Prado (20):
+>        drm/crtc: Add color pipeline to CRTC state
+>        drm/colorop: Allow parenting colorop to CRTC
+>        drm: Factor out common color_pipeline property initialization code
+>        drm/crtc: Add COLOR_PIPELINE property
+>        drm: Introduce DRM_CAP_POST_BLEND_COLOR_PIPELINE
+>        drm: Introduce DRM_CLIENT_CAP_POST_BLEND_COLOR_PIPELINE
+>        drm/atomic: Pass post_blend_color_pipeline client cap to atomic check
+>        drm/atomic: Print the color pipeline as part of the CRTC state print
+>        drm/colorop: Factor out common paths from colorops helpers
+>        drm/colorop: Introduce colorop helpers for crtc
+>        drm/colorop: Export drm_colorop_cleanup() so drivers can extend it
+>        drm/crtc: Track post-blend color pipeline client cap in drm_crtc_state
+>        drm/mediatek: Support post-blend colorops for gamma and ctm
+>        drm/mediatek: ccorr: Support post-blend color pipeline API
+>        drm/mediatek: gamma: Support post-blend color pipeline API
+>        drm/mediatek: Set post-blend color pipeline driver cap
+>        drm/vkms: Rename existing color pipeline helpers to contain "pre_blend"
+>        drm/vkms: Prepare pre_blend_color_transform() for post-blend pipelines
+>        drm/vkms: Introduce support for post-blend color pipeline
+>        drm/vkms: Set post-blend color pipeline driver cap
+>
+>   drivers/gpu/drm/drm_atomic.c              |   9 +-
+>   drivers/gpu/drm/drm_atomic_uapi.c         |  65 +++++++-
+>   drivers/gpu/drm/drm_colorop.c             | 245 ++++++++++++++++++++++++------
+>   drivers/gpu/drm/drm_connector.c           |   1 +
+>   drivers/gpu/drm/drm_crtc.c                |  77 ++++++++++
+>   drivers/gpu/drm/drm_crtc_internal.h       |   6 +
+>   drivers/gpu/drm/drm_ioctl.c               |  12 ++
+>   drivers/gpu/drm/drm_mode_object.c         |   9 ++
+>   drivers/gpu/drm/drm_plane.c               |  36 +----
+>   drivers/gpu/drm/mediatek/mtk_crtc.c       | 208 ++++++++++++++++++++++++-
+>   drivers/gpu/drm/mediatek/mtk_ddp_comp.c   |   6 +-
+>   drivers/gpu/drm/mediatek/mtk_ddp_comp.h   |   2 +
+>   drivers/gpu/drm/mediatek/mtk_disp_ccorr.c | 100 ++++++++++--
+>   drivers/gpu/drm/mediatek/mtk_disp_drv.h   |   6 +-
+>   drivers/gpu/drm/mediatek/mtk_disp_gamma.c | 107 ++++++++++---
+>   drivers/gpu/drm/mediatek/mtk_drm_drv.c    |   3 +-
+>   drivers/gpu/drm/vkms/vkms_colorop.c       | 106 ++++++++++++-
+>   drivers/gpu/drm/vkms/vkms_composer.c      |  13 +-
+>   drivers/gpu/drm/vkms/vkms_crtc.c          |   1 +
+>   drivers/gpu/drm/vkms/vkms_drv.c           |   3 +-
+>   drivers/gpu/drm/vkms/vkms_drv.h           |   3 +-
+>   drivers/gpu/drm/vkms/vkms_plane.c         |   2 +-
+>   include/drm/drm_atomic.h                  |  20 +++
+>   include/drm/drm_atomic_uapi.h             |   2 +
+>   include/drm/drm_colorop.h                 |  22 ++-
+>   include/drm/drm_crtc.h                    |  27 ++++
+>   include/drm/drm_drv.h                     |   6 +
+>   include/drm/drm_file.h                    |   7 +
+>   include/uapi/drm/drm.h                    |  25 +++
+>   29 files changed, 994 insertions(+), 135 deletions(-)
+> ---
+> base-commit: 342e5ee08797cde0e8af30e6110a5dc1cba61e9c
+> change-id: 20250730-mtk-post-blend-color-pipeline-498e1a9cc53e
+>
+> Best regards,
+
 
