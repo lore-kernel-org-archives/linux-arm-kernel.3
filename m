@@ -4,87 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1EE82CAC5B5
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 11:37:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A17CCAC5B5
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 29 Sep 2025 11:38:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=weWdXbQxCnMJeHS7B7BXqXEXqPpjTdZBAI+JQlcZ3Pc=; b=K3sO/iUl3Np/kVPy7+MYrJrrH1
-	e21DZUB6PlqdzF2JWHUEqkycWKusdyv0W84LajOxtn6WrRMvhn3lLsiZQN9a0XEy3SRcxha1O1WUU
-	56NVhf6TlTybriAWhtqJ/tZkUhaMUETihhRCB25sA8MUsiJh5Bo+TaUycShyq80uo7ltyT/J3uoPn
-	OSnZjsY/2fPZEHjGGrITBWRUyLsFhSDROcEdotEFTee4OxgmB3XrG7HKWcpIEZaDrnBnE669Kj3tw
-	6qFnyTRrQCFQDne3Nbk6lgLfWsTPwTuiR6SelMcamN/t1MH2GZsUEfHkGSxRaUHHJtA7LjqOMIE9M
-	DunhBOsw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uRFGCABCLXwEyWrlsO0Qq+AzjRnRQjbLGashvrpUfXo=; b=deumGKZQoiKb05Ss0VAJlZa2FN
+	+Vtj8W2jkbV06GrM9yX4BW2doJOI+k82qlPWiUSlHHNoE8DfkBf/eO4wJ7NYf0/e/J7nnxy2u5p0+
+	U7YpUoQka7IVcA5c1VqHZ1qGavuZkvGv4L4mUHebXJ0ZlXLfdtuTdsWqsnL3f8xCaJg+wSfi151B8
+	1xDb4e1LhudOc6U4hUmONUquq70BD5+FjpJ5n3GWtUfXa1iXNTAt+C+S2KkjHhyt5sdulu6RbmNUr
+	zf1gCS/XYVdDd4RnSsEw1DMBt6ZzrZSbX7OGK2rghTM7Xi+bZlMi1N5eGekR1U8yMtqSDva9UAwSk
+	h27D/K1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3CCV-00000002MDb-2zaa;
-	Mon, 29 Sep 2025 11:37:51 +0000
-Received: from mail-ua1-f48.google.com ([209.85.222.48])
+	id 1v3CCx-00000002MJl-0Qga;
+	Mon, 29 Sep 2025 11:38:19 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3CCT-00000002MDE-0QOb
+	id 1v3CCu-00000002MII-2umC
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 29 Sep 2025 11:37:50 +0000
-Received: by mail-ua1-f48.google.com with SMTP id a1e0cc1a2514c-90f6d66e96dso1096656241.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 04:37:48 -0700 (PDT)
+	Mon, 29 Sep 2025 11:38:17 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-46e2e6a708fso29233755e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 04:38:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1759145894; x=1759750694; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=uRFGCABCLXwEyWrlsO0Qq+AzjRnRQjbLGashvrpUfXo=;
+        b=R+qLQxw09ofZqWz4EctseoW0UqrQlBB7k4ez7dLrF5csjR8HDA14afva1tZC9OjvTy
+         tMhulU7kAlJPOM/AC5imiGf3yiRyPEtcu8G9xenALf6umKvgybH2PeTVqkuqFwRMFZmB
+         WWTfBDTzYAqhlxmR9SYoRJ+fQWeuiqgshX4JOD4fLIbIluZ81NqIVcbMfV8sAlyXb6jq
+         d/7y+vh5iqYRj/Bf8oODsS/eUK800OvMciGKe3nTmyxv4LUzkdyxXnKYQwNh7qk/n8zh
+         7A9cvKct/EbmF7TUmD/fkxxwhXQntLEQFfvzWDCjhmlhdyiHt2PbhMO7/bu1QE7WYT7s
+         uHHw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759145868; x=1759750668;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=weWdXbQxCnMJeHS7B7BXqXEXqPpjTdZBAI+JQlcZ3Pc=;
-        b=vTUDvi1WOeQ8oap5dmLycy5WCE4ghYEDTKyZBuNKhUU4otWUIgorfrPZkW2FwNi937
-         MurSboAlOnPFfFoLsqjj+YsAaI0XCtNGrF9+x0jUrRh5S3kW8uUgy7c0Fwge2SGheESI
-         iwoj8+xM8vrcrYEtpQU99PaDvyfJyMNGnJGfK7B9UEOE8sJIY0nrLgBzhWUpici/Owce
-         nHpdybSjPM3/947h/JUyiJtbCDJPvkjZLGmGSUP8yphIM2JlXDeg7ptUh8RvDqpmqQt1
-         nqurNcZQ8ma1NaXvxbM/3azjUiVfiZYMftHbqydIm8PZ8HT5/WeIqVrsPz2oJNy6tZd1
-         Llwg==
-X-Forwarded-Encrypted: i=1; AJvYcCUouD8luqHQ4KM7BOWdfkhFO4H9QA8H6mrj4UjSE9qtk86uaBKDgDY1v132V8zo3O67OewdzeCvpD7V09m9cBD6@lists.infradead.org
-X-Gm-Message-State: AOJu0YwtTd2ROvdXve2de87g6M89uFnFQ8DUO33GYmdBgkbBYt0Jq6IV
-	/kRjc/v7DuvRaLS6IoFG0NWBa38xDQN/TanXwwnzWy7Ok3+tSIW1gD0CorP5vpb6
-X-Gm-Gg: ASbGncu8m2YSZQRg8m+Glumt+wH8Imb0dgEcp3omiBkB5pbr7gZpQ0XMgP12hEbJFCR
-	c5sYIUh7h23iq/xQNu065QiCVNL0utSKZyzuwwesC8Y0JzIa6URxk9QS1Y6V2CmcWGpcPPQ3A++
-	X+8XHS3Kv+zAwVf4JMcxs9L+HCf81MbBh11NTVw+jE2/qfIi9ywICBaH3gwQd17r2Vi0leRkYHF
-	IVDZCpcotYtnIDL8vTGrUKUiPEPr69CCxZZ4Da2zByevDAt/4taxWItgKKtjCBilY7ArsDpZSG4
-	Bfkvs70i+rOACD3RqILX7Sd5O3+SeQ/BZdBd3gPK5Q7sKlwM0yDYFNSHhk8kAZVZW/zWW1TMGvV
-	aOIFUV+vTSQZEffSr4f/rXhdA8b/lznoyvFVwNiECU7cy05dHlgq58P1ycdF/mYmN
-X-Google-Smtp-Source: AGHT+IEu+nor83SWaU0qFS0vN2K0VasgohNQSw2fL/0UnIO9W0GXTEU3idZ1QR459UlG93VsUjFPxw==
-X-Received: by 2002:a05:6102:4191:b0:58d:1ac7:a162 with SMTP id ada2fe7eead31-5acd008aab2mr6221346137.29.1759145867659;
-        Mon, 29 Sep 2025 04:37:47 -0700 (PDT)
-Received: from mail-vk1-f171.google.com (mail-vk1-f171.google.com. [209.85.221.171])
-        by smtp.gmail.com with ESMTPSA id a1e0cc1a2514c-916d9bb7a60sm2253036241.17.2025.09.29.04.37.47
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 29 Sep 2025 04:37:47 -0700 (PDT)
-Received: by mail-vk1-f171.google.com with SMTP id 71dfb90a1353d-54bc04b9d07so2000587e0c.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 04:37:47 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCUIM5k/O7Ey3zMPneYmPPsfHJoAyp/YoWcAolGS1gSV2TRmsRjdIP48YNfU1/17hgdLw7KFDmuQuSLD8qvXyXPQ@lists.infradead.org
-X-Received: by 2002:a05:6122:7cf:b0:544:8d16:4541 with SMTP id
- 71dfb90a1353d-54bea102e5fmr5636901e0c.7.1759145866822; Mon, 29 Sep 2025
- 04:37:46 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1759145894; x=1759750694;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=uRFGCABCLXwEyWrlsO0Qq+AzjRnRQjbLGashvrpUfXo=;
+        b=HkCpWKetFqPr0DkjUyfsEiTRtLgI7S18UwdYXjV27hLm/LE3kx1PxSkybfLfq/cX00
+         8Z707c+eiuFg7/IahpbOirHl6WVbsERWp9hhEmKC0zi0uX2GAars++VyuE8ht+CLOHE/
+         0N5hfPtGn20x5Y2EoMwXIoJRKkDlxmCQwYigwJAijuXuz+YIAbG5uf7yywm9jx/Np9mc
+         MXTOZT5XOIciZGSNLtgT9pqBA5hp5yrjrp2BSTE7tPhlySMEbe78jfAj9GjDdlnE89v/
+         BOUscMe+/gXFlnLnEiyx2UriBGuXUzvtKFdSee50ewqKn6w2do2khoC3S+p7k+yAHKdH
+         VRYw==
+X-Forwarded-Encrypted: i=1; AJvYcCWdHIyehOcAH3XM+oioeyTa7zPJG2RChAYPBoAUZ2UF85sFjQ9bSt7tUsppWxcmW1EUadX9aZUTvC/GsS2WZ9zN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyh1z2AZ9qLyaBwuU3t+C1sSdK3nQL/KPlDV6xgJk9NvF+Nackl
+	aSEaRRKetZyHZs9FxxdvrThZCP8lxvdEUHbiyPWpQJAFWeVidye1kEYr
+X-Gm-Gg: ASbGncsPgmLhnb2UZNs57vizPcJOD//PA7+VlVvgdeXrDh3l2B4qBtbpYtHZZCqH6bp
+	+tvmAdNw2+dBI4d1joVkC0IuW7odZzQWFxb34OBSNfu9sSiWJjmZ2HDba5sls2nyPVPcTurL99+
+	7GHRmnkLoL/I/C4vTzCbeniEwzDQChqvc5gc7gkf3R+SNU7S6zubTT3cTWT0CinJ0FgOeBvm827
+	YYdEfZ17jz85jagXI88YnVeVW6jHDh0aTrAjdvPdTdKa80+pdnJNMmfYUi44MveFLQsy/5OXMDX
+	EJ+9KLuv57ymxNGVCD4wpU1q+xxtOdkWm/kUT5jzeDm+nzlqnPwuiBnd+bhcBgGsY0KOmdsXQEF
+	nuIw0msfFWs3ItNV2sqsZtdZxbFzqQ/O8BJN3vqi55Kb9rOIysslEXhIWFq9fMV4M10dxDoegVy
+	iWwggnoCQcIf1YAZ+G
+X-Google-Smtp-Source: AGHT+IGWicOdrTmQIVdHUSxqrzMHPdo3nASeyojQE1e0iNlPBEVxWIA083+LVJHlm20d4gbGv51hSg==
+X-Received: by 2002:a05:600c:8289:b0:46e:4a2b:d351 with SMTP id 5b1f17b1804b1-46e4a2bd52amr57340655e9.28.1759145894386;
+        Mon, 29 Sep 2025 04:38:14 -0700 (PDT)
+Received: from Ansuel-XPS24 (host-95-249-236-54.retail.telecomitalia.it. [95.249.236.54])
+        by smtp.googlemail.com with ESMTPSA id 5b1f17b1804b1-46e56f53596sm9502465e9.7.2025.09.29.04.38.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 29 Sep 2025 04:38:13 -0700 (PDT)
+From: Christian Marangi <ansuelsmth@gmail.com>
+To: Ryder Lee <ryder.lee@mediatek.com>,
+	Jianjun Wang <jianjun.wang@mediatek.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Christian Marangi <ansuelsmth@gmail.com>,
+	linux-pci@vger.kernel.org,
+	linux-mediatek@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v4 0/5] PCI: mediatek: add support AN7583 + YAML rework
+Date: Mon, 29 Sep 2025 13:37:59 +0200
+Message-ID: <20250929113806.2484-1-ansuelsmth@gmail.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-References: <20250810122125.792966-1-claudiu.beznea.uj@bp.renesas.com> <20250810122125.792966-4-claudiu.beznea.uj@bp.renesas.com>
-In-Reply-To: <20250810122125.792966-4-claudiu.beznea.uj@bp.renesas.com>
-From: Geert Uytterhoeven <geert@linux-m68k.org>
-Date: Mon, 29 Sep 2025 13:37:34 +0200
-X-Gmail-Original-Message-ID: <CAMuHMdX5zSX5URg4vY3Mm8zo9ghE9cTBOMg8ozLZJ2QevF=7uQ@mail.gmail.com>
-X-Gm-Features: AS18NWCeuTWOa-ri5Qlkxi0ZocAYLNnINdMinkM81tK5_mT4fKgbcdtjVA380a0
-Message-ID: <CAMuHMdX5zSX5URg4vY3Mm8zo9ghE9cTBOMg8ozLZJ2QevF=7uQ@mail.gmail.com>
-Subject: Re: [PATCH v4 3/4] arm64: dts: renesas: r9a08g045: Add TSU node
-To: Claudiu <claudiu.beznea@tuxon.dev>
-Cc: rafael@kernel.org, daniel.lezcano@linaro.org, rui.zhang@intel.com, 
-	lukasz.luba@arm.com, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
-	magnus.damm@gmail.com, p.zabel@pengutronix.de, linux-pm@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	niklas.soderlund@ragnatech.se, 
-	Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_043749_142942_01ED39A3 
-X-CRM114-Status: GOOD (  18.79  )
+X-CRM114-CacheID: sfid-20250929_043816_742608_0453256F 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,26 +109,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, 10 Aug 2025 at 15:02, Claudiu <claudiu.beznea@tuxon.dev> wrote:
-> From: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
->
-> Add TSU node along with thermal zones and keep it enabled in the SoC DTSI.
-> The temperature reported by the TSU can only be read through channel 8 of
-> the ADC. Therefore, enable the ADC by default.
->
-> Reviewed-by: Geert Uytterhoeven <geert+renesas@glider.be>
-> Signed-off-by: Claudiu Beznea <claudiu.beznea.uj@bp.renesas.com>
+This little series convert the PCIe GEN2 Documentation to YAML schema
+and adds support for Airoha AN7583 GEN2 PCIe Controller.
 
-Thanks, will queue in renesas-devel for v6.19.
+Changes v4:
+- Additional fix/improvement for YAML conversion
+- Add review tag
+- Fix wording on hifsys patch
+- Rework PCI driver to flags and improve PBus logic
+Changes v3:
+- Rework patch 1 to drop syscon compatible
+Changes v2:
+- Add cover letter
+- Describe skip_pcie_rstb variable
+- Fix hifsys schema (missing syscon)
+- Address comments on the YAML schema for PCIe GEN2
+- Keep alphabetical order for AN7583
 
-Gr{oetje,eeting}s,
+Christian Marangi (5):
+  ARM: dts: mediatek: drop wrong syscon hifsys compatible for
+    MT2701/7623
+  dt-bindings: PCI: mediatek: Convert to YAML schema
+  dt-bindings: PCI: mediatek: Add support for Airoha AN7583
+  PCI: mediatek: convert bool to single flags entry and bitmap
+  PCI: mediatek: add support for Airoha AN7583 SoC
 
-                        Geert
+ .../bindings/pci/mediatek-pcie-mt7623.yaml    | 164 +++++++
+ .../devicetree/bindings/pci/mediatek-pcie.txt | 289 ------------
+ .../bindings/pci/mediatek-pcie.yaml           | 428 ++++++++++++++++++
+ arch/arm/boot/dts/mediatek/mt2701.dtsi        |   2 +-
+ arch/arm/boot/dts/mediatek/mt7623.dtsi        |   3 +-
+ drivers/pci/controller/pcie-mediatek.c        | 120 +++--
+ 6 files changed, 680 insertions(+), 326 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/pci/mediatek-pcie-mt7623.yaml
+ delete mode 100644 Documentation/devicetree/bindings/pci/mediatek-pcie.txt
+ create mode 100644 Documentation/devicetree/bindings/pci/mediatek-pcie.yaml
 
 -- 
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+2.51.0
 
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-                                -- Linus Torvalds
 
