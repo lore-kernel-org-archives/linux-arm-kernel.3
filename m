@@ -4,177 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A163CAC5B9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 09:10:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DFAD3CAC5B9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 09:14:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TaUSVDXfeA0z+P4HFmBqG/xtukkxfvqgZRI6/Fu9gKo=; b=flgGgj9f796Bza7Fl1CaES5/d7
-	+RdIWF0pg2Y4m+Wb78vg/sxuUmRU0YP7ZWdTyoYVBfEHFsQf8PbQMAXMyDyh7JfJvM46SPya42B/6
-	zrMinM6dIFa/O88HVldx897S3fKRielp8yr1LaVh96bhFZdT/0XSgey3sUUckYg7DqBX5wlgNbU3R
-	qDf5El9kQ0zsxK6GIv1EMAhLtn13ilA96g8XP28oqHYlVBJb3ej6FIpz5h1LiAaULv6aF0iHZ17zN
-	8PA/BAiJZNgoZiW6KpGAi/2ES8qrhFNr4mEY+sH7tt/oZs/2/3mdq/3MATATtxAlVgMgGy/eVQv9p
-	eKGtkX1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Ovc33eB7wSLHPez3uqwzpvXJejZ0kZtOPk8MV/jKdXE=; b=RBnwDy0TqL4R8dRjoX1I3cy1ST
+	QKDcXMDCpEswVlE1afgyJcMEF3LRFCoqekUKUxrSpJ4tY998g6ZJQ8esyxI0Ag9k8sT1kDkylFzNL
+	Tlx51TlLBNYaWuPDFB3dSlqDRg0bPTznW6Ab85efP5wvq84mWsJSoYwIkS2h7Yy3LDH2p3Nk6FQWe
+	rmTxJZkL1BvSr6zho4/gEzdDaSfIRR3E7pBifyxleJ/aRqyEcfCFU5qvyndOaKMf+5bJEElmpIvy5
+	r5wiIpBxRpQuz2XXhXoSXgAbQXzFOIcil3E49BCBe7NJyz6SXXT8tfd6Y0Gmm1mhOTSBymu3Xoqvu
+	QsOphD9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3WN9-00000004kBI-42Yp;
-	Tue, 30 Sep 2025 09:10:11 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1v3WRF-00000004l1l-1k1Q;
+	Tue, 30 Sep 2025 09:14:25 +0000
+Received: from mail-m15580.qiye.163.com ([101.71.155.80])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3WN7-00000004k9H-2BRF
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Sep 2025 09:10:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=fXiWMoyiWaBFSI51P0mMnGxu54iFHc+1+FOb5k8ndTkh+31vVGO8vTIIHXQP6Jz3WdiTjW5QxkY6syjPOoHXra2pGsdEMhfIiMaOUlPbnz9PNKU/M6HwN+6zYE5u1p8eWztZjn98E3Lv1o7gQKkpP/l29SqwkWmXZMlZFohirs0RI1NyapZRAy2UUOcbzx3kxhBoPvALCnHBTIzf++w6DywymweC5UuZGrCgn2Uv/Qv4tBGZmYozkaX9DJO+7qo2MBAw2n6I/icUhVtPnj8YDMPFnAznnVdwhWkN/OGY/Z6w3YFuIshiEQ1hXo9wHBg5xc9BXJz6P/t9G0MMwdoyug==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=TaUSVDXfeA0z+P4HFmBqG/xtukkxfvqgZRI6/Fu9gKo=;
- b=MolN/rogB/J9X7oSilx5gbBa86b7hKI/9nhjImR2FKp6gv1DCNyWZeKx6oHwQAjiwoN95ZcqJ9lBGwhMi2xouECYWJTsfsIQmK06DyQ+qIruRCieywU/W4aXQhc36QGt7udgtEL/AXmSOab1BlVpD8hWOKLrvboD6IqaQLpr+8qqx3AUopYssRg9XTa0bWT/JsON5CJiwWg6EnHk/ePgJYAj0D9WPceOfCsj5NCIw/twImjtAY33DXgKGNjwNIPLEhE6/F0CxAFQWs5XxLJ+IHanrScNjJEFArS+wJnxl5jb4aj5ZoZWHFl1KAVg5N24vPf+jMxI6rsuorLoakR3Wg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
- dkim=pass header.d=phytec.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=TaUSVDXfeA0z+P4HFmBqG/xtukkxfvqgZRI6/Fu9gKo=;
- b=sv1+34Zhns6oVqdzwepq3ObKeEnGsG/Mml9N7f09ldW9aBiA1MdlawX3oJh+ohRuXdUdj2MGGQVOIqXPcAOm7e4urxLqzxwTftjiSYol5qscUxhMGPxCGHVR2lhqNwOgWUivZ6qKXQDjVaKR8Gkfwy5Ffe7W9PsucPaHetRAa9nyU9cig6/R3t3ipG0kMvfxQZ7oWtfwpRNvxg0fpIKG4ssWVKrCh/kMslRAcoDatL0ZanBjjoj3yoxong3fnZ3U7MvOUYY3Ziu14ctN499LW/5Bls+BUQBLlte7tdXdRRJQfjMsYn0TYqQ4Wt44giCAq8iym/NPLIqzm0OxWD39bg==
-Received: from DB9P195MB1228.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:297::14)
- by DU0P195MB2174.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:473::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.17; Tue, 30 Sep
- 2025 09:09:59 +0000
-Received: from DB9P195MB1228.EURP195.PROD.OUTLOOK.COM
- ([fe80::389e:cc69:1eab:3c56]) by DB9P195MB1228.EURP195.PROD.OUTLOOK.COM
- ([fe80::389e:cc69:1eab:3c56%4]) with mapi id 15.20.9160.015; Tue, 30 Sep 2025
- 09:09:59 +0000
-From: Teresa Remmet <t.remmet@phytec.de>
-To: Janine Hagemann <j.hagemann@phytec.de>, "kernel@pengutronix.de"
-	<kernel@pengutronix.de>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>, "robh@kernel.org"
-	<robh@kernel.org>, "shawnguo@kernel.org" <shawnguo@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, Jan Remmet <j.remmet@phytec.de>
-CC: "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>
-Subject: Re: [PATCH 6/6] arm64: dts: imx8mm-phyboard-polis-peb-av-10: Fix
- audio codec reset pin ctl
-Thread-Topic: [PATCH 6/6] arm64: dts: imx8mm-phyboard-polis-peb-av-10: Fix
- audio codec reset pin ctl
-Thread-Index: AQHcMdYu+fhehhgisEu8OdNal+aIhLSrcFGA
-Date: Tue, 30 Sep 2025 09:09:59 +0000
-Message-ID: <e4125165e213e476eb4d226f0a4c943fddad7f56.camel@phytec.de>
-References: <20250930-wip-j-remmet-phytec-de-bspimx8m-3801_peb-av-10_with_ac209-v1-0-d5d03ccbfca1@phytec.de>
-	 <20250930-wip-j-remmet-phytec-de-bspimx8m-3801_peb-av-10_with_ac209-v1-6-d5d03ccbfca1@phytec.de>
-In-Reply-To: <20250930-wip-j-remmet-phytec-de-bspimx8m-3801_peb-av-10_with_ac209-v1-6-d5d03ccbfca1@phytec.de>
-Accept-Language: de-DE, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=phytec.de;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DB9P195MB1228:EE_|DU0P195MB2174:EE_
-x-ms-office365-filtering-correlation-id: b656ff39-98ec-4625-a549-08de000121f7
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024|38070700021;
-x-microsoft-antispam-message-info: =?utf-8?B?RHd5Vkg1VzVEME1xaDZ4am84K1h0VVcwa0ppQjdUV0dQRnhOQXRadUdCWDNN?=
- =?utf-8?B?czJQVlBaSlpvWHBOZ0tPRk16T0pHYlVERzBEcjBEYnhCdkRzaWJ3VTVzRWRt?=
- =?utf-8?B?R3ZXeFhNZEIrWXRKZ29DeTBLSmk1c0k2eW1EQXBkL1dUSFhVc1djcmNSQXRt?=
- =?utf-8?B?VzVReU9zYld4bDZhMVZpTWFJVTcrKytYM0V4WWovUHUrK2prcjFZMjlWYXFD?=
- =?utf-8?B?YTFpeHBFL3dBY01MMWNzZ3BCR2hYaEtVU1VpMS9pN05IMkRZUk9QOE1ZL1Bz?=
- =?utf-8?B?RnhIdUZ5akZRb2NmaDdZOW13cER0RDRScVVwR20xRDJvS2cza2s2b1lzOEdP?=
- =?utf-8?B?a0RNcEtLMCthRGFQQ2hBalRzZUtZQ09NT0VlSkx4bzRGNElnV2NZdmlxcWFK?=
- =?utf-8?B?V0NJb1VOVWx3cldXbmdaVlMwMFhLVmZiVE1hNkRab29KbHYyc3pmT05LdXQw?=
- =?utf-8?B?eHNaamxYSGY0dTRQaVpxNTZtYnlvaVd1aTVMT0NHek5mR21SbUdlZnVhNm1G?=
- =?utf-8?B?YWdlRkhwMld5YjBQOEovclk4TjhjdFI5bm9nQ2poSU9XZW5aS1NUL0JONTds?=
- =?utf-8?B?d1pPNndERVJvOVRCdHZZS0xpNXFZSk9RY2JIZWlKSS9OTFFLNXo2eEtMVU4r?=
- =?utf-8?B?RXNrMzU1SEtrVnV5OFNmZXNZRUI3MktRZ2R1Sm5zeHVXby9sVFV3QWZ3Wjhl?=
- =?utf-8?B?bzdpaitCbmNEU2ZMZGJCU25oMjBJc1NzSGg0bHZoVDIrWWpRay9ONkdTN2Vs?=
- =?utf-8?B?UTUwRUhOOGlPeTlKaFlUdFJ0K1lvVTh1MHlDdnpCYnh4Q1ROWStLbUdJS1E5?=
- =?utf-8?B?RmpFYW8xMnlJWEt3MllQcEgyc0MrSnU2ZHExQWY2aUk3M1kwWkduR1A1OEY4?=
- =?utf-8?B?bDdVVG1vR0FQeHNBek1zMWszQkVWMXBHQ1B2VDFsWWl1OGhNenErdUpHY1BV?=
- =?utf-8?B?TGNBV1A2cndnc3B4N0pJQ3JnOHZ6b2dUYXQwOVlBRWN6MFpFMnJlTUpkc1Js?=
- =?utf-8?B?MFI2QTM3c0NYem5BRmwxMG1vdFZrKzlSbWVRcmJWZW9LL3BpK0VJUXVRQjBB?=
- =?utf-8?B?RXA4WTFMR04wVzdCbDdWOWdML2wyTnRRTndXOHduSDRyOXIzNEpzdFk5dmxK?=
- =?utf-8?B?QjVBQUpsWFdiRXpQemlDVHhwT3paWXBXWGwwTTFNQ3NBMWl4RUxtNzhDK1hi?=
- =?utf-8?B?UG9reDRkNXVUVWJCaUxKR0orUForempXaml2NmFCYndYNVd6SHBKRVBXSXRC?=
- =?utf-8?B?VzJDNkQ3UERGcXJ0Y3FTenZCRjI5MFR1SUsrV2FpelBkemFWZ2xzU2ZpL3dr?=
- =?utf-8?B?UWN6SjR0L1luSURZUnFZWGREblduTEVBNHlZS09IcHE0U0JQTzlZazhrY2o0?=
- =?utf-8?B?Z09pZTZTNXBaMjJhdk9IRjg3UXZFU0xuOW90dEJBTTZUS2pBdU5hT1FtYm1r?=
- =?utf-8?B?bTdqdjk2eGJLTnltb2c5OTJOM1pXM0p4V0czdjRYTEJhTXZSbmlvK0kxQ3ZD?=
- =?utf-8?B?bit6TFljYnBNZ0dOeTRmS2R3QytJaERaRVFsVkVSa0NOQU93b1lJWmxXcUJi?=
- =?utf-8?B?ZGpEZ0R5UkE2Y2JOL2pJMzVMRFZRSThhaTJrSEdUcndkdDZpVUw3L0FlSEtY?=
- =?utf-8?B?dHJKKzBMeW5iQVp0N0F3Z0J0dklwM2Q1WHF0N1BxV215V0kvd3MvMHZVeVFu?=
- =?utf-8?B?Um1nN050ZEVQL3JEZnpDZGxRajZ3VEZ1T003RVFFMHZtQVlIWVA2bGJ2cjFr?=
- =?utf-8?B?SmdPcHRSQ0tRSFd3enZUdlZWb0M4ZWNMTFNvb3pIUHhXditaWlB6Lys0RFlW?=
- =?utf-8?B?SzdybEpOSUdSZ3pHeG9qL1N1MXBHaC9tM3l5VXBZMHlFTVBmK2hCM2pUZTdQ?=
- =?utf-8?B?M241R2ZOOUZlK2x0RnRwSkxEWmtWUXRKNEFvUndnNjVyOXZEcnFoQXdRU0h0?=
- =?utf-8?B?b2FGUjY3WGYrbmJ1cktKTzQzVFlCY0ZtUitpVkVDVjJlcFB0UmNIRU51TkR1?=
- =?utf-8?B?azAwcjBhRE4rZmdOWDBYVWlIMEhrREtzTCt4NnJNUUxBdjFWTzY0RmNySTBs?=
- =?utf-8?Q?rSF621?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9P195MB1228.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?NHMwQkx3d1R1K1V4VWF4dmM1U0djS01xUTZxTm5UWnUxTUdvUDdmREpRQ0ht?=
- =?utf-8?B?VjZUdlFKcndRRWdzR3NiYVJsWjQ0d3BIR2JsVlNIamI4bU1iMVFkUk5MeVF2?=
- =?utf-8?B?R0VGWGF5NzJ2MWhFQVVMaEJGRytWODR5Q3FYWWZPTHZITy8wSHVKNXdlRjZj?=
- =?utf-8?B?WGpZcVZXOVFYWFVYL2x6N1FJOWcrbzQxSythZ3JBMUVBOTdXaWo4cUl4WGRa?=
- =?utf-8?B?UWdNQ3VOWUlhNkR5Um1TSzRuKzJHZjdPM1k1QjRJVWJ6VzNpaVRucW1kWEgw?=
- =?utf-8?B?dHJ2c1g0RTY4OWl4U3Fadk5uUU44UUJ3eXV2RzlJQ29JSW4vYjVaYlVKM1dy?=
- =?utf-8?B?L1orbG44TG9LZThkVFdpRVlMdit5NkErK0hhcFd3d2U0WTMrR2RmVnVITm93?=
- =?utf-8?B?ZjVHVkFQU0tJUWVLbWxUMjFXcUEzQytONjBaNzJIcGQ2NVhNV2ZCbXZ0MWlL?=
- =?utf-8?B?djkvNTBkQjluZzlYRjRuNEt3bWw3T0lLekN1MVNkRU9zWEJxa3E4VnhWeTBQ?=
- =?utf-8?B?MmxpQkQ5WWc3bWtpbm9aTE9QS1dKY0RuYVJSbllKQ0ZPNkU1dm1sQzJmWWNM?=
- =?utf-8?B?ekdJWGZPamhaa1E0TW5VbmJmMkZyaFlndUs4Y3hlOUkvUTRpazU1bjNUOFZr?=
- =?utf-8?B?NG84OFlSUmlVL2dOcjltV0wyejF0a2VET25kRzduRDJUSXlDZnBUYXFiNmpG?=
- =?utf-8?B?ZVgwTGhBc1NHV1pUS0xPVG0vTGMxNnhNRnVYbjFsYm04VEQ1Y1RzM2l1OTNK?=
- =?utf-8?B?NHZFaXFGbUNBaUlYRFZiT3VPYUdtRll4d3VHRVZvR09iZk5EWXNTYnhkRG0r?=
- =?utf-8?B?Y2EvenJGb2lHUUtaNUw5dUdsaGsyaUo5dGJFNkt6dU56LzNubzB3SG1hWGNB?=
- =?utf-8?B?blpNYTFvcVpBR0t1amFtdkw4UEtnYnkvL2tiWFppQTB4bk16L1JSZVNpK0xr?=
- =?utf-8?B?WDJvM3dhbE9IQnRFVE1lRURnTWVjOG5HR0hQQS9wekhHOVVEOUY3c2tNWmRk?=
- =?utf-8?B?ckxJVUNJVHZEc0JIVm5aNlJ0cjltSGxlRXhwdmdFRjBETGdDWFpNZm9vNGtJ?=
- =?utf-8?B?TW5YUm5HcmNzaHYxd3Ryak40MENhTGRqZDNyKzBtd083UmZmSUFEOWUzWmFv?=
- =?utf-8?B?NnBkNWNkOWJ4b2pvMlp3Vnl4NjJESUpTSS9WcmY5TzlMTUlvTXppRVB3TGRw?=
- =?utf-8?B?UDZyYU9mV1QvL2Z1OXZXbVBHblFyMjdXc0VhYks3d2VwTEdNczhQM3dsT0tN?=
- =?utf-8?B?M2pUMFo5UDRueGpGQWVUYllVenhNWmRqRXRNRkcrb3dRSDFnVCtCQ2dKdWRj?=
- =?utf-8?B?VWhRV1F4RFhJTEIvV1NobVhPenJNcHUrRkl4RXdwaWJ5LzVxVUJ1NXJoa2Vu?=
- =?utf-8?B?MHRhbU54T01NaytxRXJwSktxcG11TmNKNm9RSE1UM3BIL2JvUk0ybGxVTU5Q?=
- =?utf-8?B?OWliaExMYjl6Vjg4cUFTcHlYNnR5RHNLYUVCT1JYSGNESDQ0eHhMd2R4Rlhk?=
- =?utf-8?B?eDIxbnlESE5UWHlQYzF0RkJ3eWliZElpMlUzZ3RTM213bjZqcXhwbkVzNWlz?=
- =?utf-8?B?UmV0U1dQSFFSM3JWeVhTc1laYThEVGRUOElOcTd3U3VTVFkxVllWVXcyUmdQ?=
- =?utf-8?B?Mk5JNUMwVEp5VnBFb2txdEZUdS9LM3ZLQWFUSjdyOUF1c3VJUGJzOVFRTWhI?=
- =?utf-8?B?RXpQd3Brbjh0TDUvcjFaUEZGZDU0bENZemNqMVZFb2dYd0FqYitqVSswRDBT?=
- =?utf-8?B?aisyUDVkYXdZMkJJZFRiaDhUZDEzd0lsVWlEUzUrcndReE1uRGJwRnluZTUv?=
- =?utf-8?B?b25pdTdyR1cwd0hVNGMzN09HYzRab0gxTHNVME9tZ1dwb2ROdmIxVVhVSTVJ?=
- =?utf-8?B?SnFyc2c5TXBoV2xndGdlWDdkVWtScTNrWWpMM2JmTjRZQWF6NXZCL2FFa05W?=
- =?utf-8?B?ZVgzV0dTTTVXemFLUk9MYkVuUWlrdmFueGFBS3UrQlc5RWgydVlvc2MyR0dz?=
- =?utf-8?B?VjZkUGljWUpCSURuMlYvb3J5VVdBTUxNanZVM0c4UDkzZFZTUzRHV0pzKzRT?=
- =?utf-8?B?a05jTEJTaDNpSXdSVG9odGdHMW9ZZnFzNER6aWI2VjA0U1hPaDFRTUQzcHJ2?=
- =?utf-8?Q?S3BqiYA5ns/i/rciO8QyP4io5?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <80511B876DE4D641A29639408301E800@EURP195.PROD.OUTLOOK.COM>
-Content-Transfer-Encoding: base64
+	id 1v3WRB-00000004kwu-2644;
+	Tue, 30 Sep 2025 09:14:23 +0000
+Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 2493eb107;
+	Tue, 30 Sep 2025 17:14:09 +0800 (GMT+08:00)
+From: Damon Ding <damon.ding@rock-chips.com>
+To: andrzej.hajda@intel.com,
+	neil.armstrong@linaro.org,
+	rfoss@kernel.org
+Cc: Laurent.pinchart@ideasonboard.com,
+	jonas@kwiboo.se,
+	jernej.skrabec@gmail.com,
+	maarten.lankhorst@linux.intel.com,
+	mripard@kernel.org,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	shawnguo@kernel.org,
+	s.hauer@pengutronix.de,
+	kernel@pengutronix.de,
+	festevam@gmail.com,
+	inki.dae@samsung.com,
+	sw0312.kim@samsung.com,
+	kyungmin.park@samsung.com,
+	krzk@kernel.org,
+	alim.akhtar@samsung.com,
+	jingoohan1@gmail.com,
+	p.zabel@pengutronix.de,
+	hjc@rock-chips.com,
+	heiko@sntech.de,
+	andy.yan@rock-chips.com,
+	dmitry.baryshkov@oss.qualcomm.com,
+	dianders@chromium.org,
+	m.szyprowski@samsung.com,
+	luca.ceresoli@bootlin.com,
+	jani.nikula@intel.com,
+	linux-kernel@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Damon Ding <damon.ding@rock-chips.com>
+Subject: [PATCH v6 00/18] Apply drm_bridge_connector and panel_bridge helper for the Analogix DP driver
+Date: Tue, 30 Sep 2025 17:09:02 +0800
+Message-Id: <20250930090920.131094-1-damon.ding@rock-chips.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DB9P195MB1228.EURP195.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: b656ff39-98ec-4625-a549-08de000121f7
-X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Sep 2025 09:09:59.8006
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: c17tr0oS5vQwpMSUVVYqQh58zu8EIF5vU9O/peks0BTu9JmsG9PEQposzgrTIMQQRg6pQ79s5DO4GOfOLpP53w==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0P195MB2174
+Content-Transfer-Encoding: 8bit
+X-HM-Tid: 0a9999e6960e03a3kunmd96de74a43b9a5
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGhgeSlZDQk9NThlPSx9LHxpWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
+	1VSktLVUpCWQY+
+DKIM-Signature: a=rsa-sha256;
+	b=XmLXrMvrN6lC3eAZZK8KA2PbUGORqKt/cvBVnRP1VQsigWRaYg78tmxvxinCLPS2pjK+TLvXPdAIuXpZ/MUeanTuOGZ2GzbfILHBDWfvaxthOtETnXR0NrBYJV2HzVzoruL6ytDh4Wj8Zozoe3WN8FLIXuKybLumk9Tw898l1AM=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=Ovc33eB7wSLHPez3uqwzpvXJejZ0kZtOPk8MV/jKdXE=;
+	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250930_021009_868727_BC81EC0F 
-X-CRM114-Status: GOOD (  13.97  )
+X-CRM114-CacheID: sfid-20250930_021422_064788_C858A23D 
+X-CRM114-Status: GOOD (  16.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,34 +100,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-QW0gRGllbnN0YWcsIGRlbSAzMC4wOS4yMDI1IHVtIDA4OjQ3ICswMjAwIHNjaHJpZWIgSmFuIFJl
-bW1ldDoKPiBGcm9tOiBUZXJlc2EgUmVtbWV0IDx0LnJlbW1ldEBwaHl0ZWMuZGU+Cj4gCj4gRW5h
-YmxlIGludGVybmFsIHB1bGwgdXAgb2YgdGhlIGFjdGl2ZSBsb3cgYXVkaW8gY29kZWMgcmVzZXQg
-cGluLgo+IE90aGVyd2lzZSB0aGUgYXVkaW8gY29kZWMgZG9lcyBub3QgcmVzZXQgcHJvcGVybHkg
-YW5kIGlzIG5vdCB3b3JraW5nLgo+IAo+IFNpZ25lZC1vZmYtYnk6IFRlcmVzYSBSZW1tZXQgPHQu
-cmVtbWV0QHBoeXRlYy5kZT4KClBsZWFzZSBhZGQgeW91ciBTaWduZWQtb2ZmLWJ5IEphbi4KClRl
-cmVzYQoKPiAtLS0KPiDCoGFyY2gvYXJtNjQvYm9vdC9kdHMvZnJlZXNjYWxlL2lteDhtbS1waHli
-b2FyZC1wb2xpcy1wZWItYXYtMTAuZHRzaSB8Cj4gMiArLQo+IMKgMSBmaWxlIGNoYW5nZWQsIDEg
-aW5zZXJ0aW9uKCspLCAxIGRlbGV0aW9uKC0pCj4gCj4gZGlmZiAtLWdpdCBhL2FyY2gvYXJtNjQv
-Ym9vdC9kdHMvZnJlZXNjYWxlL2lteDhtbS1waHlib2FyZC1wb2xpcy1wZWItCj4gYXYtMTAuZHRz
-aSBiL2FyY2gvYXJtNjQvYm9vdC9kdHMvZnJlZXNjYWxlL2lteDhtbS1waHlib2FyZC1wb2xpcy1w
-ZWItCj4gYXYtMTAuZHRzaQo+IGluZGV4Cj4gM2Q0ZmZlZWNiOGRkOGU2ZjdhNjhlZWFmYmE3NjE1
-MzRmYWU5ZGViNC4uYmQxZjI1NWUxNWVhOTViNmY1OWUyYzdiZDc2Cj4gMmQ2YTZhMmI0YWI3NiAx
-MDA2NDQKPiAtLS0gYS9hcmNoL2FybTY0L2Jvb3QvZHRzL2ZyZWVzY2FsZS9pbXg4bW0tcGh5Ym9h
-cmQtcG9saXMtcGViLWF2LQo+IDEwLmR0c2kKPiArKysgYi9hcmNoL2FybTY0L2Jvb3QvZHRzL2Zy
-ZWVzY2FsZS9pbXg4bW0tcGh5Ym9hcmQtcG9saXMtcGViLWF2LQo+IDEwLmR0c2kKPiBAQCAtMTgy
-LDcgKzE4Miw3IEBAIE1YOE1NX0lPTVVYQ19TQUk1X1JYRDNfU0FJNV9UWF9EQVRBMMKgwqDCoCAw
-eGQ2Cj4gwqAKPiDCoMKgwqDCoMKgwqDCoMKgcGluY3RybF90bHYzMjA6IHRsdjMyMGdycCB7Cj4g
-wqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBmc2wscGlucyA9IDwKPiAtwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoE1YOE1NX0lPTVVYQ19TQUkzX1JY
-RlNfR1BJTzRfSU8yOMKgwqDCoMKgwqDCoCAweDE2Cj4gK8KgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqDCoMKgwqDCoMKgwqBNWDhNTV9JT01VWENfU0FJM19SWEZTX0dQSU80X0lPMjjC
-oMKgwqDCoMKgwqAgMHgxMTYKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDC
-oMKgwqDCoMKgwqBNWDhNTV9JT01VWENfU0FJNV9SWENfR1BJTzNfSU8yMMKgwqDCoMKgwqDCoMKg
-IDB4MTYKPiDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoMKgwqDCoD47Cj4gwqDCoMKgwqDCoMKg
-wqDCoH07Cj4gCgotLSAKUEhZVEVDIE1lc3N0ZWNobmlrIEdtYkggfCBCYXJjZWxvbmEtQWxsZWUg
-MSB8IDU1MTI5IE1haW56LCBHZXJtYW55CgpHZXNjaMOkZnRzZsO8aHJlcjogRGlwbC4tSW5nLiBN
-aWNoYWVsIE1pdGV6a2ksIERpcGwuLUluZy4gQm9kbyBIdWJlciwKRGlwbC4tSW5nLiAoRkgpIE1h
-cmt1cyBMaWNrZXMgfCBIYW5kZWxzcmVnaXN0ZXIgTWFpbnogSFJCIDQ2NTYgfApGaW5hbnphbXQg
-TWFpbnogfCBTdC5Oci4gMjYvNjY1LzAwNjA4LCBERSAxNDkwNTk4NTUK
+PATCH 1 is a small format optimization for struct analogid_dp_device.
+PATCH 2 is to perform mode setting in &drm_bridge_funcs.atomic_enable.
+PATCH 3 is to add a new parameter to store the point of next bridge.
+PATCH 4 is to make legacy bridge driver more universal.
+PATCH 5-10 are preparations for apply drm_bridge_connector helper.
+PATCH 11 is to ensure last bridge determines OP_EDID/OP_MODES capabilities.
+PATCH 12 is to apply the drm_bridge_connector helper.
+PATCH 13-15 are to move the panel/bridge parsing to the Analogix side.
+PATCH 16 is to attach the next bridge on Analogix side uniformly.
+PATCH 17-18 are to apply the panel_bridge helper.
+
+Damon Ding (18):
+  drm/bridge: analogix_dp: Formalize the struct analogix_dp_device
+  drm/bridge: analogix_dp: Move &drm_bridge_funcs.mode_set to
+    &drm_bridge_funcs.atomic_enable
+  drm/bridge: analogix_dp: Add &analogix_dp_plat_data.next_bridge
+  drm/bridge: Move legacy bridge driver out of imx directory for
+    multi-platform use
+  drm/exynos: exynos_dp: Remove &exynos_dp_device.ptn_bridge
+  drm/exynos: exynos_dp: Remove unused &exynos_dp_device.connector
+  drm/exynos: exynos_dp: Apply legacy bridge to parse the
+    display-timings node
+  drm/bridge: analogix_dp: Remove redundant
+    &analogix_dp_plat_data.skip_connector
+  drm/bridge: analogix_dp: Move the color format check to
+    .atomic_check() for Rockchip platforms
+  drm/bridge: analogix_dp: Remove unused
+    &analogix_dp_plat_data.get_modes()
+  drm/display: bridge_connector: Ensure last bridge determines
+    EDID/modes detection capabilities
+  drm/bridge: analogix_dp: Apply drm_bridge_connector helper
+  drm/bridge: analogix_dp: Add new API analogix_dp_finish_probe()
+  drm/rockchip: analogix_dp: Apply analogix_dp_finish_probe()
+  drm/exynos: exynos_dp: Apply analogix_dp_finish_probe()
+  drm/bridge: analogix_dp: Attach the next bridge in
+    analogix_dp_bridge_attach()
+  drm/bridge: analogix_dp: Remove bridge disabing and panel unpreparing
+    in analogix_dp_unbind()
+  drm/bridge: analogix_dp: Apply panel_bridge helper
+
+ drivers/gpu/drm/bridge/Kconfig                |  10 +
+ drivers/gpu/drm/bridge/Makefile               |   1 +
+ drivers/gpu/drm/bridge/analogix/Kconfig       |   1 +
+ .../drm/bridge/analogix/analogix_dp_core.c    | 395 +++++++++---------
+ .../drm/bridge/analogix/analogix_dp_core.h    |   5 +-
+ drivers/gpu/drm/bridge/imx/Kconfig            |  10 -
+ drivers/gpu/drm/bridge/imx/Makefile           |   1 -
+ .../gpu/drm/bridge/imx/imx-legacy-bridge.c    |  91 ----
+ drivers/gpu/drm/bridge/legacy-bridge.c        |  99 +++++
+ .../gpu/drm/display/drm_bridge_connector.c    |  42 ++
+ drivers/gpu/drm/exynos/Kconfig                |   2 +
+ drivers/gpu/drm/exynos/exynos_dp.c            | 117 ++----
+ drivers/gpu/drm/imx/ipuv3/Kconfig             |   4 +-
+ drivers/gpu/drm/imx/ipuv3/imx-ldb.c           |   6 +-
+ drivers/gpu/drm/imx/ipuv3/parallel-display.c  |   4 +-
+ drivers/gpu/drm/rockchip/Kconfig              |   1 +
+ .../gpu/drm/rockchip/analogix_dp-rockchip.c   |  67 +--
+ include/drm/bridge/analogix_dp.h              |   8 +-
+ include/drm/bridge/imx.h                      |  17 -
+ include/drm/bridge/legacy-bridge.h            |  18 +
+ 20 files changed, 433 insertions(+), 466 deletions(-)
+ delete mode 100644 drivers/gpu/drm/bridge/imx/imx-legacy-bridge.c
+ create mode 100644 drivers/gpu/drm/bridge/legacy-bridge.c
+ delete mode 100644 include/drm/bridge/imx.h
+ create mode 100644 include/drm/bridge/legacy-bridge.h
+
+---
+
+Changes in v2:
+- Update Exynos DP driver synchronously.
+- Move the panel/bridge parsing to the Analogix side.
+
+Changes in v3:
+- Rebase for the existing devm_drm_bridge_alloc() applying commit.
+- Fix the typographical error of panel/bridge check in exynos_dp_bind().
+- Squash all commits related to skip_connector deletion in both Exynos and
+  Analogix code into one.
+- Apply panel_bridge helper to make the codes more concise.
+- Fix the handing of bridge in analogix_dp_bridge_get_modes().
+- Remove unnecessary parameter struct drm_connector* for callback
+  &analogix_dp_plat_data.attach().
+- In order to decouple the connector driver and the bridge driver, move
+  the bridge connector initilization to the Rockchip and Exynos sides.
+
+Changes in v4:
+- Rebase for the applied &drm_bridge_funcs.detect() modification commit.
+- Rename analogix_dp_find_panel_or_bridge() to analogix_dp_finish_probe().
+- Drop the drmm_encoder_init() modification commit.
+- Rename the &analogix_dp_plat_data.bridge to
+  &analogix_dp_plat_data.next_bridge.
+
+Changes in v5:
+- Add legacy bridge to parse the display-timings node under the dp node
+  for Exynos side.
+- Move color format check to &drm_connector_helper_funcs.atomic_check()
+  in order to get rid of &analogix_dp_plat_data.get_modes().
+- Remove unused callback &analogix_dp_plat_data.get_modes().
+- Distinguish the &drm_bridge->ops of Analogix bridge based on whether
+  the downstream device is a panel, a bridge or neither.
+- Select DRM_DISPLAY_DP_AUX_BUS for DRM_ANALOGIX_DP, and remove it for
+  ROCKCHIP_ANALOGIX_DP.
+- Apply rockchip_dp_attach() to support the next bridge attachment for
+  the Rockchip side.
+- Move next_bridge attachment from Analogix side to Rockchip/Exynos sides.
+
+Changes in v6:
+- Move legacy bridge driver out of imx directory for multi-platform use.
+- Apply DRM legacy bridge to parse display timings intead of implementing
+  the same codes only for Exynos DP.
+- Ensure last bridge determines EDID/modes detection capabilities in DRM
+  bridge_connector driver.
+- Remove unnecessary drm_bridge_get_modes() in
+  analogix_dp_bridge_get_modes().
+- Simplify analogix_dp_bridge_edid_read().
+- If the next is a bridge, set DRM_BRIDGE_OP_DETECT and return
+  connector_status_connected in analogix_dp_bridge_detect().
+- Set flag DRM_BRIDGE_ATTACH_NO_CONNECTOR for bridge attachment while
+  binding. Meanwhile, make DRM_BRIDGE_ATTACH_NO_CONNECTOR unsuppported
+  in analogix_dp_bridge_attach().
+- Move the next bridge attachment to the Analogix side rather than
+  scattered on Rockchip and Exynos sides.
+- Remove the unnecessary analogix_dp_bridge_get_modes().
+- Squash [PATCH v5 15/17] into [PATCH v5 17/17].
+- Fix the &drm_bridge->ops to DRM_BRIDGE_OP_EDID | DRM_BRIDGE_OP_DETECT.
+
+-- 
+2.34.1
+
 
