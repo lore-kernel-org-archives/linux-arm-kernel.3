@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3860CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 01:08:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6B89CAC5B9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 01:21:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bHK1Tz54e/Ifee6N7/zns9tcx8F25+FcDpSUAMb1Lb0=; b=LKfJ77/0Vz01oYRZfvRoeXEDWM
-	X676Qh+G/jU9xCBiavxFKJWPT+4VQfwPic3B5oJDh/Jr4ziAjyzZnkZlrtazNevMUve/IciHTfDIE
-	+EgKLQSlSfJk/xK7KevY2GUfi7HkSNksXzON6GlIXc9O6KsknVjS7LynIhSSIL4PGwlWbr6XipmKk
-	vuLcMBh8BaflSY4i9K1WNvsS4BdnWNmgAIK4g882jFGl8Vu3YjKLz+vkcejKTcrtF1QWI0rwr6HQl
-	D/gMNdvFyBCiwxnI9YeoKRYXlNUthyeGxced4GK4RSaPFHCnnqdSfhRI99c9GN+YAUgjj09GPBhK3
-	6lTvMIEg==;
+	bh=0j0vAl3eRLGN4/I30I3xv86bV0vXQW3ijiublsdFFPk=; b=4T6Nm7lR9xR/Qftbceu5nofG33
+	Appn7pTwD6Ia6oqkIshm3Jo/BmvdF5nMi5axfqI1NKh8UvyixjzkBTU1TsgGCTWlE/Hh4PjpL24yS
+	0RfjKJq4NSJe9RsHTka0WbtrucuAc1oYjOZQ+BAo4B9U0sgFbabxgUJNnBnv3sPG72NZyowXTPJlH
+	CBUGD7hY2IJadRp2ZooX18hEPS93kkZ5Ue6vjVCtH/OlGjqYNz/GGy5HChVU/et7m4Je346tpmF4T
+	ZUp2MIIDHA4BB9BZAjpI+es5d6HQkhW3723rb23cWlsDnrLQgN3U0YQvvFoimJobrnIermC95oo4I
+	2aCJcjZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Oqg-00000003kxJ-2RiX;
-	Tue, 30 Sep 2025 01:08:10 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v3P32-00000003mAN-3PSZ;
+	Tue, 30 Sep 2025 01:20:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Oqd-00000003kwN-2ise
+	id 1v3P31-00000003mAC-1xn0
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Sep 2025 01:08:08 +0000
+	Tue, 30 Sep 2025 01:20:55 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A6E6440A01;
-	Tue, 30 Sep 2025 01:08:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B454AC4CEF4;
-	Tue, 30 Sep 2025 01:08:05 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CDAF2602DC;
+	Tue, 30 Sep 2025 01:20:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 81021C4CEF4;
+	Tue, 30 Sep 2025 01:20:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759194486;
-	bh=bHK1Tz54e/Ifee6N7/zns9tcx8F25+FcDpSUAMb1Lb0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=Ygq4HwhlykpA5CGfYsyjzP8zgqMVS1ZAhFUon3xmKXRU21GqqzwTGl8bmgWxlYSVn
-	 gLz5fQ2dKiM8rRY3F6CrfiVHbnQLvXNSKm+pVehSjR0t9jKqK369WJ/gm1ot3ksySY
-	 klbd8NsjCGKEuZnC+cw3Wl1JhH7ojDg5LQeWB+l+XxZhg5O3hI1F7KPDfAcGn44OEP
-	 dIMZCqONsnhGcxZMt/sBewGBBUeyEXXmj671Q52PF/DrUDQxPEVWTIsHvcqnGgdTXY
-	 iE4z2qKM50gNJysR3PY01mzmDK5SsSvzbqLPo2TixLRvMsTRO6O2W8VRQo36GyIQZi
-	 CWKrN4SfMGYjA==
-Date: Mon, 29 Sep 2025 18:08:04 -0700
-From: Jakub Kicinski <kuba@kernel.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>
-Cc: Chen-Yu Tsai <wens@kernel.org>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob
- Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
- Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
- <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>,
- netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, Andre Przywara <andre.przywara@arm.com>,
- Jernej Skrabec <jernej.skrabec@gmail.com>
-Subject: Re: [PATCH net-next v8 2/2] net: stmmac: Add support for Allwinner
- A523 GMAC200
-Message-ID: <20250929180804.3bd18dd9@kernel.org>
-In-Reply-To: <20250925191600.3306595-3-wens@kernel.org>
-References: <20250925191600.3306595-1-wens@kernel.org>
-	<20250925191600.3306595-3-wens@kernel.org>
+	s=k20201202; t=1759195254;
+	bh=X22pEFpCAgMRW1UK5UodG0zf7Y6uxPShDgKLYOKw3ZI=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=lZXEQkeO2EVxyntPgxq6Gql93fRNspkOZNZtbl+lq1HcCX92H2oyukLagXeNja6BX
+	 4DDkkDTh73oK4NoG01u8DTfeIjtW62B/F3nHksUOqYE0Ikz0jyXEHFEAVgFZU5Ryi9
+	 ACauuux9ZdMqfLx0/QTD9HyfbDKCEE3uCtnnSeEk1qBglr9aJc/BSpZNQlSEsJf68U
+	 tlIfrR5E//B4cHQJko8c+fR6qhncw/ghsPML0WHBQ1d3RypmPoK4d6Bcq6jq4AjPje
+	 Ud1xR/NDusWUt73DHEwJFJQNzWE2j3b9VKO4O0aypsg+oCLCXkG41Aq1Z8p25T70Fi
+	 4AfClI+xAaAVQ==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 346C139D0C1A;
+	Tue, 30 Sep 2025 01:20:49 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_180807_710500_675DA017 
-X-CRM114-Status: GOOD (  13.01  )
+Content-Transfer-Encoding: 8bit
+Subject: Re: [PATCH net-next v3 0/2] net: stmmac: Drop frames causing HLBS
+ error
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <175919524773.1775912.3053137579146685906.git-patchwork-notify@kernel.org>
+Date: Tue, 30 Sep 2025 01:20:47 +0000
+References: <20250925-hlbs_2-v3-0-3b39472776c2@altera.com>
+In-Reply-To: <20250925-hlbs_2-v3-0-3b39472776c2@altera.com>
+To: G@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org,
+	Thomas@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org,
+	Rohan <rohan.g.thomas@altera.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
+ alexandre.torgue@foss.st.com, netdev@vger.kernel.org,
+ linux-stm32@st-md-mailman.stormreply.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ matthew.gerlach@altera.com
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,19 +78,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 26 Sep 2025 03:15:59 +0800 Chen-Yu Tsai wrote:
-> The Allwinner A523 SoC family has a second Ethernet controller, called
-> the GMAC200 in the BSP and T527 datasheet, and referred to as GMAC1 for
-> numbering. This controller, according to BSP sources, is fully
-> compatible with a slightly newer version of the Synopsys DWMAC core.
-> The glue layer around the controller is the same as found around older
-> DWMAC cores on Allwinner SoCs. The only slight difference is that since
-> this is the second controller on the SoC, the register for the clock
-> delay controls is at a different offset. Last, the integration includes
-> a dedicated clock gate for the memory bus and the whole thing is put in
-> a separately controllable power domain.
+Hello:
 
-Hi Andrew, does this look good ?
+This series was applied to netdev/net-next.git (main)
+by Jakub Kicinski <kuba@kernel.org>:
 
-thread: https://lore.kernel.org/20250925191600.3306595-3-wens@kernel.org
+On Thu, 25 Sep 2025 22:06:12 +0800 you wrote:
+> This patchset consists of following patchset to avoid netdev watchdog
+> reset due to Head-of-Line Blocking due to EST scheduling error.
+>  1. Drop those frames causing HLBS error
+>  2. Add HLBS frame drops to taprio stats
+> 
+> Signed-off-by: Rohan G Thomas <rohan.g.thomas@altera.com>
+> 
+> [...]
+
+Here is the summary with links:
+  - [net-next,v3,1/2] net: stmmac: est: Drop frames causing HLBS error
+    https://git.kernel.org/netdev/net-next/c/7ce48d497475
+  - [net-next,v3,2/2] net: stmmac: tc: Add HLBS drop count to taprio stats
+    https://git.kernel.org/netdev/net-next/c/de17376cad97
+
+You are awesome, thank you!
+-- 
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
+
 
