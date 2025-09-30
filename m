@@ -4,78 +4,215 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F146ECCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 23:06:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33475CAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 23:59:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UPpKPRQ56kkYxcQG1yY8q5N+W72Xlpbb4ePjY/4r2P0=; b=KW8QtvgdfxlaluaEVEtwTiANBY
-	bc2cvkfkxD4HQfAaA3urz3Jp/L2WckZJ9+06tZsiEhFEz/rWkIVXiyKqGVMpMWql4xWWhMmRJ43+9
-	Pjbzlg9Qchr8IODUtBRgj+xfGbIJv1OIXRWh0VCzg4OBFcgZ2mEUkb41Clf+G2MNW+C3I0nbErVEq
-	b5moITQzMt71uyT2Jymq4JSY9mcoLAf2eSHvLZyy3AUnkd0CmQQYIr2l/nGWrRRMqdpoC7IVgkISj
-	zDz8Fjpo6PBDSMFcFCBO4iVMAU/A3+MGX++LnCGHqpAhUHxgM/VCA0aOH5p0D81Uv09y2jHFMo3hH
-	68MW5DWA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	In-Reply-To:From:References:CC:To:Subject:Date:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jRZUr+O1zcIouR10RmMMKiDX6BSupybEDd1QcsMSmXg=; b=0pvxZ5Rl1RPSNv1oiq+b177kxM
+	HFSWXq8A5HHLDAGpYtg/awmg8uSvXfiir/ndHsTDZCfp1+Fw7K58fItM6XIBXNBlysy1pyrlx9hI1
+	0MkEd+NXOqCt9mOCe+tymCMildqpg7LvZS2SvapsCP03gG7paysfE4Gd1wQ/gRYfuuVHzuarEYfCT
+	GxHZW6vy1wsAfhFPdKl9r3htkqC3nZnmpYNwdp3LrCYg86hX+9HIEp8BuTG2lix6wzRPtVj9QoZTi
+	EgUQtHsrsrIJgffx5Amdl5qSeQoRqkb+MVtvhOwFFaazF/yhAmvw8qs+KXTNkRGalYNtbE+GbdvPc
+	v+Kwyttw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3jQF-00000006LBa-3rqp;
-	Tue, 30 Sep 2025 23:06:15 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v3kFf-00000006OpY-3Q6C;
+	Tue, 30 Sep 2025 23:59:24 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3jQF-00000006LBB-0qro
+	id 1v3kFd-00000006Op0-05wJ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Sep 2025 23:06:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 583F46125E
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 23:06:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E0164C19424
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 23:06:13 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759273573;
-	bh=mFz+L72B9DjiruUWCPt3+uUkwCHLqPB81lzn9f7L9es=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=TLMYUycydyqqjUP15CWlEFWzraN18TkKIePRecxtCkCy1V5Q6/cfOULx67IJAdEQY
-	 EFNXsgnj/eXNVpwvz/ZXK8sN2Kv+2EroVbxbQTHggT3RrnWzpqW/+Z+m7tk7o9dfFo
-	 sEq6s7AbWNouIEML4E8VJ1WTkAEhu3E135shP2Vr1R/buR2pnuVKgi3JwzjqUc5Wm0
-	 DWzbQKPLIcspHPUxfkQnFXFz1R8Rm8sSnElOO/CFIwGkfzxfOMPgGpPyR3P6DpgPBJ
-	 o2/bpIo5eTMgdzFUbE3ysoaO3uOcJaWiK5lanpjA19JNzBPG/nwdL23imNUc9InoM5
-	 H64dZ454YRRPw==
-Received: by mail-pf1-f170.google.com with SMTP id d2e1a72fcca58-77c1814ca1dso5118394b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 16:06:13 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXl/s00LOO2T5g528R52BfqjP6CW1T6FKaQDQH/1VhUY0gfiekMVXWmMcLBa7munbF+3K71gSdzxtA/GwYZ+zpQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzmd2WjssflfDD/cldyoBVe5ejeqtkcdNFtp7QHtoC0mJ/35vcP
-	HPORfzxjflZTS3ge0jh3DEZOs8EbofBsoya5Om4llarPKysKOIdWLVY5nJEURE/LTCuWGWNvrrt
-	E4fqdNuO9/CUw+Xg3dvJmf02eYZT0Dcs=
-X-Google-Smtp-Source: AGHT+IEtVABxEKyxN7a+U3Kp2sBw7bT8AmKlK9sbcU4p8q7V3u9HMuNYcQ/g3mBtE/Xshs31HBFf6QR4rED4d0MupEk=
-X-Received: by 2002:a17:903:4b48:b0:275:2aac:fef8 with SMTP id
- d9443c01a7336-28e7f33067fmr14927905ad.38.1759273573411; Tue, 30 Sep 2025
- 16:06:13 -0700 (PDT)
+	Tue, 30 Sep 2025 23:59:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1759276761; x=1790812761;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:mime-version;
+  bh=pStBe3QeDB1LmRkJASDIiU07AXJhUwNZoaWHCp5bukI=;
+  b=bYc1tUML+TjK52UyrGUhLy2EP3PVxC9wLidb3qDLcY6/Pd8bUR50g+ou
+   9flS0PdLswzOHKHjwWrZ/MOdjKDmRLJN9oOtx27J1PG7+zaEZILm1lbWN
+   EFrC4PWhL9W8u4kCG2h0nsV+HYbqpDlQxucUjBtnWwsj2XS/V0jMBaVcm
+   7TMlg7JDWfp37X/Pd9ijKtDATj5CKfNrynSzSS+izDRM9T5Cq86UA3KzV
+   3gZ5PefYCu4eZY2Wi+pp94qN+PZSUE5ytviO6bIELkUdcyt/5zZNHqJUz
+   EzIGUK9iiI37MdVpixglITxaL9qKggc7CKs6Tj1I3F4tUcjuGvfryN1QP
+   A==;
+X-CSE-ConnectionGUID: M9pasof8SsSUcJsxhFwsBQ==
+X-CSE-MsgGUID: FRlPJMOPQpCz6LkgBns1MA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11569"; a="61712550"
+X-IronPort-AV: E=Sophos;i="6.18,305,1751266800"; 
+   d="asc'?scan'208";a="61712550"
+Received: from orviesa005.jf.intel.com ([10.64.159.145])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Sep 2025 16:59:20 -0700
+X-CSE-ConnectionGUID: jcra+L3sST+1K469vyiGRA==
+X-CSE-MsgGUID: hv/r5eoNTNCW/rglwjBJuQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,305,1751266800"; 
+   d="asc'?scan'208";a="183843374"
+Received: from fmsmsx903.amr.corp.intel.com ([10.18.126.92])
+  by orviesa005.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 30 Sep 2025 16:59:20 -0700
+Received: from FMSMSX902.amr.corp.intel.com (10.18.126.91) by
+ fmsmsx903.amr.corp.intel.com (10.18.126.92) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27; Tue, 30 Sep 2025 16:59:18 -0700
+Received: from fmsedg902.ED.cps.intel.com (10.1.192.144) by
+ FMSMSX902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27 via Frontend Transport; Tue, 30 Sep 2025 16:59:18 -0700
+Received: from CH4PR04CU002.outbound.protection.outlook.com (40.107.201.25) by
+ edgegateway.intel.com (192.55.55.82) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27; Tue, 30 Sep 2025 16:59:15 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=eE7rKIZ1qnfC9IbNrFXuWB/cYK6E5OJzxIvUhpxbok7rXG9BRPx43qZn1N/ufhARCMGtw/RRD6KOSY1azf7FS3TCbigXfpy/xYEzeQpgYZjm+zMA6dwYTI0wL+JLAOn+YyMiPdzdxBNAXkaRUvOZTFcdYr7Gqwx8mhelvM1aHc1iEMSaoO4+B6l1CN8ZwTMgi63WHBBPB5Gd8HjuVW1ka2nKr1cEif7aocowZTwvu69q0c82LHO7eR43xJns6AbBK8TNZdQS9g+mbcMLDS5V0M8OQwaj9DRjKwcEgC4DFRAbXDV6Bl/Q9Cz15KeNFDxcmWn9h5dsQpK09CJDsEaBfQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jRZUr+O1zcIouR10RmMMKiDX6BSupybEDd1QcsMSmXg=;
+ b=rTDvPc/k6KOkcEmSBj74hynZ/WFe8h6PiYMgQxOOusIsRV4br/IG4IYZZxE9sZhfsoW87/vE7mpfaHWB9Q7AMOi+c25vcMNvaVms9jWwHfWWEOCeKRVSIqPcMDVIFucvL31RFWFN3JB+MdCZXwvDmGyo8x5nqRFbnsyN2kPuXeXdUUfZT0ejEOjZdOMo8AHdqEtlTV3W5qhZl8UixBDaAYFOGqu8lYWr9khD/+x0wtJJSmRB0uExZc5TBPa6TZbYvtZWSM4a45E9yN1CkKq7AsUKUJMpLbDhd5qCDCYcZA16sENZOh9xneRJ7sS4O7oConf5fGNnc0keDdbyOkbVsA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from CO1PR11MB5089.namprd11.prod.outlook.com (2603:10b6:303:9b::16)
+ by IA3PR11MB9087.namprd11.prod.outlook.com (2603:10b6:208:57f::5) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.17; Tue, 30 Sep
+ 2025 23:59:08 +0000
+Received: from CO1PR11MB5089.namprd11.prod.outlook.com
+ ([fe80::81f7:c6c0:ca43:11c3]) by CO1PR11MB5089.namprd11.prod.outlook.com
+ ([fe80::81f7:c6c0:ca43:11c3%4]) with mapi id 15.20.9160.015; Tue, 30 Sep 2025
+ 23:59:08 +0000
+Message-ID: <0cae855b-e842-47a1-9aaf-b2a297ec32d6@intel.com>
+Date: Tue, 30 Sep 2025 16:59:06 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH V2 3/3] net: ethernet: ti: Remove IS_ERR_OR_NULL checks
+ for knav_dma_open_channel
+To: Nishanth Menon <nm@ti.com>, =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?=
+	<u.kleine-koenig@baylibre.com>, Paolo Abeni <pabeni@redhat.com>, "Jakub
+ Kicinski" <kuba@kernel.org>, Eric Dumazet <edumazet@google.com>, "David S.
+ Miller" <davem@davemloft.net>, Andrew Lunn <andrew+netdev@lunn.ch>
+CC: Santosh Shilimkar <ssantosh@kernel.org>, Simon Horman <horms@kernel.org>,
+	Siddharth Vadapalli <s-vadapalli@ti.com>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<netdev@vger.kernel.org>
+References: <20250930121609.158419-1-nm@ti.com>
+ <20250930121609.158419-4-nm@ti.com>
+Content-Language: en-US
+From: Jacob Keller <jacob.e.keller@intel.com>
+Autocrypt: addr=jacob.e.keller@intel.com; keydata=
+ xjMEaFx9ShYJKwYBBAHaRw8BAQdAE+TQsi9s60VNWijGeBIKU6hsXLwMt/JY9ni1wnsVd7nN
+ J0phY29iIEtlbGxlciA8amFjb2IuZS5rZWxsZXJAaW50ZWwuY29tPsKTBBMWCgA7FiEEIEBU
+ qdczkFYq7EMeapZdPm8PKOgFAmhcfUoCGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4AA
+ CgkQapZdPm8PKOiZAAEA4UV0uM2PhFAw+tlK81gP+fgRqBVYlhmMyroXadv0lH4BAIf4jLxI
+ UPEL4+zzp4ekaw8IyFz+mRMUBaS2l+cpoBUBzjgEaFx9ShIKKwYBBAGXVQEFAQEHQF386lYe
+ MPZBiQHGXwjbBWS5OMBems5rgajcBMKc4W4aAwEIB8J4BBgWCgAgFiEEIEBUqdczkFYq7EMe
+ apZdPm8PKOgFAmhcfUoCGwwACgkQapZdPm8PKOjbUQD+MsPBANqBUiNt+7w0dC73R6UcQzbg
+ cFx4Yvms6cJjeD4BAKf193xbq7W3T7r9BdfTw6HRFYDiHXgkyoc/2Q4/T+8H
+In-Reply-To: <20250930121609.158419-4-nm@ti.com>
+Content-Type: multipart/signed; micalg=pgp-sha256;
+	protocol="application/pgp-signature";
+	boundary="------------uSBUrIRhQa0JwYPHSJ0QAmSX"
+X-ClientProxiedBy: MW2PR16CA0036.namprd16.prod.outlook.com (2603:10b6:907::49)
+ To CO1PR11MB5089.namprd11.prod.outlook.com (2603:10b6:303:9b::16)
 MIME-Version: 1.0
-References: <CGME20250930035551epcas5p4ee7cb5af08eadb2f5ed6e5eaa06a60a9@epcas5p4.samsung.com>
- <20250930040348.3702923-1-h.dewangan@samsung.com> <20250930040348.3702923-9-h.dewangan@samsung.com>
- <CAJKOXPecLREbEDM4yfM=WD-EFfuBqPDXNZceATLeWQRj0X_w7w@mail.gmail.com>
- <75d06769-4896-4095-9969-03a517705196@samsung.com> <CAJKOXPe0kGFoUxOGupwD_rSshTBVFhH3184xOH=NquSGn2QxcQ@mail.gmail.com>
-In-Reply-To: <CAJKOXPe0kGFoUxOGupwD_rSshTBVFhH3184xOH=NquSGn2QxcQ@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Date: Wed, 1 Oct 2025 08:06:01 +0900
-X-Gmail-Original-Message-ID: <CAJKOXPchnA2k4sghuSBxA4h=CKJEQU0=09F+AAxPxA-rBpUW_g@mail.gmail.com>
-X-Gm-Features: AS18NWB-7qq3WRSu2_4sN54O9Pq__ESSuLB-fBN1o7du1U_PSVDKaJXEOusJU-4
-Message-ID: <CAJKOXPchnA2k4sghuSBxA4h=CKJEQU0=09F+AAxPxA-rBpUW_g@mail.gmail.com>
-Subject: =?UTF-8?Q?Re=3A_=5BPATCH_08=2F29=5D_media=3A_mfc=3A_Add_Exynos=E2=80=91MFC_drive?=
-	=?UTF-8?Q?r_probe_support?=
-To: Marek Szyprowski <m.szyprowski@samsung.com>
-Cc: Himanshu Dewangan <h.dewangan@samsung.com>, mchehab@kernel.org, robh@kernel.org, 
-	krzk+dt@kernel.org, conor+dt@kernel.org, sumit.semwal@linaro.org, 
-	christian.koenig@amd.com, alim.akhtar@samsung.com, manjun@samsung.com, 
-	nagaraju.s@samsung.com, ih0206.lee@samsung.com, jehyung.lee@samsung.com, 
-	linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linaro-mm-sig@lists.linaro.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CO1PR11MB5089:EE_|IA3PR11MB9087:EE_
+X-MS-Office365-Filtering-Correlation-Id: ed8e9cb9-f1c5-454c-f534-08de007d580d
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bG9BZ296NHNRWHZ6cXlsTzd1VmNvS0dWMnluY3BMbHFNY2Q5NXFpVkhBODZN?=
+ =?utf-8?B?UmRHdmlPMXJVQU03eURKS3hmbWFmWnNUc3dvTDNTNWs5WXlCWVlCS3U3LzNx?=
+ =?utf-8?B?VDJjZ0prT3I1RDFBVGdmaTBzbTdtbGJ6OFhVR09VMTIxMzRaM0RJYVE1YVNs?=
+ =?utf-8?B?Ui9UQnQ2aWJEcXNvVDcvSlI5NStkcWkvLzA5cGFPenhIT2FBcUlHd0pxSmZP?=
+ =?utf-8?B?WGNha2d1K3E1Zm5peGlKVU9Nb0JPdG01dE9wS2dHSC84dEZiaHBBczllOTNF?=
+ =?utf-8?B?RXhBaXBtMUZ2OUNBRHNuK1hFWWpoZnNVNFVEY0c1VnJuMXo3TGxXdXNGR0lu?=
+ =?utf-8?B?dm5teUtJRCtQd3ZwbjFKRWsvdWRQbFlEQXAvdmh5MFA2MkpuMHN2REF1aS9j?=
+ =?utf-8?B?aTZmVkdQU2dtYVJjTWN1L0o0RkU2RXFZNGg2Q3IzREdPSXltWnA4N0dwcGFD?=
+ =?utf-8?B?bHZWRzk0bXlCaDRScUkwRkVEMENjMmhJSDBnMldJSVhtWXVqTm5mN2gyUzZ2?=
+ =?utf-8?B?eGF0REVFRUtZaHpGcXFCR0ZUbzZxUWJUZ25wYUZyT1o4V3dxVlByTkJuQlhS?=
+ =?utf-8?B?eThTb21LN0RncnpiMEsvRTM3bmpQUW1QdzhhbWcreklJTGFRbGwra3BBb3lK?=
+ =?utf-8?B?NVpHM1psZlUyalZIOGRkdEt2bFYyQjA2R3Z1c0s3dlQweTJJYlJvTENBaXMy?=
+ =?utf-8?B?L0dMNFBDdVRvNnNMSHhDd2R6Q3R6K29SaDgvYkY1eDhWbWFzUnZvUnRFVUE2?=
+ =?utf-8?B?djU1VFZGYmQzZEc1WGpVVnVVbGRNZUl4UDc2ZlBFMEF6VWMwZHMzMTVoV3pr?=
+ =?utf-8?B?TGtuU3czb0FWUUVaaEhQU1VBUGo3bXYwYjlMUzFKOHE4MVlQSFdqTW9aZVl5?=
+ =?utf-8?B?Ym9rMEpYOHQzdmNiTi8rVlZQT0EvMWhKMmpic0hjbURIUnBIeTlBaVh4RUpw?=
+ =?utf-8?B?dmFZRlZoNVgxQ2htN055M011cGFyeTNOY1NjQ1hBUUhIWm9LcmgzMmlxZkhw?=
+ =?utf-8?B?NG1ZRjh3U3lVYmRnUCsrZzRmc1licVU4SU4yUGxFcFFQdjV3bVJYcUVxcE0x?=
+ =?utf-8?B?alNiS25PUFFFZHpGMUcrcHZSREdTcnp6azB3dnd1L05qODVjOUcwclc0SS9h?=
+ =?utf-8?B?SEc2Vyt3T1UrQ01yVUg3R0txRHBWMzhOL2dwODNFelE3b3NYR2l6aG9VU1px?=
+ =?utf-8?B?dUo1TzJGYUdzeGd5cEY2c2FCdFNPanIzTCs4UkFzTTNYdmkvTWtzWGptaVc2?=
+ =?utf-8?B?ZUd1Yi8vYndWTjI5Y3BENEUrY3VoVXNOaUUybGZuMkZXUzcwZVdyT0Q0QzIr?=
+ =?utf-8?B?TTJkM0U5SnFrQzhuY3dPekhTSUdVcTViL3pyaGFwK3pyeEhLSEppeXpZM2F6?=
+ =?utf-8?B?Rm9TSjZheXk1SEVoTXREQ2ZVUVM1ZWg2aUNqdllHSmxTMXh3dVVqRjd0QWRo?=
+ =?utf-8?B?eFpkQW05TUppalh0VmthMGhIa2U4dHhQWUdMckRYbXZrdEsrQ1hiZm10eEFO?=
+ =?utf-8?B?QzJoOEpERDAySDVFUmNScGJ4TWt6WmVxT3ZrUTErZ1lyVUJzQVM0amtUcnY1?=
+ =?utf-8?B?NmZhamZ4cDhIMWN3blUxVElwTXpPM1VkalovOXZiUGw2ZktqK0FNWkxCN1lr?=
+ =?utf-8?B?WEtiV3F1VC9QMDVYSTlkT05GcFZ6cDZiZkxudmVkZ1R0RmZaVlZGdldTMTA3?=
+ =?utf-8?B?bjlsMDZrWEdkdWhRYWdad09BVWczTXZyMGxxM3dlY1c5Mzk0NUNOVWc4U0U0?=
+ =?utf-8?B?c29kWi9NT0Rmb3FnSnBhVEczNEUyZUhKS2R6OUZqelg0eXp2S1FubjRaVndF?=
+ =?utf-8?B?SXlWbzlVdHVmRmcwemNUL3UycWgzNHRXblRGSUJ5bWNKcjBTQXhWSXpLOXYy?=
+ =?utf-8?B?MkM3Y0Y4Y0cwMzlvNG9xTE9KYjJMQ1Z4S25UMzNvRy9QSWNIc2lRV3d5TzdW?=
+ =?utf-8?B?ZHVSWFhUYU1yNXJhK1BWY283RmlaZmZRMjdpeEhKKys3d1BQSWJvdUo4aEE5?=
+ =?utf-8?B?WUttTndsZzRBPT0=?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO1PR11MB5089.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?ajNIMFlyUXZod21FZENFbXpZUXJoa2trMENXZzgyMmtCc3BObjBzN3VlMEth?=
+ =?utf-8?B?VUxuN3JMc012S1JsSy9XbkRGZUJlRTZJMDIwdlFqeGZNdkxHVW9zRXZNMEVl?=
+ =?utf-8?B?bTZPK3U5Q1p5bk50VmtZb0lxaE9KMzAyOEpDSCtrUlZGQytrbnRlWU1HWi91?=
+ =?utf-8?B?cDdkemNLRjlQcE1JNGtxZWhUK2gzMGJ5d21IWHZBOVlERWNPNFBtWWhVNFdI?=
+ =?utf-8?B?U2NEallJQ2RtZDlLclh1WG5VdUxodXkrUllGa1d2d0xQbGJIYnBFTjc2ZUFz?=
+ =?utf-8?B?MVJMTnBVek5TZllHTFIrYURXWlFuMEhtSXhDWDRLWTRKMEpURWF1dThqZTFY?=
+ =?utf-8?B?VENuNThQWGtoN2MrdnlYbWZGUjFNU0dCL1pUYUNnRkpldSs2RFAvWmxKRHJs?=
+ =?utf-8?B?OXRVZ0NldEsrMS92MllmeXdwTXhDOUQxRTBRQXdISnMyeTF6dDdaY2ZRaW1i?=
+ =?utf-8?B?SmJzb2hqWTYzMkx4RktmSldMVWxLb1ErSTlXK3BJVjFCY3Z3V2dnT2J4enE1?=
+ =?utf-8?B?aDZWRkRXQ2JhVjhZa2V2NkZMSTJ1M2lGUW1EczVualZoZVd4a1ZlaXhpUUhl?=
+ =?utf-8?B?M0ZZOXFmdm1OdlJhMGpVM2tOcS8ya1h5R3hMOWd2M2dUd09BRXlNQzJKOVJX?=
+ =?utf-8?B?TkZSaUJZT096b3o2aHROd2tzRE5WWHMzRTczd0dWQytKd1hZcVRYYW8xR2tM?=
+ =?utf-8?B?bFpzbkFaVkFxV00raW03ekZsTTdGc1BuZ1cwWjBTaG5FL2lONHZVMUhNalgy?=
+ =?utf-8?B?RlBIZU1OZTFQME9FY2IxekdMQTZmTnFVT2p3d2NROGNuYUpGUit5ajNqRkZp?=
+ =?utf-8?B?eXlXSUMrVDJxMTRrWSs2a0c2aDVKVUxGZFdyMDlyekVRdlV3c3gzNTVMZGZN?=
+ =?utf-8?B?SFdDR1E0U1RQSFJ4TFdoMUlZcEZqZ1hqcFdWNXNBV085empRUjJCTHRiYWVt?=
+ =?utf-8?B?clFjR0h5U2hWRzBoNDlybU5tRUFwN1ViY0VzemJJc2U4U1hsNGQ4Y0oyUkky?=
+ =?utf-8?B?cmRVU0JjT1NOYzRoVmRISVloMCtEOFhlTk9udTM3TkdTcTRiNVFJTjJRMEdX?=
+ =?utf-8?B?ekJVdkQ0SnlRT0RHWmlTUS9lcUpZZlp4QzczdWdRTWVLZlRvdEFHU3REckRt?=
+ =?utf-8?B?U0g1eUlDMjE4ZmFZeW5oemFXQ0NJNFFxVnJuRDliUzRaaFI2elliaXV0QTdy?=
+ =?utf-8?B?R0NwNVN3NWxTbFRlUS9CWnRxTi81T0Y0SVdWc2VsVnV6N3VMb1M5eVZpUWp6?=
+ =?utf-8?B?dmpnRyt0UGhNVFJBY2tvS21Ec21DaVA5Sk8vZ2x6T0Q1VG0zWmFBWGVFbTAx?=
+ =?utf-8?B?N3hsRGpLclZid1lCdTg3THE0SGh6YVZNbDY2SCsxb2drb21DTVZ1TXNFN3JS?=
+ =?utf-8?B?S3JHR1ZQK3NxbjdpZHF4aGlXbU9mR2xnVExOMW9YdzdFWkM3UUw1TXVxZUZR?=
+ =?utf-8?B?ZzNmcTAxRXRUeXRwNGY1VmlNNEFSeHlaR2JkSVd6dUI3ZDJFNGFhZ25WNFl6?=
+ =?utf-8?B?WWFobGtMZ2FBWWkvL3cwMmQ4VTlPSlNLdmpJejFSMm5OYmVvZ2drMFVwZ05k?=
+ =?utf-8?B?Nzd4Nk1TQW5yYWppcCtvdGNRSHJZYnljOC9SY2tIbGJtOU1OK0dVMVNwWUJF?=
+ =?utf-8?B?bG5hNHNKRzNKREw0aU5teldYTTVXVFI5ck5MZmdpQ21WNVJ3SDJ3TmtYZ25i?=
+ =?utf-8?B?eTRXT29pK0NYZzhTYm9mU3l3MkFvVDNvYXBoUFpVcGNDc0xQUFdEQTdIZnRl?=
+ =?utf-8?B?L0xYekdON1pRd0RobTdMbEIrM2tsZEFHQkJYOTlKNEVySmtmQldGbXpTN3Jn?=
+ =?utf-8?B?cXNBRHNLTnM3M0QwWGQ4UXprRmlRR2FtVmtFYnhVdU1nL3lmV1ZZbFNPTXF6?=
+ =?utf-8?B?VlRpaU54M1U4OG5YTk5mZXNaaFRpcDFrWHZGZ3dnd2t0cHFSS2hLd3hoUGtk?=
+ =?utf-8?B?ZUxFMlNmZXRURERIc2NHckJtcldzdDN3WU9hcWE2bkZKeGZqY2lCUnp5RExJ?=
+ =?utf-8?B?bXpsQkNveUxQU0ZFY2xubWl0N2YxUzMvR2FjN2JQR2xCSGFWcGE0UWY3OWc3?=
+ =?utf-8?B?R2VxNUlydUkvT2FVYzNQYm4wdkNmM09UVElQbXNiTnB1WVhzOXppalQvV2ZY?=
+ =?utf-8?B?Qi9KcUk0Nllud0dmZFJBaFJkcDcrcWcrTC9kc3JzVG1oYmE4QnVLMHBJVFlJ?=
+ =?utf-8?B?L3c9PQ==?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: ed8e9cb9-f1c5-454c-f534-08de007d580d
+X-MS-Exchange-CrossTenant-AuthSource: CO1PR11MB5089.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2025 23:59:08.2755
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: pDxNCk+l/qgv2ppwPmyBJhQl5jWyBQ6lnjnC4dOTHnkbMg5O6dzRXK21yhycfERmHFuMhYAEi6GN5QfrYdhhcJh9crUSXdm7chmV2f79I3s=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA3PR11MB9087
+X-OriginatorOrg: intel.com
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250930_165921_154950_7E802375 
+X-CRM114-Status: GOOD (  18.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,74 +227,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 1 Oct 2025 at 07:59, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->
-> On Wed, 1 Oct 2025 at 00:46, Marek Szyprowski <m.szyprowski@samsung.com> =
-wrote:
-> >
-> > Hi Krzysztof,
-> >
-> > On 30.09.2025 07:54, Krzysztof Kozlowski wrote:
-> > > On Tue, 30 Sept 2025 at 12:56, Himanshu Dewangan <h.dewangan@samsung.=
-com> wrote:
-> > >> From: Nagaraju Siddineni <nagaraju.s@samsung.com>
-> > >>
-> > >> Introduce a new Kconfig entry VIDEO_EXYNOS_MFC for the Samsung
-> > >> Exynos MFC driver that supports firmware version=E2=80=AF13 and late=
-r.
-> > >> Extend the top=E2=80=91level Samsung platform Kconfig to disable the=
- legacy
-> > >> S5P=E2=80=91MFC driver when its firmware version is >=E2=80=AFv12 an=
-d to select the
-> > >> new Exynos=E2=80=91MFC driver only when VIDEO_SAMSUNG_S5P_MFC is not=
- enabled.
-> > >>
-> > >> Add exynos-mfc Kconfig and Makefile for probe functionality and crea=
-tion
-> > >> of decoder and encoder device files by registering the driver object
-> > >> exynos_mfc.o and other relevant source files.
-> > >>
-> > >> Provide header files mfc_core_ops.h and mfc_rm.h containing core
-> > >>    operation prototypes, resource=E2=80=91manager helpers,
-> > >>    and core=E2=80=91selection utilities.
-> > >>
-> > >> Add a configurable option MFC_USE_COREDUMP to enable core=E2=80=91du=
-mp
-> > >> support for debugging MFC errors.
-> > >>
-> > >> These changes bring support for newer Exynos=E2=80=91based MFC hardw=
-are,
-> > >> cleanly separate it from the legacy S5P=E2=80=91MFC driver, and lay =
-the
-> > >> groundwork for future feature development and debugging.
-> > >>
-> > > No, NAK. Existing driver is well tested and already used on newest
-> > > Exynos SoC, so all this new driver is exactly how you should not work
-> > > in upstream. You need to integrate into existing driver.
-> > >
-> > > Samsung received this review multiple times already.
-> >
-> > Please don't be so categorical. The MFC hardware evolved quite a bit
-> > from the ancient times of S5PV210 SoC, when s5p-mfc driver was designed=
-.
-> > The feature list of the new hardware hardly matches those and I really
-> > don't see the reason for forcing support for so different hardware in a
-> > single driver. Sometimes it is easier just to have 2 separate drivers i=
-f
-> > the common part is just the acronym in the hardware block name...
-> >
->
-> I know it is easier for Samsung to write new driver, but this should
-> answer to - why the maintainers and the community would like to
-> maintain two drivers. Sure, make a case why we would like to take this
-> code.
->
-> The easiest argument here why we wouldn't is: new vendor downstream
-> code means replicating all known issues, old coding style, everything
-> which we already fixed and changed.
+--------------uSBUrIRhQa0JwYPHSJ0QAmSX
+Content-Type: multipart/mixed; boundary="------------EOaqb7R37ssZdl5JCHcJHaOK";
+ protected-headers="v1"
+From: Jacob Keller <jacob.e.keller@intel.com>
+To: Nishanth Menon <nm@ti.com>,
+ =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+ Paolo Abeni <pabeni@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
+ Eric Dumazet <edumazet@google.com>, "David S. Miller" <davem@davemloft.net>,
+ Andrew Lunn <andrew+netdev@lunn.ch>
+Cc: Santosh Shilimkar <ssantosh@kernel.org>, Simon Horman <horms@kernel.org>,
+ Siddharth Vadapalli <s-vadapalli@ti.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ netdev@vger.kernel.org
+Message-ID: <0cae855b-e842-47a1-9aaf-b2a297ec32d6@intel.com>
+Subject: Re: [PATCH V2 3/3] net: ethernet: ti: Remove IS_ERR_OR_NULL checks
+ for knav_dma_open_channel
+References: <20250930121609.158419-1-nm@ti.com>
+ <20250930121609.158419-4-nm@ti.com>
+In-Reply-To: <20250930121609.158419-4-nm@ti.com>
 
-And 15 second look at one of the patches already confirmed this:
-replicating downstream issue - undocumented DT ABI not following
-current style, code relying on some other downstream drivers. 15
-seconds was enough to find it.
+--------------EOaqb7R37ssZdl5JCHcJHaOK
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+
+
+
+On 9/30/2025 5:16 AM, Nishanth Menon wrote:
+> knav_dma_open_channel now only returns NULL on failure instead of error=
+
+> pointers. Replace IS_ERR_OR_NULL checks with simple NULL checks.
+>=20
+> Suggested-by: Simon Horman <horms@kernel.org>
+> Signed-off-by: Nishanth Menon <nm@ti.com>
+> ---
+> Changes in V2:
+> * renewed version
+> * Dropped the fixes since code refactoring was involved.
+>=20
+
+Whats the justification for splitting this apart from patch 1 of 3?
+
+It seems like we ought to just do all this in a single patch. I don't
+see the value in splitting this apart into 3 patches, unless someone
+else on the list thinks it is valuable.
+
+> V1: https://lore.kernel.org/all/20250926150853.2907028-1-nm@ti.com/
+>=20
+>  drivers/net/ethernet/ti/netcp_core.c | 6 +++---
+>  1 file changed, 3 insertions(+), 3 deletions(-)
+>=20
+> diff --git a/drivers/net/ethernet/ti/netcp_core.c b/drivers/net/etherne=
+t/ti/netcp_core.c
+> index 2f9d26c791e3..5ee13db568f0 100644
+> --- a/drivers/net/ethernet/ti/netcp_core.c
+> +++ b/drivers/net/ethernet/ti/netcp_core.c
+> @@ -1338,7 +1338,7 @@ int netcp_txpipe_open(struct netcp_tx_pipe *tx_pi=
+pe)
+> =20
+>  	tx_pipe->dma_channel =3D knav_dma_open_channel(dev,
+>  				tx_pipe->dma_chan_name, &config);
+> -	if (IS_ERR_OR_NULL(tx_pipe->dma_channel)) {
+> +	if (!tx_pipe->dma_channel) {
+>  		dev_err(dev, "failed opening tx chan(%s)\n",
+>  			tx_pipe->dma_chan_name);
+>  		ret =3D -EINVAL;
+> @@ -1359,7 +1359,7 @@ int netcp_txpipe_open(struct netcp_tx_pipe *tx_pi=
+pe)
+>  	return 0;
+> =20
+>  err:
+> -	if (!IS_ERR_OR_NULL(tx_pipe->dma_channel))
+> +	if (tx_pipe->dma_channel)
+>  		knav_dma_close_channel(tx_pipe->dma_channel);
+>  	tx_pipe->dma_channel =3D NULL;
+>  	return ret;
+> @@ -1678,7 +1678,7 @@ static int netcp_setup_navigator_resources(struct=
+ net_device *ndev)
+> =20
+>  	netcp->rx_channel =3D knav_dma_open_channel(netcp->netcp_device->devi=
+ce,
+>  					netcp->dma_chan_name, &config);
+> -	if (IS_ERR_OR_NULL(netcp->rx_channel)) {
+> +	if (!netcp->rx_channel) {
+>  		dev_err(netcp->ndev_dev, "failed opening rx chan(%s\n",
+>  			netcp->dma_chan_name);
+>  		ret =3D -EINVAL;
+
+
+--------------EOaqb7R37ssZdl5JCHcJHaOK--
+
+--------------uSBUrIRhQa0JwYPHSJ0QAmSX
+Content-Type: application/pgp-signature; name="OpenPGP_signature.asc"
+Content-Description: OpenPGP digital signature
+Content-Disposition: attachment; filename="OpenPGP_signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+wnsEABYIACMWIQQgQFSp1zOQVirsQx5qll0+bw8o6AUCaNxuygUDAAAAAAAKCRBqll0+bw8o6O/8
+AQCc/r/7/sfI6HkT3/74oxgeaWB5p7BFpxkgmdV8DaTRWAEAksYTFGGgrYZei9dMorDoAxS4t2Qu
+AfdfmAXTsSSH4wE=
+=RxOt
+-----END PGP SIGNATURE-----
+
+--------------uSBUrIRhQa0JwYPHSJ0QAmSX--
 
