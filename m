@@ -4,105 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABA98CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 05:51:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9D1FECAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 05:51:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QVazE73VbRqYor6BfpMCCi39sn3mMzE033vE9K5d72Q=; b=kQH5Wg9jqb+Q4MGJ+vJxc+8EL2
-	gDA1eddJDXuJLH2wpFTVRnWSTYYdKio4O5ZwTO1FGi9HM/m2cP3PV8v0ZV595xU1UeeJFDzAvBCkh
-	0wHJKIinVq+yQWFEh1PVKnHYS6q9tz30W2Up4c6s/mkELgQh55mrZAHvMCtx2GYTIOy7krSxU+mpO
-	Q82LlbKR5+nc8CFTJtIHuyxmLfO1ztWErCBPH3ZhYcV3Tx+VCmw/nErczXpS2twEWKjNi6U7ZKkk5
-	KrcqjWblcPtEEn/MlVMVZOipGO+wkFfS4dUG2mEHqZmWewutokmE+wxo1UaoIFLmcGfdu7jHcfDfU
-	7flSwRSw==;
+	bh=LEEZ0d7bP/9F2m15CHQF+Po5PDRcDjrLTRtWvJlPJw4=; b=uXUX87NxjI1ivBJN5ZHYNYyeRF
+	qZ75Qvd44p5LUemQdJ6QMtli9vmbOX6J1k3qEg8VoSU+kAPJsuFlYLR27+yv6b7cnwREqb4yMIeKN
+	pt1WNXT6//QJPrG7ocd6kwHheP3DTRgq94XWcDo4250VCVx6a1eChfFelFGkMxqwOs63M+yiuxdiC
+	K6sPM87egYQo9RBOfYfn09vaxtdymo1SKof8PwT1ZoruTASkFigk5791S6JcEpKK3BiyZS4iEeXH8
+	ITa9g//93nALret7UZDTja4n++/pnQOmWujLyZA+87rCzwFofpiujz5Uo24O/ViBC9J2qENY52gee
+	EcVIZMBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3TGk-00000004I9I-0Ddf;
-	Tue, 30 Sep 2025 05:51:22 +0000
-Received: from mail-qk1-x733.google.com ([2607:f8b0:4864:20::733])
+	id 1v3TGw-00000004ILn-0mQh;
+	Tue, 30 Sep 2025 05:51:34 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3TGF-00000004Hop-3VEt
+	id 1v3TGU-00000004Huc-3qHE
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Sep 2025 05:51:02 +0000
-Received: by mail-qk1-x733.google.com with SMTP id af79cd13be357-8599c274188so533630285a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 22:50:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1759211450; x=1759816250; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QVazE73VbRqYor6BfpMCCi39sn3mMzE033vE9K5d72Q=;
-        b=WxUp3vhT/pcIm0C9nyIUb0+b25Orj5rVVXexPbhK1L+vuZvWKRONbUtp46F3bzokY6
-         GtJZT4J53nIW6sbsD39YONBN0rWFsH5cY0NeLQj53ELBKxC6rrM2dSN8CGxU+fBnUJHH
-         oeZZ0Ehaa5uOO8l7dMBPcx2EhDhB0HGW1LUCXZ+SiGqpayZ3GMWIWxrh3rzrnJsDrEdl
-         0uuqTfQwbWfV5BVzOg8f8OQpZaPQifIF3Rj3KduDMC2hovuArbXKoCBOZGVGPTj3JFbp
-         4kgf4Su0tGw2nl0Q1SwkIu4JZaM5z4jtE/QC65+W4GOudPMUXkpTDmQNlHWSgzbQodVK
-         E4XQ==
+	Tue, 30 Sep 2025 05:51:20 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58U4HeWi020474
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 05:51:06 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	LEEZ0d7bP/9F2m15CHQF+Po5PDRcDjrLTRtWvJlPJw4=; b=f1n9jVMxr7y94CDU
+	+HXmqW7dXEl7WnlvlNQkJAO2YA/qhjttfwKQahgYxiBOF+MKKKrRGD54E3bJKwYz
+	1G8hQGi0IqCQ8Wve43f7HQWvcu1Fd+2stPrx/cE8ngP/iZut3y0Vn3cuH28MJbg2
+	gvmvN1NZQdKwCtMsVJMaZuztOqg0wmiaIXT5zyjG/JIMqluhSdc4rpNos2HaMuPQ
+	ghD6v+ius1Nway++jJ4Su0WqpSXJ2MbEZ4YYIxxvHVKOVnuf1fyJHYQwchsE8z/Y
+	xCJMgvNasX+7wYt9IwHHEtr9w3L5Z+OqzCfLtUCh1P2c1pYxyBuEdM1YyNfeTtkk
+	3D5M0w==
+Received: from mail-pj1-f70.google.com (mail-pj1-f70.google.com [209.85.216.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49e6x5qur5-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 05:51:05 +0000 (GMT)
+Received: by mail-pj1-f70.google.com with SMTP id 98e67ed59e1d1-33826e101ecso1853265a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 22:51:05 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759211450; x=1759816250;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+        d=1e100.net; s=20230601; t=1759211464; x=1759816264;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=QVazE73VbRqYor6BfpMCCi39sn3mMzE033vE9K5d72Q=;
-        b=WiAQu0VrZJewhq+pwmUqoemCU+QEGObZi71aesYoHQGBDo7a6fo02gz29gyiMvWrL5
-         a1+Qlu6IXs7T/MVR4DI1tpR/bURG3DDyUVX8KYQ7MU+BPcqcliY1KDH0Zubszwvu3CGd
-         YTsmdqQ6W1niU+F3RDFl2OHh6Sh1ORkkv0AF22p4IGz7dmegd5oh3jyytdbT+TMnrM0q
-         JpyyP4truhDRqMBzrW57OiVAmgn4o2A75slPg4kmwEmHRF6Ty0VPmd67nAmBeTxzR5LQ
-         pfGU8xTK18jbA4dDx50geHZJi/54gTHLiJQ/ryKe+YoFWHKi5hIp4XcJfmJcLYoS9qiZ
-         aeCA==
-X-Forwarded-Encrypted: i=1; AJvYcCVI/e6d3W/nn/X3OzLhhy6j85l0K6W+Y4cIRYL4kg3spWCPI/J0Zm2EFknWZtUxNOs4s6SCzbGnqj21AS/CS6CL@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyfwhiih2H43sjPp5YJcvnPmXnuge/x2SJ7HPlUv3Vol6brVRLN
-	SdTDk+A2I/wBIvspjSHa8z7S3C2JGTCTSX/sp+Mwcw35z9vZ43qyX+O/
-X-Gm-Gg: ASbGncuIO7Dz+rNyQyyi++fUA11tK/TZrWw0Iyz7WERYAQIysnYDQ7qBDmL8pW7BaKc
-	Ktj7fSfypCC0tbPMTRguSRst1pg+fCGTzH8lmLfZIPtmV7g8YEb0AKwNKfc+K97N7fzVM6vhsb6
-	ZezsI1DozYswkucoE1wMCEVfFBdEgnY3+b+77n6b2usA34lxtx6v7NkA14/ZZ/HZ/r20BaMwWMf
-	FSRA64fQjSl6ldPnwyy7J3rhrBcf8isNMxt+SVlq4OxTZvwKxUfSfPSnZDn1ZtFbrWQPt+wZTlg
-	Ke5MJuolhIW5nSi5JkNknAESzx4pojzMafl/DC0l6BXN4EP996B8/aCO+xT4xKop7/JmcxZ4wvN
-	SJh7HaADHpQcGPBLMxTmXwwDkK+4RHUlO2Gl2oHV5VVq/PGo1NQA6BX4=
-X-Google-Smtp-Source: AGHT+IEHP2nuVRWzUsvMORK3IWUpjmosDt/eXajwkeP8Kd0ilWmY4UTAQtF/Qcu64yvQX0+XiPIt+A==
-X-Received: by 2002:a05:620a:1a28:b0:813:31ad:bf3d with SMTP id af79cd13be357-85adee2b821mr2465715985a.12.1759211450194;
-        Mon, 29 Sep 2025 22:50:50 -0700 (PDT)
-Received: from localhost.localdomain ([2a09:bac5:3981:263c::3cf:53])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-85c306b5f64sm971990985a.32.2025.09.29.22.50.43
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 29 Sep 2025 22:50:49 -0700 (PDT)
-From: Liangbin Lian <jjm2473@gmail.com>
-To: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	heiko@sntech.de,
-	quentin.schulz@cherry.de,
-	kever.yang@rock-chips.com,
-	naoki@radxa.com,
-	honyuenkwun@gmail.com,
-	inindev@gmail.com,
-	ivan8215145640@gmail.com,
-	neil.armstrong@linaro.org,
-	mani@kernel.org,
-	dsimic@manjaro.org,
-	pbrobinson@gmail.com,
-	alchark@gmail.com,
-	didi.debian@cknow.org,
-	jjm2473@gmail.com,
-	jbx6244@gmail.com
-Cc: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v4 3/3] arm64: dts: rockchip: add LinkEase EasePi R1
-Date: Tue, 30 Sep 2025 13:50:17 +0800
-Message-ID: <20250930055017.67610-4-jjm2473@gmail.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20250930055017.67610-1-jjm2473@gmail.com>
-References: <20250930055017.67610-1-jjm2473@gmail.com>
+        bh=LEEZ0d7bP/9F2m15CHQF+Po5PDRcDjrLTRtWvJlPJw4=;
+        b=IWZkqhPesOQvgmDHTLjxHo4I9WE7TNkk6im54iw2qMwF9cOni/8rMJJQY8fSexKSL4
+         DXQHJHC8WVvZhbx0D5wQuLwwEjwS2rKGCokJSoVDTfGU72jgeoZ7hIcG0wwnBWSJsEi4
+         nbjF2Pw3QdYAMf7wSQdeQBp5zAFlOqnHvZwHUHbqR0F+24fNZs16oaj4Zyzddrzfdk7p
+         PpNiGU/uJAC2xKPeTudM3/hq500seDJlUCrhg3EKZ+hmeDZ+sq0E+HWECeGWHaWksMEi
+         We5cSBxYaWXcR+HZ0nDWZHrN4cRcbj3ijsrHp2OYb/EXuiOh/ciU+LPi3bNK5eUP/KvT
+         XcrQ==
+X-Forwarded-Encrypted: i=1; AJvYcCX6b+tMGhddzpSrTPv7biiTKV5tMsiyG6czmmHjIdgmTiAXNP2DOJHhLd8UzQ78S4hLhVC/m2h5jwWYW2NVIacV@lists.infradead.org
+X-Gm-Message-State: AOJu0YwjyDNUHCcLk1k1dy1ebpn2zVPXuRz5U3AhXWg3ZjUQADtsYwtt
+	LC0s+ZecGkcnBz4U80fhch7X6BCpBS1cjhMaVTLL+2Lsoqt9EcKmiU/puN32F3RK+CmJwbvW2e4
+	PwLX6NL9G/b7u13I0/3U1bO+TsNM9eOudTGk0gFeJ+RVLoMvv+Wfb2rsGvKGs8e6+n/zCGcnA4v
+	17hQ==
+X-Gm-Gg: ASbGncsz0QHMjgcGsvfKLd2T8r9bQgj0qr/20oAKxVmm4sBxqiuO7jOqZqjbaspBmWU
+	ITUIMESa89wRET3HQjNJ2BI7LnkekdgqtKGcNa04XW0Q/plixWGPy6fE9hJhATJE7b/6SEecj5B
+	YcoZ+fpYO/aWazfO1YcOiDyr1CsN8r3AFtzOP09qwyvBsnyZZsI6fqK1sZ8G5ebsUHyilTqtNDu
+	NF/RQLHs8hYLc7I8PejrIyk5Puu0VqLL0uDz338nvDR2W3+rHDyHeyG4uA4Uahvl66YMa9qH0iu
+	13uvTeeqM/tKwuL74z+ziuXeSyoqqMHPupFktBFBMtP+qhiA7xuF/ZV+0kVqaIA3PFFofw==
+X-Received: by 2002:a17:90b:548e:b0:32b:7d35:a7e6 with SMTP id 98e67ed59e1d1-3383ac467e9mr3543359a91.18.1759211464131;
+        Mon, 29 Sep 2025 22:51:04 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IE5iAe3e4u5n6myqZaOqCbzZg+D9XtXMLcFkymOZGWVOgoVd1vtNUeKHmasAP52BXnr26yvmQ==
+X-Received: by 2002:a17:90b:548e:b0:32b:7d35:a7e6 with SMTP id 98e67ed59e1d1-3383ac467e9mr3543311a91.18.1759211463534;
+        Mon, 29 Sep 2025 22:51:03 -0700 (PDT)
+Received: from hu-akhilpo-hyd.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-3341be23412sm19029779a91.20.2025.09.29.22.50.56
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 29 Sep 2025 22:51:03 -0700 (PDT)
+From: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+Date: Tue, 30 Sep 2025 11:18:15 +0530
+Subject: [PATCH 10/17] drm/msm/a6xx: Rebase GMU register offsets
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250930-kaana-gpu-support-v1-10-73530b0700ed@oss.qualcomm.com>
+References: <20250930-kaana-gpu-support-v1-0-73530b0700ed@oss.qualcomm.com>
+In-Reply-To: <20250930-kaana-gpu-support-v1-0-73530b0700ed@oss.qualcomm.com>
+To: Rob Clark <robin.clark@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Sean Paul <sean@poorly.run>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Jonathan Marek <jonathan@marek.ca>,
+        Jordan Crouse <jordan@cosmicpenguin.net>,
+        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+        Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>
+Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
+        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+        devicetree@vger.kernel.org, Akhil P Oommen <akhilpo@oss.qualcomm.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1759211380; l=25096;
+ i=akhilpo@oss.qualcomm.com; s=20240726; h=from:subject:message-id;
+ bh=GTpB2Z9lQwSz5qPaDRTgiMFZ74hnKCFSh/p08mqgbCw=;
+ b=lQTeovCWHf3dlpBNPHq4p6TulzAuyrssPGoGSA461bCGJ6oueciYC7d4/0NgQBfF/N3A92wte
+ BSJ3KDEkYHRA4g0blnzz/SrCb4WewRJypsdKlEEVAE7qUBQ+Fu2XG4l
+X-Developer-Key: i=akhilpo@oss.qualcomm.com; a=ed25519;
+ pk=lmVtttSHmAUYFnJsQHX80IIRmYmXA4+CzpGcWOOsfKA=
+X-Proofpoint-GUID: LvHc8nGjjmuJWAepgwfYmgrnvdRdS-XD
+X-Proofpoint-ORIG-GUID: LvHc8nGjjmuJWAepgwfYmgrnvdRdS-XD
+X-Authority-Analysis: v=2.4 cv=ZtPg6t7G c=1 sm=1 tr=0 ts=68db6fc9 cx=c_pps
+ a=0uOsjrqzRL749jD1oC5vDA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=e5mUnYsNAAAA:8 a=EUspDBNiAAAA:8
+ a=ZsPRCQnh5ccIFIapgMwA:9 a=QEXdDO2ut3YA:10 a=mQ_c8vxmzFEMiUWkPHU9:22
+ a=Vxmtnl_E_bksehYqCbjh:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTI3MDAxOCBTYWx0ZWRfX0LGXsCJbwLc0
+ XJd76rWzQ0erhxcRUbpyAj22Jjfhsq5p5QWVHiayoXHY6qvQI4bXAp7zLZvoDDt+ang+HyznW18
+ kePewW0ajP6onQ+ew9iJAXAew4Tr4Bj13CHocc4N/VxEOITuN0ATQufX+0OsfFNwDN+n9dgid1/
+ Gb14TDe91glTisqSi3oaycB7/layk9imXQYrD2DEcjt0VVygxDVFHHN66CJNSJQRD0YAadKWzkw
+ /zyzYYD7f4Mvul1wqynW9lDTKM6VptpDYah3VGzMQ0YcLD3EHZ3+FNkDK1i+lFN36wJr360AAAW
+ iIYKxmVBNFGeWgyLsZCQCaMJHpFe2eKCdd1pQbGogVIkUsJyMZp8cMD+p/OSZwkz4kueLXTC4ay
+ wU83XwKUD7vOEsSx8fD2dTpF7u5/fw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-30_01,2025-09-29_04,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 spamscore=0 priorityscore=1501 malwarescore=0 bulkscore=0
+ suspectscore=0 clxscore=1015 lowpriorityscore=0 adultscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2509150000 definitions=main-2509270018
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_225052_006159_D7D5BCAE 
-X-CRM114-Status: GOOD (  14.93  )
+X-CRM114-CacheID: sfid-20250929_225107_378937_8BC46936 
+X-CRM114-Status: GOOD (  23.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,741 +154,510 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-LinkEase EasePi R1 [1] is a high-performance mini router.
+GMU registers are always at a fixed offset from the GPU base address,
+a consistency maintained at least within a given architecture generation.
+In A8x family, the base address of the GMU has changed, but the offsets
+of the gmu registers remain largely the same. To enable reuse of the gmu
+code for A8x chipsets, update the gmu register offsets to be relative
+to the GPU's base address instead of GMU's.
 
-Specification:
-- Rockchip RK3568
-- 2GB/4GB LPDDR4 RAM
-- 16GB on-board eMMC
-- 1x M.2 key for 2280 NVMe (PCIe 3.0)
-- 1x USB 3.0 Type-A
-- 1x USB 2.0 Type-C (for USB flashing)
-- 2x 1000 Base-T (native, RTL8211F)
-- 2x 2500 Base-T (PCIe, RTL8125B)
-- 1x HDMI 2.0 Output
-- 12v DC Jack
-- 1x Power key connected to PMIC
-- 2x LEDs (one static power supplied, one GPIO controlled)
-
-[1] https://doc.linkease.com/zh/guide/easepi-r1/hardware.html
-
-Signed-off-by: Liangbin Lian <jjm2473@gmail.com>
+Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
 ---
- arch/arm64/boot/dts/rockchip/Makefile         |   1 +
- .../boot/dts/rockchip/rk3568-easepi-r1.dts    | 692 ++++++++++++++++++
- 2 files changed, 693 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3568-easepi-r1.dts
+ drivers/gpu/drm/msm/adreno/a6xx_gmu.c             |  44 +++-
+ drivers/gpu/drm/msm/adreno/a6xx_gmu.h             |  20 +-
+ drivers/gpu/drm/msm/registers/adreno/a6xx_gmu.xml | 248 +++++++++++-----------
+ 3 files changed, 172 insertions(+), 140 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index 099520962ffb..7646ffd7f309 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -127,6 +127,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-nanopi-r3s.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-bigtreetech-cb2-manta.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3566-bigtreetech-pi2.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-bpi-r2-pro.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-easepi-r1.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-evb1-v10.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-fastrhino-r66s.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3568-fastrhino-r68s.dtb
-diff --git a/arch/arm64/boot/dts/rockchip/rk3568-easepi-r1.dts b/arch/arm64/boot/dts/rockchip/rk3568-easepi-r1.dts
-new file mode 100644
-index 000000000000..2bc8675efa12
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3568-easepi-r1.dts
-@@ -0,0 +1,692 @@
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
-+
-+/dts-v1/;
-+
-+#include <dt-bindings/gpio/gpio.h>
-+#include <dt-bindings/input/input.h>
-+#include <dt-bindings/leds/common.h>
-+#include <dt-bindings/pinctrl/rockchip.h>
-+#include <dt-bindings/soc/rockchip,vop2.h>
-+#include "rk3568.dtsi"
-+
-+/ {
-+	model = "LinkEase EasePi R1";
-+	compatible = "linkease,easepi-r1", "rockchip,rk3568";
-+
-+	aliases {
-+		mmc0 = &sdmmc0;
-+		mmc1 = &sdhci;
-+		mmc2 = &sdmmc2;
-+
-+		ethernet0 = &gmac0;
-+		ethernet1 = &gmac1;
-+	};
-+
-+	chosen: chosen {
-+		stdout-path = "serial2:1500000n8";
-+	};
-+
-+	adc-keys {
-+		compatible = "adc-keys";
-+		io-channels = <&saradc 0>;
-+		io-channel-names = "buttons";
-+		keyup-threshold-microvolt = <1800000>;
-+
-+		button-recovery {
-+			label = "Recovery";
-+			linux,code = <KEY_VENDOR>;
-+			press-threshold-microvolt = <1750>;
-+		};
-+	};
-+
-+	dc_12v: regulator-dc-12v {
-+		compatible = "regulator-fixed";
-+		regulator-name = "dc_12v";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <12000000>;
-+		regulator-max-microvolt = <12000000>;
-+	};
-+
-+	vcc5v0_sys: regulator-vcc5v0-sys {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc5v0_sys";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+		vin-supply = <&dc_12v>;
-+	};
-+
-+	vcc3v3_sys: regulator-vcc3v3-sys {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc3v3_sys";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&dc_12v>;
-+	};
-+
-+	pcie30_avdd0v9: regulator-pcie30-avdd0v9 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "pcie30_avdd0v9";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <900000>;
-+		regulator-max-microvolt = <900000>;
-+		vin-supply = <&vcc3v3_sys>;
-+	};
-+
-+	pcie30_avdd1v8: regulator-pcie30-avdd1v8 {
-+		compatible = "regulator-fixed";
-+		regulator-name = "pcie30_avdd1v8";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <1800000>;
-+		regulator-max-microvolt = <1800000>;
-+		vin-supply = <&vcc3v3_sys>;
-+	};
-+
-+	regulator-vdd0v95-25glan {
-+		compatible = "regulator-fixed";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pwr_25g_pin>;
-+		enable-active-high;
-+		gpio = <&gpio3 RK_PB1 GPIO_ACTIVE_HIGH>;
-+		regulator-name = "vdd0v95_25glan";
-+		regulator-min-microvolt = <950000>;
-+		regulator-max-microvolt = <950000>;
-+		regulator-boot-on;
-+		regulator-always-on;
-+		vin-supply = <&vcc3v3_sys>;
-+	};
-+
-+	vcc3v3_nvme: regulator-vcc3v3-nvme {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc3v3_nvme";
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		enable-active-high;
-+		gpio = <&gpio0 RK_PA5 GPIO_ACTIVE_HIGH>;
-+		vin-supply = <&dc_12v>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&vcc3v3_nvme_en>;
-+	};
-+
-+	sdio_pwrseq: sdio-pwrseq {
-+		compatible = "mmc-pwrseq-simple";
-+		clocks = <&rk809 1>;
-+		clock-names = "ext_clock";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&wifi_enable_h>;
-+		post-power-on-delay-ms = <200>;
-+		reset-gpios = <&gpio3 RK_PD5 GPIO_ACTIVE_LOW>;
-+	};
-+
-+	hdmi-con {
-+		compatible = "hdmi-connector";
-+		type = "a";
-+
-+		port {
-+			hdmi_con_in: endpoint {
-+				remote-endpoint = <&hdmi_out_con>;
-+			};
-+		};
-+	};
-+
-+	gpio-leds {
-+		compatible = "gpio-leds";
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&status_led_pin>;
-+
-+		status_led: led-status {
-+			gpios = <&gpio2 RK_PD7 GPIO_ACTIVE_HIGH>;
-+			color = <LED_COLOR_ID_GREEN>;
-+			function = LED_FUNCTION_STATUS;
-+			label = "green:status";
-+			linux,default-trigger = "heartbeat";
-+		};
-+	};
-+
-+};
-+
-+&gmac0 {
-+	phy-mode = "rgmii";
-+	clock_in_out = "input";
-+
-+	assigned-clocks = <&cru SCLK_GMAC0_RX_TX>, <&cru SCLK_GMAC0>;
-+	assigned-clock-parents = <&cru SCLK_GMAC0_RGMII_SPEED>;
-+	assigned-clock-rates = <0>, <125000000>;
-+	phy-handle = <&rgmii_phy0>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac0_miim
-+		     &gmac0_tx_bus2
-+		     &gmac0_rx_bus2
-+		     &gmac0_rgmii_clk
-+		     &gmac0_rgmii_bus>;
-+
-+	tx_delay = <0x3c>;
-+	rx_delay = <0x2f>;
-+
-+	status = "okay";
-+};
-+
-+&gmac1 {
-+	phy-mode = "rgmii";
-+	clock_in_out = "input";
-+
-+	assigned-clocks = <&cru SCLK_GMAC1_RX_TX>, <&cru SCLK_GMAC1>;
-+	assigned-clock-parents = <&cru SCLK_GMAC1_RGMII_SPEED>;
-+	assigned-clock-rates = <0>, <125000000>;
-+	phy-handle = <&rgmii_phy1>;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&gmac1m1_miim
-+		     &gmac1m1_tx_bus2
-+		     &gmac1m1_rx_bus2
-+		     &gmac1m1_rgmii_clk
-+		     &gmac1m1_rgmii_bus>;
-+
-+	tx_delay = <0x4f>;
-+	rx_delay = <0x26>;
-+
-+	status = "okay";
-+};
-+
-+&mdio0 {
-+	rgmii_phy0: ethernet-phy@1 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <0x1>;
-+		pinctrl-0 = <&eth_phy0_reset_pin>;
-+		pinctrl-names = "default";
-+		reset-assert-us = <20000>;
-+		reset-deassert-us = <100000>;
-+		reset-gpios = <&gpio2 RK_PD3 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&mdio1 {
-+	rgmii_phy1: ethernet-phy@1 {
-+		compatible = "ethernet-phy-ieee802.3-c22";
-+		reg = <0x1>;
-+		pinctrl-0 = <&eth_phy1_reset_pin>;
-+		pinctrl-names = "default";
-+		reset-assert-us = <20000>;
-+		reset-deassert-us = <100000>;
-+		reset-gpios = <&gpio2 RK_PD1 GPIO_ACTIVE_LOW>;
-+	};
-+};
-+
-+&combphy0 {
-+	status = "okay";
-+};
-+
-+&combphy1 {
-+	status = "okay";
-+};
-+
-+&combphy2 {
-+	status = "okay";
-+};
-+
-+&cpu0 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&cpu1 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&cpu2 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&cpu3 {
-+	cpu-supply = <&vdd_cpu>;
-+};
-+
-+&gpu {
-+	mali-supply = <&vdd_gpu>;
-+	status = "okay";
-+};
-+
-+&hdmi {
-+	avdd-0v9-supply = <&vdda0v9_image>;
-+	avdd-1v8-supply = <&vcca1v8_image>;
-+	status = "okay";
-+};
-+
-+&hdmi_in {
-+	hdmi_in_vp0: endpoint {
-+		remote-endpoint = <&vp0_out_hdmi>;
-+	};
-+};
-+
-+&hdmi_out {
-+	hdmi_out_con: endpoint {
-+		remote-endpoint = <&hdmi_con_in>;
-+	};
-+};
-+
-+&hdmi_sound {
-+	status = "okay";
-+};
-+
-+&i2c0 {
-+	status = "okay";
-+
-+	vdd_cpu: regulator@1c {
-+		compatible = "tcs,tcs4525";
-+		reg = <0x1c>;
-+		fcs,suspend-voltage-selector = <1>;
-+		regulator-name = "vdd_cpu";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <800000>;
-+		regulator-max-microvolt = <1150000>;
-+		regulator-ramp-delay = <2300>;
-+		vin-supply = <&vcc5v0_sys>;
-+
-+		regulator-state-mem {
-+			regulator-off-in-suspend;
-+		};
-+	};
-+
-+	rk809: pmic@20 {
-+		compatible = "rockchip,rk809";
-+		reg = <0x20>;
-+		interrupt-parent = <&gpio0>;
-+		interrupts = <RK_PA3 IRQ_TYPE_LEVEL_LOW>;
-+		#clock-cells = <1>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pmic_int>;
-+		system-power-controller;
-+		vcc1-supply = <&vcc3v3_sys>;
-+		vcc2-supply = <&vcc3v3_sys>;
-+		vcc3-supply = <&vcc3v3_sys>;
-+		vcc4-supply = <&vcc3v3_sys>;
-+		vcc5-supply = <&vcc3v3_sys>;
-+		vcc6-supply = <&vcc3v3_sys>;
-+		vcc7-supply = <&vcc3v3_sys>;
-+		vcc8-supply = <&vcc3v3_sys>;
-+		vcc9-supply = <&vcc3v3_sys>;
-+		wakeup-source;
-+
-+		regulators {
-+			vdd_logic: DCDC_REG1 {
-+				regulator-name = "vdd_logic";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-initial-mode = <0x2>;
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-ramp-delay = <6001>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdd_gpu: DCDC_REG2 {
-+				regulator-name = "vdd_gpu";
-+				regulator-always-on;
-+				regulator-initial-mode = <0x2>;
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-ramp-delay = <6001>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc_ddr: DCDC_REG3 {
-+				regulator-name = "vcc_ddr";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-initial-mode = <0x2>;
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+				};
-+			};
-+
-+			vdd_npu: DCDC_REG4 {
-+				regulator-name = "vdd_npu";
-+				regulator-initial-mode = <0x2>;
-+				regulator-min-microvolt = <500000>;
-+				regulator-max-microvolt = <1350000>;
-+				regulator-ramp-delay = <6001>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc_1v8: DCDC_REG5 {
-+				regulator-name = "vcc_1v8";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdda0v9_image: LDO_REG1 {
-+				regulator-name = "vdda0v9_image";
-+				regulator-min-microvolt = <950000>;
-+				regulator-max-microvolt = <950000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdda_0v9: LDO_REG2 {
-+				regulator-name = "vdda_0v9";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <900000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vdda0v9_pmu: LDO_REG3 {
-+				regulator-name = "vdda0v9_pmu";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <900000>;
-+				regulator-max-microvolt = <900000>;
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <900000>;
-+				};
-+			};
-+
-+			vccio_acodec: LDO_REG4 {
-+				regulator-name = "vccio_acodec";
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vccio_sd: LDO_REG5 {
-+				regulator-name = "vccio_sd";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <3300000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc3v3_pmu: LDO_REG6 {
-+				regulator-name = "vcc3v3_pmu";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <3300000>;
-+				regulator-max-microvolt = <3300000>;
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <3300000>;
-+				};
-+			};
-+
-+			vcca_1v8: LDO_REG7 {
-+				regulator-name = "vcca_1v8";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcca1v8_pmu: LDO_REG8 {
-+				regulator-name = "vcca1v8_pmu";
-+				regulator-always-on;
-+				regulator-boot-on;
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+
-+				regulator-state-mem {
-+					regulator-on-in-suspend;
-+					regulator-suspend-microvolt = <1800000>;
-+				};
-+			};
-+
-+			vcca1v8_image: LDO_REG9 {
-+				regulator-name = "vcca1v8_image";
-+				regulator-min-microvolt = <1800000>;
-+				regulator-max-microvolt = <1800000>;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc_3v3: SWITCH_REG1 {
-+				regulator-name = "vcc_3v3";
-+				regulator-always-on;
-+				regulator-boot-on;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+
-+			vcc3v3_sd: SWITCH_REG2 {
-+				regulator-name = "vcc3v3_sd";
-+				regulator-always-on;
-+				regulator-boot-on;
-+
-+				regulator-state-mem {
-+					regulator-off-in-suspend;
-+				};
-+			};
-+		};
-+
-+	};
-+};
-+
-+&i2s0_8ch {
-+	status = "okay";
-+};
-+
-+/* ETH3 */
-+&pcie2x1 {
-+	reset-gpios = <&gpio3 RK_PA4 GPIO_ACTIVE_HIGH>;
-+	status = "okay";
-+};
-+
-+&pcie30phy {
-+	data-lanes = <1 2>;
-+	status = "okay";
-+};
-+
-+/* ETH2 */
-+&pcie3x1 {
-+	num-lanes = <1>;
-+	reset-gpios = <&gpio3 RK_PA3 GPIO_ACTIVE_HIGH>;
-+	status = "okay";
-+};
-+
-+/* M.2 Key for 2280 NVMe */
-+&pcie3x2 {
-+	num-lanes = <1>;
-+	reset-gpios = <&gpio2 RK_PD6 GPIO_ACTIVE_HIGH>;
-+	vpcie3v3-supply = <&vcc3v3_nvme>;
-+	status = "okay";
-+};
-+
-+&pinctrl {
-+	gmac0 {
-+		eth_phy0_reset_pin: eth-phy0-reset-pin {
-+			rockchip,pins = <2 RK_PD3 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+	};
-+	gmac1 {
-+		eth_phy1_reset_pin: eth-phy1-reset-pin {
-+			rockchip,pins = <2 RK_PD1 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+	};
-+
-+	gpio-leds {
-+		status_led_pin: status-led-pin {
-+			rockchip,pins =
-+				<2 RK_PD7 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	pmic {
-+		pmic_int: pmic-int {
-+			rockchip,pins = <0 RK_PA3 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+	};
-+
-+	pcie-nic {
-+		pwr_25g_pin: pwr-25g-pin {
-+			rockchip,pins = <3 RK_PB1 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	nvme {
-+		vcc3v3_nvme_en: vcc3v3-nvme-en {
-+			rockchip,pins = <0 RK_PA5 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+	sdio-pwrseq {
-+		wifi_enable_h: wifi-enable-h {
-+			rockchip,pins = <3 RK_PD5 RK_FUNC_GPIO &pcfg_pull_none>;
-+		};
-+	};
-+
-+};
-+
-+&pmu_io_domains {
-+	pmuio1-supply = <&vcc3v3_pmu>;
-+	pmuio2-supply = <&vcc3v3_pmu>;
-+	vccio1-supply = <&vccio_acodec>;
-+	vccio3-supply = <&vccio_sd>;
-+	vccio4-supply = <&vcc_1v8>;
-+	vccio5-supply = <&vcc_3v3>;
-+	vccio6-supply = <&vcc_1v8>;
-+	vccio7-supply = <&vcc_3v3>;
-+	status = "okay";
-+};
-+
-+&saradc {
-+	vref-supply = <&vcca_1v8>;
-+	status = "okay";
-+};
-+
-+&sdhci {
-+	bus-width = <8>;
-+	max-frequency = <200000000>;
-+	non-removable;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&emmc_bus8 &emmc_clk &emmc_cmd &emmc_datastrobe>;
-+	status = "okay";
-+};
-+
-+/* Micro SD card slot is not mounted */
-+&sdmmc0 {
-+	max-frequency = <150000000>;
-+	no-sdio;
-+	no-mmc;
-+	bus-width = <4>;
-+	cap-mmc-highspeed;
-+	cap-sd-highspeed;
-+	disable-wp;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&sdmmc0_bus4 &sdmmc0_clk &sdmmc0_cmd &sdmmc0_det>;
-+	vmmc-supply = <&vcc3v3_sd>;
-+	vqmmc-supply = <&vccio_sd>;
-+	status = "disabled";
-+};
-+
-+/* Wifi module is not mounted */
-+&sdmmc2 {
-+	max-frequency = <150000000>;
-+	bus-width = <4>;
-+	disable-wp;
-+	cap-sd-highspeed;
-+	cap-sdio-irq;
-+	keep-power-in-suspend;
-+	mmc-pwrseq = <&sdio_pwrseq>;
-+	non-removable;
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&sdmmc2m0_bus4 &sdmmc2m0_cmd &sdmmc2m0_clk>;
-+	sd-uhs-sdr104;
-+	vmmc-supply = <&vcc3v3_sys>;
-+	vqmmc-supply = <&vcc_1v8>;
-+	status = "disabled";
-+};
-+
-+&tsadc {
-+	rockchip,hw-tshut-mode = <1>;
-+	rockchip,hw-tshut-polarity = <0>;
-+	status = "okay";
-+};
-+
-+&uart2 {
-+	status = "okay";
-+};
-+
-+/* OTG Only USB2.0, Only device mode */
-+&usb_host0_xhci {
-+	phys = <&usb2phy0_otg>;
-+	phy-names = "usb2-phy";
-+	extcon = <&usb2phy0>;
-+	maximum-speed = "high-speed";
-+	dr_mode = "peripheral";
-+	status = "okay";
-+};
-+
-+&usb_host1_xhci {
-+	status = "okay";
-+};
-+
-+&usb2phy0 {
-+	status = "okay";
-+};
-+
-+&usb2phy0_host {
-+	phy-supply = <&vcc5v0_sys>;
-+	status = "okay";
-+};
-+
-+&usb2phy0_otg {
-+	status = "okay";
-+};
-+
-+&vop {
-+	assigned-clocks = <&cru DCLK_VOP0>, <&cru DCLK_VOP1>;
-+	assigned-clock-parents = <&pmucru PLL_HPLL>, <&cru PLL_VPLL>;
-+	status = "okay";
-+};
-+
-+&vop_mmu {
-+	status = "okay";
-+};
-+
-+&vp0 {
-+	vp0_out_hdmi: endpoint@ROCKCHIP_VOP2_EP_HDMI0 {
-+		reg = <ROCKCHIP_VOP2_EP_HDMI0>;
-+		remote-endpoint = <&hdmi_in_vp0>;
-+	};
-+};
+diff --git a/drivers/gpu/drm/msm/adreno/a6xx_gmu.c b/drivers/gpu/drm/msm/adreno/a6xx_gmu.c
+index fc717c9474ca5bdd386a8e4e19f43abce10ce591..72d64eb10ca931ee90c91f7e004771cf6d7997a4 100644
+--- a/drivers/gpu/drm/msm/adreno/a6xx_gmu.c
++++ b/drivers/gpu/drm/msm/adreno/a6xx_gmu.c
+@@ -585,14 +585,14 @@ static inline void pdc_write(void __iomem *ptr, u32 offset, u32 value)
+ }
+ 
+ static void __iomem *a6xx_gmu_get_mmio(struct platform_device *pdev,
+-		const char *name);
++		const char *name, resource_size_t *start);
+ 
+ static void a6xx_gmu_rpmh_init(struct a6xx_gmu *gmu)
+ {
+ 	struct a6xx_gpu *a6xx_gpu = container_of(gmu, struct a6xx_gpu, gmu);
+ 	struct adreno_gpu *adreno_gpu = &a6xx_gpu->base;
+ 	struct platform_device *pdev = to_platform_device(gmu->dev);
+-	void __iomem *pdcptr = a6xx_gmu_get_mmio(pdev, "gmu_pdc");
++	void __iomem *pdcptr = a6xx_gmu_get_mmio(pdev, "gmu_pdc", NULL);
+ 	u32 seqmem0_drv0_reg = REG_A6XX_RSCC_SEQ_MEM_0_DRV0;
+ 	void __iomem *seqptr = NULL;
+ 	uint32_t pdc_address_offset;
+@@ -612,7 +612,7 @@ static void a6xx_gmu_rpmh_init(struct a6xx_gmu *gmu)
+ 		pdc_address_offset = 0x30080;
+ 
+ 	if (!pdc_in_aop) {
+-		seqptr = a6xx_gmu_get_mmio(pdev, "gmu_pdc_seq");
++		seqptr = a6xx_gmu_get_mmio(pdev, "gmu_pdc_seq", NULL);
+ 		if (IS_ERR(seqptr))
+ 			goto err;
+ 	}
+@@ -1793,7 +1793,7 @@ static int a6xx_gmu_clocks_probe(struct a6xx_gmu *gmu)
+ }
+ 
+ static void __iomem *a6xx_gmu_get_mmio(struct platform_device *pdev,
+-		const char *name)
++		const char *name, resource_size_t *start)
+ {
+ 	void __iomem *ret;
+ 	struct resource *res = platform_get_resource_byname(pdev,
+@@ -1810,6 +1810,9 @@ static void __iomem *a6xx_gmu_get_mmio(struct platform_device *pdev,
+ 		return ERR_PTR(-EINVAL);
+ 	}
+ 
++	if (start)
++		*start = res->start;
++
+ 	return ret;
+ }
+ 
+@@ -1922,7 +1925,11 @@ static int cxpd_notifier_cb(struct notifier_block *nb,
+ int a6xx_gmu_wrapper_init(struct a6xx_gpu *a6xx_gpu, struct device_node *node)
+ {
+ 	struct platform_device *pdev = of_find_device_by_node(node);
++	struct adreno_gpu *adreno_gpu = &a6xx_gpu->base;
++	struct msm_gpu *gpu = &adreno_gpu->base;
+ 	struct a6xx_gmu *gmu = &a6xx_gpu->gmu;
++	resource_size_t start;
++	struct resource *res;
+ 	int ret;
+ 
+ 	if (!pdev)
+@@ -1940,12 +1947,21 @@ int a6xx_gmu_wrapper_init(struct a6xx_gpu *a6xx_gpu, struct device_node *node)
+ 	gmu->legacy = true;
+ 
+ 	/* Map the GMU registers */
+-	gmu->mmio = a6xx_gmu_get_mmio(pdev, "gmu");
++	gmu->mmio = a6xx_gmu_get_mmio(pdev, "gmu", &start);
+ 	if (IS_ERR(gmu->mmio)) {
+ 		ret = PTR_ERR(gmu->mmio);
+ 		goto err_mmio;
+ 	}
+ 
++	res = platform_get_resource_byname(gpu->pdev, IORESOURCE_MEM, "kgsl_3d0_reg_memory");
++	if (!res) {
++		ret = -EINVAL;
++		goto err_mmio;
++	}
++
++	/* Identify gmu base offset from gpu base address */
++	gmu->mmio_offset = (u32)(start - res->start);
++
+ 	gmu->cxpd = dev_pm_domain_attach_by_name(gmu->dev, "cx");
+ 	if (IS_ERR(gmu->cxpd)) {
+ 		ret = PTR_ERR(gmu->cxpd);
+@@ -1986,10 +2002,13 @@ int a6xx_gmu_wrapper_init(struct a6xx_gpu *a6xx_gpu, struct device_node *node)
+ 
+ int a6xx_gmu_init(struct a6xx_gpu *a6xx_gpu, struct device_node *node)
+ {
++	struct platform_device *pdev = of_find_device_by_node(node);
+ 	struct adreno_gpu *adreno_gpu = &a6xx_gpu->base;
++	struct msm_gpu *gpu = &adreno_gpu->base;
+ 	struct a6xx_gmu *gmu = &a6xx_gpu->gmu;
+-	struct platform_device *pdev = of_find_device_by_node(node);
+ 	struct device_link *link;
++	resource_size_t start;
++	struct resource *res;
+ 	int ret;
+ 
+ 	if (!pdev)
+@@ -2084,15 +2103,24 @@ int a6xx_gmu_init(struct a6xx_gpu *a6xx_gpu, struct device_node *node)
+ 		goto err_memory;
+ 
+ 	/* Map the GMU registers */
+-	gmu->mmio = a6xx_gmu_get_mmio(pdev, "gmu");
++	gmu->mmio = a6xx_gmu_get_mmio(pdev, "gmu", &start);
+ 	if (IS_ERR(gmu->mmio)) {
+ 		ret = PTR_ERR(gmu->mmio);
+ 		goto err_memory;
+ 	}
+ 
++	res = platform_get_resource_byname(gpu->pdev, IORESOURCE_MEM, "kgsl_3d0_reg_memory");
++	if (!res) {
++		ret = -EINVAL;
++		goto err_mmio;
++	}
++
++	/* Identify gmu base offset from gpu base address */
++	gmu->mmio_offset = (u32)(start - res->start);
++
+ 	if (adreno_is_a650_family(adreno_gpu) ||
+ 	    adreno_is_a7xx(adreno_gpu)) {
+-		gmu->rscc = a6xx_gmu_get_mmio(pdev, "rscc");
++		gmu->rscc = a6xx_gmu_get_mmio(pdev, "rscc", NULL);
+ 		if (IS_ERR(gmu->rscc)) {
+ 			ret = -ENODEV;
+ 			goto err_mmio;
+diff --git a/drivers/gpu/drm/msm/adreno/a6xx_gmu.h b/drivers/gpu/drm/msm/adreno/a6xx_gmu.h
+index 06cfc294016f513a33eb4004c7892996ac9e0435..55b1c78daa8b523147435a86d6eb629dbad18acd 100644
+--- a/drivers/gpu/drm/msm/adreno/a6xx_gmu.h
++++ b/drivers/gpu/drm/msm/adreno/a6xx_gmu.h
+@@ -68,6 +68,7 @@ struct a6xx_gmu {
+ 	struct drm_gpuvm *vm;
+ 
+ 	void __iomem *mmio;
++	u32 mmio_offset;
+ 	void __iomem *rscc;
+ 
+ 	int hfi_irq;
+@@ -130,20 +131,23 @@ struct a6xx_gmu {
+ 	unsigned long status;
+ };
+ 
++#define GMU_BYTE_OFFSET(gmu, offset) (((offset) << 2) - (gmu)->mmio_offset)
++
+ static inline u32 gmu_read(struct a6xx_gmu *gmu, u32 offset)
+ {
+-	return readl(gmu->mmio + (offset << 2));
++	/* The 'offset' is based on GPU's start address. Adjust it */
++	return readl(gmu->mmio + GMU_BYTE_OFFSET(gmu, offset));
+ }
+ 
+ static inline void gmu_write(struct a6xx_gmu *gmu, u32 offset, u32 value)
+ {
+-	writel(value, gmu->mmio + (offset << 2));
++	writel(value, gmu->mmio + GMU_BYTE_OFFSET(gmu, offset));
+ }
+ 
+ static inline void
+ gmu_write_bulk(struct a6xx_gmu *gmu, u32 offset, const u32 *data, u32 size)
+ {
+-	memcpy_toio(gmu->mmio + (offset << 2), data, size);
++	memcpy_toio(gmu->mmio + GMU_BYTE_OFFSET(gmu, offset), data, size);
+ 	wmb();
+ }
+ 
+@@ -160,17 +164,17 @@ static inline u64 gmu_read64(struct a6xx_gmu *gmu, u32 lo, u32 hi)
+ {
+ 	u64 val;
+ 
+-	val = (u64) readl(gmu->mmio + (lo << 2));
+-	val |= ((u64) readl(gmu->mmio + (hi << 2)) << 32);
++	val = gmu_read(gmu, lo);
++	val |= ((u64) gmu_read(gmu, hi) << 32);
+ 
+ 	return val;
+ }
+ 
+ #define gmu_poll_timeout(gmu, addr, val, cond, interval, timeout) \
+-	readl_poll_timeout((gmu)->mmio + ((addr) << 2), val, cond, \
+-		interval, timeout)
++	readl_poll_timeout((gmu)->mmio + (GMU_BYTE_OFFSET(gmu, addr)), val, \
++		cond, interval, timeout)
+ #define gmu_poll_timeout_atomic(gmu, addr, val, cond, interval, timeout) \
+-	readl_poll_timeout_atomic((gmu)->mmio + ((addr) << 2), val, cond, \
++	readl_poll_timeout_atomic((gmu)->mmio + (GMU_BYTE_OFFSET(gmu, addr)), val, cond, \
+ 		interval, timeout)
+ 
+ static inline u32 gmu_read_rscc(struct a6xx_gmu *gmu, u32 offset)
+diff --git a/drivers/gpu/drm/msm/registers/adreno/a6xx_gmu.xml b/drivers/gpu/drm/msm/registers/adreno/a6xx_gmu.xml
+index b15a242d974d6b42133171c8484d3b0413f2d3a4..09b8a0b9c0de7615f7e7e6364c198405a498121a 100644
+--- a/drivers/gpu/drm/msm/registers/adreno/a6xx_gmu.xml
++++ b/drivers/gpu/drm/msm/registers/adreno/a6xx_gmu.xml
+@@ -40,56 +40,56 @@ xsi:schemaLocation="https://gitlab.freedesktop.org/freedreno/ rules-fd.xsd">
+ 		<bitfield name="IRQ_MASK_BIT" pos="0" />
+ 	</bitset>
+ 
+-	<reg32 offset="0x80" name="GPU_GMU_GX_SPTPRAC_CLOCK_CONTROL"/>
+-	<reg32 offset="0x81" name="GMU_GX_SPTPRAC_POWER_CONTROL"/>
+-	<reg32 offset="0xc00" name="GMU_CM3_ITCM_START"/>
+-	<reg32 offset="0x1c00" name="GMU_CM3_DTCM_START"/>
+-	<reg32 offset="0x23f0" name="GMU_NMI_CONTROL_STATUS"/>
+-	<reg32 offset="0x23f8" name="GMU_BOOT_SLUMBER_OPTION"/>
+-	<reg32 offset="0x23f9" name="GMU_GX_VOTE_IDX"/>
+-	<reg32 offset="0x23fa" name="GMU_MX_VOTE_IDX"/>
+-	<reg32 offset="0x23fc" name="GMU_DCVS_ACK_OPTION"/>
+-	<reg32 offset="0x23fd" name="GMU_DCVS_PERF_SETTING"/>
+-	<reg32 offset="0x23fe" name="GMU_DCVS_BW_SETTING"/>
+-	<reg32 offset="0x23ff" name="GMU_DCVS_RETURN"/>
+-	<reg32 offset="0x2bf8" name="GMU_CORE_FW_VERSION">
++	<reg32 offset="0x1a880" name="GPU_GMU_GX_SPTPRAC_CLOCK_CONTROL"/>
++	<reg32 offset="0x1a881" name="GMU_GX_SPTPRAC_POWER_CONTROL"/>
++	<reg32 offset="0x1b400" name="GMU_CM3_ITCM_START"/>
++	<reg32 offset="0x1c400" name="GMU_CM3_DTCM_START"/>
++	<reg32 offset="0x1cbf0" name="GMU_NMI_CONTROL_STATUS"/>
++	<reg32 offset="0x1cbf8" name="GMU_BOOT_SLUMBER_OPTION"/>
++	<reg32 offset="0x1cbf9" name="GMU_GX_VOTE_IDX"/>
++	<reg32 offset="0x1cbfa" name="GMU_MX_VOTE_IDX"/>
++	<reg32 offset="0x1cbfc" name="GMU_DCVS_ACK_OPTION"/>
++	<reg32 offset="0x1cbfd" name="GMU_DCVS_PERF_SETTING"/>
++	<reg32 offset="0x1cbfe" name="GMU_DCVS_BW_SETTING"/>
++	<reg32 offset="0x1cbff" name="GMU_DCVS_RETURN"/>
++	<reg32 offset="0x1d3f8" name="GMU_CORE_FW_VERSION">
+ 		<bitfield name="MAJOR" low="28" high="31"/>
+ 		<bitfield name="MINOR" low="16" high="27"/>
+ 		<bitfield name="STEP" low="0" high="15"/>
+ 	</reg32>
+-	<reg32 offset="0x4c00" name="GMU_ICACHE_CONFIG"/>
+-	<reg32 offset="0x4c01" name="GMU_DCACHE_CONFIG"/>
+-	<reg32 offset="0x4c0f" name="GMU_SYS_BUS_CONFIG"/>
+-	<reg32 offset="0x5000" name="GMU_CM3_SYSRESET"/>
+-	<reg32 offset="0x5001" name="GMU_CM3_BOOT_CONFIG"/>
+-	<reg32 offset="0x501a" name="GMU_CM3_FW_BUSY"/>
+-	<reg32 offset="0x501c" name="GMU_CM3_FW_INIT_RESULT"/>
+-	<reg32 offset="0x502d" name="GMU_CM3_CFG"/>
+-	<reg32 offset="0x5040" name="GMU_CX_GMU_POWER_COUNTER_ENABLE"/>
+-	<reg32 offset="0x5041" name="GMU_CX_GMU_POWER_COUNTER_SELECT_0"/>
+-	<reg32 offset="0x5042" name="GMU_CX_GMU_POWER_COUNTER_SELECT_1"/>
+-	<reg32 offset="0x5044" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_0_L"/>
+-	<reg32 offset="0x5045" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_0_H"/>
+-	<reg32 offset="0x5046" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_1_L"/>
+-	<reg32 offset="0x5047" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_1_H"/>
+-	<reg32 offset="0x5048" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_2_L"/>
+-	<reg32 offset="0x5049" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_2_H"/>
+-	<reg32 offset="0x504a" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_3_L"/>
+-	<reg32 offset="0x504b" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_3_H"/>
+-	<reg32 offset="0x504c" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_4_L"/>
+-	<reg32 offset="0x504d" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_4_H"/>
+-	<reg32 offset="0x504e" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_5_L"/>
+-	<reg32 offset="0x504f" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_5_H"/>
+-	<reg32 offset="0x50c0" name="GMU_PWR_COL_INTER_FRAME_CTRL">
++	<reg32 offset="0x1f400" name="GMU_ICACHE_CONFIG"/>
++	<reg32 offset="0x1f401" name="GMU_DCACHE_CONFIG"/>
++	<reg32 offset="0x1f40f" name="GMU_SYS_BUS_CONFIG"/>
++	<reg32 offset="0x1f800" name="GMU_CM3_SYSRESET"/>
++	<reg32 offset="0x1f801" name="GMU_CM3_BOOT_CONFIG"/>
++	<reg32 offset="0x1f81a" name="GMU_CM3_FW_BUSY"/>
++	<reg32 offset="0x1f81c" name="GMU_CM3_FW_INIT_RESULT"/>
++	<reg32 offset="0x1f82d" name="GMU_CM3_CFG"/>
++	<reg32 offset="0x1f840" name="GMU_CX_GMU_POWER_COUNTER_ENABLE"/>
++	<reg32 offset="0x1f841" name="GMU_CX_GMU_POWER_COUNTER_SELECT_0"/>
++	<reg32 offset="0x1f842" name="GMU_CX_GMU_POWER_COUNTER_SELECT_1"/>
++	<reg32 offset="0x1f844" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_0_L"/>
++	<reg32 offset="0x1f845" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_0_H"/>
++	<reg32 offset="0x1f846" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_1_L"/>
++	<reg32 offset="0x1f847" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_1_H"/>
++	<reg32 offset="0x1f848" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_2_L"/>
++	<reg32 offset="0x1f849" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_2_H"/>
++	<reg32 offset="0x1f84a" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_3_L"/>
++	<reg32 offset="0x1f84b" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_3_H"/>
++	<reg32 offset="0x1f84c" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_4_L"/>
++	<reg32 offset="0x1f84d" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_4_H"/>
++	<reg32 offset="0x1f84e" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_5_L"/>
++	<reg32 offset="0x1f84f" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_5_H"/>
++	<reg32 offset="0x1f8c0" name="GMU_PWR_COL_INTER_FRAME_CTRL">
+ 		<bitfield name="IFPC_ENABLE" pos="0" type="boolean"/>
+ 		<bitfield name="HM_POWER_COLLAPSE_ENABLE" pos="1" type="boolean"/>
+ 		<bitfield name="SPTPRAC_POWER_CONTROL_ENABLE" pos="2" type="boolean"/>
+ 		<bitfield name="NUM_PASS_SKIPS" low="10" high="13"/>
+ 		<bitfield name="MIN_PASS_LENGTH" low="14" high="31"/>
+ 	</reg32>
+-	<reg32 offset="0x50c1" name="GMU_PWR_COL_INTER_FRAME_HYST"/>
+-	<reg32 offset="0x50c2" name="GMU_PWR_COL_SPTPRAC_HYST"/>
+-	<reg32 offset="0x50d0" name="GMU_SPTPRAC_PWR_CLK_STATUS">
++	<reg32 offset="0x1f8c1" name="GMU_PWR_COL_INTER_FRAME_HYST"/>
++	<reg32 offset="0x1f8c2" name="GMU_PWR_COL_SPTPRAC_HYST"/>
++	<reg32 offset="0x1f8d0" name="GMU_SPTPRAC_PWR_CLK_STATUS">
+ 		<bitfield name="SPTPRAC_GDSC_POWERING_OFF" pos="0" type="boolean"/>
+ 		<bitfield name="SPTPRAC_GDSC_POWERING_ON" pos="1" type="boolean"/>
+ 		<bitfield name="SPTPRAC_GDSC_POWER_OFF" pos="2" type="boolean"/>
+@@ -99,15 +99,15 @@ xsi:schemaLocation="https://gitlab.freedesktop.org/freedreno/ rules-fd.xsd">
+ 		<bitfield name="GX_HM_GDSC_POWER_OFF" pos="6" type="boolean"/>
+ 		<bitfield name="GX_HM_CLK_OFF" pos="7" type="boolean"/>
+ 	</reg32>
+-	<reg32 offset="0x50d0" name="GMU_SPTPRAC_PWR_CLK_STATUS" variants="A7XX">
++	<reg32 offset="0x1f8d0" name="GMU_SPTPRAC_PWR_CLK_STATUS" variants="A7XX-">
+ 		<bitfield name="GX_HM_GDSC_POWER_OFF" pos="0" type="boolean"/>
+ 		<bitfield name="GX_HM_CLK_OFF" pos="1" type="boolean"/>
+ 	</reg32>
+-	<reg32 offset="0x50e4" name="GMU_GPU_NAP_CTRL">
++	<reg32 offset="0x1f8e4" name="GMU_GPU_NAP_CTRL">
+ 		<bitfield name="HW_NAP_ENABLE" pos="0"/>
+ 		<bitfield name="SID" low="4" high="8"/>
+ 	</reg32>
+-	<reg32 offset="0x50e8" name="GMU_RPMH_CTRL">
++	<reg32 offset="0x1f8e8" name="GMU_RPMH_CTRL">
+ 		<bitfield name="RPMH_INTERFACE_ENABLE" pos="0" type="boolean"/>
+ 		<bitfield name="LLC_VOTE_ENABLE" pos="4" type="boolean"/>
+ 		<bitfield name="DDR_VOTE_ENABLE" pos="8" type="boolean"/>
+@@ -119,71 +119,71 @@ xsi:schemaLocation="https://gitlab.freedesktop.org/freedreno/ rules-fd.xsd">
+ 		<bitfield name="CX_MIN_VOTE_ENABLE" pos="14" type="boolean"/>
+ 		<bitfield name="GFX_MIN_VOTE_ENABLE" pos="15" type="boolean"/>
+ 	</reg32>
+-	<reg32 offset="0x50e9" name="GMU_RPMH_HYST_CTRL"/>
+-	<reg32 offset="0x50ec" name="GPU_GMU_CX_GMU_RPMH_POWER_STATE"/>
+-	<reg32 offset="0x50f0" name="GPU_GMU_CX_GMU_CX_FAL_INTF"/>
+-	<reg32 offset="0x50f1" name="GPU_GMU_CX_GMU_CX_FALNEXT_INTF"/>
+-	<reg32 offset="0x5100" name="GPU_GMU_CX_GMU_PWR_COL_CP_MSG"/>
+-	<reg32 offset="0x5101" name="GPU_GMU_CX_GMU_PWR_COL_CP_RESP"/>
+-	<reg32 offset="0x51f0" name="GMU_BOOT_KMD_LM_HANDSHAKE"/>
+-	<reg32 offset="0x5157" name="GMU_LLM_GLM_SLEEP_CTRL"/>
+-	<reg32 offset="0x5158" name="GMU_LLM_GLM_SLEEP_STATUS"/>
+-	<reg32 offset="0x5088" name="GMU_ALWAYS_ON_COUNTER_L"/>
+-	<reg32 offset="0x5089" name="GMU_ALWAYS_ON_COUNTER_H"/>
+-	<reg32 offset="0x50c3" name="GMU_GMU_PWR_COL_KEEPALIVE"/>
+-	<reg32 offset="0x50c4" name="GMU_PWR_COL_PREEMPT_KEEPALIVE"/>
+-	<reg32 offset="0x5180" name="GMU_HFI_CTRL_STATUS"/>
+-	<reg32 offset="0x5181" name="GMU_HFI_VERSION_INFO"/>
+-	<reg32 offset="0x5182" name="GMU_HFI_SFR_ADDR"/>
+-	<reg32 offset="0x5183" name="GMU_HFI_MMAP_ADDR"/>
+-	<reg32 offset="0x5184" name="GMU_HFI_QTBL_INFO"/>
+-	<reg32 offset="0x5185" name="GMU_HFI_QTBL_ADDR"/>
+-	<reg32 offset="0x5186" name="GMU_HFI_CTRL_INIT"/>
+-	<reg32 offset="0x5190" name="GMU_GMU2HOST_INTR_SET"/>
+-	<reg32 offset="0x5191" name="GMU_GMU2HOST_INTR_CLR"/>
+-	<reg32 offset="0x5192" name="GMU_GMU2HOST_INTR_INFO">
++	<reg32 offset="0x1f8e9" name="GMU_RPMH_HYST_CTRL"/>
++	<reg32 offset="0x1f8ec" name="GPU_GMU_CX_GMU_RPMH_POWER_STATE"/>
++	<reg32 offset="0x1f8f0" name="GPU_GMU_CX_GMU_CX_FAL_INTF"/>
++	<reg32 offset="0x1f8f1" name="GPU_GMU_CX_GMU_CX_FALNEXT_INTF"/>
++	<reg32 offset="0x1f900" name="GPU_GMU_CX_GMU_PWR_COL_CP_MSG"/>
++	<reg32 offset="0x1f901" name="GPU_GMU_CX_GMU_PWR_COL_CP_RESP"/>
++	<reg32 offset="0x1f9f0" name="GMU_BOOT_KMD_LM_HANDSHAKE"/>
++	<reg32 offset="0x1f957" name="GMU_LLM_GLM_SLEEP_CTRL"/>
++	<reg32 offset="0x1f958" name="GMU_LLM_GLM_SLEEP_STATUS"/>
++	<reg32 offset="0x1f888" name="GMU_ALWAYS_ON_COUNTER_L"/>
++	<reg32 offset="0x1f889" name="GMU_ALWAYS_ON_COUNTER_H"/>
++	<reg32 offset="0x1f8c3" name="GMU_GMU_PWR_COL_KEEPALIVE"/>
++	<reg32 offset="0x1f8c4" name="GMU_PWR_COL_PREEMPT_KEEPALIVE"/>
++	<reg32 offset="0x1f980" name="GMU_HFI_CTRL_STATUS"/>
++	<reg32 offset="0x1f981" name="GMU_HFI_VERSION_INFO"/>
++	<reg32 offset="0x1f982" name="GMU_HFI_SFR_ADDR"/>
++	<reg32 offset="0x1f983" name="GMU_HFI_MMAP_ADDR"/>
++	<reg32 offset="0x1f984" name="GMU_HFI_QTBL_INFO"/>
++	<reg32 offset="0x1f985" name="GMU_HFI_QTBL_ADDR"/>
++	<reg32 offset="0x1f986" name="GMU_HFI_CTRL_INIT"/>
++	<reg32 offset="0x1f990" name="GMU_GMU2HOST_INTR_SET"/>
++	<reg32 offset="0x1f991" name="GMU_GMU2HOST_INTR_CLR"/>
++	<reg32 offset="0x1f992" name="GMU_GMU2HOST_INTR_INFO">
+ 		<bitfield name="MSGQ" pos="0" type="boolean"/>
+ 		<bitfield name="CM3_FAULT" pos="23" type="boolean"/>
+ 	</reg32>
+-	<reg32 offset="0x5193" name="GMU_GMU2HOST_INTR_MASK"/>
+-	<reg32 offset="0x5194" name="GMU_HOST2GMU_INTR_SET"/>
+-	<reg32 offset="0x5195" name="GMU_HOST2GMU_INTR_CLR"/>
+-	<reg32 offset="0x5196" name="GMU_HOST2GMU_INTR_RAW_INFO"/>
+-	<reg32 offset="0x5197" name="GMU_HOST2GMU_INTR_EN_0"/>
+-	<reg32 offset="0x5198" name="GMU_HOST2GMU_INTR_EN_1"/>
+-	<reg32 offset="0x5199" name="GMU_HOST2GMU_INTR_EN_2"/>
+-	<reg32 offset="0x519a" name="GMU_HOST2GMU_INTR_EN_3"/>
+-	<reg32 offset="0x519b" name="GMU_HOST2GMU_INTR_INFO_0"/>
+-	<reg32 offset="0x519c" name="GMU_HOST2GMU_INTR_INFO_1"/>
+-	<reg32 offset="0x519d" name="GMU_HOST2GMU_INTR_INFO_2"/>
+-	<reg32 offset="0x519e" name="GMU_HOST2GMU_INTR_INFO_3"/>
+-	<reg32 offset="0x51c5" name="GMU_GENERAL_0"/>
+-	<reg32 offset="0x51c6" name="GMU_GENERAL_1"/>
+-	<reg32 offset="0x51cb" name="GMU_GENERAL_6"/>
+-	<reg32 offset="0x51cc" name="GMU_GENERAL_7"/>
+-	<reg32 offset="0x51cd" name="GMU_GENERAL_8" variants="A7XX"/>
+-	<reg32 offset="0x51ce" name="GMU_GENERAL_9" variants="A7XX"/>
+-	<reg32 offset="0x51cf" name="GMU_GENERAL_10" variants="A7XX"/>
+-	<reg32 offset="0x515d" name="GMU_ISENSE_CTRL"/>
+-	<reg32 offset="0x8920" name="GPU_CS_ENABLE_REG"/>
+-	<reg32 offset="0x515d" name="GPU_GMU_CX_GMU_ISENSE_CTRL"/>
+-	<reg32 offset="0x8578" name="GPU_CS_AMP_CALIBRATION_CONTROL3"/>
+-	<reg32 offset="0x8558" name="GPU_CS_AMP_CALIBRATION_CONTROL2"/>
+-	<reg32 offset="0x8580" name="GPU_CS_A_SENSOR_CTRL_0"/>
+-	<reg32 offset="0x27ada" name="GPU_CS_A_SENSOR_CTRL_2"/>
+-	<reg32 offset="0x881a" name="GPU_CS_SENSOR_GENERAL_STATUS"/>
+-	<reg32 offset="0x8957" name="GPU_CS_AMP_CALIBRATION_CONTROL1"/>
+-	<reg32 offset="0x881a" name="GPU_CS_SENSOR_GENERAL_STATUS"/>
+-	<reg32 offset="0x881d" name="GPU_CS_AMP_CALIBRATION_STATUS1_0"/>
+-	<reg32 offset="0x881f" name="GPU_CS_AMP_CALIBRATION_STATUS1_2"/>
+-	<reg32 offset="0x8821" name="GPU_CS_AMP_CALIBRATION_STATUS1_4"/>
+-	<reg32 offset="0x8965" name="GPU_CS_AMP_CALIBRATION_DONE"/>
+-	<reg32 offset="0x896d" name="GPU_CS_AMP_PERIOD_CTRL"/>
+-	<reg32 offset="0x8965" name="GPU_CS_AMP_CALIBRATION_DONE"/>
+-	<reg32 offset="0x514d" name="GPU_GMU_CX_GMU_PWR_THRESHOLD"/>
+-	<reg32 offset="0x9303" name="GMU_AO_INTERRUPT_EN"/>
+-	<reg32 offset="0x9304" name="GMU_AO_HOST_INTERRUPT_CLR"/>
+-	<reg32 offset="0x9305" name="GMU_AO_HOST_INTERRUPT_STATUS">
++	<reg32 offset="0x1f993" name="GMU_GMU2HOST_INTR_MASK"/>
++	<reg32 offset="0x1f994" name="GMU_HOST2GMU_INTR_SET"/>
++	<reg32 offset="0x1f995" name="GMU_HOST2GMU_INTR_CLR"/>
++	<reg32 offset="0x1f996" name="GMU_HOST2GMU_INTR_RAW_INFO"/>
++	<reg32 offset="0x1f997" name="GMU_HOST2GMU_INTR_EN_0"/>
++	<reg32 offset="0x1f998" name="GMU_HOST2GMU_INTR_EN_1"/>
++	<reg32 offset="0x1f999" name="GMU_HOST2GMU_INTR_EN_2"/>
++	<reg32 offset="0x1f99a" name="GMU_HOST2GMU_INTR_EN_3"/>
++	<reg32 offset="0x1f99b" name="GMU_HOST2GMU_INTR_INFO_0"/>
++	<reg32 offset="0x1f99c" name="GMU_HOST2GMU_INTR_INFO_1"/>
++	<reg32 offset="0x1f99d" name="GMU_HOST2GMU_INTR_INFO_2"/>
++	<reg32 offset="0x1f99e" name="GMU_HOST2GMU_INTR_INFO_3"/>
++	<reg32 offset="0x1f9c5" name="GMU_GENERAL_0"/>
++	<reg32 offset="0x1f9c6" name="GMU_GENERAL_1"/>
++	<reg32 offset="0x1f9cb" name="GMU_GENERAL_6"/>
++	<reg32 offset="0x1f9cc" name="GMU_GENERAL_7"/>
++	<reg32 offset="0x1f9cd" name="GMU_GENERAL_8" variants="A7XX"/>
++	<reg32 offset="0x1f9ce" name="GMU_GENERAL_9" variants="A7XX"/>
++	<reg32 offset="0x1f9cf" name="GMU_GENERAL_10" variants="A7XX"/>
++	<reg32 offset="0x1f95d" name="GMU_ISENSE_CTRL"/>
++	<reg32 offset="0x23120" name="GPU_CS_ENABLE_REG"/>
++	<reg32 offset="0x1f95d" name="GPU_GMU_CX_GMU_ISENSE_CTRL"/>
++	<reg32 offset="0x22d78" name="GPU_CS_AMP_CALIBRATION_CONTROL3"/>
++	<reg32 offset="0x22d58" name="GPU_CS_AMP_CALIBRATION_CONTROL2"/>
++	<reg32 offset="0x22d80" name="GPU_CS_A_SENSOR_CTRL_0"/>
++	<reg32 offset="0x422da" name="GPU_CS_A_SENSOR_CTRL_2"/>
++	<reg32 offset="0x2301a" name="GPU_CS_SENSOR_GENERAL_STATUS"/>
++	<reg32 offset="0x23157" name="GPU_CS_AMP_CALIBRATION_CONTROL1"/>
++	<reg32 offset="0x2301a" name="GPU_CS_SENSOR_GENERAL_STATUS"/>
++	<reg32 offset="0x2301d" name="GPU_CS_AMP_CALIBRATION_STATUS1_0"/>
++	<reg32 offset="0x2301f" name="GPU_CS_AMP_CALIBRATION_STATUS1_2"/>
++	<reg32 offset="0x23021" name="GPU_CS_AMP_CALIBRATION_STATUS1_4"/>
++	<reg32 offset="0x23165" name="GPU_CS_AMP_CALIBRATION_DONE"/>
++	<reg32 offset="0x2316d" name="GPU_CS_AMP_PERIOD_CTRL"/>
++	<reg32 offset="0x23165" name="GPU_CS_AMP_CALIBRATION_DONE"/>
++	<reg32 offset="0x1f94d" name="GPU_GMU_CX_GMU_PWR_THRESHOLD"/>
++	<reg32 offset="0x23b03" name="GMU_AO_INTERRUPT_EN"/>
++	<reg32 offset="0x23b04" name="GMU_AO_HOST_INTERRUPT_CLR"/>
++	<reg32 offset="0x23b05" name="GMU_AO_HOST_INTERRUPT_STATUS">
+ 		<bitfield name="WDOG_BITE" pos="0" type="boolean"/>
+ 		<bitfield name="RSCC_COMP" pos="1" type="boolean"/>
+ 		<bitfield name="VDROOP" pos="2" type="boolean"/>
+@@ -191,27 +191,27 @@ xsi:schemaLocation="https://gitlab.freedesktop.org/freedreno/ rules-fd.xsd">
+ 		<bitfield name="DBD_WAKEUP" pos="4" type="boolean"/>
+ 		<bitfield name="HOST_AHB_BUS_ERROR" pos="5" type="boolean"/>
+ 	</reg32>
+-	<reg32 offset="0x9306" name="GMU_AO_HOST_INTERRUPT_MASK"/>
+-	<reg32 offset="0x9309" name="GPU_GMU_AO_GMU_CGC_MODE_CNTL"/>
+-	<reg32 offset="0x930a" name="GPU_GMU_AO_GMU_CGC_DELAY_CNTL"/>
+-	<reg32 offset="0x930b" name="GPU_GMU_AO_GMU_CGC_HYST_CNTL"/>
+-	<reg32 offset="0x930c" name="GPU_GMU_AO_GPU_CX_BUSY_STATUS">
++	<reg32 offset="0x23b06" name="GMU_AO_HOST_INTERRUPT_MASK"/>
++	<reg32 offset="0x23b09" name="GPU_GMU_AO_GMU_CGC_MODE_CNTL"/>
++	<reg32 offset="0x23b0a" name="GPU_GMU_AO_GMU_CGC_DELAY_CNTL"/>
++	<reg32 offset="0x23b0b" name="GPU_GMU_AO_GMU_CGC_HYST_CNTL"/>
++	<reg32 offset="0x23b0c" name="GPU_GMU_AO_GPU_CX_BUSY_STATUS">
+ 		<bitfield name = "GPUBUSYIGNAHB" pos="23" type="boolean"/>
+ 	</reg32>
+-	<reg32 offset="0x930d" name="GPU_GMU_AO_GPU_CX_BUSY_STATUS2"/>
+-	<reg32 offset="0x930e" name="GPU_GMU_AO_GPU_CX_BUSY_MASK"/>
+-	<reg32 offset="0x9310" name="GMU_AO_AHB_FENCE_CTRL"/>
+-	<reg32 offset="0x9313" name="GMU_AHB_FENCE_STATUS"/>
+-	<reg32 offset="0x9314" name="GMU_AHB_FENCE_STATUS_CLR"/>
+-	<reg32 offset="0x9315" name="GMU_RBBM_INT_UNMASKED_STATUS"/>
+-	<reg32 offset="0x9316" name="GMU_AO_SPARE_CNTL"/>
+-	<reg32 offset="0x9307" name="GMU_RSCC_CONTROL_REQ"/>
+-	<reg32 offset="0x9308" name="GMU_RSCC_CONTROL_ACK"/>
+-	<reg32 offset="0x9311" name="GMU_AHB_FENCE_RANGE_0"/>
+-	<reg32 offset="0x9312" name="GMU_AHB_FENCE_RANGE_1"/>
+-	<reg32 offset="0x9c03" name="GPU_CC_GX_GDSCR"/>
+-	<reg32 offset="0x9d42" name="GPU_CC_GX_DOMAIN_MISC"/>
+-	<reg32 offset="0xc001" name="GPU_CPR_FSM_CTL"/>
++	<reg32 offset="0x23b0d" name="GPU_GMU_AO_GPU_CX_BUSY_STATUS2"/>
++	<reg32 offset="0x23b0e" name="GPU_GMU_AO_GPU_CX_BUSY_MASK"/>
++	<reg32 offset="0x23b10" name="GMU_AO_AHB_FENCE_CTRL"/>
++	<reg32 offset="0x23b13" name="GMU_AHB_FENCE_STATUS"/>
++	<reg32 offset="0x23b14" name="GMU_AHB_FENCE_STATUS_CLR"/>
++	<reg32 offset="0x23b15" name="GMU_RBBM_INT_UNMASKED_STATUS"/>
++	<reg32 offset="0x23b16" name="GMU_AO_SPARE_CNTL"/>
++	<reg32 offset="0x23b07" name="GMU_RSCC_CONTROL_REQ"/>
++	<reg32 offset="0x23b08" name="GMU_RSCC_CONTROL_ACK"/>
++	<reg32 offset="0x23b11" name="GMU_AHB_FENCE_RANGE_0"/>
++	<reg32 offset="0x23b12" name="GMU_AHB_FENCE_RANGE_1"/>
++	<reg32 offset="0x24403" name="GPU_CC_GX_GDSCR"/>
++	<reg32 offset="0x24542" name="GPU_CC_GX_DOMAIN_MISC"/>
++	<reg32 offset="0x26801" name="GPU_CPR_FSM_CTL"/>
+ 
+ 	<!-- starts at offset 0x8c00 on most gpus -->
+ 	<reg32 offset="0x0004" name="GPU_RSCC_RSC_STATUS0_DRV0"/>
+
 -- 
 2.51.0
 
