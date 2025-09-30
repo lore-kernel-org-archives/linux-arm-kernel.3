@@ -4,82 +4,148 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFFC9CCA468
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 10:17:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C526ACCA468
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 10:21:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i0hsYIdTBG3RoYY2oCy/zDpSiKCipQoEifIaLF7Lbqw=; b=rQnO/mDIMVRBBOlwvsDACMytB1
-	FLRXCVfjlmSS+mPKjOG7pcKTOrrWvrApucxQ9aSdP7YkLJc9THfqcXyOLZ7OtI5AVwNEWxR0jekEx
-	O8qMkNkGwJLsnUhdpnfUX85i+vb4uE0UswrVQAC9DwYqZ2E4Sd42XoCv7SdJaQi3G8rn1y2FG0+gL
-	0r17Wcms/lYkpJQSMaUo71tS5ntnuCR4mCzXf0ECf0yQjLlgTv3W6BbIwp2F4qMe6pypKzeCIkNlO
-	m7mFulvPV/P0x0VcARCVxYi12L3zLX/MMTUZjrALeLg8zrMpsWuZ0gpbJPwz4b7FkpLAQuNAMHfrW
-	r5qb+LHQ==;
+	bh=2FO5TJu0e3hKi5ooEEyq91mLNTSFD8iqOTnH4/uGmiI=; b=EPRfr/dx6qqCTLdBYEqMrO0jwj
+	6lv5+X6rvoAi6GXri5sr8fwrxRPqqzJSc1gmbS6HlCL8SUBpzwthmSH3ban13Pc6Mb/tsBqzHsCVI
+	zo6z6NGR3ZXQBAeQYYyQX+ACcoILHfwE/8kWCmPd+dR9gT2w/tCWCOnO5L2XqqX3ufWQbDVT4Zig3
+	I9vuuXr2qV1MQ3T1Qik168B9KvitLy7IZjEeH2U8PT3SL+ENpqgITsxRwp10vfvkbb43C+p1YrbKh
+	T9Jd8J9Qe7ZbNYY8S0O+I3d9cwOsB5ETCPaqQ9vupdOGKW4YSWiQB+UI+fYtIGdtaCCMI8YjuLfp4
+	ZlNebVRA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3XQO-00000004z5d-3aXO;
-	Tue, 30 Sep 2025 10:17:36 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1v3XTp-00000004zgn-1LdH;
+	Tue, 30 Sep 2025 10:21:09 +0000
+Received: from smtp-out1.suse.de ([195.135.223.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3XQK-00000004z3Z-23Vo;
-	Tue, 30 Sep 2025 10:17:35 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250930101729euoutp01b57e6fa199f1d9764685b479ee393f2c~qCAteIN_K1423914239euoutp01S;
-	Tue, 30 Sep 2025 10:17:29 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250930101729euoutp01b57e6fa199f1d9764685b479ee393f2c~qCAteIN_K1423914239euoutp01S
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1759227449;
-	bh=i0hsYIdTBG3RoYY2oCy/zDpSiKCipQoEifIaLF7Lbqw=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=YPdM2M7DLyVY6SAOTHX498pf0ytk9nQQ+weWK1WExpMmK0cg8gTYgrpSPX6QOX6zn
-	 icZtcxZ4LcbPQt1kPN2ld9XcNpX2M8e8z3G4+0flukSeQfZzUVZBPDtiFLKFpOE0nC
-	 0GihKsb7ZPd9aC6ShngC8sIFtoA7m0PgHtycPcb4=
-Received: from eusmtip2.samsung.com (unknown [203.254.199.222]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250930101728eucas1p2d174bb7433699baa7583852c50f9ccb7~qCAtAAJvC0536105361eucas1p27;
-	Tue, 30 Sep 2025 10:17:28 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20250930101727eusmtip2963d1f7d88d03e442d658090d83d7b2d~qCArVvP-21105911059eusmtip28;
-	Tue, 30 Sep 2025 10:17:27 +0000 (GMT)
-Message-ID: <41c2a141-a72e-4780-ab32-f22f3a2e0179@samsung.com>
-Date: Tue, 30 Sep 2025 12:17:26 +0200
+	id 1v3XTj-00000004zfB-0hHg
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 30 Sep 2025 10:21:07 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out1.suse.de (Postfix) with ESMTPS id 125C6336CF;
+	Tue, 30 Sep 2025 10:21:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1759227661; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2FO5TJu0e3hKi5ooEEyq91mLNTSFD8iqOTnH4/uGmiI=;
+	b=lC1nOXmwgp1Fr1DLnriYWoc4IfBB0y/Vp0R5PvPq1Rwptyjlw78PCwQxFOJQSKCq32GHBT
+	WQoNbevmCL+F96OIMzYL3sNB6QGMgq+LHikU3Gzm0tIlwqCrP2J32yNwu1sZ7XvpuO+wfk
+	Qdrj01zGuMMelSUJSWHTI/xT4OWMNKs=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1759227661;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2FO5TJu0e3hKi5ooEEyq91mLNTSFD8iqOTnH4/uGmiI=;
+	b=gkTeZUFV70twndFZVAS8N0ffQ87/o43z5AxtvtJ9CKbeIXB+Bq5SgrVZtz8kxWtP2RWeCc
+	GpzVhEbqissIJTBQ==
+Authentication-Results: smtp-out1.suse.de;
+	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=lC1nOXmw;
+	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=gkTeZUFV
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1759227661; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2FO5TJu0e3hKi5ooEEyq91mLNTSFD8iqOTnH4/uGmiI=;
+	b=lC1nOXmwgp1Fr1DLnriYWoc4IfBB0y/Vp0R5PvPq1Rwptyjlw78PCwQxFOJQSKCq32GHBT
+	WQoNbevmCL+F96OIMzYL3sNB6QGMgq+LHikU3Gzm0tIlwqCrP2J32yNwu1sZ7XvpuO+wfk
+	Qdrj01zGuMMelSUJSWHTI/xT4OWMNKs=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1759227661;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=2FO5TJu0e3hKi5ooEEyq91mLNTSFD8iqOTnH4/uGmiI=;
+	b=gkTeZUFV70twndFZVAS8N0ffQ87/o43z5AxtvtJ9CKbeIXB+Bq5SgrVZtz8kxWtP2RWeCc
+	GpzVhEbqissIJTBQ==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 1734213A3F;
+	Tue, 30 Sep 2025 10:21:00 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id kvSsAgyv22iuBwAAD6G6ig
+	(envelope-from <svarbanov@suse.de>); Tue, 30 Sep 2025 10:21:00 +0000
+Message-ID: <88bd67f2-de8c-407b-ba98-08663eee2d7e@suse.de>
+Date: Tue, 30 Sep 2025 13:20:59 +0300
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v6 00/18] Apply drm_bridge_connector and panel_bridge
- helper for the Analogix DP driver
-To: Damon Ding <damon.ding@rock-chips.com>, andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org, rfoss@kernel.org
-Cc: Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
-	jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
-	shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
-	festevam@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
-	kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
-	jingoohan1@gmail.com, p.zabel@pengutronix.de, hjc@rock-chips.com,
-	heiko@sntech.de, andy.yan@rock-chips.com, dmitry.baryshkov@oss.qualcomm.com,
-	dianders@chromium.org, luca.ceresoli@bootlin.com, jani.nikula@intel.com,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/4] dt-bindings: Add Raspberry Pi's RP1 ADC
+To: Guenter Roeck <linux@roeck-us.net>, Conor Dooley <conor@kernel.org>
+Cc: Stanimir Varbanov <svarbanov@suse.de>, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rpi-kernel@lists.infradead.org,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, linux-hwmon@vger.kernel.org,
+ Jean Delvare <jdelvare@suse.com>, Rob Herring <robh@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
+ Stefan Wahren <wahrenst@gmx.net>, Saenz Julienne <nsaenz@kernel.org>,
+ Andrea della Porta <andrea.porta@suse.com>,
+ Phil Elwell <phil@raspberrypi.com>, Jonathan Bell
+ <jonathan@raspberrypi.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>
+References: <20250925000416.2408457-1-svarbanov@suse.de>
+ <20250925000416.2408457-2-svarbanov@suse.de>
+ <20250925-outlying-causal-015d8ba33c53@spud>
+ <89dd04b9-e261-4bdd-83ab-499e46fc9c01@roeck-us.net>
 Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <20250930090920.131094-1-damon.ding@rock-chips.com>
+From: Stanimir Varbanov <svarbanov@suse.de>
+In-Reply-To: <89dd04b9-e261-4bdd-83ab-499e46fc9c01@roeck-us.net>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CMS-MailID: 20250930101728eucas1p2d174bb7433699baa7583852c50f9ccb7
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20250930091415eucas1p1f82ef0c96cbe0c7c673d975d502629e2
-X-EPHeader: CA
-X-CMS-RootMailID: 20250930091415eucas1p1f82ef0c96cbe0c7c673d975d502629e2
-References: <CGME20250930091415eucas1p1f82ef0c96cbe0c7c673d975d502629e2@eucas1p1.samsung.com>
-	<20250930090920.131094-1-damon.ding@rock-chips.com>
+X-Spamd-Result: default: False [-3.01 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	SUSPICIOUS_RECIPS(1.50)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	FREEMAIL_CC(0.00)[suse.de,vger.kernel.org,lists.infradead.org,broadcom.com,suse.com,kernel.org,lunn.ch,gmx.net,raspberrypi.com];
+	FREEMAIL_ENVRCPT(0.00)[gmx.net];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	RCPT_COUNT_TWELVE(0.00)[21];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	MIME_TRACE(0.00)[0:+];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	ARC_NA(0.00)[];
+	RCVD_TLS_ALL(0.00)[];
+	DKIM_TRACE(0.00)[suse.de:+];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	RCVD_COUNT_TWO(0.00)[2];
+	FROM_EQ_ENVFROM(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	TO_DN_SOME(0.00)[];
+	TO_MATCH_ENVRCPT_SOME(0.00)[];
+	MID_RHS_MATCH_FROM(0.00)[];
+	DNSWL_BLOCKED(0.00)[2a07:de40:b281:104:10:150:64:97:from,2a07:de40:b281:106:10:150:64:167:received];
+	TAGGED_RCPT(0.00)[dt];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,devicetree.org:url,suse.de:mid,suse.de:dkim,suse.de:email]
+X-Rspamd-Queue-Id: 125C6336CF
+X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
+X-Rspamd-Action: no action
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250930_031732_808946_4DB98272 
-X-CRM114-Status: GOOD (  23.98  )
+X-CRM114-CacheID: sfid-20250930_032103_491625_9EA29819 
+X-CRM114-Status: GOOD (  17.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,142 +160,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 30.09.2025 11:09, Damon Ding wrote:
-> PATCH 1 is a small format optimization for struct analogid_dp_device.
-> PATCH 2 is to perform mode setting in &drm_bridge_funcs.atomic_enable.
-> PATCH 3 is to add a new parameter to store the point of next bridge.
-> PATCH 4 is to make legacy bridge driver more universal.
-> PATCH 5-10 are preparations for apply drm_bridge_connector helper.
-> PATCH 11 is to ensure last bridge determines OP_EDID/OP_MODES capabilities.
-> PATCH 12 is to apply the drm_bridge_connector helper.
-> PATCH 13-15 are to move the panel/bridge parsing to the Analogix side.
-> PATCH 16 is to attach the next bridge on Analogix side uniformly.
-> PATCH 17-18 are to apply the panel_bridge helper.
+Hi,
 
-Works fine on my Exynos based test boards with (e)DP displays. Thanks!
+On 9/25/25 11:37 PM, Guenter Roeck wrote:
+> On Thu, Sep 25, 2025 at 08:40:54PM +0100, Conor Dooley wrote:
+>> On Thu, Sep 25, 2025 at 03:04:13AM +0300, Stanimir Varbanov wrote:
+>>> Document dt-bindings for Raspberry Pi's RP1 ADC.
+>>>
+>>> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
+>>> ---
+>>>  .../bindings/hwmon/raspberrypi,rp1-adc.yaml   | 46 +++++++++++++++++++
+>>>  1 file changed, 46 insertions(+)
+>>>  create mode 100644 Documentation/devicetree/bindings/hwmon/raspberrypi,rp1-adc.yaml
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/hwmon/raspberrypi,rp1-adc.yaml b/Documentation/devicetree/bindings/hwmon/raspberrypi,rp1-adc.yaml
+>>> new file mode 100644
+>>> index 000000000000..5266b253fd2b
+>>> --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/hwmon/raspberrypi,rp1-adc.yaml
+>>> @@ -0,0 +1,46 @@
+>>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+>>> +%YAML 1.2
+>>> +---
+>>> +$id: http://devicetree.org/schemas/hwmon/raspberrypi,rp1-adc.yaml#
+>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>> +
+>>> +title: Rasberry Pi RP1 ADC device
+>>> +
+>>> +maintainers:
+>>> +  - Stanimir Varbanov <svarbanov@suse.de>
+>>> +
+>>> +description: |
+>>> +  The RP1 ADC is a five input successive-approximation ADC with 12-bit
+>>> +  resolution (ENOB 9.5-bit) at 500kSPS. It has four external inputs
+>>> +  and one internal temperature sensor.
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    const: raspberrypi,rp1-adc
+>>> +
+>>> +  reg:
+>>> +    maxItems: 1
+>>> +
+>>> +  clocks:
+>>> +    maxItems: 1
+>>> +
+>>> +  vref-supply:
+>>> +    description:
+>>> +      Reference voltage regulator 3.3V.
+>>
+>> Looks like you're missing the io-channels-cells property that allows
+>> this device to be a provider of adc channels to other devices.
+>>
+> Only makes sense if the driver is implemented as iio driver.
+> Which would be fine with me, assuming this is a generic ADC.
+> The iio -> hwmon bridge can then be used to instantiate a
+> hwmon device if needed.
+> 
 
-Feel free to update tags if needed:
+According to the RP1 peripheral document the information about ADC is
+limited and I cannot be 100% sure that this is generic ADC, but it looks
+like it is. On RPi5 board the ADC inputs are not configurable, but that
+could change on another board.
 
-Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+I personally don't have objections to implement it as IIO driver.
 
+Phil, are you fine with implementing the driver as IIO?
 
-> Damon Ding (18):
->    drm/bridge: analogix_dp: Formalize the struct analogix_dp_device
->    drm/bridge: analogix_dp: Move &drm_bridge_funcs.mode_set to
->      &drm_bridge_funcs.atomic_enable
->    drm/bridge: analogix_dp: Add &analogix_dp_plat_data.next_bridge
->    drm/bridge: Move legacy bridge driver out of imx directory for
->      multi-platform use
->    drm/exynos: exynos_dp: Remove &exynos_dp_device.ptn_bridge
->    drm/exynos: exynos_dp: Remove unused &exynos_dp_device.connector
->    drm/exynos: exynos_dp: Apply legacy bridge to parse the
->      display-timings node
->    drm/bridge: analogix_dp: Remove redundant
->      &analogix_dp_plat_data.skip_connector
->    drm/bridge: analogix_dp: Move the color format check to
->      .atomic_check() for Rockchip platforms
->    drm/bridge: analogix_dp: Remove unused
->      &analogix_dp_plat_data.get_modes()
->    drm/display: bridge_connector: Ensure last bridge determines
->      EDID/modes detection capabilities
->    drm/bridge: analogix_dp: Apply drm_bridge_connector helper
->    drm/bridge: analogix_dp: Add new API analogix_dp_finish_probe()
->    drm/rockchip: analogix_dp: Apply analogix_dp_finish_probe()
->    drm/exynos: exynos_dp: Apply analogix_dp_finish_probe()
->    drm/bridge: analogix_dp: Attach the next bridge in
->      analogix_dp_bridge_attach()
->    drm/bridge: analogix_dp: Remove bridge disabing and panel unpreparing
->      in analogix_dp_unbind()
->    drm/bridge: analogix_dp: Apply panel_bridge helper
->
->   drivers/gpu/drm/bridge/Kconfig                |  10 +
->   drivers/gpu/drm/bridge/Makefile               |   1 +
->   drivers/gpu/drm/bridge/analogix/Kconfig       |   1 +
->   .../drm/bridge/analogix/analogix_dp_core.c    | 395 +++++++++---------
->   .../drm/bridge/analogix/analogix_dp_core.h    |   5 +-
->   drivers/gpu/drm/bridge/imx/Kconfig            |  10 -
->   drivers/gpu/drm/bridge/imx/Makefile           |   1 -
->   .../gpu/drm/bridge/imx/imx-legacy-bridge.c    |  91 ----
->   drivers/gpu/drm/bridge/legacy-bridge.c        |  99 +++++
->   .../gpu/drm/display/drm_bridge_connector.c    |  42 ++
->   drivers/gpu/drm/exynos/Kconfig                |   2 +
->   drivers/gpu/drm/exynos/exynos_dp.c            | 117 ++----
->   drivers/gpu/drm/imx/ipuv3/Kconfig             |   4 +-
->   drivers/gpu/drm/imx/ipuv3/imx-ldb.c           |   6 +-
->   drivers/gpu/drm/imx/ipuv3/parallel-display.c  |   4 +-
->   drivers/gpu/drm/rockchip/Kconfig              |   1 +
->   .../gpu/drm/rockchip/analogix_dp-rockchip.c   |  67 +--
->   include/drm/bridge/analogix_dp.h              |   8 +-
->   include/drm/bridge/imx.h                      |  17 -
->   include/drm/bridge/legacy-bridge.h            |  18 +
->   20 files changed, 433 insertions(+), 466 deletions(-)
->   delete mode 100644 drivers/gpu/drm/bridge/imx/imx-legacy-bridge.c
->   create mode 100644 drivers/gpu/drm/bridge/legacy-bridge.c
->   delete mode 100644 include/drm/bridge/imx.h
->   create mode 100644 include/drm/bridge/legacy-bridge.h
->
-> ---
->
-> Changes in v2:
-> - Update Exynos DP driver synchronously.
-> - Move the panel/bridge parsing to the Analogix side.
->
-> Changes in v3:
-> - Rebase for the existing devm_drm_bridge_alloc() applying commit.
-> - Fix the typographical error of panel/bridge check in exynos_dp_bind().
-> - Squash all commits related to skip_connector deletion in both Exynos and
->    Analogix code into one.
-> - Apply panel_bridge helper to make the codes more concise.
-> - Fix the handing of bridge in analogix_dp_bridge_get_modes().
-> - Remove unnecessary parameter struct drm_connector* for callback
->    &analogix_dp_plat_data.attach().
-> - In order to decouple the connector driver and the bridge driver, move
->    the bridge connector initilization to the Rockchip and Exynos sides.
->
-> Changes in v4:
-> - Rebase for the applied &drm_bridge_funcs.detect() modification commit.
-> - Rename analogix_dp_find_panel_or_bridge() to analogix_dp_finish_probe().
-> - Drop the drmm_encoder_init() modification commit.
-> - Rename the &analogix_dp_plat_data.bridge to
->    &analogix_dp_plat_data.next_bridge.
->
-> Changes in v5:
-> - Add legacy bridge to parse the display-timings node under the dp node
->    for Exynos side.
-> - Move color format check to &drm_connector_helper_funcs.atomic_check()
->    in order to get rid of &analogix_dp_plat_data.get_modes().
-> - Remove unused callback &analogix_dp_plat_data.get_modes().
-> - Distinguish the &drm_bridge->ops of Analogix bridge based on whether
->    the downstream device is a panel, a bridge or neither.
-> - Select DRM_DISPLAY_DP_AUX_BUS for DRM_ANALOGIX_DP, and remove it for
->    ROCKCHIP_ANALOGIX_DP.
-> - Apply rockchip_dp_attach() to support the next bridge attachment for
->    the Rockchip side.
-> - Move next_bridge attachment from Analogix side to Rockchip/Exynos sides.
->
-> Changes in v6:
-> - Move legacy bridge driver out of imx directory for multi-platform use.
-> - Apply DRM legacy bridge to parse display timings intead of implementing
->    the same codes only for Exynos DP.
-> - Ensure last bridge determines EDID/modes detection capabilities in DRM
->    bridge_connector driver.
-> - Remove unnecessary drm_bridge_get_modes() in
->    analogix_dp_bridge_get_modes().
-> - Simplify analogix_dp_bridge_edid_read().
-> - If the next is a bridge, set DRM_BRIDGE_OP_DETECT and return
->    connector_status_connected in analogix_dp_bridge_detect().
-> - Set flag DRM_BRIDGE_ATTACH_NO_CONNECTOR for bridge attachment while
->    binding. Meanwhile, make DRM_BRIDGE_ATTACH_NO_CONNECTOR unsuppported
->    in analogix_dp_bridge_attach().
-> - Move the next bridge attachment to the Analogix side rather than
->    scattered on Rockchip and Exynos sides.
-> - Remove the unnecessary analogix_dp_bridge_get_modes().
-> - Squash [PATCH v5 15/17] into [PATCH v5 17/17].
-> - Fix the &drm_bridge->ops to DRM_BRIDGE_OP_EDID | DRM_BRIDGE_OP_DETECT.
->
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+~Stan
 
 
