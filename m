@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD16ECAC5BE
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 04:03:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15131CAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 04:03:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
 	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VeXF1m2BbK2hp0/O8EEgqvFvywhv7lBUuwNT4zVSRM4=; b=PJSpSK098rvvjsjTaKpzhBRdcL
-	fadMfdzFVCZatXBxCb8JBiQwLEnV+sj4nNagbdcvclyM6Azryj2wUBupj5tWovWLXzZhp+QxVstbu
-	UtQaTU2yzb5D6DSuFscLrcu5KovP8Wmk1INe80LsFLvq9vpUnog+SS3fsRg6KU0SVeNEpbCht6v67
-	vi5cSschpT4T44da2ENmrQzI0T6EFQpNrvbBm3GUnJuHwtR4Qrgk6+iRqOxw/1GOi+0W0hhjwjsGm
-	HN8IfUhfu1bSdaqqzzwt9bgfyxnIe15HaA7Ka0Jr4+w7AP7GJsqTrW+c73TZb35PHtTw0FFyvZkvf
-	VfE3voUg==;
+	bh=IaY5jS/adaVvZbKjXboBNX9JuZBrD/yz8Cvz3X2BKqY=; b=mz3A1Xh+oGrcewOCIOTj/GunBb
+	1oDTrb60kZZZRy66Ilk1Ec2NQt/2ggcYIbKPCEDo/PxQlV3zrjPU1e4EdmVXY7tPEoupuysS6jvhu
+	hHH8rwQ4N6FQCU40eDdJva5pQ4A3sm9Z5MEVLX3j6vLwkcz/ARax0O27XMUMqTSCtYwxlvDvMYvxI
+	GQFygNRcC3oRDctBfJhAnupkk4iGtj9GvwsTMUXkv+Ix4uBMu2xZFJAZ3SZntRZuG4EDLVH9sZnhj
+	IpnhoYigXX7kGsG4pReWFkk5H3m7kGSS2AnDjTNwac6NkAtpV/ANMQt989Jk3GGOwVwEHJqmreE7V
+	vppYByBA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Ra2-000000046su-1YMM;
-	Tue, 30 Sep 2025 04:03:10 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1v3Ra9-000000046vh-099P;
+	Tue, 30 Sep 2025 04:03:17 +0000
+Received: from mailout3.samsung.com ([203.254.224.33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3RZy-000000046qz-3zwS
+	id 1v3Ra4-000000046st-1Lg3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Sep 2025 04:03:09 +0000
-Received: from epcas5p4.samsung.com (unknown [182.195.41.42])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20250930035653epoutp01f5630a645de893eadb6288978d511a86~p80aH4S9M3202032020epoutp01h
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 03:56:53 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20250930035653epoutp01f5630a645de893eadb6288978d511a86~p80aH4S9M3202032020epoutp01h
+	Tue, 30 Sep 2025 04:03:14 +0000
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout3.samsung.com (KnoxPortal) with ESMTP id 20250930035636epoutp03ae74e184c1fed1f3f52acf08888b9d30~p80Jw0CuF3111931119epoutp032
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 03:56:36 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout3.samsung.com 20250930035636epoutp03ae74e184c1fed1f3f52acf08888b9d30~p80Jw0CuF3111931119epoutp032
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1759204613;
-	bh=VeXF1m2BbK2hp0/O8EEgqvFvywhv7lBUuwNT4zVSRM4=;
+	s=mail20170921; t=1759204596;
+	bh=IaY5jS/adaVvZbKjXboBNX9JuZBrD/yz8Cvz3X2BKqY=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=k04Ncv83nI9dm91++oSX4PFEqJFKP3QRxMXBPHTwObnFfDPN5rDVi1AFl/ctcQzZf
-	 x//5tcYahrhMIEbDn+9uvlHNTIuYV1se0GAZ8Ed98bepfRhaZAYB2ak9jTIDNxhDBm
-	 Bu2sPbIaUdW2lKkfL5xBB+MBJW/82nFml2Ew/uiQ=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
-	20250930035652epcas5p4cad3997a587d62d5cf95e8b3f4cdf399~p80ZUdbDH2408224082epcas5p4s;
-	Tue, 30 Sep 2025 03:56:52 +0000 (GMT)
-Received: from epcas5p3.samsung.com (unknown [182.195.38.91]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4cbPPv69h1z6B9m4; Tue, 30 Sep
-	2025 03:56:51 +0000 (GMT)
+	b=iBx2U+vupSJpY2oq1jgnT4aro5qGD1WCjmJAkcc431Qrg7CkjevKgzufjSaAvl66R
+	 TROrwZJFwLDzqY2f9l5yfQ0v+QfaO/Hst+Bk9tWsuci+IUHuOxkYEwB2V2epqq8YMK
+	 tFcM0w3FCvLLMFcuMea6yC5TZLQUzXzvQ9yfiqhQ=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
+	20250930035635epcas5p140112f6b04a785a9b28608ff3dd328ce~p80JKQs5S1549615496epcas5p1J;
+	Tue, 30 Sep 2025 03:56:35 +0000 (GMT)
+Received: from epcas5p4.samsung.com (unknown [182.195.38.91]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4cbPPZ2ygnz2SSKk; Tue, 30 Sep
+	2025 03:56:34 +0000 (GMT)
 Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250930035651epcas5p2a45576829011bbf653c725b352c65140~p80X0_bSQ0812408124epcas5p21;
-	Tue, 30 Sep 2025 03:56:51 +0000 (GMT)
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20250930035633epcas5p3d859613b1d1d3319ded26da626c959bc~p80HacXXH1975219752epcas5p3U;
+	Tue, 30 Sep 2025 03:56:33 +0000 (GMT)
 Received: from bose.samsungds.net (unknown [107.108.83.9]) by
 	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250930035647epsmtip13198e4ab5dda3d2556f480fed2ee8817~p80UW_bzs2938529385epsmtip1j;
-	Tue, 30 Sep 2025 03:56:47 +0000 (GMT)
+	20250930035629epsmtip195521ecc4b0c104190aad7cb519dbfbe~p80D8wCWG2938529385epsmtip1a;
+	Tue, 30 Sep 2025 03:56:29 +0000 (GMT)
 From: Himanshu Dewangan <h.dewangan@samsung.com>
 To: mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
 	conor+dt@kernel.org, sumit.semwal@linaro.org, christian.koenig@amd.com,
@@ -62,26 +62,25 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
 	devicetree@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
 	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
 	linaro-mm-sig@lists.linaro.org, Himanshu Dewangan <h.dewangan@samsung.com>
-Subject: [PATCH 22/29] media: mfc: Add H.264 encoder support with buffer and
- QoS improvements
-Date: Tue, 30 Sep 2025 09:33:41 +0530
-Message-Id: <20250930040348.3702923-23-h.dewangan@samsung.com>
+Subject: [PATCH 17/29] media: mfc: Add VB2 decoder support
+Date: Tue, 30 Sep 2025 09:33:36 +0530
+Message-Id: <20250930040348.3702923-18-h.dewangan@samsung.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20250930040348.3702923-1-h.dewangan@samsung.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250930035651epcas5p2a45576829011bbf653c725b352c65140
+X-CMS-MailID: 20250930035633epcas5p3d859613b1d1d3319ded26da626c959bc
 X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
 CMS-TYPE: 105P
 cpgsPolicy: CPGSC10-542,Y
 X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250930035651epcas5p2a45576829011bbf653c725b352c65140
+X-CMS-RootMailID: 20250930035633epcas5p3d859613b1d1d3319ded26da626c959bc
 References: <20250930040348.3702923-1-h.dewangan@samsung.com>
-	<CGME20250930035651epcas5p2a45576829011bbf653c725b352c65140@epcas5p2.samsung.com>
+	<CGME20250930035633epcas5p3d859613b1d1d3319ded26da626c959bc@epcas5p3.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_210307_320365_678ABE78 
-X-CRM114-Status: GOOD (  28.56  )
+X-CRM114-CacheID: sfid-20250929_210312_679553_5970A82D 
+X-CRM114-Status: GOOD (  26.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,1060 +97,460 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Nagaraju Siddineni <nagaraju.s@samsung.com>
 
-- Integrat H.264 encoding.
-- Allocate encoder‑specific context buffers and ROI memory.
-- Add detection macro and broadened codec‑type validation for
-  QoS utilities.
-- Introduce encoder‑aware QoS tables and refined weight calculations
-  (B‑frames, reference count).
-- Update source‑queue cleanup, framerate fallback, and
-  timestamp‑delta handling.
-- Make stride and source‑size helpers encoder‑aware; exposed B‑frame
-  detection utility.
-- Expand context structures with encoder buffers, private fields,
-  ROI, and parameters.
-- Add platform flags for encoder‑specific QoS steps and feature
-  support (e.g., RGB).
+- Implement VB2 queue operations for decoding (setup, buffer handling,
+  streaming control, multi‑view and DMA direction support).
+- Added header exposing decoder VB2 operations to other MFC components.
+
+This introduces a full VB2 backend for video decoding, aligning the driver
+with standard V4L2 buffer management.
 
 Signed-off-by: Nagaraju Siddineni <nagaraju.s@samsung.com>
 Signed-off-by: Himanshu Dewangan <h.dewangan@samsung.com>
 ---
- .../samsung/exynos-mfc/base/mfc_buf.c         | 132 ++++++++++
- .../samsung/exynos-mfc/base/mfc_buf.h         |   3 +
- .../samsung/exynos-mfc/base/mfc_common.h      |  24 +-
- .../samsung/exynos-mfc/base/mfc_data_struct.h | 231 ++++++++++++++++++
- .../samsung/exynos-mfc/base/mfc_qos.c         |  34 ++-
- .../samsung/exynos-mfc/base/mfc_queue.c       |  31 +++
- .../samsung/exynos-mfc/base/mfc_queue.h       |   2 +
- .../exynos-mfc/base/mfc_rate_calculate.c      |  30 ++-
- .../exynos-mfc/base/mfc_rate_calculate.h      |   8 +-
- .../samsung/exynos-mfc/base/mfc_utils.c       | 111 +++++++++
- .../samsung/exynos-mfc/base/mfc_utils.h       |  52 ++++
- .../media/platform/samsung/exynos-mfc/mfc.c   |   3 +
- 12 files changed, 654 insertions(+), 7 deletions(-)
+ .../platform/samsung/exynos-mfc/Makefile      |   2 +-
+ .../platform/samsung/exynos-mfc/mfc_dec_vb2.c | 393 ++++++++++++++++++
+ .../platform/samsung/exynos-mfc/mfc_dec_vb2.h |  19 +
+ 3 files changed, 413 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_dec_vb2.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_dec_vb2.h
 
-diff --git a/drivers/media/platform/samsung/exynos-mfc/base/mfc_buf.c b/drivers/media/platform/samsung/exynos-mfc/base/mfc_buf.c
-index 84f97ca230bb..0186fe3327f1 100644
---- a/drivers/media/platform/samsung/exynos-mfc/base/mfc_buf.c
-+++ b/drivers/media/platform/samsung/exynos-mfc/base/mfc_buf.c
-@@ -132,6 +132,9 @@ int mfc_alloc_instance_context(struct mfc_core_ctx *core_ctx)
- 	case MFC_REG_CODEC_FIMV4_DEC:
- 		core_ctx->instance_ctx_buf.size = buf_size->other_dec_ctx;
- 		break;
-+	case MFC_REG_CODEC_H264_ENC:
-+		core_ctx->instance_ctx_buf.size = buf_size->h264_enc_ctx;
-+		break;
- 	case MFC_REG_CODEC_AV1_DEC:
- 		core_ctx->instance_ctx_buf.size = buf_size->av1_dec_ctx;
- 		break;
-@@ -248,6 +251,64 @@ static void __mfc_dec_calc_codec_buffer_size(struct mfc_core_ctx *core_ctx)
- 			  NUM_MPEG4_LF_BUF);
- }
+diff --git a/drivers/media/platform/samsung/exynos-mfc/Makefile b/drivers/media/platform/samsung/exynos-mfc/Makefile
+index 19e38c886255..9127f2dc4df6 100644
+--- a/drivers/media/platform/samsung/exynos-mfc/Makefile
++++ b/drivers/media/platform/samsung/exynos-mfc/Makefile
+@@ -3,7 +3,7 @@ obj-$(CONFIG_VIDEO_EXYNOS_MFC) := exynos_mfc.o
+ ccflags-y += -I$(srctree)/$(src)
  
-+static void __mfc_enc_calc_codec_buffer_size(struct mfc_core_ctx *core_ctx)
-+{
-+	struct mfc_ctx *ctx = core_ctx->ctx;
-+	struct mfc_enc *enc;
-+	unsigned int mb_width, mb_height;
-+
-+	enc = ctx->enc_priv;
-+	enc->tmv_buffer_size = 0;
-+
-+	mb_width = WIDTH_MB(ctx->crop_width);
-+	mb_height = HEIGHT_MB(ctx->crop_height);
-+
-+	/* default recon buffer size, it can be changed in case of 422, 10bit */
-+	enc->luma_dpb_size =
-+		ALIGN(ENC_LUMA_DPB_SIZE(ctx->crop_width, ctx->crop_height), SZ_64);
-+	enc->chroma_dpb_size =
-+		ALIGN(ENC_CHROMA_DPB_SIZE(ctx->crop_width, ctx->crop_height), SZ_64);
-+
-+	if (ctx->min_dpb_size[0] > enc->luma_dpb_size ||
-+	    ctx->min_dpb_size[1] > enc->chroma_dpb_size) {
-+		mfc_debug(2,
-+			  "[MEMINFO] recon DPB size changed (Luma: %zu -> %d, Chroma %zu -> %d)\n",
-+			  enc->luma_dpb_size,
-+			  ctx->min_dpb_size[0],
-+			  enc->chroma_dpb_size,
-+			  ctx->min_dpb_size[1]);
-+		enc->luma_dpb_size = ctx->min_dpb_size[0];
-+		enc->chroma_dpb_size = ctx->min_dpb_size[1];
-+	}
-+
-+	/* Codecs have different memory requirements */
-+	switch (ctx->codec_mode) {
-+	case MFC_REG_CODEC_H264_ENC:
-+		enc->me_buffer_size =
-+			ALIGN(ENC_V100_H264_ME_SIZE(mb_width, mb_height), SZ_256);
-+
-+		ctx->scratch_buf_size = ALIGN(ctx->scratch_buf_size, SZ_256);
-+		core_ctx->codec_buf.size =
-+			ctx->scratch_buf_size + enc->tmv_buffer_size +
-+			(ctx->dpb_count * (enc->luma_dpb_size +
-+			enc->chroma_dpb_size + enc->me_buffer_size));
-+		break;
-+	default:
-+		core_ctx->codec_buf.size = 0;
-+		mfc_err("invalid codec type: %d\n", ctx->codec_mode);
-+		break;
-+	}
-+
-+	mfc_debug(2,
-+		  "[MEMINFO] scratch: %zu, TMV: %zu, (recon luma: %zu, chroma: %zu, me: %zu) x count %d\n",
-+		  ctx->scratch_buf_size,
-+		  enc->tmv_buffer_size,
-+		  enc->luma_dpb_size,
-+		  enc->chroma_dpb_size,
-+		  enc->me_buffer_size,
-+		  ctx->dpb_count);
-+}
-+
- /* Allocate codec buffers */
- int mfc_alloc_codec_buffers(struct mfc_core_ctx *core_ctx)
- {
-@@ -259,6 +320,8 @@ int mfc_alloc_codec_buffers(struct mfc_core_ctx *core_ctx)
- 
- 	if (ctx->type == MFCINST_DECODER) {
- 		__mfc_dec_calc_codec_buffer_size(core_ctx);
-+	} else if (ctx->type == MFCINST_ENCODER) {
-+		__mfc_enc_calc_codec_buffer_size(core_ctx);
- 	} else {
- 		mfc_err("invalid type: %d\n", ctx->type);
- 		return -EINVAL;
-@@ -401,6 +464,75 @@ void mfc_release_dbg_info_buffer(struct mfc_core *core)
- 	mfc_mem_special_buf_free(core->dev, &core->dbg_info_buf);
- }
- 
-+/* Allocation buffer of ROI macroblock information */
-+static int __mfc_alloc_enc_roi_buffer(struct mfc_core_ctx *core_ctx,
-+				      size_t size,
-+				      struct mfc_special_buf *roi_buf)
-+{
-+	struct mfc_core *core = core_ctx->core;
-+	struct mfc_dev *dev = core->dev;
-+
-+	roi_buf->size = size;
-+	roi_buf->buftype = MFCBUF_NORMAL;
-+
-+	if (!roi_buf->dma_buf) {
-+		snprintf(roi_buf->name, MFC_NUM_SPECIAL_BUF_NAME, "ctx%d ROI", core_ctx->num);
-+		if (mfc_mem_special_buf_alloc(dev, roi_buf)) {
-+			mfc_err("[ROI] Allocating ROI buffer failed\n");
-+			return -ENOMEM;
-+		}
-+	}
-+	memset(roi_buf->vaddr, 0, roi_buf->size);
-+
-+	return 0;
-+}
-+
-+/* Wrapper : allocation ROI buffers */
-+int mfc_alloc_enc_roi_buffer(struct mfc_core_ctx *core_ctx)
-+{
-+	struct mfc_ctx *ctx = core_ctx->ctx;
-+	struct mfc_enc *enc = ctx->enc_priv;
-+	unsigned int mb_width, mb_height;
-+	size_t size;
-+	int i;
-+
-+	mb_width = WIDTH_MB(ctx->crop_width);
-+	mb_height = HEIGHT_MB(ctx->crop_height);
-+
-+	switch (ctx->codec_mode) {
-+	case MFC_REG_CODEC_H264_ENC:
-+		size = ((((mb_width * (mb_height + 1) / 2) + 15) / 16) * 16) * 2;
-+		break;
-+	default:
-+		mfc_debug(2,
-+			  "ROI not supported codec type(%d). Allocate with default size\n",
-+			  ctx->codec_mode);
-+		size = mb_width * mb_height;
-+		break;
-+	}
-+
-+	for (i = 0; i < MFC_MAX_EXTRA_BUF; i++) {
-+		if (__mfc_alloc_enc_roi_buffer(core_ctx, size, &enc->roi_buf[i]) < 0) {
-+			mfc_err("[ROI] Allocating remapping buffer[%d] failed\n", i);
-+			return -ENOMEM;
-+		}
-+	}
-+
-+	return 0;
-+}
-+
-+/* Release buffer of ROI macroblock information */
-+void mfc_release_enc_roi_buffer(struct mfc_core_ctx *core_ctx)
-+{
-+	struct mfc_ctx *ctx = core_ctx->ctx;
-+	struct mfc_enc *enc = ctx->enc_priv;
-+	int i;
-+
-+	for (i = 0; i < MFC_MAX_EXTRA_BUF; i++)
-+		if (enc->roi_buf[i].dma_buf)
-+			mfc_mem_special_buf_free(ctx->dev, &enc->roi_buf[i]);
-+}
-+
- /* Allocate firmware */
- int mfc_alloc_firmware(struct mfc_core *core)
- {
-diff --git a/drivers/media/platform/samsung/exynos-mfc/base/mfc_buf.h b/drivers/media/platform/samsung/exynos-mfc/base/mfc_buf.h
-index 6907cf6ac775..67bdfaed5dd6 100644
---- a/drivers/media/platform/samsung/exynos-mfc/base/mfc_buf.h
-+++ b/drivers/media/platform/samsung/exynos-mfc/base/mfc_buf.h
-@@ -26,6 +26,9 @@ void mfc_release_codec_buffers(struct mfc_core_ctx *core_ctx);
- int mfc_alloc_scratch_buffer(struct mfc_core_ctx *core_ctx);
- void mfc_release_scratch_buffer(struct mfc_core_ctx *core_ctx);
- 
-+int mfc_alloc_enc_roi_buffer(struct mfc_core_ctx *core_ctx);
-+void mfc_release_enc_roi_buffer(struct mfc_core_ctx *core_ctx);
-+
- int mfc_alloc_firmware(struct mfc_core *core);
- int mfc_load_firmware(struct mfc_core *core,
- 		      struct mfc_special_buf *fw_buf,
-diff --git a/drivers/media/platform/samsung/exynos-mfc/base/mfc_common.h b/drivers/media/platform/samsung/exynos-mfc/base/mfc_common.h
-index 5392c8566e42..bec6f88d5e44 100644
---- a/drivers/media/platform/samsung/exynos-mfc/base/mfc_common.h
-+++ b/drivers/media/platform/samsung/exynos-mfc/base/mfc_common.h
-@@ -170,6 +170,9 @@
- 	((ctx)->codec_mode == MFC_REG_CODEC_HEVC_DEC &&					\
- 	 (profile) == MFC_REG_D_PROFILE_MULTIVIEW_HEVC_MAIN)
- 
-+/* Encoder codec mode check */
-+#define IS_H264_ENC(ctx)	((ctx)->codec_mode == MFC_REG_CODEC_H264_ENC)
-+
- #define CODEC_NOT_CODED(ctx)	({							\
- 	typeof(ctx) _ctx = (ctx);							\
- 	(IS_MPEG4_DEC(_ctx) || IS_VC1_DEC(_ctx) || IS_VC1_RCV_DEC(_ctx) ||		\
-@@ -217,7 +220,16 @@
- })
- #define CODEC_HAS_IDR(ctx)	({							\
- 	typeof(ctx) _ctx = (ctx);							\
--	(IS_H264_DEC(_ctx) || IS_H264_MVC_DEC(_ctx) || IS_HEVC_DEC(_ctx));		\
-+	(IS_H264_DEC(_ctx) || IS_H264_MVC_DEC(_ctx) || IS_HEVC_DEC(_ctx) ||		\
-+	 IS_H264_ENC(_ctx));					\
-+})
-+
-+// Buffer container
-+#define IS_BUFFER_BATCH_MODE(ctx)	((ctx)->batch_mode == 1)
-+#define IS_NO_HEADER_GENERATE(ctx, p)	({						\
-+	typeof(ctx) _ctx = (ctx);							\
-+	typeof(p) _p = (p);								\
-+	(_p->seq_hdr_mode == V4L2_MPEG_VIDEO_HEADER_MODE_JOINED_WITH_1ST_FRAME);	\
- })
- 
- /*
-@@ -313,6 +325,13 @@
- 	 (_fps >= 240));							\
- })
- 
-+#define IS_MULTI_MODE_ENC_RES(ctx)	({					\
-+	typeof(ctx) _ctx = (ctx);						\
-+	(IS_MULTI_MODE_RES(_ctx) ||						\
-+	 (OVER_UHD_RES(_ctx) && _ctx->operating_framerate >= 60000)	||	\
-+	 (OVER_UHD_RES(_ctx) && mfc_is_enc_bframe(_ctx)));			\
-+})
-+
- #define IS_BLACKBAR_OFF(ctx)	((ctx)->crop_height > 2160)
- 
- #define IS_SINGLE_FD(ctx, fmt)	((!(ctx)->rgb_bpp) && ((fmt)->mem_planes == 1))
-@@ -404,6 +423,9 @@ static inline int mfc_core_get_pwr_ref_cnt(struct mfc_core *core)
- 
- static inline int mfc_core_get_clk_ref_cnt(struct mfc_core *core)
- {
-+	if (core->dev->pdata->support_hwacg == MFC_HWACG_HWFW_CTRL)
-+		return 1;
-+
- 	return atomic_read(&core->clk_ref);
- }
- 
-diff --git a/drivers/media/platform/samsung/exynos-mfc/base/mfc_data_struct.h b/drivers/media/platform/samsung/exynos-mfc/base/mfc_data_struct.h
-index 6b93fe3ab138..6d34905a1cba 100644
---- a/drivers/media/platform/samsung/exynos-mfc/base/mfc_data_struct.h
-+++ b/drivers/media/platform/samsung/exynos-mfc/base/mfc_data_struct.h
-@@ -505,6 +505,9 @@ struct mfc_ctx_buf_size {
- 	size_t h264_dec_ctx;
- 	size_t av1_dec_ctx;
- 	size_t other_dec_ctx;
-+	size_t h264_enc_ctx;
-+	size_t hevc_enc_ctx;
-+	size_t other_enc_ctx;
- 	size_t dbg_info_buf;
- };
- 
-@@ -711,6 +714,13 @@ struct mfc_bw_data {
- };
- 
- struct mfc_bw_info {
-+	struct mfc_bw_data bw_enc_h264;
-+	struct mfc_bw_data bw_enc_hevc;
-+	struct mfc_bw_data bw_enc_hevc_10bit;
-+	struct mfc_bw_data bw_enc_vp8;
-+	struct mfc_bw_data bw_enc_vp9;
-+	struct mfc_bw_data bw_enc_vp9_10bit;
-+	struct mfc_bw_data bw_enc_mpeg4;
- 	struct mfc_bw_data bw_dec_h264;
- 	struct mfc_bw_data bw_dec_hevc;
- 	struct mfc_bw_data bw_dec_hevc_10bit;
-@@ -734,6 +744,7 @@ struct mfc_qos {
- 	unsigned int freq_mif;
- 	unsigned int mo_value;
- 	unsigned int mo_10bit_value;
-+	unsigned int mo_uhd_enc60_value;
- 	unsigned int time_fw;
- 	unsigned int bts_scen_idx;
- 	const char *name;
-@@ -792,6 +803,7 @@ struct mfc_platdata {
- 	/* Formats */
- 	unsigned int support_10bit;
- 	unsigned int support_422;
-+	unsigned int support_rgb;
- 	/* Resolution */
- 	unsigned int support_check_res;
- 
-@@ -807,11 +819,26 @@ struct mfc_platdata {
- 	struct mfc_feature black_bar;
- 	struct mfc_feature color_aspect_dec;
- 	struct mfc_feature static_info_dec;
-+	struct mfc_feature color_aspect_enc;
-+	struct mfc_feature static_info_enc;
- 	struct mfc_feature vp9_stride_align;
- 	struct mfc_feature mem_clear;
- 	struct mfc_feature wait_fw_status;
-+	struct mfc_feature average_qp;
-+	struct mfc_feature mv_search_mode;
-+	struct mfc_feature enc_idr_flag;
-+	struct mfc_feature min_quality_mode;
-+	struct mfc_feature enc_capability;
-+	struct mfc_feature enc_ts_delta;
-+	struct mfc_feature wfd_rc_mode;
-+	struct mfc_feature max_i_frame_size;
- 	struct mfc_feature hevc_pic_output_flag;
- 
-+	/* Encoder default parameter */
-+	unsigned int enc_param_num;
-+	unsigned int enc_param_addr[MFC_MAX_DEFAULT_PARAM];
-+	unsigned int enc_param_val[MFC_MAX_DEFAULT_PARAM];
-+
- 	struct mfc_bw_info mfc_bw_info;
- 	unsigned int dynamic_weight;
- 	struct mfc_qos_weight qos_weight;
-@@ -835,7 +862,14 @@ struct mfc_platdata {
- 
- 	unsigned int scheduler;
- 	unsigned int pbs_num_prio;
-+
-+	unsigned int enc_rgb_csc_by_fw;
-+	/* HWAPG */
-+	unsigned int support_hwapg;
-+	/* HWACG */
- 	enum mfc_hwacg_type support_hwacg;
-+
-+	unsigned int support_enc_mode1;
- 	unsigned int support_mv_hevc;
- };
- 
-@@ -858,6 +892,7 @@ struct mfc_core_platdata {
- 	unsigned int tsmux_masterid;
- 	/* QoS */
- 	unsigned int num_default_qos_steps;
-+	unsigned int num_encoder_qos_steps;
- 	unsigned int max_mb;
- 	unsigned int max_hw_mb;
- 	unsigned int mfc_freq_control;
-@@ -994,6 +1029,9 @@ struct mfc_core_ops {
- 	/* for DEC */
- 	void (*instance_dpb_flush)(struct mfc_core *core, struct mfc_ctx *ctx);
- 	int (*instance_init_buf)(struct mfc_core *core, struct mfc_ctx *ctx);
-+	/* for ENC */
-+	void (*instance_q_flush)(struct mfc_core *core, struct mfc_ctx *ctx);
-+	void (*instance_finishing)(struct mfc_core *core, struct mfc_ctx *ctx);
- };
- 
- struct dump_info {
-@@ -1148,6 +1186,150 @@ struct mfc_core {
- 	struct mfc_core_memlog memlog;
- };
- 
-+/**
+ #Dev interface layer
+-exynos_mfc-y += mfc.o
++exynos_mfc-y += mfc.o mfc_dec_vb2.o
+ #Dev control layer
+ exynos_mfc-y += mfc_rm.o mfc_ctx_ctrl.o mfc_debugfs.o
+ #Core interface layer
+diff --git a/drivers/media/platform/samsung/exynos-mfc/mfc_dec_vb2.c b/drivers/media/platform/samsung/exynos-mfc/mfc_dec_vb2.c
+new file mode 100644
+index 000000000000..3097a6c0bf14
+--- /dev/null
++++ b/drivers/media/platform/samsung/exynos-mfc/mfc_dec_vb2.c
+@@ -0,0 +1,393 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Copyright (c) 2025 Samsung Electronics Co., Ltd.
++ *		http://www.samsung.com/
 + *
-+ */
-+struct mfc_h264_enc_params {
-+	enum v4l2_mpeg_video_h264_profile profile;
-+	u8 level;
-+	u8 interlace;
-+	u16 open_gop_size;
-+	u8 open_gop;
-+	u8 _8x8_transform;
-+	s8 loop_filter_alpha;
-+	s8 loop_filter_beta;
-+	enum v4l2_mpeg_video_h264_loop_filter_mode loop_filter_mode;
-+	enum v4l2_mpeg_video_h264_entropy_mode entropy_mode;
-+	u8 rc_frame_qp;
-+	u8 rc_min_qp;
-+	u8 rc_max_qp;
-+	u8 rc_min_qp_p;
-+	u8 rc_max_qp_p;
-+	u8 rc_min_qp_b;
-+	u8 rc_max_qp_b;
-+	u8 rc_mb_dark;
-+	u8 rc_mb_smooth;
-+	u8 rc_mb_static;
-+	u8 rc_mb_activity;
-+	u8 rc_p_frame_qp;
-+	u8 rc_b_frame_qp;
-+	u8 ar_vui;
-+	u8 sei_gen_enable;
-+	u8 sei_fp_curr_frame_0;
-+
-+	enum v4l2_mpeg_video_h264_vui_sar_idc ar_vui_idc;
-+	u16 ext_sar_width;
-+	u16 ext_sar_height;
-+
-+	enum v4l2_mpeg_video_h264_hierarchical_coding_type hier_qp_type;
-+	u32 hier_bit_layer[7];
-+	u8 hier_qp_layer[7];
-+	u8 hier_qp_enable;
-+	u8 num_hier_layer;
-+	u8 hier_ref_type;
-+	u8 enable_ltr;
-+	u8 num_of_ltr;
-+	u32 set_priority;
-+	u32 base_priority;
-+
-+	enum v4l2_mpeg_video_h264_sei_fp_arrangement_type sei_fp_arrangement_type;
-+	u32 fmo_enable;
-+	u32 fmo_slice_map_type;
-+	u32 fmo_slice_num_grp;
-+	u32 fmo_run_length[4];
-+	u32 fmo_sg_dir;
-+	u32 fmo_sg_rate;
-+	u32 aso_enable;
-+	u32 aso_slice_order[8];
-+
-+	u32 prepend_sps_pps_to_idr;
-+	u32 vui_enable;
-+};
-+
-+/**
++ * mfc_dec_vb2.c file
 + *
++ * Nagaraju Siddineni, <nagaraju.s@samsung.com>
++ * Himanshu Dewangan, <h.dewangan@samsung.com>
 + */
-+struct mfc_enc_params {
-+	enum v4l2_mpeg_video_multi_slice_mode slice_mode;
-+	u32 slice_mb;
-+	u32 slice_bit;
-+	u32 slice_mb_row;
 +
-+	u32 gop_ctrl;
-+	u32 gop_size;
-+	u32 intra_refresh_mb;
-+	u32 i_frm_ctrl_mode;
-+	u32 i_frm_ctrl;
++#include "mfc_dec_vb2.h"
 +
-+	u8 pad;
-+	u8 pad_luma;
-+	u8 pad_cb;
-+	u8 pad_cr;
++#include "mfc_rm.h"
 +
-+	u8 rc_mb;		/* H.264: MFCv5, MPEG4/H.263: MFCv6 */
-+	u8 rc_pvc;
-+	u8 rc_frame;
-+	u8 drop_control;
-+	u32 rc_bitrate;
-+	u32 rc_framerate;
-+	u16 rc_reaction_coeff;
-+	u16 rc_frame_delta;	/* MFC6.1 Only */
-+	u32 rc_framerate_res;
-+	u32 max_i_frame_size;	/* when RC_MODE is 5(CBR_I_LIMIT_WFD = CBR_BS) */
++#include "base/mfc_queue.h"
++#include "base/mfc_utils.h"
++#include "base/mfc_buf.h"
++#include "base/mfc_mem.h"
 +
-+	u32 config_qp;
-+	u32 dynamic_qp;
-+
-+	u8 frame_tag;
-+	u8 ratio_intra;
-+	u8 num_b_frame;		/* H.264, HEVC, MPEG4 */
-+	u8 num_refs_for_p;	/* H.264, HEVC, VP8, VP9 */
-+	enum v4l2_mpeg_video_header_mode seq_hdr_mode;
-+	enum v4l2_mpeg_mfc51_video_frame_skip_mode frame_skip_mode;
-+	u16 vbv_buf_size;
-+	u8 num_hier_max_layer;
-+	u8 hier_bitrate_ctrl;
-+	u8 weighted_enable;
-+	u8 roi_enable;
-+	u8 ivf_header_disable;	/* VP8, VP9 */
-+	u8 fixed_target_bit;
-+	u8 min_quality_mode;	/* H.264, HEVC when RC_MODE is 2(VBR) */
-+	u8 wp_two_pass_enable;
-+	u8 adaptive_gop_enable;
-+
-+	u32 check_color_range;
-+	u32 color_range;
-+	u32 colour_primaries;
-+	u32 transfer_characteristics;
-+	u32 matrix_coefficients;
-+
-+	u32 static_info_enable;
-+	u32 max_pic_average_light;
-+	u32 max_content_light;
-+	u32 max_display_luminance;
-+	u32 min_display_luminance;
-+	u32 white_point;
-+	u32 display_primaries_0;
-+	u32 display_primaries_1;
-+	u32 display_primaries_2;
-+	u32 chroma_qp_offset_cb; /* H.264, HEVC */
-+	u32 chroma_qp_offset_cr; /* H.264, HEVC */
-+
-+	u32 mv_search_mode;
-+	u32 mv_hor_pos_l0;
-+	u32 mv_hor_pos_l1;
-+	u32 mv_ver_pos_l0;
-+	u32 mv_ver_pos_l1;
-+	u32 mv_hor_range;
-+	u32 mv_ver_range;
-+
-+	u8 timing_info_enable; /* H.264, HEVC */
-+
-+	union {
-+		struct mfc_h264_enc_params h264;
-+	} codec;
-+};
-+
- struct mfc_ctx_ctrl_val {
- 	int has_new;
- 	int val;
-@@ -1234,6 +1416,14 @@ struct temporal_layer_info {
- 	unsigned int temporal_layer_bitrate[VIDEO_MAX_TEMPORAL_LAYERS];
- };
- 
-+struct mfc_enc_roi_info {
-+	char *addr;
-+	int size;
-+	int upper_qp;
-+	int lower_qp;
-+	bool enable;
-+};
-+
- struct mfc_user_shared_handle {
- 	int fd;
- 	struct dma_buf *dma_buf;
-@@ -1379,6 +1569,43 @@ struct mfc_dec {
- 	unsigned char frame_cnt;
- };
- 
-+struct mfc_enc {
-+	unsigned int dst_buf_size;
-+	unsigned int header_size;
-+
-+	enum v4l2_mpeg_mfc51_video_frame_type frame_type;
-+	enum v4l2_mpeg_mfc51_video_force_frame_type force_frame_type;
-+
-+	unsigned int idr_flag;
-+
-+	size_t luma_dpb_size;
-+	size_t chroma_dpb_size;
-+	size_t me_buffer_size;
-+	size_t tmv_buffer_size;
-+
-+	unsigned int slice_mode;
-+	unsigned int slice_size_mb;
-+	unsigned int slice_size_bits;
-+	unsigned int in_slice;
-+	unsigned int buf_full;
-+
-+	int config_qp;
-+
-+	struct mfc_fmt *uncomp_fmt;
-+
-+	int fake_src;
-+	int empty_data;
-+
-+	int roi_index;
-+	struct mfc_special_buf roi_buf[MFC_MAX_EXTRA_BUF];
-+	struct mfc_enc_roi_info roi_info[MFC_MAX_EXTRA_BUF];
-+
-+	struct mfc_enc_params params;
-+
-+	struct mfc_user_shared_handle sh_handle_svc;
-+	struct mfc_user_shared_handle sh_handle_roi;
-+};
-+
- struct mfc_resolution {
- 	int width;
- 	int height;
-@@ -1414,6 +1641,7 @@ struct mfc_multi_view_buf_info {
- struct mfc_ctx {
- 	struct mfc_dev *dev;
- 	struct mfc_dec *dec_priv;
-+	struct mfc_enc *enc_priv;
- 
- 	int num;
- 	int prio;
-@@ -1542,6 +1770,9 @@ struct mfc_ctx {
- 	dma_addr_t last_src_addr;
- 	dma_addr_t last_dst_addr[MFC_MAX_PLANES];
- 
-+	/* buffer container */
-+	int batch_mode;
-+
- 	bool mem_type_10bit;
- 
- 	unsigned long gdc_ready_buf_ino;
-diff --git a/drivers/media/platform/samsung/exynos-mfc/base/mfc_qos.c b/drivers/media/platform/samsung/exynos-mfc/base/mfc_qos.c
-index 9922c2396b94..40541e2d626f 100644
---- a/drivers/media/platform/samsung/exynos-mfc/base/mfc_qos.c
-+++ b/drivers/media/platform/samsung/exynos-mfc/base/mfc_qos.c
-@@ -20,17 +20,25 @@
- 
- static inline int __mfc_core_get_qos_steps(struct mfc_core *core, int table_type)
- {
--	return core->core_pdata->num_default_qos_steps;
-+	if (table_type == MFC_QOS_TABLE_TYPE_ENCODER)
-+		return core->core_pdata->num_encoder_qos_steps;
-+	else
-+		return core->core_pdata->num_default_qos_steps;
- }
- 
- static inline struct mfc_qos *__mfc_core_get_qos_table(struct mfc_core *core, int table_type)
- {
--	return core->core_pdata->default_qos_table;
-+	if (table_type == MFC_QOS_TABLE_TYPE_ENCODER)
-+		return core->core_pdata->encoder_qos_table;
-+	else
-+		return core->core_pdata->default_qos_table;
- }
- 
- static inline unsigned long __mfc_qos_add_weight(struct mfc_ctx *ctx, unsigned long mb)
- {
-+	struct mfc_enc *enc = ctx->enc_priv;
- 	struct mfc_dec *dec = ctx->dec_priv;
-+	struct mfc_enc_params *p;
- 	struct mfc_qos_weight *qos_weight = &ctx->dev->pdata->qos_weight;
- 	u32 num_planes = ctx->dst_fmt->num_planes;
- 	int weight = 1000;
-@@ -39,6 +47,8 @@ static inline unsigned long __mfc_qos_add_weight(struct mfc_ctx *ctx, unsigned l
- 	switch (ctx->codec_mode) {
- 	case MFC_REG_CODEC_H264_DEC:
- 	case MFC_REG_CODEC_H264_MVC_DEC:
-+	case MFC_REG_CODEC_H264_ENC:
-+	case MFC_REG_CODEC_H264_MVC_ENC:
- 		weight = (weight * 100) / qos_weight->weight_h264_hevc;
- 		mfc_ctx_debug(3, "[QoS] h264, hevc codec, weight: %d\n", weight / 10);
- 		if (num_planes == 3) {
-@@ -107,6 +117,16 @@ static inline unsigned long __mfc_qos_add_weight(struct mfc_ctx *ctx, unsigned l
- 		mfc_ctx_err("[QoS] wrong codec_mode (%d), no weight\n", ctx->codec_mode);
- 	}
- 
-+	if (enc) {
-+		p = &enc->params;
-+		if (mfc_is_enc_bframe(ctx)) {
-+			weight = (weight * 100) / qos_weight->weight_bframe;
-+			mfc_ctx_debug(3, "[QoS] B frame encoding, weight: %d\n", weight / 10);
-+		} else if (IS_H264_ENC(ctx) && (p->num_refs_for_p >= 2)) {
-+			weight = (weight * 100) / qos_weight->weight_num_of_ref;
-+			mfc_ctx_debug(3, "[QoS] num of ref >= 2, weight: %d\n", weight / 10);
-+		}
-+	}
- 	if (dec) {
- 		if (dec->num_of_tile_over_4) {
- 			weight = (weight * 100) / qos_weight->weight_num_of_tile;
-@@ -223,7 +243,10 @@ void mfc_qos_get_portion(struct mfc_core *core, struct mfc_ctx *ctx)
- 	if (!ctx->mfc_qos_portion)
- 		return;
- 
--	table_type = MFC_QOS_TABLE_TYPE_DEFAULT;
-+	if (ctx->type == MFCINST_ENCODER)
-+		table_type = MFC_QOS_TABLE_TYPE_ENCODER;
-+	else
-+		table_type = MFC_QOS_TABLE_TYPE_DEFAULT;
- 
- 	num_qos_steps = __mfc_core_get_qos_steps(core, table_type);
- 	qos_table = __mfc_core_get_qos_table(core, table_type);
-@@ -390,7 +413,8 @@ bool mfc_qos_mb_calculate(struct mfc_core *core, struct mfc_core_ctx *core_ctx,
- 
- 	if (ctx->type == MFCINST_DECODER)
- 		table_type = MFC_QOS_TABLE_TYPE_DEFAULT;
--
-+	else
-+		table_type = MFC_QOS_TABLE_TYPE_ENCODER;
- 	num_qos_steps = __mfc_core_get_qos_steps(core, table_type);
- 
- 	if (atomic_read(&core->qos_req_cur)) {
-@@ -652,6 +676,8 @@ void __mfc_qos_calculate(struct mfc_core *core, struct mfc_ctx *ctx, int delete)
- 
- 	if (dec_found)
- 		table_type = MFC_QOS_TABLE_TYPE_DEFAULT;
-+	else
-+		table_type = MFC_QOS_TABLE_TYPE_ENCODER;
- 
- 	num_qos_steps = __mfc_core_get_qos_steps(core, table_type);
- 	qos_table = __mfc_core_get_qos_table(core, table_type);
-diff --git a/drivers/media/platform/samsung/exynos-mfc/base/mfc_queue.c b/drivers/media/platform/samsung/exynos-mfc/base/mfc_queue.c
-index 6dc9bc7a1873..81e649bb4e1e 100644
---- a/drivers/media/platform/samsung/exynos-mfc/base/mfc_queue.c
-+++ b/drivers/media/platform/samsung/exynos-mfc/base/mfc_queue.c
-@@ -539,6 +539,37 @@ void mfc_cleanup_queue(spinlock_t *plock, struct mfc_buf_queue *queue)
- 	spin_unlock_irqrestore(plock, flags);
- }
- 
-+void mfc_cleanup_enc_src_queue(struct mfc_core_ctx *core_ctx)
++static int mfc_dec_queue_setup(struct vb2_queue *vq,
++			       unsigned int *buf_count, unsigned int *plane_count,
++			       unsigned int psize[], struct device *alloc_devs[])
 +{
-+	struct mfc_ctx *ctx = core_ctx->ctx;
-+	unsigned long flags;
-+	struct mfc_buf *mfc_buf = NULL;
-+	struct mfc_buf_queue *queue = &core_ctx->src_buf_queue;
-+	int i;
-+
-+	spin_lock_irqsave(&ctx->buf_queue_lock, flags);
-+
-+	while (!list_empty(&queue->head)) {
-+		mfc_buf = list_entry(queue->head.next, struct mfc_buf, list);
-+
-+		for (i = 0; i < mfc_buf->vb.vb2_buf.num_planes; i++) {
-+			if (IS_BUFFER_BATCH_MODE(ctx))
-+				mfc_bufcon_put_daddr(ctx, mfc_buf, i);
-+			vb2_set_plane_payload(&mfc_buf->vb.vb2_buf, i, 0);
-+		}
-+
-+		vb2_buffer_done(&mfc_buf->vb.vb2_buf, VB2_BUF_STATE_ERROR);
-+		list_del(&mfc_buf->list);
-+		queue->count--;
-+	}
-+
-+	INIT_LIST_HEAD(&queue->head);
-+	queue->count = 0;
-+	ctx->batch_mode = 0;
-+
-+	spin_unlock_irqrestore(&ctx->buf_queue_lock, flags);
-+}
-+
- void mfc_print_dpb_queue(struct mfc_core_ctx *core_ctx, struct mfc_dec *dec)
- {
- 	struct mfc_ctx *ctx = core_ctx->ctx;
-diff --git a/drivers/media/platform/samsung/exynos-mfc/base/mfc_queue.h b/drivers/media/platform/samsung/exynos-mfc/base/mfc_queue.h
-index 055e7a23a527..cfe889e0dcc9 100644
---- a/drivers/media/platform/samsung/exynos-mfc/base/mfc_queue.h
-+++ b/drivers/media/platform/samsung/exynos-mfc/base/mfc_queue.h
-@@ -145,6 +145,8 @@ void mfc_return_buf_to_ready_queue(struct mfc_ctx *ctx,
- 
- void mfc_cleanup_queue(spinlock_t *plock, struct mfc_buf_queue *queue);
- 
-+void mfc_cleanup_enc_src_queue(struct mfc_core_ctx *core_ctx);
-+
- void mfc_print_dpb_queue(struct mfc_core_ctx *core_ctx, struct mfc_dec *dec);
- void mfc_print_dpb_queue_with_lock(struct mfc_core_ctx *core_ctx, struct mfc_dec *dec);
- int mfc_get_available_dpb_count(struct mfc_core_ctx *core_ctx);
-diff --git a/drivers/media/platform/samsung/exynos-mfc/base/mfc_rate_calculate.c b/drivers/media/platform/samsung/exynos-mfc/base/mfc_rate_calculate.c
-index 94a555c900d7..c88101d1d1c1 100644
---- a/drivers/media/platform/samsung/exynos-mfc/base/mfc_rate_calculate.c
-+++ b/drivers/media/platform/samsung/exynos-mfc/base/mfc_rate_calculate.c
-@@ -293,6 +293,7 @@ static unsigned long __mfc_rate_get_fps_by_timestamp(struct mfc_ctx *ctx,
- 						     struct mfc_ts_control *ts,
- 						     struct timespec64 *time, int type)
- {
-+	struct list_head *head = &ts->ts_list;
- 	struct mfc_timestamp *temp_ts;
- 	int found;
- 	int index = 0;
-@@ -304,6 +305,13 @@ static unsigned long __mfc_rate_get_fps_by_timestamp(struct mfc_ctx *ctx,
- 	unsigned long flags;
- 	u64 current_time;
- 
-+	if (IS_BUFFER_BATCH_MODE(ctx)) {
-+		if (ctx->dev->debugfs.debug_ts == 1)
-+			mfc_ctx_info("[BUFCON][TS] Keep framerate if buffer batch mode is used, %ldfps\n",
-+				     ctx->framerate);
-+		return ctx->framerate;
-+	}
-+
- 	spin_lock_irqsave(&ts->ts_lock, flags);
- 	if (list_empty(&ts->ts_list)) {
- 		__mfc_rate_add_timestamp(ctx, ts, time, &ts->ts_list);
-@@ -362,6 +370,19 @@ static unsigned long __mfc_rate_get_fps_by_timestamp(struct mfc_ctx *ctx,
- 		spin_unlock_irqrestore(&ts->ts_lock, flags);
- 	}
- 
-+	/* Calculation the last frame fps for drop control */
-+	if (ctx->type == MFCINST_ENCODER) {
-+		temp_ts = list_entry(head->prev, struct mfc_timestamp, list);
-+		if (temp_ts->interval > USEC_PER_SEC) {
-+			if (ts->ts_is_full)
-+				mfc_ctx_info("[TS] ts interval(%d) couldn't over 1sec(1fps)\n",
-+					     temp_ts->interval);
-+			ts->ts_last_interval = 0;
-+		} else {
-+			ts->ts_last_interval = temp_ts->interval;
-+		}
-+	}
-+
- 	if (!ts->ts_is_full) {
- 		if (ctx->dev->debugfs.debug_ts == 1)
- 			mfc_ctx_info("[TS] ts doesn't full, keep %ld fps\n", ctx->framerate);
-@@ -581,7 +602,14 @@ int mfc_rate_check_perf_ctx(struct mfc_ctx *ctx, int max_runtime)
- 
- 	op_fps = ctx->operating_framerate;
- 	if (op_fps == 0) {
--		op_fps = ctx->src_q_framerate;
-+		if (ctx->type == MFCINST_ENCODER && ctx->enc_priv->params.rc_framerate)
-+			op_fps = ctx->enc_priv->params.rc_framerate;
-+		else
-+			/*
-+			 * In case of non-real-time, check the buffer queueing rate
-+			 * because the non-real-time is best effort scenario. (ex. video editing)
-+			 */
-+			op_fps = ctx->src_q_framerate;
- 		mfc_ctx_debug(2, "[PRIO][rt %d] use fps: %d\n", ctx->rt, op_fps);
- 	}
- 
-diff --git a/drivers/media/platform/samsung/exynos-mfc/base/mfc_rate_calculate.h b/drivers/media/platform/samsung/exynos-mfc/base/mfc_rate_calculate.h
-index 2452e6ee56dd..530ad6fed489 100644
---- a/drivers/media/platform/samsung/exynos-mfc/base/mfc_rate_calculate.h
-+++ b/drivers/media/platform/samsung/exynos-mfc/base/mfc_rate_calculate.h
-@@ -45,6 +45,8 @@ static inline void mfc_rate_reset_framerate(struct mfc_ctx *ctx)
- {
- 	if (ctx->type == MFCINST_DECODER)
- 		ctx->framerate = DEC_DEFAULT_FPS;
-+	else if (ctx->type == MFCINST_ENCODER)
-+		ctx->framerate = ENC_DEFAULT_FPS;
- 
- 	mfc_ctx_debug(3, "[QoS] reset ctx->framrate: %lu\n", ctx->framerate);
- }
-@@ -80,7 +82,11 @@ static inline unsigned long mfc_rate_get_rt_framerate(struct mfc_ctx *ctx, enum
- 
- 	framerate = ctx->operating_framerate;
- 
--	if (rt == MFC_RT_UNDEFINED || rt == MFC_NON_RT) {
-+	if (rt == MFC_RT) {
-+		if (framerate == 0 && ctx->type == MFCINST_ENCODER &&
-+		    ctx->enc_priv->params.rc_framerate)
-+			framerate = ctx->enc_priv->params.rc_framerate;
-+	} else if (rt == MFC_RT_UNDEFINED || rt == MFC_NON_RT) {
- 		framerate = ctx->framerate;
- 	} else {
- 		if (ctx->src_ts.ts_is_full)
-diff --git a/drivers/media/platform/samsung/exynos-mfc/base/mfc_utils.c b/drivers/media/platform/samsung/exynos-mfc/base/mfc_utils.c
-index 83cdae3dee57..6dba87fb951b 100644
---- a/drivers/media/platform/samsung/exynos-mfc/base/mfc_utils.c
-+++ b/drivers/media/platform/samsung/exynos-mfc/base/mfc_utils.c
-@@ -108,6 +108,59 @@ static void __mfc_set_dec_stride(struct mfc_ctx *ctx,
- 	}
- }
- 
-+static void __mfc_set_enc_stride(struct mfc_ctx *ctx,
-+				 struct mfc_raw_info *raw,
-+				 struct mfc_fmt *fmt)
-+{
-+	int i, y_stride, stride_align = 16;
-+
-+	y_stride = ctx->bytesperline[0];
-+	if (!y_stride)
-+		y_stride = ALIGN(ctx->img_width, stride_align);
-+
-+	for (i = 0; i < MFC_MAX_PLANES; i++) {
-+		raw->stride[i] = 0;
-+		raw->stride_2bits[i] = 0;
-+	}
-+
-+	switch (fmt->fourcc) {
-+	case V4L2_PIX_FMT_YUV420M:
-+	case V4L2_PIX_FMT_YVU420M:
-+	case V4L2_PIX_FMT_NV12MT_16X16:
-+	case V4L2_PIX_FMT_NV12MT:
-+	case V4L2_PIX_FMT_NV12M:
-+	case V4L2_PIX_FMT_NV21M:
-+	case V4L2_PIX_FMT_NV16M:
-+	case V4L2_PIX_FMT_NV61M:
-+		/* use user stride */
-+		for (i = 0; i < ctx->src_fmt->num_planes; i++) {
-+			raw->stride[i] = ctx->bytesperline[i];
-+			if (!raw->stride[i])
-+				raw->stride[i] = ALIGN(ctx->img_width, stride_align);
-+		}
-+		break;
-+	case V4L2_PIX_FMT_RGB24:
-+	case V4L2_PIX_FMT_RGB565:
-+	case V4L2_PIX_FMT_RGB32X:
-+	case V4L2_PIX_FMT_BGR32:
-+	case V4L2_PIX_FMT_ARGB32:
-+	case V4L2_PIX_FMT_RGB32:
-+		raw->stride[0] = y_stride * (ctx->rgb_bpp / 8);
-+		break;
-+	default:
-+		mfc_ctx_err("Invalid pixelformat : %s\n", fmt->name);
-+		break;
-+	}
-+
-+	for (i = 0; i < ctx->src_fmt->num_planes; i++) {
-+		if ((raw->stride[i] % stride_align) != 0) {
-+			mfc_ctx_err("[FRAME] Forced to change stride[%d] %d for %dbyte alignment\n",
-+				    i, raw->stride[i], stride_align);
-+			raw->stride[i] = ALIGN(raw->stride[i], stride_align);
-+		}
-+	}
-+}
-+
- void mfc_set_linear_stride_size(struct mfc_ctx *ctx, struct mfc_raw_info *raw, struct mfc_fmt *fmt)
- {
- 	/*
-@@ -117,6 +170,8 @@ void mfc_set_linear_stride_size(struct mfc_ctx *ctx, struct mfc_raw_info *raw, s
- 	 */
- 	if (ctx->type == MFCINST_DECODER)
- 		__mfc_set_dec_stride(ctx, raw, fmt);
-+	else
-+		__mfc_set_enc_stride(ctx, raw, fmt);
- }
- 
- void mfc_dec_calc_dpb_size(struct mfc_ctx *ctx, struct mfc_raw_info *raw, struct mfc_fmt *fmt)
-@@ -201,6 +256,62 @@ void mfc_dec_calc_dpb_size(struct mfc_ctx *ctx, struct mfc_raw_info *raw, struct
- 	}
- }
- 
-+void mfc_enc_calc_src_size(struct mfc_ctx *ctx)
-+{
++	struct mfc_ctx *ctx = vq->drv_priv;
++	struct mfc_dev *dev = ctx->dev;
++	struct mfc_core *core;
++	struct mfc_core_ctx *core_ctx;
 +	struct mfc_raw_info *raw;
-+	int i, extra;
++	int i, offset;
++
++	mfc_ctx_debug_enter();
 +
 +	raw = &ctx->raw_buf;
-+	raw->total_plane_size = 0;
-+	extra = MFC_LINEAR_BUF_SIZE;
 +
-+	mfc_set_linear_stride_size(ctx, raw, ctx->src_fmt);
++	/*
++	 * During queue_setup,
++	 * context information is need to for only main core
++	 */
++	core = mfc_get_main_core_lock(dev, ctx);
++	core_ctx = core->core_ctx[ctx->num];
 +
-+	for (i = 0; i < raw->num_planes; i++) {
-+		raw->plane_size[i] = 0;
-+		raw->plane_size_2bits[i] = 0;
++	/* Video output for decoding (source)
++	 * this can be set after getting an instance
++	 */
++	if (core_ctx->state == MFCINST_GOT_INST &&
++	    vq->type == V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE) {
++		mfc_debug(4, "dec src\n");
++		/* A single plane is required for input */
++		*plane_count = 1;
++		if (*buf_count < 1)
++			*buf_count = 1;
++		if (*buf_count > MFC_MAX_BUFFERS)
++			*buf_count = MFC_MAX_BUFFERS;
++
++		/* need to use minimum size to prevent qbuf fail */
++		psize[0] = 1;
++		alloc_devs[0] = dev->device;
++	/* Video capture for decoding (destination)
++	 * this can be set after the header was parsed
++	 */
++	} else if (core_ctx->state >= MFCINST_HEAD_PARSED &&
++		vq->type == V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE) {
++		mfc_debug(4, "dec dst\n");
++		/* Output plane count is different by the pixel format */
++		*plane_count = ctx->num_fd_frame;
++		/* Setup buffer count */
++		if (*buf_count < ctx->dpb_count)
++			*buf_count = ctx->dpb_count;
++		if (*buf_count > MFC_MAX_BUFFERS)
++			*buf_count = MFC_MAX_BUFFERS;
++
++		if (ctx->dst_fmt->mem_planes == 1) {
++			psize[0] = raw->total_plane_size;
++			alloc_devs[0] = dev->device;
++		} else {
++			for (i = 0; i < ctx->dst_fmt->num_planes; i++) {
++				psize[i] = ctx->min_dpb_size[i];
++				alloc_devs[i] = dev->device;
++			}
++		}
++		if (ctx->multi_view_enable) {
++			offset = ctx->view_buf_info[MFC_MV_BUF_IDX_VIEW1].offset;
++			if (ctx->dst_fmt->mem_planes == 1) {
++				psize[offset] = raw->total_plane_size;
++				alloc_devs[offset] = dev->device;
++			} else {
++				for (i = 0; i < ctx->dst_fmt->num_planes; i++) {
++					psize[offset + i] = ctx->min_dpb_size[i];
++					alloc_devs[offset + i] = dev->device;
++				}
++			}
++		}
++
++		/* Decoder DPB should be read for reference */
++		vq->dma_dir = DMA_BIDIRECTIONAL;
++	} else {
++		mfc_err("State seems invalid. State = %d, vq->type = %d\n",
++			core_ctx->state, vq->type);
++		return -EINVAL;
 +	}
 +
-+	switch (ctx->src_fmt->fourcc) {
-+	case V4L2_PIX_FMT_YUV420M:
-+	case V4L2_PIX_FMT_YVU420M:
-+		raw->plane_size[0] = raw->stride[0] * ALIGN(ctx->img_height, 16) + extra;
-+		raw->plane_size[1] = raw->stride[1] * ALIGN(ctx->img_height, 16) / 2 + extra;
-+		raw->plane_size[2] = raw->stride[2] * ALIGN(ctx->img_height, 16) / 2 + extra;
-+		break;
-+	case V4L2_PIX_FMT_NV12MT_16X16:
-+	case V4L2_PIX_FMT_NV12M:
-+	case V4L2_PIX_FMT_NV21M:
-+		raw->plane_size[0] = raw->stride[0] * ALIGN(ctx->img_height, 16) + extra;
-+		raw->plane_size[1] = raw->stride[1] * ALIGN(ctx->img_height, 16) / 2 + extra;
-+		break;
-+	case V4L2_PIX_FMT_NV16M:
-+	case V4L2_PIX_FMT_NV61M:
-+		raw->plane_size[0] = raw->stride[0] * ALIGN(ctx->img_height, 16) + extra;
-+		raw->plane_size[1] = raw->stride[1] * ALIGN(ctx->img_height, 16) + extra;
-+		break;
-+	case V4L2_PIX_FMT_RGB24:
-+	case V4L2_PIX_FMT_RGB565:
-+	case V4L2_PIX_FMT_RGB32X:
-+	case V4L2_PIX_FMT_BGR32:
-+	case V4L2_PIX_FMT_ARGB32:
-+	case V4L2_PIX_FMT_RGB32:
-+		raw->plane_size[0] = raw->stride[0] * ctx->img_height;
-+		break;
-+	default:
-+		mfc_ctx_err("Invalid pixel format(%d)\n", ctx->src_fmt->fourcc);
-+		break;
-+	}
++	mfc_debug(2, "buf_count: %d, plane_count: %d, type: %#x\n",
++		  *buf_count, *plane_count, vq->type);
++	for (i = 0; i < *plane_count; i++)
++		mfc_debug(2, "plane[%d] size: %d\n", i, psize[i]);
 +
-+	for (i = 0; i < raw->num_planes; i++) {
-+		raw->total_plane_size += raw->plane_size[i];
-+		mfc_ctx_debug(2, "[FRAME] Plane[%d] size = %d, stride = %d\n",
-+			      i, raw->plane_size[i], raw->stride[i]);
-+	}
-+
-+	mfc_ctx_debug(2, "[FRAME] total plane size: %d\n", raw->total_plane_size);
-+}
-+
- void mfc_calc_base_addr(struct mfc_ctx *ctx, struct vb2_buffer *vb,
- 			struct mfc_fmt *fmt)
- {
-diff --git a/drivers/media/platform/samsung/exynos-mfc/base/mfc_utils.h b/drivers/media/platform/samsung/exynos-mfc/base/mfc_utils.h
-index dedfb049e6fc..a127f330fe16 100644
---- a/drivers/media/platform/samsung/exynos-mfc/base/mfc_utils.h
-+++ b/drivers/media/platform/samsung/exynos-mfc/base/mfc_utils.h
-@@ -212,10 +212,37 @@ static inline int mfc_check_mb_flag(struct mfc_buf *mfc_buf, enum mfc_mb_flag f)
- 	return 0;
- }
- 
-+static inline int mfc_is_enc_bframe(struct mfc_ctx *ctx)
-+{
-+	struct mfc_enc *enc;
-+	struct mfc_enc_params *p;
-+	int hier_qp_type = -EINVAL;
-+	u8 num_hier_layer = 0;
-+
-+	if (ctx->type != MFCINST_ENCODER)
-+		return 0;
-+	enc = ctx->enc_priv;
-+	if (!enc)
-+		return 0;
-+
-+	p = &enc->params;
-+	if (IS_H264_ENC(ctx)) {
-+		num_hier_layer = p->codec.h264.num_hier_layer;
-+		hier_qp_type = (int)p->codec.h264.hier_qp_type;
-+	}
-+	if (enc->params.num_b_frame ||
-+	    (num_hier_layer >= 2 &&
-+	     hier_qp_type == V4L2_MPEG_VIDEO_HEVC_HIERARCHICAL_CODING_B))
-+		return 1;
++	mfc_ctx_debug_leave();
 +
 +	return 0;
 +}
 +
- int mfc_check_vb_with_fmt(struct mfc_fmt *fmt, struct vb2_buffer *vb);
- int mfc_check_resolution(struct mfc_ctx *ctx);
- void mfc_set_linear_stride_size(struct mfc_ctx *ctx, struct mfc_raw_info *raw, struct mfc_fmt *fmt);
- void mfc_dec_calc_dpb_size(struct mfc_ctx *ctx, struct mfc_raw_info *raw, struct mfc_fmt *fmt);
-+void mfc_enc_calc_src_size(struct mfc_ctx *ctx);
- void mfc_calc_base_addr(struct mfc_ctx *ctx, struct vb2_buffer *vb, struct mfc_fmt *fmt);
- void mfc_set_view_buf_info(struct mfc_ctx *ctx, int mem_planes,
- 			   int num_fd_depth_map, int num_fd_sub_view_meta);
-@@ -355,6 +382,31 @@ static inline void mfc_ctx_change_idle_mode(struct mfc_ctx *ctx,
- 	ctx->idle_mode = idle_mode;
- }
- 
-+static inline int mfc_enc_get_ts_delta(struct mfc_ctx *ctx)
++static void mfc_dec_unlock(struct vb2_queue *q)
 +{
-+	struct mfc_enc *enc = ctx->enc_priv;
-+	struct mfc_enc_params *p = &enc->params;
-+	int ts_delta = 0;
++	struct mfc_ctx *ctx = q->drv_priv;
++	struct mfc_dev *dev = ctx->dev;
 +
-+	if (!ctx->src_ts.ts_last_interval) {
-+		ts_delta = p->rc_framerate_res / p->rc_framerate;
-+		mfc_ctx_debug(3, "[DFR] default delta: %d\n", ts_delta);
-+	} else {
-+		/*
-+		 * FRAME_DELTA specifies the amount of
-+		 * increment of frame modulo base time.
-+		 * - delta unit = framerate resolution / fps
-+		 * - fps = 1000000(usec per sec) / timestamp interval
-+		 * For the sophistication of calculation, we will divide later.
-+		 * Excluding H.263, resolution is fixed to 10000,
-+		 * so thie is also divided into pre-calculated 100.
-+		 * (Preventing both overflow and calculation duplication)
-+		 */
-+		ts_delta = ctx->src_ts.ts_last_interval / 100;
-+	}
-+	return ts_delta;
++	mutex_unlock(&dev->mfc_mutex);
 +}
 +
- static inline void mfc_print_ctx_info(struct mfc_ctx *ctx)
- {
- 	struct mfc_fmt *codec = NULL;
-diff --git a/drivers/media/platform/samsung/exynos-mfc/mfc.c b/drivers/media/platform/samsung/exynos-mfc/mfc.c
-index 293a353c49fa..db17448eae13 100644
---- a/drivers/media/platform/samsung/exynos-mfc/mfc.c
-+++ b/drivers/media/platform/samsung/exynos-mfc/mfc.c
-@@ -1128,6 +1128,9 @@ struct mfc_ctx_buf_size mfc_ctx_buf_size = {
- 	.h264_dec_ctx	= PAGE_ALIGN(0x200000),	/* 1.6MB */
- 	.av1_dec_ctx	= PAGE_ALIGN(0x19000),	/* 100KB */
- 	.other_dec_ctx	= PAGE_ALIGN(0xF000),	/*  60KB */
-+	.h264_enc_ctx	= PAGE_ALIGN(0x19000),	/* 100KB */
-+	.hevc_enc_ctx	= PAGE_ALIGN(0xC800),	/*  50KB */
-+	.other_enc_ctx	= PAGE_ALIGN(0xC800),	/*  50KB */
- 	.dbg_info_buf	= PAGE_ALIGN(0x1000),	/* 4KB for DEBUG INFO */
- };
- 
++static void mfc_dec_lock(struct vb2_queue *q)
++{
++	struct mfc_ctx *ctx = q->drv_priv;
++	struct mfc_dev *dev = ctx->dev;
++
++	mutex_lock(&dev->mfc_mutex);
++}
++
++static int mfc_dec_buf_init(struct vb2_buffer *vb)
++{
++	struct vb2_queue *vq = vb->vb2_queue;
++	struct mfc_ctx *ctx = vq->drv_priv;
++	struct mfc_buf *buf = vb_to_mfc_buf(vb);
++	int ret;
++
++	mfc_ctx_debug_enter();
++
++	if (vq->type == V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE) {
++		ret = mfc_check_vb_with_fmt(ctx->dst_fmt, vb);
++		if (ret < 0)
++			return ret;
++		mfc_calc_base_addr(ctx, vb, ctx->dst_fmt);
++
++		buf->paddr = mfc_mem_get_paddr_vb(vb);
++		mfc_ctx_debug(2, "[DPB] vb index [%d] vb paddr %#llx daddr %#llx\n",
++			      vb->index, buf->paddr, buf->addr[0][0]);
++
++		if (call_cop(ctx, init_buf_ctrls, ctx, MFC_CTRL_TYPE_DST,
++			     vb->index) < 0)
++			mfc_ctx_err("failed in init_buf_ctrls\n");
++	} else if (vq->type == V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE) {
++		ret = mfc_check_vb_with_fmt(ctx->src_fmt, vb);
++		if (ret < 0)
++			return ret;
++
++		buf->addr[0][0] = mfc_mem_get_daddr_vb(vb, 0);
++
++		if (call_cop(ctx, init_buf_ctrls, ctx, MFC_CTRL_TYPE_SRC,
++			     vb->index) < 0)
++			mfc_ctx_err("failed in init_buf_ctrls\n");
++	} else {
++		mfc_ctx_err("unknown queue type\n");
++		return -EINVAL;
++	}
++
++	mfc_ctx_debug_leave();
++
++	return 0;
++}
++
++static int mfc_dec_buf_prepare(struct vb2_buffer *vb)
++{
++	struct vb2_queue *vq = vb->vb2_queue;
++	struct mfc_ctx *ctx = vq->drv_priv;
++	struct mfc_buf *buf = vb_to_mfc_buf(vb);
++	struct mfc_raw_info *raw;
++	unsigned int index = vb->index;
++	size_t buf_size;
++	int i;
++
++	if (vq->type == V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE) {
++		raw = &ctx->raw_buf;
++		/* check the size per plane */
++		if (ctx->dst_fmt->mem_planes == 1) {
++			buf_size = vb2_plane_size(vb, 0);
++			mfc_ctx_debug(2, "[FRAME] single plane vb size: %lu, calc size: %d\n",
++				      buf_size, raw->total_plane_size);
++			if (buf_size < raw->total_plane_size) {
++				mfc_ctx_err("[FRAME] single plane size(%lu) is smaller than (%d)\n",
++					    buf_size, raw->total_plane_size);
++				return -EINVAL;
++			}
++		} else {
++			for (i = 0; i < ctx->dst_fmt->mem_planes; i++) {
++				buf_size = vb2_plane_size(vb, i);
++				mfc_ctx_debug(2, "[FRAME] plane[%d] vb size: %lu, calc size: %d\n",
++					      i, buf_size, raw->plane_size[i]);
++				if (buf_size < raw->plane_size[i]) {
++					mfc_ctx_err("[FRAME] plane[%d] size(%lu) is smaller than (%d)\n",
++						    i, buf_size, raw->plane_size[i]);
++					return -EINVAL;
++				}
++			}
++		}
++		/* Copy dst buffer flag to buf_ctrl */
++		buf->flag = call_cop(ctx, get_buf_ctrl_val, ctx,
++				     &ctx->dst_ctrls[index],
++				     V4L2_CID_MPEG_VIDEO_DST_BUF_FLAG);
++
++		mfc_mem_buf_prepare(vb, 0);
++	} else if (vq->type == V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE) {
++		buf_size = vb2_plane_size(vb, 0);
++		buf->sg_size = mfc_mem_get_sg_length(ctx->dev, vb2_dma_sg_plane_desc(vb, 0));
++		vb->planes[0].bytesused = buf->vb.planes[0].bytesused;
++		vb->planes[0].data_offset = buf->vb.planes[0].data_offset;
++		mfc_ctx_debug(2, "[STREAM] vb size, %ld, %s, %ld, sg_size, %zu, %s, %u, %s, %u\n",
++			      buf_size,
++			      "dbuf size", vb->planes[0].dbuf->size,
++			      buf->sg_size,
++			      "bytesused", vb->planes[0].bytesused,
++			      "data_offset", vb->planes[0].data_offset);
++
++		call_cop(ctx, to_buf_ctrls, ctx, &ctx->src_ctrls[index]);
++
++		/* Copy src buffer flag to buf_ctrl */
++		buf->flag = call_cop(ctx, get_buf_ctrl_val, ctx,
++				     &ctx->src_ctrls[index],
++				     V4L2_CID_MPEG_VIDEO_SRC_BUF_FLAG);
++
++		mfc_mem_buf_prepare(vb, 1);
++	}
++
++	return 0;
++}
++
++static void mfc_dec_buf_finish(struct vb2_buffer *vb)
++{
++	struct vb2_queue *vq = vb->vb2_queue;
++	struct mfc_ctx *ctx = vq->drv_priv;
++	struct mfc_buf *buf = vb_to_mfc_buf(vb);
++	unsigned int index = vb->index;
++
++	if (vq->type == V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE) {
++		/* Copy to dst buffer flag */
++		call_cop(ctx, update_buf_val, ctx, &ctx->dst_ctrls[index],
++			 V4L2_CID_MPEG_VIDEO_DST_BUF_FLAG, buf->flag);
++		mfc_ctx_debug(4, "[FLAG] dst update buf[%d] flag = %#x\n",
++			      index, buf->flag);
++
++		call_cop(ctx, to_ctx_ctrls, ctx, &ctx->dst_ctrls[index]);
++
++		mfc_mem_buf_finish(vb, 0);
++	} else if (vq->type == V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE) {
++		/* Copy to src buffer flag */
++		call_cop(ctx, update_buf_val, ctx, &ctx->src_ctrls[index],
++			 V4L2_CID_MPEG_VIDEO_SRC_BUF_FLAG, buf->flag);
++		mfc_ctx_debug(4, "[FLAG] src update buf[%d] flag = %#x\n",
++			      index, buf->flag);
++
++		call_cop(ctx, to_ctx_ctrls, ctx, &ctx->src_ctrls[index]);
++	}
++}
++
++static void mfc_dec_buf_cleanup(struct vb2_buffer *vb)
++{
++	struct vb2_queue *vq = vb->vb2_queue;
++	struct mfc_ctx *ctx = vq->drv_priv;
++	unsigned int index = vb->index;
++
++	mfc_ctx_debug_enter();
++
++	if (vq->type == V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE) {
++		if (call_cop(ctx, cleanup_buf_ctrls, ctx,
++			     MFC_CTRL_TYPE_DST, index) < 0)
++			mfc_ctx_err("failed in cleanup_buf_ctrls\n");
++	} else if (vq->type == V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE) {
++		if (call_cop(ctx, cleanup_buf_ctrls, ctx,
++			     MFC_CTRL_TYPE_SRC, index) < 0)
++			mfc_ctx_err("failed in cleanup_buf_ctrls\n");
++	} else {
++		mfc_ctx_err("unknown queue type\n");
++	}
++
++	mfc_ctx_debug_leave();
++}
++
++static int mfc_dec_start_streaming(struct vb2_queue *q, unsigned int count)
++{
++	struct mfc_ctx *ctx = q->drv_priv;
++	struct mfc_dev *dev = ctx->dev;
++
++	mfc_rm_update_real_time(ctx);
++
++	mfc_rm_request_work(dev, MFC_WORK_TRY, ctx);
++
++	return 0;
++}
++
++static void mfc_dec_stop_streaming(struct vb2_queue *q)
++{
++	struct mfc_ctx *ctx = q->drv_priv;
++	struct mfc_dev *dev = ctx->dev;
++
++	mfc_ctx_info("dec stop_streaming is called, type : %d\n", q->type);
++	MFC_TRACE_CTX("** DEC streamoff(type:%d)\n", q->type);
++
++	if (q->type == V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE)
++		mfc_rm_request_work(ctx->dev, MFC_WORK_BUTLER, ctx);
++
++	mfc_rm_instance_dec_stop(dev, ctx, q->type);
++}
++
++static void mfc_dec_buf_queue(struct vb2_buffer *vb)
++{
++	struct vb2_queue *vq = vb->vb2_queue;
++	struct mfc_ctx *ctx = vq->drv_priv;
++	struct mfc_dev *dev = ctx->dev;
++	struct mfc_dec *dec = ctx->dec_priv;
++	struct mfc_buf *buf = vb_to_mfc_buf(vb);
++	int i;
++	unsigned char *stream_vir = NULL;
++
++	mfc_ctx_debug_enter();
++
++	if (vq->type == V4L2_BUF_TYPE_VIDEO_OUTPUT_MPLANE) {
++		mutex_lock(&ctx->op_mode_mutex);
++		buf->src_index = ctx->serial_src_index++;
++		mfc_ctx_debug(2, "[BUFINFO] ctx[%d] add src index: %d(%d), addr: 0x%08llx\n",
++			      ctx->num, vb->index, buf->src_index,
++			      buf->addr[0][0]);
++		mutex_unlock(&ctx->op_mode_mutex);
++
++		if (vb->memory == V4L2_MEMORY_DMABUF &&
++		    mfc_rm_query_state(ctx, SMALLER, MFCINST_HEAD_PARSED))
++			stream_vir = vb2_plane_vaddr(vb, 0);
++
++		buf->vir_addr[0] = stream_vir;
++
++		mfc_add_tail_buf(ctx, &ctx->src_buf_ready_queue, buf);
++
++		if (dev->debugfs.debug_ts == 1)
++			mfc_ctx_info("[TS] framerate: %ld, timestamp: %lld\n",
++				     ctx->framerate, buf->vb.vb2_buf.timestamp);
++
++		MFC_TRACE_CTX("Q src[%d](%d) fd: %d, %#llx\n",
++			      vb->index, buf->src_index, vb->planes[0].m.fd, buf->addr[0][0]);
++	} else if (vq->type == V4L2_BUF_TYPE_VIDEO_CAPTURE_MPLANE) {
++		for (i = 0; i < ctx->num_fd_frame; i++) {
++			// ToDo: if multi_view, vir_addr array_size could be over 3
++			buf->vir_addr[i] = vb2_plane_vaddr(vb, i);
++			mfc_ctx_debug(2, "[BUFINFO] ctx[%d] add dst index: %d, addr[0][%d]: 0x%08llx\n",
++				      ctx->num, vb->index, i, buf->addr[0][i]);
++			if (ctx->multi_view_enable) {
++				mfc_ctx_debug(2, "[BUFINFO-VIEW1] ctx[%d] add dst index: %d, addr[2][%d]: 0x%08llx\n",
++					      ctx->num, vb->index, i, buf->addr[2][i]);
++			}
++		}
++		mfc_store_dpb(ctx, vb);
++
++		if ((vb->memory == V4L2_MEMORY_USERPTR || vb->memory == V4L2_MEMORY_DMABUF) &&
++		    mfc_is_queue_count_same(&ctx->buf_queue_lock,
++					    &ctx->dst_buf_queue, dec->total_dpb_count))
++			ctx->capture_state = QUEUE_BUFS_MMAPED;
++
++		MFC_TRACE_CTX("Q dst[%d][%d] fd: %d, %#llx / used %#lx\n",
++			      vb->index, buf->dpb_index, vb->planes[0].m.fd,
++			      buf->addr[0][0], dec->dynamic_used);
++	} else {
++		mfc_ctx_err("Unsupported buffer type (%d)\n", vq->type);
++	}
++
++	mfc_rm_request_work(dev, MFC_WORK_TRY, ctx);
++
++	mfc_ctx_debug_leave();
++}
++
++static const struct vb2_ops mfc_dec_qops = {
++	.queue_setup		= mfc_dec_queue_setup,
++	.wait_prepare		= mfc_dec_unlock,
++	.wait_finish		= mfc_dec_lock,
++	.buf_init		= mfc_dec_buf_init,
++	.buf_prepare		= mfc_dec_buf_prepare,
++	.buf_finish		= mfc_dec_buf_finish,
++	.buf_cleanup		= mfc_dec_buf_cleanup,
++	.start_streaming	= mfc_dec_start_streaming,
++	.stop_streaming		= mfc_dec_stop_streaming,
++	.buf_queue		= mfc_dec_buf_queue,
++};
++
++const struct vb2_ops *mfc_get_dec_vb2_ops(void)
++{
++	return &mfc_dec_qops;
++}
+diff --git a/drivers/media/platform/samsung/exynos-mfc/mfc_dec_vb2.h b/drivers/media/platform/samsung/exynos-mfc/mfc_dec_vb2.h
+new file mode 100644
+index 000000000000..3d0cb7b14ce5
+--- /dev/null
++++ b/drivers/media/platform/samsung/exynos-mfc/mfc_dec_vb2.h
+@@ -0,0 +1,19 @@
++/* SPDX-License-Identifier: GPL-2.0-or-later
++ *
++ * Copyright (c) 2025 Samsung Electronics Co., Ltd.
++ *		http://www.samsung.com/
++ *
++ * mfc_dec_vb2.h file
++ *
++ * Nagaraju Siddineni, <nagaraju.s@samsung.com>
++ * Himanshu Dewangan, <h.dewangan@samsung.com>
++ */
++
++#ifndef __MFC_DEC_VB2_H
++#define __MFC_DEC_VB2_H __FILE__
++
++#include "base/mfc_common.h"
++
++const struct vb2_ops *mfc_get_dec_vb2_ops(void);
++
++#endif /* __MFC_DEC_VB2_H */
 -- 
 2.34.1
 
