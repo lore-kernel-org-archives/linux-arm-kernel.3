@@ -4,86 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63B71CAC5B9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 08:08:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E743CCAC5B9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 08:28:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
 	Content-Transfer-Encoding:Content-Type:Cc:To:Subject:Message-ID:Date:From:
 	In-Reply-To:References:MIME-Version:Content-ID:Content-Description:
 	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=tdPcpcAJ/7XDpmuDRfRlI/S+hgyHhmTmislpSVH8GwM=; b=SEfrQo9wGlRe/M
-	WyTvzIsoW7BjuVml578DNXTXoiTDoL1XMNfyaXm4b1A2SZ2sZzs+DEkguX7nZU9A8V8T7RU6fAshY
-	bqjVKh8R69ChyNVNU+iGA2RNfvc24s/HImyu1WKs2Hi5ciIHmQHA1ApsvTPR52nt0E2Df7l/iXAfu
-	dEwKmcIEIJmdnrtElTJ6MbLuOymtcX0JdTrHitD3fqPng8x5dmg7daOW5jO8mre6txOSHCApVWpKV
-	08tWoojzzm5jpKUUWbDs+F/t5aK5DTcan0Z6Dej1JBqti5+85r8aLRbGjehnXO9mvG9mVOgSmIKct
-	5VsC6XURZb9rCIyKvBNQ==;
+	List-Owner; bh=te/ZoQVF9PRW/Vcak1agQLB+rzLOMt6hZjDiPBIvFPo=; b=4YBLArC+V/+WKz
+	iYO4JQe3va5p/NLO2nxCx3uq3/gNC2ZCdtZsiC5fgMU9EklAvFcMv8jNhOVjd7dUds0dyh4x1Dxun
+	KQWuoTo+QYLkbYBo9bWxtL7/HCGuSQ32YfbuSEENLsh45ZiU56wEsXxXNrvNUvl3XE5K7Di0PD0qk
+	+dyhEzzMFNwIN68JrJ+9J/lVRvmXEUF4tw42fg/AGYmFQFvtaXPjd15X+Q6/8kXRvaM8O7aN3a+iG
+	96YVM2imYI8J8WNT9eKnbBSCY2oWOqRkMLHfbkq6UxQZd/y1z1ZXH5m12QY+vlKbFyfJG5+/3rIy7
+	M6b+hUu1ho1rhP4dthZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3VPR-00000004ap3-3O4l;
-	Tue, 30 Sep 2025 08:08:29 +0000
+	id 1v3ViM-00000004dp5-0gW8;
+	Tue, 30 Sep 2025 08:28:02 +0000
 Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3VPN-00000004anq-3NGx
+	id 1v3ViJ-00000004do7-26SU
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Sep 2025 08:08:27 +0000
-Received: from pps.filterd (m0279872.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58U4I0Yn013362
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 08:08:24 GMT
+	Tue, 30 Sep 2025 08:28:00 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58U4HPkO020325
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 08:27:58 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-transfer-encoding:content-type:date:from:in-reply-to
 	:message-id:mime-version:references:reply-to:subject:to; s=
-	qcppdkim1; bh=tdPcpcAJ/7XDpmuDRfRlI/S+hgyHhmTmislpSVH8GwM=; b=N1
-	qdBNufwiDVzEOm1n14Khll9R8w/v904q5xwWnUdHY+iMFph+zQgCzAqee7hpuQ9m
-	kiAirEE2mhIbz7I9UbpuRVqzFdUB8o424nexa9uiWbLOM7ctuggeoBtR5tTXAxnn
-	/PsUEJn8PaOLYs3yDHh1rY5UgW3KiGdTxFTp/dASNbhRKy+9sN/iX9Cz+5FydWC2
-	5QScWuKxWt4HNqNBZUX4Sk3Mr4Gidp551w+dc4bnGpHaDMNG/9neFCcJ0a2dw7uj
-	Dc21uMnkc2gvyYLtkzX6BNxB47aM4ldyUSXszsuvlNLH4IMV+n/9zD8vWQ6WF44w
-	T5/cqXdOFetyW8XPG0fg==
-Received: from mail-oo1-f72.google.com (mail-oo1-f72.google.com [209.85.161.72])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49e8a605dm-1
+	qcppdkim1; bh=te/ZoQVF9PRW/Vcak1agQLB+rzLOMt6hZjDiPBIvFPo=; b=GK
+	Xn4H+96BGGnzBwd5vTeveqmwm2+ROJlE+usawWAKSsuwebQBlbNMkoDT5ysh/2l4
+	j4KztS+NSFkvSI/GoyRcLqKba4lJme06Y1FICjT5MBx7/+CrgdoW3XwpYr7YSidn
+	I1nUCog2rCBgFD1rZhjDpcPxcQD2IxHtkg2mzlCbWP9bOWLCXVCAOuXyWTqmjZaX
+	DPprIu4mKijgTo3ND894o5PR3Tyf4tq0Vecl3JsrqWd4G76MwlswbzRViTdcWOJ1
+	WTG4IvyGi6P7WZE25Hoxm8TqpJsgvKYuw9hR69Nv47O0kBo1PxgimsBuP7cCARq7
+	nqi4JQnq21omtIlpzbEQ==
+Received: from mail-oi1-f197.google.com (mail-oi1-f197.google.com [209.85.167.197])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49e6x5rcre-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 08:08:24 +0000 (GMT)
-Received: by mail-oo1-f72.google.com with SMTP id 006d021491bc7-64611abfbf2so1904141eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 01:08:24 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 08:27:58 +0000 (GMT)
+Received: by mail-oi1-f197.google.com with SMTP id 5614622812f47-43f697f0315so880247b6e.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 01:27:58 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759219703; x=1759824503;
+        d=1e100.net; s=20230601; t=1759220877; x=1759825677;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :reply-to:in-reply-to:references:mime-version:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=tdPcpcAJ/7XDpmuDRfRlI/S+hgyHhmTmislpSVH8GwM=;
-        b=QVQk3q4gAUpEQOn+lN/eCguHBxUvRyPXLgLneVJIFA+xWQoMTzZL7A/+c5cq1u+LC8
-         3nrIphdNzyAfb5nv+C0zEs2RXjJriEXKeQzXpFkss1rjW2/T+cmJrrQjXImyzx2KYH/2
-         fHfpemSgGIUOt9ZnYON0ZrzOZwso6Z2zfBomags458o50TGTIpFAu87gVDT8dQ1Y9oA8
-         Q8P1majXxpY8yPwlG3pmBIBZgZXWCju6CtBcbQf32PjMhEzaY/tbozGcOm9Eukj0otN7
-         ck9JdLW+vSYUQnNEKCuzvik9sNLsGdnsxQT0DIH5m+o13r+j4O97w4B0qJD7vemciKcs
-         QnHA==
-X-Forwarded-Encrypted: i=1; AJvYcCVHQeGCF2QZnzRhHjDQGVIV9zjAAWC9zOar9AhMc+45mbxxOh/JNFAX20vgsGwajxO7EU1uXRzsVYgEUMbjxJb5@lists.infradead.org
-X-Gm-Message-State: AOJu0YzLLFpB8MCKUp+11liHVjt02z4dyLrbvmsG9n96xYfaN0y/LFWe
-	TcpccKAHHrrYBIpexLkKDAPUratj4a4zBf0b8iYhhy7GMzvOZiUgPGugeR09TfnKBeoOrRDQhI5
-	lj9I/ciKf/2TbFhFitPrYnCTSxLXHD0L5gYAN/S0OFVaiiCbr8noYPjbasYzBXLny+mvZj1Tu0P
-	tz34I4oPfRVOsL+0bhBU3Ck79bdP72vZIa33RDMhHwX056gVG7Z6Xf
-X-Gm-Gg: ASbGncuw4pztUWfjIIqf3/wFpesllkZRUeiOqqFr5sTLBGFToH8PAedO3Qfy3eEb9ta
-	xIYXFx8SbcgYFUwQ0FRxKFbta6gwxyYSoTIcwba52fDLNrPZEaEBA/NHqi1JD2r1lUAt3pumASk
-	vH5pMgf4L4PG/CXQpxJIqB9r7Ao5td+eESizd9XS/abzkxVcifUF5nFN0=
-X-Received: by 2002:a05:6808:1a28:b0:43b:5101:4f11 with SMTP id 5614622812f47-43f93fc1e78mr1860068b6e.9.1759219702794;
-        Tue, 30 Sep 2025 01:08:22 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEcoEmRdWRcD570gTS4wPgVGpk7oyq939HgjsA8bixWbXV7rwUu71ZOf7cJVGAnkOtdD9wcOHxun3thoKqbhnc=
-X-Received: by 2002:a05:6808:1a28:b0:43b:5101:4f11 with SMTP id
- 5614622812f47-43f93fc1e78mr1860036b6e.9.1759219702086; Tue, 30 Sep 2025
- 01:08:22 -0700 (PDT)
+        bh=te/ZoQVF9PRW/Vcak1agQLB+rzLOMt6hZjDiPBIvFPo=;
+        b=t/0qzExmtLMhW4T04fCZ9+YiJx5qRCYSP5tvCuSxd9aTuXGYIElc6irD43HAZvegMa
+         yUKN6EatG4OJXNAmWQYcAzX/4h2n/cGktIcWfKSIIrZYhnQQRGVfSiMQouU3dFsFzkas
+         jVri1/xtqTjoGjn74GK/vWSf0gJWwN/DgdT17F4WNMnelrlj49YGa45jhrX+UnvYvoBV
+         7jJD5NKyELaXmI5J5DE73M/xqBvVPMLf7uXA+Cg51QYJuwaBZuFHYjP61tMFPMtb0rFv
+         8fAU0EA9UKeydtlLbiJPPJlgWVu7mNbtot49rJXxgk3sVieE8y/rlp/mg5dH+gVsTeMo
+         tb+g==
+X-Forwarded-Encrypted: i=1; AJvYcCWwWw6kPKadEpnpx/OtZDUIalYqAFSyEB8EFMTfuafARo6uXnsqzheF0As9mnxlKCRXjT9r4inruNsRQfCDM6FH@lists.infradead.org
+X-Gm-Message-State: AOJu0YwSSBAg1C9EUWd6L9NhjtSaLSkmi71ReJuE6ffyup+B/F4e2ViG
+	iRQVgg0iRrBavLNMfo6xa1l1pV07IrpDDmEU5dDCBDVJkg3cmCaMdA7Bf7dfnCHs0y8n7HSBLV2
+	W8p5CsyRB8aaLItEISzRoOyTmiMyVH6u02B5vZT+Qu6j1gISbcwWwTyEAi/JkWZambfw0VWROCT
+	ECRP2EvX6qjjBcn9XGAXFIWfB8vufwgDEioNiKmBsDoYKMT+CHQoud
+X-Gm-Gg: ASbGncujL6/m6iSHCW21eTTsQHy9rXY7NgGhp/OU5oJRHj8MZuaEQAqUf8A60kr3Zdr
+	vYMsUlld8tmCgZ+m4ed9nt6O3r7Cda5AsKV3cU07akmaXLtnhnYve0WQYWJxFO84jO8knHRhyiL
+	uGqEeH4zsBrpAVBwraapoJZs7Wg0mkizWpvREra2T3u0VGWvvigmug9o4=
+X-Received: by 2002:a05:6808:4fde:b0:43d:25a2:e28c with SMTP id 5614622812f47-43f4cf464f3mr7573983b6e.49.1759220877222;
+        Tue, 30 Sep 2025 01:27:57 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IH814E7mWrVlAtwKKyT7opGmi1FUZDDSJRR4sEXqt85rC60tExf6mnWRjS+3W0gCgMI5Vtl3QqcYmH2Ktkkf/U=
+X-Received: by 2002:a05:6808:4fde:b0:43d:25a2:e28c with SMTP id
+ 5614622812f47-43f4cf464f3mr7573965b6e.49.1759220876731; Tue, 30 Sep 2025
+ 01:27:56 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250930-kaana-gpu-support-v1-0-73530b0700ed@oss.qualcomm.com>
- <20250930-kaana-gpu-support-v1-12-73530b0700ed@oss.qualcomm.com> <ks3ppjsy35wka2at5nxrr74l5mvzr4l6ovm5ncohanu2gn3ytl@gt2mzwjehq73>
-In-Reply-To: <ks3ppjsy35wka2at5nxrr74l5mvzr4l6ovm5ncohanu2gn3ytl@gt2mzwjehq73>
+References: <20250930-kaana-gpu-support-v1-0-73530b0700ed@oss.qualcomm.com> <20250930-kaana-gpu-support-v1-13-73530b0700ed@oss.qualcomm.com>
+In-Reply-To: <20250930-kaana-gpu-support-v1-13-73530b0700ed@oss.qualcomm.com>
 From: Rob Clark <rob.clark@oss.qualcomm.com>
-Date: Tue, 30 Sep 2025 01:08:10 -0700
-X-Gm-Features: AS18NWCsh4S2MZXUcSJHYdZHGSXjKtcQjqoeMmepSAf77ciOOrg3D6uWf3QbvqE
-Message-ID: <CACSVV00AFEJVti7BryA-_sosmBKCuDtX7+NEi4aL4X98AqR1Qg@mail.gmail.com>
-Subject: Re: [PATCH 12/17] drm/msm/adreno: Introduce A8x GPU Support
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Akhil P Oommen <akhilpo@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
+Date: Tue, 30 Sep 2025 01:27:45 -0700
+X-Gm-Features: AS18NWCqmbEpRBm5ANsrhcq-Z8jcjiekBnhyIkewW9_rwgY5GXXogY_b-bdPSxU
+Message-ID: <CACSVV01UygpiUj0m_Ppd_LSxvW0MFunz+Lfhg20XHR7vyOBx7w@mail.gmail.com>
+Subject: Re: [PATCH 13/17] drm/msm/adreno: Support AQE engine
+To: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
         Konrad Dybcio <konradybcio@kernel.org>, Sean Paul <sean@poorly.run>,
         Dmitry Baryshkov <lumag@kernel.org>,
         Abhinav Kumar <abhinav.kumar@linux.dev>,
@@ -104,30 +102,30 @@ Cc: Akhil P Oommen <akhilpo@oss.qualcomm.com>,
         iommu@lists.linux.dev, devicetree@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Authority-Analysis: v=2.4 cv=RZKdyltv c=1 sm=1 tr=0 ts=68db8ff8 cx=c_pps
- a=wURt19dY5n+H4uQbQt9s7g==:117 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10
- a=e5mUnYsNAAAA:8 a=EUspDBNiAAAA:8 a=5vtyHJrLNaRNZaWRzd4A:9 a=QEXdDO2ut3YA:10
- a=-UhsvdU3ccFDOXFxFb4l:22 a=Vxmtnl_E_bksehYqCbjh:22
-X-Proofpoint-GUID: d31u6CxpmKVv7y9agXAVwzV72GM7oIzP
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTI3MDAzMyBTYWx0ZWRfX1wwBvEc21tdu
- eeHLJP7SJdqmhH0NrMI1xaWnxRNILkjgfNwuo8segq1pMZd1+YRpnrsMhGVqhL3cXRLANLPD9zZ
- oDB3pTto3s5U0Zaob1fi6YQQdrdAxgXz555Dcep4lJ4Xq4e8r3pfSPOpDRU77XF/HmwU+rxMoOF
- 3d5HrTR7M/T7LfaAw7fci9P4Djya12wZth4RZUWOcii6fAb095Y5jWYjU+onkzYCQTllWSgiGY2
- Ra7cmV0X5Hoo3SwDrllhb74rJByZ4pIx7VjY+lWqO1Z18lBKQvBqY/KfIrejuRP3p5bHq4mKQ7T
- 8lPWfPllTT7gdI/ZM1Xy5zB9fEwJN/kST8BHQg0cLfep0UyvygARYxvjv9EPaJiG9RFMOikrWC1
- 6BzDN5XkFo8ebIAGWHIGsRPabN/yeg==
-X-Proofpoint-ORIG-GUID: d31u6CxpmKVv7y9agXAVwzV72GM7oIzP
+X-Proofpoint-GUID: zdU9OI1vQ-6EEno4Jw_xAS33FnLuNS2o
+X-Proofpoint-ORIG-GUID: zdU9OI1vQ-6EEno4Jw_xAS33FnLuNS2o
+X-Authority-Analysis: v=2.4 cv=ZtPg6t7G c=1 sm=1 tr=0 ts=68db948e cx=c_pps
+ a=WJcna6AvsNCxL/DJwPP1KA==:117 a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10
+ a=EUspDBNiAAAA:8 a=fhJ7XYdx2Z3gjWMZPJIA:9 a=QEXdDO2ut3YA:10
+ a=_Y9Zt4tPzoBS9L09Snn2:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTI3MDAxOCBTYWx0ZWRfX23MdWj6ElWV6
+ OWIUi/CMJYi747+Obh380mH44+CNJzeuuoOThsrOBraUJX0IiVKPSpw/5FM4YCBHPnYsT9dkuye
+ fGIl3y1wUU640fQiU0rENL/zIztHqfeqIyyuND6RFX7nEngrvEH0HQ+Iyk9auTAFOHqAOVdbWJR
+ RSPAXjAzvHaeaeF0gSAUbXD4pztBqR2LRkVAnRcqaqllKF0thlu6WpWD0ROri1mLphCjmuPEoIE
+ 3+LnmNufzUqM6tbDgeXS5uLVc0QqTOpgcL/6afKEa/nn+1h8dsoiC+h8cJ+/OCI3cWOmNfT6mVN
+ zhZXOmVXJXYhdFEQKbHVuTjcxQNke9RG1THHxgdMeo4C2QkfYwQS/Sg7u/Da1bCkK50ZXi9YwCN
+ Zu5Q53AkBTQzAvprnVddPhJ4+zI/6A==
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-09-30_01,2025-09-29_04,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 malwarescore=0 priorityscore=1501 adultscore=0 phishscore=0
- impostorscore=0 spamscore=0 bulkscore=0 lowpriorityscore=0 suspectscore=0
+ impostorscore=0 spamscore=0 priorityscore=1501 malwarescore=0 bulkscore=0
+ suspectscore=0 clxscore=1015 lowpriorityscore=0 adultscore=0 phishscore=0
  classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2509150000 definitions=main-2509270033
+ reason=mlx scancount=1 engine=8.19.0-2509150000 definitions=main-2509270018
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250930_010826_040704_02B7480A 
-X-CRM114-Status: GOOD (  36.58  )
+X-CRM114-CacheID: sfid-20250930_012759_653835_E1F99D1F 
+X-CRM114-Status: GOOD (  24.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,493 +141,121 @@ Reply-To: rob.clark@oss.qualcomm.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Sep 30, 2025 at 12:43=E2=80=AFAM Dmitry Baryshkov
-<dmitry.baryshkov@oss.qualcomm.com> wrote:
+On Mon, Sep 29, 2025 at 10:51=E2=80=AFPM Akhil P Oommen
+<akhilpo@oss.qualcomm.com> wrote:
 >
-> On Tue, Sep 30, 2025 at 11:18:17AM +0530, Akhil P Oommen wrote:
-> > A8x is the next generation of Adreno GPUs, featuring a significant
-> > hardware design change. A major update to the design is the introductio=
-n
-> > of Slice architecture. Slices are sort of mini-GPUs within the GPU whic=
-h
-> > are more independent in processing Graphics and compute workloads. Also=
-,
-> > in addition to the BV and BR pipe we saw in A7x, CP has more concurrenc=
-y
-> > with additional pipes.
-> >
-> > From a software interface perspective, these changes have a significant
-> > impact on the KMD side. First, the GPU register space has been extensiv=
-ely
-> > reorganized. Second, to avoid  a register space explosion caused by the
-> > new slice architecture and additional pipes, many registers are now
-> > virtualized, instead of duplicated as in A7x. KMD must configure an
-> > aperture register with the appropriate slice and pipe ID before accessi=
-ng
-> > these virtualized registers.
-> >
-> > This patch adds only a skeleton support for the A8x family. An A8x GPU
-> > support will be added in an upcoming patch.
+> AQE (Applicaton Qrisc Engine) is a dedicated core inside CP which aides
+> in Raytracing related workloads. Add support for loading the AQE firmware
+> and initialize the necessary registers.
 >
-> Consider this lands in a commit message. What would it mean in the Git
-> history?
+> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+> ---
+>  drivers/gpu/drm/msm/adreno/a6xx_gpu.c   | 24 ++++++++++++++++++++++++
+>  drivers/gpu/drm/msm/adreno/a6xx_gpu.h   |  2 ++
+>  drivers/gpu/drm/msm/adreno/a8xx_gpu.c   |  3 +++
+>  drivers/gpu/drm/msm/adreno/adreno_gpu.h |  1 +
+>  4 files changed, 30 insertions(+)
 >
-> >
-> > Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-> > ---
-> >  drivers/gpu/drm/msm/Makefile                      |    1 +
-> >  drivers/gpu/drm/msm/adreno/a6xx_gpu.c             |  103 +-
-> >  drivers/gpu/drm/msm/adreno/a6xx_gpu.h             |   21 +
-> >  drivers/gpu/drm/msm/adreno/a8xx_gpu.c             | 1238 +++++++++++++=
-++++++++
-> >  drivers/gpu/drm/msm/adreno/adreno_gpu.h           |    7 +
-> >  drivers/gpu/drm/msm/registers/adreno/a6xx.xml     |    1 -
-> >  drivers/gpu/drm/msm/registers/adreno/a6xx_gmu.xml |    1 +
-> >  7 files changed, 1344 insertions(+), 28 deletions(-)
-> >
-> > diff --git a/drivers/gpu/drm/msm/Makefile b/drivers/gpu/drm/msm/Makefil=
-e
-> > index 7acf2cc13cd047eb7f5b3f14e1a42a1cc145e087..8aa7d07303fb0cd66869767=
-cb6298b38a621b366 100644
-> > --- a/drivers/gpu/drm/msm/Makefile
-> > +++ b/drivers/gpu/drm/msm/Makefile
-> > @@ -24,6 +24,7 @@ adreno-y :=3D \
-> >       adreno/a6xx_gmu.o \
-> >       adreno/a6xx_hfi.o \
-> >       adreno/a6xx_preempt.o \
-> > +     adreno/a8xx_gpu.o \
-> >
-> >  adreno-$(CONFIG_DEBUG_FS) +=3D adreno/a5xx_debugfs.o \
-> >
-> > diff --git a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c b/drivers/gpu/drm/ms=
-m/adreno/a6xx_gpu.c
-> > index bd4f98b5457356c5454d0316e59d7e8253401712..4aeeaceb1fb30a9d68ac636=
-c14249e3853ef73ac 100644
-> > --- a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
-> > +++ b/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
-> > @@ -239,14 +239,21 @@ static void a6xx_set_pagetable(struct a6xx_gpu *a=
-6xx_gpu,
-> >       }
-> >
-> >       if (!sysprof) {
-> > -             if (!adreno_is_a7xx(adreno_gpu)) {
-> > +             if (!(adreno_is_a7xx(adreno_gpu) || adreno_is_a8xx(adreno=
-_gpu))) {
+> diff --git a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c b/drivers/gpu/drm/msm/=
+adreno/a6xx_gpu.c
+> index 4aeeaceb1fb30a9d68ac636c14249e3853ef73ac..07ac5be9d0bccf4d2345eb76b=
+08851a94187e861 100644
+> --- a/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
+> +++ b/drivers/gpu/drm/msm/adreno/a6xx_gpu.c
+> @@ -1093,6 +1093,30 @@ static int a6xx_ucode_load(struct msm_gpu *gpu)
+>                 }
+>         }
 >
-> Here and in several other similar places:
->
->                 if (!adreno_is_a7xx(adreno_gpu) &&
->                     !adreno_is_a8xx(adreno_gpu))) {
->
-> >                       /* Turn off protected mode to write to special re=
-gisters */
-> >                       OUT_PKT7(ring, CP_SET_PROTECTED_MODE, 1);
-> >                       OUT_RING(ring, 0);
-> >               }
-> >
-> > -             OUT_PKT4(ring, REG_A6XX_RBBM_PERFCTR_SRAM_INIT_CMD, 1);
-> > -             OUT_RING(ring, 1);
-> > +             if (adreno_is_a8xx(adreno_gpu)) {
-> > +                     OUT_PKT4(ring, REG_A8XX_RBBM_PERFCTR_SRAM_INIT_CM=
-D, 1);
-> > +                     OUT_RING(ring, 1);
-> > +                     OUT_PKT4(ring, REG_A8XX_RBBM_SLICE_PERFCTR_SRAM_I=
-NIT_CMD, 1);
-> > +                     OUT_RING(ring, 1);
-> > +             } else {
-> > +                     OUT_PKT4(ring, REG_A6XX_RBBM_PERFCTR_SRAM_INIT_CM=
-D, 1);
-> > +                     OUT_RING(ring, 1);
-> > +             }
-> >       }
-> >
-> >       /* Execute the table update */
-> > @@ -275,7 +282,7 @@ static void a6xx_set_pagetable(struct a6xx_gpu *a6x=
-x_gpu,
-> >        * to make sure BV doesn't race ahead while BR is still switching
-> >        * pagetables.
-> >        */
-> > -     if (adreno_is_a7xx(&a6xx_gpu->base)) {
-> > +     if (adreno_is_a7xx(&a6xx_gpu->base) && adreno_is_a8xx(&a6xx_gpu->=
-base)) {
-> >               OUT_PKT7(ring, CP_THREAD_CONTROL, 1);
-> >               OUT_RING(ring, CP_THREAD_CONTROL_0_SYNC_THREADS | CP_SET_=
-THREAD_BR);
-> >       }
-> > @@ -289,20 +296,22 @@ static void a6xx_set_pagetable(struct a6xx_gpu *a=
-6xx_gpu,
-> >       OUT_RING(ring, CACHE_INVALIDATE);
-> >
-> >       if (!sysprof) {
-> > +             u32 reg_status =3D adreno_is_a8xx(adreno_gpu) ?
-> > +                     REG_A8XX_RBBM_PERFCTR_SRAM_INIT_STATUS :
-> > +                     REG_A6XX_RBBM_PERFCTR_SRAM_INIT_STATUS;
-> >               /*
-> >                * Wait for SRAM clear after the pgtable update, so the
-> >                * two can happen in parallel:
-> >                */
-> >               OUT_PKT7(ring, CP_WAIT_REG_MEM, 6);
-> >               OUT_RING(ring, CP_WAIT_REG_MEM_0_FUNCTION(WRITE_EQ));
-> > -             OUT_RING(ring, CP_WAIT_REG_MEM_POLL_ADDR_LO(
-> > -                             REG_A6XX_RBBM_PERFCTR_SRAM_INIT_STATUS));
-> > +             OUT_RING(ring, CP_WAIT_REG_MEM_POLL_ADDR_LO(reg_status));
-> >               OUT_RING(ring, CP_WAIT_REG_MEM_POLL_ADDR_HI(0));
-> >               OUT_RING(ring, CP_WAIT_REG_MEM_3_REF(0x1));
-> >               OUT_RING(ring, CP_WAIT_REG_MEM_4_MASK(0x1));
-> >               OUT_RING(ring, CP_WAIT_REG_MEM_5_DELAY_LOOP_CYCLES(0));
-> >
-> > -             if (!adreno_is_a7xx(adreno_gpu)) {
-> > +             if (!(adreno_is_a7xx(adreno_gpu) || adreno_is_a8xx(adreno=
-_gpu))) {
-> >                       /* Re-enable protected mode: */
-> >                       OUT_PKT7(ring, CP_SET_PROTECTED_MODE, 1);
-> >                       OUT_RING(ring, 1);
-> > @@ -441,6 +450,7 @@ static void a7xx_submit(struct msm_gpu *gpu, struct=
- msm_gem_submit *submit)
-> >       struct a6xx_gpu *a6xx_gpu =3D to_a6xx_gpu(adreno_gpu);
-> >       struct msm_ringbuffer *ring =3D submit->ring;
-> >       unsigned int i, ibs =3D 0;
-> > +     u32 rbbm_perfctr_cp0, cp_always_on_counter;
-> >
-> >       adreno_check_and_reenable_stall(adreno_gpu);
-> >
-> > @@ -460,10 +470,16 @@ static void a7xx_submit(struct msm_gpu *gpu, stru=
-ct msm_gem_submit *submit)
-> >       if (gpu->nr_rings > 1)
-> >               a6xx_emit_set_pseudo_reg(ring, a6xx_gpu, submit->queue);
-> >
-> > -     get_stats_counter(ring, REG_A7XX_RBBM_PERFCTR_CP(0),
-> > -             rbmemptr_stats(ring, index, cpcycles_start));
-> > -     get_stats_counter(ring, REG_A6XX_CP_ALWAYS_ON_COUNTER,
-> > -             rbmemptr_stats(ring, index, alwayson_start));
-> > +     if (adreno_is_a8xx(adreno_gpu)) {
-> > +             rbbm_perfctr_cp0 =3D REG_A8XX_RBBM_PERFCTR_CP(0);
-> > +             cp_always_on_counter =3D REG_A8XX_CP_ALWAYS_ON_COUNTER;
-> > +     } else {
-> > +             rbbm_perfctr_cp0 =3D REG_A7XX_RBBM_PERFCTR_CP(0);
-> > +             cp_always_on_counter =3D REG_A6XX_CP_ALWAYS_ON_COUNTER;
-> > +     }
-> > +
-> > +     get_stats_counter(ring, rbbm_perfctr_cp0, rbmemptr_stats(ring, in=
-dex, cpcycles_start));
-> > +     get_stats_counter(ring, cp_always_on_counter, rbmemptr_stats(ring=
-, index, alwayson_start));
-> >
-> >       OUT_PKT7(ring, CP_THREAD_CONTROL, 1);
-> >       OUT_RING(ring, CP_SET_THREAD_BOTH);
-> > @@ -510,10 +526,8 @@ static void a7xx_submit(struct msm_gpu *gpu, struc=
-t msm_gem_submit *submit)
-> >               OUT_RING(ring, 0x00e); /* IB1LIST end */
-> >       }
-> >
-> > -     get_stats_counter(ring, REG_A7XX_RBBM_PERFCTR_CP(0),
-> > -             rbmemptr_stats(ring, index, cpcycles_end));
-> > -     get_stats_counter(ring, REG_A6XX_CP_ALWAYS_ON_COUNTER,
-> > -             rbmemptr_stats(ring, index, alwayson_end));
-> > +     get_stats_counter(ring, rbbm_perfctr_cp0, rbmemptr_stats(ring, in=
-dex, cpcycles_end));
-> > +     get_stats_counter(ring, cp_always_on_counter, rbmemptr_stats(ring=
-, index, alwayson_end));
-> >
-> >       /* Write the fence to the scratch register */
-> >       OUT_PKT4(ring, REG_A6XX_CP_SCRATCH(2), 1);
-> > @@ -706,8 +720,11 @@ static int a6xx_calc_ubwc_config(struct adreno_gpu=
- *gpu)
-> >       /* Copy the data into the internal struct to drop the const quali=
-fier (temporarily) */
-> >       *cfg =3D *common_cfg;
-> >
-> > -     cfg->ubwc_swizzle =3D 0x6;
-> > -     cfg->highest_bank_bit =3D 15;
-> > +     /* Use common config as is for A8x */
-> > +     if (!adreno_is_a8xx(gpu)) {
-> > +             cfg->ubwc_swizzle =3D 0x6;
-> > +             cfg->highest_bank_bit =3D 15;
-> > +     }
-> >
-> >       if (adreno_is_a610(gpu)) {
-> >               cfg->highest_bank_bit =3D 13;
-> > @@ -818,7 +835,7 @@ static void a6xx_set_ubwc_config(struct msm_gpu *gp=
-u)
-> >                 cfg->macrotile_mode);
-> >  }
-> >
-> > -static void a7xx_patch_pwrup_reglist(struct msm_gpu *gpu)
-> > +void a7xx_patch_pwrup_reglist(struct msm_gpu *gpu)
-> >  {
-> >       struct adreno_gpu *adreno_gpu =3D to_adreno_gpu(gpu);
-> >       struct a6xx_gpu *a6xx_gpu =3D to_a6xx_gpu(adreno_gpu);
-> > @@ -868,7 +885,7 @@ static void a7xx_patch_pwrup_reglist(struct msm_gpu=
- *gpu)
-> >       lock->dynamic_list_len =3D 0;
-> >  }
-> >
-> > -static int a7xx_preempt_start(struct msm_gpu *gpu)
-> > +int a7xx_preempt_start(struct msm_gpu *gpu)
-> >  {
-> >       struct adreno_gpu *adreno_gpu =3D to_adreno_gpu(gpu);
-> >       struct a6xx_gpu *a6xx_gpu =3D to_a6xx_gpu(adreno_gpu);
-> > @@ -925,7 +942,7 @@ static int a6xx_cp_init(struct msm_gpu *gpu)
-> >       return a6xx_idle(gpu, ring) ? 0 : -EINVAL;
-> >  }
-> >
-> > -static int a7xx_cp_init(struct msm_gpu *gpu)
-> > +int a7xx_cp_init(struct msm_gpu *gpu)
-> >  {
-> >       struct adreno_gpu *adreno_gpu =3D to_adreno_gpu(gpu);
-> >       struct a6xx_gpu *a6xx_gpu =3D to_a6xx_gpu(adreno_gpu);
-> > @@ -993,7 +1010,7 @@ static bool a6xx_ucode_check_version(struct a6xx_g=
-pu *a6xx_gpu,
-> >               return false;
-> >
-> >       /* A7xx is safe! */
-> > -     if (adreno_is_a7xx(adreno_gpu) || adreno_is_a702(adreno_gpu))
-> > +     if (adreno_is_a7xx(adreno_gpu) || adreno_is_a702(adreno_gpu) || a=
-dreno_is_a8xx(adreno_gpu))
-> >               return true;
-> >
-> >       /*
-> > @@ -2161,7 +2178,7 @@ void a6xx_bus_clear_pending_transactions(struct a=
-dreno_gpu *adreno_gpu, bool gx_
-> >  void a6xx_gpu_sw_reset(struct msm_gpu *gpu, bool assert)
-> >  {
-> >       /* 11nm chips (e.g. ones with A610) have hw issues with the reset=
- line! */
-> > -     if (adreno_is_a610(to_adreno_gpu(gpu)))
-> > +     if (adreno_is_a610(to_adreno_gpu(gpu)) || adreno_is_a8xx(to_adren=
-o_gpu(gpu)))
-> >               return;
-> >
-> >       gpu_write(gpu, REG_A6XX_RBBM_SW_RESET_CMD, assert);
-> > @@ -2192,7 +2209,12 @@ static int a6xx_gmu_pm_resume(struct msm_gpu *gp=
-u)
-> >
-> >       msm_devfreq_resume(gpu);
-> >
-> > -     adreno_is_a7xx(adreno_gpu) ? a7xx_llc_activate(a6xx_gpu) : a6xx_l=
-lc_activate(a6xx_gpu);
-> > +     if (adreno_is_a8xx(adreno_gpu))
-> > +             a8xx_llc_activate(a6xx_gpu);
-> > +     else if (adreno_is_a7xx(adreno_gpu))
-> > +             a7xx_llc_activate(a6xx_gpu);
-> > +     else
-> > +             a6xx_llc_activate(a6xx_gpu);
-> >
-> >       return ret;
-> >  }
-> > @@ -2561,10 +2583,8 @@ static struct msm_gpu *a6xx_gpu_init(struct drm_=
-device *dev)
-> >       adreno_gpu->base.hw_apriv =3D
-> >               !!(config->info->quirks & ADRENO_QUIRK_HAS_HW_APRIV);
-> >
-> > -     /* gpu->info only gets assigned in adreno_gpu_init() */
-> > -     is_a7xx =3D config->info->family =3D=3D ADRENO_7XX_GEN1 ||
-> > -               config->info->family =3D=3D ADRENO_7XX_GEN2 ||
-> > -               config->info->family =3D=3D ADRENO_7XX_GEN3;
-> > +     /* gpu->info only gets assigned in adreno_gpu_init(). A8x is incl=
-uded intentionally */
-> > +     is_a7xx =3D config->info->family >=3D ADRENO_7XX_GEN1;
->
-> Is A8xx also a part of is_a7xx? What about the A9XX which will come at
-> some point in future?
->
-> >
-> >       a6xx_llc_slices_init(pdev, a6xx_gpu, is_a7xx);
-> >
-> > +
-> > +int a8xx_gpu_feature_probe(struct msm_gpu *gpu)
-> > +{
-> > +     struct adreno_gpu *adreno_gpu =3D to_adreno_gpu(gpu);
-> > +     struct a6xx_gpu *a6xx_gpu =3D to_a6xx_gpu(adreno_gpu);
-> > +     u32 fuse_val;
-> > +     int ret;
-> > +
-> > +     /*
-> > +      * Assume that if qcom scm isn't available, that whatever
-> > +      * replacement allows writing the fuse register ourselves.
-> > +      * Users of alternative firmware need to make sure this
-> > +      * register is writeable or indicate that it's not somehow.
-> > +      * Print a warning because if you mess this up you're about to
-> > +      * crash horribly.
-> > +      */
-> > +     if (!qcom_scm_is_available()) {
->
-> How can it be not available here?
->
-> > +             dev_warn_once(gpu->dev->dev,
-> > +                     "SCM is not available, poking fuse register\n");
-> > +             a6xx_llc_write(a6xx_gpu, REG_A7XX_CX_MISC_SW_FUSE_VALUE,
-> > +                     A7XX_CX_MISC_SW_FUSE_VALUE_RAYTRACING |
-> > +                     A7XX_CX_MISC_SW_FUSE_VALUE_FASTBLEND |
-> > +                     A7XX_CX_MISC_SW_FUSE_VALUE_LPAC);
-> > +             adreno_gpu->has_ray_tracing =3D true;
-> > +             return 0;
-> > +     }
-> > +
-> > +     ret =3D qcom_scm_gpu_init_regs(QCOM_SCM_GPU_ALWAYS_EN_REQ |
-> > +                                  QCOM_SCM_GPU_TSENSE_EN_REQ);
-> > +     if (ret)
-> > +             return ret;
-> > +
-> > +     /*
-> > +      * On a750 raytracing may be disabled by the firmware, find out
->
-> It's a8xx-related code, why do you have a750 in the comment?
+> +       if (!a6xx_gpu->aqe_bo && adreno_gpu->fw[ADRENO_FW_AQE]) {
+> +               a6xx_gpu->aqe_bo =3D adreno_fw_create_bo(gpu,
+> +                       adreno_gpu->fw[ADRENO_FW_AQE], &a6xx_gpu->aqe_iov=
+a);
+> +
+> +               if (IS_ERR(a6xx_gpu->aqe_bo)) {
+> +                       int ret =3D PTR_ERR(a6xx_gpu->aqe_bo);
+> +
+> +                       a6xx_gpu->aqe_bo =3D NULL;
+> +                       DRM_DEV_ERROR(&gpu->pdev->dev,
+> +                               "Could not allocate AQE ucode: %d\n", ret=
+);
+> +
+> +                       return ret;
+> +               }
+> +
+> +               msm_gem_object_set_name(a6xx_gpu->aqe_bo, "aqefw");
+> +               if (!a6xx_ucode_check_version(a6xx_gpu, a6xx_gpu->aqe_bo)=
+) {
 
-This is actually related to >=3D a750..  from a brief look it seems like
-the whole fuse thing can be split into a helper and shared btwn
-a7xx/a8xx?
+a6xx_ucode_check_version() doesn't do anything for aqe fw (but also
+a6xx_ucode_check_version() should probably bail early for a8xx at this
+point?)
+
+OTOH if over time we keep growing the version checks, we might need to
+re-think how a6xx_ucode_check_version() works.  But that is not a now
+problem.
 
 BR,
 -R
 
-> > +      * whether that's the case. The scm call above sets the fuse
-> > +      * register.
-> > +      */
-> > +     fuse_val =3D a6xx_llc_read(a6xx_gpu,
-> > +                              REG_A7XX_CX_MISC_SW_FUSE_VALUE);
-> > +     adreno_gpu->has_ray_tracing =3D
-> > +             !!(fuse_val & A7XX_CX_MISC_SW_FUSE_VALUE_RAYTRACING);
-> > +
-> > +     return 0;
-> > +}
-> > +
-> > +
-> > +#define GBIF_CLIENT_HALT_MASK                BIT(0)
-> > +#define GBIF_ARB_HALT_MASK           BIT(1)
-> > +#define VBIF_XIN_HALT_CTRL0_MASK     GENMASK(3, 0)
-> > +#define VBIF_RESET_ACK_MASK          0xF0
-> > +#define GPR0_GBIF_HALT_REQUEST               0x1E0
-> > +
-> > +void a8xx_bus_clear_pending_transactions(struct adreno_gpu *adreno_gpu=
-, bool gx_off)
-> > +{
-> > +     struct msm_gpu *gpu =3D &adreno_gpu->base;
-> > +
-> > +     if (gx_off) {
-> > +             /* Halt the gx side of GBIF */
-> > +             gpu_write(gpu, REG_A8XX_RBBM_GBIF_HALT, 1);
-> > +             spin_until(gpu_read(gpu, REG_A8XX_RBBM_GBIF_HALT_ACK) & 1=
-);
-> > +     }
-> > +
-> > +     /* Halt new client requests on GBIF */
-> > +     gpu_write(gpu, REG_A6XX_GBIF_HALT, GBIF_CLIENT_HALT_MASK);
-> > +     spin_until((gpu_read(gpu, REG_A6XX_GBIF_HALT_ACK) &
-> > +                     (GBIF_CLIENT_HALT_MASK)) =3D=3D GBIF_CLIENT_HALT_=
-MASK);
-> > +
-> > +     /* Halt all AXI requests on GBIF */
-> > +     gpu_write(gpu, REG_A6XX_GBIF_HALT, GBIF_ARB_HALT_MASK);
-> > +     spin_until((gpu_read(gpu,  REG_A6XX_GBIF_HALT_ACK) &
-> > +                     (GBIF_ARB_HALT_MASK)) =3D=3D GBIF_ARB_HALT_MASK);
-> > +
-> > +     /* The GBIF halt needs to be explicitly cleared */
-> > +     gpu_write(gpu, REG_A6XX_GBIF_HALT, 0x0);
-> > +}
-> > +
-> > +int a8xx_gmu_get_timestamp(struct msm_gpu *gpu, uint64_t *value)
-> > +{
-> > +     struct adreno_gpu *adreno_gpu =3D to_adreno_gpu(gpu);
-> > +     struct a6xx_gpu *a6xx_gpu =3D to_a6xx_gpu(adreno_gpu);
-> > +
-> > +     mutex_lock(&a6xx_gpu->gmu.lock);
-> > +
-> > +     /* Force the GPU power on so we can read this register */
-> > +     a6xx_gmu_set_oob(&a6xx_gpu->gmu, GMU_OOB_PERFCOUNTER_SET);
-> > +
-> > +     *value =3D gpu_read64(gpu, REG_A8XX_CP_ALWAYS_ON_COUNTER);
-> > +
-> > +     a6xx_gmu_clear_oob(&a6xx_gpu->gmu, GMU_OOB_PERFCOUNTER_SET);
-> > +
-> > +     mutex_unlock(&a6xx_gpu->gmu.lock);
-> > +
-> > +     return 0;
-> > +}
-> > +
-> > +u64 a8xx_gpu_busy(struct msm_gpu *gpu, unsigned long *out_sample_rate)
-> > +{
-> > +     struct adreno_gpu *adreno_gpu =3D to_adreno_gpu(gpu);
-> > +     struct a6xx_gpu *a6xx_gpu =3D to_a6xx_gpu(adreno_gpu);
-> > +     u64 busy_cycles;
-> > +
-> > +     /* 19.2MHz */
-> > +     *out_sample_rate =3D 19200000;
-> > +
-> > +     busy_cycles =3D gmu_read64(&a6xx_gpu->gmu,
-> > +                     REG_A8XX_GMU_CX_GMU_POWER_COUNTER_XOCLK_0_L,
-> > +                     REG_A8XX_GMU_CX_GMU_POWER_COUNTER_XOCLK_0_H);
-> > +
-> > +     return busy_cycles;
-> > +}
-> > +
-> > +bool a8xx_progress(struct msm_gpu *gpu, struct msm_ringbuffer *ring)
-> > +{
-> > +     return true;
-> > +}
-> > diff --git a/drivers/gpu/drm/msm/adreno/adreno_gpu.h b/drivers/gpu/drm/=
-msm/adreno/adreno_gpu.h
-> > index 9831401c3bc865b803c2f9759d5e2ffcd79d19f8..6a2157f31122ba0c2f2a700=
-5c98e3e4f1ada6acc 100644
-> > --- a/drivers/gpu/drm/msm/adreno/adreno_gpu.h
-> > +++ b/drivers/gpu/drm/msm/adreno/adreno_gpu.h
-> > @@ -90,6 +90,13 @@ struct adreno_reglist {
-> >       u32 value;
-> >  };
-> >
-> > +/* Reglist with pipe information */
-> > +struct adreno_reglist_pipe {
-> > +     u32 offset;
-> > +     u32 value;
-> > +     u32 pipe;
-> > +};
-> > +
-> >  struct adreno_speedbin {
-> >       uint16_t fuse;
-> >       uint16_t speedbin;
-> > diff --git a/drivers/gpu/drm/msm/registers/adreno/a6xx.xml b/drivers/gp=
-u/drm/msm/registers/adreno/a6xx.xml
-> > index ddde2e03b748f447b5e57571e2b04c68f8f2efc2..c3a202c8dce65d414c89bf7=
-6f1cb458b206b4eca 100644
-> > --- a/drivers/gpu/drm/msm/registers/adreno/a6xx.xml
-> > +++ b/drivers/gpu/drm/msm/registers/adreno/a6xx.xml
-> > @@ -4876,7 +4876,6 @@ by a particular renderpass/blit.
-> >  <domain name=3D"A6XX_CX_MISC" width=3D"32" prefix=3D"variant" varset=
-=3D"chip">
-> >       <reg32 offset=3D"0x0001" name=3D"SYSTEM_CACHE_CNTL_0"/>
-> >       <reg32 offset=3D"0x0002" name=3D"SYSTEM_CACHE_CNTL_1"/>
-> > -     <reg32 offset=3D"0x0087" name=3D"SLICE_ENABLE_FINAL" variants=3D"=
-A8XX-"/>
+> +                       msm_gem_unpin_iova(a6xx_gpu->aqe_bo, gpu->vm);
+> +                       drm_gem_object_put(a6xx_gpu->aqe_bo);
+> +
+> +                       a6xx_gpu->aqe_bo =3D NULL;
+> +                       return -EPERM;
+> +               }
+> +       }
+> +
+>         /*
+>          * Expanded APRIV and targets that support WHERE_AM_I both need a
+>          * privileged buffer to store the RPTR shadow
+> diff --git a/drivers/gpu/drm/msm/adreno/a6xx_gpu.h b/drivers/gpu/drm/msm/=
+adreno/a6xx_gpu.h
+> index 18300b12bf2a8bcd5601797df0fcc7afa8943863..a6ef8381abe5dd3eb202a645b=
+b87a3bc352df047 100644
+> --- a/drivers/gpu/drm/msm/adreno/a6xx_gpu.h
+> +++ b/drivers/gpu/drm/msm/adreno/a6xx_gpu.h
+> @@ -58,6 +58,8 @@ struct a6xx_gpu {
 >
-> Why?
+>         struct drm_gem_object *sqe_bo;
+>         uint64_t sqe_iova;
+> +       struct drm_gem_object *aqe_bo;
+> +       uint64_t aqe_iova;
 >
-> >       <reg32 offset=3D"0x0039" name=3D"CX_MISC_TCM_RET_CNTL" variants=
-=3D"A7XX-"/>
-> >       <reg32 offset=3D"0x0087" name=3D"CX_MISC_SLICE_ENABLE_FINAL" vari=
-ants=3D"A8XX"/>
-> >       <reg32 offset=3D"0x0400" name=3D"CX_MISC_SW_FUSE_VALUE" variants=
-=3D"A7XX-">
-> > diff --git a/drivers/gpu/drm/msm/registers/adreno/a6xx_gmu.xml b/driver=
-s/gpu/drm/msm/registers/adreno/a6xx_gmu.xml
-> > index 5dce7934056dd6472c368309b4894f0ed4a4d960..c4e00b1263cda65dce89c2f=
-16860e5bf6f1c6244 100644
-> > --- a/drivers/gpu/drm/msm/registers/adreno/a6xx_gmu.xml
-> > +++ b/drivers/gpu/drm/msm/registers/adreno/a6xx_gmu.xml
-> > @@ -60,6 +60,7 @@ xsi:schemaLocation=3D"https://gitlab.freedesktop.org/=
-freedreno/ rules-fd.xsd">
-> >       <reg32 offset=3D"0x1f400" name=3D"GMU_ICACHE_CONFIG"/>
-> >       <reg32 offset=3D"0x1f401" name=3D"GMU_DCACHE_CONFIG"/>
-> >       <reg32 offset=3D"0x1f40f" name=3D"GMU_SYS_BUS_CONFIG"/>
-> > +     <reg32 offset=3D"0x1f50b" name=3D"GMU_MRC_GBIF_QOS_CTRL"/>
-> >       <reg32 offset=3D"0x1f800" name=3D"GMU_CM3_SYSRESET"/>
-> >       <reg32 offset=3D"0x1f801" name=3D"GMU_CM3_BOOT_CONFIG"/>
-> >       <reg32 offset=3D"0x1f81a" name=3D"GMU_CM3_FW_BUSY"/>
-> >
-> > --
-> > 2.51.0
-> >
+>         struct msm_ringbuffer *cur_ring;
+>         struct msm_ringbuffer *next_ring;
+> diff --git a/drivers/gpu/drm/msm/adreno/a8xx_gpu.c b/drivers/gpu/drm/msm/=
+adreno/a8xx_gpu.c
+> index 6a64b1f96d730a46301545c52a83d62dddc6c2ff..9a09ce37687aba2f720637ec3=
+845a25d72d2fff7 100644
+> --- a/drivers/gpu/drm/msm/adreno/a8xx_gpu.c
+> +++ b/drivers/gpu/drm/msm/adreno/a8xx_gpu.c
+> @@ -599,6 +599,9 @@ static int hw_init(struct msm_gpu *gpu)
+>                 goto out;
+>
+>         gpu_write64(gpu, REG_A8XX_CP_SQE_INSTR_BASE, a6xx_gpu->sqe_iova);
+> +       if (a6xx_gpu->aqe_iova)
+> +               gpu_write64(gpu, REG_A8XX_CP_AQE_INSTR_BASE_0, a6xx_gpu->=
+aqe_iova);
+> +
+>         /* Set the ringbuffer address */
+>         gpu_write64(gpu, REG_A6XX_CP_RB_BASE, gpu->rb[0]->iova);
+>         gpu_write(gpu, REG_A6XX_CP_RB_CNTL, MSM_GPU_RB_CNTL_DEFAULT);
+> diff --git a/drivers/gpu/drm/msm/adreno/adreno_gpu.h b/drivers/gpu/drm/ms=
+m/adreno/adreno_gpu.h
+> index 6a2157f31122ba0c2f2a7005c98e3e4f1ada6acc..3de3a2cda7a1b9e6d4c32075a=
+faadc6604e74b15 100644
+> --- a/drivers/gpu/drm/msm/adreno/adreno_gpu.h
+> +++ b/drivers/gpu/drm/msm/adreno/adreno_gpu.h
+> @@ -27,6 +27,7 @@ enum {
+>         ADRENO_FW_PFP =3D 1,
+>         ADRENO_FW_GMU =3D 1, /* a6xx */
+>         ADRENO_FW_GPMU =3D 2,
+> +       ADRENO_FW_AQE =3D 3,
+>         ADRENO_FW_MAX,
+>  };
+>
 >
 > --
-> With best wishes
-> Dmitry
+> 2.51.0
+>
 
