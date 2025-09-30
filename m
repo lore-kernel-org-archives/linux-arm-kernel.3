@@ -4,78 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB769CAC5B9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 06:41:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E77AFCAC5B9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 06:48:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=J1mi7S8ELUkNYWmRd8+GnLtzte8ipT5C2/gYWNcmpNc=; b=FNJFbW3X/z9v/7zV38s/SDto7l
-	YJbLvzgcwDjG3I7q/q4ZtIUPZV7VL77Q+H/iqQdby8Tc9rjm6RHNtIZ49ccWhK+iWJthyNz563Dqe
-	TIx681+0K1PViDLxQ6ZTMTHjr7BIfb5GmPh8HAZz78PpBAtTW1wEXqJ4madnYzRi06xTy9oDKpu2W
-	opQOKye8LU0VOYAUav9Yo+KJC8x+TjuN3TmpokKf6vyrJW+hbCfryMPnhVpBSVibaHvH6HUqUnwAt
-	TksgQcKLMdMdpDGO2AnP/icC6ExP+7Sb2LAu/PelryrFHLE0/uxGJBFQkuPYPx2+lYbJtRpH6+Nw0
-	y6NeocmA==;
+	bh=1/2X9jjg1BUyyGKt6cYrctPfsGUYfEv8nQjSyxhg/18=; b=fGeC0Tcf+mAVY4P5noWnpDu0Sp
+	8QgAHBBxhFVHZa1bzv7Wpj8EiJ7DpNWScLVK2jB4KX9z8ppt3n03L0K4qUU9YmIGfgElM4dUM70af
+	arkbLf8B9jY1yAyajXQL7jopsbpGfsscCINizcE6raZvmv3U4uOnj/Q37R0EXBvLRRDi2Q7hL1scf
+	sF6Dh7yUyjkqZMHMxLMFCvXQVxtF2A1GVvRtiZihlQ3Zv58QV4Wx41FraOgishS3ugvKpekvnSCiP
+	vkqezH+xXFVPeMdGT4VIK6gzhC8LL80dCxTyMzCvUXoyv+shvwM75se1AYXmkvx668HupsT3SN1Xz
+	zWouakRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3U2j-00000004Nt3-433D;
-	Tue, 30 Sep 2025 06:40:57 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v3U9m-00000004OMd-4465;
+	Tue, 30 Sep 2025 06:48:14 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3U2h-00000004NsA-0LSV
+	id 1v3U9k-00000004OKt-0GOz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Sep 2025 06:40:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9611244EE3
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 06:40:54 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 75D7AC19421
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 06:40:54 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759214454;
-	bh=aY796e7ZjDJ3GpkqwDAOoDMWoCinINh6cbC/Z6IAkio=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=DKgSCAt1CIUjTAPD85phyC6/D/engFWoLogA9Yz5lqVjDmSESvd0ZOchbg0bW326x
-	 SW3YgAa4BKIk40LZ6tlKLlg0+2AmH9iEDSDkRkpUyTmOL/yMRy6+l1DvFG4sNq92g5
-	 sy/a90b1stw+87lspEOgUef61/I56Yjy0Gx9rS9WSeSmXvC14Dd7DfSTvudUdeHmvs
-	 hyf2tiiH4u7VKMaBdzQnBPsrh+0ulbD0H5T3ez6ZO2r1S0BXDt/Ie+UoPYrB2Y77Zw
-	 nJdGsBiHyj7wChYx6E02wVyxskB4mWT6pVJP8RRkE4qkvJfPssQ/OibpAGmtBcuzZ0
-	 my/RmbK0cZuXA==
-Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-2698d47e776so48196225ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 23:40:54 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWvUcDGC+IZvbjUef02X1d65sOBYGxETeuOOrDlbH4cqLTerHtoQFV9YUDaMXuIdFPh6B7+dXgnnS8tx9cyKBEM@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx5w0Sr9Nt4PoqkyxXlES3/V6s5/dlvsbGsqYehyR87QrxOICd6
-	1cciQIOIMBZL2nXQLZ2dQqaI7Lnzepv7IOd5pxjSssUjWHNNqYddriQUPxNVtc8pJcjdQgY13Tq
-	Erdy/Atun7y90GYeelugy7MZPm0hGJ5Q=
-X-Google-Smtp-Source: AGHT+IFilulwB7yZKk8NWBisCkRd9EVIUP8wmRYd1pqL/aVk/i4cqOXK4Ip+OXNthJdD/mk9ed9ZzEkUxbiiEQK8Lsg=
-X-Received: by 2002:a17:902:f68d:b0:276:842a:f9a7 with SMTP id
- d9443c01a7336-27ed4a5aab7mr219005735ad.57.1759214453755; Mon, 29 Sep 2025
- 23:40:53 -0700 (PDT)
+	Tue, 30 Sep 2025 06:48:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=FoUZhL2kPubtGlr92R9pWDLPk9ECRjZ6ozJPfg1l0lZDpK1npQw7wZYW6LZ7lKlkHpt5c2mx3gUeUtPK8tup3O+kM5XG1wNsfCIH2kdqt2tLwd+VYOZZc7LTCOwAe4P3xIOrh/0pUUnxUd0f/bGJyPQWB/7krpzDDajSztJlYzQH6rrh2ECjoAOQSveoIhadJhdGt4dBeyAa7CbK1qq4KX6GHyGzeXjpEOfv+zsXrYOoX8nEjzRc2frd5V4dZ0gmLEp08PRBYG+hAc5DOSIzO5TZtUssbU+v84MhLb1qs68adNN3aBHryJ5pqZUqaMQMi2ItzKlt8WySOgh/aiNGlQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1/2X9jjg1BUyyGKt6cYrctPfsGUYfEv8nQjSyxhg/18=;
+ b=QRMa5uLb7xZ/2dl5m28LCIZ65OhzdMbzpI0+OIgZwRcKnpjQ2Y5PyF6W8n2iPPzx8FCulR4I2J+rotFs0sAq3/qCcQHQdJtN3ISASqfr6VHj0IzNCn0u5M7YmVKOzOSP5mJi2/4nWdIs90h6nJkPXZzE5lTSHWkihySzH9N5nPPDnpPPe80I0VOyVtSdzhMX/93YaC2+0BlmcaapM15dw9idJsj21Z2Lruxr7hwtzpW3IZJIT2ZUM2fvIww0MOQ8agOptCn+oMc+AlJYZt15k0mNbhJ8OagWPu9arp1L+aLKvHU/V9LqM6fP8Iie/nTmsrocwJfxzv0cL94y47Io5Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
+ is 91.26.50.189) smtp.rcpttodomain=kernel.org smtp.mailfrom=phytec.de;
+ dmarc=fail (p=quarantine sp=quarantine pct=100) action=quarantine
+ header.from=phytec.de; dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1/2X9jjg1BUyyGKt6cYrctPfsGUYfEv8nQjSyxhg/18=;
+ b=AQ/wszkkmK3ZUQBhVSumogDTiWARRjQtDWddeCY7HRReH4/I2FjiUDUXzccTuhnN4PJ+VWVojKTuycTzsu9duRj/BMoAuE9oLnxZu95l7JrtAXb/zR/YJSfNvfI+IyAb9XcpbNJ/kMT/m06E0lIrRKxZ8alTFn4fqE6NH4lRSvLDWb/UCzKrU1zc3Ot0rhBvcRXgaktTsWK1HnxpcDzvGRt94UnLzCwKXl4QUzDAbGlDZdO3q8uV55GmePSAjjQjhCGRIT/sp/i+y+r2k0KOcsWjkVG4R286l009RwgDyM1Rni3bGax3vxcndVp1lRZhvhKGpiUU1HAWqKNHnVi8pw==
+Received: from AM8P189CA0007.EURP189.PROD.OUTLOOK.COM (2603:10a6:20b:218::12)
+ by VI2P195MB2957.EURP195.PROD.OUTLOOK.COM (2603:10a6:800:2e3::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.17; Tue, 30 Sep
+ 2025 06:48:04 +0000
+Received: from AMS0EPF000001A0.eurprd05.prod.outlook.com
+ (2603:10a6:20b:218:cafe::ee) by AM8P189CA0007.outlook.office365.com
+ (2603:10a6:20b:218::12) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9160.16 via Frontend Transport; Tue,
+ 30 Sep 2025 06:48:03 +0000
+X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
+ smtp.mailfrom=phytec.de; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ phytec.de discourages use of 91.26.50.189 as permitted sender)
+Received: from Postix.phytec.de (91.26.50.189) by
+ AMS0EPF000001A0.mail.protection.outlook.com (10.167.16.230) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9160.9 via Frontend Transport; Tue, 30 Sep 2025 06:48:03 +0000
+Received: from llp-jremmet.phytec.de (172.25.39.81) by Postix.phytec.de
+ (172.25.0.11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Tue, 30 Sep
+ 2025 08:48:03 +0200
+From: Jan Remmet <j.remmet@phytec.de>
+Date: Tue, 30 Sep 2025 08:47:44 +0200
+Subject: [PATCH 1/6] arm64: dts: imx8mm-phyboard-polis: Use
+ GPL-2.0-or-later OR MIT
 MIME-Version: 1.0
-References: <CGME20250930035525epcas5p3a1238a3a7bc6e52113838397187e36ba@epcas5p3.samsung.com>
- <20250930040348.3702923-1-h.dewangan@samsung.com> <20250930040348.3702923-3-h.dewangan@samsung.com>
-In-Reply-To: <20250930040348.3702923-3-h.dewangan@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Date: Tue, 30 Sep 2025 15:40:41 +0900
-X-Gmail-Original-Message-ID: <CAJKOXPc+ass6ftbxrodVzXVPFW+8rUYW=VyxsmGTU1wR_jBiAg@mail.gmail.com>
-X-Gm-Features: AS18NWBGk7OJKwPJ5iy8_Rm-Qzpd87k2vQsijdmZj27-buhGtUmwdQhJcd2WDg0
-Message-ID: <CAJKOXPc+ass6ftbxrodVzXVPFW+8rUYW=VyxsmGTU1wR_jBiAg@mail.gmail.com>
-Subject: Re: [PATCH 02/29] arm64: dts: mfc: Add MFC device tree for Auto V920 SoC
-To: Himanshu Dewangan <h.dewangan@samsung.com>
-Cc: mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, sumit.semwal@linaro.org, christian.koenig@amd.com, 
-	alim.akhtar@samsung.com, manjun@samsung.com, nagaraju.s@samsung.com, 
-	ih0206.lee@samsung.com, jehyung.lee@samsung.com, 
-	linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linaro-mm-sig@lists.linaro.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-ID: <20250930-wip-j-remmet-phytec-de-bspimx8m-3801_peb-av-10_with_ac209-v1-1-d5d03ccbfca1@phytec.de>
+References: <20250930-wip-j-remmet-phytec-de-bspimx8m-3801_peb-av-10_with_ac209-v1-0-d5d03ccbfca1@phytec.de>
+In-Reply-To: <20250930-wip-j-remmet-phytec-de-bspimx8m-3801_peb-av-10_with_ac209-v1-0-d5d03ccbfca1@phytec.de>
+To: Teresa Remmet <t.remmet@phytec.de>, Janine Hagemann
+	<j.hagemann@phytec.de>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
+	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
+	<shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, "Pengutronix
+ Kernel Team" <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
+CC: <devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, Jan Remmet <j.remmet@phytec.de>
+X-Mailer: b4 0.14.2
+X-Originating-IP: [172.25.39.81]
+X-ClientProxiedBy: Postix.phytec.de (172.25.0.11) To Postix.phytec.de
+ (172.25.0.11)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AMS0EPF000001A0:EE_|VI2P195MB2957:EE_
+X-MS-Office365-Filtering-Correlation-Id: d9f0e821-21ff-403b-0c6b-08ddffed4e23
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|82310400026|376014|7416014|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Q3ZOTkk3VmV3UUN6NjV1Uzg3S1IxNlVUTmhicm45TVNERGIzcWttenQ5TVY3?=
+ =?utf-8?B?cHg1a3JwVnBEdFdldm5lRTQvODNMckZLZVFyQlVobzRpVUNsZHA0VUw5bXQ2?=
+ =?utf-8?B?TGdOd2RCb29LR3RIcXViYjVkcTE3ZVZIbW0yTDlDQWlzRnpuSUVrZkcyNWpK?=
+ =?utf-8?B?dGhRQ0VaaWNjTEtOY0kxMGdlVnR5S0tXVUNEc3BiVUtQR3ZQSGFQeVN3eld0?=
+ =?utf-8?B?ODlxeXRoT1Byd3NTcUY4WkFqRFpDeGFSVjBvTGl0bVprR3ZrYmdyZDZjYkxl?=
+ =?utf-8?B?OUExTE5UUE5jYmZ5SWtrYUYxNDlNSUdZNXI3b040Z0V5b3JoS2M3bGtXWFNx?=
+ =?utf-8?B?T2NJdkZlcEV2QnYrenMrU2xBZ2ZGQ09iV0F1eEJvSGRDaFZjbVEvSjRjOGFo?=
+ =?utf-8?B?YnlKWjBaQ0ZCMUtTMElPTEpSVmRIMkpBQjd4SnFLSFdMcDF1SkNxaTM1RzJq?=
+ =?utf-8?B?QmtoVTkyc0JicEk3R2xyc2hYbVFabW15ZlVNZENJUjFoN1JVbm5BVTBhTkh2?=
+ =?utf-8?B?NU0wWU1jRWIyVk5ILzhGdkxTT0gvcjRZMEUxNUIwZS9KWkFkWXhXLzI2L29m?=
+ =?utf-8?B?eFA5T21WbXhpNUh4WndKUUxVZS84WTNmK3R3dEE4Yy9KRG1LVkcrbDBNMnRy?=
+ =?utf-8?B?bnp6a3lpRXgwc2xKMUR6MFF5TFpoSVBrYWEyeG85c0tJRFc4Z0tWYjEzUUhL?=
+ =?utf-8?B?dFdOUkVIWnhSVUlOM0dacHNSM0xJTzJGZlN6bVZNemJpSmdRSDFDQ1g1SGpv?=
+ =?utf-8?B?T2IwSWxaSjZlKzVvNmdZU2J5Ulp1VUlCcTN3N3dqK2duMTk3ZVF2eWdtUlRz?=
+ =?utf-8?B?blhqZU45ZEo5MmRrTXk3Qk1ZdmxFblU2NTIrVnFKWnYvSkV6QTBsTmhzT0RQ?=
+ =?utf-8?B?L2J3dGJTdVpkQmRzRitPWnRtOC9kQVQvcUVnMnJZNUJaQWlTTkhoOWlpYlZM?=
+ =?utf-8?B?czZ1Wk56VUFNTk9VLzBMTVFyRWhvWmRyN2NTNnZublB4ZkVtU1lnT0RqU3JD?=
+ =?utf-8?B?ZExCLzdxL1A3R2hCTWtURmJOT3JzWGh6ekllTkQ2Qzl1UXNiRzNTdG5HVGlK?=
+ =?utf-8?B?UzZrak9iQ2JZNG8rQVJlZEFjandDQ0MrUlpna245dW1xMTZHOXFvaXdEeEp0?=
+ =?utf-8?B?NnBJL3ZlMmFOSENWWnk3N0YwdzQ3dE1nNkhFNFZEdms4R0crMERmVnNWMXN0?=
+ =?utf-8?B?LzhBREpJM0l0M2lZREZaZnd2VGkyQmQ1d2lndGJNd2s1WExsTWpjdEFyYjFD?=
+ =?utf-8?B?Z2NwTG03WGxsdmJiKzE1NWxxNzN3S2ZkYUUvYmpkcURHY2RxUTdZS0ZIRjdX?=
+ =?utf-8?B?WGtqVjVXZ2ZLYmVPRUxjTHdQdUQ1Myt2Nm43clZmaTZ3TDhGMno3NnY4UVEv?=
+ =?utf-8?B?VEVoNHZxcm9nNFZvRGZ0VWVRZSs0K0doUi83dGZPMkVMRDVSLzFRR01hRzRS?=
+ =?utf-8?B?Y1ZpQVFHd21zSm8xL2lGRW01dmZUdnRrMDdNbTJva0VRY2lJWURxVERrUFZK?=
+ =?utf-8?B?MnFIbnlaNUVoK3l5b09FdlNlaWl4MVdKUUx6aU5zb2lrRVluc3ZFd1puZ2F2?=
+ =?utf-8?B?QUJUNGtjYU1HQnNaU1JWRnZJY20zTCs2TFc3Ym5lOHAzY3JzQjI0ZHo4TDVr?=
+ =?utf-8?B?YTN3dkdVWWRGWndhVnh4alJ2Yk5BUzA3bmhhUXpRSVpQbGh5dDd6T0tmMkdW?=
+ =?utf-8?B?RE9yOVMwblF6Rjh0OUxGOWxSV053MCtEMS9JTVZ0ajJUcFlHTFA4ZWNGOEFH?=
+ =?utf-8?B?WGl4ZG4zUnRVTWRyNnhxa0JUVTIwd3lqNlJkQ0NiRk1YM1F6TmNqNndYdFdu?=
+ =?utf-8?B?Y3Q5YXpNS2swRXludUVoUlBlcTBhVThjQmhjenBYYk9Fc2c3UGYxSUF5Qit4?=
+ =?utf-8?B?RzliaUNpNGtFeFB3RzM4QWozZzNCNUloQm01aVlMdkxNYU9mRXZqOU1KWkZC?=
+ =?utf-8?B?Y1lJRXNJbDJVeGhHeGszSEc5SGh3bndYRGtEOWl6SkNVZ3dISnNiTjlzbDVG?=
+ =?utf-8?B?Ums4cVlGTDBpWUhnMUtaS0NDaldmQkladXIvaXUzR1ExRSsxMFdRRitXSUFq?=
+ =?utf-8?B?K3RGUVVNL1FoZWZvMmhsV2V1NCswMGE2UEFVRVdyZ2xvQlI2endkb2lCUWNp?=
+ =?utf-8?Q?woyE=3D?=
+X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Postix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(36860700013)(82310400026)(376014)(7416014)(1800799024);DIR:OUT;SFP:1102;
+X-OriginatorOrg: phytec.de
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2025 06:48:03.9325
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: d9f0e821-21ff-403b-0c6b-08ddffed4e23
+X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Postix.phytec.de]
+X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF000001A0.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2P195MB2957
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_234055_195669_C0EDC881 
-X-CRM114-Status: GOOD (  16.98  )
+X-CRM114-CacheID: sfid-20250929_234812_435303_90CD2318 
+X-CRM114-Status: UNSURE (   9.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,54 +159,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 30 Sept 2025 at 12:55, Himanshu Dewangan <h.dewangan@samsung.com> w=
-rote:
->
-> From: Nagaraju Siddineni <nagaraju.s@samsung.com>
->
-> Introduce the device=E2=80=91tree entries for the Samsung Exynos AUTO V92=
-0
-> multimedia=E2=80=91function controller (MFC). The patch defines:
-> - Reserved memory regions for firmware and CMA buffers.
-> - Core0 and Core1 memory mappings.
-> - The main MFC node with basic properties (compatible, reg, interrupts,
->   clocks, DMA window, firmware name, debug mode, etc.).
-> - Per=E2=80=91core sub=E2=80=91nodes (MFC=E2=80=910 and MFC=E2=80=911) wi=
-th their own sysmmu,
->   firmware region, and configuration parameters.
-> - Resource table listing supported codecs and their capabilities.
->
-> Adds full support for the V920 MFC hardware to the mainline kernel
-> device=E2=80=91tree, enabling proper memory allocation, interrupt handlin=
-g and
-> codec operation on this platform.
->
-> Signed-off-by: Nagaraju Siddineni <nagaraju.s@samsung.com>
-> Signed-off-by: Himanshu Dewangan <h.dewangan@samsung.com>
-> ---
->  .../dts/exynos/exynosautov920-evt2-mfc.dtsi   | 187 ++++++++++++++++++
+Update license and remove individual authorship.
 
-No, there are no such files. Don't push your downstream here.
+Signed-off-by: Jan Remmet <j.remmet@phytec.de>
+---
+ arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10.dtso   | 3 +--
+ arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-eval-01.dtso | 3 +--
+ arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts          | 3 +--
+ arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi                | 3 +--
+ 4 files changed, 4 insertions(+), 8 deletions(-)
 
->  .../arm64/boot/dts/exynos/exynosautov920.dtsi |   1 +
->  2 files changed, 188 insertions(+)
->  create mode 100644 arch/arm64/boot/dts/exynos/exynosautov920-evt2-mfc.dt=
-si
->
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10.dtso b/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10.dtso
+index e5ca5a664b61e20e9c30c9e5ca01a6ae6da57596..5955d48e19ad0035038ea4ad7838b3e09d10b2ec 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10.dtso
++++ b/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-av-10.dtso
+@@ -1,7 +1,6 @@
+-// SPDX-License-Identifier: GPL-2.0
++// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
+ /*
+  * Copyright (C) 2025 PHYTEC Messtechnik GmbH
+- * Author: Teresa Remmet <t.remmet@phytec.de>
+  */
+ 
+ /dts-v1/;
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-eval-01.dtso b/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-eval-01.dtso
+index a28f51ece93ba62a7a9991826cca2ec74f704ba2..1059c26990fe6eb0d7acdad4d3386944f46ea99b 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-eval-01.dtso
++++ b/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-peb-eval-01.dtso
+@@ -1,7 +1,6 @@
+-// SPDX-License-Identifier: GPL-2.0
++// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
+ /*
+  * Copyright (C) 2025 PHYTEC Messtechnik GmbH
+- * Author: Janine Hagemann <j.hagemann@phytec.de>
+  */
+ 
+ /dts-v1/;
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts b/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts
+index be470cfb03d75de7d6d3fbb1add65c71fbe8f286..ccbfd697376968e49057f102571a0f06cb19e702 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts
+@@ -1,7 +1,6 @@
+-// SPDX-License-Identifier: GPL-2.0
++// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
+ /*
+  * Copyright (C) 2022 PHYTEC Messtechnik GmbH
+- * Author: Teresa Remmet <t.remmet@phytec.de>
+  */
+ 
+ /dts-v1/;
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi
+index 672baba4c8d0527f2de002d49aa96d30a6ae2373..1c472e9012c3ad3445fc0b17e0393a9c0e243329 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx8mm-phycore-som.dtsi
+@@ -1,7 +1,6 @@
+-// SPDX-License-Identifier: GPL-2.0
++// SPDX-License-Identifier: (GPL-2.0-or-later OR MIT)
+ /*
+  * Copyright (C) 2022 PHYTEC Messtechnik GmbH
+- * Author: Teresa Remmet <t.remmet@phytec.de>
+  */
+ 
+ #include "imx8mm.dtsi"
 
-This doesn't belong to media patchset, don't combine them.
+-- 
+2.43.0
 
-Anyway, you completely disregarded DTS coding style and how we were
-Samsung DTS. Please don't send us downstream code.
-
-I won't be reviewing this, you need to start from scratch looming at
-other recent code.
-
-Remember also about Samsung maintainer profile, although with such
-completely broken and non working bindings it's pointless now - this
-code couldn't even be reliably tested with them.
-
-
-Best regards,
-Krzysztof
 
