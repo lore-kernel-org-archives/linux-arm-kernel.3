@@ -4,80 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F155ACCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 12:16:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49575CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 12:20:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DT3kmmoCh/QqwpiEzn8+Wg1aSuJs0OQeflPRtSBj4OA=; b=S6DibI1ms9v0cUg2g29u2wrnbM
-	RnU2ETqvCphPL0Lnc9bqwQGh4RgN36g5Ij4MiOqO5JN6epgd3HDdPeKmrFUfeJA0RPFJMi4oHY2eT
-	Mv350DNjH3XkWp9A3ZK0jfhQlJpfGy/FUDL8PSzziCrzsX91UGAx0e4Th67Bi8f+rcfchTMet6TNY
-	KhSAVLupw64+9xUuFwY+au4rIxuOepZ+mFVlgmcbETPoTi1x4U3aufgRQyaE0s7X8tp1rmndhqGG9
-	UyqNICrYMl6jjN8RSxRsNcoCl0x3x/6s95scp3Y6LLQAYg0Y6Xcbr/E9Hjj67L08koVRB8BUpeJO/
-	KSCrUPwA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=JfRlA2NUhU1kG602IPax22A5h+dNSAH5OIBQUrcaHKQ=; b=J5TboAJJ+iK6cGRuUqGE9JosWc
+	v3taZTLDhNKRo3f9UYOx66pb0OAvk9VHEnL35rTOIS0ymY5k3Gx4h4dfbavc7NxqeqloOK69gKjF1
+	yv8PruDXwZSRLgrNAGBFYhdPNoeVzRBFTno1hY3Jvuc62B3xDLXTrfFYkifIZcKY2trNganYZ3t86
+	6CUaTv3bnSJHf9FuXyBP2SNmhQc1Po2TELxvUbSnRwYQMqvwFKK66u54uKVGgkh+jQLW3FmgfifuY
+	UeojyTMLPmT5eeBGtXsQnrIW88Vb0Ue/EA5LBtmJmh7acFpoZGUY2/BUoPP4r+SQAMyqi5lvrErUi
+	IDubRWjQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3ZHm-00000005ELK-3vvO;
-	Tue, 30 Sep 2025 12:16:50 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1v3ZLE-00000005F3t-2qvJ;
+	Tue, 30 Sep 2025 12:20:24 +0000
+Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3ZHZ-00000005EGD-10Fb
+	id 1v3ZLC-00000005F31-0in8
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Sep 2025 12:16:39 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 58UCGMaD2911947;
-	Tue, 30 Sep 2025 07:16:22 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1759234582;
-	bh=DT3kmmoCh/QqwpiEzn8+Wg1aSuJs0OQeflPRtSBj4OA=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=th5fdSWa2pS7avy3CPJi20Rcr43GmjveGr5yG7lxHBPz04lInhVXVcAnRRVeLxUB4
-	 3t1yDltwFhdAVvwDWGlfnzuyFhC8FWsGNjRxE1nC6r7Dp3jAjwQBaGhtV5Mig33r7C
-	 LC9mXPRE53fe3cFLlAb5IXcJS2LRNrroEKj5u3xg=
-Received: from DFLE105.ent.ti.com (dfle105.ent.ti.com [10.64.6.26])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 58UCGMaO2114239
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 30 Sep 2025 07:16:22 -0500
-Received: from DFLE209.ent.ti.com (10.64.6.67) by DFLE105.ent.ti.com
- (10.64.6.26) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 30
- Sep 2025 07:16:21 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE209.ent.ti.com
- (10.64.6.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 30 Sep 2025 07:16:21 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 58UCGLwc2892161;
-	Tue, 30 Sep 2025 07:16:21 -0500
-From: Nishanth Menon <nm@ti.com>
-To: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-        Paolo
- Abeni <pabeni@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
-        Eric Dumazet
-	<edumazet@google.com>,
-        "David S. Miller" <davem@davemloft.net>,
-        Andrew Lunn
-	<andrew+netdev@lunn.ch>
-CC: Santosh Shilimkar <ssantosh@kernel.org>, Simon Horman <horms@kernel.org>,
-        Siddharth Vadapalli <s-vadapalli@ti.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <netdev@vger.kernel.org>, Nishanth Menon <nm@ti.com>
-Subject: [PATCH V2 2/3] soc: ti: knav_dma: Make knav_dma_open_channel return NULL on error
-Date: Tue, 30 Sep 2025 07:16:08 -0500
-Message-ID: <20250930121609.158419-3-nm@ti.com>
-X-Mailer: git-send-email 2.47.0
-In-Reply-To: <20250930121609.158419-1-nm@ti.com>
-References: <20250930121609.158419-1-nm@ti.com>
+	Tue, 30 Sep 2025 12:20:24 +0000
+Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-79599d65f75so47820316d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 05:20:21 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=fooishbar.org; s=google; t=1759234820; x=1759839620; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JfRlA2NUhU1kG602IPax22A5h+dNSAH5OIBQUrcaHKQ=;
+        b=b6zqCVnWAB5eVEH3cNEJjAWQueIHsDszHGqxVmubeJblwzSZRvEBqJEAO+x4jeuxb+
+         LltjBJG0QN1bedAqESuqldaKoMZKxcHguwhACjsP42uZLb9GmgbfWlrNRSiYH3WASSNi
+         59CafPiZCbpHUSrxo2r/7XjwDp3A8aF8zdnu0/r9JyRPn/ZwSSJMMlBYCeHDdJ+NIyFu
+         DI0LFYGr1ti8YGLj25txNQ4PYBCRW0KZJmsWmm32CL55MQHUAqaXhYB0IQMIyZxDlwXO
+         2yJAgZ68k/q9BJfUnR0y08WwOeFei4RELovIyum/AR8PssKh9itcUK5tz+nML+z1nYA7
+         LpMw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759234820; x=1759839620;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=JfRlA2NUhU1kG602IPax22A5h+dNSAH5OIBQUrcaHKQ=;
+        b=owvsoCT6z/p/TV5xdc3n68AowUcQcUhE59Lfq0NHDAhSGg6Oe1XMvKX9RUAF+lbW1R
+         8JmFysfcbrB+jRP+/S2oF+cbdrSYra70vRuDMpt5+uw9DM3Y2gSkuWgPIGjqcczHZXt1
+         N/BQUIccxsOG9r1YKuaE9hToM9uCPayna1J+Dmo0by6Phtzqrdu/pC6AenIGQO38lDBK
+         0bFeBC8Wizn23sGlGEOv7lOwAyjXmJUrHpHt9/5h9qIxfRIAigjKcSI9OVfE6gX2oCw8
+         AJhxgW6ocRh0sP6wgxlSFN7glKTaElMzhUqXDn+UNbrQLG0/HXhC3Jtd7glPYe9T+tYG
+         a62Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWLuJ1WL7cJFqf2gzWeQX5sGV383V4F8QnPCGbbdLGtcrrz56ghpwNQoWkrtfoUY/5FxnR3NTDFGnUjaa17vtG4@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzdkLrK5vIQN0Cnnh1y/d5fXnL0K0z9FPPXK/vyyvDIrkUoJzC
+	HreOOxgGi7c048bVFrUNaQz0ij+VenS0oGcfx1U2h/NHazhxaOlX27J+TzyPXi5AYhMZfLzUEMS
+	bnQgbMGaUzacfh3Mc61Pu9NOhFPdb0OH4QmeTdJOKLg==
+X-Gm-Gg: ASbGncvLvykB6rDk/wEdeVnclvdCT5uQe2eEl4uILfN/CE1PUW7NOsp/CSSD4tM1Cqq
+	qi2vopC+EsL0wyYvROX9+s/17xyLyYkvNZM9sE/pkxguWWawTaU7Js2tt2hjf2hlTH6AJTodH6P
+	IhYq0H1vhzvLKXHeGDjH3Ez/4ROuYjjZldxTUpGwDe21SCp1s2r/qzVvRbsnfrbMUvZAha5PC9m
+	hl4HsllAlm0aC0tV5VKVjsKOPiVlnGWOuKoL3oL
+X-Google-Smtp-Source: AGHT+IGNbjw6RNqsJAvb7qKyVX9JU+8Q52yRLDkjXoWDZvMcGT/3qrwgZCNcyKpRwrI6Z9Mglf9tBhqM86fyt3kXMf8=
+X-Received: by 2002:ad4:594c:0:b0:794:5578:6a with SMTP id 6a1803df08f44-7fc29999880mr292314156d6.10.1759234820411;
+ Tue, 30 Sep 2025 05:20:20 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+References: <20250822-mtk-post-blend-color-pipeline-v1-0-a9446d4aca82@collabora.com>
+ <20250822-mtk-post-blend-color-pipeline-v1-1-a9446d4aca82@collabora.com>
+ <CAPj87rPAoD2D99zTdsvJ=9K8+G17mTS2jDYHMPYmXNtUyp2L_Q@mail.gmail.com>
+ <CAFZQkGwotQ6cxVCSgp-BhUi5DaZ7MyVvbnrDJW11Z7ztzqy58g@mail.gmail.com>
+ <CAPj87rMTOD3_tC70QX4xz3G4zdG=tmwt5VgPhq6jNyf8bbW49Q@mail.gmail.com>
+ <269ca85a59f613568543f45867fba7e604cc9f11.camel@collabora.com>
+ <CAPj87rMhsFy+uzKmNecrQG4e+BEoeX1FyEobO7bnHdQqhy1_2Q@mail.gmail.com> <2a985767-0fe1-40fc-b45e-921bbf201e07@app.fastmail.com>
+In-Reply-To: <2a985767-0fe1-40fc-b45e-921bbf201e07@app.fastmail.com>
+From: Daniel Stone <daniel@fooishbar.org>
+Date: Tue, 30 Sep 2025 14:20:09 +0200
+X-Gm-Features: AS18NWC_qgpU_0cN4JQ19aLDGw_PL71UmwKNqFB1ss4l60CpIYnHrco3rK8zc9M
+Message-ID: <CAPj87rMHP_np_9vtnyJ_NU4S3W09DoMRrLPps-33hTngdLyKCw@mail.gmail.com>
+Subject: Re: [PATCH RFC 1/5] drm: Support post-blend color pipeline API
+To: Sebastian Wick <sebastian@sebastianwick.net>
+Cc: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>, 
+	Xaver Hugl <xaver.hugl@gmail.com>, 
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
+	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Alex Hung <alex.hung@amd.com>, 
+	wayland-devel@lists.freedesktop.org, harry.wentland@amd.com, leo.liu@amd.com, 
+	ville.syrjala@linux.intel.com, pekka.paalanen@collabora.com, mwen@igalia.com, 
+	jadahl@redhat.com, sebastian.wick@redhat.com, shashank.sharma@amd.com, 
+	agoins@nvidia.com, joshua@froggi.es, mdaenzer@redhat.com, aleixpol@kde.org, 
+	victoria@system76.com, uma.shankar@intel.com, quic_naseer@quicinc.com, 
+	quic_cbraga@quicinc.com, quic_abhinavk@quicinc.com, marcan@marcan.st, 
+	Liviu.Dudau@arm.com, sashamcintosh@google.com, 
+	chaitanya.kumar.borah@intel.com, louis.chauvet@bootlin.com, mcanal@igalia.com, 
+	kernel@collabora.com, daniels@collabora.com, dri-devel@lists.freedesktop.org, 
+	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, Simona Vetter <simona.vetter@ffwll.ch>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250930_051637_370118_2CE4C82A 
-X-CRM114-Status: GOOD (  14.36  )
+X-CRM114-CacheID: sfid-20250930_052022_363188_66537160 
+X-CRM114-Status: GOOD (  22.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,88 +116,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Make knav_dma_open_channel consistently return NULL on error instead of
-ERR_PTR. Currently the header include/linux/soc/ti/knav_dma.h returns NUL
-when the driver is disabled, but the driver implementation returns
-ERR_PTR(-EINVAL), creating API inconsistency for users.
+Hi,
 
-Standardize the error handling by making the function return NULL on all
-error conditions.
+On Fri, 26 Sept 2025 at 15:45, Sebastian Wick
+<sebastian@sebastianwick.net> wrote:
+> So I'm going to argue that making the properties read-only or read-write =
+is useless.
+>
+> The only case where knowing the color pipeline of the previous user would=
+ be useful is if you want to re-use the framebuffer of said user. Otherwise=
+, the color pipeline and the generated framebuffer have to somehow just mat=
+ch to produce the desired output and that does not require any previous sta=
+te, making the legacy properties useless.
 
-Suggested-by: Simon Horman <horms@kernel.org>
-Signed-off-by: Nishanth Menon <nm@ti.com>
----
-Changes in V2:
-* renewed version
+I don't think it's useless; if nothing else, drm_info is a thing and
+having it work is nice.
 
- drivers/soc/ti/knav_dma.c | 14 +++++++-------
- 1 file changed, 7 insertions(+), 7 deletions(-)
+> If we genuinely believe that this is something to be supported, then my q=
+uestion is why the new color pipeline should not be able to accurate reflec=
+t the state of the previous user, even if they used the legacy props?
 
-diff --git a/drivers/soc/ti/knav_dma.c b/drivers/soc/ti/knav_dma.c
-index a25ebe6cd503..e69f0946de29 100644
---- a/drivers/soc/ti/knav_dma.c
-+++ b/drivers/soc/ti/knav_dma.c
-@@ -402,7 +402,7 @@ static int of_channel_match_helper(struct device_node *np, const char *name,
-  * @name:	slave channel name
-  * @config:	dma configuration parameters
-  *
-- * Returns pointer to appropriate DMA channel on success or error.
-+ * Returns pointer to appropriate DMA channel on success or NULL on error.
-  */
- void *knav_dma_open_channel(struct device *dev, const char *name,
- 					struct knav_dma_cfg *config)
-@@ -414,13 +414,13 @@ void *knav_dma_open_channel(struct device *dev, const char *name,
- 
- 	if (!kdev) {
- 		pr_err("keystone-navigator-dma driver not registered\n");
--		return (void *)-EINVAL;
-+		return NULL;
- 	}
- 
- 	chan_num = of_channel_match_helper(dev->of_node, name, &instance);
- 	if (chan_num < 0) {
- 		dev_err(kdev->dev, "No DMA instance with name %s\n", name);
--		return (void *)-EINVAL;
-+		return NULL;
- 	}
- 
- 	dev_dbg(kdev->dev, "initializing %s channel %d from DMA %s\n",
-@@ -431,7 +431,7 @@ void *knav_dma_open_channel(struct device *dev, const char *name,
- 	if (config->direction != DMA_MEM_TO_DEV &&
- 	    config->direction != DMA_DEV_TO_MEM) {
- 		dev_err(kdev->dev, "bad direction\n");
--		return (void *)-EINVAL;
-+		return NULL;
- 	}
- 
- 	/* Look for correct dma instance */
-@@ -443,7 +443,7 @@ void *knav_dma_open_channel(struct device *dev, const char *name,
- 	}
- 	if (!dma) {
- 		dev_err(kdev->dev, "No DMA instance with name %s\n", instance);
--		return (void *)-EINVAL;
-+		return NULL;
- 	}
- 
- 	/* Look for correct dma channel from dma instance */
-@@ -463,14 +463,14 @@ void *knav_dma_open_channel(struct device *dev, const char *name,
- 	if (!chan) {
- 		dev_err(kdev->dev, "channel %d is not in DMA %s\n",
- 				chan_num, instance);
--		return (void *)-EINVAL;
-+		return NULL;
- 	}
- 
- 	if (atomic_read(&chan->ref_count) >= 1) {
- 		if (!check_config(chan, config)) {
- 			dev_err(kdev->dev, "channel %d config miss-match\n",
- 				chan_num);
--			return (void *)-EINVAL;
-+			return NULL;
- 		}
- 	}
- 
--- 
-2.47.0
+That's reasonable. My hunch was that it would be too much code in the
+kernel to essentially just do format reinterpretation on userspace's
+behalf.
 
+> The hardware was able to get into some state based on the legacy props, s=
+o it will be able to get into the same state with the color pipeline props;=
+ it's "just" a matter of exposing the right pipeline.
+>
+> If we are not able to accurate reflect the previous state with the pipeli=
+ne props, then use space will see inconsistent state between the legacy and=
+ color pipeline props. Which state is the right one? We cannot know. The pr=
+evious user could have used either one. So having the legacy props does not=
+ help because we don't know if we should use them or the pipeline state.
+>
+> So, I would argue that we should *remove* the legacy props if DRM_CLIENT_=
+CAP_POST_BLEND_COLOR_PIPELINE is set. If the handover is relevant for a dri=
+ver, they should ensure the legacy props state translates to the correct co=
+lor pipeline state.
+
+FWIW, the usecase I can see in mind would be doing a fade-style
+transition between the old and new clients. But I don't really care
+too strongly about it to be honest; I mostly care about having
+drm_info work because it's a super-useful tool.
+
+Cheers,
+Daniel
 
