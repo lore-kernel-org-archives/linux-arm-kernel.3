@@ -4,81 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49748CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 15:46:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75027CAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 15:57:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iCpr5TzyOFeRuqU82QBgsAybOuX0sXWBwEO+eHNweII=; b=iNIBgwuoa9WD6YxFeC6R5VgLoN
-	EYnZRqfEu8imkfEf/bKLoSU7UL3kkUtBj8eh2/wpKCuJTw75lijetHo1S0DOV/EyiCm1ZuNgLwmbf
-	x2CfQ/YxI/ECl2zAF90kejkQ0xnpiZW+Be8WWa2ShWhKhO/t4TmIibmmPf8SFGQ6ruMuji0cM8tVL
-	UEDBwClQtxnwR0X/cqaRreFIO+a1TbtTcCcBylq93YrDS1X7AVBzgxEdEFy9wZvYun2ZkyZB9zuzO
-	TfSvBZcz+NdAmtKXVvUZ1ej23XoEBC7N6kwLLWLcOgaG6mupYW9duT6yYtWxBv8IbuX68vuFZCVge
-	8Q5losmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ioMp3H6KrLSJJWEalLUIkYC5TSRKBOYlkpJQjihtMzg=; b=VrLTHhXGph9IZVB6oQIMme+Pif
+	kAg76d266PhS1o/SHqvPTAIP/DYRqOXs/AKo3yTFwGEd6qL2TqmA6Ib2SDf55TpTjXI7PXsYK1F9m
+	eTCPZgveUXccn+7C+n1ao6Mraelu/0yQ3AhLnN97jzem4sH03Rya6+IcLpnesROjJE7/AqgeiLT/b
+	Ej/WrNYrQQgB7kVhXAU+BOzrqnZtuXqR0FRS98spnRW3TuOYmv87o9/UlUQx48ibtZAEua+r+jOUr
+	Kj63xqAFZQHCVhqtu0s91sdOLFFnG4TpNy8WGP7zIg34i5c02B/VuPElfZH5JOq//6m3LO2EQNCjJ
+	INd2yCUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3cYb-00000005ghN-11tF;
-	Tue, 30 Sep 2025 15:46:25 +0000
-Received: from mailout1.w1.samsung.com ([210.118.77.11])
+	id 1v3cjF-00000005hvj-3erw;
+	Tue, 30 Sep 2025 15:57:25 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3cYX-00000005geR-37vQ
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Sep 2025 15:46:23 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20250930154613euoutp014b49312e3ceb3e480cfc18939f86aa42~qGfukt1bt3256932569euoutp01a
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 15:46:13 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20250930154613euoutp014b49312e3ceb3e480cfc18939f86aa42~qGfukt1bt3256932569euoutp01a
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1759247173;
-	bh=iCpr5TzyOFeRuqU82QBgsAybOuX0sXWBwEO+eHNweII=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=GEmo2aaV3Fhb+h0H+OL88S5Un3zCHcz7kvEcOruc4TmXpXvHdpKjLwI7cEBp7asMO
-	 muCNuGSqnMlJSRFBKwmUe+kxce/c8fhUiZy+mBT4fvst9i7T4SLjLU0Jge/xzV09V9
-	 trHRBO20Um+o+53qS3gt/u6DVrintZBeymx0x8lo=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p2.samsung.com (KnoxPortal) with ESMTPA id
-	20250930154612eucas1p2cf5b43435487dc8e6b19b60d1a3801ef~qGft4sFWT2800928009eucas1p2c;
-	Tue, 30 Sep 2025 15:46:12 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20250930154610eusmtip1200c7ebad2fc47c80d082b3f7ac27ab7~qGfryC8yB2715127151eusmtip1T;
-	Tue, 30 Sep 2025 15:46:09 +0000 (GMT)
-Message-ID: <75d06769-4896-4095-9969-03a517705196@samsung.com>
-Date: Tue, 30 Sep 2025 17:46:09 +0200
+	id 1v3cjC-00000005huo-3Um7;
+	Tue, 30 Sep 2025 15:57:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1759247828; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=I5L91SFryh9PWo0AVpJ8DzEfynhJp8Qa8K6IS1VSO1hvFf2LTELb9Ppa80DMjOGzZuI4ReMWA1sAcsIrtfGkgy9sQaKq2wTA39BkgYvZurBlxpRNMyDHjzPETqJ5hsxRWeheNeJSYGa5qwIHAJLI+sfr4ZAejtzcCo8pNa2VYrQ=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1759247828; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=ioMp3H6KrLSJJWEalLUIkYC5TSRKBOYlkpJQjihtMzg=; 
+	b=K2s8WVu2Mvnf6b0YwSAe8lvq2SPQlWDJJDKl/S3HiTroxlfWTwTYl/SPZamF6T2yIweDHiJblbx91cy+SwQu7+NXkLB0LR9KbXEXDpFWHQ9y3hlW8Ku1kK5YdxG/pPNrWYiL4SR7hq+w8qLCpyH6/ZLVTjQ/rpvCbJIftoK/1ws=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1759247828;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=ioMp3H6KrLSJJWEalLUIkYC5TSRKBOYlkpJQjihtMzg=;
+	b=dY7IHF+eFzJGNOppoeK/Q/lCl7//wKzf9NwwZzeKUsx/cXFOxiSSoM4wRHCqOn6r
+	cmV4HmxijmwB5nyX+T2lkhLjeclOuR7ueVENEc2VKAppT7kFYHSesZRQTBt5NxkP4Ww
+	K9vL3En+TcxQUkhorWjPofMdiqGqbMwCoOIkzxgY=
+Received: by mx.zohomail.com with SMTPS id 1759247826058389.2239892145087;
+	Tue, 30 Sep 2025 08:57:06 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Conor Dooley <conor@kernel.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Guangjie Song <guangjie.song@mediatek.com>,
+ Laura Nao <laura.nao@collabora.com>,
+ =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>,
+ Yassine Oudjana <y.oudjana@protonmail.com>, kernel@collabora.com,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+ linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH 1/4] dt-bindings: clock: mediatek: Add clocks for MT8196 mfgpll
+Date: Tue, 30 Sep 2025 17:57:00 +0200
+Message-ID: <3374975.aeNJFYEL58@workhorse>
+In-Reply-To: <20250929-whoops-kennel-5f54fb6559a8@spud>
+References: <20250929-mtk-pll-rpm-v1-0-49541777878d@collabora.com>
+ <20250929-mtk-pll-rpm-v1-1-49541777878d@collabora.com>
+ <20250929-whoops-kennel-5f54fb6559a8@spud>
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: =?UTF-8?Q?Re=3A_=5BPATCH_08/29=5D_media=3A_mfc=3A_Add_Exynos?=
- =?UTF-8?Q?=E2=80=91MFC_driver_probe_support?=
-To: Krzysztof Kozlowski <krzk@kernel.org>, Himanshu Dewangan
-	<h.dewangan@samsung.com>
-Cc: mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, sumit.semwal@linaro.org, christian.koenig@amd.com,
-	alim.akhtar@samsung.com, manjun@samsung.com, nagaraju.s@samsung.com,
-	ih0206.lee@samsung.com, jehyung.lee@samsung.com,
-	linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	linaro-mm-sig@lists.linaro.org
-Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <CAJKOXPecLREbEDM4yfM=WD-EFfuBqPDXNZceATLeWQRj0X_w7w@mail.gmail.com>
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20250930154612eucas1p2cf5b43435487dc8e6b19b60d1a3801ef
-X-Msg-Generator: CA
+Content-Transfer-Encoding: 7Bit
 Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20250930035551epcas5p4ee7cb5af08eadb2f5ed6e5eaa06a60a9
-X-EPHeader: CA
-X-CMS-RootMailID: 20250930035551epcas5p4ee7cb5af08eadb2f5ed6e5eaa06a60a9
-References: <CGME20250930035551epcas5p4ee7cb5af08eadb2f5ed6e5eaa06a60a9@epcas5p4.samsung.com>
-	<20250930040348.3702923-1-h.dewangan@samsung.com>
-	<20250930040348.3702923-9-h.dewangan@samsung.com>
-	<CAJKOXPecLREbEDM4yfM=WD-EFfuBqPDXNZceATLeWQRj0X_w7w@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250930_084622_045861_A293950F 
-X-CRM114-Status: GOOD (  18.24  )
+X-CRM114-CacheID: sfid-20250930_085723_113617_A4882F82 
+X-CRM114-Status: GOOD (  25.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,49 +88,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+On Monday, 29 September 2025 19:31:36 Central European Summer Time Conor Dooley wrote:
+> On Mon, Sep 29, 2025 at 02:13:20PM +0200, Nicolas Frattaroli wrote:
+> > The clock controllers for mfgpll, mfgpll-sc0, and mfgpll-sc1 all need
+> > CLK_TOP_MFG_EB to be on if their clock control registers are touched in
+> > any way.
+> > 
+> > This was not known at the time this binding was written, as this
+> > dependency only came to light when I started poking at the MFlexGraphics
+> > hardware, where this undocumented peculiarity made itself known through
+> > SErrors being thrown during register reads.
+> > 
+> > Add a clocks property to the binding to describe this relationship, and
+> > mark it as required for the affected clocks.
+> > 
+> > Fixes: dd240e95f1be ("dt-bindings: clock: mediatek: Describe MT8196 clock controllers")
+> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > ---
+> >  .../bindings/clock/mediatek,mt8196-sys-clock.yaml  | 28 ++++++++++++++++++++++
+> >  1 file changed, 28 insertions(+)
+> > 
+> > diff --git a/Documentation/devicetree/bindings/clock/mediatek,mt8196-sys-clock.yaml b/Documentation/devicetree/bindings/clock/mediatek,mt8196-sys-clock.yaml
+> > index 660ab64f390d2e722b7d3e25cf057926da318bc0..41aacd8d5f69050eebdf8392f7b652427632f491 100644
+> > --- a/Documentation/devicetree/bindings/clock/mediatek,mt8196-sys-clock.yaml
+> > +++ b/Documentation/devicetree/bindings/clock/mediatek,mt8196-sys-clock.yaml
+> > @@ -45,6 +45,9 @@ properties:
+> >    reg:
+> >      maxItems: 1
+> >  
+> > +  clocks:
+> > +    maxItems: 1
+> > +
+> >    '#clock-cells':
+> >      const: 1
+> >  
+> > @@ -90,6 +93,23 @@ required:
+> >  
+> >  additionalProperties: false
+> >  
+> > +allOf:
+> > +  - if:
+> > +      properties:
+> > +        compatible:
+> > +          contains:
+> > +            enum:
+> > +              - mediatek,mt8196-mfgpll-pll-ctrl
+> > +              - mediatek,mt8196-mfgpll-sc0-pll-ctrl
+> > +              - mediatek,mt8196-mfgpll-sc1-pll-ctrl
+> > +    then:
+> > +      properties:
+> > +        clocks:
+> > +          items:
+> > +            - description: mfg_eb clock
+> > +      required:
+> > +        - clocks
+> 
+> Don't you want an else: properties: clocks: false here?
 
-On 30.09.2025 07:54, Krzysztof Kozlowski wrote:
-> On Tue, 30 Sept 2025 at 12:56, Himanshu Dewangan <h.dewangan@samsung.com> wrote:
->> From: Nagaraju Siddineni <nagaraju.s@samsung.com>
->>
->> Introduce a new Kconfig entry VIDEO_EXYNOS_MFC for the Samsung
->> Exynos MFC driver that supports firmware version 13 and later.
->> Extend the top‑level Samsung platform Kconfig to disable the legacy
->> S5P‑MFC driver when its firmware version is > v12 and to select the
->> new Exynos‑MFC driver only when VIDEO_SAMSUNG_S5P_MFC is not enabled.
->>
->> Add exynos-mfc Kconfig and Makefile for probe functionality and creation
->> of decoder and encoder device files by registering the driver object
->> exynos_mfc.o and other relevant source files.
->>
->> Provide header files mfc_core_ops.h and mfc_rm.h containing core
->>    operation prototypes, resource‑manager helpers,
->>    and core‑selection utilities.
->>
->> Add a configurable option MFC_USE_COREDUMP to enable core‑dump
->> support for debugging MFC errors.
->>
->> These changes bring support for newer Exynos‑based MFC hardware,
->> cleanly separate it from the legacy S5P‑MFC driver, and lay the
->> groundwork for future feature development and debugging.
->>
-> No, NAK. Existing driver is well tested and already used on newest
-> Exynos SoC, so all this new driver is exactly how you should not work
-> in upstream. You need to integrate into existing driver.
->
-> Samsung received this review multiple times already.
+Possibly. I'm never quite sure how strict bindings should be when
+it comes to stuff like this. On the one hand, none of the other
+compatibles described in it use any clocks that we know of
+right now.
 
-Please don't be so categorical. The MFC hardware evolved quite a bit 
-from the ancient times of S5PV210 SoC, when s5p-mfc driver was designed. 
-The feature list of the new hardware hardly matches those and I really 
-don't see the reason for forcing support for so different hardware in a 
-single driver. Sometimes it is easier just to have 2 separate drivers if 
-the common part is just the acronym in the hardware block name...
+On the other, if we have a second set of compatibles that also
+needs clocks, but in a different way, would we repeat that for
+each such if/then condition? Or would be reformulate this as
+some oneOf/anyOf construct specifically for the clock property?
 
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+Kind regards,
+Nicolas Frattaroli
+
+> 
+> > +
+> >  examples:
+> >    - |
+> >      apmixedsys_clk: syscon@10000800 {
+> > @@ -104,4 +124,12 @@ examples:
+> >          mediatek,hardware-voter = <&scp_hwv>;
+> >          #clock-cells = <1>;
+> >      };
+> > +  - |
+> > +    #include <dt-bindings/clock/mediatek,mt8196-clock.h>
+> >  
+> > +    clock-controller@4b810000 {
+> > +        compatible = "mediatek,mt8196-mfgpll-pll-ctrl", "syscon";
+> > +        reg = <0x4b810000 0x400>;
+> > +        clocks = <&topckgen CLK_TOP_MFG_EB>;
+> > +        #clock-cells = <1>;
+> > +    };
+> > 
+> 
+
+
+
 
 
