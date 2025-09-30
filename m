@@ -4,177 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A8C8CAC5B9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 06:50:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81DF6CAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 07:02:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gHXUDcxxXHuG+QuKboAmtGnABHPWqlK2tu98XAzbCUw=; b=GHBp5zH+3p8byY+xJFGgQAX8dY
-	dXhsiDgaSJi4wzCCRI66mMmPffs/NCTnb+t8tEHxjkAF9Bceve8BT943LCt79OhyTe9RN8x5evcYE
-	N/9cu+WXyN7M73WK5aZZ5zernaaY7nkRK8/LLwV5aKSfrQrERwPSgIz4w1k9OoG5tt2iP1Uz2euez
-	WOZRSrg4MLEcfjD2E4OlR0BRRrKuVwKHeDFgaAnQEjR0K4+mfIE+5OQAULyyljpavJgRLU/xGoqpp
-	jO0FBKd0x36A+08+dwoI2x9Ncm5ofDisyNUV7fOOjrl26wup03Y9Pi8Ud16zJ5SE9BoybyxCsol9O
-	WvmT15PA==;
+	bh=BwBI3m+DtpPGWJNxcZ6VSGsWWmE70r279i000rgGn2k=; b=T0voQ9HVf5Y1UKERuvKVd4OsAm
+	Dj5xMzqrn7S/HKvvyWjbNZVq0XLxVruoMVlohcl3g1n/n5eR9C69wOR4SLay2TPF7gh+VV5CeAXk5
+	5sRNaTon0KVgL6lV9erV+aLL1fAbmFyBfIcQXQR1JEaC7wVUuVPCUQP5KjVtxAnVU/Nsg53aJgckj
+	N0mVGBJGXSO16zGtCF0LIe11P0QrPAf4/R8J4MoWGC/1uIDotqs1Gzsd+7X0CzsA+tpDsgBJc/Dq1
+	SkaMn2DidSteQ+HSs0yC31ixrlOGUdLJQvYdyPTcaWxQXAKevGkW/ItgYKP36HWA+MihHAhgqoY0g
+	xnw+OzJw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3UC5-00000004P8s-2Brq;
-	Tue, 30 Sep 2025 06:50:37 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1v3UNi-00000004Q7R-1a4f;
+	Tue, 30 Sep 2025 07:02:39 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3UC2-00000004P80-2xLj
+	id 1v3UNe-00000004Q6c-1Yth
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Sep 2025 06:50:36 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=GLBiZ31Mktmn4wzEepz0lQ4oZjE8ovYK1a7V2E9+bMj81K7wipKPZY7GYRM+uC8tGfiUJiAjGctCJTK6WPa8Ky1FYifUJxLjeJENXRTyX7Tec2ivvW8l2uOhbhxYJiOtypB/2gNQYAr74x4GJTcW8td5cew97nRoJmgl4GOAseAy4XABb9ddukLuNoiCaLHbdg698529kNmW7Jv/pqeypufxTJT5sVkVYSmhEb3ixEdzQJBroA9KjzjWGF74Ss8bVodJO1mQNYQ67hwvImKmMYTHMSgcnuE5AL+InHR+RT431sh3jM6NQCcITtGrQ0/sDgRcx6/t+e7uDrav4R98Xg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=gHXUDcxxXHuG+QuKboAmtGnABHPWqlK2tu98XAzbCUw=;
- b=iJgOsat9STZpVZC/jGbX0z/qOy3NIZOUgyCLYthhEk2mcfR8VVRC4MI+IxaRBgUAAB8N/Mx6kL5+OFVaR4zV1osCBtvvZdz4mzL3WVYEH+AMujcc1R7nW2NoUS1D+T1ruNqWZzeMJe2RaHN0Wn1QlHrLWVdGoTGMaQKVwmbgHf1BnCtzrPeGwTWNFNr1hLe+3LjWbUHfoHcVOga2iay5+7iQCLQKs+YBWJeAsUGWwrvEfHyo6zxTjYRze7pIAhLWg3ok9UpIzzTZA9gdsQHryItaGL31oISziuUcfLLtwr76KV0Aq5ul0jW2fGp6y3MrjSQg+nXic7Et23PALVVFFg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
- dkim=pass header.d=phytec.de; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=gHXUDcxxXHuG+QuKboAmtGnABHPWqlK2tu98XAzbCUw=;
- b=M5vQRlWZAtudZdscFjMoyOgi6WAxGKw6UKFquTiIpW+XtK8+iLG3BcmBL7Wjui3U6+Eb6BUlKDObvPSfdIfA4eRRx4j+W4/FdPQ7M9FMW3WFn6TG58KQOng87iELJAu8FVWWxAmbBpQF2eMLuZfwDLJMQNy0772Kd70VLdEXeIdiY1HaMKLmDvC1VHN+L+CCd+MvyQCj24sujrTEthv/k8I3atsBGvTU8irUFjiNlqSH0Um+JJ18RL8PESzlG4XRQFNvalqVkk9+jBM9vfhFL3uvJf/58CUR0d1Ipnn68lPIwitIg9jvoxJsw89kWuVJ/3e3uJ114GSC0WxAgTmPlg==
-Received: from DB9P195MB1228.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:297::14)
- by GV2P195MB1940.EURP195.PROD.OUTLOOK.COM (2603:10a6:150:a9::7) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.17; Tue, 30 Sep
- 2025 06:50:20 +0000
-Received: from DB9P195MB1228.EURP195.PROD.OUTLOOK.COM
- ([fe80::389e:cc69:1eab:3c56]) by DB9P195MB1228.EURP195.PROD.OUTLOOK.COM
- ([fe80::389e:cc69:1eab:3c56%4]) with mapi id 15.20.9160.015; Tue, 30 Sep 2025
- 06:50:20 +0000
-From: Teresa Remmet <t.remmet@phytec.de>
-To: Janine Hagemann <j.hagemann@phytec.de>, "kernel@pengutronix.de"
-	<kernel@pengutronix.de>, "s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>, "robh@kernel.org"
-	<robh@kernel.org>, "shawnguo@kernel.org" <shawnguo@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, Jan Remmet <j.remmet@phytec.de>
-CC: "imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>
-Subject: Re: [PATCH 1/6] arm64: dts: imx8mm-phyboard-polis: Use
- GPL-2.0-or-later OR MIT
-Thread-Topic: [PATCH 1/6] arm64: dts: imx8mm-phyboard-polis: Use
- GPL-2.0-or-later OR MIT
-Thread-Index: AQHcMdYtB3+Lei5E1UGrosfjT8+1q7SrSUuA
-Date: Tue, 30 Sep 2025 06:50:19 +0000
-Message-ID: <04cf3e10e3e1048844d06f08c5e90a9956e53b24.camel@phytec.de>
-References: <20250930-wip-j-remmet-phytec-de-bspimx8m-3801_peb-av-10_with_ac209-v1-0-d5d03ccbfca1@phytec.de>
-	 <20250930-wip-j-remmet-phytec-de-bspimx8m-3801_peb-av-10_with_ac209-v1-1-d5d03ccbfca1@phytec.de>
-In-Reply-To: <20250930-wip-j-remmet-phytec-de-bspimx8m-3801_peb-av-10_with_ac209-v1-1-d5d03ccbfca1@phytec.de>
-Accept-Language: de-DE, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=phytec.de;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: DB9P195MB1228:EE_|GV2P195MB1940:EE_
-x-ms-office365-filtering-correlation-id: ca17fb98-f76d-4e03-89b7-08ddffed9f40
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|376014|38070700021;
-x-microsoft-antispam-message-info: =?utf-8?B?WXYxLzM0dm9mcmxLTjNsNnowc0ljb1RHdmZ5N0RZYnN4ZVo2SzVRRmNPVENU?=
- =?utf-8?B?a1FvR3RwWkdtYWx2SlVldHczclZHRUphOUdGRDZuU1hQR1VEb1FjczRNOEFv?=
- =?utf-8?B?Y3pFdkhiMUlkS1NCaHZpRXFka0VzTzdOdWQzcmtuMGt4MVBTVnlGbGlJZVhI?=
- =?utf-8?B?ZS9EYys4UWNJN0FUK1hSNmxYR0RSbmhGTzdkL05ueXhTa3FtSnF0MDZkS3ZO?=
- =?utf-8?B?TjVnR25lTEJtNkFKNHQ0dEZMWVp3UDBaREpXQkFka2h0L255eDhnaHA4Lytx?=
- =?utf-8?B?cDFxVjcybVRoSEJYczdMWG9GeDcxVnR0RTBiakRMR2FnYnQvdzE3UmZ5cU9s?=
- =?utf-8?B?Q2pWYmM1Y0RRNlJTS2V5TU5jREt3TFF6WnlFQ2hIZkhSZ05iamtpVS82a3Nq?=
- =?utf-8?B?Z1o2WFRiejdPYlJYZkJUN3djV09GL3dHN1dpQURXdGMrQ0xYMXNudW5Ua1Bt?=
- =?utf-8?B?MGFpcCtYcEhpbCtBenFSbUJoSlJNZWcrVXBLMHFsTTBLS0Z0S01jdTErV0Jv?=
- =?utf-8?B?cmw3ZEpLb1FzODduS0d0S211c2pXcDdvZExaQkFjTEJpSU9UaEJ2cFQ2K2lN?=
- =?utf-8?B?THFYU0Z0eVovNFg5UFpCcVQ5VjAxZnpNNHMvQTI5T1NvVzZraFQ2VXg3azRy?=
- =?utf-8?B?Qk1CdEZONkg0bTNhQkZyUXFYSG5jRmd4MGFPd1VFQmFqci9CcjA2MVQ5QjZu?=
- =?utf-8?B?OHk0WFk3SkRFSVUzRXF1RnVlWk9GS204a3JUZWErMlJ5V1Yrd01ISE4vaTEr?=
- =?utf-8?B?UGhVVWlpbGwxYzdlNlhCL2k0TGlKTEVxMjVQcXEwN05GKzRzdTE1bUovb01K?=
- =?utf-8?B?VSs2VitDR2poWXBWYVB2ZlduKzdDREgvRk1vQUh3eXQvT3QwWWRWb2Y2bVFy?=
- =?utf-8?B?d3FpQXZnd015cFZpa1VWOXVIaFdSbGZTYUtub09sekxEVTJxcUYySk9vTWNI?=
- =?utf-8?B?VkNlVDIzVnFNZTBQVHNINHB4cG1HN2krb1dYQ3lCS01BR1hTYWZVMXlteTJ3?=
- =?utf-8?B?WVAxS1VmYStjVGNMSVI3SHJQVDkvQXB1VEhpMHNCMzVOVERXK1YvRjl5NUJU?=
- =?utf-8?B?ZWE4d3NYTEZpM0t4QWVqRndnbitWeGM5S0d3eXluSXpkM2pRazIrSXpjb2hJ?=
- =?utf-8?B?TWx1ck50emVqamFpcEJyWXYrSlhwZVBMa1hyck1RSnNWeXhacFkyZDJYMFc4?=
- =?utf-8?B?aGI2MzJTdUVkUllORk5SMmRxV0ZBSWp0d1RKUlNNa2QwcmdHZGFlU0J1cXpM?=
- =?utf-8?B?TVFjcUxYN2JoRGFkSi9yNnBIUkhVTzJYRk1nNE12QjhLNkVUek91WHV6Sm9m?=
- =?utf-8?B?dGtyMXlrckYzTGdVakZleXZyMkJON0ZLelNwMFRMbUZYMlBDTGpSYkZrVnVW?=
- =?utf-8?B?bmErZHNwTHRHYi9BTTJHSktjbDRaLytkVStGVEtPdlFtb0g0T1dEVldvYmVX?=
- =?utf-8?B?bWtvRWlmYlV2U29oZDJZemdEcGxJSjI3Zk5lRjRSVWNXMC9pVVo0WCtCRUtv?=
- =?utf-8?B?dk9LSDFZcnN2bTNrRUpBK3ZmMFdTNEhCR1g5c2VrVjM4R3QzSmowZ0RuaXU2?=
- =?utf-8?B?Q2UwUmdoaVRiVDN6YjlCNGUvSGh0eVJoU3hIcHNiaFlKdlZlN01BY0Vyd1Rj?=
- =?utf-8?B?QmhlZWhMU21uSEVtdDdPcE1aUWhwVDB1bGN4WVk5SXM3VW95YWtLNDNFU3Iv?=
- =?utf-8?B?Mk1BellkUWowWCtZa2l5NjJyYzIwNzFndDAxdnRWZmhmdkRRQk12Wjc5Q3JP?=
- =?utf-8?B?UVg3ZnJEcGJJa21pZlROR3lLOTllVXd0blZoTnd1N0dSWXFPeGVrMEQzVUZp?=
- =?utf-8?B?RGx0eUxGdHhVb1NiYnFGL1ZPSHBtd2RzeGNTd05RcU1zeHZra1FxNGYySjVQ?=
- =?utf-8?B?QkhVQUZaZXBzK2JTbGVZQW9qL2lkME40Zk1pU2JlL1Qrcmh1ODQ1Z1g1MmNq?=
- =?utf-8?B?TVhyL2cvWC9LdjhTOG5uY1hIQVRFMTZnTTZQYUN5Qk0xb1pIZkhZTnYzcEpN?=
- =?utf-8?B?elN0OXYxeHpRT0dQc0tlYjljQ05tT05YN0Nmd09CeDVuZEE5UUFWTzdtTjQ0?=
- =?utf-8?Q?44qZBz?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DB9P195MB1228.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(376014)(38070700021);DIR:OUT;SFP:1102;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?SjlvTWJoYUYwSHdMSzJuMTMwWDhPZDBSSUh5ZFBCaEdpbWdUM1gxUG1XTU4r?=
- =?utf-8?B?ZkM1c0dJQzA0NStNNXRpNGpXQTlsVE9jdFF3S3oyNlhtb2RQNzF1OXlPR1BV?=
- =?utf-8?B?MWtUK0JRMjZYay9tQUVaYms4bHB2SXZ0aEoyTnkvS3NoNStZWXlQcUFBdkhR?=
- =?utf-8?B?bVFjMzY5RURBNDhEKzFka0NvUHFLUE03S056Z3BGK3k3N3NqNVNUSS9uV0xW?=
- =?utf-8?B?NFR0ZzMzdUlNUTVsMDd0UmJaSmU1emtUeStQYStZakwvdWpxMlJqRUVtL29Z?=
- =?utf-8?B?SDVGbkVMeU1tMW9YMnNDZVRKZmd2ZExRRmJmTXU1Y0M4YmozWFZCV1hyZzlS?=
- =?utf-8?B?QjVYSS93dGhFaWtNbDFZRXh1WW9FOFJxbkZ3WlFRczVIYkNhYndOeENuQkcy?=
- =?utf-8?B?MHFCaktEeGxuSUdGMlMrVkx6dWxuMDJlUEMwRTFTUjM5aktSYzJzWXNFd2xx?=
- =?utf-8?B?NmM5cnU1cTIvYXhNZGJhdXY1RWV1SVl4TWVHUFVVR0hFK1o4N2pRWHR5NTRz?=
- =?utf-8?B?WTJkVmVZa1preUtqVmhVZUc3MUZFTDVoODJscnJjemhISzdkKzNtMkRXdkk1?=
- =?utf-8?B?OGk3R1BJVDRHeldRSU8rOWZYY3FrK0JBQzA3MHhabldPRTd5U1NOTXVnY3dQ?=
- =?utf-8?B?K1N6NXBzRjFhYjB1RnlCMDNrdHNidGFaMjFiOE1UOWRWeXZJako2Mk1iU3Bt?=
- =?utf-8?B?dnA3OUhyK0VwMHpFdHQ4R2NjZUZEU1VTNnFQd1RISkttT1dnYjJZNkQvWld4?=
- =?utf-8?B?VHRyWFlVczkyL213eTZKTWE0Mmc5M01VajVKazhIczlNb1BmR1paZURXNFUz?=
- =?utf-8?B?TkZ2QlVXY0toMjIxRkNwa01tbGJxNTRUZUpBRVFnMFhtSytLcldtaFZSYnpw?=
- =?utf-8?B?V0dCb3VDR05UWldXUXVXQlFLVjVqWXRhcDl6TjFvVzNhVHA0WjFqSk1McjVM?=
- =?utf-8?B?ZEdHS2Z3RXpJcHd4UnlwYjBwT1ZqWG5ZdVpRMXZ3WW9wQzVWd2pWTTloalZ0?=
- =?utf-8?B?eUY4RXlaSzZSbjVBbTZEM2V1MEd6NmZNZDcwUVRuNU93STI4UDdxVVp4dW0w?=
- =?utf-8?B?eUR5MDJndHFiN1FOeXFoMEhKUzJ0dG9IZ2R2MkVTa0ROV29yZXlFV2VGMU9O?=
- =?utf-8?B?WUdmUi82UnV3SG40WU8vQUxWNlJTejBaaFRCbm8yRmIzaDh4VnQ1VVM2VHph?=
- =?utf-8?B?TzFFTjdrbGx2Qml2bDNBaktyaVlrVlZNZDlKK2N0T2VNdSs1VVVpVXNCc0Fz?=
- =?utf-8?B?MHp2UGtSdmxuTW8zQWlQdjFabGtzdVpVTkllaEpxMkdKMC9lRVdtbXNtcDhP?=
- =?utf-8?B?WjBzWGpoQUVYWG5RNndweW00cjNCMGhOK1FQUHRPL2xMKzJBQTltRmpYQzBt?=
- =?utf-8?B?UXNlUitwT3BrQXZjVGlYNnk2MTI4Y3BNS3JOREZ1Y05wNDVNVmFWQkovYjJE?=
- =?utf-8?B?T2FLWEFEYjFnQktEa2Q2N3lCalM2V0QyZlkzNHRyT2ZXaTFGcE8xZDZIZVF1?=
- =?utf-8?B?UUhydkEyUmpkUEZIdU1uSDE0d1ZoOGlBMXlwdTJ1aWZtMUt3SWYyL3RLemlW?=
- =?utf-8?B?bmh2Ymo5UzhhMDI0ZHJJSnhFdVQrbDdjR21VQVJ3SFd2dTZoR1dHNlNKMUVy?=
- =?utf-8?B?R2paMVZVZnp5YXhNQURKcU52Qng4eVFJNlg4K0V0dzdZeUlDSkVmeVBDZlgx?=
- =?utf-8?B?b3pvSGFVRlJZaXZ3WEdqM0dZVVA5SEM3Q3YxOUMycUdqV3g5dE9yQmJBREl5?=
- =?utf-8?B?WXRiRE9lSUhVT00xMUp0U3p0VGdrdW9IOXFpWmpDTDM2Yzg0TWdSNmdWRnJo?=
- =?utf-8?B?WnFwUG8yQzBOaEh2U2s5a1BXYWZaVVhPaGdZZnZTSWlReThxL3hKSlB1ZUlu?=
- =?utf-8?B?eFEvMm15VkMwUzF4dHA5TkFNY2ltbUVETG81dThLRWhkaXZMdHpHUGhlVVNx?=
- =?utf-8?B?bTlITHUybk5DLzZDS2YwT1Bsb0JUR2JoL0tVOXFJT0FQOVcvWjFtSUhaZ0FI?=
- =?utf-8?B?VE5TWFBkakM1OTJyWEg1YklkTlNkeGtZZEY5UTBIeTNLTHdVUzV4RVU4bmZO?=
- =?utf-8?B?UUdCcTR4R1VyNVNaU0hVUVZORGY4SzBKZlpGNHdDSFpHeXkwdTFxUWpJWjBx?=
- =?utf-8?Q?FeBFdryzrvg22KS6gwj5ziSXk?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <19A2ABF6137B844E9E83F905AF654274@EURP195.PROD.OUTLOOK.COM>
-Content-Transfer-Encoding: base64
+	Tue, 30 Sep 2025 07:02:36 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58U4HqFv011760
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 07:02:34 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=BwBI3m+DtpPGWJNxcZ6VSGsW
+	WmE70r279i000rgGn2k=; b=o7Xqqqz2GLaelM8l2vQshCq8vS/qA1wR01DCw3uP
+	j2PZ84IbkXZlrRyd8iXTJqcQBZndcIk42+2Es9iSpH+YdA+qAwrByWPLno/XNpB1
+	ttyM4E3jp+zZ8AWWI+B8jWLgrYdbK953e84z47WlyiMjGIjsiONj4OKZ0iMo1VxP
+	eg25OSyn55u6/nOvfNRHN9pYEf+Oa1SpXmTYBNkQmnnpT2wc7R2HpjuaFKSyDano
+	WH/zLNf4kAB0X+ww7/DzsiXmuZx8pNWFzq66R2zB1eExJDs7izrv5YUxPiFk81+1
+	D6re9C++FaZ+qn9q5EfEScHxAK6NDROfoQdFzIm5JEwacA==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49e5mcr88p-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 07:02:33 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4de5fe839aeso97091671cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 00:02:33 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759215752; x=1759820552;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=BwBI3m+DtpPGWJNxcZ6VSGsWWmE70r279i000rgGn2k=;
+        b=SNRMz0MoJZqE6F/x2NE2VbcSb9TqGNMXyLfKM6disGULIGhQUq3u3T7hGhJLi9YhUn
+         en9+AD9hrMQEQ1hDQkVqCHR/oji7P5u4yz+7bQgMPH1uYmERXuRJy5e+l7YbKxhBdQYw
+         4qD8HYRPI8uuHeR2j9gn66/dZ6kvqaAa5YTj/Oc0AgHzx8aCXNVWLdTr3Qsp2D8DH6qf
+         WTBgckztP5E3tQaHNs3/GsjS2/Oh+dwt28AWIYyGfAivZoQ+9F49jkUTQ0LkQ35nda/N
+         la101SCR27o2EsI3RB/z5b5io9177R/HcxZxQQEUQ0pROrJdVoknabH5LcNbhWobQfZQ
+         v3oQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV8fdOaMRK48+06wq/oTSS6a1fl08zilVWYuuzv7WlIzSben8RpAZxOWzW+MkMp1AZi57WEFmzFHo0j1g/voZix@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxo6V3igQF6ovTT5otK9X85Lz6VOYrJgN67+JaJS+YfaUvBFrBJ
+	FegVQq0BBcw83y7pTNuHFzrx2To/4+sJTJaZksszksi0+gHqwx+9T60QYWGhgOpU2vrn7Mtrj9l
+	Hut2xWmvZaVljLdH8/D1p/guZm+8bj/GdIppyHaWmAvVT3dNHBKUvFr+bD2Hgz/jsN4SHAxKin2
+	Ev2w==
+X-Gm-Gg: ASbGnctGtVX8tZP9Qhp83Os1exEPKZ2P3MP11j1MdE/5B19+HzAHIkGB5La9RpBEqnh
+	vVnNmZI9+ySNXGHKDob/vmaB9sefESR5p4zjXLSr+rL+HG8VZp0HD84w8f7lPQAc0b++NhdEakI
+	PMV3tMSvE+p0BU8smuQT2EylT9FkxqW96KlABXKcu1CJdbsMG+5Vf4ipzyvAcWCPkxmLe0AcVIj
+	wOKqTNbD/ShtRcIbk6A6kKRbi7IgGJU1jzSuoXVpR7xOWEW6rsFBAa8GP3XEOcvMUgZG8tPn8NA
+	0e1AwQxHh3LT/nobixs4pcr7S1l0CAh/8jRJuRrFAXPkczY9pEAsHwANrbeY0ZQIJloKjUqta67
+	sbaXgVF4/KlaEHKvyZ0c8Gwxf6q4exdDJgHdXKJ59et0OA+eKG59i+Xh07w==
+X-Received: by 2002:ac8:5a56:0:b0:4dd:e207:fce with SMTP id d75a77b69052e-4dde21659bdmr170058541cf.70.1759215751883;
+        Tue, 30 Sep 2025 00:02:31 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFb84HLLa9QgF4zWxDQfkP47jlJjmQ47Nd1Kw/rc0PP2nrv91KOwbaW913oaMecip8Zy003Zg==
+X-Received: by 2002:ac8:5a56:0:b0:4dd:e207:fce with SMTP id d75a77b69052e-4dde21659bdmr170058171cf.70.1759215751316;
+        Tue, 30 Sep 2025 00:02:31 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-588be5416c7sm900404e87.140.2025.09.30.00.02.29
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 30 Sep 2025 00:02:30 -0700 (PDT)
+Date: Tue, 30 Sep 2025 10:02:28 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Daniel Stone <daniel@fooishbar.org>,
+        Andrzej Hajda <andrzej.hajda@intel.com>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Robert Foss <rfoss@kernel.org>,
+        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+        Jonas Karlman <jonas@kwiboo.se>,
+        Jernej Skrabec <jernej.skrabec@gmail.com>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Sandy Huang <hjc@rock-chips.com>,
+        Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>,
+        Andy Yan <andy.yan@rock-chips.com>, Chen-Yu Tsai <wens@csie.org>,
+        Samuel Holland <samuel@sholland.org>,
+        Dave Stevenson <dave.stevenson@raspberrypi.com>,
+        =?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>,
+        Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+        Liu Ying <victor.liu@nxp.com>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+        Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev,
+        linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org
+Subject: Re: [PATCH v3 00/11] drm/connector: hdmi: limit infoframes per
+ driver capabilities
+Message-ID: <itgffxygopi7etkt7xhvmyuvyl5ad3k43nsxvjzw3ubtwiikn7@ocugfdaigtu7>
+References: <57ekub6uba7iee34sviadareqxv234zbmkr7avqofxes4mqnru@vgkppexnj6cb>
+ <20250901-voracious-classy-hedgehog-ee28ef@houat>
+ <voknqdv3zte2jzue5yxmysdiixxkogvpblvrccp5gu55x5ycca@srrcscly4ch4>
+ <st6wob5hden6ypxt2emzokfhl3ezpbuypv2kdtf5zdrdhlyjfw@l2neflb4uupo>
+ <pe6g2fanw65p67kfy5blbtiytngxmr6nkbazymojs4a66yvpl3@7j4ccnsvc6az>
+ <20250910-didactic-honored-chachalaca-f233b2@houat>
+ <x562ueky2z5deqqmhl222moyrbylfwi35u4hb34dpl3z52ra4c@dyw4iayrewnz>
+ <20250925-fervent-merry-beagle-2baba3@penduick>
+ <qx5ashx62pufott6hnsfna3qntnoyvxwxze4rihhuxcsdxi37s@bbdvc3sfsgne>
+ <20250929-gregarious-worm-of-memory-c5354d@houat>
 MIME-Version: 1.0
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: DB9P195MB1228.EURP195.PROD.OUTLOOK.COM
-X-MS-Exchange-CrossTenant-Network-Message-Id: ca17fb98-f76d-4e03-89b7-08ddffed9f40
-X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Sep 2025 06:50:20.0116
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: sFbm79F6ZFmbNICNpmAr6jxKXwarOPqo/SF805TK1WWRpvauHrp5y5VLIAN4rlUGTvyImDhlbxs8WCt8yN5uow==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2P195MB1940
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250929-gregarious-worm-of-memory-c5354d@houat>
+X-Authority-Analysis: v=2.4 cv=RMC+3oi+ c=1 sm=1 tr=0 ts=68db8089 cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=yJojWOMRYYMA:10 a=VwQbUJbxAAAA:8 a=EUspDBNiAAAA:8 a=2KZmwtpIuq5mfTj36lQA:9
+ a=CjuIK1q_8ugA:10 a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-ORIG-GUID: Ix3XGiuh6eatv8OX9mVdECa5zS3wIfGN
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTI3MDAwNCBTYWx0ZWRfXwD8F3aIfIRpE
+ I6cjCDDWNsiGyyXaIGxva7NX1VQqwrl0/JjjAs8eTxF8AQf58pa/0VYv25U2IdrtYbM4uiQAkWk
+ aRmg4azslhJ+kjy5svFr7pL4ArToCFZRdnJ0oARYbuanQe5Y83bcM+XcFIzvp1DdLXPdWX3/zN/
+ nY3Zj9BYtehEjBBXf8Y8nVPvUkCj5Ue0wv6nPhSJr3Lri9twbw9+92s1o6QXplY01z5NugSEe5G
+ pgtxaNBBtZGLRLsV1RGgsWzags/O41JwRJO0HVhrdz0v90hQC997sVMNfl+fkfkFoF3WAfbkLnn
+ Km+W7kHBkQad6VkgysvhY7waVf+hyf1U1aJTDh7K3SAoZbryY5eyZ48SrlIxLQsj21NBAEA5tkS
+ L6/LXV8a+O/ksCN5x3e7R5KQ73aKyA==
+X-Proofpoint-GUID: Ix3XGiuh6eatv8OX9mVdECa5zS3wIfGN
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-30_01,2025-09-29_04,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ malwarescore=0 priorityscore=1501 suspectscore=0 impostorscore=0 spamscore=0
+ adultscore=0 bulkscore=0 clxscore=1015 phishscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2509150000 definitions=main-2509270004
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_235034_925168_E5FED6B3 
-X-CRM114-Status: GOOD (  12.94  )
+X-CRM114-CacheID: sfid-20250930_000234_469068_9B0B6762 
+X-CRM114-Status: GOOD (  75.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -189,67 +163,174 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-QW0gRGllbnN0YWcsIGRlbSAzMC4wOS4yMDI1IHVtIDA4OjQ3ICswMjAwIHNjaHJpZWIgSmFuIFJl
-bW1ldDoNCj4gVXBkYXRlIGxpY2Vuc2UgYW5kIHJlbW92ZSBpbmRpdmlkdWFsIGF1dGhvcnNoaXAu
-DQo+IA0KPiBTaWduZWQtb2ZmLWJ5OiBKYW4gUmVtbWV0IDxqLnJlbW1ldEBwaHl0ZWMuZGU+DQoN
-CkFja2VkLWJ5OiBUZXJlc2EgUmVtbWV0IDx0LnJlbW1ldEBwaHl0ZWMuZGU+DQoNCj4gLS0tDQo+
-IMKgYXJjaC9hcm02NC9ib290L2R0cy9mcmVlc2NhbGUvaW14OG1tLXBoeWJvYXJkLXBvbGlzLXBl
-Yi1hdi0xMC5kdHNvwqDCoA0KPiB8IDMgKy0tDQo+IMKgYXJjaC9hcm02NC9ib290L2R0cy9mcmVl
-c2NhbGUvaW14OG1tLXBoeWJvYXJkLXBvbGlzLXBlYi1ldmFsLTAxLmR0c28NCj4gfCAzICstLQ0K
-PiDCoGFyY2gvYXJtNjQvYm9vdC9kdHMvZnJlZXNjYWxlL2lteDhtbS1waHlib2FyZC1wb2xpcy1y
-ZGsuZHRzwqDCoMKgwqDCoMKgwqDCoMKgDQo+IHwgMyArLS0NCj4gwqBhcmNoL2FybTY0L2Jvb3Qv
-ZHRzL2ZyZWVzY2FsZS9pbXg4bW0tcGh5Y29yZS1zb20uZHRzacKgwqDCoMKgwqDCoMKgwqDCoMKg
-wqDCoMKgwqDCoA0KPiB8IDMgKy0tDQo+IMKgNCBmaWxlcyBjaGFuZ2VkLCA0IGluc2VydGlvbnMo
-KyksIDggZGVsZXRpb25zKC0pDQo+IA0KPiBkaWZmIC0tZ2l0IGEvYXJjaC9hcm02NC9ib290L2R0
-cy9mcmVlc2NhbGUvaW14OG1tLXBoeWJvYXJkLXBvbGlzLXBlYi0NCj4gYXYtMTAuZHRzbyBiL2Fy
-Y2gvYXJtNjQvYm9vdC9kdHMvZnJlZXNjYWxlL2lteDhtbS1waHlib2FyZC1wb2xpcy1wZWItDQo+
-IGF2LTEwLmR0c28NCj4gaW5kZXgNCj4gZTVjYTVhNjY0YjYxZTIwZTljMzBjOWU1Y2EwMWE2YWU2
-ZGE1NzU5Ni4uNTk1NWQ0OGUxOWFkMDAzNTAzOGVhNGFkNzgzDQo+IDhiM2UwOWQxMGIyZWMgMTAw
-NjQ0DQo+IC0tLSBhL2FyY2gvYXJtNjQvYm9vdC9kdHMvZnJlZXNjYWxlL2lteDhtbS1waHlib2Fy
-ZC1wb2xpcy1wZWItYXYtDQo+IDEwLmR0c28NCj4gKysrIGIvYXJjaC9hcm02NC9ib290L2R0cy9m
-cmVlc2NhbGUvaW14OG1tLXBoeWJvYXJkLXBvbGlzLXBlYi1hdi0NCj4gMTAuZHRzbw0KPiBAQCAt
-MSw3ICsxLDYgQEANCj4gLS8vIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4wDQo+ICsv
-LyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogKEdQTC0yLjAtb3ItbGF0ZXIgT1IgTUlUKQ0KPiDC
-oC8qDQo+IMKgICogQ29weXJpZ2h0IChDKSAyMDI1IFBIWVRFQyBNZXNzdGVjaG5payBHbWJIDQo+
-IC0gKiBBdXRob3I6IFRlcmVzYSBSZW1tZXQgPHQucmVtbWV0QHBoeXRlYy5kZT4NCj4gwqAgKi8N
-Cj4gwqANCj4gwqAvZHRzLXYxLzsNCj4gZGlmZiAtLWdpdCBhL2FyY2gvYXJtNjQvYm9vdC9kdHMv
-ZnJlZXNjYWxlL2lteDhtbS1waHlib2FyZC1wb2xpcy1wZWItDQo+IGV2YWwtMDEuZHRzbyBiL2Fy
-Y2gvYXJtNjQvYm9vdC9kdHMvZnJlZXNjYWxlL2lteDhtbS1waHlib2FyZC1wb2xpcy0NCj4gcGVi
-LWV2YWwtMDEuZHRzbw0KPiBpbmRleA0KPiBhMjhmNTFlY2U5M2JhNjJhN2E5OTkxODI2Y2NhMmVj
-NzRmNzA0YmEyLi4xMDU5YzI2OTkwZmU2ZWIwZDdhY2RhZDRkMzMNCj4gODY5NDRmNDZlYTk5YiAx
-MDA2NDQNCj4gLS0tIGEvYXJjaC9hcm02NC9ib290L2R0cy9mcmVlc2NhbGUvaW14OG1tLXBoeWJv
-YXJkLXBvbGlzLXBlYi1ldmFsLQ0KPiAwMS5kdHNvDQo+ICsrKyBiL2FyY2gvYXJtNjQvYm9vdC9k
-dHMvZnJlZXNjYWxlL2lteDhtbS1waHlib2FyZC1wb2xpcy1wZWItZXZhbC0NCj4gMDEuZHRzbw0K
-PiBAQCAtMSw3ICsxLDYgQEANCj4gLS8vIFNQRFgtTGljZW5zZS1JZGVudGlmaWVyOiBHUEwtMi4w
-DQo+ICsvLyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogKEdQTC0yLjAtb3ItbGF0ZXIgT1IgTUlU
-KQ0KPiDCoC8qDQo+IMKgICogQ29weXJpZ2h0IChDKSAyMDI1IFBIWVRFQyBNZXNzdGVjaG5payBH
-bWJIDQo+IC0gKiBBdXRob3I6IEphbmluZSBIYWdlbWFubiA8ai5oYWdlbWFubkBwaHl0ZWMuZGU+
-DQo+IMKgICovDQo+IMKgDQo+IMKgL2R0cy12MS87DQo+IGRpZmYgLS1naXQgYS9hcmNoL2FybTY0
-L2Jvb3QvZHRzL2ZyZWVzY2FsZS9pbXg4bW0tcGh5Ym9hcmQtcG9saXMtDQo+IHJkay5kdHMgYi9h
-cmNoL2FybTY0L2Jvb3QvZHRzL2ZyZWVzY2FsZS9pbXg4bW0tcGh5Ym9hcmQtcG9saXMtcmRrLmR0
-cw0KPiBpbmRleA0KPiBiZTQ3MGNmYjAzZDc1ZGU3ZDZkM2ZiYjFhZGQ2NWM3MWZiZThmMjg2Li5j
-Y2JmZDY5NzM3Njk2OGU0OTA1N2YxMDI1NzENCj4gYTBmMDZjYjE5ZTcwMiAxMDA2NDQNCj4gLS0t
-IGEvYXJjaC9hcm02NC9ib290L2R0cy9mcmVlc2NhbGUvaW14OG1tLXBoeWJvYXJkLXBvbGlzLXJk
-ay5kdHMNCj4gKysrIGIvYXJjaC9hcm02NC9ib290L2R0cy9mcmVlc2NhbGUvaW14OG1tLXBoeWJv
-YXJkLXBvbGlzLXJkay5kdHMNCj4gQEAgLTEsNyArMSw2IEBADQo+IC0vLyBTUERYLUxpY2Vuc2Ut
-SWRlbnRpZmllcjogR1BMLTIuMA0KPiArLy8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6IChHUEwt
-Mi4wLW9yLWxhdGVyIE9SIE1JVCkNCj4gwqAvKg0KPiDCoCAqIENvcHlyaWdodCAoQykgMjAyMiBQ
-SFlURUMgTWVzc3RlY2huaWsgR21iSA0KPiAtICogQXV0aG9yOiBUZXJlc2EgUmVtbWV0IDx0LnJl
-bW1ldEBwaHl0ZWMuZGU+DQo+IMKgICovDQo+IMKgDQo+IMKgL2R0cy12MS87DQo+IGRpZmYgLS1n
-aXQgYS9hcmNoL2FybTY0L2Jvb3QvZHRzL2ZyZWVzY2FsZS9pbXg4bW0tcGh5Y29yZS1zb20uZHRz
-aQ0KPiBiL2FyY2gvYXJtNjQvYm9vdC9kdHMvZnJlZXNjYWxlL2lteDhtbS1waHljb3JlLXNvbS5k
-dHNpDQo+IGluZGV4DQo+IDY3MmJhYmE0YzhkMDUyN2YyZGUwMDJkNDlhYTk2ZDMwYTZhZTIzNzMu
-LjFjNDcyZTkwMTJjM2FkMzQ0NWZjMGIxN2UwMw0KPiA5M2E5YzBlMjQzMzI5IDEwMDY0NA0KPiAt
-LS0gYS9hcmNoL2FybTY0L2Jvb3QvZHRzL2ZyZWVzY2FsZS9pbXg4bW0tcGh5Y29yZS1zb20uZHRz
-aQ0KPiArKysgYi9hcmNoL2FybTY0L2Jvb3QvZHRzL2ZyZWVzY2FsZS9pbXg4bW0tcGh5Y29yZS1z
-b20uZHRzaQ0KPiBAQCAtMSw3ICsxLDYgQEANCj4gLS8vIFNQRFgtTGljZW5zZS1JZGVudGlmaWVy
-OiBHUEwtMi4wDQo+ICsvLyBTUERYLUxpY2Vuc2UtSWRlbnRpZmllcjogKEdQTC0yLjAtb3ItbGF0
-ZXIgT1IgTUlUKQ0KPiDCoC8qDQo+IMKgICogQ29weXJpZ2h0IChDKSAyMDIyIFBIWVRFQyBNZXNz
-dGVjaG5payBHbWJIDQo+IC0gKiBBdXRob3I6IFRlcmVzYSBSZW1tZXQgPHQucmVtbWV0QHBoeXRl
-Yy5kZT4NCj4gwqAgKi8NCj4gwqANCj4gwqAjaW5jbHVkZSAiaW14OG1tLmR0c2kiDQo+IA0KDQot
-LSANClBIWVRFQyBNZXNzdGVjaG5payBHbWJIIHwgQmFyY2Vsb25hLUFsbGVlIDEgfCA1NTEyOSBN
-YWlueiwgR2VybWFueQ0KDQpHZXNjaMOkZnRzZsO8aHJlcjogRGlwbC4tSW5nLiBNaWNoYWVsIE1p
-dGV6a2ksIERpcGwuLUluZy4gQm9kbyBIdWJlciwNCkRpcGwuLUluZy4gKEZIKSBNYXJrdXMgTGlj
-a2VzIHwgSGFuZGVsc3JlZ2lzdGVyIE1haW56IEhSQiA0NjU2IHwNCkZpbmFuemFtdCBNYWlueiB8
-IFN0Lk5yLiAyNi82NjUvMDA2MDgsIERFIDE0OTA1OTg1NQ0K
+On Mon, Sep 29, 2025 at 03:00:04PM +0200, Maxime Ripard wrote:
+> On Thu, Sep 25, 2025 at 05:16:07PM +0300, Dmitry Baryshkov wrote:
+> > On Thu, Sep 25, 2025 at 03:13:47PM +0200, Maxime Ripard wrote:
+> > > On Wed, Sep 10, 2025 at 06:26:56PM +0300, Dmitry Baryshkov wrote:
+> > > > On Wed, Sep 10, 2025 at 09:30:19AM +0200, Maxime Ripard wrote:
+> > > > > On Wed, Sep 03, 2025 at 03:03:43AM +0300, Dmitry Baryshkov wrote:
+> > > > > > On Tue, Sep 02, 2025 at 08:06:54PM +0200, Maxime Ripard wrote:
+> > > > > > > On Tue, Sep 02, 2025 at 06:45:44AM +0300, Dmitry Baryshkov wrote:
+> > > > > > > > On Mon, Sep 01, 2025 at 09:07:02AM +0200, Maxime Ripard wrote:
+> > > > > > > > > On Sun, Aug 31, 2025 at 01:29:13AM +0300, Dmitry Baryshkov wrote:
+> > > > > > > > > > On Sat, Aug 30, 2025 at 09:30:01AM +0200, Daniel Stone wrote:
+> > > > > > > > > > > Hi Dmitry,
+> > > > > > > > > > > 
+> > > > > > > > > > > On Sat, 30 Aug 2025 at 02:23, Dmitry Baryshkov
+> > > > > > > > > > > <dmitry.baryshkov@oss.qualcomm.com> wrote:
+> > > > > > > > > > > > It's not uncommon for the particular device to support only a subset of
+> > > > > > > > > > > > HDMI InfoFrames. It's not a big problem for the kernel, since we adopted
+> > > > > > > > > > > > a model of ignoring the unsupported Infoframes, but it's a bigger
+> > > > > > > > > > > > problem for the userspace: we end up having files in debugfs which do
+> > > > > > > > > > > > mot match what is being sent on the wire.
+> > > > > > > > > > > >
+> > > > > > > > > > > > Sort that out, making sure that all interfaces are consistent.
+> > > > > > > > > > > 
+> > > > > > > > > > > Thanks for the series, it's a really good cleanup.
+> > > > > > > > > > > 
+> > > > > > > > > > > I know that dw-hdmi-qp can support _any_ infoframe, by manually
+> > > > > > > > > > > packing it into the two GHDMI banks. So the supported set there is
+> > > > > > > > > > > 'all of the currently well-known ones, plus any two others, but only
+> > > > > > > > > > > two and not more'. I wonder if that has any effect on the interface
+> > > > > > > > > > > you were thinking about for userspace?
+> > > > > > > > > > 
+> > > > > > > > > > I was mostly concerned with the existing debugfs interface (as it is
+> > > > > > > > > > also used e.g. for edid-decode, etc).
+> > > > > > > > > > 
+> > > > > > > > > > It seems "everything + 2 spare" is more or less common (ADV7511, MSM
+> > > > > > > > > > HDMI also have those. I don't have at hand the proper datasheet for
+> > > > > > > > > > LT9611 (non-UXC one), but I think its InfoFrames are also more or less
+> > > > > > > > > > generic).  Maybe we should change debugfs integration to register the
+> > > > > > > > > > file when the frame is being enabled and removing it when it gets unset.
+> > > > > > > > > 
+> > > > > > > > > But, like, for what benefit?
+> > > > > > > > > 
+> > > > > > > > > It's a debugfs interface for userspace to consume. The current setup
+> > > > > > > > > works fine with edid-decode already. Why should we complicate the design
+> > > > > > > > > that much and create fun races like "I'm running edid-decode in parallel
+> > > > > > > > > to a modeset that would remove the file I just opened, what is the file
+> > > > > > > > > now?".
+> > > > > > > > 
+> > > > > > > > Aren't we trading that with the 'I'm running edid-decode in paralle with
+> > > > > > > > to a modeset and the file suddenly becomes empty'?
+> > > > > > > 
+> > > > > > > In that case, you know what the file is going to be: empty. And you went
+> > > > > > > from a racy, straightforward, design to a racy, complicated, design.
+> > > > > > > 
+> > > > > > > It was my question before, but I still don't really see what benefits it
+> > > > > > > would have, and why we need to care about it in the core, when it could
+> > > > > > > be dealt with in the drivers just fine on a case by case basis.
+> > > > > > 
+> > > > > > Actually it can not: debugfs files are registered from the core, not
+> > > > > > from the drivers. That's why I needed all the supported_infoframes
+> > > > > > (which later became software_infoframes).
+> > > > > 
+> > > > > That's one thing we can change then.
+> > > > > 
+> > > > > > Anyway, I'm fine with having empty files there.
+> > > > > > 
+> > > > > > > > > > Then in the long run we can add 'slots' and allocate some of the frames
+> > > > > > > > > > to the slots. E.g. ADV7511 would get 'software AVI', 'software SPD',
+> > > > > > > > > > 'auto AUDIO' + 2 generic slots (and MPEG InfoFrame which can probably be
+> > > > > > > > > > salvaged as another generic one)). MSM HDMI would get 'software AVI',
+> > > > > > > > > > 'software AUDIO' + 2 generic slots (+MPEG + obsucre HDMI which I don't
+> > > > > > > > > > want to use). Then the framework might be able to prioritize whether to
+> > > > > > > > > > use generic slots for important data (as DRM HDR, HDMI) or less important
+> > > > > > > > > > (SPD).
+> > > > > > > > > 
+> > > > > > > > > Why is it something for the framework to deal with? If you want to have
+> > > > > > > > > extra infoframes in there, just go ahead and create additional debugfs
+> > > > > > > > > files in your driver.
+> > > > > > > > > 
+> > > > > > > > > If you want to have the slot mechanism, check in your atomic_check that
+> > > > > > > > > only $NUM_SLOT at most infoframes are set.
+> > > > > > > > 
+> > > > > > > > The driver can only decide that 'we have VSI, SPD and DRM InfoFrames
+> > > > > > > > which is -ETOOMUCH for 2 generic slots'. The framework should be able to
+> > > > > > > > decide 'the device has 2 generic slots, we have HDR data, use VSI and
+> > > > > > > > DRM InfoFrames and disable SPD for now'.
+> > > > > > > 
+> > > > > > > I mean... the spec does? The spec says when a particular feature
+> > > > > > > requires to send a particular infoframe. If your device cannot support
+> > > > > > > to have more than two "features" enabled at the same time, so be it. It
+> > > > > > > something that should be checked in that driver atomic_check.
+> > > > > > 
+> > > > > > Sounds good to me. Let's have those checks in the drivers until we
+> > > > > > actually have seveal drivers performing generic frame allocation.
+> > > > > > 
+> > > > > > > Or just don't register the SPD debugfs file, ignore it, put a comment
+> > > > > > > there, and we're done too.
+> > > > > > 
+> > > > > > It's generic code.
+> > > > > > 
+> > > > > > > > But... We are not there yet and I don't have clear usecase (we support
+> > > > > > > > HDR neither on ADV7511 nor on MSM HDMI, after carefully reading the
+> > > > > > > > guide I realised that ADV7511 has normal audio infoframes). Maybe I
+> > > > > > > > should drop all the 'auto' features, simplifying this series and land
+> > > > > > > > [1] for LT9611UXC as I wanted origianlly.
+> > > > > > > > 
+> > > > > > > > [1] https://lore.kernel.org/dri-devel/20250803-lt9611uxc-hdmi-v1-2-cb9ce1793acf@oss.qualcomm.com/
+> > > > > > > 
+> > > > > > > Looking back at that series, I think it still has value to rely on the
+> > > > > > > HDMI infrastructure at the very least for the atomic_check sanitization.
+> > > > > > > 
+> > > > > > > But since you wouldn't use the generated infoframes, just skip the
+> > > > > > > debugfs files registration. You're not lying to userspace anymore, and
+> > > > > > > you get the benefits of the HDMI framework.
+> > > > > > 
+> > > > > > We create all infoframe files for all HDMI connectors.
+> > > > > 
+> > > > > Then we can provide a debugfs_init helper to register all of them, or
+> > > > > only some of them, and let the drivers figure it out.
+> > > > > 
+> > > > > Worst case scenario, debugfs files will not get created, which is a much
+> > > > > better outcome than having to put boilerplate in every driver that will
+> > > > > get inconsistent over time.
+> > > > 
+> > > > debugfs_init() for each infoframe or taking some kind of bitmask?
+> > > 
+> > > I meant turning hdmi_debugfs_add and create_hdmi_*_infoframe_file into
+> > > public helpers. That way, drivers that don't care can use the (renamed)
+> > > hdmi_debugfs_add, and drivers with different constraints can register
+> > > the relevant infoframes directly.
+> > 
+> > Doesn't that mean more boilerplate?
+> 
+> I don't think it would? In the general case, it wouldn't change
+> anything, and in special cases, then it's probably going to be different
+> from one driver to the next so there's not much we can do.
+> 
+> > In the end, LT9611UXC is a special case, for which I'm totally fine
+> > not to use HDMI helpers at this point: we don't control infoframes
+> > (hopefully that can change), we don't care about the TMDS clock, no
+> > CEC, etc.
+> 
+> Not using the helpers sound pretty reasonable here too.
+> 
+> > For all other usecases I'm fine with having atomic_check() unset all
+> > unsupported infoframes and having empty files in debugfs. Then we can
+> > evolve over the time, once we see a pattern. We had several drivers
+> > which had very limited infoframes support, but I think this now gets
+> > sorted over the time.
+> 
+> I never talked about atomic_check()? You were initially concerned that
+> the framework would expose data in debugfs that it's not using. Not
+> registering anything in debugfs solves that, but I'm not sure we need to
+> special case atomic_check.
+
+Well... I ended up with [1], handling infoframes in the atomic_check()
+rather than registering fewer infoframe debugfs files. This way device
+state is consistent, we don't have enabled instances, etc. However it
+results in repetetive code in atomic_check().
+
+[1] https://lore.kernel.org/dri-devel/20250928-limit-infoframes-2-v2-0-6f8f5fd04214@oss.qualcomm.com/
+
+> Worst case scenario, we're going to generate infoframes the driver will
+> ignore.
+
+Yes.
+
+-- 
+With best wishes
+Dmitry
 
