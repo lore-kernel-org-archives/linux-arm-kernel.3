@@ -4,85 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFC70CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 15:59:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2502FCAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 16:11:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PBEDbk4Y6+RPP4rGmNd7YAwakR+IT/5F+0KzBUyDp7c=; b=tMoJRTVyf/B6E7GLyyTApLbAjR
-	OO0p4Y6BXbv63S+vj+TnkqU18iuUUgrQm7cYvd20GBjG/j4TNSXlVnqkmEZKXFx4XiiinkB7zxFn7
-	gJZ6Fm/GDewNHbsMW079t5w+7D5Zant80WeKsgK+PSlvRrgdE2TvNPIKysbALO/RLZz/oNmLzQQBt
-	LA92lxHVj8g4oZAYG75BvFsSIX6iEXyzUVT3Fbx6bVegp8qZyw0JRltbPNkbQGrcS0CB41uYbn9OL
-	f4y4A/yTboaT69vBObgBS/Rzv9RacX6sFoHZ0SsfxRLgsVICg7Z2j0njDyO50zbwntbzSDWB5tL28
-	Xc6hndKg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oxp5oWG2zYQb/bAadgrp+7BT1AfD0ElhKVNTGDmQyfk=; b=NtNVOMIs5HQ5ppqoq54K37oK9O
+	KjZm04yQ6CLHuNKZrx3hwHlAK9nS3dGNUnFrwO/MRy1yhPEx3O4BeEqNIUrLhyxfoT33rK2OjQwbf
+	j3EcaLNZkhKD5fkQI6/pdf3FpTTJ3xOz2ZNymosDQKYSoqp1buCz++lZfPkw+wxx3AChw72FviiQH
+	0tRL1f+IsjOXVSGQ9ragqEcDp0nkk6ZvnXE70jVDwwXMcNcUZJVmyX/dfaVO/qf2IQOc1RlGeHBy6
+	SDkM5g2/gwETjOJMXGBqlsfFZi433UqGXx1fidYiusAV7bXg5iMM9R19fS85fKVM7wMl+ijmlQ0hn
+	vX+zTIYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3ckq-00000005iIb-3H8R;
-	Tue, 30 Sep 2025 15:59:04 +0000
-Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
+	id 1v3cwi-00000005kNN-3aCC;
+	Tue, 30 Sep 2025 16:11:20 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3cko-00000005iHx-3Ai7
+	id 1v3cwg-00000005kMx-3EDz
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Sep 2025 15:59:03 +0000
-Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-781010ff051so4243593b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 08:59:02 -0700 (PDT)
+	Tue, 30 Sep 2025 16:11:19 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-62fc686dc41so6104375a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 09:11:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1759247942; x=1759852742; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=PBEDbk4Y6+RPP4rGmNd7YAwakR+IT/5F+0KzBUyDp7c=;
-        b=U8ntyhAyQ/veekrIer84JKpXG0ZSOVeoyOvSGPCtwqZ+UD/9xvndoW0/OX6QZuTI4G
-         XnlyVqeLSvh3bJ8T0b7n+q0Q+MddgSsUIiLdVe8Qwu9qgf6ONyyXT19hYLzTSAztZcC9
-         L6lS7uFbycbjjhvxPqpZ3YAXi6K7T1FHwjvbxIZDRxRkN4tz5UsxWTbaJoMMn1d1WLR/
-         TEWmqaaFUHlDeodaCHe0Oi60pxc+3TVYnHc5T/7rO6hbN/rP0pyPRm+ST56S5FWHVLNP
-         QAoFvq+19K3vceYaNE8WiaSjM1GsyOfU+K3Z5p0ejEVA7EMnpxLuh2DKfuT1oqq/lQkM
-         ltyw==
+        d=linaro.org; s=google; t=1759248677; x=1759853477; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=oxp5oWG2zYQb/bAadgrp+7BT1AfD0ElhKVNTGDmQyfk=;
+        b=TDF4JOWuhO/m6PGf963dX0ZlcxGk93HgstErkO0FqOI0rCk4IT7+gmO2tFS3jTIwS8
+         u4P0kxRoK2p1SvvkeVII6NGPp8I1CP9Yg2FQoGI0+BGu0CQpx0Nk9GLocADaGPEKYuxK
+         SlDIsLbVEDcmYLNdtAaf5Jpw5TSsxkpRF7AxXHvHlP7T4QLW/Q/iaZr9X/FAoOguZVGe
+         MbZG80pRSx4RMSxuXK6+Axhp6GKS7K2AtQH90jHmrp61/OxzYUsfonUFvgnwvnpf7cNK
+         W6UwjjNaH31wN4TKadS5jTWzEWrSANRSsj7jzzDPrkN9F/9APQrn90wF8LPqMPddIQ2c
+         oeQQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759247942; x=1759852742;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=PBEDbk4Y6+RPP4rGmNd7YAwakR+IT/5F+0KzBUyDp7c=;
-        b=Dt4ku9gQcUHz/IFS/ZUT2HwaYw15NnHhIdvle80ysKwhStdAZM4OZu7nq4i6SSrUqR
-         1yxZVblvQ6w0/Usi7NmFo81hjPcTILMLo27LUgxDWtZtrhHlANbi63ynqta5dFfR7rsW
-         l54qQcxjUTQ+9/GLFM/8ULjXRt4PYl1xGf3NBIdJBsBB4qwlVVWHp7Z+8dW7Ey3KQs8b
-         vIDrTF8qwx56eE34lsh+4+CBVfMv92uyQbhIdGLRm0F4/3qB5kmv1qSmLmuv5hINr0uf
-         qpi70gCjzTBxcrGqeV4zs9br3ocgk2TsPrdb8a6IbG6nPFhYxtUPTWoL6SfRnHVXCELh
-         scqQ==
-X-Forwarded-Encrypted: i=1; AJvYcCV9ikK0CgTt4bjduJyUzJESfa8r4GYwCbONJzFSu92LVShqJqu7DZvZT5GacF7KZUECJUYQxjku3acp8zxeCEk5@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzx9p/1PNd71Deibfh65bu1kifpnRJ4P0aO23YsFAFrvRPERQ1R
-	lkb8fKyyVby0h0k79zX69ccsMnMEmtmBXMi3uixQZBeAIzJc8nxI7LxgSahH/bt9J6scrBdDUNE
-	IdahQ5G4LhPohqQdxva3jxnX1fyLzBvj4xq3FQE6DYAR6j8ekVpN5
-X-Gm-Gg: ASbGncsTPBu8siNRmXExkbZsXqqkdia0XBY2VrJQOzos5Uw4BIPmKFxJIlXJBLMqkak
-	QfPzvMIV2QgXPdMxQtnWbuioBJW5d8YeQauSNp3WeaOJevEwu5jgOro5sXPrImKt2F9KA7NSs8u
-	NUmJjEzdau6cse683Jr4gJ0s1FDDQJllruw84Z85IkejowU+aHdGn307RznquOZIUxTEWueOsGu
-	rRM50f6aDHJ/eQIiwFN4rI/vRkVf+VcYDmfZXh8ohb/5r1QTAfZQZgKVRJ3RVQk
-X-Google-Smtp-Source: AGHT+IFhZwULvLcG4+sUHq13O7HxesIFPG7smIAw05g6MeZ6WgbCJ8qpdnoSF7cyWH42E20sTJUeWIacFYXDpH/DhvU=
-X-Received: by 2002:a05:6a21:78e:b0:319:c639:884c with SMTP id
- adf61e73a8af0-321e95597abmr256093637.49.1759247941873; Tue, 30 Sep 2025
- 08:59:01 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1759248677; x=1759853477;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=oxp5oWG2zYQb/bAadgrp+7BT1AfD0ElhKVNTGDmQyfk=;
+        b=u4+yxmyRZphYQsLHqh0TEhVoQ8n7XeqBO/m/atq/j3QkpM6TF/UuCeFq820gRLVQ2I
+         JWPk+8utOtSfHq5WDUm3enqqI5T0iOKAiRDYyD0BnAANbDk3cONuTmYx2bs44jiin0V0
+         1n6l29I2hr9wkWQcB915DSf8gn6wELoJ/wwZVAy19PrZDmowj0tEBOWK6frDg89FIekJ
+         UI8xGH6kMzd46iQ7/uVbSmPUmumBMoAZteATAAdUk7qgmL/eeJKcUpA7eUsCEH0dLbg3
+         zuu51+fYogz7NN6EEbqXSh6QdfRjsNVkarKtztLtMfbGXlr6v7LbFX142SSyhsfLcqFO
+         2Mrg==
+X-Forwarded-Encrypted: i=1; AJvYcCU4JYzmYBRmmBxC4sspc1mquSKDzikuVNWHjpUk+nJXHq/800BiMG8EmZBLGKcO10cHSqICxzxfuqjOM3fTiA6Z@lists.infradead.org
+X-Gm-Message-State: AOJu0YxBUUPjJC+BAQyZO6UjxnKyKTV7YXv6zXpFAzj724PZjywVkFPr
+	tWfAHloHqj8niqHbQahytYvFtDB2DcM0vc4ODLytUHCoY5HWCEylMfBOHlCSFvbH/uwnM4vLATt
+	349kItl03w/9voOpUBHYZ8gMQYumMOqZRmzj2LR9F4w==
+X-Gm-Gg: ASbGncuFVAa2ltwpu/l2xbzSPrBBOc45rh4Zy6fpQjJLjRCydxQsCym0ZJfM7v/DKgD
+	TMaeFG+jjLRHPZPxZkZ/Q3k+6h+jPV/gUfNERHj4RRz1Z+ICa1O/jJNW4VI1ixNkLfAt2BgZxm9
+	t72cUS3Mord6DRz4jJXjFtlsaE+e5GnKauDSOeOfHTA+eurgiRNpANlXy/0+MCjpv8HNoPU98kP
+	fcjUqonTJ9jFYt4gZplEZHZ9IKzTwf1OSH4181+ynerz46o4b33ajrsssRBoG8X75+mPXk=
+X-Google-Smtp-Source: AGHT+IHcT65SCb0YDaj8HXJyzDEr17zNKjdB+wgbHVUN98mdk2+pEmJMBE3H+oYu+G7ZvB3GLkI42wO9NC0FtjKrGmM=
+X-Received: by 2002:a05:6402:3584:b0:634:abb6:8b4b with SMTP id
+ 4fb4d7f45d1cf-63678d0a45amr507520a12.22.1759248676729; Tue, 30 Sep 2025
+ 09:11:16 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com>
- <20250915-arm_coresight_power_management_fix-v3-8-ea49e91124ec@arm.com>
-In-Reply-To: <20250915-arm_coresight_power_management_fix-v3-8-ea49e91124ec@arm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Tue, 30 Sep 2025 16:58:50 +0100
-X-Gm-Features: AS18NWAuSPC4iIVXvHyaRrKiIs_YMb44j30zZV_pQtQgRBqR2uIulkeW_PnbRr0
-Message-ID: <CAJ9a7Vh_ZVnpDbperzA9Mr8eZbPwZmJ9QtTEkmjeozqJkX-U5w@mail.gmail.com>
-Subject: Re: [PATCH v3 08/31] coresight: etm4x: Remove the state_needs_restore flag
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
-	Yeoreum Yun <yeoreum.yun@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Yabin Cui <yabinc@google.com>, 
-	Yuanfang Zhang <quic_yuanfang@quicinc.com>, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org
+References: <20250919155821.95334-1-vincent.guittot@linaro.org>
+ <20250919155821.95334-3-vincent.guittot@linaro.org> <4ee5tqdjv5ogcdtysiebtoxmrvrzhkar4bjcsqi47dxtgwac4c@rezn4waubroh>
+ <CAKfTPtAEkegCV-9_x-dXSWQFOoG6kO5JbJq_LToY9YuuRusoVA@mail.gmail.com>
+ <lmczw5agheqbcl6xcomlhf7yfbdvfx45pozmaxjmbkkqudsxlu@c7u6s5h4xm6j>
+ <CAKfTPtCacFhJztYvWycSdoWMUStaf1WAcGJKHwk3y4n-uEELSw@mail.gmail.com> <xmjgs5ssolugcq2ogjc5j3ccwalcc4q3whl64fcra2aiebhtci@qwobbjtb2wcl>
+In-Reply-To: <xmjgs5ssolugcq2ogjc5j3ccwalcc4q3whl64fcra2aiebhtci@qwobbjtb2wcl>
+From: Vincent Guittot <vincent.guittot@linaro.org>
+Date: Tue, 30 Sep 2025 18:11:05 +0200
+X-Gm-Features: AS18NWCijqY2xYOImmRNqiG0s-RQFrJ1uFUZhBOTuBa0xoCxbLUGNkckGMVPh8A
+Message-ID: <CAKfTPtDva4fUQty8b5b=tLEHcd+OGFSS9i0DJqnn3vFvgG9wrA@mail.gmail.com>
+Subject: Re: [PATCH 2/3 v2] PCI: s32g: Add initial PCIe support (RC)
+To: Manivannan Sadhasivam <mani@kernel.org>
+Cc: chester62515@gmail.com, mbrugger@suse.com, ghennadi.procopciuc@oss.nxp.com, 
+	s32@nxp.com, bhelgaas@google.com, jingoohan1@gmail.com, lpieralisi@kernel.org, 
+	kwilczynski@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, Ionut.Vicovan@nxp.com, larisa.grigore@nxp.com, 
+	Ghennadi.Procopciuc@nxp.com, ciprianmarian.costea@nxp.com, 
+	bogdan.hamciuc@nxp.com, Frank.li@nxp.com, 
+	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, imx@lists.linux.dev, 
+	cassel@kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250930_085902_806162_694BBECB 
-X-CRM114-Status: GOOD (  27.76  )
+X-CRM114-CacheID: sfid-20250930_091118_829064_3F2DD92E 
+X-CRM114-Status: GOOD (  26.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,103 +106,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 15 Sept 2025 at 11:33, Leo Yan <leo.yan@arm.com> wrote:
+On Mon, 29 Sept 2025 at 18:32, Manivannan Sadhasivam <mani@kernel.org> wrot=
+e:
 >
-> When the restore flow is invoked, it means no error occurred during the
-> save phase. Otherwise, if any errors happened while saving the context,
-> the function would return an error and abort the suspend sequence.
+> On Mon, Sep 29, 2025 at 06:23:05PM +0200, Vincent Guittot wrote:
 >
-> Therefore, the state_needs_restore flag is unnecessary. The save and
-> restore functions are changed to check two conditions:
+> [...]
 >
-> 1) The global flag pm_save_enable is SELF_HOSTED mode;
-> 2) The device is in active mode (non DISABLED).
+> > > > > > +static int s32g_pcie_resume(struct device *dev)
+> > > > > > +{
+> > > > > > +     struct s32g_pcie *s32g_pp =3D dev_get_drvdata(dev);
+> > > > > > +     struct dw_pcie *pci =3D &s32g_pp->pci;
+> > > > > > +     struct dw_pcie_rp *pp =3D &pci->pp;
+> > > > > > +     int ret =3D 0;
+> > > > > > +
+> > > > > > +     ret =3D s32g_pcie_init(dev, s32g_pp);
+> > > > > > +     if (ret < 0)
+> > > > > > +             return ret;
+> > > > > > +
+> > > > > > +     ret =3D dw_pcie_setup_rc(pp);
+> > > > > > +     if (ret) {
+> > > > > > +             dev_err(dev, "Failed to resume DW RC: %d\n", ret)=
+;
+> > > > > > +             goto fail_host_init;
+> > > > > > +     }
+> > > > > > +
+> > > > > > +     ret =3D dw_pcie_start_link(pci);
+> > > > > > +     if (ret) {
+> > > > > > +             /*
+> > > > > > +              * We do not exit with error if link up was unsuc=
+cessful
+> > > > > > +              * Endpoint may not be connected.
+> > > > > > +              */
+> > > > > > +             if (dw_pcie_wait_for_link(pci))
+> > > > > > +                     dev_warn(pci->dev,
+> > > > > > +                              "Link Up failed, Endpoint may no=
+t be connected\n");
+> > > > > > +
+> > > > > > +             if (!phy_validate(s32g_pp->phy, PHY_MODE_PCIE, 0,=
+ NULL)) {
+> > > > > > +                     dev_err(dev, "Failed to get link up with =
+EP connected\n");
+> > > > > > +                     goto fail_host_init;
+> > > > > > +             }
+> > > > > > +     }
+> > > > > > +
+> > > > > > +     ret =3D pci_host_probe(pp->bridge);
+> > > > >
+> > > > > Oh no... Do not call pci_host_probe() directly from glue drivers.=
+ Use
+> > > > > dw_pcie_host_init() to do so. This should simplify suspend and re=
+sume functions.
+> > > >
+> > > > dw_pcie_host_init() is doing much more than just init the controlle=
+r
+> > > > as it gets resources which we haven't released during suspend.
+> > > >
+> > >
+> > > Any specific reason to keep resources enabled, even though you were r=
+emoving the
+> > > Root bus? This doesn't make sense to me.
+> >
+> > By ressources I mean everything before  dw_pcie_setup_rc()  in
+> > dw_pcie_host_init() which are still there after dw_pcie_host_deinit()
+> > in addition to being a waste of time. Also we don't need to remove
+> > edma and free msi
+> >
 >
-> Reviewed-by: Yeoreum Yun <yeoreum.yun@arm.com>
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->  drivers/hwtracing/coresight/coresight-etm4x-core.c | 14 ++++++++------
->  drivers/hwtracing/coresight/coresight-etm4x.h      |  2 --
->  2 files changed, 8 insertions(+), 8 deletions(-)
+> Let me take a step back and ask, why do you need to remove Root bus durin=
+g
+> suspend() and not just disable LTSSM with dw_pcie_stop_link()?
+
+That's something that I'm trying to clarify but it's so far the only
+way to get suspend/resume working. I have some hypotheses that I need
+to get confirmed but it doesn't have full control of clocks and power
+domain
+
+Vincent
+
 >
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index 2d2ef58393db10d058b3e29c5b270dd2d62e1a49..fbcd0fcd1992cd600d2eb8c95ae9a5adf0c287da 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -1986,8 +1986,6 @@ static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
->                 goto out;
->         }
->
-> -       drvdata->state_needs_restore = true;
-> -
->         /*
->          * Power can be removed from the trace unit now. We do this to
->          * potentially save power on systems that respect the TRCPDCR_PU
-> @@ -2005,11 +2003,14 @@ static int etm4_cpu_save(struct etmv4_drvdata *drvdata)
->  {
->         int ret = 0;
->
-> +       if (pm_save_enable != PARAM_PM_SAVE_SELF_HOSTED)
-> +               return 0;
-> +
->         /*
->          * Save and restore the ETM Trace registers only if
->          * the ETM is active.
->          */
-> -       if (coresight_get_mode(drvdata->csdev) && drvdata->save_state)
-> +       if (coresight_get_mode(drvdata->csdev))
->                 ret = __etm4_cpu_save(drvdata);
->         return ret;
->  }
-> @@ -2099,8 +2100,6 @@ static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
->         if (!drvdata->skip_power_up)
->                 etm4x_relaxed_write32(csa, state->trcpdcr, TRCPDCR);
->
-> -       drvdata->state_needs_restore = false;
-> -
->         /*
->          * As recommended by section 4.3.7 ("Synchronization when using the
->          * memory-mapped interface") of ARM IHI 0064D
-> @@ -2126,7 +2125,10 @@ static void __etm4_cpu_restore(struct etmv4_drvdata *drvdata)
->
->  static void etm4_cpu_restore(struct etmv4_drvdata *drvdata)
->  {
-> -       if (drvdata->state_needs_restore)
-> +       if (pm_save_enable != PARAM_PM_SAVE_SELF_HOSTED)
-> +               return;
-> +
-> +       if (coresight_get_mode(drvdata->csdev))
->                 __etm4_cpu_restore(drvdata);
->  }
->
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
-> index b8796b4271025f6aba79fe3cd6e4d17d0b56952d..012c52fd19338133129752d35523dc102df24604 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x.h
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
-> @@ -980,7 +980,6 @@ struct etmv4_save_state {
->   *             in EL2. Otherwise, 0.
->   * @config:    structure holding configuration parameters.
->   * @save_state:        State to be preserved across power loss
-> - * @state_needs_restore: True when there is context to restore after PM exit
->   * @skip_power_up: Indicates if an implementation can skip powering up
->   *                the trace unit.
->   * @paused:    Indicates if the trace unit is paused.
-> @@ -1036,7 +1035,6 @@ struct etmv4_drvdata {
->         u64                             trfcr;
->         struct etmv4_config             config;
->         struct etmv4_save_state         *save_state;
-> -       bool                            state_needs_restore;
->         bool                            skip_power_up;
->         bool                            paused;
->         DECLARE_BITMAP(arch_features, ETM4_IMPDEF_FEATURE_MAX);
+> - Mani
 >
 > --
-> 2.34.1
->
-
-Reviewed-by: Mike Leach <mike.leach@linaro.org>
--- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+> =E0=AE=AE=E0=AE=A3=E0=AE=BF=E0=AE=B5=E0=AE=A3=E0=AF=8D=E0=AE=A3=E0=AE=A9=
+=E0=AF=8D =E0=AE=9A=E0=AE=A4=E0=AE=BE=E0=AE=9A=E0=AE=BF=E0=AE=B5=E0=AE=AE=
+=E0=AF=8D
 
