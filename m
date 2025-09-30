@@ -4,90 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 542A5CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 09:19:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 271C4CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 09:37:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UuAPr1549PANNBONBim+EhYCYxN8N4GOSfgwpWRfWKA=; b=jQjvRWHTmeLd3iVYkDMMuUyZ79
-	XXiww3egdf2PoljMU+jhsd/UdIWUv/A/DvkVgMHGUCTzeZ1Gif2pNPCRdSWrmRi0xOH9KdDdWjuNQ
-	QGFxxIJaNxOgYG5oL0WLARsetmHUuf0l/yh7hArUoDST+7yafcj6jSM9LijMYvagEZX10gGISRyb5
-	j1tGhXgh3Gja0n0UVUR+fWRCM/C8a9BI8o1cKVsqVaYWEn050K1UhBsaI/w3Tnjr8q0jnp6k3w6/V
-	AjFlSNkCbZ6FFITjjNEFc/a/dvFvB4yZkA2q9zjt70AtMewPXuGF3s5OE1VZNJDBcynXpMU+FHERJ
-	MSa8r54w==;
+	bh=1QU/X4FJP/Pl1q1qZ9o2u/vyqhuHmO3VaMUumbBtBCI=; b=ZvFFo2cTbnBmwrJvory1R3/B/D
+	qlOYn/n5AMPo6LVXMQKd3fuBgqsQaJUG1Mdkoi4hX9vEui3KwcgcbHkfVzsJ8GkUv8HgnRoMEI0k7
+	Zp3EphQW4AUhPoq0fHEVd4uv+BMA7R96ZQ+qFQhcBtrQQFZNlH7BD1nYHn8WfhJBTBEWUdk80u0YD
+	Gnti41Km1xOeRk67DQM32ryNYwRN7ekbgI886JaYPGeD3l08U6ITNU5Ito5lPScPB7h680G2vRW/u
+	mkE1kZsZkvH5M9mcvDZx+wdtq54/Dhhvt5wDDwlvWWFEwxd9m1nkEakdy3DFrKSUbMYCvkDCRYmgg
+	Xj12IqvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3WWS-00000004niP-15oT;
-	Tue, 30 Sep 2025 09:19:48 +0000
-Received: from mail-m15586.qiye.163.com ([101.71.155.86])
+	id 1v3Wnf-00000004q4U-1h7z;
+	Tue, 30 Sep 2025 09:37:35 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3WWP-00000004nh4-3kpS;
-	Tue, 30 Sep 2025 09:19:47 +0000
-Received: from zyb-HP-ProDesk-680-G2-MT.. (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 249404016;
-	Tue, 30 Sep 2025 17:14:40 +0800 (GMT+08:00)
-From: Damon Ding <damon.ding@rock-chips.com>
-To: andrzej.hajda@intel.com,
-	neil.armstrong@linaro.org,
-	rfoss@kernel.org
-Cc: Laurent.pinchart@ideasonboard.com,
-	jonas@kwiboo.se,
-	jernej.skrabec@gmail.com,
-	maarten.lankhorst@linux.intel.com,
-	mripard@kernel.org,
-	tzimmermann@suse.de,
-	airlied@gmail.com,
-	simona@ffwll.ch,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	inki.dae@samsung.com,
-	sw0312.kim@samsung.com,
-	kyungmin.park@samsung.com,
-	krzk@kernel.org,
-	alim.akhtar@samsung.com,
-	jingoohan1@gmail.com,
-	p.zabel@pengutronix.de,
-	hjc@rock-chips.com,
-	heiko@sntech.de,
-	andy.yan@rock-chips.com,
-	dmitry.baryshkov@oss.qualcomm.com,
-	dianders@chromium.org,
-	m.szyprowski@samsung.com,
-	luca.ceresoli@bootlin.com,
-	jani.nikula@intel.com,
-	linux-kernel@vger.kernel.org,
-	dri-devel@lists.freedesktop.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Damon Ding <damon.ding@rock-chips.com>
-Subject: [PATCH v6 07/18] drm/exynos: exynos_dp: Apply legacy bridge to parse the display-timings node
-Date: Tue, 30 Sep 2025 17:09:09 +0800
-Message-Id: <20250930090920.131094-8-damon.ding@rock-chips.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20250930090920.131094-1-damon.ding@rock-chips.com>
-References: <20250930090920.131094-1-damon.ding@rock-chips.com>
+	id 1v3Wnc-00000004q0I-0omY;
+	Tue, 30 Sep 2025 09:37:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 838A745913;
+	Tue, 30 Sep 2025 09:37:31 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 4F585C113D0;
+	Tue, 30 Sep 2025 09:37:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759225051;
+	bh=tvbsNP2qVU1cS/ayMypPvum2ysqLXXw2xrupi3Us5z4=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=rr6/GDpauEY2HHAqRcDmiTNhPC7TN9DAYYCycVXlDHtgTxBjCkc0uJgP65l+B+keg
+	 IG5OhTR5p2myHJndvJuwe6EBdnrjZG+N3ZocVpjpthu4fDFCEKSIhqnL0tv99g9Z3f
+	 /V4WdCoMcyEn11g12Y7Dmojcrfqdi5QKtD7H/QqDqdPPB3elrqmiIhYMOcG76ao0z9
+	 /eT1wpxwfTl3tvjwkyJwiUWcYNPXbRbeqkNYAiifZ7b8iIdE14ORShYP/+C9deIr4Y
+	 Dpj5k0HogW95ceGK2HuPd2zss+gv7edzgvwTBJ8qWqbvCT8eVyCL68ADpgGTBa2DVf
+	 cOxoDpwD8M2vA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 41289CAC5B8;
+	Tue, 30 Sep 2025 09:37:31 +0000 (UTC)
+From: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
+Date: Tue, 30 Sep 2025 17:37:14 +0800
+Subject: [PATCH 01/19] dt-bindings: clock: Add Amlogic A4 SCMI clock
+ controller
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a9999e70ebf03a3kunmd96de74a43bccc
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGhgYS1ZOSRpCHkNLGkxPSR9WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
-	1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=RqBN615S0cJp3sbwfO4Rm/pNPOnrm9+AQUtW9MqJq4/3NbyE7YYSeopeg29TXbKgIxsDhtK6cRDRopPILaoF9EiB5Ee6mtLxrCPVHlpqLe4RDj2KfEq/iOaeMCyQCjb2C0X7ngRU+SP15tBfRZ9yfsimGu8AcuW61NxiW8+71yw=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=UuAPr1549PANNBONBim+EhYCYxN8N4GOSfgwpWRfWKA=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250930-a4_a5_add_clock_driver-v1-1-a9acf7951589@amlogic.com>
+References: <20250930-a4_a5_add_clock_driver-v1-0-a9acf7951589@amlogic.com>
+In-Reply-To: <20250930-a4_a5_add_clock_driver-v1-0-a9acf7951589@amlogic.com>
+To: Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Neil Armstrong <neil.armstrong@linaro.org>, 
+ Jerome Brunet <jbrunet@baylibre.com>, Kevin Hilman <khilman@baylibre.com>, 
+ Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org, 
+ linux-arm-kernel@lists.infradead.org, 
+ Xianwei Zhao <xianwei.zhao@amlogic.com>, Chuan Liu <chuan.liu@amlogic.com>
+X-Mailer: b4 0.14.1
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1759225047; l=1814;
+ i=chuan.liu@amlogic.com; s=20240902; h=from:subject:message-id;
+ bh=lepg6iT8bmM81rEU5ToL/dWT4QLnpMs52RztUgBBpJI=;
+ b=9DlKusjYS9lvJ5c+yIorherlGXVHoEWA7WXl+kn4Crs79ES3JyMECgX8nYfKzxnBZ3aewWJbC
+ PNqO/UxUUyuC5w6Rvv8v4ryBepX5x7v5MVHuUbUJjfzWlvDFRb2nrux
+X-Developer-Key: i=chuan.liu@amlogic.com; a=ed25519;
+ pk=fnKDB+81SoWGKW2GJNFkKy/ULvsDmJZRGBE7pR5Xcpo=
+X-Endpoint-Received: by B4 Relay for chuan.liu@amlogic.com/20240902 with
+ auth_id=203
+X-Original-From: Chuan Liu <chuan.liu@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250930_021946_152985_C8142CE2 
-X-CRM114-Status: GOOD (  16.42  )
+X-CRM114-CacheID: sfid-20250930_023732_366708_5E4E283C 
+X-CRM114-Status: UNSURE (   9.98  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,178 +91,70 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: chuan.liu@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-If there is neither a panel nor a bridge, the display timing can be
-parsed from the display-timings node under the dp node.
+From: Chuan Liu <chuan.liu@amlogic.com>
 
-In order to get rid of &analogix_dp_plat_data.get_modes() and make
-the codes more consistent, apply DRM legacy bridge to parse display
-timings.
+Add the SCMI clock controller dt-bindings for Amlogic A4 SoC family.
 
-Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
-
-------
-
-Changes in v6:
-- Apply DRM legacy bridge to parse display timings intead of
-  implementing the same codes only for Exynos DP.
+Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
 ---
- drivers/gpu/drm/exynos/Kconfig     |  1 +
- drivers/gpu/drm/exynos/exynos_dp.c | 71 +++++++++---------------------
- 2 files changed, 22 insertions(+), 50 deletions(-)
+ include/dt-bindings/clock/amlogic,a4-scmi-clkc.h | 42 ++++++++++++++++++++++++
+ 1 file changed, 42 insertions(+)
 
-diff --git a/drivers/gpu/drm/exynos/Kconfig b/drivers/gpu/drm/exynos/Kconfig
-index 0d13828e7d9e..66665d317848 100644
---- a/drivers/gpu/drm/exynos/Kconfig
-+++ b/drivers/gpu/drm/exynos/Kconfig
-@@ -72,6 +72,7 @@ config DRM_EXYNOS_DP
- 	select DRM_ANALOGIX_DP
- 	select DRM_DISPLAY_DP_HELPER
- 	default DRM_EXYNOS
-+	select DRM_LEGACY_BRIDGE
- 	select DRM_PANEL
- 	help
- 	  This enables support for DP device.
-diff --git a/drivers/gpu/drm/exynos/exynos_dp.c b/drivers/gpu/drm/exynos/exynos_dp.c
-index e20513164032..507d0a98fe5b 100644
---- a/drivers/gpu/drm/exynos/exynos_dp.c
-+++ b/drivers/gpu/drm/exynos/exynos_dp.c
-@@ -19,6 +19,7 @@
- #include <video/videomode.h>
- 
- #include <drm/bridge/analogix_dp.h>
-+#include <drm/bridge/legacy-bridge.h>
- #include <drm/drm_atomic_helper.h>
- #include <drm/drm_bridge.h>
- #include <drm/drm_crtc.h>
-@@ -38,11 +39,23 @@ struct exynos_dp_device {
- 	struct drm_device          *drm_dev;
- 	struct device              *dev;
- 
--	struct videomode           vm;
- 	struct analogix_dp_device *adp;
- 	struct analogix_dp_plat_data plat_data;
- };
- 
-+static int exynos_dp_legacy_bridge_init(struct exynos_dp_device *dp,
-+					struct drm_bridge **bridge)
-+{
-+	if (!bridge)
-+		return -EINVAL;
+diff --git a/include/dt-bindings/clock/amlogic,a4-scmi-clkc.h b/include/dt-bindings/clock/amlogic,a4-scmi-clkc.h
+new file mode 100644
+index 000000000000..454e492f8f6f
+--- /dev/null
++++ b/include/dt-bindings/clock/amlogic,a4-scmi-clkc.h
+@@ -0,0 +1,42 @@
++/* SPDX-License-Identifier: (GPL-2.0-only OR MIT) */
++/*
++ * Copyright (c) 2025 Amlogic, Inc. All rights reserved.
++ * Author: Chuan Liu <chuan.liu@amlogic.com>
++ */
 +
-+	*bridge = devm_drm_legacy_bridge(dp->dev, dp->dev->of_node, DRM_MODE_CONNECTOR_eDP);
-+	if (IS_ERR(*bridge))
-+		return PTR_ERR(*bridge);
++#ifndef __AMLOGIC_A4_SCMI_CLKC_H
++#define __AMLOGIC_A4_SCMI_CLKC_H
 +
-+	return 0;
-+}
++#define CLKID_OSC				0
++#define CLKID_SYS_CLK				1
++#define CLKID_AXI_CLK				2
++#define CLKID_CPU_CLK				3
++#define CLKID_FIXED_PLL				4
++#define CLKID_GP1_PLL				5
++#define CLKID_ACLKM				6
++#define CLKID_SYS_PLL_DIV16			7
++#define CLKID_CPU_CLK_DIV16			8
++#define CLKID_FCLK_50M_PREDIV			9
++#define CLKID_FCLK_50M_DIV			10
++#define CLKID_FCLK_50M				11
++#define CLKID_FCLK_DIV2_DIV			12
++#define CLKID_FCLK_DIV2				13
++#define CLKID_FCLK_DIV2P5_DIV			14
++#define CLKID_FCLK_DIV2P5			15
++#define CLKID_FCLK_DIV3_DIV			16
++#define CLKID_FCLK_DIV3				17
++#define CLKID_FCLK_DIV4_DIV			18
++#define CLKID_FCLK_DIV4				19
++#define CLKID_FCLK_DIV5_DIV			20
++#define CLKID_FCLK_DIV5				21
++#define CLKID_FCLK_DIV7_DIV			22
++#define CLKID_FCLK_DIV7				23
++#define CLKID_SYS_MMC_PCLK			24
++#define CLKID_SYS_CPU_CTRL			25
++#define CLKID_SYS_IRQ_CTRL			26
++#define CLKID_SYS_GIC				27
++#define CLKID_SYS_BIG_NIC			28
++#define CLKID_AXI_SYS_NIC			29
++#define CLKID_AXI_CPU_DMC			30
 +
- static int exynos_dp_crtc_clock_enable(struct analogix_dp_plat_data *plat_data,
- 				bool enable)
- {
-@@ -67,44 +80,20 @@ static int exynos_dp_poweroff(struct analogix_dp_plat_data *plat_data)
- 	return exynos_dp_crtc_clock_enable(plat_data, false);
- }
- 
--static int exynos_dp_get_modes(struct analogix_dp_plat_data *plat_data,
--			       struct drm_connector *connector)
--{
--	struct exynos_dp_device *dp = to_dp(plat_data);
--	struct drm_display_mode *mode;
--
--	if (dp->plat_data.panel)
--		return 0;
--
--	mode = drm_mode_create(connector->dev);
--	if (!mode) {
--		DRM_DEV_ERROR(dp->dev,
--			      "failed to create a new display mode.\n");
--		return 0;
--	}
--
--	drm_display_mode_from_videomode(&dp->vm, mode);
--	connector->display_info.width_mm = mode->width_mm;
--	connector->display_info.height_mm = mode->height_mm;
--
--	mode->type = DRM_MODE_TYPE_DRIVER | DRM_MODE_TYPE_PREFERRED;
--	drm_mode_set_name(mode);
--	drm_mode_probed_add(connector, mode);
--
--	return 1;
--}
--
- static int exynos_dp_bridge_attach(struct analogix_dp_plat_data *plat_data,
- 				   struct drm_bridge *bridge,
- 				   struct drm_connector *connector)
- {
- 	struct exynos_dp_device *dp = to_dp(plat_data);
-+	enum drm_bridge_attach_flags flags = 0;
- 	int ret;
- 
- 	/* Pre-empt DP connector creation if there's a bridge */
- 	if (plat_data->next_bridge) {
--		ret = drm_bridge_attach(&dp->encoder, plat_data->next_bridge, bridge,
--					0);
-+		if (drm_bridge_is_legacy(plat_data->next_bridge))
-+			flags = DRM_BRIDGE_ATTACH_NO_CONNECTOR;
-+
-+		ret = drm_bridge_attach(&dp->encoder, plat_data->next_bridge, bridge, flags);
- 		if (ret)
- 			return ret;
- 	}
-@@ -129,19 +118,6 @@ static const struct drm_encoder_helper_funcs exynos_dp_encoder_helper_funcs = {
- 	.disable = exynos_dp_nop,
- };
- 
--static int exynos_dp_dt_parse_panel(struct exynos_dp_device *dp)
--{
--	int ret;
--
--	ret = of_get_videomode(dp->dev->of_node, &dp->vm, OF_USE_NATIVE_MODE);
--	if (ret) {
--		DRM_DEV_ERROR(dp->dev,
--			      "failed: of_get_videomode() : %d\n", ret);
--		return ret;
--	}
--	return 0;
--}
--
- static int exynos_dp_bind(struct device *dev, struct device *master, void *data)
- {
- 	struct exynos_dp_device *dp = dev_get_drvdata(dev);
-@@ -151,12 +127,6 @@ static int exynos_dp_bind(struct device *dev, struct device *master, void *data)
- 
- 	dp->drm_dev = drm_dev;
- 
--	if (!dp->plat_data.panel && !dp->plat_data.next_bridge) {
--		ret = exynos_dp_dt_parse_panel(dp);
--		if (ret)
--			return ret;
--	}
--
- 	drm_simple_encoder_init(drm_dev, encoder, DRM_MODE_ENCODER_TMDS);
- 
- 	drm_encoder_helper_add(encoder, &exynos_dp_encoder_helper_funcs);
-@@ -223,6 +193,8 @@ static int exynos_dp_probe(struct platform_device *pdev)
- 	}
- 
- 	ret = drm_of_find_panel_or_bridge(dev->of_node, 0, 0, &panel, &bridge);
-+	if (ret == -ENODEV)
-+		ret = exynos_dp_legacy_bridge_init(dp, &bridge);
- 	if (ret)
- 		return ret;
- 
-@@ -233,7 +205,6 @@ static int exynos_dp_probe(struct platform_device *pdev)
- 	dp->plat_data.power_on = exynos_dp_poweron;
- 	dp->plat_data.power_off = exynos_dp_poweroff;
- 	dp->plat_data.attach = exynos_dp_bridge_attach;
--	dp->plat_data.get_modes = exynos_dp_get_modes;
- 	dp->plat_data.skip_connector = !!bridge;
- 
- out:
++#endif /* __AMLOGIC_A4_SCMI_CLKC_H */
+
 -- 
-2.34.1
+2.42.0
+
 
 
