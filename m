@@ -4,65 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C409ACCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 19:34:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1060CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 20:06:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/BFuayuRHD9cnf4hcu9JV5RJ1bQm30ztJTJFQ5UYRtA=; b=qkGb0junmX974OwubKJusCVNJI
-	cLpRYlXAYYBfg9bybueBP+v2uFJ/juVvMze/wTF5QwgrAG4S21QJp/OqXg9Yb7TL9oPAQmvjJWQbl
-	nMSHcEY/H0vfoa4DALZgnDMhXgoTWJQiJ2+rLckoN1YeJIEIje1UgOkITdzwAHp4VI8wZoczHZTWp
-	qT3na0Ngv351DstuIGDBGazBP5B6wdT2eN0vK3GOryKcoo5ISH5OXurpu0WOwum+jcpK1NImq54kL
-	k5laF0EvjAanvq1NFpPLVhwtEr0y9tybY8o8aKp7qdQ2r9AKmZWOY7+Vryx+pNwU0TlAD4zYBGBEi
-	k5UYPHCQ==;
+	bh=nnCDWQBx3MEUkPGk1nPDrYBk0/iZtvd9WsbeqrQ9y0s=; b=hFAJhEen3sgtBWHWexPaV3r8xf
+	GGfHz+MU3R+Y9oO9bVIVGUm6nq/OoFaX8+sB7Acb3hqeJZPU2woes+NG0QY+XfmNyujkNgtRVViYM
+	DnniDYnn8pcvvFBrmFSZ18u5VFSR+60q3dm9PkkxwgvbvO102tH/3CXoasEgkVGKW/5J6N7duImyq
+	vsd8ZReAqm+WZTrStBa7MOAsgAcgClfc+RhyTW0/CafHRKjEqnHXxedFnAONvuD0E63izQhSBOa2T
+	BUR1cSzybl724vkHm2wrts6AWg1lPwXQ8cGaT1keILBg85E93rutz8FYzehy/rbWDrwBe7AcI0j7M
+	gNsLth/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3g70-0000000652J-1XWR;
-	Tue, 30 Sep 2025 19:34:10 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v3gcC-000000068WI-1YnA;
+	Tue, 30 Sep 2025 20:06:24 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3g6y-00000006527-0DE1
+	id 1v3gc9-000000068V2-0UDG
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Sep 2025 19:34:08 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2DE28611ED;
-	Tue, 30 Sep 2025 19:34:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 863E4C4CEF0;
-	Tue, 30 Sep 2025 19:34:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759260846;
-	bh=AB3Cn/2WSkWkpQ+CwSIc9teOxb7tKtOz/f1rUMk3pcA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=I8lFubbW2uWOomJHlf3qiQFsUVib7KkwN466zwBY7I2J9LcBqzR+AE3IoTrKJf3Ou
-	 uoV4XEOsb97uHTWW/ujSLXmsci/NoRXc8qBgFUcoX8crQkgApt10Avc9ukN6uWNtlw
-	 wVwhINIvmsclBbo+9B2IOqoAPmqjgTf9htMz7pC0jdeN4V7+XSPcDLFKfbDXF7IXr/
-	 zuVBpm4odxIFIN6miWczAcm8m9bQ96WOY0uyqSQSWTDajwVLpr5Wv77iQ5aVCT5xyy
-	 cGTbaqzx10IvI3de5J3BLl+UK1tpK9GqKWmhLjVZm6aAMib5vH0dxuQpxm149QDHOK
-	 VPAnDVGK63ITg==
-Date: Tue, 30 Sep 2025 20:34:02 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Kamal Dasu <kamal.dasu@broadcom.com>,
-	bcm-kernel-feedback-list@broadcom.com, andersson@kernel.org,
-	baolin.wang@linux.alibaba.com, robh@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, linux-remoteproc@vger.kernel.org,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] dt-bindings: hwlock: Adding brcmstb-hwspinlock
- support
-Message-ID: <20250930-manhole-buccaneer-c22c71586e01@spud>
-References: <20250929200628.3699525-1-kamal.dasu@broadcom.com>
- <20250929200628.3699525-2-kamal.dasu@broadcom.com>
- <20250930-slapstick-volatile-60ad540f4b66@spud>
- <1bb0f2f9-d3fa-42af-aa55-e9f0771ed5be@broadcom.com>
+	Tue, 30 Sep 2025 20:06:22 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58UC8F5Y022345
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 20:06:20 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=nnCDWQBx3MEUkPGk1nPDrYBk
+	0/iZtvd9WsbeqrQ9y0s=; b=pPAcwORDhNc5V5kCVRdy1IZmLTHcRoUgyba/fmd3
+	LsdcVm9mBl23+/rygXKXLx4xTmFejhl5BRVUieYfVrucQZuz4UUt1acQc6HyTIyO
+	RPqAXMPfwf7YaC7RTcJr4ZV3JkbbSxBKxh5pPWHJSWSsno6VL8fubM/sxLmOXb6M
+	lWHGcrG0XGpyEMF1ttNJPNALUy6c1JR8Qk24PVus9lvJdbntQaG2hFR+Ln+FlgUF
+	AyOiJsXXSybd3jMHrCKtl4KLiRcraBsEtSM4sCTFmWu3LWeBbK5TpP8rLv+3bwAG
+	By3BP5CkBKpniG/bunzzytaqAcm5eQROG5ldQf3aestZ8A==
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49e6x5tf1j-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 20:06:19 +0000 (GMT)
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-4d91b91b6f8so100232371cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 13:06:19 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759262779; x=1759867579;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=nnCDWQBx3MEUkPGk1nPDrYBk0/iZtvd9WsbeqrQ9y0s=;
+        b=VcFZ76pctdvuZQ/3wZLDaVPfhmwovQO3MxZnv5HJaO2QU5I1e8kOMN1Xo06x9dWpi0
+         zUVi92chxUwd06nPIzOK7JJO68+VlLAca0dWGZ6QvUclbqW3OPzR3WFf1slkoRCxgdVH
+         Iet2TKsUpPV/rhlxXS3VKkS4ugY80UKYrXuwPJaD4GzR3yfZVt0haFzKq2dc9UTLAfIh
+         bT9v39nP+vD8SzgyFqbVOFroN6PJ6j0Jdy85eL8NmI5dCTsxRjw6kGsajr4Z9Zdlq7qz
+         e/cE2qHG7S+d9i0nsw68eNY2S2sPGOnAaLmktSnDleBWuPc9+DbJqyJl19SaqWshcoLI
+         hhtQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXvPx8aRKQlK2PxhIO0EoXfirO0oQoSdzhBRwkE/B6O6Qkcb16UK9mDVP3kD62Q7Fy9EyYhh7AAuQGRhTtkYasT@lists.infradead.org
+X-Gm-Message-State: AOJu0YwFHuOtHVJxR3sSaun1GmYz9+zefgxtucg7e2nGec8FWumrOnLn
+	mQRt+7xqT52gu/mJujOfrj1tR2/UtQfsr+x2ackNe0fHwLgVM7pvFR9P4Mcb/vvjgJqXlEU58Rm
+	Y011wEXk2UCMwN+ft7h+tjeCj6Ae6qc0SBlh4rIf2lN9PVcADTya/F04j7OFzH/2y3PTrC7KV1p
+	iSwg==
+X-Gm-Gg: ASbGncsd7JnwU1v05/JzB8qoIzjw31kwWiqnQO/b8VZHSW4zg8yrO6IcO7Gn3uQcngA
+	FPY7w4BSioshwfb8xGgw7ck2+E+DHQhMNigxdHy4xHMQVThfXb8HPT0pOG7ar5qjq/1vBSKabpo
+	fqadNB0AgV5/X2FKyfIE08H0WOxHHPJajhuVnQ2fO2t1zTIbAl3abazhrxIbkm2FKCk62ktzNPf
+	tGq50T9HsUp+KUHuYRoNMD4d7ogUN7FS+Pmv+H65sjuIVI4CDUhM3ou+RkYCKVoPofEA8c1y2Z2
+	AMyyKj/GCp3drKV+ffcaLnoEmNhO9tVCdi90yi1xlQyrN4HTzMdigljcMtAohDREhv2zmZja2J5
+	Vcsel/PBjohW85K1kvcB1cvR0oiCC8zpjr2hLZ04YjX8RFUkY1+wN827bmA==
+X-Received: by 2002:a05:622a:1f06:b0:4de:8e13:2ccf with SMTP id d75a77b69052e-4e41ea169c4mr13229311cf.74.1759262779105;
+        Tue, 30 Sep 2025 13:06:19 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IExAC+gjWYrGkYGyC7iuQx0n8IkXtiwE5ml3GBXLD2rdjXMDvnTqbMjAoTH934KEvOlO8Ctyg==
+X-Received: by 2002:a05:622a:1f06:b0:4de:8e13:2ccf with SMTP id d75a77b69052e-4e41ea169c4mr13228591cf.74.1759262778420;
+        Tue, 30 Sep 2025 13:06:18 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-586048c815asm3037274e87.25.2025.09.30.13.06.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 30 Sep 2025 13:06:17 -0700 (PDT)
+Date: Tue, 30 Sep 2025 23:06:14 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: daniel@zonque.org, haojian.zhuang@gmail.com, robert.jarzmik@free.fr,
+        linux@armlinux.org.uk, linux-arm-kernel@lists.infradead.org,
+        linux-kernel@vger.kernel.org, linux-fbdev@vger.kernel.org,
+        dri-devel@lists.freedesktop.org
+Subject: Re: [PATCH] ARM: spitz: Do not include <linux/fb.h>
+Message-ID: <atoda7fiaw6xxc3arfg2rvczt4ezhravwogbshvca4dsr5kjqm@vjj32eqjxkwl>
+References: <20250930112651.87159-1-tzimmermann@suse.de>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="7ONkA3jF2McKxioA"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <1bb0f2f9-d3fa-42af-aa55-e9f0771ed5be@broadcom.com>
+In-Reply-To: <20250930112651.87159-1-tzimmermann@suse.de>
+X-Proofpoint-GUID: DM63e-Y8pdyJWhuMxoAbbibGTbTQnZ0e
+X-Proofpoint-ORIG-GUID: DM63e-Y8pdyJWhuMxoAbbibGTbTQnZ0e
+X-Authority-Analysis: v=2.4 cv=ZtPg6t7G c=1 sm=1 tr=0 ts=68dc383b cx=c_pps
+ a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=yJojWOMRYYMA:10 a=EUspDBNiAAAA:8 a=al7qi2xbfAQSSKGDXgwA:9 a=CjuIK1q_8ugA:10
+ a=dawVfQjAaf238kedN5IG:22
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTI3MDAxOCBTYWx0ZWRfX3/xjMYmEDSKI
+ lwdMQUdIYSAVsA5Vha7IfY1N39dMJS7aemKLezhPTLuJQ+tP4nhIBvkMk/CGm1tyOumPRyNqP5s
+ 5RpLUnTo7xY80bpJXkcVevmEsvlW+qrZrZ4NnouHiEhrR7YAfjuNbXzS1K3sqP09jS4+R6Jji5i
+ 0z/EkBNLCI7z2EFhYJtjdBTy3PiRc2rxq6vhjmsn5jIl4EoVzl9KKeu5IGpLuL1FLG0sLOroDiW
+ w6drFfOwXYHGvbIcgvGRBXrc3ux91HFDzWMJLBeoV4GfSfue4AwDZZsR9VaNrbfRxlXXX6fUkem
+ GZoARKdaaojW3ADLrFBFBeoWN4lu/vE548g1ToMDS0yi7r9NzIgj3dNk1/RUFWUGNgMiN/22FhX
+ b0WpTG9bmcewVvnd5TrVmLSk45owxQ==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-09-30_04,2025-09-29_04,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 spamscore=0 priorityscore=1501 malwarescore=0 bulkscore=0
+ suspectscore=0 clxscore=1015 lowpriorityscore=0 adultscore=0 phishscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2509150000 definitions=main-2509270018
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250930_130621_278616_1E162B19 
+X-CRM114-Status: GOOD (  16.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,86 +129,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Tue, Sep 30, 2025 at 01:26:46PM +0200, Thomas Zimmermann wrote:
+> This ARM architecture's source file does not require <linux/fb.h>.
+> Remove the include statement.
+> 
+> Signed-off-by: Thomas Zimmermann <tzimmermann@suse.de>
+> ---
+>  arch/arm/mach-pxa/spitz.h | 1 -
+>  1 file changed, 1 deletion(-)
+> 
 
---7ONkA3jF2McKxioA
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Reviewed-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 
-On Tue, Sep 30, 2025 at 12:09:01PM -0700, Florian Fainelli wrote:
-> On 9/30/25 12:03, Conor Dooley wrote:
-> > On Mon, Sep 29, 2025 at 04:06:24PM -0400, Kamal Dasu wrote:
-> > > Adding brcmstb-hwspinlock bindings.
-> > >=20
-> > > Signed-off-by: Kamal Dasu <kamal.dasu@broadcom.com>
-> > > ---
-> > >   .../hwlock/brcm,brcmstb-hwspinlock.yaml       | 36 ++++++++++++++++=
-+++
-> > >   1 file changed, 36 insertions(+)
-> > >   create mode 100644 Documentation/devicetree/bindings/hwlock/brcm,br=
-cmstb-hwspinlock.yaml
-> > >=20
-> > > diff --git a/Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hw=
-spinlock.yaml b/Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspi=
-nlock.yaml
-> > > new file mode 100644
-> > > index 000000000000..f45399b4fe0b
-> > > --- /dev/null
-> > > +++ b/Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinloc=
-k.yaml
-> > > @@ -0,0 +1,36 @@
-> > > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> > > +%YAML 1.2
-> > > +---
-> > > +$id: http://devicetree.org/schemas/hwlock/brcm,brcmstb-hwspinlock.ya=
-ml#
-> > > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > > +
-> > > +title: Broadcom settop Hardware Spinlock
-> > > +
-> > > +maintainers:
-> > > +  - Kamal Dasu <kamal.dasu@broadcom.com>
-> > > +
-> > > +properties:
-> > > +  compatible:
-> > > +    const: brcm,brcmstb-hwspinlock
-> >=20
-> > Is "brcmstb" actually the name of a single platform?
-> > Looking at the "brcmstb" pci binding, it looks like there's a whole load
-> > of different devices there and none use "brcmstb":
-> >            - brcm,bcm2711-pcie # The Raspberry Pi 4
-> >            - brcm,bcm2712-pcie # Raspberry Pi 5
-> >            - brcm,bcm4908-pcie
-> >            - brcm,bcm7211-pcie # Broadcom STB version of RPi4
-> >            - brcm,bcm7216-pcie # Broadcom 7216 Arm
-> >            - brcm,bcm7278-pcie # Broadcom 7278 Arm
-> >            - brcm,bcm7425-pcie # Broadcom 7425 MIPs
-> >            - brcm,bcm7435-pcie # Broadcom 7435 MIPs
-> >            - brcm,bcm7445-pcie # Broadcom 7445 Arm
-> >            - brcm,bcm7712-pcie # Broadcom STB sibling of Rpi 5
-> >=20
-> > If "stb" means "set top box", it sounds like a catchall for disparate
-> > devices, which isn't permitted.
->=20
-> Unlike PCIe, the HW spinlock hardware has been stable across all Set-top =
-box
-> chips ever since it was added, which is why the catch all is IMHO adequate
-> here.
+> 
 
-I see. Now that I look more, there are other places where "stb" is used.
-Sounds like "brcmstb" as generic fallback would probably be okay then.
-Either way, the duplicate 1/3 patch needs to be sorted out.
-
---7ONkA3jF2McKxioA
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaNwwqgAKCRB4tDGHoIJi
-0uE8AP4mcav5juIgZKkbUSFyxSFX4BuQoKb9S9jqDChoCJwf+AEAkId6yQePlp+T
-Q0DQHR+eHcnvaWXrdZvIeGiVlUXNRAY=
-=ozXO
------END PGP SIGNATURE-----
-
---7ONkA3jF2McKxioA--
+-- 
+With best wishes
+Dmitry
 
