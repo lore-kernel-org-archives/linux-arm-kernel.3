@@ -4,91 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B39DFCCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 12:35:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B2E9CCA468
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 12:38:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=//xkitOYEIBnBowE0figA5jcXr1QSGKbTFftNJcWdSY=; b=sT+N08gtrYgVdGN5oBzkNlOOoU
-	AvjmLaF1HTPTWTbHQfnKTKXZQCUrygLn3vSLU1eOyeQVHgYJ+CKgf6Uq0f9TQF46tnnj89MLsJNXm
-	SjCDyN1AQ4B0ZZmuSkJZFlUkLRL5B6nX1tAb7rUMnmOvDgOatPKf4ii5ZXxRnMILqj0hpX21YWsw9
-	UegNwhNpgGl+CeFRyQOhW62MFqzb79uMyysnWmZVdZqrrCuFvq++iJY8kicqZrDIp4rgfYE/JbtKB
-	GdQzCKxogbhHAQe8BDnTRRxO3q7dMTHI95fi/xQfzqiPLg2DOIxVGvvqku172FZloLmyXSqiBQlTh
-	ARi4tanQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VBYh4sqVRv985C07Huopg2HBOyHMdBgVTsPZLDQuV38=; b=d6OuzbxT0/XoIgaEyKlSkesji4
+	0B2I1LpRvZWpR3mc+n9lUAqtjAV8FfTQwxCR5IgMxJxP0zimgSc3x8tQZrPexIcMfZNq8bcu/tkP4
+	AW6G7xqwLMAodqB/+/+MqHQhVPdIEB7gdcnYnOlfTGoIhXBG0WOk64zOerUWf6WjkpskxYV9MM3q+
+	wVL6DCKSXxxfIzS2iP/3bZD+3yten1jteWWqgYZXe7XBjylfuAzpyxSsm5XlLZJsjR0MunyhEdLnz
+	Y/F6q45HM9/RQ5woy4l8Bg3tDI1vWBLgs4jxeGzF/eFwR+e2zNHwKtTsbN1E0Km3HNqrSlM5h9i/V
+	UZb4J4hQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3ZZO-00000005I0K-1CZF;
-	Tue, 30 Sep 2025 12:35:02 +0000
-Received: from mail-lj1-x232.google.com ([2a00:1450:4864:20::232])
+	id 1v3Zcy-00000005IUH-3tW5;
+	Tue, 30 Sep 2025 12:38:44 +0000
+Received: from mail-qt1-x836.google.com ([2607:f8b0:4864:20::836])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3ZZL-00000005Hz1-1hYA
+	id 1v3Zcw-00000005ITb-3yO5
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Sep 2025 12:35:00 +0000
-Received: by mail-lj1-x232.google.com with SMTP id 38308e7fff4ca-362acd22c78so56828711fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 05:34:58 -0700 (PDT)
+	Tue, 30 Sep 2025 12:38:44 +0000
+Received: by mail-qt1-x836.google.com with SMTP id d75a77b69052e-4ddabf2ada5so58530341cf.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 05:38:42 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1759235697; x=1759840497; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=//xkitOYEIBnBowE0figA5jcXr1QSGKbTFftNJcWdSY=;
-        b=aqZ+LY7psDlU/KcaA1RR7uhKbxLfUZiu3K9qpe8pPweJSlRjAX2Ov688QHirj+d8GG
-         5R6OMzJ227EJibkfaud24FRhxf7pSvQRMnbgqEomqaznNuwExFtA4phu6qckpd+nWWcl
-         J7T3YfivRVCbdSr92JW247B8Xd4KR5ipbEDkyWzAcS11x/BbviH63Z4HQbafj6MAMw2K
-         XH++5d7ZmWJWcK6iVLpQz5XD9tebcPMWtIJjZopZAt/q1/rm6Wh6j3lGIe5eNDwwcBoM
-         4nItVyYMR3VjOcoAAmfk7vHTdECjRKzeUD0fcosxO/+KeBwn3SIa+n3gIoqe27FljjfP
-         fiUw==
+        d=ziepe.ca; s=google; t=1759235921; x=1759840721; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=VBYh4sqVRv985C07Huopg2HBOyHMdBgVTsPZLDQuV38=;
+        b=G9C+k0G9j5C1VK+nFWZEGcqGUC62Tarn5sLEjExRS1CN0UbQvVtBPzfvmkd8cG0W3k
+         3493AIBGTbhIu7as68gweTk9bU4o/vlK11zOhc8wJGjvZ2ptgym1Ej5rlLyCO9elI9BL
+         1jgZSFMvoq12H1pK2edNOK4RrDHE4H8cYwvQzRC47H/gN0IL+qAKwwcJNWUMyr1JGUpN
+         1vj7dZENwFOyliiJSWUqDyTMsM8bN42x9NeKRH4swLWZhmRGTI/1V7ZN7YxC8HHexfxd
+         opVrcDhSzBjOOUrKsC65YTlscK6dVOX55hNCK+IcIkf7txWBaP4wGCtSZv8Esf4FhEEl
+         FTsQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759235697; x=1759840497;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=//xkitOYEIBnBowE0figA5jcXr1QSGKbTFftNJcWdSY=;
-        b=CFrzYERTcyf+Tq5X9KkavQZK88KGkugsLalps+gIM4PnLATHkpt3wWgUXM8kVPb7dG
-         9MkZer7aZ4B2pX8b1TXqc4cNCaLIVybe07KbAKktm/ODPQzyVKfbcU5s2d2SnUOYeDwo
-         pG0CRj8q3nqp+yFg7ArMYmAt9ZHOgVAcL1uuvk7BwcRzHdxyknlDIZfREOJeaUqvspsy
-         uBVzD+ZnxAOPtn7P/otRYtLegdMQ0fSu906XgFPTrKRuCtMG4LGfGVieV2zY90h09n+d
-         EjwVt3fWQpHgD0d0z1GjTcMVtgQRvLa42ElbMt5plwQ65p4SfQrxDllHqXCI8BEgD1j2
-         Bt6A==
-X-Forwarded-Encrypted: i=1; AJvYcCUHQsAtoSTzbrPihPMbtyod3WlT95UHTl/tbdyrCHZWjFzceH525HoNJxWriAW03pGVPPcrPeHxQpwZwHMa+B69@lists.infradead.org
-X-Gm-Message-State: AOJu0YyTJHvsmUYwJhdxAl7O4xy1XqtLQ0hahgrwJMEDbrKGHpnK1X8r
-	tNmB3ypSTpD2W3C6MWkUOhZL0X9h3TL/s44FdnsviARtY+l+K4d2lv0mdVr0r1CC9KWJWR/E8ue
-	BgILikKo/eKMiL8z4cdjulbPH1HfQfngt6zVqPc4QVA==
-X-Gm-Gg: ASbGnctAsUp5ZVz9uNDj+dekVa88+4Y4FrHhr4xvB8xzXTNtwARfKccXJN9j/3FjCxU
-	YcAxy6JXndRrolHcVKIgUuLUcBVOa95cmtuD1RG6KnbSRvR4O+DwNxqyUp2Yakjw+AL717lp8rs
-	TbySEK/gi26maQ6jkg+h09n2gLqVUvfwk0h9PPY7Lx4IceX1ncWXno9k6IOyxhwbfnDyoYy9bsE
-	Kr2IStXnF3vqlq4+GLiIVNWiTDddeP+BI6yWxbanA==
-X-Google-Smtp-Source: AGHT+IFkGyQJTXX+l3/fVG1kpg3S7XkLrTud3tl3gd71kpZbk5gd/flj5ygP5W+NqOo2/jq0RMyArIGv0CKoRXGvQt0=
-X-Received: by 2002:a05:651c:1545:b0:36b:ce19:d853 with SMTP id
- 38308e7fff4ca-36f7ff20073mr53691811fa.45.1759235697194; Tue, 30 Sep 2025
- 05:34:57 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1759235921; x=1759840721;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VBYh4sqVRv985C07Huopg2HBOyHMdBgVTsPZLDQuV38=;
+        b=i8SDAnaFFUX4A3f8J/PKK6bEjSbcnqOiR9lOy/RovdzVRSHxr+9+S0fHnK9m7eImAC
+         q/+bylBQG6+j4tP8Pjh/pLX8SgICX5W73dXvo6gaDXGf/aU+rA4f/L1u6ZME+qHVygBK
+         p2CQkqu+17hwOMGRhZ9PEy15TKtZN0T4dBrkHbSfZQhhZi/9yDGL5ml8hE2muKivdAd+
+         70W4fJDwxmDByRdr5pqt0NGKCt5K2hIevMCaoV8/Vq8QLTXglT5RcViHQWRBQL8l2JGc
+         vOs/9ztlLuCLhqb2MiThjWJcgn//DR2OvMkFriFRagaogPkldP5obv3bqXAN3H+U09ma
+         sfdw==
+X-Forwarded-Encrypted: i=1; AJvYcCXXqaf0/OMyynNvedIMXAW0ObCBzeSifWZ5lDOXaKcgUza5ifmN3bhS6yx8UQVNX9OOvjSoE6wpZRmKCqJhQxu9@lists.infradead.org
+X-Gm-Message-State: AOJu0YwcmFMV1GoH2bMUCBQ03wRLPT6ubOUJmd69khrrLFaodfWvDhps
+	QNASF8NKxHzuVEopjf+EQ8t/0+a3M5Up9plZvIXHrGfUpcrbEBUUtBgZuXB2e3dDyJU=
+X-Gm-Gg: ASbGncuxXuZ9jkzzD6SaRebdOCWN1QgBHhefvgYIaEql4qQnW2bj7VawKxew1goFBj5
+	SBdu6aCv/jkD9aolJzInZX0CDEEWmrM1bU4IvhSixr6NyG1ve4O8Jo27tE0DxPxWAFDs/cMYXLP
+	QK1Ha6KC/6OS1nfbZDCDkMUeOzMqV2sKiaekBIZpSppMTu2kLUs3ja3EdhQiK5miwOhSc7/lnbv
+	XAbJC9xt71uoYhKfc2VfLQBdCUzC678lymriqk/nssIgtUaDO1YqJp03Y7BrgHE/nTIKl/LJZ2d
+	gNpjWTtLQDNfWlBH3DqhOwaSpeHW6OMi+DU2nWAafIu+VQFXfpcOZdkZtgvJlRCxTtpeff6cPPA
+	lK/IRLgm+Hd7KkdUwwLdGy3g3A2XSrxN6Y37weI6IIg==
+X-Google-Smtp-Source: AGHT+IHgKpbQVt29fnjPpYGRGvSeW5uUhJfqcsuhp73OzWARyNjA6lxGY/bFMFic1Y10TeqPQbcyEw==
+X-Received: by 2002:ac8:5c88:0:b0:4b1:247f:4e0f with SMTP id d75a77b69052e-4da4cd41ec5mr281429761cf.57.1759235921370;
+        Tue, 30 Sep 2025 05:38:41 -0700 (PDT)
+Received: from ziepe.ca ([130.41.10.202])
+        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4e34ef75712sm8696611cf.7.2025.09.30.05.38.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 30 Sep 2025 05:38:40 -0700 (PDT)
+Received: from jgg by wakko with local (Exim 4.97)
+	(envelope-from <jgg@ziepe.ca>)
+	id 1v3Zct-0000000CWSm-3Tg2;
+	Tue, 30 Sep 2025 09:38:39 -0300
+Date: Tue, 30 Sep 2025 09:38:39 -0300
+From: Jason Gunthorpe <jgg@ziepe.ca>
+To: Mostafa Saleh <smostafa@google.com>
+Cc: Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	iommu@lists.linux.dev, maz@kernel.org, oliver.upton@linux.dev,
+	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
+	catalin.marinas@arm.com, robin.murphy@arm.com,
+	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
+	mark.rutland@arm.com, praan@google.com
+Subject: Re: [PATCH v4 10/28] KVM: arm64: iommu: Shadow host stage-2 page
+ table
+Message-ID: <20250930123839.GL2695987@ziepe.ca>
+References: <20250819215156.2494305-1-smostafa@google.com>
+ <20250819215156.2494305-11-smostafa@google.com>
+ <aMA8vz0v0Vn-02QP@willie-the-truck>
+ <aMlzLsj5slPQhWEr@google.com>
+ <aNamXlTErXDs1K8Z@willie-the-truck>
+ <aNpm9odmzv__2RyA@google.com>
 MIME-Version: 1.0
-References: <20250912060650.2180691-1-gary.yang@cixtech.com>
- <20250912060650.2180691-2-gary.yang@cixtech.com> <CACRpkdYgTjerG5mks_+3sjhKKYtCsFY=1NWhgw_YEuib7gZm3g@mail.gmail.com>
- <TYUPR06MB5876BB28E3C30EEB9BB05997EF15A@TYUPR06MB5876.apcprd06.prod.outlook.com>
- <CACRpkdYKnFAyq8C5h2=5NQ8AU92RmzShNHd6+=21rWednjv-fA@mail.gmail.com> <PUZPR06MB5887DA8FE0E128993F11E2B3EF16A@PUZPR06MB5887.apcprd06.prod.outlook.com>
-In-Reply-To: <PUZPR06MB5887DA8FE0E128993F11E2B3EF16A@PUZPR06MB5887.apcprd06.prod.outlook.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 30 Sep 2025 14:34:46 +0200
-X-Gm-Features: AS18NWCe8gc0I9F23q-ySgwePTXWrU-J25uwnqfg_Oxcxpo9nPVmUWN-Gc4LkU0
-Message-ID: <CACRpkdaQYb+tB+a9Q6j3xPq=BHbQV5-3hu3XiJkSU9CGtcHpiA@mail.gmail.com>
-Subject: Re: [v2 1/3] pinctrl: cix: Add pin-controller support for sky1
-To: Gary Yang <gary.yang@cixtech.com>
-Cc: "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>, 
-	"conor+dt@kernel.org" <conor+dt@kernel.org>, 
-	"linux-gpio@vger.kernel.org" <linux-gpio@vger.kernel.org>, 
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>, 
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>, 
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>, 
-	cix-kernel-upstream <cix-kernel-upstream@cixtech.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aNpm9odmzv__2RyA@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250930_053459_475797_A18C86E5 
-X-CRM114-Status: GOOD (  13.76  )
+X-CRM114-CacheID: sfid-20250930_053843_034990_4F6420A0 
+X-CRM114-Status: GOOD (  16.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,55 +112,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Gary,
+On Mon, Sep 29, 2025 at 11:01:10AM +0000, Mostafa Saleh wrote:
 
-thanks for your efforts!
+> > If the SMMU is in stage-1 bypass, we still have the incoming memory
+> > attributes from the transaction (modulo MTCFG which we shouldn't be
+> > setting) and they should combine with the stage-2 attributes in roughly
+> > the same way as the CPU, no?
+> 
+> Makes sense, we can remove that for now and map all stage-2 with
+> IOMMU_CACHE. 
 
-Sorry for taking so much time to respond. I was coding.
+Robin was saying in another thread that the DMA API has to use
+IOMMU_MMIO properly or it won't work.. I think what happens depends on
+the SOC design.
 
-On Thu, Sep 18, 2025 at 8:17=E2=80=AFAM Gary Yang <gary.yang@cixtech.com> w=
-rote:
+Yes, the incoming attribute combines, but unlike the CPU which will
+have per-page memory attributes in the S1, the DMA initiator will
+almost always use the same memory attributes.
 
-> New scheme with macros has verified ok. I just want to confirm with you b=
-efore submit codes
+In other words, we cannot rely on the DMA initiator to indicate if the
+underlying memory should be MMIO or CACHE like the CPU can.
 
-No need to confirm with me just post it!
-Better one post too much than one too little.
+I think you have to set CACHE/MMIO correctly here.
 
-> > But I think you can still use a macro to define the long pin tables?
-> > Albeit macros with flexible arguments is a bit hard to write.
-> > Save it until everything else is working.
-> >
-> In header file:
->
-> struct sky1_pin_desc {
->         const struct pinctrl_pin_desc pin;
->         const char **func_group;
->         unsigned int nfunc;
-> };
->
-> #define SKY_PINFUNCTION(_pin, _func)                            \
->  (struct sky1_pin_desc) {                                        \
->                  .pin =3D _pin,                                    \
->                  .func_group =3D _func##_group,                    \
->                  .nfunc =3D ARRAY_SIZE(_func##_group),             \
->          }
->
-> In C file:
->
-> static const char *gpio1_group[] =3D {"GPIO1"};
-> static const char *gpio2_group[] =3D {"GPIO2"};
->
-> static const struct sky1_pin_desc sky1_pinctrl_s5_pads[] =3D {
->         SKY_PINFUNCTION(PINCTRL_PIN(0, "GPIO1"), gpio1),
->         SKY_PINFUNCTION(PINCTRL_PIN(1, "GPIO2"), gpio2),
->                 .......
-> };
->
-> What's your suggestion? Thanks
-
-It's OK as-is if this is how you want to structure things!
-
-Yours,
-Linus Walleij
+Jason
 
