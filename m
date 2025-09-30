@@ -4,89 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDDC6CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 17:53:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C271DCCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 17:59:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BCBIbBYTop5A6jYeRu7ELO0tniBU6tTB+IOx31qQ3MI=; b=KsJ/hBiZ5dlLB6b9hf3TTf+8C+
-	lfLohVwmNb8QeZg+IQCYy8hb/geJ4EwxJfD6J10fRt3i86Rc0VppIRrcJff3JCBir94KklWFf1I2L
-	gB8IxQbm/XPNJt2rz+1kLVWdv1gLT2PrRDX7NwM2fpWxUAxZxrJF444ZK5fuc6ty/oJYSQlpwa9ww
-	XBlx0jgisHljYX6Eddzjh7IeLihQgLVftVrkoSW8w6cxIPt74cTVX8NCEHRPK29PlutQW5qn0JTtM
-	+1hJbBxSrXT76+28KKig4YoelCxXgTOD7vde5qFIFV0mBNXQKLxRhGUZwCO2tOyRaGSElOC5vGUZ/
-	IZ+Tw0+Q==;
+	bh=Abuvdp6dvcP4pY2sYCbxIW6RxmXHacrG5s1S0+d8Jjs=; b=XcnyU7Wcc3tr9AkQaYFP/mHcSH
+	kZBtshu6ppeFuuEjoj5hGaLTpGE7G+kxzFJ+XXfbXuB2y1Q2ELcZbfVfy2k+vzXmfyfKn+5LKRYiw
+	AORaDE2S+hP1LzavBV08MlHPIXNBUusFV4iKTsCu+aXGylVcW8Doy5cwzvcZ63VSA/1SVBq9TYMO6
+	0kkXPZ7cUrsZAgfD5qqQmCXsXf+uy95y0ikrBzSG7VfkUIwbpbGMhsFfjIpnFg3pDfS8WT+2ERIpN
+	3ChB4sVzyG9mPHydceSLAK6mStBc+r/0Dy8vOWWnIO7YE2xlGWtR3q1cKYPL8OQh4XCRftO9Nn+2R
+	FaXGeHZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3eXG-00000005vEH-04u4;
-	Tue, 30 Sep 2025 17:53:10 +0000
-Received: from mail-qk1-x72e.google.com ([2607:f8b0:4864:20::72e])
+	id 1v3edK-00000005vpb-3Pw0;
+	Tue, 30 Sep 2025 17:59:26 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3eXD-00000005vDU-0f6B
+	id 1v3edJ-00000005vpT-2noz
+	for linux-arm-kernel@bombadil.infradead.org;
+	Tue, 30 Sep 2025 17:59:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:MIME-Version:Date:Message-ID:From:References:CC:To:Subject:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=Abuvdp6dvcP4pY2sYCbxIW6RxmXHacrG5s1S0+d8Jjs=; b=YLWZA+wW33nCRv15LpLKNuqX/k
+	JLB7jK+jjCRsmS5H+LJLQ6DY7SC5LSKUfkSOAcmKMPHT/xoDYgXG9Lsf3N17c/tjWxmpl2hdP3DfI
+	THxctV7t4kH8YNL2B3mDLiRq3PePybqVuzQb80xl2cBmZx7l2vVdghFdP6LuSevmNicV/bEhRD6Ye
+	294FT6eFwlY2bg6BFlldnX9893uQylKAcBn8tVhCjcXM/JfYdt6VfKyhEUAXKRZVBxE4y+lyVGCBT
+	8BYC6Tyy7VQ2KrMdu+H3fAdM0vTseAWu/Ie4QrsCbQ+KH95Hmr7PTW7ong+Bn7V59Wk+nelipe4h9
+	mpTAT5eA==;
+Received: from canpmsgout01.his.huawei.com ([113.46.200.216])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v3edG-0000000D0Ts-0wBs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Sep 2025 17:53:08 +0000
-Received: by mail-qk1-x72e.google.com with SMTP id af79cd13be357-84dcf6f28e0so637966585a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 10:53:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1759254785; x=1759859585; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=BCBIbBYTop5A6jYeRu7ELO0tniBU6tTB+IOx31qQ3MI=;
-        b=FXMW7xVeCFKs0LvaBApJEk13GsAMba5iffWdQnRRGt89+q6Sn1uUio78qUvQKdz7lt
-         KnTU6yuPVme3bJoFRaUpTQWE3qHSSFCOzGEeyQ3khFaH0REVSUy3WBpgsm82uhTr45j4
-         SDG/kJpNFFOpwHWmLXBC7WGh5+lflz8wFVD5d4Z5kVc5Xckyg0JYoMBgzj26JNPSWd8t
-         s0auEdIX+CMFTRhY0T2zS8ZzSSwQKwrS7pZsOu0n9+RMgwEcEiEmxhbBYTAFxvf9yt+a
-         RXN8r5PZVIsEmFjjlUBAKGgwCQOkO2lW8hrjXFUqbbK2ctkbXTAgki9LrAVCde/v85E6
-         MF8g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759254785; x=1759859585;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=BCBIbBYTop5A6jYeRu7ELO0tniBU6tTB+IOx31qQ3MI=;
-        b=SMLXqW60XNL564juk0f9Wgc/G1GAV7UWqV4OH8pANABWXs/OSCjttWh4eOFhVJaW9Y
-         dfMCiGo6w77XQoC0IigK36/VsbnZOJUojOu4tqreX1NI+1sZbHUAOOgU42kagjtN1sJr
-         lD/zGDZCRogEklk6MzDQu9NSb1FknrEMqeXY9Ewf26+rrM6ugFzGfC58arCWg35MeqNg
-         Gmz6DnL1GWWgeLZnjjykz3o7eXXDU0j9kYN1n1nnnZkizj7RV/chaV2Uv5hoDDTxl8Bd
-         A4vtA7WYehplvQfgMQyXGTOR1sJRe4JY6R+PVh6fc3aNN3JnFoFO53v0b15rtpdqUf7D
-         4GPQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXf6+CppJDd1OsHZ1XyXkIlYRXtJ4aMVuytI3cZ8IhJrteKQbSLLny2Soo0l59KjI8AOPz4YmoJVQOKbFEi6ksY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzngj0WyCFugaZwKe4eFi6aRrHDP0BnA5Dw/7xB8lin99+2ACIc
-	9Lbb03N3ZYJHd12rNG3l+UxFpoAI/Yk2A40EUv3UYjk74fhF/SFpnFCVIgNbZL+jdvYwVo4giUr
-	0XsYJuuGMbfg+wLFFBwVYPzADN12gbXg=
-X-Gm-Gg: ASbGncv3i6yVr4mAOIUrNdg9ctyYB30NAVkLoWGqBzoMMy8e7LUu/75ozqvSUB6MKm+
-	2DmMr/KJaTmrGVXCUkOEtKcfzlT/fAPbJF0W1yAJB/w20I4NMIJvmEUNNl8D5GUlrPjF1mj+m2T
-	2rNLzH0bzPrKz32VG2eMx7YVkeWbeKTdkSso5RCRDe+Feu7F+3Tw0xzSedr8k9cbosHB8eEJ/m0
-	s5x48T+k/385PWOqlQz7Dhzxp70TTLQ
-X-Google-Smtp-Source: AGHT+IH3LG1eaMCJQrs7hRvNNQFjTHAdF3HnSynbQVUv0PZozyh21VEl+N59P07/3LqK4vgOsVNfabWZJIcEr41/YrI=
-X-Received: by 2002:a05:6214:2686:b0:78e:c5c7:1209 with SMTP id
- 6a1803df08f44-873a6a8cdb1mr8752126d6.56.1759254785247; Tue, 30 Sep 2025
- 10:53:05 -0700 (PDT)
+	Tue, 30 Sep 2025 17:59:24 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=Abuvdp6dvcP4pY2sYCbxIW6RxmXHacrG5s1S0+d8Jjs=;
+	b=hkWwgsEbgCcQFMRP9aZB8XnU+yzXypXbwAPTH2NCWuuksjHy2aP/gVbgLF8/VxbH54g1zm4Da
+	KwoV3C5mC2moRqmwVfIEYz8049YoF4KG451Lf42a1DaAxYcAeqwb/ajF89naiQl+11M3S4QYrFD
+	LWMzFhkY8b0bWeKRYTPMUe8=
+Received: from mail.maildlp.com (unknown [172.19.163.48])
+	by canpmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4cbm4j4m5xz1T4Fp;
+	Wed,  1 Oct 2025 01:58:13 +0800 (CST)
+Received: from kwepemk200017.china.huawei.com (unknown [7.202.194.83])
+	by mail.maildlp.com (Postfix) with ESMTPS id E27131800B1;
+	Wed,  1 Oct 2025 01:58:37 +0800 (CST)
+Received: from [10.174.178.219] (10.174.178.219) by
+ kwepemk200017.china.huawei.com (7.202.194.83) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Wed, 1 Oct 2025 01:58:36 +0800
+Subject: Re: [PATCH] KVM: arm64: Remove unreachable break after return
+To: Osama Abdelkader <osama.abdelkader@gmail.com>
+CC: <maz@kernel.org>, <oliver.upton@linux.dev>, <joey.gouly@arm.com>,
+	<suzuki.poulose@arm.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <kvmarm@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>
+References: <20250930135621.162050-1-osama.abdelkader@gmail.com>
+From: Zenghui Yu <yuzenghui@huawei.com>
+Message-ID: <8e289e80-60ca-977f-97a2-cbe1146baaf7@huawei.com>
+Date: Wed, 1 Oct 2025 01:58:36 +0800
+User-Agent: Mozilla/5.0 (Windows NT 10.0; WOW64; rv:68.0) Gecko/20100101
+ Thunderbird/68.12.1
 MIME-Version: 1.0
-References: <20250929065714.27741-1-jjm2473@gmail.com> <DD57IZJQ4FQM.3T5791FLUQ8KQ@cknow.org>
- <CAP_9mL6+uoeG7LX8YCcUFjoU13De1CdPFqxNNfoJvOdsOrYo5Q@mail.gmail.com> <DD63EEOKPWNV.3IK12D6CFPTQZ@cknow.org>
-In-Reply-To: <DD63EEOKPWNV.3IK12D6CFPTQZ@cknow.org>
-From: jjm2473 <jjm2473@gmail.com>
-Date: Wed, 1 Oct 2025 01:52:53 +0800
-X-Gm-Features: AS18NWBqxahGz4XH6x393wNkZ6fur-x0rbKIBXXIMh5nx8Rk_7tlCv4UZyCM6zo
-Message-ID: <CAP_9mL4CtH1n9RoYNif7bPZ0Lm72zAFyUZzO9xzMUVkrU8n8VA@mail.gmail.com>
-Subject: Re: [PATCH v3 0/3] arm64: dts: rockchip: introduce LinkEase EasePi R1
-To: Diederik de Haas <didi.debian@cknow.org>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, 
-	quentin.schulz@cherry.de, kever.yang@rock-chips.com, naoki@radxa.com, 
-	honyuenkwun@gmail.com, inindev@gmail.com, ivan8215145640@gmail.com, 
-	neil.armstrong@linaro.org, mani@kernel.org, dsimic@manjaro.org, 
-	pbrobinson@gmail.com, alchark@gmail.com, jbx6244@gmail.com, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20250930135621.162050-1-osama.abdelkader@gmail.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Language: en-US
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.174.178.219]
+X-ClientProxiedBy: kwepems200001.china.huawei.com (7.221.188.67) To
+ kwepemk200017.china.huawei.com (7.202.194.83)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250930_105307_206436_B50C3DEA 
-X-CRM114-Status: GOOD (  29.79  )
+X-CRM114-CacheID: sfid-20250930_185922_805149_FF04C0A8 
+X-CRM114-Status: GOOD (  12.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,86 +96,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Thanks for your explanation! I got it.
-  Liangbin
+On 2025/9/30 21:56, Osama Abdelkader wrote:
+> Remove an unnecessary 'break' statement that follows a 'return'
+> in arch/arm64/kvm/at.c. The break is unreachable.
+> 
+> Signed-off-by: Osama Abdelkader <osama.abdelkader@gmail.com>
+> ---
+>  arch/arm64/kvm/at.c | 1 -
+>  1 file changed, 1 deletion(-)
+> 
+> diff --git a/arch/arm64/kvm/at.c b/arch/arm64/kvm/at.c
+> index d71ca4ddc9d1..b04c00f95944 100644
+> --- a/arch/arm64/kvm/at.c
+> +++ b/arch/arm64/kvm/at.c
+> @@ -43,7 +43,6 @@ static enum trans_regime compute_translation_regime(struct kvm_vcpu *vcpu, u32 o
+>  	case OP_AT_S1E2W:
+>  	case OP_AT_S1E2A:
+>  		return vcpu_el2_e2h_is_set(vcpu) ? TR_EL20 : TR_EL2;
+> -		break;
+>  	default:
+>  		return (vcpu_el2_e2h_is_set(vcpu) &&
+>  			vcpu_el2_tge_is_set(vcpu)) ? TR_EL20 : TR_EL10;
 
-Diederik de Haas <didi.debian@cknow.org> =E4=BA=8E2025=E5=B9=B49=E6=9C=8830=
-=E6=97=A5=E5=91=A8=E4=BA=8C 19:19=E5=86=99=E9=81=93=EF=BC=9A
->
-> On Mon Sep 29, 2025 at 8:09 PM CEST, jjm2473 wrote:
-> > I have another question. If there are reviewers or co-authors later,
-> > do I need to add it to the commit message and send it again?
-> > Or should the reviewer or co-author add the message and
-> > continue to deliver the patch?
->
-> When you get a Reviewed-by tag, you should add that tag too to a new
-> version. But there's no need to send a new version to just add those
-> tags, the tooling used by maintainers picks those up themselves.
->
-> If you 'just' get review comments, then you'd usually just
-> improve the patch and you could reference it in a changelog item (to
-> indicate you addressed it, ttboyk).
-> If you think a reviewer helped you 'significantly', you could choose to
-> add an Helped-by tag, but whether you think someone deserves some
-> credits that way, is up to you(r judgement).
->
-> (Co-)authors are usually known upon first submission. If you later find
-> out that that list was incorrect/incomplete, then you would add
-> Co-developed-by + Signed-off-by tags on a new version.
->
-> HTH,
->   Diederik
->
-> > Diederik de Haas <didi.debian@cknow.org> =E4=BA=8E2025=E5=B9=B49=E6=9C=
-=8829=E6=97=A5=E5=91=A8=E4=B8=80 18:20=E5=86=99=E9=81=93=EF=BC=9A
-> >>
-> >> On Mon Sep 29, 2025 at 8:57 AM CEST, Liangbin Lian wrote:
-> >> > LinkEase EasePi R1 [1] is a high-performance mini router.
-> >> > ...
-> >> > [1] https://doc.linkease.com/zh/guide/easepi-r1/hardware.html
-> >> >
-> >> > Signed-off-by: Liangbin Lian <jjm2473@gmail.com>
-> >> > ---
-> >> >
-> >> > Changes in v2:
-> >> > - Change deprecated "rockchip,system-power-controller" to "system-po=
-wer-controller"
-> >> > - Link to v1: https://lore.kernel.org/r/20250925055906.83375-1-jjm24=
-73@gmail.com/
-> >>
-> >> You received an Acked-by on patch 1 and 2 in v1 of this patch set.
-> >> You're supposed to add that to the next/new version(s) or explain why
-> >> you choose not to do that (bc f.e. there was a major change, but that
-> >> does not seem applicable to those patches).
-> >>
-> >> Cheers,
-> >>   Diederik
-> >>
-> >> > Changes in v3:
-> >> > - Fix typo ('status =3D "disable"' -> 'status =3D "disabled"') found=
- by kernel test robot https://lore.kernel.org/all/202509261328.Grjhp029-lkp=
-@intel.com/
-> >> > - Link to v2: https://lore.kernel.org/r/20250925092037.13582-1-jjm24=
-73@gmail.com/
-> >> >
-> >> > ---
-> >> >
-> >> > Liangbin Lian (3):
-> >> >   dt-bindings: vendor-prefixes: Document LinkEase
-> >> >   dt-bindings: arm: rockchip: Add LinkEase EasePi R1
-> >> >   arm64: dts: rockchip: add LinkEase EasePi R1
-> >> >
-> >> >  .../devicetree/bindings/arm/rockchip.yaml     |   5 +
-> >> >  .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
-> >> >  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
-> >> >  .../boot/dts/rockchip/rk3568-easepi-r1.dts    | 692 +++++++++++++++=
-+++
-> >> >  4 files changed, 700 insertions(+)
-> >> >  create mode 100644 arch/arm64/boot/dts/rockchip/rk3568-easepi-r1.dt=
-s
-> >> >
-> >> >
-> >> > base-commit: d0ca0df179c4b21e2a6c4a4fb637aa8fa14575cb
-> >>
->
+Reviewed-by: Zenghui Yu <yuzenghui@huawei.com>
+
+Thanks,
+Zenghui
 
