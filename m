@@ -4,154 +4,101 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49BF0CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 02:27:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E49ECAC5B9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 02:49:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sEk8brtdw5W01o7qoOkKslSSjbVNlZcNRZIgXO6c4j0=; b=S7DnZ+bvGrDa/bt5BEy7UlFksM
-	9EFwMa4cw0qQM9KwrdmBXazXXxW84TDJD3uAJQ8uYvsevSr7ew+N9dWmQtadAdx8C7XBi3txrh8B1
-	v/ViZHumAohbOuE/cuxtHVb3s3+s4gn42T+GOb8udh2w3vAxwpFQSKT6E9F6VM5Y6bZk7NW5nPV0J
-	EZUOlwe90hGZznH+yPvT1igQndXZ8zBfpzwZYUXJmOw0kcUpne9Xk5mlMtAC0jFoV5YNdl8uJyoCp
-	hr1z8QOQfQEYzwiHnhdgBDa37VVOAYhBTgPiuxZVV081dHWd6FRyYwdmnrOQSNqyZ2jlRnc9w0xzK
-	wPmco1+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=wq8AM5fpXK6eEk4la14RAF7oSZLrkv9gGWRw1LyBjWA=; b=W0AvdS2Is47w/SRwO9xxtBiG++
+	/kMmCSEIY5/pMhVfoptTRzU9Zjdi1QOjys8TrdeDoL3Nkiyiz5K4dPcAkL7BNfqUReBbdWBUfFzY6
+	O9VRw9ORDUIBIXlucCo4sY5zq9gRsjbwxMdbXrD6vhd5T1EMAFA9vMcYVJi9xDw5imIfCNE/8hyve
+	3NghS1U4Iqk8r3SfQWEsKa3pq9+b8TzYAbdg1M73kD2m6R6Cb5wIjNuskFETy/7uP3iCzIUIsEkS5
+	fbInwVYQ6YNwAzEmifKaP6IPvWUXE0ze5bUBwJ5NORvklGKBPxL/GNKFGdSeF44ZhQyCgWVQ2+/NI
+	GT8AZxXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Q5f-00000003tAU-0G81;
-	Tue, 30 Sep 2025 02:27:43 +0000
-Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
+	id 1v3QQs-00000003xvi-3Yzz;
+	Tue, 30 Sep 2025 02:49:38 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Q5R-00000003stv-3MeM
+	id 1v3QQr-00000003xvA-0oCL
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Sep 2025 02:27:30 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=LaruIAHL/8FBad65SkkxsBFy0aFsJJltQ+EeL8wYLAUegXYyIH5PbQaR9TQZ4dYB4iCdMsyLyvcVAHYbvulIf1Or+3z1eN9CrM88xv/8Nk9LVpqa0vrZ4TQiUh1MkOgO/eXzWdQnFgNFFZSP48hGV9niFBzdjQBaYnvEsfKoa1fmjvfldUwl536vJOasUBFW5HdNJJyH8+5pekhAUgslzr3qDDEvuYBem7MLe3vgbsH4sCkm2raBUCWVHyzQlrj+otEIwgu7TUPFLX3K2R59bg/WfmpMjNg+NTlZ4Fn2ZN5cGrP1J3gSwRUdwOKuWU/1vtJ5X/CsusvjKnjct3erBg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sEk8brtdw5W01o7qoOkKslSSjbVNlZcNRZIgXO6c4j0=;
- b=NoXhlKkxrTZIV71AdPMFa4piChsONbbLcWRrvM/e5pU7k+WKQbZqu4W8+aDjHoNj9UMA7eLTmxy0Im79wXy1IIkBrDjCN28ABZH9xYIIeT5+d3wz78uqau/RJZsLGI7iC6mdSH/PxKkIq8/qCOeFVw/YpGChuaGAtER4VQDlWqSdFhQF85BSOiNr2g5JnqdVYSy8UD2JkmKghFF2J0HD37F8WrO1715B9Byy9P8DoiMVjwy4uRiPKiWcp+K7mcrYfsmLyZKpYkeNEz0p9g4t5yT9liA4r2H7Vq6QlMRl3kvpc4JUZqZodsN3+RZxZ+r7KGgnm7sPMjTK5jgRd+sQTg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
- dkim=pass header.d=iopsys.eu; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sEk8brtdw5W01o7qoOkKslSSjbVNlZcNRZIgXO6c4j0=;
- b=H10RMzHXpI+5Mz75BnqZMlYog1Xtep9no3VLhKjCWw9G4W18Qpzm/vwC1QhhK9UurQbNzb2tmDN7erYMdnP2n3RitNf+9hXhEvrXkMrCziB85THbs/HqMUEdGufTIItLPZzwnwvSuQwaGYoibv5RSacLpUcAJAJaC59HIPpVOrKUp+4Wjx+G4ni6croIyoSKbhoDmQvcFOJDBEr3qXi3XaPJ/ZPsVT2GhhHEmvyD2Xg31Tt8dUgHIRSDI3R/RvaSICNt2lHAXFtQoa4vXgyGNPlO3Tt1I/NwK6fEwJtVLSEmL9ltT5F6Gl3ExNC7LAckXySPqmi7VBdCysavNR9NiQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=iopsys.eu;
-Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
- by GV2PR08MB7929.eurprd08.prod.outlook.com (2603:10a6:150:ac::19) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.17; Tue, 30 Sep
- 2025 02:27:18 +0000
-Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
- ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
- ([fe80::4cd3:da80:2532:daa0%3]) with mapi id 15.20.9160.015; Tue, 30 Sep 2025
- 02:27:18 +0000
-From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-To: Lorenzo Bianconi <lorenzo@kernel.org>,
-	Ray Liu <ray.liu@airoha.com>,
-	Mark Brown <broonie@kernel.org>,
-	Andy Shevchenko <andy@kernel.org>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-spi@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
-	Andreas Gnau <andreas.gnau@iopsys.eu>
-Subject: [PATCH RESEND v5 12/13] spi: airoha: avoid reading flash page settings from SNFI registers during driver startup
-Date: Tue, 30 Sep 2025 05:26:57 +0300
-Message-ID: <20250930022658.1485767-13-mikhail.kshevetskiy@iopsys.eu>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20250930022658.1485767-1-mikhail.kshevetskiy@iopsys.eu>
-References: <20250930022658.1485767-1-mikhail.kshevetskiy@iopsys.eu>
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-ClientProxiedBy: GV2PEPF00006627.SWEP280.PROD.OUTLOOK.COM
- (2603:10a6:158:401::3cd) To GV2PR08MB8121.eurprd08.prod.outlook.com
- (2603:10a6:150:7d::22)
+	Tue, 30 Sep 2025 02:49:38 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-7811fa91774so2935894b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 19:49:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1759200576; x=1759805376; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=wq8AM5fpXK6eEk4la14RAF7oSZLrkv9gGWRw1LyBjWA=;
+        b=gU0Wp+FavdLmj4CAZKygRwpf6UXWtoMXqrmAfO6+fPOO3nRCLBHgzrioFLxI0ls7Od
+         Jkl3KJRyXTJyCM/F9iBcDT4DFqF6Smdk49S9CYzxsPtUb7OcfaI7yK9yFafVhoz7L27f
+         Kf3pTG8SNMlsWqMEwsINdfi8NRlQGJYf0ffXTiG1UnGmoKLQQNr6w920fLvzm3PxhiAG
+         W9JPu2RKV3xOFv6l/s0Q23P0ZPfO+aBCCAe/f86L7j+QEPrwlQy10VHnW6FJ9VcKD26W
+         e8Yn1v4SJOFEJK627nuHmy6D7eJBA2hzj11HtHHsV0ZLU0QYxRp0hQ1723CshS0jOdyc
+         pxfQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759200576; x=1759805376;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=wq8AM5fpXK6eEk4la14RAF7oSZLrkv9gGWRw1LyBjWA=;
+        b=m0mVyxUFRa9s95tUK1dvBPw2Ph92dfisHKNua9ER5DGpYVRmVsbnDjckwo1JBt4Bb1
+         uxJstz+aC4NHG1KLNzKO1Ao8CPR7/nMcywICX5Ehj5gI7+baJbT7/jfWhWPI3UFTrMBq
+         ufgSZULP7xKD6g1mf6j13nFzHjjlIyJedbW9O4/Vg2N/22vmJZX5lN3L46yIMgrBnoVL
+         Me3wJdR60fgi69TPHTVOA7Df7d3bcuszaPejCn3ON4ScZ5/+THUyOR5CyWPFE2Xr4cn0
+         dcPOrNTt7n6VI6MFvABRid8h7Wkxkgfx8Ke1N7tv3+q6mqHR9MBREzRMC9bQVyWBQ7Rr
+         TFvw==
+X-Forwarded-Encrypted: i=1; AJvYcCUxFOUcbZCGYJQ2yW1rMdrs45eIQslqI4iU/bXGERIhBp0ArHYgtlee38IB9nw7WcC9XwShRH5FecMzCME72kDV@lists.infradead.org
+X-Gm-Message-State: AOJu0YxZjtdC9J6OZc02tGrQS5pmCteri+fPRTTm7bodI0ML9UH29WJ3
+	HCzI7RGY0QE7uMDvbfOVgN1lZZTXL1Pngls0xm7fkKZ37LGvhWsYTjtIEjXdDQ==
+X-Gm-Gg: ASbGncte4bT9a+virgBf0ol3r1fFmfBL4zeQVWu+iS8ef69NafvTLnLKxtTGikoKZ+V
+	e71kSaKgQRLXnoKzdqwbHwTVZ/XvIpSHS4jv/bGIBZxCcmsIGcjmSHpHldSbnfld0nfmW5dxdOs
+	TyZQme49G4Jc7TpfpTy3BRb5hp2ZfduV7k+6QhW/LFFEoPry2Ot+LV7/0M4k2SU7z6nLmc6dE1S
+	lX3a+RlUVoKSSim+/6cRfUNgT9Df/EMyf2W3pp4BWn2JP3tRrmJ2idInFv9SF0aQNmZdeWH5N8D
+	QOirzqt25TKBwS1+avs0R88pUjYvv/4sM93AIdP2SwBDOigw9omacxjbZrlMOT9s1X4tKsuUSXi
+	XBCNc7pHY2eYOGO+rWo32W7k7zn2xlvtOnaMO3mfPQ10MBYf4Obdr23iGBdzyNNnkJH4pjkFeAl
+	1bZtYjqOolu3SnGwhIsg==
+X-Google-Smtp-Source: AGHT+IFMe6D44grpGqaN30+IACiK1ag0L1YVwPsQdog/6V2aBU+Upngdj4V9R3NOTeGT0ryw35P7Jw==
+X-Received: by 2002:a05:6a21:3293:b0:2df:b68d:f64 with SMTP id adf61e73a8af0-2e7d4dfb6b7mr24100790637.52.1759200575723;
+        Mon, 29 Sep 2025 19:49:35 -0700 (PDT)
+Received: from [172.17.0.3] (125-227-29-20.hinet-ip.hinet.net. [125.227.29.20])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b57c53bb255sm12688305a12.5.2025.09.29.19.49.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 29 Sep 2025 19:49:35 -0700 (PDT)
+From: Leo Wang <leo.jt.wang@gmail.com>
+Date: Tue, 30 Sep 2025 10:49:23 +0800
+Subject: [PATCH v2] ARM: dts: aspeed: clemente: Add HDD LED GPIO
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|GV2PR08MB7929:EE_
-X-MS-Office365-Filtering-Correlation-Id: 128ca7f6-e9dc-4d7c-3a67-08ddffc8e095
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|52116014|376014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?EBhc6MKzZuNBAgGjF3OZJQxVR6zTlPB/0MJwDKTBAi7pyTGF3b2+vD2LzLb8?=
- =?us-ascii?Q?Dl3CU5PSOqpGU1fOZ2xN8H3n3TG5tuIyoiMmEa/rIcUILgZg1gZ/a2pmJJXP?=
- =?us-ascii?Q?h4waRTXzhZ6U3VMh3+sHocHX8N8bJlXcEoCpd4lrAbbBSsje3yHqWIB3jE1h?=
- =?us-ascii?Q?1A2D6twpwV5xKS/wkRWEMx6f/relUhAIiFK2cve7bEbIRbOUAUCo0V68PwWV?=
- =?us-ascii?Q?Aacy+HmItj+rBNo8FRNSxEYmySl44Uzs9DpK4Hv21W6+AAHTfgL2RgGdGXXN?=
- =?us-ascii?Q?DgexQMUVO9ONsohEoi8g/Fz5Qnducw6hHjABCMFk5617I89RYygU328poMIG?=
- =?us-ascii?Q?+GhG/XmY7R5g9saAIFrYhyvLt6uC0edy/sGR5Sic8XSH7CtjC8QN+RcQk6h4?=
- =?us-ascii?Q?nbrztdUrJ6CecaQ4OCr6pr2YfSPMrfl1dOjNKlyu8x92imoU0xUAaRN7AaPw?=
- =?us-ascii?Q?2O16at2jKVMLPnn/QsWXykIWrUTZLBRfjid1mOjG5/yG9n0CO5bupM5qUiC/?=
- =?us-ascii?Q?+4SSR8yaB3lueXGZ/RqEaYVAQ2UTgChbHxH00aMeNc6yfnjBum/xKJeHM5hW?=
- =?us-ascii?Q?+Ja89sLo/pvzvamYc6rrEOZBoLAGWJNpnQ2+6MQNAKY44cxHarFj/DWxFqbg?=
- =?us-ascii?Q?UAbhiZfdRE3P/Oi3hlVUrfjZ+P1ATia+bpnZpbTHJi/OTd6Sj2kFb7vfOZ0m?=
- =?us-ascii?Q?ee72ySYvtvHvRObYTHokaNFeL0CldAxC2dtT+BMJmJVPJ5AQV+QGpE97Uw/3?=
- =?us-ascii?Q?ND3olHGAJDTb4fTT10l/MoIkkStc77+WDbKu/+J95x5PhG2mL9Hh/023NN9J?=
- =?us-ascii?Q?RraMuBjzKxPSArSBhVIB/+isdDikUy61CoYddk5fiofNt0uT5/6nHXvQS1Nt?=
- =?us-ascii?Q?pcqJkzgZPmWn/h4kpaAR1eKXBECcCKcrkH8XtX1nFlV2gWiJ6cEchKOE7ETX?=
- =?us-ascii?Q?AatEAFASbWxUorPnXfTymA0uHw/0pGeB0YepfOBuqgfTlp+VOHq3ZiJyHYMc?=
- =?us-ascii?Q?bjc9jjb3P9NO9zGjJqm3NWO1jceQVYmq/ddwPNUqd7Lmg2SH/o3rtJZC1jKj?=
- =?us-ascii?Q?98RHiO1mpjuM8ca25SiI/eHHgG+OrCGnZpCdF0htTCJcuxflgVOLPmsPuqtJ?=
- =?us-ascii?Q?JRg8aWjFBvLUiITwpZjV8RBJ8xf7J549cEA8azbUotlCGJsVl66eGX+fq7Yh?=
- =?us-ascii?Q?M+y+vgMFnmzIG1479uDYmEGiqFR64KTy5d8U2vJc2EYvRXMhGStrJCMy8DIY?=
- =?us-ascii?Q?aYdJCrbmciBg6mmhUf8SK8kkXWVcHiQ69QQ2+dealjvRCMn1QHvG6D9yAVyZ?=
- =?us-ascii?Q?Nz0/nGb6eqi5vlVgKQTlC4TxPYNJ7OiqIh2OJNetMY57BWNUgsMjvCjyIvFQ?=
- =?us-ascii?Q?B+AJUopJ/7UMV4S6pT7TWZKyeypx5MSjZVnlWUAUfSrPmWzB4uMHxKJ+0/fD?=
- =?us-ascii?Q?IhkA3jgd/7yGk2/FcI8kHzXMXGvyixkK/W3F35ngdNw+O8YwzVMp6DL/7tBi?=
- =?us-ascii?Q?qdI8WipeNW56RANJdD2wMwlKORnBZDctL51X?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(52116014)(376014)(38350700014);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?Jl2rE6lZvypNMgK7btT4QpjOP5Ty+sp3nnVAYDZ0HeTfLZge5lQ/Q486bWAC?=
- =?us-ascii?Q?2zvkHeb3i4rk0utnJ2sFf0S3h0FbAjL6Doo8szQKCX5WCK19SKPEceloWYVf?=
- =?us-ascii?Q?YQXuhtk563ppR0cmw3JcZDpVoWkjN9QaCV3Ewh7Xocc7qjyBtIzV0+6HSiGE?=
- =?us-ascii?Q?+a72wOC8/yHhktm7shb7MZ4sjEiXsXt4O+C7DLN/0ouVuv4CfBojr1C4sUtn?=
- =?us-ascii?Q?Y0y0dYVeIILOZUT4zjMCQmEWCso5/FG31HN3zDy1dGV/Qo7OhRVD+NDflXBj?=
- =?us-ascii?Q?ohTsMhr/ZwnO6zKs+IgE1v/uUyd66rFYi5JIeMKeK+tVxJ2PTRqvmU5t43Qq?=
- =?us-ascii?Q?OW73stI3iDBWw8JO+4P3t2tifxn6mlRxHxOD/1kaUw9Haq/h7Sg0SW/vd+RD?=
- =?us-ascii?Q?MKnXAs7B0b2UYhayFqsIGuBS/DERKSXhvsRMqMQTLo6tb7CHt6MU4tDksSYr?=
- =?us-ascii?Q?468+62Z6cMT5mr0pELs6DhJHs9VAQgd3NTS9adOrsJdjzl+AuEqnZd99KSZZ?=
- =?us-ascii?Q?NnYheUZTy5B3Cb1mIxsK35gOj3pdkwsVGznWjNhXC0SxJV+nD49MTCFWR+g3?=
- =?us-ascii?Q?d5ZNTXiAUgumhvwMlfo6o7C+hv1LL4juwLrAi1xm68kAoB5axwG2y4bMrVZ3?=
- =?us-ascii?Q?Xgtp1ceNMKi9NY63jtw7MF9J82q1fDxKcL1dLur8y6iC7UK9v+91T2/9WniJ?=
- =?us-ascii?Q?cOFUzBW7H7eSrwVVyLmlQVvMRiWTWqbpfCJSyuiCgab6b+gvqvvmglhKOWZM?=
- =?us-ascii?Q?NEWRTu4vnVdiwMvUn+PMjZMQH4hI84EGHbrZ4mpcWfN+bOMaZqGHYRS4MwQ3?=
- =?us-ascii?Q?msYOkHJiN15QvXRfgO1ArwB4gwxlb1dq6TzaQi88QE0Lxd9aG9dTPoGWW19H?=
- =?us-ascii?Q?B0nTOQM0eIDt/A3SAIpOF71H01bH6rvfEVa7j+krZeraMU23MM5ihIF+lIvn?=
- =?us-ascii?Q?T6ElkC1dChJWkCmU7WnbwkVPJhKm0GcFvpk3pho76/GCRWYHMUl9M/p4Op5x?=
- =?us-ascii?Q?sa1brEPZX6kRO+QBVcHleX/5aFLH2YSQADf+T6K+HtNPF0NYZgLLtM+DKHol?=
- =?us-ascii?Q?G7Wm50a160RHXS0PlJp8CU0xG9lxeYU87Qd0pYdLmE4IRZpXArt044qb/+kQ?=
- =?us-ascii?Q?xvJhmTuPQl9OFmpqhXoynEL6ELJ9/dYQKJ69nVNKnIT4TVkvnWhXanbvEXaq?=
- =?us-ascii?Q?zIbElqPtYS1zQ5ITbU5UNEvCNb5n3wASDV4GiDebv6FkYdUnpvAXi2LQJ1SX?=
- =?us-ascii?Q?ypEci5AdTpdU3eg0QsweYDIW3pSYLQqwZh6ydx1pb/pYkQ/7BMI6jE30dsCh?=
- =?us-ascii?Q?P4mrtGaYTreXj1j/1kPcVb7hEPUXc2wmyMNfT8oGhLtX2bpvKXjB2i2+56mv?=
- =?us-ascii?Q?1llCf1VMyy5BmgdyRuEM2pcvce8g5aQ7dPry61BW31KxVrfrrDKWL6rxC2os?=
- =?us-ascii?Q?XIyw6r295WdfZyqRqaRFBPE9h/4wh7BgaXZo6kY+X3KBJaaw82LpklsSklty?=
- =?us-ascii?Q?rjTYWYDSZeqsYsFlGrV5T5BTDUTbpGWQ22jclDgcKBOsK0cOXlpptd3xtfKJ?=
- =?us-ascii?Q?VgqstmFa3UYj3OW9jA3e0J0WhyQgz/PCVg3ItcJaJu9mE0TOa6hA4pIx1/gk?=
- =?us-ascii?Q?N/ZRW3BFUduuJnzejKrjJuY=3D?=
-X-OriginatorOrg: iopsys.eu
-X-MS-Exchange-CrossTenant-Network-Message-Id: 128ca7f6-e9dc-4d7c-3a67-08ddffc8e095
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2025 02:27:18.4565
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: IpEBKnyy9IlMZ/QDSyfOvPnP/j2OsIzKuUtm0iZfpoIEDASYn+CVrZeAO2sgXD5YxzvkRhn8N3A/m9GxLbJn5f5+exZWFX4gGG5k4xbJ98I=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV2PR08MB7929
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20250930-leo-dts-add-shunt-resistor-v2-1-8712984f04c4@gmail.com>
+X-B4-Tracking: v=1; b=H4sIADJF22gC/42NTQ6CMBBGr0Jm7Zi2yp8r72FYlHaASYCaDhIN4
+ e5WTuDyvXx53wZCkUnglm0QaWXhMCcwpwzcYOeekH1iMMrkqjYFjhTQL4LWe5ThNS8YSViWEFG
+ 51l4vXZm3jiAFnpE6fh/xR5N4OGaf42vVP/tXdtWo0VWltkVV1qZT936yPJ5dmKDZ9/0LDIQHv
+ sQAAAA=
+X-Change-ID: 20250926-leo-dts-add-shunt-resistor-0cba43f75bce
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ george.kw.lee@fii-foxconn.com, bruce.jy.hung@fii-foxconn.com, 
+ leo.jt.wang@fii-foxconn.com, Leo Wang <leo.jt.wang@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1759200572; l=1492;
+ i=leo.jt.wang@gmail.com; s=20250618; h=from:subject:message-id;
+ bh=klDRu2KGjM+0nX0HtilCbWli5VflcdgLmjY2aTzwD5E=;
+ b=ZPnwa3kHMLZcbssExhvWUM2QAqYAJS1I7iHpxlKd7keXV5gaKRp07f4D4Fa3UWcplSv0Hmsab
+ TM+5DwS+2TIDCG9kMJDLaoT9z5ObGavmkF/TWkmp56UEMqOToPr0+XG
+X-Developer-Key: i=leo.jt.wang@gmail.com; a=ed25519;
+ pk=x+DKjAtU/ZbbMkkAVdwfZzKpvNUVgiV1sLJbidVIwSQ=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_192729_847018_D32F378B 
-X-CRM114-Status: GOOD (  16.88  )
+X-CRM114-CacheID: sfid-20250929_194937_237345_16A3B43F 
+X-CRM114-Status: GOOD (  11.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,207 +113,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The spinand driver do 3 type of dirmap requests:
- * read/write whole flash page without oob
-   (offs = 0, len = page_size)
- * read/write whole flash page including oob
-   (offs = 0, len = page_size + oob_size)
- * read/write oob area only
-   (offs = page_size, len = oob_size)
+Define a GPIO expander pin for the HDD LED and expose it via the
+LED subsystem. This allows the BMC to control the front panel
+HDD activity LED.
 
-The trick is:
- * read/write a single "sector"
- * set a custom sector size equal to offs + len. It's a bit safer to
-   rounded up "sector size" value 64.
- * set the transfer length equal to custom sector size
-
-And it works!
-
-Thus we can remove a dirty hack that reads flash page settings from
-SNFI registers during driver startup. Also airoha_snand_adjust_op_size()
-function becomes unnecessary.
-
-Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+Signed-off-by: Leo Wang <leo.jt.wang@gmail.com>
 ---
- drivers/spi/spi-airoha-snfi.c | 115 ++--------------------------------
- 1 file changed, 5 insertions(+), 110 deletions(-)
+Changes in v2:
+- Drop "Changes include" section from commit message
+- Link to v1: https://lore.kernel.org/r/20250926-leo-dts-add-shunt-resistor-v1-1-c871a68792f0@gmail.com
+---
+ arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
 
-diff --git a/drivers/spi/spi-airoha-snfi.c b/drivers/spi/spi-airoha-snfi.c
-index babf7b958dc3..437ab6745b1a 100644
---- a/drivers/spi/spi-airoha-snfi.c
-+++ b/drivers/spi/spi-airoha-snfi.c
-@@ -223,13 +223,6 @@ struct airoha_snand_ctrl {
- 	struct regmap *regmap_ctrl;
- 	struct regmap *regmap_nfi;
- 	struct clk *spi_clk;
--
--	struct {
--		size_t page_size;
--		size_t sec_size;
--		u8 sec_num;
--		u8 spare_size;
--	} nfi_cfg;
- };
+diff --git a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
+index a614f947dafc9a6628c3f3d45b62ff3ca9d2b618..450446913e36b1418fab901cde44280468990c7a 100644
+--- a/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
++++ b/arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-clemente.dts
+@@ -95,6 +95,11 @@ led-3 {
+ 			label = "bmc_ready_cpld_noled";
+ 			gpios = <&gpio0 ASPEED_GPIO(P, 5) (GPIO_ACTIVE_HIGH|GPIO_TRANSITORY)>;
+ 		};
++
++		led-hdd {
++			label = "hdd_led";
++			gpios = <&io_expander13 1 GPIO_ACTIVE_LOW>;
++		};
+ 	};
  
- static int airoha_snand_set_fifo_op(struct airoha_snand_ctrl *as_ctrl,
-@@ -490,55 +483,6 @@ static int airoha_snand_nfi_init(struct airoha_snand_ctrl *as_ctrl)
- 				  SPI_NFI_ALL_IRQ_EN, SPI_NFI_AHB_DONE_EN);
- }
- 
--static int airoha_snand_nfi_config(struct airoha_snand_ctrl *as_ctrl)
--{
--	int err;
--	u32 val;
--
--	err = regmap_write(as_ctrl->regmap_nfi, REG_SPI_NFI_CON,
--			   SPI_NFI_FIFO_FLUSH | SPI_NFI_RST);
--	if (err)
--		return err;
--
--	/* auto FDM */
--	err = regmap_clear_bits(as_ctrl->regmap_nfi, REG_SPI_NFI_CNFG,
--				SPI_NFI_AUTO_FDM_EN);
--	if (err)
--		return err;
--
--	/* HW ECC */
--	err = regmap_clear_bits(as_ctrl->regmap_nfi, REG_SPI_NFI_CNFG,
--				SPI_NFI_HW_ECC_EN);
--	if (err)
--		return err;
--
--	/* DMA Burst */
--	err = regmap_set_bits(as_ctrl->regmap_nfi, REG_SPI_NFI_CNFG,
--			      SPI_NFI_DMA_BURST_EN);
--	if (err)
--		return err;
--
--	/* sec num */
--	val = FIELD_PREP(SPI_NFI_SEC_NUM, 1);
--	err = regmap_update_bits(as_ctrl->regmap_nfi, REG_SPI_NFI_CON,
--				 SPI_NFI_SEC_NUM, val);
--	if (err)
--		return err;
--
--	/* enable cust sec size */
--	err = regmap_set_bits(as_ctrl->regmap_nfi, REG_SPI_NFI_SECCUS_SIZE,
--			      SPI_NFI_CUS_SEC_SIZE_EN);
--	if (err)
--		return err;
--
--	/* set cust sec size */
--	val = FIELD_PREP(SPI_NFI_CUS_SEC_SIZE,
--			 as_ctrl->nfi_cfg.sec_size * as_ctrl->nfi_cfg.sec_num);
--	return regmap_update_bits(as_ctrl->regmap_nfi,
--				  REG_SPI_NFI_SECCUS_SIZE,
--				  SPI_NFI_CUS_SEC_SIZE, val);
--}
--
- static bool airoha_snand_is_page_ops(const struct spi_mem_op *op)
- {
- 	if (op->addr.nbytes != 2)
-@@ -571,26 +515,6 @@ static bool airoha_snand_is_page_ops(const struct spi_mem_op *op)
- 	}
- }
- 
--static int airoha_snand_adjust_op_size(struct spi_mem *mem,
--				       struct spi_mem_op *op)
--{
--	size_t max_len;
--
--	if (airoha_snand_is_page_ops(op)) {
--		struct airoha_snand_ctrl *as_ctrl;
--
--		as_ctrl = spi_controller_get_devdata(mem->spi->controller);
--		max_len = as_ctrl->nfi_cfg.sec_size;
--		max_len += as_ctrl->nfi_cfg.spare_size;
--		max_len *= as_ctrl->nfi_cfg.sec_num;
--
--		if (op->data.nbytes > max_len)
--			op->data.nbytes = max_len;
--	}
--
--	return 0;
--}
--
- static bool airoha_snand_supports_op(struct spi_mem *mem,
- 				     const struct spi_mem_op *op)
- {
-@@ -641,7 +565,8 @@ static ssize_t airoha_snand_dirmap_read(struct spi_mem_dirmap_desc *desc,
- 
- 	as_ctrl = spi_controller_get_devdata(spi->controller);
- 
--	bytes = as_ctrl->nfi_cfg.sec_num * as_ctrl->nfi_cfg.sec_size;
-+	/* minimum oob size is 64 */
-+	bytes = round_up(offs + len, 64);
- 
- 	/*
- 	 * DUALIO and QUADIO opcodes are not supported by the spi controller,
-@@ -833,7 +758,8 @@ static ssize_t airoha_snand_dirmap_write(struct spi_mem_dirmap_desc *desc,
- 
- 	as_ctrl = spi_controller_get_devdata(spi->controller);
- 
--	bytes = as_ctrl->nfi_cfg.sec_num * as_ctrl->nfi_cfg.sec_size;
-+	/* minimum oob size is 64 */
-+	bytes = round_up(offs + len, 64);
- 
- 	opcode = desc->info.op_tmpl.cmd.opcode;
- 	switch (opcode) {
-@@ -1076,7 +1002,6 @@ static int airoha_snand_exec_op(struct spi_mem *mem,
- }
- 
- static const struct spi_controller_mem_ops airoha_snand_mem_ops = {
--	.adjust_op_size = airoha_snand_adjust_op_size,
- 	.supports_op = airoha_snand_supports_op,
- 	.exec_op = airoha_snand_exec_op,
- 	.dirmap_create = airoha_snand_dirmap_create,
-@@ -1101,36 +1026,6 @@ static int airoha_snand_setup(struct spi_device *spi)
- 	return 0;
- }
- 
--static int airoha_snand_nfi_setup(struct airoha_snand_ctrl *as_ctrl)
--{
--	u32 val, sec_size, sec_num;
--	int err;
--
--	err = regmap_read(as_ctrl->regmap_nfi, REG_SPI_NFI_CON, &val);
--	if (err)
--		return err;
--
--	sec_num = FIELD_GET(SPI_NFI_SEC_NUM, val);
--
--	err = regmap_read(as_ctrl->regmap_nfi, REG_SPI_NFI_SECCUS_SIZE, &val);
--	if (err)
--		return err;
--
--	sec_size = FIELD_GET(SPI_NFI_CUS_SEC_SIZE, val);
--
--	/* init default value */
--	as_ctrl->nfi_cfg.sec_size = sec_size;
--	as_ctrl->nfi_cfg.sec_num = sec_num;
--	as_ctrl->nfi_cfg.page_size = round_down(sec_size * sec_num, 1024);
--	as_ctrl->nfi_cfg.spare_size = 16;
--
--	err = airoha_snand_nfi_init(as_ctrl);
--	if (err)
--		return err;
--
--	return airoha_snand_nfi_config(as_ctrl);
--}
--
- static const struct regmap_config spi_ctrl_regmap_config = {
- 	.name		= "ctrl",
- 	.reg_bits	= 32,
-@@ -1204,7 +1099,7 @@ static int airoha_snand_probe(struct platform_device *pdev)
- 	ctrl->setup = airoha_snand_setup;
- 	device_set_node(&ctrl->dev, dev_fwnode(dev));
- 
--	err = airoha_snand_nfi_setup(as_ctrl);
-+	err = airoha_snand_nfi_init(as_ctrl);
- 	if (err)
- 		return err;
- 
+ 	memory@80000000 {
+@@ -1199,7 +1204,7 @@ io_expander13: gpio@14 {
+ 		#gpio-cells = <2>;
+ 		gpio-line-names =
+ 			"rmc_en_dc_pwr_on",
+-			"",
++			"HDD_LED_N",
+ 			"",
+ 			"",
+ 			"",
+
+---
+base-commit: c65261717599d419e9c683d85f515d3ca2261549
+change-id: 20250926-leo-dts-add-shunt-resistor-0cba43f75bce
+
+Best regards,
 -- 
-2.51.0
+Leo Wang <leo.jt.wang@gmail.com>
 
 
