@@ -4,105 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2071CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 11:09:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB404CCA468
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 11:19:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FfPcBPeiA6B4ouOuexFejWK64dOaFigAn8muMWhU3dQ=; b=MF4I9JPtlJ0J22I7Ihq8ua5mTc
-	loZnvBUsAbO2QS0zARYjpXb7SnGXZJP8zq7IAy7iDBvNkAL2c61hNHNABUtXH+dGGoIIUs2+wlUSS
-	XgquP87b/+1kJ17wjEGXVUlVXuRoPujktXsu4Db9zzWc3LcNyjoKFeeV2i0YRotMEXv8PDXAkghjO
-	PlcwG/Jpu8KK3HFHB+qrTts+eVuarmQ22BQyZPXsL5QbOP5he2+H5bfjjntLO9hmPhcIFz9NwmwbY
-	EI+0m4HblPftc1ZukPVED1XWJuguLqhko3GqrqMIGhK7/FMreFfnPEz6ZKRzQxuWMcpiznoN2Gh1s
-	RizWuv/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:To:
+	From:Subject:Cc:Message-Id:Date:Content-Type:Mime-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ej8+t/v5mQyQZp57f2hlXxPelYNwXcOIgQlGLkUSidA=; b=j51J7n549Hspyxm8TLRoweqzUx
+	oA2kE8V1L/f8FOq6bBjQzOijnK3Otl6y7dA+FNZrrRg04Io42auImq3hwZZzaun8gITn5nR7pbGRO
+	W5RV7AeZEbcwevuq59Efwude8NNjXe+fv+bYKhfpHWJecANJaEQjq3LZCW4GiKgW1TDWR7o1RD5dD
+	tz0O6Ltfs/ngwpN3cbpAnyBx6Q7KGnfpHkVIv0QBZY2pRW8Udo/ZW7pp/5GrUlUNsjPWdpJMr1f6K
+	8qb0v5WmGsw/zWhx0gUGRAgPjKVMyQYB0nSJlW/aB+q+loLcY8aTvw8IAWhdfnxSPSPQKe7IOHN3p
+	syJVHp8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3YEk-000000056Uw-2mnW;
-	Tue, 30 Sep 2025 11:09:38 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1v3YOY-000000057h6-3S58;
+	Tue, 30 Sep 2025 11:19:46 +0000
+Received: from out-184.mta0.migadu.com ([2001:41d0:1004:224b::b8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3YEh-000000056UB-3Ty2
+	id 1v3YOW-000000057eZ-1kCn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Sep 2025 11:09:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1759230574;
+	Tue, 30 Sep 2025 11:19:45 +0000
+Mime-Version: 1.0
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=cknow.org; s=key1;
+	t=1759231171;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=FfPcBPeiA6B4ouOuexFejWK64dOaFigAn8muMWhU3dQ=;
-	b=Mmyk4ruijP65e0LMLlnrX19tqo4N1V0KKctJ/CSrf9bRpxUPFsLUGCZjy4deyaxiAqAFAI
-	y1okaxMmZU4XsdqvSU6mw99815UnsRm3gUJyi2d+9CQbzNYiyAI3ZfUSTy6VcVBaNT3KlU
-	dV/rQfigujyRprm1k48D5Bdcw84etJQ=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-595-BFe1eQiUPL2N3sTTK36ocg-1; Tue, 30 Sep 2025 07:08:02 -0400
-X-MC-Unique: BFe1eQiUPL2N3sTTK36ocg-1
-X-Mimecast-MFC-AGG-ID: BFe1eQiUPL2N3sTTK36ocg_1759230481
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-46e38bd6680so19490875e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 04:08:01 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759230481; x=1759835281;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=FfPcBPeiA6B4ouOuexFejWK64dOaFigAn8muMWhU3dQ=;
-        b=UdXmPKWqkM9QLNZzHJg0enyo+qAEtR17HQLF5Sa8cAw9CVOCjXoUOCY3oe1HxqTXuA
-         aeHDP8IvMerOzn9Q201tLTNBsK7xqJLKcRjPJTzyKuV2X4av6QpSzW1x51FYQkaVf/Ku
-         4zJHycDUfJxEflnMHMJdBAw07B7T2u/s/8r2f5wuojnSrz0D8R5Ed3CUpI0Xfx5YP7NW
-         GKvUmNsY76Af4d7nyzjx/NN9sL6X3FTgvVFqY/x16sno4E6rBELhqD0dffUDiMuxZOQM
-         rIVFcb8CbNAZrO9J6iaVovN+RmKXfUWHze8R4qhmPLlHfneDSMGnoXleRL3Y4imXlRIj
-         C2pg==
-X-Forwarded-Encrypted: i=1; AJvYcCXaQ6621eVmhH1oJViqJ+qs1ubarpXTRTpI38apXzc12tc39Onk4+M/h1fRGKgpgWgWaE/DcbM8UGhfPnicIUsh@lists.infradead.org
-X-Gm-Message-State: AOJu0YyegWiESy0KjPdS8F//ReaUPeSMBQfOdIelDrxIgmyTHVbsSRhB
-	PqfUfdv2m2QNH6VncvTALiA58MNwTAD/lZy6FggNmmd5YKR4j5CrxLucvgYKKQ/veUcBd+63h4a
-	tmvGhrJbtIDNlGYX3crCoSEPH//ZDoW1McVkDBAEYLq3jq8tM5siFgGXPWuAG+o9+zO/Ey8PxhV
-	Em
-X-Gm-Gg: ASbGncv+ZPglwIqZu0ofBzxWS6/zj5V2/rRQWPXEsOu6309gcoekfyKENOdy5+tJ12Z
-	xqWeTZ3XXH6/ncJXydavaZE9vTXLkcuJsCTNvwDuI78xf1kJpEh96ClY8dAChcrhCB1nCPKWtTx
-	kA1nKJ9OjOwa8YUzKXJBsMrn8PBcr9GIRms6WS9MKDep0zpTnh7PNQgzUjp2rrtVObSDR2klQ39
-	k4bhYh9E/o4bgaTxis/5UgBW8oS7ia6NHLm6hmj9ipYpAK0SjFd3NFbObkcRgr3Zs7QeaJhFE70
-	2vCMEPdi+HPTS9/lsyLohMe/chLj2e4JsnzTZ4UEN1DYepJOQRVSW4B1DD2BjXauLgwM35Gtghe
-	CcCbZRv9/a9ZK2Yc3ww==
-X-Received: by 2002:a05:600c:8416:b0:46e:440f:144b with SMTP id 5b1f17b1804b1-46e440f1681mr106148175e9.14.1759230480818;
-        Tue, 30 Sep 2025 04:08:00 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEtp2PNPVi0ALjvuUKoPRLDELJ7rf4PAGV+onh7dq2Ietz1gwVjsUfUi7sNW36nUdpmYhddmA==
-X-Received: by 2002:a05:600c:8416:b0:46e:440f:144b with SMTP id 5b1f17b1804b1-46e440f1681mr106147925e9.14.1759230480426;
-        Tue, 30 Sep 2025 04:08:00 -0700 (PDT)
-Received: from ?IPV6:2a0d:3344:2712:7e10:4d59:d956:544f:d65c? ([2a0d:3344:2712:7e10:4d59:d956:544f:d65c])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-40fac4a5e41sm23693038f8f.0.2025.09.30.04.07.59
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 30 Sep 2025 04:07:59 -0700 (PDT)
-Message-ID: <157578d3-c06f-4621-b707-ca4208d18807@redhat.com>
-Date: Tue, 30 Sep 2025 13:07:58 +0200
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net-next v2 1/3] dt-bindings: net: airoha: npu: Add AN7583
- support
-To: Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20250927-airoha-npu-7583-v2-0-e12fac5cce1f@kernel.org>
- <20250927-airoha-npu-7583-v2-1-e12fac5cce1f@kernel.org>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20250927-airoha-npu-7583-v2-1-e12fac5cce1f@kernel.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: H97tq19RHKLbqy-iXBRtU-Qu7k3sKGHcaIxgmfDI7G4_1759230481
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+	bh=ej8+t/v5mQyQZp57f2hlXxPelYNwXcOIgQlGLkUSidA=;
+	b=IYU/Oitnx44deO3YQ4pvsUrf3cs72AmxSOTbghOPYUWNQlr+n/xP/l2HkqnuOORt6jwhNa
+	WlRxsrBk0tsqQxmx6fCdxGGYZSUj1zv4M4auOOALhYVuuCRtxoN5uAi6NROsn1yEhm6j2q
+	9iN0MKsaxUcw94CxbGxM+bu2VJKmRBh4X5Wj5pPiS59OWYrLUn8VRpmKxGpsc1hrfH36dO
+	Hp0X25gak0x8LCJ2/hlncT/efUkp24464O7mCQHrcubDrwYM2h7DNL5uJXl846y4UAc05S
+	+2t36F46/1/pvWfidpXKcYLta/n13xuNVx2wbZGHfswkiMn29vTyZD1ttOHiBA==
+Content-Type: multipart/signed;
+ boundary=64945f9999df6ed87a915ea31fa1d9d40eebd6aa48ba7de803956238b27e;
+ micalg=pgp-sha512; protocol="application/pgp-signature"
+Date: Tue, 30 Sep 2025 13:19:21 +0200
+Message-Id: <DD63EEOKPWNV.3IK12D6CFPTQZ@cknow.org>
+Cc: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+ <heiko@sntech.de>, <quentin.schulz@cherry.de>, <kever.yang@rock-chips.com>,
+ <naoki@radxa.com>, <honyuenkwun@gmail.com>, <inindev@gmail.com>,
+ <ivan8215145640@gmail.com>, <neil.armstrong@linaro.org>, <mani@kernel.org>,
+ <dsimic@manjaro.org>, <pbrobinson@gmail.com>, <alchark@gmail.com>,
+ <jbx6244@gmail.com>, <devicetree@vger.kernel.org>,
+ <linux-arm-kernel@lists.infradead.org>,
+ <linux-rockchip@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+Subject: Re: [PATCH v3 0/3] arm64: dts: rockchip: introduce LinkEase EasePi
+ R1
+X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
+From: "Diederik de Haas" <didi.debian@cknow.org>
+To: "jjm2473" <jjm2473@gmail.com>
+References: <20250929065714.27741-1-jjm2473@gmail.com>
+ <DD57IZJQ4FQM.3T5791FLUQ8KQ@cknow.org>
+ <CAP_9mL6+uoeG7LX8YCcUFjoU13De1CdPFqxNNfoJvOdsOrYo5Q@mail.gmail.com>
+In-Reply-To: <CAP_9mL6+uoeG7LX8YCcUFjoU13De1CdPFqxNNfoJvOdsOrYo5Q@mail.gmail.com>
+X-Migadu-Flow: FLOW_OUT
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250930_040935_937099_01B1497B 
-X-CRM114-Status: GOOD (  13.38  )
+X-CRM114-CacheID: sfid-20250930_041944_614650_522469F5 
+X-CRM114-Status: GOOD (  21.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,31 +79,96 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/27/25 4:03 PM, Lorenzo Bianconi wrote:
-> Introduce AN7583 NPU support to Airoha EN7581 NPU device-tree bindings.
-> 
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> ---
->  Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml | 1 +
->  1 file changed, 1 insertion(+)
-> 
-> diff --git a/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml b/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
-> index c7644e6586d329d8ec2f0a0d8d8e4f4490429dcc..59c57f58116b568092446e6cfb7b6bd3f4f47b82 100644
-> --- a/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
-> +++ b/Documentation/devicetree/bindings/net/airoha,en7581-npu.yaml
-> @@ -18,6 +18,7 @@ properties:
->    compatible:
->      enum:
->        - airoha,en7581-npu
-> +      - airoha,an7583-npu
->  
->    reg:
->      maxItems: 1
-> 
+--64945f9999df6ed87a915ea31fa1d9d40eebd6aa48ba7de803956238b27e
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
 
-This needs ack from the DT maintainer and we are finalizing the net-next
-PR right now. Let's defer this series to the next cycle, thanks!
+On Mon Sep 29, 2025 at 8:09 PM CEST, jjm2473 wrote:
+> I have another question. If there are reviewers or co-authors later,
+> do I need to add it to the commit message and send it again?
+> Or should the reviewer or co-author add the message and
+> continue to deliver the patch?
 
-Paolo
+When you get a Reviewed-by tag, you should add that tag too to a new
+version. But there's no need to send a new version to just add those
+tags, the tooling used by maintainers picks those up themselves.
 
+If you 'just' get review comments, then you'd usually just
+improve the patch and you could reference it in a changelog item (to
+indicate you addressed it, ttboyk).
+If you think a reviewer helped you 'significantly', you could choose to
+add an Helped-by tag, but whether you think someone deserves some
+credits that way, is up to you(r judgement).
+
+(Co-)authors are usually known upon first submission. If you later find
+out that that list was incorrect/incomplete, then you would add
+Co-developed-by + Signed-off-by tags on a new version.
+
+HTH,
+  Diederik
+
+> Diederik de Haas <didi.debian@cknow.org> =E4=BA=8E2025=E5=B9=B49=E6=9C=88=
+29=E6=97=A5=E5=91=A8=E4=B8=80 18:20=E5=86=99=E9=81=93=EF=BC=9A
+>>
+>> On Mon Sep 29, 2025 at 8:57 AM CEST, Liangbin Lian wrote:
+>> > LinkEase EasePi R1 [1] is a high-performance mini router.
+>> > ...
+>> > [1] https://doc.linkease.com/zh/guide/easepi-r1/hardware.html
+>> >
+>> > Signed-off-by: Liangbin Lian <jjm2473@gmail.com>
+>> > ---
+>> >
+>> > Changes in v2:
+>> > - Change deprecated "rockchip,system-power-controller" to "system-powe=
+r-controller"
+>> > - Link to v1: https://lore.kernel.org/r/20250925055906.83375-1-jjm2473=
+@gmail.com/
+>>
+>> You received an Acked-by on patch 1 and 2 in v1 of this patch set.
+>> You're supposed to add that to the next/new version(s) or explain why
+>> you choose not to do that (bc f.e. there was a major change, but that
+>> does not seem applicable to those patches).
+>>
+>> Cheers,
+>>   Diederik
+>>
+>> > Changes in v3:
+>> > - Fix typo ('status =3D "disable"' -> 'status =3D "disabled"') found b=
+y kernel test robot https://lore.kernel.org/all/202509261328.Grjhp029-lkp@i=
+ntel.com/
+>> > - Link to v2: https://lore.kernel.org/r/20250925092037.13582-1-jjm2473=
+@gmail.com/
+>> >
+>> > ---
+>> >
+>> > Liangbin Lian (3):
+>> >   dt-bindings: vendor-prefixes: Document LinkEase
+>> >   dt-bindings: arm: rockchip: Add LinkEase EasePi R1
+>> >   arm64: dts: rockchip: add LinkEase EasePi R1
+>> >
+>> >  .../devicetree/bindings/arm/rockchip.yaml     |   5 +
+>> >  .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+>> >  arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+>> >  .../boot/dts/rockchip/rk3568-easepi-r1.dts    | 692 +++++++++++++++++=
++
+>> >  4 files changed, 700 insertions(+)
+>> >  create mode 100644 arch/arm64/boot/dts/rockchip/rk3568-easepi-r1.dts
+>> >
+>> >
+>> > base-commit: d0ca0df179c4b21e2a6c4a4fb637aa8fa14575cb
+>>
+
+
+--64945f9999df6ed87a915ea31fa1d9d40eebd6aa48ba7de803956238b27e
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQT1sUPBYsyGmi4usy/XblvOeH7bbgUCaNu8vAAKCRDXblvOeH7b
+bopkAP4rp6hLo5Z1qfCotr2jDcY3qNpOaylNLYkGskxNmYniSwEAuy5jnsnlFxQS
+vg8YfzULofUE/R68RoD9NpsXx8PQogU=
+=QlYj
+-----END PGP SIGNATURE-----
+
+--64945f9999df6ed87a915ea31fa1d9d40eebd6aa48ba7de803956238b27e--
 
