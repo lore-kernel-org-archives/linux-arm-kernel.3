@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72BD1CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 19:03:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53566CAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 19:04:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=s8S7WoXplidwr+xRKazA1U1HhKSkze41IbIqi3Q6zgM=; b=XHtQbMluubYRl44DqrOE0jfxkr
-	oXq/w/pvuVmb11SiIZECEIeA3yqjuk3cVwSHcl2ssg3nuMCNR5dmpkPYr8n6OVIRGpOyFOjnTcklW
-	YakW9rEij8cscN2Q5GP0JtouZMe2YoYp92zPGVI2oz7p1oUlpJVcko3ZX6+QOI1KHPk7mccBHOxHL
-	Z+8bzR2M1N3tQJdQYMuurlbn+ewBHQTkd/v6/GhOmdgwEYMCrOjLYOO0luhwwSSJpSWy1XZshukAV
-	Px0iruLG94ViNGihMbodG1EKkBs+LymVrf8bZEjmovo/J3h+q3Bqxad11RWpZGu6mDNBeOYVhey6d
-	yGRW+NcA==;
+	bh=tyP7F1Xha2voMis2aj0+DrxduNyDxpnm1/qx/F7xIpA=; b=IumjyXQeuqBlpsJZm0FYSKNoAB
+	T2nKkvTZGUGbPjjWKeF+RgaokkpT+AGo19mWSxCJoRxsJqM9TDTVf8IJ+6dWtKmKlp68n3GOhOt2g
+	55q4JMDPEuEXgkpse2eiYF8OGWTVnxdtcSZa1Jnexg8ujTKYtdj3l90RXMCEej/qqqMxmAvczgcl8
+	GzRb161NcLw+QcOaEZGhrS+HKFDQWhsOUrA9481HhdMFAqaMAJqkb+v36477gZCibLlB1hgXMHunz
+	yyBOBYUbp1N2jZms5eOhJ8Nam1F7q4TfeOjlNQN+rIsnSda/JLUMMcKd1orFZiiLW7Yngsyuu03tx
+	ypVhf1iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3fda-000000062Eu-1Eju;
-	Tue, 30 Sep 2025 19:03:46 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v3feN-000000062MR-2iwA;
+	Tue, 30 Sep 2025 19:04:35 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3fdX-000000062EE-3T7r
+	id 1v3feM-000000062Li-1B8q
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Sep 2025 19:03:45 +0000
+	Tue, 30 Sep 2025 19:04:34 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1FF1740613;
-	Tue, 30 Sep 2025 19:03:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A76E7C4CEF0;
-	Tue, 30 Sep 2025 19:03:40 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 46B7460626;
+	Tue, 30 Sep 2025 19:04:33 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A3E5AC4CEF0;
+	Tue, 30 Sep 2025 19:04:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759259023;
-	bh=AZxrLp8OOgE9Fe/5yxu0UAM2BjE+WoXMpwylLndNoAs=;
+	s=k20201202; t=1759259073;
+	bh=9bVp8kxtQwfBvNc0TU8eygqR9vHMmccEBPnRirmKR+0=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=b11055aY0q7tL4OtPHKpm0Z90OeLlEWWY7RX5CphbCoLo55xB7BcJXhqc5SCJZ2k0
-	 oOE+mBzvIt1JlQKTFch2VWr4pC7j9nKJv/XTryttWLkMnWcmrKE/zX8KXThMDD0jFl
-	 C0uyxFKTtO0Z0/6W7StwaeTZ4jcu8p/HUQ3Oh7zN1Ya8flrIjRp3YQUMTHm+K3YgUH
-	 7UDjC/biQ7okaPMbcFuUr+YACkTdSWmd9U9ntt35RI96uyLEvnC+4PXP4TnTUpQY85
-	 XcSSNqE+u1HtPUrMfBUJBIyWScXyebAaJoqYdGr3ZAg33uRekTFUcVfpBJUd4h5XGT
-	 tqatpK10Cs50w==
-Date: Tue, 30 Sep 2025 20:03:38 +0100
+	b=TOA/xK7KBZ8v0V75Mej57U1x5cZ+4B9AteiPhmHWpO7gYz7EnKlNfIaU9IcrkF2u0
+	 CFEP7naKm95hEkaa/Od6FwwCG29VBDiNbfJHdlcI1OHvU29Xn0hWIpUzR4zCHhT4sU
+	 hDQG+chlxSeRhtmmhvnqxKpd9UO+pGUf0s02tMZ1yhtHYE9aaTe9j86d4m9qg7Zwqa
+	 wcTsOIwBjPVD1W0HuUz09IkMjpSU3ROmGF9pHX7ztIirNEWS9Lmvld1bMqU67wTLEO
+	 DZexBdTHmDj8VG0GaRwAmT8WwWqRkAhSKuLR86KRS2DuiK5oV1rK6gZCPZirliK18p
+	 vopT1Ew3c7+EQ==
+Date: Tue, 30 Sep 2025 20:04:28 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Kamal Dasu <kamal.dasu@broadcom.com>
 Cc: bcm-kernel-feedback-list@broadcom.com, andersson@kernel.org,
@@ -50,19 +50,15 @@ Cc: bcm-kernel-feedback-list@broadcom.com, andersson@kernel.org,
 	conor+dt@kernel.org, florian.fainelli@broadcom.com,
 	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 1/3] dt-bindings: hwlock:  Adding brcmstb-hwspinlock
- support
-Message-ID: <20250930-slapstick-volatile-60ad540f4b66@spud>
+Subject: Re: [PATCH 1/3] dt-bindings: hwlock: support for brcmstb-hwspinlock
+Message-ID: <20250930-showoff-herring-4b2a04611e9d@spud>
 References: <20250929200628.3699525-1-kamal.dasu@broadcom.com>
- <20250929200628.3699525-2-kamal.dasu@broadcom.com>
+ <20250929200628.3699525-3-kamal.dasu@broadcom.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="qr7aKkWVgBLL5FHz"
+	protocol="application/pgp-signature"; boundary="82j1rXkJuErFh8c/"
 Content-Disposition: inline
-In-Reply-To: <20250929200628.3699525-2-kamal.dasu@broadcom.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250930_120343_907318_B153A48E 
-X-CRM114-Status: GOOD (  17.63  )
+In-Reply-To: <20250929200628.3699525-3-kamal.dasu@broadcom.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,15 +74,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---qr7aKkWVgBLL5FHz
+--82j1rXkJuErFh8c/
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 Content-Transfer-Encoding: quoted-printable
 
-On Mon, Sep 29, 2025 at 04:06:24PM -0400, Kamal Dasu wrote:
+On Mon, Sep 29, 2025 at 04:06:25PM -0400, Kamal Dasu wrote:
 > Adding brcmstb-hwspinlock bindings.
 >=20
 > Signed-off-by: Kamal Dasu <kamal.dasu@broadcom.com>
+
+You have two 1/3 patches in this series.
+
 > ---
 >  .../hwlock/brcm,brcmstb-hwspinlock.yaml       | 36 +++++++++++++++++++
 >  1 file changed, 36 insertions(+)
@@ -116,24 +115,6 @@ ml
 > +properties:
 > +  compatible:
 > +    const: brcm,brcmstb-hwspinlock
-
-Is "brcmstb" actually the name of a single platform?
-Looking at the "brcmstb" pci binding, it looks like there's a whole load
-of different devices there and none use "brcmstb":
-          - brcm,bcm2711-pcie # The Raspberry Pi 4
-          - brcm,bcm2712-pcie # Raspberry Pi 5
-          - brcm,bcm4908-pcie
-          - brcm,bcm7211-pcie # Broadcom STB version of RPi4
-          - brcm,bcm7216-pcie # Broadcom 7216 Arm
-          - brcm,bcm7278-pcie # Broadcom 7278 Arm
-          - brcm,bcm7425-pcie # Broadcom 7425 MIPs
-          - brcm,bcm7435-pcie # Broadcom 7435 MIPs
-          - brcm,bcm7445-pcie # Broadcom 7445 Arm
-          - brcm,bcm7712-pcie # Broadcom STB sibling of Rpi 5
-
-If "stb" means "set top box", it sounds like a catchall for disparate
-devices, which isn't permitted.
-
 > +
 > +  "#hwlock-cells":
 > +    const: 1
@@ -160,16 +141,16 @@ devices, which isn't permitted.
 > 2.34.1
 >=20
 
---qr7aKkWVgBLL5FHz
+--82j1rXkJuErFh8c/
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaNwpigAKCRB4tDGHoIJi
-0lbfAP95Hy2SdaNddoRFW3UDtB0xETS9YJ5HfnHUfOk5ef6lnAEA88VM90cdi5qa
-/Ia7LkDYM2dUVq5+okzLrEoJCOtAHQs=
-=WU4C
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaNwpvAAKCRB4tDGHoIJi
+0nvbAQDNsPnAKiThkxtWiJAtsGypV9tPJibzu9eiHKqUnBJXzAD/YBVHVcuOZX3E
+1xUGN7jzCNFqkG5lwlNdSD7Ut3juLAc=
+=hEEo
 -----END PGP SIGNATURE-----
 
---qr7aKkWVgBLL5FHz--
+--82j1rXkJuErFh8c/--
 
