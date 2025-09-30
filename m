@@ -4,105 +4,171 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 61321CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 18:00:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EFC2CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 18:09:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EUTT+JbzzVh0DS04H/ZHvMyWZt9/2MTU/ePqHnEgCL4=; b=Fon4kgvfplH1pFy60wn4GINptx
-	uq+Cc/MLf35V875AQuGzfBg0QCbkU8TCs3x6s/OUDNhLd2Gnj5Un54/RMfAXP2YQAQuroj8oYw7JA
-	pm6NpkD8O8mSPwnB/qjnEYPRTkmU2ueHO5bHwo/zmSFD1OYchkAhf+C8whmCqcAAusprso9ptebPO
-	pLi2FBWASfaDs1hTW9HsMZoRCmWRQQOn20ykumvPhZv0W2pyaBnYlDMoFPKtI0FHQxlqYpr39l9Zc
-	X8cKeYqEttt5NZkk0GuRrBa8ofsR9ARLoU/7p8AvMY9F5tZ0xHIWcmmMqiBO2i54C4Pu91yTNbs3A
-	qaitfnmQ==;
+	bh=Z78ftpTBJG4dTAw3euExCje+Xu2wIQuDC8lIoLdCZTU=; b=kz4oyTEpcqiDzX0ws4iWed0Oud
+	aHQWIwYlpyorKvTXF2r+Tjm5A1TpdBFeVXQbwZegFV8K/clCoDU/pN/MJCy0V4Zldq89k3hk7NAJt
+	IAFc1p60kVdiXyU6ehXjTNSTF0lTju3n/pn7ZDoILBBc0BdBlGYRQvJIPoW3BdmQMZ+Z3tCOwEThw
+	hVfOUFxiDcbuiIc2Y5aNrWoxNg3/Um0cfr10d1k81h3w8lHbpd7uUuSN7Y6D2W1H0mym5FLGr9Dsz
+	b21kxhHFnNa9wY46Y6dbU4YDR+4SrZKnf+7c7qT3GfuNNni4f4ujESy0n/OdBZbc9KXjraGuNFDrG
+	umNhAiiw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3eeZ-00000005vwb-0khY;
-	Tue, 30 Sep 2025 18:00:43 +0000
-Received: from mail-qv1-xf32.google.com ([2607:f8b0:4864:20::f32])
+	id 1v3emY-00000005wgm-2afA;
+	Tue, 30 Sep 2025 18:08:58 +0000
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3eeW-00000005vw1-0Nyi
+	id 1v3emW-00000005wgK-0jfD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Sep 2025 18:00:41 +0000
-Received: by mail-qv1-xf32.google.com with SMTP id 6a1803df08f44-7ea50f94045so1640336d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 11:00:39 -0700 (PDT)
+	Tue, 30 Sep 2025 18:08:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=wdYUbdJLGpeOzb+06/TcEyObzZImWh12OkCss/A5jdIyE7ijLF3ZjAmtQdwtc4HezFer6+WIan+ELd4Rs9QHywqui59SQ55dFW2T12QOxb4oCe4fuC7e+cVI3NWFQuP45ucyOxgfxeHYEas6nl/0FNrsv8X0EcQb4Xa0nAi6IuNh6jYe/rLdn1+3/CcMD1N2xf5l56fOqf1hizcKP+6a8cNQM2N0//39PNec7AgM1uF/uFz2ZrWkEUJdw7u92qouRokKl3Olm9yf5E/KFgDtRrDhKZ7TrFDym+Ji/BNOg8gXB47PukOmNdK+APCz/lECigQanurNGqgYIZ86qxayPw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Z78ftpTBJG4dTAw3euExCje+Xu2wIQuDC8lIoLdCZTU=;
+ b=CEJlu7C1wK0Wkauh6C2sKWBLZiRflvgPTjJv+kctzNk7lIrmb3vqkzgIJuQKKuhSrIk2SBbIYyzhOR2x7YWYFhIjWuZzb3rI6+7g/9/dNCVq6+nnXtvU5Z8nq/lUe1/dR5Gl9ID9+MfDTh6tDWknhtQNRgnx1ZUzmiWgIC+c9VR9m2VskbtdxofYFcxOswEk8fUZ8WaN0CbtINyNjyIAurhtt6uniz3y1mBGkPV4d4A0RQ5aatdgDUfaUHWIRcribnHkAxFEDTBIP/Cpuz39Bacnb5Fs2/7NNlfmZKtVXDMnCcT4EF6YUC3uUx5HfMNcLvh0/Qzq7RqGrMBB9DiHBQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1759255238; x=1759860038; darn=lists.infradead.org;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
-         :from:subject:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=EUTT+JbzzVh0DS04H/ZHvMyWZt9/2MTU/ePqHnEgCL4=;
-        b=XKAAVfE8FtqZIpywisJWEz3ODdA2QYn0OYl42nIrq/CLVBQ2wo7GXtnq0P/8UqvZqu
-         WC+ZXop8rL994LTPvW6fyO6QeF9jJivDFrn8BSAYpBSAJ8VljThaU8nRRpcNB6mjvjnc
-         XAn2O/6elPv3TK0yO57lBzZGN7ZBw6prpuAxAbMzpQCKnNOEMI/nFXdFace1YBWdyJgP
-         brMleNko/zUOERBYJ95J+xIllQlLyq8TW5LlUMX25hNEbreAAfrswNP8UKxUZ+xrkpS5
-         GawBMPBcrxGUWiw+rywnG6dUJnHgcYtOztH6QVT8HAO4/UFcutGyC+Z8cJwCJyMpb+ms
-         9MAQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759255238; x=1759860038;
-        h=mime-version:user-agent:autocrypt:references:in-reply-to:date:cc:to
-         :from:subject:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EUTT+JbzzVh0DS04H/ZHvMyWZt9/2MTU/ePqHnEgCL4=;
-        b=UhvW4ywz3MJtktaNUyLTryhJuG/SNmw+stQAUaKa6cl8fC9Chi42YzEg/CP4l7Xc3t
-         Clf2FG2Y5Ly2dRK+3fM/wS0qVNu6/YkJ5QVLT3UGPAMPb3YsCBK3tXbuT3+elOvGZDWz
-         4uw1QAv5nV9zjWbEIBZNn6qEGV/OHz5z7dvD2ee1uQaHmD808AJHIQYPtS6xWrwRTm/w
-         etwyMvvB2kPSg64DtOCcodHvdQaYzoG8Zpf7eM+ynGnH6D1mcPk4U2OxGbHf6yjJRM+q
-         0ZvOArVbHhe6eQzxG/SwwsfzRGfIuhfRDWZ8PUANB8VjqxmaoMhKNjlbd2MPflMPTRwr
-         Ql2w==
-X-Gm-Message-State: AOJu0Yz2KqAX1dTcm/awsxFlgLXBj9CkHMe8ZXxH1ZDNCidd8KuwMPuz
-	iJTEUFBUCgkbo+1ecHIo9gkFS9AJ8qqhfXxMlK7RH5vJdzBy/fN5uaKIfwWt+v3wcYo=
-X-Gm-Gg: ASbGnctnHgW1SSDZyMHUXkaMYWi5w/yAM8ZBRBTnkQgiizDwXs/Pb2vgDcgWk6jpPMV
-	xTES5ORcc8L4R5bhqYbQ6uBzaT1h6lPdWxviCd0pyMwQq2XxAudgLXSvaxuDlnXnJvDIvKjWPL4
-	K2qCijlmh5KWv+t9/oRufaRuNrnP6CC/JtVQQTHMC1RghJCkR6pKpMhrByNbJImSt0kFQHp3c7r
-	VyszIbXy4kMyoSnmu3JkoXbSYR2+dbn56vSLZ4/hHp3y4NxEg4yWzDjgLc6SYw96cVlRpwUmfr/
-	VApSZ2Lr6joMCwuBPyK1pp5XwDpU1uS1VpWMo3gr5/3Cxgl+VXKLDGvceukrmwC/IL0Vp8EDtFp
-	Bqz2skbLBU/EpUmKUrGZRsdp5VPNmQ/2GkW0oEK6cF2CyVtZcHNCn
-X-Google-Smtp-Source: AGHT+IFzudupquJcBtLRi08DPq6SOQOtO0F/U1oyiFZrHoaOZAqVKZqhFhjxzK7i3AUHyvkX6bah0w==
-X-Received: by 2002:ad4:5ae3:0:b0:775:6a7c:dbd5 with SMTP id 6a1803df08f44-8737f6525e6mr8557786d6.33.1759255238047;
-        Tue, 30 Sep 2025 11:00:38 -0700 (PDT)
-Received: from ?IPv6:2606:6d00:17:ebd3::5ac? ([2606:6d00:17:ebd3::5ac])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-8016ce9a3c0sm97452486d6.53.2025.09.30.11.00.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 30 Sep 2025 11:00:37 -0700 (PDT)
-Message-ID: <f0e1c897b41706f15b765f1cbdf822dac5f596ef.camel@ndufresne.ca>
-Subject: Re: [PATCH 00/29] media: codec: add new Samsung Exynos-MFC driver
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Himanshu Dewangan <h.dewangan@samsung.com>, mchehab@kernel.org, 
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- sumit.semwal@linaro.org, 	christian.koenig@amd.com,
- alim.akhtar@samsung.com, manjun@samsung.com, 	nagaraju.s@samsung.com,
- ih0206.lee@samsung.com, jehyung.lee@samsung.com
-Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org, 
-	linaro-mm-sig@lists.linaro.org
-Date: Tue, 30 Sep 2025 14:00:35 -0400
-In-Reply-To: <20250930040348.3702923-1-h.dewangan@samsung.com>
-References: <CGME20250930035518epcas5p2395afdb6f22d2a6b42f9daaec6bc3c1f@epcas5p2.samsung.com>
-	 <20250930040348.3702923-1-h.dewangan@samsung.com>
-Autocrypt: addr=nicolas@ndufresne.ca; prefer-encrypt=mutual;
- keydata=mDMEaCN2ixYJKwYBBAHaRw8BAQdAM0EHepTful3JOIzcPv6ekHOenE1u0vDG1gdHFrChD
- /e0J05pY29sYXMgRHVmcmVzbmUgPG5pY29sYXNAbmR1ZnJlc25lLmNhPoicBBMWCgBEAhsDBQsJCA
- cCAiICBhUKCQgLAgQWAgMBAh4HAheABQkJZfd1FiEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrjo
- CGQEACgkQ2UGUUSlgcvQlQwD/RjpU1SZYcKG6pnfnQ8ivgtTkGDRUJ8gP3fK7+XUjRNIA/iXfhXMN
- abIWxO2oCXKf3TdD7aQ4070KO6zSxIcxgNQFtDFOaWNvbGFzIER1ZnJlc25lIDxuaWNvbGFzLmR1Z
- nJlc25lQGNvbGxhYm9yYS5jb20+iJkEExYKAEECGwMFCwkIBwICIgIGFQoJCAsCBBYCAwECHgcCF4
- AWIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaCyyxgUJCWX3dQAKCRDZQZRRKWBy9ARJAP96pFmLffZ
- smBUpkyVBfFAf+zq6BJt769R0al3kHvUKdgD9G7KAHuioxD2v6SX7idpIazjzx8b8rfzwTWyOQWHC
- AAS0LU5pY29sYXMgRHVmcmVzbmUgPG5pY29sYXMuZHVmcmVzbmVAZ21haWwuY29tPoiZBBMWCgBBF
- iEE7w1SgRXEw8IaBG8S2UGUUSlgcvQFAmibrGYCGwMFCQll93UFCwkIBwICIgIGFQoJCAsCBBYCAw
- ECHgcCF4AACgkQ2UGUUSlgcvRObgD/YnQjfi4+L8f4fI7p1pPMTwRTcaRdy6aqkKEmKsCArzQBAK8
- bRLv9QjuqsE6oQZra/RB4widZPvphs78H0P6NmpIJ
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-snajKa5n4NSRuOCFsqwz"
-User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Z78ftpTBJG4dTAw3euExCje+Xu2wIQuDC8lIoLdCZTU=;
+ b=XOf9A7EFSsw3CpEZcEwuqfA2yDScMns5Ehw0cXCRCNvr62cJNsP7c8ItgVRHBOgAOEvx7rm+LN9lpq0/nDB2x3axWg3/kHti5lCV3E2Ooo7OdUJ2CJ9r23MUglWCfffwgrzopkgAB2FeNA3KRDhXV3m1r6cFP/B0L+k+l78ivgc=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ BN0PR01MB6912.prod.exchangelabs.com (2603:10b6:408:16b::8) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9160.18; Tue, 30 Sep 2025 18:08:50 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460%3]) with mapi id 15.20.9160.017; Tue, 30 Sep 2025
+ 18:08:50 +0000
+Message-ID: <6cde8290-3aa2-411c-bf29-eb91a99e33a5@os.amperecomputing.com>
+Date: Tue, 30 Sep 2025 11:08:46 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [v2 PATCH] mm: hugetlb: avoid soft lockup when mprotect to large
+ memory area
+To: Dev Jain <dev.jain@arm.com>, muchun.song@linux.dev, osalvador@suse.de,
+ david@redhat.com, akpm@linux-foundation.org, catalin.marinas@arm.com,
+ will@kernel.org, anshuman.khandual@arm.com, carl@os.amperecomputing.com,
+ cl@gentwo.org
+Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250929202402.1663290-1-yang@os.amperecomputing.com>
+ <cc40d827-3b98-4e15-ad45-5c2033e4ce20@arm.com>
+Content-Language: en-US
+From: Yang Shi <yang@os.amperecomputing.com>
+In-Reply-To: <cc40d827-3b98-4e15-ad45-5c2033e4ce20@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: CY5PR15CA0189.namprd15.prod.outlook.com
+ (2603:10b6:930:82::7) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|BN0PR01MB6912:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0ff1d223-79d1-49e2-9918-08de004c6827
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|376014|366016|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?YVJXNGFsL1FXcVhHSU5YSnNkVW1wdnVrMTFsYUdkbTdIeGc5RE5kdXc4UU05?=
+ =?utf-8?B?cEVTQ1JyT2dnMG96UTRZOVJuOG94dmtkbXBwVXcxdGszRHd4Y0dtUzRVaWJr?=
+ =?utf-8?B?Y3Fzd2MwemxCK3duWXpIQmQ2Tll2cUhwai9vQlJjaFR6cUFNZFV6cWRrYW9n?=
+ =?utf-8?B?RVlRYXRSUHQ0YXRHb0J4K2tiZndyd09qR2xSMUUwSFAySzRBY3RjbHpINDQr?=
+ =?utf-8?B?dE1hdzIwQ0lsb3hPVVlJNmZjTllJaEFBSUxycGhPMlNGdXh2b3puNmorMS9p?=
+ =?utf-8?B?cjNoY3JvRENsOGJ1c1VET25qVGxOYUw2bnBSVVI4d3U5SVgvN2p6aTgvdDVi?=
+ =?utf-8?B?eUprYy81SFZhcDZsVGF0czZWWHdLNk4xSU14cFBycHQ3dmREd1hFbVVSZGhy?=
+ =?utf-8?B?RTlhZ0RuenF0QnFWampiUGRWRzc5Y2dMMGpOeFZGUlhxeC9tVlljRHIvVEhI?=
+ =?utf-8?B?VXlMeURkOVRUUEdUdXNhZ09JYksyWTNuNlF0UjZid205dFN5QXZvakhyMjFJ?=
+ =?utf-8?B?ejN2R2pGS0pkRlZDUmtrVFFJUTY2WnA4VnBvM1RXQjhoSFdyRDdEbm9OSlc3?=
+ =?utf-8?B?ZzhOMUxtb0w5NnVsTGcrRDQ0bm8vME5COTR1UDY1TmR4Wktaa1owRno5bHRm?=
+ =?utf-8?B?RWtzM0pIcjJLS0cxWTFETjJEdzBDTUlObVJ2emNxVEdHc0djZVBtVHJvcW94?=
+ =?utf-8?B?UE4rS29wckx0U1RseHFIVkd3b0VEeWlOeXNWMkZKR1hybTQxVUxudGdoUURj?=
+ =?utf-8?B?cWtrRjRyeGl3Z1pXRVBpQ3FWK3BVdkloYUw3VWkwOXVsRktFcmFCT01HZ09B?=
+ =?utf-8?B?YVhoOUpqS0JKU0dIblVkWlJmOXpvejVic1d0YlBrMXJKRS9GSWRXMGZJZFNC?=
+ =?utf-8?B?eWVrV29qM01JaTM3ZlZZK3U2eS93eS82UklDTjRVNldKUzlma0d2aENJOU5U?=
+ =?utf-8?B?K0pObWpWUHpyS0FRelhWTGllR3BtSXFHRk4ya2RGRWpVN0lYOTlPL1Q2aklz?=
+ =?utf-8?B?U2tIZVFKeHY4VjUxSG9iUDB3c1BnSGx2elo2SGx3UkJVRDJXUG1SQWIzY2hp?=
+ =?utf-8?B?a2dEZHNkSmZZSXBrNVZKQVFrVTZGaklFZUJ2Zm1ybzdua3JCcG9Wajh2R1VS?=
+ =?utf-8?B?R1lKdDIwMytNTEI1aUxVYjVESXJUbjF1cUtvb1lnZllLTTkvODAyL1ZIejlY?=
+ =?utf-8?B?VXZ0dmtJcE9yQjBURDY0NWtRLzJBWU1SdE5tdkFkRFloclZWZ0NxajU0aWtx?=
+ =?utf-8?B?RHdJSVR6SVVoSEE0c2NMSXVPdDBxdkU4dEJrMjFsTFkySW83RDc2eStnVS9K?=
+ =?utf-8?B?dDFDNTJtTHNhRWovMVM3Q1JzSnJ0cC96b0JxRzVndzk2RElwN2hDQ3VrMkZJ?=
+ =?utf-8?B?ZEFvdms2TWc3TkRzZTAySmluWnY0ZnZoS25hNHdBRVRpVEk1TTZBeENUWWZP?=
+ =?utf-8?B?K3NtNVhKTDJSRkZabEpFL1l6alE2VHJURHdMRUl4SmhMTHRzMUFiYStOTmxF?=
+ =?utf-8?B?UTQ4TWRFZDFSak5zZjMyT2g3ZXMrOHVYQzVwSWFKQS93V2JrOW5zUkd4bHY1?=
+ =?utf-8?B?MHhnRExSWXArODBET2NmaXBjaWJhYUZ2bEZ4TWpPNmF4V2dsQjhOeDV1R3dY?=
+ =?utf-8?B?VHhQL2k0MGRTSDRnOTNjQUJNN0hYb3lpd1ViTXlDSFhvVWZGdE5wWUNYU2tW?=
+ =?utf-8?B?RkFKQUxzdG5kQjVxRi9HOGxOcHhhL1BpWTFidFMySUFyTnRWeFdnM0c3Q1g5?=
+ =?utf-8?B?SnF5Y0tReWE2WE5CbG10ZnZsMEhMYTdyK1RVSFJpQmk3QVZvM2tKUnh0Tndj?=
+ =?utf-8?B?WUg0aklwWk8vQnRNb3Z4cy9Wd0xBSXdSQUVoeWlzU0pjUXF1RUhvdTlUdFRo?=
+ =?utf-8?B?d3hFbDZpYURGNTE2NDJnTTJVYTNsckg0anJHYjhqa2tjanRrTHlVMFdEbXV0?=
+ =?utf-8?B?Mi9mNU5nRmNvbFozSW5idGp0eTl6VXdvUjFDUlFyNzBxdnh6SWs3MDNYczFp?=
+ =?utf-8?Q?advvcuFzXcVGZV2pcvk1KHvCPHmBYo=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(376014)(366016)(921020);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RmlaOFR5YVpPR2dIWDVXZHVNMVVtSkthSkVuMnB1NmlpN1hKaktSWmlvcjB6?=
+ =?utf-8?B?OGpQNDFJR3pGNXVvUXZmNUc1N2FQclJGdlo1bmMrOWEyMDhVNzZFTHZCK3lT?=
+ =?utf-8?B?dXJZek0yZEJBaERoMzBEK0hlMmpHTGFRT0NGeldLWDlldHp4SkV1czltakFG?=
+ =?utf-8?B?clp5K0dOZXZoY1NlWVdUZzd5dmtkVU5tTFE2WFFoRUZvS09Bd3Z5R1hsZVZ6?=
+ =?utf-8?B?WFBEYUNiTTIwcjlMYkphTTBBWXZYTklKRFpoRzliWk1keWlOeGlxYVI2QldQ?=
+ =?utf-8?B?c1M1SXdYM3hRU0tPTzNDdUJWbitFdWpidEVHdHhHa0lLQ3ZIdXh5TUd2NUZI?=
+ =?utf-8?B?WVpNb04yait2aDJUTmllaU9nM0dmc2psSllnN0NYdXVINUNzcEhka3BjTVor?=
+ =?utf-8?B?NjJWR3MxSVQ2b0pEYnRIVFNaRjRuaExaQnBSSVIwOVJVOWlQRERoaklqNEdQ?=
+ =?utf-8?B?ZWU4djFTK0E5STE1d2tlVFRpMXJxUVptUWJtdlFlOTZtSGdVZGlPQ3F3S3M4?=
+ =?utf-8?B?QitONWJYNFhidk9uRlpEQmlHK1Q5NEE1cmJXaitrRjhVOHZOQXFGblR6OVdB?=
+ =?utf-8?B?VDlyZFBLQlQ1Uy83NHlzd3BQK0JvVW5Oa01mS01DZEpUaFVIM1FkSFFQczBF?=
+ =?utf-8?B?bUZMQTFVK3UzcHZ2V0l5SXVWRXBUU3Vub2hWYmIxeDJFcGpHUmQ5K3BXcUJh?=
+ =?utf-8?B?VHN1N2Z1ejBlN3VuUko1YXp1VjhEb2ttbWxxSUxpSFdyOW10MUlwQ0JTUGFL?=
+ =?utf-8?B?WDZPTVo2WmNhRVo0bGhhQ3Y0T3JMQ3piRkM3eHpvMjVUNE9mdEpzcHpWa3hB?=
+ =?utf-8?B?b0JDcG1UYkRHeWhENjB2L25lZktEMTBlRWVsOUhwYWF5Y0x3TFNXQk5SZ3RB?=
+ =?utf-8?B?KzRSSStNYlVaV3pnMVZQaXdLSDJmWkxSWEZ3WllnYWx3TE43dlh6RVJpRUlJ?=
+ =?utf-8?B?U0s1T0RydDhQSndGOEgzSWN1M0UzR0lMQzh6eENzVUVMdEJTRzdZNlNuTlNm?=
+ =?utf-8?B?all3bGVCcWJVRnFzNVZoYTkzeW5lZ0FET1pMeXRrc0U5eDJwRFlIbHRXK3pZ?=
+ =?utf-8?B?Vm1PT3I4U25jcDZ6Q3lZTDhJWWZIU3Myc3R1STU5cHRDWDhnc0d0Q1ROc0ZS?=
+ =?utf-8?B?M3BNYStGcE9QTk9Oc2pNTnZtRU1jUUhDb3doWHpzUExjSlpBNWVyTTNaNnJo?=
+ =?utf-8?B?Zmp6QTFrSHltZDdUeWtRak14RnJRMys2Q2xUMGYvcU1NUFNFWEVRRjZWVkNL?=
+ =?utf-8?B?QjI2VmxJQ2E1Tmp5QWgrSSt3ZWNLV0o3bHdTbmdCRUFSa2IwTnlRaEpXKzNP?=
+ =?utf-8?B?cXdaUVhvTllZYWo5VDJNNHI4SXptQUNESDVGUkVVK21tSFFtL1o3ZGVwbmpy?=
+ =?utf-8?B?YXlObHh3NmxvQVRrU1NsN0RlZkhTRFljWmJ1NzlTVFdBYm5samJVb2o2UU5E?=
+ =?utf-8?B?RzRVTGVTUlBWSlNmV2JhQmo3SWlWMWVmVmZodXdKOFVicXkvenJ4OXRxTUpK?=
+ =?utf-8?B?TUR3T0t3aDdNQVNCOFBTckZBWFg1Y0VZcDRmWnVVcXRtS3dmUWtybUJNNnI1?=
+ =?utf-8?B?eml5K1grZld4MEZaL2VmYUhKL1QwN0xSV0YyYUNFSFpNdUF2Qk5XbThndTRE?=
+ =?utf-8?B?OXNPclJFTGxybmtDTzhXQzNLRU4xeklhd1ZVY3NaeEVUMVdtS3NYQ25iUGZE?=
+ =?utf-8?B?ckp3c1NEZDlFUkFZVXByb2tYcVBOTU1JREJZRi9zaEhRWkFENktWS0JrZE43?=
+ =?utf-8?B?QWpTbzV5N0E2bVZJTkw1MG1PaHRYenhTK1hKWFdDZUFsUFVCYUVleVF4L3Nh?=
+ =?utf-8?B?TDhackRUYi9rUUZYdmNIZ1RWTlNpbzdSeFJKQzZSTnF3WE9MNCtLS3dWdGZH?=
+ =?utf-8?B?Zk9UMTg5WGFZd2xSc2hrODM4R05DUS9FZmdiZm9oMHNoOEFEdXBianQ3S1RZ?=
+ =?utf-8?B?YkNSNyszNnFGcWFKdUl6SWpMRGgyZUpkbXZ4Q3ROSmJ5Lzh2a28wNEkvMVd2?=
+ =?utf-8?B?dUZHd2J3cWZpeDNRVXZyRW9kNTA5ZFNBLzE3WXh5TFI0eTV4T1o1dHpDZmR4?=
+ =?utf-8?B?UWdnUTU2d1dZYzNUOURBdzJnUm5BRnRSdVcyZ2RQaFRVODM5d2NtTkdWU1h0?=
+ =?utf-8?B?alJoMlYwc1Bpayt5TVZmV1J1ZDZvbW9GYVQxOC9Bd0FHQlkrK1hSYVFZY3Q1?=
+ =?utf-8?Q?5rsYbcMQ0VvkuzGDTw0kB+0=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0ff1d223-79d1-49e2-9918-08de004c6827
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2025 18:08:50.0478
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: QzcF2ADWdR+mSoAqpa2gUh4105h2ilERthdBQ/D3yupV3HetT1ASErakxSRoe2ORJ+jvHkHxIBAL9mZBMjoQZnB5vKdPP1kEnjBeWasYcCc=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BN0PR01MB6912
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250930_110040_466863_6846F4EB 
-X-CRM114-Status: GOOD (  31.65  )
+X-CRM114-CacheID: sfid-20250930_110856_255047_56804DF3 
+X-CRM114-Status: GOOD (  19.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,542 +184,107 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---=-snajKa5n4NSRuOCFsqwz
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 
-Hi Himanshu,
+On 9/29/25 10:26 PM, Dev Jain wrote:
+>
+> On 30/09/25 1:54 am, Yang Shi wrote:
+>> When calling mprotect() to a large hugetlb memory area in our customer's
+>> workload (~300GB hugetlb memory), soft lockup was observed:
+>>
+>> watchdog: BUG: soft lockup - CPU#98 stuck for 23s! [t2_new_sysv:126916]
+>>
+>> CPU: 98 PID: 126916 Comm: t2_new_sysv Kdump: loaded Not tainted 6.17-rc7
+>> Hardware name: GIGACOMPUTING R2A3-T40-AAV1/Jefferson CIO, BIOS 
+>> 5.4.4.1 07/15/2025
+>> pstate: 20400009 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+>> pc : mte_clear_page_tags+0x14/0x24
+>> lr : mte_sync_tags+0x1c0/0x240
+>> sp : ffff80003150bb80
+>> x29: ffff80003150bb80 x28: ffff00739e9705a8 x27: 0000ffd2d6a00000
+>> x26: 0000ff8e4bc00000 x25: 00e80046cde00f45 x24: 0000000000022458
+>> x23: 0000000000000000 x22: 0000000000000004 x21: 000000011b380000
+>> x20: ffff000000000000 x19: 000000011b379f40 x18: 0000000000000000
+>> x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+>> x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
+>> x11: 0000000000000000 x10: 0000000000000000 x9 : ffffc875e0aa5e2c
+>> x8 : 0000000000000000 x7 : 0000000000000000 x6 : 0000000000000000
+>> x5 : fffffc01ce7a5c00 x4 : 00000000046cde00 x3 : fffffc0000000000
+>> x2 : 0000000000000004 x1 : 0000000000000040 x0 : ffff0046cde7c000
+>>
+>> Call trace:
+>>    mte_clear_page_tags+0x14/0x24
+>>    set_huge_pte_at+0x25c/0x280
+>>    hugetlb_change_protection+0x220/0x430
+>>    change_protection+0x5c/0x8c
+>>    mprotect_fixup+0x10c/0x294
+>>    do_mprotect_pkey.constprop.0+0x2e0/0x3d4
+>>    __arm64_sys_mprotect+0x24/0x44
+>>    invoke_syscall+0x50/0x160
+>>    el0_svc_common+0x48/0x144
+>>    do_el0_svc+0x30/0xe0
+>>    el0_svc+0x30/0xf0
+>>    el0t_64_sync_handler+0xc4/0x148
+>>    el0t_64_sync+0x1a4/0x1a8
+>>
+>> Soft lockup is not triggered with THP or base page because there is
+>> cond_resched() called for each PMD size.
+>>
+>> Although the soft lockup was triggered by MTE, it should be not MTE
+>> specific. The other processing which takes long time in the loop may
+>> trigger soft lockup too.
+>>
+>> So add cond_resched() for hugetlb to avoid soft lockup.
+>>
+>> Fixes: 8f860591ffb2 ("[PATCH] Enable mprotect on huge pages")
+>> Tested-by: Carl Worth <carl@os.amperecomputing.com>
+>> Reviewed-by: Christoph Lameter (Ampere) <cl@gentwo.org>
+>> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+>> Acked-by: David Hildenbrand <david@redhat.com>
+>> Acked-by: Oscar Salvador <osalvador@suse.de>
+>> Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
+>> ---
+>> v2: - Made the subject and commit message less MTE specific and fixed
+>>        the fixes tag.
+>>      - Collected all R-bs and A-bs.
+>>
+>>   mm/hugetlb.c | 2 ++
+>>   1 file changed, 2 insertions(+)
+>>
+>> diff --git a/mm/hugetlb.c b/mm/hugetlb.c
+>> index cb5c4e79e0b8..fe6606d91b31 100644
+>> --- a/mm/hugetlb.c
+>> +++ b/mm/hugetlb.c
+>> @@ -7242,6 +7242,8 @@ long hugetlb_change_protection(struct 
+>> vm_area_struct *vma,
+>>                           psize);
+>>           }
+>>           spin_unlock(ptl);
+>> +
+>> +        cond_resched();
+>>       }
+>>       /*
+>>        * Must flush TLB before releasing i_mmap_rwsem: x86's 
+>> huge_pmd_unshare
+>
+> Reviewed-by: Dev Jain <dev.jain@arm.com>
 
-Le mardi 30 septembre 2025 =C3=A0 09:33 +0530, Himanshu Dewangan a =C3=A9cr=
-it=C2=A0:
-> Exynos MFC new driver upstream proposal
-> +++++++++++++++++++++++++++++++++++++++
->=20
-> The s5p-mfc driver in the kernel is quite outdated and has not kept up wi=
-th the hardware advances of the MFC IP.=20
-> Going forward, we want to provide support for all the later versions of M=
-FC in open source (both mobile and
-> ExynosAuto would be supported by Samsung)
->=20
-> We (Samsung) would like to propose a new driver for the latest generation=
- of Samsung MFC (Multi-Format Codec) hardware.=20
-> Although the kernel already contains a Samsung MFC driver (drivers/media/=
-platform/s5p-mfc/), the newer hardware=20
-> diverges significantly from the previous generations, in features support=
-ed, register interface and in system integration.=20
-> This has necessitated a new driver, rather than updating the existing one=
-.=20
+Thank you.
 
-I wont deny that sometimes a new driver is needed, and I encourage you to d=
-efend
-your point. It does just justify any form of copy paste, also understand th=
-at
-device descriptions should be independent from the driver implementation. T=
-his
-is also why this is reviewed indecently, and DT nack won't ever be ignored =
-by
-us.
+>
+> Does it make sense to also do cond_resched() in the huge_pmd_unshare() 
+> branch?
+> That also amounts to clearing a page. And I can see for example, 
+> zap_huge_pmd()
+> and change_huge_pmd() consume a cond_resched().
 
-=46rom quick walk through, I'm not convince this new driver actually makes us=
-e of
-everything new in Linux and Linux Media since 2011. It will be important fo=
-r you
-to research what other modern drivers do, and what could apply to your code
-base. I'm quite skeptical with all the custom memory handling code, which
-generally indicates the miss-use of dma APIs. Realistically, you will have =
-to
-split your driver in smaller parts and submit in a way we can see your desi=
-gn
-principle, and not just randomly unused files being added. Considering the =
-state
-of it, we are up to 20 or 30 revision, with 29 patches, you won't get to th=
-e end
-of that process.
+Thanks for raising this. I did think about it. But I didn't convince 
+myself because shared pmd should be not that common IMHO (If I'm wrong, 
+please feel free to correct me). At least PMD can't be shared if the 
+memory is tagged IIRC. So I'd like to keep the patch minimal for now and 
+defer adding cond_resched() until it is hit by some real life workload.
 
-V4L2 wise, one of the common mistakes is that you are adding a lot of new
-controls, most of them just slammed as vendor control without even trying t=
-o
-generalize. It did make sense in 2011, since there was no decoder to compar=
-e
-against, but today there is a lot of example and overlap between various br=
-and.
-Omitting documentation and not keeping the API addition separate is also a =
-no go
-for me. Make it very clear whenever something that will live in our API for=
-ever
-is to be added.
+Yang
 
-We also added rules since 2011 that enforce drivers submitter to show that
-proper testing have occurred. Its starts with the very basic v4l2-complianc=
-e
-report which you have omitted. Since its codec driver, we require a summary=
- of
-your conformance decoding testing done with fluster[] with the supported
-framework of your choice (for v4l2 stateful, ffmpeg and gstreamer are suppo=
-rted,
-you can add more, as long as they are open source).
 
-We also expect that your firmware has been submitted to linux-firmware with=
- a
-link to that submission. Without that, we can only consider your set as an =
-RFC
-to show people what is coming.
-
-regards,
-Nicolas
-
->=20
->=20
-> Current driver vs targetted driver comparison
-> +++++++++++++++++++++++++++++++++++++++++++++
->=20
-> Target Feature=20
-> Current mainline : Simple V4L2/ VB2 interface based encoder/ decoder
-> New proposed driver: Dual core support, NAL-q support, LLC, Coredump, per=
-formance
-> measurement, plugin driver architecture, hardware manager(meerkat), DRM/O=
-TF,
-> Resource manager, bandwidth compression, New Pixel formats (NV12N,=C2=A0 =
-YV12, P010,
-> SBWC,=C2=A0 RGB family), 10 bit support, HDR support, Prio and RR Process=
- Scheduler support,=20
->=20
-> Register map=09
-> Current mainline : Fixed register layout, compatible across s5p variants
-> New proposed driver: Completely redesigned register set, incompatible wit=
-h old layout
->=20
-> Command model
-> Current mainline : Mailbox-style command queue
-> New proposed driver: Ring-buffer command queue with different signaling
->=20
-> Memory management
-> Current mainline : CMA-backed contiguous buffers, ION legacy
-> New proposed driver: dma-heap / scatter-gather buffers with strict alignm=
-ent rules
->=20
-> Firmware
-> Current mainline : Supports up to Firmware v12, Legacy binary format, loa=
-ded via shared mechanism=09
-> New proposed driver: New firmware format, different protocol for control =
-messages. Support Firmware v13 onwards
->=20
-> DT bindings=09
-> Current mainline : Single clock + reset, simple PM=09
-> New proposed driver: Multiple clocks, reset domains, runtime PM dependenc=
-ies
->=20
-> Error handling=09
-> Current mainline : Simple IRQ error flags
-> New proposed driver: Detailed error codes, recovery sequences required
->=20
-> Code impact
-> Current mainline :~8k LOC, minimal conditionals
-> New proposed driver: ~65KLOC with full features
->=20
->=20
-> Plan for supporting latest MFC (Best balance between code clarity and lon=
-g-term kernel health, while still respecting ABI and legacy users.)
-> 1	We propose a new driver (exynos-mfc) for the latest generation of Samsu=
-ng MFC (Multi-Format Codec) hardware.=20
-> 2	MFC FW V6 to V12 will be supported by existing mainline (s5p-mfc) and l=
-ater versions by Exynos-mfc driver
-> 3	The existing MFC driver will remain available for older SoC=E2=80=99s a=
-nd will not be broken. The new driver will only bind
-> 	to new compatible strings in DT, avoiding regressions for legacy hardwar=
-e. Samsung will take responsibility for=20
-> 	maintaining both drivers until the old one can be formally marked as =E2=
-=80=9Clegacy.=E2=80=9D
-> 4	Keep it buildable for old SoCs but clearly say new SoCs should use the =
-new driver.
-> 5	VIDEO_SAMSUNG_S5P_MFC and VIDEO_EXYNOS_MFC will both be supported for a=
-n agreed time
-> 6	Long term Support for new driver=C2=A0 - commitment from Samsung
-> 7	The hardware has diverged to the point where conditionally supporting b=
-oth in one codebase is worse for long-term kernel health
-> 8	Splitting keeps the code clean, testable, and reviewable, while ensurin=
-g legacy users aren=E2=80=99t broken due to user space ABI=C2=A0 guarantees=
-.
-> 	This seems more clean and easier approach Both can coexist without code =
-spaghetti.
->=20
-> Features and description supported
-> ++++++++++++++++++++++++++++++++++
->=20
-> 1	MFC driver registration	Probe functionality and video nodes registratio=
-n
-> 2	MFC driver open & close support	MFC firmware loading,=C2=A0 "ls" & "cat=
-" on the video nodes=C2=A0 and udev rules on the video nodes
-> 3	H264 decoding	H264 decoding support - HW supported profiles & levels (Y=
-UV420 Semi-Planar, 8-bit, min/max resolution)
-> 4	HEVC decoding	HEVC decoding support - HW supported profiles & levels (Y=
-UV420 Semi-Planar, 8-bit, min/max resolution)
-> 5	VP8 decoding	VP8 decoding support - HW supported profiles & levels (YUV=
-420 Semi-Planar, 8-bit, min/max resolution)
-> 6	VP9 decoding	VP9 decoding support - HW supported profiles & levels (YUV=
-420 Semi-Planar, 8-bit, min/max resolution)
-> 7	AV1 decoding	AV1 decoding support - HW supported profiles & levels (YUV=
-420 Semi-Planar, 8-bit, min/max resolution)
-> 8	H264 encoding	H264 encoding support - Basic encoding (YUV420 Semi-Plana=
-r, 8-bit, min/max resolution)
-> 9	HEVC encoding	HEVC encoding support - Basic encoding (YUV420 Semi-Plana=
-r, 8-bit, min/max resolution)
-> 10	VP8 encoding	VP8 encoding support - Basic encoding (YUV420 Semi-Planar=
-, 8-bit, min/max resolution)
-> 11	VP9 encoding	VP9 encoding support - Basic encoding (YUV420 Semi-Planar=
-, 8-bit, min/max resolution)
-> 12	Debug fs support		Debug fs to control the MFC functionalities
-> 13	Debug log support		Debug logs to get on the dmesg prompt for debug pur=
-pose
-> 14	Debug SFR dump support		MFC SFR dumps during failures
-> 15	NAL Queue mode control		NAL Queue mode support
-> 16	Batch mode control		Batch mode support
-> 17	HW supported YUV formats	YUV 420, 422, 444 (planar, semi-planar) forma=
-ts support as per MFC HW specification
-> 18	HW supported RGB formats	RGB format support as per MFC HW specificatio=
-n
-> 19	Multi instance decoding/encoding	Multi instance decoding/encoding
-> 20	Suspend and resume		Suspend and resume support
-> 21	Runtime suspend and resume	Runtime suspend and resume support
-> 22	Priority decoding (decoders)	Priority decoding support
-> 23	Frame delay configuration (decoders)	Frame delay configuration support
-> 24	Error handling and conceal control (decoders)	HW/Platform limitations =
-should be gracefully exited and,
-> 							bit stream errors should be reported or concealed with warning ind=
-ication
-> 25	Reference frame control (encoders)	Reference frame control support
-> 26	SPS/PPS control (encoders)	SPS/PPS control support
-> 27	Loop filter control (encoders)	Loop filter control support
-> 28	B frame support (encoders)	B frame support
-> 29	GOP control (encoders)		GOP control support
-> 30	Frame rate control (encoders)	Frame rate control support
->=20
-> Features to be=C2=A0 supported in 2026
-> +++++++++++++++++++++++++++++++++
->=20
-> 31	Bit rate control (encoders)		Bit rate control support
-> 32	QP control (encoders)			QP control support
-> 33	I/IDR control (encoders)		I/IDR control support
-> 34	Scalable control (encoders)		Scalable control support
-> 35	ROI control (encoders)			ROI control support
-> 36	Multi slice control (encoders)		Multi slice control support
-> 37	Profile/Level control (encoders)	Profile/Level control support
-> 38	Padding control (encoders)		Padding control support
-> 39	Aspect ratio control (encoders)		Aspect ratio control support
-> 40	Buffer full handling (encoders)		Buffer full handling support
-> 41	SBWC					SBWC bandwidth compression support
-> 42	10-bit support				10-bit support as per MFC HW specification
-> 43	Secure signed FW support		Security signed FW support
-> 44	Secure playback				DRM content playback for decoders
-> 45	HDR Support (decoders)			HDR metadata support
-> 46	Dynamic resolution change		Dynamic resolution change support
->=20
-> Nagaraju Siddineni (29):
-> =C2=A0 dt-bindings: media: mfc: Add Exynos MFC devicetree binding
-> =C2=A0 arm64: dts: mfc: Add MFC device tree for Auto V920 SoC
-> =C2=A0 media: mfc: Add MFC driver data structures and debugging macros
-> =C2=A0 media: mfc: Add full register map and bit definitions for MFC hard=
-ware
-> =C2=A0 media: mfc: Add MFC driver header files and core utilities
-> =C2=A0 media: mfc: Add MFC core hardware register and debugfs APIs
-> =C2=A0 media: mfc: Add MFC core command, hwlock, ISR and run functionalit=
-ies
-> =C2=A0 media: mfc: Add Exynos=E2=80=91MFC driver probe support
-> =C2=A0 media: mfc: Add bus=E2=80=91devfreq, QoS, multi=E2=80=91view and c=
-ontrol
-> =C2=A0=C2=A0=C2=A0 infrastructure
-> =C2=A0 media: mfc: Add buffer=E2=80=91queue and IOVMM support
-> =C2=A0 media: mfc: Add rate=E2=80=91calculation framework and memory util=
-ities
-> =C2=A0 media: mfc: Introduce QoS support and instance context handling
-> =C2=A0 media: mfc: Add decoder core sync functions
-> =C2=A0 media: mfc: Add buffer=E2=80=91control framework
-> =C2=A0 media: mfc: Add decoder resource=E2=80=91management (RM) support a=
-nd
-> =C2=A0=C2=A0=C2=A0 load=E2=80=91balancing
-> =C2=A0 media: mfc: Enhance HW=E2=80=91lock handling, scheduling and error=
- recovery
-> =C2=A0 media: mfc: Add VB2 decoder support
-> =C2=A0 media: mfc: Add V4L2 decoder driver
-> =C2=A0 media: mfc: Add QoS, Butler workqueue, and priority=E2=80=91based =
-scheduling
-> =C2=A0 media: mfc: Add H264 decoder support
-> =C2=A0 media: mfc: Add multi=E2=80=91codec support & QoS improvements
-> =C2=A0 media: mfc: Add H.264 encoder support with buffer and QoS improvem=
-ents
-> =C2=A0 media: mfc: Add encoder parameters, ROI & QoS support
-> =C2=A0 media: mfc: Add encoder VB2 support to driver
-> =C2=A0 media: mfc: Add encoder v4l2 driver interface
-> =C2=A0 media: mfc: Add full encoder support
-> =C2=A0 media: mfc: Add H.264 encoder support
-> =C2=A0 media: mfc: Add AVC, VP8, VP9, and HEVC encoding support
-> =C2=A0 media: mfc: Hardware=E2=80=91accelerated encoding support
->=20
-> =C2=A0.../bindings/media/samsung,exynos-mfc.yaml=C2=A0=C2=A0=C2=A0 |=C2=
-=A0=C2=A0 77 +
-> =C2=A0MAINTAINERS=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
- |=C2=A0=C2=A0 10 +
-> =C2=A0.../dts/exynos/exynosautov920-evt2-mfc.dtsi=C2=A0=C2=A0 |=C2=A0 630=
- +++
-> =C2=A0.../arm64/boot/dts/exynos/exynosautov920.dtsi |=C2=A0=C2=A0=C2=A0 1=
- +
-> =C2=A0drivers/media/platform/samsung/Kconfig=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 |=C2=A0=C2=A0=C2=A0 7 +
-> =C2=A0drivers/media/platform/samsung/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0=C2=A0=C2=A0 1 +
-> =C2=A0.../media/platform/samsung/exynos-mfc/Kconfig |=C2=A0=C2=A0 34 +
-> =C2=A0.../platform/samsung/exynos-mfc/Makefile=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 |=C2=A0=C2=A0 26 +
-> =C2=A0.../samsung/exynos-mfc/base/mfc_buf.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 |=C2=A0 765 +++
-> =C2=A0.../samsung/exynos-mfc/base/mfc_buf.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 43 +
-> =C2=A0.../samsung/exynos-mfc/base/mfc_common.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 |=C2=A0 444 ++
-> =C2=A0.../samsung/exynos-mfc/base/mfc_data_struct.h | 2014 +++++++
-> =C2=A0.../samsung/exynos-mfc/base/mfc_debug.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0 247 +
-> =C2=A0.../samsung/exynos-mfc/base/mfc_format.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 |=C2=A0 316 ++
-> =C2=A0.../samsung/exynos-mfc/base/mfc_macros.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 |=C2=A0=C2=A0 95 +
-> =C2=A0.../samsung/exynos-mfc/base/mfc_media.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0 554 ++
-> =C2=A0.../samsung/exynos-mfc/base/mfc_mem.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 |=C2=A0 995 ++++
-> =C2=A0.../samsung/exynos-mfc/base/mfc_mem.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 |=C2=A0 155 +
-> =C2=A0.../samsung/exynos-mfc/base/mfc_qos.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 | 1070 ++++
-> =C2=A0.../samsung/exynos-mfc/base/mfc_qos.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 99 +
-> =C2=A0.../samsung/exynos-mfc/base/mfc_queue.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0 966 ++++
-> =C2=A0.../samsung/exynos-mfc/base/mfc_queue.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0 158 +
-> =C2=A0.../exynos-mfc/base/mfc_rate_calculate.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 |=C2=A0 640 +++
-> =C2=A0.../exynos-mfc/base/mfc_rate_calculate.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 |=C2=A0 106 +
-> =C2=A0.../samsung/exynos-mfc/base/mfc_regs.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 58 +
-> =C2=A0.../samsung/exynos-mfc/base/mfc_regs_mfc.h=C2=A0=C2=A0=C2=A0 | 1002=
- ++++
-> =C2=A0.../samsung/exynos-mfc/base/mfc_sched.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0=C2=A0 30 +
-> =C2=A0.../samsung/exynos-mfc/base/mfc_utils.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0 401 ++
-> =C2=A0.../samsung/exynos-mfc/base/mfc_utils.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0 481 ++
-> =C2=A0.../media/platform/samsung/exynos-mfc/mfc.c=C2=A0=C2=A0 | 1366 ++++=
-+
-> =C2=A0.../platform/samsung/exynos-mfc/mfc_core.c=C2=A0=C2=A0=C2=A0 |=C2=
-=A0 703 +++
-> =C2=A0.../samsung/exynos-mfc/mfc_core_buf_ctrl.c=C2=A0=C2=A0=C2=A0 |=C2=
-=A0 543 ++
-> =C2=A0.../samsung/exynos-mfc/mfc_core_cmd.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 |=C2=A0 576 ++
-> =C2=A0.../samsung/exynos-mfc/mfc_core_cmd.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 41 +
-> =C2=A0.../samsung/exynos-mfc/mfc_core_enc_param.c=C2=A0=C2=A0 | 1463 ++++=
-++
-> =C2=A0.../samsung/exynos-mfc/mfc_core_enc_param.h=C2=A0=C2=A0 |=C2=A0=C2=
-=A0 23 +
-> =C2=A0.../samsung/exynos-mfc/mfc_core_hw_reg_api.c=C2=A0 |=C2=A0 122 +
-> =C2=A0.../samsung/exynos-mfc/mfc_core_hw_reg_api.h=C2=A0 |=C2=A0 144 +
-> =C2=A0.../samsung/exynos-mfc/mfc_core_hwlock.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 |=C2=A0 761 +++
-> =C2=A0.../samsung/exynos-mfc/mfc_core_hwlock.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 |=C2=A0=C2=A0 80 +
-> =C2=A0.../samsung/exynos-mfc/mfc_core_intlock.c=C2=A0=C2=A0=C2=A0=C2=A0 |=
-=C2=A0=C2=A0 98 +
-> =C2=A0.../samsung/exynos-mfc/mfc_core_intlock.h=C2=A0=C2=A0=C2=A0=C2=A0 |=
-=C2=A0=C2=A0 20 +
-> =C2=A0.../samsung/exynos-mfc/mfc_core_isr.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 | 2104 ++++++++
-> =C2=A0.../samsung/exynos-mfc/mfc_core_isr.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 25 +
-> =C2=A0.../samsung/exynos-mfc/mfc_core_ops.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 |=C2=A0 813 +++
-> =C2=A0.../samsung/exynos-mfc/mfc_core_ops.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 16 +
-> =C2=A0.../platform/samsung/exynos-mfc/mfc_core_pm.c |=C2=A0 209 +
-> =C2=A0.../platform/samsung/exynos-mfc/mfc_core_pm.h |=C2=A0=C2=A0 33 +
-> =C2=A0.../samsung/exynos-mfc/mfc_core_reg_api.c=C2=A0=C2=A0=C2=A0=C2=A0 |=
-=C2=A0 597 +++
-> =C2=A0.../samsung/exynos-mfc/mfc_core_reg_api.h=C2=A0=C2=A0=C2=A0=C2=A0 |=
-=C2=A0 380 ++
-> =C2=A0.../samsung/exynos-mfc/mfc_core_run.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 |=C2=A0 541 ++
-> =C2=A0.../samsung/exynos-mfc/mfc_core_run.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 35 +
-> =C2=A0.../samsung/exynos-mfc/mfc_core_sched_prio.c=C2=A0 |=C2=A0 431 ++
-> =C2=A0.../samsung/exynos-mfc/mfc_core_sync.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 |=C2=A0 423 ++
-> =C2=A0.../samsung/exynos-mfc/mfc_core_sync.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 34 +
-> =C2=A0.../samsung/exynos-mfc/mfc_ctx_ctrl.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 | 1469 ++++++
-> =C2=A0.../platform/samsung/exynos-mfc/mfc_debugfs.c |=C2=A0 248 +
-> =C2=A0.../platform/samsung/exynos-mfc/mfc_debugfs.h |=C2=A0=C2=A0 20 +
-> =C2=A0.../samsung/exynos-mfc/mfc_dec_v4l2.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 | 1739 +++++++
-> =C2=A0.../samsung/exynos-mfc/mfc_dec_v4l2.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 20 +
-> =C2=A0.../platform/samsung/exynos-mfc/mfc_dec_vb2.c |=C2=A0 394 ++
-> =C2=A0.../platform/samsung/exynos-mfc/mfc_dec_vb2.h |=C2=A0=C2=A0 19 +
-> =C2=A0.../samsung/exynos-mfc/mfc_enc_v4l2.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 | 4614 +++++++++++++++++
-> =C2=A0.../samsung/exynos-mfc/mfc_enc_v4l2.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 20 +
-> =C2=A0.../platform/samsung/exynos-mfc/mfc_enc_vb2.c |=C2=A0 443 ++
-> =C2=A0.../platform/samsung/exynos-mfc/mfc_enc_vb2.h |=C2=A0=C2=A0 19 +
-> =C2=A0.../platform/samsung/exynos-mfc/mfc_rm.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 | 2652 ++++++++++
-> =C2=A0.../platform/samsung/exynos-mfc/mfc_rm.h=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0 |=C2=A0 110 +
-> =C2=A068 files changed, 34773 insertions(+)
-> =C2=A0create mode 100644 Documentation/devicetree/bindings/media/samsung,=
-exynos-mfc.yaml
-> =C2=A0create mode 100644 arch/arm64/boot/dts/exynos/exynosautov920-evt2-m=
-fc.dtsi
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/Kconfi=
-g
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/Makefi=
-le
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/m=
-fc_buf.c
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/m=
-fc_buf.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/m=
-fc_common.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/m=
-fc_data_struct.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/m=
-fc_debug.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/m=
-fc_format.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/m=
-fc_macros.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/m=
-fc_media.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/m=
-fc_mem.c
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/m=
-fc_mem.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/m=
-fc_qos.c
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/m=
-fc_qos.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/m=
-fc_queue.c
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/m=
-fc_queue.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/m=
-fc_rate_calculate.c
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/m=
-fc_rate_calculate.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/m=
-fc_regs.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/m=
-fc_regs_mfc.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/m=
-fc_sched.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/m=
-fc_utils.c
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/m=
-fc_utils.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc.c
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_co=
-re.c
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_co=
-re_buf_ctrl.c
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_co=
-re_cmd.c
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_co=
-re_cmd.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_co=
-re_enc_param.c
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_co=
-re_enc_param.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_co=
-re_hw_reg_api.c
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_co=
-re_hw_reg_api.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_co=
-re_hwlock.c
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_co=
-re_hwlock.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_co=
-re_intlock.c
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_co=
-re_intlock.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_co=
-re_isr.c
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_co=
-re_isr.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_co=
-re_ops.c
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_co=
-re_ops.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_co=
-re_pm.c
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_co=
-re_pm.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_co=
-re_reg_api.c
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_co=
-re_reg_api.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_co=
-re_run.c
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_co=
-re_run.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_co=
-re_sched_prio.c
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_co=
-re_sync.c
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_co=
-re_sync.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_ct=
-x_ctrl.c
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_de=
-bugfs.c
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_de=
-bugfs.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_de=
-c_v4l2.c
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_de=
-c_v4l2.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_de=
-c_vb2.c
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_de=
-c_vb2.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_en=
-c_v4l2.c
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_en=
-c_v4l2.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_en=
-c_vb2.c
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_en=
-c_vb2.h
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_rm=
-.c
-> =C2=A0create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_rm=
-.h
-
---=-snajKa5n4NSRuOCFsqwz
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaNwawwAKCRDZQZRRKWBy
-9HOeAP9XMby7/mPmFZF1KQPpm1kpFnVYz4CtmEfncKv4T9R2aAEApzyHqNQOlvHw
-EDZwNPbJnUER0c0pp3qD5LHIz4jNWgI=
-=Y89z
------END PGP SIGNATURE-----
-
---=-snajKa5n4NSRuOCFsqwz--
 
