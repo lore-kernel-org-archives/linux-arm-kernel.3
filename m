@@ -4,68 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAB0ECCA471
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 14:40:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7E31CCA468
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 14:42:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0LQxvsKSEhhKUpiTxRP+z8BCsbr2RI3QOGorpVML808=; b=d+ncQx9905Qw0wLb/NnO5vFOBx
-	bQTkG+drwyIpMbT9ZAwshCiNqz4wxLRfpqNcQZdR3hFanDwQJzKNJYteNrCUUXGoBSgGoqAX+32i0
-	MRt8zPE2/bkfHUhPP21lo5c9uGqoeaNi4VPl+EzQL4mMQlp2/hkubMtcze41svhzwT2FUBrjVQg+7
-	LzXk33BhnZocNOnSa9BC9QlHuxBxj/cQnc3rNk72D6WiwfQsxsicNxJaXdLhhliW/1GYK/hP839mZ
-	mtpn+MmIUaJem+S2ANB1w6mnCf0bWRDLRziXB/rpiv/JB+1PKSzu2hV+pUPQVfIM+BeygVk6JhSc5
-	4ujaD+Hg==;
+	bh=gfc8FzML2xMwBf4Ai9cgabfA7aHhY97W7m3ggQXn0qM=; b=feAsImDcWqkH/LJVvnsm82ATI4
+	OcxrHHldfqCEkWUnZxNzJn54B1H4yxJn9ltk8ujAcGS/f1spJUne4fDpFQIieV4E95s4JD4sEej8Y
+	vS2x/5PtSl11oe8VO8scDEM9uS2oxi7/f8R/Y0xeUq7qLDhUaJ4UDwM6TXkbJ5Tt16jwo7TYW804H
+	wLMgA0nviHy68jcjT0SzB47DHKskIx9Ex6Bmziam3Xa4JeJrge6idjykuomWxn2ce/jP8UgeMSNMT
+	7ckYpsonGUK71gwJEUr4zrhEuqKLtOrozGheOjgaQ17EgA2GJ5wtudCb3LlF14fbNSWKrnrzGDaNZ
+	SCuBcXvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3bWI-00000005WRU-1eGB;
-	Tue, 30 Sep 2025 14:39:58 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3bWF-00000005WQR-0Ubm;
-	Tue, 30 Sep 2025 14:39:56 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 5625844BA6;
-	Tue, 30 Sep 2025 14:39:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 168AEC113D0;
-	Tue, 30 Sep 2025 14:39:53 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759243193;
-	bh=9SE2KEAKijrBS96OOPfZTS3b5qqN02DuPyJ8e63F/6o=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=Lj9IjFqoFazTFnsi/bS5qfrL70o48qeM2oCEa8G7VKTZF9TzP0eEzb1Ri4fnlnL/8
-	 9Np1PxY/pxArTl7lj8IzjMitjSB6cicesgvrw3f7nWO8efzPsdn+XeYOXsg+qcQ1p1
-	 vX14wK0nUy9mwURZhnB/Mu2TaVm3Hww7BbvSm4UrX6hPHV/7Vb8vhtZefgapKrM6Vc
-	 WfxlFMXnOhb+TYu/KlSK52LZm0MMKjPWU6yJzUc98cuiUCbl5PwXkvMN3Bs6DVeE9X
-	 FBEEMhy5hP/BLr8BoYZKAEdeId/3hDIQXR8UwPDtS6tKthgAW0biPqfbo56SlSEx2x
-	 i2G8ljMDQR0Pg==
-Date: Tue, 30 Sep 2025 09:39:52 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	id 1v3bYJ-00000005Wzt-2R3g;
+	Tue, 30 Sep 2025 14:42:03 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v3bYG-00000005WzM-2EqV
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 30 Sep 2025 14:42:01 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1F4041424;
+	Tue, 30 Sep 2025 07:41:48 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C65113F66E;
+	Tue, 30 Sep 2025 07:41:55 -0700 (PDT)
+Date: Tue, 30 Sep 2025 15:41:53 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jonathan Corbet <corbet@lwn.net>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v2 3/6] coresight: Repack struct etmv4_drvdata
+Message-ID: <20250930144153.GI7985@e132581.arm.com>
+References: <20250814-james-cs-syncfreq-v2-0-c76fcb87696d@linaro.org>
+ <20250814-james-cs-syncfreq-v2-3-c76fcb87696d@linaro.org>
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Conor Dooley <conor+dt@kernel.org>, 
- Jerome Brunet <jbrunet@baylibre.com>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Xianwei Zhao <xianwei.zhao@amlogic.com>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- linux-clk@vger.kernel.org, Stephen Boyd <sboyd@kernel.org>, 
- linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org, 
- linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org, 
- Kevin Hilman <khilman@baylibre.com>
-To: Chuan Liu <chuan.liu@amlogic.com>
-In-Reply-To: <20250930-a4_a5_add_clock_driver-v1-0-a9acf7951589@amlogic.com>
-References: <20250930-a4_a5_add_clock_driver-v1-0-a9acf7951589@amlogic.com>
-Message-Id: <175924309248.2873967.7183764824867817305.robh@kernel.org>
-Subject: Re: [PATCH 00/19] clk: amlogic: Add PLLs and peripheral clocks for
- A4 and A5 SoCs
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250814-james-cs-syncfreq-v2-3-c76fcb87696d@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250930_073955_205629_D210BBA8 
-X-CRM114-Status: GOOD (  25.45  )
+X-CRM114-CacheID: sfid-20250930_074200_693176_EE463778 
+X-CRM114-Status: GOOD (  15.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,220 +67,106 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Tue, 30 Sep 2025 17:37:13 +0800, Chuan Liu wrote:
-> This patch series includes changes related to the PLL and peripheral
-> clocks for both the A4 and A5 SoCs.
+On Thu, Aug 14, 2025 at 11:49:54AM +0100, James Clark wrote:
+> Fix holes and convert the long list of bools to single bits to save
+> some space because there's one of these for each ETM.
 > 
-> The patches for A5 were previously submitted up to V3 by Xianwei.
-> https://lore.kernel.org/all/20250103-a5-clk-v3-0-a207ce83b9e9@amlogic.com/
-> After friendly coordination, I’ve taken over and continued the
-> submission as part of this series. The dt-bindings patch retains Rob's
-> original "Reviewed-by" tag, and I hope this hasn’t caused any
-> additional confusion.
-> 
-> Both A4 and A5 belong to the Audio series. Judging by their names, one
-> might assume that A5 is an upgrade to A4, but in fact, A5 was released
-> a year earlier than A4.
-> 
-> Since there are differences in the PLLs and peripheral clocks between
-> the A4 and A5 SoCs (especially the PLL), and taking into account factors
-> such as memory footprint and maintainability, this series does not
-> attempt to merge the two into a shared driver as was done for
-> G12A/G12B/SM1.
-> 
-> This patch series includes all related dt-bindings, driver, and dts
-> changes for the PLLs and peripheral clocks. Following our past convention
-> for clock-related submissions, the dts changes are placed at the end
-> and submitted separately. If this ordering makes it harder for
-> maintainers to review or pick patches, please feel free to point it out.
-> 
-> Co-developed-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
-> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
-> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
+> Signed-off-by: James Clark <james.clark@linaro.org>
 > ---
-> Chuan Liu (19):
->       dt-bindings: clock: Add Amlogic A4 SCMI clock controller
->       dt-bindings: clock: Add Amlogic A4 PLL clock controller
->       dt-bindings: clock: Add Amlogic A4 peripherals clock controller
->       clk: amlogic: Optimize PLL enable timing
->       clk: amlogic: Correct l_detect bit control
->       clk: amlogic: Fix out-of-range PLL frequency setting
->       clk: amlogic: Add A4 PLL clock controller driver
->       clk: amlogic: Add A4 clock peripherals controller driver
->       arm64: dts: amlogic: A4: Add scmi-clk node
->       arm64: dts: amlogic: A4: Add PLL controller node
->       arm64: dts: amlogic: A4: Add peripherals clock controller node
->       dt-bindings: clock: Add Amlogic A5 SCMI clock controller support
->       dt-bindings: clock: Add Amlogic A5 PLL clock controller
->       dt-bindings: clock: Add Amlogic A5 peripherals clock controller
->       clk: amlogic: Add A5 PLL clock controller driver
->       clk: amlogic: Add A5 clock peripherals controller driver
->       arm64: dts: amlogic: A5: Add scmi-clk node
->       arm64: dts: amlogic: A5: Add PLL controller node
->       arm64: dts: amlogic: A5: Add peripheral clock controller node
+>  drivers/hwtracing/coresight/coresight-etm4x.h | 39 ++++++++++++++-------------
+>  1 file changed, 20 insertions(+), 19 deletions(-)
 > 
->  .../clock/amlogic,a4-peripherals-clkc.yaml         | 122 +++
->  .../bindings/clock/amlogic,a4-pll-clkc.yaml        |  61 ++
->  .../clock/amlogic,a5-peripherals-clkc.yaml         | 134 ++++
->  .../bindings/clock/amlogic,a5-pll-clkc.yaml        |  63 ++
->  arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi        |  80 ++
->  arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi        |  87 ++
->  drivers/clk/meson/Kconfig                          |  53 ++
->  drivers/clk/meson/Makefile                         |   4 +
->  drivers/clk/meson/a1-pll.c                         |   1 +
->  drivers/clk/meson/a4-peripherals.c                 | 764 ++++++++++++++++++
->  drivers/clk/meson/a4-pll.c                         | 242 ++++++
->  drivers/clk/meson/a5-peripherals.c                 | 883 +++++++++++++++++++++
->  drivers/clk/meson/a5-pll.c                         | 476 +++++++++++
->  drivers/clk/meson/clk-pll.c                        |  76 +-
->  drivers/clk/meson/clk-pll.h                        |   2 +
->  .../clock/amlogic,a4-peripherals-clkc.h            | 129 +++
->  include/dt-bindings/clock/amlogic,a4-pll-clkc.h    |  15 +
->  include/dt-bindings/clock/amlogic,a4-scmi-clkc.h   |  42 +
->  .../clock/amlogic,a5-peripherals-clkc.h            | 132 +++
->  include/dt-bindings/clock/amlogic,a5-pll-clkc.h    |  24 +
->  include/dt-bindings/clock/amlogic,a5-scmi-clkc.h   |  44 +
->  21 files changed, 3406 insertions(+), 28 deletions(-)
-> ---
-> base-commit: 01f3a6d1d59b8e25a6de243b0d73075cf0415eaf
-> change-id: 20250928-a4_a5_add_clock_driver-2b7c9d695633
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
+> index a355a1e9606d..1c67b263b01b 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x.h
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
+> @@ -1020,29 +1020,30 @@ struct etmv4_drvdata {
+>  	u8				ns_ex_level;
+>  	u8				q_support;
+>  	u8				os_lock_model;
+> -	bool				sticky_enable;
+> -	bool				boot_enable;
+> -	bool				os_unlock;
+> -	bool				instrp0;
+> -	bool				q_filt;
+> -	bool				trcbb;
+> -	bool				trccond;
+> -	bool				retstack;
+> -	bool				trccci;
+> -	bool				trc_error;
+> -	bool				syncpr;
+> -	bool				stallctl;
+> -	bool				sysstall;
+> -	bool				nooverflow;
+> -	bool				atbtrig;
+> -	bool				lpoverride;
+> +	bool				sticky_enable : 1;
+> +	bool				boot_enable : 1;
+> +	bool				os_unlock : 1;
+> +	bool				instrp0 : 1;
+> +	bool				q_filt : 1;
+> +	bool				trcbb : 1;
+> +	bool				trccond : 1;
+> +	bool				retstack : 1;
+> +	bool				trccci : 1;
+> +	bool				trc_error : 1;
+> +	bool				syncpr : 1;
+> +	bool				stallctl : 1;
+> +	bool				sysstall : 1;
+> +	bool				nooverflow : 1;
+> +	bool				atbtrig : 1;
+> +	bool				lpoverride : 1;
+> +	bool				state_needs_restore : 1;
+> +	bool				skip_power_up : 1;
+> +	bool				paused : 1;
+
+I used pahole to check the structure layout. It is good to see that
+bool fields are packed into single cache line (and we don't expect
+these fields to modified frequently so no concern for false sharing).
+
+  /* XXX 1 byte hole, try to pack */
+
+  u16                        ccitmin;              /*   120     2 */
+  u8                         s_ex_level;           /*   122     1 */
+  u8                         ns_ex_level;          /*   123     1 */
+  u8                         q_support;            /*   124     1 */
+  u8                         os_lock_model;        /*   125     1 */
+  bool                       sticky_enable:1;      /*   126: 0  1 */
+  bool                       boot_enable:1;        /*   126: 1  1 */
+  bool                       os_unlock:1;          /*   126: 2  1 */
+  bool                       instrp0:1;            /*   126: 3  1 */
+  bool                       q_filt:1;             /*   126: 4  1 */
+  bool                       trcbb:1;              /*   126: 5  1 */
+  bool                       trccond:1;            /*   126: 6  1 */
+  bool                       retstack:1;           /*   126: 7  1 */
+  bool                       trccci:1;             /*   127: 0  1 */
+  bool                       trc_error:1;          /*   127: 1  1 */
+  bool                       syncpr:1;             /*   127: 2  1 */
+  bool                       stallctl:1;           /*   127: 3  1 */
+  bool                       sysstall:1;           /*   127: 4  1 */
+  bool                       nooverflow:1;         /*   127: 5  1 */
+  bool                       atbtrig:1;            /*   127: 6  1 */
+  bool                       lpoverride:1;         /*   127: 7  1 */
+  /* --- cacheline 2 boundary (128 bytes) --- */
+  bool                       state_needs_restore:1; /*   128: 0  1 */
+  bool                       skip_power_up:1;      /*   128: 1  1 */
+  bool                       paused:1;             /*   128: 2  1 */
+
+Reviewed-by: Leo Yan <leo.yan@arm.com>
+
+>  	u64				trfcr;
+>  	struct etmv4_config		config;
+>  	u64				save_trfcr;
+>  	struct etmv4_save_state		*save_state;
+> -	bool				state_needs_restore;
+> -	bool				skip_power_up;
+> -	bool				paused;
+> +
+>  	DECLARE_BITMAP(arch_features, ETM4_IMPDEF_FEATURE_MAX);
+>  };
+>  
 > 
-> Best regards,
-> --
-> Chuan Liu <chuan.liu@amlogic.com>
+> -- 
+> 2.34.1
 > 
-> 
-> 
-
-
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
-
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
-
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
-
-  pip3 install dtschema --upgrade
-
-
-This patch series was applied (using b4) to base:
- Base: using specified base-commit 01f3a6d1d59b8e25a6de243b0d73075cf0415eaf
-
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
-
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/amlogic/' for 20250930-a4_a5_add_clock_driver-v1-0-a9acf7951589@amlogic.com:
-
-Error: arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi:119.19-20 syntax error
-FATAL ERROR: Unable to parse input tree
-make[3]: *** [scripts/Makefile.dtbs:131: arch/arm64/boot/dts/amlogic/amlogic-a4-a113l2-ba400.dtb] Error 1
-make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/amlogic] Error 2
-make[2]: Target 'arch/arm64/boot/dts/amlogic/amlogic-a4-a113l2-ba400.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1480: amlogic/amlogic-a4-a113l2-ba400.dtb] Error 2
-make: *** [Makefile:248: __sub-make] Error 2
-make: Target 'amlogic/meson-gxl-s905x-hwacom-amazetv.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905d-sml5442tw.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905d-phicomm-n1.dtb' not remade because of errors.
-make: Target 'amlogic/meson-s4-s805x2-aq222.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905w-p281.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxm-s912-libretech-pc.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12a-sei510.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxm-q200.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905x-khadas-vim.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxlx-s905l-p271.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxm-mecool-kiii-pro.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxm-vega-s96.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12a-fbx8am.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-bananapi-cm4-cm4io.dtb' not remade because of errors.
-make: Target 'amlogic/amlogic-c3-c308l-aw419.dtb' not remade because of errors.
-make: Target 'amlogic/meson-axg-s400.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxm-nexbox-a1.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-dreambox-one.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxm-khadas-vim2.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxm-wetek-core2.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12a-radxa-zero.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxbb-vega-s95-telos.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905x-libretech-cc-v2.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-a311d-khadas-vim3.dtb' not remade because of errors.
-make: Target 'amlogic/meson-axg-jethome-jethub-j100.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-gsking-x.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxbb-vega-s95-pro.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxm-q201.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905d-p230.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-a311d-bananapi-m2s.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxbb-wetek-play2.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905d-mecool-kii-pro.dtb' not remade because of errors.
-make: Target 'amlogic/meson-axg-jethome-jethub-j110-rev-2.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxbb-odroidc2.dtb' not remade because of errors.
-make: Target 'amlogic/amlogic-s7d-s905x5m-bm202.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxm-gt1-ultimate.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12a-x96-max.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905d-libretech-pc.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905d-p231.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxm-ugoos-am3.dtb' not remade because of errors.
-make: Target 'amlogic/meson-sm1-x96-air.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905x-vero4k.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxbb-vega-s95-meta.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905w-tx3-mini.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxm-minix-neo-u9h.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s805x-libretech-ac.dtb' not remade because of errors.
-make: Target 'amlogic/meson-sm1-a95xf3-air-gbit.dtb' not remade because of errors.
-make: Target 'amlogic/meson-sm1-khadas-vim3l.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905d-vero4k-plus.dtb' not remade because of errors.
-make: Target 'amlogic/meson-sm1-h96-max.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-bananapi-cm4-mnt-reform2.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905x-p212.dtb' not remade because of errors.
-make: Target 'amlogic/meson-a1-ad401.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-odroid-go-ultra.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-radxa-zero2.dtb' not remade because of errors.
-make: Target 'amlogic/meson-sm1-x96-air-gbit.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-dreambox-two.dtb' not remade because of errors.
-make: Target 'amlogic/meson-sm1-bananapi-m5.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12a-u200.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxm-rbox-pro.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxbb-p201.dtb' not remade because of errors.
-make: Target 'amlogic/meson-sm1-a95xf3-air.dtb' not remade because of errors.
-make: Target 'amlogic/amlogic-a4-a113l2-ba400.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s805y-xiaomi-aquaman.dtb' not remade because of errors.
-make: Target 'amlogic/meson-sm1-bananapi-m2-pro.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxbb-p200.dtb' not remade because of errors.
-make: Target 'amlogic/meson-sm1-odroid-c4.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-s922x-bananapi-m2s.dtb' not remade because of errors.
-make: Target 'amlogic/meson-sm1-sei610.dtb' not remade because of errors.
-make: Target 'amlogic/meson-sm1-odroid-hc4.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-odroid-n2l.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905x-libretech-cc.dtb' not remade because of errors.
-make: Target 'amlogic/amlogic-c3-c302x-aw409.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905x-nexbox-a95x.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-a311d-libretech-cc.dtb' not remade because of errors.
-make: Target 'amlogic/amlogic-t7-a311d2-khadas-vim4.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s905w-jethome-jethub-j80.dtb' not remade because of errors.
-make: Target 'amlogic/meson-sm1-s905d3-libretech-cc.dtb' not remade because of errors.
-make: Target 'amlogic/amlogic-a5-a113x2-av400.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxbb-wetek-hub.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-s922x-khadas-vim3.dtb' not remade because of errors.
-make: Target 'amlogic/amlogic-s6-s905x5-bl209.dtb' not remade because of errors.
-make: Target 'amlogic/amlogic-t7-a311d2-an400.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxbb-kii-pro.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-odroid-n2.dtb' not remade because of errors.
-make: Target 'amlogic/meson-a1-ad402.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxbb-nexbox-a95x.dtb' not remade because of errors.
-make: Target 'amlogic/meson-axg-jethome-jethub-j110-rev-3.dtb' not remade because of errors.
-make: Target 'amlogic/amlogic-s7-s805x3-bp201.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-odroid-n2-plus.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-gtking-pro.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-ugoos-am6.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxl-s805x-p241.dtb' not remade because of errors.
-make: Target 'amlogic/meson-g12b-gtking.dtb' not remade because of errors.
-make: Target 'amlogic/meson-gxbb-nanopi-k2.dtb' not remade because of errors.
-
-
-
-
-
 
