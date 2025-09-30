@@ -4,104 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49575CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 12:20:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34D7FCCA468
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 12:23:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JfRlA2NUhU1kG602IPax22A5h+dNSAH5OIBQUrcaHKQ=; b=J5TboAJJ+iK6cGRuUqGE9JosWc
-	v3taZTLDhNKRo3f9UYOx66pb0OAvk9VHEnL35rTOIS0ymY5k3Gx4h4dfbavc7NxqeqloOK69gKjF1
-	yv8PruDXwZSRLgrNAGBFYhdPNoeVzRBFTno1hY3Jvuc62B3xDLXTrfFYkifIZcKY2trNganYZ3t86
-	6CUaTv3bnSJHf9FuXyBP2SNmhQc1Po2TELxvUbSnRwYQMqvwFKK66u54uKVGgkh+jQLW3FmgfifuY
-	UeojyTMLPmT5eeBGtXsQnrIW88Vb0Ue/EA5LBtmJmh7acFpoZGUY2/BUoPP4r+SQAMyqi5lvrErUi
-	IDubRWjQ==;
+	bh=R5mPBHZgztFe+UJNNaee0Rp7S41YshdGbGpEnWAlyw0=; b=uQ5FNJMtnUWu+xl9IxPyPE3kX1
+	vQrCF60S8symeLcuMzttnGLQeodQYxX6Yr0QZvLEN1A6aoGy3bxAdk7mVIlo62ieffcvcgvRt1xFK
+	B8xMb+fTJA9dnq+f8VZ8xjqASZHGNbQeklL5tUBt+wwkSckAr4Qby+jTE2NLfsdSQvqQKbAFJlG1A
+	XubGHngoTwKNxq96lp1oYBM3IBZCtOxICyAzSiD2E5odpWSGr5XPaOhalvv29UOuFClyJME++DVAc
+	KpI/u2h5JaSZUKx74r2R2e1k+6kTP3gIitl7tGP22RQL1kGhf1XPXmYJHrWaex/qQWU+jXgfP8IZj
+	3v9ikoNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3ZLE-00000005F3t-2qvJ;
-	Tue, 30 Sep 2025 12:20:24 +0000
-Received: from mail-qv1-xf36.google.com ([2607:f8b0:4864:20::f36])
+	id 1v3ZOP-00000005FUw-0plz;
+	Tue, 30 Sep 2025 12:23:41 +0000
+Received: from mail-lj1-x229.google.com ([2a00:1450:4864:20::229])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3ZLC-00000005F31-0in8
+	id 1v3ZOM-00000005FUL-3vFw
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Sep 2025 12:20:24 +0000
-Received: by mail-qv1-xf36.google.com with SMTP id 6a1803df08f44-79599d65f75so47820316d6.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 05:20:21 -0700 (PDT)
+	Tue, 30 Sep 2025 12:23:40 +0000
+Received: by mail-lj1-x229.google.com with SMTP id 38308e7fff4ca-3635bd94dadso51534751fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 05:23:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=fooishbar.org; s=google; t=1759234820; x=1759839620; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1759235017; x=1759839817; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=JfRlA2NUhU1kG602IPax22A5h+dNSAH5OIBQUrcaHKQ=;
-        b=b6zqCVnWAB5eVEH3cNEJjAWQueIHsDszHGqxVmubeJblwzSZRvEBqJEAO+x4jeuxb+
-         LltjBJG0QN1bedAqESuqldaKoMZKxcHguwhACjsP42uZLb9GmgbfWlrNRSiYH3WASSNi
-         59CafPiZCbpHUSrxo2r/7XjwDp3A8aF8zdnu0/r9JyRPn/ZwSSJMMlBYCeHDdJ+NIyFu
-         DI0LFYGr1ti8YGLj25txNQ4PYBCRW0KZJmsWmm32CL55MQHUAqaXhYB0IQMIyZxDlwXO
-         2yJAgZ68k/q9BJfUnR0y08WwOeFei4RELovIyum/AR8PssKh9itcUK5tz+nML+z1nYA7
-         LpMw==
+        bh=R5mPBHZgztFe+UJNNaee0Rp7S41YshdGbGpEnWAlyw0=;
+        b=UK0fQSw5i0Jm3hzMfrArkTiNj7gbEEW7ba2IGqArYq7zLXkXycwYerkXg63BH1VFTs
+         r0FawpffA6QdsDuXdfb4bKpu3CVaq3eMGdl5ujqKMFgqIA4XyJjOBs0k6zNeci42r1DD
+         whH+7DFwI3KjK3kj5EEao6i5ubNoh4UFF1fgQkToqomckuBBr1huL3PKiQm32A63HIp1
+         n2wxq6fotCsgmThLM7SkzozqIqKpMqtfRflfPpg4Q4V5MLfABQHxO0o0jt87okEHboJ3
+         tBepv4Wx7m2/+vNQS0VWJEkZvLlOrqVHS0SXf4Vy+iF1BKodb2z0zzxwZkTusklxd4Ma
+         zjVw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759234820; x=1759839620;
+        d=1e100.net; s=20230601; t=1759235017; x=1759839817;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=JfRlA2NUhU1kG602IPax22A5h+dNSAH5OIBQUrcaHKQ=;
-        b=owvsoCT6z/p/TV5xdc3n68AowUcQcUhE59Lfq0NHDAhSGg6Oe1XMvKX9RUAF+lbW1R
-         8JmFysfcbrB+jRP+/S2oF+cbdrSYra70vRuDMpt5+uw9DM3Y2gSkuWgPIGjqcczHZXt1
-         N/BQUIccxsOG9r1YKuaE9hToM9uCPayna1J+Dmo0by6Phtzqrdu/pC6AenIGQO38lDBK
-         0bFeBC8Wizn23sGlGEOv7lOwAyjXmJUrHpHt9/5h9qIxfRIAigjKcSI9OVfE6gX2oCw8
-         AJhxgW6ocRh0sP6wgxlSFN7glKTaElMzhUqXDn+UNbrQLG0/HXhC3Jtd7glPYe9T+tYG
-         a62Q==
-X-Forwarded-Encrypted: i=1; AJvYcCWLuJ1WL7cJFqf2gzWeQX5sGV383V4F8QnPCGbbdLGtcrrz56ghpwNQoWkrtfoUY/5FxnR3NTDFGnUjaa17vtG4@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzdkLrK5vIQN0Cnnh1y/d5fXnL0K0z9FPPXK/vyyvDIrkUoJzC
-	HreOOxgGi7c048bVFrUNaQz0ij+VenS0oGcfx1U2h/NHazhxaOlX27J+TzyPXi5AYhMZfLzUEMS
-	bnQgbMGaUzacfh3Mc61Pu9NOhFPdb0OH4QmeTdJOKLg==
-X-Gm-Gg: ASbGncvLvykB6rDk/wEdeVnclvdCT5uQe2eEl4uILfN/CE1PUW7NOsp/CSSD4tM1Cqq
-	qi2vopC+EsL0wyYvROX9+s/17xyLyYkvNZM9sE/pkxguWWawTaU7Js2tt2hjf2hlTH6AJTodH6P
-	IhYq0H1vhzvLKXHeGDjH3Ez/4ROuYjjZldxTUpGwDe21SCp1s2r/qzVvRbsnfrbMUvZAha5PC9m
-	hl4HsllAlm0aC0tV5VKVjsKOPiVlnGWOuKoL3oL
-X-Google-Smtp-Source: AGHT+IGNbjw6RNqsJAvb7qKyVX9JU+8Q52yRLDkjXoWDZvMcGT/3qrwgZCNcyKpRwrI6Z9Mglf9tBhqM86fyt3kXMf8=
-X-Received: by 2002:ad4:594c:0:b0:794:5578:6a with SMTP id 6a1803df08f44-7fc29999880mr292314156d6.10.1759234820411;
- Tue, 30 Sep 2025 05:20:20 -0700 (PDT)
+        bh=R5mPBHZgztFe+UJNNaee0Rp7S41YshdGbGpEnWAlyw0=;
+        b=kiS9lnnv2IKS0CewE25J6qjS1utUaY3dhp7p/1DVbvnsH5hgi+lOqdyqIfKWZKHyCS
+         +5oy/D4sG6olducVpwLTkUoXv0jzmtFlAlieijXTcZK9Csy8XLsmteKcLquBsrq5ddss
+         Sej1u/U6eRRfWD9sM1vyHbDEw3m6foSC3iItVvNSAkr8TKE8k7CmW+xIOF6c7QWUCyph
+         5+MaWCZC5vv6XhvgLpcX7J0rkLw8hNTb343MgsutAIjeVzFTZA3s861o7Ql2Mss/IhUj
+         fEQxJVTuQvoMxAYJmbqARGK1PDN7uGo1fCiSqtf41Gu2bmNl4AoReSbZGLdiXX/m4ZKj
+         jipw==
+X-Forwarded-Encrypted: i=1; AJvYcCXIxgZU8FO0LGTg4bLhgVAsQ5jHwwGAa0QF7zfNjGFLhrhM2+p5ncCwiMLZ9XGpREmV1dWSiiU0P2Fd5jSNvode@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzu+VpG695UFL5RNLgoZ4WrO1G6ouiifu3vwC1T+GwrNjhyuQd2
+	NjAGD0SfT/Ys0lbJqpWcb0Aae3AmcUWZ+Rr+kKHnncpOlfEIurfn9eMtT3cnrpX0EQMXVu/pGAe
+	QHQ4LMlLErMm6HFL72/4M1gf9YTvJY040ji2rJJILKg==
+X-Gm-Gg: ASbGncvHBIgXEyO4p3me3Tv1JoKDd5RjNuzsb5+BqDaatedGSuPUYeG5rRU530vXtEp
+	7l3dhP9Fv2OeGhkNHjNwBOF3WGIgkPWl4iBdlj0PKcGSsTmTbTDNjMte1cj5ZAT7OVldPHz1Kmp
+	NcFjsre8LAGHsEOoLLhRKNuAIyMVTJmHdIBUmtA3aEXQMoo1f4D0cVuguOtsyzDddlKIGv2Yfxk
+	lZdMyaDhDmKPnSuBLHHpAimKoG44NA9XhgkLO9Orw==
+X-Google-Smtp-Source: AGHT+IGSs2X9ijyFw3JfP/dbcoV1x5reGxsDzHTGImekBQcST65Fp+vF2qwnOoDfoooKD5etndPOpCBR4hOz+YmTkyE=
+X-Received: by 2002:a05:651c:1541:b0:363:f65f:ddcb with SMTP id
+ 38308e7fff4ca-36f7d8c0278mr61009281fa.18.1759235016634; Tue, 30 Sep 2025
+ 05:23:36 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250822-mtk-post-blend-color-pipeline-v1-0-a9446d4aca82@collabora.com>
- <20250822-mtk-post-blend-color-pipeline-v1-1-a9446d4aca82@collabora.com>
- <CAPj87rPAoD2D99zTdsvJ=9K8+G17mTS2jDYHMPYmXNtUyp2L_Q@mail.gmail.com>
- <CAFZQkGwotQ6cxVCSgp-BhUi5DaZ7MyVvbnrDJW11Z7ztzqy58g@mail.gmail.com>
- <CAPj87rMTOD3_tC70QX4xz3G4zdG=tmwt5VgPhq6jNyf8bbW49Q@mail.gmail.com>
- <269ca85a59f613568543f45867fba7e604cc9f11.camel@collabora.com>
- <CAPj87rMhsFy+uzKmNecrQG4e+BEoeX1FyEobO7bnHdQqhy1_2Q@mail.gmail.com> <2a985767-0fe1-40fc-b45e-921bbf201e07@app.fastmail.com>
-In-Reply-To: <2a985767-0fe1-40fc-b45e-921bbf201e07@app.fastmail.com>
-From: Daniel Stone <daniel@fooishbar.org>
-Date: Tue, 30 Sep 2025 14:20:09 +0200
-X-Gm-Features: AS18NWC_qgpU_0cN4JQ19aLDGw_PL71UmwKNqFB1ss4l60CpIYnHrco3rK8zc9M
-Message-ID: <CAPj87rMHP_np_9vtnyJ_NU4S3W09DoMRrLPps-33hTngdLyKCw@mail.gmail.com>
-Subject: Re: [PATCH RFC 1/5] drm: Support post-blend color pipeline API
-To: Sebastian Wick <sebastian@sebastianwick.net>
-Cc: =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>, 
-	Xaver Hugl <xaver.hugl@gmail.com>, 
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, Maxime Ripard <mripard@kernel.org>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
-	Chun-Kuang Hu <chunkuang.hu@kernel.org>, Philipp Zabel <p.zabel@pengutronix.de>, 
-	Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, Alex Hung <alex.hung@amd.com>, 
-	wayland-devel@lists.freedesktop.org, harry.wentland@amd.com, leo.liu@amd.com, 
-	ville.syrjala@linux.intel.com, pekka.paalanen@collabora.com, mwen@igalia.com, 
-	jadahl@redhat.com, sebastian.wick@redhat.com, shashank.sharma@amd.com, 
-	agoins@nvidia.com, joshua@froggi.es, mdaenzer@redhat.com, aleixpol@kde.org, 
-	victoria@system76.com, uma.shankar@intel.com, quic_naseer@quicinc.com, 
-	quic_cbraga@quicinc.com, quic_abhinavk@quicinc.com, marcan@marcan.st, 
-	Liviu.Dudau@arm.com, sashamcintosh@google.com, 
-	chaitanya.kumar.borah@intel.com, louis.chauvet@bootlin.com, mcanal@igalia.com, 
-	kernel@collabora.com, daniels@collabora.com, dri-devel@lists.freedesktop.org, 
-	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, Simona Vetter <simona.vetter@ffwll.ch>
+References: <20250905135547.934729-1-antonio.borneo@foss.st.com> <20250905135547.934729-3-antonio.borneo@foss.st.com>
+In-Reply-To: <20250905135547.934729-3-antonio.borneo@foss.st.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 30 Sep 2025 14:23:25 +0200
+X-Gm-Features: AS18NWDLuT_uRRtCvqxguuDTeW5zZ6aEk6iy9iHLeu2I6jlVchqTLlkeIzQ-p-Y
+Message-ID: <CACRpkdZCKXYEegV1cK6X9A9k8ORLWweBQs40PWYuTof3JgcC2w@mail.gmail.com>
+Subject: Re: [PATCH v2 2/9] dt-bindings: pincfg-node: Add property "skew-delay-direction"
+To: Antonio Borneo <antonio.borneo@foss.st.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
+	Alexandre Torgue <alexandre.torgue@foss.st.com>, Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, 
+	Christophe Roullier <christophe.roullier@foss.st.com>, 
+	Fabien Dessenne <fabien.dessenne@foss.st.com>, Valentin Caron <valentin.caron@foss.st.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250930_052022_363188_66537160 
-X-CRM114-Status: GOOD (  22.13  )
+X-CRM114-CacheID: sfid-20250930_052338_997984_1745BDAA 
+X-CRM114-Status: GOOD (  15.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,50 +101,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Antonio,
 
-On Fri, 26 Sept 2025 at 15:45, Sebastian Wick
-<sebastian@sebastianwick.net> wrote:
-> So I'm going to argue that making the properties read-only or read-write =
-is useless.
+thanks for your patch!
+
+And sorry that it takes so long for me to review it! :(
+
+On Fri, Sep 5, 2025 at 3:56=E2=80=AFPM Antonio Borneo
+<antonio.borneo@foss.st.com> wrote:
+
+> Add the property "skew-delay-direction" to specify on which pin's
+> direction (either input, output or both) the value of the generic
+> property 'skew-delay' applies.
+> For backward compatibility, 'skew-delay' applies on both input and
+> output directions when the new property is not present or has
+> value '0'.
 >
-> The only case where knowing the color pipeline of the previous user would=
- be useful is if you want to re-use the framebuffer of said user. Otherwise=
-, the color pipeline and the generated framebuffer have to somehow just mat=
-ch to produce the desired output and that does not require any previous sta=
-te, making the legacy properties useless.
+> Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
+(...)
+> +  skew-delay-direction:
+> +    $ref: /schemas/types.yaml#/definitions/uint32
+> +    enum: [0, 1, 2]
+> +    default: 0
+> +    description: |
+> +      0: skew-delay applies to both input and output directions
+> +      1: skew-delay applies only to the output direction
+> +      2: skew-delay applies only to the input direction
 
-I don't think it's useless; if nothing else, drm_info is a thing and
-having it work is nice.
+Unfortunately I don't think this will work, because skew-delay
+has a value, and with this scheme we can only specify that we
+want this value to affect both in/out, only in or only out.
 
-> If we genuinely believe that this is something to be supported, then my q=
-uestion is why the new color pipeline should not be able to accurate reflec=
-t the state of the previous user, even if they used the legacy props?
+What happens when someone want to configure different
+skew delay for input and output?
 
-That's reasonable. My hunch was that it would be too much code in the
-kernel to essentially just do format reinterpretation on userspace's
-behalf.
+I think it is better to add:
 
-> The hardware was able to get into some state based on the legacy props, s=
-o it will be able to get into the same state with the color pipeline props;=
- it's "just" a matter of exposing the right pipeline.
->
-> If we are not able to accurate reflect the previous state with the pipeli=
-ne props, then use space will see inconsistent state between the legacy and=
- color pipeline props. Which state is the right one? We cannot know. The pr=
-evious user could have used either one. So having the legacy props does not=
- help because we don't know if we should use them or the pipeline state.
->
-> So, I would argue that we should *remove* the legacy props if DRM_CLIENT_=
-CAP_POST_BLEND_COLOR_PIPELINE is set. If the handover is relevant for a dri=
-ver, they should ensure the legacy props state translates to the correct co=
-lor pipeline state.
+skew-delay-input =3D <u32>;
+skew-delay-output =3D <u32>;
 
-FWIW, the usecase I can see in mind would be doing a fade-style
-transition between the old and new clients. But I don't really care
-too strongly about it to be honest; I mostly care about having
-drm_info work because it's a super-useful tool.
+So the drivers that need this explicitly specified will need
+to just define one of these instead.
 
-Cheers,
-Daniel
+If you want to be very determined, make the schema
+not accept skew-delay if either skew-delay-input
+or skew-delay-output is specified.
+
+Yours,
+Linus Walleij
 
