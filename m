@@ -4,205 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A336CAC5B9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 03:00:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20AE0CAC5B9
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 03:55:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vt+5D/V8VYIO2kv+1h6lw57+N1K5X2gKhpQpwFiB4oA=; b=CyJWnNY98d0AKRbx0IkzUf9Din
-	msghQ9DiAwOMs391Ym2tr/s53BZYZWXRqQGM5HE9KEHnFusGysosSP6qPCQpJ/24maq41dsm3/m9l
-	HPFmopjGE5RHVbiuWdSLgmMQLWrpSbBNfG7y6522sSfV5noO+YYUC3uZM1tuOtG48KW5pUYDnvCP7
-	ofgEkoKmFjNG5uvG/m0sP9Tg69aLZDV9cRCe6dZ2iVwj0HOzJm664LBKim1v7gWMDhalxJ3kAb7Ww
-	kMXBp8DwvJ4zlThfgkQ+7YbRm8s4e3SoVx/1i+6uX4mhEreDBvnCv7qnfIHYKerj0Rs19Xa1qQqS4
-	m8MgkQuA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:List-Owner;
+	bh=QECUfZbqQMlZRsjBXhrpes/0FC7+ibWW3C5tH5S5p7k=; b=npgGgC+Nxig1jDzlM9xurB6oh6
+	9V3y4/rLqGMYcMUF7IlzK95Tehpqg4usav6kwpLAnMEjYBmxtKkS4ZQJM1AoY5kz6iUCyYvmAfmCH
+	W83saL+EIETX+9Grju46cCcqiCIJYHrIZaDXp3ZtlqLSLV82NyluX8uyYCBD7Vsy9tECcO3qUI5vc
+	QejS/TnHDzdeHTBbOjJG5kK+ACHJTtWEX6jRaYzsPcBUx2lxS3MzoSDzTAdspM45QmxCWPtx0t6Rr
+	0xsuOIzuK4BOKzyqzDIoISGZmfFlFUqYmPdB8Lz9RA81hJZ7FgDo0PEYteW39Yoey5+vvKVgeNTah
+	Vj+evciA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Qap-00000003zRg-1M1Y;
-	Tue, 30 Sep 2025 02:59:55 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1v3RSc-000000043MY-42BA;
+	Tue, 30 Sep 2025 03:55:30 +0000
+Received: from mailout2.samsung.com ([203.254.224.25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Qam-00000003zR5-3VdP;
-	Tue, 30 Sep 2025 02:59:54 +0000
-X-UUID: 84ff06d29da911f0a52f393f94899d25-20250929
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=Vt+5D/V8VYIO2kv+1h6lw57+N1K5X2gKhpQpwFiB4oA=;
-	b=XyWsZbMOF5fbqHgm5Q8pV5MRBZl3ac891q2e4WYHJQ1Pgb9btJqunUrtF+Pl1b8d+AP9JBAv/lGyRbCb5Y+pF+hc1c59esTrF4TUyU3/HPeDca2m5UnWv3/L4dPyTBJk4wtIUIlKeixGvKkcL8oAHrNcMwXGMidObv79NTDEoZo=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:13691f25-2ad0-429e-8880-5bcfab9a3650,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:a9d874c,CLOUDID:331efa21-c299-443d-bb51-d77d2f000e20,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|888|898,
-	TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:nil,Bulk:nil,QS:nil,
-	BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 84ff06d29da911f0a52f393f94899d25-20250929
-Received: from mtkmbs14n2.mediatek.inc [(172.21.101.76)] by mailgw02.mediatek.com
-	(envelope-from <jjian.zhou@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1281039417; Mon, 29 Sep 2025 19:59:45 -0700
-Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
- mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Tue, 30 Sep 2025 10:59:41 +0800
-Received: from SI4PR04CU001.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
- 15.2.1748.10 via Frontend Transport; Tue, 30 Sep 2025 10:59:41 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=kSQzWbjaBgf/XXYjF6DQgip5/iReLG+5QPTLNvDJWkf+XQ7rNAbZXtdZpQ813KlLFRC2DOFRddfYygcYGYWczr4uWnIOJ82xpViJd0afsGBQrEenWMuxYMNXL0uAG4A3daMPkEji2hHsfLnBw8ep1j2h79ohWVN/pPELAYO4sfEJt800KGW+pJ8BOV/nMWprfQ/O3tuqscZWvqKzfgJcL8mWnVhRyesyQbe2kaJ8JT2N5+16BHpQMk4sEnKREtjwQeeciqtUHANQL26dtzbiNQ72179wzAyrxS/X90B5goAlVrH+8WCjcjZMsiI7pGvbkT/xDile7G2NeULFEMTf4w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Vt+5D/V8VYIO2kv+1h6lw57+N1K5X2gKhpQpwFiB4oA=;
- b=o5UxZg9XWGCxAIzboNBzAIvljASPB+wqMia1NB0uRmHbSBSmTWbIBOFo/7JoY7IxY+xRKiltUJ3d1Gb48fbuY1j3yEaBdMygtSH/F9hQ/dUE/O6lBx9Zp31DrtrQHSLWJbV85pxBirvjrJXnRreV5sWGSU6Dy4tRS/b7YaqlwiH8OQ3TKyi3yiHAFa+WnvuRHebTRrXM030bk33IPGf7MZsdOHsfw8hIhqjlksUG6UF6TQdtP/z6V4jNWg7PKwCoFDIMp1L0tDbVTNafEYlueKQjhv7h5OURV9JDiXEgKHnGYU8522bCI0PUrViveROJGXWnmqHNSsXl1kVSCkdCZw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Vt+5D/V8VYIO2kv+1h6lw57+N1K5X2gKhpQpwFiB4oA=;
- b=jbGdUxRgfrGZXEC3PrEaQIiokuLrXpWhYGa6hxJBpoxF6SCQealjyAGFx+6wf+KCkUKlTw5+IGlC0RljEoUZrwgvBH43OR3tz4L05we0fLEnvZhyhaR4wtwtjqEyIc111/RUvG9PuL5R8o+wkepIPdsOXnmxKhKOduALhxRwr3w=
-Received: from PSAPR03MB6363.apcprd03.prod.outlook.com (2603:1096:301:5f::10)
- by SEZPR03MB8016.apcprd03.prod.outlook.com (2603:1096:101:181::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.17; Tue, 30 Sep
- 2025 02:59:38 +0000
-Received: from PSAPR03MB6363.apcprd03.prod.outlook.com
- ([fe80::eb73:91b9:5905:e89f]) by PSAPR03MB6363.apcprd03.prod.outlook.com
- ([fe80::eb73:91b9:5905:e89f%6]) with mapi id 15.20.9160.015; Tue, 30 Sep 2025
- 02:59:38 +0000
-From: =?utf-8?B?SmppYW4gWmhvdSAo5ZGo5bu6KQ==?= <Jjian.Zhou@mediatek.com>
-To: "jassisinghbrar@gmail.com" <jassisinghbrar@gmail.com>, "robh@kernel.org"
-	<robh@kernel.org>, "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"wenst@chromium.org" <wenst@chromium.org>, AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>, "conor+dt@kernel.org"
-	<conor+dt@kernel.org>, "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>
-CC: "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
-	<linux-kernel@vger.kernel.org>, "linux-mediatek@lists.infradead.org"
-	<linux-mediatek@lists.infradead.org>, "devicetree@vger.kernel.org"
-	<devicetree@vger.kernel.org>, Project_Global_Chrome_Upstream_Group
-	<Project_Global_Chrome_Upstream_Group@mediatek.com>
-Subject: Re: [PATCH v6 2/2] mailbox: mediatek: Add mtk-vcp-mailbox driver
-Thread-Topic: [PATCH v6 2/2] mailbox: mediatek: Add mtk-vcp-mailbox driver
-Thread-Index: AQHcLsTY126L+u5d3EyZiDCITEle+bSp+3GAgAETiIA=
-Date: Tue, 30 Sep 2025 02:59:38 +0000
-Message-ID: <aa86f9012bc56231066846f423263504313b6717.camel@mediatek.com>
-References: <20250926090505.26267-1-jjian.zhou@mediatek.com>
-	 <20250926090505.26267-3-jjian.zhou@mediatek.com>
-	 <b62611ef-7ead-4bbe-8c96-d39e3c5c8dd8@collabora.com>
-In-Reply-To: <b62611ef-7ead-4bbe-8c96-d39e3c5c8dd8@collabora.com>
-Accept-Language: zh-CN, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PSAPR03MB6363:EE_|SEZPR03MB8016:EE_
-x-ms-office365-filtering-correlation-id: 178ba996-beef-4781-a0e7-08ddffcd64f4
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|376014|366016|1800799024|7416014|38070700021;
-x-microsoft-antispam-message-info: =?utf-8?B?L0R0SEZoSDFrWFZQd3I2cmwramowMWRPMmpBNzdtMTk4R2cvd1BHMVdQNWxG?=
- =?utf-8?B?V09ONklGQXN6K0VNUGRRQko1RW5GTkZaM3ZhV2tkOUl5TEhWbkZpRzhOaXll?=
- =?utf-8?B?ZTQrZXB4SDZudVZ6RXV4ZU1EODk3OFpXWVlFMW9WUTlBdXFLaE1yell0TGFR?=
- =?utf-8?B?TVlFSm9NL1gvN3NvN1EvNTBVZVdTNU5SUUhDNFFJVjJxV0lCU0pKekR2c0t4?=
- =?utf-8?B?bG4vSWpXMWZhVGIvcC9uaWp0LzVkcEN1dkNRY0pXdm9VakVUdWtxREM1ZUF4?=
- =?utf-8?B?UHUvYUlhT0x5ajBhck9SOVNDVUQrMjJQeFRSczZ6QlBCREt3bmd4aHpFbFFE?=
- =?utf-8?B?VDFxVTRWb0dhOGhoNDhKaDVGSWF5NS9INVZ5OHhiRVNvQjRJUlY2SEVveVcw?=
- =?utf-8?B?U2lGUHIwVUxOVXJ4OXRGZHZTOXpVZjlCQ3ZkRjNJcEI5ZGorUng2MkdXaUlR?=
- =?utf-8?B?dEZwVGV4TURET1dIajRURkFNN25LMU1xdHRUUGt3ZWUwSXQwbk9uK09ZRExN?=
- =?utf-8?B?alRva09maVhneTVGRW8zL1IzQzFrYXNwb2dEQjhwUzdTMTkyNmtib25iTnNW?=
- =?utf-8?B?ZzRkQyszc0lCS2tiQXBjZVFCOHovSUN6SERKc3FXS05wa1B5STF3ZWVXcGxp?=
- =?utf-8?B?WmhGUmpqYTl4QXBJNExTQW9jczRVeERFc2FQSEJaYXV2WUQxQ1A5NHQxUkRS?=
- =?utf-8?B?dUN2b2VDYndYMGVkckJKS1VlTW5tQUMrY0VmQzZ1OE1BalZlS0tCdkdCT0N6?=
- =?utf-8?B?R0grSVE4QkV5N2pPOEJrb0ZMYkFqNjBnUmhKZklhZWNlcVpaQWtUNmI5WWhu?=
- =?utf-8?B?bkJCcUU2dWhiKzZDWHRFWVNRa0xldlorNWJod29UZ09xUmVRRDc5Y1h3dllP?=
- =?utf-8?B?ZVVockRkekFndGlrejMwVjdad3BPdUgwa1dCd2N4OFFnSnI3cXM0RHJQekw5?=
- =?utf-8?B?aHl1OVEveGdQNDlkUTl6WEFLQUw2S3N6aXAzeURvUllFWEsza3lZTTRYQ1Fa?=
- =?utf-8?B?OEQ5SDFKRkFaTkpmd2o2SE5tNFY0WWgxVmpSMTZIUzFQb1JSMXUzRTFFUGQx?=
- =?utf-8?B?dHlqVmZ3bE9BMGliL1BsUkJXSFAzRG13Z1NRU3pnTkNzNGtqYnp2SCtweC9Y?=
- =?utf-8?B?bG85OWY4eUZObXVhdG9FZzVabkxJVTI1N2hHMlZVV2J4Y0RiZDk1ZkRGU1Na?=
- =?utf-8?B?VHdqalFnZDVxZDNGQ3BkSnR3MHo1RFVURWpXS05KTGZXQThuZ3JldGZ2WHlO?=
- =?utf-8?B?clhWTHRTYy9uNS9RaGhHODhHTFpjOEJ0UWJQRUlrYnc4dDdGRWYwVlNWbjVH?=
- =?utf-8?B?cndkOFo2R2pUZDM1Z2hBWVIweVh2VUFJRmliR0xUcUNUd2NuSVNIQ0t0NTFY?=
- =?utf-8?B?QVdEVEZDSzlqSzV6aEZzaUVoV2hvVHNCSnkzOVlrZVlWbGZzeXc5MzRXanY3?=
- =?utf-8?B?RmJHT0RKTFNEbmd0WENHVk1lQklENGZaRjdOcGJLWkgxR2ZpajBXd0FPNFVu?=
- =?utf-8?B?MWFiZmsrZEJHQnNLNWV5bzNwTGxyei9UL2FId3ZDRWQrbWdXN3lWY0ZPM1Rp?=
- =?utf-8?B?WVdOUVAzTU91STNKVW5rWUtSZWtJZkxVM2ZrTUhyak43VS9qVXoxVHdsYWd6?=
- =?utf-8?B?VE9XbGdWbG9vV3Vac0k1TXZ3dnZsNEIrZFJQdUhyaUlPclFIWEN1KzFuRnU0?=
- =?utf-8?B?OWhheDZMNThSbzBBdTFpYWFsMWtlOUtjZzdWU1piZFJjWTZRb2xCcXJQNU9D?=
- =?utf-8?B?bms5bjZTVVFIVy9LSWoxU3lPMndDeEFkYmhVeDhaOC9YS3Fha2NaODkxazhT?=
- =?utf-8?B?aXo3cEFOanRWZWUvWHVnSi9keEF3WUZKYzNhajYrQVIvZDlVSXM0cmNWWjJa?=
- =?utf-8?B?NlRxYzd6ZzJibjR2NWVqQzlHQnVxV1ExRS9vVTlQMURuZVNLZ3pKdlhEN0FS?=
- =?utf-8?B?aXU1ckJBWnhRdFJQM1lRbWNlTkRNVGlxS1h2SjVnU3VzZlZ0ZGRYbk9SQkp3?=
- =?utf-8?B?bHNFeUtqYlZ4MlJzdEJzaE9kb21wSVd4UmhmaWlORmpNWGlsMG9XSlJBUHBG?=
- =?utf-8?Q?pBOLvb?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PSAPR03MB6363.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(7416014)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?VGJDRW9WcGRUdkRlUnRheERWRjF1dEEwN0YyN3V2VTVxOUE4R0l6dnllTi9M?=
- =?utf-8?B?STcxTTJQalNHTkEwbVlnODV6NUJQKzdVSmpEci9WTEk2UERPYzJhdVdZK1Yy?=
- =?utf-8?B?bDNvQlFRMmRhN2lMcUlCK0N3ZGJVbzBLNHhIeTZFQmtwTXdHZ3lRUDBrTDJH?=
- =?utf-8?B?dk0vN0dyMFpodkYvN1lvU1hXMWJJckg0QTNWZmJiZnlZcHBHa0VkcTFiN2Vh?=
- =?utf-8?B?SlBpUHA1aklESkRmWGEyWDgwREJQWlZFMXNsby9Ub1VienUzbExkOTZoZjU4?=
- =?utf-8?B?WndraGJ1OEY0Z1E3UVdEVGtDVkZOcXBRTkRuTDhlQi9kOEg0SnNpbTBFWnll?=
- =?utf-8?B?ZHhtZUpOdFVmRFM1eWdlQ3ZuaDdFWGh6OWFWdG90b3lQaWg0K3h1R1JuOWRG?=
- =?utf-8?B?OE5mOXdHSldQU1lqeFo2YTVnWmEvck1zQXlteTVId3lkVzdTQlA3T2VOWlA5?=
- =?utf-8?B?YXFXS3hNVFJLVHoydm5PZWkrd05FS0JyclZQVEdhY29TSVI0L3BEREdRbzB5?=
- =?utf-8?B?dkdtUnhKTDVselAyellpZDZSeTBZWjVnU2NKZk9RSkRjalBpUmxpK0xyeFda?=
- =?utf-8?B?ZEpKRmZJK2tJQ3ZERzAzbmlmSktZM2FZSlB0VXZ6MUVuaHN3cU9lTk1samhr?=
- =?utf-8?B?MlNUMUw4cDFZVEFYNG9iRGJuUEk0NFZTRTVWdkJ4S1cxUExTNFE0amtSM0Jo?=
- =?utf-8?B?L0hZSmpEOVo2WURPQ1RFL3FBd0JaRlJzRlBPaUdmWlhyNFZ0N1dMME5QRkVC?=
- =?utf-8?B?RDNYOVFONWs1SDdnZlVUaEl5VU9mQUZaVWRZdzVnVTVDZXB4OFFDUTN5UytO?=
- =?utf-8?B?Q2drSWNsMkV0dWJNeHNuL0R0ejVBWXhsT3BydEthQ1FDNFZBeDBBN0JjZUc0?=
- =?utf-8?B?ZUlBQ1E3R1k4eUdhNDU1bk1sdWloa1pWSzd6YUNuTTF3eTR0cnNsTlhhWk5r?=
- =?utf-8?B?SGlWVzdDMjc4Mzk5MU9HdDNRQm5PV3ZzOUdqOVlGODg1SXpZdjJ0QkErdVlq?=
- =?utf-8?B?dEpBY1Y5eG1NaTdOeHowNmpKSGtDSnl4bDdLVDlCRDBqZXI0THQwVnEzVTg2?=
- =?utf-8?B?R2pDN09OOFdEeDIrVE85bTNoL1lTTzh4RkorRW1VTEc1aTBUdUJkVFZBZ3BN?=
- =?utf-8?B?MDFLWHBTa2pBeFY2UWo2OUFZdUxsMEpBZ3ZITWwvamtVMDYxOTA1ZkVhSTV6?=
- =?utf-8?B?aE5wbkxlelRwZEpCc1ZCdUxCNkJqMjFRNXEvMWNlTkxwcmdOUkhoTFd1WHQr?=
- =?utf-8?B?ODB3dlB4Vi9CMndNcmhqVk9VQnhYamZvNVhSWmhRQ0hJWlQ1NC9iYVMvd0hW?=
- =?utf-8?B?UFR5UytEdWtmOEdaY0txNjdaZG1UVUZQcW5KcmppQllzSUhva2lPQ3hnZk96?=
- =?utf-8?B?dGJBMTZ5WE4vQ3czUHl1WG94L2ZWYWk5N3pCT3F2ZEJZWEdEVmNEcGRiUkor?=
- =?utf-8?B?SlNUY1pvVnhmazJiVDY3eWlXV3U0Q0MwRGFvVXBjbTZEZVd1MVNXQkF3QlhG?=
- =?utf-8?B?dUVmS0ZZRWV5UWxYdFQvRjZjT01UbVBJZWNXRFQ0RXllU2ZKVktaRXRCU1I3?=
- =?utf-8?B?WERobHo5V0pleWNKTS9udzhPblFCYm5hMGIyS3pNSDlrSHZWRVZIUjRHYXJM?=
- =?utf-8?B?QTU4ajhFR2lQMXVFQjJwT1VhcWp6MzMyWURvTWQzOW1scEtiNlQ1U1lvdFdK?=
- =?utf-8?B?SXVJOFV3eEdScDRuUGx3K1FlSXhLNWl4TTVCcU9xQTZwZTZTM1JhSmFZVSsv?=
- =?utf-8?B?R3picDIvL0ttbFJKVzFnVzltTEMvRUFyMEl6OUdGZlJ5bkZRZ3BzRUc3Wk9N?=
- =?utf-8?B?aWdsWW9WVmhJaFl5M1cva2d4YzJOTzBTUno1RkI2cDI3YzhBb1lteS9kazhN?=
- =?utf-8?B?d0xTa3BLYjZET09WV2JUM2NIZTJMSjhKZUFUbTlwWDF0Z0FmTkVyVVFZa0lq?=
- =?utf-8?B?akg2YTFWUUFMWHRIMjJRVEVyYXo5TDFqT2JWTVVEd3gzRk8vL0xzY3BSTG0y?=
- =?utf-8?B?MkJOWUsxK2xzTXRZYTZoRXo3SWgwaG9WNUttRDBtbEJXcEVYcXBYZ2N5WS8x?=
- =?utf-8?B?TGhJMDRuRTgrRjBNZmNTVnNnR2NnakxLNVpSU3pkZmxyL3JOZnJLMHoraUtp?=
- =?utf-8?B?ajNtQkR5V3R2dmNBeEpqWjAzV1NQK2Q5L1ptUEFsQmtNOUk0RWJUQUppYi93?=
- =?utf-8?B?T3c9PQ==?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <92B8742310E2784C8D94C896A571B18E@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1v3RSZ-000000043LQ-2O67
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 30 Sep 2025 03:55:29 +0000
+Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
+	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20250930035522epoutp026c5ffd37c713ccdfefe23da0b6a1e7fa~p8zE1Q2-s2603326033epoutp02J
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 03:55:22 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20250930035522epoutp026c5ffd37c713ccdfefe23da0b6a1e7fa~p8zE1Q2-s2603326033epoutp02J
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1759204522;
+	bh=QECUfZbqQMlZRsjBXhrpes/0FC7+ibWW3C5tH5S5p7k=;
+	h=From:To:Cc:Subject:Date:References:From;
+	b=QRU19ADng5zDrnPr23QwppGPQIPJ291f0mjzTdEtf1O/qAYHGEtK+FhyqdULiiz+i
+	 G5PHtCADV5bCMlnxgZHFLg5t1YCNki0PDV0Tfye7ROcX9bJCtzZfJci+i6OhmbXWLQ
+	 yu6FmZ6TpJ33uz35AFo8ZgdPMnUiOQnYf+ZuX118=
+Received: from epsnrtp02.localdomain (unknown [182.195.42.154]) by
+	epcas5p4.samsung.com (KnoxPortal) with ESMTPS id
+	20250930035520epcas5p4841bbe85fa7f5a7749405a45691a12b6~p8zDunfnh2319723197epcas5p4f;
+	Tue, 30 Sep 2025 03:55:20 +0000 (GMT)
+Received: from epcas5p4.samsung.com (unknown [182.195.38.94]) by
+	epsnrtp02.localdomain (Postfix) with ESMTP id 4cbPN748LQz2SSKZ; Tue, 30 Sep
+	2025 03:55:19 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
+	20250930035518epcas5p2395afdb6f22d2a6b42f9daaec6bc3c1f~p8zBiHt5M2195921959epcas5p24;
+	Tue, 30 Sep 2025 03:55:18 +0000 (GMT)
+Received: from bose.samsungds.net (unknown [107.108.83.9]) by
+	epsmtip1.samsung.com (KnoxPortal) with ESMTPA id
+	20250930035516epsmtip16ed3b2e0736c21a6e0b7cb21079089aa~p8y-KY6bu2882428824epsmtip1J;
+	Tue, 30 Sep 2025 03:55:15 +0000 (GMT)
+From: Himanshu Dewangan <h.dewangan@samsung.com>
+To: mchehab@kernel.org, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, sumit.semwal@linaro.org, christian.koenig@amd.com,
+	alim.akhtar@samsung.com, manjun@samsung.com, nagaraju.s@samsung.com,
+	ih0206.lee@samsung.com, jehyung.lee@samsung.com
+Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
+	linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+	linaro-mm-sig@lists.linaro.org, Himanshu Dewangan <h.dewangan@samsung.com>
+Subject: [PATCH 00/29] media: codec: add new Samsung Exynos-MFC driver
+Date: Tue, 30 Sep 2025 09:33:19 +0530
+Message-Id: <20250930040348.3702923-1-h.dewangan@samsung.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PSAPR03MB6363.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 178ba996-beef-4781-a0e7-08ddffcd64f4
-X-MS-Exchange-CrossTenant-originalarrivaltime: 30 Sep 2025 02:59:38.3493
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: SqHrNGNV95J5ZAxPSLsC2z8j0tzSwlvPe0HJAJvec3lMlbsAAYlBpxGR1ybCijd0NEIHE7cZ4jk+mYe17YGlMw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEZPR03MB8016
+Content-Transfer-Encoding: 8bit
+X-CMS-MailID: 20250930035518epcas5p2395afdb6f22d2a6b42f9daaec6bc3c1f
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20250930035518epcas5p2395afdb6f22d2a6b42f9daaec6bc3c1f
+References: <CGME20250930035518epcas5p2395afdb6f22d2a6b42f9daaec6bc3c1f@epcas5p2.samsung.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_195952_903633_D32F4E03 
-X-CRM114-Status: GOOD (  19.34  )
+X-CRM114-CacheID: sfid-20250929_205528_255296_2800DC15 
+X-CRM114-Status: GOOD (  22.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -217,184 +93,294 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gTW9uLCAyMDI1LTA5LTI5IGF0IDEyOjMzICswMjAwLCBBbmdlbG9HaW9hY2NoaW5vIERlbCBS
-ZWdubyB3cm90ZToNCj4gRXh0ZXJuYWwgZW1haWwgOiBQbGVhc2UgZG8gbm90IGNsaWNrIGxpbmtz
-IG9yIG9wZW4gYXR0YWNobWVudHMgdW50aWwNCj4geW91IGhhdmUgdmVyaWZpZWQgdGhlIHNlbmRl
-ciBvciB0aGUgY29udGVudC4NCj4gDQo+IA0KPiBJbCAyNi8wOS8yNSAxMTowNSwgSmppYW4gWmhv
-dSBoYSBzY3JpdHRvOg0KPiA+IEFkZCBtdGstdmNwLW1haWxib3ggZHJpdmVyIHRvIHN1cHBvcnQg
-dGhlIGNvbW11bmljYXRpb24gd2l0aA0KPiA+IFZDUCByZW1vdGUgbWljcm9wcm9jZXNzb3IuDQo+
-ID4gDQo+ID4gU2lnbmVkLW9mZi1ieTogSmppYW4gWmhvdSA8amppYW4uemhvdUBtZWRpYXRlay5j
-b20+DQo+ID4gLS0tDQo+ID4gICBkcml2ZXJzL21haWxib3gvS2NvbmZpZyAgICAgICAgICAgICAg
-ICAgfCAgIDkgKysNCj4gPiAgIGRyaXZlcnMvbWFpbGJveC9NYWtlZmlsZSAgICAgICAgICAgICAg
-ICB8ICAgMiArDQo+ID4gICBkcml2ZXJzL21haWxib3gvbXRrLXZjcC1tYWlsYm94LmMgICAgICAg
-fCAxNjgNCj4gPiArKysrKysrKysrKysrKysrKysrKysrKysNCj4gPiAgIGluY2x1ZGUvbGludXgv
-bWFpbGJveC9tdGstdmNwLW1haWxib3guaCB8ICAzMiArKysrKw0KPiA+ICAgNCBmaWxlcyBjaGFu
-Z2VkLCAyMTEgaW5zZXJ0aW9ucygrKQ0KPiA+ICAgY3JlYXRlIG1vZGUgMTAwNjQ0IGRyaXZlcnMv
-bWFpbGJveC9tdGstdmNwLW1haWxib3guYw0KPiA+ICAgY3JlYXRlIG1vZGUgMTAwNjQ0IGluY2x1
-ZGUvbGludXgvbWFpbGJveC9tdGstdmNwLW1haWxib3guaA0KPiA+IA0KPiA+IGRpZmYgLS1naXQg
-YS9kcml2ZXJzL21haWxib3gvS2NvbmZpZyBiL2RyaXZlcnMvbWFpbGJveC9LY29uZmlnDQo+ID4g
-aW5kZXggMDI0MzJkNGE1Y2NkLi5jMjhiZGI4NTU2NjMgMTAwNjQ0DQo+ID4gLS0tIGEvZHJpdmVy
-cy9tYWlsYm94L0tjb25maWcNCj4gPiArKysgYi9kcml2ZXJzL21haWxib3gvS2NvbmZpZw0KPiA+
-IEBAIC0yOTQsNiArMjk0LDE1IEBAIGNvbmZpZyBNVEtfQ01EUV9NQk9YDQo+ID4gICAgICAgICBj
-cml0aWNhbCB0aW1lIGxpbWl0YXRpb24sIHN1Y2ggYXMgdXBkYXRpbmcgZGlzcGxheQ0KPiA+IGNv
-bmZpZ3VyYXRpb24NCj4gPiAgICAgICAgIGR1cmluZyB0aGUgdmJsYW5rLg0KPiA+IA0KPiA+ICtj
-b25maWcgTVRLX1ZDUF9NQk9YDQo+ID4gKyAgICAgdHJpc3RhdGUgIk1lZGlhVGVrIFZDUCBNYWls
-Ym94IFN1cHBvcnQiDQo+ID4gKyAgICAgZGVwZW5kcyBvbiBBUkNIX01FRElBVEVLIHx8IENPTVBJ
-TEVfVEVTVA0KPiA+ICsgICAgIGhlbHANCj4gPiArICAgICAgIFNheSB5ZXMgaGVyZSB0byBhZGQg
-c3VwcG9ydCBmb3IgdGhlIE1lZGlhVGVrIFZDUCBtYWlsYm94DQo+ID4gZHJpdmVyLg0KPiA+ICsg
-ICAgICAgVGhlIG1haWxib3ggaW1wbGVtZW50YXRpb24gcHJvdmlkZXMgYWNjZXNzIGZyb20gdGhl
-DQo+ID4gYXBwbGljYXRpb24NCj4gPiArICAgICAgIHByb2Nlc3NvciB0byBWaWRlbyBDb21wYW5p
-b24gUHJvY2Vzc29yIFVuaXQuDQo+ID4gKyAgICAgICBJZiB1bnN1cmUgc2F5IE4uDQo+ID4gKw0K
-PiA+ICAgY29uZmlnIFpZTlFNUF9JUElfTUJPWA0KPiA+ICAgICAgIHRyaXN0YXRlICJYaWxpbngg
-WnlucU1QIElQSSBNYWlsYm94Ig0KPiA+ICAgICAgIGRlcGVuZHMgb24gQVJDSF9aWU5RTVAgJiYg
-T0YNCj4gPiBkaWZmIC0tZ2l0IGEvZHJpdmVycy9tYWlsYm94L01ha2VmaWxlIGIvZHJpdmVycy9t
-YWlsYm94L01ha2VmaWxlDQo+ID4gaW5kZXggOThhNjhmODM4NDg2Li4wNzI3ODg3MWQyNTQgMTAw
-NjQ0DQo+ID4gLS0tIGEvZHJpdmVycy9tYWlsYm94L01ha2VmaWxlDQo+ID4gKysrIGIvZHJpdmVy
-cy9tYWlsYm94L01ha2VmaWxlDQo+ID4gQEAgLTYzLDYgKzYzLDggQEAgb2JqLSQoQ09ORklHX01U
-S19BRFNQX01CT1gpICs9IG10ay1hZHNwLW1haWxib3gubw0KPiA+IA0KPiA+ICAgb2JqLSQoQ09O
-RklHX01US19DTURRX01CT1gpICs9IG10ay1jbWRxLW1haWxib3gubw0KPiA+IA0KPiA+ICtvYmot
-JChDT05GSUdfTVRLX1ZDUF9NQk9YKSAgICs9IG10ay12Y3AtbWFpbGJveC5vDQo+ID4gKw0KPiA+
-ICAgb2JqLSQoQ09ORklHX1pZTlFNUF9JUElfTUJPWCkgICAgICAgKz0genlucW1wLWlwaS1tYWls
-Ym94Lm8NCj4gPiANCj4gPiAgIG9iai0kKENPTkZJR19TVU42SV9NU0dCT1gpICArPSBzdW42aS1t
-c2dib3gubw0KPiA+IGRpZmYgLS1naXQgYS9kcml2ZXJzL21haWxib3gvbXRrLXZjcC1tYWlsYm94
-LmMNCj4gPiBiL2RyaXZlcnMvbWFpbGJveC9tdGstdmNwLW1haWxib3guYw0KPiA+IG5ldyBmaWxl
-IG1vZGUgMTAwNjQ0DQo+ID4gaW5kZXggMDAwMDAwMDAwMDAwLi5hMmE4MGQxMjRlNTANCj4gPiAt
-LS0gL2Rldi9udWxsDQo+ID4gKysrIGIvZHJpdmVycy9tYWlsYm94L210ay12Y3AtbWFpbGJveC5j
-DQo+ID4gQEAgLTAsMCArMSwxNjggQEANCj4gPiArLy8gU1BEWC1MaWNlbnNlLUlkZW50aWZpZXI6
-IEdQTC0yLjANCj4gPiArLyoNCj4gPiArICogQ29weXJpZ2h0IChjKSAyMDI1IE1lZGlhVGVrIENv
-cnBvcmF0aW9uLiBBbGwgcmlnaHRzIHJlc2VydmVkLg0KPiA+ICsgKiBBdXRob3I6IEpqaWFuIFpo
-b3UgPGpqaWFuLnpob3UuQG1lZGlhdGVrLmNvbT4NCj4gPiArICovDQo+ID4gKw0KPiA+ICsjaW5j
-bHVkZSA8bGludXgvaW50ZXJydXB0Lmg+DQo+ID4gKyNpbmNsdWRlIDxsaW51eC9pby5oPg0KPiA+
-ICsjaW5jbHVkZSA8bGludXgva2VybmVsLmg+DQo+ID4gKyNpbmNsdWRlIDxsaW51eC9tYWlsYm94
-X2NvbnRyb2xsZXIuaD4NCj4gPiArI2luY2x1ZGUgPGxpbnV4L21haWxib3gvbXRrLXZjcC1tYWls
-Ym94Lmg+DQo+ID4gKyNpbmNsdWRlIDxsaW51eC9tb2R1bGUuaD4NCj4gPiArI2luY2x1ZGUgPGxp
-bnV4L29mLmg+DQo+ID4gKyNpbmNsdWRlIDxsaW51eC9wbGF0Zm9ybV9kZXZpY2UuaD4NCj4gPiAr
-I2luY2x1ZGUgPGxpbnV4L3NsYWIuaD4NCj4gPiArDQo+ID4gK3N0cnVjdCBtdGtfdmNwX21ib3gg
-ew0KPiA+ICsgICAgIHN0cnVjdCBtYm94X2NvbnRyb2xsZXIgbWJveDsNCj4gPiArICAgICB2b2lk
-IF9faW9tZW0gKmJhc2U7DQo+ID4gKyAgICAgc3RydWN0IGRldmljZSAqZGV2Ow0KPiA+ICsgICAg
-IGNvbnN0IHN0cnVjdCBtdGtfdmNwX21ib3hfY2ZnICpjZmc7DQo+ID4gKyAgICAgc3RydWN0IG10
-a19pcGlfaW5mbyBpcGlfcmVjdjsNCj4gPiArICAgICBzdHJ1Y3QgbWJveF9jaGFuIGNoYW5zOw0K
-PiA+ICt9Ow0KPiA+ICsNCj4gPiArc3RydWN0IG10a192Y3BfbWJveF9jZmcgew0KPiA+ICsgICAg
-IHUzMiBzZXRfaW47DQo+ID4gKyAgICAgdTMyIGNscl9vdXQ7DQo+IA0KPiB1MTYgaXMgZW5vdWdo
-IGZvciBib3RoIHJlZ2lzdGVyIG9mZnNldHMsIGF0IGxlYXN0IGZvciBub3cgLSBhbmQgSQ0KPiBz
-dXNwZWN0IGl0J3MNCj4gZ29pbmcgdG8gYmUgZW5vdWdoIGZvcmV2ZXIuDQoNCk9LLiBJIGNoYW5n
-ZSB1MzIgdG8gdTE2IGluIHRoZSBuZXh0IHZlcnNpb24uDQoNCj4gDQo+ID4gK307DQo+ID4gKw0K
-PiA+ICtzdGF0aWMgaXJxcmV0dXJuX3QgbXRrX3ZjcF9tYm94X2lycV90aHJlYWQoaW50IGlycSwg
-dm9pZCAqZGF0YSkNCj4gPiArew0KPiA+ICsgICAgIHN0cnVjdCBtdGtfdmNwX21ib3ggKnByaXYg
-PSBkYXRhOw0KPiA+ICsNCj4gPiArICAgICAvKiBnZXQgaXJxIHN0YXR1cyAqLw0KPiA+ICsgICAg
-IHByaXYtPmlwaV9yZWN2LmlycV9zdGF0dXMgPSByZWFkbChwcml2LT5iYXNlICsgcHJpdi0+Y2Zn
-LQ0KPiA+ID5jbHJfb3V0KTsNCj4gPiArDQo+ID4gKyAgICAgX19pb3JlYWQzMl9jb3B5KHByaXYt
-PmlwaV9yZWN2Lm1zZywgcHJpdi0+YmFzZSwNCj4gPiBNQk9YX1NMT1RfTUFYX1NJWkUgLyA0KTsN
-Cj4gPiArDQo+ID4gKyAgICAgbWJveF9jaGFuX3JlY2VpdmVkX2RhdGEoJnByaXYtPmNoYW5zLCAm
-cHJpdi0+aXBpX3JlY3YpOw0KPiA+ICsNCj4gPiArICAgICAvKiBjbGVhciBpcnEgc3RhdHVzICov
-DQo+ID4gKyAgICAgd3JpdGVsKHByaXYtPmlwaV9yZWN2LmlycV9zdGF0dXMsIHByaXYtPmJhc2Ug
-KyBwcml2LT5jZmctDQo+ID4gPmNscl9vdXQpOw0KPiA+ICsNCj4gPiArICAgICByZXR1cm4gSVJR
-X0hBTkRMRUQ7DQo+ID4gK30NCj4gPiArDQo+ID4gK3N0YXRpYyBzdHJ1Y3QgbWJveF9jaGFuICpt
-dGtfdmNwX21ib3hfeGxhdGUoc3RydWN0IG1ib3hfY29udHJvbGxlcg0KPiA+ICptYm94LA0KPiA+
-ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIGNvbnN0IHN0cnVjdA0K
-PiA+IG9mX3BoYW5kbGVfYXJncyAqc3ApDQo+ID4gK3sNCj4gPiArICAgICBpZiAoc3AtPmFyZ3Nf
-Y291bnQpDQo+ID4gKyAgICAgICAgICAgICByZXR1cm4gTlVMTDsNCj4gPiArDQo+ID4gKyAgICAg
-cmV0dXJuICZtYm94LT5jaGFuc1swXTsNCj4gPiArfQ0KPiA+ICsNCj4gPiArc3RhdGljIGludCBt
-dGtfdmNwX21ib3hfc2VuZF9kYXRhKHN0cnVjdCBtYm94X2NoYW4gKmNoYW4sIHZvaWQNCj4gPiAq
-ZGF0YSkNCj4gPiArew0KPiA+ICsgICAgIHN0cnVjdCBtdGtfdmNwX21ib3ggKnByaXYgPSBjaGFu
-LT5jb25fcHJpdjsNCj4gPiArICAgICBzdHJ1Y3QgbXRrX2lwaV9pbmZvICppcGlfaW5mbyA9IGRh
-dGE7DQo+ID4gKyAgICAgdTMyIHN0YXR1czsNCj4gPiArDQo+ID4gKyAgICAgaWYgKCFpcGlfaW5m
-by0+bXNnKSB7DQo+ID4gKyAgICAgICAgICAgICBkZXZfZXJyKHByaXYtPmRldiwgIm1zZyBidWZm
-ZXIgaXMgTlVMTC5cbiIpOw0KPiA+ICsgICAgICAgICAgICAgcmV0dXJuIC1FSU5WQUw7DQo+ID4g
-KyAgICAgfQ0KPiA+ICsNCj4gPiArICAgICBzdGF0dXMgPSByZWFkbChwcml2LT5iYXNlICsgcHJp
-di0+Y2ZnLT5zZXRfaW4pICYNCj4gPiBCSVQoaXBpX2luZm8tPmluZGV4KTsNCj4gDQo+IHN0YXR1
-cyA9IHJlYWRsKHByaXYtPmJhc2UgKyBwcml2LT5jZmctPnNldF9pbik7DQo+IGlmIChzdGF0dXMg
-JiBCSVQoaXBpX2luZm8tPmluZGV4KSB7DQo+ICAgLi4uLg0KPiB9DQoNCk9LLg0KDQo+IA0KPiA+
-ICsgICAgIGlmIChzdGF0dXMpIHsNCj4gPiArICAgICAgICAgICAgIGRldl93YXJuKHByaXYtPmRl
-diwgIm1haWxib3ggSVBJICVkIGlzIGJ1c3kuXG4iLA0KPiA+IGlwaV9pbmZvLT5pZCk7DQo+ID4g
-KyAgICAgICAgICAgICByZXR1cm4gLUVCVVNZOw0KPiA+ICsgICAgIH0NCj4gPiArDQo+ID4gKyAg
-ICAgaWYgKGlwaV9pbmZvLT5zbG90X29mcyArIGlwaV9pbmZvLT5sZW4gPiBNQk9YX1NMT1RfTUFY
-X1NJWkUpDQo+ID4gKyAgICAgICAgICAgICByZXR1cm4gLUVJTlZBTDsNCj4gPiArICAgICBfX2lv
-d3JpdGUzMl9jb3B5KHByaXYtPmJhc2UgKyBpcGlfaW5mby0+c2xvdF9vZnMsIGlwaV9pbmZvLQ0K
-PiA+ID5tc2csDQo+ID4gKyAgICAgICAgICAgICAgICAgICAgICBpcGlfaW5mby0+bGVuKTsNCj4g
-PiArDQo+ID4gKyAgICAgd3JpdGVsKEJJVChpcGlfaW5mby0+aW5kZXgpLCBwcml2LT5iYXNlICsg
-cHJpdi0+Y2ZnLT5zZXRfaW4pOw0KPiA+ICsNCj4gPiArICAgICByZXR1cm4gMDsNCj4gPiArfQ0K
-PiA+ICsNCj4gPiArc3RhdGljIGJvb2wgbXRrX3ZjcF9tYm94X2xhc3RfdHhfZG9uZShzdHJ1Y3Qg
-bWJveF9jaGFuICpjaGFuKQ0KPiA+ICt7DQo+ID4gKyAgICAgc3RydWN0IG10a19pcGlfaW5mbyAq
-aXBpX2luZm8gPSBjaGFuLT5hY3RpdmVfcmVxOw0KPiA+ICsgICAgIHN0cnVjdCBtdGtfdmNwX21i
-b3ggKnByaXYgPSBjaGFuLT5jb25fcHJpdjsNCj4gPiArDQo+ID4gKyAgICAgcmV0dXJuICEocmVh
-ZGwocHJpdi0+YmFzZSArIHByaXYtPmNmZy0+c2V0X2luKSAmDQo+ID4gQklUKGlwaV9pbmZvLT5p
-bmRleCkpOw0KPiA+ICt9DQo+ID4gKw0KPiA+ICtzdGF0aWMgY29uc3Qgc3RydWN0IG1ib3hfY2hh
-bl9vcHMgbXRrX3ZjcF9tYm94X2NoYW5fb3BzID0gew0KPiA+ICsgICAgIC5zZW5kX2RhdGEgICAg
-ICA9IG10a192Y3BfbWJveF9zZW5kX2RhdGEsDQo+ID4gKyAgICAgLmxhc3RfdHhfZG9uZSAgID0g
-bXRrX3ZjcF9tYm94X2xhc3RfdHhfZG9uZSwNCj4gPiArfTsNCj4gPiArDQo+ID4gK3N0YXRpYyBp
-bnQgbXRrX3ZjcF9tYm94X3Byb2JlKHN0cnVjdCBwbGF0Zm9ybV9kZXZpY2UgKnBkZXYpDQo+ID4g
-K3sNCj4gPiArICAgICBzdHJ1Y3QgZGV2aWNlICpkZXYgPSAmcGRldi0+ZGV2Ow0KPiA+ICsgICAg
-IHN0cnVjdCBtdGtfdmNwX21ib3ggKnByaXY7DQo+ID4gKyAgICAgc3RydWN0IG1ib3hfY29udHJv
-bGxlciAqbWJveDsNCj4gPiArICAgICBpbnQgcmV0LCBpcnE7DQo+ID4gKw0KPiA+ICsgICAgIHBy
-aXYgPSBkZXZtX2t6YWxsb2MoZGV2LCBzaXplb2YoKnByaXYpLCBHRlBfS0VSTkVMKTsNCj4gPiAr
-ICAgICBpZiAoIXByaXYpDQo+ID4gKyAgICAgICAgICAgICByZXR1cm4gLUVOT01FTTsNCj4gPiAr
-DQo+ID4gKyAgICAgcHJpdi0+ZGV2ID0gZGV2Ow0KPiA+ICsgICAgIHByaXYtPmNoYW5zLmNvbl9w
-cml2ID0gcHJpdjsNCj4gPiArICAgICBtYm94ID0gJnByaXYtPm1ib3g7DQo+ID4gKyAgICAgbWJv
-eC0+ZGV2ID0gZGV2Ow0KPiA+ICsgICAgIG1ib3gtPm9wcyA9ICZtdGtfdmNwX21ib3hfY2hhbl9v
-cHM7DQo+ID4gKyAgICAgbWJveC0+dHhkb25lX2lycSA9IGZhbHNlOw0KPiA+ICsgICAgIG1ib3gt
-PnR4ZG9uZV9wb2xsID0gdHJ1ZTsNCj4gPiArICAgICBtYm94LT5vZl94bGF0ZSA9IG10a192Y3Bf
-bWJveF94bGF0ZTsNCj4gPiArICAgICBtYm94LT5udW1fY2hhbnMgPSAxOw0KPiA+ICsgICAgIG1i
-b3gtPmNoYW5zID0gJnByaXYtPmNoYW5zOw0KPiA+ICsNCj4gPiArICAgICBwcml2LT5pcGlfcmVj
-di5tc2cgPSBkZXZtX2t6YWxsb2MoZGV2LCBNQk9YX1NMT1RfTUFYX1NJWkUsDQo+ID4gR0ZQX0tF
-Uk5FTCk7DQo+ID4gKyAgICAgaWYgKCFwcml2LT5pcGlfcmVjdi5tc2cpDQo+ID4gKyAgICAgICAg
-ICAgICByZXR1cm4gLUVOT01FTTsNCj4gPiArDQo+ID4gKyAgICAgcHJpdi0+YmFzZSA9IGRldm1f
-cGxhdGZvcm1faW9yZW1hcF9yZXNvdXJjZShwZGV2LCAwKTsNCj4gPiArICAgICBpZiAoSVNfRVJS
-KHByaXYtPmJhc2UpKQ0KPiA+ICsgICAgICAgICAgICAgcmV0dXJuIFBUUl9FUlIocHJpdi0+YmFz
-ZSk7DQo+ID4gKw0KPiA+ICsgICAgIHByaXYtPmNmZyA9IG9mX2RldmljZV9nZXRfbWF0Y2hfZGF0
-YShkZXYpOw0KPiA+ICsgICAgIGlmICghcHJpdi0+Y2ZnKQ0KPiA+ICsgICAgICAgICAgICAgcmV0
-dXJuIC1FSU5WQUw7DQo+ID4gKw0KPiA+ICsgICAgIGlycSA9IHBsYXRmb3JtX2dldF9pcnEocGRl
-diwgMCk7DQo+ID4gKyAgICAgaWYgKGlycSA8IDApDQo+ID4gKyAgICAgICAgICAgICByZXR1cm4g
-aXJxOw0KPiA+ICsNCj4gDQo+IFBsZWFzZSBzZXQgdGhlIGRyaXZlciBkYXRhIGJlZm9yZSByZXF1
-ZXN0aW5nIHRoZSBpbnRlcnJ1cHQ6IHdoYXQNCj4gaGFwcGVucyBpZiB0aGUNCj4gSVNSIGlzIHJ1
-biBiZWZvcmUgaGF2aW5nIGRyaXZlciBkYXRhIGF2YWlsYWJsZSBvdGhlcndpc2U/ISA6LSkNCj4g
-DQoNCk9LLCBJIHB1dCB0aGUgInBsYXRmb3JtX3NldF9kcnZkYXRhKHBkZXYsIHByaXYpIiBiZXR3
-ZWVuIA0KIm9mX2RldmljZV9nZXRfbWF0Y2hfZGF0YShkZXYpIiBhbmQgInBsYXRmb3JtX2dldF9p
-cnEocGRldiwgMCkiLg0KDQpEbyB5b3Ugd2FudCBtZSB0byBzdWJtaXQgYSBuZXcgdmVyc2lvbiBy
-aWdodCBub3c/DQoNCj4gPiArICAgICByZXQgPSBkZXZtX3JlcXVlc3RfdGhyZWFkZWRfaXJxKGRl
-diwgaXJxLCBOVUxMLA0KPiA+ICsgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg
-bXRrX3ZjcF9tYm94X2lycV90aHJlYWQsDQo+ID4gSVJRRl9PTkVTSE9ULA0KPiA+ICsgICAgICAg
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgZGV2X25hbWUoZGV2KSwgcHJpdik7DQo+ID4g
-KyAgICAgaWYgKHJldCA8IDApDQo+ID4gKyAgICAgICAgICAgICByZXR1cm4gcmV0Ow0KPiA+ICsN
-Cj4gPiArICAgICBwbGF0Zm9ybV9zZXRfZHJ2ZGF0YShwZGV2LCBwcml2KTsNCj4gPiArDQo+ID4g
-KyAgICAgcmV0dXJuIGRldm1fbWJveF9jb250cm9sbGVyX3JlZ2lzdGVyKGRldiwgJnByaXYtPm1i
-b3gpOw0KPiA+ICt9DQo+ID4gKw0KPiA+ICtzdGF0aWMgY29uc3Qgc3RydWN0IG10a192Y3BfbWJv
-eF9jZmcgbXQ4MTk2X2NmZyA9IHsNCj4gPiArICAgICAuc2V0X2luICAgICAgICAgPSAweDEwMCwN
-Cj4gPiArICAgICAuY2xyX291dCAgICAgICAgPSAweDEwYywNCj4gPiArfTsNCj4gPiArDQo+ID4g
-K3N0YXRpYyBjb25zdCBzdHJ1Y3Qgb2ZfZGV2aWNlX2lkIG10a192Y3BfbWJveF9vZl9tYXRjaFtd
-ID0gew0KPiA+ICsgICAgIHsgLmNvbXBhdGlibGUgPSAibWVkaWF0ZWssbXQ4MTk2LXZjcC1tYm94
-IiwgLmRhdGEgPQ0KPiA+ICZtdDgxOTZfY2ZnIH0sDQo+ID4gKyAgICAge30sDQo+ID4gK307DQo+
-ID4gK01PRFVMRV9ERVZJQ0VfVEFCTEUob2YsIG10a192Y3BfbWJveF9vZl9tYXRjaCk7DQo+ID4g
-Kw0KPiA+ICtzdGF0aWMgc3RydWN0IHBsYXRmb3JtX2RyaXZlciBtdGtfdmNwX21ib3hfZHJpdmVy
-ID0gew0KPiA+ICsgICAgIC5wcm9iZSAgICAgICAgICA9IG10a192Y3BfbWJveF9wcm9iZSwNCj4g
-PiArICAgICAuZHJpdmVyID0gew0KPiA+ICsgICAgICAgICAgICAgLm5hbWUgICA9ICJtdGtfdmNw
-X21ib3giLA0KPiA+ICsgICAgICAgICAgICAgLm9mX21hdGNoX3RhYmxlID0gbXRrX3ZjcF9tYm94
-X29mX21hdGNoLA0KPiA+ICsgICAgIH0sDQo+ID4gK307DQo+ID4gK21vZHVsZV9wbGF0Zm9ybV9k
-cml2ZXIobXRrX3ZjcF9tYm94X2RyaXZlcik7DQo+ID4gKw0KPiA+ICtNT0RVTEVfQVVUSE9SKCJK
-amlhbiBaaG91IDxqamlhbi56aG91QG1lZGlhdGVrLmNvbT4iKTsNCj4gPiArTU9EVUxFX0RFU0NS
-SVBUSU9OKCJNVEsgVkNQIE1haWxib3ggQ29udHJvbGxlciIpOw0KPiA+ICtNT0RVTEVfTElDRU5T
-RSgiR1BMIik7DQo+ID4gZGlmZiAtLWdpdCBhL2luY2x1ZGUvbGludXgvbWFpbGJveC9tdGstdmNw
-LW1haWxib3guaA0KPiA+IGIvaW5jbHVkZS9saW51eC9tYWlsYm94L210ay12Y3AtbWFpbGJveC5o
-DQo+ID4gbmV3IGZpbGUgbW9kZSAxMDA2NDQNCj4gPiBpbmRleCAwMDAwMDAwMDAwMDAuLjE0M2Zi
-MGQwNmUzMA0KPiA+IC0tLSAvZGV2L251bGwNCj4gPiArKysgYi9pbmNsdWRlL2xpbnV4L21haWxi
-b3gvbXRrLXZjcC1tYWlsYm94LmgNCj4gPiBAQCAtMCwwICsxLDMyIEBADQo+ID4gKy8qIFNQRFgt
-TGljZW5zZS1JZGVudGlmaWVyOiAoR1BMLTIuMCBPUiBNSVQpICovDQo+ID4gKy8qDQo+ID4gKyAq
-IENvcHlyaWdodCAoYykgMjAyNSBNZWRpYVRlayBJbmMuDQo+ID4gKyAqLw0KPiA+ICsNCj4gPiAr
-I2lmbmRlZiBfX01US19WQ1BfTUFJTEJPWF9IX18NCj4gPiArI2RlZmluZSBfX01US19WQ1BfTUFJ
-TEJPWF9IX18NCj4gPiArDQo+ID4gKyNkZWZpbmUgTUJPWF9TTE9UX01BWF9TSVpFICAgMHgxMDAg
-LyogbWJveCBtYXggc2xvdCBzaXplICovDQo+IA0KPiBQbGVhc2UsIGNoYW5nZSB0aGlzIGRlZmlu
-aXRpb24gdG8gTVRLX1ZDUF9NQk9YX1NMT1RfTUFYX1NJWkUNCg0KT0suDQo+IA0KPiBDaGVlcnMs
-DQo+IEFuZ2Vsbw0KPiANCj4gPiArDQo+ID4gKy8qKg0KPiA+ICsgKiBzdHJ1Y3QgbXRrX2lwaV9p
-bmZvIC0gbWFpbGJveCBtZXNzYWdlIGluZm8gZm9yIG10ay12Y3AtbWFpbGJveA0KPiA+ICsgKiBA
-bXNnOiBUaGUgc2hhcmUgYnVmZmVyIGJldHdlZW4gSVBDIGFuZCBtYWlsYm94IGRyaXZlcg0KPiA+
-ICsgKiBAbGVuOiBNZXNzYWdlIGxlbmd0aA0KPiA+ICsgKiBAaWQ6IFRoaXMgaXMgZm9yIGlkZW50
-aWZpY2F0aW9uIHB1cnBvc2VzIGFuZCBub3QgYWN0dWFsbHkgdXNlZA0KPiA+ICsgKiAgIGJ5IHRo
-ZSBtYWlsYm94IGhhcmR3YXJlLg0KPiA+ICsgKiBAaW5kZXg6IFRoZSBzaWduYWwgbnVtYmVyIG9m
-IHRoZSBtYWlsYm94IG1lc3NhZ2UuDQo+ID4gKyAqIEBzbG90X29mczogRGF0YSBzbG90IG9mZnNl
-dC4NCj4gPiArICogQGlycV9zdGF0dXM6IENhcHR1cmVzIGluY29taW5nIHNpZ25hbHMgZm9yIHRo
-ZSBSWCBwYXRoLg0KPiA+ICsgKg0KPiA+ICsgKiBJdCBpcyB1c2VkIGJldHdlZW4gSVBDIHdpdGgg
-bWFpbGJveCBkcml2ZXIuDQo+ID4gKyAqLw0KPiA+ICtzdHJ1Y3QgbXRrX2lwaV9pbmZvIHsNCj4g
-PiArICAgICB2b2lkICptc2c7DQo+ID4gKyAgICAgdTMyIGxlbjsNCj4gPiArICAgICB1MzIgaWQ7
-DQo+ID4gKyAgICAgdTMyIGluZGV4Ow0KPiA+ICsgICAgIHUzMiBzbG90X29mczsNCj4gPiArICAg
-ICB1MzIgaXJxX3N0YXR1czsNCj4gPiArfTsNCj4gPiArDQo+ID4gKyNlbmRpZg0KPiANCj4gDQo=
+Exynos MFC new driver upstream proposal
++++++++++++++++++++++++++++++++++++++++
+
+The s5p-mfc driver in the kernel is quite outdated and has not kept up with the hardware advances of the MFC IP. 
+Going forward, we want to provide support for all the later versions of MFC in open source (both mobile and
+ExynosAuto would be supported by Samsung)
+
+We (Samsung) would like to propose a new driver for the latest generation of Samsung MFC (Multi-Format Codec) hardware. 
+Although the kernel already contains a Samsung MFC driver (drivers/media/platform/s5p-mfc/), the newer hardware 
+diverges significantly from the previous generations, in features supported, register interface and in system integration. 
+This has necessitated a new driver, rather than updating the existing one. 
+
+
+Current driver vs targetted driver comparison
++++++++++++++++++++++++++++++++++++++++++++++
+
+Target Feature 
+Current mainline : Simple V4L2/ VB2 interface based encoder/ decoder
+New proposed driver: Dual core support, NAL-q support, LLC, Coredump, performance
+measurement, plugin driver architecture, hardware manager(meerkat), DRM/OTF,
+Resource manager, bandwidth compression, New Pixel formats (NV12N,  YV12, P010,
+SBWC,  RGB family), 10 bit support, HDR support, Prio and RR Process Scheduler support, 
+
+Register map	
+Current mainline : Fixed register layout, compatible across s5p variants
+New proposed driver: Completely redesigned register set, incompatible with old layout
+
+Command model
+Current mainline : Mailbox-style command queue
+New proposed driver: Ring-buffer command queue with different signaling
+
+Memory management
+Current mainline : CMA-backed contiguous buffers, ION legacy
+New proposed driver: dma-heap / scatter-gather buffers with strict alignment rules
+
+Firmware
+Current mainline : Supports up to Firmware v12, Legacy binary format, loaded via shared mechanism	
+New proposed driver: New firmware format, different protocol for control messages. Support Firmware v13 onwards
+
+DT bindings	
+Current mainline : Single clock + reset, simple PM	
+New proposed driver: Multiple clocks, reset domains, runtime PM dependencies
+
+Error handling	
+Current mainline : Simple IRQ error flags
+New proposed driver: Detailed error codes, recovery sequences required
+
+Code impact
+Current mainline :~8k LOC, minimal conditionals
+New proposed driver: ~65KLOC with full features
+
+
+Plan for supporting latest MFC (Best balance between code clarity and long-term kernel health, while still respecting ABI and legacy users.)
+1	We propose a new driver (exynos-mfc) for the latest generation of Samsung MFC (Multi-Format Codec) hardware. 
+2	MFC FW V6 to V12 will be supported by existing mainline (s5p-mfc) and later versions by Exynos-mfc driver
+3	The existing MFC driver will remain available for older SoC’s and will not be broken. The new driver will only bind
+	to new compatible strings in DT, avoiding regressions for legacy hardware. Samsung will take responsibility for 
+	maintaining both drivers until the old one can be formally marked as “legacy.”
+4	Keep it buildable for old SoCs but clearly say new SoCs should use the new driver.
+5	VIDEO_SAMSUNG_S5P_MFC and VIDEO_EXYNOS_MFC will both be supported for an agreed time
+6	Long term Support for new driver  - commitment from Samsung
+7	The hardware has diverged to the point where conditionally supporting both in one codebase is worse for long-term kernel health
+8	Splitting keeps the code clean, testable, and reviewable, while ensuring legacy users aren’t broken due to user space ABI  guarantees.
+	This seems more clean and easier approach Both can coexist without code spaghetti.
+
+Features and description supported
+++++++++++++++++++++++++++++++++++
+
+1	MFC driver registration	Probe functionality and video nodes registration
+2	MFC driver open & close support	MFC firmware loading,  "ls" & "cat" on the video nodes  and udev rules on the video nodes
+3	H264 decoding	H264 decoding support - HW supported profiles & levels (YUV420 Semi-Planar, 8-bit, min/max resolution)
+4	HEVC decoding	HEVC decoding support - HW supported profiles & levels (YUV420 Semi-Planar, 8-bit, min/max resolution)
+5	VP8 decoding	VP8 decoding support - HW supported profiles & levels (YUV420 Semi-Planar, 8-bit, min/max resolution)
+6	VP9 decoding	VP9 decoding support - HW supported profiles & levels (YUV420 Semi-Planar, 8-bit, min/max resolution)
+7	AV1 decoding	AV1 decoding support - HW supported profiles & levels (YUV420 Semi-Planar, 8-bit, min/max resolution)
+8	H264 encoding	H264 encoding support - Basic encoding (YUV420 Semi-Planar, 8-bit, min/max resolution)
+9	HEVC encoding	HEVC encoding support - Basic encoding (YUV420 Semi-Planar, 8-bit, min/max resolution)
+10	VP8 encoding	VP8 encoding support - Basic encoding (YUV420 Semi-Planar, 8-bit, min/max resolution)
+11	VP9 encoding	VP9 encoding support - Basic encoding (YUV420 Semi-Planar, 8-bit, min/max resolution)
+12	Debug fs support		Debug fs to control the MFC functionalities
+13	Debug log support		Debug logs to get on the dmesg prompt for debug purpose
+14	Debug SFR dump support		MFC SFR dumps during failures
+15	NAL Queue mode control		NAL Queue mode support
+16	Batch mode control		Batch mode support
+17	HW supported YUV formats	YUV 420, 422, 444 (planar, semi-planar) formats support as per MFC HW specification
+18	HW supported RGB formats	RGB format support as per MFC HW specification
+19	Multi instance decoding/encoding	Multi instance decoding/encoding
+20	Suspend and resume		Suspend and resume support
+21	Runtime suspend and resume	Runtime suspend and resume support
+22	Priority decoding (decoders)	Priority decoding support
+23	Frame delay configuration (decoders)	Frame delay configuration support
+24	Error handling and conceal control (decoders)	HW/Platform limitations should be gracefully exited and,
+							bit stream errors should be reported or concealed with warning indication
+25	Reference frame control (encoders)	Reference frame control support
+26	SPS/PPS control (encoders)	SPS/PPS control support
+27	Loop filter control (encoders)	Loop filter control support
+28	B frame support (encoders)	B frame support
+29	GOP control (encoders)		GOP control support
+30	Frame rate control (encoders)	Frame rate control support
+
+Features to be  supported in 2026
++++++++++++++++++++++++++++++++++
+
+31	Bit rate control (encoders)		Bit rate control support
+32	QP control (encoders)			QP control support
+33	I/IDR control (encoders)		I/IDR control support
+34	Scalable control (encoders)		Scalable control support
+35	ROI control (encoders)			ROI control support
+36	Multi slice control (encoders)		Multi slice control support
+37	Profile/Level control (encoders)	Profile/Level control support
+38	Padding control (encoders)		Padding control support
+39	Aspect ratio control (encoders)		Aspect ratio control support
+40	Buffer full handling (encoders)		Buffer full handling support
+41	SBWC					SBWC bandwidth compression support
+42	10-bit support				10-bit support as per MFC HW specification
+43	Secure signed FW support		Security signed FW support
+44	Secure playback				DRM content playback for decoders
+45	HDR Support (decoders)			HDR metadata support
+46	Dynamic resolution change		Dynamic resolution change support
+
+Nagaraju Siddineni (29):
+  dt-bindings: media: mfc: Add Exynos MFC devicetree binding
+  arm64: dts: mfc: Add MFC device tree for Auto V920 SoC
+  media: mfc: Add MFC driver data structures and debugging macros
+  media: mfc: Add full register map and bit definitions for MFC hardware
+  media: mfc: Add MFC driver header files and core utilities
+  media: mfc: Add MFC core hardware register and debugfs APIs
+  media: mfc: Add MFC core command, hwlock, ISR and run functionalities
+  media: mfc: Add Exynos‑MFC driver probe support
+  media: mfc: Add bus‑devfreq, QoS, multi‑view and control
+    infrastructure
+  media: mfc: Add buffer‑queue and IOVMM support
+  media: mfc: Add rate‑calculation framework and memory utilities
+  media: mfc: Introduce QoS support and instance context handling
+  media: mfc: Add decoder core sync functions
+  media: mfc: Add buffer‑control framework
+  media: mfc: Add decoder resource‑management (RM) support and
+    load‑balancing
+  media: mfc: Enhance HW‑lock handling, scheduling and error recovery
+  media: mfc: Add VB2 decoder support
+  media: mfc: Add V4L2 decoder driver
+  media: mfc: Add QoS, Butler workqueue, and priority‑based scheduling
+  media: mfc: Add H264 decoder support
+  media: mfc: Add multi‑codec support & QoS improvements
+  media: mfc: Add H.264 encoder support with buffer and QoS improvements
+  media: mfc: Add encoder parameters, ROI & QoS support
+  media: mfc: Add encoder VB2 support to driver
+  media: mfc: Add encoder v4l2 driver interface
+  media: mfc: Add full encoder support
+  media: mfc: Add H.264 encoder support
+  media: mfc: Add AVC, VP8, VP9, and HEVC encoding support
+  media: mfc: Hardware‑accelerated encoding support
+
+ .../bindings/media/samsung,exynos-mfc.yaml    |   77 +
+ MAINTAINERS                                   |   10 +
+ .../dts/exynos/exynosautov920-evt2-mfc.dtsi   |  630 +++
+ .../arm64/boot/dts/exynos/exynosautov920.dtsi |    1 +
+ drivers/media/platform/samsung/Kconfig        |    7 +
+ drivers/media/platform/samsung/Makefile       |    1 +
+ .../media/platform/samsung/exynos-mfc/Kconfig |   34 +
+ .../platform/samsung/exynos-mfc/Makefile      |   26 +
+ .../samsung/exynos-mfc/base/mfc_buf.c         |  765 +++
+ .../samsung/exynos-mfc/base/mfc_buf.h         |   43 +
+ .../samsung/exynos-mfc/base/mfc_common.h      |  444 ++
+ .../samsung/exynos-mfc/base/mfc_data_struct.h | 2014 +++++++
+ .../samsung/exynos-mfc/base/mfc_debug.h       |  247 +
+ .../samsung/exynos-mfc/base/mfc_format.h      |  316 ++
+ .../samsung/exynos-mfc/base/mfc_macros.h      |   95 +
+ .../samsung/exynos-mfc/base/mfc_media.h       |  554 ++
+ .../samsung/exynos-mfc/base/mfc_mem.c         |  995 ++++
+ .../samsung/exynos-mfc/base/mfc_mem.h         |  155 +
+ .../samsung/exynos-mfc/base/mfc_qos.c         | 1070 ++++
+ .../samsung/exynos-mfc/base/mfc_qos.h         |   99 +
+ .../samsung/exynos-mfc/base/mfc_queue.c       |  966 ++++
+ .../samsung/exynos-mfc/base/mfc_queue.h       |  158 +
+ .../exynos-mfc/base/mfc_rate_calculate.c      |  640 +++
+ .../exynos-mfc/base/mfc_rate_calculate.h      |  106 +
+ .../samsung/exynos-mfc/base/mfc_regs.h        |   58 +
+ .../samsung/exynos-mfc/base/mfc_regs_mfc.h    | 1002 ++++
+ .../samsung/exynos-mfc/base/mfc_sched.h       |   30 +
+ .../samsung/exynos-mfc/base/mfc_utils.c       |  401 ++
+ .../samsung/exynos-mfc/base/mfc_utils.h       |  481 ++
+ .../media/platform/samsung/exynos-mfc/mfc.c   | 1366 +++++
+ .../platform/samsung/exynos-mfc/mfc_core.c    |  703 +++
+ .../samsung/exynos-mfc/mfc_core_buf_ctrl.c    |  543 ++
+ .../samsung/exynos-mfc/mfc_core_cmd.c         |  576 ++
+ .../samsung/exynos-mfc/mfc_core_cmd.h         |   41 +
+ .../samsung/exynos-mfc/mfc_core_enc_param.c   | 1463 ++++++
+ .../samsung/exynos-mfc/mfc_core_enc_param.h   |   23 +
+ .../samsung/exynos-mfc/mfc_core_hw_reg_api.c  |  122 +
+ .../samsung/exynos-mfc/mfc_core_hw_reg_api.h  |  144 +
+ .../samsung/exynos-mfc/mfc_core_hwlock.c      |  761 +++
+ .../samsung/exynos-mfc/mfc_core_hwlock.h      |   80 +
+ .../samsung/exynos-mfc/mfc_core_intlock.c     |   98 +
+ .../samsung/exynos-mfc/mfc_core_intlock.h     |   20 +
+ .../samsung/exynos-mfc/mfc_core_isr.c         | 2104 ++++++++
+ .../samsung/exynos-mfc/mfc_core_isr.h         |   25 +
+ .../samsung/exynos-mfc/mfc_core_ops.c         |  813 +++
+ .../samsung/exynos-mfc/mfc_core_ops.h         |   16 +
+ .../platform/samsung/exynos-mfc/mfc_core_pm.c |  209 +
+ .../platform/samsung/exynos-mfc/mfc_core_pm.h |   33 +
+ .../samsung/exynos-mfc/mfc_core_reg_api.c     |  597 +++
+ .../samsung/exynos-mfc/mfc_core_reg_api.h     |  380 ++
+ .../samsung/exynos-mfc/mfc_core_run.c         |  541 ++
+ .../samsung/exynos-mfc/mfc_core_run.h         |   35 +
+ .../samsung/exynos-mfc/mfc_core_sched_prio.c  |  431 ++
+ .../samsung/exynos-mfc/mfc_core_sync.c        |  423 ++
+ .../samsung/exynos-mfc/mfc_core_sync.h        |   34 +
+ .../samsung/exynos-mfc/mfc_ctx_ctrl.c         | 1469 ++++++
+ .../platform/samsung/exynos-mfc/mfc_debugfs.c |  248 +
+ .../platform/samsung/exynos-mfc/mfc_debugfs.h |   20 +
+ .../samsung/exynos-mfc/mfc_dec_v4l2.c         | 1739 +++++++
+ .../samsung/exynos-mfc/mfc_dec_v4l2.h         |   20 +
+ .../platform/samsung/exynos-mfc/mfc_dec_vb2.c |  394 ++
+ .../platform/samsung/exynos-mfc/mfc_dec_vb2.h |   19 +
+ .../samsung/exynos-mfc/mfc_enc_v4l2.c         | 4614 +++++++++++++++++
+ .../samsung/exynos-mfc/mfc_enc_v4l2.h         |   20 +
+ .../platform/samsung/exynos-mfc/mfc_enc_vb2.c |  443 ++
+ .../platform/samsung/exynos-mfc/mfc_enc_vb2.h |   19 +
+ .../platform/samsung/exynos-mfc/mfc_rm.c      | 2652 ++++++++++
+ .../platform/samsung/exynos-mfc/mfc_rm.h      |  110 +
+ 68 files changed, 34773 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/media/samsung,exynos-mfc.yaml
+ create mode 100644 arch/arm64/boot/dts/exynos/exynosautov920-evt2-mfc.dtsi
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/Kconfig
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/Makefile
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_buf.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_buf.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_common.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_data_struct.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_debug.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_format.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_macros.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_media.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_mem.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_mem.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_qos.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_qos.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_queue.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_queue.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_rate_calculate.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_rate_calculate.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_regs.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_regs_mfc.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_sched.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_utils.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_utils.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_buf_ctrl.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_cmd.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_cmd.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_enc_param.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_enc_param.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_hw_reg_api.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_hw_reg_api.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_hwlock.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_hwlock.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_intlock.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_intlock.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_isr.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_isr.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_ops.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_ops.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_pm.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_pm.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_reg_api.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_reg_api.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_run.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_run.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_sched_prio.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_sync.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_sync.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_ctx_ctrl.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_debugfs.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_debugfs.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_dec_v4l2.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_dec_v4l2.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_dec_vb2.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_dec_vb2.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_enc_v4l2.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_enc_v4l2.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_enc_vb2.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_enc_vb2.h
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_rm.c
+ create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_rm.h
+
+-- 
+2.34.1
+
 
