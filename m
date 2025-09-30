@@ -4,173 +4,152 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9A81CAC5B9
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 02:08:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8DFE3CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 02:17:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t5YCV8WDuazodVawUS9VflF2Wb3gjBXW8hkwYpPr+Os=; b=EcNA/1PmZ6hjyGFrTv3DpLSdo7
-	e+li1AoKwr+QhjSkBljFi3Yh6N1xnq34lCSi3TtZpYIAJh679t9g5i1cRz/fj61gyn6oMK8vh4pvU
-	hfONgyJZEeyTPMURA+BFwLRynP/VTiB9GJu1fOQJrIA0L8ssL+bd1UOM5gcey6IVZpx9aP6PJ2uWu
-	ikZq35sSMHWcHWmiYxEFKBqTdtjEbmwZZxC6YD+889KfmsTODAjkbkVM95uWdC4Iv3E9xkluRlHoQ
-	pDO2HdppeTnOGhERPADV7eqoflJGZ7Io0LSPxNpgoV9DI4MEDavAKscCvUsPVIpVWGlOe3LJ15oxS
-	wbDn3f4A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=xUhOWAa08Glx6xO2OUXI26vY6N49eimIvug0g7tdt6E=; b=cLyub4uBe2HDjYin2VEebA21az
+	+RYWECpMc84qP46i5dcoON/b1GEwRHdbA1iownjFb+RgaKKsC+XgC8oqQBMkXKlWBCAOW4hHcJZ+6
+	K8QUkhLRNws89O2uJFDMDY/7ujloaFMZsCyeI9Zw/lEJu6uW8p+7Y8Fgy7AUWsW+j/oe8DaVPpVOg
+	zpnUBbNj2d0qznS3BKmcRA7Efn8D8NGu5iMKeFZB9Iorba6lRmo1uqskJVfb/L1AU8r2YoUGvuOL8
+	ZLzyFdshiLjBhSSjBAUhdnVZMahPNC+hgHWZzOApDF9iwHN1iHwsO0Fcg5IJNliuS3Vu7vQUcwePm
+	nlo/MKjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Pmb-00000003rNQ-33Nb;
-	Tue, 30 Sep 2025 02:08:01 +0000
-Received: from mail-koreacentralazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c40f::6] helo=SEYPR02CU001.outbound.protection.outlook.com)
+	id 1v3Pve-00000003sBf-36Ja;
+	Tue, 30 Sep 2025 02:17:22 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3PmY-00000003rLM-3don;
-	Tue, 30 Sep 2025 02:08:00 +0000
+	id 1v3Pvb-00000003s9R-0khQ;
+	Tue, 30 Sep 2025 02:17:21 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=wdcEfgc4efJuWNunMsGXMMB9vuc0gBSGYHA8ko+epAFh38UzoaZ36un9ym9wKdKLkpGAKT9jflVB3wk+Eg+PbTZ+FKgEWKWXRrYCXQmKPPH6MyWISW/D5tY9xVzr/vT8JibgqMEXzU3fzDsI5ib4HxyL6zlAXPsBpMbt3YtecbJKiGUWDiXsks5ihzBXW2AIEmsFD0Ytzc2hHZn+pMmFEaVNrCi5M1/hc4Ya0SHU40X8XenMiSWZihUXJAYPfkyUzKP494XDoOdVCxHBkpx167y73+hnglXwWrLIemvaDQRFNONHewboU01DaIvwCAHXR/F90voqX6Qr7YVFTKcbiQ==
+ b=avImByO7GTxHNBYXtjxcK6C/0jc7/SZH/d2Yj/LqEa+6n76ZFiA1Gg99PbPfLW13clan+Cz8l7vS5x9MzyCPZ9IBewYeZOapOgVamvoIexzPvYIbCKAvyH++B5c7cOREE/gqpWj8MvBY/yGEPlBCXc+Wx1UiXP+PkjMDn6nG1RE5YwYSdPksw04LDEf4sOKvRFot0076xPm0p6TG2FPLkhdFft6DUOwBwTpmBVk5NeVxY7ynvB2x6Pc0y0Pv9lnL3WiVLqV08nLsXhlnPHgITWCYk9uNM3N1bFCVXCYwLTzo933OtBeugHs+OHUwJYSsjqKKkt+OsLNK9MCx5fIu9g==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=t5YCV8WDuazodVawUS9VflF2Wb3gjBXW8hkwYpPr+Os=;
- b=ZTK74URVL5+BxtJR8k+f1jgi6uruQLyFLXFvnW5lMnuP7ZAjZ/u+EP45dX7YldtF2wqvIvrlFdU82HRj8mp2j41r7F281ocihAeQPg3nliOiJv6mQdm9+ARWkkqBIsycY1FUdPRacnKCu5RV4t11Mao2TTiKVGSdKaqfKzwHtwJmsf8jzlgd2VG/x4tw1M1qiJZazxQaUQd18EQmcqniSWF9A3snZAEdK49BY2BLHfNR7LEfA+nP6EVXT3E819hBWQuEtG19peOrTQS6TZHCbB8vbSQ8Ey0LIZfP5BZTC2O3F0yBnGUH7nHirThaKgilEXNEQ4SdpxypuIaKdRg9Wg==
+ bh=xUhOWAa08Glx6xO2OUXI26vY6N49eimIvug0g7tdt6E=;
+ b=xeOOqHwPyzD4TgHq3lrf7+4xOYgeMfvOAMsiL3RQpwzbPBhEzdyrjaxq7OyvBOHnh7C4pjPVlvg13wStNcSORJRJCBCv8eiEt5fazymOSXEPe8ruefnSyp++9Q1puahgiI9CceB7v6zMdE76aFm75XxTGAuf6E2ciY3WaXJ4qtjRf9MYavjd3s2kBoUfnJcbn3VXKwSjYobYqM9UW9R77hvZTx420sdgnxxmSk8cGb75tukNyCo4bpEzg9T9Hx9/jEM9yJ0gPSnqyaUHjTVjur8eS81Gu8X6GARb0he1SZ9KpHWGR8+casACyLcMb/IwSBh672GwNpZVm0ptFVlXhg==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amlogic.com; dmarc=pass action=none header.from=amlogic.com;
- dkim=pass header.d=amlogic.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amlogic.com;
+ smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
+ dkim=pass header.d=iopsys.eu; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
  s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=t5YCV8WDuazodVawUS9VflF2Wb3gjBXW8hkwYpPr+Os=;
- b=tq/DYov8J96X7lyIbqu3ThfqoiWI+JA0Skv3AhDFq3yYefXIIuROAbaGD0c+WjKf1LzuXwALXSuMNvq+dyxs4XMnAo6x79UOW6tBH5Wi330D86QimocGUCWhIIDiLgv3YYlm0wzpPGTQdZiN7oIpwoGmiS4sbpbcu5Y7KRWGpi7dEDIS/JF4r8VmTx8MgKfChs9+d6dmJv5ujtyWmIay7ZLNw6MZlLsLgC7eoj+TvueB6VO/GzSkdECCnbNOEBwaCzOyR3ozKnPyJNRcQWqVH3/sgRRoTQ1UDjYmkgCT1BDsFYZiPEe6Ec6JbQzYdZGuzbwrE5/x4tEQMXWQmZ8amw==
+ bh=xUhOWAa08Glx6xO2OUXI26vY6N49eimIvug0g7tdt6E=;
+ b=Mw15W6Ro/vVQbaYltS2VOQ39I+b7n/sC1cwtCa9cjTtXkcOyT+lqFSZQiAQxV/gsBnkTdEV4t4lV8w4x6tI9fwxEHrthRUtffwUshTCcD3/4yM91GR8SM6LTW7ZBAdGTrGv5D0SrvjQB/mqvKMok2MbJ/RNw03jJpN+wvnZigkPtYSrEMhQV49t3aMpTYWOqu30832ZzyIOnZ1M5hEEeH2Uifrd7D3YaaskojpTTWHln5l7NaUcLHgDfjon4JFkihzqjW2lJ7nXxltY8ojNjkMcjIr3k8IgY55J7FZDHm7KBwvvCLg6zZkbnkxvhLA1/irVkYhZfnaFP2m1jG5lpUw==
 Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amlogic.com;
-Received: from KL1PR03MB5778.apcprd03.prod.outlook.com (2603:1096:820:6d::13)
- by SEYPR03MB8741.apcprd03.prod.outlook.com (2603:1096:101:20e::9) with
+ header.d=none;dmarc=none action=none header.from=iopsys.eu;
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
+ by AS2PR08MB9104.eurprd08.prod.outlook.com (2603:10a6:20b:5fe::10) with
  Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.14; Tue, 30 Sep
- 2025 02:07:41 +0000
-Received: from KL1PR03MB5778.apcprd03.prod.outlook.com
- ([fe80::e1e:5c95:a889:828e]) by KL1PR03MB5778.apcprd03.prod.outlook.com
- ([fe80::e1e:5c95:a889:828e%5]) with mapi id 15.20.9160.015; Tue, 30 Sep 2025
- 02:07:41 +0000
-Message-ID: <1d450be2-bbde-4547-be6c-c7ae1605cc28@amlogic.com>
-Date: Tue, 30 Sep 2025 10:07:07 +0800
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/2] clk: meson: Fix glitch free mux related issues
-To: Jerome Brunet <jbrunet@baylibre.com>
-Cc: Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>, linux-clk@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-amlogic@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org
-References: <20240929-fix_glitch_free-v1-0-22f9c36b7edf@amlogic.com>
- <20240929-fix_glitch_free-v1-2-22f9c36b7edf@amlogic.com>
- <CAFBinCBd5-s6vaBoJNerXavQiHgsv4Fm3v0svUX7geL=kJvVYg@mail.gmail.com>
- <20178015-4075-40e9-bbf4-20ae558c2bef@amlogic.com>
- <1jldyzrv2t.fsf@starbuckisacylon.baylibre.com>
- <e70e9aaa-f448-4f67-9149-cb5970c9bbd6@amlogic.com>
- <9834c7c5-9334-4c78-a2fe-588ff03cf935@amlogic.com>
- <CAFBinCCoX5+6+KQAtbhKx9KdSZhXVxS=cz8DfMVhjPX1c0iSPw@mail.gmail.com>
- <eee93d9d-2977-449d-8792-b2416f0c09ad@amlogic.com>
- <1ja52d5tbr.fsf@starbuckisacylon.baylibre.com>
-From: Chuan Liu <chuan.liu@amlogic.com>
-In-Reply-To: <1ja52d5tbr.fsf@starbuckisacylon.baylibre.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.17; Tue, 30 Sep
+ 2025 02:17:04 +0000
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0%3]) with mapi id 15.20.9160.015; Tue, 30 Sep 2025
+ 02:17:03 +0000
+From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Cc: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
+	Frank Wunderlich <frank-w@public-files.de>
+Subject: [PATCH RESEND v4] arm64: dts: mediatek: mt7986-bpi-r3: Change fan PWM value for mid speed
+Date: Tue, 30 Sep 2025 05:16:56 +0300
+Message-ID: <20250930021656.1394942-1-mikhail.kshevetskiy@iopsys.eu>
+X-Mailer: git-send-email 2.51.0
 Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: SI2PR06CA0004.apcprd06.prod.outlook.com
- (2603:1096:4:186::20) To KL1PR03MB5778.apcprd03.prod.outlook.com
- (2603:1096:820:6d::13)
+Content-Type: text/plain
+X-ClientProxiedBy: GVZP280CA0083.SWEP280.PROD.OUTLOOK.COM
+ (2603:10a6:150:274::16) To GV2PR08MB8121.eurprd08.prod.outlook.com
+ (2603:10a6:150:7d::22)
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: KL1PR03MB5778:EE_|SEYPR03MB8741:EE_
-X-MS-Office365-Filtering-Correlation-Id: 2b4f04cd-1e21-4632-aece-08ddffc622e9
+X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|AS2PR08MB9104:EE_
+X-MS-Office365-Filtering-Correlation-Id: b7d56f1e-5409-4c30-0bcc-08ddffc7721b
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?R09JUFFmUDBvaXpiZyt6Zk9qRnVwV0NZODN2SEJ4TkI1VHFtWWlQWmdsRXgw?=
- =?utf-8?B?MWlmZWhLdkcxWWxXWVZjc2tWNjQvNlpiVGVueTNaTlNiWTN3Y2d4eXgvUzJR?=
- =?utf-8?B?U2tFTmN0b0dXYVUyOXJvTXJSYyswYjZJU3pmdGkzS244SjFYS0w4T2RmS2t6?=
- =?utf-8?B?aHp0cnQyQnFGcWx2S1EwN3hZSVFxbjNKU1ExZUFvOFBqYjB3aVh3a2pXdU1Q?=
- =?utf-8?B?cGxJdWNhOS9JTS9KVkZ2L3h0UTR3TExGVTdGUThrMXBCWTU0TkxyQW9TT05j?=
- =?utf-8?B?Tk1ieFBsUUVnNjZ2KzZVcHVhVDdSb0wvTFZRWHNVbk5IcGhKeUQzMXZRUFBW?=
- =?utf-8?B?R1AzamJHaDl4SzNxUDFKRG9ra09TMTJxbVBJY0E0NW1xVE5YaHdrNW95elY0?=
- =?utf-8?B?YlltVE8ycTlHaUhBdjlKRGhYTmw2dlZudENWb1ExY3cxVFVaRHVRZm14VWts?=
- =?utf-8?B?RVh3TjdSd3ZCTStteXB0enpJTlVsM0phMkQxWGRlS2l1anVMQlBTR3dvaVc1?=
- =?utf-8?B?cEU4QUYwNWJxUUh0MHhiODU4YmhiQ2tod0ptbDc3dkJxVTlzUHJpcE9ua3B2?=
- =?utf-8?B?WDMzWnNXV3pPMThQTFZMNitvclJpcWw5TjVtNzRtV1puL2svZjI4dCt6OFpN?=
- =?utf-8?B?L3lJdjl2Ny9DQUVaOGt4cjFBenp3dEp2UUZLWGZaQmk0a2hQeW0wMS9aWnlK?=
- =?utf-8?B?ZVJKZFFFVzRLRmdCSS8zc3grRVEwdW9nVWZhZFY5Y0hhamt4Q2doaS95MFIy?=
- =?utf-8?B?SnpWNWVqUEFsNzZzeGkwbnFtblhUKzh2QUhMNm9qV0tpdHpwNUNzM2kxZmIr?=
- =?utf-8?B?aXowWVZ2b0E5WjNSZERBT3BGU1gyVkhYcm5kMTVMQ2czWnhVNnk3TDNEc0dL?=
- =?utf-8?B?Z0M4NFQxNis2bk9qS3AxeGxHR0NDSExoOStTYVB6NkdjeU16RkVXYWYrNWk5?=
- =?utf-8?B?RVFPR1VYY0J6QXZDWGhvbTB6R1JUT2JRTWJGNWVMQlR5UXFGdWRybGVFQjZM?=
- =?utf-8?B?V1plRVlaOCtwT3hFY25xY2M3dytlY28xZ2VTNVlYOGxMR2F3RnRRZTlveW1h?=
- =?utf-8?B?R043Wk5GUGpPNlUrWlhBMTJJbHh5TTl6a0tEVmpYOGQycjJLbS9PMklHekZu?=
- =?utf-8?B?UmVYQjM4U1FkNHdRdTk4NWRZcit5Rkkrb3lmeXQ2WktyVWFINU5qT1VyQnV3?=
- =?utf-8?B?MEFQa3l6eUxLa3hBQlZQekdmRmwwa0ovdXRydkFuYUE4UVhIVzFJWXEwc2VY?=
- =?utf-8?B?T2oyQzA5d3VCVmxDbkxtK2piVUkrQkp5akdTOUZSdnpVSzVZenZ5THJEMC9a?=
- =?utf-8?B?VDE4Zlh4UzV6V0U1ZXg0cllFdVpqZmE3UmVJOHJHK1dJQ1pieVJoY3FYT0JQ?=
- =?utf-8?B?Zm9zNHJnZTRUNG9VZktDcno0dzRKdHVQRG8rMXMrQXYxZUdzNDJhZGJ6V3hC?=
- =?utf-8?B?UENwOUxOVlZRZGwzYVBJV0hhcGFFb1ZqM0VTOEtYUFVRNXJNUStOMXArbHVY?=
- =?utf-8?B?MEpYWEwzRUJHVGZJdXFhTkV1TDE2amd4d1JVamE5UjEzQ1poUVZoOHpqN1ln?=
- =?utf-8?B?cWxBYkZQTVAvckIwVUZ4L0ZhaklETWU4ckNJWHhvTHFoK0hlMVZsTGJNaUVZ?=
- =?utf-8?B?V2I0RlNkMk11VmRFRjNsVFNuc01uS1o0c09jR1RoU0JGTHBkUU1UaWZ3RTlU?=
- =?utf-8?B?UDJ6WVY0Q293MFQwUmhvQ2tjUHRNZHY3dUZPemd5aWhNajVNN3JjYzlrTno5?=
- =?utf-8?B?OTlYOVMyQTVUVzNhbmpmYUdUZFRWd2NSbzQ4WFZSQzJrTEpOZzZwVm12WVNP?=
- =?utf-8?B?MFJ6TDcrU3ZyaWJlQ0Q1UFFNZCtGWWt6c3R3SDYweVM4Q2VnNTdCQndPbWoz?=
- =?utf-8?B?VnhrRGxvZERXVzlQSzJuQldIOFdmWUN0aGs0SmNtQXhhSVE9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:KL1PR03MB5778.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016);DIR:OUT;SFP:1102;
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|52116014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?DQQ3zkTzVcHEHyW8htz+srOjCsk2l4d3/MmmYn3lhFNnz7DIxQyJ29AEfIYm?=
+ =?us-ascii?Q?YcU7sqQdyZXhajphUdGVf00ev4TrOgEID37O/DEqpqCfGeXtF0eybWH7sXeN?=
+ =?us-ascii?Q?LA1yNa3OnamZ9cPmzaOJHTxBtDsqGjlON/ZoTzgj0/o5fjnWU2088pl6ah0v?=
+ =?us-ascii?Q?YnwEbTgaLRMpaS3ZnKPqv1wQ/DDPyRM5n3iJLkrzoF8qLkoEIGEEmghJpIoU?=
+ =?us-ascii?Q?vejSMf+Z6FGZjeTv/Q2ufJtP0FI0Vm+iSxIw85aQxXO8748Q3fdTlfGubfi2?=
+ =?us-ascii?Q?2chue0h2+8hmrQwt91D7fgWz8asjB12bR+jIp8O6cmfwIzgxAGvWXp/qyJVr?=
+ =?us-ascii?Q?RxGywzQRiGBrClvT0taADCI2/mnWZUQ1QPuEGSYGOuy0p1alupmIWbERlm8Z?=
+ =?us-ascii?Q?6qsX9c33GCCcULgLQzNVUqiK0ib+C0Pmv4nPaKvMLrE8LYOdt1HWEy9ou3wc?=
+ =?us-ascii?Q?b31wkdK5C3Sb5iNT5tXMWQtdx+w9KDuDIf8N7anoF+PeQCj+qN8kti5dCnoF?=
+ =?us-ascii?Q?7DveYeSfS5EXFQrf5/qTEMkWBitEUT8wNRqYYSTNifQPLTYpOmvFAC6KPVqq?=
+ =?us-ascii?Q?uxPBw5GVPtI3qt7TIJTJ8BL5+G4y+madN5PYLMZOmCxxr7p1j9X3FIUo672w?=
+ =?us-ascii?Q?WvA6CU182gGLs0ohval570bxvePoOD+0+M2N79IjLrsLhPWkP2EBAFZMzp78?=
+ =?us-ascii?Q?gwa+Mv6tCKEnA5t+t9I/XbGPznRcc7/44Bmt26PfjpI36VBX6b+zlD9ddaqO?=
+ =?us-ascii?Q?a6W8BQQqrPGUPAW/73IVg9R2pI4AdKzzKiKzYtfnNXu/mUzkI8fGmUpTrNe9?=
+ =?us-ascii?Q?TjCMgmMNUDva8N3WUD9s/TWvTVmIsbT4OeaV6dmFBHZGgDB0OpRf7iOvpsth?=
+ =?us-ascii?Q?HVgzB62qY63+E40S7SLNfSWFcS4AS7kvqtM+q5p3nO6TM10+uoZkOk1cDT1H?=
+ =?us-ascii?Q?jv7iZlrxq5AljVMfPZ5g8bs+Iy9DBgri4KTnRA5Cr5WjkruUI4Il1zQHUFaD?=
+ =?us-ascii?Q?yKWVXX+4WUWgU7bi3hut/RfpEq4a/uGbdbZakAkVYAfQlDNhaB9YdWW/5qFZ?=
+ =?us-ascii?Q?lNU0nwoPDk/d3G+skoJlBXjxnk83gtTfwRzQQlXMLOpueq0/H6tec+c8Rz5n?=
+ =?us-ascii?Q?2A+nqd1/4dCRL6QmlR1m1u692Lre4SaMp4giYLzB27BjDn3L8keXS29+KSdW?=
+ =?us-ascii?Q?lCf+R3CKzJS0KCaFSkjzpirJCHktZGMDZsknW86+m9lTEMJAhhF93ubJPdqj?=
+ =?us-ascii?Q?AuXQLlMHxZwcj/v9U9orWcmKTiNgnR1a7ia8WQgMfSBtr1FwCSYryDkd7tik?=
+ =?us-ascii?Q?sGQ+S2EidF39J1AAqcyWO3u1+84tazmz42gji7W5lBUckiEKZ0NMqQK7Co56?=
+ =?us-ascii?Q?oCNAkOe3NguvHxqxNFoXjFJy0IORI9bfqBxl6o9i1VHPfs14yKt3b3f+6UGF?=
+ =?us-ascii?Q?CJJUmh4KEFOxm66d1mLlnIlOcKuAt6SY2ifq03p95IA4dLb44jnQRyLHzh3j?=
+ =?us-ascii?Q?+TobKv10Qhnejfy2vABB26p4/HEZ0LnHOKHI?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(52116014)(38350700014);DIR:OUT;SFP:1102;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NmM0Zi9NbVZPNTdMbm5NVC9xNXQvd2NBa2dqNVdONTVaVC9KaFBuMVNIbFNJ?=
- =?utf-8?B?ODhNMll2ejdVdWZyd25IUFpJMW1uVWV4N2FpK2gvWDBZa0xHNDgrUyt3cTBZ?=
- =?utf-8?B?VjA3MzZ2V013ZkVVWmxXVk1PbUhTMkVpMlhzUVlNQ1JpeFJPUWM0bEEveTdL?=
- =?utf-8?B?Z3ViQzNGNmd1V09pN1gwdVVnZ3ZobWZNWXRINlo4THBoTDd5SWU1dDhHZE9M?=
- =?utf-8?B?aGRKVk0zZDJIWFJNQkE3dDdSQm50Rk54VUJtK011c0R3Z0U3dmpyNUZOdm5C?=
- =?utf-8?B?RXByZ3d3TXM3M0taeUE3ZmVRS3RWNTZQYzlMc3hyMWxZV0dDTDhFclNBQ3N4?=
- =?utf-8?B?Q3BRL1Iwa1B5Wmt6aFVhcUl6aGkrNitPdnB3NklxZVZadm5YOXQyOURaNFpS?=
- =?utf-8?B?QlV4aW0vR2MrSFlnWk5pR250WkZvcWJ2cy91Vm1KYmRIK2Y2TjdGTjFqK0Rn?=
- =?utf-8?B?T3BhU0ZoemdHeU5sYkFvK3VTcDU2ZUhpU0Q1WG1tcFQ0bm1NOStNeFMxbmRP?=
- =?utf-8?B?ZEtzWXAyQ3dHYXZvTzNKeTVOYlhkWUVGL2FZWFBocDZsVzVYSFc5Mm54Z3c1?=
- =?utf-8?B?amp0cjlkMjBvUjJGbmFtNmlTTGRJeDhTVnRIdTE2Z1ZnZDRqSWMwV0dZSmNE?=
- =?utf-8?B?Q0Vja2ErNVpYZ0ZmaklvTmFtdlhRWjNwWm5PcFkzL2xLZ1NmY2pJWVlQaEZ3?=
- =?utf-8?B?OGdWM2QwMVJDMVVuT0ZOKzNrcTkrOGdSV1JLYjBuRDJReU5jbEljOWozNHBQ?=
- =?utf-8?B?cytRaXZoOVJkYTFtRWM1M1A3bWs2LzVkeis2dHp0Y0QzcXdxNjhGcktmMXIz?=
- =?utf-8?B?YUNtTUdtUi9wdFBtSHhUWEc4VGVXNWFrQkpkeUQ0Y0pmZS9pN2dJRzByYm9P?=
- =?utf-8?B?c3AveWszZkJ1a2pPSlJ2UEloa051STFZL1VvK2kvajlDWXhYZU1SSE0xOW1i?=
- =?utf-8?B?M3ZFQTBoRmYrZXBtaDNzNDA1ckwzMFdoK01sK3hITnNkL0EzdGtpeFZUcFJs?=
- =?utf-8?B?VEhjTEdncC9scGQzNXdoTVZ2cEh0V1NIN3VuTHlSOG94NFJRY3lGTTBHemRt?=
- =?utf-8?B?N3JnL2VYU1pEQ3JsbG1RRFlNZDJtL0YxMTJZNDB5VlZPKy85Q0VTbmd6M0t6?=
- =?utf-8?B?ckhDbWFKZCs2c0hmaWs4U3BSbU1tTmpRemw0WXhJM2NoK2FxMFo0d3BKTE9w?=
- =?utf-8?B?azFsRzg1SnlvT2tKS2Zhb2pkZG96RFRBNThQMHhVVjVzM1NGQWVNK3BFbnlE?=
- =?utf-8?B?Qk0vanFNZ1JPT1ZhSDUrSDFrbDUva2pMMFdZZlFmdFBvdzJad3RFZC9JS0xL?=
- =?utf-8?B?b0k3UktXc01Nbzg5UkhUM2JBbTFBem9wUTE1TzE4bjNwL1FWaDdIMUtUdlJO?=
- =?utf-8?B?STFrYVBONmVxMTgwVGFyUk1oeGxKY2oyYXVuWHhrUy9wanJLcElkMzk5QmQv?=
- =?utf-8?B?cHYyR2tGS0xHS2YxV3liQ3lBM3RxdnJhbWxkZFUvSVFUdlBlVEljUC9IY1Zr?=
- =?utf-8?B?RDlURGptNUFvL3ZQM2FIZDQyTFAyYndmVTA3dlAvSVp4VEh5aEdwaVdPUUxO?=
- =?utf-8?B?VitTcEJLZTFEUHFhUHJhWWhOdHFGNGhmUHhXQ3p1RXlNdmNuSEUxby9EQ2Vh?=
- =?utf-8?B?bll6ak52TjdoWE45U3lQa1F6UVFqL0FFQ1Q4aVE5c1h0QmFONXdSMEJxZmNK?=
- =?utf-8?B?Rk9KQVVHSk9MQXNPZHZFWWhYWmc1a1RVNHU0TUROSTEvYW03RmpJajBhcWZT?=
- =?utf-8?B?WmV4S2UvZnAxWlJQSGtSVi82cW9MMlFhSXJPTWRDaUtZR29NOHoxL1g3RWJz?=
- =?utf-8?B?SFEzU3ZmL016OStCb2FqaEJ1TmhzNks4VXBOQ1RXTXBiUXhNcE42VWVQQ3Ux?=
- =?utf-8?B?RVR4bEp5ZWc0TUJ6TWtQeWZwckMzdDZld1ZPNzJ3YUpCeVNjWmdiSEtPTmdK?=
- =?utf-8?B?R2pHN3NhUzBDZ20yOTQvWnQ1TnhLeEJhR1VYcDF3bjgwdkdrclMwU0VuRGJE?=
- =?utf-8?B?VHFjdGh0djZXVmQ4dXBxdzZTSngwcTFER3h2WmtlQTFmZW12WGxhRzdNb1Rq?=
- =?utf-8?B?RFErYzgwNzVtRktzZ2IrcXgxWUtBZ2NoRWNvWERGcGpOWElKei9NMUZmTW5W?=
- =?utf-8?Q?MrLDiPb4U88/1JSuo6kXoywM1?=
-X-OriginatorOrg: amlogic.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 2b4f04cd-1e21-4632-aece-08ddffc622e9
-X-MS-Exchange-CrossTenant-AuthSource: KL1PR03MB5778.apcprd03.prod.outlook.com
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?GpoWKaTHxSCIIA3wDO/XGCQbXRYl6u7vDmPdnAbBcLOG9CEBL5PdkS6GxMS/?=
+ =?us-ascii?Q?Zp7D8fN4+kIBHOAN0TtcFq5K38z6ZI2T5YQ5TvcC63znpqfInbUKQMRCRf/h?=
+ =?us-ascii?Q?Zrc/6JPMdpwlcu9VbVNAPazN1rUtIqlxhZErncu4JkBU9xT7trvZTGDx3Iep?=
+ =?us-ascii?Q?kkx6eZtgolVh/s6aO/g/wB8hYzJ6ILatL3DuctGgL3vjoEaMxjEhJnfjYnxV?=
+ =?us-ascii?Q?AMTW7A9jLNIsmoyMe/cGLG1j5Z/idhm6dJAqrlq1Z5cB3zY110Jkaxu9Zv9V?=
+ =?us-ascii?Q?oEMIQp/Qu0QCi4x1yr78Kxjny51M17k/huKc4is9rRYVIv3lnRJWgNceLyDM?=
+ =?us-ascii?Q?ra5gvUvGjBsQNndxGrpC0rZMclkflylJHdFAJFJuMs3EiBDiD4i7XM8slugx?=
+ =?us-ascii?Q?haB2deLnBaN3JK6iJP2I0HM17tXoxJLflnTagJq27PM43T55lNJxoM9SVJQi?=
+ =?us-ascii?Q?/We8BGs+BRdqV42Y3aysvRFTqG31qAMLX9Cd3tLpIkBh9gqYv4tjWSusZ+Hu?=
+ =?us-ascii?Q?Qfrb2sTbxPeyvddkWvGJP607vtMPmz8A3zdwrB97t7R5Xi2LG8DKU9K9pv4j?=
+ =?us-ascii?Q?vazOPe3pabovsmdinLrd/2KIW04AsOpKgjeo5b3iugxwKHhA1yPf8dI1fKzb?=
+ =?us-ascii?Q?c7cevJgXaXEWXba9dUxW9ZIsvu42k850DSktDZVc9PPDAcUHC0/S33hR+PMy?=
+ =?us-ascii?Q?GPEpU7F9avUrlkZ7A97zLSWZuBUAAY18Nn/WNtNRHtAb5/GfCVgWK5Ex6CI2?=
+ =?us-ascii?Q?iDiHO9DGcUUojuqBaMFpvhQoCpqvxYHE8yr2BI4w4FrZgOdlIneJyctADaLo?=
+ =?us-ascii?Q?aiwlmMYFcPIPhxseJTENan9g0B0LpyyN1CDFr3WhJVdIjnqjrNltZ1XWglsm?=
+ =?us-ascii?Q?9W0+ZB324nJQJG1UVeCvyyKtS94c8lORTJo0E4zOVuPK9Fc5VWvf7OHj9sMo?=
+ =?us-ascii?Q?iP5OQXHAr2jU3BsMohu+Nfqlc/6E2AgVeD6+EOnlq3l+kAWC4uY8uqjao7le?=
+ =?us-ascii?Q?CuNSHfs8/NezmjsQ2JAvEY3LqxrrKG0g9g6iqGYWLYJWKnuQGM1hKk0JjAD0?=
+ =?us-ascii?Q?gEpB7h4V43NEy9AcJloZJJlQlCfbX1QotX6gWIdzhBA8/gJANsY1u+tDf3VP?=
+ =?us-ascii?Q?iJeY//Fap9G/xeH/PrO8XkIMiJtHJdJOsRJjEOs/djRhIZD873Qf7NTvYCHd?=
+ =?us-ascii?Q?xIhihyKSxisHKPD1GoUJaNa7+iqx8Q9UOwKG+AAWfVC511nFQAlP9Ve/Gn4G?=
+ =?us-ascii?Q?viJT0UJg91Dzb2PkOO5wZPpfdxXtjHgZSg4MQ4qx5zVGdhPnOZguHJRLBe9f?=
+ =?us-ascii?Q?tRB42+uen5vXix3+L87E5AcF4hO6HLo/Tgz3oZevTQlZE9je+3U2be3Q1eNL?=
+ =?us-ascii?Q?YQIBaq/igXJup9k+EAkmVVBDj0kpuaNIbBkQIphuTwBtm3hZI9m34q6kb5L2?=
+ =?us-ascii?Q?3FYutpWPr8/kzpxV7QC1EL9J+wmU7vUXE/J4n6r5bVvbcXo6RmTvqPbPFEUu?=
+ =?us-ascii?Q?cKfCtCLrrdS3yXucKtH+trSrv4x+2EIQJr8rvV/rGCKCeRf1MafTLoyj7Qi+?=
+ =?us-ascii?Q?PEaxo1hhTZPSMdyl+CKxOl+RlUGXpKw8tgCvg19i3+cYB+Db1z/Higu9S7HY?=
+ =?us-ascii?Q?jhcImp4rutg1EhS6TEp5JUg=3D?=
+X-OriginatorOrg: iopsys.eu
+X-MS-Exchange-CrossTenant-Network-Message-Id: b7d56f1e-5409-4c30-0bcc-08ddffc7721b
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2025 02:07:41.2647
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2025 02:17:03.7140
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 0df2add9-25ca-4b3a-acb4-c99ddf0b1114
+X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: vu3K1AGMS8roBT0bLTD27OQjEjIELzy01FmNKZIh01uvhyGeUQ7I7y4UHeCdD0XGiaz+QSSZkoozP1AMT8WjGw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SEYPR03MB8741
+X-MS-Exchange-CrossTenant-UserPrincipalName: WKPmmAZDuBwljT1J9zzk/ZcT7s5/pisX+5N59xc/Rx609HEE75H5+0Uyh9v504G7MMVDPGy5+aA8BhFi6GoT96bHnmn4kayJwYM4Knxw8zU=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS2PR08MB9104
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_190759_052778_7C98F652 
-X-CRM114-Status: GOOD (  32.76  )
+X-CRM114-CacheID: sfid-20250929_191719_232219_B53952FB 
+X-CRM114-Status: GOOD (  15.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,120 +164,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Popular cheap PWM fans for this machine, like the ones coming in
+heatsink+fan combos will not work properly at the currently defined
+medium speed. Trying different pwm setting using a command
 
-On 9/29/2025 8:36 PM, Jerome Brunet wrote:
-> [ EXTERNAL EMAIL ]
->
-> On Mon 29 Sep 2025 at 11:15, Chuan Liu <chuan.liu@amlogic.com> wrote:
->
->> Hi Martin:
->>
->> Thanks for the detailed explanation.
->>
->>
->> On 9/29/2025 4:55 AM, Martin Blumenstingl wrote:
->>> [ EXTERNAL EMAIL ]
->>>
->>> Hello,
->>>
->>> On Sun, Sep 28, 2025 at 8:41 AM Chuan Liu <chuan.liu@amlogic.com> wrote:
->>>> On 9/28/2025 2:05 PM, Chuan Liu wrote:
->>>>> Hi Jerome & Martin:
->>>>>
->>>>> Sorry for the imprecise description of the glitch-free mux earlier.
->>>>>
->>>>> Recently, while troubleshooting a CPU hang issue caused by glitches,
->>>>> I realized there was a discrepancy from our previous understanding,
->>>>> so I'd like to clarify it here.
->>> [...]
->>>> An example of the clock waveform is shown below:
->>>>
->>>>
->>>>           __    __    __    __    __    __    __    __
->>>> ori:  ↑  |__↑  |__↑  |__↑  |__↑  |__↑  |__↑  |__↑  |__↑
->>>>                      ^
->>>>                      1 * cycle original channel.
->>>>           _   _   _   _   _   _   _   _   _   _   _   _
->>>> new:  ↑ |_↑ |_↑ |_↑ |_↑ |_↑ |_↑ |_↑ |_↑ |_↑ |_↑ |_↑ |_↑
->>>>                                          ^
->>>>                                          5 * cycles new channel.
->>>>           __    __                        _   _   _   _
->>>> out:  ↑  |__↑  |______________________↑ |_↑ |_↑ |_↑ |_↑
->>>>                 ^                        ^
->>>>                 start switching mux.     switch to new channel.
->>> Thank you for the detailed report!
->>> This is indeed problematic behavior. I guess the result is somewhat
->>> random: depending on load (power draw), silicon lottery (quality),
->>> temperature, voltage supply, ... - one may or may not see crashes
->>> caused by this.
->>
->> Yes, our glitch-free mux is designed to prevent glitches caused by
->> excessively short high or low levels in the clock output.
->>
->>
->>> Based on the previous discussion on this topic, my suggestion is to
->>> split the original patch:
->>> - one to add CLK_SET_RATE_GATE where needed (I think the meson8b.c
->>> driver already has this where needed) to actually enable the
->>> glitch-free mux behavior
->>> - another one with the CLK_OPS_PARENT_ENABLE change (meson8b.c would
->>> also need to be updated) to prevent the glitch-free mux from
->>> temporarily outputting an electrical low signal. Jerome also asked to
->>> document the behavior so we don't forget why we set this flag
->>>
->>> Both patches should get the proper "Fixes" tags.
->>> I think it would also be great if you could include the waveform
->>> example in at least the commit message as it helps understand the
->>> problem.
->>>
->>> Let's also give Jerome some time to comment before you send patches.
->>
->> A V2 version was submitted later with changes based on your suggestions.
->> Regarding the "Fixes" tag, Jerome had proposed some modifications.
->>
->> [PATCH v2 0/3] clk: Fix issues related to CLK_IGNORE_UNUSED failures and
->> amlogic glitch free mux - Chuan Liu via B4 Relay
->> <https://lore.kernel.org/all/20241111-fix_glitch_free-v2-0-0099fd9ad3e5@amlogic.com/>
->>
-> The comments I've provided on this still stands.
->
->> Adding CLK_OPS_PARENT_ENABLE causes the CLK_IGNORE_UNUSED configuration
->> of it's parent clocks on the chain to become ineffective, so this patch
->> depends on fixing that issue before it can proceed.
-> Unused clocks are NOT a configuration.
->
-> They are by-product of the bootloader. You cannot rely on them. If
-> anything depends on them, you have a(nother) problem to solve.
->
->>
->> Jerome and I have submitted patches to address the issue of
->> CLK_IGNORE_UNUSED becoming ineffective. I originally planned to wait
->> for progress on this patch and then incorporate Jerome's feedback before
->> sending the V3 version.
-> I've provided a suggestion but this something happening in clock core.
-> I suggest that you split this out of your series so things that need to
-> go through Stephen are not mixed with Amlogic stuff.
->
-> But again, you cannot rely on the state of clock just because it has
-> CLK_IGNORE_UNUSED:
->
-> * Nothing says it is enabled to begin with
-> * Nothing says it will stay on if a consumer comes and goes
-> * ... and yes, it does not survive CCF usage checking down the road.
->
-> It is unreliable and it is not meant to be more than that, AFAIK
+  echo $value > /sys/devices/platform/pwm-fan/hwmon/hwmon1/pwm1
 
+I found:
 
-ok, I see what you mean, I will try to do that later.
+  pwm1 value     fan rotation speed   cpu temperature     notes
+  -----------------------------------------------------------------
+    0            maximal              31.5 Celsius        too noisy
+   40            optimal              35.2 Celsius        no noise hearable
+   95            minimal
+   above 95      does not rotate      55.5 Celsius
+  -----------------------------------------------------------------
 
+Thus only cpu-active-high and cpu-active-low modes are usable.
+I think this is wrong.
 
->> Hi Jerome, sorry if this caused any misunderstanding on your part; I
->> will provide timely feedback moving forward.
->>
->>
->>>
->>> Best regards,
->>> Martin
-> --
-> Jerome
+This patch fixes cpu-active-medium settings for bpi-r3 board.
+
+I know, the patch is not ideal as it can break pwm fan for some users.
+Likely this is the only official mt7986-bpi-r3 heatsink+fan solution
+available on the market.
+
+This patch may not be enough. Users may wants to tweak their thermal_zone0
+trip points, thus tuning fan rotation speed depending on cpu temperature.
+That can be done on the base of the following example:
+
+  === example =========
+  # cpu temperature below 25 Celsius degrees, no rotation
+  echo 25000 > /sys/class/thermal/thermal_zone0/trip_point_4_temp
+  # cpu temperature in [25..32] Celsius degrees, normal rotation speed
+  echo 32000 > /sys/class/thermal/thermal_zone0/trip_point_3_temp
+  # cpu temperature above 50 Celsius degrees, max rotation speed
+  echo 50000 > /sys/class/thermal/thermal_zone0/trip_point_2_temp
+  =====================
+
+Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+Acked-by: Frank Wunderlich <frank-w@public-files.de>
+
+---
+Changes from v1 to v2:
+ * improve patch description
+
+Changes from v2 to v3:
+ * added question to Frank Wunderlich
+
+Changes from v3 to v4:
+ * Acked by Frank Wunderlich
+---
+ arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts b/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
+index ed79ad1ae871..b0cc0cbdff0f 100644
+--- a/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
++++ b/arch/arm64/boot/dts/mediatek/mt7986a-bananapi-bpi-r3.dts
+@@ -42,7 +42,7 @@ fan: pwm-fan {
+ 		compatible = "pwm-fan";
+ 		#cooling-cells = <2>;
+ 		/* cooling level (0, 1, 2) - pwm inverted */
+-		cooling-levels = <255 96 0>;
++		cooling-levels = <255 40 0>;
+ 		pwms = <&pwm 0 10000>;
+ 		status = "okay";
+ 	};
+-- 
+2.51.0
+
 
