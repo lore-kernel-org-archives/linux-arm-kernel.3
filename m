@@ -4,63 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DF72CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 00:54:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3860CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 01:08:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=toyaVjkpPinuAEIPOarMwJdLvd9BQ2PV4RPd1E3oP4E=; b=x9P+mBM3NO9lROD8WQo258MAeH
-	0YqtlwjUDB+JSF9uisLAaKGvnO2newyzj7nrVo4TGjjpOMSVHf1xyulkZMrUbSpiJTveo6aoMToSK
-	zs9GN3+aAp9U86Va64e14GjhMBVd1vMFw2sTyPM8vfSgrT/E2c3ZmGQGVaVzZTvWxvzIj9JnQWDOc
-	4gs41W9DCJkyVKIjGym5CEw+5au088XhvLDZTN6mWVL7d9kMPevYhr7CkgXmd6OBZh7DtlRntUZYC
-	ga6zHwdqlfhm3qbWhKFE3/74aGMiznQS5k9HFKRPTb8pOMw77q5INrCsM0Pk/B7CxfhvMtVE2sZb7
-	2wNt/QxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bHK1Tz54e/Ifee6N7/zns9tcx8F25+FcDpSUAMb1Lb0=; b=LKfJ77/0Vz01oYRZfvRoeXEDWM
+	X676Qh+G/jU9xCBiavxFKJWPT+4VQfwPic3B5oJDh/Jr4ziAjyzZnkZlrtazNevMUve/IciHTfDIE
+	+EgKLQSlSfJk/xK7KevY2GUfi7HkSNksXzON6GlIXc9O6KsknVjS7LynIhSSIL4PGwlWbr6XipmKk
+	vuLcMBh8BaflSY4i9K1WNvsS4BdnWNmgAIK4g882jFGl8Vu3YjKLz+vkcejKTcrtF1QWI0rwr6HQl
+	D/gMNdvFyBCiwxnI9YeoKRYXlNUthyeGxced4GK4RSaPFHCnnqdSfhRI99c9GN+YAUgjj09GPBhK3
+	6lTvMIEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Od4-00000003jsz-12vL;
-	Tue, 30 Sep 2025 00:54:06 +0000
-Received: from out-180.mta1.migadu.com ([95.215.58.180])
+	id 1v3Oqg-00000003kxJ-2RiX;
+	Tue, 30 Sep 2025 01:08:10 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Od1-00000003jsV-3Whk
+	id 1v3Oqd-00000003kwN-2ise
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Sep 2025 00:54:05 +0000
-Date: Mon, 29 Sep 2025 17:53:54 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1759193641;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=toyaVjkpPinuAEIPOarMwJdLvd9BQ2PV4RPd1E3oP4E=;
-	b=hr3jsrtQsxW72gNjOEPsv4iQ9v/0A7cW0vmawVGdX45ydnDFq1yMF5QgeZ9N/xChHdvNoK
-	Q2AZGZuaDA9FmsTsSVXcIfSWlxrVeJ5PHu9hSCZTH96pzMRGRi9tqXCCqeZI7AM9YipJjr
-	qqFqGtGAkzNNTPCMu9EbjZd7HufUbP4=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: "Thomson, Jack" <jackabt.amazon@gmail.com>
-Cc: maz@kernel.org, pbonzini@redhat.com, joey.gouly@arm.com,
-	suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, will@kernel.org, shuah@kernel.org,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
-	isaku.yamahata@intel.com, roypat@amazon.co.uk,
-	kalyazin@amazon.co.uk, jackabt@amazon.com
-Subject: Re: [PATCH 3/6] KVM: arm64: Add pre_fault_memory implementation
-Message-ID: <aNsqIsbYyROCjShQ@linux.dev>
-References: <20250911134648.58945-1-jackabt.amazon@gmail.com>
- <20250911134648.58945-4-jackabt.amazon@gmail.com>
- <aMMYKqWsAZ4y0WI7@linux.dev>
- <7d109638-3d26-443a-b24d-eb7a0059b80f@gmail.com>
+	Tue, 30 Sep 2025 01:08:08 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A6E6440A01;
+	Tue, 30 Sep 2025 01:08:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B454AC4CEF4;
+	Tue, 30 Sep 2025 01:08:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759194486;
+	bh=bHK1Tz54e/Ifee6N7/zns9tcx8F25+FcDpSUAMb1Lb0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Ygq4HwhlykpA5CGfYsyjzP8zgqMVS1ZAhFUon3xmKXRU21GqqzwTGl8bmgWxlYSVn
+	 gLz5fQ2dKiM8rRY3F6CrfiVHbnQLvXNSKm+pVehSjR0t9jKqK369WJ/gm1ot3ksySY
+	 klbd8NsjCGKEuZnC+cw3Wl1JhH7ojDg5LQeWB+l+XxZhg5O3hI1F7KPDfAcGn44OEP
+	 dIMZCqONsnhGcxZMt/sBewGBBUeyEXXmj671Q52PF/DrUDQxPEVWTIsHvcqnGgdTXY
+	 iE4z2qKM50gNJysR3PY01mzmDK5SsSvzbqLPo2TixLRvMsTRO6O2W8VRQo36GyIQZi
+	 CWKrN4SfMGYjA==
+Date: Mon, 29 Sep 2025 18:08:04 -0700
+From: Jakub Kicinski <kuba@kernel.org>
+To: Andrew Lunn <andrew+netdev@lunn.ch>
+Cc: Chen-Yu Tsai <wens@kernel.org>, "David S. Miller" <davem@davemloft.net>,
+ Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>, Rob
+ Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor
+ Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, Jernej Skrabec
+ <jernej@kernel.org>, Samuel Holland <samuel@sholland.org>,
+ netdev@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org, Andre Przywara <andre.przywara@arm.com>,
+ Jernej Skrabec <jernej.skrabec@gmail.com>
+Subject: Re: [PATCH net-next v8 2/2] net: stmmac: Add support for Allwinner
+ A523 GMAC200
+Message-ID: <20250929180804.3bd18dd9@kernel.org>
+In-Reply-To: <20250925191600.3306595-3-wens@kernel.org>
+References: <20250925191600.3306595-1-wens@kernel.org>
+	<20250925191600.3306595-3-wens@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <7d109638-3d26-443a-b24d-eb7a0059b80f@gmail.com>
-X-Migadu-Flow: FLOW_OUT
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_175404_088982_467DFA2F 
-X-CRM114-Status: GOOD (  26.04  )
+X-CRM114-CacheID: sfid-20250929_180807_710500_675DA017 
+X-CRM114-Status: GOOD (  13.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,129 +80,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 29, 2025 at 02:59:35PM +0100, Thomson, Jack wrote:
-> Hi Oliver,
-> 
-> Thanks for reviewing!
-> 
-> On 11/09/2025 7:42 pm, Oliver Upton wrote:
-> > On Thu, Sep 11, 2025 at 02:46:45PM +0100, Jack Thomson wrote:
-> > > @@ -1607,7 +1611,7 @@ static int __user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
-> > >   			    struct kvm_s2_trans *nested,
-> > >   			    struct kvm_memory_slot *memslot,
-> > >   			    long *page_size, unsigned long hva,
-> > > -			    bool fault_is_perm)
-> > > +			    bool fault_is_perm, bool pre_fault)
-> > >   {
-> > >   	int ret = 0;
-> > >   	bool topup_memcache;
-> > > @@ -1631,10 +1635,13 @@ static int __user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
-> > >   	vm_flags_t vm_flags;
-> > >   	enum kvm_pgtable_walk_flags flags = KVM_PGTABLE_WALK_MEMABORT_FLAGS;
-> > > +	if (pre_fault)
-> > > +		flags |= KVM_PGTABLE_WALK_PRE_FAULT;
-> > > +
-> > >   	if (fault_is_perm)
-> > >   		fault_granule = kvm_vcpu_trap_get_perm_fault_granule(vcpu);
-> > > -	write_fault = kvm_is_write_fault(vcpu);
-> > > -	exec_fault = kvm_vcpu_trap_is_exec_fault(vcpu);
-> > > +	write_fault = !pre_fault && kvm_is_write_fault(vcpu);
-> > > +	exec_fault = !pre_fault && kvm_vcpu_trap_is_exec_fault(vcpu);
-> > 
-> > I'm not a fan of this. While user_mem_abort() is already a sloppy mess,
-> > one thing we could reliably assume is the presence of a valid fault
-> > context. Now we need to remember to special-case our interpretation of a
-> > fault on whether or not we're getting invoked for a pre-fault.
-> > 
-> > I'd rather see the pre-fault infrastructure compose a synthetic fault
-> > context (HPFAR_EL2, ESR_EL2, etc.). It places the complexity where it
-> > belongs and the rest of the abort handling code should 'just work'.
-> > 
-> 
-> Agreed, it looks much better with the synthetic abort. Is this the
-> approach you had in mind?
+On Fri, 26 Sep 2025 03:15:59 +0800 Chen-Yu Tsai wrote:
+> The Allwinner A523 SoC family has a second Ethernet controller, called
+> the GMAC200 in the BSP and T527 datasheet, and referred to as GMAC1 for
+> numbering. This controller, according to BSP sources, is fully
+> compatible with a slightly newer version of the Synopsys DWMAC core.
+> The glue layer around the controller is the same as found around older
+> DWMAC cores on Allwinner SoCs. The only slight difference is that since
+> this is the second controller on the SoC, the register for the clock
+> delay controls is at a different offset. Last, the integration includes
+> a dedicated clock gate for the memory bus and the whole thing is put in
+> a separately controllable power domain.
 
-Pretty much. Thanks for taking a moment to fiddle with it.
+Hi Andrew, does this look good ?
 
-> +long kvm_arch_vcpu_pre_fault_memory(struct kvm_vcpu *vcpu,
-> +				    struct kvm_pre_fault_memory *range)
-> +{
-> +	int ret, idx;
-> +	hva_t hva;
-> +	phys_addr_t end;
-> +	u64 esr, hpfar;
-> +	struct kvm_memory_slot *memslot;
-> +	struct kvm_vcpu_fault_info *fault_info;
-> +
-> +	long page_size = PAGE_SIZE;
-> +	phys_addr_t ipa = range->gpa;
-> +	gfn_t gfn = gpa_to_gfn(range->gpa);
-> +
-> +	idx = srcu_read_lock(&vcpu->kvm->srcu);
-> +
-> +	if (ipa >= kvm_phys_size(vcpu->arch.hw_mmu)) {
-> +		ret = -ENOENT;
-> +		goto out_unlock;
-> +	}
-> +
-> +	memslot = gfn_to_memslot(vcpu->kvm, gfn);
-> +	if (!memslot) {
-> +		ret = -ENOENT;
-> +		goto out_unlock;
-> +	}
-> +
-> +	fault_info = &vcpu->arch.fault;
-> +
-> +	esr = fault_info->esr_el2;
-> +	hpfar = fault_info->hpfar_el2;
-
-nit: Just snapshot the entire struct, makes this forward-compatible with
-new fields showing up.
-
-> +
-> +	fault_info->esr_el2 = ESR_ELx_FSC_ACCESS_L(KVM_PGTABLE_LAST_LEVEL);
-
-A translation fault would be a more accurate representation what you're
-trying to do Access flag faults aren't expected in user_mem_abort() and
-instead handled in handle_access_fault().
-
-You're also missing the rest of the ESR fields that are relevant here,
-such as ESR_ELx.EC which would actually indicate a data abort. I think
-you'd also want to communicate this as a nISV fault (i.e.
-ESR_ELx.ISV=0).
-
-> +	fault_info->hpfar_el2 = HPFAR_EL2_NS |
-> +		((ipa >> (12 - HPFAR_EL2_FIPA_SHIFT)) & HPFAR_EL2_FIPA_MASK);
-
-FIELD_PREP()?
-
-> +
-> +	if (kvm_slot_has_gmem(memslot)) {
-> +		ret = gmem_abort(vcpu, ipa, NULL, memslot, false);
-> +	} else {
-> +		hva = gfn_to_hva_memslot_prot(memslot, gfn, NULL);
-> +		if (kvm_is_error_hva(hva)) {
-> +			ret = -EFAULT;
-> +			goto out;
-> +		}
-> +		ret = user_mem_abort(vcpu, ipa, NULL, memslot, &page_size, hva,
-> +				     false);
-> +	}
-> +
-> +	if (ret < 0)
-> +		goto out;
-> +
-> +	end = (range->gpa & ~(page_size - 1)) + page_size;
-> +	ret = min(range->size, end - range->gpa);
-> +
-> +out:
-> +	fault_info->esr_el2 = esr;
-> +	fault_info->hpfar_el2 = hpfar;
-> +out_unlock:
-> +	srcu_read_unlock(&vcpu->kvm->srcu, idx);
-> +	return ret;
-> +}
-
-Thanks,
-Oliver
+thread: https://lore.kernel.org/20250925191600.3306595-3-wens@kernel.org
 
