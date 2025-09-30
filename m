@@ -4,57 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0884ACCA474
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 09:37:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B84E1CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 09:37:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
-	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=0LSfLxweWuMF/6IUr9mkHm7rHjtJf4x+BjRMpRNZtuM=; b=kpC/uPmQTeUeWkTTgoEbGydYnF
-	4A798mLIqFSpZ9ZkH+pW0pHDMmi6MZPmlNkir8mNovBj+wgykYoi6qW1hPhH6uDXlAG5PfKAIjSEQ
-	L/j96cItk7dayaUQvrGNhzwvvQSW28bHJUEq8V2H/vGFdNsf0P4+YL+aBUPO45nQgVF3lZ+Va02pE
-	qiwNqRhFwFbrWmgO4Eru5ZIiILyxj9PUUyYhL+Ftm1tsQV/bH+Ppu9gYtwKx435Tv0D7he44M9GCg
-	9DwL6w5FpW4pz3e2eEsk2gjITwKFnRsp/GPfg5W3faGuFd3yHlD1XVWGOqSGHHTH6+/kKOexeeVJS
-	PYyWXUPg==;
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
+	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
+	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=kIYE35M94RQgukmwsZwQxujUHEOTiwrPep9PSOAjOTg=; b=DLTZsNBY9+TEU59l5jZ3wl4UMn
+	xAyR1LXCq+bBmGOaqvdB5IG1dmcA21mAHCUIRe2pUPuxmeKfq/XCyNZ5naT87tnNYaFqD5jdra6aL
+	5h1/9iMcGUuk4sL5iNVZTEF3pP5Gw7d9goSE/bTXmJu5kIoKOuQnOz+5Iif3qy/PCTezh8HMgXNwA
+	JKbNy87/f4zZ0V2chramDrXlGAPNrExesZ5PxjCOOiyv26kzdsLVzxOpd3hPJ9S7h0vFTrUFr02rJ
+	0DBwCgouhfaezRWKO8XDZ9VNaAVtXwNhcSHochcMG2S9KezR+hdqkMxUoVSib7R/VSTF0H2ZE5D18
+	QIuT/yrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Wnm-00000004qB8-10Fa;
-	Tue, 30 Sep 2025 09:37:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v3Wnp-00000004qCk-0TCu;
+	Tue, 30 Sep 2025 09:37:45 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Wnd-00000004q1T-2uOp;
+	id 1v3Wnc-00000004q0M-1E5V;
 	Tue, 30 Sep 2025 09:37:33 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9BCFF60452;
+	by sea.source.kernel.org (Postfix) with ESMTP id AA78745D2A;
 	Tue, 30 Sep 2025 09:37:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 44A39C4CEF0;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 7786FC19423;
 	Tue, 30 Sep 2025 09:37:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1759225051;
-	bh=5o+htP+rM/HKQyGn1eH3S7+MzThwQ+uX1Hq8VqONr8g=;
-	h=From:Subject:Date:To:Cc:Reply-To:From;
-	b=n9xxRbBBX96T9ogcvhLUVw8I8DhLBCLfbpk2dfxWWXyJ/khtsq8oqFcT7gGdJqit/
-	 tWd6EgzlvC+0o6Bt7lHLfzDo/6yH7naAjRWQ7xfHiml1BS1hpIL3N9vAdcUGR7SpT3
-	 Z0LNwuF6TBLCCfkRPe13i8SnOwGpuzl7LzdYjnvutHXqCzQ7mwHuxzuXC2EYyof6jH
-	 edpVAsXoS8kubU08pHR5U9LT4zwEzvQQw1N81UnIzStZ03XlSFJL/og3k0UuUxff7b
-	 zF4jiPEE3lZ5q0AOmAQgCMDSl+xXF5V2LJneUtv9+igBFiWrDje3RdijMcN/HiabZW
-	 yZbBf/QEdRPfw==
+	bh=xSFNma5kv9uRMjcs2Zg6YvItQ9oibLK1g7/ya6UY/2A=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
+	b=kJiebdhS0iQfAhEkjbQEgoG2Sh0gi62VOzBEuVqM4RFGw75EDopbk63HcNcytp0Nh
+	 1P0RXoqRZt6morH+JNGzTUvkOoVyHRTxgyxI61weKOFreti8pXVEVC7NX+2jM461Qb
+	 pp3KncumjN9m1V00ZTCqgLm+qy/1G4vdvYiTj3gko4amtBmdSxHVXb5tVgmY8a99e9
+	 HYGNOWF9/OkwYsErwUsScTk88H7O2bce3hbJdte+eXz7oMLgr5ZF7uZbjSmOk/Faf1
+	 CqEXUC09IqNnewtaviL5g+Kb1gHvNNxyF3Qhm37msSGRjDaOpVBFV6TNTHQzrqRWLr
+	 8vuOswk+AbjfQ==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2FAB2CAC5BC;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 7111BCAC5B8;
 	Tue, 30 Sep 2025 09:37:31 +0000 (UTC)
 From: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
-Subject: [PATCH 00/19] clk: amlogic: Add PLLs and peripheral clocks for A4
- and A5 SoCs
-Date: Tue, 30 Sep 2025 17:37:13 +0800
-Message-Id: <20250930-a4_a5_add_clock_driver-v1-0-a9acf7951589@amlogic.com>
+Date: Tue, 30 Sep 2025 17:37:17 +0800
+Subject: [PATCH 04/19] clk: amlogic: Optimize PLL enable timing
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-B4-Tracking: v=1; b=H4sIAMmk22gC/x3M0QoCIRBA0V9Z5jnBNC37lSXEnKmGYl1GkED89
- 6TH83Bvh0rCVOG6dBBqXLlsE8fDAvmVticpxmkw2jgdzEWlU0wuJsSYPyW/Iwo3EmXu5xzQB+e
- thRnvQg/+/sfrbYwfl8Id9GgAAAA=
+Message-Id: <20250930-a4_a5_add_clock_driver-v1-4-a9acf7951589@amlogic.com>
+References: <20250930-a4_a5_add_clock_driver-v1-0-a9acf7951589@amlogic.com>
+In-Reply-To: <20250930-a4_a5_add_clock_driver-v1-0-a9acf7951589@amlogic.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
  Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
  Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -67,16 +65,19 @@ Cc: linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, 
  Xianwei Zhao <xianwei.zhao@amlogic.com>, Chuan Liu <chuan.liu@amlogic.com>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1759225047; l=4218;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1759225047; l=4402;
  i=chuan.liu@amlogic.com; s=20240902; h=from:subject:message-id;
- bh=5o+htP+rM/HKQyGn1eH3S7+MzThwQ+uX1Hq8VqONr8g=;
- b=9UB/pSh4Qx25JQAEirqjDzvZLuzERi70Cm6gW7FIEkZawGXnWeEHArseYuIOn4cVV4sEtZAa/
- JbTQPGuAcNjD5619B0r6CFtJhOhE2icgF32q6i9IBU4mc7tmLmTgXXe
+ bh=PzFaqdiB29ZTMBFFJF+oqAAIU1PhzxewgE9YIWzfRkU=;
+ b=ONDU8yztC1N/PHzG/ebRAKgecCq6KD0moKrXNxd9ZqXIVzWLO8oVq61BriGtki7XdS++VNYOd
+ 7PEyWpTaHlXD6U2Z8E39QXg14Ky38eYdTlXUGLX5YF6VSCPdAbzLYHu
 X-Developer-Key: i=chuan.liu@amlogic.com; a=ed25519;
  pk=fnKDB+81SoWGKW2GJNFkKy/ULvsDmJZRGBE7pR5Xcpo=
 X-Endpoint-Received: by B4 Relay for chuan.liu@amlogic.com/20240902 with
  auth_id=203
 X-Original-From: Chuan Liu <chuan.liu@amlogic.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20250930_023732_384330_86E46A9D 
+X-CRM114-Status: GOOD (  16.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,86 +93,135 @@ Reply-To: chuan.liu@amlogic.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series includes changes related to the PLL and peripheral
-clocks for both the A4 and A5 SoCs.
+From: Chuan Liu <chuan.liu@amlogic.com>
 
-The patches for A5 were previously submitted up to V3 by Xianwei.
-https://lore.kernel.org/all/20250103-a5-clk-v3-0-a207ce83b9e9@amlogic.com/
-After friendly coordination, I’ve taken over and continued the
-submission as part of this series. The dt-bindings patch retains Rob's
-original "Reviewed-by" tag, and I hope this hasn’t caused any
-additional confusion.
+Amlogic PLL locking procedure shall follow this timing sequence:
+1 Assert reset signal: Ensures PLL circuits enter known initial state.
+2 Deassert lock-detect signal: Avoid lock signal false triggering.
+3 Assert enable signal: Powers up PLL supply.
+4 udelay(20): Wait for Bandgap and LDO to power up and stabilize.
+5 Enable self-adaptation current module (Optional).
+6 Deassert reset signal: Releases PLL to begin normal operation.
+7 udelay(20): Wait for PLL loop stabilization.
+8 Assert lock-detect signal: lock detection circuit starts to work.
+9 Monitor lock status signal: Wait for PLL lock completion.
+10 If the PLL fails to lock, it should be disabled, This makes the
+logic more complete, and also helps save unnecessary power consumption
+when the PLL is malfunctioning.
 
-Both A4 and A5 belong to the Audio series. Judging by their names, one
-might assume that A5 is an upgrade to A4, but in fact, A5 was released
-a year earlier than A4.
-
-Since there are differences in the PLLs and peripheral clocks between
-the A4 and A5 SoCs (especially the PLL), and taking into account factors
-such as memory footprint and maintainability, this series does not
-attempt to merge the two into a shared driver as was done for
-G12A/G12B/SM1.
-
-This patch series includes all related dt-bindings, driver, and dts
-changes for the PLLs and peripheral clocks. Following our past convention
-for clock-related submissions, the dts changes are placed at the end
-and submitted separately. If this ordering makes it harder for
-maintainers to review or pick patches, please feel free to point it out.
-
-Co-developed-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
-Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
 Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
 ---
-Chuan Liu (19):
-      dt-bindings: clock: Add Amlogic A4 SCMI clock controller
-      dt-bindings: clock: Add Amlogic A4 PLL clock controller
-      dt-bindings: clock: Add Amlogic A4 peripherals clock controller
-      clk: amlogic: Optimize PLL enable timing
-      clk: amlogic: Correct l_detect bit control
-      clk: amlogic: Fix out-of-range PLL frequency setting
-      clk: amlogic: Add A4 PLL clock controller driver
-      clk: amlogic: Add A4 clock peripherals controller driver
-      arm64: dts: amlogic: A4: Add scmi-clk node
-      arm64: dts: amlogic: A4: Add PLL controller node
-      arm64: dts: amlogic: A4: Add peripherals clock controller node
-      dt-bindings: clock: Add Amlogic A5 SCMI clock controller support
-      dt-bindings: clock: Add Amlogic A5 PLL clock controller
-      dt-bindings: clock: Add Amlogic A5 peripherals clock controller
-      clk: amlogic: Add A5 PLL clock controller driver
-      clk: amlogic: Add A5 clock peripherals controller driver
-      arm64: dts: amlogic: A5: Add scmi-clk node
-      arm64: dts: amlogic: A5: Add PLL controller node
-      arm64: dts: amlogic: A5: Add peripheral clock controller node
+ drivers/clk/meson/clk-pll.c | 68 ++++++++++++++++++++++++++-------------------
+ 1 file changed, 40 insertions(+), 28 deletions(-)
 
- .../clock/amlogic,a4-peripherals-clkc.yaml         | 122 +++
- .../bindings/clock/amlogic,a4-pll-clkc.yaml        |  61 ++
- .../clock/amlogic,a5-peripherals-clkc.yaml         | 134 ++++
- .../bindings/clock/amlogic,a5-pll-clkc.yaml        |  63 ++
- arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi        |  80 ++
- arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi        |  87 ++
- drivers/clk/meson/Kconfig                          |  53 ++
- drivers/clk/meson/Makefile                         |   4 +
- drivers/clk/meson/a1-pll.c                         |   1 +
- drivers/clk/meson/a4-peripherals.c                 | 764 ++++++++++++++++++
- drivers/clk/meson/a4-pll.c                         | 242 ++++++
- drivers/clk/meson/a5-peripherals.c                 | 883 +++++++++++++++++++++
- drivers/clk/meson/a5-pll.c                         | 476 +++++++++++
- drivers/clk/meson/clk-pll.c                        |  76 +-
- drivers/clk/meson/clk-pll.h                        |   2 +
- .../clock/amlogic,a4-peripherals-clkc.h            | 129 +++
- include/dt-bindings/clock/amlogic,a4-pll-clkc.h    |  15 +
- include/dt-bindings/clock/amlogic,a4-scmi-clkc.h   |  42 +
- .../clock/amlogic,a5-peripherals-clkc.h            | 132 +++
- include/dt-bindings/clock/amlogic,a5-pll-clkc.h    |  24 +
- include/dt-bindings/clock/amlogic,a5-scmi-clkc.h   |  44 +
- 21 files changed, 3406 insertions(+), 28 deletions(-)
----
-base-commit: 01f3a6d1d59b8e25a6de243b0d73075cf0415eaf
-change-id: 20250928-a4_a5_add_clock_driver-2b7c9d695633
+diff --git a/drivers/clk/meson/clk-pll.c b/drivers/clk/meson/clk-pll.c
+index 1ea6579a760f..8bddd44d4738 100644
+--- a/drivers/clk/meson/clk-pll.c
++++ b/drivers/clk/meson/clk-pll.c
+@@ -353,6 +353,23 @@ static int meson_clk_pcie_pll_enable(struct clk_hw *hw)
+ 	return -EIO;
+ }
+ 
++static void meson_clk_pll_disable(struct clk_hw *hw)
++{
++	struct clk_regmap *clk = to_clk_regmap(hw);
++	struct meson_clk_pll_data *pll = meson_clk_pll_data(clk);
++
++	/* Put the pll is in reset */
++	if (MESON_PARM_APPLICABLE(&pll->rst))
++		meson_parm_write(clk->map, &pll->rst, 1);
++
++	/* Disable the pll */
++	meson_parm_write(clk->map, &pll->en, 0);
++
++	/* Disable PLL internal self-adaption current module */
++	if (MESON_PARM_APPLICABLE(&pll->current_en))
++		meson_parm_write(clk->map, &pll->current_en, 0);
++}
++
+ static int meson_clk_pll_enable(struct clk_hw *hw)
+ {
+ 	struct clk_regmap *clk = to_clk_regmap(hw);
+@@ -366,53 +383,48 @@ static int meson_clk_pll_enable(struct clk_hw *hw)
+ 	if (MESON_PARM_APPLICABLE(&pll->rst))
+ 		meson_parm_write(clk->map, &pll->rst, 1);
+ 
++	/* Disable the PLL lock-detect module */
++	if (MESON_PARM_APPLICABLE(&pll->l_detect))
++		meson_parm_write(clk->map, &pll->l_detect, 1);
++
+ 	/* Enable the pll */
+ 	meson_parm_write(clk->map, &pll->en, 1);
+-
+-	/* Take the pll out reset */
+-	if (MESON_PARM_APPLICABLE(&pll->rst))
+-		meson_parm_write(clk->map, &pll->rst, 0);
++	/* Wait for Bandgap and LDO to power up and stabilize */
++	udelay(20);
+ 
+ 	/*
+ 	 * Compared with the previous SoCs, self-adaption current module
+ 	 * is newly added for A1, keep the new power-on sequence to enable the
+ 	 * PLL. The sequence is:
+-	 * 1. enable the pll, delay for 10us
++	 * 1. enable the pll, ensure a minimum delay of 10μs
+ 	 * 2. enable the pll self-adaption current module, delay for 40us
+ 	 * 3. enable the lock detect module
+ 	 */
+ 	if (MESON_PARM_APPLICABLE(&pll->current_en)) {
+-		udelay(10);
+ 		meson_parm_write(clk->map, &pll->current_en, 1);
+-		udelay(40);
+-	}
+-
+-	if (MESON_PARM_APPLICABLE(&pll->l_detect)) {
+-		meson_parm_write(clk->map, &pll->l_detect, 1);
+-		meson_parm_write(clk->map, &pll->l_detect, 0);
++		udelay(20);
+ 	}
+ 
+-	if (meson_clk_pll_wait_lock(hw))
+-		return -EIO;
++	/* Take the pll out reset */
++	if (MESON_PARM_APPLICABLE(&pll->rst))
++		meson_parm_write(clk->map, &pll->rst, 0);
+ 
+-	return 0;
+-}
++	/* Wait for PLL loop stabilization */
++	udelay(20);
+ 
+-static void meson_clk_pll_disable(struct clk_hw *hw)
+-{
+-	struct clk_regmap *clk = to_clk_regmap(hw);
+-	struct meson_clk_pll_data *pll = meson_clk_pll_data(clk);
++	/* Enable the lock-detect module */
++	if (MESON_PARM_APPLICABLE(&pll->l_detect))
++		meson_parm_write(clk->map, &pll->l_detect, 0);
+ 
+-	/* Put the pll is in reset */
+-	if (MESON_PARM_APPLICABLE(&pll->rst))
+-		meson_parm_write(clk->map, &pll->rst, 1);
++	if (meson_clk_pll_wait_lock(hw)) {
++		/* disable PLL when PLL lock failed. */
++		meson_clk_pll_disable(hw);
++		pr_warn("%s: PLL lock failed!!!\n", clk_hw_get_name(hw));
+ 
+-	/* Disable the pll */
+-	meson_parm_write(clk->map, &pll->en, 0);
++		return -EIO;
++	}
+ 
+-	/* Disable PLL internal self-adaption current module */
+-	if (MESON_PARM_APPLICABLE(&pll->current_en))
+-		meson_parm_write(clk->map, &pll->current_en, 0);
++	return 0;
+ }
+ 
+ static int meson_clk_pll_set_rate(struct clk_hw *hw, unsigned long rate,
 
-Best regards,
 -- 
-Chuan Liu <chuan.liu@amlogic.com>
+2.42.0
 
 
 
