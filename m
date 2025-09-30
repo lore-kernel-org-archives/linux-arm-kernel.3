@@ -4,94 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA5E0CCA471
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 11:33:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1016CCCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 11:34:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wDs/WMXVmHJglssnG9XWE+nsIv0PIfh++s/inuvdTo8=; b=EAx6KQdEMEO4ooIm7kFfnZvXTy
-	eo9VPFCWwH+GGzpUQN+nLQiadbtbXioKOd9C5HkD+l2pHsxvNYfMSphESik/u5boFmTQIAM1s1v8R
-	J8PSiab6lMgV9nApqkUw22ffaF0rJKELwYfv7D3YW6MJCN6hSEbxS2rpQFd1zqDY5brragdeNumZi
-	O/t5RgKQ5c+YTrBLOKvkOWrJklgKjdSpGgEED044jKmzSjnndCcWhAXYlZsZ7+HRKOm6DlFcJ/8MG
-	wsh5wia6bnVRzZh/QJAXrgZW6vdAlLh7kDPnvxGUxY0Tf8PpgJWNv6oGLOrgBOXFhqb8W+dCCzV19
-	pqkTZrDA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/kpRoDlQKgkPxrhoCTc6tiLDhDx4soudMVQPPboBrxg=; b=knacx1GUJFACPIhFkDLblj3dCc
+	gFowJz7xZYBzXby5t83AsTg/iYdJIfxq8GAkkb5Fmx2fFzkYeyejdOXfstqj+0wtj/kLahSZqSwtT
+	ANmKWQYWs1pvLaqNdRBzZdUqkPANtNMBrk7rS/8TtLZHemNYuufDrTYZ0mGN+uZI5lwu+bkxj7cDX
+	rwREGS9d+FvuDngDKUTWQKzInjnkeDA6I5uD/GURBMltoOZI18KaqZufz8+NtTpNxK/fn6/kFpE8k
+	47jDWQaGV+khCquwE4AYPRUVHE9gzlft7ea/TlvSpU8hGnkrTpDjDbIJQa2PM9zmCIHZs+00/kX78
+	Dp98quQQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Yc2-000000059G9-3q1w;
-	Tue, 30 Sep 2025 11:33:42 +0000
-Received: from mail-yx1-xb131.google.com ([2607:f8b0:4864:20::b131])
+	id 1v3Ycp-000000059Rw-2DHp;
+	Tue, 30 Sep 2025 11:34:31 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Yc0-000000059FL-1uF6
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Sep 2025 11:33:41 +0000
-Received: by mail-yx1-xb131.google.com with SMTP id 956f58d0204a3-63604582e53so6041520d50.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 04:33:39 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1759232019; x=1759836819; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=wDs/WMXVmHJglssnG9XWE+nsIv0PIfh++s/inuvdTo8=;
-        b=YVgygEqooydBawGovZrdX7kiOWy2FKwOSg+pz3EHlxMhmkyMgRO+n7sFdgJwBdZNAb
-         KzALzC8wlU2dtoEo0o3DoPiGY5XIs7FkjgmjqKNIjbvJDWazUc3CLQc+/rocK2+aBHNb
-         JoCp18bBtQ0ijJRFjOx3NhI/9oVRY/5NJn+KStD2NZVDcK+ftpR9wh2wg8I0qsWYaYbg
-         xypM5j2i2ts5YIVL6iGoRREKnKQBzBUZ7Xwrr9sglskWGN0AzZ0hfajaVEoKEFvHp8sS
-         8lgHl/1F4hRr3mIW2wSq5/MXVnTGwHkekCta7enTnFDTyWgo0qqDdpmIn1UwIBdFlElY
-         NlwA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759232019; x=1759836819;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=wDs/WMXVmHJglssnG9XWE+nsIv0PIfh++s/inuvdTo8=;
-        b=SZkVDuYUFyIijSZ63wn0CA3h5mDgcgc9zQejPbT9eALZQ389PXuTSwP6HGFO/t9AAD
-         kzCqTAEx6LTdPixwiSfiY667IPGLe6qYbnd2DI+7UXIfm7TrVJb3Ohbu7DfHYTfBCKnw
-         AXc50HFx6Ri/ZBbhs/pMJR/em0F4c4c4ouHWPVCLF4Cd1rjjXYRcAIdKt0ECgLeOSZ5O
-         Cmq1OggE0eSxC8pbAcJl6UxmIHuBe84Jcn3VO46WQk/T+//LzGppSG0wDz8ZDbVtuCRT
-         cZuni3SZqDOAfxFf17dNXK8yjNESz2OXwPupZl3X9cdRekTALYGZxCLgNTA+u86QAZMf
-         itCw==
-X-Forwarded-Encrypted: i=1; AJvYcCWL4lmmvb493a2h0vXgTyQISWTF1jZkNJzXWw9wG6nLReDYBgDQ7MvexRcQoL6pwu0b+C4ch+e8kn6R0Qj3YmET@lists.infradead.org
-X-Gm-Message-State: AOJu0YwP4PbOfKfGxmVfRSNMqvVvHtuYEJaVBrDn88o3FCTBz3Ziwrke
-	r14hmk1wGbGuQEeOKtForB/uIM5JJGjjTMflGg82kYAq9KDsKtjvs24rwHa+kiP6hyW9GC2qjGq
-	i3g0fnHjU2daQh4uY0BPUuHsBHPdVCosOjdiAgFdCgw==
-X-Gm-Gg: ASbGncvlkkiWmDCX2pfRnjm5Gb+P6nUT3j5UMkPQjHoebezsGLRGvKxlrxP3ZEQ21zw
-	/2ZMw1wPBMVmWUDYZioh2RoMDHKGqXRVmE4imLKzymzYlXgCg9t7EvB+tkCxkLCycH7nY73sF1v
-	WLDXm7ykY2SUsn+dAjnfVc9thqdW9ywWz9Kp3VzvTpxTUZQGtVaxUMT4excTvKqxNKRA4Wa1PoL
-	hEynmS7blsLj8ZAalv+RtwaxGrZZvhP
-X-Google-Smtp-Source: AGHT+IHYmCvXrXmx8HmNfb0uqyUyQC6vlR8zFTUyxQ5hryXAvEjUkDhlD0XShN9tuuH78Lwr0Mzk9/lfRrtMdvf7nzk=
-X-Received: by 2002:a05:690e:15d3:b0:633:a326:3b07 with SMTP id
- 956f58d0204a3-6361a85ed4bmr19217063d50.24.1759232018880; Tue, 30 Sep 2025
- 04:33:38 -0700 (PDT)
+	id 1v3Ycm-000000059Qq-2M9c;
+	Tue, 30 Sep 2025 11:34:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1759232065;
+	bh=tiHFk+xnP8SCA8zL96xKjLYHlIM3mrrw6V0YZnBkr44=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=aLvaKjQc2v07qJGvKM+cMa88Ljf8faYwGdWNauchDkYGAEKudftAh5IMVYrUCAhqq
+	 jO4HlmEaYnGy/4KnIjIIhCvgfxMgA2dC7LyZ0qW0YIjf9l6qEFu0mmGGGsY+H0IEOD
+	 9DMc8zSWZ6QNnJtXigFQ4xCLvoc5IQVgHA8baENNnkduqgE7Lb9YoAteesynpnlgNk
+	 9Itol08/eiPordsqMClY066Q9jwfKBmi4jL69xenD35bSFqrrjz9DSB1QdSB87jtki
+	 4uJYi3ZnVITDfz5AizU1FJZaU46kq8G+9qNb9twQP5IbcHArwWOf4LByn1GMdSTeJq
+	 dqiKgTEAqZtOw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 5961717E107D;
+	Tue, 30 Sep 2025 13:34:25 +0200 (CEST)
+Message-ID: <ce4bad93-2663-4c07-8cdb-fb6fdcbfc1ca@collabora.com>
+Date: Tue, 30 Sep 2025 13:34:24 +0200
 MIME-Version: 1.0
-References: <20250701114733.636510-1-ulf.hansson@linaro.org>
- <20250701114733.636510-21-ulf.hansson@linaro.org> <4478f28b-47f8-4049-bf17-b7fc95cfac65@nvidia.com>
- <CAPDyKFqSyP3e=JRFYEuFefWVN5SYJWULU8SKzXmrThvyiVGXgg@mail.gmail.com>
- <a904d953-acb2-44f6-81bd-118f7abd22da@nvidia.com> <614f726c-4d6d-463b-a8b3-26d3df590575@nvidia.com>
- <CAGETcx9CpOgtPSDK_qPRQ_u58w3fedSFAfFzugXW4eYq2TLECw@mail.gmail.com> <be41e552-e626-4923-a9e7-15acbafc19e3@nvidia.com>
-In-Reply-To: <be41e552-e626-4923-a9e7-15acbafc19e3@nvidia.com>
-From: Ulf Hansson <ulf.hansson@linaro.org>
-Date: Tue, 30 Sep 2025 13:33:02 +0200
-X-Gm-Features: AS18NWC6HazxLFWbq662GHZ2xE_fLUSaAJYkDxvuA_xOhIOH2MGGHtfY_xpGVhg
-Message-ID: <CAPDyKFo+8fw0GrFOazekXrb0zNsRkhzVmbOg45YZU+T2dm_SJg@mail.gmail.com>
-Subject: Re: [PATCH v3 20/24] pmdomain: core: Default to use
- of_genpd_sync_state() for genpd providers
-To: Saravana Kannan <saravanak@google.com>, Jon Hunter <jonathanh@nvidia.com>
-Cc: Stephen Boyd <sboyd@kernel.org>, linux-pm@vger.kernel.org, 
-	"Rafael J . Wysocki" <rafael@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Michael Grzeschik <m.grzeschik@pengutronix.de>, Bjorn Andersson <andersson@kernel.org>, 
-	Abel Vesa <abel.vesa@linaro.org>, Peng Fan <peng.fan@oss.nxp.com>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Johan Hovold <johan@kernel.org>, 
-	Maulik Shah <maulik.shah@oss.qualcomm.com>, Michal Simek <michal.simek@amd.com>, 
-	Konrad Dybcio <konradybcio@kernel.org>, Thierry Reding <thierry.reding@gmail.com>, 
-	Hiago De Franco <hiago.franco@toradex.com>, Geert Uytterhoeven <geert@linux-m68k.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	"linux-tegra@vger.kernel.org" <linux-tegra@vger.kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RESEND v4] arm64: dts: mediatek: mt7986-bpi-r3: Change fan
+ PWM value for mid speed
+To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Matthias Brugger
+ <matthias.bgg@gmail.com>, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org
+Cc: Frank Wunderlich <frank-w@public-files.de>
+References: <20250930021656.1394942-1-mikhail.kshevetskiy@iopsys.eu>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250930021656.1394942-1-mikhail.kshevetskiy@iopsys.eu>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250930_043340_518220_5549CB8E 
-X-CRM114-Status: GOOD (  29.07  )
+X-CRM114-CacheID: sfid-20250930_043428_764273_5BBA5486 
+X-CRM114-Status: GOOD (  15.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,52 +79,49 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 26 Sept 2025 at 17:32, Jon Hunter <jonathanh@nvidia.com> wrote:
->
->
-> On 25/09/2025 23:31, Saravana Kannan wrote:
->
-> ...
->
-> >> I have been doing more testing and do see a lot of "tegra-bpmp bpmp:
-> >> sync_state() pending due to" on our platforms for basically are driver
-> >> that is built as a module.
-> >
-> > It being "built as a module" is not reason enough for this warning to
-> > happen though. One of the main points of fw_devlink is for things to
-> > work just as well with modules.
-> >
-> > In this particular system, do you never plan to load the modules? Or
-> > is the module load just missing this timeout by a few seconds or
-> > something?
->
-> We absolutely do load the drivers. Initially, I observed cases where
-> drivers are missing, but doing more testing with the necessary drivers
-> present, I still see such messages. A lot of our test infrastructure is
-> set up to use NFS for mounting to the rootfs and so I am wondering if
-> that can also be a factor?
->
-> > If these can be turned off, why not turn these off using the sysfs
-> > file or the timeout commandline option to turn them off? You are
-> > burning power by leaving these on. A warning seems appropriate to me.
->
-> Again the drivers get loaded, so that shouldn't be the case.
->
+Il 30/09/25 04:16, Mikhail Kshevetskiy ha scritto:
+> Popular cheap PWM fans for this machine, like the ones coming in
+> heatsink+fan combos will not work properly at the currently defined
+> medium speed. Trying different pwm setting using a command
+> 
+>    echo $value > /sys/devices/platform/pwm-fan/hwmon/hwmon1/pwm1
+> 
+> I found:
+> 
+>    pwm1 value     fan rotation speed   cpu temperature     notes
+>    -----------------------------------------------------------------
+>      0            maximal              31.5 Celsius        too noisy
+>     40            optimal              35.2 Celsius        no noise hearable
+>     95            minimal
+>     above 95      does not rotate      55.5 Celsius
+>    -----------------------------------------------------------------
+> 
+> Thus only cpu-active-high and cpu-active-low modes are usable.
+> I think this is wrong.
+> 
+> This patch fixes cpu-active-medium settings for bpi-r3 board.
+> 
+> I know, the patch is not ideal as it can break pwm fan for some users.
+> Likely this is the only official mt7986-bpi-r3 heatsink+fan solution
+> available on the market.
+> 
+> This patch may not be enough. Users may wants to tweak their thermal_zone0
+> trip points, thus tuning fan rotation speed depending on cpu temperature.
+> That can be done on the base of the following example:
+> 
+>    === example =========
+>    # cpu temperature below 25 Celsius degrees, no rotation
+>    echo 25000 > /sys/class/thermal/thermal_zone0/trip_point_4_temp
+>    # cpu temperature in [25..32] Celsius degrees, normal rotation speed
+>    echo 32000 > /sys/class/thermal/thermal_zone0/trip_point_3_temp
+>    # cpu temperature above 50 Celsius degrees, max rotation speed
+>    echo 50000 > /sys/class/thermal/thermal_zone0/trip_point_2_temp
+>    =====================
+> 
+> Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+> Acked-by: Frank Wunderlich <frank-w@public-files.de>
 
-I realized that we also have an orthogonal, but related problem.
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-In fact, the genpd in question actually may already have been
-powered-off, completely defeating the purpose of the printed warning
-that we are discussing.
 
-In genpd we enable the ->sync_state() support, no matter whether the
-genpd is powered-on or powered-off at initialization. Although, it's
-only when a genpd is powered-on at init, when we prevent it from being
-powered-off until the ->sync_state() callback gets invoked. Ideally,
-we should be able to skip enabling the ->sync_state() support for
-genpd in these cases, possibly silencing some of these prints. I will
-have a look at this and get back to you.
-
-Kind regards
-Uffe
 
