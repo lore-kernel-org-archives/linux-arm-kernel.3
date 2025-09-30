@@ -4,72 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 993FDCCA468
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 15:09:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B9409CAC5BE
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 15:14:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Couo7KY5znhz6HmpEB+wbwwc4kH4z6CgxRtUzv0XPr0=; b=2P3QEkNxZ+maT8YmxZ9flfsNas
-	ANtOTrB7sJoslrB3zqyh5n6bx1EFre/Awg5o9t01FCelQ8G9YuTnHIrrTfs27Dug/zUQmAqo+vVuk
-	tHMx6N0Q0KJ8M5ix5FHv/JzUULuR1jXvApzTrrIH1kxh2dArIDSyDGx6uv7Q5TMb8a8EKb2p+rnsj
-	EpTgCeLzAmN/k633onNlfDd0pWC/K1n9dHP+kIoVg20r7Qz4ebmxLFHvZYRHo9fLJR35C03n8X2AZ
-	4Z+Agdqc0+PFgBXwE+7wjNKJiQ46FjPyxA4fnAz2BpJSN1oQBkcxK8lCFg+gw2z0FGL287bbRhc5L
-	ceb4Oqzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tWru2SA+uoIfyEZ7IrrzgeBX/4qRUPduw4yCrBJ2+Hs=; b=h4RYN2zKESLLyQhYMRC2jH6vrj
+	RMnt79wQ3hVVSfx6uGmG0kNPDPa9/YdyE73g5jEO3qwC+qU3bFVK3DCrYZnR2JmPauqYh3fEkrPwv
+	+JJ6tomn2WrIPr5Bv88fx4H6J00+ay6ZMYLc6j9T0caGBQpZu6aFqnId+eMigXbez1l6VNEhiC87e
+	VbhPCRlKj9zz0/NJg+OhhZYYYAjRbXmnolzmhg2X/qHc8FzYwnd2H5hwn9Nud0UW+jp4JTp3DiW/R
+	5DqVKFFsPYyNp9TySBoZZPflbX4Xrai77QZ6rZrWbjoM9xhIeZ2JhEHQ0KoEyUqTXsuUyQc4dofHC
+	JRMSfERQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3bzB-00000005bbB-1UBQ;
-	Tue, 30 Sep 2025 15:09:49 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3bz8-00000005baa-3lA7;
-	Tue, 30 Sep 2025 15:09:48 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 880CC439D6;
-	Tue, 30 Sep 2025 15:09:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C3C58C4CEF0;
-	Tue, 30 Sep 2025 15:09:45 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1759244986;
-	bh=2d5mlbzXOEFsyGOAy7ajjjm9WNfNLYF3z4LyKA5hDZY=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=Lj6v4nBa+eawqtVfF84Khk5TBoxC+nap+CTnXeyc88t//36Mgc9DWzZPWpUmg/Z5I
-	 m6XoaAsuVc2vbcZzwJ8m6pl7CGxS6PzW53D+VpWOfbMf7oLHgnXx7WNQgq2981L8Jb
-	 KyzJryplUmvIXqYP1enYjpMmjdNdI9j7FxlNBqjE=
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: stable@vger.kernel.org
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	patches@lists.linux.dev,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
-	Alexandre Torgue <alexandre.torgue@foss.st.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Christophe Kerello <christophe.kerello@foss.st.com>,
-	Cai Huoqing <cai.huoqing@linux.dev>,
-	linux-mtd@lists.infradead.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Jack Wang <jinpu.wang@ionos.com>,
-	Sasha Levin <sashal@kernel.org>
-Subject: [PATCH 5.15 031/151] mtd: rawnand: stm32_fmc2: Fix dma_map_sg error check
-Date: Tue, 30 Sep 2025 16:46:01 +0200
-Message-ID: <20250930143828.856879967@linuxfoundation.org>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20250930143827.587035735@linuxfoundation.org>
-References: <20250930143827.587035735@linuxfoundation.org>
-User-Agent: quilt/0.69
-X-stable: review
-X-Patchwork-Hint: ignore
+	id 1v3c3b-00000005d3z-15NS;
+	Tue, 30 Sep 2025 15:14:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v3c3Y-00000005d3a-2fT6
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 30 Sep 2025 15:14:21 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5BAFA1424;
+	Tue, 30 Sep 2025 08:14:08 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0D65A3F59E;
+	Tue, 30 Sep 2025 08:14:15 -0700 (PDT)
+Date: Tue, 30 Sep 2025 16:14:14 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jonathan Corbet <corbet@lwn.net>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v2 5/6] coresight: Add format attribute for setting the
+ timestamp interval
+Message-ID: <20250930151414.GK7985@e132581.arm.com>
+References: <20250814-james-cs-syncfreq-v2-0-c76fcb87696d@linaro.org>
+ <20250814-james-cs-syncfreq-v2-5-c76fcb87696d@linaro.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250814-james-cs-syncfreq-v2-5-c76fcb87696d@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250930_080946_952590_DDC8FFFD 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20250930_081420_755411_701461CC 
+X-CRM114-Status: GOOD (  24.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,64 +68,149 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-5.15-stable review patch.  If anyone has any objections, please let me know.
+On Thu, Aug 14, 2025 at 11:49:56AM +0100, James Clark wrote:
 
-------------------
+[...]
 
-From: Jack Wang <jinpu.wang@ionos.com>
+> --- a/drivers/hwtracing/coresight/coresight-etm-perf.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+> @@ -25,6 +25,11 @@
+>  #include "coresight-syscfg.h"
+>  #include "coresight-trace-id.h"
+>  
+> +#if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X)
+> +#include <linux/perf/arm_pmu.h>
+> +#include "coresight-etm4x.h"
+> +#endif
+> +
+>  static struct pmu etm_pmu;
+>  static bool etm_perf_up;
+>  
+> @@ -69,7 +74,10 @@ PMU_FORMAT_ATTR(sinkid,		"config2:0-31");
+>  /* config ID - set if a system configuration is selected */
+>  PMU_FORMAT_ATTR(configid,	"config2:32-63");
+>  PMU_FORMAT_ATTR(cc_threshold,	"config3:0-11");
+> -
+> +#if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X)
+> +/* Interval = (2 ^ ts_level) */
+> +GEN_PMU_FORMAT_ATTR(ts_level);
+> +#endif
+>  
+>  /*
+>   * contextid always traces the "PID".  The PID is in CONTEXTIDR_EL1
+> @@ -103,6 +111,9 @@ static struct attribute *etm_config_formats_attr[] = {
+>  	&format_attr_configid.attr,
+>  	&format_attr_branch_broadcast.attr,
+>  	&format_attr_cc_threshold.attr,
+> +#if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X)
+> +	&format_attr_ts_level.attr,
+> +#endif
 
-[ Upstream commit 43b81c2a3e6e07915151045aa13a6e8a9bd64419 ]
+By using .visible() callback for attrs, we can improve a bit code
+without spreading "#ifdef IS_ENABLED()" in this file. E.g.,
 
-dma_map_sg return 0 on error, in case of error return -EIO.
+   static umode_t format_attr_is_visible(struct kobject *kobj,
+                                   struct attribute *attr, int n)
+   {
+        struct device *dev = kobj_to_dev(kobj);
 
-Cc: Miquel Raynal <miquel.raynal@bootlin.com>
-Cc: Richard Weinberger <richard@nod.at>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>
-Cc: Maxime Coquelin <mcoquelin.stm32@gmail.com>
-Cc: Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: Philipp Zabel <p.zabel@pengutronix.de>
-Cc: Christophe Kerello <christophe.kerello@foss.st.com>
-Cc: Cai Huoqing <cai.huoqing@linux.dev>
-Cc: linux-mtd@lists.infradead.org
-Cc: linux-stm32@st-md-mailman.stormreply.com
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-kernel@vger.kernel.org
-Signed-off-by: Jack Wang <jinpu.wang@ionos.com>
-Reviewed-by: Christophe Kerello <christophe.kerello@foss.st.com>
-Signed-off-by: Miquel Raynal <miquel.raynal@bootlin.com>
-Link: https://lore.kernel.org/linux-mtd/20220819060801.10443-5-jinpu.wang@ionos.com
-Stable-dep-of: 513c40e59d5a ("mtd: rawnand: stm32_fmc2: avoid overlapping mappings on ECC buffer")
-Signed-off-by: Sasha Levin <sashal@kernel.org>
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
----
- drivers/mtd/nand/raw/stm32_fmc2_nand.c |    8 +++++---
- 1 file changed, 5 insertions(+), 3 deletions(-)
+        if (attr == &format_attr_ts_level.attr &&
+	    !IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X))
+                return 0;
 
---- a/drivers/mtd/nand/raw/stm32_fmc2_nand.c
-+++ b/drivers/mtd/nand/raw/stm32_fmc2_nand.c
-@@ -860,8 +860,8 @@ static int stm32_fmc2_nfc_xfer(struct na
- 
- 	ret = dma_map_sg(nfc->dev, nfc->dma_data_sg.sgl,
- 			 eccsteps, dma_data_dir);
--	if (ret < 0)
--		return ret;
-+	if (!ret)
-+		return -EIO;
- 
- 	desc_data = dmaengine_prep_slave_sg(dma_ch, nfc->dma_data_sg.sgl,
- 					    eccsteps, dma_transfer_dir,
-@@ -891,8 +891,10 @@ static int stm32_fmc2_nfc_xfer(struct na
- 
- 		ret = dma_map_sg(nfc->dev, nfc->dma_ecc_sg.sgl,
- 				 eccsteps, dma_data_dir);
--		if (ret < 0)
-+		if (!ret) {
-+			ret = -EIO;
- 			goto err_unmap_data;
-+		}
- 
- 		desc_ecc = dmaengine_prep_slave_sg(nfc->dma_ecc_ch,
- 						   nfc->dma_ecc_sg.sgl,
+        return attr->mode;
+   }
 
+Otherwise, LGTM:
 
+Reviewed-by: Leo Yan <leo.yan@arm.com>
+
+>  	NULL,
+>  };
+>  
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index 1a2d02bdcb88..42277c201d4f 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -28,6 +28,7 @@
+>  #include <linux/amba/bus.h>
+>  #include <linux/seq_file.h>
+>  #include <linux/uaccess.h>
+> +#include <linux/perf/arm_pmu.h>
+>  #include <linux/perf_event.h>
+>  #include <linux/platform_device.h>
+>  #include <linux/pm_runtime.h>
+> @@ -615,7 +616,7 @@ static void etm4_enable_hw_smp_call(void *info)
+>   *  +--------------+
+>   *         |
+>   *  +------v-------+
+> - *  | Counter x    |   (reload to 1 on underflow)
+> + *  | Counter x    |   (reload to 2 ^ ts_level on underflow)
+>   *  +--------------+
+>   *         |
+>   *  +------v--------------+
+> @@ -626,11 +627,17 @@ static void etm4_enable_hw_smp_call(void *info)
+>   *  | Timestamp Generator  |  (timestamp on resource y)
+>   *  +----------------------+
+>   */
+> -static int etm4_config_timestamp_event(struct etmv4_drvdata *drvdata)
+> +static int etm4_config_timestamp_event(struct etmv4_drvdata *drvdata,
+> +				       struct perf_event_attr *attr)
+>  {
+>  	int ctridx;
+>  	int rselector;
+>  	struct etmv4_config *config = &drvdata->config;
+> +	u8 ts_level = ATTR_CFG_GET_FLD(attr, ts_level);
+> +
+> +	/* Disable when ts_level == MAX */
+> +	if (ts_level == FIELD_GET(ATTR_CFG_FLD_ts_level_MASK, UINT_MAX))
+> +		return 0;
+>  
+>  	/* No point in trying if we don't have at least one counter */
+>  	if (!drvdata->nr_cntr)
+> @@ -666,12 +673,8 @@ static int etm4_config_timestamp_event(struct etmv4_drvdata *drvdata)
+>  		return -ENOSPC;
+>  	}
+>  
+> -	/*
+> -	 * Initialise original and reload counter value to the smallest
+> -	 * possible value in order to get as much precision as we can.
+> -	 */
+> -	config->cntr_val[ctridx] = 1;
+> -	config->cntrldvr[ctridx] = 1;
+> +	/* Initialise original and reload counter value. */
+> +	config->cntr_val[ctridx] = config->cntrldvr[ctridx] = 1 << ts_level;
+>  
+>  	/*
+>  	 * Trace Counter Control Register TRCCNTCTLRn
+> @@ -761,7 +764,7 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
+>  		 * order to correlate instructions executed on different CPUs
+>  		 * (CPU-wide trace scenarios).
+>  		 */
+> -		ret = etm4_config_timestamp_event(drvdata);
+> +		ret = etm4_config_timestamp_event(drvdata, attr);
+>  
+>  		/*
+>  		 * No need to go further if timestamp intervals can't
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
+> index aaa6633b2d67..54558de158fa 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x.h
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
+> @@ -598,6 +598,12 @@
+>  #define ETM_CNTR_MAX_VAL		0xFFFF
+>  #define ETM_TRACEID_MASK		0x3f
+>  
+> +#define ATTR_CFG_FLD_ts_level_CFG	config3
+> +#define ATTR_CFG_FLD_ts_level_LO	12
+> +#define ATTR_CFG_FLD_ts_level_HI	15
+> +#define ATTR_CFG_FLD_ts_level_MASK	GENMASK(ATTR_CFG_FLD_ts_level_HI, \
+> +						ATTR_CFG_FLD_ts_level_LO)
+> +
+>  /* ETMv4 programming modes */
+>  #define ETM_MODE_EXCLUDE		BIT(0)
+>  #define ETM_MODE_LOAD			BIT(1)
+> 
+> -- 
+> 2.34.1
+> 
 
