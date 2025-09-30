@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74603CCA470
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C08EACCA471
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 09:38:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,45 +12,45 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a0INyONaKwXX4WptdxAw16hMR2+zGRtIqwGHGoPYS3Y=; b=sGQk0+DvGPD2yFVVYbg1aIGLHY
-	FgtPUzk/8in+daX9ynxsbzED7OwKEjJtt1tcahH2GSzswhP+Jz+7PyMU7FhUA4XfZJoiZnFKNQkD6
-	wFHfuk8uzhR4jksR4jtCITvYLKpzk6xxXydqKKHN+DXVuAPyCiIBCj0ZTQm13Y49fDdzp68sD2JWX
-	3mgyEhJZAjtTf/tCKWx+bFn5Oiu9o+rgOfDWnKRRBuq82IxWW3l8IuBS7DJg7iCQqZBbqaPIAnUyi
-	N0NnCM/A2acBJBpsuX2e+A4JoR2U/+FrBi5A35eLO+KmZC4ZgLpqEw7QEtqdSYEPq8bgDMEVqc5lU
-	bUl5o/OA==;
+	bh=baYE7d93H8+Lwu6Cw8cHUS60/ITqfMx++BqVp1S5waQ=; b=2HuUCd0729PKMfdakqRLsRlmD6
+	/gA2d0NQ0IbSGFx1SWKEY2RhkLCwiS0riF8n8SUJXGqun9o641fo7t1iaTs/M1amhq8bKLwq7VZCU
+	HDcFuzros4jUbEPm+9U2dyziJV7/ckqBrV3iRuEOijAywVTzohuNTSM4qDrOYku7MYaNvY3UPq79E
+	3Jx4KvhP+iFYqJETw8LA/BTcDG7ZHG/x2E/AD+nKyCAsdj3bMx4ZtLD31+rlGFBOLU6CC0pF6s8yR
+	gur7HOlkJcsClV0VthKMaNyfZOLulvrWiaRJlYhf+3G+T/LdZ5trpvT/+GKTQbXcv5yCkZxtO4gAi
+	iqYVjXDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3WoM-00000004qaK-0sNh;
-	Tue, 30 Sep 2025 09:38:18 +0000
+	id 1v3WoI-00000004qWM-2fGb;
+	Tue, 30 Sep 2025 09:38:14 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Wnd-00000004q1d-2yRB;
+	id 1v3Wnd-00000004q1c-2w1J;
 	Tue, 30 Sep 2025 09:37:35 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BEC464827B;
+	by sea.source.kernel.org (Postfix) with ESMTP id CD090487A4;
 	Tue, 30 Sep 2025 09:37:31 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 8CAB8C19425;
+Received: by smtp.kernel.org (Postfix) with ESMTPS id A9BFCC2BCB0;
 	Tue, 30 Sep 2025 09:37:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
 	s=k20201202; t=1759225051;
-	bh=Bo1CFOtg4gIIbGHHtViZt9t2cUZjQ5keBMKPre0nFbA=;
+	bh=/tXAhb7r9S5fNKsT+RVj4pOb6NzJPefkOEiu0n2Zl1w=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=GPfn31fgjG1WCcX9ALUQsxP89/Qfck26jzsNY9XnrKfhV/yXKeAws1Kq0O0201Z9v
-	 ow5TtEoDEEBUzqsEj+aYjQXG82ZQuj/eL+9xm3SFkHMTyNIEH50U0c+ZYEXEpneXHL
-	 xQHXu238GR8JPzZANR0ut1CMTGVmhMC27j5oIUZYZIK2bAgGAw0ymO7fgBf4dfcWB7
-	 9KLroX1CzB8Jh2ETP/ApgqgaP1ax9kwXjggy+SU1uWNHV0QApfbshMFdsBX3fvdwmf
-	 m9t4AXxa37ZVXsbcV7yjUj5Lz5SirXrKfbfTFSlRXt6rDPmKaHUnIXyYjGa7Lowe5k
-	 8vK6roUnLCA8Q==
+	b=PaIvcX+Tug8N/BJ9pXjrLXjlW2VfmnlUPXHI3G1uMtzqkYXOOhG96P1Cq5k+GVyEs
+	 hxqUiRHliqdtdhXu7NtbyZVnqEiXuDDX4BhsM86g6eboKGkO4y4M2hnQ9f36ZGbJle
+	 OCafp2B/JFOYfbOkdO/aQKQ29mRorgTr8VmemzgTjaphs6UHo+wcEYDKquc9LU/3oV
+	 c7nqZplSmCAhdsM+QvytRxJIEJ7Rp8voUoBU8wkFu9u+X25l2jONUYcQcP5A+5/cXA
+	 oSjSUZRmCAY7Ude73FJ85ccJENUY7lWrKZ8N/oPMjGmcnHKOtTDNMdwSchdK1aJV9p
+	 lmaBvAnbei29g==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 801B5CAC5BC;
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 9EBC3CAC5B9;
 	Tue, 30 Sep 2025 09:37:31 +0000 (UTC)
 From: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
-Date: Tue, 30 Sep 2025 17:37:18 +0800
-Subject: [PATCH 05/19] clk: amlogic: Correct l_detect bit control
+Date: Tue, 30 Sep 2025 17:37:20 +0800
+Subject: [PATCH 07/19] clk: amlogic: Add A4 PLL clock controller driver
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20250930-a4_a5_add_clock_driver-v1-5-a9acf7951589@amlogic.com>
+Message-Id: <20250930-a4_a5_add_clock_driver-v1-7-a9acf7951589@amlogic.com>
 References: <20250930-a4_a5_add_clock_driver-v1-0-a9acf7951589@amlogic.com>
 In-Reply-To: <20250930-a4_a5_add_clock_driver-v1-0-a9acf7951589@amlogic.com>
 To: Michael Turquette <mturquette@baylibre.com>, 
@@ -65,19 +65,19 @@ Cc: linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, 
  Xianwei Zhao <xianwei.zhao@amlogic.com>, Chuan Liu <chuan.liu@amlogic.com>
 X-Mailer: b4 0.14.1
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1759225047; l=2616;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1759225047; l=7766;
  i=chuan.liu@amlogic.com; s=20240902; h=from:subject:message-id;
- bh=LtshPz5QhFtZiWYcR/aI7iIkvqDd3NT0MWjkTbs07gA=;
- b=pVc8LO0dn09seJBcSmtce0lp3bWlsFa5f3MvlD1HYbzetWEr7JIaBPn2THXXkqz1OKnWyZ1jX
- Y9vw3nm/3PHDfiH5MrxfhloJIvhwZ3Nfkx8qYHld3DZY+smlimqbrKU
+ bh=r2T/Rtty/xWtWoEVg0jJRgxPprY4dwBN+xh/xtueO8k=;
+ b=FcB2Wk6gT2QTeY8koVeN6tI+VtN3A39+8fj5YUm4B77UN+jDhyuhYUVpzWVCbR5nfOorYaJxB
+ 4S2rap79zCUAXnugImsaU4Gz0gDUuBNvhUUKbLovHaqfXIaghPKb8mr
 X-Developer-Key: i=chuan.liu@amlogic.com; a=ed25519;
  pk=fnKDB+81SoWGKW2GJNFkKy/ULvsDmJZRGBE7pR5Xcpo=
 X-Endpoint-Received: by B4 Relay for chuan.liu@amlogic.com/20240902 with
  auth_id=203
 X-Original-From: Chuan Liu <chuan.liu@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250930_023733_880317_DCDA2E70 
-X-CRM114-Status: GOOD (  13.67  )
+X-CRM114-CacheID: sfid-20250930_023733_790473_0FDF6102 
+X-CRM114-Status: GOOD (  17.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,78 +95,299 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chuan Liu <chuan.liu@amlogic.com>
 
-l_detect controls the enable/disable of the PLL lock-detect module.
-
-For A1, the l_detect signal is active-low:
-0 -> Enable lock-detect module;
-1 -> Disable lock-detect module.
+Add the PLL clock controller driver for the Amlogic A4 SoC family.
 
 Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
 ---
- drivers/clk/meson/a1-pll.c  |  1 +
- drivers/clk/meson/clk-pll.c | 16 ++++++++++++----
- drivers/clk/meson/clk-pll.h |  2 ++
- 3 files changed, 15 insertions(+), 4 deletions(-)
+ drivers/clk/meson/Kconfig  |  13 +++
+ drivers/clk/meson/Makefile |   1 +
+ drivers/clk/meson/a4-pll.c | 242 +++++++++++++++++++++++++++++++++++++++++++++
+ 3 files changed, 256 insertions(+)
 
-diff --git a/drivers/clk/meson/a1-pll.c b/drivers/clk/meson/a1-pll.c
-index 1f82e9c7c14e..bfe559c71402 100644
---- a/drivers/clk/meson/a1-pll.c
-+++ b/drivers/clk/meson/a1-pll.c
-@@ -137,6 +137,7 @@ static struct clk_regmap a1_hifi_pll = {
- 		.range = &a1_hifi_pll_range,
- 		.init_regs = a1_hifi_pll_init_regs,
- 		.init_count = ARRAY_SIZE(a1_hifi_pll_init_regs),
-+		.flags = CLK_MESON_PLL_L_DETECT_N
- 	},
- 	.hw.init = &(struct clk_init_data){
- 		.name = "hifi_pll",
-diff --git a/drivers/clk/meson/clk-pll.c b/drivers/clk/meson/clk-pll.c
-index 8bddd44d4738..c1e4c5710015 100644
---- a/drivers/clk/meson/clk-pll.c
-+++ b/drivers/clk/meson/clk-pll.c
-@@ -384,8 +384,12 @@ static int meson_clk_pll_enable(struct clk_hw *hw)
- 		meson_parm_write(clk->map, &pll->rst, 1);
+diff --git a/drivers/clk/meson/Kconfig b/drivers/clk/meson/Kconfig
+index 71481607a6d5..2339abfa2c4e 100644
+--- a/drivers/clk/meson/Kconfig
++++ b/drivers/clk/meson/Kconfig
+@@ -132,6 +132,19 @@ config COMMON_CLK_A1_PERIPHERALS
+ 	  device, A1 SoC Family. Say Y if you want A1 Peripherals clock
+ 	  controller to work.
  
- 	/* Disable the PLL lock-detect module */
--	if (MESON_PARM_APPLICABLE(&pll->l_detect))
--		meson_parm_write(clk->map, &pll->l_detect, 1);
-+	if (MESON_PARM_APPLICABLE(&pll->l_detect)) {
-+		if (pll->flags & CLK_MESON_PLL_L_DETECT_N)
-+			meson_parm_write(clk->map, &pll->l_detect, 1);
-+		else
-+			meson_parm_write(clk->map, &pll->l_detect, 0);
-+	}
- 
- 	/* Enable the pll */
- 	meson_parm_write(clk->map, &pll->en, 1);
-@@ -413,8 +417,12 @@ static int meson_clk_pll_enable(struct clk_hw *hw)
- 	udelay(20);
- 
- 	/* Enable the lock-detect module */
--	if (MESON_PARM_APPLICABLE(&pll->l_detect))
--		meson_parm_write(clk->map, &pll->l_detect, 0);
-+	if (MESON_PARM_APPLICABLE(&pll->l_detect)) {
-+		if (pll->flags & CLK_MESON_PLL_L_DETECT_N)
-+			meson_parm_write(clk->map, &pll->l_detect, 0);
-+		else
-+			meson_parm_write(clk->map, &pll->l_detect, 1);
-+	}
- 
- 	if (meson_clk_pll_wait_lock(hw)) {
- 		/* disable PLL when PLL lock failed. */
-diff --git a/drivers/clk/meson/clk-pll.h b/drivers/clk/meson/clk-pll.h
-index 949157fb7bf5..83295a24721f 100644
---- a/drivers/clk/meson/clk-pll.h
-+++ b/drivers/clk/meson/clk-pll.h
-@@ -29,6 +29,8 @@ struct pll_mult_range {
- 
- #define CLK_MESON_PLL_ROUND_CLOSEST	BIT(0)
- #define CLK_MESON_PLL_NOINIT_ENABLED	BIT(1)
-+/* l_detect signal is active-low */
-+#define CLK_MESON_PLL_L_DETECT_N	BIT(2)
- 
- struct meson_clk_pll_data {
- 	struct parm en;
++config COMMON_CLK_A4_PLL
++	tristate "Amlogic A4 PLL clock controller"
++	depends on ARM64
++	default ARCH_MESON
++	select COMMON_CLK_MESON_REGMAP
++	select COMMON_CLK_MESON_PLL
++	select COMMON_CLK_MESON_CLKC_UTILS
++	imply COMMON_CLK_SCMI
++	help
++	  Support for the PLL clock controller on Amlogic BA40X device, AKA A4.
++	  Say Y if you want the board to work, because PLLs are the parent
++	  of most peripherals.
++
+ config COMMON_CLK_C3_PLL
+ 	tristate "Amlogic C3 PLL clock controller"
+ 	depends on ARM64
+diff --git a/drivers/clk/meson/Makefile b/drivers/clk/meson/Makefile
+index c6998e752c68..22312393663f 100644
+--- a/drivers/clk/meson/Makefile
++++ b/drivers/clk/meson/Makefile
+@@ -19,6 +19,7 @@ obj-$(CONFIG_COMMON_CLK_AXG) += axg.o axg-aoclk.o
+ obj-$(CONFIG_COMMON_CLK_AXG_AUDIO) += axg-audio.o
+ obj-$(CONFIG_COMMON_CLK_A1_PLL) += a1-pll.o
+ obj-$(CONFIG_COMMON_CLK_A1_PERIPHERALS) += a1-peripherals.o
++obj-$(CONFIG_COMMON_CLK_A4_PLL) += a4-pll.o
+ obj-$(CONFIG_COMMON_CLK_C3_PLL) += c3-pll.o
+ obj-$(CONFIG_COMMON_CLK_C3_PERIPHERALS) += c3-peripherals.o
+ obj-$(CONFIG_COMMON_CLK_GXBB) += gxbb.o gxbb-aoclk.o
+diff --git a/drivers/clk/meson/a4-pll.c b/drivers/clk/meson/a4-pll.c
+new file mode 100644
+index 000000000000..b77d4f610843
+--- /dev/null
++++ b/drivers/clk/meson/a4-pll.c
+@@ -0,0 +1,242 @@
++// SPDX-License-Identifier: GPL-2.0-only
++/*
++ * Amlogic A4 PLL Controller Driver
++ *
++ * Copyright (c) 2025 Amlogic, inc.
++ * Author: Chuan Liu <chuan.liu@amlogic.com>
++ */
++
++#include <linux/clk-provider.h>
++#include <linux/platform_device.h>
++#include "clk-regmap.h"
++#include "clk-pll.h"
++#include "meson-clkc-utils.h"
++#include <dt-bindings/clock/amlogic,a4-pll-clkc.h>
++
++#define GP0PLL_CTRL0			0x80
++#define GP0PLL_CTRL1			0x84
++#define GP0PLL_CTRL2			0x88
++#define GP0PLL_CTRL3			0x8c
++#define HIFIPLL_CTRL0			0x100
++#define HIFIPLL_CTRL1			0x104
++#define HIFIPLL_CTRL2			0x108
++#define HIFIPLL_CTRL3			0x10c
++
++static const struct reg_sequence a4_gp0_init_regs[] = {
++	{ .reg = GP0PLL_CTRL1, .def = 0x03a00000 },
++	{ .reg = GP0PLL_CTRL2, .def = 0x00040000 },
++	{ .reg = GP0PLL_CTRL3, .def = 0x090da200 }
++};
++
++static const struct pll_mult_range a4_gp0_pll_mult_range = {
++	.min = 67,
++	.max = 133,
++};
++
++static struct clk_regmap a4_gp0_pll_dco = {
++	.data = &(struct meson_clk_pll_data) {
++		.en = {
++			.reg_off = GP0PLL_CTRL0,
++			.shift   = 28,
++			.width   = 1,
++		},
++		.m = {
++			.reg_off = GP0PLL_CTRL0,
++			.shift   = 0,
++			.width   = 9,
++		},
++		.frac = {
++			.reg_off = GP0PLL_CTRL1,
++			.shift   = 0,
++			.width   = 17,
++		},
++		.n = {
++			.reg_off = GP0PLL_CTRL0,
++			.shift   = 16,
++			.width   = 5,
++		},
++		.l = {
++			.reg_off = GP0PLL_CTRL0,
++			.shift   = 31,
++			.width   = 1,
++		},
++		.rst = {
++			.reg_off = GP0PLL_CTRL0,
++			.shift   = 29,
++			.width   = 1,
++		},
++		.l_detect = {
++			.reg_off = GP0PLL_CTRL3,
++			.shift   = 9,
++			.width   = 1,
++		},
++		.range = &a4_gp0_pll_mult_range,
++		.init_regs = a4_gp0_init_regs,
++		.init_count = ARRAY_SIZE(a4_gp0_init_regs),
++	},
++	.hw.init = &(struct clk_init_data) {
++		.name = "gp0_pll_dco",
++		.ops = &meson_clk_pll_ops,
++		.parent_data = &(const struct clk_parent_data) {
++			.fw_name = "xtal",
++		},
++		.num_parents = 1,
++	},
++};
++
++/* The maximum frequency divider supports is 16, not 128(2^7) */
++static const struct clk_div_table a4_gp0_pll_od_table[] = {
++	{ 0,  1 },
++	{ 1,  2 },
++	{ 2,  4 },
++	{ 3,  8 },
++	{ 4, 16 },
++	{ /* sentinel */ }
++};
++
++static struct clk_regmap a4_gp0_pll = {
++	.data = &(struct clk_regmap_div_data) {
++		.offset = GP0PLL_CTRL0,
++		.shift = 10,
++		.width = 3,
++		.table = a4_gp0_pll_od_table,
++	},
++	.hw.init = &(struct clk_init_data) {
++		.name = "gp0_pll",
++		.ops = &clk_regmap_divider_ops,
++		.parent_hws = (const struct clk_hw *[]) {
++			&a4_gp0_pll_dco.hw
++		},
++		.num_parents = 1,
++		.flags = CLK_SET_RATE_PARENT,
++	},
++};
++
++static const struct reg_sequence a4_hifi_init_regs[] = {
++	{ .reg = HIFIPLL_CTRL1, .def = 0x03a00000 },
++	{ .reg = HIFIPLL_CTRL2, .def = 0x00040000 },
++	{ .reg = HIFIPLL_CTRL3, .def = 0x0a0da200 }
++};
++
++static const struct pll_mult_range a4_hifi_pll_mult_range = {
++	.min = 67,
++	.max = 133,
++};
++
++static struct clk_regmap a4_hifi_pll_dco = {
++	.data = &(struct meson_clk_pll_data) {
++		.en = {
++			.reg_off = HIFIPLL_CTRL0,
++			.shift   = 28,
++			.width   = 1,
++		},
++		.m = {
++			.reg_off = HIFIPLL_CTRL0,
++			.shift   = 0,
++			.width   = 8,
++		},
++		.frac = {
++			.reg_off = HIFIPLL_CTRL1,
++			.shift   = 0,
++			.width   = 17,
++		},
++		.n = {
++			.reg_off = HIFIPLL_CTRL0,
++			.shift   = 16,
++			.width   = 5,
++		},
++		.l = {
++			.reg_off = HIFIPLL_CTRL0,
++			.shift   = 31,
++			.width   = 1,
++		},
++		.rst = {
++			.reg_off = HIFIPLL_CTRL0,
++			.shift   = 29,
++			.width   = 1,
++		},
++		.l_detect = {
++			.reg_off = HIFIPLL_CTRL3,
++			.shift   = 9,
++			.width   = 1,
++		},
++		.range = &a4_hifi_pll_mult_range,
++		.init_regs = a4_hifi_init_regs,
++		.init_count = ARRAY_SIZE(a4_hifi_init_regs),
++		.frac_max = 100000,
++		.flags = CLK_MESON_PLL_ROUND_CLOSEST,
++	},
++	.hw.init = &(struct clk_init_data) {
++		.name = "hifi_pll_dco",
++		.ops = &meson_clk_pll_ops,
++		.parent_data = &(const struct clk_parent_data) {
++			.fw_name = "xtal",
++		},
++		.num_parents = 1,
++	},
++};
++
++/* The maximum frequency divider supports is 16, not 128(2^7) */
++static const struct clk_div_table a4_hifi_pll_od_table[] = {
++	{ 0,  1 },
++	{ 1,  2 },
++	{ 2,  4 },
++	{ 3,  8 },
++	{ 4, 16 },
++	{ /* sentinel */ }
++};
++
++static struct clk_regmap a4_hifi_pll = {
++	.data = &(struct clk_regmap_div_data) {
++		.offset = HIFIPLL_CTRL0,
++		.shift = 10,
++		.width = 3,
++		.table = a4_hifi_pll_od_table,
++	},
++	.hw.init = &(struct clk_init_data) {
++		.name = "hifi_pll",
++		.ops = &clk_regmap_divider_ops,
++		.parent_hws = (const struct clk_hw *[]) {
++			&a4_hifi_pll_dco.hw
++		},
++		.num_parents = 1,
++		.flags = CLK_SET_RATE_PARENT,
++	},
++};
++
++static struct clk_hw *a4_pll_hw_clks[] = {
++	[CLKID_GP0_PLL_DCO]	= &a4_gp0_pll_dco.hw,
++	[CLKID_GP0_PLL]		= &a4_gp0_pll.hw,
++	[CLKID_HIFI_PLL_DCO]	= &a4_hifi_pll_dco.hw,
++	[CLKID_HIFI_PLL]	= &a4_hifi_pll.hw
++};
++
++static const struct meson_clkc_data a4_pll_clkc_data = {
++	.hw_clks = {
++		.hws = a4_pll_hw_clks,
++		.num = ARRAY_SIZE(a4_pll_hw_clks),
++	},
++};
++
++static const struct of_device_id a4_pll_clkc_match_table[] = {
++	{
++		.compatible = "amlogic,a4-pll-clkc",
++		.data = &a4_pll_clkc_data,
++	},
++	{}
++};
++MODULE_DEVICE_TABLE(of, a4_pll_clkc_match_table);
++
++static struct platform_driver a4_pll_clkc_driver = {
++	.probe = meson_clkc_mmio_probe,
++	.driver = {
++		.name = "a4-pll-clkc",
++		.of_match_table = a4_pll_clkc_match_table,
++	},
++};
++module_platform_driver(a4_pll_clkc_driver);
++
++MODULE_DESCRIPTION("Amlogic A4 PLL Clock Controller driver");
++MODULE_AUTHOR("Chuan Liu <chuan.liu@amlogic.com>");
++MODULE_LICENSE("GPL");
++MODULE_IMPORT_NS("CLK_MESON");
 
 -- 
 2.42.0
