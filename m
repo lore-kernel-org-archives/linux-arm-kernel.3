@@ -4,148 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C526ACCA468
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 10:21:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64717CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 10:46:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2FO5TJu0e3hKi5ooEEyq91mLNTSFD8iqOTnH4/uGmiI=; b=EPRfr/dx6qqCTLdBYEqMrO0jwj
-	6lv5+X6rvoAi6GXri5sr8fwrxRPqqzJSc1gmbS6HlCL8SUBpzwthmSH3ban13Pc6Mb/tsBqzHsCVI
-	zo6z6NGR3ZXQBAeQYYyQX+ACcoILHfwE/8kWCmPd+dR9gT2w/tCWCOnO5L2XqqX3ufWQbDVT4Zig3
-	I9vuuXr2qV1MQ3T1Qik168B9KvitLy7IZjEeH2U8PT3SL+ENpqgITsxRwp10vfvkbb43C+p1YrbKh
-	T9Jd8J9Qe7ZbNYY8S0O+I3d9cwOsB5ETCPaqQ9vupdOGKW4YSWiQB+UI+fYtIGdtaCCMI8YjuLfp4
-	ZlNebVRA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WgRTPUOfFLmJA7nFLB9fxHyjlUmv/2ErR1SvcQz2uHs=; b=PWRsL4qj9E4XInQ2m6v79lIqZm
+	6zZ9gkq86M/uFZ5YdREOaxVOAXhAIOH0r5Mm7xS85i6r2SJIWRol9dk/renpxa6qBxQXGuhuFZcMI
+	Pi31ytoyoopZ1siIu8YQ6SEeW39MFEpilpwI8EarPbgDtJubD4UixYHIn8lw5PYI6Pb4YRpf3lSSA
+	Pm8R95LS2vGeo+KukxKdBnanR+btdChsmAgoJASRej9GTB9fIMPDTTnEFntuemCJenBxxoOWp/+Op
+	mR2IM4xHhBvrnSSZmB2OQRbLWHhy1hUIo46csW6dAvmsaFVf6kUanVlg5QomTZgooN/GXpWNBDvAn
+	0Xrn5rHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3XTp-00000004zgn-1LdH;
-	Tue, 30 Sep 2025 10:21:09 +0000
-Received: from smtp-out1.suse.de ([195.135.223.130])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3XTj-00000004zfB-0hHg
+	id 1v3Xrs-000000053JF-0WrM;
+	Tue, 30 Sep 2025 10:46:00 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v3Xrp-000000053IY-1rfi
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Sep 2025 10:21:07 +0000
-Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by smtp-out1.suse.de (Postfix) with ESMTPS id 125C6336CF;
-	Tue, 30 Sep 2025 10:21:01 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1759227661; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2FO5TJu0e3hKi5ooEEyq91mLNTSFD8iqOTnH4/uGmiI=;
-	b=lC1nOXmwgp1Fr1DLnriYWoc4IfBB0y/Vp0R5PvPq1Rwptyjlw78PCwQxFOJQSKCq32GHBT
-	WQoNbevmCL+F96OIMzYL3sNB6QGMgq+LHikU3Gzm0tIlwqCrP2J32yNwu1sZ7XvpuO+wfk
-	Qdrj01zGuMMelSUJSWHTI/xT4OWMNKs=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1759227661;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2FO5TJu0e3hKi5ooEEyq91mLNTSFD8iqOTnH4/uGmiI=;
-	b=gkTeZUFV70twndFZVAS8N0ffQ87/o43z5AxtvtJ9CKbeIXB+Bq5SgrVZtz8kxWtP2RWeCc
-	GpzVhEbqissIJTBQ==
-Authentication-Results: smtp-out1.suse.de;
-	dkim=pass header.d=suse.de header.s=susede2_rsa header.b=lC1nOXmw;
-	dkim=pass header.d=suse.de header.s=susede2_ed25519 header.b=gkTeZUFV
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
-	t=1759227661; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2FO5TJu0e3hKi5ooEEyq91mLNTSFD8iqOTnH4/uGmiI=;
-	b=lC1nOXmwgp1Fr1DLnriYWoc4IfBB0y/Vp0R5PvPq1Rwptyjlw78PCwQxFOJQSKCq32GHBT
-	WQoNbevmCL+F96OIMzYL3sNB6QGMgq+LHikU3Gzm0tIlwqCrP2J32yNwu1sZ7XvpuO+wfk
-	Qdrj01zGuMMelSUJSWHTI/xT4OWMNKs=
-DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
-	s=susede2_ed25519; t=1759227661;
-	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
-	 mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=2FO5TJu0e3hKi5ooEEyq91mLNTSFD8iqOTnH4/uGmiI=;
-	b=gkTeZUFV70twndFZVAS8N0ffQ87/o43z5AxtvtJ9CKbeIXB+Bq5SgrVZtz8kxWtP2RWeCc
-	GpzVhEbqissIJTBQ==
-Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 1734213A3F;
-	Tue, 30 Sep 2025 10:21:00 +0000 (UTC)
-Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
-	by imap1.dmz-prg2.suse.org with ESMTPSA
-	id kvSsAgyv22iuBwAAD6G6ig
-	(envelope-from <svarbanov@suse.de>); Tue, 30 Sep 2025 10:21:00 +0000
-Message-ID: <88bd67f2-de8c-407b-ba98-08663eee2d7e@suse.de>
-Date: Tue, 30 Sep 2025 13:20:59 +0300
+	Tue, 30 Sep 2025 10:45:58 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5A8971424;
+	Tue, 30 Sep 2025 03:45:48 -0700 (PDT)
+Received: from e124191.cambridge.arm.com (e124191.cambridge.arm.com [10.1.197.45])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 202A93F66E;
+	Tue, 30 Sep 2025 03:45:54 -0700 (PDT)
+Date: Tue, 30 Sep 2025 11:45:52 +0100
+From: Joey Gouly <joey.gouly@arm.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	kvm@vger.kernel.org, Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>
+Subject: Re: [PATCH 08/13] KVM: arm64: Move CNT*CT_EL0 userspace accessors to
+ generic infrastructure
+Message-ID: <20250930104552.GB1093338@e124191.cambridge.arm.com>
+References: <20250929160458.3351788-1-maz@kernel.org>
+ <20250929160458.3351788-9-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/4] dt-bindings: Add Raspberry Pi's RP1 ADC
-To: Guenter Roeck <linux@roeck-us.net>, Conor Dooley <conor@kernel.org>
-Cc: Stanimir Varbanov <svarbanov@suse.de>, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rpi-kernel@lists.infradead.org,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, linux-hwmon@vger.kernel.org,
- Jean Delvare <jdelvare@suse.com>, Rob Herring <robh@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Andrew Lunn <andrew@lunn.ch>,
- Stefan Wahren <wahrenst@gmx.net>, Saenz Julienne <nsaenz@kernel.org>,
- Andrea della Porta <andrea.porta@suse.com>,
- Phil Elwell <phil@raspberrypi.com>, Jonathan Bell
- <jonathan@raspberrypi.com>, Dave Stevenson <dave.stevenson@raspberrypi.com>
-References: <20250925000416.2408457-1-svarbanov@suse.de>
- <20250925000416.2408457-2-svarbanov@suse.de>
- <20250925-outlying-causal-015d8ba33c53@spud>
- <89dd04b9-e261-4bdd-83ab-499e46fc9c01@roeck-us.net>
-Content-Language: en-US
-From: Stanimir Varbanov <svarbanov@suse.de>
-In-Reply-To: <89dd04b9-e261-4bdd-83ab-499e46fc9c01@roeck-us.net>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-Spamd-Result: default: False [-3.01 / 50.00];
-	BAYES_HAM(-3.00)[100.00%];
-	SUSPICIOUS_RECIPS(1.50)[];
-	NEURAL_HAM_LONG(-1.00)[-1.000];
-	R_DKIM_ALLOW(-0.20)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	NEURAL_HAM_SHORT(-0.20)[-1.000];
-	MIME_GOOD(-0.10)[text/plain];
-	MX_GOOD(-0.01)[];
-	FREEMAIL_CC(0.00)[suse.de,vger.kernel.org,lists.infradead.org,broadcom.com,suse.com,kernel.org,lunn.ch,gmx.net,raspberrypi.com];
-	FREEMAIL_ENVRCPT(0.00)[gmx.net];
-	FUZZY_RATELIMITED(0.00)[rspamd.com];
-	RCPT_COUNT_TWELVE(0.00)[21];
-	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
-	MIME_TRACE(0.00)[0:+];
-	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	ARC_NA(0.00)[];
-	RCVD_TLS_ALL(0.00)[];
-	DKIM_TRACE(0.00)[suse.de:+];
-	RCVD_VIA_SMTP_AUTH(0.00)[];
-	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
-	RCVD_COUNT_TWO(0.00)[2];
-	FROM_EQ_ENVFROM(0.00)[];
-	FROM_HAS_DN(0.00)[];
-	TO_DN_SOME(0.00)[];
-	TO_MATCH_ENVRCPT_SOME(0.00)[];
-	MID_RHS_MATCH_FROM(0.00)[];
-	DNSWL_BLOCKED(0.00)[2a07:de40:b281:104:10:150:64:97:from,2a07:de40:b281:106:10:150:64:167:received];
-	TAGGED_RCPT(0.00)[dt];
-	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
-	DBL_BLOCKED_OPENRESOLVER(0.00)[imap1.dmz-prg2.suse.org:helo,imap1.dmz-prg2.suse.org:rdns,devicetree.org:url,suse.de:mid,suse.de:dkim,suse.de:email]
-X-Rspamd-Queue-Id: 125C6336CF
-X-Rspamd-Server: rspamd2.dmz-prg2.suse.org
-X-Rspamd-Action: no action
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250929160458.3351788-9-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250930_032103_491625_9EA29819 
-X-CRM114-Status: GOOD (  17.60  )
+X-CRM114-CacheID: sfid-20250930_034557_603074_B3599EB4 
+X-CRM114-Status: GOOD (  21.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -160,73 +66,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Observation below
 
-On 9/25/25 11:37 PM, Guenter Roeck wrote:
-> On Thu, Sep 25, 2025 at 08:40:54PM +0100, Conor Dooley wrote:
->> On Thu, Sep 25, 2025 at 03:04:13AM +0300, Stanimir Varbanov wrote:
->>> Document dt-bindings for Raspberry Pi's RP1 ADC.
->>>
->>> Signed-off-by: Stanimir Varbanov <svarbanov@suse.de>
->>> ---
->>>  .../bindings/hwmon/raspberrypi,rp1-adc.yaml   | 46 +++++++++++++++++++
->>>  1 file changed, 46 insertions(+)
->>>  create mode 100644 Documentation/devicetree/bindings/hwmon/raspberrypi,rp1-adc.yaml
->>>
->>> diff --git a/Documentation/devicetree/bindings/hwmon/raspberrypi,rp1-adc.yaml b/Documentation/devicetree/bindings/hwmon/raspberrypi,rp1-adc.yaml
->>> new file mode 100644
->>> index 000000000000..5266b253fd2b
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/hwmon/raspberrypi,rp1-adc.yaml
->>> @@ -0,0 +1,46 @@
->>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
->>> +%YAML 1.2
->>> +---
->>> +$id: http://devicetree.org/schemas/hwmon/raspberrypi,rp1-adc.yaml#
->>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>> +
->>> +title: Rasberry Pi RP1 ADC device
->>> +
->>> +maintainers:
->>> +  - Stanimir Varbanov <svarbanov@suse.de>
->>> +
->>> +description: |
->>> +  The RP1 ADC is a five input successive-approximation ADC with 12-bit
->>> +  resolution (ENOB 9.5-bit) at 500kSPS. It has four external inputs
->>> +  and one internal temperature sensor.
->>> +
->>> +properties:
->>> +  compatible:
->>> +    const: raspberrypi,rp1-adc
->>> +
->>> +  reg:
->>> +    maxItems: 1
->>> +
->>> +  clocks:
->>> +    maxItems: 1
->>> +
->>> +  vref-supply:
->>> +    description:
->>> +      Reference voltage regulator 3.3V.
->>
->> Looks like you're missing the io-channels-cells property that allows
->> this device to be a provider of adc channels to other devices.
->>
-> Only makes sense if the driver is implemented as iio driver.
-> Which would be fine with me, assuming this is a generic ADC.
-> The iio -> hwmon bridge can then be used to instantiate a
-> hwmon device if needed.
+  |
+  v
+
+On Mon, Sep 29, 2025 at 05:04:52PM +0100, Marc Zyngier wrote:
+> Moving the counter registers is a bit more involved than for the control
+> and comparator (there is no shadow data for the counter), but still
+> pretty manageable.
 > 
+> Signed-off-by: Marc Zyngier <maz@kernel.org>
+> ---
+>  arch/arm64/kvm/guest.c    |  7 -------
+>  arch/arm64/kvm/sys_regs.c | 34 +++++++++++++++++++++++++++++++---
+>  2 files changed, 31 insertions(+), 10 deletions(-)
+> 
+> diff --git a/arch/arm64/kvm/guest.c b/arch/arm64/kvm/guest.c
+> index c23ec9be4ce27..138e5e2dc10c8 100644
+> --- a/arch/arm64/kvm/guest.c
+> +++ b/arch/arm64/kvm/guest.c
+> @@ -592,19 +592,12 @@ static unsigned long num_core_regs(const struct kvm_vcpu *vcpu)
+>  }
+>  
+>  static const u64 timer_reg_list[] = {
+> -	KVM_REG_ARM_TIMER_CNT,
+> -	KVM_REG_ARM_PTIMER_CNT,
+>  };
+>  
+>  #define NUM_TIMER_REGS ARRAY_SIZE(timer_reg_list)
+>  
+>  static bool is_timer_reg(u64 index)
+>  {
+> -	switch (index) {
+> -	case KVM_REG_ARM_TIMER_CNT:
+> -	case KVM_REG_ARM_PTIMER_CNT:
+> -		return true;
+> -	}
+>  	return false;
+>  }
+>  
+> diff --git a/arch/arm64/kvm/sys_regs.c b/arch/arm64/kvm/sys_regs.c
+> index 68e88d5c0dfb5..e67eb39ddc118 100644
+> --- a/arch/arm64/kvm/sys_regs.c
+> +++ b/arch/arm64/kvm/sys_regs.c
+> @@ -1605,12 +1605,38 @@ static int arch_timer_set_user(struct kvm_vcpu *vcpu,
+>  	case SYS_CNTHP_CTL_EL2:
+>  		val &= ~ARCH_TIMER_CTRL_IT_STAT;
+>  		break;
+> +	case SYS_CNTVCT_EL0:
+> +		if (!test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm->arch.flags))
+> +			timer_set_offset(vcpu_vtimer(vcpu), kvm_phys_timer_read() - val);
+> +		return 0;
+> +	case SYS_CNTPCT_EL0:
+> +		if (!test_bit(KVM_ARCH_FLAG_VM_COUNTER_OFFSET, &vcpu->kvm->arch.flags))
+> +			timer_set_offset(vcpu_ptimer(vcpu), kvm_phys_timer_read() - val);
+> +		return 0;
+>  	}
+>  
+>  	__vcpu_assign_sys_reg(vcpu, rd->reg, val);
+>  	return 0;
+>  }
+>  
+> +static int arch_timer_get_user(struct kvm_vcpu *vcpu,
+> +			       const struct sys_reg_desc *rd,
+> +			       u64 *val)
+> +{
+> +	switch (reg_to_encoding(rd)) {
+> +	case SYS_CNTVCT_EL0:
+> +		*val = kvm_phys_timer_read() - timer_get_offset(vcpu_vtimer(vcpu));
+> +		break;
+> +	case SYS_CNTPCT_EL0:
+> +		*val = kvm_phys_timer_read() - timer_get_offset(vcpu_ptimer(vcpu));
+> +		break;
+> +	default:
+> +		*val = __vcpu_sys_reg(vcpu, rd->reg);
 
-According to the RP1 peripheral document the information about ADC is
-limited and I cannot be 100% sure that this is generic ADC, but it looks
-like it is. On RPi5 board the ADC inputs are not configurable, but that
-could change on another board.
+Unsure if this is actually an issue but for the _CTL registers, via
+access_arch_timer() (kvm_arm_timer_read_sysreg() -> .. -> read_timer_ctl()),
+the ARCH_TIMER_CTRL_IT_STAT bit will be set if the timer expired, but that's
+not done here.
 
-I personally don't have objections to implement it as IIO driver.
+> +	}
+> +
+> +	return 0;
+> +}
+> +
+>  static s64 kvm_arm64_ftr_safe_value(u32 id, const struct arm64_ftr_bits *ftrp,
+>  				    s64 new, s64 cur)
+>  {
+> @@ -2539,7 +2565,7 @@ static bool bad_redir_trap(struct kvm_vcpu *vcpu,
+>  
+>  #define TIMER_REG(name, vis)					   \
+>  	SYS_REG_USER_FILTER(name, access_arch_timer, reset_val, 0, \
+> -			    NULL, arch_timer_set_user, vis)
+> +			    arch_timer_get_user, arch_timer_set_user, vis)
+>  
+>  /*
+>   * Since reset() callback and field val are not used for idregs, they will be
+> @@ -3506,8 +3532,10 @@ static const struct sys_reg_desc sys_reg_descs[] = {
+>  	AMU_AMEVTYPER1_EL0(14),
+>  	AMU_AMEVTYPER1_EL0(15),
+>  
+> -	{ SYS_DESC(SYS_CNTPCT_EL0), access_arch_timer },
+> -	{ SYS_DESC(SYS_CNTVCT_EL0), access_arch_timer },
+> +	{ SYS_DESC(SYS_CNTPCT_EL0), .access = access_arch_timer,
+> +	  .get_user = arch_timer_get_user, .set_user = arch_timer_set_user },
+> +	{ SYS_DESC(SYS_CNTVCT_EL0), .access = access_arch_timer,
+> +	  .get_user = arch_timer_get_user, .set_user = arch_timer_set_user },
+>  	{ SYS_DESC(SYS_CNTPCTSS_EL0), access_arch_timer },
+>  	{ SYS_DESC(SYS_CNTVCTSS_EL0), access_arch_timer },
+>  	{ SYS_DESC(SYS_CNTP_TVAL_EL0), access_arch_timer },
 
-Phil, are you fine with implementing the driver as IIO?
-
-~Stan
-
+Thanks,
+Joey
 
