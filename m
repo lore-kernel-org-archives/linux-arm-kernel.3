@@ -4,149 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE013CCA468
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 11:45:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 854BDCCA468
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 11:56:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=l0BzqZ/4sw53r69E6XghJy873Mwyh6QyOXwyOoGLze0=; b=o8EXssgLnhaxqNNBfbdbS52O4Z
-	ZdcjqKbhjUpqyPX4o+BcCqUd9L670BtBWnUV4YMS1vzCOLxGytHid6Jlg85F9FwHy9EVi1WYXrzOa
-	yQ75ZNIk+CI0eynGp65StSk4Nr6cbme3CDVROaHo+HFbqk83V4QSo6k+DAU511eu2KX3hrxjj6bqD
-	2apoOdZm/YUS+W+L1A/4ft7xOoo7nJTG7BxldEeZc8zT8DHY6hu4njtqoZkLDTt/K/Xyaw6eCBr1L
-	TAeE/n1kXbVdzb8Qi2vGAwk97kUEKz5OGhJq9R2a2QirrBRyq9L312rvi+sz+jvIjhmOWCiP3jaZA
-	SDLNkQCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eZODfRXjDA6v09p+KxrBV/Rzo8UHeNRGKXL+qBvR7zU=; b=3O3UCTMaADMIzawP1SPLfF+LRX
+	O3PUbQG00WK2euuoPqtmTUEVQGPCVsuzNtgPGGiwfQfGCKzrlj+L9+90JSCaojDt+qwwo4yMOFP26
+	BrT8LKZ1fYCoFYow8sg1myiV+7ozQdUyqZHKrmLqMvYYrNHlr/pGECkhKGPRuTNeEfPkxoyzLIQf2
+	r8U2/8G5/TJceCRoV2qdqaH+EnvQKXBGHEupJMpaD9m3+xF7tP6DTsKQEOLeRtp8WfAy7rtrReDxr
+	VxDMUzOZAKqJbo29NIp3XKjFR9Y8sz9zZblLx+g/yGhPmFmanE/v58yNG5A4QXVU9TjixjCH6ZXcI
+	oLUyVS4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Ymx-00000005Aev-0hov;
-	Tue, 30 Sep 2025 11:44:59 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1v3Yxa-00000005BUV-3IlZ;
+	Tue, 30 Sep 2025 11:55:58 +0000
+Received: from mail-eastusazlp170120007.outbound.protection.outlook.com ([2a01:111:f403:c101::7] helo=BL0PR03CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3Ymu-00000005AeV-12Ek
+	id 1v3YxY-00000005BU0-3bCC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Sep 2025 11:44:57 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 58UBG5Qt027373
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 11:44:54 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	l0BzqZ/4sw53r69E6XghJy873Mwyh6QyOXwyOoGLze0=; b=duebPmOWUOAADAgx
-	Xb6oWB0SKfqaSemGSxG17Y6Vs2+ilBdL7yyen//7uO8d362HGEtd2/074EkDd+SS
-	IsVxX9WI0eWeoss4SC8xRguh4eoaRufAUQdrAIJUfe+YfcBKWwMvQy21/GZW/FMk
-	FyWRo4ZT2jiKA3mBZiUDE+Y8NcqHZi7sKVmWKttOntkBLsA1+H1insTqwZRxDXQZ
-	E8rTmxsVTg/vWiXfNlhT1uCwfR0/PunLFoTRUuwqJ+rjDOAkYG0Ijsipx7khbAk6
-	Ddluj2BFftVtdj9SyiVHD4cfvvidjAMEUj2a0IPpE3nKZsLnj9Zkx3AOqNL6newM
-	4SVmgg==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49e851grgr-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 11:44:54 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-25d21fddb85so105999035ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 04:44:54 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759232693; x=1759837493;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=l0BzqZ/4sw53r69E6XghJy873Mwyh6QyOXwyOoGLze0=;
-        b=Nn7+ajCHr6MM+CC9lIIqhkqswxho06841F1hlfTjaeFEFJWx1jagL5T5eMboDE81O9
-         qYs7yIPppB2UcSsxhhycUxyqXjEWTCJauRVBklv/ONUWB/0Vg8g4GRW33Gs5x/Gnnfmv
-         wd1l7qMbasxY36i3RHs209W1EMJiWlvaxLVlg/dBmIToTAn9qdQtpSiTk6zZIKktl+M8
-         pjhSRQzNka6c2uIJ15/XM9Lk4ru/bTNLzm5FuTJawwk9+sXU6rUsN/n6vzKdF4k4fpAe
-         uFYWj37kxryekGnEKc/FG/Zr3eGFy1mx9jgjOmn60ME3I11pEfGrrwrQUaqGs6Bnxj/k
-         iRcg==
-X-Forwarded-Encrypted: i=1; AJvYcCW3RtP1CiJ97DMfNHw0cgrPaAnXQH7WSf7REo7oTxMG72wqom1c+bT0xcubyXle5PQSYvpzZNOtf+kCwqfW3XY/@lists.infradead.org
-X-Gm-Message-State: AOJu0YzG1SRivuLwjdYmMZj46vr6AZvp7FeeI2G6C2sV/4kIMlvjLGte
-	eV0WDDhVrw21vyvUhr6N0g1Rsd04kNoPLK3DF/hWRnF5ejfXahviISH3RKxVTGT/xFmlrnW1GCY
-	G17l5sg5piTreyOHUBHHuQaoBp92JitRK/WUCT9uq5LYBLcgsRnSC0gcJIJr6676iRsbw5ty6Qr
-	1XAA==
-X-Gm-Gg: ASbGncscrYmxAu0/drNHIZepVaEH4zaQeuwNd+b/D0kqiql3eZRmXg9bZ9jLsz8xeBg
-	ncv0DI0GNLEL56WN6dcW5WEk1ARu2iFyDgJZ2pITJeHhnliqJEEIJXDouyDzdI65Sq0Ks6h3b2w
-	oBNymeWsxA+9aSRyN4b6BH6HmbJN1occ97PlutINbKaX5rMTMXwxpoVNNeIp0QzidGcH3Mu5L8P
-	ZPrhsNO+wumYdpjjlSNIKJdBqfjy6SSdz23GaKYkVYlnvkzWdWJT/MIlFqAL3bS9k5Bxbtryz18
-	s5RCNm2RIC/i3s7G0cNDCuXnDhuCtYMxUqnlhmhtb1wS73hYaEEeyX/XS3nsE7cgN4zVBfrG19F
-	GqTg0
-X-Received: by 2002:a17:902:e54f:b0:267:9c2f:4655 with SMTP id d9443c01a7336-27ed4a49254mr215223005ad.41.1759232692518;
-        Tue, 30 Sep 2025 04:44:52 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEve1eD+dd1r1YsJpk9PlBGwIyu3HmOFMAgn0RGL0ZK0pja/BCi89UoErtpan0WzMlLpeewzQ==
-X-Received: by 2002:a17:902:e54f:b0:267:9c2f:4655 with SMTP id d9443c01a7336-27ed4a49254mr215222655ad.41.1759232691985;
-        Tue, 30 Sep 2025 04:44:51 -0700 (PDT)
-Received: from [10.219.56.238] ([202.46.23.19])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-27ed6ad1fd9sm156376915ad.142.2025.09.30.04.44.42
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 30 Sep 2025 04:44:51 -0700 (PDT)
-Message-ID: <2a428158-551c-0da5-17c0-b47098aecad9@oss.qualcomm.com>
-Date: Tue, 30 Sep 2025 17:08:51 +0530
+	Tue, 30 Sep 2025 11:55:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PThlKleYlxpCNwbmtn9d2bZsiTBcg7Cry04bo4FWFkE8fYA/2G7BmdEgf04YrjW0OqDld0MIU3qWo0w+8u7+8M7675ZETtrwvSaVforizRN7ofeGNhC7dKW+nHDcrFXnuAJzlP4jrQMhozRg3EVyMwxu0tVALRGRDE2+lLhPb7f57TvYfC7jR/xPAyI50SXyDDu1jIUHQHpmz2TpQprBw+LrlRfmg8h4rxfFajeKNnUff7MW0/9lVqHLhHw5pgcSHwgDul1Vlu6B+Si6vuVti1mEpGFiT4rwEKYkHdkXX2szcHuA0RpLsvUz28AAOG8/8nwjjQZHHRjHMlYrpE+isw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=eZODfRXjDA6v09p+KxrBV/Rzo8UHeNRGKXL+qBvR7zU=;
+ b=UspvPwqA1RMWZY662mRBrKQonew6kRk8DzuIvZMm6aPq2MqBS29t+xnwnn53NGZmi3LRjAeXTE1IehEiuV78TmL1fSdPHZhC5BN0eXAFn0cwppAKYv/fmH5y9Y3hmrUT5cyq4+3Bn+TTejiOo1syL3W50MboOwjFM6Jk11arXtEgry2GCUFJluzTZeTbFbQg9BimJKwlyWN6sLc4fdhMCDjnAm/7hu8sVExDi8go0niTK01TzndNW6WoMabeY8h0UTApPq//wiJY8MdcDijFVFhOjD4UovkNgapX5kDu+bRGzlYeRmE56HTFg7LYFYgXvHfe9bMJpb0sK0n2oqBzpg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=eZODfRXjDA6v09p+KxrBV/Rzo8UHeNRGKXL+qBvR7zU=;
+ b=kL6oJ0lzAMikIS56rZentZUAX7hylVcq/1c3xF9ZlMLxT6Kq+iG+0gEonkcfwUbVrJ6UjlNzEu0NkNlq5RZHnEuJWYEcHbJRgdCYAJUeNc9zCdp9b9qMw8qzLNcKEf9ov2YRaPFhpFPPMlqGnWLEUn1S3Qhcg4ELXG7naUrDodb5Y7Qe4eVLf+O4T6QIF47oe0sNlEXZT5VNJJRCy5e09TFsJr11vuwvK9ch2bvRxVC2lxMuq7rRjUvktLmJ8liwzojXIKrTI49uwUtyf1cLVQPbJlli8yOm0QkIsT6ks2ccBir48uJyRFmxXQPdAIgsAkJMLjG3Wvuvt5wSPjZSXA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from PH7PR12MB5757.namprd12.prod.outlook.com (2603:10b6:510:1d0::13)
+ by CY8PR12MB7514.namprd12.prod.outlook.com (2603:10b6:930:92::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.16; Tue, 30 Sep
+ 2025 11:55:50 +0000
+Received: from PH7PR12MB5757.namprd12.prod.outlook.com
+ ([fe80::f012:300c:6bf4:7632]) by PH7PR12MB5757.namprd12.prod.outlook.com
+ ([fe80::f012:300c:6bf4:7632%2]) with mapi id 15.20.9160.014; Tue, 30 Sep 2025
+ 11:55:50 +0000
+Date: Tue, 30 Sep 2025 08:55:40 -0300
+From: Jason Gunthorpe <jgg@nvidia.com>
+To: Nicolin Chen <nicolinc@nvidia.com>
+Cc: will@kernel.org, robin.murphy@arm.com, joro@8bytes.org,
+	jean-philippe@linaro.org, miko.lenczewski@arm.com,
+	balbirs@nvidia.com, peterz@infradead.org, smostafa@google.com,
+	kevin.tian@intel.com, praan@google.com,
+	linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+	linux-kernel@vger.kernel.org, patches@lists.linux.dev
+Subject: Re: [PATCH rfcv2 5/8] iommu/arm-smmu-v3: Pre-allocate a per-master
+ invalidation array
+Message-ID: <20250930115540.GF2942991@nvidia.com>
+References: <cover.1757373449.git.nicolinc@nvidia.com>
+ <f5f635077b791b27b46ea41b5c86a52fd4549a44.1757373449.git.nicolinc@nvidia.com>
+ <20250924213230.GQ2617119@nvidia.com>
+ <aNrZ8z92CXs+J1pH@Asurada-Nvidia>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <aNrZ8z92CXs+J1pH@Asurada-Nvidia>
+X-ClientProxiedBy: SA0PR11CA0207.namprd11.prod.outlook.com
+ (2603:10b6:806:1bc::32) To PH7PR12MB5757.namprd12.prod.outlook.com
+ (2603:10b6:510:1d0::13)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.5.1
-Subject: Re: [PATCH v15 07/14] firmware: psci: Implement vendor-specific
- resets as reboot-mode
-To: Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
-        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
-        Sudeep Holla <sudeep.holla@arm.com>,
-        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley
- <conor+dt@kernel.org>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Mark Rutland <mark.rutland@arm.com>,
-        Lorenzo Pieralisi <lpieralisi@kernel.org>,
-        Arnd Bergmann <arnd@arndb.de>, Konrad Dybcio <konradybcio@kernel.org>,
-        cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
-        Catalin Marinas <catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>,
-        Florian Fainelli <florian.fainelli@broadcom.com>,
-        Moritz Fischer <moritz.fischer@ettus.com>,
-        John Stultz <john.stultz@linaro.org>,
-        Matthias Brugger <matthias.bgg@gmail.com>,
-        Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
-        Stephen Boyd <swboyd@chromium.org>,
-        Andre Draszik
- <andre.draszik@linaro.org>, linux-pm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
-        Elliot Berman <quic_eberman@quicinc.com>,
-        Srinivas Kandagatla <srini@kernel.org>
-References: <20250922-arm-psci-system_reset2-vendor-reboots-v15-0-7ce3a08878f1@oss.qualcomm.com>
- <20250922-arm-psci-system_reset2-vendor-reboots-v15-7-7ce3a08878f1@oss.qualcomm.com>
- <4276eeea-5877-4420-98da-a5f2eb5c0505@oss.qualcomm.com>
-Content-Language: en-US
-From: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
-In-Reply-To: <4276eeea-5877-4420-98da-a5f2eb5c0505@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-Authority-Analysis: v=2.4 cv=OJoqHCaB c=1 sm=1 tr=0 ts=68dbc2b6 cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=j4ogTh8yFefVWWEFDRgCtg==:17
- a=IkcTkHD0fZMA:10 a=yJojWOMRYYMA:10 a=EUspDBNiAAAA:8 a=m9_P3jxxV_FW9xONvJ8A:9
- a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=324X-CrmTo6CU4MGRt3R:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTI3MDAzMiBTYWx0ZWRfX6TcmZwiBZLu1
- kU/2pE011wdHiBivS/Rk5bDq4GOMprJUdLW0FGCRftNeoQqQS+Uzy1voOKjyQQFPkUavJiJ4pZn
- 4qePsj5Wcd+bQhO4STJeW4Us0lphHIG/qG7rol5Qxm0F+2u+che2/3byQE2R/jhU5V2M/g21mlM
- 9MyhplKkO9+ZPVrl+IUVe9bvnB476BxBhsWE+xLVL9ErV2BxHV4AyMvofp6qIWd9jniqwQc9A20
- 1Zid8oqaTX63gTxFkbCQUZKHhXIl3bwtrC2I4hii1snzWRIeQQ8Tyae1fZIGv3hrTTgOSC9n0cj
- ai0QINMVZgCLjgeDHArP5zHYdzXKcMC3KnknKDg+UAkNSKYihVUkJjWch633vMIzb9vnSniIHz1
- DKy+q3idROeiUOlY4QJMhFKOzyaH2Q==
-X-Proofpoint-ORIG-GUID: X2Ua4s0xrzxwWnI3LJW4UlF0Ku9clYsY
-X-Proofpoint-GUID: X2Ua4s0xrzxwWnI3LJW4UlF0Ku9clYsY
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-09-30_02,2025-09-29_04,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 adultscore=0 priorityscore=1501 bulkscore=0 impostorscore=0
- suspectscore=0 lowpriorityscore=0 phishscore=0 malwarescore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2509150000 definitions=main-2509270032
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH7PR12MB5757:EE_|CY8PR12MB7514:EE_
+X-MS-Office365-Filtering-Correlation-Id: 301cc5cb-08c6-4cb4-7e33-08de00184cf4
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?lIcm8xLfG2TX/rb0Qf0JMY0Fz4nq84IPsRtbSXHjhJE9pue/87Rs8f8EIDw1?=
+ =?us-ascii?Q?bwWVT7j6PyYMfrXgNjphgxVgRPO00aEIIexNL9Be3bch1gaW9f7EWW9GUJrS?=
+ =?us-ascii?Q?xgOd9Z0VactKSanbLkEDsxjS0w8cjQ0j1Pqta3X70x03ia9797VqyLxOaVwj?=
+ =?us-ascii?Q?Mx7+LnBUBmvCNgzeY2Oj+VPECAuv9DQQzTM+T9oWh9tgUs++sBTmo5gLYJO8?=
+ =?us-ascii?Q?f41O/sxNIvFw9Nc5wulNxfj5FypeoSfbmyzUfwgYipXriw+v2HLV45YMDAJh?=
+ =?us-ascii?Q?+kC+WtyumCgcZjboWUlwPv5Rb018T3T8V+fwUVtYX1XAWfs+TZI203mjL8Bc?=
+ =?us-ascii?Q?Qcb42uIKt4r4dMnUwBTdMbwadzlrDo07nF2p7Tr/oVKFs7D7m6ln2HD3LS/C?=
+ =?us-ascii?Q?9l9jPUkZ/a8qklzVbqKY/Pedig06n+S0jOmsqFWUgUGHknA+ObGAz/vTcYJC?=
+ =?us-ascii?Q?lXbZpwVIgV/WPruvujt+UxqhDN9cGdR6+sMLbG98f5T+ceS/95gs7SuSyKLT?=
+ =?us-ascii?Q?RnXQRUcOOfgPZAMV8Y25n0fHsG1bXaRp8UCiC9lG5ojNuv7Ef+g1H8sUG8xh?=
+ =?us-ascii?Q?WKuv81NAdYLZ6zHQ2WjU5zaIYm13UctIwiVucE/Q8fHNh5okm08ka4yvTqUX?=
+ =?us-ascii?Q?uVtwj7dHIQ0PzSPeEeGgJSvfnH5kHFWaXfBTy11pGH6EeHG3fUDWogUL95YU?=
+ =?us-ascii?Q?UPZ0jFrqFaSDfaesLKaQfLE45U36GWvax7ibjFqXJ5XNDn9MXJA1YdUSXbcH?=
+ =?us-ascii?Q?Oj+nyHg8ugyICyERAJkwe1Djlryw9kqi3MQEuSwzqYD0ruTMWLkzCxLfHT/g?=
+ =?us-ascii?Q?PRsH6NBqC8fEvO412hajnGCAa7+wBUYnU/mIvUEE2Pg6yW+uLZxctSY7+HD2?=
+ =?us-ascii?Q?Rdvco/mrIFnlkMR2hDgkszQv/pI4awpFTM/qY0SxKRM5eh/P5UuYfQiTiOJA?=
+ =?us-ascii?Q?vyrDyrqU+9CC1JCiQJEAendWEvM4044t0dbeiSu2288h57MRAmW2QJRDB+DK?=
+ =?us-ascii?Q?EUx7Ngd3Ke0wjEzTkrmkMA7QxkEHTFsfhdbuBiKspIAaad91bPfs5Nlv4Hbg?=
+ =?us-ascii?Q?qncnnsexqYkp/XVmqYp5GMVT+HFdq3OZBgvufRgxVrWuCbHYheFEX3jl5wG5?=
+ =?us-ascii?Q?S7aoXzV6wzxbIKwHVmo+idDHguGe0nWIinJzq16bPeJXanU7YuOEi99ZK9ev?=
+ =?us-ascii?Q?sKzbewIlodEscHBKvcNK2F0PlgD8wcS5YmT/f2y8bKfGLbb5nw0WwZMqCKya?=
+ =?us-ascii?Q?gx42a8SxH0BBrpnab577+nLdCrW38W75avPYh6w+2v/Li7CFoFHHyGx4uZkt?=
+ =?us-ascii?Q?WeNgsDszy68MfvYON1M+uQ9qNYI4XQ1UI4hv8qNOlCKuZFnFeG8IzYNVnybg?=
+ =?us-ascii?Q?kwGO8KUf//6is5joIO3yCRPahX25oerRl7iZ/Q1N61yDKrkMSCd7FsoAixFB?=
+ =?us-ascii?Q?BEf8H146PiUo2Yz5r+P/3LFoZUe/F/Q8?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5757.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?WT3WTiM82ofbH/u7/mnGKvjv1E5towcvGac8how+WwFEGIWZ1CqleRAyeGTf?=
+ =?us-ascii?Q?mkPT1BDaRClwa96cYPH3TYuCmNxi1KCLXQqfLoSHsGTg01d5HN00Ik619KYL?=
+ =?us-ascii?Q?qbJqo1nVEqPjyXWXGcfvn/VRE+3nb4Yc7nzdXAa1BX545UC411IfaxCdiIQI?=
+ =?us-ascii?Q?634Kx41vkA0OMKB4VANpy5mtenEFJFeQcKqZkTcnstirdrQ94AzuCBwA/nNP?=
+ =?us-ascii?Q?H6Jnb6EGk+MgZ9oDjj+4nMOfAzsHBUESGTEmE7MYDCKHdbzC5ptlv6+ZR3Qo?=
+ =?us-ascii?Q?VouQVKO1l22tFpb1Tw+wiO8kz4YXQe05FjLZU7/+732rK318cFqCKtQzm3oX?=
+ =?us-ascii?Q?MJAVUmjkkyuFZosr7VKzL3oO0Sr0IH/Or39jflwrUkH/llrwlxCQNifTKWNQ?=
+ =?us-ascii?Q?SEbhcaPdhivEm/Rb507u8JhM7xkd7DjwucD1x/v7RRmGKx8pTtb1dLS28fwn?=
+ =?us-ascii?Q?INyJNeqFXNEqu4MUdhQnsx9Nzxs9/dKxB+Kz1RjoGi7JIEn1t5Pap25AKRnF?=
+ =?us-ascii?Q?n/SVT9n+j8B4COku0vI+7X6xl379ujOkCz6GeACSzdca0txu89vGPpr+c8TL?=
+ =?us-ascii?Q?mrTm2VQE+WEX9k8jgdSFWIM5m14V0txIc+CQgRmSdzovK/REeHU3klskrXl0?=
+ =?us-ascii?Q?dZJE3C4Pw5krqWKflyEOL8v1ljj3DDjtL2GuARSGSlaxsPbyY48W3h3ywXm8?=
+ =?us-ascii?Q?jdMp6kcRtZObIGyyLHME6sGzHd9jBks0twQQ5MX+ItHMFYtQPMo8A1EI0Q1N?=
+ =?us-ascii?Q?TVaI2Q19BvzwM71aZv0bp+d+V6kIsR/FH/hgu0caVhXx2o8SehnFnSZVMdfl?=
+ =?us-ascii?Q?Gvyz+KjicsJhrw/ni9czyWl/BrSb7dKt14q7eM9yZlnP8y12tfqmr/Od6K0d?=
+ =?us-ascii?Q?8tev6p6pgt1jfyiCpmPj/52aGWmjpeEW0bHOW1b56HKr2MRxCSGEPKLYABG1?=
+ =?us-ascii?Q?03SY4+0WsLRYQzF4usojWb6S7rDIKF4VsyFZ7VcbodJsRKjkrg0r876DyKei?=
+ =?us-ascii?Q?YIZZBCsb47lRqmxIn/QxLSTsnjb9WQaziP1I81qalmoUInAqo/IgXQhEdqJ+?=
+ =?us-ascii?Q?WKPVwPWeCcFH1WyPl9XXrxa+0FEVfE4klioIptAwx3Tn3ZzAQ0U+v29VyWv0?=
+ =?us-ascii?Q?UgReN4GusvHe6w4tm0FSDurRgKbFhYd/rwnU34CEUTrBJDa4NgKNLTXgrLGm?=
+ =?us-ascii?Q?2qRXXfkyLzJuXhYV+at4ZS8VxmWfzsvjlstCxVlmcmBVLv2/7T5L+luzKmHq?=
+ =?us-ascii?Q?FFmfDteFrR4Nbogp9UVF8xlGP6lEK4lZ+id+JUVudiJp20+pULiO6wat4/qM?=
+ =?us-ascii?Q?IZNOqk5mW5ghifxPak6uhlLFKh+nDWWnZHDqAruEUCQalEmMfo8myl7UdGwI?=
+ =?us-ascii?Q?XcMNg8et5o630ipUkjQYIA6E65J+VpSRSZgWmkrL0n7XbsRqg8Xo8JIUeDs7?=
+ =?us-ascii?Q?9uhJwlO5iH2hJSVAoxKZwm3dkUvaRr1BCNIv5PpeQjyDwIH8p+94VZbsn5D7?=
+ =?us-ascii?Q?Lb8P4wYG1y+iqLEsst79uyU3LpYnR2h6cCoYyBjW6O+Bw3R/f7EcxSilEWHe?=
+ =?us-ascii?Q?MYy9PKShF9AtY1PynyqeaglNIIsHUuUv9FB9jvCx?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 301cc5cb-08c6-4cb4-7e33-08de00184cf4
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5757.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 30 Sep 2025 11:55:50.5212
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: ofbKQ1yaxcubIJoPBBJph6r9c5O4zakjQQeiufvx3zc/q1OnXjVL0z2bmUy6v9sj
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY8PR12MB7514
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250930_044456_295889_FD5AF244 
-X-CRM114-Status: GOOD (  30.77  )
+X-CRM114-CacheID: sfid-20250930_045556_899460_6BC0A9DC 
+X-CRM114-Status: UNSURE (   8.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,138 +165,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, Sep 29, 2025 at 12:11:47PM -0700, Nicolin Chen wrote:
+ 
+> Hmm, I am not sure how it insures against anything concurrent.
 
+Yes, not concurrent, just if someone is later looking at the IDs list
+and expecting it to be in a certain order. I could not find such a
+thing so I think it is safe.
 
-On 9/30/2025 11:15 AM, Kathiravan Thirumoorthy wrote:
-> 
-> On 9/22/2025 7:10 PM, Shivendra Pratap wrote:
->> SoC vendors have different types of resets which are controlled
->> through various hardware registers. For instance, Qualcomm SoC
->> may have a requirement that reboot with “bootloader” command
->> should reboot the device to bootloader flashing mode and reboot
->> with “edl” should reboot the device into Emergency flashing mode.
->> Setting up such reboots on Qualcomm devices can be inconsistent
->> across SoC platforms and may require setting different HW
->> registers, where some of these registers may not be accessible to
->> HLOS. These knobs evolve over product generations and require
->> more drivers. PSCI spec defines, SYSTEM_RESET2, vendor-specific
->> reset which can help align this requirement. Add support for PSCI
->> SYSTEM_RESET2, vendor-specific resets and align the implementation
->> to allow user-space initiated reboots to trigger these resets.
->>
->> Implement the PSCI vendor-specific resets by registering to the
->> reboot-mode framework. As psci init is done at early kernel init,
->> reboot-mode registration cannot be done at the time of psci init.
->> This is because reboot-mode creates a “reboot-mode” class for
->> exposing sysfs, which can fail at early kernel init. To overcome
->> this, introduce a late_initcall to register PSCI vendor-specific
->> resets as reboot modes. Implement a reboot-mode write function
->> that sets reset_type and cookie values during the reboot notifier
->> callback.  Introduce a firmware-based call for SYSTEM_RESET2
->> vendor-specific reset in the psci_sys_reset path, using
->> reset_type and cookie if supported by secure firmware. Register a
->> panic notifier and clear vendor_reset valid status during panic.
->> This is needed for any kernel panic that occurs post
->> reboot_notifiers.
->>
->> By using the above implementation, userspace will be able to issue
->> such resets using the reboot() system call with the "*arg"
->> parameter as a string based command. The commands can be defined
->> in PSCI device tree node under “reboot-mode” and are based on the
->> reboot-mode based commands.
->>
->> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
->> ---
->>   drivers/firmware/psci/Kconfig |  2 +
->>   drivers/firmware/psci/psci.c  | 89 ++++++++++++++++++++++++++++++++++++++++++-
->>   2 files changed, 90 insertions(+), 1 deletion(-)
->>
->> diff --git a/drivers/firmware/psci/Kconfig b/drivers/firmware/psci/Kconfig
->> index 97944168b5e66aea1e38a7eb2d4ced8348fce64b..93ff7b071a0c364a376699733e6bc5654d56a17f 100644
->> --- a/drivers/firmware/psci/Kconfig
->> +++ b/drivers/firmware/psci/Kconfig
->> @@ -1,6 +1,8 @@
->>   # SPDX-License-Identifier: GPL-2.0-only
->>   config ARM_PSCI_FW
->>       bool
->> +    select POWER_RESET
->> +    select REBOOT_MODE
->>     config ARM_PSCI_CHECKER
->>       bool "ARM PSCI checker"
->> diff --git a/drivers/firmware/psci/psci.c b/drivers/firmware/psci/psci.c
->> index 38ca190d4a22d6e7e0f06420e8478a2b0ec2fe6f..40a27bc2cc3a3393acc14c7b2314155540ed06c9 100644
->> --- a/drivers/firmware/psci/psci.c
->> +++ b/drivers/firmware/psci/psci.c
->> @@ -13,10 +13,12 @@
->>   #include <linux/errno.h>
->>   #include <linux/linkage.h>
->>   #include <linux/of.h>
->> +#include <linux/panic_notifier.h>
->>   #include <linux/pm.h>
->>   #include <linux/printk.h>
->>   #include <linux/psci.h>
->>   #include <linux/reboot.h>
->> +#include <linux/reboot-mode.h>
->>   #include <linux/slab.h>
->>   #include <linux/suspend.h>
->>   @@ -51,6 +53,24 @@ static int resident_cpu = -1;
->>   struct psci_operations psci_ops;
->>   static enum arm_smccc_conduit psci_conduit = SMCCC_CONDUIT_NONE;
->>   +struct psci_vendor_sysreset2 {
->> +    u32 reset_type;
->> +    u32 cookie;
->> +    bool valid;
->> +};
->> +
->> +static struct psci_vendor_sysreset2 vendor_reset;
->> +
->> +static int psci_panic_event(struct notifier_block *nb, unsigned long v, void *p)
->> +{
->> +    vendor_reset.valid = false;
->> +    return NOTIFY_DONE;
->> +}
->> +
->> +static struct notifier_block psci_panic_block = {
->> +    .notifier_call = psci_panic_event
->> +};
->> +
->>   bool psci_tos_resident_on(int cpu)
->>   {
->>       return cpu == resident_cpu;
->> @@ -309,7 +329,10 @@ static int get_set_conduit_method(const struct device_node *np)
->>   static int psci_sys_reset(struct notifier_block *nb, unsigned long action,
->>                 void *data)
->>   {
->> -    if ((reboot_mode == REBOOT_WARM || reboot_mode == REBOOT_SOFT) &&
->> +    if (vendor_reset.valid && psci_system_reset2_supported) {
->> +        invoke_psci_fn(PSCI_FN_NATIVE(1_1, SYSTEM_RESET2), vendor_reset.reset_type,
->> +                   vendor_reset.cookie, 0);
->> +    } else if ((reboot_mode == REBOOT_WARM || reboot_mode == REBOOT_SOFT) &&
->>           psci_system_reset2_supported) {
->>           /*
->>            * reset_type[31] = 0 (architectural)
->> @@ -547,6 +570,70 @@ static const struct platform_suspend_ops psci_suspend_ops = {
->>       .enter          = psci_system_suspend_enter,
->>   };
->>   +static int psci_set_vendor_sys_reset2(struct reboot_mode_driver *reboot, u64 magic)
->> +{
->> +    u32 magic_32;
->> +
->> +    if (psci_system_reset2_supported) {
->> +        magic_32 = magic & 0xffffffff;
->> +        vendor_reset.reset_type = PSCI_1_1_RESET_TYPE_VENDOR_START | magic_32;
->> +        vendor_reset.cookie = (magic >> 32) & 0xffffffff;
-> 
-> 
-> Minor Nit: Can we use GENMASK(31, 0) instead of 0xffffffff? Apart from this, change LGTM. With that,
-
-Ack. Will update this.
-
-> 
-> Reviewed-by: Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>
-
-thanks for review.
-
-thanks,
-Shivendra
+Jason
 
