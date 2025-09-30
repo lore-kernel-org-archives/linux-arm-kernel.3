@@ -4,67 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C702CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 01:50:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF22DCAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 30 Sep 2025 01:53:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ht1hp6Obw1goNKNuK06ncf5Q8+B6RPLGT+MboUwz+LE=; b=K/K+n6YmA+KVrcSm3o7qcfaYx5
-	tIxkK9320Vd9RRSLtoIlxwvPFpM2VWj0wXJGjAm/hxOSgiV6udFOd2yLQex0wJHS1inny9bnp32+u
-	Najp3odmLYK4JI364JETEAzqCHqQkLvqM7bn0Jr91qTrhU69fBnsxypKoGF90OBirt4hJMwDf1CHt
-	kPKuzyDFvff+oJKYKQxPxrRYBXnf2mt8lyitUxFeaM7MVDOlRTaZoh3VgdIt6f6HWpGjYANO2q0Ih
-	oHwpWQSmACtpp8E4/9GuN2KAFC2Hn2wQ0JiD2j1YQ0/pIpfi6wSoT3bh6xjNKIqJZdkso2RbwWnTg
-	avYkCXCQ==;
+	bh=gHamc5L5wTvTPFxS1t1gdHiPJZFL4Y2ngP4edhfwGzA=; b=JkeK9zX93ElAnBOAw8qZdh0gql
+	ohu4GpSK76ASWZfQ2PpbgJ3d5IFSCAKUfeql8nYqaZoIOSqTsnzdQ5SyjG7CtnymKpFDmS29eByft
+	BHKnJAisXfXMQMqWAKlhi4EfrWFM72gR5IG6YnVD95+JrwvG/k1E8CcDdgSmksKiSx1CXXAT8trq4
+	tmSIwisbaThMsyZ/bPy1MOIsf7xMcVqiVnrQyrbYNy/CQujhRh8LsdoCxt1ETuUAYftJSREoddDyy
+	X2aJYs2CIjVd5LPGj8yxOPMaEK0sDTOvNaPMfiaZ6TIj1Zm1YbqIJccxG7vGTNshfIcX/YdfPLEC+
+	WaAaV4kQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3PVu-00000003pIQ-1BMV;
-	Tue, 30 Sep 2025 01:50:46 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v3PYf-00000003pgK-1EBm;
+	Tue, 30 Sep 2025 01:53:37 +0000
+Received: from mail-oo1-xc36.google.com ([2607:f8b0:4864:20::c36])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3PVr-00000003pHm-1gUo
+	id 1v3PYc-00000003pf3-2fmb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 30 Sep 2025 01:50:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 73932402AA;
-	Tue, 30 Sep 2025 01:50:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F8F6C4CEF4;
-	Tue, 30 Sep 2025 01:50:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759197042;
-	bh=fmcYjWJAnGdhbsMUxYEUP6vCOJjyb2KhW72GCar/ySs=;
-	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=F2d+73AKmrnqDc7leXgfFj8Ctj5ugwep7vPk45YGtVuyDgqU2H/TyHTucnswLXSq2
-	 Wkjv07XWjUdSg/DBJ56ecR4SRsYSfNGm67CWRMgIaQX+rWDhBy62n1peZyw2ZFWn3a
-	 tOHo8qlPPBsN/mnWLSIdrjLzQBkUqJQhPgCbJ4LccSzWKOfMYdBAIxgY2UAJ2USNXA
-	 Lhrer1U2Pwa/D1szx7USSgVbnWT2HPoVkWCkmFnTgT5z4f8gPOVfeEVhS3nWXdWfMG
-	 USbIerc7boAKmG9Q2iIYUtSF6dD2jYOzWSHoExc6KgGteHuEHt1E17ovQMzeY4w2oX
-	 26aCfJqcn8kDg==
-Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EADFB39D0C1A;
-	Tue, 30 Sep 2025 01:50:36 +0000 (UTC)
-Content-Type: text/plain; charset="utf-8"
+	Tue, 30 Sep 2025 01:53:35 +0000
+Received: by mail-oo1-xc36.google.com with SMTP id 006d021491bc7-6494330b1b9so236258eaf.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 29 Sep 2025 18:53:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bytedance.com; s=google; t=1759197210; x=1759802010; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gHamc5L5wTvTPFxS1t1gdHiPJZFL4Y2ngP4edhfwGzA=;
+        b=HxJn0ajM7FEZEpzjObYwwmIc+Z3kNNuxzNxcoeGUJr0SO6xcGhmJZoZGNFtOoinNxD
+         5PMUE2AP++U0zMd0tkHJp3krhXpqkHGsWrQQzWEfFmLnlsa46UqXhfR0MuoAN1NIS2I3
+         rsjrhqgIuDcKTUBTD7Pbs2gIfinxc+AhsrqfF+m+iGlXmLXSfziJj0jXRImysWQwg1ez
+         54aZnC3uGtEjzoxYPWOUrghFDgmdjwNK9n/6bpuyAyb5+djoNSNSEwmcgdEgA+smM9JO
+         jR00EGfwr6YligOd49nLqA9ysaD8nZ778nZc5qn+rPCVyrnUjrNuY5UvT9fo/KVldOXs
+         3Mhw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759197210; x=1759802010;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=gHamc5L5wTvTPFxS1t1gdHiPJZFL4Y2ngP4edhfwGzA=;
+        b=RO6UFWvXaZNCMtZtuZM4N4rUqm9tk6RrzXiwYjIjRqsxVP0XfYOfgNQs59gi1LUQ2W
+         ymGdo7b7ZUHt22vYvHwKrtpZvc/qv/QdmUWh3b7muNGcxyN5WZwZPuoFDfUv2LUIMwEs
+         jpOTz/ZLh25dckfeAy7JT6ta5sygCf//jhXIeYesy+4l2oZK50RQUVRcloKXnXgfaDvT
+         PzqIQsdrMpJxxvdFwGkub/OSHUUAeH3ebxjUso1QeXAG/mEGWijBtDLEjFL6fruElzWp
+         NU5GML3KS/+02aFwVDN5FXXXdJah1eAaAIl5DAsBLcqhukIRt4Konx7zdOz8oWt9VF9o
+         ZWyA==
+X-Forwarded-Encrypted: i=1; AJvYcCWwPprRIZ4LytWpLF6gGQ4M6UHJmyYjQGoAJQ3sD93ZU+wX8w27sYi26ZjsVqzITx00bhFQgnVO1UD0FXfcj2Ig@lists.infradead.org
+X-Gm-Message-State: AOJu0YxOYTzSIjx1SYhI6F3aY1ey66+9JLxepIfl/yTL7M80LexzMoZz
+	UoZCP6IcLrJHdPH9niAl7C7YB0OpUN3+EkE3ZkTqmJAqdcJMvYQBWBJM4PiHVL6gCY9pHPbZ/ZJ
+	EzfzigY+DeTqhRgbgA2PnnvCvJKyaXs/S/Dy9i5MkxA==
+X-Gm-Gg: ASbGncvBeKdLPYkZvK05yLWNDqW0NCVqOllVw+5IwdF39JKPAa7fCXKzz8E3UfhWR/9
+	HhnbQhITWHJ34DkKGgygQo2wee1SJc2p3f7n0ZCtEyXsFYARHOQ/1AeLnSIiKLPLzkVUgzSHp6/
+	hpWz0yhNib78LU8t3C2dGDu8WY5WEaBUj9m8Ouuk07dXAAvvDTlAt0XGET9orhmfa+4xJHwWPSY
+	YIOX7uvRZBlToss5fRcsO8+/aAAYW7uBEg2Zd1jirnPw5C2EJd9cu4=
+X-Google-Smtp-Source: AGHT+IFF+H5NN0a3VCV7KK9x7DfqmNVVmY1tvARIlVfpRzzuFTMLMMebmMXrJVNqsu5Vtt1RgIzJyqFijRAfWLNMznY=
+X-Received: by 2002:a05:6820:5204:b0:644:953b:fc04 with SMTP id
+ 006d021491bc7-644953c01ddmr3120884eaf.1.1759197209849; Mon, 29 Sep 2025
+ 18:53:29 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH net-next v2] net: stmmac: Convert open-coded register
- polling
- to helper macro
-From: patchwork-bot+netdevbpf@kernel.org
-Message-Id: <175919703549.1783832.10169355846256119327.git-patchwork-notify@kernel.org>
-Date: Tue, 30 Sep 2025 01:50:35 +0000
-References: <20250927081036.10611-1-0x1207@gmail.com>
-In-Reply-To: <20250927081036.10611-1-0x1207@gmail.com>
-To: Furong Xu <0x1207@gmail.com>
-Cc: netdev@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
- kuba@kernel.org, pabeni@redhat.com, mcoquelin.stm32@gmail.com,
- alexandre.torgue@foss.st.com, xfr@outlook.com, horms@kernel.org
+References: <20250925084806.89715-1-cuiyunhui@bytedance.com>
+ <20250925084806.89715-2-cuiyunhui@bytedance.com> <CAD=FV=VZLYqPQCOEhbH4QtndeG5e1-0wey24fgYNTeFiqd8qJg@mail.gmail.com>
+ <CAEEQ3wnwNdTgt6ByHCzM43fhZMLSxwXvYx-AGBpsktraXqif2Q@mail.gmail.com>
+ <CAD=FV=X6Xv_WYPMXKtOWLJX7skCoQmia3JbQej_u38qxqAbqDg@mail.gmail.com>
+ <CAEEQ3wn0UckgNTJCPCNDtHW8DwWAJR1PXURvH57yfHATYqs7Gw@mail.gmail.com> <CAD=FV=XoUw6HWoFLMcgyHhYm7oeTOXCAyvBdpOghggmdvYzp6Q@mail.gmail.com>
+In-Reply-To: <CAD=FV=XoUw6HWoFLMcgyHhYm7oeTOXCAyvBdpOghggmdvYzp6Q@mail.gmail.com>
+From: yunhui cui <cuiyunhui@bytedance.com>
+Date: Tue, 30 Sep 2025 09:53:19 +0800
+X-Gm-Features: AS18NWAw7c1iZ6ACt20cNcuqSJALqhbqwUHFleou105FkMTBcbtF3qtTJwuUi-4
+Message-ID: <CAEEQ3w==Ekffs4+Z55AXMV52f+8ht1pWm3JexXCSiB7T6rzppA@mail.gmail.com>
+Subject: Re: [External] Re: [PATCH v2 1/2] watchdog: move arm64 watchdog_hld
+ into common code
+To: Doug Anderson <dianders@chromium.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, bp@alien8.de, 
+	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, 
+	ziqianlu@bytedance.com, akpm@linux-foundation.org, alex@ghiti.fr, 
+	anup@brainfault.org, aou@eecs.berkeley.edu, atish.patra@linux.dev, 
+	catalin.marinas@arm.com, johannes@sipsolutions.net, lihuafei1@huawei.com, 
+	mark.rutland@arm.com, masahiroy@kernel.org, maz@kernel.org, mingo@kernel.org, 
+	nicolas.schier@linux.dev, palmer@dabbelt.com, paul.walmsley@sifive.com, 
+	suzuki.poulose@arm.com, thorsten.blum@linux.dev, wangjinchao600@gmail.com, 
+	will@kernel.org, yangyicong@hisilicon.com, zhanjie9@hisilicon.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250929_185043_461069_7F85B4F2 
-X-CRM114-Status: GOOD (  10.76  )
+X-CRM114-CacheID: sfid-20250929_185334_875843_A8DA8A81 
+X-CRM114-Status: GOOD (  43.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,32 +109,156 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello:
+Hi Doug,
 
-This patch was applied to netdev/net-next.git (main)
-by Jakub Kicinski <kuba@kernel.org>:
+On Tue, Sep 30, 2025 at 6:56=E2=80=AFAM Doug Anderson <dianders@chromium.or=
+g> wrote:
+>
+> Hi,
+>
+> On Sat, Sep 27, 2025 at 7:38=E2=80=AFPM yunhui cui <cuiyunhui@bytedance.c=
+om> wrote:
+> >
+> > Hi Doug,
+> >
+> > On Sat, Sep 27, 2025 at 4:58=E2=80=AFAM Doug Anderson <dianders@chromiu=
+m.org> wrote:
+> > >
+> > > Hi,
+> > >
+> > > On Fri, Sep 26, 2025 at 2:37=E2=80=AFAM yunhui cui <cuiyunhui@bytedan=
+ce.com> wrote:
+> > > >
+> > > > Hi Doug,
+> > > >
+> > > > On Fri, Sep 26, 2025 at 4:00=E2=80=AFAM Doug Anderson <dianders@chr=
+omium.org> wrote:
+> > > > >
+> > > > > Hi,
+> > > > >
+> > > > > On Thu, Sep 25, 2025 at 1:48=E2=80=AFAM Yunhui Cui <cuiyunhui@byt=
+edance.com> wrote:
+> > > > > >
+> > > > > > @@ -17,6 +17,7 @@
+> > > > > >  #include <linux/cpu_pm.h>
+> > > > > >  #include <linux/export.h>
+> > > > > >  #include <linux/kernel.h>
+> > > > > > +#include <linux/nmi.h>
+> > > > > >  #include <linux/perf/arm_pmu.h>
+> > > > > >  #include <linux/slab.h>
+> > > > > >  #include <linux/sched/clock.h>
+> > > > > > @@ -696,10 +697,12 @@ static int armpmu_get_cpu_irq(struct arm_=
+pmu *pmu, int cpu)
+> > > > > >         return per_cpu(hw_events->irq, cpu);
+> > > > > >  }
+> > > > > >
+> > > > > > -bool arm_pmu_irq_is_nmi(void)
+> > > > > > +#ifdef CONFIG_HARDLOCKUP_DETECTOR_PERF
+> > > > > > +bool arch_perf_nmi_is_available(void)
+> > > > > >  {
+> > > > > >         return has_nmi;
+> > > > > >  }
+> > > > > > +#endif
+> > > > >
+> > > > > Should the previous comment move here, AKA:
+> > > > >
+> > > > > /*
+> > > > >  * hardlockup_detector_perf_init() will success even if Pseudo-NM=
+I turns off,
+> > > >
+> > > > Okay, we also need to change it to =E2=80=9Cwatchdog_hardlockup_pro=
+be()=E2=80=9D
+> > > >
+> > > > >  * however, the pmu interrupts will act like a normal interrupt i=
+nstead of
+> > > > >  * NMI and the hardlockup detector would be broken.
+> > > > > */
+> > > > >
+> > > > >
+> > > > > > +static int __init init_watchdog_freq_notifier(void)
+> > > > > > +{
+> > > > > > +       return cpufreq_register_notifier(&watchdog_freq_notifie=
+r,
+> > > > > > +                                        CPUFREQ_POLICY_NOTIFIE=
+R);
+> > > > >
+> > > > > I think you need to do something to prevent this from happening o=
+n any
+> > > > > platforms that override hw_nmi_get_sample_period(), right? These
+> > > > > cpufreq notifiers will be useless in that case...
+> > > >
+> > > > I understand this is not a problem. watchdog_perf uses
+> > > > PERF_COUNT_HW_CPU_CYCLES, which means it is inherently limited by t=
+he
+> > > > CPU's main frequency. After we make such a change, a larger value m=
+ay
+> > > > be used as the period, so the NMI period will become longer, but th=
+is
+> > > > value will not change after the system starts.
+> > >
+> > > I'm not sure I follow. On x86, hw_nmi_get_sample_period() is:
+> > >
+> > > u64 hw_nmi_get_sample_period(int watchdog_thresh)
+> > > {
+> > >   return (u64)(cpu_khz) * 1000 * watchdog_thresh;
+> > > }
+> >
+> > I have added the maintainers for arch/x86.
+> >
+> > 1. cpu_khz can be understood as returning the base operating frequency
+> > of a CPU, such as 2.3GHz. In practice, the CPU's core frequency may
+> > downclock to 800MHz under low load and overclock to 4.4GHz under high
+> > load.
+> >
+> > 2. Because the event provided to the PMU has the
+> > PERF_COUNT_HW_CPU_CYCLES attribute, and the counter's value is based
+> > on 2.3GHz, the execution cycle of watchdog_overflow_callback() is not
+> > fixed; it varies with the CPU's core frequency. When the CPU runs at a
+> > frequency higher than 2.3GHz, the NMI cycle will shorten; otherwise,
+> > it will lengthen.
+> >
+> > 3. After our modification, if the architecture is not integrated with
+> > cpufreq, it returns 0 and will not update the cycle. If integrated
+> > with cpufreq, it returns the maximum frequency supported by the CPU,
+> > so the NMI cycle is only slightly lengthened, with no impact on the
+> > actual hardlockup detection function.
+> >
+> > 4. I have also conducted tests:
+> > stress-ng --cpu 1 --taskset 1 --cpu-load 80
+> > echo 800000 > scaling_max_freq
+> > turbostat shows that Bzy_MHz and TSC_MHz are 800 and 2300 respectively.
+> > And the NMI cycle became approximately 30 seconds:
+> > [ 2309.442743] NMI watchdog: ------ watchdog overflow callback, cpu =3D=
+ 1
+> > [ 2341.526032] NMI watchdog: ------ watchdog overflow callback, cpu =3D=
+ 1
+>
+> Whether or not having x86 and powerpc start looking at cpufreq is an
+> improvement, certainly it is a change in behavior, right? If we're
+> really changing the behavior here then the commit subject and commit
+> message need to mention this. Right now this is billed as a simple
+> rename...
+>
+> I don't personally have lots of experience with x86 cpufreq but I do
+> know it doesn't work quite the same as how it does on arm. It would
+> definitely be good to get someone on x86 / powerpc to make sure that
+> they are happy with this. ...or you just keep making it work the way
+> it did before and then you don't have to worry about getting any
+> buy-in from x86 / powerpc folks. Up to you, I guess.
 
-On Sat, 27 Sep 2025 16:10:36 +0800 you wrote:
-> Drop the open-coded register polling routines.
-> Use readl_poll_timeout_atomic() in atomic state.
-> 
-> Also adjust the delay time to 10us which seems more reasonable.
-> 
-> Tested on NXP i.MX8MP and ROCKCHIP RK3588 boards,
-> the break condition was met right after the first polling,
-> no delay involved at all.
-> So the 10us delay should be long enough for most cases.
-> 
-> [...]
+Well, I fully agree with your suggestion. What I can think of for now
+is wrapping the newly added content with #if defined(CONFIG_ARM64) ||
+defined(CONFIG_RISCV). Do you have a more elegant approach to
+recommend?
 
-Here is the summary with links:
-  - [net-next,v2] net: stmmac: Convert open-coded register polling to helper macro
-    https://git.kernel.org/netdev/net-next/c/9dd4e022bfff
+>
+> Note that folks on x86 have definitely had to deal with turbo mode
+> before.  See commit 7edaeb6841df ("kernel/watchdog: Prevent false
+> positives with turbo modes").
+>
+> -Doug
+>
 
-You are awesome, thank you!
--- 
-Deet-doot-dot, I am a bot.
-https://korg.docs.kernel.org/patchwork/pwbot.html
-
-
+Thanks,
+Yunhui
 
