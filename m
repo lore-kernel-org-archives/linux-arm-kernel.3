@@ -4,75 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E9C2CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 18:04:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BA38CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 18:14:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B7NRjOr0JR9yboPIaJMkIVIoDP/gIYtNTS7Ut5F+r1Y=; b=uuIpJmUlAM3p3tS6cNf0Df/DmM
-	XixoDtu705cZi/oOPJE/ZDK0iKzcnURJItkcZT9y0Kp7/KrIF0qRuQHxqhbtb/VdVetrjRQrvWljC
-	xyYi6DvyBaco7Dt4fm29RjiDN8ZpEtMf3028jnLWJrQM5ETRVmAeWK/YM2zdIQz1ewmbnnSyS8jyE
-	FAZBDqY4BeXyRv41d0BQoPGORh/6OqkSunLusbxo2Te7Rd190wHcwQB2MhYhl/XcunbtDkKm7eBLh
-	SC3AZUS8rfLqSjPnXn3Kn8kJcN2AOt7YIqtlNiTv+mrlPLgHshi7w4YVdY6noGRWlsXz+Zd1ruhBO
-	ylJIxa0Q==;
+	bh=LOBNzl0piewZaB0fEWYxjiNzOXTgJ+Q2XdYBWxqPDCY=; b=TYxzUb9bKwGLD3ha07MMtUXFHU
+	E3lxYKeL4D6LZXzBBUATCldhQ8+ZQeAGe3I4YgZlIZgiRNcdkMMa37rJgCQaXkC0GuEtB3ukTlBg/
+	jDrXg2Jqod7fZldCK2Td49JPmFMwE463ynuviXPobOt/BHUmGibMpE0Gl9HEMX9tQ1JQ7s40CHGVz
+	eOqhQPbhHAJaA37MKWLx7+p5046hg7Jd96tZ5Crrsab5EZFeW0EB6kVSH/GA0tU8qDTDk5ZqzLrPf
+	PHwErzoBejag3PX5gHjzq/2wpT7SRPh5mwaELkDYG9m5EVuSD7O9CH6o6azt3xmsZt5fb4zdA5Lvm
+	5Fzbcqlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v41Bh-00000008hzZ-07yc;
-	Wed, 01 Oct 2025 18:04:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v41LR-00000008ib4-1LGv;
+	Wed, 01 Oct 2025 18:14:29 +0000
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v41Be-00000008hz0-39eI
+	id 1v41LP-00000008iZb-0SUq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 18:04:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4A2E744D60;
-	Wed,  1 Oct 2025 18:04:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB1BAC4CEF1;
-	Wed,  1 Oct 2025 18:04:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759341862;
-	bh=UditdOJ+p+ZmjZaYpgQPQ5OHHZIaPFJQ9pa7o91UQJg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=I+40gXSBTvtBXh/2NOKHWoA/7qZULTZ+RhI4N6PGNzJoIn3hoa8/CwzVGKD7VnsS0
-	 JRf8A4DpdWbTxU5Mk4XKKZ4HbBQ6InUNvk/vhsuhiNvVgHWKk2DxgxbNEKso4P3FkL
-	 ZnBXnpXhssSZnKvDf1bjbhzEcCYahS9Re1nTPJhCDWFlbUJJtSkrzy417Ki0RpJbmC
-	 31g5ibkSBKpg9CTg3sHrRu0cawGsmOqAiSsuUoDFg8W7aZcbotFRi7N82gjpD4d5y1
-	 tayZZi9l8frhGlh0bFp4DkWGWm0+DUyvQw4wNy+fvpo8oAk8Pb23ojyRH4xQ+L2115
-	 bTWrJ1/sMDnjA==
-Date: Wed, 1 Oct 2025 19:04:17 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Jun Guo <Jun.Guo@cixtech.com>
-Cc: Peter Chen <peter.chen@cixtech.com>,
-	Fugang Duan <fugang.duan@cixtech.com>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
-	"conor+dt@kernel.org" <conor+dt@kernel.org>,
-	"broonie@kernel.org" <broonie@kernel.org>,
-	"linux-spi@vger.kernel.org" <linux-spi@vger.kernel.org>,
-	"michal.simek@amd.com" <michal.simek@amd.com>,
-	cix-kernel-upstream <cix-kernel-upstream@cixtech.com>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: =?utf-8?B?5Zue5aSNOiBbUEFUQ0ggMS8zXSBk?= =?utf-8?Q?t-bindings?=
- =?utf-8?Q?=3A?= spi: spi-cadence: document optional fifo-width DT property
-Message-ID: <20251001-simple-conclude-d9cd153cee3c@spud>
-References: <20250930075644.1665970-1-jun.guo@cixtech.com>
- <20250930075644.1665970-2-jun.guo@cixtech.com>
- <20250930-vocally-closable-136829bc9fed@spud>
- <SI6PR06MB7104F6012ADAFDBC7D553F9AFFE6A@SI6PR06MB7104.apcprd06.prod.outlook.com>
- <SI6PR06MB7104AE0345763471E67CD3C0FFE6A@SI6PR06MB7104.apcprd06.prod.outlook.com>
-MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="RZlrBQmtaAPuQAyZ"
-Content-Disposition: inline
-In-Reply-To: <SI6PR06MB7104AE0345763471E67CD3C0FFE6A@SI6PR06MB7104.apcprd06.prod.outlook.com>
+	Wed, 01 Oct 2025 18:14:28 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-33428befc08so350596a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 11:14:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1759342465; x=1759947265; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=LOBNzl0piewZaB0fEWYxjiNzOXTgJ+Q2XdYBWxqPDCY=;
+        b=SYGD29jCNnLpwrupX7+TF03/15T0iRkIUilhcEVuXfmT2IdyDT5A7fHFppnm6BVFzU
+         8k2kMUeFZ9S3rQAKCMRlwiebHQwK+bAu1LIpBU/PWtWf0qvHS6CqytD81hk13cI8O/QP
+         f0kx0OmWvygKvciXt+UA2GGDL/Xx8YfLyR49u6KNpio76YogHHcXUuB8BRYU2xAZa417
+         FJuo9aNGgXRLOTg/22RlZ7IsOFR64fqxbSVYVA9xU7rK5fM76MuJC4n6hXDE3WCwE10T
+         ZaDTnm82JkjfVBXbswvzrTo4Zp2RxKUmlQjcRXOXUEaXXFg8IdRR07lfRLk2WqNwtXcW
+         9Qcg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759342465; x=1759947265;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=LOBNzl0piewZaB0fEWYxjiNzOXTgJ+Q2XdYBWxqPDCY=;
+        b=Y0/dxEAUP5M/521UAS68sppfzKRrsGcsebwdyIQM+0vAYY8CYShbP8VB1KuDyCAsam
+         UFMCF12HiV6Q0RVQ05S+vxsVW+4/gLq8cdGAxkOindCBFW3CCJuhR75oiDBNtuDILD6A
+         jnOloa42lZndCCUWgrSTifQA8RnkffHfmjhBvDh4OYkXLZ8r6d9bh8vJpZ8jJtowcDVm
+         SgBRLA0MMeII43WvdCtSqd5hoxpY3qjEwjzKsCVk8vXfzKYfEZMMSl/K+NVtgitBm4Hf
+         Eu6QNqMR6VPKzyyC9CIXpiQhq3AB4+5aPhBAvv+z20c/FAzm0RJ/d+c/keAlv5cKOJfp
+         SOXA==
+X-Forwarded-Encrypted: i=1; AJvYcCUdr/TkmNfIJuT/Kfwazzyz3KBKe3tJgtY8idkYFb6BFWMWt+pyJlJxLLEymdAebfC46IqXSHnrtqGckGlYF6Ax@lists.infradead.org
+X-Gm-Message-State: AOJu0YyCEW93mZHnzcZfFScEL0ubsoPq4SYXZOK/6hft7dlIJESjxTEl
+	QMq7WtAvinQSnM3+TZ1LXUNVp5BTgx8XUWgnvHOTe8ntVlpEQgEKLCzc61w6T6y5Q65/ytpQ6Ng
+	MGRneEA==
+X-Google-Smtp-Source: AGHT+IGJbul18z2pAriB4M9Dv7xuCXJyXC/vErDTd2EuWuyjJTHyZFET/F4MY3SeMRgMCYc9TSFDnBqrzsg=
+X-Received: from pjbjs19.prod.google.com ([2002:a17:90b:1493:b0:327:7035:d848])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:33cf:b0:32b:8b8d:c2d1
+ with SMTP id 98e67ed59e1d1-339a6f076edmr5249061a91.21.1759342465480; Wed, 01
+ Oct 2025 11:14:25 -0700 (PDT)
+Date: Wed, 1 Oct 2025 11:14:23 -0700
+In-Reply-To: <f896966e-8925-4b4f-8f0d-f1ae8aa197f7@amd.com>
+Mime-Version: 1.0
+References: <20250806195706.1650976-1-seanjc@google.com> <20250806195706.1650976-33-seanjc@google.com>
+ <f896966e-8925-4b4f-8f0d-f1ae8aa197f7@amd.com>
+Message-ID: <aN1vfykNs8Dmv_g0@google.com>
+Subject: Re: [PATCH v5 32/44] KVM: x86/pmu: Disable interception of select PMU
+ MSRs for mediated vPMUs
+From: Sean Christopherson <seanjc@google.com>
+To: Sandipan Das <sandidas@amd.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
+	Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>, 
+	Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>, 
+	Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>, Ingo Molnar <mingo@redhat.com>, 
+	Arnaldo Carvalho de Melo <acme@kernel.org>, Namhyung Kim <namhyung@kernel.org>, 
+	Paolo Bonzini <pbonzini@redhat.com>, linux-arm-kernel@lists.infradead.org, 
+	kvmarm@lists.linux.dev, kvm@vger.kernel.org, loongarch@lists.linux.dev, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org, 
+	Kan Liang <kan.liang@linux.intel.com>, Yongwei Ma <yongwei.ma@intel.com>, 
+	Mingwei Zhang <mizhang@google.com>, Xiong Zhang <xiong.y.zhang@linux.intel.com>, 
+	Sandipan Das <sandipan.das@amd.com>, Dapeng Mi <dapeng1.mi@linux.intel.com>
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_110422_832436_2DFE6AD9 
-X-CRM114-Status: GOOD (  39.83  )
+X-CRM114-CacheID: sfid-20251001_111427_155691_CE003A71 
+X-CRM114-Status: GOOD (  31.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,107 +102,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Sep 26, 2025, Sandipan Das wrote:
+> On 8/7/2025 1:26 AM, Sean Christopherson wrote:
+> > From: Dapeng Mi <dapeng1.mi@linux.intel.com>
+> > 
+> > For vCPUs with a mediated vPMU, disable interception of counter MSRs for
+> > PMCs that are exposed to the guest, and for GLOBAL_CTRL and related MSRs
+> > if they are fully supported according to the vCPU model, i.e. if the MSRs
+> > and all bits supported by hardware exist from the guest's point of view.
+> > 
+> > Do NOT passthrough event selector or fixed counter control MSRs, so that
+> > KVM can enforce userspace-defined event filters, e.g. to prevent use of
+> > AnyThread events (which is unfortunately a setting in the fixed counter
+> > control MSR).
+> > 
+> > Defer support for nested passthrough of mediated PMU MSRs to the future,
+> > as the logic for nested MSR interception is unfortunately vendor specific.
 
---RZlrBQmtaAPuQAyZ
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+...
 
-On Wed, Oct 01, 2025 at 02:36:44PM +0000, Jun Guo wrote:
-> On Tue, Oct 01, 2025 at 02:52:00AM +0800, Conor Dooley wrote:
-> > On Tue, Sep 30, 2025 at 03:56:42PM +0800, Jun Guo wrote:
-> > > Add documentation for the optional 'fifo-width' device tree property
-> > > for the Cadence SPI controller.
-> > >
-> > > Signed-off-by: Jun Guo <jun.guo@cixtech.com>
-> > > ---
-> > >  .../devicetree/bindings/spi/spi-cadence.yaml          | 11 +++++++++=
-++
-> > >  1 file changed, 11 insertions(+)
-> > >
-> > > diff --git a/Documentation/devicetree/bindings/spi/spi-cadence.yaml b=
-/Documentation/devicetree/bindings/spi/spi-cadence.yaml
-> > > index 8de96abe9da1..b2e3f217473b 100644
-> > > --- a/Documentation/devicetree/bindings/spi/spi-cadence.yaml
-> > > +++ b/Documentation/devicetree/bindings/spi/spi-cadence.yaml
-> > > @@ -62,6 +62,17 @@ properties:
-> > >      items:
-> > >        - const: spi
-> > >
-> > > +  fifo-width:
-> > > +    description: |
-> > > +      This property specifies the FIFO data width (in bits) of the h=
-ardware.
-> > > +      It must be configured according to the actual FIFO width set d=
-uring
-> > > +      the IP design. For instance, if the hardware FIFO is 32 bits w=
-ide,
-> > > +      this property should be set to 32.
-> > > +    $ref: /schemas/types.yaml#/definitions/uint32
-> > > +    minimum: 8
-> > > +    maximum: 32
-> > > +    default: 8
-> >
-> > I assume this differs from fifo-depth because this is the actual width
-> > of the registers rather than the number of elements of that width the
-> > FIFO can contain?
->=20
-> Thank you for your review. You are absolutely correct. The `fifo-width`
-> indeed refers to the physical width of the FIFO data registers (e.g., 8,
-> 16, or 32 bits), whereas `fifo-depth` describes how many elements of
->  that width the FIFO can store.
->=20
-> > However, this isn't something defined as common in spi-controller.yaml
-> > so you'll need a vendor prefix for the property if the property stays.
-> > This does, however, seem like something that can just be determined by
-> > the compatible and that your omission of a soc-specific one is what's
-> > lead you to introduce this property. Why not just use a sky1-specific
-> > compatible here?
->=20
-> You raise an excellent point, and I initially had the same thought. Howev=
-er,
-> after further consideration, I realized that the IP of Cadence SPI actual=
-ly
-> supports configurable FIFO width as a feature. The choice of using 8-bit,
-> 16-bit, or 32-bit FIFO width can be made by the SoC integrator based on
-> their specific requirements. This is therefore a feature of the Cadence IP
-> itself, rather than a chip vendor-specific design constraint.
->=20
-> For this reason, I believe defining a common `fifo-width` property for
-> Cadence SPI controllers is more appropriate, as it allows any SoC using
-> this IP with different FIFO width configurations to utilize this property,
-> without needing to create a specific compatible string for each SoC varia=
-nt.
+> >  #define MSR_AMD64_LBR_SELECT			0xc000010e
+> > diff --git a/arch/x86/kvm/pmu.c b/arch/x86/kvm/pmu.c
+> > index 4246e1d2cfcc..817ef852bdf9 100644
+> > --- a/arch/x86/kvm/pmu.c
+> > +++ b/arch/x86/kvm/pmu.c
+> > @@ -715,18 +715,14 @@ int kvm_pmu_rdpmc(struct kvm_vcpu *vcpu, unsigned idx, u64 *data)
+> >  	return 0;
+> >  }
+> >  
+> > -bool kvm_need_rdpmc_intercept(struct kvm_vcpu *vcpu)
+> > +bool kvm_need_perf_global_ctrl_intercept(struct kvm_vcpu *vcpu)
+> >  {
+> >  	struct kvm_pmu *pmu = vcpu_to_pmu(vcpu);
+> >  
+> >  	if (!kvm_vcpu_has_mediated_pmu(vcpu))
+> >  		return true;
+> >  
+> > -	/*
+> > -	 * VMware allows access to these Pseduo-PMCs even when read via RDPMC
+> > -	 * in Ring3 when CR4.PCE=0.
+> > -	 */
+> > -	if (enable_vmware_backdoor)
+> > +	if (!kvm_pmu_has_perf_global_ctrl(pmu))
+> >  		return true;
+> >  
+> >  	/*
+> > @@ -735,7 +731,22 @@ bool kvm_need_rdpmc_intercept(struct kvm_vcpu *vcpu)
+> >  	 * capabilities themselves may be a subset of hardware capabilities.
+> >  	 */
+> >  	return pmu->nr_arch_gp_counters != kvm_host_pmu.num_counters_gp ||
+> > -	       pmu->nr_arch_fixed_counters != kvm_host_pmu.num_counters_fixed ||
+> > +	       pmu->nr_arch_fixed_counters != kvm_host_pmu.num_counters_fixed;
+> > +}
+> > +EXPORT_SYMBOL_GPL(kvm_need_perf_global_ctrl_intercept);
+> > +
+> > +bool kvm_need_rdpmc_intercept(struct kvm_vcpu *vcpu)
+> > +{
+> > +	struct kvm_pmu *pmu = vcpu_to_pmu(vcpu);
+> > +
+> > +	/*
+> > +	 * VMware allows access to these Pseduo-PMCs even when read via RDPMC
+> > +	 * in Ring3 when CR4.PCE=0.
+> > +	 */
+> > +	if (enable_vmware_backdoor)
+> > +		return true;
+> > +
+> > +	return kvm_need_perf_global_ctrl_intercept(vcpu) ||
+> >  	       pmu->counter_bitmask[KVM_PMC_GP] != (BIT_ULL(kvm_host_pmu.bit_width_gp) - 1) ||
+> >  	       pmu->counter_bitmask[KVM_PMC_FIXED] != (BIT_ULL(kvm_host_pmu.bit_width_fixed) - 1);
+> >  }
+> 
+> There is a case for AMD processors where the global MSRs are absent in the guest
+> but the guest still uses the same number of counters as what is advertised by the
+> host capabilities. So RDPMC interception is not necessary for all cases where
+> global control is unavailable.o
 
-Except, you do need to create a soc-specific compatible string for every
-device, the fact that you didn't add one for your sky1 SoC was a mistake
-that you should fix. SoC-specific compatibles are a requirement.
-The "cnds,spi-r1p6" compatible seems to be used on Xilinx platforms,
-including a zynq platform that should probably be using the zynq
-soc-specific compatible. r1p6 sounds like some sort of version info, is
-that the version you are even using?
+Hmm, I think Intel would be the same?  Ah, no, because the host will have fixed
+counters, but the guest will not.  However, that's not directly related to
+kvm_pmu_has_perf_global_ctrl(), so I think this would be correct?
 
-Once you have added a compatible for the sky1, this property is not
-needed, since the depth can be determined from that. Any other user that
-wants to use non-default depths can also use their soc-specific
-compatibles for that purpose.
-
->=20
-> Thank you for your valuable time and insightful suggestions. I look forwa=
-rd to
-> your further feedback on this approach.
-
-
---RZlrBQmtaAPuQAyZ
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaN1tIQAKCRB4tDGHoIJi
-0oMjAP4zsaaPAMU0SQSKmTQbp1DBvtpZf4mNFIjsMrVhWzKr3gD/Rsy8ig2pCubA
-Bo1QWNZbE3AbmsqSutDk71YJ13rf9QI=
-=XRtH
------END PGP SIGNATURE-----
-
---RZlrBQmtaAPuQAyZ--
+diff --git a/arch/x86/kvm/pmu.c b/arch/x86/kvm/pmu.c
+index 4414d070c4f9..4c5b2712ee4c 100644
+--- a/arch/x86/kvm/pmu.c
++++ b/arch/x86/kvm/pmu.c
+@@ -744,16 +744,13 @@ int kvm_pmu_rdpmc(struct kvm_vcpu *vcpu, unsigned idx, u64 *data)
+        return 0;
+ }
+ 
+-bool kvm_need_perf_global_ctrl_intercept(struct kvm_vcpu *vcpu)
++static bool kvm_need_pmc_intercept(struct kvm_vcpu *vcpu)
+ {
+        struct kvm_pmu *pmu = vcpu_to_pmu(vcpu);
+ 
+        if (!kvm_vcpu_has_mediated_pmu(vcpu))
+                return true;
+ 
+-       if (!kvm_pmu_has_perf_global_ctrl(pmu))
+-               return true;
+-
+        /*
+         * Note!  Check *host* PMU capabilities, not KVM's PMU capabilities, as
+         * KVM's capabilities are constrained based on KVM support, i.e. KVM's
+@@ -762,6 +759,13 @@ bool kvm_need_perf_global_ctrl_intercept(struct kvm_vcpu *vcpu)
+        return pmu->nr_arch_gp_counters != kvm_host_pmu.num_counters_gp ||
+               pmu->nr_arch_fixed_counters != kvm_host_pmu.num_counters_fixed;
+ }
++
++bool kvm_need_perf_global_ctrl_intercept(struct kvm_vcpu *vcpu)
++{
++
++       return kvm_need_pmc_intercept(vcpu) ||
++              !kvm_pmu_has_perf_global_ctrl(vcpu_to_pmu(vcpu));
++}
+ EXPORT_SYMBOL_GPL(kvm_need_perf_global_ctrl_intercept);
+ 
+ bool kvm_need_rdpmc_intercept(struct kvm_vcpu *vcpu)
+@@ -775,7 +779,7 @@ bool kvm_need_rdpmc_intercept(struct kvm_vcpu *vcpu)
+        if (enable_vmware_backdoor)
+                return true;
+ 
+-       return kvm_need_perf_global_ctrl_intercept(vcpu) ||
++       return kvm_need_pmc_intercept(vcpu) ||
+               pmu->counter_bitmask[KVM_PMC_GP] != (BIT_ULL(kvm_host_pmu.bit_width_gp) - 1) ||
+               pmu->counter_bitmask[KVM_PMC_FIXED] != (BIT_ULL(kvm_host_pmu.bit_width_fixed) - 1);
+ }
 
