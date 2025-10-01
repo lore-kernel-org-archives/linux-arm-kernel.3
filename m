@@ -4,58 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15BFCCCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 13:39:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 34F34CAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 13:44:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t/mbW3oUI2ev/Xn41+hBhGFx3Jot6bEDdi+bVuuqRas=; b=BmxkvC/ApSrStSIDTVbONuv5BI
-	jKnaVc/cedNoSf6A4thrq/whw7GjzwQe01lWQt8WgGHN3q0XIf07kDi/OHXfMF/NxooAXGdOzxxs8
-	TBUaR8kB78GWWWlO2/WvBfOdNKbPydN+3zo6nadqCSgIxvB2WKhF5Y9ytEUTGs3y7XnavjQDtIfye
-	NJ3UDflS3hAVf3aP8ZLopWEEJesgbMnNHMcMdgq3Hl4PEXAuOw8GizC8M34X+dyep+M/E3WP+5hqb
-	+PSj+VvxY1xFUfW4fhgwDXqht7wv6JM2C4puzwCT4jqkOhFhyRlZrir+lHjqW5Nsyrwu1PGJpH15f
-	L9AVi5mA==;
+	bh=x4RMHSI7e9md1Ls3UjWi5Kh6rVy5rfF+pdEJ5EKaAds=; b=bSEDFtJQHBj0r1WnJn77b0l83c
+	FDJBeNO7Dn2BmJIPn6q775qQn98r7wk8/PWb4EKJZrV6iJohwFoOKdX5h5aPjhd+CizIp/GR0gbK3
+	Z6Exu21lqyp76fCf53av0mEd0WCynAIxSaaMwVmCml43N7r77CD1ZHrb62Z5x32JQyTDwHWG9Jhsv
+	iR1lG1SqSFnIovL+08cii5Nqmz6E8TfBjDHIBO9OBojrvmhf/mPjVl9vt252TJsBIELDKGrhOIWv/
+	k2Ydu6A5mbAH635nLidskfbvHPnZoOc7Dk3liBARS7avCfQDt/rhxSnvTuliR78jmfn2BPWbA+S0S
+	0NpL264A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3x36-000000083gd-3IeI;
-	Wed, 01 Oct 2025 13:39:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3x34-000000083gG-0vO0
+	id 1v3x7e-00000008499-1wUO;
+	Wed, 01 Oct 2025 13:43:58 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v3x7b-0000000848k-44Xc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 13:39:15 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 443B216F2;
-	Wed,  1 Oct 2025 06:39:05 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E624E3F59E;
-	Wed,  1 Oct 2025 06:39:12 -0700 (PDT)
-Date: Wed, 1 Oct 2025 14:39:10 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>,
-	Mike Leach <mike.leach@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jonathan Corbet <corbet@lwn.net>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v2 5/6] coresight: Add format attribute for setting the
- timestamp interval
-Message-ID: <20251001133910.GO7985@e132581.arm.com>
-References: <20250814-james-cs-syncfreq-v2-0-c76fcb87696d@linaro.org>
- <20250814-james-cs-syncfreq-v2-5-c76fcb87696d@linaro.org>
- <20250930151414.GK7985@e132581.arm.com>
- <3a731a9e-0621-42b6-b7fc-4b0fd9b7da6e@linaro.org>
- <20251001132815.GN7985@e132581.arm.com>
+	Wed, 01 Oct 2025 13:43:57 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 56E1840326;
+	Wed,  1 Oct 2025 13:43:55 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD183C4CEF4;
+	Wed,  1 Oct 2025 13:43:50 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759326235;
+	bh=YmUasciFTD3VpD/4siSJw5bG0HOrjO+PKhZbkV8qFZw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JD4uthE2Rsh+qEXs6bIwdNbHH28S03NLE3YeLIr9LMR2OLYUtKYV9n/DL5uyZ+jw7
+	 A6al/dMkwCdpvZrNwL9k1W51fGeaxcoeZy8EZi7wex82438FEf92cYf/WYvKbTSIGb
+	 3P7KMqMWcHld7FSN1WQGX5/QB3KQFLCfoHihXZ34lZcUjnpL4ViRv7mYHn1t/+Xej/
+	 7PEtMZ7SQc3spbLwT9ARPzdQ24f401iS1uF5chparAU5Sd56Gc76ga46EZT+lXFP0f
+	 IATWexjuHSXee1lTgCifkNA3zrqgdGK2aGO9ZnqyKy8h3rDk4t9b1rYgnKwFszjDQJ
+	 MPEe5UjGia+PA==
+Date: Wed, 1 Oct 2025 14:43:48 +0100
+From: Lee Jones <lee@kernel.org>
+To: danielt@kernel.org, jingoohan1@gmail.com, neil.armstrong@linaro.org,
+	jessica.zhang@oss.qualcomm.com, deller@gmx.de,
+	maarten.lankhorst@linux.intel.com, mripard@kernel.org,
+	airlied@gmail.com, simona@ffwll.ch, fnkl.kernel@gmail.com,
+	j@jannau.net, ilpo.jarvinen@linux.intel.com, sven@kernel.org,
+	alyssa@rosenzweig.io, neal@gompa.dev,
+	support.opensource@diasemi.com, Hans de Goede <hansg@kernel.org>,
+	duje@dujemihanovic.xyz, Thomas Zimmermann <tzimmermann@suse.de>
+Cc: dri-devel@lists.freedesktop.org, asahi@lists.linux.dev,
+	platform-driver-x86@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-fbdev@vger.kernel.org
+Subject: Re: (subset) [PATCH v2 00/15] backlight: Do not include <linux/fb.h>
+ in header file
+Message-ID: <20251001134348.GT8757@google.com>
+References: <20250715122643.137027-1-tzimmermann@suse.de>
+ <175803873238.3892705.12154571803108246655.b4-ty@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251001132815.GN7985@e132581.arm.com>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <175803873238.3892705.12154571803108246655.b4-ty@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_063914_299235_516E12AF 
-X-CRM114-Status: GOOD (  14.16  )
+X-CRM114-CacheID: sfid-20251001_064356_030728_B0E14512 
+X-CRM114-Status: GOOD (  13.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,24 +82,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 01, 2025 at 02:28:15PM +0100, Coresight ML wrote:
+On Tue, 16 Sep 2025, Lee Jones wrote:
 
-[...]
-
-> > Unfortunately that won't work because you'd have to always include
-> > coresight-etm4x.h. This file is compiled for both arm32 and arm64 so it
-> > would break the arm32 build.
+> On Tue, 15 Jul 2025 14:24:37 +0200, Thomas Zimmermann wrote:
+> > Remove the final dependencies on fbdev from the backlight subsystem.
+> > This is really just the include of <linux/fb.h> in backlight, but it
+> > has some fallout in other code.
 > > 
-> > I could define the TTR_CFG_FLD_ts_level_* stuff somewhere else but then it
-> > becomes messier than just doing the #ifdefs here.
+> > Patches 1 to 14 fix all the implicit includes that come from fb.h
+> > throughout the kernel. It's all trivial, but touches various drivers.
+> > Maintainers are in CC. Patch 15 fixes the backlight header.
+> > 
+> > [...]
 > 
-> ATTR_CFG_FLD_ts_level_* is only used in coresight-etm4x-core.c, it is not
-> used in coresight-etm-perf.c. Thus, we don't need to include
-> coresight-etm4x.h in coresight-etm-perf.c. Do I miss anything?
+> Applied, thanks!
+> 
+> [06/15] backlight: Include <linux/of.h>
+>         commit: b12224c28d84d054dfb680c05cda61d1e2584bf5
+> [07/15] backlight: apple_dwi_bl: Include <linux/mod_devicetable.h>
+>         commit: 945e411acde3800234d506f4304203a9b11890f8
+> [08/15] backlight: as3711_bl: Include <linux/of.h>
+>         commit: 6789cd935a57464deaacdd14c84bc026aa228e72
+> [09/15] backlight: da9052_bl: Include <linux/mod_devicetable.h>
+>         commit: e2e76f67bdbbc7b8df608e3dd1028059d838871e
+> [10/15] backlight: jornada720: Include <linux/io.h>
+>         commit: ce4bb1a2f1cbcd5f6471f74ee5c7e1443a4cfd84
+> [11/15] backlight: ktd2801: Include <linux/mod_devicetable.h>
+>         commit: 5f60004f152b432c6ae5dbacc172adc1fa215825
+> [12/15] backlight: led_bl: Include <linux/of.h>
+>         commit: b38ed7c05a35f3a029c2fc5e43a94aa81e2ac843
+> [13/15] backlight: rave-sp: Include <linux/of.h> and <linux/mod_devicetable.h>
+>         commit: 246da2b48e2ce973db255fc4b6faf42f73c03114
+> [14/15] backlight: rt4831: Include <linux/mod_devicetable.h>
+>         commit: ba3b29a639fe5173033914db6ee58d8d9bb86aba
 
-Now I understand that you are using GEN_PMU_FORMAT_ATTR, so need to
-used TTR_CFG_FLD_ts_level_* macro defined in coresight-etm4x.h.
+> [15/15] backlight: Do not include <linux/fb.h> in header file
+>         commit: 9f218f9bb9d274b9d5d48a4c95e1b199141fc1f2
 
-Thanks,
-Leo
+I have removed this commit from Backlight, since it was causing too many
+issues.  Please resubmit it once the merge-window is closed.
+
+-- 
+Lee Jones [李琼斯]
 
