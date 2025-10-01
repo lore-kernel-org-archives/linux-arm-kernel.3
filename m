@@ -4,75 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96FE2CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 17:00:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE8E9CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 17:17:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZEODEvpZ+kS569dNngWKxPn7Rdv1MvJZa+IDSy7FiTA=; b=HWCfLr03qWMGRrbOP9iNfFEQvZ
-	t8Dc23dprDzR8zPIuAxkuxHECmrQtfq4v8cfu0gfI5wdf42m3p0kUheTFb0EtfWhbUytdBWacTSmY
-	kU4kncp2p20i4O7E45hnAapDd5xY6XU8mRrLpcHG7XyJGELaQHmKKeSFYYgyRe5Dkyo0+BOA1aOwc
-	3jqxiDAmWQvYiDiDrhl0vlEdsRQXY4d6AKtXh2E3JFD11sYS62DZVDpwjU+v7KZjjmL+Kv/FuCDUh
-	KtLfpuV/ncQ3NyLAIFSvR0NQlGtAIeeMFb4TOka2oblKmJdpPHl2Ql0iaqFc8W3bVKY4EWtYE/6Wi
-	SqemAy8w==;
+	bh=bkUIeEw2K1DcaImCpCtRE9AepJnlixKkMkmpyScYn+c=; b=U+wnM6DfeBQo6uDC1nvl7AM2lF
+	8Ry+9tX37CwGHFxN2xQGIZsXw1SHlqOCCjjzPHHdToKY59iC79ZhrZ2CyVG33H6Jrz6URuB5OR6nT
+	T5LkaHHwVGkZsRgnrfq5R6cb+N7DaYJczPcj67awIxqd5/egq4cLV6ynmVVlOx9H3zZbhtLofCd69
+	E4XMZIvcDhe6yB0y6CSS7sZo55S+EaGxreg43/cmkAXgfKnUrgEfIkCTzvXxQdPk0uAqMn1DAy2NI
+	rfNpDlNfMJLYlOH9/HHRITysIEf3gv7Mto+/5ZGxTrKxuumv/7O9aznXJdPay6plXiexHkCIf0LJB
+	NX42Z+VA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v40C3-00000008bHo-2V19;
-	Wed, 01 Oct 2025 17:00:43 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1v40S4-00000008cgU-10SG;
+	Wed, 01 Oct 2025 17:17:16 +0000
+Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v40C1-00000008bHC-15OP
+	id 1v40S1-00000008cfA-1A9n
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 17:00:42 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 591H0bIt2711958;
-	Wed, 1 Oct 2025 12:00:37 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1759338037;
-	bh=ZEODEvpZ+kS569dNngWKxPn7Rdv1MvJZa+IDSy7FiTA=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=I3m0RJFlD4f93M3FuwSB2x20oHw/qeSywDKnYQsGnaP3y4bNteFM+noUb1+nCB20P
-	 P0j+alxQNzJDMKH8H1a/lCv9zjyehoceSAoAViHVwntKWl2uCn6CZW18N7B4JWi8/W
-	 /7VmsuJC667Zw62FaLxoTbw2fQiu89I5owD7hxRo=
-Received: from DLEE108.ent.ti.com (dlee108.ent.ti.com [157.170.170.38])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 591H0bZg3004851
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 1 Oct 2025 12:00:37 -0500
-Received: from DLEE215.ent.ti.com (157.170.170.118) by DLEE108.ent.ti.com
- (157.170.170.38) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 1
- Oct 2025 12:00:36 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DLEE215.ent.ti.com
- (157.170.170.118) with Microsoft SMTP Server (version=TLS1_2,
+	Wed, 01 Oct 2025 17:17:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=HriXHPq1fe0k7URZj5Fe/FVXkgRuN7J9p1K0EjfisNH/2lxbwcImSBemqrcFToEU8+k8+THIdSO2VKn1qrQbrPVOxQzoJKL3DWtq06Os5ath7ZW3j1Dh6Emj8rxyUXX6TwdqHhgwfayQGnFEqOuDWhIJS1leFijNEBJ7YxCE2d1V6R5PziWdUzc2WsxJIgL4AQduoBhnZ9V+Kk42xsQ5HOS2/2d5kgnmysGpmyk5Or+5xiL3YqhKm75y8xAhTXtCbM0+DJhSlDk9eKEr43AFYTRSfkzUcINMs6uiv9LS6MIxnjabnvwIqZbKB4M5wgFO7FhoC9FxlBYlkPXPSmD7Hw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=bkUIeEw2K1DcaImCpCtRE9AepJnlixKkMkmpyScYn+c=;
+ b=mI7s35mXvDoRb7FzVGBR4Xe9vHaI2EqUOmbhyL10d43ob39foIclxMy09G4DqP1jZwv/+IlOpnhU7IZhYJ7LDAieMowpc1QSjnMF3cVQMF5vhloNoZ6Ka4fPgcghUn9cTE9xV1ObjRoPnuW92+aqCMf+aVUmlpkiqup4+p3rN7J8FpbG6f9CJqIzZXB3oUbaJ1qQ+2C/gnKawKMJS6FCbyNdaxZFqaEztPefwp1jaHmFFYmUXzKg+C/oMgEPQLlnxRagtkAuiJpby/CwC1uDOrkxCC6dLw0KoWoTAYA32SwKZwpWRmILXQKXk9B5fvRb+yJRXrYT/2EhB8YfiJt1jw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=bkUIeEw2K1DcaImCpCtRE9AepJnlixKkMkmpyScYn+c=;
+ b=fZPas+m4bg8jiqyACIjL+L1OS/ns8nKZdWcK7fRtAtwpM4lI7gOHy+zLefFd7pkVkyRpopH4veekXejGeoCINsCarrrnE/HliwCSzhqqQYuOn+CENj8R6Y0P0DlVJT7B43z4tIcKrtMJ4BJW8LfGyohpfSj+VQ0ELBQSZ1yLceYSqplBOYQt6xEec3KXlWCjzaAJKIMIE8P/VKss094KqvQXJIDCQjQnlR3cdYbjEvbWn0/KzI01QUrIM9MhzSRrtyns06v6ljUIm+kLRPfLpyVfZkv6PunX6HM6W2Q+JjpHlPRBPQ35ibk0cuv6PC5tgLFGNOXNGtDDOw9TUsVPdg==
+Received: from BL6PEPF00013DFC.NAMP222.PROD.OUTLOOK.COM
+ (2603:10b6:22e:400:0:1001:0:21) by MW3PR12MB4393.namprd12.prod.outlook.com
+ (2603:10b6:303:2c::22) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.18; Wed, 1 Oct
+ 2025 17:17:02 +0000
+Received: from BL02EPF00021F6E.namprd02.prod.outlook.com
+ (2a01:111:f403:f901::8) by BL6PEPF00013DFC.outlook.office365.com
+ (2603:1036:903:4::4) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9137.14 via Frontend Transport; Wed,
+ 1 Oct 2025 17:17:00 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ BL02EPF00021F6E.mail.protection.outlook.com (10.167.249.10) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9182.15 via Frontend Transport; Wed, 1 Oct 2025 17:17:00 +0000
+Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.34; Wed, 1 Oct
+ 2025 10:16:39 -0700
+Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail205.nvidia.com
+ (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 1 Oct
+ 2025 10:16:39 -0700
+Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.129.68.9)
+ with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 1 Oct 2025 12:00:36 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 591H0a5v612566;
-	Wed, 1 Oct 2025 12:00:36 -0500
-Date: Wed, 1 Oct 2025 12:00:36 -0500
-From: Nishanth Menon <nm@ti.com>
-To: "Markus Schneider-Pargmann (TI.com)" <msp@baylibre.com>
-CC: Tero Kristo <kristo@kernel.org>, Santosh Shilimkar <ssantosh@kernel.org>,
-        Vishal Mahaveer <vishalm@ti.com>, Kevin Hilman <khilman@baylibre.com>,
-        Dhruva
- Gole <d-gole@ti.com>, Sebin Francis <sebin.francis@ti.com>,
-        Kendall Willis
-	<k-willis@ti.com>, Akashdeep Kaur <a-kaur@ti.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v8 0/3] firmware: ti_sci: Partial-IO support
-Message-ID: <20251001170036.favd5zaieknywcch@amendable>
-References: <20251001-topic-am62-partialio-v6-12-b4-v8-0-76a742605110@baylibre.com>
+ Transport; Wed, 1 Oct 2025 10:16:38 -0700
+Date: Wed, 1 Oct 2025 10:16:37 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: Jason Gunthorpe <jgg@nvidia.com>
+CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
+	<jean-philippe@linaro.org>, <miko.lenczewski@arm.com>, <balbirs@nvidia.com>,
+	<peterz@infradead.org>, <smostafa@google.com>, <kevin.tian@intel.com>,
+	<praan@google.com>, <linux-arm-kernel@lists.infradead.org>,
+	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
+	<patches@lists.linux.dev>
+Subject: Re: [PATCH rfcv2 6/8] iommu/arm-smmu-v3: Populate smmu_domain->invs
+ when attaching masters
+Message-ID: <aN1h9UKA+MmapzX1@Asurada-Nvidia>
+References: <cover.1757373449.git.nicolinc@nvidia.com>
+ <d3f9777e46d531273dfecb54d69725428cdef308.1757373449.git.nicolinc@nvidia.com>
+ <20250924214215.GR2617119@nvidia.com>
+ <aNrxjkUEEUzKU+za@Asurada-Nvidia>
+ <20250930121200.GG2942991@nvidia.com>
+ <aNw7UVaktL6/05b8@Asurada-Nvidia>
+ <20251001162516.GE3024065@nvidia.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="us-ascii"
 Content-Disposition: inline
-In-Reply-To: <20251001-topic-am62-partialio-v6-12-b4-v8-0-76a742605110@baylibre.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+In-Reply-To: <20251001162516.GE3024065@nvidia.com>
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL02EPF00021F6E:EE_|MW3PR12MB4393:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0a5b0c72-2af6-4cc5-8d38-08de010e5566
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|36860700013|1800799024;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ntzKJLo/JDDADWd0Dp1GxvViJ4FhA/R2ry/9be71APvAXRZWZMentf51jNjQ?=
+ =?us-ascii?Q?IH/E0nLG3357jago/GNG5YEE4K34JxqPHv5duMPSpdD2/crA4vnUTmt1GxP9?=
+ =?us-ascii?Q?IaFhh7KLEi+ypuE52XOQJeI5k1dQx8IhcklJs3a6hyH2TQe9U+Ij3MYS1jOk?=
+ =?us-ascii?Q?HVlJHU6RD5UDwZxVwQswOxpGn09Maq7qV3vfxhlsLZzdpZZ4cE06m8vUBEKY?=
+ =?us-ascii?Q?tAYyLoQWZZtmQbdbyZAsYyifDov074K2fMo0dSSXJqtrD2bkmWHVGUp527kJ?=
+ =?us-ascii?Q?xA/NAfGlCc1us1Y7TnkdUnnQAW5/Wqj+tUnrCfqqvcTL+Qwi53lUeWfQ2r3Q?=
+ =?us-ascii?Q?HFp6I6S0M2+HOkb9e7WxUou6BQ8xynBNI+g+FERAP3SMrbxzsjZGkCKF1aEl?=
+ =?us-ascii?Q?tXsO+71hk4VpF5MChyQvdvpuSQXrS+H8OhnE4tyvThy199PgIM2ImAW1yF8+?=
+ =?us-ascii?Q?okSv9mqyFn4BHirneo1HJI7ufCkLQUGa4NAUHBrkhkVHq24M0e7Fn+c8q1pB?=
+ =?us-ascii?Q?bjPsFAKvd8F9LVDaEZ0p9n7AfGW2WADTHA3fSw84adBGpyNzSN7534kDj+lA?=
+ =?us-ascii?Q?EufeWhNKovdvCcCEA4v6DDVpayO28XU0Re96sClRkiCfKDL7SaefXPVozo1J?=
+ =?us-ascii?Q?3lSF6Gj+MMAPDVRJWAfdLxN1CwlXgBsFzPYWKcKxbnPRlboLWwIlv7wdsqoX?=
+ =?us-ascii?Q?ti9VkZJVm9zbJSA6bYkRAJ+0lMcqEIhYfPJ6CzDEMtMDuVSL0BB6knjUrSrE?=
+ =?us-ascii?Q?20IaIw8EvWItV+bpeLdyTA5uSR1eMHtbFv26yeQ22eGyEYVoTZ6HywerEcU5?=
+ =?us-ascii?Q?XbmP1V4Y0gD6VV+OaIuQN6HKZ+qhudpf+EAUlUwzsRkfz62ICrXHJJq/eDks?=
+ =?us-ascii?Q?55Uae64isQ2dkAcd2kVYJarqDtJg/B1KgZJfoNgYZ7DL0y0XJ3XJa4wnpQX7?=
+ =?us-ascii?Q?MY5UWkh1n5TqndkECPhCjgzA/DsH17NWf2VpPYlOGRdNtDibwC6GJS6IvbdU?=
+ =?us-ascii?Q?9HctrTJdPmOSYXXdIoohX0apZZjpGCu8Dco62VWysPl6Ys71583HfYfJisw4?=
+ =?us-ascii?Q?yaOIwmbDsDbVmOuKFCfuYFl7LQDi+FKBuNvymvCl3U24y5VDtJ99kC5/KaDN?=
+ =?us-ascii?Q?zn29BR1UlBtdXi3IKAmZOiZjbWGyCXK4XPPwC5oix1hig4yVPjiEknmyWVe7?=
+ =?us-ascii?Q?SajoPGkBoh6OB+XRK8W/BN9BLbh84n+V9p5RMorJoJtYl+nsUMsYiYBdCT4T?=
+ =?us-ascii?Q?fzezMARg1v96nBica7WbSQXozLOw8ZU2c7AhxD+kF8LGYEcpO3KyX80Vojsx?=
+ =?us-ascii?Q?Tfl24BBxUvToC3dkWAzZol1qwosNAuydJ0HvBso9pvjQvYVT/73QC5FW8SJz?=
+ =?us-ascii?Q?CCCiujuQ59BhimC2V2y5JwGdZIYyCm7ot7xS2BXRBkdD9w79cs9Qa9Fg65zl?=
+ =?us-ascii?Q?Fk+4J75DJ6FKigAsBpBInMFNRpaNPbvQNkwJCFrSO64pjWUiRp46icDCpmQ0?=
+ =?us-ascii?Q?nLZQkQkDolPBxJttVXb6DGQZe+CyAMf4EWqidqS4dMg8A5FM/TeBdDKld6At?=
+ =?us-ascii?Q?Q7Vqv0nTd3z6k2L+i08=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(36860700013)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Oct 2025 17:17:00.5317
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0a5b0c72-2af6-4cc5-8d38-08de010e5566
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL02EPF00021F6E.namprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW3PR12MB4393
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_100041_390278_355BBCC1 
-X-CRM114-Status: GOOD (  19.24  )
+X-CRM114-CacheID: sfid-20251001_101713_318372_9A7F47E6 
+X-CRM114-Status: GOOD (  14.60  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,56 +161,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16:37-20251001, Markus Schneider-Pargmann (TI.com) wrote:
-> Hi,
+On Wed, Oct 01, 2025 at 01:25:16PM -0300, Jason Gunthorpe wrote:
+> On Tue, Sep 30, 2025 at 01:19:29PM -0700, Nicolin Chen wrote:
+> > I see a cleaner way of handling this is to update invs->num_invs
+> > inside arm_smmu_invs_unref():
+> > ----------------------------------------------------------------
+> > @@ -1209,6 +1216,13 @@ size_t arm_smmu_invs_unref(struct arm_smmu_invs *invs,
+> >                         j++;
+> >                 }
+> >         }
+> > +
+> > +       /* The lock is required to fence concurrent ATS operations. */
+> > +       write_lock_irqsave(&invs->rwlock, flags);
+> > +       /* Trim the size by removing tailing trash entries */
+> > +       WRITE_ONCE(invs->num_invs, num_invs);
+> > +       write_unlock_irqrestore(&invs->rwlock, flags);
 > 
-> This series adds support for Partial-IO to the ti-sci driver,
-> implementing the firmware interface necessary to enter this low power
-> state. It processes the wakeup-source properties from the devicetree and
-> communicates with the system firmware to enter Partial-IO mode when
-> appropriate wakeup sources are enabled.
+> That seems Ok
 > 
-> Partial-IO Overview
-> ------------------
-> Partial-IO is a low power system state in which nearly everything is
-> turned off except the pins of the CANUART group (mcu_mcan0, mcu_mcan1,
-> wkup_uart0 and mcu_uart0). These devices can trigger a wakeup of the
-> system on pin activity. Note that this does not resume the system as the
-> DDR is off as well. So this state can be considered a power-off state
-> with wakeup capabilities.
+> It means the arm_smmu_invs_unref() becomes the fence that guarentees
+> the ATS is stopped for anything marked as trash.
 > 
-> A documentation can also be found in section 6.2.4 in the TRM:
->   https://www.ti.com/lit/pdf/spruiv7
-> 
-> Implementation Details
-> ----------------------
-> The complete Partial-IO feature requires three coordinated series, each
-> handling a different aspect of the implementation:
-> 
-> 1. m_can driver series: Implements device-specific wakeup functionality
->    for m_can devices, allowing them to be set as wakeup sources.
->    https://gitlab.baylibre.com/msp8/linux/-/tree/topic/mcan-wakeup-source/v6.17?ref_type=heads
->    https://lore.kernel.org/r/20250812-topic-mcan-wakeup-source-v6-12-v8-0-6972a810d63b@baylibre.com
-> 
-> 2. Devicetree series: Defines system states and wakeup sources in the
->    devicetree for am62, am62a and am62p.
->    https://gitlab.baylibre.com/msp8/linux/-/tree/topic/am62-dt-partialio/v6.17?ref_type=heads
->    https://lore.kernel.org/r/20250812-topic-am62-dt-partialio-v6-15-v2-0-25352364a0ac@baylibre.com
-> 
-> 3. This series (TI-SCI firmware): Implements the firmware interface to
->    enter Partial-IO mode when appropriate wakeup sources are enabled.
+> Then the next steps can just be normal RCU and don't need rwlocking.
 
-If this is the order of dependencies, I guess the series has to wait
-till CAN driver changes are merged? did I get that right?
+Yea. The "old" flag could be dropped too:
 
-Also surprised that the DT series is second in the dependency.. usually
-dts changes occur the last. but anyways..
+        while (true) {
+                invs = rcu_dereference(smmu_domain->invs);
 
-[...]
+                /*
+                 * Avoid locking unless ATS is being used. No ATS invalidate can
+                 * be going on after a domain is detached.
+                 */
+                locked = false;
+-               if (invs->has_ats || READ_ONCE(invs->old)) {
++               if (invs->has_ats) {
+                        read_lock(&invs->rwlock);
+-                       if (invs->old) {
+-                               read_unlock(&invs->rwlock);
+-                               continue;
+-                       }
+                        locked = true;
+                }
+                break;
+        }
 
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
+Thanks
+Nicolin
 
