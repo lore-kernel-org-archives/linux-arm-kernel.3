@@ -4,54 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEA43CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 11:57:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04FD9CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 11:58:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xs93ZCtlhpIvRhJ1pOVoEwyHus2xkJgPeBnPjc7CvXw=; b=dZPweJCx6KD77mV4sZZLQGME1P
-	yOw/hn+GAVMN5fQKtJppZ2RYRRQJXGIdAs3yVT/vHnKEguBmTuQDNtGqg6gEeFaPG7a7SVK23EhRT
-	isOBOzKsPNuR++naz5FkWRktiZz9oFP0Opdqa/b/yYxob4aBhFklltsImQTES3gRP0I9Lj9lg35A5
-	37ZnSwo6S0BHV4tI4LuQ8W/y115ZCmaxA/DQx18aFMTYnuseUzvqBCE+m4jbX6VdYaMSgtI+et2XS
-	5KsvHied++fnY7V7DYjGwotqgKges1HxhFeM8Jkn7HP0NcPHAO3mewxiBgAUXgLWwOvoP+S5dZhnY
-	8RHlIVsQ==;
+	bh=cyf2vSy4kC3sHy4af09WXlFaSC4wntKt+498dNUf2sc=; b=4qITrdNU54ulPPiCavi+H8N4Wj
+	KNX2mXtKQqMqSMZ+/Mrd1jTb1K639YYASph0pWDv+gwQl2V4rh4gzUHbSRKlxV/LcfsWIDDYC8360
+	JGjWm4p3iXbuPI69itfHXaoqT5db9DXSrfhJaG1TDU9SPYkjL6J3ISFQ7tMeCtazlo9fHGBj4EqrI
+	yljigWmOaitSqQuzpufXm/TbX02BR/E7ruLkHxEIpi2Wz41q4bPQcHoBAvJFuLDPL7yvHJY7omEOZ
+	T51nleXRFJMA7ONlQLShGclxRfor/N5P9XEwde4yCf2k0Acg0GRkhxVfOuwI0onw8s7AHPM0wq7Cx
+	Ig+TMRJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3vSp-00000007TO2-3XuA;
-	Wed, 01 Oct 2025 11:57:43 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3vSn-00000007TM4-2Fzp
+	id 1v3vTq-00000007Tei-0tJH;
+	Wed, 01 Oct 2025 11:58:46 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v3vTo-00000007TeR-38wL
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 11:57:42 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E0E6F16F2;
-	Wed,  1 Oct 2025 04:57:30 -0700 (PDT)
-Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 810463F66E;
-	Wed,  1 Oct 2025 04:57:37 -0700 (PDT)
-Date: Wed, 1 Oct 2025 12:57:27 +0100
-From: Cristian Marussi <cristian.marussi@arm.com>
-To: Artem Shimko <artyom.shimko@gmail.com>
-Cc: Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>, a.shimko.dev@gmail.com,
-	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] drivers: scmi: Add completion timeout handling for raw
- mode transfers
-Message-ID: <aN0T0tvsL6t6R3yF@pluto>
-References: <20250929142856.540590-1-a.shimko.dev@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20250929142856.540590-1-a.shimko.dev@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_045741_693315_B0144C13 
-X-CRM114-Status: GOOD (  19.80  )
+	Wed, 01 Oct 2025 11:58:44 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0D5B1626DE;
+	Wed,  1 Oct 2025 11:58:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABEC3C4CEF4;
+	Wed,  1 Oct 2025 11:58:43 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759319923;
+	bh=q2oyD5KugDIaW6JSBh1QBJ0TUR6MW5UO2WCtAgLmeh8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=qZCPm84S00rcJ/5DZZiAQBlbVyFTQO+QHK5ZY/4bD3YhlyN4HVP7XkS2p9o0/WGh3
+	 Fu0nDDQctiP6lxSelsLnadRvYKULsWI1WRhAhmH6CXE1dLQ89MYv9TvbMUz125aMY0
+	 b7MnaqQtvm381/diXi6A8LLLTaUlgQvmOS3WMVGXEudJ5Tjr//6BHC0XKb6J7bBdHg
+	 V1waUBZjdW9YJvCaUhesrG2cMrLgerZcmHlbd6wtZ1SApJXoP+jvecGK65TRwkZ/iq
+	 L2rqLAFdjZC53pMBqGe9hGrOgSBfKJol4kn4Fhtc/G9JstpqBcvX0WfuNp+3Jwww3a
+	 pUBGKgU9Bopng==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1v3vTl-0000000AnCw-1j7p;
+	Wed, 01 Oct 2025 11:58:41 +0000
+Date: Wed, 01 Oct 2025 12:58:40 +0100
+Message-ID: <86ldluzvdb.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu
+ <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>
+Subject: Re: [PATCH v10 03/43] arm64: RME: Add SMC definitions for calling the RMM
+In-Reply-To: <747ab990-d02d-4e7c-9007-a7ac73bb1062@arm.com>
+References: <20250820145606.180644-1-steven.price@arm.com>
+	<20250820145606.180644-4-steven.price@arm.com>
+	<86o6qrym2b.wl-maz@kernel.org>
+	<747ab990-d02d-4e7c-9007-a7ac73bb1062@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,124 +105,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 29, 2025 at 05:28:55PM +0300, Artem Shimko wrote:
-> Fix race conditions in SCMI raw mode implementation by adding proper
-> completion timeout handling. Multiple tests[1] in the SCMI test suite
-> were failing due to early clearing of SCMI_XFER_FLAG_IS_RAW flag in
-> scmi_xfer_raw_put() function.
-
-Hi Artem, 
-
+On Wed, 01 Oct 2025 12:00:14 +0100,
+Steven Price <steven.price@arm.com> wrote:
 > 
-> TRANS=raw
-> PROTOCOLS=base,clock,power_domain,performance,system_power,sensor,
-> voltage,reset,powercap,pin_control VERBOSE=5
+> Hi Marc,
 > 
-
-Glad to see that someone is using the test-suite im RAW mode out there
-in the real world :P
-
-> The root cause:
-> Tests were failing on poll() system calls with this condition:
->     if (!raw || (idx == SCMI_RAW_REPLY_QUEUE && !SCMI_XFER_IS_RAW(xfer)))
->         return;
+> On 01/10/2025 11:05, Marc Zyngier wrote:
+> > On Wed, 20 Aug 2025 15:55:23 +0100,
+> > Steven Price <steven.price@arm.com> wrote:
+> >>
+> >> The RMM (Realm Management Monitor) provides functionality that can be
+> >> accessed by SMC calls from the host.
+> >>
+> >> The SMC definitions are based on DEN0137[1] version 1.0-rel0
+> >>
+> >> [1] https://developer.arm.com/documentation/den0137/1-0rel0/
+> >>
+> >> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> >> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> >> Signed-off-by: Steven Price <steven.price@arm.com>
+> >> ---
+> >> Changes since v9:
+> >>  * Corrected size of 'ripas_value' in struct rec_exit. The spec states
+> >>    this is an 8-bit type with padding afterwards (rather than a u64).
+> >> Changes since v8:
+> >>  * Added RMI_PERMITTED_GICV3_HCR_BITS to define which bits the RMM
+> >>    permits to be modified.
+> >> Changes since v6:
+> >>  * Renamed REC_ENTER_xxx defines to include 'FLAG' to make it obvious
+> >>    these are flag values.
+> >> Changes since v5:
+> >>  * Sorted the SMC #defines by value.
+> >>  * Renamed SMI_RxI_CALL to SMI_RMI_CALL since the macro is only used for
+> >>    RMI calls.
+> >>  * Renamed REC_GIC_NUM_LRS to REC_MAX_GIC_NUM_LRS since the actual
+> >>    number of available list registers could be lower.
+> >>  * Provided a define for the reserved fields of FeatureRegister0.
+> >>  * Fix inconsistent names for padding fields.
+> >> Changes since v4:
+> >>  * Update to point to final released RMM spec.
+> >>  * Minor rearrangements.
+> >> Changes since v3:
+> >>  * Update to match RMM spec v1.0-rel0-rc1.
+> >> Changes since v2:
+> >>  * Fix specification link.
+> >>  * Rename rec_entry->rec_enter to match spec.
+> >>  * Fix size of pmu_ovf_status to match spec.
+> >> ---
+> >>  arch/arm64/include/asm/rmi_smc.h | 269 +++++++++++++++++++++++++++++++
+> >>  1 file changed, 269 insertions(+)
+> >>  create mode 100644 arch/arm64/include/asm/rmi_smc.h
+> >>
+> >> diff --git a/arch/arm64/include/asm/rmi_smc.h b/arch/arm64/include/asm/rmi_smc.h
+> >> new file mode 100644
+> >> index 000000000000..1000368f1bca
+> >> --- /dev/null
+> >> +++ b/arch/arm64/include/asm/rmi_smc.h
+> > 
+> > [...]
+> > 
+> >> +#define RMI_PERMITTED_GICV3_HCR_BITS	(ICH_HCR_EL2_UIE |		\
+> >> +					 ICH_HCR_EL2_LRENPIE |		\
+> >> +					 ICH_HCR_EL2_NPIE |		\
+> >> +					 ICH_HCR_EL2_VGrp0EIE |		\
+> >> +					 ICH_HCR_EL2_VGrp0DIE |		\
+> >> +					 ICH_HCR_EL2_VGrp1EIE |		\
+> >> +					 ICH_HCR_EL2_VGrp1DIE |		\
+> >> +					 ICH_HCR_EL2_TDIR)
+> > 
+> > Why should KVM care about what bits the RMM wants to use? Also, why
+> > should KVM be forbidden to use the TALL0, TALL1 and TC bits? If
+> > interrupt delivery is the host's business, then the RMM has no
+> > business interfering with the GIC programming.
 > 
-> The SCMI_XFER_FLAG_IS_RAW flag was being cleared prematurely before
-> the transfer completion was properly acknowledged, causing the poll
-> to return on timeout and tests to fail.
+> The RMM receives the guest's GIC state in a field within the REC entry
+> structure (enter.gicv3_hcr). The RMM spec states that the above is the
+> list of fields that will be considered and that everything else must be
+> 0[1]. So this is used to filter the configuration to make sure it's
+> valid for the RMM.
 > 
+> In terms of TALL0/TALL1/TC bits: these control trapping to EL2, and when
+> in a realm guest the RMM is EL2 - so it's up to the RMM to configure
+> these bits appropriately as it is the RMM which will have to deal with
+> the trap.
 
-I have to say I had seen some anomalies, hardly reproducible, and I
-think you have a point here, good catch !
+And I claim this is *wrong*. Again, if the host is in charge of
+interrupt injection, then the RMM has absolutely no business is
+deciding what can or cannot be trapped. There is zero information
+exposed by these traps that the host is not already aware of.
 
-The xfer flags handling is racy and it could lead to the observed
-anomalies...BUT....
+> [1] RWVGFJ in the 1.0 spec from
+> https://developer.arm.com/documentation/den0137/latest
 
-> Сhanges implemented:
-> 1. Add completion wait with timeout in  scmi_xfer_raw_worker()
-> 2. Signal completion in scmi_raw_message_report()
+Well, until someone explains what this is protecting against, I
+consider this as broken.
+
+> >> +	union { /* 0x300 */
+> >> +		struct {
+> >> +			u64 gicv3_hcr;
+> >> +			u64 gicv3_lrs[REC_MAX_GIC_NUM_LRS];
+> >> +			u64 gicv3_misr;
+> > 
+> > Why do we care about ICH_MISR_EL2? Surely we get everything in the
+> > registers themselves, right? I think this goes back to my question
+> > above: why is the RMM getting in the way of ICH_*_EL2 accesses?
 > 
+> As mentioned above, the state of the guest's GIC isn't passed through
+> the CPU's registers, but instead using the rec_enter/rec_exit
+> structures. So unlike a normal guest entry we don't set all the CPU's
+> register state before entering, but instead hand over a shared data
+> structure and the RMM is responsible for actually programming the
+> registers on the CPU. Since many of the registers are (deliberately)
+> unavailable to the host (e.g. all the GPRs) it makes some sense the RMM
+> also handles the GIC registers save/restore.
 
-.. I think the fix in your patch is overkill...it is really not needed
-to add another layer of synchronization like you are doing, because the
-bug is really around the xfer put and it is very well evident, now that
-you have pointed at it...
+And I claim this is nonsense. There is nothing in these registers that
+the host doesn't need to know about, which is why they are basically
+copied over.
 
-What about, instead of your patch, this:
+It all feels just wrong.
 
------8<----
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 801d59e6b3bc..d3453130896a 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -822,6 +822,8 @@ __scmi_xfer_put(struct scmi_xfers_info *minfo, struct scmi_xfer *xfer)
- 
-                        scmi_dec_count(info->dbg->counters, XFERS_INFLIGHT);
-                }
-+               xfer->flags &= ~SCMI_XFER_FLAG_IS_RAW;
-+               xfer->flags &= ~SCMI_XFER_FLAG_CHAN_SET;
-                hlist_add_head(&xfer->node, &minfo->free_xfers);
-        }
-        spin_unlock_irqrestore(&minfo->xfer_lock, flags);
-@@ -840,8 +842,6 @@ void scmi_xfer_raw_put(const struct scmi_handle *handle, struct scmi_xfer *xfer)
- {
-        struct scmi_info *info = handle_to_scmi_info(handle);
- 
--       xfer->flags &= ~SCMI_XFER_FLAG_IS_RAW;
--       xfer->flags &= ~SCMI_XFER_FLAG_CHAN_SET;
-        return __scmi_xfer_put(&info->tx_minfo, xfer);
- }
----->8----
+	M.
 
-..because the xfer itself is refcounted properly, BUT as of now the
-flags are cleared out of the block inside __scmi_xfer_put:
-
-	if (refcount_dec_and_test(&xfer->users))
-
-...and that is the problem.
-
-The above patch solves for me all the observed anomalies...
-
-... probably EVEN BETTER if you just clear all:
-
----8<-----
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 801d59e6b3bc..914510de3abb 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -822,6 +822,7 @@ __scmi_xfer_put(struct scmi_xfers_info *minfo, struct scmi_xfer *xfer)
- 
-                        scmi_dec_count(info->dbg->counters, XFERS_INFLIGHT);
-                }
-+               xfer->flags = 0;
-                hlist_add_head(&xfer->node, &minfo->free_xfers);
-        }
-        spin_unlock_irqrestore(&minfo->xfer_lock, flags);
-@@ -840,8 +841,6 @@ void scmi_xfer_raw_put(const struct scmi_handle *handle, struct scmi_xfer *xfer)
- {
-        struct scmi_info *info = handle_to_scmi_info(handle);
- 
--       xfer->flags &= ~SCMI_XFER_FLAG_IS_RAW;
--       xfer->flags &= ~SCMI_XFER_FLAG_CHAN_SET;
-        return __scmi_xfer_put(&info->tx_minfo, xfer);
- }
-
----->8----
- 
-...to simply clear all flags when xfer is put...
-
-If this solves for you too, please send a new patch with also a Fixes tag.
-
-Last but not least, are you running the test-suite against a Kernel
-configured with RAW cohexistence disabled ?
-
-	CONFIG_ARM_SCMI_RAW_MODE_SUPPORT_COEX = n
-
-...because having RAW COEX enabled when running the test-suite could lead to more
-false positives even with your patch applied, due to the interference of regular
-drivers..
-
-Thanks for this !
-Cristian
-
+-- 
+Without deviation from the norm, progress is not possible.
 
