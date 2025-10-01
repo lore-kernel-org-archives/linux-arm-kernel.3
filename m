@@ -4,96 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95388CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 13:35:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 15BFCCCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 13:39:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:To:From:Date:Reply-To:Cc:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PDK92u5B/FcAD+ZYNjGuxAVWXpwNJFHRPopndyasWE0=; b=Ny1phi/VXSztI8vaw//PT9nmyX
-	eNid1oRBqQMa1oU6Et+77eAMLnsryO3Ikjv9z8ZB/8BsX4h/9yF7MTR++DMkuMtngjIucmwSqchFj
-	bfOOkXHzqRin6qX6fiWab9UwXhaJ1a/GYjJ+MY6YDymUlnvgT5ter7D/jnSX9c3b/UykTN/nD+QtU
-	kxEISxTis1MAHy9Z+2SnZU67aOr/sRMNkJjstGJGzmKtManELHjQmpRtYBLV8/di3Mm5cHxKBI9nd
-	WDqLMf0hSUYT3DFC3Yik8xlpvz8/IppINXfMt1nXfyW2fNOqdZHJ7zrbnFZ9DH1VzYJI0KBf4ck+a
-	oUEHdkvA==;
+	bh=t/mbW3oUI2ev/Xn41+hBhGFx3Jot6bEDdi+bVuuqRas=; b=BmxkvC/ApSrStSIDTVbONuv5BI
+	jKnaVc/cedNoSf6A4thrq/whw7GjzwQe01lWQt8WgGHN3q0XIf07kDi/OHXfMF/NxooAXGdOzxxs8
+	TBUaR8kB78GWWWlO2/WvBfOdNKbPydN+3zo6nadqCSgIxvB2WKhF5Y9ytEUTGs3y7XnavjQDtIfye
+	NJ3UDflS3hAVf3aP8ZLopWEEJesgbMnNHMcMdgq3Hl4PEXAuOw8GizC8M34X+dyep+M/E3WP+5hqb
+	+PSj+VvxY1xFUfW4fhgwDXqht7wv6JM2C4puzwCT4jqkOhFhyRlZrir+lHjqW5Nsyrwu1PGJpH15f
+	L9AVi5mA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3wzj-0000000837y-14bq;
-	Wed, 01 Oct 2025 13:35:47 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3wzg-0000000837Z-1vYa
+	id 1v3x36-000000083gd-3IeI;
+	Wed, 01 Oct 2025 13:39:16 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v3x34-000000083gG-0vO0
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 13:35:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BEA5743AF5;
-	Wed,  1 Oct 2025 13:35:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 90054C116C6;
-	Wed,  1 Oct 2025 13:35:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759325743;
-	bh=ugtWNem9sZvjDOpwvATrh1Z6YMwTTTLfOSaGjIGvpxs=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=D3As7FdG5Gpq5dtc9npozl8E6d97ZMYzco37uZEjzNGntqU6zgnw+2CZ3IKVZTk13
-	 B2I5ZbkCeots+VvFa0csToU7XjkzziyjqE+4C5FhVzteSyRnVmbkiSf2zpRanjlZUM
-	 G1LtUZo8U420nbEnwhSc6aDdGBqlVosJ4rK56NfiIPcr4fZaKqm/0btNJoLqy/5OAX
-	 AsBgX1/MgarQ7PEShhqseDdBJSKiqfamh69WvaVnF0JKh+haqWMadjjQka5AQFunDS
-	 kRQ3+/OAQyNbU3Lo29sxIYbcTkkUwnapcEufEQ4a9ya3gv62VHJe/xkYwSOCZ4kAKt
-	 0wbf2boQ1rLZg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1v3wzd-0000000Aod6-0paf;
-	Wed, 01 Oct 2025 13:35:41 +0000
-Date: Wed, 01 Oct 2025 14:35:40 +0100
-Message-ID: <86h5wizqvn.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu
- <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>
-Subject: Re: [PATCH v10 05/43] arm64: RME: Check for RME support at KVM init
-In-Reply-To: <2226e62f-76ca-4467-a8ae-460fd463df0a@arm.com>
-References: <20250820145606.180644-1-steven.price@arm.com>
-	<20250820145606.180644-6-steven.price@arm.com>
-	<86ms6azxt5.wl-maz@kernel.org>
-	<2226e62f-76ca-4467-a8ae-460fd463df0a@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Wed, 01 Oct 2025 13:39:15 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 443B216F2;
+	Wed,  1 Oct 2025 06:39:05 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E624E3F59E;
+	Wed,  1 Oct 2025 06:39:12 -0700 (PDT)
+Date: Wed, 1 Oct 2025 14:39:10 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>,
+	Mike Leach <mike.leach@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jonathan Corbet <corbet@lwn.net>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v2 5/6] coresight: Add format attribute for setting the
+ timestamp interval
+Message-ID: <20251001133910.GO7985@e132581.arm.com>
+References: <20250814-james-cs-syncfreq-v2-0-c76fcb87696d@linaro.org>
+ <20250814-james-cs-syncfreq-v2-5-c76fcb87696d@linaro.org>
+ <20250930151414.GK7985@e132581.arm.com>
+ <3a731a9e-0621-42b6-b7fc-4b0fd9b7da6e@linaro.org>
+ <20251001132815.GN7985@e132581.arm.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251001132815.GN7985@e132581.arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_063544_540937_E3D05343 
-X-CRM114-Status: GOOD (  20.74  )
+X-CRM114-CacheID: sfid-20251001_063914_299235_516E12AF 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,44 +70,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 01 Oct 2025 14:20:13 +0100,
-Steven Price <steven.price@arm.com> wrote:
-> 
-> >> +static int rmi_check_version(void)
-> >> +{
-> >> +	struct arm_smccc_res res;
-> >> +	unsigned short version_major, version_minor;
-> >> +	unsigned long host_version = RMI_ABI_VERSION(RMI_ABI_MAJOR_VERSION,
-> >> +						     RMI_ABI_MINOR_VERSION);
-> >> +
-> >> +	arm_smccc_1_1_invoke(SMC_RMI_VERSION, host_version, &res);
+On Wed, Oct 01, 2025 at 02:28:15PM +0100, Coresight ML wrote:
+
+[...]
+
+> > Unfortunately that won't work because you'd have to always include
+> > coresight-etm4x.h. This file is compiled for both arm32 and arm64 so it
+> > would break the arm32 build.
 > > 
-> > Shouldn't you first check that RME is actually available, by looking
-> > at ID_AA64PFR0_EL1.RME?
+> > I could define the TTR_CFG_FLD_ts_level_* stuff somewhere else but then it
+> > becomes messier than just doing the #ifdefs here.
 > 
-> Well, you made a good point above that this isn't RME, it's CCA. And I
-> guess there's a possible world where the CCA interface could be
-> supported with something other than FEAT_RME (FEAT_RME2 maybe?) so I'm
-> not sure it necessarily a good idea to pin this on a CPU feature
-> bit.
+> ATTR_CFG_FLD_ts_level_* is only used in coresight-etm4x-core.c, it is not
+> used in coresight-etm-perf.c. Thus, we don't need to include
+> coresight-etm4x.h in coresight-etm-perf.c. Do I miss anything?
 
-But you cannot have CCA without RME. You cannot have CCA with
-GICv3. And my point was more that RME could be used by something other
-than CCA  - I certainly don't anticipate someone else adopting the CCA
-interface for anything...
+Now I understand that you are using GEN_PMU_FORMAT_ATTR, so need to
+used TTR_CFG_FLD_ts_level_* macro defined in coresight-etm4x.h.
 
-> Ultimately what we want to know is whether the firmware thinks it can
-> supply us with the CCA interface and we don't really care how it
-> achieves it.
-
-I disagree. You rely on specific feature sets to be available (hell,
-everything is baked around GICv3... GICv5 anyone?).
-
-For this sort of stuff, you absolutely need to know what you are
-running on, not what some broken firmware tries to pretend it is.
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Thanks,
+Leo
 
