@@ -4,87 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05CA6CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 12:30:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8028FCAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 12:31:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1h5ZQj1hNsueFRANVvswmj77zdnaG+fzZ/hVdj8on7o=; b=hA8nAelnqJXrKuCYH9lpgBGBy/
-	xUZJSMGNe1dT1VhtqnaWAU73DI28xpS0LcXxUBdSQQE/CJEZCgaPVDkpx6nNs7p8G3qCWqcxF6n5L
-	dRaVQkEmIyxXRZHrCjPF+cBVgBKDHf1GGe4olAve06MdcVKIIdaJO/tSzC7+Cqbiu6NZ9r6Ta2llR
-	HAXhcOGbzFMrUYVCZvM8mAu6WxWA2vB2rpClsoCrbidEdczlqBVVqW7axb7+xSMSsHw8SLnc3ezVO
-	vc8g4/Wxmv1lovwtCSBi44Sd3LuRCmvTYlNPnze+J1Q9NZP5p9vwv4v2SgsFjQUa9YFEgxACOijBP
-	GOScHfCg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aeXq1FtEKMEGcd1X6F5pimnL4GuLi9B4eChqnBDj3p8=; b=A25nQ3okWeBCuoDt0vsqh0DXjX
+	zecCRyHNzYQcIPZSNjgABw+VI48VEOWB3V7ydJE+cv5UP4nQ+36LKHu7tgbn9B8RgB8Lp8spOrv5I
+	kDbMV1lyyExYBEAeGIS2vjUIKhbUlzkqXNRfL47pJQVp7FzxZbdAH9j5x1z6c7a0lKRKU7B912j7x
+	cSJxCxndx81Kwj9FYMcoz1U1mVOaMNFTC2+4+v5P43TvSCPMEC5tlVUF0plOe7gYDwctbF1NycpHb
+	QkpDO74QYkmgLKqY6MUOiEw8VpCt/Yc30TOa28dcQmsO/DnbAedinUF0/YbmuQpT5EqQ0EWa1tRk6
+	TDDFzn4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3vyb-00000007tB0-0eNZ;
-	Wed, 01 Oct 2025 12:30:33 +0000
-Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3vjl-00000007g0a-2Dyk
+	id 1v3vzT-00000007thr-1FnS;
+	Wed, 01 Oct 2025 12:31:27 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v3vqf-00000007m41-430U
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 12:15:14 +0000
-Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-33082aed31dso7887290a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 05:15:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1759320913; x=1759925713; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=1h5ZQj1hNsueFRANVvswmj77zdnaG+fzZ/hVdj8on7o=;
-        b=sV/7NsBrkHk1gEhtAsfjbEpwEARQirq/UEKRyrxF+y+ioUi3mdec3H9yX4/HJkDgwu
-         bU84XbQ1hAGYJuC3Zn8s6SFEXt+ifxEQDKSdkkbXrhUhPHGhZv+5Im+fjZuK/dymipA0
-         bYQg2x8u1Ij+fVDp8blOUhHa45FkJcp76RgvfcKb626vZWP9pdWoLnGurTuMYeH/hcOA
-         djbKwYHjbl43rlzul3h2GDvY5omLCUv2udj4hYMeSJMTpC+Lk1vP6RWv1APZYnLaxEC2
-         H2ix/2vDJsn9EjtKC2YxC00zBc9weRW7ikN6vtOQs3XYj1XAX/li8/DXlwNCocn+ox3F
-         Sl0w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759320913; x=1759925713;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=1h5ZQj1hNsueFRANVvswmj77zdnaG+fzZ/hVdj8on7o=;
-        b=YA8ZNrQ+LKvTMi8KdgV+hwKYNfGB2cucpS62b2VBMVwiaMtad+lP5gMtr3RkcbRNXJ
-         E9sNx4IOkvqpxc+xtWpiBQpo1MlvdicqajZcfE4XWOkwPgpWDY+dT9BbWwmI4rwUOaye
-         pupkchnhlaFyF4szVYvdu/OFR+0Qvf5nbldbs2ZSAeZAbnlpmvl1jD6GXVyfdPdVocm6
-         bKMhRPbT7CsMIXw1vAOxswHVnE1ARkwKNVbp/HjklwUm/dNT1vzKBpT2+pM01PM2TjBc
-         T49RaZFW4ZUbu1mE73hRKO5LeApzriyBlPlK0q3F4/u7ctoVj1O1k1ehmOhZ6hUU0Ru4
-         /mhw==
-X-Forwarded-Encrypted: i=1; AJvYcCXiG9FsmBTU+fWR+1y7VdGzxU0kyxa+QWJlNEDjMOiUoiN35u1DK2Yz1TGVhdVR0Qdm4+X48zbhM+tsAn7JnVmt@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx8rMkJelV8GfXoBPYUnmVHsJwtesa1Ra/U4rGC4eRw+6OyqHOQ
-	tBFCIdUolQweFGEuRSKAJLtZTDlBXy6u1W8ltx8ysnR4OyWvDLB1TT4qye8Pg7sY1n6GIipPtla
-	kp+dmXgzVkt1eQs1CqZqk8Iuj+4iBqjiWq0FiLvX00g==
-X-Gm-Gg: ASbGncsAqM3qJlbEK7oM5Ngj/Cu4d98OVusEyCuqIyy+AYMupt0O7z9WicCNPZ6N44T
-	p+9iy/8Xw+kVTv7A4XfqmdZSihDA/JBCG7e3Z1Q0B00UiIP68cw2ohoGlBQ0m5RUSaOfYNIpgA0
-	00yUFN/FYEDvuxvskVz8dvHUu4GP7pYk2tzMIPgRPHkblRkZMJCb9QOjROtHv9KkKalB5zS3bWc
-	IFujeNXH/cGT2x3W17RAkmGx1wVsA4QjbKd40T9m9Y59HUnJ9nr/NzWxycXz1aEwdxX9ra2B8c=
-X-Google-Smtp-Source: AGHT+IFMQXG4jx6J+vC3Rc7xSXplJA8AzsyxnpiINw0J7Iv1k4XOQ6RdJJ6UC9qkRQuIDbRdT63CA58n6n6HjdTblPw=
-X-Received: by 2002:a17:90b:38ce:b0:32e:8c14:5d09 with SMTP id
- 98e67ed59e1d1-339a6e83db9mr3712573a91.7.1759320912658; Wed, 01 Oct 2025
- 05:15:12 -0700 (PDT)
+	Wed, 01 Oct 2025 12:22:23 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C67DA16F2;
+	Wed,  1 Oct 2025 05:22:12 -0700 (PDT)
+Received: from [10.57.66.40] (unknown [10.57.66.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 1DC5B3F66E;
+	Wed,  1 Oct 2025 05:22:14 -0700 (PDT)
+Message-ID: <9e1b474e-b822-469a-990f-b27389a7f0e0@arm.com>
+Date: Wed, 1 Oct 2025 14:22:12 +0200
 MIME-Version: 1.0
-References: <20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com>
- <20250915-arm_coresight_power_management_fix-v3-10-ea49e91124ec@arm.com>
- <CAJ9a7Vgk0Pj5c9AJBKa+wBNNZR6a7RCTUWqW0Trvksvt6fCBXg@mail.gmail.com> <20251001102551.GM7985@e132581.arm.com>
-In-Reply-To: <20251001102551.GM7985@e132581.arm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Wed, 1 Oct 2025 13:15:01 +0100
-X-Gm-Features: AS18NWAStjplWGVYojVpMWR9OS2APZoRc2_QmefDNYGX0j_JRQsaVaPaf6qqAgY
-Message-ID: <CAJ9a7VjYLXk4bx7gWFpQe=1TLQ0Ks8d7m-jrUnuwaLMonW3gwQ@mail.gmail.com>
-Subject: Re: [PATCH v3 10/31] coresight: etm4x: Reuse normal enable and
- disable logic in CPU idle
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
-	Yeoreum Yun <yeoreum.yun@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Yabin Cui <yabinc@google.com>, 
-	Yuanfang Zhang <quic_yuanfang@quicinc.com>, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH v5 00/18] pkeys-based page table hardening
+To: Will Deacon <will@kernel.org>
+Cc: Yang Shi <yang@os.amperecomputing.com>, linux-hardening@vger.kernel.org,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>, linux-kernel@vger.kernel.org,
+ Andrew Morton <akpm@linux-foundation.org>, Andy Lutomirski
+ <luto@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Dave Hansen <dave.hansen@linux.intel.com>,
+ David Hildenbrand <david@redhat.com>, Ira Weiny <ira.weiny@intel.com>,
+ Jann Horn <jannh@google.com>, Jeff Xu <jeffxu@chromium.org>,
+ Joey Gouly <joey.gouly@arm.com>, Kees Cook <kees@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Marc Zyngier <maz@kernel.org>,
+ Mark Brown <broonie@kernel.org>, Matthew Wilcox <willy@infradead.org>,
+ Maxwell Bland <mbland@motorola.com>, "Mike Rapoport (IBM)"
+ <rppt@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Pierre Langlois <pierre.langlois@arm.com>,
+ Quentin Perret <qperret@google.com>, Ryan Roberts <ryan.roberts@arm.com>,
+ Thomas Gleixner <tglx@linutronix.de>, Vlastimil Babka <vbabka@suse.cz>,
+ linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, x86@kernel.org
+References: <20250815085512.2182322-1-kevin.brodsky@arm.com>
+ <98c9689f-157b-4fbb-b1b4-15e5a68e2d32@os.amperecomputing.com>
+ <8e4e5648-9b70-4257-92c5-14c60928e240@arm.com>
+ <8f7b3f4e-bf56-4030-952f-962291e53ccc@arm.com>
+ <aMwd7IJVECEy8mzf@willie-the-truck>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <aMwd7IJVECEy8mzf@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_051513_751245_57210E8E 
-X-CRM114-Status: GOOD (  40.04  )
+X-CRM114-CacheID: sfid-20251001_052222_057650_ED53F00C 
+X-CRM114-Status: GOOD (  18.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,98 +83,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leo
+On 18/09/2025 16:57, Will Deacon wrote:
+> On Thu, Sep 18, 2025 at 04:15:52PM +0200, Kevin Brodsky wrote:
+>> [...]
+>>
+>> For now, my plan is to stick to solution 3 from [2], i.e. force the
+>> linear map to be PTE-mapped. This is easily done on arm64 as it is the
+>> default, and is required for rodata=full, unless [1] is applied and the
+>> system supports BBML2_NOABORT. See [1] for the potential performance
+>> improvements we'd be missing out on (~5% ballpark). I'm not quite sure
+>> what the picture looks like on x86 - it may well be more significant as
+>> Rick suggested.
+> Just as a data point, but forcing the linear map down to 4k would likely
+> prevent us from being able to enable this on Android. We've measured a
+> considerable (double digit %) increase in CPU power consumption for some
+> real-life camera workloads when mapping the linear map at 4k granularity
+> thanks to the additional memory traffic from the PTW.
 
-On Wed, 1 Oct 2025 at 11:25, Leo Yan <leo.yan@arm.com> wrote:
->
-> Hi Mike,
->
-> On Wed, Oct 01, 2025 at 09:48:06AM +0100, Mike Leach wrote:
->
-> > Hi Leo,
-> >
-> > Overall I like the idea, but there are some minor issues that need addressing.
->
-> Thanks for review!
->
-> [...]
->
-> > > 3) Claim Tag Handling
-> > >
-> > >    The claim tag is acquired and released in normal flow, on the other
-> > >    hand, the claim protocol is not applied in CPU idle flow - it simply
-> > >    restores the saved value.
-> > >
-> > >    The claim bits serve two purpose:
-> > >
-> > >    * Exclusive access between the kernel driver and an external
-> > >      debugger. During CPU idle, the kernel driver locks the OS Lock,
-> > >      ensuring that the external debugger cannot access the trace unit.
-> > >      Therefore, it is safe to release the claim tag during idle.
-> > >
-> > >    * Notification to supervisory software to save/restore context for
-> > >      external debuggers. The kernel driver does not touch the external
-> > >      debugger's claim bit (ETMCLAIM[0]).
-> > >
-> > >    Based on this, it is safe to acquire and release claim tag in the
-> > >    idle sequence.
-> > >
-> >
-> > Not sure I agree - in the original save restore the claim tag state
-> > was retained - so if an external claim was asserted it would not be
-> > lost.
-> > here if we do not retain the claim tag value, then an external state
-> > can be lost.
->
-> As described in PSCI (DEN0022F.b 1.3), section 6.8.1.3 "Saving and
-> restoring trace context", when ETMCLAIM[0] is set to 1 by the external
-> debugger, "The supervisory software will perform a save and restore
-> sequence of the trace context". So the supervisory software
-> (TF-a or EL2 hypervisor) should save and restore context (including
-> the claim bit) for the external debugger.
->
-> It does not make much sense to use the ETM driver to save and restore
-> only the claim bit while ignoring other registers. For a robust
-> solution, the supervisory software would be better place for the job.
->
-> > The debugger cannot access the device during idle/oslok, but it can
-> > detect that the device is powered down/oslocked and this potential is
-> > a change of behaviour from the external debug perspective, where a
-> > race to claim the resource now exists over powerdown were one did not
-> > before.
->
-> If we consider the supervisory software, then no race condition occurs.
-> As the supervisory software must run prior to the Linux kernel during
-> resume, it will safely restore claim bit for the external debugger.
->
-> Thoughts?
->
+Good to know!
 
-If the firmware is PSCI compliant there is no need to save/restore the
-context within the kernel driver if the external claim bit is set?
+> At some point, KFENCE required 4k granularity for the linear map, but we
+> fixed it. rodata=full requires 4k granularity, but there are patches to
+> fix that too. So I think we should avoid making the same mistake from
+> the start for this series.
 
-Mike
+Understood, makes sense. I'll be looking into implementing the custom
+PTP allocator I suggested above then.
 
-> [...]
->
-> > > -       if (drvdata->nrseqstate) {
-> > > -               state->trcseqrstevr = etm4x_read32(csa, TRCSEQRSTEVR);
-> > > -               state->trcseqstr = etm4x_read32(csa, TRCSEQSTR);
-> >
-> > The TRCSEQSTR changes in use, but is not read back be the standard
-> > enable/disable flow. This does not matter in a normal enable/disable
-> > case, but in a save/restore we need to retain the current state.
-> > Probably should be added to the normal disable flow to read back this
-> > as we do with counters etc.
->
-> Good point.  I will update in next spin.
->
-> Thanks,
-> Leo
-
-
---
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+- Kevin
 
