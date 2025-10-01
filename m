@@ -4,78 +4,111 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58000CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 20:51:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 292C5CAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 20:52:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lg6fCLmy2w9+WR+K0ohol53Fdm9e/jawsYloYw3+SzY=; b=KCl8orpAiLbWYikknwhD8A0XxG
-	fWPOxPyPGhOAn1nzaQvj7IrqWSkHJPMqregC5b56A1cVrNYjE3bB4GPhgKWl1JYWj/pvTXcZ+/Gko
-	qh45UFn1sbkrhVf74fcinamh2LthDo9s8WoRgrqVAgUxzxttm3WWnBPLmn656kfXIlx4eApXwk8+M
-	YuoQOzCaSvgQGUWn5gosxEBE++P2KvjPUpAUgc7KtRhKhH0/MscolomxXlZoAUGk6q/xVZDZZwJMj
-	Rw1jZSfvHOHhVyy899VhfSuPz8C0EQgkSkf6D8AoMWHpMCBKHP4UOTCB7qZmtMdq261rK8r3z/GMj
-	H/7kC9Ag==;
+	bh=jElQQ9PX+0V5sqeyNaST6yqqr8qfdCvwBoU7CLgEs94=; b=4gHIOfgN4q13+FhnGFn59eF2yG
+	XkPcMan/NhIZes/3eaWo0jiA3STNlPdC8zWa+CJCSBs7XWDmmM9lXmjRQ9l+jFM13A4UhwLGqxB0P
+	/Bv9ABy8K4on4SRsVDo4CYsgyV7Lx20oZtn37HQdgIa1VpXpsMMY97YjCVciBd5Ak/nys2it3NrNb
+	PWBPej7ij9cdOaIqwBEaQy5a7EBe/upVH05R2fJsR0AUWrniMpBn50T5rxHeMTuzpumwB1LnlSExH
+	BRwRYE5Sy9yfx4FADdviAiT7mmO3TaFcZ233zgHEwWcUSwDelgK+Pbwxn6Si1KCApeYkCfIrtczmM
+	RR0NL1vQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v43nC-00000008wU9-3NSE;
-	Wed, 01 Oct 2025 20:51:18 +0000
-Received: from fanzine2.igalia.com ([213.97.179.56])
+	id 1v43oZ-00000008wlz-0r4w;
+	Wed, 01 Oct 2025 20:52:43 +0000
+Received: from fhigh-a8-smtp.messagingengine.com ([103.168.172.159])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v43n9-00000008wTD-13UQ;
-	Wed, 01 Oct 2025 20:51:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
-	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
-	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
-	List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=lg6fCLmy2w9+WR+K0ohol53Fdm9e/jawsYloYw3+SzY=; b=bL0rZR50CAwOg5alQBQEpOJ5DP
-	fKCjgXaK7PlKlnBhKGZUnMjklwXY9RVNBinia5voFH1IkHyY76IeRuwDeJ+ptsv3CAiRNfTTIX/3P
-	pMuIBjQTNThTfLE65e/wJ2as8JZJVO+sB7tFRjDwcYHf9Tg6LNbmSZMFiWx2hm8MKZzilV205M+ht
-	PwsQrSFOYZO8PPVnElprso+7Im+3V2JJKfUfdiB/kAGMC8c5cQdhum+Eq7ZTW2AWRyHR1B9eKWFIP
-	E5reOL1qNPP1UgiTFxdEAKIfuv7dF5gUwSFTEr19iJoRMXOcp8li86e8uhxGVn6c9AF4BmZ1+bumh
-	Qoo4cZ7g==;
-Received: from [189.6.17.207] (helo=[192.168.174.20])
-	by fanzine2.igalia.com with esmtpsa 
-	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
-	id 1v43mc-0031l8-Ne; Wed, 01 Oct 2025 22:50:43 +0200
-Message-ID: <ca9605fc-79da-43c1-9146-3638cd5791c4@igalia.com>
-Date: Wed, 1 Oct 2025 17:50:31 -0300
+	id 1v43oW-00000008wk8-0a3h
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Oct 2025 20:52:42 +0000
+Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
+	by mailfhigh.phl.internal (Postfix) with ESMTP id A1195140017A;
+	Wed,  1 Oct 2025 16:52:38 -0400 (EDT)
+Received: from phl-imap-02 ([10.202.2.81])
+  by phl-compute-05.internal (MEProxy); Wed, 01 Oct 2025 16:52:38 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1759351958;
+	 x=1759438358; bh=jElQQ9PX+0V5sqeyNaST6yqqr8qfdCvwBoU7CLgEs94=; b=
+	qK5+6bq0zPVE5zIunXwsiFzMIVB099c8exml7+QJApsStVDdbbDWgaVQSDTQnI7r
+	gPGXnDoCrASbuDLpPHjZmkm9kDuQ2v4+BMAjKi2EO6HqwXqcerTyIxOnRcZ+GxH5
+	GsQ34wKFRmQzhsNC/CWen/PWosSbYDuoc+5bdlmxvxXtg32yyPdE9JUlRw96C0rs
+	/tbdvuBMqa7xQ9ZzyK1xcrxm+IGZ6PbG9yV/KoIxcFvr4RTVT6MCUlGtK5qqvnJY
+	2xtgbX1b8ggiT6HRs5OtLBxbnnZVoYfNE5OJhvvq8H+mZuceqI/0OTHP3aSeNxKc
+	xnkpwmaoCRWz1q4xpk+r7w==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1759351958; x=
+	1759438358; bh=jElQQ9PX+0V5sqeyNaST6yqqr8qfdCvwBoU7CLgEs94=; b=F
+	373QN7NihCkOrI+VN9YxZwLwhdUmhD7cRKlbHXdY7wMh5rTjXycKcYi2ZZRXxn8r
+	dn35QppbjXPmPivf0v4KwFWDOKWxeAn+CYHDAK4hYKKByUFKRNJO8EmK7wN8wS1o
+	dAPECR+dMRqrQwO35w6/HJXtQFEGjH8Zp0T4ssmtmr/0zBBlKk4QZJqjrodwkY0h
+	X+KR5hWXy1TKbDF/GVx11U2WCRcLHDUEgkqJ9hlKZRSU8qa3/o4LsMBWhkl6Rfhy
+	TEaBXr2j1NcsH42hnWM1UJALR1UtF/xqtoLklkxx/vg7wz1IFerG/RWn7MYYoxXl
+	Cs7bjj+woEDbpStaE4WIw==
+X-ME-Sender: <xms:lZTdaJETKfO1qfiNxl9hZ2rQ7rCxr1MtK1fjha8scMrDKBn_qc_gCQ>
+    <xme:lZTdaJJuTBNbkXKVPInsj9UuTeCnEiGf-1UNNmE2zC1iRVGGJDmuigBBdOJinnaF0
+    q5dq_tzQqyMcECrCayTsSU8bsJxIRoRxusM41rbNKzTEhDD6pvIPIA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdekgeduhecutefuodetggdotefrod
+    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
+    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
+    hrpefoggffhffvvefkjghfufgtgfesthhqredtredtjeenucfhrhhomhepfdetrhhnugcu
+    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
+    hnpedvhfdvkeeuudevfffftefgvdevfedvleehvddvgeejvdefhedtgeegveehfeeljeen
+    ucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhnug
+    esrghrnhgusgdruggvpdhnsggprhgtphhtthhopedufedpmhhouggvpehsmhhtphhouhht
+    pdhrtghpthhtoheplhhinhhugiesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtth
+    hopehrmhhkodhkvghrnhgvlhesrghrmhhlihhnuhigrdhorhhgrdhukhdprhgtphhtthho
+    pehrohhsthgvughtsehgohhoughmihhsrdhorhhgpdhrtghpthhtoheprghruggssehkvg
+    hrnhgvlhdrohhrghdprhgtphhtthhopegvsghighhgvghrsheskhgvrhhnvghlrdhorhhg
+    pdhrtghpthhtohepkhgvvghssehkvghrnhgvlhdrohhrghdprhgtphhtthhopehnrghthh
+    grnheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepthhrihhvihgrlheskhgvrhhnvghl
+    rdhorhhgpdhrtghpthhtoheplhhinhhushdrfigrlhhlvghijheslhhinhgrrhhordhorh
+    hg
+X-ME-Proxy: <xmx:lZTdaFsErVrRlEn2dHr66ucnD-LOgrU6d9vsAe2CXLj-Nrd_wL8bLg>
+    <xmx:lZTdaM8k4xrN4C-HMtQOuo0lUlZN9t8w6NA3LLJuqVePmcDHWfVAqw>
+    <xmx:lZTdaETlupRQZ-Ph5aEzaBK_F6MXRjnbVEVglO_Y8kf6VEdthIU7PQ>
+    <xmx:lZTdaGVJunJInLI4WJU8QMslHtjuGQrt4N2SwyKhv65TSyk1ahwgLg>
+    <xmx:lpTdaMnySD3-diLxf8np-sfjgq9uwp1H3sAFgrQJ-xcXmwaaf6xkUKrd>
+Feedback-ID: i56a14606:Fastmail
+Received: by mailuser.phl.internal (Postfix, from userid 501)
+	id C1C5E700065; Wed,  1 Oct 2025 16:52:37 -0400 (EDT)
+X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/5] clk: bcm: rpi: Turn firmware clock on/off when
- preparing/unpreparing
-To: Stefan Wahren <wahrenst@gmx.net>,
- Marek Szyprowski <m.szyprowski@samsung.com>, =?UTF-8?Q?Ma=C3=ADra_Canal?=
- <mcanal@igalia.com>, Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>,
- Florian Fainelli <florian.fainelli@broadcom.com>,
- Maxime Ripard <mripard@kernel.org>, Iago Toral Quiroga <itoral@igalia.com>,
- Dom Cobley <popcornmix@gmail.com>,
- Dave Stevenson <dave.stevenson@raspberrypi.com>,
- Philipp Zabel <p.zabel@pengutronix.de>
-Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
- Broadcom internal kernel review list
- <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com
-References: <20250731-v3d-power-management-v2-0-032d56b01964@igalia.com>
- <20250731-v3d-power-management-v2-2-032d56b01964@igalia.com>
- <CGME20250925075711eucas1p26efbb194311a6e22ab593a39b43e12c3@eucas1p2.samsung.com>
- <727aa0c8-2981-4662-adf3-69cac2da956d@samsung.com>
- <2b1537c1-93e4-4c6c-8554-a2d877759201@gmx.net>
- <1e5d1625-1326-4565-8407-71a58a91d230@samsung.com>
- <c40880aa-ce14-41bc-a32f-7f46506a8909@gmx.net>
-Content-Language: en-US
-From: Melissa Wen <mwen@igalia.com>
-In-Reply-To: <c40880aa-ce14-41bc-a32f-7f46506a8909@gmx.net>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+X-ThreadId: AOvO0JZNdWB-
+Date: Wed, 01 Oct 2025 22:52:05 +0200
+From: "Arnd Bergmann" <arnd@arndb.de>
+To: "Franz-Josef Haider" <fj.haider@outlook.com>,
+ "Linus Walleij" <linus.walleij@linaro.org>
+Cc: "Russell King" <linux@armlinux.org.uk>,
+ "Ard Biesheuvel" <ardb@kernel.org>,
+ "Russell King" <rmk+kernel@armlinux.org.uk>,
+ "Eric Biggers" <ebiggers@kernel.org>,
+ "Nathan Chancellor" <nathan@kernel.org>,
+ "Steven Rostedt" <rostedt@goodmis.org>, "Kees Cook" <kees@kernel.org>,
+ "Dave Vasilevsky" <dave@vasilevsky.ca>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, trivial@kernel.org
+Message-Id: <6d9bb65c-d693-4d99-8183-b605cabf9380@app.fastmail.com>
+In-Reply-To: <VI0P195MB273993B2928F985EAC763375EDE6A@VI0P195MB2739.EURP195.PROD.OUTLOOK.COM>
+References: <VI0P195MB2739D000BD1BF18B3B718F93ED1FA@VI0P195MB2739.EURP195.PROD.OUTLOOK.COM>
+ <CACRpkdZbwuf2Fgtq+jyqzqspb37-P6X4O9xqkG-mSb+afSjh3g@mail.gmail.com>
+ <VI0P195MB273993B2928F985EAC763375EDE6A@VI0P195MB2739.EURP195.PROD.OUTLOOK.COM>
+Subject: Re: [PATCH] ARM: Make sure CPU_ARM940T kernel can be built.
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_135115_286501_E9834D4E 
-X-CRM114-Status: GOOD (  28.87  )
+X-CRM114-CacheID: sfid-20251001_135240_664009_7162B971 
+X-CRM114-Status: GOOD (  17.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,139 +123,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 26/09/2025 07:36, Stefan Wahren wrote:
-> Hi Marek,
->
-> Am 26.09.25 um 09:27 schrieb Marek Szyprowski:
->> On 25.09.2025 18:48, Stefan Wahren wrote:
->>> Am 25.09.25 um 09:57 schrieb Marek Szyprowski:
->>>> On 31.07.2025 23:06, Maíra Canal wrote:
->>>>> Currently, when we prepare or unprepare RPi's clocks, we don't 
->>>>> actually
->>>>> enable/disable the firmware clock. This means that
->>>>> `clk_disable_unprepare()` doesn't actually change the clock state at
->>>>> all, nor does it lowers the clock rate.
->>>>>
->>>>> >From the Mailbox Property Interface documentation [1], we can see 
->>>>> that
->>>>> we should use `RPI_FIRMWARE_SET_CLOCK_STATE` to set the clock state
->>>>> off/on. Therefore, use `RPI_FIRMWARE_SET_CLOCK_STATE` to create a
->>>>> prepare and an unprepare hook for RPi's firmware clock.
->>>>>
->>>>> As now the clocks are actually turned off, some of them are now 
->>>>> marked
->>>>> CLK_IS_CRITICAL, as those are required to be on during the whole 
->>>>> system
->>>>> operation.
->>>>>
->>>>> Link:https://github.com/raspberrypi/firmware/wiki/Mailbox-property-interface 
->>>>>
->>>>> [1]
->>>>> Signed-off-by: Maíra Canal<mcanal@igalia.com>
->>>>>
->>>>> ---
->>>>>
->>>>> About the pixel clock: currently, if we actually disable the pixel
->>>>> clock during a hotplug, the system will crash. This happens in the
->>>>> RPi 4.
->>>>>
->>>>> The crash happens after we disabled the CRTC (thus, the pixel clock),
->>>>> but before the end of atomic commit tail. As vc4's pixel valve 
->>>>> doesn't
->>>>> directly hold a reference to its clock – we use the HDMI encoder to
->>>>> manage the pixel clock – I believe we might be disabling the clock
->>>>> before we should.
->>>>>
->>>>> After this investigation, I decided to keep things as they current 
->>>>> are:
->>>>> the pixel clock is never disabled, as fixing it would go out of
->>>>> the scope of this series.
->>>>> ---
->>>>>     drivers/clk/bcm/clk-raspberrypi.c | 56
->>>>> ++++++++++++++++++++++++++++++++++++++-
->>>>>     1 file changed, 55 insertions(+), 1 deletion(-)
->>>> This patch landed recently in linux-next as commit 919d6924ae9b ("clk:
->>>> bcm: rpi: Turn firmware clock on/off when preparing/unpreparing"). 
->>>> In my
->>>> tests I found that it breaks booting of RaspberryPi3B+ board in ARM
->>>> 32bit mode. Surprisingly the same board in ARM 64bit mode correctly
->>>> boots a kernel compiled from the same source. The RPi3B+ board freezes
->>>> after loading the DRM modules (kernel compiled from
->>>> arm/multi_v7_defconfig):
->>> thanks for spotting and bisecting this. Sorry, I only reviewed the
->>> changes and didn't had the time to test any affected board.
->>>
->>> I was able to reproduce this issue and the following workaround avoid
->>> the hang in my case:
->>>
->>> diff --git a/drivers/clk/bcm/clk-raspberrypi.c
->>> b/drivers/clk/bcm/clk-raspberrypi.c
->>> index 1a9162f0ae31..94fd4f6e2837 100644
->>> --- a/drivers/clk/bcm/clk-raspberrypi.c
->>> +++ b/drivers/clk/bcm/clk-raspberrypi.c
->>> @@ -137,6 +137,7 @@ 
->>> raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] = {
->>>          [RPI_FIRMWARE_V3D_CLK_ID] = {
->>>                  .export = true,
->>>                  .maximize = true,
->>> +               .flags = CLK_IS_CRITICAL,
->>>          },
->>>          [RPI_FIRMWARE_PIXEL_CLK_ID] = {
->>>                  .export = true,
->>>
->> Right, this fixes (frankly speaking 'hides') the issue. Feel free to 
->> add:
+On Wed, Oct 1, 2025, at 18:04, Franz-Josef Haider wrote:
+> On 9/30/25 15:09, Linus Walleij wrote:
+>> On Thu, Sep 25, 2025 at 11:33=E2=80=AFPM Franz-Josef Haider <fj.haide=
+r@outlook.com> wrote:
 >>
->> Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
->> Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
->>
-> AFAIK the offending clock change isn't in the downstream kernel, so I 
-> like to see the opinion of María and the Raspberry Pi people first.
-
-Hi,
-
-I see in the downstream kernel the CLOCK_V3D was removed in favor of 
-firmware clock:
-https://github.com/raspberrypi/linux/blob/rpi-6.12.y/drivers/clk/bcm/clk-bcm2835.c#L2076
-
-Also, v3d in RPi4 is set to use the firmware clock:
-https://github.com/torvalds/linux/blob/master/arch/arm/boot/dts/broadcom/bcm2711-rpi.dtsi#L97
-
-I think v3d clock is missed on boot, but I also think the issue should 
-be solved by setting the v3d firmware clock for Pi3.
-WDYT? Can you check it on your side? Something like:
-
-diff --git a/arch/arm/boot/dts/broadcom/bcm2835-rpi-common.dtsi 
-b/arch/arm/boot/dts/broadcom/bcm2835-rpi-common.dtsi
-index 8b3c21d9f333..3289cb5dfa8e 100644
---- a/arch/arm/boot/dts/broadcom/bcm2835-rpi-common.dtsi
-+++ b/arch/arm/boot/dts/broadcom/bcm2835-rpi-common.dtsi
-@@ -14,6 +14,7 @@ &hdmi {
-  };
-
-  &v3d {
-+       clocks = <&firmware_clocks 5>;
-         power-domains = <&power RPI_POWER_DOMAIN_V3D>;
-  };
-
-Best regards,
-
-Melissa
-
+>>> From 33ce5a26ef08199625bc5bb01a176047bfacff91 Mon Sep 17 00:00:00 20=
+01
+>>> From: Franz-Josef Haider <fj.haider@outlook.com>
 >
-> Currently I know that in the error case the following clocks are 
-> disabled during boot of Raspberry Pi 3B+:
-> fw-clk-vec
-> fw-clk-isp
-> fw-clk-v3d
+> Hello, I have done this change because when trying to "select=20
+> CPU_ARM940T" from a Kconfig for a device with arm940t cpu, the build=20
+> ends up failing with errors like
+> =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 arch/arm/lib/ashldi3.S: Asse=
+mbler messages:
+> =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 =C2=A0 arch/arm/lib/ashldi3.S:44: E=
+rror: cannot honor width suffix=20
+> -- `rsb ip,r2,#32'
 >
-> So it's very likely that the vc4 drivers tries to access the register 
-> after the these clocks has been disabled and then the system freeze. 
-> The workaround above was just a wild guess, so currently I don't know 
-> why this change avoid the freeze.
+> With the change I am able to build a kernel which runs on a device wit=
+h=20
+> arm940t cpu (with the patch "ARM: Add missing mmu flags entry to arm94=
+0=20
+> proc info." which I've submitted as well. And with the necessary mach=20
+> files etc).
 >
-> Best regards
+> I can elaborate on this in the commit message and also adjust the=20
+> condition to include the other CPU types you mentioned.
 
+Hi Franz-Josef,
+
+We removed support for ARMv4T NOMMU a couple of years ago in
+commit 2f618d5ef5dd ("ARM: remove support for NOMMU ARMv4/v5"),
+in order to simplify the Kconfig CPU selection.
+
+Adding a new platform in turn means you'll have to add that
+infrastructure we skipped back then, and the dependency here
+is only a very small part of that.
+
+Do you have a public git tree with the rest of your patches?
+
+     Arnd
 
