@@ -4,60 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2A10CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 09:55:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84439CAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 10:05:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dgcREvbEt0KWeoQq0AGroXy6LbK5iYSeg5dyX5WrKSY=; b=Zuqa7vgUYKi7yQ3ClabkUfmxAv
-	I6k35vdyyWomJBVvpKvG2LkGLLg62YEUH9ucb/UYrXSgghn+pCjbIPbBB10Z7EmM0pilYL/xdSCS9
-	vKfbkDCPwjRvBH3UN+j6v+RFKEk5CGrPvLpmZgljbKkSPuhet4dLiJ15gCeWK+ADQ0b8fxuvPJpFk
-	W/FZV9jSCJb5WH0DY6Kvw50TRG013S01h27w4Pe3XZ8TU8JgSanzlDdHKtBIoV/UPFHWLh2iwHjk4
-	xel8Kdnz9ldMLSDfRbuWvzjI2EWrohCrqBV07JOCXm9Y+JI97eP73wSo1R3voUIyAhlWi2r4azg7S
-	itymEN+w==;
+	bh=fcma/454BQPP7bZEyxIZ/YS98RKWZTuATOfvKmTYuek=; b=LrTpkKlRe5Kd/S6SzBv3SctHwG
+	sO0u+CXxV1QeDkR5wQcZS3Kue13WIrDAHITrK3CWFEoUcDd5WmS4+R2hBgubjvI4ziGztL5k8rnpL
+	CvduSmDSsAuY2fqhwWnPRIpN6qn0NXUeBI/FeBAMqDBDDsWD4SNjTwzKv6+rEdyPKdRddiyCxayi8
+	lclGjqSbYBAvYW7iaIiXkxTP46VQgo3foDq5ZyHv+M2kP/AJy+x1h7JluyuKPXv287y389upb6y6F
+	Yp1Vadcyg7HkTOGRDlQG4blNYzP3cZ58zCC/QyQhHS9IjWZoEswjoRZ1QPtQo/qy2dkyJ8TVfE4pl
+	SbPZAlrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3tYH-00000007CW7-2hOC;
-	Wed, 01 Oct 2025 09:55:13 +0000
+	id 1v3thq-00000007DJ7-2kQQ;
+	Wed, 01 Oct 2025 10:05:06 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3tYF-00000007CVs-488f
+	id 1v3thp-00000007DIy-212y
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 09:55:12 +0000
+	Wed, 01 Oct 2025 10:05:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E58B06049F;
-	Wed,  1 Oct 2025 09:55:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 173FBC4CEF4;
-	Wed,  1 Oct 2025 09:55:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 9CD8360325;
+	Wed,  1 Oct 2025 10:05:04 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42433C116C6;
+	Wed,  1 Oct 2025 10:05:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759312509;
-	bh=PAz5KZCakaH6blQgPTUwrjY5KswO8oPPVquLLzUwrWg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=X4umlesJDbhp1coun+usR8fLKjFFq2kxBHQaR/MI5k7t+gOqLTzCr93XMqg7i0LYp
-	 +elgc1BqQGJRb6RUFSl843hIY5riP7KH6yjqODJCkmKVOyn964UQ9FS2fwjXXKDqf3
-	 0teQsVcyIAsBeVuY6neQWYaoyQa9b+0y7ki/Lg5GgfAJAUR7rFx58yHWVvybA6zQJ5
-	 Xj6fsBCgkqG2WzRFJnJ+xlp4EKLHCwmRGRwHlFgwvSbV8amZKDDhI7HzHBvVlqnTPQ
-	 DxEYPV745cMzrtjdlx8QpRaVRkLapiKW5DSaXcH8XpzG10KbcbQ6LiKRFrtZZBGeGQ
-	 fnmxQetbwMuAg==
-Date: Wed, 1 Oct 2025 10:55:05 +0100
-From: Lee Jones <lee@kernel.org>
-To: Markus Elfring <Markus.Elfring@web.de>
-Cc: Janne Grunau <j@jannau.net>, asahi@lists.linux.dev,
+	s=k20201202; t=1759313104;
+	bh=GkDZ6NXoxTMf23WDTs15nu962/34sSuHxOTDvtqezTE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=D9qFXftckYU8UZNcyAyVFAjSHt6W8vXaQM46Df3/j2uJZmSW8m84coZ/j1zjfUidE
+	 n7SNHslwRuxinAykPqkM/8Jn4JIMk7PHcDyVBvkgCsq7P8l9Ep+pwXAB5WHplsnAyH
+	 EDuZT6LJzdg0YRo874RJOeIR2w59HlGEMGs5GPPJkQhwLAJB+iXJTpsPIY5//ku6iP
+	 F6/jlw2yhtO3fXYMdGHMZ4oe03jkFLy80nAk3CiOtY03JyBtgZ/4CvavoQsrxe8HPC
+	 LqwAx0MtS8JVQBQxo84mLov2DbVYEUPIKPpRd2HG4wzsWNa6KRKFz2DH5T3nDCisXL
+	 ZFSFmu0ICqfNQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1v3thl-0000000AlcY-0RZd;
+	Wed, 01 Oct 2025 10:05:01 +0000
+Date: Wed, 01 Oct 2025 11:05:00 +0100
+Message-ID: <86o6qrym2b.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Zenghui Yu <yuzenghui@huawei.com>,
 	linux-arm-kernel@lists.infradead.org,
-	LKML <linux-kernel@vger.kernel.org>, Neal Gompa <neal@gompa.dev>,
-	Sven Peter <sven@kernel.org>
-Subject: Re: [PATCH] mfd: macsmc: Initialize mutex
-Message-ID: <20251001095505.GP8757@google.com>
-References: <20250925-macsmc-mutex_init-v1-1-416e9e644735@jannau.net>
- <1bc9a4b3-7a8d-4bcf-9481-36fdc76e066c@web.de>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <1bc9a4b3-7a8d-4bcf-9481-36fdc76e066c@web.de>
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>
+Subject: Re: [PATCH v10 03/43] arm64: RME: Add SMC definitions for calling the RMM
+In-Reply-To: <20250820145606.180644-4-steven.price@arm.com>
+References: <20250820145606.180644-1-steven.price@arm.com>
+	<20250820145606.180644-4-steven.price@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,19 +101,135 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, 27 Sep 2025, Markus Elfring wrote:
-
-> > Struct apple_smc's mutex was not initialized before use. Surprisingly
-> > this only resulted in occasional NULL pointer dereferences in
-> > apple_smc_read() calls from the probe() functions of sub devices.
+On Wed, 20 Aug 2025 15:55:23 +0100,
+Steven Price <steven.price@arm.com> wrote:
 > 
-> See also:
-> https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Documentation/process/submitting-patches.rst?h=v6.17-rc7#n94
+> The RMM (Realm Management Monitor) provides functionality that can be
+> accessed by SMC calls from the host.
+> 
+> The SMC definitions are based on DEN0137[1] version 1.0-rel0
+> 
+> [1] https://developer.arm.com/documentation/den0137/1-0rel0/
+> 
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
+> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+> Signed-off-by: Steven Price <steven.price@arm.com>
+> ---
+> Changes since v9:
+>  * Corrected size of 'ripas_value' in struct rec_exit. The spec states
+>    this is an 8-bit type with padding afterwards (rather than a u64).
+> Changes since v8:
+>  * Added RMI_PERMITTED_GICV3_HCR_BITS to define which bits the RMM
+>    permits to be modified.
+> Changes since v6:
+>  * Renamed REC_ENTER_xxx defines to include 'FLAG' to make it obvious
+>    these are flag values.
+> Changes since v5:
+>  * Sorted the SMC #defines by value.
+>  * Renamed SMI_RxI_CALL to SMI_RMI_CALL since the macro is only used for
+>    RMI calls.
+>  * Renamed REC_GIC_NUM_LRS to REC_MAX_GIC_NUM_LRS since the actual
+>    number of available list registers could be lower.
+>  * Provided a define for the reserved fields of FeatureRegister0.
+>  * Fix inconsistent names for padding fields.
+> Changes since v4:
+>  * Update to point to final released RMM spec.
+>  * Minor rearrangements.
+> Changes since v3:
+>  * Update to match RMM spec v1.0-rel0-rc1.
+> Changes since v2:
+>  * Fix specification link.
+>  * Rename rec_entry->rec_enter to match spec.
+>  * Fix size of pmu_ovf_status to match spec.
+> ---
+>  arch/arm64/include/asm/rmi_smc.h | 269 +++++++++++++++++++++++++++++++
+>  1 file changed, 269 insertions(+)
+>  create mode 100644 arch/arm64/include/asm/rmi_smc.h
+> 
+> diff --git a/arch/arm64/include/asm/rmi_smc.h b/arch/arm64/include/asm/rmi_smc.h
+> new file mode 100644
+> index 000000000000..1000368f1bca
+> --- /dev/null
+> +++ b/arch/arm64/include/asm/rmi_smc.h
 
-Provide some context in your own words.
+[...]
 
-Don't expect others to click random links.
+> +#define RMI_PERMITTED_GICV3_HCR_BITS	(ICH_HCR_EL2_UIE |		\
+> +					 ICH_HCR_EL2_LRENPIE |		\
+> +					 ICH_HCR_EL2_NPIE |		\
+> +					 ICH_HCR_EL2_VGrp0EIE |		\
+> +					 ICH_HCR_EL2_VGrp0DIE |		\
+> +					 ICH_HCR_EL2_VGrp1EIE |		\
+> +					 ICH_HCR_EL2_VGrp1DIE |		\
+> +					 ICH_HCR_EL2_TDIR)
+
+Why should KVM care about what bits the RMM wants to use? Also, why
+should KVM be forbidden to use the TALL0, TALL1 and TC bits? If
+interrupt delivery is the host's business, then the RMM has no
+business interfering with the GIC programming.
+
+> +
+> +struct rec_enter {
+> +	union { /* 0x000 */
+> +		u64 flags;
+> +		u8 padding0[0x200];
+> +	};
+> +	union { /* 0x200 */
+> +		u64 gprs[REC_RUN_GPRS];
+> +		u8 padding1[0x100];
+> +	};
+> +	union { /* 0x300 */
+> +		struct {
+> +			u64 gicv3_hcr;
+> +			u64 gicv3_lrs[REC_MAX_GIC_NUM_LRS];
+> +		};
+> +		u8 padding2[0x100];
+> +	};
+> +	u8 padding3[0x400];
+> +};
+> +
+> +#define RMI_EXIT_SYNC			0x00
+> +#define RMI_EXIT_IRQ			0x01
+> +#define RMI_EXIT_FIQ			0x02
+> +#define RMI_EXIT_PSCI			0x03
+> +#define RMI_EXIT_RIPAS_CHANGE		0x04
+> +#define RMI_EXIT_HOST_CALL		0x05
+> +#define RMI_EXIT_SERROR			0x06
+> +
+> +struct rec_exit {
+> +	union { /* 0x000 */
+> +		u8 exit_reason;
+> +		u8 padding0[0x100];
+> +	};
+> +	union { /* 0x100 */
+> +		struct {
+> +			u64 esr;
+> +			u64 far;
+> +			u64 hpfar;
+> +		};
+> +		u8 padding1[0x100];
+> +	};
+> +	union { /* 0x200 */
+> +		u64 gprs[REC_RUN_GPRS];
+> +		u8 padding2[0x100];
+> +	};
+> +	union { /* 0x300 */
+> +		struct {
+> +			u64 gicv3_hcr;
+> +			u64 gicv3_lrs[REC_MAX_GIC_NUM_LRS];
+> +			u64 gicv3_misr;
+
+Why do we care about ICH_MISR_EL2? Surely we get everything in the
+registers themselves, right? I think this goes back to my question
+above: why is the RMM getting in the way of ICH_*_EL2 accesses?
+
+> +			u64 gicv3_vmcr;
+> +		};
+
+Thanks,
+
+	M.
 
 -- 
-Lee Jones [李琼斯]
+Without deviation from the norm, progress is not possible.
 
