@@ -4,149 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE8E9CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 17:17:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 548F7CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 17:18:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bkUIeEw2K1DcaImCpCtRE9AepJnlixKkMkmpyScYn+c=; b=U+wnM6DfeBQo6uDC1nvl7AM2lF
-	8Ry+9tX37CwGHFxN2xQGIZsXw1SHlqOCCjjzPHHdToKY59iC79ZhrZ2CyVG33H6Jrz6URuB5OR6nT
-	T5LkaHHwVGkZsRgnrfq5R6cb+N7DaYJczPcj67awIxqd5/egq4cLV6ynmVVlOx9H3zZbhtLofCd69
-	E4XMZIvcDhe6yB0y6CSS7sZo55S+EaGxreg43/cmkAXgfKnUrgEfIkCTzvXxQdPk0uAqMn1DAy2NI
-	rfNpDlNfMJLYlOH9/HHRITysIEf3gv7Mto+/5ZGxTrKxuumv/7O9aznXJdPay6plXiexHkCIf0LJB
-	NX42Z+VA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=SkWCXVZn9oQwr9fOneaWYc16aLwPTVni5B0m5Fk1lXU=; b=H3gEZxyKhWzoY0JA7KiHqd8lmH
+	x2JAh5+Pt4TWWvq3XN0j9gX6T43x4a6b+U7bqp4Gf/jDNU/hSPgLV+tk5D46/V94llfUUopto6mvy
+	by75M74KgQcRQ8haB/eZ6RasiUtkaLLfCc8tf3xkwu6dTQaxIF466o8xA6c27WTpEkZAVUcl77yhp
+	Hb1liROypMTPABB21NShovqr4Ij1tElrAp2jtN6ro5UT4w6BPvzyUpGWakERdTySP3xFJC1pDYtlr
+	RQv8Yx7i/0Ei4w7163YK7DlQhxh8FjjRSTCx0oyRCbAg79oQa6cKzVJs8564W37vIsNGwjh9U2Z20
+	Q/oFQTHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v40S4-00000008cgU-10SG;
-	Wed, 01 Oct 2025 17:17:16 +0000
-Received: from mail-westcentralusazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c112::7] helo=CY3PR05CU001.outbound.protection.outlook.com)
+	id 1v40TJ-00000008cxd-0PgL;
+	Wed, 01 Oct 2025 17:18:33 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v40S1-00000008cfA-1A9n
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 17:17:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=HriXHPq1fe0k7URZj5Fe/FVXkgRuN7J9p1K0EjfisNH/2lxbwcImSBemqrcFToEU8+k8+THIdSO2VKn1qrQbrPVOxQzoJKL3DWtq06Os5ath7ZW3j1Dh6Emj8rxyUXX6TwdqHhgwfayQGnFEqOuDWhIJS1leFijNEBJ7YxCE2d1V6R5PziWdUzc2WsxJIgL4AQduoBhnZ9V+Kk42xsQ5HOS2/2d5kgnmysGpmyk5Or+5xiL3YqhKm75y8xAhTXtCbM0+DJhSlDk9eKEr43AFYTRSfkzUcINMs6uiv9LS6MIxnjabnvwIqZbKB4M5wgFO7FhoC9FxlBYlkPXPSmD7Hw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bkUIeEw2K1DcaImCpCtRE9AepJnlixKkMkmpyScYn+c=;
- b=mI7s35mXvDoRb7FzVGBR4Xe9vHaI2EqUOmbhyL10d43ob39foIclxMy09G4DqP1jZwv/+IlOpnhU7IZhYJ7LDAieMowpc1QSjnMF3cVQMF5vhloNoZ6Ka4fPgcghUn9cTE9xV1ObjRoPnuW92+aqCMf+aVUmlpkiqup4+p3rN7J8FpbG6f9CJqIzZXB3oUbaJ1qQ+2C/gnKawKMJS6FCbyNdaxZFqaEztPefwp1jaHmFFYmUXzKg+C/oMgEPQLlnxRagtkAuiJpby/CwC1uDOrkxCC6dLw0KoWoTAYA32SwKZwpWRmILXQKXk9B5fvRb+yJRXrYT/2EhB8YfiJt1jw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.117.160) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bkUIeEw2K1DcaImCpCtRE9AepJnlixKkMkmpyScYn+c=;
- b=fZPas+m4bg8jiqyACIjL+L1OS/ns8nKZdWcK7fRtAtwpM4lI7gOHy+zLefFd7pkVkyRpopH4veekXejGeoCINsCarrrnE/HliwCSzhqqQYuOn+CENj8R6Y0P0DlVJT7B43z4tIcKrtMJ4BJW8LfGyohpfSj+VQ0ELBQSZ1yLceYSqplBOYQt6xEec3KXlWCjzaAJKIMIE8P/VKss094KqvQXJIDCQjQnlR3cdYbjEvbWn0/KzI01QUrIM9MhzSRrtyns06v6ljUIm+kLRPfLpyVfZkv6PunX6HM6W2Q+JjpHlPRBPQ35ibk0cuv6PC5tgLFGNOXNGtDDOw9TUsVPdg==
-Received: from BL6PEPF00013DFC.NAMP222.PROD.OUTLOOK.COM
- (2603:10b6:22e:400:0:1001:0:21) by MW3PR12MB4393.namprd12.prod.outlook.com
- (2603:10b6:303:2c::22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.18; Wed, 1 Oct
- 2025 17:17:02 +0000
-Received: from BL02EPF00021F6E.namprd02.prod.outlook.com
- (2a01:111:f403:f901::8) by BL6PEPF00013DFC.outlook.office365.com
- (2603:1036:903:4::4) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9137.14 via Frontend Transport; Wed,
- 1 Oct 2025 17:17:00 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.117.160) by
- BL02EPF00021F6E.mail.protection.outlook.com (10.167.249.10) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9182.15 via Frontend Transport; Wed, 1 Oct 2025 17:17:00 +0000
-Received: from rnnvmail205.nvidia.com (10.129.68.10) by mail.nvidia.com
- (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.34; Wed, 1 Oct
- 2025 10:16:39 -0700
-Received: from rnnvmail203.nvidia.com (10.129.68.9) by rnnvmail205.nvidia.com
- (10.129.68.10) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Wed, 1 Oct
- 2025 10:16:39 -0700
-Received: from Asurada-Nvidia (10.127.8.9) by mail.nvidia.com (10.129.68.9)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 1 Oct 2025 10:16:38 -0700
-Date: Wed, 1 Oct 2025 10:16:37 -0700
-From: Nicolin Chen <nicolinc@nvidia.com>
-To: Jason Gunthorpe <jgg@nvidia.com>
-CC: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<jean-philippe@linaro.org>, <miko.lenczewski@arm.com>, <balbirs@nvidia.com>,
-	<peterz@infradead.org>, <smostafa@google.com>, <kevin.tian@intel.com>,
-	<praan@google.com>, <linux-arm-kernel@lists.infradead.org>,
-	<iommu@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<patches@lists.linux.dev>
-Subject: Re: [PATCH rfcv2 6/8] iommu/arm-smmu-v3: Populate smmu_domain->invs
- when attaching masters
-Message-ID: <aN1h9UKA+MmapzX1@Asurada-Nvidia>
-References: <cover.1757373449.git.nicolinc@nvidia.com>
- <d3f9777e46d531273dfecb54d69725428cdef308.1757373449.git.nicolinc@nvidia.com>
- <20250924214215.GR2617119@nvidia.com>
- <aNrxjkUEEUzKU+za@Asurada-Nvidia>
- <20250930121200.GG2942991@nvidia.com>
- <aNw7UVaktL6/05b8@Asurada-Nvidia>
- <20251001162516.GE3024065@nvidia.com>
+	id 1v40TG-00000008cx2-3bqz;
+	Wed, 01 Oct 2025 17:18:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1759339054; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=g6eeKVe8q5UYu/Zyv+4f8spD2OVynk46aIqjrhPwvud4pg/yFU6GJ8m/Y+1A38QxhJIyMHo9XvP2zVwJvaf/koqQdRI7iWsrnIYH03ufiggiwoc8wIKBaqBtmNuHNS3TWVaLJgEmt6Fefs8/PbI5VQDaVTNFQ38gfghwAncUdSI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1759339054; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=SkWCXVZn9oQwr9fOneaWYc16aLwPTVni5B0m5Fk1lXU=; 
+	b=PXCmVyZKF60Fi3lkeBl8zsfau5T0mvo/+YUBztmCZGuI3hDgh8QllEmRMfQbbgGMoKMd6NpZArnRZfrbBQ6qU0VMrSsDFscLsUkiHKPlNfxm2mHOvEE/MuGlBOc92dOt6bAR2SQCSepwaMg2H0rHrr1SVIUaN7fmLbAM2i5Vss8=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
+	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1759339053;
+	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
+	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
+	bh=SkWCXVZn9oQwr9fOneaWYc16aLwPTVni5B0m5Fk1lXU=;
+	b=ksINNn9Ry5kbkov/RYjCPthrjeR/B3ir8QZC1VLMfigTV/SQeRC/9naX5P5o+oQt
+	gcY1Xc/8D9yh670ZLUBONiSf31YNccaNSXJ9MVf3Ct2t0tT28Smz/yZBpoLObK3k8S4
+	J9608xI9dzJLMBP3t+Ok40Iuj+DdtKnf3vUZ3udU=
+Received: by mx.zohomail.com with SMTPS id 175933905208321.77046877084581;
+	Wed, 1 Oct 2025 10:17:32 -0700 (PDT)
+Message-ID: <a3b54ec9-e4d7-4d56-8493-f40be81f803e@collabora.com>
+Date: Wed, 1 Oct 2025 14:17:16 -0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20251001162516.GE3024065@nvidia.com>
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL02EPF00021F6E:EE_|MW3PR12MB4393:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0a5b0c72-2af6-4cc5-8d38-08de010e5566
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|82310400026|36860700013|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?ntzKJLo/JDDADWd0Dp1GxvViJ4FhA/R2ry/9be71APvAXRZWZMentf51jNjQ?=
- =?us-ascii?Q?IH/E0nLG3357jago/GNG5YEE4K34JxqPHv5duMPSpdD2/crA4vnUTmt1GxP9?=
- =?us-ascii?Q?IaFhh7KLEi+ypuE52XOQJeI5k1dQx8IhcklJs3a6hyH2TQe9U+Ij3MYS1jOk?=
- =?us-ascii?Q?HVlJHU6RD5UDwZxVwQswOxpGn09Maq7qV3vfxhlsLZzdpZZ4cE06m8vUBEKY?=
- =?us-ascii?Q?tAYyLoQWZZtmQbdbyZAsYyifDov074K2fMo0dSSXJqtrD2bkmWHVGUp527kJ?=
- =?us-ascii?Q?xA/NAfGlCc1us1Y7TnkdUnnQAW5/Wqj+tUnrCfqqvcTL+Qwi53lUeWfQ2r3Q?=
- =?us-ascii?Q?HFp6I6S0M2+HOkb9e7WxUou6BQ8xynBNI+g+FERAP3SMrbxzsjZGkCKF1aEl?=
- =?us-ascii?Q?tXsO+71hk4VpF5MChyQvdvpuSQXrS+H8OhnE4tyvThy199PgIM2ImAW1yF8+?=
- =?us-ascii?Q?okSv9mqyFn4BHirneo1HJI7ufCkLQUGa4NAUHBrkhkVHq24M0e7Fn+c8q1pB?=
- =?us-ascii?Q?bjPsFAKvd8F9LVDaEZ0p9n7AfGW2WADTHA3fSw84adBGpyNzSN7534kDj+lA?=
- =?us-ascii?Q?EufeWhNKovdvCcCEA4v6DDVpayO28XU0Re96sClRkiCfKDL7SaefXPVozo1J?=
- =?us-ascii?Q?3lSF6Gj+MMAPDVRJWAfdLxN1CwlXgBsFzPYWKcKxbnPRlboLWwIlv7wdsqoX?=
- =?us-ascii?Q?ti9VkZJVm9zbJSA6bYkRAJ+0lMcqEIhYfPJ6CzDEMtMDuVSL0BB6knjUrSrE?=
- =?us-ascii?Q?20IaIw8EvWItV+bpeLdyTA5uSR1eMHtbFv26yeQ22eGyEYVoTZ6HywerEcU5?=
- =?us-ascii?Q?XbmP1V4Y0gD6VV+OaIuQN6HKZ+qhudpf+EAUlUwzsRkfz62ICrXHJJq/eDks?=
- =?us-ascii?Q?55Uae64isQ2dkAcd2kVYJarqDtJg/B1KgZJfoNgYZ7DL0y0XJ3XJa4wnpQX7?=
- =?us-ascii?Q?MY5UWkh1n5TqndkECPhCjgzA/DsH17NWf2VpPYlOGRdNtDibwC6GJS6IvbdU?=
- =?us-ascii?Q?9HctrTJdPmOSYXXdIoohX0apZZjpGCu8Dco62VWysPl6Ys71583HfYfJisw4?=
- =?us-ascii?Q?yaOIwmbDsDbVmOuKFCfuYFl7LQDi+FKBuNvymvCl3U24y5VDtJ99kC5/KaDN?=
- =?us-ascii?Q?zn29BR1UlBtdXi3IKAmZOiZjbWGyCXK4XPPwC5oix1hig4yVPjiEknmyWVe7?=
- =?us-ascii?Q?SajoPGkBoh6OB+XRK8W/BN9BLbh84n+V9p5RMorJoJtYl+nsUMsYiYBdCT4T?=
- =?us-ascii?Q?fzezMARg1v96nBica7WbSQXozLOw8ZU2c7AhxD+kF8LGYEcpO3KyX80Vojsx?=
- =?us-ascii?Q?Tfl24BBxUvToC3dkWAzZol1qwosNAuydJ0HvBso9pvjQvYVT/73QC5FW8SJz?=
- =?us-ascii?Q?CCCiujuQ59BhimC2V2y5JwGdZIYyCm7ot7xS2BXRBkdD9w79cs9Qa9Fg65zl?=
- =?us-ascii?Q?Fk+4J75DJ6FKigAsBpBInMFNRpaNPbvQNkwJCFrSO64pjWUiRp46icDCpmQ0?=
- =?us-ascii?Q?nLZQkQkDolPBxJttVXb6DGQZe+CyAMf4EWqidqS4dMg8A5FM/TeBdDKld6At?=
- =?us-ascii?Q?Q7Vqv0nTd3z6k2L+i08=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(7416014)(376014)(82310400026)(36860700013)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Oct 2025 17:17:00.5317
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0a5b0c72-2af6-4cc5-8d38-08de010e5566
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL02EPF00021F6E.namprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW3PR12MB4393
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 00/12] MediaTek dt-bindings sanitization (MT8173)
+To: Rob Herring <robh@kernel.org>
+Cc: airlied@gmail.com, amergnat@baylibre.com, andrew+netdev@lunn.ch,
+ andrew-ct.chen@mediatek.com, angelogioacchino.delregno@collabora.com,
+ broonie@kernel.org, chunkuang.hu@kernel.org, conor+dt@kernel.org,
+ davem@davemloft.net, dmitry.torokhov@gmail.com, edumazet@google.com,
+ flora.fu@mediatek.com, heiko@sntech.de, houlong.wei@mediatek.com,
+ jeesw@melfas.com, kernel@collabora.com, krzk+dt@kernel.org, kuba@kernel.org,
+ lgirdwood@gmail.com, linus.walleij@linaro.org,
+ louisalexis.eyraud@collabora.com, luiz.dentz@gmail.com,
+ maarten.lankhorst@linux.intel.com, marcel@holtmann.org,
+ matthias.bgg@gmail.com, mchehab@kernel.org, minghsiu.tsai@mediatek.com,
+ mripard@kernel.org, p.zabel@pengutronix.de, pabeni@redhat.com,
+ sean.wang@kernel.org, simona@ffwll.ch, support.opensource@diasemi.com,
+ tiffany.lin@mediatek.com, tzimmermann@suse.de, yunfei.dong@mediatek.com,
+ devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-bluetooth@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-input@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+ linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-sound@vger.kernel.org, netdev@vger.kernel.org
+References: <20250911151001.108744-1-ariel.dalessandro@collabora.com>
+ <20250923214834.GC91441-robh@kernel.org>
+Content-Language: en-US
+From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+In-Reply-To: <20250923214834.GC91441-robh@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ZohoMailClient: External
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_101713_318372_9A7F47E6 
-X-CRM114-Status: GOOD (  14.60  )
+X-CRM114-CacheID: sfid-20251001_101830_956683_1A305ADD 
+X-CRM114-Status: GOOD (  12.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -161,51 +96,74 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 01, 2025 at 01:25:16PM -0300, Jason Gunthorpe wrote:
-> On Tue, Sep 30, 2025 at 01:19:29PM -0700, Nicolin Chen wrote:
-> > I see a cleaner way of handling this is to update invs->num_invs
-> > inside arm_smmu_invs_unref():
-> > ----------------------------------------------------------------
-> > @@ -1209,6 +1216,13 @@ size_t arm_smmu_invs_unref(struct arm_smmu_invs *invs,
-> >                         j++;
-> >                 }
-> >         }
-> > +
-> > +       /* The lock is required to fence concurrent ATS operations. */
-> > +       write_lock_irqsave(&invs->rwlock, flags);
-> > +       /* Trim the size by removing tailing trash entries */
-> > +       WRITE_ONCE(invs->num_invs, num_invs);
-> > +       write_unlock_irqrestore(&invs->rwlock, flags);
+Rob,
+
+On 9/23/25 6:48 PM, Rob Herring wrote:
+> On Thu, Sep 11, 2025 at 12:09:49PM -0300, Ariel D'Alessandro wrote:
+>> This patch series continues the effort to address Device Tree validation
+>> warnings for MediaTek platforms, with a focus on MT8173. It follows the
+>> initial cleanup series by Angelo [0].
+>>
+>> Similarly to the ongoing MT8183 work done by Julien Massot, this patchset
+>> eliminates several of the remaining warnings by improving or converting DT
+>> bindings to YAML, adding missing properties, and updating device tree files
+>> accordingly.
+>>
+>> [0] https://www.spinics.net/lists/kernel/msg5780177.html
+>>
+>> Changes in v2:
+>> * Wrapped commit messages to 75 columns line wrap.
+>> * Replaced "YAML" by "DT schema" in patches subject and content.
+>> * mt8173-mdp: Fixed properties: compatible, clocks, iommus and
+>>    mediatek,vpu.
+>> * mt8173-vpu: Fixed line wrap. Dropped memory-region property description.
+>> * mediatek,mmsys: Dropped patch as it's not a binding issue.
+>> * mediatek,od: Rewrote commit log with details on DT schema users missing
+>>    the related property. Rewrote mediatek,gce-client-reg property.
+>> * mediatek,ufoe: Rewrote commit log with details on DT schema users missing
+>>    the related property. Rewrote mediatek,gce-client-reg property.
+>> * marvell,sd8897-bt: Moved to net/bluetooth/. Added missing ref to
+>>    bluetooth-controller.yaml. Dropped example. Updated reference in another
+>>    file. Minor fixes in properties.
+>> * mediatek,mt8173-rt5650: Dropped unnecessary quotes and unused label.
+>> * dlg,da9211: Dropped enable-gpios description. Rewrote generic example
+>>    node names. Minor fixes in properties.
+>> * melfas,mip4_ts: Dropped unnecessary quotes. Added "active high" to
+>>    ce-gpios property description.
+>> * mediatek,jpeg: Dropped patch as it doesn't apply.
+>>
+>> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+>>
+>> Ariel D'Alessandro (12):
+>>    dt-bindings: media: Convert MediaTek mt8173-mdp bindings to DT schema
+>>    dt-bindings: media: Convert MediaTek mt8173-vpu bindings to DT schema
+>>    dt-bindings: net: Convert Marvell 8897/8997 bindings to DT schema
+>>    dt-bindings: ASoC: Convert MediaTek RT5650 codecs bindings to DT
+>>      schema
+>>    dt-bindings: display: mediatek,od: Add mediatek,gce-client-reg
+>>      property
+>>    dt-bindings: display: mediatek,ufoe: Add mediatek,gce-client-reg
+>>      property
+>>    arm64: dts: mediatek: mt8173: Fix mt8173-pinctrl node names
+>>    dt-bindings: pinctrl: mt65xx: Allow gpio-line-names
+>>    dt-bindings: regulator: Convert Dialog DA9211 Regulators to DT schema
+>>    arm64: dts: mediatek: mt8173-elm: Drop unused bank supply
+>>    dt-bindings: soc: mediatek: pwrap: Add power-domains property
+>>    dt-bindings: input: Convert MELFAS MIP4 Touchscreen to DT schema
 > 
-> That seems Ok
-> 
-> It means the arm_smmu_invs_unref() becomes the fence that guarentees
-> the ATS is stopped for anything marked as trash.
-> 
-> Then the next steps can just be normal RCU and don't need rwlocking.
+> As we're close to the merge window, I applied patches 2, 8, and 11.
 
-Yea. The "old" flag could be dropped too:
+Great, I can see that patches 5 and 6 were also applied (with small 
+modifications).
 
-        while (true) {
-                invs = rcu_dereference(smmu_domain->invs);
+Thanks!
 
-                /*
-                 * Avoid locking unless ATS is being used. No ATS invalidate can
-                 * be going on after a domain is detached.
-                 */
-                locked = false;
--               if (invs->has_ats || READ_ONCE(invs->old)) {
-+               if (invs->has_ats) {
-                        read_lock(&invs->rwlock);
--                       if (invs->old) {
--                               read_unlock(&invs->rwlock);
--                               continue;
--                       }
-                        locked = true;
-                }
-                break;
-        }
+-- 
+Ariel D'Alessandro
+Software Engineer
 
-Thanks
-Nicolin
+Collabora Ltd.
+Platinum Building, St John's Innovation Park, Cambridge CB4 0DS, UK 
+Registered in England & Wales, no. 5513718
+
 
