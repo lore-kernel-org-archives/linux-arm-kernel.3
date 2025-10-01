@@ -4,86 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 682D2CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 17:44:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3333CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 17:48:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:To:References:Message-ID:
+	Content-Transfer-Encoding:Cc:Date:In-Reply-To:From:Subject:Mime-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X1qxdtwKIY3V1sCLiuzk767gsjs7kipJUMmkwVcO3FY=; b=Ml6R9ThA5vVCANgZuL1eeMaJ8T
-	z3wbn6fypSKxW1QPI6QzBLuemYcMZE3guYoQ+nFvADjtQkfTSyn4NGC75qpjYHuIy5+KibBpiH91l
-	Fr0enerjCgZv/ZFpCKLlUnT0kLqpwpa2yDuVSq8pKnrzi9ezOcQuSVxTyUa91Ch6pflyqUBCd3KOy
-	vmYwYPPI9Wsn+t1B2gevbuR9EgoRYpiovet8YFD1Zt9YXa9nZ5KjqpWZOOEtaEco902q/mqkoM8pS
-	P805EHkm8BBihS5Ykc19opbXUfyTTQNGMzUqMyLwy7YhGEgFKJml3iaxV23o6fsdcyiTu87EVNwuv
-	Bu1Uc7mg==;
+	bh=zvArmBnYwxZFDHG+7f3QRDYA2mq0pxTfhcIvB/jeV7I=; b=kw08A7fg6qMpalegTUcZjl4Yvr
+	BRnU0othFTrSTEDYXusPkis7VY0vtKjoomENNbb5ckqhpDrLIVStT+WnHYIxqZJ0twfqHW+lY8O0W
+	kGHibAoK19lTrhUkUbjqwhM/WQIZv2f2rSJGfwiDc/ienrR1ZOMuhtAnYa/we1aZ6S/jwCEeFhqPG
+	qlPFXyuS33TZsRYFCpYKuQ5Dkyd1jT2SAwj61IaesNUdKRJy89wK5Xc3x16omrSPvzsRMDjVThW2b
+	o4rbDrsADFst2PyKgiJeID4VhNl5NsiKzEJ1gC5zYyml/sbFxaHAJ56JrQdxMVmQigSsFr1WFjufv
+	KIlgcbTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v40sk-00000008fWK-26AU;
-	Wed, 01 Oct 2025 17:44:50 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1v40vs-00000008g2g-131I;
+	Wed, 01 Oct 2025 17:48:04 +0000
+Received: from a8-31.smtp-out.amazonses.com ([54.240.8.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v40sh-00000008fVO-2qWq;
-	Wed, 01 Oct 2025 17:44:49 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1759340639; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=Dv6ghvPHN7AGcU7+5CH3htq5hdDmi012lRE1Inj162ECXRJK3bG7GZb2hch25vig+ys1DfSf76h7uYavSU8+G0S7pNV1/57GmOFCYV4UoLXjOrUdBf9Bcc3+DaSa0/FVyM4rE2flHWLhezO4odVFNnMgoOxGJF3aLdx4UykSz2w=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1759340639; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=X1qxdtwKIY3V1sCLiuzk767gsjs7kipJUMmkwVcO3FY=; 
-	b=M5kvq5PRgWWIKyuHZiYxwdKRTjrzhGm8MfWV+UY6CZ0LMDoAChPzow/dWnFR8wpxmqRLUqef1+LJq8Tot1uKQh4BOgu08K+nronjQEP5Y+3vy451a+ijiH9DhzVWTxWGlHIIhKsnr4mcrtZSAWNugM6fUbqr0ctWqyzbXxNx9/k=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
-	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1759340639;
-	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=X1qxdtwKIY3V1sCLiuzk767gsjs7kipJUMmkwVcO3FY=;
-	b=Zq1MQMGCGotD+rJbqQrTxX/7xwW2aTNQNC9HTL3C/QxltTLuE2sT+80pYH/52OLd
-	JqbrTO6RJaj2HBl1EanausCyXQYMtT+QAMSZj+dz+D2xbW7MsrDAqwRIgPgmsaMlI8X
-	H8JNEVAWFHpRoctoROmUczLCT7TTMRhhFLbChWQg=
-Received: by mx.zohomail.com with SMTPS id 1759340637638418.15942640933406;
-	Wed, 1 Oct 2025 10:43:57 -0700 (PDT)
-Message-ID: <4eda73fc-76cb-4ac1-8b6c-d0f1c1117905@collabora.com>
-Date: Wed, 1 Oct 2025 14:43:40 -0300
-MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 09/12] dt-bindings: regulator: Convert Dialog DA9211
- Regulators to DT schema
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- airlied@gmail.com, amergnat@baylibre.com, andrew+netdev@lunn.ch,
- andrew-ct.chen@mediatek.com, broonie@kernel.org, chunkuang.hu@kernel.org,
- conor+dt@kernel.org, davem@davemloft.net, dmitry.torokhov@gmail.com,
- edumazet@google.com, flora.fu@mediatek.com, heiko@sntech.de,
- houlong.wei@mediatek.com, jeesw@melfas.com, kernel@collabora.com,
- krzk+dt@kernel.org, kuba@kernel.org, lgirdwood@gmail.com,
- linus.walleij@linaro.org, louisalexis.eyraud@collabora.com,
- luiz.dentz@gmail.com, maarten.lankhorst@linux.intel.com,
- marcel@holtmann.org, matthias.bgg@gmail.com, mchehab@kernel.org,
- minghsiu.tsai@mediatek.com, mripard@kernel.org, p.zabel@pengutronix.de,
- pabeni@redhat.com, robh@kernel.org, sean.wang@kernel.org, simona@ffwll.ch,
- support.opensource@diasemi.com, tiffany.lin@mediatek.com,
- tzimmermann@suse.de, yunfei.dong@mediatek.com
-Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-bluetooth@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-input@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-sound@vger.kernel.org, netdev@vger.kernel.org
-References: <20250911151001.108744-1-ariel.dalessandro@collabora.com>
- <20250911151001.108744-10-ariel.dalessandro@collabora.com>
- <990cc068-adc9-473a-b4c7-9113583cb83c@collabora.com>
-Content-Language: en-US
-From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-In-Reply-To: <990cc068-adc9-473a-b4c7-9113583cb83c@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ZohoMailClient: External
+	id 1v40vp-00000008g24-3b3e
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Oct 2025 17:48:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=xojwidlurxakxokupknu2uvuxvz4uggf; d=kvanals.org; t=1759340878;
+	h=Content-Type:Mime-Version:Subject:From:In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:References:To;
+	bh=aBM58zz7LIm5qVT9yhJTwKXLHuaEoiEGSu/GD9elgxw=;
+	b=Zs3VeK4eH7akdmeuFEMA6S80Ogqod0D5imEX76WD0mOXSiVydr4ho2/9KPZeadpW
+	Qliu6eql10u1xgQiOTeMgQliu+ZpkMgFGEMRFQC9QBbSJ/+dHd7E21TXSbCXLz6ko6l
+	jv05ErBjtAl0q+I+5VcR3zhIKI5SyV84ajL5xORkt9IKQrrVvjGtVoHvYHnLEkmCd43
+	nxakYPGbU+oTZXdjMQBFK6FfvarRDFMV4B4EdnMigdWG0xUwTJDhoVOE6cPO0K1x9A2
+	0ScZfqGLQtZEVZo9g0sfJ/UBOZYZmPXVMvDMVKOZOff1aD9Gvx42tZrRvq5fP6Zp+v8
+	HzEwjfE0OA==
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/simple;
+	s=6gbrjpgwjskckoa6a5zn6fwqkn67xbtw; d=amazonses.com; t=1759340878;
+	h=Content-Type:Mime-Version:Subject:From:In-Reply-To:Date:Cc:Content-Transfer-Encoding:Message-Id:References:To:Feedback-ID;
+	bh=aBM58zz7LIm5qVT9yhJTwKXLHuaEoiEGSu/GD9elgxw=;
+	b=szcpz0Bd//xaJWMRd0OlMMdk2Z0zmSKxEOdaBGcymQWFOy0fK4pyXT6agRQrTeMq
+	PsE9lQzxgoiJevp5y7E19lJXNM3+X16tMf1y61K9KfM1mp5CEkblfLEPZAddwxIp13g
+	Acq/wDj0AkzQHgqAYRk1UI5lXB9+49Bqg1z7Exa0=
+Content-Type: text/plain;
+	charset=us-ascii
+Mime-Version: 1.0 (Mac OS X Mail 16.0 \(3864.100.1.1.5\))
+Subject: Re: KVM: arm64: Regression in at least linux-6.1.y tree with recent
+ FPSIMD/SVE/SME fix
+From: Kenneth Van Alstyne <kvanals@kvanals.org>
+In-Reply-To: <aNz1PnARMC4DPeYb@willie-the-truck>
+Date: Wed, 1 Oct 2025 17:47:58 +0000
+Cc: stable@vger.kernel.org, regressions@lists.linux.dev, 
+	catalin.marinas@arm.com, ardb@kernel.org, mark.rutland@arm.com, 
+	linux-arm-kernel@lists.infradead.org, maz@kernel.org
+Content-Transfer-Encoding: quoted-printable
+Message-ID: <01000199a0e35b65-1c5cae69-ae59-43ad-b6ac-491cc43f5ca5-000000@email.amazonses.com>
+References: <010001999bae0958-4d80d25d-8dda-4006-a6b9-798f3e774f6c-000000@email.amazonses.com>
+ <aNz1PnARMC4DPeYb@willie-the-truck>
+To: Will Deacon <will@kernel.org>
+X-Mailer: Apple Mail (2.3864.100.1.1.5)
+X-Greylist: Sender succeeded SMTP AUTH, not delayed by milter-greylist-4.6.2 (olympus.kvanals.org [IPv6:2600:1f18:42d5:300:0:0:0:ffff]); Wed, 01 Oct 2025 17:47:58 +0000 (UTC)
+Feedback-ID: ::1.us-east-1.5jHMwTu/Jzmoolk7Ak3w+RKcSxXCCShHRX8XGxXgrSs=:AmazonSES
+X-SES-Outgoing: 2025.10.01-54.240.8.31
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_104447_769592_1FA75CFA 
-X-CRM114-Status: GOOD (  13.50  )
+X-CRM114-CacheID: sfid-20251001_104802_176253_34540B2E 
+X-CRM114-Status: GOOD (  28.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,110 +81,185 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Angelo,
+Hi Will, thanks for the prompt reply and thorough explanation!
 
-On 9/12/25 5:11 AM, AngeloGioacchino Del Regno wrote:
-> Il 11/09/25 17:09, Ariel D'Alessandro ha scritto:
->> Convert the existing text-based DT bindings for Dialog Semiconductor 
->> DA9211
->> Voltage Regulators family to a DT schema. Examples are simplified, as 
->> these
->> are all equal.
->>
->> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
->> ---
->>   .../devicetree/bindings/regulator/da9211.txt  | 205 ------------------
->>   .../bindings/regulator/dlg,da9211.yaml        | 104 +++++++++
->>   2 files changed, 104 insertions(+), 205 deletions(-)
->>   delete mode 100644 Documentation/devicetree/bindings/regulator/ 
->> da9211.txt
->>   create mode 100644 Documentation/devicetree/bindings/regulator/ 
->> dlg,da9211.yaml
->>
-> 
-> ..snip..
-> 
->> diff --git a/Documentation/devicetree/bindings/regulator/ 
->> dlg,da9211.yaml b/Documentation/devicetree/bindings/regulator/ 
->> dlg,da9211.yaml
->> new file mode 100644
->> index 0000000000000..9d5e25bc3872c
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/regulator/dlg,da9211.yaml
->> @@ -0,0 +1,104 @@
->> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/regulator/dlg,da9211.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title:
->> +  Dialog Semiconductor DA9211/DA9212/DA9213/DA9223/DA9214/DA9224/ 
->> DA9215/DA9225
->> +  Voltage Regulator
-> 
-> Dialog Semiconductor DA9211-9215, DA9223-9225 Voltage Regulators
-> 
-> Better? :-)
+On the 6.1 branch, those functions have additional logic around realtime =
+kernels, like so:
 
-Much better, thanks! Will fix in v3.
+static void get_cpu_fpsimd_context(void)
+{
+        if (!IS_ENABLED(CONFIG_PREEMPT_RT))
+                local_bh_disable();
+        else
+                preempt_disable();
+        __get_cpu_fpsimd_context();
+}
 
-> 
->> +
->> +maintainers:
->> +  - Ariel D'Alessandro <ariel.dalessandro@collabora.com>
->> +
->> +properties:
->> +  compatible:
->> +    enum:
->> +      - dlg,da9211
->> +      - dlg,da9212
->> +      - dlg,da9213
->> +      - dlg,da9214
->> +      - dlg,da9215
->> +      - dlg,da9223
->> +      - dlg,da9224
->> +      - dlg,da9225
->> +
->> +  reg:
->> +    maxItems: 1
->> +
->> +  interrupts:
->> +    maxItems: 1
->> +
->> +  regulators:
->> +    type: object
->> +    additionalProperties: false
->> +    description:
->> +      List of regulators provided by the device
->> +
->> +    patternProperties:
->> +      "^BUCK([AB])$":
->> +        type: object
->> +        $ref: regulator.yaml#
->> +        unevaluatedProperties: false
->> +        description: |
-> 
-> Please drop the vertical bar | from all descriptions
+...
 
-Ack. Fixed in v3.
+static void put_cpu_fpsimd_context(void)
+{
+        __put_cpu_fpsimd_context();
+        if (!IS_ENABLED(CONFIG_PREEMPT_RT))
+                local_bh_enable();
+        else
+                preempt_enable();
+}
 
-> 
-> after which,
-> 
-> Reviewed-by: AngeloGioacchino Del Regno 
-> <angelogioacchino.delregno@collabora.com>
 
-Thanks a lot!
+Honestly, we don't even set CONFIG_PREEMPT_RT for our ARM64 kernels, but =
+in the interest of being complete, should we also not call =
+preempt_enable/disable if (!irqs_disabled()) ?
 
-Regards,
+I'm assuming this will get queued up for a fix in the stable branches =
+soon in any case.
 
--- 
-Ariel D'Alessandro
-Software Engineer
+Thanks,
 
-Collabora Ltd.
-Platinum Building, St John's Innovation Park, Cambridge CB4 0DS, UK 
-Registered in England & Wales, no. 5513718
+--
+Kenneth Van Alstyne, Jr.
+(228) 547-8045
+
+> On Oct 1, 2025, at 05:32, Will Deacon <will@kernel.org> wrote:
+>=20
+> Hi Kenneth,
+>=20
+> Thanks for the report.
+>=20
+> On Tue, Sep 30, 2025 at 05:31:38PM +0000, Kenneth Van Alstyne wrote:
+>> Sending via plain text email -- apologies if you receive this twice.
+>>=20
+>> If this isn't the process for reporting a regression in a LTS kernel =
+per
+>> =
+https://www.kernel.org/doc/html/latest/admin-guide/reporting-issues.html,
+>> I'm happy to follow another process.
+>>=20
+>> Kernel 6.1.149 introduced a regression, at least on our ARM Cortex
+>> A57-based platforms, via commit =
+8f4dc4e54eed4bebb18390305eb1f721c00457e1
+>> in arch/arm64/kernel/fpsimd.c where booting KVM VMs eventually leads =
+to a
+>> spinlock recursion BUG and crash of the box.
+>>=20
+>> Reverting that commit via the below reverts to the old (working) =
+behavior:
+>>=20
+>> diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+>> index 837d1937300a57..bc42163a7fd1f0 100644
+>> --- a/arch/arm64/kernel/fpsimd.c
+>> +++ b/arch/arm64/kernel/fpsimd.c
+>> @@ -1851,10 +1851,10 @@ void fpsimd_save_and_flush_cpu_state(void)
+>>  if (!system_supports_fpsimd())
+>>  return;
+>>  WARN_ON(preemptible());
+>> - get_cpu_fpsimd_context();
+>> + __get_cpu_fpsimd_context();
+>>  fpsimd_save();
+>>  fpsimd_flush_cpu_state();
+>> - put_cpu_fpsimd_context();
+>> + __put_cpu_fpsimd_context();
+>> }
+>>  #ifdef CONFIG_KERNEL_MODE_NEON
+>=20
+> Hmm, the problem with doing that is it will reintroduce the bug that
+> 8f4dc4e54eed ("KVM: arm64: Fix kernel BUG() due to bad backport of
+> FPSIMD/SVE/SME fix") was trying to fix (see the backtrace in the =
+commit
+> message). So the old behaviour is still broken, just in a slightly
+> different way.
+>=20
+>> It's not entirely clear to me if this is specific to our firmware,
+>> specific to ARM Cortex A57, or more systemic as we lack sufficiently
+>> differentiated hardware to know.  I've tested on the latest 6.1 =
+kernel in
+>> addition to the one in the log below and have also tested a number of
+>> firmware versions available for these boxes.
+>>=20
+>> Steps to reproduce:
+>>=20
+>> Boot VM in qemu-system-aarch64 with "-accel kvm" and "-cpu host" =
+flags set -- no other arguments seem to matter
+>> Generate CPU load in VM
+>>=20
+>> Kernel log:
+>>=20
+>> [sjc1] root@si-compute-kvm-e0fff70016b4:/# [  805.905413] BUG: =
+spinlock recursion on CPU#7, CPU 3/KVM/57616
+>> [  805.905452]  lock: 0xffff3045ef850240, .magic: dead4ead, .owner: =
+CPU 3/KVM/57616, .owner_cpu: 7
+>> [  805.905477] CPU: 7 PID: 57616 Comm: CPU 3/KVM Tainted: G           =
+O       6.1.152 #1
+>> [  805.905495] Hardware name: SoftIron SoftIron Platform =
+Mainboard/SoftIron Platform Mainboard, BIOS 1.31 May 11 2023
+>> [  805.905516] Call trace:
+>> [  805.905524]  dump_backtrace+0xe4/0x110
+>> [  805.905538]  show_stack+0x20/0x30
+>> [  805.905548]  dump_stack_lvl+0x6c/0x88
+>> [  805.905561]  dump_stack+0x18/0x34
+>> [  805.905571]  spin_dump+0x98/0xac
+>> [  805.905583]  do_raw_spin_lock+0x70/0x128
+>> [  805.905596]  _raw_spin_lock+0x18/0x28
+>> [  805.905607]  raw_spin_rq_lock_nested+0x18/0x28
+>> [  805.905620]  update_blocked_averages+0x70/0x550
+>> [  805.905634]  run_rebalance_domains+0x50/0x70
+>> [  805.905645]  handle_softirqs+0x198/0x328
+>> [  805.905659]  __do_softirq+0x1c/0x28
+>> [  805.905669]  ____do_softirq+0x18/0x28
+>> [  805.905680]  call_on_irq_stack+0x30/0x48
+>> [  805.905691]  do_softirq_own_stack+0x24/0x30
+>> [  805.905703]  do_softirq+0x74/0x90
+>> [  805.905714]  __local_bh_enable_ip+0x64/0x80
+>=20
+> Argh, this is because we can't simply mask/unmask softirqs and so when
+> they get re-enabled we process anything pending. I _think_ irqs are
+> disabled at this point, so perhaps we should only bother with
+> disabling/enabling softirqs if hardirqs are enabled, a bit like the =
+hack
+> Ard had in:
+>=20
+> =
+https://lore.kernel.org/all/20250924152651.3328941-13-ardb+git@google.com/=
+
+>=20
+> Hacky diff at the end.
+>=20
+>> [  805.905727]  fpsimd_save_and_flush_cpu_state+0x5c/0x68
+>> [  805.905740]  kvm_arch_vcpu_put_fp+0x4c/0x88
+>> [  805.905752]  kvm_arch_vcpu_put+0x28/0x88
+>> [  805.905764]  kvm_sched_out+0x38/0x58
+>=20
+> (I think we run context_switch() =3D> prepare_task_switch() here, so =
+irqs
+> are disabled)
+>=20
+> Will
+>=20
+> --->8
+>=20
+> diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+> index fc51cdd5aaa7..a79df0804d67 100644
+> --- a/arch/arm64/kernel/fpsimd.c
+> +++ b/arch/arm64/kernel/fpsimd.c
+> @@ -184,7 +184,8 @@ static void __get_cpu_fpsimd_context(void)
+>  */
+> static void get_cpu_fpsimd_context(void)
+> {
+> -       local_bh_disable();
+> +       if (!irqs_disabled())
+> +               local_bh_disable();
+>        __get_cpu_fpsimd_context();
+> }
+>=20
+> @@ -205,7 +206,8 @@ static void __put_cpu_fpsimd_context(void)
+> static void put_cpu_fpsimd_context(void)
+> {
+>        __put_cpu_fpsimd_context();
+> -       local_bh_enable();
+> +       if (!irqs_disabled())
+> +               local_bh_enable();
+> }
+>=20
+> static bool have_cpu_fpsimd_context(void)
 
 
