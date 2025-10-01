@@ -4,157 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08AA8CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 20:47:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58000CAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 20:51:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z/qgt2eGUz/Y/sS0Pt9OCDBFKLe48ccjJY8jwpfsQZs=; b=aRQRxu+MTSu/5/TAUeXGka97A2
-	UUUtoJ0rX+XBicMdcRXdRFysC5LSZ6SDD64vTaD40BWxw8ilPI936jQIN7SbPfGZ+XwOQ7hSbmzoL
-	K263dJg+qn8IRDTyq9ZMt8mvPmH8pegUmsHvju+caBn4bmLroPIifZHQlYcFRdPRSK7AoVojpxGnm
-	Y1uFcnVYzrwUY+3QY7kenb4bp8RmzaPCgAMTaXPg6AdTN+Y4+lrMlZiHyuBCPBnf47I7U2rlbMrAo
-	LfKCUp1BPyUUa76+KeLTwkztvZOGWjcle5HsgRKIuGWu2TUW8+fYWPNVDzRTApXOzN2sGmgHzAMmu
-	6BcRljJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lg6fCLmy2w9+WR+K0ohol53Fdm9e/jawsYloYw3+SzY=; b=KCl8orpAiLbWYikknwhD8A0XxG
+	fWPOxPyPGhOAn1nzaQvj7IrqWSkHJPMqregC5b56A1cVrNYjE3bB4GPhgKWl1JYWj/pvTXcZ+/Gko
+	qh45UFn1sbkrhVf74fcinamh2LthDo9s8WoRgrqVAgUxzxttm3WWnBPLmn656kfXIlx4eApXwk8+M
+	YuoQOzCaSvgQGUWn5gosxEBE++P2KvjPUpAUgc7KtRhKhH0/MscolomxXlZoAUGk6q/xVZDZZwJMj
+	Rw1jZSfvHOHhVyy899VhfSuPz8C0EQgkSkf6D8AoMWHpMCBKHP4UOTCB7qZmtMdq261rK8r3z/GMj
+	H/7kC9Ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v43jX-00000008w5m-0zox;
-	Wed, 01 Oct 2025 20:47:31 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1v43nC-00000008wU9-3NSE;
+	Wed, 01 Oct 2025 20:51:18 +0000
+Received: from fanzine2.igalia.com ([213.97.179.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v43jU-00000008w5H-2a6m
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 20:47:29 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=xW/N42CKHGZaay0L1pqpNzmmtsLCrGWP9P6DUHOrEUXYOE+7Fk08Fo5xHtILW+4KdHQIw790MWFHhwNA1+8d3rImu1G8JpDAOeBc+99TcoYYkfmonHqU7/ayR7oSZc3xvBUaGNI0PqYAZGlQaymhYIq7sR0aCdF7z+ekl+cDAJu2oR4NCbDiufIRIKfiKdt9dopvdsUGNaPlJlFnibmwdgZ7l+bcWWJdKO/v5QR/1Ldb2Ns6gxfVFQ9D9CE9ziwss27w2cKTzgkax+yOt5eblx9mA4CQDWzo44/xcMdAE3ujt4/IGX4B4E+5D5yq0trql/eoBD7MTUSDP6v9buPP/w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Z/qgt2eGUz/Y/sS0Pt9OCDBFKLe48ccjJY8jwpfsQZs=;
- b=d2kD3loypWt+Iuy4xF/LvSOrvvvxvImhWpVHn1ChSQbiXrJV0o52SO8ommXCKinFOuWVzfd7N2wBIw2qhdEV36H5ocEAqNjIWm4lAsdS4p0Z9pdQJb/zK9Hzo8V4Rw+cgPj10aZgO52euvVd2Hdy3jHJQU7pfaeQNdCC187AHCrkUE/nJLPXKVk5BQEXJH+z5ZcwwL/3ckO6lxhFKwp1UJTPoqxeofX/7B3YGYTT7zWvxvJ39kUlndCjqzFVABW8F1Y6yOpUIaFMq9wf3astnD/Ss7mH6GrMu3A37pbWuIkPkoaq+d6/DM8bBF9N1652GFAg75bv5Y6LZTfvsZcHiA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Z/qgt2eGUz/Y/sS0Pt9OCDBFKLe48ccjJY8jwpfsQZs=;
- b=hbRBd2aZOr+nd5gG0hji0E54EIQEOEd3EIQBsPejKZ29yH1D8E0aA9inm+j6w2SIYA7hEAHUghnoxJvpFQ3B8vBh5om/HNPeKSexGlHpbioaPaRPjNqDo2wD50nGII+uz3NCT1Rl6devHwQiz11LpKaTr1VYqjO0FpUxpsdlR7U1ZgIEUwD3Spi7yse1w48qc+zLYgnFhye5srDmL6Q4IlPgqzUDZ9I1b7uKFVgHob9+0k+r8Cb1l8e6UICPScYYjXdOwuwGbn4qXK6PwPYBHsh5T4XtRH4jUGVkVH62SpGosvQHueYSoUz/bwUMeFKzl3+bdzieVAxsf9X4LJ4phQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS4PR04MB9621.eurprd04.prod.outlook.com (2603:10a6:20b:4ff::22)
- by DU2PR04MB8966.eurprd04.prod.outlook.com (2603:10a6:10:2e1::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.17; Wed, 1 Oct
- 2025 20:47:18 +0000
-Received: from AS4PR04MB9621.eurprd04.prod.outlook.com
- ([fe80::a84d:82bf:a9ff:171e]) by AS4PR04MB9621.eurprd04.prod.outlook.com
- ([fe80::a84d:82bf:a9ff:171e%4]) with mapi id 15.20.9160.014; Wed, 1 Oct 2025
- 20:47:18 +0000
-Date: Wed, 1 Oct 2025 16:47:05 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Shenwei Wang <shenwei.wang@nxp.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org, linux-imx@nxp.com
-Subject: Re: [PATCH v2 1/4] dt-bindings: remoteproc: imx_rproc: Add "rpmsg"
- subnode support
-Message-ID: <aN2TSUE+AVppc4VB@lizhi-Precision-Tower-5810>
-References: <20250922200413.309707-1-shenwei.wang@nxp.com>
- <20250922200413.309707-2-shenwei.wang@nxp.com>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250922200413.309707-2-shenwei.wang@nxp.com>
-X-ClientProxiedBy: SJ0P220CA0024.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:a03:41b::32) To AS4PR04MB9621.eurprd04.prod.outlook.com
- (2603:10a6:20b:4ff::22)
+	id 1v43n9-00000008wTD-13UQ;
+	Wed, 01 Oct 2025 20:51:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=igalia.com;
+	s=20170329; h=Content-Transfer-Encoding:Content-Type:In-Reply-To:From:
+	References:Cc:To:Subject:MIME-Version:Date:Message-ID:Sender:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:
+	List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=lg6fCLmy2w9+WR+K0ohol53Fdm9e/jawsYloYw3+SzY=; b=bL0rZR50CAwOg5alQBQEpOJ5DP
+	fKCjgXaK7PlKlnBhKGZUnMjklwXY9RVNBinia5voFH1IkHyY76IeRuwDeJ+ptsv3CAiRNfTTIX/3P
+	pMuIBjQTNThTfLE65e/wJ2as8JZJVO+sB7tFRjDwcYHf9Tg6LNbmSZMFiWx2hm8MKZzilV205M+ht
+	PwsQrSFOYZO8PPVnElprso+7Im+3V2JJKfUfdiB/kAGMC8c5cQdhum+Eq7ZTW2AWRyHR1B9eKWFIP
+	E5reOL1qNPP1UgiTFxdEAKIfuv7dF5gUwSFTEr19iJoRMXOcp8li86e8uhxGVn6c9AF4BmZ1+bumh
+	Qoo4cZ7g==;
+Received: from [189.6.17.207] (helo=[192.168.174.20])
+	by fanzine2.igalia.com with esmtpsa 
+	(Cipher TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_128_GCM:128) (Exim)
+	id 1v43mc-0031l8-Ne; Wed, 01 Oct 2025 22:50:43 +0200
+Message-ID: <ca9605fc-79da-43c1-9146-3638cd5791c4@igalia.com>
+Date: Wed, 1 Oct 2025 17:50:31 -0300
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4PR04MB9621:EE_|DU2PR04MB8966:EE_
-X-MS-Office365-Filtering-Correlation-Id: 42f5610f-599b-4372-036e-08de012bb56a
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|7416014|376014|52116014|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?N6TWJHEge4YUTh5Bj2QkO5EnjD2P0PKYtDCt4IlT/MOMLLT4ngtCXAatePgn?=
- =?us-ascii?Q?jZOkp9n1tg0YdPg8QGwoBfcRZL4idueib5K+QHs4RCn64UYDCKfkUnTOIOEQ?=
- =?us-ascii?Q?L1n5bIWYsz6KhiN1s2fa7x/IHNh3fUMLAzf79cLQGAx2U1KDgMB7MWe1MgQB?=
- =?us-ascii?Q?b3ttP9KMZCrqKq48qE17t5G8SnLoaQBXFB+SFZ3KdicbgAkg0fye80Mi1KOs?=
- =?us-ascii?Q?uUZWNyf+MCqMJuBLAd6Pb1cNWavVBEyo+xBRN5j3qwGxvIPrx8cyIgpEzCh9?=
- =?us-ascii?Q?bBXxz6kVvU9p7vH9vF1TtHx8o16qnNpp88A0UTibqFgc1iuV3DvB38bYH3uC?=
- =?us-ascii?Q?Oafv3SrBL83X0g4I4bLJs3NPa6Xb2JJJ0ymVOp5HA3YWa9/4YMxxbavFTJrY?=
- =?us-ascii?Q?Z9otxB6sIYmsgcvo/C1vWrSKHy8v/g905I9ubUJik8pQIpOyScRgFSyL3qHg?=
- =?us-ascii?Q?05s9JO8mXpD5Mf7eom5ZjWXlF/2VIGFJXGSxJZLkhKixELaGaf/FeZ8mGmeo?=
- =?us-ascii?Q?7b0wxWHNgskLMP+qqDoiM9GxJW30n8kki18ahVay8xehBFyuIhbeA+drc8KB?=
- =?us-ascii?Q?z82wV0GA5C0lVEQKJBfy7CyVPj9IJKp7f+3oOAQ3Z1NpinJ49IL+e1C+/Lun?=
- =?us-ascii?Q?V/tptnLrn1OWJw3k+fiRPm6RRHCHpD6vX6kE5rrvpv+/YLpvwgHCIL5tNC8L?=
- =?us-ascii?Q?0LSYsAZS2K+z4B+fqlnTlQNdUUJsN5C4Mhn4Q656vnElFQmqIGHxVvewUmZY?=
- =?us-ascii?Q?FgG8zLEe1yHGhk0Ta87UCNa7L92qPcIWXsmA0mK6fuR8bLn0XiwNT2IEdRNu?=
- =?us-ascii?Q?hHZrh2k4ZzvqDPGwL3Q7qKVzK9DPYpLJVXqCsxQkdpj6RZ9Eks3Q6Ap3H1KC?=
- =?us-ascii?Q?SKTLIx4NHLIahhdxSFmNNsrWiQhe0oPoEJN6U1YPKiKRnYSEmb2c3WJlCEkG?=
- =?us-ascii?Q?UvUcE742vA/9X+cTBt8EIEWLI64yMEp4CjldGW+RqWe97cofabRqTXRxLnWs?=
- =?us-ascii?Q?33xtY9U3M5IViMZr1RGmRORP3Qzn1Yptcl91fOUKhApxtb+lebuG0yR43LIB?=
- =?us-ascii?Q?lUYeOnQXiCCcWed0tjRtPrNSaQeaGbSpLKnraw7dAzd36wPD7emjelIAlg/N?=
- =?us-ascii?Q?H491NsNmUkP4Tx6zrrMh3T8uKo+lUWGuSth2AyM98lnt4IfCxVdlWvQUo4vn?=
- =?us-ascii?Q?XlnlXey2z0Cq2st+wwJ7Zb7B2CWkRPRbctGgC3xYnaZcGqbrl9J14+H9T5SM?=
- =?us-ascii?Q?gtluF9nHZuJYWnIW5KdhMIVA8xc4dfkWce2M/Ml4DlSRlBSLvPsAcB2vCIQ2?=
- =?us-ascii?Q?C4AqbfJtNqrPu8tPZatgkwW/oZ7XcpW5qbkVdw2k3HhKAmGhKxbslkiCKkgf?=
- =?us-ascii?Q?qvRgXQNiZTWPCY8DxVa5PM3wl5TJzKjiN74IkMwRQ6ye728icvDKyHjRQW8M?=
- =?us-ascii?Q?UfDVs2BbjqRv+fk88UdgdmODYgAX5pKMP66FtGXd9qO463NUri4uHZm5SLzR?=
- =?us-ascii?Q?/MarzVwLt0Ksf3BV0ureXFe+vVtrXPG/9l4w?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9621.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(7416014)(376014)(52116014)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?QoXt5ZYA3iapYU9uoGYTnOx+/mK3QLixLHTimrJHnlKMcTKy4BB1FEmpZDza?=
- =?us-ascii?Q?2+gQ/aoj32pzbrBBZLvGgYcoflhfeL3Gw1IPtrSrmuzsjhfo6Sfy93fj+Z/X?=
- =?us-ascii?Q?5/UQsVyxIInNRvYoYDtD3rhKIUSEpb9JbKEDV3YJvm3Ff8SGke1/33eR39oL?=
- =?us-ascii?Q?/RHXUZzrhYL+34m4vDUhbhbbkrFYUyn+8Oxz06hX4ZjSc8dCQ2AHw7Hje3zZ?=
- =?us-ascii?Q?ohg98AOrfR1Yna+qjhIxSvi+E5u4tIQxyvwKHbF1d9z6SXmkXMwv+3HcMEbx?=
- =?us-ascii?Q?U+7zW5xybZ/PqE89YPXH3YuTOX3MNUPTPuyDfVXNMS+NhpUk2XfYPOZbqHD9?=
- =?us-ascii?Q?DIvF7c2a3uYNB3tb6uLZkj4uWT7nGNZMrwBpclsYIg89qht4rPvFWNq1H8Vq?=
- =?us-ascii?Q?KIQpIrVCO3qZQDodaoB4cM2CKhOsj90cRym7SderOfaCmiCPO7Jz2zliQfts?=
- =?us-ascii?Q?QUU9geW57QCEkn6ab/14m/MkwUOl2+feKhM7mOJLdhe/wiarbQnGBrMRnvRL?=
- =?us-ascii?Q?mgZ3kzqFD35Kx9oaxF61kmnNKM2mTOUtwRMX8QjStdn2uiqBuJnZkHDIDclV?=
- =?us-ascii?Q?QB5qFwt84DT0RQIkQE+kAJYHoC78f8/iXQFYOSJ2/Sx+qjIbmHH0VNu4IsHm?=
- =?us-ascii?Q?dUvQoxpkLgExcCLDolKiL88Z9EFyjr+a4U9wOapbZoAkCCgWntD7kd5BRsKO?=
- =?us-ascii?Q?uARgUmKDq286W5KPeDmVg6OIoOYH23fwxCbEU34cSzsWB/nY4ovAiIpysxi6?=
- =?us-ascii?Q?u2naViFT9CRlv43lVl6laSE75cjKm7Z40CmsF6h5fD8Crkjw1jivbWFWUnLm?=
- =?us-ascii?Q?ZSdorPYnSJFYgTwihyXyaz1lvMDp3r5m53O2SDjMlJLlDuExLQJuJ5+wL44E?=
- =?us-ascii?Q?DMCGZa6AG+WhS3itCu6O03Ei2UUH2JI6Pc40jCXk6mnY985Enxw3bVxeIES6?=
- =?us-ascii?Q?ijfGCQrbN1DAxJObszdl1DeT9dHg/+rT0JNJQpuVa1Ou4imIUnF5+EAeSuSi?=
- =?us-ascii?Q?FCqzseBvOUUf1VHC/xIPBcSSMwyNyaWFkcS5vLVhX35882FyaB3mxh+Y67aZ?=
- =?us-ascii?Q?JK7gSRfuOKArBHJy7viuf9/kPqUDcz5wKU/ColDVr6adLFSzqvMSuH5QzBQm?=
- =?us-ascii?Q?98iXOdoXn00AvqjboAe5GsJZHEpVrjlkLHZILgksvkv2kfkxen3qHG3WbiYs?=
- =?us-ascii?Q?CiDvgSQgeOb3jwJoDep0PoeIqqATsha9bjU47XB1KyC0I1JhvWW4w5Hrw7oi?=
- =?us-ascii?Q?KBeLTEn9ZW4F4THAmYQl+ongVdgVH3lNBxAyVc4qaPJmPRwHUXXCoXRPsXpn?=
- =?us-ascii?Q?F/t0IYHeWp3pBHDRW67y0mqodX+abBO3B87ThdWtUvdY1JzanmrgdCrlyMMr?=
- =?us-ascii?Q?8xisnSdRu32nEKZf3tZnXAcZvqZp+1bSAEVZh8GMo71Xi7Pt0P11p+MlO/Ub?=
- =?us-ascii?Q?Koa9BsBKhk+vV9sCH6Jtn3utNytSYiVHwOf2XVYDPo1oPr5ZOPswvrR+/2IP?=
- =?us-ascii?Q?mOHanIFIw/kL2WnPqXZwPksyQoRYu3KwTY5vhO3U8vWE2zcM2VOfAhC8s2wU?=
- =?us-ascii?Q?RweIqdBNfQcg94i8wWfRJmiUaIJTQxVZ1lAnaCla?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 42f5610f-599b-4372-036e-08de012bb56a
-X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9621.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Oct 2025 20:47:18.2211
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: i3fS5wBcedG+aI0uyc+eo4JdCY8qoHtuQpvJJdtOgxtJpG32cjttwBKQW5JAbPa3UN9l4DkTNvWvDkEbWJC8Pw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU2PR04MB8966
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/5] clk: bcm: rpi: Turn firmware clock on/off when
+ preparing/unpreparing
+To: Stefan Wahren <wahrenst@gmx.net>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, =?UTF-8?Q?Ma=C3=ADra_Canal?=
+ <mcanal@igalia.com>, Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Nicolas Saenz Julienne <nsaenz@kernel.org>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Maxime Ripard <mripard@kernel.org>, Iago Toral Quiroga <itoral@igalia.com>,
+ Dom Cobley <popcornmix@gmail.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>
+Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com
+References: <20250731-v3d-power-management-v2-0-032d56b01964@igalia.com>
+ <20250731-v3d-power-management-v2-2-032d56b01964@igalia.com>
+ <CGME20250925075711eucas1p26efbb194311a6e22ab593a39b43e12c3@eucas1p2.samsung.com>
+ <727aa0c8-2981-4662-adf3-69cac2da956d@samsung.com>
+ <2b1537c1-93e4-4c6c-8554-a2d877759201@gmx.net>
+ <1e5d1625-1326-4565-8407-71a58a91d230@samsung.com>
+ <c40880aa-ce14-41bc-a32f-7f46506a8909@gmx.net>
+Content-Language: en-US
+From: Melissa Wen <mwen@igalia.com>
+In-Reply-To: <c40880aa-ce14-41bc-a32f-7f46506a8909@gmx.net>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_134728_660987_C484420B 
-X-CRM114-Status: GOOD (  21.90  )
+X-CRM114-CacheID: sfid-20251001_135115_286501_E9834D4E 
+X-CRM114-Status: GOOD (  28.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,181 +90,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 22, 2025 at 03:04:10PM -0500, Shenwei Wang wrote:
-> Remote processors may announce multiple devices (e.g., I2C, GPIO) over
-> an RPMSG channel. These devices may require corresponding device tree
-> nodes, especially when acting as providers, to supply phandles for their
-> consumers.
->
-> Define an RPMSG node to work as a container for a group of RPMSG channels
-> under the imx_rproc node.
->
-> Each subnode within "rpmsg" represents an individual RPMSG channel. The
-> name of each subnode corresponds to the channel name as defined by the
-> remote processor.
->
-> All remote devices associated with a given channel are defined as child
-> nodes under the corresponding channel node.
->
-> Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
-> ---
->  .../bindings/remoteproc/fsl,imx-rproc.yaml    | 129 ++++++++++++++++++
->  1 file changed, 129 insertions(+)
->
-> diff --git a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
-> index 57d75acb0b5e..16c7db4c5a79 100644
-> --- a/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
-> +++ b/Documentation/devicetree/bindings/remoteproc/fsl,imx-rproc.yaml
-> @@ -84,6 +84,98 @@ properties:
->        This property is to specify the resource id of the remote processor in SoC
->        which supports SCFW
->
-> +  rpmsg:
-> +    type: object
-> +    additionalProperties: false
-> +    description:
-> +      Present a group of RPMSG channel devices.
-> +
-> +    properties:
-> +      '#address-cells':
-> +        const: 1
-> +
-> +      '#size-cells':
-> +        const: 0
 
-This is reduntant. child nodes have not address.
 
-> +
-> +      rpmsg-io-channel:
-> +        type: object
-> +        unevaluatedProperties: false
-
-should be additionalProperties: false if no $ref
-
-Frank
-> +        properties:
-> +          '#address-cells':
-> +            const: 1
-> +
-> +          '#size-cells':
-> +            const: 0
-> +
-> +        patternProperties:
-> +          "gpio@[0-9a-f]+$":
-> +            type: object
-> +            unevaluatedProperties: false
-> +            properties:
-> +              compatible:
-> +                enum:
-> +                  - fsl,imx-rpmsg-gpio
-> +
-> +              reg:
-> +                maxItems: 1
-> +
-> +              "#gpio-cells":
-> +                const: 2
-> +
-> +              gpio-controller: true
-> +
-> +              interrupt-controller: true
-> +
-> +              "#interrupt-cells":
-> +                const: 2
-> +
-> +            required:
-> +              - compatible
-> +              - reg
-> +              - "#gpio-cells"
-> +              - "#interrupt-cells"
-> +
-> +            allOf:
-> +              - $ref: /schemas/gpio/gpio.yaml#
-> +              - $ref: /schemas/interrupt-controller.yaml#
-> +
-> +        required:
-> +          - '#address-cells'
-> +          - '#size-cells'
-> +
-> +      rpmsg-i2c-channel:
-> +        type: object
-> +        unevaluatedProperties: false
-> +        properties:
-> +          '#address-cells':
-> +            const: 1
-> +
-> +          '#size-cells':
-> +            const: 0
-> +
-> +        patternProperties:
-> +          "i2c@[0-9a-f]+$":
-> +            type: object
-> +            unevaluatedProperties: false
-> +            properties:
-> +              compatible:
-> +                enum:
-> +                  - fsl,imx-rpmsg-i2c
-> +
-> +              reg:
-> +                maxItems: 1
-> +
-> +            required:
-> +              - compatible
-> +              - reg
-> +
-> +            allOf:
-> +              - $ref: /schemas/i2c/i2c-controller.yaml#
-> +
-> +        required:
-> +          - '#address-cells'
-> +          - '#size-cells'
-> +
->  required:
->    - compatible
+On 26/09/2025 07:36, Stefan Wahren wrote:
+> Hi Marek,
 >
-> @@ -146,5 +238,42 @@ examples:
->                  &mu 3 1>;
->        memory-region = <&vdev0buffer>, <&vdev0vring0>, <&vdev0vring1>, <&rsc_table>;
->        syscon = <&src>;
-> +
-> +      rpmsg {
-> +        rpmsg-io-channel {
-> +          #address-cells = <1>;
-> +          #size-cells = <0>;
-> +
-> +          gpio@0 {
-> +            compatible = "fsl,imx-rpmsg-gpio";
-> +            reg = <0>;
-> +            gpio-controller;
-> +            #gpio-cells = <2>;
-> +            #interrupt-cells = <2>;
-> +            interrupt-controller;
-> +            interrupt-parent = <&rpmsg_gpioa>;
-> +          };
-> +
-> +          gpio@1 {
-> +            compatible = "fsl,imx-rpmsg-gpio";
-> +            reg = <1>;
-> +            gpio-controller;
-> +            #gpio-cells = <2>;
-> +            #interrupt-cells = <2>;
-> +            interrupt-controller;
-> +            interrupt-parent = <&rpmsg_gpiob>;
-> +          };
-> +        };
-> +
-> +        rpmsg-i2c-channel {
-> +          #address-cells = <1>;
-> +          #size-cells = <0>;
-> +
-> +          i2c@0 {
-> +            compatible = "fsl,imx-rpmsg-i2c";
-> +            reg = <0>;
-> +          };
-> +        };
-> +      };
->      };
->  ...
-> --
-> 2.43.0
+> Am 26.09.25 um 09:27 schrieb Marek Szyprowski:
+>> On 25.09.2025 18:48, Stefan Wahren wrote:
+>>> Am 25.09.25 um 09:57 schrieb Marek Szyprowski:
+>>>> On 31.07.2025 23:06, Maíra Canal wrote:
+>>>>> Currently, when we prepare or unprepare RPi's clocks, we don't 
+>>>>> actually
+>>>>> enable/disable the firmware clock. This means that
+>>>>> `clk_disable_unprepare()` doesn't actually change the clock state at
+>>>>> all, nor does it lowers the clock rate.
+>>>>>
+>>>>> >From the Mailbox Property Interface documentation [1], we can see 
+>>>>> that
+>>>>> we should use `RPI_FIRMWARE_SET_CLOCK_STATE` to set the clock state
+>>>>> off/on. Therefore, use `RPI_FIRMWARE_SET_CLOCK_STATE` to create a
+>>>>> prepare and an unprepare hook for RPi's firmware clock.
+>>>>>
+>>>>> As now the clocks are actually turned off, some of them are now 
+>>>>> marked
+>>>>> CLK_IS_CRITICAL, as those are required to be on during the whole 
+>>>>> system
+>>>>> operation.
+>>>>>
+>>>>> Link:https://github.com/raspberrypi/firmware/wiki/Mailbox-property-interface 
+>>>>>
+>>>>> [1]
+>>>>> Signed-off-by: Maíra Canal<mcanal@igalia.com>
+>>>>>
+>>>>> ---
+>>>>>
+>>>>> About the pixel clock: currently, if we actually disable the pixel
+>>>>> clock during a hotplug, the system will crash. This happens in the
+>>>>> RPi 4.
+>>>>>
+>>>>> The crash happens after we disabled the CRTC (thus, the pixel clock),
+>>>>> but before the end of atomic commit tail. As vc4's pixel valve 
+>>>>> doesn't
+>>>>> directly hold a reference to its clock – we use the HDMI encoder to
+>>>>> manage the pixel clock – I believe we might be disabling the clock
+>>>>> before we should.
+>>>>>
+>>>>> After this investigation, I decided to keep things as they current 
+>>>>> are:
+>>>>> the pixel clock is never disabled, as fixing it would go out of
+>>>>> the scope of this series.
+>>>>> ---
+>>>>>     drivers/clk/bcm/clk-raspberrypi.c | 56
+>>>>> ++++++++++++++++++++++++++++++++++++++-
+>>>>>     1 file changed, 55 insertions(+), 1 deletion(-)
+>>>> This patch landed recently in linux-next as commit 919d6924ae9b ("clk:
+>>>> bcm: rpi: Turn firmware clock on/off when preparing/unpreparing"). 
+>>>> In my
+>>>> tests I found that it breaks booting of RaspberryPi3B+ board in ARM
+>>>> 32bit mode. Surprisingly the same board in ARM 64bit mode correctly
+>>>> boots a kernel compiled from the same source. The RPi3B+ board freezes
+>>>> after loading the DRM modules (kernel compiled from
+>>>> arm/multi_v7_defconfig):
+>>> thanks for spotting and bisecting this. Sorry, I only reviewed the
+>>> changes and didn't had the time to test any affected board.
+>>>
+>>> I was able to reproduce this issue and the following workaround avoid
+>>> the hang in my case:
+>>>
+>>> diff --git a/drivers/clk/bcm/clk-raspberrypi.c
+>>> b/drivers/clk/bcm/clk-raspberrypi.c
+>>> index 1a9162f0ae31..94fd4f6e2837 100644
+>>> --- a/drivers/clk/bcm/clk-raspberrypi.c
+>>> +++ b/drivers/clk/bcm/clk-raspberrypi.c
+>>> @@ -137,6 +137,7 @@ 
+>>> raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] = {
+>>>          [RPI_FIRMWARE_V3D_CLK_ID] = {
+>>>                  .export = true,
+>>>                  .maximize = true,
+>>> +               .flags = CLK_IS_CRITICAL,
+>>>          },
+>>>          [RPI_FIRMWARE_PIXEL_CLK_ID] = {
+>>>                  .export = true,
+>>>
+>> Right, this fixes (frankly speaking 'hides') the issue. Feel free to 
+>> add:
+>>
+>> Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
+>> Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+>>
+> AFAIK the offending clock change isn't in the downstream kernel, so I 
+> like to see the opinion of María and the Raspberry Pi people first.
+
+Hi,
+
+I see in the downstream kernel the CLOCK_V3D was removed in favor of 
+firmware clock:
+https://github.com/raspberrypi/linux/blob/rpi-6.12.y/drivers/clk/bcm/clk-bcm2835.c#L2076
+
+Also, v3d in RPi4 is set to use the firmware clock:
+https://github.com/torvalds/linux/blob/master/arch/arm/boot/dts/broadcom/bcm2711-rpi.dtsi#L97
+
+I think v3d clock is missed on boot, but I also think the issue should 
+be solved by setting the v3d firmware clock for Pi3.
+WDYT? Can you check it on your side? Something like:
+
+diff --git a/arch/arm/boot/dts/broadcom/bcm2835-rpi-common.dtsi 
+b/arch/arm/boot/dts/broadcom/bcm2835-rpi-common.dtsi
+index 8b3c21d9f333..3289cb5dfa8e 100644
+--- a/arch/arm/boot/dts/broadcom/bcm2835-rpi-common.dtsi
++++ b/arch/arm/boot/dts/broadcom/bcm2835-rpi-common.dtsi
+@@ -14,6 +14,7 @@ &hdmi {
+  };
+
+  &v3d {
++       clocks = <&firmware_clocks 5>;
+         power-domains = <&power RPI_POWER_DOMAIN_V3D>;
+  };
+
+Best regards,
+
+Melissa
+
 >
+> Currently I know that in the error case the following clocks are 
+> disabled during boot of Raspberry Pi 3B+:
+> fw-clk-vec
+> fw-clk-isp
+> fw-clk-v3d
+>
+> So it's very likely that the vc4 drivers tries to access the register 
+> after the these clocks has been disabled and then the system freeze. 
+> The workaround above was just a wild guess, so currently I don't know 
+> why this change avoid the freeze.
+>
+> Best regards
+
 
