@@ -4,76 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2BD1ECCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 13:17:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5CEFDCCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 13:20:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mxkTGNg1BhjtmTzMi3vQGDVUE9V4cg0At6YGOsfRxto=; b=lcGV2bv3TgjUm2qG29wLDdhk92
-	MLLu4rxzwfozLBE/4a0eAfHh7si2wlT5aXTNbzlbjl9pHcwZKIvR8VXu1jeu16godJdOUS10Ieidu
-	D036jnFkhOBfYr2Dr9sCnlXI9MmMQPDFZvD08SAaKmN8Z+elPBUdSPNRzUh02LTGx5g1HS+3y45Gl
-	OQHlvxW/yt1WYFaB87vKmEFN/UGz6h0w8ZCQLDDV3J4KW9ndFO/7sl0OjFPiDB8TVJVZh937s43qW
-	2q/pdY83ySn7ZgCOP6yAI8si+FHo0LrDgqZ7lZ2KYOQES6eOWFSE9e0LLMyojCeY8VwRS3uMFxaGs
-	H1tXqixw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ov5rFjY0U1WN9ObD/h/TivyoXuMJd2BvU1VkqGuPuB4=; b=PemuMLe7OwRykTdUawUhXn+cIg
+	5hUD7FnkVf/IutCsQfmKXiqXh6sxeXWkHki/k0OnRR9Khd9RZdy7jm/VkBzGmxBmoIj5TdI7eOg7W
+	nshHeJOBYwEMz853INRO3TY88XDpvO8Fg0uzVFj6bxo47w0QNL2SSxGClzVkE7I1LsI0VrsSnOfXK
+	UUiJQjRGVp+P115QTuXqPQNF/FvR1ThGex16pAfp1ZdOBG/sJBC7s5DM9aSqL8AofxuJvmQ35rF8J
+	nEvKQCL7TZb4BSpolH4PBiv8USv2M+7xlcPcBWbDxhs4KkA8SDGOw9qTIvVgjemDCbSQ3xHu3dIN4
+	a3+dRFPQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3wiC-00000007zBK-0peT;
-	Wed, 01 Oct 2025 13:17:40 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3wi9-00000007zAK-2DHH;
-	Wed, 01 Oct 2025 13:17:38 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1759324642; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=fk+Hh13/QGueiC5i6JPhAs0GfkXFqBevVokNHUoKVuJUrEdN+ye5ePB2A+kZrfNNGm/jYaWpvpH9qmczELXFogyP136G1jwjmiYuEsRa8zxswUjhm2LTlwiWr2+m5ms/hUMH6LdKMCeyl+O1zER1UzXN+CHNwyaGJDx0tEaNg7g=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1759324642; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=mxkTGNg1BhjtmTzMi3vQGDVUE9V4cg0At6YGOsfRxto=; 
-	b=R0qSw7+kW0rXuKbUH1eNFb+66c5Tyydvn1Cta7SzaBrKkQ+BRdDr+ZnIslfw+My0rBSzYwC1K1++CDG5IYHN7jk2eMySc2e7Yb6HPkux2BqEZEZJukm1mf75O0UZ3DXpR356lv8FuN+jvLASsyI8tQY3pReLUM+/MmovUBkyBjk=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1759324642;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=mxkTGNg1BhjtmTzMi3vQGDVUE9V4cg0At6YGOsfRxto=;
-	b=gQj7zCnpR2AJaz7pq7X86r0+et2Umw3d+B+DDOr6EacB5eIOnCfo4OPQB/16gZY7
-	++fxUAenFqkb9OYbFm5qn8GPX+nbFyREL5pvXbxJr/t/osy7O0ak1rhINqE70vH4wEa
-	pQBwawHRLZERQpj3ctHxG6RKlYglAbzHbahN1wA0=
-Received: by mx.zohomail.com with SMTPS id 1759324639527427.17839715255684;
-	Wed, 1 Oct 2025 06:17:19 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Guangjie Song <guangjie.song@mediatek.com>,
- Laura Nao <laura.nao@collabora.com>,
- =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>,
- Yassine Oudjana <y.oudjana@protonmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: kernel@collabora.com,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 4/4] clk: mediatek: Add rpm clocks to clk-mt8196-mfg
-Date: Wed, 01 Oct 2025 15:17:13 +0200
-Message-ID: <6441788.lOV4Wx5bFT@workhorse>
-In-Reply-To: <748f1176-c73c-48af-a1af-0b63d088e834@collabora.com>
-References: <20250929-mtk-pll-rpm-v1-0-49541777878d@collabora.com>
- <20250929-mtk-pll-rpm-v1-4-49541777878d@collabora.com>
- <748f1176-c73c-48af-a1af-0b63d088e834@collabora.com>
+	id 1v3wkq-00000007zUk-20yH;
+	Wed, 01 Oct 2025 13:20:24 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v3wko-00000007zUO-3qiM
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Oct 2025 13:20:24 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 79DF316F2;
+	Wed,  1 Oct 2025 06:20:13 -0700 (PDT)
+Received: from [10.57.0.204] (unknown [10.57.0.204])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 87D133F59E;
+	Wed,  1 Oct 2025 06:20:16 -0700 (PDT)
+Message-ID: <2226e62f-76ca-4467-a8ae-460fd463df0a@arm.com>
+Date: Wed, 1 Oct 2025 14:20:13 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 05/43] arm64: RME: Check for RME support at KVM init
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>
+References: <20250820145606.180644-1-steven.price@arm.com>
+ <20250820145606.180644-6-steven.price@arm.com> <86ms6azxt5.wl-maz@kernel.org>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <86ms6azxt5.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_061737_815004_F9A4BE02 
-X-CRM114-Status: GOOD (  37.73  )
+X-CRM114-CacheID: sfid-20251001_062023_056566_67B4F842 
+X-CRM114-Status: GOOD (  37.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,265 +77,311 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wednesday, 1 October 2025 13:49:54 Central European Summer Time AngeloGioacchino Del Regno wrote:
-> Il 29/09/25 14:13, Nicolas Frattaroli ha scritto:
-> > The mfgpll clocks on mt8196 require that the MFG's EB clock is on if
-> > their control registers are touched in any way at all.
+On 01/10/2025 12:05, Marc Zyngier wrote:
+> On Wed, 20 Aug 2025 15:55:25 +0100,
+> Steven Price <steven.price@arm.com> wrote:
+>>
+>> Query the RMI version number and check if it is a compatible version. A
+>> static key is also provided to signal that a supported RMM is available.
+>>
+>> Functions are provided to query if a VM or VCPU is a realm (or rec)
+>> which currently will always return false.
+>>
+>> Later patches make use of struct realm and the states as the ioctls
+>> interfaces are added to support realm and REC creation and destruction.
+>>
+>> Reviewed-by: Gavin Shan <gshan@redhat.com>
+>> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> ---
+>> Changes since v8:
+>>  * No need to guard kvm_init_rme() behind 'in_hyp_mode'.
+>> Changes since v6:
+>>  * Improved message for an unsupported RMI ABI version.
+>> Changes since v5:
+>>  * Reword "unsupported" message from "host supports" to "we want" to
+>>    clarify that 'we' are the 'host'.
+>> Changes since v2:
+>>  * Drop return value from kvm_init_rme(), it was always 0.
+>>  * Rely on the RMM return value to identify whether the RSI ABI is
+>>    compatible.
+>> ---
+>>  arch/arm64/include/asm/kvm_emulate.h | 18 +++++++++
+>>  arch/arm64/include/asm/kvm_host.h    |  4 ++
+>>  arch/arm64/include/asm/kvm_rme.h     | 56 ++++++++++++++++++++++++++++
+>>  arch/arm64/include/asm/virt.h        |  1 +
+>>  arch/arm64/kvm/Makefile              |  2 +-
+>>  arch/arm64/kvm/arm.c                 |  5 +++
+>>  arch/arm64/kvm/rme.c                 | 56 ++++++++++++++++++++++++++++
+>>  7 files changed, 141 insertions(+), 1 deletion(-)
+>>  create mode 100644 arch/arm64/include/asm/kvm_rme.h
+>>  create mode 100644 arch/arm64/kvm/rme.c
+>>
+>> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
+>> index fa8a08a1ccd5..ab4093e41c4b 100644
+>> --- a/arch/arm64/include/asm/kvm_emulate.h
+>> +++ b/arch/arm64/include/asm/kvm_emulate.h
+>> @@ -674,4 +674,22 @@ static inline void vcpu_set_hcrx(struct kvm_vcpu *vcpu)
+>>  			vcpu->arch.hcrx_el2 |= HCRX_EL2_SCTLR2En;
+>>  	}
+>>  }
+>> +
+>> +static inline bool kvm_is_realm(struct kvm *kvm)
+>> +{
+>> +	if (static_branch_unlikely(&kvm_rme_is_available) && kvm)
 > 
-> ....so, the MFGPLL clocks are children of EB?
-> 
-> Why are you using such a convoluted way of adding a parent clock to the MFGPLL
-> instead of just
-> ---->   `.parent_name = "mfg_eb"`  <-----
-> 
-> ???????
+> Under what circumstances would you call this with a NULL pointer?
 
-They're not children. A child would mean that they derive their
-clock rate from the parent clock. This isn't the relationship here
-though, their clock signal is completely independent of mfg_eb,
-but the registers they access for clock control depend on mfg_eb to
-be on. This means that even if mfgpll is off, and something wants to
-check if they're on or not, the mfg_eb needs to be on for that
-register access to happen. Similarly, when reconfiguring the mfgpll
-rate, the clock rate of mfg_eb plays no role. It just needs to be on
-for the register access.
+kvm_vm_ioctl_check_extension() is the culprit. I guess this could be
+handled with an equivalent to kvm_pvm_ext_allowed().
 
-mfg_eb here is a clock that drives a register, the register just
-happens to be part of a clock controller.
-
-Kind regards,
-Nicolas Frattaroli
-
+>> +		return kvm->arch.is_realm;
+>> +	return false;
+>> +}
+>> +
+>> +static inline enum realm_state kvm_realm_state(struct kvm *kvm)
+>> +{
+>> +	return READ_ONCE(kvm->arch.realm.state);
+>> +}
+>> +
+>> +static inline bool vcpu_is_rec(struct kvm_vcpu *vcpu)
+>> +{
+>> +	return false;
+>> +}
+>> +
+>>  #endif /* __ARM64_KVM_EMULATE_H__ */
+>> diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+>> index 2f2394cce24e..d1511ce26191 100644
+>> --- a/arch/arm64/include/asm/kvm_host.h
+>> +++ b/arch/arm64/include/asm/kvm_host.h
+>> @@ -27,6 +27,7 @@
+>>  #include <asm/fpsimd.h>
+>>  #include <asm/kvm.h>
+>>  #include <asm/kvm_asm.h>
+>> +#include <asm/kvm_rme.h>
+>>  #include <asm/vncr_mapping.h>
+>>  
+>>  #define __KVM_HAVE_ARCH_INTC_INITIALIZED
+>> @@ -404,6 +405,9 @@ struct kvm_arch {
+>>  	 * the associated pKVM instance in the hypervisor.
+>>  	 */
+>>  	struct kvm_protected_vm pkvm;
+>> +
+>> +	bool is_realm;
+>> +	struct realm realm;
 > 
-> Cheers,
-> Angelo
-> 
-> > Failing to ensure
-> > this results in a pleasant SError interrupt if the EB clock happens to
-> > be off.
-> > 
-> > To achieve this, leverage the CCF core's runtime power management
-> > support. Define the necessary suspend/resume callbacks, add the
-> > necessary code to get RPM clocks from the DT, and make sure RPM is
-> > enabled before clock registration happens.
-> > 
-> > For the RPM callbacks to really make much sense at all, we change the
-> > drvdata from clk_data to a new private struct, as is common in drivers
-> > across the Linux kernel.
-> > 
-> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> > ---
-> >   drivers/clk/mediatek/clk-mt8196-mfg.c | 104 +++++++++++++++++++++++++++-------
-> >   drivers/clk/mediatek/clk-pll.h        |   2 +
-> >   2 files changed, 87 insertions(+), 19 deletions(-)
-> > 
-> > diff --git a/drivers/clk/mediatek/clk-mt8196-mfg.c b/drivers/clk/mediatek/clk-mt8196-mfg.c
-> > index 8e09c0f7b7548f8e286671cea2dac64530b8ce47..64cc0c037f62d7eab8d0e7fc00c05d122bf4130c 100644
-> > --- a/drivers/clk/mediatek/clk-mt8196-mfg.c
-> > +++ b/drivers/clk/mediatek/clk-mt8196-mfg.c
-> > @@ -13,6 +13,7 @@
-> >   #include <linux/of_address.h>
-> >   #include <linux/of_device.h>
-> >   #include <linux/platform_device.h>
-> > +#include <linux/pm_runtime.h>
-> >   
-> >   #include "clk-mtk.h"
-> >   #include "clk-pll.h"
-> > @@ -38,7 +39,7 @@
-> >   	    _flags, _rst_bar_mask,				\
-> >   	    _pd_reg, _pd_shift, _tuner_reg,			\
-> >   	    _tuner_en_reg, _tuner_en_bit,			\
-> > -	    _pcw_reg, _pcw_shift, _pcwbits) {			\
-> > +	    _pcw_reg, _pcw_shift, _pcwbits, _rpm_clks) {	\
-> >   		.id = _id,					\
-> >   		.name = _name,					\
-> >   		.reg = _reg,					\
-> > @@ -58,26 +59,60 @@
-> >   		.pcw_shift = _pcw_shift,			\
-> >   		.pcwbits = _pcwbits,				\
-> >   		.pcwibits = MT8196_INTEGER_BITS,		\
-> > +		.rpm_clk_names = _rpm_clks,			\
-> > +		.num_rpm_clks = ARRAY_SIZE(_rpm_clks),		\
-> >   	}
-> >   
-> > +static const char * const mfgpll_rpm_clk_names[] = {
-> > +	NULL
-> > +};
-> > +
-> >   static const struct mtk_pll_data mfg_ao_plls[] = {
-> >   	PLL(CLK_MFG_AO_MFGPLL, "mfgpll", MFGPLL_CON0, MFGPLL_CON0, 0, 0, 0,
-> > -	    BIT(0), MFGPLL_CON1, 24, 0, 0, 0,
-> > -	    MFGPLL_CON1, 0, 22),
-> > +	    BIT(0), MFGPLL_CON1, 24, 0, 0, 0, MFGPLL_CON1, 0, 22,
-> > +	    mfgpll_rpm_clk_names),
-> >   };
-> >   
-> >   static const struct mtk_pll_data mfgsc0_ao_plls[] = {
-> >   	PLL(CLK_MFGSC0_AO_MFGPLL_SC0, "mfgpll-sc0", MFGPLL_SC0_CON0,
-> >   	    MFGPLL_SC0_CON0, 0, 0, 0, BIT(0), MFGPLL_SC0_CON1, 24, 0, 0, 0,
-> > -	    MFGPLL_SC0_CON1, 0, 22),
-> > +	    MFGPLL_SC0_CON1, 0, 22, mfgpll_rpm_clk_names),
-> >   };
-> >   
-> >   static const struct mtk_pll_data mfgsc1_ao_plls[] = {
-> >   	PLL(CLK_MFGSC1_AO_MFGPLL_SC1, "mfgpll-sc1", MFGPLL_SC1_CON0,
-> >   	    MFGPLL_SC1_CON0, 0, 0, 0, BIT(0), MFGPLL_SC1_CON1, 24, 0, 0, 0,
-> > -	    MFGPLL_SC1_CON1, 0, 22),
-> > +	    MFGPLL_SC1_CON1, 0, 22, mfgpll_rpm_clk_names),
-> >   };
-> >   
-> > +struct clk_mt8196_mfg {
-> > +	struct clk_hw_onecell_data *clk_data;
-> > +	struct clk_bulk_data *rpm_clks;
-> > +	unsigned int num_rpm_clks;
-> > +};
-> > +
-> > +static int __maybe_unused clk_mt8196_mfg_resume(struct device *dev)
-> > +{
-> > +	struct clk_mt8196_mfg *clk_mfg = dev_get_drvdata(dev);
-> > +
-> > +	if (!clk_mfg || !clk_mfg->rpm_clks)
-> > +		return 0;
-> > +
-> > +	return clk_bulk_prepare_enable(clk_mfg->num_rpm_clks, clk_mfg->rpm_clks);
-> > +}
-> > +
-> > +static int __maybe_unused clk_mt8196_mfg_suspend(struct device *dev)
-> > +{
-> > +	struct clk_mt8196_mfg *clk_mfg = dev_get_drvdata(dev);
-> > +
-> > +	if (!clk_mfg || !clk_mfg->rpm_clks)
-> > +		return 0;
-> > +
-> > +	clk_bulk_disable_unprepare(clk_mfg->num_rpm_clks, clk_mfg->rpm_clks);
-> > +
-> > +	return 0;
-> > +}
-> > +
-> >   static const struct of_device_id of_match_clk_mt8196_mfg[] = {
-> >   	{ .compatible = "mediatek,mt8196-mfgpll-pll-ctrl",
-> >   	  .data = &mfg_ao_plls },
-> > @@ -92,35 +127,60 @@ MODULE_DEVICE_TABLE(of, of_match_clk_mt8196_mfg);
-> >   static int clk_mt8196_mfg_probe(struct platform_device *pdev)
-> >   {
-> >   	const struct mtk_pll_data *plls;
-> > -	struct clk_hw_onecell_data *clk_data;
-> > +	struct clk_mt8196_mfg *clk_mfg;
-> >   	struct device_node *node = pdev->dev.of_node;
-> > +	struct device *dev = &pdev->dev;
-> >   	const int num_plls = 1;
-> > -	int r;
-> > +	int r, i;
-> >   
-> > -	plls = of_device_get_match_data(&pdev->dev);
-> > +	plls = of_device_get_match_data(dev);
-> >   	if (!plls)
-> >   		return -EINVAL;
-> >   
-> > -	clk_data = mtk_alloc_clk_data(num_plls);
-> > -	if (!clk_data)
-> > +	clk_mfg = devm_kzalloc(dev, sizeof(*clk_mfg), GFP_KERNEL);
-> > +	if (!clk_mfg)
-> >   		return -ENOMEM;
-> >   
-> > -	r = mtk_clk_register_plls(&pdev->dev, plls, num_plls, clk_data);
-> > +	clk_mfg->num_rpm_clks = plls[0].num_rpm_clks;
-> > +
-> > +	if (clk_mfg->num_rpm_clks) {
-> > +		clk_mfg->rpm_clks = devm_kcalloc(dev, clk_mfg->num_rpm_clks,
-> > +						 sizeof(*clk_mfg->rpm_clks),
-> > +						 GFP_KERNEL);
-> > +		if (!clk_mfg->rpm_clks)
-> > +			return -ENOMEM;
-> > +
-> > +		for (i = 0; i < clk_mfg->num_rpm_clks; i++)
-> > +			clk_mfg->rpm_clks->id = plls[0].rpm_clk_names[i];
-> > +
-> > +		r = devm_clk_bulk_get(dev, clk_mfg->num_rpm_clks,
-> > +				      clk_mfg->rpm_clks);
-> > +		if (r)
-> > +			return r;
-> > +	}
-> > +
-> > +	clk_mfg->clk_data = mtk_alloc_clk_data(num_plls);
-> > +	if (!clk_mfg->clk_data)
-> > +		return -ENOMEM;
-> > +
-> > +	dev_set_drvdata(dev, clk_mfg);
-> > +	pm_runtime_enable(dev);
-> > +
-> > +	r = mtk_clk_register_plls(dev, plls, num_plls, clk_mfg->clk_data);
-> >   	if (r)
-> >   		goto free_clk_data;
-> >   
-> > -	r = of_clk_add_hw_provider(node, of_clk_hw_onecell_get, clk_data);
-> > +	r = of_clk_add_hw_provider(node, of_clk_hw_onecell_get,
-> > +				   clk_mfg->clk_data);
-> >   	if (r)
-> >   		goto unregister_plls;
-> >   
-> > -	platform_set_drvdata(pdev, clk_data);
-> > -
-> >   	return r;
-> >   
-> >   unregister_plls:
-> > -	mtk_clk_unregister_plls(plls, num_plls, clk_data);
-> > +	mtk_clk_unregister_plls(plls, num_plls, clk_mfg->clk_data);
-> >   free_clk_data:
-> > -	mtk_free_clk_data(clk_data);
-> > +	mtk_free_clk_data(clk_mfg->clk_data);
-> >   
-> >   	return r;
-> >   }
-> > @@ -128,20 +188,26 @@ static int clk_mt8196_mfg_probe(struct platform_device *pdev)
-> >   static void clk_mt8196_mfg_remove(struct platform_device *pdev)
-> >   {
-> >   	const struct mtk_pll_data *plls = of_device_get_match_data(&pdev->dev);
-> > -	struct clk_hw_onecell_data *clk_data = platform_get_drvdata(pdev);
-> > +	struct clk_mt8196_mfg *clk_mfg = dev_get_drvdata(&pdev->dev);
-> >   	struct device_node *node = pdev->dev.of_node;
-> >   
-> >   	of_clk_del_provider(node);
-> > -	mtk_clk_unregister_plls(plls, 1, clk_data);
-> > -	mtk_free_clk_data(clk_data);
-> > +	mtk_clk_unregister_plls(plls, 1, clk_mfg->clk_data);
-> > +	mtk_free_clk_data(clk_mfg->clk_data);
-> >   }
-> >   
-> > +static DEFINE_RUNTIME_DEV_PM_OPS(clk_mt8196_mfg_pm_ops,
-> > +				 clk_mt8196_mfg_suspend,
-> > +				 clk_mt8196_mfg_resume,
-> > +				 NULL);
-> > +
-> >   static struct platform_driver clk_mt8196_mfg_drv = {
-> >   	.probe = clk_mt8196_mfg_probe,
-> >   	.remove = clk_mt8196_mfg_remove,
-> >   	.driver = {
-> >   		.name = "clk-mt8196-mfg",
-> >   		.of_match_table = of_match_clk_mt8196_mfg,
-> > +		.pm = pm_ptr(&clk_mt8196_mfg_pm_ops),
-> >   	},
-> >   };
-> >   module_platform_driver(clk_mt8196_mfg_drv);
-> > diff --git a/drivers/clk/mediatek/clk-pll.h b/drivers/clk/mediatek/clk-pll.h
-> > index 0f2a1d19eea78b7390b221af47016eb9897f3596..82b86b849a67359d8f23d828f50422081c2747e3 100644
-> > --- a/drivers/clk/mediatek/clk-pll.h
-> > +++ b/drivers/clk/mediatek/clk-pll.h
-> > @@ -53,6 +53,8 @@ struct mtk_pll_data {
-> >   	u8 pll_en_bit; /* Assume 0, indicates BIT(0) by default */
-> >   	u8 pcw_chg_bit;
-> >   	u8 fenc_sta_bit;
-> > +	const char * const *rpm_clk_names;
-> > +	unsigned int num_rpm_clks;
-> >   };
-> >   
-> >   /*
-> > 
-> 
-> 
-> 
+> Given that pkvm and CCA are pretty much exclusive, I don't think we
+> need to store both states separately. Make those a union.
 
+Ack
 
+>>  };
+>>  
+>>  struct kvm_vcpu_fault_info {
+>> diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/asm/kvm_rme.h
+>> new file mode 100644
+>> index 000000000000..9c8a0b23e0e4
+>> --- /dev/null
+>> +++ b/arch/arm64/include/asm/kvm_rme.h
+>> @@ -0,0 +1,56 @@
+>> +/* SPDX-License-Identifier: GPL-2.0 */
+>> +/*
+>> + * Copyright (C) 2023 ARM Ltd.
+>> + */
+>> +
+>> +#ifndef __ASM_KVM_RME_H
+>> +#define __ASM_KVM_RME_H
+> 
+> None of that is about RME. This is about CCA, which is purely a SW
+> construct, and not a CPU architecture feature.
+> 
+> So 's/rme/cca/' everywhere that describe something that is not a
+> direct effect of FEAT_RME being implemented on the CPU, but instead
+> something that is CCA-specific.
 
+Ok, it's a lot of churn but you've got a good point.
+
+>> +
+>> +/**
+>> + * enum realm_state - State of a Realm
+>> + */
+>> +enum realm_state {
+>> +	/**
+>> +	 * @REALM_STATE_NONE:
+>> +	 *      Realm has not yet been created. rmi_realm_create() may be
+>> +	 *      called to create the realm.
+>> +	 */
+>> +	REALM_STATE_NONE,
+>> +	/**
+>> +	 * @REALM_STATE_NEW:
+>> +	 *      Realm is under construction, not eligible for execution. Pages
+>> +	 *      may be populated with rmi_data_create().
+>> +	 */
+>> +	REALM_STATE_NEW,
+>> +	/**
+>> +	 * @REALM_STATE_ACTIVE:
+>> +	 *      Realm has been created and is eligible for execution with
+>> +	 *      rmi_rec_enter(). Pages may no longer be populated with
+>> +	 *      rmi_data_create().
+>> +	 */
+>> +	REALM_STATE_ACTIVE,
+>> +	/**
+>> +	 * @REALM_STATE_DYING:
+>> +	 *      Realm is in the process of being destroyed or has already been
+>> +	 *      destroyed.
+>> +	 */
+>> +	REALM_STATE_DYING,
+>> +	/**
+>> +	 * @REALM_STATE_DEAD:
+>> +	 *      Realm has been destroyed.
+>> +	 */
+>> +	REALM_STATE_DEAD
+>> +};
+>> +
+>> +/**
+>> + * struct realm - Additional per VM data for a Realm
+>> + *
+>> + * @state: The lifetime state machine for the realm
+>> + */
+>> +struct realm {
+>> +	enum realm_state state;
+>> +};
+>> +
+>> +void kvm_init_rme(void);
+>> +
+>> +#endif /* __ASM_KVM_RME_H */
+>> diff --git a/arch/arm64/include/asm/virt.h b/arch/arm64/include/asm/virt.h
+>> index aa280f356b96..db73c9bfd8c9 100644
+>> --- a/arch/arm64/include/asm/virt.h
+>> +++ b/arch/arm64/include/asm/virt.h
+>> @@ -82,6 +82,7 @@ void __hyp_reset_vectors(void);
+>>  bool is_kvm_arm_initialised(void);
+>>  
+>>  DECLARE_STATIC_KEY_FALSE(kvm_protected_mode_initialized);
+>> +DECLARE_STATIC_KEY_FALSE(kvm_rme_is_available);
+> 
+> Same thing about RME.
+> 
+>>  
+>>  static inline bool is_pkvm_initialized(void)
+>>  {
+>> diff --git a/arch/arm64/kvm/Makefile b/arch/arm64/kvm/Makefile
+>> index 3ebc0570345c..70fa017831b3 100644
+>> --- a/arch/arm64/kvm/Makefile
+>> +++ b/arch/arm64/kvm/Makefile
+>> @@ -16,7 +16,7 @@ CFLAGS_handle_exit.o += -Wno-override-init
+>>  kvm-y += arm.o mmu.o mmio.o psci.o hypercalls.o pvtime.o \
+>>  	 inject_fault.o va_layout.o handle_exit.o config.o \
+>>  	 guest.o debug.o reset.o sys_regs.o stacktrace.o \
+>> -	 vgic-sys-reg-v3.o fpsimd.o pkvm.o \
+>> +	 vgic-sys-reg-v3.o fpsimd.o pkvm.o rme.o \
+>>  	 arch_timer.o trng.o vmid.o emulate-nested.o nested.o at.o \
+>>  	 vgic/vgic.o vgic/vgic-init.o \
+>>  	 vgic/vgic-irqfd.o vgic/vgic-v2.o \
+>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+>> index 888f7c7abf54..76177c56f1ef 100644
+>> --- a/arch/arm64/kvm/arm.c
+>> +++ b/arch/arm64/kvm/arm.c
+>> @@ -40,6 +40,7 @@
+>>  #include <asm/kvm_nested.h>
+>>  #include <asm/kvm_pkvm.h>
+>>  #include <asm/kvm_ptrauth.h>
+>> +#include <asm/kvm_rme.h>
+>>  #include <asm/sections.h>
+>>  
+>>  #include <kvm/arm_hypercalls.h>
+>> @@ -59,6 +60,8 @@ enum kvm_wfx_trap_policy {
+>>  static enum kvm_wfx_trap_policy kvm_wfi_trap_policy __read_mostly = KVM_WFX_NOTRAP_SINGLE_TASK;
+>>  static enum kvm_wfx_trap_policy kvm_wfe_trap_policy __read_mostly = KVM_WFX_NOTRAP_SINGLE_TASK;
+>>  
+>> +DEFINE_STATIC_KEY_FALSE(kvm_rme_is_available);
+>> +
+>>  DECLARE_KVM_HYP_PER_CPU(unsigned long, kvm_hyp_vector);
+>>  
+>>  DEFINE_PER_CPU(unsigned long, kvm_arm_hyp_stack_base);
+>> @@ -2836,6 +2839,8 @@ static __init int kvm_arm_init(void)
+>>  
+>>  	in_hyp_mode = is_kernel_in_hyp_mode();
+>>  
+>> +	kvm_init_rme();
+>> +
+>>  	if (cpus_have_final_cap(ARM64_WORKAROUND_DEVICE_LOAD_ACQUIRE) ||
+>>  	    cpus_have_final_cap(ARM64_WORKAROUND_1508412))
+>>  		kvm_info("Guests without required CPU erratum workarounds can deadlock system!\n" \
+>> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
+>> new file mode 100644
+>> index 000000000000..67cf2d94cb2d
+>> --- /dev/null
+>> +++ b/arch/arm64/kvm/rme.c
+>> @@ -0,0 +1,56 @@
+>> +// SPDX-License-Identifier: GPL-2.0
+>> +/*
+>> + * Copyright (C) 2023 ARM Ltd.
+>> + */
+>> +
+>> +#include <linux/kvm_host.h>
+>> +
+>> +#include <asm/rmi_cmds.h>
+>> +#include <asm/virt.h>
+>> +
+>> +static int rmi_check_version(void)
+>> +{
+>> +	struct arm_smccc_res res;
+>> +	unsigned short version_major, version_minor;
+>> +	unsigned long host_version = RMI_ABI_VERSION(RMI_ABI_MAJOR_VERSION,
+>> +						     RMI_ABI_MINOR_VERSION);
+>> +
+>> +	arm_smccc_1_1_invoke(SMC_RMI_VERSION, host_version, &res);
+> 
+> Shouldn't you first check that RME is actually available, by looking
+> at ID_AA64PFR0_EL1.RME?
+
+Well, you made a good point above that this isn't RME, it's CCA. And I
+guess there's a possible world where the CCA interface could be
+supported with something other than FEAT_RME (FEAT_RME2 maybe?) so I'm
+not sure it necessarily a good idea to pin this on a CPU feature bit.
+
+Ultimately what we want to know is whether the firmware thinks it can
+supply us with the CCA interface and we don't really care how it
+achieves it.
+
+>> +
+>> +	if (res.a0 == SMCCC_RET_NOT_SUPPORTED)
+>> +		return -ENXIO;
+>> +
+>> +	version_major = RMI_ABI_VERSION_GET_MAJOR(res.a1);
+>> +	version_minor = RMI_ABI_VERSION_GET_MINOR(res.a1);
+>> +
+>> +	if (res.a0 != RMI_SUCCESS) {
+>> +		unsigned short high_version_major, high_version_minor;
+>> +
+>> +		high_version_major = RMI_ABI_VERSION_GET_MAJOR(res.a2);
+>> +		high_version_minor = RMI_ABI_VERSION_GET_MINOR(res.a2);
+>> +
+>> +		kvm_err("Unsupported RMI ABI (v%d.%d - v%d.%d) we want v%d.%d\n",
+>> +			version_major, version_minor,
+>> +			high_version_major, high_version_minor,
+>> +			RMI_ABI_MAJOR_VERSION,
+>> +			RMI_ABI_MINOR_VERSION);
+>> +		return -ENXIO;
+>> +	}
+>> +
+>> +	kvm_info("RMI ABI version %d.%d\n", version_major, version_minor);
+>> +
+>> +	return 0;
+>> +}
+>> +
+>> +void kvm_init_rme(void)
+>> +{
+>> +	if (PAGE_SIZE != SZ_4K)
+>> +		/* Only 4k page size on the host is supported */
+>> +		return;
+> 
+> Move the comment above the check (same thing below).
+
+Ack.
+
+Thanks,
+Steve
 
 
