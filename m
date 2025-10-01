@@ -4,76 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D5ECCCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 12:53:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6AADECCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 13:05:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EQJm+nh1dSIeyxxVeRhCYQmt/xUGFsx9urnYb5ZA2w4=; b=wfavz9sF3JDCWIJFpa1xmZP6fU
-	bRUhYiUC3x9GvlaJeUpaHMjyr5twl8+0XTRDi9704OQ/1TsJjw7Il8h6NCYo3aCzJH8VKk5zuhJAV
-	Ako35ax3CBcQdOF9oTmVkuNwK5l/IhQfYEk6+0nLUfWZfL8635QyfBPQ+zxGTdkBSeC1xzjL0tRVu
-	8ggbeYfD8MSoPujxQocNakSa+GZQXuga+jR0mWqng5GkBWE2SX/Pa5nXztsSSvnf6i4o5k1cOGAP0
-	DOWMW6blkr0iYCEXybNRemSLfRA/2dBLiXi0DOLBNPwX9ei3xj139+trjDMkVwFbSe73bCldiDbh8
-	lc92SyFQ==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:References:MIME-Version:
+	In-Reply-To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FHbqmA3oKpic6IfyRvOOe8x31ZYEYEaGDwcq5aemMoY=; b=rW0n+w+5s4e94KfrrDdjq3lrAl
+	rYJnCblB0SQVJVWIX7JWcUhF2VlYduIgZN47yUab/wER/1Ps3o2Myu7KTyD2wFZtPnYtTCf7qk91O
+	hVSWR3IFGZFIXYbXOfuZQEI4fx9nba1m+EJgAp4aDv7HT7Pn5Fzsew9fgpQ/A8JcYyIla1lqtXyXH
+	4z33XI8C7tP7X/cb5oSjNRqcTydf6ZVLj/23OmXtweALDR2932jROKzBzfocczC9UOyZOJY7gVvzG
+	qs+35XBzdKHhgs0QfUH4yJv9vSClVngsxVf7fpD1hrgC/f4LESGGPci5GRtup4P+a0xUPmYKqZ2lv
+	/MK0x7KQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3wKZ-00000007wkx-1ukB;
-	Wed, 01 Oct 2025 12:53:15 +0000
-Received: from mout.web.de ([212.227.17.12])
+	id 1v3wVv-00000007xih-1D6R;
+	Wed, 01 Oct 2025 13:04:59 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3wKW-00000007wii-0JnF
+	id 1v3wVs-00000007xiC-1eCc
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 12:53:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1759323157; x=1759927957; i=markus.elfring@web.de;
-	bh=EQJm+nh1dSIeyxxVeRhCYQmt/xUGFsx9urnYb5ZA2w4=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:Subject:To:Cc:
-	 References:From:In-Reply-To:Content-Type:
-	 Content-Transfer-Encoding:cc:content-transfer-encoding:
-	 content-type:date:from:message-id:mime-version:reply-to:subject:
-	 to;
-	b=EG8DJmVSfZBa1kdt1vOvdKxj0DpOyANed8FoKyfOXwsdJpBVr/bFFRawwWoxYN7K
-	 8CbacH7n8IbxVOv/qzFpilnhjwbgmlO+ioPhCFe6EiP6BU+9HwhIIUD36GtTQYc4R
-	 6EIIEvizR392upiOYYlvxqAPmQI5SFFVkodrH7ZBTRKJcKIt+m8IEyO1q/4y9tWSq
-	 9WF5HqUZEriQqsR63ZqN4aDfqOpbGO9VNrkVvfzZwgGA8VmE/pwPPq3DwmUPb2+vn
-	 BjsHQRXiwj+9K+EY1R72iYNfliBzhxf8Lb4WHu482oZ6HU8DmZljm5u2Z4EoH4HiC
-	 /kO23+hxBmh1GImzyw==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.69.174]) by smtp.web.de (mrweb106
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MJWsc-1ukDc51gAy-00Yx66; Wed, 01
- Oct 2025 14:52:37 +0200
-Message-ID: <a3b93cc1-0c0f-4aa7-9b08-b3821ce8e70e@web.de>
-Date: Wed, 1 Oct 2025 14:52:36 +0200
+	Wed, 01 Oct 2025 13:04:57 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-78af9ebe337so361849b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 06:04:56 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1759323895; x=1759928695; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:references
+         :mime-version:in-reply-to:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=FHbqmA3oKpic6IfyRvOOe8x31ZYEYEaGDwcq5aemMoY=;
+        b=z9/1ax+RJoroOGS1IuFjkyApZ76VYEE2YcqKvKCgaKapsEJ4WIdEGkfOPHh462ts2J
+         WSP0ooinK3K0W5IyQ5dtHHGQKHIH1p5sxpdzWznJXMPGGvVMtCNxd3vtQHBts0xJv2kr
+         PE7fqyFOsODkBllMA67829Cs4c2FBj4125NK7cnmVkuTQZyBi20oUHQ6pV7LCOAqkw6z
+         vitVLIfjK5VnhdDBgUzpUT2IHqs8MtwI4i2mZJ/rIJ7sBK8PqierOAwreyR5RHNXL75N
+         tMlOex61IghIbv1HKsvAOlXEl507cq2XzCu2Mg4KRu07LSmhL91u8n+9m237Rp0j1Cku
+         FEPA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759323895; x=1759928695;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:references
+         :mime-version:in-reply-to:from:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=FHbqmA3oKpic6IfyRvOOe8x31ZYEYEaGDwcq5aemMoY=;
+        b=wUnIaaI4I3+SPtxvZH2DaZQKd2D3PY94xL9X/pES2+wKnwNWXQDe2CGyrQF5+umdbp
+         VncmEgVxOLAB+bYBARbr/8PFGNr9vvEvdm/CjgYzTr2z3tuDegm3fi9mai3pg2SfX8lc
+         9mBVhULXyxtIW7qohCr+ESk3xfrrhUvwHueHgSiip4uuJ2jLZCyjsrrjAFy2fNfyLt80
+         8XyV2SBv+G8YaQN8uafQT0VflTFDsTzbfWPA4vPEBH3jyTxtE68xnH3K20YhYtXVvJGO
+         3LOTErAoJ8Grno3/4lz65CiYy8xdAGDD8qz0bwleax4V6Pi6lqNAgBlb+7Gh7rKwep9q
+         ex6Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUmTY9woc/Zi2t/D4eiUPaKDxFop8gv8xWsP/9tdJqB70+eDd6Db3ZQjB9KZw4pAC1SxMm6yS/pFIUleZdse2jn@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQsQS1YkIhBglbHFDmzaEDYP1m+0FSCaxHN5jom6nTQyJ1sHP1
+	zi8bTqzGubOrkiLT/T8E7mYty4RFoxEwP6LTp5Um6Z6YpOnHQYV70yl22v7DDzmROd1QtyUMQFQ
+	4oAgFmF+JkrHAA67FyKgFh+LNtLGi8exv0altagVlWQ==
+X-Gm-Gg: ASbGncvLHmrN6uS+43PQTMuEaU7DCM1gy9LYcIKz9gO4IdOyxTMl4w29/eaWhhk+zsV
+	WQSKwysXIF8QbzyUh8MlG3eMPqwpFFbrZiKN818qMsM1PA0EBVQmK5058zt5jH5ZBJYjMaio3br
+	4wAEX83aJSDXUYHnUXKEiL2Ge79fTDT4uoSSHPzuyUzcIdKNG4ua77IBjRGbPKj/DNecBUDc1FZ
+	WIxkSQI5Lphk5FHf7vVRadaCZ/HEh6e8rUIPjGNw01F8XbXdA6scRxnx3cnGlc=
+X-Google-Smtp-Source: AGHT+IHIX0BnzV5QR3ZUNafIRXxWw+fJ+TE74iOPYTO055yiV9YQx881LMKJ8ntEhbIPyMH/yj9fWYf3xbX9jssRLhM=
+X-Received: by 2002:a17:903:15cc:b0:26c:e270:6dad with SMTP id
+ d9443c01a7336-28e7f43f288mr40560635ad.60.1759323893974; Wed, 01 Oct 2025
+ 06:04:53 -0700 (PDT)
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 1 Oct 2025 06:04:51 -0700
+Received: from 969154062570 named unknown by gmailapi.google.com with
+ HTTPREST; Wed, 1 Oct 2025 06:04:51 -0700
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+In-Reply-To: <CACRpkda-ZvrAC4bNLnA+ao0Y8-Nd_-b89N6HU10hhEdaOUYAjw@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: mfd: macsmc: Initialize mutex
-To: Lee Jones <lee@kernel.org>, Janne Grunau <j@jannau.net>,
- asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Cc: LKML <linux-kernel@vger.kernel.org>, Neal Gompa <neal@gompa.dev>,
- Sven Peter <sven@kernel.org>
-References: <20250925-macsmc-mutex_init-v1-1-416e9e644735@jannau.net>
- <1bc9a4b3-7a8d-4bcf-9481-36fdc76e066c@web.de>
- <20251001095505.GP8757@google.com>
- <0acf13d6-d63b-4079-93ba-d53910e624d7@web.de>
- <20251001124825.GR8757@google.com>
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20251001124825.GR8757@google.com>
-Content-Type: text/plain; charset=UTF-8
+References: <20250924-gpio-shared-v1-0-775e7efeb1a3@linaro.org>
+ <CACRpkdYcVtJjRHRJ8GgeU7rZDuyaJKu0vgcknb7DsHPjZGKGuA@mail.gmail.com> <CACRpkda-ZvrAC4bNLnA+ao0Y8-Nd_-b89N6HU10hhEdaOUYAjw@mail.gmail.com>
+Date: Wed, 1 Oct 2025 06:04:51 -0700
+X-Gm-Features: AS18NWB4-ek2de5G39SVs91_zyxyHsKkPvhufhJXGysoQ2YUW53Yv6YTbFeN0M4
+Message-ID: <CAMRc=Mdb_cUG+hKq8GyfUP1SYBh0p19J+4dFG7G3JSuZTr4n8Q@mail.gmail.com>
+Subject: Re: [PATCH RFC 0/9] gpio: improve support for shared GPIOs
+To: Linus Walleij <linus.walleij@linaro.org>
+Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Andy Shevchenko <andy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, linux-hardening@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>
+Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:nIlg7r1TlwM8dgTZVwT5C9K0hIr8YKLDtBzoTr+qXcyL1N5q9HG
- o7giU8FzZ1Ouvt3qmbrdpUSIFYlpJ16xudJiYXRiP3+1ITqaVT0RIBZDyLwN53AFbAlrlcq
- FzNoAVUoupvPYbnkJVsNDEo6qgI3H+JjFw3muEVhWFU8d8GfAXhhgOsdTGpttNmXkh6T9+p
- 3Ikq0nL6BDDjaDtX35WuQ==
-UI-OutboundReport: notjunk:1;M01:P0:sj/TfKZW7vA=;K6f1njouEq6XGoVGCyR3Shd/oJo NOA2sTX/KgiykroIZvoWFcSLsjb13xP36JyNBpp76XiI/87kEpX+HSREV1DN+UuctQ78abLsV LEL0ZKszMgVZYdPgFdXH0ySEE6TqleVtDRNv+BxePHwgLF7o4H/IDdVALwr8Oqnikyvs8qrji EoT4EqQQ3TO4Ct2HgNATbN9V/YullDeNkzvttDDAMQMvKgAbsdOxX1ebSlluOelZvYye3YJWC NLa47S9PdrZ+n3SwDZJfTLEC6m1wJBYLWQLzRY6VxCGBpM0nGpRHApYECI5AgVopUOL84GpIa mI0FagQTeQKn/k4oTBWdY1nQq2RN7I0BU1+pk5qihtNzPIK21XB7Ui7CQyknpJJ9lZ9i8p1Vf 9VjpftsQ1ySiQsU3NMuSP14k8bDbcpGfNSI2G70Vh3Czz+HOkk8RX9izu06HLXibu37zVydi0 95BkA3ysQXXVvOqdSWsT7FlcCjnPWFxt/ATFTjkNwbNKtAP2Yde1tVNeBvwF0vHfUJ2wOLVQ6 cbi2Ruh5/AsKgKCJiRYVIclXg9JaPba/Di/wdLU39SITZmSboQwsXRcLGUHBL+Lh9xDKPUb29 q0ojunGKrds/+K3XsCMq/fDB0MzLpeIOVGMfTmppL45u4y0FGrd0S4ULgwjsd00qY/G4yUYsr 8Nt/0JDtqIn4TmW3dIZNsB/glEXXEBsp7TnubUtZIr9DudDNjsxKmYbZm+7m+W3+2I5u3+9DS 4fuMKIBHk6livM1Wdd86YtwiZwHwYufmKyHSXw9Lnac9PuOsTnCHVL5owqLksc68KkdoQbl6S Ew/fb/3RvgnECFWagiYESUceWjRp/065IunBvw4suoHl8w2ilRZrWh97VLJSoKCWvNtRRPLZf pQHr5/NmGg1wtz8DzgsAF05+iOk9ALqs3yk0/383U4SSxu4SEGm3c01vAyLtvAlC5o840ObBe R7k4gVHkkkIbZT0FYGslFhuLFTrToqi3hIcPU+/ys8yUNRT03Y7MAxZGDZeArXg/OqmxJXUpG kD8copxn8FKuuiR0m1yysJoqzDw/cWQxT8sovzaLCQu9a9jwJb1hHf94yCq/DFyb0mcE8Lpq3 Z6seFBpTlHAWGBbyUKSycJWXB+xoXK0i0OsZV4U1HiCzNEtqVeyexIuS+sSoCF3yMbnxAF2CC Aht+DouCgbt8eNIImwniO6InEYOpuoEmCpzZsnvKB8T/lHvme0YwnjBcHICnQdSzsBQYzKkCs 4i/12wpDCmTQ4/sOmZ/surMHgf4xCo0zEmzL4rAew2lcPno7mDCHu5DCAEYtbB5EZSRZdyiRf lhAua439EZQ0zrzZJ/pHBv9QDf4p3IFVoY3XPV2ADghXVTNVm/VnVSKdvEIKjqe8/cbg4V4sO +1yYWR3Rc1+1lfHmNMFV+MtUutdVSYH0v5qr9W8L/owONYEjmSCm7AGAtAaROW8ZT5298T9dl GSRogkAApFCTlQKLi4AwGp2eZe+0Ye5c1KMJbTrFHXiSIzswD7k4hL7/F0VP2OFlzXaIbOvGU HdU/FrKtPOiWd/Ez7V5HKA3l6SyChAjxHhZFBigoNaAs8bme9P0CK+ZurMJ/m4ayosu8i3Nft 5z+3/oTS4RmRFRRl+Onv2o9tYVz3yANVFM6TJS8kBKM8SYyYGuEMxvRDsCsSH5N97iTKUprXd 9NHDu//XdLtRepX8Hn0EYE3VtNDQ+3R7d3Ic8+uEw1tnIKac8skZ8Fx1kxZlTnBUftr/8sqQw Plezrl+IF/fQ5tyhjTkkivzeIpNBpa9FB2Le7GMYbyCNM/ljNAxt/ux7VXa4RWHv32n6Y0A2D eeKz0zdN9Bz4SqQIQ+wakbCzpI/vr1/nAIVA6+W8ps2l4+w2CnWHBL15L/crUBDOEe1jGFt30 fmjjMUGLK8EJygnYWOvVEXnCTVDgxs5pNQlys+wES8Az5kYt7OFPvNVJO2WSNfYFxWHQBtqSN FOjajTTN8ODuNyE+gGXyjyJl765JtjphIL3/EdrlNw8VOtae8PpAG32Fb+RJdg8EMlYltCYh+ SdGukPYPnK59xxKBTONWgpM97ITbDXQE/2d/P/LqomHrn9mCAmS4v2Tur0qCM9dBM2ep4RhHw AkzJ4wpcN/KZrG8og32bL+7XB1Hn4G31zFBBffKZdpnSOWPXTc9zi3rSIF982sNa+buKvr8lc qGKT7kzTAUXJGezQxQCsAl3fzn/04iebkcak1ZMVdQyRWYU0QQ7v1nsCEwokKM9jaekgLvqnm Jyfdnn1YLzPhZsJ6WISCFlTjYyT7wsoQ/cKXCSjZpylNhoB8vXOytfTR9zQ7CfrRRS4V/9XvJ Kw4zhkPDW0C3NzLIrmCK46PtPM9WSm8Icegl3ckmm2YcMYw2vX94GkqVxIOfdKA8l4MKf4c93 BYI1DQCG8jzifEB8Rxl0WlumDJYrE84/YF3KRDMxKXBsDHhh00xb1mUV2h2cmXDI3dVFkm4cA NF8NiDTSomNb3TKK/1TIf/ptx3BhbVlDRTl4EdlAiSNqomSYNCfFoD/n6wUnEGXXL0MKad0cT tT8CeBZmIcenAEAA0vi2JvtAiBJYAdNoqNrp7AKDdPbMXHa7GvHShhfcWiuCzvtlYOjmS4cWU CEDTpx8FIR374kkHMhfw9LXfR0gn+51p0KNBfc6/gNh50uV3NHxg/ntdJRlSqTPdWTFScn7dx kc5Wfve1kxqXzLs5AouwXo4DyXJe8eOfSxAQT0voSnfkRN+62TIVtXYgYKXUUOryHF41Z9JZn QJ8NTOZdQUVYGFAD8iFMuJeDrTFr+xaTLR8Twy24pqlysrQSZ2EBHf3OCbDR7vMo1d+eRayo7 8BTPuE0f6dO/u4dEt6nQG/egRVPuBOGTCd/RPIZ17l9uz4ljXc8Mz9/rdOlelLmIo2OLEOgUe 6rhlVNWYwhCYmnsDPVBpYCRBJwo/fB/zKJ5ilr3EIXQeGrmCfg7LvaxB/OHjXDZnBm1Gtg/aX c9rF80AsTUY53ickwcov/RlN9jCqbkNRTk/zB6qEY1uQlSC8LEbOPAwrrOqaa6BcYRys4+zu7 1sKsLJ8XNgxzomZejrKRMu/SUNL2fu2pieqq5chopy15LaItNbDmLMyiW3qcdGBNOUwOUvgHo JSO7XtzU9CaIgPKnYt8Ww32wRDuJ+T+hUgEh0ZpDawCk7AHXGn5Wgxigbb6QaB/jbXugMBxr7 1onxPdX4m/qY8XznSqT+U/47jQNLqqiU/xNQbkMGc7cR1HNiLeba9JkYNwz5lDmodkR9F3xII XHyFTeL62q1XZ11pg9YQdnM/YN1dnTgzKv8nwuuJ1vcJTcxzVC26KnXGwqhFVNrGxeq3nqQh7 Ta1BhDqkOSEReeftUFFHZzwYrVCmV5Dj7X7rfwBGtbCfOgDByrloxea/ndfbrxYRIZ45TU2iK DhuCgRztJrUIJamGspzCZ5Di/N7KA7qohPH3V/gBZx47p+O7GjEFaquOswtUO5Pd21x5Q6kv9 fwYoAfEC2LkE2ZYhfNf2t93O/uKpoxY3hgYN6I92xTS/JYFF6jIdtv2533AlYLRo4IwFENWV6 uUc8j2b/slaSIr+5tsUKJ/nEIKN6jKVdxGkEZPhvSbRZWETm2X2ea+hKmbQ7F2ch183VMUBZN j631vuZ6Z72dEn91CdyLDYd9Kwt5av7RfFcJTAsoRJDU4Z6QpnbEGEWqHR4h8PE1CcFQ2mkla 95OVIbjEb8TDVqKVyGz1AipNwa2hre1ZSr04MrLMYrsnhRH0NJCYi4+il5Hj4RcpgdGhURh6U QRPm2x6InstmlcKoLBCaO5Hv+esjD8OBL1Tn8VwjqNEeXWyq/hzS+DJxD9pihVNoLeFSUxyhn 32i67nVa1zntrs8aQw4IOaKr9rn8qMCsu2vuowcMt+32Y3kM7LqelRX/nFOL5U7QHORjTQuZI
- iKy6RoNxkrdz2lCTOgAHrzqAknkMSa7OkniKvkvo8ALbehq2F0H4aVorf4oqQS7R98ugccAy+ PwrLgmwVsQIAMQPlh7GfSOLn/MpEvKQADb0CD/5Wd/VfbIeQFmsUx5EhzdZlI5g+eri4GYbxb WYV0pdRPYgPHdmoOGjuIV5pFMYZjSWo9vzy4TPHOSMAf1JVaSDJ4w37eRkRrkfTQfd363NOLM 7TlvpDDihDHhuB4gAlGl2n3D2v1S4053nCi8zqDrGXu7Bvhp2JXgmp75LjOhh2WllJ4r9/5iG fJ8HutS32PD64a9rt7+siFMxkJOd3aBHm1+qTtHKWygpYFx5ltDAVbzTqloZThCqu+zOAJ5/d wwIo3grOsz+jzZec+f73pvp9GdXf3JVhNP/P+p1JVII0/7+6FIUJLJ/k3sv98HOmpESmQA6Hl 83uxFwpVjGm7k35aMvIP9vHtAYqt4IddXbnHW7iK3YXtKDwIe0c2V+LQ86P9vE35e7L3iJguJ rEcHLj+0h5lkNrCOhy84eTeVQ3Z21BaIhygx1e8TgmAig6Dh47qrr4VjNYAme65oXfLsCrTkQ lH+ppRr0tXWUUn2HxghZISKnByF9RpH5kHIkwNunEfm9ldFzxV9LCLRvpdYt4KkJK4QpX/X9P 3I6E0sMIgmRq/OxCn7BswZvmuPhUAQ259TkLVT3eA5d0i6u0tW1An77/RDk5hHq73jTkDjm4h M/DYRYt6UQvbnBWXnpvSCxsPOCbEBOQQtkpmwmC2aZ/2D0zDZ5X3i1QQdlUP6N8edXRn7poer Lq6vG/gvI+BfHLLMmCf8z2fPAUbDn63NZYM3osbnmIBnTDWUzROyT0hCQKoKJO+NOisYp+Rb4 yIXDue6fQWmq/5LL7kiS4a9FtPeIXwhPfWhyiVYsquA7l8olPIVXotc6jGzloJbHQJVs6X1Ay VmJIwixzvVmHvOCIIugMXbM0BkClouBiCEdbEUneLWno0QAl7ojKUnPOannIWrR6nMdX1b1xo 0CCo8z3YbdVM4hfyS/617wiRfRmjMb9jmZAPcPKFjFz149S+uS0MRrPj0VhyMW70C63ElRlwV 2TFD7b3FUdiKhQ==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_055312_412748_57D0EC32 
-X-CRM114-Status: UNSURE (   4.38  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251001_060456_434827_1C7BF13A 
+X-CRM114-Status: GOOD (  25.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,14 +110,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
->>>>> Struct apple_smc's mutex was not initialized before use. Surprisingl=
-y
->>>>> this only resulted in occasional NULL pointer dereferences in
->>>>> apple_smc_read() calls from the probe() functions of sub devices.
-=E2=80=A6> However, you must also provide your own context.
+On Wed, 1 Oct 2025 12:53:07 +0200, Linus Walleij
+<linus.walleij@linaro.org> said:
+> Replying to self so Bartosz don't have to tell me off...
+>
+> On Wed, Oct 1, 2025 at 10:49=E2=80=AFAM Linus Walleij <linus.walleij@lina=
+ro.org> wrote:
+>
+>> and every GPIO access on every system will be proxied
+>> and then this better be fast.
+>
+> What about I read the code before I talk :/
+>
+> Inspecting patch 4/9 it is clear that only GPIOs that actually
+> need to be proxied are proxied.
+>
+>> Two things come to mind, and I bet you have thought of
+>> them already:
+>>
+>> 1. Footprint: all systems using regulators will now have
+>>    to compile in all this code as well.
+>
+> This still holds. It could be a concern if it's a lot of code.
 
-Do you try to support the creation of improved change descriptions?
+It depends on how we implement this. If we just rip out the enable counting
+from regulator core entirely, then it would be transparent from the
+regulator's point of view and each platform could still select the new opti=
+on
+as required.
 
-Regards,
-Markus
+However there's the issue of regulator consumers who need to know when
+something changes on a regulator and to that end subscribe to the regulator
+notifer. Regulator core knows then it actually changes the GPIO so it emits
+the event. There are several ways to approach it but the best one seems to
+be: allow to subscribe for a per-descriptor event notifier (implementation
+details may include: only actually creating the notifier for shared GPIOs),
+and be notified about an actual change in value and then propagate it to
+regulator users. This would still be transparent and allow us to select
+HAVE_SHARED_GPIOS on a per-arch basis.
+
+Bartosz
+
+>
+>> 2. Performance, I didn't quite get it if every GPIO on the
+>>   system will be proxied through a layer of indirection
+>>   if you select HAVE_SHARED_GPIOS
+>>   but that would not be good, since some users are in
+>>   fastpath such as IRQ handlers, and the old way of
+>>   sharing GPIOs would just affect pins that are actually
+>>   shared.
+>
+> It is clear from patch 4/9 that this only affects GPIOs
+> that are actually shared, and those tend to not be
+> performance-critical so this concern is moot.
+>
+> Yours,
+> Linus Walleij
+>
 
