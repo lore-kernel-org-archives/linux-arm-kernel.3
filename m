@@ -4,67 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21188CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 14:05:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7ECA1CAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 14:23:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hDNbUiK+y3AqdlWMb7TZJVefo7he39KUzQ3Nlhn0MtM=; b=2Xl7zhq1HDXCOoSsCiIXB52hst
-	LV1hmEXHEyfcxv5jfEApAmXtcspgETYUMNjg67eUrlD25kAwkLxWkbRnTdg7m/6Pe7ApKNf5Up7vT
-	I02Veuky4oDDUHL6QCj2zIwX9r94+ttO3he8CM0pxNigBbm08y/aAxFh9btW1YK/3bMU9hQSC3nBj
-	6/J8/YFb4IEO2LqNMdVC02yMjriFAIafG1hmn3ccKRcd7UfklTnmn9j9moITmfX+2n7GTC2uRbb/T
-	thP2BNAidGmvRasTn7OXpWKRJ9tCBKYRBGAomWhyjvymSbzpfDcEgNHM2QArWmyXhdjKsp3uLF7zk
-	dqx0QsUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=TZWPPQ16OuhZ6r+akwzEf9yapy+ye4jCYQdCK+8Qq+M=; b=tcZ8dyfrreNDHugFYCsrv4yBBN
+	P3R4bCEBjUpYQw+7Cgojp/XgpQh9qs6SwztqrlPyse+VmDPFat8Y1ujEAxWPIqgcJLVb1AO+fTPUb
+	w9/lfWdvzY7we5XQwHJooDN4rTodimc8MgfM0brYRJHYcFmJbIxhfRcyy+ND1dwVbVUxGEzvIuRqA
+	G3m+3obsBLMv1kDZyGFTD6Jb/yQWQ2jtXaGxHEBy4tvT6cb0dDg8pd7CDNvMw65hL/HVVWSC2U8qB
+	U1ZLSdMLHMH76hb9cQJsBkTdmEVqbJrFGfmyysRpWAR65ZSX7lgGiWJag2k5MDIbv7fn1e4Zm8el0
+	m9g5VELQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3xSC-000000087Lb-3xer;
-	Wed, 01 Oct 2025 14:05:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3xSA-000000087Kk-1F7x
+	id 1v3xjJ-00000008AL1-2CT3;
+	Wed, 01 Oct 2025 14:22:53 +0000
+Received: from mail-pg1-x534.google.com ([2607:f8b0:4864:20::534])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v3xjG-00000008AIX-3ybU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 14:05:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 23D3816F2;
-	Wed,  1 Oct 2025 07:05:01 -0700 (PDT)
-Received: from [10.57.0.204] (unknown [10.57.0.204])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 771943F66E;
-	Wed,  1 Oct 2025 07:05:04 -0700 (PDT)
-Message-ID: <990a62ee-c7a7-4cdf-9e0a-efc7908a1f2e@arm.com>
-Date: Wed, 1 Oct 2025 15:05:02 +0100
+	Wed, 01 Oct 2025 14:22:52 +0000
+Received: by mail-pg1-x534.google.com with SMTP id 41be03b00d2f7-b523fb676efso7027852a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 07:22:50 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1759328570; x=1759933370; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=TZWPPQ16OuhZ6r+akwzEf9yapy+ye4jCYQdCK+8Qq+M=;
+        b=bfLXUTAhs69vO2Co8JcfgQa+d3C2ucyoJrMNCGfcF1bRpFmR2NnHIW90Rbf44ROuuQ
+         nX5YYS2zNl9ebTnfCY9n5L/uwSZDpSVeXjw/ygjnxzE1EHL9Hlq/a4dFKGZfRknvHDgF
+         s7hq5OVanbSNE7H5J7fIxVT2z1l+SCr1cmATCo6jzE7x82aMyZmrxtGMobR9ittHo2TG
+         na/z1KqTMOlc/ECNXAv118vQ6Vn+F68OmleMj1VcVOs66rvpJ/iSZ6WnxZZpO19hqMQZ
+         Q19rklmSGeAhXie5nylifG1X3yF/ny4qNkeKifqBYI1QArP8eJRy87hUXe4yGPESQbf+
+         hp0A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759328570; x=1759933370;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=TZWPPQ16OuhZ6r+akwzEf9yapy+ye4jCYQdCK+8Qq+M=;
+        b=H5YJhAmFUD/+Q1WGOhJewrKzZK2Xl+mGCGG+4+dB2+Q8dxcToDidFMskvWIP2N2BLV
+         wdd79qI6AukHFElNJxY06OaRuRkZW2mPO3E1HNNb9ajGJ4fsxEdZU5Vte7SiMit82V8g
+         u9DdhJ/Iue9SbOHfraTCJavm7RSqzgWTKXG5vYQPAXRW6z/eOwy4IfO8m5eqa0rOLwyS
+         fZFTpP7b8WRc5W4DXmUmr2+s6zgkEJZ/pAHFZFDxAIJbfkwKsTFwRMJDro9K0ah0XNno
+         CT5MzWPi6Al7SjLpVkFIbm369cgYWovMtKxNEGNXfig+AOP5ArzVMp4F/nR1P9QS2eZb
+         enpA==
+X-Forwarded-Encrypted: i=1; AJvYcCUjryMujroRuiIiSnDKESDhOXeR1ss29t9cb/yaatfK35NT/vudAyDt7EOE2t+tnYWwkigW8FJfu3oFMiirHXzM@lists.infradead.org
+X-Gm-Message-State: AOJu0YzmbrdBWwjK90M/izvrd0iO1oRPFqSoXbZlHuUZKIpL5hhy1MUZ
+	zQIv7MAutoLLNNfoDEMYVK4a+/BVibWo5UIX3LDERGDEC9lBSx5dFDWuOQumCBVZ6ew=
+X-Gm-Gg: ASbGnctWQt7gWC9Zoc1Sd4W8Asl5tTtC6fhAx+8949yJJxqzHKn6oVzdq9CbxqY/6oY
+	I8Prj/8R5IE55V9QboJIakRoWFgCEI3qlIi3104GMObSIwEZwYImCCTj949hn9QxIT+OJsR0G+d
+	XEXEHIcxVRhIqWbFbXz9Pr58N/jHO7kZXFJWa+1X2jqcwAXASFEkfvTZpa0lpNNmDx9tA1Hw1jU
+	08L844vFyzUcYH2u1KjbpN/ZvxXDMvIBuJ/6N9YxBGy3AYf1A8NEdw22bLOTskUFyTUJu02Go3w
+	/k4Tnb9ouhLvZIYaFfd3dJjnM1iLg9uDblDQ0WDeHUKBBQEs+HKZiqFZiGKcfqqTNmrfIfoccP4
+	fYgTvilE90sreqGLMT2wDflZqquocWxYNTF+v8O25pyeCRotC/l33CNOWIb/AQvx5Vm+ogafI4o
+	YOBq2ri0v1blm80gfDE8rHOuXFMlQFxiXZ8ksctcnke1M1O/6N
+X-Google-Smtp-Source: AGHT+IHqVeD/wJUVy5+C2bUJIvZQddubc9m4Xd4Qgoes6H6s3Vr0Kf8vrqdjy3H/lxWJPRN6L5BOvg==
+X-Received: by 2002:a17:902:f546:b0:264:70e9:dcb1 with SMTP id d9443c01a7336-28e7f440582mr49997025ad.56.1759328569779;
+        Wed, 01 Oct 2025 07:22:49 -0700 (PDT)
+Received: from p14s ([2604:3d09:148c:c800:8417:c9b5:17c4:6237])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-27ed6aca043sm186020025ad.138.2025.10.01.07.22.47
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 01 Oct 2025 07:22:49 -0700 (PDT)
+Date: Wed, 1 Oct 2025 08:22:46 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Peng Fan <peng.fan@nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Hiago De Franco <hiago.franco@toradex.com>,
+	Frank Li <Frank.Li@nxp.com>, Daniel Baluta <daniel.baluta@nxp.com>,
+	linux-remoteproc@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 0/6] remoteproc: imx_rproc: Use device managed API to
+ clean up the driver
+Message-ID: <aN05NsINB25lW_Lg@p14s>
+References: <20250926-imx_rproc_v3-v3-0-4c0ec279cc5f@nxp.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 03/43] arm64: RME: Add SMC definitions for calling the
- RMM
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>
-References: <20250820145606.180644-1-steven.price@arm.com>
- <20250820145606.180644-4-steven.price@arm.com> <86o6qrym2b.wl-maz@kernel.org>
- <747ab990-d02d-4e7c-9007-a7ac73bb1062@arm.com> <86ldluzvdb.wl-maz@kernel.org>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <86ldluzvdb.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250926-imx_rproc_v3-v3-0-4c0ec279cc5f@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_070510_439292_A2F2BAE0 
-X-CRM114-Status: GOOD (  39.64  )
+X-CRM114-CacheID: sfid-20251001_072250_997645_5C9C646C 
+X-CRM114-Status: GOOD (  24.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,170 +106,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/10/2025 12:58, Marc Zyngier wrote:
-> On Wed, 01 Oct 2025 12:00:14 +0100,
-> Steven Price <steven.price@arm.com> wrote:
->>
->> Hi Marc,
->>
->> On 01/10/2025 11:05, Marc Zyngier wrote:
->>> On Wed, 20 Aug 2025 15:55:23 +0100,
->>> Steven Price <steven.price@arm.com> wrote:
->>>>
->>>> The RMM (Realm Management Monitor) provides functionality that can be
->>>> accessed by SMC calls from the host.
->>>>
->>>> The SMC definitions are based on DEN0137[1] version 1.0-rel0
->>>>
->>>> [1] https://developer.arm.com/documentation/den0137/1-0rel0/
->>>>
->>>> Reviewed-by: Gavin Shan <gshan@redhat.com>
->>>> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->>>> Signed-off-by: Steven Price <steven.price@arm.com>
->>>> ---
->>>> Changes since v9:
->>>>  * Corrected size of 'ripas_value' in struct rec_exit. The spec states
->>>>    this is an 8-bit type with padding afterwards (rather than a u64).
->>>> Changes since v8:
->>>>  * Added RMI_PERMITTED_GICV3_HCR_BITS to define which bits the RMM
->>>>    permits to be modified.
->>>> Changes since v6:
->>>>  * Renamed REC_ENTER_xxx defines to include 'FLAG' to make it obvious
->>>>    these are flag values.
->>>> Changes since v5:
->>>>  * Sorted the SMC #defines by value.
->>>>  * Renamed SMI_RxI_CALL to SMI_RMI_CALL since the macro is only used for
->>>>    RMI calls.
->>>>  * Renamed REC_GIC_NUM_LRS to REC_MAX_GIC_NUM_LRS since the actual
->>>>    number of available list registers could be lower.
->>>>  * Provided a define for the reserved fields of FeatureRegister0.
->>>>  * Fix inconsistent names for padding fields.
->>>> Changes since v4:
->>>>  * Update to point to final released RMM spec.
->>>>  * Minor rearrangements.
->>>> Changes since v3:
->>>>  * Update to match RMM spec v1.0-rel0-rc1.
->>>> Changes since v2:
->>>>  * Fix specification link.
->>>>  * Rename rec_entry->rec_enter to match spec.
->>>>  * Fix size of pmu_ovf_status to match spec.
->>>> ---
->>>>  arch/arm64/include/asm/rmi_smc.h | 269 +++++++++++++++++++++++++++++++
->>>>  1 file changed, 269 insertions(+)
->>>>  create mode 100644 arch/arm64/include/asm/rmi_smc.h
->>>>
->>>> diff --git a/arch/arm64/include/asm/rmi_smc.h b/arch/arm64/include/asm/rmi_smc.h
->>>> new file mode 100644
->>>> index 000000000000..1000368f1bca
->>>> --- /dev/null
->>>> +++ b/arch/arm64/include/asm/rmi_smc.h
->>>
->>> [...]
->>>
->>>> +#define RMI_PERMITTED_GICV3_HCR_BITS	(ICH_HCR_EL2_UIE |		\
->>>> +					 ICH_HCR_EL2_LRENPIE |		\
->>>> +					 ICH_HCR_EL2_NPIE |		\
->>>> +					 ICH_HCR_EL2_VGrp0EIE |		\
->>>> +					 ICH_HCR_EL2_VGrp0DIE |		\
->>>> +					 ICH_HCR_EL2_VGrp1EIE |		\
->>>> +					 ICH_HCR_EL2_VGrp1DIE |		\
->>>> +					 ICH_HCR_EL2_TDIR)
->>>
->>> Why should KVM care about what bits the RMM wants to use? Also, why
->>> should KVM be forbidden to use the TALL0, TALL1 and TC bits? If
->>> interrupt delivery is the host's business, then the RMM has no
->>> business interfering with the GIC programming.
->>
->> The RMM receives the guest's GIC state in a field within the REC entry
->> structure (enter.gicv3_hcr). The RMM spec states that the above is the
->> list of fields that will be considered and that everything else must be
->> 0[1]. So this is used to filter the configuration to make sure it's
->> valid for the RMM.
->>
->> In terms of TALL0/TALL1/TC bits: these control trapping to EL2, and when
->> in a realm guest the RMM is EL2 - so it's up to the RMM to configure
->> these bits appropriately as it is the RMM which will have to deal with
->> the trap.
+On Fri, Sep 26, 2025 at 08:33:14PM +0800, Peng Fan wrote:
+> Tested on
+> i.MX8MP-EVK, i.MX8MM-EVK, i.MX93-11x11-EVK, i.MX8QXP-MEK, and i.MX8ULP-EVK.
 > 
-> And I claim this is *wrong*. Again, if the host is in charge of
-> interrupt injection, then the RMM has absolutely no business is
-> deciding what can or cannot be trapped. There is zero information
-> exposed by these traps that the host is not already aware of.
+> Retested all the patches for V3 on above platforms. And pass build
+> with patch incremental applied with ARM64 defconfig. pass build for
+> imx_v6_v7_defconfig with all patches applied.
 > 
->> [1] RWVGFJ in the 1.0 spec from
->> https://developer.arm.com/documentation/den0137/latest
+> This is the 2nd series to cleanup the driver.
 > 
-> Well, until someone explains what this is protecting against, I
-> consider this as broken.
-
-I'm not sure I understand how you want this to work. Ultimately the
-realm guest entry is a bounce from NS-EL2 to EL3 to R-EL2 to R-EL1/0. So
-the RMM has to have some control over the trapping behaviour for its own
-protection. The current spec means that the RMM does not have to
-implement the trap handlers for TALL0/TALL1/TC and can simply force
-these bits to 0. Allowing the host to enable traps that the RMM isn't
-expecting will obviously end in problems.
-
-If your argument is that because the NS host is emulating the GIC it
-needs to be able to do these traps, then that's something that can be
-fed back to the spec and hopefully improved. In that case the trap
-information would be provided in the rec_entry structure and on trap the
-RMM would return prepare information in the rec_exit structure. This
-could in theory be handled similar to an emulatable data abort with a
-new exit reason.
-
-The other approach would be to push more GIC handling into the RMM such
-that these trap bits are not needed (i.e. there's no requirement to exit
-to the NS host to handle the trap, and the RMM can program them
-independently). I'm afraid I don't understand the GIC well enough to
-know how these traps are used and how feasible it is for the RMM to just
-"do the right thing" here.
-
->>>> +	union { /* 0x300 */
->>>> +		struct {
->>>> +			u64 gicv3_hcr;
->>>> +			u64 gicv3_lrs[REC_MAX_GIC_NUM_LRS];
->>>> +			u64 gicv3_misr;
->>>
->>> Why do we care about ICH_MISR_EL2? Surely we get everything in the
->>> registers themselves, right? I think this goes back to my question
->>> above: why is the RMM getting in the way of ICH_*_EL2 accesses?
->>
->> As mentioned above, the state of the guest's GIC isn't passed through
->> the CPU's registers, but instead using the rec_enter/rec_exit
->> structures. So unlike a normal guest entry we don't set all the CPU's
->> register state before entering, but instead hand over a shared data
->> structure and the RMM is responsible for actually programming the
->> registers on the CPU. Since many of the registers are (deliberately)
->> unavailable to the host (e.g. all the GPRs) it makes some sense the RMM
->> also handles the GIC registers save/restore.
+> Patch 1:
+> Fix the runtime usage. This is not critical bug fix, so it could be
+> defered to 6.18.
 > 
-> And I claim this is nonsense. There is nothing in these registers that
-> the host doesn't need to know about, which is why they are basically
-> copied over.
+> Patch 2-6:
+> Use devres managed API to cleanup the error handling path and remove path.
+> 
+> Thanks to Ulf for the suggestion on the runtime PM fix in patch 1.
+> Thanks to Daniel and Frank for the internal reviewing.
+> 
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> 
+> Signed-off-by: Peng Fan <peng.fan@nxp.com>
+> ---
+> Changes in v3:
+> - Follow Ulf's suggestion to address the runtime PM in patch 1, and add
+>   Ulf's suggested-by tag. I dropped Frank and Daniel's tag in patch 1.
+> - With the changes in patch 1, the remove() is kept, then there are very
+>   minor conflicts when picking remaining patches in V2, so I still keep
+>   R-b tag from Frank and Daniel for patch 2-6.
+> - Link to v2: https://lore.kernel.org/r/20250923-imx_rproc_c2-v2-0-d31c437507e5@nxp.com
+> 
+> Changes in v2:
+> - Address a build warning in patch 4/6
+> - Add R-b from Frank and Daniel
+> - Link to v1: https://lore.kernel.org/r/20250917-imx_rproc_c2-v1-0-00ce23dc9c6e@nxp.com
+> 
+> ---
+> Peng Fan (6):
+>       remoteproc: imx_rproc: Fix runtime PM cleanup and improve remove path
+>       remoteproc: imx_rproc: Use devm_add_action_or_reset() for workqueue cleanup
+>       remoteproc: imx_rproc: Use devm_add_action_or_reset() for mailbox cleanup
+>       remoteproc: imx_rproc: Use devm_clk_get_enabled() and simplify cleanup
+>       remoteproc: imx_rproc: Use devm_add_action_or_reset() for scu cleanup
+>       remoteproc: imx_rproc: Use devm_rproc_add() helper
+> 
+>  drivers/remoteproc/imx_rproc.c | 100 +++++++++++++++++++----------------------
+>  1 file changed, 47 insertions(+), 53 deletions(-)
 
-Well it's fairly obvious that the host (generally) doesn't need to know
-the general purpose registers. And it's fairly clear that confidential
-compute would be pretty pointless if the hypervisor leaked those
-registers. So I hope we agree that some architectural registers are
-going to have to be handled differently from a normal guest.
+I will apply this set when 6.18-rc1 comes out.
 
-The GIC is unusual because it's (partly) emulated by the host. The
-configuration is also complex because during guest entry rather than
-just dropping down to EL1/0 we're actually performing an SMC to EL3 and
-world-switching. So I'm not sure to what extent programming the
-architectural registers in the normal world would work.
+Mathieu
 
-> It all feels just wrong.
 
-I think fundamentally the confusing thing is there are two hypervisors
-pretending to be one. Both KVM and the RMM are providing part of the
-role of the hypervisor. It would "feel" neater for the RMM to take on
-more responsibility of the hypervisor role but that leads to more
-complexity in the RMM (whose simplicity is part of the value of CCA) and
-potentially less flexibility because you haven't got the functionality
-of KVM.
-
-Thanks,
-Steve
+> ---
+> base-commit: 8e2755d7779a95dd61d8997ebce33ff8b1efd3fb
+> change-id: 20250926-imx_rproc_v3-a50abed3288a
+> 
+> Best regards,
+> -- 
+> Peng Fan <peng.fan@nxp.com>
+> 
 
