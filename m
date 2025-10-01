@@ -4,86 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD0DBCAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 09:37:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B056CAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 09:42:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6xNycQ+T1V98WN/ZWXXImexAJE4zsvbpEKSMqKxeJeI=; b=0uW1+JKkGABXYBAm7urQgayObb
-	mro7L4+f0cXPrVzayt4xBIw/+JHWhkOkM/rmcXcnGd5cW/awGUq5aUzqvmIlRxbAPm30zb6+rataY
-	C7uSgF+Dr3tBCuUWagVzgf/Xs6Qlv+jMRTKeto7RHx1fKwlerF0NDfdZUoKCXixQLt9IleM1Q8VQi
-	t9eliEt8TAJBlcf+twdtgS/s2nLXYVDi6gu+M3IpeiJf7IOjAvDyz/AGrEviJ9c28z+8z/bEwd29+
-	VjmWDwYpVr4pPVc1O4cfJLB6BoVxR/I+Nj+GC79kSVtrZtSkr4nqr/dwQzDxHXUnJLqygfyu5bmCV
-	Xjj1e1CQ==;
+	bh=unZh0G+YZC8++DJ6DAYrs4XDt/mAy9XTGIw28dz5oOc=; b=gKJq2geSAAVlah2CYFmNrRpFqA
+	fTjRqdgBJuDYC3tfsgclnk9IH9vYERr3Xv3PrGej2RHVC/mF51qtyBDRMShrvh2mIOACwKPG5aKfb
+	NzhUpbH/T6hDr/X7CS6D3PKXBn1DEZ+HdCJX5+WHClyz0xFoW1nDUXLvk/ExCY+vKMnJobrdq+NJF
+	vgcnu56IjIW6pBbD0ZHl9Whbneb+XxTxu+ouLYpsRiKpiYvVMoO/LH2B2emRaaDiTa2fUQQbqELs6
+	Tqp/MRLDBtyYQ7kRMB7jC3csTCyGykCHRShDLM6OJUlZBHbCg0ql5ut+vNlH/oRvaFp9Wg5SU2JqA
+	VRJPI1lA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3tHA-00000007AN1-3BJj;
-	Wed, 01 Oct 2025 09:37:32 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v3tMF-00000007B6p-1m3v;
+	Wed, 01 Oct 2025 09:42:47 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3tH8-00000007AMf-2dO8
+	id 1v3tME-00000007B6h-1lfK
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 09:37:31 +0000
+	Wed, 01 Oct 2025 09:42:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id D2CEE40B9F;
-	Wed,  1 Oct 2025 09:37:29 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABBD0C4CEF4;
-	Wed,  1 Oct 2025 09:37:29 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A9F6F61757;
+	Wed,  1 Oct 2025 09:42:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EAB33C4CEF4;
+	Wed,  1 Oct 2025 09:42:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759311449;
-	bh=yUwz9b/V4agTqssJqQHqviKU+dbCf1nmT12k5bfGpK0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=FG97sGvNZXd8fesXtHKLgUPb5LZbDvRzvKO/kZxorNjvuJaepu3EJLgAQu/M2tRy0
-	 x/k7vWxK55gxum0CaPPhAfVunO3k+XD/tx3/kQ1GCeiW5KlqL0Gg/HnREhKzUYctMg
-	 Z9722ah9pSAWuyjzYJjhhvacQX4yzUR4jnzKpqeZ1QsYc3u4oBNC8yIFKOx1aX6vmN
-	 JA2A70xlzZ2MCpy/NsRP9PgCQJhMKdnBRNzE8jgZwM0exZmmWtMO6MoWm4pjIqU+OH
-	 USijivUwA8lQIG2ubyMJClLLRjZW5B6syXQcdDA4kT2hI6ocAVCarWmONdulrhRM3c
-	 vsr/cjEmvW7HQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1v3tH5-0000000AlAr-2Cby;
-	Wed, 01 Oct 2025 09:37:27 +0000
-Date: Wed, 01 Oct 2025 10:37:26 +0100
-Message-ID: <86plb7ync9.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Vincent Donnefort <vdonnefort@google.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	qperret@google.com,
-	sebastianene@google.com,
-	keirf@google.com,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	kernel-team@android.com
-Subject: Re: [PATCH v2] KVM: arm64: Check range args for pKVM mem transitions
-In-Reply-To: <aNJmA-1ZlikW2Knw@google.com>
-References: <20250919155056.2648137-1-vdonnefort@google.com>
-	<87plbkxcvv.wl-maz@kernel.org>
-	<aNG417MneSKBxyn8@google.com>
-	<aNHcxAJXHeS2T7TH@linux.dev>
-	<aNJmA-1ZlikW2Knw@google.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: vdonnefort@google.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, qperret@google.com, sebastianene@google.com, keirf@google.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, kernel-team@android.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_023730_706019_DBB31E32 
-X-CRM114-Status: GOOD (  38.71  )
+	s=k20201202; t=1759311765;
+	bh=04DFmLbCUMb/NzDXHOJCQThEWyMLJ5888+Etag6VdOk=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=T/G0Ac3bW9MD0joA0ptWQEuAhTel2fNxum1zw45ojN5TzWODrY5JfgjaYIaU5B+NM
+	 Xs0uMe8QqC0ujOd5MUbHKu4SRVlFyPXI1qB7CWpKxIJhJt8fpXZUqPrBntHL1fsLq9
+	 n1NVvulkKA4zsqHYGY+XVaKn9t+ZFBU7K2ivE8i+c2KKWfG9ERyztd02/xkyl0bybr
+	 1jN9atdzIADFce/byyhr7SP0FHvPxidXjSPBfAZNrIfoZE9JxsuyX94hIDOBrrN/C9
+	 Qy9eu9CtkvBRqSwcoeag2Py9mJTeog4t8eyEAi1/uwS+skOZSywbjJyJLDJGOwRxcN
+	 ItFq6gb4Ztwjw==
+Date: Wed, 1 Oct 2025 10:42:40 +0100
+From: Will Deacon <will@kernel.org>
+To: Zenghui Yu <yuzenghui@huawei.com>
+Cc: torvalds@linux-foundation.org, catalin.marinas@arm.com,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	kernel-team@android.com, brauner@kernel.org
+Subject: Re: [GIT PULL] arm64 updates for 6.18
+Message-ID: <aNz3kLEOA60pdRmH@willie-the-truck>
+References: <aNbJ0YiL7Us_eicz@willie-the-truck>
+ <4016897f-42a5-bb18-4ebb-80de97f99a60@huawei.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <4016897f-42a5-bb18-4ebb-80de97f99a60@huawei.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,96 +70,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 23 Sep 2025 10:18:59 +0100,
-Vincent Donnefort <vdonnefort@google.com> wrote:
-> 
-> On Mon, Sep 22, 2025 at 04:33:24PM -0700, Oliver Upton wrote:
-> > On Mon, Sep 22, 2025 at 10:00:07PM +0100, Vincent Donnefort wrote:
-> > > On Sun, Sep 21, 2025 at 12:29:08PM +0100, Marc Zyngier wrote:
-> > > > On Fri, 19 Sep 2025 16:50:56 +0100,
-> > > > Vincent Donnefort <vdonnefort@google.com> wrote:
-> > > > > 
-> > > > > There's currently no verification for host issued ranges in most of the
-> > > > > pKVM memory transitions. The subsequent end boundary might therefore be
-> > > > > subject to overflow and could evade the later checks.
-> > > > > 
-> > > > > Close this loophole with an additional check_range_args() check on a per
-> > > > > public function basis.
-> > > > > 
-> > > > > host_unshare_guest transition is already protected via
-> > > > > __check_host_shared_guest(), while assert_host_shared_guest() callers
-> > > > > are already ignoring host checks.
-> > > > > 
-> > > > > Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
-> > > > > 
-> > > > > ---
-> > > > > 
-> > > > >  v1 -> v2:
-> > > > >    - Also check for (nr_pages * PAGE_SIZE) overflow. (Quentin)
-> > > > >    - Rename to check_range_args().
-> > > > > 
-> > > > > diff --git a/arch/arm64/kvm/hyp/nvhe/mem_protect.c b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> > > > > index 8957734d6183..65fcd2148f59 100644
-> > > > > --- a/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> > > > > +++ b/arch/arm64/kvm/hyp/nvhe/mem_protect.c
-> > > > > @@ -712,6 +712,14 @@ static int __guest_check_page_state_range(struct pkvm_hyp_vm *vm, u64 addr,
-> > > > >  	return check_page_state_range(&vm->pgt, addr, size, &d);
-> > > > >  }
-> > > > >  
-> > > > > +static bool check_range_args(u64 start, u64 nr_pages, u64 *size)
-> > > > > +{
-> > > > > +	if (check_mul_overflow(nr_pages, PAGE_SIZE, size))
-> > > > > +		return false;
-> > > > > +
-> > > > > +	return start < (start + *size);
-> > > > 
-> > > > I will echo Oliver's concern on v1: you probably want to convert the
-> > > > boundary check to be inclusive of the end of the range. Otherwise, a
-> > > > range that ends at the top of the 64bit range will be represented as
-> > > > 0, and fail the  check despite being perfectly valid.
-> > > 
-> > > Do you mean allowing something like start == 0xfffffffffffff000 and size ==
-> > > 4096?
+On Sun, Sep 28, 2025 at 07:27:17PM +0800, Zenghui Yu wrote:
+> On 2025/9/27 1:13, Will Deacon wrote:
+> > ACPI, EFI and PSCI:
+> >  - Decouple Arm's "Software Delegated Exception Interface" (SDEI)
+> >    support from the ACPI GHES code so that it can be used by platforms
+> >    booted with device-tree.
 > > 
-> > Yes, this is what I was alluding to on v1.
+> >  - Remove unnecessary per-CPU tracking of the FPSIMD state across EFI
+> >    runtime calls.
 > > 
-> > > But I guess that would still put all the following checks using "addr + size" at
-> > > risk. Also, I believe even the code in pgtable.c wouldn't support a such range
-> > > as it is also using a u64 end boundary.
+> >  - Fix a node refcount imbalance in the PSCI device-tree code.
 > > 
-> > I'm not sure I follow. Ranges are pretty commonly expressed as a range
-> > terminated by an exclusive value. This just hasn't been an issue yet as
-> > the page table code is only ever dealing with TTBR0 or VTTBR
-> > translations.
+> > CPU Features:
+> >  - Ensure register sanitisation is applied to fields in ID_AA64MMFR4.
+> > 
+> >  - Expose AIDR_EL1 to userspace via sysfs, primarily so that KVM guests
+> >    can reliably query the underlying CPU types from the VMM.
+> > 
+> >  - Re-enabling of SME support (CONFIG_ARM64_SME) as a result of fixes
+> >    to our context-switching, signal handling and ptrace code.
 > 
-> If I do exclude the end boundary, evading checks would be as simple as making
-> sure we overflow the end boundary?
+> IIRC they're 6.16 stuff [*].
 > 
-> e.g. __pkvm_host_share_guest(phys = 0xfffffffffffff000, size = 4096) 
-> 
->         check_range_allowed_memory(phys, phys + size) /* nop */
-> 	....
-> 	for_each_hyp_page(page, phys, size) {  /* nop */
->                ...
-> 	} 
-> 	...
-> 	/* Install a valid mapping to phys */
-> 	kvm_pgtable_stage2_map(&vm->pgt, ipa, size, phys, ...) 
+> [*] https://lore.kernel.org/all/20250528114103.GA27965@willie-the-truck
 
-Why shouldn't this be as simple as this:
+Well spotted! It's nice to see eagle-eyed review of the tag summary. In
+this case, I forgot to drop a couple of sections from the previous tag I
+wrote -- we use the same tag name each time ("arm64-upstream"), so it
+gets pre-filled with the old contents when we update it and, since
+Catalin and I take it in turns, that's why 6.16 showed up here.
 
-static bool check_range_args(u64 start, u64 nr_pages, u64 *size)
-{
-	if (check_mul_overflow(nr_pages, PAGE_SIZE, size))
-		return false;
+The good news is that the actual pull request is fine and Linus has
+already pulled it. I now wonder how many quality news sites will report
+that arm64 is re-enabling SME in 6.18 ;)
 
-	return start < (start + *size - 1);
-}
-
-which correctly deals with the boundary issue?
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Will
 
