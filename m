@@ -4,112 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCBEACCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 18:17:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 26467CAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 18:31:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KKcTz2+WfcXi6NCeJhs4Aeeo3+yILKRVizIKcyvohdY=; b=LsBtGsHWQiMjaOJG8ejLyOEQJd
-	gO7Y1wsEvQt0qmj3V+9xkhAfK3qQMLV6YafknRXWa/OhAKTsEOrD0mHYdI9qeRmCHc6vpwFOskfPI
-	2OL9TALZFq7RSHtL+IOwQZ0KRw44ZaQ7aXve1wd6upHUJRCVJfxlGiVrRYsu9LeLkPr/m4AQszOEF
-	1SQihYpKcvaKSalymgmCl9aA8goJz44fPJD6uBDACimnWo9jrSeozWQm5k/4tNN6qNTPLVGnlnIGr
-	drG6u1X84s+bMdaBgfP0aj35SEq1xXybA7akhj7j+UKb3bi4m1m7QP6JeeQf83qfD74MK99GxEgPG
-	Qv7bnw2g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fgVlcA+DfUuWLJkx+j1EmW8GfxvIBjsFuzmRR5gkxeA=; b=lEaZFzXm5bnToNJIbpbuOMKj14
+	RKp4nn079e40AHKmXRIG6sfOmntxdZZQnG5Z8/MG7ehIM01rjXVulttYF/6/pibXUW5K96xHMlw1j
+	k1dqWxRjhSm3UfjlODKDf7mcoFrtFLBh/Jc8ujhOo8CW39bHSbHZwTEDSXfpQGTFkZDx4lXF3sVOJ
+	JXQQtvjXpNoKBkasoRb41cpU5imrEmTzlsbRIoUfK9C8RHVMQLXLVgKYxeLxhqwhHvJTnde3Zm2KE
+	MhvtaOME79SbiLX3bsdH9I1C35IjCNjGYowMy0J4n+5r+hQGQoWS/Ft1Wxm5C4X2Xfd2We4FU1Zsf
+	hXAiqvgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v41OT-00000008jGP-3VUu;
-	Wed, 01 Oct 2025 18:17:37 +0000
-Received: from mail-pl1-x661.google.com ([2607:f8b0:4864:20::661])
+	id 1v41c1-00000008khA-33z4;
+	Wed, 01 Oct 2025 18:31:37 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v41OR-00000008jEK-0vG7
+	id 1v41bz-00000008kgy-2uAz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 18:17:36 +0000
-Received: by mail-pl1-x661.google.com with SMTP id d9443c01a7336-27c369f8986so750645ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 11:17:34 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759342654; x=1759947454;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:dkim-signature
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=KKcTz2+WfcXi6NCeJhs4Aeeo3+yILKRVizIKcyvohdY=;
-        b=D8UR213VJetnkdO/FmQJEe/RGpvtY9KI7Io4RgMhQqXKm+6Ej9Jk1uRUIqaXeJE8Pi
-         p2z+yBJw65CrX2758c5IzHFiu3AkH+UdntlsrSM5yVMMhWYzqGDEaofaCbIks8daaQwe
-         GJsQyyv1w4qobgD607OJXA+12v2j576VixFI3/TyQn9hjaDsuPKA8Eu4eSCSZ27bVa0S
-         cGzJ7v3ITIT02iZ3NwVMQIKk72ttygZyxTMBGdEg8zN/c/TFhsPQrS3o0Mxvawe2NrwL
-         08eZiIz2dVu1cJpsHpIUht1iP0Moyr49GMGCH8fUc1ZUJP4LgYFW1UeJB0n38L8qFouo
-         bk3w==
-X-Forwarded-Encrypted: i=1; AJvYcCV5IUiUNbZupFSK6RwXuasENO7UMowkukpOj0eGJ1net9CR+LIyGDXppiThlgLB2SPexV3aW4IYxZSZ+Jrgg9Lo@lists.infradead.org
-X-Gm-Message-State: AOJu0YxvatQBNL21AP3gd2P0nbtIySbQjeOgFLJYUtd0K/RQUUjfUFuW
-	7N4wfhhS81UX1KPV9elbGSrJk1ZeXFrz9WbZ+213FFvAhJL8VQrjPMoo3OLwcqE/TE835bViMaa
-	h9vB9hF/caN0dU8Joteam3XDtqidK/v2NEXldfNn4R+yCKMOSS8dQH18JMw1kv1iyc5LoSNuzWe
-	SipBSh+fX2LzSJnBRGkiG8ZjOOxjflfmmz3qS5+opy89Elvhxg+vI9d+3qQsTuZ6pHAuU28yp/S
-	oBK1DMsDnYd2d1z3W5ElI/N2fs=
-X-Gm-Gg: ASbGncuZusp8irzdfRMAozpqPv/x3s0RyTu4U3bsQVIzX6JnRvSVzi1jkOxybQ97BWe
-	xsPQFsq8aGp/IA3qlxH7ejjiQeOcIKsDvcgF9PvgRFZA6wgSmduaZ56crlJllTrKx27apUsUtR3
-	J/iJ56YN3DXu4vl5WkTlf2hxVOovfBiIE5hlYKv3xqe+QB71pTANUm7sD3T796m8C4xp7DNaRbj
-	zN+T9fNdUw2W4iXQPqnLqwyrGbHpXU51X2PGH7TjH18nfMotgi+oyjfBDjokz69JcL1wC7Qhsf6
-	Rwt5mewl/gtXjuHpWuL1sDFfCYXOgGPaQ1zdPjjGDG6Tk9lvyOBIH1GZ+89GN4qnwVTfarObC4K
-	XOeGI7T3vBEHnkvdXMhe08ZQoHqu0iOXDoVAPLci5YqlJcZ9GwDkYB8kMqv30Zfli2O1nUsvJOC
-	/pdAYo
-X-Google-Smtp-Source: AGHT+IHmVpQnUv8kVQ3l/0KfJhJl8u4mC/O6bM9CvXNf8VSwwFiIdEaYs3MKM1KDSh8ZYBRKOD5lFIF8odOQ
-X-Received: by 2002:a17:902:e801:b0:26f:7db2:3e1e with SMTP id d9443c01a7336-28e7f32fa97mr65430715ad.47.1759342654333;
-        Wed, 01 Oct 2025 11:17:34 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-100.dlp.protect.broadcom.com. [144.49.247.100])
-        by smtp-relay.gmail.com with ESMTPS id d9443c01a7336-28e8d117f4esm232565ad.18.2025.10.01.11.17.34
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 01 Oct 2025 11:17:34 -0700 (PDT)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-4e0e7caf22eso3826041cf.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 11:17:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1759342653; x=1759947453; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=KKcTz2+WfcXi6NCeJhs4Aeeo3+yILKRVizIKcyvohdY=;
-        b=FX/9GraE+Lku+3VjhCiR4rTYaxKCkqK86ECt38gYjLIpJWP/AcHGO95AiSRHpxNxyV
-         5jdETKkhl3Q4Kx897PgafspFFGMi/S3aLMK5YO5s1P9A6Jhzwxeb5EAeAGtCOtcgtJB6
-         t+GQiuq52L3/byffdl1odR1IDqTplkJRP7684=
-X-Forwarded-Encrypted: i=1; AJvYcCW8oQFaF6gEZO2OgANH3rCfNMrmOHt0CDGkSvNgJ0eMXw1xN9hrkLQYU2hTbqEdYQN2gLwvxSIGS7tmEsAKIc81@lists.infradead.org
-X-Received: by 2002:a05:620a:4507:b0:815:dab2:1ea8 with SMTP id af79cd13be357-8737a8f483cmr563555285a.79.1759342653149;
-        Wed, 01 Oct 2025 11:17:33 -0700 (PDT)
-X-Received: by 2002:a05:620a:4507:b0:815:dab2:1ea8 with SMTP id af79cd13be357-8737a8f483cmr563551285a.79.1759342652745;
-        Wed, 01 Oct 2025 11:17:32 -0700 (PDT)
-Received: from mail.broadcom.net ([192.19.144.250])
-        by smtp.gmail.com with ESMTPSA id d75a77b69052e-4e55c9e78cfsm3847671cf.27.2025.10.01.11.17.31
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Oct 2025 11:17:32 -0700 (PDT)
-From: Kamal Dasu <kamal.dasu@broadcom.com>
-To: peng.fan@oss.nxp.com,
-	andersson@kernel.org,
-	baolin.wang@linux.alibaba.com,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	florian.fainelli@broadcom.com
-Cc: bcm-kernel-feedback-list@broadcom.com,
-	linux-remoteproc@vger.kernel.org,
+	Wed, 01 Oct 2025 18:31:35 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id BF80A61F15;
+	Wed,  1 Oct 2025 18:31:34 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 20CEFC4CEF1;
+	Wed,  1 Oct 2025 18:31:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759343494;
+	bh=Dk4SYITbrE5C3jBQ0rRmH1my75LpjgKREbgHSO0H9BU=;
+	h=From:To:Cc:Subject:Date:From;
+	b=B3ULQYPPrKB+zytHQTmAzDsVbcijmXu55ePTyqiaykUlEwh3Z7RkKzLcPOVPoZWlk
+	 EBuPJ/vAig0NC9Wml8/cbfTqRRujqdJQ4AQL+/LxjeTNs2EWp5nPj77NMulrlYsOA5
+	 eBbH9rl9FzhF+noFh8KR/RWHRDue1XpUXtOmAHPRmsAzZfIn9OUbfijvNh65+8EmiI
+	 I1ZJmrej4soKRyZZ+g0VG9Rff6XPMj5dR742TIPqZEgqW1tfib8wUAPOjU/QILxNPJ
+	 sxCCDumRWpk2MaPm21aDQdTUqtznSzqPxOrLdXkcjGvb0Mru3uJSD4tO40fyqa8CqN
+	 XfDsdiXpMSLYg==
+From: Conor Dooley <conor@kernel.org>
+To: linux-spi@vger.kernel.org
+Cc: conor@kernel.org,
+	Conor Dooley <conor.dooley@microchip.com>,
+	Jun Guo <Jun.Guo@cixtech.com>,
+	Mark Brown <broonie@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Michal Simek <michal.simek@amd.com>,
 	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	Kamal Dasu <kamal.dasu@broadcom.com>
-Subject: [PATCH v2 3/3] MAINTAINERS: adding entry for BRCMSTB HWSPINLOCK driver
-Date: Wed,  1 Oct 2025 14:16:41 -0400
-Message-Id: <20251001181641.1561472-4-kamal.dasu@broadcom.com>
-X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251001181641.1561472-1-kamal.dasu@broadcom.com>
-References: <20251001181641.1561472-1-kamal.dasu@broadcom.com>
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v1 1/2] spi: dt-bindings: cadence: add soc-specific compatible strings for zynqmp and versal-net
+Date: Wed,  1 Oct 2025 19:31:12 +0100
+Message-ID: <20251001-basics-grafting-a1a214ef65ac@spud>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1832; i=conor.dooley@microchip.com; h=from:subject:message-id; bh=1SEoBl3IkinUMLRK+FNSvbKHIkHI8aGP3E2c2HCbUXE=; b=owGbwMvMwCVWscWwfUFT0iXG02pJDBl3iyuEJ/2tqjwefr1vrX7loe6Jn/18eTrijgoeO5LwJ EFe/xlXRykLgxgXg6yYIkvi7b4WqfV/XHY497yFmcPKBDKEgYtTACbSYMXw37vG+tQNuVObtj65 mr9d+2bQ1Kx7k2LX710oEtb2P/NySC0jw9Zv6wquh9d2MEgUmxk+2nR1sazM/1bR7ZGz70ypsfZ 4yA0A
+X-Developer-Key: i=conor.dooley@microchip.com; a=openpgp; fpr=F9ECA03CF54F12CD01F1655722E2C55B37CF380C
 Content-Transfer-Encoding: 8bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_111735_264226_02592030 
-X-CRM114-Status: GOOD (  11.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,31 +77,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Signed-off-by: Kamal Dasu <kamal.dasu@broadcom.com>
----
- MAINTAINERS | 8 ++++++++
- 1 file changed, 8 insertions(+)
+From: Conor Dooley <conor.dooley@microchip.com>
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 97d958c945e4..21b78f468169 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -4972,6 +4972,14 @@ S:	Supported
- F:	Documentation/devicetree/bindings/gpio/brcm,brcmstb-gpio.yaml
- F:	drivers/gpio/gpio-brcmstb.c
+When the binding for the Cadence spi controller was written, a dedicated
+compatible was added for the zynq device. Later when zynqmp and
+versal-net, which also use this spi controller IP, were added they did
+not receive soc-specific compatibles. Add them now, with a fallback to
+the existing compatible for the r1p6 version of the IP so that there
+will be no functional change. Retain the r1p6 in the string, to match
+what was done for zynq.
+
+Disallow the cdns,spi-r1p6 compatible in isolation to "encourage" people
+to actually add soc-specific compatible strings in the future.
+
+Signed-off-by: Conor Dooley <conor.dooley@microchip.com>
+---
+CC: Jun Guo <Jun.Guo@cixtech.com>
+CC: Mark Brown <broonie@kernel.org>
+CC: Rob Herring <robh@kernel.org>
+CC: Krzysztof Kozlowski <krzk+dt@kernel.org>
+CC: Conor Dooley <conor+dt@kernel.org>
+CC: Michal Simek <michal.simek@amd.com>
+CC: linux-spi@vger.kernel.org
+CC: devicetree@vger.kernel.org
+CC: linux-kernel@vger.kernel.org
+CC: linux-arm-kernel@lists.infradead.org
+---
+ .../devicetree/bindings/spi/spi-cadence.yaml          | 11 ++++++++---
+ 1 file changed, 8 insertions(+), 3 deletions(-)
+
+diff --git a/Documentation/devicetree/bindings/spi/spi-cadence.yaml b/Documentation/devicetree/bindings/spi/spi-cadence.yaml
+index 8de96abe9da1..27414b78d61d 100644
+--- a/Documentation/devicetree/bindings/spi/spi-cadence.yaml
++++ b/Documentation/devicetree/bindings/spi/spi-cadence.yaml
+@@ -14,9 +14,14 @@ allOf:
  
-+BROADCOM BRCMSTB HWSPINLOCK DRIVER
-+M:	Kamal Dasu <kamal.dasu@broadcom.com>
-+R:	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
-+L:	linux-remoteproc@vger.kernel.org
-+S:	Supported
-+F:	Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml
-+F:	drivers/hwspinlock/brcmstb_hwspinlock.c
-+
- BROADCOM BRCMSTB I2C DRIVER
- M:	Kamal Dasu <kamal.dasu@broadcom.com>
- R:	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>
+ properties:
+   compatible:
+-    enum:
+-      - cdns,spi-r1p6
+-      - xlnx,zynq-spi-r1p6
++    oneOf:
++      - enum:
++          - xlnx,zynq-spi-r1p6
++      - items:
++          - enum:
++              - xlnx,zynqmp-spi-r1p6
++              - xlnx,versal-net-spi-r1p6
++          - const: cdns,spi-r1p6
+ 
+   reg:
+     maxItems: 1
 -- 
-2.34.1
+2.47.3
 
 
