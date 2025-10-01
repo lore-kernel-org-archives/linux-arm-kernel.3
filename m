@@ -4,78 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8618BCCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 08:37:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC04BCCA474
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 08:46:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gzIdYM+jt7Tm5Uc0vWk+e7hcdztHdOIk7pXCG5DPn00=; b=llv9LfpW9Z/NrRNmeEjQZw85Vz
-	zBG11d81ufytIT5IQNDZ+q47gGsnQX2gKb4hwxutX2C08EE7FNmJcc5k0ol7AfxDWMTcSOjahbZdV
-	N8L5mVShca+3wIRQ59lwazFAmCu0Kb1l8WjjROjGS/Uw1n7+4YdQVtaHzFVKysIEIR6clVhcgc3Vs
-	nRdmTBvnzPdVb7ilYXP0BjNR53QG1Kimo3qjiddHRsceb+T/iMTFaeiCjlSz9QcsXZ+xfwjoRLUQO
-	Ij8/EXQEvzszdoeH6t51jcsFEw5Z7IMSgNI4g5Xj/I9w2Ga/Q7FMfE8BPsFfYSKg+0xYnYUvmsKXm
-	uQvTid1Q==;
+	bh=8D0lPsjedL+kyXW7Dr+b8bXHNiYNOO4VOFO0oJ6yKL8=; b=1Mpu/sc0DanpsRPIKZUYlqt0QC
+	KsA8QTf+EZlMxTCl4/VnGWz1mk0n6/9UsgiP8kWCvIYHockukOyZnf/E03IeRiWOvCASnOUoDeqkB
+	jFsDGmUpf2ZpByKtbqMlv+p19RaWvfbYmZVr6apyxDIdj6xQLVbMkcjHPswOGfyyxYKl/XCYrIOqk
+	p51u+xMItKNCJ/U8Qef5bMW3s4ERPpY3qAkuqGx8BvMST6nX17alo4XF/GMAVSxPvYVI9DEH48sDE
+	Pejf2Irh+eUue+Yf8bOM5EkGryGcc5cGXbOSljNUUJzxwl6nInOZ2KVhhw4xS6Ox1YvbMTiPJFWI3
+	nKCsQEYg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3sKY-000000072kU-12U4;
-	Wed, 01 Oct 2025 08:36:58 +0000
-Received: from mail-lj1-x236.google.com ([2a00:1450:4864:20::236])
+	id 1v3sTy-0000000744W-0oXT;
+	Wed, 01 Oct 2025 08:46:42 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3sKU-000000072jX-3d6q
+	id 1v3sTu-00000007430-1Rct
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 08:36:57 +0000
-Received: by mail-lj1-x236.google.com with SMTP id 38308e7fff4ca-373ac916b35so3442071fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 01:36:54 -0700 (PDT)
+	Wed, 01 Oct 2025 08:46:40 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-586883eb9fbso4565999e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 01:46:37 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1759307813; x=1759912613; darn=lists.infradead.org;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1759308396; x=1759913196; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=gzIdYM+jt7Tm5Uc0vWk+e7hcdztHdOIk7pXCG5DPn00=;
-        b=IYHJA+DyQxj1zZ4ijAYX6w4Eq5OOLxSQnAgu2O0jW1peQerVb2hNPP6Elh0SCKtmtf
-         7UsShzJ/RcBpB1gbxthChuPiYj82MIwOIPtiPAe2PCVfgm2ttZnQLe3ZzXFy+M4/GuOO
-         UtRhWKv4z3kPQrQRAlx6ns/zgohErjRyyO7IyZjS341lXc8Ja6PSkG2FyVtscwQrifb9
-         SC1ZGzvKMOZpc68tXEgE9PiZnv3S06WN+RcVweEPjiN9AX6HKgRlDmduvHrQ01tF7pLm
-         pnum0d2lVdUhbbRwlu8U13Lgzh6H4Re0woRd3H8CUqilXrDQrC0yM3u4ru8DnC9IW/Ds
-         IMvw==
+        bh=8D0lPsjedL+kyXW7Dr+b8bXHNiYNOO4VOFO0oJ6yKL8=;
+        b=cmZBCLmCEnm035Q8M1schV2ZDMKm75Cx5kwxbXT98bnpIcslX/odYvkTiuDKevtCvR
+         K4gB6XE/dpqX8FWHu9Ff82utE4buzrEQSA/HXBM3mq64gZRK4DWwbeTOVive2TkQcfY8
+         9wSKVSrzfMUdqEZNU/qLSwZVcFv62p5XoM6qW3BX7dK2waxZDPjSMkieAHVKbLC0lzpV
+         RKBbrFjyBQF9EyV/F/ItU/itlPmPX4CC5/bYyyMrYF0CkqAwILC6lVtCa4Pb8MADeVsI
+         Uma72RRxc86ox5JdPb/wr5umIKuz0LMX6m55RMtD4V9tPU9lHrw66PJXQaxmpPhVH+uJ
+         kkhA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759307813; x=1759912613;
+        d=1e100.net; s=20230601; t=1759308396; x=1759913196;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=gzIdYM+jt7Tm5Uc0vWk+e7hcdztHdOIk7pXCG5DPn00=;
-        b=l1rIbLceh4YxKbF4B0lMxZLE0YfpWmoV5loUqsKhTvFrP+b3DsFwg9mlfKQkdN6KH4
-         IRlegxpBEDhVDA+8ZKpWchtXToT/H3sQYUMJ/d3ZlgigI4VL/xymmNY5jR+M+wbBCdZI
-         1xkaKyLWrlwTrWepHbBEBaFXUauh3iB6XdpYqoX7KTg7Vga5z0owwUCVcejWDE9tdaIA
-         92O9VnIBl84tJmwiG0leLmwXnrQeph00kFyqOzYXr4ez1yLyYqe4q7XguNWJyqb08S32
-         r2IiBk4FFO+pewzJ6Jk1UCbQUdV85LYeenDgBwnZyhN+FjUuiFre0Xojq0K29+Z1vVxC
-         Lgxw==
-X-Forwarded-Encrypted: i=1; AJvYcCV4NI59nWgppD1ItzFM7JQQfxGFbwAi/922Dwt2wDCG9ZY10PkrBbQmBqx2Syf2LLIT4h30hHSMY85pEcUyjPzT@lists.infradead.org
-X-Gm-Message-State: AOJu0YyGtopUGgKIuK7jLt0j6TLvyeWjw1WV3FuLAsf6omWPkyYrR5DD
-	lcboIhtylFkwT5krvzul0xuPnGahjMGAK31YdBQ7dNhTH+sK8gy2o3iDFdZZITu6UH31tjnGNW1
-	G0jGG3nBoW4vbBIXKPo8EBqAuHPqc2q3Pw1oEPsNlng==
-X-Gm-Gg: ASbGnct4XTOqcrcmDaTY6SLwYY502CtbsJaTfTYmnbTy2q/ixlRWumJUHNPyHNdeHdA
-	Bzs6JbMHbry7+4NDsQ2TcTg6ju/cIG+Kqr7bJRrnXBce+9AkSOUuc4UDSYAF7IO3EYvuC9bD8n3
-	2wqtgNwSGXNHjC0xa2qL32nJJA1qPACOa2SBl4hBIfi2X3eu9zz4tfe6pHfHLbT9daF0kFaR8KH
-	mV8dDtDrOVxiAUAe7lCKnDRzj7V+r+5yIE49UznUQ==
-X-Google-Smtp-Source: AGHT+IGR364l0fZkqCbX1kIjKIvYDxXIcwBHw+lqJUfFGXSzirJ8uNvUMS79/HggJOLuN/qEVcxWH5dtrV9+RyqdghU=
-X-Received: by 2002:a05:651c:210c:b0:357:ccfc:64ac with SMTP id
- 38308e7fff4ca-372fa205204mr25896051fa.4.1759307812626; Wed, 01 Oct 2025
- 01:36:52 -0700 (PDT)
+        bh=8D0lPsjedL+kyXW7Dr+b8bXHNiYNOO4VOFO0oJ6yKL8=;
+        b=DdqyH222Rl1lmIVP6Lv4N2giKQRXhCnE2yUwOOIfQl8rviF3MH8/MBVdw6pSS6bTjM
+         IBxIyXsiTL+wmYdhZQqKTZRLShT6v/8NZuHbvYwqHs6L+GRvusDlWp95gWN+n8tu9vrh
+         wLR7swi4LILbfAZhxXbdQ9QyHTPNLyAqv8Y2jae3RHOLw4dBbBUUyhdRbJbBJrzIc8wN
+         FJV28JuDmpIGdEaXdWBsGdFkZ7GITm9GOMaMESSlHqCAXKuByjU72J2zlcwCxbolARob
+         LdujzVGpztxqXNDrW8b8kFBIBkDHlRS+kMm9Q44JyulHhzcIb4fhvKZAXFH0cqCVrPDX
+         g+sw==
+X-Forwarded-Encrypted: i=1; AJvYcCXX4PNRmluPZKXAZBXTOF2TWoHW3+AxtfUzuTz7lPIKAUKa2RrSyR1h6FGeQDDRJKsYTqiTQS5Notp9ledxa0wA@lists.infradead.org
+X-Gm-Message-State: AOJu0YygB5bIRVLoSZaD779SIWrRjCYssRZotc3lxxC+CO9ubXrx1zmE
+	c3fHtp8eyMCagidYR8LSAzmtWDZk2d07p9STkqnZOgWGyaonpY855kUv8rncF2Aq16NHUsQxZsS
+	uMSbtN8dFlGM6aOs+Ih2jMG7HBEnXW97GYP6CuhGWOQ==
+X-Gm-Gg: ASbGncviRv2qsSE+K0KCeanyzRvw35/v+O+7x3/vK0ehwge91HMjPpynqJh35puAlzu
+	VpfwncLzX5Rno/JrmYlIjXFIZRlaQuqesUTymawE7QQH6KY5+Dj8a1Sg4j9LQzlTiDqdB6uKQjT
+	iBAlzDIsyMdfmqK9ptJw3YppSAtXxYDQA+8YlML1+UauBz3nCupGDv4D2DBF5fKfd13R1pQY4YK
+	CQ/Uk+v5iDCeOXyz4uMuXhjoszjWnM6Kb3IN8ruQmBZMvDFyJiRKwHopMdNN6o=
+X-Google-Smtp-Source: AGHT+IFOdBqQ3obnIdTm7ru0JPzklPYFIUGqCI693FKE/9RlmuM5kKhUigWL4UNHwLKwqtrOVDs8F+QH4ORLFYFhoak=
+X-Received: by 2002:a05:6512:ea7:b0:57a:6d7d:dd7b with SMTP id
+ 2adb3069b0e04-58af9eadd86mr760851e87.8.1759308395621; Wed, 01 Oct 2025
+ 01:46:35 -0700 (PDT)
 MIME-Version: 1.0
 References: <20250910-make-compound-literals-normal-again-v1-0-076ee7738a0b@linaro.org>
  <20250910-make-compound-literals-normal-again-v1-2-076ee7738a0b@linaro.org>
- <CAMuHMdWoEXLTPyQL4kt1OPVbrDDcBdBigqUM7EbNZjZUsSmRHQ@mail.gmail.com> <CAMRc=Mej9fQk-1zYKhPK6aWdptXKvjq28TywRyP+iZExRuX9og@mail.gmail.com>
-In-Reply-To: <CAMRc=Mej9fQk-1zYKhPK6aWdptXKvjq28TywRyP+iZExRuX9og@mail.gmail.com>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 1 Oct 2025 10:36:40 +0200
-X-Gm-Features: AS18NWDoMdvnOzF6_wDEnr52XVC2ihE3QCB2mnLOoQUz_n36xv-rRAEh7yvMfRw
-Message-ID: <CACRpkdbo88o1g_VCp0+C9hfi1VQkP99x2Mnkw_DTctBEtVAa_g@mail.gmail.com>
+ <CAMuHMdWoEXLTPyQL4kt1OPVbrDDcBdBigqUM7EbNZjZUsSmRHQ@mail.gmail.com>
+ <CAMRc=Mej9fQk-1zYKhPK6aWdptXKvjq28TywRyP+iZExRuX9og@mail.gmail.com> <CACRpkdbo88o1g_VCp0+C9hfi1VQkP99x2Mnkw_DTctBEtVAa_g@mail.gmail.com>
+In-Reply-To: <CACRpkdbo88o1g_VCp0+C9hfi1VQkP99x2Mnkw_DTctBEtVAa_g@mail.gmail.com>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Wed, 1 Oct 2025 10:46:22 +0200
+X-Gm-Features: AS18NWC0XlksXBppS2yCvWpBaDAShYUzQK0jJOB31RgrqudBkZ0MvZktkc5Xz8w
+Message-ID: <CAMRc=Mf4kv03+cfB7up==PUJyxHH6U3hHF3q6iKYZWVOZamSTg@mail.gmail.com>
 Subject: Re: [PATCH 2/3] pinctrl: use more common syntax for compound literals
-To: Bartosz Golaszewski <brgl@bgdev.pl>
+To: Linus Walleij <linus.walleij@linaro.org>
 Cc: Geert Uytterhoeven <geert@linux-m68k.org>, Lee Jones <lee@kernel.org>, 
 	Andy Shevchenko <andriy.shevchenko@intel.com>, Liviu Dudau <liviu.dudau@arm.com>, 
 	Sudeep Holla <sudeep.holla@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
@@ -103,8 +104,8 @@ Cc: Geert Uytterhoeven <geert@linux-m68k.org>, Lee Jones <lee@kernel.org>,
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_013654_928289_9BF32D26 
-X-CRM114-Status: GOOD (  13.88  )
+X-CRM114-CacheID: sfid-20251001_014638_509471_81D4BE51 
+X-CRM114-Status: GOOD (  20.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,25 +120,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Sep 25, 2025 at 9:52=E2=80=AFAM Bartosz Golaszewski <brgl@bgdev.pl>=
- wrote:
+On Wed, Oct 1, 2025 at 10:36=E2=80=AFAM Linus Walleij <linus.walleij@linaro=
+.org> wrote:
+>
+> On Thu, Sep 25, 2025 at 9:52=E2=80=AFAM Bartosz Golaszewski <brgl@bgdev.p=
+l> wrote:
+>
+> > This is a link to the discussion with Andy as per Linus Torvalds'
+> > recent request to use the Link: tag to point to actually useful
+> > information rather than just the patch's origin. Linus Walleij doesn't
+> > use b4 so the origin link you'd normally expect to be added
+> > automatically is not there at all. That's probably what caused the
+> > confusion.
+>
+> What? I use b4 for everything, I don't know what gave you
+> that impression....
+>
 
-> This is a link to the discussion with Andy as per Linus Torvalds'
-> recent request to use the Link: tag to point to actually useful
-> information rather than just the patch's origin. Linus Walleij doesn't
-> use b4 so the origin link you'd normally expect to be added
-> automatically is not there at all. That's probably what caused the
-> confusion.
+Ah, sorry for this. I assumed the lack of Link is due to no b4. Should
+have looked at git log first.
 
-What? I use b4 for everything, I don't know what gave you
-that impression....
+> I have however removed the automated Link: tags generated from magic
+> gitconfig hooks as requested by Torvalds in v6.17-rc5:
+> https://lwn.net/Articles/1037069/
+>
+> This is also mentioned in my pin control pull request from yesterday.
+>
 
-I have however removed the automated Link: tags generated from magic
-gitconfig hooks as requested by Torvalds in v6.17-rc5:
-https://lwn.net/Articles/1037069/
+So it is a policy after all and not a "please"? Let me remove the hooks the=
+n...
 
-This is also mentioned in my pin control pull request from yesterday.
-
-Yours,
-Linus Walleij
+Bart
 
