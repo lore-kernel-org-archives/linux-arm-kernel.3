@@ -4,143 +4,159 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21B06CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 15:28:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91A8CCAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 15:29:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=REY5MPBUvyw7JEoBE4wqPx+Ebw8YSmQnOCr3RtTwLVM=; b=DdprQeBII33uOh83iQrjnzHp2z
-	8KvngtAezaD0oO8OoPw6cndCPSvpjPf1eZLPMoGLXT3JIISX90QkBiRZirabgaA+misBSV3e8P7H2
-	AwfZ1pGLBrFkdDG1g49gFTWD5JG6B+J6hO1jum2AWsc4OzxqK4ZR6DwNq72nh329eLXjTXhjWdlkM
-	NZt/rwIb8XDquxYcHU+miyJ09onEAwCClF6mzOk+OWcIL8Onb6yVIEtsyDMYyWCm1/AAL8XEkC3L4
-	XhYAQTAAwArA0t9KjaNaSpYMfvzUxXFgB7LSldvpYXphFWh/urkPAdv5hRCOYEzOwx8Hqlj6eqaG7
-	XmWaU14Q==;
+	bh=e+slWpPA54aYcVOS9FeUlchlk4c0XDL9e2Lcv8RaMd4=; b=cLS2GB43yPYfmRORSzUSLRqMzw
+	6LKc+SK+s6Fr1mbz2o3374RkGoz1L2MjjhEiuK1nF+0F2solziQwSV9IAylkkVViIzBEWGgHybUQ4
+	EqaYs0SGRgIGTmBqqOviDeEHTRCBlrPu10Ed1uO6BMhywRoqRSCETy9FsDtL9xhLLKhmphZ27dA8t
+	XEw+DrIWBLwVHdMtrK8vOoomXtf5Qrr6suJ6kKTIXkCc2yOzp4EAPPvRoL90TraiQCgACybG8RVQD
+	wduSYNfTKtILqYgUhdarBebpdPZcmL9+OTENTabRnn2UJuxhpv9zWhIm0OETKduYfQ4jORTLeZ9Rw
+	aAZedhZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3ykx-00000008OJx-2y0O;
-	Wed, 01 Oct 2025 15:28:39 +0000
-Received: from mail-io1-xd62.google.com ([2607:f8b0:4864:20::d62])
+	id 1v3ylI-00000008OQk-27mf;
+	Wed, 01 Oct 2025 15:29:00 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3ykv-00000008OJa-01tU
+	id 1v3ylE-00000008OOr-3s0F
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 15:28:38 +0000
-Received: by mail-io1-xd62.google.com with SMTP id ca18e2360f4ac-88703c873d5so279365039f.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 08:28:36 -0700 (PDT)
+	Wed, 01 Oct 2025 15:28:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1759332534;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=e+slWpPA54aYcVOS9FeUlchlk4c0XDL9e2Lcv8RaMd4=;
+	b=Tv8UE29fgeSBqvtOzIIB1JE5k7CpLl71M+2/LhmMS1oFaW0boxjCJHmNqt/s+yI1x+9wnd
+	J8uCwZiLtkTA+xF0RMRQjwSFO+AEqTPr/UIAVxMxj4OwfXp/ziKdi12c7Ttv+rQHPNBkdh
+	5ucqGpJMM9XVlDAEco9kxM46k45gfmo=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-491-6oNupQGJOzOSuG03XnCSrA-1; Wed, 01 Oct 2025 11:28:53 -0400
+X-MC-Unique: 6oNupQGJOzOSuG03XnCSrA-1
+X-Mimecast-MFC-AGG-ID: 6oNupQGJOzOSuG03XnCSrA_1759332532
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-3ef9218daf5so7315298f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 08:28:53 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759332516; x=1759937316;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:dkim-signature:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=REY5MPBUvyw7JEoBE4wqPx+Ebw8YSmQnOCr3RtTwLVM=;
-        b=enXAdKcre81tDfyYMNThT6WCidBMrNQKEZQmOcWbWUhsnD+8SVXp6AU7YstCeZw0KL
-         ebBfscGhvIj6G5yRclrE6qx9T40Jw0LxcHvtLNPTay3SEr42X8M8D2rlmnvk9xPaLgeQ
-         U5DfJA9lX8cP9PI/68CpFHmh8sF6CqwEWi6hbpjHZDTWpvjFn4H8I/rix2UtB4R6CR5s
-         RIQ3nymsdmP2kUjIwO0xfg3tUhGsRJrKOAOi3Kph6lpX+dLIc4GwAJS53uf49UPFFU19
-         8jt12qNurbMWuB5Vmcv5+mPHS516uB8d7nVbENsI88hObljD21VJgTkDsLeToVvUiTxJ
-         Z40w==
-X-Forwarded-Encrypted: i=1; AJvYcCXyGYIGx2UyrFpC2M/B4vt0fUqD27LXkbcBBeu8crcLz5ceDA74DZig0addpUczIC3NZub2BvgKx35+RnXScw8i@lists.infradead.org
-X-Gm-Message-State: AOJu0YyjtUOFKm4Qo7DwWuPv35C0BBWbQbGLaK29wP+SjWZ0Yi9nVCRO
-	3UTNHdPv9pctFbaVw/C0GhRpyHN3dpBZeNAqXp8b8OHcuLp51R0pZKq8tA7FE35vHryuKY7fOhX
-	z5I6MzwVt9QpWD6q0XOtI9ctsofksB4T1NXZop+LLyL1Mktb17gxeh9jQRk2JCsTt7QPCV6FgJ4
-	JuSaVFJ1aQid24MfEAkdei5f5qRUJs6Xhu73HTaoLUbGyduefcaTH05EmzKQQDGNdVaSqgcSEqR
-	Ucxue6Uyq6Rd9uxib9rfWI2fnmHUmXH6lw=
-X-Gm-Gg: ASbGncvfXEDawHnJbb0pVIQ65tlnYJ8gU6s3qc7za2gfSHSFXdVHv5/8LpbPsClRtkr
-	HPdf+HFXkuFEoQo5KV0CoT75XDnZonRyJyLz8O4h1YEo9WFjbh4LwopBjgD/y8vdTd4KTwfPLoh
-	DwxRawDbXMTRkb3gbV0kd+VWZjjwdfIa7tl6EsLTGoejXBh5vMw5LPr27RwP5x66VrUAqRPS89R
-	tyukYmpkU1RlQtl7z1XCag6dwJDCspYqQEkziZNLOEU/cM0Pxju3AAyp1ScvTF3aDeJLa2BN5hr
-	iSvXClx61IYkbd44xAxjUjMoN9qi6r6ClWyJ9LcWLKKiatkveypYq0OyX+DFqmEahknQVbv6mFB
-	kSMRXSlZ9uSS/QrneC0A1b4g5Ji7YcAOTT1DH2UE9xxZP6okLRuWAfOWi5DCbpb9+t6/EzwGDwM
-	tnSSg88bcw5ga1
-X-Google-Smtp-Source: AGHT+IEilUqVh8z9TiiTCS/MLlZc2inuCwoU4WHOMK9fvUb2tnQu8+wqXMtzoguq83jZBZ3DeK8Zjw+DI7Ye
-X-Received: by 2002:a05:6602:3890:b0:91c:fcd:88fd with SMTP id ca18e2360f4ac-937a92869eamr603538939f.7.1759332515827;
-        Wed, 01 Oct 2025 08:28:35 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-101.dlp.protect.broadcom.com. [144.49.247.101])
-        by smtp-relay.gmail.com with ESMTPS id ca18e2360f4ac-92ec80b6fadsm27324639f.12.2025.10.01.08.28.34
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Wed, 01 Oct 2025 08:28:35 -0700 (PDT)
-X-Relaying-Domain: broadcom.com
-X-CFilter-Loop: Reflected
-Received: by mail-pf1-f197.google.com with SMTP id d2e1a72fcca58-77f68c697d3so25346b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 08:28:33 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1759332513; x=1759937313; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:cc:to:subject:user-agent:mime-version
-         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=REY5MPBUvyw7JEoBE4wqPx+Ebw8YSmQnOCr3RtTwLVM=;
-        b=aXK6FVv24mf9f4w5ngeqx8QJDzke3HNnNpgfDOsZrqBgzkmfeai5xWBFwkhRPoLsTO
-         awQRh3G4e19GPpzY039CVWbWQ/6pj2hI1AUbvyRk1kpfaoLp55G7RcKZC2XBC0As8ur7
-         dLIiVqDk/+BocMwOE9nGtomK/9onsclkESHvE=
-X-Forwarded-Encrypted: i=1; AJvYcCVFsJmG/3DpZts+BXDfueYrRcI5l/wo6rmmUJJUQvcIL+SAMQB21H3elOkSLa38wehJBjUnk/4rk14qYy22UFrX@lists.infradead.org
-X-Received: by 2002:a05:6a00:190c:b0:77f:449f:66b0 with SMTP id d2e1a72fcca58-78af4261855mr4611400b3a.32.1759332513150;
-        Wed, 01 Oct 2025 08:28:33 -0700 (PDT)
-X-Received: by 2002:a05:6a00:190c:b0:77f:449f:66b0 with SMTP id d2e1a72fcca58-78af4261855mr4611365b3a.32.1759332512669;
-        Wed, 01 Oct 2025 08:28:32 -0700 (PDT)
-Received: from [192.168.1.3] (ip68-4-215-93.oc.oc.cox.net. [68.4.215.93])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-78b01fb1902sm53209b3a.31.2025.10.01.08.28.29
+        d=1e100.net; s=20230601; t=1759332532; x=1759937332;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=e+slWpPA54aYcVOS9FeUlchlk4c0XDL9e2Lcv8RaMd4=;
+        b=pOU3eSj0/KPaEiRnZYcEtaBCujv+IbKWAcHHnTQaxQUCD1XxCMX+d8miPccJqmSISm
+         fWSws1ww5iBQiT+8yvq4qN2Q4OOd8GG3n0V8qtJNzNOjrEoHa56x8bT2VU1Q1wOqxBE0
+         /a6XI/FCOQ+D8RI+AWPbDBGnIE1TWOdfT3nyOearGPGn9G/yaAT/sWG4N1CPMZWmaRcK
+         6ebA0gHu/cbiibyWApljewp76sKlm8AnSwYDxennbiPXOGK5Z9IXk96PA8+Cwog4Gl5U
+         SPsLkzTQ1Q2YHm7w9bvoxM/5oZyrddsYAFkAg92pe3XEFeVGql5qclaMEycrQadrMbp5
+         zJ1A==
+X-Forwarded-Encrypted: i=1; AJvYcCWId3hw8hZpQK79jquGVVhkdB0koi1aS7yc+n9ldXn88SQzVV4BlEOy1fLPOoD57Wn0pnjqJfWSJq0dN8WzwTrG@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx+nDOLHSsamEnlpC4KuPGOUIqI34tD4z/DOnIlUsU+D+zvjhBA
+	CH2XNSKJFA68t2telMcgfXDdpeg5ry5IHnW+3PDuevymcClBib2wjqvDKbTkPeF4l+cOfhfPoOl
+	XD5bKpSBRdAhtqYFbuGW/JAzNdHZUgO67pUVUgkoe69jnGpKbubjYhjLkjRyML49wZart3Y1r2D
+	Ry
+X-Gm-Gg: ASbGncvLOfqgvOA1BTRi1JlDGy+BuOUNRflKFfmyjLnAKpcsdovrj5+CxSb64G569eS
+	d7o/23R/z1z0gIdxYlNcqiaG3iEcm177yKRnCzZKc6GXgM9yfLkQwxqTJgEpk4SHniBXwPNx0/f
+	MoTCnrRRm1NcstDjcPmcQ2t0y+rRiN+xtkTNB8O4sYG/3Y7x2nck/QPPxA+2mL5M1HA3Ne8CXCn
+	Mor+tjjsnBeY04udGuC0MRfxrmSABGIG19uEc4QxL4b52MDXDFl52Y5g6brsDCsKuvpj+epdQlG
+	Q52tuXAKCZ+jk1bYHQKCUnvVGMY7VxhHUYCjXroTaXiND/Z74bw+PJvs+KXpJFOnAuSzaWK4AAy
+	tiv0Vpfh0
+X-Received: by 2002:a05:6000:2388:b0:3ea:bccc:2a2c with SMTP id ffacd0b85a97d-425577ed5d2mr3451645f8f.11.1759332532347;
+        Wed, 01 Oct 2025 08:28:52 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGdwITK7uCSqv/A/igDjSEGaWLXOD/8b6fdy6NcMUtXataIInxRPW2Ouk591De4Glwn2mQ9Sg==
+X-Received: by 2002:a05:6000:2388:b0:3ea:bccc:2a2c with SMTP id ffacd0b85a97d-425577ed5d2mr3451604f8f.11.1759332531757;
+        Wed, 01 Oct 2025 08:28:51 -0700 (PDT)
+Received: from ?IPV6:2a01:599:901:4a65:f2e2:845:f3d2:404d? ([2a01:599:901:4a65:f2e2:845:f3d2:404d])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-40fc5603381sm29816097f8f.31.2025.10.01.08.28.48
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 01 Oct 2025 08:28:31 -0700 (PDT)
-Message-ID: <68e10834-0c1a-4cbe-be0b-76e17f8341e0@broadcom.com>
-Date: Wed, 1 Oct 2025 08:28:33 -0700
+        Wed, 01 Oct 2025 08:28:51 -0700 (PDT)
+Message-ID: <48ed62b1-cceb-4bce-923c-25c11dbccc37@redhat.com>
+Date: Wed, 1 Oct 2025 17:28:47 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: hwlock: Adding brcmstb-hwspinlock
- support
-To: Peng Fan <peng.fan@oss.nxp.com>, Kamal Dasu <kamal.dasu@broadcom.com>
-Cc: bcm-kernel-feedback-list@broadcom.com, andersson@kernel.org,
- baolin.wang@linux.alibaba.com, robh@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, linux-remoteproc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250929200628.3699525-1-kamal.dasu@broadcom.com>
- <20250929200628.3699525-2-kamal.dasu@broadcom.com>
- <20251001025817.GB23170@nxa18884-linux.ap.freescale.net>
+Subject: Re: [RFC PATCH v5 13/18] mm: Map page tables with privileged pkey
+To: Kevin Brodsky <kevin.brodsky@arm.com>, linux-hardening@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+ Andy Lutomirski <luto@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Ira Weiny <ira.weiny@intel.com>, Jann Horn <jannh@google.com>,
+ Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
+ Kees Cook <kees@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Marc Zyngier <maz@kernel.org>,
+ Mark Brown <broonie@kernel.org>, Matthew Wilcox <willy@infradead.org>,
+ Maxwell Bland <mbland@motorola.com>, "Mike Rapoport (IBM)"
+ <rppt@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Pierre Langlois <pierre.langlois@arm.com>,
+ Quentin Perret <qperret@google.com>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, x86@kernel.org
+References: <20250815085512.2182322-1-kevin.brodsky@arm.com>
+ <20250815085512.2182322-14-kevin.brodsky@arm.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <20250815085512.2182322-14-kevin.brodsky@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: MK5dfjEQW0uqjPAo0M0S0E0LQv2pecx6VHGapiX538w_1759332532
+X-Mimecast-Originator: redhat.com
 Content-Language: en-US
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
- xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
- M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
- JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
- PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
- KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
- AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
- IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
- ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
- bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
- Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
- tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
- TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
- zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
- WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
- IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
- U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
- 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
- pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
- MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
- IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
- gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
- obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
- N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
- CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
- C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
- wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
- EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
- fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
- MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
- 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
- 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
-In-Reply-To: <20251001025817.GB23170@nxa18884-linux.ap.freescale.net>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_082837_058869_DD41179A 
-X-CRM114-Status: GOOD (  15.79  )
+X-CRM114-CacheID: sfid-20251001_082857_064009_2ADD30C3 
+X-CRM114-Status: GOOD (  20.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -155,36 +171,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 15.08.25 10:55, Kevin Brodsky wrote:
 
+Just wondering, should the patch subject be:
 
-On 9/30/2025 7:58 PM, Peng Fan wrote:
-> On Mon, Sep 29, 2025 at 04:06:24PM -0400, Kamal Dasu wrote:
->> Adding brcmstb-hwspinlock bindings.
->>
->> Signed-off-by: Kamal Dasu <kamal.dasu@broadcom.com>
->> ---
->> .../hwlock/brcm,brcmstb-hwspinlock.yaml       | 36 +++++++++++++++++++
->> 1 file changed, 36 insertions(+)
->> create mode 100644 Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml
->>
->> +  - |
->> +    hwlock@8404038 {
->> +        compatible = "brcm,brcmstb-hwspinlock";
->> +        reg = <0x8404038 0x40>;
+"mm: protect page tables with privileged pkey" ?
+
+At least patch #2 tells me that set_memory_pkey() will set the 
+protection key, and the function is called "kpkeys_protect_pgtable_memory"?
+
+Just trying to connect the dots here :)
+
+> If CONFIG_KPKEYS_HARDENED_PGTABLES is enabled, map allocated page
+> table pages using a privileged pkey (KPKEYS_PKEY_PGTABLES), so that
+> page tables can only be written under guard(kpkeys_hardened_pgtables).
 > 
-> Just have a question:
-> the base is not 64KB aligned, so just want to know is this module part of
-> the other ip block?
+> This patch is a no-op if CONFIG_KPKEYS_HARDENED_PGTABLES is disabled
+> (default).
+> 
+> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+> ---
+>   include/linux/mm.h | 4 ++++
+>   1 file changed, 4 insertions(+)
+> 
+> diff --git a/include/linux/mm.h b/include/linux/mm.h
+> index d9371d992033..4880cb7a4cb9 100644
+> --- a/include/linux/mm.h
+> +++ b/include/linux/mm.h
+> @@ -34,6 +34,7 @@
+>   #include <linux/slab.h>
+>   #include <linux/cacheinfo.h>
+>   #include <linux/rcuwait.h>
+> +#include <linux/kpkeys.h>
+>   
+>   struct mempolicy;
+>   struct anon_vma;
+> @@ -2979,6 +2980,8 @@ static inline bool __pagetable_ctor(struct ptdesc *ptdesc)
+>   
+>   	__folio_set_pgtable(folio);
+>   	lruvec_stat_add_folio(folio, NR_PAGETABLE);
+> +	if (kpkeys_protect_pgtable_memory(folio))
+> +		return false;
+>   	return true;
+>   }
+>   
+> @@ -2989,6 +2992,7 @@ static inline void pagetable_dtor(struct ptdesc *ptdesc)
+>   	ptlock_free(ptdesc);
+>   	__folio_clear_pgtable(folio);
+>   	lruvec_stat_sub_folio(folio, NR_PAGETABLE);
+> +	kpkeys_unprotect_pgtable_memory(folio);
 
-The alignment is relevant to determine whether this is part of a larger 
-IP block or not, though I am not sure why you use 64KB as a criteria. 
-Our HW rules are to match the highest OS available page size for the 
-systems, for us it used to be 4KB and is now 16KB alignment.
+This is all rather nasty. Not your fault.
 
-The block is part of a "sundry" IP which has lots of controls that did 
-not belong anywhere else, for better or for worse (pin/mux controls, SoC 
-identification, drive strength, reset controls, and other misc bits).
+In the near future page tables will not be folios, and the whole 
+ptdesc_folio() conversion will not make any sense.
+
+Likely you should make kpkeys_protect_pgtable_memory() etc. consume an 
+address range, or a page range right from the start.
+
 -- 
-Florian
+Cheers
+
+David / dhildenb
 
 
