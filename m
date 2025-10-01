@@ -4,86 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8264DCAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 10:36:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDEB8CAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 10:53:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Frm8BAZ6rWX+aa8TWqwI3ZISUIM4mvLDCAExSs5zG50=; b=AwPheT2LN5uOXYNoWpQHUcgBWr
-	SjFEJXBCWyuFEqGCUYTuq/vHRegE3WnCnIpFKeDtOTo0AfiWFsaQuyDJhSfPwZpBRlS9G1QVbqKc2
-	8C8NFUG+14l6JMjHToivDkW3rXzSqrkVkiT5mAvmhMF2HzhLXSPw6LI6ZmhXCrwJDGdv1qG7qxvUw
-	iiITB+llJZ842oUgYza27CuM6CoIieWWNj0vFqtcKB5q5hrhe3myHzzABrpWYnKy/AEdBr7EEhkoP
-	p+f7k+LJkBu/iYVbAorod2puiNWMA8bG4f4K3vU/mlcpztOPla4kwL/shTNJqA5jpRJT1756YwpuD
-	cGPi9ogA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UXaRvd/Tl3m+OCCyeRNRvJ/5mgQ4gfksuRE7c8W+vks=; b=Km+arPwvcQkbYfw1OPJN6Ekg/e
+	U/hK6mwb5WV+9alLI1njGRTCjw5J0R1Dh7zdISigINf5PIpxlaoCF/frZ3/VgHrj5XX+C4XfFPtq5
+	x4caHTHyjLTmlS5S74njFQErMnR3zj6MZsGC+q+2E99NmvMxUvM73DATEqRN6/5ceVtRwumfFNpNo
+	pUZO0OZ5eyB3F3/d2km672JcDVNf7xHB480v5OZO28t4aRYIpbtcMi6xL9bdpW1cVI6C5AoG4UeuH
+	/ZseTRhjcY7bqGH/pDZDZ7Al/FDGcP2BKumeWhLLspaszpqh7POphU98jK0+c94Vg+9V+lUBoPWbo
+	keoOX4FA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3uC5-00000007Gjw-02ks;
-	Wed, 01 Oct 2025 10:36:21 +0000
-Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
+	id 1v3uSZ-00000007I94-1MuQ;
+	Wed, 01 Oct 2025 10:53:23 +0000
+Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3uC3-00000007GjW-03rn
+	id 1v3uSW-00000007I8i-2m2q
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 10:36:20 +0000
-Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-78af3fe5b17so810219b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 03:36:18 -0700 (PDT)
+	Wed, 01 Oct 2025 10:53:22 +0000
+Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-36bf096b092so98448781fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 03:53:20 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1759314978; x=1759919778; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Frm8BAZ6rWX+aa8TWqwI3ZISUIM4mvLDCAExSs5zG50=;
-        b=d0FEvU7SNAezwwmT0HhgHqHpci9mI/CKc9q6dxnUNidnljWx9m886ZexZUJ8DUTSMW
-         lxDBwepxXbVRJXTQFqKUcm0Wj2E3f/HQeoha6DuV/uaNhvLFivWp/OmCGhYWgNZ4ik1c
-         DNfbFh+JtUYPi18UT7ayHJ2M0Z45RaRqS/K9QN14eGFkYQ5qoTo//X5tfPAYkBYOXb02
-         6ws0jtfkYMn/A5kOvVthK4cuMuPjGXxesBAAl3EoEZudcG8QM8HwAMxK9+obPBr2onQc
-         e4tcr/kwArq/xJwVAx53urJG4Oya8v1yyE7EZC9Zjg3RuK1cq7Hy375m13ClSxNyCNsA
-         siYQ==
+        d=linaro.org; s=google; t=1759315998; x=1759920798; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=UXaRvd/Tl3m+OCCyeRNRvJ/5mgQ4gfksuRE7c8W+vks=;
+        b=CXiLLfMygcBHz78RL+6sBqB2wAlw3nzhyJtiseweqOXg5XmzT+t18gZdGLRu2+EmKL
+         pGEGNcaXNqng5q26BcHPqEuFLsk+duo4EAC3OQbzRCD3wsJMuPGef71X4EcPSLieO845
+         8sPVwY/girxdiSi7dEmHQesgLh/Nt7nDJ7VdiQxF4aE/e/ejav442XhfVtdNbqGs1oOp
+         LK03YNyiiUf/wVpz49IFgRYnKQrsY8iYg8BJbqurge2ZDlhgBQrbRXaKDV9PtmCIrXWz
+         kgGC8bL7kRVWx8QfnXziePd9MNT2V0MbGnan4Hguw2bRJQZf4Om947Yi6Cs8VouOrZjd
+         vxsA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759314978; x=1759919778;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Frm8BAZ6rWX+aa8TWqwI3ZISUIM4mvLDCAExSs5zG50=;
-        b=RTrSGuPJM65qCLPjRlNp1geVP62kqyGA2IgqfF1PYniCJZDCR1/mHOyXIlgCN7xw/w
-         6dztNVFNjtDmaKSGywTc4CS8ztfLuNWGwXuNrzE1CFu5X4RbleXEtJe+/I120pg+CPXq
-         sdYKPwUlz76b+DOoOjTpAEZSC9kjicSwMUk0gHlkNe1L41pIhIMhm7Kkf7GQBcEOnoEp
-         a2E802lJxPV6khvyUwKmHaQknsPk7iT/Vb4T0wBunlMHs7cb8EHy38ZBvAdDy1PhmmMw
-         acADaU71t4a0Yhp8ftA9YU/1VHWSL+2dx1fJu+e2rBXn69taoKw0itRQhGBYcHdqzLTm
-         1C2A==
-X-Forwarded-Encrypted: i=1; AJvYcCU5XbI254hjyk5lah6WpO//wF2EVPv9hmaeVK33Tu+65ve74VdctmSqxKGZk/3grFe2Dwza6rGMysILj++iN9nq@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy6SzRAGA7Bbs5fwERXPvinQNGMTE2Jze6E85FPWc3LH7zfLc0N
-	KdGbJvAmytyAGh8OcMv9/jmE/+xo/oDwEPvS/KQ6JTOb4lIR1l0CbMRTunP0rp/Z5hGpc4wBc4K
-	INXRXp482JyZ5kkWogQzWsYu0SzQBKQvY9a8UY4HGSQ==
-X-Gm-Gg: ASbGnctx7UM8iu3FayjbnelvHj4aTAbX33ekjV3zC/YKvhbj7J5JgjjLLV3e56aJK93
-	fnwKMy+FibJ/tyLCBi32+QSUbnWYIqjq+Dk8a3Z7ZjZy3rfxaGVlq/PpjLOf5voNbMkc1nu6zNr
-	PQpdKWBlN0jVMXit5eR0WdpSzzsGnPEhXENtW9LUysG4o25Azzi/ikl7TdTVRYU//qvOwwL7NYx
-	wI4CBsnq0WY+EA74Tx0s57RU45OOmUZLlUx3c/jJ3hzm9FFOJ6wpvZJFYEz8di9aUA4on6JiNk=
-X-Google-Smtp-Source: AGHT+IHMsSldqlWSyKGVyTbAPw+8QjVtsiwnQILSuwxz2ciHwCAiBOn2oZ6xJq6WJYj7Et8HuHyDvfPb8sEKENkP/G8=
-X-Received: by 2002:a17:90b:1b49:b0:335:228c:6f24 with SMTP id
- 98e67ed59e1d1-339a6f314bamr3175214a91.25.1759314978152; Wed, 01 Oct 2025
- 03:36:18 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1759315998; x=1759920798;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=UXaRvd/Tl3m+OCCyeRNRvJ/5mgQ4gfksuRE7c8W+vks=;
+        b=jS5amzoBonEVO6sW72t+WmPPSHezKtUr4hm7aU7R6ys3HqmTXd9YbRgPDzS0qX0RrS
+         0eWCgR1a6duef0qf+0lWB0ghLuIBpDLY3VmB6MhSfo7DOo9tzgRwV/VtQqkkawU+H8h3
+         1VaA2ezDw0GtXUFNFy+XqmTA0pkjF8fPjuMcYlqagOL8KxXsjljpZ2c1d01hzxPeYyDD
+         Sc8rqwsj7uV6J1yl96SRkSzJxYPCydwmK5b867LWt6MW28tuEVSls6pR8IR3tS4FdveX
+         UXue0d6fEMVxVQi1ccb4yudP3M80m13++ApdtFG9nBDD9zeDwSHZQYiErSK5QZOIxPZ6
+         STPg==
+X-Forwarded-Encrypted: i=1; AJvYcCW5iWuA0QZ4C89503KGMpo+0AlND1IfI5A+JZcbSdfnyZwHYP4Dl3O3AWG1xauGjGKLLj380sqVz+TtuagE/Ueh@lists.infradead.org
+X-Gm-Message-State: AOJu0YwneXw29SE+JRbGpRyaybhGk4bQkNqhjjBMgY/15O+zU+ZMUoys
+	+d1WTt0NDEWDbvaUWhQV4aMIuGiUrUOC8D9gQ1vee8EOYcQm2LEMxu9x0UPFPYheF0tR2XhMenK
+	PlWtG4LkFjZj4ipZvASPZnDZ+x112wD5O3tQwf394Tg==
+X-Gm-Gg: ASbGnctzk2U8/ItNMUSzkRNgfN0J+XOP2OBUnNQxr7la+yPCsTtAiFGEaEqS8cQrSpb
+	kUMI9EtEjOG86Vb/aoltjN7+i/ORDPSee/5rx0siorptPNGKId2L2EGI9Tl+cPtefhMnLpqzyhV
+	b0MCl9FKuB8ZCURDpcpkLY91gcBV6uJL3b03wZt4DgsJnwO7g3KEoHCGcLxEaOgdkXvoHytMbtn
+	yhvP3xCTsokFXFArLTwpZFd0+mEAXM=
+X-Google-Smtp-Source: AGHT+IHNsDtiUQt/i2npQARVssi0DJ3+LBTFoSnvhtZVkK/xmqXN8oNQNgTvZTXOiQqw4WqXcNYRSxbiHzvdCA73Ztc=
+X-Received: by 2002:a2e:a7c1:0:b0:372:9fd0:8c40 with SMTP id
+ 38308e7fff4ca-373a740495dmr7206011fa.31.1759315998524; Wed, 01 Oct 2025
+ 03:53:18 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com>
- <20250915-arm_coresight_power_management_fix-v3-16-ea49e91124ec@arm.com>
-In-Reply-To: <20250915-arm_coresight_power_management_fix-v3-16-ea49e91124ec@arm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Wed, 1 Oct 2025 11:36:07 +0100
-X-Gm-Features: AS18NWA8lAa169vV9xKkkZqpHyaLH3CWmBFjm1cgd9NEinfIqd53QqYERFKwRN8
-Message-ID: <CAJ9a7Vh-PwgiYVRe3DAP9L0gC20=A3tnFk2hEzugVuqyFTShLA@mail.gmail.com>
-Subject: Re: [PATCH v3 16/31] coresight: Add callback to determine if context
- save/restore is needed
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
-	Yeoreum Yun <yeoreum.yun@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Yabin Cui <yabinc@google.com>, 
-	Keita Morisaki <keyz@google.com>, Yuanfang Zhang <quic_yuanfang@quicinc.com>, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org
+References: <20250924-gpio-shared-v1-0-775e7efeb1a3@linaro.org> <CACRpkdYcVtJjRHRJ8GgeU7rZDuyaJKu0vgcknb7DsHPjZGKGuA@mail.gmail.com>
+In-Reply-To: <CACRpkdYcVtJjRHRJ8GgeU7rZDuyaJKu0vgcknb7DsHPjZGKGuA@mail.gmail.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Wed, 1 Oct 2025 12:53:07 +0200
+X-Gm-Features: AS18NWD2nrQaAyXYNX4TJo-95Uw5nXLztXmSEl4xWN8QeMmA2KtvYABQ1GxMrZg
+Message-ID: <CACRpkda-ZvrAC4bNLnA+ao0Y8-Nd_-b89N6HU10hhEdaOUYAjw@mail.gmail.com>
+Subject: Re: [PATCH RFC 0/9] gpio: improve support for shared GPIOs
+To: Bartosz Golaszewski <brgl@bgdev.pl>
+Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Andy Shevchenko <andy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, linux-hardening@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_033619_241357_4286FE53 
-X-CRM114-Status: GOOD (  28.83  )
+X-CRM114-CacheID: sfid-20251001_035320_724778_6D835C88 
+X-CRM114-Status: GOOD (  19.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,148 +105,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leo
+Replying to self so Bartosz don't have to tell me off...
 
-On Mon, 15 Sept 2025 at 11:34, Leo Yan <leo.yan@arm.com> wrote:
->
-> Add a callback in the source device that returns a boolean indicating
-> whether context save and restore operations are required. The save and
-> restore flow is skipped if the callback returns false.
->
-> The ETMv4 driver implements its own version's callback.
->
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->  drivers/hwtracing/coresight/coresight-core.c       | 16 +++++++++++-
->  drivers/hwtracing/coresight/coresight-etm4x-core.c | 30 +++++++++++++++++-----
->  include/linux/coresight.h                          |  2 ++
->  3 files changed, 40 insertions(+), 8 deletions(-)
->
-> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-> index f944a610c85e9e3fce43497543ccc48ab7c2c0d9..94803cacf1a374ae8a3b9513d7d029d5c77d5925 100644
-> --- a/drivers/hwtracing/coresight/coresight-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-core.c
-> @@ -423,6 +423,20 @@ int coresight_resume_source(struct coresight_device *csdev)
->  }
->  EXPORT_SYMBOL_GPL(coresight_resume_source);
->
-> +static bool coresight_need_save_restore_source(struct coresight_device *csdev)
-> +{
-> +       if (!csdev)
-> +               return false;
-> +
-> +       if (source_ops(csdev)->need_context_save_restore)
+On Wed, Oct 1, 2025 at 10:49=E2=80=AFAM Linus Walleij <linus.walleij@linaro=
+.org> wrote:
 
-check the actual save and restore ops here too?
+> and every GPIO access on every system will be proxied
+> and then this better be fast.
 
-> +               return source_ops(csdev)->need_context_save_restore(csdev);
-> +
-> +       if (coresight_get_mode(csdev))
-> +               return true;
-> +
+What about I read the code before I talk :/
 
-Not needed - should decide only on the previous
-need_context_save_restore() test.
-Components such as STM, ETR, ETB all use the mode status, but may not
-support / need save and restore.
+Inspecting patch 4/9 it is clear that only GPIOs that actually
+need to be proxied are proxied.
 
-> +       return false;
-> +}
-> +
->  static int coresight_save_source(struct coresight_device *csdev)
->  {
->         if (csdev && source_ops(csdev)->save)
-> @@ -1597,7 +1611,7 @@ static int coresight_cpu_pm_notify(struct notifier_block *nb, unsigned long cmd,
->         unsigned int cpu = smp_processor_id();
->         struct coresight_device *source = per_cpu(csdev_source, cpu);
+> Two things come to mind, and I bet you have thought of
+> them already:
 >
-> -       if (!source)
-> +       if (!coresight_need_save_restore_source(source))
->                 return NOTIFY_OK;
->
->         switch (cmd) {
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index ec7e8d09ce58d62dac826fba9edafc967504a1a5..66aefdb002f075446572df9c4eed9093da19a066 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -1839,6 +1839,21 @@ static int etm4_dying_cpu(unsigned int cpu)
->         return 0;
->  }
->
-> +static bool etm4_need_context_save_restore(struct coresight_device *csdev)
-> +{
-> +       if (pm_save_enable != PARAM_PM_SAVE_SELF_HOSTED)
-> +               return false;
-> +
-> +       /*
-> +        * Save and restore the ETM Trace registers only if
-> +        * the ETM is active.
-> +        */
-> +       if (coresight_get_mode(csdev))
-> +               return true;
-> +
-> +       return false;
-> +}
-> +
->  static int __etm4_cpu_save(struct etmv4_drvdata *drvdata)
->  {
->         int ret = 0;
-> @@ -1927,13 +1942,14 @@ static void etm4_cpu_restore(struct coresight_device *csdev)
->  }
->
->  static const struct coresight_ops_source etm4_source_ops = {
-> -       .cpu_id         = etm4_cpu_id,
-> -       .enable         = etm4_enable,
-> -       .disable        = etm4_disable,
-> -       .resume_perf    = etm4_resume_perf,
-> -       .pause_perf     = etm4_pause_perf,
-> -       .save           = etm4_cpu_save,
-> -       .restore        = etm4_cpu_restore,
-> +       .cpu_id                    = etm4_cpu_id,
-> +       .enable                    = etm4_enable,
-> +       .disable                   = etm4_disable,
-> +       .resume_perf               = etm4_resume_perf,
-> +       .pause_perf                = etm4_pause_perf,
-> +       .save                      = etm4_cpu_save,
-> +       .restore                   = etm4_cpu_restore,
+> 1. Footprint: all systems using regulators will now have
+>    to compile in all this code as well.
 
-Above are just white space change noise as far as I can see.
+This still holds. It could be a concern if it's a lot of code.
 
-> +       .need_context_save_restore = etm4_need_context_save_restore,
->  };
->
->  static const struct coresight_ops etm4_cs_ops = {
-> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-> index d0764a9c7692181d2619c277acb83701c6b0115e..39781ba24ee2ad9f3065770409aafb0e5af57fa8 100644
-> --- a/include/linux/coresight.h
-> +++ b/include/linux/coresight.h
-> @@ -400,6 +400,7 @@ struct coresight_ops_link {
->   * @disable:   disables tracing for a source.
->   * @resume_perf: resumes tracing for a source in perf session.
->   * @pause_perf:        pauses tracing for a source in perf session.
-> + * @need_context_save_restore: if need to save and restore context.
->   * @save:      save context for a source.
->   * @restore:   restore context for a source.
->   */
-> @@ -411,6 +412,7 @@ struct coresight_ops_source {
->                         struct perf_event *event);
->         int (*resume_perf)(struct coresight_device *csdev);
->         void (*pause_perf)(struct coresight_device *csdev);
-> +       bool (*need_context_save_restore)(struct coresight_device *csdev);
->         int (*save)(struct coresight_device *csdev);
->         void (*restore)(struct coresight_device *csdev);
->  };
->
-> --
-> 2.34.1
->
+> 2. Performance, I didn't quite get it if every GPIO on the
+>   system will be proxied through a layer of indirection
+>   if you select HAVE_SHARED_GPIOS
+>   but that would not be good, since some users are in
+>   fastpath such as IRQ handlers, and the old way of
+>   sharing GPIOs would just affect pins that are actually
+>   shared.
 
-Regards
+It is clear from patch 4/9 that this only affects GPIOs
+that are actually shared, and those tend to not be
+performance-critical so this concern is moot.
 
-Mike
-
--- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+Yours,
+Linus Walleij
 
