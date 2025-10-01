@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F088CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 11:26:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55B2DCCD182
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 11:26:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=93uCMMR9XJNcLmEIRbk2kenyGDrm/FLf+H2N+Mt9D1M=; b=i1g1NUGYbEXx0GNNTG22wN2Zz/
-	0tj3i0MhRqa2QB/r9yTF6cboiuCygLPygZccf6+P+Er90e2fwM8tJmAKY/yJvOqUObL7LtKdtS/pT
-	cC9QwEKPVa2gbCTJYPE3PHNGl/okGMQ7ZW120Gbtem7Cp/MJ+LhPF6WMRIRNTkThku/oUVAl8Hhj3
-	QQY5AeN+Fs44R2wEjd3WV1EhUC+SnFyvF9/X0WDm38HgVaw/cUJCTKbLgND3ije7usiNYbAdizuPk
-	OOE0UPreP/XG59kBsFYQtWBAI5Suti2oC1thqsAUFesRZFUr0LNoxsDwRkoocoEOE3I15Y+rJSUp4
-	QHRoQ4jA==;
+	bh=wbtepTMouFcgc8P/is0yp+OoQjk6HymzcQb3fGB6Xow=; b=TExYwPzwz5Dyi0KtRKLRIU0t3u
+	wBkaryCcsoKXlSANpc8SvEtvWHQ6LQQbLXYbr+t4tMPysAc3ZPMW+sVDMw0ewF95X4AbInAsouleZ
+	EopYbtgnDJr+i8QS6foIOJ9sgPvDLTCUGVefnmvHVZtUjkV0kIT9tpCd2p4sHLCHvKcFyL+XI1Atv
+	llyeOzTifv4BNY3pcDRqOMbm5CojMJctoGLwSVewh3Y8X/N36usxtd8rRIorGfVKKr4zSQ0jWeM5G
+	7H9Zc/VNdQR9jCd6p1ksH/+fQ1BHyZdDJbOkAxVx2LWGG7nphMecPaygEqIPlZRZT5xltowMl9iWt
+	2GwhWUcg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3uyT-00000007NcE-3I7t;
-	Wed, 01 Oct 2025 11:26:21 +0000
+	id 1v3uyY-00000007NgJ-0upT;
+	Wed, 01 Oct 2025 11:26:26 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3uyQ-00000007Nai-44CF
+	id 1v3uyV-00000007Nai-3Pmq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 11:26:20 +0000
+	Wed, 01 Oct 2025 11:26:25 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Wed, 1 Oct
@@ -41,9 +41,9 @@ To: <robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
 	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
 	<linux-kernel@vger.kernel.org>, <openbmc@lists.ozlabs.org>,
 	<linux-spi@vger.kernel.org>, <BMC-SW@aspeedtech.com>
-Subject: [PATCH 1/6] spi: aspeed: Update clock selection strategy
-Date: Wed, 1 Oct 2025 19:26:00 +0800
-Message-ID: <20251001112605.1130723-2-chin-ting_kuo@aspeedtech.com>
+Subject: [PATCH 4/6] spi: aspeed: Centralize address decoding region management
+Date: Wed, 1 Oct 2025 19:26:03 +0800
+Message-ID: <20251001112605.1130723-5-chin-ting_kuo@aspeedtech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20251001112605.1130723-1-chin-ting_kuo@aspeedtech.com>
 References: <20251001112605.1130723-1-chin-ting_kuo@aspeedtech.com>
@@ -51,8 +51,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_042619_011116_5D973893 
-X-CRM114-Status: GOOD (  26.17  )
+X-CRM114-CacheID: sfid-20251001_042623_859890_9F33CD81 
+X-CRM114-Status: GOOD (  22.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,315 +67,247 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch updates the SPI clock selection logic for cases where
-timing calibration is not performed or the results are failed.
+The original approach to handling address decoding overlaps was to trim
+the next region directly. If the next CS's decoding range was fully
+overlapped by the current one, it would be forcibly closed by trimming
+its size to zero. This could lead expected behavior, especially on
+the platform with multiple flashes layout.
 
-Timing calibration process is skipped in the two scenarios below.
-- Low-entropy data in the calibration region:
-  The driver skips timing calibration if the data read from the
-  SPI flash contains mostly 0x00 or 0xFF. Originally, the driver
-  used a low-frequency clock to read this region as golden data.
-  However, due to variations in host characteristics and image
-  layout, we cannot assume sufficient entropy in this region to
-  ensure reliable calibration.
-
-- Low-speed configurations (< 40MHz):
-  The ASPEED SPI controller does not support timing calibration when
-  the max_speed_hz of the SPI device is below 40MHz.
-
-In both cases, the SPI clock frequency specified in the device tree
-should be used directly. When timing calibration is skipped, it is
-the board vendor's responsibility to ensure that the SPI flash
-SI (Signal Integrity) is sufficient for reliable operation at the
-configured frequency.
-
-When timing calibration processes is execued and all potential clock
-frequencies are performed, but are all failed, the lower clock frequency
-should be adopted to ensure the overall system can boot up successfully.
+To solve improper trimming problem, this patch collects the required
+address decoding size at each stage, then, (re-)arragne address decoding
+region to each CS centrally with knowing the total AHB decoding size.
+If a segment register cannot be updated (e.g. due to bootloader write
+protection), the original value is kept to avoid breaking access and
+an error is reported if the total decoding size of all CS exceeds
+the total AHB decoding size.
 
 Signed-off-by: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
 ---
- drivers/spi/spi-aspeed-smc.c | 177 +++++++++++++++++++++++++++++++----
- 1 file changed, 159 insertions(+), 18 deletions(-)
+ drivers/spi/spi-aspeed-smc.c | 156 +++++++++++++----------------------
+ 1 file changed, 58 insertions(+), 98 deletions(-)
 
 diff --git a/drivers/spi/spi-aspeed-smc.c b/drivers/spi/spi-aspeed-smc.c
-index 62a11142bd63..9c54c05da3cc 100644
+index 29fed8477958..83a47ac0711e 100644
 --- a/drivers/spi/spi-aspeed-smc.c
 +++ b/drivers/spi/spi-aspeed-smc.c
-@@ -82,6 +82,7 @@ struct aspeed_spi_data {
- 	u32 (*segment_start)(struct aspeed_spi *aspi, u32 reg);
- 	u32 (*segment_end)(struct aspeed_spi *aspi, u32 reg);
- 	u32 (*segment_reg)(struct aspeed_spi *aspi, u32 start, u32 end);
-+	u32 (*get_clk_div)(struct aspeed_spi_chip *chip, u32 hz);
- 	int (*calibrate)(struct aspeed_spi_chip *chip, u32 hdiv,
- 			 const u8 *golden_buf, u8 *test_buf);
- };
-@@ -942,26 +943,149 @@ static bool aspeed_spi_check_calib_data(const u8 *test_buf, u32 size)
+@@ -379,61 +379,59 @@ static const char *aspeed_spi_get_name(struct spi_mem *mem)
+ 			      spi_get_chipselect(mem->spi, 0));
  }
  
- static const u32 aspeed_spi_hclk_divs[] = {
--	0xf, /* HCLK */
--	0x7, /* HCLK/2 */
--	0xe, /* HCLK/3 */
--	0x6, /* HCLK/4 */
--	0xd, /* HCLK/5 */
-+	/* HCLK, HCLK/2, HCLK/3, HCLK/4, HCLK/5, ..., HCLK/16 */
-+	0xf, 0x7, 0xe, 0x6, 0xd,
-+	0x5, 0xc, 0x4, 0xb, 0x3,
-+	0xa, 0x2, 0x9, 0x1, 0x8,
-+	0x0
- };
+-struct aspeed_spi_window {
+-	u32 cs;
+-	u32 offset;
+-	u32 size;
+-};
+-
+-static void aspeed_spi_get_windows(struct aspeed_spi *aspi,
+-				   struct aspeed_spi_window windows[ASPEED_SPI_MAX_NUM_CS])
++static int aspeed_spi_set_window(struct aspeed_spi *aspi)
+ {
+-	const struct aspeed_spi_data *data = aspi->data;
+-	u32 reg_val;
++	struct device *dev = aspi->dev;
++	off_t offset = 0;
++	phys_addr_t start;
++	phys_addr_t end;
++	void __iomem *seg_reg_base = aspi->regs + CE0_SEGMENT_ADDR_REG;
++	void __iomem *seg_reg;
++	u32 seg_val_backup;
++	u32 seg_val;
+ 	u32 cs;
++	size_t window_size;
  
- #define ASPEED_SPI_HCLK_DIV(i) \
- 	(aspeed_spi_hclk_divs[(i) - 1] << CTRL_FREQ_SEL_SHIFT)
+ 	for (cs = 0; cs < aspi->data->max_cs; cs++) {
+-		reg_val = readl(aspi->regs + CE0_SEGMENT_ADDR_REG + cs * 4);
+-		windows[cs].cs = cs;
+-		windows[cs].size = data->segment_end(aspi, reg_val) -
+-			data->segment_start(aspi, reg_val);
+-		windows[cs].offset = data->segment_start(aspi, reg_val) - aspi->ahb_base_phy;
+-		dev_vdbg(aspi->dev, "CE%d offset=0x%.8x size=0x%x\n", cs,
+-			 windows[cs].offset, windows[cs].size);
+-	}
+-}
++		seg_reg = seg_reg_base + cs * 4;
++		seg_val_backup = readl(seg_reg);
  
-+/* Transfer maximum clock frequency to register setting */
-+static u32 aspeed_get_clk_div_ast2400(struct aspeed_spi_chip *chip,
-+				      u32 max_hz)
-+{
-+	struct device *dev = chip->aspi->dev;
-+	u32 hclk_clk = chip->aspi->clk_freq;
-+	u32 div_ctl = 0;
-+	u32 i;
-+	bool found = false;
-+
-+	/* FMC/SPIR10[11:8] */
-+	for (i = 1; i <= ARRAY_SIZE(aspeed_spi_hclk_divs); i++) {
-+		if (hclk_clk / i <= max_hz) {
-+			found = true;
-+			break;
+-static int aspeed_spi_set_window(struct aspeed_spi *aspi,
+-				 const struct aspeed_spi_window *win)
+-{
+-	u32 start = aspi->ahb_base_phy + win->offset;
+-	u32 end = start + win->size;
+-	void __iomem *seg_reg = aspi->regs + CE0_SEGMENT_ADDR_REG + win->cs * 4;
+-	u32 seg_val_backup = readl(seg_reg);
+-	u32 seg_val = aspi->data->segment_reg(aspi, start, end);
++		start = aspi->ahb_base_phy + offset;
++		window_size = aspi->chips[cs].ahb_window_size;
++		end = start + window_size;
+ 
+-	if (seg_val == seg_val_backup)
+-		return 0;
++		seg_val = aspi->data->segment_reg(aspi, start, end);
++		writel(seg_val, seg_reg);
+ 
+-	writel(seg_val, seg_reg);
++		/*
++		 * Restore initial value if something goes wrong or the segment
++		 * register is written protected.
++		 */
++		if (seg_val != readl(seg_reg)) {
++			dev_warn(dev, "CE%d expected window [ 0x%.9llx - 0x%.9llx ] %zdMB\n",
++				 cs, (u64)start, (u64)end - 1, window_size >> 20);
++			writel(seg_val_backup, seg_reg);
++			window_size = aspi->data->segment_end(aspi, seg_val_backup) -
++				      aspi->data->segment_start(aspi, seg_val_backup);
++			aspi->chips[cs].ahb_window_size = window_size;
++			end = start + window_size;
 +		}
-+	}
+ 
+-	/*
+-	 * Restore initial value if something goes wrong else we could
+-	 * loose access to the chip.
+-	 */
+-	if (seg_val != readl(seg_reg)) {
+-		dev_err(aspi->dev, "CE%d invalid window [ 0x%.8x - 0x%.8x ] %dMB",
+-			win->cs, start, end - 1, win->size >> 20);
+-		writel(seg_val_backup, seg_reg);
+-		return -EIO;
++		if (window_size != 0)
++			dev_dbg(dev, "CE%d window [ 0x%.9llx - 0x%.9llx ] %zdMB\n",
++				cs, (u64)start, (u64)end - 1,  window_size >> 20);
++		else
++			dev_dbg(dev, "CE%d window closed\n", cs);
 +
-+	if (found) {
-+		div_ctl = ASPEED_SPI_HCLK_DIV(i);
-+		chip->clk_freq = hclk_clk / i;
-+	}
-+
-+	dev_dbg(dev, "found: %s, hclk: %d, max_clk: %d\n",
-+		found ? "yes" : "no", hclk_clk, max_hz);
-+
-+	if (found) {
-+		dev_dbg(dev, "h_div: 0x%08x, speed: %d\n",
-+			div_ctl, chip->clk_freq);
-+	}
-+
-+	return div_ctl;
-+}
-+
-+static u32 aspeed_get_clk_div_ast2500(struct aspeed_spi_chip *chip,
-+				      u32 max_hz)
-+{
-+	struct device *dev = chip->aspi->dev;
-+	u32 hclk_clk = chip->aspi->clk_freq;
-+	u32 div_ctl = 0;
-+	u32 i;
-+	bool found = false;
-+
-+	/* FMC/SPIR10[11:8] */
-+	for (i = 1; i <= ARRAY_SIZE(aspeed_spi_hclk_divs); i++) {
-+		if (hclk_clk / i <= max_hz) {
-+			found = true;
-+			chip->clk_freq = hclk_clk / i;
-+			break;
++		aspi->chips[cs].ahb_base = aspi->ahb_base + offset;
++		offset += window_size;
++		if (offset > aspi->ahb_window_size) {
++			dev_err(dev, "CE%d offset value 0x%llx is too large.\n",
++				cs, (u64)offset);
++			return -ENOSPC;
 +		}
-+	}
-+
-+	if (found) {
-+		div_ctl = ASPEED_SPI_HCLK_DIV(i);
-+		goto end;
-+	}
-+
-+	for (i = 1; i <= ARRAY_SIZE(aspeed_spi_hclk_divs); i++) {
-+		if (hclk_clk / (i * 4) <= max_hz) {
-+			found = true;
-+			chip->clk_freq = hclk_clk / (i * 4);
-+			break;
-+		}
-+	}
-+
-+	if (found)
-+		div_ctl = BIT(13) | ASPEED_SPI_HCLK_DIV(i);
-+
-+end:
-+	dev_dbg(dev, "found: %s, hclk: %d, max_clk: %d\n",
-+		found ? "yes" : "no", hclk_clk, max_hz);
-+
-+	if (found) {
-+		dev_dbg(dev, "h_div: 0x%08x, speed: %d\n",
-+			div_ctl, chip->clk_freq);
-+	}
-+
-+	return div_ctl;
-+}
-+
-+static u32 aspeed_get_clk_div_ast2600(struct aspeed_spi_chip *chip,
-+				      u32 max_hz)
-+{
-+	struct device *dev = chip->aspi->dev;
-+	u32 hclk_clk = chip->aspi->clk_freq;
-+	u32 div_ctl = 0;
-+	u32 i, j;
-+	bool found = false;
-+
-+	/* FMC/SPIR10[27:24] */
-+	for (j = 0; j < 16; j++) {
-+		/* FMC/SPIR10[11:8] */
-+		for (i = 1; i <= ARRAY_SIZE(aspeed_spi_hclk_divs); i++) {
-+			if (j == 0 && i == 1)
-+				continue;
-+
-+			if (hclk_clk / (j * 16 + i) <= max_hz) {
-+				found = true;
-+				break;
-+			}
-+		}
-+
-+		if (found) {
-+			div_ctl = ((j << 24) | ASPEED_SPI_HCLK_DIV(i));
-+			chip->clk_freq = hclk_clk / (j * 16 + i);
-+			break;
-+		}
-+	}
-+
-+	dev_dbg(dev, "found: %s, hclk: %d, max_clk: %d\n",
-+		found ? "yes" : "no", hclk_clk, max_hz);
-+
-+	if (found) {
-+		dev_dbg(dev, "h_div: 0x%08x, speed: %d\n",
-+			div_ctl, chip->clk_freq);
-+	}
-+
-+	return div_ctl;
-+}
-+
- static int aspeed_spi_do_calibration(struct aspeed_spi_chip *chip)
+ 	}
+ 
+-	if (win->size)
+-		dev_dbg(aspi->dev, "CE%d new window [ 0x%.8x - 0x%.8x ] %dMB",
+-			win->cs, start, end - 1,  win->size >> 20);
+-	else
+-		dev_dbg(aspi->dev, "CE%d window closed", win->cs);
+-
+ 	return 0;
+ }
+ 
+@@ -443,9 +441,7 @@ static const struct aspeed_spi_data ast2600_fmc_data;
+ 
+ static int aspeed_spi_chip_set_default_window(struct aspeed_spi *aspi)
+ {
+-	int ret;
+ 	u32 cs;
+-	struct aspeed_spi_window win;
+ 
+ 	/* No segment registers for the AST2400 SPI controller */
+ 	if (aspi->data == &ast2400_spi_data) {
+@@ -456,36 +452,17 @@ static int aspeed_spi_chip_set_default_window(struct aspeed_spi *aspi)
+ 
+ 	/* Assign the minimum window size to each CS */
+ 	for (cs = 0; cs < aspi->num_cs; cs++) {
+-		if (cs == 0)
+-			aspi->chips[cs].ahb_base = aspi->ahb_base;
+-		else
+-			aspi->chips[cs].ahb_base =
+-				aspi->chips[cs - 1].ahb_base +
+-				aspi->chips[cs - 1].ahb_window_size;
+-
+ 		aspi->chips[cs].ahb_window_size = aspi->data->min_window_size;
+-
+ 		dev_dbg(aspi->dev, "CE%d default window [ 0x%.8x - 0x%.8x ]",
+ 			cs, aspi->ahb_base_phy + aspi->data->min_window_size * cs,
+ 			aspi->ahb_base_phy + aspi->data->min_window_size * cs - 1);
+ 	}
+ 
+ 	/* Close unused CS */
+-	for (cs = aspi->num_cs; cs < aspi->data->max_cs; cs++) {
+-		aspi->chips[cs].ahb_base = aspi->ahb_base;
++	for (cs = aspi->num_cs; cs < aspi->data->max_cs; cs++)
+ 		aspi->chips[cs].ahb_window_size = 0;
+-	}
+-
+-	for (cs = 0; cs < aspi->num_cs; cs++) {
+-		win.cs = cs;
+-		win.offset = aspi->chips[cs].ahb_base - aspi->ahb_base;
+-		win.size = aspi->chips[cs].ahb_window_size;
+-		ret = aspeed_spi_set_window(aspi, &win);
+-		if (ret)
+-			return ret;
+-	}
+ 
+-	return 0;
++	return aspeed_spi_set_window(aspi);
+ }
+ 
+ /*
+@@ -498,8 +475,8 @@ static int aspeed_spi_chip_adjust_window(struct aspeed_spi_chip *chip,
+ 					 u32 local_offset, u32 size)
  {
  	struct aspeed_spi *aspi = chip->aspi;
- 	const struct aspeed_spi_data *data = aspi->data;
- 	u32 ahb_freq = aspi->clk_freq;
- 	u32 max_freq = chip->clk_freq;
-+	bool exec_calib = false;
-+	u32 best_freq = 0;
- 	u32 ctl_val;
- 	u8 *golden_buf = NULL;
- 	u8 *test_buf = NULL;
--	int i, rc, best_div = -1;
-+	int i, rc;
-+	u32 div_ctl;
+-	struct aspeed_spi_window windows[ASPEED_SPI_MAX_NUM_CS] = { 0 };
+-	struct aspeed_spi_window *win = &windows[chip->cs];
++	u32 cs;
++	u32 total_window_size;
+ 	int ret;
  
- 	dev_dbg(aspi->dev, "calculate timing compensation - AHB freq: %d MHz",
- 		ahb_freq / 1000000);
-@@ -982,7 +1106,7 @@ static int aspeed_spi_do_calibration(struct aspeed_spi_chip *chip)
- 	memcpy_fromio(golden_buf, chip->ahb_base, CALIBRATE_BUF_SIZE);
- 	if (!aspeed_spi_check_calib_data(golden_buf, CALIBRATE_BUF_SIZE)) {
- 		dev_info(aspi->dev, "Calibration area too uniform, using low speed");
--		goto no_calib;
-+		goto end_calib;
+ 	/* No segment registers for the AST2400 SPI controller */
+@@ -527,41 +504,24 @@ static int aspeed_spi_chip_adjust_window(struct aspeed_spi_chip *chip,
+ 			 chip->cs, size >> 20);
  	}
  
- #if defined(VERBOSE_DEBUG)
-@@ -991,7 +1115,7 @@ static int aspeed_spi_do_calibration(struct aspeed_spi_chip *chip)
- #endif
+-	aspeed_spi_get_windows(aspi, windows);
+-
+ 	/* Adjust this chip window */
+-	win->offset += local_offset;
+-	win->size = size;
++	aspi->chips[chip->cs].ahb_window_size = size;
  
- 	/* Now we iterate the HCLK dividers until we find our breaking point */
--	for (i = ARRAY_SIZE(aspeed_spi_hclk_divs); i > data->hdiv_max - 1; i--) {
-+	for (i = 5; i > data->hdiv_max - 1; i--) {
- 		u32 tv, freq;
- 
- 		freq = ahb_freq / i;
-@@ -1004,22 +1128,33 @@ static int aspeed_spi_do_calibration(struct aspeed_spi_chip *chip)
- 		dev_dbg(aspi->dev, "Trying HCLK/%d [%08x] ...", i, tv);
- 		rc = data->calibrate(chip, i, golden_buf, test_buf);
- 		if (rc == 0)
--			best_div = i;
-+			best_freq = freq;
+-	if (win->offset + win->size > aspi->ahb_window_size) {
+-		win->size = aspi->ahb_window_size - win->offset;
+-		dev_warn(aspi->dev, "CE%d window resized to %dMB", chip->cs, win->size >> 20);
++	total_window_size = 0;
++	for (cs = 0; cs < aspi->data->max_cs; cs++)
++		total_window_size += aspi->chips[cs].ahb_window_size;
 +
-+		exec_calib = true;
++	if (total_window_size > aspi->ahb_window_size) {
++		aspi->chips[chip->cs].ahb_window_size -= (total_window_size -
++							  aspi->ahb_window_size);
++		dev_warn(aspi->dev, "CE%d window resized to %zdMB",
++			 chip->cs, aspi->chips[chip->cs].ahb_window_size >> 20);
  	}
  
--	/* Nothing found ? */
--	if (best_div < 0) {
--		dev_warn(aspi->dev, "No good frequency, using dumb slow");
-+end_calib:
-+	if (!exec_calib) {
-+		/* calibration process is not executed */
-+		dev_warn(aspi->dev, "Force to dts configuration %dkHz.\n",
-+			 max_freq / 1000);
-+		div_ctl = data->get_clk_div(chip, max_freq);
-+	} else if (best_freq == 0) {
-+		/* calibration process is executed, but no good frequency */
-+		dev_warn(aspi->dev, "No good frequency, using dumb slow\n");
-+		div_ctl = 0;
- 	} else {
--		dev_dbg(aspi->dev, "Found good read timings at HCLK/%d", best_div);
-+		dev_dbg(aspi->dev, "Found good read timings at %dMHz.\n",
-+			best_freq / 1000000);
-+		div_ctl = data->get_clk_div(chip, best_freq);
-+	}
+-	ret = aspeed_spi_set_window(aspi, win);
++	ret = aspeed_spi_set_window(aspi);
+ 	if (ret)
+ 		return ret;
  
--		/* Record the freq */
--		for (i = 0; i < ASPEED_SPI_MAX; i++)
--			chip->ctl_val[i] = (chip->ctl_val[i] & data->hclk_mask) |
--				ASPEED_SPI_HCLK_DIV(best_div);
-+	/* Record the freq */
-+	for (i = 0; i < ASPEED_SPI_MAX; i++) {
-+		chip->ctl_val[i] = (chip->ctl_val[i] & data->hclk_mask) |
-+				   div_ctl;
- 	}
- 
--no_calib:
- 	writel(chip->ctl_val[ASPEED_SPI_READ], chip->ctl);
- 	kfree(test_buf);
+-	/* Update chip mapping info */
+-	chip->ahb_base = aspi->ahb_base + win->offset;
+-	chip->ahb_window_size = win->size;
+-
+-	/*
+-	 * Also adjust next chip window to make sure that it does not
+-	 * overlap with the current window.
+-	 */
+-	if (chip->cs < aspi->data->max_cs - 1) {
+-		struct aspeed_spi_window *next = &windows[chip->cs + 1];
+-
+-		/* Change offset and size to keep the same end address */
+-		if ((next->offset + next->size) > (win->offset + win->size))
+-			next->size = (next->offset + next->size) - (win->offset + win->size);
+-		else
+-			next->size = 0;
+-		next->offset = win->offset + win->size;
+-
+-		aspeed_spi_set_window(aspi, next);
+-	}
  	return 0;
-@@ -1096,6 +1231,7 @@ static const struct aspeed_spi_data ast2400_fmc_data = {
- 	.hclk_mask     = 0xfffff0ff,
- 	.hdiv_max      = 1,
- 	.calibrate     = aspeed_spi_calibrate,
-+	.get_clk_div   = aspeed_get_clk_div_ast2400,
- 	.segment_start = aspeed_spi_segment_start,
- 	.segment_end   = aspeed_spi_segment_end,
- 	.segment_reg   = aspeed_spi_segment_reg,
-@@ -1109,6 +1245,7 @@ static const struct aspeed_spi_data ast2400_spi_data = {
- 	.timing	       = 0x14,
- 	.hclk_mask     = 0xfffff0ff,
- 	.hdiv_max      = 1,
-+	.get_clk_div   = aspeed_get_clk_div_ast2400,
- 	.calibrate     = aspeed_spi_calibrate,
- 	/* No segment registers */
- };
-@@ -1121,6 +1258,7 @@ static const struct aspeed_spi_data ast2500_fmc_data = {
- 	.timing	       = CE0_TIMING_COMPENSATION_REG,
- 	.hclk_mask     = 0xffffd0ff,
- 	.hdiv_max      = 1,
-+	.get_clk_div   = aspeed_get_clk_div_ast2500,
- 	.calibrate     = aspeed_spi_calibrate,
- 	.segment_start = aspeed_spi_segment_start,
- 	.segment_end   = aspeed_spi_segment_end,
-@@ -1135,6 +1273,7 @@ static const struct aspeed_spi_data ast2500_spi_data = {
- 	.timing	       = CE0_TIMING_COMPENSATION_REG,
- 	.hclk_mask     = 0xffffd0ff,
- 	.hdiv_max      = 1,
-+	.get_clk_div   = aspeed_get_clk_div_ast2500,
- 	.calibrate     = aspeed_spi_calibrate,
- 	.segment_start = aspeed_spi_segment_start,
- 	.segment_end   = aspeed_spi_segment_end,
-@@ -1150,6 +1289,7 @@ static const struct aspeed_spi_data ast2600_fmc_data = {
- 	.timing	       = CE0_TIMING_COMPENSATION_REG,
- 	.hclk_mask     = 0xf0fff0ff,
- 	.hdiv_max      = 2,
-+	.get_clk_div   = aspeed_get_clk_div_ast2600,
- 	.calibrate     = aspeed_spi_ast2600_calibrate,
- 	.segment_start = aspeed_spi_segment_ast2600_start,
- 	.segment_end   = aspeed_spi_segment_ast2600_end,
-@@ -1165,6 +1305,7 @@ static const struct aspeed_spi_data ast2600_spi_data = {
- 	.timing	       = CE0_TIMING_COMPENSATION_REG,
- 	.hclk_mask     = 0xf0fff0ff,
- 	.hdiv_max      = 2,
-+	.get_clk_div   = aspeed_get_clk_div_ast2600,
- 	.calibrate     = aspeed_spi_ast2600_calibrate,
- 	.segment_start = aspeed_spi_segment_ast2600_start,
- 	.segment_end   = aspeed_spi_segment_ast2600_end,
+ }
+ 
 -- 
 2.34.1
 
