@@ -4,58 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5AFC6CCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 04:23:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58994CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 06:11:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oufO/qxtKuBhIvvH4o1hco84voWMHFT5FnkmWTKSNDU=; b=a8KuzbRyPu5IHtf9IVXVApPfed
-	D0le4x8+n58zPgqzCCOQZrQdNTaknLPsQ+hGhaBWgLyJkaFuxMr2+zQ9cCveiK4y7Q7MSUhPnq+YL
-	US3y2KSP35S9jWh8qSV2jZ12is55xvC+HImSV2ak/J0lBgfA0zu8+DsUr+UqmSGIrH5F5eL8EFXFF
-	KXHSWkdvmFmJnh0oy+P+Xveo2vm0YajuUExeWdPMoRzQ+XD3J4MjUDornyt1/zpLu0p+WUZ7/K3yt
-	TEdpMeRQ6JUcogTV7mKhg3rjAs2XtBvrJPHmx9xhdlypFS1MtEoOmrYFklmb3vSPe2Yb7AGlZ9iqW
-	LRsuSObQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=VPbUyi3Q3nq8aPmPA0ZDBlB+APZ2KXXf6wjKaFOxmBM=; b=iWimEUj+NTZ2pfsVlymiuWPDIF
+	I9oHEHsi77tgjuxZiblJZzedjesWPwX3igWkSi/qqUKr5gKtuJXsWUT9qvAbTYl86lQDw/pW7v2Lr
+	7jxFdfnI/Orls4xMdQhHDNbn1mI7gRyQ2nDr3quatcp0AgfU8rCvGSAJ8L7chf5Cl8yyUwDgdb6PZ
+	f9vv0acSPcyNVMxeCiJogwD74tTlBOkDy8aIpCrowD0ImCD4RWnLj3euhFe1fF+3nEiRRwEUgpu9m
+	artcGor9PhMxifp7XxZCpy9BovfFKt6heb5mDuH4VLZ33BG89aa1gYXkzxZULA12j4roPUbfvUCHU
+	FQBNpG8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3oNN-00000006fvd-3bl7;
-	Wed, 01 Oct 2025 04:23:37 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3oNL-00000006fvA-29um
+	id 1v3q3Q-00000006lk4-43Ap;
+	Wed, 01 Oct 2025 06:11:08 +0000
+Received: from mail-lf1-x133.google.com ([2a00:1450:4864:20::133])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v3q3O-00000006ljO-0kWg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 04:23:37 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D6D8F16F2;
-	Tue, 30 Sep 2025 21:23:25 -0700 (PDT)
-Received: from [10.164.18.53] (MacBook-Pro.blr.arm.com [10.164.18.53])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B29623F66E;
-	Tue, 30 Sep 2025 21:23:29 -0700 (PDT)
-Message-ID: <746c4dd3-2285-4353-9e15-a0a2fbd4e6b5@arm.com>
-Date: Wed, 1 Oct 2025 09:53:26 +0530
+	Wed, 01 Oct 2025 06:11:07 +0000
+Received: by mail-lf1-x133.google.com with SMTP id 2adb3069b0e04-5797c8612b4so9577956e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 30 Sep 2025 23:11:05 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1759299064; x=1759903864; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=VPbUyi3Q3nq8aPmPA0ZDBlB+APZ2KXXf6wjKaFOxmBM=;
+        b=lMLFfSLtJNRsZb8HS/0Aj1Tq73QRwepMRgGK9/BMUlfvvxvXkx74hUmLHlWeIOHDyC
+         SH0C5C4wSqPxflO6mYbcNUAKdK8UCAnisur/cfHDSRYYAGlcRVjPIcPBWIDgOyZ/Ujye
+         FUGYTLZhdN2eNQSAOZ6HY8mkYBZUVFHe/Dl40xOLfJR+zuKGSg7Y+QslNb6TM2Whez1t
+         QGJPnPdlRJHZjXpOzjppJdB4Qsg6ShbT7B9f4uFuL2Xoq5xGjq3GjRIcbzKyVgnkWTLe
+         goC3Qv1RVIzc3m4Ho9bCOiJqwjJEX/FgwBhmXjNT9sFdFA2v5rOLhpTzbyc+NRrNnfK0
+         ffWg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759299064; x=1759903864;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=VPbUyi3Q3nq8aPmPA0ZDBlB+APZ2KXXf6wjKaFOxmBM=;
+        b=cd9LDyCocPrWZXemLU/DuX0Hc9gaz/lxDL/zJ1vtEqxFGz6sNewdbvmBxmyDe/bxgF
+         O+YaTZwxuO219MZumniiTrfB0+Z43u6GM3xQiIQWc5pLr9cZeasGAwDpyVZhH/kcPVHC
+         W8+EBDGZMeZap88LalvoPDx4DzQjCP149UkBj7L9LolGbHzAJjuap69ULG8AI7dVxBC7
+         4jNhMBl9hgpk0liz8HT7MJNpFdcxxIQTNXqPU+ppMOCXsL+if750s9E4eKQJVCoaKR9o
+         Ws6XjvRzzKJFG930mtGj2B7/oQwJ+XIhyBCSfFvZoQaO949/fDvSCGaLLebtiT+B6O9r
+         XVgw==
+X-Gm-Message-State: AOJu0YxCVDrnjygkygfqFAvG2zuSAuru9/xXYg22UnQCzEkfjvFskYRY
+	iFSk64uU+bioFbq06xMUYE+SvhYjDZ4U7MESxKdnAropH1EVz2pDtz1gMHLWEw3H5Ho=
+X-Gm-Gg: ASbGncsXyDx7TycNqUfSzgGs7q5cmXG7Dn20ZMZtHsI9lrYItnyYjfI/MueF3CVWHMR
+	sXGW/jU3vRWRvy4uE2MWDpv1W44tph5nBNV9Iq4Xg0DT6kVNqmI7QyvUOWQiXQFj/xQt9EXClbo
+	V6QfFa16sflgIAioC8QclGW0bnzSSmSTSxh1DqhVqfWvm4dhj+bQkjKYlKky21VeOR0uekVe5Ij
+	O/3pAlWpFIrhR/hOJ6XUEwVjOSXasYsHWEjtB1ClIP1obD0vZfRPqrQFHFFN5SoPUqrS6a4l4Hn
+	KaaTkx6uWpSRQmMytAPXHdAaRMgfBtsBig8m/yPYp43XNfHYblL/DKwJGqvJ+Lw6v/MpB1FQ+pH
+	wvBjtNmjpuaMQCDnaFv/475s9sYzzbu6nTLhFy+tdDFS3r/L1
+X-Google-Smtp-Source: AGHT+IGb9ywHHlzO/N5tYvmZ6pYH+F27XDf42oZw/2wC3QwlBrNCQNAD/c4bdpnGO5yInEix5KS6tQ==
+X-Received: by 2002:a05:6512:ea7:b0:55f:4b01:30ab with SMTP id 2adb3069b0e04-58af9dcee09mr665163e87.0.1759299063818;
+        Tue, 30 Sep 2025 23:11:03 -0700 (PDT)
+Received: from lino.lan ([85.235.12.238])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-58527c6b014sm3984553e87.43.2025.09.30.23.11.03
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 30 Sep 2025 23:11:03 -0700 (PDT)
+From: Linus Walleij <linus.walleij@linaro.org>
+To: arm@kernel.org,
+	soc@kernel.org
+Cc: linux-arm-kernel@lists.infradead.org,
+	Brian Masney <bmasney@redhat.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Linus Walleij <linus.walleij@linaro.org>
+Subject: [PATCH] ARM: versatile: clock: convert from round_rate() to determine_rate()
+Date: Wed,  1 Oct 2025 08:11:00 +0200
+Message-ID: <20251001061100.372737-1-linus.walleij@linaro.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [v2 PATCH] mm: hugetlb: avoid soft lockup when mprotect to large
- memory area
-To: Yang Shi <yang@os.amperecomputing.com>, muchun.song@linux.dev,
- osalvador@suse.de, david@redhat.com, akpm@linux-foundation.org,
- catalin.marinas@arm.com, will@kernel.org, anshuman.khandual@arm.com,
- carl@os.amperecomputing.com, cl@gentwo.org
-Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20250929202402.1663290-1-yang@os.amperecomputing.com>
- <cc40d827-3b98-4e15-ad45-5c2033e4ce20@arm.com>
- <6cde8290-3aa2-411c-bf29-eb91a99e33a5@os.amperecomputing.com>
-Content-Language: en-US
-From: Dev Jain <dev.jain@arm.com>
-In-Reply-To: <6cde8290-3aa2-411c-bf29-eb91a99e33a5@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20250930_212335_634132_E468A301 
-X-CRM114-Status: GOOD (  20.62  )
+X-CRM114-CacheID: sfid-20250930_231106_409991_EAE6DE93 
+X-CRM114-Status: GOOD (  13.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,129 +97,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+From: Brian Masney <bmasney@redhat.com>
 
-On 30/09/25 11:38 pm, Yang Shi wrote:
->
->
-> On 9/29/25 10:26 PM, Dev Jain wrote:
->>
->> On 30/09/25 1:54 am, Yang Shi wrote:
->>> When calling mprotect() to a large hugetlb memory area in our 
->>> customer's
->>> workload (~300GB hugetlb memory), soft lockup was observed:
->>>
->>> watchdog: BUG: soft lockup - CPU#98 stuck for 23s! [t2_new_sysv:126916]
->>>
->>> CPU: 98 PID: 126916 Comm: t2_new_sysv Kdump: loaded Not tainted 
->>> 6.17-rc7
->>> Hardware name: GIGACOMPUTING R2A3-T40-AAV1/Jefferson CIO, BIOS 
->>> 5.4.4.1 07/15/2025
->>> pstate: 20400009 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
->>> pc : mte_clear_page_tags+0x14/0x24
->>> lr : mte_sync_tags+0x1c0/0x240
->>> sp : ffff80003150bb80
->>> x29: ffff80003150bb80 x28: ffff00739e9705a8 x27: 0000ffd2d6a00000
->>> x26: 0000ff8e4bc00000 x25: 00e80046cde00f45 x24: 0000000000022458
->>> x23: 0000000000000000 x22: 0000000000000004 x21: 000000011b380000
->>> x20: ffff000000000000 x19: 000000011b379f40 x18: 0000000000000000
->>> x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
->>> x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
->>> x11: 0000000000000000 x10: 0000000000000000 x9 : ffffc875e0aa5e2c
->>> x8 : 0000000000000000 x7 : 0000000000000000 x6 : 0000000000000000
->>> x5 : fffffc01ce7a5c00 x4 : 00000000046cde00 x3 : fffffc0000000000
->>> x2 : 0000000000000004 x1 : 0000000000000040 x0 : ffff0046cde7c000
->>>
->>> Call trace:
->>>    mte_clear_page_tags+0x14/0x24
->>>    set_huge_pte_at+0x25c/0x280
->>>    hugetlb_change_protection+0x220/0x430
->>>    change_protection+0x5c/0x8c
->>>    mprotect_fixup+0x10c/0x294
->>>    do_mprotect_pkey.constprop.0+0x2e0/0x3d4
->>>    __arm64_sys_mprotect+0x24/0x44
->>>    invoke_syscall+0x50/0x160
->>>    el0_svc_common+0x48/0x144
->>>    do_el0_svc+0x30/0xe0
->>>    el0_svc+0x30/0xf0
->>>    el0t_64_sync_handler+0xc4/0x148
->>>    el0t_64_sync+0x1a4/0x1a8
->>>
->>> Soft lockup is not triggered with THP or base page because there is
->>> cond_resched() called for each PMD size.
->>>
->>> Although the soft lockup was triggered by MTE, it should be not MTE
->>> specific. The other processing which takes long time in the loop may
->>> trigger soft lockup too.
->>>
->>> So add cond_resched() for hugetlb to avoid soft lockup.
->>>
->>> Fixes: 8f860591ffb2 ("[PATCH] Enable mprotect on huge pages")
->>> Tested-by: Carl Worth <carl@os.amperecomputing.com>
->>> Reviewed-by: Christoph Lameter (Ampere) <cl@gentwo.org>
->>> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
->>> Acked-by: David Hildenbrand <david@redhat.com>
->>> Acked-by: Oscar Salvador <osalvador@suse.de>
->>> Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
->>> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
->>> ---
->>> v2: - Made the subject and commit message less MTE specific and fixed
->>>        the fixes tag.
->>>      - Collected all R-bs and A-bs.
->>>
->>>   mm/hugetlb.c | 2 ++
->>>   1 file changed, 2 insertions(+)
->>>
->>> diff --git a/mm/hugetlb.c b/mm/hugetlb.c
->>> index cb5c4e79e0b8..fe6606d91b31 100644
->>> --- a/mm/hugetlb.c
->>> +++ b/mm/hugetlb.c
->>> @@ -7242,6 +7242,8 @@ long hugetlb_change_protection(struct 
->>> vm_area_struct *vma,
->>>                           psize);
->>>           }
->>>           spin_unlock(ptl);
->>> +
->>> +        cond_resched();
->>>       }
->>>       /*
->>>        * Must flush TLB before releasing i_mmap_rwsem: x86's 
->>> huge_pmd_unshare
->>
->> Reviewed-by: Dev Jain <dev.jain@arm.com>
->
-> Thank you.
->
->>
->> Does it make sense to also do cond_resched() in the 
->> huge_pmd_unshare() branch?
->> That also amounts to clearing a page. And I can see for example, 
->> zap_huge_pmd()
->> and change_huge_pmd() consume a cond_resched().
->
-> Thanks for raising this. I did think about it. But I didn't convince 
-> myself because shared pmd should be not that common IMHO (If I'm 
-> wrong, please feel free to correct me). At least PMD can't be shared 
-> if the memory is tagged IIRC. So I'd like to keep the patch minimal 
-> for now and defer adding cond_resched() until it is hit by some real 
-> life workload.
+The round_rate() clk ops is deprecated, so migrate this driver from
+round_rate() to determine_rate() using the Coccinelle semantic patch
+on the cover letter of this series.
 
-If we have large swathes of hugetlb memory like in your workload, and it 
-is MAP_SHARED, then there should be high chances of sharing the PMD. 
-Although, I incorrectly
+Signed-off-by: Brian Masney <bmasney@redhat.com>
+Acked-by: Sudeep Holla <sudeep.holla@arm.com>
+Reviewed-by: Linus Walleij <linus.walleij@linaro.org>
+Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+---
+ARM SoC folks: please apply this patch directly.
+---
+ arch/arm/mach-versatile/spc.c | 9 +++++----
+ 1 file changed, 5 insertions(+), 4 deletions(-)
 
-observed that we are clearing a page there - we are only clearing the 
-pud entry which is 8 bytes. So yes a soft lockup should be highly 
-unlikely. But since cond_resched()
+diff --git a/arch/arm/mach-versatile/spc.c b/arch/arm/mach-versatile/spc.c
+index 790092734cf6..812db32448fc 100644
+--- a/arch/arm/mach-versatile/spc.c
++++ b/arch/arm/mach-versatile/spc.c
+@@ -497,12 +497,13 @@ static unsigned long spc_recalc_rate(struct clk_hw *hw,
+ 	return freq * 1000;
+ }
+ 
+-static long spc_round_rate(struct clk_hw *hw, unsigned long drate,
+-		unsigned long *parent_rate)
++static int spc_determine_rate(struct clk_hw *hw, struct clk_rate_request *req)
+ {
+ 	struct clk_spc *spc = to_clk_spc(hw);
+ 
+-	return ve_spc_round_performance(spc->cluster, drate);
++	req->rate = ve_spc_round_performance(spc->cluster, req->rate);
++
++	return 0;
+ }
+ 
+ static int spc_set_rate(struct clk_hw *hw, unsigned long rate,
+@@ -515,7 +516,7 @@ static int spc_set_rate(struct clk_hw *hw, unsigned long rate,
+ 
+ static struct clk_ops clk_spc_ops = {
+ 	.recalc_rate = spc_recalc_rate,
+-	.round_rate = spc_round_rate,
++	.determine_rate = spc_determine_rate,
+ 	.set_rate = spc_set_rate,
+ };
+ 
+-- 
+2.51.0
 
-is cheap (I assume this is the case since it is liberally sprinkled all 
-over the codebase) I think we should be consistent. Probably not an 
-immediate concern and not a matter
-
-of this patch.
-
-
->
-> Yang
->
->
 
