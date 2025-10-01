@@ -4,73 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2BA7CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 11:50:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEA43CAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 11:57:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tvVwfEC2B+BUcS9RfkUv18qgMKqYz4CmTvRkJ19ns48=; b=zRl8Jt359/WHaswcvJCcD/MLmg
-	Z6G83LNq+G6nucUjDWWJyyDItYwDQCUy+98KsIfKleBg19cBGUJYgWw9MKA2oazV+Sffurr1sU86W
-	5zwnsaNHa51wvFYredXROjNXul4QRohDFAg/3BtkQ3y7UM/XG37GprIvXTNTT25L4iYwjD8kU1+tR
-	8kHVVxsympbTH1AWufhifDnccNp/NPFWm3qpBber7e68ks98cTDwU4XL07P2/eHvErJQDw52f641C
-	erHcmvNMv0mJWfp8310QrtFJed5CJsIUmTHeYJxAehS656hCKBD73O36jarfdWtMcjnU7WwYHHUl4
-	/T+6WUNw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xs93ZCtlhpIvRhJ1pOVoEwyHus2xkJgPeBnPjc7CvXw=; b=dZPweJCx6KD77mV4sZZLQGME1P
+	yOw/hn+GAVMN5fQKtJppZ2RYRRQJXGIdAs3yVT/vHnKEguBmTuQDNtGqg6gEeFaPG7a7SVK23EhRT
+	isOBOzKsPNuR++naz5FkWRktiZz9oFP0Opdqa/b/yYxob4aBhFklltsImQTES3gRP0I9Lj9lg35A5
+	37ZnSwo6S0BHV4tI4LuQ8W/y115ZCmaxA/DQx18aFMTYnuseUzvqBCE+m4jbX6VdYaMSgtI+et2XS
+	5KsvHied++fnY7V7DYjGwotqgKges1HxhFeM8Jkn7HP0NcPHAO3mewxiBgAUXgLWwOvoP+S5dZhnY
+	8RHlIVsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3vLN-00000007Ruf-0qo0;
-	Wed, 01 Oct 2025 11:50:01 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3vLK-00000007Rtr-0eFh;
-	Wed, 01 Oct 2025 11:49:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1759319395;
-	bh=/F77SMQlVVL9OAIkxdw2JODfBGuMaP1lWltHWiHzzDU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=RXrwp3iRm3UaMHIEdQEQUyfH/KjvjQY2rz0IAv4paMqKAAZEr8JD4Qqv/pWpBe7I7
-	 7IM/RG43EmffRL/Pm+w4lr0zw4Gag8NbBjrkoS0dGcyDEaHLxf3A0PYdhrpjAAZf8M
-	 lh88J6SxMK1SaZ+Zy0l75H6Cwbxw0WC7/W2Wg3+8aPz3gsnbdmEFpGjdObe/xbKx3w
-	 dbPr8foukNUKq237V8zybdSPkP/6DB3deYncAhJW780DsqTXclTxYOeBaCKwMuJXq1
-	 Czrb19UobgJrapwnwEjSo/wLZvlGXs6Tk23PrujLYWeKWfu8D+11mNSDRAcubRkTFV
-	 ElgTIJULpJzBQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0B75F17E00EC;
-	Wed,  1 Oct 2025 13:49:55 +0200 (CEST)
-Message-ID: <748f1176-c73c-48af-a1af-0b63d088e834@collabora.com>
-Date: Wed, 1 Oct 2025 13:49:54 +0200
+	id 1v3vSp-00000007TO2-3XuA;
+	Wed, 01 Oct 2025 11:57:43 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v3vSn-00000007TM4-2Fzp
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Oct 2025 11:57:42 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id E0E6F16F2;
+	Wed,  1 Oct 2025 04:57:30 -0700 (PDT)
+Received: from pluto (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 810463F66E;
+	Wed,  1 Oct 2025 04:57:37 -0700 (PDT)
+Date: Wed, 1 Oct 2025 12:57:27 +0100
+From: Cristian Marussi <cristian.marussi@arm.com>
+To: Artem Shimko <artyom.shimko@gmail.com>
+Cc: Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>, a.shimko.dev@gmail.com,
+	arm-scmi@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] drivers: scmi: Add completion timeout handling for raw
+ mode transfers
+Message-ID: <aN0T0tvsL6t6R3yF@pluto>
+References: <20250929142856.540590-1-a.shimko.dev@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 4/4] clk: mediatek: Add rpm clocks to clk-mt8196-mfg
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
- Guangjie Song <guangjie.song@mediatek.com>,
- Laura Nao <laura.nao@collabora.com>,
- =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
- Yassine Oudjana <y.oudjana@protonmail.com>
-Cc: kernel@collabora.com, Krzysztof Kozlowski
- <krzysztof.kozlowski@linaro.org>, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20250929-mtk-pll-rpm-v1-0-49541777878d@collabora.com>
- <20250929-mtk-pll-rpm-v1-4-49541777878d@collabora.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20250929-mtk-pll-rpm-v1-4-49541777878d@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20250929142856.540590-1-a.shimko.dev@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_044958_366636_4D42B3D4 
-X-CRM114-Status: GOOD (  33.94  )
+X-CRM114-CacheID: sfid-20251001_045741_693315_B0144C13 
+X-CRM114-Status: GOOD (  19.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,242 +66,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 29/09/25 14:13, Nicolas Frattaroli ha scritto:
-> The mfgpll clocks on mt8196 require that the MFG's EB clock is on if
-> their control registers are touched in any way at all.
+On Mon, Sep 29, 2025 at 05:28:55PM +0300, Artem Shimko wrote:
+> Fix race conditions in SCMI raw mode implementation by adding proper
+> completion timeout handling. Multiple tests[1] in the SCMI test suite
+> were failing due to early clearing of SCMI_XFER_FLAG_IS_RAW flag in
+> scmi_xfer_raw_put() function.
 
-....so, the MFGPLL clocks are children of EB?
+Hi Artem, 
 
-Why are you using such a convoluted way of adding a parent clock to the MFGPLL
-instead of just
----->   `.parent_name = "mfg_eb"`  <-----
-
-???????
-
-Cheers,
-Angelo
-
-> Failing to ensure
-> this results in a pleasant SError interrupt if the EB clock happens to
-> be off.
 > 
-> To achieve this, leverage the CCF core's runtime power management
-> support. Define the necessary suspend/resume callbacks, add the
-> necessary code to get RPM clocks from the DT, and make sure RPM is
-> enabled before clock registration happens.
-> 
-> For the RPM callbacks to really make much sense at all, we change the
-> drvdata from clk_data to a new private struct, as is common in drivers
-> across the Linux kernel.
-> 
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> ---
->   drivers/clk/mediatek/clk-mt8196-mfg.c | 104 +++++++++++++++++++++++++++-------
->   drivers/clk/mediatek/clk-pll.h        |   2 +
->   2 files changed, 87 insertions(+), 19 deletions(-)
-> 
-> diff --git a/drivers/clk/mediatek/clk-mt8196-mfg.c b/drivers/clk/mediatek/clk-mt8196-mfg.c
-> index 8e09c0f7b7548f8e286671cea2dac64530b8ce47..64cc0c037f62d7eab8d0e7fc00c05d122bf4130c 100644
-> --- a/drivers/clk/mediatek/clk-mt8196-mfg.c
-> +++ b/drivers/clk/mediatek/clk-mt8196-mfg.c
-> @@ -13,6 +13,7 @@
->   #include <linux/of_address.h>
->   #include <linux/of_device.h>
->   #include <linux/platform_device.h>
-> +#include <linux/pm_runtime.h>
->   
->   #include "clk-mtk.h"
->   #include "clk-pll.h"
-> @@ -38,7 +39,7 @@
->   	    _flags, _rst_bar_mask,				\
->   	    _pd_reg, _pd_shift, _tuner_reg,			\
->   	    _tuner_en_reg, _tuner_en_bit,			\
-> -	    _pcw_reg, _pcw_shift, _pcwbits) {			\
-> +	    _pcw_reg, _pcw_shift, _pcwbits, _rpm_clks) {	\
->   		.id = _id,					\
->   		.name = _name,					\
->   		.reg = _reg,					\
-> @@ -58,26 +59,60 @@
->   		.pcw_shift = _pcw_shift,			\
->   		.pcwbits = _pcwbits,				\
->   		.pcwibits = MT8196_INTEGER_BITS,		\
-> +		.rpm_clk_names = _rpm_clks,			\
-> +		.num_rpm_clks = ARRAY_SIZE(_rpm_clks),		\
->   	}
->   
-> +static const char * const mfgpll_rpm_clk_names[] = {
-> +	NULL
-> +};
-> +
->   static const struct mtk_pll_data mfg_ao_plls[] = {
->   	PLL(CLK_MFG_AO_MFGPLL, "mfgpll", MFGPLL_CON0, MFGPLL_CON0, 0, 0, 0,
-> -	    BIT(0), MFGPLL_CON1, 24, 0, 0, 0,
-> -	    MFGPLL_CON1, 0, 22),
-> +	    BIT(0), MFGPLL_CON1, 24, 0, 0, 0, MFGPLL_CON1, 0, 22,
-> +	    mfgpll_rpm_clk_names),
->   };
->   
->   static const struct mtk_pll_data mfgsc0_ao_plls[] = {
->   	PLL(CLK_MFGSC0_AO_MFGPLL_SC0, "mfgpll-sc0", MFGPLL_SC0_CON0,
->   	    MFGPLL_SC0_CON0, 0, 0, 0, BIT(0), MFGPLL_SC0_CON1, 24, 0, 0, 0,
-> -	    MFGPLL_SC0_CON1, 0, 22),
-> +	    MFGPLL_SC0_CON1, 0, 22, mfgpll_rpm_clk_names),
->   };
->   
->   static const struct mtk_pll_data mfgsc1_ao_plls[] = {
->   	PLL(CLK_MFGSC1_AO_MFGPLL_SC1, "mfgpll-sc1", MFGPLL_SC1_CON0,
->   	    MFGPLL_SC1_CON0, 0, 0, 0, BIT(0), MFGPLL_SC1_CON1, 24, 0, 0, 0,
-> -	    MFGPLL_SC1_CON1, 0, 22),
-> +	    MFGPLL_SC1_CON1, 0, 22, mfgpll_rpm_clk_names),
->   };
->   
-> +struct clk_mt8196_mfg {
-> +	struct clk_hw_onecell_data *clk_data;
-> +	struct clk_bulk_data *rpm_clks;
-> +	unsigned int num_rpm_clks;
-> +};
-> +
-> +static int __maybe_unused clk_mt8196_mfg_resume(struct device *dev)
-> +{
-> +	struct clk_mt8196_mfg *clk_mfg = dev_get_drvdata(dev);
-> +
-> +	if (!clk_mfg || !clk_mfg->rpm_clks)
-> +		return 0;
-> +
-> +	return clk_bulk_prepare_enable(clk_mfg->num_rpm_clks, clk_mfg->rpm_clks);
-> +}
-> +
-> +static int __maybe_unused clk_mt8196_mfg_suspend(struct device *dev)
-> +{
-> +	struct clk_mt8196_mfg *clk_mfg = dev_get_drvdata(dev);
-> +
-> +	if (!clk_mfg || !clk_mfg->rpm_clks)
-> +		return 0;
-> +
-> +	clk_bulk_disable_unprepare(clk_mfg->num_rpm_clks, clk_mfg->rpm_clks);
-> +
-> +	return 0;
-> +}
-> +
->   static const struct of_device_id of_match_clk_mt8196_mfg[] = {
->   	{ .compatible = "mediatek,mt8196-mfgpll-pll-ctrl",
->   	  .data = &mfg_ao_plls },
-> @@ -92,35 +127,60 @@ MODULE_DEVICE_TABLE(of, of_match_clk_mt8196_mfg);
->   static int clk_mt8196_mfg_probe(struct platform_device *pdev)
->   {
->   	const struct mtk_pll_data *plls;
-> -	struct clk_hw_onecell_data *clk_data;
-> +	struct clk_mt8196_mfg *clk_mfg;
->   	struct device_node *node = pdev->dev.of_node;
-> +	struct device *dev = &pdev->dev;
->   	const int num_plls = 1;
-> -	int r;
-> +	int r, i;
->   
-> -	plls = of_device_get_match_data(&pdev->dev);
-> +	plls = of_device_get_match_data(dev);
->   	if (!plls)
->   		return -EINVAL;
->   
-> -	clk_data = mtk_alloc_clk_data(num_plls);
-> -	if (!clk_data)
-> +	clk_mfg = devm_kzalloc(dev, sizeof(*clk_mfg), GFP_KERNEL);
-> +	if (!clk_mfg)
->   		return -ENOMEM;
->   
-> -	r = mtk_clk_register_plls(&pdev->dev, plls, num_plls, clk_data);
-> +	clk_mfg->num_rpm_clks = plls[0].num_rpm_clks;
-> +
-> +	if (clk_mfg->num_rpm_clks) {
-> +		clk_mfg->rpm_clks = devm_kcalloc(dev, clk_mfg->num_rpm_clks,
-> +						 sizeof(*clk_mfg->rpm_clks),
-> +						 GFP_KERNEL);
-> +		if (!clk_mfg->rpm_clks)
-> +			return -ENOMEM;
-> +
-> +		for (i = 0; i < clk_mfg->num_rpm_clks; i++)
-> +			clk_mfg->rpm_clks->id = plls[0].rpm_clk_names[i];
-> +
-> +		r = devm_clk_bulk_get(dev, clk_mfg->num_rpm_clks,
-> +				      clk_mfg->rpm_clks);
-> +		if (r)
-> +			return r;
-> +	}
-> +
-> +	clk_mfg->clk_data = mtk_alloc_clk_data(num_plls);
-> +	if (!clk_mfg->clk_data)
-> +		return -ENOMEM;
-> +
-> +	dev_set_drvdata(dev, clk_mfg);
-> +	pm_runtime_enable(dev);
-> +
-> +	r = mtk_clk_register_plls(dev, plls, num_plls, clk_mfg->clk_data);
->   	if (r)
->   		goto free_clk_data;
->   
-> -	r = of_clk_add_hw_provider(node, of_clk_hw_onecell_get, clk_data);
-> +	r = of_clk_add_hw_provider(node, of_clk_hw_onecell_get,
-> +				   clk_mfg->clk_data);
->   	if (r)
->   		goto unregister_plls;
->   
-> -	platform_set_drvdata(pdev, clk_data);
-> -
->   	return r;
->   
->   unregister_plls:
-> -	mtk_clk_unregister_plls(plls, num_plls, clk_data);
-> +	mtk_clk_unregister_plls(plls, num_plls, clk_mfg->clk_data);
->   free_clk_data:
-> -	mtk_free_clk_data(clk_data);
-> +	mtk_free_clk_data(clk_mfg->clk_data);
->   
->   	return r;
->   }
-> @@ -128,20 +188,26 @@ static int clk_mt8196_mfg_probe(struct platform_device *pdev)
->   static void clk_mt8196_mfg_remove(struct platform_device *pdev)
->   {
->   	const struct mtk_pll_data *plls = of_device_get_match_data(&pdev->dev);
-> -	struct clk_hw_onecell_data *clk_data = platform_get_drvdata(pdev);
-> +	struct clk_mt8196_mfg *clk_mfg = dev_get_drvdata(&pdev->dev);
->   	struct device_node *node = pdev->dev.of_node;
->   
->   	of_clk_del_provider(node);
-> -	mtk_clk_unregister_plls(plls, 1, clk_data);
-> -	mtk_free_clk_data(clk_data);
-> +	mtk_clk_unregister_plls(plls, 1, clk_mfg->clk_data);
-> +	mtk_free_clk_data(clk_mfg->clk_data);
->   }
->   
-> +static DEFINE_RUNTIME_DEV_PM_OPS(clk_mt8196_mfg_pm_ops,
-> +				 clk_mt8196_mfg_suspend,
-> +				 clk_mt8196_mfg_resume,
-> +				 NULL);
-> +
->   static struct platform_driver clk_mt8196_mfg_drv = {
->   	.probe = clk_mt8196_mfg_probe,
->   	.remove = clk_mt8196_mfg_remove,
->   	.driver = {
->   		.name = "clk-mt8196-mfg",
->   		.of_match_table = of_match_clk_mt8196_mfg,
-> +		.pm = pm_ptr(&clk_mt8196_mfg_pm_ops),
->   	},
->   };
->   module_platform_driver(clk_mt8196_mfg_drv);
-> diff --git a/drivers/clk/mediatek/clk-pll.h b/drivers/clk/mediatek/clk-pll.h
-> index 0f2a1d19eea78b7390b221af47016eb9897f3596..82b86b849a67359d8f23d828f50422081c2747e3 100644
-> --- a/drivers/clk/mediatek/clk-pll.h
-> +++ b/drivers/clk/mediatek/clk-pll.h
-> @@ -53,6 +53,8 @@ struct mtk_pll_data {
->   	u8 pll_en_bit; /* Assume 0, indicates BIT(0) by default */
->   	u8 pcw_chg_bit;
->   	u8 fenc_sta_bit;
-> +	const char * const *rpm_clk_names;
-> +	unsigned int num_rpm_clks;
->   };
->   
->   /*
+> TRANS=raw
+> PROTOCOLS=base,clock,power_domain,performance,system_power,sensor,
+> voltage,reset,powercap,pin_control VERBOSE=5
 > 
 
+Glad to see that someone is using the test-suite im RAW mode out there
+in the real world :P
+
+> The root cause:
+> Tests were failing on poll() system calls with this condition:
+>     if (!raw || (idx == SCMI_RAW_REPLY_QUEUE && !SCMI_XFER_IS_RAW(xfer)))
+>         return;
+> 
+> The SCMI_XFER_FLAG_IS_RAW flag was being cleared prematurely before
+> the transfer completion was properly acknowledged, causing the poll
+> to return on timeout and tests to fail.
+> 
+
+I have to say I had seen some anomalies, hardly reproducible, and I
+think you have a point here, good catch !
+
+The xfer flags handling is racy and it could lead to the observed
+anomalies...BUT....
+
+> Сhanges implemented:
+> 1. Add completion wait with timeout in  scmi_xfer_raw_worker()
+> 2. Signal completion in scmi_raw_message_report()
+> 
+
+.. I think the fix in your patch is overkill...it is really not needed
+to add another layer of synchronization like you are doing, because the
+bug is really around the xfer put and it is very well evident, now that
+you have pointed at it...
+
+What about, instead of your patch, this:
+
+-----8<----
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index 801d59e6b3bc..d3453130896a 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -822,6 +822,8 @@ __scmi_xfer_put(struct scmi_xfers_info *minfo, struct scmi_xfer *xfer)
+ 
+                        scmi_dec_count(info->dbg->counters, XFERS_INFLIGHT);
+                }
++               xfer->flags &= ~SCMI_XFER_FLAG_IS_RAW;
++               xfer->flags &= ~SCMI_XFER_FLAG_CHAN_SET;
+                hlist_add_head(&xfer->node, &minfo->free_xfers);
+        }
+        spin_unlock_irqrestore(&minfo->xfer_lock, flags);
+@@ -840,8 +842,6 @@ void scmi_xfer_raw_put(const struct scmi_handle *handle, struct scmi_xfer *xfer)
+ {
+        struct scmi_info *info = handle_to_scmi_info(handle);
+ 
+-       xfer->flags &= ~SCMI_XFER_FLAG_IS_RAW;
+-       xfer->flags &= ~SCMI_XFER_FLAG_CHAN_SET;
+        return __scmi_xfer_put(&info->tx_minfo, xfer);
+ }
+---->8----
+
+..because the xfer itself is refcounted properly, BUT as of now the
+flags are cleared out of the block inside __scmi_xfer_put:
+
+	if (refcount_dec_and_test(&xfer->users))
+
+...and that is the problem.
+
+The above patch solves for me all the observed anomalies...
+
+... probably EVEN BETTER if you just clear all:
+
+---8<-----
+diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
+index 801d59e6b3bc..914510de3abb 100644
+--- a/drivers/firmware/arm_scmi/driver.c
++++ b/drivers/firmware/arm_scmi/driver.c
+@@ -822,6 +822,7 @@ __scmi_xfer_put(struct scmi_xfers_info *minfo, struct scmi_xfer *xfer)
+ 
+                        scmi_dec_count(info->dbg->counters, XFERS_INFLIGHT);
+                }
++               xfer->flags = 0;
+                hlist_add_head(&xfer->node, &minfo->free_xfers);
+        }
+        spin_unlock_irqrestore(&minfo->xfer_lock, flags);
+@@ -840,8 +841,6 @@ void scmi_xfer_raw_put(const struct scmi_handle *handle, struct scmi_xfer *xfer)
+ {
+        struct scmi_info *info = handle_to_scmi_info(handle);
+ 
+-       xfer->flags &= ~SCMI_XFER_FLAG_IS_RAW;
+-       xfer->flags &= ~SCMI_XFER_FLAG_CHAN_SET;
+        return __scmi_xfer_put(&info->tx_minfo, xfer);
+ }
+
+---->8----
+ 
+...to simply clear all flags when xfer is put...
+
+If this solves for you too, please send a new patch with also a Fixes tag.
+
+Last but not least, are you running the test-suite against a Kernel
+configured with RAW cohexistence disabled ?
+
+	CONFIG_ARM_SCMI_RAW_MODE_SUPPORT_COEX = n
+
+...because having RAW COEX enabled when running the test-suite could lead to more
+false positives even with your patch applied, due to the interference of regular
+drivers..
+
+Thanks for this !
+Cristian
 
 
