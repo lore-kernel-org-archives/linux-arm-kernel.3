@@ -4,90 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0EFECCAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 21:04:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 27757CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 21:04:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UYBWVcMrL+XqSLPgxbyO6R+Pmodg0fLAvWpUbIMCypQ=; b=XFj8BfGPVCZ0stG/Z5Qal1a7NM
-	LGj7GOksQFyV4duwqJC0ZuCHUqFV2VZX8ebjHVVKjQKXGcvBPlUX/RbD4gRq9nwrrPvfU5SwJz478
-	WtQJ+E//TuweBFB9RUt+PAjNmdD5rQJj6xqO81rGTe0vEa9E/HLQ5ZjW9prDxKeLmzuRn4vvgw745
-	2Sxo77cnsDsMZmqL0qGT2OXb+IyS7DyUcNSleAzFEck8sj9WDhK2PifWotJ6t5X9fRqn7xpZ/XZAB
-	WINDC8AT4FLpWeExPtuT5F2+6znQJGga6TtnDScBFzHQXIHHpd0imVBxbr4vFgTnNIJZqotRMUxr2
-	fQnYevlQ==;
+	bh=vE8eXwwbGKy5p5WbHU/i1dMObS51JLHu730fwFC+Odw=; b=XzcWG0P+O3P1CCXXh9xZ/0swkT
+	2jO7VGDIc4o4UuveHxfd9Hio3IShcnYpsUxFp7Uz5XCaBAEduHFhG/rTNXXUOB04VUnWSm4YKqAzq
+	Brj9OlW32q/zOAKIYya7I50d0HcMM8D30e8TqkpgWqL9Pe2/P++czx7oMcukJdDoPCEPgqDGbouHV
+	qYTKdxtRKJMGbXZZpIpP2dxoSruhzNRvT4hXpMDDcAATAKLemc1KSN2IhW2IMO771uq4lUOPMv25l
+	QM0yVtOAPSL5hPdInls9mJXobWLxGB1yiAtO6r7ovXVFkKJ7ksRu+jovG4uHz38Yacb4+LLjLyn5R
+	OBJjOrlw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v43zX-00000008yxl-18hW;
-	Wed, 01 Oct 2025 21:04:03 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v43zZ-00000008z19-33l8;
+	Wed, 01 Oct 2025 21:04:05 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v43zV-00000008yvX-2fdF
-	for linux-arm-kernel@bombadil.infradead.org;
-	Wed, 01 Oct 2025 21:04:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=UYBWVcMrL+XqSLPgxbyO6R+Pmodg0fLAvWpUbIMCypQ=; b=g9cQvjYnrBzqW2Jg75YOu3LEl8
-	Ef4pIG96R0gkMFitVPO5FJbQ87PF81e4uJlTZ7+3zV9NaxUwiTlalGrcJXvwjEIUAXcziKCn/uZ1J
-	l6guBEtZeZsFtVW1zFA+/AhigMSBaomSDH5eQHODNBsRRr5cB5BT+EhQkr50fR+zrYYP31zbrWCWF
-	Abd0R9L70MumfLwoVWFRiweG2GWmu54Avt8jC2Ad+BNhZ6j9ptOu8YKaqx+e7dyJ1gg4lv4m+/q3g
-	qnsJw17Ljk+SK48q9QulHIymijxvl1Bzt9Z45HX4bhucK5TCNdzAWEhOduPgyANUH8+L4H8ZjBKC3
-	HmBC+4gg==;
-Received: from mail-ej1-x64a.google.com ([2a00:1450:4864:20::64a])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v43zR-0000000DoOP-0eja
+	id 1v43zX-00000008yws-24Mq
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 21:04:00 +0000
-Received: by mail-ej1-x64a.google.com with SMTP id a640c23a62f3a-afcb72a8816so31997566b.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 14:03:55 -0700 (PDT)
+	Wed, 01 Oct 2025 21:04:04 +0000
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-46e41c32209so937575e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 14:04:02 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1759352633; x=1759957433; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1759352641; x=1759957441; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=UYBWVcMrL+XqSLPgxbyO6R+Pmodg0fLAvWpUbIMCypQ=;
-        b=ezirQw/NNxe+y0+QMf9mNHxRSlyFpsOoJtE036JTygaBY3/ZCKUe67WkQcgRcFIXDo
-         OOJG1eBzjInbpRYkodGzvZXAXWcco7eCm4A2Q1CVgRgC9KQnBgUBERFfL88tnAZxgGd5
-         MaNjWdKj29ETPlDTr5mV8210vZPBUHEUmDCv3dDHTbm7e6iScvkotFSAFfcCbpJj7W0u
-         Xul2aWwwC5tZU5Zw21YBA0yLks7YQMLR8SuZQLe3VCV++hN39wk9jhDNH/4FKE9+MOys
-         WJD0hraF/i2Q3nV0TNDq+kJPEj/75+ITtmnfODPzJRey/3W+YHo4CXDiPZC4tIXOV8DT
-         ELwA==
+        bh=vE8eXwwbGKy5p5WbHU/i1dMObS51JLHu730fwFC+Odw=;
+        b=OgXWqVo9Mp84ULV3ThY0nvNRIu8rjv5bV2jNpny0ttVuwwI1raOW0DidbSrP5u3aj4
+         99thfPkbktMzOLekPCOM+GsXOONgGXvyjX4A17L67fVSEQMJ2F/UdTPaXtl4oIg8EQox
+         VH9XFVHH1jkVOsU0+QwBrif33WbRl/0RRiftoKQoi/0qQzyq6A8ltbBz+HPZK/+BeC/j
+         TpAikT56z2c7YPqoycGYgsMBkdSKq7DEVNUPLxxdAQ2DdH+2SqLOQR8rXfAsm0QNrLie
+         HvFGdo94kYPHNyboVXmlLn1RSDRfdDAyD3E3SqdMY9FPozjdf/9KlPUfHjr93Zw6O2RT
+         Hc3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759352633; x=1759957433;
+        d=1e100.net; s=20230601; t=1759352641; x=1759957441;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=UYBWVcMrL+XqSLPgxbyO6R+Pmodg0fLAvWpUbIMCypQ=;
-        b=klvEtcn6d+FF8R5nhFuWBGD+xeLw5e2g5pA2tT297rTdpSSUCpZ3Ar3LBkxHWmfE4i
-         /vB5QpPf2zW4ZzVAGLyzkEKTBSyxc9LuBlPjP5uO5CnOsczardNbqaRnVjDgy0rHRe2b
-         UuAH6X69VSWp/Qc+a9Qw7tskaAFWRTIZ9DJdYzS5i1jAcuybih86z4XDKFw1bjY4AQwM
-         vdC1weWd+zW5k9ejtyLA1NpjqlKA3B9r2fCsgLVGiXq8YWnUrAuxC3zq5lTK/bIgPU6w
-         1kQSjiju5USnA4wdRFwHWoChq9g8ON+TDPgymvTcQYZf/ueKV+91+b06ZQfEiguD6PQq
-         INzw==
-X-Gm-Message-State: AOJu0YzltsaIMAHAxL+fP4lrmIYwKpJodHnVA8u+ROh1Nyu9jYitgUBv
-	DQyN9dYhAdc0usRdRMbLeRktuimhZbIahwd99ddj7vSnPWAR3oK5BR029br+80EOJoypxSwrdVt
-	dSkw6D7esJYY7rdoW+ZWE5SKzUq36xVRJhPfuJdpGd3W8GKN14NTuOht0RB0T5HCW3ue0AkHEn7
-	VDQz11GkMmx4lFxbKBfEZHp5v++/NRfqHZXGcBEhcDNXZq
-X-Google-Smtp-Source: AGHT+IHMlqwMCs9Npi3jOeY+LiGowC4953WrKZ9yJK8uSZJrjaUNV6KEIrxdClpYRueyTEYTFhCkPyP5
-X-Received: from ejbwq1.prod.google.com ([2002:a17:907:641:b0:b3f:5a00:1605])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a17:907:3f8a:b0:b04:3dc7:7d80
- with SMTP id a640c23a62f3a-b46e585ad3bmr632727366b.18.1759352633431; Wed, 01
- Oct 2025 14:03:53 -0700 (PDT)
-Date: Wed,  1 Oct 2025 23:02:04 +0200
+        bh=vE8eXwwbGKy5p5WbHU/i1dMObS51JLHu730fwFC+Odw=;
+        b=s11khP0Q3uIUIl3Ws5XhiZ4mcxj0bEfAiBDTun9rvyvkK7/SsGn6JzLrNWGLffxDu6
+         tzjQSsntfXpq5NmqxoiW1xvi8WpIEmC5iCJbLXOYJkAdjmn9Y+acY/68Lum5Yfz16ccM
+         iZ0tRjdqcSb0Bj1daweyRcAEFm+syIMKtoanJGSUcTd9SdrNz/lF14FCrHY6mXrxj4tB
+         df5TAoNGcwoMSP4D1v66wzhz8WdU9zFXvyxEI2LNGkSPuo1QfxVNp+qX0BCWA6IC7HsD
+         AFK98MrTJfE9CLRN8TFEOM2QQ5O9l3TxZMbTch4M8hJZTBfhTmmD4AMF3ingfn6n4HHg
+         l8kQ==
+X-Gm-Message-State: AOJu0YxAiQEQ7cpCdzIh8Ec11g2AYNr6wy8LcIW38/AYV3IQXagmT38g
+	pUKC18Ki5ZixB4fMtvh0UWSHwY1bL7TiPW81fbc5U58fCmfkpBgkd1B6ikuLVHu4Lt19DjksRug
+	ZjcVXHWOcP1nYlsosRIv0bkGWzFjTJfwF1zDH3GmeNy5e3Yh0JCFL5SiO8DcHQwdHpOeGmeCbjT
+	OaM6cX6rZFmhhIYq00oWBKKd4PNwoLtWrOi8vSat0V2vVA
+X-Google-Smtp-Source: AGHT+IH7ZtZzU237M2m1tNwTXmJBPEEEg2ifHIsvYzIIZQnXlN2lH+rAVb8JyGkAh+fVohPUM/1C32AM
+X-Received: from wmlv6.prod.google.com ([2002:a05:600c:2146:b0:46e:19f9:cfe9])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:8414:b0:46e:206a:78cc
+ with SMTP id 5b1f17b1804b1-46e612c9042mr40692505e9.28.1759352641678; Wed, 01
+ Oct 2025 14:04:01 -0700 (PDT)
+Date: Wed,  1 Oct 2025 23:02:11 +0200
 In-Reply-To: <20251001210201.838686-22-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20251001210201.838686-22-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1430; i=ardb@kernel.org;
- h=from:subject; bh=zW/Ll9u+2fAT/Va1/PfNMYyKFzy2uIhE96GfLDmS5ew=;
- b=kA0DAAoWMG4JVi59LVwByyZiAGjdltPIlHC+BqQZgjT+Q/Oqs9tM4IdV3oG7ERBq2+2gSCD9a
- 4h1BAAWCgAdFiEEEJv97rnLkRp9Q5odMG4JVi59LVwFAmjdltMACgkQMG4JVi59LVyPtwD/fjev
- K07ta1hTMaGo/CMNU/2cOZDAmzhu/3WAashGtlsA/joiQcKT/3M+Pd4404SNOcFD27Upbf7uPzp TSe/KAyMB
+X-Developer-Signature: v=1; a=openpgp-sha256; l=5792; i=ardb@kernel.org;
+ h=from:subject; bh=u6utO88LPPilhPgrmOnUNkYpCEnFY27X7HNtZdaOtj0=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIePutA9cXKLzKkytjZfvzuMw27rm9IWJmorzmss7FggGd
+ Tm/kFjfUcrCIMbFICumyCIw+++7nacnStU6z5KFmcPKBDKEgYtTACaiYsLwv25T0T8WyXkR2rOy
+ xBgyucWuPZu+c35P51XpqCxjrQq1xQz/3Zkj9jtHHaqsdJ52+exfZmlp3ycpykUPWr0XWZw6cje DHwA=
 X-Mailer: git-send-email 2.51.0.618.g983fd99d29-goog
-Message-ID: <20251001210201.838686-24-ardb+git@google.com>
-Subject: [PATCH v2 02/20] arm64/simd: Add scoped guard API for kernel mode SIMD
+Message-ID: <20251001210201.838686-31-ardb+git@google.com>
+Subject: [PATCH v2 09/20] lib/crc: Switch ARM and arm64 to 'ksimd' scoped
+ guard API
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
@@ -98,8 +84,8 @@ Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_220358_455221_2AE55B87 
-X-CRM114-Status: GOOD (  12.56  )
+X-CRM114-CacheID: sfid-20251001_140403_569376_F5EF18B9 
+X-CRM114-Status: GOOD (  14.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,50 +102,183 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-Encapsulate kernel_neon_begin() and kernel_neon_end() using a 'ksimd'
-cleanup guard. This hides the prototype of those functions, allowing
-them to be changed for arm64 but not ARM, without breaking code that is
-shared between those architectures (RAID6, AEGIS-128)
+Before modifying the prototypes of kernel_neon_begin() and
+kernel_neon_end() to accommodate kernel mode FP/SIMD state buffers
+allocated on the stack, move arm64 to the new 'ksimd' scoped guard API,
+which encapsulates the calls to those functions.
 
-It probably makes sense to expose this API more widely across
-architectures, as it affords more flexibility to the arch code to
-plumb it in, while imposing more rigid rules regarding the start/end
-bookends appearing in matched pairs.
+For symmetry, do the same for 32-bit ARM too.
 
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm64/include/asm/simd.h | 7 +++++++
- 1 file changed, 7 insertions(+)
+ lib/crc/arm/crc-t10dif.h   | 16 +++++-----------
+ lib/crc/arm/crc32.h        | 11 ++++-------
+ lib/crc/arm64/crc-t10dif.h | 16 +++++-----------
+ lib/crc/arm64/crc32.h      | 16 ++++++----------
+ 4 files changed, 20 insertions(+), 39 deletions(-)
 
-diff --git a/arch/arm64/include/asm/simd.h b/arch/arm64/include/asm/simd.h
-index 8e86c9e70e48..d9f83c478736 100644
---- a/arch/arm64/include/asm/simd.h
-+++ b/arch/arm64/include/asm/simd.h
-@@ -6,12 +6,15 @@
- #ifndef __ASM_SIMD_H
- #define __ASM_SIMD_H
+diff --git a/lib/crc/arm/crc-t10dif.h b/lib/crc/arm/crc-t10dif.h
+index 2edf7e9681d0..133a773b8248 100644
+--- a/lib/crc/arm/crc-t10dif.h
++++ b/lib/crc/arm/crc-t10dif.h
+@@ -7,7 +7,6 @@
  
-+#include <linux/cleanup.h>
- #include <linux/compiler.h>
- #include <linux/irqflags.h>
- #include <linux/percpu.h>
- #include <linux/preempt.h>
- #include <linux/types.h>
+ #include <crypto/internal/simd.h>
  
-+#include <asm/neon.h>
-+
- #ifdef CONFIG_KERNEL_MODE_NEON
+-#include <asm/neon.h>
+ #include <asm/simd.h>
  
- /*
-@@ -40,4 +43,8 @@ static __must_check inline bool may_use_simd(void) {
+ static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_neon);
+@@ -22,21 +21,16 @@ asmlinkage void crc_t10dif_pmull8(u16 init_crc, const u8 *buf, size_t len,
+ static inline u16 crc_t10dif_arch(u16 crc, const u8 *data, size_t length)
+ {
+ 	if (length >= CRC_T10DIF_PMULL_CHUNK_SIZE) {
+-		if (static_branch_likely(&have_pmull)) {
+-			if (crypto_simd_usable()) {
+-				kernel_neon_begin();
+-				crc = crc_t10dif_pmull64(crc, data, length);
+-				kernel_neon_end();
+-				return crc;
+-			}
++		if (static_branch_likely(&have_pmull) && crypto_simd_usable()) {
++			scoped_ksimd()
++				return crc_t10dif_pmull64(crc, data, length);
+ 		} else if (length > CRC_T10DIF_PMULL_CHUNK_SIZE &&
+ 			   static_branch_likely(&have_neon) &&
+ 			   crypto_simd_usable()) {
+ 			u8 buf[16] __aligned(16);
  
- #endif /* ! CONFIG_KERNEL_MODE_NEON */
+-			kernel_neon_begin();
+-			crc_t10dif_pmull8(crc, data, length, buf);
+-			kernel_neon_end();
++			scoped_ksimd()
++				crc_t10dif_pmull8(crc, data, length, buf);
  
-+DEFINE_LOCK_GUARD_0(ksimd, kernel_neon_begin(), kernel_neon_end())
-+
-+#define scoped_ksimd()	scoped_guard(ksimd)
-+
- #endif
+ 			return crc_t10dif_generic(0, buf, sizeof(buf));
+ 		}
+diff --git a/lib/crc/arm/crc32.h b/lib/crc/arm/crc32.h
+index 018007e162a2..32ad299319cd 100644
+--- a/lib/crc/arm/crc32.h
++++ b/lib/crc/arm/crc32.h
+@@ -10,7 +10,6 @@
+ #include <crypto/internal/simd.h>
+ 
+ #include <asm/hwcap.h>
+-#include <asm/neon.h>
+ #include <asm/simd.h>
+ 
+ static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_crc32);
+@@ -44,9 +43,8 @@ static inline u32 crc32_le_arch(u32 crc, const u8 *p, size_t len)
+ 			len -= n;
+ 		}
+ 		n = round_down(len, 16);
+-		kernel_neon_begin();
+-		crc = crc32_pmull_le(p, n, crc);
+-		kernel_neon_end();
++		scoped_ksimd()
++			crc = crc32_pmull_le(p, n, crc);
+ 		p += n;
+ 		len -= n;
+ 	}
+@@ -73,9 +71,8 @@ static inline u32 crc32c_arch(u32 crc, const u8 *p, size_t len)
+ 			len -= n;
+ 		}
+ 		n = round_down(len, 16);
+-		kernel_neon_begin();
+-		crc = crc32c_pmull_le(p, n, crc);
+-		kernel_neon_end();
++		scoped_ksimd()
++			crc = crc32c_pmull_le(p, n, crc);
+ 		p += n;
+ 		len -= n;
+ 	}
+diff --git a/lib/crc/arm64/crc-t10dif.h b/lib/crc/arm64/crc-t10dif.h
+index c4521a7f1ee9..dcbee08801d6 100644
+--- a/lib/crc/arm64/crc-t10dif.h
++++ b/lib/crc/arm64/crc-t10dif.h
+@@ -9,7 +9,6 @@
+ 
+ #include <crypto/internal/simd.h>
+ 
+-#include <asm/neon.h>
+ #include <asm/simd.h>
+ 
+ static __ro_after_init DEFINE_STATIC_KEY_FALSE(have_asimd);
+@@ -24,21 +23,16 @@ asmlinkage u16 crc_t10dif_pmull_p64(u16 init_crc, const u8 *buf, size_t len);
+ static inline u16 crc_t10dif_arch(u16 crc, const u8 *data, size_t length)
+ {
+ 	if (length >= CRC_T10DIF_PMULL_CHUNK_SIZE) {
+-		if (static_branch_likely(&have_pmull)) {
+-			if (crypto_simd_usable()) {
+-				kernel_neon_begin();
+-				crc = crc_t10dif_pmull_p64(crc, data, length);
+-				kernel_neon_end();
+-				return crc;
+-			}
++		if (static_branch_likely(&have_pmull) && crypto_simd_usable()) {
++			scoped_ksimd()
++				return crc_t10dif_pmull_p64(crc, data, length);
+ 		} else if (length > CRC_T10DIF_PMULL_CHUNK_SIZE &&
+ 			   static_branch_likely(&have_asimd) &&
+ 			   crypto_simd_usable()) {
+ 			u8 buf[16];
+ 
+-			kernel_neon_begin();
+-			crc_t10dif_pmull_p8(crc, data, length, buf);
+-			kernel_neon_end();
++			scoped_ksimd()
++				crc_t10dif_pmull_p8(crc, data, length, buf);
+ 
+ 			return crc_t10dif_generic(0, buf, sizeof(buf));
+ 		}
+diff --git a/lib/crc/arm64/crc32.h b/lib/crc/arm64/crc32.h
+index 6e5dec45f05d..2b5cbb686a13 100644
+--- a/lib/crc/arm64/crc32.h
++++ b/lib/crc/arm64/crc32.h
+@@ -2,7 +2,6 @@
+ 
+ #include <asm/alternative.h>
+ #include <asm/cpufeature.h>
+-#include <asm/neon.h>
+ #include <asm/simd.h>
+ 
+ #include <crypto/internal/simd.h>
+@@ -24,9 +23,8 @@ static inline u32 crc32_le_arch(u32 crc, const u8 *p, size_t len)
+ 		return crc32_le_base(crc, p, len);
+ 
+ 	if (len >= min_len && cpu_have_named_feature(PMULL) && crypto_simd_usable()) {
+-		kernel_neon_begin();
+-		crc = crc32_le_arm64_4way(crc, p, len);
+-		kernel_neon_end();
++		scoped_ksimd()
++			crc = crc32_le_arm64_4way(crc, p, len);
+ 
+ 		p += round_down(len, 64);
+ 		len %= 64;
+@@ -44,9 +42,8 @@ static inline u32 crc32c_arch(u32 crc, const u8 *p, size_t len)
+ 		return crc32c_base(crc, p, len);
+ 
+ 	if (len >= min_len && cpu_have_named_feature(PMULL) && crypto_simd_usable()) {
+-		kernel_neon_begin();
+-		crc = crc32c_le_arm64_4way(crc, p, len);
+-		kernel_neon_end();
++		scoped_ksimd()
++			crc = crc32c_le_arm64_4way(crc, p, len);
+ 
+ 		p += round_down(len, 64);
+ 		len %= 64;
+@@ -64,9 +61,8 @@ static inline u32 crc32_be_arch(u32 crc, const u8 *p, size_t len)
+ 		return crc32_be_base(crc, p, len);
+ 
+ 	if (len >= min_len && cpu_have_named_feature(PMULL) && crypto_simd_usable()) {
+-		kernel_neon_begin();
+-		crc = crc32_be_arm64_4way(crc, p, len);
+-		kernel_neon_end();
++		scoped_ksimd()
++			crc = crc32_be_arm64_4way(crc, p, len);
+ 
+ 		p += round_down(len, 64);
+ 		len %= 64;
 -- 
 2.51.0.618.g983fd99d29-goog
 
