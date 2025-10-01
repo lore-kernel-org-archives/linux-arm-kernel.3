@@ -4,61 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09315CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 15:53:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8D1AECAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 15:54:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6ySUKec7wcMB/xPZzhKACyCo75gQZPqejQV+yYGMai0=; b=rK4ixZUG75E22aDi9wifnFUrNX
-	PqA4p8fALTzKN41N8C4W+sbOoJFjHb2803GG4+kG57+nJwgtJ2+aWKc3+fyZxxL/1Yp+f+B7ewjrU
-	SRpqtKO2ZyieTxiXZXAlLPTitAWm0rehWFhdJLU5t+0T9cxVxDh7FtqPakxQORQxHfwWEzWrqbelO
-	Rm1fJ29B1JDffVM3j2yq5ZIUHmahwxMRqW0sBdVUv4iUyPhJ6iwIazQBDme9skNTKJubdCltfwcfi
-	E5bv3chY50kwnVXr5Fyf6bzGWCI+7uGVWD1KAnX2JtR8sfCZR1uQhu71tix+ZqF4OjJFRzj/JQZal
-	J7KTjc8A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MuhU57g0ePRs2VUdASztQsed9zwHpVhPHphcOslECPI=; b=Cf5hUY6j0iRXSX8CZLfwpY5aXF
+	xOm1tN2oiggKFg/UaWxhyr9uVIhx0v5fVKnGnnOvOyUpJscpgtlspUKvTnw0ZYpJbVm0uWhE+8ZsC
+	FGL4PmPKCLhHaxmIfU9ghDAJcGbMGzoAcig/ezGQFhLjS8q5ffoI79GrPuWY9vT81lFoagUT/1Nix
+	rEQ/+q3RkUuFZr7ZgtsjlylrJ0KQNbBWHrFmMDUEyh/QsOS2gu1mMBzlJmSu5s1qVimn8EtVSN3Rl
+	yGleWeC7OtT+0rTut14uDrscmFh06Ce6lgiIBVzYCruG6+A6WPBP454og2+1yZzmszXJXHgnm34Dl
+	X2ep9ycg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3z9I-00000008SJj-485o;
-	Wed, 01 Oct 2025 15:53:48 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3z9H-00000008SJS-2uT1;
-	Wed, 01 Oct 2025 15:53:47 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BFE2961E8D;
-	Wed,  1 Oct 2025 15:53:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 51AD2C4CEF5;
-	Wed,  1 Oct 2025 15:53:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759334026;
-	bh=jWXIj+XQH9k2rgZC0jazDofhOuOkjdLHKY7Gs7wBT/E=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=TrzW+CXIWwbeoLSHb0D68yTZm+49nG0+/giNoRu8VZ6yS0KxEgGU+delOR0dbRxEe
-	 IQknSZeIOek17i4D7cs8YDPO7sUsTxtJD5+vIXDgbm/fMK1Cpdl4JJ9Zo0J2I9UQVd
-	 H1TUK4T69ulJ8R2VFXtobzcY9OnEw+u95pU9WzQVip1f/55ZcsJZ9ayVmdPSTlFEr4
-	 fcC0+w2TXcTY862q2+zieIDlUMpoENEfeB+dS9fqSUi/fgOrHnCEm0hBTXEAFLga5+
-	 FDe3B0MzyLq2U9bI31Xf99E6JiCRuMIEUba43kO6VkKe0gK0bgIML+mdvJj6JdJJWL
-	 LnljY/N8OWHxw==
-Date: Wed, 1 Oct 2025 10:53:45 -0500
-From: Rob Herring <robh@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-mediatek@lists.infradead.org, lee@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, matthias.bgg@gmail.com, lgirdwood@gmail.com,
-	broonie@kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com, wenst@chromium.org,
-	igor.belwon@mentallysanemainliners.org
-Subject: Re: [PATCH v6 7/9] dt-bindings: iio: adc: mt6359: Allow reg for SPMI
- PMICs AuxADC
-Message-ID: <20251001155345.GD1833526-robh@kernel.org>
-References: <20251001111316.31828-1-angelogioacchino.delregno@collabora.com>
- <20251001111316.31828-8-angelogioacchino.delregno@collabora.com>
+	id 1v3zA2-00000008SWF-2KyV;
+	Wed, 01 Oct 2025 15:54:34 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v3z9z-00000008SVQ-3OIi
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Oct 2025 15:54:33 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 6EA751692;
+	Wed,  1 Oct 2025 08:54:21 -0700 (PDT)
+Received: from [10.57.0.204] (unknown [10.57.0.204])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id CFFF43F66E;
+	Wed,  1 Oct 2025 08:54:23 -0700 (PDT)
+Message-ID: <a89b9047-7d0c-41c7-93a3-f31e55315ebd@arm.com>
+Date: Wed, 1 Oct 2025 16:54:21 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251001111316.31828-8-angelogioacchino.delregno@collabora.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 09/43] KVM: arm64: Allow passing machine type in KVM
+ creation
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>
+References: <20250820145606.180644-1-steven.price@arm.com>
+ <20250820145606.180644-10-steven.price@arm.com>
+ <86frc2zq6m.wl-maz@kernel.org>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <86frc2zq6m.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251001_085431_928651_8D093776 
+X-CRM114-Status: GOOD (  33.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,18 +79,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 01, 2025 at 01:13:14PM +0200, AngeloGioacchino Del Regno wrote:
-> When one or multiple Auxiliary ADC IPs are embedded in a SPMI PMIC
-> it is reachable at a specific address.
+On 01/10/2025 14:50, Marc Zyngier wrote:
+> On Wed, 20 Aug 2025 15:55:29 +0100,
+> Steven Price <steven.price@arm.com> wrote:
+>>
+>> Previously machine type was used purely for specifying the physical
+>> address size of the guest. Reserve the higher bits to specify an ARM
+>> specific machine type and declare a new type 'KVM_VM_TYPE_ARM_REALM'
+>> used to create a realm guest.
+>>
+>> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> Reviewed-by: Gavin Shan <gshan@redhat.com>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> ---
+>> Changes since v9:
+>>  * Explictly set realm.state to REALM_STATE_NONE rather than rely on the
+>>    zeroing of the structure.
+>> Changes since v7:
+>>  * Add some documentation explaining the new machine type.
+>> Changes since v6:
+>>  * Make the check for kvm_rme_is_available more visible and report an
+>>    error code of -EPERM (instead of -EINVAL) to make it explicit that
+>>    the kernel supports RME, but the platform doesn't.
+>> ---
+>>  Documentation/virt/kvm/api.rst | 16 ++++++++++++++--
+>>  arch/arm64/kvm/arm.c           | 16 ++++++++++++++++
+>>  arch/arm64/kvm/mmu.c           |  3 ---
+>>  include/uapi/linux/kvm.h       | 19 +++++++++++++++----
+>>  4 files changed, 45 insertions(+), 9 deletions(-)
+>>
+>> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
+>> index 69c0a9eba6c5..fad3191df311 100644
+>> --- a/Documentation/virt/kvm/api.rst
+>> +++ b/Documentation/virt/kvm/api.rst
+>> @@ -181,8 +181,20 @@ flag KVM_VM_MIPS_VZ.
+>>  ARM64:
+>>  ^^^^^^
+>>  
+>> -On arm64, the physical address size for a VM (IPA Size limit) is limited
+>> -to 40bits by default. The limit can be configured if the host supports the
+>> +On arm64, the machine type identifier is used to encode a type and the
+>> +physical address size for the VM. The lower byte (bits[7-0]) encode the
+>> +address size and the upper bits[11-8] encode a machine type. The machine
+>> +types that might be available are:
+>> +
+>> + ======================   ============================================
+>> + KVM_VM_TYPE_ARM_NORMAL   A standard VM
+>> + KVM_VM_TYPE_ARM_REALM    A "Realm" VM using the Arm Confidential
+>> +                          Compute extensions, the VM's memory is
+>> +                          protected from the host.
+>> + ======================   ============================================
+>> +
+>> +The physical address size for a VM (IPA Size limit) is limited to 40bits
+>> +by default. The limit can be configured if the host supports the
+>>  extension KVM_CAP_ARM_VM_IPA_SIZE. When supported, use
+>>  KVM_VM_TYPE_ARM_IPA_SIZE(IPA_Bits) to set the size in the machine type
+>>  identifier, where IPA_Bits is the maximum width of any physical
+>> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
+>> index 8c0e9ec34f0a..5b582b705eee 100644
+>> --- a/arch/arm64/kvm/arm.c
+>> +++ b/arch/arm64/kvm/arm.c
+>> @@ -172,6 +172,22 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
+>>  	mutex_unlock(&kvm->lock);
+>>  #endif
+>>  
+>> +	if (type & ~(KVM_VM_TYPE_ARM_MASK | KVM_VM_TYPE_ARM_IPA_SIZE_MASK))
+>> +		return -EINVAL;
+>> +
+>> +	switch (type & KVM_VM_TYPE_ARM_MASK) {
+>> +	case KVM_VM_TYPE_ARM_NORMAL:
+>> +		break;
+>> +	case KVM_VM_TYPE_ARM_REALM:
+>> +		if (!static_branch_unlikely(&kvm_rme_is_available))
+>> +			return -EPERM;
 > 
-> Allow specifying the `reg` property and make it a required one for
-> MediaTek MT6363/6373 PMICs as those communicate over SPMI and also
-> disallow it for the others (as it wouldn't be applicable).
-> 
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> ---
->  .../iio/adc/mediatek,mt6359-auxadc.yaml         | 17 +++++++++++++++++
->  1 file changed, 17 insertions(+)
+> EPERM? That's rather odd. You can only do that if the CCA capability
+> has been advertised. So asking for it when you can find that it is not
+> there deserves more of an EINVAL response.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Ack
+
+>> +		WRITE_ONCE(kvm->arch.realm.state, REALM_STATE_NONE);
+>> +		kvm->arch.is_realm = true;
+>> +		break;
+>> +	default:
+>> +		return -EINVAL;
+>> +	}
+>> +
+>>  	kvm_init_nested(kvm);
+>>  
+>>  	ret = kvm_share_hyp(kvm, kvm + 1);
+>> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+>> index de10dbde4761..130f28dfb3cb 100644
+>> --- a/arch/arm64/kvm/mmu.c
+>> +++ b/arch/arm64/kvm/mmu.c
+>> @@ -881,9 +881,6 @@ static int kvm_init_ipa_range(struct kvm *kvm,
+>>  	if (kvm_is_realm(kvm))
+>>  		kvm_ipa_limit = kvm_realm_ipa_limit();
+>>  
+>> -	if (type & ~KVM_VM_TYPE_ARM_IPA_SIZE_MASK)
+>> -		return -EINVAL;
+>> -
+> 
+> How about the *other* bits? You need to be able to detect that
+> userspace is using the reserved bits and error out.
+
+That check is now further up in kvm_arch_init_vm():
+
+>> +	if (type & ~(KVM_VM_TYPE_ARM_MASK | KVM_VM_TYPE_ARM_IPA_SIZE_MASK))
+>> +		return -EINVAL;
+
+(along with the default branch in the switch handling unknown 'types')
+
+>>  	phys_shift = KVM_VM_TYPE_ARM_IPA_SIZE(type);
+>>  	if (is_protected_kvm_enabled()) {
+>>  		phys_shift = kvm_ipa_limit;
+>> diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
+>> index 7dafb443368a..b70ecee918de 100644
+>> --- a/include/uapi/linux/kvm.h
+>> +++ b/include/uapi/linux/kvm.h
+>> @@ -672,14 +672,25 @@ struct kvm_enable_cap {
+>>  #define KVM_S390_SIE_PAGE_OFFSET 1
+>>  
+>>  /*
+>> - * On arm64, machine type can be used to request the physical
+>> - * address size for the VM. Bits[7-0] are reserved for the guest
+>> - * PA size shift (i.e, log2(PA_Size)). For backward compatibility,
+>> - * value 0 implies the default IPA size, 40bits.
+>> + * On arm64, machine type can be used to request both the machine type and
+>> + * the physical address size for the VM.
+>> + *
+>> + * Bits[11-8] are reserved for the ARM specific machine type.
+>> + *
+>> + * Bits[7-0] are reserved for the guest PA size shift (i.e, log2(PA_Size)).
+>> + * For backward compatibility, value 0 implies the default IPA size, 40bits.
+>>   */
+>> +#define KVM_VM_TYPE_ARM_SHIFT		8
+>> +#define KVM_VM_TYPE_ARM_MASK		(0xfULL << KVM_VM_TYPE_ARM_SHIFT)
+>> +#define KVM_VM_TYPE_ARM(_type)		\
+>> +	(((_type) << KVM_VM_TYPE_ARM_SHIFT) & KVM_VM_TYPE_ARM_MASK)
+>> +#define KVM_VM_TYPE_ARM_NORMAL		KVM_VM_TYPE_ARM(0)
+>> +#define KVM_VM_TYPE_ARM_REALM		KVM_VM_TYPE_ARM(1)
+> 
+> Why can't that be just "PROTECTED", using bit 31, just like pKVM?  I
+> don't see the point in deviating from an established practice.
+
+As far as I'm aware this pKVM practise isn't upstream. We also need to
+distinguish between pKVM and CCA - it's entirely possible that both
+might coexist on the same platform.
+
+This is just extending a proposal that Will posted years ago[1] for pkvm
+with room for more types - that used bit 8 for a
+KVM_VM_TYPE_ARM_PROTECTED flag. I agree there might be an argument for
+the realm type being 2 if we want to keep 1 for pKVM. But it looks like
+downstream pKVM has done something different and incompatible anyway.
+
+Thanks,
+Steve
+
+[1]
+https://lists.infradead.org/pipermail/linux-arm-kernel/2022-May/744865.html
 
