@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BA04CCA470
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7E57CCD183
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 21:04:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,67 +12,83 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ROUK26yKaM3+r4gp21QNYLzmmtvtE/oyrWIw8ssAYWA=; b=wzk+Xm3Q+LQwM44DI+06CtiW/L
-	tBa3uwZQpphfDnmDLhPBgNoZ9JimWJHvftjfhvuL5mFTfA7Z3gga1Dx80l++nmF5UnykCqDgkzcCH
-	EdYr/ZEwz+lujfSD4SnG3/x1EwTq0pBzRhImT2a5N1nRFQ3PFrIOnRMGNyToeF0l+T0WCyeYeT8vF
-	OoUI8jj2SdqN/tmJi9rez2UBn8Jk7ZwMIgIP8utHBxXt7mGUxnzt1sMX8uF8s2RpzumK/hVeXJpPv
-	OJS5w32HPF8h1qCl3+mziY/eN8ndwxPeWC4Bl7ECoRqzB7qrbOrz8Ulfaj4PNg0zG2wPjqR8hBXFJ
-	WZLeTnJw==;
+	bh=acDSbPr0ckzlJYMJhQI+twxWM3EGvwpk6VEzCJHCwrY=; b=r7nmR0dFtluaH15fTpDmKR9ELU
+	S8FzdYpbceUuSAeQ8ditLLJ958Es2cp/YQkYGtFybXlP5TVuwtdJO+Y7RfZ7MGNpj99B+hdACkA2D
+	TQYOjxsCusFy0QOuvhLM7uMfVIKSx1NLasgdFSO9XXFb3w8MLHplnXaesDQyHjOACX7xKB2qBgMy2
+	zR4ZJO37aLZmGo9VcgXumxZCmZMXVRLUyOLgTLFjuHNi31LHxTc5jFoJrezy9AiA2MsYAjk173N7+
+	yQr//5KYcdaOBCu7hI6wX0xRb8e/p4T0imScHNGS9dgqzWmBmhJqCwn2FFv2ifYgSKDqcRocNU2BH
+	0+zpbUkw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v43zn-00000008zPV-2ywc;
-	Wed, 01 Oct 2025 21:04:19 +0000
-Received: from mail-ed1-f74.google.com ([209.85.208.74])
+	id 1v43za-00000008z1s-09FW;
+	Wed, 01 Oct 2025 21:04:06 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v43zj-00000008zFi-42l8
+	id 1v43zX-00000008ywy-33fz
+	for linux-arm-kernel@bombadil.infradead.org;
+	Wed, 01 Oct 2025 21:04:04 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
+	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description;
+	bh=acDSbPr0ckzlJYMJhQI+twxWM3EGvwpk6VEzCJHCwrY=; b=Xdcx5aknBRyVgdx33qBgXPJUuZ
+	To++HYhhmVdPsBUecbBjCCog62c+l6Chk1tIyuhDN1T2HyXLuMUtpfzhYdY/ikdICygp2mo2jYDrM
+	fznXWV5GsI5X63npzySrmGRsTqwScp572MleA8Qyq7yBbJi3Bgmm7w5JUE7u+X8oV00nnv32Topz3
+	C1hzDg7QIltCeMYEaZiKVSDURc2AGInzMZEBmOrqQ2J71THH6dda8YuarFIsZpWr+31sm0VmRxQ+Q
+	3T+AZIe1bOp2tluTQetPWy4UZCwCUB9a7UkVd5RoFhr9dnTfMAZte3As3A+YzwGbbKabV1eJr6VZx
+	lMOT/R2g==;
+Received: from mail-ed1-x549.google.com ([2a00:1450:4864:20::549])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v43zS-0000000DoOR-3cte
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 21:04:17 +0000
-Received: by mail-ed1-f74.google.com with SMTP id 4fb4d7f45d1cf-6305c385adbso299819a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 14:04:15 -0700 (PDT)
+	Wed, 01 Oct 2025 21:04:01 +0000
+Received: by mail-ed1-x549.google.com with SMTP id 4fb4d7f45d1cf-6378fa71087so232886a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 14:03:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1759352653; x=1759957453; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1759352636; x=1759957436; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ROUK26yKaM3+r4gp21QNYLzmmtvtE/oyrWIw8ssAYWA=;
-        b=lmN1v2y2gKMN702Rjsfo/IV0gbHhEcbbPtU3W19SN24Uva4ZF+8yWHbSqalZ5kqkLl
-         Cl3CvTQfhHTHlt2juphp7R2WD0EDflOOwBdoJ8GUkd7AqyYimnWMeRAM1zRyA/jpxtUy
-         OGlTMfe6HvT51FMeSQG7JSD5eELdV5kxrKop2/yMCuaH7bianiCjgEcxftn8OLBrn2C1
-         9PBNpC/Ryb4f3hoTJakbTGus5A4moWxg2kzQ2nfepzgmLmMJLJHn/IR3ixlGvOkOIOEd
-         vTcX6Fx8MkL4dzAqmSy01YdBVA+PZRacEf5Q8IIv9XZ4BIBDfYVSrYP3KAreOruUnBJw
-         /NRQ==
+        bh=acDSbPr0ckzlJYMJhQI+twxWM3EGvwpk6VEzCJHCwrY=;
+        b=fhwGODI0uVn0QcX3mK+Yfze0pIdNNwqaIMegxizuTETcAZfQ+AuZuMFmjFrLVTnYhF
+         i1bl87KlxCpSx1xQNfQc8m2sqGK8/meI+uEAtWpDqvV5HiRBLsRG0GOXKGKANsc6nRRo
+         vcAwwdvUmv6cC/fv9gnT3r+mFG6pbHbjrPj0sc1gtAWzh0sty5sVRUcjGEh/wAB8qWWT
+         CZlhOjfpw6T1Cc6MpqvEz4qkd2Kd7NHxv1P4NMZ5D6NUucllVFaJxFx5h+pLqS2Q/tAr
+         6T6xOH46UIL95Epg6vVyVGWoGG7Ty+8V5ktX4LGTQXQUPvpa3TJBft8MbHBmvn7zYGDV
+         wf3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759352653; x=1759957453;
+        d=1e100.net; s=20230601; t=1759352636; x=1759957436;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ROUK26yKaM3+r4gp21QNYLzmmtvtE/oyrWIw8ssAYWA=;
-        b=OpDtQ0cvx+C859HBo7YeD+uw3qci3Ih/QSac4kr28uxZZoHkk871N2B5lGpoUmo4LH
-         f0wpBKs9q9LsaKZ+pxfmgI8j6CI9Q2JkLWDsgfwrElWaueqQLZaVQBHNEdOtEfKA7cvb
-         cVlMPo1sV2yLhz6zSGmocfKrAnVhS0GB3eMMwIFt8XomqvXMQ+bcbs2F1i9yoQ8nat5I
-         9i8h8GED2+9sa3f7PdYz9px4otysAZwgYHy74pRIGvZNWFAlCBWEyHXl5LcP/Rn6avdC
-         hBGplztfqrWcaVq5lYRk2uoNfUYanN7Mz+TCNvn1wv/NSmnrGF5xLe/rrMW54XreKxs7
-         RA0A==
-X-Gm-Message-State: AOJu0YzRhxu+xD/546izjv6DF6FlzAiG/Uu1RgGGjVtYKUncAKeTSkr2
-	kaZNriuR1pGRnKS+/+uDvcHIwUt59QsTuG1xCWTP3Zk9IItSxcVpLQyHIaMlWSMVURSTdfokDFk
-	OVKMLCNisGtjUX++PX87mWBUlzk3/4IYEL5JCy7PKX8KlmS3lXi+V+ua2n2MJnMXYxyuXDKw02t
-	QimKPQFycJcLmYuim3akxlhrzWP4u9oMt7GuYOBq2UZqPm
-X-Google-Smtp-Source: AGHT+IHdBwWuloMVUG2aiVvBgPmXkgGhEuo55jA45O9PblNGid5/E1qaOmRe7tj9K1otJi7AohsCgKdN
-X-Received: from edrj9.prod.google.com ([2002:aa7:c349:0:b0:633:3402:d21b])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:31eb:b0:634:cb54:810e
- with SMTP id 4fb4d7f45d1cf-63678c7b7f1mr4089985a12.31.1759352653423; Wed, 01
- Oct 2025 14:04:13 -0700 (PDT)
-Date: Wed,  1 Oct 2025 23:02:21 +0200
+        bh=acDSbPr0ckzlJYMJhQI+twxWM3EGvwpk6VEzCJHCwrY=;
+        b=bHIQbVut4W0o7zMHHxTh16UsVKDmx5DAi6dBcTVcAhMPiEh7JexLSJlE6IG846i0nD
+         NOYxLSY58i5upEL8sYlR3kuKJwN3jRhrIn6RQ+B9HSwtcEsLGPvwGZp0mGMYSKqawn0N
+         uuWeaeDA7kKP/3ZwlwcilmOfM8pG0wUi7YO2jECjV1U42zoh3lTWlyqk+kInHuigr5j9
+         +RHATRGyU36HGtLe34Ifd6qJj8TtvCpsjcty7Ony8Zlfjuhth85QDBiP8ALirNHehKgj
+         rKFo108QUZ2KKRqAG+hHR0POkvF4uk3lts2rXTffCnqJe91LPLD0Zf3sbkyTYsc6Mij9
+         oJEw==
+X-Gm-Message-State: AOJu0Yy+XyB1MqwuB+YZ5TZPmPn79wi8oBq5U4z0rQGNUl8HkNM8I36n
+	JImqmRzmx//xHuzI75HC7e6daWMkLO6P0iJrDXGGAffGCcsYfIbSqXBNHkUPaYVl/Qpej1vCpXH
+	lhN9z5zVlwf3VorwOVNna9p+tQZO5Kx4JrWK82gJ6W9WbD4b2S/oARCYcjBuBXZ2WUPYwio2Mad
+	VollRNe9vVMixZrreW7HARISVztihImHf6TrnzLKcMRBRI
+X-Google-Smtp-Source: AGHT+IEnx5RXeiL9kmHFg/RRSgpRtVYIAVUq2zDXnriSjY4GRqOqm0pZKleynTYr8BnmTOEPCHcJAcWB
+X-Received: from edwn19.prod.google.com ([2002:a05:6402:4d3:b0:636:7d5e:f1f0])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6402:42c2:b0:634:b4cb:c892
+ with SMTP id 4fb4d7f45d1cf-63678c998cdmr5701808a12.32.1759352635997; Wed, 01
+ Oct 2025 14:03:55 -0700 (PDT)
+Date: Wed,  1 Oct 2025 23:02:06 +0200
 In-Reply-To: <20251001210201.838686-22-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20251001210201.838686-22-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2026; i=ardb@kernel.org;
- h=from:subject; bh=L5/WB9FoNS6vxFGUhS8qwMQNq/irqgYzuB5f44a5Viw=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIePudMkvCx4bO1zc0Py8oIBBvm1d5YOu6Ibcg0YiLeezT
- j1IXbymo5SFQYyLQVZMkUVg9t93O09PlKp1niULM4eVCWQIAxenAEzEfQPDPxvRymVXmZzqHHqE
- H76zk41vn7d4zkU39zc2Hz9Jr/Q8nMzI8KM/3Ek1telkGIvnq2JXr7y+npyFfaHl/y8FMn/7MfE IGwA=
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2459; i=ardb@kernel.org;
+ h=from:subject; bh=cjwJWt4i7jKdiITTdNRuozrMElZ3Ow1rsFcjCp41v6I=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIePutDtRV62tdzTOWvv8H6N85apP8zU+pHE0XX+8dkfc+
+ XknPnrM6ShlYRDjYpAVU2QRmP333c7TE6VqnWfJwsxhZQIZwsDFKQATMdZk+F87y/Ne5BfOHc8/
+ 3mZY2B+3Pdrzc9G9588Cp8dLvpx1WsObkWHnjJRdwZa9pbmFmr8/W8ztFJOJlbz35bApq+W96/U ajMwA
 X-Mailer: git-send-email 2.51.0.618.g983fd99d29-goog
-Message-ID: <20251001210201.838686-41-ardb+git@google.com>
-Subject: [PATCH v2 19/20] arm64/xorblocks:  Switch to 'ksimd' scoped guard API
+Message-ID: <20251001210201.838686-26-ardb+git@google.com>
+Subject: [PATCH v2 04/20] crypto: aegis128-neon - Move to more abstract
+ 'ksimd' guard API
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
@@ -83,8 +99,8 @@ Cc: linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org,
 	Eric Biggers <ebiggers@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_140416_043324_AB61C39D 
-X-CRM114-Status: GOOD (  12.37  )
+X-CRM114-CacheID: sfid-20251001_220359_540193_7CA84EF9 
+X-CRM114-Status: GOOD (  13.34  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,72 +117,86 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
+Move away from calling kernel_neon_begin() and kernel_neon_end()
+directly, and instead, use the newly introduced scoped_ksimd() API. This
+permits arm64 to modify the kernel mode NEON API without affecting code
+that is shared between ARM and arm64.
+
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm64/include/asm/xor.h | 22 ++++++++------------
- 1 file changed, 9 insertions(+), 13 deletions(-)
+ crypto/aegis128-neon.c | 33 +++++++-------------
+ 1 file changed, 12 insertions(+), 21 deletions(-)
 
-diff --git a/arch/arm64/include/asm/xor.h b/arch/arm64/include/asm/xor.h
-index befcd8a7abc9..c38e3d017a79 100644
---- a/arch/arm64/include/asm/xor.h
-+++ b/arch/arm64/include/asm/xor.h
-@@ -9,7 +9,7 @@
- #include <linux/hardirq.h>
- #include <asm-generic/xor.h>
- #include <asm/hwcap.h>
+diff --git a/crypto/aegis128-neon.c b/crypto/aegis128-neon.c
+index 9ee50549e823..b41807e63bd3 100644
+--- a/crypto/aegis128-neon.c
++++ b/crypto/aegis128-neon.c
+@@ -4,7 +4,7 @@
+  */
+ 
+ #include <asm/cpufeature.h>
 -#include <asm/neon.h>
 +#include <asm/simd.h>
  
- #ifdef CONFIG_KERNEL_MODE_NEON
- 
-@@ -19,9 +19,8 @@ static void
- xor_neon_2(unsigned long bytes, unsigned long * __restrict p1,
- 	   const unsigned long * __restrict p2)
+ #include "aegis.h"
+ #include "aegis-neon.h"
+@@ -24,32 +24,28 @@ void crypto_aegis128_init_simd(struct aegis_state *state,
+ 			       const union aegis_block *key,
+ 			       const u8 *iv)
  {
 -	kernel_neon_begin();
--	xor_block_inner_neon.do_2(bytes, p1, p2);
+-	crypto_aegis128_init_neon(state, key, iv);
 -	kernel_neon_end();
 +	scoped_ksimd()
-+		xor_block_inner_neon.do_2(bytes, p1, p2);
++		crypto_aegis128_init_neon(state, key, iv);
  }
  
- static void
-@@ -29,9 +28,8 @@ xor_neon_3(unsigned long bytes, unsigned long * __restrict p1,
- 	   const unsigned long * __restrict p2,
- 	   const unsigned long * __restrict p3)
+ void crypto_aegis128_update_simd(struct aegis_state *state, const void *msg)
  {
 -	kernel_neon_begin();
--	xor_block_inner_neon.do_3(bytes, p1, p2, p3);
+-	crypto_aegis128_update_neon(state, msg);
 -	kernel_neon_end();
 +	scoped_ksimd()
-+		xor_block_inner_neon.do_3(bytes, p1, p2, p3);
++		crypto_aegis128_update_neon(state, msg);
  }
  
- static void
-@@ -40,9 +38,8 @@ xor_neon_4(unsigned long bytes, unsigned long * __restrict p1,
- 	   const unsigned long * __restrict p3,
- 	   const unsigned long * __restrict p4)
+ void crypto_aegis128_encrypt_chunk_simd(struct aegis_state *state, u8 *dst,
+ 					const u8 *src, unsigned int size)
  {
 -	kernel_neon_begin();
--	xor_block_inner_neon.do_4(bytes, p1, p2, p3, p4);
+-	crypto_aegis128_encrypt_chunk_neon(state, dst, src, size);
 -	kernel_neon_end();
 +	scoped_ksimd()
-+		xor_block_inner_neon.do_4(bytes, p1, p2, p3, p4);
++		crypto_aegis128_encrypt_chunk_neon(state, dst, src, size);
  }
  
- static void
-@@ -52,9 +49,8 @@ xor_neon_5(unsigned long bytes, unsigned long * __restrict p1,
- 	   const unsigned long * __restrict p4,
- 	   const unsigned long * __restrict p5)
+ void crypto_aegis128_decrypt_chunk_simd(struct aegis_state *state, u8 *dst,
+ 					const u8 *src, unsigned int size)
  {
 -	kernel_neon_begin();
--	xor_block_inner_neon.do_5(bytes, p1, p2, p3, p4, p5);
+-	crypto_aegis128_decrypt_chunk_neon(state, dst, src, size);
 -	kernel_neon_end();
 +	scoped_ksimd()
-+		xor_block_inner_neon.do_5(bytes, p1, p2, p3, p4, p5);
++		crypto_aegis128_decrypt_chunk_neon(state, dst, src, size);
  }
  
- static struct xor_block_template xor_block_arm64 = {
+ int crypto_aegis128_final_simd(struct aegis_state *state,
+@@ -58,12 +54,7 @@ int crypto_aegis128_final_simd(struct aegis_state *state,
+ 			       unsigned int cryptlen,
+ 			       unsigned int authsize)
+ {
+-	int ret;
+-
+-	kernel_neon_begin();
+-	ret = crypto_aegis128_final_neon(state, tag_xor, assoclen, cryptlen,
+-					 authsize);
+-	kernel_neon_end();
+-
+-	return ret;
++	scoped_ksimd()
++		return crypto_aegis128_final_neon(state, tag_xor, assoclen,
++						  cryptlen, authsize);
+ }
 -- 
 2.51.0.618.g983fd99d29-goog
 
