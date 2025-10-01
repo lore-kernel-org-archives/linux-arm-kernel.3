@@ -4,93 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C1A2FCCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 08:49:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F8E9CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 08:52:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V0MU6aIf0UKaVQXy6RXiIl/s8w4p6CMU+2iv6BbdgNc=; b=MP5+9jSj/MOfHvQfJWY5Vbjioh
-	wVI6xcWh9emIwGolhTX3XeQXPmdrGwTbQ3qqzvld3SQ+sCjoDxKofwGDGD0GNlUf0ViSwsU1Unx2D
-	oEQOINBsMhNgy3ABU5p9xTyz/5FJjyAxPjF1vNzI6E5Rkj1BO9szg7CQtwnR7tbQ4rAMWWlavrbq1
-	qsC0cViQ6/jrzHiej/9WDCCqUUm0aGyHDEzCvL+AAakgWSZfkG54yS7EF8o2QXayfI7Vss5BJvHRO
-	9n4CdY3xm7ZzPMWgkolUHkzoONpaOaz3m7S0rqREePhFYr05E4FafpP+/4xvk5oJtNWqrC1XL/sHN
-	IvqZQzUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Cu9ssRwNr8ysaq517JqqmVNQyc/JDLuURO2K/fukZno=; b=V9FjmrgpmjOrl6duHAsmfsuqO9
+	rcTpu8y5UqYAfbCBTFlOfV7eKg0Xi0F5wktt9hv0j0DtdmhviWFOcQEZuEFPlE2QSNoPSIs61ynnW
+	Zz+hGZXTg9WxMgZN0e2cyMrcBs/oUlE/PNkezG/TK8RVyE1dhfw3O4sf4GSeZbGlJSEtlybpoY9oh
+	e8zKUHEs7ejeXE21QdsxSzZvnvpzcfve1KaaTJ4WW8kHZRPBNZHX9lsNu3eB3hPhBdg27t+WmgtM0
+	GcEquvmBxQTLzg0VdfvSr7Zw8L8SA6vXMkM1OL5lQaSeOYLWiGhzKvl8W7XSNXp74gqv47f/4Miv6
+	HEdKr4Yg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3sWa-000000074na-30J9;
-	Wed, 01 Oct 2025 08:49:24 +0000
-Received: from mail-lj1-x22f.google.com ([2a00:1450:4864:20::22f])
+	id 1v3sZC-000000075Be-3Kmh;
+	Wed, 01 Oct 2025 08:52:06 +0000
+Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3sWY-000000074mx-3KUd
+	id 1v3sZA-000000075B9-0NdR
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 08:49:24 +0000
-Received: by mail-lj1-x22f.google.com with SMTP id 38308e7fff4ca-36a6a3974fdso41773301fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 01:49:22 -0700 (PDT)
+	Wed, 01 Oct 2025 08:52:05 +0000
+Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-32eb76b9039so8212714a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 01:52:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1759308561; x=1759913361; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=V0MU6aIf0UKaVQXy6RXiIl/s8w4p6CMU+2iv6BbdgNc=;
-        b=tzSv+2YoWwvpz6Bnmy7+3lSSt4jwvGa0ks76eHAJYAYVJteCdy7KV0yWvjEHcGpvUY
-         wqua3q8t2RTiaPlorupo/kzEghr8KaiK1V9DIqdhDXZHzYPvxbMD8c7ihT4Icnuu30tN
-         AjZQNQtaSG9Gd9emBpb5lhDRVtp4J/Gni5Cw1tNACTgaCUQ0iVRB419SvesDUJCYzM7c
-         aRsLoYP+La4dorDQH8IHheqVvMidbhrg8Ew1tozZt3QVq0hgHNy+cFMZYsb39o/OS1Ul
-         NZSY7ODAR2XNAp5TF9CB/h5ihRvAgOj/q+3pPIZ4C5BlRa+pRBYh7Ku/4CQqez5479FJ
-         1lww==
+        d=linaro.org; s=google; t=1759308723; x=1759913523; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=Cu9ssRwNr8ysaq517JqqmVNQyc/JDLuURO2K/fukZno=;
+        b=yGDxaz4ffX401q3gV8B15VnrvJp+YFCI3m2547HQPkN5whod6WHPzs1CTw+yVvkkD9
+         q1EagK7QsggFS6p+LyPaZWieJ0qcnfaXkysq0tNiKxdihw6UlgqxE6rTPENZahHEdxLR
+         TixVu1rcYbhQGG4wGJdQ2jAZlElo5yjqIrb0MZrPLkHwAKDKaWm9LBbVzNRULhkzEYGH
+         CaQ68XNEsppQbyRpdYYefoKgZFiAc3Ri5zFh5LF/7mbkYSdrCQLbon18AdvpCf9LmTWF
+         oqAj2fNlFefCgmdqUOVcKA85rWCbONeySrjCbkrQimXO+yA8cWrP5fS64Vp//ypFa/QW
+         4smg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759308561; x=1759913361;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=V0MU6aIf0UKaVQXy6RXiIl/s8w4p6CMU+2iv6BbdgNc=;
-        b=YwIr3C+HVuqE1hC+4NFuOgm9yrVKtKibgxzaQYwvIuq4zOFXX87MFwIGLCHiP0i4Zj
-         xUCJIeCgdaamw0b3we1TTNjCuejbvrLjRQS9U+x/vbacXmhoD7FglI1oTZzGBebBLQd9
-         Kcbprl6QhsePrfRJ81QKGbf8JkE5fwv1LBZjW1zplScf9rdz3Fg4T1wSxibcu4MZbdZs
-         qgQy0p8kbRB+zI6gS1FRl41nDKwC6FAi3vvjPdCc53j2JweUm9kZxSOTs5k4FehL2TYR
-         WXUAc4L5IwjSvakZm/828ovuWkC+ehNUv/0BG5Y47nY2bkjISa8CZFgsMsVFzS3THpLT
-         TjiA==
-X-Forwarded-Encrypted: i=1; AJvYcCU/MqI0DaFoLRRwN6Md14dQ2WC2r/uaZ84cqgk7UUiC3Butd4z+vtpFZHckDBg7VJvaL3DyXS2C1Eecc5fPQ4ka@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx2ccz6lcM0Y0Sq5A/Xn1d/eqceUzvFfAfnVcpaDaZqCcWIWCmL
-	byvyP4e8mddkJjQBpJg86THYSQOrxm4JWQdPB1PxnOWvvmxASBhIxoEhiutfgjGj3AA2s4fxdG8
-	6fJ622LB/ZbQpwhypEmE8Bf4Lu5BWzhPhacIdO8u9BQ==
-X-Gm-Gg: ASbGncutOOUjnHvRKOPvoNvv7H56Fo3e9IlclpXiHM3fO7EnawQ288HAfBB0WED3VYx
-	ciZoQggHkaEJ72hQ+pgJ//new+nccFq7PfG9fdY1HJ6cotO8uxkQefXuo2I8EkYGP0wfxTGQZFT
-	IfJTTLrbdHRKArjmqWXwWgGA+HqJLxf04WQEHQP1yHNJDWWUukx6XVSaWoN8TdWkFUMObfbjxZB
-	exKGSCw50aHizDYc0K8znLqJsCpt3o=
-X-Google-Smtp-Source: AGHT+IE/zKf4qFF1V06mzijknnV4vH7ubPftpR9/pcWP4CKpLmmmcoKCGAvUGlvDb6zfdbCLMmIHYOCJfvmvwXDpg0U=
-X-Received: by 2002:a05:651c:1592:b0:372:9468:8f99 with SMTP id
- 38308e7fff4ca-373a752cee4mr8095951fa.35.1759308560647; Wed, 01 Oct 2025
- 01:49:20 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1759308723; x=1759913523;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=Cu9ssRwNr8ysaq517JqqmVNQyc/JDLuURO2K/fukZno=;
+        b=SWpo78nRLLef9wbuJrayLzghsQB8zd5dzhV/Iguc3Wa2s6FaYui1GGPqBOVILsIOYW
+         0EKC0+yYvEnw7BCFGCvSohYqT7/wm7cONtKmHhlhIMWt1/wByyAdeEduF4x9dTmjL1lp
+         Usw++MyKtsCW6RAuFAEODQq5PmHVAbZeKp9weZNLf2BXFzc8Mz4s2Djes5xD/1gHmTWG
+         sQ5Ypy04Mz56JiKqRW9bDzbX6/HVqXDtdsz2NbwIDfvdDT3q3i8gVRkhFCEhUkakI07k
+         nGFSOiqm6WIXwUAR1RbXGnSt6WlR9Ph9N0RQFsalDgW1JshXIvld2py52DSMiES3S2jj
+         ks9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUG1OW7VptcFOZCbwfFlOd7brrBbGDeuUmfPNoN2RvFyYuyZ7c8MnrDCMrj1VKge46ZEc5UEK7gdzqeEbj2YzhD@lists.infradead.org
+X-Gm-Message-State: AOJu0YzJ6eMqsCB31B+ZC3/jsDoHzNnjxJm3K1K3+vA4M88v1VbWVqDC
+	e/8RZzPzL/f/h6+/ETcGZPqAaMD8rrHEgBX8eRsCjgDJMQeHbcLGd/mLELb177iyAa5Qh4AmDkt
+	3I3km25GScJwo/cFfHMhhL7c5NLC8ejEf0rNREODzbg==
+X-Gm-Gg: ASbGnctMJFopuRpkHeFcfd9GA2Vps+OztWk5550PxqCycnoxpvBjI8q0CB29psrkedE
+	qp+s361v2NWTxjLWtOsMFL5HJhoUMDBnuk1t4HSV70gMb+pILCVv6MuxPTEpWqPzL6pVOM4E435
+	e0fRyB22lq/nVCRLYSui40eMyJT9q/p3fsJg4z3x6sfxqzqfgdPsKxmoH8mo2Kr0QREDVCFqDHX
+	dUTxhxi8yc5pug6pKM9HhANwovJiLcaaqZxoMdvcFeDIPKItZ14/OrPPH732ic=
+X-Google-Smtp-Source: AGHT+IGqK450Bmvg90xqT5a6Sy9fEvcidGXPelldLbmkrPBKY6b/9wS4caKkWXyqFpLWjsAdfEsN/vjzIkS/RDzSqsw=
+X-Received: by 2002:a17:90b:3906:b0:32b:6eed:d203 with SMTP id
+ 98e67ed59e1d1-339a6f0766emr2880369a91.24.1759308723082; Wed, 01 Oct 2025
+ 01:52:03 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250924-gpio-shared-v1-0-775e7efeb1a3@linaro.org>
-In-Reply-To: <20250924-gpio-shared-v1-0-775e7efeb1a3@linaro.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 1 Oct 2025 10:49:09 +0200
-X-Gm-Features: AS18NWD8uQhySPgdZVvT54DJFS2VbD05G4rr5WTDsYs0mXBgIhMrAJorsb0mOuY
-Message-ID: <CACRpkdYcVtJjRHRJ8GgeU7rZDuyaJKu0vgcknb7DsHPjZGKGuA@mail.gmail.com>
-Subject: Re: [PATCH RFC 0/9] gpio: improve support for shared GPIOs
-To: Bartosz Golaszewski <brgl@bgdev.pl>
-Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Andy Shevchenko <andy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, linux-hardening@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
-	linux-arm-msm@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+References: <20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com>
+ <20250915-arm_coresight_power_management_fix-v3-9-ea49e91124ec@arm.com>
+In-Reply-To: <20250915-arm_coresight_power_management_fix-v3-9-ea49e91124ec@arm.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Wed, 1 Oct 2025 09:51:51 +0100
+X-Gm-Features: AS18NWD65yCBDNxJOBXwfEuJim8LVKk06lCAyrdiCW2urVUehn1cL3tSHMyuAC8
+Message-ID: <CAJ9a7VidaP-oVV0yc_oRVJZBQAN8TGPXoM942VxZr_XGqJL0mg@mail.gmail.com>
+Subject: Re: [PATCH v3 09/31] coresight: etm4x: Add flag to control
+ single-shot restart
+To: Leo Yan <leo.yan@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
+	Yeoreum Yun <yeoreum.yun@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Yabin Cui <yabinc@google.com>, 
+	Yuanfang Zhang <quic_yuanfang@quicinc.com>, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_014922_852756_1D26E3B0 
-X-CRM114-Status: GOOD (  16.96  )
+X-CRM114-CacheID: sfid-20251001_015204_145394_4D0B73F3 
+X-CRM114-Status: GOOD (  22.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,54 +98,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bartosz,
+On Mon, 15 Sept 2025 at 11:33, Leo Yan <leo.yan@arm.com> wrote:
+>
+> Add a new argument restart_ss to etm4_enable_hw(). When passed as true,
+> it resets the TRCSSCSRn.STATUS bit to 0 to re-enable single-shot
+> control.
+>
+> No functional change. This is a preparation for a subsequent change.
+>
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>  drivers/hwtracing/coresight/coresight-etm4x-core.c | 16 +++++++++-------
+>  1 file changed, 9 insertions(+), 7 deletions(-)
+>
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> index fbcd0fcd1992cd600d2eb8c95ae9a5adf0c287da..f61c9924ad0496be2e41c84172c2bbe348df7b60 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+> @@ -487,7 +487,7 @@ static int etm4_enable_trace_unit(struct etmv4_drvdata *drvdata)
+>         return 0;
+>  }
+>
+> -static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+> +static int etm4_enable_hw(struct etmv4_drvdata *drvdata, bool restart_ss)
+>  {
+>         int i, rc;
+>         struct etmv4_config *config = &drvdata->config;
+> @@ -562,9 +562,11 @@ static int etm4_enable_hw(struct etmv4_drvdata *drvdata)
+>                 etm4x_relaxed_write32(csa, config->res_ctrl[i], TRCRSCTLRn(i));
+>
+>         for (i = 0; i < drvdata->nr_ss_cmp; i++) {
+> -               /* always clear status bit on restart if using single-shot */
+> -               if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
+> -                       config->ss_status[i] &= ~TRCSSCSRn_STATUS;
+> +               if (restart_ss) {
+> +                       /* always clear status bit on restart if using single-shot */
+> +                       if (config->ss_ctrl[i] || config->ss_pe_cmp[i])
+> +                               config->ss_status[i] &= ~TRCSSCSRn_STATUS;
+> +               }
+>                 etm4x_relaxed_write32(csa, config->ss_ctrl[i], TRCSSCCRn(i));
+>                 etm4x_relaxed_write32(csa, config->ss_status[i], TRCSSCSRn(i));
+>                 if (etm4x_sspcicrn_present(drvdata, i))
+> @@ -628,7 +630,7 @@ static void etm4_enable_hw_smp_call(void *info)
+>                 return;
+>         }
+>
+> -       arg->rc = etm4_enable_hw(arg->drvdata);
+> +       arg->rc = etm4_enable_hw(arg->drvdata, true);
+>
+>         /* The tracer didn't start */
+>         if (arg->rc)
+> @@ -867,7 +869,7 @@ static int etm4_enable_perf(struct coresight_device *csdev,
+>         drvdata->paused = !!READ_ONCE(event->hw.aux_paused);
+>
+>         /* And enable it */
+> -       ret = etm4_enable_hw(drvdata);
+> +       ret = etm4_enable_hw(drvdata, true);
+>
+>  out:
+>         /* The tracer didn't start */
+> @@ -1833,7 +1835,7 @@ static int etm4_starting_cpu(unsigned int cpu)
+>                 etm4_os_unlock(etmdrvdata[cpu]);
+>
+>         if (coresight_get_mode(etmdrvdata[cpu]->csdev))
+> -               etm4_enable_hw(etmdrvdata[cpu]);
+> +               etm4_enable_hw(etmdrvdata[cpu], true);
+>         raw_spin_unlock(&etmdrvdata[cpu]->spinlock);
+>         return 0;
+>  }
+>
+> --
+> 2.34.1
+>
 
-I see the big picture of this plan!
-
-One quick comment:
-
-On Wed, Sep 24, 2025 at 4:51=E2=80=AFPM Bartosz Golaszewski <brgl@bgdev.pl>=
- wrote:
-
-> I'm Cc'ing some people that may help with reviewing/be interested in
-> this: OF maintainers (because the main target are OF systems initially),
-> Mark Brown because most users of GPIOD_FLAGS_BIT_NONEXCLUSIVE live
-> in audio or regulator drivers and one of the goals of this series is
-> dropping the hand-crafted GPIO enable counting via struct
-> regulator_enable_gpio in regulator core),
-
-...and that is what I thought as well, so:
-
->       arm64: select HAVE_SHARED_GPIOS for ARCH_QCOM
-
-why would we be selecting this per-subarch?
-
-What will happen is that CONFIG_REGULATOR will select
-it and since everyone and their dog is using regulator, what
-will happen is that every system will have this enabled,
-and every GPIO access on every system will be proxied
-and then this better be fast.
-
-Two things come to mind, and I bet you have thought of
-them already:
-
-1. Footprint: all systems using regulators will now have
-   to compile in all this code as well.
-
-2. Performance, I didn't quite get it if every GPIO on the
-  system will be proxied through a layer of indirection
-  if you select HAVE_SHARED_GPIOS
-  but that would not be good, since some users are in
-  fastpath such as IRQ handlers, and the old way of
-  sharing GPIOs would just affect pins that are actually
-  shared.
-
-I don't know of a good generic solution for (2) to be honest,
-last resort would be something like runtime patching of
-calls when a GPIO becomes shared and that is really
-advanced but maybe necessary to get a performant and
-generic solution.
-
-Yours,
-Linus Walleij
+Reviewed-by: Mike Leach <mike.leach@linaro.org>
+-- 
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
