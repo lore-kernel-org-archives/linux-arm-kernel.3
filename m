@@ -4,90 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4BF2CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 09:02:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8FACECAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 09:33:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=95VNAivb4KtoR4t1T1BdFRDUAGxRsoT1vqmM4i3dGG8=; b=YQpBqtXMxpTKQLbC/Z83o3A/9L
-	ziQM3KewW6bwKoaTfq3nZ0mJirExNN840bUwH4uwiw+q6sewUQ0V9lnkDaLDeGgZW9Ov8rdqZLzPq
-	FTfQojroiLpvRciWsUQ9g/JJoMlZ90wZymeajIbFndCctJXCtKpIiSHjzFVbnQ8y+XovsPiuWVwWc
-	rK1Vi1VQLLaa+V4iS6iREOX3SATjj169H9Ld2IfIylrfBc/FriEOdB3M65N+7jOewf+/hmePIfyhT
-	CrXza+QA0VwfPe1XJV+6tD38mqV3LzxNenNITwPLrpIYQhimqux4DleKXT7FzL45Xd4U1I5AYd083
-	k/lUuAbA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NKrjhYW5GuEMBkVhNKUNqpQephnordn8VEWO9SXLeqY=; b=kPtFaCui+Fbw3YMiChrzJpE4DH
+	hGDt6UeBieFGxt/TEBf4e+oihArOjvcokCfKcd+IoHCtEI53CnyfXJjlPj0QrlvRld8xxKea73q9v
+	V+AZ48Vnz6HnyNKlwKKTqZc4Ytsphe+pyHFbxGK4mIfmmaQkk8PucaAg0ojDpu8dkW+gg5ajQEBv3
+	+5BuzM2RRZnZK/BVNsnT7BoMRNeyNp0Fp3b/4PgQ308AWgkeD1mW+xu55N9R6fFnaSjNwzaud8/Bf
+	N4kOWFQhkXT9NJgQnOaaaB7bIyMluhujob9yBAvwdPnuFs71srreAr/qp4vFcVQ7mke2bHN7w/Wpg
+	HVH8Es9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3sjF-000000076Ic-1pD2;
-	Wed, 01 Oct 2025 09:02:29 +0000
-Received: from mail-pj1-x102d.google.com ([2607:f8b0:4864:20::102d])
+	id 1v3tCf-000000079gX-2qKE;
+	Wed, 01 Oct 2025 09:32:53 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3sjD-000000076Hk-00LJ
+	id 1v3tCe-000000079g9-1CpV
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 09:02:28 +0000
-Received: by mail-pj1-x102d.google.com with SMTP id 98e67ed59e1d1-3306d3ab2e4so7874418a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 02:02:26 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1759309346; x=1759914146; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=95VNAivb4KtoR4t1T1BdFRDUAGxRsoT1vqmM4i3dGG8=;
-        b=JagIYk8OWMospPjdo8NVr12dBqWtytzJzAjR5Fdmr1vEvoRIyXcSZFs6O+KYJR/R0r
-         zcVqh+a/1gDmQf6VVueRXNbONEGyIZGAm5tBxQ7k/hymGLwALwO9uZmAU7T/0ucrQIH9
-         RusjAcQC7b2xS8FOxf/uVVCoYMh/D3CSrlruvUi/OXYmLd+nAiLeptLkwHABo66kjRcC
-         aXV/woA5ceygoY6gNYzZbEXRB+hgxTPdmrtwnyefDgo8ybL8om5Ymq90EbcpivO2/r2i
-         BgOa5AzHC3bgom4hiWBMytLXdTWt/+Diy4d44wLlfntWZDHuhKEoJYNdaYQDFziERXhC
-         NmNQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759309346; x=1759914146;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=95VNAivb4KtoR4t1T1BdFRDUAGxRsoT1vqmM4i3dGG8=;
-        b=nlN4pwm/ld4A9GmO9Tk7nqMIB0mIW9GzFcxQByPqqEKs8egg0f7Lt49A4q+PKg5FQG
-         TproUWKh6F3ovHXA3pzgq/JDPYH/So/OOx96+qjKJbd7sKqjfaB7I+o6diVCCy3KYbCi
-         LkVmVAIRSl62pyOMzI62ZZao8kzb8DHneC8ZzaeRKBVvfVFlS9nIIRowMVP8y1tYs4EO
-         7SNxs94HvCetwXsqU9bvDtXvmfu6hm7asRar0ITEmDWiv+0ScNR/6lNN+U5InFJIqG6D
-         N2SnJSdhmanlx+gGti0u92pcuAKzy6MqV3NHc/zX9tp3GndHL/RdOosxIDDGHKMq1YqW
-         5qBA==
-X-Forwarded-Encrypted: i=1; AJvYcCWcESjRKMy/1udMsjMhc/QABxgFyfgMpbc+tnrVp78A9UN2SYkSLXcLe26mkjzkizQqJoM6hwO5e1Uvf0Nrso1W@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywj0YMFLCpP/EtQfBrHRU0vtYU9wXbHIUsc4I9xMuQVmLXuunNM
-	IcOBXTmeJTXBCFZKMU0bdfBWbOhFW1U5bOnP7cUPCfDCKrbEsx/WizOlotI3reXO2SUoHJ6sWhq
-	JCHJKK8RtvIAonh0tTyRsWOl+JDTi+aY=
-X-Gm-Gg: ASbGncujRkFc15xMcfXXsZzk04NuSMqwiHpiRFUDDLX4KbzExUKf/u+OEUVxRzVA8LM
-	RYRByWFwuuP9+dq7bGyXzEec0dea3mv6mlK/gG/7deUXBGq/E20WRv1uLxMqz6FH1tM46o23Zjy
-	4fuLkfPgjyK7gvA4lbSBZRM4a6IJ3jnIs0MQ2KLKWFDRB/BAl5paBVkQ1g0pTGEgtOzC1+gpdLf
-	1KN9stOpXo+hC4fUb4xynczkZRMC6QkQhr3j/HVF+Llm9OM1NuhHZf/+I1IcSCal7paHv3t05Pj
-X-Google-Smtp-Source: AGHT+IHpOHSWXjAvp/DRP8YSuqG/pR1Zv2Roxkvp40cPVFhkS4OWrC/GHFGw2hOP/qUB4JZY3u3JjNI3aeVWwTwkhfo=
-X-Received: by 2002:a17:90b:3850:b0:32e:3f93:69e2 with SMTP id
- 98e67ed59e1d1-339a6e9d356mr2831075a91.13.1759309346075; Wed, 01 Oct 2025
- 02:02:26 -0700 (PDT)
+	Wed, 01 Oct 2025 09:32:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id ACE8561755;
+	Wed,  1 Oct 2025 09:32:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C02C5C4CEF4;
+	Wed,  1 Oct 2025 09:32:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759311171;
+	bh=UJ5Nrj//XI4MYIzbnakq8QPry+1jzsB8A4m7sh8T2gA=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=WxJWr6HCADQ9SHytSVb/WM8rkT5Hl/hXX+JyJIO5LalLr0RzMDHRv1dc0VvekL+D1
+	 23vRK/27KxUmvCPzn3AO2jUDXVCo5nLygHKcOoHwHLW6cqSHs8CHFaol9FD+0CL6l6
+	 fxVhrkzxLSPo8y0CCrlmojDvYL+Rsyge2tm4eLvjdkWCc43WHud7OLkMPhCfAlKTF8
+	 Fmq5grfl9oz2tbArCTErEJ/PpqhGTo6bouJ9LQ+2J/zAU63tM/LMgSFiHg29Buf54C
+	 wcVqHKEFNywNwzSNLS/LLEgGNl66mspsZZQRag8IrTRKGavS6VfvYF0Jm8Q+5DhL+1
+	 OVZQvQPXTM2MQ==
+Date: Wed, 1 Oct 2025 10:32:46 +0100
+From: Will Deacon <will@kernel.org>
+To: Kenneth Van Alstyne <kvanals@kvanals.org>
+Cc: stable@vger.kernel.org, regressions@lists.linux.dev,
+	catalin.marinas@arm.com, ardb@kernel.org, mark.rutland@arm.com,
+	linux-arm-kernel@lists.infradead.org, maz@kernel.org
+Subject: Re: KVM: arm64: Regression in at least linux-6.1.y tree with recent
+ FPSIMD/SVE/SME fix
+Message-ID: <aNz1PnARMC4DPeYb@willie-the-truck>
+References: <010001999bae0958-4d80d25d-8dda-4006-a6b9-798f3e774f6c-000000@email.amazonses.com>
 MIME-Version: 1.0
-References: <20250924-yv5_add_dts-v2-0-39a4a8e3c9e6@gmail.com>
- <20250924-yv5_add_dts-v2-2-39a4a8e3c9e6@gmail.com> <dfd8160f015b405623aa7a4b9e69eda2ad1c5df5.camel@codeconstruct.com.au>
-In-Reply-To: <dfd8160f015b405623aa7a4b9e69eda2ad1c5df5.camel@codeconstruct.com.au>
-From: Kevin Tung <kevin.tung.openbmc@gmail.com>
-Date: Wed, 1 Oct 2025 17:02:14 +0800
-X-Gm-Features: AS18NWARSidOHUaRxCTj9BQiJJMS4I5tkjVU1GYlGC0PywCxUaMgQ66iwX6WNYQ
-Message-ID: <CABh9gBedqTb--Q27o11qCZ1cr0xrsGiYNDqRDwvG3Ho=+uPRQQ@mail.gmail.com>
-Subject: Re: [PATCH v2 2/2] ARM: dts: aspeed: yosemite5: Add Meta Yosemite5 BMC
-To: Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
-	Geert Uytterhoeven <geert+renesas@glider.be>, Magnus Damm <magnus.damm@gmail.com>, 
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
-	linux-renesas-soc@vger.kernel.org, Amithash Prasasd <amithash@meta.com>, 
-	Kevin Tung <Kevin.Tung@quantatw.com>, Ken Chen <Ken.Chen@quantatw.com>, 
-	Leo Yang <Leo-Yang@quantatw.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_020227_055685_427E9932 
-X-CRM114-Status: GOOD (  23.55  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <010001999bae0958-4d80d25d-8dda-4006-a6b9-798f3e774f6c-000000@email.amazonses.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,48 +70,128 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 29, 2025 at 10:54=E2=80=AFAM Andrew Jeffery
-<andrew@codeconstruct.com.au> wrote:
->
-> Hi Kevin,
->
-> On Wed, 2025-09-24 at 20:28 +0800, Kevin Tung wrote:
-> > Add device tree for the Meta (Facebook) Yosemite5 compute node,
-> > based on the AST2600 BMC.
-> >
-> > The Yosemite5 platform provides monitoring of voltages, power,
-> > temperatures, and other critical parameters across the motherboard,
-> > CXL board, E1.S expansion board, and NIC components. The BMC also
-> > logs relevant events and performs appropriate system actions in
-> > response to abnormal conditions.
-> >
-> > Signed-off-by: Kevin Tung <kevin.tung.openbmc@gmail.com>
-> > ---
-> >  .../dts/aspeed/aspeed-bmc-facebook-yosemite5.dts   | 1068 ++++++++++++=
-++++++++
-> >  1 file changed, 1068 insertions(+)
->
-> This misses adding the devicetree to the dtb target in
-> arch/arm/boot/dts/aspeed/Makefile. Consequently I don't expect this was
-> tested with `make DTBS_CHECK=3Dy ...`. Fixing the make target and
-> checking the DTB yields the following among the usual concerns:
->
-> arch/arm/boot/dts/aspeed/aspeed-bmc-facebook-yosemite5.dtb: ethernet@1e67=
-0000 (aspeed,ast2600-mac): Unevaluated properties are not allowed ('ncsi-pa=
-ckage' was unexpected)
->         from schema $id: http://devicetree.org/schemas/net/faraday,ftgmac=
-100.yaml#
->
-> Can you please address that? You may need to update or introduce a
-> binding document as part of doing so if it's not a matter of removing
-> the property from the devicetree.
->
-> Andrew
+Hi Kenneth,
 
-Thanks for pointing out the mistake.
-I have submitted v3 to add the missing devicetree to the DTB target
-and to fix the error caused by unevaluated properties that are not
-allowed.
+Thanks for the report.
 
-Kevin
+On Tue, Sep 30, 2025 at 05:31:38PM +0000, Kenneth Van Alstyne wrote:
+> Sending via plain text email -- apologies if you receive this twice.
+> 
+> If this isn't the process for reporting a regression in a LTS kernel per
+> https://www.kernel.org/doc/html/latest/admin-guide/reporting-issues.html,
+> I'm happy to follow another process.
+> 
+> Kernel 6.1.149 introduced a regression, at least on our ARM Cortex
+> A57-based platforms, via commit 8f4dc4e54eed4bebb18390305eb1f721c00457e1
+> in arch/arm64/kernel/fpsimd.c where booting KVM VMs eventually leads to a
+> spinlock recursion BUG and crash of the box.
+> 
+> Reverting that commit via the below reverts to the old (working) behavior:
+> 
+> diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+> index 837d1937300a57..bc42163a7fd1f0 100644
+> --- a/arch/arm64/kernel/fpsimd.c
+> +++ b/arch/arm64/kernel/fpsimd.c
+> @@ -1851,10 +1851,10 @@ void fpsimd_save_and_flush_cpu_state(void)
+>   if (!system_supports_fpsimd())
+>   return;
+>   WARN_ON(preemptible());
+> - get_cpu_fpsimd_context();
+> + __get_cpu_fpsimd_context();
+>   fpsimd_save();
+>   fpsimd_flush_cpu_state();
+> - put_cpu_fpsimd_context();
+> + __put_cpu_fpsimd_context();
+>  }
+>   #ifdef CONFIG_KERNEL_MODE_NEON
+
+Hmm, the problem with doing that is it will reintroduce the bug that
+8f4dc4e54eed ("KVM: arm64: Fix kernel BUG() due to bad backport of
+FPSIMD/SVE/SME fix") was trying to fix (see the backtrace in the commit
+message). So the old behaviour is still broken, just in a slightly
+different way.
+
+> It's not entirely clear to me if this is specific to our firmware,
+> specific to ARM Cortex A57, or more systemic as we lack sufficiently
+> differentiated hardware to know.  I've tested on the latest 6.1 kernel in
+> addition to the one in the log below and have also tested a number of
+> firmware versions available for these boxes.
+> 
+> Steps to reproduce:
+> 
+> Boot VM in qemu-system-aarch64 with "-accel kvm" and "-cpu host" flags set -- no other arguments seem to matter
+> Generate CPU load in VM
+> 
+> Kernel log:
+> 
+> [sjc1] root@si-compute-kvm-e0fff70016b4:/# [  805.905413] BUG: spinlock recursion on CPU#7, CPU 3/KVM/57616
+> [  805.905452]  lock: 0xffff3045ef850240, .magic: dead4ead, .owner: CPU 3/KVM/57616, .owner_cpu: 7
+> [  805.905477] CPU: 7 PID: 57616 Comm: CPU 3/KVM Tainted: G           O       6.1.152 #1
+> [  805.905495] Hardware name: SoftIron SoftIron Platform Mainboard/SoftIron Platform Mainboard, BIOS 1.31 May 11 2023
+> [  805.905516] Call trace:
+> [  805.905524]  dump_backtrace+0xe4/0x110
+> [  805.905538]  show_stack+0x20/0x30
+> [  805.905548]  dump_stack_lvl+0x6c/0x88
+> [  805.905561]  dump_stack+0x18/0x34
+> [  805.905571]  spin_dump+0x98/0xac
+> [  805.905583]  do_raw_spin_lock+0x70/0x128
+> [  805.905596]  _raw_spin_lock+0x18/0x28
+> [  805.905607]  raw_spin_rq_lock_nested+0x18/0x28
+> [  805.905620]  update_blocked_averages+0x70/0x550
+> [  805.905634]  run_rebalance_domains+0x50/0x70
+> [  805.905645]  handle_softirqs+0x198/0x328
+> [  805.905659]  __do_softirq+0x1c/0x28
+> [  805.905669]  ____do_softirq+0x18/0x28
+> [  805.905680]  call_on_irq_stack+0x30/0x48
+> [  805.905691]  do_softirq_own_stack+0x24/0x30
+> [  805.905703]  do_softirq+0x74/0x90
+> [  805.905714]  __local_bh_enable_ip+0x64/0x80
+
+Argh, this is because we can't simply mask/unmask softirqs and so when
+they get re-enabled we process anything pending. I _think_ irqs are
+disabled at this point, so perhaps we should only bother with
+disabling/enabling softirqs if hardirqs are enabled, a bit like the hack
+Ard had in:
+
+https://lore.kernel.org/all/20250924152651.3328941-13-ardb+git@google.com/
+
+Hacky diff at the end.
+
+> [  805.905727]  fpsimd_save_and_flush_cpu_state+0x5c/0x68
+> [  805.905740]  kvm_arch_vcpu_put_fp+0x4c/0x88
+> [  805.905752]  kvm_arch_vcpu_put+0x28/0x88
+> [  805.905764]  kvm_sched_out+0x38/0x58
+
+(I think we run context_switch() => prepare_task_switch() here, so irqs
+are disabled)
+
+Will
+
+--->8
+
+diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
+index fc51cdd5aaa7..a79df0804d67 100644
+--- a/arch/arm64/kernel/fpsimd.c
++++ b/arch/arm64/kernel/fpsimd.c
+@@ -184,7 +184,8 @@ static void __get_cpu_fpsimd_context(void)
+  */
+ static void get_cpu_fpsimd_context(void)
+ {
+-       local_bh_disable();
++       if (!irqs_disabled())
++               local_bh_disable();
+        __get_cpu_fpsimd_context();
+ }
+ 
+@@ -205,7 +206,8 @@ static void __put_cpu_fpsimd_context(void)
+ static void put_cpu_fpsimd_context(void)
+ {
+        __put_cpu_fpsimd_context();
+-       local_bh_enable();
++       if (!irqs_disabled())
++               local_bh_enable();
+ }
+ 
+ static bool have_cpu_fpsimd_context(void)
+
 
