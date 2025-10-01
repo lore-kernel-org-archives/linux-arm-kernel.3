@@ -4,60 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1200CCCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 13:55:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21188CAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 14:05:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4wCVnk2y4shS4l6zykuxmG8m7wF2PLaPUYHyqMnKqgQ=; b=I0kBT3SocxZZbOq/WKLZISGDKU
-	2FQGMYt/dg4iDl7Z0p+g0q+DYhF5+F+PfuniMf4dfVqXCwkk0O5cj1XB1fNKPj1Xy+vxUbBmf7Cn1
-	bWJDBxbwOuuELJJiui+GZCc8YVnC3hG4bivQXhsaVoSXFoBzLpYenXzxf3SmWihKM4P72NbzqQNUy
-	bGhuxMMgG1WmRA1HqDuwCVv+jzXfn8/Wvv+aeycLNQQnnH9+iqLWZ8SRhQuNV3lhmmlI5AO4DDubP
-	aiZY1ano2NduNCmw4Iljox2FL6WNW9ZdmOcN4qguXB05XHsEwf+6boieQAFty4GEnU/4l5g4n82YZ
-	mrtowabA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hDNbUiK+y3AqdlWMb7TZJVefo7he39KUzQ3Nlhn0MtM=; b=2Xl7zhq1HDXCOoSsCiIXB52hst
+	LV1hmEXHEyfcxv5jfEApAmXtcspgETYUMNjg67eUrlD25kAwkLxWkbRnTdg7m/6Pe7ApKNf5Up7vT
+	I02Veuky4oDDUHL6QCj2zIwX9r94+ttO3he8CM0pxNigBbm08y/aAxFh9btW1YK/3bMU9hQSC3nBj
+	6/J8/YFb4IEO2LqNMdVC02yMjriFAIafG1hmn3ccKRcd7UfklTnmn9j9moITmfX+2n7GTC2uRbb/T
+	thP2BNAidGmvRasTn7OXpWKRJ9tCBKYRBGAomWhyjvymSbzpfDcEgNHM2QArWmyXhdjKsp3uLF7zk
+	dqx0QsUw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3xJA-000000085uo-2Ig3;
-	Wed, 01 Oct 2025 13:55:52 +0000
+	id 1v3xSC-000000087Lb-3xer;
+	Wed, 01 Oct 2025 14:05:12 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3xJ8-000000085uQ-0162
+	id 1v3xSA-000000087Kk-1F7x
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 13:55:51 +0000
+	Wed, 01 Oct 2025 14:05:11 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A795A16F2;
-	Wed,  1 Oct 2025 06:55:40 -0700 (PDT)
-Received: from localhost (e132581.arm.com [10.1.196.87])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 52C6A3F66E;
-	Wed,  1 Oct 2025 06:55:48 -0700 (PDT)
-Date: Wed, 1 Oct 2025 14:55:46 +0100
-From: Leo Yan <leo.yan@arm.com>
-To: James Clark <james.clark@linaro.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Mike Leach <mike.leach@linaro.org>,
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-	Jonathan Corbet <corbet@lwn.net>, coresight@lists.linaro.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v2 5/6] coresight: Add format attribute for setting the
- timestamp interval
-Message-ID: <20251001135546.GP7985@e132581.arm.com>
-References: <20250814-james-cs-syncfreq-v2-0-c76fcb87696d@linaro.org>
- <20250814-james-cs-syncfreq-v2-5-c76fcb87696d@linaro.org>
- <20250930151414.GK7985@e132581.arm.com>
- <3a731a9e-0621-42b6-b7fc-4b0fd9b7da6e@linaro.org>
- <20251001132815.GN7985@e132581.arm.com>
- <708a5bbd-2bad-4f94-8fd1-6bd10825ba71@linaro.org>
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 23D3816F2;
+	Wed,  1 Oct 2025 07:05:01 -0700 (PDT)
+Received: from [10.57.0.204] (unknown [10.57.0.204])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 771943F66E;
+	Wed,  1 Oct 2025 07:05:04 -0700 (PDT)
+Message-ID: <990a62ee-c7a7-4cdf-9e0a-efc7908a1f2e@arm.com>
+Date: Wed, 1 Oct 2025 15:05:02 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <708a5bbd-2bad-4f94-8fd1-6bd10825ba71@linaro.org>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 03/43] arm64: RME: Add SMC definitions for calling the
+ RMM
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>
+References: <20250820145606.180644-1-steven.price@arm.com>
+ <20250820145606.180644-4-steven.price@arm.com> <86o6qrym2b.wl-maz@kernel.org>
+ <747ab990-d02d-4e7c-9007-a7ac73bb1062@arm.com> <86ldluzvdb.wl-maz@kernel.org>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <86ldluzvdb.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_065550_087112_43C3CDA8 
-X-CRM114-Status: GOOD (  23.93  )
+X-CRM114-CacheID: sfid-20251001_070510_439292_A2F2BAE0 
+X-CRM114-Status: GOOD (  39.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,75 +79,170 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 01, 2025 at 02:44:06PM +0100, James Clark wrote:
-
-[...]
-
-> > ATTR_CFG_FLD_ts_level_* is only used in coresight-etm4x-core.c, it is not
-> > used in coresight-etm-perf.c. Thus, we don't need to include
-> > coresight-etm4x.h in coresight-etm-perf.c. Do I miss anything?
+On 01/10/2025 12:58, Marc Zyngier wrote:
+> On Wed, 01 Oct 2025 12:00:14 +0100,
+> Steven Price <steven.price@arm.com> wrote:
+>>
+>> Hi Marc,
+>>
+>> On 01/10/2025 11:05, Marc Zyngier wrote:
+>>> On Wed, 20 Aug 2025 15:55:23 +0100,
+>>> Steven Price <steven.price@arm.com> wrote:
+>>>>
+>>>> The RMM (Realm Management Monitor) provides functionality that can be
+>>>> accessed by SMC calls from the host.
+>>>>
+>>>> The SMC definitions are based on DEN0137[1] version 1.0-rel0
+>>>>
+>>>> [1] https://developer.arm.com/documentation/den0137/1-0rel0/
+>>>>
+>>>> Reviewed-by: Gavin Shan <gshan@redhat.com>
+>>>> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>>>> Signed-off-by: Steven Price <steven.price@arm.com>
+>>>> ---
+>>>> Changes since v9:
+>>>>  * Corrected size of 'ripas_value' in struct rec_exit. The spec states
+>>>>    this is an 8-bit type with padding afterwards (rather than a u64).
+>>>> Changes since v8:
+>>>>  * Added RMI_PERMITTED_GICV3_HCR_BITS to define which bits the RMM
+>>>>    permits to be modified.
+>>>> Changes since v6:
+>>>>  * Renamed REC_ENTER_xxx defines to include 'FLAG' to make it obvious
+>>>>    these are flag values.
+>>>> Changes since v5:
+>>>>  * Sorted the SMC #defines by value.
+>>>>  * Renamed SMI_RxI_CALL to SMI_RMI_CALL since the macro is only used for
+>>>>    RMI calls.
+>>>>  * Renamed REC_GIC_NUM_LRS to REC_MAX_GIC_NUM_LRS since the actual
+>>>>    number of available list registers could be lower.
+>>>>  * Provided a define for the reserved fields of FeatureRegister0.
+>>>>  * Fix inconsistent names for padding fields.
+>>>> Changes since v4:
+>>>>  * Update to point to final released RMM spec.
+>>>>  * Minor rearrangements.
+>>>> Changes since v3:
+>>>>  * Update to match RMM spec v1.0-rel0-rc1.
+>>>> Changes since v2:
+>>>>  * Fix specification link.
+>>>>  * Rename rec_entry->rec_enter to match spec.
+>>>>  * Fix size of pmu_ovf_status to match spec.
+>>>> ---
+>>>>  arch/arm64/include/asm/rmi_smc.h | 269 +++++++++++++++++++++++++++++++
+>>>>  1 file changed, 269 insertions(+)
+>>>>  create mode 100644 arch/arm64/include/asm/rmi_smc.h
+>>>>
+>>>> diff --git a/arch/arm64/include/asm/rmi_smc.h b/arch/arm64/include/asm/rmi_smc.h
+>>>> new file mode 100644
+>>>> index 000000000000..1000368f1bca
+>>>> --- /dev/null
+>>>> +++ b/arch/arm64/include/asm/rmi_smc.h
+>>>
+>>> [...]
+>>>
+>>>> +#define RMI_PERMITTED_GICV3_HCR_BITS	(ICH_HCR_EL2_UIE |		\
+>>>> +					 ICH_HCR_EL2_LRENPIE |		\
+>>>> +					 ICH_HCR_EL2_NPIE |		\
+>>>> +					 ICH_HCR_EL2_VGrp0EIE |		\
+>>>> +					 ICH_HCR_EL2_VGrp0DIE |		\
+>>>> +					 ICH_HCR_EL2_VGrp1EIE |		\
+>>>> +					 ICH_HCR_EL2_VGrp1DIE |		\
+>>>> +					 ICH_HCR_EL2_TDIR)
+>>>
+>>> Why should KVM care about what bits the RMM wants to use? Also, why
+>>> should KVM be forbidden to use the TALL0, TALL1 and TC bits? If
+>>> interrupt delivery is the host's business, then the RMM has no
+>>> business interfering with the GIC programming.
+>>
+>> The RMM receives the guest's GIC state in a field within the REC entry
+>> structure (enter.gicv3_hcr). The RMM spec states that the above is the
+>> list of fields that will be considered and that everything else must be
+>> 0[1]. So this is used to filter the configuration to make sure it's
+>> valid for the RMM.
+>>
+>> In terms of TALL0/TALL1/TC bits: these control trapping to EL2, and when
+>> in a realm guest the RMM is EL2 - so it's up to the RMM to configure
+>> these bits appropriately as it is the RMM which will have to deal with
+>> the trap.
 > 
-> Yes, GEN_PMU_FORMAT_ATTR() uses them but it makes it hard to see.
-
-I did a quick test, it is feasible to move ATTR_CFG_* macros in
-coresight-etm-perf.h. This is a more suitable ?
-
-diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.h b/drivers/hwtracing/coresight/coresight-etm-perf.h
-index 5febbcdb8696..2679d5b2dd9a 100644
---- a/drivers/hwtracing/coresight/coresight-etm-perf.h
-+++ b/drivers/hwtracing/coresight/coresight-etm-perf.h
-@@ -8,6 +8,7 @@
- #define _CORESIGHT_ETM_PERF_H
- 
- #include <linux/percpu-defs.h>
-+#include <linux/perf/arm_pmu.h>
- #include "coresight-priv.h"
- 
- struct coresight_device;
-@@ -20,6 +21,12 @@ struct cscfg_config_desc;
-  */
- #define ETM_ADDR_CMP_MAX       8
- 
-+#define ATTR_CFG_FLD_ts_level_CFG      config3
-+#define ATTR_CFG_FLD_ts_level_LO       12
-+#define ATTR_CFG_FLD_ts_level_HI       15
-+#define ATTR_CFG_FLD_ts_level_MASK     GENMASK(ATTR_CFG_FLD_ts_level_HI, \
-+                                               ATTR_CFG_FLD_ts_level_LO)
-+
-
-> > A similiar case is the attr 'cc_threshold' is only used by ETMv4, it is
-> > exported always. It is not bad for me to always expose these attrs but
-> > in the are ignored in the ETMv3 driver - so we even don't need to
-> > bother adding .visible() callback.
-> > 
+> And I claim this is *wrong*. Again, if the host is in charge of
+> interrupt injection, then the RMM has absolutely no business is
+> deciding what can or cannot be trapped. There is zero information
+> exposed by these traps that the host is not already aware of.
 > 
-> I disagree with always showing them. I think they should be hidden if
-> they're not used, or at least return an error to avoid confusing users. It
-> also wastes config bits if they're allocated but never used.
+>> [1] RWVGFJ in the 1.0 spec from
+>> https://developer.arm.com/documentation/den0137/latest
+> 
+> Well, until someone explains what this is protecting against, I
+> consider this as broken.
 
-It is fine for not exposing ETMv4 only attrs for ETMv3.
+I'm not sure I understand how you want this to work. Ultimately the
+realm guest entry is a bounce from NS-EL2 to EL3 to R-EL2 to R-EL1/0. So
+the RMM has to have some control over the trapping behaviour for its own
+protection. The current spec means that the RMM does not have to
+implement the trap handlers for TALL0/TALL1/TC and can simply force
+these bits to 0. Allowing the host to enable traps that the RMM isn't
+expecting will obviously end in problems.
 
-> Either way, this was done because of the header mechanics which can only be
-> avoided by adding more changes than just the #ifdefs. There are also already
-> ETM4 #ifdefs in the file.
+If your argument is that because the NS host is emulating the GIC it
+needs to be able to do these traps, then that's something that can be
+fed back to the spec and hopefully improved. In that case the trap
+information would be provided in the rec_entry structure and on trap the
+RMM would return prepare information in the rec_exit structure. This
+could in theory be handled similar to an emulatable data abort with a
+new exit reason.
 
-Yeah, actually we can remove ETM4 #ifdefs, something like:
+The other approach would be to push more GIC handling into the RMM such
+that these trap bits are not needed (i.e. there's no requirement to exit
+to the NS host to handle the trap, and the RMM can program them
+independently). I'm afraid I don't understand the GIC well enough to
+know how these traps are used and how feasible it is for the RMM to just
+"do the right thing" here.
 
- /*
-  * contextid always traces the "PID".  The PID is in CONTEXTIDR_EL1
-@@ -90,9 +83,9 @@ static ssize_t format_attr_contextid_show(struct device *dev,
- {
-        int pid_fmt = ETM_OPT_CTXTID;
- 
--#if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X)
--       pid_fmt = is_kernel_in_hyp_mode() ? ETM_OPT_CTXTID2 : ETM_OPT_CTXTID;
--#endif
-+       if (IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X))
-+               pid_fmt = is_kernel_in_hyp_mode() ? ETM_OPT_CTXTID2 : ;
-+
-        return sprintf(page, "config:%d\n", pid_fmt);
- }
+>>>> +	union { /* 0x300 */
+>>>> +		struct {
+>>>> +			u64 gicv3_hcr;
+>>>> +			u64 gicv3_lrs[REC_MAX_GIC_NUM_LRS];
+>>>> +			u64 gicv3_misr;
+>>>
+>>> Why do we care about ICH_MISR_EL2? Surely we get everything in the
+>>> registers themselves, right? I think this goes back to my question
+>>> above: why is the RMM getting in the way of ICH_*_EL2 accesses?
+>>
+>> As mentioned above, the state of the guest's GIC isn't passed through
+>> the CPU's registers, but instead using the rec_enter/rec_exit
+>> structures. So unlike a normal guest entry we don't set all the CPU's
+>> register state before entering, but instead hand over a shared data
+>> structure and the RMM is responsible for actually programming the
+>> registers on the CPU. Since many of the registers are (deliberately)
+>> unavailable to the host (e.g. all the GPRs) it makes some sense the RMM
+>> also handles the GIC registers save/restore.
+> 
+> And I claim this is nonsense. There is nothing in these registers that
+> the host doesn't need to know about, which is why they are basically
+> copied over.
+
+Well it's fairly obvious that the host (generally) doesn't need to know
+the general purpose registers. And it's fairly clear that confidential
+compute would be pretty pointless if the hypervisor leaked those
+registers. So I hope we agree that some architectural registers are
+going to have to be handled differently from a normal guest.
+
+The GIC is unusual because it's (partly) emulated by the host. The
+configuration is also complex because during guest entry rather than
+just dropping down to EL1/0 we're actually performing an SMC to EL3 and
+world-switching. So I'm not sure to what extent programming the
+architectural registers in the normal world would work.
+
+> It all feels just wrong.
+
+I think fundamentally the confusing thing is there are two hypervisors
+pretending to be one. Both KVM and the RMM are providing part of the
+role of the hypervisor. It would "feel" neater for the RMM to take on
+more responsibility of the hypervisor role but that leads to more
+complexity in the RMM (whose simplicity is part of the value of CCA) and
+potentially less flexibility because you haven't got the functionality
+of KVM.
 
 Thanks,
-Leo
+Steve
 
