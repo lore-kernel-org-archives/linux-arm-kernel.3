@@ -4,154 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96923CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 12:34:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 190E4CAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 12:40:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
-	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sjCIyFtFHi0GvlKPxsqA+2/T7h9cBoLwjmbGkPRIDN0=; b=XOgeojRl5yykG63RXcexxCRMf9
-	/aq2VcUqtWsRXjHnDO4A//6ll3WiXbZVHlQexF4OnHVHwNlUSz0CfjNuT5gzPHUcfjbCeERYvBNQH
-	M44OZgo02mjpSVhTe/sz1f6pO1BhnU7E20IILYIWAWW74FeujmNi6xUssxWmYiO77TLAU73Qgtl7y
-	CLybfYee54souKDHQADfJkxfnOWOlMLP19XwsrZ+qLcFazyfCzJcI0nogIlqPCV40HMNETU2a7YTF
-	JRPbWwhalWvsmTRkEUaCdym+oYH25svuSkeBU3ILBu+nHYjJsWYADKR0cImeIg91o8b33ux2wNYJC
-	oS0sCuDw==;
+	bh=WYTXqVRUgKBecqzeWFJPcnJVjiQJBfMxkjWzOS+Rt7E=; b=KmmG33Z8IGirPa/oDUNx8ufwbv
+	scxMlW3i+UYliERFJgOHBbgvq9CBL/z/qKsD17dGEB7XKmzbomQ9rLhd+fugPM+6cfre+gMLJ2SFs
+	u0kwGCdzz/zs7xA2gTtjyrJd1p9CkGLe+DpgYSrm7VdJGfpEuN/9ZJqwTDaupzMljpC3sTwV6lsOX
+	iUvXHV/dw6PzKdWTCaJMo6xVoyW9pNX4+Vw8MGwYAxQjMVxvpNydymqZ3P6XDNb+MXGaaT5ClHzmF
+	0NanIDVhT/Ex5ybRfoaYfYszpxX7R+LzOZVkOX61WKuQ9vU+D9SwxQQYW38dH9LQrjGUTe7N33AtD
+	Miq5+WZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3w2E-00000007uZd-01PX;
-	Wed, 01 Oct 2025 12:34:18 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1v3w8S-00000007vUs-12ZI;
+	Wed, 01 Oct 2025 12:40:44 +0000
+Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3w2A-00000007uY3-0CvM
+	id 1v3w8P-00000007vUV-2SVF
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 12:34:15 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Oj13o822oPQhRjoOPUKx8EGKXhoSbkUzSel+Wzs5Q31gHQ9qqPwAUVtWiVfQPHXMBj73oPWOxVIoB9Y7MzQuFFwT+W5AdgYlNxWIZiqk7vGnqpAliBb6co6Nzwll5ThSBeXte/i+BHnBeIPX2WbvEJEB48QRLdIgKfNke2c0U3f3QF2pxNgYfNvfu4ZUy2ahoVXyhK5lfrjhbI97rfDFXk0tEcuhBlltkiFFmZh2SCnuvrAdm9pING8tfI/Bx00C2NM71aEuQbBHouib22wzDJMAAAmAuz+bW0CcSjwcv8diwF+76s6KH5zZHef4Q0WOvhzfUov/FX6LZATHz4+6WQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=sjCIyFtFHi0GvlKPxsqA+2/T7h9cBoLwjmbGkPRIDN0=;
- b=De5HmsWl6IyVkSxurGpEqdxM4Fvv3N24QsNU3iJHrTsb+g+h+EQReT+ixE8Z4wyf7Xn9t9PGb3evKingCXhrRQlMEBCGZRAoq+vDRizru6auZsaTrfiXIG1rVybg/n/3d+zsLptmfsL1LLyXP+yt4sjQp8zy99VbZZLU01XWNJk6U2QRhugdXZz4qSWwuf8X2Noc+4/jwtzrgj4nvO3O+d2TnA+C1WKm3Edr81EqJBjFlK+tjbrdtFcnx29El4HXYvLkWNrRkRdoZCjn31ROdOQWsPjg0VdZ5R4cPXDr/C5Qo3+VuBrsyub8Ql/sq2tkrzb4kjZBbJRoQ6pdI77RPg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
- is 91.26.50.189) smtp.rcpttodomain=lists.linux.dev smtp.mailfrom=phytec.de;
- dmarc=fail (p=quarantine sp=quarantine pct=100) action=quarantine
- header.from=phytec.de; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=sjCIyFtFHi0GvlKPxsqA+2/T7h9cBoLwjmbGkPRIDN0=;
- b=NvIrx1MMi/xNeLcVJephaVxjslXUksGRj3M9+sAbUSZ9OHmdjcetaYbK7OTVa4J8yEwXCVpK/74Mk3C7ljWodCodPkW4YtlbI/vsH3FRAWq/DoE936WVfoAzoHVC6E2YbmXztbjgdVjqfgkaTrJ4y1S6QdR4orR88QLB209ZHIIdg4vyAdiYavikEEwJBtd1NmpbZKUkwF9AuqM/I3IPWkvrrys35F2pOHSKMo0mrATYQ7J0qfxB+CblhWwdCnTiDnjyD7EaSOmqJF7+aMKvX7h+7IYBpFmtZvAww0z1ui4A0T85P5PkYE4MbMcIan0DEplxTVpnRL3fcP/o8oKLPg==
-Received: from AM0PR03CA0029.eurprd03.prod.outlook.com (2603:10a6:208:14::42)
- by DU4P195MB3201.EURP195.PROD.OUTLOOK.COM (2603:10a6:10:621::8) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.18; Wed, 1 Oct
- 2025 12:34:08 +0000
-Received: from AM3PEPF00009BA1.eurprd04.prod.outlook.com
- (2603:10a6:208:14:cafe::79) by AM0PR03CA0029.outlook.office365.com
- (2603:10a6:208:14::42) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9182.14 via Frontend Transport; Wed,
- 1 Oct 2025 12:34:08 +0000
-X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
- smtp.mailfrom=phytec.de; dkim=none (message not signed)
- header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
-Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
- phytec.de discourages use of 91.26.50.189 as permitted sender)
-Received: from Postix.phytec.de (91.26.50.189) by
- AM3PEPF00009BA1.mail.protection.outlook.com (10.167.16.26) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9182.15 via Frontend Transport; Wed, 1 Oct 2025 12:34:07 +0000
-Received: from llp-moog.phytec.de (172.25.32.44) by Postix.phytec.de
- (172.25.0.11) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Wed, 1 Oct
- 2025 14:34:07 +0200
-From: Yannic Moog <y.moog@phytec.de>
-Date: Wed, 1 Oct 2025 14:33:51 +0200
-Subject: [PATCH v3 1/4] arm64: dts: im8mp-phy{board,core}: update license
- and copyright
+	Wed, 01 Oct 2025 12:40:42 +0000
+Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-46e2e6a708fso47235185e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 05:40:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1759322439; x=1759927239; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=WYTXqVRUgKBecqzeWFJPcnJVjiQJBfMxkjWzOS+Rt7E=;
+        b=hpJweMx8mEcvMaYeHP22SyjLePgPBi2oVUjn1041r4CgpOIHFGX7cm6Cab5LVQFDSy
+         B3ge3gJQj+WC6LTy1JHV716TLZyNkBaP5L/iu8RbTHdPS8b9tUb8GQMyo1IVOD3+pbGZ
+         ib9NHGYtHnmEWzPxLn6UVbxvN9fyyaObrzLzEE81zI2/LUYo6C2Gb6hnNB8mccA9ojcB
+         W1moBBcWF9fK9ndLhh1yGYXIH+JMcYzUvn+ZsLQho4mQxNp6wUzkhsec1nMWoWg8fJpI
+         c90KQW5GqG6ZsXUW9+dPDiNmgtJOktpg0E+1XHN17I7Y3Z1SlhGGl0hF/5BQK8jmEhsp
+         MuZQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759322439; x=1759927239;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=WYTXqVRUgKBecqzeWFJPcnJVjiQJBfMxkjWzOS+Rt7E=;
+        b=tnXStkvjroyR97iPvijc0c/97MCLzhGuwF4ab8D+ralZgZpl6ab97v+Ie8a+IKbHpN
+         /3T7I3TjsZcdewlFMHNgCxmhkwsn+ucIOsgoWkt6HQQS+Ai+U76krh2lxk/WCqKx/gLa
+         7vL/ejLHAxPq7XOgWbX/GPW7o3q/fWRCsiqh/3sxW/w8yem7CMe23X6yztLcAYlvwnE9
+         iAeyVpGeSDko6odYVc3+wf8YiLaBTHASBaG+EuB8ju+wo1kLbjl/3iAR4higL3ALRl96
+         yhbsOHPo9ZK9fIyZymcw/Y7//rF4kCuYlBPBizzhYJWq4Osw/qukOmtZDdxUkeE6ViMU
+         BZDQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUYGaisFAy8M4XqwEBMTf6rgt5uRo7mrshWPqxDpByb6arijUrWiG+76MCq5McI4mYW7m7sCW5goDZwAZ1hjiy0@lists.infradead.org
+X-Gm-Message-State: AOJu0YwsqcGDTFlCcMVjoK2d494Z5z+BqfpNiywRz2qP34Vo7ExbFuf5
+	y8aytH6+uX13FoBZyek6/XSDhvrLpZ4qkeUiaIVyo/oxMeLg6PkxnuUN5R7tAajJhss=
+X-Gm-Gg: ASbGnctr0XfZCofxZ1CAZx/A0UD7mtG4zJxE2X1VBoLVA9/OEaz+NtiqGWz7ZikTvOA
+	RNsDhPo7jPsHuN/QWcy9hQ0mLJLutDz07twgJ4/PrFcwEFmgDoG1a7l4Nkj16UvudbiIBILqToV
+	2uL9kQCfM1ItTLqlDcEjNN6BYPznzkZVZjoaPQAMK8B1zLQkXqdFitvkFqbAqj1Kun7K1Yoa00n
+	fndllurUONrJOgiaNc8nHFbf9gfOgJ05Pd7UDQj+kuB8m7G9iFNRXX/CYFg4HgZUOjRjHdjd9Vr
+	vUxr8zb0PEJf1epfJeU0H45Pdo8Oq+62hrKLYOOpcAIfCDbS7aO0rrM7Z2w01N4JzkaQf/AfTLg
+	94vLdH4V02uUx9ab9+O+ePfflAFco2VHYHi7A8S62dHeNA+uiyX/3
+X-Google-Smtp-Source: AGHT+IGo2u62hTBre5IhKlA68oJLY9wdX6JZmyVYIDOL0eOH23ZnAYoa4shn9eEhSc/1I5hVi4MaZA==
+X-Received: by 2002:a05:600c:870b:b0:46e:3e63:9a8e with SMTP id 5b1f17b1804b1-46e612856c2mr29292665e9.26.1759322439276;
+        Wed, 01 Oct 2025 05:40:39 -0700 (PDT)
+Received: from [192.168.1.3] ([185.48.76.109])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46e6199202csm38083815e9.4.2025.10.01.05.40.38
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 01 Oct 2025 05:40:38 -0700 (PDT)
+Message-ID: <3a731a9e-0621-42b6-b7fc-4b0fd9b7da6e@linaro.org>
+Date: Wed, 1 Oct 2025 13:40:37 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 5/6] coresight: Add format attribute for setting the
+ timestamp interval
+To: Leo Yan <leo.yan@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+ Mike Leach <mike.leach@linaro.org>,
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+ Jonathan Corbet <corbet@lwn.net>, coresight@lists.linaro.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ linux-doc@vger.kernel.org
+References: <20250814-james-cs-syncfreq-v2-0-c76fcb87696d@linaro.org>
+ <20250814-james-cs-syncfreq-v2-5-c76fcb87696d@linaro.org>
+ <20250930151414.GK7985@e132581.arm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20250930151414.GK7985@e132581.arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-ID: <20251001-imx8mp-pollux-display-overlays-v3-1-87f843f6bed6@phytec.de>
-References: <20251001-imx8mp-pollux-display-overlays-v3-0-87f843f6bed6@phytec.de>
-In-Reply-To: <20251001-imx8mp-pollux-display-overlays-v3-0-87f843f6bed6@phytec.de>
-To: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam
-	<festevam@gmail.com>, Rob Herring <robh@kernel.org>, Krzysztof Kozlowski
-	<krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-CC: <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-	<upstream@lists.phytec.de>, Yannic Moog <y.moog@phytec.de>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1759322046; l=1642;
- i=y.moog@phytec.de; s=20250509; h=from:subject:message-id;
- bh=8jnO68Eifbctux7NsdIUq8+ZBpq1aT1VEQPLxxZRBlA=;
- b=Gfa7HWoOX3Pfmo3nHxfWWN4L3q0C4fd1RuPTn0uIa56wEiivA9JajdpVJdJEDZysH3Rc2a1LY
- 24bpoNd0mUrCikzOztIfQlJ5MYtPolHxWwzLs3aeJlT7VCdmAHdzR6C
-X-Developer-Key: i=y.moog@phytec.de; a=ed25519;
- pk=rpKoEJ4E7nD9qsrU/rfKVwMTWNWYaTBylZuJUXUiFr8=
-X-Originating-IP: [172.25.32.44]
-X-ClientProxiedBy: Postix.phytec.de (172.25.0.11) To Postix.phytec.de
- (172.25.0.11)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AM3PEPF00009BA1:EE_|DU4P195MB3201:EE_
-X-MS-Office365-Filtering-Correlation-Id: beaf96a5-3114-49ea-7e81-08de00e6d0da
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|82310400026|36860700013;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?eHdCTnJtSTNDU1NMUjNwMnRLU3VJb2pxV3BHUWkxaE1yRFJPMWVpVzUyOU93?=
- =?utf-8?B?b3NKWFJVSExLaVFYL3NtNi8zT1E4VGNFOEdkSE9tRjBlY1BvcFlaWlo5eVYx?=
- =?utf-8?B?cnhidG9BTDJOYnM1bjdXa29SeXZjNi9BS3ZmaHljVXRnalc3RzdhT0xscWds?=
- =?utf-8?B?Z0YrM0p1aXQ1WGQwS0dEZ0Nlc1BqazZndVZibnJ4dnRBUU0rdWUxczdSYzdN?=
- =?utf-8?B?Nit1QWpYWHZ2N2lFZVl6RHAwQUxFcWtmaE5ncm04K1IzckYyeEVUVWh1TWFL?=
- =?utf-8?B?NVpKK1NkSDcvbitOd3FYK01CTm0zbHZHMksvamVTeHdxWTUrL0J6K29iOGpI?=
- =?utf-8?B?L0VFMEpkeGUvUDZjbjZjTDJnQmpTMWdwUGxSM1Nnc2FGVEVxVHZUWW54NWdw?=
- =?utf-8?B?cndUQnZWSHVhSnBGcjFybzJBdjBPeWNiL1pZaTJid0FRbllFZ21VVjdxWk1l?=
- =?utf-8?B?UmtKTUdpdTR1QWFtaHRESmZPc25ES1czd3dPcVQvUVI1SVZUUTZQSldCK21k?=
- =?utf-8?B?bHNoK3FtSHp6N21QRjZVeTFZUVRJYnVlVmM0UTh5ZUNDdmVuRTlNVUdRd2ZB?=
- =?utf-8?B?NEJRTlY0MXZNY2FBNzN3RzRKTURRRDluM3REa25FOEI2N3A5eGFIeEhHeWha?=
- =?utf-8?B?akhENlpWUXlzWHc3U0Y1UnVQSFdDZHFCa0VQZFMxOWVhNDFHcTNIakZwd044?=
- =?utf-8?B?R2dzVThMblgzdGI0a2p0V3hUWHNiM1E3M2trWnFtVytHUFVQQVF4R1dObmJM?=
- =?utf-8?B?NUFzdFR6eW13b3JPUFpOTHVmOCt3VzlHdkszd2NIQm9DaTV1cHVUZnd1NVdT?=
- =?utf-8?B?bGhKbWR2SFcvTHVCNG9BNEtpSXV2bjVJQU5GS24yOE5TRU5iOTlMQTJPZms5?=
- =?utf-8?B?RnZ0RzdaOVdiK2loVVN0VmkzdysrQlAvd0NJQzNwRVZjTkRWTm4xUmhRQVA2?=
- =?utf-8?B?bU9IRmx1SCtnVUJ4dmFtZUxLOURBZmF0Ly92MGg4ajdHRG85MWhwT0kwYzMr?=
- =?utf-8?B?aTFKaXc3Zmd2dHRoQzZqa0FsUW9yeG5qbHRKMW9IcFowNm9RRU9qbGVuTnpj?=
- =?utf-8?B?Rk5YaFRtMVk1K2lQVWtWSXlKSDlBRjRDbDJQQlF2MlBvQUZWbS9mYnhrbjNZ?=
- =?utf-8?B?WUdlbVNoTTFHMHRIVUlpbW5QdW9vbW1xTllETGNaV0NuREYrQ3ZiSktoK1ha?=
- =?utf-8?B?VVdZa09OdGtybFZjS05hcm9Cb2NmcWUzWXdsOTg5YVlRdWhmNjRmNG9QRnlM?=
- =?utf-8?B?end1TGJlMEhWSzVYMkNhazJBNi9NMGZCN0NIeUJCREFXUmpaSlRBZzgramZS?=
- =?utf-8?B?cy9RRW4zVHVkUXNCR0FRc3U0YVZRendEU3FmV2ROUm5YR2RLVWRwc2RJWW51?=
- =?utf-8?B?TGk2c2NNYzVzOUUwSUUyOUJTM0M3aXkxdzRucWoxb1dORDFWWnRTK0hrZFFH?=
- =?utf-8?B?SThiZ2dFN3I3YTNvOGEyNEd1VG15Rkg2OUpUV0xVWTVuTS92ZUg3SkFqdDJD?=
- =?utf-8?B?Nmw1MmVxVDJDUE0zek5qbnNOZ2tOUXdsZGNFdDhHVG5rVytZU3pNNGRaeEJl?=
- =?utf-8?B?T3VtbjFyMVVGbDg5c0hCRjcvb21VRE9HRE5nL3k5eEhnU0tOc29uUTVGaWlr?=
- =?utf-8?B?T05LMUFBSlRCY1h4cEFoVGtJUjhqRWtSaWJRcUNIRmUvUHBuVEN5clFLdWo2?=
- =?utf-8?B?SHBXdHpYVFJOTy9pcUhwZ1YweU14Y2lWdnpMcjlOUEpmNlRpdFNsKzVYcWVG?=
- =?utf-8?B?SkJSNjNWQzRQMzArSHByNVNxbkN2d3dYQkh1RjVBcUhtTGpicEd4Uy8zRkZi?=
- =?utf-8?B?RVdVUXhZc1JZN1N3WTA4c2hENE9PV05hTTgwdE13MThIdXBSMHF2dThoYkd2?=
- =?utf-8?B?cGJDTFhDcTZSSjFkZDhKU2hGeGFzUGtpQTFOck1jZFh4eUNlY3RBNGdjQk5m?=
- =?utf-8?B?Uk1mUS82TjBvOXEwN1VISHFPdEQxSjY5cHNiL2VSeXIzd1g2OSt2aUlaVkhB?=
- =?utf-8?B?dFRaMWtSelBuVmpDM0IzbTJ3MExrSGRjM3loNnFBTm1vaUd5eVNET1I3NFBD?=
- =?utf-8?B?eVZaYmRYV3RKU0MyNGFzU2hXaHpMQjlFeVkwTUdEc0RmYXNSR3VGZTlSREwz?=
- =?utf-8?Q?JqII=3D?=
-X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Postix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(82310400026)(36860700013);DIR:OUT;SFP:1102;
-X-OriginatorOrg: phytec.de
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Oct 2025 12:34:07.9170
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: beaf96a5-3114-49ea-7e81-08de00e6d0da
-X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Postix.phytec.de]
-X-MS-Exchange-CrossTenant-AuthSource: AM3PEPF00009BA1.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU4P195MB3201
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_053414_149884_35A9916F 
-X-CRM114-Status: UNSURE (   9.79  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251001_054041_671966_32653F4A 
+X-CRM114-Status: GOOD (  25.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -166,43 +107,161 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Update Copyright year and change license from GPL-2.0 to
-GPL-2.0-or-later OR MIT. Use syntax as defined in the SPDX standard.
 
-Signed-off-by: Yannic Moog <y.moog@phytec.de>
----
- arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts | 4 ++--
- arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi        | 4 ++--
- 2 files changed, 4 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts b/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts
-index 436152308642270c320e3ae3b21b9e46b923c043..6110c6a484d3f0b427ad372e1bd16063d1ce165f 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts
-@@ -1,6 +1,6 @@
--// SPDX-License-Identifier: GPL-2.0
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
- /*
-- * Copyright (C) 2020 PHYTEC Messtechnik GmbH
-+ * Copyright (C) 2025 PHYTEC Messtechnik GmbH
-  * Author: Teresa Remmet <t.remmet@phytec.de>
-  */
- 
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi
-index 04f724c6ec210bc2f382e6b9e2b13fe85d3926de..f6168984a31cca2b97344805c9474db900e3af3a 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi
-@@ -1,6 +1,6 @@
--// SPDX-License-Identifier: GPL-2.0
-+// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
- /*
-- * Copyright (C) 2020 PHYTEC Messtechnik GmbH
-+ * Copyright (C) 2025 PHYTEC Messtechnik GmbH
-  * Author: Teresa Remmet <t.remmet@phytec.de>
-  */
- 
+On 30/09/2025 4:14 pm, Leo Yan wrote:
+> On Thu, Aug 14, 2025 at 11:49:56AM +0100, James Clark wrote:
+> 
+> [...]
+> 
+>> --- a/drivers/hwtracing/coresight/coresight-etm-perf.c
+>> +++ b/drivers/hwtracing/coresight/coresight-etm-perf.c
+>> @@ -25,6 +25,11 @@
+>>   #include "coresight-syscfg.h"
+>>   #include "coresight-trace-id.h"
+>>   
+>> +#if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X)
+>> +#include <linux/perf/arm_pmu.h>
+>> +#include "coresight-etm4x.h"
+>> +#endif
+>> +
+>>   static struct pmu etm_pmu;
+>>   static bool etm_perf_up;
+>>   
+>> @@ -69,7 +74,10 @@ PMU_FORMAT_ATTR(sinkid,		"config2:0-31");
+>>   /* config ID - set if a system configuration is selected */
+>>   PMU_FORMAT_ATTR(configid,	"config2:32-63");
+>>   PMU_FORMAT_ATTR(cc_threshold,	"config3:0-11");
+>> -
+>> +#if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X)
+>> +/* Interval = (2 ^ ts_level) */
+>> +GEN_PMU_FORMAT_ATTR(ts_level);
+>> +#endif
+>>   
+>>   /*
+>>    * contextid always traces the "PID".  The PID is in CONTEXTIDR_EL1
+>> @@ -103,6 +111,9 @@ static struct attribute *etm_config_formats_attr[] = {
+>>   	&format_attr_configid.attr,
+>>   	&format_attr_branch_broadcast.attr,
+>>   	&format_attr_cc_threshold.attr,
+>> +#if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X)
+>> +	&format_attr_ts_level.attr,
+>> +#endif
+> 
+> By using .visible() callback for attrs, we can improve a bit code
+> without spreading "#ifdef IS_ENABLED()" in this file. E.g.,
+> 
+>     static umode_t format_attr_is_visible(struct kobject *kobj,
+>                                     struct attribute *attr, int n)
+>     {
+>          struct device *dev = kobj_to_dev(kobj);
+> 
+>          if (attr == &format_attr_ts_level.attr &&
+> 	    !IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X))
+>                  return 0;
+> 
+>          return attr->mode;
+>     }
+> 
+> Otherwise, LGTM:
+> 
+> Reviewed-by: Leo Yan <leo.yan@arm.com>
+> 
 
--- 
-2.43.0
+Unfortunately that won't work because you'd have to always include 
+coresight-etm4x.h. This file is compiled for both arm32 and arm64 so it 
+would break the arm32 build.
+
+I could define the TTR_CFG_FLD_ts_level_* stuff somewhere else but then 
+it becomes messier than just doing the #ifdefs here.
+
+>>   	NULL,
+>>   };
+>>   
+>> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+>> index 1a2d02bdcb88..42277c201d4f 100644
+>> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
+>> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
+>> @@ -28,6 +28,7 @@
+>>   #include <linux/amba/bus.h>
+>>   #include <linux/seq_file.h>
+>>   #include <linux/uaccess.h>
+>> +#include <linux/perf/arm_pmu.h>
+>>   #include <linux/perf_event.h>
+>>   #include <linux/platform_device.h>
+>>   #include <linux/pm_runtime.h>
+>> @@ -615,7 +616,7 @@ static void etm4_enable_hw_smp_call(void *info)
+>>    *  +--------------+
+>>    *         |
+>>    *  +------v-------+
+>> - *  | Counter x    |   (reload to 1 on underflow)
+>> + *  | Counter x    |   (reload to 2 ^ ts_level on underflow)
+>>    *  +--------------+
+>>    *         |
+>>    *  +------v--------------+
+>> @@ -626,11 +627,17 @@ static void etm4_enable_hw_smp_call(void *info)
+>>    *  | Timestamp Generator  |  (timestamp on resource y)
+>>    *  +----------------------+
+>>    */
+>> -static int etm4_config_timestamp_event(struct etmv4_drvdata *drvdata)
+>> +static int etm4_config_timestamp_event(struct etmv4_drvdata *drvdata,
+>> +				       struct perf_event_attr *attr)
+>>   {
+>>   	int ctridx;
+>>   	int rselector;
+>>   	struct etmv4_config *config = &drvdata->config;
+>> +	u8 ts_level = ATTR_CFG_GET_FLD(attr, ts_level);
+>> +
+>> +	/* Disable when ts_level == MAX */
+>> +	if (ts_level == FIELD_GET(ATTR_CFG_FLD_ts_level_MASK, UINT_MAX))
+>> +		return 0;
+>>   
+>>   	/* No point in trying if we don't have at least one counter */
+>>   	if (!drvdata->nr_cntr)
+>> @@ -666,12 +673,8 @@ static int etm4_config_timestamp_event(struct etmv4_drvdata *drvdata)
+>>   		return -ENOSPC;
+>>   	}
+>>   
+>> -	/*
+>> -	 * Initialise original and reload counter value to the smallest
+>> -	 * possible value in order to get as much precision as we can.
+>> -	 */
+>> -	config->cntr_val[ctridx] = 1;
+>> -	config->cntrldvr[ctridx] = 1;
+>> +	/* Initialise original and reload counter value. */
+>> +	config->cntr_val[ctridx] = config->cntrldvr[ctridx] = 1 << ts_level;
+>>   
+>>   	/*
+>>   	 * Trace Counter Control Register TRCCNTCTLRn
+>> @@ -761,7 +764,7 @@ static int etm4_parse_event_config(struct coresight_device *csdev,
+>>   		 * order to correlate instructions executed on different CPUs
+>>   		 * (CPU-wide trace scenarios).
+>>   		 */
+>> -		ret = etm4_config_timestamp_event(drvdata);
+>> +		ret = etm4_config_timestamp_event(drvdata, attr);
+>>   
+>>   		/*
+>>   		 * No need to go further if timestamp intervals can't
+>> diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
+>> index aaa6633b2d67..54558de158fa 100644
+>> --- a/drivers/hwtracing/coresight/coresight-etm4x.h
+>> +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
+>> @@ -598,6 +598,12 @@
+>>   #define ETM_CNTR_MAX_VAL		0xFFFF
+>>   #define ETM_TRACEID_MASK		0x3f
+>>   
+>> +#define ATTR_CFG_FLD_ts_level_CFG	config3
+>> +#define ATTR_CFG_FLD_ts_level_LO	12
+>> +#define ATTR_CFG_FLD_ts_level_HI	15
+>> +#define ATTR_CFG_FLD_ts_level_MASK	GENMASK(ATTR_CFG_FLD_ts_level_HI, \
+>> +						ATTR_CFG_FLD_ts_level_LO)
+>> +
+>>   /* ETMv4 programming modes */
+>>   #define ETM_MODE_EXCLUDE		BIT(0)
+>>   #define ETM_MODE_LOAD			BIT(1)
+>>
+>> -- 
+>> 2.34.1
+>>
 
 
