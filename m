@@ -4,65 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D6F14CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 14:44:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9AF35CCA472
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 14:44:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ln8XAbU1itg3vV82MZkX+MZntyRtlgikVpKUvTZ4g/M=; b=sRTiTrJzWFN17tVCcIvz7SpNQF
-	33UTOSZWn3X3S8aUgA79/VH6u9D7j6ZvrX8N1ddc78D0eCIPgMZrQbocfpXSaZG8p4XW0z08RrkG4
-	LCNXhi0JBRO0d4Z+JPPsTLrTQ67CFtQsU7DsW7I4jKPhL9YJOpWCTsR1f+rO/gd5gSd+pb+3NHQXR
-	tnTWyZmsQeQoP1xgp/DtYd96/wjagLjEv+oFh1y57DCS66EvHCABV6cBc/vWTW0ZNOItuUdve1JFT
-	8jWDsNOaFYvNrK6MVJlKYz/Kan2EzynADSzQSkBzsMJhiEN0ZsRZEwF8xQA+n+WzW487/NG/HjkDw
-	EtHVKsfg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yKW/8sCcSARK+fRMUZ1yFO1a+rZ6QSFdUWClQFSGPGg=; b=J5OaRbz8hSbYu8GhlG+pPPxbYg
+	ec5nhjbNf8A53yJx8sVA/cAAbAXqKOi50FUyM/MrIhHJblj1oE+dS5Bpf4VGcrntBSs4v2Pbi5K/q
+	ROcGtEczIcRKtgVrZjlfp4yJvWhJ2mLMrSv4ydJrNP/lzHFvs5Fqv+Q2TbuoNOzJicH781thMlO7E
+	EnK3qyv4SNdMglr2hTyGAqcEdvMJvVMuJA5IWtjXJEQA3dJc5j1uWh9cF3YO/Wl1Ci80T2SH/O7Pv
+	ozAtQawlexBrMYcqBy982itRAuMFaubWrM/jHwAgpTp49M3gHs19ZrlllSnCn2169rxm/B4tQjEW1
+	2iXkc4Hw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3y4A-00000008ERg-0aUI;
-	Wed, 01 Oct 2025 14:44:26 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3y47-00000008ERF-3Fr6
+	id 1v3y4E-00000008ESz-1nNd;
+	Wed, 01 Oct 2025 14:44:30 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v3y4B-00000008ERf-2C9K
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 14:44:25 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2E54A16F2;
-	Wed,  1 Oct 2025 07:44:13 -0700 (PDT)
-Received: from [10.57.0.204] (unknown [10.57.0.204])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 20E6F3F66E;
-	Wed,  1 Oct 2025 07:44:14 -0700 (PDT)
-Message-ID: <47a7bc06-9d44-42f8-88df-f6db3bc997bc@arm.com>
-Date: Wed, 1 Oct 2025 15:44:11 +0100
+	Wed, 01 Oct 2025 14:44:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=Hatk3pc2FoPh+GxYBzs3QWAg7IZmDnWRSD3RNZo8L9OPI2MN9nUbx9VObSwWptlWyk+2rNmRD/+UC+xFtzIuFrvR63jnY2dVKLdGPN8ysBy1PfS0Nyaa+VIdzAN1wO1fEdWH0L93gDYchKB3qeSihMgc6WzlQiZjvC4v+UTavm47vBHDOhq+BMI23AUw8wx+MQs+e6oO1x8C/BTzVyj2R71wrbabkEejtF9pbTMxeMZYKNLPXawtxeLWTn57JawBVSLQRhFBFDwXQhxOqYSHYgx+JoXX7fNiXe8AyoLcfxrYJIKUqALcTsb5dVI3Qu8oZct/Bkevidn4Y+Smt7xvtg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yKW/8sCcSARK+fRMUZ1yFO1a+rZ6QSFdUWClQFSGPGg=;
+ b=FK7eLxRZr1swE0w3Y7qZQF4kHPs8RvaiTCeSn2iSaj2YLBS25d5x8sGhXyzH2YpRTOfmUpzdIvDedJg6gSzKnuBkvQL7Wah96bMD1HiekAxGAUOkLsk6GQNBVO1b40/mJXC6CFIORLntdYm3I3uwIkb8huKMCjsNe4Zza8jTT/QA0nxT37B4Mm3SenwtmytWzXUCli+T0Kf0rstwIeLX9cGUnwEqoy3EYMYReE9qEfgtWR3vO3gqvFi31cpTCWGISsCQUJBLzmbb5KiAXFanyUcWCl0Y4lykv8O3ePguEUI6tqmb9uMgcl4ZtSJ3Ku2gRao8VRbrvobhbyGld3IMaw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yKW/8sCcSARK+fRMUZ1yFO1a+rZ6QSFdUWClQFSGPGg=;
+ b=URwq77x96r3DmePouRBF1d70k07LI/lKQho7b2ZtOmRS1jghjBI8Pi/HwaV2odpyRC5zZrTHrKcc4xt42/5bHHjEIgnDiGxmYWsQxobmlhjAiinfCy7l6NEKviZc5l2ls/0lxbwqJGi0PDef3Mxawko664JJozbDs3HfvwM2sXNhn3fcE/k9EyZfY9pAtTLw1sQd2tgSrlvULNPEPh/i/mjNzzHCHZasHE7hUf3BoZI/U9KAAPHCFVVaP6+wJz9q5KxbS/2bIuD1iQ5bEz83Iua73A1fHq/DbKMMm16XiQjWeXQhV7pSHP8VMAuOFK7odYSfZh/Qj5N3EZ2Z0eDMkQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS4PR04MB9621.eurprd04.prod.outlook.com (2603:10a6:20b:4ff::22)
+ by AS8PR04MB8993.eurprd04.prod.outlook.com (2603:10a6:20b:42c::9) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9182.14; Wed, 1 Oct
+ 2025 14:44:17 +0000
+Received: from AS4PR04MB9621.eurprd04.prod.outlook.com
+ ([fe80::a84d:82bf:a9ff:171e]) by AS4PR04MB9621.eurprd04.prod.outlook.com
+ ([fe80::a84d:82bf:a9ff:171e%4]) with mapi id 15.20.9160.014; Wed, 1 Oct 2025
+ 14:44:16 +0000
+Date: Wed, 1 Oct 2025 10:44:07 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Yannic Moog <y.moog@phytec.de>
+Cc: Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, upstream@lists.phytec.de
+Subject: Re: [PATCH v3 1/4] arm64: dts: im8mp-phy{board,core}: update license
+ and copyright
+Message-ID: <aN0+N64FmUP9J5M9@lizhi-Precision-Tower-5810>
+References: <20251001-imx8mp-pollux-display-overlays-v3-0-87f843f6bed6@phytec.de>
+ <20251001-imx8mp-pollux-display-overlays-v3-1-87f843f6bed6@phytec.de>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251001-imx8mp-pollux-display-overlays-v3-1-87f843f6bed6@phytec.de>
+X-ClientProxiedBy: PH8PR07CA0001.namprd07.prod.outlook.com
+ (2603:10b6:510:2cd::26) To AS4PR04MB9621.eurprd04.prod.outlook.com
+ (2603:10a6:20b:4ff::22)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v10 06/43] arm64: RME: Define the user ABI
-To: Marc Zyngier <maz@kernel.org>
-Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
- Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
- <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
- Alexandru Elisei <alexandru.elisei@arm.com>,
- Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
- linux-coco@lists.linux.dev,
- Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
- Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
- Vishal Annapurve <vannapurve@google.com>
-References: <20250820145606.180644-1-steven.price@arm.com>
- <20250820145606.180644-7-steven.price@arm.com> <86jz1eztz4.wl-maz@kernel.org>
-From: Steven Price <steven.price@arm.com>
-Content-Language: en-GB
-In-Reply-To: <86jz1eztz4.wl-maz@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS4PR04MB9621:EE_|AS8PR04MB8993:EE_
+X-MS-Office365-Filtering-Correlation-Id: 976749a9-7ec7-47a4-097b-08de00f8ff00
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|7416014|52116014|376014|19092799006|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?PLiQsj3M9NVvRJFyeOjv1JXD3QE8Guz3osJ9pw08RF88qo5L34Hi+9KMpsJ9?=
+ =?us-ascii?Q?Eqq87pt/tFzg+q+kKYbsy8plK0y9Kdh15wy4iNI4WfIVth7KqEA1Io+VZtSb?=
+ =?us-ascii?Q?MSF7atZT30w9t/5T0ImrTpnW80yVqP/N2Fe0IgZlGC/k4U4yh0cfPs+V+Ri5?=
+ =?us-ascii?Q?tvPt3u1/mf72XuOaCm87EtYX7wdVOZCU2oVKkjYa4lWex+XWR4CcYpHrgkQM?=
+ =?us-ascii?Q?/KFLzYQEGP0ts5rx7d5t+RLglm43zdPkmH/g6CSokMlRwh535hvXAcuW46K8?=
+ =?us-ascii?Q?dWv8KnZsZFttveItwWKN4RSjjKnzWAbRnmUNm1vQHOZc/nu+iTPYT6RDG16y?=
+ =?us-ascii?Q?Zw96/PocDRapBWgtKRavHzB5Fvu+BY5mA3/qaOh+kebcRNNBTkW7f8XK0Zpg?=
+ =?us-ascii?Q?27AJmD2ARdIZu9xImR4f5B/disqRoQs/w2wGorKtAt9b3U48yWvoweGFNdHq?=
+ =?us-ascii?Q?0VE5tqq30IjT+DugWf93L1IHMhQa3o7EU/lXv4X2KgkU2UpKbcnUjlXFpqOV?=
+ =?us-ascii?Q?yP/nBw9gaPLR3wo1gMctPZw21j7GPENdtTh4y3xvUBlgHgew4ZfRdc0gVsd1?=
+ =?us-ascii?Q?I/t1uiwLVkuE+kpuo38jITPfxpdS6vhjqRC6M10xOad82tqtJ84n3OY1KQLN?=
+ =?us-ascii?Q?n4QHANLH8Eztjd4/xl02LrvvAI3R1GvoWeB23uXs3SZ2fRJ6FRTEFZNt2Ib1?=
+ =?us-ascii?Q?Bxp+DO8Vp5kFWi6Uf06JhEKiTsKx5sUBQ/gPJVdWT6o1NyKSdqxoSw6avrGk?=
+ =?us-ascii?Q?lvF+6st4gyfcw/afpkTU2j8cVqZQhqOQjYoabbMtQczGsfRuWPdaVTel0/cY?=
+ =?us-ascii?Q?0VcoNYeKf6LaeXmD97g1M2MG2Q4RpDckBI12/HJHiOwusBEljRgqDeKhWro0?=
+ =?us-ascii?Q?Z8gmRWdbdk9Fe8iuwfPR5KJKcWDJ9FNdcEfkMWGZhgF2xzezDaCkxf/b/6Fb?=
+ =?us-ascii?Q?b/XirDjGJV+G27lDs1wrb15ZicG2zlRoxpRFgJ64wwSpL+WJCne7YFB44QQi?=
+ =?us-ascii?Q?TCbBP51hS7X4Em9mKY8iSwIFJ6vkoiGqyawauvdPFSUCTUSTyC6fMhC1FhBZ?=
+ =?us-ascii?Q?PD0qjz2eFYwBUdodooKiw/NUCUkY7AKsRM4NThpXi+W6yyF6z1g+3zvaoQLi?=
+ =?us-ascii?Q?gSOLaPJaBX81FsloalPq9gDCMdMc/s4Ed+u1T89ZBdUf28Nc5YU3aSMVj37F?=
+ =?us-ascii?Q?nL8/kb0uPmzkEHwMQNn4nZqKpK1pQ98nrC0bf47q9F6skf0NQQx/kG7exJzj?=
+ =?us-ascii?Q?cSYNdXB/mAbVgObm13M7U4BLNX8ScFL1iWjqUfK8/3pWy7Ul2DwibgwPVRJ7?=
+ =?us-ascii?Q?c0ZoFKQmGUgdV54K2hthfm6/6siVJCHflHMry8RwcqRr/wHvNtIiBfNiD8SP?=
+ =?us-ascii?Q?EQvtHUI++RC2irMU50COFzSeh4CBDKuxcdrJfIYxCsXBEu+sC7UV73ubuHTM?=
+ =?us-ascii?Q?jaw5cEO7wTyll8Gwi3HmAv5JIUsRpYNT36mhgqkjBPMcGmBDbE3xtupgmrFv?=
+ =?us-ascii?Q?btosvVGUBVVT6Rh6aDIeQqQ2AlD7xUmOToeK?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9621.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(7416014)(52116014)(376014)(19092799006)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?0uoExOuztIqoqlHcBy60Sp2qy0LBKpZJHq5BNN7AlSu8cuO9Gqc2aOZnBhhJ?=
+ =?us-ascii?Q?BsDjUtoiu6jve5Kk6R4y24FDfSPome05xnriuhaGuaebdogpX5rAEQACEA4l?=
+ =?us-ascii?Q?QN9hED8MH6hDP5ehJ834dYbH0xWe4catxtodFBHq3V9zsxTeFkwdeymEmaH+?=
+ =?us-ascii?Q?PEFkbfD52IGnOWqhYrG5LfFL0t2OTvgVjDMyB4vWwVeUu1fj08wEkJG4uRha?=
+ =?us-ascii?Q?74tvXWLfpjIAvbYGHx8GCPayu4VpmV3HvY1F/cdEeHkkSo4VO7adaH/KO0k4?=
+ =?us-ascii?Q?dk7SPnwfOgyGdku06PS+A5ziV0dRAcy0OnXUL2RLkTOofnp83M78ZRr6BwWM?=
+ =?us-ascii?Q?JTmQ8+h8JB0mdaQO2bHD3g6jHtFMTH0RINyi0h7L7fc60kyX1g4HGxxBFR3X?=
+ =?us-ascii?Q?OZOr/mqGzSl0Vuoe6hYpcGxQxngyP8lWpngKKsEkRdXT+gnwnIOlo+WLPplm?=
+ =?us-ascii?Q?/Rmevz3RSkaDU3ti5wpxEDRFjCbO47yXVblZ9/X3UvhgxqLY+zGP1rGPuuVo?=
+ =?us-ascii?Q?KjQn4bsNBqbnK7AZ1SlghRGcWGvk21UZzmUI2tkJOnxr8E4dknEa+72zuvmR?=
+ =?us-ascii?Q?Bw4sEeqorRp5lcEpYzcSgerJ0SBlGLgblcAmBiqN/HI5o6v7hTUeJsKlDj09?=
+ =?us-ascii?Q?yFCeMKZuzVGW6jxBRDluVg7nWdkHXae3Tqiv4oGBEzrwnCxy0ns6gpGL6zAj?=
+ =?us-ascii?Q?Bwy1E+njUFUuQ/tInDA6BxSkEo+75cbjXAeHBJeTEjVgcb55YcxGMUl52Umj?=
+ =?us-ascii?Q?aRBBn42zukQ3CT1tG1+asvhPEeR21orgP0cy0fVb2hRk2drzWL4n6pYbw6X0?=
+ =?us-ascii?Q?ORSr37Fpf1LM1BJjt0x76pkN4QfCWleNz+J4riWonXMNEJLEtbIDy8tzlxnq?=
+ =?us-ascii?Q?y0Aw8CY1vqm9mZP+pcUYIei4duoOFV7Cah+oCXfdObOZRdkRN801nLBkswFI?=
+ =?us-ascii?Q?zlNIg9kODk/96kBwFGYs1f8e/ihSbIGju/QaRvDcy7PFRhuKR6ys6KbTtPBd?=
+ =?us-ascii?Q?eZpLwbbDB2aBxXC9gQGlUnhV/5489YSZycgV6FI3v3zdtYHOawjkAhcMEmmw?=
+ =?us-ascii?Q?JsfZIkTQH5GVL28pAU31e1kYvel3WuJxIv7lNRGlpnuFaMeO8+fO8Ag33rRV?=
+ =?us-ascii?Q?gTCZ2w16CRWOR5KXj8fItPfBIqRabMIMJhaR1b/JMa0KfASlLciAyOcgMXOe?=
+ =?us-ascii?Q?HweVCRqU1/4qMKUAdKx7RE78/Z/VOlMWdM0+4sRR0TubDDohZD+JyIBKkHRI?=
+ =?us-ascii?Q?s2uXa5AyKS/uuPgj31tVfVqJ5BleBBMSXYcwd7ut+6jVtjRxPIIjxX1dKMo7?=
+ =?us-ascii?Q?OV91jbHRqL2TeMp7w+CyrHrtAzXx+wOTq4VJV/dDq3IAt/F9H9hLjQNUhMS9?=
+ =?us-ascii?Q?lWT8GQF1Nwjev+iUJeSLFj5xFi2wCtLE5mpZDm8ENZbExgCqEq3LQn11/LRg?=
+ =?us-ascii?Q?Zucr9Sed1/wO+NmBrOXYr4D4MxJR4mgpwuQTJTza1x1BbYVlpd+UBUuLYFZe?=
+ =?us-ascii?Q?XQoLCDS1f9E8UI0R8xX5t2Wife/7oQZqf+PVWawYvLN+wV7Cyqs4KkHF52Gd?=
+ =?us-ascii?Q?3fL6rWs7cpr5vNgEysY=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 976749a9-7ec7-47a4-097b-08de00f8ff00
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9621.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Oct 2025 14:44:16.6648
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: rC+fDqSfmQXMCFHlEREJxTBpghoPCiZvevG72Irgfgp5K5LT/0/bQHm6X2fQCXqVLZKY/nptkhqT7a4yn6zFKQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB8993
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_074423_911573_AF3ACD2C 
-X-CRM114-Status: GOOD (  52.28  )
+X-CRM114-CacheID: sfid-20251001_074427_582465_8F304B70 
+X-CRM114-Status: GOOD (  16.00  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,244 +163,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01/10/2025 13:28, Marc Zyngier wrote:
-> On Wed, 20 Aug 2025 15:55:26 +0100,
-> Steven Price <steven.price@arm.com> wrote:
->>
->> There is one (multiplexed) CAP which can be used to create, populate and
->> then activate the realm.
->>
->> Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
->> Signed-off-by: Steven Price <steven.price@arm.com>
->> Reviewed-by: Gavin Shan <gshan@redhat.com>
->> ---
->> Changes since v9:
->>  * Improvements to documentation.
->>  * Bump the magic number for KVM_CAP_ARM_RME to avoid conflicts.
->> Changes since v8:
->>  * Minor improvements to documentation following review.
->>  * Bump the magic numbers to avoid conflicts.
->> Changes since v7:
->>  * Add documentation of new ioctls
->>  * Bump the magic numbers to avoid conflicts
->> Changes since v6:
->>  * Rename some of the symbols to make their usage clearer and avoid
->>    repetition.
->> Changes from v5:
->>  * Actually expose the new VCPU capability (KVM_ARM_VCPU_REC) by bumping
->>    KVM_VCPU_MAX_FEATURES - note this also exposes KVM_ARM_VCPU_HAS_EL2!
->> ---
->>  Documentation/virt/kvm/api.rst    | 71 +++++++++++++++++++++++++++++++
->>  arch/arm64/include/uapi/asm/kvm.h | 49 +++++++++++++++++++++
->>  include/uapi/linux/kvm.h          | 10 +++++
->>  3 files changed, 130 insertions(+)
->>
->> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
->> index 6aa40ee05a4a..69c0a9eba6c5 100644
->> --- a/Documentation/virt/kvm/api.rst
->> +++ b/Documentation/virt/kvm/api.rst
->> @@ -3549,6 +3549,11 @@ Possible features:
->>  	  Depends on KVM_CAP_ARM_EL2_E2H0.
->>  	  KVM_ARM_VCPU_HAS_EL2 must also be set.
->>  
->> +	- KVM_ARM_VCPU_REC: Allocate a REC (Realm Execution Context) for this
->> +	  VCPU. This must be specified on all VCPUs created in a Realm VM.
->> +	  Depends on KVM_CAP_ARM_RME.
->> +	  Requires KVM_ARM_VCPU_FINALIZE(KVM_ARM_VCPU_REC).
->> +
->>  4.83 KVM_ARM_PREFERRED_TARGET
->>  -----------------------------
->>  
->> @@ -5122,6 +5127,7 @@ Recognised values for feature:
->>  
->>    =====      ===========================================
->>    arm64      KVM_ARM_VCPU_SVE (requires KVM_CAP_ARM_SVE)
->> +  arm64      KVM_ARM_VCPU_REC (requires KVM_CAP_ARM_RME)
->>    =====      ===========================================
->>  
->>  Finalizes the configuration of the specified vcpu feature.
->> @@ -6476,6 +6482,30 @@ the capability to be present.
->>  
->>  `flags` must currently be zero.
->>  
->> +4.144 KVM_ARM_VCPU_RMM_PSCI_COMPLETE
->> +------------------------------------
->> +
->> +:Capability: KVM_CAP_ARM_RME
->> +:Architectures: arm64
->> +:Type: vcpu ioctl
->> +:Parameters: struct kvm_arm_rmm_psci_complete (in)
->> +:Returns: 0 if successful, < 0 on error
->> +
->> +::
->> +
->> +  struct kvm_arm_rmm_psci_complete {
->> +	__u64 target_mpidr;
->> +	__u32 psci_status;
->> +	__u32 padding[3];
->> +  };
->> +
->> +Where PSCI functions are handled by user space, the RMM needs to be informed of
->> +the target of the operation using `target_mpidr`, along with the status
->> +(`psci_status`). The RMM v1.0 specification defines two functions that require
->> +this call: PSCI_CPU_ON and PSCI_AFFINITY_INFO.
->> +
->> +If the kernel is handling PSCI then this is done automatically and the VMM
->> +doesn't need to call this ioctl.
-> 
-> Why should userspace involved in this? Why can't this be a
-> notification that the host delivers to the RMM when the vcpu is about
-> to run?
+On Wed, Oct 01, 2025 at 02:33:51PM +0200, Yannic Moog wrote:
+> Update Copyright year and change license from GPL-2.0 to
+> GPL-2.0-or-later OR MIT. Use syntax as defined in the SPDX standard.
+>
+> Signed-off-by: Yannic Moog <y.moog@phytec.de>
+> ---
+>  arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts | 4 ++--
+>  arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi        | 4 ++--
+>  2 files changed, 4 insertions(+), 4 deletions(-)
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts b/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts
+> index 436152308642270c320e3ae3b21b9e46b923c043..6110c6a484d3f0b427ad372e1bd16063d1ce165f 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-phyboard-pollux-rdk.dts
+> @@ -1,6 +1,6 @@
+> -// SPDX-License-Identifier: GPL-2.0
+> +// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
+>  /*
+> - * Copyright (C) 2020 PHYTEC Messtechnik GmbH
+> + * Copyright (C) 2025 PHYTEC Messtechnik GmbH
 
-This is only when PSCI is being handled by user space. If the kernel
-(i.e KVM) is handling PSCI then indeed there's no user space involvement.
+copyright need keep original years
 
-I'm not sure how we could avoid this when PSCI is being implemented in
-user space. Or am I missing something?
+Copyright (C) 2020, 2025 PHYTEC Messtechnik GmbH
 
->>  
->>  .. _kvm_run:
->>  
->> @@ -8662,6 +8692,47 @@ This capability indicate to the userspace whether a PFNMAP memory region
->>  can be safely mapped as cacheable. This relies on the presence of
->>  force write back (FWB) feature support on the hardware.
->>  
->> +7.44 KVM_CAP_ARM_RME
->> +--------------------
->> +
->> +:Architectures: arm64
->> +:Target: VM
->> +:Parameters: args[0] provides an action, args[1] points to a structure in
->> +             memory for the action.
->> +:Returns: 0 on success, negative value on error
->> +
->> +Used to configure and set up the memory for a Realm. The available actions are:
->> +
->> +================================= =============================================
->> + KVM_CAP_ARM_RME_CONFIG_REALM     Takes struct arm_rme_config as args[1] and
->> +                                  configures realm parameters prior to it being
->> +                                  created.
->> +
->> +                                  Options are ARM_RME_CONFIG_RPV to set the
->> +                                  "Realm Personalization Value" and
->> +                                  ARM_RME_CONFIG_HASH_ALGO to set the hash
->> +                                  algorithm.
->> +
->> + KVM_CAP_ARM_RME_CREATE_REALM     Request the RMM to create the realm. The
->> +                                  realm's configuration parameters must be set
->> +                                  first.
->> +
->> + KVM_CAP_ARM_RME_INIT_RIPAS_REALM Takes struct arm_rme_init_ripas as args[1]
->> +                                  and sets the RIPAS (Realm IPA State) to
->> +                                  RIPAS_RAM of a specified area of the realm's
->> +                                  IPA.
->> +
->> + KVM_CAP_ARM_RME_POPULATE_REALM   Takes struct arm_rme_populate_realm as
->> +                                  args[1] and populates a region of protected
->> +                                  address space by copying the data from the
->> +                                  shared alias.
->> +
->> + KVM_CAP_ARM_RME_ACTIVATE_REALM   Request the RMM to activate the realm. No
->> +                                  changes can be made to the Realm's populated
->> +                                  memory, IPA state, configuration parameters
->> +                                  or vCPU additions after this step.
->> +================================= =============================================
->> +
-> 
-> These are not capabilities, they are actions that the VMM may perform
-> on a VM. You don't configure a VM using capabilities. You use it to
-> buy into some behaviours, but that's all.
-> 
-> And then there is the semantic of this stuff. Why do I need something
-> like KVM_CAP_ARM_RME_CREATE_REALM when I can just pass this as part of
-> the VM type? Why do I need a new way to describe memory region when we
-> already have memslots for that exact purpose?
-> 
-> Overall, you are leaking the RMM interface into userspace, and that's
-> an absolute show-stopper. We have an API, it is not pretty, but it
-> exists. We don't need another one that will be just as broken. If the
-> RMM needs some impedance matching, that's the kernel's job.
-
-So I'll admit the (ab)use of capabilities to set up the realm is a bit
-of a hack. I initially did it this way to maintain some compatibility
-with a prototype implementation, but it's taken until v10 for anyone to
-express displeasure with the approach! It would of course be possible to
-implement these are separate ioctls.
-
-However, it seems we need to pin down the semantics before I do that
-refactoring.
-
-KVM_CAP_ARM_RME_CREATE_REALM
-============================
-
-The desire is that you can configure the aspects of the realm piecemeal
-and then later trigger the SMC to the RMM. This avoids the need for a
-big structure (which will grow with new features) containing all the
-configuration. It also allows KVM_CAP_ARM_RME_CONFIG_REALM to validate
-each configuration and provide immediate failure when a configuration
-option is invalid.
-
-Would you prefer ditching KVM_CAP_ARM_RME_CONFIG_REALM and passing a
-structure of all the configuration options to
-KVM_CAP_ARM_RME_CREATE_REALM? It would make identifying what part of an
-invalid configuration is problematic harder. And we'd probably therefore
-need to add a new discovery mechanism to find e.g. which hash algorithms
-are supported.
-
-KVM_CAP_ARM_RME_INIT_RIPAS_REALM
-================================
-
-This is a property that doesn't exist for a normal guest and as such the
-VMM is going to have to do something extra to describe which areas of
-RAM are protected and which are shared. I guess with the recent
-guest_memfd changes it might be possible to pull that from the
-guest_memfd instance(s). But note that it's entirely valid (from the CCA
-perspective) to have both protected and shared regions that are not
-backed at guest start. So setting the RIPAS to RAM (i.e. making an area
-of memory protected) is independent of the guest_memfd backing status.
-
-KVM_CAP_ARM_RME_POPULATE_REALM
-==============================
-
-This ties in with the above. This is effectively doing a data-preserving
-conversion of shared to protected. We need some form of this to set the
-initial data for the guest (boot loader/kernel image etc).
-
-In this patch set this API is a little broken as it requires double
-backing (both a valid VMA in the VMM and allocation in the guest_memfd).
-My expectation was to replace this with a version that simply does an
-in-place data-preserving conversion in guest_memfd. The only drawback is
-that this requires a double memcpy() - KVM would need to copy the data
-to a temporary buffer, and then the RMM would copy it back (after
-dealing with memory encryption setup).
-
-The alternative would be to provide a separate input buffer for
-POPULATE_REALM. That could e.g. be a mmap()ed file, but that moves CCA
-further away from a standard interface.
-
-KVM_CAP_ARM_RME_ACTIVATE_REALM
-==============================
-
-This is easiest to drop - we could just do this step when the VMM first
-tries to start a VCPU. The main benefits are:
-
- * It makes error reporting more obvious (you can tell the difference
-between the RMM failing the activate and something else preventing a
-VCPU entry).
-
- * It makes the KVM code slightly clearer because the state transition
-is triggered by an obvious action from the VMM, and there's less
-potential for races.
-
-
-I agree it's a shame that the VMM can't just use the standard KVM
-interface for realm guest setup. But there are some fundamental
-differences between a normal guest and a realm guest. So the VMM will
-need to be enlightened. Feel free to comment on the above if you have
-suggestions on how the above API can be improved.
-
-Thanks,
-Steve
-
+Frank
+>   * Author: Teresa Remmet <t.remmet@phytec.de>
+>   */
+>
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi b/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi
+> index 04f724c6ec210bc2f382e6b9e2b13fe85d3926de..f6168984a31cca2b97344805c9474db900e3af3a 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-phycore-som.dtsi
+> @@ -1,6 +1,6 @@
+> -// SPDX-License-Identifier: GPL-2.0
+> +// SPDX-License-Identifier: GPL-2.0-or-later OR MIT
+>  /*
+> - * Copyright (C) 2020 PHYTEC Messtechnik GmbH
+> + * Copyright (C) 2025 PHYTEC Messtechnik GmbH
+>   * Author: Teresa Remmet <t.remmet@phytec.de>
+>   */
+>
+>
+> --
+> 2.43.0
+>
 
