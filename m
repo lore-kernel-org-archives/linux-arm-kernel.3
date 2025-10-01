@@ -4,96 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 710B8CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 07:45:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E82ECCA474
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 07:47:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:References:In-Reply-To:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Qg7VWjS0JkeDUM38Rnu5q8oeFtV0qmFaVpXseuYx1QE=; b=nV+hifB2uAT/08PYXSA2UIQAaV
-	2i0gYQhMNsZPEt+dy9IVTI2VEh/lLO7tR/FuDOWdi0v2aXirX1PaxCob55u3VtMxFo2G7D+Q38tq2
-	SJ03jPdZn7PTaPKuSaDHThMLHFuOYIbSX/dc1GWrkPrN4m2xEbtMg6vOWyTPhFXSEQ+du/V98V6o3
-	GPVqHzbrpXI3d6+hlkIDhkWmyEf7RRoDQOvm9mLh5HFuCoL9Fi74wwD+4Gbnd7BoHZNkGgU4yk9x6
-	VgvWmv1WJriQTwudENU43bDHZADfanbTPAHYjFwldOLsBiPC8xSTRB0wCzKFWpTAlSQThwQ2reud3
-	O6lUzNvQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GO9r6nTqLr2tVA0A8M90x9kRo7dOno/9gKwYAl3CwRk=; b=E+n/hKoD2y+5xoJuKoLqA1k4eo
+	Lh3sQnbOiTVrzY/j3AnjWn8NO9zhC+wOr9H6/7V1+1GKLEiwfg3Ai/u1Re2nNvs6oTQmxeH+cqyXD
+	1kZ2fnkCRtZQ8M+JYPq76H+o+rfUlLw4NR3CTUE9wSd8bnlx8NXqG3goeqiaSP3zqK3T6n92STqSH
+	6LCQfzEZaXkVbLvwCpyIBOg1TZBURKR8dyHiaB5/chkzm0eT2ZAmm9n7PnP/y1pYN5iGow4Qgf3Fe
+	jFBkbYig4YeSttx+iLGENCvegGKri/1modIxY+lrffphilt248uwwD8EfWT5D68a9i7WyWkmwbFpY
+	2UukGjVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3rWU-00000006wJY-0ToZ;
-	Wed, 01 Oct 2025 07:45:14 +0000
-Received: from mail-wm1-x331.google.com ([2a00:1450:4864:20::331])
+	id 1v3rYh-00000006wfl-1PR6;
+	Wed, 01 Oct 2025 07:47:31 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3rWQ-00000006wIS-0asX
+	id 1v3rYe-00000006weW-30S6
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 07:45:13 +0000
-Received: by mail-wm1-x331.google.com with SMTP id 5b1f17b1804b1-46e52279279so23680885e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 00:45:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1759304708; x=1759909508; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:user-agent
-         :references:in-reply-to:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Qg7VWjS0JkeDUM38Rnu5q8oeFtV0qmFaVpXseuYx1QE=;
-        b=DjuqbijF1H9t7TSZhEb8HK1hAHTA27wpSefXrerhymehCrSXZuRpGK1raZ57qGDiWq
-         Ny6xCr01rkTR3ljWMsNGrTQsEYXsxzPyUEum+WrlaV7jXEx9/6xHqE2jumZ8gyPaN6lp
-         ABykNEPvp/bJ18BU0nospEsuu0zr2rSEh5w4/mw18ijmlz5setUhdrz9Xup2RTIovBxZ
-         sX8bYekYOLcO8fxQUzmAP4baIrQDBelGTNUmtjGddmZzBapRcnibzyoZYPERa75tM8bQ
-         iq6NxOvLmWjKxLOF1r1CcjgakcBIEJ3FZgLEZnKBHIe3LhIkaQIxRRvla8pAhbNpfbqF
-         KTqg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759304708; x=1759909508;
-        h=content-transfer-encoding:mime-version:message-id:date:user-agent
-         :references:in-reply-to:subject:cc:to:from:x-gm-message-state:from
-         :to:cc:subject:date:message-id:reply-to;
-        bh=Qg7VWjS0JkeDUM38Rnu5q8oeFtV0qmFaVpXseuYx1QE=;
-        b=nxpwtKyIBZEs2Daq5u5zIAiFirzGXmsx7500SnMV0YZ/eSFFPfaG14F/bYkxbBsH8L
-         7VFPyH0yLjyb6kzbhLBZJUwjgw7Hju5DnZ4/P64Doon07bZ2SdaklCipCFhOo6ACYPK8
-         NwAAfSxBNYyECaWooCiK9HiJaar+YEuMCe+qBKedMe++KeBCSY99hoOK16Cohy0Hm4no
-         c43rHT4Qgmaea3RnsQ2qlde9xM38+TMHCIYJ5hCnP4K1u40FWzuaExzkHavleB8TD5fx
-         RhVKEH7upYwE3MNE28TuEYIG2KBHny8OBUBgPxQrRLZOlIOKmyUgmjSyq+i8CZnKzWzk
-         48kg==
-X-Forwarded-Encrypted: i=1; AJvYcCXnu8wXt/ymtawnB8WvKrdtGFOJVQDc1KdBnIfnpoBAqYX2Z+nqCpxyjmkb3VBjZ6S/sxAzrkwCyoJZcvczd/+4@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw8oy6za/g3Ak/DPTSsD2HcgPW6PMLRKK4VZWlwwojSbdcnGzVP
-	UO9kA4VG9BI4bGVDZ+Ka+zLMzJ8zxrmp4NXDHjQPLdb7sfwD8uGlbXDeQkPvR9DVZ8g=
-X-Gm-Gg: ASbGncsdi2kK8qabgERttQSW/RYxXj3Y4xNaK3DlCKrknpQ3dwmHGh3eraqHT366ZoU
-	ioGLU7CPM4qpRHHyKdSdgi5LthOX1difWYfwJaDuPxdbUHk5VehCjrgHUm3rSjsw3GFI4GNLwil
-	caeUJ2O5K3IH3yy9XF8oiWlfy7XrXAnE3aT9svDgEvfKN1DZMHubZbDv8jk0H3RnWbFJN3Bi8xi
-	3c89FyUt5VOXIA9GpjjuUYzgtJ6gLpTfwzYE+aXxkIQR6m3y1duXOFBDVK4JvicToMMLavZdYcS
-	CwB7mIzaHUjeQheCG0YpevJLrQ5WuNbM5QqXq5EDIVLWc9phkUZ4uKUmVIVxDJTG0NygEvuXczm
-	KugyE2puHZ95BEy/zfuAiFvHmyMmII/PV5rY7byX3X236fQ==
-X-Google-Smtp-Source: AGHT+IFoRjI2Zw2x09D63Jf0YC7whoQC5cYnsETwVyuJVa3Ra7wHW3S2yFZ3fp1jDTOz8cPlStVCVA==
-X-Received: by 2002:a05:600c:6812:b0:45f:2cf9:c229 with SMTP id 5b1f17b1804b1-46e611a1fa9mr20772605e9.0.1759304707793;
-        Wed, 01 Oct 2025 00:45:07 -0700 (PDT)
-Received: from localhost ([2a01:e0a:3c5:5fb1:ec6d:2bf4:7406:4872])
-        by smtp.gmail.com with UTF8SMTPSA id 5b1f17b1804b1-46e619a6fc8sm26382545e9.13.2025.10.01.00.45.06
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Oct 2025 00:45:07 -0700 (PDT)
-From: Jerome Brunet <jbrunet@baylibre.com>
-To: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>
-Cc: Michael Turquette <mturquette@baylibre.com>,  Stephen Boyd
- <sboyd@kernel.org>,  Rob Herring <robh@kernel.org>,  Krzysztof Kozlowski
- <krzk+dt@kernel.org>,  Conor Dooley <conor+dt@kernel.org>,  Neil Armstrong
- <neil.armstrong@linaro.org>,  Kevin Hilman <khilman@baylibre.com>,  Martin
- Blumenstingl <martin.blumenstingl@googlemail.com>,  chuan.liu@amlogic.com,
-  linux-kernel@vger.kernel.org,  linux-clk@vger.kernel.org,
-  devicetree@vger.kernel.org,  linux-amlogic@lists.infradead.org,
-  linux-arm-kernel@lists.infradead.org,  Xianwei Zhao
- <xianwei.zhao@amlogic.com>
-Subject: Re: [PATCH 00/19] clk: amlogic: Add PLLs and peripheral clocks for
- A4 and A5 SoCs
-In-Reply-To: <20250930-a4_a5_add_clock_driver-v1-0-a9acf7951589@amlogic.com>
-	(Chuan Liu via's message of "Tue, 30 Sep 2025 17:37:13 +0800")
-References: <20250930-a4_a5_add_clock_driver-v1-0-a9acf7951589@amlogic.com>
-User-Agent: mu4e 1.12.9; emacs 30.1
-Date: Wed, 01 Oct 2025 09:45:06 +0200
-Message-ID: <1jv7kz3w1p.fsf@starbuckisacylon.baylibre.com>
+	Wed, 01 Oct 2025 07:47:30 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=GO9r6nTqLr2tVA0A8M90x9kRo7dOno/9gKwYAl3CwRk=; b=N1RNaG894XdDdK0mI83+kc5Ajm
+	Z8NqCdllVlqLGkDMQ4dDaQxGkmyS7j5adsiRmA6gIj1QMjn7J/ytNoV7fDPBh5WNADhPrAOTgCT/N
+	M9H/35Knojmj2po/LyBnnHKtacH0aLXS+dqXcG3j3MU7vieuRSkEu4P5yUAM/LEnW/tyV8N57ZyUm
+	RtHk1ZzeirzYSdCxuqoP2Zq/oxa9oF6iJA8F/1ZFpv3ZJ88sgCF3+6YQSDDZZ49ewDy3OHSNn1kpd
+	9GgIrVuGpCDeu2FFrlNo/4SQnQ6zEkk2yp5i9w0uCHiOx1Mc9Iq+sIONJ5VzBb1jsC9tRfLTJj6Zk
+	SoCvxfdQ==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:40816)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1v3rYN-000000000Aj-0u3G;
+	Wed, 01 Oct 2025 08:47:11 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1v3rYJ-000000005J3-0T0K;
+	Wed, 01 Oct 2025 08:47:07 +0100
+Date: Wed, 1 Oct 2025 08:47:06 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Jakub Kicinski <kuba@kernel.org>
+Cc: Heiner Kallweit <hkallweit1@gmail.com>,
+	Andrew Lunn <andrew+netdev@lunn.ch>, Chen-Yu Tsai <wens@kernel.org>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>, Paolo Abeni <pabeni@redhat.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej@kernel.org>,
+	Samuel Holland <samuel@sholland.org>, netdev@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org,
+	Andre Przywara <andre.przywara@arm.com>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>
+Subject: Re: [PATCH net-next v8 2/2] net: stmmac: Add support for Allwinner
+ A523 GMAC200
+Message-ID: <aNzcehZ7ALayP48B@shell.armlinux.org.uk>
+References: <20250925191600.3306595-1-wens@kernel.org>
+ <20250925191600.3306595-3-wens@kernel.org>
+ <20250929180804.3bd18dd9@kernel.org>
+ <20250930172022.3a6dd03e@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250930172022.3a6dd03e@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_004510_450095_880EC285 
-X-CRM114-Status: GOOD (  23.88  )
+X-CRM114-CacheID: sfid-20251001_004728_756729_BF93BF10 
+X-CRM114-Status: GOOD (  21.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,98 +93,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue 30 Sep 2025 at 17:37, Chuan Liu via B4 Relay <devnull+chuan.liu.amlo=
-gic.com@kernel.org> wrote:
+On Tue, Sep 30, 2025 at 05:20:22PM -0700, Jakub Kicinski wrote:
+> On Mon, 29 Sep 2025 18:08:04 -0700 Jakub Kicinski wrote:
+> > On Fri, 26 Sep 2025 03:15:59 +0800 Chen-Yu Tsai wrote:
+> > > The Allwinner A523 SoC family has a second Ethernet controller, called
+> > > the GMAC200 in the BSP and T527 datasheet, and referred to as GMAC1 for
+> > > numbering. This controller, according to BSP sources, is fully
+> > > compatible with a slightly newer version of the Synopsys DWMAC core.
+> > > The glue layer around the controller is the same as found around older
+> > > DWMAC cores on Allwinner SoCs. The only slight difference is that since
+> > > this is the second controller on the SoC, the register for the clock
+> > > delay controls is at a different offset. Last, the integration includes
+> > > a dedicated clock gate for the memory bus and the whole thing is put in
+> > > a separately controllable power domain.  
+> > 
+> > Hi Andrew, does this look good ?
+> > 
+> > thread: https://lore.kernel.org/20250925191600.3306595-3-wens@kernel.org
+> 
+> Adding Heiner and Russell, in case Andrew is AFK.
 
-> This patch series includes changes related to the PLL and peripheral
-> clocks for both the A4 and A5 SoCs.
->
-> The patches for A5 were previously submitted up to V3 by Xianwei.
-> https://lore.kernel.org/all/20250103-a5-clk-v3-0-a207ce83b9e9@amlogic.com/
-> After friendly coordination, I=E2=80=99ve taken over and continued the
-> submission as part of this series. The dt-bindings patch retains Rob's
-> original "Reviewed-by" tag, and I hope this hasn=E2=80=99t caused any
-> additional confusion.
+I believe it's fine. Applying the delays irrespective of the RGMII mode
+is what I think needs to be done to allow the delays to be fine-tuned.
 
-... and yet you restart the versioning of the series making it harder
-for people to follow that
+The author hsa confirmed that the delays don't apply to RMII, so that
+isn't a concern. So,
 
->
-> Both A4 and A5 belong to the Audio series. Judging by their names, one
-> might assume that A5 is an upgrade to A4, but in fact, A5 was released
-> a year earlier than A4.
->
-> Since there are differences in the PLLs and peripheral clocks between
-> the A4 and A5 SoCs (especially the PLL), and taking into account factors
-> such as memory footprint and maintainability, this series does not
-> attempt to merge the two into a shared driver as was done for
-> G12A/G12B/SM1.
+Reviewed-by: Russell King (Oracle) <rmk+kernel@armlinux.org.uk>
 
-... and we end up with 19 patches series while it could be splitted into
-manageable series, for each controller of each SoC
+Thanks!
 
->
-> This patch series includes all related dt-bindings, driver, and dts
-> changes for the PLLs and peripheral clocks. Following our past convention
-> for clock-related submissions, the dts changes are placed at the end
-> and submitted separately. If this ordering makes it harder for
-> maintainers to review or pick patches, please feel free to point it out.
->
-> Co-developed-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
-> Signed-off-by: Xianwei Zhao <xianwei.zhao@amlogic.com>
-> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
-> ---
-> Chuan Liu (19):
->       dt-bindings: clock: Add Amlogic A4 SCMI clock controller
->       dt-bindings: clock: Add Amlogic A4 PLL clock controller
->       dt-bindings: clock: Add Amlogic A4 peripherals clock controller
->       clk: amlogic: Optimize PLL enable timing
->       clk: amlogic: Correct l_detect bit control
->       clk: amlogic: Fix out-of-range PLL frequency setting
->       clk: amlogic: Add A4 PLL clock controller driver
->       clk: amlogic: Add A4 clock peripherals controller driver
->       arm64: dts: amlogic: A4: Add scmi-clk node
->       arm64: dts: amlogic: A4: Add PLL controller node
->       arm64: dts: amlogic: A4: Add peripherals clock controller node
->       dt-bindings: clock: Add Amlogic A5 SCMI clock controller support
->       dt-bindings: clock: Add Amlogic A5 PLL clock controller
->       dt-bindings: clock: Add Amlogic A5 peripherals clock controller
->       clk: amlogic: Add A5 PLL clock controller driver
->       clk: amlogic: Add A5 clock peripherals controller driver
->       arm64: dts: amlogic: A5: Add scmi-clk node
->       arm64: dts: amlogic: A5: Add PLL controller node
->       arm64: dts: amlogic: A5: Add peripheral clock controller node
->
->  .../clock/amlogic,a4-peripherals-clkc.yaml         | 122 +++
->  .../bindings/clock/amlogic,a4-pll-clkc.yaml        |  61 ++
->  .../clock/amlogic,a5-peripherals-clkc.yaml         | 134 ++++
->  .../bindings/clock/amlogic,a5-pll-clkc.yaml        |  63 ++
->  arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi        |  80 ++
->  arch/arm64/boot/dts/amlogic/amlogic-a5.dtsi        |  87 ++
->  drivers/clk/meson/Kconfig                          |  53 ++
->  drivers/clk/meson/Makefile                         |   4 +
->  drivers/clk/meson/a1-pll.c                         |   1 +
->  drivers/clk/meson/a4-peripherals.c                 | 764 +++++++++++++++=
-+++
->  drivers/clk/meson/a4-pll.c                         | 242 ++++++
->  drivers/clk/meson/a5-peripherals.c                 | 883 +++++++++++++++=
-++++++
->  drivers/clk/meson/a5-pll.c                         | 476 +++++++++++
->  drivers/clk/meson/clk-pll.c                        |  76 +-
->  drivers/clk/meson/clk-pll.h                        |   2 +
->  .../clock/amlogic,a4-peripherals-clkc.h            | 129 +++
->  include/dt-bindings/clock/amlogic,a4-pll-clkc.h    |  15 +
->  include/dt-bindings/clock/amlogic,a4-scmi-clkc.h   |  42 +
->  .../clock/amlogic,a5-peripherals-clkc.h            | 132 +++
->  include/dt-bindings/clock/amlogic,a5-pll-clkc.h    |  24 +
->  include/dt-bindings/clock/amlogic,a5-scmi-clkc.h   |  44 +
->  21 files changed, 3406 insertions(+), 28 deletions(-)
-> ---
-> base-commit: 01f3a6d1d59b8e25a6de243b0d73075cf0415eaf
-> change-id: 20250928-a4_a5_add_clock_driver-2b7c9d695633
->
-> Best regards,
-
---=20
-Jerome
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
