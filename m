@@ -4,92 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A39E7CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 15:37:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7265CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 15:41:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7oXKqNHKjxORxh3nzROULVGJTHASN2L0bjk8RZ9Iheg=; b=W/xEY7dEJiUcTNKStS4IENwMBh
-	srcD9SQoHLjTlXkwPj7noNQYvri8c6e9MrwsfEtCo7USWuZfbAGu9DSQqVdn6AQafRxY++WRH0C7j
-	1qDZMzaSeTOi840r/TLQ0fQoW+FW8w1AhMa1edmGq+gpYl7JOhuEPeuzv2ZNTB5brqgspD8vHlPi+
-	5EniXxFrG4p53oTGg+X06aujlpnjKpCZwv305JvdyXgzfLWWQUoFiy0Flw0QbHCvpxDbBzI67GYyZ
-	VmxdEq1Z9XqZp/pUQ8ego6UIukSxaxAHc0c6D21dxpbsZ7chF2qh1siuC9ZvIFwhh5i9tv0V0WF5K
-	Rip4jHNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fwZ6oxyhvW30e0NvMe6rHr5kkkm/FYODySCRzSo71eY=; b=BBumMfLlavhs/8ba5JlUVDMlFW
+	smCM0aEY6POxg1GDcwjNxoMn2GulpZUHlero3O223nu2+eCuRGBIH/qcObO0TO3l1y0IbwZ/pGAmY
+	cDjOF4Ww9rBYohqvaHi15B4+k0LaRNp1zirtF2YY+hGcg/QD0JTPcb6TZXn4mmST7enyHWb0LwQmj
+	A+rvV6/ud6mRk6YDKseMXBEPi6AZo25vdGe8PeqHiGMXjKyl7/lglVwrD2f1MsjQxEXEn38HSoASR
+	WFlBiazbfxBWn4xhfTvyUlEeJpiY6csIcfYQhEj/PbUJJzfqIwRD+svkhTLQnjC87QHGDgRyTiMBx
+	I04oq42Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3yt1-00000008Pog-1bzj;
-	Wed, 01 Oct 2025 15:36:59 +0000
+	id 1v3ywz-00000008QVD-44yw;
+	Wed, 01 Oct 2025 15:41:05 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3ysy-00000008PoJ-2Zan
+	id 1v3ywy-00000008QUe-0vKo
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 15:36:57 +0000
+	Wed, 01 Oct 2025 15:41:05 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2054141523;
-	Wed,  1 Oct 2025 15:36:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9704C4CEF1;
-	Wed,  1 Oct 2025 15:36:55 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 888ED43687
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Oct 2025 15:41:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6A555C4CEF1
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  1 Oct 2025 15:41:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759333016;
-	bh=8kal+PPa6BX15HLa8AM4ForWMFRMmj+xp1vJdXj0fcU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=PbBLwKrS/YozQXB/GvXyb3N4paECMb525i4e3P+kvfjSYwuph5lwGs6/P9CxHkqg5
-	 Um2L0N4qz1L/aIRcYt/+Pia54FWun/7LvOTtI2hYdjVlUtPa6wS8UGyQIWxhYbgPVH
-	 Jib58Cohh3bmt0BFKGjsNRs7Ghv5WLD5t/UNkhV68lUE5XuSq9smZxmPE0DY63WkaS
-	 FqTTdnAjf6JgWxRM8pRSW1qa3KqG+b5Y4p0EzFSEY9E1U0pJftsiEXF9sZ3m211RyT
-	 R82G4Sgip9VbU8hOmI9AqcfnJ6IXf5krgSorYJXJzLzFWZBV8A3t2Ud6hurbe2VEW0
-	 72G57qynIZAWg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1v3ysv-0000000Aqsk-1JO2;
-	Wed, 01 Oct 2025 15:36:53 +0000
-Date: Wed, 01 Oct 2025 16:36:52 +0100
-Message-ID: <86ecrmzl9n.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>
-Subject: Re: [PATCH v10 07/43] arm64: RME: ioctls to create and configure realms
-In-Reply-To: <20250820145606.180644-8-steven.price@arm.com>
-References: <20250820145606.180644-1-steven.price@arm.com>
-	<20250820145606.180644-8-steven.price@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1759333263;
+	bh=VPFhdajTzt4PMvSoazJy32tPKtXgLDASc3DZDYmsvgc=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=e23n1Qc3HVN4q/9rR/RJ2z/QTpQP2EYU+7XtZXUBEmkvWg94/88Xcx5Xyohv2L02X
+	 oebDZeQoYJUp/eKPBkFFf9TDFrYIgNEFU+fjF4v6HUKXPTZEfAYpl6RodLriRyu59Y
+	 UZ58ngllpRf25ivv6yv1M7Uof/Sl+Di5nNGrlonEF2/+7x1WL2VRaiujoec/TMuAKP
+	 Lb6vNxovtX1mLMoAiOFoUGZX9qhxZ1vyW4F+u3ORWbkM7uMYo1rxvURMI1vaoqDBcM
+	 CSSTgzX4RL2s+PlNG62SiLPUABzoO57LA7caUyqy7xA9ZlKZj0jIZm9MGHbA7gW0fQ
+	 LW0hf6Kf0KcRA==
+Received: by mail-ej1-f43.google.com with SMTP id a640c23a62f3a-b07d4d24d09so983566b.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 08:41:03 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCV2/3gxjdHysw3/D0vG4eQcmQaSTJNp2XJw1j4EIcWxbD4n8rODzBM/oBZWM8Hr4RgtbvGvh75gONliM30/pX1r@lists.infradead.org
+X-Gm-Message-State: AOJu0Yzu+iP9YEWC4/r2fYlnQy/LnyzW/r09TbYY1/NsHaWkY9L/Gjdn
+	+LWjn3ePovfsMmHn3HiWXB3OT629S33FYUXugsHfAf0RtUqpEffVc20xf35EtglGut3ds/+g38V
+	7VHiM9soTB/4b3irqEwGPGE61ifoJgQ==
+X-Google-Smtp-Source: AGHT+IEQg/Wj/A5kVG6NeqjVifOVkTFeucuHaTw0oAe89TAlFoQQ9Maf0g7ETh3zkxolZbtxGs/+9BsGvGwwYEgRweU=
+X-Received: by 2002:a17:906:6a28:b0:b3d:e9be:7ad0 with SMTP id
+ a640c23a62f3a-b46e4d7dbdamr429653566b.6.1759333262008; Wed, 01 Oct 2025
+ 08:41:02 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250928-exynos7870-drm-dts-v3-0-bb7d8e570860@disroot.org>
+ <175911189634.2556697.2474466935066391775.robh@kernel.org> <32036b3916a944be9450e48b6be30dc0@disroot.org>
+In-Reply-To: <32036b3916a944be9450e48b6be30dc0@disroot.org>
+From: Rob Herring <robh@kernel.org>
+Date: Wed, 1 Oct 2025 10:40:49 -0500
+X-Gmail-Original-Message-ID: <CAL_JsqLYCRfRuxtymiH50QrSXVsCQ_DFfP6E3GnnDP_Q0ofAJg@mail.gmail.com>
+X-Gm-Features: AS18NWBM0yEC5v7mwPKzU4adk5H2ji9GiLwA3JN9Wk_AB63JYvswUWeOPHSnB2c
+Message-ID: <CAL_JsqLYCRfRuxtymiH50QrSXVsCQ_DFfP6E3GnnDP_Q0ofAJg@mail.gmail.com>
+Subject: Re: [PATCH v3 0/6] Support for Exynos7870's display stack (DECON,
+ MIPIPHY, DSIM, etc.)
+To: Kaustabh Chakraborty <kauschluss@disroot.org>
+Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>, 
+	linux-kernel@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Krzysztof Kozlowski <krzk@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_083656_701297_CE95BE89 
-X-CRM114-Status: GOOD (  55.70  )
+X-CRM114-CacheID: sfid-20251001_084104_305632_74EE653C 
+X-CRM114-Status: GOOD (  40.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,532 +87,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 20 Aug 2025 15:55:27 +0100,
-Steven Price <steven.price@arm.com> wrote:
-> 
-> Add the KVM_CAP_ARM_RME_CREATE_RD ioctl to create a realm. This involves
-> delegating pages to the RMM to hold the Realm Descriptor (RD) and for
-> the base level of the Realm Translation Tables (RTT). A VMID also need
-> to be picked, since the RMM has a separate VMID address space a
-> dedicated allocator is added for this purpose.
-> 
-> KVM_CAP_ARM_RME_CONFIG_REALM is provided to allow configuring the realm
-> before it is created. Configuration options can be classified as:
-> 
->  1. Parameters specific to the Realm stage2 (e.g. IPA Size, vmid, stage2
->     entry level, entry level RTTs, number of RTTs in start level, LPA2)
->     Most of these are not measured by RMM and comes from KVM book
->     keeping.
+On Mon, Sep 29, 2025 at 5:05=E2=80=AFAM Kaustabh Chakraborty
+<kauschluss@disroot.org> wrote:
 >
->  2. Parameters controlling "Arm Architecture features for the VM". (e.g.
->     SVE VL, PMU counters, number of HW BRPs/WPs), configured by the VMM
->     using the "user ID register write" mechanism. These will be
->     supported in the later patches.
-> 
->  3. Parameters are not part of the core Arm architecture but defined
->     by the RMM spec (e.g. Hash algorithm for measurement,
->     Personalisation value). These are programmed via
->     KVM_CAP_ARM_RME_CONFIG_REALM.
-> 
-> For the IPA size there is the possibility that the RMM supports a
-> different size to the IPA size supported by KVM for normal guests. At
-> the moment the 'normal limit' is exposed by KVM_CAP_ARM_VM_IPA_SIZE and
-> the IPA size is configured by the bottom bits of vm_type in
-> KVM_CREATE_VM. This means that it isn't easy for the VMM to discover
-> what IPA sizes are supported for Realm guests. Since the IPA is part of
-> the measurement of the realm guest the current expectation is that the
-> VMM will be required to pick the IPA size demanded by attestation and
-> therefore simply failing if this isn't available is fine. An option
-> would be to expose a new capability ioctl to obtain the RMM's maximum
-> IPA size if this is needed in the future.
+> On 2025-09-29 02:14, Rob Herring (Arm) wrote:
+> > On Sun, 28 Sep 2025 23:26:34 +0530, Kaustabh Chakraborty wrote:
+> >> Exynos7870 has a IP subsystem in its architecture dedicated to display
+> >> management. Notably, this block includes the Display Enhancement
+> >> Controller (DECON), and the DSI Master (DSIM).
+> >>
+> >> The following series and its sub-series implement all components for a
+> >> functioning display pipeline. All vital information which helped
+> >> shaping
+> >> up the patches have been retrieved from Exynos7870 vendor kernel
+> >> sources
+> >> as provided by Samsung.
+> >>
+> >> Testing has been done on all three devices available upstream, i.e.
+> >> Samsung Galaxy J7 Prime (samsung-on7xelte), Samsung Galaxy A2 Core
+> >> (samsung-a2corelte), and Samsung Galaxy J6 (samsung-j6lte).
+> >> Regrettably,
+> >> I've only been able to test the functionality on video mode, as none
+> >> of
+> >> the devices have panels working in command mode.
+> >>
+> >> This series implements changes in the SoC subsystem, which includes
+> >> devicetree additions. It depends on all sub-series listed below:
+> >> (Legend: [R]eviewed, [A]ccepted)
+> >>
+> >> exynos-sysmmu-resv-regions A
+> >> https://lore.kernel.org/r/20250712-exynos-sysmmu-resv-regions-v1-1-e79=
+681fcab1a@disroot.org
+> >> exynos7870-mipi-phy        A
+> >> https://lore.kernel.org/r/20250612-exynos7870-mipi-phy-v1-0-3fff0b62d9=
+d3@disroot.org
+> >> exynos7870-mipi-phy-fix    A
+> >> https://lore.kernel.org/r/20250710-exynos7870-mipi-phy-fix-v2-1-5cf50d=
+69c9d7@disroot.org
+> >> exynos7870-dsim            A
+> >> https://lore.kernel.org/r/20250706-exynos7870-dsim-v3-0-9879fb9a644d@d=
+isroot.org
+> >> exynosdrm-decon            A
+> >> https://lore.kernel.org/r/20250706-exynosdrm-decon-v4-0-735fd215f4b3@d=
+isroot.org
+> >> panel-samsung-s6e8aa5x01   A
+> >> https://lore.kernel.org/r/20250721-panel-samsung-s6e8aa5x01-v5-0-1a315=
+aba530b@disroot.org
+> >> panel-synaptics-tddi       -
+> >> https://lore.kernel.org/r/20250625-panel-synaptics-tddi-v2-0-7a62ab1d1=
+3c7@disroot.org
+> >>
+> >> Signed-off-by: Kaustabh Chakraborty <kauschluss@disroot.org>
+> >> ---
+> >> Changes in v3:
+> >> - fixed minor issues with devicetree in regards to compliance
+> >> - added memory-region to framebuffer region for decon device
+> >> - added related patchset to list: exynos-sysmmu-resv-regions
+> >> - replaced exynos7870-pmu with exynos7-pmu compatible to the list
+> >>   allowing a MIPI PHY subnode (krzk)
+> >> - updated compatible string and dt node for j6lte's panel
+> >> - reorder properties: ${x}, followed by ${x}-names (krzk)
+> >> - Link to v2:
+> >> https://lore.kernel.org/r/20250627-exynos7870-drm-dts-v2-0-d4a59207390=
+d@disroot.org
+> >>
+> >> Changes in v2:
+> >> - modified compatible hierarchy to use non-deprecated syntax (krzk)
+> >> - fixed subject prefixes of [v1 2/5], [v1 3/5], [v1 4/5], [v1 5/5]
+> >> (krzk)
+> >> - removed simplefb nodes instead of disabling it (krzk)
+> >> - added dt-bindings patch to allow mipi-phy node under PMU
+> >> - changed clock names of dsim node
+> >> - Link to v1:
+> >> https://lore.kernel.org/r/20250612-exynos7870-drm-dts-v1-0-88c0779af6c=
+b@disroot.org
+> >>
+> >> ---
+> >> Kaustabh Chakraborty (6):
+> >>       dt-bindings: samsung: exynos-sysreg: add exynos7870 sysregs
+> >>       dt-bindings: soc: samsung: exynos-pmu: allow mipi-phy subnode
+> >> for Exynos7 PMU
+> >>       arm64: dts: exynos7870: add DSI support
+> >>       arm64: dts: exynos7870-on7xelte: enable display panel support
+> >>       arm64: dts: exynos7870-a2corelte: enable display panel support
+> >>       arm64: dts: exynos7870-j6lte: enable display panel support
+> >>
+> >>  .../bindings/soc/samsung/exynos-pmu.yaml           |  1 +
+> >>  .../soc/samsung/samsung,exynos-sysreg.yaml         |  2 +
+> >>  .../arm64/boot/dts/exynos/exynos7870-a2corelte.dts | 57
+> >> +++++++++++----
+> >>  arch/arm64/boot/dts/exynos/exynos7870-j6lte.dts    | 38 ++++++----
+> >>  arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dts | 57
+> >> +++++++++++----
+> >>  arch/arm64/boot/dts/exynos/exynos7870.dtsi         | 84
+> >> ++++++++++++++++++++++
+> >>  6 files changed, 197 insertions(+), 42 deletions(-)
+> >> ---
+> >> base-commit: 262858079afde6d367ce3db183c74d8a43a0e83f
+> >> change-id: 20250523-exynos7870-drm-dts-87ccab731ba9
+> >>
+> >> Best regards,
+> >> --
+> >> Kaustabh Chakraborty <kauschluss@disroot.org>
+> >>
+> >>
+> >>
+> >
+> >
+> > My bot found new DTB warnings on the .dts files added or changed in
+> > this
+> > series.
+> >
+> > Some warnings may be from an existing SoC .dtsi. Or perhaps the
+> > warnings
+> > are fixed by another series. Ultimately, it is up to the platform
+> > maintainer whether these warnings are acceptable or not. No need to
+> > reply
+> > unless the platform maintainer has comments.
+> >
+> > If you already ran DT checks and didn't see these error(s), then
+> > make sure dt-schema is up to date:
+> >
+> >   pip3 install dtschema --upgrade
+> >
+> >
+> > This patch series was applied (using b4) to base:
+> >  Base: using specified base-commit
+> > 262858079afde6d367ce3db183c74d8a43a0e83f
+> >
+> > If this is not the correct base, please add 'base-commit' tag
+> > (or use b4 which does this automatically)
+> >
+> > New warnings running 'make CHECK_DTBS=3Dy for
+> > arch/arm64/boot/dts/exynos/' for
+> > 20250928-exynos7870-drm-dts-v3-0-bb7d8e570860@disroot.org:
+> >
+> > arch/arm64/boot/dts/exynos/exynos7870-on7xelte.dtb:
+> > /soc@0/dsi@14800000/panel@0: failed to match any schema with
+> > compatible: ['syna,td4300-panel']
+> > arch/arm64/boot/dts/exynos/exynos7870-a2corelte.dtb:
+> > /soc@0/dsi@14800000/panel@0: failed to match any schema with
+> > compatible: ['syna,td4101-panel']
+>
+> Note: This affects patches 4/6 and 5/6, rest should be mergeable.
 
-I think you must have something of the sort. Configuring the IPA size
-is one of the basic things a VMM performs, querying the host for that
-information. Implicit IPA size prevents the basics of what we have
-userspace for: management of the IPA space. Otherwise, how can the
-guest know where to place its I/O, for example?
+You sent a series and it's easier for maintainers to take a whole
+series than figure out what they can and can't apply. In any case,
+we're in the middle of the merge window now, so you will need to
+resend everything after rc1. You should either fix the warnings or
+drop the 2 patches when you send it again.
 
-> 
-> Co-developed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Signed-off-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> ---
-> Changes since v9:
->  * Avoid walking the stage 2 page tables when destroying the realm -
->    the real ones are not accessible to the non-secure world, and the RMM
->    may leave junk in the physical pages when returning them.
->  * Fix an error path in realm_create_rd() to actually return an error value.
-> Changes since v8:
->  * Fix free_delegated_granule() to not call kvm_account_pgtable_pages();
->    a separate wrapper will be introduced in a later patch to deal with
->    RTTs.
->  * Minor code cleanups following review.
-> Changes since v7:
->  * Minor code cleanup following Gavin's review.
-> Changes since v6:
->  * Separate RMM RTT calculations from host PAGE_SIZE. This allows the
->    host page size to be larger than 4k while still communicating with an
->    RMM which uses 4k granules.
-> Changes since v5:
->  * Introduce free_delegated_granule() to replace many
->    undelegate/free_page() instances and centralise the comment on
->    leaking when the undelegate fails.
->  * Several other minor improvements suggested by reviews - thanks for
->    the feedback!
-> Changes since v2:
->  * Improved commit description.
->  * Improved return failures for rmi_check_version().
->  * Clear contents of PGD after it has been undelegated in case the RMM
->    left stale data.
->  * Minor changes to reflect changes in previous patches.
-> ---
->  arch/arm64/include/asm/kvm_emulate.h |   5 +
->  arch/arm64/include/asm/kvm_rme.h     |  19 ++
->  arch/arm64/kvm/arm.c                 |  16 ++
->  arch/arm64/kvm/mmu.c                 |  24 +-
->  arch/arm64/kvm/rme.c                 | 322 +++++++++++++++++++++++++++
->  5 files changed, 383 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm64/include/asm/kvm_emulate.h b/arch/arm64/include/asm/kvm_emulate.h
-> index ab4093e41c4b..f429ad704850 100644
-> --- a/arch/arm64/include/asm/kvm_emulate.h
-> +++ b/arch/arm64/include/asm/kvm_emulate.h
-> @@ -687,6 +687,11 @@ static inline enum realm_state kvm_realm_state(struct kvm *kvm)
->  	return READ_ONCE(kvm->arch.realm.state);
->  }
->  
-> +static inline bool kvm_realm_is_created(struct kvm *kvm)
-> +{
-> +	return kvm_is_realm(kvm) && kvm_realm_state(kvm) != REALM_STATE_NONE;
-> +}
-> +
->  static inline bool vcpu_is_rec(struct kvm_vcpu *vcpu)
->  {
->  	return false;
-> diff --git a/arch/arm64/include/asm/kvm_rme.h b/arch/arm64/include/asm/kvm_rme.h
-> index 9c8a0b23e0e4..5dc1915de891 100644
-> --- a/arch/arm64/include/asm/kvm_rme.h
-> +++ b/arch/arm64/include/asm/kvm_rme.h
-> @@ -6,6 +6,8 @@
->  #ifndef __ASM_KVM_RME_H
->  #define __ASM_KVM_RME_H
->  
-> +#include <uapi/linux/kvm.h>
-> +
-
-Why do you need to include a uapi-specific file for something that is
-deeply arch-specific? This is a recipe for circular dependencies that
-are horrible to solve.
-
->  /**
->   * enum realm_state - State of a Realm
->   */
-> @@ -46,11 +48,28 @@ enum realm_state {
->   * struct realm - Additional per VM data for a Realm
->   *
->   * @state: The lifetime state machine for the realm
-> + * @rd: Kernel mapping of the Realm Descriptor (RD)
-> + * @params: Parameters for the RMI_REALM_CREATE command
-> + * @num_aux: The number of auxiliary pages required by the RMM
-> + * @vmid: VMID to be used by the RMM for the realm
-> + * @ia_bits: Number of valid Input Address bits in the IPA
->   */
->  struct realm {
->  	enum realm_state state;
-> +
-> +	void *rd;
-> +	struct realm_params *params;
-> +
-> +	unsigned long num_aux;
-> +	unsigned int vmid;
-> +	unsigned int ia_bits;
->  };
->  
->  void kvm_init_rme(void);
-> +u32 kvm_realm_ipa_limit(void);
-> +
-> +int kvm_realm_enable_cap(struct kvm *kvm, struct kvm_enable_cap *cap);
-> +int kvm_init_realm_vm(struct kvm *kvm);
-> +void kvm_destroy_realm(struct kvm *kvm);
->  
->  #endif /* __ASM_KVM_RME_H */
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 76177c56f1ef..1acee3861e55 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -136,6 +136,11 @@ int kvm_vm_ioctl_enable_cap(struct kvm *kvm,
->  		}
->  		mutex_unlock(&kvm->lock);
->  		break;
-> +	case KVM_CAP_ARM_RME:
-> +		mutex_lock(&kvm->lock);
-> +		r = kvm_realm_enable_cap(kvm, cap);
-> +		mutex_unlock(&kvm->lock);
-> +		break;
->  	default:
->  		break;
->  	}
-> @@ -198,6 +203,13 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
->  
->  	bitmap_zero(kvm->arch.vcpu_features, KVM_VCPU_MAX_FEATURES);
->  
-> +	/* Initialise the realm bits after the generic bits are enabled */
-> +	if (kvm_is_realm(kvm)) {
-> +		ret = kvm_init_realm_vm(kvm);
-> +		if (ret)
-> +			goto err_free_cpumask;
-> +	}
-> +
->  	return 0;
->  
->  err_free_cpumask:
-> @@ -257,6 +269,7 @@ void kvm_arch_destroy_vm(struct kvm *kvm)
->  	kvm_unshare_hyp(kvm, kvm + 1);
->  
->  	kvm_arm_teardown_hypercalls(kvm);
-> +	kvm_destroy_realm(kvm);
->  }
->  
->  static bool kvm_has_full_ptr_auth(void)
-> @@ -417,6 +430,9 @@ int kvm_vm_ioctl_check_extension(struct kvm *kvm, long ext)
->  		else
->  			r = kvm_supports_cacheable_pfnmap();
->  		break;
-> +	case KVM_CAP_ARM_RME:
-> +		r = static_key_enabled(&kvm_rme_is_available);
-> +		break;
->  
->  	default:
->  		r = 0;
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index 1c78864767c5..de10dbde4761 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -871,12 +871,16 @@ static struct kvm_pgtable_mm_ops kvm_s2_mm_ops = {
->  	.icache_inval_pou	= invalidate_icache_guest_page,
->  };
->  
-> -static int kvm_init_ipa_range(struct kvm_s2_mmu *mmu, unsigned long type)
-> +static int kvm_init_ipa_range(struct kvm *kvm,
-> +			      struct kvm_s2_mmu *mmu, unsigned long type)
->  {
->  	u32 kvm_ipa_limit = get_kvm_ipa_limit();
->  	u64 mmfr0, mmfr1;
->  	u32 phys_shift;
->  
-> +	if (kvm_is_realm(kvm))
-> +		kvm_ipa_limit = kvm_realm_ipa_limit();
-> +
->  	if (type & ~KVM_VM_TYPE_ARM_IPA_SIZE_MASK)
->  		return -EINVAL;
->  
-> @@ -941,7 +945,7 @@ int kvm_init_stage2_mmu(struct kvm *kvm, struct kvm_s2_mmu *mmu, unsigned long t
->  		return -EINVAL;
->  	}
->  
-> -	err = kvm_init_ipa_range(mmu, type);
-> +	err = kvm_init_ipa_range(kvm, mmu, type);
->  	if (err)
->  		return err;
->  
-> @@ -1067,6 +1071,19 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
->  	struct kvm_pgtable *pgt = NULL;
->  
->  	write_lock(&kvm->mmu_lock);
-> +	if (kvm_is_realm(kvm) &&
-> +	    (kvm_realm_state(kvm) != REALM_STATE_DEAD &&
-> +	     kvm_realm_state(kvm) != REALM_STATE_NONE)) {
-> +		/* Tearing down RTTs will be added in a later patch */
-> +		write_unlock(&kvm->mmu_lock);
-> +
-> +		/*
-> +		 * The PGD pages can be reclaimed only after the realm (RD) is
-> +		 * destroyed. We call this again from kvm_destroy_realm() after
-> +		 * the RD is destroyed.
-> +		 */
-> +		return;
-> +	}
-
-Please move S2 management outside of this patch. It's hard to follow
-what is happening when this sort of stuff is split over multiple patches.
-
->  	pgt = mmu->pgt;
->  	if (pgt) {
->  		mmu->pgd_phys = 0;
-> @@ -1076,7 +1093,8 @@ void kvm_free_stage2_pgd(struct kvm_s2_mmu *mmu)
->  	write_unlock(&kvm->mmu_lock);
->  
->  	if (pgt) {
-> -		KVM_PGT_FN(kvm_pgtable_stage2_destroy)(pgt);
-> +		if (!kvm_is_realm(kvm))
-> +			KVM_PGT_FN(kvm_pgtable_stage2_destroy)(pgt);
-
-having to do stuff like this is horrid. Please provide a backend to
-the KVM_PGT_FN() helper instead.
-
->  		kfree(pgt);
->  	}
->  }
-> diff --git a/arch/arm64/kvm/rme.c b/arch/arm64/kvm/rme.c
-> index 67cf2d94cb2d..4a2c557bf0a7 100644
-> --- a/arch/arm64/kvm/rme.c
-> +++ b/arch/arm64/kvm/rme.c
-> @@ -5,9 +5,23 @@
->  
->  #include <linux/kvm_host.h>
->  
-> +#include <asm/kvm_emulate.h>
-> +#include <asm/kvm_mmu.h>
->  #include <asm/rmi_cmds.h>
->  #include <asm/virt.h>
->  
-> +#include <asm/kvm_pgtable.h>
-> +
-> +static unsigned long rmm_feat_reg0;
-> +
-> +#define RMM_PAGE_SHIFT		12
-> +#define RMM_PAGE_SIZE		BIT(RMM_PAGE_SHIFT)
-> +
-> +static bool rme_has_feature(unsigned long feature)
-> +{
-> +	return !!u64_get_bits(rmm_feat_reg0, feature);
-> +}
-> +
->  static int rmi_check_version(void)
->  {
->  	struct arm_smccc_res res;
-> @@ -42,6 +56,308 @@ static int rmi_check_version(void)
->  	return 0;
->  }
->  
-> +u32 kvm_realm_ipa_limit(void)
-> +{
-> +	return u64_get_bits(rmm_feat_reg0, RMI_FEATURE_REGISTER_0_S2SZ);
-> +}
-> +
-> +static int get_start_level(struct realm *realm)
-> +{
-> +	/*
-> +	 * Open coded version of 4 - stage2_pgtable_levels(ia_bits) but using
-> +	 * the RMM's page size rather than the host's.
-> +	 */
-> +	return 4 - ((realm->ia_bits - 8) / (RMM_PAGE_SHIFT - 3));
-
-Why 8?
-
-> +}
-> +
-> +static int free_delegated_granule(phys_addr_t phys)
-> +{
-> +	if (WARN_ON(rmi_granule_undelegate(phys))) {
-> +		/* Undelegate failed: leak the page */
-> +		return -EBUSY;
-> +	}
-> +
-> +	free_page((unsigned long)phys_to_virt(phys));
-> +
-> +	return 0;
-> +}
-> +
-> +/* Calculate the number of s2 root rtts needed */
-> +static int realm_num_root_rtts(struct realm *realm)
-> +{
-> +	unsigned int ipa_bits = realm->ia_bits;
-> +	unsigned int levels = 4 - get_start_level(realm);
-> +	unsigned int sl_ipa_bits = levels * (RMM_PAGE_SHIFT - 3) +
-> +				   RMM_PAGE_SHIFT;
-> +
-> +	if (sl_ipa_bits >= ipa_bits)
-> +		return 1;
-> +
-> +	return 1 << (ipa_bits - sl_ipa_bits);
-
-Don't we already have similar things in pgtables.c? It has a strong
-feel of deja-vu.
-
-> +}
-> +
-> +static int realm_create_rd(struct kvm *kvm)
-> +{
-> +	struct realm *realm = &kvm->arch.realm;
-> +	struct realm_params *params = realm->params;
-> +	void *rd = NULL;
-> +	phys_addr_t rd_phys, params_phys;
-> +	size_t pgd_size = kvm_pgtable_stage2_pgd_size(kvm->arch.mmu.vtcr);
-> +	int i, r;
-> +	int rtt_num_start;
-> +
-> +	realm->ia_bits = VTCR_EL2_IPA(kvm->arch.mmu.vtcr);
-> +	rtt_num_start = realm_num_root_rtts(realm);
-> +
-> +	if (WARN_ON(realm->rd || !realm->params))
-> +		return -EEXIST;
-> +
-> +	if (pgd_size / RMM_PAGE_SIZE < rtt_num_start)
-> +		return -EINVAL;
-> +
-> +	rd = (void *)__get_free_page(GFP_KERNEL);
-> +	if (!rd)
-> +		return -ENOMEM;
-> +
-> +	rd_phys = virt_to_phys(rd);
-> +	if (rmi_granule_delegate(rd_phys)) {
-> +		r = -ENXIO;
-> +		goto free_rd;
-> +	}
-> +
-> +	for (i = 0; i < pgd_size; i += RMM_PAGE_SIZE) {
-> +		phys_addr_t pgd_phys = kvm->arch.mmu.pgd_phys + i;
-> +
-> +		if (rmi_granule_delegate(pgd_phys)) {
-> +			r = -ENXIO;
-> +			goto out_undelegate_tables;
-> +		}
-> +	}
-> +
-> +	params->s2sz = VTCR_EL2_IPA(kvm->arch.mmu.vtcr);
-> +	params->rtt_level_start = get_start_level(realm);
-> +	params->rtt_num_start = rtt_num_start;
-> +	params->rtt_base = kvm->arch.mmu.pgd_phys;
-> +	params->vmid = realm->vmid;
-> +
-> +	params_phys = virt_to_phys(params);
-> +
-> +	if (rmi_realm_create(rd_phys, params_phys)) {
-> +		r = -ENXIO;
-> +		goto out_undelegate_tables;
-> +	}
-> +
-> +	if (WARN_ON(rmi_rec_aux_count(rd_phys, &realm->num_aux))) {
-> +		WARN_ON(rmi_realm_destroy(rd_phys));
-> +		r = -ENXIO;
-> +		goto out_undelegate_tables;
-> +	}
-> +
-> +	realm->rd = rd;
-> +
-> +	return 0;
-> +
-> +out_undelegate_tables:
-> +	while (i > 0) {
-> +		i -= RMM_PAGE_SIZE;
-> +
-> +		phys_addr_t pgd_phys = kvm->arch.mmu.pgd_phys + i;
-> +
-> +		if (WARN_ON(rmi_granule_undelegate(pgd_phys))) {
-> +			/* Leak the pages if they cannot be returned */
-> +			kvm->arch.mmu.pgt = NULL;
-> +			break;
-> +		}
-> +	}
-> +	if (WARN_ON(rmi_granule_undelegate(rd_phys))) {
-> +		/* Leak the page if it isn't returned */
-> +		return r;
-> +	}
-> +free_rd:
-> +	free_page((unsigned long)rd);
-> +	return r;
-> +}
-> +
-> +/* Protects access to rme_vmid_bitmap */
-> +static DEFINE_SPINLOCK(rme_vmid_lock);
-> +static unsigned long *rme_vmid_bitmap;
-> +
-> +static int rme_vmid_init(void)
-> +{
-> +	unsigned int vmid_count = 1 << kvm_get_vmid_bits();
-> +
-> +	rme_vmid_bitmap = bitmap_zalloc(vmid_count, GFP_KERNEL);
-> +	if (!rme_vmid_bitmap) {
-> +		kvm_err("%s: Couldn't allocate rme vmid bitmap\n", __func__);
-> +		return -ENOMEM;
-> +	}
-> +
-> +	return 0;
-> +}
-
-Why do we need a VMID allocator? This is a different translation
-regime, which won't intersect with the host's. Surely the RMM can
-maintain its own?
-
-> +
-> +static int rme_vmid_reserve(void)
-> +{
-> +	int ret;
-> +	unsigned int vmid_count = 1 << kvm_get_vmid_bits();
-> +
-> +	spin_lock(&rme_vmid_lock);
-> +	ret = bitmap_find_free_region(rme_vmid_bitmap, vmid_count, 0);
-> +	spin_unlock(&rme_vmid_lock);
-> +
-> +	return ret;
-> +}
-> +
-> +static void rme_vmid_release(unsigned int vmid)
-> +{
-> +	spin_lock(&rme_vmid_lock);
-> +	bitmap_release_region(rme_vmid_bitmap, vmid, 0);
-> +	spin_unlock(&rme_vmid_lock);
-> +}
-> +
-> +static int kvm_create_realm(struct kvm *kvm)
-> +{
-> +	struct realm *realm = &kvm->arch.realm;
-> +	int ret;
-> +
-> +	if (kvm_realm_is_created(kvm))
-> +		return -EEXIST;
-> +
-> +	ret = rme_vmid_reserve();
-> +	if (ret < 0)
-> +		return ret;
-> +	realm->vmid = ret;
-> +
-> +	ret = realm_create_rd(kvm);
-> +	if (ret) {
-> +		rme_vmid_release(realm->vmid);
-> +		return ret;
-> +	}
-> +
-> +	WRITE_ONCE(realm->state, REALM_STATE_NEW);
-> +
-> +	/* The realm is up, free the parameters.  */
-> +	free_page((unsigned long)realm->params);
-> +	realm->params = NULL;
-> +
-> +	return 0;
-> +}
-> +
-> +static int config_realm_hash_algo(struct realm *realm,
-> +				  struct arm_rme_config *cfg)
-> +{
-> +	switch (cfg->hash_algo) {
-> +	case ARM_RME_CONFIG_HASH_ALGO_SHA256:
-> +		if (!rme_has_feature(RMI_FEATURE_REGISTER_0_HASH_SHA_256))
-> +			return -EINVAL;
-> +		break;
-> +	case ARM_RME_CONFIG_HASH_ALGO_SHA512:
-> +		if (!rme_has_feature(RMI_FEATURE_REGISTER_0_HASH_SHA_512))
-> +			return -EINVAL;
-> +		break;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +	realm->params->hash_algo = cfg->hash_algo;
-> +	return 0;
-> +}
-
-What is the purpose of this?
-
-Overall, there is a lot here that needs to be explained, because I
-don't immediately understand what this stuff is all about. This file
-needs a large comment at the front explaining what is all that for.
-
-Paste the whole spec in if that helps.
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Rob
 
