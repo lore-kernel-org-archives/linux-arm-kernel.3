@@ -4,84 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 548F7CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 17:18:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B237CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 17:22:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SkWCXVZn9oQwr9fOneaWYc16aLwPTVni5B0m5Fk1lXU=; b=H3gEZxyKhWzoY0JA7KiHqd8lmH
-	x2JAh5+Pt4TWWvq3XN0j9gX6T43x4a6b+U7bqp4Gf/jDNU/hSPgLV+tk5D46/V94llfUUopto6mvy
-	by75M74KgQcRQ8haB/eZ6RasiUtkaLLfCc8tf3xkwu6dTQaxIF466o8xA6c27WTpEkZAVUcl77yhp
-	Hb1liROypMTPABB21NShovqr4Ij1tElrAp2jtN6ro5UT4w6BPvzyUpGWakERdTySP3xFJC1pDYtlr
-	RQv8Yx7i/0Ei4w7163YK7DlQhxh8FjjRSTCx0oyRCbAg79oQa6cKzVJs8564W37vIsNGwjh9U2Z20
-	Q/oFQTHw==;
+	bh=KtHH5slsD8Ox5MoPLqaiqd9jBeTgdv0YVlgjsuTd720=; b=zbrWBpfH7XkAXmKjAvZH2U+9am
+	Elx6B7fMUn+XPu8wnpzL7gymrs939QI4PcdUDyehAwQ5PnoflabZDnOW84IEJTMsVqBh+/aUbH4zM
+	zhDXEREguYtafeuIrMaiIKWGhDV4Bjg8U5349oDt3l9MhK+zY32shWEjo+xssvMHl1+Rv9EIVk/uu
+	Ak4HHsDIbe3fM2NcsIoEbATvxX3gJH+y7lVUYFvGYLehxI4Ndd+YKqMyvwa/2qLme7rY9x6NRPFk/
+	gT9ofrG6Rse9KbBEJh3vqQBJjnuLJ0g/SqjbthPAitLEU/EEHMoNfUBUPbVvNukgaIMctJR2+PaMD
+	SIuAxcng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v40TJ-00000008cxd-0PgL;
-	Wed, 01 Oct 2025 17:18:33 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v40TG-00000008cx2-3bqz;
-	Wed, 01 Oct 2025 17:18:32 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1759339054; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=g6eeKVe8q5UYu/Zyv+4f8spD2OVynk46aIqjrhPwvud4pg/yFU6GJ8m/Y+1A38QxhJIyMHo9XvP2zVwJvaf/koqQdRI7iWsrnIYH03ufiggiwoc8wIKBaqBtmNuHNS3TWVaLJgEmt6Fefs8/PbI5VQDaVTNFQ38gfghwAncUdSI=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1759339054; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=SkWCXVZn9oQwr9fOneaWYc16aLwPTVni5B0m5Fk1lXU=; 
-	b=PXCmVyZKF60Fi3lkeBl8zsfau5T0mvo/+YUBztmCZGuI3hDgh8QllEmRMfQbbgGMoKMd6NpZArnRZfrbBQ6qU0VMrSsDFscLsUkiHKPlNfxm2mHOvEE/MuGlBOc92dOt6bAR2SQCSepwaMg2H0rHrr1SVIUaN7fmLbAM2i5Vss8=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=ariel.dalessandro@collabora.com;
-	dmarc=pass header.from=<ariel.dalessandro@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1759339053;
-	s=zohomail; d=collabora.com; i=ariel.dalessandro@collabora.com;
-	h=Message-ID:Date:Date:MIME-Version:Subject:Subject:To:To:Cc:Cc:References:From:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:Message-Id:Reply-To;
-	bh=SkWCXVZn9oQwr9fOneaWYc16aLwPTVni5B0m5Fk1lXU=;
-	b=ksINNn9Ry5kbkov/RYjCPthrjeR/B3ir8QZC1VLMfigTV/SQeRC/9naX5P5o+oQt
-	gcY1Xc/8D9yh670ZLUBONiSf31YNccaNSXJ9MVf3Ct2t0tT28Smz/yZBpoLObK3k8S4
-	J9608xI9dzJLMBP3t+Ok40Iuj+DdtKnf3vUZ3udU=
-Received: by mx.zohomail.com with SMTPS id 175933905208321.77046877084581;
-	Wed, 1 Oct 2025 10:17:32 -0700 (PDT)
-Message-ID: <a3b54ec9-e4d7-4d56-8493-f40be81f803e@collabora.com>
-Date: Wed, 1 Oct 2025 14:17:16 -0300
+	id 1v40XB-00000008dXA-0wbn;
+	Wed, 01 Oct 2025 17:22:33 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v40X8-00000008dVJ-3fvc
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Oct 2025 17:22:32 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id DDF2116F8;
+	Wed,  1 Oct 2025 10:22:19 -0700 (PDT)
+Received: from [10.57.66.40] (unknown [10.57.66.40])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 30AE33F59E;
+	Wed,  1 Oct 2025 10:22:22 -0700 (PDT)
+Message-ID: <69b1c489-b4cb-4bee-aff1-6c76fc48cf29@arm.com>
+Date: Wed, 1 Oct 2025 19:22:20 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 00/12] MediaTek dt-bindings sanitization (MT8173)
-To: Rob Herring <robh@kernel.org>
-Cc: airlied@gmail.com, amergnat@baylibre.com, andrew+netdev@lunn.ch,
- andrew-ct.chen@mediatek.com, angelogioacchino.delregno@collabora.com,
- broonie@kernel.org, chunkuang.hu@kernel.org, conor+dt@kernel.org,
- davem@davemloft.net, dmitry.torokhov@gmail.com, edumazet@google.com,
- flora.fu@mediatek.com, heiko@sntech.de, houlong.wei@mediatek.com,
- jeesw@melfas.com, kernel@collabora.com, krzk+dt@kernel.org, kuba@kernel.org,
- lgirdwood@gmail.com, linus.walleij@linaro.org,
- louisalexis.eyraud@collabora.com, luiz.dentz@gmail.com,
- maarten.lankhorst@linux.intel.com, marcel@holtmann.org,
- matthias.bgg@gmail.com, mchehab@kernel.org, minghsiu.tsai@mediatek.com,
- mripard@kernel.org, p.zabel@pengutronix.de, pabeni@redhat.com,
- sean.wang@kernel.org, simona@ffwll.ch, support.opensource@diasemi.com,
- tiffany.lin@mediatek.com, tzimmermann@suse.de, yunfei.dong@mediatek.com,
- devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-bluetooth@vger.kernel.org,
- linux-gpio@vger.kernel.org, linux-input@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- linux-mediatek@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-sound@vger.kernel.org, netdev@vger.kernel.org
-References: <20250911151001.108744-1-ariel.dalessandro@collabora.com>
- <20250923214834.GC91441-robh@kernel.org>
-Content-Language: en-US
-From: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-In-Reply-To: <20250923214834.GC91441-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ZohoMailClient: External
+Subject: Re: [RFC PATCH v5 13/18] mm: Map page tables with privileged pkey
+To: David Hildenbrand <david@redhat.com>, linux-hardening@vger.kernel.org
+Cc: linux-kernel@vger.kernel.org, Andrew Morton <akpm@linux-foundation.org>,
+ Andy Lutomirski <luto@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Dave Hansen <dave.hansen@linux.intel.com>,
+ Ira Weiny <ira.weiny@intel.com>, Jann Horn <jannh@google.com>,
+ Jeff Xu <jeffxu@chromium.org>, Joey Gouly <joey.gouly@arm.com>,
+ Kees Cook <kees@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
+ Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Marc Zyngier <maz@kernel.org>,
+ Mark Brown <broonie@kernel.org>, Matthew Wilcox <willy@infradead.org>,
+ Maxwell Bland <mbland@motorola.com>, "Mike Rapoport (IBM)"
+ <rppt@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Pierre Langlois <pierre.langlois@arm.com>,
+ Quentin Perret <qperret@google.com>,
+ Rick Edgecombe <rick.p.edgecombe@intel.com>,
+ Ryan Roberts <ryan.roberts@arm.com>, Thomas Gleixner <tglx@linutronix.de>,
+ Vlastimil Babka <vbabka@suse.cz>, Will Deacon <will@kernel.org>,
+ linux-arm-kernel@lists.infradead.org, linux-mm@kvack.org, x86@kernel.org
+References: <20250815085512.2182322-1-kevin.brodsky@arm.com>
+ <20250815085512.2182322-14-kevin.brodsky@arm.com>
+ <48ed62b1-cceb-4bce-923c-25c11dbccc37@redhat.com>
+Content-Language: en-GB
+From: Kevin Brodsky <kevin.brodsky@arm.com>
+In-Reply-To: <48ed62b1-cceb-4bce-923c-25c11dbccc37@redhat.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_101830_956683_1A305ADD 
-X-CRM114-Status: GOOD (  12.52  )
+X-CRM114-CacheID: sfid-20251001_102231_024423_6ED06562 
+X-CRM114-Status: GOOD (  21.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,74 +80,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rob,
+On 01/10/2025 17:28, David Hildenbrand wrote:
+> On 15.08.25 10:55, Kevin Brodsky wrote:
+>
+> Just wondering, should the patch subject be:
+>
+> "mm: protect page tables with privileged pkey" ?
+>
+> At least patch #2 tells me that set_memory_pkey() will set the
+> protection key, and the function is called
+> "kpkeys_protect_pgtable_memory"?
+>
+> Just trying to connect the dots here :)
 
-On 9/23/25 6:48 PM, Rob Herring wrote:
-> On Thu, Sep 11, 2025 at 12:09:49PM -0300, Ariel D'Alessandro wrote:
->> This patch series continues the effort to address Device Tree validation
->> warnings for MediaTek platforms, with a focus on MT8173. It follows the
->> initial cleanup series by Angelo [0].
+That's fair! I suppose I meant "map with privileged pkey" in the sense
+of "modify the mapping/PTE to set the pkey". But I see how that can be
+confusing, as we're not creating any mapping. I'll reword that in v6.
+
+>
+>> If CONFIG_KPKEYS_HARDENED_PGTABLES is enabled, map allocated page
+>> table pages using a privileged pkey (KPKEYS_PKEY_PGTABLES), so that
+>> page tables can only be written under guard(kpkeys_hardened_pgtables).
 >>
->> Similarly to the ongoing MT8183 work done by Julien Massot, this patchset
->> eliminates several of the remaining warnings by improving or converting DT
->> bindings to YAML, adding missing properties, and updating device tree files
->> accordingly.
+>> This patch is a no-op if CONFIG_KPKEYS_HARDENED_PGTABLES is disabled
+>> (default).
 >>
->> [0] https://www.spinics.net/lists/kernel/msg5780177.html
+>> Signed-off-by: Kevin Brodsky <kevin.brodsky@arm.com>
+>> ---
+>>   include/linux/mm.h | 4 ++++
+>>   1 file changed, 4 insertions(+)
 >>
->> Changes in v2:
->> * Wrapped commit messages to 75 columns line wrap.
->> * Replaced "YAML" by "DT schema" in patches subject and content.
->> * mt8173-mdp: Fixed properties: compatible, clocks, iommus and
->>    mediatek,vpu.
->> * mt8173-vpu: Fixed line wrap. Dropped memory-region property description.
->> * mediatek,mmsys: Dropped patch as it's not a binding issue.
->> * mediatek,od: Rewrote commit log with details on DT schema users missing
->>    the related property. Rewrote mediatek,gce-client-reg property.
->> * mediatek,ufoe: Rewrote commit log with details on DT schema users missing
->>    the related property. Rewrote mediatek,gce-client-reg property.
->> * marvell,sd8897-bt: Moved to net/bluetooth/. Added missing ref to
->>    bluetooth-controller.yaml. Dropped example. Updated reference in another
->>    file. Minor fixes in properties.
->> * mediatek,mt8173-rt5650: Dropped unnecessary quotes and unused label.
->> * dlg,da9211: Dropped enable-gpios description. Rewrote generic example
->>    node names. Minor fixes in properties.
->> * melfas,mip4_ts: Dropped unnecessary quotes. Added "active high" to
->>    ce-gpios property description.
->> * mediatek,jpeg: Dropped patch as it doesn't apply.
->>
->> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
->>
->> Ariel D'Alessandro (12):
->>    dt-bindings: media: Convert MediaTek mt8173-mdp bindings to DT schema
->>    dt-bindings: media: Convert MediaTek mt8173-vpu bindings to DT schema
->>    dt-bindings: net: Convert Marvell 8897/8997 bindings to DT schema
->>    dt-bindings: ASoC: Convert MediaTek RT5650 codecs bindings to DT
->>      schema
->>    dt-bindings: display: mediatek,od: Add mediatek,gce-client-reg
->>      property
->>    dt-bindings: display: mediatek,ufoe: Add mediatek,gce-client-reg
->>      property
->>    arm64: dts: mediatek: mt8173: Fix mt8173-pinctrl node names
->>    dt-bindings: pinctrl: mt65xx: Allow gpio-line-names
->>    dt-bindings: regulator: Convert Dialog DA9211 Regulators to DT schema
->>    arm64: dts: mediatek: mt8173-elm: Drop unused bank supply
->>    dt-bindings: soc: mediatek: pwrap: Add power-domains property
->>    dt-bindings: input: Convert MELFAS MIP4 Touchscreen to DT schema
-> 
-> As we're close to the merge window, I applied patches 2, 8, and 11.
+>> diff --git a/include/linux/mm.h b/include/linux/mm.h
+>> index d9371d992033..4880cb7a4cb9 100644
+>> --- a/include/linux/mm.h
+>> +++ b/include/linux/mm.h
+>> @@ -34,6 +34,7 @@
+>>   #include <linux/slab.h>
+>>   #include <linux/cacheinfo.h>
+>>   #include <linux/rcuwait.h>
+>> +#include <linux/kpkeys.h>
+>>     struct mempolicy;
+>>   struct anon_vma;
+>> @@ -2979,6 +2980,8 @@ static inline bool __pagetable_ctor(struct
+>> ptdesc *ptdesc)
+>>         __folio_set_pgtable(folio);
+>>       lruvec_stat_add_folio(folio, NR_PAGETABLE);
+>> +    if (kpkeys_protect_pgtable_memory(folio))
+>> +        return false;
+>>       return true;
+>>   }
+>>   @@ -2989,6 +2992,7 @@ static inline void pagetable_dtor(struct
+>> ptdesc *ptdesc)
+>>       ptlock_free(ptdesc);
+>>       __folio_clear_pgtable(folio);
+>>       lruvec_stat_sub_folio(folio, NR_PAGETABLE);
+>> +    kpkeys_unprotect_pgtable_memory(folio);
+>
+> This is all rather nasty. Not your fault.
+>
+> In the near future page tables will not be folios, and the whole
+> ptdesc_folio() conversion will not make any sense.
 
-Great, I can see that patches 5 and 6 were also applied (with small 
-modifications).
+Ah, interesting. Any patches/series I should be aware of?
 
-Thanks!
+>
+> Likely you should make kpkeys_protect_pgtable_memory() etc. consume an
+> address range, or a page range right from the start.
 
--- 
-Ariel D'Alessandro
-Software Engineer
+Got it. That said, as per the discussion on the cover letter [1], it's
+quite likely that we'll have to change the approach completely anyway
+(i.e. allocate PTPs from a dedicated pool where the pkey is already set).
 
-Collabora Ltd.
-Platinum Building, St John's Innovation Park, Cambridge CB4 0DS, UK 
-Registered in England & Wales, no. 5513718
+- Kevin
 
+[1] lore.kernel.org/r/aMwd7IJVECEy8mzf@willie-the-truck
 
