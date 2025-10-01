@@ -4,68 +4,151 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71A10CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 08:30:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F31BFCCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 08:32:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:Subject:From:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B88MSJlsFjXk5HvanVd5a/PefPwrmCRWLINHWreYmac=; b=vxynzE97UvJSfkDp7i+cHwjG1v
-	YFb1Zxu9rX2Cn12Os9jqFcAOQQ4Ml+n/2QoCondpjUi5bXBJfG1C2yA1a30UdtIYwOSQvEoqOB71g
-	VxBpLuwvE/uh5DSguqIIidMJUp7WD3dysa0/G89QtLUdtqD9m0CXVv99XW+VjnIeV3bYM3OTWlXVb
-	y5lfi/8b9KNDA4vt6W4T4rhQ1+/nA9di8BQJW1BJF45f3MTUV+T0ysdPCmrXRNDPj26TGmC+LpZpq
-	KWAP+0q00H2n1brIi+Y5SwjC0uPMhMkTTheLA7A6AEqilbFJmzo92/vaHT7KJVRkp4cs8x1mt+lHR
-	XmGHitNg==;
+	bh=x3+EPaDu3mTLXOJJXfkxKlMbmHF7t6CqJIFRWvGx0uE=; b=If6i6cIh7N2+k3o9BM0om9LtTK
+	hbRizeHYeUV7tNo6u+K81WndumCcTLRAIb7TiJfOfDA6Q2zvo02e+iLIXgNRC5sRSfYOI0cMMtgJs
+	KSm2i1LebvFF91tPFy/3ZJU5E4sW8YliUWXo2zqa4tuFPhJUe1lE/+UO+GWx3wXBcsJe1LQANsgXi
+	w95uGcEC/b3LUz1VUbczAbt/ojNStVSTJdZIOMJTsJhA85KUCXKuz5cQ525IRJOYCvnANz6TRUWA6
+	pf/6EFWxSm6KNWzUE6B8K0DDxQGibN6s4IqzI02oQyByX1VSmfHJtEGA2n8cMxYL2pXW62ssDSVwV
+	EkVL9X+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3sEM-000000071ki-03yM;
-	Wed, 01 Oct 2025 08:30:34 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v3sFw-000000072Ah-35c3;
+	Wed, 01 Oct 2025 08:32:12 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3sEJ-000000071k4-1O2r
+	id 1v3sFt-0000000729u-1iwM
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 08:30:32 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 575BE48A25;
-	Wed,  1 Oct 2025 08:30:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BFB99C4CEF4;
-	Wed,  1 Oct 2025 08:30:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759307430;
-	bh=yq69KW7/I4s3VGGFUFaHIhOjzAY8rl+qM2R1oR7kSIY=;
-	h=Date:From:Subject:To:Cc:References:In-Reply-To:From;
-	b=Bh+5/yAjx1msIjuVUlqL70TXmUGn1dLuW338KZadxja5cG9HVemiXAQMJhVGVVru8
-	 hsyiX3LJzZeilH9pkxzw27HD6XYAKphJgsDJVUk6CRRuILNubscs66Ehsl8frs9xIz
-	 DXaCadnYAnIjCFvagL7Z0peBFL7RcLKwPG/l/xoweYjrt84SDLMMDqf6TgC7vgVakc
-	 gw7UTbZQeMgIVbRwoiGJj7ZhbRYO2k7v2DWm96b8x4N96if09MGEVLRVv8rpjxHVb3
-	 NYIq87bT7M5A7DVhDqsiGC8JVsRcWxMO9CwOyQFr2/vD4/6Zgw3HSydKaoalXQ/+s1
-	 Lo056SfaVFUeQ==
-Message-ID: <9ad70797-2f2c-406e-ba48-bdf0ddd8a384@kernel.org>
-Date: Wed, 1 Oct 2025 10:30:24 +0200
+	Wed, 01 Oct 2025 08:32:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1759307528;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=x3+EPaDu3mTLXOJJXfkxKlMbmHF7t6CqJIFRWvGx0uE=;
+	b=gUnUx0rzTqbAaetUWsuaCoCBT1AyeciHpuX88ZF+ZBFw6SUFVTeU8nzSAAxhOqgE7gjkGD
+	GT6goAHzQiMGB9YBBjUqvC3FyswanNs16rd39YMp7g6IulSHs+/Ad1EBRhMoBMe4Xf/Ruj
+	MSMitYzCGxrUivPILJHwElJ3sYXhVIE=
+Received: from mail-wr1-f69.google.com (mail-wr1-f69.google.com
+ [209.85.221.69]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-639-jli47KvvN3aPDqIiTY1AmQ-1; Wed, 01 Oct 2025 04:32:07 -0400
+X-MC-Unique: jli47KvvN3aPDqIiTY1AmQ-1
+X-Mimecast-MFC-AGG-ID: jli47KvvN3aPDqIiTY1AmQ_1759307526
+Received: by mail-wr1-f69.google.com with SMTP id ffacd0b85a97d-3ece0cb7c9cso5650813f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 01:32:06 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759307526; x=1759912326;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=x3+EPaDu3mTLXOJJXfkxKlMbmHF7t6CqJIFRWvGx0uE=;
+        b=CNZpj9VV6fpoop3MLjpT7jfIfY235WmA0MEMmZSvf+XCisMQuVjBIXBZpTvxVEps2G
+         wCD9BqyZ71no7rP6x9JNqAKWE677xnWpsj9y+KU/QuFhuOBnKpH/f2le0YO5N7ei1HPU
+         DEIv5+2DT2E6DzlZ3ZDBB9HWI2DpIhhK7lBFEtYYGB9zkGtAgI1sfyphtpATsnbjjwb2
+         w6GSfkO27n3nZHHuoSz5wwx/A6HRi0K1eI+0Hd5o+5QXzMmrXQPQ60zxNi/SDkViXg2f
+         ChDheAp3y89svkiyxzQYTQE7nHlttxgxy+GqJ8Kxd3AaWp6aTbGoEK1drP9Qsbxbv1c7
+         8yOw==
+X-Forwarded-Encrypted: i=1; AJvYcCUzOJvrwAcBu6FOvrTrc+j6yp5sGfwnF1pWzFIpUXWNDUo6mdKX3up5pnVJ/+ag3/10Rrn6gKEXoJW4WIT+hnKa@lists.infradead.org
+X-Gm-Message-State: AOJu0YxO5Pisadp6CBv1OaZWeL0fY0T4DwvZDLEJJUGI8JzKl/LEq2nN
+	C7WNEW2tQNDGqXthDWt86THBuySAsZs13Er9Qd8KEJb6QYRss9IcXVPYTH3TlEozyhzvQ2cxsKI
+	uHtVywXkLJQce0AFvESvb0SXcXITM+OB809gjfDcsxhQzTwaWXnhXHWBYlRBHEclkZxzASXd4yz
+	O5
+X-Gm-Gg: ASbGncv/qBG7B3Yq6cgBlvZuquWYWu9g8BS8Fj1N9DFgR3zdjDni4dCe8LXS0xuaOPy
+	i8aIOqomIZ7OJCyvKaf7MGkkEPzkcTx0VEjXR4mZxvLNBzH3wbKlceasR0em2v/NLZAeW4SaNTx
+	g8QZF/k0Ci0jO9avzI7+ta4r4N9mOXSQAULw8xNXLW/Po4h4CXEvLMMxV98OnqfVhoSLWicKNj/
+	1MJzR9EXEM9wI5HczLSM91QqPWS4pkTi4ttZdeYP/YpHEeLKSd+6HOaqlyBoScC8LLW0HbrVSNT
+	/EjMJAvL+VrInYTKbkj/sKY9UmBHujhNn0IvIGcecR3H9Cp1DuZ+A/SHX0foJNfm9hT5fefbdlP
+	ELpKffmhz
+X-Received: by 2002:a5d:5f53:0:b0:3e8:b4cb:c3dc with SMTP id ffacd0b85a97d-425577ee13dmr2185338f8f.3.1759307525627;
+        Wed, 01 Oct 2025 01:32:05 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEamlFHKk0lW4qrWPYCPK/rhtvhoE8+VAFZFxpeTixsTjPGZGBvNgnUReYlehmrWW+5PQy6XQ==
+X-Received: by 2002:a5d:5f53:0:b0:3e8:b4cb:c3dc with SMTP id ffacd0b85a97d-425577ee13dmr2185305f8f.3.1759307525126;
+        Wed, 01 Oct 2025 01:32:05 -0700 (PDT)
+Received: from [192.168.3.141] (tmo-080-144.customers.d1-online.com. [80.187.80.144])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-40fc5602dc2sm25902920f8f.32.2025.10.01.01.32.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 01 Oct 2025 01:32:04 -0700 (PDT)
+Message-ID: <819891f6-4e30-470c-b641-350a14b395a2@redhat.com>
+Date: Wed, 1 Oct 2025 10:32:02 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-From: Hans Verkuil <hverkuil+cisco@kernel.org>
-Subject: Re: [PATCH 00/29] media: codec: add new Samsung Exynos-MFC driver
-To: Himanshu Dewangan <h.dewangan@samsung.com>, mchehab@kernel.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- sumit.semwal@linaro.org, christian.koenig@amd.com, alim.akhtar@samsung.com,
- manjun@samsung.com, nagaraju.s@samsung.com, ih0206.lee@samsung.com,
- jehyung.lee@samsung.com, Nicolas Dufresne <nicolas@ndufresne.ca>
-Cc: linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org,
- devicetree@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linaro-mm-sig@lists.linaro.org
-References: <CGME20250930035518epcas5p2395afdb6f22d2a6b42f9daaec6bc3c1f@epcas5p2.samsung.com>
- <20250930040348.3702923-1-h.dewangan@samsung.com>
-Content-Language: en-US, nl
-In-Reply-To: <20250930040348.3702923-1-h.dewangan@samsung.com>
-Content-Type: text/plain; charset=UTF-8
+Subject: Re: [v2 PATCH] mm: hugetlb: avoid soft lockup when mprotect to large
+ memory area
+To: Dev Jain <dev.jain@arm.com>, Yang Shi <yang@os.amperecomputing.com>,
+ muchun.song@linux.dev, osalvador@suse.de, akpm@linux-foundation.org,
+ catalin.marinas@arm.com, will@kernel.org, anshuman.khandual@arm.com,
+ carl@os.amperecomputing.com, cl@gentwo.org
+Cc: linux-mm@kvack.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20250929202402.1663290-1-yang@os.amperecomputing.com>
+ <cc40d827-3b98-4e15-ad45-5c2033e4ce20@arm.com>
+ <6cde8290-3aa2-411c-bf29-eb91a99e33a5@os.amperecomputing.com>
+ <746c4dd3-2285-4353-9e15-a0a2fbd4e6b5@arm.com>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <746c4dd3-2285-4353-9e15-a0a2fbd4e6b5@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: mksfNTk-XFEagSQ3VSWQ1_PIj1dWEtop779XuurJklA_1759307526
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_013031_426323_FFFB4793 
-X-CRM114-Status: GOOD (  41.00  )
+X-CRM114-CacheID: sfid-20251001_013209_524474_67C54F0D 
+X-CRM114-Status: GOOD (  23.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,350 +163,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Himanshu,
+On 01.10.25 06:23, Dev Jain wrote:
+> 
+> On 30/09/25 11:38 pm, Yang Shi wrote:
+>>
+>>
+>> On 9/29/25 10:26 PM, Dev Jain wrote:
+>>>
+>>> On 30/09/25 1:54 am, Yang Shi wrote:
+>>>> When calling mprotect() to a large hugetlb memory area in our
+>>>> customer's
+>>>> workload (~300GB hugetlb memory), soft lockup was observed:
+>>>>
+>>>> watchdog: BUG: soft lockup - CPU#98 stuck for 23s! [t2_new_sysv:126916]
+>>>>
+>>>> CPU: 98 PID: 126916 Comm: t2_new_sysv Kdump: loaded Not tainted
+>>>> 6.17-rc7
+>>>> Hardware name: GIGACOMPUTING R2A3-T40-AAV1/Jefferson CIO, BIOS
+>>>> 5.4.4.1 07/15/2025
+>>>> pstate: 20400009 (nzCv daif +PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+>>>> pc : mte_clear_page_tags+0x14/0x24
+>>>> lr : mte_sync_tags+0x1c0/0x240
+>>>> sp : ffff80003150bb80
+>>>> x29: ffff80003150bb80 x28: ffff00739e9705a8 x27: 0000ffd2d6a00000
+>>>> x26: 0000ff8e4bc00000 x25: 00e80046cde00f45 x24: 0000000000022458
+>>>> x23: 0000000000000000 x22: 0000000000000004 x21: 000000011b380000
+>>>> x20: ffff000000000000 x19: 000000011b379f40 x18: 0000000000000000
+>>>> x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+>>>> x14: 0000000000000000 x13: 0000000000000000 x12: 0000000000000000
+>>>> x11: 0000000000000000 x10: 0000000000000000 x9 : ffffc875e0aa5e2c
+>>>> x8 : 0000000000000000 x7 : 0000000000000000 x6 : 0000000000000000
+>>>> x5 : fffffc01ce7a5c00 x4 : 00000000046cde00 x3 : fffffc0000000000
+>>>> x2 : 0000000000000004 x1 : 0000000000000040 x0 : ffff0046cde7c000
+>>>>
+>>>> Call trace:
+>>>>     mte_clear_page_tags+0x14/0x24
+>>>>     set_huge_pte_at+0x25c/0x280
+>>>>     hugetlb_change_protection+0x220/0x430
+>>>>     change_protection+0x5c/0x8c
+>>>>     mprotect_fixup+0x10c/0x294
+>>>>     do_mprotect_pkey.constprop.0+0x2e0/0x3d4
+>>>>     __arm64_sys_mprotect+0x24/0x44
+>>>>     invoke_syscall+0x50/0x160
+>>>>     el0_svc_common+0x48/0x144
+>>>>     do_el0_svc+0x30/0xe0
+>>>>     el0_svc+0x30/0xf0
+>>>>     el0t_64_sync_handler+0xc4/0x148
+>>>>     el0t_64_sync+0x1a4/0x1a8
+>>>>
+>>>> Soft lockup is not triggered with THP or base page because there is
+>>>> cond_resched() called for each PMD size.
+>>>>
+>>>> Although the soft lockup was triggered by MTE, it should be not MTE
+>>>> specific. The other processing which takes long time in the loop may
+>>>> trigger soft lockup too.
+>>>>
+>>>> So add cond_resched() for hugetlb to avoid soft lockup.
+>>>>
+>>>> Fixes: 8f860591ffb2 ("[PATCH] Enable mprotect on huge pages")
+>>>> Tested-by: Carl Worth <carl@os.amperecomputing.com>
+>>>> Reviewed-by: Christoph Lameter (Ampere) <cl@gentwo.org>
+>>>> Reviewed-by: Catalin Marinas <catalin.marinas@arm.com>
+>>>> Acked-by: David Hildenbrand <david@redhat.com>
+>>>> Acked-by: Oscar Salvador <osalvador@suse.de>
+>>>> Reviewed-by: Anshuman Khandual <anshuman.khandual@arm.com>
+>>>> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
+>>>> ---
+>>>> v2: - Made the subject and commit message less MTE specific and fixed
+>>>>         the fixes tag.
+>>>>       - Collected all R-bs and A-bs.
+>>>>
+>>>>    mm/hugetlb.c | 2 ++
+>>>>    1 file changed, 2 insertions(+)
+>>>>
+>>>> diff --git a/mm/hugetlb.c b/mm/hugetlb.c
+>>>> index cb5c4e79e0b8..fe6606d91b31 100644
+>>>> --- a/mm/hugetlb.c
+>>>> +++ b/mm/hugetlb.c
+>>>> @@ -7242,6 +7242,8 @@ long hugetlb_change_protection(struct
+>>>> vm_area_struct *vma,
+>>>>                            psize);
+>>>>            }
+>>>>            spin_unlock(ptl);
+>>>> +
+>>>> +        cond_resched();
+>>>>        }
+>>>>        /*
+>>>>         * Must flush TLB before releasing i_mmap_rwsem: x86's
+>>>> huge_pmd_unshare
+>>>
+>>> Reviewed-by: Dev Jain <dev.jain@arm.com>
+>>
+>> Thank you.
+>>
+>>>
+>>> Does it make sense to also do cond_resched() in the
+>>> huge_pmd_unshare() branch?
+>>> That also amounts to clearing a page. And I can see for example,
+>>> zap_huge_pmd()
+>>> and change_huge_pmd() consume a cond_resched().
+>>
+>> Thanks for raising this. I did think about it. But I didn't convince
+>> myself because shared pmd should be not that common IMHO (If I'm
+>> wrong, please feel free to correct me). At least PMD can't be shared
+>> if the memory is tagged IIRC. So I'd like to keep the patch minimal
+>> for now and defer adding cond_resched() until it is hit by some real
+>> life workload.
+> 
+> If we have large swathes of hugetlb memory like in your workload, and it
+> is MAP_SHARED, then there should be high chances of sharing the PMD.
+> Although, I incorrectly
+> 
+> observed that we are clearing a page there - we are only clearing the
+> pud entry which is 8 bytes. So yes a soft lockup should be highly
+> unlikely. But since cond_resched()
+> 
+> is cheap (I assume this is the case since it is liberally sprinkled all
+> over the codebase) I think we should be consistent. Probably not an
+> immediate concern and not a matter
 
-On 30/09/2025 06:03, Himanshu Dewangan wrote:
-> Exynos MFC new driver upstream proposal
-> +++++++++++++++++++++++++++++++++++++++
-> 
-> The s5p-mfc driver in the kernel is quite outdated and has not kept up with the hardware advances of the MFC IP. 
-> Going forward, we want to provide support for all the later versions of MFC in open source (both mobile and
-> ExynosAuto would be supported by Samsung)
-> 
-> We (Samsung) would like to propose a new driver for the latest generation of Samsung MFC (Multi-Format Codec) hardware. 
-> Although the kernel already contains a Samsung MFC driver (drivers/media/platform/s5p-mfc/), the newer hardware 
-> diverges significantly from the previous generations, in features supported, register interface and in system integration. 
-> This has necessitated a new driver, rather than updating the existing one. 
+Right, that's one of the cases where we might just want to wait either 
+until is is reported or until hugetlb is finally removed in a couple of 
+decades ;)
 
-I did some (admittedly limited) comparison between the MFC hardware registers in patch 04/29
-and what is in s5p-mfc and it did look like an incremental update, not a complete register redesign.
+-- 
+Cheers
 
-So I am not convinced from that that a new driver is needed.
-
-In addition, a huge patch bomb like this is unreviewable and so I am just going to give a
-few high-level remarks based on a quick scan of the patches.
-
-1) Clearly you never ran v4l2-compliance with this new driver as it would fail immediately
-   on the VIDIOC_QUERYCAP ioctl. It's a M2M device, so it should use either V4L2_CAP_VIDEO_M2M
-   or V4L2_CAP_VIDEO_M2M_MPLANE, not a mix of output and capture caps. I suspect that
-   v4l2-compliance will fail on many issues.
-
-2) I noticed that there is no VB2_MMAP support. No idea why not, and all drivers with streaming I/O
-   support must support VB2_MMAP.
-
-3) Lots of controls are added, none of them documented or even defined in a public header.
-   It's part of the public API, so that must all be present in include/uapi/linux. Just
-   'git grep' for CID_MPEG_MFC51 to see how it should be done. I suspect that more than a few
-   of these controls are either duplicated of already existing controls or should be promoted
-   from MFC-specific controls to generic controls. But without documentation we can't tell.
-
-4) Since this is a new M2M driver I would expect it to use the v4l2-mem2mem framework, instead
-   it appears to be all homegrown. The only reason the existing s5p-mfc driver doesn't use that
-   framework is because it predates it.
-
-5) It clearly doesn't follow the stateful encoder/decoder interface spec as detailed in the
-   V4L2 spec:
-
-   https://linuxtv.org/downloads/v4l-dvb-apis-new/userspace-api/v4l/dev-mem2mem.html
-
-   Even s5p-mfc does at least attempt to follow that (I'm not sure how complete support is,
-   given that it's an old driver, but it tries).
-
-6) Minor issue: don't set the .wait_prepare/finish vb2_ops callbacks: these callbacks are
-   slated for removal. Instead set the vb2_queue lock field to the mutex &dev->mfc_mutex.
-
-There are probably many other things that need addressing, but I stopped there.
-
-I would need convincing (and based on his reply, Krzysztof as well) that a new driver is the
-right approach. If it is, then start small: just the decoder supporting just one codec.
-Exclude all the fancy features, just start with the basics. The recently merged Qualcomm
-iris driver can serve as inspiration: drivers/media/platform/qcom/iris/
-
-I'll mark this series as Rejected in patchwork. It's always a very bad idea to try to upstream
-a huge driver with zillions of features. If, like this one, it has serious design issues, then
-you did a lot of work for nothing :-(
-
-Apologies for the bad news,
-
-Regards,
-
-	Hans
-
-> 
-> 
-> Current driver vs targetted driver comparison
-> +++++++++++++++++++++++++++++++++++++++++++++
-> 
-> Target Feature 
-> Current mainline : Simple V4L2/ VB2 interface based encoder/ decoder
-> New proposed driver: Dual core support, NAL-q support, LLC, Coredump, performance
-> measurement, plugin driver architecture, hardware manager(meerkat), DRM/OTF,
-> Resource manager, bandwidth compression, New Pixel formats (NV12N,  YV12, P010,
-> SBWC,  RGB family), 10 bit support, HDR support, Prio and RR Process Scheduler support, 
-> 
-> Register map	
-> Current mainline : Fixed register layout, compatible across s5p variants
-> New proposed driver: Completely redesigned register set, incompatible with old layout
-> 
-> Command model
-> Current mainline : Mailbox-style command queue
-> New proposed driver: Ring-buffer command queue with different signaling
-> 
-> Memory management
-> Current mainline : CMA-backed contiguous buffers, ION legacy
-> New proposed driver: dma-heap / scatter-gather buffers with strict alignment rules
-> 
-> Firmware
-> Current mainline : Supports up to Firmware v12, Legacy binary format, loaded via shared mechanism	
-> New proposed driver: New firmware format, different protocol for control messages. Support Firmware v13 onwards
-> 
-> DT bindings	
-> Current mainline : Single clock + reset, simple PM	
-> New proposed driver: Multiple clocks, reset domains, runtime PM dependencies
-> 
-> Error handling	
-> Current mainline : Simple IRQ error flags
-> New proposed driver: Detailed error codes, recovery sequences required
-> 
-> Code impact
-> Current mainline :~8k LOC, minimal conditionals
-> New proposed driver: ~65KLOC with full features
-> 
-> 
-> Plan for supporting latest MFC (Best balance between code clarity and long-term kernel health, while still respecting ABI and legacy users.)
-> 1	We propose a new driver (exynos-mfc) for the latest generation of Samsung MFC (Multi-Format Codec) hardware. 
-> 2	MFC FW V6 to V12 will be supported by existing mainline (s5p-mfc) and later versions by Exynos-mfc driver
-> 3	The existing MFC driver will remain available for older SoC’s and will not be broken. The new driver will only bind
-> 	to new compatible strings in DT, avoiding regressions for legacy hardware. Samsung will take responsibility for 
-> 	maintaining both drivers until the old one can be formally marked as “legacy.”
-> 4	Keep it buildable for old SoCs but clearly say new SoCs should use the new driver.
-> 5	VIDEO_SAMSUNG_S5P_MFC and VIDEO_EXYNOS_MFC will both be supported for an agreed time
-> 6	Long term Support for new driver  - commitment from Samsung
-> 7	The hardware has diverged to the point where conditionally supporting both in one codebase is worse for long-term kernel health
-> 8	Splitting keeps the code clean, testable, and reviewable, while ensuring legacy users aren’t broken due to user space ABI  guarantees.
-> 	This seems more clean and easier approach Both can coexist without code spaghetti.
-> 
-> Features and description supported
-> ++++++++++++++++++++++++++++++++++
-> 
-> 1	MFC driver registration	Probe functionality and video nodes registration
-> 2	MFC driver open & close support	MFC firmware loading,  "ls" & "cat" on the video nodes  and udev rules on the video nodes
-> 3	H264 decoding	H264 decoding support - HW supported profiles & levels (YUV420 Semi-Planar, 8-bit, min/max resolution)
-> 4	HEVC decoding	HEVC decoding support - HW supported profiles & levels (YUV420 Semi-Planar, 8-bit, min/max resolution)
-> 5	VP8 decoding	VP8 decoding support - HW supported profiles & levels (YUV420 Semi-Planar, 8-bit, min/max resolution)
-> 6	VP9 decoding	VP9 decoding support - HW supported profiles & levels (YUV420 Semi-Planar, 8-bit, min/max resolution)
-> 7	AV1 decoding	AV1 decoding support - HW supported profiles & levels (YUV420 Semi-Planar, 8-bit, min/max resolution)
-> 8	H264 encoding	H264 encoding support - Basic encoding (YUV420 Semi-Planar, 8-bit, min/max resolution)
-> 9	HEVC encoding	HEVC encoding support - Basic encoding (YUV420 Semi-Planar, 8-bit, min/max resolution)
-> 10	VP8 encoding	VP8 encoding support - Basic encoding (YUV420 Semi-Planar, 8-bit, min/max resolution)
-> 11	VP9 encoding	VP9 encoding support - Basic encoding (YUV420 Semi-Planar, 8-bit, min/max resolution)
-> 12	Debug fs support		Debug fs to control the MFC functionalities
-> 13	Debug log support		Debug logs to get on the dmesg prompt for debug purpose
-> 14	Debug SFR dump support		MFC SFR dumps during failures
-> 15	NAL Queue mode control		NAL Queue mode support
-> 16	Batch mode control		Batch mode support
-> 17	HW supported YUV formats	YUV 420, 422, 444 (planar, semi-planar) formats support as per MFC HW specification
-> 18	HW supported RGB formats	RGB format support as per MFC HW specification
-> 19	Multi instance decoding/encoding	Multi instance decoding/encoding
-> 20	Suspend and resume		Suspend and resume support
-> 21	Runtime suspend and resume	Runtime suspend and resume support
-> 22	Priority decoding (decoders)	Priority decoding support
-> 23	Frame delay configuration (decoders)	Frame delay configuration support
-> 24	Error handling and conceal control (decoders)	HW/Platform limitations should be gracefully exited and,
-> 							bit stream errors should be reported or concealed with warning indication
-> 25	Reference frame control (encoders)	Reference frame control support
-> 26	SPS/PPS control (encoders)	SPS/PPS control support
-> 27	Loop filter control (encoders)	Loop filter control support
-> 28	B frame support (encoders)	B frame support
-> 29	GOP control (encoders)		GOP control support
-> 30	Frame rate control (encoders)	Frame rate control support
-> 
-> Features to be  supported in 2026
-> +++++++++++++++++++++++++++++++++
-> 
-> 31	Bit rate control (encoders)		Bit rate control support
-> 32	QP control (encoders)			QP control support
-> 33	I/IDR control (encoders)		I/IDR control support
-> 34	Scalable control (encoders)		Scalable control support
-> 35	ROI control (encoders)			ROI control support
-> 36	Multi slice control (encoders)		Multi slice control support
-> 37	Profile/Level control (encoders)	Profile/Level control support
-> 38	Padding control (encoders)		Padding control support
-> 39	Aspect ratio control (encoders)		Aspect ratio control support
-> 40	Buffer full handling (encoders)		Buffer full handling support
-> 41	SBWC					SBWC bandwidth compression support
-> 42	10-bit support				10-bit support as per MFC HW specification
-> 43	Secure signed FW support		Security signed FW support
-> 44	Secure playback				DRM content playback for decoders
-> 45	HDR Support (decoders)			HDR metadata support
-> 46	Dynamic resolution change		Dynamic resolution change support
-> 
-> Nagaraju Siddineni (29):
->   dt-bindings: media: mfc: Add Exynos MFC devicetree binding
->   arm64: dts: mfc: Add MFC device tree for Auto V920 SoC
->   media: mfc: Add MFC driver data structures and debugging macros
->   media: mfc: Add full register map and bit definitions for MFC hardware
->   media: mfc: Add MFC driver header files and core utilities
->   media: mfc: Add MFC core hardware register and debugfs APIs
->   media: mfc: Add MFC core command, hwlock, ISR and run functionalities
->   media: mfc: Add Exynos‑MFC driver probe support
->   media: mfc: Add bus‑devfreq, QoS, multi‑view and control
->     infrastructure
->   media: mfc: Add buffer‑queue and IOVMM support
->   media: mfc: Add rate‑calculation framework and memory utilities
->   media: mfc: Introduce QoS support and instance context handling
->   media: mfc: Add decoder core sync functions
->   media: mfc: Add buffer‑control framework
->   media: mfc: Add decoder resource‑management (RM) support and
->     load‑balancing
->   media: mfc: Enhance HW‑lock handling, scheduling and error recovery
->   media: mfc: Add VB2 decoder support
->   media: mfc: Add V4L2 decoder driver
->   media: mfc: Add QoS, Butler workqueue, and priority‑based scheduling
->   media: mfc: Add H264 decoder support
->   media: mfc: Add multi‑codec support & QoS improvements
->   media: mfc: Add H.264 encoder support with buffer and QoS improvements
->   media: mfc: Add encoder parameters, ROI & QoS support
->   media: mfc: Add encoder VB2 support to driver
->   media: mfc: Add encoder v4l2 driver interface
->   media: mfc: Add full encoder support
->   media: mfc: Add H.264 encoder support
->   media: mfc: Add AVC, VP8, VP9, and HEVC encoding support
->   media: mfc: Hardware‑accelerated encoding support
-> 
->  .../bindings/media/samsung,exynos-mfc.yaml    |   77 +
->  MAINTAINERS                                   |   10 +
->  .../dts/exynos/exynosautov920-evt2-mfc.dtsi   |  630 +++
->  .../arm64/boot/dts/exynos/exynosautov920.dtsi |    1 +
->  drivers/media/platform/samsung/Kconfig        |    7 +
->  drivers/media/platform/samsung/Makefile       |    1 +
->  .../media/platform/samsung/exynos-mfc/Kconfig |   34 +
->  .../platform/samsung/exynos-mfc/Makefile      |   26 +
->  .../samsung/exynos-mfc/base/mfc_buf.c         |  765 +++
->  .../samsung/exynos-mfc/base/mfc_buf.h         |   43 +
->  .../samsung/exynos-mfc/base/mfc_common.h      |  444 ++
->  .../samsung/exynos-mfc/base/mfc_data_struct.h | 2014 +++++++
->  .../samsung/exynos-mfc/base/mfc_debug.h       |  247 +
->  .../samsung/exynos-mfc/base/mfc_format.h      |  316 ++
->  .../samsung/exynos-mfc/base/mfc_macros.h      |   95 +
->  .../samsung/exynos-mfc/base/mfc_media.h       |  554 ++
->  .../samsung/exynos-mfc/base/mfc_mem.c         |  995 ++++
->  .../samsung/exynos-mfc/base/mfc_mem.h         |  155 +
->  .../samsung/exynos-mfc/base/mfc_qos.c         | 1070 ++++
->  .../samsung/exynos-mfc/base/mfc_qos.h         |   99 +
->  .../samsung/exynos-mfc/base/mfc_queue.c       |  966 ++++
->  .../samsung/exynos-mfc/base/mfc_queue.h       |  158 +
->  .../exynos-mfc/base/mfc_rate_calculate.c      |  640 +++
->  .../exynos-mfc/base/mfc_rate_calculate.h      |  106 +
->  .../samsung/exynos-mfc/base/mfc_regs.h        |   58 +
->  .../samsung/exynos-mfc/base/mfc_regs_mfc.h    | 1002 ++++
->  .../samsung/exynos-mfc/base/mfc_sched.h       |   30 +
->  .../samsung/exynos-mfc/base/mfc_utils.c       |  401 ++
->  .../samsung/exynos-mfc/base/mfc_utils.h       |  481 ++
->  .../media/platform/samsung/exynos-mfc/mfc.c   | 1366 +++++
->  .../platform/samsung/exynos-mfc/mfc_core.c    |  703 +++
->  .../samsung/exynos-mfc/mfc_core_buf_ctrl.c    |  543 ++
->  .../samsung/exynos-mfc/mfc_core_cmd.c         |  576 ++
->  .../samsung/exynos-mfc/mfc_core_cmd.h         |   41 +
->  .../samsung/exynos-mfc/mfc_core_enc_param.c   | 1463 ++++++
->  .../samsung/exynos-mfc/mfc_core_enc_param.h   |   23 +
->  .../samsung/exynos-mfc/mfc_core_hw_reg_api.c  |  122 +
->  .../samsung/exynos-mfc/mfc_core_hw_reg_api.h  |  144 +
->  .../samsung/exynos-mfc/mfc_core_hwlock.c      |  761 +++
->  .../samsung/exynos-mfc/mfc_core_hwlock.h      |   80 +
->  .../samsung/exynos-mfc/mfc_core_intlock.c     |   98 +
->  .../samsung/exynos-mfc/mfc_core_intlock.h     |   20 +
->  .../samsung/exynos-mfc/mfc_core_isr.c         | 2104 ++++++++
->  .../samsung/exynos-mfc/mfc_core_isr.h         |   25 +
->  .../samsung/exynos-mfc/mfc_core_ops.c         |  813 +++
->  .../samsung/exynos-mfc/mfc_core_ops.h         |   16 +
->  .../platform/samsung/exynos-mfc/mfc_core_pm.c |  209 +
->  .../platform/samsung/exynos-mfc/mfc_core_pm.h |   33 +
->  .../samsung/exynos-mfc/mfc_core_reg_api.c     |  597 +++
->  .../samsung/exynos-mfc/mfc_core_reg_api.h     |  380 ++
->  .../samsung/exynos-mfc/mfc_core_run.c         |  541 ++
->  .../samsung/exynos-mfc/mfc_core_run.h         |   35 +
->  .../samsung/exynos-mfc/mfc_core_sched_prio.c  |  431 ++
->  .../samsung/exynos-mfc/mfc_core_sync.c        |  423 ++
->  .../samsung/exynos-mfc/mfc_core_sync.h        |   34 +
->  .../samsung/exynos-mfc/mfc_ctx_ctrl.c         | 1469 ++++++
->  .../platform/samsung/exynos-mfc/mfc_debugfs.c |  248 +
->  .../platform/samsung/exynos-mfc/mfc_debugfs.h |   20 +
->  .../samsung/exynos-mfc/mfc_dec_v4l2.c         | 1739 +++++++
->  .../samsung/exynos-mfc/mfc_dec_v4l2.h         |   20 +
->  .../platform/samsung/exynos-mfc/mfc_dec_vb2.c |  394 ++
->  .../platform/samsung/exynos-mfc/mfc_dec_vb2.h |   19 +
->  .../samsung/exynos-mfc/mfc_enc_v4l2.c         | 4614 +++++++++++++++++
->  .../samsung/exynos-mfc/mfc_enc_v4l2.h         |   20 +
->  .../platform/samsung/exynos-mfc/mfc_enc_vb2.c |  443 ++
->  .../platform/samsung/exynos-mfc/mfc_enc_vb2.h |   19 +
->  .../platform/samsung/exynos-mfc/mfc_rm.c      | 2652 ++++++++++
->  .../platform/samsung/exynos-mfc/mfc_rm.h      |  110 +
->  68 files changed, 34773 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/media/samsung,exynos-mfc.yaml
->  create mode 100644 arch/arm64/boot/dts/exynos/exynosautov920-evt2-mfc.dtsi
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/Kconfig
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/Makefile
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_buf.c
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_buf.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_common.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_data_struct.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_debug.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_format.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_macros.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_media.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_mem.c
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_mem.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_qos.c
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_qos.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_queue.c
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_queue.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_rate_calculate.c
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_rate_calculate.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_regs.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_regs_mfc.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_sched.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_utils.c
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/base/mfc_utils.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc.c
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core.c
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_buf_ctrl.c
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_cmd.c
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_cmd.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_enc_param.c
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_enc_param.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_hw_reg_api.c
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_hw_reg_api.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_hwlock.c
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_hwlock.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_intlock.c
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_intlock.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_isr.c
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_isr.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_ops.c
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_ops.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_pm.c
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_pm.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_reg_api.c
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_reg_api.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_run.c
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_run.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_sched_prio.c
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_sync.c
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_core_sync.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_ctx_ctrl.c
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_debugfs.c
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_debugfs.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_dec_v4l2.c
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_dec_v4l2.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_dec_vb2.c
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_dec_vb2.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_enc_v4l2.c
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_enc_v4l2.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_enc_vb2.c
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_enc_vb2.h
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_rm.c
->  create mode 100644 drivers/media/platform/samsung/exynos-mfc/mfc_rm.h
-> 
+David / dhildenb
 
 
