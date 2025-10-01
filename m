@@ -4,85 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21036CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 10:57:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19549CAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 11:00:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JxzG4NDNtvyZtWrcwERf/N9ajidnNL4jpz7ADaJTFuI=; b=Y87il9Kb6ZPCMKSEkhZl8Oq7Zg
-	7LWcKxSMvtf0mkqB1hP3QlPpHwhQvnmOAiQrKugNBu86o5m9/DyGhUPInEHwGjEI70sMAQFntQ5Z9
-	4DC+ty5c7lXFOFZTe4f76p4dTFtSGsdNb9nMP4A+0iuXpIvV0iqalhuMi2zm2enfBexV5dM998Whc
-	w2ogmWJEOa2xmnf/eQfcrATNvXqS2r98ddMoReXnEeUHa4A0bbvyQDUZ+gpUhYnjwyj/CiMVhCG9s
-	Fha/j6ka6419lbD+BNFb45YdZCe2fGJqK0HJbzfd3AdeZt4bYQ6Nw+RvBh4U1mBGwaf1bIW1J9Jrd
-	V149jN4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YNWO16Wa05SLNcLKB3aWvwXFc5SoBKbp9zpIDqE5ORQ=; b=jWp3Pvq0fh3HRsS6CrhGyw+aFP
+	dCtPdrRz5MLi/PEI81B7ZyL6pXt38WYPppqanvKQKA0ljpN+ow8VShSkPd7LPMaCChuSlJiFIMypp
+	CKD7AsHn0RCEVoGFxeHb8fcbB5PZucnCscq0GFEpM4CaDROt8K6MpSE8Ok7+EFAhOEIJXSGtIp1em
+	LEuV/wAj/WNFn/hlKAgfAdn9awr5uZOen8Ish86gSe9xEPQSoDST87adkV6sAfA/6gHzqQlodleR1
+	hIxOiaUHR8DvrOah0F5dTpsVtj9n+0gxfon741y533+Z04vbQ7PAye7VdMwTHSedBu6Hg+slHG2CC
+	lR1aAdqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3uWi-00000007IkD-0uZP;
-	Wed, 01 Oct 2025 10:57:40 +0000
-Received: from fllvem-ot04.ext.ti.com ([198.47.19.246])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3uWf-00000007Iji-0uGr
+	id 1v3uZS-00000007JBH-17z0;
+	Wed, 01 Oct 2025 11:00:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v3uZO-00000007JAH-2JNm
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 10:57:38 +0000
-Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
-	by fllvem-ot04.ext.ti.com (8.15.2/8.15.2) with ESMTP id 591AvLaP3063484;
-	Wed, 1 Oct 2025 05:57:21 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1759316241;
-	bh=JxzG4NDNtvyZtWrcwERf/N9ajidnNL4jpz7ADaJTFuI=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=Wm9PpVq/HHp38jQfqHex6preKa42kLW+ISLJc7uf/PXrJSm/unAifRXnLT8E6G9xU
-	 D1fjvcLqFWcVnSV+4Zd6UKGbjxpmtgYk1rkO0PczEmAIYTOKG5SpsXE60nrTlHRQHU
-	 BpeH1YB57SRBvABeRBlHJZVaQiuUU+IOBrnZNoec=
-Received: from DFLE101.ent.ti.com (dfle101.ent.ti.com [10.64.6.22])
-	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 591AvLgT425510
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Wed, 1 Oct 2025 05:57:21 -0500
-Received: from DFLE200.ent.ti.com (10.64.6.58) by DFLE101.ent.ti.com
- (10.64.6.22) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Wed, 1
- Oct 2025 05:57:21 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE200.ent.ti.com
- (10.64.6.58) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Wed, 1 Oct 2025 05:57:21 -0500
-Received: from localhost (uda0133052.dhcp.ti.com [128.247.81.232])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 591AvLV7463660;
-	Wed, 1 Oct 2025 05:57:21 -0500
-Date: Wed, 1 Oct 2025 05:57:21 -0500
-From: Nishanth Menon <nm@ti.com>
-To: Jacob Keller <jacob.e.keller@intel.com>
-CC: Uwe =?utf-8?Q?Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-        Paolo
- Abeni <pabeni@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
-        Eric Dumazet
-	<edumazet@google.com>,
-        "David S. Miller" <davem@davemloft.net>,
-        Andrew Lunn
-	<andrew+netdev@lunn.ch>,
-        Santosh Shilimkar <ssantosh@kernel.org>,
-        Simon
- Horman <horms@kernel.org>,
-        Siddharth Vadapalli <s-vadapalli@ti.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-        <netdev@vger.kernel.org>
-Subject: Re: [PATCH V2 2/3] soc: ti: knav_dma: Make knav_dma_open_channel
- return NULL on error
-Message-ID: <20251001105721.wf6mr2ysj34uhkhh@rendition>
-References: <20250930121609.158419-1-nm@ti.com>
- <20250930121609.158419-3-nm@ti.com>
- <c8d9f60a-341a-4386-afc6-b7a9451cda9f@intel.com>
+	Wed, 01 Oct 2025 11:00:28 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 8995816F2;
+	Wed,  1 Oct 2025 04:00:15 -0700 (PDT)
+Received: from [10.57.0.204] (unknown [10.57.0.204])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 06CB33F59E;
+	Wed,  1 Oct 2025 04:00:18 -0700 (PDT)
+Message-ID: <747ab990-d02d-4e7c-9007-a7ac73bb1062@arm.com>
+Date: Wed, 1 Oct 2025 12:00:14 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <c8d9f60a-341a-4386-afc6-b7a9451cda9f@intel.com>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v10 03/43] arm64: RME: Add SMC definitions for calling the
+ RMM
+To: Marc Zyngier <maz@kernel.org>
+Cc: kvm@vger.kernel.org, kvmarm@lists.linux.dev,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ James Morse <james.morse@arm.com>, Oliver Upton <oliver.upton@linux.dev>,
+ Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+ <yuzenghui@huawei.com>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Joey Gouly <joey.gouly@arm.com>,
+ Alexandru Elisei <alexandru.elisei@arm.com>,
+ Christoffer Dall <christoffer.dall@arm.com>, Fuad Tabba <tabba@google.com>,
+ linux-coco@lists.linux.dev,
+ Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+ Gavin Shan <gshan@redhat.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ Alper Gun <alpergun@google.com>, "Aneesh Kumar K . V"
+ <aneesh.kumar@kernel.org>, Emi Kisanuki <fj0570is@fujitsu.com>,
+ Vishal Annapurve <vannapurve@google.com>
+References: <20250820145606.180644-1-steven.price@arm.com>
+ <20250820145606.180644-4-steven.price@arm.com> <86o6qrym2b.wl-maz@kernel.org>
+From: Steven Price <steven.price@arm.com>
+Content-Language: en-GB
+In-Reply-To: <86o6qrym2b.wl-maz@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_035737_348069_9F84C12A 
-X-CRM114-Status: GOOD (  23.35  )
+X-CRM114-CacheID: sfid-20251001_040026_675658_327E3710 
+X-CRM114-Status: GOOD (  26.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,63 +78,163 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 16:59-20250930, Jacob Keller wrote:
-> 
-> 
-> On 9/30/2025 5:16 AM, Nishanth Menon wrote:
-> > Make knav_dma_open_channel consistently return NULL on error instead of
-> > ERR_PTR. Currently the header include/linux/soc/ti/knav_dma.h returns NUL
-> > when the driver is disabled, but the driver implementation returns
-> > ERR_PTR(-EINVAL), creating API inconsistency for users.
-> > 
-> 
-> I would word this as indicating that we don't even use ERR_PTR here at all!
+Hi Marc,
 
-Thanks. Yep, will do for the next respin.
-
+On 01/10/2025 11:05, Marc Zyngier wrote:
+> On Wed, 20 Aug 2025 15:55:23 +0100,
+> Steven Price <steven.price@arm.com> wrote:
+>>
+>> The RMM (Realm Management Monitor) provides functionality that can be
+>> accessed by SMC calls from the host.
+>>
+>> The SMC definitions are based on DEN0137[1] version 1.0-rel0
+>>
+>> [1] https://developer.arm.com/documentation/den0137/1-0rel0/
+>>
+>> Reviewed-by: Gavin Shan <gshan@redhat.com>
+>> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
+>> Signed-off-by: Steven Price <steven.price@arm.com>
+>> ---
+>> Changes since v9:
+>>  * Corrected size of 'ripas_value' in struct rec_exit. The spec states
+>>    this is an 8-bit type with padding afterwards (rather than a u64).
+>> Changes since v8:
+>>  * Added RMI_PERMITTED_GICV3_HCR_BITS to define which bits the RMM
+>>    permits to be modified.
+>> Changes since v6:
+>>  * Renamed REC_ENTER_xxx defines to include 'FLAG' to make it obvious
+>>    these are flag values.
+>> Changes since v5:
+>>  * Sorted the SMC #defines by value.
+>>  * Renamed SMI_RxI_CALL to SMI_RMI_CALL since the macro is only used for
+>>    RMI calls.
+>>  * Renamed REC_GIC_NUM_LRS to REC_MAX_GIC_NUM_LRS since the actual
+>>    number of available list registers could be lower.
+>>  * Provided a define for the reserved fields of FeatureRegister0.
+>>  * Fix inconsistent names for padding fields.
+>> Changes since v4:
+>>  * Update to point to final released RMM spec.
+>>  * Minor rearrangements.
+>> Changes since v3:
+>>  * Update to match RMM spec v1.0-rel0-rc1.
+>> Changes since v2:
+>>  * Fix specification link.
+>>  * Rename rec_entry->rec_enter to match spec.
+>>  * Fix size of pmu_ovf_status to match spec.
+>> ---
+>>  arch/arm64/include/asm/rmi_smc.h | 269 +++++++++++++++++++++++++++++++
+>>  1 file changed, 269 insertions(+)
+>>  create mode 100644 arch/arm64/include/asm/rmi_smc.h
+>>
+>> diff --git a/arch/arm64/include/asm/rmi_smc.h b/arch/arm64/include/asm/rmi_smc.h
+>> new file mode 100644
+>> index 000000000000..1000368f1bca
+>> --- /dev/null
+>> +++ b/arch/arm64/include/asm/rmi_smc.h
 > 
-> > Standardize the error handling by making the function return NULL on all
-> > error conditions.
-> > 
-> > Suggested-by: Simon Horman <horms@kernel.org>
-> > Signed-off-by: Nishanth Menon <nm@ti.com>
-> > ---
-> > Changes in V2:
-> > * renewed version
-> > 
-> >  drivers/soc/ti/knav_dma.c | 14 +++++++-------
-> >  1 file changed, 7 insertions(+), 7 deletions(-)
-> > 
-> > diff --git a/drivers/soc/ti/knav_dma.c b/drivers/soc/ti/knav_dma.c
-> > index a25ebe6cd503..e69f0946de29 100644
-> > --- a/drivers/soc/ti/knav_dma.c
-> > +++ b/drivers/soc/ti/knav_dma.c
-> > @@ -402,7 +402,7 @@ static int of_channel_match_helper(struct device_node *np, const char *name,
-> >   * @name:	slave channel name
-> >   * @config:	dma configuration parameters
-> >   *
-> > - * Returns pointer to appropriate DMA channel on success or error.
-> > + * Returns pointer to appropriate DMA channel on success or NULL on error.
-> >   */
-> >  void *knav_dma_open_channel(struct device *dev, const char *name,
-> >  					struct knav_dma_cfg *config)
-> > @@ -414,13 +414,13 @@ void *knav_dma_open_channel(struct device *dev, const char *name,
-> >  
-> >  	if (!kdev) {
-> >  		pr_err("keystone-navigator-dma driver not registered\n");
-> > -		return (void *)-EINVAL;
-> > +		return NULL;
+> [...]
 > 
-> Wow. The driver doesn't even return ERR_PTR, but just directly casts
-> -EINVAL to a void *... thats quite ugly. Good to remove this.
+>> +#define RMI_PERMITTED_GICV3_HCR_BITS	(ICH_HCR_EL2_UIE |		\
+>> +					 ICH_HCR_EL2_LRENPIE |		\
+>> +					 ICH_HCR_EL2_NPIE |		\
+>> +					 ICH_HCR_EL2_VGrp0EIE |		\
+>> +					 ICH_HCR_EL2_VGrp0DIE |		\
+>> +					 ICH_HCR_EL2_VGrp1EIE |		\
+>> +					 ICH_HCR_EL2_VGrp1DIE |		\
+>> +					 ICH_HCR_EL2_TDIR)
+> 
+> Why should KVM care about what bits the RMM wants to use? Also, why
+> should KVM be forbidden to use the TALL0, TALL1 and TC bits? If
+> interrupt delivery is the host's business, then the RMM has no
+> business interfering with the GIC programming.
+
+The RMM receives the guest's GIC state in a field within the REC entry
+structure (enter.gicv3_hcr). The RMM spec states that the above is the
+list of fields that will be considered and that everything else must be
+0[1]. So this is used to filter the configuration to make sure it's
+valid for the RMM.
+
+In terms of TALL0/TALL1/TC bits: these control trapping to EL2, and when
+in a realm guest the RMM is EL2 - so it's up to the RMM to configure
+these bits appropriately as it is the RMM which will have to deal with
+the trap.
+
+[1] RWVGFJ in the 1.0 spec from
+https://developer.arm.com/documentation/den0137/latest
+
+>> +
+>> +struct rec_enter {
+>> +	union { /* 0x000 */
+>> +		u64 flags;
+>> +		u8 padding0[0x200];
+>> +	};
+>> +	union { /* 0x200 */
+>> +		u64 gprs[REC_RUN_GPRS];
+>> +		u8 padding1[0x100];
+>> +	};
+>> +	union { /* 0x300 */
+>> +		struct {
+>> +			u64 gicv3_hcr;
+>> +			u64 gicv3_lrs[REC_MAX_GIC_NUM_LRS];
+>> +		};
+>> +		u8 padding2[0x100];
+>> +	};
+>> +	u8 padding3[0x400];
+>> +};
+>> +
+>> +#define RMI_EXIT_SYNC			0x00
+>> +#define RMI_EXIT_IRQ			0x01
+>> +#define RMI_EXIT_FIQ			0x02
+>> +#define RMI_EXIT_PSCI			0x03
+>> +#define RMI_EXIT_RIPAS_CHANGE		0x04
+>> +#define RMI_EXIT_HOST_CALL		0x05
+>> +#define RMI_EXIT_SERROR			0x06
+>> +
+>> +struct rec_exit {
+>> +	union { /* 0x000 */
+>> +		u8 exit_reason;
+>> +		u8 padding0[0x100];
+>> +	};
+>> +	union { /* 0x100 */
+>> +		struct {
+>> +			u64 esr;
+>> +			u64 far;
+>> +			u64 hpfar;
+>> +		};
+>> +		u8 padding1[0x100];
+>> +	};
+>> +	union { /* 0x200 */
+>> +		u64 gprs[REC_RUN_GPRS];
+>> +		u8 padding2[0x100];
+>> +	};
+>> +	union { /* 0x300 */
+>> +		struct {
+>> +			u64 gicv3_hcr;
+>> +			u64 gicv3_lrs[REC_MAX_GIC_NUM_LRS];
+>> +			u64 gicv3_misr;
+> 
+> Why do we care about ICH_MISR_EL2? Surely we get everything in the
+> registers themselves, right? I think this goes back to my question
+> above: why is the RMM getting in the way of ICH_*_EL2 accesses?
+
+As mentioned above, the state of the guest's GIC isn't passed through
+the CPU's registers, but instead using the rec_enter/rec_exit
+structures. So unlike a normal guest entry we don't set all the CPU's
+register state before entering, but instead hand over a shared data
+structure and the RMM is responsible for actually programming the
+registers on the CPU. Since many of the registers are (deliberately)
+unavailable to the host (e.g. all the GPRs) it makes some sense the RMM
+also handles the GIC registers save/restore.
+
+Thanks,
+Steve
+
+>> +			u64 gicv3_vmcr;
+>> +		};
+> 
+> Thanks,
+> 
+> 	M.
 > 
 
-
-
-
--- 
-Regards,
-Nishanth Menon
-Key (0xDDB5849D1736249D) / Fingerprint: F8A2 8693 54EB 8232 17A3  1A34 DDB5 849D 1736 249D
-https://ti.com/opensource
 
