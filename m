@@ -4,140 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8E54CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 21:30:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 40A95CAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 21:41:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=V1weNU8Af09KVcVXhgjKPJYbK4vjrZ0JqF8tO+urq2s=; b=X/E2XX7rJupBXerRKw55E0BHqb
-	XMi/X5CaRj8vRYn1G0bVHtEkVMZhk3iyRhf1iw3lhVIRxJn37Kl1cT87ho2XRbvUvHbfw/jOFWQ5b
-	nxRw0TzK4QB3TmalbyZQX0LD6Q24evoWd6KW0luMaUoPaJufWwT6J4XXDhJN4cTNO4ey/iNY3NJTw
-	dy4TrrPsxCn2fipoyKmnNKTLAeKjqMe1Ts0UdR6Lj1nuVATswKcJPintJXm2MLPItupqxWh64LWfu
-	5XNM6dCvyw6B1ukVi6eWn5JCzWGtXNSdvTugHut8ZlAuE4grApZAGCTY8lzkqbWj5ZXhXR1dwxETk
-	n9zj+66Q==;
+	bh=9jfJUnPvTxcBMRlTiEiZPblzShDRedv1sQmdjn3No6s=; b=dfjXLZeV7ddlsUMzbEdyylI0Z7
+	rDTu5Osw9N4IOq66pIti5uWg12G5/Z5AP/eX4wyjjk1VkKn/vwObAkCyNDEiOkWAVr+9SjRoLpmy3
+	eLQP1k0D+4PPep21bwjFcDXp9PNDfgUM4WCDo4C7Nd7RUcZ3zlnKHuvjSWSxOpnql6kpCssEs7I8Y
+	MBMe7WlVRK3Hdjg+Uv1MYzfOjc0QVvuww3NIt4kUZCidJOj6r3o3q0U+4qmbJnpXRjiHXuLxEASJ8
+	Qis0gXTj7cq3G3TEilvla/YAdtWN9tal3qpJkCgqXYN13FefQp9Iu/feyZQVvF5kG+pBQPAeYhCSl
+	UMkdlLuw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v44Ox-000000093mY-2ijF;
-	Wed, 01 Oct 2025 21:30:19 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1v44a0-0000000953F-0XLn;
+	Wed, 01 Oct 2025 21:41:44 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v44Ou-000000093lV-2oR6
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 21:30:18 +0000
-Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 591IceqI006911
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 1 Oct 2025 21:30:16 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	V1weNU8Af09KVcVXhgjKPJYbK4vjrZ0JqF8tO+urq2s=; b=MPd+DDp7WncNdr6e
-	JwC/+FVav+hStZ/zVCXG1aeDp/2nypZR6xIvXasqJjAERzPcCxKR5x+RP+3THVBK
-	2sZy7nUrq4yQAdagqjG41HuV0duSb9Xo2ufHP8AksXeADxTmBdBrA/KVoViFfoFQ
-	m1+mCFXkKe+oqaaQmkmX434l4w4Q2MGRkUU33emjkYaiKWJmHtxEYaUXbz9X7stA
-	rcssQlHLyMQB/l0o2N22DGkjTFXoD4At4STmBu6qF0/1cF0ONrReSKl5rNR+SMX9
-	ADXfEGOqpUY1DQTZy/Y2EWEO877h7UVWMqdF/pjVTbXCr2htFUdy5rIzzjbVCMZf
-	CC7wSQ==
-Received: from mail-pf1-f200.google.com (mail-pf1-f200.google.com [209.85.210.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49e851nxp9-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 21:30:15 +0000 (GMT)
-Received: by mail-pf1-f200.google.com with SMTP id d2e1a72fcca58-782063922ceso324358b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 14:30:15 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759354215; x=1759959015;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=V1weNU8Af09KVcVXhgjKPJYbK4vjrZ0JqF8tO+urq2s=;
-        b=Qe6nSqyeo/UK/4yrR/wK2tBhXNcnHnK5BuBGcTW+UV8X4RGA9Og6G3wIdqnHYDU8fW
-         dXD3C4ORflBh7SpKxK2/8oWwv6hBsksxQcAtXwGkCLpyO1VrxAII/QfHYuxSByuAHy+s
-         QnbpqMeTF+U6byTrzHITFaR96YPsmoXXQ9XnvzhekmNJAan8MiSzKZN/LwK/vOVZNj7j
-         +YRJm42KMll06oeEgiKgSImp7D8vXhgsnsh8K7Usp+MzOZr2skg1TdKmC0HTqFu9M9sp
-         zo/AMYqaNA17AptF7PB1u3qJgtyhRGU9uxMfbVhMYFkqxq3zq1TX9pS1i7pybA3e/0K/
-         vbRQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW1jiyrIbz/xjZvCbhTn+2FHK3NEtybrmHtSfJy49DNlKTSa7V/WV5RnQbI20YG3GGWyu+sHzjt8/sdlBGTtfxE@lists.infradead.org
-X-Gm-Message-State: AOJu0YyyhrjjXKkHDLaowZ7qV947rZQu6fR4wtTnan9sQL7nmw9RdPL1
-	E1pTTLE03eOgIeaIxkdIPfK91wBAX7+jfqnhKIQ15eOQXW1Lz6Z2T3UN+8Fgvo0L0QpHcjYEhBh
-	IEc9C9At8r1ROMWMHzZkbfmHc6gzdF04NWav1aEdMIjc5EmoNLdrBZSnZCh6/a/OHCUrxnBgirF
-	Mu6Q==
-X-Gm-Gg: ASbGncvF1S9avbc7OG8qOAxXYg+UfGYDoUCwfhItTSpWHgk4E81j6+Ok9hq45IlEMKX
-	JvxqqcMLdqGknlp94h7HkyrWBihtGANW7jpDC6qa9lkAPy1ElpQV27U8IokeGWC3/2zgoMoebtT
-	iwKyW/gzDDzE+DMl526fh+RNDHg9tjWHM5HzbJFq7ia0vE6LCqT7m6/TNZK90jkTIKgQYyFQv1F
-	V1Fazu7rm09AqinN/Gezr43NSB8zv+1qgzC7ef3bq8kfyMxUDsilVxd/onLtOvl5wMMn0UPpkiz
-	inuGhLeOkbxE+vUa6q78CmpQ1tUP7KcyWQ/Y1BCqy6OCdLuFmhL75Uh3nxcoau4r/Qw=
-X-Received: by 2002:a05:6a00:14ce:b0:770:fd32:f365 with SMTP id d2e1a72fcca58-78af41bc641mr5788774b3a.25.1759354214866;
-        Wed, 01 Oct 2025 14:30:14 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE3KTpyKn1TOT+G/yKBNDQxcsRn3w3Nf3AMVRSFCI/XKlG4a/HPYmW/tJpjzVE8x9pRqHwGeQ==
-X-Received: by 2002:a05:6a00:14ce:b0:770:fd32:f365 with SMTP id d2e1a72fcca58-78af41bc641mr5788740b3a.25.1759354214261;
-        Wed, 01 Oct 2025 14:30:14 -0700 (PDT)
-Received: from [192.168.1.9] ([117.244.71.19])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-78b02053767sm602612b3a.52.2025.10.01.14.30.05
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Wed, 01 Oct 2025 14:30:13 -0700 (PDT)
-Message-ID: <20fb9f76-558b-48c8-92b0-9820407bb82f@oss.qualcomm.com>
-Date: Thu, 2 Oct 2025 03:00:03 +0530
+	id 1v44Zy-0000000952Z-0YZy;
+	Wed, 01 Oct 2025 21:41:43 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1759354899;
+	bh=teBzgg6W66TCegIEp7ZYSh7bHyXJUjH+ENcqJQ17cqs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Excnw8LIXnQ/LNhbk55aewH9+GfqyTaDKYKtMOVqBxvZYHyJUcxX8isJFBk+RUbGY
+	 VnEtzqf5we8wjMq+M70lpd3rMDHY7xiFrQcRqg9UVxlHzo7GfsHKJKpBLER7AHdRVW
+	 +/ywcqH6Nozs/jUdF9eibULEFlx7n71aoNPlbq8OSn0PDnQk2zWY30VVUd7TXuyTHe
+	 E7Wu/5FVm/uprZnT+5/4M3OQ70dXE1nNCyiIb1AQ5RBs+clm7Ck35PGhfbNCD6ftec
+	 6hkFb3jKCKiKWyjvAGKMwkI/YLMcXi4y7IBWqmwPzM72kqf/jHLY19pkfSGW+qAyJk
+	 BYkh82tLhWAcg==
+Received: from [10.40.0.100] (185-67-175-126.lampert.tv [185.67.175.126])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: mriesch)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C3CE917E12C0;
+	Wed,  1 Oct 2025 23:41:38 +0200 (CEST)
+Message-ID: <b8e03fd2-3a44-48bb-8707-4aecabbbfd9c@collabora.com>
+Date: Wed, 1 Oct 2025 23:41:38 +0200
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH 11/17] drm/msm/a8xx: Add support for A8x GMU
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Rob Clark <robin.clark@oss.qualcomm.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>, Sean Paul <sean@poorly.run>,
-        Dmitry Baryshkov <lumag@kernel.org>,
-        Abhinav Kumar
- <abhinav.kumar@linux.dev>,
-        Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
-        Marijn Suijten <marijn.suijten@somainline.org>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Jonathan Marek <jonathan@marek.ca>,
-        Jordan Crouse
- <jordan@cosmicpenguin.net>,
-        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
-        Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>, linux-arm-msm@vger.kernel.org,
-        linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
-        freedreno@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
-        iommu@lists.linux.dev, devicetree@vger.kernel.org
-References: <20250930-kaana-gpu-support-v1-0-73530b0700ed@oss.qualcomm.com>
- <20250930-kaana-gpu-support-v1-11-73530b0700ed@oss.qualcomm.com>
- <mbx2yihv4z3y5w6fptumw47rc3l33pbdduqnu66bgv2re64cjy@wgd2qq3uv64h>
-From: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 06/26] media: v4l2-ioctl: Introduce VIDIOC_BIND_CONTEXT
+To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ Kieran Bingham <kieran.bingham@ideasonboard.com>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Tomasz Figa
+ <tfiga@chromium.org>, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Hans Verkuil <hverkuil@kernel.org>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <20250717-multicontext-mainline-2025-v1-0-81ac18979c03@ideasonboard.com>
+ <20250717-multicontext-mainline-2025-v1-6-81ac18979c03@ideasonboard.com>
 Content-Language: en-US
-In-Reply-To: <mbx2yihv4z3y5w6fptumw47rc3l33pbdduqnu66bgv2re64cjy@wgd2qq3uv64h>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <20250717-multicontext-mainline-2025-v1-6-81ac18979c03@ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Authority-Analysis: v=2.4 cv=OJoqHCaB c=1 sm=1 tr=0 ts=68dd9d68 cx=c_pps
- a=mDZGXZTwRPZaeRUbqKGCBw==:117 a=2kejHg7nZSoTgEpwAwsXNQ==:17
- a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=e5mUnYsNAAAA:8 a=EUspDBNiAAAA:8
- a=LKflap6YWrQmgnFgafkA:9 a=QEXdDO2ut3YA:10 a=zc0IvFSfCIW2DFIPzwfm:22
- a=Vxmtnl_E_bksehYqCbjh:22
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTI3MDAzMiBTYWx0ZWRfX0TdZ9Ve9Hu1X
- RpAGFr/oRM+bjHUH1ubaeJtlmKNA1dJo9NeNWBbd4lIlLwFVLTvOySwjCWDvaapTITuJKgMcF4I
- 4UlPXtCV5Zgo/kubzPnq9hczvVpwmx6QhF7rjOCj+Cl+yu9zadFY7k709WW9s9vIF7+CwXRJDft
- j+Bm5NtINweK8vEF4IKNMZkClXXlAzGsuLCBPZg+hXRp1uIZuhUGwEpBNXhgp+qQZV/iWGH9cHc
- ukEajyyGX9E//eol+yMnLgY0pRlEokWsZpYRyn2uaQ0wqI5NDE2oykTs8nXqVTfY+81fbQ8gv56
- dYXmhB2tI/7EA8babvUEWvx4qtPmWf9BAdaiUtNEhLGb4iULPJ3Lxmog4lg744yhLuUPW9xNaAm
- Fu7oQ9ReyRcgGvPxKMl9lGl1zOrI1A==
-X-Proofpoint-ORIG-GUID: XPuZWyC_ch_crlXTEmZ7d309LS2HyKXA
-X-Proofpoint-GUID: XPuZWyC_ch_crlXTEmZ7d309LS2HyKXA
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-01_06,2025-09-29_04,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 adultscore=0 priorityscore=1501 bulkscore=0 impostorscore=0
- suspectscore=0 lowpriorityscore=0 phishscore=0 malwarescore=0 clxscore=1015
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2509150000 definitions=main-2509270032
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_143016_727730_B266812D 
-X-CRM114-Status: GOOD (  41.06  )
+X-CRM114-CacheID: sfid-20251001_144142_372453_5BF5300E 
+X-CRM114-Status: GOOD (  38.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,474 +86,270 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Jacopo,
 
+On 7/17/25 12:45, Jacopo Mondi wrote:
+> Introduce a new ioctl in V4L2 to allocate a video device context and
+> associate it with a media device context.
+> 
+> The ioctl is valid only if support for MEDIA_CONTROLLER is compiled in
+> as it calls into the entity ops to let driver allocate a new context and
+> binds the newly created context with the media context associated
+> with the file descriptor provided by userspace as the new ioctl
+> argument.
 
-On 9/30/2025 1:05 PM, Dmitry Baryshkov wrote:
-> On Tue, Sep 30, 2025 at 11:18:16AM +0530, Akhil P Oommen wrote:
->> A8x GMU configuration are very similar to A7x. Unfortunately, there are
->> minor shuffling in the register offsets in the GMU CX register region.
->> Apart from that, there is a new HFI message support to pass table like
->> data. This patch adds support for  perf table using this new HFI
->> message.
->>
->> Apart from that, there is a minor rework in a6xx_gmu_rpmh_arc_votes_init()
->> to simplify handling of MxG to MxA fallback along with the additional
->> calculations for the new dependency vote.
-> 
-> I'm sorry, I've sent it too early. This looks like a description
-> of a not-that-related change which should be split to a separate commit.
-> 
->>
->> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
->> ---
->>   drivers/gpu/drm/msm/adreno/a6xx_gmu.c             | 161 +++++++++++++++++-----
->>   drivers/gpu/drm/msm/adreno/a6xx_gmu.h             |   5 +-
->>   drivers/gpu/drm/msm/adreno/a6xx_hfi.c             |  53 +++++++
->>   drivers/gpu/drm/msm/adreno/a6xx_hfi.h             |  17 +++
->>   drivers/gpu/drm/msm/adreno/adreno_gpu.h           |   7 +
->>   drivers/gpu/drm/msm/registers/adreno/a6xx_gmu.xml |  48 +++++--
->>   6 files changed, 242 insertions(+), 49 deletions(-)
->>
->> @@ -592,12 +606,16 @@ static void a6xx_gmu_rpmh_init(struct a6xx_gmu *gmu)
->>   	struct a6xx_gpu *a6xx_gpu = container_of(gmu, struct a6xx_gpu, gmu);
->>   	struct adreno_gpu *adreno_gpu = &a6xx_gpu->base;
->>   	struct platform_device *pdev = to_platform_device(gmu->dev);
->> -	void __iomem *pdcptr = a6xx_gmu_get_mmio(pdev, "gmu_pdc", NULL);
->>   	u32 seqmem0_drv0_reg = REG_A6XX_RSCC_SEQ_MEM_0_DRV0;
->>   	void __iomem *seqptr = NULL;
->>   	uint32_t pdc_address_offset;
->> +	void __iomem *pdcptr;
->>   	bool pdc_in_aop = false;
->>   
-> 
-> A comment would be nice.
-> 
->> +	if (adreno_is_a8xx(adreno_gpu))
->> +		return;
->> +
->> +	pdcptr = a6xx_gmu_get_mmio(pdev, "gmu_pdc", NULL);
->>   	if (IS_ERR(pdcptr))
->>   		goto err;
->>   
->> @@ -1489,13 +1523,14 @@ static unsigned int a6xx_gmu_get_arc_level(struct device *dev,
->>   }
->>   
->>   static int a6xx_gmu_rpmh_arc_votes_init(struct device *dev, u32 *votes,
->> -		unsigned long *freqs, int freqs_count, const char *id)
->> +		unsigned long *freqs, int freqs_count,
->> +		const char *pri_id, const char *sec_id)
->>   {
->>   	int i, j;
->>   	const u16 *pri, *sec;
->>   	size_t pri_count, sec_count;
->>   
->> -	pri = cmd_db_read_aux_data(id, &pri_count);
->> +	pri = cmd_db_read_aux_data(pri_id, &pri_count);
-> 
-> separate commit
-> 
->>   	if (IS_ERR(pri))
->>   		return PTR_ERR(pri);
->>   	/*
->> @@ -1506,13 +1541,7 @@ static int a6xx_gmu_rpmh_arc_votes_init(struct device *dev, u32 *votes,
->>   	if (!pri_count)
->>   		return -EINVAL;
->>   
->> -	/*
->> -	 * Some targets have a separate gfx mxc rail. So try to read that first and then fall back
->> -	 * to regular mx rail if it is missing
->> -	 */
->> -	sec = cmd_db_read_aux_data("gmxc.lvl", &sec_count);
->> -	if (IS_ERR(sec) && sec != ERR_PTR(-EPROBE_DEFER))
->> -		sec = cmd_db_read_aux_data("mx.lvl", &sec_count);
->> +	sec = cmd_db_read_aux_data(sec_id, &sec_count);
->>   	if (IS_ERR(sec))
->>   		return PTR_ERR(sec);
->>   
->> @@ -1566,6 +1595,57 @@ static int a6xx_gmu_rpmh_arc_votes_init(struct device *dev, u32 *votes,
->>   	return 0;
->>   }
->>   
->> +static int a6xx_gmu_rpmh_dep_votes_init(struct device *dev, u32 *votes,
->> +		unsigned long *freqs, int freqs_count)
-> 
-> Definitely a separate commit
-> 
->> +{
->> +	const u16 *mx;
->> +	size_t count;
->> +
->> +	mx = cmd_db_read_aux_data("mx.lvl", &count);
->> +	if (IS_ERR(mx))
->> +		return PTR_ERR(mx);
->> +	/*
->> +	 * The data comes back as an array of unsigned shorts so adjust the
->> +	 * count accordingly
->> +	 */
->> +	count >>= 1;
->> +	if (!count)
->> +		return -EINVAL;
->> +
->> +	/* Fix the vote for zero frequency */
->> +	votes[0] = 0xFFFFFFFF;
-> 
-> lowercase
-> 
->> +
->> +	/* Construct a vote for rest of the corners */
->> +	for (int i = 1; i < freqs_count; i++) {
->> +		u8 j, index = 0;
->> +		unsigned int level = a6xx_gmu_get_arc_level(dev, freqs[i]);
->> +
->> +		/* Get the primary index that matches the arc level */
->> +		for (j = 0; j < count; j++) {
->> +			if (mx[j] >= level) {
->> +				index = j;
->> +				break;
->> +			}
->> +		}
->> +
->> +		if (j == count) {
->> +			DRM_DEV_ERROR(dev,
->> +				      "Mx Level %u not found in the RPMh list\n",
->> +				      level);
->> +			DRM_DEV_ERROR(dev, "Available levels:\n");
->> +			for (j = 0; j < count; j++)
->> +				DRM_DEV_ERROR(dev, "  %u\n", mx[j]);
->> +
->> +			return -EINVAL;
->> +		}
->> +
->> +		/* Construct the vote */
->> +		votes[i] = (0x3fff << 14) | (index << 8) | (0xff);
->> +	}
->> +
->> +	return 0;
->> +}
->> +
->>   /*
->>    * The GMU votes with the RPMh for itself and on behalf of the GPU but we need
->>    * to construct the list of votes on the CPU and send it over. Query the RPMh
->> @@ -1580,15 +1660,27 @@ static int a6xx_gmu_rpmh_votes_init(struct a6xx_gmu *gmu)
->>   	struct adreno_gpu *adreno_gpu = &a6xx_gpu->base;
->>   	const struct a6xx_info *info = adreno_gpu->info->a6xx;
->>   	struct msm_gpu *gpu = &adreno_gpu->base;
->> +	const char *sec_id;
->> +	const u16 *gmxc;
->>   	int ret;
->>   
->> +	gmxc = cmd_db_read_aux_data("gmxc.lvl", NULL);
->> +	if (gmxc == ERR_PTR(-EPROBE_DEFER))
->> +		return -EPROBE_DEFER;
->> +
->> +	/* If GMxC is present, prefer that as secondary rail for GX votes */
->> +	sec_id = IS_ERR_OR_NULL(gmxc) ? "mx.lvl" : "gmxc.lvl";
-> 
-> Can it be NULL?
-> 
+I would have expected that the execution context of the video device
+already exists and is not allocated at ioctl call time. If I understand
+it correctly
 
-It seems it cannot be.
+ - after opening a video device, no context is allocated, but in
+   v4l2_fh_release the reference counter of the context is decreased.
+   This smells fishy. Note that the user may not call the ioctl.
+ - after opening a video device there is no context. This could imply
+   that two operating modes are required (with a context and without a
+   context), which would seem unnecessarily complex.
+ - What happens if the VIDIOC_BIND_CONTEXT ioctl is called more than
+   once? (IIUC vfh->context gets overwritten but the old context is not
+   released)
 
->> +
->>   	/* Build the GX votes */
->>   	ret = a6xx_gmu_rpmh_arc_votes_init(&gpu->pdev->dev, gmu->gx_arc_votes,
->> -		gmu->gpu_freqs, gmu->nr_gpu_freqs, "gfx.lvl");
->> +		gmu->gpu_freqs, gmu->nr_gpu_freqs, "gfx.lvl", sec_id);
->>   
->>   	/* Build the CX votes */
->>   	ret |= a6xx_gmu_rpmh_arc_votes_init(gmu->dev, gmu->cx_arc_votes,
->> -		gmu->gmu_freqs, gmu->nr_gmu_freqs, "cx.lvl");
->> +		gmu->gmu_freqs, gmu->nr_gmu_freqs, "cx.lvl", "mx.lvl");
->> +
->> +	ret |= a6xx_gmu_rpmh_dep_votes_init(gmu->dev, gmu->dep_arc_votes,
->> +		gmu->gpu_freqs, gmu->nr_gpu_freqs);
->>   
->>   	/* Build the interconnect votes */
->>   	if (info->bcms && gmu->nr_gpu_bws > 1)
->> @@ -2043,14 +2135,14 @@ int a6xx_gmu_init(struct a6xx_gpu *a6xx_gpu, struct device_node *node)
->>   	 * are otherwise unused by a660.
->>   	 */
->>   	gmu->dummy.size = SZ_4K;
->> -	if (adreno_is_a660_family(adreno_gpu) ||
->> -	    adreno_is_a7xx(adreno_gpu)) {
->> +	if (adreno_is_a660_family(adreno_gpu) || adreno_is_a7xx(adreno_gpu) ||
->> +			adreno_is_a8xx(adreno_gpu)) {
->>   		ret = a6xx_gmu_memory_alloc(gmu, &gmu->debug, SZ_4K * 7,
->>   					    0x60400000, "debug");
->>   		if (ret)
->>   			goto err_memory;
->>   
->> -		gmu->dummy.size = SZ_8K;
->> +		gmu->dummy.size = SZ_16K;
->>   	}
->>   
->>   	/* Allocate memory for the GMU dummy page */
->> @@ -2060,8 +2152,8 @@ int a6xx_gmu_init(struct a6xx_gpu *a6xx_gpu, struct device_node *node)
->>   		goto err_memory;
->>   
->>   	/* Note that a650 family also includes a660 family: */
->> -	if (adreno_is_a650_family(adreno_gpu) ||
->> -	    adreno_is_a7xx(adreno_gpu)) {
->> +	if (adreno_is_a650_family(adreno_gpu) || adreno_is_a7xx(adreno_gpu) ||
->> +			adreno_is_a8xx(adreno_gpu)) {
-> 
-> Please adjust your editor settings. It would be much easier to read if
-> it was:>
-> 	if (adreno_is_a650_family(adreno_gpu) ||
-> 	    adreno_is_a7xx(adreno_gpu) ||
-> 	    adreno_is_a8xx(adreno_gpu)) {
-> 
+(Just found that a later patch introduces default contexts. Should this
+address the comments above, consider rearranging the patches so that
+default contexts are introduced first.)
 
-Agree. will update.
+> The newly allocated video context is then stored in the v4l2-fh that
+> represent the open file handle on which the ioctl has been called.
 
-> (Adjust it here and in other places)
-> 
->>   		ret = a6xx_gmu_memory_alloc(gmu, &gmu->icache,
->>   			SZ_16M - SZ_16K, 0x04000, "icache");
->>   		if (ret)
-> 
-> [...]
-> 
->> @@ -255,11 +256,63 @@ static int a6xx_hfi_send_perf_table_v1(struct a6xx_gmu *gmu)
->>   		NULL, 0);
->>   }
->>   
->> +static int a8xx_hfi_send_perf_table(struct a6xx_gmu *gmu)
->> +{
->> +	unsigned int num_gx_votes = 3, num_cx_votes = 2;
->> +	struct a6xx_hfi_table_entry *entry;
->> +	struct a6xx_hfi_table *tbl;
->> +	int ret, i;
->> +	u32 size;
-> 
-> Separate commit.
-> 
->> +
->> +	size = sizeof(*tbl) +  (2 * sizeof(tbl->entry[0])) +
->> +		(gmu->nr_gpu_freqs * num_gx_votes * sizeof(gmu->gx_arc_votes[0])) +
->> +		(gmu->nr_gmu_freqs * num_cx_votes * sizeof(gmu->cx_arc_votes[0]));
->> +	tbl = devm_kzalloc(gmu->dev, size, GFP_KERNEL);
->> +	tbl->type = HFI_TABLE_GPU_PERF;
->> +
->> +	/* First fill GX votes */
->> +	entry = &tbl->entry[0];
->> +	entry->count = gmu->nr_gpu_freqs;
->> +	entry->stride = num_gx_votes;
->> +
->> +	for (i = 0; i < gmu->nr_gpu_freqs; i++) {
->> +		unsigned int base = i * entry->stride;
->> +
->> +		entry->data[base+0] = gmu->gx_arc_votes[i];
->> +		entry->data[base+1] = gmu->dep_arc_votes[i];
->> +		entry->data[base+2] = gmu->gpu_freqs[i] / 1000;
->> +	}
->> +
->> +	/* Then fill CX votes */
->> +	entry = (struct a6xx_hfi_table_entry *)
->> +		&tbl->entry[0].data[gmu->nr_gpu_freqs * num_gx_votes];
->> +
->> +	entry->count = gmu->nr_gmu_freqs;
->> +	entry->stride = num_cx_votes;
->> +
->> +	for (i = 0; i < gmu->nr_gmu_freqs; i++) {
->> +		unsigned int base = i * entry->stride;
->> +
->> +		entry->data[base] = gmu->cx_arc_votes[i];
->> +		entry->data[base+1] = gmu->gmu_freqs[i] / 1000;
->> +	}
->> +
->> +	ret = a6xx_hfi_send_msg(gmu, HFI_H2F_MSG_TABLE, tbl, size, NULL, 0);
->> +
->> +	devm_kfree(gmu->dev, tbl);
->> +	return ret;
->> +}
->> +
->>   static int a6xx_hfi_send_perf_table(struct a6xx_gmu *gmu)
->>   {
->> +	struct a6xx_gpu *a6xx_gpu = container_of(gmu, struct a6xx_gpu, gmu);
->> +	struct adreno_gpu *adreno_gpu = &a6xx_gpu->base;
->>   	struct a6xx_hfi_msg_perf_table msg = { 0 };
->>   	int i;
->>   
->> +	if (adreno_is_a8xx(adreno_gpu))
->> +		return a8xx_hfi_send_perf_table(gmu);
->> +
->>   	msg.num_gpu_levels = gmu->nr_gpu_freqs;
->>   	msg.num_gmu_levels = gmu->nr_gmu_freqs;
->>   
->> diff --git a/drivers/gpu/drm/msm/adreno/a6xx_hfi.h b/drivers/gpu/drm/msm/adreno/a6xx_hfi.h
->> index 653ef720e2da4d2b0793c0b76e994b6f6dc524c7..e12866110cb8ea0c075b3ae5e4cae679405c4bd1 100644
->> --- a/drivers/gpu/drm/msm/adreno/a6xx_hfi.h
->> +++ b/drivers/gpu/drm/msm/adreno/a6xx_hfi.h
->> @@ -185,6 +185,23 @@ struct a6xx_hfi_msg_core_fw_start {
->>   	u32 handle;
->>   };
->>   
->> +#define HFI_H2F_MSG_TABLE 15
->> +
->> +struct a6xx_hfi_table_entry {
->> +	u32 count;
->> +	u32 stride;
->> +	u32 data[];
->> +};
->> +
->> +struct a6xx_hfi_table {
->> +	u32 header;
->> +	u32 version;
->> +#define HFI_TABLE_BW_VOTE 0
->> +#define HFI_TABLE_GPU_PERF 1
->> +	u32 type;
->> +	struct a6xx_hfi_table_entry entry[];
->> +};
->> +
->>   #define HFI_H2F_MSG_GX_BW_PERF_VOTE 30
->>   
->>   struct a6xx_hfi_gx_bw_perf_vote_cmd {
->> diff --git a/drivers/gpu/drm/msm/adreno/adreno_gpu.h b/drivers/gpu/drm/msm/adreno/adreno_gpu.h
->> index b27974d97c7512ecae326eb2d22238330d6c52f0..9831401c3bc865b803c2f9759d5e2ffcd79d19f8 100644
->> --- a/drivers/gpu/drm/msm/adreno/adreno_gpu.h
->> +++ b/drivers/gpu/drm/msm/adreno/adreno_gpu.h
->> @@ -50,6 +50,8 @@ enum adreno_family {
->>   	ADRENO_7XX_GEN1,  /* a730 family */
->>   	ADRENO_7XX_GEN2,  /* a740 family */
->>   	ADRENO_7XX_GEN3,  /* a750 family */
->> +	ADRENO_8XX_GEN1,  /* a830 family */
->> +	ADRENO_8XX_GEN2,  /* a840 family */
->>   };
->>   
->>   #define ADRENO_QUIRK_TWO_PASS_USE_WFI		BIT(0)
->> @@ -555,6 +557,11 @@ static inline int adreno_is_a7xx(struct adreno_gpu *gpu)
->>   	       adreno_is_a740_family(gpu);
->>   }
->>   
->> +static inline int adreno_is_a8xx(struct adreno_gpu *gpu)
->> +{
->> +	return gpu->info->family >= ADRENO_8XX_GEN1;
->> +}
-> 
-> This and the register mask updates can go to a separate commit.
-
-Which mask update exactly?
-
-I can split out the hfi table addition and arc table updates into 2 
-separate patches.
-
--Akhil.
+Couldn't the same be achieved by
+ - v4l2_fh_open allocates a new context
+ - v4l2_fh_release releases it (already implemented)
+ - ioctl takes the existing context and binds it to the media device
+   context
+Then,
+ - open/release are symmetric and not fishy
+ - after open but before the ioctl call the user can safely operate on a
+   context
+ - calling ioctl twice will be idempotent (check already implemented in
+   media_device_bind_context())
 
 > 
->> +
->>   /* Put vm_start above 32b to catch issues with not setting xyz_BASE_HI */
->>   #define ADRENO_VM_START 0x100000000ULL
->>   u64 adreno_private_vm_size(struct msm_gpu *gpu);
->> diff --git a/drivers/gpu/drm/msm/registers/adreno/a6xx_gmu.xml b/drivers/gpu/drm/msm/registers/adreno/a6xx_gmu.xml
->> index 09b8a0b9c0de7615f7e7e6364c198405a498121a..5dce7934056dd6472c368309b4894f0ed4a4d960 100644
->> --- a/drivers/gpu/drm/msm/registers/adreno/a6xx_gmu.xml
->> +++ b/drivers/gpu/drm/msm/registers/adreno/a6xx_gmu.xml
->> @@ -66,10 +66,15 @@ xsi:schemaLocation="https://gitlab.freedesktop.org/freedreno/ rules-fd.xsd">
->>   	<reg32 offset="0x1f81c" name="GMU_CM3_FW_INIT_RESULT"/>
->>   	<reg32 offset="0x1f82d" name="GMU_CM3_CFG"/>
->>   	<reg32 offset="0x1f840" name="GMU_CX_GMU_POWER_COUNTER_ENABLE"/>
->> +	<reg32 offset="0x1fc10" name="GMU_CX_GMU_POWER_COUNTER_ENABLE" variants="A8XX"/>
->>   	<reg32 offset="0x1f841" name="GMU_CX_GMU_POWER_COUNTER_SELECT_0"/>
->>   	<reg32 offset="0x1f842" name="GMU_CX_GMU_POWER_COUNTER_SELECT_1"/>
->> +	<reg32 offset="0x1fc40" name="GMU_CX_GMU_POWER_COUNTER_SELECT_XOCLK_0" variants="A8XX-"/>
->> +	<reg32 offset="0x1fc41" name="GMU_CX_GMU_POWER_COUNTER_SELECT_XOCLK_1" variants="A8XX-"/>
->>   	<reg32 offset="0x1f844" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_0_L"/>
->> +	<reg32 offset="0x1fca0" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_0_L" variants="A8XX-"/>
->>   	<reg32 offset="0x1f845" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_0_H"/>
->> +	<reg32 offset="0x1fca1" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_0_H" variants="A8XX-"/>
->>   	<reg32 offset="0x1f846" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_1_L"/>
->>   	<reg32 offset="0x1f847" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_1_H"/>
->>   	<reg32 offset="0x1f848" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_2_L"/>
->> @@ -89,7 +94,7 @@ xsi:schemaLocation="https://gitlab.freedesktop.org/freedreno/ rules-fd.xsd">
->>   	</reg32>
->>   	<reg32 offset="0x1f8c1" name="GMU_PWR_COL_INTER_FRAME_HYST"/>
->>   	<reg32 offset="0x1f8c2" name="GMU_PWR_COL_SPTPRAC_HYST"/>
->> -	<reg32 offset="0x1f8d0" name="GMU_SPTPRAC_PWR_CLK_STATUS">
->> +	<reg32 offset="0x1f8d0" name="GMU_SPTPRAC_PWR_CLK_STATUS" variants="A6XX">
->>   		<bitfield name="SPTPRAC_GDSC_POWERING_OFF" pos="0" type="boolean"/>
->>   		<bitfield name="SPTPRAC_GDSC_POWERING_ON" pos="1" type="boolean"/>
->>   		<bitfield name="SPTPRAC_GDSC_POWER_OFF" pos="2" type="boolean"/>
->> @@ -99,7 +104,11 @@ xsi:schemaLocation="https://gitlab.freedesktop.org/freedreno/ rules-fd.xsd">
->>   		<bitfield name="GX_HM_GDSC_POWER_OFF" pos="6" type="boolean"/>
->>   		<bitfield name="GX_HM_CLK_OFF" pos="7" type="boolean"/>
->>   	</reg32>
->> -	<reg32 offset="0x1f8d0" name="GMU_SPTPRAC_PWR_CLK_STATUS" variants="A7XX-">
->> +	<reg32 offset="0x1f8d0" name="GMU_SPTPRAC_PWR_CLK_STATUS" variants="A7XX">
->> +		<bitfield name="GX_HM_GDSC_POWER_OFF" pos="0" type="boolean"/>
->> +		<bitfield name="GX_HM_CLK_OFF" pos="1" type="boolean"/>
->> +	</reg32>
->> +	<reg32 offset="0x1f7e8" name="GMU_PWR_CLK_STATUS" variants="A8XX-">
->>   		<bitfield name="GX_HM_GDSC_POWER_OFF" pos="0" type="boolean"/>
->>   		<bitfield name="GX_HM_CLK_OFF" pos="1" type="boolean"/>
->>   	</reg32>
->> @@ -120,9 +129,12 @@ xsi:schemaLocation="https://gitlab.freedesktop.org/freedreno/ rules-fd.xsd">
->>   		<bitfield name="GFX_MIN_VOTE_ENABLE" pos="15" type="boolean"/>
->>   	</reg32>
->>   	<reg32 offset="0x1f8e9" name="GMU_RPMH_HYST_CTRL"/>
->> -	<reg32 offset="0x1f8ec" name="GPU_GMU_CX_GMU_RPMH_POWER_STATE"/>
->> -	<reg32 offset="0x1f8f0" name="GPU_GMU_CX_GMU_CX_FAL_INTF"/>
->> -	<reg32 offset="0x1f8f1" name="GPU_GMU_CX_GMU_CX_FALNEXT_INTF"/>
->> +	<reg32 offset="0x1f8ec" name="GPU_GMU_CX_GMU_RPMH_POWER_STATE" variants="A6XX"/>
->> +	<reg32 offset="0x1f7e9" name="GPU_GMU_CX_GMU_RPMH_POWER_STATE" variants="A8XX-"/>
->> +	<reg32 offset="0x1f8f0" name="GPU_GMU_CX_GMU_CX_FAL_INTF" variants="A6XX"/>
->> +	<reg32 offset="0x1f7ec" name="GPU_GMU_CX_GMU_CX_FAL_INTF" variants="A8XX-"/>
->> +	<reg32 offset="0x1f8f1" name="GPU_GMU_CX_GMU_CX_FALNEXT_INTF" variants="A6XX"/>
->> +	<reg32 offset="0x1f7ed" name="GPU_GMU_CX_GMU_CX_FALNEXT_INTF" variants="A8XX-"/>
->>   	<reg32 offset="0x1f900" name="GPU_GMU_CX_GMU_PWR_COL_CP_MSG"/>
->>   	<reg32 offset="0x1f901" name="GPU_GMU_CX_GMU_PWR_COL_CP_RESP"/>
->>   	<reg32 offset="0x1f9f0" name="GMU_BOOT_KMD_LM_HANDSHAKE"/>
->> @@ -130,8 +142,10 @@ xsi:schemaLocation="https://gitlab.freedesktop.org/freedreno/ rules-fd.xsd">
->>   	<reg32 offset="0x1f958" name="GMU_LLM_GLM_SLEEP_STATUS"/>
->>   	<reg32 offset="0x1f888" name="GMU_ALWAYS_ON_COUNTER_L"/>
->>   	<reg32 offset="0x1f889" name="GMU_ALWAYS_ON_COUNTER_H"/>
->> -	<reg32 offset="0x1f8c3" name="GMU_GMU_PWR_COL_KEEPALIVE"/>
->> -	<reg32 offset="0x1f8c4" name="GMU_PWR_COL_PREEMPT_KEEPALIVE"/>
->> +	<reg32 offset="0x1f8c3" name="GMU_GMU_PWR_COL_KEEPALIVE" variants="A6XX-A7XX"/>
->> +	<reg32 offset="0x1f7e4" name="GMU_GMU_PWR_COL_KEEPALIVE" variants="A8XX-"/>
->> +	<reg32 offset="0x1f8c4" name="GMU_PWR_COL_PREEMPT_KEEPALIVE" variants="A6XX-A7XX"/>
->> +	<reg32 offset="0x1f7e5" name="GMU_PWR_COL_PREEMPT_KEEPALIVE" variants="A8XX-"/>
->>   	<reg32 offset="0x1f980" name="GMU_HFI_CTRL_STATUS"/>
->>   	<reg32 offset="0x1f981" name="GMU_HFI_VERSION_INFO"/>
->>   	<reg32 offset="0x1f982" name="GMU_HFI_SFR_ADDR"/>
->> @@ -164,6 +178,14 @@ xsi:schemaLocation="https://gitlab.freedesktop.org/freedreno/ rules-fd.xsd">
->>   	<reg32 offset="0x1f9cd" name="GMU_GENERAL_8" variants="A7XX"/>
->>   	<reg32 offset="0x1f9ce" name="GMU_GENERAL_9" variants="A7XX"/>
->>   	<reg32 offset="0x1f9cf" name="GMU_GENERAL_10" variants="A7XX"/>
->> +	<reg32 offset="0x1f9c0" name="GMU_GENERAL_0" variants="A8XX"/>
->> +	<reg32 offset="0x1f9c1" name="GMU_GENERAL_1" variants="A8XX"/>
->> +	<reg32 offset="0x1f9c6" name="GMU_GENERAL_6" variants="A8XX"/>
->> +	<reg32 offset="0x1f9c7" name="GMU_GENERAL_7" variants="A8XX"/>
->> +	<reg32 offset="0x1f9c8" name="GMU_GENERAL_8" variants="A8XX"/>
->> +	<reg32 offset="0x1f9c9" name="GMU_GENERAL_9" variants="A8XX"/>
->> +	<reg32 offset="0x1f9ca" name="GMU_GENERAL_10" variants="A8XX"/>
->> +	<reg32 offset="0x1f9cb" name="GMU_GENERAL_11" variants="A8XX"/>
->>   	<reg32 offset="0x1f95d" name="GMU_ISENSE_CTRL"/>
->>   	<reg32 offset="0x23120" name="GPU_CS_ENABLE_REG"/>
->>   	<reg32 offset="0x1f95d" name="GPU_GMU_CX_GMU_ISENSE_CTRL"/>
->> @@ -233,12 +255,12 @@ xsi:schemaLocation="https://gitlab.freedesktop.org/freedreno/ rules-fd.xsd">
->>   	<reg32 offset="0x03ee" name="RSCC_TCS1_DRV0_STATUS"/>
->>   	<reg32 offset="0x0496" name="RSCC_TCS2_DRV0_STATUS"/>
->>   	<reg32 offset="0x053e" name="RSCC_TCS3_DRV0_STATUS"/>
->> -	<reg32 offset="0x05e6" name="RSCC_TCS4_DRV0_STATUS" variants="A7XX"/>
->> -	<reg32 offset="0x068e" name="RSCC_TCS5_DRV0_STATUS" variants="A7XX"/>
->> -	<reg32 offset="0x0736" name="RSCC_TCS6_DRV0_STATUS" variants="A7XX"/>
->> -	<reg32 offset="0x07de" name="RSCC_TCS7_DRV0_STATUS" variants="A7XX"/>
->> -	<reg32 offset="0x0886" name="RSCC_TCS8_DRV0_STATUS" variants="A7XX"/>
->> -	<reg32 offset="0x092e" name="RSCC_TCS9_DRV0_STATUS" variants="A7XX"/>
->> +	<reg32 offset="0x05e6" name="RSCC_TCS4_DRV0_STATUS" variants="A7XX-"/>
->> +	<reg32 offset="0x068e" name="RSCC_TCS5_DRV0_STATUS" variants="A7XX-"/>
->> +	<reg32 offset="0x0736" name="RSCC_TCS6_DRV0_STATUS" variants="A7XX-"/>
->> +	<reg32 offset="0x07de" name="RSCC_TCS7_DRV0_STATUS" variants="A7XX-"/>
->> +	<reg32 offset="0x0886" name="RSCC_TCS8_DRV0_STATUS" variants="A7XX-"/>
->> +	<reg32 offset="0x092e" name="RSCC_TCS9_DRV0_STATUS" variants="A7XX-"/>
->>   </domain>
->>   
->>   </database>
->>
->> -- 
->> 2.51.0
->>
+> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> ---
+>  drivers/media/v4l2-core/v4l2-dev.c   | 10 ++++++
+>  drivers/media/v4l2-core/v4l2-fh.c    |  1 +
+>  drivers/media/v4l2-core/v4l2-ioctl.c | 64 ++++++++++++++++++++++++++++++++++++
+>  include/media/v4l2-ioctl.h           |  7 ++++
+>  include/uapi/linux/videodev2.h       | 11 +++++++
+>  5 files changed, 93 insertions(+)
 > 
+> diff --git a/drivers/media/v4l2-core/v4l2-dev.c b/drivers/media/v4l2-core/v4l2-dev.c
+> index c83c37843c9e7beb899a4b2bd176273c3dec381b..bc6502b4ce21cc0ad53136e1637d1c926e31dd89 100644
+> --- a/drivers/media/v4l2-core/v4l2-dev.c
+> +++ b/drivers/media/v4l2-core/v4l2-dev.c
+> @@ -606,6 +606,10 @@ static void determine_valid_ioctls(struct video_device *vdev)
+>  		__set_bit(_IOC_NR(VIDIOC_ENUM_FREQ_BANDS), valid_ioctls);
+>  
+>  	if (is_vid) {
+> +#ifdef CONFIG_MEDIA_CONTROLLER
+> +		__set_bit(_IOC_NR(VIDIOC_BIND_CONTEXT), valid_ioctls);
+> +#endif
+> +
+>  		/* video specific ioctls */
+>  		if ((is_rx && (ops->vidioc_enum_fmt_vid_cap ||
+>  			       ops->vidioc_enum_fmt_vid_overlay)) ||
+> @@ -661,12 +665,18 @@ static void determine_valid_ioctls(struct video_device *vdev)
+>  		SET_VALID_IOCTL(ops, VIDIOC_G_FMT, vidioc_g_fmt_meta_cap);
+>  		SET_VALID_IOCTL(ops, VIDIOC_S_FMT, vidioc_s_fmt_meta_cap);
+>  		SET_VALID_IOCTL(ops, VIDIOC_TRY_FMT, vidioc_try_fmt_meta_cap);
+> +#ifdef CONFIG_MEDIA_CONTROLLER
+> +		__set_bit(_IOC_NR(VIDIOC_BIND_CONTEXT), valid_ioctls);
+> +#endif
+>  	} else if (is_meta && is_tx) {
+>  		/* metadata output specific ioctls */
+>  		SET_VALID_IOCTL(ops, VIDIOC_ENUM_FMT, vidioc_enum_fmt_meta_out);
+>  		SET_VALID_IOCTL(ops, VIDIOC_G_FMT, vidioc_g_fmt_meta_out);
+>  		SET_VALID_IOCTL(ops, VIDIOC_S_FMT, vidioc_s_fmt_meta_out);
+>  		SET_VALID_IOCTL(ops, VIDIOC_TRY_FMT, vidioc_try_fmt_meta_out);
+> +#ifdef CONFIG_MEDIA_CONTROLLER
+> +		__set_bit(_IOC_NR(VIDIOC_BIND_CONTEXT), valid_ioctls);
+> +#endif
+>  	}
+>  	if (is_vbi) {
+>  		/* vbi specific ioctls */
+> diff --git a/drivers/media/v4l2-core/v4l2-fh.c b/drivers/media/v4l2-core/v4l2-fh.c
+> index 90eec79ee995a2d214590beeacc91b9f8f33236d..f7af444d2344541ccae1eae230b39d4cbc47f6bd 100644
+> --- a/drivers/media/v4l2-core/v4l2-fh.c
+> +++ b/drivers/media/v4l2-core/v4l2-fh.c
+> @@ -93,6 +93,7 @@ int v4l2_fh_release(struct file *filp)
+>  	struct v4l2_fh *fh = filp->private_data;
+>  
+>  	if (fh) {
+> +		video_device_context_put(fh->context);
+>  		v4l2_fh_del(fh);
+>  		v4l2_fh_exit(fh);
+>  		kfree(fh);
+> diff --git a/drivers/media/v4l2-core/v4l2-ioctl.c b/drivers/media/v4l2-core/v4l2-ioctl.c
+> index 46da373066f4ec786b87ef18b8372abee621332f..bade64cc62b66dd6237ccd5338aa6dd8ab00ef8c 100644
+> --- a/drivers/media/v4l2-core/v4l2-ioctl.c
+> +++ b/drivers/media/v4l2-core/v4l2-ioctl.c
+> @@ -9,6 +9,7 @@
+>   */
+>  
+>  #include <linux/compat.h>
+> +#include <linux/file.h>
+>  #include <linux/mm.h>
+>  #include <linux/module.h>
+>  #include <linux/slab.h>
+> @@ -350,6 +351,13 @@ static void v4l_print_format(const void *arg, bool write_only)
+>  	}
+>  }
+>  
+> +static void v4l_print_context(const void *arg, bool write_only)
+> +{
+> +	const struct v4l2_context *c = arg;
+> +
+> +	pr_cont("context=%u\n", c->context_fd);
+> +}
+> +
+>  static void v4l_print_framebuffer(const void *arg, bool write_only)
+>  {
+>  	const struct v4l2_framebuffer *p = arg;
+> @@ -2151,6 +2159,61 @@ static int v4l_overlay(const struct v4l2_ioctl_ops *ops,
+>  	return ops->vidioc_overlay(file, fh, *(unsigned int *)arg);
+>  }
+>  
+> +static int v4l_bind_context(const struct v4l2_ioctl_ops *ops,
+> +			    struct file *file, void *fh, void *arg)
+> +{
+> +	struct video_device *vdev = video_devdata(file);
+> +	struct media_device_context *mdev_context;
+> +	struct v4l2_fh *vfh =
+> +		test_bit(V4L2_FL_USES_V4L2_FH, &vdev->flags) ? fh : NULL;
+> +	struct v4l2_context *c = arg;
+> +	int ret;
+> +
+> +	/*
+> +	 * TODO: do not __set_bit(_IOC_NR(VIDIOC_BIND_CONTEXT), valid_ioctls)
+> +	 * if V4L2_FL_USES_V4L2_FH isn't set or the driver does not implement
+> +	 * alloc_context and destroy_context.
+> +	 */
+> +	if (!vfh)
+> +		return -ENOTTY;
+> +
+> +	if (!vdev->entity.ops || !vdev->entity.ops->alloc_context ||
+> +	    !vdev->entity.ops->destroy_context)
+> +		return -ENOTTY;
+> +
+> +	mdev_context = media_device_context_get_from_fd(c->context_fd);
+> +	if (!mdev_context)
+> +		return -EINVAL;
+> +
+> +	/* Let the driver allocate the per-file handle context. */
+> +	ret = vdev->entity.ops->alloc_context(&vdev->entity,
+> +					      (struct media_entity_context **)
+> +					      &vfh->context);
+> +	if (ret)
+> +		goto err_put_mdev_context;
+> +
+> +	/*
+> +	 * Bind the newly created video device context to the media device
+> +	 * context identified by the file descriptor.
+> +	 */
+> +	ret = media_device_bind_context(mdev_context,
+> +					(struct media_entity_context *)
+> +					vfh->context);
+> +	if (ret)
+> +		goto err_put_context;
+> +
+> +	media_device_context_put(mdev_context);
+> +
+> +	return 0;
+> +
+> +err_put_context:
+> +	video_device_context_put(vfh->context);
+> +err_put_mdev_context:
+> +	media_device_context_put(mdev_context);
+> +
+> +	return ret;
+> +}
+> +
+>  static int v4l_reqbufs(const struct v4l2_ioctl_ops *ops,
+>  				struct file *file, void *fh, void *arg)
+>  {
+> @@ -2998,6 +3061,7 @@ static const struct v4l2_ioctl_info v4l2_ioctls[] = {
+>  	IOCTL_INFO(VIDIOC_DBG_G_CHIP_INFO, v4l_dbg_g_chip_info, v4l_print_dbg_chip_info, INFO_FL_CLEAR(v4l2_dbg_chip_info, match)),
+>  	IOCTL_INFO(VIDIOC_QUERY_EXT_CTRL, v4l_query_ext_ctrl, v4l_print_query_ext_ctrl, INFO_FL_CTRL | INFO_FL_CLEAR(v4l2_query_ext_ctrl, id)),
+>  	IOCTL_INFO(VIDIOC_REMOVE_BUFS, v4l_remove_bufs, v4l_print_remove_buffers, INFO_FL_PRIO | INFO_FL_QUEUE | INFO_FL_CLEAR(v4l2_remove_buffers, type)),
+> +	IOCTL_INFO(VIDIOC_BIND_CONTEXT, v4l_bind_context, v4l_print_context, 0),
+>  };
+>  #define V4L2_IOCTLS ARRAY_SIZE(v4l2_ioctls)
+>  
+> diff --git a/include/media/v4l2-ioctl.h b/include/media/v4l2-ioctl.h
+> index 82695c3a300a73219f262fb556ed61a8f09d273e..6d9edfd9ca912972ad15acdc07014dee1ed36ab6 100644
+> --- a/include/media/v4l2-ioctl.h
+> +++ b/include/media/v4l2-ioctl.h
+> @@ -18,6 +18,7 @@
+>  #include <linux/videodev2.h>
+>  
+>  struct v4l2_fh;
+> +struct video_device_context;
+>  
+>  /**
+>   * struct v4l2_ioctl_ops - describe operations for each V4L2 ioctl
+> @@ -149,6 +150,8 @@ struct v4l2_fh;
+>   *	:ref:`VIDIOC_TRY_FMT <vidioc_g_fmt>` ioctl logic for metadata capture
+>   * @vidioc_try_fmt_meta_out: pointer to the function that implements
+>   *	:ref:`VIDIOC_TRY_FMT <vidioc_g_fmt>` ioctl logic for metadata output
+> + * @vidioc_bind_context: pointer to the function that implements
+> + *	:ref:`VIDIOC_BIND_CONTEXT <vidioc_bind_context>` ioctl
+>   * @vidioc_reqbufs: pointer to the function that implements
+>   *	:ref:`VIDIOC_REQBUFS <vidioc_reqbufs>` ioctl
+>   * @vidioc_querybuf: pointer to the function that implements
+> @@ -402,6 +405,10 @@ struct v4l2_ioctl_ops {
+>  	int (*vidioc_try_fmt_meta_out)(struct file *file, void *fh,
+>  				       struct v4l2_format *f);
+>  
+> +	/* Context handlers */
+> +	int (*vidioc_bind_context)(struct file *file, void *fh,
+> +				   struct video_device_context *c);
+> +
+>  	/* Buffer handlers */
+>  	int (*vidioc_reqbufs)(struct file *file, void *fh,
+>  			      struct v4l2_requestbuffers *b);
+> diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev2.h
+> index 3dd9fa45dde1066d52a68581625a39e7ec92c9b7..0b9aa89e2479620dbbaa54f1aadff7aaa7a3d0f7 100644
+> --- a/include/uapi/linux/videodev2.h
+> +++ b/include/uapi/linux/videodev2.h
+> @@ -1057,6 +1057,14 @@ struct v4l2_jpegcompression {
+>  					* always use APP0 */
+>  };
+>  
+> +/*
+> + *     V I D E O   D E V I C E   C O N T E X T
+> + */
+> +
+> +struct v4l2_context {
+> +	__u32 context_fd;
+
+Reserve some space for the future?
+
+> +};
+> +
+>  /*
+>   *	M E M O R Y - M A P P I N G   B U F F E R S
+>   */
+> @@ -2818,6 +2826,9 @@ struct v4l2_remove_buffers {
+>  #define VIDIOC_REMOVE_BUFS	_IOWR('V', 104, struct v4l2_remove_buffers)
+>  
+>  
+> +/* Context handling */
+> +#define VIDIOC_BIND_CONTEXT	_IOW('V', 105, struct v4l2_context)
+> +
+>  /* Reminder: when adding new ioctls please add support for them to
+>     drivers/media/v4l2-core/v4l2-compat-ioctl32.c as well! */
+>  
+> 
+
+Best regards,
+Michael
 
 
