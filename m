@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D470CCD180
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 13:23:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95E9DCCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 13:23:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Tcz3Uz/Rol3nIQJ9a/rFAG950ZYmTJ/T65ex0/7R/iM=; b=p2MfCj9K+DkJFE2cuCT/cR36XO
-	ZsN2Pb6sT+TqXJsC1mYvPovqdNxUcrcXqaHzgJyGkTj0Ajlqh4eUwvp2hB75PSGbyl3/A6wd0Q5Lr
-	mVlLAPoXj9w5O20HUQmN5IQri3k/r0UoAPwKXEacm2Ap6nr9k9iBjxT8JRHH/h5NzAWmOB0Jwemd3
-	ZGD8arAgxSo1iXccA2xlxEun5Q43t7lPm1dQepY9bIT7udVvO+3c9nt30g1t/4UPjSxcq2Yen27nR
-	9ssaTYVDr9OzVFCe8LP6eo3EVk066wDSs4yJTjcBffzHTOokdv42kLFmHs5H4MmXfcTLzM0csWBqW
-	i+zeMPTw==;
+	bh=OaAQemJb6KJJt7CrXqZoDzqLZRosfKzRZeSFjFBPeN8=; b=PbtDw90kAANWUhnk59b5QtHMu3
+	/5jrwAvlIWCUw24AeDWteUyTZGZFbIAT9XdBTAvm4uaJvsKo92a0lXTewVU0dIDppNh55RqRAL3Mq
+	vP+NNCynnCKb8fOAYcsjZKUMiqw8UebL6LHv+C36eoYXG/4nvvSfn9VLIkdvhe/PIPN3Q6ian25+G
+	htJZr69VQnDFj2nLRF9bmzEbSn+q4n3wnaHzVGKtC28HCoaJe8PLaI1TcVY/0T/2P3ECvRQ5Wa+3H
+	xhBGXtJ4CuaEFmFEjmu1tW65AVx625tKGh7FXtpMj6D0FQws92wtutMuLjV9zpFhuy7iXCXJf+r7R
+	In5HP1Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3wnO-0000000808X-1a2v;
-	Wed, 01 Oct 2025 13:23:02 +0000
+	id 1v3wnQ-000000080C6-188V;
+	Wed, 01 Oct 2025 13:23:04 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3wnJ-00000007zwA-2qbR
+	id 1v3wnK-00000007zy0-3AVr
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 13:22:59 +0000
+	Wed, 01 Oct 2025 13:23:01 +0000
 Received: from [127.0.1.1] (91-158-153-178.elisa-laajakaista.fi [91.158.153.178])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 9B83D19AD;
-	Wed,  1 Oct 2025 15:21:26 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 9740EBCA;
+	Wed,  1 Oct 2025 15:21:27 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1759324887;
-	bh=Z4gNQ9UWmg8H9YFAi8N+jXqbfBppeZnMk/tmq5k2slI=;
+	s=mail; t=1759324888;
+	bh=LLJhV2LallcFwhanB+wQUXczMwB4XxYcFq1ZLrudUL0=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=iXw0QNt5bU8P8raD8mTzXneQXaVochjSwjAIh8vIUYNORHRz6hTYyNDMcZOtYz6Gk
-	 Pnk9lmsmyK9HleUt+UuhlEbejANCBP7QBqrEoRmAvluAtHVXcxtCi0Bgmy//7ZqELr
-	 yCPjgnSVBR0CJuTYPg6UZslspfwgN/URCc2UfXyQ=
+	b=khsU2APjJexd87l2z75tK1gHeG0zowsOkrWUFz4T8bNHeWWeyTJuo+5ti5ukumoMB
+	 HN+9fsC2jmfhqIopDyX7BEITpyVphzlI7arew8hrIxwOSt7K+WBNorVd3nTZ3pmCur
+	 MYzeiW04kyy1wOB8eofyRkgoWxD5HGXepx7a4Xx0=
 From: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-Date: Wed, 01 Oct 2025 16:22:22 +0300
-Subject: [PATCH v6 10/11] drm: xlnx: zynqmp: Add support for X403
+Date: Wed, 01 Oct 2025 16:22:23 +0300
+Subject: [PATCH v6 11/11] drm: xlnx: zynqmp: Add support for XVUY2101010
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251001-xilinx-formats-v6-10-014b076b542a@ideasonboard.com>
+Message-Id: <20251001-xilinx-formats-v6-11-014b076b542a@ideasonboard.com>
 References: <20251001-xilinx-formats-v6-0-014b076b542a@ideasonboard.com>
 In-Reply-To: <20251001-xilinx-formats-v6-0-014b076b542a@ideasonboard.com>
 To: Vishal Sagar <vishal.sagar@amd.com>, 
@@ -60,26 +60,26 @@ Cc: dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
  Pekka Paalanen <ppaalanen@gmail.com>, 
  Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
 X-Mailer: b4 0.15-dev-c25d1
-X-Developer-Signature: v=1; a=openpgp-sha256; l=883;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=898;
  i=tomi.valkeinen@ideasonboard.com; h=from:subject:message-id;
- bh=Z4gNQ9UWmg8H9YFAi8N+jXqbfBppeZnMk/tmq5k2slI=;
- b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBo3SskYkFp71Muh/vUeiWioR8OLa3U9Z/Il8HAI
- lOM9I75I8OJAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCaN0rJAAKCRD6PaqMvJYe
- 9ak5D/4keFN+7hSFuZnonz+gZBC9uEwApG91/goDKyuXfmHO2g1O3ubofSDBSPvup6LdJUQobdz
- Ye5ROKzfhx+AyeFVcwcjAVZPP96nQxFn6jOd5J8X0qCT0gI6QeJZaOD+7YOgIL92bsJbZ8hbIPp
- EJnC4ukbUkzgrWejxmeV06/o1XISDsvPsgrU10PcjMzcfSEsCPcFfyHeJDT4AJujxdNOMaToeqb
- mx9aTzI5qyrQhgT9RPaNPxZ9XC4Yktt406dnv2KMkKNZxz6As7fgNreAPjq7KckthBMc6tKG9Sd
- 4qyZkIjjy++saCjxL0QYAHnW78K2/BjeNW3Y9LYhgVDpW36xFWP0acqBje1F4AFrwa5pu+QjS7i
- 4E08hnN+vFQ/YK6Cj5CswnGg7y3L2tgivO3FJymWBTShsjTg8OjtCJrkeo6rLMAyMtYLoiI3BMt
- gBTpqAWrGksduaEU3XuyWQBXQOE1gh2EOVd09ziE1/OSuDOThqD/pzmB3RJ28zmN6lcb1ihzJrG
- cm2GCA6fJOcjmSJZE2cSxFQ7d14F28Vb7QHisMwBt0Zt7bpkhvTGwKhKqxx9a9IeWDRENNmvxCy
- 9OuB2/vrdjb8SlTyU1vsfKa1UHZTE+cmKtfmdqv68W1YW2XvgoMxGxqD2dJs+KoCFpIUmaafPRw
- 6Iucigxyk+8Ge7w==
+ bh=LLJhV2LallcFwhanB+wQUXczMwB4XxYcFq1ZLrudUL0=;
+ b=owEBbQKS/ZANAwAIAfo9qoy8lh71AcsmYgBo3SskGYeMExv8ixkDTqYrKTmF3tPIjgjyGFyRK
+ QMDlXQyH+2JAjMEAAEIAB0WIQTEOAw+ll79gQef86f6PaqMvJYe9QUCaN0rJAAKCRD6PaqMvJYe
+ 9Rr0D/9fZ27rpk5xGJjeLhWt5a2DSEgBz5wrzK1MfCjEdkqcAZGoEFaBVRhY5GhVwwKByglXoDw
+ SnKgiPxnf4d5M2TYHR1yuLkAgzEkj3rxZweK/h6m0A9LuXVmQc1a5Fb8zKuOliTw50i0/fTdQpJ
+ /03mwFBDna82lA7ZiEfLgHaIAPuWQpeu1X5RoDt6sC/ulv/d3OeOjcirNk9HWXwMB7r3296THaS
+ h5z3+bMFl1XrdzZM7zHMNcjcht6wFg1uwJyROFNOyHgqwQ8pxLxVmQYPUDe6UHWSjZaNaWVeVyF
+ wNWzvg1emfigMt/17nU5EipujouJ4ECuctiK49pYCMsoOXi23x/wokvzLg/322lylWqJHGwacMz
+ fnHN0qhVjDTENWMca/dgEceTNUV1mM8UvUaYJmy0DpJisQmJXQxPhBxcj591lnlP2bhsyGt/j48
+ HACDVG2fNHpEVeNHT+A3m+gNqnfW0Qew1uKQnJbaBlLhNux9iGAWfefDf8DO8T+rPgLPhZOK7PW
+ w2YzbHK3B1HEUDZr87vKVvTduGBqJtg15lulOA+MxcWisyAKGjvb352KdD08OcARcPufbi0aUyc
+ uoKoncrz7Pc/ZopXgqm/h5ceAOthWo7/s0uSho8oRkKWWi5EbRoiaHZrw4ky7R2v/qHMVj9T3Wc
+ zZqhy+QLz5qgxbg==
 X-Developer-Key: i=tomi.valkeinen@ideasonboard.com; a=openpgp;
  fpr=C4380C3E965EFD81079FF3A7FA3DAA8CBC961EF5
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_062257_890751_C394F964 
-X-CRM114-Status: UNSURE (   8.40  )
+X-CRM114-CacheID: sfid-20251001_062259_005184_B8F7AA13 
+X-CRM114-Status: UNSURE (   8.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -95,7 +95,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for X403 format.
+Add support for XVUY2101010 format.
 
 Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 Reviewed-by: Vishal Sagar <vishal.sagar@amd.com>
@@ -105,16 +105,16 @@ Signed-off-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
  1 file changed, 5 insertions(+)
 
 diff --git a/drivers/gpu/drm/xlnx/zynqmp_disp.c b/drivers/gpu/drm/xlnx/zynqmp_disp.c
-index fe111fa8cc13..b7cc7a7581ad 100644
+index b7cc7a7581ad..f548f375750e 100644
 --- a/drivers/gpu/drm/xlnx/zynqmp_disp.c
 +++ b/drivers/gpu/drm/xlnx/zynqmp_disp.c
-@@ -317,6 +317,11 @@ static const struct zynqmp_disp_format avbuf_vid_fmts[] = {
- 		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_YONLY_10,
+@@ -322,6 +322,11 @@ static const struct zynqmp_disp_format avbuf_vid_fmts[] = {
+ 		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_YV24_10,
  		.swap		= false,
  		.sf		= scaling_factors_101010,
 +	}, {
-+		.drm_fmt	= DRM_FORMAT_X403,
-+		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_YV24_10,
++		.drm_fmt	= DRM_FORMAT_XVUY2101010,
++		.buf_fmt	= ZYNQMP_DISP_AV_BUF_FMT_NL_VID_YUV444_10,
 +		.swap		= false,
 +		.sf		= scaling_factors_101010,
  	},
