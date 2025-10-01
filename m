@@ -4,78 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97EC8CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 13:09:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A148CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 13:11:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gS6I9+pn+T6EshQ8kERlfqfUoiq0QQuAAxssnEC3ucQ=; b=vhTgbgJUFSqu0DQUTENABcbe79
-	YIUks+5Pwd2anZWNzUUnlreX2iMcvDzrfnbuewJhMwllBo4IwVc+xbdqfWPPvteA8vtadQ0YRarRf
-	iMQjAgP3d/ITvOH2i/j2F+7AC82J6Oy4GiiEYO3j+QA0xKJMpgs6Ye/Pniym8vgcX4fshhMiQJmCH
-	exlzz+Q7HdkSS8lfoEycyKOO8i1irstlZQr050RzsEe6lAXEhKcwBhpF6dn8xbgXYBgL+cs5BAquC
-	qKWPJxJctiK20ulZeVZ1RSVQ47zV7PLdOoWdlfweHA67BFwh+zPuEWmJFskUtIDq05Up0FupZzdr8
-	TpsJ5tLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LjNrmRdytkv/9ECvQ2nbYckKEJ8S9u2VZaJW+uh9vfs=; b=FV+qpJuSihZ7QHsQw2IVlhf5c0
+	jT1UZxTm6UrDJOTTf2Fy7qPr61LWuvUoglvBDEXXOLV2pWbmUI60JEmmd7BQR8VB0LrANLiZum/wm
+	sorCmEp62u8rYLoW1fY/rZntw1eS7Ot89ouAu7TQkeCf4n0ZGTovI3359MMPiIcanDlBtt+fv1S1q
+	pd+JQgDvpEz8yqe0PeEZon2am0/dgJ9kQwlo0JoPf8jTS5WrKUhkwSjMOBYGAOlfRaYAxvNRnuxf7
+	QL7jFbr1JqM6nZeK04w8Qll2YWh6XV/2WkUYi+k7wwlrKNdKgyfQjxW+Zcif97aR4ddSN8ACZfuM3
+	eyz6KsBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3wa0-00000007yF0-3fYg;
-	Wed, 01 Oct 2025 13:09:12 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1v3wcZ-00000007ydb-1rOv;
+	Wed, 01 Oct 2025 13:11:51 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3wZx-00000007yDX-1jUT
+	id 1v3wcW-00000007ydC-2e8Y
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 13:09:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1759324148;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gS6I9+pn+T6EshQ8kERlfqfUoiq0QQuAAxssnEC3ucQ=;
-	b=DuNSMeXlj0leyPZsWi0/FkZDG0VukbFoj5i+thZ9j8zYRYkuyuQlUVOFU/6HzDgDn7kxtU
-	oGk18XNYMk8FTVafKZ9sV4C9kKMYatYNRfljxeTOi5kGofoUorTGWcw3bDX3NMFRWTjGlv
-	eqdWMEycEg+v5Pih0xabosSjKW2sPhg=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-354-9ISZppLGP6KdkYM6WRj1Ow-1; Wed,
- 01 Oct 2025 09:09:05 -0400
-X-MC-Unique: 9ISZppLGP6KdkYM6WRj1Ow-1
-X-Mimecast-MFC-AGG-ID: 9ISZppLGP6KdkYM6WRj1Ow_1759324143
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id F16D118002C4;
-	Wed,  1 Oct 2025 13:09:02 +0000 (UTC)
-Received: from warthog.procyon.org.com (unknown [10.42.28.24])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 7B7C9195608E;
-	Wed,  1 Oct 2025 13:08:59 +0000 (UTC)
-From: David Howells <dhowells@redhat.com>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: David Howells <dhowells@redhat.com>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Stephan Mueller <smueller@chronox.de>,
-	linux-crypto@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
+	Wed, 01 Oct 2025 13:11:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 46C3940581;
+	Wed,  1 Oct 2025 13:11:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16CE1C4CEF4;
+	Wed,  1 Oct 2025 13:11:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759324308;
+	bh=clujk22pKlR3lY5QkTpBaiYqGOkG+FR+VUr/OI56JdE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=t6dO4Qcq2sgN7MqMsG/tl7axae64golJdNSQYH49U2njLFcdLDW2/UKLm/I8YP6hA
+	 qMZ+eTrysKQpzc74Rk430lXfMCafWTjnmOZNYPOS8/4ACokUJWcqA0VbYFkg4+h0ED
+	 ioi99/Kt4Tw3BQcYr/WfBKWUzoLBzI4k/DEm14+4TiXg8cnM4KtSAJpwXmGDrZi3t7
+	 oHNa/xR3uuDwWEpJVDwVbq/K1Z4kLFqQzIpLAR7hegl0xVhLftGeyd9DFWSKSNMojh
+	 hcJ2SmR5l3SK4zZ5EzSwdanA87PmX8ctlLjWZpzDcO6yumncHFZJrnq9FWTAPwFAbo
+	 ZqL8j43BqtQGQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1v3wcT-0000000Ao9g-1u79;
+	Wed, 01 Oct 2025 13:11:45 +0000
+Date: Wed, 01 Oct 2025 14:11:44 +0100
+Message-ID: <86ikgyzrzj.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Steven Price <steven.price@arm.com>
+Cc: kvm@vger.kernel.org,
+	kvmarm@lists.linux.dev,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v4 2/5] arm64/sha3: Rename conflicting functions
-Date: Wed,  1 Oct 2025 14:08:41 +0100
-Message-ID: <20251001130846.2284946-3-dhowells@redhat.com>
-In-Reply-To: <20251001130846.2284946-1-dhowells@redhat.com>
-References: <20251001130846.2284946-1-dhowells@redhat.com>
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+	James Morse <james.morse@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Joey Gouly <joey.gouly@arm.com>,
+	Alexandru Elisei <alexandru.elisei@arm.com>,
+	Christoffer Dall <christoffer.dall@arm.com>,
+	Fuad Tabba <tabba@google.com>,
+	linux-coco@lists.linux.dev,
+	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
+	Gavin Shan <gshan@redhat.com>,
+	Shanker Donthineni <sdonthineni@nvidia.com>,
+	Alper Gun <alpergun@google.com>,
+	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
+	Emi Kisanuki <fj0570is@fujitsu.com>,
+	Vishal Annapurve <vannapurve@google.com>
+Subject: Re: [PATCH v10 08/43] kvm: arm64: Don't expose debug capabilities for realm guests
+In-Reply-To: <20250820145606.180644-9-steven.price@arm.com>
+References: <20250820145606.180644-1-steven.price@arm.com>
+	<20250820145606.180644-9-steven.price@arm.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, suzuki.poulose@arm.com, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_060909_520079_BEA270AE 
-X-CRM114-Status: GOOD (  14.57  )
+X-CRM114-CacheID: sfid-20251001_061148_690840_EFAF97E8 
+X-CRM114-Status: GOOD (  12.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,90 +104,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename the arm64 sha3_* functions to have an "arm64_" prefix to avoid
-conflict with generic code.
+On Wed, 20 Aug 2025 15:55:28 +0100,
+Steven Price <steven.price@arm.com> wrote:
+> 
+> From: Suzuki K Poulose <suzuki.poulose@arm.com>
+> 
+> RMM v1.0 provides no mechanism for the host to perform debug operations
+> on the guest. So don't expose KVM_CAP_SET_GUEST_DEBUG and report 0
+> breakpoints and 0 watch points.
 
-Signed-off-by: David Howells <dhowells@redhat.com>
-cc: Eric Biggers <ebiggers@kernel.org>
-cc: Jason A. Donenfeld <Jason@zx2c4.com>
-cc: Ard Biesheuvel <ardb@kernel.org>
-cc: Catalin Marinas <catalin.marinas@arm.com>
-cc: Will Deacon <will@kernel.org>
-cc: Herbert Xu <herbert@gondor.apana.org.au>
-cc: Stephan Mueller <smueller@chronox.de>
-cc: linux-crypto@vger.kernel.org
-cc: linux-arm-kernel@lists.infradead.org
----
- arch/arm64/crypto/sha3-ce-glue.c | 22 +++++++++++-----------
- 1 file changed, 11 insertions(+), 11 deletions(-)
+What is the guest seeing for the same things?
 
-diff --git a/arch/arm64/crypto/sha3-ce-glue.c b/arch/arm64/crypto/sha3-ce-glue.c
-index b4f1001046c9..426d8044535a 100644
---- a/arch/arm64/crypto/sha3-ce-glue.c
-+++ b/arch/arm64/crypto/sha3-ce-glue.c
-@@ -31,7 +31,7 @@ MODULE_ALIAS_CRYPTO("sha3-512");
- asmlinkage int sha3_ce_transform(u64 *st, const u8 *data, int blocks,
- 				 int md_len);
- 
--static int sha3_update(struct shash_desc *desc, const u8 *data,
-+static int arm64_sha3_update(struct shash_desc *desc, const u8 *data,
- 		       unsigned int len)
- {
- 	struct sha3_state *sctx = shash_desc_ctx(desc);
-@@ -55,8 +55,8 @@ static int sha3_update(struct shash_desc *desc, const u8 *data,
- 	return len;
- }
- 
--static int sha3_finup(struct shash_desc *desc, const u8 *src, unsigned int len,
--		      u8 *out)
-+static int arm64_sha3_finup(struct shash_desc *desc, const u8 *src, unsigned int len,
-+			    u8 *out)
- {
- 	struct sha3_state *sctx = shash_desc_ctx(desc);
- 	struct crypto_shash *tfm = desc->tfm;
-@@ -90,8 +90,8 @@ static int sha3_finup(struct shash_desc *desc, const u8 *src, unsigned int len,
- static struct shash_alg algs[] = { {
- 	.digestsize		= SHA3_224_DIGEST_SIZE,
- 	.init			= crypto_sha3_init,
--	.update			= sha3_update,
--	.finup			= sha3_finup,
-+	.update			= arm64_sha3_update,
-+	.finup			= arm64_sha3_finup,
- 	.descsize		= SHA3_STATE_SIZE,
- 	.base.cra_name		= "sha3-224",
- 	.base.cra_driver_name	= "sha3-224-ce",
-@@ -102,8 +102,8 @@ static struct shash_alg algs[] = { {
- }, {
- 	.digestsize		= SHA3_256_DIGEST_SIZE,
- 	.init			= crypto_sha3_init,
--	.update			= sha3_update,
--	.finup			= sha3_finup,
-+	.update			= arm64_sha3_update,
-+	.finup			= arm64_sha3_finup,
- 	.descsize		= SHA3_STATE_SIZE,
- 	.base.cra_name		= "sha3-256",
- 	.base.cra_driver_name	= "sha3-256-ce",
-@@ -114,8 +114,8 @@ static struct shash_alg algs[] = { {
- }, {
- 	.digestsize		= SHA3_384_DIGEST_SIZE,
- 	.init			= crypto_sha3_init,
--	.update			= sha3_update,
--	.finup			= sha3_finup,
-+	.update			= arm64_sha3_update,
-+	.finup			= arm64_sha3_finup,
- 	.descsize		= SHA3_STATE_SIZE,
- 	.base.cra_name		= "sha3-384",
- 	.base.cra_driver_name	= "sha3-384-ce",
-@@ -126,8 +126,8 @@ static struct shash_alg algs[] = { {
- }, {
- 	.digestsize		= SHA3_512_DIGEST_SIZE,
- 	.init			= crypto_sha3_init,
--	.update			= sha3_update,
--	.finup			= sha3_finup,
-+	.update			= arm64_sha3_update,
-+	.finup			= arm64_sha3_finup,
- 	.descsize		= SHA3_STATE_SIZE,
- 	.base.cra_name		= "sha3-512",
- 	.base.cra_driver_name	= "sha3-512-ce",
+	M.
 
+-- 
+Without deviation from the norm, progress is not possible.
 
