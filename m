@@ -4,93 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04FD9CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 11:58:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05CA6CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 12:30:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cyf2vSy4kC3sHy4af09WXlFaSC4wntKt+498dNUf2sc=; b=4qITrdNU54ulPPiCavi+H8N4Wj
-	KNX2mXtKQqMqSMZ+/Mrd1jTb1K639YYASph0pWDv+gwQl2V4rh4gzUHbSRKlxV/LcfsWIDDYC8360
-	JGjWm4p3iXbuPI69itfHXaoqT5db9DXSrfhJaG1TDU9SPYkjL6J3ISFQ7tMeCtazlo9fHGBj4EqrI
-	yljigWmOaitSqQuzpufXm/TbX02BR/E7ruLkHxEIpi2Wz41q4bPQcHoBAvJFuLDPL7yvHJY7omEOZ
-	T51nleXRFJMA7ONlQLShGclxRfor/N5P9XEwde4yCf2k0Acg0GRkhxVfOuwI0onw8s7AHPM0wq7Cx
-	Ig+TMRJA==;
+	bh=1h5ZQj1hNsueFRANVvswmj77zdnaG+fzZ/hVdj8on7o=; b=hA8nAelnqJXrKuCYH9lpgBGBy/
+	xUZJSMGNe1dT1VhtqnaWAU73DI28xpS0LcXxUBdSQQE/CJEZCgaPVDkpx6nNs7p8G3qCWqcxF6n5L
+	dRaVQkEmIyxXRZHrCjPF+cBVgBKDHf1GGe4olAve06MdcVKIIdaJO/tSzC7+Cqbiu6NZ9r6Ta2llR
+	HAXhcOGbzFMrUYVCZvM8mAu6WxWA2vB2rpClsoCrbidEdczlqBVVqW7axb7+xSMSsHw8SLnc3ezVO
+	vc8g4/Wxmv1lovwtCSBi44Sd3LuRCmvTYlNPnze+J1Q9NZP5p9vwv4v2SgsFjQUa9YFEgxACOijBP
+	GOScHfCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3vTq-00000007Tei-0tJH;
-	Wed, 01 Oct 2025 11:58:46 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v3vyb-00000007tB0-0eNZ;
+	Wed, 01 Oct 2025 12:30:33 +0000
+Received: from mail-pj1-x102b.google.com ([2607:f8b0:4864:20::102b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3vTo-00000007TeR-38wL
+	id 1v3vjl-00000007g0a-2Dyk
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 11:58:44 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0D5B1626DE;
-	Wed,  1 Oct 2025 11:58:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ABEC3C4CEF4;
-	Wed,  1 Oct 2025 11:58:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759319923;
-	bh=q2oyD5KugDIaW6JSBh1QBJ0TUR6MW5UO2WCtAgLmeh8=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=qZCPm84S00rcJ/5DZZiAQBlbVyFTQO+QHK5ZY/4bD3YhlyN4HVP7XkS2p9o0/WGh3
-	 Fu0nDDQctiP6lxSelsLnadRvYKULsWI1WRhAhmH6CXE1dLQ89MYv9TvbMUz125aMY0
-	 b7MnaqQtvm381/diXi6A8LLLTaUlgQvmOS3WMVGXEudJ5Tjr//6BHC0XKb6J7bBdHg
-	 V1waUBZjdW9YJvCaUhesrG2cMrLgerZcmHlbd6wtZ1SApJXoP+jvecGK65TRwkZ/iq
-	 L2rqLAFdjZC53pMBqGe9hGrOgSBfKJol4kn4Fhtc/G9JstpqBcvX0WfuNp+3Jwww3a
-	 pUBGKgU9Bopng==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1v3vTl-0000000AnCw-1j7p;
-	Wed, 01 Oct 2025 11:58:41 +0000
-Date: Wed, 01 Oct 2025 12:58:40 +0100
-Message-ID: <86ldluzvdb.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu
- <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V"
- <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>
-Subject: Re: [PATCH v10 03/43] arm64: RME: Add SMC definitions for calling the RMM
-In-Reply-To: <747ab990-d02d-4e7c-9007-a7ac73bb1062@arm.com>
-References: <20250820145606.180644-1-steven.price@arm.com>
-	<20250820145606.180644-4-steven.price@arm.com>
-	<86o6qrym2b.wl-maz@kernel.org>
-	<747ab990-d02d-4e7c-9007-a7ac73bb1062@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Wed, 01 Oct 2025 12:15:14 +0000
+Received: by mail-pj1-x102b.google.com with SMTP id 98e67ed59e1d1-33082aed31dso7887290a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 05:15:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1759320913; x=1759925713; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=1h5ZQj1hNsueFRANVvswmj77zdnaG+fzZ/hVdj8on7o=;
+        b=sV/7NsBrkHk1gEhtAsfjbEpwEARQirq/UEKRyrxF+y+ioUi3mdec3H9yX4/HJkDgwu
+         bU84XbQ1hAGYJuC3Zn8s6SFEXt+ifxEQDKSdkkbXrhUhPHGhZv+5Im+fjZuK/dymipA0
+         bYQg2x8u1Ij+fVDp8blOUhHa45FkJcp76RgvfcKb626vZWP9pdWoLnGurTuMYeH/hcOA
+         djbKwYHjbl43rlzul3h2GDvY5omLCUv2udj4hYMeSJMTpC+Lk1vP6RWv1APZYnLaxEC2
+         H2ix/2vDJsn9EjtKC2YxC00zBc9weRW7ikN6vtOQs3XYj1XAX/li8/DXlwNCocn+ox3F
+         Sl0w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759320913; x=1759925713;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=1h5ZQj1hNsueFRANVvswmj77zdnaG+fzZ/hVdj8on7o=;
+        b=YA8ZNrQ+LKvTMi8KdgV+hwKYNfGB2cucpS62b2VBMVwiaMtad+lP5gMtr3RkcbRNXJ
+         E9sNx4IOkvqpxc+xtWpiBQpo1MlvdicqajZcfE4XWOkwPgpWDY+dT9BbWwmI4rwUOaye
+         pupkchnhlaFyF4szVYvdu/OFR+0Qvf5nbldbs2ZSAeZAbnlpmvl1jD6GXVyfdPdVocm6
+         bKMhRPbT7CsMIXw1vAOxswHVnE1ARkwKNVbp/HjklwUm/dNT1vzKBpT2+pM01PM2TjBc
+         T49RaZFW4ZUbu1mE73hRKO5LeApzriyBlPlK0q3F4/u7ctoVj1O1k1ehmOhZ6hUU0Ru4
+         /mhw==
+X-Forwarded-Encrypted: i=1; AJvYcCXiG9FsmBTU+fWR+1y7VdGzxU0kyxa+QWJlNEDjMOiUoiN35u1DK2Yz1TGVhdVR0Qdm4+X48zbhM+tsAn7JnVmt@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx8rMkJelV8GfXoBPYUnmVHsJwtesa1Ra/U4rGC4eRw+6OyqHOQ
+	tBFCIdUolQweFGEuRSKAJLtZTDlBXy6u1W8ltx8ysnR4OyWvDLB1TT4qye8Pg7sY1n6GIipPtla
+	kp+dmXgzVkt1eQs1CqZqk8Iuj+4iBqjiWq0FiLvX00g==
+X-Gm-Gg: ASbGncsAqM3qJlbEK7oM5Ngj/Cu4d98OVusEyCuqIyy+AYMupt0O7z9WicCNPZ6N44T
+	p+9iy/8Xw+kVTv7A4XfqmdZSihDA/JBCG7e3Z1Q0B00UiIP68cw2ohoGlBQ0m5RUSaOfYNIpgA0
+	00yUFN/FYEDvuxvskVz8dvHUu4GP7pYk2tzMIPgRPHkblRkZMJCb9QOjROtHv9KkKalB5zS3bWc
+	IFujeNXH/cGT2x3W17RAkmGx1wVsA4QjbKd40T9m9Y59HUnJ9nr/NzWxycXz1aEwdxX9ra2B8c=
+X-Google-Smtp-Source: AGHT+IFMQXG4jx6J+vC3Rc7xSXplJA8AzsyxnpiINw0J7Iv1k4XOQ6RdJJ6UC9qkRQuIDbRdT63CA58n6n6HjdTblPw=
+X-Received: by 2002:a17:90b:38ce:b0:32e:8c14:5d09 with SMTP id
+ 98e67ed59e1d1-339a6e83db9mr3712573a91.7.1759320912658; Wed, 01 Oct 2025
+ 05:15:12 -0700 (PDT)
+MIME-Version: 1.0
+References: <20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com>
+ <20250915-arm_coresight_power_management_fix-v3-10-ea49e91124ec@arm.com>
+ <CAJ9a7Vgk0Pj5c9AJBKa+wBNNZR6a7RCTUWqW0Trvksvt6fCBXg@mail.gmail.com> <20251001102551.GM7985@e132581.arm.com>
+In-Reply-To: <20251001102551.GM7985@e132581.arm.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Wed, 1 Oct 2025 13:15:01 +0100
+X-Gm-Features: AS18NWAStjplWGVYojVpMWR9OS2APZoRc2_QmefDNYGX0j_JRQsaVaPaf6qqAgY
+Message-ID: <CAJ9a7VjYLXk4bx7gWFpQe=1TLQ0Ks8d7m-jrUnuwaLMonW3gwQ@mail.gmail.com>
+Subject: Re: [PATCH v3 10/31] coresight: etm4x: Reuse normal enable and
+ disable logic in CPU idle
+To: Leo Yan <leo.yan@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
+	Yeoreum Yun <yeoreum.yun@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Yabin Cui <yabinc@google.com>, 
+	Yuanfang Zhang <quic_yuanfang@quicinc.com>, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251001_051513_751245_57210E8E 
+X-CRM114-Status: GOOD (  40.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,128 +99,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 01 Oct 2025 12:00:14 +0100,
-Steven Price <steven.price@arm.com> wrote:
-> 
-> Hi Marc,
-> 
-> On 01/10/2025 11:05, Marc Zyngier wrote:
-> > On Wed, 20 Aug 2025 15:55:23 +0100,
-> > Steven Price <steven.price@arm.com> wrote:
-> >>
-> >> The RMM (Realm Management Monitor) provides functionality that can be
-> >> accessed by SMC calls from the host.
-> >>
-> >> The SMC definitions are based on DEN0137[1] version 1.0-rel0
-> >>
-> >> [1] https://developer.arm.com/documentation/den0137/1-0rel0/
-> >>
-> >> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> >> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> >> Signed-off-by: Steven Price <steven.price@arm.com>
-> >> ---
-> >> Changes since v9:
-> >>  * Corrected size of 'ripas_value' in struct rec_exit. The spec states
-> >>    this is an 8-bit type with padding afterwards (rather than a u64).
-> >> Changes since v8:
-> >>  * Added RMI_PERMITTED_GICV3_HCR_BITS to define which bits the RMM
-> >>    permits to be modified.
-> >> Changes since v6:
-> >>  * Renamed REC_ENTER_xxx defines to include 'FLAG' to make it obvious
-> >>    these are flag values.
-> >> Changes since v5:
-> >>  * Sorted the SMC #defines by value.
-> >>  * Renamed SMI_RxI_CALL to SMI_RMI_CALL since the macro is only used for
-> >>    RMI calls.
-> >>  * Renamed REC_GIC_NUM_LRS to REC_MAX_GIC_NUM_LRS since the actual
-> >>    number of available list registers could be lower.
-> >>  * Provided a define for the reserved fields of FeatureRegister0.
-> >>  * Fix inconsistent names for padding fields.
-> >> Changes since v4:
-> >>  * Update to point to final released RMM spec.
-> >>  * Minor rearrangements.
-> >> Changes since v3:
-> >>  * Update to match RMM spec v1.0-rel0-rc1.
-> >> Changes since v2:
-> >>  * Fix specification link.
-> >>  * Rename rec_entry->rec_enter to match spec.
-> >>  * Fix size of pmu_ovf_status to match spec.
-> >> ---
-> >>  arch/arm64/include/asm/rmi_smc.h | 269 +++++++++++++++++++++++++++++++
-> >>  1 file changed, 269 insertions(+)
-> >>  create mode 100644 arch/arm64/include/asm/rmi_smc.h
-> >>
-> >> diff --git a/arch/arm64/include/asm/rmi_smc.h b/arch/arm64/include/asm/rmi_smc.h
-> >> new file mode 100644
-> >> index 000000000000..1000368f1bca
-> >> --- /dev/null
-> >> +++ b/arch/arm64/include/asm/rmi_smc.h
-> > 
-> > [...]
-> > 
-> >> +#define RMI_PERMITTED_GICV3_HCR_BITS	(ICH_HCR_EL2_UIE |		\
-> >> +					 ICH_HCR_EL2_LRENPIE |		\
-> >> +					 ICH_HCR_EL2_NPIE |		\
-> >> +					 ICH_HCR_EL2_VGrp0EIE |		\
-> >> +					 ICH_HCR_EL2_VGrp0DIE |		\
-> >> +					 ICH_HCR_EL2_VGrp1EIE |		\
-> >> +					 ICH_HCR_EL2_VGrp1DIE |		\
-> >> +					 ICH_HCR_EL2_TDIR)
-> > 
-> > Why should KVM care about what bits the RMM wants to use? Also, why
-> > should KVM be forbidden to use the TALL0, TALL1 and TC bits? If
-> > interrupt delivery is the host's business, then the RMM has no
-> > business interfering with the GIC programming.
-> 
-> The RMM receives the guest's GIC state in a field within the REC entry
-> structure (enter.gicv3_hcr). The RMM spec states that the above is the
-> list of fields that will be considered and that everything else must be
-> 0[1]. So this is used to filter the configuration to make sure it's
-> valid for the RMM.
-> 
-> In terms of TALL0/TALL1/TC bits: these control trapping to EL2, and when
-> in a realm guest the RMM is EL2 - so it's up to the RMM to configure
-> these bits appropriately as it is the RMM which will have to deal with
-> the trap.
+Hi Leo
 
-And I claim this is *wrong*. Again, if the host is in charge of
-interrupt injection, then the RMM has absolutely no business is
-deciding what can or cannot be trapped. There is zero information
-exposed by these traps that the host is not already aware of.
+On Wed, 1 Oct 2025 at 11:25, Leo Yan <leo.yan@arm.com> wrote:
+>
+> Hi Mike,
+>
+> On Wed, Oct 01, 2025 at 09:48:06AM +0100, Mike Leach wrote:
+>
+> > Hi Leo,
+> >
+> > Overall I like the idea, but there are some minor issues that need addressing.
+>
+> Thanks for review!
+>
+> [...]
+>
+> > > 3) Claim Tag Handling
+> > >
+> > >    The claim tag is acquired and released in normal flow, on the other
+> > >    hand, the claim protocol is not applied in CPU idle flow - it simply
+> > >    restores the saved value.
+> > >
+> > >    The claim bits serve two purpose:
+> > >
+> > >    * Exclusive access between the kernel driver and an external
+> > >      debugger. During CPU idle, the kernel driver locks the OS Lock,
+> > >      ensuring that the external debugger cannot access the trace unit.
+> > >      Therefore, it is safe to release the claim tag during idle.
+> > >
+> > >    * Notification to supervisory software to save/restore context for
+> > >      external debuggers. The kernel driver does not touch the external
+> > >      debugger's claim bit (ETMCLAIM[0]).
+> > >
+> > >    Based on this, it is safe to acquire and release claim tag in the
+> > >    idle sequence.
+> > >
+> >
+> > Not sure I agree - in the original save restore the claim tag state
+> > was retained - so if an external claim was asserted it would not be
+> > lost.
+> > here if we do not retain the claim tag value, then an external state
+> > can be lost.
+>
+> As described in PSCI (DEN0022F.b 1.3), section 6.8.1.3 "Saving and
+> restoring trace context", when ETMCLAIM[0] is set to 1 by the external
+> debugger, "The supervisory software will perform a save and restore
+> sequence of the trace context". So the supervisory software
+> (TF-a or EL2 hypervisor) should save and restore context (including
+> the claim bit) for the external debugger.
+>
+> It does not make much sense to use the ETM driver to save and restore
+> only the claim bit while ignoring other registers. For a robust
+> solution, the supervisory software would be better place for the job.
+>
+> > The debugger cannot access the device during idle/oslok, but it can
+> > detect that the device is powered down/oslocked and this potential is
+> > a change of behaviour from the external debug perspective, where a
+> > race to claim the resource now exists over powerdown were one did not
+> > before.
+>
+> If we consider the supervisory software, then no race condition occurs.
+> As the supervisory software must run prior to the Linux kernel during
+> resume, it will safely restore claim bit for the external debugger.
+>
+> Thoughts?
+>
 
-> [1] RWVGFJ in the 1.0 spec from
-> https://developer.arm.com/documentation/den0137/latest
+If the firmware is PSCI compliant there is no need to save/restore the
+context within the kernel driver if the external claim bit is set?
 
-Well, until someone explains what this is protecting against, I
-consider this as broken.
+Mike
 
-> >> +	union { /* 0x300 */
-> >> +		struct {
-> >> +			u64 gicv3_hcr;
-> >> +			u64 gicv3_lrs[REC_MAX_GIC_NUM_LRS];
-> >> +			u64 gicv3_misr;
-> > 
-> > Why do we care about ICH_MISR_EL2? Surely we get everything in the
-> > registers themselves, right? I think this goes back to my question
-> > above: why is the RMM getting in the way of ICH_*_EL2 accesses?
-> 
-> As mentioned above, the state of the guest's GIC isn't passed through
-> the CPU's registers, but instead using the rec_enter/rec_exit
-> structures. So unlike a normal guest entry we don't set all the CPU's
-> register state before entering, but instead hand over a shared data
-> structure and the RMM is responsible for actually programming the
-> registers on the CPU. Since many of the registers are (deliberately)
-> unavailable to the host (e.g. all the GPRs) it makes some sense the RMM
-> also handles the GIC registers save/restore.
+> [...]
+>
+> > > -       if (drvdata->nrseqstate) {
+> > > -               state->trcseqrstevr = etm4x_read32(csa, TRCSEQRSTEVR);
+> > > -               state->trcseqstr = etm4x_read32(csa, TRCSEQSTR);
+> >
+> > The TRCSEQSTR changes in use, but is not read back be the standard
+> > enable/disable flow. This does not matter in a normal enable/disable
+> > case, but in a save/restore we need to retain the current state.
+> > Probably should be added to the normal disable flow to read back this
+> > as we do with counters etc.
+>
+> Good point.  I will update in next spin.
+>
+> Thanks,
+> Leo
 
-And I claim this is nonsense. There is nothing in these registers that
-the host doesn't need to know about, which is why they are basically
-copied over.
 
-It all feels just wrong.
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+--
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
