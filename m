@@ -4,108 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC04BCCA474
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 08:46:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3954CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 08:48:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8D0lPsjedL+kyXW7Dr+b8bXHNiYNOO4VOFO0oJ6yKL8=; b=1Mpu/sc0DanpsRPIKZUYlqt0QC
-	KsA8QTf+EZlMxTCl4/VnGWz1mk0n6/9UsgiP8kWCvIYHockukOyZnf/E03IeRiWOvCASnOUoDeqkB
-	jFsDGmUpf2ZpByKtbqMlv+p19RaWvfbYmZVr6apyxDIdj6xQLVbMkcjHPswOGfyyxYKl/XCYrIOqk
-	p51u+xMItKNCJ/U8Qef5bMW3s4ERPpY3qAkuqGx8BvMST6nX17alo4XF/GMAVSxPvYVI9DEH48sDE
-	Pejf2Irh+eUue+Yf8bOM5EkGryGcc5cGXbOSljNUUJzxwl6nInOZ2KVhhw4xS6Ox1YvbMTiPJFWI3
-	nKCsQEYg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=XMfpQioL9qF93r02i/m3R/Lc2dj1xsmt2jY1yN46fE8=; b=QVh5KAIh5rsTPJ
+	Rh8elabDkro1JmrRH/RRkv70LisM8v1Ob+EZHt5ju4BkxuMI14FidFcq2vfwQfqQ28mc/rJP9OjWD
+	4QVOMpYaXPIdtMZlf9zqZh9ZsmOpl586TTMOs9FsMt+0RRF/e01EGzmElTHD3rRFDh/ZZWeBFepGQ
+	EpPaT00Y2cmLgMuarquN0ReZe3upcxUGH407DDx9lAjK6zms97OSl2/mYeff+MpWvhF7To8DtC6bG
+	suaUxOGwN9AhSn+xVIqMpO747p0jWAzTMn6ha3kTb/sheSPOj8iZ0PeSCtxoJjxoGjXm8vQjqGUrb
+	Vjsfcpkn7Em578WA0rJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3sTy-0000000744W-0oXT;
-	Wed, 01 Oct 2025 08:46:42 +0000
-Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
+	id 1v3sVJ-000000074HG-3Ypq;
+	Wed, 01 Oct 2025 08:48:05 +0000
+Received: from mail-pj1-x102f.google.com ([2607:f8b0:4864:20::102f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3sTu-00000007430-1Rct
+	id 1v3sVH-000000074Gm-3q0m
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 08:46:40 +0000
-Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-586883eb9fbso4565999e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 01:46:37 -0700 (PDT)
+	Wed, 01 Oct 2025 08:48:05 +0000
+Received: by mail-pj1-x102f.google.com with SMTP id 98e67ed59e1d1-329a41dc2ebso5838555a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 01:48:03 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1759308396; x=1759913196; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=8D0lPsjedL+kyXW7Dr+b8bXHNiYNOO4VOFO0oJ6yKL8=;
-        b=cmZBCLmCEnm035Q8M1schV2ZDMKm75Cx5kwxbXT98bnpIcslX/odYvkTiuDKevtCvR
-         K4gB6XE/dpqX8FWHu9Ff82utE4buzrEQSA/HXBM3mq64gZRK4DWwbeTOVive2TkQcfY8
-         9wSKVSrzfMUdqEZNU/qLSwZVcFv62p5XoM6qW3BX7dK2waxZDPjSMkieAHVKbLC0lzpV
-         RKBbrFjyBQF9EyV/F/ItU/itlPmPX4CC5/bYyyMrYF0CkqAwILC6lVtCa4Pb8MADeVsI
-         Uma72RRxc86ox5JdPb/wr5umIKuz0LMX6m55RMtD4V9tPU9lHrw66PJXQaxmpPhVH+uJ
-         kkhA==
+        d=gmail.com; s=20230601; t=1759308483; x=1759913283; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=XMfpQioL9qF93r02i/m3R/Lc2dj1xsmt2jY1yN46fE8=;
+        b=gk23fZgpuCdkIykSJwvRGv672pl3u7d7Y2GTMyXRZ3Z9kEI2QUpkE5Ot2C9KD3v/1I
+         h3sYw1YvMa1l+4Dn85wq0gBr25TFdpXfVF8J8qqDlLv0nBdGAOzvaboPyFxt8IWhhmCA
+         NgyuLlTnd/+2kfiEnBUyR0glERC88tUKAPj2q9GnnFCrxnxCoamG+53KhicSOYIDjHaj
+         gOAWW2dWuUddXCuD3tmzReb0p487nkDLipvQ1/uWpRLK46Az3pqkZcJnlB+L4iF0jDNV
+         gZez6nvhzpYS2mpz4hvPfbdPlFSe1dUGcNRRW28cqDuZ9FbRGbetGfaavx1yy5cF0yWA
+         rXBw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759308396; x=1759913196;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=8D0lPsjedL+kyXW7Dr+b8bXHNiYNOO4VOFO0oJ6yKL8=;
-        b=DdqyH222Rl1lmIVP6Lv4N2giKQRXhCnE2yUwOOIfQl8rviF3MH8/MBVdw6pSS6bTjM
-         IBxIyXsiTL+wmYdhZQqKTZRLShT6v/8NZuHbvYwqHs6L+GRvusDlWp95gWN+n8tu9vrh
-         wLR7swi4LILbfAZhxXbdQ9QyHTPNLyAqv8Y2jae3RHOLw4dBbBUUyhdRbJbBJrzIc8wN
-         FJV28JuDmpIGdEaXdWBsGdFkZ7GITm9GOMaMESSlHqCAXKuByjU72J2zlcwCxbolARob
-         LdujzVGpztxqXNDrW8b8kFBIBkDHlRS+kMm9Q44JyulHhzcIb4fhvKZAXFH0cqCVrPDX
-         g+sw==
-X-Forwarded-Encrypted: i=1; AJvYcCXX4PNRmluPZKXAZBXTOF2TWoHW3+AxtfUzuTz7lPIKAUKa2RrSyR1h6FGeQDDRJKsYTqiTQS5Notp9ledxa0wA@lists.infradead.org
-X-Gm-Message-State: AOJu0YygB5bIRVLoSZaD779SIWrRjCYssRZotc3lxxC+CO9ubXrx1zmE
-	c3fHtp8eyMCagidYR8LSAzmtWDZk2d07p9STkqnZOgWGyaonpY855kUv8rncF2Aq16NHUsQxZsS
-	uMSbtN8dFlGM6aOs+Ih2jMG7HBEnXW97GYP6CuhGWOQ==
-X-Gm-Gg: ASbGncviRv2qsSE+K0KCeanyzRvw35/v+O+7x3/vK0ehwge91HMjPpynqJh35puAlzu
-	VpfwncLzX5Rno/JrmYlIjXFIZRlaQuqesUTymawE7QQH6KY5+Dj8a1Sg4j9LQzlTiDqdB6uKQjT
-	iBAlzDIsyMdfmqK9ptJw3YppSAtXxYDQA+8YlML1+UauBz3nCupGDv4D2DBF5fKfd13R1pQY4YK
-	CQ/Uk+v5iDCeOXyz4uMuXhjoszjWnM6Kb3IN8ruQmBZMvDFyJiRKwHopMdNN6o=
-X-Google-Smtp-Source: AGHT+IFOdBqQ3obnIdTm7ru0JPzklPYFIUGqCI693FKE/9RlmuM5kKhUigWL4UNHwLKwqtrOVDs8F+QH4ORLFYFhoak=
-X-Received: by 2002:a05:6512:ea7:b0:57a:6d7d:dd7b with SMTP id
- 2adb3069b0e04-58af9eadd86mr760851e87.8.1759308395621; Wed, 01 Oct 2025
- 01:46:35 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1759308483; x=1759913283;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=XMfpQioL9qF93r02i/m3R/Lc2dj1xsmt2jY1yN46fE8=;
+        b=VSTaMy2y8s4Xk3p9n6Me65RcA7Pmz6D6IwLdNusfyhPdOU2TJVa6I73MqDGwn5BeQC
+         V0qnpYjNqn1iFS6YR8o9/eL0dOrs07PfnQ3YqMkJbhDwVBYeu9hO4+qNYawlHHWNuoPs
+         JmCgRjBO21YCSetC94JyJJRNE6B2jH/VTjpn6YYxBiYYCubWafOwWFOJb3d6DtjNqtE8
+         us3LqduXoBxtyk9L6vOWmXok9m6Wmo80BuAsmGVL0F5NifpSOgSQJj9foPq3OLl+7FW/
+         C8gwvPWmIer7uosUT7ssPozZC5q/GcihV5G3kA8y9rWJ3ZNiCdczdNGGx8PcEzSYBj+K
+         /5Ww==
+X-Forwarded-Encrypted: i=1; AJvYcCUb5kLt5ivu7xWGKuQgV6YL5jinsYFj6+KvyF0ELK5moPGB6n/pA86Tx/cuSs+6eNfz9KJsgeUFPLH4qDvZ99ay@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzbCd4CRNsRWxAx6i1yzqjXRA+bEJG1fRgxo0ERF6Cx7ytYg5w
+	qkB/0RhA09T7YGIkwkjjAKCHf92AqidK2TBHKrkwTbHlGmCxViBZxX1V
+X-Gm-Gg: ASbGncs8w2Y2RmnEFNGJsb1VqSsPoUsFmSVVXG4e0A/415A7DWWLQQjZQNgqQEQwbeB
+	kpbAi5KvW8oebQDFftjOCRWzYIPLla7LstXZXFd0hgiQcstMhX1tkw6kmQ5pYUuSQHMVSr5j8kf
+	D/ajm1HdAUqGhDx3mVOj6TLZCRwho99btEKYXrfaRHJDeIz+K7xU1n4MBPWeIH1IpWUgY1S96BV
+	DI+srX1nu+pTkHV//nmAUUyJ/rzhh2yqukbZDdJDlsJmHnkH6AucA5TBmt2VkULiODtWTSyReg8
+	7zqvNM3JzU8eCqGy4XG/bnRY3hskmGOZaoyj02tNTMmkYCfuJqFm9JIFa1nBfOtGVn4LQA7g95Q
+	iGdpA03ZG4sTvsmbvHN1wQyFAieuIKM8THnUxqiUeqFY2aZvVxTtZcf71RmoBNVH3oIQ1AZb9g4
+	GORZ4vBSEdw7kc+44ApSV+HLkXLZgLWfvox490SI3vIdQgQzX3l1Z9tXU5ggAGxurBSyK50S+Rr
+	4m6DB9R29QSuY/KE5WWD1C4lx0jffmZZrN8FXIojzWXO7E=
+X-Google-Smtp-Source: AGHT+IFnWYeRu9k4Oaa4bTAUDYxWIdWeHxGT4Bg1jpuCkukhqqyjsyyOYdJn3LPL9nXEE8BZUqnazw==
+X-Received: by 2002:a17:90b:1e10:b0:32e:59ef:f403 with SMTP id 98e67ed59e1d1-339a6f2e80fmr3239453a91.17.1759308482433;
+        Wed, 01 Oct 2025 01:48:02 -0700 (PDT)
+Received: from 2001-b400-e387-f8be-46e6-cc88-b318-45e6.emome-ip6.hinet.net (2001-b400-e387-f8be-46e6-cc88-b318-45e6.emome-ip6.hinet.net. [2001:b400:e387:f8be:46e6:cc88:b318:45e6])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-339a6e9d22bsm1789250a91.3.2025.10.01.01.47.59
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 01 Oct 2025 01:48:02 -0700 (PDT)
+From: Kevin Tung <kevin.tung.openbmc@gmail.com>
+Subject: [PATCH v3 0/2] Add Meta (Facebook) Yosemite5 BMC (AST2600)
+Date: Wed, 01 Oct 2025 16:47:49 +0800
+Message-Id: <20251001-yv5_add_dts-v3-0-54190fbc0785@gmail.com>
 MIME-Version: 1.0
-References: <20250910-make-compound-literals-normal-again-v1-0-076ee7738a0b@linaro.org>
- <20250910-make-compound-literals-normal-again-v1-2-076ee7738a0b@linaro.org>
- <CAMuHMdWoEXLTPyQL4kt1OPVbrDDcBdBigqUM7EbNZjZUsSmRHQ@mail.gmail.com>
- <CAMRc=Mej9fQk-1zYKhPK6aWdptXKvjq28TywRyP+iZExRuX9og@mail.gmail.com> <CACRpkdbo88o1g_VCp0+C9hfi1VQkP99x2Mnkw_DTctBEtVAa_g@mail.gmail.com>
-In-Reply-To: <CACRpkdbo88o1g_VCp0+C9hfi1VQkP99x2Mnkw_DTctBEtVAa_g@mail.gmail.com>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Wed, 1 Oct 2025 10:46:22 +0200
-X-Gm-Features: AS18NWC0XlksXBppS2yCvWpBaDAShYUzQK0jJOB31RgrqudBkZ0MvZktkc5Xz8w
-Message-ID: <CAMRc=Mf4kv03+cfB7up==PUJyxHH6U3hHF3q6iKYZWVOZamSTg@mail.gmail.com>
-Subject: Re: [PATCH 2/3] pinctrl: use more common syntax for compound literals
-To: Linus Walleij <linus.walleij@linaro.org>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>, Lee Jones <lee@kernel.org>, 
-	Andy Shevchenko <andriy.shevchenko@intel.com>, Liviu Dudau <liviu.dudau@arm.com>, 
-	Sudeep Holla <sudeep.holla@arm.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Avi Fishman <avifishman70@gmail.com>, Tomer Maimon <tmaimon77@gmail.com>, 
-	Tali Perry <tali.perry1@gmail.com>, Patrick Venture <venture@google.com>, 
-	Nancy Yuen <yuenn@google.com>, Benjamin Fair <benjaminfair@google.com>, 
-	=?UTF-8?Q?Jonathan_Neusch=C3=A4fer?= <j.neuschaefer@gmx.net>, 
-	=?UTF-8?Q?Cl=C3=A9ment_Le_Goffic?= <legoffic.clement@gmail.com>, 
-	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
-	James Cowgill <james.cowgill@blaize.com>, Matt Redfearn <matt.redfearn@blaize.com>, 
-	Neil Jones <neil.jones@blaize.com>, 
-	Nikolaos Pasaloukos <nikolaos.pasaloukos@blaize.com>, Hoan Tran <hoan@os.amperecomputing.com>, 
-	Yang Shen <shenyang39@huawei.com>, Imre Kaloz <kaloz@openwrt.org>, 
-	Yinbo Zhu <zhuyinbo@loongson.cn>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Manivannan Sadhasivam <mani@kernel.org>, 
-	Nobuhiro Iwamatsu <nobuhiro.iwamatsu.x90@mail.toshiba>, Ray Jui <rjui@broadcom.com>, 
-	Scott Branden <sbranden@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	openbmc@lists.ozlabs.org, linux-gpio@vger.kernel.org, 
-	linux-stm32@st-md-mailman.stormreply.com, imx@lists.linux.dev, 
-	linux-unisoc@lists.infradead.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIALXq3GgC/23MQQqDMBCF4avIrJuSTqKYrnqPIhKSUQeqlkRCR
+ XL3pq67/B+874BIgSnCvTogUOLI61JCXSpwk11GEuxLA0qspUEt9lT31vveb1EYbFrrbtoPTkJ
+ 5vAMN/Dm1Z1d64ritYT/xhL/1v5NQSKGM1bYl5Qw1j3G2/Lq6dYYu5/wFm+YtzKYAAAA=
+X-Change-ID: 20250924-yv5_add_dts-9268ac14dfc0
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>, 
+ Andrew Jeffery <andrew@codeconstruct.com.au>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>, 
+ Magnus Damm <magnus.damm@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org, 
+ linux-renesas-soc@vger.kernel.org, Amithash Prasasd <amithash@meta.com>, 
+ Kevin Tung <Kevin.Tung@quantatw.com>, Ken Chen <Ken.Chen@quantatw.com>, 
+ Leo Yang <Leo-Yang@quantatw.com>, Kevin Tung <kevin.tung.openbmc@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1759308478; l=1447;
+ i=kevin.tung.openbmc@gmail.com; s=20250924; h=from:subject:message-id;
+ bh=QvD/ud6DrodRNKqUA2m4nL+/50pX/gxXw21okP8DcUg=;
+ b=csBBxtxldogEQ8rY3FiSkJeHOhzuac4zcoGG5wphIcMFi6EvJcjhMsjESJ6SxzR6pTZfm9a2t
+ NfCmbeaOchxD43dDjoBaxFLMKIIuBCb4bv9jKCT5u50KF6oapTWBuXE
+X-Developer-Key: i=kevin.tung.openbmc@gmail.com; a=ed25519;
+ pk=PjAss0agA0hiuLfIBlA9j/qBmJaPCDP+jmQIUB6SE7g=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_014638_509471_81D4BE51 
-X-CRM114-Status: GOOD (  20.27  )
+X-CRM114-CacheID: sfid-20251001_014803_960789_184644D7 
+X-CRM114-Status: GOOD (  10.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,35 +116,43 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 1, 2025 at 10:36=E2=80=AFAM Linus Walleij <linus.walleij@linaro=
-.org> wrote:
->
-> On Thu, Sep 25, 2025 at 9:52=E2=80=AFAM Bartosz Golaszewski <brgl@bgdev.p=
-l> wrote:
->
-> > This is a link to the discussion with Andy as per Linus Torvalds'
-> > recent request to use the Link: tag to point to actually useful
-> > information rather than just the patch's origin. Linus Walleij doesn't
-> > use b4 so the origin link you'd normally expect to be added
-> > automatically is not there at all. That's probably what caused the
-> > confusion.
->
-> What? I use b4 for everything, I don't know what gave you
-> that impression....
->
+Summary:
+Add device tree for the Meta (Facebook) Yosemite5 compute node,
+based on the AST2600 BMC.
 
-Ah, sorry for this. I assumed the lack of Link is due to no b4. Should
-have looked at git log first.
+The Yosemite5 platform provides monitoring of voltages, power,
+temperatures, and other critical parameters across the motherboard,
+CXL board, E1.S expansion board, and NIC components. The BMC also
+logs relevant events and performs appropriate system actions in
+response to abnormal conditions.
 
-> I have however removed the automated Link: tags generated from magic
-> gitconfig hooks as requested by Torvalds in v6.17-rc5:
-> https://lwn.net/Articles/1037069/
->
-> This is also mentioned in my pin control pull request from yesterday.
->
+Signed-off-by: Kevin Tung <kevin.tung.openbmc@gmail.com>
+---
+Changes in v3:
+- add missing dtb target in arch/arm/boot/dts/aspeed/Makefile
+- remove unevaluated property `ncsi-package`
+- Link to v2: https://lore.kernel.org/r/20250924-yv5_add_dts-v2-0-39a4a8e3c9e6@gmail.com
 
-So it is a policy after all and not a "please"? Let me remove the hooks the=
-n...
+Changes in v2:
+- send v2 of the series so that it's properly threaded.
+- add idle disconnect to i2c mux.
+- Link to v1: https://lore.kernel.org/all/20250917074812.4042797-1-kevin.tung.openbmc@gmail.com
 
-Bart
+---
+Kevin Tung (2):
+      dt-bindings: arm: aspeed: add Meta Yosemite5 board
+      ARM: dts: aspeed: yosemite5: Add Meta Yosemite5 BMC
+
+ .../devicetree/bindings/arm/aspeed/aspeed.yaml     |    1 +
+ arch/arm/boot/dts/aspeed/Makefile                  |    1 +
+ .../dts/aspeed/aspeed-bmc-facebook-yosemite5.dts   | 1067 ++++++++++++++++++++
+ 3 files changed, 1069 insertions(+)
+---
+base-commit: 30d4efb2f5a515a60fe6b0ca85362cbebea21e2f
+change-id: 20250924-yv5_add_dts-9268ac14dfc0
+
+Best regards,
+-- 
+Kevin Tung <kevin.tung.openbmc@gmail.com>
+
 
