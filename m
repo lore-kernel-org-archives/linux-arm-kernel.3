@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74061CAC5BB
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6170CCA470
 	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 11:34:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,60 +12,61 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5JkgLorsszpNpNXqUBHl0PyQ7JsrT6J5rRyhYH20HoM=; b=eKRtPIF8kt26/mFJMnJm7O3nHX
-	v5b9gYx/I5U8MVZP1jVkyK38JKQqVbwg2FLcweUnuGYp6UNX+og7zNqF6ftu25bft5U/m/Ma/9BXB
-	do4El33D5BE80AFuN55hJ8hqivmfsMYK55Q7gB7KvcXs4h7n01KmOv7a+482SOo4QCXzb6pk4r1t4
-	2Gt4rQ/p3en4ixBAWKWQiglXr8iIFvhnojtkAEIUNEgDfVdPtE745Onwn8Xphwngd4G9Gj4q9Nguh
-	vjWTEV3Ukt/wJz2fiugsffnHdCAbOHrZoEi6vHN7aWCLNK2UuxaJti84ljufLukWwr/QoCiI7Ive2
-	ieYpPJxQ==;
+	bh=xNr/jWgqfmSazXCL9X1SBSjsmyKknvXDl82SYxLMcyA=; b=uInJfscoJFq4rXEqsd1Mhhtpwl
+	4KQM5lHaNjvsFU/93P/rfpZ6AawubVFYh2ji30hp9g86Aej1k7Aee1eD1aGeYBsbQsR0hAnjMHbrg
+	BKTBn8Op5FKYIpRPsH8EPc8A3OCi7IKINjMSTQCxvX+qMc3Q/hS6zxJliNdulvr+0N5OXVqmQO2wc
+	tWfcj5+m6qxvIiYLDafvpB+nYAQbGyUrAeNmUZF0bsOJQc2XaR6kFLhBgzc91ddQz95xPYVfah0GD
+	k4919NbpZ9LqfECISIzguSzIJHrjVjVJg96HmeTtB/yHEgcyo0vNnu9XvqpN4WCX2v7Mo/55wBPbe
+	Gx0oD/pQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3v6F-00000007PHC-40LC;
-	Wed, 01 Oct 2025 11:34:23 +0000
+	id 1v3v6G-00000007PI1-1chX;
+	Wed, 01 Oct 2025 11:34:24 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3v6B-00000007P9l-1BN7
+	id 1v3v6B-00000007PAC-3WMg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 11:34:20 +0000
+	Wed, 01 Oct 2025 11:34:21 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1759318456;
-	bh=ox6s2XGlAFQMOJC4R5KYFkxyed/81WZwsUzVnJ5IZxI=;
+	s=mail; t=1759318458;
+	bh=4ekgiOSsVeMhFoaUOo+lKCWR44dDBKV2EZ5bN48Q60w=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=EHVCnkW8v9MNkh2g3aBpf/S+H1g04R4eQK8eHnKV5Ki/8KiBQ6ZPqmTvpyIYFKIFl
-	 JwVVwBFZATiGv5ckgYGRTPjaCrwePR49uBBRS1T6wGG/VRsBM9BnUIo9DOjkXtX0Qd
-	 7r/2yVXgi1ek30yZX0U+2TyEtPxZV+Zh9BSN+nOY7tLBwvshghSn3fRSmJOGeJoof6
-	 lXlnplK5U3yiHwNYQsOHWPC/sb8YRijm57A3IR05fXraRUzBJVfkKtR5QnGY4Kwq+A
-	 kdnDm5Ih/MnNQ0IYPDfkXS0pPXr3lPbfVHq5gnh7X/AiMLrgFlhsffTA5Pknt1xJnS
-	 8fsSio8obweuA==
+	b=gPr8JM0ruBY4wWi/iSWIIPvJoU2xO1lRiMTt+vNgbQ+1L7o9kbgAIq7E4xBFaUS/D
+	 6QhaSisJf+XRrYGX/6zCstIWnoEB7+DjHMfP5xQYYmJcWWy2zLQ+7FPFwZcqTEsCO7
+	 HLtZxf2QiQCpRprcpmkn0vWnj7VWj2DW/32r0y5TUOTj378rnup9DhHLZ0dHr4EW5P
+	 iH1y3xaDf5OeHJ056UtGat/da7188J6Y/ZiJxtKBp0sRcPYInYmJ2qt+c6oKbyx3ol
+	 RcswwCKOlnlAavYAZ8MQC5vJvs0wEp5Dm2sRO47pMbkk3TsKOD1YYtJF1byS5ZiP6w
+	 D3E2rrTMA2ufw==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7E82117E13D3;
-	Wed,  1 Oct 2025 13:34:16 +0200 (CEST)
-Message-ID: <6cbaa1a8-9cb2-4611-a28c-c7e160018cc9@collabora.com>
-Date: Wed, 1 Oct 2025 13:34:16 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C516917E120D;
+	Wed,  1 Oct 2025 13:34:17 +0200 (CEST)
+Message-ID: <ff5feacb-6393-42b8-9134-46e22991e7d9@collabora.com>
+Date: Wed, 1 Oct 2025 13:34:17 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND v5 04/13] spi: airoha: remove unnecessary switch to
- non-dma mode
+Subject: Re: [PATCH RESEND v5 01/13] spi: airoha: return an error for
+ continuous mode dirmap creation cases
 To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
  Lorenzo Bianconi <lorenzo@kernel.org>, Ray Liu <ray.liu@airoha.com>,
  Mark Brown <broonie@kernel.org>, Andy Shevchenko <andy@kernel.org>,
  linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
  linux-kernel@vger.kernel.org
-Cc: Andreas Gnau <andreas.gnau@iopsys.eu>
+Cc: Andreas Gnau <andreas.gnau@iopsys.eu>,
+ Frieder Schrempf <frieder.schrempf@kontron.de>
 References: <20250930022658.1485767-1-mikhail.kshevetskiy@iopsys.eu>
- <20250930022658.1485767-5-mikhail.kshevetskiy@iopsys.eu>
+ <20250930022658.1485767-2-mikhail.kshevetskiy@iopsys.eu>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20250930022658.1485767-5-mikhail.kshevetskiy@iopsys.eu>
+In-Reply-To: <20250930022658.1485767-2-mikhail.kshevetskiy@iopsys.eu>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_043419_480747_381843C3 
-X-CRM114-Status: UNSURE (   7.67  )
+X-CRM114-CacheID: sfid-20251001_043420_023693_2E773511 
+X-CRM114-Status: UNSURE (   8.65  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,14 +83,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Il 30/09/25 04:26, Mikhail Kshevetskiy ha scritto:
-> The code switches to dma at the start of dirmap operation and returns
-> to non-dma at the end of dirmap operation, so an additional switch to
-> non-dma at the start of dirmap write is not required.
+> This driver can accelerate single page operations only, thus
+> continuous reading mode should not be used.
+> 
+> Continuous reading will use sizes up to the size of one erase block.
+> This size is much larger than the size of single flash page. Use this
+> difference to identify continuous reading and return an error.
 > 
 > Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-> Acked-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> Reviewed-by: Frieder Schrempf <frieder.schrempf@kontron.de>
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-
 
 
