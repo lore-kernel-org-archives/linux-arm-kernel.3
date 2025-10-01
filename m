@@ -4,77 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6C7ECAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 16:10:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73C15CAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 16:17:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9CvJDGBSoVXbt+J412aK4yig9hsCig6aqy7YzBwhW2U=; b=YvL30igw61kdjNnrCTVpiE8v06
-	hH/Kl1IIK4Mm/v9qc0EcCqb1KUmNoJrG59IYXFKnun/hh7mQh3ZPJCb8ElLn9e2Whu/b1tFNUj2dh
-	8dhiJ2YN0mEtVAQypabDRAZ+E4GD0FHmibOOy+sbInUPwHow31Nq+WyqisIAGmgYWNWAx6ESDEpIo
-	M+VakeV3PPKsCr6xgfqLuVb+is9LIDZpWCBSbBGTTRcK482PkUa/qkkJQUOr9xR1iRbvmo2kEw9Hf
-	9bRd6satKIrShFrkgKUj6w/+aCA7CGvHkqpzJuaB0HkSXG37k+UlL7DxiFY45TEDG0cFvf5Wgkj7D
-	xDpxPtxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O3xFGfSJUrzTYy5HFRvEf7UVQ3lgG70Ni6Ds4LtkEdo=; b=4w7xsaTnUEMLU5iPR7wkhrruDR
+	7o6HPzNMd5U+sy8ZTxJjvzjFbZp9sofX/mpitGRbd09pggdsv3VsQZlqsYkYzJCVFl+1gapAHoze2
+	3h15M01POxm9qljC3lbxg8ShvJbVFvQrWyLtpx2jjIaq94bjMpxqcPQCaFKvMgipsbaV7pexOSzt6
+	2dDJ+Tg00rZBhFFZrCpqjmGGtq/O2okZIXRqSjOq1YH9WyZ1Qp0TLr1lkDOI5csOWBpBbn/RTBP5Q
+	p4U8LLDMKDNKp5aIkUwQnZCa3xpczZFeHlJlWABQopQWzWgT9LrU4PVvYoVtl9Hl1mBNSZjdG7Vv9
+	m6ko219Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3zP6-00000008UXW-0o5J;
-	Wed, 01 Oct 2025 16:10:08 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1v3zWZ-00000008VJn-1SDW;
+	Wed, 01 Oct 2025 16:17:51 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3zP2-00000008UV4-2W6L;
-	Wed, 01 Oct 2025 16:10:06 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 3A8AC1A1075;
-	Wed,  1 Oct 2025 16:09:55 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 093A5606BF;
-	Wed,  1 Oct 2025 16:09:55 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id E7266102F1A3E;
-	Wed,  1 Oct 2025 18:09:24 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1759334993; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=9CvJDGBSoVXbt+J412aK4yig9hsCig6aqy7YzBwhW2U=;
-	b=rv7pdWQxzoqrjN3bhcDG6IeHqv9N+XFI6QwkO+p2auYuGPT6LdtWBCRBaL+JXAoVwiZp3M
-	GCz4Tg3Kp9FHaQ9ya4b1XoJUTf6IrVRO2rb9kWsrBaj8QlhrQSzkcUKcKaIjBJevIfdKML
-	Wq9Hw3uoV22IEeAse398wh3dpFWcPNP4997mm0bXmVga+Na0ZqDBIom3Xkc/v8U54fbN0P
-	dUv7sLcbxNiQ6FHk4AuZ6ks4JvbyqGVlVceYlp2gOFBy2i4u7ZoQOFNKAjjRBjtVSLzzx1
-	IWzQUOqHYmLJoe+mlbvD6F85QWGNZgLSYs8vBFGYgIlNgCS9dU1HYJqlbZYC9A==
-Date: Wed, 1 Oct 2025 18:09:22 +0200
-From: Luca Ceresoli <luca.ceresoli@bootlin.com>
-To: Damon Ding <damon.ding@rock-chips.com>
-Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
- Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
- simona@ffwll.ch, shawnguo@kernel.org, s.hauer@pengutronix.de,
- kernel@pengutronix.de, festevam@gmail.com, inki.dae@samsung.com,
- sw0312.kim@samsung.com, kyungmin.park@samsung.com, krzk@kernel.org,
- alim.akhtar@samsung.com, jingoohan1@gmail.com, p.zabel@pengutronix.de,
- hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
- dmitry.baryshkov@oss.qualcomm.com, dianders@chromium.org,
- m.szyprowski@samsung.com, jani.nikula@intel.com,
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v6 11/18] drm/display: bridge_connector: Ensure last
- bridge determines EDID/modes detection capabilities
-Message-ID: <20251001180922.6bbe42ac@booty>
-In-Reply-To: <20250930090920.131094-12-damon.ding@rock-chips.com>
-References: <20250930090920.131094-1-damon.ding@rock-chips.com>
-	<20250930090920.131094-12-damon.ding@rock-chips.com>
-Organization: Bootlin
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-redhat-linux-gnu)
-MIME-Version: 1.0
+	id 1v3zWW-00000008VIG-0ADt
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 01 Oct 2025 16:17:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BB8CB417BF;
+	Wed,  1 Oct 2025 16:17:47 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 98736C4CEF1;
+	Wed,  1 Oct 2025 16:17:47 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759335467;
+	bh=bMA07Ln4hDU10o5W440wFOk9DddcSBtkg4Pl8kMatM0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=tjgUy+a0m+LLagSHoLjoo97tMk8+HnZ8x+7Pj8e1t1ZSA823s7A1uAhNp8mQrlODf
+	 6keLUOqRgGD2Xnda5HZ4ctk1TsMH5FUL7UHUZiaH6u4r2FPop46y9dikzYj11YWvzp
+	 y/27ZWamaCVEBtDkofkynE18MCu2dS+98T0q7o8cAmVxVoC3MoTD4+HomvbLMuLV1Q
+	 wsuKK0hUdS9aoimdBtL3iIDyjVgyZ8WgABvG0d9nMuQiPM/WrcbEbECb1rDMQjz2O7
+	 K86+OMPUWVFkkU2+WgbLPg/6uGJu9ZoNAB+gOEYdtNVjH/LqvnNwsQLt1bLk5DfOu7
+	 CIlmH/J/TxGHA==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1v3zWT-0000000ArZi-1KXr;
+	Wed, 01 Oct 2025 16:17:45 +0000
+Date: Wed, 01 Oct 2025 17:17:44 +0100
+Message-ID: <86cy76zjdj.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	Dmytro Terletskyi
+	<Dmytro_Terletskyi@epam.com>, kvmarm <kvmarm@lists.linux.dev>
+Subject: Re: KVM: Nested VGIC emulation leads to infinite IRQ exceptions
+In-Reply-To: <87bjmrprvq.fsf@epam.com>
+References: <87bjmrprvq.fsf@epam.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
 Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Volodymyr_Babchuk@epam.com, linux-arm-kernel@lists.infradead.org, Dmytro_Terletskyi@epam.com, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_091004_902525_73B52C83 
-X-CRM114-Status: GOOD (  26.36  )
+X-CRM114-CacheID: sfid-20251001_091748_117295_30B3A028 
+X-CRM114-Status: GOOD (  15.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,151 +85,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Damon,
+On Tue, 30 Sep 2025 22:11:54 +0100,
+Volodymyr Babchuk <Volodymyr_Babchuk@epam.com> wrote:
 
-On Tue, 30 Sep 2025 17:09:13 +0800
-Damon Ding <damon.ding@rock-chips.com> wrote:
+[...]
 
-> When multiple bridges are present, EDID detection capability
-> (DRM_BRIDGE_OP_EDID) takes precedence over modes detection
-> (DRM_BRIDGE_OP_MODES). To ensure the above two capabilities are
-> determined by the last bridge in the chain, we handle three cases:
+I spent some time to look at this again.
 > 
-> Case 1: The later bridge declares only DRM_BRIDGE_OP_MODES
->  - If the previous bridge declares DRM_BRIDGE_OP_EDID, set
->    &drm_bridge_connector.bridge_edid to NULL and set
->    &drm_bridge_connector.bridge_modes to the later bridge.
->  - Ensure modes detection capability of the later bridge will not
->    be ignored.
+> This is a part of the KVM trace, where you can see that vCPU in question
+> tries to perform ERET to Linux in DomU but is being brought back to
+> vEL2. In this particular case this is vCPU1 / vvCPU0. I filtered out
+> other vCPUs to reduce clutter.
 > 
-> Case 2: The later bridge declares only DRM_BRIDGE_OP_EDID
->  - If the previous bridge declares DRM_BRIDGE_OP_MODES, set
->    &drm_bridge_connector.bridge_modes to NULL and set
->    &drm_bridge_connector.bridge_edid to the later bridge.
->  - Although EDID detection capability has higher priority, this
->    operation is for balance and makes sense.
-> 
-> Case 3: the later bridge declares both of them
->  - Assign later bridge as &drm_bridge_connector.bridge_edid and
->    and &drm_bridge_connector.bridge_modes to this bridge.
->  - Just leave transfer of these two capabilities as before.
+>  qemu-system-aar-41290   [000] d.... 12023.695620: kvm_entry: PC: 0x00000a0000267c80
+>  qemu-system-aar-41290   [000] d.... 12023.695620: vgic_update_irq_pending: VCPU: 1, IRQ 25, level: 0
+>  qemu-system-aar-41290   [000] d.... 12023.695621: kvm_get_timer_map: VCPU: 1, dv: 2, dp: 3, ev: 1, ep: 0
+>  qemu-system-aar-41290   [000] d.... 12023.695621: kvm_timer_emulate: arch_timer_ctx_index: 1 (should_fire: 1)
+>  qemu-system-aar-41290   [000] d.... 12023.695621: kvm_timer_emulate: arch_timer_ctx_index: 0 (should_fire: 0)
+>  qemu-system-aar-41290   [000] ..... 12023.695621: kvm_exit: TRAP: HSR_EC: 0x001a (ERET), PC: 0x00000a00002674e0
 
-I think the whole explanation can be more concisely rewritten as:
+Wants to ERET to EL1
 
-If the later bridge declares OP_EDID, OP_MODES or both, then both
-.bridge_modes and .bridge_edid should be set to NULL (if any was set
-from a previous bridge), and then .bridge_modes and/or .bridge_edid be
-set to the later bridge as is done already.
+>  qemu-system-aar-41290   [000] ..... 12023.695621: kvm_get_timer_map: VCPU: 1, dv: 2, dp: 3, ev: 1, ep: 0
+>  qemu-system-aar-41290   [000] d.... 12023.695622: kvm_timer_save_state:    CTL: 0x000000 CVAL:              0x0 arch_timer_ctx_index: 2
+>  qemu-system-aar-41290   [000] d.... 12023.695622: kvm_timer_save_state:    CTL: 0x000005 CVAL:   0x426f7d24736c arch_timer_ctx_index: 3
 
-Does this look correct (i.e. does it convey the same meaning)?
+EL2 physical  timer is pending
 
-> --- a/drivers/gpu/drm/display/drm_bridge_connector.c
-> +++ b/drivers/gpu/drm/display/drm_bridge_connector.c
-> @@ -640,6 +640,7 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
->  	struct drm_connector *connector;
->  	struct i2c_adapter *ddc = NULL;
->  	struct drm_bridge *bridge, *panel_bridge = NULL;
-> +	struct drm_bridge *pre_bridge_edid, *pre_bridge_modes;
->  	unsigned int supported_formats = BIT(HDMI_COLORSPACE_RGB);
->  	unsigned int max_bpc = 8;
->  	bool support_hdcp = false;
-> @@ -668,6 +669,9 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
->  	 */
->  	connector_type = DRM_MODE_CONNECTOR_Unknown;
->  	drm_for_each_bridge_in_chain(encoder, bridge) {
-> +		pre_bridge_edid = bridge_connector->bridge_edid;
-> +		pre_bridge_modes = bridge_connector->bridge_modes;
-> +
->  		if (!bridge->interlace_allowed)
->  			connector->interlace_allowed = false;
->  		if (!bridge->ycbcr_420_allowed)
-> @@ -681,6 +685,44 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
->  			bridge_connector->bridge_detect = bridge;
->  		if (bridge->ops & DRM_BRIDGE_OP_MODES)
->  			bridge_connector->bridge_modes = bridge;
-> +
-> +		/*
-> +		 * When multiple bridges are present, EDID detection capability
-> +		 * (DRM_BRIDGE_OP_EDID) takes precedence over modes detection
-> +		 * (DRM_BRIDGE_OP_MODES). To ensure the above two capabilities
-> +		 * are determined by the last bridge in the chain, we handle
-> +		 * three cases:
-> +		 *
-> +		 * Case 1: The later bridge declares only DRM_BRIDGE_OP_MODES
-> +		 *  - If the previous bridge declares DRM_BRIDGE_OP_EDID, set
-> +		 *    &drm_bridge_connector.bridge_edid to NULL and set
-> +		 *    &drm_bridge_connector.bridge_modes to the later bridge.
-> +		 *  - Ensure modes detection capability of the later bridge
-> +		 *    will not be ignored.
-> +		 *
-> +		 * Case 2: The later bridge declares only DRM_BRIDGE_OP_EDID
-> +		 *  - If the previous bridge declares DRM_BRIDGE_OP_MODES, set
-> +		 *    &drm_bridge_connector.bridge_modes to NULL and set
-> +		 *    &drm_bridge_connector.bridge_edid to the later bridge.
-> +		 *  - Although EDID detection capability has higher priority,
-> +		 *    this operation is for balance and makes sense.
-> +		 *
-> +		 * Case 3: the later bridge declares both of them
-> +		 *  - Assign later bridge as &drm_bridge_connector.bridge_edid
-> +		 *    and &drm_bridge_connector.bridge_modes to this bridge.
-> +		 *  - Just leave transfer of these two capabilities as before.
-> +		 */
-> +		if (bridge->ops & DRM_BRIDGE_OP_EDID &&
-> +		    !(bridge->ops & DRM_BRIDGE_OP_MODES)) {
-> +			if (pre_bridge_modes)
-> +				bridge_connector->bridge_modes = NULL;
-> +		}
-> +		if (bridge->ops & DRM_BRIDGE_OP_MODES &&
-> +		    !(bridge->ops & DRM_BRIDGE_OP_EDID)) {
-> +			if (pre_bridge_edid)
-> +				bridge_connector->bridge_edid = NULL;
-> +		}
-> +
+>  qemu-system-aar-41290   [000] ..... 12023.695622: kvm_nested_eret: elr_el2: 0xffffffc0010ac5a4 spsr_el2: 0x024000c5 (M: EL1h) hcr_el2: 807c663f
 
-If the above rewrite is correct, then I think this patch can be
-rewritten in a simple way (build tested only):
+Return to EL1, reload the EL1 context
 
-diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
-index a5bdd6c10643..bd5dbafe88bc 100644
---- a/drivers/gpu/drm/display/drm_bridge_connector.c
-+++ b/drivers/gpu/drm/display/drm_bridge_connector.c
-@@ -672,14 +672,18 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
-                if (!bridge->ycbcr_420_allowed)
-                        connector->ycbcr_420_allowed = false;
- 
--               if (bridge->ops & DRM_BRIDGE_OP_EDID)
--                       bridge_connector->bridge_edid = bridge;
-+               if (bridge->ops & DRM_BRIDGE_OP_EDID || bridge->ops & DRM_BRIDGE_OP_MODES) {
-+                       bridge_connector->bridge_edid = NULL;
-+                       bridge_connector->bridge_modes = NULL;
-+                       if (bridge->ops & DRM_BRIDGE_OP_EDID)
-+                               bridge_connector->bridge_edid = bridge;
-+                       if (bridge->ops & DRM_BRIDGE_OP_MODES)
-+                               bridge_connector->bridge_modes = bridge;
-+               }
-                if (bridge->ops & DRM_BRIDGE_OP_HPD)
-                        bridge_connector->bridge_hpd = bridge;
-                if (bridge->ops & DRM_BRIDGE_OP_DETECT)
-                        bridge_connector->bridge_detect = bridge;
--               if (bridge->ops & DRM_BRIDGE_OP_MODES)
--                       bridge_connector->bridge_modes = bridge;
-                if (bridge->ops & DRM_BRIDGE_OP_HDMI) {
-                        if (bridge_connector->bridge_hdmi)
-                                return ERR_PTR(-EBUSY);
+>  qemu-system-aar-41290   [000] ..... 12023.695622: kvm_get_timer_map: VCPU: 1, dv: 1, dp: 0, ev: 2, ep: 3
+>  qemu-system-aar-41290   [000] ..... 12023.695622: kvm_timer_update_irq: VCPU: 1, IRQ 27, level 1
+>  qemu-system-aar-41290   [000] ..... 12023.695623: vgic_update_irq_pending: VCPU: 1, IRQ 27, level: 1
+>  qemu-system-aar-41290   [000] ..... 12023.695623: kvm_timer_update_irq: VCPU: 1, IRQ 30, level 0
+>  qemu-system-aar-41290   [000] ..... 12023.695623: vgic_update_irq_pending: VCPU: 1, IRQ 30, level: 0
+>  qemu-system-aar-41290   [000] d.... 12023.695623: kvm_timer_restore_state: CTL: 0x000005 CVAL:      0x48aac64bd arch_timer_ctx_index: 1
 
-Another thing to note is that this patch conflicts with [0], which I
-plan to apply in the next few days. The two patches are orthogonal but
-they insist on the same lines (those assigning
-bridge_connector->bridge_* = bridge). Not a big deal, whichever patch
-comes later will be easily adapted. Just wanted to ensure you are aware.
+EL1 virtual timer is pending
 
-[0] https://lore.kernel.org/all/20250926-drm-bridge-alloc-getput-bridge-connector-v2-1-138b4bb70576@bootlin.com/
+>  qemu-system-aar-41290   [000] d.... 12023.695624: kvm_timer_restore_state: CTL: 0x000000 CVAL:              0x0 arch_timer_ctx_index: 0
+>  qemu-system-aar-41290   [000] ..... 12023.695624: kvm_timer_emulate: arch_timer_ctx_index: 2 (should_fire: 0)
+>  qemu-system-aar-41290   [000] ..... 12023.695624: kvm_timer_emulate: arch_timer_ctx_index: 3 (should_fire: 1)
 
-Best regards,
-Luca
+EL2 physical timer still pending
+
+>  qemu-system-aar-41290   [000] ..... 12023.695626: kvm_get_timer_map: VCPU: 1, dv: 1, dp: 0, ev: 2, ep: 3
+>  qemu-system-aar-41290   [000] d.... 12023.695626: kvm_timer_save_state:    CTL: 0x000005 CVAL:      0x48aac64bd arch_timer_ctx_index: 1
+>  qemu-system-aar-41290   [000] d.... 12023.695627: kvm_timer_save_state:    CTL: 0x000000 CVAL:              0x0 arch_timer_ctx_index: 0
+
+HW without FEAT_ECV, I presume?
+
+>  qemu-system-aar-41290   [000] ..... 12023.695627: kvm_inject_nested_exception: IRQ: esr_el2 0x0 elr_el2: 0xffffffc0010ac5a4 spsr_el2: 0x024000c5 (M: EL1h) hcr_el2: 807c663f
+
+Take an interrupt from EL1 to EL2, flip the world again.
+
+>  qemu-system-aar-41290   [000] ..... 12023.695627: kvm_get_timer_map: VCPU: 1, dv: 2, dp: 3, ev: 1, ep: 0
+>  qemu-system-aar-41290   [000] ..... 12023.695627: kvm_timer_update_irq: VCPU: 1, IRQ 28, level 0
+>  qemu-system-aar-41290   [000] ..... 12023.695627: vgic_update_irq_pending: VCPU: 1, IRQ 28, level: 0
+>  qemu-system-aar-41290   [000] ..... 12023.695628: kvm_timer_update_irq: VCPU: 1, IRQ 26, level 1
+>  qemu-system-aar-41290   [000] ..... 12023.695628: vgic_update_irq_pending: VCPU: 1, IRQ 26, level: 1
+>  qemu-system-aar-41290   [000] d.... 12023.695628: kvm_timer_restore_state: CTL: 0x000000 CVAL:              0x0 arch_timer_ctx_index: 2
+>  qemu-system-aar-41290   [000] d.... 12023.695628: kvm_timer_restore_state: CTL: 0x000005 CVAL:   0x426f7d24736c arch_timer_ctx_index: 3
+
+Yup, EL2 timer still pending
+
+>  qemu-system-aar-41290   [000] ..... 12023.695629: kvm_timer_emulate: arch_timer_ctx_index: 1 (should_fire: 1)
+>  qemu-system-aar-41290   [000] ..... 12023.695629: kvm_timer_emulate: arch_timer_ctx_index: 0 (should_fire: 0)
+>  qemu-system-aar-41290   [000] d.... 12023.695632: vgic_update_irq_pending: VCPU: 1, IRQ 25, level: 0
+>  qemu-system-aar-41290   [000] d.... 12023.695632: vgic_update_irq_pending: VCPU: 1, IRQ 25, level: 0
+>  qemu-system-aar-41290   [000] d.... 12023.695633: vgic_update_irq_pending: VCPU: 1, IRQ 25, level: 0
+>  qemu-system-aar-41290   [000] d.... 12023.695633: kvm_entry: PC: 0x00000a0000267c80
+
+and we go again.
+
+So the MI doesn't seem to be the cause of this, as empty LRs are not
+likely to be the problem.
+
+However, we definitely see timer interrupts firing, EL2 being entered,
+and yet, El2 doesn't seem to acknowledge the interrupt. So something
+is wrong there, either in Xen on in KVM. You want to instrument what
+is happening at this stage (I don't see anything of the like, but my
+machines have FEAT_ECV).
+
+	M.
 
 -- 
-Luca Ceresoli, Bootlin
-Embedded Linux and Kernel engineering
-https://bootlin.com
+Without deviation from the norm, progress is not possible.
 
