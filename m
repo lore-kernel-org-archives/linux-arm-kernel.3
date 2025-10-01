@@ -4,81 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83C21CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 12:42:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2D49CAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 12:44:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:CC:To:In-Reply-To:References
+	:Message-ID:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I1wrTOQk3HC+Fo1aBvEzngNPe9+LVpiTcP6T08Zz9dc=; b=Vs3HnA511yrSBALVT9km7gJJvE
-	/7t6CDAoVgHw26c3+JvYVAc5D1rzi9+TWnJWMeP4gWcF4jIxP4EVH40KlZHdYb1tYsIJs9A/dRPJV
-	QKgPB8WaYL/hd8UvBvCLhCKaoMB2MnUVva0YQjDuv6RiQph8fVN0Yx3vZtYlA95YJCMPgA/x8GCL3
-	/a6lgcrxfp9CxOD0kSitvvgtyeKOoUh55fXwnA8W8cFiN69aAK2QrpxDIx3xttjBjY3GWSUaoti4X
-	HvxOOn9BQ/02rW4LkviuvVgvy47SYq9jT4iFbbYr4uKUD6QVI2R7gEe/yk1OV5geAljSZ8yRlqfl1
-	Zk676t6Q==;
+	bh=47SpsYyX1bgCNF2P3mEdKn7UEJmhryl12V0WNaidOAA=; b=ZnhpBdh3ARgVPxwoHC6yVRKS/v
+	1fmI/BFXa/5Pgf3YIoVAliH9uZuZgnppuGpHNCTQKv5EdX8Rr84Cn2d8kZJE8a/3dJPr7lzvf7GxN
+	VOAN/ZjVoGouUibnnzQdfXDOxRJrfBgi6QeGWp2yMqwsnabswtYR1mg4OHA4MV4hXHb4beWNi7nHq
+	vUdV5RDpko5+OmSNVec1jLfO5vZivFGNc+R5KC2VcOrGSgX9+5sx4vq6iOjQrk2s/wmqyakRTZHdS
+	LlzKXe5jR4r+hs3pbxhBqqO6roq+I+k4thZsDeG9aEwUtHpQfcURCUtGp23nWvXRiYk2LmWsy9Jkq
+	ATEy1eTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3w9q-00000007vhY-0Cyv;
-	Wed, 01 Oct 2025 12:42:10 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3w9n-00000007vgg-2rrQ
+	id 1v3wBr-00000007vwz-09bh;
+	Wed, 01 Oct 2025 12:44:15 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v3wBp-00000007vwI-0MLg
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 12:42:09 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1A8CF16F2;
-	Wed,  1 Oct 2025 05:41:58 -0700 (PDT)
-Received: from [10.57.66.40] (unknown [10.57.66.40])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4E1733F66E;
-	Wed,  1 Oct 2025 05:42:00 -0700 (PDT)
-Message-ID: <6dc0b5c8-b485-4fe1-b85b-7dcd00214d1b@arm.com>
-Date: Wed, 1 Oct 2025 14:41:58 +0200
+	Wed, 01 Oct 2025 12:44:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=fWnyd0no/mkcaGiA7cG5BN4/IrvmbhWbfFB0v7132i1zAI5XrhFPQFvL8+O5nvadMC/cq+Un3xPSQ3a+DUH5xbQvvfJ256h/IeEDv1M84OTkNIP5eD6K0F7CMX6XlgS7RJ3RVi/anveIkLqykTbvFyYVX1JnVCnsS4O1tzGqJV7njEXGpc5VV33eACvGuclQ9BJGuMsTfzGccOS/9eho6qdqF2FfQu+nrozMImcRN4DKOsSUu5fi9cWe8J7iNq7gic1CIzAuy/x8K/AiMwPEcEYFJ5gMdZ6nvBiIMKo0cIQTQ4CJPDyyoGBfbUMvvrQEGCScFKqecvAPAKIJRr4msg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=47SpsYyX1bgCNF2P3mEdKn7UEJmhryl12V0WNaidOAA=;
+ b=fwqOtGcTWWvFlrzb81K5HNIniXusuLfw8GaMuOvOXTiyaU3SlgSiDtOTZY3OsEam1gxR6AkHHpzdRhjXDUs4Biy/7oUCskJbbq8txOuw9yqOHGaAfYZx2quXvP09B4jH+3ajerVg+3hlD6XpkZypeT4rR2c+Dy8Ayw9+oiE1XYeaow1uzT82U1XdAORmNaGYyde/Zi0vurLCXxPE10DVXmvKZzXWAYsSQbrVsoWIfz9KlICMctQkZ3Ht2fLCeWzxYMUSU5T7w4aQdCNX4tXYHyYMz643dHFw+THD7q0dxGrdCT0PUsBXtQUfu9fxiVZsXsj+52V5X0WcABTgLuH79Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
+ is 91.26.50.189) smtp.rcpttodomain=lists.infradead.org
+ smtp.mailfrom=phytec.de; dmarc=fail (p=quarantine sp=quarantine pct=100)
+ action=quarantine header.from=phytec.de; dkim=none (message not signed);
+ arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=47SpsYyX1bgCNF2P3mEdKn7UEJmhryl12V0WNaidOAA=;
+ b=Hk9M/7X5Kx2tPR6/7YJHdZmzzvZSRqLJn5JGU6NZnusaqBPrnJFCaXeWpdqFCvX2W/7uoIgonQ61t3iWDTq5REVo7ps1BTVbpLhtdCTULRXPt8hoMR0NKshFtc4eK+4EJIH5yHEClQToglv3d9E+qtpLCfD1NYoWcW1qoiJMB/6QCgcWq0kWJGNLbfW/peX34AEDI0EfnTfvrcauTa1veJuLzo4D47NuUE/aFx6szi0pO6eLdlaEE5E8tM3h8neoc9lgZjS/gnO5AsxHRL2MUDwOiBVlUicHTge+xgRIGRUMJapoJPpLYd1FC9XyPHmPB8K7XgDJuIXFeS+6Wi4Fgw==
+Received: from DB9PR05CA0013.eurprd05.prod.outlook.com (2603:10a6:10:1da::18)
+ by VI1P195MB2413.EURP195.PROD.OUTLOOK.COM (2603:10a6:800:1bd::8) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.17; Wed, 1 Oct
+ 2025 12:44:02 +0000
+Received: from DB3PEPF0000885B.eurprd02.prod.outlook.com
+ (2603:10a6:10:1da:cafe::80) by DB9PR05CA0013.outlook.office365.com
+ (2603:10a6:10:1da::18) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9182.15 via Frontend Transport; Wed,
+ 1 Oct 2025 12:44:02 +0000
+X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
+ smtp.mailfrom=phytec.de; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ phytec.de discourages use of 91.26.50.189 as permitted sender)
+Received: from Postix.phytec.de (91.26.50.189) by
+ DB3PEPF0000885B.mail.protection.outlook.com (10.167.242.6) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9182.15 via Frontend Transport; Wed, 1 Oct 2025 12:44:02 +0000
+Received: from augenblix2.phytec.de (172.25.0.51) by Postix.phytec.de
+ (172.25.0.11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Wed, 1 Oct
+ 2025 14:44:01 +0200
+From: Teresa Remmet <t.remmet@phytec.de>
+Date: Wed, 1 Oct 2025 14:43:27 +0200
+Subject: [PATCH 1/2] arm64: dts: imx8mm-phyboard-polis-rdk: Add USB1 OC pin
+ configuration
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [RFC PATCH v5 00/18] pkeys-based page table hardening
-To: "Edgecombe, Rick P" <rick.p.edgecombe@intel.com>,
- "yang@os.amperecomputing.com" <yang@os.amperecomputing.com>,
- "linux-hardening@vger.kernel.org" <linux-hardening@vger.kernel.org>
-Cc: "maz@kernel.org" <maz@kernel.org>, "luto@kernel.org" <luto@kernel.org>,
- "willy@infradead.org" <willy@infradead.org>,
- "mbland@motorola.com" <mbland@motorola.com>,
- "david@redhat.com" <david@redhat.com>,
- "dave.hansen@linux.intel.com" <dave.hansen@linux.intel.com>,
- "rppt@kernel.org" <rppt@kernel.org>, "joey.gouly@arm.com"
- <joey.gouly@arm.com>, "akpm@linux-foundation.org"
- <akpm@linux-foundation.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "catalin.marinas@arm.com" <catalin.marinas@arm.com>,
- "Weiny, Ira" <ira.weiny@intel.com>, "vbabka@suse.cz" <vbabka@suse.cz>,
- "pierre.langlois@arm.com" <pierre.langlois@arm.com>,
- "jeffxu@chromium.org" <jeffxu@chromium.org>,
- "linus.walleij@linaro.org" <linus.walleij@linaro.org>,
- "lorenzo.stoakes@oracle.com" <lorenzo.stoakes@oracle.com>,
- "kees@kernel.org" <kees@kernel.org>,
- "ryan.roberts@arm.com" <ryan.roberts@arm.com>,
- "tglx@linutronix.de" <tglx@linutronix.de>,
- "jannh@google.com" <jannh@google.com>,
- "peterz@infradead.org" <peterz@infradead.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>, "will@kernel.org" <will@kernel.org>,
- "qperret@google.com" <qperret@google.com>,
- "linux-mm@kvack.org" <linux-mm@kvack.org>,
- "broonie@kernel.org" <broonie@kernel.org>, "x86@kernel.org" <x86@kernel.org>
-References: <20250815085512.2182322-1-kevin.brodsky@arm.com>
- <98c9689f-157b-4fbb-b1b4-15e5a68e2d32@os.amperecomputing.com>
- <8e4e5648-9b70-4257-92c5-14c60928e240@arm.com>
- <8f7b3f4e-bf56-4030-952f-962291e53ccc@arm.com>
- <6e5d24de6a6661f83442741f6be8daf691a05a20.camel@intel.com>
-Content-Language: en-GB
-From: Kevin Brodsky <kevin.brodsky@arm.com>
-In-Reply-To: <6e5d24de6a6661f83442741f6be8daf691a05a20.camel@intel.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+Message-ID: <20251001-wip-t-remmet-phytec-de-upstream-v1-1-845d71bb1e1e@phytec.de>
+References: <20251001-wip-t-remmet-phytec-de-upstream-v1-0-845d71bb1e1e@phytec.de>
+In-Reply-To: <20251001-wip-t-remmet-phytec-de-upstream-v1-0-845d71bb1e1e@phytec.de>
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, "Sascha
+ Hauer" <s.hauer@pengutronix.de>, Pengutronix Kernel Team
+	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>
+CC: Yannic Moog <y.moog@phytec.de>, Benjamin Hahn <b.hahn@phytec.de>,
+	Yashwanth Varakala <y.varakala@phytec.de>, Jan Remmet <j.remmet@phytec.de>,
+	<devicetree@vger.kernel.org>, <imx@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, Teresa Remmet <t.remmet@phytec.de>
+X-Mailer: b4 0.15-dev
+X-Originating-IP: [172.25.0.51]
+X-ClientProxiedBy: Postix.phytec.de (172.25.0.11) To Postix.phytec.de
+ (172.25.0.11)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB3PEPF0000885B:EE_|VI1P195MB2413:EE_
+X-MS-Office365-Filtering-Correlation-Id: c9c08024-7939-4f0c-e9d5-08de00e8335e
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|30052699003|36860700013|82310400026|7416014|376014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?UzNrUUgvNTd6WDUrdGIvQ1laMmM2WjI1Z01LZ05GazU3bGpTNGtxc1VlU1RL?=
+ =?utf-8?B?cTE2VzZ0WUFQSGZkck5Yb3MwcXFncTc4NEdycHIvRnVzbCt1ZnAvR3kySnN5?=
+ =?utf-8?B?dVBwMzZPSFVZTjFpZ2dNUVBwMGw1MGRyQmtIN1kyYks5S3A0ZlN2a2ZtdUJH?=
+ =?utf-8?B?a3JUYzRDK2pHa3VVRy8xNkNJS1hFbk40WGIwd3pwenNzZ1lnOFNTanIyNXlo?=
+ =?utf-8?B?bUFneXJpSVdNcGdqcEZQS1VOYm12d2x0V3YrWW12QytnVUU4Rnc4NURUTDVi?=
+ =?utf-8?B?S1B3K0hKNmkzL1IzbW1FSWRQY3gwekNFMVlPRGdJc0dMOWRwYzBWNHpBUW00?=
+ =?utf-8?B?bG5HdHk2dXkzMDBsZmxERS9mR214NTU5UitqYmJJbENYa1N5TmV6NVRwbjU2?=
+ =?utf-8?B?dGdIOUtBb3hiMjQ1QmVhOUxBTFg3Rng1Z3crL1U4YmhzOEJjdUcreDBoSGxI?=
+ =?utf-8?B?U2tScEhzMnByd2VvYmJtNy9hM1FNbEtEV0NoVzdZY3c3N0xGcDdGRytFRHpZ?=
+ =?utf-8?B?UTdzb3hkRWJnU3J5aUtCRFJoUjl1MWJ3dkUwU0pJVUZBVmExUHF2WGpNbXkv?=
+ =?utf-8?B?TjltaGFMWUpDeVhFY21EVWUvbitqNjJ4S0s0T2JTK3c4MHo0M0k0SVl6Q0xv?=
+ =?utf-8?B?M2RQc3MyOGtFWHRuNmo2R0FnQ3M0STNnbUxHYjEzWWtFWGtSVWs4WmpwQjha?=
+ =?utf-8?B?aXV3TFZaMUp0WHNTQTFaWVY5MmNsMFZrdVlBcytTcnAycmpmNXdpOEU3MWpn?=
+ =?utf-8?B?ZXpTSkRVTXJ0RmxIdnNYdEpLVWp5MzU5VHdUTVdPbE1Ydm4yY2pNRU45c2xF?=
+ =?utf-8?B?U0tnNUNEdmQvV3N3SzJpSElZeThYSk5zWEYzYnhSNG5OaWtxaHpRT3BIL24z?=
+ =?utf-8?B?bVkzNGNWM2dNN0JmY1NreGdTWkZLYmJVOVNiNU1MWW1NdUozRnhBaDcwRnh2?=
+ =?utf-8?B?cFh2ZGlaN08yMVB4YlB4MjRmcTZTRzV1UXZkeXlZTFRiVGV5OGVHdVVubUxW?=
+ =?utf-8?B?UEhlTXN2dFBCcWw2TDk4RCt0dW5TTHc4cmJaWERDZGNzK3gvenJHU0F0dFp3?=
+ =?utf-8?B?MDBaWndHRVBTZk55aElXZWJkUHE1YzE5RUlBZFBOQThGRldwc2JxUlJPWGFZ?=
+ =?utf-8?B?OEJwZjdwa28zWEEyTi85TDNmSm9ub0U0M29UWGNkYlZMelB2Mkhab2FydFY5?=
+ =?utf-8?B?Z2toQ3RRQlB3dFhrRkQ2RWVPT1F0MXFHc1ZOSVFYSmJPS1hIZ1pLM1EyMDBs?=
+ =?utf-8?B?bmt0TWx4WUtsenYvUm8xdFIwZElwMzJyTFF4TDN1UGthWnJyK1NsQzArMzNm?=
+ =?utf-8?B?MXFWNDRwdDFmTW0xV3RXL3FwbUpRYk84Z21pb1BOdXp5Uk5QS0tWK2NjeGNq?=
+ =?utf-8?B?T09nYjM4TlI5bHhHNHNUc0JwRkdBQkRCNnlkYit0dDgwVE9ieDZMb1k2Vlo3?=
+ =?utf-8?B?Y1VMaTY1NTBVRHlVUHRFM2VBMzBoNU5nYnBCWDJGYkR4V2VMdThROFFEdy96?=
+ =?utf-8?B?eDV1a3FNWGpiNXArZmhvQWRYaXVxdjcwT3U4Y2k0SFdnbko5eXc4a0dQU1lT?=
+ =?utf-8?B?RGtYSW9rdHpPaCtlanJrNHMyYVlBaTQyZUQyUitLNE5jV2VkbWxTQjdOdEFt?=
+ =?utf-8?B?c1FFQ05kRHFLQUJiVEp5QitTdWFia3NsbGZNRE5lQkI2K3RCVlNkc1ZHMHlS?=
+ =?utf-8?B?eEk1bTA1Z2NnSkJLdUt0dHZKZVhaNEY2SGNQeCtpUnN6U0V3MVAybS9nK2No?=
+ =?utf-8?B?bnFsZVU2Q1g1Rk9WVmRlcjZkVm1aZldwZk9wMGUxL3VMc2VxQmtRcjZjaFdx?=
+ =?utf-8?B?a0ZHUFY0OE9CUW5CVUMwbnVTUzByRHNSV0lMbHVyOUVPK0pyTGFqQysrSVlZ?=
+ =?utf-8?B?bDFCMU5IWHg3aE53b014d0NiYmpOd2Vtd2dUQWJKWDlYNElVVk5UaDRZVUpJ?=
+ =?utf-8?B?aFF1TUpXR0F6UWUzZWV4NFFwVTJaV0ZSN1ZWNHRGaVF5cGZXSS9MUW9sY0I2?=
+ =?utf-8?B?VVA5TkUvU0pMWVA5cnFVajZnZ0xPeUtxc3czbkNwOVlPMm9SdnQyYjVNRnpF?=
+ =?utf-8?B?Mm5MbmhOY0J2M2RML1pUdG5scGtBZlBXTnpmSzJ2MnVoNmxzMWxUYVpkUUlT?=
+ =?utf-8?Q?lca8=3D?=
+X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Postix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(30052699003)(36860700013)(82310400026)(7416014)(376014);DIR:OUT;SFP:1102;
+X-OriginatorOrg: phytec.de
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 01 Oct 2025 12:44:02.6763
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: c9c08024-7939-4f0c-e9d5-08de00e8335e
+X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Postix.phytec.de]
+X-MS-Exchange-CrossTenant-AuthSource: DB3PEPF0000885B.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1P195MB2413
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_054207_825209_06AD8CBA 
-X-CRM114-Status: GOOD (  29.37  )
+X-CRM114-CacheID: sfid-20251001_054413_129593_1FBCDBB7 
+X-CRM114-Status: UNSURE (   9.19  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,80 +161,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 18/09/2025 19:31, Edgecombe, Rick P wrote:
-> On Thu, 2025-09-18 at 16:15 +0200, Kevin Brodsky wrote:
->> This is where I have to apologise to Rick for not having studied his
->> series more thoroughly, as patch 17 [2] covers this issue very well in
->> the commit message.
->>
->> It seems fair to say there is no ideal or simple solution, though.
->> Rick's patch reserves enough (PTE-mapped) memory for fully splitting the
->> linear map, which is relatively simple but not very pleasant. Chatting
->> with Ryan Roberts, we figured another approach, improving on solution 1
->> mentioned in [2]. It would rely on allocating all PTPs from a special
->> pool (without using set_memory_pkey() in pagetable_*_ctor), along those
->> lines:
-> Oh I didn't realize ARM split the direct map now at runtime. IIRC it used to
-> just map at 4k if there were any permissions configured.
+Add USB1 OC pin configuration for proper over-current detection.
 
-Until recently the linear map was always PTE-mapped on arm64 if
-rodata=full (default) or in other situations (e.g. DEBUG_PAGEALLOC), so
-that it never needed to be split at runtime. Since [1b] landed though,
-there is support for setting permissions at the block level and
-splitting, meaning that the linear map can be block-mapped in most cases
-(see force_pte_mapping() in patch 3 for details). This is only enabled
-on systems with the BBML2_NOABORT feature though.
+Signed-off-by: Teresa Remmet <t.remmet@phytec.de>
+---
+ arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts | 8 ++++++++
+ 1 file changed, 8 insertions(+)
 
-[1b]
-https://lore.kernel.org/all/20250917190323.3828347-1-yang@os.amperecomputing.com/
+diff --git a/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts b/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts
+index be470cfb03d7..35d8c5ab3547 100644
+--- a/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts
++++ b/arch/arm64/boot/dts/freescale/imx8mm-phyboard-polis-rdk.dts
+@@ -285,6 +285,8 @@ &usbotg1 {
+ 	over-current-active-low;
+ 	samsung,picophy-pre-emp-curr-control = <3>;
+ 	samsung,picophy-dc-vol-level-adjust = <7>;
++	pinctrl-0 = <&pinctrl_usbotg1>;
++	pinctrl-names = "default";
+ 	srp-disable;
+ 	vbus-supply = <&reg_usb_otg1_vbus>;
+ 	status = "okay";
+@@ -458,6 +460,12 @@ MX8MM_IOMUXC_GPIO1_IO12_GPIO1_IO12	0x00
+ 		>;
+ 	};
+ 
++	pinctrl_usbotg1: usbotg1grp {
++		fsl,pins = <
++			MX8MM_IOMUXC_GPIO1_IO13_USB1_OTG_OC	0x00
++		>;
++	};
++
+ 	pinctrl_usdhc1: usdhc1grp {
+ 		fsl,pins = <
+ 			MX8MM_IOMUXC_SD1_CLK_USDHC1_CLK		0x182
 
->> 1. 2 pages are reserved at all times (with the appropriate pkey)
->> 2. Try to allocate a 2M block. If needed, use a reserved page as PMD to
->> split a PUD. If successful, set its pkey - the entire block can now be
->> used for PTPs. Replenish the reserve from the block if needed.
->> 3. If no block is available, make an order-2 allocation (4 pages). If
->> needed, use 1-2 reserved pages to split PUD/PMD. Set the pkey of the 4
->> pages, take 1-2 pages to replenish the reserve if needed.
-> Oh, good idea!
->
->> This ensures that we never run out of PTPs for splitting. We may get
->> into an OOM situation more easily due to the order-2 requirement, but
->> the risk remains low compared to requiring a 2M block. A bigger concern
->> is concurrency - do we need a per-CPU cache? Reserving a 2M block per
->> CPU could be very much overkill.
->>
->> No matter which solution is used, this clearly increases the complexity
->> of kpkeys_hardened_pgtables. Mike Rapoport has posted a number of RFCs
->> [3][4] that aim at addressing this problem more generally, but no
->> consensus seems to have emerged and I'm not sure they would completely
->> solve this specific problem either.
->>
->> For now, my plan is to stick to solution 3 from [2], i.e. force the
->> linear map to be PTE-mapped. This is easily done on arm64 as it is the
->> default, and is required for rodata=full, unless [1] is applied and the
->> system supports BBML2_NOABORT. See [1] for the potential performance
->> improvements we'd be missing out on (~5% ballpark).
->>
-> I continue to be surprised that allocation time pkey conversion is not a
-> performance disaster, even with the directmap pre-split.
->
->> I'm not quite sure
->> what the picture looks like on x86 - it may well be more significant as
->> Rick suggested.
-> I think having more efficient direct map permissions is a solvable problem, but
-> each usage is just a little too small to justify the infrastructure for a good
-> solution. And each simple solution is a little too much overhead to justify the
-> usage. So there is a long tail of blocked usages:
->  - pkeys usages (page tables and secret protection)
->  - kernel shadow stacks
->  - More efficient executable code allocations (BPF, kprobe trampolines, etc)
->
-> Although the BPF folks started doing their own thing for this. But I don't think
-> there are any fundamentally unsolvable problems for a generic solution. It's a
-> question of a leading killer usage to justify the infrastructure. Maybe it will
-> be kernel shadow stack.
-It seems to be exactly the situation yes. Given Will's feedback, I'll
-try to implement such a dedicated allocator one more time (based on the
-scheme I suggested above) and see how it goes. Hopefully that will
-create more momentum for a generic infrastructure :) - Kevin
+-- 
+2.25.1
+
 
