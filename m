@@ -4,89 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36C6DCAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 13:50:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1200CCCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 13:55:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CztchxB8QmhKoFa7SvncJ6ijXMyAQ3x5Cns07BTvjoU=; b=m625eZQtPdg3eVJR4QkpLqtny3
-	i7qXCaJkEaAydGxs9L5/1haFyKoz5yTOJYowjydheZVDk10oEu3Sp7Rn/x/bh/Z07OFBC713cjC/F
-	PoI6zk1+JaZbEAGiQj1dg13X1jyhGmMCPsaYY2n3V7OE6ExK98/0U5Ktszq6Dkwm+ddgmNj8rTtM6
-	CiBm6+wRvsJa5O6qY7SRSjMRS1j8cS2461oxZbzTfsUYqAInvJqyq6Vl1yXdMAlzKh96rlN/rcMU+
-	hnLz7gkUZpKu8/Ev0n6/IBOfsbR083KEikrhnE+LDxL685N4/1mJdz8LwLw8D6hKVWkn3v7Yn2QMu
-	YYzp+d8g==;
+	bh=4wCVnk2y4shS4l6zykuxmG8m7wF2PLaPUYHyqMnKqgQ=; b=I0kBT3SocxZZbOq/WKLZISGDKU
+	2FQGMYt/dg4iDl7Z0p+g0q+DYhF5+F+PfuniMf4dfVqXCwkk0O5cj1XB1fNKPj1Xy+vxUbBmf7Cn1
+	bWJDBxbwOuuELJJiui+GZCc8YVnC3hG4bivQXhsaVoSXFoBzLpYenXzxf3SmWihKM4P72NbzqQNUy
+	bGhuxMMgG1WmRA1HqDuwCVv+jzXfn8/Wvv+aeycLNQQnnH9+iqLWZ8SRhQuNV3lhmmlI5AO4DDubP
+	aiZY1ano2NduNCmw4Iljox2FL6WNW9ZdmOcN4qguXB05XHsEwf+6boieQAFty4GEnU/4l5g4n82YZ
+	mrtowabA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3xEE-000000085Ff-2LU9;
-	Wed, 01 Oct 2025 13:50:46 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3xED-000000085FO-0Vha
+	id 1v3xJA-000000085uo-2Ig3;
+	Wed, 01 Oct 2025 13:55:52 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v3xJ8-000000085uQ-0162
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 13:50:45 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 8A812601B8;
-	Wed,  1 Oct 2025 13:50:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 112B2C4CEF1;
-	Wed,  1 Oct 2025 13:50:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759326644;
-	bh=ZdhaWAfKmxbKABNyDvOv6tEXnr56Ewe14zIvrLNS+q0=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=StWNG2X43Oln/YTs39wgGNy2vivNkf3C+7Q9ZKEkvKLqU6ivY6UUbwJO2s5fpqi7V
-	 zDyY4ias5QmrcL4bn0bOcijCxxS86WzRffaQ4k15osdCSYrKYXn+X5yqpIXiUo+6Gw
-	 or8kEjUjJ35ksXmKxgKnM71neNwPM2fy0yx8t50Lv1maBWMbjdqV0A6wcZLmsmQlCP
-	 HRy9aMRLl40+wdbLBWI6IAh18rjqwovKTacejOeqZv2qbz+QXrqBGN6n4yw2sR4NLT
-	 zAV0f19ZTdgAuxYn/PblZd93t56iNeYq5AkXM5ORfZj7e7aOD9OLgVimcTxq7IoHZD
-	 WwCFwRSr/Bspg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1v3xE9-0000000Aor0-4Bb3;
-	Wed, 01 Oct 2025 13:50:42 +0000
-Date: Wed, 01 Oct 2025 14:50:41 +0100
-Message-ID: <86frc2zq6m.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>
-Subject: Re: [PATCH v10 09/43] KVM: arm64: Allow passing machine type in KVM creation
-In-Reply-To: <20250820145606.180644-10-steven.price@arm.com>
-References: <20250820145606.180644-1-steven.price@arm.com>
-	<20250820145606.180644-10-steven.price@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Wed, 01 Oct 2025 13:55:51 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id A795A16F2;
+	Wed,  1 Oct 2025 06:55:40 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 52C6A3F66E;
+	Wed,  1 Oct 2025 06:55:48 -0700 (PDT)
+Date: Wed, 1 Oct 2025 14:55:46 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: James Clark <james.clark@linaro.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Mike Leach <mike.leach@linaro.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Jonathan Corbet <corbet@lwn.net>, coresight@lists.linaro.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-doc@vger.kernel.org
+Subject: Re: [PATCH v2 5/6] coresight: Add format attribute for setting the
+ timestamp interval
+Message-ID: <20251001135546.GP7985@e132581.arm.com>
+References: <20250814-james-cs-syncfreq-v2-0-c76fcb87696d@linaro.org>
+ <20250814-james-cs-syncfreq-v2-5-c76fcb87696d@linaro.org>
+ <20250930151414.GK7985@e132581.arm.com>
+ <3a731a9e-0621-42b6-b7fc-4b0fd9b7da6e@linaro.org>
+ <20251001132815.GN7985@e132581.arm.com>
+ <708a5bbd-2bad-4f94-8fd1-6bd10825ba71@linaro.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <708a5bbd-2bad-4f94-8fd1-6bd10825ba71@linaro.org>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251001_065550_087112_43C3CDA8 
+X-CRM114-Status: GOOD (  23.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,143 +72,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 20 Aug 2025 15:55:29 +0100,
-Steven Price <steven.price@arm.com> wrote:
+On Wed, Oct 01, 2025 at 02:44:06PM +0100, James Clark wrote:
+
+[...]
+
+> > ATTR_CFG_FLD_ts_level_* is only used in coresight-etm4x-core.c, it is not
+> > used in coresight-etm-perf.c. Thus, we don't need to include
+> > coresight-etm4x.h in coresight-etm-perf.c. Do I miss anything?
 > 
-> Previously machine type was used purely for specifying the physical
-> address size of the guest. Reserve the higher bits to specify an ARM
-> specific machine type and declare a new type 'KVM_VM_TYPE_ARM_REALM'
-> used to create a realm guest.
+> Yes, GEN_PMU_FORMAT_ATTR() uses them but it makes it hard to see.
+
+I did a quick test, it is feasible to move ATTR_CFG_* macros in
+coresight-etm-perf.h. This is a more suitable ?
+
+diff --git a/drivers/hwtracing/coresight/coresight-etm-perf.h b/drivers/hwtracing/coresight/coresight-etm-perf.h
+index 5febbcdb8696..2679d5b2dd9a 100644
+--- a/drivers/hwtracing/coresight/coresight-etm-perf.h
++++ b/drivers/hwtracing/coresight/coresight-etm-perf.h
+@@ -8,6 +8,7 @@
+ #define _CORESIGHT_ETM_PERF_H
+ 
+ #include <linux/percpu-defs.h>
++#include <linux/perf/arm_pmu.h>
+ #include "coresight-priv.h"
+ 
+ struct coresight_device;
+@@ -20,6 +21,12 @@ struct cscfg_config_desc;
+  */
+ #define ETM_ADDR_CMP_MAX       8
+ 
++#define ATTR_CFG_FLD_ts_level_CFG      config3
++#define ATTR_CFG_FLD_ts_level_LO       12
++#define ATTR_CFG_FLD_ts_level_HI       15
++#define ATTR_CFG_FLD_ts_level_MASK     GENMASK(ATTR_CFG_FLD_ts_level_HI, \
++                                               ATTR_CFG_FLD_ts_level_LO)
++
+
+> > A similiar case is the attr 'cc_threshold' is only used by ETMv4, it is
+> > exported always. It is not bad for me to always expose these attrs but
+> > in the are ignored in the ETMv3 driver - so we even don't need to
+> > bother adding .visible() callback.
+> > 
 > 
-> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> Changes since v9:
->  * Explictly set realm.state to REALM_STATE_NONE rather than rely on the
->    zeroing of the structure.
-> Changes since v7:
->  * Add some documentation explaining the new machine type.
-> Changes since v6:
->  * Make the check for kvm_rme_is_available more visible and report an
->    error code of -EPERM (instead of -EINVAL) to make it explicit that
->    the kernel supports RME, but the platform doesn't.
-> ---
->  Documentation/virt/kvm/api.rst | 16 ++++++++++++++--
->  arch/arm64/kvm/arm.c           | 16 ++++++++++++++++
->  arch/arm64/kvm/mmu.c           |  3 ---
->  include/uapi/linux/kvm.h       | 19 +++++++++++++++----
->  4 files changed, 45 insertions(+), 9 deletions(-)
-> 
-> diff --git a/Documentation/virt/kvm/api.rst b/Documentation/virt/kvm/api.rst
-> index 69c0a9eba6c5..fad3191df311 100644
-> --- a/Documentation/virt/kvm/api.rst
-> +++ b/Documentation/virt/kvm/api.rst
-> @@ -181,8 +181,20 @@ flag KVM_VM_MIPS_VZ.
->  ARM64:
->  ^^^^^^
->  
-> -On arm64, the physical address size for a VM (IPA Size limit) is limited
-> -to 40bits by default. The limit can be configured if the host supports the
-> +On arm64, the machine type identifier is used to encode a type and the
-> +physical address size for the VM. The lower byte (bits[7-0]) encode the
-> +address size and the upper bits[11-8] encode a machine type. The machine
-> +types that might be available are:
-> +
-> + ======================   ============================================
-> + KVM_VM_TYPE_ARM_NORMAL   A standard VM
-> + KVM_VM_TYPE_ARM_REALM    A "Realm" VM using the Arm Confidential
-> +                          Compute extensions, the VM's memory is
-> +                          protected from the host.
-> + ======================   ============================================
-> +
-> +The physical address size for a VM (IPA Size limit) is limited to 40bits
-> +by default. The limit can be configured if the host supports the
->  extension KVM_CAP_ARM_VM_IPA_SIZE. When supported, use
->  KVM_VM_TYPE_ARM_IPA_SIZE(IPA_Bits) to set the size in the machine type
->  identifier, where IPA_Bits is the maximum width of any physical
-> diff --git a/arch/arm64/kvm/arm.c b/arch/arm64/kvm/arm.c
-> index 8c0e9ec34f0a..5b582b705eee 100644
-> --- a/arch/arm64/kvm/arm.c
-> +++ b/arch/arm64/kvm/arm.c
-> @@ -172,6 +172,22 @@ int kvm_arch_init_vm(struct kvm *kvm, unsigned long type)
->  	mutex_unlock(&kvm->lock);
->  #endif
->  
-> +	if (type & ~(KVM_VM_TYPE_ARM_MASK | KVM_VM_TYPE_ARM_IPA_SIZE_MASK))
-> +		return -EINVAL;
-> +
-> +	switch (type & KVM_VM_TYPE_ARM_MASK) {
-> +	case KVM_VM_TYPE_ARM_NORMAL:
-> +		break;
-> +	case KVM_VM_TYPE_ARM_REALM:
-> +		if (!static_branch_unlikely(&kvm_rme_is_available))
-> +			return -EPERM;
+> I disagree with always showing them. I think they should be hidden if
+> they're not used, or at least return an error to avoid confusing users. It
+> also wastes config bits if they're allocated but never used.
 
-EPERM? That's rather odd. You can only do that if the CCA capability
-has been advertised. So asking for it when you can find that it is not
-there deserves more of an EINVAL response.
+It is fine for not exposing ETMv4 only attrs for ETMv3.
 
-> +		WRITE_ONCE(kvm->arch.realm.state, REALM_STATE_NONE);
-> +		kvm->arch.is_realm = true;
-> +		break;
-> +	default:
-> +		return -EINVAL;
-> +	}
-> +
->  	kvm_init_nested(kvm);
->  
->  	ret = kvm_share_hyp(kvm, kvm + 1);
-> diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-> index de10dbde4761..130f28dfb3cb 100644
-> --- a/arch/arm64/kvm/mmu.c
-> +++ b/arch/arm64/kvm/mmu.c
-> @@ -881,9 +881,6 @@ static int kvm_init_ipa_range(struct kvm *kvm,
->  	if (kvm_is_realm(kvm))
->  		kvm_ipa_limit = kvm_realm_ipa_limit();
->  
-> -	if (type & ~KVM_VM_TYPE_ARM_IPA_SIZE_MASK)
-> -		return -EINVAL;
-> -
+> Either way, this was done because of the header mechanics which can only be
+> avoided by adding more changes than just the #ifdefs. There are also already
+> ETM4 #ifdefs in the file.
 
-How about the *other* bits? You need to be able to detect that
-userspace is using the reserved bits and error out.
+Yeah, actually we can remove ETM4 #ifdefs, something like:
 
->  	phys_shift = KVM_VM_TYPE_ARM_IPA_SIZE(type);
->  	if (is_protected_kvm_enabled()) {
->  		phys_shift = kvm_ipa_limit;
-> diff --git a/include/uapi/linux/kvm.h b/include/uapi/linux/kvm.h
-> index 7dafb443368a..b70ecee918de 100644
-> --- a/include/uapi/linux/kvm.h
-> +++ b/include/uapi/linux/kvm.h
-> @@ -672,14 +672,25 @@ struct kvm_enable_cap {
->  #define KVM_S390_SIE_PAGE_OFFSET 1
->  
->  /*
-> - * On arm64, machine type can be used to request the physical
-> - * address size for the VM. Bits[7-0] are reserved for the guest
-> - * PA size shift (i.e, log2(PA_Size)). For backward compatibility,
-> - * value 0 implies the default IPA size, 40bits.
-> + * On arm64, machine type can be used to request both the machine type and
-> + * the physical address size for the VM.
-> + *
-> + * Bits[11-8] are reserved for the ARM specific machine type.
-> + *
-> + * Bits[7-0] are reserved for the guest PA size shift (i.e, log2(PA_Size)).
-> + * For backward compatibility, value 0 implies the default IPA size, 40bits.
->   */
-> +#define KVM_VM_TYPE_ARM_SHIFT		8
-> +#define KVM_VM_TYPE_ARM_MASK		(0xfULL << KVM_VM_TYPE_ARM_SHIFT)
-> +#define KVM_VM_TYPE_ARM(_type)		\
-> +	(((_type) << KVM_VM_TYPE_ARM_SHIFT) & KVM_VM_TYPE_ARM_MASK)
-> +#define KVM_VM_TYPE_ARM_NORMAL		KVM_VM_TYPE_ARM(0)
-> +#define KVM_VM_TYPE_ARM_REALM		KVM_VM_TYPE_ARM(1)
+ /*
+  * contextid always traces the "PID".  The PID is in CONTEXTIDR_EL1
+@@ -90,9 +83,9 @@ static ssize_t format_attr_contextid_show(struct device *dev,
+ {
+        int pid_fmt = ETM_OPT_CTXTID;
+ 
+-#if IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X)
+-       pid_fmt = is_kernel_in_hyp_mode() ? ETM_OPT_CTXTID2 : ETM_OPT_CTXTID;
+-#endif
++       if (IS_ENABLED(CONFIG_CORESIGHT_SOURCE_ETM4X))
++               pid_fmt = is_kernel_in_hyp_mode() ? ETM_OPT_CTXTID2 : ;
++
+        return sprintf(page, "config:%d\n", pid_fmt);
+ }
 
-Why can't that be just "PROTECTED", using bit 31, just like pKVM?  I
-don't see the point in deviating from an established practice.
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Thanks,
+Leo
 
