@@ -4,89 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84439CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 10:05:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DEE1CAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 10:12:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fcma/454BQPP7bZEyxIZ/YS98RKWZTuATOfvKmTYuek=; b=LrTpkKlRe5Kd/S6SzBv3SctHwG
-	sO0u+CXxV1QeDkR5wQcZS3Kue13WIrDAHITrK3CWFEoUcDd5WmS4+R2hBgubjvI4ziGztL5k8rnpL
-	CvduSmDSsAuY2fqhwWnPRIpN6qn0NXUeBI/FeBAMqDBDDsWD4SNjTwzKv6+rEdyPKdRddiyCxayi8
-	lclGjqSbYBAvYW7iaIiXkxTP46VQgo3foDq5ZyHv+M2kP/AJy+x1h7JluyuKPXv287y389upb6y6F
-	Yp1Vadcyg7HkTOGRDlQG4blNYzP3cZ58zCC/QyQhHS9IjWZoEswjoRZ1QPtQo/qy2dkyJ8TVfE4pl
-	SbPZAlrw==;
+	bh=IqHPjPKPy9WXc7LWfhaPv5d1kxbuOQhL8xG2bCvclTI=; b=gs2yCYmrC5aNf4YLX/+iJ5zIS6
+	55Gt65Wuy94dcqd+SyG7Ytf56kU/i/Xpm53Tq72bP75v608OaF+I/lk6rs1/GdxIhSGui6bbbg1Be
+	KWwQob9t5ldp9H+IaXT4S8gz/VUyegw4xJ9e7r+UUkOEqte1BFSVsKOE0iOSYQRCRYcozv+lmPFOD
+	MwZFz54RPelO7Hj4G6OfXE5qWnxcqg7aUvyIkmE2DTjB/PPalb6XNqp2WDLSmJcfKg5lsQ1+qO/Rc
+	BmksRdqI41GmMxrzY9lk2TeeO5vW5hsmEiSKp/4fm97TGFlfEftQqtTvkYMhH0vL9Up0NBTHU+E6P
+	eEyi4tdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3thq-00000007DJ7-2kQQ;
-	Wed, 01 Oct 2025 10:05:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3thp-00000007DIy-212y
+	id 1v3toS-00000007Dxp-1vZL;
+	Wed, 01 Oct 2025 10:11:56 +0000
+Received: from vmicros1.altlinux.org ([194.107.17.57])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v3toP-00000007Dwx-2xbO
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 10:05:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9CD8360325;
-	Wed,  1 Oct 2025 10:05:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 42433C116C6;
-	Wed,  1 Oct 2025 10:05:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759313104;
-	bh=GkDZ6NXoxTMf23WDTs15nu962/34sSuHxOTDvtqezTE=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=D9qFXftckYU8UZNcyAyVFAjSHt6W8vXaQM46Df3/j2uJZmSW8m84coZ/j1zjfUidE
-	 n7SNHslwRuxinAykPqkM/8Jn4JIMk7PHcDyVBvkgCsq7P8l9Ep+pwXAB5WHplsnAyH
-	 EDuZT6LJzdg0YRo874RJOeIR2w59HlGEMGs5GPPJkQhwLAJB+iXJTpsPIY5//ku6iP
-	 F6/jlw2yhtO3fXYMdGHMZ4oe03jkFLy80nAk3CiOtY03JyBtgZ/4CvavoQsrxe8HPC
-	 LqwAx0MtS8JVQBQxo84mLov2DbVYEUPIKPpRd2HG4wzsWNa6KRKFz2DH5T3nDCisXL
-	 ZFSFmu0ICqfNQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1v3thl-0000000AlcY-0RZd;
-	Wed, 01 Oct 2025 10:05:01 +0000
-Date: Wed, 01 Oct 2025 11:05:00 +0100
-Message-ID: <86o6qrym2b.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Steven Price <steven.price@arm.com>
-Cc: kvm@vger.kernel.org,
-	kvmarm@lists.linux.dev,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	James Morse <james.morse@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Joey Gouly <joey.gouly@arm.com>,
-	Alexandru Elisei <alexandru.elisei@arm.com>,
-	Christoffer Dall <christoffer.dall@arm.com>,
-	Fuad Tabba <tabba@google.com>,
-	linux-coco@lists.linux.dev,
-	Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Shanker Donthineni <sdonthineni@nvidia.com>,
-	Alper Gun <alpergun@google.com>,
-	"Aneesh Kumar K . V" <aneesh.kumar@kernel.org>,
-	Emi Kisanuki <fj0570is@fujitsu.com>,
-	Vishal Annapurve <vannapurve@google.com>
-Subject: Re: [PATCH v10 03/43] arm64: RME: Add SMC definitions for calling the RMM
-In-Reply-To: <20250820145606.180644-4-steven.price@arm.com>
-References: <20250820145606.180644-1-steven.price@arm.com>
-	<20250820145606.180644-4-steven.price@arm.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: steven.price@arm.com, kvm@vger.kernel.org, kvmarm@lists.linux.dev, catalin.marinas@arm.com, will@kernel.org, james.morse@arm.com, oliver.upton@linux.dev, suzuki.poulose@arm.com, yuzenghui@huawei.com, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, joey.gouly@arm.com, alexandru.elisei@arm.com, christoffer.dall@arm.com, tabba@google.com, linux-coco@lists.linux.dev, gankulkarni@os.amperecomputing.com, gshan@redhat.com, sdonthineni@nvidia.com, alpergun@google.com, aneesh.kumar@kernel.org, fj0570is@fujitsu.com, vannapurve@google.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Wed, 01 Oct 2025 10:11:55 +0000
+Received: from imap.altlinux.org (imap.altlinux.org [194.107.17.38])
+	by vmicros1.altlinux.org (Postfix) with ESMTP id 7418972C8CC;
+	Wed,  1 Oct 2025 13:11:48 +0300 (MSK)
+Received: by imap.altlinux.org (Postfix, from userid 705)
+	id 6C02E36D070F; Wed,  1 Oct 2025 13:11:48 +0300 (MSK)
+Date: Wed, 1 Oct 2025 13:11:48 +0300
+From: Michael Shigorin <mike@altlinux.org>
+To: Michael Shigorin <mike@altlinux.ru>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>,
+	Tor Vic <torvic9@mailbox.org>, Kexy Biscuit <kexybiscuit@aosc.io>,
+	jeffbai@aosc.io, gregkh@linuxfoundation.org, wangyuli@uniontech.com,
+	aospan@netup.ru, conor.dooley@microchip.com,
+	ddrokosov@sberdevices.ru, dmaengine@vger.kernel.org,
+	dushistov@mail.ru, fancer.lancer@gmail.com, geert@linux-m68k.org,
+	hoan@os.amperecomputing.com, ink@jurassic.park.msu.ru,
+	linux-alpha@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-fpga@vger.kernel.org, linux-gpio@vger.kernel.org,
+	linux-hwmon@vger.kernel.org, linux-ide@vger.kernel.org,
+	linux-iio@vger.kernel.org, linux-media@vger.kernel.org,
+	linux-mips@vger.kernel.org, linux-renesas-soc@vger.kernel.org,
+	linux-spi@vger.kernel.org, manivannan.sadhasivam@linaro.org,
+	mattst88@gmail.com, netdev@vger.kernel.org, nikita@trvn.ru,
+	ntb@lists.linux.dev, patches@lists.linux.dev,
+	richard.henderson@linaro.org, s.shtylyov@omp.ru, serjk@netup.ru,
+	shc_work@mail.ru, tsbogend@alpha.franken.de, v.georgiev@metrotek.ru,
+	wsa+renesas@sang-engineering.com, xeb@mail.ru
+Subject: Re: what about CoC? (was: [PATCH] Revert "MAINTAINERS: Remove some
+ entries due to various compliance requirements.")
+Message-ID: <20251001101148.GA30625@imap.altlinux.org>
+References: <a08dc31ab773604d8f206ba005dc4c7a@aosc.io>
+ <20241023080935.2945-2-kexybiscuit@aosc.io>
+ <124c1b03-24c9-4f19-99a9-6eb2241406c2@mailbox.org>
+ <CAHk-=whNGNVnYHHSXUAsWds_MoZ-iEgRMQMxZZ0z-jY4uHT+Gg@mail.gmail.com>
+ <20241024095339.GA32487@imap.altlinux.org>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20241024095339.GA32487@imap.altlinux.org>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251001_031153_915049_64699797 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,135 +83,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 20 Aug 2025 15:55:23 +0100,
-Steven Price <steven.price@arm.com> wrote:
+On Thu, Oct 24, 2024 at 12:53:39PM +0300, I wrote
+> It's not about the patch but rather about the attitude;
+> Documentation/process/code-of-conduct-interpretation.rst:
 > 
-> The RMM (Realm Management Monitor) provides functionality that can be
-> accessed by SMC calls from the host.
+> "regardless of ... ethnicity, ... nationality, ... race"
+> "Focusing on what is best for the community"
 > 
-> The SMC definitions are based on DEN0137[1] version 1.0-rel0
+> "Examples of unacceptable behavior ... insulting/derogatory
+> comments ... Public or private harassment"
 > 
-> [1] https://developer.arm.com/documentation/den0137/1-0rel0/
-> 
-> Reviewed-by: Gavin Shan <gshan@redhat.com>
-> Reviewed-by: Suzuki K Poulose <suzuki.poulose@arm.com>
-> Signed-off-by: Steven Price <steven.price@arm.com>
-> ---
-> Changes since v9:
->  * Corrected size of 'ripas_value' in struct rec_exit. The spec states
->    this is an 8-bit type with padding afterwards (rather than a u64).
-> Changes since v8:
->  * Added RMI_PERMITTED_GICV3_HCR_BITS to define which bits the RMM
->    permits to be modified.
-> Changes since v6:
->  * Renamed REC_ENTER_xxx defines to include 'FLAG' to make it obvious
->    these are flag values.
-> Changes since v5:
->  * Sorted the SMC #defines by value.
->  * Renamed SMI_RxI_CALL to SMI_RMI_CALL since the macro is only used for
->    RMI calls.
->  * Renamed REC_GIC_NUM_LRS to REC_MAX_GIC_NUM_LRS since the actual
->    number of available list registers could be lower.
->  * Provided a define for the reserved fields of FeatureRegister0.
->  * Fix inconsistent names for padding fields.
-> Changes since v4:
->  * Update to point to final released RMM spec.
->  * Minor rearrangements.
-> Changes since v3:
->  * Update to match RMM spec v1.0-rel0-rc1.
-> Changes since v2:
->  * Fix specification link.
->  * Rename rec_entry->rec_enter to match spec.
->  * Fix size of pmu_ovf_status to match spec.
-> ---
->  arch/arm64/include/asm/rmi_smc.h | 269 +++++++++++++++++++++++++++++++
->  1 file changed, 269 insertions(+)
->  create mode 100644 arch/arm64/include/asm/rmi_smc.h
-> 
-> diff --git a/arch/arm64/include/asm/rmi_smc.h b/arch/arm64/include/asm/rmi_smc.h
-> new file mode 100644
-> index 000000000000..1000368f1bca
-> --- /dev/null
-> +++ b/arch/arm64/include/asm/rmi_smc.h
+> Get back to single-standard integrity for yor own's sake.
 
-[...]
+Glad to hear that ESR thinks -- and speaks! -- in a similar vein.
 
-> +#define RMI_PERMITTED_GICV3_HCR_BITS	(ICH_HCR_EL2_UIE |		\
-> +					 ICH_HCR_EL2_LRENPIE |		\
-> +					 ICH_HCR_EL2_NPIE |		\
-> +					 ICH_HCR_EL2_VGrp0EIE |		\
-> +					 ICH_HCR_EL2_VGrp0DIE |		\
-> +					 ICH_HCR_EL2_VGrp1EIE |		\
-> +					 ICH_HCR_EL2_VGrp1DIE |		\
-> +					 ICH_HCR_EL2_TDIR)
+I believe that Linus -- whose daughter has been basically
+kidnapped mentally[1][2] by the same hypicrites who speak "love"
+but groom real hate -- has his own merits to rise against those.
 
-Why should KVM care about what bits the RMM wants to use? Also, why
-should KVM be forbidden to use the TALL0, TALL1 and TC bits? If
-interrupt delivery is the host's business, then the RMM has no
-business interfering with the GIC programming.
+But it does take leadership and guts in a "modern" world.
 
-> +
-> +struct rec_enter {
-> +	union { /* 0x000 */
-> +		u64 flags;
-> +		u8 padding0[0x200];
-> +	};
-> +	union { /* 0x200 */
-> +		u64 gprs[REC_RUN_GPRS];
-> +		u8 padding1[0x100];
-> +	};
-> +	union { /* 0x300 */
-> +		struct {
-> +			u64 gicv3_hcr;
-> +			u64 gicv3_lrs[REC_MAX_GIC_NUM_LRS];
-> +		};
-> +		u8 padding2[0x100];
-> +	};
-> +	u8 padding3[0x400];
-> +};
-> +
-> +#define RMI_EXIT_SYNC			0x00
-> +#define RMI_EXIT_IRQ			0x01
-> +#define RMI_EXIT_FIQ			0x02
-> +#define RMI_EXIT_PSCI			0x03
-> +#define RMI_EXIT_RIPAS_CHANGE		0x04
-> +#define RMI_EXIT_HOST_CALL		0x05
-> +#define RMI_EXIT_SERROR			0x06
-> +
-> +struct rec_exit {
-> +	union { /* 0x000 */
-> +		u8 exit_reason;
-> +		u8 padding0[0x100];
-> +	};
-> +	union { /* 0x100 */
-> +		struct {
-> +			u64 esr;
-> +			u64 far;
-> +			u64 hpfar;
-> +		};
-> +		u8 padding1[0x100];
-> +	};
-> +	union { /* 0x200 */
-> +		u64 gprs[REC_RUN_GPRS];
-> +		u8 padding2[0x100];
-> +	};
-> +	union { /* 0x300 */
-> +		struct {
-> +			u64 gicv3_hcr;
-> +			u64 gicv3_lrs[REC_MAX_GIC_NUM_LRS];
-> +			u64 gicv3_misr;
-
-Why do we care about ICH_MISR_EL2? Surely we get everything in the
-registers themselves, right? I think this goes back to my question
-above: why is the RMM getting in the way of ICH_*_EL2 accesses?
-
-> +			u64 gicv3_vmcr;
-> +		};
-
-Thanks,
-
-	M.
+[1] http://reddit.com/r/linux/comments/9go8cp/linus_torvalds_daughter_has_signed_the/ [del, heh]
+[2] http://unz.com/isteve/and-they-came-for-somebody-who-actually-gets-things-done-linus-torvalds/
 
 -- 
-Without deviation from the norm, progress is not possible.
+Michael Shigorin
+http://t.me/anna_news
 
