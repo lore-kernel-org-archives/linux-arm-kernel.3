@@ -4,86 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D839CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 11:41:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A202CAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  1 Oct 2025 11:43:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qctZSXMhs2xeiqfjqCMk0nsDO98tXumKc7sHsixp5Vw=; b=bwRtP2G+om3qhpBmXC04XCBoiY
-	Cs6EmM085GT3jPxyZ1mCRXih+d7idF5MmlUEbICfBOsvqr33tKDxnY+qufJa47Z56Rje3zesCn7UA
-	b8S1xkEvv6CF0IiniH85T0PFfgXdZWIweOPAqrWvc3oDrTjgnWjcPTBAXTWzw7K9eaSO1nAKrW2zt
-	VUos0eyNwzJT1/5Odcg0ARh9o9+eKMWmAlcASA7xYBpWWwFdQ4toJJqn0ngbYQQO2WUaUOEYAUmt5
-	elo6wMYcc0Apv1qOJZwVRrke18rBSsD9t8uLgi06cGZFL9aaCkBlkCzNS4GXUgFHSkwjtE4FrI4DP
-	vFxaVPRw==;
+	bh=POuuzDaE027sS3UnARcGZErQKblTvCldvGNQkoyhMyM=; b=jgfbZzAHIgXBSE8zqhnIHMBLeK
+	BHFLcKTH6ED269sRZF5bPgZTxm745MUZkY2y9QsKx4caS19L62ayVr5Q0G7Gk+G5O/NnBBaZGPtxb
+	4UYuS1P+7cc3rZhCZ6Vlp/fht0cj75RgA1y/w/I29bp376VvEG1frRcd4C0G/VZtPXWWHDlUZOKzz
+	jhkSYFiT4MHLttp5//RWEIsM2Mq8Nb7rP15BcNxDPt63aY0eEm3WvTxKBsZf5Wkf6LVnTKctoLanl
+	PxNt0hemdaFwUTZKVXvO7TWl9QUjpV0XwGKVjoCqn+oHXsZts7i0NYk332C9Mw00BDOlVM5S+WZRE
+	maqgtU5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3vDB-00000007Qxp-2HKg;
-	Wed, 01 Oct 2025 11:41:33 +0000
-Received: from mail-lf1-x129.google.com ([2a00:1450:4864:20::129])
+	id 1v3vF8-00000007RLG-0e3s;
+	Wed, 01 Oct 2025 11:43:34 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v3vD8-00000007QwM-2pdB
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 01 Oct 2025 11:41:32 +0000
-Received: by mail-lf1-x129.google.com with SMTP id 2adb3069b0e04-57992ba129eso8549971e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 04:41:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1759318888; x=1759923688; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=qctZSXMhs2xeiqfjqCMk0nsDO98tXumKc7sHsixp5Vw=;
-        b=VxiU7EW0nrdZbfsNJPNxb87JPZf3JGprDrnTUGsYBOLW2W2OBIjB0vUNHuPIsXU8AX
-         BfQht5jc9KFxOUeZhk1ENuTfI+PFPlInB4u9KYHSR3MUIw/71GEkcXAT+oWKaPjTam2w
-         xujUcPwF96aP4X/1TZyS0gzDnaQsXYerDfctNZpDxUoh69g+uwhqjhicT86ALhGKo/p3
-         Qpm2OERr2XzGTlzYsXJcTuxOoVw5VXADdD5OTkB8+kRJ/bGnNAjjlppfKEbva3Wgcw6M
-         bwRrYYWfXj1spC3nV5CZ12T/Y+DHRvnPJea4/tw5OdPCsH2JpzBnU2CT07IElDfzPGv1
-         vqmg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759318888; x=1759923688;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=qctZSXMhs2xeiqfjqCMk0nsDO98tXumKc7sHsixp5Vw=;
-        b=EZecaYaOnz0ihDlq20g5Q//bfQ7FGeueuHCMKzts3QxhX5n5ZCvzTff0NwLpNstmRp
-         KUx/D3eARdLlN9VYop9cvnZoKO9zoiEL8bEKnoMGiBDxuL+//+SbFTkqYMYVg1H1d1Vw
-         AC24fVL6BAxUjvb9qkfLcVWk05pu0A/poYhIGjd022nzC085XhEHUlFeCU8JAz/W0mHX
-         o19FTDAzf/777aAVybzrMKClYdouL+9jWSjMGvHrnwMrKgFm5hP07k3OKjC3wrBpLEVF
-         OhsiGeAr5T/ClLOjk0CMIQ43s+gYeAYS8J/ALY3r96qbnNUPT13oRo8NA1pvCdKap++S
-         RN6Q==
-X-Forwarded-Encrypted: i=1; AJvYcCUN6fO1ak0T4y80zVDjWoRCcyXVKXWZk1LpoA0F8M4hTvckXPoo6r90bYWTHHYWizLpssqxSrbeTRVSkUAgTA8w@lists.infradead.org
-X-Gm-Message-State: AOJu0YxGWJNAycvOWCTq++zWd8asKHaZEcYclwCU0NvXCL4SqT6XQFGG
-	29PbOSn2qhxLVbg86p3pQ/P0QCWN8oVKLpCjdwlbvTTudRh9W8GEA11QCMd3gz4pkd9MGHNkNCx
-	EZ7yLQnI1A5MwGsZ2B6a4pDQ2Lww3j44UCwe8FXx6vw==
-X-Gm-Gg: ASbGncsK3u5cM3ZBRfrPMJ+lX6CGE4py3PdCjH3k7gSyAZeKjuvp70WYAXm7iV7osyp
-	f/PYNpqpOXs1UUwHK6hkt90AcAco7CD+DDbQR1WYODj35x6ogvjRD+VDYtDiDuqkKasl4ff0KPk
-	z9qmEWB5lgDfO8+Zx6/LP6PBGyLINl63bfCZhWrJVWZf2cAzH0Jxw4jhReT5aq1wLg0HdwlGnPl
-	YVxI5lcdBvYNLSdEp9BjB0XTeW8RHo=
-X-Google-Smtp-Source: AGHT+IGh0WRelayFPhpsyMTnu/QogCxki2FOJNlaiws2mA6RsyILjodYZSp8V+kDGxU8+sBc5yZrKN2O5uWz8LJyuPc=
-X-Received: by 2002:a05:6512:b12:b0:581:75eb:cb0b with SMTP id
- 2adb3069b0e04-58af9f4df8fmr956846e87.48.1759318888565; Wed, 01 Oct 2025
- 04:41:28 -0700 (PDT)
+	id 1v3vF5-00000007RKq-12Jj;
+	Wed, 01 Oct 2025 11:43:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1759319009;
+	bh=QwWYceFhrlj2n4QpoSYYb1INdrt8SZFnjsPSRKC8Ai8=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JvdRWByaedr36nrzV9z49Su5k+BFyLuJAdCvn5zRJ7dTh6fnVFJZ43gx7RznmEaDQ
+	 OpGNJgMdGzDpzyZzxZfAvSq7s38t/v/UeTzT6JnrQ1O5H7iX8usV7PVy7k4mxwTKrV
+	 O2kTui57hrk7bH8gMQnn4Qz0CraaoAfVD+Hg9L2OjXuX+XN+Q79rb2hBmabmRMitQj
+	 J3opN7MBT9NWwYzdz7iVKIhv3AtYDfooccdbeKEI42xfYKCljKG+eRDgSUWEtLjKab
+	 Ry1qMKKMw06NXMyJ6V7MhlIKNy6ElIEsGU0dfJhfXT6vMrtfuKE3+SJPNFEJF3ljJA
+	 28KvNjvVv1L9g==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id A46AA17E131B;
+	Wed,  1 Oct 2025 13:43:28 +0200 (CEST)
+Message-ID: <a1a84405-fa69-44f2-b714-4844303a8f4c@collabora.com>
+Date: Wed, 1 Oct 2025 13:43:27 +0200
 MIME-Version: 1.0
-References: <20250927-rda8810pl-gpio-fix-v3-0-3641cdcf6c1e@mainlining.org> <20250927-rda8810pl-gpio-fix-v3-1-3641cdcf6c1e@mainlining.org>
-In-Reply-To: <20250927-rda8810pl-gpio-fix-v3-1-3641cdcf6c1e@mainlining.org>
-From: Linus Walleij <linus.walleij@linaro.org>
-Date: Wed, 1 Oct 2025 13:41:17 +0200
-X-Gm-Features: AS18NWBXAbHjbTdnQXpt6IR8KxMLhgGpEzULsJ3KqRHyjfQNnQcsJ6eT4En0sws
-Message-ID: <CACRpkdZD+QFsFSTL0c6HbPp_4op2axjpZRL=y-KEMw_rNpxgqA@mail.gmail.com>
-Subject: Re: [PATCH v3 1/3] dt-bindings: gpio: rda: Make interrupts optional
-To: Dang Huynh <dang.huynh@mainlining.org>
-Cc: Manivannan Sadhasivam <mani@kernel.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	linux-arm-kernel@lists.infradead.org, linux-unisoc@lists.infradead.org, 
-	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, Conor Dooley <conor.dooley@microchip.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/4] clk: mediatek: Refactor pll registration to pass
+ device
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Guangjie Song <guangjie.song@mediatek.com>,
+ Laura Nao <laura.nao@collabora.com>,
+ =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+ Yassine Oudjana <y.oudjana@protonmail.com>
+Cc: kernel@collabora.com, Krzysztof Kozlowski
+ <krzysztof.kozlowski@linaro.org>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20250929-mtk-pll-rpm-v1-0-49541777878d@collabora.com>
+ <20250929-mtk-pll-rpm-v1-2-49541777878d@collabora.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250929-mtk-pll-rpm-v1-2-49541777878d@collabora.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_044130_723373_E5BAE4E9 
-X-CRM114-Status: GOOD (  11.67  )
+X-CRM114-CacheID: sfid-20251001_044331_437697_6EDD4F73 
+X-CRM114-Status: GOOD (  11.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,37 +86,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dang,
+Il 29/09/25 14:13, Nicolas Frattaroli ha scritto:
+> As it stands, mtk_clk_register_plls takes a struct device_node pointer
+> as its first argument. This is a tragic happenstance, as it's trivial to
+> get the device_node from a struct device, but the opposite not so much.
+> The struct device is a much more useful thing to have passed down.
+> 
+> Refactor mtk_clk_register_plls to take a struct device pointer instead
+> of a struct device_node pointer, and fix up all users of this function.
+> This will allow us to extend clk-pll with runtime PM things later.
+> 
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-thanks for your patch!
+Thanks for doing that - this exact thing has been in my backlog for a
+very long time now, and you've done it before I could, and without even
+knowing that this was in my plans.
 
-On Sat, Sep 27, 2025 at 7:02=E2=80=AFAM Dang Huynh <dang.huynh@mainlining.o=
-rg> wrote:
+Perfect.
 
-> The GPIO controller from the modem does not have an interrupt.
->
-> Acked-by: Conor Dooley <conor.dooley@microchip.com>
-> Signed-off-by: Dang Huynh <dang.huynh@mainlining.org>
-
-If the GPIO controllers are so different, should they not have different
-compatible strings?
-
-Maybe add rda,8810pl-modem-gpio compatible for the modem
-GPIO then?
-
- +++ b/Documentation/devicetree/bindings/gpio/gpio-rda.yaml
-> @@ -41,9 +41,6 @@ required:
->    - gpio-controller
->    - "#gpio-cells"
->    - ngpios
-> -  - interrupt-controller
-> -  - "#interrupt-cells"
-> -  - interrupts
-
-Then this can be conditional using an if:-statement such that
-it is only mandatory for rda,8810pl-gpio and not for
-rda,8810pl-modem-gpio.
-
-Yours,
-Linus Walleij
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
