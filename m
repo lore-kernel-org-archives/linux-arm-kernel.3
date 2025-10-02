@@ -4,102 +4,194 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4BF86CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 07:00:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75ACBCAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 07:30:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4nUSSdMGjCPyedd7TdeRQen8rxiQXem7xcM3JbGA06U=; b=2JWrGk2gbOXZY9w3lkkKVmHNbN
-	z96HEqv9Jh/4v4ySBd87wNAccor0NZAmeX55LfoT5Kok+f+5fPfBhTmAycHCmDEJJ9qt1tCetj5el
-	oUTtmCbonusO6NVStPQmIsqo60+p60/rW98DFocjNOWopcbOvO0NnUegLpJ0cJf7EKPtH+cKn2bq8
-	GF4bSSNNpAAL4zViASn4/h+qhLAhdzRXJKUkpG4Xaxcp6oVpQ99HfRIMnYeu6kSkYlCvhk5f9FeN9
-	UWhOepvRfMnXVjU+dDxROZtofUEqRRofBKfNFLguprqfLlKgrS3ie/V+7sWxo6FxLvItHof0VAHqV
-	T7GDnKXA==;
+	bh=hacdOnIxJQCJZuTo4zLIesroG3wk9YnnBME6nkLKEqc=; b=ShaaZ4ka4vZLUlGYtFz1jw1MGr
+	GJWko+fYWwdpLqr/XHRQBn6TgnkN9GRYDQAxc+eksggdK4IxR3S0IxUsJDpibY4JdVn6Rbt3E+2Y1
+	qyEb+jGqye4+im0zoEyfzHnMXZwiH7GSOWPp0UKjRNcMKY2XTGwRQj20iv/tEgaZR0QHN1npLZ1yx
+	kASp1RR8Jq1QCyhdZVbXYzf8mCcIzHrl+u2g2rF+pcHxNTo4qvVw0Qcqin4Em+VU4+ep4OfYJOpoE
+	f1ndFDS5Fu+zIAyegXPfLtYR/YTFhMmMySH51pWL+L8wRJnmovOB3XqyfVSWyPmJUBXC9xfiQ5jDe
+	rycZ5RXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4DIG-00000009lNb-1v0X;
-	Thu, 02 Oct 2025 07:00:00 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v4Dlh-00000009nEm-3eLE;
+	Thu, 02 Oct 2025 07:30:25 +0000
+Received: from mx08-00178001.pphosted.com ([91.207.212.93])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4DIF-00000009lNB-30Lg
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 02 Oct 2025 06:59:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=References:Content-Type:
-	Content-Transfer-Encoding:In-Reply-To:From:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Sender:Reply-To:Content-ID:Content-Description;
-	bh=4nUSSdMGjCPyedd7TdeRQen8rxiQXem7xcM3JbGA06U=; b=KpJLT52RHdvKhObcwKz6jJRp+h
-	zmoAC9FcXdcRe9RFLOxoImJUgXkif5lNiHTFmXO5MMbg+axMk8qseO/hvSlxn03ESEqcdmeinF57u
-	nvZDWUavaXN0kIQY2dPnJExRxpKDZz/NN/9+D6wsu5SifI3wfM/JIlZ5U8euH/btWZLYznmlykuv7
-	wJCmpjq6ffmJepZAIo0H/bSEdKTFkhpGvPI17xaoVHEly2HW9tKzaGjZkVKNh6pGquV9Ldx3rML/M
-	yHrLLVUsf17rmlPfrYHfXKWvgLjwJZMqjMUW62hid2ebuAYWV7cscwLZwcaI8gPWwVgGS1IkUrsO4
-	63HwanTQ==;
-Received: from mailout2.w1.samsung.com ([210.118.77.12])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4DIB-0000000E78f-0BzZ
+	id 1v4Dle-00000009nDo-2Aw7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Oct 2025 06:59:58 +0000
-Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
-	by mailout2.w1.samsung.com (KnoxPortal) with ESMTP id 20251002065945euoutp029a7f5eb5f3ee0c4d514878697ea76fec~qmmpSZ1Nr1318813188euoutp021
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  2 Oct 2025 06:59:45 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.w1.samsung.com 20251002065945euoutp029a7f5eb5f3ee0c4d514878697ea76fec~qmmpSZ1Nr1318813188euoutp021
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1759388385;
-	bh=4nUSSdMGjCPyedd7TdeRQen8rxiQXem7xcM3JbGA06U=;
-	h=Date:Subject:To:Cc:From:In-Reply-To:References:From;
-	b=bHQOrmcq+tbmKJVoWSiB5DhUyHx2uLWBWwI6ayGSO+2oXmD9Jb6m4t6DU3cBV8etp
-	 QWjLZZ7gmNJ0UJYFSOBG4H4jGj5qXLms0BHPL+9+US3SVlu+iHMGnGTEh8ImGJPCc9
-	 1S3U1DhDg0Q6nk/xgwhYQ9lwGUuFt2CEDlC9tF/o=
-Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
-	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
-	20251002065945eucas1p16f58178b5dc221a973e2671ede0b2011~qmmo674Rq1373113731eucas1p1B;
-	Thu,  2 Oct 2025 06:59:45 +0000 (GMT)
-Received: from [106.210.134.192] (unknown [106.210.134.192]) by
-	eusmtip1.samsung.com (KnoxPortal) with ESMTPA id
-	20251002065942eusmtip133e1f9973fdf1d7de571b742c1d219ea~qmmmaedYH2189721897eusmtip1O;
-	Thu,  2 Oct 2025 06:59:42 +0000 (GMT)
-Message-ID: <70a9ca8c-a38c-44e4-9e7f-ca260eb5e37f@samsung.com>
-Date: Thu, 2 Oct 2025 08:59:41 +0200
+	Thu, 02 Oct 2025 07:30:24 +0000
+Received: from pps.filterd (m0369457.ppops.net [127.0.0.1])
+	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5927D7J1022208;
+	Thu, 2 Oct 2025 09:30:13 +0200
+Received: from osppr02cu001.outbound.protection.outlook.com (mail-norwayeastazon11013051.outbound.protection.outlook.com [40.107.159.51])
+	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 49etvjhce6-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 02 Oct 2025 09:30:13 +0200 (MEST)
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=crG6qhZbUnDA1XuRyqJONUw/W3Ao+p5N/HzYRouJs+tirkCpb1hRKxNhcRbDZr3LuwpT0nPLZ2Z/G2XbG1vSgcL4Ks64aR4w3Avxac018P6W1wLaQnLwQbe5fgAC9OSpy9+bgarF8s3tNGAug8OcdjgDOaE1bwMP4ZE9PZFE8QnRZB9o2X7zW8Dom89tiRkSkwyeq67JrydfRNkNQqp0ElATnenLCxYcid9Tc9VsNziMgmDoMZ6aibNdIic5WU6fgrpG4AeaqKTmkoMwX01yVoaG5IX8GV6XcFmzn/EUozKLnR7UtR0MRTntHrE0LvfavY6Rb7ARdRpdstradyyl4w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=hacdOnIxJQCJZuTo4zLIesroG3wk9YnnBME6nkLKEqc=;
+ b=gak9J+o0AXIoViFLxdVqXlF28xg/m+sBF3kcoNjrlqxieJqdETXTcpNVPQx8ztDFTtCI8M/q2ieOyZ9yMWaCpnofeYn01Aw63AOJ9hQmXCQsaHS4bXBmCHvAQG/1yXvcWkxSUfV/awDSMWWBinhe5mch+INEbCw5rPlek/f3SmGnHVIZTwY6X6rSmSdAZcg0HznbYWCWW5sjIrxIga0AuOF0+R8ywTqqnk72nahp9o3caJJHJ9SQhYtPLuhyO0ueTccq1SnAqCjxk/fLEvy9n4j9aJJFM63XJy/r/lnd2RId10cC68QN6BLtUNx31x8rOx8uid7MX+2cpEbyTMNp0g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
+ 164.130.1.43) smtp.rcpttodomain=linaro.org smtp.mailfrom=foss.st.com;
+ dmarc=fail (p=none sp=none pct=100) action=none header.from=foss.st.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=hacdOnIxJQCJZuTo4zLIesroG3wk9YnnBME6nkLKEqc=;
+ b=TdeZUIZl+ji+RmTuhJKWjfU+LeZauK/Gh/YYZKKs2gPR+M9xlgLHfqXT7K5ClqnGGWQIUua73mtYsGLWOGz+Ac6GueSAHIiHFFjrqbwbZGuXrLvNQP+iASsGNvKysGWQhd9ETn5Ynm3H6pEpSNLICmZABCV0IOjrZET5iXoVziAUKfTF21s4uUjyD799eBoXH9HAl6YVGW/PJXulOsWmFIOlNNX2Mq/sAm/vrpBEGY9YTqFBCH7HkRl9ZBFZbQvzdO76LpdyNPRU3qiWQRYaXW0y6u/9CAibmgZE7ECdpmjnJ0IJqtAK2QM1GR2ewwnCfGWUIDGyM5Juz5V+JPXMcw==
+Received: from AM0PR06CA0097.eurprd06.prod.outlook.com (2603:10a6:208:fa::38)
+ by VI1PR10MB8256.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:800:1d6::17) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.17; Thu, 2 Oct
+ 2025 07:30:09 +0000
+Received: from AM2PEPF0001C70A.eurprd05.prod.outlook.com
+ (2603:10a6:208:fa:cafe::87) by AM0PR06CA0097.outlook.office365.com
+ (2603:10a6:208:fa::38) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9182.14 via Frontend Transport; Thu,
+ 2 Oct 2025 07:30:10 +0000
+X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.43)
+ smtp.mailfrom=foss.st.com; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=none header.from=foss.st.com;
+Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
+ designate 164.130.1.43 as permitted sender) receiver=protection.outlook.com;
+ client-ip=164.130.1.43; helo=smtpO365.st.com;
+Received: from smtpO365.st.com (164.130.1.43) by
+ AM2PEPF0001C70A.mail.protection.outlook.com (10.167.16.198) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9182.15 via Frontend Transport; Thu, 2 Oct 2025 07:30:08 +0000
+Received: from EQNCAS1NODE3.st.com (10.75.129.80) by smtpO365.st.com
+ (10.250.44.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Thu, 2 Oct
+ 2025 09:26:35 +0200
+Received: from SAFDAG1NODE1.st.com (10.75.90.17) by EQNCAS1NODE3.st.com
+ (10.75.129.80) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Thu, 2 Oct
+ 2025 09:28:52 +0200
+Received: from [10.48.87.127] (10.48.87.127) by SAFDAG1NODE1.st.com
+ (10.75.90.17) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Thu, 2 Oct
+ 2025 09:28:51 +0200
+Message-ID: <adc18aee-02bd-40e9-9b8b-10ceb2122460@foss.st.com>
+Date: Thu, 2 Oct 2025 09:28:51 +0200
 MIME-Version: 1.0
-User-Agent: Betterbird (Windows)
-Subject: Re: [PATCH v2 2/5] clk: bcm: rpi: Turn firmware clock on/off when
- preparing/unpreparing
-To: Melissa Wen <mwen@igalia.com>, Stefan Wahren <wahrenst@gmx.net>,
-	=?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>, Michael Turquette
-	<mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, Nicolas Saenz
-	Julienne <nsaenz@kernel.org>, Florian Fainelli
-	<florian.fainelli@broadcom.com>, Maxime Ripard <mripard@kernel.org>, Iago
-	Toral Quiroga <itoral@igalia.com>, Dom Cobley <popcornmix@gmail.com>, Dave
-	Stevenson <dave.stevenson@raspberrypi.com>, Philipp Zabel
-	<p.zabel@pengutronix.de>
-Cc: linux-clk@vger.kernel.org, linux-rpi-kernel@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org, dri-devel@lists.freedesktop.org,
-	Broadcom internal kernel review list
-	<bcm-kernel-feedback-list@broadcom.com>, kernel-dev@igalia.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/4] gpio: imx-rpmsg: add imx-rpmsg GPIO driver
+To: Linus Walleij <linus.walleij@linaro.org>,
+        Shenwei Wang
+	<shenwei.wang@nxp.com>
+CC: Bjorn Andersson <andersson@kernel.org>,
+        Mathieu Poirier
+	<mathieu.poirier@linaro.org>,
+        Rob Herring <robh@kernel.org>,
+        "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>, "Shawn
+ Guo" <shawnguo@kernel.org>,
+        Sascha Hauer <s.hauer@pengutronix.de>,
+        "Bartosz
+ Golaszewski" <brgl@bgdev.pl>,
+        Pengutronix Kernel Team
+	<kernel@pengutronix.de>,
+        Fabio Estevam <festevam@gmail.com>, Peng Fan
+	<peng.fan@nxp.com>,
+        <linux-remoteproc@vger.kernel.org>, <devicetree@vger.kernel.org>,
+        <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+        <linux-kernel@vger.kernel.org>, <linux-imx@nxp.com>,
+        <openamp-rp@lists.openampproject.org>
+References: <20250922200413.309707-1-shenwei.wang@nxp.com>
+ <20250922200413.309707-4-shenwei.wang@nxp.com>
+ <CACRpkdbB+DfhqUE-fsz_RQ1U02+nMEhNsXrKB4bd6dvLDLjWUQ@mail.gmail.com>
 Content-Language: en-US
-From: Marek Szyprowski <m.szyprowski@samsung.com>
-In-Reply-To: <ca9605fc-79da-43c1-9146-3638cd5791c4@igalia.com>
-Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20251002065945eucas1p16f58178b5dc221a973e2671ede0b2011
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-X-RootMTR: 20250925075711eucas1p26efbb194311a6e22ab593a39b43e12c3
-X-EPHeader: CA
-X-CMS-RootMailID: 20250925075711eucas1p26efbb194311a6e22ab593a39b43e12c3
-References: <20250731-v3d-power-management-v2-0-032d56b01964@igalia.com>
-	<20250731-v3d-power-management-v2-2-032d56b01964@igalia.com>
-	<CGME20250925075711eucas1p26efbb194311a6e22ab593a39b43e12c3@eucas1p2.samsung.com>
-	<727aa0c8-2981-4662-adf3-69cac2da956d@samsung.com>
-	<2b1537c1-93e4-4c6c-8554-a2d877759201@gmx.net>
-	<1e5d1625-1326-4565-8407-71a58a91d230@samsung.com>
-	<c40880aa-ce14-41bc-a32f-7f46506a8909@gmx.net>
-	<ca9605fc-79da-43c1-9146-3638cd5791c4@igalia.com>
+From: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
+In-Reply-To: <CACRpkdbB+DfhqUE-fsz_RQ1U02+nMEhNsXrKB4bd6dvLDLjWUQ@mail.gmail.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.48.87.127]
+X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SAFDAG1NODE1.st.com
+ (10.75.90.17)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AM2PEPF0001C70A:EE_|VI1PR10MB8256:EE_
+X-MS-Office365-Filtering-Correlation-Id: 57d43777-9646-46ea-220f-08de01858397
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700013|82310400026|1800799024;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bDBNYXhqY0lJbzYwTnhIa2FrTllJUXcyK2xKN3FRZG9scGlMSnVwNnFLcFFh?=
+ =?utf-8?B?a3VHdHdiT0o5ZHZZS256MDBXRmlZUkNIQXVKU3BtSVB6Rkd4R1RzSThOTWYv?=
+ =?utf-8?B?clNDT1lFTHhJN2JKc1FKTEVVKzZwNFJWM1ZCNHNXdHkrYkl0cWd0eDZqQ1Rj?=
+ =?utf-8?B?eTlEWHl1d0RIelR6NFFHVm10ZUljcjFBS0x1V3NSMHRZYm9vdDRSYy9SdVZn?=
+ =?utf-8?B?WnMrYkM1UXhySWF0QnZoa0FJN1FQdVJTRDVpbjR3aGR5akpSR0hFVGdyOEo4?=
+ =?utf-8?B?bWZrR1dlQit6ZE5MZWczUGRHWGVWVlVJS3FJcy81Ynk5UERNbW8yTWc2aTJV?=
+ =?utf-8?B?VWJMVllzejI2VU5Fa2w0b1RJQUNtdkZZYllpQnJ3MVA2YkFYWjlOTjlNd0g1?=
+ =?utf-8?B?dCsvWngrbzZXTlFsZFVRMkdYd0pQN3BUNE4vYk1WV0NYcUF3V2JZaktlMUdL?=
+ =?utf-8?B?dm81VHo5SS9mU2pSZWh2Q0dudUd1L1RGaXZ4aEFFNUV1WmU3TWRXUXR4Q3pv?=
+ =?utf-8?B?cURES3JWV1BEckdRMWVDdjYwSTJqUWNpcVEvd0lmdHdiRU84V0RvK2xlTVBM?=
+ =?utf-8?B?SWxvOGVSSGFsbVRtSnZmL0lSNTY4dHFHWCtTbVZLSU14ekpGdmp2bjVuaWRr?=
+ =?utf-8?B?a1Jac2xtMDFoUHhRL3VpbTc4NDN6QkJRQm14blVxZVd0cFFIRlM4TzMwbGJk?=
+ =?utf-8?B?TjN1dVdpVHJXc2hvb3NPQ1dTSWduN2xvYktTbVpMZVZsSSsyajJKWEdnd1FG?=
+ =?utf-8?B?VmNpLzZOSENLK3IwRHhBN2FKbU9ZZTJHNHZhdDBOMzlScWw0alRhNC9oUzNV?=
+ =?utf-8?B?UWhzWkdnM0tXL0VxT1VNRGFjUklsdHFtM0JhSWpMZ1pUNnNyRkRNTTczRTZz?=
+ =?utf-8?B?R1ZzNkhTZFBUdVZaWFhhcGJJV0Z6THE3NGlINFFCZnpmRjcrRmlTakhPMDBS?=
+ =?utf-8?B?M0VtYXBIWXdkVWpPZllpOUl5U0Z3WUl3dE5kUzk4R0dWNTBvN3FEWS9IaTZ0?=
+ =?utf-8?B?QkR0M2hZQlJoeHcrUHBORHkzWGpKZllGdytQRmtoKzU1Z05jQ2tCcFFhNmJi?=
+ =?utf-8?B?ZWdpdmtlY0FWOGQwUVFIYU9MSndIZjBnT09Na2JiQW5QVlVUNzJRdVlMQkEz?=
+ =?utf-8?B?ay9DSTZyaWFZUWVhUTFSUHBVdTdydjFtWlN2dHA2M0w0MElCVnFWSVlWb1BX?=
+ =?utf-8?B?TmhiWnQraktZVFVuV3lCdzFyR0NJenZRREFqeS9LV2gxbFJ5YjhIMmJpVGF1?=
+ =?utf-8?B?cjFWeTBGUjBydXd1MytmeEN3MnVxbE9zZ1VvTWZKMHRxeVZHbmRwTkJFdjJr?=
+ =?utf-8?B?d1lHd29mN0VQY1Nsc2I5TUxWTnMwek1LVFlaRmFuR1lZUkNNblc3MFdubko0?=
+ =?utf-8?B?aFJDMzBaNWhzZWZLMHdTR3ZqcjhSaE82M25kd3NtZ3dWL0JKeHFzRGV6V0Y5?=
+ =?utf-8?B?M090dnRIVWRuek9iVi8xNm9oL2NIMXhVVGlyNzVwQ1RPU2VkY2ttLzNGSnNr?=
+ =?utf-8?B?ZzhNeCtjU3A3b0hJSjdmaitacmlrdjJ5Z2RYZitOVjVQdC9lMFVIM1ArTFBj?=
+ =?utf-8?B?MVdodm5ZZDZhWFdqak05VFh5K3V3bXVsMUtESFYvVGxHMk5OMGVVNFk3c2pO?=
+ =?utf-8?B?MEZMWUV2Z2QwYmU5bE9FOTdSRzFPQ0dkdjYrWTRTK1lZOG9Za2kzOU9GSFc3?=
+ =?utf-8?B?dEpXc2ZRaXdUUnlCNFpvM09oRXB6SG55LzZ1UVN0ZGRCSldubGEyZVhNTDZV?=
+ =?utf-8?B?QkJid2hhLzJUaE5pOC9Rd1p3bS93VklsRVc4OGk3SndTOWQ2M2pzUXcwVGtQ?=
+ =?utf-8?B?OHZHVHZyTkdKandCMjF0Ylh3a3dBdHRTQ3BiaFJ0eDNZNE9EcFVLNmhlYXo0?=
+ =?utf-8?B?SGg2VDRiczBoanlsZUtXOThxSEYvUUlUSFRVQkJtQjBCUFVCdnc3RGxZOHNL?=
+ =?utf-8?B?aXlEQ0F2UklqSjFMdFJ5bHo1WXVURm5SUUtPUW85SUNSZlVGSHhTdGVYYitk?=
+ =?utf-8?B?d0hBTzArWU9mc0kxbkN2RWFwNTUvOVdTR0ZGU1hrQVhiRDF0YWZlbmhPRW5V?=
+ =?utf-8?B?V2hwNldNQVpUUXBJU3h2Z2VvQUh5TENZemFVeEI5dEYwMkJGMkdFYnNWdGNs?=
+ =?utf-8?Q?HYIk=3D?=
+X-Forefront-Antispam-Report: CIP:164.130.1.43;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700013)(82310400026)(1800799024);DIR:OUT;SFP:1101;
+X-OriginatorOrg: foss.st.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Oct 2025 07:30:08.2111
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 57d43777-9646-46ea-220f-08de01858397
+X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.43];Helo=[smtpO365.st.com]
+X-MS-Exchange-CrossTenant-AuthSource: AM2PEPF0001C70A.eurprd05.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI1PR10MB8256
+X-Authority-Analysis: v=2.4 cv=OvpCCi/t c=1 sm=1 tr=0 ts=68de2a05 cx=c_pps a=caHvpjIXtg0psX5ICJsGNA==:117 a=peP7VJn1Wk7OJvVWh4ABVQ==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=FOPVHIcnkjUA:10 a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=s63m1ICgrNkA:10
+ a=KrXZwBdWH7kA:10 a=NEAV23lmAAAA:8 a=VwQbUJbxAAAA:8 a=rO7Un4uusEew-VTSQGsA:9 a=QEXdDO2ut3YA:10 a=nl4s5V0KI7Kw-pW0DWrs:22 a=pHzHmUro8NiASowvMSCR:22 a=xoEH_sTeL_Rfw54TyV31:22
+X-Proofpoint-ORIG-GUID: QTmOjJMu5JsCOXLUYRkehwcWfGn18aSE
+X-Proofpoint-GUID: QTmOjJMu5JsCOXLUYRkehwcWfGn18aSE
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTI4MDAwNSBTYWx0ZWRfX8cZrWTf2VG9e DyA8g9RXXL55g7BLJSg26rnY9PZF6aySCrrTQjolzZ4Vg1VPhGug2OLNCP/DOizV6FI/bP6C2v6 GbgzIVVvuO8De3d/5NPNvveRheMlm5mswzOQjmCQePabfRnuWCG4tOMz7Azj9ONYwYO8cKIUBsX
+ toy1cRsXN33A6TVyp1dU7K/dXPZOMva0lycTuwcetEjAji77Wvlbqf+7E69UKU1plsQ8+AChmqR xZBoXI/2mykFB2PdI5L9m2c8Gvn/SINtO85kfpl9IWDB37lOclVYdyTYKwZLPCYYmycHcr2BCHW crzvDI80MnbDcsiqp8VVnGSw6vXfKrivn+K38gcUkqDSpbtf9quIv6b1xRogz0TtjEcr8A4iPqG
+ 8bLA3WBRXXuLjJsTcJKVkfTjJAn7Bw==
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-02_03,2025-09-29_04,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 suspectscore=0 priorityscore=1501
+ malwarescore=0 adultscore=0 phishscore=0 impostorscore=0 bulkscore=0
+ lowpriorityscore=0 clxscore=1011 spamscore=0 classifier=typeunknown
+ authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
+ engine=8.19.0-2509150000 definitions=main-2509280005
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_075955_305466_79EC3DC9 
-X-CRM114-Status: GOOD (  29.00  )
+X-CRM114-CacheID: sfid-20251002_003023_206324_036AD2E8 
+X-CRM114-Status: GOOD (  14.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,134 +206,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 01.10.2025 22:50, Melissa Wen wrote:
-> On 26/09/2025 07:36, Stefan Wahren wrote:
->> Am 26.09.25 um 09:27 schrieb Marek Szyprowski:
->>> On 25.09.2025 18:48, Stefan Wahren wrote:
->>>> Am 25.09.25 um 09:57 schrieb Marek Szyprowski:
->>>>> On 31.07.2025 23:06, Maíra Canal wrote:
->>>>>> Currently, when we prepare or unprepare RPi's clocks, we don't 
->>>>>> actually
->>>>>> enable/disable the firmware clock. This means that
->>>>>> `clk_disable_unprepare()` doesn't actually change the clock state at
->>>>>> all, nor does it lowers the clock rate.
->>>>>>
->>>>>> >From the Mailbox Property Interface documentation [1], we can 
->>>>>> see that
->>>>>> we should use `RPI_FIRMWARE_SET_CLOCK_STATE` to set the clock state
->>>>>> off/on. Therefore, use `RPI_FIRMWARE_SET_CLOCK_STATE` to create a
->>>>>> prepare and an unprepare hook for RPi's firmware clock.
->>>>>>
->>>>>> As now the clocks are actually turned off, some of them are now 
->>>>>> marked
->>>>>> CLK_IS_CRITICAL, as those are required to be on during the whole 
->>>>>> system
->>>>>> operation.
->>>>>>
->>>>>> Link:https://github.com/raspberrypi/firmware/wiki/Mailbox-property-interface 
->>>>>>
->>>>>> [1]
->>>>>> Signed-off-by: Maíra Canal<mcanal@igalia.com>
->>>>>>
->>>>>> ---
->>>>>>
->>>>>> About the pixel clock: currently, if we actually disable the pixel
->>>>>> clock during a hotplug, the system will crash. This happens in the
->>>>>> RPi 4.
->>>>>>
->>>>>> The crash happens after we disabled the CRTC (thus, the pixel 
->>>>>> clock),
->>>>>> but before the end of atomic commit tail. As vc4's pixel valve 
->>>>>> doesn't
->>>>>> directly hold a reference to its clock – we use the HDMI encoder to
->>>>>> manage the pixel clock – I believe we might be disabling the clock
->>>>>> before we should.
->>>>>>
->>>>>> After this investigation, I decided to keep things as they 
->>>>>> current are:
->>>>>> the pixel clock is never disabled, as fixing it would go out of
->>>>>> the scope of this series.
->>>>>> ---
->>>>>>     drivers/clk/bcm/clk-raspberrypi.c | 56
->>>>>> ++++++++++++++++++++++++++++++++++++++-
->>>>>>     1 file changed, 55 insertions(+), 1 deletion(-)
->>>>> This patch landed recently in linux-next as commit 919d6924ae9b 
->>>>> ("clk:
->>>>> bcm: rpi: Turn firmware clock on/off when preparing/unpreparing"). 
->>>>> In my
->>>>> tests I found that it breaks booting of RaspberryPi3B+ board in ARM
->>>>> 32bit mode. Surprisingly the same board in ARM 64bit mode correctly
->>>>> boots a kernel compiled from the same source. The RPi3B+ board 
->>>>> freezes
->>>>> after loading the DRM modules (kernel compiled from
->>>>> arm/multi_v7_defconfig):
->>>> thanks for spotting and bisecting this. Sorry, I only reviewed the
->>>> changes and didn't had the time to test any affected board.
->>>>
->>>> I was able to reproduce this issue and the following workaround avoid
->>>> the hang in my case:
->>>>
->>>> diff --git a/drivers/clk/bcm/clk-raspberrypi.c
->>>> b/drivers/clk/bcm/clk-raspberrypi.c
->>>> index 1a9162f0ae31..94fd4f6e2837 100644
->>>> --- a/drivers/clk/bcm/clk-raspberrypi.c
->>>> +++ b/drivers/clk/bcm/clk-raspberrypi.c
->>>> @@ -137,6 +137,7 @@ 
->>>> raspberrypi_clk_variants[RPI_FIRMWARE_NUM_CLK_ID] = {
->>>>          [RPI_FIRMWARE_V3D_CLK_ID] = {
->>>>                  .export = true,
->>>>                  .maximize = true,
->>>> +               .flags = CLK_IS_CRITICAL,
->>>>          },
->>>>          [RPI_FIRMWARE_PIXEL_CLK_ID] = {
->>>>                  .export = true,
->>>>
->>> Right, this fixes (frankly speaking 'hides') the issue. Feel free to 
->>> add:
->>>
->>> Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
->>> Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
->>>
->> AFAIK the offending clock change isn't in the downstream kernel, so I 
->> like to see the opinion of María and the Raspberry Pi people first.
->
-> Hi,
->
-> I see in the downstream kernel the CLOCK_V3D was removed in favor of 
-> firmware clock:
-> https://github.com/raspberrypi/linux/blob/rpi-6.12.y/drivers/clk/bcm/clk-bcm2835.c#L2076 
->
->
-> Also, v3d in RPi4 is set to use the firmware clock:
-> https://github.com/torvalds/linux/blob/master/arch/arm/boot/dts/broadcom/bcm2711-rpi.dtsi#L97 
->
->
-> I think v3d clock is missed on boot, but I also think the issue should 
-> be solved by setting the v3d firmware clock for Pi3.
-> WDYT? Can you check it on your side? Something like:
->
-> diff --git a/arch/arm/boot/dts/broadcom/bcm2835-rpi-common.dtsi 
-> b/arch/arm/boot/dts/broadcom/bcm2835-rpi-common.dtsi
-> index 8b3c21d9f333..3289cb5dfa8e 100644
-> --- a/arch/arm/boot/dts/broadcom/bcm2835-rpi-common.dtsi
-> +++ b/arch/arm/boot/dts/broadcom/bcm2835-rpi-common.dtsi
-> @@ -14,6 +14,7 @@ &hdmi {
->  };
->
->  &v3d {
-> +       clocks = <&firmware_clocks 5>;
->         power-domains = <&power RPI_POWER_DOMAIN_V3D>;
->  };
->
-This works for me and fixes the mentioned issue. Feel free to add:
-
-Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
-Tested-by: Marek Szyprowski <m.szyprowski@samsung.com>
+Hello Linus
 
 
-Best regards
--- 
-Marek Szyprowski, PhD
-Samsung R&D Institute Poland
+On 10/1/25 08:57, Linus Walleij wrote:
+> Hi Shenwei,
+>
+> thanks for your patch!
+>
+> This patch was not sent to the linux-gpio@vger.kernel.org
+> mailing list, please include that or we can't merge the driver.
+>
+> I think the OpenAMP project should show interest in this
+> patch series so I created an issue in their github:
+> https://github.com/OpenAMP/website/issues/122
+
+Thanks for pointing it out , i will do a review of this new version
+
+Regards,
+Arnaud
+>
+> After fixing the issues pointed out by Peng the driver
+> looks good to me.
+>
+> Yours,
+> Linus Walleij
+>
 
 
