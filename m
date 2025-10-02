@@ -4,82 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42232CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 08:17:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8448CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 08:42:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=azdAvEOMcgyDz78fJ2Qii1EMq2+b6Q4oExBGZ+pJ8tQ=; b=36XfCGkAsYO6wwO/jvyLj7gq6j
-	Ke87qPpyF2sX2CMFOD0aviI/SelhhZEIb30DalhZvGyNbvnGNB8Un9hJQqmxtajhna4tTIt1pcv1Q
-	PnyGbID8p4US92LQ9O8UmulE/2EUSFSxrmdOxkqKsTstYwxfNfnJcXTNSPBODf0+xB+f0hopTsWZC
-	783Rgl/zC/709SHXFtN9VFKLN4JVaJShFCdFrbQ0PH44QBG7W0pZ+dy4sD3bFgmOgG6Ypyexhl68k
-	QhaUOHNyHv/ZU5NjCqt7z7Ixk2+kk29+mmQ16wOTbJ7Ax3Kcv8vLD4EoPCOAspgTs5io6+f4NYyB0
-	3VxFJ4rQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=BlSY6+qrGUZ462JTxJxa19s7WGyY7mscy/vRmwnQl0g=; b=hRU1vvk3UEfWATARG5ik+ZW1u7
+	1CeYkCL9d7PUCGX64xLpqfJwR4HuAm6fwuB6l5pR4l2epIdeEp/Als0Z0ol2BPOu1vN8sQ81GSjMz
+	2yOEQif0K1E0ClZRzslBSDu76tBymXCfPDk9SDgQMm2QhdkrR/wGwWFoZj4M9DBmTXMb1nJOg8DHw
+	cehyFXn6n1w4hTSGuaTPZngYyPTMSDrKSHvStsKAj7U1/qoi12Fg1QzzVzmmob1dzy1k8f3lc8bUZ
+	iLmXYFincW1jkoD9L/ZQFLPEpJWZcvgW9PeGYUTOyvD4YLlXx2Tg56f3/j4CDzon7q36pqrwYj6xF
+	LP3Y627w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4EUz-00000009uGL-3QaY;
-	Thu, 02 Oct 2025 08:17:13 +0000
-Received: from mgamail.intel.com ([192.198.163.16])
+	id 1v4EtE-0000000A1MW-14ZF;
+	Thu, 02 Oct 2025 08:42:16 +0000
+Received: from mailgw02.mediatek.com ([216.200.240.185])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4EUx-00000009uEk-27q4;
-	Thu, 02 Oct 2025 08:17:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1759393031; x=1790929031;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=qhPCv+hvtTaEhLSvWRtO8cEw6fW/dZWLWErQIn5N/xI=;
-  b=HFqu5hpRXwkAPS/BtvoBpMDHAQcwrZwgg/MhcysyXa6+Ksc25hBaNKOw
-   VBjrRpfmxaDlNC7EjcCHGRvATC6B/gIRRgK+UHqbd7wHn0DqwaNSbmLTR
-   OXHIbMkUvOogQjSEn7Fd8N230MbyuglOLH+gCk1D7m9Y+wTTBCAYfsLcj
-   qZC34R1+Jzr95BaZFVqyEaB0+VxAdhNIaCNaVidcHXlNC+U1f6KN6Quug
-   wDHAVdNSrEOHx2C+q+8Wg5YHlbBQoo4GnLOzVwOKqbP36d5Ul4Dk8Uq82
-   czPwFZUHSucjdBjfts2FbNy7EzpacY2qIn7D00/5lsbI050DkXYDcEa0n
-   A==;
-X-CSE-ConnectionGUID: J6LqYt4JQbKhk2PDDWxJzA==
-X-CSE-MsgGUID: NYxBYIckRlaM3dEnjdwxaw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11569"; a="49230499"
-X-IronPort-AV: E=Sophos;i="6.18,309,1751266800"; 
-   d="scan'208";a="49230499"
-Received: from orviesa007.jf.intel.com ([10.64.159.147])
-  by fmvoesa110.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Oct 2025 01:17:09 -0700
-X-CSE-ConnectionGUID: 6YX8BcraQ+aqUY/Jr4ihHw==
-X-CSE-MsgGUID: BdxfyJimRBuNrjmbXHg0HA==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,309,1751266800"; 
-   d="scan'208";a="178797283"
-Received: from bergbenj-mobl1.ger.corp.intel.com (HELO kekkonen.fi.intel.com) ([10.245.245.175])
-  by orviesa007-auth.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Oct 2025 01:17:07 -0700
-Received: from kekkonen.localdomain (localhost [IPv6:::1])
-	by kekkonen.fi.intel.com (Postfix) with SMTP id 7333A121EC3;
-	Thu, 02 Oct 2025 11:17:03 +0300 (EEST)
-Date: Thu, 2 Oct 2025 11:17:03 +0300
-Organization: Intel Finland Oy - BIC 0357606-4 - c/o Alberga Business Park, 6 krs, Bertel Jungin Aukio 5, 02600 Espoo
-From: Sakari Ailus <sakari.ailus@linux.intel.com>
-To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Cc: Dafna Hirschfeld <dafna@fastmail.com>,
-	Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
-	Keke Li <keke.li@amlogic.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Dan Scally <dan.scally@ideasonboard.com>,
-	Antoine Bouyer <antoine.bouyer@nxp.com>,
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v5 0/8] media: Introduce V4L2 generic ISP support
-Message-ID: <aN40_78P5TaUuglA@kekkonen.localdomain>
-References: <20250915-extensible-parameters-validation-v5-0-e6db94468af3@ideasonboard.com>
+	id 1v4EtA-0000000A1LZ-3n5R;
+	Thu, 02 Oct 2025 08:42:15 +0000
+X-UUID: aed090989f6b11f0a52f393f94899d25-20251002
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
+	h=Content-Type:Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From; bh=BlSY6+qrGUZ462JTxJxa19s7WGyY7mscy/vRmwnQl0g=;
+	b=KW/LJGTq7tQ02RW/UZiteDYVt8IhiTrbnMcaQGIwh/paF9pi5VHFPpibJINfGqi7bWgRXSjXkl+QCnxKJVEd9nc/ypEfRwcFPDrwwpjcsOHXm7yXD4G91ljKY7g9Vwx1mTvsqr5ilQ9eQq/07tglJKOlsWNhbdmrbZaWPS1TNtQ=;
+X-CID-P-RULE: Release_Ham
+X-CID-O-INFO: VERSION:1.3.6,REQID:ee94a327-c86d-48ea-96d7-9fb6df2e98ae,IP:0,UR
+	L:0,TC:0,Content:100,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION
+	:release,TS:100
+X-CID-META: VersionHash:a9d874c,CLOUDID:d6b42a6d-8443-424b-b119-dc42e68239b0,B
+	ulkID:nil,BulkQuantity:0,Recheck:0,SF:102|836|888|898,TC:-5,Content:3|15|5
+	0,EDM:-3,IP:nil,URL:99|1,File:130,RT:nil,Bulk:nil,QS:nil,BEC:nil,COL:0,OSI
+	:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
+X-CID-BVR: 2,SSN|SDN
+X-CID-BAS: 2,SSN|SDN,0,_
+X-CID-FACTOR: TF_CID_SPAM_SNR,TF_CID_SPAM_ULS
+X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
+X-UUID: aed090989f6b11f0a52f393f94899d25-20251002
+Received: from mtkmbs14n1.mediatek.inc [(172.21.101.75)] by mailgw02.mediatek.com
+	(envelope-from <jjian.zhou@mediatek.com>)
+	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
+	with ESMTP id 1286553512; Thu, 02 Oct 2025 01:42:09 -0700
+Received: from mtkmbs11n2.mediatek.inc (172.21.101.187) by
+ mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.10; Thu, 2 Oct 2025 16:42:04 +0800
+Received: from mhfsdcap04.gcn.mediatek.inc (10.17.3.154) by
+ mtkmbs11n2.mediatek.inc (172.21.101.73) with Microsoft SMTP Server id
+ 15.2.1748.10 via Frontend Transport; Thu, 2 Oct 2025 16:42:03 +0800
+From: Jjian Zhou <jjian.zhou@mediatek.com>
+To: Jassi Brar <jassisinghbrar@gmail.com>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>, AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>, Jjian Zhou
+	<Jjian.Zhou@mediatek.com>, Chen-Yu Tsai <wenst@chromium.org>
+CC: <linux-kernel@vger.kernel.org>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<Project_Global_Chrome_Upstream_Group@mediatek.com>, Jjian Zhou
+	<jjian.zhou@mediatek.corp-partner.google.com>
+Subject: [PATCH v7 0/2] add VCP mailbox driver
+Date: Thu, 2 Oct 2025 16:41:53 +0800
+Message-ID: <20251002084204.15898-1-jjian.zhou@mediatek.com>
+X-Mailer: git-send-email 2.46.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250915-extensible-parameters-validation-v5-0-e6db94468af3@ideasonboard.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-MTK: N
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_011711_561836_F069C7D6 
-X-CRM114-Status: GOOD (  20.80  )
+X-CRM114-CacheID: sfid-20251002_014212_951286_ECAFCE3E 
+X-CRM114-Status: GOOD (  14.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,58 +89,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jacopo,
+From: Jjian Zhou <jjian.zhou@mediatek.corp-partner.google.com>
 
-On Mon, Sep 15, 2025 at 07:18:09PM +0200, Jacopo Mondi wrote:
-> Extensible parameters meta formats have been introduced in the Linux
-> kernel v6.12 initially to support different revision of the RkISP1 ISP
-> implemented in different SoC. In order to avoid breaking userspace
-> everytime an ISP configuration block is added or modified in the uAPI
-> these new formats, which are versionated and extensible by their
-> definition have been introduced.
-> 
-> See for reference:
-> e9d05e9d5db1 ("media: uapi: rkisp1-config: Add extensible params format")
-> 6c53a7b68c5d ("media: rkisp1: Implement extensible params support")
-> 
-> The Amlogic C3 ISP driver followed shortly, introducing an extensible
-> format for the ISP configuration:
-> 
-> 6d406187ebc0 ("media: uapi: Add stats info and parameters buffer for C3 ISP")
-> 
-> with a very similar, if not identical, implementation of the routines to
-> validate and handle the ISP configuration in the ISP driver in the
-> c3-isp-params.c file.
-> 
-> fb2e135208f3 ("media: platform: Add C3 ISP driver")
-> 
-> With the recent upstreaming attempt of the Mali C55 ISP driver from Dan,
-> a third user of extensible parameters is going to be itroduced in the
-> kernel, duplicating again in the driver the procedure for validating and
-> handling the ISP configuration blocks
-> 
-> https://patchwork.linuxtv.org/project/linux-media/patch/20250624-c55-v10-15-54f3d4196990@ideasonboard.com/
-> 
-> To avoid duplicating again the validation routines and common types
-> definition, this series introduces v4l2-isp.c/.h for the kAPI
-> and v4l2-isp.h for the uAPI and re-organize the RkISP1
-> and Amlogic C3 drivers to use the common types and the helper validation
-> routines.
-> 
-> The v4l2-isp abstraction will be augmented to support statistcs as well.
-> 
-> If the here proposed approach is accepted, I propose to rebase the Mali
-> C55 driver on top of this series, to use the new common types and
-> helpers.
-> 
-> I have been able to test this on RkISP1 but not on C3.
+Hi everyone,
 
-Thank you for working on this.
+This is v7 of my VCP mailbox driver.
 
-Acked-by: Sakari Ailus <sakari.ailus@linux.intel.com>
+Changes since v7:
+- mtk-vcp-mailbox.c:
+  - Change type u32 to u16.
+  - Change BIT(ipi_info->index) to if.
+  - Put the platform_set_drvdata between "of_device_get_match_data"
+    and "platform_get_irq".
+- mtk-vcp-mailbox.h
+  - Modify the definition to MTK_VCP_MBOX_SLOT_MAX_SIZE.
 
--- 
-Kind regards,
+Changes since v6:
+- mtk-vcp-mailbox.c:
+  - Replace mtk_vcp_mbox_priv with mtk_vcp_mbox.
+  - Move mbox_controller to the first member.
+  - Define "struct mbox_chan chan"; Remove allocate one during the probe.
+  - Remove API get_mtk_vcp_mbox_priv.
+  - Pass the private data since there's only one mailbox.
+  - Modify mtk_vcp_mbox_xlate "return &mbox->chans[0]".
 
-Sakari Ailus
+Changes since v5:
+- binding:
+  - Patch 1 fix 'make dt_binding_check' errors.
+  - Link to v5
+    https://patchwork.kernel.org/project/linux-mediatek/patch/20250822021217.1598-2-jjian.zhou@mediatek.com/
+
+Changes since v4:
+- binding:
+  - Match the binding file name and compatible.
+- mtk-vcp-mailbox.c:
+  - Drop 'dev_dbg(dev, "MTK VCP mailbox initialized\n")'.
+- Since the reviewer hopes to combine the VCP IPC driver and
+  the VCP driver for a unified review, the original three patches
+  have been split into two parts: the VCP mailbox driver and
+  the binding remain together, while the VCP IPC driver is merged
+  with the VCP driver and submitted as one.
+- Link to v4
+  https://lore.kernel.org/all/20250820094545.23821-1-jjian.zhou@mediatek.com/
+
+Changes since v3:
+- binding:
+  - Remove unused lable '|' and 'vcp_mailbox0'.
+- Link to v3
+  https://lore.kernel.org/all/20250317110331.2776-1-jjian.zhou@mediatek.com/
+
+Changes since v1:
+- Link to v1
+  https://lore.kernel.org/all/20250305082047.15746-1-jjian.zhou@mediatek.com/
+
+In the v2 version, there is ongoing discussion about whether the VCP's
+IPC should use mailbox or rpmsg. To prevent the discussion records
+from being lost, the previous discussion link is attached.
+https://lore.kernel.org/all/CAGXv+5FXqZb_v2dQNgCKbFpJrLhbVk3f0sWrrMCVk3jaWwoBqA@mail.gmail.com/
+
+Jjian Zhou (2):
+  dt-bindings: mailbox: mediatek,mt8196-vcp-mbox: add mtk vcp-mbox
+    document
+  mailbox: mediatek: Add mtk-vcp-mailbox driver
+
+ .../mailbox/mediatek,mt8196-vcp-mbox.yaml     |  49 +++++
+ drivers/mailbox/Kconfig                       |   9 +
+ drivers/mailbox/Makefile                      |   2 +
+ drivers/mailbox/mtk-vcp-mailbox.c             | 170 ++++++++++++++++++
+ include/linux/mailbox/mtk-vcp-mailbox.h       |  32 ++++
+ 5 files changed, 262 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/mailbox/mediatek,mt8196-vcp-mbox.yaml
+ create mode 100644 drivers/mailbox/mtk-vcp-mailbox.c
+ create mode 100644 include/linux/mailbox/mtk-vcp-mailbox.h
+
+--
+2.45.2
+
 
