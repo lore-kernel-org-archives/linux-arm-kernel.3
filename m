@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 244C5CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 18:01:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B03FFCAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 18:01:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=epU/uuRCc6FYveB1XcTu+0zfQVVGTvdnWiBQH/N2XKE=; b=m8qwyjChW9j4FikjJRqcebOicb
-	xF7AS8/9G0lcmPnIQj4dzHHeeuZUPU2if9qYV7bUt5VrwBaDxvp9Cns+Nrd8Kqb4wlCNin+8Vq5QT
-	O+evT2WU4tGRVytvsx4PX4Yg2HQV8/8PWnxNAB04JcSsj6hqI/piAkX1RP5Y1UOktx6w8j2SLPrpp
-	YODvHGJW9eu1iMbrLtCKpY9vdZ3DzcL3ftyOnfTa6OtDtuz1ouZvuMEYnsLZfLO4VwAuNGVUFERCY
-	n7cANaNTvqGB4Q6Fk4jMgNIQ0CpIy5DTzUL7nLq/l3E9bcXGOXfv61YYDbnSHsBsWUz4OoxAm+2kr
-	uWUf0wQg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xkEPvUKyQPfYOtTnd+JXsEAKoNLEM/0U49oHM5nqIDU=; b=1zA566D7yHi/cj31KFe8BQBWeA
+	iuuluMJjjD3cOl/xY0GS2mL4RNrnIkBVuuuHQ1dXDdiSHIubhcKCB82g3b98e0MqBfzdUxycCfHn/
+	avOjKJbpIobtcjibUNvcOvSk7ENMtUndRjfGo1qM28e8U4g4SG75ml/qgpQj+da43jJwKBGCgmszP
+	MmeTQVSQixTcvvPRpOuRuU3StpBU0hdCs9npiv2l7NPV9z9xcEOS2Xcb0zsb0FMSL27sCukk487PZ
+	n6eDg8Jxq85NIk5IDMFZOUq91Lanqy35j/rrOVqSp+18GdYjINub7C2yKrK1t+CAbbCcEaZtEpowg
+	WzbuAaDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4NcD-0000000AxTQ-0rwO;
+	id 1v4NcD-0000000AxTe-24Uk;
 	Thu, 02 Oct 2025 18:01:17 +0000
-Received: from fra-out-011.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([52.28.197.132])
+Received: from fra-out-012.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([52.57.120.243])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4Nc6-0000000AxPr-1Zic
+	id 1v4NcA-0000000AxSE-2u16
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Oct 2025 18:01:14 +0000
+	Thu, 02 Oct 2025 18:01:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
   d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1759428070; x=1790964070;
-  h=from:to:subject:date:message-id:mime-version:
-   content-transfer-encoding;
-  bh=epU/uuRCc6FYveB1XcTu+0zfQVVGTvdnWiBQH/N2XKE=;
-  b=LLm+F0FW1ZSqzcxXVKG0hmKqxkzdyQBoYufI9dZbd7bsUdlTSr4n0q3S
-   DmfReIHqbvURo5CUyrciyXnAVptwh61VugWYd2wvuZDOtezKJW1Iy6HiO
-   4jXVNbHQHBfvAaGxUsW83BhJRrQGPJ3Uza6eOwBtTiG/3ImC8B8ZyM2GV
-   hngOkXLM1pMG0PISpn1slELYhSvdrDwCZRaOuW4J8ylDZGveNziXbM+L6
-   4eTLxPVXCm2C6zYmuLAvWFPlR/BS/GXepEpSW0J4tvbKvPkR3evJcW767
-   Vrvt9dPMPQXaTuO/c9JC5zYj6N9BwNG9v6v+OvDkBuzGC0XKDDADmxh95
-   g==;
-X-CSE-ConnectionGUID: 4wc7erOoTsG+zcDi3lQiWg==
-X-CSE-MsgGUID: 2gKb5OADRGepv9G3AIxECQ==
+  t=1759428074; x=1790964074;
+  h=from:to:cc:subject:date:message-id:in-reply-to:
+   references:mime-version:content-transfer-encoding;
+  bh=xkEPvUKyQPfYOtTnd+JXsEAKoNLEM/0U49oHM5nqIDU=;
+  b=qV89wLM0iRaUOXomkqFX6xnzKW4iwI0jPCtfVM9i86//RRNbZ4/vatuO
+   cbV3LJiXB18XTn05moQaQimtVRvyMHhdfuoOg7H3gC+ZE/weTT2f6phD5
+   9MPSyrsytzGOYUBtpEd2TAOYtqFh61VbTVAicSVhwGhlKm2rRcv/wB4Y+
+   W7l5kS0grBA9+XhBGIONKjlX2qpEQWcvRkhqFp3x1VgOrQS8ooSjZHWNT
+   g1xMlAchmgmWT3DHOLc6y4IsDcKSpQW5asVD/ZmA4oo5JX0nA1u0LYpEJ
+   9+aGvL8tgYz0+lfWJPim5h58X3BFbPIjIX1kJA3d/o1HM/AlOFeZBi3NN
+   Q==;
+X-CSE-ConnectionGUID: 6ZlMkN1CS7avopZ3A4juGQ==
+X-CSE-MsgGUID: 01wBVYhTTXquoF1/7CQ2zQ==
 X-IronPort-AV: E=Sophos;i="6.18,310,1751241600"; 
-   d="scan'208";a="2922661"
-Received: from ip-10-6-3-216.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.3.216])
-  by internal-fra-out-011.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Oct 2025 18:00:57 +0000
-Received: from EX19MTAEUA001.ant.amazon.com [54.240.197.233:16626]
- by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.22.27:2525] with esmtp (Farcaster)
- id 6ebc8389-d59d-4539-8dfb-efa782bd8e1d; Thu, 2 Oct 2025 18:00:57 +0000 (UTC)
-X-Farcaster-Flow-ID: 6ebc8389-d59d-4539-8dfb-efa782bd8e1d
+   d="scan'208";a="2921726"
+Received: from ip-10-6-6-97.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.6.97])
+  by internal-fra-out-012.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Oct 2025 18:01:04 +0000
+Received: from EX19MTAEUA002.ant.amazon.com [54.240.197.232:25942]
+ by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.1.16:2525] with esmtp (Farcaster)
+ id 9cb0e688-46be-460b-a0aa-e33da08706b3; Thu, 2 Oct 2025 18:01:04 +0000 (UTC)
+X-Farcaster-Flow-ID: 9cb0e688-46be-460b-a0aa-e33da08706b3
 Received: from EX19D018EUA004.ant.amazon.com (10.252.50.85) by
- EX19MTAEUA001.ant.amazon.com (10.252.50.50) with Microsoft SMTP Server
+ EX19MTAEUA002.ant.amazon.com (10.252.50.126) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
- Thu, 2 Oct 2025 18:00:52 +0000
+ Thu, 2 Oct 2025 18:01:03 +0000
 Received: from dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com
  (172.19.116.181) by EX19D018EUA004.ant.amazon.com (10.252.50.85) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20; Thu, 2 Oct 2025
- 18:00:42 +0000
+ 18:00:52 +0000
 From: Eliav Farber <farbere@amazon.com>
 To: <gregkh@linuxfoundation.org>, <kenneth.feng@amd.com>,
 	<alexander.deucher@amd.com>, <christian.koenig@amd.com>, <airlied@gmail.com>,
@@ -76,19 +76,23 @@ To: <gregkh@linuxfoundation.org>, <kenneth.feng@amd.com>,
 	<linux-sunxi@lists.linux.dev>, <dm-devel@lists.linux.dev>,
 	<linux-btrfs@vger.kernel.org>, <linux-sparse@vger.kernel.org>,
 	<stable@vger.kernel.org>, <farbere@amazon.com>
-Subject: [PATCH v3 00/11 6.1.y] Backport minmax.h updates from v6.17-rc7
-Date: Thu, 2 Oct 2025 18:00:18 +0000
-Message-ID: <20251002180036.33738-1-farbere@amazon.com>
+CC: Linus Torvalds <torvalds@linux-foundation.org>, David Laight
+	<David.Laight@aculab.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Subject: [PATCH v3 01/11 6.1.y] minmax: simplify min()/max()/clamp() implementation
+Date: Thu, 2 Oct 2025 18:00:19 +0000
+Message-ID: <20251002180036.33738-2-farbere@amazon.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20251002180036.33738-1-farbere@amazon.com>
+References: <20251002180036.33738-1-farbere@amazon.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
 X-Originating-IP: [172.19.116.181]
 X-ClientProxiedBy: EX19D036UWC003.ant.amazon.com (10.13.139.214) To
  EX19D018EUA004.ant.amazon.com (10.252.50.85)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_110110_700042_27356B8B 
-X-CRM114-Status: GOOD (  12.75  )
+X-CRM114-CacheID: sfid-20251002_110115_037911_93C0A80A 
+X-CRM114-Status: GOOD (  16.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,107 +107,139 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This series backports 13 patches to update minmax.h in the 6.1.y branch,
-aligning it with v6.17-rc7.
+From: Linus Torvalds <torvalds@linux-foundation.org>
 
-The ultimate goal is to synchronize all longterm branches so that they
-include the full set of minmax.h changes (6.12.y and 6.6.y were already
-backported by me and are now ligned).
+[ Upstream commit dc1c8034e31b14a2e5e212104ec508aec44ce1b9 ]
 
-The key motivation is to bring in commit d03eba99f5bf ("minmax: allow
-min()/max()/clamp() if the arguments have the same signedness"), which
-is missing in older kernels.
+Now that we no longer have any C constant expression contexts (ie array
+size declarations or static initializers) that use min() or max(), we
+can simpify the implementation by not having to worry about the result
+staying as a C constant expression.
 
-In mainline, this change enables min()/max()/clamp() to accept mixed
-argument types, provided both have the same signedness. Without it,
-backported patches that use these forms may trigger compiler warnings,
-which escalate to build failures when -Werror is enabled.
+So now we can unconditionally just use temporary variables of the right
+type, and get rid of the excessive expansion that used to come from the
+use of
 
-Changes in v3:
-- v2 included 13 patches:
-  https://lore.kernel.org/stable/20250929183358.18982-1-farbere@amazon.com/
-- First 2 were accepted and are part of 6.1.155.
-- 3rd caused build in drivers/md/ to fail:
+   __builtin_choose_expr(__is_constexpr(...), ..
 
-In file included from ./include/linux/container_of.h:5,
-                 from ./include/linux/list.h:5,
-                 from ./include/linux/wait.h:7,
-                 from ./include/linux/mempool.h:8,
-                 from ./include/linux/bio.h:8,
-                 from drivers/md/dm-bio-record.h:10,
-                 from drivers/md/dm-integrity.c:9:
-drivers/md/dm-integrity.c: In function ‘integrity_metadata’:
-drivers/md/dm-integrity.c:131:105: error: ISO C90 forbids variable length array ‘checksums_onstack’ [-Werror=vla]
-  131 | #define MAX_TAG_SIZE                    (JOURNAL_SECTOR_DATA - JOURNAL_MAC_PER_SECTOR - offsetof(struct journal_entry, last_bytes[MAX_SECTORS_PER_BLOCK]))
-      |                                                                                                         ^~~~~~~~~~~~~
-./include/linux/build_bug.h:78:56: note: in definition of macro ‘__static_assert’
-   78 | #define __static_assert(expr, msg, ...) _Static_assert(expr, msg)
-      |                                                        ^~~~
-./include/linux/minmax.h:56:9: note: in expansion of macro ‘static_assert’
-   56 |         static_assert(__types_ok(x, y, ux, uy),         \
-      |         ^~~~~~~~~~~~~
-./include/linux/minmax.h:41:31: note: in expansion of macro ‘__is_noneg_int’
-   41 |          __is_noneg_int(x) || __is_noneg_int(y))
-      |                               ^~~~~~~~~~~~~~
-./include/linux/minmax.h:56:23: note: in expansion of macro ‘__types_ok’
-   56 |         static_assert(__types_ok(x, y, ux, uy),         \
-      |                       ^~~~~~~~~~
-./include/linux/minmax.h:61:9: note: in expansion of macro ‘__careful_cmp_once’
-   61 |         __careful_cmp_once(op, x, y, __UNIQUE_ID(x_), __UNIQUE_ID(y_))
-      |         ^~~~~~~~~~~~~~~~~~
-./include/linux/minmax.h:92:25: note: in expansion of macro ‘__careful_cmp’
-   92 | #define max(x, y)       __careful_cmp(max, x, y)
-      |                         ^~~~~~~~~~~~~
-drivers/md/dm-integrity.c:1797:40: note: in expansion of macro ‘max’
- 1797 |                 char checksums_onstack[max((size_t)HASH_MAX_DIGESTSIZE, MAX_TAG_SIZE)];
-      |                                        ^~~
-drivers/md/dm-integrity.c:131:89: note: in expansion of macro ‘offsetof’
-  131 | #define MAX_TAG_SIZE                    (JOURNAL_SECTOR_DATA - JOURNAL_MAC_PER_SECTOR - offsetof(struct journal_entry, last_bytes[MAX_SECTORS_PER_BLOCK]))
-      |                                                                                         ^~~~~~~~
-drivers/md/dm-integrity.c:1797:73: note: in expansion of macro ‘MAX_TAG_SIZE’
- 1797 |                 char checksums_onstack[max((size_t)HASH_MAX_DIGESTSIZE, MAX_TAG_SIZE)];
-      |                                                                         ^~~~~~~~~~~~
+to pick the specialized code for constant expressions.
 
-- The build was fixed in the second patch of this series.
+Another expansion simplification is to pass the temporary variables (in
+addition to the original expression) to our __types_ok() macro.  That
+may superficially look like it complicates the macro, but when we only
+want the type of the expression, expanding the temporary variable names
+is much simpler and smaller than expanding the potentially complicated
+original expression.
 
-Changes in v2:
-- v1 included 19 patches:
-  https://lore.kernel.org/stable/20250924202320.32333-1-farbere@amazon.com/
-- First 6 were pushed to the stable-tree.
-- 7th cauded amd driver's build to fail.
-- This change fixes it.
-- Modified files:
-   drivers/gpu/drm/amd/amdgpu/amdgpu.h
-   drivers/gpu/drm/amd/pm/swsmu/smu11/sienna_cichlid_ppt.c
-   drivers/gpu/drm/amd/pm/swsmu/smu13/smu_v13_0_0_ppt.c
-   drivers/gpu/drm/amd/pm/swsmu/smu13/smu_v13_0_7_ppt.c
+As a result, on my machine, doing a
 
-David Laight (7):
-  minmax.h: add whitespace around operators and after commas
-  minmax.h: update some comments
-  minmax.h: reduce the #define expansion of min(), max() and clamp()
-  minmax.h: use BUILD_BUG_ON_MSG() for the lo < hi test in clamp()
-  minmax.h: move all the clamp() definitions after the min/max() ones
-  minmax.h: simplify the variants of clamp()
-  minmax.h: remove some #defines that are only expanded once
+  $ time make drivers/staging/media/atomisp/pci/isp/kernels/ynr/ynr_1.0/ia_css_ynr.host.i
 
-Linus Torvalds (4):
-  minmax: simplify min()/max()/clamp() implementation
-  minmax: don't use max() in situations that want a C constant
-    expression
-  minmax: improve macro expansion and type checking
-  minmax: fix up min3() and max3() too
+goes from
 
- drivers/gpu/drm/amd/pm/swsmu/smu_cmn.c   |   2 +-
- drivers/input/touchscreen/cyttsp4_core.c |   2 +-
- drivers/irqchip/irq-sun6i-r.c            |   2 +-
- drivers/md/dm-integrity.c                |   2 +-
- fs/btrfs/tree-checker.c                  |   2 +-
- include/linux/compiler.h                 |   9 +
- include/linux/minmax.h                   | 222 +++++++++++++----------
- lib/vsprintf.c                           |   2 +-
- 8 files changed, 143 insertions(+), 100 deletions(-)
+	real	0m16.621s
+	user	0m15.360s
+	sys	0m1.221s
 
+to
+
+	real	0m2.532s
+	user	0m2.091s
+	sys	0m0.452s
+
+because the token expansion goes down dramatically.
+
+In particular, the longest line expansion (which was line 71 of that
+'ia_css_ynr.host.c' file) shrinks from 23,338kB (yes, 23MB for one
+single line) to "just" 1,444kB (now "only" 1.4MB).
+
+And yes, that line is still the line from hell, because it's doing
+multiple levels of "min()/max()" expansion thanks to some of them being
+hidden inside the uDIGIT_FITTING() macro.
+
+Lorenzo has a nice cleanup patch that makes that driver use inline
+functions instead of macros for sDIGIT_FITTING() and uDIGIT_FITTING(),
+which will fix that line once and for all, but the 16-fold reduction in
+this case does show why we need to simplify these helpers.
+
+Cc: David Laight <David.Laight@aculab.com>
+Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
+Signed-off-by: Linus Torvalds <torvalds@linux-foundation.org>
+Signed-off-by: Eliav Farber <farbere@amazon.com>
+---
+ include/linux/minmax.h | 43 ++++++++++++++++++++----------------------
+ 1 file changed, 20 insertions(+), 23 deletions(-)
+
+diff --git a/include/linux/minmax.h b/include/linux/minmax.h
+index fc384714da45..e3e4353df983 100644
+--- a/include/linux/minmax.h
++++ b/include/linux/minmax.h
+@@ -35,10 +35,10 @@
+ #define __is_noneg_int(x)	\
+ 	(__builtin_choose_expr(__is_constexpr(x) && __is_signed(x), x, -1) >= 0)
+ 
+-#define __types_ok(x, y) 					\
+-	(__is_signed(x) == __is_signed(y) ||			\
+-		__is_signed((x) + 0) == __is_signed((y) + 0) ||	\
+-		__is_noneg_int(x) || __is_noneg_int(y))
++#define __types_ok(x, y, ux, uy) 				\
++	(__is_signed(ux) == __is_signed(uy) ||			\
++	 __is_signed((ux) + 0) == __is_signed((uy) + 0) ||	\
++	 __is_noneg_int(x) || __is_noneg_int(y))
+ 
+ #define __cmp_op_min <
+ #define __cmp_op_max >
+@@ -51,34 +51,31 @@
+ #define __cmp_once(op, type, x, y) \
+ 	__cmp_once_unique(op, type, x, y, __UNIQUE_ID(x_), __UNIQUE_ID(y_))
+ 
+-#define __careful_cmp_once(op, x, y) ({			\
+-	static_assert(__types_ok(x, y),			\
++#define __careful_cmp_once(op, x, y, ux, uy) ({		\
++	__auto_type ux = (x); __auto_type uy = (y);	\
++	static_assert(__types_ok(x, y, ux, uy),		\
+ 		#op "(" #x ", " #y ") signedness error, fix types or consider u" #op "() before " #op "_t()"); \
+-	__cmp_once(op, __auto_type, x, y); })
++	__cmp(op, ux, uy); })
+ 
+-#define __careful_cmp(op, x, y)					\
+-	__builtin_choose_expr(__is_constexpr((x) - (y)),	\
+-		__cmp(op, x, y), __careful_cmp_once(op, x, y))
++#define __careful_cmp(op, x, y) \
++	__careful_cmp_once(op, x, y, __UNIQUE_ID(x_), __UNIQUE_ID(y_))
+ 
+ #define __clamp(val, lo, hi)	\
+ 	((val) >= (hi) ? (hi) : ((val) <= (lo) ? (lo) : (val)))
+ 
+-#define __clamp_once(val, lo, hi, unique_val, unique_lo, unique_hi) ({		\
+-	typeof(val) unique_val = (val);						\
+-	typeof(lo) unique_lo = (lo);						\
+-	typeof(hi) unique_hi = (hi);						\
++#define __clamp_once(val, lo, hi, uval, ulo, uhi) ({				\
++	__auto_type uval = (val);						\
++	__auto_type ulo = (lo);							\
++	__auto_type uhi = (hi);							\
+ 	static_assert(__builtin_choose_expr(__is_constexpr((lo) > (hi)), 	\
+ 			(lo) <= (hi), true),					\
+ 		"clamp() low limit " #lo " greater than high limit " #hi);	\
+-	static_assert(__types_ok(val, lo), "clamp() 'lo' signedness error");	\
+-	static_assert(__types_ok(val, hi), "clamp() 'hi' signedness error");	\
+-	__clamp(unique_val, unique_lo, unique_hi); })
+-
+-#define __careful_clamp(val, lo, hi) ({					\
+-	__builtin_choose_expr(__is_constexpr((val) - (lo) + (hi)),	\
+-		__clamp(val, lo, hi),					\
+-		__clamp_once(val, lo, hi, __UNIQUE_ID(__val),		\
+-			     __UNIQUE_ID(__lo), __UNIQUE_ID(__hi))); })
++	static_assert(__types_ok(uval, lo, uval, ulo), "clamp() 'lo' signedness error");	\
++	static_assert(__types_ok(uval, hi, uval, uhi), "clamp() 'hi' signedness error");	\
++	__clamp(uval, ulo, uhi); })
++
++#define __careful_clamp(val, lo, hi) \
++	__clamp_once(val, lo, hi, __UNIQUE_ID(v_), __UNIQUE_ID(l_), __UNIQUE_ID(h_))
+ 
+ /**
+  * min - return minimum of two values of the same or compatible types
 -- 
 2.47.3
 
