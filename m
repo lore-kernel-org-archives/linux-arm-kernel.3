@@ -4,62 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49EABCAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 08:48:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA413CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 09:00:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VO6E+CG74mYyDSB9xoM/rucX77U5zhjbsNB9DqqFDgU=; b=XD1VRT96A8uban2OBNaIYSSasu
-	m/AGIfLYfv2im+dIeMNfBEEvngYtESnxPhZ2XMheKSSL/oaBcDinqBqE1jEUbHFH+JCkE92RmwJuy
-	8ysV7qaMI1LFq8IdBGUzjqpsDOrx4O5Da0e33EX6QG1ZCrA4t0E801X6fzc+jrCiyRFBJvRhQ7Vq+
-	dwF0F5cDHNOxcqF9/p/BEeAMytRwSdExYHKl9agQ1i2E64G11XsbXgiIgR/H3C8as7PBxiHjLqsbK
-	DgGYdIxzSUIXerbAVHfVO0XQUJHptRRO8vOftnh/zXDy+JlNh9Mv/1GxGCA88V8kGCl0GsdcCu/7D
-	LmhU52DQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MiMDVn3wEE/LmZ1AmiCuU+eJaQ0OkjiERZri1km3Rq4=; b=fVzRRS2D1dh/yjL/7eQ36QXzn8
+	fz7S1UFKNSNpOtfdHSzIk9xHsHm8+JhSuI73ki/MHXGfx2VygapAf402o8VKZGzJxArQCMF9Oe4tf
+	60O62Z7cHTJ+4fW88rjwI15hTFKHwW+1zkzC+rv5Jneqsg59I1KVGqySA8AJzYFChrri5CN93Z1QJ
+	qmgwi0QrD4Aq4zOS9/gP4ErGQUh8dhMZJCIMWMsu1zEeEjNUfwNfb+eAi5DeZG5k2v6kXKva8NP9y
+	hkWF2FCXCksHUuoG4m/wHpGmigFUmnBvqBej+4WUAeWPUG2wHApWPGUeD3KCGrnTbTCnEPQkyFmyd
+	SRaziJHQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4Eyz-0000000A34w-1JvR;
-	Thu, 02 Oct 2025 08:48:13 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1v4FAz-0000000A4yn-0nAw;
+	Thu, 02 Oct 2025 09:00:37 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4Eyw-0000000A32Z-2pI0;
-	Thu, 02 Oct 2025 08:48:12 +0000
-Received: from ideasonboard.com (93-61-96-190.ip145.fastwebnet.it [93.61.96.190])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 8A7FDE01;
-	Thu,  2 Oct 2025 10:46:36 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1759394796;
-	bh=mRoI+Ub+U6sdRmdUwxEpuCgg8VYDH6rxA5K0cugMGLE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=VsbyxOZNUKo/EUkuRSCZ9vY6AmaFWybp5G4M+nIRPrS9bhRVrU8waZdQKQjL5ufSr
-	 H2kbaNOUvTIXi6L4nYIubQMjOnFJM3spwL+8IntwGltEoaoXh31nBumkg7/aWWRUq0
-	 9sfhwIKMATrDKZO1VvrlddYEcrY7wKMbAk/7BXyA=
-Date: Thu, 2 Oct 2025 10:48:02 +0200
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-To: Michael Riesch <michael.riesch@collabora.com>
-Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Kieran Bingham <kieran.bingham@ideasonboard.com>, 
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Tomasz Figa <tfiga@chromium.org>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Hans Verkuil <hverkuil@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-media@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 06/26] media: v4l2-ioctl: Introduce VIDIOC_BIND_CONTEXT
-Message-ID: <wkeizorbd2celujqgs63gzsk5nzsdtoabzg2ocdcsmg3djvl7u@hgh6ridrdwiy>
-References: <20250717-multicontext-mainline-2025-v1-0-81ac18979c03@ideasonboard.com>
- <20250717-multicontext-mainline-2025-v1-6-81ac18979c03@ideasonboard.com>
- <b8e03fd2-3a44-48bb-8707-4aecabbbfd9c@collabora.com>
+	id 1v4FAx-0000000A4x0-09Tk;
+	Thu, 02 Oct 2025 09:00:36 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1759395632;
+	bh=3c5+uu0oG8K7Htk9qACeUu9yZc3/uKHne4zfmvW3hZk=;
+	h=From:To:Cc:Subject:Date:From;
+	b=oJzAm3hZXHyWGqEoC/OYrY1whaO9WvWy2fzArwk3O8SvsYJNPV2ENKkVXLTqy3QHy
+	 LZXOHm2edIqM2Y+ajMHDoiywWfCkfkId83kXJYw3hNPZdqTnsJSZ8Z/ItZvYo2p7oB
+	 WGBC496h4cIEij1nsIYAcBq1krLz3rdrQuwBk0euA+wW36VR/yJqp8y9g9CoLpgYuY
+	 WbSts35bFldg3cWJApkqSl2wqIrujlRh/LkpPpmEvXbQ9Frp6RdyWxKFvfYFAFeCwU
+	 aYwp5ctxmbwvLGXZj0Q4hE3DiokZGzg8xV5gOulltDumlmkEKzjQ3zbrzdfIkH/USG
+	 JJpUYIsBJCs4Q==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 31A6317E0C54;
+	Thu,  2 Oct 2025 11:00:32 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: linux-mediatek@lists.infradead.org
+Cc: lee@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	lgirdwood@gmail.com,
+	broonie@kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kernel@collabora.com,
+	wenst@chromium.org,
+	igor.belwon@mentallysanemainliners.org
+Subject: [PATCH v7 0/9] Add support MT6316/6363/MT6373 PMICs regulators and MFD
+Date: Thu,  2 Oct 2025 11:00:19 +0200
+Message-ID: <20251002090028.1796462-1-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <b8e03fd2-3a44-48bb-8707-4aecabbbfd9c@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_014810_997782_8B94CB9E 
-X-CRM114-Status: GOOD (  56.98  )
+X-CRM114-CacheID: sfid-20251002_020035_244202_6C2298A0 
+X-CRM114-Status: GOOD (  22.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,347 +83,144 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michael
+Changes in v7:
+ - Removed unintentionally added, useless Link tags from all patches
+ - #size-cells is now required in mfd mt6363 binding
+ - Further fixes in mt6363/73 regulator bindings
+ - Mentioned weird 9-bits BE format and usage of undocumented set/clr
+   registers in commit description for the MT6316 regulator driver
+ - Refactored bindings for MT6316 PMIC (regulators):
+   - Added reg, #address-cells as required properties
+   - Added regulator-allowed-modes and its description
+   - Changed mt6316b/mt6316c to use patternProperties instead, as it
+     now makes sense to avoid duplication while keeping documentation
+     for the regulator-allowed-modes property in all vbuck entries
+   - Added decent examples that correctly describes the MT6316 PMICs
 
-On Wed, Oct 01, 2025 at 11:41:38PM +0200, Michael Riesch wrote:
-> Hi Jacopo,
->
-> On 7/17/25 12:45, Jacopo Mondi wrote:
-> > Introduce a new ioctl in V4L2 to allocate a video device context and
-> > associate it with a media device context.
-> >
-> > The ioctl is valid only if support for MEDIA_CONTROLLER is compiled in
-> > as it calls into the entity ops to let driver allocate a new context and
-> > binds the newly created context with the media context associated
-> > with the file descriptor provided by userspace as the new ioctl
-> > argument.
->
-> I would have expected that the execution context of the video device
-> already exists and is not allocated at ioctl call time. If I understand
+Changes in v6:
+ - Added missing bitfield.h header inclusion in mt6363-regulator.c
+ - Added commit "dt-bindings: iio: adc: mt6359: Allow reg for SPMI PMICs AuxADC"
+   to fix warnings on specifying reg property in adc node
+ - Added $ref in mt6363/73 regulator bindings to reduce duplication on LDOs
+ - Moved MT6363 regulators example to MFD binding
+ - Rebased on next-20250929
 
-If userspace doesn't use contexts, why pre-allocate it ?
-See also below on the implications of using a context regardless of
-userspace actions
+Changes in v5:
+ - This time the dt-bindings commits are the right ones... sorry again :-)
+ - Removed accidentally added Link: tags in all patches.
 
-> it correctly
->
->  - after opening a video device, no context is allocated, but in
->    v4l2_fh_release the reference counter of the context is decreased.
->    This smells fishy. Note that the user may not call the ioctl.
+Changes in v4:
+ - Rewritten all register definitions for both MT6363 and MT6373
+   regulators to be register offsets instead
+ - Added the appropriate supply_name to all vregs in 6363 and 6373
+ - Simplified the macro parameters for all vregs in 6363 and 6373
+   - Added common definitions pattern in macros to avoid plain writing
+     register definitions in every macro call
+ - Added registration of SPMI sub-device in MT6363/73 and setup of
+   regmap reg_base based on `reg` parsed from devicetree
+ - Removed interrupts parsing from devicetree
+   - Moved (pmic-internal) IRQs to macros
+ - mtk-spmi-pmic: Added parsing if irqspec with param_count=2 for
+   easier irqs registration from regulator drivers
 
-As far as I can see v4l2_fh_release() calls:
+Changes in v3:
+ - Added buck and ldo supplies to mt6363 and mt6373 drivers and bindings;
+ - Removed interrupts from mt6363 and mt6373 bindings;
+ - Added registering interrupts in mt6363/73 drivers instead:
+   this avoids big arrays in the mfd driver, which will grow
+   uncontrollably (as it already happened in multiple MediaTek
+   drivers) and with each new(future) supported PMIC;
+ - Removed "ldo-" and "buck-" prefixes from mt6363 regulators
+   - Renamed "vbX" to "vbuckX", reflecting datasheet name
+ - Changed all LDOs in MT6363 and MT6373 to add VOCAL usage, both
+   increasing the number of voltage steps (2.5 or 10mV increments
+   depending on the LDO) and the accuracy of the reported voltages
+ - Tested again on MT8196 board
 
-void video_device_context_put(struct video_device_context *ctx)
-{
-       if (!ctx)
-               return;
+Changes in v2:
+ - Merged MFD and regulator in one series
+ - Split mediatek,mt6316-regulator.yaml in three files as
+   suggested by krzk
+ - Added interrupt-names list in MT6363/MT6373 bindings as
+   suggested by krzk
+ - Documented regulator modes in MT6363/73 as suggested by krzk
+ - Fixed interrupt and interrupt-names maxItems in both 6363/73
+   because, well... I miscounted them in v1 :-)
+ - Removed keys from mt6363 binding: the compatible was not yet
+   added to the keys binding and doing that will take quite a
+   while, as I have to find a way to test the code before that
+   as unfortunately my HW does not provide any way to test the
+   PMIC keys (thought it did, but then turns out it doesn't...)
+ - Completed the mt6363 MFD example with ADC as suggested by Rob
+ - Avoided applying regulator schemas multiple times as pointed
+   out by Rob (in mfd binding)
+ - Fixed MT6363/73 issues pointed out by lkp (eh, sorry, that
+   happened during a last minute cleanup... ugh!).
+ - Brewed some more coffee :-)
 
-       media_entity_context_put(&ctx->base);
-}
 
-which is safe is !ctx
+This series adds support for three new MediaTek PMICs: MT6316, MT6363
+and MT6373 and their variants - used in board designs featuring the
+MediaTek MT8196 Chromebook SoC, or the MT6991 Dimensity 9400 Smartphone
+SoC.
 
->  - after opening a video device there is no context. This could imply
->    that two operating modes are required (with a context and without a
->    context), which would seem unnecessarily complex.
+In particular, MT6316 is a regulator, but the MT6363 and MT6373 PMICs
+are multi-function devices, as they have and expose multiple sub-devices;
+moreover, some of those also contain an interrupt controller, managing
+internal IPs interrupts: for those, a chained interrupt handler is
+registered, which parent is the SPMI controller itself.
 
-You'll find out later on that I have introduced a default context for
-this purpose
+This series adds support for all of the MT6316 regulator variants and
+for MT6363, MT6373 SPMI PMICs and their interrupt controller.
 
->  - What happens if the VIDIOC_BIND_CONTEXT ioctl is called more than
->    once? (IIUC vfh->context gets overwritten but the old context is not
->    released)
 
-Do you mean:
+AngeloGioacchino Del Regno (9):
+  dt-bindings: regulator: Document MediaTek MT6316 PMIC Regulators
+  regulator: Add support for MediaTek MT6316 SPMI PMIC Regulators
+  dt-bindings: regulator: Document MediaTek MT6363 PMIC Regulators
+  regulator: Add support for MediaTek MT6363 SPMI PMIC Regulators
+  dt-bindings: regulator: Document MediaTek MT6373 PMIC Regulators
+  regulator: Add support for MediaTek MT6373 SPMI PMIC Regulators
+  dt-bindings: iio: adc: mt6359: Allow reg for SPMI PMICs AuxADC
+  dt-bindings: mfd: Add binding for MediaTek MT6363 series SPMI PMIC
+  drivers: mfd: Add support for MediaTek SPMI PMICs and MT6363/73
 
-- Multiple file handles representing the same video device are bound
-  multiple times to the same media device context ?
+ .../iio/adc/mediatek,mt6359-auxadc.yaml       |  17 +
+ .../bindings/mfd/mediatek,mt6363.yaml         | 116 +++
+ .../regulator/mediatek,mt6316b-regulator.yaml |  80 ++
+ .../regulator/mediatek,mt6316c-regulator.yaml |  80 ++
+ .../regulator/mediatek,mt6316d-regulator.yaml |  79 ++
+ .../regulator/mediatek,mt6363-regulator.yaml  | 146 +++
+ .../regulator/mediatek,mt6373-regulator.yaml  | 137 +++
+ drivers/mfd/Kconfig                           |  17 +
+ drivers/mfd/Makefile                          |   1 +
+ drivers/mfd/mtk-spmi-pmic.c                   | 410 ++++++++
+ drivers/regulator/Kconfig                     |  27 +
+ drivers/regulator/Makefile                    |   3 +
+ drivers/regulator/mt6316-regulator.c          | 345 +++++++
+ drivers/regulator/mt6363-regulator.c          | 935 ++++++++++++++++++
+ drivers/regulator/mt6373-regulator.c          | 762 ++++++++++++++
+ include/linux/mfd/mt6363.h                    |  26 +
+ include/linux/mfd/mt6373.h                    |  21 +
+ include/linux/regulator/mt6363-regulator.h    | 331 +++++++
+ include/linux/regulator/mt6373-regulator.h    | 162 +++
+ 19 files changed, 3695 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/mfd/mediatek,mt6363.yaml
+ create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6316b-regulator.yaml
+ create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6316c-regulator.yaml
+ create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6316d-regulator.yaml
+ create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6363-regulator.yaml
+ create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6373-regulator.yaml
+ create mode 100644 drivers/mfd/mtk-spmi-pmic.c
+ create mode 100644 drivers/regulator/mt6316-regulator.c
+ create mode 100644 drivers/regulator/mt6363-regulator.c
+ create mode 100644 drivers/regulator/mt6373-regulator.c
+ create mode 100644 include/linux/mfd/mt6363.h
+ create mode 100644 include/linux/mfd/mt6373.h
+ create mode 100644 include/linux/regulator/mt6363-regulator.h
+ create mode 100644 include/linux/regulator/mt6373-regulator.h
 
-  media_device_bind_context() called from v4l_bind_context() returns an error
+-- 
+2.51.0
 
-- An already bound video device fh is bound to (different) media
-  device contexts ?
-
-  I should probably
-
-  if (vfh->context)
-        return -EINVAL;
-
-  in v4l_bind_context()
-
-  As an already bound context cannot be re-bound. There currently is
-  not un-binding mechanism, it is required to close a file handle to
-  unbind.
-
->
-> (Just found that a later patch introduces default contexts. Should this
-> address the comments above, consider rearranging the patches so that
-> default contexts are introduced first.)
-
-To be honest I don't see much difference. I'll see if it's practical
-to do so or not.
-
->
-> > The newly allocated video context is then stored in the v4l2-fh that
-> > represent the open file handle on which the ioctl has been called.
->
-> Couldn't the same be achieved by
->  - v4l2_fh_open allocates a new context
->  - v4l2_fh_release releases it (already implemented)
->  - ioctl takes the existing context and binds it to the media device
->    context
-> Then,
->  - open/release are symmetric and not fishy
-
-Why do you think video_device_context_put() is fishy ?
-
->  - after open but before the ioctl call the user can safely operate on a
->    context
-
-If we always operate on a per-file-handle context even before binding
-it, all the operations performed by an application, even it doesn't
-use contexts, will be isolated from the rest of the world.
-
-This might seem desirable, but changes the semantic of all the v4l2
-operations and an application that doesn't use context that runs on a
-driver ported to use context will suddenly find all its configuration
-to be transient and tied to the lifetime of an open file handle
-instead of being device-persistent.
-
-Using a default, device-wise, default context allows instead existing
-applications that do not use contexts to operate as they are used to,
-with all the setting/configurations being stored in a persistent
-place.
-
-Thanks
-  j
-
->  - calling ioctl twice will be idempotent (check already implemented in
->    media_device_bind_context())
->
-> >
-> > Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> > ---
-> >  drivers/media/v4l2-core/v4l2-dev.c   | 10 ++++++
-> >  drivers/media/v4l2-core/v4l2-fh.c    |  1 +
-> >  drivers/media/v4l2-core/v4l2-ioctl.c | 64 ++++++++++++++++++++++++++++++++++++
-> >  include/media/v4l2-ioctl.h           |  7 ++++
-> >  include/uapi/linux/videodev2.h       | 11 +++++++
-> >  5 files changed, 93 insertions(+)
-> >
-> > diff --git a/drivers/media/v4l2-core/v4l2-dev.c b/drivers/media/v4l2-core/v4l2-dev.c
-> > index c83c37843c9e7beb899a4b2bd176273c3dec381b..bc6502b4ce21cc0ad53136e1637d1c926e31dd89 100644
-> > --- a/drivers/media/v4l2-core/v4l2-dev.c
-> > +++ b/drivers/media/v4l2-core/v4l2-dev.c
-> > @@ -606,6 +606,10 @@ static void determine_valid_ioctls(struct video_device *vdev)
-> >  		__set_bit(_IOC_NR(VIDIOC_ENUM_FREQ_BANDS), valid_ioctls);
-> >
-> >  	if (is_vid) {
-> > +#ifdef CONFIG_MEDIA_CONTROLLER
-> > +		__set_bit(_IOC_NR(VIDIOC_BIND_CONTEXT), valid_ioctls);
-> > +#endif
-> > +
-> >  		/* video specific ioctls */
-> >  		if ((is_rx && (ops->vidioc_enum_fmt_vid_cap ||
-> >  			       ops->vidioc_enum_fmt_vid_overlay)) ||
-> > @@ -661,12 +665,18 @@ static void determine_valid_ioctls(struct video_device *vdev)
-> >  		SET_VALID_IOCTL(ops, VIDIOC_G_FMT, vidioc_g_fmt_meta_cap);
-> >  		SET_VALID_IOCTL(ops, VIDIOC_S_FMT, vidioc_s_fmt_meta_cap);
-> >  		SET_VALID_IOCTL(ops, VIDIOC_TRY_FMT, vidioc_try_fmt_meta_cap);
-> > +#ifdef CONFIG_MEDIA_CONTROLLER
-> > +		__set_bit(_IOC_NR(VIDIOC_BIND_CONTEXT), valid_ioctls);
-> > +#endif
-> >  	} else if (is_meta && is_tx) {
-> >  		/* metadata output specific ioctls */
-> >  		SET_VALID_IOCTL(ops, VIDIOC_ENUM_FMT, vidioc_enum_fmt_meta_out);
-> >  		SET_VALID_IOCTL(ops, VIDIOC_G_FMT, vidioc_g_fmt_meta_out);
-> >  		SET_VALID_IOCTL(ops, VIDIOC_S_FMT, vidioc_s_fmt_meta_out);
-> >  		SET_VALID_IOCTL(ops, VIDIOC_TRY_FMT, vidioc_try_fmt_meta_out);
-> > +#ifdef CONFIG_MEDIA_CONTROLLER
-> > +		__set_bit(_IOC_NR(VIDIOC_BIND_CONTEXT), valid_ioctls);
-> > +#endif
-> >  	}
-> >  	if (is_vbi) {
-> >  		/* vbi specific ioctls */
-> > diff --git a/drivers/media/v4l2-core/v4l2-fh.c b/drivers/media/v4l2-core/v4l2-fh.c
-> > index 90eec79ee995a2d214590beeacc91b9f8f33236d..f7af444d2344541ccae1eae230b39d4cbc47f6bd 100644
-> > --- a/drivers/media/v4l2-core/v4l2-fh.c
-> > +++ b/drivers/media/v4l2-core/v4l2-fh.c
-> > @@ -93,6 +93,7 @@ int v4l2_fh_release(struct file *filp)
-> >  	struct v4l2_fh *fh = filp->private_data;
-> >
-> >  	if (fh) {
-> > +		video_device_context_put(fh->context);
-> >  		v4l2_fh_del(fh);
-> >  		v4l2_fh_exit(fh);
-> >  		kfree(fh);
-> > diff --git a/drivers/media/v4l2-core/v4l2-ioctl.c b/drivers/media/v4l2-core/v4l2-ioctl.c
-> > index 46da373066f4ec786b87ef18b8372abee621332f..bade64cc62b66dd6237ccd5338aa6dd8ab00ef8c 100644
-> > --- a/drivers/media/v4l2-core/v4l2-ioctl.c
-> > +++ b/drivers/media/v4l2-core/v4l2-ioctl.c
-> > @@ -9,6 +9,7 @@
-> >   */
-> >
-> >  #include <linux/compat.h>
-> > +#include <linux/file.h>
-> >  #include <linux/mm.h>
-> >  #include <linux/module.h>
-> >  #include <linux/slab.h>
-> > @@ -350,6 +351,13 @@ static void v4l_print_format(const void *arg, bool write_only)
-> >  	}
-> >  }
-> >
-> > +static void v4l_print_context(const void *arg, bool write_only)
-> > +{
-> > +	const struct v4l2_context *c = arg;
-> > +
-> > +	pr_cont("context=%u\n", c->context_fd);
-> > +}
-> > +
-> >  static void v4l_print_framebuffer(const void *arg, bool write_only)
-> >  {
-> >  	const struct v4l2_framebuffer *p = arg;
-> > @@ -2151,6 +2159,61 @@ static int v4l_overlay(const struct v4l2_ioctl_ops *ops,
-> >  	return ops->vidioc_overlay(file, fh, *(unsigned int *)arg);
-> >  }
-> >
-> > +static int v4l_bind_context(const struct v4l2_ioctl_ops *ops,
-> > +			    struct file *file, void *fh, void *arg)
-> > +{
-> > +	struct video_device *vdev = video_devdata(file);
-> > +	struct media_device_context *mdev_context;
-> > +	struct v4l2_fh *vfh =
-> > +		test_bit(V4L2_FL_USES_V4L2_FH, &vdev->flags) ? fh : NULL;
-> > +	struct v4l2_context *c = arg;
-> > +	int ret;
-> > +
-> > +	/*
-> > +	 * TODO: do not __set_bit(_IOC_NR(VIDIOC_BIND_CONTEXT), valid_ioctls)
-> > +	 * if V4L2_FL_USES_V4L2_FH isn't set or the driver does not implement
-> > +	 * alloc_context and destroy_context.
-> > +	 */
-> > +	if (!vfh)
-> > +		return -ENOTTY;
-> > +
-> > +	if (!vdev->entity.ops || !vdev->entity.ops->alloc_context ||
-> > +	    !vdev->entity.ops->destroy_context)
-> > +		return -ENOTTY;
-> > +
-> > +	mdev_context = media_device_context_get_from_fd(c->context_fd);
-> > +	if (!mdev_context)
-> > +		return -EINVAL;
-> > +
-> > +	/* Let the driver allocate the per-file handle context. */
-> > +	ret = vdev->entity.ops->alloc_context(&vdev->entity,
-> > +					      (struct media_entity_context **)
-> > +					      &vfh->context);
-> > +	if (ret)
-> > +		goto err_put_mdev_context;
-> > +
-> > +	/*
-> > +	 * Bind the newly created video device context to the media device
-> > +	 * context identified by the file descriptor.
-> > +	 */
-> > +	ret = media_device_bind_context(mdev_context,
-> > +					(struct media_entity_context *)
-> > +					vfh->context);
-> > +	if (ret)
-> > +		goto err_put_context;
-> > +
-> > +	media_device_context_put(mdev_context);
-> > +
-> > +	return 0;
-> > +
-> > +err_put_context:
-> > +	video_device_context_put(vfh->context);
-> > +err_put_mdev_context:
-> > +	media_device_context_put(mdev_context);
-> > +
-> > +	return ret;
-> > +}
-> > +
-> >  static int v4l_reqbufs(const struct v4l2_ioctl_ops *ops,
-> >  				struct file *file, void *fh, void *arg)
-> >  {
-> > @@ -2998,6 +3061,7 @@ static const struct v4l2_ioctl_info v4l2_ioctls[] = {
-> >  	IOCTL_INFO(VIDIOC_DBG_G_CHIP_INFO, v4l_dbg_g_chip_info, v4l_print_dbg_chip_info, INFO_FL_CLEAR(v4l2_dbg_chip_info, match)),
-> >  	IOCTL_INFO(VIDIOC_QUERY_EXT_CTRL, v4l_query_ext_ctrl, v4l_print_query_ext_ctrl, INFO_FL_CTRL | INFO_FL_CLEAR(v4l2_query_ext_ctrl, id)),
-> >  	IOCTL_INFO(VIDIOC_REMOVE_BUFS, v4l_remove_bufs, v4l_print_remove_buffers, INFO_FL_PRIO | INFO_FL_QUEUE | INFO_FL_CLEAR(v4l2_remove_buffers, type)),
-> > +	IOCTL_INFO(VIDIOC_BIND_CONTEXT, v4l_bind_context, v4l_print_context, 0),
-> >  };
-> >  #define V4L2_IOCTLS ARRAY_SIZE(v4l2_ioctls)
-> >
-> > diff --git a/include/media/v4l2-ioctl.h b/include/media/v4l2-ioctl.h
-> > index 82695c3a300a73219f262fb556ed61a8f09d273e..6d9edfd9ca912972ad15acdc07014dee1ed36ab6 100644
-> > --- a/include/media/v4l2-ioctl.h
-> > +++ b/include/media/v4l2-ioctl.h
-> > @@ -18,6 +18,7 @@
-> >  #include <linux/videodev2.h>
-> >
-> >  struct v4l2_fh;
-> > +struct video_device_context;
-> >
-> >  /**
-> >   * struct v4l2_ioctl_ops - describe operations for each V4L2 ioctl
-> > @@ -149,6 +150,8 @@ struct v4l2_fh;
-> >   *	:ref:`VIDIOC_TRY_FMT <vidioc_g_fmt>` ioctl logic for metadata capture
-> >   * @vidioc_try_fmt_meta_out: pointer to the function that implements
-> >   *	:ref:`VIDIOC_TRY_FMT <vidioc_g_fmt>` ioctl logic for metadata output
-> > + * @vidioc_bind_context: pointer to the function that implements
-> > + *	:ref:`VIDIOC_BIND_CONTEXT <vidioc_bind_context>` ioctl
-> >   * @vidioc_reqbufs: pointer to the function that implements
-> >   *	:ref:`VIDIOC_REQBUFS <vidioc_reqbufs>` ioctl
-> >   * @vidioc_querybuf: pointer to the function that implements
-> > @@ -402,6 +405,10 @@ struct v4l2_ioctl_ops {
-> >  	int (*vidioc_try_fmt_meta_out)(struct file *file, void *fh,
-> >  				       struct v4l2_format *f);
-> >
-> > +	/* Context handlers */
-> > +	int (*vidioc_bind_context)(struct file *file, void *fh,
-> > +				   struct video_device_context *c);
-> > +
-> >  	/* Buffer handlers */
-> >  	int (*vidioc_reqbufs)(struct file *file, void *fh,
-> >  			      struct v4l2_requestbuffers *b);
-> > diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev2.h
-> > index 3dd9fa45dde1066d52a68581625a39e7ec92c9b7..0b9aa89e2479620dbbaa54f1aadff7aaa7a3d0f7 100644
-> > --- a/include/uapi/linux/videodev2.h
-> > +++ b/include/uapi/linux/videodev2.h
-> > @@ -1057,6 +1057,14 @@ struct v4l2_jpegcompression {
-> >  					* always use APP0 */
-> >  };
-> >
-> > +/*
-> > + *     V I D E O   D E V I C E   C O N T E X T
-> > + */
-> > +
-> > +struct v4l2_context {
-> > +	__u32 context_fd;
->
-> Reserve some space for the future?
->
-
-Might be a good idea. I can't tell how much space we should reserve
-though :)
-
-> > +};
-> > +
-> >  /*
-> >   *	M E M O R Y - M A P P I N G   B U F F E R S
-> >   */
-> > @@ -2818,6 +2826,9 @@ struct v4l2_remove_buffers {
-> >  #define VIDIOC_REMOVE_BUFS	_IOWR('V', 104, struct v4l2_remove_buffers)
-> >
-> >
-> > +/* Context handling */
-> > +#define VIDIOC_BIND_CONTEXT	_IOW('V', 105, struct v4l2_context)
-> > +
-> >  /* Reminder: when adding new ioctls please add support for them to
-> >     drivers/media/v4l2-core/v4l2-compat-ioctl32.c as well! */
-> >
-> >
->
-> Best regards,
-> Michael
->
 
