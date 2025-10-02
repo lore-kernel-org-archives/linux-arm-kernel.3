@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81EECCAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 16:20:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22038CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 16:22:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2ZRXg+Sx/n9YyjIw5rG5VjKWzwm9Ii1l5XhjK29sv4s=; b=QWqxvLmd+VelsonDFtHC6XXdm7
-	cefbT5FIW9uuOu7Kh1Om4ztZGXI7TR544J0rvk1dzIzl84lMxrf96lBN47umMnAiubh3RWZaPXDqV
-	zhdjQ93MMsLhXk93/x3wgtuuUl7NQQ20hHmEvbYfhSbzxRXhyK3rQbGs4cPERacEL7Tt7Iaml3bi8
-	7kaAc8Qv+2WivQX0javz8DPvE9ybGRPWsIe8pPpYYE78pm1QmbKC0UMhKZvrzmNBvzR4+uU7FdfgO
-	UheMqxjK7O8MlEE2P0NkUBjn9izkXJ3sqSDMVhHALX15CM+dUr5kNuOZz26jVC/DAw8WxVZU3fCRR
-	ArYjFLiA==;
+	bh=JFjJ3chQBlRIN0hsHqEkUSzdHiH7QHCP1Kf/P9mVSpE=; b=nAGmBkDwNfCvYjLc7lBrPxIhwY
+	T2t4vSrFjE+d6hKckG8d2DUpMsOGd33hfjt4I4kNpifFFAzKqG4HSTI1U7Pu2Zw/wOn/2VgGNmLgR
+	VB/5bZ7ygB++Lvf0BAZOQUKuqwg3VShZIEJy4BfSpnFptm41kpB9edlsd1YqrtIAuiMy1SzvTz8cX
+	lfaRGodUpmlAMUqxv3ClPAKa0hJRxH4tdsE8E967Mizj7d9iiqICWVOZbQhjra4R/049JZvx4hihq
+	qctrxr6mubBQygANAmydLPbETZaHhk0AvCisG9Q5ESbI73x8xq+RP0w4yWAqeLDbLBDjLkV8e+Sn9
+	gDI7z+tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4M2P-0000000AoBk-2g7B;
-	Thu, 02 Oct 2025 16:20:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v4M4n-0000000Aodm-0mYX;
+	Thu, 02 Oct 2025 16:22:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4M2N-0000000AoAZ-2TtS
+	id 1v4M4l-0000000AodZ-3AxZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Oct 2025 16:20:12 +0000
+	Thu, 02 Oct 2025 16:22:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4260845EA6;
-	Thu,  2 Oct 2025 16:20:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 18852C4CEF4;
-	Thu,  2 Oct 2025 16:20:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 26EF463E98;
+	Thu,  2 Oct 2025 16:22:39 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C20C3C4CEF9;
+	Thu,  2 Oct 2025 16:22:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759422011;
-	bh=OxqQDGMDmx2w7gfRNWA+e+czIuGiEoxutb/vwzJrrRY=;
+	s=k20201202; t=1759422158;
+	bh=l9WPWBv5LEU7jTy0oYjT1qC7YlRew4lHrXzJr22cHlk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Tj/YiZ/TobyIeKv7q1W9iU8j8CxlU714gulY6x5ee8E99AufPrsZp8nuXuZ47+SAX
-	 pUlG9R5AoknegrncPU9bU8JUAqovMuANAxMkLj8VUvQPubYAxyPdLiWPYrfktgn6rU
-	 FBB7W1AIg++rkuDKZpLnQwMC+hM4JAAEEuTczdXCoBbi2dQ7T3/FtWakBvinDavAaE
-	 IEXJSGDQL839fOuhb3Q0xrrmSQlPDpu3C815JeiU/kAKnMI9RKcXBpuIyLZVFDubWf
-	 QpsnQNgcHb2YYP4UWm1cMo2JDpD7f/AxpVvfMGVmsaXRUqR7cLsN+5JkqqJ5AdjNeZ
-	 mCZWGxx5tGfJQ==
-Date: Thu, 2 Oct 2025 09:20:10 -0700
+	b=c6oY0weUsmnibisRSgXf+q2hw0W0V/+mpe1HWu3Lbq15KgyY3PR2eha1UBxIQcoBS
+	 2K2KOrgX+Kn+13PspoAoxLPV46aXl4GIo9j+b/clHq31pTVaSxEpGpkRSKlYIdQl2z
+	 YlJrpja2qTqCyt/uXxVQSEA/+Zklt2ZVwOB4mupmAg26AJ0YoMdJ427jblWuo7NzVi
+	 m4vIMrAloqvlq1r0hnKPaql61ecWjL6/WllGSYQOgOQp7RysIo1Tf0bZN7UPr6+QTu
+	 8Xf/tUd68Se/UmRuF5ARv6Y2uVF3t9pTrKlvbSBQe48EiywtOERCq85s4Iel6d/qpw
+	 UTCvuFSa/0ZSg==
+Date: Thu, 2 Oct 2025 09:22:38 -0700
 From: Kees Cook <kees@kernel.org>
 To: Ard Biesheuvel <ardb+git@google.com>
 Cc: linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
@@ -52,18 +52,15 @@ Cc: linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
 	Mark Rutland <mark.rutland@arm.com>,
 	Catalin Marinas <catalin.marinas@arm.com>,
 	Mark Brown <broonie@kernel.org>, Eric Biggers <ebiggers@kernel.org>
-Subject: Re: [PATCH v2 04/20] crypto: aegis128-neon - Move to more abstract
- 'ksimd' guard API
-Message-ID: <202510020918.7E358227@keescook>
+Subject: Re: [PATCH v2 20/20] arm64/fpsimd: Allocate kernel mode FP/SIMD
+ buffers on the stack
+Message-ID: <202510020920.2FE08A4F90@keescook>
 References: <20251001210201.838686-22-ardb+git@google.com>
- <20251001210201.838686-26-ardb+git@google.com>
+ <20251001210201.838686-42-ardb+git@google.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251001210201.838686-26-ardb+git@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_092011_669240_C04B8C15 
-X-CRM114-Status: GOOD (  17.68  )
+In-Reply-To: <20251001210201.838686-42-ardb+git@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,47 +75,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 01, 2025 at 11:02:06PM +0200, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
-> 
-> Move away from calling kernel_neon_begin() and kernel_neon_end()
-> directly, and instead, use the newly introduced scoped_ksimd() API. This
-> permits arm64 to modify the kernel mode NEON API without affecting code
-> that is shared between ARM and arm64.
-> 
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> ---
->  crypto/aegis128-neon.c | 33 +++++++-------------
->  1 file changed, 12 insertions(+), 21 deletions(-)
-> 
-> diff --git a/crypto/aegis128-neon.c b/crypto/aegis128-neon.c
-> index 9ee50549e823..b41807e63bd3 100644
-> --- a/crypto/aegis128-neon.c
-> +++ b/crypto/aegis128-neon.c
-> @@ -4,7 +4,7 @@
->   */
+On Wed, Oct 01, 2025 at 11:02:22PM +0200, Ard Biesheuvel wrote:
+> [...]
+> diff --git a/arch/arm64/include/asm/simd.h b/arch/arm64/include/asm/simd.h
+> index d9f83c478736..7ddb25df5c98 100644
+> --- a/arch/arm64/include/asm/simd.h
+> +++ b/arch/arm64/include/asm/simd.h
+> @@ -43,8 +43,11 @@ static __must_check inline bool may_use_simd(void) {
 >  
->  #include <asm/cpufeature.h>
-> -#include <asm/neon.h>
-> +#include <asm/simd.h>
+>  #endif /* ! CONFIG_KERNEL_MODE_NEON */
 >  
->  #include "aegis.h"
->  #include "aegis-neon.h"
-> @@ -24,32 +24,28 @@ void crypto_aegis128_init_simd(struct aegis_state *state,
->  			       const union aegis_block *key,
->  			       const u8 *iv)
->  {
-> -	kernel_neon_begin();
-> -	crypto_aegis128_init_neon(state, key, iv);
-> -	kernel_neon_end();
-> +	scoped_ksimd()
-> +		crypto_aegis128_init_neon(state, key, iv);
->  }
+> -DEFINE_LOCK_GUARD_0(ksimd, kernel_neon_begin(), kernel_neon_end())
+> +DEFINE_LOCK_GUARD_1(ksimd,
+> +		    struct user_fpsimd_state,
+> +		    kernel_neon_begin(_T->lock),
+> +		    kernel_neon_end(_T->lock))
+>  
+> -#define scoped_ksimd()	scoped_guard(ksimd)
+> +#define scoped_ksimd()	scoped_guard(ksimd, &(struct user_fpsimd_state){})
 
-For these cases (to avoid the indentation change), do you want to use
-just "guard" instead of "scope_guard", or do you want to explicitly
-require explicit scope context even when the scope ends at the function
-return?
+I love it!
+
+> [...]
+> -void kernel_neon_end(void)
+> +void kernel_neon_end(struct user_fpsimd_state *s)
+>  {
+>  	if (!system_supports_fpsimd())
+>  		return;
+> @@ -1899,8 +1910,9 @@ void kernel_neon_end(void)
+>  	if (!IS_ENABLED(CONFIG_PREEMPT_RT) && in_serving_softirq() &&
+>  	    test_thread_flag(TIF_KERNEL_FPSTATE))
+>  		fpsimd_load_kernel_state(current);
+> -	else
+> -		clear_thread_flag(TIF_KERNEL_FPSTATE);
+> +	else if (test_and_clear_thread_flag(TIF_KERNEL_FPSTATE))
+> +		if (cmpxchg(&current->thread.kernel_fpsimd_state, s, NULL) != s)
+> +			BUG();
+
+I always question BUG() uses -- is there a recoverable way to deal with
+a mismatch here? I assume not and that this is the best we can do, but I
+thought I'd just explicitly ask. :)
+
+-Kees
 
 -- 
 Kees Cook
