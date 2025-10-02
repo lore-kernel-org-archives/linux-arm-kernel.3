@@ -4,71 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48979CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 19:25:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E7E9CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 19:46:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8PDgfQkXxUD2ang+AE5yOliR5MKflAuDjv8QWb+ETdE=; b=szO0tEzhM76vINZ1Bp7c0qUaSG
-	I1ORpG2be8avO8/cFqv5sled2NlcQqqN7yvikZ4Hfjgl4Cut7TZIj+sij9jOazUGSFwkM2QApFtsZ
-	q0A3CJA0myxdGhPail9na5QYMITEzqQtiu3evNpZuGnnC6V14t1bTwfUfaArZeKD0iRdH2OWSz5vu
-	1RtfahFn+8syAYmgXhHkdx6CH89eUwRUq+th1SAqPgl6N/BHkTxsG0+tUH0TsPVsO7n5JdDhSRGhY
-	b7XxpRvq+TqGQPTLG/KcQCATborKe47SHc0Tzc6OlSDvoQpPO988DDFpIXRil2CL4LE75ZyAQzys+
-	HoJNA9dA==;
+	bh=R4gQv0EOz4rGm7+DH/Ll/ylPaIILm6U8HqWQMm5vF7w=; b=U5hZGXPQ5SvH3s9+te6u/A2vuX
+	MN8NmLYMkZxwDVucezwAsuXaxQKtzKo5oBcWTdjSmNw+06d1bAkFCOrX8EEkUnJrrxstc+mjU2eL+
+	KkjlcUPgzPMt8sPxNNbSi4cfuGsQXN1tQTGy9y6/HQRR3kYpH07h/HtpnTydyvIAPeJC0i4eep4EP
+	7OKJp0e+DXXE6Db9NqSqCmdlaVdKY90wY6Uz+ySLCms3O5P+P36973KRucvuaymzNlhbfrowI0xmF
+	gNQmkarfugnne3ZLaToC5CjfjQbmpccXQ8d4jX4wouoS588m8yZwR+gFITqBAO3DEQrYRA9fEABwV
+	wJZ3p1tA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4OvM-0000000B6MH-0NlV;
-	Thu, 02 Oct 2025 19:25:08 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1v4PFW-0000000B7ux-2gsb;
+	Thu, 02 Oct 2025 19:45:58 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4OvJ-0000000B6LR-1nkt;
-	Thu, 02 Oct 2025 19:25:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1759433101;
-	bh=7dyLoe6PQosf1e6cw6Y05vwLtzGzEVNzwP6YK46yvf8=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=NUJDuyj2mc5Lq9RKXPVNApVDUt4W4sJzsni6xixG0psfHI0M8XftkNGrY4GrYUEpE
-	 9rVm4AMTWxUAAuKWgpi90y1Ge5dzxPWRDF7C1JESNNqhPyKDyuTCDtuFOL9i66DKHA
-	 qlxo5Nh/NWrIb/rYiZ9aJT/w8m0X9gMmDYkQHSLIGoyt/EUSa2R6y/xhNZYyUK+Bli
-	 yQwZMIkznz/877t7sr/9m6o3cWPL30msnJJlSqpRYMMdmXuiqroSJfxwTZin9C8Ahg
-	 pV5BW95IimcwdnEuuuMz2h2JY7tSVYUbP/KN0wH4b8BD3FeWkoX5AihXDKBgh2Rgx5
-	 Uy+pVuEci+p7Q==
-Received: from [192.168.1.90] (unknown [82.79.138.145])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 729B217E12BB;
-	Thu,  2 Oct 2025 21:25:00 +0200 (CEST)
-Message-ID: <1964913f-8323-4714-a061-5fa09ce0983c@collabora.com>
-Date: Thu, 2 Oct 2025 22:24:59 +0300
+	id 1v4PFU-0000000B7uW-2Qc2
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Oct 2025 19:45:57 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-b3e7cc84b82so277751566b.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Oct 2025 12:45:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1759434354; x=1760039154; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=R4gQv0EOz4rGm7+DH/Ll/ylPaIILm6U8HqWQMm5vF7w=;
+        b=dCGGLUCMWy25G7Xi/rLYQjX0BEC9TJcVa+S0polBVBVRva965MuYL+Droq0kOlkXHj
+         SOoz0XBribbYmCOQnhuXzplYxWOV+ZmNC8llYb4HEdVVyhdYTM4R97tcb4cw1FJDFkOf
+         GmsWrOIdun+CaYXiOKNMlJ1JHeiEa1w2qsIqnHXAME2qoJngPp4KsmYRt8iDV+Evr9S8
+         Z8ov59/Lv/bKpbMU20o6kXgOcF6ky12cpZGMduizKPVKBu/xMqMyaGoCRVyeFhbAGQhU
+         qYFiLlSsgilCPTQN2um5Vzz6rDOLlCTBr79ERU0rpIDNabvV1MpFnxxypyrLiHYggVxY
+         Kmwg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759434354; x=1760039154;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=R4gQv0EOz4rGm7+DH/Ll/ylPaIILm6U8HqWQMm5vF7w=;
+        b=o+svGELaHnDGKCVxd1sQV/HqSqfEVT/ZlIWl875PZtXHAubFo7INyXl1FwTRlb3g+q
+         Tt6I3BHiF+W/d8ZdDE59V8mGlZvycHFSFD6Dz5Lw8CGYUMPzZEdImZqjOGLXu/upN3bA
+         72Da05ewxvPbrU62senvTK98UhJxCEaMJW3wLCE6JJEUFGbikMuirimJN+S5SwnAiDip
+         IRtf1eCtidi8OKHN28MjLlD7K+EoVvjr/SzeIYFwYm45u3R3z767aQAhojdSnuWfnNGt
+         yoJU+56lqe6JPbYPmeUD8cBn2dDk6dP6sRWflbpYsy3+o5MFakxuCroTq7MKFkoUsFmD
+         t9Rg==
+X-Forwarded-Encrypted: i=1; AJvYcCUbWde7cELRv5hkFFXr2DEUYpi2u3Q1qOKsPnJ2CugqeM2hIxkhYo1OUMEbn4B6NwmMA0rvHmIlOmS9R+PT8/na@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy1mBTw3UwNNl28ZD1pdZFNDXElzbvG2+tQQKXnDou2lyYJEgjg
+	O0W1En8TfAXvR0Un7RdIq12Sh96aP1gbGOfa6xulgKRDnVjytjrAJfPf8FdUHP4jM6iHmqpS9xf
+	oyyMTknLqeN5cOgWXNPyrk7VfcmiHjUNnNXOO85g=
+X-Gm-Gg: ASbGncvKxX0W52+ztX74LP55Vxpri8sJAh1yBTMyMYIsxw1VAnSJJWiB52cLzS0G3vf
+	MwIDaU2ZcPcxCa8pbQ4vudRZT8vzFVYVGVxEyEXtU/PZ86tVZOm8aM8wgMeNpaHKL75jHM1k0Rp
+	xDqoJ/o+gtMJ7FVUwBbFxWa6ia4BdSUggxLKsNjnVzuRDFQx8c3ZIRT3hljJtYNpnBBzpxeNeaj
+	HBLWgJ8UJIVfsYKE9Mi/Ph7o/vT6jzwAfcONy9kCUPk+XnoYMSG7/EF/c7KHV18X6I=
+X-Google-Smtp-Source: AGHT+IHFUMZbxy2/RNA58+rbmrFxgard/FJeBDueJyRahdE9BuRrcf+Nu3HssY90NgcmF3JiiWGdZyfE5Xm8slA6aeE=
+X-Received: by 2002:a17:906:dc94:b0:b3b:eb5f:9f1a with SMTP id
+ a640c23a62f3a-b49c3933030mr76697066b.38.1759434353566; Thu, 02 Oct 2025
+ 12:45:53 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 0/3] arm64: dts: rockchip: Add device tree for the Orange
- Pi CM5 Base board
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org
-Cc: Algea Cao <algea.cao@rock-chips.com>, Andy Yan <andy.yan@rock-chips.com>,
- Cenk Uluisik <cenk.uluisik@googlemail.com>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Jimmy Hon <honyuenkwun@gmail.com>, Kever Yang <kever.yang@rock-chips.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Maxime Ripard
- <mripard@kernel.org>, Muhammed Efe Cetin <efectn@6tel.net>,
- Ondrej Jirman <megi@xff.cz>, Rob Herring <robh@kernel.org>,
- Sandy Huang <hjc@rock-chips.com>
-References: <20251002034708.19248-1-laurent.pinchart@ideasonboard.com>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <20251002034708.19248-1-laurent.pinchart@ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250911135007.1275833-1-jens.wiklander@linaro.org>
+ <20250911135007.1275833-3-jens.wiklander@linaro.org> <20251002-shaggy-mastiff-of-elevation-c8e1f0@houat>
+In-Reply-To: <20251002-shaggy-mastiff-of-elevation-c8e1f0@houat>
+From: John Stultz <jstultz@google.com>
+Date: Thu, 2 Oct 2025 12:45:41 -0700
+X-Gm-Features: AS18NWBdha9LdZ51VIWM4Jj3n7QLoIkRAEzrxrFPUOsILr8-gV57tRYN27CBzqA
+Message-ID: <CANDhNCqS+WKhTWjeC7yBL+x4erK4S4bievTxdneaCu1haA8=hA@mail.gmail.com>
+Subject: Re: [PATCH v12 2/9] dma-buf: dma-heap: export declared functions
+To: Maxime Ripard <mripard@redhat.com>
+Cc: Jens Wiklander <jens.wiklander@linaro.org>, linux-kernel@vger.kernel.org, 
+	linux-media@vger.kernel.org, dri-devel@lists.freedesktop.org, 
+	linaro-mm-sig@lists.linaro.org, op-tee@lists.trustedfirmware.org, 
+	linux-arm-kernel@lists.infradead.org, Olivier Masse <olivier.masse@nxp.com>, 
+	Thierry Reding <thierry.reding@gmail.com>, Yong Wu <yong.wu@mediatek.com>, 
+	Sumit Semwal <sumit.semwal@linaro.org>, 
+	Benjamin Gaignard <benjamin.gaignard@collabora.com>, Brian Starkey <Brian.Starkey@arm.com>, 
+	"T . J . Mercier" <tjmercier@google.com>, =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>, 
+	Sumit Garg <sumit.garg@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
+	Simona Vetter <simona.vetter@ffwll.ch>, Daniel Stone <daniel@fooishbar.org>, 
+	Rouven Czerwinski <rouven.czerwinski@linaro.org>, robin.murphy@arm.com, 
+	Sumit Garg <sumit.garg@oss.qualcomm.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_122505_658483_D71FF793 
-X-CRM114-Status: GOOD (  20.09  )
+X-CRM114-CacheID: sfid-20251002_124556_637245_2704F5D2 
+X-CRM114-Status: GOOD (  24.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,44 +107,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Laurent,
+On Thu, Oct 2, 2025 at 12:47=E2=80=AFAM Maxime Ripard <mripard@redhat.com> =
+wrote:
+> On Thu, Sep 11, 2025 at 03:49:43PM +0200, Jens Wiklander wrote:
+> > Export the dma-buf heap functions to allow them to be used by the OP-TE=
+E
+> > driver. The OP-TEE driver wants to register and manage specific secure
+> > DMA heaps with it.
+> >
+> > Reviewed-by: Sumit Garg <sumit.garg@oss.qualcomm.com>
+> > Reviewed-by: T.J. Mercier <tjmercier@google.com>
+> > Acked-by: Sumit Semwal <sumit.semwal@linaro.org>
+> > Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
+> > ---
+> >  drivers/dma-buf/dma-heap.c | 4 ++++
+> >  1 file changed, 4 insertions(+)
+> >
+> > diff --git a/drivers/dma-buf/dma-heap.c b/drivers/dma-buf/dma-heap.c
+> > index 3cbe87d4a464..8ab49924f8b7 100644
+> > --- a/drivers/dma-buf/dma-heap.c
+> > +++ b/drivers/dma-buf/dma-heap.c
+> > @@ -11,6 +11,7 @@
+> >  #include <linux/dma-buf.h>
+> >  #include <linux/dma-heap.h>
+> >  #include <linux/err.h>
+> > +#include <linux/export.h>
+> >  #include <linux/list.h>
+> >  #include <linux/nospec.h>
+> >  #include <linux/syscalls.h>
+> > @@ -202,6 +203,7 @@ void *dma_heap_get_drvdata(struct dma_heap *heap)
+> >  {
+> >       return heap->priv;
+> >  }
+> > +EXPORT_SYMBOL_NS_GPL(dma_heap_get_drvdata, "DMA_BUF_HEAP");
+> >
+> >  /**
+> >   * dma_heap_get_name - get heap name
+> > @@ -214,6 +216,7 @@ const char *dma_heap_get_name(struct dma_heap *heap=
+)
+> >  {
+> >       return heap->name;
+> >  }
+> > +EXPORT_SYMBOL_NS_GPL(dma_heap_get_name, "DMA_BUF_HEAP");
+> >
+> >  /**
+> >   * dma_heap_add - adds a heap to dmabuf heaps
+> > @@ -303,6 +306,7 @@ struct dma_heap *dma_heap_add(const struct dma_heap=
+_export_info *exp_info)
+> >       kfree(heap);
+> >       return err_ret;
+> >  }
+> > +EXPORT_SYMBOL_NS_GPL(dma_heap_add, "DMA_BUF_HEAP");
+>
+> It's not clear to me why we would need to export those symbols.
+>
+> As far as I know, heaps cannot be removed, and compiling them as module
+> means that we would be able to remove them.
+>
+> Now, if we don't expect the users to be compiled as modules, then we
+> don't need to export these symbols at all.
+>
+> Am I missing something?
 
-On 10/2/25 6:47 AM, Laurent Pinchart wrote:
-> Hello,
-> 
-> This patch series adds a device tree for the Orange Pi CM5 Base board
-> from Xunlong. This is a combination of a compute module and a carrier
-> board, so the device tree is split in two files.
-> 
-> The work is based on a combination of upstream device trees for other
-> RK3588-based Orange Pi boards and the downstream device tree, all
-> checked against the available schematics for the carrier board. The
-> compute module schematics is unfortunately not available.
-> 
-> The series starts by adding a new compatible for the board to
-> arm/rockchip.yaml. The next patch documents a missing property in the
-> rk3588-dw-hdmi-qp bindings that the device tree needs. Finally, the last
-> patch adds the device tree.
-> 
-> Patch 2/3 may be slightly controversial as the new DT property could be
-> better named. 
+For things like distro kernels (or in Android's case, the GKI),
+there's a benefit for modules that can be loaded permanently (not
+having a module_exit hook).
+One doesn't have to bloat the base kernel image/memory usage for
+everyone, while still not having to necessarily deal with
+complications from module unloading issues.
 
-Indeed :-). As a matter of fact I've already planned to introduce it as
-"tmds-enable-gpios" [1], during my recent FRL related work.
-
-> It has been supported in the driver for a year now, so
-> there could be users in the wild. I have therefore decided to keep the
-> current name. I am open to alternative solutions.
-
-As mentioned in [2], this was "inherited" from downstream and hasn't been
-really in use so far.  I intended to do some more testing before attempting
-to send those patches upstream, as for now I couldn't notice any (obvious)
-change in behavior when switching between TMDS and FRL, with or without
-making use of it in DT.
-
-Regards,
-Cristian
-
-[1] https://gitlab.collabora.com/hardware-enablement/rockchip-3588/linux/-/commit/5a32a84ee3e801daaeb974f967f6e213983feeb4
-[2] https://gitlab.collabora.com/hardware-enablement/rockchip-3588/linux/-/commit/df4d94fdb94463dd4175338bf7044b40c5e559e4
+thanks
+-john
 
