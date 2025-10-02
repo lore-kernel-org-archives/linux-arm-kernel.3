@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A651CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 14:40:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD3A4CAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 14:41:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Q7pztnC93nlTNnXj+254Jwpm8j5bh/I52wOyae/qCnY=; b=2szp5Msl45fwURcsest09VzWdA
-	abj3xPs9JhPMvU9ICBegxE9yGyxFeVYQGJZJ0ESLVYzP48kro9JyTz+eoYT6Q3GHPYbKp9sm0/PGk
-	YzWEDBevv0yo+D6WMThv9TnIwcCSK4C6iNEI4hABTeqnHCCVdYaUAsV3J0ZIehw83t0fUZrE68DCO
-	9RNc/gVu7Qn+NJyvRK4EGHbNhF/Xf2yy8tvkar6t3SF1Tspgz1UEZa4N957CziFZIjiE6JSPBrfJk
-	jNmHiJRHPMkdaSl99ex8L9kvLPH9W0gVBd6b+wGaHpT2r5B7gBabumsqeDcnYmWJlZ2NsPYRUeKbw
-	Osf3jK/A==;
+	bh=NdJ4NRck8LMRjBLVH8p+BhUfYW1R+ESVuMytAA3z0hQ=; b=dcGt9SbhZIAMJY9geh3HazVjjI
+	++9ucbz4KBG3faPVntPm9eZXPVdsHwKCPP/r7eexq54MmP0FXTf0L8bdPRJwuuCRLpS/2Myt4JK/g
+	V5u1wC62Rwb5FDS7msLvLYX3oSr6IoCT378txES8RfwY5BiDhqbSqqQBmVrjHobs6JGBZf27tEj2b
+	cXH2WlfdqIt0jemQgBlZEV058kbLeB2EPLXxipMPH5MrizotSTLyq00GPkMg976QmezytZRXoK1Jk
+	9cyoaRziLVCZs2JH0d38dEx4bdyH4DY2FkS71TJNVQuVY2eBdIIZoQq0xBUBO1ADxLAyXo/dKm2IF
+	gPYtl2uQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4KUH-0000000Acg3-2He3;
-	Thu, 02 Oct 2025 14:40:53 +0000
+	id 1v4KUI-0000000Ach1-3Vac;
+	Thu, 02 Oct 2025 14:40:54 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4KUF-0000000AcfV-3u1v
+	id 1v4KUH-0000000Acfq-1IWf
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Oct 2025 14:40:51 +0000
+	Thu, 02 Oct 2025 14:40:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2B50660388;
+	by tor.source.kernel.org (Postfix) with ESMTP id BAE1F60300;
+	Thu,  2 Oct 2025 14:40:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 49832C4CEF4;
 	Thu,  2 Oct 2025 14:40:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0739C4CEF9;
-	Thu,  2 Oct 2025 14:40:49 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: Magnus Damm <magnus.damm@gmail.com>,
 	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
 Cc: linux-arm-kernel@lists.infradead.org,
 	linux-renesas-soc@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH 01/13] ARM: dts: renesas: r7s72100: Move interrupt-parent to root node
-Date: Thu,  2 Oct 2025 16:40:29 +0200
-Message-ID: <6aaabd73f6732f932b5708b1036a9c398c44cd19.1759414774.git.geert+renesas@glider.be>
+Subject: [PATCH 02/13] ARM: dts: renesas: r7s9210: Remove duplicate interrupt-parent
+Date: Thu,  2 Oct 2025 16:40:30 +0200
+Message-ID: <ef9e56dfb55da092bdc489309309bf4262651042.1759414774.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1759414774.git.geert+renesas@glider.be>
 References: <cover.1759414774.git.geert+renesas@glider.be>
@@ -60,37 +60,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Move the "interrupt-parent = <&gic>" property from the soc node to the
-root node, and simplify "interrupts-extended = <&gic ...>" to
-"interrupts = <...>".
+There are two identical interrupt-parent properties: one at the top
+level, and one under the soc node.  Remove the latter, as it is
+unneeded.
 
 Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
- arch/arm/boot/dts/renesas/r7s72100.dtsi | 4 ++--
- 1 file changed, 2 insertions(+), 2 deletions(-)
+ arch/arm/boot/dts/renesas/r7s9210.dtsi | 1 -
+ 1 file changed, 1 deletion(-)
 
-diff --git a/arch/arm/boot/dts/renesas/r7s72100.dtsi b/arch/arm/boot/dts/renesas/r7s72100.dtsi
-index a1e4e9ac8f621acb..245c26bb8e037ce6 100644
---- a/arch/arm/boot/dts/renesas/r7s72100.dtsi
-+++ b/arch/arm/boot/dts/renesas/r7s72100.dtsi
-@@ -14,6 +14,7 @@ / {
- 	compatible = "renesas,r7s72100";
- 	#address-cells = <1>;
- 	#size-cells = <1>;
-+	interrupt-parent = <&gic>;
- 
- 	aliases {
- 		i2c0 = &i2c0;
-@@ -84,7 +85,7 @@ p1_clk: p1 {
- 
- 	pmu {
- 		compatible = "arm,cortex-a9-pmu";
--		interrupts-extended = <&gic GIC_PPI 0 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupts = <GIC_PPI 0 IRQ_TYPE_LEVEL_HIGH>;
- 	};
- 
- 	rtc_x1_clk: rtc_x1 {
-@@ -103,7 +104,6 @@ rtc_x3_clk: rtc_x3 {
+diff --git a/arch/arm/boot/dts/renesas/r7s9210.dtsi b/arch/arm/boot/dts/renesas/r7s9210.dtsi
+index fdeb0bc12cb794d6..2b349b51003b58f3 100644
+--- a/arch/arm/boot/dts/renesas/r7s9210.dtsi
++++ b/arch/arm/boot/dts/renesas/r7s9210.dtsi
+@@ -52,7 +52,6 @@ cpu@0 {
  
  	soc {
  		compatible = "simple-bus";
