@@ -4,48 +4,52 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7048CCA471
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 14:41:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23A70CAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 14:41:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ErbigTH2ECfYfn0HqIHOVU8ciP/LvyZhHp99p3XxFq8=; b=Rtd+1mWvo1Eq/xDZNujPxFHFH/
-	MWEJsVcepWpwMvUC4YKOA1Jz6hEVXnjMuGZB8AvBGUPVsoKGmzaCuVT6CRAhqTp+NQ7cyhbC68uZp
-	8sUv4sqzP1MfmTQGBordVxeDrXiTm+S1fc5FHKZIC4KaFOQeDkYp8JDGLlAFQPCHIG5ETKkd9DKmI
-	Gb6qTlCmvGVOnspsMwmpv1SYpRUoZ4X2lCliBM+U1GOt8i4FOOI53kTuuRf4fXujA8pzvrbEJQoQv
-	oj+UVnnJju0Qh+qEKfQDeHEG0nQLVH8L+1J6Tst1Sw4NAUWG3IxPx/Vk2R58esi3RWlRgBsYzU4gB
-	VYQwPgmQ==;
+	bh=a0BDBxWD2ds+ZWJZW+LQfh+PKFGUbggbllZ8wrlYlhQ=; b=ZnOQ3JvQ6e8cjoHpYjCjziId6R
+	4cOHKFS5ttslW3IqMdApA2LsvPhH+H2q2jaV3LkC/HgmcOC/0hGzRLIXDc3ojLxNu4dtFPJEeolBx
+	Hjv7iaEcrcN0+U5e1bG9EnoMftssYBevtvtR8gfWjgzL2MLjk1CQ8wmXocbuq1tUI6uKJyjVZrZvy
+	5+CIfNU/TfPFaBWuL5OOJD8c5tXi1cGlwP34p8bmdg9khdqKWaqxnbtEKT7pvOGKpCrsq2i9kzhkp
+	DKm991BxOx0gCJk7bPmWqj3ly1T12Mi+u8wDaoomanXT68kYhSW456bnpcxyBz8MTDKiSYIq6vl19
+	Ly5hWgsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4KUP-0000000Acmk-2Eno;
-	Thu, 02 Oct 2025 14:41:03 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v4KUT-0000000AcpJ-0Q85;
+	Thu, 02 Oct 2025 14:41:05 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4KUN-0000000AckY-2I4m
+	id 1v4KUO-0000000AclW-1mJR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Oct 2025 14:40:59 +0000
+	Thu, 02 Oct 2025 14:41:03 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CE4AA60388;
+	by sea.source.kernel.org (Postfix) with ESMTP id 23A1144E58;
+	Thu,  2 Oct 2025 14:41:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E4E4EC4CEFD;
 	Thu,  2 Oct 2025 14:40:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68763C4CEFC;
-	Thu,  2 Oct 2025 14:40:57 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: Magnus Damm <magnus.damm@gmail.com>,
 	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
 Cc: linux-arm-kernel@lists.infradead.org,
 	linux-renesas-soc@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH 06/13] ARM: dts: renesas: r8a7745: Move interrupt-parent to root node
-Date: Thu,  2 Oct 2025 16:40:34 +0200
-Message-ID: <fc23a6b5b7c8d92334089770854535f088201d58.1759414774.git.geert+renesas@glider.be>
+Subject: [PATCH 07/13] ARM: dts: renesas: r8a77470: Move interrupt-parent to root node
+Date: Thu,  2 Oct 2025 16:40:35 +0200
+Message-ID: <13edb8c780f21366343268a0c8f1ab5d54032c66.1759414774.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1759414774.git.geert+renesas@glider.be>
 References: <cover.1759414774.git.geert+renesas@glider.be>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251002_074100_490144_AB101F5C 
+X-CRM114-Status: UNSURE (   9.89  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,22 +70,22 @@ root node, and simplify "interrupts-extended = <&gic ...>" to
 
 Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
- arch/arm/boot/dts/renesas/r8a7745.dtsi | 14 +++++++-------
+ arch/arm/boot/dts/renesas/r8a77470.dtsi | 14 +++++++-------
  1 file changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm/boot/dts/renesas/r8a7745.dtsi b/arch/arm/boot/dts/renesas/r8a7745.dtsi
-index 704fa6f3cbd088e5..5424a73562ddba3c 100644
---- a/arch/arm/boot/dts/renesas/r8a7745.dtsi
-+++ b/arch/arm/boot/dts/renesas/r8a7745.dtsi
-@@ -14,6 +14,7 @@ / {
- 	compatible = "renesas,r8a7745";
+diff --git a/arch/arm/boot/dts/renesas/r8a77470.dtsi b/arch/arm/boot/dts/renesas/r8a77470.dtsi
+index a8a12275c98a66c7..c61790e7667f589f 100644
+--- a/arch/arm/boot/dts/renesas/r8a77470.dtsi
++++ b/arch/arm/boot/dts/renesas/r8a77470.dtsi
+@@ -13,6 +13,7 @@ / {
+ 	compatible = "renesas,r8a77470";
  	#address-cells = <2>;
  	#size-cells = <2>;
 +	interrupt-parent = <&gic>;
  
  	aliases {
  		i2c0 = &i2c0;
-@@ -105,8 +106,8 @@ extal_clk: extal {
+@@ -66,8 +67,8 @@ extal_clk: extal {
  
  	pmu {
  		compatible = "arm,cortex-a7-pmu";
@@ -92,7 +96,7 @@ index 704fa6f3cbd088e5..5424a73562ddba3c 100644
  		interrupt-affinity = <&cpu0>, <&cpu1>;
  	};
  
-@@ -120,7 +121,6 @@ scif_clk: scif {
+@@ -81,7 +82,6 @@ scif_clk: scif {
  
  	soc {
  		compatible = "simple-bus";
@@ -100,7 +104,7 @@ index 704fa6f3cbd088e5..5424a73562ddba3c 100644
  
  		#address-cells = <2>;
  		#size-cells = <2>;
-@@ -1631,10 +1631,10 @@ cmt1: timer@e6130000 {
+@@ -1057,10 +1057,10 @@ cmt1: timer@e6130000 {
  
  	timer {
  		compatible = "arm,armv7-timer";
