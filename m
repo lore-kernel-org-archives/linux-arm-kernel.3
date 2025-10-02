@@ -4,107 +4,128 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 927A3CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 18:48:40 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05B58CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 18:49:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fgjf4Q8TmMxBgFclVgV3Hi99Hhu3hDBuYkmCSxYCGGs=; b=TiXjv+O3QoQWtaDJ+YfmyfpDa1
-	Q7gh6E0SHYGv5oZ2MnwDO22KuriAhqmV17dmqESK84T8h3/mrtVWxnuZF2Q2EF/8QCpM2xLPavY68
-	lPKNWD0ESMMxMxGO6WWYcGMSYxoneakgEMsz9SxiUcmKPs3NeHGgXsHka96Xr2fm3+cu6KIH2DCpu
-	88GhtBPlts0Fpze1lQKMnLL4NKl2RiU1cCdhlOmt2tv3kq067eJGH7KFVeYGtaZwbQkVk7/ltSXOI
-	IOpDS6lM26SedX7gcpOHePrM2Rrc/DsMTl0uJXDltuloG6mY5TMW/MGu2vssoMQGy2avWBktijgBX
-	4AV3Ev4w==;
+	bh=tBLeaFmk6s08epL7fzezFMbIHY9YTm/FKC3Gi591Ofo=; b=opxaN+OCkGptUFQbBLkkDGDFm1
+	vHv2KdlNZHyNykY0IqUKCSIBbj/DYF7HpDpobTwyTSvXnu74Yx4f9jSLbDKROyjjfcSK0LtuRph+o
+	xOUGw4sHCpI1g0wzr/WYabc1LZ6FY6SSNLsTBcOW99QXTqhPmI7DK7hYTKlfoCaI0QsmM72Nssat/
+	IIua47h31sPpG50FBly2Nn76s0INWBKLzkaG4AHhsuiWtI8QUvTlRQV3cYXx8a1ftJ67YeZrmXGLd
+	6FxegTmeyUpF7I/O/89kPlTqpqPwpBBpu6HcjtG2rK7mgHOmW/6pxSMnv4aEJNZ085wklNvWfv9u7
+	suX2XOyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4OLy-0000000B42A-1Xyn;
-	Thu, 02 Oct 2025 18:48:34 +0000
-Received: from mail-wr1-x434.google.com ([2a00:1450:4864:20::434])
+	id 1v4OMe-0000000B4C8-3ywq;
+	Thu, 02 Oct 2025 18:49:16 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4OLv-0000000B410-24ss
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Oct 2025 18:48:32 +0000
-Received: by mail-wr1-x434.google.com with SMTP id ffacd0b85a97d-3f2cf786abeso943747f8f.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Oct 2025 11:48:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1759430909; x=1760035709; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=fgjf4Q8TmMxBgFclVgV3Hi99Hhu3hDBuYkmCSxYCGGs=;
-        b=TkKoKUeSqWPbnkP79VAbN4nX/M+yMjYMO1Ik+/xptzkHFOiUSEPcx12G99l1R+zt+9
-         oh79H012elgSaT6QOc9vzrRjaTy8tJ+qZdjDpNyz+BJF/Y17Hwnv/AbTmfx6Fz7Tsf+Z
-         cIeOiHxSjw1oNYHNDL4Ov9v/JLXhPKJ80CgIHPrZjS5NzTr3AdPbaxvLRZDfpPDdxOJH
-         BJ5zR1Gu2JNcozTwyV91xc2G00Q5pQlVCSegv+RECDsCMtr9BndtX5vcYF4kBQ23NGza
-         Gfxh96gssaF0/2DHviMrbcUJBViSqisqlyqfFYH1SBcZ6YyA+lZmZ1rknaNqzGLmSSsj
-         RNIQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759430909; x=1760035709;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=fgjf4Q8TmMxBgFclVgV3Hi99Hhu3hDBuYkmCSxYCGGs=;
-        b=ZIX0AAjzxvP9TFoAcj0EuhpVIJxQbo55DiihVPAOETfY384P/mQs3nNu4vgSPGr7pB
-         QpyM22hk4LuqGpMUXiNMPKnzBY0+p3eVSiaq7TYe1NSIZtR0IKyEnTrPbpg9xQRr5cgX
-         7yYASJIdMFeuXZwDSsUK3YWwsIVFlJLDqmdNKtOCdA46YbB+QscypgH2f539atRd+vDK
-         bQiqUcl2tsAfvlEhr4hrBrT6xS7SQK82QscE7smNA7ppa6iY9ZZsrBiLothxEoXpd6mi
-         pAr4jziUR/UeU3yqf+9gYsAk7t5jfFianjOagZl69SxpumgSHrD5hDRzgbjH8ba190aQ
-         7iqw==
-X-Forwarded-Encrypted: i=1; AJvYcCV0CfY4XovbhvIrSF85V/TbcTtVfYuS3FwOizv/LC+bKEop5x11O/axZ3bwPAVnUyFEsEHYZ9QEI/XoEouFOZ+0@lists.infradead.org
-X-Gm-Message-State: AOJu0YwUKZgqEZr7vYjPxTBp14Bv7ODeCKGkcqGQ96Z+hHOrXv9WofEP
-	NbRapi6TGMyLEI1uMJ4U02HuBkqrr/V7n3Go+d5/zGZkt9KzjUjOPzFD
-X-Gm-Gg: ASbGncuSBPLmQylgyxHkxBJg5dVxBfaEmEjDjFbTCKJNpjkF3oKanjDHp6l/GmnIFWv
-	jvBsYg/RV7j5T8p7u+byVCpy7nuTHaWurHsA9EK/Zy/c8EijIVoFvj1EBdSdnIeqYM8vgxWnCdX
-	38erPw8mFhA4zUjeWCJGcTbRsKCWMHULYt5x/tN6L5/c/vmv/Q/LXU1YDqyQUyg0Qz8xVwfs5oi
-	oHZSFnc2Sblh7Ff5co4XLubXQMH2yjujmcdIY0T1IC3YXS0vDBcGfqT2tkAeLkoW0gCiecwdl1Q
-	g7F2zXUYM5OYkIRHfEi0yR6it9kzVoJnF4joowdcwxryyT7xKGB9P0NpvZKL9FCey+uN7cUsBcE
-	OTxrQoo3bRDAOWGqOzgybM6Xx3D0mmFntPRjnZIfhBsFyVpj8jesRpmDaLj9IGgUwI26Ohysgu6
-	VbMevabz0ZwoNA
-X-Google-Smtp-Source: AGHT+IGPZyy98EunzVJ6yivTxgcZu+hh+n+arOejBmpGA2ZRyOHrbEnCoAuwnsGkUwYPhwrqhwXocA==
-X-Received: by 2002:a05:6000:603:b0:3ee:3dce:f672 with SMTP id ffacd0b85a97d-4256712a5dcmr209162f8f.4.1759430906615;
-        Thu, 02 Oct 2025 11:48:26 -0700 (PDT)
-Received: from pumpkin (82-69-66-36.dsl.in-addr.zen.co.uk. [82.69.66.36])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4255d8f083asm4640243f8f.43.2025.10.02.11.48.25
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Oct 2025 11:48:26 -0700 (PDT)
-Date: Thu, 2 Oct 2025 19:47:34 +0100
-From: David Laight <david.laight.linux@gmail.com>
-To: Linus Torvalds <torvalds@linux-foundation.org>
-Cc: Geert Uytterhoeven <geert@linux-m68k.org>, Peter Zijlstra
- <peterz@infradead.org>, Thomas Gleixner <tglx@linutronix.de>, Nathan
- Chancellor <nathan@kernel.org>, LKML <linux-kernel@vger.kernel.org>, kernel
- test robot <lkp@intel.com>, Russell King <linux@armlinux.org.uk>,
- linux-arm-kernel@lists.infradead.org, Christophe Leroy
- <christophe.leroy@csgroup.eu>, Darren Hart <dvhart@infradead.org>,
- Davidlohr Bueso <dave@stgolabs.net>, =?UTF-8?B?QW5kcsOp?= Almeida
- <andrealmeid@igalia.com>, x86@kernel.org, Alexander Viro
- <viro@zeniv.linux.org.uk>, Christian Brauner <brauner@kernel.org>, Jan Kara
- <jack@suse.cz>, linux-fsdevel@vger.kernel.org
-Subject: Re: [patch V2a 2/6] kbuild: Disable CC_HAS_ASM_GOTO_OUTPUT on clang
- < version 17
-Message-ID: <20251002194734.7cb2be8e@pumpkin>
-In-Reply-To: <CAHk-=whmf8OKRBKW_xi6SLrvicif8a2e7Pn9v6Qi+ioDJxnqmg@mail.gmail.com>
-References: <20250916163004.674341701@linutronix.de>
-	<20250916163252.100835216@linutronix.de>
-	<20250916184440.GA1245207@ax162>
-	<87ikhi9lhg.ffs@tglx>
-	<87frcm9kvv.ffs@tglx>
-	<CAMuHMdVvAQbN8g7TJyK2MCLusGPwDbzrQJHw8uxDhOvjAh7_Pw@mail.gmail.com>
-	<20250929100852.GD3245006@noisy.programming.kicks-ass.net>
-	<CAMuHMdW_5QOw69Uyrrw=4BPM3DffG2=k5BAE4Xr=gfei7vV=+g@mail.gmail.com>
-	<20250929110400.GL3419281@noisy.programming.kicks-ass.net>
-	<CAMuHMdWtE_E75_2peNaNDEcV6+5=hqJdi=FD37a3fazSNNeUSg@mail.gmail.com>
-	<CAHk-=whmf8OKRBKW_xi6SLrvicif8a2e7Pn9v6Qi+ioDJxnqmg@mail.gmail.com>
-X-Mailer: Claws Mail 4.1.1 (GTK 3.24.38; arm-unknown-linux-gnueabihf)
+	id 1v4OMc-0000000B4BA-44Yg;
+	Thu, 02 Oct 2025 18:49:16 +0000
+Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59292rfS010749;
+	Thu, 2 Oct 2025 18:49:02 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	tBLeaFmk6s08epL7fzezFMbIHY9YTm/FKC3Gi591Ofo=; b=IN5in/OlQIwxVj+f
+	ofWuzvdhiHcWu1Xoa5rPeRHswk64AUGSe4uLlVpxTpAQ7v/auzBQoLO0KVkEpAjO
+	tGUc+PeAbg4pkH0bQdZicqq75JPYoBH/B0PYXSHiAp/46tZzw9IxfHK9kJiQfiIi
+	0c5qNBFCo6eFvVcrDOkxv4P1p3Cb7A72zGs3HjmCs463mYl/lJqCK5NuejU/Bzj3
+	3MDoK+M1wRR2Gw1JY3AjPkBC/b3wEA/zFFRNNnb9tv/iueu4s+2HbFNtnmwsOzNf
+	zSqEwn4M0AZXr5aavofUcKTUjNryMBimuopGfwNHAS+hZaeKsGUKwdk1GsG32b1k
+	i9W56w==
+Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49e93hrdmt-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 02 Oct 2025 18:49:01 +0000 (GMT)
+Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
+	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 592In1ZH010820
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 2 Oct 2025 18:49:01 GMT
+Received: from [10.46.162.103] (10.80.80.8) by nasanex01a.na.qualcomm.com
+ (10.52.223.231) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.24; Thu, 2 Oct
+ 2025 11:49:00 -0700
+Message-ID: <69a111a2-219e-e3d4-8b89-3400facc02e3@quicinc.com>
+Date: Thu, 2 Oct 2025 11:48:51 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
-Content-Transfer-Encoding: 7bit
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
+ Thunderbird/102.6.1
+Subject: Re: [PATCH v1 1/2] scsi: ufs: core: Remove
+ UFS_DEVICE_QUIRK_DELAY_AFTER_LPM quirk
+To: =?UTF-8?B?UGV0ZXIgV2FuZyAo546L5L+h5Y+LKQ==?= <peter.wang@mediatek.com>,
+        "avri.altman@wdc.com" <avri.altman@wdc.com>,
+        "quic_cang@quicinc.com"
+	<quic_cang@quicinc.com>,
+        "quic_nitirawa@quicinc.com"
+	<quic_nitirawa@quicinc.com>,
+        "manivannan.sadhasivam@linaro.org"
+	<manivannan.sadhasivam@linaro.org>,
+        "bvanassche@acm.org"
+	<bvanassche@acm.org>,
+        "adrian.hunter@intel.com" <adrian.hunter@intel.com>,
+        "martin.petersen@oracle.com" <martin.petersen@oracle.com>
+CC: "beanhuo@micron.com" <beanhuo@micron.com>,
+        "chu.stanley@gmail.com"
+	<chu.stanley@gmail.com>,
+        "quic_mapa@quicinc.com" <quic_mapa@quicinc.com>,
+        "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
+        "AngeloGioacchino
+ Del Regno" <angelogioacchino.delregno@collabora.com>,
+        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+        "alim.akhtar@samsung.com" <alim.akhtar@samsung.com>,
+        "linux-arm-msm@vger.kernel.org" <linux-arm-msm@vger.kernel.org>,
+        "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+        "matthias.bgg@gmail.com"
+	<matthias.bgg@gmail.com>,
+        "James.Bottomley@HansenPartnership.com"
+	<James.Bottomley@HansenPartnership.com>,
+        "mani@kernel.org" <mani@kernel.org>,
+        "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>
+References: <cover.1759348507.git.quic_nguyenb@quicinc.com>
+ <0f0a7d5518d29fc384aace558d2bf098d792e0db.1759348507.git.quic_nguyenb@quicinc.com>
+ <450e834545af935010ffc4f9079e56e47851f197.camel@mediatek.com>
+Content-Language: en-US
+From: "Bao D. Nguyen" <quic_nguyenb@quicinc.com>
+In-Reply-To: <450e834545af935010ffc4f9079e56e47851f197.camel@mediatek.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01a.na.qualcomm.com (10.52.223.231)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTI3MDA0MSBTYWx0ZWRfX5j/3ThhQFgrC
+ uAVrhFIGbxu7FXfvH6i8xQTaMbLMV0nH7XlyjWlBbYpX94kIPFudWKIKrFi0bopIo+HpDDJWLLe
+ j2fyARLEG6Upu9nzARs7Ru0Ntz5sPvRsri3KJDKpuSO0z1WjpxwEIWu5A93f77H74pZDV427AyC
+ x+1AKyYQzrbeF640CbluCdalPgeQRkUaYQr887Pws0R/pYr/vBcrfMceJ8gM3UQ9ipiW2MCYkqZ
+ 5eozp5ZuitAkCytyrnXO/Pn5EPYo5jo/PPGal03eVmVeU/h2Zzl1u0PovbXW9sYZABYDi+/qxW2
+ S7Gjv4wJPegRNsdPfvixbfarticXQlfuQ5/OyJO/F8KUGy66ywx8hnPOska/FgGSYotqoBa8Z7H
+ ncf+T1bji8Sv7+veuTDgmGJzJwFEWQ==
+X-Proofpoint-GUID: ULyUvjth2Rl6nV6TlJmOO1GIZWkob7ph
+X-Proofpoint-ORIG-GUID: ULyUvjth2Rl6nV6TlJmOO1GIZWkob7ph
+X-Authority-Analysis: v=2.4 cv=Rfydyltv c=1 sm=1 tr=0 ts=68dec91d cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10
+ a=YKdBxgvyY27R_9wN8GQA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
+ a=cPQSjfK2_nFv0Q5t_7PE:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-02_07,2025-10-02_03,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ phishscore=0 priorityscore=1501 bulkscore=0 adultscore=0 lowpriorityscore=0
+ impostorscore=0 clxscore=1015 malwarescore=0 spamscore=0 suspectscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2509150000 definitions=main-2509270041
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_114831_543222_BCCCCF90 
-X-CRM114-Status: GOOD (  16.71  )
+X-CRM114-CacheID: sfid-20251002_114915_026790_9ADADFF0 
+X-CRM114-Status: GOOD (  19.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,35 +140,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 29 Sep 2025 08:53:37 -0700
-Linus Torvalds <torvalds@linux-foundation.org> wrote:
-
-> On Mon, 29 Sept 2025 at 04:10, Geert Uytterhoeven <geert@linux-m68k.org> wrote:
-> >  
-> > >
-> > > Ah, d'0h indeed.
-> > >
-> > > void b(void **);void* c();int f(void){{asm goto(""::::l0);return 0;l0:return 1;}void *x __attribute__((cleanup(b))) = c();{asm goto(""::::l1);return 2;l1:return 1;}}
-
-Should that be 'void *c(void);' (with an extra void) to avoid failing because
-of the K&R function declaration?
-
-	David
-
-> > >
-> > > Seems to still finger the issue on x86_64. That should build on !x86
-> > > too, right?  
-> >
-> > Thanks, builds fine on arm32, arm64, riscv, m68k, powerpc, mips, s390.  
+On 10/2/2025 12:57 AM, Peter Wang (王信友) wrote:
+> On Wed, 2025-10-01 at 13:57 -0700, Bao D. Nguyen wrote:
+>>
+>> diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
+>> index 2e1fa8c..45e509b 100644
+>> --- a/drivers/ufs/core/ufshcd.c
+>> +++ b/drivers/ufs/core/ufshcd.c
+>> @@ -9738,10 +9738,9 @@ static void ufshcd_vreg_set_lpm(struct ufs_hba
+>> *hba)
+>>          }
+>>
+>>          /*
+>> -        * Some UFS devices require delay after VCC power rail is
+>> turned-off.
+>> +        * All UFS devices require delay after VCC power rail is
+>> turned-off.
+>>           */
+>> -       if (vcc_off && hba->vreg_info.vcc &&
+>> -               hba->dev_quirks & UFS_DEVICE_QUIRK_DELAY_AFTER_LPM)
+>> +       if (vcc_off && hba->vreg_info.vcc)
+>>                  usleep_range(5000, 5100);
+>>   }
+>>
+>> diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-
+>> mediatek.c
+>> index f902ce0..5c204d1 100644
+>> --- a/drivers/ufs/host/ufs-mediatek.c
+>> +++ b/drivers/ufs/host/ufs-mediatek.c
+>> @@ -40,8 +40,7 @@ static int  ufs_mtk_config_mcq(struct ufs_hba *hba,
+>> bool irq);
+>>   static const struct ufs_dev_quirk ufs_mtk_dev_fixups[] = {
+>>          { .wmanufacturerid = UFS_ANY_VENDOR,
+>>            .model = UFS_ANY_MODEL,
+>> -         .quirk = UFS_DEVICE_QUIRK_DELAY_AFTER_LPM |
+>> -               UFS_DEVICE_QUIRK_DELAY_BEFORE_LPM },
+>> +         .quirk = UFS_DEVICE_QUIRK_DELAY_BEFORE_LPM },
+>>          { .wmanufacturerid = UFS_VENDOR_SKHYNIX,
+>>            .model = "H9HQ21AFAMZDAR",
+>>            .quirk = UFS_DEVICE_QUIRK_SUPPORT_EXTENDED_FEATURES },
+>> @@ -1713,15 +1712,13 @@ static void ufs_mtk_fixup_dev_quirks(struct
+>> ufs_hba *hba)
+>>   {
+>>          ufshcd_fixup_dev_quirks(hba, ufs_mtk_dev_fixups);
+>>
+>> -       if (ufs_mtk_is_broken_vcc(hba) && hba->vreg_info.vcc &&
+>> -           (hba->dev_quirks & UFS_DEVICE_QUIRK_DELAY_AFTER_LPM)) {
+>> +       if (ufs_mtk_is_broken_vcc(hba) && hba->vreg_info.vcc) {
+>>
 > 
-> Ok, I just applied that fix directly. It's clearly not a fatal bug
-> since it just falls back on the non-optimal code, but it's one of
-> those "silly and subtle code generation issues" so I'd rather have it
-> fixed asap in the upstream kernel.
+> Hi Bao,
 > 
-> Geert, thanks for noticing.
+> Adding a delay is not reasonable if we have decided to
+> keep VCC always on.
+
+Hi Peter,
+
+The current Mediatek platform driver applies this quirk to all ufs 
+vendors which is consistent with what we would like to do in the 
+Qualcomm platform driver per the vendor's requests.
+
+I do see that, about 5 years ago, Mediatek merged a patch to keep the 
+device vcc always on, probably to workaround some HW issues. Since this 
+is a very old patch and the impact of this change on a broken hardware 
+is minimal, I would like weight the benefit of cleaning up the ufs core 
+driver by removing the unnecessary quirk 
+UFS_DEVICE_QUIRK_DELAY_AFTER_LPM vs the inconvenience of a 5ms 
+(potentially reduce to 2ms) delay impact it may cause on an old broken 
+HW in the suspend/shutdown path.
+
+I believe removing the UFS_DEVICE_QUIRK_DELAY_AFTER_LPM quirk in the ufs 
+core driver as well as all the platform drivers yields positive net 
+benefits in this case.
+
+Thanks, Bao
+
 > 
->              Linus
+> Thanks
+> Peter
+> 
+> 
+>>                  hba->vreg_info.vcc->always_on = true;
+>>                  /*
+>>                   * VCC will be kept always-on thus we don't
+>> -                * need any delay during regulator operations
+>> +                * need any delay before putting device's VCC in LPM
+>> mode.
+>>                   */
+>> -               hba->dev_quirks &=
+>> ~(UFS_DEVICE_QUIRK_DELAY_BEFORE_LPM |
+>> -                       UFS_DEVICE_QUIRK_DELAY_AFTER_LPM);
+>> +               hba->dev_quirks &=
+>> ~UFS_DEVICE_QUIRK_DELAY_BEFORE_LPM;
+>>
+> 
+> 
+> 
+> 
 > 
 
 
