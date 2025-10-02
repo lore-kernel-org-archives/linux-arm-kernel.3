@@ -4,76 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C45F5CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 16:52:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 244C5CAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 18:01:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lp7JaXDSxIg5cCs6v7dANT9yfZ7KsEkeMWzbDscmB6s=; b=IsBBSvpaLw1wblVP89NEoGD/Z5
-	zS5YZYUvYDHNez1nYz9qOs2QjWMysuEVOXJkQYDJgIiMQVmjBN7cIkvhloDSbhPr3JW621k5pvK7o
-	iz1UxA2S6V8RPFecktO0ZBTwOaC1IsMuCBjjWUwvDW77dgagYnPA088X4030oeovKbejHXEdQnvMa
-	ZA4PQjx+0i8tlRDSR8DQ5kIlG1zXW7pfJUQ/HMqvtwHeh0dhqu87IOvdrtRwDGYGLhu3E8BID+til
-	SdTMbbx2Lu+c6eFdPOP0IuN0tSrwQhlUlNwNBWFPxCQLcjbexlIcEW45ZeScfMsVu2Bct/0h+7mq/
-	RBy9JsTA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=epU/uuRCc6FYveB1XcTu+0zfQVVGTvdnWiBQH/N2XKE=; b=m8qwyjChW9j4FikjJRqcebOicb
+	xF7AS8/9G0lcmPnIQj4dzHHeeuZUPU2if9qYV7bUt5VrwBaDxvp9Cns+Nrd8Kqb4wlCNin+8Vq5QT
+	O+evT2WU4tGRVytvsx4PX4Yg2HQV8/8PWnxNAB04JcSsj6hqI/piAkX1RP5Y1UOktx6w8j2SLPrpp
+	YODvHGJW9eu1iMbrLtCKpY9vdZ3DzcL3ftyOnfTa6OtDtuz1ouZvuMEYnsLZfLO4VwAuNGVUFERCY
+	n7cANaNTvqGB4Q6Fk4jMgNIQ0CpIy5DTzUL7nLq/l3E9bcXGOXfv61YYDbnSHsBsWUz4OoxAm+2kr
+	uWUf0wQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4MXK-0000000Arlb-20f6;
-	Thu, 02 Oct 2025 16:52:10 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v4NcD-0000000AxTQ-0rwO;
+	Thu, 02 Oct 2025 18:01:17 +0000
+Received: from fra-out-011.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([52.28.197.132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4MXI-0000000ArlF-0vh4
+	id 1v4Nc6-0000000AxPr-1Zic
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Oct 2025 16:52:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 312BC459BC
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  2 Oct 2025 16:52:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01381C4AF0B
-	for <linux-arm-kernel@lists.infradead.org>; Thu,  2 Oct 2025 16:52:06 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759423927;
-	bh=RYUS76VlN/7kvtmsPptlWYP5PD2siFaw/m/pPf6KKBg=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=jP3BgZuPIcSMnUcMZX+zGGOZ4bci9SkVBh6qAlossuJFuETqNIvy2fQkb/E6AOjG2
-	 B6X4EyyQqk6tyj+k35Jl5fvMbbeCucLL89tO8oZ2nIrcjDkj/4zRObaeLd2GKId8xB
-	 3ewdNfSDZCzpowgdhOEaCx1ig9j/TtysCtg4woD+tw4U9BGyP+TOG1OkdKGVQ3N794
-	 EoyrG6R5WJJicuHK4twz7z1orRs2uDZ3OZwHENgdVlQIzOA1wzpQjMeQgvzwWG5f2K
-	 4v8cRFImwrUPk9xDWzwl7bFaFCffNvkrBfUt5ffZWunvD0alfmOwrOJGC6HebPP6tf
-	 dUEYVhdnABQTA==
-Received: by mail-lj1-f174.google.com with SMTP id 38308e7fff4ca-36295d53a10so10526471fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Oct 2025 09:52:06 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWHqCw+SwqHllztfceuGEAhGTHnvT3Tj85S1VzGQQQh0dUY2QeFcg3pKfeoH3rOVnu9cr6EO5nU7DqvjehC3mhf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8+xpRjNHWyFlZnsfEfZ7nzuBrhG5nzRTuYQLfrQtxxOEmNBlK
-	FqHimBcTBmh3KWyas4jprUz9t3YKRLuTyTtCx7LeiT7Lg9Ofa2VLnuXguXNSm+xLusNo1FkZLpd
-	cUIw0dxHI8pZZzX5a7qf4TxTySm5xlMQ=
-X-Google-Smtp-Source: AGHT+IFwsRonoEO2SfC5D66SL4gG4kGhHTi4f1/UhGxnb1sNM7Q1481/usK34L0kehPsH9mUQeXsHIp2ebOr5kpnvaA=
-X-Received: by 2002:a2e:a90e:0:b0:36c:47c8:b618 with SMTP id
- 38308e7fff4ca-373a7126ca6mr26591461fa.18.1759423925284; Thu, 02 Oct 2025
- 09:52:05 -0700 (PDT)
+	Thu, 02 Oct 2025 18:01:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1759428070; x=1790964070;
+  h=from:to:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=epU/uuRCc6FYveB1XcTu+0zfQVVGTvdnWiBQH/N2XKE=;
+  b=LLm+F0FW1ZSqzcxXVKG0hmKqxkzdyQBoYufI9dZbd7bsUdlTSr4n0q3S
+   DmfReIHqbvURo5CUyrciyXnAVptwh61VugWYd2wvuZDOtezKJW1Iy6HiO
+   4jXVNbHQHBfvAaGxUsW83BhJRrQGPJ3Uza6eOwBtTiG/3ImC8B8ZyM2GV
+   hngOkXLM1pMG0PISpn1slELYhSvdrDwCZRaOuW4J8ylDZGveNziXbM+L6
+   4eTLxPVXCm2C6zYmuLAvWFPlR/BS/GXepEpSW0J4tvbKvPkR3evJcW767
+   Vrvt9dPMPQXaTuO/c9JC5zYj6N9BwNG9v6v+OvDkBuzGC0XKDDADmxh95
+   g==;
+X-CSE-ConnectionGUID: 4wc7erOoTsG+zcDi3lQiWg==
+X-CSE-MsgGUID: 2gKb5OADRGepv9G3AIxECQ==
+X-IronPort-AV: E=Sophos;i="6.18,310,1751241600"; 
+   d="scan'208";a="2922661"
+Received: from ip-10-6-3-216.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.3.216])
+  by internal-fra-out-011.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Oct 2025 18:00:57 +0000
+Received: from EX19MTAEUA001.ant.amazon.com [54.240.197.233:16626]
+ by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.22.27:2525] with esmtp (Farcaster)
+ id 6ebc8389-d59d-4539-8dfb-efa782bd8e1d; Thu, 2 Oct 2025 18:00:57 +0000 (UTC)
+X-Farcaster-Flow-ID: 6ebc8389-d59d-4539-8dfb-efa782bd8e1d
+Received: from EX19D018EUA004.ant.amazon.com (10.252.50.85) by
+ EX19MTAEUA001.ant.amazon.com (10.252.50.50) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
+ Thu, 2 Oct 2025 18:00:52 +0000
+Received: from dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com
+ (172.19.116.181) by EX19D018EUA004.ant.amazon.com (10.252.50.85) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20; Thu, 2 Oct 2025
+ 18:00:42 +0000
+From: Eliav Farber <farbere@amazon.com>
+To: <gregkh@linuxfoundation.org>, <kenneth.feng@amd.com>,
+	<alexander.deucher@amd.com>, <christian.koenig@amd.com>, <airlied@gmail.com>,
+	<simona@ffwll.ch>, <linus.walleij@linaro.org>, <dmitry.torokhov@gmail.com>,
+	<tglx@linutronix.de>, <wens@csie.org>, <jernej.skrabec@gmail.com>,
+	<samuel@sholland.org>, <agk@redhat.com>, <snitzer@kernel.org>,
+	<mpatocka@redhat.com>, <clm@fb.com>, <dsterba@suse.com>,
+	<luc.vanoostenryck@gmail.com>, <pmladek@suse.com>, <rostedt@goodmis.org>,
+	<andriy.shevchenko@linux.intel.com>, <linux@rasmusvillemoes.dk>,
+	<senozhatsky@chromium.org>, <akpm@linux-foundation.org>,
+	<lijo.lazar@amd.com>, <asad.kamal@amd.com>, <kevinyang.wang@amd.com>,
+	<David.Laight@ACULAB.COM>, <amd-gfx@lists.freedesktop.org>,
+	<dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+	<linux-input@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-sunxi@lists.linux.dev>, <dm-devel@lists.linux.dev>,
+	<linux-btrfs@vger.kernel.org>, <linux-sparse@vger.kernel.org>,
+	<stable@vger.kernel.org>, <farbere@amazon.com>
+Subject: [PATCH v3 00/11 6.1.y] Backport minmax.h updates from v6.17-rc7
+Date: Thu, 2 Oct 2025 18:00:18 +0000
+Message-ID: <20251002180036.33738-1-farbere@amazon.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-References: <20251001210201.838686-22-ardb+git@google.com> <20251001210201.838686-42-ardb+git@google.com>
- <202510020920.2FE08A4F90@keescook>
-In-Reply-To: <202510020920.2FE08A4F90@keescook>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Thu, 2 Oct 2025 18:51:54 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXFN0Q8Rba7gdh9AF2SAyyZcNjX89L-GtQs5kbfZtneQzA@mail.gmail.com>
-X-Gm-Features: AS18NWCS21HK8p5zowe1aZSwsKe2CzfUTcnx8DtpF0yJN4O90o1GiG6ggpAwDNk
-Message-ID: <CAMj1kXFN0Q8Rba7gdh9AF2SAyyZcNjX89L-GtQs5kbfZtneQzA@mail.gmail.com>
-Subject: Re: [PATCH v2 20/20] arm64/fpsimd: Allocate kernel mode FP/SIMD
- buffers on the stack
-To: Kees Cook <kees@kernel.org>
-Cc: Ard Biesheuvel <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org, 
-	linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	herbert@gondor.apana.org.au, linux@armlinux.org.uk, 
-	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
-	Catalin Marinas <catalin.marinas@arm.com>, Mark Brown <broonie@kernel.org>, 
-	Eric Biggers <ebiggers@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [172.19.116.181]
+X-ClientProxiedBy: EX19D036UWC003.ant.amazon.com (10.13.139.214) To
+ EX19D018EUA004.ant.amazon.com (10.252.50.85)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_095208_301149_AD07AC8C 
-X-CRM114-Status: GOOD (  22.66  )
+X-CRM114-CacheID: sfid-20251002_110110_700042_27356B8B 
+X-CRM114-Status: GOOD (  12.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,59 +103,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2 Oct 2025 at 18:22, Kees Cook <kees@kernel.org> wrote:
->
-> On Wed, Oct 01, 2025 at 11:02:22PM +0200, Ard Biesheuvel wrote:
-> > [...]
-> > diff --git a/arch/arm64/include/asm/simd.h b/arch/arm64/include/asm/simd.h
-> > index d9f83c478736..7ddb25df5c98 100644
-> > --- a/arch/arm64/include/asm/simd.h
-> > +++ b/arch/arm64/include/asm/simd.h
-> > @@ -43,8 +43,11 @@ static __must_check inline bool may_use_simd(void) {
-> >
-> >  #endif /* ! CONFIG_KERNEL_MODE_NEON */
-> >
-> > -DEFINE_LOCK_GUARD_0(ksimd, kernel_neon_begin(), kernel_neon_end())
-> > +DEFINE_LOCK_GUARD_1(ksimd,
-> > +                 struct user_fpsimd_state,
-> > +                 kernel_neon_begin(_T->lock),
-> > +                 kernel_neon_end(_T->lock))
-> >
-> > -#define scoped_ksimd()       scoped_guard(ksimd)
-> > +#define scoped_ksimd()       scoped_guard(ksimd, &(struct user_fpsimd_state){})
->
-> I love it!
->
-> > [...]
-> > -void kernel_neon_end(void)
-> > +void kernel_neon_end(struct user_fpsimd_state *s)
-> >  {
-> >       if (!system_supports_fpsimd())
-> >               return;
-> > @@ -1899,8 +1910,9 @@ void kernel_neon_end(void)
-> >       if (!IS_ENABLED(CONFIG_PREEMPT_RT) && in_serving_softirq() &&
-> >           test_thread_flag(TIF_KERNEL_FPSTATE))
-> >               fpsimd_load_kernel_state(current);
-> > -     else
-> > -             clear_thread_flag(TIF_KERNEL_FPSTATE);
-> > +     else if (test_and_clear_thread_flag(TIF_KERNEL_FPSTATE))
-> > +             if (cmpxchg(&current->thread.kernel_fpsimd_state, s, NULL) != s)
-> > +                     BUG();
->
-> I always question BUG() uses -- is there a recoverable way to deal with
-> a mismatch here? I assume not and that this is the best we can do, but I
-> thought I'd just explicitly ask. :)
->
+This series backports 13 patches to update minmax.h in the 6.1.y branch,
+aligning it with v6.17-rc7.
 
-So this fires when kernel_neon_end() passes a different buffer than
-the preceding kernel_neon_begin(), but the only purpose of passing it
-twice is this particular check.
+The ultimate goal is to synchronize all longterm branches so that they
+include the full set of minmax.h changes (6.12.y and 6.6.y were already
+backported by me and are now ligned).
 
-So perhaps this one can be demoted to a WARN() instead. The preceding
-one will fire if kernel_neon_begin() is called and the recorded buffer
-pointer is still set from a previous NEON block. Perhaps the same
-applies there too: the warning is about something that already
-happened, and we can actually proceed as usual.
+The key motivation is to bring in commit d03eba99f5bf ("minmax: allow
+min()/max()/clamp() if the arguments have the same signedness"), which
+is missing in older kernels.
 
-TL;DR yes let's WARN() instead in both cases.
+In mainline, this change enables min()/max()/clamp() to accept mixed
+argument types, provided both have the same signedness. Without it,
+backported patches that use these forms may trigger compiler warnings,
+which escalate to build failures when -Werror is enabled.
+
+Changes in v3:
+- v2 included 13 patches:
+  https://lore.kernel.org/stable/20250929183358.18982-1-farbere@amazon.com/
+- First 2 were accepted and are part of 6.1.155.
+- 3rd caused build in drivers/md/ to fail:
+
+In file included from ./include/linux/container_of.h:5,
+                 from ./include/linux/list.h:5,
+                 from ./include/linux/wait.h:7,
+                 from ./include/linux/mempool.h:8,
+                 from ./include/linux/bio.h:8,
+                 from drivers/md/dm-bio-record.h:10,
+                 from drivers/md/dm-integrity.c:9:
+drivers/md/dm-integrity.c: In function ‘integrity_metadata’:
+drivers/md/dm-integrity.c:131:105: error: ISO C90 forbids variable length array ‘checksums_onstack’ [-Werror=vla]
+  131 | #define MAX_TAG_SIZE                    (JOURNAL_SECTOR_DATA - JOURNAL_MAC_PER_SECTOR - offsetof(struct journal_entry, last_bytes[MAX_SECTORS_PER_BLOCK]))
+      |                                                                                                         ^~~~~~~~~~~~~
+./include/linux/build_bug.h:78:56: note: in definition of macro ‘__static_assert’
+   78 | #define __static_assert(expr, msg, ...) _Static_assert(expr, msg)
+      |                                                        ^~~~
+./include/linux/minmax.h:56:9: note: in expansion of macro ‘static_assert’
+   56 |         static_assert(__types_ok(x, y, ux, uy),         \
+      |         ^~~~~~~~~~~~~
+./include/linux/minmax.h:41:31: note: in expansion of macro ‘__is_noneg_int’
+   41 |          __is_noneg_int(x) || __is_noneg_int(y))
+      |                               ^~~~~~~~~~~~~~
+./include/linux/minmax.h:56:23: note: in expansion of macro ‘__types_ok’
+   56 |         static_assert(__types_ok(x, y, ux, uy),         \
+      |                       ^~~~~~~~~~
+./include/linux/minmax.h:61:9: note: in expansion of macro ‘__careful_cmp_once’
+   61 |         __careful_cmp_once(op, x, y, __UNIQUE_ID(x_), __UNIQUE_ID(y_))
+      |         ^~~~~~~~~~~~~~~~~~
+./include/linux/minmax.h:92:25: note: in expansion of macro ‘__careful_cmp’
+   92 | #define max(x, y)       __careful_cmp(max, x, y)
+      |                         ^~~~~~~~~~~~~
+drivers/md/dm-integrity.c:1797:40: note: in expansion of macro ‘max’
+ 1797 |                 char checksums_onstack[max((size_t)HASH_MAX_DIGESTSIZE, MAX_TAG_SIZE)];
+      |                                        ^~~
+drivers/md/dm-integrity.c:131:89: note: in expansion of macro ‘offsetof’
+  131 | #define MAX_TAG_SIZE                    (JOURNAL_SECTOR_DATA - JOURNAL_MAC_PER_SECTOR - offsetof(struct journal_entry, last_bytes[MAX_SECTORS_PER_BLOCK]))
+      |                                                                                         ^~~~~~~~
+drivers/md/dm-integrity.c:1797:73: note: in expansion of macro ‘MAX_TAG_SIZE’
+ 1797 |                 char checksums_onstack[max((size_t)HASH_MAX_DIGESTSIZE, MAX_TAG_SIZE)];
+      |                                                                         ^~~~~~~~~~~~
+
+- The build was fixed in the second patch of this series.
+
+Changes in v2:
+- v1 included 19 patches:
+  https://lore.kernel.org/stable/20250924202320.32333-1-farbere@amazon.com/
+- First 6 were pushed to the stable-tree.
+- 7th cauded amd driver's build to fail.
+- This change fixes it.
+- Modified files:
+   drivers/gpu/drm/amd/amdgpu/amdgpu.h
+   drivers/gpu/drm/amd/pm/swsmu/smu11/sienna_cichlid_ppt.c
+   drivers/gpu/drm/amd/pm/swsmu/smu13/smu_v13_0_0_ppt.c
+   drivers/gpu/drm/amd/pm/swsmu/smu13/smu_v13_0_7_ppt.c
+
+David Laight (7):
+  minmax.h: add whitespace around operators and after commas
+  minmax.h: update some comments
+  minmax.h: reduce the #define expansion of min(), max() and clamp()
+  minmax.h: use BUILD_BUG_ON_MSG() for the lo < hi test in clamp()
+  minmax.h: move all the clamp() definitions after the min/max() ones
+  minmax.h: simplify the variants of clamp()
+  minmax.h: remove some #defines that are only expanded once
+
+Linus Torvalds (4):
+  minmax: simplify min()/max()/clamp() implementation
+  minmax: don't use max() in situations that want a C constant
+    expression
+  minmax: improve macro expansion and type checking
+  minmax: fix up min3() and max3() too
+
+ drivers/gpu/drm/amd/pm/swsmu/smu_cmn.c   |   2 +-
+ drivers/input/touchscreen/cyttsp4_core.c |   2 +-
+ drivers/irqchip/irq-sun6i-r.c            |   2 +-
+ drivers/md/dm-integrity.c                |   2 +-
+ fs/btrfs/tree-checker.c                  |   2 +-
+ include/linux/compiler.h                 |   9 +
+ include/linux/minmax.h                   | 222 +++++++++++++----------
+ lib/vsprintf.c                           |   2 +-
+ 8 files changed, 143 insertions(+), 100 deletions(-)
+
+-- 
+2.47.3
+
 
