@@ -4,53 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE1DACAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 21:44:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08984CAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 21:45:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
-	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
-	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7sVgWdb8k8bCNQUx6352GDoN4Xjj6+95yUmm0u1MBMo=; b=I+wTBFS8lM8zMFQpYU0f99eWMo
-	zENG3zd46pIG/e0fHoI8OGGzjL2pvnDpng1EK5beCcarOxca1l/lzVJSnqxp9SPUCZ0ho4VrXcPL9
-	yzjbhbKDrIniuAdd6KM5+xiV5tRaDKd/CCd4pf0d+gkz18adikRyMVS/zgI9zfk4A1fscZfNEFmVF
-	bBFUHQ7TiZx4omukMoLupjh1MeFwJXLbMbPAKbLFjPcov6AEx9RZ3iBzVAnw3feKLcAdtfbuiPBZG
-	MSRnKijXZGP4ymvczyCrIJz1fZOBiuY043g1mM5JY+oE3B+PeitDVi+b5x3eM5quj9htFPshL0RNu
-	nn5ffaoA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=jbpWCESyQRXQRL4NHZ+5x9fswk3N/wuUudMSD0iTADQ=; b=HD0yzOI9km/DgRJDHtKkRozmkp
+	dk2a+b7pEnD2uQEyKMIhZfXi6oHMS0SG2GQEjYQ4bMlK0nb+XYiIMcE1qKOLrXznz4+MJE261h/Mm
+	PF7DUrjVMN//h6/1FQmH6OzB8TD+sh8FaWfu+6Z2WkMI+dJ6czn49GHFWHXrA1My9vXtOWH9WuXRR
+	NLQ3CpJmC7JJK/TzZUyO64jBVVCl/moJw6W7fTuo/Mve+vLTJ5zQZ+Fu2EXVdfPdb8XE6GmaZLzO4
+	JIHT9Hna6AbP9e/YQqKUSskOXl7LZnOYpx2kqOBvRAzYNML67fT8/riDsiD5CUEmUmMpVzNlITpOM
+	L8eyzT0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4R6B-0000000BK2J-0rDN;
-	Thu, 02 Oct 2025 21:44:27 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1v4R6g-0000000BK92-3GaB;
+	Thu, 02 Oct 2025 21:44:58 +0000
+Received: from mgamail.intel.com ([192.198.163.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4R68-0000000BK1v-0lQy;
-	Thu, 02 Oct 2025 21:44:25 +0000
-Received: from pendragon.ideasonboard.com (cpc89244-aztw30-2-0-cust6594.18-1.cable.virginm.net [86.31.185.195])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 1ACBCF06;
-	Thu,  2 Oct 2025 23:42:52 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1759441372;
-	bh=vdCdPdFwsJMMeXs4fFvCyFSm56dK+WwqeX0uDW72egY=;
-	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
-	b=qCGBi/4NLGhL50yZ8HswAtm5fhy64XVceEcH4gsVFTSHUKvmADZfZ3Dve0fwSCUhq
-	 hoWMRD0zCeOlw+Fhl9lg6CoeM0QW/cMGYDCIXJtsNrCxb0srjXwz+9lU0H1Oxn8CZa
-	 EOHKzcHZJdLieWgc/DjpTLGf0/usnithmHeTiuL0=
-Content-Type: text/plain; charset="utf-8"
+	id 1v4R6e-0000000BK88-2baH
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Oct 2025 21:44:58 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1759441497; x=1790977497;
+  h=date:from:to:cc:subject:message-id:mime-version;
+  bh=+bQjfMox0LYSANw6kFUEUHC5pwsK+yglyGHXY1J7mTk=;
+  b=gMOu41qa6rdPDgsYEA9CIDcaHbqcGe0Cc+hg6r/KdQf9OoxwzqOHwCYu
+   mxwvmZrOlFeIk5ac19fn7Uc4EvWGcSwG4rCcouin5IPJhDkagaIH9sj/Y
+   pCxSQT0P9XiV/FIwPl7RVvK3ARsdBZJBKfgGZEuty7KwWwqAvdqXwa4aP
+   jc4/P6myO9rvwGN2bpbYXcqnKB6ilX1LZEmYeC/r42hn6Iw8/wEeB7x7t
+   7Qk5RSL9EPCmrqkoP68a4q9pFqc7MGJSG5w1vmPoDZJpe2EhkCeeMRyDc
+   ikgsXgsMm/9KwMoMDwa5sosxd6PnX8xFmC9N0EFHxbQrCP6fG1AQmGtiS
+   w==;
+X-CSE-ConnectionGUID: PF6SY7ruTjmWEBtEZj0qSg==
+X-CSE-MsgGUID: IAFWr4f4QKmgYTH8lzTszA==
+X-IronPort-AV: E=McAfee;i="6800,10657,11570"; a="61770307"
+X-IronPort-AV: E=Sophos;i="6.18,310,1751266800"; 
+   d="scan'208";a="61770307"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Oct 2025 14:44:54 -0700
+X-CSE-ConnectionGUID: jfS8c8r1T8qbK/zClWus7A==
+X-CSE-MsgGUID: uCEahISYSu20Xtv6VqmdzQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,310,1751266800"; 
+   d="scan'208";a="210114226"
+Received: from lkp-server01.sh.intel.com (HELO 2f2a1232a4e4) ([10.239.97.150])
+  by fmviesa001.fm.intel.com with ESMTP; 02 Oct 2025 14:44:53 -0700
+Received: from kbuild by 2f2a1232a4e4 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1v4R6Z-00048Z-0W;
+	Thu, 02 Oct 2025 21:44:51 +0000
+Date: Fri, 3 Oct 2025 05:44:49 +0800
+From: kernel test robot <lkp@intel.com>
+To: Russell King <rmk+kernel@armlinux.org.uk>
+Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org
+Subject: [arm:csi-v6 3/7] drivers/media/platform/video-mux.c:172:10: error:
+ 'const struct v4l2_subdev_video_ops' has no member named 'g_frame_interval'
+Message-ID: <202510030540.zCd32Zmk-lkp@intel.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-In-Reply-To: <20250922182003.3712101-2-stefan.klug@ideasonboard.com>
-References: <20250922182003.3712101-2-stefan.klug@ideasonboard.com>
-Subject: Re: [PATCH v3] media: rkisp1: Improve frame sequence correctness on stats and params buffers
-From: Kieran Bingham <kieran.bingham@ideasonboard.com>
-Cc: Stefan Klug <stefan.klug@ideasonboard.com>, linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-To: Dafna Hirschfeld <dafna@fastmail.com>, Heiko Stuebner <heiko@sntech.de>, Jacopo Mondi <jacopo.mondi@ideasonboard.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, Stefan Klug <stefan.klug@ideasonboard.com>, linux-media@vger.kernel.org
-Date: Thu, 02 Oct 2025 22:44:19 +0100
-Message-ID: <175944145933.3917877.5417697383444150190@ping.linuxembedded.co.uk>
-User-Agent: alot/0.9.1
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_144424_501395_41A2CAD4 
-X-CRM114-Status: GOOD (  31.99  )
+X-CRM114-CacheID: sfid-20251002_144456_704721_2299DD81 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,154 +84,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Quoting Stefan Klug (2025-09-22 19:19:57)
-> On the rkisp1 (in my case on a NXP i.MX8 M Plus) the ISP interrupt
-> handler is sometimes called with RKISP1_CIF_ISP_V_START (start of frame)
-> and RKISP1_CIF_ISP_FRAME (end of frame) being set at the same time. In
-> commit 8524fa22fd2f ("media: staging: rkisp1: isp: add a warning and
-> debugfs var for irq delay") a warning was added for that. There are two
-> cases where this condition can occur:
->=20
-> 1. The v-sync and the frame-end belong to the same frame. This means,
->    the irq was heavily delayed and the warning is likely appropriate.
->=20
-> 2. The v-sync belongs to the next frame. This can happen if the vertical
->    blanking between two frames is very short.
->=20
-> The current code always handles case 1 although case 2 is in my
-> experience the more common case and happens in regular usage. This leads
-> to incorrect sequence numbers on stats and params buffers which in turn
-> breaks the regulation in user space. Fix that by adding a frame_active
-> flag to distinguish between these cases and handle the start of frame
-> either at the beginning or at the end of the rkisp1_isp_isr().
->=20
-> Signed-off-by: Stefan Klug <stefan.klug@ideasonboard.com>
-> Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+tree:   git://git.armlinux.org.uk/~rmk/linux-arm.git csi-v6
+head:   9afab5ec0a06e2fc9c2cb2b739bc6caececf815a
+commit: 4d73fea00b5748e8b6fb7363f4fefa75bc998932 [3/7] media: staging/imx: add frame intervals back in
+config: csky-randconfig-001-20251003 (https://download.01.org/0day-ci/archive/20251003/202510030540.zCd32Zmk-lkp@intel.com/config)
+compiler: csky-linux-gcc (GCC) 15.1.0
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251003/202510030540.zCd32Zmk-lkp@intel.com/reproduce)
 
-Ooops I replied to a previous version. Isn't email review fun.
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202510030540.zCd32Zmk-lkp@intel.com/
 
-Reviewed-by: Kieran Bingham <kieran.bingham@ideasonboard.com>
+All errors (new ones prefixed by >>):
 
->=20
-> ---
->=20
-> Hi all,
->=20
-> Here is an updated version of the patch with a fix for a typo that was
-> spotted in the last review.
->=20
-> Changes in v3:
-> - Fixed typo in comment
-> - Collected r-by tag
->=20
-> Changes in v2:
-> - Removed test for !frame_active in second v_start handler
-> - Improved comments
->=20
-> Best regards,
-> Stefan
->=20
-> ---
->  .../platform/rockchip/rkisp1/rkisp1-common.h  |  1 +
->  .../platform/rockchip/rkisp1/rkisp1-isp.c     | 27 +++++++++++++++----
->  2 files changed, 23 insertions(+), 5 deletions(-)
->=20
-> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h b/dri=
-vers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> index ca952fd0829b..adf23416de9a 100644
-> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-common.h
-> @@ -222,6 +222,7 @@ struct rkisp1_isp {
->         struct media_pad pads[RKISP1_ISP_PAD_MAX];
->         const struct rkisp1_mbus_info *sink_fmt;
->         __u32 frame_sequence;
-> +       bool frame_active;
->  };
-> =20
->  /*
-> diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c b/driver=
-s/media/platform/rockchip/rkisp1/rkisp1-isp.c
-> index 8c29a1c9309a..660c1fd7efcc 100644
-> --- a/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-> +++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-isp.c
-> @@ -965,6 +965,7 @@ static int rkisp1_isp_s_stream(struct v4l2_subdev *sd=
-, int enable)
->         }
-> =20
->         isp->frame_sequence =3D -1;
-> +       isp->frame_active =3D false;
-> =20
->         sd_state =3D v4l2_subdev_lock_and_get_active_state(sd);
-> =20
-> @@ -1086,12 +1087,15 @@ void rkisp1_isp_unregister(struct rkisp1_device *=
-rkisp1)
->   * Interrupt handlers
->   */
-> =20
-> -static void rkisp1_isp_queue_event_sof(struct rkisp1_isp *isp)
-> +static void rkisp1_isp_sof(struct rkisp1_isp *isp)
->  {
->         struct v4l2_event event =3D {
->                 .type =3D V4L2_EVENT_FRAME_SYNC,
->         };
-> =20
-> +       isp->frame_sequence++;
-> +       isp->frame_active =3D true;
-> +
->         event.u.frame_sync.frame_sequence =3D isp->frame_sequence;
->         v4l2_event_queue(isp->sd.devnode, &event);
->  }
-> @@ -1111,15 +1115,20 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
-> =20
->         rkisp1_write(rkisp1, RKISP1_CIF_ISP_ICR, status);
-> =20
-> -       /* Vertical sync signal, starting generating new frame */
-> -       if (status & RKISP1_CIF_ISP_V_START) {
-> -               rkisp1->isp.frame_sequence++;
-> -               rkisp1_isp_queue_event_sof(&rkisp1->isp);
-> +       /*
-> +        * Vertical sync signal, starting new frame. Defer handling of vs=
-ync
-> +        * after RKISP1_CIF_ISP_FRAME if the previous frame was not compl=
-eted
-> +        * yet.
-> +        */
-> +       if (status & RKISP1_CIF_ISP_V_START && !rkisp1->isp.frame_active)=
- {
-> +               status &=3D ~RKISP1_CIF_ISP_V_START;
-> +               rkisp1_isp_sof(&rkisp1->isp);
->                 if (status & RKISP1_CIF_ISP_FRAME) {
->                         WARN_ONCE(1, "irq delay is too long, buffers migh=
-t not be in sync\n");
->                         rkisp1->debug.irq_delay++;
->                 }
->         }
-> +
->         if (status & RKISP1_CIF_ISP_PIC_SIZE_ERROR) {
->                 /* Clear pic_size_error */
->                 isp_err =3D rkisp1_read(rkisp1, RKISP1_CIF_ISP_ERR);
-> @@ -1138,6 +1147,7 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
->         if (status & RKISP1_CIF_ISP_FRAME) {
->                 u32 isp_ris;
-> =20
-> +               rkisp1->isp.frame_active =3D false;
->                 rkisp1->debug.complete_frames++;
-> =20
->                 /* New frame from the sensor received */
-> @@ -1152,5 +1162,12 @@ irqreturn_t rkisp1_isp_isr(int irq, void *ctx)
->                 rkisp1_params_isr(rkisp1);
->         }
-> =20
-> +       /*
-> +        * Deferred handling of vsync if RKISP1_CIF_ISP_V_START and
-> +        * RKISP1_CIF_ISP_FRAME occurred in the same irq.
-> +        */
-> +       if (status & RKISP1_CIF_ISP_V_START)
-> +               rkisp1_isp_sof(&rkisp1->isp);
-> +
->         return IRQ_HANDLED;
->  }
-> --=20
-> 2.48.1
->
+>> drivers/media/platform/video-mux.c:172:10: error: 'const struct v4l2_subdev_video_ops' has no member named 'g_frame_interval'
+     172 |         .g_frame_interval = vidsw_g_frame_interval,
+         |          ^~~~~~~~~~~~~~~~
+>> drivers/media/platform/video-mux.c:172:29: error: initialization of 'int (*)(struct v4l2_subdev *, void *, unsigned int *)' from incompatible pointer type 'int (*)(struct v4l2_subdev *, struct v4l2_subdev_frame_interval *)' [-Wincompatible-pointer-types]
+     172 |         .g_frame_interval = vidsw_g_frame_interval,
+         |                             ^~~~~~~~~~~~~~~~~~~~~~
+   drivers/media/platform/video-mux.c:172:29: note: (near initialization for 'video_mux_subdev_video_ops.s_rx_buffer')
+   drivers/media/platform/video-mux.c:145:12: note: 'vidsw_g_frame_interval' declared here
+     145 | static int vidsw_g_frame_interval(struct v4l2_subdev *sd,
+         |            ^~~~~~~~~~~~~~~~~~~~~~
+>> drivers/media/platform/video-mux.c:173:10: error: 'const struct v4l2_subdev_video_ops' has no member named 's_frame_interval'
+     173 |         .s_frame_interval = vidsw_s_frame_interval,
+         |          ^~~~~~~~~~~~~~~~
+>> drivers/media/platform/video-mux.c:173:29: error: initialization of 'int (*)(struct v4l2_subdev *, u32)' {aka 'int (*)(struct v4l2_subdev *, unsigned int)'} from incompatible pointer type 'int (*)(struct v4l2_subdev *, struct v4l2_subdev_frame_interval *)' [-Wincompatible-pointer-types]
+     173 |         .s_frame_interval = vidsw_s_frame_interval,
+         |                             ^~~~~~~~~~~~~~~~~~~~~~
+   drivers/media/platform/video-mux.c:173:29: note: (near initialization for 'video_mux_subdev_video_ops.pre_streamon')
+   drivers/media/platform/video-mux.c:155:12: note: 'vidsw_s_frame_interval' declared here
+     155 | static int vidsw_s_frame_interval(struct v4l2_subdev *sd,
+         |            ^~~~~~~~~~~~~~~~~~~~~~
+
+
+vim +172 drivers/media/platform/video-mux.c
+
+   169	
+   170	static const struct v4l2_subdev_video_ops video_mux_subdev_video_ops = {
+   171		.s_stream = video_mux_s_stream,
+ > 172		.g_frame_interval = vidsw_g_frame_interval,
+ > 173		.s_frame_interval = vidsw_s_frame_interval,
+   174	};
+   175	
+
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
