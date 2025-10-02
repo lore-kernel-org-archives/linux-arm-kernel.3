@@ -4,78 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C6EFCAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 14:03:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 126A2CAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 14:22:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gS6I9+pn+T6EshQ8kERlfqfUoiq0QQuAAxssnEC3ucQ=; b=E4Idlk3DjhomiDOGW1IiKJGcFN
-	mbuujtclNu9n6XCgZIxhwruFRiCAW5ybHYhr89Q10iurXQLbisZvQs3JoeUD5kVaSncuI8jXPQqa4
-	a0jCEBVvQ0l10dg0emZHqqpspgZ2ygrywiBOlQXAfPHRLwys4jhdiVc2QdD15/sR6liWkYpgwZBYc
-	edcJBS7kDsi7D5/JufjrN2dyOrKU9f3popJDSzgBn8Kp6SKIQ3AM8wUNqaAqwBCiq5bAts53+TLd/
-	FoBWescXP/pxKO2rdWIwihPZvGFuolvVYFygAaSRF8WFW6qFg59Mmcg1ntIbu6uJdi3H2CFcU5NA+
-	Ah+Lz0aQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B6qJnkbNyLzH+38jmsRO/6bT+lrdGBzJDU7SmU7vox8=; b=t88ibBfbmsRlpjnVSAbQHz2/ec
+	FlKG87ZgINiP6SNBLKBW+v6pHZLBRvRLlor+GMggz46kPcox0JfF/K8qLaNdJAQMky7RY2pRPOzKb
+	iJIjNsg3jsWYbi6XmuiKhbIK/AoGZ7+j0i9u7MUotCjxShqmIfLQuF0Lku5E8CK6u5NNCdO5+b0TB
+	1Z4JaCkzfngXJnGANdFmhHhv6Kw9eWlY17GB1zWGCQgMS+JD77AnvB+flwmEp50oJaw9ZPhLdYESd
+	NdgAFJQ5k3fxapGTuPCNkrGGyatyYeFTbyYZy/UpkdeYQrJfPMnjF4Cy2qA4bVXBH6bihZqjTIuwZ
+	aFiuz0bw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4JuO-0000000AZhK-0Sna;
-	Thu, 02 Oct 2025 14:03:48 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1v4KCW-0000000Ab0H-24mB;
+	Thu, 02 Oct 2025 14:22:32 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4JuL-0000000AZgA-148N
+	id 1v4KCU-0000000Aazr-0Gpm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Oct 2025 14:03:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1759413823;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=gS6I9+pn+T6EshQ8kERlfqfUoiq0QQuAAxssnEC3ucQ=;
-	b=FGcrDuClkHFC5UHINwtNnF+WuwNw7X3CkxuzPwBTXNUH7Tf8wLL9gcK9qtxCAbjJph0Ouq
-	3Klc4sWv5wjCE73WvlxmDe7If2i1cq8NtqD9as8EGWhr7zBCRwNrvyhJafACPIsXpLIGsf
-	tr9rWP/Vi7lFASpTqFmSQIFY3ORaYwk=
-Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-306--f-uMXj2O52s0GBU6Y1kxQ-1; Thu,
- 02 Oct 2025 10:03:39 -0400
-X-MC-Unique: -f-uMXj2O52s0GBU6Y1kxQ-1
-X-Mimecast-MFC-AGG-ID: -f-uMXj2O52s0GBU6Y1kxQ_1759413817
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 072D11955D7B;
-	Thu,  2 Oct 2025 14:03:37 +0000 (UTC)
-Received: from warthog.procyon.org.com (unknown [10.42.28.24])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 0548130002C6;
-	Thu,  2 Oct 2025 14:03:32 +0000 (UTC)
-From: David Howells <dhowells@redhat.com>
-To: Eric Biggers <ebiggers@kernel.org>
-Cc: David Howells <dhowells@redhat.com>,
-	"Jason A . Donenfeld" <Jason@zx2c4.com>,
-	Ard Biesheuvel <ardb@kernel.org>,
-	Herbert Xu <herbert@gondor.apana.org.au>,
-	Stephan Mueller <smueller@chronox.de>,
-	linux-crypto@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v5 2/5] arm64/sha3: Rename conflicting functions
-Date: Thu,  2 Oct 2025 15:03:16 +0100
-Message-ID: <20251002140321.2639064-3-dhowells@redhat.com>
-In-Reply-To: <20251002140321.2639064-1-dhowells@redhat.com>
-References: <20251002140321.2639064-1-dhowells@redhat.com>
+	Thu, 02 Oct 2025 14:22:31 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-782023ca359so1194520b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Oct 2025 07:22:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1759414949; x=1760019749; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=B6qJnkbNyLzH+38jmsRO/6bT+lrdGBzJDU7SmU7vox8=;
+        b=wZcF72gfosRHUxXTpywLvepgBCOTtLn1hDHf9nZ2JN4GIwWT7V6Kgcpv65SZkKkN4A
+         ulMgIKHvzNYRhYj2f4sKL872QL8ll8bkV9EwhP2gxmDT2fiGzezxIkdULqiFg/Bxk3Qy
+         qUYQCdsmUT7wAOoQZJgqKup494eXfNugzPc2EVf5gf/2mxrO4URGu0CdXetV3y3+GwFW
+         SEpmaTCkGwpj3IJ35PazZdA9DU7WQ/xm/0/GC7iwqtatng14w2ym8hDM0NoSHSWNzcmE
+         yeJUHvVsHoRQVf2KGypPGLqwnickKid8ZIrFgQaQRk0WUnMyRvmi8XLkWPGBX6yrpTWi
+         ebOw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759414949; x=1760019749;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=B6qJnkbNyLzH+38jmsRO/6bT+lrdGBzJDU7SmU7vox8=;
+        b=GNphx46LQ1QE5jGci3k4ft9ASM3jdiAvaQW8IT4e61hcmtH7EzTZD+LDpoLVNWl2cF
+         y8u7mgpuvMExywHMfN+jXuiVjFVowXIOZGRsfpn1U0e3ys56+M0LZVReVR8AfDRO6bTS
+         2YERQDm6t7ejuyqgeLcxEtcJemt4yuLaegTrTSR1KJIwubDqI3iXblMEl9k4nPOn/iv4
+         uv2h2E06D45Ly2QK01k2mDVT3gCcoaEunlWr3MksAo35fM75qIAZJpHd/3t6BqUqmFAj
+         X508+VAR5RV8O/EgLWbUei9K2Ml4QYvhJKq2yRRq0Zv42WXC4p+jQYSVWxdllS+fanAk
+         jgZQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXjmKXwtwxRZDlCiuHXboDxeModOYE5gsxLVXkGNrtIQlJi+0i9MW/YzCiZZlRVGQW25PoWBGbvyxH9yXsdlJfr@lists.infradead.org
+X-Gm-Message-State: AOJu0YyhOVghhe4JN3rwNdvo/k/yRqg7UbFJKO5BzwlBPIpEyiXK9lng
+	eIEv6NkSSUrkiv8SelAEi4T98LKFWLqE/NIBYeWi0nMa4eSCQVbfv1O8SICsrZWMMvk2S20uoGi
+	d5Qzl2LBuKRz/wKQq1h8C+RObA+6A8X5xmpmlA2qekg==
+X-Gm-Gg: ASbGncvEhvpMk4wZgOa3mmcQ0azyYh9DPVpc18bg6pu/+puw1/yzEDbjGj18bpUoZF2
+	qB9ipDq6aZG1hBEsWHddX442LpvUvxCoZvPfXMoTOCA5J74igBarZeWWkwbZzVT8QnuoRkY97OB
+	0zH+yw4FdTAIJixsxIB49zLBmzVjsEga1DnVE3RzbV5fsqqcbX0KZ/KvW6T57C50yablmVIzdnx
+	suf8qhRO4Qotk7JQ8gYoRRueIwLW4fwtzMN
+X-Google-Smtp-Source: AGHT+IHcLCKyXTtX9Km6xXcBzCN367EpM+P7UXCyKng4cXdW272ufjM3KPwvzwTsGrB4S7Iv4+OH15ppn0aUl3+Lkmk=
+X-Received: by 2002:a05:6a20:6a1d:b0:2e9:d6ce:e125 with SMTP id
+ adf61e73a8af0-321d8452b3emr11154200637.5.1759414949144; Thu, 02 Oct 2025
+ 07:22:29 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+References: <20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com>
+ <20250915-arm_coresight_power_management_fix-v3-24-ea49e91124ec@arm.com>
+In-Reply-To: <20250915-arm_coresight_power_management_fix-v3-24-ea49e91124ec@arm.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Thu, 2 Oct 2025 15:22:17 +0100
+X-Gm-Features: AS18NWD-5cr9XrWDYonMr6BTAA2Bh--1XlTiSNRcgDeLDJ6oecWzBIsTAAAsKbc
+Message-ID: <CAJ9a7VjxqwDmKKtBvTqgu=CxnYZkASydkX1C9-xT+1gB7DzLPQ@mail.gmail.com>
+Subject: Re: [PATCH v3 24/31] coresight: Add per-CPU path pointer
+To: Leo Yan <leo.yan@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
+	Yeoreum Yun <yeoreum.yun@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Yabin Cui <yabinc@google.com>, 
+	Keita Morisaki <keyz@google.com>, Yuanfang Zhang <quic_yuanfang@quicinc.com>, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_070345_353199_D5781611 
-X-CRM114-Status: GOOD (  14.13  )
+X-CRM114-CacheID: sfid-20251002_072230_116873_F1A2AA5A 
+X-CRM114-Status: GOOD (  34.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,90 +97,138 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Rename the arm64 sha3_* functions to have an "arm64_" prefix to avoid
-conflict with generic code.
+Hi Leo
 
-Signed-off-by: David Howells <dhowells@redhat.com>
-cc: Eric Biggers <ebiggers@kernel.org>
-cc: Jason A. Donenfeld <Jason@zx2c4.com>
-cc: Ard Biesheuvel <ardb@kernel.org>
-cc: Catalin Marinas <catalin.marinas@arm.com>
-cc: Will Deacon <will@kernel.org>
-cc: Herbert Xu <herbert@gondor.apana.org.au>
-cc: Stephan Mueller <smueller@chronox.de>
-cc: linux-crypto@vger.kernel.org
-cc: linux-arm-kernel@lists.infradead.org
----
- arch/arm64/crypto/sha3-ce-glue.c | 22 +++++++++++-----------
- 1 file changed, 11 insertions(+), 11 deletions(-)
+On Mon, 15 Sept 2025 at 11:34, Leo Yan <leo.yan@arm.com> wrote:
+>
+> Introduce per-CPU path pointers, save activated paths into the
+> structure. This will be used by later changes for controlling the path
+> during CPU idle.
+>
+> The path pointer is assigned before setting the source device mode to
+> active, and it is cleared after the device is changed to an inactive
+> mode. So safe access to path pointers is guaranteed when the device is
+> in an active mode.
+>
+> The path enabling has been refactored: a new _coresight_enable_path()
+> function is introduced to enable components in the path. The existing
+> coresight_enable_path() function now calls this new helper and updates
+> the per-CPU pointers accordingly.
+>
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
+> ---
+>  drivers/hwtracing/coresight/coresight-core.c | 48 ++++++++++++++++++++++++++--
+>  1 file changed, 46 insertions(+), 2 deletions(-)
+>
+> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
+> index 94803cacf1a374ae8a3b9513d7d029d5c77d5925..904123279ee70531787feea98e5f9fc502470f88 100644
+> --- a/drivers/hwtracing/coresight/coresight-core.c
+> +++ b/drivers/hwtracing/coresight/coresight-core.c
+> @@ -37,6 +37,27 @@ DEFINE_MUTEX(coresight_mutex);
+>  static DEFINE_PER_CPU(struct coresight_device *, csdev_sink);
+>  static DEFINE_PER_CPU(struct coresight_device *, csdev_source);
+>
+> +/*
+> + * Activated path pointer for a per-CPU source device. When enabling a path,
+> + * the path pointer is first assigned, followed by a synchronous SMP call on
+> + * the target CPU to transition the device mode from DISABLED to an enabled
+> + * state. Conversely, during the disable flow, an SMP call on the target CPU
+> + * transitions the device mode to DISABLED, after which the path pointer is
+> + * cleared.
+> + *
+> + *  per_cpu(csdev_cpu_path, csdev->cpu) = path
+> + *  coresight_take_mode(csdev, CS_MODE_SYSFS or CS_MODE_PERF)
+> + *
+> + *  // Safe to access per_cpu(csdev_cpu_path, cpu);
+> + *
+> + *  coresight_set_mode(csdev, CS_MODE_DISABLED)
+> + *  per_cpu(csdev_cpu_path, csdev->cpu) = NULL
+> + *
+> + * As a result, the device mode is used to determine whether it is safe
+> + * to access the path pointer.
+> + */
+> +static DEFINE_PER_CPU(struct coresight_path *, csdev_cpu_path);
 
-diff --git a/arch/arm64/crypto/sha3-ce-glue.c b/arch/arm64/crypto/sha3-ce-glue.c
-index b4f1001046c9..426d8044535a 100644
---- a/arch/arm64/crypto/sha3-ce-glue.c
-+++ b/arch/arm64/crypto/sha3-ce-glue.c
-@@ -31,7 +31,7 @@ MODULE_ALIAS_CRYPTO("sha3-512");
- asmlinkage int sha3_ce_transform(u64 *st, const u8 *data, int blocks,
- 				 int md_len);
- 
--static int sha3_update(struct shash_desc *desc, const u8 *data,
-+static int arm64_sha3_update(struct shash_desc *desc, const u8 *data,
- 		       unsigned int len)
- {
- 	struct sha3_state *sctx = shash_desc_ctx(desc);
-@@ -55,8 +55,8 @@ static int sha3_update(struct shash_desc *desc, const u8 *data,
- 	return len;
- }
- 
--static int sha3_finup(struct shash_desc *desc, const u8 *src, unsigned int len,
--		      u8 *out)
-+static int arm64_sha3_finup(struct shash_desc *desc, const u8 *src, unsigned int len,
-+			    u8 *out)
- {
- 	struct sha3_state *sctx = shash_desc_ctx(desc);
- 	struct crypto_shash *tfm = desc->tfm;
-@@ -90,8 +90,8 @@ static int sha3_finup(struct shash_desc *desc, const u8 *src, unsigned int len,
- static struct shash_alg algs[] = { {
- 	.digestsize		= SHA3_224_DIGEST_SIZE,
- 	.init			= crypto_sha3_init,
--	.update			= sha3_update,
--	.finup			= sha3_finup,
-+	.update			= arm64_sha3_update,
-+	.finup			= arm64_sha3_finup,
- 	.descsize		= SHA3_STATE_SIZE,
- 	.base.cra_name		= "sha3-224",
- 	.base.cra_driver_name	= "sha3-224-ce",
-@@ -102,8 +102,8 @@ static struct shash_alg algs[] = { {
- }, {
- 	.digestsize		= SHA3_256_DIGEST_SIZE,
- 	.init			= crypto_sha3_init,
--	.update			= sha3_update,
--	.finup			= sha3_finup,
-+	.update			= arm64_sha3_update,
-+	.finup			= arm64_sha3_finup,
- 	.descsize		= SHA3_STATE_SIZE,
- 	.base.cra_name		= "sha3-256",
- 	.base.cra_driver_name	= "sha3-256-ce",
-@@ -114,8 +114,8 @@ static struct shash_alg algs[] = { {
- }, {
- 	.digestsize		= SHA3_384_DIGEST_SIZE,
- 	.init			= crypto_sha3_init,
--	.update			= sha3_update,
--	.finup			= sha3_finup,
-+	.update			= arm64_sha3_update,
-+	.finup			= arm64_sha3_finup,
- 	.descsize		= SHA3_STATE_SIZE,
- 	.base.cra_name		= "sha3-384",
- 	.base.cra_driver_name	= "sha3-384-ce",
-@@ -126,8 +126,8 @@ static struct shash_alg algs[] = { {
- }, {
- 	.digestsize		= SHA3_512_DIGEST_SIZE,
- 	.init			= crypto_sha3_init,
--	.update			= sha3_update,
--	.finup			= sha3_finup,
-+	.update			= arm64_sha3_update,
-+	.finup			= arm64_sha3_finup,
- 	.descsize		= SHA3_STATE_SIZE,
- 	.base.cra_name		= "sha3-512",
- 	.base.cra_driver_name	= "sha3-512-ce",
+This replicates the per-cpu tracer_path variable in coresight-sysfs.c
+- seems there should be a way to combine them.
+This is also set / unset on enable / disable
 
+> +
+>  /**
+>   * struct coresight_node - elements of a path, from source to sink
+>   * @csdev:     Address of an element.
+> @@ -510,6 +531,12 @@ static void coresight_disable_path_from(struct coresight_path *path,
+>
+>  void coresight_disable_path(struct coresight_path *path)
+>  {
+> +       struct coresight_device *source;
+> +
+> +       source = coresight_get_source(path);
+> +       if (coresight_is_percpu_source(source))
+> +               per_cpu(csdev_cpu_path, source->cpu) = NULL;
+> +
+>         coresight_disable_path_from(path, NULL);
+>  }
+>  EXPORT_SYMBOL_GPL(coresight_disable_path);
+> @@ -533,8 +560,8 @@ static int coresight_enable_helpers(struct coresight_device *csdev,
+>         return 0;
+>  }
+>
+> -int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+> -                         void *sink_data)
+> +static int _coresight_enable_path(struct coresight_path *path,
+> +                                 enum cs_mode mode, void *sink_data)
+>  {
+>         int ret = 0;
+>         u32 type;
+> @@ -601,6 +628,23 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+>         goto out;
+>  }
+>
+> +int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
+> +                         void *sink_data)
+> +{
+> +       int ret;
+> +       struct coresight_device *source;
+> +
+> +       ret = _coresight_enable_path(path, mode, sink_data);
+> +       if (ret)
+> +               return ret;
+> +
+> +       source = coresight_get_source(path);
+> +       if (coresight_is_percpu_source(source))
+> +               per_cpu(csdev_cpu_path, source->cpu) = path;
+
+
+why is this in a refactored function for enable() but not disable().
+Seems that the original coresight_enable_path() creates a 'source'
+variable, so just the two lines
+
+if (coresight_is_percpu_source(source))
+              per_cpu(csdev_cpu_path, source->cpu) = path;
+
+added to the original function acheives the same thing with less churn
+
+Regards
+
+Mike
+
+
+> +
+> +       return 0;
+> +}
+> +
+>  struct coresight_device *coresight_get_sink(struct coresight_path *path)
+>  {
+>         struct coresight_device *csdev;
+>
+> --
+> 2.34.1
+>
+
+
+-- 
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
