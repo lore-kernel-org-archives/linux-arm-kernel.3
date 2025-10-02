@@ -4,91 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA06CCAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 16:25:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28594CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 16:48:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3b4jK+m/8RWobuO0NphPEVc1dDtXHYNNnhWnKlc2Ffk=; b=SvpapSbJd6NywlyFjSNy97+fkW
-	KIxqWeIaLvJ0agoSJ4UdwkHpjRsWa8vBM9iZVDZTZnKRTv88heqSFHYBNUPOu38rW99wo2qFZcxDF
-	3hDXX6jNvauVFMVHpzDAgCmC0ehXYTzG76rz86HUjJYiUdpzomwPkiwcuN/eEtCOPqXThYLffgSs3
-	nWfT/Y4mjH27ri+6rOlslMqujCLLB70r92sC8Up2We6cf4gkD3XFKyJEJvnkNxjfHrd0nR4vdfMPa
-	d3lloMu7lHIIgEHblb+BofzxC2VPE4SV3OSYl8Rvv3l9Yp5mUXsVJvREHhu/gjX+vol/yQEZ5xIpw
-	nhz7KC9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BHL1FWMTNfUMVst2kL4U9dy1rJ/eG0WlqYxF6xOECUo=; b=TbsH8H8VKQWxoSBKzwd3YCIU7o
+	aUXpSHjHC5iaoy9w1q5EExuKV6j35itSz0YC3+eIwkde+ngx9cxki+JNycx2l0pEHpGqqsKdpALLh
+	rH50ockNfaxxOGXyAKQxVY+DcfuW8Q5w2cy+K55Nhm+DByHfc19nXkmN/iLTpUJyUiY5/TAtGznBF
+	wFJ9VjdE3u865GZBTKy8uKGMxs5NF86VkdfnYsOIPaFBNqr0Qx1pEyUfboYsNSxGQoNmW44Y7rgsz
+	nxIjCZB7nDVLs9jWpTELgH5JnQRH7LbRc3VPNInG36dw5+miwHQXgSLADbRVrc+q6XfThBs8qnQW4
+	mutdPniQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4M7K-0000000ApGF-2NKt;
-	Thu, 02 Oct 2025 16:25:18 +0000
-Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
+	id 1v4MU6-0000000ArWB-3i2c;
+	Thu, 02 Oct 2025 16:48:50 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4M7I-0000000ApFF-0Uej
+	id 1v4MU5-0000000ArW1-0jk7
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Oct 2025 16:25:17 +0000
-Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-781ea2cee3fso1254522b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Oct 2025 09:25:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1759422315; x=1760027115; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=3b4jK+m/8RWobuO0NphPEVc1dDtXHYNNnhWnKlc2Ffk=;
-        b=F53GKCJO0VROT0N8U+vW+djrvCu6NV2I9J7lmD2uXnB0gU4BEy5rwOr5KVIMuRK0gn
-         pm2X+hE0V/UmUjXTZG/QPpt/iwl4EZ4oEDf2vv9tfwYytIgcbGA98rEovPKFz1/55CR+
-         3B/IcL2bMSCfhCdZgw09vum3Ak4AvOdUsNbaCJzQ4sUFfSuKTM4Yi17KLY6dOrfuPp8E
-         rG2I+fS1HPAcD5YW8kN9RLwBp46GELg9PTdocKDhWVetceyM6M7FPoKcGGhE56FtmuGU
-         3oWnMUVlbpCGD+h50y6RXyOOALmlD5HYTLhjl4dZ2VsFEo2jeRQaGLY8OOior/e7M0Dq
-         Z3Jw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759422315; x=1760027115;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=3b4jK+m/8RWobuO0NphPEVc1dDtXHYNNnhWnKlc2Ffk=;
-        b=GTF+k4G060VZsmL7mNUKA0iIKzPxGBhmMdSn52yM1yji54mdkSCxUJ8LynJmaB7jHN
-         7G8P2/VbGVyO3OvacRTlUwf3TEzFgpvjZ0zpAtSpgpX5HLRvhrPnDO4BAR4UqWWx2vF5
-         CXVxp1HBuzXROuHuwqnNIkgMl4NaMXZAoAmO/nLR/p7UPG7/JL9I72jDiM+TyeFnMyj+
-         ZhRTm1USOrwMKAtbFjxlr9b2iGTWemGFsieL/l5PuW3nnzR6qIeD7Q2jzwzCjsdutTGl
-         rjYm8MXGFaA05hnkqPxGMbnBiuIhFpwvCWUJTeI0Xvqh9aZdMsi/KZuU1XN+UXhJqJp5
-         Y4cA==
-X-Forwarded-Encrypted: i=1; AJvYcCW0pUZ/cdvjy963JL9Z+XDCP0ILy4KZEyzH1KzpJUwSxCOV0H7czxc+RpauZ83L95i/EQAJBNeaeHRMO7bO4pkb@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywthb/R3Yb58Mti4rg3p7NGg+1Zumh4jnQCLHLc/NiR61pG6Ykt
-	keu0WJWeejcs7tXZxv5I8lCTCTL/RdFzc2RCpDShOjlYnVdG2vMZZ2Jp0RkS7EWLiKZXCtBy4R5
-	dTl6kF+mpWomPcUALgFpK5/tBn2Bnq7U=
-X-Gm-Gg: ASbGncvp/zg6Q8Nil6xEus9oTx4h+DO12AOIwYiv7Ehou+fFE+eBBbMMn7bQlvs3IWT
-	3i7/xrhnJpfUGc/Mawo4o7SF0HZ+31FF+szHM554/QJ635nNWOwAwR65j3zw7YhixdqtYqXsd+z
-	L9s3Q+t6avF0/gRwBzgEPHppNhdThA7dmsBzzn7Z7t4A5l5qctlGEGs50TgvvlWbNUXWBY8yLWn
-	puZFn/z829/EaxUxGkl2bN8BRbDx1g=
-X-Google-Smtp-Source: AGHT+IHE/zk/UTkg8cQuQgjzmknU1P4NQ77O2Frb3S1sd6aKc/XPDhOrrz+zfZ4f19CBYGkA2+apVfUO9bhD8Hpgsxo=
-X-Received: by 2002:a17:90b:4d08:b0:335:2b86:f319 with SMTP id
- 98e67ed59e1d1-339a6f76fdcmr9571286a91.35.1759422315195; Thu, 02 Oct 2025
- 09:25:15 -0700 (PDT)
+	Thu, 02 Oct 2025 16:48:49 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 995986045D
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  2 Oct 2025 16:48:48 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 452C9C4CEFE
+	for <linux-arm-kernel@lists.infradead.org>; Thu,  2 Oct 2025 16:48:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759423728;
+	bh=UXUa16DxRQlc+YoczpHucO1ugFqhBs0jsvbBdOCdJO8=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=j0Y94/TqYpj+kjQCWs9eFlHW/1YN9UkIeBZQD85d5KgIk/tOkOxey0WUrpgbqn7/m
+	 2TysR5EYWNUT1E4JsgFLLed3pNhBxyUKFVkDzbzJ0jJpiR8aQ7vZNH9D3tZCWZwFzj
+	 Fnk24RzRsdAEwYRumnbEHYz+DuvVePn8RWRsSlsZnit+sJphLjYr8NjaOI1LYsG89Q
+	 rFZHWlJ/T8nrt/iRHRm8w8oDCxS1krM8vsJCXLCWA4r2B8DoBjwhwWsvI5HD44gVvn
+	 nVWIid8AXpqNG3TPSu2OzyteNP/gSgAvXvzJXvvPYvxdbWW3J80vKrkUUDu4DLYo3g
+	 sVODSxeCsewyA==
+Received: by mail-lf1-f52.google.com with SMTP id 2adb3069b0e04-57e8e67aa3eso3242744e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Oct 2025 09:48:48 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXs4nJ+ZEVq7aIRUgEW11i48L4aWIFWT+m2uHS0sa8nYvlKmnLS5ZzPT8HnO7orhurfQvwixjjWt/AwZ1EonX01@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw0Kxwbvt7h3EsK5J4fQccjCo9ORs/Usq/61HJwYrXtANY9h+Gx
+	WLck8+p1BYXQEKT3MCPBcoaAvIjV3/Oj2uDjuvSU3WS9s6T72W351UHf7FK+i89WNY6B3x94F06
+	SJFk4cLLhGM79XCNgeP64wEyASv3m+gI=
+X-Google-Smtp-Source: AGHT+IEqXM/Be3cRNs05VWOlXbMCnMSG6Mba0tmbOYQBA/5ovj738cWnL+OCbs5vXp6LcKhFkY87M5wOVli92mntFKw=
+X-Received: by 2002:a05:6512:2397:b0:581:bdb8:6df9 with SMTP id
+ 2adb3069b0e04-58b00b5eb3emr1343410e87.10.1759423726612; Thu, 02 Oct 2025
+ 09:48:46 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250818-imx8_isi-v1-1-e9cfe994c435@gocontroll.com>
- <20250820140154.GB6190@pendragon.ideasonboard.com> <a9283349-c58d-47e6-ac33-77b5a6b893fe@gocontroll.com>
- <20250820141439.GA10547@pendragon.ideasonboard.com>
-In-Reply-To: <20250820141439.GA10547@pendragon.ideasonboard.com>
-From: ChaosEsque Team <chaosesqueteam@gmail.com>
-Date: Thu, 2 Oct 2025 12:30:12 -0400
-X-Gm-Features: AS18NWDGHOBDrSguIYms66P-zFEY8uoL7wGfB2jgVSBuHpouvKYa_JLzhedGeUA
-Message-ID: <CALC8CXf2RTYz2YjbFHsbdjDSSAt3Jdv1NBbBQs4jRPmwkuUuXA@mail.gmail.com>
-Subject: Re: [PATCH] media: nxp: imx8-isi: Check whether pad is non-NULL
- before access
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Maud Spierings <maudspierings@gocontroll.com>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
-	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team <kernel@pengutronix.de>, 
-	Fabio Estevam <festevam@gmail.com>, Stefan Riedmueller <s.riedmueller@phytec.de>, 
-	Jacopo Mondi <jacopo@jmondi.org>, Christian Hemp <c.hemp@phytec.de>, Guoniu Zhou <guoniu.zhou@nxp.com>, 
-	Dong Aisheng <aisheng.dong@nxp.com>, linux-media@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20251001210201.838686-22-ardb+git@google.com> <20251001210201.838686-26-ardb+git@google.com>
+ <202510020918.7E358227@keescook>
+In-Reply-To: <202510020918.7E358227@keescook>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Thu, 2 Oct 2025 18:48:35 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXEK+ggQXC6pruZs2jkg6fmA7+Uv45DY4B_XqTRsRbTf2Q@mail.gmail.com>
+X-Gm-Features: AS18NWAZ8uFcVmA6EvK7W0-OFglLBSKI4YbLO-lps_DOpY0PjMY5dUoH7ZngWew
+Message-ID: <CAMj1kXEK+ggQXC6pruZs2jkg6fmA7+Uv45DY4B_XqTRsRbTf2Q@mail.gmail.com>
+Subject: Re: [PATCH v2 04/20] crypto: aegis128-neon - Move to more abstract
+ 'ksimd' guard API
+To: Kees Cook <kees@kernel.org>
+Cc: Ard Biesheuvel <ardb+git@google.com>, linux-arm-kernel@lists.infradead.org, 
+	linux-crypto@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	herbert@gondor.apana.org.au, linux@armlinux.org.uk, 
+	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Catalin Marinas <catalin.marinas@arm.com>, Mark Brown <broonie@kernel.org>, 
+	Eric Biggers <ebiggers@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_092516_158760_0EEB4AD6 
-X-CRM114-Status: GOOD (  28.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,90 +85,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Maud... Laurent
-Yea you a Mad Lad.
+On Thu, 2 Oct 2025 at 18:20, Kees Cook <kees@kernel.org> wrote:
+>
+> On Wed, Oct 01, 2025 at 11:02:06PM +0200, Ard Biesheuvel wrote:
+> > From: Ard Biesheuvel <ardb@kernel.org>
+> >
+> > Move away from calling kernel_neon_begin() and kernel_neon_end()
+> > directly, and instead, use the newly introduced scoped_ksimd() API. This
+> > permits arm64 to modify the kernel mode NEON API without affecting code
+> > that is shared between ARM and arm64.
+> >
+> > Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+> > ---
+> >  crypto/aegis128-neon.c | 33 +++++++-------------
+> >  1 file changed, 12 insertions(+), 21 deletions(-)
+> >
+> > diff --git a/crypto/aegis128-neon.c b/crypto/aegis128-neon.c
+> > index 9ee50549e823..b41807e63bd3 100644
+> > --- a/crypto/aegis128-neon.c
+> > +++ b/crypto/aegis128-neon.c
+> > @@ -4,7 +4,7 @@
+> >   */
+> >
+> >  #include <asm/cpufeature.h>
+> > -#include <asm/neon.h>
+> > +#include <asm/simd.h>
+> >
+> >  #include "aegis.h"
+> >  #include "aegis-neon.h"
+> > @@ -24,32 +24,28 @@ void crypto_aegis128_init_simd(struct aegis_state *state,
+> >                              const union aegis_block *key,
+> >                              const u8 *iv)
+> >  {
+> > -     kernel_neon_begin();
+> > -     crypto_aegis128_init_neon(state, key, iv);
+> > -     kernel_neon_end();
+> > +     scoped_ksimd()
+> > +             crypto_aegis128_init_neon(state, key, iv);
+> >  }
+>
+> For these cases (to avoid the indentation change), do you want to use
+> just "guard" instead of "scope_guard", or do you want to explicitly
+> require explicit scope context even when the scope ends at the function
+> return?
+>
 
-On Wed, Aug 20, 2025 at 10:19=E2=80=AFAM Laurent Pinchart
-<laurent.pinchart@ideasonboard.com> wrote:
->
-> On Wed, Aug 20, 2025 at 04:07:55PM +0200, Maud Spierings wrote:
-> > On 8/20/25 16:01, Laurent Pinchart wrote:
-> > > On Mon, Aug 18, 2025 at 02:31:43PM +0200, Maud Spierings via B4 Relay=
- wrote:
-> > >> From: Maud Spierings <maudspierings@gocontroll.com>
-> > >>
-> > >> media_pad_remote_pad_first() can return NULL if no valid link is fou=
-nd.
-> > >> Check for this possibility before dereferencing it in the next line.
-> > >>
-> > >> Reported/investigated in [1]:
-> > >>
-> > >> Link: https://lore.kernel.org/all/1536a61b-b405-4762-9fb4-7e257f95e4=
-9e@gocontroll.com/ [1]
-> > >> Fixes: cf21f328fcaf ("media: nxp: Add i.MX8 ISI driver")
-> > >> Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
-> > >> ---
-> > >> I'm not sure if this should be a dev_dbg(), just following the patte=
-rn
-> > >> around it for now, also not sure if EPIPE is the correct error.
-> > >
-> > > I've submitted
-> > > https://lore.kernel.org/linux-media/20250820140021.8026-1-laurent.pin=
-chart@ideasonboard.com,
-> > > which should fix this issue in a more generic way.
-> >
-> > Saw it, but I think my patch technically is still correct as the
-> > function documentation states it can potentially return NULL right? [1]
->
-> The function documentation states
->
-> "returns a pointer to the pad at the remote end of the first found
-> enabled link, or NULL if no enabled link has been found."
->
-> The MUST_CONNECT flag ensures that there is an enabled link, so the
-> function can't return NULL.
->
-> > Link:
-> > https://www.kernel.org/doc/html/latest/driver-api/media/mc-core.html [1=
-]
-> >
-> > I will test you patches tomorrow.
-> >
-> > >> ---
-> > >>   drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c | 7 ++++++=
-+
-> > >>   1 file changed, 7 insertions(+)
-> > >>
-> > >> diff --git a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c=
- b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-> > >> index ede6cc74c0234049fa225ad82aaddaad64aa53d7..1ed8b031178b7d934b04=
-a8752747f556bd1fc5a9 100644
-> > >> --- a/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-> > >> +++ b/drivers/media/platform/nxp/imx8-isi/imx8-isi-crossbar.c
-> > >> @@ -160,6 +160,13 @@ mxc_isi_crossbar_xlate_streams(struct mxc_isi_c=
-rossbar *xbar,
-> > >>    }
-> > >>
-> > >>    pad =3D media_pad_remote_pad_first(&xbar->pads[sink_pad]);
-> > >> +
-> > >> +  if (pad =3D=3D NULL) {
-> > >> +          dev_dbg(xbar->isi->dev, "no valid link found to pad %u\n"=
-,
-> > >> +                  sink_pad);
-> > >> +          return ERR_PTR(-EPIPE);
-> > >> +  }
-> > >> +
-> > >>    sd =3D media_entity_to_v4l2_subdev(pad->entity);
-> > >>    if (!sd) {
-> > >>            dev_dbg(xbar->isi->dev,
-> > >>
-> > >> ---
-> > >> base-commit: 3ac864c2d9bb8608ee236e89bf561811613abfce
-> > >> change-id: 20250818-imx8_isi-954898628bb6
->
-> --
-> Regards,
->
-> Laurent Pinchart
->
+I'm on the fence tbh. I think for future maintainability, being forced
+to define the scope is perhaps better but in this case, the whole
+function contains only a single line so there is little room for
+confusion.
 
