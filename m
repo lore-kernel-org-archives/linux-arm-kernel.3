@@ -4,61 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAF54CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 14:36:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD4F6CAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 14:40:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=HLJgClyekoxF/eGhdvzbr0u00Cz8g6gkXvaPX+jj+9A=; b=b8IZqzZ72KMw/t
-	O0IwZk40FO7HGmC1BPL3ZfQlgME5YITPYcjgzfC7uZUoCy2AVsSTWk7fjXPTJbmj8Ip2hIsqUgyKm
-	WCh+vTtX/UdFZT/Z4f78M8ACOrSqF+ekNJGxRbe2aS5KFavVGrop5UI5mn99AfLL4CqmW8Ow8kbaU
-	/KWo0h6w2C7gOJnCTRR3LHXVLvyrDXI7hTYLFqXMqWkWPkgVeRievDKIXQutblx/n6BK+dfB81gaU
-	boMez9HjvHbanDyEGVuNz6FQiiCkFCfo/OqH0nmYiKec1442YnaQ3SZugXbTdvYdPXDX0YJvbuH9j
-	GNNlmuCuXQ3GYvbqSm/g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uICoztKRdvTHeaU0ikk7XrilYFnxM/L3Ytx6iwL/ipw=; b=Ozjzie5Vyu7lurAuOH8eM1L09D
+	02Jdpd3aw/bR8DJr/Tn0Qt5dnoX0ookrmQ+W6gMR7pPmWzIXTcCtYYKm/ymFjt6rFG5IzEUqqvLwS
+	9mB8vexDnOQRQJ1It9Z0MxERJRdO4hXaSgy4OmF/FQtqtyjiWzJ2qP9BK23vocu9Wf6jJ37bOnlVn
+	u3oUeaIJL6Q1UTnOEmTxQCK/OeRH/Qx6X5TEovR8Zu+bYi10YokhLBAiWxTN9Eo3G6yfOFr79dUUU
+	9+VKwN6faxyl9UGxJY1BRGClCNybNQvIUOlbHxuHoPdcwCSNcD8KYAUIUmkuG5icZlDIwms1mLWw/
+	RHygox1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4KQ3-0000000AcJP-2Wuk;
-	Thu, 02 Oct 2025 14:36:31 +0000
+	id 1v4KUF-0000000AcfR-15cM;
+	Thu, 02 Oct 2025 14:40:51 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4KQ3-0000000AcJG-0H2a
+	id 1v4KUE-0000000AcfL-1R4t
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Oct 2025 14:36:31 +0000
+	Thu, 02 Oct 2025 14:40:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7D58961E46;
-	Thu,  2 Oct 2025 14:36:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EA1FEC4CEF4;
-	Thu,  2 Oct 2025 14:36:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759415790;
-	bh=B3aUqt3yFL4cHWEvV1ArHNkFI5dahy1JTP0dauqet8k=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=ZxYLLKgpgek07MIpQs+oWR3QIZ/0+t6zS5HO7VL5SSUaky6Wqsoy6MYs0UJlG0qd/
-	 KfSfck/b9VZhYxoHARfeiJ+XfMQTaYHgb74w/SjBgKEONHvWDJyXoG/HlaU8ztW1HT
-	 OpAeKa+4TFTNbgdoI7bOuqRySqL281bRPtXbJEtTbgFrdsclVZPv2Li0I0xuBdvGiR
-	 uE4AETG1j+75R7mXo0YFDE86MIpMhnAXETIE4NNkBbWPq7rvl0kKT/LCvYq/v7GEb9
-	 7UrFoYgh4imcXqLY94kp07jKJoHvOzRQhqlc9CKvqEDfrRys5UxJtBN0TEppGL8WqJ
-	 GyHfKVXCLxj2A==
-Date: Thu, 2 Oct 2025 09:36:27 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: lpieralisi@kernel.org, kwilczynski@kernel.org, mani@kernel.org,
-	robh@kernel.org, bhelgaas@google.com, cassel@kernel.org,
-	kishon@kernel.org, sergio.paracuellos@gmail.com,
-	18255117159@163.com, jirislaby@kernel.org, m-karicheri2@ti.com,
-	santosh.shilimkar@ti.com, stable@vger.kernel.org,
-	linux-pci@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, srk@ti.com
-Subject: Re: [PATCH 2/2] PCI: keystone: Remove the __init macro for the
- ks_pcie_host_init() callback
-Message-ID: <20251002143627.GA267439@bhelgaas>
+	by tor.source.kernel.org (Postfix) with ESMTP id BB50D60300;
+	Thu,  2 Oct 2025 14:40:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C118C4CEF4;
+	Thu,  2 Oct 2025 14:40:48 +0000 (UTC)
+From: Geert Uytterhoeven <geert+renesas@glider.be>
+To: Magnus Damm <magnus.damm@gmail.com>,
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-renesas-soc@vger.kernel.org,
+	Geert Uytterhoeven <geert+renesas@glider.be>
+Subject: [PATCH 00/13] ARM: dts: renesas: Move interrupt-parent to root node
+Date: Thu,  2 Oct 2025 16:40:28 +0200
+Message-ID: <cover.1759414774.git.geert+renesas@glider.be>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250912100802.3136121-3-s-vadapalli@ti.com>
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,78 +58,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 12, 2025 at 03:37:59PM +0530, Siddharth Vadapalli wrote:
-> The ks_pcie_host_init() callback registered by the driver is invoked by
-> dw_pcie_host_init(). Since the driver probe is not guaranteed to finish
-> before the kernel initialization phase, the memory associated with
-> ks_pcie_host_init() may already be freed by free_initmem().
-> 
-> It is observed in practice that the print associated with free_initmem()
-> which is:
-> 	"Freeing unused kernel memory: ..."
-> is displayed before the driver is probed, following which an exception is
-> triggered when ks_pcie_host_init() is invoked which looks like:
-> 
-> 	Unable to handle kernel paging request at virtual address ...
-> 	Mem abort info:
-> 	...
-> 	pc : ks_pcie_host_init+0x0/0x540
-> 	lr : dw_pcie_host_init+0x170/0x498
-> 	...
-> 	ks_pcie_host_init+0x0/0x540 (P)
-> 	ks_pcie_probe+0x728/0x84c
-> 	platform_probe+0x5c/0x98
-> 	really_probe+0xbc/0x29c
-> 	__driver_probe_device+0x78/0x12c
-> 	driver_probe_device+0xd8/0x15c
-> 	...
-> 
-> Fix this by removing the "__init" macro associated with the
-> ks_pcie_host_init() callback and the ks_pcie_init_id() function that it
-> internally invokes.
-> 
-> Fixes: 0c4ffcfe1fbc ("PCI: keystone: Add TI Keystone PCIe driver")
-> Cc: <stable@vger.kernel.org>
-> Signed-off-by: Siddharth Vadapalli <s-vadapalli@ti.com>
+	Hi all,
 
-I dropped this from pci/controller/keystone because of the resulting
-section mismatch:
+This patch series is a follow-up to Morimoto-san's series[1] to move
+interrupt-parent properties to the root nodes in Renesas ARM64
+SoC-specific .dtsi files, which lets us replace several
+interrupts-extended properties by the more concise interrupts
+properties.  This series repeats the exercise for Renesas ARM32 SoCs.
 
-  https://lore.kernel.org/r/202510010726.GPljD7FR-lkp@intel.com
+Note that several .dtsi files predating the concept of the "soc" node
+already had their GIC interrupt-parent properties at the root node.
+Of the modified files, some had duplicate interrupt-parent properties.
 
-ks_pcie_host_init() calls hook_fault_code(), which is __init, so we
-can't make ks_pcie_host_init() non-__init.
+I intend to queue this in renesas-devel for v6.19.
 
-Both are bad problems, but there's no point in just swapping one
-problem for a different one.
+Thanks for your comments!
 
-> ---
->  drivers/pci/controller/dwc/pci-keystone.c | 4 ++--
->  1 file changed, 2 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/pci/controller/dwc/pci-keystone.c b/drivers/pci/controller/dwc/pci-keystone.c
-> index 21808a9e5158..c6e082dcb3bc 100644
-> --- a/drivers/pci/controller/dwc/pci-keystone.c
-> +++ b/drivers/pci/controller/dwc/pci-keystone.c
-> @@ -799,7 +799,7 @@ static int ks_pcie_fault(unsigned long addr, unsigned int fsr,
->  }
->  #endif
->  
-> -static int __init ks_pcie_init_id(struct keystone_pcie *ks_pcie)
-> +static int ks_pcie_init_id(struct keystone_pcie *ks_pcie)
->  {
->  	int ret;
->  	unsigned int id;
-> @@ -831,7 +831,7 @@ static int __init ks_pcie_init_id(struct keystone_pcie *ks_pcie)
->  	return 0;
->  }
->  
-> -static int __init ks_pcie_host_init(struct dw_pcie_rp *pp)
-> +static int ks_pcie_host_init(struct dw_pcie_rp *pp)
->  {
->  	struct dw_pcie *pci = to_dw_pcie_from_pp(pp);
->  	struct keystone_pcie *ks_pcie = to_keystone_pcie(pci);
-> -- 
-> 2.43.0
-> 
+[1] "[PATCH 00/26] arm64: dts: renesas: move interrupt-parent to top
+     node"
+    https://lore.kernel.org/87cy7ga2x8.wl-kuninori.morimoto.gx@renesas.com/
+
+Geert Uytterhoeven (13):
+  ARM: dts: renesas: r7s72100: Move interrupt-parent to root node
+  ARM: dts: renesas: r7s9210: Remove duplicate interrupt-parent
+  ARM: dts: renesas: r8a7742: Move interrupt-parent to root node
+  ARM: dts: renesas: r8a7743: Move interrupt-parent to root node
+  ARM: dts: renesas: r8a7744: Move interrupt-parent to root node
+  ARM: dts: renesas: r8a7745: Move interrupt-parent to root node
+  ARM: dts: renesas: r8a77470: Move interrupt-parent to root node
+  ARM: dts: renesas: r8a7790: Move interrupt-parent to root node
+  ARM: dts: renesas: r8a7791: Move interrupt-parent to root node
+  ARM: dts: renesas: r8a7792: Move interrupt-parent to root node
+  ARM: dts: renesas: r8a7793: Move interrupt-parent to root node
+  ARM: dts: renesas: r8a7794: Move interrupt-parent to root node
+  ARM: dts: renesas: r9a06g032: Move interrupt-parent to root node
+
+ arch/arm/boot/dts/renesas/r7s72100.dtsi  |  4 ++--
+ arch/arm/boot/dts/renesas/r7s9210.dtsi   |  1 -
+ arch/arm/boot/dts/renesas/r8a7742.dtsi   | 26 ++++++++++++------------
+ arch/arm/boot/dts/renesas/r8a7743.dtsi   | 14 ++++++-------
+ arch/arm/boot/dts/renesas/r8a7744.dtsi   | 14 ++++++-------
+ arch/arm/boot/dts/renesas/r8a7745.dtsi   | 14 ++++++-------
+ arch/arm/boot/dts/renesas/r8a77470.dtsi  | 14 ++++++-------
+ arch/arm/boot/dts/renesas/r8a7790.dtsi   | 26 ++++++++++++------------
+ arch/arm/boot/dts/renesas/r8a7791.dtsi   | 14 ++++++-------
+ arch/arm/boot/dts/renesas/r8a7792.dtsi   | 14 ++++++-------
+ arch/arm/boot/dts/renesas/r8a7793.dtsi   | 14 ++++++-------
+ arch/arm/boot/dts/renesas/r8a7794.dtsi   | 14 ++++++-------
+ arch/arm/boot/dts/renesas/r9a06g032.dtsi |  3 +--
+ 13 files changed, 85 insertions(+), 87 deletions(-)
+
+-- 
+2.43.0
+
+Gr{oetje,eeting}s,
+
+						Geert
+
+--
+Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
+
+In personal conversations with technical people, I call myself a hacker. But
+when I'm talking to journalists I just say "programmer" or something like that.
+							    -- Linus Torvalds
 
