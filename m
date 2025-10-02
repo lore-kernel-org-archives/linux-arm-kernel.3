@@ -4,101 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74660CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 15:13:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B5F7CAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 15:31:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XJdd5gCENWxVBNzk0LITi7rBVPLt55cKg02vaft5zSo=; b=yejQmmFBM07+sjv7utX4U4Djj6
-	/ehjYQcbeM8+bHklXsakQ5fwsI2f4gC0tv6NxsagrNh26mufRGfciUM3rRKXMZNJDvoaWWEDZTMtt
-	JOPLb1V/61E/c8RSQSlPHb3o1bzrwE6TO1cka7OmFagwitGwAIzkLj8+cuRTP9haPEPVG8MyDPAB5
-	iV7xscjP7//tMVyYSOF57u4uKUENWaIVJM38uEZKUGwXOTM4yhPrNbRCJOGIgBpyogbOp8yGhsomF
-	wXIaSt5tiQXwxAMjO1R97VM9N5IzGEAsQIK66lWu1/o8fcaqPdvrWfOxchMolnFnDdm5wOPaeIq+t
-	4nH6m0iA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tgoGg8IT47suUaHaJzyZEohRJ+j1hMuFDDZER4oWthY=; b=sk1I8j+lKYGxTiREp0ruzubLB6
+	2sR6ww8X0O/cTF1fubuocezE8+9fxYXhKrUI3FmEbLMA+/4BB4LuRn1K1XilU5aMv/9GwGK1Rnyma
+	fBR9X6EQYXxLf9X0dVI+7SbVyL3pWHaHCyLaFNbbDQ0uw8ff8UCBcGxyeCfdM5SAjgSLaoZTqpaix
+	a6qcpU+RNhJPvki8de0yTYAO3K9viAMMxgkBfWY30OVmh3qGJRgovBXpAgKln3YvTRUxpCpJBxwv5
+	MWT0usz+PJUIK2fH70XAZbQzjA7a6isFBexcDpv1jCWJiL2PBt+JGPcOKjmmCwdfC0AqRxsUsInNY
+	R2sjsseQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4KzZ-0000000AhKm-3OaT;
-	Thu, 02 Oct 2025 15:13:13 +0000
-Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
+	id 1v4LGz-0000000AjET-1lub;
+	Thu, 02 Oct 2025 15:31:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4KzX-0000000AhKP-10Aq
+	id 1v4LGy-0000000AjDe-1EIm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Oct 2025 15:13:12 +0000
-Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-875d55217a5so120734485a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Oct 2025 08:13:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ziepe.ca; s=google; t=1759417990; x=1760022790; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=XJdd5gCENWxVBNzk0LITi7rBVPLt55cKg02vaft5zSo=;
-        b=YkoNhkVOMbL0D1DZdx1PXqE3RJMWCAe7njQytJv32G22npCPYkw8k9e0Dt02LtwrN2
-         k8bab2TAHEoYz0f0MIm8DkmyX0TNVRvt1CCk+ru5O9hN5wch5WJjhHh42tWQBauAD8T6
-         jrvZgWfWVmT8wHxkaQNim8HUugvzpAozD8uTTjsUWI763gAwprx3wFJNZIlw6vdKmf6T
-         0ffflHQKB2u5SBObsX3ctP4a/8aEBHknUIajhZ/lsxGCjDMnvEEDZb9l6OAAC7JJdDzU
-         2NTqe2vHZtt1MjFjWEZPo6jNmlrbJliH/hDH/LOllN3KI/G7RZj/fyprJyM4PZmnHOHQ
-         ZmyA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759417990; x=1760022790;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=XJdd5gCENWxVBNzk0LITi7rBVPLt55cKg02vaft5zSo=;
-        b=qmIVW0nh7Jocg9sYRFBi7WyFFk9Dtx5i/nP7OGpZC6RyC7o6xL2/ZiNVkTl2vSA1nx
-         nglXvpAD47XnSyJ0VjlfjNHJtKUy5TGAcYI1ncoiH4R1qNJ883rcUmYE2TuhgleLZyne
-         DMs5LXfsFDSMfFQlAR2AhMy7mL/rfwrK4ezubNdfTdhJlRb6ZOffs5CT4PH4ycrsOHzl
-         2lNu8zgVN1doQN/Hngm+uD/X7LT6rKv+RqtfQffJ8DXU+7g79mSKRd+NOzYWVDxi1e5y
-         N4BHMygkQyZ2+VaU7RFGsT199QlYKFQVbj0sjns4rgmpSyXEyF4PojS498V0MxeVgTYq
-         zxFg==
-X-Forwarded-Encrypted: i=1; AJvYcCWi5SogQ/1JX75GPSSC4yYmuXUmDxcUkvXDkRhSriav7EwmE2VaRWWeaohA7fiUeWD4dxGOCEiTg5kjwartalJY@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1kkN6Jja9713rzbdTXu0/myFcTfRt01Wdbiv+ZviHNaSQI0Ok
-	m1FTFgdwOFFP7/SQQ98IfsWk7Upukw6ffZBPGMvmaI3ThsrMsdlTadxKZx5+f+i9XMs=
-X-Gm-Gg: ASbGncv3QHwA8BrtB6s5QLN/2DidtrCDZf1p3dMiRta0bREFoQYc+gGOJsDGIlobF6y
-	7IENoDonJqTiF/k3IDwS+qx0U+nKXtzV2tqiHZOWOoNGo39lIWIyVew9PHxFiL2FNpOOYmf9tzj
-	cRZNzxjG5KZlHp6TIYMHmqUi4n2OhkBSn9NK1xNOthxDIzyvcFYAKNALTobM44wgZMC0Ac29KMp
-	MYWWy97YnuF2yas6N9JJXEE2EuHYgv+b9BcWqgSlB6VZh8onoZWRoUgX5GYE7fgips0mW20DfXu
-	Abd9Gw9DQlVSkyyzPx2TDXHQZuPP/TFO0oFKiWm2PsODE3fFkJzQ5UWaqlz/wZebszRBrCynZof
-	rkMMzyA1hoIMKOOYwqH4LW9CR7+21EVqJLNmGbuIJFn9OzeBfuu8AI/edv+Mz5kPQ2BjOcSDZNV
-	uWZImVHyzx/fIwk69r
-X-Google-Smtp-Source: AGHT+IG0oPe5CNlBpr3wJjmSULJ8S5uq9PiyYd4xVRPRgnIUY7cEyRWUA/GTHx85PtOoXdDh+uje/A==
-X-Received: by 2002:a05:620a:1a0c:b0:85e:5022:33b7 with SMTP id af79cd13be357-8737780ae60mr1108818085a.72.1759417989421;
-        Thu, 02 Oct 2025 08:13:09 -0700 (PDT)
-Received: from ziepe.ca (hlfxns017vw-47-55-120-4.dhcp-dynamic.fibreop.ns.bellaliant.net. [47.55.120.4])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-8777aabeac7sm224623585a.64.2025.10.02.08.13.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 02 Oct 2025 08:13:08 -0700 (PDT)
-Received: from jgg by wakko with local (Exim 4.97)
-	(envelope-from <jgg@ziepe.ca>)
-	id 1v4KzU-0000000DqDS-0i6h;
-	Thu, 02 Oct 2025 12:13:08 -0300
-Date: Thu, 2 Oct 2025 12:13:08 -0300
-From: Jason Gunthorpe <jgg@ziepe.ca>
-To: Mostafa Saleh <smostafa@google.com>
-Cc: Will Deacon <will@kernel.org>, linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	iommu@lists.linux.dev, maz@kernel.org, oliver.upton@linux.dev,
-	joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com,
-	catalin.marinas@arm.com, robin.murphy@arm.com,
-	jean-philippe@linaro.org, qperret@google.com, tabba@google.com,
-	mark.rutland@arm.com, praan@google.com
-Subject: Re: [PATCH v4 15/28] iommu/arm-smmu-v3: Load the driver later in KVM
- mode
-Message-ID: <20251002151308.GG3195829@ziepe.ca>
-References: <20250819215156.2494305-1-smostafa@google.com>
- <20250819215156.2494305-16-smostafa@google.com>
- <aMQmA9cLaeYWG5_C@willie-the-truck>
- <aNKwROPzDCWgJBGQ@google.com>
- <20250923173806.GF2547959@ziepe.ca>
- <aNppE9A3PDiDg_1W@google.com>
+	Thu, 02 Oct 2025 15:31:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B60DB63E6A;
+	Thu,  2 Oct 2025 15:31:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67FE1C4CEF9;
+	Thu,  2 Oct 2025 15:31:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759419071;
+	bh=vkZan2sA3q3Zpt91HGXqtJTHqqZKLrjcgTqhPBKawuw=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=bXGZB8GVEqmrly6BJ9gCsZkTGpZ+05lTNCQlZpPwuWSPqqggpP0drBVMr244U+XvV
+	 1zoKol7xdUtuwbaDKTHLQHBfmRcD79Xqkfuriyq85IxgAeG0QZaYdXj9rIGa8if3bR
+	 dY9AL1NtiGkNPrjpaQfdJHrmF7xmJfMa4OlnfAf4h0EEuYrTGloTuHjsuZbSTGlMjq
+	 p0Te4crEiGB4SzHSjAToUEMk2GN+4B3O9dwpTB1rucWRG182YKl5IJdwAvEKRjZSwL
+	 qTjSKDPnWEzFVQBJPv1gqbpS3nIw4tqIHnAWJE+V4x2DKpFew0hgLGzQlZ6ZZNaf0A
+	 qkSAN5lVSZPkQ==
+From: Sasha Levin <sashal@kernel.org>
+To: patches@lists.linux.dev,
+	stable@vger.kernel.org
+Cc: Mark Rutland <mark.rutland@arm.com>,
+	James Morse <james.morse@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	Sasha Levin <sashal@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.17-6.16] arm64: errata: Apply workarounds for Neoverse-V3AE
+Date: Thu,  2 Oct 2025 11:30:19 -0400
+Message-ID: <20251002153025.2209281-32-sashal@kernel.org>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251002153025.2209281-1-sashal@kernel.org>
+References: <20251002153025.2209281-1-sashal@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aNppE9A3PDiDg_1W@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_081311_283761_D04876A7 
-X-CRM114-Status: GOOD (  13.79  )
+X-stable: review
+X-Patchwork-Hint: Ignore
+X-stable-base: Linux 6.17
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,21 +78,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 29, 2025 at 11:10:11AM +0000, Mostafa Saleh wrote:
-> Another possible solution, to keep a device bound to the KVM driver,
-> is to probe the SMMUs from the KVM driver, then to create child devices;
-> possibly use something as device_set_of_node_from_dev to bind those to
-> the main SMMUv3 or find another way to probe the main SMMUv3 without
-> changes.
+From: Mark Rutland <mark.rutland@arm.com>
 
-I do prefer something more like this one, I think it is nice that the
-kvm specific driver will remain bound and visible so there is some
-breadcrumbs about what happened to the system for debugging/etc.
+[ Upstream commit 0c33aa1804d101c11ba1992504f17a42233f0e11 ]
 
-Not sure how to do it, but I think it should be achievable..
+Neoverse-V3AE is also affected by erratum #3312417, as described in its
+Software Developer Errata Notice (SDEN) document:
 
-Maybe even a simple faux/aux device and just pick up the of_node from
-the parent..
+  Neoverse V3AE (MP172) SDEN v9.0, erratum 3312417
+  https://developer.arm.com/documentation/SDEN-2615521/9-0/
 
-Jason
+Enable the workaround for Neoverse-V3AE, and document this.
+
+Signed-off-by: Mark Rutland <mark.rutland@arm.com>
+Cc: James Morse <james.morse@arm.com>
+Cc: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>
+Signed-off-by: Ryan Roberts <ryan.roberts@arm.com>
+Signed-off-by: Will Deacon <will@kernel.org>
+Signed-off-by: Sasha Levin <sashal@kernel.org>
+---
+
+LLM Generated explanations, may be completely bogus:
+
+Based on my comprehensive analysis, here is my determination:
+
+## **Backport Status: YES**
+
+### Detailed Analysis
+
+#### 1. **Nature of the Fix**
+This commit adds ARM Neoverse-V3AE to the existing workaround for
+erratum 3194386/3312417, which addresses a **speculative execution
+vulnerability** related to SSBS (Speculative Store Bypass Safe). The
+erratum description states: "MSR SSBS, #0 instructions may not affect
+subsequent speculative instructions, which may permit unexpected
+speculative store bypassing." This is a security-related issue similar
+to Spectre v4.
+
+#### 2. **Code Changes Analysis**
+The changes are **minimal and surgical**:
+- **Documentation** (`silicon-errata.rst`): Adds 1 table entry
+  documenting Neoverse-V3AE erratum 3312417
+- **Kconfig** (`arch/arm64/Kconfig`): Adds 1 line to the list of
+  affected CPUs in the ARM64_ERRATUM_3194386 help text
+- **Errata code** (`cpu_errata.c`): Adds 1 line
+  `MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V3AE)` to the
+  `erratum_spec_ssbs_list[]` array
+
+This simply registers a new CPU variant to an existing, well-tested
+workaround infrastructure.
+
+#### 3. **Established Backporting Pattern**
+The erratum 3194386 infrastructure has a **clear history of being
+expanded and backported**:
+- Base erratum introduced in v6.10 (commit 7187bb7d0b5c7)
+- First expansion in v6.11 (commit 75b3c43eab594) - **backported to
+  v6.10.x**
+- Second expansion in v6.11 (commit adeec61a4723f) - **backported to
+  v6.10.x**
+- Third expansion in v6.12 (commit 081eb7932c2b2) - **backported to
+  v6.11.x**
+
+The backport commits show `Signed-off-by: Sasha Levin
+<sashal@kernel.org>`, confirming stable team involvement. This
+establishes that ARM errata workarounds for speculative execution are
+**routinely backported**.
+
+#### 4. **Risk Assessment: VERY LOW**
+- **No architectural changes** - uses existing workaround mechanism
+- **No new code paths** - just adds a CPU ID to a matching list
+- **Zero impact if hardware not present** - the MIDR check only triggers
+  on affected CPUs
+- **Well-contained** - changes are confined to ARM64 errata subsystem
+- **Already tested** - the workaround logic is proven on 20+ other ARM
+  cores with the same erratum
+
+#### 5. **Dependencies**
+This commit depends on `3bbf004c4808e` ("arm64: cputype: Add
+Neoverse-V3AE definitions") which adds the `MIDR_NEOVERSE_V3AE`
+constant. Both commits are part of the same September 2025 patch series
+and should be backported together as a pair.
+
+#### 6. **User Impact**
+- **Security**: Users with Neoverse-V3AE CPUs are vulnerable to
+  speculative store bypass attacks without this fix
+- **Hardware availability**: ARM has published SDEN v9.0 for
+  Neoverse-V3AE (MP172), indicating this hardware exists or will exist
+  in production systems
+- **Protection**: The workaround places speculation barriers after SSBS
+  changes to prevent information leakage
+
+#### 7. **Stable Kernel Criteria Compliance**
+✅ **Fixes important bug** - Security/speculative execution vulnerability
+✅ **Small and contained** - 3 single-line additions
+✅ **No new features** - Just hardware support
+✅ **Minimal regression risk** - Uses proven infrastructure
+✅ **Clear benefit** - Protects affected hardware
+
+### Recommendation
+**STRONGLY RECOMMEND BACKPORTING** this commit along with its dependency
+(3bbf004c4808e) to all stable kernels that contain the base
+ARM64_ERRATUM_3194386 infrastructure (v6.10+). This follows the
+established pattern for ARM errata workarounds and provides essential
+security protection for Neoverse-V3AE hardware.
+
+ Documentation/arch/arm64/silicon-errata.rst | 2 ++
+ arch/arm64/Kconfig                          | 1 +
+ arch/arm64/kernel/cpu_errata.c              | 1 +
+ 3 files changed, 4 insertions(+)
+
+diff --git a/Documentation/arch/arm64/silicon-errata.rst b/Documentation/arch/arm64/silicon-errata.rst
+index b18ef4064bc04..a7ec57060f64f 100644
+--- a/Documentation/arch/arm64/silicon-errata.rst
++++ b/Documentation/arch/arm64/silicon-errata.rst
+@@ -200,6 +200,8 @@ stable kernels.
+ +----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | Neoverse-V3     | #3312417        | ARM64_ERRATUM_3194386       |
+ +----------------+-----------------+-----------------+-----------------------------+
++| ARM            | Neoverse-V3AE   | #3312417        | ARM64_ERRATUM_3194386       |
+++----------------+-----------------+-----------------+-----------------------------+
+ | ARM            | MMU-500         | #841119,826419  | ARM_SMMU_MMU_500_CPRE_ERRATA|
+ |                |                 | #562869,1047329 |                             |
+ +----------------+-----------------+-----------------+-----------------------------+
+diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+index e9bbfacc35a64..93f391e67af15 100644
+--- a/arch/arm64/Kconfig
++++ b/arch/arm64/Kconfig
+@@ -1138,6 +1138,7 @@ config ARM64_ERRATUM_3194386
+ 	  * ARM Neoverse-V1 erratum 3324341
+ 	  * ARM Neoverse V2 erratum 3324336
+ 	  * ARM Neoverse-V3 erratum 3312417
++	  * ARM Neoverse-V3AE erratum 3312417
+ 
+ 	  On affected cores "MSR SSBS, #0" instructions may not affect
+ 	  subsequent speculative instructions, which may permit unexepected
+diff --git a/arch/arm64/kernel/cpu_errata.c b/arch/arm64/kernel/cpu_errata.c
+index 59d723c9ab8f5..21f86c160aab2 100644
+--- a/arch/arm64/kernel/cpu_errata.c
++++ b/arch/arm64/kernel/cpu_errata.c
+@@ -545,6 +545,7 @@ static const struct midr_range erratum_spec_ssbs_list[] = {
+ 	MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V1),
+ 	MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V2),
+ 	MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V3),
++	MIDR_ALL_VERSIONS(MIDR_NEOVERSE_V3AE),
+ 	{}
+ };
+ #endif
+-- 
+2.51.0
+
 
