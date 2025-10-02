@@ -4,63 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 22038CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 16:22:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B57D9CAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 16:22:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JFjJ3chQBlRIN0hsHqEkUSzdHiH7QHCP1Kf/P9mVSpE=; b=nAGmBkDwNfCvYjLc7lBrPxIhwY
-	T2t4vSrFjE+d6hKckG8d2DUpMsOGd33hfjt4I4kNpifFFAzKqG4HSTI1U7Pu2Zw/wOn/2VgGNmLgR
-	VB/5bZ7ygB++Lvf0BAZOQUKuqwg3VShZIEJy4BfSpnFptm41kpB9edlsd1YqrtIAuiMy1SzvTz8cX
-	lfaRGodUpmlAMUqxv3ClPAKa0hJRxH4tdsE8E967Mizj7d9iiqICWVOZbQhjra4R/049JZvx4hihq
-	qctrxr6mubBQygANAmydLPbETZaHhk0AvCisG9Q5ESbI73x8xq+RP0w4yWAqeLDbLBDjLkV8e+Sn9
-	gDI7z+tA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2LbxYgnEojJ93c8rsOWf/bBt3bhhAFbsmGgZt+eHULs=; b=VcZFnfnp2PdQJ+LB82ItIifdz+
+	Y89Cy8iGOQVtYAub8iGH9vsQ+10XNE9zUKU8gWIx1ZuoNulx9kHz/4SOK79RuYtHVAiGqPyMGLp9m
+	o0eMcJuUemNTEB2Cfu+o/jWaz2VMZvNALOn1LFD88hGF4uwViIXqThDfNHu51lEbHNsVjMSTQPbq6
+	1HhpkG4GDrtlUmy1R7sRPrQ36gGtNdUhiPWo29JkL2hYib1VSQif0RKtjZdCY0aRADvKm5UuuRMay
+	3o7gIhSJCy2jIlGvVKR9Y8DDsx7HAbiBPetvyCaBGFIjMWR3zjOkyaBH5QYNVKFBQca6SkK13GHqs
+	uQARiYng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4M4n-0000000Aodm-0mYX;
+	id 1v4M4n-0000000Aoe3-20Sl;
 	Thu, 02 Oct 2025 16:22:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4M4l-0000000AodZ-3AxZ
+	id 1v4M4l-0000000AodH-012U
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Oct 2025 16:22:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 26EF463E98;
-	Thu,  2 Oct 2025 16:22:39 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C20C3C4CEF9;
-	Thu,  2 Oct 2025 16:22:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759422158;
-	bh=l9WPWBv5LEU7jTy0oYjT1qC7YlRew4lHrXzJr22cHlk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=c6oY0weUsmnibisRSgXf+q2hw0W0V/+mpe1HWu3Lbq15KgyY3PR2eha1UBxIQcoBS
-	 2K2KOrgX+Kn+13PspoAoxLPV46aXl4GIo9j+b/clHq31pTVaSxEpGpkRSKlYIdQl2z
-	 YlJrpja2qTqCyt/uXxVQSEA/+Zklt2ZVwOB4mupmAg26AJ0YoMdJ427jblWuo7NzVi
-	 m4vIMrAloqvlq1r0hnKPaql61ecWjL6/WllGSYQOgOQp7RysIo1Tf0bZN7UPr6+QTu
-	 8Xf/tUd68Se/UmRuF5ARv6Y2uVF3t9pTrKlvbSBQe48EiywtOERCq85s4Iel6d/qpw
-	 UTCvuFSa/0ZSg==
-Date: Thu, 2 Oct 2025 09:22:38 -0700
-From: Kees Cook <kees@kernel.org>
-To: Ard Biesheuvel <ardb+git@google.com>
-Cc: linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
-	linux-kernel@vger.kernel.org, herbert@gondor.apana.org.au,
-	linux@armlinux.org.uk, Ard Biesheuvel <ardb@kernel.org>,
-	Marc Zyngier <maz@kernel.org>, Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Brown <broonie@kernel.org>, Eric Biggers <ebiggers@kernel.org>
-Subject: Re: [PATCH v2 20/20] arm64/fpsimd: Allocate kernel mode FP/SIMD
- buffers on the stack
-Message-ID: <202510020920.2FE08A4F90@keescook>
-References: <20251001210201.838686-22-ardb+git@google.com>
- <20251001210201.838686-42-ardb+git@google.com>
+	Thu, 02 Oct 2025 16:22:40 +0000
+Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-27d3540a43fso10929635ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Oct 2025 09:22:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1759422158; x=1760026958; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2LbxYgnEojJ93c8rsOWf/bBt3bhhAFbsmGgZt+eHULs=;
+        b=GjylI+AZDgul1XZHHbs1d2S4pi6JFf7FayeZybOgt6iJD0JI5deh9o3gvbXLxGOw6M
+         rVYTWoqpJxHWkV8uibREgIu2p+jdsjXs9lkiurVivaZodMCcOleybVkgx6mDIudIp5FM
+         xiCVVrJqlTHikbLiIFX5VgaTnRN5nNUP9pPMiYgRUTkMLIX+CG36GLabs2zANQ5eLz28
+         ixcHkNJpzZRBewPUqy1wRqMKwjUW3GwRlY6tYpvBZb5d4HzvGuDap/+y7fS6Iyx3hhxx
+         cS25h+vBA9Vjc429qo0ghm9ntHx0IVNnuaaFjo8AuXmmiK2dsXE79TQ+gw+euseZhg5U
+         8svg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759422158; x=1760026958;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=2LbxYgnEojJ93c8rsOWf/bBt3bhhAFbsmGgZt+eHULs=;
+        b=whYd/rys8FZwJswxyXkMMwhYnfz0oPt+S+gtIxjPlHIcyXYyuKVoxghEPNf8Y1hjnF
+         PFNu4TMNq9jZ2NP0J9JqGVVuITiYk6GPqJ4ElEr7E6INgMeZpYECuJGUvJAMO+fscwYF
+         mR1qcS1hfdnW0aIFm9SDgJt7LMn+TfS644nwnh8JehYG1h2ND8oW9E6Aq4/mG76x2hyb
+         Zyseami/9zPmrVC3qkURUDYEYRItxxDKRjcTeT/PQX2EqUWID5MxplfH/m+1w1FeIoio
+         D5wkrZl90zIoAlZDhwpKOyYf8f3MT4Lj674L5G06AqqiGsMihtwQP4OF+HT6ZYSjNYN2
+         pnUg==
+X-Forwarded-Encrypted: i=1; AJvYcCWbEM8X0G2j1lJiaacq4FYsTb/fy5YiuyLjvx0v+LhkCHeBVj44RNH9lSxqYG/kjXXCSdWDR2LqCNyd3WEKiePV@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw5csn965W6pXWc0SjbHQBH8PljvSmT8A3FOOjr+G8VaVT5ysJ/
+	F9noaIE+yH3ium2K1YDAqh6Qd/CoUnnHJn1iJBTmsGt6trBFfIOE2X/JnQ+hamvZFn2kYypjkCb
+	0w4hEhc1hYuE+e0hG6aJAz44XABUzRnc=
+X-Gm-Gg: ASbGncvsp4k+L2rNQZ5nUkqtaMMKJ6mzhfi7Lfo/nO+21yj0me9KSKg3J7WpBWm4ZMo
+	E/AuxlrbTIogX2GvyBshKMHpPjNaz3iwGVlQxTAFMusgkUFFTZvwS9RZRNn5/EVDHaNdbkFh4qj
+	iGflGcO26aA/jXpfMu4diyZyvFbpllivC4Qb98xJMIhnXvHVXbsO2UOGMFU1CbCeO05wYsYDNyo
+	8UyCAHdPMFK0k1g2v6PGe9ixwvMmWA=
+X-Google-Smtp-Source: AGHT+IGRvLPIfPId+ThviLGcDguWvaiXYJhGL7lLP2ZYkgJ5H9fCJdaZmo7Lu2lqeUHQNIJJrKq42s7JgSMOk7shsiY=
+X-Received: by 2002:a17:903:2ece:b0:275:81ca:2c5 with SMTP id
+ d9443c01a7336-28e7f47a3f2mr86332225ad.59.1759422158111; Thu, 02 Oct 2025
+ 09:22:38 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251001210201.838686-42-ardb+git@google.com>
+References: <20250819131752.86948-2-krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20250819131752.86948-2-krzysztof.kozlowski@linaro.org>
+From: ChaosEsque Team <chaosesqueteam@gmail.com>
+Date: Thu, 2 Oct 2025 12:27:35 -0400
+X-Gm-Features: AS18NWDLQ6hD1LnWbuZES13_YjRj4m-0ztzOfBvznDKgHuJ8g5udlLpfwGDslIY
+Message-ID: <CALC8CXf+FJDcYLr4NwZMesa0kaPABw4j5Jy1bOU3XX7UJ1VcqA@mail.gmail.com>
+Subject: Re: [PATCH] ARM: dts: allwinner: Minor whitespace cleanup
+To: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>, 
+	Jernej Skrabec <jernej.skrabec@gmail.com>, Samuel Holland <samuel@sholland.org>, 
+	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-sunxi@lists.linux.dev, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251002_092239_042957_5E3CC536 
+X-CRM114-Status: GOOD (  15.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,49 +98,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 01, 2025 at 11:02:22PM +0200, Ard Biesheuvel wrote:
-> [...]
-> diff --git a/arch/arm64/include/asm/simd.h b/arch/arm64/include/asm/simd.h
-> index d9f83c478736..7ddb25df5c98 100644
-> --- a/arch/arm64/include/asm/simd.h
-> +++ b/arch/arm64/include/asm/simd.h
-> @@ -43,8 +43,11 @@ static __must_check inline bool may_use_simd(void) {
->  
->  #endif /* ! CONFIG_KERNEL_MODE_NEON */
->  
-> -DEFINE_LOCK_GUARD_0(ksimd, kernel_neon_begin(), kernel_neon_end())
-> +DEFINE_LOCK_GUARD_1(ksimd,
-> +		    struct user_fpsimd_state,
-> +		    kernel_neon_begin(_T->lock),
-> +		    kernel_neon_end(_T->lock))
->  
-> -#define scoped_ksimd()	scoped_guard(ksimd)
-> +#define scoped_ksimd()	scoped_guard(ksimd, &(struct user_fpsimd_state){})
+KRZYSZTOF KOZLOWSKI... So... Kyrgastani Polish guy?
+Doesn't sound Russkie. Bet the ethnic Russians (Rysskiy) oppress your
+ancestors. Who had to just TAKE IT. How does that make you feel?
 
-I love it!
-
-> [...]
-> -void kernel_neon_end(void)
-> +void kernel_neon_end(struct user_fpsimd_state *s)
->  {
->  	if (!system_supports_fpsimd())
->  		return;
-> @@ -1899,8 +1910,9 @@ void kernel_neon_end(void)
->  	if (!IS_ENABLED(CONFIG_PREEMPT_RT) && in_serving_softirq() &&
->  	    test_thread_flag(TIF_KERNEL_FPSTATE))
->  		fpsimd_load_kernel_state(current);
-> -	else
-> -		clear_thread_flag(TIF_KERNEL_FPSTATE);
-> +	else if (test_and_clear_thread_flag(TIF_KERNEL_FPSTATE))
-> +		if (cmpxchg(&current->thread.kernel_fpsimd_state, s, NULL) != s)
-> +			BUG();
-
-I always question BUG() uses -- is there a recoverable way to deal with
-a mismatch here? I assume not and that this is the best we can do, but I
-thought I'd just explicitly ask. :)
-
--Kees
-
--- 
-Kees Cook
+On Tue, Aug 19, 2025 at 9:25=E2=80=AFAM Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org> wrote:
+>
+> The DTS code coding style expects exactly one space around '=3D' or '{'
+> characters.
+>
+> Signed-off-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+> ---
+>  arch/arm/boot/dts/allwinner/sun4i-a10-olinuxino-lime.dts  | 2 +-
+>  arch/arm/boot/dts/allwinner/sun8i-q8-common.dtsi          | 2 +-
+>  arch/arm/boot/dts/allwinner/sun8i-r40.dtsi                | 2 +-
+>  arch/arm/boot/dts/allwinner/sun8i-v3s-netcube-kumquat.dts | 2 +-
+>  4 files changed, 4 insertions(+), 4 deletions(-)
+>
+> diff --git a/arch/arm/boot/dts/allwinner/sun4i-a10-olinuxino-lime.dts b/a=
+rch/arm/boot/dts/allwinner/sun4i-a10-olinuxino-lime.dts
+> index 83d283cf6633..d425d9ee83db 100644
+> --- a/arch/arm/boot/dts/allwinner/sun4i-a10-olinuxino-lime.dts
+> +++ b/arch/arm/boot/dts/allwinner/sun4i-a10-olinuxino-lime.dts
+> @@ -218,7 +218,7 @@ &usb_otg {
+>  &usbphy {
+>         usb0_id_det-gpios =3D <&pio 7 4 (GPIO_ACTIVE_HIGH | GPIO_PULL_UP)=
+>; /* PH4 */
+>         usb0_vbus_det-gpios =3D <&pio 7 5 (GPIO_ACTIVE_HIGH | GPIO_PULL_U=
+P)>; /* PH5 */
+> -       usb0_vbus-supply   =3D <&reg_usb0_vbus>;
+> +       usb0_vbus-supply =3D <&reg_usb0_vbus>;
+>         usb1_vbus-supply =3D <&reg_usb1_vbus>;
+>         usb2_vbus-supply =3D <&reg_usb2_vbus>;
+>         status =3D "okay";
+> diff --git a/arch/arm/boot/dts/allwinner/sun8i-q8-common.dtsi b/arch/arm/=
+boot/dts/allwinner/sun8i-q8-common.dtsi
+> index 272584881bb2..a0f787581dd9 100644
+> --- a/arch/arm/boot/dts/allwinner/sun8i-q8-common.dtsi
+> +++ b/arch/arm/boot/dts/allwinner/sun8i-q8-common.dtsi
+> @@ -82,7 +82,7 @@ &de {
+>  };
+>
+>  &ehci0 {
+> -       status  =3D "okay";
+> +       status =3D "okay";
+>  };
+>
+>  &mmc1 {
+> diff --git a/arch/arm/boot/dts/allwinner/sun8i-r40.dtsi b/arch/arm/boot/d=
+ts/allwinner/sun8i-r40.dtsi
+> index fa162f7fa9f0..f0ed802a9d08 100644
+> --- a/arch/arm/boot/dts/allwinner/sun8i-r40.dtsi
+> +++ b/arch/arm/boot/dts/allwinner/sun8i-r40.dtsi
+> @@ -705,7 +705,7 @@ uart2_pi_pins: uart2-pi-pins {
+>                         };
+>
+>                         /omit-if-no-ref/
+> -                       uart2_rts_cts_pi_pins: uart2-rts-cts-pi-pins{
+> +                       uart2_rts_cts_pi_pins: uart2-rts-cts-pi-pins {
+>                                 pins =3D "PI16", "PI17";
+>                                 function =3D "uart2";
+>                         };
+> diff --git a/arch/arm/boot/dts/allwinner/sun8i-v3s-netcube-kumquat.dts b/=
+arch/arm/boot/dts/allwinner/sun8i-v3s-netcube-kumquat.dts
+> index 5143cb4e7b78..cb6292319f39 100644
+> --- a/arch/arm/boot/dts/allwinner/sun8i-v3s-netcube-kumquat.dts
+> +++ b/arch/arm/boot/dts/allwinner/sun8i-v3s-netcube-kumquat.dts
+> @@ -29,7 +29,7 @@ chosen {
+>         clk_can0: clock-can0 {
+>                 compatible =3D "fixed-clock";
+>                 #clock-cells =3D <0>;
+> -               clock-frequency  =3D <40000000>;
+> +               clock-frequency =3D <40000000>;
+>         };
+>
+>         gpio-keys {
+> --
+> 2.48.1
+>
+>
 
