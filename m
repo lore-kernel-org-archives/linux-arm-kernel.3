@@ -4,72 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08984CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 21:45:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4CAACAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 21:56:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=jbpWCESyQRXQRL4NHZ+5x9fswk3N/wuUudMSD0iTADQ=; b=HD0yzOI9km/DgRJDHtKkRozmkp
-	dk2a+b7pEnD2uQEyKMIhZfXi6oHMS0SG2GQEjYQ4bMlK0nb+XYiIMcE1qKOLrXznz4+MJE261h/Mm
-	PF7DUrjVMN//h6/1FQmH6OzB8TD+sh8FaWfu+6Z2WkMI+dJ6czn49GHFWHXrA1My9vXtOWH9WuXRR
-	NLQ3CpJmC7JJK/TzZUyO64jBVVCl/moJw6W7fTuo/Mve+vLTJ5zQZ+Fu2EXVdfPdb8XE6GmaZLzO4
-	JIHT9Hna6AbP9e/YQqKUSskOXl7LZnOYpx2kqOBvRAzYNML67fT8/riDsiD5CUEmUmMpVzNlITpOM
-	L8eyzT0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=oWQiPW9Wbi5Jgbs8x0eTvSUPclkJj1xMPMESA1LngoY=; b=Uq44yV5XkSr3wu7KSo3ucEPOkZ
+	GD8oFe7FnAW+6vkudi8XNsQ+Yik7+SkXeNtaqZcvfkXTpGj4Fs7WAPw7XWJ5hRVCSthr2c9TS5pV8
+	mWT+Og1qFYJ7h0PccTOR7oFNrkz6R1mJV+PUdXF460SxzSRHt5UZ51Qkx4Kbfz0VgARR0uSIUA1fF
+	N65AnN/sjaU51p+3Kr4OGiUIpWjgQg/dUyrz+1bBR57iubf+hGchNOgYN+dW2rID9aDbtSklpVQy6
+	3bb4fYa4SYmtK3UGajlZ/qtGJA/oK9u5zIn+8aWjnB3MzQzDrcmITNdUPZqMWPHSre6yIUXHPgKgJ
+	6WQL4Fbg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4R6g-0000000BK92-3GaB;
-	Thu, 02 Oct 2025 21:44:58 +0000
-Received: from mgamail.intel.com ([192.198.163.14])
+	id 1v4RIA-0000000BKdB-43jI;
+	Thu, 02 Oct 2025 21:56:50 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4R6e-0000000BK88-2baH
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Oct 2025 21:44:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1759441497; x=1790977497;
-  h=date:from:to:cc:subject:message-id:mime-version;
-  bh=+bQjfMox0LYSANw6kFUEUHC5pwsK+yglyGHXY1J7mTk=;
-  b=gMOu41qa6rdPDgsYEA9CIDcaHbqcGe0Cc+hg6r/KdQf9OoxwzqOHwCYu
-   mxwvmZrOlFeIk5ac19fn7Uc4EvWGcSwG4rCcouin5IPJhDkagaIH9sj/Y
-   pCxSQT0P9XiV/FIwPl7RVvK3ARsdBZJBKfgGZEuty7KwWwqAvdqXwa4aP
-   jc4/P6myO9rvwGN2bpbYXcqnKB6ilX1LZEmYeC/r42hn6Iw8/wEeB7x7t
-   7Qk5RSL9EPCmrqkoP68a4q9pFqc7MGJSG5w1vmPoDZJpe2EhkCeeMRyDc
-   ikgsXgsMm/9KwMoMDwa5sosxd6PnX8xFmC9N0EFHxbQrCP6fG1AQmGtiS
-   w==;
-X-CSE-ConnectionGUID: PF6SY7ruTjmWEBtEZj0qSg==
-X-CSE-MsgGUID: IAFWr4f4QKmgYTH8lzTszA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11570"; a="61770307"
-X-IronPort-AV: E=Sophos;i="6.18,310,1751266800"; 
-   d="scan'208";a="61770307"
-Received: from fmviesa001.fm.intel.com ([10.60.135.141])
-  by fmvoesa108.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Oct 2025 14:44:54 -0700
-X-CSE-ConnectionGUID: jfS8c8r1T8qbK/zClWus7A==
-X-CSE-MsgGUID: uCEahISYSu20Xtv6VqmdzQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,310,1751266800"; 
-   d="scan'208";a="210114226"
-Received: from lkp-server01.sh.intel.com (HELO 2f2a1232a4e4) ([10.239.97.150])
-  by fmviesa001.fm.intel.com with ESMTP; 02 Oct 2025 14:44:53 -0700
-Received: from kbuild by 2f2a1232a4e4 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1v4R6Z-00048Z-0W;
-	Thu, 02 Oct 2025 21:44:51 +0000
-Date: Fri, 3 Oct 2025 05:44:49 +0800
-From: kernel test robot <lkp@intel.com>
-To: Russell King <rmk+kernel@armlinux.org.uk>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org
-Subject: [arm:csi-v6 3/7] drivers/media/platform/video-mux.c:172:10: error:
- 'const struct v4l2_subdev_video_ops' has no member named 'g_frame_interval'
-Message-ID: <202510030540.zCd32Zmk-lkp@intel.com>
+	id 1v4RI7-0000000BKck-3r7w;
+	Thu, 02 Oct 2025 21:56:49 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1759442205;
+	bh=ShPhllfzrcEjHAglwp5h9FU1kRG9OTc0vV3QUF6vOPw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=LMJuhrHkNJWgvMTKAZu7VN98y+ZmDJ1zCVAqZ0jWvpy0Q2gKRL3xvaTuP1T6O0BrR
+	 c8e5svsZ8rG0uzmGXeJJ4UP5sXxQnK1PGjNAgGZidLwG8Sr6WRWlmDNfTug43KWxHK
+	 TKkXvTa65m4D1ZGLYL9tGJ5muPS8R8X9xQ+KAn9aCgA68DDI+kP1DUOCtZg9UP9qEp
+	 LA0/FFG408O8oM3jNZuwI6yfv8j4oBPSQ8YIjWkyr2Y7vBcLoscF2Z+poMK8KYeAMH
+	 o7cxY5d12wVik/lxnHDGJr8Jl1rESTuDvdGGMrOZu7+wl+ifhN5pPM8GyIT36tO+4/
+	 YkXTfBG+VBDvg==
+Received: from [192.168.1.90] (unknown [82.79.138.145])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6EEFD17E12C0;
+	Thu,  2 Oct 2025 23:56:44 +0200 (CEST)
+Message-ID: <31187dc6-69ec-400e-9f01-2f3062092d26@collabora.com>
+Date: Fri, 3 Oct 2025 00:56:43 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 0/3] arm64: dts: rockchip: Add device tree for the Orange
+ Pi CM5 Base board
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, Algea Cao <algea.cao@rock-chips.com>,
+ Andy Yan <andy.yan@rock-chips.com>,
+ Cenk Uluisik <cenk.uluisik@googlemail.com>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Jimmy Hon <honyuenkwun@gmail.com>, Kever Yang <kever.yang@rock-chips.com>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Maxime Ripard
+ <mripard@kernel.org>, Muhammed Efe Cetin <efectn@6tel.net>,
+ Ondrej Jirman <megi@xff.cz>, Rob Herring <robh@kernel.org>,
+ Sandy Huang <hjc@rock-chips.com>
+References: <20251002034708.19248-1-laurent.pinchart@ideasonboard.com>
+ <1964913f-8323-4714-a061-5fa09ce0983c@collabora.com>
+ <20251002205240.GF16185@pendragon.ideasonboard.com>
+Content-Language: en-US
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+In-Reply-To: <20251002205240.GF16185@pendragon.ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_144456_704721_2299DD81 
-X-CRM114-Status: GOOD (  10.04  )
+X-CRM114-CacheID: sfid-20251002_145648_139021_B769DD2E 
+X-CRM114-Status: GOOD (  23.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,53 +85,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   git://git.armlinux.org.uk/~rmk/linux-arm.git csi-v6
-head:   9afab5ec0a06e2fc9c2cb2b739bc6caececf815a
-commit: 4d73fea00b5748e8b6fb7363f4fefa75bc998932 [3/7] media: staging/imx: add frame intervals back in
-config: csky-randconfig-001-20251003 (https://download.01.org/0day-ci/archive/20251003/202510030540.zCd32Zmk-lkp@intel.com/config)
-compiler: csky-linux-gcc (GCC) 15.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251003/202510030540.zCd32Zmk-lkp@intel.com/reproduce)
+On 10/2/25 11:52 PM, Laurent Pinchart wrote:
+> Hi Cristian,
+> 
+> On Thu, Oct 02, 2025 at 10:24:59PM +0300, Cristian Ciocaltea wrote:
+>> On 10/2/25 6:47 AM, Laurent Pinchart wrote:
+>>> Hello,
+>>>
+>>> This patch series adds a device tree for the Orange Pi CM5 Base board
+>>> from Xunlong. This is a combination of a compute module and a carrier
+>>> board, so the device tree is split in two files.
+>>>
+>>> The work is based on a combination of upstream device trees for other
+>>> RK3588-based Orange Pi boards and the downstream device tree, all
+>>> checked against the available schematics for the carrier board. The
+>>> compute module schematics is unfortunately not available.
+>>>
+>>> The series starts by adding a new compatible for the board to
+>>> arm/rockchip.yaml. The next patch documents a missing property in the
+>>> rk3588-dw-hdmi-qp bindings that the device tree needs. Finally, the last
+>>> patch adds the device tree.
+>>>
+>>> Patch 2/3 may be slightly controversial as the new DT property could be
+>>> better named. 
+>>
+>> Indeed :-). As a matter of fact I've already planned to introduce it as
+>> "tmds-enable-gpios" [1], during my recent FRL related work.
+>>
+>>> It has been supported in the driver for a year now, so
+>>> there could be users in the wild. I have therefore decided to keep the
+>>> current name. I am open to alternative solutions.
+>>
+>> As mentioned in [2], this was "inherited" from downstream and hasn't been
+>> really in use so far.  I intended to do some more testing before attempting
+>> to send those patches upstream, as for now I couldn't notice any (obvious)
+>> change in behavior when switching between TMDS and FRL, with or without
+>> making use of it in DT.
+> 
+> Thanks for the links. The new property name is better. We may need to
+> preserve backward compatibility though, how confident are you that the
+> enabled-gpios property isn't used in the wild ?
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202510030540.zCd32Zmk-lkp@intel.com/
+I think we should be fine, also considering this doesn't seem to have a
+negative impact on the functionality provided so far.
 
-All errors (new ones prefixed by >>):
+> I'd like to get the device tree for the Orange Pi CM5 merged sooner than
+> later. Would you post those two patches, or should I take them in the v2
+> of my series ?
 
->> drivers/media/platform/video-mux.c:172:10: error: 'const struct v4l2_subdev_video_ops' has no member named 'g_frame_interval'
-     172 |         .g_frame_interval = vidsw_g_frame_interval,
-         |          ^~~~~~~~~~~~~~~~
->> drivers/media/platform/video-mux.c:172:29: error: initialization of 'int (*)(struct v4l2_subdev *, void *, unsigned int *)' from incompatible pointer type 'int (*)(struct v4l2_subdev *, struct v4l2_subdev_frame_interval *)' [-Wincompatible-pointer-types]
-     172 |         .g_frame_interval = vidsw_g_frame_interval,
-         |                             ^~~~~~~~~~~~~~~~~~~~~~
-   drivers/media/platform/video-mux.c:172:29: note: (near initialization for 'video_mux_subdev_video_ops.s_rx_buffer')
-   drivers/media/platform/video-mux.c:145:12: note: 'vidsw_g_frame_interval' declared here
-     145 | static int vidsw_g_frame_interval(struct v4l2_subdev *sd,
-         |            ^~~~~~~~~~~~~~~~~~~~~~
->> drivers/media/platform/video-mux.c:173:10: error: 'const struct v4l2_subdev_video_ops' has no member named 's_frame_interval'
-     173 |         .s_frame_interval = vidsw_s_frame_interval,
-         |          ^~~~~~~~~~~~~~~~
->> drivers/media/platform/video-mux.c:173:29: error: initialization of 'int (*)(struct v4l2_subdev *, u32)' {aka 'int (*)(struct v4l2_subdev *, unsigned int)'} from incompatible pointer type 'int (*)(struct v4l2_subdev *, struct v4l2_subdev_frame_interval *)' [-Wincompatible-pointer-types]
-     173 |         .s_frame_interval = vidsw_s_frame_interval,
-         |                             ^~~~~~~~~~~~~~~~~~~~~~
-   drivers/media/platform/video-mux.c:173:29: note: (near initialization for 'video_mux_subdev_video_ops.pre_streamon')
-   drivers/media/platform/video-mux.c:155:12: note: 'vidsw_s_frame_interval' declared here
-     155 | static int vidsw_s_frame_interval(struct v4l2_subdev *sd,
-         |            ^~~~~~~~~~~~~~~~~~~~~~
+Sure, feel free to take them if you wish to speed things up a bit.
 
+>> [1] https://gitlab.collabora.com/hardware-enablement/rockchip-3588/linux/-/commit/5a32a84ee3e801daaeb974f967f6e213983feeb4
+>> [2] https://gitlab.collabora.com/hardware-enablement/rockchip-3588/linux/-/commit/df4d94fdb94463dd4175338bf7044b40c5e559e4
 
-vim +172 drivers/media/platform/video-mux.c
-
-   169	
-   170	static const struct v4l2_subdev_video_ops video_mux_subdev_video_ops = {
-   171		.s_stream = video_mux_s_stream,
- > 172		.g_frame_interval = vidsw_g_frame_interval,
- > 173		.s_frame_interval = vidsw_s_frame_interval,
-   174	};
-   175	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
 
