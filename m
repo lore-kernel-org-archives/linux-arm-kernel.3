@@ -4,53 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FB65CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 09:57:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95D2FCAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 10:10:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=UNv3b1LV1oc60rdjH6HeSpWhFtcDp87XphoA4vFQrBk=; b=1qRecjZht7vrhz
-	fRAO995PrkPkFAhNfuEhUFwhabUMrcKcdb3x5ZHoJt1FlFsirwiTg/VJ7CtLscdesX3q214H0m271
-	8no2c++5aMRDQ3skrBZZcGZTzlWJ5q1NIsGR3uJW6HMpNOGTLAyHJtzYAWo/0F5mUmCuZf1XcD+RJ
-	0jaqbEWwlDOEbIKS8yuMcCSSzBsjBjZ7QWRXQ0GlYIKlQaxZKK1DfAHxhHYCm7d3JdhMpnb4KBWyO
-	mn5s33Y5xuliogwyZUPRXWwt7GItALBaOOnDUk7lCD8pjoxjVlW+yCzI3zvX6GPAL1mje+2KryOQA
-	MueDy+gcZ0SleoXYuEgw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fNCXlVNyxqLTWGPAd727pHruXWdWdx1GVnhxX/js/0A=; b=V4K/wTDJZIfiY77+GNXOlOXcm8
+	fVMme5k2WZUlHyidKPNBfnIWJxIpRHgJO76IVePdNQq3syQA1W8fTf3isbPXWolpRdN46LumpaIHU
+	kJ4iC/eHIs3pAKovJe8k3bng9eFzhbUu4e2yV+6qt2vVPFBbsDT2xeiHYI0G0vCgTFbDco9ppIrYq
+	ZxGKVenOLA/bJW4ipwMptAe7jRUoLcP9369C1btfxzMkKmMRc2zfESlWfPCZ3FDrHSk7Zc928PZ+j
+	V3JaWxqI7fEobz+eJeYjHYH2qZGb9l1qzXI14xQP5rbNdNQ0j8u4w3hinMlCnlZNY2MxHarzPuPVT
+	9Dv9lRYA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4G3b-0000000ABrO-0grA;
-	Thu, 02 Oct 2025 09:57:03 +0000
-Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
+	id 1v4GG8-0000000ACol-0vS5;
+	Thu, 02 Oct 2025 10:10:00 +0000
+Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4G3Y-0000000ABpz-0UhU
+	id 1v4GG5-0000000ACmo-3F1k
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Oct 2025 09:57:01 +0000
-Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Thu, 2 Oct
- 2025 17:56:51 +0800
-Received: from mail.aspeedtech.com (192.168.10.13) by TWMBX01.aspeed.com
- (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Thu, 2 Oct 2025 17:56:51 +0800
-From: Jammy Huang <jammy_huang@aspeedtech.com>
-To: <mturquette@baylibre.com>, <sboyd@kernel.org>, <robh@kernel.org>,
-	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <joel@jms.id.au>,
-	<andrew@codeconstruct.com.au>, <linux-clk@vger.kernel.org>,
-	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>
-Subject: [PATCH v1] dt-bindings: clock: Add AST2500/AST2600 VIDEO reset definition
-Date: Thu, 2 Oct 2025 17:56:51 +0800
-Message-ID: <20251002095651.2211900-1-jammy_huang@aspeedtech.com>
-X-Mailer: git-send-email 2.34.1
+	Thu, 02 Oct 2025 10:09:58 +0000
+Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-3f2cf786abeso562062f8f.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Oct 2025 03:09:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1759399796; x=1760004596; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=fNCXlVNyxqLTWGPAd727pHruXWdWdx1GVnhxX/js/0A=;
+        b=Rbb46/rGy8Xv+sc45OyzcU50MwnYu1OSBAPudO2y7DCVCWXqr91/VS0jgHfIuBVfrs
+         O2d8WrLegtgbFmOQ5J0BBvufVFsiC8f///137jDXC2AX//NlcwYnqHx9R6mxo5FNUhKY
+         E16dXwFVFL03vZchglliR+L+LFWxR/oU3DPFraPXrL7NbUuC4LSISem1sxf+oh6Pr15a
+         vCZFfz45Xl5QnbXwx2SzWtTqjUFzLYuzeMAipx5RPiQ+7cEZwGeDDNK/+dn9U2SuBhYl
+         VD9uIW1plOIWyg3T097CXFUnM3sc3js5jDLV58PzBMY6ML5ulYjCucwFwB3i2ETGt3JI
+         QCiw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759399796; x=1760004596;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=fNCXlVNyxqLTWGPAd727pHruXWdWdx1GVnhxX/js/0A=;
+        b=HX4pyzjpo/UDXGtWIrGhYsM4NZeQE2/dKp+m+ZYX0ls73GE6XRcXQlB0dZN1KKaR0E
+         VApYwPwnzpAFVkwtOkMhgxgRPdcwlIRsyteH6i/7K1POVXbdluY9fRmvYr8ghYcCSFc7
+         VzIBU/wTT5oXIH0bIfe600by+C1+N1sbz4BTnY1EAqdWrLHhveboNvLQYhnxgStbKpjn
+         Z1dTf/eqnw/0ja3OuG35u9u6sNJas41pJEf5BIIUN322M+yb/8pKVKh4z5bvq1orXT8j
+         3dLVQc2KdDMimUbVi8/3Fao5FxPvtzXlnCRTVTHQvixl4sSeJradCKbmf+ruFKbeFDnN
+         VjiQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWdp8BBa2QAppo5acvXwiMRFtuDA/NrVcRoWRwKFmXmOWjhQtYwoSCTRfMuYo7VwVqpEXOtTA+YHkeDAGwBG70W@lists.infradead.org
+X-Gm-Message-State: AOJu0YyisuZQ3edY80C0iJahIoHtTV8+9jLRcXL77ou+HndajLEXqGyE
+	XdurJih/eDEqW8aiAVjwo0T84wM+1g+DwggV5otTnOc74a74SjQTSmKNuBQNuxEzrnU=
+X-Gm-Gg: ASbGncsgtWhWbmlwLRafgU19ht8QVbp3m3Fuv8vY0XAFwu8Ff1vqf5Zlt1UsSpxMBrD
+	9Dj4UueR4iO2gzgoRyX6o5goZxcUcdTnnjGjhidbm2TRiTjme9qNk3OeA/Xw/IEXp72C+t29J2J
+	lCKJlHotlcF+7CrBtm7k6acyhKnLfFZbpexNt3HKXINH6pr12SY91t8+N7Kcwc6kvObapYNw/3w
+	rTZiLNlvfV9a7DLs/JUn0ze/GYNdDPH93QSGT31yWi+biOVSEGpHr1UJhyuLVWZiIODee+K9kQ6
+	eVEnWw0dHYj4eyWrtGoYU5FafAU64ITRkHcxfUSlRulgwmsVwRlb48uELmO49slGhd5XKdqXf3f
+	ZnvTt0chPSrxuNu+v+DBBeYyOKDIAaRd66MtHEmHbFCJU7Kv27zGhk8HC/UqO
+X-Google-Smtp-Source: AGHT+IH3VmgaujpFJUxnfsTdoqXNgTblqfU76kgYqYrSDq7oNx0Tfc38ceRWlaEZ0lvNiD8i/BA2zQ==
+X-Received: by 2002:a5d:5d13:0:b0:3f3:c137:680e with SMTP id ffacd0b85a97d-42557a15a5bmr4399609f8f.43.1759399795840;
+        Thu, 02 Oct 2025 03:09:55 -0700 (PDT)
+Received: from ho-tower-lan.lan ([185.48.76.109])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4255d8ab960sm3017289f8f.13.2025.10.02.03.09.54
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 02 Oct 2025 03:09:55 -0700 (PDT)
+From: James Clark <james.clark@linaro.org>
+Date: Thu, 02 Oct 2025 11:09:29 +0100
+Subject: [PATCH v3 1/5] coresight: Change syncfreq to be a u8
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251002-james-cs-syncfreq-v3-1-fe5df2bf91d1@linaro.org>
+References: <20251002-james-cs-syncfreq-v3-0-fe5df2bf91d1@linaro.org>
+In-Reply-To: <20251002-james-cs-syncfreq-v3-0-fe5df2bf91d1@linaro.org>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+ Mike Leach <mike.leach@linaro.org>, 
+ Alexander Shishkin <alexander.shishkin@linux.intel.com>, 
+ Jonathan Corbet <corbet@lwn.net>, Leo Yan <leo.yan@arm.com>
+Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+ James Clark <james.clark@linaro.org>
+X-Mailer: b4 0.14.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_025700_151975_E2C55CA0 
-X-CRM114-Status: UNSURE (   6.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251002_030957_819942_28D8D6D4 
+X-CRM114-Status: GOOD (  12.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,29 +103,36 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add VIDEO reset bit definition for AST2500/AST2600.
+TRCSYNCPR.PERIOD is the only functional part of TRCSYNCPR and it only
+has 5 valid bits so it can be stored in a u8.
 
-Signed-off-by: Jammy Huang <jammy_huang@aspeedtech.com>
+Signed-off-by: James Clark <james.clark@linaro.org>
 ---
- include/dt-bindings/clock/aspeed-clock.h | 1 +
- 1 file changed, 1 insertion(+)
+ drivers/hwtracing/coresight/coresight-etm4x.h | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/include/dt-bindings/clock/aspeed-clock.h b/include/dt-bindings/clock/aspeed-clock.h
-index 06d568382c77..421ca577c1b2 100644
---- a/include/dt-bindings/clock/aspeed-clock.h
-+++ b/include/dt-bindings/clock/aspeed-clock.h
-@@ -53,5 +53,6 @@
- #define ASPEED_RESET_AHB		8
- #define ASPEED_RESET_CRT1		9
- #define ASPEED_RESET_HACE		10
-+#define ASPEED_RESET_VIDEO		21
- 
- #endif
+diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
+index 13ec9ecef46f..eda3a6d2e8e2 100644
+--- a/drivers/hwtracing/coresight/coresight-etm4x.h
++++ b/drivers/hwtracing/coresight/coresight-etm4x.h
+@@ -825,7 +825,6 @@ struct etmv4_config {
+ 	u32				eventctrl1;
+ 	u32				stall_ctrl;
+ 	u32				ts_ctrl;
+-	u32				syncfreq;
+ 	u32				ccctlr;
+ 	u32				bb_ctrl;
+ 	u32				vinst_ctrl;
+@@ -833,6 +832,7 @@ struct etmv4_config {
+ 	u32				vissctlr;
+ 	u32				vipcssctlr;
+ 	u8				seq_idx;
++	u8				syncfreq;
+ 	u32				seq_ctrl[ETM_MAX_SEQ_STATES];
+ 	u32				seq_rst;
+ 	u32				seq_state;
 
-base-commit: 7f7072574127c9e971cad83a0274e86f6275c0d5
-prerequisite-patch-id: 80cfedcb62367922b1e875e8e734ced8f7cc19ba
-prerequisite-patch-id: d74dc2e0aff712f033ca5c2f299410ae92867d8c
 -- 
-2.25.1
+2.34.1
 
 
