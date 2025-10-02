@@ -4,42 +4,42 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06D31CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 18:02:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1C79CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 18:02:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3k+J8qpFjK/lgGh7Zl03b2mMgOSIB2yOErhlwgHFOls=; b=NHRz1lDj1k5vNHO2e1A4LBuqql
-	O5b0yd4CUDOS//AyIE2VXXg7XtqXJB2v43mYbDIu5AuxcKmq9QrHJuO++o0VTzCL8B1NmD6mmZKSf
-	t3ozT4qf485L3Ijsc0x7puGEQ+uaEz1rSaD8eW5atPLk7vA2ksUaaZ2iYOsO00jYNWFQ9z+wq5vV9
-	q3T8eMyeSMQlEPLuCM1o25uLNi0nUqFRBVj9jRoH1gzrwZOb3NA0U/MMZXbYfqe9/yddRvHb34t+U
-	gX3Qhsdjsg0vCTHYICMK9h4PxcuCAlB4Ep898cqLA5Ddn46SEukWwrjz7xpfkW/VNhP/2Qnx2ZbnW
-	KT9tyW6A==;
+	bh=w/aTODYvkd7f/B9C8sXVMTg9bLGnBTOSyh4iiDlVdvI=; b=aycmIdSH2A2cUEuvt8bNUqo6+9
+	CDTa6Cilx8ptEFbp0MAjpQMRfU6XKNGTZGK+3O4JeR22Asd1pXBZ6qoNjNMyY+0k8VD3VoQMikSgp
+	6IHo8e+r/+L1fzocI5mBqNl9coBYrKn/ooTCd9O6lC5f921HbCW30JTzxn8tWr8gmY6VGYSjfkSyx
+	wPtiWwjd9gufcIeYCXMspoTD7loWgFnx8e+okVS5uqFDbDMrMVHDvKC+R7qyl4Pj/wf1SK2PPttkL
+	tANUdzL9kJ3chOVtMcXLVNAWGp62MWVyT4xB1MPxSiTRy7nZjbF5ZrAD3dGFsICQ9LOCyvJaTR8Qu
+	un3P7rVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4NdO-0000000Axw8-42lj;
-	Thu, 02 Oct 2025 18:02:30 +0000
+	id 1v4Ndf-0000000Ay5z-3VbI;
+	Thu, 02 Oct 2025 18:02:47 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4NdL-0000000Axty-1mKX
+	id 1v4Ndd-0000000Ay3v-04ts
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Oct 2025 18:02:29 +0000
+	Thu, 02 Oct 2025 18:02:46 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 006BE1FCD;
-	Thu,  2 Oct 2025 11:02:16 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 9F8601FCD;
+	Thu,  2 Oct 2025 11:02:34 -0700 (PDT)
 Received: from [10.1.197.69] (eglon.cambridge.arm.com [10.1.197.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EF10D3F66E;
-	Thu,  2 Oct 2025 11:02:18 -0700 (PDT)
-Message-ID: <2c5c6e2a-e0ea-4786-ba6e-2c536a53a68b@arm.com>
-Date: Thu, 2 Oct 2025 19:02:05 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C7B0C3F66E;
+	Thu,  2 Oct 2025 11:02:37 -0700 (PDT)
+Message-ID: <c94e9d28-c678-4397-aad4-b17ee6ba179c@arm.com>
+Date: Thu, 2 Oct 2025 19:02:32 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 17/29] arm_mpam: Extend reset logic to allow devices to
  be reset any time
-To: Ben Horgan <ben.horgan@arm.com>, linux-kernel@vger.kernel.org,
+To: Fenghua Yu <fenghuay@nvidia.com>, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
 Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
  carl@os.amperecomputing.com, lcherian@marvell.com,
@@ -49,9 +49,8 @@ Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
  dfustini@baylibre.com, amitsinght@marvell.com,
  David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
  Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- fenghuay@nvidia.com, baisheng.gao@unisoc.com,
- Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
- <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
+ Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
  Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
  Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
  <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
@@ -60,15 +59,15 @@ Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
  Danilo Krummrich <dakr@kernel.org>
 References: <20250910204309.20751-1-james.morse@arm.com>
  <20250910204309.20751-18-james.morse@arm.com>
- <9fa1b584-130b-45b0-9dba-8e046e643bf0@arm.com>
+ <1249c061-dde7-4966-9c8c-2fa958fad37b@nvidia.com>
 Content-Language: en-GB
 From: James Morse <james.morse@arm.com>
-In-Reply-To: <9fa1b584-130b-45b0-9dba-8e046e643bf0@arm.com>
+In-Reply-To: <1249c061-dde7-4966-9c8c-2fa958fad37b@nvidia.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_110227_509352_3198E9C8 
-X-CRM114-Status: GOOD (  16.59  )
+X-CRM114-CacheID: sfid-20251002_110245_141207_23AEC893 
+X-CRM114-Status: GOOD (  21.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,10 +82,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
+Hi Fenghua,
 
-On 12/09/2025 12:42, Ben Horgan wrote:
-> On 9/10/25 21:42, James Morse wrote:
+On 25/09/2025 08:16, Fenghua Yu wrote:
+> On 9/10/25 13:42, James Morse wrote:
 >> cpuhp callbacks aren't the only time the MSC configuration may need to
 >> be reset. Resctrl has an API call to reset a class.
 >> If an MPAM error interrupt arrives it indicates the driver has
@@ -95,41 +94,96 @@ On 12/09/2025 12:42, Ben Horgan wrote:
 >>
 >> Add a helper to reset RIS via their class. Call this from mpam_disable(),
 >> which can be scheduled from the error interrupt handler.
+
+
 >> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
 >> index e7faf453b5d7..a9d3c4b09976 100644
 >> --- a/drivers/resctrl/mpam_devices.c
 >> +++ b/drivers/resctrl/mpam_devices.c
->> @@ -842,8 +842,6 @@ static int mpam_reset_ris(void *arg)
->>  	u16 partid, partid_max;
->>  	struct mpam_msc_ris *ris = arg;
->>
->> -	mpam_assert_srcu_read_lock_held();
->> -
->
-> Remove where it is introduced. There is already one in
-> mpam_reset_ris_partid() at that time.
+>>   @@ -1340,8 +1338,56 @@ static void mpam_enable_once(void)
+>>              mpam_partid_max + 1, mpam_pmg_max + 1);
+>>   }
+>>   +static void mpam_reset_component_locked(struct mpam_component *comp)
+>> +{
+>> +    struct mpam_msc *msc;
+>> +    struct mpam_vmsc *vmsc;
+>> +    struct mpam_msc_ris *ris;
+>> +
+>> +    lockdep_assert_cpus_held();
+>> +
+>> +    guard(srcu)(&mpam_srcu);
+>> +   
+> 
+> Nested locks on mpam_srcu in this call chain:
+> 
+> mpam_disable() -> mpam_reset_class() -> mpam_reset_class_locked() -> mpam_component_locked()
 
-Mmmm, this should really have been replaced with a comment.
-
-I prefer each function to have an assert like this as documentation. In this case, a new
-caller may miss the lock, but always hit the 'in_reset_state' case during testing, and be
-caught out when a call to mpam_reset_ris_partid() occurs. Having documentation comments
-that can also bark at you when you ignore them is really handy!
-
-It's removed in this  patch  because calling it via mpam_touch_msc() puts it behind an
-call to schedule, and lockdep expects 'current' to be the one holding the lock.
-
-I'll add the comment. Looks like it just got dropped when mpam_touch_msc() stopped using
-an IPI...
+These are allowed to nest like this.
 
 
->>  	if (ris->in_reset_state)
->>  		return 0;
->
-> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+> There are redundant locks on mpam_srcu in mpam_disabled(), mpam_reset_class_locked(), and
+> mpam_reset_component_locked().
+> 
+> It's better to guard mpam_srcu only in the top function mpam_disable() for simpler logic
+> and lower overhead.
 
-Thanks!
+These things don't block, so there no real overhead. Shuffling them around to avoid the
+harmless nesting would likely complicate the flow, not simplify it.
 
+In the reset case you point at here, the resctrl code would need to take the srcu lock
+before calling it - which is exposing the innards of what that function does.
+
+
+
+>> list_for_each_entry_srcu(vmsc, &comp->vmsc, comp_list,
+>> +                 srcu_read_lock_held(&mpam_srcu)) {
+>> +        msc = vmsc->msc;
+>> +
+>> +        list_for_each_entry_srcu(ris, &vmsc->ris, vmsc_list,
+>> +                     srcu_read_lock_held(&mpam_srcu)) {
+>> +            if (!ris->in_reset_state)
+>> +                mpam_touch_msc(msc, mpam_reset_ris, ris);
+>> +            ris->in_reset_state = true;
+>> +        }
+>> +    }
+>> +}
+
+
+>> +/*
+>> + * Called in response to an error IRQ.
+>> + * All of MPAMs errors indicate a software bug, restore any modified
+>> + * controls to their reset values.
+>> + */
+>>   void mpam_disable(struct work_struct *ignored)
+>>   {
+>> +    int idx;
+>> +    struct mpam_class *class;
+>>       struct mpam_msc *msc, *tmp;
+>>         mutex_lock(&mpam_cpuhp_state_lock);
+>> @@ -1351,6 +1397,12 @@ void mpam_disable(struct work_struct *ignored)
+>>       }
+>>       mutex_unlock(&mpam_cpuhp_state_lock);
+>>   +    idx = srcu_read_lock(&mpam_srcu);
+
+> It's better to change to guard(srcu)(&mpam_srcu);
+
+For this one - absolutely not.
+The guard() thing allows the toolchain to decide when to drop the lock. Further down in
+this same function is an attempt to free the memory that got deferred. Guess what happens
+if you call synchronize_srcu() while still in an srcu read side section....
+
+
+>> +    list_for_each_entry_srcu(class, &mpam_classes, classes_list,
+>> +                 srcu_read_lock_held(&mpam_srcu))
+>> +        mpam_reset_class(class);
+>> +    srcu_read_unlock(&mpam_srcu, idx);
+>> +
+>>       mutex_lock(&mpam_list_lock);
+>>       list_for_each_entry_safe(msc, tmp, &mpam_all_msc, all_msc_list)
+>>           mpam_msc_destroy(msc);
+
+
+Thanks,
 
 James
 
