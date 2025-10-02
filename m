@@ -4,98 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14699CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 18:03:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66B72CAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 18:03:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OdmfzjzF46YfqPKnSMGZyjhQcZN9I6u6dSg4k1vq8LU=; b=wvY7rl+GZZnXfhodS1uGzAdvoe
-	+N/N7a+wf2A59kZRqmH6R5eku0OYbpZkm2DactVVvPRoAjHciD4QgOtmK0Q5TTogLuQ3iftXt+0cF
-	7hkWD2pbYA6ihcQ4suigaXrzuIc62DWCKLysLMOXxK7F/krm2AqGoRpl7Glks1LHoFn3Jl3sSuH1d
-	DLAhbO+YBwO5QpTLChdzHbF6+PaETP7ZWJOJYmN6th1xi3L15x3uDn5HbABBZTDEEgcqQDTjW2sFf
-	rFZvpf5e436Fr9WaH8zUyD4eyYa06n1GphFuC9F76sasVXx7BSrSG15zIDrZkKqmuaBSreI4Rffxo
-	SVZdy5Ag==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=PyG34fBi+WaarUUjeMzLoWwzdQycKHF/YGP2wejwDgo=; b=jyHha8m4qAwGuFGm5aFLtg3ljn
+	UyiMKBrNOVyloh8nPWkxbtjJb4+47ds12qtLdLc77aG/f9n5WsBnhksx/ZBA2OBPflZxlp/lRPfzD
+	Gpu6H9Cg5XW6+dIAIazTl2+2WM7s1gnL/6KvGni2vXywkhBtUg0Pb6aoO7OKNDeAOZ8Ysg0FUjU7Y
+	gQ0lt3Nsfefy6tbWiJoEyfSRlg4U2F88WkdPyRQ0I7NVquK2ZlnboenYX1oI+acg7iq10feByPgR/
+	tzvUJ51cBnksna25jbPGK7hMzRum8q6Gz6i+BH8AUTzP2L7OuSZbnQ6CDupMg5rEcIiNuw7rD390T
+	pchg99/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4Ne5-0000000AyPL-414A;
-	Thu, 02 Oct 2025 18:03:13 +0000
-Received: from fra-out-006.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([18.197.217.180])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4Ne0-0000000AyHN-16hS
+	id 1v4NeA-0000000AySu-1Ukb;
+	Thu, 02 Oct 2025 18:03:18 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v4Ne8-0000000AyRL-39VG
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Oct 2025 18:03:10 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
-  t=1759428188; x=1790964188;
-  h=from:to:cc:subject:date:message-id:in-reply-to:
-   references:mime-version:content-transfer-encoding;
-  bh=OdmfzjzF46YfqPKnSMGZyjhQcZN9I6u6dSg4k1vq8LU=;
-  b=pCvzWrXZIQG9APyVuCe/v9Ca5vlQ7mA5lmshaWmMCr/XQomFb73OqayS
-   qioM2wotVR9HgYiozbPVXRnJAP1J7cvrOKt2E/73SdxvPXTm5s5034Vgv
-   1xtcORP/OTLDLqyeg3DIR20qonJYbaUoQ69LF1350ZO0/IpnDGcF8vUrF
-   mWKnXsIUHq6p7Q7puUEHMDsTByNqlD9lSluuSZdYlfWHqTr4GWXCLNqht
-   GTlSlKjHRO8odzTNzeWdfff3GMV2YGaYd5/mbmYEZeyXsUca9CPtpuyJd
-   pFlKaoSTvZshQ1QCCmAouPX+IQQFT7i5dKGWz/xMMCC395qFsdO3P0vp/
-   g==;
-X-CSE-ConnectionGUID: 4cayCzYISIS8Iz+pr6GzOQ==
-X-CSE-MsgGUID: hMMnjMXtRu6Gu/ZH910DWQ==
-X-IronPort-AV: E=Sophos;i="6.18,310,1751241600"; 
-   d="scan'208";a="3022610"
-Received: from ip-10-6-3-216.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.3.216])
-  by internal-fra-out-006.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 02 Oct 2025 18:02:57 +0000
-Received: from EX19MTAEUB002.ant.amazon.com [54.240.197.232:26174]
- by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.40.83:2525] with esmtp (Farcaster)
- id 67b31048-bd67-4b24-8b22-e17797b4a9a5; Thu, 2 Oct 2025 18:02:57 +0000 (UTC)
-X-Farcaster-Flow-ID: 67b31048-bd67-4b24-8b22-e17797b4a9a5
-Received: from EX19D018EUA004.ant.amazon.com (10.252.50.85) by
- EX19MTAEUB002.ant.amazon.com (10.252.51.59) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
- Thu, 2 Oct 2025 18:02:53 +0000
-Received: from dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com
- (172.19.116.181) by EX19D018EUA004.ant.amazon.com (10.252.50.85) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20; Thu, 2 Oct 2025
- 18:02:41 +0000
-From: Eliav Farber <farbere@amazon.com>
-To: <gregkh@linuxfoundation.org>, <kenneth.feng@amd.com>,
-	<alexander.deucher@amd.com>, <christian.koenig@amd.com>, <airlied@gmail.com>,
-	<simona@ffwll.ch>, <linus.walleij@linaro.org>, <dmitry.torokhov@gmail.com>,
-	<tglx@linutronix.de>, <wens@csie.org>, <jernej.skrabec@gmail.com>,
-	<samuel@sholland.org>, <agk@redhat.com>, <snitzer@kernel.org>,
-	<mpatocka@redhat.com>, <clm@fb.com>, <dsterba@suse.com>,
-	<luc.vanoostenryck@gmail.com>, <pmladek@suse.com>, <rostedt@goodmis.org>,
-	<andriy.shevchenko@linux.intel.com>, <linux@rasmusvillemoes.dk>,
-	<senozhatsky@chromium.org>, <akpm@linux-foundation.org>,
-	<lijo.lazar@amd.com>, <asad.kamal@amd.com>, <kevinyang.wang@amd.com>,
-	<David.Laight@ACULAB.COM>, <amd-gfx@lists.freedesktop.org>,
-	<dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
-	<linux-input@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-sunxi@lists.linux.dev>, <dm-devel@lists.linux.dev>,
-	<linux-btrfs@vger.kernel.org>, <linux-sparse@vger.kernel.org>,
-	<stable@vger.kernel.org>, <farbere@amazon.com>
-CC: Arnd Bergmann <arnd@kernel.org>, Christoph Hellwig <hch@infradead.org>,
-	Dan Carpenter <dan.carpenter@linaro.org>, "Jason A. Donenfeld"
-	<Jason@zx2c4.com>, Jens Axboe <axboe@kernel.dk>, Lorenzo Stoakes
-	<lorenzo.stoakes@oracle.com>, Mateusz Guzik <mjguzik@gmail.com>, "Matthew
- Wilcox" <willy@infradead.org>, Pedro Falcato <pedro.falcato@gmail.com>
-Subject: [PATCH v3 05/11 6.1.y] minmax.h: add whitespace around operators and after commas
-Date: Thu, 2 Oct 2025 18:00:23 +0000
-Message-ID: <20251002180036.33738-6-farbere@amazon.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251002180036.33738-1-farbere@amazon.com>
-References: <20251002180036.33738-1-farbere@amazon.com>
+	Thu, 02 Oct 2025 18:03:17 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 23F661CE0;
+	Thu,  2 Oct 2025 11:03:08 -0700 (PDT)
+Received: from [10.1.197.69] (eglon.cambridge.arm.com [10.1.197.69])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 24C923F66E;
+	Thu,  2 Oct 2025 11:03:11 -0700 (PDT)
+Message-ID: <3f0894fc-adf8-4465-b1f8-55bb5eab7c5c@arm.com>
+Date: Thu, 2 Oct 2025 19:03:10 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-Originating-IP: [172.19.116.181]
-X-ClientProxiedBy: EX19D035UWA003.ant.amazon.com (10.13.139.86) To
- EX19D018EUA004.ant.amazon.com (10.252.50.85)
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 18/29] arm_mpam: Register and enable IRQs
+To: Ben Horgan <ben.horgan@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
+ <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>
+References: <20250910204309.20751-1-james.morse@arm.com>
+ <20250910204309.20751-19-james.morse@arm.com>
+ <487a736c-27c8-427c-97d5-31fd2d97e919@arm.com>
+Content-Language: en-GB
+From: James Morse <james.morse@arm.com>
+In-Reply-To: <487a736c-27c8-427c-97d5-31fd2d97e919@arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_110308_623646_219E876B 
-X-CRM114-Status: GOOD (  13.37  )
+X-CRM114-CacheID: sfid-20251002_110316_831882_FFD45BB4 
+X-CRM114-Status: GOOD (  17.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,118 +82,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: David Laight <David.Laight@ACULAB.COM>
+Hi Ben,
 
-[ Upstream commit 71ee9b16251ea4bf7c1fe222517c82bdb3220acc ]
+On 12/09/2025 15:40, Ben Horgan wrote:
+> On 9/10/25 21:42, James Morse wrote:
+>> Register and enable error IRQs. All the MPAM error interrupts indicate a
+>> software bug, e.g. out of range partid. If the error interrupt is ever
+>> signalled, attempt to disable MPAM.
+>>
+>> Only the irq handler accesses the ESR register, so no locking is needed.
+>> The work to disable MPAM after an error needs to happen at process
+>> context as it takes mutex. It also unregisters the interrupts, meaning
+>> it can't be done from the threaded part of a threaded interrupt.
+>> Instead, mpam_disable() gets scheduled.
+>>
+>> Enabling the IRQs in the MSC may involve cross calling to a CPU that
+>> can access the MSC.
+>>
+>> Once the IRQ is requested, the mpam_disable() path can be called
+>> asynchronously, which will walk structures sized by max_partid. Ensure
+>> this size is fixed before the interrupt is requested.
 
-Patch series "minmax.h: Cleanups and minor optimisations".
 
-Some tidyups and minor changes to minmax.h.
+>> +static int __setup_ppi(struct mpam_msc *msc)
+>> +{
+>> +	int cpu;
+>> +	struct device *dev = &msc->pdev->dev;
+>> +
+>> +	msc->error_dev_id = alloc_percpu(struct mpam_msc *);
+>> +	if (!msc->error_dev_id)
+>> +		return -ENOMEM;
+>> +
+>> +	for_each_cpu(cpu, &msc->accessibility) {
+>> +		struct mpam_msc *empty = *per_cpu_ptr(msc->error_dev_id, cpu);
+>> +
+>> +		if (empty) {
+> 
+> I'm confused about how this if conditioned can be satisfied. Isn't the
+> alloc clearing msc->error_dev_id for each cpu and then it's only getting
+> set for each cpu later in the iteration.
 
-This patch (of 7):
+Yes, you're right.
 
-Link: https://lkml.kernel.org/r/c50365d214e04f9ba256d417c8bebbc0@AcuMS.aculab.com
-Link: https://lkml.kernel.org/r/f04b2e1310244f62826267346fde0553@AcuMS.aculab.com
-Signed-off-by: David Laight <david.laight@aculab.com>
-Cc: Andy Shevchenko <andriy.shevchenko@linux.intel.com>
-Cc: Arnd Bergmann <arnd@kernel.org>
-Cc: Christoph Hellwig <hch@infradead.org>
-Cc: Dan Carpenter <dan.carpenter@linaro.org>
-Cc: Jason A. Donenfeld <Jason@zx2c4.com>
-Cc: Jens Axboe <axboe@kernel.dk>
-Cc: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: Mateusz Guzik <mjguzik@gmail.com>
-Cc: Matthew Wilcox <willy@infradead.org>
-Cc: Pedro Falcato <pedro.falcato@gmail.com>
-Signed-off-by: Andrew Morton <akpm@linux-foundation.org>
-Signed-off-by: Eliav Farber <farbere@amazon.com>
----
- include/linux/minmax.h | 34 +++++++++++++++++-----------------
- 1 file changed, 17 insertions(+), 17 deletions(-)
+I think this was part of the support for PPI partitions, where multiple partitions would
+get set up here. This was a sanity check that they didn't overlap...
 
-diff --git a/include/linux/minmax.h b/include/linux/minmax.h
-index 98008dd92153..51b0d988e322 100644
---- a/include/linux/minmax.h
-+++ b/include/linux/minmax.h
-@@ -51,10 +51,10 @@
-  * only need to be careful to not cause warnings for
-  * pointer use.
-  */
--#define __signed_type_use(x,ux) (2+__is_nonneg(x,ux))
--#define __unsigned_type_use(x,ux) (1+2*(sizeof(ux)<4))
--#define __sign_use(x,ux) (is_signed_type(typeof(ux))? \
--	__signed_type_use(x,ux):__unsigned_type_use(x,ux))
-+#define __signed_type_use(x, ux) (2 + __is_nonneg(x, ux))
-+#define __unsigned_type_use(x, ux) (1 + 2 * (sizeof(ux) < 4))
-+#define __sign_use(x, ux) (is_signed_type(typeof(ux)) ? \
-+	__signed_type_use(x, ux) : __unsigned_type_use(x, ux))
- 
- /*
-  * To avoid warnings about casting pointers to integers
-@@ -74,15 +74,15 @@
- #ifdef CONFIG_64BIT
-   #define __signed_type(ux) long
- #else
--  #define __signed_type(ux) typeof(__builtin_choose_expr(sizeof(ux)>4,1LL,1L))
-+  #define __signed_type(ux) typeof(__builtin_choose_expr(sizeof(ux) > 4, 1LL, 1L))
- #endif
--#define __is_nonneg(x,ux) statically_true((__signed_type(ux))(x)>=0)
-+#define __is_nonneg(x, ux) statically_true((__signed_type(ux))(x) >= 0)
- 
--#define __types_ok(x,y,ux,uy) \
--	(__sign_use(x,ux) & __sign_use(y,uy))
-+#define __types_ok(x, y, ux, uy) \
-+	(__sign_use(x, ux) & __sign_use(y, uy))
- 
--#define __types_ok3(x,y,z,ux,uy,uz) \
--	(__sign_use(x,ux) & __sign_use(y,uy) & __sign_use(z,uz))
-+#define __types_ok3(x, y, z, ux, uy, uz) \
-+	(__sign_use(x, ux) & __sign_use(y, uy) & __sign_use(z, uz))
- 
- #define __cmp_op_min <
- #define __cmp_op_max >
-@@ -97,7 +97,7 @@
- 
- #define __careful_cmp_once(op, x, y, ux, uy) ({		\
- 	__auto_type ux = (x); __auto_type uy = (y);	\
--	BUILD_BUG_ON_MSG(!__types_ok(x,y,ux,uy),	\
-+	BUILD_BUG_ON_MSG(!__types_ok(x, y, ux, uy),	\
- 		#op"("#x", "#y") signedness error");	\
- 	__cmp(op, ux, uy); })
- 
-@@ -114,7 +114,7 @@
- 	static_assert(__builtin_choose_expr(__is_constexpr((lo) > (hi)), 	\
- 			(lo) <= (hi), true),					\
- 		"clamp() low limit " #lo " greater than high limit " #hi);	\
--	BUILD_BUG_ON_MSG(!__types_ok3(val,lo,hi,uval,ulo,uhi),			\
-+	BUILD_BUG_ON_MSG(!__types_ok3(val, lo, hi, uval, ulo, uhi),		\
- 		"clamp("#val", "#lo", "#hi") signedness error");		\
- 	__clamp(uval, ulo, uhi); })
- 
-@@ -154,7 +154,7 @@
- 
- #define __careful_op3(op, x, y, z, ux, uy, uz) ({			\
- 	__auto_type ux = (x); __auto_type uy = (y);__auto_type uz = (z);\
--	BUILD_BUG_ON_MSG(!__types_ok3(x,y,z,ux,uy,uz),			\
-+	BUILD_BUG_ON_MSG(!__types_ok3(x, y, z, ux, uy, uz),		\
- 		#op"3("#x", "#y", "#z") signedness error");		\
- 	__cmp(op, ux, __cmp(op, uy, uz)); })
- 
-@@ -326,9 +326,9 @@ static inline bool in_range32(u32 val, u32 start, u32 len)
-  * Use these carefully: no type checking, and uses the arguments
-  * multiple times. Use for obvious constants only.
-  */
--#define MIN(a,b) __cmp(min,a,b)
--#define MAX(a,b) __cmp(max,a,b)
--#define MIN_T(type,a,b) __cmp(min,(type)(a),(type)(b))
--#define MAX_T(type,a,b) __cmp(max,(type)(a),(type)(b))
-+#define MIN(a, b) __cmp(min, a, b)
-+#define MAX(a, b) __cmp(max, a, b)
-+#define MIN_T(type, a, b) __cmp(min, (type)(a), (type)(b))
-+#define MAX_T(type, a, b) __cmp(max, (type)(a), (type)(b))
- 
- #endif	/* _LINUX_MINMAX_H */
--- 
-2.47.3
 
+I've ripped that out.
+
+
+>> +			dev_err_once(dev, "MSC shares PPI with %s!\n",
+>> +				     dev_name(&empty->pdev->dev));
+>> +			return -EBUSY;
+>> +		}
+>> +		*per_cpu_ptr(msc->error_dev_id, cpu) = msc;
+>> +	}
+>> +
+>> +	return 0;
+>> +}
+
+Thanks,
+
+James
 
