@@ -4,179 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 313F1CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 05:07:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38A8FCAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 05:27:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+BnV1CuLPYpLff6h0NdLRP5BNPGv/XodhTObtEsAx2o=; b=P2EX/riXdLz6DpGAqHT/9mEwve
-	Lhux8dlyhBITOASypC3x2HCKW/5UvquhYYWzXTc842/HTWhfPsupjpBzhO7Ua+m9am1w4dVl/06av
-	hP09SAiAyNPhOovxwQUixmlxpJHWdDInXJOHSy44DXmKJX2WoKCi+DEv3Qlzkj2x1++4xZ+BZZ9m3
-	aWyTxGbAvD+JBMxiMHsWVC+YU4/h6yLXKat7+aeQDWZ3cU8R2NadKBylbvOGVUbHkASENU/ZaKFa2
-	wyXgLyy25PgcGgMcGyJAgFIXy01H0AeNH1/4h7QCO36sknhUs2uWZ5Wk0ToVV8+jSCWbYmU0rZWAN
-	nvzQOlIg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=/a1vtxWIgNLcFVPs8QwPqCeym869U4nlwPRqGB8TRiM=; b=cntNn8aplbDpNwjf3k3oN/CN30
+	a1hs+A2O0UeCvlqN0EvM1BvEzyeM0FUFlMCIcSRUbAnU5VPuMh7sMs3KJgrmJFydtb7vJz4lOV9Lk
+	xB/WmtGQ6hEVryU596of+fkMWk0wSjeOtJhWAdgdMsUoL9QJCEVgTqCahIYtv6IvReAZlYPxP7Pur
+	rXGE/jmj/X51QRW8ubtRzdRm/n2i2KWZFkbEJOdG2akmbr07eksWBLrZBWeOeic32UWhnoBj0o9ob
+	Qr5jxKrRvyi5YgTvFIPV1e1AruMNyTHtKg4mQjYrUtuVLwrLCFBHFpA7QALjUhrmHjmwGcnthElg8
+	ki++E/5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4BXC-00000009cqs-3evt;
-	Thu, 02 Oct 2025 05:07:18 +0000
-Received: from mail-southcentralusazlp170130001.outbound.protection.outlook.com ([2a01:111:f403:c10c::1] helo=SA9PR02CU001.outbound.protection.outlook.com)
+	id 1v4Bqv-00000009eFa-1GQw;
+	Thu, 02 Oct 2025 05:27:41 +0000
+Received: from freeshell.de ([116.202.128.144])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4BX9-00000009cqS-2RSw
+	id 1v4Bqs-00000009eF4-0jHZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Oct 2025 05:07:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=q+mkglKvIfaVVP3mrwhjCbbIVzq1y1lm4oxV1HV0kEpGvxB1ZxX5HdWKmT6ETdU8gDEgUFai1G4h90Tn3BCkL52H8nJVigpJnAeoqFd4iKNFUP6xcb2oSMALGMPqeL/0+5rqDBBi0LkLDUBtxRbZ9CutW9LpbvA8HxN82rlXhtbdKBBoxBnHj3tG5yv8MWU0NsDNoEPi1ubZRe4RaapqBgYRT5wkMTg6MlsfE8oc+EHWP+ZD6Y3ngtEPrEVssZ5B1flmRm+t7bWsrMW/HWj8DcrJN731Zh7vN6DfZqpCp/B9WAwcfRT+z1YzDBtO7M7ujgi4kzyHTBOAGPSUlCahvw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+BnV1CuLPYpLff6h0NdLRP5BNPGv/XodhTObtEsAx2o=;
- b=E8KClKUfed5gNMP4w8bkmQqDFRBj/k9Yk/zoH2A4TGeIR4U0qVGeRxgLur4DIZuwfbWOd2w7wHstQVncesIpyr1qqEp0wX1hMFFtMQoFoi0BP+aPo69tfXyMdS4zfUn93++K30PYG+1nxSRrjtS1PkmmBxWsbQ871qiH3gSnf4OATOKGpCsFhwQsh6fiQqLOEhlwNqGCKLRadqwjp9O5Pcz24w8xnHLFypFR/4eo0fk/yOYW1zwcofXJrg6Y4v3q83SMsjNd8HWpheZOuKYP06mnxaA1ml+63QtUWcMfQiYSycWupN1U9zCtX5R9txkS3ovkZz4st4Vo7kNeXJVgUA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+BnV1CuLPYpLff6h0NdLRP5BNPGv/XodhTObtEsAx2o=;
- b=pBKu0Gbqk9AeW8TLJ3UvB/+a4NR7TB/KygZWOTDYZUcDa1qBcMc127a2Gmz4URi0R5/2r8LfWIlChBXgQ1iVSGUTxtdUM8EwM74cBhKUabzezf2aMn+5I7XAcqkNC4sZEtnW2N7v+3xyGU2pukssx+3uRKZ6zuXZy4zVzqiQ26Q0sx7PH5wX1kosyjPVMpy5vGvqG3wkRpTG3rKv02CPkvqDzjCPFu0QmddO2aaVpgEBJvR85u1nkIQmz6o6Jl6V8+A4frDDSjPrGp9g7x6zeS/XlVRSP8p3zzIO14k0gvkPuq2t4SWxlmp2RphTxzNQzkS2fowhpKbMIYzY6O/iUQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from DM6PR12MB2667.namprd12.prod.outlook.com (2603:10b6:5:42::28) by
- BY5PR12MB4147.namprd12.prod.outlook.com (2603:10b6:a03:205::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.18; Thu, 2 Oct
- 2025 05:07:02 +0000
-Received: from DM6PR12MB2667.namprd12.prod.outlook.com
- ([fe80::bd88:b883:813d:54a2]) by DM6PR12MB2667.namprd12.prod.outlook.com
- ([fe80::bd88:b883:813d:54a2%6]) with mapi id 15.20.9160.008; Thu, 2 Oct 2025
- 05:07:01 +0000
-Message-ID: <378ae328-089d-4f81-b48b-b5edac7515ed@nvidia.com>
-Date: Wed, 1 Oct 2025 22:06:58 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 05/29] arm64: kconfig: Add Kconfig entry for MPAM
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
-Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
- Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>
-References: <20250910204309.20751-1-james.morse@arm.com>
- <20250910204309.20751-6-james.morse@arm.com>
-Content-Language: en-US
-From: Fenghua Yu <fenghuay@nvidia.com>
-In-Reply-To: <20250910204309.20751-6-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: BY5PR17CA0018.namprd17.prod.outlook.com
- (2603:10b6:a03:1b8::31) To DM6PR12MB2667.namprd12.prod.outlook.com
- (2603:10b6:5:42::28)
+	Thu, 02 Oct 2025 05:27:39 +0000
+Received: from [192.168.2.54] (unknown [98.97.27.149])
+	(Authenticated sender: e)
+	by freeshell.de (Postfix) with ESMTPSA id 67423B22008E;
+	Thu,  2 Oct 2025 07:27:28 +0200 (CEST)
+Message-ID: <694a3d9e-4096-4782-a918-42d033737fbd@freeshell.de>
+Date: Wed, 1 Oct 2025 22:27:26 -0700
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DM6PR12MB2667:EE_|BY5PR12MB4147:EE_
-X-MS-Office365-Filtering-Correlation-Id: 64eb3072-d72e-4bae-8514-08de0171851e
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?Q1lTYVdLSDJQK0dUZlp3K2pJeUZPbVFJdkRMWTJWYXpoektLYk1SZGdvTmtH?=
- =?utf-8?B?aVdzclp4ZDY1Wm1CSUtDYTUrM1N0QTJoak1HQjRyMUpmcEpGNkYzNmpMR1Ro?=
- =?utf-8?B?a2ozbVRkMkxKdm5DUHJQWDNkenFjK0Nvek00WExWYUlzVlpkNFUyRGVBRXdw?=
- =?utf-8?B?N2diOUZzRndTc0ZEeWR2WDBpRjdpOVo0NUVldEw2KzBaYVAyV0JWQ1NQWExw?=
- =?utf-8?B?cWhsVCtMMzlhTXo3ZGNaTUhUVFc0VjBJUXVpNkxlbkFzVFBTOGhOM1g1eEhF?=
- =?utf-8?B?b1Izc3ZobHo3bkxKampERjZ1Nit6VnJZQnVGVldZQlZVR2JkZy90TjRTTTNh?=
- =?utf-8?B?c1Vha2JiVURJQUNyWlVLa1pwcGdseDluUUZWRCtVUVkrS2dMc1VXNkJiQXpI?=
- =?utf-8?B?K2hMeVhvWFh1QlhvN0hZUXNUV3hCMm01cmxWRVBCOWFKNTZjVk1OUnBjWTJ6?=
- =?utf-8?B?VWxHcG5rSENoQzFDY1ROMUdwN0dCdzFtZEFCaTI1ZldBM1g4RzB3V1dEVDRa?=
- =?utf-8?B?LzBkSVpUS2p5b2krMmExVTExWGpjdWM1SlpBYlFkMmtRZ3N4STRLM0ZnOHlJ?=
- =?utf-8?B?bE9Kekt1NHV4Nzl1NmV0RFFka0g5dHRyaDFTa0dSRHFYckJabzE2VHo0SkF5?=
- =?utf-8?B?MVJtejlwSUpzNnZsMmo5WXYrdmlnVEYxSDJ0OHhxaGlNYllqOENUZWVlYVo3?=
- =?utf-8?B?S3NSZ1gyNGVrYzhTQmdNdklMMFU2S3FNdGtodmhmU0Y4dlM2dnFqTzRjRlla?=
- =?utf-8?B?MlpLZUh1WVBYQ2t0ZnBnWXVDL0ZpQW5Td0xwR3hxNFJvc1pTVzZJMjlMaWFK?=
- =?utf-8?B?ckpObVdTM0R2MlNhWVhBM0YvRzVhb0lNV1EyNlI2bHg1RytySHc5Y0s1YVZs?=
- =?utf-8?B?OFFaRTJQbWxERFY0bGFvdklDTXg5Uk9UeFJsU3FQdGZDeS94R09Xak5iWGtD?=
- =?utf-8?B?eVR5aHpKVyt6QUdYcENqNnQvQ2dMcC85S0JXZHdzTHA1clVCNG5RdGRvMW95?=
- =?utf-8?B?T2QvZmtkQ3o1blFUQnVIanR4WnZxeHQ3SCtzaVpIMXo2KzBncmtGMXppU3JE?=
- =?utf-8?B?RlhpS3JPZ2hydFNWazZXdklvY01xU0M4TXQ2YVQyOG01LzNZTEJwTGRod3JQ?=
- =?utf-8?B?STd3K3JEeldDRDA0MUlQcE1oelB3YnVIemFQWVM2TlZYNUphZmdaOFI0akNm?=
- =?utf-8?B?ejJ3UlVpU05mbWs1R0Y3bzVqdjk5TkJrM2ZMUVNscHlJRGhNZDBkcEN6Y2t5?=
- =?utf-8?B?R2Q5aEVVdlN1RkZCVy9Hcy9wb200b3JoaWRkaVFDcHhEK1FGaU9rYTBlZ2dL?=
- =?utf-8?B?Smc3bm4yUk54SnVmYnlkKzFQY0MzMDBQYXJVRDhtbWFjN3ptREkyaU05ZW1W?=
- =?utf-8?B?djB0SFJXK2hmSEhPU2RIQ1R2SGprMEs5SHpSUlFFWkJRVnhzMUE5bFpjMVY1?=
- =?utf-8?B?aGhDU3kyeGtNT29EdEh1c0hmWVJTNDBhTy9ZZnUrNkNHSnpkTFR0dGFjOThC?=
- =?utf-8?B?TGIxaW1KdXVORStmSW5GcVB5VlNuNDh5S3dqWjhYL25KcEJMdUU2NlRzT04x?=
- =?utf-8?B?MDduTkVRRmN2N1ZicmdLZXRtUm83Ym1jeHFKZkhqdERtNWhBRExydHo2THRO?=
- =?utf-8?B?TDVtNlNhM2xTcGpyZ0hGYW9HWVlTMW9va29YWGwvcFp4YU0yVU9hZGtlbXVt?=
- =?utf-8?B?OW91V2dCUVFwbmJaako5WSs1QnA0RXhyTUlROXAzdDFLVDdOclFrdXpJWHdB?=
- =?utf-8?B?Qnh6ZDNLQTFHMUhXbitIbnQ2TGhMTWlVd2cyVmZ5Q2JjaG4vNUZjWG44cGFJ?=
- =?utf-8?B?NFVmM3YwNkNXN1h6bFlFdXRFNHErR1JQNmlnNFd4cUI2SE5HK1dwdUppdWlo?=
- =?utf-8?B?dkp3dHh5ZVFRTlVzc0VXUjdDZE5OdGZIc29OTWhZcUhlTDhsUmFCM0V5QkxX?=
- =?utf-8?Q?TuizoBDYMxiUkKsWe++gFBjk4FO+YM3h?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB2667.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aHRNYkFoenN1S2JLMFRxR3ZNdUpzQkMrQ3pVazdJVkhnT2lLcHZMUHNXWktT?=
- =?utf-8?B?YWlnM2pyQ1NLOHNCd1NQUXVPTzNZaTF1MVJsSkNKdTJtTW9BR3h2RjFNb09w?=
- =?utf-8?B?UFg4TWxSbDI2L2JEb0REYUdSd3BzV0VNWGpkME5GMGQ3Z2dQbU1tWXgzVVFJ?=
- =?utf-8?B?cnVDekVLalRLdnFqR1g4Y01CdVFvbmVsMUR6U1FSQlREeVpQVGlJQ3hibXBZ?=
- =?utf-8?B?Z0E2eDBRSzRYYk1XQThMYTgzS2RJVlphNURYUFNRRmIwWUxtdHRWOVkzMGZO?=
- =?utf-8?B?OXBZemRVT3Q3VkpYTHRFMnhvNGJKdGwxMXBxVVFxeUtyT3ZCcGsxazlaOVZx?=
- =?utf-8?B?eS9zNCtmVU42Ui9aUDhkZDRHK21kSlY3K0tGeWloTzRjNW1EL2N5WXVqOFNZ?=
- =?utf-8?B?ZmFnMklXUEhGbnlkNERIVTYwaUNCN2xZbGdleENJVkFTUEFzelh4Q1YzTG9E?=
- =?utf-8?B?QnZJeCtic3BuU1FmVUZyUUNmNURaVzY5RytaTHBvVWI0cDhPSGFadk1KUEVv?=
- =?utf-8?B?b0xRLy85cWNseDl1WStsU2VaQm1hbitmUlNrdHNJZDZ4MTJUT1l4Q08rL0FU?=
- =?utf-8?B?S2V4S2dVT01tVjV0NWt4cU95TlNQZ3QweDc1eUI4M0FCQzJwa3h5UUJhMkhW?=
- =?utf-8?B?QWxuY1M3QTRydG5rQ0JDU3lTRDB5dU5JS0ZKVU8zS0ZZZXZNNmtrdmVDSTds?=
- =?utf-8?B?QzZ2SEJBdXpad05RRDI5ZHdOVVp6dThEZGgzVDZJTXBTYStRUTE2Snk2VWJq?=
- =?utf-8?B?aGx3amtsMU9manNRRE5FViszUnoxWElIbFlhQUtwZGp0OHhtbC9vb20wSFBZ?=
- =?utf-8?B?Z2ZHc0IyN0g3azBCamtOMWltdWlud2pRRC9ZRXZrWGl3cWVPK1RMSTdsNGxN?=
- =?utf-8?B?YXBzWEhCenN1cXlPRjgvbWJGcUZmM3h4VjlzbjNFQWFBaER3UmZOc0Y5YWNy?=
- =?utf-8?B?c2FCM1BBanpCQkRNV0NkMUI2Q015NGQ5NnlURS9hdTFFQStldTdQVi9WUVZl?=
- =?utf-8?B?U2Nvc01ISHRvK0M1U2srMlJ5Sys3ZTZKSGpiSXFsL2lGV1pLNGgzNzJva0Vs?=
- =?utf-8?B?U1pnSTl1cW1xVEdwb2owSVZQUU1FbVE3aVMvVkQ1YzhDcTJDNEdGQmliRCtN?=
- =?utf-8?B?WncxcjJoOGdtMVBOWlZ2MDVhYTFNRFVNeER4L1IxQ1BWTXdsR0VBMS9FN2ZY?=
- =?utf-8?B?NER3eEZrOXBTU0VFbUYrSmJ5TUhvMG9yQ3h4RWhnN210VE02Q2c1ZzZ3RUZq?=
- =?utf-8?B?RlM1WURuL3BsR1V3MVNRRG1HaFkxcHQzaXRZakdvNWxiWGN5Z1BMUW11OUhI?=
- =?utf-8?B?eGhCcVQzNFZ1WGJJWXpCaVRJQ3drckFRQzVseVEvSjN5U2hrQWdFS2cvU2p2?=
- =?utf-8?B?SVZEWlo3NHlMWDF6VGJCTTRDNDFhV3JLMHVnZVJHZU4xaEZmeHNCUnMzY3ps?=
- =?utf-8?B?UWpKOXNJRkZnRm44YldZUDFCYkZPRGlTUTBXYUsxeUQrd01KcUNjSkxIaUI1?=
- =?utf-8?B?dWt2UVByR1NXQ2FOMmRjYTFUZkVzTW5qTHlrN2JUbWFaZ2J1YTFQbjZ1SURq?=
- =?utf-8?B?eExxVldiS1VMRkxlSUVkT0lJRTdDSlY2MUFkY1R0Tk16VmpsR0lMejRrL05v?=
- =?utf-8?B?ejRiZlhyUWdxUko3N2RZMExObk5Scy9HU2oxMnR3aGVXNUl1Q3RKd2M2YUFO?=
- =?utf-8?B?UndwYVcyMU5ncllwYmNwUTRvRkNCWXpmZEQrdTRTUGlQUW1HeEVoTnY0ODFG?=
- =?utf-8?B?U1NtQVFiZlBkK1VhTmtkemJpeEY0ZU9IQk5wM1kvQjA5QnNYMkgzNnh1QmhF?=
- =?utf-8?B?Qkp4MGxKTks5OHVPZGJBMys5RVlGK2pkaXNrNXRvWGY1SzRtWWVzSGdZajNz?=
- =?utf-8?B?S0JHYzY5eDVoRXhJWExLYm05bWpKR2R2TEVxckJnYWNaOUhsdGNuWVRhQzJn?=
- =?utf-8?B?SXMrUnRpRi9BWDkycmZOa2d3aTNBM1dQRGF6SzB4VnYvSmM2ZVlWSUx0MEV3?=
- =?utf-8?B?b2xUNVRNUVhPQjc4K3RHZjRFYVFnZHVsK2pGYzRtVVJ6aHplbFE4dEkwWGY5?=
- =?utf-8?B?Z3JNajNhTjhaU2x1bmd4SnZZcWpLbHhJOGRqa2sxNC9oQ2tNa2FHd0pBM0M5?=
- =?utf-8?Q?2uUIo8cfI7USj1oOoPof5C0X8?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 64eb3072-d72e-4bae-8514-08de0171851e
-X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB2667.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 02 Oct 2025 05:07:01.3000
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: AbuHzpfycbhyJFA5YXryh4BxshuoZgyu70HebfXDV2J7PP1aWFxqPhU1qNeow+dWMFe69a2tsjvEfOBxYC5gQw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4147
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v1] dts: arm64: freescale: move imx9*-clock.h
+ imx9*-power.h into dt-bindings
+To: Peng Fan <peng.fan@nxp.com>, Marek Vasut <marek.vasut@mailbox.org>,
+ "Peng Fan (OSS)" <peng.fan@oss.nxp.com>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Abel Vesa <abelvesa@kernel.org>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, "devicetree@vger.kernel.org"
+ <devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-clk@vger.kernel.org" <linux-clk@vger.kernel.org>
+References: <20250831200516.522179-1-e@freeshell.de>
+ <20250901032203.GA393@nxa18884-linux.ap.freescale.net>
+ <3a165d77-3e36-4c0d-a193-aa9b27e0d523@mailbox.org>
+ <05f7d69a-9c05-4b47-ab04-594c37e975eb@kernel.org>
+ <51daddc4-1b86-4688-98cb-ef0f041d4126@mailbox.org>
+ <8920d24b-e796-4b02-b43b-8a5deed3e8fb@kernel.org>
+ <be2fc937-b7a6-49a7-b57d-6e3f16f4ccc3@mailbox.org>
+ <20250904093442.GA13411@nxa18884-linux.ap.freescale.net>
+ <afe58aa6-0c3e-4508-8133-8e7621a0484a@mailbox.org>
+ <PAXPR04MB845970863A16718967270D1A880EA@PAXPR04MB8459.eurprd04.prod.outlook.com>
+Content-Language: en-US
+From: E Shattow <e@freeshell.de>
+In-Reply-To: <PAXPR04MB845970863A16718967270D1A880EA@PAXPR04MB8459.eurprd04.prod.outlook.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_220715_630388_7BCCCFEB 
-X-CRM114-Status: GOOD (  12.01  )
+X-CRM114-CacheID: sfid-20251001_222738_377291_9CCEE1B2 
+X-CRM114-Status: GOOD (  16.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,25 +85,62 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On 9/10/25 13:42, James Morse wrote:
-> The bulk of the MPAM driver lives outside the arch code because it
-> largely manages MMIO devices that generate interrupts. The driver
-> needs a Kconfig symbol to enable it. As MPAM is only found on arm64
-> platforms, the arm64 tree is the most natural home for the Kconfig
-> option.
->
-> This Kconfig option will later be used by the arch code to enable
-> or disable the MPAM context-switch code, and to register properties
-> of CPUs with the MPAM driver.
->
-> Signed-off-by: James Morse <james.morse@arm.com>
-> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-> CC: Dave Martin <dave.martin@arm.com>
 
-Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+On 9/10/25 00:07, Peng Fan wrote:
+> Hi Marek,
+> 
+>> Subject: Re: [PATCH v1] dts: arm64: freescale: move imx9*-clock.h
+>> imx9*-power.h into dt-bindings
+>>
+>> On 9/4/25 11:34 AM, Peng Fan wrote:
+>>
+>> Hi,
+>>
+>> sorry for my late reply.
+>>
+>>>> Instead of playing this "I found this code somewhere, so I can do
+>>>>> whatever the same" answer the first implied question - why these
+>> are
+>>>>> bindings? Provide arguments what do they bind.
+>>>>
+>>>> I am not sure how to answer this, but what I can write is, that if I
+>>>> scramble these IDs in either the DT or the firmware (which provides
+>>>> the SCMI clock service), then the system cannot work. I am not sure
+>>>> if this is the answer you are looking for.
+>>>
+>>> Marek,
+>>>    Some U-Boot code indeed directly use the IDs to configure the clock
+>> without
+>>>    relying on any drivers. Since the SCMI IDs could not be moved to
+>>> dt-bindings,
+>>
+>> Why can they not be moved to DT bindings ?
+> 
+> DT maintainers suggested to keep the files under
+> arch/arm64/boot/dts/freescale/
+> 
+> https://lore.kernel.org/all/75ab9162-ed02-479d-92a1-7cfabff6b32e@linaro.org/
+> 
+> Regards
+> Peng
 
-Thanks.
+Follow up FYI to all this is resolved from U-Boot [1] as not using the
+header and duplicating the information.
 
--Fenghua
+1:
+https://lore.kernel.org/u-boot/20250923-imx94-v1-5-cb3b65169048@oss.nxp.com/
 
+There was yet some IRC discussion about what justification can be for
+avoiding this maintenance and duplication.
+
+I am dropping this suggestion to move imx9*-clock.h imx9*-power.h into
+dt-bindings. There is some better way of doing this, maybe a future
+dt-firmware includes? That is not at all my area of interest or
+expertise, however. I just noticed something out-of-place and bring it
+to our attention.
+
+My great appreciation is due for the reviews and discussion about this.
+Thanks, everyone!
+
+-E
 
