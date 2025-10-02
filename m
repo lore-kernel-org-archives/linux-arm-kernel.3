@@ -4,69 +4,103 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D6E1CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 07:47:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C299CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 07:49:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=aTKBt8PvHsFKzkLrcA+CPpdxHiWQEG0VWl/B6OlMjD0=; b=SnNywm2rs19bNfdvmHcNVLHYps
-	dCGpS4nctxjNYA6/pQGkFpRl8LglVtbMuUTcqiNJ0DNVk3+yxaxn3GMx3OZUtpuDbHMwEdbaKuwTl
-	hSnXD4A7aELjiYOVzEg/+YfOoyfIYEHeLXS7wMYof/IBmS3eBfn3NXKMMOciIZ3Xu1CuytzduC1MC
-	oFkev1j/siiMtniUL8Q+vCGO9FYyyC7cs7EbmIAOoBcjE/S16rrDzKxwkQZmOr8FLhl9xUwrGEfsc
-	uHZCFPCofG4GV2svWco8gaKfAvi4wegtACtHjRrFgpAwtd9CLTIW2ZzyXlp9B81YWyj/3dvieh2Ie
-	pOEwW42g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CgVDpIUaXbRIFaGTvmSsiE/BFfaSBmSlnmsfDON0gMA=; b=OLary6mXuFVgKPpokrxlLwaw4B
+	NRM7luhDgnb3jSjO376ASdH1NyP5EVVMP/ykceOgYJdJs8ZEgoa8y59FM4B8pIw+kiNjh9joHAfHU
+	7gjLJANPxom7pZ+RI595LCD0sD3CgD7TnsN2jOFJKQmfnFf5XD3zaxHAkhRdvmjIKtdzVBKOzRDOe
+	A83QDJ5kRo1fMILBW/vJEB7etAzETUqJauUeQaBLE3JmQxHQi16SOAuIzuXVLgk0xdbbjfK3U0QEN
+	ErA0s1E7M9eGlhgtK+TtlD374FpNU0W5esfoYN5r9x/kp1JFU+RQlqYBZirYBi1A0Z0HmtZUtEIT3
+	13jQSYZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4E2V-00000009ouj-0M6I;
-	Thu, 02 Oct 2025 07:47:47 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1v4E44-00000009pEo-0MHk;
+	Thu, 02 Oct 2025 07:49:24 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4E2T-00000009ouE-0akg;
-	Thu, 02 Oct 2025 07:47:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1759391262;
-	bh=dI0wrkAckMH7G1m4ya3Dj7swPNyC71r0eGahUHaJytU=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Fc5bfpOIErakjiawbB16GBvXBuIlkWOx6lN+lhFFd2c2EYdM3RMGjx2N67KBbKkpN
-	 7PkU3vq1K8q9COKVq2uAXa1j5uyXD2eGedNVXUKGmLGUHYpAfB7wTnnJJoQJoQmGTk
-	 Y6S3qS+xhO5/at0687V8duOoCnGKnvI9krkjVN7g7cuRHKh7UMRyGxzBS2XncgBzoz
-	 PywfQNyp3y4GBa7mDDAYnxXj8lDAIUBetdeUNt5WEyn2B80LOA/K/3lu6eqOfR4Qyb
-	 C24m2gWXQV8n/Cetp0eecCloTXmxVouVe+ERYiQvXBIztkFsDT8B7X3FvaUwukC5j9
-	 tvZ7jYtqHpuMw==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3D22817E0AC3;
-	Thu,  2 Oct 2025 09:47:42 +0200 (CEST)
-Message-ID: <6d5553da-4c0e-4957-8d74-314a9ef23301@collabora.com>
-Date: Thu, 2 Oct 2025 09:47:41 +0200
+	id 1v4E40-00000009pDE-3mQD
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Oct 2025 07:49:22 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1759391359;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=CgVDpIUaXbRIFaGTvmSsiE/BFfaSBmSlnmsfDON0gMA=;
+	b=H4FSmhQquwouUb6kRHeV8996b4YS1BcCTyOrrewTnrvDRQMGYQa2cXiDpFSQeOtTB7zkeV
+	SNl/q9b0Z9Flz4m1siedIYbBikL+SRAB2xbxKPJL8SlfY1iFRJ4YHG/GzVXRxLvsdhzY35
+	DB6pbb6ACfj6YbXAa/s9ZZSN6gePV54=
+Received: from mail-wr1-f72.google.com (mail-wr1-f72.google.com
+ [209.85.221.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-426-LUqKBptUNDGA4k-zUcyhFw-1; Thu, 02 Oct 2025 03:47:43 -0400
+X-MC-Unique: LUqKBptUNDGA4k-zUcyhFw-1
+X-Mimecast-MFC-AGG-ID: LUqKBptUNDGA4k-zUcyhFw_1759391262
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-3f42b54d159so442796f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Oct 2025 00:47:43 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759391262; x=1759996062;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CgVDpIUaXbRIFaGTvmSsiE/BFfaSBmSlnmsfDON0gMA=;
+        b=pOCXnOK/tDzRkxeMKxLjG6CU82wKHFJVOPZ5Zgoew8Wwym1XcGe6GtLIXpL2aJKw47
+         AUwEV9dcRHsP+D9tkKpciXEp4UHd3K9b7avOv+6GDaxgVtSrm16LXcdjsA7Ifr27kZFm
+         pAfqLn2SNcec1pnMgs13GXf1me6lFSbR2SzJmanK5mV9Y+XwmaAg0sg77yA15UWVskAH
+         bd1Bu5BJBZmViYyuOcQxKDb36UlhiAILb+Ph1rrE2n7OxK0yLzqVzCvEDUrgySXRoLXg
+         tmbMHBB95p5tl+Nfy8VyNbLJ9DFHr4uw80iozJUZA+GK5E7v91IoWE9qr0Hf+BgziPV/
+         xJbA==
+X-Forwarded-Encrypted: i=1; AJvYcCXS1tkpRQgxNAckNmM6ANfzF10hH9/Rb8aAnkhIIB/uhmslXcswNNYi9sKQHduHcIqX+V9qblAsDGf/Wz/Tgx9E@lists.infradead.org
+X-Gm-Message-State: AOJu0YyaOOHgtKtBIZNF37dgXdKpjsoZcm+wotCpai1AzzhysjzfyNxI
+	uTthgqkAEYgkqhew8z2TwJH9/zvVl1TtUPMI5TEzdz0mLK1DilZ4ylRWeu67j1pFKSpTOqtiGND
+	GE69RbQLCujPDu7xLAsTVBro21vYwKy7bwkwCl9tajU56CmXEe1YXf5TUGwBHlt+6vratp8Zjfo
+	6a
+X-Gm-Gg: ASbGncvl6siTTH1S9mxPFJBX0YP/ZIF5BZRMK3uAIBTvkKgJzaVzgGRr7Dxt1aoFiu4
+	dec/pC4j1dqv+0ueog6wVo32oHWjMb1Cb35K8nci9FSEp4W6nFvw2UFDo2pT29UW1AQLIlNNnAg
+	3YQjlhU8qtb4pbSnbka7eSFm3fGJBA5RHVigmWzf9bObiM8YttsFkTCEPuQwc8/5hhfbwaBKNgw
+	xwywwpOp7ZhY4A1kM2pylsb18bECurbxlb6ll7yODdDPnq33s/0YqCpdmUVdzs2RrGyW+6tinaR
+	kZIsg7v7FzoBcUOTQ3In5w==
+X-Received: by 2002:a05:6000:615:b0:3eb:4e88:585 with SMTP id ffacd0b85a97d-4255780bf79mr4246066f8f.29.1759391262062;
+        Thu, 02 Oct 2025 00:47:42 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFP/KnwbkkSVeQQvgR4f/j6yP7T3XyqaNDmBwlBCTQIJSAplcQo89U5KExVEQ0LiNnNhN8Wxw==
+X-Received: by 2002:a05:6000:615:b0:3eb:4e88:585 with SMTP id ffacd0b85a97d-4255780bf79mr4246043f8f.29.1759391261558;
+        Thu, 02 Oct 2025 00:47:41 -0700 (PDT)
+Received: from localhost ([2a01:e0a:b25:f902::ff])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4255d8a6b5csm2470879f8f.5.2025.10.02.00.47.40
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 02 Oct 2025 00:47:41 -0700 (PDT)
+Date: Thu, 2 Oct 2025 09:47:40 +0200
+From: Maxime Ripard <mripard@redhat.com>
+To: Jens Wiklander <jens.wiklander@linaro.org>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
+	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, op-tee@lists.trustedfirmware.org, 
+	linux-arm-kernel@lists.infradead.org, Olivier Masse <olivier.masse@nxp.com>, 
+	Thierry Reding <thierry.reding@gmail.com>, Yong Wu <yong.wu@mediatek.com>, 
+	Sumit Semwal <sumit.semwal@linaro.org>, Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
+	Brian Starkey <Brian.Starkey@arm.com>, John Stultz <jstultz@google.com>, 
+	"T . J . Mercier" <tjmercier@google.com>, Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, 
+	Sumit Garg <sumit.garg@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
+	Simona Vetter <simona.vetter@ffwll.ch>, Daniel Stone <daniel@fooishbar.org>, 
+	Rouven Czerwinski <rouven.czerwinski@linaro.org>, robin.murphy@arm.com, Sumit Garg <sumit.garg@oss.qualcomm.com>
+Subject: Re: [PATCH v12 2/9] dma-buf: dma-heap: export declared functions
+Message-ID: <20251002-shaggy-mastiff-of-elevation-c8e1f0@houat>
+References: <20250911135007.1275833-1-jens.wiklander@linaro.org>
+ <20250911135007.1275833-3-jens.wiklander@linaro.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 5/9] dt-bindings: regulator: Document MediaTek MT6373
- PMIC Regulators
-To: Rob Herring <robh@kernel.org>
-Cc: linux-mediatek@lists.infradead.org, lee@kernel.org, krzk+dt@kernel.org,
- conor+dt@kernel.org, matthias.bgg@gmail.com, lgirdwood@gmail.com,
- broonie@kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kernel@collabora.com, wenst@chromium.org,
- igor.belwon@mentallysanemainliners.org
-References: <20251001111316.31828-1-angelogioacchino.delregno@collabora.com>
- <20251001111316.31828-6-angelogioacchino.delregno@collabora.com>
- <20251001155300.GC1833526-robh@kernel.org>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20251001155300.GC1833526-robh@kernel.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; micalg=pgp-sha384;
+	protocol="application/pgp-signature"; boundary="gqzh2ah3mmdu76ac"
+Content-Disposition: inline
+In-Reply-To: <20250911135007.1275833-3-jens.wiklander@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_004745_364012_E204B1D7 
-X-CRM114-Status: GOOD (  19.99  )
+X-CRM114-CacheID: sfid-20251002_004921_053837_5C2A1DF5 
+X-CRM114-Status: GOOD (  20.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,192 +115,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 01/10/25 17:53, Rob Herring ha scritto:
-> On Wed, Oct 01, 2025 at 01:13:12PM +0200, AngeloGioacchino Del Regno wrote:
->> Add bindings for the regulators found in the MediaTek MT6363 PMIC,
->> usually found in board designs using the MT6991 Dimensity 9400 and
->> on MT8196 Kompanio SoC for Chromebooks, along with the MT6316 and
->> MT6363 PMICs.
->>
->> Link: https://lore.kernel.org/r/20250715140224.206329-6-angelogioacchino.delregno@collabora.com
->> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> ---
->>   .../regulator/mediatek,mt6373-regulator.yaml  | 137 ++++++++++++++++++
->>   1 file changed, 137 insertions(+)
->>   create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6373-regulator.yaml
->>
->> diff --git a/Documentation/devicetree/bindings/regulator/mediatek,mt6373-regulator.yaml b/Documentation/devicetree/bindings/regulator/mediatek,mt6373-regulator.yaml
->> new file mode 100644
->> index 000000000000..cb721d81b77c
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/regulator/mediatek,mt6373-regulator.yaml
->> @@ -0,0 +1,137 @@
->> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/regulator/mediatek,mt6373-regulator.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: MediaTek MT6373 PMIC Regulators
->> +
->> +maintainers:
->> +  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
->> +
->> +description:
->> +  The MT6373 SPMI PMIC provides 10 BUCK and 23 LDO (Low DropOut) regulators
->> +  and can optionally provide overcurrent warnings with one ocp interrupt
->> +  for each voltage regulator.
->> +
->> +properties:
->> +  compatible:
->> +    const: mediatek,mt6373-regulator
->> +
->> +  reg:
->> +    maxItems: 1
->> +
->> +  vsys-vbuck0-supply:
->> +    description: Input supply for vbuck0
->> +
->> +  vsys-vbuck1-supply:
->> +    description: Input supply for vbuck1
->> +
->> +  vsys-vbuck2-supply:
->> +    description: Input supply for vbuck2
->> +
->> +  vsys-vbuck3-supply:
->> +    description: Input supply for vbuck3
->> +
->> +  vsys-vbuck4-supply:
->> +    description: Input supply for vbuck4
->> +
->> +  vsys-vbuck5-supply:
->> +    description: Input supply for vbuck5
->> +
->> +  vsys-vbuck6-supply:
->> +    description: Input supply for vbuck6
->> +
->> +  vsys-vbuck7-supply:
->> +    description: Input supply for vbuck7
->> +
->> +  vsys-vbuck8-supply:
->> +    description: Input supply for vbuck8
->> +
->> +  vsys-vbuck9-supply:
->> +    description: Input supply for vbuck9
->> +
->> +  vs1-ldo1-supply:
->> +    description: Input supply for vant18, vaud18, vcn18io
->> +
->> +  vs2-ldo1-supply:
->> +    description: Input supply for vrf12-aif, vrf13-aif
->> +
->> +  vs3-ldo1-supply:
->> +    description: Input supply for vrf09-aif, vsram-digrf-aif
->> +
->> +  vsys-ldo1-supply:
->> +    description: Input supply for vcn33-1, vcn33-2, vmc
->> +
->> +  vsys-ldo2-supply:
->> +    description:
->> +      Input supply for vaux18, vcn33-3, vefuse, vfp, vibr, vio28, vtp, vusb
->> +
->> +  vsys-ldo3-supply:
->> +    description: Input supply for vmch, vmch-eint-high/low
->> +
->> +patternProperties:
->> +  "^v(ant|aud|aux)18$":
->> +    $ref: "#/$defs/mediatek-mt6373-ldo-common"
->> +
->> +  "^vbuck([0-9])$":
-> 
-> Don't need ().
-> 
->> +    type: object
->> +    $ref: regulator.yaml#
->> +    properties:
->> +      regulator-allowed-modes:
->> +        description: |
->> +          Allowed Buck regulator operating modes allowed. Valid values below.
->> +            0 - Normal mode with automatic power saving, reducing the switching
->> +                frequency when light load conditions are detected
->> +            1 - Forced Continuous Conduction mode (FCCM) for improved voltage
->> +                regulation accuracy with constant switching frequency but lower
->> +                regulator efficiency
->> +            2 - Forced Low Power mode for improved regulator efficiency, used
->> +                when no heavy load is expected, does not limit the maximum out
->> +                current but unless only a light load is applied, there will be
->> +                regulation accuracy and efficiency losses.
->> +            3 - Forced Ultra Low Power mode for ultra low load, this greatly
->> +                reduces the maximum output power, makes the regulator to be
->> +                efficient only for ultra light load, and greatly reduces the
->> +                quiescent current (Iq) of the buck.
->> +        maxItems: 3
->> +        items:
->> +          enum: [ 0, 1, 2, 3 ]
->> +    unevaluatedProperties: false
->> +
->> +  "^v(cn18io|cn33-[123]|efuse|fp|tp|ibr|io28|sram-digrf-aif|usb)":
-> 
-> Missing '$' anchor.
-> 
->> +    $ref: "#/$defs/mediatek-mt6373-ldo-common"
->> +
->> +  "^vmc(h)?$":
-> 
-> Don't need ().
-> 
->> +    $ref: "#/$defs/mediatek-mt6373-ldo-common"
->> +
->> +  "^vmch-eint-(low|high)?$":
-> 
-> vmch-eint- is a valid name?
-> 
 
-Whoops. No, that was supposed to allow vmch-eint-low, vmch-eint-high.
+--gqzh2ah3mmdu76ac
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: [PATCH v12 2/9] dma-buf: dma-heap: export declared functions
+MIME-Version: 1.0
 
->> +    $ref: "#/$defs/mediatek-mt6373-ldo-common"
->> +
->> +  "^vrf(09|12|13|18|io18)-aif$":
->> +    $ref: "#/$defs/mediatek-mt6373-ldo-common"
->> +
->> +$defs:
->> +  mediatek-mt6373-ldo-common:
-> 
-> The name is local to the schema, so 'ldo-common' would be sufficient.
-> 
+Hi,
 
-Okay, I was trying to avoid pollution - but effectively being this local it's not
-necessary to make this name that long.
+On Thu, Sep 11, 2025 at 03:49:43PM +0200, Jens Wiklander wrote:
+> Export the dma-buf heap functions to allow them to be used by the OP-TEE
+> driver. The OP-TEE driver wants to register and manage specific secure
+> DMA heaps with it.
+>=20
+> Reviewed-by: Sumit Garg <sumit.garg@oss.qualcomm.com>
+> Reviewed-by: T.J. Mercier <tjmercier@google.com>
+> Acked-by: Sumit Semwal <sumit.semwal@linaro.org>
+> Signed-off-by: Jens Wiklander <jens.wiklander@linaro.org>
+> ---
+>  drivers/dma-buf/dma-heap.c | 4 ++++
+>  1 file changed, 4 insertions(+)
+>=20
+> diff --git a/drivers/dma-buf/dma-heap.c b/drivers/dma-buf/dma-heap.c
+> index 3cbe87d4a464..8ab49924f8b7 100644
+> --- a/drivers/dma-buf/dma-heap.c
+> +++ b/drivers/dma-buf/dma-heap.c
+> @@ -11,6 +11,7 @@
+>  #include <linux/dma-buf.h>
+>  #include <linux/dma-heap.h>
+>  #include <linux/err.h>
+> +#include <linux/export.h>
+>  #include <linux/list.h>
+>  #include <linux/nospec.h>
+>  #include <linux/syscalls.h>
+> @@ -202,6 +203,7 @@ void *dma_heap_get_drvdata(struct dma_heap *heap)
+>  {
+>  	return heap->priv;
+>  }
+> +EXPORT_SYMBOL_NS_GPL(dma_heap_get_drvdata, "DMA_BUF_HEAP");
+> =20
+>  /**
+>   * dma_heap_get_name - get heap name
+> @@ -214,6 +216,7 @@ const char *dma_heap_get_name(struct dma_heap *heap)
+>  {
+>  	return heap->name;
+>  }
+> +EXPORT_SYMBOL_NS_GPL(dma_heap_get_name, "DMA_BUF_HEAP");
+> =20
+>  /**
+>   * dma_heap_add - adds a heap to dmabuf heaps
+> @@ -303,6 +306,7 @@ struct dma_heap *dma_heap_add(const struct dma_heap_e=
+xport_info *exp_info)
+>  	kfree(heap);
+>  	return err_ret;
+>  }
+> +EXPORT_SYMBOL_NS_GPL(dma_heap_add, "DMA_BUF_HEAP");
 
-Will come up with a v7 sooner than later.
+It's not clear to me why we would need to export those symbols.
 
-Thanks!
-Angelo
+As far as I know, heaps cannot be removed, and compiling them as module
+means that we would be able to remove them.
 
->> +    type: object
->> +    $ref: regulator.yaml#
->> +    unevaluatedProperties: false
->> +    properties:
->> +      regulator-allowed-modes:
->> +        description: |
->> +          Allowed LDO regulator operating modes allowed. Valid values below.
->> +            0 - Normal mode with automatic power saving, reducing the switching
->> +                frequency when light load conditions are detected
->> +            2 - Forced Low Power mode for improved regulator efficiency, used
->> +                when no heavy load is expected, does not limit the maximum out
->> +                current but unless only a light load is applied, there will be
->> +                regulation accuracy and efficiency losses.
->> +        maxItems: 2
->> +        items:
->> +          enum: [ 0, 2 ]
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +
->> +additionalProperties: false
->> -- 
->> 2.51.0
->>
+Now, if we don't expect the users to be compiled as modules, then we
+don't need to export these symbols at all.
+
+Am I missing something?
+
+Maxime
+
+--gqzh2ah3mmdu76ac
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaN4uFwAKCRAnX84Zoj2+
+dgXFAYCRqMeTP57unkLdOGOydUleXNO4Hyw5XxsQDOrGvzMhBXOO+wkmNxAyspbp
+Ufq67PMBfjTtOUKXQIyMWncxOakNOIj4KKpCcpuXU8G+m0dpGkCeFoK4Z85nhhK9
+lbC1byfHEQ==
+=wMRm
+-----END PGP SIGNATURE-----
+
+--gqzh2ah3mmdu76ac--
 
 
