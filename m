@@ -4,110 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67652CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 20:59:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67E3BCAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 21:00:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wzfulOt3RuNjCZqZotlbZaUDHr7ww1cs1ieFRe/EaTg=; b=hibAE4gFTGgQvbmKkP4OVas7s9
-	5Hd+gRMTtKshoGjRpT9DWw8JTI7r4lSfynDdW6PNR9TLHDZKCrEzvL6wWNsK6Kshhg27RCMxaZUVx
-	TP12Z4+kGtSw/H4rkLWb4x6dl+I3IaoK90fdn33hYq7RgV2bheArF9f78lOwJi+1ADZWBQkOo+pQF
-	qbEbg5yKBokSIViBKQk3OUZcV7ddhsb9KIz5X+6XcUjm7Cq+Dcho2x/NiVhtnIbROTv4CpapzaBCW
-	YU9AJ3JwD5753uLRSZ0xb0S8+YR/M6iMtQHcO7m76hYWCE1sMvFkfQ1mJslPZnCNkIJMrDd8RI3f0
-	vFrpmf9w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sBQnYdmxHeZtXNSVglOMgNzHHmFGQAH2W/Xo6t+c6rQ=; b=TeyFWj9Z1Ka960WiHLUNdnw9kV
+	XFUJKk14HrEo/7KTJvkyn2o0kDqA7uJgNog3KVDmAV7aKZH6CqFWeaDahplNI5FDXN5pcfk/ZGSM1
+	Q/xkCG3Wz45QRMbcqFACoaQewTZkhsRIIoDIQXuju1kvU59DHStzxFNEYtKZIIkoqDIc5CaXqlQW1
+	rZOWlb9HdvQ1f092r/JMiAR+2ZO9s7RDYlA7Bfieo8DZfj3CIs7GWBcw8DVqIH6PFgsIbtt3OH743
+	htmmLvnhipvf2d3c9Awm6DNHZPC5AmVFoetIqXjgdpFdyKpIGGUo9qa/UvHndKFeWIfJMMOgMj/AJ
+	toWnzCQg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4QO7-0000000BFxB-1V0W;
-	Thu, 02 Oct 2025 20:58:55 +0000
-Received: from mail-vk1-xa29.google.com ([2607:f8b0:4864:20::a29])
+	id 1v4QPd-0000000BGJK-1IUl;
+	Thu, 02 Oct 2025 21:00:29 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4QO5-0000000BFwq-14QA
+	id 1v4QPb-0000000BGHw-12dK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Oct 2025 20:58:54 +0000
-Received: by mail-vk1-xa29.google.com with SMTP id 71dfb90a1353d-54bd3158f7bso1136342e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Oct 2025 13:58:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1759438731; x=1760043531; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=wzfulOt3RuNjCZqZotlbZaUDHr7ww1cs1ieFRe/EaTg=;
-        b=dqQj0Lhw9bUEwd72tPUVIiKppGqCIFUkJ9/EAg8v1tKFc7H4FW/jM/i7O0P3aW3AUi
-         jm0n3TGDlaIEj7L8W0sKKTWMqOATpHpthxEjR8rq/z4TItnhmpvD/06WBsUZWiAkfux5
-         9CXQZMBQKHBjrbWFrXpQW5rqa+sMzDTuwPx64=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759438731; x=1760043531;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=wzfulOt3RuNjCZqZotlbZaUDHr7ww1cs1ieFRe/EaTg=;
-        b=wG4mdj0rhrl/mMYozvKK43wZ1BHxKTGbnFpPA69wWXEXQYeQpyFqvw7DG2OtSMqwVS
-         12gd5LBYaTpUCLu65qGwYWqK9GKCffPg/ksgMI0+MM5GpLisf9cJ4nthcibltnKcYx5R
-         JihBv0jIHNG8iqmOtSkVFplAPFmxnjcXdBh/D3jg4iOpAFplt6sOf7FYGNyFmHApdk56
-         AN1yazXfsQPf0r13cykegc/MvuuVShmRIKnykAPXUK5yoTMPeq4JLlSDZx0YDUTNbNlK
-         XuUu95g6lnxPLgqqaeuW+yVO5vm0kOZMa5Of0xtejdTQQbZUSCIg+/mrgjTXJZFUwnln
-         RvAQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX3wL6k0cVdVI9yOPGFK19UD9u72S5GdYpi7n3MX4GCObqT9pXKmlBF00g7j7BAosI6PsYUl0fyGEBvST47+uFG@lists.infradead.org
-X-Gm-Message-State: AOJu0YxE+lKkBPE2dcqE1N4QnW0Gt5xgyzee6cuJijPD7RzYBgD/1THi
-	v6JOynjGEkwmIjZujyHNnA5qUv+qzf2AJAzfdqSp2+eQiO1gL/mZQKdwB+MGY4XTM9KhDysbyqI
-	gwcM=
-X-Gm-Gg: ASbGncvIrgUFb2IHgp4k3KfvkFtNvKtVqp4kQHOGjJpZPIKiJHx6ehOJvp2SVcJ7GDs
-	yn+TE4WfAjMDs6/cxH3YCVtxvMct3Y9RQmDj4JRFbN07PUCwlHRcAyKzBSYHF55R5MJz5+Vh7Yf
-	JCA482hm+G+Lkbffr2eCYfzhcRMl5b9TQkZHKF7MHb17kxldRYM0D3nNofCvqTK8xyUmd+CyHYp
-	wWPpvXFfrC2koBGansDMCNnB/vHvvJ+CAJDGknV1eybnOh9L0hiBLLLhvAFKUd3zNi7UbbRJPUu
-	zvPlE+Zxb3svskRhmJCWUJ5zH3IUNRVeuuiVfsrU+xY8D00fyPZARi192b9nRptlNaltPX9IwkP
-	4XigZTQUqdQ0zT92D47Fe6yK62vImHmwpjlaa5LHvfiJEGOjbVmjCXWfOWSw7A+g518u2skJL7y
-	ADoxPhzfRLadBw5Q==
-X-Google-Smtp-Source: AGHT+IGSHQDMicKXw+Fbadd4DIn93tG+8cAOMO2x9P7NnkeJPwxTWUOWZC9dhBgfrMDzEybmqhtm4w==
-X-Received: by 2002:a05:6122:2503:b0:54b:bc2a:f58d with SMTP id 71dfb90a1353d-5524e83e38amr250360e0c.3.1759438731170;
-        Thu, 02 Oct 2025 13:58:51 -0700 (PDT)
-Received: from mail-vk1-f172.google.com (mail-vk1-f172.google.com. [209.85.221.172])
-        by smtp.gmail.com with ESMTPSA id 71dfb90a1353d-5523cf3e877sm755433e0c.16.2025.10.02.13.58.50
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 02 Oct 2025 13:58:50 -0700 (PDT)
-Received: by mail-vk1-f172.google.com with SMTP id 71dfb90a1353d-54bd3158f7bso1136311e0c.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Oct 2025 13:58:50 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVStlY6CAcJEPAXcamJbwFYyp78UerPftnGGABNOuPNJ3EwBbT26R+yPhfgSZAl607QJ2yVzW9Sd6vR8RQ6Rqs8@lists.infradead.org
-X-Received: by 2002:a17:902:f609:b0:25f:fe5f:c927 with SMTP id
- d9443c01a7336-28e9a61a7a1mr6113515ad.31.1759438293518; Thu, 02 Oct 2025
- 13:51:33 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250925084806.89715-1-cuiyunhui@bytedance.com>
- <20250925084806.89715-2-cuiyunhui@bytedance.com> <CAD=FV=VZLYqPQCOEhbH4QtndeG5e1-0wey24fgYNTeFiqd8qJg@mail.gmail.com>
- <CAEEQ3wnwNdTgt6ByHCzM43fhZMLSxwXvYx-AGBpsktraXqif2Q@mail.gmail.com>
- <CAD=FV=X6Xv_WYPMXKtOWLJX7skCoQmia3JbQej_u38qxqAbqDg@mail.gmail.com>
- <CAEEQ3wn0UckgNTJCPCNDtHW8DwWAJR1PXURvH57yfHATYqs7Gw@mail.gmail.com>
- <CAD=FV=XoUw6HWoFLMcgyHhYm7oeTOXCAyvBdpOghggmdvYzp6Q@mail.gmail.com>
- <CAEEQ3w==Ekffs4+Z55AXMV52f+8ht1pWm3JexXCSiB7T6rzppA@mail.gmail.com> <CAEEQ3wkUai4-noA6CQDsOs=Hn3bSB5cdV9tZJZR8_g+o9e-Mpg@mail.gmail.com>
-In-Reply-To: <CAEEQ3wkUai4-noA6CQDsOs=Hn3bSB5cdV9tZJZR8_g+o9e-Mpg@mail.gmail.com>
-From: Doug Anderson <dianders@chromium.org>
-Date: Thu, 2 Oct 2025 13:51:21 -0700
-X-Gmail-Original-Message-ID: <CAD=FV=Uw=TLx1KPKCdBcJ4BP8+hOcCA+7QLrmfGHCb9uw9u3Pg@mail.gmail.com>
-X-Gm-Features: AS18NWAzBOpu8L_1YZexH_YKnsyYsn8PoONF8LzYzDqMVfF7ir8YT7oKetO1D5Y
-Message-ID: <CAD=FV=Uw=TLx1KPKCdBcJ4BP8+hOcCA+7QLrmfGHCb9uw9u3Pg@mail.gmail.com>
-Subject: Re: [External] Re: [PATCH v2 1/2] watchdog: move arm64 watchdog_hld
- into common code
-To: yunhui cui <cuiyunhui@bytedance.com>
-Cc: Thomas Gleixner <tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, bp@alien8.de, 
-	dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com, 
-	ziqianlu@bytedance.com, akpm@linux-foundation.org, alex@ghiti.fr, 
-	anup@brainfault.org, aou@eecs.berkeley.edu, atish.patra@linux.dev, 
-	catalin.marinas@arm.com, johannes@sipsolutions.net, lihuafei1@huawei.com, 
-	mark.rutland@arm.com, masahiroy@kernel.org, maz@kernel.org, mingo@kernel.org, 
-	nicolas.schier@linux.dev, palmer@dabbelt.com, paul.walmsley@sifive.com, 
-	suzuki.poulose@arm.com, thorsten.blum@linux.dev, wangjinchao600@gmail.com, 
-	will@kernel.org, yangyicong@hisilicon.com, zhanjie9@hisilicon.com, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+	Thu, 02 Oct 2025 21:00:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=VsIbknF218g4aTbWOUldZS4xXow1d1y3Idj3C85gTJfyTCrZNbYJyqAFgsDw6D1I3z9jjqa233wWUnZzQr7llyLT8ibR92diRQeoVgnCDWFQB30IakhOPkXYJ3kKfoQA80GrX/CzLbaVkSvvX/OKXF4PjzZdoOmMPHpTveEM533smpR45sorNas2HnLPkRaFYKYRJccGIG5IM1KdBLqgUX4bg7BjktYqDbMaVTltonI/uycpo5xpOSgJNJiE2B7XaZSz8niFkA+WkionU9EIq7A9NVHiTCGSjjxD4bQXxjyYRBsXt/E7bFdTGhBy9I3I0biuxYRCpYpQmCnVc00qFw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sBQnYdmxHeZtXNSVglOMgNzHHmFGQAH2W/Xo6t+c6rQ=;
+ b=Z3VnmjoW7Civ2zJ2PdoKiW78W5l5ktpqRqlQ9IsM/HkWnwlNecpkFia/wj7nevmGccFWLpwGPDn1t8oiP/JbEIqp57Dpi5lJi3XmCbRAzlOPa/jcNeoohP18Ni43ZwYH5spmR70YaUdbc1DuBaimtjHoT6RPIZ5RuaSveZZE3DL8DvwZgQkKjIbfJzUuQtPaKrgCLjY1+8qmwWpLNJmmlUHRepwpDddmM4e4kph8Fpg6MCW5/o3GMgvCHa0zgmQ6GllDlzoyvjAHVNh4RDQi5s1e39FXwS5YaU1224LmgrDnBMSyKkE92WdOkxP51N/MDlVAbXXGdjvk5Os/sRdPww==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=epam.com; dmarc=pass action=none header.from=epam.com;
+ dkim=pass header.d=epam.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=epam.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sBQnYdmxHeZtXNSVglOMgNzHHmFGQAH2W/Xo6t+c6rQ=;
+ b=Tb3nN34qWMQrH5NGdFw5rg2qE/s1Qx7UyiE/ysvMSK0MrTT5rDKdsS6RXFNzw62vLCH2GenuwjURUIGYPZz38IqMHVvsB9BjuPtoO0yNduNsMacRPuuoubRkZYRIs/fN25hswJ+SPOX1cwwQsIL7r7Jy6KYOMLiCr5htd6AtSlmku46myAk9Rz8IP+IkKFp6Uu+qjIlnWrgEGRH3I3cYGlYnHqh1pcgTb5TUjW5GUp+lcePKIG0FUDrwY6rASnFZR4UuPZSLhmaFxZoxc2RACzBE92Y2QE7ZzLH0go5noGIekS29WZYqc9uF+Kk5i9A2RTQkZtAtdOqlR2Kq6Xfdmw==
+Received: from GV1PR03MB10456.eurprd03.prod.outlook.com
+ (2603:10a6:150:16a::21) by VI2PR03MB10666.eurprd03.prod.outlook.com
+ (2603:10a6:800:27d::16) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.18; Thu, 2 Oct
+ 2025 21:00:12 +0000
+Received: from GV1PR03MB10456.eurprd03.prod.outlook.com
+ ([fe80::a41e:5aa8:e298:757e]) by GV1PR03MB10456.eurprd03.prod.outlook.com
+ ([fe80::a41e:5aa8:e298:757e%7]) with mapi id 15.20.9160.017; Thu, 2 Oct 2025
+ 21:00:12 +0000
+From: Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>
+To: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "kvmarm@lists.linux.dev"
+	<kvmarm@lists.linux.dev>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>
+CC: Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>, Marc Zyngier
+	<maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, Joey Gouly
+	<joey.gouly@arm.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, Zenghui Yu
+	<yuzenghui@huawei.com>, Catalin Marinas <catalin.marinas@arm.com>, Will
+ Deacon <will@kernel.org>, Wei-Lin Chang <r09922117@csie.ntu.edu.tw>,
+	Christoffer Dall <christoffer.dall@arm.com>, Alok Tiwari
+	<alok.a.tiwari@oracle.com>
+Subject: [PATCH] KVM: arm64: nv: do not inject L2-bound IRQs to L1 hypervisor
+Thread-Topic: [PATCH] KVM: arm64: nv: do not inject L2-bound IRQs to L1
+ hypervisor
+Thread-Index: AQHcM9+LYDnAyTjoxEGPXCTCBBWLLw==
+Date: Thu, 2 Oct 2025 21:00:11 +0000
+Message-ID: <20251002205939.1219901-1-volodymyr_babchuk@epam.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-mailer: git-send-email 2.50.1
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=epam.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: GV1PR03MB10456:EE_|VI2PR03MB10666:EE_
+x-ms-office365-filtering-correlation-id: f62cb07a-b7fd-4e12-37bf-08de01f6adaa
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|42112799006|376014|7416014|366016|1800799024|38070700021;
+x-microsoft-antispam-message-info: =?iso-8859-1?Q?UE3iR3EI107dgJU4jtKnyp1qm+1baA+Q76zEXniHC1lpOqTSXaCxW2GUHk?=
+ =?iso-8859-1?Q?vTWlWP/zQIKxH44Xa/rxmpGG92U7eyIJ903NzAWokyVAduZ69+SBJqYmQQ?=
+ =?iso-8859-1?Q?wH6NzkxnmCV2l41KHy3f1UrhI5vToA1QztpJxvtCB4+kCEnXqj26VTPzsa?=
+ =?iso-8859-1?Q?mS+hxudB4zewOD7Jy+3GXsyeg/sDN0fXINI12n63qxkUh03CAF3m91g4uq?=
+ =?iso-8859-1?Q?avy++kO6lSJIzfg2VOyNZg4cd1mEut7oGgy93WekgrnzstiKbP9Vb5/ISt?=
+ =?iso-8859-1?Q?1kXQmDx59ddfhxCNM6rmXCYmsTNVpTqmmtzAzcEfBFrEw5Qyw4JU9wTUJX?=
+ =?iso-8859-1?Q?m2XS3MUEK7yA5AHpqnGoclo1VQMNo1VAay4cIJhSjekxGrp4NTfNMKJALz?=
+ =?iso-8859-1?Q?KrljwH8hLoNoc0dd1nMNjlon4t9kwPGWDj1b1EE7HGuK5o4fPaELvSI0kJ?=
+ =?iso-8859-1?Q?pqmnSgJVjmMgrTc/SNmroSgA4bxS8kIbmcLGkW7sJ9UPAVKpy6wsaBvLFL?=
+ =?iso-8859-1?Q?qnR9U1hZDgU6EfyipD3MejeWOiybUA2bBuOnl95ubwBGgJv2Hm/dl9J+KZ?=
+ =?iso-8859-1?Q?RroPrzhuWnInmREmdjAX6QHni00TvvvgGgeqowr5EIyv5SKr0K7JGZiJzl?=
+ =?iso-8859-1?Q?JtXR5BZvnulOwIpgg84wcGIKu0UwbK2/UNHOdHiAIy5uK2R/JOn+m9APpe?=
+ =?iso-8859-1?Q?RAFcxt5xYHvL4CG6Uycb5Yz6eYdBinuGyU1JkyJD+pXgSEYvhUmdWA9Bkz?=
+ =?iso-8859-1?Q?h6yaSZtKVdZ/6LDv/03OXd3C6CUP3oQpNIC/D/ZQkpsvOmQvyg7H4qPQsH?=
+ =?iso-8859-1?Q?OpVpGX47iX1ehvPtNJa3BYF21FN/U8bv3h1VTNGXu+Kui0bU0JLohZhrfr?=
+ =?iso-8859-1?Q?s7Di/8iQylKcHbc44vKjYNHtwcDtZxr8rZ2Eoo4cVPF0/QXl4rLhvQijWw?=
+ =?iso-8859-1?Q?1L+It1H7c+1pkdsT4PwDNS+zfJC/iD8/GVDs2T5hWc9Xpu+SuiezBh8/Gy?=
+ =?iso-8859-1?Q?4Z6Cl4bSpabLEJVjLQhecOw33ub9hNfACh/BBtp+CsJ+TwrFtZqHzz5p3Z?=
+ =?iso-8859-1?Q?cGxh+XO7R/j4AesehzGbq7WojkRqu7qKkg+1gR0B8/1tWwSCAaqShl00kM?=
+ =?iso-8859-1?Q?JKmMz3Ajx45+JFIL/5rWPtqrBQNkHFeG98Syn1cH7NAr3x29cziZ2XiCOZ?=
+ =?iso-8859-1?Q?WvwmCJ7sknhzIJ7n/6dL5JVThLD49Snq9J/vSik4uHS2218R6RYB4dtU/V?=
+ =?iso-8859-1?Q?AOfzaxleG23UavqOAhY9b0OJBdyCs7yfJT6FIjxfAMAWA+Xat/dAStqGf+?=
+ =?iso-8859-1?Q?g7ms3EZq8NvAM9dMoEJxiw56Vm/sPBKMe/hnBTnoUU75ZfFsd+eki51Ftr?=
+ =?iso-8859-1?Q?K8PPjh7/c6OFrDlp22YbcbFxFOYY9AmLO67v5VXeJJWkxFxQ8K+OWd84ET?=
+ =?iso-8859-1?Q?g4S87gI3NawQtnHrJ8SNtgJlX3uUwdc82MjqvptB5VyZEtB0kXifO4JqBy?=
+ =?iso-8859-1?Q?xsurDMVr7i5MCzKTfHbP7ic+EdGgdSbyUe/McePohPjPDxQIlxRaidCQIe?=
+ =?iso-8859-1?Q?4CCOCV1dr3PIHz1kHtUub8ydFhPs?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV1PR03MB10456.eurprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(42112799006)(376014)(7416014)(366016)(1800799024)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?iso-8859-1?Q?hFKX4hEw5fV8GzwiSI/aRLpYc0jSQU/VNpBA8FZS5V7s0Xkzm1i924Z4Qu?=
+ =?iso-8859-1?Q?6k1okL19XNtWheH3P3ip9rdkqF7hj0oUHG88owfeEovlATjM863yvlTR4O?=
+ =?iso-8859-1?Q?0vOQMwDBeXbQmK5qiMDJxXLmeOmIPmVDgGATZNuEHNfyu6EBQjJpJg5B/1?=
+ =?iso-8859-1?Q?arv56oU58mDtJ4JWApDRNUhdpvkMjY28sgm2r5U0uY/pKtWSxOiA+ILj2P?=
+ =?iso-8859-1?Q?fJp9sPPi4V1Nl4NM8uGPW85t/3a81urIVcjah6pYpShs1NAKYMLP6bjBaf?=
+ =?iso-8859-1?Q?PStKhr2XYYiJSHjDYD+uprQz1im7S9Chm4z2tysYz7IDvE6rWu9P7PDabC?=
+ =?iso-8859-1?Q?qsKcjCRYYpf9gVhc30LB247SGtVbPPU8BNXxInhWtOJNb6aCAWzX3iCPFu?=
+ =?iso-8859-1?Q?C1B/8/P8ola4P8ND26t9UXMc7+KsjEEUOVdltKmbOapjqYEIN3rQdjVM/T?=
+ =?iso-8859-1?Q?b7t5RMjwWhY1zHFdUC3Kct1nUuvIlah7i8/+IUhu4ZMka/40AgKih4pTzj?=
+ =?iso-8859-1?Q?FIBzpiJlEQzmPrWqW/DluE3B6MQlg0EwXPcqbWoSvPS2FqTWnIGJC5eLjh?=
+ =?iso-8859-1?Q?emS8OFWKuzQHX/D/GjPTA30w5uMccXRBR3/RKZAN+eYvJyVZRMHIbyRd2W?=
+ =?iso-8859-1?Q?CvRU/QF1yNjsYJtyXF9+iWHqw8Tbs0KDC2Xk63zMZwiudcK+pNqIn31DGe?=
+ =?iso-8859-1?Q?rb6vCtkCCNSjBW+hI5AxSSH29sK8kKkCLUv/rGeuEQt64BcVpdtk6z222d?=
+ =?iso-8859-1?Q?5WPqIk0TKzEX5wdU9Znu3MClV++rEWrCtFB3OXV1Al522WBWhBj4kUlFDY?=
+ =?iso-8859-1?Q?3D6t95uIoicl/fqFFbwTOG5ZFzkURcP9vHTVh070nX2OiGGMosEPTSw9AG?=
+ =?iso-8859-1?Q?1P9txZ998wly1XZ27p3WZEck3OOi/K6IT0h93d7hsBT6lgjehrFDwY+20g?=
+ =?iso-8859-1?Q?E2cLya1ZxxyG+gIJzNlgZmEmy648468qUJE2gx1VRfct37rcbT103syrJI?=
+ =?iso-8859-1?Q?lqd6YVUcGMBdxPhvBfVmX9q1clayZYjB0Rsj0ZNghbXETJ7BCyVFWdNN0G?=
+ =?iso-8859-1?Q?CPx3dGcGfgXkevQ0L92uu7+pCVdJcQ5RvF+00aKcZqI4xHGbvlLqySnquP?=
+ =?iso-8859-1?Q?RMEN0pFnMfy93W03QmCja4lBrQykBCbPH8e5bX71W1DUlzWGYhUMB+9VW9?=
+ =?iso-8859-1?Q?OAxPLQGonHj5LKGxCjZkyS7VGnRldvMm77igW3Kbp+VmvxuoPD6nsyvw7x?=
+ =?iso-8859-1?Q?Yuh9XwySDFyLqj3D1P4WKtPgHAi3GpQ2eDYGJG7uvOw4l8ofVRSbxvnC4P?=
+ =?iso-8859-1?Q?kzULJi+3WPr1bpp7qSeX7jLUjFZcSZFayuCdbBqTyWMTE0VhfJQQP16WB1?=
+ =?iso-8859-1?Q?hwi/qkeW+XMp0CwPsCo75wCmd19Xu1C/1TNhwsLbyBeLGN7tDez+c4wPhJ?=
+ =?iso-8859-1?Q?pq1GORP4VCk9Rgxz51vPUnnr9YxeSZKff6mHAf0aAFdgFJwKjQfj2Qvzzk?=
+ =?iso-8859-1?Q?pjP/aP2xkr4hsuUDm9JKRtdUO6TmaxlM6wx+isttPaMO1ODiCeYDtojK98?=
+ =?iso-8859-1?Q?v6FIqTtnNFh5Ijnol2gbp6zyvwXgQQB2jHyfij9i8L+8juCSCxSNvy6i5S?=
+ =?iso-8859-1?Q?TEXKNcOAOB4dGMLUdg02ZHdE6/bjCBF24ZKorE7o75CdEH2ScXhNagcQ?=
+ =?iso-8859-1?Q?=3D=3D?=
+Content-Type: text/plain; charset="iso-8859-1"
 Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: epam.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: GV1PR03MB10456.eurprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f62cb07a-b7fd-4e12-37bf-08de01f6adaa
+X-MS-Exchange-CrossTenant-originalarrivaltime: 02 Oct 2025 21:00:11.9753
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: b41b72d0-4e9f-4c26-8a69-f949f367c91d
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: pgdQrZmxW536F4kz/BgegB0n2DxFXYTt4Eo8XEh89gDnhcEAabRl+WXq1DbGNL83l712p6/zxkF+hAuf7YG/l3gse1rmDUDMJnsoOYfSCoo=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VI2PR03MB10666
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_135853_320798_90EF1F32 
-X-CRM114-Status: GOOD (  42.44  )
+X-CRM114-CacheID: sfid-20251002_140027_311531_6B984790 
+X-CRM114-Status: GOOD (  24.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,105 +170,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+There is a class of "virtual" HW interrupts: interrupts that generated
+by a device model (like QEMU or kvmtool maybe) and thus considered as
+hardware ones by L1 hypervisor, but they are not backed by real HW
+interrupts. These interrupts are initially targeted to a L1
+hypervisor, activated by it and then either are handled by the
+hypervisor itself or re-injected to a L2 guest. Usual stuff.
 
-On Tue, Sep 30, 2025 at 12:11=E2=80=AFAM yunhui cui <cuiyunhui@bytedance.co=
-m> wrote:
->
-> > > > > > > > +static int __init init_watchdog_freq_notifier(void)
-> > > > > > > > +{
-> > > > > > > > +       return cpufreq_register_notifier(&watchdog_freq_not=
-ifier,
-> > > > > > > > +                                        CPUFREQ_POLICY_NOT=
-IFIER);
-> > > > > > >
-> > > > > > > I think you need to do something to prevent this from happeni=
-ng on any
-> > > > > > > platforms that override hw_nmi_get_sample_period(), right? Th=
-ese
-> > > > > > > cpufreq notifiers will be useless in that case...
-> > > > > >
-> > > > > > I understand this is not a problem. watchdog_perf uses
-> > > > > > PERF_COUNT_HW_CPU_CYCLES, which means it is inherently limited =
-by the
-> > > > > > CPU's main frequency. After we make such a change, a larger val=
-ue may
-> > > > > > be used as the period, so the NMI period will become longer, bu=
-t this
-> > > > > > value will not change after the system starts.
-> > > > >
-> > > > > I'm not sure I follow. On x86, hw_nmi_get_sample_period() is:
-> > > > >
-> > > > > u64 hw_nmi_get_sample_period(int watchdog_thresh)
-> > > > > {
-> > > > >   return (u64)(cpu_khz) * 1000 * watchdog_thresh;
-> > > > > }
-> > > >
-> > > > I have added the maintainers for arch/x86.
-> > > >
-> > > > 1. cpu_khz can be understood as returning the base operating freque=
-ncy
-> > > > of a CPU, such as 2.3GHz. In practice, the CPU's core frequency may
-> > > > downclock to 800MHz under low load and overclock to 4.4GHz under hi=
-gh
-> > > > load.
-> > > >
-> > > > 2. Because the event provided to the PMU has the
-> > > > PERF_COUNT_HW_CPU_CYCLES attribute, and the counter's value is base=
-d
-> > > > on 2.3GHz, the execution cycle of watchdog_overflow_callback() is n=
-ot
-> > > > fixed; it varies with the CPU's core frequency. When the CPU runs a=
-t a
-> > > > frequency higher than 2.3GHz, the NMI cycle will shorten; otherwise=
-,
-> > > > it will lengthen.
-> > > >
-> > > > 3. After our modification, if the architecture is not integrated wi=
-th
-> > > > cpufreq, it returns 0 and will not update the cycle. If integrated
-> > > > with cpufreq, it returns the maximum frequency supported by the CPU=
-,
-> > > > so the NMI cycle is only slightly lengthened, with no impact on the
-> > > > actual hardlockup detection function.
-> > > >
-> > > > 4. I have also conducted tests:
-> > > > stress-ng --cpu 1 --taskset 1 --cpu-load 80
-> > > > echo 800000 > scaling_max_freq
-> > > > turbostat shows that Bzy_MHz and TSC_MHz are 800 and 2300 respectiv=
-ely.
-> > > > And the NMI cycle became approximately 30 seconds:
-> > > > [ 2309.442743] NMI watchdog: ------ watchdog overflow callback, cpu=
- =3D 1
-> > > > [ 2341.526032] NMI watchdog: ------ watchdog overflow callback, cpu=
- =3D 1
-> > >
-> > > Whether or not having x86 and powerpc start looking at cpufreq is an
-> > > improvement, certainly it is a change in behavior, right? If we're
-> > > really changing the behavior here then the commit subject and commit
-> > > message need to mention this. Right now this is billed as a simple
-> > > rename...
-> > >
-> > > I don't personally have lots of experience with x86 cpufreq but I do
-> > > know it doesn't work quite the same as how it does on arm. It would
-> > > definitely be good to get someone on x86 / powerpc to make sure that
-> > > they are happy with this. ...or you just keep making it work the way
-> > > it did before and then you don't have to worry about getting any
-> > > buy-in from x86 / powerpc folks. Up to you, I guess.
-> >
-> > Well, I fully agree with your suggestion. What I can think of for now
-> > is wrapping the newly added content with #if defined(CONFIG_ARM64) ||
-> > defined(CONFIG_RISCV).
->
-> I=E2=80=99ve also thought of an alternative approach: add a generic
-> WATCHDOG_PERF_ADJUST_PERIOD to /lib/Kconfig.debug, then have the
-> Kconfig files for arch/arm64 and riscv select
-> WATCHDOG_PERF_ADJUST_PERIOD. What=E2=80=99s your take on this?
->
-> Do you have a more elegant approach to
+In non-nested case this is perfectly fine: hypervisor can (and will)
+activate all pending IRQs at once and then feed them to a guest batch
+by batch. Batch size depends on LR count, of course. But in NV case
+this causes a problem, as KVM maintains LRs for L1 hypervisor and it
+does not remove active entries from LRs in case L1 hypervisor would
+wish to deactivate them. L1 hypervisor in turn is waiting for L2 guest
+to perform the actual deactivation.
 
-Yes, this feels right to me. I was going to suggest this in response
-to your other message and then I saw this followup. :-)
+The bug happens when number of active IRQs is equal to LR<n> count.
 
--Doug
+1. KVM tries to inject one more IRQ to a L1 hypervisor: it
+triggers IRQ exception at vEL2 and tries to cram the new IRQ to LRs,
+but as all LRs are already used, so the IRQ remains in ap_list
+
+2. L1 hypervisor tries to handle the exception by activating the new
+IRQ, but it is not present in LRs, so GIC returns 1023 on IAR1_EL1
+read.
+
+3. L1 hypervisor sees that there are no new interrupts and tries ERET
+to L2 guest, so the guest would complete its own interrupt handler.
+
+4. KVM still sees pending IRQ for the L1 hypervisor, so GOTO 1.
+
+This particular bug was observed with Xen as L1 hypervisor, QEMU as
+device model and lots of virtio-MMIO devices passed-through to DomU.
+
+Difference between nested virtualization and "baremetal" case is that
+real GIC can track lots of active interrupts simultaneously, but vGIC
+is limited only to 4..16 LRs.
+
+This patch tries to fix this problem by assuming that L1 hypervisor
+will not touch any IRQ it already injected to a guest. So, while
+processing shadow LRs, we can mark any LR entry with HW bit set as
+"targeted to L2" and remove corresponding entry from real LRs while
+entering L1 hypervisor. With this approach L1 hypervisor will see only
+IRQs that are either pending or active, but not targeted to L2 guest.
+
+Link: https://lists.infradead.org/pipermail/linux-arm-kernel/2025-October/1=
+067534.html
+Signed-off-by: Volodymyr Babchuk <volodymyr_babchuk@epam.com>
+
+---
+
+This should cover real HW IRQs as well. If such IRQ is passed-through
+all the way down to L2 guest, it should be correctly deactivated when
+L2 guest writes to EOI. But it will not be deactivated if L1
+hypervisor tries to pass it to L2 guest first, but then tries to
+deactivate it by itself, because in this case there will be no
+corresponding entry in LR<n>. So, we are exception that all L1
+hypervisors will be well-behaved. Hence the RFC tag for this patch.
+---
+ arch/arm64/kvm/vgic/vgic-v3-nested.c |  6 +++++-
+ arch/arm64/kvm/vgic/vgic.c           | 11 +++++++++++
+ include/kvm/arm_vgic.h               |  1 +
+ 3 files changed, 17 insertions(+), 1 deletion(-)
+
+diff --git a/arch/arm64/kvm/vgic/vgic-v3-nested.c b/arch/arm64/kvm/vgic/vgi=
+c-v3-nested.c
+index 7f1259b49c505..bdd1fb78e3682 100644
+--- a/arch/arm64/kvm/vgic/vgic-v3-nested.c
++++ b/arch/arm64/kvm/vgic/vgic-v3-nested.c
+@@ -286,9 +286,13 @@ void vgic_v3_sync_nested(struct kvm_vcpu *vcpu)
+ 		if (WARN_ON(!irq)) /* Shouldn't happen as we check on load */
+ 			continue;
+=20
++		irq->targets_l2 =3D true;
++
+ 		lr =3D __gic_v3_get_lr(lr_map_idx_to_shadow_idx(shadow_if, i));
+-		if (!(lr & ICH_LR_STATE))
++		if (!(lr & ICH_LR_STATE)) {
+ 			irq->active =3D false;
++			irq->targets_l2 =3D false;
++		}
+=20
+ 		vgic_put_irq(vcpu->kvm, irq);
+ 	}
+diff --git a/arch/arm64/kvm/vgic/vgic.c b/arch/arm64/kvm/vgic/vgic.c
+index 6dd5a10081e27..6f6759a74569a 100644
+--- a/arch/arm64/kvm/vgic/vgic.c
++++ b/arch/arm64/kvm/vgic/vgic.c
+@@ -858,6 +858,17 @@ static void vgic_flush_lr_state(struct kvm_vcpu *vcpu)
+ 			break;
+ 		}
+=20
++		/*
++		 * If we are switching to L1 Hypervisor - populate LR with
++		 * IRQs that targeting it especially and are not targeting
++		 * its L2 guest
++		 */
++		if (vcpu_has_nv(vcpu) && !vgic_state_is_nested(vcpu) &&
++		    irq->targets_l2) {
++			raw_spin_unlock(&irq->irq_lock);
++			continue;
++		}
++
+ 		if (likely(vgic_target_oracle(irq) =3D=3D vcpu)) {
+ 			vgic_populate_lr(vcpu, irq, count++);
+=20
+diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
+index 4000ff16f2957..f3a4561be1ca2 100644
+--- a/include/kvm/arm_vgic.h
++++ b/include/kvm/arm_vgic.h
+@@ -145,6 +145,7 @@ struct vgic_irq {
+=20
+ 	bool enabled;
+ 	bool hw;			/* Tied to HW IRQ */
++	bool targets_l2;		/* (Nesting) Targeted at L2 guest */
+ 	refcount_t refcount;		/* Used for LPIs */
+ 	u32 hwintid;			/* HW INTID number */
+ 	unsigned int host_irq;		/* linux irq corresponding to hwintid */
+--=20
+2.50.1
 
