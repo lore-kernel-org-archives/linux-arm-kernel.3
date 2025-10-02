@@ -4,65 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3B10BCAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 14:27:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4D8EDCAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 14:28:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Kq2DhKQo8ptLIXroc27s3A+iNop2714/WUHopXrdZZI=; b=chvDaYv7ZO5yAFutL9LzXHNHjL
-	EtcjEjbFKEigH3VC6JU4XP16M60FqRXmkptrJ1yDuSie/qa3f95GYQ7h8H9ULesdO4OCeH/9IJHJ/
-	oF7Cwa9PIx/NyC71l9Dmkx2JzboLeZtCRwCHvg67EdXfzCkGaEKSYR27x9aOQ7JJjXwdN/HRNmhYc
-	77xSzEso/tC+pN7NW4vMrbBIEsLBBw7aat8vV8M5lexEy0GusPzhRgzgQJXq5wsnfsvlJsPq7RMow
-	KRSvgmVilqovtWhCEmUWddXQ/BVc+ilGDCVqc8QprY84dgXqEWD83EeO1aE3w6hBG+ILoYrDee/X0
-	IISycd6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2Li11UnFXKgDLu6E1g/s/EDdmJ+3ZMkdmuNdcs49Jjw=; b=SByWvv9Q4QlsFt3DeZWDj9hi+b
+	h3EOs3t1Ldnj3D+CNm/5UshPqQMchlcIg4Mf/iJwXc/BosQgQ3/YGTNT/ZcKnTxjmEA6gCUUPFLyT
+	HtRUz8GDKR5HJPGIZ8Edfd40b/9d//sZv5JvJNcXEWgFxEZ9zior3Opih11FvDEh+J3vzrsEEDvp6
+	V4F/rAkGy+3jwAeJ8D2jPx51MjGc/eVGMqdwr+Y6Hfb49HWGjAtm4FSOY9xRi2C+oTvzgGQyWX4XX
+	OXBSmrpR8tlp/zTFMHoB+IonKFJALaVWki5AFQV7DVPPRrIDv4n/+P0hDVM3o3UJbOaivabcMga8Y
+	EMtOtD6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4KGm-0000000AbL9-2ebI;
-	Thu, 02 Oct 2025 14:26:56 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1v4KIF-0000000AbWN-1ejX;
+	Thu, 02 Oct 2025 14:28:27 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4KGj-0000000AbKQ-29mb
+	id 1v4KID-0000000AbVy-0unP
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Oct 2025 14:26:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=from:to:cc:subject:date:message-id
-	:mime-version:content-transfer-encoding; s=k1; bh=Kq2DhKQo8ptLIX
-	roc27s3A+iNop2714/WUHopXrdZZI=; b=cjz2K0Nr2FCoG0OMRwodk9VwnIWnPV
-	P6SiLaJ++JhWSVDFXX0TfIQLalwADdM8sKBMHnqamXIbrRDgAlAbcOAbnrL2GUdz
-	2MXYT8LBkIYFjdMzHsd42VzzRnozb+9mYWbbVOBFPKkhI0ei9G2Ibo7M20G4lpd8
-	I7U/yY/KfDFC74m8GI8V6d9fiCi+N0iZQqeB4CrVpPd6JJXP7j8uQCIUE+5ytMu4
-	QHug3hBKATPoGbbjJaekpqZ3u+z6mUBrhqJdXrMgYsGYjAaoFlcpqiFla7tT1fz9
-	DBy0o2o4S1QKzktiCv3M+cOmpdloIVFzhiBifvYcT838JiIL7IthgNzw==
-Received: (qmail 302230 invoked from network); 2 Oct 2025 16:26:48 +0200
-Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 2 Oct 2025 16:26:48 +0200
-X-UD-Smtp-Session: l3s3148p1@iiN+xi1AGrogAwDPXwQHAL/S9V79e5yL
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: linux-renesas-soc@vger.kernel.org
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-mtd@lists.infradead.org,
-	devicetree@vger.kernel.org
-Subject: [PATCH] dt-bindings: mtd: physmap: add 'clocks' and 'power-domains'
-Date: Thu,  2 Oct 2025 16:23:11 +0200
-Message-ID: <20251002142639.17082-2-wsa+renesas@sang-engineering.com>
-X-Mailer: git-send-email 2.47.2
-MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+	Thu, 02 Oct 2025 14:28:26 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 28C9F43282;
+	Thu,  2 Oct 2025 14:28:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0737EC4CEF4;
+	Thu,  2 Oct 2025 14:28:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759415303;
+	bh=PO/IEcBz4NvXZheCnIbM18/xv8Cbtntd+NqV8E7vc0g=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=Q9ctLXfVNGGO6Xi3mXFecZNPBlXJ/drD6gCE100YGJB3KBQKRISedccb2zc2zPJbB
+	 qrofyqGa605pzxk1yhmx+mXv22KbbmTjwv4TgG4YHl24zWy1M0dz7tRUxQpz/GnI6K
+	 3Mok86QgDdJAHLcvpDq5DKq6Um5J/S1GrZQbWAnQ57A1poGnWaua3LKbAZFiIxCpKJ
+	 qRRb6ppvj/KAsOxQQs4jk6VoQIXRn+Hk4zSrW0H31tlBC1S9lb8S4dA3mYIk6CYHqu
+	 dWlDbEyPv6VOR7fN/lfy7Fk4FlUx1JhUZQden4m91Vlo3PxpEZddDuQUrjFPQfPSUY
+	 i9NPVvfCmJ4nw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1v4KI7-0000000B66q-3Fq2;
+	Thu, 02 Oct 2025 14:28:19 +0000
+Date: Thu, 02 Oct 2025 15:28:19 +0100
+Message-ID: <86bjmpz8cc.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Volodymyr Babchuk <Volodymyr_Babchuk@epam.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>,
+	Dmytro Terletskyi
+	<Dmytro_Terletskyi@epam.com>,
+	kvmarm <kvmarm@lists.linux.dev>
+Subject: Re: KVM: Nested VGIC emulation leads to infinite IRQ exceptions
+In-Reply-To: <873481pjuz.fsf@epam.com>
+References: <87bjmrprvq.fsf@epam.com>
+	<86seg3ytk2.wl-maz@kernel.org>
+	<873481pjuz.fsf@epam.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: Volodymyr_Babchuk@epam.com, linux-arm-kernel@lists.infradead.org, Dmytro_Terletskyi@epam.com, kvmarm@lists.linux.dev
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_072653_827305_B5B52616 
-X-CRM114-Status: UNSURE (   9.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251002_072825_300456_8990321D 
+X-CRM114-Status: GOOD (  23.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,45 +88,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Physmap supports minimal PM since commit 0bc448b49e8a017e ("mtd: maps:
-physmap: Add minimal Runtime PM support"), so support it also when used
-in DT configurations.
+On Thu, 02 Oct 2025 13:29:42 +0100,
+Volodymyr Babchuk <Volodymyr_Babchuk@epam.com> wrote:
+> 
+> Xen wants to return back to vvCPU:
+> 
+>  qemu-system-aar-3378    [085] .....   246.770716: kvm_inject_nested_exception: IRQ: esr_el2 0x0 elr_el2: 0xffffffc0010e5508 spsr_el2: 0x024000c5 (M: EL1h) hcr_el2: 807c663f
+>  qemu-system-aar-3378    [085] .....   246.770716: kvm_get_timer_map: VCPU: 1, dv: 2, dp: 3, ev: 1, ep: 0
+>  qemu-system-aar-3378    [085] .....   246.770716: kvm_timer_update_irq: VCPU: 1, IRQ 28, level 0
+>  qemu-system-aar-3378    [085] .....   246.770716: vgic_update_irq_pending: VCPU: 1, IRQ 28, level: 0
+>  qemu-system-aar-3378    [085] .....   246.770717: kvm_timer_update_irq: VCPU: 1, IRQ 26, level 1
+> 
+> 
+> We have pending timer IRQ for Xen
+> 
+>  qemu-system-aar-3378    [085] .....   246.770717: vgic_update_irq_pending: VCPU: 1, IRQ 26, level: 1
+>  qemu-system-aar-3378    [085] d....   246.770717: kvm_timer_restore_state: CTL: 0x000000 CVAL:              0x0 arch_timer_ctx_index: 2
+>  qemu-system-aar-3378    [085] d....   246.770717: kvm_timer_restore_state: CTL: 0x000005 CVAL:   0x3e6c59a71a95 arch_timer_ctx_index: 3
+>  qemu-system-aar-3378    [085] .....   246.770717: kvm_timer_emulate: arch_timer_ctx_index: 1 (should_fire: 1)
+>  qemu-system-aar-3378    [085] .....   246.770718: kvm_timer_emulate: arch_timer_ctx_index: 0 (should_fire: 0)
+>  qemu-system-aar-3378    [085] d....   246.770719: vgic_update_irq_pending: VCPU: 1, IRQ 25, level: 0
+> 
+> But we also have bunch of ACTIVE interrupts which fill all available
+> LRs:
+> 
+>  qemu-system-aar-3378    [085] d....   246.770720: vgic_populate_lr: VCPU 1 lr 0 = 90a000000000004f
+>  qemu-system-aar-3378    [085] d....   246.770720: vgic_populate_lr: VCPU 1 lr 1 = 90a000000000004e
+>  qemu-system-aar-3378    [085] d....   246.770720: vgic_populate_lr: VCPU 1 lr 2 = d0a000000000004a
+>  qemu-system-aar-3378    [085] d....   246.770720: vgic_populate_lr: VCPU 1 lr 3 = d0a000000000004b
+> 
+> As all LR entries have ACTIVE bit set, read from IAR1 will produce 1023,
+> of course. Problem is that Xen itself can't deactivate these 4 IRQs as
+> they are directed to DomU, so DomU should active them first. But DomU
+> can't do this as it is never executed.
 
-Suggested-by: Geert Uytterhoeven <geert+renesas@glider.be>
-Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
----
+There is a flaw in your reasoning: if these are DomU (an L2 guest)
+interrupts, why would they impact Xen itself, which is L1? At the
+point of entering Xen, the HW LRs should only contain the virtual
+interrupts that are targeting Xen, and nothing else (the DomU
+interrupts being stored in the shadow LRs).
 
-Tested with a Renesas Genmai board (RZ/A1). Passes 'dt_binding_check'
-and 'dtbs_check'. Supersedes my original approach "[RFC PATCH 0/4] ARM:
-dts: renesas: mtd-rom has no clock and power domain":
+I can't see so far how we'd end-up in that situation, given that we do
+a full context switch of the vgic context on each EL1/EL2 transition.
 
-https://lore.kernel.org/r/20250930101656.33435-6-wsa+renesas@sang-engineering.com
+Unless you are actually acknowledging the DomU interrupts in Xen and
+injecting them back into DomU? Which seems very odd as you don't have
+the HW bit set, which I'd expect if that was the case...
 
- Documentation/devicetree/bindings/mtd/mtd-physmap.yaml | 10 ++++++++++
- 1 file changed, 10 insertions(+)
+> I am not sure what is the correct fix, but I see two options:
+> 
+> - Prioritize timer IRQs so they always present in LRs
+> - De-prioritize ACTIVE IRQs so they are inserted into LRs last.
+> 
+> Looks like the second one is better.
 
-diff --git a/Documentation/devicetree/bindings/mtd/mtd-physmap.yaml b/Documentation/devicetree/bindings/mtd/mtd-physmap.yaml
-index 1b375dee83b0..a9ec3ca002c7 100644
---- a/Documentation/devicetree/bindings/mtd/mtd-physmap.yaml
-+++ b/Documentation/devicetree/bindings/mtd/mtd-physmap.yaml
-@@ -69,6 +69,16 @@ properties:
-     minItems: 1
-     maxItems: 8
- 
-+  clocks:
-+    description: |
-+      Chips may need clocks to be enabled for themselves or for transparent
-+      bridges.
-+
-+  power-domains:
-+    description: |
-+      Chips may need power domains to be enabled for themselves or for
-+      transparent bridges.
-+
-   bank-width:
-     description: Width (in bytes) of the bank.  Equal to the device width times
-       the number of interleaved chips.
+That's indeed something missing in KVM (I have long waited until
+someone would do it in my stead, but nobody seem to be bothered) but
+it isn't clear, from what you are describing, that this is the actual
+solution to your problem.
+
+Thanks,
+
+	M.
+
 -- 
-2.47.2
-
+Without deviation from the norm, progress is not possible.
 
