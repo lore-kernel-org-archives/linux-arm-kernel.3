@@ -4,46 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CFC0CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 10:19:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93A5ACCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 10:19:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sP5nVNKjb1pQaRR+2r/TiTFLzAY81X0RTCHDByMaEFA=; b=p7ISG+aBYBsdXtPOe5UxJGnC9j
-	yywSFvBFihkrFVtqcDFhOq1p1PPb6tymBFjUYk7b5rrXzH4f/FLAWi7f6YVWeVFgbYBQb7ojGgHhN
-	pQQIKKAT7+XTLmA9bKRkmBhuCaJTZ5/Q11eTvfIzH34iUTPEaVgSMHm1fzMXiEbkSf/HDRRmcN8HM
-	gzktn4hLSFPHFd8ZE/Vti2huevFf/iUtII/WDn85buc3nHsF9YR/26eQY866e5yJrXaAL6GfbvIXA
-	bsHP4FtEDOqEdGvz/JcELinAoHp8OCJ6edqgtd0T0tMHrhexvggiHooW0jRmtM16YweQnmNKuTcpr
-	BuvTU8qw==;
+	bh=wbx3PRWyJn9v5MOftBicH8UgV7p1HvxT9Xv4MaUVlFA=; b=Lcfyn6myWOtCaukTJ4bwSh88aT
+	qEZaV7RC71mqJgd5ao2KcFSdqDhz/bf1lz6bmUmCZ2vfmpA5X0srlo6MGcwtZNpFOL4OkTzAe+euh
+	7Hwn2yup9OxuNUtIxIOG0FxHTFwzjAgK5ketq1yMIPfLSzgi1yvqUxMUGalnh/Ud3gBHY3vBPMctn
+	lqjqfF/0sl4jvF7U0AaDLR3tueiO2tl8UyjaTuvyZOP0YIIKAkS+I6RzHRO0P13cCGbRrHmZmvOhl
+	wm3BpgqYJG1Ae3eWAXCpuDfV+R53WcqCykDYvkVnmEfW2l2jkaIm6OIGs77j+7VdgYjLZsshdX0n/
+	5lWp2csQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4GOh-0000000AEff-1G7x;
-	Thu, 02 Oct 2025 10:18:51 +0000
+	id 1v4GOj-0000000AEi0-3IXA;
+	Thu, 02 Oct 2025 10:18:53 +0000
 Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4GOa-0000000AEXl-1kDN
+	id 1v4GOa-0000000AEXm-2RSm
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Oct 2025 10:18:46 +0000
+	Thu, 02 Oct 2025 10:18:48 +0000
 Received: from [127.0.1.1] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id A2A1AF06;
-	Thu,  2 Oct 2025 12:17:11 +0200 (CEST)
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 593721E5D;
+	Thu,  2 Oct 2025 12:17:12 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
 	s=mail; t=1759400232;
-	bh=Cqluj7U/KLSqNIFIlzY5s8rRln1Gzbirj64U1h1UC0w=;
+	bh=fOiY1/AZWM6G6PZTvW1U+5zyR9Ob6DNupG1ktoobXgg=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=pq/WxGjNH11TW03U7sdZYwZM5nilhlupdq7PQNwbGf/28HLEOLgh7/EUK7SaVlkEd
-	 i+Lwh/hyemWrSKfxeY6c6z4nt8Xiv/msL1Kqwv5YtTmxb3CNDrSdR2rD7Ktj3VeSRK
-	 FyVCUwCK7d02IGzxvZBHs4HhlmrvZfNvgwS/Q5UY=
+	b=dg9dHVT+PZXcHy95G4OjmFb91wjfL4pgvtaq8mOjqeDvkQ1+XNnVeygWRDT5cczNM
+	 JNIPN2G1ssBq4eYxw7WkWZf5riwr+FNDGRcYc1Dz0VUQGX+FODGs+QR/Kqvdr2o29h
+	 yUVxBrZYvbYE57BohuqZcsLycYyfIyYlF1DC4mWM=
 From: Daniel Scally <dan.scally@ideasonboard.com>
-Date: Thu, 02 Oct 2025 11:18:26 +0100
-Subject: [PATCH v12 07/15] MAINTAINERS: Add entry for mali-c55 driver
+Date: Thu, 02 Oct 2025 11:18:27 +0100
+Subject: [PATCH v12 08/15] media: Add MALI_C55_3A_STATS meta format
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251002-c55-v12-7-3eda2dba9554@ideasonboard.com>
+Message-Id: <20251002-c55-v12-8-3eda2dba9554@ideasonboard.com>
 References: <20251002-c55-v12-0-3eda2dba9554@ideasonboard.com>
 In-Reply-To: <20251002-c55-v12-0-3eda2dba9554@ideasonboard.com>
 To: linux-media@vger.kernel.org, devicetree@vger.kernel.org, 
@@ -55,27 +55,26 @@ Cc: Anthony.McGivern@arm.com, jacopo.mondi@ideasonboard.com,
  laurent.pinchart@ideasonboard.com, dan.scally@ideasonboard.com, 
  Sakari Ailus <sakari.ailus@linux.intel.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1762;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=2476;
  i=dan.scally@ideasonboard.com; h=from:subject:message-id;
- bh=Cqluj7U/KLSqNIFIlzY5s8rRln1Gzbirj64U1h1UC0w=;
- b=owEBbQKS/ZANAwAKAchJV3psRXUyAcsmYgBo3lF5T0T9TBninJ9XDpuDKtPGxQb71fmRB+kAw
- VlZHY3e4rWJAjMEAAEKAB0WIQQqyuwyDnZdb+mxmm/ISVd6bEV1MgUCaN5ReQAKCRDISVd6bEV1
- MnG7D/4+WgdEszOfDsBWiw+ftI5SEIqpVwbgDYEYPzwj4BJdAV67v8uOvNI8cMi+wNguTF6tqKh
- AfVQRPuqaDQvFwqqFytvPkTFo/Ux2hhaMxbEkyGfV0HzrkrytWIuXbSEs0ik2+fWAD5DM/5wehN
- /QgTkqr7SnDX49jcq3s4F+k/sivp1GPs51RWPYTq/pCqBjv6YOR9d6Bt1HP13d9Aj+1cBDpQQp0
- eeA7OjV9BOhTJ+Fh1utEtf9GPuGwuiRSkUGXh7kTYM4oibTME5oTrznP0NWCEzg8VajnnSNBs1j
- xbP69joBRjdg20N+5OUY3EV/7zsY9TsQCcpBYkfH4+t1sjBncJcntG5o8zHof03doMmiaoPOkJR
- 2fVeeQ7oWZ+MQz/ifOvVNXQzujhj923hzEmXhyN5FixwsMELZ+ezIniQh08TvE1qxaIXxUg0tuU
- BXSll/pnUqcsL1dTyCUQHNd87FvHrufniayeft6GLwYt41C4WGGNLhake93aRB8U8HFPG9rbGq4
- PLrAZqNV3IuARf0e7q3PuW8RTT0yw1O1syxZKC2EmIGmpJsnZNdmsV7aV+CNVdcgdKzofuO3EWu
- C2ExapIttZ7Xm/IRmYdASdMt4EJuIJuiOKBpsp+12ZG4ucoRiosuZuRgKD7CweTUjISIqUlFVvh
- R4fRuBNcGkZh0GQ==
+ bh=fOiY1/AZWM6G6PZTvW1U+5zyR9Ob6DNupG1ktoobXgg=;
+ b=owEBbQKS/ZANAwAKAchJV3psRXUyAcsmYgBo3lF5ZNe4qy7rd19gWz+0BsYLJJtf+UMtgZo0E
+ ODS/mL8vV2JAjMEAAEKAB0WIQQqyuwyDnZdb+mxmm/ISVd6bEV1MgUCaN5ReQAKCRDISVd6bEV1
+ MocuD/4sZ4MDQeqP2/an70+lNYXi+R3OZXueEFenMlgZuWetSUUjiErTPq64SIlhIXvCZny+jR2
+ 7sv0n8U5lIMxd77EC4GvXdIZYX69oydJWs3SZQLdmiMnrkJjX6tBSTKvi1n6rKSAObgOOMnpTnc
+ ITx4dkFSjp7cN3G2P8DjDB+MldfeI2IZPAMRHgw/tbwfP8kpphlFnB46Lhh6B/9IkLNbtNbRNSC
+ 6GEn+Mzn7eX4YRavkNLRjnCyaM+SfCPjqavBVTAJMc5i5mlOVAgQJoFpjEHH6kjY5nXpq7Rf2Bu
+ PI7ymd55KOCU3J7ZgFCutelYJUPXuHrY3nVuqKr2vXJI5e99kk/1aggy+7RqNKvO291CqfIOwvQ
+ t3lSPVOVAZQXhMrQ554gFH9BnzqyIG1UrKsz8IOX2qGQmYJ6qAe4JUZKgkx1wVcBLP0SfB90KFX
+ wrNjP4MzS92FbmJsw4kZkmeYTuWFNlMlR+OXTWmgLR09iAjPRCPJRJZPGbGdFeN1KZ7IGkXvINx
+ Ct+9f1Qfq2Jp3joJpld8GwJyOgeqQ/xSTH66xGpiY6ACcBB57vtrY0cdB9su9aYtYcnKoosq5Ye
+ TmYvbtyidgy/4mVNipwr0i/fb9wJu3CSfAIMnkQV9cemhSucDQu0GhK8YY3BqOlpBc3ibnCdPvX
+ KQRUB1+hOjykn5w==
 X-Developer-Key: i=dan.scally@ideasonboard.com; a=openpgp;
  fpr=EEC699ACA1B7CB5D31330C0BBD501C2A3546CCF6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_031844_668285_264919B4 
-X-CRM114-Status: UNSURE (   8.63  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251002_031844_837489_E3E1DBE6 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,10 +89,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a MAINTAINERS entry for the mali-c55 driver and its associated
-documentation.
+Add a new meta format for the Mali-C55 ISP's 3A Statistics along
+with a new descriptor entry.
 
 Reviewed-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Acked-by: Nayden Kanchev  <nayden.kanchev@arm.com>
 Co-developed-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
@@ -112,8 +112,7 @@ Changes in v10:
 
 Changes in v9:
 
-	- Added a File line for
-	  Documentation/userspace-api/media/drivers/mali-c55.rst
+	- None
 
 Changes in v8:
 
@@ -125,49 +124,42 @@ Changes in v7:
 
 Changes in v6:
 
-	- None
+	- New patch
 
 Changes in v5:
 
-	- None
-
-Changes in v4:
-	- None
-
-Changes in v3:
-
-	- none
-
-Changes in v2:
-
-	- none
+	- New patch
 ---
- MAINTAINERS | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ drivers/media/v4l2-core/v4l2-ioctl.c | 1 +
+ include/uapi/linux/videodev2.h       | 3 +++
+ 2 files changed, 4 insertions(+)
 
-diff --git a/MAINTAINERS b/MAINTAINERS
-index b0c5e6c2b21a5d5ebc63d2ae8b5c1b68fa912b33..86a6ec3a629417ace8c79bf89e1868cbeb422b85 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2075,6 +2075,18 @@ F:	drivers/gpu/drm/ci/xfails/panfrost*
- F:	drivers/gpu/drm/panfrost/
- F:	include/uapi/drm/panfrost_drm.h
+diff --git a/drivers/media/v4l2-core/v4l2-ioctl.c b/drivers/media/v4l2-core/v4l2-ioctl.c
+index 01cf52c3ea33e1a01e1b306036ba4e57ef5c95d0..bfab29938b8f43f3224e4bc794c21eb5b6e368a2 100644
+--- a/drivers/media/v4l2-core/v4l2-ioctl.c
++++ b/drivers/media/v4l2-core/v4l2-ioctl.c
+@@ -1469,6 +1469,7 @@ static void v4l_fill_fmtdesc(struct v4l2_fmtdesc *fmt)
+ 	case V4L2_META_FMT_RK_ISP1_EXT_PARAMS:	descr = "Rockchip ISP1 Ext 3A Params"; break;
+ 	case V4L2_META_FMT_C3ISP_PARAMS:	descr = "Amlogic C3 ISP Parameters"; break;
+ 	case V4L2_META_FMT_C3ISP_STATS:		descr = "Amlogic C3 ISP Statistics"; break;
++	case V4L2_META_FMT_MALI_C55_STATS:	descr = "ARM Mali-C55 ISP 3A Statistics"; break;
+ 	case V4L2_PIX_FMT_NV12_8L128:	descr = "NV12 (8x128 Linear)"; break;
+ 	case V4L2_PIX_FMT_NV12M_8L128:	descr = "NV12M (8x128 Linear)"; break;
+ 	case V4L2_PIX_FMT_NV12_10BE_8L128:	descr = "10-bit NV12 (8x128 Linear, BE)"; break;
+diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev2.h
+index becd08fdbddb857f8f2bf205d2164dc6e20e80b2..cba4b131166773ae0d52c00de6e1c304bd08573a 100644
+--- a/include/uapi/linux/videodev2.h
++++ b/include/uapi/linux/videodev2.h
+@@ -884,6 +884,9 @@ struct v4l2_pix_format {
+ #define V4L2_META_FMT_RPI_FE_CFG	v4l2_fourcc('R', 'P', 'F', 'C') /* PiSP FE configuration */
+ #define V4L2_META_FMT_RPI_FE_STATS	v4l2_fourcc('R', 'P', 'F', 'S') /* PiSP FE stats */
  
-+ARM MALI-C55 ISP DRIVER
-+M:	Daniel Scally <dan.scally@ideasonboard.com>
-+M:	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-+L:	linux-media@vger.kernel.org
-+S:	Maintained
-+T:	git git://linuxtv.org/media_tree.git
-+F:	Documentation/admin-guide/media/mali-c55-graph.dot
-+F:	Documentation/admin-guide/media/mali-c55.rst
-+F:	Documentation/devicetree/bindings/media/arm,mali-c55.yaml
-+F:	Documentation/userspace-api/media/drivers/mali-c55.rst
-+F:	drivers/media/platform/arm/mali-c55/
++/* Vendor specific - used for Arm Mali-C55 ISP */
++#define V4L2_META_FMT_MALI_C55_STATS	v4l2_fourcc('C', '5', '5', 'S') /* ARM Mali-C55 3A Statistics */
 +
- ARM MALI PANTHOR DRM DRIVER
- M:	Boris Brezillon <boris.brezillon@collabora.com>
- M:	Steven Price <steven.price@arm.com>
+ #ifdef __KERNEL__
+ /*
+  * Line-based metadata formats. Remember to update v4l_fill_fmtdesc() when
 
 -- 
 2.43.0
