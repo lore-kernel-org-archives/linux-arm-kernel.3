@@ -4,108 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2093CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 22:41:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 583E5CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 23:03:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:To:From:Date:
-	MIME-Version:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4hGlKaEF3owGaJz4O+b4FB/WpfLoASBvaTMeTYOloZc=; b=A15PqtBkJq+7y0q9v05dJ1gGtC
-	vDZppCa9hw1qizhcfKJb2rfh4dDvPby8L4LS/Fg8jBxviHSWYaCnEWwAMQI1RMaoFNHB+fH69ybBG
-	+A0u4YUD/g87zXrRERhGy21XdYoxtS+wpaFngoviih61nZRjLxWfC36cYAJ5lMGSifg4Nd+leavIP
-	Rp920iVYsSb/q5tWSDj8SqvDt+v9rxXEAlv+8RllzFUf67E+xVvpfMB8dnqYbFP98un21Aa6wY8fn
-	k4l7edtIkHrbDLGp5u18yG2cFEI4kguy088nq2sB22TNr2ztDGKHp/cZJthQQosLsY/YQ+uo0S9Eu
-	+M8TUYBA==;
+	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1LDGnQ0gt7Sa0hoshBs+Cuhi9U0Tyg1pO8zVbYSkSqs=; b=OMoHUlIq81TAQwQAh/drJg1THp
+	rrBofSVyHoEQdmtZENiTtJy/z/QSfzecMHafplUCcfHh0XA3JO7eB97qo6DC3SPYpfuTp4n5W/NwF
+	ALhylo2GJLSLIvaOs2oHvBiCg7TcB2M7/ZVcCyhibuR3fwev5WgO2D+8nBAcCCtJm9wUq+Y3SdyKL
+	JJUVRL77XNvWYP30MAxzCjjysXk7Vq6OLa4ejOR+zSCCQ2HAv/ms9Z7P9n84/m8FySvNmTcrLMycz
+	BVddM7FU8AeZ5CgqgkkkeHGng37o1AdTNFFzHR3nqGiuMYBwsbs7KYYAnyTKJ5kjSQDBVdxgfvYuO
+	26AfYa7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4RzF-0000000BMiE-2cfN;
-	Thu, 02 Oct 2025 22:41:21 +0000
+	id 1v4SKZ-0000000BNoa-36xT;
+	Thu, 02 Oct 2025 23:03:23 +0000
 Received: from fhigh-b6-smtp.messagingengine.com ([202.12.124.157])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4RzC-0000000BMhl-1vAW;
-	Thu, 02 Oct 2025 22:41:20 +0000
+	id 1v4SKX-0000000BNoE-3SSv
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 02 Oct 2025 23:03:23 +0000
 Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 994D07A007E;
-	Thu,  2 Oct 2025 18:41:14 -0400 (EDT)
+	by mailfhigh.stl.internal (Postfix) with ESMTP id 4BD647A006E;
+	Thu,  2 Oct 2025 19:03:20 -0400 (EDT)
 Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Thu, 02 Oct 2025 18:41:14 -0400
+  by phl-compute-05.internal (MEProxy); Thu, 02 Oct 2025 19:03:20 -0400
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:content-transfer-encoding:content-type:content-type:date:date
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1759444874;
-	 x=1759531274; bh=4hGlKaEF3owGaJz4O+b4FB/WpfLoASBvaTMeTYOloZc=; b=
-	rR2II8h5qGEQ+N3qrO28io3mSYbEZDNSzni4M3uFzc+SC3OxBkJMCLbsISCw8gRo
-	aW7K/HA7nJ62jDjk+OjEtSuVCoseyfkV2PlL1VM7U92QmC30zEB0so6jgtGVq5FU
-	UkwkTYZrV6Mk7OwFtasY/kz7eO49Z4wjCiSqUOSWg7YLxJyXvj9OYDKzK1gcTRBP
-	YFuQLK84PpiDOEJh0ruq9q5J6yTty1qcPCyPYmZ/5UBH23ZuoDh7tKMeg8qlfmqn
-	nQNMSAFSUzlwuwo/GHd39tdRF+tJOd2mIf8CstxtksHlrne5DNSDesTrQSOIIka6
-	cyyV/MLozU/JOG7vD11G7g==
+	:cc:content-transfer-encoding:content-type:content-type:date
+	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to; s=fm1; t=1759446200;
+	 x=1759532600; bh=1LDGnQ0gt7Sa0hoshBs+Cuhi9U0Tyg1pO8zVbYSkSqs=; b=
+	ptcGK8uww5oB2UZho+1jOjjSKDcv5u24wPLKuZnnaxD2fJIUP23mJAI/YEOBbmOg
+	2r482COP8NuOmAMsnPGoyx9IOUDEX1DrThyZTldcFjnvkrf7SFzB3SRiVbTgSYLS
+	GfNRzBMWx98Agd1/rwmcOQs+xO8PduEHL1xTdR2ZqFf3CiGeDvrJ3ZsbAZvFd/uP
+	gpHKCUfylPeIYiu7ap5HvGTemwzIKmaRGZPB8Rk+RGb2AqKfLD8Hk5xqCa4r6Hqc
+	lo6cxwGWNP+oGXlrdEQJHt+Jc1hxf5IzJqvS/Icd6hJ+eCmaT3iz5MdfT9x0JvkD
+	S7UmEKfAvwL7t5S6o9jpcw==
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:content-transfer-encoding:content-type
-	:content-type:date:date:feedback-id:feedback-id:from:from
-	:in-reply-to:in-reply-to:message-id:mime-version:references
-	:reply-to:subject:subject:to:to:x-me-proxy:x-me-sender
-	:x-me-sender:x-sasl-enc; s=fm2; t=1759444874; x=1759531274; bh=4
-	hGlKaEF3owGaJz4O+b4FB/WpfLoASBvaTMeTYOloZc=; b=DHQCYoqVFUx85gU6v
-	slFj/IXlslxekzNbzX2t7cUTqGO6QdU8WtPxzXoF2czC3Egzb5qv938SuoB2+G3o
-	s3bE3Ftpp2KWlTljOf2cPRSNewo8R2JHWJoZwO8QFaMsiq1FVQOA+SIkYQ8m4VmE
-	YlRprSecGGmLx+QIBg/+CnwxqT5kL0QPnPRTgH6vsOIClrIQQyiTWJlLKiKMbRgl
-	pq6zjyheL/EI2oTfTLghrESZoZ1Shu5+pMHwrMwAB+Nr65/b/+2zD0ja+aStDU8S
-	dt+hn4YZhV23dBtKL/PMPboqncgL1r0PxCuxrPmRIhbcm19iAWl+9VQk6BgyXT0U
-	cE2+Q==
-X-ME-Sender: <xms:iv_eaORAfmyx-VrNY1qjojo2ry6eNu_jd6HzWbWeTYEjU_xDIhppBg>
-    <xme:iv_eaOlMzQUBukbXXyBPZaKmAtXPYb1i7cbcNBfyWplkCDXIrZliEB6nxxb7AaJY5
-    V44DQlJnaZH7DI3F_bTauG_PKU3CYtrNB1YEFh0e7pCG5y3rixDDX8>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdekjedvgecutefuodetggdotefrod
+	messagingengine.com; h=cc:cc:content-transfer-encoding
+	:content-type:content-type:date:date:feedback-id:feedback-id
+	:from:from:in-reply-to:in-reply-to:message-id:mime-version
+	:references:reply-to:subject:subject:to:to:x-me-proxy
+	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1759446200; x=
+	1759532600; bh=1LDGnQ0gt7Sa0hoshBs+Cuhi9U0Tyg1pO8zVbYSkSqs=; b=O
+	d7d2TK/o8ERGISXaBGmTIhporaOoHjMieanul1AxMOIs5GXqTo+HqjUMZkMMFk9o
+	ahBGAmop1c8PsbU3frGuwfll5AWNJ1VrAYk8RJ+FW9AARBqkd46mLOii/+uesyMI
+	Z8ABC3CyM2d/5Qmnhq45SWeQDuxr5hWBeO6yu/pEgxUm6fO3J8AsHa2WtKtIkiBf
+	WVAvZCjJZ7R2s2cN7Exz6OwE2AsWlBp5VVv5aqqR/PPyp2rjvQFgkZl+39HZwJ9z
+	rqpMWjWb3aFlWRAYhXncnZFYyl0O3fAxXCSrV0TM1kdT03/S3NkhpJqiHX0YTncn
+	JNxw0w32g79BrRMaK87mw==
+X-ME-Sender: <xms:tgTfaNgLRq52evy-8sFzstZnu2rXDIU1QwOdWJNf5ndPwgCNgBIdzw>
+    <xme:tgTfaM3uJTnLmnD30l1wb0Zj4jNbcr5QcUR8brREqP4DjldbisSRZzszVblUO1fhS
+    J331nbm2ZYMM5mL--0knohwXd_YSUjg2LFnbXRx4rwE6KpgSxeVbA>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdekjedvlecutefuodetggdotefrod
     ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
     ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhguuceu
-    vghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvghrnh
-    epkeetgfeufefhkefhjeegffefteffveeuhfdvieejtdefvdetheeftdejudffvdehnecu
-    ffhomhgrihhnpehkvghrnhgvlhdrohhrghenucevlhhushhtvghrufhiiigvpedtnecurf
-    grrhgrmhepmhgrihhlfhhrohhmpegrrhhnugesrghrnhgusgdruggvpdhnsggprhgtphht
-    thhopeejpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehkrhiikheskhgvrhhnvg
-    hlrdhorhhgpdhrtghpthhtohepkhhriiihshiithhofhdrkhhoiihlohifshhkiheslhhi
-    nhgrrhhordhorhhgpdhrtghpthhtohepthhorhhvrghlughssehlihhnuhigqdhfohhunh
-    gurghtihhonhdrohhrghdprhgtphhtthhopehlihhnuhigqdgrrhhmqdhkvghrnhgvlhes
-    lhhishhtshdrihhnfhhrrgguvggrugdrohhrghdprhgtphhtthhopehlihhnuhigqdhrih
-    hstghvsehlihhsthhsrdhinhhfrhgruggvrggurdhorhhgpdhrtghpthhtohepshhotges
-    lhhishhtshdrlhhinhhugidruggvvhdprhgtphhtthhopehlihhnuhigqdhkvghrnhgvlh
-    esvhhgvghrrdhkvghrnhgvlhdrohhrgh
-X-ME-Proxy: <xmx:iv_eaN1i_9MEdLYEaN5LmPLsLN4VdWQ5gzqyXtm4S2hdB3FI6ojE8Q>
-    <xmx:iv_eaJQ0iqhekBJG_ZNv4N7eyiZd6qivnqLNQ9d2MVElQqs6DFJQcQ>
-    <xmx:iv_eaOxYPZ981NcrRqq5DjAYYDp97i96adR2uvubuViawKp-w_Y7Tw>
-    <xmx:iv_eaBA1Vg93SANUa7SRpW7_2SDp8UR21x4gNm6WJd3zRTuGfCDkxw>
-    <xmx:iv_eaFi4-HVvRUCQzDfSfHm0IxXHeK_HBVcSXLPGriYfhV1o9UV624s2>
+    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
+    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
+    hnpeeggfejudejvdeijeeglefgtdfhudffieetfedugefhffekjeefhedtjeefjeetfeen
+    ucffohhmrghinhepghhithhhuhgsrdgtohhmnecuvehluhhsthgvrhfuihiivgeptdenuc
+    frrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghp
+    thhtohepudefpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehlihhnuhigsegrrh
+    hmlhhinhhugidrohhrghdruhhkpdhrtghpthhtoheprhhmkhdokhgvrhhnvghlsegrrhhm
+    lhhinhhugidrohhrghdruhhkpdhrtghpthhtoheprhhoshhtvgguthesghhoohgumhhish
+    drohhrghdprhgtphhtthhopegrrhgusgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohep
+    vggsihhgghgvrhhssehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkvggvsheskhgvrh
+    hnvghlrdhorhhgpdhrtghpthhtohepnhgrthhhrghnsehkvghrnhgvlhdrohhrghdprhgt
+    phhtthhopehtrhhivhhirghlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuh
+    hsrdifrghllhgvihhjsehlihhnrghrohdrohhrgh
+X-ME-Proxy: <xmx:tgTfaEfVDig9l8uBUPbN7qI-_DCBdQrBBJe3yeBYBHZdyx9wWZ4ZrQ>
+    <xmx:tgTfaLbg4sGGDeoOoYcYMIPsh-C1g4ou8AJZLCZHIk7GR5UKpT7M6g>
+    <xmx:tgTfaI65r36mfVjBW4Sizc85YSjIO03Rozn3KAc9a5fLZkOkmQsEmQ>
+    <xmx:tgTfaJfUjaJ1MTjrgZ6HaVSDj_-s66VpG_UyiHMbnGvso9Je95AENQ>
+    <xmx:uATfaD7SKOA3y3hBY1ljKWGvlwxTwPxi5Xem1yzgPXtv89plbWNhmQ9U>
 Feedback-ID: i56a14606:Fastmail
 Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 1C7B6700065; Thu,  2 Oct 2025 18:41:14 -0400 (EDT)
+	id CF691700065; Thu,  2 Oct 2025 19:03:18 -0400 (EDT)
 X-Mailer: MessagingEngine.com Webmail Interface
 MIME-Version: 1.0
-X-ThreadId: AXqMPTuZh4v7
-Date: Fri, 03 Oct 2025 00:40:53 +0200
+X-ThreadId: AOvO0JZNdWB-
+Date: Fri, 03 Oct 2025 01:02:58 +0200
 From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Krzysztof Kozlowski" <krzk@kernel.org>,
- "Krzysztof Kozlowski" <krzysztof.kozlowski@linaro.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "Linus Torvalds" <torvalds@linux-foundation.org>,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- soc@lists.linux.dev
-Message-Id: <a7fa4971-85a3-4435-8728-493acb68ed0d@app.fastmail.com>
-In-Reply-To: <CAJKOXPcRw3teqahDc6RBCz8XvqLt2sHqxrOUxpA84RszcsnGFQ@mail.gmail.com>
-References: <54b49f7b-9232-44d7-9ae3-ecc1826f17d7@app.fastmail.com>
- <d482931b-1779-4b49-9fa2-1c101bdf0929@app.fastmail.com>
- <CAHk-=wjsMPACg__N37EL8Sh=z1wkCpj+FQKpoVPXzyiVpm1i_w@mail.gmail.com>
- <CAGE=qrpygJ4XgtzdnGACj-6KRiD8r57F4ogNYaA3LLMusBV9fg@mail.gmail.com>
- <CAJKOXPcRw3teqahDc6RBCz8XvqLt2sHqxrOUxpA84RszcsnGFQ@mail.gmail.com>
-Subject: Re: [GIT PULL 2/5] soc: dt changes for 6.18
+To: "Franz-Josef Haider" <fj.haider@outlook.com>,
+ "Linus Walleij" <linus.walleij@linaro.org>
+Cc: "Russell King" <linux@armlinux.org.uk>,
+ "Ard Biesheuvel" <ardb@kernel.org>,
+ "Russell King" <rmk+kernel@armlinux.org.uk>,
+ "Eric Biggers" <ebiggers@kernel.org>,
+ "Nathan Chancellor" <nathan@kernel.org>,
+ "Steven Rostedt" <rostedt@goodmis.org>, "Kees Cook" <kees@kernel.org>,
+ "Dave Vasilevsky" <dave@vasilevsky.ca>, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, trivial@kernel.org
+Message-Id: <7d0b68d4-6798-43a5-a6ca-99807bc183c5@app.fastmail.com>
+In-Reply-To: <VI0P195MB273999EC8797270AE732D8BAEDE7A@VI0P195MB2739.EURP195.PROD.OUTLOOK.COM>
+References: <VI0P195MB2739D000BD1BF18B3B718F93ED1FA@VI0P195MB2739.EURP195.PROD.OUTLOOK.COM>
+ <CACRpkdZbwuf2Fgtq+jyqzqspb37-P6X4O9xqkG-mSb+afSjh3g@mail.gmail.com>
+ <VI0P195MB273993B2928F985EAC763375EDE6A@VI0P195MB2739.EURP195.PROD.OUTLOOK.COM>
+ <6d9bb65c-d693-4d99-8183-b605cabf9380@app.fastmail.com>
+ <VI0P195MB273999EC8797270AE732D8BAEDE7A@VI0P195MB2739.EURP195.PROD.OUTLOOK.COM>
+Subject: Re: [PATCH] ARM: Make sure CPU_ARM940T kernel can be built.
 Content-Type: text/plain
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_154118_987928_1B3BA691 
-X-CRM114-Status: GOOD (  19.79  )
+X-CRM114-CacheID: sfid-20251002_160321_925401_E72B9AFB 
+X-CRM114-Status: GOOD (  23.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,49 +125,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 2, 2025, at 08:26, Krzysztof Kozlowski wrote:
-> On Thu, 2 Oct 2025 at 15:04, Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org> wrote:
->> On Wed, 1 Oct 2025 at 15:27, Arnd Bergmann <arnd@arndb.de> wrote:
->> >
->> >   https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git tags/soc-dt-6.18
->>
->> Bah. I've merged this, but this causes build failures on arm64.
->>
->> I only noticed after already having pushed it out.
->>
->> > SeonGu Kang (1):
->> >       arm64: dts: axis: Add ARTPEC-8 Grizzly dts support
+On Thu, Oct 2, 2025, at 17:34, Franz-Josef Haider wrote:
+> On 10/1/25 23:52, Arnd Bergmann wrote:
 >
+> Ok if the support for ARMv4T NOMMU has been removed, then maybe we can 
+> leave this as resolved.
 >
-> I'm sorry, I should not have trusted contributors from Samsung that
-> they know what they are doing and I think my CI misses allyesconfig on
-> particular branches, because for-next branch did enable this symbol
-> and it was tested by my CI. Also LKP tests each of my branches and
-> didn't report this, I think.
-
-This one is on me really, I had the right tooling available and
-I had used it in the past, but I never ran it after I did the
-bulk of the merges in the past few weeks. There is always someone
-who misses a dependency in the DT updates and I rely on that
-check anyway to detect some types of incompatible binding updates
-and I have no excuse for not noticing it myself.
-
-We'll have to refine the process anyway when we start taking turns
-with the soc tree merges.
-
-> Issue will be fixed with commit coming via clk tree - Stephen Boyd:
-> https://lore.kernel.org/linux-samsung-soc/20250825114436.46882-2-ravi.patel@samsung.com/
-> And git pull:
-> https://lore.kernel.org/all/20250909183504.104261-2-krzysztof.kozlowski@linaro.org/
+> It's actually just for a hobby project, nothing important. I just 
+> thought these two patches might be helpful to other people who 
+> encounter a similar issue on similar cpus, but if the support for 
+> ARMv4T NOMMU has been dropped then there is no point maybe.
 >
-> I understand this won't fix bisectability.
->
-> Arnd,
-> Eventually you can just mark arch-artpec as broken just to fix your branches.
+> Here are the patches for 6.2 in any case but it's very much a hacky 
+> WIP, and there is some stuff in there that's not needed anymore on top 
+> of later commits. https://github.com/krnlyng/linux-ipod/commits/n2g-wip
+> I also have a version on top of a recent (~29 SEPT 2025) commit locally 
+> if that is interesting too.
 
-The missing commit is at the bottom of your branch, so I'm sending
-just that commit as a build fix, that seems easier than marking it
-as broken now and then later reverting that change.
+Looking at your tree, I find that the ARMv4T NOMMU support is not
+even that bad to put back, especially since commit 84fc86360623
+("ARM: make ARCH_MULTIPLATFORM user-visible") made it possible to
+add a 'depends on !ARCH_MULTIPLATFORM' in the platform specific
+code.
+
+I still think that this specific oneline patch is not helpful,
+but the other one you sent is technically still a correct fix
+and we should either merge that or drop the remnants of the
+ARM740T/940T/946E code now that we know it's broken.
+
+Similarly, the later ARM1176 based code that you based your
+patches on does look worth cleaning up and merging if there are
+still users.
+
+For the specific s5l870x (arm940) SoC support, I see what you
+mean with missing cleanups, but more importantly I think that
+we will want to drop nommu support from arch/arm/ in a few years
+as the remaining users all tend to fall into a similar class
+as yours where the developers work on them for the fun of it
+but without anyone else depending on it to run on the latest
+kernels. Since there is a significant cost in continuing to
+test and fix the special cases for nommu support overall, I
+would prefer to draw the line at S5L8720 support and not merge
+S5L8702 or earlier.
 
       Arnd
 
