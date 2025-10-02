@@ -4,85 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4CBA9CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 10:32:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08725CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 10:33:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3P2SqVLMxqWw0YsfwYWOiRgzhonXoSlAGUyYx+H0cP8=; b=B40XBbEn3etDwr0FoKGKanhJow
-	wdB3NZ7ND7UEaI5Yxw6T8iE9yFFDErL+IW1Gd6JpeLhufupyOIPzhKLvKx0J2L27jOgP/tc41PxmM
-	ViTUazjZRJy9ZxZTZhLgwIDxIobf8CbTAHsI2kzI4R1NoQbEHh8HXmmBE1EN9/mWIUZbbm5nE4VAp
-	P0eU79RUKgzbabx5nvI2ULcyHWZNvBRrM8Mt9OXxlh55v5Y3p6umr1W1FKmGfLWmQONGRSQ97H3+l
-	63XZRYvpEmleGlYrBnlH9+r6MCeYgkYXT1WJKtblZ8frgOANL0e4tfX1/tXpZaxS58H15fPT9Ml9Q
-	t3kNl/JQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=7P+sGtXRhq0usSaYxPiIMynq3nyv26DuyfZTuxL8VWI=; b=H4W+uvRGrqmcG8
+	3ugWpsBRhl3tFWjz5YF+xBfnDbjU6f/QAz+Xx0KsOwT5ejqZDQlp9rrO8umOKngTm+2EI1bEg1jrY
+	x+jAQ89taqr5dOPu2G2FxLWmRzZQKopBWWZkFxMMEo1hhQT+uIUFw2swdnF2P26EDjg115uH00VkJ
+	a5kYYYQWEzwGVxbx+HprXpaUzDPVQGOmcy6E18IZTAAyAmZypgxXfZF4791FrYgL8mCdmzZCnrkYP
+	B+P5fstgmYXBMa0steju29w0bDr1vlKm7z/AknFWq/qDwi9vc8rurmIxw5UyhbBOsztXbJAeZ3A4/
+	nhTx9f/IGmBhG/H7a3Cw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4GbX-0000000AGZj-2VWs;
-	Thu, 02 Oct 2025 10:32:07 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1v4GcR-0000000AGh9-3xRw;
+	Thu, 02 Oct 2025 10:33:03 +0000
+Received: from mail-ej1-x62b.google.com ([2a00:1450:4864:20::62b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4GbU-0000000AGZO-36dZ
+	id 1v4GcP-0000000AGfp-2k7Q
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Oct 2025 10:32:05 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-330b4739538so870252a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Oct 2025 03:32:04 -0700 (PDT)
+	Thu, 02 Oct 2025 10:33:02 +0000
+Received: by mail-ej1-x62b.google.com with SMTP id a640c23a62f3a-b457d93c155so164499466b.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Oct 2025 03:33:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1759401123; x=1760005923; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=3P2SqVLMxqWw0YsfwYWOiRgzhonXoSlAGUyYx+H0cP8=;
-        b=B2Qgu8d5X/BJ+4QTmKwcHPFOT92wlmUiMHRCFqHiZLnW6nHtqKHHh9k4lcSQiGxDri
-         WWYaWrRrwC2joBZFZS4a4cMSEy5E8uu3yL3l67SGnOt6z4wPBO68d+7p/DXHFI4fEELh
-         2sCDRAGj5BLNUeYDbxoDl7AjHtTZxPdMkmafqt9ukNgyrTDUc+kccLGGHAxkmI4O8BeQ
-         JITraHciXQc+3FwGNiyodFC+2GN6UnmdSubKUpeLHpjuCFrNFAbpTZjYp36WeE4adgvM
-         OKGlyIxFpPgDx/1+V0Frgb+kGzmi1nemLskN9n3cR5/y9ELLfbrc1CCWvIIpKcT+whuf
-         CNrw==
+        d=linaro.org; s=google; t=1759401179; x=1760005979; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=7P+sGtXRhq0usSaYxPiIMynq3nyv26DuyfZTuxL8VWI=;
+        b=WS1XXGcl/HlIGsoW7U4qwcRsVsFcV0LizucT7tAJCJbhJgLVVFNtcNavfPpBONHYAm
+         Wk+zzDpPQSZL/RDgJHJZ/zGDz2ZO/PkG2KuE3ky6YH8/UxJFjoz2RtLToWzxshqKGR3l
+         sBLZUWLOSzrCNkZcbVKE2WP9jQV/cPUiaXNOD+dvBurjJ3xkIKrP8XWT7JfM65VSfyOD
+         0IZbK8CJVvdLfZlOPefidg3I5rGTnJNDa26kG5vGB43dJKZa4Lz0pMcRTRD+T4UifazL
+         EbCC4cOAM7eQFVxji/mSHBUL5RZCHrx1v54E2Jwh41+McAtBHWSPZpbfTJTuczNlOll6
+         99KA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759401123; x=1760005923;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1759401179; x=1760005979;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=3P2SqVLMxqWw0YsfwYWOiRgzhonXoSlAGUyYx+H0cP8=;
-        b=Eeg5g4J448D9/1gKXqlblbHnPso9ErSxFSxpTkfyJkHV/EPWnUILTJD8i+t8QhVFhS
-         CyLFQ32kphZb6BgpoOYo5HsFTpkOwMtONnpa6d3bdbEPlC5agmLvBeOaPDwyfKfXvlRy
-         meaN3pCZZdiS3QZpFC2cJJOOYns0ZZCISLqJy3t9K8q1rEro8oAB2uBkfKNuzVLuUI0q
-         pOUQTxQQoHBMGn/dTgbWO2PNFgpJEtPjea2n4D6ENBtsnnDRBInZ8kEOQ582zWWEClxQ
-         kBGMEyexZwlrN+aqIVnuWO0G8Dun1lmb0xyA2zj16lJbVN5MQk+YR/Q3fVa0J1KjlinN
-         q51w==
-X-Forwarded-Encrypted: i=1; AJvYcCVzBIdOul7YlVEkkpGIdq+BDlA05dQG3FccYI88Shaa3dD73lMxk5C1uIsiHRCm/RdQX9ONgIoqzYtvKNkSeQjf@lists.infradead.org
-X-Gm-Message-State: AOJu0YzUxfAKc1GOiQY1Omb4dfJBVBlOEU1oQtG446gMobOtiFu9EIWQ
-	hASD8xRf/5bo6d8uE3nCqQQZih09R+BusDXfCuFmSCtZmABqPl5sYpgIdQpx0OYY+aDnSwQc8Ne
-	v71Whdts7XUPMGlLxKZAqvOfO5F3NxmX2l8cRYOhNqQ==
-X-Gm-Gg: ASbGncsqIm5JsymXHXDCiDMP9mORTFLCxmx7q56TrAkL/YjdwZ6eUfyxaY8eYLQQUP+
-	jeSPMOq7xpUQGtqGqVgJIuSVxxEBJWOE/npkW1/13R/JQsJn3I3HOCsnqo77IFl8h4vyXmKNIJb
-	1dQvZTxrYfDJHv2asVgn0YsxeqmhKlZNu+Yq5Ec0CUQVOa5zgp/TwFeHz4+JWxZO6NocdHTcQzC
-	PeAAfvJUYv/APKIBBg128QwiCzb/ba1RpBIE5iBEp37/hE=
-X-Google-Smtp-Source: AGHT+IFNooRw4RHeJvjuSBVXCorl+kB8dNR6gBxLsbJ85oC4nGIv0h9tEQUex6+32+m/lKZXcg7r2MvecOqjHMCn2h8=
-X-Received: by 2002:a17:90b:3845:b0:32b:9506:1780 with SMTP id
- 98e67ed59e1d1-339a6e91e6bmr7872652a91.9.1759401123576; Thu, 02 Oct 2025
- 03:32:03 -0700 (PDT)
+        bh=7P+sGtXRhq0usSaYxPiIMynq3nyv26DuyfZTuxL8VWI=;
+        b=MBFZe9h3WcCyRD7BCpr2DICTJ8qvBHc5+A9Mtdx+9EysIT7rb672ckN4S3kLlqVLf2
+         e4uI7/efVnoq8/MN54hZdQDHvTyxhww7jv90sGh99NO2HNnvg6M8wyIpu/L4p5WJOIcC
+         FQCe+nKoN9br26JMGD+aNPK7wM/yGNQCGDlDeatM3sEG6GD8XFkUpJwi9EiNwBzzbQIZ
+         DtNqijf6L72Y1xtp9wji7ZHZf7FXLJOSOg9II94AkTLBiUHWwAqksz/9fwD6FIxGI7G1
+         E2ravAZrnljZhaiaJlABhcqRiR+V3cHLNjcL2Awv6LHyBPJ3FpZK6ZyT94qW3zePo8Ja
+         qs+w==
+X-Forwarded-Encrypted: i=1; AJvYcCXzqWsPQhUw+FvBED951jzO1lLe5AUppU8SH6T889mr243bC+2nruv5hm1hYfAkagOqrKeAGUOQ+DnoQtNbextZ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwWGvLnEI61/T/irWv/0hJKNezwhIlZrClDMdYJIMZ36DvZb2M9
+	WuwDre5g+8WKDq4hrVOX9CmoTvFhkTVbHkFC6KVQ45VMsDcUa+4y+Sr+zg8nKD3F6b7Do+Ul/y8
+	8ic/jFns=
+X-Gm-Gg: ASbGncuM74xDKyO74Z5aA4lhlgqkFy4kclEQowyO+l6UFknvUiPx62AppMtG8Ihy16X
+	ohJwA4hqBkQiuJ2lFfolICcVu0Kt2BO75B9HzQvnlcuomptsA61Ng3usul2ICWdsetphQ65vlQk
+	rqkaE+qlNaMGpZGhqE2mzqQsb5Q7a4xDAT/gE2lZY7N22aThP/XiCbKerG24cfVPWo8HCZCDgeA
+	yNTjSUZ0FY5f31xFKp0Zj4xx07w0Gwj/2gg0O3Ve8/z75QT4xkY+GtS8tJWDMbj0Nx0IEyHQBAq
+	R7QMAxYdQX6kTr4GcxWRJ8c/+zg6bxR9ZzvUXZvfpnTKaAVVsEalH3wd+9c3cY8Xa96oDtjQ5zA
+	D6xVvCoF2QYoSlVzjo0X+DzObhO89i/JSkqh9PIwu1+9N4x4QO0DrbN7w4TCqbs9Af53VP1bzTJ
+	wYn+TVzM4pOl/ZLlJIapYukkw163/SOP3WVBZoXalF
+X-Google-Smtp-Source: AGHT+IE55OaBBhFZS/spDOtLmb4PerdgYY5yS2Ckb/IGy29/YmfIffHAN0iEIq0aghfbW8MKNL/xbg==
+X-Received: by 2002:a17:907:3d94:b0:b3f:f66b:268a with SMTP id a640c23a62f3a-b46e30e957amr846825566b.19.1759401179405;
+        Thu, 02 Oct 2025 03:32:59 -0700 (PDT)
+Received: from puffmais2.c.googlers.com (224.138.204.35.bc.googleusercontent.com. [35.204.138.224])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b4871167172sm170262566b.65.2025.10.02.03.32.58
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 02 Oct 2025 03:32:59 -0700 (PDT)
+From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Subject: [PATCH 0/3] soc: samsung: exynos-pmu: gs101: avoid SError for
+ inaccessible registers
+Date: Thu, 02 Oct 2025 11:32:56 +0100
+Message-Id: <20251002-gs101-pmu-regmap-tables-v1-0-1f96f0920eb3@linaro.org>
 MIME-Version: 1.0
-References: <20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com>
- <20250915-arm_coresight_power_management_fix-v3-19-ea49e91124ec@arm.com>
-In-Reply-To: <20250915-arm_coresight_power_management_fix-v3-19-ea49e91124ec@arm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Thu, 2 Oct 2025 11:31:52 +0100
-X-Gm-Features: AS18NWA7_Nm9M_Ji8RxvzJsu3FLLNTGn6cVY6LePoADrv-2AZXH_SPpPn2e3Oro
-Message-ID: <CAJ9a7VgQoJMQyuGP6UP8ptg4xcoV2cbR4bwz6ooRy5O_SaiCVA@mail.gmail.com>
-Subject: Re: [PATCH v3 19/31] coresight: cti: Introduce CS_MODE_DEBUG mode
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
-	Yeoreum Yun <yeoreum.yun@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Yabin Cui <yabinc@google.com>, 
-	Keita Morisaki <keyz@google.com>, Yuanfang Zhang <quic_yuanfang@quicinc.com>, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-B4-Tracking: v=1; b=H4sIANhU3mgC/x2MSQqAMAwAvyI5G2grrl8RD1VjDbiURkUQ/27xM
+ jCHmQeEApNAkzwQ6GLhfYui0wSG2W6OkMfoYJTJtVIanehIv54YyK3W42H7hQSr0hR2qKcqzwh
+ i7QNNfP/ntnvfD35ip1hpAAAA
+X-Change-ID: 20251001-gs101-pmu-regmap-tables-8726ac9f853e
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, 
+ Peter Griffin <peter.griffin@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_033204_800696_0B53CDF2 
-X-CRM114-Status: GOOD (  25.64  )
+X-CRM114-CacheID: sfid-20251002_033301_709828_1F6C88E3 
+X-CRM114-Status: GOOD (  11.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,100 +108,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Accessing non-existent PMU registers causes an SError, halting the
+system and rendering it unuseable.
 
-On Mon, 15 Sept 2025 at 11:34, Leo Yan <leo.yan@arm.com> wrote:
->
-> Introduce a new CS_MODE_DEBUG mode to indicate that a device is being
-> used for debugging purposes, e.g, if a system enables CTI for debugging
-> but not for hardware trace
->
+For gs101, we can avoid that by creating the underlying PMU regmap with
+the read- and writable register ranges in place, because on gs101 this
+driver controls creation of the regmap.
 
-How can you know why the CTI is being enabled?
+This series updates the Exynos PMU driver and gs101 in particular to do
+just that. For gs101 this is easy, as the exynos-pmu driver creates a
+regmap and we can update the regmap config to pass in the registers.
+For other SoCs it's not as straight forward, as syscon_node_to_regmap()
+is used which doesn't allow passing a custom regmap config - those SoCs
+are out of scope for this series.
 
-System CTIs are attached to key HW trace infrastucture such as input
-triggers for ETR/ETB that have direct effect on trace.
-CoreCTIs, while they have some debug triggers, can also trigger ETM events.
+With this in place, invalid registers (by drivers, or even plain
+debugfs), are now simply skipped by regmap, leaving the system useable
+in that case.
 
-Mike
+Cheers,
+Andre'
 
-> Update ETM4x driver to mute compiler warnings for the newly added mode.
->
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->  drivers/hwtracing/coresight/coresight-cti-sysfs.c  | 2 +-
->  drivers/hwtracing/coresight/coresight-etm4x-core.c | 2 ++
->  include/linux/coresight.h                          | 9 +++++----
->  3 files changed, 8 insertions(+), 5 deletions(-)
->
-> diff --git a/drivers/hwtracing/coresight/coresight-cti-sysfs.c b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-> index 572b80ee96fbf18ec8cf9abc30d109a676dfbc5d..3e0039f75f5aad104cb86561bf37971c7dc4e408 100644
-> --- a/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-> +++ b/drivers/hwtracing/coresight/coresight-cti-sysfs.c
-> @@ -112,7 +112,7 @@ static ssize_t enable_store(struct device *dev,
->                 ret = pm_runtime_resume_and_get(dev->parent);
->                 if (ret)
->                         return ret;
-> -               ret = cti_enable(drvdata->csdev, CS_MODE_SYSFS, NULL);
-> +               ret = cti_enable(drvdata->csdev, CS_MODE_DEBUG, NULL);
->                 if (ret)
->                         pm_runtime_put(dev->parent);
->         } else {
-> diff --git a/drivers/hwtracing/coresight/coresight-etm4x-core.c b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> index b63433e80d305588c18b084408496690480a7af0..4218cefca63d7b2f3b102e74d7f007ebc7b08861 100644
-> --- a/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-etm4x-core.c
-> @@ -934,6 +934,7 @@ static int etm4_enable(struct coresight_device *csdev, struct perf_event *event,
->         case CS_MODE_PERF:
->                 ret = etm4_enable_perf(csdev, event, path);
->                 break;
-> +       case CS_MODE_DEBUG:
->         default:
->                 ret = -EINVAL;
->         }
-> @@ -1132,6 +1133,7 @@ static void etm4_disable(struct coresight_device *csdev,
->         mode = coresight_get_mode(csdev);
->
->         switch (mode) {
-> +       case CS_MODE_DEBUG:
->         case CS_MODE_DISABLED:
->                 break;
->         case CS_MODE_SYSFS:
-> diff --git a/include/linux/coresight.h b/include/linux/coresight.h
-> index 39781ba24ee2ad9f3065770409aafb0e5af57fa8..462876b5a870f3e93ad2a1807a9045d5eb115ccd 100644
-> --- a/include/linux/coresight.h
-> +++ b/include/linux/coresight.h
-> @@ -253,10 +253,10 @@ struct coresight_trace_id_map {
->   *             by @coresight_ops.
->   * @access:    Device i/o access abstraction for this device.
->   * @dev:       The device entity associated to this component.
-> - * @mode:      The device mode, i.e sysFS, Perf or disabled. This is actually
-> - *             an 'enum cs_mode' but stored in an atomic type. Access is always
-> - *             through atomic APIs, ensuring SMP-safe synchronisation between
-> - *             racing from sysFS and Perf mode. A compare-and-exchange
-> + * @mode:      The device mode, i.e sysFS, Perf, debug or disabled. This is
-> + *             actually an 'enum cs_mode' but stored in an atomic type. Access
-> + *             is always through atomic APIs, ensuring SMP-safe synchronisation
-> + *             between racing from sysFS and Perf mode. A compare-and-exchange
->   *             operation is done to atomically claim one mode or the other.
->   * @refcnt:    keep track of what is in use. Only access this outside of the
->   *             device's spinlock when the coresight_mutex held and mode ==
-> @@ -344,6 +344,7 @@ enum cs_mode {
->         CS_MODE_DISABLED,
->         CS_MODE_SYSFS,
->         CS_MODE_PERF,
-> +       CS_MODE_DEBUG,
->  };
->
->  #define coresight_ops(csdev)   csdev->ops
->
-> --
-> 2.34.1
->
+Signed-off-by: André Draszik <andre.draszik@linaro.org>
+---
+André Draszik (3):
+      soc: samsung: exynos-pmu: allow specifying read & write access tables for secure regmap
+      soc: samsung: exynos-pmu: move some gs101 related code into new file
+      soc: samsung: gs101-pmu: implement access tables for read and write
 
+ MAINTAINERS                                 |   1 +
+ drivers/soc/samsung/Makefile                |   3 +-
+ drivers/soc/samsung/exynos-pmu.c            | 136 +--------
+ drivers/soc/samsung/exynos-pmu.h            |  11 +
+ drivers/soc/samsung/gs101-pmu.c             | 445 ++++++++++++++++++++++++++++
+ include/linux/soc/samsung/exynos-regs-pmu.h | 343 ++++++++++++++++++++-
+ 6 files changed, 797 insertions(+), 142 deletions(-)
+---
+base-commit: 5eb97efbe6a375944984e7fb69bb632d2879c841
+change-id: 20251001-gs101-pmu-regmap-tables-8726ac9f853e
 
+Best regards,
 -- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+André Draszik <andre.draszik@linaro.org>
+
 
