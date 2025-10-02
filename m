@@ -4,83 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16300CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 01:05:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69E43CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 01:08:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rENwoiSg1tzLoiAPGqkjBCSKSjDWlFAHIwunjXnHHZk=; b=np+QKReXf/6bwNt8tCWyRXQEbX
-	wW/6ssdwUtSUASzWr8ne4Sr6MAbdxXDNMsBzJx3Ys5aY+fXbL5tTfAPJBkPzF2XT7AKZM576z8joC
-	mk94SiKHiQO5JmQgbqN6F+rHsVKFZOLNCtqB4TqIq9C94nKOPB1n9ThdHI3mKtc85ubdv/C6KbTXK
-	hOKB2Nl7KnUsmWi6b00Y3hsY6ZDa7/+xR0ZmEvz3ktj5mF+u8Z3RfB2eofkMO/t2Z+P900iNhbsaI
-	JPWOrMiv8hBXPysd7Fs2WB/7EOI8kKskRDZ7xiNhtRvd5WzvDR+gTClUOrXGdJxCnp5yEjSwigt4S
-	iS275KEQ==;
+	bh=D7Od5VFbcggRAlxWiQ0g5qlG79Lv/bUugfwD4ZphtXA=; b=XsfHQK2WaTz2Ks7JOX2fVJ/yNN
+	8b9+h6Rp7rEYJU2bWhg9Tnf0UCFdvDvbvcqSvWLGwhHAxTjyU/3jCbIQqqO73HkTfZ2CgtLp4ygkh
+	t2Jek1mSTlOOFtNn4x45i4d7gSrt4FOYFIiGi/HA4zr4ZyMaLn9Z9PsEFL7oGPpwLrubp5OXX/cSh
+	SaukYMvNZQ/of+Hqd47UjuwRLInIWHrJ7nKxLF7YjWRIJ1ENj3DmQ6k1NMVs0KWTOWioVyvbr6BsP
+	ZOxahK152BdorucnYj2qI/Akfh5E5QJ9B2vUlH5FNLfG09UEKEJTTj95x78T7aBlQiu8c4eDV81rI
+	k62i30JQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v47lC-00000009MLR-41FR;
-	Thu, 02 Oct 2025 01:05:30 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1v47ny-00000009Mah-2FTX;
+	Thu, 02 Oct 2025 01:08:22 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v47lA-00000009MK4-2iKF
+	id 1v47nw-00000009MaB-0XF1
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Oct 2025 01:05:30 +0000
-Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 591Ic3Q5012307
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 2 Oct 2025 01:05:27 GMT
+	Thu, 02 Oct 2025 01:08:21 +0000
+Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 591IbwIV031237
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 2 Oct 2025 01:08:19 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=rENwoiSg1tzLoiAPGqkjBCSK
-	SjDWlFAHIwunjXnHHZk=; b=LvibUwMoWmMPV8/gulPd7d0dqzFKMrYzfeA3+kpS
-	UyMKugvPCYLzj1AuNij2Xe8svkm61T3Nu+uMurHXzcEKuqqsTN+11a/TKpkLew+P
-	6pt07NBg2AdyfG5L06+6Gd/0EQWwGpnU9F9JS+usdLdyoh9huUqKNKlqvcdDUV0s
-	X6pvSnisQhvuX3vRO3vbpV/vMsWxsAjHkjnhUcICF+SrbWEul4xAfoZecWtAt/81
-	uzzhLZSpsCW77T7GZsahnUPXW9hcFZimBFIH571ZJvZSqAjqn2whHU6u+AatH7Xk
-	Kw6NFXO9OQoRfekRWMumaIlG0Op9mqvX2seb05sxiW9rLw==
-Received: from mail-qv1-f69.google.com (mail-qv1-f69.google.com [209.85.219.69])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49e80txfqw-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	D7Od5VFbcggRAlxWiQ0g5qlG79Lv/bUugfwD4ZphtXA=; b=kAJ89+YBtKdwEXA/
+	EY/RUK7xmEzz0FzDZ2y2M4hb4nQW03UXjthgmqSMXl+ImeN+/c84JPJ4z8HcaqVC
+	kGm6fdGj+l1I2rULN2UIyh4O0pChAybfBTc2nvMX6YO2tP3e98hlyY8LXxg1tNTg
+	I6mEJCb8nERgWCIcFpiOcFKzJDTd5H28k1sXGIA9xlSAKhN7KwaLxPqz8+4ohQD1
+	3kyP7S9zQp4J6FXn7fQft5TSCY9om/mTj+QadQk92PpVlwgMtKE3eM0d+RdDtAvD
+	p3aHvlMB+EW/WNAI6VhRrzWF84AJR+Fq4DrZ8/VFS+Vy6CAfjtmkjdeGxqD+XI2m
+	Vg80gQ==
+Received: from mail-qt1-f200.google.com (mail-qt1-f200.google.com [209.85.160.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49e6vr6b9k-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Oct 2025 01:05:26 +0000 (GMT)
-Received: by mail-qv1-f69.google.com with SMTP id 6a1803df08f44-79390b83c48so10609376d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 18:05:26 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Oct 2025 01:08:19 +0000 (GMT)
+Received: by mail-qt1-f200.google.com with SMTP id d75a77b69052e-4deb67c61caso14559071cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 01 Oct 2025 18:08:19 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759367126; x=1759971926;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=rENwoiSg1tzLoiAPGqkjBCSKSjDWlFAHIwunjXnHHZk=;
-        b=pVXU+/HRUwGRk9Rn0RVlnXs/byv9/Iru7c65cDzztVpiREBN1g3EFlXr2aVbFT1Knr
-         ilheAbdoxfITkRqZKvUFTxPxIcQgv2D+iBB+TrH2PlyJ3drgFnA0YBoHwNh2D1Sj8TS/
-         xZHM+htpTt7RP0bEDMQeugp2Odl46cWJfn5a9pZwTP+pvt3g+uk1Dwhm8Li+3gBBeCFv
-         6WLnHzWi3O7a8BY5Te3RUzKfWICyoD125gfI00v3EudkLLAzWewTLBbVcg9WuVVPca26
-         Vzy8XHRcbJDZQZW5MphT1PcBIWb06ZsrsyNvRXQtekKZul7JIgzGGyVtEnLnUOr63LQQ
-         Ca2g==
-X-Forwarded-Encrypted: i=1; AJvYcCX/Te96q6wfDRe7sW9GEnjYqv6n0Vznax22xR+0NMWmXm5T5tsu/OJm38CZRZq/uGqv2QZcpFJ92aMXuWK054bm@lists.infradead.org
-X-Gm-Message-State: AOJu0YyEv5aAooeHAa19VWDLdvMOcDjFllck3mAqbR6nZYrsBQ/rv+Qk
-	nevIqJjQ7wm8bm9aaUNdGQv4buZ3JXB3cZPgeEWnEZbmPlG/Hs7+EXffx1gVqr9jowxGYuklRf0
-	yTI54WjBOCf1fo2pC5FBBwxbsKdNzltLSXyTBSIdLINlHmHra2lcs76Wwp0ngEOXf7GDsiEbJjV
-	JwRw==
-X-Gm-Gg: ASbGnct3kCptRBvHkNK5gquyyLtSL73W1a5mSQAQv493Zk3GDF62xmfHm0atEAwZRWF
-	6YMqCIwknULGaUuQezknQTGqH3SaexjDeBSlfyeIlQFEAbgWfxoTalya2y0084/A+x+5F3CxjST
-	5Z4PwlERedR9a1vx6grR4llJZgkVVTQj0myLrBFvo2WWrI7cJSVC3Von7ocQfYqTgsfHikhZQHK
-	CZBcFb83UYMQvucPYDAQ0VlKX5CdAAqC9yAjlzKIPslHyh1cOUpI1XBjfz/i1Y1IQea47p0UGZk
-	4rqBshol514uhKZ+dkOnvAA4j3Xro+jQl+fM9/rnYFAIs+HIaXXpuoG0Tg0r4MTiIYJBhcVfc4J
-	pnl2QbjkwpEskiA2U3sbiADcB2rHNT8mzAgRnnLFRPkaX5tOwSSj3u8kINA==
-X-Received: by 2002:a05:622a:303:b0:4b6:2ffa:ac4f with SMTP id d75a77b69052e-4e41e542b1fmr83681981cf.57.1759367125568;
-        Wed, 01 Oct 2025 18:05:25 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGeKctloyAQifsz5OI79+M2Awu+QEw5vBOffum/dFuw5MctXvZ7WXCFsn+Kj+KiiKDncHvDRg==
-X-Received: by 2002:a05:622a:303:b0:4b6:2ffa:ac4f with SMTP id d75a77b69052e-4e41e542b1fmr83681451cf.57.1759367125094;
-        Wed, 01 Oct 2025 18:05:25 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1759367298; x=1759972098;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=D7Od5VFbcggRAlxWiQ0g5qlG79Lv/bUugfwD4ZphtXA=;
+        b=f4o+jvL+oTJC1FVDWml5GSwYoIMXlMuYb0PLKuZlW35vCarH/CO0/6SFJ1uWXwZApG
+         g0MSEV4Sd8o/PR2954O7gyuWfU4ZMu80rG4m7VjJO6VdMj3g2zUU5S4kZ8NETpl8vUK/
+         KY6ZdHAtOPu+CtiOjJW241UN2IbIBFtQEmc01s6X/f7y7k16tUPsbFrtSDiHgbxmk1Es
+         HuVgxh71Otn1yc+AESR3ZT8SyovIalu9xPc/F7MaCM5IUdza0XnjWw/6qqndD5hvqDOR
+         k/7GH2TKrJ/F/gkQWjpWF1aIKvCJJVOnLiE8GMIj+qJNqPVtcZoH0SrsphqOG3FtTonK
+         TSjw==
+X-Forwarded-Encrypted: i=1; AJvYcCX3fdvgMkJjhVmf6eeM7UCAMnNBwEL3DNfIjk0keZxLmr0GHS9BdWCGEJ/q02atH4ifrqGSG6A/ScIa/grGlPDn@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx4R6gRsTe9MaXtz+OpYpmxE5B6tlx9/AhDgQKKBl/keK8Vi7/U
+	HhfPYIKM/H8hTToQXgaHXeHKrJzuC42oUu8a1NnrgFBSdCsZ2g/pyfPvcBKILjCYC9Ogc1vTeWD
+	9mezQ26fMKVzlgEoHFNJMF50QMBVkjW9g0ieqUHgkfE1A1xBI1Hgd2UCe6M64PlReaCQoC0XeWV
+	MYUA==
+X-Gm-Gg: ASbGncsNZhZ5A2jUe3O6o8nor6STN1wgRyLnOdyTkUUHaalDxKVjT2pD53g98kh9mni
+	sUJNVWnv+GRHwzdLBqjzu/IDoXvRBVJMhSGnqxlL6OTUJStYBHHB/YwBT8St6wA6ErtAi18xvoG
+	qaaaw7Ybfg1d8bA9A9FNgQa0Abi7/Q2H7iLYEa0O3P61UI/s2nJszd/klO3RKJ34cKaeUNJUn9F
+	MU1zrpz62MaCRmlFUXHUcQ670hP7HX6/G6Ox7fwnzsWdqBxn97Fo4S4jU6cMTKhvkc3Hn9EunZm
+	p1/l012nHTiKH6WtPtVQM/K9TAoqkF8PQ7rFH3dcME+zvQqJZK7dXWrJcRUoli2nr3t3g9LD55d
+	mSTSBVOrz2RI6xfqJN0vC4dhU4TuVeZdZTLNXo32NA3rherslQn2WdR/pmA==
+X-Received: by 2002:a05:622a:53c7:b0:4b7:aa52:a6f3 with SMTP id d75a77b69052e-4e41df6e97dmr78906481cf.39.1759367297939;
+        Wed, 01 Oct 2025 18:08:17 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHrZaqEqf2UGQPe+mVMDuKAcfgbDUzaQ4FB8Nc046Mcl+O0GtaoEhYIkuD7lCFi+fSNe0W6CA==
+X-Received: by 2002:a05:622a:53c7:b0:4b7:aa52:a6f3 with SMTP id d75a77b69052e-4e41df6e97dmr78906061cf.39.1759367297485;
+        Wed, 01 Oct 2025 18:08:17 -0700 (PDT)
 Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-58b0113f01bsm345930e87.48.2025.10.01.18.05.22
+        by smtp.gmail.com with ESMTPSA id 38308e7fff4ca-373ba273eeasm2860421fa.9.2025.10.01.18.08.14
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 01 Oct 2025 18:05:23 -0700 (PDT)
-Date: Thu, 2 Oct 2025 04:05:21 +0300
+        Wed, 01 Oct 2025 18:08:15 -0700 (PDT)
+Date: Thu, 2 Oct 2025 04:08:12 +0300
 From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 To: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-Cc: Rob Clark <robin.clark@oss.qualcomm.com>,
+Cc: Connor Abbott <cwabbott0@gmail.com>, rob.clark@oss.qualcomm.com,
         Bjorn Andersson <andersson@kernel.org>,
         Konrad Dybcio <konradybcio@kernel.org>, Sean Paul <sean@poorly.run>,
         Dmitry Baryshkov <lumag@kernel.org>,
@@ -100,41 +101,44 @@ Cc: Rob Clark <robin.clark@oss.qualcomm.com>,
         linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
         freedreno@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
         iommu@lists.linux.dev, devicetree@vger.kernel.org
-Subject: Re: [PATCH 11/17] drm/msm/a8xx: Add support for A8x GMU
-Message-ID: <sgdbegsvzwg2hc5omrcmtifhp5543rey6jax3zhaqrdqot4l3e@wp635oyywxlw>
+Subject: Re: [PATCH 12/17] drm/msm/adreno: Introduce A8x GPU Support
+Message-ID: <o55el5zduao57uomzm6zeqslxjg7rtzfbttk7gq6gvsatapktx@5lflwspish24>
 References: <20250930-kaana-gpu-support-v1-0-73530b0700ed@oss.qualcomm.com>
- <20250930-kaana-gpu-support-v1-11-73530b0700ed@oss.qualcomm.com>
- <mbx2yihv4z3y5w6fptumw47rc3l33pbdduqnu66bgv2re64cjy@wgd2qq3uv64h>
- <20fb9f76-558b-48c8-92b0-9820407bb82f@oss.qualcomm.com>
+ <20250930-kaana-gpu-support-v1-12-73530b0700ed@oss.qualcomm.com>
+ <ks3ppjsy35wka2at5nxrr74l5mvzr4l6ovm5ncohanu2gn3ytl@gt2mzwjehq73>
+ <CACSVV00AFEJVti7BryA-_sosmBKCuDtX7+NEi4aL4X98AqR1Qg@mail.gmail.com>
+ <CACu1E7H0Y9wLwN=ztx+YSQLMQuqOF0hYPqvF-VdXyFW65og6og@mail.gmail.com>
+ <845ea929-d245-44b1-a0f5-2ea67ca595d9@oss.qualcomm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20fb9f76-558b-48c8-92b0-9820407bb82f@oss.qualcomm.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTI3MDAyOSBTYWx0ZWRfXxHcFg0rDDZHi
- BInBoN28sc+YfmAnsSU2RBMRz2SaUMRLcuSd/1OLitgRBDFPqnyPG/mUxtqi6tT6TYhFAm5O4t0
- C+JOODIHgOzsesWHuLak2YGjuUaY3vEqP2nikgICcnAQXYvgYP11RWGFk9pVKcGIyHi+7oVJCs5
- dsYRm86g+pVfX8efozo0BcOmGos2gSwP2OEOjVN7snC4gKDQEn9FCpI2q2H1VTG/zYc9B1nBc++
- bqWPb+hUIb6LQNVIcpRfJOooUjh62M1DLN0HLpuJ/a8V6J+RuobUTciR8s7xyOoWygkl5bN9Lua
- CF+NO8CdFj/1hzCNxpovsXTKqICHqoRvjchWKnHp63jPMB+Zc+V7xSXYsLLt8JKxm8L+hR6myzD
- AsUtI+su2JiwKq+Y8OSmZvCXCPaJTQ==
-X-Proofpoint-GUID: FgBW8neEbyBbXwXUlrrC4FKc2m7YkOqA
-X-Authority-Analysis: v=2.4 cv=OMkqHCaB c=1 sm=1 tr=0 ts=68ddcfd6 cx=c_pps
- a=wEM5vcRIz55oU/E2lInRtA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=x6icFKpwvdMA:10 a=e5mUnYsNAAAA:8 a=EUspDBNiAAAA:8 a=FDlLM7KsKmT8az22HMIA:9
- a=CjuIK1q_8ugA:10 a=OIgjcC2v60KrkQgK7BGD:22 a=Vxmtnl_E_bksehYqCbjh:22
-X-Proofpoint-ORIG-GUID: FgBW8neEbyBbXwXUlrrC4FKc2m7YkOqA
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <845ea929-d245-44b1-a0f5-2ea67ca595d9@oss.qualcomm.com>
+X-Proofpoint-GUID: VDr24PQ8FVxjD_9-ik38NC1kSHTT3my8
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTI3MDAxNyBTYWx0ZWRfXzC6hHJ2IG3Zx
+ hlfpMnNhPeBYNN2ZIxcpwgtFktVd4X5Pp50L8MWGzc9AeFr1pEwNH4XdOoAHyObmhLllXLxCXzs
+ TQ3MMslUqDraAEent8h7LL0Kh3dTVpyssRhdF8huufjNnWgXoc0LJKXWhSRUBe8Dt3IAujv+8md
+ sVKtMN/IjkBkGPik8DdaeCx8+REPZ9BGnNUqMkNyZLx+NEoLD4uDmtdsNwI9CBLjtox6X6k56cx
+ C7EGY8gA/jcJDcbRhqcT9t2j07B7RKIDLMsU3rYbB+Xr0dUahN4K0yKy1wvCVUUWDRH5Bq9MAgf
+ NhPsTtqYDuIlbch7uGgxDpHZCgfmXJV558pKgA9Evlo9hqIbnWtLLShZyAPHprzyMS3ROXdw3E+
+ qcdAQt4DO+g9F7ZF73jsynwNCQr1Pw==
+X-Authority-Analysis: v=2.4 cv=IeiKmGqa c=1 sm=1 tr=0 ts=68ddd083 cx=c_pps
+ a=JbAStetqSzwMeJznSMzCyw==:117 a=xqWC_Br6kY4A:10 a=IkcTkHD0fZMA:10
+ a=x6icFKpwvdMA:10 a=EUspDBNiAAAA:8 a=3yd5t0Cfpw69QvuzZ3oA:9 a=3ZKOabzyN94A:10
+ a=QEXdDO2ut3YA:10 a=uxP6HrT_eTzRwkO_Te1X:22
+X-Proofpoint-ORIG-GUID: VDr24PQ8FVxjD_9-ik38NC1kSHTT3my8
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-10-01_07,2025-09-29_04,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 malwarescore=0 bulkscore=0 phishscore=0 adultscore=0
- priorityscore=1501 lowpriorityscore=0 clxscore=1015 spamscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ lowpriorityscore=0 clxscore=1015 priorityscore=1501 bulkscore=0
+ suspectscore=0 spamscore=0 adultscore=0 impostorscore=0 phishscore=0
+ malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
  route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2509150000
- definitions=main-2509270029
+ definitions=main-2509270017
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251001_180528_808746_01C8FECA 
-X-CRM114-Status: GOOD (  31.62  )
+X-CRM114-CacheID: sfid-20251001_180820_176286_1A7A4EEA 
+X-CRM114-Status: GOOD (  37.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,75 +153,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 02, 2025 at 03:00:03AM +0530, Akhil P Oommen wrote:
-> 
-> 
-> On 9/30/2025 1:05 PM, Dmitry Baryshkov wrote:
-> > On Tue, Sep 30, 2025 at 11:18:16AM +0530, Akhil P Oommen wrote:
-> > > A8x GMU configuration are very similar to A7x. Unfortunately, there are
-> > > minor shuffling in the register offsets in the GMU CX register region.
-> > > Apart from that, there is a new HFI message support to pass table like
-> > > data. This patch adds support for  perf table using this new HFI
-> > > message.
+On Thu, Oct 02, 2025 at 02:32:21AM +0530, Akhil P Oommen wrote:
+> On 9/30/2025 2:11 PM, Connor Abbott wrote:
+> > On Tue, Sep 30, 2025 at 10:08 AM Rob Clark <rob.clark@oss.qualcomm.com> wrote:
 > > > 
-> > > Apart from that, there is a minor rework in a6xx_gmu_rpmh_arc_votes_init()
-> > > to simplify handling of MxG to MxA fallback along with the additional
-> > > calculations for the new dependency vote.
-> > 
-> > I'm sorry, I've sent it too early. This looks like a description
-> > of a not-that-related change which should be split to a separate commit.
-> > 
-> > > 
-> > > Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
-> > > ---
-> > > @@ -555,6 +557,11 @@ static inline int adreno_is_a7xx(struct adreno_gpu *gpu)
-> > >   	       adreno_is_a740_family(gpu);
-> > >   }
-> > > +static inline int adreno_is_a8xx(struct adreno_gpu *gpu)
-> > > +{
-> > > +	return gpu->info->family >= ADRENO_8XX_GEN1;
-> > > +}
-> > 
-> > This and the register mask updates can go to a separate commit.
+> > > On Tue, Sep 30, 2025 at 12:43 AM Dmitry Baryshkov
+> > > <dmitry.baryshkov@oss.qualcomm.com> wrote:
+> > > > 
+> > > > On Tue, Sep 30, 2025 at 11:18:17AM +0530, Akhil P Oommen wrote:
+> > > > > A8x is the next generation of Adreno GPUs, featuring a significant
+> > > > > hardware design change. A major update to the design is the introduction
+> > > > > of Slice architecture. Slices are sort of mini-GPUs within the GPU which
+> > > > > are more independent in processing Graphics and compute workloads. Also,
+> > > > > in addition to the BV and BR pipe we saw in A7x, CP has more concurrency
+> > > > > with additional pipes.
+> > > > > 
+> > > > > From a software interface perspective, these changes have a significant
+> > > > > impact on the KMD side. First, the GPU register space has been extensively
+> > > > > reorganized. Second, to avoid  a register space explosion caused by the
+> > > > > new slice architecture and additional pipes, many registers are now
+> > > > > virtualized, instead of duplicated as in A7x. KMD must configure an
+> > > > > aperture register with the appropriate slice and pipe ID before accessing
+> > > > > these virtualized registers.
+> > > > > 
+> > > > > This patch adds only a skeleton support for the A8x family. An A8x GPU
+> > > > > support will be added in an upcoming patch.
+> > > > 
+> > > > Consider this lands in a commit message. What would it mean in the Git
+> > > > history?
 > 
-> Which mask update exactly?
+> Commit text is not just for git history. This sentence is for a reviewer who
+> is going through the patches one by one.
 
-I'm sorry. Changes in register XML files, adding A8XX into the picture.
+You can put this in the commit message (in the git tree) under three
+dashes:
 
+----- CUT ----
+drm: subject
+
+Foo bar baz.
+
+SoB: you
+---
+
+All the notes and details  that will be ignored by git-am.
+----- CUT ----
+
+
+
+> > > > > @@ -2561,10 +2583,8 @@ static struct msm_gpu *a6xx_gpu_init(struct drm_device *dev)
+> > > > >       adreno_gpu->base.hw_apriv =
+> > > > >               !!(config->info->quirks & ADRENO_QUIRK_HAS_HW_APRIV);
+> > > > > 
+> > > > > -     /* gpu->info only gets assigned in adreno_gpu_init() */
+> > > > > -     is_a7xx = config->info->family == ADRENO_7XX_GEN1 ||
+> > > > > -               config->info->family == ADRENO_7XX_GEN2 ||
+> > > > > -               config->info->family == ADRENO_7XX_GEN3;
+> > > > > +     /* gpu->info only gets assigned in adreno_gpu_init(). A8x is included intentionally */
+> > > > > +     is_a7xx = config->info->family >= ADRENO_7XX_GEN1;
+> > > > 
+> > > > Is A8xx also a part of is_a7xx? What about the A9XX which will come at
+> > > > some point in future?
 > 
-> I can split out the hfi table addition and arc table updates into 2 separate
-> patches.
+> I think this is okay for now. I have a separate patch which reworks the
+> cx_mem initialization. That will completely remove the above ugliness.
 
-That one too.
+Ack.
 
-> 
-> -Akhil.
-> 
-> > 
-> > > +
-> > >   /* Put vm_start above 32b to catch issues with not setting xyz_BASE_HI */
-> > >   #define ADRENO_VM_START 0x100000000ULL
-> > >   u64 adreno_private_vm_size(struct msm_gpu *gpu);
-> > > diff --git a/drivers/gpu/drm/msm/registers/adreno/a6xx_gmu.xml b/drivers/gpu/drm/msm/registers/adreno/a6xx_gmu.xml
-> > > index 09b8a0b9c0de7615f7e7e6364c198405a498121a..5dce7934056dd6472c368309b4894f0ed4a4d960 100644
-> > > --- a/drivers/gpu/drm/msm/registers/adreno/a6xx_gmu.xml
-> > > +++ b/drivers/gpu/drm/msm/registers/adreno/a6xx_gmu.xml
-> > > @@ -66,10 +66,15 @@ xsi:schemaLocation="https://gitlab.freedesktop.org/freedreno/ rules-fd.xsd">
-> > >   	<reg32 offset="0x1f81c" name="GMU_CM3_FW_INIT_RESULT"/>
-> > >   	<reg32 offset="0x1f82d" name="GMU_CM3_CFG"/>
-> > >   	<reg32 offset="0x1f840" name="GMU_CX_GMU_POWER_COUNTER_ENABLE"/>
-> > > +	<reg32 offset="0x1fc10" name="GMU_CX_GMU_POWER_COUNTER_ENABLE" variants="A8XX"/>
-> > >   	<reg32 offset="0x1f841" name="GMU_CX_GMU_POWER_COUNTER_SELECT_0"/>
-> > >   	<reg32 offset="0x1f842" name="GMU_CX_GMU_POWER_COUNTER_SELECT_1"/>
-> > > +	<reg32 offset="0x1fc40" name="GMU_CX_GMU_POWER_COUNTER_SELECT_XOCLK_0" variants="A8XX-"/>
-> > > +	<reg32 offset="0x1fc41" name="GMU_CX_GMU_POWER_COUNTER_SELECT_XOCLK_1" variants="A8XX-"/>
-> > >   	<reg32 offset="0x1f844" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_0_L"/>
-> > > +	<reg32 offset="0x1fca0" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_0_L" variants="A8XX-"/>
-> > >   	<reg32 offset="0x1f845" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_0_H"/>
-> > > +	<reg32 offset="0x1fca1" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_0_H" variants="A8XX-"/>
-> > >   	<reg32 offset="0x1f846" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_1_L"/>
-> > >   	<reg32 offset="0x1f847" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_1_H"/>
-> > >   	<reg32 offset="0x1f848" name="GMU_CX_GMU_POWER_COUNTER_XOCLK_2_L"/>
 
 -- 
 With best wishes
