@@ -4,44 +4,46 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AD4F6CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 14:40:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A651CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 14:40:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=uICoztKRdvTHeaU0ikk7XrilYFnxM/L3Ytx6iwL/ipw=; b=Ozjzie5Vyu7lurAuOH8eM1L09D
-	02Jdpd3aw/bR8DJr/Tn0Qt5dnoX0ookrmQ+W6gMR7pPmWzIXTcCtYYKm/ymFjt6rFG5IzEUqqvLwS
-	9mB8vexDnOQRQJ1It9Z0MxERJRdO4hXaSgy4OmF/FQtqtyjiWzJ2qP9BK23vocu9Wf6jJ37bOnlVn
-	u3oUeaIJL6Q1UTnOEmTxQCK/OeRH/Qx6X5TEovR8Zu+bYi10YokhLBAiWxTN9Eo3G6yfOFr79dUUU
-	9+VKwN6faxyl9UGxJY1BRGClCNybNQvIUOlbHxuHoPdcwCSNcD8KYAUIUmkuG5icZlDIwms1mLWw/
-	RHygox1w==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Q7pztnC93nlTNnXj+254Jwpm8j5bh/I52wOyae/qCnY=; b=2szp5Msl45fwURcsest09VzWdA
+	abj3xPs9JhPMvU9ICBegxE9yGyxFeVYQGJZJ0ESLVYzP48kro9JyTz+eoYT6Q3GHPYbKp9sm0/PGk
+	YzWEDBevv0yo+D6WMThv9TnIwcCSK4C6iNEI4hABTeqnHCCVdYaUAsV3J0ZIehw83t0fUZrE68DCO
+	9RNc/gVu7Qn+NJyvRK4EGHbNhF/Xf2yy8tvkar6t3SF1Tspgz1UEZa4N957CziFZIjiE6JSPBrfJk
+	jNmHiJRHPMkdaSl99ex8L9kvLPH9W0gVBd6b+wGaHpT2r5B7gBabumsqeDcnYmWJlZ2NsPYRUeKbw
+	Osf3jK/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4KUF-0000000AcfR-15cM;
-	Thu, 02 Oct 2025 14:40:51 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v4KUH-0000000Acg3-2He3;
+	Thu, 02 Oct 2025 14:40:53 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4KUE-0000000AcfL-1R4t
+	id 1v4KUF-0000000AcfV-3u1v
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Oct 2025 14:40:50 +0000
+	Thu, 02 Oct 2025 14:40:51 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id BB50D60300;
+	by tor.source.kernel.org (Postfix) with ESMTP id 2B50660388;
+	Thu,  2 Oct 2025 14:40:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0739C4CEF9;
 	Thu,  2 Oct 2025 14:40:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C118C4CEF4;
-	Thu,  2 Oct 2025 14:40:48 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: Magnus Damm <magnus.damm@gmail.com>,
 	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
 Cc: linux-arm-kernel@lists.infradead.org,
 	linux-renesas-soc@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH 00/13] ARM: dts: renesas: Move interrupt-parent to root node
-Date: Thu,  2 Oct 2025 16:40:28 +0200
-Message-ID: <cover.1759414774.git.geert+renesas@glider.be>
+Subject: [PATCH 01/13] ARM: dts: renesas: r7s72100: Move interrupt-parent to root node
+Date: Thu,  2 Oct 2025 16:40:29 +0200
+Message-ID: <6aaabd73f6732f932b5708b1036a9c398c44cd19.1759414774.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1759414774.git.geert+renesas@glider.be>
+References: <cover.1759414774.git.geert+renesas@glider.be>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -58,67 +60,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-	Hi all,
+Move the "interrupt-parent = <&gic>" property from the soc node to the
+root node, and simplify "interrupts-extended = <&gic ...>" to
+"interrupts = <...>".
 
-This patch series is a follow-up to Morimoto-san's series[1] to move
-interrupt-parent properties to the root nodes in Renesas ARM64
-SoC-specific .dtsi files, which lets us replace several
-interrupts-extended properties by the more concise interrupts
-properties.  This series repeats the exercise for Renesas ARM32 SoCs.
+Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
+---
+ arch/arm/boot/dts/renesas/r7s72100.dtsi | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-Note that several .dtsi files predating the concept of the "soc" node
-already had their GIC interrupt-parent properties at the root node.
-Of the modified files, some had duplicate interrupt-parent properties.
-
-I intend to queue this in renesas-devel for v6.19.
-
-Thanks for your comments!
-
-[1] "[PATCH 00/26] arm64: dts: renesas: move interrupt-parent to top
-     node"
-    https://lore.kernel.org/87cy7ga2x8.wl-kuninori.morimoto.gx@renesas.com/
-
-Geert Uytterhoeven (13):
-  ARM: dts: renesas: r7s72100: Move interrupt-parent to root node
-  ARM: dts: renesas: r7s9210: Remove duplicate interrupt-parent
-  ARM: dts: renesas: r8a7742: Move interrupt-parent to root node
-  ARM: dts: renesas: r8a7743: Move interrupt-parent to root node
-  ARM: dts: renesas: r8a7744: Move interrupt-parent to root node
-  ARM: dts: renesas: r8a7745: Move interrupt-parent to root node
-  ARM: dts: renesas: r8a77470: Move interrupt-parent to root node
-  ARM: dts: renesas: r8a7790: Move interrupt-parent to root node
-  ARM: dts: renesas: r8a7791: Move interrupt-parent to root node
-  ARM: dts: renesas: r8a7792: Move interrupt-parent to root node
-  ARM: dts: renesas: r8a7793: Move interrupt-parent to root node
-  ARM: dts: renesas: r8a7794: Move interrupt-parent to root node
-  ARM: dts: renesas: r9a06g032: Move interrupt-parent to root node
-
- arch/arm/boot/dts/renesas/r7s72100.dtsi  |  4 ++--
- arch/arm/boot/dts/renesas/r7s9210.dtsi   |  1 -
- arch/arm/boot/dts/renesas/r8a7742.dtsi   | 26 ++++++++++++------------
- arch/arm/boot/dts/renesas/r8a7743.dtsi   | 14 ++++++-------
- arch/arm/boot/dts/renesas/r8a7744.dtsi   | 14 ++++++-------
- arch/arm/boot/dts/renesas/r8a7745.dtsi   | 14 ++++++-------
- arch/arm/boot/dts/renesas/r8a77470.dtsi  | 14 ++++++-------
- arch/arm/boot/dts/renesas/r8a7790.dtsi   | 26 ++++++++++++------------
- arch/arm/boot/dts/renesas/r8a7791.dtsi   | 14 ++++++-------
- arch/arm/boot/dts/renesas/r8a7792.dtsi   | 14 ++++++-------
- arch/arm/boot/dts/renesas/r8a7793.dtsi   | 14 ++++++-------
- arch/arm/boot/dts/renesas/r8a7794.dtsi   | 14 ++++++-------
- arch/arm/boot/dts/renesas/r9a06g032.dtsi |  3 +--
- 13 files changed, 85 insertions(+), 87 deletions(-)
-
+diff --git a/arch/arm/boot/dts/renesas/r7s72100.dtsi b/arch/arm/boot/dts/renesas/r7s72100.dtsi
+index a1e4e9ac8f621acb..245c26bb8e037ce6 100644
+--- a/arch/arm/boot/dts/renesas/r7s72100.dtsi
++++ b/arch/arm/boot/dts/renesas/r7s72100.dtsi
+@@ -14,6 +14,7 @@ / {
+ 	compatible = "renesas,r7s72100";
+ 	#address-cells = <1>;
+ 	#size-cells = <1>;
++	interrupt-parent = <&gic>;
+ 
+ 	aliases {
+ 		i2c0 = &i2c0;
+@@ -84,7 +85,7 @@ p1_clk: p1 {
+ 
+ 	pmu {
+ 		compatible = "arm,cortex-a9-pmu";
+-		interrupts-extended = <&gic GIC_PPI 0 IRQ_TYPE_LEVEL_HIGH>;
++		interrupts = <GIC_PPI 0 IRQ_TYPE_LEVEL_HIGH>;
+ 	};
+ 
+ 	rtc_x1_clk: rtc_x1 {
+@@ -103,7 +104,6 @@ rtc_x3_clk: rtc_x3 {
+ 
+ 	soc {
+ 		compatible = "simple-bus";
+-		interrupt-parent = <&gic>;
+ 
+ 		#address-cells = <1>;
+ 		#size-cells = <1>;
 -- 
 2.43.0
 
-Gr{oetje,eeting}s,
-
-						Geert
-
---
-Geert Uytterhoeven -- There's lots of Linux beyond ia32 -- geert@linux-m68k.org
-
-In personal conversations with technical people, I call myself a hacker. But
-when I'm talking to journalists I just say "programmer" or something like that.
-							    -- Linus Torvalds
 
