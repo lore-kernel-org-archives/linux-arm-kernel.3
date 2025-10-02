@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA13CCAC5B0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7048CCA471
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 14:41:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,35 +12,35 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YL6D4PNzVzNFHvrBDpOg2xLhswk85vz3ZUfoqEHBbXI=; b=lEt/9P/DjCuK8Kd7FFwlb2YeQ7
-	UlFkIljXIY3VAJxnSChmcEaannMXI34aNg0t/T7KwM6z+M7nVRDYj7ooKdXU5je2FjmKDEoteg8og
-	loUm3ugPU2pyxB3eT6Bn6vWjBowBJoniuupopk4PMpOtGhgMT5rmUKzPzcym0acPYIw5iAehJrQ8M
-	fuKUMxS09YUqt+3WKSdiBInBuJa5yanmDdK54GQeoa6GbQQbaaJAGkEh3/amQ7eW0W+Diix5zeLg6
-	UVORBhdvLYl/cEAC7RN5oY8vVwCQTzvSox83gbjConCFANDD6lJwBD/SpllEmTqLyg4TeLZa8zIuy
-	A9w9Q4fw==;
+	bh=ErbigTH2ECfYfn0HqIHOVU8ciP/LvyZhHp99p3XxFq8=; b=Rtd+1mWvo1Eq/xDZNujPxFHFH/
+	MWEJsVcepWpwMvUC4YKOA1Jz6hEVXnjMuGZB8AvBGUPVsoKGmzaCuVT6CRAhqTp+NQ7cyhbC68uZp
+	8sUv4sqzP1MfmTQGBordVxeDrXiTm+S1fc5FHKZIC4KaFOQeDkYp8JDGLlAFQPCHIG5ETKkd9DKmI
+	Gb6qTlCmvGVOnspsMwmpv1SYpRUoZ4X2lCliBM+U1GOt8i4FOOI53kTuuRf4fXujA8pzvrbEJQoQv
+	oj+UVnnJju0Qh+qEKfQDeHEG0nQLVH8L+1J6Tst1Sw4NAUWG3IxPx/Vk2R58esi3RWlRgBsYzU4gB
+	VYQwPgmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4KUT-0000000Acpq-1jyj;
-	Thu, 02 Oct 2025 14:41:05 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v4KUP-0000000Acmk-2Eno;
+	Thu, 02 Oct 2025 14:41:03 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4KUS-0000000AcnM-0ZFk
+	id 1v4KUN-0000000AckY-2I4m
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Oct 2025 14:41:04 +0000
+	Thu, 02 Oct 2025 14:40:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 857F460300;
-	Thu,  2 Oct 2025 14:41:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12792C4CEF9;
-	Thu,  2 Oct 2025 14:41:01 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CE4AA60388;
+	Thu,  2 Oct 2025 14:40:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 68763C4CEFC;
+	Thu,  2 Oct 2025 14:40:57 +0000 (UTC)
 From: Geert Uytterhoeven <geert+renesas@glider.be>
 To: Magnus Damm <magnus.damm@gmail.com>,
 	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
 Cc: linux-arm-kernel@lists.infradead.org,
 	linux-renesas-soc@vger.kernel.org,
 	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH 09/13] ARM: dts: renesas: r8a7791: Move interrupt-parent to root node
-Date: Thu,  2 Oct 2025 16:40:37 +0200
-Message-ID: <32809538c2ceedcd142fc419918c6928870bbb6c.1759414774.git.geert+renesas@glider.be>
+Subject: [PATCH 06/13] ARM: dts: renesas: r8a7745: Move interrupt-parent to root node
+Date: Thu,  2 Oct 2025 16:40:34 +0200
+Message-ID: <fc23a6b5b7c8d92334089770854535f088201d58.1759414774.git.geert+renesas@glider.be>
 X-Mailer: git-send-email 2.43.0
 In-Reply-To: <cover.1759414774.git.geert+renesas@glider.be>
 References: <cover.1759414774.git.geert+renesas@glider.be>
@@ -66,41 +66,41 @@ root node, and simplify "interrupts-extended = <&gic ...>" to
 
 Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 ---
- arch/arm/boot/dts/renesas/r8a7791.dtsi | 14 +++++++-------
+ arch/arm/boot/dts/renesas/r8a7745.dtsi | 14 +++++++-------
  1 file changed, 7 insertions(+), 7 deletions(-)
 
-diff --git a/arch/arm/boot/dts/renesas/r8a7791.dtsi b/arch/arm/boot/dts/renesas/r8a7791.dtsi
-index 5023b41c28b36173..35313e8da426500f 100644
---- a/arch/arm/boot/dts/renesas/r8a7791.dtsi
-+++ b/arch/arm/boot/dts/renesas/r8a7791.dtsi
-@@ -16,6 +16,7 @@ / {
- 	compatible = "renesas,r8a7791";
+diff --git a/arch/arm/boot/dts/renesas/r8a7745.dtsi b/arch/arm/boot/dts/renesas/r8a7745.dtsi
+index 704fa6f3cbd088e5..5424a73562ddba3c 100644
+--- a/arch/arm/boot/dts/renesas/r8a7745.dtsi
++++ b/arch/arm/boot/dts/renesas/r8a7745.dtsi
+@@ -14,6 +14,7 @@ / {
+ 	compatible = "renesas,r8a7745";
  	#address-cells = <2>;
  	#size-cells = <2>;
 +	interrupt-parent = <&gic>;
  
  	aliases {
  		i2c0 = &i2c0;
-@@ -137,8 +138,8 @@ pcie_bus_clk: pcie_bus {
+@@ -105,8 +106,8 @@ extal_clk: extal {
  
  	pmu {
- 		compatible = "arm,cortex-a15-pmu";
--		interrupts-extended = <&gic GIC_SPI 72 IRQ_TYPE_LEVEL_HIGH>,
--				      <&gic GIC_SPI 73 IRQ_TYPE_LEVEL_HIGH>;
-+		interrupts = <GIC_SPI 72 IRQ_TYPE_LEVEL_HIGH>,
-+			     <GIC_SPI 73 IRQ_TYPE_LEVEL_HIGH>;
+ 		compatible = "arm,cortex-a7-pmu";
+-		interrupts-extended = <&gic GIC_SPI 82 IRQ_TYPE_LEVEL_HIGH>,
+-				      <&gic GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
++		interrupts = <GIC_SPI 82 IRQ_TYPE_LEVEL_HIGH>,
++			     <GIC_SPI 83 IRQ_TYPE_LEVEL_HIGH>;
  		interrupt-affinity = <&cpu0>, <&cpu1>;
  	};
  
-@@ -152,7 +153,6 @@ scif_clk: scif {
+@@ -120,7 +121,6 @@ scif_clk: scif {
  
  	soc {
  		compatible = "simple-bus";
 -		interrupt-parent = <&gic>;
- 		bootph-all;
  
  		#address-cells = <2>;
-@@ -1939,10 +1939,10 @@ cooling-maps {
+ 		#size-cells = <2>;
+@@ -1631,10 +1631,10 @@ cmt1: timer@e6130000 {
  
  	timer {
  		compatible = "arm,armv7-timer";
