@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1973CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 18:30:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6E98CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 18:30:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UmwaTQ9w3UMKmPx7igtoLu/6KZ/KNI/anI2nuK5fsks=; b=ZQ+RwHk/FuMwPdF8RigwELiY0X
-	SAUqfRZ26UTSUl5XaQ9j1KlJW6p29IoyM1MpxYWxV6qqS13S9fb/Nd2Xi2ZegBLWVGMnG2DfwL1tj
-	Su9KcOyovfvWmfG4/I0eUf7TrRpFGzStzIH2Me92fKOigMz/oh/OZEdEdhAjJypJPMlUwoc6VaZh0
-	57XGgEwMTdRw+biDsJ5airGIr8MzVVyIaOEfMRek+RxXnFWwzNSgvYw+U94+udLVIjRqupYwV75Sa
-	5KS+sIuhn+qYN6MVxy7wKjfbuQIm7XNwbalNdrczdyoObAyvCHEnOhlNqVCTirs4xXwAngDRGUHnu
-	5s8IHmMQ==;
+	bh=0mh2PXI4RPCLiX+zU35do9JgkruwIWIRKLm0Jl8yX3c=; b=cpPOFoQm5xPSWgQwjQOdi3ps9f
+	plSjAjhBMtsxLWRQ8piZMn+0KbhEhRexF60MB8YiOm5t+GuB0ULNaC88ystlWhKqOaOygCb+ndAFb
+	u73XWkey8dT/eyD6rP4FNdgoG2OscI78eowfxEy3MlDJKExQybieFcYSclKFxKzo68k3ifwcBDdZm
+	M5C3PVuD+wcpsEzEYoRzaHr0b9kaZKqUJW+N6g3dQ/5+s3pHlX61mI8etTsUyVLxRxqFwLjGpS0oR
+	hsYNBWhe9Ao4s8pHgPLLIhO5TYtaJQh7TG1j68WjzXMcBEslSk31w9ehYWG8h6uTorSVCULdm/3Fu
+	CTfmMm9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4O4Q-0000000B1zS-1oG2;
-	Thu, 02 Oct 2025 18:30:26 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v4O4h-0000000B23d-4AHo;
+	Thu, 02 Oct 2025 18:30:43 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4O4O-0000000B1z5-2ef4;
-	Thu, 02 Oct 2025 18:30:25 +0000
+	id 1v4O4f-0000000B22j-1vXM;
+	Thu, 02 Oct 2025 18:30:42 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 874AB43824;
-	Thu,  2 Oct 2025 18:30:23 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 19E92C4CEF4;
-	Thu,  2 Oct 2025 18:30:19 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 948F54059F;
+	Thu,  2 Oct 2025 18:30:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D973C4CEF4;
+	Thu,  2 Oct 2025 18:30:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759429823;
-	bh=UmwaTQ9w3UMKmPx7igtoLu/6KZ/KNI/anI2nuK5fsks=;
+	s=k20201202; t=1759429840;
+	bh=0mh2PXI4RPCLiX+zU35do9JgkruwIWIRKLm0Jl8yX3c=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=bDlPuov+ZH60K2M+tPgkCIIu5Tn7T2svAnnp0xBAfvsll9JVwgE6yk2YoRJ0jRVua
-	 qt7lrdQV+Au25av/tXqM4k7uG5OYOziz7S/mreVukaQNrcNqS8411W/xXkrEgQgCAn
-	 MGDBogFHOLCJaTjx6L5MkEYBtoFyKXswxf8IRsZyZFzSQ4Kyh6p4SRka+KD7Lk3YrY
-	 Wf028C32OXMUC3HAi/wxSnV75oTvR8R6xeRp/Ar1fDQegW+kTKP+DmLLdc1oGJlrnX
-	 HqlNpEiMf0AzYciFhfoDOSj6tr9hK8KxpKTHARo7kEldHoOqoOm9j6B3rW3W8kR7Oo
-	 AI3jvJRUX9+pQ==
-Date: Thu, 2 Oct 2025 19:30:17 +0100
+	b=DzqgycZjsrI4nqyDFEZYHQ+O4VSOxNCY4BKkDQuaCkSw1cgyc/TgUjAlBRStFoquY
+	 Sjy7dkyUIh7e6DCP3TqL/vnw7Lfouyuh6DUbLzabR6kXHHBmJ/dochZzkQBRyhMQKV
+	 ppTI+AeHLe7/YgdnMWWflFVSRjRoFrIx+wzh4ONkjTog/a/VQIfYn2Y7AfJrCLrB7P
+	 tQuCUvbn0db/w/JGMUnWKDMPxN+8ve0SDhv2X0Vj3/lRvE7MrTM9lu3qjxaMk79FnQ
+	 u2Geab/qL/JlrujgLOZZXpBDQCw8M33oo5l6xKJn5lHnN8xaMsWwbpTaFt8s1MwG5z
+	 RRK1tmRZBbiAw==
+Date: Thu, 2 Oct 2025 19:30:34 +0100
 From: Conor Dooley <conor@kernel.org>
 To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
 Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
@@ -57,19 +57,18 @@ Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
 	Maxime Ripard <mripard@kernel.org>,
 	Muhammed Efe Cetin <efectn@6tel.net>, Ondrej Jirman <megi@xff.cz>,
 	Rob Herring <robh@kernel.org>, Sandy Huang <hjc@rock-chips.com>
-Subject: Re: [PATCH 2/3] dt-bindings: display: rk3588-dw-hdmi-qp: Document
- enable-gpios property
-Message-ID: <20251002-kissing-boxing-c8b567d08e2a@spud>
+Subject: Re: [PATCH 1/3] dt-bindings: arm: rockchip: Add Orange Pi CM5 Base
+Message-ID: <20251002-rehab-ripcord-043788a3c6f4@spud>
 References: <20251002034708.19248-1-laurent.pinchart@ideasonboard.com>
- <20251002034708.19248-3-laurent.pinchart@ideasonboard.com>
+ <20251002034708.19248-2-laurent.pinchart@ideasonboard.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="7A3hshEiPf8Kpjpw"
+	protocol="application/pgp-signature"; boundary="ntsgCHwA2iMj9xet"
 Content-Disposition: inline
-In-Reply-To: <20251002034708.19248-3-laurent.pinchart@ideasonboard.com>
+In-Reply-To: <20251002034708.19248-2-laurent.pinchart@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_113024_689795_0CA8EA87 
-X-CRM114-Status: UNSURE (   6.84  )
+X-CRM114-CacheID: sfid-20251002_113041_511142_7A1B2530 
+X-CRM114-Status: UNSURE (   7.54  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,22 +85,22 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---7A3hshEiPf8Kpjpw
+--ntsgCHwA2iMj9xet
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
 
 Acked-by: Conor Dooley <conor.dooley@microchip.com>
 
---7A3hshEiPf8Kpjpw
+--ntsgCHwA2iMj9xet
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaN7EtgAKCRB4tDGHoIJi
-0m7hAQCDPTelKmX1m36VmufkE/l93pQBPg4VvrPAQUIIInNz/gEA8xs1KgKuKykX
-0HWiWE9u5+7Er0wOlLhFeUXbu1nkBgQ=
-=IADe
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaN7EygAKCRB4tDGHoIJi
+0i8HAP9YE/REwXXRgakNjtjNxjA84B7owoCO2nbe0IWr959JlwD5AUKlhJChjLP5
+u8llwVBhX+ZbpzsLfMHeNR8tC5vk1Ak=
+=/5jM
 -----END PGP SIGNATURE-----
 
---7A3hshEiPf8Kpjpw--
+--ntsgCHwA2iMj9xet--
 
