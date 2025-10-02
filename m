@@ -4,87 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB260CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 21:01:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0FFB3CAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 21:04:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:From:Subject:Message-ID:Mime-Version:Date:Reply-To:
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZXewi+MSpgfgN5O6jXVKlfCi06aVUrotCL/q5o/3Ssw=; b=uUi/8XrIDvGH39vncCC0YbaWPG
-	C+/IubmcChvKn8Eq9aqNkaVgK9nuy6a/qiJ0BMwEYyczxbRFSvxzdxEXt/9o4CWm+qrf8Ol5aeiPr
-	ywVFrZEdOqj6ELYrL2yMwjGz6zXF9iLvYAW/WLHSzYajqz3TrWuvTol6T1faB0dgXeRZfan23Mtqr
-	DhWRgWMCGV7Od4SF48MKdrFNxml8kfA6cm+aH4LTcekZONk7K0+HM2WHtcxex8caHxWj1eUnqOiq3
-	t9r651M1yY9+H0tSldbC+FduOZQO2AkEbyVjInF2FxVN5K6YDIC5yt7emRSi/Qb0zC/+z+4sNm6Ow
-	JMBIrO0Q==;
+	bh=C2UQeXeCdd38LZjkJTP74V8I/AwlCwJ5vjuI4bPLac8=; b=qtG/sQRpRslyAzXeYtNoVQ970N
+	qNLGeLD9vT9rBf5W4PTbd/AMfw22EhQQ9nFEOBdbYimdLtwFmb1ojheCixLknSOrwb7DYBHN25A+S
+	1yKs3MU72kHYEFy/5n6CofFxu55oaqLiMpRx0r2Y9bDy8+tDi1k1rMDucVeqk7qljS6iJGKdeemz0
+	gVngN8s0SmlFO8FIzX7uD9HorjUfUcTUlBRFEt+ICY0ccejb4ayQxM9YGCwLpv5BtuwOZPRt8W7jG
+	gXnOtNKMk4OyAW/+zfwa557OGLgeDlWRAsfiWAIQABmvwzQdeZT4EinB3JxSoC1YTyWLgXa0Ki73/
+	Qa9dEqWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4QQK-0000000BGWZ-2oni;
-	Thu, 02 Oct 2025 21:01:12 +0000
-Received: from mail-ej1-x64a.google.com ([2a00:1450:4864:20::64a])
+	id 1v4QTk-0000000BHAK-36lI;
+	Thu, 02 Oct 2025 21:04:44 +0000
+Received: from mail-yw1-x1162.google.com ([2607:f8b0:4864:20::1162])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4QQH-0000000BGVI-3AGR
+	id 1v4QTi-0000000BH9l-390K
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Oct 2025 21:01:11 +0000
-Received: by mail-ej1-x64a.google.com with SMTP id a640c23a62f3a-b3cd833e7b5so185812066b.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Oct 2025 14:01:08 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1759438867; x=1760043667; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:from:subject:message-id
-         :mime-version:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZXewi+MSpgfgN5O6jXVKlfCi06aVUrotCL/q5o/3Ssw=;
-        b=2BJVFX+pcPadXWHOGy4kCRvy5KZ4XHf5VHBI/gvUvvZ7ihqO1lRgm9dHGbacS2r1dv
-         nRJiGG/64o37Hi35vIyco8DvesqBhcqxz1U3y6NGV/c37/oUb9BP7MNuP2OY7GzOb/5Z
-         ygCgdPSCjy/ODfjlo9l4ZxQG7OpQBSmfWmeggwchwxMvTNjQpZoVncYrtBhiNiTvZ5hj
-         c2Oj7QH2XwBCAjPZJjo0KbjHuBZT8gAYtdBeFl9ZhlmLf+UjlSfMn0gkC8I8uDhhpWFL
-         InkYtixmpVs8p+j5t8ip6mPGTxq+5ponGzmq5BO078wCH6gRkm+zTiMwDb2XEziVL9s0
-         tetg==
+	Thu, 02 Oct 2025 21:04:44 +0000
+Received: by mail-yw1-x1162.google.com with SMTP id 00721157ae682-71d6083cc69so17189307b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Oct 2025 14:04:42 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759438867; x=1760043667;
-        h=content-transfer-encoding:cc:to:from:subject:message-id
-         :mime-version:date:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1759439081; x=1760043881;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=ZXewi+MSpgfgN5O6jXVKlfCi06aVUrotCL/q5o/3Ssw=;
-        b=vFSCfsBXPTnCkOzfofgOMNeFOS9R4+SMDqldZ8XkUmqK0saWeBlVf1w1LGq+EmcBRA
-         RiQA2NorvAbBRxSLT7soXbv/G1iAMsGwrdbjKaUGonnm3jppy0yKOCP4xtoUsNAeKpFb
-         wTCnRE5yCFl+M/hBZwpm/h4aR2mYWhLQDGWkX5IHYNMgtu0OZI4cA3sQDQ7Qodwt/SU9
-         +YBhJKdchdtW1bYm8MX8xgh6dS+hBe3RwkIPfDjltK9a22lnezAos+2f5doR+b7pTWyO
-         Ts4YuYaqT9egKl8nlMwCkJ0dEqmcgG6ZorktoXDE4z9aLp9UOB2lxamkHBnJaN021H15
-         snnQ==
-X-Gm-Message-State: AOJu0YzytlkxXjpxksPmrF6B3Ao3IuOgjHuWvKR2CCb7AkamRJPpNyAG
-	O2I0B1xEUjobLQu+j1eNXv66/P9d4SZ3K4yWcp5DRZthVpuSpeOtLAVg0S1seluGV62zZ8zCbg=
-	=
-X-Google-Smtp-Source: AGHT+IEExjmvbF8Lb9M+XG7YR7QTAIMSCeCwavhfGOO8t62xLo8r+Wg9cNCxdOmE3p/nTVLIqxQSzoMn
-X-Received: from ejbwr20.prod.google.com ([2002:a17:907:7014:b0:b44:aed4:d213])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a17:907:ea6:b0:b3d:5088:213f
- with SMTP id a640c23a62f3a-b49c1c67beamr97495666b.19.1759438867035; Thu, 02
- Oct 2025 14:01:07 -0700 (PDT)
-Date: Thu,  2 Oct 2025 23:00:45 +0200
-Mime-Version: 1.0
-X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9413; i=ardb@kernel.org;
- h=from:subject; bh=79gRZqCE8gjHML9Xmm1M2zyzayfEyQ0TDshfv9BB904=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIePe879ls71YX5scfvJf5tKT1d+uaJ59tN3VeJWKzuzfz
- VGe3XEMHaUsDGJcDLJiiiwCs/++23l6olSt8yxZmDmsTCBDGLg4BWAinx4zMmzNfqabUnh+kuY1
- TTPlV3OjZk+Nl5+qFa4mdlh9xdXUz5MYGTZ6OM+auzPnydya25LCCr9O8R/X2Fn9T0B3aa5tyAH hDgYA
-X-Mailer: git-send-email 2.51.0.618.g983fd99d29-goog
-Message-ID: <20251002210044.1726731-2-ardb+git@google.com>
-Subject: [PATCH] drm/amd/display: Fix unsafe uses of kernel mode FPU
-From: Ard Biesheuvel <ardb+git@google.com>
-To: linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, will@kernel.org, 
-	catalin.marinas@arm.com, mark.rutland@arm.com, broonie@kernel.org, 
-	Ard Biesheuvel <ardb@kernel.org>, Austin Zheng <austin.zheng@amd.com>, Jun Lei <jun.lei@amd.com>, 
-	Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
-	Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, 
-	"=?UTF-8?q?Christian=20K=C3=B6nig?=" <christian.koenig@amd.com>, amd-gfx@lists.freedesktop.org, 
-	dri-devel@lists.freedesktop.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+        bh=C2UQeXeCdd38LZjkJTP74V8I/AwlCwJ5vjuI4bPLac8=;
+        b=EcnZjsOTdaNivNwLombFx1PkmEZ8aohPOUF5afSVCVay2rFbUugliDWtahuG8PjstY
+         +affDBxmB4SK3tCAzptVjdJe1WTegYBrOWdWK1lQO1gWr6xCKcwHP76PTXMjOhG179b5
+         F3NIMuwAbhNGth+4KMR5EzU2F1r3ymYo6spJ6kQCIMwR7HkQNbYdrKWsGfnPGX0xPvYo
+         vbdCQ99JqW38IGAq3LIdHd6WDZUi71HSRzL/jeZ/t2c3TzP+FbDBZHSNDLjIE/1sD7LY
+         NKf3BiTBcr3JRd66Yg6BNAVXd/gbE0fqO1yaPwElszer1/GeK+vQz8NpRVB1xLyI8Dr3
+         N7Lw==
+X-Forwarded-Encrypted: i=1; AJvYcCUgO4pK7bhjV35s6Se/tPHcENshn0VpSPyEsBXLRaisDbndQBjsCvoDSxtO59ajiJjhDrlH8rwORFDSF5WtptAP@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxw1F1i8TmzBdu2XXM8OkHF1F1WBVNg0B+AjvHWzJ3a2z6hkLv2
+	Q+uu+7hJVFYT4/INrNcL4wAaBwzYmLezYUJfP5e8RgD5hKJr0elRCImUL89b7flTnaa6hCU/wnk
+	Nnc4cFW1AOTx7kfNnhzaXfuLMhMrSMNWVPKFwaZ0nE5BtQT0/+fuaelFn8GVQz7Ln3bhI4y8hIs
+	t8AizTXaX8xZqm80NbbQWeA6I5RYHrBSiROS6IVpa19oUOP0r6HyAqcRUvVeNJi0zyGpjqNv7WU
+	ijpEOGvyuhk05XaaSxN2IK+By8=
+X-Gm-Gg: ASbGncsZowzkl63ZOXYZ17QGp4cNzAb8YTuWM30t1wEXCqUZNznjvwNYHFFA+ogFk0L
+	ABcmEigfDa/SgbVjpK8PdfyZizjGbpxIPb2nsdkjsyDsDAPfkuyn8ND6sg3asVCfLSZ3gP1KD+R
+	/Uj5+8cYBppsOX9EN43mj/Jsa02f+w/hRu9RD+gcmlQpdABIqSKBZqoFJbwLV8yPx4GERWtQdI4
+	sgFBoDt6xHhOiQGzCGHifLrbdZpBLUVsfH/NmpgpYnRNuNeHZGH3ybVRqdICfk6+u8otH5fpsEK
+	/xYd01sOdMNrNzBmXqONEeA3KMwsgF9kyXXMDbaKPHb9QHrPcc8r2G659UmnKtAOgAGreHuk5ZB
+	pVLWLInb5SzlNLsbF3Wa/8B58lhk7NZlKs1pwdME9Y//HPLMzHSCAEf4H+XJ2/dLnd8UTKIIf8O
+	W/4Q==
+X-Google-Smtp-Source: AGHT+IGsepE7enxCES5xHM3GsoilHWXiIS1w1cyoSYKt6ki4mEcX4dr/cVbeXlELWY6Jq1x4c5Y2ta2xXo5a
+X-Received: by 2002:a05:690c:6104:b0:734:f858:b1f2 with SMTP id 00721157ae682-77f9448f399mr15924067b3.30.1759439080769;
+        Thu, 02 Oct 2025 14:04:40 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-19.dlp.protect.broadcom.com. [144.49.247.19])
+        by smtp-relay.gmail.com with ESMTPS id 00721157ae682-77f81d2765csm1751007b3.28.2025.10.02.14.04.40
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 02 Oct 2025 14:04:40 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-wr1-f72.google.com with SMTP id ffacd0b85a97d-3ee1317b132so855678f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Oct 2025 14:04:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1759439079; x=1760043879; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=C2UQeXeCdd38LZjkJTP74V8I/AwlCwJ5vjuI4bPLac8=;
+        b=WewBfttY1gNzYae1Znq8bzftSIKcBrZFBHSXWK23JcBX9tmOM2THquvh5sv6u+XbG2
+         L/h7ysrBJ0O12178setD8c3bBAXwDkSKhuqyML4nQBruFRABCI43jlCul8DObLCRfi69
+         0DZdYOidYXxh5mLziqevuRLZLUlwP3aovRSaY=
+X-Forwarded-Encrypted: i=1; AJvYcCVs0MqZ+mg1tJfeieZzkKGkYlni8VqE+BMWJKaR2Xs3wegh/2Uz2QZC2Y5/HH+TjDPAmvzuhL/OEZ4GW9U+doyb@lists.infradead.org
+X-Received: by 2002:a05:600c:5304:b0:46e:5df3:190d with SMTP id 5b1f17b1804b1-46e7110ef5dmr4793805e9.11.1759439079334;
+        Thu, 02 Oct 2025 14:04:39 -0700 (PDT)
+X-Received: by 2002:a05:600c:5304:b0:46e:5df3:190d with SMTP id 5b1f17b1804b1-46e7110ef5dmr4793685e9.11.1759439078875;
+        Thu, 02 Oct 2025 14:04:38 -0700 (PDT)
+Received: from mail.broadcom.net ([192.19.144.250])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46e5c4c0321sm61711295e9.8.2025.10.02.14.04.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 02 Oct 2025 14:04:37 -0700 (PDT)
+From: Kamal Dasu <kamal.dasu@broadcom.com>
+To: andersson@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	florian.fainelli@broadcom.com,
+	ulf.hansson@linaro.org,
+	adrian.hunter@intel.com
+Cc: bcm-kernel-feedback-list@broadcom.com,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-mmc@vger.kernel.org,
+	Kamal Dasu <kamal.dasu@broadcom.com>
+Subject: [PATCH 0/3] sdhci-brcmstb SD host controller SoC specific enhancements 
+Date: Thu,  2 Oct 2025 17:04:23 -0400
+Message-Id: <20251002210426.2490368-1-kamal.dasu@broadcom.com>
+X-Mailer: git-send-email 2.34.1
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_140109_846766_6BBAC3D9 
-X-CRM114-Status: GOOD (  18.55  )
+X-CRM114-CacheID: sfid-20251002_140442_790529_AF868F45 
+X-CRM114-Status: UNSURE (   8.32  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,254 +122,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ard Biesheuvel <ardb@kernel.org>
+sdhci-brcmstb HS200 configuration for BCM72116 and PM register save restore
+changes applicable to various SoCs. 
 
-The point of isolating code that uses kernel mode FPU in separate
-compilation units is to ensure that even implicit uses of, e.g., SIMD
-registers for spilling occur only in a context where this is permitted,
-i.e., from inside a kernel_fpu_begin/end block.
+Kamal Dasu (3):
+  dt-bindings: mmc: Add support for BCM72116 and BCM74371 SD host
+    controller
+  mmc: sdhci-brcmstb: clear CFG_OP_DLY when using HS200
+  mmc: brcmstb: save and restore registers during PM
 
-This is important on arm64, which uses -mgeneral-regs-only to build all
-kernel code, with the exception of such compilation units where FP or
-SIMD registers are expected to be used. Given that the compiler may
-invent uses of FP/SIMD anywhere in such a unit, none of its code may be
-accessible from outside a kernel_fpu_begin/end block.
+ .../bindings/mmc/brcm,sdhci-brcmstb.yaml      |   2 +
+ drivers/mmc/host/sdhci-brcmstb.c              | 159 +++++++++++++++++-
+ 2 files changed, 153 insertions(+), 8 deletions(-)
 
-This means that all callers into such compilation units must use the
-DC_FP start/end macros, which must not occur there themselves. For
-robustness, all functions with external linkage that reside there should
-call dc_assert_fp_enabled() to assert that the FPU context was set up
-correctly.
-
-Fix this for the DCN35, DCN351 and DCN36 implementations.
-
-Cc: Austin Zheng <austin.zheng@amd.com>
-Cc: Jun Lei <jun.lei@amd.com>
-Cc: Harry Wentland <harry.wentland@amd.com>
-Cc: Leo Li <sunpeng.li@amd.com>
-Cc: Rodrigo Siqueira <siqueira@igalia.com>
-Cc: Alex Deucher <alexander.deucher@amd.com>
-Cc: "Christian K=C3=B6nig" <christian.koenig@amd.com>
-Cc: amd-gfx@lists.freedesktop.org
-Cc: dri-devel@lists.freedesktop.org
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
----
- .../drm/amd/display/dc/dml/dcn31/dcn31_fpu.c    |  4 ++++
- .../drm/amd/display/dc/dml/dcn35/dcn35_fpu.c    |  6 ++++--
- .../drm/amd/display/dc/dml/dcn351/dcn351_fpu.c  |  4 ++--
- .../display/dc/resource/dcn35/dcn35_resource.c  | 16 +++++++++++++++-
- .../dc/resource/dcn351/dcn351_resource.c        | 17 ++++++++++++++++-
- .../display/dc/resource/dcn36/dcn36_resource.c  | 16 +++++++++++++++-
- 6 files changed, 56 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/gpu/drm/amd/display/dc/dml/dcn31/dcn31_fpu.c b/drivers=
-/gpu/drm/amd/display/dc/dml/dcn31/dcn31_fpu.c
-index 17a21bcbde17..1a28061bb9ff 100644
---- a/drivers/gpu/drm/amd/display/dc/dml/dcn31/dcn31_fpu.c
-+++ b/drivers/gpu/drm/amd/display/dc/dml/dcn31/dcn31_fpu.c
-@@ -808,6 +808,8 @@ void dcn316_update_bw_bounding_box(struct dc *dc, struc=
-t clk_bw_params *bw_param
-=20
- int dcn_get_max_non_odm_pix_rate_100hz(struct _vcs_dpi_soc_bounding_box_st=
- *soc)
- {
-+	dc_assert_fp_enabled();
-+
- 	return soc->clock_limits[0].dispclk_mhz * 10000.0 / (1.0 + soc->dcn_downs=
-pread_percent / 100.0);
- }
-=20
-@@ -815,6 +817,8 @@ int dcn_get_approx_det_segs_required_for_pstate(
- 		struct _vcs_dpi_soc_bounding_box_st *soc,
- 		int pix_clk_100hz, int bpp, int seg_size_kb)
- {
-+	dc_assert_fp_enabled();
-+
- 	/* Roughly calculate required crb to hide latency. In practice there is s=
-lightly
- 	 * more buffer available for latency hiding
- 	 */
-diff --git a/drivers/gpu/drm/amd/display/dc/dml/dcn35/dcn35_fpu.c b/drivers=
-/gpu/drm/amd/display/dc/dml/dcn35/dcn35_fpu.c
-index 5d73efa2f0c9..15a1d77dfe36 100644
---- a/drivers/gpu/drm/amd/display/dc/dml/dcn35/dcn35_fpu.c
-+++ b/drivers/gpu/drm/amd/display/dc/dml/dcn35/dcn35_fpu.c
-@@ -445,6 +445,8 @@ int dcn35_populate_dml_pipes_from_context_fpu(struct dc=
- *dc,
- 	bool upscaled =3D false;
- 	const unsigned int max_allowed_vblank_nom =3D 1023;
-=20
-+	dc_assert_fp_enabled();
-+
- 	dcn31_populate_dml_pipes_from_context(dc, context, pipes,
- 					      validate_mode);
-=20
-@@ -498,9 +500,7 @@ int dcn35_populate_dml_pipes_from_context_fpu(struct dc=
- *dc,
-=20
- 		pipes[pipe_cnt].pipe.src.unbounded_req_mode =3D false;
-=20
--		DC_FP_START();
- 		dcn31_zero_pipe_dcc_fraction(pipes, pipe_cnt);
--		DC_FP_END();
-=20
- 		pipes[pipe_cnt].pipe.dest.vfront_porch =3D timing->v_front_porch;
- 		pipes[pipe_cnt].pipe.src.dcc_rate =3D 3;
-@@ -581,6 +581,8 @@ void dcn35_decide_zstate_support(struct dc *dc, struct =
-dc_state *context)
- 	unsigned int i, plane_count =3D 0;
- 	DC_LOGGER_INIT(dc->ctx->logger);
-=20
-+	dc_assert_fp_enabled();
-+
- 	for (i =3D 0; i < dc->res_pool->pipe_count; i++) {
- 		if (context->res_ctx.pipe_ctx[i].plane_state)
- 			plane_count++;
-diff --git a/drivers/gpu/drm/amd/display/dc/dml/dcn351/dcn351_fpu.c b/drive=
-rs/gpu/drm/amd/display/dc/dml/dcn351/dcn351_fpu.c
-index 6f516af82956..e5cfe73f640a 100644
---- a/drivers/gpu/drm/amd/display/dc/dml/dcn351/dcn351_fpu.c
-+++ b/drivers/gpu/drm/amd/display/dc/dml/dcn351/dcn351_fpu.c
-@@ -478,6 +478,8 @@ int dcn351_populate_dml_pipes_from_context_fpu(struct d=
-c *dc,
- 	bool upscaled =3D false;
- 	const unsigned int max_allowed_vblank_nom =3D 1023;
-=20
-+	dc_assert_fp_enabled();
-+
- 	dcn31_populate_dml_pipes_from_context(dc, context, pipes,
- 					      validate_mode);
-=20
-@@ -531,9 +533,7 @@ int dcn351_populate_dml_pipes_from_context_fpu(struct d=
-c *dc,
-=20
- 		pipes[pipe_cnt].pipe.src.unbounded_req_mode =3D false;
-=20
--		DC_FP_START();
- 		dcn31_zero_pipe_dcc_fraction(pipes, pipe_cnt);
--		DC_FP_END();
-=20
- 		pipes[pipe_cnt].pipe.dest.vfront_porch =3D timing->v_front_porch;
- 		pipes[pipe_cnt].pipe.src.dcc_rate =3D 3;
-diff --git a/drivers/gpu/drm/amd/display/dc/resource/dcn35/dcn35_resource.c=
- b/drivers/gpu/drm/amd/display/dc/resource/dcn35/dcn35_resource.c
-index 8475c6eec547..32678b66c410 100644
---- a/drivers/gpu/drm/amd/display/dc/resource/dcn35/dcn35_resource.c
-+++ b/drivers/gpu/drm/amd/display/dc/resource/dcn35/dcn35_resource.c
-@@ -1760,6 +1760,20 @@ enum dc_status dcn35_patch_unknown_plane_state(struc=
-t dc_plane_state *plane_stat
- }
-=20
-=20
-+static int populate_dml_pipes_from_context_fpu(struct dc *dc,
-+					       struct dc_state *context,
-+					       display_e2e_pipe_params_st *pipes,
-+					       enum dc_validate_mode validate_mode)
-+{
-+	int ret;
-+
-+	DC_FP_START();
-+	ret =3D dcn35_populate_dml_pipes_from_context_fpu(dc, context, pipes, val=
-idate_mode);
-+	DC_FP_END();
-+
-+	return ret;
-+}
-+
- static struct resource_funcs dcn35_res_pool_funcs =3D {
- 	.destroy =3D dcn35_destroy_resource_pool,
- 	.link_enc_create =3D dcn35_link_encoder_create,
-@@ -1770,7 +1784,7 @@ static struct resource_funcs dcn35_res_pool_funcs =3D=
- {
- 	.validate_bandwidth =3D dcn35_validate_bandwidth,
- 	.calculate_wm_and_dlg =3D NULL,
- 	.update_soc_for_wm_a =3D dcn31_update_soc_for_wm_a,
--	.populate_dml_pipes =3D dcn35_populate_dml_pipes_from_context_fpu,
-+	.populate_dml_pipes =3D populate_dml_pipes_from_context_fpu,
- 	.acquire_free_pipe_as_secondary_dpp_pipe =3D dcn20_acquire_free_pipe_for_=
-layer,
- 	.release_pipe =3D dcn20_release_pipe,
- 	.add_stream_to_ctx =3D dcn30_add_stream_to_ctx,
-diff --git a/drivers/gpu/drm/amd/display/dc/resource/dcn351/dcn351_resource=
-.c b/drivers/gpu/drm/amd/display/dc/resource/dcn351/dcn351_resource.c
-index 0971c0f74186..677cee27589c 100644
---- a/drivers/gpu/drm/amd/display/dc/resource/dcn351/dcn351_resource.c
-+++ b/drivers/gpu/drm/amd/display/dc/resource/dcn351/dcn351_resource.c
-@@ -1732,6 +1732,21 @@ static enum dc_status dcn351_validate_bandwidth(stru=
-ct dc *dc,
- 	return out ? DC_OK : DC_FAIL_BANDWIDTH_VALIDATE;
- }
-=20
-+static int populate_dml_pipes_from_context_fpu(struct dc *dc,
-+					       struct dc_state *context,
-+					       display_e2e_pipe_params_st *pipes,
-+					       enum dc_validate_mode validate_mode)
-+{
-+	int ret;
-+
-+	DC_FP_START();
-+	ret =3D dcn351_populate_dml_pipes_from_context_fpu(dc, context, pipes, va=
-lidate_mode);
-+	DC_FP_END();
-+
-+	return ret;
-+
-+}
-+
- static struct resource_funcs dcn351_res_pool_funcs =3D {
- 	.destroy =3D dcn351_destroy_resource_pool,
- 	.link_enc_create =3D dcn35_link_encoder_create,
-@@ -1742,7 +1757,7 @@ static struct resource_funcs dcn351_res_pool_funcs =
-=3D {
- 	.validate_bandwidth =3D dcn351_validate_bandwidth,
- 	.calculate_wm_and_dlg =3D NULL,
- 	.update_soc_for_wm_a =3D dcn31_update_soc_for_wm_a,
--	.populate_dml_pipes =3D dcn351_populate_dml_pipes_from_context_fpu,
-+	.populate_dml_pipes =3D populate_dml_pipes_from_context_fpu,
- 	.acquire_free_pipe_as_secondary_dpp_pipe =3D dcn20_acquire_free_pipe_for_=
-layer,
- 	.release_pipe =3D dcn20_release_pipe,
- 	.add_stream_to_ctx =3D dcn30_add_stream_to_ctx,
-diff --git a/drivers/gpu/drm/amd/display/dc/resource/dcn36/dcn36_resource.c=
- b/drivers/gpu/drm/amd/display/dc/resource/dcn36/dcn36_resource.c
-index 8bae7fcedc22..d81540515e5c 100644
---- a/drivers/gpu/drm/amd/display/dc/resource/dcn36/dcn36_resource.c
-+++ b/drivers/gpu/drm/amd/display/dc/resource/dcn36/dcn36_resource.c
-@@ -1734,6 +1734,20 @@ static enum dc_status dcn35_validate_bandwidth(struc=
-t dc *dc,
- }
-=20
-=20
-+static int populate_dml_pipes_from_context_fpu(struct dc *dc,
-+					       struct dc_state *context,
-+					       display_e2e_pipe_params_st *pipes,
-+					       enum dc_validate_mode validate_mode)
-+{
-+	int ret;
-+
-+	DC_FP_START();
-+	ret =3D dcn35_populate_dml_pipes_from_context_fpu(dc, context, pipes, val=
-idate_mode);
-+	DC_FP_END();
-+
-+	return ret;
-+}
-+
- static struct resource_funcs dcn36_res_pool_funcs =3D {
- 	.destroy =3D dcn36_destroy_resource_pool,
- 	.link_enc_create =3D dcn35_link_encoder_create,
-@@ -1744,7 +1758,7 @@ static struct resource_funcs dcn36_res_pool_funcs =3D=
- {
- 	.validate_bandwidth =3D dcn35_validate_bandwidth,
- 	.calculate_wm_and_dlg =3D NULL,
- 	.update_soc_for_wm_a =3D dcn31_update_soc_for_wm_a,
--	.populate_dml_pipes =3D dcn35_populate_dml_pipes_from_context_fpu,
-+	.populate_dml_pipes =3D populate_dml_pipes_from_context_fpu,
- 	.acquire_free_pipe_as_secondary_dpp_pipe =3D dcn20_acquire_free_pipe_for_=
-layer,
- 	.release_pipe =3D dcn20_release_pipe,
- 	.add_stream_to_ctx =3D dcn30_add_stream_to_ctx,
---=20
-2.51.0.618.g983fd99d29-goog
+-- 
+2.34.1
 
 
