@@ -4,85 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3614BCAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 09:38:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A6BACAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 09:56:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X1yuUer+fDBoEEdnzOoIW6C52BQWyqBlzwiYtiPQEGU=; b=ECr1iE9r2ht9bGryteWuuDBUxB
-	80dT22eoyKN4Skj0QqkY3YXmZTSVZyG1JD8c2nQcvaQV2l8zIqgf3+oTPBScwV5YXbdF3ld7SQeCb
-	2xC59x5dR3bUpX27zqXgq9jfOtq1WSleeGtHo1YXTUuKtxpa5MhrS+zR4afeyPVni/X0UUAb6Pj7q
-	EN1KHI0yQSGZNNYabAWaozEvMsiaG2nWwEznpCx83HvR4T0GaX4T1ZQ/AQZeIhW60jKRtbyXDzXsc
-	wl1AvO2TRkdTh0Cbe/mL70roBMwXogbzo6cRunG9nsl278i0Ov2hdRz2pqQ6NL5d+Cbsql80JreM9
-	j0nj6RLw==;
+	bh=HjkSzcHQCRHxGjAdHJ76YWjL7H9j4QRw11Hc/S45qjM=; b=sdJcDPnpxi8BxHRCahB2S1ECyg
+	a/GVlibfWTWjqTnBIuiS4X4ulh6lyLBDPGBvsDuMcTYECReUyjbQPOKV5HBVCSoIw8EQnXvfHvSj8
+	7cFD6QFtwe9RCECYHnscCwT9lFWTEn+J53QQ5a15ayE4AxfkHAIODoUkSj3j03ASB38MkGGcTh36e
+	R1KvogkgBK3tp0npB04A1ikHKJ1Bov4NE7ZroJCZJUMfGxl5V8YEQGe/kksPSYFeFsvbdJD+BFiJy
+	/3Zs/LdaHZIvxdDLRw8dZ+V0iOHzcWtRHscpe1th4gRa/Q4perQguCh+I2tAS3mC3fq4zDn0ndZ8v
+	Ta40h1mw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4cFK-0000000ByXf-3tem;
-	Fri, 03 Oct 2025 09:38:38 +0000
-Received: from mail-pj1-x1031.google.com ([2607:f8b0:4864:20::1031])
+	id 1v4cWO-0000000BzsM-2zgV;
+	Fri, 03 Oct 2025 09:56:16 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4cFI-0000000ByWl-2Gyr
+	id 1v4cWL-0000000BzrM-3blX
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Oct 2025 09:38:37 +0000
-Received: by mail-pj1-x1031.google.com with SMTP id 98e67ed59e1d1-3307de086d8so1867689a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Oct 2025 02:38:36 -0700 (PDT)
+	Fri, 03 Oct 2025 09:56:15 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-782a77b5ec7so1873182b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Oct 2025 02:56:13 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1759484315; x=1760089115; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=X1yuUer+fDBoEEdnzOoIW6C52BQWyqBlzwiYtiPQEGU=;
-        b=bfZtzjzjR5sH9Y1GtDdTi0sKzT8PUtTwpY4DVi88OmxGnuFsDBB+Z+DZJzEM7Ay4Xg
-         +70RWEBrMq06M9T1UxIggNYor3J0fR2Ex/2G4A1jQnlEsQII74qTQIGqCRjaaxvzxV2T
-         JsR7kOoC07rbioba8CeZTH4pcQLaxdGTCuO5v1F0x31Xzg6kxGuRJYpcbeEv8n/jYHDP
-         aFpM9O3wict4oBhOvYuYObzvJfWKHlmiH2NvZcIZ1zr7FucqSv4O/zZH74zw0W8fuXjN
-         r3vKBx1cAjNn0v8Sd1Hh4B4b+dzP6qKTpgVNlA7+BuzjrRmVC0JO3AAFl9KXnDCG5lBq
-         itbw==
+        d=gmail.com; s=20230601; t=1759485372; x=1760090172; darn=lists.infradead.org;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date:from:to
+         :cc:subject:date:message-id:reply-to;
+        bh=HjkSzcHQCRHxGjAdHJ76YWjL7H9j4QRw11Hc/S45qjM=;
+        b=bY5fkK2jT6oUBnw681NaqZxjINsxZIQiGl5DHVXyEABFXSZhwR4aNX/EhxrSbDQTGm
+         Quef08MzmLDvTweCnoGzEbObJiGnYFZSSg3GDSPGs0T1vYjV2XHH6U3G8LYEvUheuvWL
+         Eg5MAljYVq5BG37k7opprOcRlKXOn/RRYy6P4ikXIRniAwMwRjGk/QFZ3h/Gjj3Lchar
+         kC9gfN/x1xZvZ7SXXdX0WSZndOGSMGdjDx91IuQPdZXfDafvxiQWvCJRQODmzMl6QMar
+         3GlKDk3Fp7HaUtP25hujws7W2UrHDqtQsVWjtoVUsi/3yN8fuaitIGZakwtQPHzU0n8K
+         tARw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759484315; x=1760089115;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=X1yuUer+fDBoEEdnzOoIW6C52BQWyqBlzwiYtiPQEGU=;
-        b=V/HAm5pjY++yZCtEvKtlzSQ2N6oATKa49a4EkNFIruX8q/GsksTAji34NyyWoAsvJy
-         P5v/iUWEGGl67pFisNYEAekqz8WfrjEfoh31dRheh8F+sj7LKTkcVZ2jMI8gQSRkcig9
-         fRlLABbFNhul+D3lZRLgmuhYBZfu+EglTyeYAUBUytsyNZwxYkeHNGG5v0Ib2vKXJ6pY
-         46jbhgTWpR+9XPGG8Rt2RHHVMR+Pje3mZ24OIZxr8xWECNs1/CVg9AZNqRYq47CiXxvE
-         Y3WeltjDlUyqCcSqwHt5jyCX7o8YkQfbSArCxujKI3weLGgZaaAFgBCfyHmcTcS5yS34
-         Dj5g==
-X-Forwarded-Encrypted: i=1; AJvYcCX4TfVef1nYmeBbMXI6HwreFhxOJYTw6Ixay39ZdSV4pnQ1+htIlfsY+q/F24LR01kKFVBxHWFT+dhEUgf9aZuc@lists.infradead.org
-X-Gm-Message-State: AOJu0YyBWimcW7VY/QMcKawRgYiN7E0SoJutIxjrxpI0GUZ+ElF7HmOP
-	7rJFNnvaKvLjtmyQAQzZ/QERrTrgX3RIgFBUp0uvnRGE3g4WAsTl4MVIrIz7bPZPiIcKDjUsWwk
-	UJBp+GlsKFXat6F8h49RtFcLKlp9t49f7pbDunyPF3A==
-X-Gm-Gg: ASbGncsKg+7xqUOb+4RXKMPCGMa8x0MqCTTDLGoZ7UBOLl2UaS2KFmrZo6wq3Q3A6pD
-	yCyvaUxK+uyLZ86aJwliFzj4HzjkEwLzozG/cGjX2++IASvptomBl2Vs8+NlLUew5wpe6oYWmkK
-	TiBNkwWn/YD61uzt1gZmwYoPimCeG6enMROZA8msGxY73NE0SEm1d2obKS4umQoCoQd4mhE5d9T
-	m2p1ZUAcvsgTEIkcWeBvNFL0polGPPjtdfysqpqR+VSRqQ=
-X-Google-Smtp-Source: AGHT+IEVFDPtBOlDZ/nAeN5YwpFzoCphYWhQNcvVNgyuJt2XgrMVJ2mxE7iC0PUoOrcq3ig/lWIKBTBoHGtf3Ebf/tc=
-X-Received: by 2002:a17:90b:4ac7:b0:32d:c63d:4db1 with SMTP id
- 98e67ed59e1d1-339c2805c19mr2839355a91.34.1759484315494; Fri, 03 Oct 2025
- 02:38:35 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1759485372; x=1760090172;
+        h=in-reply-to:content-transfer-encoding:content-disposition
+         :mime-version:references:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=HjkSzcHQCRHxGjAdHJ76YWjL7H9j4QRw11Hc/S45qjM=;
+        b=WL7Qel94sX4hHiYMkRb+Odae96XjFfRcYAA2tvktWFEMN+o68KfyH8AnyOxaYrT1QC
+         2a3G/DANDQ76bXc7x6oBdZlctQJElcSnz6buCF7aRaGvwL4Bs48WTyl5gR8PApGS4pIH
+         cnZ353a99NJsPRTxAQleaMx1D1bTVEf3+e6bdq1g3hKjCHmSC+gOFVteFdz2D/DeRUXC
+         mdf5TL1kpZD1RaqUVzqttvEUWyIECzALVSdrwiwZDVoKPwD/Etr3NnlPfYqKMn7cigAw
+         idB2VtueNYb4NhZTbHaSc9V4eijcmrCg43gne2nLZTAVUpTU6rkLyh7McQk6QnI2DGQ9
+         VnpA==
+X-Forwarded-Encrypted: i=1; AJvYcCWfOPKjybClfnmP2Lj2+CyTZTqUdlr0rgAsGZ4zXobASkpxmHCeulLTrUA6SJrZ9tMCt0EtcCubgJu677wM6OYo@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywg6Gsu4QGCcBdh+TdKG7flpI12cMQoaLwpL7vo+/CsNFjfELmT
+	B8ANpgOE/QHzpcDlaXDcXLfYbryhXoJBWgsDbhRPQgLPIylj9D8qSlTd
+X-Gm-Gg: ASbGncvdhLZaDAM55y1g6VoCaSk9vn0bivOEJzkJNhcdHsVXchgvbwlVvJ5yzl1n4j1
+	WRJ1XCpP7KqIj66ikIp4FQgSlLOpu6JT7LEPEopXzhU5vNoITArlA8cKAQRVsEkJ/P4TpthG2eo
+	TWnjJXKiZwJcniwOhDouJqZXqM/CiYYFoyLZEZKiGnXMX7GWyx/a9CWnr8fgLLxLxd+GulpC2Ty
+	XFyOLMGdq/Ip9lSpOGeAX26FQmfl446DD+GG4/f04QJJiIuoSGo2UilJKr6qkF8BGZp1jrh52gI
+	znVEHZl/aSzlw9mjIKTKSfBQCLCIVUFQVy58jdwwo5PABuLMzXekUH917JmICw7tOOwNt//VP5D
+	xigCm4Bjfo4Crn6SxrK9C5Fzz5jsrqlgf4g==
+X-Google-Smtp-Source: AGHT+IFgG1sDmJWIInobrT6MYZozHk7ObDc757Ax6SKK+T4qAyB9z8lgZO3RUGk1fZnpjVO1SGBv+Q==
+X-Received: by 2002:a05:6a20:6a1a:b0:250:429b:9e6d with SMTP id adf61e73a8af0-32b620db8bcmr3216562637.44.1759485372467;
+        Fri, 03 Oct 2025 02:56:12 -0700 (PDT)
+Received: from geday ([2804:7f2:800b:2c45::dead:c001])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-78b01fb1a9fsm4407283b3a.20.2025.10.03.02.56.09
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 03 Oct 2025 02:56:11 -0700 (PDT)
+Date: Fri, 3 Oct 2025 06:56:04 -0300
+From: Geraldo Nascimento <geraldogabriel@gmail.com>
+To: Shawn Lin <shawn.lin@rock-chips.com>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kw@linux.com>,
+	Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>,
+	Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>,
+	Heiko Stuebner <heiko@sntech.de>, linux-pci@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [RFC PATCH v3 2/3] PCI: rockchip-host: Retry link training on
+ failure without PERST#
+Message-ID: <aN-dtHxYTspw3rvQ@geday>
+References: <cover.1749582046.git.geraldogabriel@gmail.com>
+ <b7c09279b4a7dbdba92543db9b9af169776bd90c.1749582046.git.geraldogabriel@gmail.com>
+ <ac48d142-7aec-4fdd-92a4-6f9bc10a7928@rock-chips.com>
+ <aHnAcbXuFqcMXy_5@geday>
+ <067e1833-8527-4c66-90f5-d284f7d2ca5c@rock-chips.com>
 MIME-Version: 1.0
-References: <20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com>
- <20250915-arm_coresight_power_management_fix-v3-20-ea49e91124ec@arm.com>
-In-Reply-To: <20250915-arm_coresight_power_management_fix-v3-20-ea49e91124ec@arm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Fri, 3 Oct 2025 10:38:24 +0100
-X-Gm-Features: AS18NWCRRiw8F7z5u-bzSc_jT6EACan0OsVp6iwQiKIfPejW68U3l5UKsqZbXUU
-Message-ID: <CAJ9a7VjoW=U42SztbdHfxM=v=UaAmJn1=cdJd1EZU3rB6x+WAA@mail.gmail.com>
-Subject: Re: [PATCH v3 20/31] coresight: cti: Register PM notifier after data initialization
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
-	Yeoreum Yun <yeoreum.yun@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Yabin Cui <yabinc@google.com>, 
-	Keita Morisaki <keyz@google.com>, Yuanfang Zhang <quic_yuanfang@quicinc.com>, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <067e1833-8527-4c66-90f5-d284f7d2ca5c@rock-chips.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_023836_588552_A832854A 
-X-CRM114-Status: GOOD (  24.22  )
+X-CRM114-CacheID: sfid-20251003_025613_915278_7B83C66C 
+X-CRM114-Status: GOOD (  16.86  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,94 +109,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leo,
-
-The CTI PM code was initially set up before the CTI was a helper device.
-
-If the core bound CTIs, which are helpers to the core bound ETMs, are
-disabled as part of the path disable helpers, then I think the CTI
-specific PM code might be redundant.
-
-If it is not, then should this not  hook into the generic PM code in
-coresight-core.c?
-
-Regards
-
-Mike
-
-On Mon, 15 Sept 2025 at 11:34, Leo Yan <leo.yan@arm.com> wrote:
->
-> The PM notifier needs to access the driver data, so it is only safe to
-> register PM notifier after data initialization.
->
-> For this reason, move cti_pm_setup() to a later point, specifically
-> after 'drvdata->csdev' has been set up.
->
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
-> ---
->  drivers/hwtracing/coresight/coresight-cti-core.c | 22 +++++++++-------------
->  1 file changed, 9 insertions(+), 13 deletions(-)
->
-> diff --git a/drivers/hwtracing/coresight/coresight-cti-core.c b/drivers/hwtracing/coresight/coresight-cti-core.c
-> index ba4635dfc2e30b4e9ae4972f91bdc6647975b719..b2ddbe12be8d6140a3098797d6d1cc4393259b3a 100644
-> --- a/drivers/hwtracing/coresight/coresight-cti-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-cti-core.c
-> @@ -926,17 +926,12 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
->         if (!cti_desc.name)
->                 return -ENOMEM;
->
-> -       /* setup CPU power management handling for CPU bound CTI devices. */
-> -       ret = cti_pm_setup(drvdata);
-> -       if (ret)
-> -               return ret;
-> -
->         /* create dynamic attributes for connections */
->         ret = cti_create_cons_sysfs(dev, drvdata);
->         if (ret) {
->                 dev_err(dev, "%s: create dynamic sysfs entries failed\n",
->                         cti_desc.name);
-> -               goto pm_release;
-> +               return ret;
->         }
->
->         /* set up coresight component description */
-> @@ -950,9 +945,14 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
->
->         coresight_clear_self_claim_tag(&cti_desc.access);
->         drvdata->csdev = coresight_register(&cti_desc);
-> -       if (IS_ERR(drvdata->csdev)) {
-> -               ret = PTR_ERR(drvdata->csdev);
-> -               goto pm_release;
-> +       if (IS_ERR(drvdata->csdev))
-> +               return PTR_ERR(drvdata->csdev);
-> +
-> +       /* setup CPU power management handling for CPU bound CTI devices. */
-> +       ret = cti_pm_setup(drvdata);
-> +       if (ret) {
-> +               coresight_unregister(drvdata->csdev);
-> +               return ret;
->         }
->
->         /* add to list of CTI devices */
-> @@ -970,10 +970,6 @@ static int cti_probe(struct amba_device *adev, const struct amba_id *id)
->         pm_runtime_put(&adev->dev);
->         dev_info(&drvdata->csdev->dev, "CTI initialized\n");
->         return 0;
-> -
-> -pm_release:
-> -       cti_pm_release(drvdata);
-> -       return ret;
->  }
->
->  static struct amba_cs_uci_id uci_id_cti[] = {
->
-> --
-> 2.34.1
+On Fri, Jul 18, 2025 at 11:46:33AM +0800, Shawn Lin wrote:
+> 在 2025/07/18 星期五 11:33, Geraldo Nascimento 写道:
+> > 
+> > Also, since you're asking me to test some code, I think it is only fair
+> > if I ask you to test my code, too. It shouldn't be too hard for you to
+> > find a otherwise working NVMe SSD that refuses to complete link training
+> > with current code. Connect this SSD please to a RK3399 board and let us
+> > know if my proposed code change does anything to ameliorate the
+> > long-standing issue of SSD that refuses to cooperate.
+> 
+> Sure, I don't have Samsung PM981a SSD now, but I could try to test all
+> my SSDs to find if I could pick up one that won't work.
 >
 
+Hi Shawn,
 
--- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+Haven't heard back from you so I assume you tested with SSD that should
+work but does not and that the test failed?
+
+Thanks,
+Geraldo Nascimento
 
