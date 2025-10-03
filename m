@@ -4,89 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8791DCAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 19:22:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0AC6CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 19:56:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SHEdC4q5HOXKpIiXdASgYuczbCo+pyIe2coh3mL3YAQ=; b=RjpX4q46zI/jp72HKA6EELieAg
-	ykKqqRx1WD5+sQATVEWXguDgOEM3jboSzO7oyn8WxoB5P0rQ/wauOHH/FhwnOl4f8LDssow2XIaVm
-	DzFBYi2W848S+63O3BOt20rjbr0X+t7GLqIm3MRqlnMg8hencZCnHk0wPihmR+o4JtNtP+e/fVl1p
-	ivhvcuMQPsCV6Vz5Y0GxgAdJRzlj/VsCdzdSxDmlNPeZFqMU2V669+qqhilfVUrRc2C9rkxvIUg0J
-	AJ4X3QM+djXgBRNtgihrRvVmlcqA+XM2wnXmosPlbXPllSRpZgsHFdjwddB0CjyJAKb63MvfyRtF8
-	h2v+Ww7g==;
+	bh=dbpDWJdZfVTVSB8z3KjE43n+mbMdK6iqWDy5+ydNGZc=; b=RuYyOET8UHjOF29wCHITbpljuz
+	LHdZ3q+7yA4GH3baWTtbZ9LN6Cq30jjkg7/ZM3iUoVh0MsruGH+s5zo2A8fWmXx5chFPYMD4fwmxr
+	lvfeik9xP0B8Z45vIUkLDcJLxAKGn6oRAXWJgd0TRnio6CBtZolsuXW5Q9yzhFAa/Yuk80g7cRvNG
+	EY1Xl/uL9VJuHaV5PO6b9Izj0Sit1yx4of1ZowHDarGd4AE4ti9DApSge18CNg/EdmMuPQN5A0m6g
+	iBeO4Izz9dfdST/v5yaFDXNhSqqSu8iJc7YNWDxNfImQcj9ZYbIEA7kslpq+50jBhKBo/LlZKqrM0
+	X159cXIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4lMY-0000000CzkA-3laD;
-	Fri, 03 Oct 2025 19:22:42 +0000
-Received: from mail-lf1-x131.google.com ([2a00:1450:4864:20::131])
+	id 1v4lt7-0000000D1dx-04Uw;
+	Fri, 03 Oct 2025 19:56:21 +0000
+Received: from mail-oa1-x64.google.com ([2001:4860:4864:20::64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4lMW-0000000Czjp-0wY7
+	id 1v4lt3-0000000D1dH-4228
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Oct 2025 19:22:41 +0000
-Received: by mail-lf1-x131.google.com with SMTP id 2adb3069b0e04-5688ac2f39dso3117712e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Oct 2025 12:22:39 -0700 (PDT)
+	Fri, 03 Oct 2025 19:56:19 +0000
+Received: by mail-oa1-x64.google.com with SMTP id 586e51a60fabf-35bdcaf79e7so1813380fac.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Oct 2025 12:56:17 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759521377; x=1760126177;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:dkim-signature
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=dbpDWJdZfVTVSB8z3KjE43n+mbMdK6iqWDy5+ydNGZc=;
+        b=Ob8wePuWGZtcIorM1Y1NSeGrSV6sbyJv1prZfqIAP/FIIU02UszwJnuQY4Y0af5Hsi
+         6pJmaUGwqJyl7XfO0HVXizRGOFCZyFNBpkSS/TRDffJlair0pcPK2eL1fw0UPtRA1HbS
+         C0J53T2U0Gg+GesWsSuE0CI5NmNofJxlz4uoDbWDGoTmBAKuE2ukmnSCdMhZQB8M+vyN
+         TgpZ1ZkT8ggJoy4u7iBHv8AUbxYHjyU74/5J4xeVvKDGlHeO9plvtoQg/7IVqFruQe9f
+         OmpXCJyBOE4Wk3g+orfbPs88g3Yy/ghGefBwkwoUJ1Z9QDPgqiFyJWzPZ/2mTwxoZO71
+         YMcQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWVgkZT29OZrJMetesHCInIuXFUtqt92PJWk28zcRtkvxGIAozfuOpR17q6eN4KgXD4eVYHJwNz459MlAKC1q3I@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy2Pesv+Y8vYOWACtAPVZwwT3GK9a9NtzSMHkhI8EOo984y/3Ce
+	tca1IrksmOQ0FklBVeIaLG2tpIsMC/cG2VvwaphF0+q2F8+HzuaTgAHQ09A3BtuA8i3zE8+oYL2
+	P7kCOwVExsxt2wlgpT0HbClqW2wT0O11yH3e6NKpHP45dQzpWk5lXBBKFGF9Z1rkAneTJU+yN07
+	08tr/eKPcwInQ6dg5b11+qSgiEqw48zOnkhyvQ3YQDN1c6xXEacsBiZNAqls4JxRAPJ4wg8B7SA
+	WyHT8wRkxAEg4hPSXU8Ee8tFUuwZWU=
+X-Gm-Gg: ASbGncsgnpwpnDzrag97gHLAgAk5yuSFSx7pPgfXE0o9AfZroWGHuSTU7CmvwH7/gKm
+	xKYUZF0/4ANTvSf6P0+MAjMbD3MZ/Mao1TBto/qVKzyBXtzzXdATtGHPe72EEtnbXReiFtlIV28
+	mPGZnFVC/Wggtn1f/XWQJ6XGTwq5X4ykl3dJGUaOUSofAp1lD/zS3MVLyYlToDXqYkFxvWoOUs7
+	m2Qya74/NrBAfZYOgYNMDcjx5l/nr3S+2lS8Rp+28df5F/Fibmbq6HqjIEKErHjSxJoBTtdjSH/
+	SEOy+Bu0Du7gjd68nLw6XnEkOZbQVg0sVHtryVX3dfDfRvpJ6UExpCXBuvWnilWCY8BVESM21fm
+	6m0ckSh2c7ORSiYAK9UjuTLlMHtuVoJ8k/MgplcExyTdXMI5Dpf7mZlIfRXB/4bqmlfQz/kjdc3
+	0nY80Ztd1y
+X-Google-Smtp-Source: AGHT+IG4xS8wmKcgDY0b4MPgensq51wXUTS1yQxH9uGVR3Xse9ynS2ChAaFG2MSNuOI0ticOUVSfmAsfbUZ5
+X-Received: by 2002:a05:6870:810c:b0:372:9f7f:5812 with SMTP id 586e51a60fabf-3b0fa05c738mr2614419fac.34.1759521376834;
+        Fri, 03 Oct 2025 12:56:16 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-126.dlp.protect.broadcom.com. [144.49.247.126])
+        by smtp-relay.gmail.com with ESMTPS id 586e51a60fabf-3ab917b50e2sm469856fac.16.2025.10.03.12.56.16
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Fri, 03 Oct 2025 12:56:16 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-pf1-f198.google.com with SMTP id d2e1a72fcca58-781253de15aso4674399b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Oct 2025 12:56:16 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1759519358; x=1760124158; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1759521375; x=1760126175; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=SHEdC4q5HOXKpIiXdASgYuczbCo+pyIe2coh3mL3YAQ=;
-        b=KwOUQ+CbE1TsyFYODuZtE1sTpnKR061L05d80KnpMGYs4OLTlpqKRP08p/vfMR6+68
-         06W7a1Ft3cENXYnlRzeEQBCOygfAxd9P5XONb+t9pBT1viAU2v0pmha1RtzD/ESb5SAc
-         pTK1rkREV94V5JXI0BqhyM3xItAUYanJqJ3WYHoJGuRmKNKaZGVDio38b1F7k6rjEPA+
-         MKPtUCeczVr0yr5+0xX8t3hRQCFlPQgM8aziO6F0rhY8OxN/SGrxYVutaJg7kclZtMus
-         WsaLvhGyUZZ9qUMGkBQ6nzlaLWL8nP6ju76aWkG0kIroZhMvZpVU4g33dMxUALDhEIKm
-         xFbg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759519358; x=1760124158;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=SHEdC4q5HOXKpIiXdASgYuczbCo+pyIe2coh3mL3YAQ=;
-        b=Hd6MErNUnGBnaG0aKUqTfQ/Kg5ey6ZoxjcYtcODz3utB5+h2zv6RGXVal4tDDpK7t+
-         DYHFsqufgplXJRH0hJ8WR8sDV8gyd9RCsX/+tewiTc6LpTkQOr6ftLB/TjTis0ASm1ax
-         5VVaTM+n4jFeLBIDRNs3IatPd+ShktU58KB4PLS28cNGIkuVR5KuB1IbNaGLgtiERlZX
-         7gpIEgp6jdeX/Y82Nn4xvZTjlPoAmXFqlJN2qeKtRv9AWqOV/FMsPVglArsZw7ivdbZm
-         XefBIFWfSt76x30V62QCvmgPOe9gMpRkmFjeCUgGx0koaRV5qR6qJ+C5rzkJM4FzdvYL
-         wZOA==
-X-Forwarded-Encrypted: i=1; AJvYcCVA6VN+iQlCFZj/bkvh7dRWbx1IHxLqyt7q3kbhoEvTeAkO8306aUrCHWc+9dO92nO/9N7/4BoOXSCrFLORHMX+@lists.infradead.org
-X-Gm-Message-State: AOJu0YzIN5WLE0zmuj2OR2o2Dol5kE8EEqnXnz+GHPUeryRo0o+psPyP
-	B9bzDXjifJkEdJo+AYTfghMi/EDquXzPj3Acd+jyNOxLG6kkstScbfHe
-X-Gm-Gg: ASbGncsy/0hb8DmZLjtfJMn2DOtJDA/ZFuFPScMmD9P/A1MudSxcdJrV21nE65pVttX
-	tDmmK1ofq4mxKzz9+AhGCvI2KwRidagmoZ6qNv89Qy4oLB6trHGykU1qUCtoc0aNWZPdY7hHjq3
-	xYIBlYk9sf4tHWsRHtomL5mWLIVyGLCrb5VRmHN5ABYxbHCVzxUiHyZrGOLRL9Y2qjjBWFUtzIm
-	ZelYuRIVlW6ExvA8x28mlREj5i8mmRxzbWJ5H3Dwly1Pj7JdVMUX0tWdjcquTjjDzXOHBcFASVc
-	W1bhpSdGg1Qz5Eyko2l7kxjkQjoxwibmQu8Z+4EuwZZ9Uil+4HZWqqntISuxg6JawVN89jr/GMC
-	hiVaJ5Pok5y0nP+37Zl6DiI4Rp9qflmrFLOuYLxWDxDwwsg==
-X-Google-Smtp-Source: AGHT+IEfPGKgh3f6VXqkifycv9gBhD43sy5btZBZgWTDY0sG+tyqEtREfAfN3cAtFrAeYl/L3dZOXA==
-X-Received: by 2002:a05:6512:3a92:b0:586:2e4b:22c5 with SMTP id 2adb3069b0e04-58cbbfc331dmr1195941e87.56.1759519357553;
-        Fri, 03 Oct 2025 12:22:37 -0700 (PDT)
-Received: from NB-6746.. ([188.243.183.84])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-58b01124438sm2097546e87.4.2025.10.03.12.22.36
+        bh=dbpDWJdZfVTVSB8z3KjE43n+mbMdK6iqWDy5+ydNGZc=;
+        b=I0t9qbDdG4SKHra7yieag8hCibfWJMCMwuLqWaGjdQF/ZG7DNBfR6Lao+71cGm+ScS
+         T/cs+HDpuu058PDsSCXQ3oPklmMAkuU6SyShMV7N7mEh4fw5p7Vh/kK4Om0qEwRayp2a
+         M9MER3FN82m6AuQOvlJI926No2YiyE5mVLGnc=
+X-Forwarded-Encrypted: i=1; AJvYcCVbpjW/wtS7SvGSvL97DM4jgS39LxyLYxOcxTcpwxTekJ+bAjQjdXP1HyJ+IZU+le9u73P6Gs/h2Mk6K5LKHunh@lists.infradead.org
+X-Received: by 2002:a05:6a20:2583:b0:2e5:c9ee:96fa with SMTP id adf61e73a8af0-32b6208e921mr6127484637.34.1759521375307;
+        Fri, 03 Oct 2025 12:56:15 -0700 (PDT)
+X-Received: by 2002:a05:6a20:2583:b0:2e5:c9ee:96fa with SMTP id adf61e73a8af0-32b6208e921mr6127464637.34.1759521374911;
+        Fri, 03 Oct 2025 12:56:14 -0700 (PDT)
+Received: from stband-bld-1.and.broadcom.net ([192.19.144.250])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b6099add13esm5371162a12.8.2025.10.03.12.56.12
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Oct 2025 12:22:37 -0700 (PDT)
-From: Artem Shimko <a.shimko.dev@gmail.com>
-To: Sudeep Holla <sudeep.holla@arm.com>,
-	Cristian Marussi <cristian.marussi@arm.com>
-Cc: a.shimko.dev@gmail.com,
-	arm-scmi@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH v2] drivers: scmi: Add completion timeout handling for raw mode transfers
-Date: Fri,  3 Oct 2025 22:22:33 +0300
-Message-ID: <20251003192233.1618447-1-a.shimko.dev@gmail.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20250929142856.540590-1-a.shimko.dev@gmail.com>
-References: <20250929142856.540590-1-a.shimko.dev@gmail.com>
+        Fri, 03 Oct 2025 12:56:14 -0700 (PDT)
+From: Jim Quinlan <james.quinlan@broadcom.com>
+To: linux-pci@vger.kernel.org,
+	Nicolas Saenz Julienne <nsaenz@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+	Cyril Brulebois <kibi@debian.org>,
+	bcm-kernel-feedback-list@broadcom.com,
+	jim2101024@gmail.com,
+	james.quinlan@broadcom.com
+Cc: Florian Fainelli <florian.fainelli@broadcom.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	linux-rpi-kernel@lists.infradead.org (moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE),
+	linux-arm-kernel@lists.infradead.org (moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE),
+	linux-kernel@vger.kernel.org (open list)
+Subject: [PATCH v3 1/2] PCI: brcmstb: Add a way to indicate if PCIe bridge is active
+Date: Fri,  3 Oct 2025 15:56:06 -0400
+Message-Id: <20251003195607.2009785-2-james.quinlan@broadcom.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20251003195607.2009785-1-james.quinlan@broadcom.com>
+References: <20251003195607.2009785-1-james.quinlan@broadcom.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_122240_294176_A477CF13 
-X-CRM114-Status: GOOD (  13.96  )
+X-CRM114-CacheID: sfid-20251003_125618_040278_0292C090 
+X-CRM114-Status: GOOD (  23.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,126 +127,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix race conditions in SCMI raw mode implementation by adding proper
-completion timeout handling. Multiple tests in the SCMI test suite
-were failing due to early clearing of SCMI_XFER_FLAG_IS_RAW flag in
-scmi_xfer_raw_put() function.
+In a future commit, a new handler will be introduced that in part does
+reads and writes to some of the PCIe registers.  When this handler is
+invoked, it is paramount that it does not do these register accesses when
+the PCIe bridge is inactive, as this will cause CPU abort errors.
 
-TRANS=raw
-PROTOCOLS=base,clock,power_domain,performance,system_power,sensor,
-voltage,reset,powercap,pin_control VERBOSE=5
+To solve this we keep a spinlock that guards a variable which indicates
+whether the bridge is on or off.  When the bridge is on, access of the PCIe
+HW registers may proceed.
 
-The root cause:
-Tests were failing on poll() system calls with this condition:
-    if (!raw || (idx == SCMI_RAW_REPLY_QUEUE && !SCMI_XFER_IS_RAW(xfer)))
-        return;
+Since there are multiple ways to reset the bridge, we introduce a general
+function to obtain the spinlock, call the specific function that is used
+for the specific SoC, sets the bridge active indicator variable, and
+releases the spinlock.
 
-The SCMI_XFER_FLAG_IS_RAW flag was being cleared prematurely before
-the transfer completion was properly acknowledged, causing the poll
-to return on timeout and tests to fail.
-
-Fix ensures:
-- Proper synchronization between transfer completion and flag clearing
-- Stable test execution by maintaining correct flag states
-
-An example of a random test failure:
- 817: Voltage get ext name for invalid domain
-     [Check 1] Get extended name for invalid domain
-       MSG HDR        : 0x04585c09
-       NUM PARAM      : 1
-       PARAMETER[00]  : 0x0000000c
-       CHECK STATUS   : PASSED [SCMI_NOT_FOUND_ERR]
-       CHECK HEADER   : PASSED [0x04585c09]
-       RETURN COUNT   : 0
-       NUM DOMAINS    : 11
-       VOLTAGE DOMAIN : 0
-     [Check 2] Get extended name for unsupp. domain
-       MSG HDR        : 0x045c5c09
-       NUM PARAM      : 1
-       PARAMETER[00]  : 0x00000000
-       CHECK STATUS   : FAILED
-           EXPECTED   : SCMI_NOT_FOUND_ERR
-           RECEIVED   : SCMI_GENERIC_ERROR  : NON CONFORMANT
-
-After making these changes, the tests stopped failing.
-
-$mount -t debugfs none /sys/kernel/debug
-$scmi_test_agent
-[  127.865032] arm-scmi arm-scmi.1.auto: Resetting SCMI Raw stack.
-[  128.360503] arm-scmi arm-scmi.1.auto: Using Base channel for protocol 0x12
-$tail -n 6 arm_scmi_test_log.txt
-****************************************************
-  TOTAL TESTS: 167    PASSED: 120    FAILED: 0    SKIPPED: 47
-****************************************************
-
-An ftrace log with of passed test:
-0)               |  scmi_rx_callback()
-0)               |    scmi_raw_message_report()
-7)               |    scmi_xfer_raw_wait_for_message_response()
-7) + 22.000 us   |      scmi_wait_for_reply();
-0)               |        /* scmi_raw_message_report*/
-7)               |    scmi_xfer_raw_put()
-
-An ftrace log with of failed test:
-0)               |  scmi_rx_callback() {
-0)               |    scmi_raw_message_report()
-5)               |    scmi_xfer_raw_wait_for_message_response()
-5) ! 383.000 us  |      scmi_wait_for_reply();
-5)               |    scmi_xfer_raw_put() {
-0)               |  /* scmi_raw_message_report*/
-
-Link [1] https://gitlab.arm.com/tests/scmi-tests/-/releases
-
-Fixes: 3095a3e25d8f7 (firmware: arm_scmi: Add xfer helpers to provide raw access)
-Suggested-by: Cristian Marussi <cristian.marussi@arm.com>
-Signed-off-by: Artem Shimko <a.shimko.dev@gmail.com>
+Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
 ---
-Hi Cristian,
+ drivers/pci/controller/pcie-brcmstb.c | 40 +++++++++++++++++++++++----
+ 1 file changed, 35 insertions(+), 5 deletions(-)
 
-Good point about CONFIG_ARM_SCMI_RAW_MODE_SUPPORT_COEX. 
-
-I can confirm this setting doesn't impact the test failures in my environment.
-The issue reproduces consistently with COEX both enabled and disabled.
-
-Thank you!
-
-Best regards,
-Artem Shimko
-
-ChangeLog:
-  v1:
-    * https://lore.kernel.org/arm-scmi/20250929142856.540590-1-a.shimko.dev@gmail.com/
-  v2:
-    * Use simpler approach suggested by Cristian Marussi
-    * Clear all xfer flags in __scmi_xfer_put() under spinlock protection  
-    * Add Fixes tag as requested
-    * Drop completion timeout mechanism from v1
-
- drivers/firmware/arm_scmi/driver.c | 3 +--
- 1 file changed, 1 insertion(+), 2 deletions(-)
-
-diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index bd56a877fdfc..0976bfdbb44b 100644
---- a/drivers/firmware/arm_scmi/driver.c
-+++ b/drivers/firmware/arm_scmi/driver.c
-@@ -821,6 +821,7 @@ __scmi_xfer_put(struct scmi_xfers_info *minfo, struct scmi_xfer *xfer)
+diff --git a/drivers/pci/controller/pcie-brcmstb.c b/drivers/pci/controller/pcie-brcmstb.c
+index 9afbd02ded35..9f1f746091be 100644
+--- a/drivers/pci/controller/pcie-brcmstb.c
++++ b/drivers/pci/controller/pcie-brcmstb.c
+@@ -30,6 +30,7 @@
+ #include <linux/reset.h>
+ #include <linux/sizes.h>
+ #include <linux/slab.h>
++#include <linux/spinlock.h>
+ #include <linux/string.h>
+ #include <linux/types.h>
  
- 			scmi_dec_count(info->dbg->counters, XFERS_INFLIGHT);
- 		}
-+		xfer->flags = 0;
- 		hlist_add_head(&xfer->node, &minfo->free_xfers);
- 	}
- 	spin_unlock_irqrestore(&minfo->xfer_lock, flags);
-@@ -839,8 +840,6 @@ void scmi_xfer_raw_put(const struct scmi_handle *handle, struct scmi_xfer *xfer)
- {
- 	struct scmi_info *info = handle_to_scmi_info(handle);
+@@ -259,6 +260,7 @@ struct pcie_cfg_data {
+ 	int (*perst_set)(struct brcm_pcie *pcie, u32 val);
+ 	int (*bridge_sw_init_set)(struct brcm_pcie *pcie, u32 val);
+ 	int (*post_setup)(struct brcm_pcie *pcie);
++	bool has_err_report;
+ };
  
--	xfer->flags &= ~SCMI_XFER_FLAG_IS_RAW;
--	xfer->flags &= ~SCMI_XFER_FLAG_CHAN_SET;
- 	return __scmi_xfer_put(&info->tx_minfo, xfer);
+ struct subdev_regulators {
+@@ -303,6 +305,8 @@ struct brcm_pcie {
+ 	struct subdev_regulators *sr;
+ 	bool			ep_wakeup_capable;
+ 	const struct pcie_cfg_data	*cfg;
++	bool			bridge_in_reset;
++	spinlock_t		bridge_lock;
+ };
+ 
+ static inline bool is_bmips(const struct brcm_pcie *pcie)
+@@ -310,6 +314,24 @@ static inline bool is_bmips(const struct brcm_pcie *pcie)
+ 	return pcie->cfg->soc_base == BCM7435 || pcie->cfg->soc_base == BCM7425;
  }
  
++static int brcm_pcie_bridge_sw_init_set(struct brcm_pcie *pcie, u32 val)
++{
++	unsigned long flags;
++	int ret;
++
++	if (pcie->cfg->has_err_report)
++		spin_lock_irqsave(&pcie->bridge_lock, flags);
++
++	ret = pcie->cfg->bridge_sw_init_set(pcie, val);
++	/* If we fail, assume the bridge is in reset (off) */
++	pcie->bridge_in_reset = ret ? true : val;
++
++	if (pcie->cfg->has_err_report)
++		spin_unlock_irqrestore(&pcie->bridge_lock, flags);
++
++	return ret;
++}
++
+ /*
+  * This is to convert the size of the inbound "BAR" region to the
+  * non-linear values of PCIE_X_MISC_RC_BAR[123]_CONFIG_LO.SIZE
+@@ -1081,7 +1103,7 @@ static int brcm_pcie_setup(struct brcm_pcie *pcie)
+ 	int memc, ret;
+ 
+ 	/* Reset the bridge */
+-	ret = pcie->cfg->bridge_sw_init_set(pcie, 1);
++	ret = brcm_pcie_bridge_sw_init_set(pcie, 1);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -1097,7 +1119,7 @@ static int brcm_pcie_setup(struct brcm_pcie *pcie)
+ 	usleep_range(100, 200);
+ 
+ 	/* Take the bridge out of reset */
+-	ret = pcie->cfg->bridge_sw_init_set(pcie, 0);
++	ret = brcm_pcie_bridge_sw_init_set(pcie, 0);
+ 	if (ret)
+ 		return ret;
+ 
+@@ -1565,7 +1587,7 @@ static int brcm_pcie_turn_off(struct brcm_pcie *pcie)
+ 
+ 	if (!(pcie->cfg->quirks & CFG_QUIRK_AVOID_BRIDGE_SHUTDOWN))
+ 		/* Shutdown PCIe bridge */
+-		ret = pcie->cfg->bridge_sw_init_set(pcie, 1);
++		ret = brcm_pcie_bridge_sw_init_set(pcie, 1);
+ 
+ 	return ret;
+ }
+@@ -1653,7 +1675,9 @@ static int brcm_pcie_resume_noirq(struct device *dev)
+ 		goto err_reset;
+ 
+ 	/* Take bridge out of reset so we can access the SERDES reg */
+-	pcie->cfg->bridge_sw_init_set(pcie, 0);
++	ret = brcm_pcie_bridge_sw_init_set(pcie, 0);
++	if (ret)
++		goto err_reset;
+ 
+ 	/* SERDES_IDDQ = 0 */
+ 	tmp = readl(base + HARD_DEBUG(pcie));
+@@ -1921,7 +1945,10 @@ static int brcm_pcie_probe(struct platform_device *pdev)
+ 	if (ret)
+ 		return dev_err_probe(&pdev->dev, ret, "could not enable clock\n");
+ 
+-	pcie->cfg->bridge_sw_init_set(pcie, 0);
++	ret = brcm_pcie_bridge_sw_init_set(pcie, 0);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret,
++				     "could not de-assert bridge reset\n");
+ 
+ 	if (pcie->swinit_reset) {
+ 		ret = reset_control_assert(pcie->swinit_reset);
+@@ -1996,6 +2023,9 @@ static int brcm_pcie_probe(struct platform_device *pdev)
+ 		return ret;
+ 	}
+ 
++	if (pcie->cfg->has_err_report)
++		spin_lock_init(&pcie->bridge_lock);
++
+ 	return 0;
+ 
+ fail:
 -- 
-2.43.0
+2.34.1
 
 
