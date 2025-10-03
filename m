@@ -4,192 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F758CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 07:40:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13E6FCCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 07:40:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wvvJbjo3ujivUv27zsr0LlqWGK653skRHKZFPCJEjLY=; b=tpPVae0bITis5fOPwDHhc76uEo
-	FiO8Z+ZBscVLSv0x7D6MhDEqH01t1CmsE//dhmmaKtRpYAgna59WIRj0BlYeGPP4pbYMOhfYWbCYg
-	+xFbpHZaqdImFEVj/9M8JRcHdvSRRPbPaRTEg7YuQ4HVeIrEfjQy2aYztPrFzPnVEcFSp5TeUYgO4
-	owCP3Vs1L7e7BosT4twt74ImffsRm96nr1/MK05A+lKE41DcJHwcA77t80KGoFDWrSuGPbZZfU2k0
-	8PAKDEzHazk/YCqCC4O3c162m3ObCI+episMZs7ej219PwirYSR0qV89WV1FfYxwpfY65pFQ+hRtk
-	GK1JpfEg==;
+	bh=J9hjHFtnH8wjr7f5FfLeF6Iw7c2imnqf14FM6v9Je2g=; b=Et/CL6EHJx4wglQmqgodshggkm
+	FB6Qfu8fz2XcT3vbuPdSHywIgQm3Nw7w4LQMmIQJDoAvemYYFdsJA55rA7+NIp5bfxcTOUBPaihY6
+	p4D0bHTneeQjyt1ZhM0AxW9ZMVfMpa0EASvu8nS8Hh+KS5w+YUeorCDI3prF8Nnh9/7Apqqdas3zh
+	I5d0ZUE3ISMfvCwRNheERAXrpPzjcJJJMuLh1afCcSmPVQ+soETDXmiCT+igcmgwaEAT8A+hbiSsu
+	nW6uhg+cji2LE7DaNoREfD4WgmaoOK87xbqsFMxTo4L/ot2DiEqxr0wLU+51CoXCbL3JZ5kjnukPz
+	dIMTUx9g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4aPB-0000000Bpb9-17Ap;
-	Fri, 03 Oct 2025 07:40:41 +0000
-Received: from mx07-00178001.pphosted.com ([185.132.182.106])
+	id 1v4aPG-0000000Bpdc-0PJc;
+	Fri, 03 Oct 2025 07:40:46 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4aP8-0000000BpaU-0IUC
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Oct 2025 07:40:40 +0000
-Received: from pps.filterd (m0288072.ppops.net [127.0.0.1])
-	by mx07-00178001.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5933g8n8007031;
-	Fri, 3 Oct 2025 09:40:18 +0200
-Received: from du2pr03cu002.outbound.protection.outlook.com (mail-northeuropeazon11011004.outbound.protection.outlook.com [52.101.65.4])
-	by mx07-00178001.pphosted.com (PPS) with ESMTPS id 49e5bfh6fg-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 03 Oct 2025 09:40:18 +0200 (MEST)
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=JuT9wdqpq/1PD8IW5hbxnw5BGQIrW/GsyZbu1/XVTbhb9l4h9WlaYSx24iuVSk+s+Egj94h/ObdxV0mXkWkAJCbUF9YniJYzTzpBoWitA2rYtfdBGVqvRcjKcuc3ENtPr3NmhKxqegJUr29Qb4R5PnCxvPg8+1naI2hfZ+65z0f9dh9AitGuKe8XOZbxLQzee+7/bYl8jSi37qq11FVpj9UpQ6MJUibgBJ9IcuF09yUEejPjBCUY09n8y1o+FcYvXAQUvyeKh4i/To6w2qgBM6QncahlGeZqCWtgmuL7dedPniQxPIBvQc5azWZW0GE6HOP2jiZQ484NRVVhrg+Xbg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=wvvJbjo3ujivUv27zsr0LlqWGK653skRHKZFPCJEjLY=;
- b=sCRLLuR7UqhLA6d8vkmSWXWEFi9CeZmrsZYiWFg7TgPjsgIgebKc7uUDl25CLpEbI33yzpsR4tsymhjlynF79dtFjfU4T62oP/luSYCkLvMsroM9Gbv+V5hykmZuxrg3Q6CU9V+ZCQBc5BhXUpkbG8EGpgzTcUjY5sVD6ZlPNthPR0F3htVaAKJzlG+NY+OydYV9UqVYfvYTxEDFCKHPxUBeF+g1un9PB8+ijQCMsDGfkWWW+WALMDWwHZGKVUa0rHkESP2G4z53SSKQCUPZx08UjHjqYTpofIgy/5cjq/yE9yK9NllOKlxS9Ku/XpcSbQWK1McMr2xlNlyUnONqrQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=fail (sender ip is
- 164.130.1.44) smtp.rcpttodomain=nxp.com smtp.mailfrom=foss.st.com; dmarc=fail
- (p=none sp=none pct=100) action=none header.from=foss.st.com; dkim=none
- (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=foss.st.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=wvvJbjo3ujivUv27zsr0LlqWGK653skRHKZFPCJEjLY=;
- b=L4kdThQrZHoO2OYJWaR7sGF6ldGzKWzpFV71ixo4vGxX+ZUHnJrCb1jPI0uFOE1Jr8/opZhZ/JWkZmT+hpMJt7zFNABwhbc7bJ6fglaLMvIqH9XCCWdGggcFHxIflSlSozkDtUl6T0RXaKsu7VWDjgP+fJAnvq+DJYXo0O0QjpImYUmMf/A4BEOHB6YHOsGftnVOhFG5lJQydB8jRHq4+Zmodr23eVeEg/QCunT+EatNSVYZC68FvDdIe6dihDCa1sWMLbnDcN0slSl1gip9N0aeOG52IciV0GHzmU1F7zX2wdy5pWOZW0LchTDjlXaXQUfkVBT5bzQJ8evajRl+NQ==
-Received: from AS4P192CA0029.EURP192.PROD.OUTLOOK.COM (2603:10a6:20b:5e1::14)
- by DB9PR10MB7170.EURPRD10.PROD.OUTLOOK.COM (2603:10a6:10:452::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.18; Fri, 3 Oct
- 2025 07:40:11 +0000
-Received: from AMS0EPF00000197.eurprd05.prod.outlook.com
- (2603:10a6:20b:5e1:cafe::a) by AS4P192CA0029.outlook.office365.com
- (2603:10a6:20b:5e1::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9182.16 via Frontend Transport; Fri,
- 3 Oct 2025 07:40:06 +0000
-X-MS-Exchange-Authentication-Results: spf=fail (sender IP is 164.130.1.44)
- smtp.mailfrom=foss.st.com; dkim=none (message not signed)
- header.d=none;dmarc=fail action=none header.from=foss.st.com;
-Received-SPF: Fail (protection.outlook.com: domain of foss.st.com does not
- designate 164.130.1.44 as permitted sender) receiver=protection.outlook.com;
- client-ip=164.130.1.44; helo=smtpO365.st.com;
-Received: from smtpO365.st.com (164.130.1.44) by
- AMS0EPF00000197.mail.protection.outlook.com (10.167.16.219) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9182.15 via Frontend Transport; Fri, 3 Oct 2025 07:40:10 +0000
-Received: from SHFDAG1NODE1.st.com (10.75.129.69) by smtpO365.st.com
- (10.250.44.67) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Fri, 3 Oct
- 2025 09:32:56 +0200
-Received: from SAFDAG1NODE1.st.com (10.75.90.17) by SHFDAG1NODE1.st.com
- (10.75.129.69) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Fri, 3 Oct
- 2025 09:40:08 +0200
-Received: from [10.48.87.127] (10.48.87.127) by SAFDAG1NODE1.st.com
- (10.75.90.17) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.57; Fri, 3 Oct
- 2025 09:40:07 +0200
-Message-ID: <86bf1252-9b2b-4001-830d-2746403539e6@foss.st.com>
-Date: Fri, 3 Oct 2025 09:40:07 +0200
+	id 1v4aPD-0000000BpbM-2xD3;
+	Fri, 03 Oct 2025 07:40:45 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1759477240;
+	bh=OlPNZlIp+KgkC76S6neJVFAlwbw4/Ogi6jZu1le8B1Y=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=kcGilSg3fMklsLUAapEjz/5MC/SPFGplOcrjTR06rLQUXmywlgD87PACCIasW4ngs
+	 SLChjarc/w0TDRl3rZsqWJC6oqXHCbFrbwsMVxVLGdRN5G41zVAPtX8eLgk5b1I+9z
+	 /XLLqE+wS74gf2zewQlqTQD03rsvxfXOFyUrg6wBjWG07LXEgDEPcAoCDtzY6eUegv
+	 aH3dT9LVgluKq5neC5hAyExYQANP/6D9PlSX4WstJVipMTBxl06qr9Oa7yL9hJZkxd
+	 jaKec4qYHCwqS9bQzfxwplA2s1UzVJYF8BAqMY6xp2LwKUV9JfyNX0W8IHk7FMSCzB
+	 j7bjitWjJO65A==
+Received: from [10.40.0.100] (185-67-175-126.lampert.tv [185.67.175.126])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: mriesch)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 29B1F17E0E30;
+	Fri,  3 Oct 2025 09:40:40 +0200 (CEST)
+Message-ID: <1ba4a5b3-abe8-4580-abf5-1e0fe19f9fb5@collabora.com>
+Date: Fri, 3 Oct 2025 09:40:39 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/4] gpio: imx-rpmsg: add imx-rpmsg GPIO driver
-To: Shenwei Wang <shenwei.wang@nxp.com>,
-        Bjorn Andersson
-	<andersson@kernel.org>,
-        Mathieu Poirier <mathieu.poirier@linaro.org>,
-        "Rob
- Herring" <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        "Conor
- Dooley" <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-        Sascha Hauer
-	<s.hauer@pengutronix.de>,
-        Linus Walleij <linus.walleij@linaro.org>,
-        "Bartosz
- Golaszewski" <brgl@bgdev.pl>
-CC: Pengutronix Kernel Team <kernel@pengutronix.de>,
-        Fabio Estevam
-	<festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-        <linux-remoteproc@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        <imx@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
-        <linux-kernel@vger.kernel.org>, <linux-imx@nxp.com>,
-        <openamp-rp@lists.openampproject.org>
-References: <20250922200413.309707-1-shenwei.wang@nxp.com>
- <20250922200413.309707-4-shenwei.wang@nxp.com>
+Subject: Re: [PATCH 06/26] media: v4l2-ioctl: Introduce VIDIOC_BIND_CONTEXT
+To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+Cc: Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+ Kieran Bingham <kieran.bingham@ideasonboard.com>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Tomasz Figa
+ <tfiga@chromium.org>, Marek Szyprowski <m.szyprowski@samsung.com>,
+ Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+ Florian Fainelli <florian.fainelli@broadcom.com>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>, Hans Verkuil <hverkuil@kernel.org>,
+ linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <20250717-multicontext-mainline-2025-v1-0-81ac18979c03@ideasonboard.com>
+ <20250717-multicontext-mainline-2025-v1-6-81ac18979c03@ideasonboard.com>
+ <b8e03fd2-3a44-48bb-8707-4aecabbbfd9c@collabora.com>
+ <wkeizorbd2celujqgs63gzsk5nzsdtoabzg2ocdcsmg3djvl7u@hgh6ridrdwiy>
 Content-Language: en-US
-From: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
-In-Reply-To: <20250922200413.309707-4-shenwei.wang@nxp.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.48.87.127]
-X-ClientProxiedBy: EQNCAS1NODE4.st.com (10.75.129.82) To SAFDAG1NODE1.st.com
- (10.75.90.17)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AMS0EPF00000197:EE_|DB9PR10MB7170:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0220a96d-2436-46ef-ba1e-08de025014c7
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|36860700013|7416014|376014|82310400026|7053199007|921020;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?aXR5M3lBb3ZKRW9kUFR3QmtORDJlbnZqTDBZZDNOektCSGZ3ZGI2QS84Zi9V?=
- =?utf-8?B?OEtvaEVTRVVxdDBzUEFjRWlMWTNLVFMzaDVrWXQ3OWtYMG8xZjAxUlRkOEZ0?=
- =?utf-8?B?V0RuWkdpemNDSUZUL1RBUVF0dkNURDFFUlNlVWZlZVlXcS83a01YWElCRlVU?=
- =?utf-8?B?K3NRa3pBOFF4em1jajNPRWtEcm9ONFFYYXFkVVBhZENGek5weVRIMStnbmhq?=
- =?utf-8?B?OFA3SHdWY0xVaWxyL1VkejhsMWpCelp3ZVMzUndaZ0UwM3Y0K0h3RkEyaU0z?=
- =?utf-8?B?cXJNcXN1Vm5IU1I0eWswVFZ3WVczZSt6T1NGZTdNUjZLNW9KRmduNzQ4T1FB?=
- =?utf-8?B?bVJDRldvZlF4TTAxcFE5cVJKK0NTOFJLUEw3ZU1VSGt0Q2YweEtsY2tBWTE5?=
- =?utf-8?B?NWt5VkZKd3Z2RWF5bWpPQlJvek5VQllXSklRVGFOWVVRWXZPY2QvWFE4NHl1?=
- =?utf-8?B?VC9vbTFGOTJ2UHc5cGtPbDV0MGJNZThuZXkwRXZyWWZuKzdsL1Q1SGlZaTg1?=
- =?utf-8?B?V3pjT1hLeHVqUlplRlRoRytFZnR0YVk5K3JXTDVSeXRuYW4vR1dLMzA4Tlg2?=
- =?utf-8?B?S2IxUDZTOHB4aGwwZzZkTVFWQlQrSlpZQWRFRFVETllRVTZUaktKWXhOMmFW?=
- =?utf-8?B?K2NGTUlYTi8xQ2tCVngvdFR3RzRaWU5sVURaR3dEWXB4U3Y5Rnk2NU53OE5C?=
- =?utf-8?B?ZFluSWF3b0hHajBpSFd1VlNXdlVFQWh6UUNDUXI3VU1CUzBzWERvUFlNSWNE?=
- =?utf-8?B?UnppY1J6RzA2S21yQWl4dXpQaWpMUFNmSThEdkFaY0hVZDYwZXlYTmhLUW5C?=
- =?utf-8?B?ZW9NblRTK0lnckxwMTFFWjd6YUFjN09UT1J2czljZ2JYV1M2UkYrZklpekRt?=
- =?utf-8?B?US9LODJqV3VJM1h5S3lVS3AxUFVQR21NOUpuSmd0aXRLNTREaUlFQkxuQTE5?=
- =?utf-8?B?M3ExY0FlQjRQNHg3WWVKREFuaXdqb0gvYklFdWl2NUJ3ejVMWUpDRTZBVnEr?=
- =?utf-8?B?M2I5U3Bpd1RFZ0tnY2FkWlc3OTZqNkRSYjNZZUpwbForLzEvbjhiZDZ3SkRJ?=
- =?utf-8?B?MEhMR3dsNmpweEJ1QlhNNWxPeWxlWTkzV3hxNGdXazZoR293RlZCWlNCbmVY?=
- =?utf-8?B?d25sWlpQUU1tYVhDa2l3cnphRWx4WjNraWFyazVxejh1cTlFSUVCNEErUzZZ?=
- =?utf-8?B?blhRanRGUDZSVkdOWUN4Mi9oS09pVTZDTFl3YVloejc1b2QxbGVRUFhSMmVY?=
- =?utf-8?B?V2FtQk81eDRXRkxXcDhyTDIxUWp0eHVIMDgxemNKQ1Nwd1U2R1Q2d3g5MHRL?=
- =?utf-8?B?am8rWjBCTDVUdFpWeG90QTh1Mm9sOGFYbzdWRmZKVWxDZjh5TlBxQlJVZGZK?=
- =?utf-8?B?NWQzQUxCZ3doZlcrZHcrNVYxdUZsUVQzNXM3Vk80UUR2cm02VmZLSmpsSGxy?=
- =?utf-8?B?blF3Wk1jVVpGaEd2VytRN2ZlZ3N3MlB4MmVYSDhIK3VQKzllZEpaMVpySXlT?=
- =?utf-8?B?aVRZTEoyY1BBT09zRFVNYysvMjRqK1R0b3g4ZTFyUUQwcVgxYTB1TE8xMlpP?=
- =?utf-8?B?bUR5dUd3Qlg2VWU3cUIvMUxkWTArMk9vU3J6QzgwKzlFQkJmMWtmemlGRW1H?=
- =?utf-8?B?ZVhJd1BudkRvRjhPTndkYVZGTHk1MnpSNXpkVHo4dkx0V2FiaFRMQ2pkV09m?=
- =?utf-8?B?dThnaW94eGJGa2hQYkp6Z3dxbGptTzZHN0RRS2RsbUJLTUxQY3NVRHU4dWNi?=
- =?utf-8?B?enordVJTZ201NlB3LzlkcEUwNFBHc0VtZHM2ZWZHQmNwMzBxTDJqU3ZOdEt0?=
- =?utf-8?B?cHg0VTQzMjdvcGJKYml6ZHM4dlhXTFdtc2g5NDVZbDQ0dWxJQUR2MFN1N2Jq?=
- =?utf-8?B?YUg0dldtUDJOUDBWUXU3WjFQQzhiL05CRitINGVCYlptS2lWTzBWTUZocXpJ?=
- =?utf-8?B?b2t4bEZoak9NM3o5M0xPMFRvV056QWlHZmQvKzFhUVJQUkVldW5oTENBbkZi?=
- =?utf-8?B?VjZlR2FPZlBpWGE5MVRNS2VTTldiaG9QRmRrVEc0K3VDMmZxTXNidjJrdFBW?=
- =?utf-8?B?RVF6cGVZK1F0VlM2QStqZ1ZKM1cwRkNxZXVESGwyTm05RXNBeGl2aHNEMk8z?=
- =?utf-8?Q?eXdDg5CdVhAqdBieN6vRGFYcU?=
-X-Forefront-Antispam-Report: CIP:164.130.1.44;CTRY:IT;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:smtpO365.st.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(36860700013)(7416014)(376014)(82310400026)(7053199007)(921020);DIR:OUT;SFP:1101;
-X-OriginatorOrg: foss.st.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Oct 2025 07:40:10.1599
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0220a96d-2436-46ef-ba1e-08de025014c7
-X-MS-Exchange-CrossTenant-Id: 75e027c9-20d5-47d5-b82f-77d7cd041e8f
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=75e027c9-20d5-47d5-b82f-77d7cd041e8f;Ip=[164.130.1.44];Helo=[smtpO365.st.com]
-X-MS-Exchange-CrossTenant-AuthSource: AMS0EPF00000197.eurprd05.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR10MB7170
-X-Authority-Analysis: v=2.4 cv=L80QguT8 c=1 sm=1 tr=0 ts=68df7de2 cx=c_pps a=kUaKQbrk1EUcZEUbdnmukQ==:117 a=Tm9wYGWyy1fMlzdxM1lUeQ==:17 a=6eWqkTHjU83fiwn7nKZWdM+Sl24=:19 a=FOPVHIcnkjUA:10 a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=s63m1ICgrNkA:10
- a=KrXZwBdWH7kA:10 a=NEAV23lmAAAA:8 a=8AirrxEcAAAA:8 a=DFuZZjthz0NyGPoCtLcA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=ST-jHhOKWsTCqRlWije3:22 a=nl4s5V0KI7Kw-pW0DWrs:22 a=pHzHmUro8NiASowvMSCR:22 a=xoEH_sTeL_Rfw54TyV31:22
-X-Proofpoint-ORIG-GUID: lZB8GegBQz8Rac_q2DNVdDvcIVFRIMDn
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTI3MDAwMSBTYWx0ZWRfX5CO/Moq+zWT4 Eu85Eypm4ZEU3h2F3uMi6fAeRwA2hEpCi5CNP9oR/VUcGnqls9ZW5y3iv1U+ChAqHPbqkHaNcw9 eFVDkPRXPaN/UrOosWr8pyw30qqVN/wGDI1G8UScQFs0z+Wxczc7hVBEXW3TJYT3cu+7d5565XI
- 8CFKbMOdSk/SKn6OrbJcUL1itRaqQJ+XVazjVZJL6J+eQxNEaHokCJImfCJ6iCbtOTCfmO1bvcv H6y0L3RHBGN1LteVEzOcInEfBtgDXY7kMpla742e1RKQD0F90ZKht+NxT4l7Dni5e7RMv3NgRUn 9s38mcTCxV2mIce5/+tLuDRPHSHKOGpTdK095WhvvvN3tYEsf46qTX9jEpbqhx1umIkcplmuwWB
- mKh0prkQHeAMM1k1XlJ3Z419C8aRig==
-X-Proofpoint-GUID: lZB8GegBQz8Rac_q2DNVdDvcIVFRIMDn
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-03_02,2025-10-02_03,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 lowpriorityscore=0 bulkscore=0
- phishscore=0 adultscore=0 priorityscore=1501 spamscore=0 malwarescore=0
- clxscore=1015 impostorscore=0 suspectscore=0 classifier=typeunknown
- authscore=0 authtc= authcc= route=outbound adjust=0 reason=mlx scancount=1
- engine=8.19.0-2509150000 definitions=main-2509270001
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <wkeizorbd2celujqgs63gzsk5nzsdtoabzg2ocdcsmg3djvl7u@hgh6ridrdwiy>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_004038_641287_89E669E8 
-X-CRM114-Status: GOOD (  22.43  )
+X-CRM114-CacheID: sfid-20251003_004043_943105_82588C04 
+X-CRM114-Status: GOOD (  48.96  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -204,618 +88,182 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Shenwei,
+Hi Jacopo,
 
-On 9/22/25 22:04, Shenwei Wang wrote:
-> On i.MX SoCs, the system may include two processors:
-> 	- An MCU running an RTOS
-> 	- An MPU running Linux
->
-> These processors communicate via the RPMSG protocol.
-> The driver implements the standard GPIO interface, allowing
-> the Linux side to control GPIO controllers which reside in
-> the remote processor via RPMSG protocol.
+On 10/2/25 10:48, Jacopo Mondi wrote:
+> Hi Michael
+> 
+> On Wed, Oct 01, 2025 at 11:41:38PM +0200, Michael Riesch wrote:
+>> Hi Jacopo,
+>>
+>> On 7/17/25 12:45, Jacopo Mondi wrote:
+>>> Introduce a new ioctl in V4L2 to allocate a video device context and
+>>> associate it with a media device context.
+>>>
+>>> The ioctl is valid only if support for MEDIA_CONTROLLER is compiled in
+>>> as it calls into the entity ops to let driver allocate a new context and
+>>> binds the newly created context with the media context associated
+>>> with the file descriptor provided by userspace as the new ioctl
+>>> argument.
+>>
+>> I would have expected that the execution context of the video device
+>> already exists and is not allocated at ioctl call time. If I understand
+> 
+> If userspace doesn't use contexts, why pre-allocate it ?
 
-What about my request in previous version to make this driver generic?
+This is more along the lines "if it keeps things simple, why not". But I
+am still diving into this and may have not gotten the complete picture yet.
 
-In ST we have similar driver in downstream, we would be interested in
-reusing it if generic. Indeed we need some rpmsg mechanism for
-gpio-interrupt. Today we have a downstream rpmsg driver [1][2] that could
-migrate on a generic rpmsg-gpio driver.
+> See also below on the implications of using a context regardless of
+> userspace actions
+> 
+>> it correctly
+>>
+>>  - after opening a video device, no context is allocated, but in
+>>    v4l2_fh_release the reference counter of the context is decreased.
+>>    This smells fishy. Note that the user may not call the ioctl.
+> 
+> As far as I can see v4l2_fh_release() calls:
+> 
+> void video_device_context_put(struct video_device_context *ctx)
+> {
+>        if (!ctx)
+>                return;
+> 
+>        media_entity_context_put(&ctx->base);
+> }
+> 
+> which is safe is !ctx
 
-[1]Documentation/devicetree/bindings/interrupt-controller/rpmsg,intc.yaml
-[2]https://github.com/STMicroelectronics/linux/blob/v6.6-stm32mp/drivers/irqchip/irq-rpmsg.c
+Ack.
 
-My comment below is based on the assumption that it would become generic.
+> 
+>>  - after opening a video device there is no context. This could imply
+>>    that two operating modes are required (with a context and without a
+>>    context), which would seem unnecessarily complex.
+> 
+> You'll find out later on that I have introduced a default context for
+> this purpose
 
-> Signed-off-by: Shenwei Wang <shenwei.wang@nxp.com>
-> ---
->   drivers/gpio/Kconfig          |  17 ++
->   drivers/gpio/Makefile         |   1 +
->   drivers/gpio/gpio-imx-rpmsg.c | 488 ++++++++++++++++++++++++++++++++++
->   3 files changed, 506 insertions(+)
->   create mode 100644 drivers/gpio/gpio-imx-rpmsg.c
->
-> diff --git a/drivers/gpio/Kconfig b/drivers/gpio/Kconfig
-> index a437fe652dbc..97eda94b0ba1 100644
-> --- a/drivers/gpio/Kconfig
-> +++ b/drivers/gpio/Kconfig
-> @@ -1847,6 +1847,23 @@ config GPIO_SODAVILLE
->   
->   endmenu
->   
-> +menu "RPMSG GPIO drivers"
-> +	depends on RPMSG
-> +
-> +config GPIO_IMX_RPMSG
-> +	tristate "NXP i.MX SoC RPMSG GPIO support"
-> +	depends on IMX_REMOTEPROC
-> +	select GPIOLIB_IRQCHIP
-> +	default IMX_REMOTEPROC
-> +	help
-> +	  Say yes here to support the RPMSG GPIO functions on i.MX SoC based
-> +	  platform.  Currently supported devices: i.MX7ULP, i.MX8ULP, i.MX8x,
-> +	  and i.MX9x.
-> +
-> +	  If unsure, say N.
-> +
-> +endmenu
-> +
->   menu "SPI GPIO expanders"
->   	depends on SPI_MASTER
->   
-> diff --git a/drivers/gpio/Makefile b/drivers/gpio/Makefile
-> index 379f55e9ed1e..e01465c03431 100644
-> --- a/drivers/gpio/Makefile
-> +++ b/drivers/gpio/Makefile
-> @@ -83,6 +83,7 @@ obj-$(CONFIG_GPIO_I8255)		+= gpio-i8255.o
->   obj-$(CONFIG_GPIO_ICH)			+= gpio-ich.o
->   obj-$(CONFIG_GPIO_IDIO_16)		+= gpio-idio-16.o
->   obj-$(CONFIG_GPIO_IDT3243X)		+= gpio-idt3243x.o
-> +obj-$(CONFIG_GPIO_IMX_RPMSG)		+= gpio-imx-rpmsg.o
->   obj-$(CONFIG_GPIO_IMX_SCU)		+= gpio-imx-scu.o
->   obj-$(CONFIG_GPIO_IT87)			+= gpio-it87.o
->   obj-$(CONFIG_GPIO_IXP4XX)		+= gpio-ixp4xx.o
-> diff --git a/drivers/gpio/gpio-imx-rpmsg.c b/drivers/gpio/gpio-imx-rpmsg.c
-> new file mode 100644
-> index 000000000000..46b1b6b798c8
-> --- /dev/null
-> +++ b/drivers/gpio/gpio-imx-rpmsg.c
-> @@ -0,0 +1,488 @@
-> +// SPDX-License-Identifier: GPL-2.0-only
-> +/*
-> + * Copyright 2025 NXP
-> + *
-> + * The driver exports a standard gpiochip interface to control
-> + * the GPIO controllers via RPMSG on a remote processor.
-> + */
-> +
-> +#include <linux/err.h>
-> +#include <linux/gpio/driver.h>
-> +#include <linux/rpmsg/imx_rpmsg.h>
-> +#include <linux/init.h>
-> +#include <linux/irqdomain.h>
-> +#include <linux/of.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/rpmsg.h>
-> +
-> +#define IMX_RPMSG_GPIO_PER_PORT	32
-> +#define RPMSG_TIMEOUT	1000
-> +
-> +enum gpio_input_trigger_type {
-> +	GPIO_RPMSG_TRI_IGNORE,
-> +	GPIO_RPMSG_TRI_RISING,
-> +	GPIO_RPMSG_TRI_FALLING,
-> +	GPIO_RPMSG_TRI_BOTH_EDGE,
-> +	GPIO_RPMSG_TRI_LOW_LEVEL,
-> +	GPIO_RPMSG_TRI_HIGH_LEVEL,
-> +};
-What about taking inspiration from the|IRQ_TYPE|bitfield defined in|irq.h|?
-For instance:
-GPIO_RPMSG_TRI_BOTH_EDGE = GPIO_RPMSG_TRI_FALLING | GPIO_RPMSG_TRI_RISING,
-> +
-> +enum gpio_rpmsg_header_type {
-> +	GPIO_RPMSG_SETUP,
-> +	GPIO_RPMSG_REPLY,
-> +	GPIO_RPMSG_NOTIFY,
-> +};
-> +
-> +enum gpio_rpmsg_header_cmd {
-> +	GPIO_RPMSG_INPUT_INIT,
-> +	GPIO_RPMSG_OUTPUT_INIT,
-> +	GPIO_RPMSG_INPUT_GET,
-> +};
-> +
-> +struct gpio_rpmsg_data {
-> +	struct imx_rpmsg_head header;
-> +	u8 pin_idx;
-> +	u8 port_idx;
-> +	union {
-> +		u8 event;
-> +		u8 retcode;
-> +		u8 value;
-> +	} out;
-> +	union {
-> +		u8 wakeup;
-> +		u8 value;
-nitpicking put "value" field out of union as common
-> +	} in;
-> +} __packed __aligned(8);
+Right, I'll check this out.
 
-Any reason to pack it an align it?
-This structure will be copied in the RPMSg payload, right?
+> 
+>>  - What happens if the VIDIOC_BIND_CONTEXT ioctl is called more than
+>>    once? (IIUC vfh->context gets overwritten but the old context is not
+>>    released)
+> 
+> Do you mean:
+> 
+> - Multiple file handles representing the same video device are bound
+>   multiple times to the same media device context ?
+> 
+>   media_device_bind_context() called from v4l_bind_context() returns an error
+> 
+> - An already bound video device fh is bound to (different) media
+>   device contexts ?
+> 
+>   I should probably
+> 
+>   if (vfh->context)
+>         return -EINVAL;
+> 
+>   in v4l_bind_context()
+> 
+>   As an already bound context cannot be re-bound. There currently is
+>   not un-binding mechanism, it is required to close a file handle to
+>   unbind.
 
-I also wonder if that definition should not be in a header file
-with double licensing that the DT. Indeed this need to be
-common with the remote side implementation  that can
-be non GPL implementation.
+The latter. The check you proposed should do the trick.
 
-> +
-> +struct imx_rpmsg_gpio_pin {
-> +	u8 irq_shutdown;
-> +	u8 irq_unmask;
-> +	u8 irq_mask;
-> +	u32 irq_wake_enable;
-> +	u32 irq_type;
-> +	struct gpio_rpmsg_data msg;
-> +};
-> +
-> +struct imx_gpio_rpmsg_info {
-> +	struct rpmsg_device *rpdev;
-> +	struct gpio_rpmsg_data *notify_msg;
-> +	struct gpio_rpmsg_data *reply_msg;
-> +	struct completion cmd_complete;
-> +	struct mutex lock;
-> +	void **port_store;
-> +};
-> +
-> +struct imx_rpmsg_gpio_port {
-> +	struct gpio_chip gc;
-> +	struct imx_rpmsg_gpio_pin gpio_pins[IMX_RPMSG_GPIO_PER_PORT];
-> +	struct imx_gpio_rpmsg_info info;
-> +	int idx;
-> +};
-> +
-> +static int gpio_send_message(struct imx_rpmsg_gpio_port *port,
-> +			     struct gpio_rpmsg_data *msg,
-> +			     bool sync)
-> +{
-> +	struct imx_gpio_rpmsg_info *info = &port->info;
-> +	int err;
-> +
-> +	if (!info->rpdev) {
-> +		dev_dbg(&info->rpdev->dev,
-> +			"rpmsg channel not ready, m4 image ready?\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	reinit_completion(&info->cmd_complete);
-> +	err = rpmsg_send(info->rpdev->ept, (void *)msg,
-> +			 sizeof(struct gpio_rpmsg_data));
-> +	if (err) {
-> +		dev_err(&info->rpdev->dev, "rpmsg_send failed: %d\n", err);
-> +		return err;
-> +	}
-> +
-> +	if (sync) {
-> +		err = wait_for_completion_timeout(&info->cmd_complete,
-> +						  msecs_to_jiffies(RPMSG_TIMEOUT));
-> +		if (!err) {
-> +			dev_err(&info->rpdev->dev, "rpmsg_send timeout!\n");
-> +			return -ETIMEDOUT;
-> +		}
-> +
-> +		if (info->reply_msg->out.retcode != 0) {
-> +			dev_err(&info->rpdev->dev, "rpmsg not ack %d!\n",
-> +				info->reply_msg->out.retcode);
-> +			return -EINVAL;
-> +		}
-> +
-> +		/* copy the reply message */
-> +		memcpy(&port->gpio_pins[info->reply_msg->pin_idx].msg,
-> +		       info->reply_msg, sizeof(*info->reply_msg));
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static struct gpio_rpmsg_data *gpio_get_pin_msg(struct imx_rpmsg_gpio_port *port,
-> +						unsigned int offset)
-> +{
-> +	struct gpio_rpmsg_data *msg = &port->gpio_pins[offset].msg;
-> +
-> +	memset(msg, 0, sizeof(struct gpio_rpmsg_data));
-> +
-> +	return msg;
-> +};
-> +
-> +static int imx_rpmsg_gpio_get(struct gpio_chip *gc, unsigned int gpio)
-> +{
-> +	struct imx_rpmsg_gpio_port *port = gpiochip_get_data(gc);
-> +	struct gpio_rpmsg_data *msg = NULL;
-> +	int ret;
-> +
-> +	guard(mutex)(&port->info.lock);
-> +
-> +	msg = gpio_get_pin_msg(port, gpio);
-> +	msg->header.cate = IMX_RPMSG_GPIO;
-> +	msg->header.major = IMX_RMPSG_MAJOR;
-> +	msg->header.minor = IMX_RMPSG_MINOR;
-> +	msg->header.type = GPIO_RPMSG_SETUP;
-> +	msg->header.cmd = GPIO_RPMSG_INPUT_GET;
-> +	msg->pin_idx = gpio;
-> +	msg->port_idx = port->idx;
-> +
-> +	ret = gpio_send_message(port, msg, true);
-> +	if (!ret)
-> +		ret = !!port->gpio_pins[gpio].msg.in.value;
-Does this code is save?  !! return a boolean right?
-why not force to 1 if  greater that 1?
+>> (Just found that a later patch introduces default contexts. Should this
+>> address the comments above, consider rearranging the patches so that
+>> default contexts are introduced first.)
+> 
+> To be honest I don't see much difference. I'll see if it's practical
+> to do so or not.
+> 
+>>
+>>> The newly allocated video context is then stored in the v4l2-fh that
+>>> represent the open file handle on which the ioctl has been called.
+>>
+>> Couldn't the same be achieved by
+>>  - v4l2_fh_open allocates a new context
+>>  - v4l2_fh_release releases it (already implemented)
+>>  - ioctl takes the existing context and binds it to the media device
+>>    context
+>> Then,
+>>  - open/release are symmetric and not fishy
+> 
+> Why do you think video_device_context_put() is fishy ?
 
-> +
-> +	return ret;
-> +}
-> +
-> +static int imx_rpmsg_gpio_direction_input(struct gpio_chip *gc,
-> +					  unsigned int gpio)
-> +{
-> +	struct imx_rpmsg_gpio_port *port = gpiochip_get_data(gc);
-> +	struct gpio_rpmsg_data *msg = NULL;
-> +
-> +	guard(mutex)(&port->info.lock);
-> +
-> +	msg = gpio_get_pin_msg(port, gpio);
-> +	msg->header.cate = IMX_RPMSG_GPIO;
-Do you use a single rpmsg channel for several feature?
-Any reason to not use one rpmsg channel per feature category?
+Not the video_device_context_put itself, but I expected "open()
+allocates something, close() release that something". But apparently
+there is a good reason to deviate from that...
 
-> +	msg->header.major = IMX_RMPSG_MAJOR;
-> +	msg->header.minor = IMX_RMPSG_MINOR;
-> +	msg->header.type = GPIO_RPMSG_SETUP;
-> +	msg->header.cmd = GPIO_RPMSG_INPUT_INIT;
-> +	msg->pin_idx = gpio;
-> +	msg->port_idx = port->idx;
-> +
-> +	msg->out.event = GPIO_RPMSG_TRI_IGNORE;
-> +	msg->in.wakeup = 0;
-> +
-> +	return gpio_send_message(port, msg, true);
-> +}
-> +
-> +static inline void imx_rpmsg_gpio_direction_output_init(struct gpio_chip *gc,
-> +		unsigned int gpio, int val, struct gpio_rpmsg_data *msg)
-> +{
-> +	struct imx_rpmsg_gpio_port *port = gpiochip_get_data(gc);
-> +
-> +	msg->header.cate = IMX_RPMSG_GPIO;
-> +	msg->header.major = IMX_RMPSG_MAJOR;
-> +	msg->header.minor = IMX_RMPSG_MINOR;
-> +	msg->header.type = GPIO_RPMSG_SETUP;
-> +	msg->header.cmd = GPIO_RPMSG_OUTPUT_INIT;
-> +	msg->pin_idx = gpio;
-> +	msg->port_idx = port->idx;
-> +	msg->out.value = val;
-> +}
-> +
-> +static int imx_rpmsg_gpio_set(struct gpio_chip *gc, unsigned int gpio, int val)
-> +{
-> +	struct imx_rpmsg_gpio_port *port = gpiochip_get_data(gc);
-> +	struct gpio_rpmsg_data *msg = NULL;
-> +
-> +	guard(mutex)(&port->info.lock);
-> +
-> +	msg = gpio_get_pin_msg(port, gpio);
-> +	imx_rpmsg_gpio_direction_output_init(gc, gpio, val, msg);
-> +
-> +	return gpio_send_message(port, msg, true);
-> +}
-> +
-> +static int imx_rpmsg_gpio_direction_output(struct gpio_chip *gc,
-> +					unsigned int gpio, int val)
-> +{
-> +	struct imx_rpmsg_gpio_port *port = gpiochip_get_data(gc);
-> +	struct gpio_rpmsg_data *msg = NULL;
-> +
-> +	guard(mutex)(&port->info.lock);
-> +
-> +	msg = gpio_get_pin_msg(port, gpio);
-> +	imx_rpmsg_gpio_direction_output_init(gc, gpio, val, msg);
-> +
-> +	return gpio_send_message(port, msg, true);
-> +}
-> +
-> +static int imx_rpmsg_irq_set_type(struct irq_data *d, u32 type)
-> +{
-> +	struct imx_rpmsg_gpio_port *port = irq_data_get_irq_chip_data(d);
-> +	u32 gpio_idx = d->hwirq;
-> +	int edge = 0;
-> +	int ret = 0;
-> +
-> +	switch (type) {
-> +	case IRQ_TYPE_EDGE_RISING:
-> +		edge = GPIO_RPMSG_TRI_RISING;
-> +		break;
-> +	case IRQ_TYPE_EDGE_FALLING:
-> +		edge = GPIO_RPMSG_TRI_FALLING;
-> +		break;
-> +	case IRQ_TYPE_EDGE_BOTH:
-> +		edge = GPIO_RPMSG_TRI_BOTH_EDGE;
-> +		break;
-> +	case IRQ_TYPE_LEVEL_LOW:
-> +		edge = GPIO_RPMSG_TRI_LOW_LEVEL;
-> +		break;
-> +	case IRQ_TYPE_LEVEL_HIGH:
-> +		edge = GPIO_RPMSG_TRI_HIGH_LEVEL;
-> +		break;
-> +	default:
-> +		ret = -EINVAL;
-> +		break;
-> +	}
-> +
-> +	port->gpio_pins[gpio_idx].irq_type = edge;
-> +
-> +	return ret;
-> +}
-> +
-> +static int imx_rpmsg_irq_set_wake(struct irq_data *d, u32 enable)
-> +{
-> +	struct imx_rpmsg_gpio_port *port = irq_data_get_irq_chip_data(d);
-> +	u32 gpio_idx = d->hwirq;
-> +
-> +	port->gpio_pins[gpio_idx].irq_wake_enable = enable;
-> +
-> +	return 0;
-> +}
-> +
-> +/*
-> + * This function will be called at:
-> + *  - one interrupt setup.
-> + *  - the end of one interrupt happened
-> + * The gpio over rpmsg driver will not write the real register, so save
-> + * all infos before this function and then send all infos to M core in this
-> + * step.
-> + */
-> +static void imx_rpmsg_unmask_irq(struct irq_data *d)
-> +{
-> +	struct imx_rpmsg_gpio_port *port = irq_data_get_irq_chip_data(d);
-> +	u32 gpio_idx = d->hwirq;
-> +
-> +	port->gpio_pins[gpio_idx].irq_unmask = 1;
-> +}
-> +
-> +static void imx_rpmsg_mask_irq(struct irq_data *d)
-> +{
-> +	struct imx_rpmsg_gpio_port *port = irq_data_get_irq_chip_data(d);
-> +	u32 gpio_idx = d->hwirq;
-> +	/*
-> +	 * No need to implement the callback at A core side.
-> +	 * M core will mask interrupt after a interrupt occurred, and then
-> +	 * sends a notify to A core.
-> +	 * After A core dealt with the notify, A core will send a rpmsg to
-> +	 * M core to unmask this interrupt again.
-> +	 */
-> +	port->gpio_pins[gpio_idx].irq_mask = 1;
-> +}
-> +
-> +static void imx_rpmsg_irq_shutdown(struct irq_data *d)
-> +{
-> +	struct imx_rpmsg_gpio_port *port = irq_data_get_irq_chip_data(d);
-> +	u32 gpio_idx = d->hwirq;
-> +
-> +	port->gpio_pins[gpio_idx].irq_shutdown = 1;
-> +}
-> +
-> +static void imx_rpmsg_irq_bus_lock(struct irq_data *d)
-> +{
-> +	struct imx_rpmsg_gpio_port *port = irq_data_get_irq_chip_data(d);
-> +
-> +	mutex_lock(&port->info.lock);
-> +}
-> +
-> +static void imx_rpmsg_irq_bus_sync_unlock(struct irq_data *d)
-> +{
-> +	struct imx_rpmsg_gpio_port *port = irq_data_get_irq_chip_data(d);
-> +	struct gpio_rpmsg_data *msg = NULL;
-> +	u32 gpio_idx = d->hwirq;
-> +
-> +	if (port == NULL) {
-> +		mutex_unlock(&port->info.lock);
-> +		return;
-> +	}
-> +
-> +	/*
-> +	 * For mask irq, do nothing here.
-> +	 * M core will mask interrupt after a interrupt occurred, and then
-> +	 * sends a notify to A core.
-> +	 * After A core dealt with the notify, A core will send a rpmsg to
-> +	 * M core to unmask this interrupt again.
-> +	 */
-> +
-> +	if (port->gpio_pins[gpio_idx].irq_mask && !port->gpio_pins[gpio_idx].irq_unmask) {
-> +		port->gpio_pins[gpio_idx].irq_mask = 0;
-> +		mutex_unlock(&port->info.lock);
-> +		return;
-> +	}
-> +
-> +	msg = gpio_get_pin_msg(port, gpio_idx);
-> +	msg->header.cate = IMX_RPMSG_GPIO;
-> +	msg->header.major = IMX_RMPSG_MAJOR;
-> +	msg->header.minor = IMX_RMPSG_MINOR;
-> +	msg->header.type = GPIO_RPMSG_SETUP;
-> +	msg->header.cmd = GPIO_RPMSG_INPUT_INIT;
-> +	msg->pin_idx = gpio_idx;
-> +	msg->port_idx = port->idx;
-> +
-> +	if (port->gpio_pins[gpio_idx].irq_shutdown) {
-> +		msg->out.event = GPIO_RPMSG_TRI_IGNORE;
-> +		msg->in.wakeup = 0;
-> +		port->gpio_pins[gpio_idx].irq_shutdown = 0;
-> +	} else {
-> +		 /* if not set irq type, then use low level as trigger type */
-> +		msg->out.event = port->gpio_pins[gpio_idx].irq_type;
-> +		if (!msg->out.event)
-> +			msg->out.event = GPIO_RPMSG_TRI_LOW_LEVEL;
-> +		if (port->gpio_pins[gpio_idx].irq_unmask) {
-> +			msg->in.wakeup = 0;
-> +			port->gpio_pins[gpio_idx].irq_unmask = 0;
-> +		} else /* irq set wake */
-> +			msg->in.wakeup = port->gpio_pins[gpio_idx].irq_wake_enable;
-> +	}
-> +
-> +	gpio_send_message(port, msg, false);
-> +	mutex_unlock(&port->info.lock);
-> +}
-> +
-> +static const struct irq_chip imx_rpmsg_irq_chip = {
-> +	.irq_mask = imx_rpmsg_mask_irq,
-> +	.irq_unmask = imx_rpmsg_unmask_irq,
-> +	.irq_set_wake = imx_rpmsg_irq_set_wake,
-> +	.irq_set_type = imx_rpmsg_irq_set_type,
-> +	.irq_shutdown = imx_rpmsg_irq_shutdown,
-> +	.irq_bus_lock = imx_rpmsg_irq_bus_lock,
-> +	.irq_bus_sync_unlock = imx_rpmsg_irq_bus_sync_unlock,
-> +	.flags = IRQCHIP_IMMUTABLE,
-> +};
-> +
-> +static int imx_rpmsg_gpio_callback(struct rpmsg_device *rpdev,
-> +	void *data, int len, void *priv, u32 src)
-> +{
-> +	struct gpio_rpmsg_data *msg = (struct gpio_rpmsg_data *)data;
-> +	struct imx_rpmsg_gpio_port *port = NULL;
-> +	struct imx_rpmsg_driver_data *drvdata;
-> +	unsigned long flags;
-> +
-> +	drvdata = dev_get_drvdata(&rpdev->dev);
-> +	if (msg)
-> +		port = drvdata->channel_devices[msg->port_idx];
-> +
-> +	if (!port)
-> +		return -ENODEV;
-> +
-> +	if (msg->header.type == GPIO_RPMSG_REPLY) {
-> +		port->info.reply_msg = msg;
-> +		complete(&port->info.cmd_complete);
-> +	} else if (msg->header.type == GPIO_RPMSG_NOTIFY) {
-> +		port->info.notify_msg = msg;
-> +		local_irq_save(flags);
-> +		generic_handle_domain_irq(port->gc.irq.domain, msg->pin_idx);
-> +		local_irq_restore(flags);
-> +	} else
-> +		dev_err(&rpdev->dev, "wrong command type!\n");
-> +
-> +	return 0;
-> +}
-> +
-> +static void imx_rpmsg_gpio_remove_action(void *data)
-> +{
-> +	struct imx_rpmsg_gpio_port *port = data;
-> +
-> +	port->info.port_store[port->idx] = 0;
-> +}
-> +
-> +static int imx_rpmsg_gpio_probe(struct platform_device *pdev)
-> +{
-> +	struct imx_rpmsg_driver_data *pltdata = pdev->dev.platform_data;
-> +	struct device_node *np = pdev->dev.of_node;
-> +	struct imx_rpmsg_gpio_port *port;
-> +	struct gpio_irq_chip *girq;
-> +	struct gpio_chip *gc;
-> +	int ret;
-> +
-> +	if (!pltdata)
-> +		return -EPROBE_DEFER;
-> +
-> +	port = devm_kzalloc(&pdev->dev, sizeof(*port), GFP_KERNEL);
-> +	if (!port)
-> +		return -ENOMEM;
-> +
-> +	ret = of_property_read_u32(np, "reg", &port->idx);
-> +	if (ret)
-> +		return ret;
-> +
-> +	if (port->idx > MAX_DEV_PER_CHANNEL)
-> +		return -EINVAL;
-> +
-> +	mutex_init(&port->info.lock);
-> +	init_completion(&port->info.cmd_complete);
-> +	port->info.rpdev = pltdata->rpdev;
-> +	port->info.port_store = pltdata->channel_devices;
-> +	port->info.port_store[port->idx] = port;
-> +	if (!pltdata->rx_callback)
-> +		pltdata->rx_callback = imx_rpmsg_gpio_callback;
-> +
-> +	gc = &port->gc;
-> +	gc->owner = THIS_MODULE;
-> +	gc->parent = &pltdata->rpdev->dev;
-> +	gc->label = devm_kasprintf(&pdev->dev, GFP_KERNEL, "%s-gpio%d",
-> +				   pltdata->rproc_name, port->idx);
-> +	gc->ngpio = IMX_RPMSG_GPIO_PER_PORT;
-> +	gc->base = -1;
-> +
-> +	gc->direction_input = imx_rpmsg_gpio_direction_input;
-> +	gc->direction_output = imx_rpmsg_gpio_direction_output;
-> +	gc->get = imx_rpmsg_gpio_get;
-> +	gc->set = imx_rpmsg_gpio_set;
-> +
-> +	platform_set_drvdata(pdev, port);
-> +	girq = &gc->irq;
-> +	gpio_irq_chip_set_chip(girq, &imx_rpmsg_irq_chip);
-> +	girq->parent_handler = NULL;
-> +	girq->num_parents = 0;
-> +	girq->parents = NULL;
-> +	girq->chip->name = devm_kasprintf(&pdev->dev, GFP_KERNEL, "%s-gpio%d",
-> +				 pltdata->rproc_name, port->idx);
-> +
-> +	devm_add_action_or_reset(&pdev->dev, imx_rpmsg_gpio_remove_action, port);
-> +
-> +	return devm_gpiochip_add_data(&pdev->dev, gc, port);
-> +}
-> +
-> +static const struct of_device_id imx_rpmsg_gpio_dt_ids[] = {
-> +	{ .compatible = "fsl,imx-rpmsg-gpio" },
-> +	{ /* sentinel */ }
-> +};
-> +
-> +static struct platform_driver imx_rpmsg_gpio_driver = {
-> +	.driver	= {
-> +		.name = "gpio-imx-rpmsg",
-> +		.of_match_table = imx_rpmsg_gpio_dt_ids,
-> +	},
-> +	.probe = imx_rpmsg_gpio_probe,
-> +};
-> +
-> +module_platform_driver(imx_rpmsg_gpio_driver);
-This implementation seems strange to me.
-You have a platform driver, but your RPMsg driver appears split between 
-this driver
-and the remoteproc driver, especially regarding the 
-imx_rpmsg_endpoint_probe() function.
+> 
+>>  - after open but before the ioctl call the user can safely operate on a
+>>    context
+> 
+> If we always operate on a per-file-handle context even before binding
+> it, all the operations performed by an application, even it doesn't
+> use contexts, will be isolated from the rest of the world.
+> 
+> This might seem desirable, but changes the semantic of all the v4l2
+> operations and an application that doesn't use context that runs on a
+> driver ported to use context will suddenly find all its configuration
+> to be transient and tied to the lifetime of an open file handle
+> instead of being device-persistent.
+> 
+> Using a default, device-wise, default context allows instead existing
+> applications that do not use contexts to operate as they are used to,
+> with all the setting/configurations being stored in a persistent
+> place.
 
- From my point of view, this driver should declare both a 
-platform_driver and an
-rpmsg_driver structures.
+... and there it is. Did not have that in mind, thanks for pointing it out.
 
-Your imx_rpmsg_gpio_driver platform driver should be probed by your 
-remoteproc platform.
-This platform driver would be responsible for:
-- Parsing the device tree node
-- Registering the RPMsg driver
+> 
+> [...]
+>>>
+>>> +/*
+>>> + *     V I D E O   D E V I C E   C O N T E X T
+>>> + */
+>>> +
+>>> +struct v4l2_context {
+>>> +	__u32 context_fd;
+>>
+>> Reserve some space for the future?
+>>
+> 
+> Might be a good idea. I can't tell how much space we should reserve
+> though :)
 
-Then, the RPMsg device should be probed either by the remote processor 
-using the name service
-announcement mechanism or if not possible by your remoteproc driver.
+Prediction is difficult, especially about the future. But having zero
+reserve sounds like something we could regret at some point down the
+road. __u32 reserved[3]; ?
 
-To better understand my proposal you can have a look to [1]and [2].
-Here is another example for an rpmsg_i2c( ST downstream implementation):
-https://github.com/STMicroelectronics/linux/blob/v6.6-stm32mp/drivers/i2c/busses/i2c-rpmsg.c
-https://github.com/STMicroelectronics/linux/blob/v6.6-stm32mp/Documentation/devicetree/bindings/i2c/i2c-rpmsg.yaml
+Best regards,
+Michael
 
-Thanks and Regards,
-Arnaud
-
-> +
-> +MODULE_AUTHOR("NXP Semiconductor");
-> +MODULE_DESCRIPTION("NXP i.MX SoC rpmsg gpio driver");
-> +MODULE_LICENSE("GPL");
+> 
+>>> +};
+>>> +
+>>>  /*
+>>>   *	M E M O R Y - M A P P I N G   B U F F E R S
+>>>   */
+>>> @@ -2818,6 +2826,9 @@ struct v4l2_remove_buffers {
+>>>  #define VIDIOC_REMOVE_BUFS	_IOWR('V', 104, struct v4l2_remove_buffers)
+>>>
+>>>
+>>> +/* Context handling */
+>>> +#define VIDIOC_BIND_CONTEXT	_IOW('V', 105, struct v4l2_context)
+>>> +
+>>>  /* Reminder: when adding new ioctls please add support for them to
+>>>     drivers/media/v4l2-core/v4l2-compat-ioctl32.c as well! */
+>>>
+>>>
+>>
+>> Best regards,
+>> Michael
+>>
 
 
