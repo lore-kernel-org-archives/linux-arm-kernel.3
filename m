@@ -4,97 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8407FCAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 15:03:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DB09CCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 15:42:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ox+4Or53Zo/RT8nK1iXRO8MRcxCOezKN0PgiKGiKSzk=; b=W8f5QnYb4wcLJuIYu+z1Ni6Bb3
-	cRG0hKWKQ1K8QKLT6UjwtKcRGIZunOhykIvPmEV3oaUIzl3dAvkAMf+3xmaGzcd6l0unnf7/fEybL
-	EZ/AhDDTqk8qVWlKhTc13b3nunRbE6vDK7dns4yjmxqMplq85Svb4iaGjPKC+vWF1bXw8PCGkGS6+
-	rT/Hs/fhCBJlyB7kdajP0qXRG1qcGOvbH7PAi1ZGAcQ/dcQT3zkFr0Bf9EoZYUx3jbiB3osZuTa+F
-	Qd1DdHQ2W7G0U2q5zd5qmoxtmn9RCTbEBfGW5k2zDDsVJIo84mUd9mrkz/d/AOSZFW/f0waoDwqGX
-	55V9TK0g==;
+	bh=PFJqoBAr+PiZp2WktZc8yF0KtDOJu11/7QZ9DYz4Q4c=; b=IhRO6TrJLB7Z7yuqCB7nhOhBBh
+	6awuBIm16aslJH4ahDRxzT31QZRNnBAx0PBdTmMZi6TCE35F2MD1cR2zxZndv88BrJHYfRjjlngDh
+	6afsy5YX+zUqwpytMwdmP6A08PbkhrtBQ0bPb1CMwlYR3i/IQ0Fgeq2gphxAAnaa9fXz+awrDYiYM
+	7WqsO40hXkuQ14ZSzR6iyBb4bI+42ns6bwhyY4IVncqPuPeGmyJyaRvUvY/MwAEUVtYtDtHdD6G9+
+	v6QTkaEd0zoLBzrFEhoyDdhKuzvSZ/kBfxnVRSo8zerN3APyt0Tjo1eOVKE24YTAAtU2aImZh7Vag
+	nTssJb8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4hJX-0000000CcSx-0tc0;
-	Fri, 03 Oct 2025 15:03:19 +0000
-Received: from mail-lf1-x12e.google.com ([2a00:1450:4864:20::12e])
+	id 1v4hv4-0000000CezZ-0pZf;
+	Fri, 03 Oct 2025 15:42:06 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4hJU-0000000CcQp-3FE8
+	id 1v4hv1-0000000Ceyq-3INH
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Oct 2025 15:03:17 +0000
-Received: by mail-lf1-x12e.google.com with SMTP id 2adb3069b0e04-57e36125e8aso2239858e87.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Oct 2025 08:03:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1759503795; x=1760108595; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ox+4Or53Zo/RT8nK1iXRO8MRcxCOezKN0PgiKGiKSzk=;
-        b=Cp2SVIJCvhSCN6N6qdPS1WChqFfPdCl4We9Pw+a2V5myswg8rAJyEpUyyxrztrhzCS
-         Bh6LwLVtxTmdD3+FuVvJcEXVIqut6Y6gEk0xSF20EVLcsPXKlrioTCy22d6iOr7RpwYN
-         imCk1DsIF7c5iG/CxRhzFxQ7Qnxae/bI1VdMM7D99loFRUqyp/dSLpMMAlbCmConsQo/
-         TlzMDPktYlf5DT3I9xndEyHydhfWYzC8lJvTyXjWluYPCOMKkI5mzRBfUmKXOha91QOJ
-         IpAlVzQzM6UAm2Rruu87IRk2p98vSq1jUvERUa14rlXzqtAuk4k3fApKVOwlYzVNDHiE
-         5TOA==
+	Fri, 03 Oct 2025 15:42:05 +0000
+Received: from pps.filterd (m0279870.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 593BFawU012276
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 3 Oct 2025 15:42:01 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	PFJqoBAr+PiZp2WktZc8yF0KtDOJu11/7QZ9DYz4Q4c=; b=KHcuaJ8q50yal7L2
+	HUEr1timFjDv2zhX44RHn1HDjLmydEnWi5ygiJscJHYjiqM4ACnXgN9/SwQWY+CM
+	PCiayZau2F+ST7KDQn1PP3tdflHcZv+yLwXSClTPNubaih77igQdBVv61PaLvKX+
+	jWFRX6OYbGr85vV4nKI+/GgGvl04jWDPbAV3ZCP8xxzjYUMu6Xzf6VQGJmq1jmQy
+	/UWtHvLuNSWBfVIMa/Pbn0BSfm1AdpKHLCNgAa+5+U2bgiJVNDEQPr3l6KePfZoH
+	jzjtCyHISdZuJAifEviTCkHViKUguzQ0mGhxgRw5Osg0+nybOoJ0ASWHcGw9zCRN
+	vIP0zQ==
+Received: from mail-qt1-f198.google.com (mail-qt1-f198.google.com [209.85.160.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49e80u3dg4-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Oct 2025 15:42:01 +0000 (GMT)
+Received: by mail-qt1-f198.google.com with SMTP id d75a77b69052e-4dfc05dec2fso86931591cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Oct 2025 08:42:01 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759503795; x=1760108595;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ox+4Or53Zo/RT8nK1iXRO8MRcxCOezKN0PgiKGiKSzk=;
-        b=s8YsghydMRE0CbvdzY9eeA7cz0vZdawDQLWpcm/W79iL8bj4yUN71AfPWEAaORyADp
-         +jinPNwuXGBN58FjTfWq40U60ksuXDpPbM0WyGWoo5TB86IWavoTosOXIxekut70DmNJ
-         DTPrqD4BrE+w5BdF2cicObW6yhQYNWEO21dBlyWTNlXOY56V+PMQDCMw5o9ovpMzQNg2
-         LY6nMnHbFMb2teZa10/zIWQsA1eFlsow83jROdUo/E7vrL/58TTnis+1cikv9/fdhG/i
-         Cj3LXi+Z1b3elSx8/FutmqoevaCYcxvOkoBAb0CxjBybxXMNJ0WQ4HEc8uFMTeAgFcHz
-         lKxQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW6gvRQFZZ2m3YFGf0QHpTuD8+Ip2TnsZ8+CPhN4IUyFeBTUVmQfv/emNi72fllIsD+ejrarhbonaER5hS4L4ef@lists.infradead.org
-X-Gm-Message-State: AOJu0YyLaIVvuSzuPWv+6zpntvQjf7QYMXbAunE1123xt4xMNofG97S7
-	nNPcpLDCNrLUlVtOfHk88IEk/+Powx5yBotnQXmACuqB5RB6ymHtkV0qEvYyGXd/lPg=
-X-Gm-Gg: ASbGncv23L9W3Rv3nYqcLrDoqlYQCFXOJKZCfkX3za7pOhidhllwuID7Y3MlS/F8q22
-	3SSuMcdSOZrQ6PC6wxEsJa6pFVkIJ49sXmLatSG/BGn1HYBbCjiMz3+yBsdhvmKJPLgp1IUoEzu
-	dZyaz71ZvbziWjgJL+LDvS1HS4NnCSjmUP8h0EtXTXLctaxOTR0OQ8Bq5iJLfFAufK35hLTYvT+
-	wT2+uHwv1RQBmpigMV74za/lnrse2CmlidJ7RhXhIMR6yzBkxsycYrJHrdF8Qt3af/hEDVX2aiM
-	boSH4PymsfKT1r0xtdb31LJxQF9ZpozfWz32B7tYWf32JU4JOOu44v9I4AgM65lUtJIICHBolno
-	vVa+5Lel3qzepnLefHM+lLtKcka1W/Hq64Dm1SpGco1SfRbGT5YPpkGUQlXGsooMqj8udW807oj
-	s7G84j/U5aDs9WoZQsNGWvmz1F/RZkeKe3zY4=
-X-Google-Smtp-Source: AGHT+IH13UMFUj7Zpgvxqzpadk8FthG6NhdcXG10MwTPwlzbyaOGt0KOWk+7mn3p72gNfh5AfAblSw==
-X-Received: by 2002:a05:6512:3e10:b0:57a:de0d:d9ce with SMTP id 2adb3069b0e04-58cbb90df9cmr1031413e87.44.1759503792699;
-        Fri, 03 Oct 2025 08:03:12 -0700 (PDT)
-Received: from uffe-tuxpro14.. (h-178-174-189-39.A498.priv.bahnhof.se. [178.174.189.39])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-58b011343b6sm1933369e87.35.2025.10.03.08.03.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Oct 2025 08:03:12 -0700 (PDT)
-From: Ulf Hansson <ulf.hansson@linaro.org>
-To: "Rafael J . Wysocki" <rafael@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>
-Cc: Maulik Shah <quic_mkshah@quicinc.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Ulf Hansson <ulf.hansson@linaro.org>
-Subject: [PATCH 3/3] pmdomain: Extend the genpd governor for CPUs to account for IPIs
-Date: Fri,  3 Oct 2025 17:02:45 +0200
-Message-ID: <20251003150251.520624-4-ulf.hansson@linaro.org>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251003150251.520624-1-ulf.hansson@linaro.org>
-References: <20251003150251.520624-1-ulf.hansson@linaro.org>
+        d=1e100.net; s=20230601; t=1759506121; x=1760110921;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=PFJqoBAr+PiZp2WktZc8yF0KtDOJu11/7QZ9DYz4Q4c=;
+        b=f1lfCBsGaQeilyFBHlCz652lpXjuUbRzUJC4/2p+0s8rh6K/6btUr/c0ip5+hU6ehE
+         X22OrI55BIKf+JyzttFqivv0wXbeF69PWAmrKCmOP9M6Ybo/91qDOb4sy7HhVXLOHdEB
+         bVidKK9cqSGgnVV3c9z9ZzYPgcx4F4cKQCZ7UgvQiOYwH/ufS/sLnTIXRLjc4EyQlxKo
+         i4LCP1avaTzOQ/sdKeVSPsGSofN8Zpek6uJxbCfjS16p3+9bmUTmXbsfnmbQqgcYsAFF
+         i6MvV7fYkPeemXBsDAEOl+EYgRP/YG+UFVl5vh4XALQKnTgmvkK82AROmtTy7RSogNt7
+         cNjQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVnntqWgPtVFL54aujlWbwQkoOU7wiqjGAgctw/ZQr5nZloKw62VmQwjM5XRXwcWgrIlH3yyuFYvJU/EBfvn1wX@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywd91biR+QmS6VfF3Xc/ecyq/SCSZVFL7mpmLYQfqKGujUpK8I+
+	4JwIe9C2MbrJu9nzGRvUegEvrA3W4SNV7+hJLdus1OixBotJcqQ+NA1Qo4vi5Ch9+95g22lvPbY
+	2qNLgoov+EgIYedlhhfTOC+dZqvE/MPiaNw0Z8urarjP7R9gVPxWc6L0r1hcK0NJLXiYeAnZDHZ
+	Z1og==
+X-Gm-Gg: ASbGncuSxDbkvweaKKIzWJms8F6vni60dpHSHH2o/s+AGaedi9LbFd3QgY6ophJZyoR
+	PDnIuVt3YZArYIXcKqPLFHDPgZi9SRDIDGdJTsPHO7d8+MIeP9kaR/MbGIlTkZ4AWuO9gc/jOCV
+	WO22uGakM3hws1pfTUufDnG6RkrSQpldQ2Zy5CeX3UjuT0kiWYbwAVmQMvdISa/bWod7ITkUcw1
+	vfnoLSCP0iKpqZxpqBtAVM9CX7JYGWZU2mZhU5HrQ9u/pf5ACiw3QnDs6iD8o1H6gU//QTNAXO4
+	DNGCrZcQ5yl+vB1kDC3WnAgBJp4bRqCsc+Y7ny1Xo/1yexKNlddPzo+og3EWx0xpt9qCb6sFD4P
+	91ebCZF4N+gEb7LbZePSLUxGtgKHvFlF+
+X-Received: by 2002:a05:622a:4886:b0:4e4:d480:ef66 with SMTP id d75a77b69052e-4e576aa6986mr49772611cf.34.1759506120489;
+        Fri, 03 Oct 2025 08:42:00 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IE/2xpbVmnRYpct93vxxe7SAvfIoNQ8eMa9PfzBd2OW2H+SLCeGQPScFY+dLRkonEp/LIgapw==
+X-Received: by 2002:a05:622a:4886:b0:4e4:d480:ef66 with SMTP id d75a77b69052e-4e576aa6986mr49771931cf.34.1759506119677;
+        Fri, 03 Oct 2025 08:41:59 -0700 (PDT)
+Received: from [192.168.10.38] (91-154-146-251.elisa-laajakaista.fi. [91.154.146.251])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-58b0119ece7sm1899180e87.103.2025.10.03.08.41.56
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 03 Oct 2025 08:41:58 -0700 (PDT)
+Message-ID: <54a06852-4897-4dae-ab9c-330d99f3bf42@oss.qualcomm.com>
+Date: Fri, 3 Oct 2025 18:41:58 +0300
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 01/10] drm/connector: let drivers declare infoframes as
+ unsupported
+To: Maxime Ripard <mripard@kernel.org>
+Cc: Andrzej Hajda <andrzej.hajda@intel.com>,
+        Neil Armstrong <neil.armstrong@linaro.org>,
+        Robert Foss <rfoss@kernel.org>,
+        Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+        Jonas Karlman <jonas@kwiboo.se>,
+        Jernej Skrabec <jernej.skrabec@gmail.com>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Thomas Zimmermann <tzimmermann@suse.de>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Sandy Huang <hjc@rock-chips.com>,
+        =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
+        Andy Yan <andy.yan@rock-chips.com>, Chen-Yu Tsai <wens@csie.org>,
+        Samuel Holland <samuel@sholland.org>,
+        Dave Stevenson <dave.stevenson@raspberrypi.com>,
+        =?UTF-8?Q?Ma=C3=ADra_Canal?= <mcanal@igalia.com>,
+        Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>,
+        Liu Ying <victor.liu@nxp.com>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar
+ <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+        Sean Paul <sean@poorly.run>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
+        linux-arm-kernel@lists.infradead.org,
+        linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev,
+        linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org,
+        Daniel Stone <daniels@collabora.com>
+References: <20250909-drm-limit-infoframes-v4-0-53fd0a65a4a2@oss.qualcomm.com>
+ <20250909-drm-limit-infoframes-v4-1-53fd0a65a4a2@oss.qualcomm.com>
+ <20250910-furry-singing-axolotl-9aceac@houat>
+ <z333ysst5ifakomo35jtbpydj44epqwwn4da76rcnsq4are62m@32gsmgx2pcdi>
+ <20250925-didactic-spiked-lobster-fefabe@penduick>
+ <jfxtcvh4l5kzyv74llmzz3bbt6m4mhzhhwl6lh5kfeqgqhkrhi@jzfvtxpedmyf>
+ <20251003-primitive-sepia-griffin-cfca55@houat>
+Content-Language: en-US
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+In-Reply-To: <20251003-primitive-sepia-griffin-cfca55@houat>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTI3MDAyOSBTYWx0ZWRfX4xEbngT/5K1s
+ jps4jUagExkq8KaF5C9bfs/r5C463BkxtsxUW+zI6NOetUWoPQpOvxqqL60BsP/6SZzsw2GpNQE
+ gA8BIZKOpMOWV9ZjpTNVJxw8jC9FL5Z7dxVvB4fxsq4DsNs10lE5EkvKcUiaNTRu2enFCB/kADt
+ t3Xqcy0tKiB/UcNMNmCMe/Dm+WKmD+NbE78PYGl4+ThYpE/p2WqW62ES7t5twHUwNtj6d3S+mAp
+ BTtI0lCRpwoDLpReuUJCCcz/MrDc73v4DkQ4SeJ1cVRbIcK5ZYM18BLuc2oOEejmGJz1JndfDup
+ 7xDLFqg4brQkzlsvTwz07K83fEYq9VOOKga5xYTFKruXh2rUNZVq1WCniUr1ojhZrjRbtJiiyKx
+ P1xqzTz/bRMnfwQS/k0aenUENHRHPQ==
+X-Proofpoint-GUID: mdh_hQ5g0Tf4Dt0JpTcv-bNzgyxsNPi5
+X-Authority-Analysis: v=2.4 cv=OMkqHCaB c=1 sm=1 tr=0 ts=68dfeec9 cx=c_pps
+ a=mPf7EqFMSY9/WdsSgAYMbA==:117 a=CKk/IlMN6Gw3Dq31eR3Dfg==:17
+ a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=GXubj23QK-cXaLjP5W8A:9
+ a=QEXdDO2ut3YA:10 a=dawVfQjAaf238kedN5IG:22
+X-Proofpoint-ORIG-GUID: mdh_hQ5g0Tf4Dt0JpTcv-bNzgyxsNPi5
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-03_04,2025-10-02_03,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ impostorscore=0 malwarescore=0 bulkscore=0 phishscore=0 adultscore=0
+ priorityscore=1501 lowpriorityscore=0 clxscore=1015 spamscore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2509150000
+ definitions=main-2509270029
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_080316_847548_3176886F 
-X-CRM114-Status: GOOD (  17.76  )
+X-CRM114-CacheID: sfid-20251003_084203_935670_F10792F4 
+X-CRM114-Status: GOOD (  27.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,129 +165,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When the genpd governor for CPUs, tries to select the most optimal
-idlestate for a group of CPUs managed in a PM domain, it fails far too
-often.
+On 03/10/2025 17:23, Maxime Ripard wrote:
+> On Thu, Sep 25, 2025 at 05:55:06PM +0300, Dmitry Baryshkov wrote:
+>>>> As we will be getting more and more features, some of the InfoFrames
+>>>> or data packets will be 'good to have, but not required'.
+>>>
+>>> And drivers would be free to ignore those.
+>>>
+>>>>> So, no, sorry. That's still a no for me. Please stop sending that patch
+>>>>
+>>>> Oops :-)
+>>>>
+>>>>> unless we have a discussion about it and you convince me that it's
+>>>>> actually something that we'd need.
+>>>>
+>>>> My main concern is that the drivers should not opt-out of the features.
+>>>> E.g. if we start supporting ISRC packets or MPEG or NTSC VBI InfoFrames
+>>>> (yes, stupid examples), it should not be required to go through all the
+>>>> drivers, making sure that they disable those. Instead the DRM framework
+>>>> should be able to make decisions like:
+>>>>
+>>>> - The driver supports SPD and the VSDB defines SPD, enable this
+>>>>    InfoFrame (BTW, this needs to be done anyway, we should not be sending
+>>>>    SPD if it's not defined in VSDB, if I read it correctly).
+>>>>
+>>>> - The driver hints that the pixel data has only 10 meaninful bits of
+>>>>    data per component (e.g. out of 12 for DeepColor 36), the Sink has
+>>>>    HF-VSDB, send HF-VSIF.
+>>>>
+>>>> - The driver has enabled 3D stereo mode, but it doesn't declare support
+>>>>    for HF-VSIF. Send only H14b-VSIF.
+>>>>
+>>>> Similarly (no, I don't have these on my TODO list, these are just
+>>>> examples):
+>>>> - The driver defines support for NTSC VBI, register a VBI device.
+>>>>
+>>>> - The driver defines support for ISRC packets, register ISRC-related
+>>>>    properties.
+>>>>
+>>>> - The driver defines support for MPEG Source InfoFrame, provide a way
+>>>>    for media players to report frame type and bit rate.
+>>>>
+>>>> - The driver provides limited support for Extended HDR DM InfoFrames,
+>>>>    select the correct frame type according to driver capabilities.
+>>>>
+>>>> Without the 'supported' information we should change atomic_check()
+>>>> functions to set infoframe->set to false for all unsupported InfoFrames
+>>>> _and_ go through all the drivers again each time we add support for a
+>>>> feature (e.g. after adding HF-VSIF support).
+>>>
+>>>  From what you described here, I think we share a similar goal and have
+>>> somewhat similar concerns (thanks, btw, it wasn't obvious to me before),
+>>> we just disagree on the trade-offs and ideal solution :)
+>>>
+>>> I agree that we need to sanity check the drivers, and I don't want to go
+>>> back to the situation we had before where drivers could just ignore
+>>> infoframes and take the easy way out.
+>>>
+>>> It should be hard, and easy to catch during review.
+>>>
+>>> I don't think bitflag are a solution because, to me, it kind of fails
+>>> both.
+>>>
+>>> What if, just like the debugfs discussion, we split write_infoframe into
+>>> write_avi_infoframe (mandatory), write_spd_infoframe (optional),
+>>> write_audio_infoframe (checked by drm_connector_hdmi_audio_init?) and
+>>> write_hdr_infoframe (checked in drmm_connector_hdmi_init if max_bpc > 8)
+>>>
+>>> How does that sound?
+>>
+>> I'd say, I really like the single function to be called for writing the
+>> infoframes. It makes it much harder for drivers to misbehave or to skip
+>> something.
+> 
+>  From a driver PoV, I believe we should still have that single function
+> indeed. It would be drm_atomic_helper_connector_hdmi_update_infoframes's
+> job to fan out and call the multiple callbacks, not the drivers.
 
-On a Dragonboard 410c, which is an arm64 based platform with 4 CPUs
-in one cluster that is using PSCI OS-initiated mode, we can observe that we
-often fail when trying to enter the selected idlestate. This is certainly a
-suboptimal behaviour that leads to many unnecessary requests being sent to
-the PSCI FW.
+I like this idea, however it stops at the drm_bridge_connector 
+abstraction. The only way to handle this I can foresee is to make 
+individual bridges provide struct drm_connector_hdmi_funcs 
+implementation (which I'm fine with) and store void *data or struct 
+drm_bridge *hdmi_bridge somewhere inside struct drm_connector_hdmi in 
+order to let bridge drivers find their data.
 
-A simple dd operation that reads from the eMMC, to generate some IRQs and
-I/O handling helps us to understand the problem, while also monitoring the
-rejected counters in debugfs for the corresponding idlestates of the genpd
-in question.
-
- Menu governor:
-cat /sys/kernel/debug/pm_genpd/power-domain-cluster/idle_states
-State          Time Spent(ms) Usage      Rejected   Above      Below
-S0             1451           437        91         149        0
-S1             65194          558        149        172        0
-dd if=/dev/mmcblk0 of=/dev/null bs=1M count=500
-524288000 bytes (500.0MB) copied, 3.562698 seconds, 140.3MB/s
-cat /sys/kernel/debug/pm_genpd/power-domain-cluster/idle_states
-State          Time Spent(ms) Usage      Rejected   Above      Below
-S0             2694           1073       265        892        1
-S1             74567          829        561        790        0
-
- The dd completed in ~3.6 seconds and rejects increased with 586.
-
- Teo governor:
-cat /sys/kernel/debug/pm_genpd/power-domain-cluster/idle_states
-State          Time Spent(ms) Usage      Rejected   Above      Below
-S0             4976           2096       392        1721       2
-S1             160661         1893       1309       1904       0
-dd if=/dev/mmcblk0 of=/dev/null bs=1M count=500
-524288000 bytes (500.0MB) copied, 3.543225 seconds, 141.1MB/s
-cat /sys/kernel/debug/pm_genpd/power-domain-cluster/idle_states
-State          Time Spent(ms) Usage      Rejected   Above      Below
-S0             5192           2194       433        1830       2
-S1             167677         2891       3184       4729       0
-
- The dd completed in ~3.6 seconds and rejects increased with 1916.
-
-The main reason to the above problem is pending IPIs for one of the CPUs
-that is affected by the idlestate that the genpd governor selected. This
-leads to that the PSCI FW refuses to enter it. To improve the behaviour,
-let's start to take into account pending IPIs for CPUs in the genpd
-governor, hence we fallback to use the shallower per CPU idlestate.
-
- Re-testing with this change shows a significant improved behaviour.
-
- - Menu governor:
-cat /sys/kernel/debug/pm_genpd/power-domain-cluster/idle_states
-State          Time Spent(ms) Usage      Rejected   Above      Below
-S0             1994           551        10         24         0
-S1             115602         801        4          56         0
-dd if=/dev/mmcblk0 of=/dev/null bs=1M count=500
-524288000 bytes (500.0MB) copied, 3.622631 seconds, 138.0MB/s
-cat /sys/kernel/debug/pm_genpd/power-domain-cluster/idle_states
-State          Time Spent(ms) Usage      Rejected   Above      Below
-S0             2462           766        14         202        0
-S1             119559         1031       9          253        0
-
- The dd completed in ~3.6 seconds and rejects increased with 9.
-
- - Teo governor
-cat /sys/kernel/debug/pm_genpd/power-domain-cluster/idle_states
-State          Time Spent(ms) Usage      Rejected   Above      Below
-S0             3212           990        16         245        0
-S1             202442         2459       13         1184       0
-dd if=/dev/mmcblk0 of=/dev/null bs=1M count=500
-524288000 bytes (500.0MB) copied, 3.284563 seconds, 152.2MB/s
-cat /sys/kernel/debug/pm_genpd/power-domain-cluster/idle_states
-State          Time Spent(ms) Usage      Rejected   Above      Below
-S0             3387           1046       16         265        0
-S1             206074         2826       19         1524       0
-
- The dd completed in ~3.3 seconds and rejects increased with 6.
-
-Note that, the rejected counters in genpd are also being accumulated in the
-rejected counters that are managed by cpuidle, yet on a per CPU idlestates
-basis. Comparing these counters before/after this change, through cpuidle's
-sysfs interface shows the similar improvements.
-
-Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
----
- drivers/pmdomain/governor.c | 20 +++++++++++++-------
- 1 file changed, 13 insertions(+), 7 deletions(-)
-
-diff --git a/drivers/pmdomain/governor.c b/drivers/pmdomain/governor.c
-index 39359811a930..7e81dc383269 100644
---- a/drivers/pmdomain/governor.c
-+++ b/drivers/pmdomain/governor.c
-@@ -404,15 +404,21 @@ static bool cpu_power_down_ok(struct dev_pm_domain *pd)
- 		if ((idle_duration_ns >= (genpd->states[i].residency_ns +
- 		    genpd->states[i].power_off_latency_ns)) &&
- 		    (global_constraint >= (genpd->states[i].power_on_latency_ns +
--		    genpd->states[i].power_off_latency_ns))) {
--			genpd->state_idx = i;
--			genpd->gd->last_enter = now;
--			genpd->gd->reflect_residency = true;
--			return true;
--		}
-+		    genpd->states[i].power_off_latency_ns)))
-+			break;
-+
- 	} while (--i >= 0);
- 
--	return false;
-+	if (i < 0)
-+		return false;
-+
-+	if (cpus_has_pending_ipi(genpd->cpus))
-+		return false;
-+
-+	genpd->state_idx = i;
-+	genpd->gd->last_enter = now;
-+	genpd->gd->reflect_residency = true;
-+	return true;
- }
- 
- struct dev_power_governor pm_domain_cpu_gov = {
 -- 
-2.43.0
-
+With best wishes
+Dmitry
 
