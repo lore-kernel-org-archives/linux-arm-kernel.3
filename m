@@ -4,76 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF9C0CCA471
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 14:23:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9764CCCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 14:24:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qpONxLYbG1ZEC1tuSTjBdWYTwpDOInnjXJy8obYMIk4=; b=yIKfOPtqZHJiBcTxYdm3EfN6NP
-	1FokCRzEVEVCVCNxEHHn+XMc2XCpFK6j9eitRfDVm0w0et35oZriNjCBvinJ3IwVaavkdIldeDfIm
-	dbUsVbRgav6e8zF05ekbs/mVl3w+6fCf/xdHy+EGFBjxJJ55oThyzqHJz98Qxg3ILHCCyqeERTXer
-	TRXn63xNv/r60On3Nc/7GelX9rgzdlD1Wq0bK8OjBe35HIAKOiTiC6werIS0w+AvmC6jIK1WJbuRS
-	N55Qhrb5+urknJ/xMfjmHEmscnL3YbtCBd1llYxXd54MQciICrWIXUkUwQ3wVKGF/VzJeoIsWyGcW
-	eDpMveIg==;
+	bh=G1pjrsHvqvWcIvX2/A5adXAaq38O48aqC9LBqkoR5OI=; b=WhsJpBAFfOOv+OpH75waD9Y42v
+	df7kj/ZJnf9M3YUnbe1/L+YxpLlQgYMY/OL6OK5QVclHxO9Bezj3YXkiMCqfDjjtbYuS04vYH7taH
+	Qc4eDIJhqdjo3rhk3ipusAxscWJUHlAAo8IqgIXKEmsli45MvkzhO8to6/dZfKHPIuumuLIM5QqI9
+	pm6pa4A67nGbMCv10nU/bFrb40jDS3HOGqCDAaE1TQgCaerA+oXzqSO6Cg1MsvON3LL2tguhQgGDY
+	Vtu7vegvvjEIr+SI5mUVQxxqJ4N32IPVFdqU9mXo8ndl15anC/leIhirYyqPj9caz5+ouf+jsnVC6
+	MFatkYXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4ggo-0000000CXnH-3ydf;
-	Fri, 03 Oct 2025 14:23:18 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v4ghO-0000000CY2Y-0ATG;
+	Fri, 03 Oct 2025 14:23:54 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4ggn-0000000CXn6-3KVv;
-	Fri, 03 Oct 2025 14:23:17 +0000
+	id 1v4ghL-0000000CY0o-2ILo
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Oct 2025 14:23:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3266661FC4;
-	Fri,  3 Oct 2025 14:23:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 56D16C4CEF5;
-	Fri,  3 Oct 2025 14:23:16 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id E77B043C22;
+	Fri,  3 Oct 2025 14:23:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2A75AC4CEF5;
+	Fri,  3 Oct 2025 14:23:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759501396;
-	bh=NTBZAxjqSpzLuG1zGiZTH3WkfjeQ/nsmqUdkHlpqyFA=;
+	s=k20201202; t=1759501430;
+	bh=vrqQ/uunB3QJ/L4U5wadBAHA2oI5nDh2QtaYKaOQA8A=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=lotxKWgY+nAfg0Bz/Vct5iFAdwEuXX/DFjaJOBqc9lv3nSDTg8zneCk9H0vxJGrbW
-	 E52huxGlaW/CCY8YVgKZLz0wtmM6C75fwjspxr7EoP9Z80p9ndf+UhnoygFBVkccey
-	 22o8GW5ooXjZHLEuJXTJ4qy8YlVK1iG8UdNcXJJzQWrRFlCNBAhUXezahWZ/FA1uXh
-	 gRw4gC4VHeSEuHL9wHJwMJ49BBMDtPI38LWs3l+Gy+LG7D2tq8pmkSmU6DE3mWIN8R
-	 Q62B4V0mj9VexBWWRMAnnPYQFBEMOgNnRbN5nQYHPg1+kAHsuyfwisrdIrxPwkFanQ
-	 vsLJda5lDMRJw==
-Date: Fri, 3 Oct 2025 16:23:14 +0200
-From: Maxime Ripard <mripard@kernel.org>
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: Andrzej Hajda <andrzej.hajda@intel.com>, 
-	Neil Armstrong <neil.armstrong@linaro.org>, Robert Foss <rfoss@kernel.org>, 
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>, Jonas Karlman <jonas@kwiboo.se>, 
-	Jernej Skrabec <jernej.skrabec@gmail.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
-	Thomas Zimmermann <tzimmermann@suse.de>, David Airlie <airlied@gmail.com>, 
-	Simona Vetter <simona@ffwll.ch>, Sandy Huang <hjc@rock-chips.com>, 
-	Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>, Andy Yan <andy.yan@rock-chips.com>, Chen-Yu Tsai <wens@csie.org>, 
-	Samuel Holland <samuel@sholland.org>, Dave Stevenson <dave.stevenson@raspberrypi.com>, 
-	=?utf-8?B?TWHDrXJh?= Canal <mcanal@igalia.com>, Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, 
-	Liu Ying <victor.liu@nxp.com>, Rob Clark <robin.clark@oss.qualcomm.com>, 
-	Dmitry Baryshkov <lumag@kernel.org>, Abhinav Kumar <abhinav.kumar@linux.dev>, 
-	Jessica Zhang <jessica.zhang@oss.qualcomm.com>, Sean Paul <sean@poorly.run>, 
-	Marijn Suijten <marijn.suijten@somainline.org>, dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, linux-sunxi@lists.linux.dev, 
-	linux-arm-msm@vger.kernel.org, freedreno@lists.freedesktop.org, 
-	Daniel Stone <daniels@collabora.com>
-Subject: Re: [PATCH v4 01/10] drm/connector: let drivers declare infoframes
- as unsupported
-Message-ID: <20251003-primitive-sepia-griffin-cfca55@houat>
-References: <20250909-drm-limit-infoframes-v4-0-53fd0a65a4a2@oss.qualcomm.com>
- <20250909-drm-limit-infoframes-v4-1-53fd0a65a4a2@oss.qualcomm.com>
- <20250910-furry-singing-axolotl-9aceac@houat>
- <z333ysst5ifakomo35jtbpydj44epqwwn4da76rcnsq4are62m@32gsmgx2pcdi>
- <20250925-didactic-spiked-lobster-fefabe@penduick>
- <jfxtcvh4l5kzyv74llmzz3bbt6m4mhzhhwl6lh5kfeqgqhkrhi@jzfvtxpedmyf>
+	b=eLbPn1Qkc5Hh3mJE5C6B1Hd2fp6R7O3RszHc6FCqPd/WXmv+Vu4k1mkKPwTTYpBF1
+	 adZmmlpSL4ZATMWG93PUMfAXvwcfPR/os5M1AnAk7sxPboD48rTGHEa5iDhl9xM8+u
+	 kzKzPntdp+prpoJSrypes4/3r/0dGcu3GnsQogpwOi22ZHlQV1xFcUKhX/3uvPW0os
+	 AvUx6skBfn2Gvtzfy0NiIV6ih9OwCiywkpQRYJx6T6BOBE+35bkD7pqNm3XMEWDA8w
+	 fYfvu4dqfB1XiErY+R4v9FpUUYRUs4q+tnghvnSTgd8XDgVwIFFUcCJpfPSOpSK/ip
+	 QnxzKpvJzUymA==
+Date: Fri, 3 Oct 2025 15:23:45 +0100
+From: Will Deacon <will@kernel.org>
+To: shechenglong <shechenglong@xfusion.com>
+Cc: catalin.marinas@arm.com, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, stone.xulei@xfusion.com,
+	chenjialong@xfusion.com, yuxiating@xfusion.com,
+	Mark Rutland <mark.rutland@arm.com>
+Subject: Re: [PATCH] cpu: fix hard lockup triggered by printk calls within
+ scheduling context
+Message-ID: <aN_ccUJZQVMmk1V-@willie-the-truck>
+References: <20250918064907.1832-1-shechenglong@xfusion.com>
+ <20250924123247.807-1-shechenglong@xfusion.com>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="52tkbt2twc25uy2v"
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <jfxtcvh4l5kzyv74llmzz3bbt6m4mhzhhwl6lh5kfeqgqhkrhi@jzfvtxpedmyf>
+In-Reply-To: <20250924123247.807-1-shechenglong@xfusion.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251003_072351_623306_C6CDAA0A 
+X-CRM114-Status: GOOD (  21.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,112 +75,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed, Sep 24, 2025 at 08:32:47PM +0800, shechenglong wrote:
+> relocate the printk() calls from spectre_v4_mitigations_off() and
+> spectre_v2_mitigations_off() into setup_system_capabilities() function,
+> preventing hard lockups that occur when printk() is invoked from scheduler context.
+> 
+> Link: https://patchwork.kernel.org/project/linux-arm-kernel/patch/20250918064907.1832-1-shechenglong@xfusion.com/
+> Suggested-by: Mark Rutland <mark.rutland@arm.com>
+> Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
+> Signed-off-by: shechenglong <shechenglong@xfusion.com>
+> ---
+>  arch/arm64/include/asm/spectre.h |  3 +++
+>  arch/arm64/kernel/cpufeature.c   |  9 +++++++++
+>  arch/arm64/kernel/proton-pack.c  | 18 ++++--------------
+>  3 files changed, 16 insertions(+), 14 deletions(-)
 
---52tkbt2twc25uy2v
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v4 01/10] drm/connector: let drivers declare infoframes
- as unsupported
-MIME-Version: 1.0
+Thanks for posting the patch!
 
-On Thu, Sep 25, 2025 at 05:55:06PM +0300, Dmitry Baryshkov wrote:
-> > > As we will be getting more and more features, some of the InfoFrames
-> > > or data packets will be 'good to have, but not required'.
-> >=20
-> > And drivers would be free to ignore those.
-> >=20
-> > > > So, no, sorry. That's still a no for me. Please stop sending that p=
-atch
-> > >=20
-> > > Oops :-)
-> > >=20
-> > > > unless we have a discussion about it and you convince me that it's
-> > > > actually something that we'd need.
-> > >=20
-> > > My main concern is that the drivers should not opt-out of the feature=
-s.
-> > > E.g. if we start supporting ISRC packets or MPEG or NTSC VBI InfoFram=
-es
-> > > (yes, stupid examples), it should not be required to go through all t=
-he
-> > > drivers, making sure that they disable those. Instead the DRM framewo=
-rk
-> > > should be able to make decisions like:
-> > >=20
-> > > - The driver supports SPD and the VSDB defines SPD, enable this
-> > >   InfoFrame (BTW, this needs to be done anyway, we should not be send=
-ing
-> > >   SPD if it's not defined in VSDB, if I read it correctly).
-> > >=20
-> > > - The driver hints that the pixel data has only 10 meaninful bits of
-> > >   data per component (e.g. out of 12 for DeepColor 36), the Sink has
-> > >   HF-VSDB, send HF-VSIF.
-> > >=20
-> > > - The driver has enabled 3D stereo mode, but it doesn't declare suppo=
-rt
-> > >   for HF-VSIF. Send only H14b-VSIF.
-> > >=20
-> > > Similarly (no, I don't have these on my TODO list, these are just
-> > > examples):
-> > > - The driver defines support for NTSC VBI, register a VBI device.
-> > >=20
-> > > - The driver defines support for ISRC packets, register ISRC-related
-> > >   properties.
-> > >=20
-> > > - The driver defines support for MPEG Source InfoFrame, provide a way
-> > >   for media players to report frame type and bit rate.
-> > >=20
-> > > - The driver provides limited support for Extended HDR DM InfoFrames,
-> > >   select the correct frame type according to driver capabilities.
-> > >=20
-> > > Without the 'supported' information we should change atomic_check()
-> > > functions to set infoframe->set to false for all unsupported InfoFram=
-es
-> > > _and_ go through all the drivers again each time we add support for a
-> > > feature (e.g. after adding HF-VSIF support).
-> >=20
-> > From what you described here, I think we share a similar goal and have
-> > somewhat similar concerns (thanks, btw, it wasn't obvious to me before),
-> > we just disagree on the trade-offs and ideal solution :)
-> >=20
-> > I agree that we need to sanity check the drivers, and I don't want to go
-> > back to the situation we had before where drivers could just ignore
-> > infoframes and take the easy way out.
-> >=20
-> > It should be hard, and easy to catch during review.
-> >=20
-> > I don't think bitflag are a solution because, to me, it kind of fails
-> > both.
-> >=20
-> > What if, just like the debugfs discussion, we split write_infoframe into
-> > write_avi_infoframe (mandatory), write_spd_infoframe (optional),
-> > write_audio_infoframe (checked by drm_connector_hdmi_audio_init?) and
-> > write_hdr_infoframe (checked in drmm_connector_hdmi_init if max_bpc > 8)
-> >=20
-> > How does that sound?
->=20
-> I'd say, I really like the single function to be called for writing the
-> infoframes. It makes it much harder for drivers to misbehave or to skip
-> something.
+> diff --git a/arch/arm64/include/asm/spectre.h b/arch/arm64/include/asm/spectre.h
+> index 8fef12626090..6fe29df41788 100644
+> --- a/arch/arm64/include/asm/spectre.h
+> +++ b/arch/arm64/include/asm/spectre.h
+> @@ -118,5 +118,8 @@ void spectre_bhb_patch_wa3(struct alt_instr *alt,
+>  void spectre_bhb_patch_clearbhb(struct alt_instr *alt,
+>  				__le32 *origptr, __le32 *updptr, int nr_inst);
+>  
+> +bool spectre_v2_mitigations_off(void);
+> +bool spectre_v4_mitigations_off(void);
+> +
+>  #endif	/* __ASSEMBLY__ */
+>  #endif	/* __ASM_SPECTRE_H */
+> diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+> index ef269a5a37e1..7d1f541e66a0 100644
+> --- a/arch/arm64/kernel/cpufeature.c
+> +++ b/arch/arm64/kernel/cpufeature.c
+> @@ -94,6 +94,7 @@
+>  #include <asm/traps.h>
+>  #include <asm/vectors.h>
+>  #include <asm/virt.h>
+> +#include <asm/spectre.h>
+>  
+>  /* Kernel representation of AT_HWCAP and AT_HWCAP2 */
+>  static DECLARE_BITMAP(elf_hwcap, MAX_CPU_FEATURES) __read_mostly;
+> @@ -3942,6 +3943,14 @@ static void __init setup_system_capabilities(void)
+>  	 */
+>  	if (system_uses_ttbr0_pan())
+>  		pr_info("emulated: Privileged Access Never (PAN) using TTBR0_EL1 switching\n");
+> +
+> +	/*
+> +	 * Report Spectre mitigations status.
+> +	 */
+> +	if (spectre_v2_mitigations_off())
+> +		pr_info("spectre-v2 mitigation disabled by command line option\n");
 
-=46rom a driver PoV, I believe we should still have that single function
-indeed. It would be drm_atomic_helper_connector_hdmi_update_infoframes's
-job to fan out and call the multiple callbacks, not the drivers.
+nit: Let's fix the message here for consistency and use "command-line".
 
-Maxime
+> +	if (spectre_v4_mitigations_off())
+> +		pr_info("spectre-v4 mitigation disabled by command-line option\n");
 
---52tkbt2twc25uy2v
-Content-Type: application/pgp-signature; name="signature.asc"
+I think it would be cleaner to have a new function in proton-pack.c, say
+"spectre_print_disabled_mitigations()" which can then print the messages
+for spectre v2, v4 and also spectre-bhb (currently done in
+spectre_bhb_enable_mitigation()).
 
------BEGIN PGP SIGNATURE-----
+While you're at it, spectre-bhb is weird because it also prints a message
+when the Kconfig is disabled. We should actually just get rid of that
+Kconfig option altogether (in a separate patch) like we did for the other
+spectre mitigations.
 
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaN/cUQAKCRAnX84Zoj2+
-doqJAX90zNyWmsUip91wTNJtbf8t9T8oHpuaxLd97OtefR1KrjHS2zNm3j3QKJO2
-DILT8+EBfi951vLWkKKYswrmqe4tCE/x2PvHNyVn0RvWHOXmTytjmwkrcFHfX9Z+
-tXdDckATGw==
-=lhWy
------END PGP SIGNATURE-----
+What do you think?
 
---52tkbt2twc25uy2v--
+Cheers,
+
+Will
 
