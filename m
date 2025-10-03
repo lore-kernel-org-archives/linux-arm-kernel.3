@@ -4,131 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A507CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 21:12:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B6B6CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 21:34:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VlnlmgOOT12GpfzucYvYIMK0TqyeJkc9z5qxx9XRYY8=; b=Vc+g91UF63tQbO4n7Xfg/t9V61
-	PHRb7XW9RS7Dgh81ousb53Hz0OJ5rHG9BJJPbKaW0d6uFIogCZ8s/k8llJKD9lnaMv3hReq1jX0eN
-	C72QaY4HX2p1BD7MqA/2LxdqSqlLjVbgXd9edBlH0BPNgDUQOgrIet4DCETGu6zY/ukQYgUFkMb8x
-	QQB/jnUmGYvHBMs4dKJDLQS6+DIMr9sQUXSrvIj+7PwERUnyqqY3LJ82M1t7jIm6fl7kUYzqout+K
-	+pzs0GyNJWQGI3lyMf72+toInLYlW4cd1jsHZqZvCrcOiT7c2W+HCMbUCu7Rvjy2mu9KZQhObGuHB
-	nyolVWBQ==;
+	bh=AolOsZu5isQ6acd/8wA384z0bhlwgTK8nhLOayCIhiU=; b=hbb37pSQ8ES5BXpY9qepmNhv8N
+	0fUDz0/CjgmF92i2Mvn8urTpB6koJOCPoUO6ibNb1pWlmvbsCYw7VlMXDxvtzJ1zoz60QKCVVQlPE
+	vxNYk75AnDwvvBc8sia5i4r6Cr63J8gZYzTry8kfGprZbgZqkdrBB9bGjO3C3q6R+6ElqagGSxVIY
+	j+7cHF2rLikinelHCuPuftihBuY+OFcI8kQ1yHnIQDYFQBbZ+f2nSyoANV7dH9yTg3LfxqmaI/Lgi
+	JKN3NuzdipEHxjlIxeotFR+W4RKneT7YNaBHWoLGrLtOJ6bVCv7Giyw7VrGeXtBMGBCYjHm7fg0fB
+	dvskdbfQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4n4E-0000000D8S0-0jo8;
-	Fri, 03 Oct 2025 21:11:54 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1v4nQF-0000000DAEd-2RvM;
+	Fri, 03 Oct 2025 21:34:39 +0000
+Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4n4B-0000000D8Rb-1UlU;
-	Fri, 03 Oct 2025 21:11:52 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 593AuIIj006266;
-	Fri, 3 Oct 2025 21:11:39 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	VlnlmgOOT12GpfzucYvYIMK0TqyeJkc9z5qxx9XRYY8=; b=pvHZeJiVs9273E+a
-	MKB9du1YD58L3VnG+boZHwnA/z7pQ8czFVDKbBHIbxy9se3oIEIy2cgKthO2ZbtX
-	VqYhGdf823e29/tFy85dsaMqWWVV4wwnAI1FkBP2Dd+9W2dnuly5EuRzP/tpfB/T
-	rE5PIELLjNbpRWPMYjst+SgQ7KoLi6/a+ilZc9f1qNF6QGgjWYgbgLHsSE3mPthT
-	FioKhlUEhKb9/ez/EFsN0AyHt4s2RfrXErf7Mjo4jAaRqL3sARBM0PDsHfhaxayn
-	m3cPCLln/UjtcCxg757AoBYYG2uVM7d6G8xKH7REflRmg41UK27L+uQB7bgsNuYC
-	OmuGOA==
-Received: from nasanppmta01.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49e8pduqfq-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 03 Oct 2025 21:11:39 +0000 (GMT)
-Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
-	by NASANPPMTA01.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 593LBcHc010764
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Fri, 3 Oct 2025 21:11:38 GMT
-Received: from [10.46.162.103] (10.80.80.8) by nasanex01a.na.qualcomm.com
- (10.52.223.231) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.24; Fri, 3 Oct
- 2025 14:11:38 -0700
-Message-ID: <4e58fa6c-ddec-a6a9-fb8b-5f4ffa12fbc3@quicinc.com>
-Date: Fri, 3 Oct 2025 14:11:37 -0700
+	id 1v4nQD-0000000DADY-1N7r
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Oct 2025 21:34:38 +0000
+Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-46e2b7eee0dso7695e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Oct 2025 14:34:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1759527275; x=1760132075; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=AolOsZu5isQ6acd/8wA384z0bhlwgTK8nhLOayCIhiU=;
+        b=cEMrFflEh4HwH5f7j4zzn23CbpMI34e9byABJPg5sOOqKoWNmw2ycnxkJJ5yBavSeU
+         pzE99JJ+0MeMSW9keSoKFVB4+Z8uNB8gbL8fRx0A+Oc1XzlP2rH3o0kzVlw4VX9Uv4ef
+         lzeyocmoMJm8M8ludA0m67mHavPkbx8S8gai5dQp8PUottNRPeNOfMkuTb8N9CEBxzYF
+         3LHnFpqpBKHfusa6Z798m0EGs3DeZ7OU7NxsnbQsYlJfXvQ+UcPqnR04qyff3wLKrPGr
+         mAAat/XSlF9i/Zy6OdKqnK4Ci2H9Afc57Q1cMONgepDrjZKSNqjhwsa0Zuhz54mRsHj1
+         iMvg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759527275; x=1760132075;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=AolOsZu5isQ6acd/8wA384z0bhlwgTK8nhLOayCIhiU=;
+        b=sYPsF6IEm1xH11WSiqvt+xta0+Zw8y9xV+UbIbqsq17uiZbZlaRmlR4wNNP88sgxYX
+         IvsWGdk8npGdNb9lsjIfTXO55BGO5dLsvvAN0cKFMk/5Pahb53CqU0LIXLsVw3uWtbdk
+         IwzPHRHrs93vMpVL6DrlPis86J7kHJ/RvwAO1Bpw2FeNId3tQsQIXiMO/byed+it2A7C
+         WHXWRLWMQ8qHERKZMvzPNgXiXNGeOc/bo8BHXHMPixg3beAxKsVKN5VU4C+kQAw7V/21
+         orWycXhwSl9acjbvWXG64iG5N459UozzdwCvdOPZxcnVydklYJJSTk8DhsiESnA5lEng
+         n+Uw==
+X-Forwarded-Encrypted: i=1; AJvYcCUpq6+tcW2fuIRlPGxO9vaW8bN5tLwe5u91VZhgUopXlidXI9UqfbG4lVGGuRg8oJtfzb7HzZJsUshh5cHAw7bV@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBuJPigzb5o3onXg+cm7ZcGmR7dzyJLD2N2oqFnoumNgEkNHfM
+	vFx5nlU2LQXgySgWDM7Xg1D4EUu66/5PfUnQCWXNFdY4wUVhfXGvy4kwupJ0jaCVeGVOGNn6HsV
+	leChXV3cMDd+sZhd0DH+ih6zxtD9h6msi/lKWs72H
+X-Gm-Gg: ASbGncs4ofm7wK8ffchlHUO+XT69vrxN89Z/zZzG3e53oJsnHnDw9fWC6bVpS4oLYZJ
+	n4eSx/qnLotfuZa70jQQvPtJXGpDUwhqrJHzeorRdM90Q8KF4VRHo6NEhcV5ModriTg5EZQEG7R
+	RNuUMWBGvFM3VmirPeOgZvkRui8QRykfUsUkkMIPnCfU5+rln2j9dQHRXVGJ/ISyKTvGUy12W4e
+	cjYCHlXCFPOJFba5hfk+rIn+9nyWI2q/AH1irmWcsWrMm4901h1YZWE2sc0AbQ5+5ymnLVZk6uL
+	lTo=
+X-Google-Smtp-Source: AGHT+IG+g888nHbRtas0R01E+jPK4UfBpLJ8GQnOWINQky6xv5HWVReEjuHHu18tH8G5o/mleUJVD+7aBJEJSt2Urkg=
+X-Received: by 2002:a05:600c:8582:b0:45f:2e6d:ca01 with SMTP id
+ 5b1f17b1804b1-46e789ad00amr340925e9.4.1759527275228; Fri, 03 Oct 2025
+ 14:34:35 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:102.0) Gecko/20100101
- Thunderbird/102.6.1
-Subject: Re: [PATCH v1 1/2] scsi: ufs: core: Remove
- UFS_DEVICE_QUIRK_DELAY_AFTER_LPM quirk
-Content-Language: en-US
-To: =?UTF-8?B?UGV0ZXIgV2FuZyAo546L5L+h5Y+LKQ==?= <peter.wang@mediatek.com>,
-        "avri.altman@wdc.com" <avri.altman@wdc.com>,
-        "quic_cang@quicinc.com"
-	<quic_cang@quicinc.com>,
-        "quic_nitirawa@quicinc.com"
-	<quic_nitirawa@quicinc.com>,
-        "manivannan.sadhasivam@linaro.org"
-	<manivannan.sadhasivam@linaro.org>,
-        "bvanassche@acm.org"
-	<bvanassche@acm.org>,
-        "adrian.hunter@intel.com" <adrian.hunter@intel.com>,
-        "martin.petersen@oracle.com" <martin.petersen@oracle.com>
-CC: "beanhuo@micron.com" <beanhuo@micron.com>,
-        "chu.stanley@gmail.com"
-	<chu.stanley@gmail.com>,
-        "quic_mapa@quicinc.com" <quic_mapa@quicinc.com>,
-        "linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>,
-        "AngeloGioacchino
- Del Regno" <angelogioacchino.delregno@collabora.com>,
-        "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-        "alim.akhtar@samsung.com" <alim.akhtar@samsung.com>,
-        "linux-arm-msm@vger.kernel.org" <linux-arm-msm@vger.kernel.org>,
-        "linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>,
-        "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>,
-        "James.Bottomley@HansenPartnership.com"
-	<James.Bottomley@HansenPartnership.com>,
-        "mani@kernel.org" <mani@kernel.org>,
-        "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>
-References: <cover.1759348507.git.quic_nguyenb@quicinc.com>
- <0f0a7d5518d29fc384aace558d2bf098d792e0db.1759348507.git.quic_nguyenb@quicinc.com>
- <450e834545af935010ffc4f9079e56e47851f197.camel@mediatek.com>
- <69a111a2-219e-e3d4-8b89-3400facc02e3@quicinc.com>
- <9706ab36ba82a2522931326e114155c027da5461.camel@mediatek.com>
-From: "Bao D. Nguyen" <quic_nguyenb@quicinc.com>
-In-Reply-To: <9706ab36ba82a2522931326e114155c027da5461.camel@mediatek.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 8bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01a.na.qualcomm.com (10.52.223.231)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: 3c1VoxhXOBkTC4TMBzna8V3v2NIgBFn4
-X-Authority-Analysis: v=2.4 cv=MYZhep/f c=1 sm=1 tr=0 ts=68e03c0b cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10
- a=bJ9VZFcO5FWJG7T8bRkA:9 a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10
- a=cPQSjfK2_nFv0Q5t_7PE:22
-X-Proofpoint-ORIG-GUID: 3c1VoxhXOBkTC4TMBzna8V3v2NIgBFn4
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUwOTI3MDAzNiBTYWx0ZWRfX1n6USvtA4GKA
- 4gP2OSfg06dxDVx/Br7mf3Nkka4psSRegTv7qkd6boyHDQDNV8r8lWcggJZJJcXNzvPadtXZVvx
- srIE/K+KvaNBXtgN7XuLhunD+RqZo62DqUSU8SD/ltpaSZDf+tPnHXNn/qyWUI2a5x5UwUoJOYd
- SJq2tWPU+tmqghle5BTOKcMqfULYS2Dv0AwqVOsmilb/40AdLSO6bAxXE3vzlPYD37tmclBNeUe
- FO3pQU6Hk+e4a2A+nhmuArmlDq5U1vvwDplIr/jYWM7q5jgHxJlhz0f+Mri0mGVb70lnF1/Mcmm
- 17d66YGlBz0gaqHzWH+x+r8rJCfPRn8jLdcY4HEMUyrt23j4BFMFM4VOtaOTXXFaLS7/6kh85lz
- OR4nwwl6T+h7bSxQzccqrivaMO/ERA==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-03_06,2025-10-02_03,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 clxscore=1015 bulkscore=0 lowpriorityscore=0
- priorityscore=1501 phishscore=0 malwarescore=0 spamscore=0 impostorscore=0
- adultscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2509150000
- definitions=main-2509270036
+References: <20250731205844.1346839-1-jiaqiyan@google.com>
+In-Reply-To: <20250731205844.1346839-1-jiaqiyan@google.com>
+From: Jiaqi Yan <jiaqiyan@google.com>
+Date: Fri, 3 Oct 2025 14:34:23 -0700
+X-Gm-Features: AS18NWC200qL2INhmKRcSigwRYSlRaKCFejFFI6CifV04SzXltQ6LUTRzublc7I
+Message-ID: <CACw3F51QG70YpSfWaj_gQjAwoPcZ6uFa5dfd+Ave5PxQYDt-Ew@mail.gmail.com>
+Subject: Re: [PATCH v3 0/3] VMM can handle guest SEA via KVM_EXIT_ARM_SEA
+To: maz@kernel.org, oliver.upton@linux.dev
+Cc: joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
+	catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com, corbet@lwn.net, 
+	shuah@kernel.org, kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
+	duenwen@google.com, rananta@google.com, jthoughton@google.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_141151_435467_859C5322 
-X-CRM114-Status: GOOD (  20.44  )
+X-CRM114-CacheID: sfid-20251003_143437_410660_A390B69A 
+X-CRM114-Status: GOOD (  30.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -143,66 +100,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/2/2025 8:10 PM, Peter Wang (王信友) wrote:
-> On Thu, 2025-10-02 at 11:48 -0700, Bao D. Nguyen wrote:
->>
->>
->> Hi Peter,
->>
->> The current Mediatek platform driver applies this quirk to all ufs
->> vendors which is consistent with what we would like to do in the
->> Qualcomm platform driver per the vendor's requests.
->>
->> I do see that, about 5 years ago, Mediatek merged a patch to keep the
->> device vcc always on, probably to workaround some HW issues. Since
-> 
-> Hi Bao,
-> 
-> Yes, some UFS devices may have issues when turning off VCC.
-> 
->> this
->> is a very old patch and the impact of this change on a broken
->> hardware
->> is minimal, I would like weight the benefit of cleaning up the ufs
->> core
->> driver by removing the unnecessary quirk
->> UFS_DEVICE_QUIRK_DELAY_AFTER_LPM vs the inconvenience of a 5ms
->> (potentially reduce to 2ms) delay impact it may cause on an old
->> broken
->> HW in the suspend/shutdown path.
->>
->> I believe removing the UFS_DEVICE_QUIRK_DELAY_AFTER_LPM quirk in the
->> ufs
->> core driver as well as all the platform drivers yields positive net
->> benefits in this case.
->>
->> Thanks, Bao
->>
->>
-> 
-> I think you misunderstood my point.
-> I am okay with removing this flag, but this patch will cause
-> devices with VCC always on to unnecessarily wait for the
-> delay, resulting in wasted time.
+Hi Marc, Oliver, and other upstream friends, can you help review this
+patch series? I would really appreciate any comments and feedback.
 
-Are you referring to the always_on flag in the struct ufs_vreg? I 
-believe currently the ufs_vreg's always_on flag isn't used in 
-determining whether the delay is applied or not.
+[sorry for resending, as previous msg was sent as HTML]
 
-How about we add the check for the Vcc's always_on as shown below?
-The Mediatek's workaround can avoid the extra delay by setting the 
-always_on flag as it already did, without using the 
-UFS_DEVICE_QUIRK_DELAY_AFTER_LPM.
 
-if (vcc_off && hba->vreg_info.vcc && !hba->vreg_info.vcc->always_on)
-	usleep_range(5000, 5100);
 
-Thanks, Bao
-
-> 
-> Thanks
-> Peter
-> 
-> 
-
+On Thu, Jul 31, 2025 at 1:58=E2=80=AFPM Jiaqi Yan <jiaqiyan@google.com> wro=
+te:
+>
+> Problem
+> =3D=3D=3D=3D=3D=3D=3D
+>
+> When host APEI is unable to claim a synchronous external abort (SEA)
+> during guest abort, today KVM directly injects an asynchronous SError
+> into the VCPU then resumes it. The injected SError usually results in
+> unpleasant guest kernel panic.
+>
+> One of the major situation of guest SEA is when VCPU consumes recoverable
+> uncorrected memory error (UER), which is not uncommon at all in modern
+> datacenter servers with large amounts of physical memory. Although SError
+> and guest panic is sufficient to stop the propagation of corrupted memory=
+,
+> there is room to recover from an UER in a more graceful manner.
+>
+> Proposed Solution
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
+>
+> The idea is, we can replay the SEA to the faulting VCPU. If the memory
+> error consumption or the fault that cause SEA is not from guest kernel,
+> the blast radius can be limited to the poison-consuming guest process,
+> while the VM can keep running.
+>
+> In addition, instead of doing under the hood without involving userspace,
+> there are benefits to redirect the SEA to VMM:
+>
+> - VM customers care about the disruptions caused by memory errors, and
+>   VMM usually has the responsibility to start the process of notifying
+>   the customers of memory error events in their VMs. For example some
+>   cloud provider emits a critical log in their observability UI [1], and
+>   provides a playbook for customers on how to mitigate disruptions to
+>   their workloads.
+>
+> - VMM can protect future memory error consumption by unmapping the poison=
+ed
+>   pages from stage-2 page table with KVM userfault [2], or by splitting t=
+he
+>   memslot that contains the poisoned pages.
+>
+> - VMM can keep track of SEA events in the VM. When VMM thinks the status
+>   on the host or the VM is bad enough, e.g. number of distinct SEAs
+>   exceeds a threshold, it can restart the VM on another healthy host.
+>
+> - Behavior parity with x86 architecture. When machine check exception
+>   (MCE) is caused by VCPU, kernel or KVM signals userspace SIGBUS to
+>   let VMM either recover from the MCE, or terminate itself with VM.
+>   The prior RFC proposes to implement SIGBUS on arm64 as well, but
+>   Marc preferred KVM exit over signal [3]. However, implementation
+>   aside, returning SEA to VMM is on par with returning MCE to VMM.
+>
+> Once SEA is redirected to VMM, among other actions, VMM is encouraged
+> to inject external aborts into the faulting VCPU.
+>
+> New UAPIs
+> =3D=3D=3D=3D=3D=3D=3D=3D=3D
+>
+> This patchset introduces following userspace-visible changes to empower
+> VMM to control what happens for SEA on guest memory:
+>
+> - KVM_CAP_ARM_SEA_TO_USER. While taking SEA, if userspace has enabled
+>   this new capability at VM creation, and the SEA is not owned by kernel
+>   allocated memory, instead of injecting SError, return KVM_EXIT_ARM_SEA
+>   to userspace.
+>
+> - KVM_EXIT_ARM_SEA. This is the VM exit reason VMM gets. The details
+>   about the SEA is provided in arm_sea as much as possible, including
+>   sanitized ESR value at EL2, faulting guest virtual and physical
+>   addresses if available.
+>
+> * From v2 [4]:
+>   - Rebased on "[PATCH] KVM: arm64: nv: Handle SEAs due to VNCR redirecti=
+on" [5]
+>     and kvmarm/next commit 7b8346bd9fce ("KVM: arm64: Don't attempt vLPI
+>     mappings when vPE allocation is disabled")
+>   - Took the host_owns_sea implementation from Oliver [6, 7].
+>   - Excluded the guest SEA injection patches.
+>   - Updated selftest.
+>
+> * From v1 [8]:
+>   - Rebased on commit 4d62121ce9b5 ("KVM: arm64: vgic-debug: Avoid
+>     dereferencing NULL ITE pointer").
+>   - Sanitize ESR_EL2 before reporting it to userspace.
+>   - Do not do KVM_EXIT_ARM_SEA when SEA is caused by memory allocated to
+>     stage-2 translation table.
+>
+> [1] https://cloud.google.com/solutions/sap/docs/manage-host-errors
+> [2] https://lore.kernel.org/kvm/20250109204929.1106563-1-jthoughton@googl=
+e.com
+> [3] https://lore.kernel.org/kvm/86pljbqqh0.wl-maz@kernel.org
+> [4] https://lore.kernel.org/kvm/20250604050902.3944054-1-jiaqiyan@google.=
+com/
+> [5] https://lore.kernel.org/kvmarm/20250729182342.3281742-1-oliver.upton@=
+linux.dev/
+> [6] https://lore.kernel.org/kvm/aHFohmTb9qR_JG1E@linux.dev/#t
+> [7] https://lore.kernel.org/kvm/aHK-DPufhLy5Dtuk@linux.dev/
+> [8] https://lore.kernel.org/kvm/20250505161412.1926643-1-jiaqiyan@google.=
+com
+>
+> Jiaqi Yan (3):
+>   KVM: arm64: VM exit to userspace to handle SEA
+>   KVM: selftests: Test for KVM_EXIT_ARM_SEA
+>   Documentation: kvm: new UAPI for handling SEA
+>
+>  Documentation/virt/kvm/api.rst                |  61 ++++
+>  arch/arm64/include/asm/kvm_host.h             |   2 +
+>  arch/arm64/kvm/arm.c                          |   5 +
+>  arch/arm64/kvm/mmu.c                          |  68 +++-
+>  include/uapi/linux/kvm.h                      |  10 +
+>  tools/arch/arm64/include/asm/esr.h            |   2 +
+>  tools/testing/selftests/kvm/Makefile.kvm      |   1 +
+>  .../testing/selftests/kvm/arm64/sea_to_user.c | 327 ++++++++++++++++++
+>  tools/testing/selftests/kvm/lib/kvm_util.c    |   1 +
+>  9 files changed, 476 insertions(+), 1 deletion(-)
+>  create mode 100644 tools/testing/selftests/kvm/arm64/sea_to_user.c
+>
+> --
+> 2.50.1.565.gc32cd1483b-goog
+>
 
