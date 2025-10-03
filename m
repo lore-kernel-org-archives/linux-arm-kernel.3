@@ -4,74 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D99BECCA471
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 17:58:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4F4CCCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 18:03:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=qoaK4yMakgtgMKHI/qK9SUuNc61ZB/jZRmCofiSYi94=; b=rKRWybP2MA46ZlB11z4WdEOqwc
-	qpAU8kDG5LbhXeSl0jG8FWx4mtQxwvlVSd0V+wZuDm51s+Wcp+ytLyxTsb8MM9B3NoR3J2bOz2ERL
-	XZiavxbJq8y4tbjO7EQ9o7qLfoZrhzxjmuxLr1VBj1RC7BbAy6OTaHzu+KphlHYBabo2AZODzbRtL
-	cgMkFuCHKwbnbcMVHjyCGclQ4fpLdduABV5ILx+96tBOy/DMY0E6YLpOAaYTO3MUKu9RvZEOID3BB
-	AzL9DLP6Rq9pUqyQh2YjFysbPYpnuP2De0AvkBCsEHHbA1hzLNjBr6I2xihG4PlsGfG9sY120pXJv
-	bihwwhLA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YDhq/4g2gIvDR2506GDpVAMBe/7gYznjrxIoSxeqoho=; b=leFlj/lk59VH2o0ZPNGe8Vn8bp
+	wwHvuyXFYGHiygSs+laS3jmO+yVT0MbLOC5BEa+KMpvh/gBgu7Kjrz5yCngsIHyGiyf+Ool70yzm1
+	OBCs7746IrK16WiiXktWEbjBhZTduogjzmW5WXkJhZtyUDbAqgORuNH/E2cZdCXQoHToEkMMHsIuS
+	M4bM3ICaFY+ktt6vKj+SjCHsg78hgJZ+U0rBnfT7jl6dCLAUBoWFWuKFzaRzCreDIQ/+t2lZ2GRxQ
+	odG67E1YmwdEPV+dfycQ3TsSSdB/FRpLzXgpp0gbYrneT7BYhQRUtYL6jfRRVhPYw60HIJrv3726I
+	mHYgC7eQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4k2W-0000000Cswq-1MQ3;
-	Fri, 03 Oct 2025 17:57:56 +0000
-Received: from mgamail.intel.com ([198.175.65.20])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4k2U-0000000CswT-0lGN
+	id 1v4k7a-0000000CtT3-1d3t;
+	Fri, 03 Oct 2025 18:03:10 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v4k7Y-0000000CtSf-1Vth
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Oct 2025 17:57:55 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1759514274; x=1791050274;
-  h=date:from:to:cc:subject:message-id:mime-version;
-  bh=SfAWQlorezkBZxxIHUCsLtcHflDB0Sm2Wq9hiH+hCB0=;
-  b=CGHMD5MAUNEWxntjzx49yAVinzGYyF0V2kd2qexCz+WW6uuaSsZd3f+y
-   xEMGIeNdblSvk11BisV/qP7YoCn//qIWcU0kyxh67JG2+Xl7N6HYkadA8
-   ZlsOcJ+vpjsOlh2q3wOce49XgvXJ96rSmi5oQ9npnd1jHPkOPW+irCQF/
-   qVXGffPBXj/VVXAV8LYkQ8UJafut2VsIJxnj1McUTg6nZaLwU8BYhGgZy
-   h82BxMIFjCxBNp3lIv8DCu9HipzrZN1Q1Q6Zfm3pYt+3+QhEIBOvUgvHV
-   Voy0ybhf/YSClBCsH2djh70+QajhIkUzcMOgq/fpKr7N0zYKmZwlf3oye
-   w==;
-X-CSE-ConnectionGUID: KzzC75MLQRSqYt5feAu/zw==
-X-CSE-MsgGUID: AKEvwRa4TbCCsvYWsv/ogQ==
-X-IronPort-AV: E=McAfee;i="6800,10657,11571"; a="61509864"
-X-IronPort-AV: E=Sophos;i="6.18,313,1751266800"; 
-   d="scan'208";a="61509864"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Oct 2025 10:57:46 -0700
-X-CSE-ConnectionGUID: 2nTpPBVITSyMWNh7U2HbnA==
-X-CSE-MsgGUID: fbK/03NWSXGaIAhLlvrs5g==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,313,1751266800"; 
-   d="scan'208";a="178472428"
-Received: from lkp-server01.sh.intel.com (HELO 2f2a1232a4e4) ([10.239.97.150])
-  by orviesa006.jf.intel.com with ESMTP; 03 Oct 2025 10:57:45 -0700
-Received: from kbuild by 2f2a1232a4e4 with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1v4k2H-0004n9-2M;
-	Fri, 03 Oct 2025 17:57:41 +0000
-Date: Sat, 4 Oct 2025 01:57:28 +0800
-From: kernel test robot <lkp@intel.com>
-To: Russell King <rmk+kernel@arm.linux.org.uk>
-Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
-Subject: [arm:clearfog 8/13] drivers/pci/pcie/aspm.c:827 pcie_aspm_cap_init()
- warn: inconsistent indenting
-Message-ID: <202510040111.atsuGn0D-lkp@intel.com>
+	Fri, 03 Oct 2025 18:03:09 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 5BE671596;
+	Fri,  3 Oct 2025 11:02:57 -0700 (PDT)
+Received: from [10.1.197.69] (eglon.cambridge.arm.com [10.1.197.69])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0BAC33F5A1;
+	Fri,  3 Oct 2025 11:02:59 -0700 (PDT)
+Message-ID: <f7ed02a0-dd52-49af-a1f6-58801dacf4a6@arm.com>
+Date: Fri, 3 Oct 2025 19:02:58 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 18/29] arm_mpam: Register and enable IRQs
+To: Dave Martin <Dave.Martin@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-acpi@vger.kernel.org,
+ D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Koba Ko <kobak@nvidia.com>,
+ Shanker Donthineni <sdonthineni@nvidia.com>, fenghuay@nvidia.com,
+ baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
+ Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>
+References: <20250910204309.20751-1-james.morse@arm.com>
+ <20250910204309.20751-19-james.morse@arm.com>
+ <aMQ6xODb+QRWdblG@e133380.arm.com>
+Content-Language: en-GB
+From: James Morse <james.morse@arm.com>
+In-Reply-To: <aMQ6xODb+QRWdblG@e133380.arm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_105754_317101_D4DBC78C 
-X-CRM114-Status: UNSURE (   9.65  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251003_110308_507975_1161B5FD 
+X-CRM114-Status: GOOD (  54.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,124 +82,250 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-tree:   git://git.armlinux.org.uk/~rmk/linux-arm.git clearfog
-head:   0c321d2afb01ca78544750d2c840a22f91251682
-commit: 0932b03bba229e9456bb547a09ad43275ca8e6fc [8/13] mvebu/clearfog pcie updates
-config: i386-randconfig-141-20251003 (https://download.01.org/0day-ci/archive/20251004/202510040111.atsuGn0D-lkp@intel.com/config)
-compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+Hi Dave,
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202510040111.atsuGn0D-lkp@intel.com/
+On 12/09/2025 16:22, Dave Martin wrote:
+> On Wed, Sep 10, 2025 at 08:42:58PM +0000, James Morse wrote:
+>> Register and enable error IRQs. All the MPAM error interrupts indicate a
+>> software bug, e.g. out of range partid. If the error interrupt is ever
+>> signalled, attempt to disable MPAM.
+>>
+>> Only the irq handler accesses the ESR register, so no locking is needed.
+> 
+> Nit: MPAMF_ESR?  (Casual readers may confuse it with ESR_ELx.
 
-smatch warnings:
-drivers/pci/pcie/aspm.c:827 pcie_aspm_cap_init() warn: inconsistent indenting
+Sure, fixed.
 
-vim +827 drivers/pci/pcie/aspm.c
 
-   790	
-   791	static void pcie_aspm_cap_init(struct pcie_link_state *link, int blacklist)
-   792	{
-   793		struct pci_dev *child = link->downstream, *parent = link->pdev;
-   794		u32 parent_lnkcap, child_lnkcap;
-   795		u16 parent_lnkctl, child_lnkctl;
-   796		struct pci_bus *linkbus = parent->subordinate;
-   797	
-   798		if (blacklist) {
-   799			/* Set enabled/disable so that we will disable ASPM later */
-   800			link->aspm_enabled = PCIE_LINK_STATE_ASPM_ALL;
-   801			link->aspm_disable = PCIE_LINK_STATE_ASPM_ALL;
-   802			return;
-   803		}
-   804	
-   805		/*
-   806		 * If ASPM not supported, don't mess with the clocks and link,
-   807		 * bail out now.
-   808		 */
-   809		pcie_capability_read_dword(parent, PCI_EXP_LNKCAP, &parent_lnkcap);
-   810		pcie_capability_read_dword(child, PCI_EXP_LNKCAP, &child_lnkcap);
-   811		if (!(parent_lnkcap & child_lnkcap & PCI_EXP_LNKCAP_ASPMS))
-   812			return;
-   813	
-   814		/* Configure common clock before checking latencies */
-   815		pcie_aspm_configure_common_clock(link);
-   816	
-   817		/*
-   818		 * Re-read upstream/downstream components' register state after
-   819		 * clock configuration.  L0s & L1 exit latencies in the otherwise
-   820		 * read-only Link Capabilities may change depending on common clock
-   821		 * configuration (PCIe r5.0, sec 7.5.3.6).
-   822		 */
-   823		pcie_capability_read_dword(parent, PCI_EXP_LNKCAP, &parent_lnkcap);
-   824		pcie_capability_read_dword(child, PCI_EXP_LNKCAP, &child_lnkcap);
-   825		pcie_capability_read_word(parent, PCI_EXP_LNKCTL, &parent_lnkctl);
-   826		pcie_capability_read_word(child, PCI_EXP_LNKCTL, &child_lnkctl);
- > 827	dev_info(&parent->dev, "up support %x enabled %x\n",
-   828		 (parent_lnkcap & PCI_EXP_LNKCAP_ASPMS) >> 10,
-   829		 !!(parent_lnkctl & PCI_EXP_LNKCTL_ASPMC));
-   830	dev_info(&parent->dev, "dn support %x enabled %x\n",
-   831		 (child_lnkcap & PCI_EXP_LNKCAP_ASPMS) >> 10,
-   832		 !!(child_lnkctl & PCI_EXP_LNKCTL_ASPMC));
-   833	
-   834		/* Disable L0s/L1 before updating L1SS config */
-   835		if (FIELD_GET(PCI_EXP_LNKCTL_ASPMC, child_lnkctl) ||
-   836		    FIELD_GET(PCI_EXP_LNKCTL_ASPMC, parent_lnkctl)) {
-   837			pcie_capability_write_word(child, PCI_EXP_LNKCTL,
-   838						   child_lnkctl & ~PCI_EXP_LNKCTL_ASPMC);
-   839			pcie_capability_write_word(parent, PCI_EXP_LNKCTL,
-   840						   parent_lnkctl & ~PCI_EXP_LNKCTL_ASPMC);
-   841		}
-   842	
-   843		/*
-   844		 * Setup L0s state
-   845		 *
-   846		 * Note that we must not enable L0s in either direction on a
-   847		 * given link unless components on both sides of the link each
-   848		 * support L0s.
-   849		 */
-   850		if (parent_lnkcap & child_lnkcap & PCI_EXP_LNKCAP_ASPM_L0S)
-   851			link->aspm_support |= PCIE_LINK_STATE_L0S;
-   852	
-   853		if (child_lnkctl & PCI_EXP_LNKCTL_ASPM_L0S)
-   854			link->aspm_enabled |= PCIE_LINK_STATE_L0S_UP;
-   855		if (parent_lnkctl & PCI_EXP_LNKCTL_ASPM_L0S)
-   856			link->aspm_enabled |= PCIE_LINK_STATE_L0S_DW;
-   857	
-   858		/* Setup L1 state */
-   859		if (parent_lnkcap & child_lnkcap & PCI_EXP_LNKCAP_ASPM_L1)
-   860			link->aspm_support |= PCIE_LINK_STATE_L1;
-   861	
-   862		if (parent_lnkctl & child_lnkctl & PCI_EXP_LNKCTL_ASPM_L1)
-   863			link->aspm_enabled |= PCIE_LINK_STATE_L1;
-   864	
-   865		aspm_l1ss_init(link);
-   866	
-   867		/* Restore L0s/L1 if they were enabled */
-   868		if (FIELD_GET(PCI_EXP_LNKCTL_ASPMC, child_lnkctl) ||
-   869		    FIELD_GET(PCI_EXP_LNKCTL_ASPMC, parent_lnkctl)) {
-   870			pcie_capability_write_word(parent, PCI_EXP_LNKCTL, parent_lnkctl);
-   871			pcie_capability_write_word(child, PCI_EXP_LNKCTL, child_lnkctl);
-   872		}
-   873	
-   874		/* Save default state */
-   875		link->aspm_default = link->aspm_enabled;
-   876	
-   877		/* Setup initial capable state. Will be updated later */
-   878		link->aspm_capable = link->aspm_support;
-   879	
-   880		/* Get and check endpoint acceptable latencies */
-   881		list_for_each_entry(child, &linkbus->devices, bus_list) {
-   882			if (pci_pcie_type(child) != PCI_EXP_TYPE_ENDPOINT &&
-   883			    pci_pcie_type(child) != PCI_EXP_TYPE_LEG_END)
-   884				continue;
-   885	
-   886			pcie_aspm_check_latency(child);
-   887		}
-   888	}
-   889	
+> Formally, there is no MPAM "ESR" register, though people familiar with
+> the spec will of course know what you're referring to.)
+> 
+>> The work to disable MPAM after an error needs to happen at process
+>> context as it takes mutex. It also unregisters the interrupts, meaning
+>> it can't be done from the threaded part of a threaded interrupt.
+>> Instead, mpam_disable() gets scheduled.
+>>
+>> Enabling the IRQs in the MSC may involve cross calling to a CPU that
+>> can access the MSC.
+>>
+>> Once the IRQ is requested, the mpam_disable() path can be called
+>> asynchronously, which will walk structures sized by max_partid. Ensure
+>> this size is fixed before the interrupt is requested.
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+>> index a9d3c4b09976..e7e4afc1ea95 100644
+>> --- a/drivers/resctrl/mpam_devices.c
+>> +++ b/drivers/resctrl/mpam_devices.c
+
+>> @@ -166,6 +169,24 @@ static u64 mpam_msc_read_idr(struct mpam_msc *msc)
+>>  	return (idr_high << 32) | idr_low;
+>>  }
+>>  
+>> +static void mpam_msc_zero_esr(struct mpam_msc *msc)
+
+> Nit: Maybe clear_esr?  (The fact that setting the ERRCODE and OVRWR
+> fields to zero clears the interrupt and prepares for unambiguous
+> reporting of the next error is more of an implementation detail.
+> It doesn't matter what the rest of the register is set to.)
+
+If you think that name is clearer - sure,
+
+
+>> +{
+>> +	__mpam_write_reg(msc, MPAMF_ESR, 0);
+>> +	if (msc->has_extd_esr)
+> 
+> This deasserts the interrupt (if level-sensitive) and enables the MSC
+> to report further errors.  If we are unlucky and error occurs now,
+> won't we splat the newly HW-generated RIS field by:
+> 
+>> +		__mpam_write_reg(msc, MPAMF_ESR + 4, 0);
+> 
+> ...?  If so, we will diagnose the wrong RIS when we pump the new error
+> from MPAMF_ESR.  I think the correct interpretation of the spec may be
+> that:
+> 
+>  a) software should treat fields in MPAMF_ESR[63:32] as vaild only if
+>     ERRCODE is nonzero, and
+> 
+>  b) software should never write to MPAMF_ESR[63:32] while ERRCODE is
+>     zero.
+> 
+> Does this look right?  Should the fields be cleared in the opposite
+> order?
+> 
+> Or alternatively, is it actually necessary to clear MPAMF_ESR[63:32]
+> at all?
+> 
+> (The spec seems a bit vague on what software is supposed to do with
+> this register to ensure correctness...)
+
+Yeah - I don't think there was much intention here beyond making the RIS
+available for the first error. As none of these errors can really be handled,
+I don't think a second error value matters too much.
+
+I've reordered it as you suggest, and added a block comment to explain the
+problem:
+-----%<-----
+	u64 esr_low = __mpam_read_reg(msc, MPAMF_ESR);
+	if (!esr_low)
+		return;
+
+	/*
+	 * Clearing the high/low bits of MPAMF_ESR can not be atomic.
+	 * Clear the top half first, so that the pending error bits in the
+	 * lower half prevent hardware from updating either half of the
+	 * register.
+	 */
+	if (msc->has_extd_esr)
+		__mpam_write_reg(msc, MPAMF_ESR + 4, 0);
+	__mpam_write_reg(msc, MPAMF_ESR, 0);
+-----%<-----
+
+We should probably go bother the architects to find out if we can modify
+the high bits like this safely.
+
+
+
+>> +}
+
+>> @@ -895,6 +920,13 @@ static void mpam_reset_msc(struct mpam_msc *msc, bool online)
+>>  	}
+>>  }
+>>  
+>> +static void _enable_percpu_irq(void *_irq)
+>> +{
+>> +	int *irq = _irq;
+>> +
+>> +	enable_percpu_irq(*irq, IRQ_TYPE_NONE);
+
+> Can the type vary?  (Maybe this makes no sense on GIC-based systems --
+> IRQ_TYPE_NONE (or "0") seems overwhelmingly common.)
+> 
+> (Just my lack of familiarity takling, here.)
+
+PPI can be edge or level - but the irqchip doesn't need to know at this point, and
+specifying NONE tells it to use what it already knows. The irqchip already got told
+what firmware table said when the interrupt was registered. I believe the GIC knows
+its a PPI from the intid, they live in a magic range.
+
+
+> [...]
+> 
+>> +static int __setup_ppi(struct mpam_msc *msc)
+>> +{
+>> +	int cpu;
+>> +	struct device *dev = &msc->pdev->dev;
+>> +
+>> +	msc->error_dev_id = alloc_percpu(struct mpam_msc *);
+>> +	if (!msc->error_dev_id)
+>> +		return -ENOMEM;
+>> +
+>> +	for_each_cpu(cpu, &msc->accessibility) {
+>> +		struct mpam_msc *empty = *per_cpu_ptr(msc->error_dev_id, cpu);
+>> +
+>> +		if (empty) {
+>> +			dev_err_once(dev, "MSC shares PPI with %s!\n",
+>> +				     dev_name(&empty->pdev->dev));
+>> +			return -EBUSY;
+>> +		}
+>> +		*per_cpu_ptr(msc->error_dev_id, cpu) = msc;
+>> +	}
+
+> How are PPIs supposed to work?
+
+You take the interrupt on the corresponding CPU, and the irqchip gives you the
+corresponding percpu pointer. That is what is being setup here.
+
+
+> An individual MSC that is affine to multiple CPUs has no way to
+> distinguish which CPU an error relates to, and no CPU-specific (or even
+> RIS-specific) ESR.
+
+For deeper caches this is certainly a problem. But for things close in to the CPU, they
+may well know which CPU this transaction came from. The MSC may even be part of the
+CPU.
+
+
+> So, won't such an interrupt be pointlessly take the interrupt on all
+> CPUs, which would all fight over the reported event?
+
+It ought to be only one, but nothing requires this.
+
+
+> Have you encountered any platforms wired up this way?  The spec
+> recommends not to do this, but does not provide any rationale...
+> 
+> The spec only mentions PPIs in the context of being affine to a single
+> CPU (PE).
+
+> It's not clear to me that any other use of PPIs makes
+> sense (?)
+
+The PPI problem also exists the other way round. If your MSC is not globally accessible,
+you can't wire its interrupts up to an SPI, otherwise linux can route the interrupt to
+CPUs that can't access the MSC.
+
+The only tool you have to get out of this is to use a PPI.
+
+This came up multiple times with RAS when the caches signalled errors and it really needed
+to go to the local CPUs, not a random CPU in a remote package.
+
+It's my assumption that folk will build platforms the same shape, and reach for PPI again.
+
+
+> If we really have to cope with this, maybe it would make sense to pick
+> a single CPU in the affinity set (though we might have to move it
+> around if the unlucky CPU is offlined).
+
+Unfortunately PPI are a totally separate set of wiring with a reserved intid range (or
+two!) and their own registers in the GICR. It isn't possible to pretend they're a regular
+interrupt taken on a particular CPU.
+
+A choice that can be made here is to assume no-one will ever(?) use these, and drop
+support. I don't know of a platform that is using PPI - but I can't say no-one is.
+
+
+> 
+> [...]
+> 
+>> +static char *mpam_errcode_names[16] = {
+>> +	[0] = "No error",
+>> +	[1] = "PARTID_SEL_Range",
+>> +	[2] = "Req_PARTID_Range",
+>> +	[3] = "MSMONCFG_ID_RANGE",
+>> +	[4] = "Req_PMG_Range",
+>> +	[5] = "Monitor_Range",
+>> +	[6] = "intPARTID_Range",
+>> +	[7] = "Unexpected_INTERNAL",
+>> +	[8] = "Undefined_RIS_PART_SEL",
+>> +	[9] = "RIS_No_Control",
+>> +	[10] = "Undefined_RIS_MON_SEL",
+>> +	[11] = "RIS_No_Monitor",
+>> +	[12 ... 15] = "Reserved"
+>> +};
+>> +
+>> +static int mpam_enable_msc_ecr(void *_msc)
+>> +{
+>> +	struct mpam_msc *msc = _msc;
+>> +
+>> +	__mpam_write_reg(msc, MPAMF_ECR, MPAMF_ECR_INTEN);
+>> +
+>> +	return 0;
+>> +}
+> 
+> This could also be a switch () { case 0: return "foo";
+> case 1: return "bar"; ... }, without the explicit table.  This would
+> avoid having to think about the ERRCODE field growing.  (There are some
+> RES0 bits looming over it.)
+> 
+> (This also tends to avoid the extra pointer table in .rodata, which
+> might be of interest if this were a hot path.)
+
+Given they added new fields to the end of the list, I'm not worried about it becoming sparse.
+
+
+Thanks,
+
+James
 
