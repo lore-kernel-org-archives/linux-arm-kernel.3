@@ -4,86 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13E39CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 11:42:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72DDCCAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 12:05:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rEuOLLQUtBe9MVgnQF3DeiQbaMbJSw6sIqUsw5D1bJA=; b=qYZeirRxf7iAlHLoXj9Xrd5efk
-	GZ6NbdZFbHvHVO5Yzf2d9ItO2Oo4dMtQpm0lZtAHT000qnh9fMBWAYH8KhIA+PFiPEydJbvgDtTp8
-	sGSnNakMloFQbVpT5wvqPoKdgveEe+KC/Ik3VbLEWBwMx5cwtE3XP3SJSSvksChK5fpK27KLRovBw
-	Z+rLJULc1vOpjEC+rvM/ePy+6QEXZwxSruch3SrXCNoiwdN/YuZlzBAem4Wpo2DQiN8TJghCW04kE
-	/7bP4PACv1erMhoCAWExRyuHKc/sv7RV44kv9brHewgriew2HfKMXaY8EF9BboFvzuu7n2y4bPCbj
-	Obgor1/w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XY/NICcYo4c4EqbeoVxlLf6ZpKoUb9CC4wsHsE205m8=; b=4kDtt5Lly3Sr7Zj5PdwOyKvEEH
+	2G8cEWBNZHn5ylBGTQWhUnOr6do+FhwCF+3gQeGMlxiJg9vNEWpTr9aO+2gpkrlt8a0nd6QFGgczW
+	lJqwu4Yu5PepTeC94mlNeJ4Af0v8CmwQu+6OQSc2VfL/g1ujqZEVQQlBR9poWckHQiQRcMEwEhvCy
+	HBKJ6M3yuofGad1xT7fQ9+O8+v1y40qUQ+TTF+Y4CJdFVDrLETRbYduTTIaVKsevI60tm5eC2Yp6h
+	gtM9wGj1+gM1H6CPBHt8CC8jAvlEq8EGmEVXOglKv+iBjDUAhzCjgcuz//I3CpyI/e515vYcnthYS
+	n8Gzou7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4eBZ-0000000CDOR-3J53;
-	Fri, 03 Oct 2025 11:42:53 +0000
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
+	id 1v4eXC-0000000CEgK-3nKd;
+	Fri, 03 Oct 2025 12:05:14 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4eBX-0000000CDNn-1jQI
+	id 1v4eX9-0000000CEfu-2rkL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Oct 2025 11:42:52 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-3306eb96da1so1862356a91.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Oct 2025 04:42:51 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1759491771; x=1760096571; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=rEuOLLQUtBe9MVgnQF3DeiQbaMbJSw6sIqUsw5D1bJA=;
-        b=DuJ36YSTenSLHDGliSiXToILLcL6AH+CHSFmwz86jKg8iXeFF7dSyKpidzEd9tEwSY
-         KcmNsBRDq+WEFXYkdes88sOBokmTBekqBourdEQQM+RG3UwKIEKnqYk7rR9Prbb4fP3F
-         aqJVZeWeRsBznC9y1zedPAVE4yoyUnXl2gGx8aVkw2Y8oZEzmtsnO5thEzvwU0UeKonc
-         QpUJIgTekMlOt3euRWb90unktsD4Xm4aQMKg59aXY7k7muS0wqqGGXdID17a3eed44oU
-         rp52qxVTS7wJwaor/u/FdLwmrOI3Iaeupxo+J7CsSxY+JPw+pslJfygDjgf1aHTuhwWO
-         oiFg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759491771; x=1760096571;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=rEuOLLQUtBe9MVgnQF3DeiQbaMbJSw6sIqUsw5D1bJA=;
-        b=LE0k4oQ89iyUpagPfnPaG/kaPnewrKQjqhypdESiLQ+fGY9DKC2YZMYZU5xgOTY0pL
-         V/JXVx/i3BqLm+3JB3avThxm/cHBe9qIiojQKoiL5eJ6UDGTaMOQqOHAmlUqz0hD49pA
-         Ov4GijPa406LNsMHesO/9LGwwlwatPX3GWoDLIThh65DzGGhIJj7v/uuBO7I5c6N+842
-         aW8KOQeSQyvd4qMOP28OgkqyCmtNIxD4kQykH3453Tl9VN005KrT0HoL1Fto/yq6zNfG
-         2UFsnl1cBs9/xbETIRjjlWXOqxMOD9tswwoajATu1JpDuUmN1t107W9eV6PEprG1VQaN
-         wBZA==
-X-Forwarded-Encrypted: i=1; AJvYcCXaJ26GgLiJsIrlZKshQfqkt+P8YkARoCqIN/yH6Clskr3D8CIQmyrNe5O+8ljeET1YGgz5HqL1Qmt+uNW9Q6Os@lists.infradead.org
-X-Gm-Message-State: AOJu0YxbAeFNzn6MrwLWGrOWBspl7OEdnYpRwlf5/S43EQ+FeVLyCNvu
-	QGf74DpQg4q0lrCNjZ3oimUMI2UWXXwKHiK4P6K1qn5qSkNg6MzGO3QGOrjt2W0Z95D/YRY458x
-	NnU4xbJn2wd76vgnnnvu46nBOZo0nqXlr52UDUygWaQ==
-X-Gm-Gg: ASbGnctGQdt1J4ICZTluxc6FxwhKObSkecEs3QSz9r3l3vM1u5xd22gKjKpxc/IafL/
-	WFVM569zg/eYF++Tf/yVqmEAZIgzXutdb+bQD3SEA9b5rpM7z67KXeBSQcdhrX9ZxndzjfRfGU8
-	8JavrA6etcYQ4uBxNJZZlgH2/1b/8Xpz9CCrNSJkhdVJxqXT46GQlzcNo9MjjMGe0e0ry4Z4vB0
-	ejWZTNG4Bq/wu+t92zUJajVNEVsbRHOjHR2
-X-Google-Smtp-Source: AGHT+IGS6sVmFI8BoleNZ2kRxdAPq7AQq9fzJ/wEexdF1v3djZQOFoyx47dRTvyEt73Rb9vJZhVqIwIfq5xGpXTQgnA=
-X-Received: by 2002:a17:90b:1a87:b0:334:3286:8fe2 with SMTP id
- 98e67ed59e1d1-339c277fabamr3577521a91.10.1759491770586; Fri, 03 Oct 2025
- 04:42:50 -0700 (PDT)
+	Fri, 03 Oct 2025 12:05:13 +0000
+Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 593C4fLM3032131;
+	Fri, 3 Oct 2025 07:04:41 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1759493081;
+	bh=XY/NICcYo4c4EqbeoVxlLf6ZpKoUb9CC4wsHsE205m8=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=B05SXjQms13cJWGFp7OSJSs4G9q6PGegh5oUltsyKP99PXVPrJ8+icJ6deUJ6iwot
+	 LKpxSnOoY1Pt0RnjK41r/dEYBmb4duNbsJDblfzJSStcZBX1fN/MIMXn6i45B40C59
+	 WYFwE2ouvyC+7NaCCFQ4wGm03j/rqyn3CAlxu34k=
+Received: from DLEE209.ent.ti.com (dlee209.ent.ti.com [157.170.170.98])
+	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 593C4fRY126874
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Fri, 3 Oct 2025 07:04:41 -0500
+Received: from DLEE200.ent.ti.com (157.170.170.75) by DLEE209.ent.ti.com
+ (157.170.170.98) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 3 Oct
+ 2025 07:04:40 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE200.ent.ti.com
+ (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Fri, 3 Oct 2025 07:04:40 -0500
+Received: from [172.24.233.20] (a0512632.dhcp.ti.com [172.24.233.20])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 593C4aEV3606964;
+	Fri, 3 Oct 2025 07:04:37 -0500
+Message-ID: <5d91923f-8929-4bce-94e7-2b96fa2062af@ti.com>
+Date: Fri, 3 Oct 2025 17:34:36 +0530
 MIME-Version: 1.0
-References: <20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com>
- <20250915-arm_coresight_power_management_fix-v3-25-ea49e91124ec@arm.com>
-In-Reply-To: <20250915-arm_coresight_power_management_fix-v3-25-ea49e91124ec@arm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Fri, 3 Oct 2025 12:42:39 +0100
-X-Gm-Features: AS18NWCZWhn1WyJLg1zlf1hCnfDuwdiqMETuXWN6vwkNJ3r4LjDs0XwtLnOZpNw
-Message-ID: <CAJ9a7ViPxne8WXLS-QQDWw0=Nm_QAP4jw4sZCHKoOyDgTdVy2g@mail.gmail.com>
-Subject: Re: [PATCH v3 25/31] coresight: Add 'in_idle' argument to path
- enable/disable functions
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
-	Yeoreum Yun <yeoreum.yun@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Yabin Cui <yabinc@google.com>, 
-	Keita Morisaki <keyz@google.com>, Yuanfang Zhang <quic_yuanfang@quicinc.com>, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/3] arm64: dts: ti: am625-phyboard-lyra: Add Lincoln
+ LCD185-101CT panel overlay
+To: Wadim Egorov <w.egorov@phytec.de>, <nm@ti.com>, <vigneshr@ti.com>,
+        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <aradhya.bhatia@linux.dev>,
+        "Thakkar, Devarsh"
+	<devarsht@ti.com>
+CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+        <linux-kernel@vger.kernel.org>, <upstream@lists.phytec.de>
+References: <20250925100038.3008298-1-w.egorov@phytec.de>
+ <20250925100038.3008298-3-w.egorov@phytec.de>
+Content-Language: en-US
+From: Swamil Jain <s-jain1@ti.com>
+In-Reply-To: <20250925100038.3008298-3-w.egorov@phytec.de>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_044251_454814_B154A7BF 
-X-CRM114-Status: GOOD (  25.10  )
+X-CRM114-CacheID: sfid-20251003_050511_894551_E8462613 
+X-CRM114-Status: GOOD (  18.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,127 +90,249 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leo
+Hi Wadim,
 
-On Mon, 15 Sept 2025 at 11:34, Leo Yan <leo.yan@arm.com> wrote:
->
-> Introduce an in_idle argument to the path enable and disable functions.
-> When set to true, it skips to touch the sink device. To avoid invoking
-> sink related helpers, the condition check is moved before the enable
-> helpers are called.
->
-> This is a preparation for managing the path during CPU idle.
->
-> Signed-off-by: Leo Yan <leo.yan@arm.com>
+On 9/25/25 15:30, Wadim Egorov wrote:
+> The panel is a Lincoln Technology Solutions LCD185-101CT [0]. It is
+> a dual-link LVDS panel and supports WUXGA resolution (1920x1200).
+> Furthermore, it has an I2C based touch controller: Goodix-GT928.
+> 
+> Add an device tree overlay to support the Lincoln LCD185-101CT panel
+> in combination with the phyBOARD-Lyra-AM62x.
+> 
+> [0] https://lincolntechsolutions.com/wp-content/uploads/2024/09/LCD185-101CTL1ARNTT_DS_R1.3.pdf
+> 
+> Signed-off-by: Wadim Egorov <w.egorov@phytec.de>
 > ---
->  drivers/hwtracing/coresight/coresight-core.c | 29 +++++++++++++++++++---------
->  1 file changed, 20 insertions(+), 9 deletions(-)
->
-> diff --git a/drivers/hwtracing/coresight/coresight-core.c b/drivers/hwtracing/coresight/coresight-core.c
-> index 904123279ee70531787feea98e5f9fc502470f88..0e8506d5eaa01d1cc4846324a64eae5f0f442da3 100644
-> --- a/drivers/hwtracing/coresight/coresight-core.c
-> +++ b/drivers/hwtracing/coresight/coresight-core.c
-> @@ -479,7 +479,8 @@ static void coresight_restore_source(struct coresight_device *csdev)
->   * disabled.
->   */
->  static void coresight_disable_path_from(struct coresight_path *path,
-> -                                       struct coresight_node *nd)
-> +                                       struct coresight_node *nd,
-> +                                       bool in_idle)
->  {
->         u32 type;
->         struct coresight_device *csdev, *parent, *child;
-> @@ -502,6 +503,10 @@ static void coresight_disable_path_from(struct coresight_path *path,
->                                                 CORESIGHT_DEV_TYPE_SINK :
->                                                 CORESIGHT_DEV_TYPE_LINK;
->
-> +               /* To reduce latency, CPU idle does not touch the sink */
-> +               if (in_idle && type == CORESIGHT_DEV_TYPE_SINK)
-> +                       continue;
+NACK. PATCH 1/3 and 2/3 are posted and reviewed already, please add link 
+to your PATCH and mention to apply it on top of the series[1].
+
+[1]: https://lore.kernel.org/all/20250913064205.4152249-1-s-jain1@ti.com/
+
+Regards,
+Swamil
+> v1: https://lists.infradead.org/pipermail/linux-arm-kernel/2025-September/1065767.html
+> v2: Use port dummies defined in previous patch
+> ---
+>   arch/arm64/boot/dts/ti/Makefile               |   3 +
+>   .../k3-am625-phyboard-lyra-oldi-lcd185.dtso   | 188 ++++++++++++++++++
+>   2 files changed, 191 insertions(+)
+>   create mode 100644 arch/arm64/boot/dts/ti/k3-am625-phyboard-lyra-oldi-lcd185.dtso
+> 
+> diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
+> index aad9177930e6..aa34a0d77615 100644
+> --- a/arch/arm64/boot/dts/ti/Makefile
+> +++ b/arch/arm64/boot/dts/ti/Makefile
+> @@ -13,6 +13,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am625-beagleplay.dtb
+>   dtb-$(CONFIG_ARCH_K3) += k3-am625-beagleplay-csi2-ov5640.dtbo
+>   dtb-$(CONFIG_ARCH_K3) += k3-am625-beagleplay-csi2-tevi-ov5640.dtbo
+>   dtb-$(CONFIG_ARCH_K3) += k3-am625-phyboard-lyra-rdk.dtb
+> +dtb-$(CONFIG_ARCH_K3) += k3-am652-phyboard-lyra-oldi-lcd185.dtbo
+>   dtb-$(CONFIG_ARCH_K3) += k3-am625-sk.dtb
+>   dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-dahlia.dtb
+>   dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-dev.dtb
+> @@ -165,6 +166,8 @@ k3-am625-phyboard-lyra-gpio-fan-dtbs := k3-am625-phyboard-lyra-rdk.dtb \
+>   	k3-am62x-phyboard-lyra-gpio-fan.dtbo
+>   k3-am625-phyboard-lyra-qspi-nor-dtbs := k3-am625-phyboard-lyra-rdk.dtb \
+>   	k3-am6xx-phycore-qspi-nor.dtbo
+> +k3-am625-phyboard-lyra-oldi-lcd185-dtbs := k3-am625-phyboard-lyra-rdk.dtb \
+> +	k3-am625-phyboard-lyra-oldi-lcd185.dtbo
+>   k3-am625-sk-csi2-imx219-dtbs := k3-am625-sk.dtb \
+>   	k3-am62x-sk-csi2-imx219.dtbo
+>   k3-am625-sk-csi2-ov5640-dtbs := k3-am625-sk.dtb \
+> diff --git a/arch/arm64/boot/dts/ti/k3-am625-phyboard-lyra-oldi-lcd185.dtso b/arch/arm64/boot/dts/ti/k3-am625-phyboard-lyra-oldi-lcd185.dtso
+> new file mode 100644
+> index 000000000000..b1feb665248b
+> --- /dev/null
+> +++ b/arch/arm64/boot/dts/ti/k3-am625-phyboard-lyra-oldi-lcd185.dtso
+> @@ -0,0 +1,188 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +/*
+> + * Copyright (C) 2025 PHYTEC Messtechnik GmbH
+> + * Author: Wadim Egorov <w.egorov@phytec.de>
+> + */
 > +
-
-Why not - if this is the last/only active path then you absolutely
-want to disable the sink to flush trace through the system.
-If it is not, then the disable sink will simply reduce the refcount by one.
-
-Mike
-
-
->                 switch (type) {
->                 case CORESIGHT_DEV_TYPE_SINK:
->                         coresight_disable_sink(csdev);
-> @@ -537,7 +542,7 @@ void coresight_disable_path(struct coresight_path *path)
->         if (coresight_is_percpu_source(source))
->                 per_cpu(csdev_cpu_path, source->cpu) = NULL;
->
-> -       coresight_disable_path_from(path, NULL);
-> +       coresight_disable_path_from(path, NULL, false);
->  }
->  EXPORT_SYMBOL_GPL(coresight_disable_path);
->
-> @@ -561,7 +566,8 @@ static int coresight_enable_helpers(struct coresight_device *csdev,
->  }
->
->  static int _coresight_enable_path(struct coresight_path *path,
-> -                                 enum cs_mode mode, void *sink_data)
-> +                                 enum cs_mode mode, void *sink_data,
-> +                                 bool in_idle)
->  {
->         int ret = 0;
->         u32 type;
-> @@ -574,10 +580,6 @@ static int _coresight_enable_path(struct coresight_path *path,
->                 csdev = nd->csdev;
->                 type = csdev->type;
->
-> -               /* Enable all helpers adjacent to the path first */
-> -               ret = coresight_enable_helpers(csdev, mode, path);
-> -               if (ret)
-> -                       goto err_disable_path;
->                 /*
->                  * ETF devices are tricky... They can be a link or a sink,
->                  * depending on how they are configured.  If an ETF has been
-> @@ -589,6 +591,15 @@ static int _coresight_enable_path(struct coresight_path *path,
->                                                 CORESIGHT_DEV_TYPE_SINK :
->                                                 CORESIGHT_DEV_TYPE_LINK;
->
-> +               /* To reduce latency, CPU idle does not touch the sink */
-> +               if (in_idle && type == CORESIGHT_DEV_TYPE_SINK)
-> +                       continue;
+> +/dts-v1/;
+> +/plugin/;
 > +
-> +               /* Enable all helpers adjacent to the path first */
-> +               ret = coresight_enable_helpers(csdev, mode, path);
-> +               if (ret)
-> +                       goto err_disable_path;
+> +#include <dt-bindings/pwm/pwm.h>
+> +#include <dt-bindings/gpio/gpio.h>
+> +#include <dt-bindings/interrupt-controller/irq.h>
+> +#include "k3-pinctrl.h"
 > +
->                 switch (type) {
->                 case CORESIGHT_DEV_TYPE_SINK:
->                         ret = coresight_enable_sink(csdev, mode, sink_data);
-> @@ -624,7 +635,7 @@ static int _coresight_enable_path(struct coresight_path *path,
->  err_disable_helpers:
->         coresight_disable_helpers(csdev, path);
->  err_disable_path:
-> -       coresight_disable_path_from(path, nd);
-> +       coresight_disable_path_from(path, nd, false);
->         goto out;
->  }
->
-> @@ -634,7 +645,7 @@ int coresight_enable_path(struct coresight_path *path, enum cs_mode mode,
->         int ret;
->         struct coresight_device *source;
->
-> -       ret = _coresight_enable_path(path, mode, sink_data);
-> +       ret = _coresight_enable_path(path, mode, sink_data, false);
->         if (ret)
->                 return ret;
->
->
-> --
-> 2.34.1
->
+> +&{/} {
+> +	display {
+> +		compatible = "lincolntech,lcd185-101ct";
+> +		backlight = <&backlight>;
+> +		power-supply = <&vdd_usb_5v0>;
+> +
+> +		ports {
+> +			#address-cells = <1>;
+> +			#size-cells = <0>;
+> +
+> +			port@0 {
+> +				reg = <0>;
+> +				dual-lvds-odd-pixels;
+> +				lcd_in0: endpoint {
+> +					remote-endpoint = <&oldi_0_out>;
+> +				};
+> +			};
+> +
+> +			port@1 {
+> +				reg = <1>;
+> +				dual-lvds-even-pixels;
+> +				lcd_in1: endpoint {
+> +					remote-endpoint = <&oldi_1_out>;
+> +				};
+> +			};
+> +		};
+> +	};
+> +
+> +	backlight: backlight {
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&bl_pwm_pins_default>;
+> +
+> +		compatible = "pwm-backlight";
+> +
+> +		brightness-levels = <0 4 8 16 32 64 128 255>;
+> +		default-brightness-level = <6>;
+> +
+> +		enable-gpios = <&gpio_exp 5 GPIO_ACTIVE_HIGH>;
+> +		pwms = <&epwm0 1 50000 0>;
+> +	};
+> +
+> +        vdd_usb_5v0: regulator-vdd-usb5v0 {
+> +                compatible = "regulator-fixed";
+> +                regulator-name = "vdd-usb5v0";
+> +                regulator-min-microvolt = <5000000>;
+> +                regulator-max-microvolt = <5000000>;
+> +                regulator-always-on;
+> +                regulator-boot-on;
+> +        };
+> +};
+> +
+> +&dss {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&main_oldi0_pins_default &main_dss0_pins_default>;
+> +};
+> +
+> +&dss_ports {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +
+> +	/* VP1: Output to OLDI */
+> +	port@0 {
+> +		reg = <0>;
+> +		#address-cells = <1>;
+> +		#size-cells = <0>;
+> +
+> +		dpi0_out0: endpoint@0 {
+> +			reg = <0>;
+> +			remote-endpoint = <&oldi_0_in>;
+> +		};
+> +
+> +		dpi0_out1: endpoint@1 {
+> +			reg = <1>;
+> +			remote-endpoint = <&oldi_1_in>;
+> +		};
+> +	};
+> +};
+> +
+> +&epwm0 {
+> +	status = "okay";
+> +};
+> +
+> +&main_i2c1 {
+> +	#address-cells = <1>;
+> +	#size-cells = <0>;
+> +
+> +	touchscreen@5d {
+> +		compatible = "goodix,gt928";
+> +		reg = <0x5d>;
+> +
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&touch_screen_pins_default>;
+> +
+> +		interrupt-parent = <&main_gpio0>;
+> +		interrupts = <19 IRQ_TYPE_LEVEL_LOW>;
+> +
+> +		reset-gpios = <&main_gpio0 18 GPIO_ACTIVE_HIGH>;
+> +		irq-gpios = <&main_gpio0 19 GPIO_ACTIVE_HIGH>;
+> +	};
+> +};
+> +
+> +&main_pmx0 {
+> +	bl_pwm_pins_default: bl-pwm-default-pins {
+> +		pinctrl-single,pins = <
+> +			AM62X_IOPAD(0x01b8, PIN_INPUT, 2) /* (C13) SPI0_CS1.EHRPWM0_B */
+> +		>;
+> +	};
+> +
+> +	touch_screen_pins_default: touch-screen-default-pins {
+> +		pinctrl-single,pins = <
+> +			AM62X_IOPAD(0x048, PIN_OUTPUT, 7) /* (N25) GPMC0_AD3.GPIO0_18 - RST */
+> +			AM62X_IOPAD(0x04c, PIN_INPUT, 7) /* (P24) GPMC0_AD4.GPIO0_19 - INT */
+> +		>;
+> +	};
+> +
+> +	main_oldi0_pins_default: main-oldi0-default-pins {
+> +		pinctrl-single,pins = <
+> +			AM62X_IOPAD(0x0260, PIN_OUTPUT, 0) /* (AA5) OLDI0_A0N */
+> +			AM62X_IOPAD(0x025c, PIN_OUTPUT, 0) /* (Y6) OLDI0_A0P */
+> +			AM62X_IOPAD(0x0268, PIN_OUTPUT, 0) /* (AD3) OLDI0_A1N */
+> +			AM62X_IOPAD(0x0264, PIN_OUTPUT, 0) /* (AB4) OLDI0_A1P */
+> +			AM62X_IOPAD(0x0270, PIN_OUTPUT, 0) /* (Y8) OLDI0_A2N */
+> +			AM62X_IOPAD(0x026c, PIN_OUTPUT, 0) /* (AA8) OLDI0_A2P */
+> +			AM62X_IOPAD(0x0278, PIN_OUTPUT, 0) /* (AB6) OLDI0_A3N */
+> +			AM62X_IOPAD(0x0274, PIN_OUTPUT, 0) /* (AA7) OLDI0_A3P */
+> +			AM62X_IOPAD(0x0280, PIN_OUTPUT, 0) /* (AC6) OLDI0_A4N */
+> +			AM62X_IOPAD(0x027c, PIN_OUTPUT, 0) /* (AC5) OLDI0_A4P */
+> +			AM62X_IOPAD(0x0288, PIN_OUTPUT, 0) /* (AE5) OLDI0_A5N */
+> +			AM62X_IOPAD(0x0284, PIN_OUTPUT, 0) /* (AD6) OLDI0_A5P */
+> +			AM62X_IOPAD(0x0290, PIN_OUTPUT, 0) /* (AE6) OLDI0_A6N */
+> +			AM62X_IOPAD(0x028c, PIN_OUTPUT, 0) /* (AD7) OLDI0_A6P */
+> +			AM62X_IOPAD(0x0298, PIN_OUTPUT, 0) /* (AD8) OLDI0_A7N */
+> +			AM62X_IOPAD(0x0294, PIN_OUTPUT, 0) /* (AE7) OLDI0_A7P */
+> +			AM62X_IOPAD(0x02a0, PIN_OUTPUT, 0) /* (AD4) OLDI0_CLK0N */
+> +			AM62X_IOPAD(0x029c, PIN_OUTPUT, 0) /* (AE3) OLDI0_CLK0P */
+> +			AM62X_IOPAD(0x02a8, PIN_OUTPUT, 0) /* (AE4) OLDI0_CLK1N */
+> +			AM62X_IOPAD(0x02a4, PIN_OUTPUT, 0) /* (AD5) OLDI0_CLK1P */
+> +		>;
+> +	};
+> +};
+> +
+> +&oldi0 {
+> +	ti,companion-oldi = <&oldi1>;
+> +	status = "okay";
+> +};
+> +
+> +&oldi0_port0 {
+> +	oldi_0_in: endpoint {
+> +		remote-endpoint = <&dpi0_out0>;
+> +	};
+> +};
+> +
+> +&oldi0_port1 {
+> +	oldi_0_out: endpoint {
+> +		remote-endpoint = <&lcd_in0>;
+> +	};
+> +};
+> +
+> +&oldi1 {
+> +	ti,secondary-oldi;
+> +	status = "okay";
+> +};
+> +
+> +&oldi1_port0 {
+> +	oldi_1_in: endpoint {
+> +		remote-endpoint = <&dpi0_out1>;
+> +	};
+> +};
+> +
+> +&oldi1_port1 {
+> +	oldi_1_out: endpoint {
+> +		remote-endpoint = <&lcd_in1>;
+> +	};
+> +};
 
-
---
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
 
