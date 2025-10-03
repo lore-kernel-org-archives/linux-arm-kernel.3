@@ -4,90 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 758FACAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 13:32:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 832B6CCD182
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 13:33:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=iozFpFYaZKSD23+QEqnOpovnNuv86N9KGqCqWElkBuQ=; b=NZ1JYrR9kLyyU43X+TJOyvORpE
-	VD8Rej52M35bLyW1LQg474NxZqQR1ITEYChHyff2Wuw9m6fPxqT+aI4PoYj02rHRB3qQv0h7i3J/8
-	l9hExhTNM4FWscs+gnaxs27HUb40v4op6GVgjJtBQRhvRDGQMuArkFXH/3N3dzDPgdsmH26PjMpbh
-	7coDHGLN1Wiw6z3ula2e2B5IyEj5oQDaJspMQtSpq8CkfsHDW82SurR35CDiC8EeYnvoIcj9938eG
-	QbKy/xlmFDjLzDuSG1OMrDQtqEh2KR43IctCRVz2aULRyWodr7Y4oLrHjPkjIlIfpKOu+SR15rKaW
-	e0wiDnGA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xTmoJVtnRyfkFFeAC4aCbDVYgXDj1Fk6KYf/C4OwGR8=; b=xTWHrBLL0zQLHxgCDt8OArPNP2
+	4HpIFfRHBFT+z06WKBZFvTFHdkKcivTD6kYF0EyRyGzuxTAyb/odgPzXK0rRwi86eI6FHoCZiOZeY
+	xjZjskNljEXXykOV7xdoeFhhYxndNATpBK0AgdIFnNEEr/0RL1UF/SRGVpj9qJ4Ssd3NrqsS3oFhc
+	xzALbYxPnC6JWrOVKC/rEdINtRPYAEKm99yaKcfF7dUF+iY2WUGqVgiOb5RcUbzqRTBhB45QrxTLG
+	oyQahlbVZ6bJgmSLn77f0xc52OFLMX/3s3h9dyQFvRRudVcFqj7+Jkcqc2z2YA/56csECDBKJuzDO
+	R/Vpfczw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4ftt-0000000CPA3-0SZC;
-	Fri, 03 Oct 2025 13:32:45 +0000
-Received: from smtpout-02.galae.net ([185.246.84.56])
+	id 1v4fuP-0000000CPGM-0DrS;
+	Fri, 03 Oct 2025 13:33:17 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4ftp-0000000CP9h-3mYU
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Oct 2025 13:32:43 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id 919881A10BE;
-	Fri,  3 Oct 2025 13:32:39 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 5F5E460683;
-	Fri,  3 Oct 2025 13:32:39 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 58A1C102F1C20;
-	Fri,  3 Oct 2025 15:32:16 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1759498357; h=from:subject:date:message-id:to:cc:mime-version:content-type:
-	 content-transfer-encoding:content-language:in-reply-to:references;
-	bh=iozFpFYaZKSD23+QEqnOpovnNuv86N9KGqCqWElkBuQ=;
-	b=VTKAuHmtxgyujEaNC8Ewq/1KOAAytiXK67xNcu2yreVBKKikYyOTsbf7c3YclMTtFnythb
-	FlUIxfeSiqWd+DfYgU5qr/PFU2trrQcO+x6wH+DftiQHcNUejrK5S63vPviYOvOWOFexdM
-	kzPZqL6SszQ2S8gVPtH0ly9/T8mBDwpSUQt57Qy/AIdcAFhM5QOe4GbuoLhRxeAswfTkyM
-	KGcpHMTKo+MAtzPW4zuLPZdIhxY/Irgihbm7TtV/L4MHX3ygnaWk033IGQbxe+vw1yCGgx
-	qkrDHZh3/ChQRmplaxDCnnIeV+D9v5DRUzuhqOj2R2F9XGoR1Jlgv1bfBbd60g==
-Message-ID: <269f9150-8977-4862-b6c1-7a8f94776c59@bootlin.com>
-Date: Fri, 3 Oct 2025 15:32:15 +0200
+	id 1v4fuL-0000000CPEZ-3uta;
+	Fri, 03 Oct 2025 13:33:15 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id CB8F9C7A;
+	Fri,  3 Oct 2025 15:31:39 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1759498300;
+	bh=Irk3t8nFf/aTjQgzWVzYN3awPzS0XCH6TsYfkakhoLQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Ua+yTS4T0diRNc63DUkdB+LhCgfV2OdWzdxJF0mw/3otgBNiyn7ImWxMVwpEL+0jk
+	 kK/DvPkw27Sb2GR9R9qaDagCbn9ls8b4noWH8JPhjuiZypsf2lwGVTqTkSXt+s8rms
+	 du6BDxr/KKuBQCSVtZ5G8vMpcXhao8Ca2ZU+DcAc=
+Date: Fri, 3 Oct 2025 16:33:04 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Alexey Charkov <alchark@gmail.com>
+Cc: Dragan Simic <dsimic@manjaro.org>,
+	Alexander Shiyan <eagle.alexander923@gmail.com>,
+	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	stable@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] arm64: dts: rockchip: Fix broken tsadc pinctrl binding
+ for rk3588
+Message-ID: <20251003133304.GA21023@pendragon.ideasonboard.com>
+References: <20250124052611.3705-1-eagle.alexander923@gmail.com>
+ <CABjd4YwA8P9LVuDviO6xydkHpuuOY7XT0pk1oa+FDqOo=uZN4A@mail.gmail.com>
+ <a76f315f023a3f8f5435e0681119b4eb@manjaro.org>
+ <CABjd4Ywh_AkbXHonx-8vL-hNY5LMLJge5e4oqxvUG+qe6OF-Og@mail.gmail.com>
+ <61b494b209d7360d0f36adbf6d5443a4@manjaro.org>
+ <CABjd4Yx0p0B=e00MjCpDDq8Z=0FtM0s9EN86WdvRimt-_+kh2w@mail.gmail.com>
+ <CABjd4Yy14bpjzvFyc8et-=pmds5uwzfxNqcs7L=+XRXBogZEsQ@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC net-next v2 0/19] net: stmmac: experimental PCS
- conversion
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>,
- Andrew Lunn <andrew@lunn.ch>, Heiner Kallweit <hkallweit1@gmail.com>
-Cc: Abhishek Chauhan <quic_abchauha@quicinc.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>,
- Alexis Lothore <alexis.lothore@bootlin.com>,
- Andrew Lunn <andrew+netdev@lunn.ch>, Boon Khai Ng <boon.khai.ng@altera.com>,
- Choong Yong Liang <yong.liang.choong@linux.intel.com>,
- Daniel Machon <daniel.machon@microchip.com>,
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>,
- Faizal Rahim <faizal.abdul.rahim@linux.intel.com>,
- Furong Xu <0x1207@gmail.com>, Huacai Chen <chenhuacai@kernel.org>,
- Jacob Keller <jacob.e.keller@intel.com>, Jakub Kicinski <kuba@kernel.org>,
- "Jan Petrous (OSS)" <jan.petrous@oss.nxp.com>,
- Jisheng Zhang <jszhang@kernel.org>, Kees Cook <kees@kernel.org>,
- Kunihiko Hayashi <hayashi.kunihiko@socionext.com>,
- Lad Prabhakar <prabhakar.mahadev-lad.rj@bp.renesas.com>,
- Ley Foon Tan <leyfoon.tan@starfivetech.com>,
- linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- Mateusz Polchlopek <mateusz.polchlopek@intel.com>,
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, netdev@vger.kernel.org,
- Oleksij Rempel <o.rempel@pengutronix.de>, Paolo Abeni <pabeni@redhat.com>,
- Rohan G Thomas <rohan.g.thomas@altera.com>,
- Shenwei Wang <shenwei.wang@nxp.com>, Simon Horman <horms@kernel.org>,
- Song Yoong Siang <yoong.siang.song@intel.com>,
- Swathi K S <swathi.ks@samsung.com>, Tiezhu Yang <yangtiezhu@loongson.cn>,
- Vinod Koul <vkoul@kernel.org>, Vladimir Oltean <olteanv@gmail.com>,
- Vladimir Oltean <vladimir.oltean@nxp.com>, Yu-Chun Lin <eleanor15x@gmail.com>
-References: <aNj8U4xPJ0JepmZs@shell.armlinux.org.uk>
-From: Maxime Chevallier <maxime.chevallier@bootlin.com>
-Content-Language: en-US
-In-Reply-To: <aNj8U4xPJ0JepmZs@shell.armlinux.org.uk>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Last-TLS-Session-Version: TLSv1.3
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CABjd4Yy14bpjzvFyc8et-=pmds5uwzfxNqcs7L=+XRXBogZEsQ@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_063242_270381_F13C5405 
-X-CRM114-Status: GOOD (  37.22  )
+X-CRM114-CacheID: sfid-20251003_063314_134697_A8F94AD4 
+X-CRM114-Status: GOOD (  52.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,106 +80,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Russell,
+On Fri, Jan 24, 2025 at 11:44:34PM +0400, Alexey Charkov wrote:
+> On Fri, Jan 24, 2025 at 9:23 PM Alexey Charkov <alchark@gmail.com> wrote:
+> > On Fri, Jan 24, 2025 at 2:37 PM Dragan Simic <dsimic@manjaro.org> wrote:
+> > > On 2025-01-24 11:25, Alexey Charkov wrote:
+> > > > On Fri, Jan 24, 2025 at 2:06 PM Dragan Simic <dsimic@manjaro.org>
+> > > > wrote:
+> > > >> On 2025-01-24 09:33, Alexey Charkov wrote:
+> > > >> > On Fri, Jan 24, 2025 at 9:26 AM Alexander Shiyan
+> > > >> > <eagle.alexander923@gmail.com> wrote:
+> > > >> >>
+> > > >> >> There is no pinctrl "gpio" and "otpout" (probably designed as
+> > > >> >> "output")
+> > > >> >> handling in the tsadc driver.
+> > > >> >> Let's use proper binding "default" and "sleep".
+> > > >> >
+> > > >> > This looks reasonable, however I've tried it on my Radxa Rock 5C and
+> > > >> > the driver still doesn't claim GPIO0 RK_PA1 even with this change. As
+> > > >> > a result, a simulated thermal runaway condition (I've changed the
+> > > >> > tshut temperature to 65000 and tshut mode to 1) doesn't trigger a PMIC
+> > > >> > reset, even though a direct `gpioset 0 1=0` does.
+> > > >> >
+> > > >> > Are any additional changes needed to the driver itself?
+> > > >>
+> > > >> I've been digging through this patch the whole TSADC/OTP thing in the
+> > > >> last couple of hours, and AFAIK some parts of the upstream driver are
+> > > >> still missing, in comparison with the downstream driver.
+> > > >>
+> > > >> I've got some small suggestions for the patch itself, but the issue
+> > > >> you observed is obviously of higher priority, and I've singled it out
+> > > >> as well while digging through the code.
+> > > >>
+> > > >> Could you, please, try the patch below quickly, to see is it going to
+> > > >> fix the issue you observed?  I've got some "IRL stuff" to take care of
+> > > >> today, so I can't test it myself, and it would be great to know is it
+> > > >> the right path to the proper fix.
+> > > >>
+> > > >> diff --git i/drivers/thermal/rockchip_thermal.c
+> > > >> w/drivers/thermal/rockchip_thermal.c
+> > > >> index f551df48eef9..62f0e14a8d98 100644
+> > > >> --- i/drivers/thermal/rockchip_thermal.c
+> > > >> +++ w/drivers/thermal/rockchip_thermal.c
+> > > >> @@ -1568,6 +1568,11 @@ static int rockchip_thermal_probe(struct
+> > > >> platform_device *pdev)
+> > > >>          thermal->chip->initialize(thermal->grf, thermal->regs,
+> > > >>                                    thermal->tshut_polarity);
+> > > >>
+> > > >> +       if (thermal->tshut_mode == TSHUT_MODE_GPIO)
+> > > >> +               pinctrl_select_default_state(dev);
+> > > >> +       else
+> > > >> +               pinctrl_select_sleep_state(dev);
+> > > >
+> > > > I believe no 'else' block is needed here, because if tshut_mode is not
+> > > > TSHUT_MODE_GPIO then the TSADC doesn't use this pin at all, so there's
+> > > > no reason for the driver to mess with its pinctrl state. I'd rather
+> > > > put a mirroring block to put the pin back to its 'sleep' state in the
+> > > > removal function for the TSHUT_MODE_GPIO case.
+> > >
+> > > You're right, but the "else block" is what the downstream driver does,
+> >
+> > Does it though? It only handles the TSHUT_MODE_GPIO case as far as I
+> > can tell (or TSHUT_MODE_OTP in downstream driver lingo) [1]
+> >
+> > [1] https://github.com/radxa/kernel/blob/edb3eeeaa4643ecac6f4185d6d391c574735fca1/drivers/thermal/rockchip_thermal.c#L2564
+> >
+> > > so I think it's better to simply stay on the safe side and follow that
+> > > logic in the upstream driver.  Is it really needed?  Perhaps not, but
+> > > it also shouldn't hurt.
+> > >
+> > > > Will try and revert.
+> > >
+> > > Awesome, thanks!
+> > >
+> > > > P.S. Just looked at the downstream driver, and it actually calls
+> > > > TSHUT_MODE_GPIO TSHUT_MODE_OTP instead, so it seems that "otpout" was
+> > > > not a typo in the first place. So maybe the right approach here is not
+> > > > to change the device tree but rather fix the "gpio" / "otpout" pinctrl
+> > > > state handling in the driver.
+> > >
+> > > Indeed, "otpout" wasn't a typo, and I've already addressed that in my
+> > > comments to Alexander's patch.  Will send that response a bit later.
+> > >
+> > > I think it's actually better to accept the approach in Alexander's
+> > > patch, because the whole thing applies to other Rockchip SoCs as well,
+> > > not just to the RK3588(S).
+> >
+> > Anyway, I've just tried it after including the changes below, and
+> > while /sys/kernel/debug/pinctrl/pinctrl-handles shows the expected
+> > pinctrls under tsadc, the driver still doesn't seem to be triggering a
+> > PMIC reset. Weird. Any thoughts welcome.
+> 
+> I found the culprit. "otpout" (or "default" if we follow Alexander's
+> suggested approach) pinctrl state should refer to the &tsadc_shut_org
+> config instead of &tsadc_shut - then the PMIC reset works.
 
-On 28/09/2025 11:13, Russell King (Oracle) wrote:
-> This series is radical - it takes the brave step of ripping out much of
-> the existing PCS support code and throwing it all away.
-> 
-> I have discussed the introduction of the STMMAC_FLAG_HAS_INTEGRATED_PCS
-> flag with Bartosz Golaszewski, and the conclusion I came to is that
-> this is to workaround the breakage that I've been going on about
-> concerning the phylink conversion for the last five or six years.
-> 
-> The problem is that the stmmac PCS code manipulates the netif carrier
-> state, which confuses phylink.
-> 
-> There is a way of testing this out on the Jetson Xavier NX platform as
-> the "PCS" code paths can be exercised while in RGMII mode - because
-> RGMII also has in-band status and the status register is shared with
-> SGMII. Testing this out confirms my long held theory: the interrupt
-> handler manipulates the netif carrier state before phylink gets a
-> look-in, which means that the mac_link_up() and mac_link_down() methods
-> are never called, resulting in the device being non-functional.
-> 
-> Moreover, on dwmac4 cores, ethtool reports incorrect information -
-> despite having a full-duplex link, ethtool reports that it is
-> half-dupex.
-> 
-> Thus, this code is completely broken - anyone using it will not have
-> a functional platform, and thus it doesn't deserve to live any longer,
-> especially as it's a thorn in phylink.
-> 
-> Rip all this out, leaving just the bare bones initialisation in place.
-> 
-> However, this is not the last of what's broken. We have this hw->ps
-> integer which is really not descriptive, and the DT property from
-> which it comes from does little to help understand what's going on.
-> Putting all the clues together:
-> 
-> - early configuration of the GMAC configuration register for the
->    speed.
-> - setting the SGMII rate adapter layer to take its speed from the
->    GMAC configuration register.
-> 
-> Lastly, setting the transmit enable (TE) bit, which is a typo that puts
-> the nail in the coffin of this code. It should be the transmit
-> configuration (TC) bit. Given that when the link comes up, phylink
-> will call mac_link_up() which will overwrite the speed in the GMAC
-> configuration register, the only part of this that is functional is
-> changing where the SGMII rate adapter layer gets its speed from,
-> which is a boolean.
-> 
->  From what I've found so far, everyone who sets the snps,ps-speed
-> property which configures this mode also configures a fixed link,
-> so the pre-configuration is unnecessary - the link will come up
-> anyway.
-> 
-> So, this series rips that out the preconfiguration as well, and
-> replaces hw->ps with a boolean hw->reverse_sgmii_enable flag.
-> 
-> We then move the sole PCS configuration into a phylink_pcs instance,
-> which configures the PCS control register in the same way as is done
-> during the probe function.
-> 
-> Thus, we end up with much easier and simpler conversion to phylink PCS
-> than previous attempts.
-> 
-> Even so, this still results in inband mode always being enabled at the
-> moment in the new .pcs_config() method to reflect what the probe
-> function was doing. The next stage will be to change that to allow
-> phylink to correctly configure the PCS. This needs fixing to allow
-> platform glue maintainers who are currently blocked to progress.
-> 
-> Please note, however, that this has not been tested with any SGMII
-> platform.
-> 
-> I've tried to get as many people into the Cc list with get_maintainers,
-> I hope that's sufficient to get enough eyeballs on this.
-> 
-> v2: numerous changes, too many to have kept track of, sorry. As one can
-> see, the series has more than doubled in size. Some are not up to
-> mainline submission quality, but I've included them as they give the
-> full picture. b4 may be able to do a better job at identifying the
-> differences between the two series than I could ever do.
+I've recently brought up an RK3588S-based Orange Pi CM5 Base board, made
+of a compute module (CM5, see [1]) and a carrier board (Base, see [2]).
+The carrier board has a reset button which pulls the PMIC_RESET_L signal
+of the CM5 to GND (see page 3 of the schematics in [3]).
 
-I'm not sure if you're interested in a proper Tested-by tag at that 
-point, but I tested that series on socfpga with :
+With &tsadc_shut_org the reset button has absolutely no effect. With
+&tsadc_shut it resets the board as expected.
 
-  - 1 instance using RGMII, w/ a ksz9031 PHY, and it works well, traffic 
-flows, ethtool seems to report correct data
+Unfortunately the schematics of the CM5 is not available so it's not
+immediately clear what the reset button is connected exactly. The same
+manufacturer sells another board based on the same SoC, the Orange Pi 5B
+([4]) whose full schematics is available ([5]). The board also has a
+reset button pulling a PMIC_RESET_L signal to GND. The signal is pulled
+up to VCC_1V8_S3 and connected to
 
-  - 1 instance that has the Lynx PCS (DMA_HW_FEATURE[30:28] == 0)
+- RESETB on the PMIC
+- NPOR on the RK3588S
+- TSADC_SHUT (GPIO0_A1) on the RK3588S
 
-This also works perfectly, switching between SGMII/1000BaseX dynamically 
-by hotswapping SFP modules works well, no regression found at a first 
-glance.
+[1] http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-CM5.html
+[2] http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-CM5-Board.html
+[3] https://drive.google.com/file/d/1t4WmXGWed8NnS0m2PWE7p5YLiR1dbnvP/view
+[4] http://www.orangepi.org/html/hardWare/computerAndMicrocontrollers/details/Orange-Pi-5B.html
+[5] https://drive.google.com/file/d/19iPdpAXhA1vFkVOgG5Sz7L6cV8BB6004/view
 
-I haven't had time t take a deep look at the code itself, but at least 
-it works :)
+-- 
+Regards,
 
-Thanks,
-
-Maxime
-
+Laurent Pinchart
 
