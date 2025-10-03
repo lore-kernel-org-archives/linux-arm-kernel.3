@@ -4,71 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0552FCAC5B0
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64FF2CCA471
 	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 12:51:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=samCYGqwi9pnzVf12goEC93sXVEkXkpJUcL0gXrpXZY=; b=oSQGPdEGF8+3sdg3TXZ82vRmxB
-	H+HFxDxydwFlD5TjAFkrSJjoFXmRgUx/1NseVfdc5QLVfFSDsfuNVRB2zrq6i6cAkCSSPkNuhryex
-	R6wXxN6yFZlmA7XI20n3GB97DYHpPAbWfWc/INFhmFB8RLO1SXRgVZCmXqETnHUOzN5fS4jHdj9BL
-	LZ3YAgf4cJvBVqDcH62tmTLsreHitgIouDUCpY8iSaRr/2k1EvhmxGqyEDofH4QL3hYGEtNMCaQD2
-	aIlenN0/an/RuIdiqAnePp8bg8wZs01hLFCwcXsG3W2oiMFpTsKaqSetqVCICbWUAl6mgT/9LjdDd
-	kLODa63g==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WaXfwSB/FRGqmKy0Vb2zzmiYO4dF/Wx+pD0HOeUkg6Y=; b=lSJjKW7bS1ZQkSG6z8IQLndujc
+	ADCJjHJlYAzfqRQDeR266yophqCGVUNLWFAfZsGoTHcbzrLVE3yug0vE3KxF46rh67bbVh4FF9ZH9
+	J0ugWorRdeokIdrBPg+ouYurkyj5zy9RPzsyinf7/oN8w0MyvUhIq19rD2kLjkspFeiyFXfqBVhWS
+	p+xkczArytKy9KXK5IFhLPn6y5DX4M/XjF4nPt3EtLzgE/rLZXd8y4IAUdbOBEJGAc0tHE1d5Yu2N
+	hHVWeVALGHmJCtgIVp4qOyhYPDvgl2PNclImmWDa/BmLjotxDmGlwcqElKT5PzbICfvJ4MWAW1XZe
+	S5xfFWyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4fFX-0000000CIi5-2xth;
-	Fri, 03 Oct 2025 12:51:03 +0000
-Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
+	id 1v4fFZ-0000000CIin-4Bw8;
+	Fri, 03 Oct 2025 12:51:06 +0000
+Received: from mail-wm1-x333.google.com ([2a00:1450:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4fFV-0000000CIgn-0CwV
+	id 1v4fFW-0000000CIhT-1PRr
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Oct 2025 12:51:02 +0000
-Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3ecde0be34eso1782045f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Oct 2025 05:51:00 -0700 (PDT)
+	Fri, 03 Oct 2025 12:51:03 +0000
+Received: by mail-wm1-x333.google.com with SMTP id 5b1f17b1804b1-46e47cca387so23630535e9.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Oct 2025 05:51:01 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1759495858; x=1760100658; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=samCYGqwi9pnzVf12goEC93sXVEkXkpJUcL0gXrpXZY=;
-        b=I62eBRbC+wTnskIOTuqUbjsEDQI+omP1RQjxfKjIVNAjnuDBEItEUMRfA5V7Kc4WG/
-         2CUDS7s/CASQENSAg4O3KOFcy41gOM0uKxI+4lT8nLPIizohrYDQpp9gLpjgUN111c7u
-         4pY9Z4wZewU0SFc5Zx/wE7fZSLwEHAJ9RJ8f4vg727kf+IPOCtRvEHToK6LNzsSaANvl
-         OtPpoReps1X4QYnWItm7cjopMsAJ365po4UGcajqX+SxZJt9ldbv/yZlMROr6ktxmlXa
-         4B7Koq2WFGwcOgH1REM++R4LwgVciBb2XOZ4DXdc0imyOKBexBPYtH1OSIFhz7LAJm4M
-         SPyg==
+        d=gmail.com; s=20230601; t=1759495860; x=1760100660; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=WaXfwSB/FRGqmKy0Vb2zzmiYO4dF/Wx+pD0HOeUkg6Y=;
+        b=LMDgJBARyZqmmeMMugpMoAi7lwC7Glttz483r7ptFQCs+Td/wIUh8lCdeYewpKbxI0
+         s3R2zTQyyu8+w9t2+l247XTtYsWv5FFK1H/IvXGdR1YKmUUDpqGUEcOnbZN1xuEnyWxg
+         zmV3nKkDe5Rwp+WAwQwSiBe/kZ+P6C10P/+6ysusMhGAvepdj9NrsEsXEQTU7r2HzoRb
+         JZ6he9yTQaTqYfrc9aALSB5sU9i7MwVSIYWbgC7tVNjEQ0VHNeu3eSzVKvFh4zcw3v1r
+         W5YT0/K5QDwupXdaCQz0SkRc1aiuQ3BK1oM46Q+eK4gq0YzCJ+Ejj+iiy1Fo4suDQ9f6
+         aIFQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759495858; x=1760100658;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=samCYGqwi9pnzVf12goEC93sXVEkXkpJUcL0gXrpXZY=;
-        b=oEA5cZ7rOn7rbp1Fi9xxmLCBbriZx1+jaupAmrcMTENdpS1LWig9jklveoT9QFqcX5
-         sfbJWQYNHQJubM9OGRK2fKccqnD+FIUIX+IC6itI45Vx3O4X4IJoQq+B5AhxO/bfhbFX
-         Ny9WkRS1Nc2uM5BfDJaRBYRoLhDW6ZlamOYkClAQSrcebNZ5lD/DNj1QSFJKEnx2G2q3
-         dOiiUfA3REif9i653rDn4OqvsWePf69TU3kSEElOb6tN628NQDK2/jdzQbJt+wQe63n+
-         /M7hjgO04QN7fAQ1NeuFd/DdVcfeDO062oJZ/f5gdNP/coFcowlO8GUvtNRl7jKsY2pj
-         HZoQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWNZuZ0l5I4XzQsOBfU02olZHFBeWp5GVgy+RBzBZcb1EZ4uIfaZcgeVybAE6M0oj2UCvmi82AKp0siRFtkkAiA@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5WPSG35QLJv6KQfvodR1kKzjUJuqzetUIMT49Rtt/bvPnguwX
-	zgH0WgV8mm2m5XIxhdQEPaBLf1SObiUWKq9YWOpbbk/jtTeWcgyuRlkY
-X-Gm-Gg: ASbGncsgMOELoepbBLH+pR+qE1We3Cdb3f7yyTNxWV8NyK5o3I1QdIsprEKZ1muV3yu
-	IYtvh4rst3xc2kG5necwOTADv6josjEeCJ0TIkPLwP/PBNjycixPn3eF+NFtwDyUvHyGCeu2ZMt
-	Gpltlny1PuZGBK0qAjEyMGW50dwalhjG3+p0/Q/64gpTQZrQ5HtHCR78GeFGrPn8FexKqfLbhIU
-	TEgL4ISV9JJtGBeRB6F25ht6YZoZwC91eWsxpzXmUOaSc1BkN5aTgYhCb87mOf4cj3EEVJ2YWcC
-	X3eHmY7I2O2OBUg/RJyzpMA4rwhwyhsHF2hIIqJ74YOEsru/utoXeBS/UwpXdT8tt2WIeeFet0T
-	0G5Lj1IcItSM5dASTsfmoVzsqthOBiuridVw92OFX6fl8nrunA2zjWcJ9OMDnrrnXWuYiqjFtyc
-	2rRdTw
-X-Google-Smtp-Source: AGHT+IENzuZxbYIdrHD3oo9Oii97vCN3RXSUhQc4ZEVlPzK73ksVqzVkKPvFzgGiDGx4BnU+23owmw==
-X-Received: by 2002:a05:6000:1a86:b0:3ec:dfe5:17e8 with SMTP id ffacd0b85a97d-4255d294d2emr4872007f8f.6.1759495858309;
-        Fri, 03 Oct 2025 05:50:58 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1759495860; x=1760100660;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=WaXfwSB/FRGqmKy0Vb2zzmiYO4dF/Wx+pD0HOeUkg6Y=;
+        b=mcg3/t304mdqb/u96B0CFi+VkfDBtNUBt5Ah1yWiPBoikrbiKxXVQJcvlYfUixf4+6
+         Yjy8k/qtJn7ZF+fVD+FbJCXYdOGnbGhbQ04XhUN/yeL8w8bX5dHt/6/n/GlK+n7+Vg8d
+         grsMZLVhnE69Vpqb0OrQEjIn0/DbCQO5qNA03B1YBnDnWq7A7AN52wXi5RVDYoAZ9VGk
+         PzkxuSM74gJ63q1OgQQ4b0Xaf4tDrH8RBUtEjAlbnqotN27QP/w40gYk/GvHnv03TfiH
+         YtCZYyzTBJaL49oBdjFgCo1gS7Yb7gklx7LVEztMOhbfu5irciM7H/bc7Y38iJBWD9Cn
+         0mag==
+X-Forwarded-Encrypted: i=1; AJvYcCWLEx8LnWuCv9EJfZDFrHTbgRT3nGa8m0zrHRvmBz42WAkYmPUigRkTn97ylQYzIZySag5+BB/mPJxs3E+BICkR@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz/oA2Fn7xRcgFd9ft/vSZeQTcd5NSh3RpitKDGBsk11RE6vc5r
+	J8aL1t1ekNbVsb06Q6ZWdkRUdDew2UBp8uJROg3lkFB3K0ysbR10f27Z
+X-Gm-Gg: ASbGncuLiLGptkIkpIj2POsNcaELmWLfrHKYP+7oTK1tuOxryTKdN/v1y6QJ+CyE7h7
+	qXkMtX4GPMyjHRpgWDGhBcCCH5C0r6FjbeDExJEHUsF3UDw9mKzZcNLN2rHbrMikRsYGiTJO6w4
+	Odt4cPVaBr/jro345Lk2hkOUF5LDTLxFRMlj4SOqoKGgJr3qxyRT1ABLXtCBvL/54e0cBDpxdzu
+	CiOeh3DA3vGhiju5wWsQQStM4gnxt1Hyrlsfhh+mITEhbs2TvKn1Bjf8AQu3+PVtjirMnyCBjdJ
+	jalxzXaGSvXQVC4eWsu7RLzMplTxD9i7qABxM6F4ob/b0E3QjnBYZq/9M/fuwU7G90vYJLNwq2C
+	xluTeLzWPOLkPGBu7l6wBYbzx6CwP7q0NCH4ItfN3bepC4zPfFjl8I6Lc3J1sdByFYxntyz5THq
+	o9SNCe
+X-Google-Smtp-Source: AGHT+IFK24Hmy9qDQXQFVbal729f+4HuhDIUzQDqGeKXa8THbxiFFtjcu/scKAzTeHzoz76wi6we2g==
+X-Received: by 2002:a05:600d:4392:b0:46e:74bb:6bc with SMTP id 5b1f17b1804b1-46e74bb07ecmr9696025e9.5.1759495860204;
+        Fri, 03 Oct 2025 05:51:00 -0700 (PDT)
 Received: from localhost.localdomain ([37.159.33.161])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46e5c40983asm80598605e9.3.2025.10.03.05.50.56
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46e5c40983asm80598605e9.3.2025.10.03.05.50.58
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Oct 2025 05:50:57 -0700 (PDT)
+        Fri, 03 Oct 2025 05:50:59 -0700 (PDT)
 From: Stefano Radaelli <stefano.radaelli21@gmail.com>
 To: devicetree@vger.kernel.org,
 	linux-kernel@vger.kernel.org
@@ -80,15 +81,17 @@ Cc: Stefano Radaelli <stefano.radaelli21@gmail.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v1 0/3] arm64: dts: ti: Refactor and alignment of VAR-SOM-AM62P
-Date: Fri,  3 Oct 2025 14:50:26 +0200
-Message-ID: <20251003125031.30539-1-stefano.radaelli21@gmail.com>
+Subject: [PATCH v1 1/3] arm64: dts: ti: var-som-am62p: Refactor IPC configuration into common dtsi
+Date: Fri,  3 Oct 2025 14:50:27 +0200
+Message-ID: <20251003125031.30539-2-stefano.radaelli21@gmail.com>
 X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20251003125031.30539-1-stefano.radaelli21@gmail.com>
+References: <20251003125031.30539-1-stefano.radaelli21@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_055101_093600_CF6DCCA3 
-X-CRM114-Status: GOOD (  11.19  )
+X-CRM114-CacheID: sfid-20251003_055102_390698_1166DB37 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,29 +106,91 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series introduces updates to the VAR-SOM-AM62P device tree:
+Update the VAR-SOM-AM62P dtsi to align with the refactor introduced by
+k3-am62p-ti-ipc-firmware.dtsi common file, allowing to remove the IPC
+nodes from the board file including the new common dtsi.
 
- - Patch 1 refactors the IPC configuration to align with upstream changes
-   by including the new common k3-am62p-ti-ipc-firmware.dtsi.
- - Patch 2 adds support for the WM8904 audio codec, enabling audio
-   playback and capture.
- - Patch 3 adds support for the ADS7846 touchscreen controller available
-   on the SOM.
+No functional changes intended.
 
-These changes have been tested on the VAR-SOM-AM62P platform with
-Symphony Carrier Board.
+Signed-off-by: Stefano Radaelli <stefano.radaelli21@gmail.com>
+---
+ arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi | 52 +------------------
+ 1 file changed, 2 insertions(+), 50 deletions(-)
 
-Stefano Radaelli (3):
-  arm64: dts: ti: var-som-am62p: Refactor IPC configuration into common
-    dtsi
-  arm64: dts: ti: var-som-am62p: Add support for WM8904 audio codec
-  arm64: dts: ti: var-som-am62p: Add support for ADS7846 touchscreen
-
- arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi | 148 ++++++++++++------
- 1 file changed, 98 insertions(+), 50 deletions(-)
-
-
-base-commit: 58809f614e0e3f4e12b489bddf680bfeb31c0a20
+diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
+index edaa4f99295d..b93372f22732 100644
+--- a/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
+@@ -63,18 +63,6 @@ rtos_ipc_memory_region: rtos-ipc-memory@9b500000 {
+ 			no-map;
+ 		};
+ 
+-		mcu_r5fss0_core0_dma_memory_region: mcu-r5fss-dma-memory-region@9b800000 {
+-			compatible = "shared-dma-pool";
+-			reg = <0x00 0x9b800000 0x00 0x00100000>;
+-			no-map;
+-		};
+-
+-		mcu_r5fss0_core0_memory_region: mcu-r5fss-memory-region@9b900000 {
+-			compatible = "shared-dma-pool";
+-			reg = <0x00 0x9b900000 0x00 0x00f00000>;
+-			no-map;
+-		};
+-
+ 		wkup_r5fss0_core0_dma_memory_region: r5f-dma-memory@9c800000 {
+ 			compatible = "shared-dma-pool";
+ 			reg = <0x00 0x9c800000 0x00 0x00100000>;
+@@ -320,44 +308,6 @@ &usbss1 {
+ 	ti,vbus-divider;
+ };
+ 
+-&mailbox0_cluster0 {
+-	status = "okay";
+-
+-	mbox_r5_0: mbox-r5-0 {
+-		ti,mbox-rx = <0 0 0>;
+-		ti,mbox-tx = <1 0 0>;
+-	};
+-};
+-
+-&mailbox0_cluster1 {
+-	status = "okay";
+-
+-	mbox_mcu_r5_0: mbox-mcu-r5-0 {
+-		ti,mbox-rx = <0 0 0>;
+-		ti,mbox-tx = <1 0 0>;
+-	};
+-};
+-
+-&mcu_r5fss0 {
+-	status = "okay";
+-};
+-
+-&mcu_r5fss0_core0 {
+-	mboxes = <&mailbox0_cluster1 &mbox_mcu_r5_0>;
+-	memory-region = <&mcu_r5fss0_core0_dma_memory_region>,
+-			<&mcu_r5fss0_core0_memory_region>;
+-};
+-
+-&wkup_r5fss0 {
+-	status = "okay";
+-};
+-
+-&wkup_r5fss0_core0 {
+-	mboxes = <&mailbox0_cluster0 &mbox_r5_0>;
+-	memory-region = <&wkup_r5fss0_core0_dma_memory_region>,
+-			<&wkup_r5fss0_core0_memory_region>;
+-};
+-
+ /* mcu_gpio0 and mcu_gpio_intr are reserved for mcu firmware usage */
+ &mcu_gpio0 {
+ 	status = "reserved";
+@@ -385,3 +335,5 @@ &main_uart1 {
+ 	/* Main UART1 is used by TIFS firmware */
+ 	status = "reserved";
+ };
++
++#include "k3-am62p-ti-ipc-firmware.dtsi"
 -- 
 2.47.3
 
