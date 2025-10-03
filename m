@@ -4,81 +4,177 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85847CCA471
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 16:27:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81F40CCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 16:27:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MzZU1YIIu1tEEW+NfEP+TdcW3FbKp5NQWF2XmOxvSG8=; b=F0dhiJJ/8DpeZSqP/2Mh3VBKX5
-	b/67eGAnijbj9qZwtjPAQXtFqEK2NgA2iDo/QWNOYdBJYWL1hythOp/6mlRzwoordwSDi03QiFHgY
-	gXsq6c1WsSDJk7QaehevAm6nMeUtLAwurUP1Axjn7ZUpwQm28deE83FMSVi+76RLGX/FkHR0dxIPz
-	Nsd92J5rW2mU6BVy+EoC8jr5Lo05q5zTFxvBcFk1h12Dr5lf7bpVPJo6jea2rvwekVwws+H3YwJ6p
-	25rF/VEGcEC9g796NZ/CG6fSFv7lkbRaD9+cBnGNQhBiYxsboBix+5mqJRysfNENbMxbWVLBeIoS3
-	WzD0FTWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Cc:To:
+	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
+	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=W1ICyumX0utPJIsMiDNQXNuSTbzDe+AJiuhGyKqsock=; b=qZCc0F49LcYxvU8moTV/Gi2JbI
+	XJfYdbQQz2JO4PzVARA5ADK7R7Fqk2xq28jHzax3Fz8O++4t2B8WqmXim20bBRGUFsTs9q/LeccWb
+	uuBxOddw+LgczGcqzP68P6HqHICMnwN3Z5xX5eZG2GTFbduCv0ooi/BeqK5mcOAc/Ong0LmpttZ7M
+	0zoehl9UTBgPEMNvpIo20XlasoDLUOFtAUOMWKeesVUWAEvtgxx+UzpuBH097odgtccFOWWz0Aod8
+	0jMK4rGwTUJUZquaduQBFyeg9x6Ao7UtVzEuw/FQSd1w50mC55hcMKpEEbpvQuGbCTUaLNRqeeEmP
+	AWw/nBzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4ico-0000000Cj5y-49Ko;
-	Fri, 03 Oct 2025 16:27:18 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1v4ict-0000000Cj8e-1gdf;
+	Fri, 03 Oct 2025 16:27:23 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4icl-0000000Cj4F-2ekr
+	id 1v4icr-0000000Cj4o-218L
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Oct 2025 16:27:17 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-46e38bd6680so10141985e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Oct 2025 09:27:14 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1759508833; x=1760113633; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=MzZU1YIIu1tEEW+NfEP+TdcW3FbKp5NQWF2XmOxvSG8=;
-        b=LyZeFyw8G9Ksh2LcFPchcB3/xxI66bac58qINoQCtYtIT3/rTOVb1MTUp7ZI3Sa4aX
-         uBxI4YDZZwBa1qG8FRVSGcEhDqnZfRRHhXujFAWP5Pw1r9hMh/TUwvzK9zfrYqo2NCok
-         zbhr7hNRWTtBGi2ZDH18acyZnweSPc5ENijaeodJMrPXrYRLsHsw+ZKr8jS/JOourjeA
-         VVT8YxFQOfHqij13Ik0lLO/GggUSVmDdyf26f0n+60CWyrYrjXSCLptVFSYyDbxiFgMB
-         hPC60bQRQHW2nurrcen42HcxC0Yt4w+G/NlHqW+cUNuDVDMuE2M5WFOV9me+KETjKUT/
-         /5IA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759508833; x=1760113633;
-        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=MzZU1YIIu1tEEW+NfEP+TdcW3FbKp5NQWF2XmOxvSG8=;
-        b=g6cEv90vg97a5SRQADBtQx7Mn32jNE1pDPbCbJxRtzYETyzOm8QwZfhLJfR7OixdNC
-         ZaSffUVjhWHAadKerF9sus0tPFUIhONBx9FoSCtkUEh2ACSwggk5IGcq4XhYWItqCoz5
-         NSDMfeCcVO96YjSHsp6wl6mseHDqYFuIH++eVkrWgZK0ZPasH25LzAE6UkHjUWQW0Nla
-         ZEa7Hg3J6xATjyoj9/JAqFNvsIbqH9VbJI1bhLjZZ/N4frCWBO9Fc5ABM60qWvmfIKh6
-         15xny/mcQdEQqkEIQfwPkKtIZ3fjWZovzbAB0jP5Ls5MxSrfZvHx5OV7B9Rft2ToUKxN
-         o39A==
-X-Gm-Message-State: AOJu0YzblkoF6zKaR7ZwC31ZZB16Vigy5Fne+bATpLDr0/0FjX+g23xH
-	6lt9N5levouO/a+IvrM6wnvADbUSqDPiIuyaBkq2zv04dh8ICyNNm2oXzIqqf+XlxdzYGUZs2aR
-	OV3T26XAHTt51hdNi5AhSbGMqCB2/kaGJDBHvXwBmTuXYd0/v04PbpeIEWfELRw++lgytSnPa/G
-	aQYFf8f/xXabI28r+uCo7ZbIuy15t7hTmmlFsxxctMWKLe
-X-Google-Smtp-Source: AGHT+IE6d7XFFzHEQP3LZlDJ6UNgOnjntHAmo33gEOyj+OOsIA5T9WHORBs2YLgEj/GDoFpwHf2fOrJw
-X-Received: from wmcn6.prod.google.com ([2002:a05:600c:c0c6:b0:45d:d522:48a9])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:1e20:b0:46e:385c:3e0e
- with SMTP id 5b1f17b1804b1-46e71147325mr21476375e9.29.1759508833541; Fri, 03
- Oct 2025 09:27:13 -0700 (PDT)
-Date: Fri,  3 Oct 2025 18:21:21 +0200
-Mime-Version: 1.0
-X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=9767; i=ardb@kernel.org;
- h=from:subject; bh=oy3ZXXmy5rTIVCA8TnGFAP5PGUqXfbrZBOI+pHkf+d0=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIeP+jxoDxhCb9d1JGnuzJFstNsmEp/wu5rirG5RvfkilS
- Elfb21HKQuDGBeDrJgii8Dsv+92np4oVes8SxZmDisTyBAGLk4BmEiHEiPDxPKj0XJ3F2zawLRT
- e7vcP/3e6ctPCfwuMVZMbJy/RXv1RoY/nLrB+mqxr2+8X/j6wH31fcanZ/+743plz5FjQuVrzGa 28AIA
-X-Mailer: git-send-email 2.51.0.618.g983fd99d29-goog
-Message-ID: <20251003162120.2672780-2-ardb+git@google.com>
-Subject: [RFC PATCH] arm64/fpsimd: Implement strict mode for kernel mode SIMD
-From: Ard Biesheuvel <ardb+git@google.com>
-To: linux-arm-kernel@lists.infradead.org
-Cc: will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, 
-	maz@kernel.org, broonie@kernel.org, Ard Biesheuvel <ardb@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
+	Fri, 03 Oct 2025 16:27:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=E9idRlY0jnhIRqgbtE3wegya5bwW5z6/fDwjq+DtER4jxl3pnYMGUF7jlrBVFYs5QGIr2PmgoyzbicUJskeBTq11KqGj38AHmA8SatfvtlyV7YYp5JshnDco7jumyFv7mBgG9/BYm2WAaOWZVvaLXSIVaB4YrNonPLOK70mHT62dILplgeGwHW/cW17zmY/D9wbvMQdvgkGQqnDf+Kj23lDLBg+7EyieiZJPwoXxUIVEZIHmx09w30uTldWZCxCE8SHg8J4wEY1F+sF49WiuSIPHT16YWkYjai9DJrMmBL+OJHlpUqdzIfiC/GmzgA+SHRc61RlutanEMRmHsdPA6g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=W1ICyumX0utPJIsMiDNQXNuSTbzDe+AJiuhGyKqsock=;
+ b=CbI20h4Srg18abyqAlwYvKLm0+675Rjy365NxrmT5XCgBdygwdZB914Er4dEC3vHbncDHkBYzM+wdYCiBwl7nW6tIBsy4EriV8i4/elyAbjnXSyy3uN4mBpKHcniQMhE3/o/IP3nuBb61MItYOICnN8IvC4dXJzE0gWjI6CT/t2TMZOfXK54euORflWDgcs4KyZmRiazYUqHYxFD5hCm6VLXN7n8CpXFSn09VJkgxKV6kcqkRx1U8YPFsbmYRtOC++FfEsMXQIcoJdHybJ447hXNcveWVdwz0DO6vGKF5Fi2Vn3KEzC8xGnbRZel4UkyLKbdtovhWjjDA89XURMHbQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=W1ICyumX0utPJIsMiDNQXNuSTbzDe+AJiuhGyKqsock=;
+ b=HS1E6rSgEaBXm38hmmAJkhFAB0LJDbwGDzG5InJoxhnsQrp+x90yfYOz+D0jwt77tS9SVpYc6XWyuSTpe25+Ofk6/KN4gMhSe35fJDFxGrwYqn3nQC9ZZotwFqy2TswVFoItJb80JP86X+nUpLi/tL7DkEKK3vFrTIExsqDnn0CBLSLvBfs/vspcT5x2nhKBCP9rv4CspLlAfefp7Hf7r0Mas5NqQ1fMcaK+tlcGuKnbEBYDr3wWySwx7qTX8226ymizWYAKf7lcyWSaJeG+OZUxeGqC91Acg2q062F/0l3r37vf+tjML7a/GxHGfFcZJF7M+NDusWrRWqN2m9YVpQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by GV4PR04MB11331.eurprd04.prod.outlook.com (2603:10a6:150:29e::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.10; Fri, 3 Oct
+ 2025 16:27:12 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9182.013; Fri, 3 Oct 2025
+ 16:27:12 +0000
+From: Frank Li <Frank.Li@nxp.com>
+Date: Fri, 03 Oct 2025 12:26:50 -0400
+Subject: [PATCH v2 2/2] i2c: lpi2c: Use cleanup helper for
+ dma_async_tx_descriptor error handling
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251003-dma_chan_free-v2-2-564946b6c563@nxp.com>
+References: <20251003-dma_chan_free-v2-0-564946b6c563@nxp.com>
+In-Reply-To: <20251003-dma_chan_free-v2-0-564946b6c563@nxp.com>
+To: Vinod Koul <vkoul@kernel.org>, Dong Aisheng <aisheng.dong@nxp.com>, 
+ Andi Shyti <andi.shyti@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
+ Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: dmaengine@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-i2c@vger.kernel.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, carlos.song@nxp.com, 
+ Frank Li <Frank.Li@nxp.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1759508822; l=2331;
+ i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
+ bh=SaQA9Z1PTlapn8T0WD8reaoNXxjNIKnuysE22k0bANQ=;
+ b=eR0X+LqzODQACd8lRIuHUEAxGelyMP2MoWQdutv12jcBdQqjW9Y3XN+YOK37Zo84SOUfS5GAp
+ KjuWlVVhf7nBWgoJ0HS8v627w/vP/HyL5N4APXe3jGSS0pr0PQxg1gj
+X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
+ pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
+X-ClientProxiedBy: BY3PR05CA0051.namprd05.prod.outlook.com
+ (2603:10b6:a03:39b::26) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|GV4PR04MB11331:EE_
+X-MS-Office365-Filtering-Correlation-Id: 332425b5-5320-487a-1d27-08de0299b4f1
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|1800799024|19092799006|7416014|376014|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Q0dGN1NuQlYxcHgwbkRmbXp1REt0YnpOS0k1L2FGK2Fkbk1HWlFzNUlWZGVp?=
+ =?utf-8?B?b3YvZE81UUxaUUwyVEZaS1I2bXgzekhZVVhFdXc0OE12ZU80UmhQaTdKN1hK?=
+ =?utf-8?B?NXJGSm5rOVJRc2VPeXpZWEdKNDc0Wjk0djBacWtraHNPQWhud1Q0UjQ0dEFQ?=
+ =?utf-8?B?ejAvSzRjR1dFWWczNTJlcmtHSWJVaUUxcFFENllac1JkNHRvek53amJhbXFJ?=
+ =?utf-8?B?VTdwZUY2M0pKM3hPYysxbGRzSmZYMkxubkw1bkZPd2ZhaUdwV2kyN3loNCsz?=
+ =?utf-8?B?MlhFc3RzM0ovOEg4eWtLa1JtNjJlblg3RlpjaEQ3TkVrNnZ2STkrNUNoVTQr?=
+ =?utf-8?B?bnpRMU9zeWxkejRKQWdNb25WcWdJTTY3Y2xLVDRGT25oVDFCYXJtYjdYZ0Zn?=
+ =?utf-8?B?WlEvU3Q5T0Uzc0x3d2MxaUJEK05BNnhXb3dyUmdvK1gvNHRLVVBZb3pRcVZB?=
+ =?utf-8?B?YnJCQko5SytFNEhSTFg2M2R1eTNMN1hackhtaVpYZmxwelN4WHcrUHlCajZq?=
+ =?utf-8?B?NlozRm1NWndBeFhhdHVzQkNxWW5TNlFlS3NSbGo2ZFc5aVNncVdJK29OT2NY?=
+ =?utf-8?B?QW9KVDgxanJocS9yTldINHNIOXdCZldMZllpc0tsQzByQytqbFg4ZXBLQmpv?=
+ =?utf-8?B?ZGluS21mK3VwdWJlMzdpWURBbWVvTG96REgvd01MaTJubTlML1Z3c2Z2RmR2?=
+ =?utf-8?B?ODlxS29VQm1aMENvdWo2czh2TUZtTjF0MHphMmZEc21hWU5ZRWdYRFQvSzRo?=
+ =?utf-8?B?RTVpelJQRjNoZ2g1YmFTakFTc2U3dkdTOGlKdk1FcTg1WTlRdmVWNHR1dndz?=
+ =?utf-8?B?eWVWWElEQU5yRmo2dG9FYlB4RDNMdURRNjJiK1Mvd29YdFliZVl2MmJmOTJE?=
+ =?utf-8?B?ZkN5dGIxRFhtdHpHQ0lOdE4wTW9yQUMxMDdpWGhYK0hiSzNlRzk4K2lnOHJl?=
+ =?utf-8?B?ZTNid3E5YjZLWU1mcUp0YnNtQXFVY2RIODNzdHdEYm5Cc3krMHZqMWtIcGgw?=
+ =?utf-8?B?SUN3SjR2K252cGQxQmdzL2NkSHNBUzQxdnRERDFjc3FCSjM1Z0NPSm15dEsx?=
+ =?utf-8?B?MnhFVlFucitKdWtDTU1UT0VuUEtwT0hYU1hJb2NJdjdsbnR2NkFlTjZiZWFh?=
+ =?utf-8?B?dTlQV1QvOWVlNC9SRGtRT0Q4N0xDSGZuZjJObmpoeEd2NUJRMjZrc1hyUXhM?=
+ =?utf-8?B?NWlXMVJTa2VjZC9kY2lFclVFTWJtN1RyYlR1QUJhYXJrcHRyK3BBV0RjY0dh?=
+ =?utf-8?B?SkU1RXJmbjBQNVdmNytKQ1lwUEpHZVU1MEo0OUk2S2kxRVFRNnRPQ0d2ZHY5?=
+ =?utf-8?B?RlQyNTVPbTJuZFVjUjVxa0oxU05QN054dE1pcEZYT0VRZkhiM3ltNmZQTWlv?=
+ =?utf-8?B?Y0wyVVRmMmV4RXUrc3VUYnZnbDhVeGt6M3pub3JoV2tDTE83Uk1Mb2hhTzNp?=
+ =?utf-8?B?N1NHRTNPUTg2MGVTT2wxenBtc0d1OFRTMHNxOWJBaGc4VTZTSlFnM1ZtSUtQ?=
+ =?utf-8?B?ZmIyR0hRakVldThTdDArQjFMcmtjMXNRclREbjIyMWJTdkdoWkR6RVNyM1Vj?=
+ =?utf-8?B?OHRQTENxRktVdWRzbjlHNXVsL0FWVlh0SjZGTXJ2Nklrc053cXFQT0NVb2Ni?=
+ =?utf-8?B?YzBYcUVUMlBLTDhyL0xIWFZ1MzI2NkJPeFZJS1ZheW5NTlVNL2RVa0NjWXRO?=
+ =?utf-8?B?T21PMXNjQnhFQVNRNGhKbjJQdUJ6SzA0VHVURzVkT3FlMUN3dFBiMytjZWJY?=
+ =?utf-8?B?Z1owNmF0d1p6Y0syeTh2dDFoNTVHZlExSDlXYjhhMHV1ZXZNRDY3TnEzWUJC?=
+ =?utf-8?B?c25kRjdEb2svdVFTSjZDUjlUa0xhOHB0MVhpVklmeXFzck9LcGpveFYrWStS?=
+ =?utf-8?B?MmJScDdWTFpTb2trZi8rMklOYmtrbDNEMFhxWVd1enFZN1V5VHlVQ0RDNy9G?=
+ =?utf-8?B?QXhLNzJlc1IvZExXWTRYSHptek1nQlJZTGJZS1hIZEtJMXNTWHdVMk83RUVB?=
+ =?utf-8?B?K29BUzJCRXpaTWVBdlJ0alFQT1hobDdQQkxqZEg1TGxEaGZZQ3RjYUFnSFgw?=
+ =?utf-8?Q?JSaPtR?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(1800799024)(19092799006)(7416014)(376014)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SkxzdEt5ckd0VjM5R2ZmSEo2TXRsd0xXNkNwb0ZEckxTRVZXME4yaDR6TVNJ?=
+ =?utf-8?B?cWpqZVA4dzZoY3dYODcvYjBKVlhFUlBkZzF2TEZoTW5hWXJJN3BoMlpibldj?=
+ =?utf-8?B?NkhGYStNek5CWEJ1VUFMSlA2dzVlVnd0MTZXSmpUQ0xVOVVVc1JIbXY1ZHRR?=
+ =?utf-8?B?Y0hwblhyMWNWYXdSeGI4eW84eFhSblllbFNnSGliaHFNMkpQSDFEMDVoV3lq?=
+ =?utf-8?B?OFphMFNiOTkzQjlrWWlEd1lheDdSVERWdWFyZUlQYkgzVU9aU0dmWnQ0U2tZ?=
+ =?utf-8?B?NWZGbjlqOUdWdTJWVzJxNVlCM2FwNW4zRWVHNnowbzJ5c1V6K0Q2VGovb2pn?=
+ =?utf-8?B?cGYyY09tTHg5MkttczFHVkM3N2ZHZ2pNZE9QZ0Q5MG9KNEIvVGhPdHQrQWl0?=
+ =?utf-8?B?WVJjb3ZxK3NGMmVOK2pFRkZyaHJlR3FFRjhsL09kbmY5c2pLMERvZStHek5o?=
+ =?utf-8?B?eW9MNWVBRDlRSEN5STN6MEx2eGFzZnl4cDNMSFF5WEZMY0lwTWRGYnR1Y1dI?=
+ =?utf-8?B?SzE1TlcwQkJQaUk3S0VTSjBlNEJjdnFXRWZOUXlJMUVDcEhJeS92VWFNWHFh?=
+ =?utf-8?B?NFZqQ1MzVG5POE5JRm02L0czT1hYTDZkQVB4b0w0amMwZW1rY3lsQ1ZHb3Z1?=
+ =?utf-8?B?Yk10cENQZ0dVQW9HWXF5cXl2bzcxaW0rSWtvYnJ1VUdXTHQ4SzE0U1hjdnA1?=
+ =?utf-8?B?UmsrWnBGMzBFNis1Sjd0a1VyWjE3NEtWcVExalF2NFJQakJGbEgrWjFKT1Va?=
+ =?utf-8?B?WndyYW5hY3VJaGttWXZLMzhLQVQ2ODFzY2Z6NGZTY2s2ckYzSDRuL1A4alll?=
+ =?utf-8?B?b2JUelh4TzdjMXJOZllxc2Z3TnM1RTUyaFdGV1JMQVY0MHY5eVpZVmFreS9w?=
+ =?utf-8?B?bFNUOW5YVzFkMTJyZ0xmVlhOR0xua05uOE13RXhlSUg2TndjL2dHLzlPaHdG?=
+ =?utf-8?B?czJOems5R1ZvUWJKQjJzT24vWDRFdEVpNFlYT3pyVE5aaXlJVHRJa2Z5U3Bw?=
+ =?utf-8?B?Nzc1VEJOa21KOVhkVWtpRXJwQ05ITkFubGlHRmN0WXNObmkwZkVlU0p1TE1N?=
+ =?utf-8?B?NGNpaDhqMUcvTDFOd2FpQUlOQmFybXJ1Y09JcXJRQ3RtS0V4L0thL3NRZi9y?=
+ =?utf-8?B?RlUvaDNScGF5aFpxNTV6YncyN1FpZDJrK0ViV1pxS201OStYOWd3Y09DWUhn?=
+ =?utf-8?B?Y0E5Z29UeEtDWkFTMnI5YkYzTXZQbWpRdVpmc1JPYTVVU0I0MEg1dnhtTVhV?=
+ =?utf-8?B?Z2FEU0NpNDlzM3JHalI3ZkxuRExPNnZGU2VwSllEVHVnYWRZTm9wWHVqdWxH?=
+ =?utf-8?B?M0FrZHlZYUQ4TElWTGNsc0Yva2FPZHpwQk93N0pRNHpsMlUxNC9ibU1kWWJI?=
+ =?utf-8?B?QVVScFlsSHR1c0ZEQityUUVzSVptOFFSRGNUTXpkM1ZuTi9waDNXV2szMVlT?=
+ =?utf-8?B?TURNM1RqNEdDZ1V6cEo1YkpqVGVaTWM2ZG1reitudUlwRTF5L2xSUEdKT3Za?=
+ =?utf-8?B?cHJmSFRkSnlqMFB2Q0o5elRQYmdNejh3K3F1elZ6L3ZpTVA3d0JoVjB6WC9D?=
+ =?utf-8?B?NDRycnZqZTJxZkJsdVQ5b1k3Y0RoQTRhSGtSUEVWQzZhalVVYUhQTFIwVG9P?=
+ =?utf-8?B?ZWVUVUU0TkhPU09ma21qZWdRRjA2UzRDaktxYWdZK0tiVlpJdlRON1JSVEh5?=
+ =?utf-8?B?dXlPOU00YVgyRjgwWTVxSzBhZkY2UjF0WlVvMzhRek5TMUpxcTN0SWpoV0Jz?=
+ =?utf-8?B?elR3UnRibGpZRHc3bFNSTXF4VDZ4ZEpmUFk2TmxaOGh5N1IvTkFUeFdEbUwx?=
+ =?utf-8?B?UzN3S0Foa1owekkzNk00NFNNanFXUmVBOHpFaGRWMWl0cEZDLzZoSURpUHFX?=
+ =?utf-8?B?NkduVHV0ZlowM3NMMHlTbHhwRmVBU2pvZHFEa3BvQnJTR2dFZ2VWY1R4UENx?=
+ =?utf-8?B?bjJHQ2xkQXU0elUydjBveUxrRWRZck50bWlXZm1SZEd2S1o0bW1meGdFOUFR?=
+ =?utf-8?B?QjhoNFgxc2kvaWFKSlBsdUJaWjFaYVNUNTVJMVpHV2d1UC8xYzZTUUx5TWV1?=
+ =?utf-8?B?d3NDVmRoLytLMGFxZ3d0eWVsajZCaDdoYmJ6c3AyQXZHVnNkbFNPYnk4cUVX?=
+ =?utf-8?Q?f0p4=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 332425b5-5320-487a-1d27-08de0299b4f1
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Oct 2025 16:27:12.3777
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: TcSqVunmfqza3kTYdrrvdbD3DguVBHhVvv6EcEXCwGXumzWQD5Pa6UaWLRRlkOujiUg2pSBNzrUOin08VPcq+A==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV4PR04MB11331
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_092715_724164_2B333BD4 
-X-CRM114-Status: GOOD (  26.66  )
+X-CRM114-CacheID: sfid-20251003_092721_528787_9A42ACF6 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,315 +189,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ard Biesheuvel <ardb@kernel.org>
+Use the cleanup helper to simplify dma_async_tx_descriptor error handling.
 
-The arch-specific code on arm64 that uses the FP/SIMD register file
-takes great care to use FP/SIMD enabled C code only from isolated
-compilation units. This is needed because that code is compiled
-with the -mgeneral-regs-only compiler flag omitted, and this permits the
-compiler to use FP/SIMD registers anywhere, including for things like
-spilling. This could result in unrelated FP/SIMD state getting
-corrupted, as that may only be manipulated from within a
-kernel_neon_begin/end block.
+No functional change.
 
-The generic kernel mode FPU API, as used by the amdgpu driver, also
-omits the -mgeneral-regs-only flag when building FP/SIMD code, but
-without any guardrails, potentially resulting in user data corruption if
-any of that code is reachable from outside of a kernel_fpu_begin/end
-pair.
-
-On arm64, this issue is more severe than on other architectures, as
-access to the FP/SIMD registers is never disabled, and so such
-corruption could happen silently.
-
-So implement a strict FP/SIMD mode that does disable access to the
-FP/SIMD registers, so that inadvertent accesses trap and cause an
-exception.
-
-Link: https://lore.kernel.org/all/20251002210044.1726731-2-ardb+git@google.com/
-Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
+Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
- arch/arm64/Kconfig               | 11 ++++++++
- arch/arm64/include/asm/fpsimd.h  | 29 +++++++++++++++++++
- arch/arm64/kernel/entry-common.c |  3 ++
- arch/arm64/kernel/fpsimd.c       | 48 +++++++++++++++++++++++---------
- 4 files changed, 78 insertions(+), 13 deletions(-)
+change v2
+ need goto unmap buffer.
 
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 84c7a455d16c..53162e13c0d4 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -384,6 +384,17 @@ config SMP
- config KERNEL_MODE_NEON
- 	def_bool y
+desc_prepare_err_exit:
+        dma_unmap_single(txchan->device->dev, dma->dma_tx_addr,
+                         dma->rx_cmd_buf_len, DMA_TO_DEVICE);
+        return -EINVAL;
+
+submit_err_exit:
+        dma_unmap_single(txchan->device->dev, dma->dma_tx_addr,
+                         dma->rx_cmd_buf_len, DMA_TO_DEVICE);
+        dmaengine_desc_free(rx_cmd_desc)
+
+auto cleanup by __free, so whole error path submit_err_exit can be removed
+and use desc_prepare_err_exit label.
+---
+ drivers/i2c/busses/i2c-imx-lpi2c.c | 11 +++--------
+ 1 file changed, 3 insertions(+), 8 deletions(-)
+
+diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
+index 03b5a7e8c361abe1d75fb4d31f9614bbc6387d93..e31c2d81f59f18a09d34f79896a7fa4bb83c0a12 100644
+--- a/drivers/i2c/busses/i2c-imx-lpi2c.c
++++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
+@@ -722,7 +722,7 @@ static void lpi2c_dma_callback(void *data)
  
-+config STRICT_KERNEL_FPSIMD
-+	bool "Enable strict checking of kernel mode FP/SIMD register accesses"
-+	default DRM_AMDGPU
-+	help
-+	  Disable access to the FP/SIMD register file when entering the kernel,
-+	  and only enable it temporarily when using it for kernel mode FP/SIMD,
-+	  or for context switching the contents. This ensures that inadvertent
-+	  accesses from code that fails to use the kernel NEON begin/end API
-+	  properly will trigger an exception, instead of silently corrupting
-+	  user data.
-+
- config FIX_EARLYCON_MEM
- 	def_bool y
- 
-diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
-index b8cf0ea43cc0..0681c081db79 100644
---- a/arch/arm64/include/asm/fpsimd.h
-+++ b/arch/arm64/include/asm/fpsimd.h
-@@ -57,6 +57,35 @@ static inline void cpacr_restore(unsigned long cpacr)
- 	isb();
- }
- 
-+static inline void cpacr_enable_fpsimd(void)
-+{
-+	sysreg_clear_set(cpacr_el1, 0, CPACR_EL1_FPEN);
-+	isb();
-+}
-+
-+static inline void cpacr_disable_fpsimd(void)
-+{
-+	sysreg_clear_set(cpacr_el1, CPACR_EL1_FPEN, 0);
-+	isb();
-+}
-+
-+static inline bool fpsimd_kmode_strict(void)
-+{
-+	return IS_ENABLED(CONFIG_STRICT_KERNEL_FPSIMD);
-+}
-+
-+static inline void fpsimd_kmode_enable_access(void)
-+{
-+	if (fpsimd_kmode_strict())
-+		cpacr_enable_fpsimd();
-+}
-+
-+static inline void fpsimd_kmode_disable_access(void)
-+{
-+	if (fpsimd_kmode_strict())
-+		cpacr_disable_fpsimd();
-+}
-+
- /*
-  * When we defined the maximum SVE vector length we defined the ABI so
-  * that the maximum vector length included all the reserved for future
-diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-index f546a914f041..3b83989c768c 100644
---- a/arch/arm64/kernel/entry-common.c
-+++ b/arch/arm64/kernel/entry-common.c
-@@ -21,6 +21,7 @@
- #include <asm/daifflags.h>
- #include <asm/esr.h>
- #include <asm/exception.h>
-+#include <asm/fpsimd.h>
- #include <asm/irq_regs.h>
- #include <asm/kprobes.h>
- #include <asm/mmu.h>
-@@ -88,6 +89,7 @@ static __always_inline void __enter_from_user_mode(struct pt_regs *regs)
- 
- static __always_inline void arm64_enter_from_user_mode(struct pt_regs *regs)
+ static int lpi2c_dma_rx_cmd_submit(struct lpi2c_imx_struct *lpi2c_imx)
  {
-+	fpsimd_kmode_disable_access();
- 	__enter_from_user_mode(regs);
- }
- 
-@@ -104,6 +106,7 @@ static __always_inline void arm64_exit_to_user_mode(struct pt_regs *regs)
- 	local_daif_mask();
- 	mte_check_tfsr_exit();
- 	exit_to_user_mode();
-+	fpsimd_kmode_enable_access();
- }
- 
- asmlinkage void noinstr asm_exit_to_user_mode(struct pt_regs *regs)
-diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index e3f8f51748bc..c1c3a554b3e5 100644
---- a/arch/arm64/kernel/fpsimd.c
-+++ b/arch/arm64/kernel/fpsimd.c
-@@ -359,6 +359,9 @@ static void task_fpsimd_load(void)
- 	WARN_ON(preemptible());
- 	WARN_ON(test_thread_flag(TIF_KERNEL_FPSTATE));
- 
-+	/* Enable access so the FP/SIMD register contents can be loaded */
-+	fpsimd_kmode_enable_access();
-+
- 	if (system_supports_sve() || system_supports_sme()) {
- 		switch (current->thread.fp_type) {
- 		case FP_STATE_FPSIMD:
-@@ -432,7 +435,7 @@ static void task_fpsimd_load(void)
-  * than via current, if we are saving KVM state then it will have
-  * ensured that the type of registers to save is set in last->to_save.
-  */
--static void fpsimd_save_user_state(void)
-+static void fpsimd_save_user_state(bool leave_fpsimd_enabled)
- {
- 	struct cpu_fp_state const *last =
- 		this_cpu_ptr(&fpsimd_last_state);
-@@ -447,6 +450,9 @@ static void fpsimd_save_user_state(void)
- 	if (test_thread_flag(TIF_FOREIGN_FPSTATE))
- 		return;
- 
-+	/* Enable access so the FP/SIMD register contents can be saved */
-+	fpsimd_kmode_enable_access();
-+
- 	if (system_supports_fpmr())
- 		*(last->fpmr) = read_sysreg_s(SYS_FPMR);
- 
-@@ -492,7 +498,7 @@ static void fpsimd_save_user_state(void)
- 			 * There's no way to recover, so kill it:
- 			 */
- 			force_signal_inject(SIGKILL, SI_KERNEL, 0, 0);
--			return;
-+			goto out;
- 		}
- 
- 		sve_save_state((char *)last->sve_state +
-@@ -503,6 +509,10 @@ static void fpsimd_save_user_state(void)
- 		fpsimd_save_state(last->st);
- 		*last->fp_type = FP_STATE_FPSIMD;
- 	}
-+
-+out:
-+	if (!leave_fpsimd_enabled)
-+		fpsimd_kmode_disable_access();
- }
- 
- /*
-@@ -1114,10 +1124,10 @@ static void __init sve_efi_setup(void)
- 
- void cpu_enable_sve(const struct arm64_cpu_capabilities *__always_unused p)
- {
--	write_sysreg(read_sysreg(CPACR_EL1) | CPACR_EL1_ZEN_EL1EN, CPACR_EL1);
--	isb();
-+	unsigned long cpacr = cpacr_save_enable_kernel_sve();
- 
- 	write_sysreg_s(0, SYS_ZCR_EL1);
-+	cpacr_restore(cpacr);
- }
- 
- void __init sve_setup(void)
-@@ -1543,10 +1553,11 @@ void fpsimd_thread_switch(struct task_struct *next)
- 	if (test_thread_flag(TIF_KERNEL_FPSTATE))
- 		fpsimd_save_kernel_state(current);
- 	else
--		fpsimd_save_user_state();
-+		fpsimd_save_user_state(true);
- 
- 	if (test_tsk_thread_flag(next, TIF_KERNEL_FPSTATE)) {
- 		fpsimd_flush_cpu_state();
-+		fpsimd_kmode_enable_access();
- 		fpsimd_load_kernel_state(next);
- 	} else {
- 		/*
-@@ -1561,6 +1572,7 @@ void fpsimd_thread_switch(struct task_struct *next)
- 
- 		update_tsk_thread_flag(next, TIF_FOREIGN_FPSTATE,
- 				       wrong_task || wrong_cpu);
-+		fpsimd_kmode_disable_access();
- 	}
- }
- 
-@@ -1654,7 +1666,7 @@ void fpsimd_preserve_current_state(void)
- 		return;
- 
- 	get_cpu_fpsimd_context();
--	fpsimd_save_user_state();
-+	fpsimd_save_user_state(false);
- 	put_cpu_fpsimd_context();
- }
- 
-@@ -1747,6 +1759,9 @@ void fpsimd_restore_current_state(void)
- 		fpsimd_bind_task_to_cpu();
+-	struct dma_async_tx_descriptor *rx_cmd_desc;
++	struct dma_async_tx_descriptor *rx_cmd_desc __free(dma_async_tx_descriptor) = NULL;
+ 	struct lpi2c_imx_dma *dma = lpi2c_imx->dma;
+ 	struct dma_chan *txchan = dma->chan_tx;
+ 	dma_cookie_t cookie;
+@@ -746,10 +746,11 @@ static int lpi2c_dma_rx_cmd_submit(struct lpi2c_imx_struct *lpi2c_imx)
+ 	cookie = dmaengine_submit(rx_cmd_desc);
+ 	if (dma_submit_error(cookie)) {
+ 		dev_err(&lpi2c_imx->adapter.dev, "submitting DMA failed, use pio\n");
+-		goto submit_err_exit;
++		goto desc_prepare_err_exit;
  	}
  
-+	/* Disable access to the FP/SIMD registers until return to userland */
-+	fpsimd_kmode_disable_access();
-+
- 	put_cpu_fpsimd_context();
+ 	dma_async_issue_pending(txchan);
++	retain_and_null_ptr(rx_cmd_desc);
+ 
+ 	return 0;
+ 
+@@ -757,12 +758,6 @@ static int lpi2c_dma_rx_cmd_submit(struct lpi2c_imx_struct *lpi2c_imx)
+ 	dma_unmap_single(txchan->device->dev, dma->dma_tx_addr,
+ 			 dma->rx_cmd_buf_len, DMA_TO_DEVICE);
+ 	return -EINVAL;
+-
+-submit_err_exit:
+-	dma_unmap_single(txchan->device->dev, dma->dma_tx_addr,
+-			 dma->rx_cmd_buf_len, DMA_TO_DEVICE);
+-	dmaengine_desc_free(rx_cmd_desc);
+-	return -EINVAL;
  }
  
-@@ -1793,7 +1808,7 @@ void fpsimd_save_and_flush_current_state(void)
- 		return;
- 
- 	get_cpu_fpsimd_context();
--	fpsimd_save_user_state();
-+	fpsimd_save_user_state(false);
- 	fpsimd_flush_task_state(current);
- 	put_cpu_fpsimd_context();
- }
-@@ -1810,7 +1825,7 @@ void fpsimd_save_and_flush_cpu_state(void)
- 		return;
- 	WARN_ON(preemptible());
- 	local_irq_save(flags);
--	fpsimd_save_user_state();
-+	fpsimd_save_user_state(false);
- 	fpsimd_flush_cpu_state();
- 	local_irq_restore(flags);
- }
-@@ -1848,7 +1863,7 @@ void kernel_neon_begin(void)
- 		BUG_ON(IS_ENABLED(CONFIG_PREEMPT_RT) || !in_serving_softirq());
- 		fpsimd_save_kernel_state(current);
- 	} else {
--		fpsimd_save_user_state();
-+		fpsimd_save_user_state(true);
- 
- 		/*
- 		 * Set the thread flag so that the kernel mode FPSIMD state
-@@ -1869,6 +1884,9 @@ void kernel_neon_begin(void)
- 		 */
- 		if (IS_ENABLED(CONFIG_PREEMPT_RT) || !in_serving_softirq())
- 			set_thread_flag(TIF_KERNEL_FPSTATE);
-+
-+		/* Allow use of FP/SIMD until kernel_neon_end() is called */
-+		fpsimd_kmode_enable_access();
- 	}
- 
- 	/* Invalidate any task state remaining in the fpsimd regs: */
-@@ -1900,8 +1918,10 @@ void kernel_neon_end(void)
- 	if (!IS_ENABLED(CONFIG_PREEMPT_RT) && in_serving_softirq() &&
- 	    test_thread_flag(TIF_KERNEL_FPSTATE))
- 		fpsimd_load_kernel_state(current);
--	else
-+	else {
- 		clear_thread_flag(TIF_KERNEL_FPSTATE);
-+		fpsimd_kmode_disable_access();
-+	}
- }
- EXPORT_SYMBOL_GPL(kernel_neon_end);
- 
-@@ -1939,6 +1959,8 @@ void __efi_fpsimd_begin(void)
- 	if (may_use_simd()) {
- 		kernel_neon_begin();
- 	} else {
-+		fpsimd_kmode_enable_access();
-+
- 		/*
- 		 * If !efi_sve_state, SVE can't be in use yet and doesn't need
- 		 * preserving:
-@@ -2020,6 +2042,7 @@ void __efi_fpsimd_end(void)
- 		}
- 
- 		efi_fpsimd_state_used = false;
-+		fpsimd_kmode_disable_access();
- 	}
- }
- 
-@@ -2076,9 +2099,8 @@ static inline void fpsimd_hotplug_init(void) { }
- 
- void cpu_enable_fpsimd(const struct arm64_cpu_capabilities *__always_unused p)
- {
--	unsigned long enable = CPACR_EL1_FPEN_EL1EN | CPACR_EL1_FPEN_EL0EN;
--	write_sysreg(read_sysreg(CPACR_EL1) | enable, CPACR_EL1);
--	isb();
-+	if (!fpsimd_kmode_strict())
-+		cpacr_enable_fpsimd();
- }
- 
- /*
+ static int lpi2c_dma_submit(struct lpi2c_imx_struct *lpi2c_imx)
+
 -- 
-2.51.0.618.g983fd99d29-goog
+2.34.1
 
 
