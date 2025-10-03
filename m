@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47583CCA471
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 13:40:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B32DCAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 13:40:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zQpWFI+mvDhlS6QzvPWKy0HH/MqUOwvvkoBBWzfvzIQ=; b=CBnSFsY59Bk2zfUf+x5wLI4dDY
-	fLQUnSCjWUi1dRSUBocbJWyy9HCsidxNIE4a2UKZlXhr01fUNFKPSauxvR4mRK4KlPRr/0rqIxlFq
-	jf10OZjjuIdXGcjNA5go5xfBpeKccFzfirTBO0hINGrIYZyqtaT/s6sXiu8RZKFmZweBzbKSsbCwR
-	YHada7weMaUKbxFOlf7ktjiwYFvp9n7zXzljwtqMudZCkT1u+xQH/N4NmbEcErgjQdSFEQbw+L3WW
-	9iByyxaH0yXh9QHpYeLTEG1Nn7Ho3O1FKblkoQTIuP1Djf66WCQO67sFtwAQB9hHhH3OK1n6ivzlN
-	N0BNd9LA==;
+	bh=9UM3bjOGfRXsiIqNoVQZ3XTLMtvfmMCHhcAES2xrn08=; b=KwaENedp/oYuoXOCscCXpHgEoa
+	Y333UkVdB6KXQ2Jg4qDemE39A2mHe4Fk2UUBvHd8QCgW8wIaqCtbVqVms8AKf2J1swSiKE5EUr8/l
+	RQTU9taRuiYGpqoGfTIGeFMRsbhl9Fxqkf8ya+KuJL4XDDu16JY4hCGE1wKZyZxuZpBGnJXmK8osF
+	LkqPjuHamcn5CD+os620v5RD5f/qy5HjWgpNou3b/WT2zsVlgRovMXaIZFBLMwSPfF5/MpyNPt1jo
+	+81HLVMKSw9UR3JLuS8UqTzsQe0weU2PM83dRSQsl1UNmKa7sqi/qJzKnwIzH7JQGUh0V3PrX9rZd
+	z4kz2zwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4g0t-0000000CRQP-2IoK;
-	Fri, 03 Oct 2025 13:39:59 +0000
-Received: from mail-wr1-f73.google.com ([209.85.221.73])
+	id 1v4g11-0000000CRbc-3c52;
+	Fri, 03 Oct 2025 13:40:07 +0000
+Received: from mail-wm1-x34a.google.com ([2a00:1450:4864:20::34a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4g0L-0000000CQWd-1PBn
+	id 1v4g0L-0000000CQYb-3OaD
 	for linux-arm-kernel@lists.infradead.org;
 	Fri, 03 Oct 2025 13:39:29 +0000
-Received: by mail-wr1-f73.google.com with SMTP id ffacd0b85a97d-401dbafbcfaso1446502f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Oct 2025 06:39:23 -0700 (PDT)
+Received: by mail-wm1-x34a.google.com with SMTP id 5b1f17b1804b1-46e41c32209so9806685e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Oct 2025 06:39:25 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1759498761; x=1760103561; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1759498763; x=1760103563; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=zQpWFI+mvDhlS6QzvPWKy0HH/MqUOwvvkoBBWzfvzIQ=;
-        b=JKfu2m8QwNemtx7diY7xI2J2oeWiNRfSEqPdAzg7S+xN3xxqvuvTmri5MglwrU2s4k
-         AHUGZVxhqM/S/p+A90udKg7Fxc3o8Wh8MSuXv4YdxcPPLoj111CthIBwHjcsqfXEjIe8
-         vh9bpBBx8yuHkbdLtyf5+7Vtvag2eSd4psCmsv2rfqLJu7ld6+qCyf1bVy3Ty2hg8ZjO
-         NLfMPmWWGjQLq7kGGpLgui8SStSoxcs/4dAUew++dQ435I8gwztkVHssP7Mq09oUzg6l
-         DBA69ndXA0NYsWatvuH+O3ilg0l4QR0YJKMH+2jQ0UmeuTbqsvF+DPW/srmPyi3aXXbu
-         V64g==
+        bh=9UM3bjOGfRXsiIqNoVQZ3XTLMtvfmMCHhcAES2xrn08=;
+        b=atg4HcXEre1ErAi5D8wQAvZBxHgMAfx/h6t6jSPdS+czI8SMeMFOvj4Ifl9CP370XZ
+         M2jyaLa40iJfOG2SBsyZclQJdQVrAUTkmc6xmubwkAAXohQS+zyoXXZGaW0m/c9BbmTo
+         efM3ekPLxO4uPb7v/3XC4f2d9AqTDwTyFwu2D8+QYjlcRqD7GvW7mMvUzYshUikRY4kZ
+         Uug+8YYiNNBsPNhBd94CZO6VhMEjyAQswKJ6VaAKs6/r79HP8gAnGUTwWdLiyhyuL3g4
+         iQf52lpbt98eytZve1QSSgc+fW9pfw0u1TCpG0cWKa1mkPXCkX+fAyoOVOqgUJEGPI1a
+         PDgQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759498761; x=1760103561;
+        d=1e100.net; s=20230601; t=1759498763; x=1760103563;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=zQpWFI+mvDhlS6QzvPWKy0HH/MqUOwvvkoBBWzfvzIQ=;
-        b=M1XBTOUP49LVyIcYfLy7Pbt+zzx4mq1cPfaSNFDhnwHk+voTbwxNU6fVBZcxdX3/gW
-         hC3/O15u4GXSf/UDAGdK+m4VFxYOF6riAH/zDaSO+Pf7rFZB0+xySMpv6XVZz9tOVpXl
-         5Q1SvkirTMs5uzEaxUSmVkR9JPR/NxTgNWNqtzeei0GNKtjTLWEcUKbQ4cxm8fsaWpi1
-         xVTFJ3BtqqSfvX+s60Z+lhSG3oHNYwqJOZICrbq+bjH1lTKojYPAY66eT296+1W5c4mB
-         HpGsk+laL9t/sg8nCt7x7KbPiiCFqDsr3xoLV0v7UYGSTyiQBAF0915fI94RTzkcrUdp
-         BBBw==
-X-Forwarded-Encrypted: i=1; AJvYcCW5jD3VTniMoIS+vgEQRyxejL4eL4T6IfnNsu9Jii9lu+mRjKDtzQxQ98qBNL8ZTuZfoKNSftlFdibJDIy2WKCg@lists.infradead.org
-X-Gm-Message-State: AOJu0YyY4/TPwm8qZiMciOl2URBuxE1slQlxFdJfX4lx5JeDcmW1DZwW
-	lQrksCyVH1tmq1L8aykPFU541DBTAX0dF9SGuFq7S/t5kISZ+3EakucJdcEhValjMAxp1F9ntq3
-	F9HUWO2C0yhypxVeQhshC0Q==
-X-Google-Smtp-Source: AGHT+IG52bRYhXeAJFDgF8uvfHA2+/FCR+eKvs+CIPgd7e1dd8btx3CvmT6Gt+2L3xnnRQYWHWkcwf2OxLo8X/Rp
-X-Received: from wmpj2.prod.google.com ([2002:a05:600c:4882:b0:46e:684e:1977])
+        bh=9UM3bjOGfRXsiIqNoVQZ3XTLMtvfmMCHhcAES2xrn08=;
+        b=KcWgSEsYfRAe2Et2AN4xExxTgbNHbBBHXTuptR8gEmVW/J8BZsTy0EoveJZhFz7NC1
+         VAXEpu5W37bd9UGoOcV6IE1PAfa778gemwr16Psy19bXSaESfNqfhXoGaC0mPGR2he15
+         A3ohKpS+hYmv8yGyT4Hm64SynFldsH9do0zIF+A/1MQTUn0NrACJIJ86Ej/58pIDo9yR
+         Ra4huj4Vj/jl46NfzOv20x8CkN1zDkhidpvU6aB1Eb1zRx3k3q0Fqe0eKvI13L0CYrsD
+         6+9LN1ihZo/QHlPcD5lZ92UHeKE66K1phuLOWB3x2A3zoYXq0yfj/rFS4cY9GObsdYEe
+         tNOw==
+X-Forwarded-Encrypted: i=1; AJvYcCX9TV19MNcSYPKDJgVvwarAc5jDsUevcNELoZE5FllSSYMLueuF23FFR+EIIZLA/+L5rWCFKKk4tlicK0pbGyPx@lists.infradead.org
+X-Gm-Message-State: AOJu0YyW73vC2uTJEcrySNx9IYaLbC3SiNHa5+ZtqVvxyKFcV7zEFDG5
+	TRAXhL8uFQ+EUzkSYevawfcGXDl+XuWXWeo8z/Tdtli8EpbkniOYrIdDCAdFYUffZKXyeVlOU6J
+	d3ZIoIHb3yLNsJCK95VJ14w==
+X-Google-Smtp-Source: AGHT+IH69tFTi6ZXKv+400BRPyLOvUgxD9vIa5eZfePSc6PtEn5y2PQMqER0DyOBvI5qOTvfVEhXP1sn9nPiGRc7
+X-Received: from wmco6.prod.google.com ([2002:a05:600c:a306:b0:45d:cfa4:ce0d])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a5d:5885:0:b0:3ee:13b1:d70e with SMTP id ffacd0b85a97d-425671aa0b6mr2309114f8f.40.1759498761198;
- Fri, 03 Oct 2025 06:39:21 -0700 (PDT)
-Date: Fri,  3 Oct 2025 14:38:23 +0100
+ 2002:a05:600c:4447:b0:46e:3dad:31ea with SMTP id 5b1f17b1804b1-46e7113ceddmr26045525e9.17.1759498763415;
+ Fri, 03 Oct 2025 06:39:23 -0700 (PDT)
+Date: Fri,  3 Oct 2025 14:38:25 +0100
 In-Reply-To: <20251003133825.2068970-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20251003133825.2068970-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.51.0.618.g983fd99d29-goog
-Message-ID: <20251003133825.2068970-27-vdonnefort@google.com>
-Subject: [PATCH v7 26/28] KVM: arm64: Add hyp_enter/hyp_exit events to pKVM hyp
+Message-ID: <20251003133825.2068970-29-vdonnefort@google.com>
+Subject: [PATCH v7 28/28] tracing: selftests: Add pKVM trace remote tests
 From: Vincent Donnefort <vdonnefort@google.com>
 To: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
 	linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
@@ -74,11 +74,13 @@ To: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com,
 Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
 	jstultz@google.com, qperret@google.com, will@kernel.org, 
 	aneesh.kumar@kernel.org, kernel-team@android.com, 
-	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>
+	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>, 
+	Shuah Khan <skhan@linuxfoundation.org>, linux-kselftest@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_063925_454841_EED53D75 
-X-CRM114-Status: GOOD (  14.01  )
+X-CRM114-CacheID: sfid-20251003_063925_951456_2B225A4F 
+X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,178 +95,97 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The hyp_enter and hyp_exit events are logged by the hypervisor any time
-it is entered and exited.
+Run the trace remote selftests with the pKVM trace remote "hypervisor".
 
+Cc: Shuah Khan <skhan@linuxfoundation.org>
+Cc: linux-kselftest@vger.kernel.org
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-diff --git a/arch/arm64/include/asm/kvm_hypevents.h b/arch/arm64/include/asm/kvm_hypevents.h
-index d6e033c96c52..ce3953bc884a 100644
---- a/arch/arm64/include/asm/kvm_hypevents.h
-+++ b/arch/arm64/include/asm/kvm_hypevents.h
-@@ -7,4 +7,21 @@
- #include <nvhe/trace.h>
- #endif
- 
-+HYP_EVENT(hyp_enter,
-+	HE_PROTO(void),
-+	HE_STRUCT(
-+	),
-+	HE_ASSIGN(
-+	),
-+	HE_PRINTK()
-+);
-+
-+HYP_EVENT(hyp_exit,
-+	HE_PROTO(void),
-+	HE_STRUCT(
-+	),
-+	HE_ASSIGN(
-+	),
-+	HE_PRINTK()
-+);
- #endif
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/arm-smccc.h b/arch/arm64/kvm/hyp/include/nvhe/arm-smccc.h
+diff --git a/tools/testing/selftests/ftrace/test.d/remotes/pkvm/buffer_size.tc b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/buffer_size.tc
 new file mode 100644
-index 000000000000..4b69d33e4f2d
+index 000000000000..2de07e4d72fe
 --- /dev/null
-+++ b/arch/arm64/kvm/hyp/include/nvhe/arm-smccc.h
-@@ -0,0 +1,13 @@
-+/* SPDX-License-Identifier: GPL-2.0-only */
++++ b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/buffer_size.tc
+@@ -0,0 +1,11 @@
++#!/bin/sh
++# SPDX-License-Identifier: GPL-2.0
++# description: Test pkvm hypervisor trace buffer size
++# requires: remotes/hypervisor/write_event
 +
-+#include <asm/kvm_hypevents.h>
++SOURCE_REMOTE_TEST=1
++. $TEST_DIR/remotes/buffer_size.tc
 +
-+#include <linux/arm-smccc.h>
++set -e
++setup_remote "hypervisor"
++test_buffer_size
+diff --git a/tools/testing/selftests/ftrace/test.d/remotes/pkvm/reset.tc b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/reset.tc
+new file mode 100644
+index 000000000000..48afc51627e8
+--- /dev/null
++++ b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/reset.tc
+@@ -0,0 +1,11 @@
++#!/bin/sh
++# SPDX-License-Identifier: GPL-2.0
++# description: Test pkvm hypervisor trace buffer reset
++# requires: remotes/hypervisor/write_event
 +
-+#undef arm_smccc_1_1_smc
-+#define arm_smccc_1_1_smc(...)					\
-+	do {							\
-+		trace_hyp_exit();				\
-+		__arm_smccc_1_1(SMCCC_SMC_INST, __VA_ARGS__);	\
-+		trace_hyp_enter();				\
-+	} while (0)
-diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-index 3369dd0c4009..e00931fd194f 100644
---- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-+++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-@@ -26,10 +26,10 @@
-  * the duration and are therefore serialised.
-  */
- 
--#include <linux/arm-smccc.h>
- #include <linux/arm_ffa.h>
- #include <asm/kvm_pkvm.h>
- 
-+#include <nvhe/arm-smccc.h>
- #include <nvhe/ffa.h>
- #include <nvhe/mem_protect.h>
- #include <nvhe/memory.h>
-diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index aebed41f7de7..f8361520967b 100644
---- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-+++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -12,6 +12,7 @@
- #include <asm/kvm_emulate.h>
- #include <asm/kvm_host.h>
- #include <asm/kvm_hyp.h>
-+#include <asm/kvm_hypevents.h>
- #include <asm/kvm_mmu.h>
- 
- #include <nvhe/ffa.h>
-@@ -716,7 +717,9 @@ static void handle_host_hcall(struct kvm_cpu_context *host_ctxt)
- 
- static void default_host_smc_handler(struct kvm_cpu_context *host_ctxt)
- {
-+	trace_hyp_exit();
- 	__kvm_hyp_host_forward_smc(host_ctxt);
-+	trace_hyp_enter();
- }
- 
- static void handle_host_smc(struct kvm_cpu_context *host_ctxt)
-@@ -740,6 +743,8 @@ void handle_trap(struct kvm_cpu_context *host_ctxt)
- {
- 	u64 esr = read_sysreg_el2(SYS_ESR);
- 
-+	trace_hyp_enter();
++SOURCE_REMOTE_TEST=1
++. $TEST_DIR/remotes/reset.tc
 +
- 	switch (ESR_ELx_EC(esr)) {
- 	case ESR_ELx_EC_HVC64:
- 		handle_host_hcall(host_ctxt);
-@@ -754,4 +759,6 @@ void handle_trap(struct kvm_cpu_context *host_ctxt)
- 	default:
- 		BUG();
- 	}
++set -e
++setup_remote "hypervisor"
++test_reset
+diff --git a/tools/testing/selftests/ftrace/test.d/remotes/pkvm/trace.tc b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/trace.tc
+index 49dca7c3861a..00aed1c2e650 100644
+--- a/tools/testing/selftests/ftrace/test.d/remotes/pkvm/trace.tc
++++ b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/trace.tc
+@@ -1,9 +1,10 @@
+ #!/bin/sh
+ # SPDX-License-Identifier: GPL-2.0
+-# description: Test pkvm hypervisor tracing pipe
++# description: Test pkvm hypervisor non-consuming trace read
++# requires: remotes/hypervisor/write_event
+ 
+ SOURCE_REMOTE_TEST=1
+-. $TEST_DIR/remotes/trace_pipe.tc
++. $TEST_DIR/remotes/trace.tc
+ 
+ set -e
+ setup_remote "hypervisor"
+diff --git a/tools/testing/selftests/ftrace/test.d/remotes/pkvm/trace_pipe.tc b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/trace_pipe.tc
+new file mode 100644
+index 000000000000..b63339aca380
+--- /dev/null
++++ b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/trace_pipe.tc
+@@ -0,0 +1,11 @@
++#!/bin/sh
++# SPDX-License-Identifier: GPL-2.0
++# description: Test pkvm hypervisor consuming trace read
++# requires: remotes/hypervisor/write_event
 +
-+	trace_hyp_exit();
- }
-diff --git a/arch/arm64/kvm/hyp/nvhe/psci-relay.c b/arch/arm64/kvm/hyp/nvhe/psci-relay.c
-index c3e196fb8b18..64d1d418df1d 100644
---- a/arch/arm64/kvm/hyp/nvhe/psci-relay.c
-+++ b/arch/arm64/kvm/hyp/nvhe/psci-relay.c
-@@ -6,11 +6,12 @@
- 
- #include <asm/kvm_asm.h>
- #include <asm/kvm_hyp.h>
-+#include <asm/kvm_hypevents.h>
- #include <asm/kvm_mmu.h>
--#include <linux/arm-smccc.h>
- #include <linux/kvm_host.h>
- #include <uapi/linux/psci.h>
- 
-+#include <nvhe/arm-smccc.h>
- #include <nvhe/memory.h>
- #include <nvhe/trap_handler.h>
- 
-@@ -205,6 +206,7 @@ asmlinkage void __noreturn __kvm_host_psci_cpu_entry(bool is_cpu_on)
- 	struct psci_boot_args *boot_args;
- 	struct kvm_cpu_context *host_ctxt;
- 
-+	trace_hyp_enter();
- 	host_ctxt = host_data_ptr(host_ctxt);
- 
- 	if (is_cpu_on)
-@@ -221,6 +223,7 @@ asmlinkage void __noreturn __kvm_host_psci_cpu_entry(bool is_cpu_on)
- 	write_sysreg_el1(INIT_SCTLR_EL1_MMU_OFF, SYS_SCTLR);
- 	write_sysreg(INIT_PSTATE_EL1, SPSR_EL2);
- 
-+	trace_hyp_exit();
- 	__host_enter(host_ctxt);
- }
- 
-diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
-index d3b9ec8a7c28..66ed30135815 100644
---- a/arch/arm64/kvm/hyp/nvhe/switch.c
-+++ b/arch/arm64/kvm/hyp/nvhe/switch.c
-@@ -7,7 +7,6 @@
- #include <hyp/switch.h>
- #include <hyp/sysreg-sr.h>
- 
--#include <linux/arm-smccc.h>
- #include <linux/kvm_host.h>
- #include <linux/types.h>
- #include <linux/jump_label.h>
-@@ -21,6 +20,7 @@
- #include <asm/kvm_asm.h>
- #include <asm/kvm_emulate.h>
- #include <asm/kvm_hyp.h>
-+#include <asm/kvm_hypevents.h>
- #include <asm/kvm_mmu.h>
- #include <asm/fpsimd.h>
- #include <asm/debug-monitors.h>
-@@ -308,10 +308,13 @@ int __kvm_vcpu_run(struct kvm_vcpu *vcpu)
- 	__debug_switch_to_guest(vcpu);
- 
- 	do {
-+		trace_hyp_exit();
++SOURCE_REMOTE_TEST=1
++. $TEST_DIR/remotes/trace_pipe.tc
 +
- 		/* Jump in the fire! */
- 		exit_code = __guest_enter(vcpu);
- 
- 		/* And we're baaack! */
-+		trace_hyp_enter();
- 	} while (fixup_guest_exit(vcpu, &exit_code));
- 
- 	__sysreg_save_state_nvhe(guest_ctxt);
++set -e
++setup_remote "hypervisor"
++test_trace_pipe
+diff --git a/tools/testing/selftests/ftrace/test.d/remotes/pkvm/unloading.tc b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/unloading.tc
+new file mode 100644
+index 000000000000..eb1640a927cc
+--- /dev/null
++++ b/tools/testing/selftests/ftrace/test.d/remotes/pkvm/unloading.tc
+@@ -0,0 +1,11 @@
++#!/bin/sh
++# SPDX-License-Identifier: GPL-2.0
++# description: Test pkvm hypervisor trace buffer unloading
++# requires: remotes/hypervisor/write_event
++
++SOURCE_REMOTE_TEST=1
++. $TEST_DIR/remotes/unloading.tc
++
++set -e
++setup_remote "hypervisor"
++test_unloading
 -- 
 2.51.0.618.g983fd99d29-goog
 
