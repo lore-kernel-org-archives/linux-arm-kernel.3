@@ -4,113 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 583E5CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  2 Oct 2025 23:03:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCD8CCAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 00:02:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1LDGnQ0gt7Sa0hoshBs+Cuhi9U0Tyg1pO8zVbYSkSqs=; b=OMoHUlIq81TAQwQAh/drJg1THp
-	rrBofSVyHoEQdmtZENiTtJy/z/QSfzecMHafplUCcfHh0XA3JO7eB97qo6DC3SPYpfuTp4n5W/NwF
-	ALhylo2GJLSLIvaOs2oHvBiCg7TcB2M7/ZVcCyhibuR3fwev5WgO2D+8nBAcCCtJm9wUq+Y3SdyKL
-	JJUVRL77XNvWYP30MAxzCjjysXk7Vq6OLa4ejOR+zSCCQ2HAv/ms9Z7P9n84/m8FySvNmTcrLMycz
-	BVddM7FU8AeZ5CgqgkkkeHGng37o1AdTNFFzHR3nqGiuMYBwsbs7KYYAnyTKJ5kjSQDBVdxgfvYuO
-	26AfYa7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=coXW5Vkb6CmpealAt1z5pb6dHocrXcBIL+HK5DdIDhI=; b=O/U7oWKLpJNf3U0dn9IbsjQML4
+	aFet/xDwuaKQb1MsL5eW8e60ZhHVDMJAyCc3AaltuvNzAkmM6RGcBMy+618h9ivZOUtLaWvsw+6Tu
+	8LrxpdPcTW56pEEvvKqAXTRL1iI3mn4ySRNh0o6TpChZJMp6pa2NV8EeYHJM5M372YMRoaScpziUN
+	ce7Gn90dqqRUSRqDI/RRgVczdth/zs0JrNWGpkDjKpb3Wp2+9Tb4nBeSruj8yVeOQ7/m5EREvCvn5
+	+P6ZM6au+9xeH0dmS+ExKVEufbus6XAtUDCc1tQa4vuTCg//XbwxkaNKN+9nGez10CRaFpieMQuT0
+	RAhtggGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4SKZ-0000000BNoa-36xT;
-	Thu, 02 Oct 2025 23:03:23 +0000
-Received: from fhigh-b6-smtp.messagingengine.com ([202.12.124.157])
+	id 1v4TFS-0000000BQYc-1Wqi;
+	Fri, 03 Oct 2025 00:02:10 +0000
+Received: from mail-wr1-x42c.google.com ([2a00:1450:4864:20::42c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4SKX-0000000BNoE-3SSv
+	id 1v4TFP-0000000BQXx-1y2G
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 02 Oct 2025 23:03:23 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 4BD647A006E;
-	Thu,  2 Oct 2025 19:03:20 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Thu, 02 Oct 2025 19:03:20 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1759446200;
-	 x=1759532600; bh=1LDGnQ0gt7Sa0hoshBs+Cuhi9U0Tyg1pO8zVbYSkSqs=; b=
-	ptcGK8uww5oB2UZho+1jOjjSKDcv5u24wPLKuZnnaxD2fJIUP23mJAI/YEOBbmOg
-	2r482COP8NuOmAMsnPGoyx9IOUDEX1DrThyZTldcFjnvkrf7SFzB3SRiVbTgSYLS
-	GfNRzBMWx98Agd1/rwmcOQs+xO8PduEHL1xTdR2ZqFf3CiGeDvrJ3ZsbAZvFd/uP
-	gpHKCUfylPeIYiu7ap5HvGTemwzIKmaRGZPB8Rk+RGb2AqKfLD8Hk5xqCa4r6Hqc
-	lo6cxwGWNP+oGXlrdEQJHt+Jc1hxf5IzJqvS/Icd6hJ+eCmaT3iz5MdfT9x0JvkD
-	S7UmEKfAvwL7t5S6o9jpcw==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1759446200; x=
-	1759532600; bh=1LDGnQ0gt7Sa0hoshBs+Cuhi9U0Tyg1pO8zVbYSkSqs=; b=O
-	d7d2TK/o8ERGISXaBGmTIhporaOoHjMieanul1AxMOIs5GXqTo+HqjUMZkMMFk9o
-	ahBGAmop1c8PsbU3frGuwfll5AWNJ1VrAYk8RJ+FW9AARBqkd46mLOii/+uesyMI
-	Z8ABC3CyM2d/5Qmnhq45SWeQDuxr5hWBeO6yu/pEgxUm6fO3J8AsHa2WtKtIkiBf
-	WVAvZCjJZ7R2s2cN7Exz6OwE2AsWlBp5VVv5aqqR/PPyp2rjvQFgkZl+39HZwJ9z
-	rqpMWjWb3aFlWRAYhXncnZFYyl0O3fAxXCSrV0TM1kdT03/S3NkhpJqiHX0YTncn
-	JNxw0w32g79BrRMaK87mw==
-X-ME-Sender: <xms:tgTfaNgLRq52evy-8sFzstZnu2rXDIU1QwOdWJNf5ndPwgCNgBIdzw>
-    <xme:tgTfaM3uJTnLmnD30l1wb0Zj4jNbcr5QcUR8brREqP4DjldbisSRZzszVblUO1fhS
-    J331nbm2ZYMM5mL--0knohwXd_YSUjg2LFnbXRx4rwE6KpgSxeVbA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdekjedvlecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
-    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
-    hnpeeggfejudejvdeijeeglefgtdfhudffieetfedugefhffekjeefhedtjeefjeetfeen
-    ucffohhmrghinhepghhithhhuhgsrdgtohhmnecuvehluhhsthgvrhfuihiivgeptdenuc
-    frrghrrghmpehmrghilhhfrhhomheprghrnhgusegrrhhnuggsrdguvgdpnhgspghrtghp
-    thhtohepudefpdhmohguvgepshhmthhpohhuthdprhgtphhtthhopehlihhnuhigsegrrh
-    hmlhhinhhugidrohhrghdruhhkpdhrtghpthhtoheprhhmkhdokhgvrhhnvghlsegrrhhm
-    lhhinhhugidrohhrghdruhhkpdhrtghpthhtoheprhhoshhtvgguthesghhoohgumhhish
-    drohhrghdprhgtphhtthhopegrrhgusgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohep
-    vggsihhgghgvrhhssehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkvggvsheskhgvrh
-    hnvghlrdhorhhgpdhrtghpthhtohepnhgrthhhrghnsehkvghrnhgvlhdrohhrghdprhgt
-    phhtthhopehtrhhivhhirghlsehkvghrnhgvlhdrohhrghdprhgtphhtthhopehlihhnuh
-    hsrdifrghllhgvihhjsehlihhnrghrohdrohhrgh
-X-ME-Proxy: <xmx:tgTfaEfVDig9l8uBUPbN7qI-_DCBdQrBBJe3yeBYBHZdyx9wWZ4ZrQ>
-    <xmx:tgTfaLbg4sGGDeoOoYcYMIPsh-C1g4ou8AJZLCZHIk7GR5UKpT7M6g>
-    <xmx:tgTfaI65r36mfVjBW4Sizc85YSjIO03Rozn3KAc9a5fLZkOkmQsEmQ>
-    <xmx:tgTfaJfUjaJ1MTjrgZ6HaVSDj_-s66VpG_UyiHMbnGvso9Je95AENQ>
-    <xmx:uATfaD7SKOA3y3hBY1ljKWGvlwxTwPxi5Xem1yzgPXtv89plbWNhmQ9U>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id CF691700065; Thu,  2 Oct 2025 19:03:18 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Fri, 03 Oct 2025 00:02:08 +0000
+Received: by mail-wr1-x42c.google.com with SMTP id ffacd0b85a97d-3ece0e4c5faso1193405f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Oct 2025 17:02:06 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1759449725; x=1760054525; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=coXW5Vkb6CmpealAt1z5pb6dHocrXcBIL+HK5DdIDhI=;
+        b=UJTC8gHGfFWmohWd8tmo+5jW/HPxYhux+rkT0SptGfBR2YiRbPTp/OKF5rSHYwkzk9
+         R9n5zRXNq2jsSAEJn+n/8n5E9XgvHOgOCBwfynz9KqUUrHDqJLKCK4bVIaDkzaampIoi
+         ZwaLJsN6RtADkuQx8viTxz6G9UcCpRCN0RxSSMNE4RfgBxkjQFD+82kxt1ylqqlcaXlk
+         C4jPxe76b0fvxj3oaZIzHEP0XymiTOqoLqlQmwvQSHJayx5Yvl+m2yApzIzuzAA9O9i0
+         Rmaz0kUdybsq6bFUqs5ClazAevS/Tz5dRiwzAxdr9O4ub1MIIpYJHFCxTwhrBPqOkbXt
+         1TXw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759449725; x=1760054525;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=coXW5Vkb6CmpealAt1z5pb6dHocrXcBIL+HK5DdIDhI=;
+        b=Y7uUTLLOqxza+OUHpWqAHJ2KbcYWJO/jPv9xSYJfbt3ZjjLBjSHX7xK+q6iLhYWcUO
+         pmJEIegCd5+S8p3JQA2zZZx7zM6rMbzOl+DQRNk3eznFOe5eVQ218La1tCA6f/A7KFCB
+         GlcxEPb1bsa7ViX/ns1CqpYnyHFxLzI/cSu6Tw0l8jMQZhTlyMuYginG59uFpHoRzhIs
+         7zZFeUc9Bwh0lspyttXpN/kCZK+wzmqxxvqf37c9X62KwnEngR30vChfw/FSNq0tcLb5
+         u+eobjyAvM+lZ5tJ2raCnX5XzCqN6pGDPOJVXm7WKezXUWtXHBd2yWNCJKMGk5p206lu
+         YF5A==
+X-Forwarded-Encrypted: i=1; AJvYcCXo3XUZgJr1TtOdrDmk+VDKXOwbrHW/Z4qpNF/1KASwg04qqT8AcB3pZuuUxdD218QTsdR3j+dP6cfxdwLBa0Wh@lists.infradead.org
+X-Gm-Message-State: AOJu0YxM1mfiJPgMb90slpUn7Y5Z7tHBYWpEJJmeSVfbGzCEACRRgaYB
+	4Tc4AXlyMQyVTGc/2vZpC6FufhUNVmrP3Xx0OCLJ50QwteZ1YV3MJTUK05FjMmhuzVjFoqCz6aw
+	A07HUQwWBUVK6lsrjZIZzsR5bMKHYfrc=
+X-Gm-Gg: ASbGncte8/cooKG9hldzoF1Uuo1ApLXzLD4iIPtgfj6PeO0YSamHufc7fMivYnVIRui
+	y8o6a+u/oqlKIcBHZcZn6OPkoYWH9T+703Eqb1CGwyd//9FzFr5vc367+9R3ksc/ZFRrhr2Is72
+	Ot1Nptp0wENYBxaBzv//sqcvYT8rvOSzO2uOi2wvD8aMdvFEOiZzMZpSGjowGm8Ald/uweJ/9J1
+	iPM2h4FSUYfj0HIXHg2s8X7cD0lIeQbCbqV9Zxw+xvYQ+3arvRf60wdq7mi11k=
+X-Google-Smtp-Source: AGHT+IH8H5F4Rz+w2GRajaiqGwkVljBWP+xyTsDvXZ4pEnPtSor4uaMKN91VsYpn2mPiM9ga89tuX8JFeLCJpJ65RTI=
+X-Received: by 2002:a5d:584c:0:b0:3ec:e152:e31c with SMTP id
+ ffacd0b85a97d-4256713ad7fmr600729f8f.1.1759449724680; Thu, 02 Oct 2025
+ 17:02:04 -0700 (PDT)
 MIME-Version: 1.0
-X-ThreadId: AOvO0JZNdWB-
-Date: Fri, 03 Oct 2025 01:02:58 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Franz-Josef Haider" <fj.haider@outlook.com>,
- "Linus Walleij" <linus.walleij@linaro.org>
-Cc: "Russell King" <linux@armlinux.org.uk>,
- "Ard Biesheuvel" <ardb@kernel.org>,
- "Russell King" <rmk+kernel@armlinux.org.uk>,
- "Eric Biggers" <ebiggers@kernel.org>,
- "Nathan Chancellor" <nathan@kernel.org>,
- "Steven Rostedt" <rostedt@goodmis.org>, "Kees Cook" <kees@kernel.org>,
- "Dave Vasilevsky" <dave@vasilevsky.ca>, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, trivial@kernel.org
-Message-Id: <7d0b68d4-6798-43a5-a6ca-99807bc183c5@app.fastmail.com>
-In-Reply-To: <VI0P195MB273999EC8797270AE732D8BAEDE7A@VI0P195MB2739.EURP195.PROD.OUTLOOK.COM>
-References: <VI0P195MB2739D000BD1BF18B3B718F93ED1FA@VI0P195MB2739.EURP195.PROD.OUTLOOK.COM>
- <CACRpkdZbwuf2Fgtq+jyqzqspb37-P6X4O9xqkG-mSb+afSjh3g@mail.gmail.com>
- <VI0P195MB273993B2928F985EAC763375EDE6A@VI0P195MB2739.EURP195.PROD.OUTLOOK.COM>
- <6d9bb65c-d693-4d99-8183-b605cabf9380@app.fastmail.com>
- <VI0P195MB273999EC8797270AE732D8BAEDE7A@VI0P195MB2739.EURP195.PROD.OUTLOOK.COM>
-Subject: Re: [PATCH] ARM: Make sure CPU_ARM940T kernel can be built.
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+References: <20251002034708.19248-1-laurent.pinchart@ideasonboard.com> <20251002034708.19248-4-laurent.pinchart@ideasonboard.com>
+In-Reply-To: <20251002034708.19248-4-laurent.pinchart@ideasonboard.com>
+From: Jimmy Hon <honyuenkwun@gmail.com>
+Date: Thu, 2 Oct 2025 19:01:53 -0500
+X-Gm-Features: AS18NWDlylDf3oN5sbP_UNB28JThANAGdlYlt-3ts0m7FoUFxTbSDWexI2F-454
+Message-ID: <CALWfF7Lhz2brif4xepWZ71mRqMmXKzxqd=0_hO_b6aF6_GkffQ@mail.gmail.com>
+Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Add rk3588s-orangepi-cm5-base
+ device tree
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, Algea Cao <algea.cao@rock-chips.com>, 
+	Andy Yan <andy.yan@rock-chips.com>, Cenk Uluisik <cenk.uluisik@googlemail.com>, 
+	Conor Dooley <conor+dt@kernel.org>, Cristian Ciocaltea <cristian.ciocaltea@collabora.com>, 
+	Heiko Stuebner <heiko@sntech.de>, Kever Yang <kever.yang@rock-chips.com>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Maxime Ripard <mripard@kernel.org>, 
+	Muhammed Efe Cetin <efectn@6tel.net>, Ondrej Jirman <megi@xff.cz>, Rob Herring <robh@kernel.org>, 
+	Sandy Huang <hjc@rock-chips.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_160321_925401_E72B9AFB 
-X-CRM114-Status: GOOD (  23.84  )
+X-CRM114-CacheID: sfid-20251002_170207_524314_C0182342 
+X-CRM114-Status: GOOD (  12.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,48 +100,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 2, 2025, at 17:34, Franz-Josef Haider wrote:
-> On 10/1/25 23:52, Arnd Bergmann wrote:
+A few nitpicks below
+
+[ snip ]
+> +
+> +#include "rk3588s-orangepi-cm5.dtsi"
+> +
+> +/ {
+> +       model = "Xunlong Orange Pi CM5 Base";
+> +       compatible = "xunlong,orangepi-cm5-base", "xunlong,orangepi-cm5", "rockchip,rk3588s";
+> +
+> +       aliases {
+> +               ethernet0 = &gmac1;
+> +               mmc0 = &sdhci;
+Since sdhci is enabled in the SoM.dtsi, this alias should probably go
+there instead.
+
+> +               mmc1 = &sdmmc;
+> +       };
+> +
+
+[ snip ]
+
+> +
+> +       vbus_5v0: vbus-5v0 {
+> +               compatible = "regulator-fixed";
+> +               regulator-name = "vbus_5v0";
+> +               regulator-min-microvolt = <5000000>;
+> +               regulator-max-microvolt = <5000000>;
+> +               enable-active-high;
+> +               gpio = <&gpio0 RK_PD3 GPIO_ACTIVE_HIGH>;
+> +               vin-supply = <&vcc5v0_sys>;
+> +               pinctrl-names = "default";
+> +               pinctrl-0 = <&vbus_5v0_en_pin>;
+The property names in these regulators are not as organized as the
+regulators for the CPU/NPU.
+
+> +       };
+> +
+> +       vcc_3v3: regulator-vcc-3v3 {
+> +               compatible = "regulator-fixed";
+> +               regulator-name = "vcc_3v3";
+> +               regulator-min-microvolt = <3300000>;
+> +               regulator-max-microvolt = <3300000>;
+> +               startup-delay-us = <50000>;
+> +               enable-active-high;
+> +               gpio = <&gpio4 RK_PA3 GPIO_ACTIVE_HIGH>;
+> +               vin-supply = <&vcc5v0_sys>;
+> +               pinctrl-names = "default";
+> +               pinctrl-0 = <&vcc_3v3_en_pin>;
+> +       };
+> +
+> +       vcc5v0_sys: regulator-vcc-5v0 {
+> +               compatible = "regulator-fixed";
+> +               regulator-name = "vcc5v0_sys";
+> +               regulator-always-on;
+> +               regulator-boot-on;
+> +               regulator-min-microvolt = <5000000>;
+> +               regulator-max-microvolt = <5000000>;
+> +       };
+> +};
+
+[ snip ]
+
+> +
+> +&gmac1 {
+> +       clock_in_out = "output";
+> +       phy-handle = <&rgmii_phy>;
+> +       phy-mode = "rgmii-id";
+> +       phy-supply = <&vcc_3v3>;
+> +       pinctrl-names = "default";
+> +       pinctrl-0 = <&gmac1_miim
+> +                    &gmac1_rx_bus2
+> +                    &gmac1_tx_bus2
+> +                    &gmac1_rgmii_clk
+> +                    &gmac1_rgmii_bus>;
+> +       tx_delay = <0x42>;
+When using "rgmii-id", tx_delay will be ignored. Does the ethernet
+work without this property?
+
+See the comment by Jonas in another review.
+https://lore.kernel.org/linux-rockchip/da752790-da17-4d26-b9b2-8240b38b3276@kwiboo.se/
+
+> +       status = "okay";
+> +};
+> +
+> +&gpu {
+> +       mali-supply = <&vdd_gpu_s0>;
+> +       status = "okay";
+> +};
+This is a feature in the SoC itself, so it's not board specific and
+can be put into the SoM.dtsi.
+
+[ snip ]
+
+> +
+> +&pd_gpu {
+> +       domain-supply = <&vdd_gpu_s0>;
+> +};
+Same comment regarding moving to the SoM.dtsi
+
+> --
+> Regards,
 >
-> Ok if the support for ARMv4T NOMMU has been removed, then maybe we can 
-> leave this as resolved.
+> Laurent Pinchart
 >
-> It's actually just for a hobby project, nothing important. I just 
-> thought these two patches might be helpful to other people who 
-> encounter a similar issue on similar cpus, but if the support for 
-> ARMv4T NOMMU has been dropped then there is no point maybe.
->
-> Here are the patches for 6.2 in any case but it's very much a hacky 
-> WIP, and there is some stuff in there that's not needed anymore on top 
-> of later commits. https://github.com/krnlyng/linux-ipod/commits/n2g-wip
-> I also have a version on top of a recent (~29 SEPT 2025) commit locally 
-> if that is interesting too.
-
-Looking at your tree, I find that the ARMv4T NOMMU support is not
-even that bad to put back, especially since commit 84fc86360623
-("ARM: make ARCH_MULTIPLATFORM user-visible") made it possible to
-add a 'depends on !ARCH_MULTIPLATFORM' in the platform specific
-code.
-
-I still think that this specific oneline patch is not helpful,
-but the other one you sent is technically still a correct fix
-and we should either merge that or drop the remnants of the
-ARM740T/940T/946E code now that we know it's broken.
-
-Similarly, the later ARM1176 based code that you based your
-patches on does look worth cleaning up and merging if there are
-still users.
-
-For the specific s5l870x (arm940) SoC support, I see what you
-mean with missing cleanups, but more importantly I think that
-we will want to drop nommu support from arch/arm/ in a few years
-as the remaining users all tend to fall into a similar class
-as yours where the developers work on them for the fun of it
-but without anyone else depending on it to run on the latest
-kernels. Since there is a significant cost in continuing to
-test and fix the special cases for nommu support overall, I
-would prefer to draw the line at S5L8720 support and not merge
-S5L8702 or earlier.
-
-      Arnd
+Jimmy Hon
 
