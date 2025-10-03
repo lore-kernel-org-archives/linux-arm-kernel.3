@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7510CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 18:39:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52615CCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 18:40:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=yGlO3r2y9cso13s7bNZE9rxRZQJoqWCTjEidrnXMOJE=; b=GjKiPnSkPPUUapIGY7nUtbsBM/
-	yRM1xEIHXCZDXpSpzFSlxV2ECYP0h96/nCjCmKAdm5xJNPfIy3/9enQCHPtGyFEebsiQbYfUE1D6H
-	4RAS6WVGUHRpSB1h1OfW+HEI9p7lycUn0jI/reUZg8dFt0sLQUFxO4oAm+CktinpI/nW8A9QDCv0Q
-	RtKI/BHgfuTotrcOtFYaRb96kwoxl391XckIaIEwGPwWzyRCWnqKEkjL/4tSClyWWjCPKb4QihwFi
-	8sIByhGODXwHRPk2zWlY8baScXpbukSYQjc3VW1OVzJUXTGs622OdNKSD3Rt0ukEGkXD0jCsLWucl
-	J9qtGtIQ==;
+	bh=NfsEZ8B1aMDxLol27Z2fvgh5llxLpGCuODjRV+PoYDU=; b=zQOllImLAQ9ohK6+G1wScJbLT8
+	qlI2LfuvDc/TChiAEiyN9wTS5QRhb0XMRWq3PlLJhGsETenShPzuHmjQUYQac/IJ1MVhxIYv/2J9t
+	2TUiJy1gIx0As3bB5SfqM66pBqHkCPtvPPMMemZSMsEVs+FCat8M5gBtthgYfe5NL4w/Q5hgxDYt+
+	pPhgVWy9UTSHnOnr/QrMACFVOBoGEx/uz18WDlTAPkRBfn6gl1YE1tkCqNf/e5ZiF54tQsrPb+yVI
+	U6z+Mc7Ca+EobHA6C9zfFwSGarl4r+heEI4dj1Qi++WlwFZUpuOtkgNorlnYVg/sbt3jqPIBna3tE
+	GcZBqHDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4kgj-0000000CwEz-3MtG;
-	Fri, 03 Oct 2025 18:39:29 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v4khi-0000000CwKs-0gLQ;
+	Fri, 03 Oct 2025 18:40:30 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4kgh-0000000CwEs-3VHl
+	id 1v4khh-0000000CwKh-1nvo
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Oct 2025 18:39:27 +0000
+	Fri, 03 Oct 2025 18:40:29 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EE06E60215;
-	Fri,  3 Oct 2025 18:39:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF493C4CEF5;
-	Fri,  3 Oct 2025 18:39:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 8BE5460215;
+	Fri,  3 Oct 2025 18:40:28 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 59EF3C4CEF5;
+	Fri,  3 Oct 2025 18:40:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759516766;
-	bh=X9mbfiVpyjaBvKvtq2HzUowGHUTbwmVHntwpOYm/1Gg=;
+	s=k20201202; t=1759516828;
+	bh=jmWoLxGdvgZIEzoFN4sKOqTG7UUYTTku1IhoUrAB+lg=;
 	h=From:To:Cc:Subject:Date:From;
-	b=Vqzg5aJIIQKstWacrTpClrbSUuMLXJQvF5dn+/YO6mvOi/qoRJF8UEwl3Km7r0503
-	 WFyjBONDyLy9bWPiztFlUHfWBVLGj2fKsIcTNV4PuayC3pBup3Q5VDOUfZLyja2LkP
-	 qFXuzWvSkxkq/XKREug/3rQEkEygOuCgyc00W58aDW3LUuYttawncbiFBiMH/YqJnE
-	 KfX/oa3KvZNWceuRQdFijYeLaLYH/2QGSmJqHCnmu3oIwidM9FgMyqhLwcF9vVbIIt
-	 7F6zrOvdiloooJIh1ApKIsRBJLVdZZeftwPJJ3KMThuu6On4MWakenIQOcbiXYcCus
-	 2A3YTXH9OG3DA==
+	b=FaCmS1ullccxRzbFtKoPIFjlfDaHjSHaWcsDrvBfAuJErEzu6hRAwvzA9hgAkQMBf
+	 FhhOy+2PXdyWBhnwSJJfQx+Tq5mKhpOxLykVm5ekERcwEqWLlWRWXJNbFja4Tsf6j/
+	 L2IgX4e0OJgXlOwJ5S90Up/K03IcyQEqe1KJoWsVIQv5t/6KiWdWUesXC3kre/1xas
+	 OkfZ1AiKVVN6BMIWLI5RG1qYqzYbPPhG60RtYVRNz+jyV5yOU/U02+tH0rDKX6o9WM
+	 xgvgT94QMXl/GvDzT7xLPPVTfLvaBFUStgFhmLd7cngsGrtjpeXriJ3/YkbfJouioa
+	 HH7ezdX9gMT7Q==
 From: Will Deacon <will@kernel.org>
 To: stable@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org,
@@ -50,10 +50,11 @@ Cc: linux-arm-kernel@lists.infradead.org,
 	Ard Biesheuvel <ardb@kernel.org>,
 	Lee Jones <lee@kernel.org>,
 	Sasha Levin <sashal@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
 	Kenneth Van Alstyne <kvanals@kvanals.org>
-Subject: [STABLE 5.15.y] [PATCH] KVM: arm64: Fix softirq masking in FPSIMD register saving sequence
-Date: Fri,  3 Oct 2025 19:39:17 +0100
-Message-Id: <20251003183917.4209-1-will@kernel.org>
+Subject: [STABLE 6.1.y] [PATCH] KVM: arm64: Fix softirq masking in FPSIMD register saving sequence
+Date: Fri,  3 Oct 2025 19:40:18 +0100
+Message-Id: <20251003184018.4264-1-will@kernel.org>
 X-Mailer: git-send-email 2.39.5
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
@@ -71,7 +72,7 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Stable commit 23249dade24e ("KVM: arm64: Fix kernel BUG() due to bad
+Stable commit 8f4dc4e54eed ("KVM: arm64: Fix kernel BUG() due to bad
 backport of FPSIMD/SVE/SME fix") fixed a kernel BUG() caused by a bad
 backport of upstream commit fbc7e61195e2 ("KVM: arm64: Unconditionally
 save+flush host FPSIMD/SVE/SME state") by ensuring that softirqs are
@@ -117,9 +118,9 @@ while saving the fpsimd registers.
 Cc: Ard Biesheuvel <ardb@kernel.org>
 Cc: Lee Jones <lee@kernel.org>
 Cc: Sasha Levin <sashal@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org
-Cc: <stable@vger.kernel.org> # 5.15.y
-Fixes: 23249dade24e ("KVM: arm64: Fix kernel BUG() due to bad backport of FPSIMD/SVE/SME fix")
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+Cc: <stable@vger.kernel.org> # 6.1.y
+Fixes: 8f4dc4e54eed ("KVM: arm64: Fix kernel BUG() due to bad backport of FPSIMD/SVE/SME fix")
 Reported-by: Kenneth Van Alstyne <kvanals@kvanals.org>
 Link: https://lore.kernel.org/r/010001999bae0958-4d80d25d-8dda-4006-a6b9-798f3e774f6c-000000@email.amazonses.com
 Signed-off-by: Will Deacon <will@kernel.org>
@@ -128,10 +129,10 @@ Signed-off-by: Will Deacon <will@kernel.org>
  1 file changed, 6 insertions(+), 2 deletions(-)
 
 diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index fc51cdd5aaa7..db1ed940a6dc 100644
+index bc42163a7fd1..62780cf901dc 100644
 --- a/arch/arm64/kernel/fpsimd.c
 +++ b/arch/arm64/kernel/fpsimd.c
-@@ -1300,13 +1300,17 @@ static void fpsimd_flush_cpu_state(void)
+@@ -1848,13 +1848,17 @@ static void fpsimd_flush_cpu_state(void)
   */
  void fpsimd_save_and_flush_cpu_state(void)
  {
