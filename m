@@ -4,87 +4,180 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A481CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 17:55:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 618B7CCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 17:57:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a1b73eD3J07PphzqhxdvLpc171f9Nn9CiIGeoDF7jTM=; b=s5eKVQHOjTefYXDHhXjfudOBgs
-	8r4YCA4WI8CIXaH76J9LEbHFR7PtQbl0PHdEe3J6oMOkm83vKeAucAvxczXUdvRgmRA3Yy527x05O
-	QPtjm7owTKljJlY2vUbMhhVduBSYKNTtK4w+DIs7apGMQw2t1tWGIHdyQNObWOe86Giqz3JyZeMK/
-	lbmxuRNpnnfzCn/SVppH6vemPds6ErAavxPjEQwm5lETNVtbMUcmt8xpZbjjJQPsKniwg2NcNo2e0
-	EyjAnwtiT+i2IdEQXqlRTJxUuFs+pdXNl7zCut76I76/0bwfinXTBvKeZFAYvkshHt8pyETJ12Txg
-	q6GHqHFA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4H9qiXspJovDIO5aqJfmFLhoftqxveJ6icsNJpNz7M0=; b=kqnM+b2I7aYvzTLebcaRTyrzlb
+	ogLr2grZyaeHW+Jp2+i1DTGkqHKhJLZpdG0YTJVSPErcPvHAd/nAzQY6EkZDgs2wtC6SoMYibnrei
+	aPkFOuSwhgbuz4oXi3fmbgSWvq1iSXjiLD0AJT7W1xWcWZOKCssT4xz5o5at0xzkFPF/iRCDZX8f0
+	p6MWpaIvnLR0qdk7D90kKgLgfKVJAlLOTTRHk9otF6kYnOXzVp20/BuPgdYDo5u1jsKh+82GQutkS
+	Uq+SN+lfZ0CkM3jfNWdh/jUIOXuJAO2+NffOscaNx2a1BK71K/OSNHO88AwnOE9C8wyX/N2u/Gi5G
+	k9H2celQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4k03-0000000Csa9-0EjS;
-	Fri, 03 Oct 2025 17:55:23 +0000
-Received: from mail-yx1-xb12e.google.com ([2607:f8b0:4864:20::b12e])
+	id 1v4k1r-0000000CsqP-1zkV;
+	Fri, 03 Oct 2025 17:57:15 +0000
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4k00-0000000CsZl-46J3
+	id 1v4k1p-0000000Csoy-1L3u
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Oct 2025 17:55:22 +0000
-Received: by mail-yx1-xb12e.google.com with SMTP id 956f58d0204a3-63605f6f64eso2436571d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Oct 2025 10:55:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1759514120; x=1760118920; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=a1b73eD3J07PphzqhxdvLpc171f9Nn9CiIGeoDF7jTM=;
-        b=ipW2Zj4DGhQFcAnOYG12JhI1nu2fbsUcG9Kfd5jYB4SjDQf7aHpqdC7pmQltS4RN+r
-         rkU9EpiMogPb1Acbfmc/B7XcRykbLoQIuVVJmMwXdDany9gApS/6dflKJwc5kaDf7Mg4
-         gukNsP3sI5reUJqcmMrsjM3hpH04ZlCIqJdp5WSJa0bAq512bJbEoCERvPh2SH1r86M1
-         eZUQPCQVhRjx8kTEs8wtbrp3OAP+Mtms8hqk4JIAHHugCKC6D02FnfNbDflI4jYuOSwh
-         wYZERUW1I/gSsj1u9ymuC988jiOCfYPh+qC6kGE42vuo0L+DUwsE33cDtHiIIV7tmNcX
-         N6qw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759514120; x=1760118920;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=a1b73eD3J07PphzqhxdvLpc171f9Nn9CiIGeoDF7jTM=;
-        b=S3dl1rkW0qdEEf5vGpL1BQAC8FXoauMC/l+au1zDqTG0cRWDhOeByHsbxlCKZuILDi
-         OHk6rHDE6gk/nQfZVEyDeGMpa8eoIhxYB5FMZXBHZJ7Hoe+w6nS2AvngO87BXNC+w/SG
-         /XYu/+72KJ3YLdLLBjnC5BfdXQC/vFmSZeBlm21/1BjBm0uosKEylZD80zYl8X1Bi4pG
-         qVqQQSiE1t5vlo6Ut3oyo4rpYvYPug6LQxGQglEyEIVsrddM65Lpz/AnwqrCiCpAvG6D
-         YZq/ugH7kKyS2gU6WmuQAUIbsUbTZf60duapbQVTjMIFK46SrQzw7yMP1KvfI8lCPuhY
-         TOUw==
-X-Forwarded-Encrypted: i=1; AJvYcCUL7ypyWQgjvv7Z7nvYHxLxmV1onpcafpSfkj/exl7lPNxAU6L/a4+5RiH74t/47lxzu4cF2wRmPxXj3K1gzrZO@lists.infradead.org
-X-Gm-Message-State: AOJu0YxXGEEkqc9woldeWbYB6PcZV494HiM6RKa6ae75l4CqSi16FZpL
-	SDE1B0EFqmAgDSkjyA32qD3dHWsb3j//qSQqaj04Ddah0HC47kYDItCJa/LNyDnj4kV9TarZeUv
-	kcgXXSoZVT/Ho6FkAlSZ+ErkvIE8Gq48NlTbg9v22lS53qyKD5Exe+00=
-X-Gm-Gg: ASbGncv2YkLiPpKHfnSZtTF0pGbl0JgMvcE3JjbJd/bavE+3lmnS8khUFymoX6o7XrY
-	got8KpEYyzLRGlXp2UhHFtNqpbeDsO9+JOTbqVT/LdSNDYlXugwo0SHYbvNJLCJ9TgElr5hztJM
-	F5D6zj1vEXsJq/BMERGSo/oDoghbdVoV8770zaXGcotUT0opTDvVlit68A8h2gaRCHXU9bWWvz4
-	gUYHLZo8WOSJTfRt/c+QTzRYOpt7ykec6w1z9Ew+DPW
-X-Google-Smtp-Source: AGHT+IEsi3zTjbIEzgUfpuQxM21bQ1UgHTZkyJdgVHLwOTUMPzbn8+oeMmltFD2cdIn5JGTG7y0eC8dfLjZ7tA/qYSk=
-X-Received: by 2002:a53:a0ca:0:b0:629:ec90:c446 with SMTP id
- 956f58d0204a3-63b9a06f1a3mr3107060d50.12.1759514119507; Fri, 03 Oct 2025
- 10:55:19 -0700 (PDT)
+	Fri, 03 Oct 2025 17:57:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RBnObWtg+BISuL/ZpwENHsqbrajP/EmkpQWYvqJPRL/aKmn+c4tTeYNTK7db5YFAxeb0nNng4qgkOmv1DCt/Q8j+D8p0Blozs3pj94YiIGucghjUgsTgSUXwdhuI8dCrTa3fKVxkrsEoe4rVHr9GW/h/KzVLYxFS3ySyuQpH27DBdnedtMc7NyELVEH+7Ejc2vgw4eppDEs3R5oCzNzAYvrSQ1PjgA1RIXB6k+sr1WXcCsP7HT97xnIWZi/ly2Sot5FMrzTrOQ/P2amgVWgeXQv6TNtgIEx9gfSs8t+N90vo6IN5mWeEPOmqhXJn/SrND3VcOWkTTqsMcXlo6MNjbA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=4H9qiXspJovDIO5aqJfmFLhoftqxveJ6icsNJpNz7M0=;
+ b=GFaGpzuI+lkGKAuXjeig0ypBR5fcV3uRXbE2i6ILcKhx4P4+q5dN+zqnCZU7sDyRjHW7VUJMHJa/8M8pK+vVc3JVMFpcjPYE+sPU3OnQzkSNsq4MERAReE9DJzG/NTPfiVWquAlLEHdf2xGZ6EHDExJ5Xfo3yQBk3afSGd/TSiLz17XoZGZpVxBnwI6OatW70QKzcSmcBpgrBy6bAX3/IAW0dL1X74Pi1FrIscPrrn2FHi6bW2GlxtVP6IOlOFf2sqnYRycXZCFXkwSjDnGtuBtM83yKdf2zGmTGP4lqgy5kYT/HDkgtr1imt47rNNmcxr1C/smT1wB2uDe9+wLo3g==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=4H9qiXspJovDIO5aqJfmFLhoftqxveJ6icsNJpNz7M0=;
+ b=PSwual7kXYaduyiVF8nAHJZZS0h3qsIwjFLhK0gHXW/I7xoVrd4uo9G4wJ5TkGNgb0JPRmyHbgFBtspVn/B/19Z9olKLFYWM4NfXhWrIoW4wFmPjImL5e+jfjZsQbuLDpaeiIxPgOIdrDxeei42hfU1jcbVB1FLYKaXd6aeUyB+dcNcWMIMDJpUGYBB7qg3fK9nuyX8pEHPjedOMBboLkLnC4gydPf8XiuZLDniy/SygV+nFbI55ASMG4h76oO9zRgyKMDXCr8sQ/CLO0e5jq62P+dweoFeNvL1Flyx7/tuRrkyI6GS3ZvIuHOEzjB3XBiEu6NsThOWWTfEYWu01oQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from BYAPR12MB2661.namprd12.prod.outlook.com (2603:10b6:a03:67::13)
+ by SA3PR12MB7784.namprd12.prod.outlook.com (2603:10b6:806:317::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.18; Fri, 3 Oct
+ 2025 17:56:52 +0000
+Received: from BYAPR12MB2661.namprd12.prod.outlook.com
+ ([fe80::f4fa:1948:9ea6:1ee2]) by BYAPR12MB2661.namprd12.prod.outlook.com
+ ([fe80::f4fa:1948:9ea6:1ee2%5]) with mapi id 15.20.9160.017; Fri, 3 Oct 2025
+ 17:56:51 +0000
+Message-ID: <8ef43496-fb11-4007-945e-4bc7166e5c1a@nvidia.com>
+Date: Fri, 3 Oct 2025 10:56:49 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 10/29] arm_mpam: Add cpuhp callbacks to probe MSC
+ hardware
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
+ Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>, Lecopzer Chen <lecopzerc@nvidia.com>
+References: <20250910204309.20751-1-james.morse@arm.com>
+ <20250910204309.20751-11-james.morse@arm.com>
+Content-Language: en-US
+From: Fenghua Yu <fenghuay@nvidia.com>
+In-Reply-To: <20250910204309.20751-11-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SJ0PR13CA0013.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c0::18) To BYAPR12MB2661.namprd12.prod.outlook.com
+ (2603:10b6:a03:67::13)
 MIME-Version: 1.0
-References: <20251002-gs101-pmu-regmap-tables-v1-0-1f96f0920eb3@linaro.org> <20251002-gs101-pmu-regmap-tables-v1-2-1f96f0920eb3@linaro.org>
-In-Reply-To: <20251002-gs101-pmu-regmap-tables-v1-2-1f96f0920eb3@linaro.org>
-From: Sam Protsenko <semen.protsenko@linaro.org>
-Date: Fri, 3 Oct 2025 12:55:08 -0500
-X-Gm-Features: AS18NWDO4wOWUr7D5fpivRh4cck7ZlJFct3DOK5VRmjxFhJsrC5iwEvf350v8mo
-Message-ID: <CAPLW+4=+efttfgj9gMSGpv2sjhJQ7whtoCuitK+Ku4U7hzE+1A@mail.gmail.com>
-Subject: Re: [PATCH 2/3] soc: samsung: exynos-pmu: move some gs101 related
- code into new file
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
-	Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BYAPR12MB2661:EE_|SA3PR12MB7784:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9e2783f8-17f9-48f2-c0e4-08de02a63b44
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?YzRVaXU3VGc2RnpWV01DZFRod1Y5L2RmSlBqWkZwMWJYR3pLNXgyOTlWU2tX?=
+ =?utf-8?B?cWJCdlBUTmhaeUtlQWFXcWEzSXdXQTJTUy9VdThjdWhVQ2pLWEtza1lvTG9r?=
+ =?utf-8?B?U3hHQno5YlhtSHJjMjBzK1R2Z1l4cDB4Um1kZ0JiTEtNb2p1eWZuM1lFTjMv?=
+ =?utf-8?B?WVluVVAyQysycHh6aUtlVjNheXhtS1FPWWZ1ZE5Pb1RJYnFqQXFiMDdVa0dm?=
+ =?utf-8?B?bE0wSjBqM2lwSzRJbWQrVlJLYTU0Wi95SkJLV3hCT1BlckR6U3dHb3ZnZHNJ?=
+ =?utf-8?B?MzJaRnlPT0Rua29RV0RTLzhZV2dBcGhxYkpBMUJrSFJKWXkxc3R4UUQ3b3pp?=
+ =?utf-8?B?eld5ZUtEUHh5MHBjNG4vRnByWUxyZHpTTVFCRnRrQ2crNXBuTlJicURaR2xz?=
+ =?utf-8?B?ZDA4QnN0NE0vVVlLT1VNRWRXM0FzZldWUkVQNnpOb2hwd0xLcjZEQldxRlUw?=
+ =?utf-8?B?ZGl4dmNhL0lSRDZaTlNlZDNGeFZyTUszU0lvdHMraE9aZVl4a3J2QTN5MFBv?=
+ =?utf-8?B?WGFtcW1yS3kwdElUU0x2ckMwa2JOblVwNlgwNHpjbGxSM0FnU1Y1TDlOTjQr?=
+ =?utf-8?B?MWthS3lXZlluOWF0RVNuS2h3WFk4WXdlZHZVdEYvZjBwK0FVeFoxaUwyeXF1?=
+ =?utf-8?B?bnNBZDkzU1liLy9wQ09wWkFLQTZpZHFyamdiRG52bXRNUHpmN0YyWWh1K2xK?=
+ =?utf-8?B?ays5aVgvZkxTWmtiYXdSMDNZYWxGTmlHQUxsYVVDaytpdFk4L0hPQ2JqMHhM?=
+ =?utf-8?B?ak9tcmRlQzRoNUZlbGhhWlZtVnlpc1hodXlkV3FkZVlmNGNldWFUbjB0dVJO?=
+ =?utf-8?B?TFNyTjVZUVY2QnBhRzRnOFkvR1BMZnhyMUp0WW1laFg4V0tpMDhNOURDMzRi?=
+ =?utf-8?B?WTVjd3JRNDZzWkwwcTNpaytWKzc3TWp6Y1pYbnFabmVhZjNUZTdqbWdOTE4r?=
+ =?utf-8?B?dzNvaCtLVlN0TE45c1A1cEFlTHBwelYrOFN4ODRoWDhqeXR2ZHdXVUhuNm5u?=
+ =?utf-8?B?bVZnYitMbjRZaENJOTdQWHNxbjI5UE5uOG0wLzNUa3hWUHJtZEYyZVJUU0da?=
+ =?utf-8?B?Y3h3QXk1NG1Pd2d6cXduQ2MwL05uZjdiYnlFK1dWZDNSdkZ0ZkxHekwwbUJC?=
+ =?utf-8?B?eHp6L3NVaUQybDROU1pCellDMEJtM2pTK1BtYlFNbGhMSmVxNDh4Vm1lTUhQ?=
+ =?utf-8?B?U0RXaVZlTmFLaTlpNmVsM2UxTmV1U1NxMS84dEx3eDZXUGU1TVkzcmRQVmVZ?=
+ =?utf-8?B?VThpTUZNblBCWGdPdEVWaEYybTRtZGkrUHFiRVh5YnpGYlpENy9CaU9CSUNl?=
+ =?utf-8?B?RXg2akFPeGpMVERsV1JQa1RwQmlEUllBemlXZndrLzNZNGNtMWJlSXd4Rm8v?=
+ =?utf-8?B?WnpQNWZ3UzFNWVRETHloc2VyRVJIRVByTlFlcllNZHB5WVRXVDRWdFpzTmVF?=
+ =?utf-8?B?MlZwZDVvRXNTS2x2ZHp6aU1iKzRrY0ZsZTZocWdlbituajlpblFySTBVcnJ2?=
+ =?utf-8?B?L3MxUnlYNnFISUpJZ3NXTnlJNDcyK05mNU9HY1VPRFFQY1hMUjFOMTViSzg2?=
+ =?utf-8?B?c0FKclRWWGpSM3A3cXJITlFzMkJqTnNFdjBBRmpZUmNvMzBOaGtXbGhsUnph?=
+ =?utf-8?B?dk5OejREZUQyTVQzWFpJMG1ucERkYnRZckFKMG42NVd4eWR5eEFld0p1emVN?=
+ =?utf-8?B?cDVjSzNHTVlzdVJwTkt4QjFxc2NCR1NWSSsxS0FybDlYaVBPT0JMWFFzMmd2?=
+ =?utf-8?B?WEtSTE5mN2RzTWo4azY5WktsbVB0bEdrU01qY0pKdGEzWUptMG9nalo0N3d3?=
+ =?utf-8?B?eDYrUTMrMWZMYjF4RllFREo0cnBvTkMvdDVIY0Y5dUtId0hJVzI2S05HSmJG?=
+ =?utf-8?B?RXJaNit6TWtvNVNFb0FVQVVObEdXQW5UbFowYmkvTlg0RFdvWDkvUG5VNHhy?=
+ =?utf-8?Q?T7R1cK2wEBi1FXk2jRYUyxjYbl0p7i6L?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BYAPR12MB2661.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SWNoeWJZRTFYczRqSnZHQ0tOV0ZFQ0dBZjlMd0lpajZmYWVadncxQVZ6a0pz?=
+ =?utf-8?B?MlordHhoUXhGTzhTNkdRaUdLUkxHN1NtNy9lNkx4Ky9HOEluVXlqQlcvSEFv?=
+ =?utf-8?B?MUxqNlE1bHRJbkxEQXJLQkZtdVdrMStLWUtpdUdrbWYyM2Z0RCtIVy9hRnpR?=
+ =?utf-8?B?RE9kZGQyQ2I1bHFJdVRPL1ZTMjZ4NDI3bTd3V0EwSS92M2tXKzB5eHUwRWxT?=
+ =?utf-8?B?QU1oRnFhQ3E2aXU0NzlQb1dXdXd5Nnl1WXZLS0plZFcxZDRETG1DcTdwVkF4?=
+ =?utf-8?B?V1dQQXFnblF4M3hnTkRkc0ZTa1lHcDhXZlRMa2J6TUxkYmRmRTI2Nk0zU1lG?=
+ =?utf-8?B?ZDdRMGhpUDBzalh0cXgzOGYvYSthNGNmN1ZxUXZnVnFEcDN6SU9vREJKREV2?=
+ =?utf-8?B?cDNKTjVHYW5BQzdKd3VDcFZrTzUxV2QzU3pnSHp3Um9mUGIzckM0azVnRXZn?=
+ =?utf-8?B?US9ZY0t2dmgwMDhzb21JUkxSR29YWmV0VWFhRENnaktSdUVjVXJueHZPYVlG?=
+ =?utf-8?B?VlFKdCtyeGtGMWV6RkRMeVNjNE11MjlsN3JnZ2YxSGd2QnEyVFBhVGlBc2dQ?=
+ =?utf-8?B?cTIwM1pRVFZwRE5tVVg4WlZ1UVpia1FHN0lKU2t3S0RHRFRVdjlObXNSUENE?=
+ =?utf-8?B?L28vYmZkWWl6WGcyZlFSNzFUd3VUL1hmWEZtQmNPaWk2L0hqWkJYTWpqY2pC?=
+ =?utf-8?B?MElxTDlOejArZDMyaTlpTXhIc0lPOWZ5MEltK2I1YmFuT0dTaWdVa0x1WDZj?=
+ =?utf-8?B?RUdNL3dqdWRIQzhIOHBtdTYxbGZUNXU4Q21QaDdIK3dKaW9LeCswalU5VE41?=
+ =?utf-8?B?Z3lsbmFBZDQwSkx0VXJjTmhzZUFWdUlESnQ0NlVpdVFTY1lrZXFBeXdVUEpQ?=
+ =?utf-8?B?a1hWeEpqN2lVQmhEYnc3OFdCQ1dIaVlGVmYraEdwL3BEeVVpRGFCSWxyS3lo?=
+ =?utf-8?B?STNSdFU1LzFaMVNWQ2tsK2I0SjE3ZXgzL08vNkpuKzFhci9jbXppeExtTUc1?=
+ =?utf-8?B?T2R5Q2NYeFRoeEdLVm53ejNkZVVGVGIxdDRCdm90TW5waG9zTEFqTVV4VFZl?=
+ =?utf-8?B?a29LVXllQ05BTXkvTFQ0enVoUDBjVnlaMjZwWnhjZjJaZkd4aWFQUXlhelVy?=
+ =?utf-8?B?S1RwK2ZmODNTaWVmQjFvQktUQlBTU3R3dEozSVpLVmhGNjAyYU5QYjJZOWo2?=
+ =?utf-8?B?MWcrSTFrRzVJSUx1ZmZ1QkxKU0E4a0gxSVpVRVFISDRNYUl1dGJaU3B5SzJa?=
+ =?utf-8?B?dzdLY3dMUDV0SzZqVlI3d1kyTFJ3dTdYM3c0QWI5YTRLb2NvV3FXcFVPUWtC?=
+ =?utf-8?B?SC9QbTQvTkxZOStXbEFpcFBCMGxKdVYvbVBDZGorM25EcDFEd25neGpPR0tG?=
+ =?utf-8?B?UjdpK3M5d1RtWDgvcUZDTDFEa2ljRWQxWUU4MUpnU3FLQXZIaVNnMEFmb3d0?=
+ =?utf-8?B?QjI2Zks5YUUxeXJrM1VERjVGQndvbktHbjZuQzJPMCtsY1FVMDdKVFNUZGUw?=
+ =?utf-8?B?RzhMNkFydnpONUJtcjZTOU9hekpsVHB3UVB1eWphMmttSmhXYWJyVi9oRkIw?=
+ =?utf-8?B?UXgvWkZseXFsQnp2aEdFbnBrb1hhdE85L0hLdEZxSHdldnRZVDhTUWxhQ3hO?=
+ =?utf-8?B?Zk80YjVJV1hiOUlFSTRqZFB0L2Z2ZnlubzV0TGZxM0FLOGVkYUF6YWY5cXQw?=
+ =?utf-8?B?RlhPbzRtTDJaV2Q5Sjduc0h0M0t1TXB6YkZ1SWNDUDdmSVVwY3EvRFBaM0Rk?=
+ =?utf-8?B?VWhzcEliRWRDSkpGRjloOXgySUphdFpia3BqbDBrNlVOcU92aWw4eExJdlNI?=
+ =?utf-8?B?dDJnSVpxWTAxUG9ic1dLTlVBaUFkUVArWXJLdmZPaEtsOFFidmk3ZXJDOUIx?=
+ =?utf-8?B?T0dFNG1nMkpnR21YTjJsTG1hMUxQWjdCUGpDakprRnBEd21Ha2NYSXh4dTJM?=
+ =?utf-8?B?MGdFeHJnWmZlaTI4bC9oNXVrZlcxb1RNYlhFVVNZemw2bjQ4Y1F6d0I1UnNE?=
+ =?utf-8?B?YVlzcHNMVytEcVpLQ2VGeXkrbmNOYVlJVzhzS05tUG1YMVB3T3QweGMyNHVR?=
+ =?utf-8?B?U3lZeUN0ekpnaWZoMmw3Y1hYdVNJWnNoUHB1QjBUNnkyWlZCL0FkZXlTaklL?=
+ =?utf-8?Q?2sDw2KLw5Fk0TnnREbi4hDd2y?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9e2783f8-17f9-48f2-c0e4-08de02a63b44
+X-MS-Exchange-CrossTenant-AuthSource: BYAPR12MB2661.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Oct 2025 17:56:51.8119
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: aLGgud3ccZrI/QmmL9yZcfR+vdx/bHXYmUsz1W6x2DS+lAulUoAXpUqWYfQJOrNw9csmtcWb5tFuYi5c5nx27Q==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB7784
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_105521_091885_16CFEB8E 
-X-CRM114-Status: GOOD (  37.81  )
+X-CRM114-CacheID: sfid-20251003_105713_355062_F57BE100 
+X-CRM114-Status: GOOD (  16.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,443 +192,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 2, 2025 at 5:33=E2=80=AFAM Andr=C3=A9 Draszik <andre.draszik@li=
-naro.org> wrote:
->
-> To avoid cluttering common code, move most of the gs101 code into a new
-> file, gs101-pmu.c
->
-> More code is going to be added for gs101 - having it all in one file
-> helps keeping the common code (file) more readable.
->
 
-Maybe add "no functional change" note for refactoring/cleanup patches like =
-this.
+On 9/10/25 13:42, James Morse wrote:
+> Because an MSC can only by accessed from the CPUs in its cpu-affinity
+> set we need to be running on one of those CPUs to probe the MSC
+> hardware.
+>
+> Do this work in the cpuhp callback. Probing the hardware will only
+> happen before MPAM is enabled, walk all the MSCs and probe those we can
+> reach that haven't already been probed as each CPU's online call is made.
+>
+> This adds the low-level MSC register accessors.
+>
+> Once all MSCs reported by the firmware have been probed from a CPU in
+> their respective cpu-affinity set, the probe-time cpuhp callbacks are
+> replaced.  The replacement callbacks will ultimately need to handle
+> save/restore of the runtime MSC state across power transitions, but for
+> now there is nothing to do in them: so do nothing.
+>
+> The architecture's context switch code will be enabled by a static-key,
+> this can be set by mpam_enable(), but must be done from process context,
+> not a cpuhp callback because both take the cpuhp lock.
+> Whenever a new MSC has been probed, the mpam_enable() work is scheduled
+> to test if all the MSCs have been probed. If probing fails, mpam_disable()
+> is scheduled to unregister the cpuhp callbacks and free memory.
+>
+> CC: Lecopzer Chen <lecopzerc@nvidia.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
 
-> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
-> ---
->  MAINTAINERS                      |   1 +
->  drivers/soc/samsung/Makefile     |   3 +-
->  drivers/soc/samsung/exynos-pmu.c | 133 ---------------------------------=
----
->  drivers/soc/samsung/exynos-pmu.h |   7 ++
->  drivers/soc/samsung/gs101-pmu.c  | 141 +++++++++++++++++++++++++++++++++=
-++++++
->  5 files changed, 151 insertions(+), 134 deletions(-)
->
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 3439485437117aaffbe61b709468348231ca3cc4..b8908a95abc561ecf04be560f=
-0e358c58acad693 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -10599,6 +10599,7 @@ F:      Documentation/devicetree/bindings/clock/g=
-oogle,gs101-clock.yaml
->  F:     Documentation/devicetree/bindings/soc/google/google,gs101-pmu-int=
-r-gen.yaml
->  F:     arch/arm64/boot/dts/exynos/google/
->  F:     drivers/clk/samsung/clk-gs101.c
-> +F:     drivers/soc/samsung/gs101-pmu.c
->  F:     drivers/phy/samsung/phy-gs101-ufs.c
->  F:     include/dt-bindings/clock/google,gs101.h
->  K:     [gG]oogle.?[tT]ensor
-> diff --git a/drivers/soc/samsung/Makefile b/drivers/soc/samsung/Makefile
-> index 248a33d7754af1a1e5fbbbb79413eb300bbbc8e5..636a762608c9ba2c22a72d6f9=
-597ceb015f7f36c 100644
-> --- a/drivers/soc/samsung/Makefile
-> +++ b/drivers/soc/samsung/Makefile
-> @@ -6,7 +6,8 @@ exynos_chipid-y                 +=3D exynos-chipid.o exyn=
-os-asv.o
->
->  obj-$(CONFIG_EXYNOS_USI)       +=3D exynos-usi.o
->
-> -obj-$(CONFIG_EXYNOS_PMU)       +=3D exynos-pmu.o
-> +obj-$(CONFIG_EXYNOS_PMU)       +=3D exynos_pmu.o
-> +exynos_pmu-y                   +=3D exynos-pmu.o gs101-pmu.o
->
->  obj-$(CONFIG_EXYNOS_PMU_ARM_DRIVERS)   +=3D exynos3250-pmu.o exynos4-pmu=
-.o \
->                                         exynos5250-pmu.o exynos5420-pmu.o
-> diff --git a/drivers/soc/samsung/exynos-pmu.c b/drivers/soc/samsung/exyno=
-s-pmu.c
-> index 9f416de03610b1727d8cc77616e5c87e2525cc69..528fd4bd96f515a15b0bf8d67=
-c505f7a84c0fc2e 100644
-> --- a/drivers/soc/samsung/exynos-pmu.c
-> +++ b/drivers/soc/samsung/exynos-pmu.c
-> @@ -6,7 +6,6 @@
->  // Exynos - CPU PMU(Power Management Unit) support
->
->  #include <linux/array_size.h>
-> -#include <linux/arm-smccc.h>
->  #include <linux/bitmap.h>
->  #include <linux/cpuhotplug.h>
->  #include <linux/cpu_pm.h>
-> @@ -25,14 +24,6 @@
->
->  #include "exynos-pmu.h"
->
-> -#define PMUALIVE_MASK                  GENMASK(13, 0)
-> -#define TENSOR_SET_BITS                        (BIT(15) | BIT(14))
-> -#define TENSOR_CLR_BITS                        BIT(15)
-> -#define TENSOR_SMC_PMU_SEC_REG         0x82000504
-> -#define TENSOR_PMUREG_READ             0
-> -#define TENSOR_PMUREG_WRITE            1
-> -#define TENSOR_PMUREG_RMW              2
-> -
->  struct exynos_pmu_context {
->         struct device *dev;
->         const struct exynos_pmu_data *pmu_data;
-> @@ -54,125 +45,6 @@ static struct exynos_pmu_context *pmu_context;
->  /* forward declaration */
->  static struct platform_driver exynos_pmu_driver;
->
-> -/*
-> - * Tensor SoCs are configured so that PMU_ALIVE registers can only be wr=
-itten
-> - * from EL3, but are still read accessible. As Linux needs to write some=
- of
-> - * these registers, the following functions are provided and exposed via
-> - * regmap.
-> - *
-> - * Note: This SMC interface is known to be implemented on gs101 and deri=
-vative
-> - * SoCs.
-> - */
-> -
-> -/* Write to a protected PMU register. */
-> -static int tensor_sec_reg_write(void *context, unsigned int reg,
-> -                               unsigned int val)
-> -{
-> -       struct arm_smccc_res res;
-> -       unsigned long pmu_base =3D (unsigned long)context;
-> -
-> -       arm_smccc_smc(TENSOR_SMC_PMU_SEC_REG, pmu_base + reg,
-> -                     TENSOR_PMUREG_WRITE, val, 0, 0, 0, 0, &res);
-> -
-> -       /* returns -EINVAL if access isn't allowed or 0 */
-> -       if (res.a0)
-> -               pr_warn("%s(): SMC failed: %d\n", __func__, (int)res.a0);
-> -
-> -       return (int)res.a0;
-> -}
-> -
-> -/* Read/Modify/Write a protected PMU register. */
-> -static int tensor_sec_reg_rmw(void *context, unsigned int reg,
-> -                             unsigned int mask, unsigned int val)
-> -{
-> -       struct arm_smccc_res res;
-> -       unsigned long pmu_base =3D (unsigned long)context;
-> -
-> -       arm_smccc_smc(TENSOR_SMC_PMU_SEC_REG, pmu_base + reg,
-> -                     TENSOR_PMUREG_RMW, mask, val, 0, 0, 0, &res);
-> -
-> -       /* returns -EINVAL if access isn't allowed or 0 */
-> -       if (res.a0)
-> -               pr_warn("%s(): SMC failed: %d\n", __func__, (int)res.a0);
-> -
-> -       return (int)res.a0;
-> -}
-> -
-> -/*
-> - * Read a protected PMU register. All PMU registers can be read by Linux=
-.
-> - * Note: The SMC read register is not used, as only registers that can b=
-e
-> - * written are readable via SMC.
-> - */
-> -static int tensor_sec_reg_read(void *context, unsigned int reg,
-> -                              unsigned int *val)
-> -{
-> -       *val =3D pmu_raw_readl(reg);
-> -       return 0;
-> -}
-> -
-> -/*
-> - * For SoCs that have set/clear bit hardware this function can be used w=
-hen
-> - * the PMU register will be accessed by multiple masters.
-> - *
-> - * For example, to set bits 13:8 in PMU reg offset 0x3e80
-> - * tensor_set_bits_atomic(ctx, 0x3e80, 0x3f00, 0x3f00);
-> - *
-> - * Set bit 8, and clear bits 13:9 PMU reg offset 0x3e80
-> - * tensor_set_bits_atomic(0x3e80, 0x100, 0x3f00);
-> - */
-> -static int tensor_set_bits_atomic(void *ctx, unsigned int offset, u32 va=
-l,
-> -                                 u32 mask)
-> -{
-> -       int ret;
-> -       unsigned int i;
-> -
-> -       for (i =3D 0; i < 32; i++) {
-> -               if (!(mask & BIT(i)))
-> -                       continue;
-> -
-> -               offset &=3D ~TENSOR_SET_BITS;
-> -
-> -               if (val & BIT(i))
-> -                       offset |=3D TENSOR_SET_BITS;
-> -               else
-> -                       offset |=3D TENSOR_CLR_BITS;
-> -
-> -               ret =3D tensor_sec_reg_write(ctx, offset, i);
-> -               if (ret)
-> -                       return ret;
-> -       }
-> -       return 0;
-> -}
-> -
-> -static bool tensor_is_atomic(unsigned int reg)
-> -{
-> -       /*
-> -        * Use atomic operations for PMU_ALIVE registers (offset 0~0x3FFF=
-)
-> -        * as the target registers can be accessed by multiple masters. S=
-FRs
-> -        * that don't support atomic are added to the switch statement be=
-low.
-> -        */
-> -       if (reg > PMUALIVE_MASK)
-> -               return false;
-> -
-> -       switch (reg) {
-> -       case GS101_SYSIP_DAT0:
-> -       case GS101_SYSTEM_CONFIGURATION:
-> -               return false;
-> -       default:
-> -               return true;
-> -       }
-> -}
-> -
-> -static int tensor_sec_update_bits(void *ctx, unsigned int reg,
-> -                                 unsigned int mask, unsigned int val)
-> -{
-> -
-> -       if (!tensor_is_atomic(reg))
-> -               return tensor_sec_reg_rmw(ctx, reg, mask, val);
-> -
-> -       return tensor_set_bits_atomic(ctx, reg, val, mask);
-> -}
-> -
->  void pmu_raw_writel(u32 val, u32 offset)
->  {
->         writel_relaxed(val, pmu_base_addr + offset);
-> @@ -244,11 +116,6 @@ static const struct regmap_config regmap_pmu_intr =
-=3D {
->         .use_raw_spinlock =3D true,
->  };
->
-> -static const struct exynos_pmu_data gs101_pmu_data =3D {
-> -       .pmu_secure =3D true,
-> -       .pmu_cpuhp =3D true,
-> -};
-> -
->  /*
->   * PMU platform driver and devicetree bindings.
->   */
-> diff --git a/drivers/soc/samsung/exynos-pmu.h b/drivers/soc/samsung/exyno=
-s-pmu.h
-> index 113149ed32c88a09b075be82050c26970e4c0620..fe11adc4f6ac8fc8bce228d58=
-52deaff7c438221 100644
-> --- a/drivers/soc/samsung/exynos-pmu.h
-> +++ b/drivers/soc/samsung/exynos-pmu.h
-> @@ -44,7 +44,14 @@ extern const struct exynos_pmu_data exynos4412_pmu_dat=
-a;
->  extern const struct exynos_pmu_data exynos5250_pmu_data;
->  extern const struct exynos_pmu_data exynos5420_pmu_data;
->  #endif
-> +extern const struct exynos_pmu_data gs101_pmu_data;
->
->  extern void pmu_raw_writel(u32 val, u32 offset);
->  extern u32 pmu_raw_readl(u32 offset);
-> +
-> +int tensor_sec_reg_write(void *context, unsigned int reg, unsigned int v=
-al);
-> +int tensor_sec_reg_read(void *context, unsigned int reg, unsigned int *v=
-al);
-> +int tensor_sec_update_bits(void *ctx, unsigned int reg, unsigned int mas=
-k,
-> +                          unsigned int val);
+Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
 
-Nitpick: just noticed the inconsistency between context/ctx wording
-usage in above function arguments.
+Thanks.
 
-> +
->  #endif /* __EXYNOS_PMU_H */
-> diff --git a/drivers/soc/samsung/gs101-pmu.c b/drivers/soc/samsung/gs101-=
-pmu.c
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..b5a535822ec830b751e36a331=
-21e2a03ef2ebcb2
-> --- /dev/null
-> +++ b/drivers/soc/samsung/gs101-pmu.c
-> @@ -0,0 +1,141 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +//
-> +// Copyright 2025 Linaro Ltd.
-> +//
-> +// GS101 PMU (Power Management Unit) support
-> +
+-Fenghua
 
-AFAIR headers like these should be made using multi-line comments (not
-talking about SPDX part). Or is it the latest fashion trends in
-kernel?
-
-Anyways, those all are minor:
-
-Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
-
-> +#include <linux/arm-smccc.h>
-> +#include <linux/array_size.h>
-> +#include <linux/soc/samsung/exynos-pmu.h>
-> +#include <linux/soc/samsung/exynos-regs-pmu.h>
-> +
-> +#include "exynos-pmu.h"
-> +
-> +#define PMUALIVE_MASK                  GENMASK(13, 0)
-> +#define TENSOR_SET_BITS                        (BIT(15) | BIT(14))
-> +#define TENSOR_CLR_BITS                        BIT(15)
-> +#define TENSOR_SMC_PMU_SEC_REG         0x82000504
-> +#define TENSOR_PMUREG_READ             0
-> +#define TENSOR_PMUREG_WRITE            1
-> +#define TENSOR_PMUREG_RMW              2
-> +
-> +const struct exynos_pmu_data gs101_pmu_data =3D {
-> +       .pmu_secure =3D true,
-> +       .pmu_cpuhp =3D true,
-> +};
-> +
-> +/*
-> + * Tensor SoCs are configured so that PMU_ALIVE registers can only be wr=
-itten
-> + * from EL3, but are still read accessible. As Linux needs to write some=
- of
-> + * these registers, the following functions are provided and exposed via
-> + * regmap.
-> + *
-> + * Note: This SMC interface is known to be implemented on gs101 and deri=
-vative
-> + * SoCs.
-> + */
-> +
-> +/* Write to a protected PMU register. */
-> +int tensor_sec_reg_write(void *context, unsigned int reg, unsigned int v=
-al)
-> +{
-> +       struct arm_smccc_res res;
-> +       unsigned long pmu_base =3D (unsigned long)context;
-> +
-> +       arm_smccc_smc(TENSOR_SMC_PMU_SEC_REG, pmu_base + reg,
-> +                     TENSOR_PMUREG_WRITE, val, 0, 0, 0, 0, &res);
-> +
-> +       /* returns -EINVAL if access isn't allowed or 0 */
-> +       if (res.a0)
-> +               pr_warn("%s(): SMC failed: %d\n", __func__, (int)res.a0);
-> +
-> +       return (int)res.a0;
-> +}
-> +
-> +/* Read/Modify/Write a protected PMU register. */
-> +static int tensor_sec_reg_rmw(void *context, unsigned int reg,
-> +                             unsigned int mask, unsigned int val)
-> +{
-> +       struct arm_smccc_res res;
-> +       unsigned long pmu_base =3D (unsigned long)context;
-> +
-> +       arm_smccc_smc(TENSOR_SMC_PMU_SEC_REG, pmu_base + reg,
-> +                     TENSOR_PMUREG_RMW, mask, val, 0, 0, 0, &res);
-> +
-> +       /* returns -EINVAL if access isn't allowed or 0 */
-> +       if (res.a0)
-> +               pr_warn("%s(): SMC failed: %d\n", __func__, (int)res.a0);
-> +
-> +       return (int)res.a0;
-> +}
-> +
-> +/*
-> + * Read a protected PMU register. All PMU registers can be read by Linux=
-.
-> + * Note: The SMC read register is not used, as only registers that can b=
-e
-> + * written are readable via SMC.
-> + */
-> +int tensor_sec_reg_read(void *context, unsigned int reg, unsigned int *v=
-al)
-> +{
-> +       *val =3D pmu_raw_readl(reg);
-> +       return 0;
-> +}
-> +
-> +/*
-> + * For SoCs that have set/clear bit hardware this function can be used w=
-hen
-> + * the PMU register will be accessed by multiple masters.
-> + *
-> + * For example, to set bits 13:8 in PMU reg offset 0x3e80
-> + * tensor_set_bits_atomic(ctx, 0x3e80, 0x3f00, 0x3f00);
-> + *
-> + * Set bit 8, and clear bits 13:9 PMU reg offset 0x3e80
-> + * tensor_set_bits_atomic(0x3e80, 0x100, 0x3f00);
-> + */
-> +static int tensor_set_bits_atomic(void *ctx, unsigned int offset, u32 va=
-l,
-> +                                 u32 mask)
-> +{
-> +       int ret;
-> +       unsigned int i;
-> +
-> +       for (i =3D 0; i < 32; i++) {
-> +               if (!(mask & BIT(i)))
-> +                       continue;
-> +
-> +               offset &=3D ~TENSOR_SET_BITS;
-> +
-> +               if (val & BIT(i))
-> +                       offset |=3D TENSOR_SET_BITS;
-> +               else
-> +                       offset |=3D TENSOR_CLR_BITS;
-> +
-> +               ret =3D tensor_sec_reg_write(ctx, offset, i);
-> +               if (ret)
-> +                       return ret;
-> +       }
-> +       return 0;
-> +}
-> +
-> +static bool tensor_is_atomic(unsigned int reg)
-> +{
-> +       /*
-> +        * Use atomic operations for PMU_ALIVE registers (offset 0~0x3FFF=
-)
-> +        * as the target registers can be accessed by multiple masters. S=
-FRs
-> +        * that don't support atomic are added to the switch statement be=
-low.
-> +        */
-> +       if (reg > PMUALIVE_MASK)
-> +               return false;
-> +
-> +       switch (reg) {
-> +       case GS101_SYSIP_DAT0:
-> +       case GS101_SYSTEM_CONFIGURATION:
-> +               return false;
-> +       default:
-> +               return true;
-> +       }
-> +}
-> +
-> +int tensor_sec_update_bits(void *ctx, unsigned int reg, unsigned int mas=
-k,
-> +                          unsigned int val)
-> +{
-> +       if (!tensor_is_atomic(reg))
-> +               return tensor_sec_reg_rmw(ctx, reg, mask, val);
-> +
-> +       return tensor_set_bits_atomic(ctx, reg, val, mask);
-> +}
->
-> --
-> 2.51.0.618.g983fd99d29-goog
->
->
 
