@@ -4,180 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 618B7CCA471
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 17:57:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D99BECCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 17:58:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4H9qiXspJovDIO5aqJfmFLhoftqxveJ6icsNJpNz7M0=; b=kqnM+b2I7aYvzTLebcaRTyrzlb
-	ogLr2grZyaeHW+Jp2+i1DTGkqHKhJLZpdG0YTJVSPErcPvHAd/nAzQY6EkZDgs2wtC6SoMYibnrei
-	aPkFOuSwhgbuz4oXi3fmbgSWvq1iSXjiLD0AJT7W1xWcWZOKCssT4xz5o5at0xzkFPF/iRCDZX8f0
-	p6MWpaIvnLR0qdk7D90kKgLgfKVJAlLOTTRHk9otF6kYnOXzVp20/BuPgdYDo5u1jsKh+82GQutkS
-	Uq+SN+lfZ0CkM3jfNWdh/jUIOXuJAO2+NffOscaNx2a1BK71K/OSNHO88AwnOE9C8wyX/N2u/Gi5G
-	k9H2celQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qoaK4yMakgtgMKHI/qK9SUuNc61ZB/jZRmCofiSYi94=; b=rKRWybP2MA46ZlB11z4WdEOqwc
+	qpAU8kDG5LbhXeSl0jG8FWx4mtQxwvlVSd0V+wZuDm51s+Wcp+ytLyxTsb8MM9B3NoR3J2bOz2ERL
+	XZiavxbJq8y4tbjO7EQ9o7qLfoZrhzxjmuxLr1VBj1RC7BbAy6OTaHzu+KphlHYBabo2AZODzbRtL
+	cgMkFuCHKwbnbcMVHjyCGclQ4fpLdduABV5ILx+96tBOy/DMY0E6YLpOAaYTO3MUKu9RvZEOID3BB
+	AzL9DLP6Rq9pUqyQh2YjFysbPYpnuP2De0AvkBCsEHHbA1hzLNjBr6I2xihG4PlsGfG9sY120pXJv
+	bihwwhLA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4k1r-0000000CsqP-1zkV;
-	Fri, 03 Oct 2025 17:57:15 +0000
-Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
+	id 1v4k2W-0000000Cswq-1MQ3;
+	Fri, 03 Oct 2025 17:57:56 +0000
+Received: from mgamail.intel.com ([198.175.65.20])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4k1p-0000000Csoy-1L3u
+	id 1v4k2U-0000000CswT-0lGN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Oct 2025 17:57:14 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=RBnObWtg+BISuL/ZpwENHsqbrajP/EmkpQWYvqJPRL/aKmn+c4tTeYNTK7db5YFAxeb0nNng4qgkOmv1DCt/Q8j+D8p0Blozs3pj94YiIGucghjUgsTgSUXwdhuI8dCrTa3fKVxkrsEoe4rVHr9GW/h/KzVLYxFS3ySyuQpH27DBdnedtMc7NyELVEH+7Ejc2vgw4eppDEs3R5oCzNzAYvrSQ1PjgA1RIXB6k+sr1WXcCsP7HT97xnIWZi/ly2Sot5FMrzTrOQ/P2amgVWgeXQv6TNtgIEx9gfSs8t+N90vo6IN5mWeEPOmqhXJn/SrND3VcOWkTTqsMcXlo6MNjbA==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=4H9qiXspJovDIO5aqJfmFLhoftqxveJ6icsNJpNz7M0=;
- b=GFaGpzuI+lkGKAuXjeig0ypBR5fcV3uRXbE2i6ILcKhx4P4+q5dN+zqnCZU7sDyRjHW7VUJMHJa/8M8pK+vVc3JVMFpcjPYE+sPU3OnQzkSNsq4MERAReE9DJzG/NTPfiVWquAlLEHdf2xGZ6EHDExJ5Xfo3yQBk3afSGd/TSiLz17XoZGZpVxBnwI6OatW70QKzcSmcBpgrBy6bAX3/IAW0dL1X74Pi1FrIscPrrn2FHi6bW2GlxtVP6IOlOFf2sqnYRycXZCFXkwSjDnGtuBtM83yKdf2zGmTGP4lqgy5kYT/HDkgtr1imt47rNNmcxr1C/smT1wB2uDe9+wLo3g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
- dkim=pass header.d=nvidia.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=4H9qiXspJovDIO5aqJfmFLhoftqxveJ6icsNJpNz7M0=;
- b=PSwual7kXYaduyiVF8nAHJZZS0h3qsIwjFLhK0gHXW/I7xoVrd4uo9G4wJ5TkGNgb0JPRmyHbgFBtspVn/B/19Z9olKLFYWM4NfXhWrIoW4wFmPjImL5e+jfjZsQbuLDpaeiIxPgOIdrDxeei42hfU1jcbVB1FLYKaXd6aeUyB+dcNcWMIMDJpUGYBB7qg3fK9nuyX8pEHPjedOMBboLkLnC4gydPf8XiuZLDniy/SygV+nFbI55ASMG4h76oO9zRgyKMDXCr8sQ/CLO0e5jq62P+dweoFeNvL1Flyx7/tuRrkyI6GS3ZvIuHOEzjB3XBiEu6NsThOWWTfEYWu01oQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nvidia.com;
-Received: from BYAPR12MB2661.namprd12.prod.outlook.com (2603:10b6:a03:67::13)
- by SA3PR12MB7784.namprd12.prod.outlook.com (2603:10b6:806:317::20) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.18; Fri, 3 Oct
- 2025 17:56:52 +0000
-Received: from BYAPR12MB2661.namprd12.prod.outlook.com
- ([fe80::f4fa:1948:9ea6:1ee2]) by BYAPR12MB2661.namprd12.prod.outlook.com
- ([fe80::f4fa:1948:9ea6:1ee2%5]) with mapi id 15.20.9160.017; Fri, 3 Oct 2025
- 17:56:51 +0000
-Message-ID: <8ef43496-fb11-4007-945e-4bc7166e5c1a@nvidia.com>
-Date: Fri, 3 Oct 2025 10:56:49 -0700
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 10/29] arm_mpam: Add cpuhp callbacks to probe MSC
- hardware
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
-Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
- Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>, Lecopzer Chen <lecopzerc@nvidia.com>
-References: <20250910204309.20751-1-james.morse@arm.com>
- <20250910204309.20751-11-james.morse@arm.com>
-Content-Language: en-US
-From: Fenghua Yu <fenghuay@nvidia.com>
-In-Reply-To: <20250910204309.20751-11-james.morse@arm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: SJ0PR13CA0013.namprd13.prod.outlook.com
- (2603:10b6:a03:2c0::18) To BYAPR12MB2661.namprd12.prod.outlook.com
- (2603:10b6:a03:67::13)
+	Fri, 03 Oct 2025 17:57:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1759514274; x=1791050274;
+  h=date:from:to:cc:subject:message-id:mime-version;
+  bh=SfAWQlorezkBZxxIHUCsLtcHflDB0Sm2Wq9hiH+hCB0=;
+  b=CGHMD5MAUNEWxntjzx49yAVinzGYyF0V2kd2qexCz+WW6uuaSsZd3f+y
+   xEMGIeNdblSvk11BisV/qP7YoCn//qIWcU0kyxh67JG2+Xl7N6HYkadA8
+   ZlsOcJ+vpjsOlh2q3wOce49XgvXJ96rSmi5oQ9npnd1jHPkOPW+irCQF/
+   qVXGffPBXj/VVXAV8LYkQ8UJafut2VsIJxnj1McUTg6nZaLwU8BYhGgZy
+   h82BxMIFjCxBNp3lIv8DCu9HipzrZN1Q1Q6Zfm3pYt+3+QhEIBOvUgvHV
+   Voy0ybhf/YSClBCsH2djh70+QajhIkUzcMOgq/fpKr7N0zYKmZwlf3oye
+   w==;
+X-CSE-ConnectionGUID: KzzC75MLQRSqYt5feAu/zw==
+X-CSE-MsgGUID: AKEvwRa4TbCCsvYWsv/ogQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11571"; a="61509864"
+X-IronPort-AV: E=Sophos;i="6.18,313,1751266800"; 
+   d="scan'208";a="61509864"
+Received: from orviesa006.jf.intel.com ([10.64.159.146])
+  by orvoesa112.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Oct 2025 10:57:46 -0700
+X-CSE-ConnectionGUID: 2nTpPBVITSyMWNh7U2HbnA==
+X-CSE-MsgGUID: fbK/03NWSXGaIAhLlvrs5g==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.18,313,1751266800"; 
+   d="scan'208";a="178472428"
+Received: from lkp-server01.sh.intel.com (HELO 2f2a1232a4e4) ([10.239.97.150])
+  by orviesa006.jf.intel.com with ESMTP; 03 Oct 2025 10:57:45 -0700
+Received: from kbuild by 2f2a1232a4e4 with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1v4k2H-0004n9-2M;
+	Fri, 03 Oct 2025 17:57:41 +0000
+Date: Sat, 4 Oct 2025 01:57:28 +0800
+From: kernel test robot <lkp@intel.com>
+To: Russell King <rmk+kernel@arm.linux.org.uk>
+Cc: oe-kbuild-all@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	"Russell King (Oracle)" <rmk+kernel@armlinux.org.uk>
+Subject: [arm:clearfog 8/13] drivers/pci/pcie/aspm.c:827 pcie_aspm_cap_init()
+ warn: inconsistent indenting
+Message-ID: <202510040111.atsuGn0D-lkp@intel.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BYAPR12MB2661:EE_|SA3PR12MB7784:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9e2783f8-17f9-48f2-c0e4-08de02a63b44
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|1800799024|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?YzRVaXU3VGc2RnpWV01DZFRod1Y5L2RmSlBqWkZwMWJYR3pLNXgyOTlWU2tX?=
- =?utf-8?B?cWJCdlBUTmhaeUtlQWFXcWEzSXdXQTJTUy9VdThjdWhVQ2pLWEtza1lvTG9r?=
- =?utf-8?B?U3hHQno5YlhtSHJjMjBzK1R2Z1l4cDB4Um1kZ0JiTEtNb2p1eWZuM1lFTjMv?=
- =?utf-8?B?WVluVVAyQysycHh6aUtlVjNheXhtS1FPWWZ1ZE5Pb1RJYnFqQXFiMDdVa0dm?=
- =?utf-8?B?bE0wSjBqM2lwSzRJbWQrVlJLYTU0Wi95SkJLV3hCT1BlckR6U3dHb3ZnZHNJ?=
- =?utf-8?B?MzJaRnlPT0Rua29RV0RTLzhZV2dBcGhxYkpBMUJrSFJKWXkxc3R4UUQ3b3pp?=
- =?utf-8?B?eld5ZUtEUHh5MHBjNG4vRnByWUxyZHpTTVFCRnRrQ2crNXBuTlJicURaR2xz?=
- =?utf-8?B?ZDA4QnN0NE0vVVlLT1VNRWRXM0FzZldWUkVQNnpOb2hwd0xLcjZEQldxRlUw?=
- =?utf-8?B?ZGl4dmNhL0lSRDZaTlNlZDNGeFZyTUszU0lvdHMraE9aZVl4a3J2QTN5MFBv?=
- =?utf-8?B?WGFtcW1yS3kwdElUU0x2ckMwa2JOblVwNlgwNHpjbGxSM0FnU1Y1TDlOTjQr?=
- =?utf-8?B?MWthS3lXZlluOWF0RVNuS2h3WFk4WXdlZHZVdEYvZjBwK0FVeFoxaUwyeXF1?=
- =?utf-8?B?bnNBZDkzU1liLy9wQ09wWkFLQTZpZHFyamdiRG52bXRNUHpmN0YyWWh1K2xK?=
- =?utf-8?B?ays5aVgvZkxTWmtiYXdSMDNZYWxGTmlHQUxsYVVDaytpdFk4L0hPQ2JqMHhM?=
- =?utf-8?B?ak9tcmRlQzRoNUZlbGhhWlZtVnlpc1hodXlkV3FkZVlmNGNldWFUbjB0dVJO?=
- =?utf-8?B?TFNyTjVZUVY2QnBhRzRnOFkvR1BMZnhyMUp0WW1laFg4V0tpMDhNOURDMzRi?=
- =?utf-8?B?WTVjd3JRNDZzWkwwcTNpaytWKzc3TWp6Y1pYbnFabmVhZjNUZTdqbWdOTE4r?=
- =?utf-8?B?dzNvaCtLVlN0TE45c1A1cEFlTHBwelYrOFN4ODRoWDhqeXR2ZHdXVUhuNm5u?=
- =?utf-8?B?bVZnYitMbjRZaENJOTdQWHNxbjI5UE5uOG0wLzNUa3hWUHJtZEYyZVJUU0da?=
- =?utf-8?B?Y3h3QXk1NG1Pd2d6cXduQ2MwL05uZjdiYnlFK1dWZDNSdkZ0ZkxHekwwbUJC?=
- =?utf-8?B?eHp6L3NVaUQybDROU1pCellDMEJtM2pTK1BtYlFNbGhMSmVxNDh4Vm1lTUhQ?=
- =?utf-8?B?U0RXaVZlTmFLaTlpNmVsM2UxTmV1U1NxMS84dEx3eDZXUGU1TVkzcmRQVmVZ?=
- =?utf-8?B?VThpTUZNblBCWGdPdEVWaEYybTRtZGkrUHFiRVh5YnpGYlpENy9CaU9CSUNl?=
- =?utf-8?B?RXg2akFPeGpMVERsV1JQa1RwQmlEUllBemlXZndrLzNZNGNtMWJlSXd4Rm8v?=
- =?utf-8?B?WnpQNWZ3UzFNWVRETHloc2VyRVJIRVByTlFlcllNZHB5WVRXVDRWdFpzTmVF?=
- =?utf-8?B?MlZwZDVvRXNTS2x2ZHp6aU1iKzRrY0ZsZTZocWdlbituajlpblFySTBVcnJ2?=
- =?utf-8?B?L3MxUnlYNnFISUpJZ3NXTnlJNDcyK05mNU9HY1VPRFFQY1hMUjFOMTViSzg2?=
- =?utf-8?B?c0FKclRWWGpSM3A3cXJITlFzMkJqTnNFdjBBRmpZUmNvMzBOaGtXbGhsUnph?=
- =?utf-8?B?dk5OejREZUQyTVQzWFpJMG1ucERkYnRZckFKMG42NVd4eWR5eEFld0p1emVN?=
- =?utf-8?B?cDVjSzNHTVlzdVJwTkt4QjFxc2NCR1NWSSsxS0FybDlYaVBPT0JMWFFzMmd2?=
- =?utf-8?B?WEtSTE5mN2RzTWo4azY5WktsbVB0bEdrU01qY0pKdGEzWUptMG9nalo0N3d3?=
- =?utf-8?B?eDYrUTMrMWZMYjF4RllFREo0cnBvTkMvdDVIY0Y5dUtId0hJVzI2S05HSmJG?=
- =?utf-8?B?RXJaNit6TWtvNVNFb0FVQVVObEdXQW5UbFowYmkvTlg0RFdvWDkvUG5VNHhy?=
- =?utf-8?Q?T7R1cK2wEBi1FXk2jRYUyxjYbl0p7i6L?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:BYAPR12MB2661.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(7416014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SWNoeWJZRTFYczRqSnZHQ0tOV0ZFQ0dBZjlMd0lpajZmYWVadncxQVZ6a0pz?=
- =?utf-8?B?MlordHhoUXhGTzhTNkdRaUdLUkxHN1NtNy9lNkx4Ky9HOEluVXlqQlcvSEFv?=
- =?utf-8?B?MUxqNlE1bHRJbkxEQXJLQkZtdVdrMStLWUtpdUdrbWYyM2Z0RCtIVy9hRnpR?=
- =?utf-8?B?RE9kZGQyQ2I1bHFJdVRPL1ZTMjZ4NDI3bTd3V0EwSS92M2tXKzB5eHUwRWxT?=
- =?utf-8?B?QU1oRnFhQ3E2aXU0NzlQb1dXdXd5Nnl1WXZLS0plZFcxZDRETG1DcTdwVkF4?=
- =?utf-8?B?V1dQQXFnblF4M3hnTkRkc0ZTa1lHcDhXZlRMa2J6TUxkYmRmRTI2Nk0zU1lG?=
- =?utf-8?B?ZDdRMGhpUDBzalh0cXgzOGYvYSthNGNmN1ZxUXZnVnFEcDN6SU9vREJKREV2?=
- =?utf-8?B?cDNKTjVHYW5BQzdKd3VDcFZrTzUxV2QzU3pnSHp3Um9mUGIzckM0azVnRXZn?=
- =?utf-8?B?US9ZY0t2dmgwMDhzb21JUkxSR29YWmV0VWFhRENnaktSdUVjVXJueHZPYVlG?=
- =?utf-8?B?VlFKdCtyeGtGMWV6RkRMeVNjNE11MjlsN3JnZ2YxSGd2QnEyVFBhVGlBc2dQ?=
- =?utf-8?B?cTIwM1pRVFZwRE5tVVg4WlZ1UVpia1FHN0lKU2t3S0RHRFRVdjlObXNSUENE?=
- =?utf-8?B?L28vYmZkWWl6WGcyZlFSNzFUd3VUL1hmWEZtQmNPaWk2L0hqWkJYTWpqY2pC?=
- =?utf-8?B?MElxTDlOejArZDMyaTlpTXhIc0lPOWZ5MEltK2I1YmFuT0dTaWdVa0x1WDZj?=
- =?utf-8?B?RUdNL3dqdWRIQzhIOHBtdTYxbGZUNXU4Q21QaDdIK3dKaW9LeCswalU5VE41?=
- =?utf-8?B?Z3lsbmFBZDQwSkx0VXJjTmhzZUFWdUlESnQ0NlVpdVFTY1lrZXFBeXdVUEpQ?=
- =?utf-8?B?a1hWeEpqN2lVQmhEYnc3OFdCQ1dIaVlGVmYraEdwL3BEeVVpRGFCSWxyS3lo?=
- =?utf-8?B?STNSdFU1LzFaMVNWQ2tsK2I0SjE3ZXgzL08vNkpuKzFhci9jbXppeExtTUc1?=
- =?utf-8?B?T2R5Q2NYeFRoeEdLVm53ejNkZVVGVGIxdDRCdm90TW5waG9zTEFqTVV4VFZl?=
- =?utf-8?B?a29LVXllQ05BTXkvTFQ0enVoUDBjVnlaMjZwWnhjZjJaZkd4aWFQUXlhelVy?=
- =?utf-8?B?S1RwK2ZmODNTaWVmQjFvQktUQlBTU3R3dEozSVpLVmhGNjAyYU5QYjJZOWo2?=
- =?utf-8?B?MWcrSTFrRzVJSUx1ZmZ1QkxKU0E4a0gxSVpVRVFISDRNYUl1dGJaU3B5SzJa?=
- =?utf-8?B?dzdLY3dMUDV0SzZqVlI3d1kyTFJ3dTdYM3c0QWI5YTRLb2NvV3FXcFVPUWtC?=
- =?utf-8?B?SC9QbTQvTkxZOStXbEFpcFBCMGxKdVYvbVBDZGorM25EcDFEd25neGpPR0tG?=
- =?utf-8?B?UjdpK3M5d1RtWDgvcUZDTDFEa2ljRWQxWUU4MUpnU3FLQXZIaVNnMEFmb3d0?=
- =?utf-8?B?QjI2Zks5YUUxeXJrM1VERjVGQndvbktHbjZuQzJPMCtsY1FVMDdKVFNUZGUw?=
- =?utf-8?B?RzhMNkFydnpONUJtcjZTOU9hekpsVHB3UVB1eWphMmttSmhXYWJyVi9oRkIw?=
- =?utf-8?B?UXgvWkZseXFsQnp2aEdFbnBrb1hhdE85L0hLdEZxSHdldnRZVDhTUWxhQ3hO?=
- =?utf-8?B?Zk80YjVJV1hiOUlFSTRqZFB0L2Z2ZnlubzV0TGZxM0FLOGVkYUF6YWY5cXQw?=
- =?utf-8?B?RlhPbzRtTDJaV2Q5Sjduc0h0M0t1TXB6YkZ1SWNDUDdmSVVwY3EvRFBaM0Rk?=
- =?utf-8?B?VWhzcEliRWRDSkpGRjloOXgySUphdFpia3BqbDBrNlVOcU92aWw4eExJdlNI?=
- =?utf-8?B?dDJnSVpxWTAxUG9ic1dLTlVBaUFkUVArWXJLdmZPaEtsOFFidmk3ZXJDOUIx?=
- =?utf-8?B?T0dFNG1nMkpnR21YTjJsTG1hMUxQWjdCUGpDakprRnBEd21Ha2NYSXh4dTJM?=
- =?utf-8?B?MGdFeHJnWmZlaTI4bC9oNXVrZlcxb1RNYlhFVVNZemw2bjQ4Y1F6d0I1UnNE?=
- =?utf-8?B?YVlzcHNMVytEcVpLQ2VGeXkrbmNOYVlJVzhzS05tUG1YMVB3T3QweGMyNHVR?=
- =?utf-8?B?U3lZeUN0ekpnaWZoMmw3Y1hYdVNJWnNoUHB1QjBUNnkyWlZCL0FkZXlTaklL?=
- =?utf-8?Q?2sDw2KLw5Fk0TnnREbi4hDd2y?=
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9e2783f8-17f9-48f2-c0e4-08de02a63b44
-X-MS-Exchange-CrossTenant-AuthSource: BYAPR12MB2661.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Oct 2025 17:56:51.8119
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: aLGgud3ccZrI/QmmL9yZcfR+vdx/bHXYmUsz1W6x2DS+lAulUoAXpUqWYfQJOrNw9csmtcWb5tFuYi5c5nx27Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA3PR12MB7784
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_105713_355062_F57BE100 
-X-CRM114-Status: GOOD (  16.89  )
+X-CRM114-CacheID: sfid-20251003_105754_317101_D4DBC78C 
+X-CRM114-Status: UNSURE (   9.65  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -192,38 +86,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+tree:   git://git.armlinux.org.uk/~rmk/linux-arm.git clearfog
+head:   0c321d2afb01ca78544750d2c840a22f91251682
+commit: 0932b03bba229e9456bb547a09ad43275ca8e6fc [8/13] mvebu/clearfog pcie updates
+config: i386-randconfig-141-20251003 (https://download.01.org/0day-ci/archive/20251004/202510040111.atsuGn0D-lkp@intel.com/config)
+compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
 
-On 9/10/25 13:42, James Morse wrote:
-> Because an MSC can only by accessed from the CPUs in its cpu-affinity
-> set we need to be running on one of those CPUs to probe the MSC
-> hardware.
->
-> Do this work in the cpuhp callback. Probing the hardware will only
-> happen before MPAM is enabled, walk all the MSCs and probe those we can
-> reach that haven't already been probed as each CPU's online call is made.
->
-> This adds the low-level MSC register accessors.
->
-> Once all MSCs reported by the firmware have been probed from a CPU in
-> their respective cpu-affinity set, the probe-time cpuhp callbacks are
-> replaced.  The replacement callbacks will ultimately need to handle
-> save/restore of the runtime MSC state across power transitions, but for
-> now there is nothing to do in them: so do nothing.
->
-> The architecture's context switch code will be enabled by a static-key,
-> this can be set by mpam_enable(), but must be done from process context,
-> not a cpuhp callback because both take the cpuhp lock.
-> Whenever a new MSC has been probed, the mpam_enable() work is scheduled
-> to test if all the MSCs have been probed. If probing fails, mpam_disable()
-> is scheduled to unregister the cpuhp callbacks and free memory.
->
-> CC: Lecopzer Chen <lecopzerc@nvidia.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202510040111.atsuGn0D-lkp@intel.com/
 
-Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+smatch warnings:
+drivers/pci/pcie/aspm.c:827 pcie_aspm_cap_init() warn: inconsistent indenting
 
-Thanks.
+vim +827 drivers/pci/pcie/aspm.c
 
--Fenghua
+   790	
+   791	static void pcie_aspm_cap_init(struct pcie_link_state *link, int blacklist)
+   792	{
+   793		struct pci_dev *child = link->downstream, *parent = link->pdev;
+   794		u32 parent_lnkcap, child_lnkcap;
+   795		u16 parent_lnkctl, child_lnkctl;
+   796		struct pci_bus *linkbus = parent->subordinate;
+   797	
+   798		if (blacklist) {
+   799			/* Set enabled/disable so that we will disable ASPM later */
+   800			link->aspm_enabled = PCIE_LINK_STATE_ASPM_ALL;
+   801			link->aspm_disable = PCIE_LINK_STATE_ASPM_ALL;
+   802			return;
+   803		}
+   804	
+   805		/*
+   806		 * If ASPM not supported, don't mess with the clocks and link,
+   807		 * bail out now.
+   808		 */
+   809		pcie_capability_read_dword(parent, PCI_EXP_LNKCAP, &parent_lnkcap);
+   810		pcie_capability_read_dword(child, PCI_EXP_LNKCAP, &child_lnkcap);
+   811		if (!(parent_lnkcap & child_lnkcap & PCI_EXP_LNKCAP_ASPMS))
+   812			return;
+   813	
+   814		/* Configure common clock before checking latencies */
+   815		pcie_aspm_configure_common_clock(link);
+   816	
+   817		/*
+   818		 * Re-read upstream/downstream components' register state after
+   819		 * clock configuration.  L0s & L1 exit latencies in the otherwise
+   820		 * read-only Link Capabilities may change depending on common clock
+   821		 * configuration (PCIe r5.0, sec 7.5.3.6).
+   822		 */
+   823		pcie_capability_read_dword(parent, PCI_EXP_LNKCAP, &parent_lnkcap);
+   824		pcie_capability_read_dword(child, PCI_EXP_LNKCAP, &child_lnkcap);
+   825		pcie_capability_read_word(parent, PCI_EXP_LNKCTL, &parent_lnkctl);
+   826		pcie_capability_read_word(child, PCI_EXP_LNKCTL, &child_lnkctl);
+ > 827	dev_info(&parent->dev, "up support %x enabled %x\n",
+   828		 (parent_lnkcap & PCI_EXP_LNKCAP_ASPMS) >> 10,
+   829		 !!(parent_lnkctl & PCI_EXP_LNKCTL_ASPMC));
+   830	dev_info(&parent->dev, "dn support %x enabled %x\n",
+   831		 (child_lnkcap & PCI_EXP_LNKCAP_ASPMS) >> 10,
+   832		 !!(child_lnkctl & PCI_EXP_LNKCTL_ASPMC));
+   833	
+   834		/* Disable L0s/L1 before updating L1SS config */
+   835		if (FIELD_GET(PCI_EXP_LNKCTL_ASPMC, child_lnkctl) ||
+   836		    FIELD_GET(PCI_EXP_LNKCTL_ASPMC, parent_lnkctl)) {
+   837			pcie_capability_write_word(child, PCI_EXP_LNKCTL,
+   838						   child_lnkctl & ~PCI_EXP_LNKCTL_ASPMC);
+   839			pcie_capability_write_word(parent, PCI_EXP_LNKCTL,
+   840						   parent_lnkctl & ~PCI_EXP_LNKCTL_ASPMC);
+   841		}
+   842	
+   843		/*
+   844		 * Setup L0s state
+   845		 *
+   846		 * Note that we must not enable L0s in either direction on a
+   847		 * given link unless components on both sides of the link each
+   848		 * support L0s.
+   849		 */
+   850		if (parent_lnkcap & child_lnkcap & PCI_EXP_LNKCAP_ASPM_L0S)
+   851			link->aspm_support |= PCIE_LINK_STATE_L0S;
+   852	
+   853		if (child_lnkctl & PCI_EXP_LNKCTL_ASPM_L0S)
+   854			link->aspm_enabled |= PCIE_LINK_STATE_L0S_UP;
+   855		if (parent_lnkctl & PCI_EXP_LNKCTL_ASPM_L0S)
+   856			link->aspm_enabled |= PCIE_LINK_STATE_L0S_DW;
+   857	
+   858		/* Setup L1 state */
+   859		if (parent_lnkcap & child_lnkcap & PCI_EXP_LNKCAP_ASPM_L1)
+   860			link->aspm_support |= PCIE_LINK_STATE_L1;
+   861	
+   862		if (parent_lnkctl & child_lnkctl & PCI_EXP_LNKCTL_ASPM_L1)
+   863			link->aspm_enabled |= PCIE_LINK_STATE_L1;
+   864	
+   865		aspm_l1ss_init(link);
+   866	
+   867		/* Restore L0s/L1 if they were enabled */
+   868		if (FIELD_GET(PCI_EXP_LNKCTL_ASPMC, child_lnkctl) ||
+   869		    FIELD_GET(PCI_EXP_LNKCTL_ASPMC, parent_lnkctl)) {
+   870			pcie_capability_write_word(parent, PCI_EXP_LNKCTL, parent_lnkctl);
+   871			pcie_capability_write_word(child, PCI_EXP_LNKCTL, child_lnkctl);
+   872		}
+   873	
+   874		/* Save default state */
+   875		link->aspm_default = link->aspm_enabled;
+   876	
+   877		/* Setup initial capable state. Will be updated later */
+   878		link->aspm_capable = link->aspm_support;
+   879	
+   880		/* Get and check endpoint acceptable latencies */
+   881		list_for_each_entry(child, &linkbus->devices, bus_list) {
+   882			if (pci_pcie_type(child) != PCI_EXP_TYPE_ENDPOINT &&
+   883			    pci_pcie_type(child) != PCI_EXP_TYPE_LEG_END)
+   884				continue;
+   885	
+   886			pcie_aspm_check_latency(child);
+   887		}
+   888	}
+   889	
 
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
