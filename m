@@ -4,93 +4,137 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 88899CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 05:45:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D1D1CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 06:19:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z6SlgDCFOBi9h8Zr7L2vlVB4Qa0jU3GPw7jT23nrerc=; b=zQR2rglvaWAqvpbY0VDqbhk8c6
-	dqD/b0t3FeRug2T2+9LqlSL/MAS1EKKNkuzeu9GUwZ8yAIX2pEAW6892VG6P/9SorGVnIXRhqbFnn
-	whFZkaO4iLFIpBr2QT1vUkVbbMCxADE8lHRMdVmfhNabPOvoeCPFRNMnMt571RK17953ksqt79SCJ
-	qvcZKVHt9AklCPq9ADrvWPaPK/QWNDr1lE4Al9NRWtmzYrpIqg5hpCcfl0wE55H5MdVR4cBdIscUc
-	VeKOHzeB/70kc4L4tovXMlXQ6aeivZvWYxRaklduygnNpDn/7Be+Be+JW6SwKVkuzRXiXGJyKb1pP
-	v6wGVZ3A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sYt6XZHSVIGxKL3QKl4pz5ON06F2jMWWKhjbqd493GU=; b=j/nHY22/dQUvfEYYhwQWH7iAf3
+	tkbAmGcbp3VTk1RF4UIfPAUo7FgDwIAnlu/8ITiy9zLsAr+DeoF2zMif23ZKByiWNC3FqA+kxAtXt
+	rx3dDCfZLd6KpHu64XkY1+/ivOnwRAIuyZRPL9tOWsbLQv/8pR3f9kFzDSb88nliDdVdZPlke5BE9
+	2W9uozTYf4ibG2IvDkxArdJg1aDIIbPkT6+i2g6DwE5Tja9pZd2gCanaWLNlyN1QpCC9bLqY13LuS
+	pBRuc1hKQ1NzzDERJHmQUmQmpyh4ei3oXMBKTtPDYn1h+Zza0+5Xl31e2p+YpnxFDfKMlxC4h6JVK
+	Nbdb7csg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4YbX-0000000Bi0S-34JF;
-	Fri, 03 Oct 2025 05:45:19 +0000
-Received: from mailout4.samsung.com ([203.254.224.34])
+	id 1v4Z8b-0000000BjCP-46RT;
+	Fri, 03 Oct 2025 06:19:29 +0000
+Received: from mail-eastusazlp17011000f.outbound.protection.outlook.com ([2a01:111:f403:c100::f] helo=BL2PR02CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4YbQ-0000000Bhzt-1tWm
+	id 1v4Z8Y-0000000BjAt-1tZl
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Oct 2025 05:45:17 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20251003054503epoutp045ffa6fca66f73460f9b5671f7edd0d5d~q5OtUQuL-1139911399epoutp04-
-	for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Oct 2025 05:45:03 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20251003054503epoutp045ffa6fca66f73460f9b5671f7edd0d5d~q5OtUQuL-1139911399epoutp04-
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1759470303;
-	bh=z6SlgDCFOBi9h8Zr7L2vlVB4Qa0jU3GPw7jT23nrerc=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=qhNIOAvPx6uoDmXmCwXxj95uNjHaogCl3At7rjuiK+JWfgK9h8VrxSVOiU3sbyb0L
-	 Q+exqebSpMvX+0OGrQ9/YD0NbLP9zB56J6LiXykWijBTKN3Q5CcqJe1Ec7KTNy08+5
-	 gvewGiE7y978nIop2sKmDL6fB/ScDQ9s48tWpY/Q=
-Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
-	20251003054502epcas5p147f4ac05e859f93ced29739c9dd6db1b~q5OsU5Zyx2599925999epcas5p1B;
-	Fri,  3 Oct 2025 05:45:02 +0000 (GMT)
-Received: from epcas5p1.samsung.com (unknown [182.195.38.91]) by
-	epsnrtp01.localdomain (Postfix) with ESMTP id 4cdHgK5jwVz6B9m7; Fri,  3 Oct
-	2025 05:45:01 +0000 (GMT)
-Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20251003054501epcas5p17ec2255ee66f0ea533b8dc9a058e33e9~q5Oq8U0mF2736927369epcas5p12;
-	Fri,  3 Oct 2025 05:45:01 +0000 (GMT)
-Received: from FDSFTE411 (unknown [107.122.81.184]) by epsmtip1.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20251003054456epsmtip1431a24308d04a35b90a24f8eb7b752a2~q5Omvl53I2540725407epsmtip16;
-	Fri,  3 Oct 2025 05:44:56 +0000 (GMT)
-From: "Ravi Patel" <ravi.patel@samsung.com>
-To: "'Krzysztof Kozlowski'" <krzk@kernel.org>
-Cc: <jesper.nilsson@axis.com>, <mturquette@baylibre.com>,
-	<sboyd@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <s.nawrocki@samsung.com>, <cw00.choi@samsung.com>,
-	<alim.akhtar@samsung.com>, <linus.walleij@linaro.org>,
-	<tomasz.figa@gmail.com>, <catalin.marinas@arm.com>, <will@kernel.org>,
-	<arnd@arndb.de>, <ksk4725@coasia.com>, <kenkim@coasia.com>,
-	<pjsin865@coasia.com>, <gwk1013@coasia.com>, <hgkim05@coasia.com>,
-	<mingyoungbo@coasia.com>, <smn1196@coasia.com>, <shradha.t@samsung.com>,
-	<inbaraj.e@samsung.com>, <swathi.ks@samsung.com>,
-	<hrishikesh.d@samsung.com>, <dj76.yang@samsung.com>,
-	<hypmean.kim@samsung.com>, <linux-kernel@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
-	<linux-arm-kernel@axis.com>, <devicetree@vger.kernel.org>,
-	<linux-gpio@vger.kernel.org>
-In-Reply-To: <CAJKOXPe7Hn0qwg8jDMg4KoF-n4kziLQnvAx9vbNKEcS_KjzEdw@mail.gmail.com>
-Subject: RE: [PATCH v4 0/6] Add support for the Axis ARTPEC-8 SoC
-Date: Fri, 3 Oct 2025 11:14:55 +0530
-Message-ID: <000001dc3428$dc2990c0$947cb240$@samsung.com>
+	Fri, 03 Oct 2025 06:19:27 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=AHUxRFuB7wF2MsUDNv3xd7hGl4KGOrL5p/VmJj6Hms23UxPDU2kjg/qrMKB0ydZiVGVi1WILX1aWhGUEYKIYQS12lqbKfI7CLAFQPtjUlfFwrhbFslTxm37kOxfNqL7MCaAnia+7hTnACUqf1rgQEdgKgTThW5944tAZrB7+qIW+u4vPWR0trmvB5pI329BPZdDRT+qdIT/h2nQzCtpaLHQ1UXs/F+krpMMzqFTry/2dYgeUSxHKPEpgGnYfxaEla3niYX5+qacwSw2ZK3pmYAyIzt5tYIkKWplFGsD2+k87B59g55+I+QN3OqV0ZlQUkUlIoP7mR+ZnKV3YpZFe3A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=sYt6XZHSVIGxKL3QKl4pz5ON06F2jMWWKhjbqd493GU=;
+ b=CoIh7yaspRUADLXCWzgMMdiHK0G84S79twSiRfgVe43i9Y8petW2Y+oW5Q3fS7LVOdiZ6RrXtuRYYv6EuaMLHd/GUksZ+ZDu21YSYSd4UfFDt0K7ekqXu5Nxv0mO83iLZBDm3sq8skUMdtPq8+27eoOaAA5lcZsefui6xm6uOF0HesBLKhW5aKkIPcIB0d357tGeucXP+1kxEXlGMaYFaZnKPrDeHJYFVui/OLeP1oepaISuAUF0QxpGrKqRvZtlqBQKGbGWussFDFMgcrNH+5pX+c4trakiAC8gyVQ9Ur/Ta+TJg9SGjdQSd9nr+mTWN5XqT24AC/N4DgqK769ZDw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 165.204.84.17) smtp.rcpttodomain=kernel.org smtp.mailfrom=amd.com; dmarc=pass
+ (p=quarantine sp=quarantine pct=100) action=none header.from=amd.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=sYt6XZHSVIGxKL3QKl4pz5ON06F2jMWWKhjbqd493GU=;
+ b=5Av1acVzKUnmDQu24OxTOjs4nEWVlCvOKL9hyISdQ6rdlplpNsvyS5bguWbnJdM4o2qFnVjOcRCq8RRod/d10NHUUgmJ8OXe8ZXid3UiolhRTXHQ+ZyyKNeX19v3e2xrnD/R9T0AiojAakVzLdXwFY4AjvwEeImpXo8MCNdQXfs=
+Received: from BN0PR04CA0158.namprd04.prod.outlook.com (2603:10b6:408:eb::13)
+ by LV8PR12MB9408.namprd12.prod.outlook.com (2603:10b6:408:208::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.18; Fri, 3 Oct
+ 2025 06:19:14 +0000
+Received: from BL02EPF0001A0FF.namprd03.prod.outlook.com
+ (2603:10b6:408:eb:cafe::69) by BN0PR04CA0158.outlook.office365.com
+ (2603:10b6:408:eb::13) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9160.16 via Frontend Transport; Fri,
+ 3 Oct 2025 06:19:14 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
+ smtp.mailfrom=amd.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=amd.com;
+Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
+ 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
+ client-ip=165.204.84.17; helo=satlexmb07.amd.com; pr=C
+Received: from satlexmb07.amd.com (165.204.84.17) by
+ BL02EPF0001A0FF.mail.protection.outlook.com (10.167.242.106) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9182.15 via Frontend Transport; Fri, 3 Oct 2025 06:19:13 +0000
+Received: from SATLEXMB04.amd.com (10.181.40.145) by satlexmb07.amd.com
+ (10.181.42.216) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.2.2562.17; Thu, 2 Oct
+ 2025 23:19:13 -0700
+Received: from satlexmb08.amd.com (10.181.42.217) by SATLEXMB04.amd.com
+ (10.181.40.145) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.39; Fri, 3 Oct
+ 2025 01:19:13 -0500
+Received: from xhdsuragupt40.xilinx.com (10.180.168.240) by satlexmb08.amd.com
+ (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
+ Transport; Thu, 2 Oct 2025 23:19:11 -0700
+From: Suraj Gupta <suraj.gupta2@amd.com>
+To: <vkoul@kernel.org>, <radhey.shyam.pandey@amd.com>, <michal.simek@amd.com>
+CC: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH V2 0/3] dmaengine: xilinx_dma: Fixes and optimizations for AXIDMA and MCDMA channel management
+Date: Fri, 3 Oct 2025 11:49:07 +0530
+Message-ID: <20251003061910.471575-1-suraj.gupta2@amd.com>
+X-Mailer: git-send-email 2.25.1
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQKKMINb5ygeSmhM7iNuat0EV5IHsAIgbsJhATIDr/2zOVZ1wA==
-Content-Language: en-in
-X-CMS-MailID: 20251003054501epcas5p17ec2255ee66f0ea533b8dc9a058e33e9
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-541,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250901054234epcas5p1e4b34b6ccb304b0306b1fe616edda9e2
-References: <CGME20250901054234epcas5p1e4b34b6ccb304b0306b1fe616edda9e2@epcas5p1.samsung.com>
-	<20250901051926.59970-1-ravi.patel@samsung.com>
-	<CAJKOXPe7Hn0qwg8jDMg4KoF-n4kziLQnvAx9vbNKEcS_KjzEdw@mail.gmail.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+Received-SPF: None (SATLEXMB04.amd.com: suraj.gupta2@amd.com does not
+ designate permitted sender hosts)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: BL02EPF0001A0FF:EE_|LV8PR12MB9408:EE_
+X-MS-Office365-Filtering-Correlation-Id: f42e40f2-62ee-4caf-8fc9-08de0244c628
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|1800799024|36860700013;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?M5vQIrDUWUl4r7zmat7TnedjoW9hjQnrEOnCIA9XL6rqrbcA416iNquL3TIw?=
+ =?us-ascii?Q?QJ9pjYO2lnUu/vl0x3ldxaaj7AmBb7bExlQpoXUx26CMmPv6wbFLAqYMf8XJ?=
+ =?us-ascii?Q?XuDcu7BTxw+7+38WFEUuoF7P9hCvORBd6T8V6Vd1lXTETXUhDo3JOOSyHE34?=
+ =?us-ascii?Q?tDULPQp1wV/iOoD5xU+zASeAp3kgBuZCes+ZH/TdnJTP0bFi0mavh966NNy7?=
+ =?us-ascii?Q?T3+1MbX43uFGP8+b4QKBF+cUjqeQA0iUxLFhNpel1IXCGtgvKe9sulQEe9vM?=
+ =?us-ascii?Q?sEpzNKwaifIF9Kdhjoh+nJO1kfcdZu/+fuhho3cfqv0aoYwan+VW7IpeGlsg?=
+ =?us-ascii?Q?/Q6XN4EevFOPPTC33ixNU7+0X9/9sQd+bCRCzp41iZ4lMnKWEwYr02Kj1kpv?=
+ =?us-ascii?Q?XTLXJhfiWsyP6o0I4vVGxpaBDjVL+XYGJirTENEUWhDMo/b1Oo1U2Z/N+4i+?=
+ =?us-ascii?Q?8DWjlBz1cyv6GC2R0BRjvG4U1/rqQIvumlcQXZS1LYBpzou5YUc0EiceZ2MX?=
+ =?us-ascii?Q?vBdcJz/i8VVdJI7DYLhMcJ5oWVkdPMr+2b2mVGO074MIO2ybPHut+g1epx51?=
+ =?us-ascii?Q?iyCi5ZrqwWz8XdIuZ5hrNEI9yO2ke10NgckyguIm6mra7HVAynaB+mMbhOCX?=
+ =?us-ascii?Q?uXCjncU/itpttE7FuMQfmNUJzPU6gQtlNao7vQeQ+vAX7vypvgvf2Ik45KBl?=
+ =?us-ascii?Q?z3wiwuaT4IWsWlzLWCSbTzpjU3YXW+QUYlnA+VfoeXTGZOLskIykUHnP8R8j?=
+ =?us-ascii?Q?JZcO6HyrtKZk3usDZBPRHi5fWhXjQSHxVdAXo86mOZxCvWr/ICm74o3Uaj5Z?=
+ =?us-ascii?Q?i7U9wh9FpQr27QME+Ao6hcyCst40hmFi3nceayV452hDX3TfR9Z344YaSadl?=
+ =?us-ascii?Q?HI6SiLn3XlzLXvm/v4kLE9DXGscvcZZuiqj7/epJ+JowQ8JGurw3HPzV7Ji6?=
+ =?us-ascii?Q?hJrJMgQUJ1jFkAHTVqsVHYxFAOsxRpC1mbuiVAqeCNlfK5WQOf4u4Q4pnEQP?=
+ =?us-ascii?Q?HCEc5Ydc9oiUa/Qgg7RHDKoz7jxcGsQSPT2+53LAz92kSJfVDlZOK8Ro37Kn?=
+ =?us-ascii?Q?sV9zalGMqtVbc6Aeo7FciNjEc3aPHxOiIGw5in4j3KGupPBWL7yrKwVKjbCY?=
+ =?us-ascii?Q?+YBSOaC/kpEXxrqLcV1xB2DPywMqbADBP78luESsq2lnT/FLTxjjk2PrOlDJ?=
+ =?us-ascii?Q?RuC3Kd97T59ldRJQSZjyMcsJnEx91INOCsiom/inLPiaGVMKa+QePlLHVdQR?=
+ =?us-ascii?Q?SXYo5kNtz5mnLRij+ZfCjt3ncfuSR5BtlM3Fq+wIBTF3eel4blUP3GIIM3nY?=
+ =?us-ascii?Q?EEj7y7McxF+xrMRcLPczP27ng6lW2NSGHlipdaHVuXo9Wo+oULJu1Y/HBSNO?=
+ =?us-ascii?Q?BN0aFAL3RWjEfoTP5xMVx4ez0llk6PhsMlpWM5EbiCZ+qqkofiG+R2cDdRAj?=
+ =?us-ascii?Q?7BXveI/JeHsRKziTxVfBIA7dPYOLtXWFvd8sl2+HDxE2Ee3HYAjPIXrwe+VD?=
+ =?us-ascii?Q?nB61fOPhNx6kQjaZnItEfvEMdbFnLnpIHfUQ0nYJEvaOL0nPANggI8SNFzNl?=
+ =?us-ascii?Q?YrZ6j1lHejGANom4j/g=3D?=
+X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:satlexmb07.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(1800799024)(36860700013);DIR:OUT;SFP:1101;
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Oct 2025 06:19:13.8298
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: f42e40f2-62ee-4caf-8fc9-08de0244c628
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb07.amd.com]
+X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0001A0FF.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV8PR12MB9408
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_224515_554182_553E0902 
-X-CRM114-Status: GOOD (  22.54  )
+X-CRM114-CacheID: sfid-20251002_231926_489630_BF2FA53C 
+X-CRM114-Status: UNSURE (   8.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,93 +149,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof,
+This patch series addresses issues and optimizations in the Xilinx
+AXI DMA and MCDMA drivers:
+1. Fix channel idle state management in the interrupt handlers.
+2. Enable transfer chaining by removing unnecessary idle restrictions.
+3. Optimize control register writes and channel start logic.
 
-The dt-bindings patch was merged earlier in v3 series (https://lore.kernel.=
-org/linux-samsung-soc/175664688891.195158.13270877080433356384.b4-ty=40lina=
-ro.org/ on 31st August)
-into respective maintainer repo.=20
-Then I have been asked to drop the applied v3 patches and send rebased v4 s=
-eries (https://lore.kernel.org/linux-samsung-soc/15508cb4-843c-42d1-8854-5e=
-abd79ca0df=40kernel.org/)
+Note: The patches in this series were part of following IRQ coalescing
+series which is under discussion:
+https://lore.kernel.org/all/20250710101229.804183-1-suraj.gupta2@amd.com/
 
-Since the 4 patches from v3 series has been already merged, I have not the =
-mentioned dependency while sending remaining v4 patches considering
-It is going to same maintainer repo and it will be applied in sequence.
+Changes in V2:
+- Apply similar fixes and optimizations to MCDMA as well.
+- Expand the 1/3 commit description with when the described issue occurs.
 
-For future patches (like artpec-9), I will mention the dependency even it i=
-s merged in same repo.
+Suraj Gupta (3):
+  dmaengine: xilinx_dma: Fix channel idle state management in AXIDMA and
+    MCDMA interrupt handlers
+  dmaengine: xilinx_dma: Enable transfer chaining for AXIDMA and MCDMA
+    by removing idle restriction
+  dmaengine: xilinx_dma: Optimize control register write and channel
+    start logic for AXIDMA and MCDMA in corresponding start_transfer()
 
-Thanks,
-Ravi
+ drivers/dma/xilinx/xilinx_dma.c | 32 ++++++++++++++++----------------
+ 1 file changed, 16 insertions(+), 16 deletions(-)
 
-> -----Original Message-----
-> From: Krzysztof Kozlowski <krzk=40kernel.org>
-> Sent: 02 October 2025 12:10
-> To: Ravi Patel <ravi.patel=40samsung.com>
-> Cc: jesper.nilsson=40axis.com; mturquette=40baylibre.com; sboyd=40kernel.=
-org; robh=40kernel.org; krzk+dt=40kernel.org;
-> conor+dt=40kernel.org; s.nawrocki=40samsung.com; cw00.choi=40samsung.com;=
- alim.akhtar=40samsung.com; linus.walleij=40linaro.org;
-> tomasz.figa=40gmail.com; catalin.marinas=40arm.com; will=40kernel.org; ar=
-nd=40arndb.de; ksk4725=40coasia.com; kenkim=40coasia.com;
-> pjsin865=40coasia.com; gwk1013=40coasia.com; hgkim05=40coasia.com; mingyo=
-ungbo=40coasia.com; smn1196=40coasia.com;
-> shradha.t=40samsung.com; inbaraj.e=40samsung.com; swathi.ks=40samsung.com=
-; hrishikesh.d=40samsung.com;
-> dj76.yang=40samsung.com; hypmean.kim=40samsung.com; linux-kernel=40vger.k=
-ernel.org; linux-arm-kernel=40lists.infradead.org; linux-
-> samsung-soc=40vger.kernel.org; linux-arm-kernel=40axis.com; devicetree=40=
-vger.kernel.org; linux-gpio=40vger.kernel.org
-> Subject: Re: =5BPATCH v4 0/6=5D Add support for the Axis ARTPEC-8 SoC
->=20
-> On Mon, 1 Sept 2025 at 14:42, Ravi Patel <ravi.patel=40samsung.com> wrote=
-:
-> >
-> > Add basic support for the Axis ARTPEC-8 SoC which contains
-> > quad-core Cortex-A53 CPU and other several IPs. This SoC is an
-> > Axis-designed chipset used in surveillance camera products such as
-> > the AXIS Q1656-LE and AXIS Q3538-LVE.
-> >
-> > This ARTPEC-8 SoC has a variety of Samsung-specific IP blocks and
-> > Axis-specific IP blocks and SoC is manufactured by Samsung Foundry.
-> >
-> > List of Samsung-provided IPs:
-> > - UART
-> > - Ethernet (Vendor: Synopsys)
-> > - SDIO
-> > - SPI
-> > - HSI2C
-> > - I2S
-> > - CMU (Clock Management Unit)
-> > - Pinctrl (GPIO)
-> > - PCIe (Vendor: Synopsys)
-> > - USB (Vendor: Synopsys)
-> >
-> > List of Axis-provided IPs:
-> > - VIP (Image Sensor Processing IP)
-> > - VPP (Video Post Processing)
-> > - GPU
-> > - CDC (Video Encoder)
-> >
-> > This patch series includes below changes:
-> > - CMU (Clock Management Unit) driver and its bindings
-> > - GPIO pinctrl configuration and its bindings
-> > - Basic Device Tree for ARTPEC-8 SoC and boards
-> >
->=20
-> Pretty useless cover letter since it doesn't say the damn most
-> important thing : dependency=21
->=20
-> So this went unnoticed and now mainline (Linus tree) is affected. See
-> Linus rant on soc pull request
->=20
-> I'm very disappointed, actually mostly on me that I picked this up.
-> Your future patches, need to improve quality and probably you need to
-> go back to how Git works and how maintainer trees are organized. Read
-> carefully, really carefully please maintainer profile .
->=20
-> I'll be putting artpec 9 on hold, till you confirm what was wrong here
-> and how are you going to fix it in the future.
+-- 
+2.25.1
 
 
