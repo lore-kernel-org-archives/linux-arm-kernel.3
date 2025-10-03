@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1239CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 20:16:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5208CCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 20:16:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wltohi1m5SDbJkLhV1v5gx0uRt+qjskx2yr9lkFdxy8=; b=GdL4eMzLgNBty7h3n1aHV7lPFD
-	jpW2yySUI8ugN920LQwJL76cxnO5q5Z2RdHBlXpDcIEZEA3pOu65lR+kbgVCevVgVJ6z+G1HL7sKh
-	JP82raUk4yHqpYcTvlqpU7+aqp4tkBuD3dkTBdX+7LdglDIptAN+PGP/v2xNcsVt7dMRIoVO0Evr8
-	V/mpfu79rREcj7wdjUWE/WCIKvW3BH8Qwt3UASacGWt2tAsN1a5pRLlChghBMAyGNEMCqjNkZV2lA
-	hWe1U3O8E5BWFqNjGzX7hJn916eZvMyj6VrqvxtrIYfW2FSAW+Bo0+w93DP7Y1rx6/kf3nabKFvgK
-	FskvWZBQ==;
+	bh=eh+sUFlOv59lp/vCBeSkjajmcNvaT/3Hx34rZwnuFVM=; b=GSrmwOL1R+xR/IsxQfyQBNv7L4
+	bq6N8wXF70KDLNlCxROPTNOk0cMH7LbWPJ8mKQSG1DxyL+JuQnXeapi4cdCQVxYf/3MsKGPVqPgPE
+	h5ydwyXAIiYx/c1L8f0ZFS+V3949vq6JmeZR6yfihmj4hwbCR8TeJuYRrjfBcLcFB/Ii+5QUlWar8
+	/JxgjVr1HabJIlKAbD7cSkoF+eVgtJuHAb3LlyHkTCt19S3iXxXzTkew8XNw2cisxLFXLwNT1W0u6
+	sNLGVqqcv7WKjTVG23yCjtuwE05jsvVaN1CosjWkGBeUjtVZvIzpbB6dRPPxqmHlXCtcPSFdsArGX
+	V+E3ZRyQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4mCX-0000000D3iT-0007;
-	Fri, 03 Oct 2025 20:16:25 +0000
+	id 1v4mCh-0000000D3vq-3ez4;
+	Fri, 03 Oct 2025 20:16:35 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4mCS-0000000D3az-2Ms2;
-	Fri, 03 Oct 2025 20:16:22 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1759522551; cv=none; 
+	id 1v4mCe-0000000D3qy-1dWi;
+	Fri, 03 Oct 2025 20:16:33 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1759522567; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=ZHUrgik/Z3cz6MIsOzVAJyXkbEtMxNnHDDttdCbsV8+q25asbGRN0S0D+Jxos6mT2r/UxhMh4UGV+L6q0gGldAQnp1ZVFj81ejx45VDw1TQE8HcsTHdajK5OSUwlyDVmvPwNgWUCOQx7lUzoynxXUQ373546GSVnt2EpPow0PG0=
+	b=BewWrUSbHUV6Ma4sSIKIjzhzShF9pbcqjQpsgSi5VV8ZJ/0PmN4/WLJETBA1hanA/WBas9KsEHM37phCMHzTIixuSR/xsOJgWwY38Hh8x5SGZW7T3bxsUftfukcPXtJjeFYAt+CwLD1+Td9erCEGBOkKsT37JPL4EKbfDxxLGJo=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1759522551; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=Wltohi1m5SDbJkLhV1v5gx0uRt+qjskx2yr9lkFdxy8=; 
-	b=W9A1gmJg71b2pDzj43GRq1TIjdQtPtDP+81cIabJFk1jC2vblqF7nxquaqKz7oF1+2cMyzmCfgMh+7NMclagZIezeZArTdDFCORNlsto0oWHgUmdkVNUOkvIPXEE0pebsFyxwZOaz7h2K678k1k2rUlcjGd2P26uPpVkwcD7ZbE=
+	t=1759522567; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=eh+sUFlOv59lp/vCBeSkjajmcNvaT/3Hx34rZwnuFVM=; 
+	b=KeG9a0qWHgpbzJNclaKV90zJf/KQGjakHcqovcgNsmWovU0Omm6LEt0NnWk+S31QiOAsEZjdqemA+xM1ipZdgxS4mzhkzjzjgYx/H4KenRnfvSKNR36eDbUn/vO4+RJRr+Ehb0+uWe0Pf3Ic4AoYtMq65bOoSCPgO4C9icNqmIg=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1759522551;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1759522567;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=Wltohi1m5SDbJkLhV1v5gx0uRt+qjskx2yr9lkFdxy8=;
-	b=Ne6J81sjyHPkawZ8cmKyg6xfqKhdd+8T4LoRz3OcACs8C5/KeYaSZIgJSMwP+0Wd
-	q5SagKPgE5gwgIMOAEyYsG2XgG2Db3Y7tSn74spLl6b601t20n1Py1y5ZU0gti+8XQ0
-	fRiUFYvn4xb4Mj8gfNudTe2UhDuz0z64uqereuFE=
-Received: by mx.zohomail.com with SMTPS id 1759522549318401.20665073138446;
-	Fri, 3 Oct 2025 13:15:49 -0700 (PDT)
+	bh=eh+sUFlOv59lp/vCBeSkjajmcNvaT/3Hx34rZwnuFVM=;
+	b=kL+vIulPBmx9LaDeQ+jTQGDxoNjGGFN9cKpWi+SW/s1aPWa9bqkKr14EShgQIYzN
+	r6I6eh0yOjI6Os39ivfO7tQfRi02ryAHDpiJqmUak0tWitZ5EEb9UlVVZrztQt6n+tU
+	d1dOPktsNqULDMd0LaBjspASvqPMlAzfpIWNqIT0=
+Received: by mx.zohomail.com with SMTPS id 1759522565601633.8413941370096;
+	Fri, 3 Oct 2025 13:16:05 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Fri, 03 Oct 2025 22:15:05 +0200
-Subject: [PATCH v6 3/7] dt-bindings: mailbox: Add MT8196 GPUEB Mailbox
+Date: Fri, 03 Oct 2025 22:15:08 +0200
+Subject: [PATCH v6 6/7] drm/panthor: Use existing OPP table if present
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251003-mt8196-gpufreq-v6-3-76498ad61d9e@collabora.com>
+Message-Id: <20251003-mt8196-gpufreq-v6-6-76498ad61d9e@collabora.com>
 References: <20251003-mt8196-gpufreq-v6-0-76498ad61d9e@collabora.com>
 In-Reply-To: <20251003-mt8196-gpufreq-v6-0-76498ad61d9e@collabora.com>
 To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
@@ -72,12 +72,11 @@ Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org, 
  linux-hardening@vger.kernel.org, linux-pm@vger.kernel.org, 
- Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
- Conor Dooley <conor.dooley@microchip.com>
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_131620_651911_C8624214 
-X-CRM114-Status: GOOD (  13.12  )
+X-CRM114-CacheID: sfid-20251003_131632_497643_FABA14F1 
+X-CRM114-Status: GOOD (  11.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,91 +91,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The MediaTek MT8196 SoC includes an embedded MCU referred to as "GPUEB",
-acting as glue logic to control power and frequency of the Mali GPU.
-This MCU runs special-purpose firmware for this use, and the main
-application processor communicates with it through a mailbox.
+On SoCs where the GPU's power-domain is in charge of setting performance
+levels, the OPP table of the GPU node will have already been populated
+during said power-domain's attach_dev operation.
 
-Add a binding that describes this mailbox.
+To avoid initialising an OPP table twice, only set the OPP regulator and
+the OPPs from DT if there's no OPP table present.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- .../mailbox/mediatek,mt8196-gpueb-mbox.yaml        | 64 ++++++++++++++++++++++
- 1 file changed, 64 insertions(+)
+ drivers/gpu/drm/panthor/panthor_devfreq.c | 26 ++++++++++++++++----------
+ 1 file changed, 16 insertions(+), 10 deletions(-)
 
-diff --git a/Documentation/devicetree/bindings/mailbox/mediatek,mt8196-gpueb-mbox.yaml b/Documentation/devicetree/bindings/mailbox/mediatek,mt8196-gpueb-mbox.yaml
-new file mode 100644
-index 0000000000000000000000000000000000000000..ab5b780cb83a708a3897ca1a440131d97b56c3a6
---- /dev/null
-+++ b/Documentation/devicetree/bindings/mailbox/mediatek,mt8196-gpueb-mbox.yaml
-@@ -0,0 +1,64 @@
-+# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/mailbox/mediatek,mt8196-gpueb-mbox.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/drivers/gpu/drm/panthor/panthor_devfreq.c b/drivers/gpu/drm/panthor/panthor_devfreq.c
+index 978f193a2aee561fadd9a976e9b1417118260889..6beb6170d6eea3dd65880dfe64a61abbdd5f08da 100644
+--- a/drivers/gpu/drm/panthor/panthor_devfreq.c
++++ b/drivers/gpu/drm/panthor/panthor_devfreq.c
+@@ -143,6 +143,7 @@ int panthor_devfreq_init(struct panthor_device *ptdev)
+ 	struct panthor_devfreq *pdevfreq;
+ 	struct dev_pm_opp *opp;
+ 	unsigned long cur_freq;
++	struct opp_table *t;
+ 	unsigned long freq = ULONG_MAX;
+ 	int ret;
+ 
+@@ -152,18 +153,23 @@ int panthor_devfreq_init(struct panthor_device *ptdev)
+ 
+ 	ptdev->devfreq = pdevfreq;
+ 
+-	ret = devm_pm_opp_set_regulators(dev, reg_names);
+-	if (ret) {
+-		if (ret != -EPROBE_DEFER)
+-			DRM_DEV_ERROR(dev, "Couldn't set OPP regulators\n");
+-
+-		return ret;
++	t = dev_pm_opp_get_opp_table(dev);
++	if (IS_ERR_OR_NULL(t)) {
++		ret = devm_pm_opp_set_regulators(dev, reg_names);
++		if (ret) {
++			if (ret != -EPROBE_DEFER)
++				DRM_DEV_ERROR(dev, "Couldn't set OPP regulators\n");
 +
-+title: MediaTek MFlexGraphics GPUEB Mailbox Controller
++			return ret;
++		}
 +
-+maintainers:
-+  - Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-+
-+properties:
-+  compatible:
-+    enum:
-+      - mediatek,mt8196-gpueb-mbox
-+
-+  reg:
-+    items:
-+      - description: mailbox data registers
-+      - description: mailbox control registers
-+
-+  reg-names:
-+    items:
-+      - const: data
-+      - const: ctl
-+
-+  clocks:
-+    items:
-+      - description: main clock of the GPUEB MCU
-+
-+  interrupts:
-+    items:
-+      - description: fires when a new message is received
-+
-+  "#mbox-cells":
-+    const: 1
-+    description:
-+      The number of the mailbox channel.
-+
-+required:
-+  - compatible
-+  - reg
-+  - reg-names
-+  - clocks
-+  - interrupts
-+  - "#mbox-cells"
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/clock/mediatek,mt8196-clock.h>
-+    #include <dt-bindings/interrupt-controller/arm-gic.h>
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+
-+    mailbox@4b09fd80 {
-+        compatible = "mediatek,mt8196-gpueb-mbox";
-+        reg = <0x4b09fd80 0x280>,
-+              <0x4b170000 0x7c>;
-+        reg-names = "data", "ctl";
-+        clocks = <&topckgen CLK_TOP_MFG_EB>;
-+        interrupts = <GIC_SPI 608 IRQ_TYPE_LEVEL_HIGH 0>;
-+        #mbox-cells = <1>;
-+    };
++		ret = devm_pm_opp_of_add_table(dev);
++		if (ret)
++			return ret;
++	} else {
++		dev_pm_opp_put_opp_table(t);
+ 	}
+ 
+-	ret = devm_pm_opp_of_add_table(dev);
+-	if (ret)
+-		return ret;
+-
+ 	spin_lock_init(&pdevfreq->lock);
+ 
+ 	panthor_devfreq_reset(pdevfreq);
 
 -- 
 2.51.0
