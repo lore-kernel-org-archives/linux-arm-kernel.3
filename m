@@ -4,93 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 765D4CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 12:51:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00412CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 12:55:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lYgyMG07VqTYH5jn/t5TCThG/fj6xAJlnS1AF75htXQ=; b=kEAa3LSXosJjSy+HfSpPUOw1qr
-	49kPLKpipp4RuTHry4AnyZkYYOfkBHtjqhqk0GLVV3GJrr28N0/9JsExVmQzbdk85TT/EfwXE7bBG
-	oLXgkoI/p1ivPb9MYz80aiqycyTmEMJtXGFSYSFK/xXS25tYS0vbtaFvpzZo3HVTF2uQtPuXLGOAu
-	dL5Yns83rbZ/jUdIPmeCZwAvrZeqUVUTm8sPh2OjCByAdv7/PWbfnMC37WyNOgVoeR6DxaSZ+UjRh
-	cVbSTXYAv4pcoNtk8J6GIKwputVaRZtEOFmkE1gHgvLmCHSz2qcJzz5LSPeBuFCbrZsdj32XcpzDw
-	H9csZTnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=hUVlP6+PJZcvY0gs/BWUDj4eOBc/o77YxaXLrdcxszQ=; b=ec8iji8aNI2P/PPDGf201gFK8X
+	hJYRa2fi3szDMzYk3UMbG0iVxF61HG++FdkklBKDaSMbx4BDGpx3DKmQ0slxjU+vqTembH0Qvp6jq
+	RUNszgh8AXw9ynCH5vyVYKABqR15841iUFvf0h6d/EitUAeEKyikE3VzLIWBaeZIu0tcn2+GsM/+V
+	by5X7Prksxa+mYMJsgf7sEdocoOFqnrtZ/eJAUDKIRQxMCi2ngMvortF49JVKYGPMGn6G19Gl7+0A
+	cTnOtL2l13CZhiOovrinbLT+zBcVUJ1IJwIITDwELDhWd2AYmRLaFUALHFn0gnhqsl2XX/93EDJub
+	grWRpsjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4fFd-0000000CIko-0gOI;
-	Fri, 03 Oct 2025 12:51:09 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4fFb-0000000CIim-0ecN
+	id 1v4fJq-0000000CJRr-3KFQ;
+	Fri, 03 Oct 2025 12:55:30 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v4fJo-0000000CJRO-0lS1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Oct 2025 12:51:08 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-46e384dfde0so24027915e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Oct 2025 05:51:06 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1759495865; x=1760100665; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=lYgyMG07VqTYH5jn/t5TCThG/fj6xAJlnS1AF75htXQ=;
-        b=RD0s+l+KWXXDCSjX3nwdH0d/sxDsSVTaL2EE6Fre1DUPDbIi6PBeSxoul27LaS2X9l
-         vZxoHmjHBA8QeY7gs45iEJ6r9F6J6v4IzMSmMGWkdMH8g/WEY55fA62TEdAqYusv7zeR
-         mC1/neV5aj6cllPwmn93eS8L9Xd+nKV6N9sc6IotKkEDxWNLGOSDwykT4ZI3xcghFIjg
-         Nla/lo7LDGXrGjdP1D/Ma35HIdOVII2c6VxhSPQaFMb2r9rzZte6NMDh0flsTjvYaHy0
-         6lNLgXxRKADsUXCYitQOgcSbAY6G0/xLDJg79zt9YaeRohbPiAL6p/GD7ofYdI97wvbb
-         hvqA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759495865; x=1760100665;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=lYgyMG07VqTYH5jn/t5TCThG/fj6xAJlnS1AF75htXQ=;
-        b=G9Z+Mi/8adE2lbss6Af8Ed8PRGoub1Ls6sCBZPngDCOfF0jecltO66+vZ6anCu+LPe
-         aUoa/4Eg/+aUsAoxUQ8x5gBBZvGePbMwTx8myKZPWFLwyNT0wkIxgYZTdAMN8UgCbujo
-         uDkYcbNgEKU3rlJTa1f/ZNSZbEaWs+dg0yMtqhVIub7sPaLJaZ8trgzyYZjdTAwvd0uY
-         /ZWA/SUTNzNgudFijdsgYTkCJ9HPIH/mqYotk21q1C+/9V0ml4d9QBLWO1xoQfmT0OsI
-         mRXHROAj50I3clIczEWTbxV7o89aUDkBsMZL1bBph45VRlTUakAUTazx0Fhd6zh6N2SF
-         DJ7A==
-X-Forwarded-Encrypted: i=1; AJvYcCWJpvht1OXcWqkUkCcof9FyqZN38Vslpp8Sxt3d2j/hJk7QKKmJhL6ppT9pGDQcKenxP84hW2bBb8tsrHyTD3KX@lists.infradead.org
-X-Gm-Message-State: AOJu0YxHR9eXODYzCs5ygj04qJJ9+ZNvy7nrqCR0LTG2Nt6bxYATwe9f
-	reQcmodbVkepBhJtfnFrkF0LvIeLcLz/zco9gaoOoh9eMmgB4evESudc
-X-Gm-Gg: ASbGncsFuh4ijWhVSKUWZRc8VGiWZgEzNWgTjJEEi5/NiCBDDvRDZXT+bW+D2I3Gatf
-	bdz8M30Y4b8nzw6LlyECdOifBIpUo2AcfBhXa8r1VndmQSnY0qT3bgstBO14qm0p+OtHDZxksgk
-	4a0nIvqG/LbC4wZsFqW4arIIGgau+0Qg9nyr1Kngi/7PSGpKzgx0aNPU+rYWHHwvOydwJpNDAgZ
-	lfxIM+P6qDfLENfL9Hoyr3+KL6UOk9lPuCfUSxAfw3tZEd96b4fQVAyI2BG6e7b+pFNkkxxXNHe
-	idkt1cF0lvR1hAuegC59EY+tR5DIm5DYg8OdYGdLCW1v+3tbQuJkj7TTnD6u2NOAUj5Q7rMmrOc
-	K2VXkqSEcTfUAh+c4Ouc16B7H0Zw5akK5+/Cmk+a3T5ntCnnhd0ADmxv83+DY1tfjMOZnXA==
-X-Google-Smtp-Source: AGHT+IG4L2xBls0a2hrXeyuJrwzw+WfFt28AIUJ+Fp9Tp8p1FnhMDnBRj+XtHMpNn4kg611dyop0Sg==
-X-Received: by 2002:a05:600c:3b08:b0:465:a51d:d4 with SMTP id 5b1f17b1804b1-46e71101a79mr23090835e9.6.1759495864829;
-        Fri, 03 Oct 2025 05:51:04 -0700 (PDT)
-Received: from localhost.localdomain ([37.159.33.161])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46e5c40983asm80598605e9.3.2025.10.03.05.51.03
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Oct 2025 05:51:04 -0700 (PDT)
-From: Stefano Radaelli <stefano.radaelli21@gmail.com>
-To: devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org
-Cc: Stefano Radaelli <stefano.radaelli21@gmail.com>,
-	Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH v1 3/3] arm64: dts: ti: var-som-am62p: Add support for ADS7846 touchscreen
-Date: Fri,  3 Oct 2025 14:50:29 +0200
-Message-ID: <20251003125031.30539-4-stefano.radaelli21@gmail.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251003125031.30539-1-stefano.radaelli21@gmail.com>
-References: <20251003125031.30539-1-stefano.radaelli21@gmail.com>
+	Fri, 03 Oct 2025 12:55:29 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B2C001655;
+	Fri,  3 Oct 2025 05:55:16 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 527653F66E;
+	Fri,  3 Oct 2025 05:55:24 -0700 (PDT)
+Date: Fri, 3 Oct 2025 13:55:22 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Suzuki K Poulose <suzuki.poulose@arm.com>
+Cc: Mike Leach <mike.leach@linaro.org>,
+	James Clark <james.clark@linaro.org>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
+	Yuanfang Zhang <quic_yuanfang@quicinc.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 01/31] coresight: Change device mode to atomic type
+Message-ID: <20251003125522.GV7985@e132581.arm.com>
+References: <20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com>
+ <20250915-arm_coresight_power_management_fix-v3-1-ea49e91124ec@arm.com>
+ <422560ee-50e8-4298-80c8-de46c521117a@arm.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <422560ee-50e8-4298-80c8-de46c521117a@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_055107_215006_0DDD7E08 
-X-CRM114-Status: GOOD (  11.90  )
+X-CRM114-CacheID: sfid-20251003_055528_265189_636343DE 
+X-CRM114-Status: GOOD (  15.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,53 +70,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The VAR-SOM-AM62P integrates an ADS7846 resistive touchscreen controller.
-The controller is physically located on the SOM, and its signals are
-routed to the SOM pins, allowing carrier boards to make use of it.
+On Thu, Oct 02, 2025 at 01:51:22PM +0100, Suzuki Kuruppassery Poulose wrote:
+> On 15/09/2025 11:33, Leo Yan wrote:
+> > The device mode is defined as local type. This type cannot promise
+> > SMP-safe access.
+> > 
+> > Change to atomic type and impose relax ordering, which ensures the
+> > SMP-safe synchronisation and the ordering between the mode setting and
+> > relevant operations.
+> > 
+> > Fixes: 22fd532eaa0c ("coresight: etm3x: adding operation mode for etm_enable()")
+> 
+> 
+> Do we really have an issue here ? I thought we modify the mode under
+> spinlock. Also the fixes commit looks odd. The mode was added to the
+> coresight device only recently. Prior to that, it was part of drvdata and
+> was serialized by the respective spinlocks. So I don't see how this
+> was an issue.
 
-This patch adds the ADS7846 node under the appropriate SPI controller.
+Below is the sequence in which CPU0 enables the path with CPU1 ETM
+via sysfs knob, while CPU1 is executing the CPUidle notifier:
 
-Signed-off-by: Stefano Radaelli <stefano.radaelli21@gmail.com>
----
- arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi | 24 +++++++++++++++++++
- 1 file changed, 24 insertions(+)
+  CPU0                                     |  CPU1
+                                           |
+  coresight_enable_sysfs()                 |
+   `> mutex_lock(&coresight_mutex)         |  etm4_cpu_pm_notify()
+   `> etm4_enable()                        |   `> etm4_cpu_save()
+       `> coresight_take_mode(csdev, mode) |       `> coresight_get_mode(csdev)
+       `> Call SMP call                    |
+   `> mutex_unlock(&coresight_mutex)       |
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi b/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
-index aba72d0b767c..fc5a3942cde0 100644
---- a/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am62p5-var-som.dtsi
-@@ -322,6 +322,30 @@ &main_spi0 {
- 	pinctrl-0 = <&pinctrl_spi0>;
- 	ti,pindir-d0-out-d1-in;
- 	status = "okay";
-+
-+	/* Resistive touch controller */
-+	ads7846: touchscreen@0 {
-+		compatible = "ti,ads7846";
-+		reg = <0>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_restouch>;
-+		interrupt-parent = <&main_gpio0>;
-+		interrupts = <48 IRQ_TYPE_EDGE_FALLING>;
-+		spi-max-frequency = <1500000>;
-+		pendown-gpio = <&main_gpio0 48 GPIO_ACTIVE_LOW>;
-+		ti,x-min = /bits/ 16 <125>;
-+		ti,x-max = /bits/ 16 <4008>;
-+		ti,y-min = /bits/ 16 <282>;
-+		ti,y-max = /bits/ 16 <3864>;
-+		ti,x-plate-ohms = /bits/ 16 <180>;
-+		ti,pressure-max = /bits/ 16 <255>;
-+		ti,debounce-max = /bits/ 16 <10>;
-+		ti,debounce-tol = /bits/ 16 <3>;
-+		ti,debounce-rep = /bits/ 16 <1>;
-+		ti,settle-delay-usec = /bits/ 16 <150>;
-+		ti,keep-vref-on;
-+		wakeup-source;
-+	};
- };
- 
- &main_uart5 {
--- 
-2.47.3
 
+(1) The mode is not protected by spinlock. Although the sysfs flow
+    acquires a mutex, it does not provide exclusive access to the
+    mode.
+
+(2) On SMP systems, the mode is accessed by multiple CPUs. We
+    currently use the local_* accessors, which are suitable only for
+    per-CPU (local) access, not for SMP access.
+
+If a vairable is not protected by spinlock, and accessed by SMP cores,
+then atomic type would be a right choice.
+
+Thanks,
+Leo
 
