@@ -4,64 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E0D0CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 07:50:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3071CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 07:51:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MjkR4X90Jo3PiW3MHEOJqBk1w93h1XH7DfGw15uL4M4=; b=IB1nWp5npgbNImW0meOHcQh6bd
-	KRNMxPqFE3maZvSY7SRrb3VC3Zjszwa/CR849/B1gH002kJx8n2MMkdbd3EK4NuSN1uQdLkEQFQEU
-	vo5eNa3ajuC+2w1iZ8+5JgF/+Oc71xNGsxHkDkf7CmqqVUEMZqDAym4mDnsjT2UDNS5D47tWTTdm1
-	Sc5fA+NJB0ZLGiy2Y6yjDYNJO5VBAYkbWy3LZu8s5fG0OiXbBSOhK8JsxQlIOv4sYvyuWB0DG3c2L
-	nNYsPEoQ0ynuGvEcgt7/jkdssNv5BU4VOLIRE9SmSLVBj++pleTjUmWTdDp9BMbCMEsO4e/4MmTmx
-	PtDJ/Nvg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=E8lJQPfLjYVHk8CS76IyIm3PF5+xLeDEh0bD99wDfoU=; b=ZK86691ZaSKdUV0Z+6D10ydy4r
+	5D/gpv5BHKd9gHp+QrTTusDNsgks3bWtG7KGDqal5gjnp091F0Oi1PEGB2dWZ5EuWPjGnmL222pQt
+	8/qLa3Jptb2gf62QrPYRAHCIg7dTplGRiZUN6cm3MWz59P4ezGc2sDRKlmV+tWDcVcaTbGn7n8qct
+	5hZ3+W6AcNpj5xFaWpx1zQnftmQ2GNQbAUqzhBBtRhwohxg+Au3NRIjwAlf82mgNvtPZx5PGmYt7c
+	cX36O/YFp8XAV3rW8HkuKX/YoyKYODC7cctbHpaGnUs4YO5kfc5ES/DbLZFDnAumS6B1q1Uiw1NZs
+	6RrYoOgQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4aY7-0000000BqMV-1ADW;
-	Fri, 03 Oct 2025 07:49:55 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1v4aZZ-0000000BqYW-1LpH;
+	Fri, 03 Oct 2025 07:51:25 +0000
+Received: from mail.commetrax.com ([141.95.18.165])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4aY5-0000000BqM6-1N51;
-	Fri, 03 Oct 2025 07:49:54 +0000
-Received: from ideasonboard.com (93-61-96-190.ip145.fastwebnet.it [93.61.96.190])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id CB8FE1340;
-	Fri,  3 Oct 2025 09:48:18 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1759477699;
-	bh=pcKHQ8N+3I6VBKLuDEZ1trChPzbscr0BS/hlauGrsSg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=LNEpbdHO0Yn8sPF49Rbvhl4tNr/MY5vXZNbKscA/nN46K4iZT6Zg/HMzwir1j/ql/
-	 wO6yJ5k7fa1p0VMfIJzdH0/dwyPAwtX8AtmXaaCPMHvqvM2vnfvRX87DRflVvy+1m0
-	 BegSE2DTTFIi3BEQCAungtD3uDmJbPjy+mXYkfRU=
-Date: Fri, 3 Oct 2025 09:49:45 +0200
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-To: Michael Riesch <michael.riesch@collabora.com>
-Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
-	Sakari Ailus <sakari.ailus@linux.intel.com>, Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
-	Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>, Kieran Bingham <kieran.bingham@ideasonboard.com>, 
-	Nicolas Dufresne <nicolas.dufresne@collabora.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
-	Tomasz Figa <tfiga@chromium.org>, Marek Szyprowski <m.szyprowski@samsung.com>, 
-	Raspberry Pi Kernel Maintenance <kernel-list@raspberrypi.com>, Florian Fainelli <florian.fainelli@broadcom.com>, 
-	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>, Hans Verkuil <hverkuil@kernel.org>, linux-kernel@vger.kernel.org, 
-	linux-media@vger.kernel.org, linux-rpi-kernel@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH 06/26] media: v4l2-ioctl: Introduce VIDIOC_BIND_CONTEXT
-Message-ID: <zossafa4bhkzjmyvrkbioyvtcaczw3sblagcfb3ojllv5xhiyl@zwz3stusdmty>
-References: <20250717-multicontext-mainline-2025-v1-0-81ac18979c03@ideasonboard.com>
- <20250717-multicontext-mainline-2025-v1-6-81ac18979c03@ideasonboard.com>
- <b8e03fd2-3a44-48bb-8707-4aecabbbfd9c@collabora.com>
- <wkeizorbd2celujqgs63gzsk5nzsdtoabzg2ocdcsmg3djvl7u@hgh6ridrdwiy>
- <1ba4a5b3-abe8-4580-abf5-1e0fe19f9fb5@collabora.com>
+	id 1v4aZW-0000000BqYC-3M2F
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Oct 2025 07:51:24 +0000
+Received: by mail.commetrax.com (Postfix, from userid 1002)
+	id 6AFA7248C8; Fri,  3 Oct 2025 09:51:03 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=commetrax.com;
+	s=mail; t=1759477880;
+	bh=E8lJQPfLjYVHk8CS76IyIm3PF5+xLeDEh0bD99wDfoU=;
+	h=Date:From:To:Subject:From;
+	b=HvwXxMQIjibQzRdkwpO17sQss/QrIfr0eKtBDJEukNARU9XV6/6dA/c+LRLLbJe+S
+	 177X2A3EWo3fNSL0ofDNxWU6v6l4BWfTTuXlc65QoJFh5KwCLTo+MpMOYjpRC4wAaw
+	 DdpRKN0wM/a9Eg4oIwwdDwZPgEANUk64r697Z6f77ToGhFe3o9+ATNcbGuFC2WjZ1+
+	 PqIkZ2EjzwQrlYnJnRLYNVQ73v4Wlcf2cFqIfnwbP1zJnutwzAOo+ibghH+qxMmgAH
+	 SPn0oMBzOS4A2I9ZLvqFoVLzv8XO0z86DqhKNkfEgbotWUzvZoek7YbAXf6Y4Hd/Aj
+	 0Xib4bncnlBlQ==
+Received: by mail.commetrax.com for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Oct 2025 07:50:43 GMT
+Message-ID: <20251003084500-0.1.c2.151xs.0.qbamlfsifk@commetrax.com>
+Date: Fri,  3 Oct 2025 07:50:43 GMT
+From: "Luke Walsh" <luke.walsh@commetrax.com>
+To: <linux-arm-kernel@lists.infradead.org>
+Subject: Welders
+X-Mailer: mail.commetrax.com
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <1ba4a5b3-abe8-4580-abf5-1e0fe19f9fb5@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_004953_509654_72E0E1BE 
-X-CRM114-Status: GOOD (  62.54  )
+X-CRM114-CacheID: sfid-20251003_005123_123537_BB251846 
+X-CRM114-Status: UNSURE (   0.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,199 +67,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Michael
+Dear Sir or Madam,
 
-On Fri, Oct 03, 2025 at 09:40:39AM +0200, Michael Riesch wrote:
-> Hi Jacopo,
->
-> On 10/2/25 10:48, Jacopo Mondi wrote:
-> > Hi Michael
-> >
-> > On Wed, Oct 01, 2025 at 11:41:38PM +0200, Michael Riesch wrote:
-> >> Hi Jacopo,
-> >>
-> >> On 7/17/25 12:45, Jacopo Mondi wrote:
-> >>> Introduce a new ioctl in V4L2 to allocate a video device context and
-> >>> associate it with a media device context.
-> >>>
-> >>> The ioctl is valid only if support for MEDIA_CONTROLLER is compiled in
-> >>> as it calls into the entity ops to let driver allocate a new context and
-> >>> binds the newly created context with the media context associated
-> >>> with the file descriptor provided by userspace as the new ioctl
-> >>> argument.
-> >>
-> >> I would have expected that the execution context of the video device
-> >> already exists and is not allocated at ioctl call time. If I understand
-> >
-> > If userspace doesn't use contexts, why pre-allocate it ?
->
-> This is more along the lines "if it keeps things simple, why not". But I
-> am still diving into this and may have not gotten the complete picture yet.
->
-> > See also below on the implications of using a context regardless of
-> > userspace actions
-> >
-> >> it correctly
-> >>
-> >>  - after opening a video device, no context is allocated, but in
-> >>    v4l2_fh_release the reference counter of the context is decreased.
-> >>    This smells fishy. Note that the user may not call the ioctl.
-> >
-> > As far as I can see v4l2_fh_release() calls:
-> >
-> > void video_device_context_put(struct video_device_context *ctx)
-> > {
-> >        if (!ctx)
-> >                return;
-> >
-> >        media_entity_context_put(&ctx->base);
-> > }
-> >
-> > which is safe is !ctx
->
-> Ack.
->
-> >
-> >>  - after opening a video device there is no context. This could imply
-> >>    that two operating modes are required (with a context and without a
-> >>    context), which would seem unnecessarily complex.
-> >
-> > You'll find out later on that I have introduced a default context for
-> > this purpose
->
-> Right, I'll check this out.
->
-> >
-> >>  - What happens if the VIDIOC_BIND_CONTEXT ioctl is called more than
-> >>    once? (IIUC vfh->context gets overwritten but the old context is not
-> >>    released)
-> >
-> > Do you mean:
-> >
-> > - Multiple file handles representing the same video device are bound
-> >   multiple times to the same media device context ?
-> >
-> >   media_device_bind_context() called from v4l_bind_context() returns an error
-> >
-> > - An already bound video device fh is bound to (different) media
-> >   device contexts ?
-> >
-> >   I should probably
-> >
-> >   if (vfh->context)
-> >         return -EINVAL;
-> >
-> >   in v4l_bind_context()
-> >
-> >   As an already bound context cannot be re-bound. There currently is
-> >   not un-binding mechanism, it is required to close a file handle to
-> >   unbind.
->
-> The latter. The check you proposed should do the trick.
->
-> >> (Just found that a later patch introduces default contexts. Should this
-> >> address the comments above, consider rearranging the patches so that
-> >> default contexts are introduced first.)
-> >
-> > To be honest I don't see much difference. I'll see if it's practical
-> > to do so or not.
-> >
-> >>
-> >>> The newly allocated video context is then stored in the v4l2-fh that
-> >>> represent the open file handle on which the ioctl has been called.
-> >>
-> >> Couldn't the same be achieved by
-> >>  - v4l2_fh_open allocates a new context
-> >>  - v4l2_fh_release releases it (already implemented)
-> >>  - ioctl takes the existing context and binds it to the media device
-> >>    context
-> >> Then,
-> >>  - open/release are symmetric and not fishy
-> >
-> > Why do you think video_device_context_put() is fishy ?
->
-> Not the video_device_context_put itself, but I expected "open()
-> allocates something, close() release that something". But apparently
-> there is a good reason to deviate from that...
->
-> >
-> >>  - after open but before the ioctl call the user can safely operate on a
-> >>    context
-> >
-> > If we always operate on a per-file-handle context even before binding
-> > it, all the operations performed by an application, even it doesn't
-> > use contexts, will be isolated from the rest of the world.
-> >
-> > This might seem desirable, but changes the semantic of all the v4l2
-> > operations and an application that doesn't use context that runs on a
-> > driver ported to use context will suddenly find all its configuration
-> > to be transient and tied to the lifetime of an open file handle
-> > instead of being device-persistent.
-> >
-> > Using a default, device-wise, default context allows instead existing
-> > applications that do not use contexts to operate as they are used to,
-> > with all the setting/configurations being stored in a persistent
-> > place.
->
-> ... and there it is. Did not have that in mind, thanks for pointing it out.
->
+I am contacting you on behalf of a company specialising in comprehensive =
+industrial services for businesses requiring the highest precision in com=
+ponent manufacturing.
 
-Please note there could be a way to handle what you proposed, by
-unconditionally allocating a context at open() time and inspecting
-its context->mdev_context field to decide if it has been bound or not,
-instead of unconditionally directing operations to it.
+Within one cooperation we provide the outsourcing of certified welders, l=
+ocksmiths and fitters, as well as professional welding services and the a=
+ssembly of steel and industrial structures.
 
-I like symmetry as you do, but I'm still not bought on unconditionally
-allocating a context at open() time.
+Consolidating services with one partner allows you to significantly reduc=
+e costs, minimise the risk of downtime, and increase flexibility in proje=
+ct execution.
 
-> >
-> > [...]
-> >>>
-> >>> +/*
-> >>> + *     V I D E O   D E V I C E   C O N T E X T
-> >>> + */
-> >>> +
-> >>> +struct v4l2_context {
-> >>> +	__u32 context_fd;
-> >>
-> >> Reserve some space for the future?
-> >>
-> >
-> > Might be a good idea. I can't tell how much space we should reserve
-> > though :)
->
-> Prediction is difficult, especially about the future. But having zero
-> reserve sounds like something we could regret at some point down the
-> road. __u32 reserved[3]; ?
+A dedicated coordinator will ensure on-time delivery and high quality, he=
+lping to build long-term, trust-based business relationships.
 
-Not opposed but to be honest I'm not aware of what the best practices
-are here. Let's see what others think
+May I present what we can do for you in this field?
 
 
->
-> Best regards,
-> Michael
->
-> >
-> >>> +};
-> >>> +
-> >>>  /*
-> >>>   *	M E M O R Y - M A P P I N G   B U F F E R S
-> >>>   */
-> >>> @@ -2818,6 +2826,9 @@ struct v4l2_remove_buffers {
-> >>>  #define VIDIOC_REMOVE_BUFS	_IOWR('V', 104, struct v4l2_remove_buffers)
-> >>>
-> >>>
-> >>> +/* Context handling */
-> >>> +#define VIDIOC_BIND_CONTEXT	_IOW('V', 105, struct v4l2_context)
-> >>> +
-> >>>  /* Reminder: when adding new ioctls please add support for them to
-> >>>     drivers/media/v4l2-core/v4l2-compat-ioctl32.c as well! */
-> >>>
-> >>>
-> >>
-> >> Best regards,
-> >> Michael
-> >>
->
+Best regards
+Luke Walsh
 
