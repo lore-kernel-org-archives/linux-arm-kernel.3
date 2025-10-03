@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1049ACCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 09:12:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69DDECAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 09:12:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jo5b0vBCCW1n+83bqNfRVTX2oele5hA8/6k4zMYyVl8=; b=PSiMCAgbMyFJjX2+/GM8iOM34h
-	gjnOCjXNuQPpAMMUFdDF9MXzp36h9w7xayIgfGcUvrVS1YLV+hKbZUDPBxW8JPsEbLs/Z5jXJZ4jI
-	dTyg1CbFOKHodbKRuN2IZDZu6nsxbp4qw6jY7b0XhaN59fWwPrOtxjh8/6+oMQfZa6wABf4DLqsNk
-	30PyroFVue9WXAqx7C6v7Oa1lkceSNnAo7aIYgr5PXzbOp2p+OCgZo4mOmRhY915j7cdKwaxWiiCN
-	rmClZNyyjYU5fEXilabrQoIVzFbAjsO6JyVozzZnhRK0fTiSy2ueK+0EVQSEAJ9JKTxVwxbHuI5b7
-	3n6nTcNg==;
+	bh=7pBD0KDvsnXsuzrL1+cVYEmcIaDSnXYtVuMRo7CBdt0=; b=1uVD7MWFJyi0RS2lrLW9/PtM6F
+	mROaFBpZEbw1uWlR66E1b6WV19tL492AphrTHqZClGJa07DRjqCpjrwdHKGiPQYNWJY1mCDDrP8dY
+	7MQ/YL9lgLrSc1Jmy8Nt63D4JaLEc3LRi+DCJW9qY76dOQzkRRFVh2DiU/Sa8G8qSKvvy9zU8uWUN
+	emJKwFT3U/YT1hnt7nmX2P5RHAsmPNY6LGv16O/89FGmBsOOe2avWqHomTY/6mHk3QH/uwTggwv/w
+	bSh5vgXZazRY45Tk4dIrOZM1SPVhySbDk8cVNBO29whL1vVetrf5fUzoZfFPHw+3vm9XyTNMWfUbz
+	z6wtg9qA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4bpo-0000000Bvln-3MhZ;
-	Fri, 03 Oct 2025 09:12:16 +0000
+	id 1v4bpq-0000000Bvpl-2EqA;
+	Fri, 03 Oct 2025 09:12:18 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4bpf-0000000BvYa-3gmg;
-	Fri, 03 Oct 2025 09:12:10 +0000
+	id 1v4bpe-0000000BvXr-3Ft1;
+	Fri, 03 Oct 2025 09:12:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1759482726;
-	bh=MZretmr1rfsYyhbfNTyrGcQ4eBo2aZeUDjQ2QVlK4v4=;
+	s=mail; t=1759482724;
+	bh=vcwprQsobaHilrAnXj4RS1R6SHIjzrYtGf5UqnQHKRQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=hQxwmnVDJOfdyJGZ0U7G120u2XJeSRjbtTgmxgzV2Vexo2ybolXUlBZPu+MLyitMF
-	 /BsCO7t/5M/cZASXIYABzc4m1ybpmmf2ETUzNSdApvZSaxnnxwxPag/wahsTDcTXbE
-	 lbDRR9uUdEon3WRCC9V6CBx1Kwc5UnDTx5rnW2xFQ9pSqKh207MiOczyvKKqQuvtWQ
-	 5OCtFgc6p/VqB9/6A/1P+Dm6Ip21WTIbOxAP06JiebQ8gaX1hHFFhahZ9oOUtzGUra
-	 WDzNQLA1+h8XFvusRseDxDizSg13H4DdkTnLAZSc+tJ2K3TndHaSrM/69GHZA0GxAx
-	 cU418+OT/0zBw==
+	b=iJYDLZRriwxnf5vl7RYeFOvp6ZWyI3OMZmtWI5j7yALy/SR/DD8PzHYgu2eMhcv+/
+	 IJdg04PXzck2s1ftEFqnAockdGgkTv/x9+HUpj1wlowVBnmaV0oLljm6ZFUAzOsnzL
+	 u7VbIRyodNSM07hkglbC3TdgdsbK+/aJWaNHuYwyK37PYvPbFHGEpzyQasNpaj/OGV
+	 IbLOjULADLF/CrRkQjINkajn5ctsXNYaPfn0f+QM6jhgXo9DHEoLDcMnzyLLryYnlP
+	 i50c/zB6SBMaesiLWPc4buZ8QqllHEopMywbtZRWkAYT2w2T2iTc5Y2q2b3cJfZSyq
+	 mLTSQqTF8KwZg==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 7ECF217E13B9;
-	Fri,  3 Oct 2025 11:12:05 +0200 (CEST)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0BB3017E137E;
+	Fri,  3 Oct 2025 11:12:04 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: linux-mediatek@lists.infradead.org
 Cc: lee@kernel.org,
@@ -59,17 +59,17 @@ Cc: lee@kernel.org,
 	kernel@collabora.com,
 	wenst@chromium.org,
 	igor.belwon@mentallysanemainliners.org
-Subject: [PATCH v8 6/9] regulator: Add support for MediaTek MT6373 SPMI PMIC Regulators
-Date: Fri,  3 Oct 2025 11:11:55 +0200
-Message-ID: <20251003091158.26748-7-angelogioacchino.delregno@collabora.com>
+Subject: [PATCH v8 4/9] regulator: Add support for MediaTek MT6363 SPMI PMIC Regulators
+Date: Fri,  3 Oct 2025 11:11:53 +0200
+Message-ID: <20251003091158.26748-5-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251003091158.26748-1-angelogioacchino.delregno@collabora.com>
 References: <20251003091158.26748-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_021208_290191_2108D077 
-X-CRM114-Status: GOOD (  21.49  )
+X-CRM114-CacheID: sfid-20251003_021207_374310_7CA055F9 
+X-CRM114-Status: GOOD (  18.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,63 +84,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a driver for the regulators found on the MediaTek MT6373 PMIC,
-fully controlled by SPMI interface.
-Similarly to MT6363, this PMIC regulates voltage with input range
-of 2.6-5.0V, and features 10 buck converters and 25 LDOs.
-
-This PMIC is usually found on board designs using the MT6991 or
-MT8196 SoC, in combination with the MT6363 PMIC.
+Add a driver for the regulators found on the MT6363 PMIC, fully
+controlled by SPMI interface.
+This PMIC regulates voltage with an input range of 2.6-5.0V, and
+features 10 buck converters and 26 LDOs.
 
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
  drivers/regulator/Kconfig                  |  10 +
  drivers/regulator/Makefile                 |   1 +
- drivers/regulator/mt6373-regulator.c       | 762 +++++++++++++++++++++
- include/linux/regulator/mt6373-regulator.h | 161 +++++
- 4 files changed, 934 insertions(+)
- create mode 100644 drivers/regulator/mt6373-regulator.c
- create mode 100644 include/linux/regulator/mt6373-regulator.h
+ drivers/regulator/mt6363-regulator.c       | 935 +++++++++++++++++++++
+ include/linux/regulator/mt6363-regulator.h | 330 ++++++++
+ 4 files changed, 1276 insertions(+)
+ create mode 100644 drivers/regulator/mt6363-regulator.c
+ create mode 100644 include/linux/regulator/mt6363-regulator.h
 
 diff --git a/drivers/regulator/Kconfig b/drivers/regulator/Kconfig
-index c6e7d8a9c15d..dda6fe543240 100644
+index 0ba2b7216d37..c6e7d8a9c15d 100644
 --- a/drivers/regulator/Kconfig
 +++ b/drivers/regulator/Kconfig
-@@ -964,6 +964,16 @@ config REGULATOR_MT6370
- 	  This driver supports the control for DisplayBias voltages and one
- 	  general purpose LDO which is commonly used to drive the vibrator.
+@@ -946,6 +946,16 @@ config REGULATOR_MT6360
+ 	  2-channel buck with Thermal Shutdown and Overload Protection
+ 	  6-channel High PSRR and Low Dropout LDO.
  
-+config REGULATOR_MT6373
-+	tristate "MT6373 SPMI PMIC regulator driver"
++config REGULATOR_MT6363
++	tristate "MT6363 SPMI PMIC regulator driver"
 +	depends on SPMI || COMPILE_TEST
 +	select REGMAP_SPMI
 +	help
-+	  Say Y here to enable support for buck and LDO regulators found in
-+	  the MediaTek MT6373 SPMI PMIC and its variants.
++	  Say Y here to enable support for regulators found in the MediaTek
++	  MT6363 SPMI PMIC.
 +	  This driver supports the control of different power rails of device
 +	  through regulator interface.
 +
- config REGULATOR_MT6380
- 	tristate "MediaTek MT6380 PMIC"
- 	depends on MTK_PMIC_WRAP
+ config REGULATOR_MT6370
+ 	tristate "MT6370 SubPMIC Regulator"
+ 	depends on MFD_MT6370
 diff --git a/drivers/regulator/Makefile b/drivers/regulator/Makefile
-index f9593d6a80ac..e792998f6ae1 100644
+index 87c91e71eb22..f9593d6a80ac 100644
 --- a/drivers/regulator/Makefile
 +++ b/drivers/regulator/Makefile
-@@ -114,6 +114,7 @@ obj-$(CONFIG_REGULATOR_MT6359)	+= mt6359-regulator.o
+@@ -112,6 +112,7 @@ obj-$(CONFIG_REGULATOR_MT6357)	+= mt6357-regulator.o
+ obj-$(CONFIG_REGULATOR_MT6358)	+= mt6358-regulator.o
+ obj-$(CONFIG_REGULATOR_MT6359)	+= mt6359-regulator.o
  obj-$(CONFIG_REGULATOR_MT6360) += mt6360-regulator.o
- obj-$(CONFIG_REGULATOR_MT6363) += mt6363-regulator.o
++obj-$(CONFIG_REGULATOR_MT6363) += mt6363-regulator.o
  obj-$(CONFIG_REGULATOR_MT6370) += mt6370-regulator.o
-+obj-$(CONFIG_REGULATOR_MT6373) += mt6373-regulator.o
  obj-$(CONFIG_REGULATOR_MT6380)	+= mt6380-regulator.o
  obj-$(CONFIG_REGULATOR_MT6397)	+= mt6397-regulator.o
- obj-$(CONFIG_REGULATOR_MTK_DVFSRC) += mtk-dvfsrc-regulator.o
-diff --git a/drivers/regulator/mt6373-regulator.c b/drivers/regulator/mt6373-regulator.c
+diff --git a/drivers/regulator/mt6363-regulator.c b/drivers/regulator/mt6363-regulator.c
 new file mode 100644
-index 000000000000..4d7a9c52b090
+index 000000000000..812775072eb5
 --- /dev/null
-+++ b/drivers/regulator/mt6373-regulator.c
-@@ -0,0 +1,762 @@
++++ b/drivers/regulator/mt6363-regulator.c
+@@ -0,0 +1,935 @@
 +// SPDX-License-Identifier: GPL-2.0
 +//
 +// Copyright (c) 2024 MediaTek Inc.
@@ -165,180 +162,216 @@ index 000000000000..4d7a9c52b090
 +
 +#include <linux/regulator/driver.h>
 +#include <linux/regulator/machine.h>
-+#include <linux/regulator/mt6373-regulator.h>
++#include <linux/regulator/mt6363-regulator.h>
 +#include <linux/regulator/of_regulator.h>
 +
-+#define MT6373_REGULATOR_MODE_NORMAL	0
-+#define MT6373_REGULATOR_MODE_FCCM	1
-+#define MT6373_REGULATOR_MODE_LP	2
-+#define MT6373_REGULATOR_MODE_ULP	3
++#define MT6363_REGULATOR_MODE_NORMAL	0
++#define MT6363_REGULATOR_MODE_FCCM	1
++#define MT6363_REGULATOR_MODE_LP	2
++#define MT6363_REGULATOR_MODE_ULP	3
 +
 +#define EN_SET_OFFSET			0x1
 +#define EN_CLR_OFFSET			0x2
++#define OP_CFG_OFFSET			0x5
++
++#define NORMAL_OP_CFG			0x10
++#define NORMAL_OP_EN			0x800000
 +
 +#define OC_IRQ_ENABLE_DELAY_MS		10
 +
-+/* Unlock key for mode setting */
-+#define MT6373_BUCK_TOP_UNLOCK_VALUE	0x5543
++/* Unlock keys for TMA and BUCK_TOP */
++#define MT6363_TMA_UNLOCK_VALUE		0x9c9c
++#define MT6363_BUCK_TOP_UNLOCK_VALUE	0x5543
 +
 +enum {
-+	MT6373_ID_VBUCK0,
-+	MT6373_ID_VBUCK1,
-+	MT6373_ID_VBUCK2,
-+	MT6373_ID_VBUCK3,
-+	MT6373_ID_VBUCK4,
-+	MT6373_ID_VBUCK5,
-+	MT6373_ID_VBUCK6,
-+	MT6373_ID_VBUCK7,
-+	MT6373_ID_VBUCK8,
-+	MT6373_ID_VBUCK9,
-+	MT6373_ID_VANT18,
-+	MT6373_ID_VAUD18,
-+	MT6373_ID_VAUX18,
-+	MT6373_ID_VCN18IO,
-+	MT6373_ID_VCN33_1,
-+	MT6373_ID_VCN33_2,
-+	MT6373_ID_VCN33_3,
-+	MT6373_ID_VEFUSE,
-+	MT6373_ID_VFP,
-+	MT6373_ID_VIBR,
-+	MT6373_ID_VIO28,
-+	MT6373_ID_VMC,
-+	MT6373_ID_VMCH,
-+	MT6373_ID_VMCH_EINT_HIGH,
-+	MT6373_ID_VMCH_EINT_LOW,
-+	MT6373_ID_VRF09_AIF,
-+	MT6373_ID_VRF12_AIF,
-+	MT6373_ID_VRF13_AIF,
-+	MT6373_ID_VRF18_AIF,
-+	MT6373_ID_VRFIO18_AIF,
-+	MT6373_ID_VSRAM_DIGRF_AIF,
-+	MT6373_ID_VTP,
-+	MT6373_ID_VUSB,
++	MT6363_ID_VBUCK1,
++	MT6363_ID_VBUCK2,
++	MT6363_ID_VBUCK3,
++	MT6363_ID_VBUCK4,
++	MT6363_ID_VBUCK5,
++	MT6363_ID_VBUCK6,
++	MT6363_ID_VBUCK7,
++	MT6363_ID_VS1,
++	MT6363_ID_VS2,
++	MT6363_ID_VS3,
++	MT6363_ID_VA12_1,
++	MT6363_ID_VA12_2,
++	MT6363_ID_VA15,
++	MT6363_ID_VAUX18,
++	MT6363_ID_VCN13,
++	MT6363_ID_VCN15,
++	MT6363_ID_VEMC,
++	MT6363_ID_VIO075,
++	MT6363_ID_VIO18,
++	MT6363_ID_VM18,
++	MT6363_ID_VSRAM_APU,
++	MT6363_ID_VSRAM_CPUB,
++	MT6363_ID_VSRAM_CPUM,
++	MT6363_ID_VSRAM_CPUL,
++	MT6363_ID_VSRAM_DIGRF,
++	MT6363_ID_VSRAM_MDFE,
++	MT6363_ID_VSRAM_MODEM,
++	MT6363_ID_VRF09,
++	MT6363_ID_VRF12,
++	MT6363_ID_VRF13,
++	MT6363_ID_VRF18,
++	MT6363_ID_VRFIO18,
++	MT6363_ID_VTREF18,
++	MT6363_ID_VUFS12,
++	MT6363_ID_VUFS18,
 +};
 +
 +/**
-+ * struct mt6373_regulator_info - MT6373 regulators information
++ * struct mt6363_regulator_info - MT6363 regulators information
 + * @desc: Regulator description structure
 + * @lp_mode_reg: Low Power mode register (normal/idle)
 + * @lp_mode_mask: Low Power mode regulator mask
++ * @hw_lp_mode_reg: Hardware voted Low Power mode register (normal/idle)
++ * @hw_lp_mode_mask: Hardware voted Low Power mode regulator mask
 + * @modeset_reg: AUTO/PWM mode register
 + * @modeset_mask: AUTO/PWM regulator mask
++ * @lp_imax_uA: Maximum load current (microamps), for Low Power mode only
++ * @op_en_reg: Operation mode enablement register
++ * @orig_op_en: Backup of a regulator's operation mode enablement register
++ * @orig_op_cfg: Backup of a regulator's operation mode configuration register
 + * @oc_work: Delayed work for enabling overcurrent IRQ
 + * @hwirq: PMIC-Internal HW Interrupt for overcurrent event
 + * @virq: Mapped Interrupt for overcurrent event
 + */
-+struct mt6373_regulator_info {
++struct mt6363_regulator_info {
 +	struct regulator_desc desc;
 +	u16 lp_mode_reg;
 +	u16 lp_mode_mask;
++	u16 hw_lp_mode_reg;
++	u16 hw_lp_mode_mask;
 +	u16 modeset_reg;
 +	u16 modeset_mask;
++	int lp_imax_uA;
++	u16 op_en_reg;
++	u32 orig_op_en;
++	u8 orig_op_cfg;
 +	struct delayed_work oc_work;
 +	u8 hwirq;
 +	int virq;
 +};
 +
-+#define MT6373_BUCK(match, vreg, min, max, step, en_reg, lp_reg,	\
++#define MT6363_BUCK(match, vreg, min, max, step, en_reg, lp_reg,	\
 +		    mset_reg, ocp_intn)					\
-+[MT6373_ID_##vreg] = {							\
++[MT6363_ID_##vreg] = {							\
 +	.desc = {							\
 +		.name = match,						\
 +		.supply_name = "vsys-"match,				\
 +		.of_match = of_match_ptr(match),			\
-+		.ops = &mt6373_vreg_setclr_ops,				\
++		.ops = &mt6363_vreg_setclr_ops,				\
 +		.type = REGULATOR_VOLTAGE,				\
-+		.id = MT6373_ID_##vreg,					\
++		.id = MT6363_ID_##vreg,					\
 +		.owner = THIS_MODULE,					\
 +		.n_voltages = (max - min) / step + 1,			\
 +		.min_uV = min,						\
 +		.uV_step = step,					\
 +		.enable_reg = en_reg,					\
-+		.enable_mask = BIT(MT6373_PMIC_RG_BUCK_##vreg##_EN_BIT),\
-+		.vsel_reg = MT6373_PMIC_RG_BUCK_##vreg##_VOSEL_ADDR,	\
-+		.vsel_mask = MT6373_PMIC_RG_BUCK_VOSEL_MASK,		\
-+		.of_map_mode = mt6373_map_mode,				\
++		.enable_mask = BIT(MT6363_RG_BUCK_##vreg##_EN_BIT),	\
++		.vsel_reg = MT6363_RG_BUCK_##vreg##_VOSEL_ADDR,		\
++		.vsel_mask = MT6363_RG_BUCK_##vreg##_VOSEL_MASK,	\
++		.of_map_mode = mt6363_map_mode,				\
 +	},								\
 +	.lp_mode_reg = lp_reg,						\
-+	.lp_mode_mask = BIT(MT6373_PMIC_RG_BUCK_##vreg##_LP_BIT),	\
++	.lp_mode_mask = BIT(MT6363_RG_BUCK_##vreg##_LP_BIT),		\
++	.hw_lp_mode_reg = MT6363_BUCK_##vreg##_HW_LP_MODE,		\
++	.hw_lp_mode_mask = 0xc,						\
 +	.modeset_reg = mset_reg,					\
-+	.modeset_mask = BIT(MT6373_PMIC_RG_##vreg##_FCCM_BIT),		\
++	.modeset_mask = BIT(MT6363_RG_##vreg##_FCCM_BIT),		\
++	.lp_imax_uA = 100000,						\
++	.op_en_reg = MT6363_BUCK_##vreg##_OP_EN_0,			\
 +	.hwirq = ocp_intn,						\
 +}
 +
-+
-+#define MT6373_LDO_L(match, vreg, in_sup, min, max, step, ocp_intn)	\
-+[MT6373_ID_##vreg] = {							\
-+	.desc = {							\
-+		.name = match,						\
-+		.supply_name = in_sup,					\
-+		.of_match = of_match_ptr(match),			\
-+		.ops = &mt6373_ldo_linear_ops,				\
-+		.type = REGULATOR_VOLTAGE,				\
-+		.id = MT6373_ID_##vreg,					\
-+		.owner = THIS_MODULE,					\
-+		.n_voltages = (max - min) / step + 1,			\
-+		.min_uV = min,						\
-+		.uV_step = step,					\
-+		.enable_reg = MT6373_PMIC_RG_LDO_##vreg##_ADDR,		\
-+		.enable_mask = BIT(0),					\
-+		.vsel_reg = MT6373_PMIC_RG_##vreg##_VOSEL_ADDR,		\
-+		.vsel_mask = MT6373_PMIC_RG_##vreg##_VOSEL_MASK,	\
-+		.of_map_mode = mt6373_map_mode,				\
-+	},								\
-+	.lp_mode_reg = MT6373_PMIC_RG_LDO_##vreg##_ADDR,		\
-+	.lp_mode_mask = BIT(1),						\
-+	.hwirq = ocp_intn,						\
-+}
-+
-+#define MT6373_LDO_VT_OPS(match, vreg, in_sup, vops, vrnum, ocp_intn)	\
-+[MT6373_ID_##vreg] = {							\
++#define MT6363_LDO_LINEAR_OPS(match, vreg, in_sup, vops, min, max,	\
++			      step, buck_reg, ocp_intn)			\
++[MT6363_ID_##vreg] = {							\
 +	.desc = {							\
 +		.name = match,						\
 +		.supply_name = in_sup,					\
 +		.of_match = of_match_ptr(match),			\
 +		.ops = &vops,						\
 +		.type = REGULATOR_VOLTAGE,				\
-+		.id = MT6373_ID_##vreg,					\
++		.id = MT6363_ID_##vreg,					\
++		.owner = THIS_MODULE,					\
++		.n_voltages = (max - min) / step + 1,			\
++		.min_uV = min,						\
++		.uV_step = step,					\
++		.enable_reg = MT6363_RG_##buck_reg##_EN_ADDR,		\
++		.enable_mask = BIT(MT6363_RG_LDO_##vreg##_EN_BIT),	\
++		.vsel_reg = MT6363_RG_LDO_##vreg##_VOSEL_ADDR,		\
++		.vsel_mask = MT6363_RG_LDO_##vreg##_VOSEL_MASK,		\
++		.of_map_mode = mt6363_map_mode,				\
++	},								\
++	.lp_mode_reg = MT6363_RG_##buck_reg##_LP_ADDR,			\
++	.lp_mode_mask = BIT(MT6363_RG_LDO_##vreg##_LP_BIT),		\
++	.hw_lp_mode_reg = MT6363_LDO_##vreg##_HW_LP_MODE,		\
++	.hw_lp_mode_mask = 0x4,						\
++	.hwirq = ocp_intn,						\
++}
++
++#define MT6363_LDO_L_SC(match, vreg, inp, min, max, step, buck_reg,	\
++			ocp_intn)					\
++	MT6363_LDO_LINEAR_OPS(match, vreg, inp, mt6363_vreg_setclr_ops,	\
++			      min, max, step, buck_reg, ocp_intn)
++
++#define MT6363_LDO_L(match, vreg, inp, min, max, step, buck_reg,	\
++		     ocp_intn)						\
++	MT6363_LDO_LINEAR_OPS(match, vreg, inp, mt6363_ldo_linear_ops,	\
++			      min, max, step, buck_reg, ocp_intn)
++
++#define MT6363_LDO_LINEAR_CAL_OPS(match, vreg, in_sup, vops, vrnum,	\
++				  ocp_intn)				\
++[MT6363_ID_##vreg] = {							\
++	.desc = {							\
++		.name = match,						\
++		.supply_name = in_sup,					\
++		.of_match = of_match_ptr(match),			\
++		.ops = &vops,						\
++		.type = REGULATOR_VOLTAGE,				\
++		.id = MT6363_ID_##vreg,					\
 +		.owner = THIS_MODULE,					\
 +		.n_voltages = ARRAY_SIZE(ldo_volt_ranges##vrnum) * 11,	\
 +		.linear_ranges = ldo_volt_ranges##vrnum,		\
 +		.n_linear_ranges = ARRAY_SIZE(ldo_volt_ranges##vrnum),	\
 +		.linear_range_selectors_bitfield = ldos_cal_selectors,	\
-+		.enable_reg = MT6373_PMIC_RG_LDO_##vreg##_ADDR,		\
-+		.enable_mask = BIT(0),					\
-+		.vsel_reg = MT6373_PMIC_RG_##vreg##_VOCAL_ADDR,		\
-+		.vsel_mask = MT6373_PMIC_RG_LDO_VT_VOCALSEL_MASK,	\
-+		.vsel_range_reg = MT6373_PMIC_RG_##vreg##_VOSEL_ADDR,	\
-+		.vsel_range_mask = MT6373_PMIC_RG_LDO_VT_VOCALSEL_MASK,	\
-+		.of_map_mode = mt6373_map_mode,				\
++		.enable_reg = MT6363_RG_LDO_##vreg##_ADDR,		\
++		.enable_mask = BIT(MT6363_RG_LDO_##vreg##_EN_BIT),	\
++		.vsel_reg = MT6363_RG_##vreg##_VOCAL_ADDR,		\
++		.vsel_mask = MT6363_RG_##vreg##_VOCAL_MASK,		\
++		.vsel_range_reg = MT6363_RG_##vreg##_VOSEL_ADDR,	\
++		.vsel_range_mask = MT6363_RG_##vreg##_VOSEL_MASK,	\
++		.of_map_mode = mt6363_map_mode,				\
 +	},								\
-+	.lp_mode_reg = MT6373_PMIC_RG_LDO_##vreg##_ADDR,		\
-+	.lp_mode_mask = BIT(1),						\
++	.lp_mode_reg = MT6363_RG_LDO_##vreg##_ADDR,			\
++	.lp_mode_mask = BIT(MT6363_RG_LDO_##vreg##_LP_BIT),		\
++	.hw_lp_mode_reg = MT6363_LDO_##vreg##_HW_LP_MODE,		\
++	.hw_lp_mode_mask = 0x4,						\
++	.lp_imax_uA = 10000,						\
++	.op_en_reg = MT6363_LDO_##vreg##_OP_EN0,			\
 +	.hwirq = ocp_intn,						\
 +}
 +
-+#define MT6373_LDO_VT(match, vreg, inp, vrnum, ocp_intn)		\
-+	MT6373_LDO_VT_OPS(match, vreg, inp, mt6373_ldo_vtable_ops,	\
-+			  vrnum, ocp_intn)
-+
-+#define MT6373_LDO_EI(match, vreg, inp, vrnum, ocp_intn)		\
-+	MT6373_LDO_VT_OPS(match, vreg, inp, mt6373_vmch_eint_ops,	\
-+			  vrnum, ocp_intn)
++#define MT6363_LDO_VT(match, vreg, inp, vranges_num, ocp_intn)		\
++	MT6363_LDO_LINEAR_CAL_OPS(match, vreg, inp, mt6363_ldo_vtable_ops,\
++				  vranges_num, ocp_intn)
 +
 +static const unsigned int ldos_cal_selectors[] = {
 +	0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15
 +};
 +
-+static const struct linear_range ldo_volt_ranges1[] = {
++static const struct linear_range ldo_volt_ranges0[] = {
 +	REGULATOR_LINEAR_RANGE(1200000, 0, 10, 10000),
 +	REGULATOR_LINEAR_RANGE(1300000, 0, 10, 10000),
 +	REGULATOR_LINEAR_RANGE(1500000, 0, 10, 10000),
 +	REGULATOR_LINEAR_RANGE(1700000, 0, 10, 10000),
 +	REGULATOR_LINEAR_RANGE(1800000, 0, 10, 10000),
 +	REGULATOR_LINEAR_RANGE(2000000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2100000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2200000, 0, 10, 10000),
++	REGULATOR_LINEAR_RANGE(2500000, 0, 10, 10000),
++	REGULATOR_LINEAR_RANGE(2600000, 0, 10, 10000),
 +	REGULATOR_LINEAR_RANGE(2700000, 0, 10, 10000),
 +	REGULATOR_LINEAR_RANGE(2800000, 0, 10, 10000),
 +	REGULATOR_LINEAR_RANGE(2900000, 0, 10, 10000),
@@ -347,6 +380,17 @@ index 000000000000..4d7a9c52b090
 +	REGULATOR_LINEAR_RANGE(3300000, 0, 10, 10000),
 +	REGULATOR_LINEAR_RANGE(3400000, 0, 10, 10000),
 +	REGULATOR_LINEAR_RANGE(3500000, 0, 10, 10000)
++};
++
++static const struct linear_range ldo_volt_ranges1[] = {
++	REGULATOR_LINEAR_RANGE(900000, 0, 10, 10000),
++	REGULATOR_LINEAR_RANGE(1000000, 0, 10, 10000),
++	REGULATOR_LINEAR_RANGE(1100000, 0, 10, 10000),
++	REGULATOR_LINEAR_RANGE(1200000, 0, 10, 10000),
++	REGULATOR_LINEAR_RANGE(1300000, 0, 10, 10000),
++	REGULATOR_LINEAR_RANGE(1700000, 0, 10, 10000),
++	REGULATOR_LINEAR_RANGE(1800000, 0, 10, 10000),
++	REGULATOR_LINEAR_RANGE(1810000, 0, 10, 10000)
 +};
 +
 +static const struct linear_range ldo_volt_ranges2[] = {
@@ -388,113 +432,70 @@ index 000000000000..4d7a9c52b090
 +};
 +
 +static const struct linear_range ldo_volt_ranges4[] = {
-+	REGULATOR_LINEAR_RANGE(1200000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1300000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1500000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1700000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1800000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2000000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2500000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2600000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2700000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2800000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(2900000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(3000000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(3100000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(3300000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(3400000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(3500000, 0, 10, 10000)
++	REGULATOR_LINEAR_RANGE(550000, 0, 10, 5000),
++	REGULATOR_LINEAR_RANGE(600000, 0, 10, 5000),
++	REGULATOR_LINEAR_RANGE(650000, 0, 10, 5000),
++	REGULATOR_LINEAR_RANGE(700000, 0, 10, 5000),
++	REGULATOR_LINEAR_RANGE(750000, 0, 10, 5000),
++	REGULATOR_LINEAR_RANGE(800000, 0, 10, 5000),
++	REGULATOR_LINEAR_RANGE(900000, 0, 10, 5000),
++	REGULATOR_LINEAR_RANGE(950000, 0, 10, 5000),
++	REGULATOR_LINEAR_RANGE(1000000, 0, 10, 5000),
++	REGULATOR_LINEAR_RANGE(1050000, 0, 10, 5000),
++	REGULATOR_LINEAR_RANGE(1100000, 0, 10, 5000),
++	REGULATOR_LINEAR_RANGE(1150000, 0, 10, 5000),
++	REGULATOR_LINEAR_RANGE(1700000, 0, 10, 5000),
++	REGULATOR_LINEAR_RANGE(1750000, 0, 10, 5000),
++	REGULATOR_LINEAR_RANGE(1800000, 0, 10, 5000),
++	REGULATOR_LINEAR_RANGE(1850000, 0, 10, 5000)
 +};
 +
 +static const struct linear_range ldo_volt_ranges5[] = {
-+	REGULATOR_LINEAR_RANGE(900000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1000000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1100000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1200000, 0, 10, 10000),
-+	REGULATOR_LINEAR_RANGE(1300000, 0, 10, 10000),
++	REGULATOR_LINEAR_RANGE(600000, 0, 10, 5000),
++	REGULATOR_LINEAR_RANGE(650000, 0, 10, 5000),
++	REGULATOR_LINEAR_RANGE(700000, 0, 10, 5000),
++	REGULATOR_LINEAR_RANGE(750000, 0, 10, 5000),
++	REGULATOR_LINEAR_RANGE(800000, 0, 10, 5000)
 +};
 +
-+static int mt6373_vreg_enable_setclr(struct regulator_dev *rdev)
++static int mt6363_vreg_enable_setclr(struct regulator_dev *rdev)
 +{
 +	return regmap_write(rdev->regmap, rdev->desc->enable_reg + EN_SET_OFFSET,
 +			    rdev->desc->enable_mask);
 +}
 +
-+static int mt6373_vreg_disable_setclr(struct regulator_dev *rdev)
++static int mt6363_vreg_disable_setclr(struct regulator_dev *rdev)
 +{
 +	return regmap_write(rdev->regmap, rdev->desc->enable_reg + EN_CLR_OFFSET,
 +			    rdev->desc->enable_mask);
 +}
 +
-+static inline unsigned int mt6373_map_mode(unsigned int mode)
++static inline unsigned int mt6363_map_mode(unsigned int mode)
 +{
 +	switch (mode) {
-+	case MT6373_REGULATOR_MODE_NORMAL:
++	case MT6363_REGULATOR_MODE_NORMAL:
 +		return REGULATOR_MODE_NORMAL;
-+	case MT6373_REGULATOR_MODE_FCCM:
++	case MT6363_REGULATOR_MODE_FCCM:
 +		return REGULATOR_MODE_FAST;
-+	case MT6373_REGULATOR_MODE_LP:
++	case MT6363_REGULATOR_MODE_LP:
 +		return REGULATOR_MODE_IDLE;
-+	case MT6373_REGULATOR_MODE_ULP:
++	case MT6363_REGULATOR_MODE_ULP:
 +		return REGULATOR_MODE_STANDBY;
 +	default:
 +		return REGULATOR_MODE_INVALID;
 +	}
 +}
 +
-+static int mt6373_vmch_eint_enable(struct regulator_dev *rdev)
++static unsigned int mt6363_regulator_get_mode(struct regulator_dev *rdev)
 +{
-+	const struct regulator_desc *rdesc = rdev->desc;
-+	unsigned int val;
-+	int ret;
-+
-+	if (rdesc->id == MT6373_ID_VMCH_EINT_HIGH)
-+		val = MT6373_PMIC_RG_LDO_VMCH_EINT_POL_BIT;
-+	else
-+		val = 0;
-+
-+	ret = regmap_update_bits(rdev->regmap,
-+				 MT6373_PMIC_RG_LDO_VMCH_EINT_ADDR,
-+				 MT6373_PMIC_RG_LDO_VMCH_EINT_POL_BIT, val);
-+	if (ret)
-+		return ret;
-+
-+	ret = regmap_set_bits(rdev->regmap,
-+			      MT6373_PMIC_RG_LDO_VMCH_ADDR,
-+			      rdesc->enable_mask);
-+	if (ret)
-+		return ret;
-+
-+	return regmap_set_bits(rdev->regmap, rdesc->enable_reg, rdesc->enable_mask);
-+}
-+
-+static int mt6373_vmch_eint_disable(struct regulator_dev *rdev)
-+{
-+	const struct regulator_desc *rdesc = rdev->desc;
-+	int ret;
-+
-+	ret = regmap_clear_bits(rdev->regmap,
-+				MT6373_PMIC_RG_LDO_VMCH_ADDR,
-+				rdesc->enable_mask);
-+	if (ret)
-+		return ret;
-+
-+	/* Wait for VMCH discharging */
-+	usleep_range(1500, 1600);
-+
-+	return regmap_clear_bits(rdev->regmap, rdesc->enable_reg, rdesc->enable_mask);
-+}
-+
-+static unsigned int mt6373_regulator_get_mode(struct regulator_dev *rdev)
-+{
-+	struct mt6373_regulator_info *info = rdev_get_drvdata(rdev);
++	struct mt6363_regulator_info *info = rdev_get_drvdata(rdev);
 +	unsigned int val;
 +	int ret;
 +
 +	if (info->modeset_reg) {
 +		ret = regmap_read(rdev->regmap, info->modeset_reg, &val);
 +		if (ret) {
-+			dev_err(&rdev->dev, "Failed to get mt6373 mode: %d\n", ret);
++			dev_err(&rdev->dev, "Failed to get mt6363 mode: %d\n", ret);
 +			return ret;
 +		}
 +
@@ -504,8 +505,9 @@ index 000000000000..4d7a9c52b090
 +		val = 0;
 +	};
 +
-+	ret = regmap_read(rdev->regmap, info->lp_mode_reg, &val);
-+	val &= info->lp_mode_mask;
++	ret = regmap_read(rdev->regmap, info->hw_lp_mode_reg, &val);
++	val &= info->hw_lp_mode_mask;
++
 +	if (ret) {
 +		dev_err(&rdev->dev, "Failed to get lp mode: %d\n", ret);
 +		return ret;
@@ -517,17 +519,17 @@ index 000000000000..4d7a9c52b090
 +		return REGULATOR_MODE_NORMAL;
 +}
 +
-+static int mt6373_buck_unlock(struct regmap *map, bool unlock)
++static int mt6363_buck_unlock(struct regmap *map, bool unlock)
 +{
-+	u16 buf = unlock ? MT6373_BUCK_TOP_UNLOCK_VALUE : 0;
++	u16 buf = unlock ? MT6363_BUCK_TOP_UNLOCK_VALUE : 0;
 +
-+	return regmap_bulk_write(map, MT6373_BUCK_TOP_KEY_PROT_LO, &buf, sizeof(buf));
++	return regmap_bulk_write(map, MT6363_BUCK_TOP_KEY_PROT_LO, &buf, sizeof(buf));
 +}
 +
-+static int mt6373_regulator_set_mode(struct regulator_dev *rdev,
++static int mt6363_regulator_set_mode(struct regulator_dev *rdev,
 +				     unsigned int mode)
 +{
-+	struct mt6373_regulator_info *info = rdev_get_drvdata(rdev);
++	struct mt6363_regulator_info *info = rdev_get_drvdata(rdev);
 +	struct regmap *regmap = rdev->regmap;
 +	int cur_mode, ret;
 +
@@ -536,29 +538,29 @@ index 000000000000..4d7a9c52b090
 +
 +	switch (mode) {
 +	case REGULATOR_MODE_FAST:
-+		ret = mt6373_buck_unlock(regmap, true);
++		ret = mt6363_buck_unlock(regmap, true);
 +		if (ret)
 +			break;
 +
 +		ret = regmap_set_bits(regmap, info->modeset_reg, info->modeset_mask);
 +
-+		mt6373_buck_unlock(regmap, false);
++		mt6363_buck_unlock(regmap, false);
 +		break;
 +	case REGULATOR_MODE_NORMAL:
-+		cur_mode = mt6373_regulator_get_mode(rdev);
++		cur_mode = mt6363_regulator_get_mode(rdev);
 +		if (cur_mode < 0) {
 +			ret = cur_mode;
 +			break;
 +		}
 +
 +		if (cur_mode == REGULATOR_MODE_FAST) {
-+			ret = mt6373_buck_unlock(regmap, true);
++			ret = mt6363_buck_unlock(regmap, true);
 +			if (ret)
 +				break;
 +
 +			ret = regmap_clear_bits(regmap, info->modeset_reg, info->modeset_mask);
 +
-+			mt6373_buck_unlock(regmap, false);
++			mt6363_buck_unlock(regmap, false);
 +			break;
 +		} else if (cur_mode == REGULATOR_MODE_IDLE) {
 +			ret = regmap_clear_bits(regmap, info->lp_mode_reg, info->lp_mode_mask);
@@ -583,19 +585,181 @@ index 000000000000..4d7a9c52b090
 +	return 0;
 +}
 +
-+static void mt6373_oc_irq_enable_work(struct work_struct *work)
++static int mt6363_regulator_set_load(struct regulator_dev *rdev, int load_uA)
++{
++	struct mt6363_regulator_info *info = rdev_get_drvdata(rdev);
++	unsigned int opmode_cfg, opmode_en;
++	int i, ret;
++
++	if (!info->lp_imax_uA)
++		return -EINVAL;
++
++	if (load_uA >= info->lp_imax_uA) {
++		ret = mt6363_regulator_set_mode(rdev, REGULATOR_MODE_NORMAL);
++		if (ret)
++			return ret;
++
++		opmode_cfg = NORMAL_OP_CFG;
++		opmode_en = NORMAL_OP_EN;
++	} else {
++		opmode_cfg = info->orig_op_cfg;
++		opmode_en = info->orig_op_en;
++	}
++
++	ret = regmap_write(rdev->regmap, info->op_en_reg + OP_CFG_OFFSET, opmode_cfg);
++	if (ret)
++		return ret;
++
++	for (i = 0; i < 3; i++) {
++		ret = regmap_write(rdev->regmap, info->op_en_reg + i,
++				   (opmode_en >> (i * 8)) & GENMASK(7, 0));
++		if (ret)
++			return ret;
++	}
++
++	return 0;
++}
++
++static int mt6363_vemc_set_voltage_sel(struct regulator_dev *rdev, unsigned int sel)
++{
++	const u16 tma_unlock_key = MT6363_TMA_UNLOCK_VALUE;
++	const struct regulator_desc *rdesc = rdev->desc;
++	struct regmap *regmap = rdev->regmap;
++	unsigned int range, val;
++	int i, ret;
++	u16 mask;
++
++	for (i = 0; i < rdesc->n_linear_ranges; i++) {
++		const struct linear_range *r = &rdesc->linear_ranges[i];
++		unsigned int voltages_in_range = linear_range_values_in_range(r);
++
++		if (sel < voltages_in_range)
++			break;
++		sel -= voltages_in_range;
++	}
++
++	if (i == rdesc->n_linear_ranges)
++		return -EINVAL;
++
++	ret = regmap_read(rdev->regmap, MT6363_TOP_TRAP, &val);
++	if (ret)
++		return ret;
++
++	if (val > 1)
++		return -EINVAL;
++
++	/* Unlock TMA for writing */
++	ret = regmap_bulk_write(rdev->regmap, MT6363_TOP_TMA_KEY_L,
++				&tma_unlock_key, sizeof(tma_unlock_key));
++	if (ret)
++		return ret;
++
++	/* If HW trapping value is 1, use VEMC_VOSEL_1 instead of VEMC_VOSEL_0 */
++	if (val == 1) {
++		mask = MT6363_RG_VEMC_VOSEL_1_MASK;
++		sel = FIELD_PREP(MT6363_RG_VEMC_VOSEL_1_MASK, sel);
++	} else {
++		mask = rdesc->vsel_mask;
++	}
++
++	sel <<= ffs(rdesc->vsel_mask) - 1;
++	sel += rdesc->linear_ranges[i].min_sel;
++
++	range = rdesc->linear_range_selectors_bitfield[i];
++	range <<= ffs(rdesc->vsel_range_mask) - 1;
++
++	/* Write to the vreg calibration register for voltage finetuning */
++	ret = regmap_update_bits(regmap, rdesc->vsel_range_reg,
++				 rdesc->vsel_range_mask, range);
++	if (ret)
++		goto lock_tma;
++
++	/* Function must return the result of this write operation */
++	ret = regmap_update_bits(regmap, rdesc->vsel_reg, mask, sel);
++
++lock_tma:
++	/* Unconditionally re-lock TMA */
++	val = 0;
++	regmap_bulk_write(rdev->regmap, MT6363_TOP_TMA_KEY_L, &val, 2);
++
++	return ret;
++}
++
++static int mt6363_vemc_get_voltage_sel(struct regulator_dev *rdev)
++{
++	const struct regulator_desc *rdesc = rdev->desc;
++	unsigned int vosel, trap, calsel;
++	int vcal, vsel, range, ret;
++
++	ret = regmap_read(rdev->regmap, rdesc->vsel_reg, &vosel);
++	if (ret)
++		return ret;
++
++	ret = regmap_read(rdev->regmap, rdesc->vsel_range_reg, &calsel);
++	if (ret)
++		return ret;
++
++	calsel &= rdesc->vsel_range_mask;
++	for (range = 0; range < rdesc->n_linear_ranges; range++)
++		if (rdesc->linear_range_selectors_bitfield[range] != calsel)
++			break;
++
++	if (range == rdesc->n_linear_ranges)
++		return -EINVAL;
++
++	ret = regmap_read(rdev->regmap, MT6363_TOP_TRAP, &trap);
++	if (ret)
++		return ret;
++
++	/* If HW trapping value is 1, use VEMC_VOSEL_1 instead of VEMC_VOSEL_0 */
++	if (trap > 1)
++		return -EINVAL;
++	else if (trap == 1)
++		vsel = FIELD_GET(MT6363_RG_VEMC_VOSEL_1_MASK, vosel);
++	else
++		vsel = vosel & rdesc->vsel_mask;
++
++	vcal = linear_range_values_in_range_array(rdesc->linear_ranges, range);
++
++	return vsel + vcal;
++}
++
++static int mt6363_va15_set_voltage_sel(struct regulator_dev *rdev, unsigned int sel)
++{
++	struct regmap *regmap = rdev->regmap;
++	int ret;
++
++	ret = mt6363_buck_unlock(regmap, true);
++	if (ret)
++		return ret;
++
++	ret = regulator_set_voltage_sel_pickable_regmap(rdev, sel);
++	if (ret)
++		goto va15_unlock;
++
++	ret = regmap_update_bits(regmap, MT6363_RG_BUCK_EFUSE_RSV1,
++				 MT6363_RG_BUCK_EFUSE_RSV1_MASK, sel);
++	if (ret)
++		goto va15_unlock;
++
++va15_unlock:
++	mt6363_buck_unlock(rdev->regmap, false);
++	return ret;
++}
++
++static void mt6363_oc_irq_enable_work(struct work_struct *work)
 +{
 +	struct delayed_work *dwork = to_delayed_work(work);
-+	struct mt6373_regulator_info *info =
-+		container_of(dwork, struct mt6373_regulator_info, oc_work);
++	struct mt6363_regulator_info *info =
++		container_of(dwork, struct mt6363_regulator_info, oc_work);
 +
 +	enable_irq(info->virq);
 +}
 +
-+static irqreturn_t mt6373_oc_isr(int irq, void *data)
++static irqreturn_t mt6363_oc_isr(int irq, void *data)
 +{
 +	struct regulator_dev *rdev = (struct regulator_dev *)data;
-+	struct mt6373_regulator_info *info = rdev_get_drvdata(rdev);
++	struct mt6363_regulator_info *info = rdev_get_drvdata(rdev);
 +
 +	disable_irq_nosync(info->virq);
 +
@@ -607,38 +771,39 @@ index 000000000000..4d7a9c52b090
 +	return IRQ_HANDLED;
 +}
 +
-+static int mt6373_set_ocp(struct regulator_dev *rdev, int lim, int severity, bool enable)
++static int mt6363_set_ocp(struct regulator_dev *rdev, int lim, int severity, bool enable)
 +{
-+	struct mt6373_regulator_info *info = rdev_get_drvdata(rdev);
++	struct mt6363_regulator_info *info = rdev_get_drvdata(rdev);
 +
-+	/* MT6373 supports only enabling protection and does not support limits */
++	/* MT6363 supports only enabling protection and does not support limits */
 +	if (lim || severity != REGULATOR_SEVERITY_PROT || !enable)
-+		return -EINVAL;
++		return -EOPNOTSUPP;
 +
 +	/* If there is no OCP interrupt, there's nothing to set */
 +	if (info->virq <= 0)
-+		return -EINVAL;
++		return -EOPNOTSUPP;
 +
 +	return devm_request_threaded_irq(&rdev->dev, info->virq, NULL,
-+					 mt6373_oc_isr, IRQF_ONESHOT,
++					 mt6363_oc_isr, IRQF_ONESHOT,
 +					 info->desc.name, rdev);
 +}
 +
-+static const struct regulator_ops mt6373_vreg_setclr_ops = {
++static const struct regulator_ops mt6363_vreg_setclr_ops = {
 +	.list_voltage = regulator_list_voltage_linear,
 +	.map_voltage = regulator_map_voltage_linear,
 +	.set_voltage_sel = regulator_set_voltage_sel_regmap,
 +	.get_voltage_sel = regulator_get_voltage_sel_regmap,
 +	.set_voltage_time_sel = regulator_set_voltage_time_sel,
-+	.enable = mt6373_vreg_enable_setclr,
-+	.disable = mt6373_vreg_disable_setclr,
++	.enable = mt6363_vreg_enable_setclr,
++	.disable = mt6363_vreg_disable_setclr,
 +	.is_enabled = regulator_is_enabled_regmap,
-+	.set_mode = mt6373_regulator_set_mode,
-+	.get_mode = mt6373_regulator_get_mode,
-+	.set_over_current_protection = mt6373_set_ocp,
++	.set_mode = mt6363_regulator_set_mode,
++	.get_mode = mt6363_regulator_get_mode,
++	.set_load = mt6363_regulator_set_load,
++	.set_over_current_protection = mt6363_set_ocp,
 +};
 +
-+static const struct regulator_ops mt6373_ldo_linear_ops = {
++static const struct regulator_ops mt6363_ldo_linear_ops = {
 +	.list_voltage = regulator_list_voltage_linear,
 +	.map_voltage = regulator_map_voltage_linear,
 +	.set_voltage_sel = regulator_set_voltage_sel_regmap,
@@ -647,12 +812,12 @@ index 000000000000..4d7a9c52b090
 +	.enable = regulator_enable_regmap,
 +	.disable = regulator_disable_regmap,
 +	.is_enabled = regulator_is_enabled_regmap,
-+	.set_mode = mt6373_regulator_set_mode,
-+	.get_mode = mt6373_regulator_get_mode,
-+	.set_over_current_protection = mt6373_set_ocp,
++	.set_mode = mt6363_regulator_set_mode,
++	.get_mode = mt6363_regulator_get_mode,
++	.set_over_current_protection = mt6363_set_ocp,
 +};
 +
-+static const struct regulator_ops mt6373_ldo_vtable_ops = {
++static const struct regulator_ops mt6363_ldo_vtable_ops = {
 +	.list_voltage = regulator_list_voltage_pickable_linear_range,
 +	.map_voltage = regulator_map_voltage_pickable_linear_range,
 +	.set_voltage_sel = regulator_set_voltage_sel_pickable_regmap,
@@ -661,89 +826,130 @@ index 000000000000..4d7a9c52b090
 +	.enable = regulator_enable_regmap,
 +	.disable = regulator_disable_regmap,
 +	.is_enabled = regulator_is_enabled_regmap,
-+	.set_mode = mt6373_regulator_set_mode,
-+	.get_mode = mt6373_regulator_get_mode,
-+	.set_over_current_protection = mt6373_set_ocp,
++	.set_mode = mt6363_regulator_set_mode,
++	.get_mode = mt6363_regulator_get_mode,
++	.set_load = mt6363_regulator_set_load,
++	.set_over_current_protection = mt6363_set_ocp,
 +};
 +
-+static const struct regulator_ops mt6373_vmch_eint_ops = {
++static const struct regulator_ops mt6363_ldo_vemc_ops = {
 +	.list_voltage = regulator_list_voltage_pickable_linear_range,
 +	.map_voltage = regulator_map_voltage_pickable_linear_range,
-+	.set_voltage_sel = regulator_set_voltage_sel_pickable_regmap,
++	.set_voltage_sel = mt6363_vemc_set_voltage_sel,
++	.get_voltage_sel = mt6363_vemc_get_voltage_sel,
++	.set_voltage_time_sel = regulator_set_voltage_time_sel,
++	.enable = regulator_enable_regmap,
++	.disable = regulator_disable_regmap,
++	.is_enabled = regulator_is_enabled_regmap,
++	.set_mode = mt6363_regulator_set_mode,
++	.get_mode = mt6363_regulator_get_mode,
++	.set_load = mt6363_regulator_set_load,
++	.set_over_current_protection = mt6363_set_ocp,
++};
++
++static const struct regulator_ops mt6363_ldo_va15_ops = {
++	.list_voltage = regulator_list_voltage_pickable_linear_range,
++	.map_voltage = regulator_map_voltage_pickable_linear_range,
++	.set_voltage_sel = mt6363_va15_set_voltage_sel,
 +	.get_voltage_sel = regulator_get_voltage_sel_pickable_regmap,
 +	.set_voltage_time_sel = regulator_set_voltage_time_sel,
-+	.enable = mt6373_vmch_eint_enable,
-+	.disable = mt6373_vmch_eint_disable,
++	.enable = regulator_enable_regmap,
++	.disable = regulator_disable_regmap,
 +	.is_enabled = regulator_is_enabled_regmap,
-+	.set_mode = mt6373_regulator_set_mode,
-+	.get_mode = mt6373_regulator_get_mode,
-+	.set_over_current_protection = mt6373_set_ocp,
++	.set_mode = mt6363_regulator_set_mode,
++	.get_mode = mt6363_regulator_get_mode,
++	.set_load = mt6363_regulator_set_load,
++	.set_over_current_protection = mt6363_set_ocp,
 +};
 +
-+/* The array is indexed by id(MT6373_ID_XXX) */
-+static struct mt6373_regulator_info mt6373_regulators[] = {
-+	MT6373_BUCK("vbuck0", VBUCK0, 0, 1193750, 6250, MT6373_PMIC_RG_BUCK0_EN_ADDR,
-+		    MT6373_PMIC_RG_BUCK0_LP_ADDR, MT6373_PMIC_RG_BUCK0_FCCM_ADDR, 0),
-+	MT6373_BUCK("vbuck1", VBUCK1, 0, 1193750, 6250, MT6373_PMIC_RG_BUCK0_EN_ADDR,
-+		    MT6373_PMIC_RG_BUCK0_LP_ADDR, MT6373_PMIC_RG_BUCK0_FCCM_ADDR, 1),
-+	MT6373_BUCK("vbuck2", VBUCK2, 0, 1193750, 6250, MT6373_PMIC_RG_BUCK0_EN_ADDR,
-+		    MT6373_PMIC_RG_BUCK0_LP_ADDR, MT6373_PMIC_RG_BUCK0_FCCM_ADDR, 2),
-+	MT6373_BUCK("vbuck3", VBUCK3, 0, 1193750, 6250, MT6373_PMIC_RG_BUCK0_EN_ADDR,
-+		    MT6373_PMIC_RG_BUCK0_LP_ADDR, MT6373_PMIC_RG_BUCK0_FCCM_ADDR, 3),
-+	MT6373_BUCK("vbuck4", VBUCK4, 0, 0, 1, MT6373_PMIC_RG_BUCK0_EN_ADDR,
-+		    MT6373_PMIC_RG_BUCK0_LP_ADDR, MT6373_PMIC_RG_BUCK0_1_FCCM_ADDR, 4),
-+	MT6373_BUCK("vbuck5", VBUCK5, 0, 1193750, 6250, MT6373_PMIC_RG_BUCK0_EN_ADDR,
-+		    MT6373_PMIC_RG_BUCK0_LP_ADDR, MT6373_PMIC_RG_BUCK0_1_FCCM_ADDR, 5),
-+	MT6373_BUCK("vbuck6", VBUCK6, 0, 1193750, 6250, MT6373_PMIC_RG_BUCK0_EN_ADDR,
-+		    MT6373_PMIC_RG_BUCK0_LP_ADDR, MT6373_PMIC_RG_BUCK0_1_FCCM_ADDR, 6),
-+	MT6373_BUCK("vbuck7", VBUCK7, 0, 1193750, 6250, MT6373_PMIC_RG_BUCK0_EN_ADDR,
-+		    MT6373_PMIC_RG_BUCK0_LP_ADDR, MT6373_PMIC_RG_BUCK0_1_FCCM_ADDR, 7),
-+	MT6373_BUCK("vbuck8", VBUCK8, 0, 1193750, 6250, MT6373_PMIC_RG_BUCK1_EN_ADDR,
-+		    MT6373_PMIC_RG_BUCK1_LP_ADDR, MT6373_PMIC_RG_BUCK1_FCCM_ADDR, 8),
-+	MT6373_BUCK("vbuck9", VBUCK9, 0, 1193750, 6250, MT6373_PMIC_RG_BUCK1_EN_ADDR,
-+		    MT6373_PMIC_RG_BUCK1_LP_ADDR, MT6373_PMIC_RG_BUCK1_FCCM_ADDR, 9),
-+	MT6373_LDO_VT("vant18", VANT18, "vs1-ldo1", 3, 28),
-+	MT6373_LDO_VT("vaud18", VAUD18, "vs1-ldo1", 3, 16),
-+	MT6373_LDO_VT("vaux18", VAUX18, "vsys-ldo2", 2, 18),
-+	MT6373_LDO_VT("vcn18io", VCN18IO, "vs1-ldo1", 3, 25),
-+	MT6373_LDO_VT("vcn33-1", VCN33_1, "vsys-ldo1", 4, 22),
-+	MT6373_LDO_VT("vcn33-2", VCN33_2, "vsys-ldo1", 4, 23),
-+	MT6373_LDO_VT("vcn33-3", VCN33_3, "vsys-ldo2", 4, 24),
-+	MT6373_LDO_VT("vefuse", VEFUSE, "vsys-ldo2", 1, 31),
-+	MT6373_LDO_VT("vfp", VFP, "vsys-ldo2", 1, 36),
-+	MT6373_LDO_VT("vibr", VIBR, "vsys-ldo2", 1, 34),
-+	MT6373_LDO_VT("vio28", VIO28, "vsys-ldo2", 1, 35),
-+	MT6373_LDO_VT("vmc", VMC, "vsys-ldo1", 1, 33),
-+	MT6373_LDO_VT("vmch", VMCH, "vsys-ldo3", 4, 32),
-+	MT6373_LDO_EI("vmch-eint-high", VMCH_EINT_HIGH, "vsys-ldo3", 4, 0),
-+	MT6373_LDO_EI("vmch-eint-low", VMCH_EINT_LOW, "vsys-ldo3", 4, 0),
-+	MT6373_LDO_VT("vrf09-aif", VRF09_AIF, "vs3-ldo1", 3, 26),
-+	MT6373_LDO_VT("vrf12-aif", VRF12_AIF, "vs2-ldo1", 5, 27),
-+	MT6373_LDO_VT("vrf13-aif", VRF13_AIF, "vs2-ldo1", 3, 19),
-+	MT6373_LDO_VT("vrf18-aif", VRF18_AIF, "vs1-ldo1", 3, 20),
-+	MT6373_LDO_VT("vrfio18-aif", VRFIO18_AIF, "vs1-ldo1", 3, 25),
-+	MT6373_LDO_L("vsram-digrf-aif", VSRAM_DIGRF_AIF, "vs3-ldo1", 400000, 1193750, 6250, 29),
-+	MT6373_LDO_VT("vtp", VTP, "vsys-ldo2", 1, 37),
-+	MT6373_LDO_VT("vusb", VUSB, "vsys-ldo2", 1, 17)
++/* The array is indexed by id(MT6363_ID_XXX) */
++static struct mt6363_regulator_info mt6363_regulators[] = {
++	MT6363_BUCK("vbuck1", VBUCK1, 0, 1193750, 6250, MT6363_RG_BUCK0_EN_ADDR,
++		    MT6363_RG_BUCK0_LP_ADDR, MT6363_RG_BUCK0_FCCM_ADDR, 1),
++	MT6363_BUCK("vbuck2", VBUCK2, 0, 1193750, 6250, MT6363_RG_BUCK0_EN_ADDR,
++		    MT6363_RG_BUCK0_LP_ADDR, MT6363_RG_BUCK0_FCCM_ADDR, 2),
++	MT6363_BUCK("vbuck3", VBUCK3, 0, 1193750, 6250, MT6363_RG_BUCK0_EN_ADDR,
++		    MT6363_RG_BUCK0_LP_ADDR, MT6363_RG_BUCK0_FCCM_ADDR, 3),
++	MT6363_BUCK("vbuck4", VBUCK4, 0, 1193750, 6250, MT6363_RG_BUCK0_EN_ADDR,
++		    MT6363_RG_BUCK0_LP_ADDR, MT6363_RG_BUCK0_1_FCCM_ADDR, 4),
++	MT6363_BUCK("vbuck5", VBUCK5, 0, 1193750, 6250, MT6363_RG_BUCK0_EN_ADDR,
++		    MT6363_RG_BUCK0_LP_ADDR, MT6363_RG_BUCK0_1_FCCM_ADDR, 5),
++	MT6363_BUCK("vbuck6", VBUCK6, 0, 1193750, 6250, MT6363_RG_BUCK0_EN_ADDR,
++		    MT6363_RG_BUCK0_LP_ADDR, MT6363_RG_BUCK0_1_FCCM_ADDR, 6),
++	MT6363_BUCK("vbuck7", VBUCK7, 0, 1193750, 6250, MT6363_RG_BUCK0_EN_ADDR,
++		    MT6363_RG_BUCK0_LP_ADDR, MT6363_RG_BUCK0_1_FCCM_ADDR, 7),
++	MT6363_BUCK("vs1", VS1, 0, 2200000, 12500, MT6363_RG_BUCK1_EN_ADDR,
++		    MT6363_RG_BUCK1_LP_ADDR, MT6363_RG_VS1_FCCM_ADDR, 8),
++	MT6363_BUCK("vs2", VS2, 0, 1600000, 12500, MT6363_RG_BUCK0_EN_ADDR,
++		    MT6363_RG_BUCK0_LP_ADDR, MT6363_RG_BUCK0_FCCM_ADDR, 0),
++	MT6363_BUCK("vs3", VS3, 0, 1193750, 6250, MT6363_RG_BUCK1_EN_ADDR,
++		    MT6363_RG_BUCK1_LP_ADDR, MT6363_RG_VS3_FCCM_ADDR, 9),
++	MT6363_LDO_VT("va12-1", VA12_1, "vs2-ldo2", 3, 37),
++	MT6363_LDO_VT("va12-2", VA12_2, "vs2-ldo2", 3, 38),
++	MT6363_LDO_LINEAR_CAL_OPS("va15", VA15, "vs1-ldo1", mt6363_ldo_va15_ops, 3, 39),
++	MT6363_LDO_VT("vaux18", VAUX18, "vsys-ldo1", 2, 31),
++	MT6363_LDO_VT("vcn13", VCN13, "vs2-ldo2", 1, 17),
++	MT6363_LDO_VT("vcn15", VCN15, "vs1-ldo2", 3, 16),
++	MT6363_LDO_LINEAR_CAL_OPS("vemc", VEMC, "vsys-ldo1", mt6363_ldo_vemc_ops, 0, 32),
++	MT6363_LDO_VT("vio0p75", VIO075, "vs1-ldo1", 5, 36),
++	MT6363_LDO_VT("vio18", VIO18, "vs1-ldo2", 3, 35),
++	MT6363_LDO_VT("vm18", VM18, "vs1-ldo1", 4, 40),
++	MT6363_LDO_L("vsram-apu", VSRAM_APU, "vs3-ldo1", 400000, 1193750, 6250, BUCK1, 30),
++	MT6363_LDO_L("vsram-cpub", VSRAM_CPUB, "vs2-ldo1", 400000, 1193750, 6250, BUCK1, 27),
++	MT6363_LDO_L("vsram-cpum", VSRAM_CPUM, "vs2-ldo1", 400000, 1193750, 6250, BUCK1, 28),
++	MT6363_LDO_L("vsram-cpul", VSRAM_CPUL, "vs2-ldo2", 400000, 1193750, 6250, BUCK1, 29),
++	MT6363_LDO_L_SC("vsram-digrf", VSRAM_DIGRF, "vs3-ldo1", 400000, 1193750, 6250, BUCK1, 23),
++	MT6363_LDO_L_SC("vsram-mdfe", VSRAM_MDFE, "vs3-ldo1", 400000, 1193750, 6250, BUCK1, 24),
++	MT6363_LDO_L_SC("vsram-modem", VSRAM_MODEM, "vs3-ldo2", 400000, 1193750, 6250, BUCK1, 25),
++	MT6363_LDO_VT("vrf0p9", VRF09, "vs3-ldo2", 1, 18),
++	MT6363_LDO_VT("vrf12", VRF12, "vs2-ldo1", 3, 19),
++	MT6363_LDO_VT("vrf13", VRF13, "vs2-ldo1", 1, 20),
++	MT6363_LDO_VT("vrf18", VRF18, "vs1-ldo1", 3, 21),
++	MT6363_LDO_VT("vrf-io18", VRFIO18, "vs1-ldo1", 3, 22),
++	MT6363_LDO_VT("vtref18", VTREF18, "vsys-ldo1", 2, 26),
++	MT6363_LDO_VT("vufs12", VUFS12, "vs2-ldo1", 4, 33),
++	MT6363_LDO_VT("vufs18", VUFS18, "vs1-ldo2", 3, 34),
 +};
 +
-+static void mt6373_irq_remove(void *data)
++static int mt6363_backup_op_setting(struct regmap *map, struct mt6363_regulator_info *info)
++{
++	unsigned int i, val;
++	int ret;
++
++	ret = regmap_read(map, info->op_en_reg + OP_CFG_OFFSET, &val);
++	if (ret)
++		return ret;
++
++	info->orig_op_cfg = val;
++
++	for (i = 0; i < 3; i++) {
++		ret = regmap_read(map, info->op_en_reg + i, &val);
++		if (ret)
++			return ret;
++
++		info->orig_op_en |= val << (i * 8);
++	}
++
++	return 0;
++}
++
++static void mt6363_irq_remove(void *data)
 +{
 +	int *virq = data;
 +
 +	irq_dispose_mapping(*virq);
 +}
 +
-+static void mt6373_spmi_remove(void *data)
++static void mt6363_spmi_remove(void *data)
 +{
 +	struct spmi_device *sdev = data;
 +
 +	spmi_device_remove(sdev);
 +};
 +
-+static struct regmap *mt6373_spmi_register_regmap(struct device *dev)
++static struct regmap *mt6363_spmi_register_regmap(struct device *dev)
 +{
-+	struct regmap_config mt6373_regmap_config = {
++	struct regmap_config mt6363_regmap_config = {
 +		.reg_bits = 16,
 +		.val_bits = 16,
 +		.max_register = 0x1f90,
@@ -776,16 +982,16 @@ index 000000000000..4d7a9c52b090
 +		return ERR_PTR(ret);
 +	};
 +
-+	ret = devm_add_action_or_reset(dev, mt6373_spmi_remove, sdev);
++	ret = devm_add_action_or_reset(dev, mt6363_spmi_remove, sdev);
 +	if (ret)
 +		return ERR_PTR(ret);
 +
-+	mt6373_regmap_config.reg_base = base;
++	mt6363_regmap_config.reg_base = base;
 +
-+	return devm_regmap_init_spmi_ext(sdev, &mt6373_regmap_config);
++	return devm_regmap_init_spmi_ext(sdev, &mt6363_regmap_config);
 +}
 +
-+static int mt6373_regulator_probe(struct platform_device *pdev)
++static int mt6363_regulator_probe(struct platform_device *pdev)
 +{
 +	struct irq_fwspec fwspec = {
 +		.param_count = 2,
@@ -793,65 +999,28 @@ index 000000000000..4d7a9c52b090
 +	};
 +	struct device_node *interrupt_parent;
 +	struct regulator_config config = {};
-+	struct mt6373_regulator_info *info;
++	struct mt6363_regulator_info *info;
 +	struct device *dev = &pdev->dev;
 +	struct regulator_dev *rdev;
 +	struct irq_domain *domain;
-+	bool is_vbuck4_hw_ctrl;
-+	bool is_cw_variant;
 +	int i, ret;
-+	u32 val;
 +
-+	config.regmap = mt6373_spmi_register_regmap(dev);
++	config.regmap = mt6363_spmi_register_regmap(dev);
 +	if (IS_ERR(config.regmap))
 +		return dev_err_probe(dev, PTR_ERR(config.regmap),
 +				     "Cannot get regmap\n");
 +	config.dev = dev;
-+	dev_set_drvdata(dev, config.regmap);
 +
 +	interrupt_parent = of_irq_find_parent(dev->of_node);
 +	if (!interrupt_parent)
-+		return -EINVAL;
++		return dev_err_probe(dev, -EINVAL, "Cannot find IRQ parent\n");
 +
 +	domain = irq_find_host(interrupt_parent);
 +	of_node_put(interrupt_parent);
 +	fwspec.fwnode = domain->fwnode;
 +
-+	/* Read PMIC variant information */
-+	ret = regmap_read(config.regmap, MT6373_PLG_CFG_ELR1, &val);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Cannot read ID register\n");
-+
-+	val = FIELD_GET(MT6373_ELR_VARIANT_MASK, val);
-+	is_cw_variant = (val == MT6373_ELR_VARIANT_MT6373CW);
-+
-+	/* Read Reserved-SW information */
-+	ret = regmap_read(config.regmap, MT6373_RG_RSV_SWREG_H, &val);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Cannot read RSV_SW register\n");
-+
-+	is_vbuck4_hw_ctrl = val & MT6373_RG_RSV_SWREG_VBUCK4_HW_CTRL;
-+
-+	for (i = 0; i < ARRAY_SIZE(mt6373_regulators); i++) {
-+		info = &mt6373_regulators[i];
-+
-+		/* MT6373CW VBUCK4 constraints are different */
-+		if (info->desc.id == MT6373_ID_VBUCK4) {
-+			unsigned int vbuck4_max_uV;
-+
-+			/* VBUCK4 vreg software control not allowed in hw_ctrl mode */
-+			if (is_vbuck4_hw_ctrl)
-+				continue;
-+
-+			if (is_cw_variant) {
-+				info->desc.uV_step = 6250;
-+				vbuck4_max_uV = 1193750;
-+			} else {
-+				info->desc.uV_step = 13875;
-+				vbuck4_max_uV = 2650125;
-+			}
-+			info->desc.n_voltages = vbuck4_max_uV / info->desc.uV_step + 1;
-+		}
++	for (i = 0; i < ARRAY_SIZE(mt6363_regulators); i++) {
++		info = &mt6363_regulators[i];
 +
 +		fwspec.param[0] = info->hwirq;
 +		info->virq = irq_create_fwspec_mapping(&fwspec);
@@ -859,56 +1028,57 @@ index 000000000000..4d7a9c52b090
 +			return dev_err_probe(dev, -EINVAL,
 +					     "Failed to map IRQ%d\n", info->hwirq);
 +
-+		ret = devm_add_action_or_reset(dev, mt6373_irq_remove, &info->virq);
++		ret = devm_add_action_or_reset(dev, mt6363_irq_remove, &info->virq);
 +		if (ret) {
-+			irq_dispose_mapping(info->virq);
++			irq_dispose_mapping(info->hwirq);
 +			return ret;
 +		}
 +
 +		config.driver_data = info;
-+		INIT_DELAYED_WORK(&info->oc_work, mt6373_oc_irq_enable_work);
++		INIT_DELAYED_WORK(&info->oc_work, mt6363_oc_irq_enable_work);
 +
 +		rdev = devm_regulator_register(dev, &info->desc, &config);
 +		if (IS_ERR(rdev))
 +			return dev_err_probe(dev, PTR_ERR(rdev),
 +					     "failed to register %s\n", info->desc.name);
++
++		if (info->lp_imax_uA) {
++			ret = mt6363_backup_op_setting(config.regmap, info);
++			if (ret) {
++				dev_warn(dev, "Failed to backup op_setting for %s\n",
++					 info->desc.name);
++				info->lp_imax_uA = 0;
++			}
++		}
 +	}
 +
 +	return 0;
 +}
 +
-+static void mt6373_regulator_shutdown(struct platform_device *pdev)
-+{
-+	struct regmap *regmap = dev_get_drvdata(&pdev->dev);
-+
-+	regmap_write(regmap, MT6373_TOP_CFG_ELR5, MT6373_TOP_CFG_ELR5_SHUTDOWN);
-+}
-+
-+static const struct of_device_id mt6373_regulator_match[] = {
-+	{ .compatible = "mediatek,mt6373-regulator" },
++static const struct of_device_id mt6363_regulator_match[] = {
++	{ .compatible = "mediatek,mt6363-regulator" },
 +	{ /* sentinel */ }
 +};
 +
-+static struct platform_driver mt6373_regulator_driver = {
++static struct platform_driver mt6363_regulator_driver = {
 +	.driver = {
-+		.name = "mt6373-regulator",
++		.name = "mt6363-regulator",
 +		.probe_type = PROBE_PREFER_ASYNCHRONOUS,
-+		.of_match_table = mt6373_regulator_match,
++		.of_match_table = mt6363_regulator_match,
 +	},
-+	.probe = mt6373_regulator_probe,
-+	.shutdown = mt6373_regulator_shutdown
++	.probe = mt6363_regulator_probe,
 +};
-+module_platform_driver(mt6373_regulator_driver);
++module_platform_driver(mt6363_regulator_driver);
 +
 +MODULE_AUTHOR("AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>");
-+MODULE_DESCRIPTION("MediaTek MT6373 PMIC Regulator Driver");
++MODULE_DESCRIPTION("Regulator Driver for MediaTek MT6363 PMIC");
 +MODULE_LICENSE("GPL");
-diff --git a/include/linux/regulator/mt6373-regulator.h b/include/linux/regulator/mt6373-regulator.h
+diff --git a/include/linux/regulator/mt6363-regulator.h b/include/linux/regulator/mt6363-regulator.h
 new file mode 100644
-index 000000000000..dd791717d2a1
+index 000000000000..60761f01d3ad
 --- /dev/null
-+++ b/include/linux/regulator/mt6373-regulator.h
-@@ -0,0 +1,161 @@
++++ b/include/linux/regulator/mt6363-regulator.h
+@@ -0,0 +1,330 @@
 +/* SPDX-License-Identifier: GPL-2.0 */
 +/*
 + * Copyright (c) 2024 MediaTek Inc.
@@ -917,159 +1087,328 @@ index 000000000000..dd791717d2a1
 +
 +#include <linux/bits.h>
 +
-+#ifndef __LINUX_REGULATOR_MT6373_H
-+#define __LINUX_REGULATOR_MT6373_H
++#ifndef __LINUX_REGULATOR_MT6363_H
++#define __LINUX_REGULATOR_MT6363_H
 +
 +/* Register */
-+#define MT6373_TOP_CFG_ELR5			0x117
-+#define MT6373_TOP_CFG_ELR5_SHUTDOWN		BIT(0)
++#define MT6363_TOP_TRAP				0x6
++#define MT6363_TOP_TMA_KEY_L			0x36e
++#define MT6363_RG_BUCK0_EN_ADDR			0x210
++#define MT6363_RG_BUCK_VS2_EN_BIT		0
++#define MT6363_RG_BUCK_VBUCK1_EN_BIT		1
++#define MT6363_RG_BUCK_VBUCK2_EN_BIT		2
++#define MT6363_RG_BUCK_VBUCK3_EN_BIT		3
++#define MT6363_RG_BUCK_VBUCK4_EN_BIT		4
++#define MT6363_RG_BUCK_VBUCK5_EN_BIT		5
++#define MT6363_RG_BUCK_VBUCK6_EN_BIT		6
++#define MT6363_RG_BUCK_VBUCK7_EN_BIT		7
++#define MT6363_RG_BUCK1_EN_ADDR			0x213
++#define MT6363_RG_BUCK_VS1_EN_BIT		0
++#define MT6363_RG_BUCK_VS3_EN_BIT		1
++#define MT6363_RG_LDO_VSRAM_DIGRF_EN_BIT	4
++#define MT6363_RG_LDO_VSRAM_MDFE_EN_BIT		5
++#define MT6363_RG_LDO_VSRAM_MODEM_EN_BIT	6
++#define MT6363_RG_BUCK0_LP_ADDR			0x216
++#define MT6363_RG_BUCK_VS2_LP_BIT		0
++#define MT6363_RG_BUCK_VBUCK1_LP_BIT		1
++#define MT6363_RG_BUCK_VBUCK2_LP_BIT		2
++#define MT6363_RG_BUCK_VBUCK3_LP_BIT		3
++#define MT6363_RG_BUCK_VBUCK4_LP_BIT		4
++#define MT6363_RG_BUCK_VBUCK5_LP_BIT		5
++#define MT6363_RG_BUCK_VBUCK6_LP_BIT		6
++#define MT6363_RG_BUCK_VBUCK7_LP_BIT		7
++#define MT6363_RG_BUCK1_LP_ADDR			0x219
++#define MT6363_RG_BUCK_VS1_LP_BIT		0
++#define MT6363_RG_BUCK_VS3_LP_BIT		1
++#define MT6363_RG_LDO_VSRAM_DIGRF_LP_BIT	4
++#define MT6363_RG_LDO_VSRAM_MDFE_LP_BIT		5
++#define MT6363_RG_LDO_VSRAM_MODEM_LP_BIT	6
++#define MT6363_RG_BUCK_VS2_VOSEL_ADDR		0x21c
++#define MT6363_RG_BUCK_VS2_VOSEL_MASK		GENMASK(7, 0)
++#define MT6363_RG_BUCK_VBUCK1_VOSEL_ADDR	0x21d
++#define MT6363_RG_BUCK_VBUCK1_VOSEL_MASK	GENMASK(7, 0)
++#define MT6363_RG_BUCK_VBUCK2_VOSEL_ADDR	0x21e
++#define MT6363_RG_BUCK_VBUCK2_VOSEL_MASK	GENMASK(7, 0)
++#define MT6363_RG_BUCK_VBUCK3_VOSEL_ADDR	0x21f
++#define MT6363_RG_BUCK_VBUCK3_VOSEL_MASK	GENMASK(7, 0)
++#define MT6363_RG_BUCK_VBUCK4_VOSEL_ADDR	0x220
++#define MT6363_RG_BUCK_VBUCK4_VOSEL_MASK	GENMASK(7, 0)
++#define MT6363_RG_BUCK_VBUCK5_VOSEL_ADDR	0x221
++#define MT6363_RG_BUCK_VBUCK5_VOSEL_MASK	GENMASK(7, 0)
++#define MT6363_RG_BUCK_VBUCK6_VOSEL_ADDR	0x222
++#define MT6363_RG_BUCK_VBUCK6_VOSEL_MASK	GENMASK(7, 0)
++#define MT6363_RG_BUCK_VBUCK7_VOSEL_ADDR	0x223
++#define MT6363_RG_BUCK_VBUCK7_VOSEL_MASK	GENMASK(7, 0)
++#define MT6363_RG_BUCK_VS1_VOSEL_ADDR		0x224
++#define MT6363_RG_BUCK_VS1_VOSEL_MASK		GENMASK(7, 0)
++#define MT6363_RG_BUCK_VS3_VOSEL_ADDR		0x225
++#define MT6363_RG_BUCK_VS3_VOSEL_MASK		GENMASK(7, 0)
++#define MT6363_RG_LDO_VSRAM_DIGRF_VOSEL_ADDR	0x228
++#define MT6363_RG_LDO_VSRAM_DIGRF_VOSEL_MASK	GENMASK(6, 0)
++#define MT6363_RG_LDO_VSRAM_MDFE_VOSEL_ADDR	0x229
++#define MT6363_RG_LDO_VSRAM_MDFE_VOSEL_MASK	GENMASK(6, 0)
++#define MT6363_RG_LDO_VSRAM_MODEM_VOSEL_ADDR	0x22a
++#define MT6363_RG_LDO_VSRAM_MODEM_VOSEL_MASK	GENMASK(6, 0)
++#define MT6363_BUCK_TOP_KEY_PROT_LO		0x13fa
++#define MT6363_BUCK_VS2_WDTDBG_VOSEL_ADDR	0x13fc
++#define MT6363_BUCK_VBUCK1_WDTDBG_VOSEL_ADDR	0x13fd
++#define MT6363_BUCK_VBUCK2_WDTDBG_VOSEL_ADDR	0x13fe
++#define MT6363_BUCK_VBUCK3_WDTDBG_VOSEL_ADDR	0x13ff
++#define MT6363_BUCK_VBUCK4_WDTDBG_VOSEL_ADDR	0x1400
++#define MT6363_BUCK_VBUCK5_WDTDBG_VOSEL_ADDR	0x1401
++#define MT6363_BUCK_VBUCK6_WDTDBG_VOSEL_ADDR	0x1402
++#define MT6363_BUCK_VBUCK7_WDTDBG_VOSEL_ADDR	0x1403
++#define MT6363_BUCK_VS1_WDTDBG_VOSEL_ADDR	0x1404
++#define MT6363_BUCK_VS3_WDTDBG_VOSEL_ADDR	0x1405
++#define MT6363_RG_BUCK_EFUSE_RSV1		0x1417
++#define MT6363_RG_BUCK_EFUSE_RSV1_MASK		GENMASK(7, 4)
++#define MT6363_BUCK_VS2_OP_EN_0			0x145d
++#define MT6363_BUCK_VS2_HW_LP_MODE		0x1468
++#define MT6363_BUCK_VBUCK1_OP_EN_0		0x14dd
++#define MT6363_BUCK_VBUCK1_HW_LP_MODE		0x14e8
++#define MT6363_RG_BUCK_VBUCK1_SSHUB_EN_ADDR	0x14ea
++#define MT6363_RG_BUCK_VBUCK1_SSHUB_VOSEL_ADDR	0x14eb
++#define MT6363_RG_BUCK_VBUCK1_SSHUB_VOSEL_MASK	GENMASK(7, 0)
++#define MT6363_BUCK_VBUCK2_OP_EN_0		0x155d
++#define MT6363_BUCK_VBUCK2_HW_LP_MODE		0x1568
++#define MT6363_RG_BUCK_VBUCK2_SSHUB_EN_ADDR	0x156a
++#define MT6363_RG_BUCK_VBUCK2_SSHUB_VOSEL_ADDR	0x156b
++#define MT6363_RG_BUCK_VBUCK2_SSHUB_VOSEL_MASK	GENMASK(7, 0)
++#define MT6363_BUCK_VBUCK3_OP_EN_0		0x15dd
++#define MT6363_BUCK_VBUCK3_HW_LP_MODE		0x15e8
++#define MT6363_BUCK_VBUCK4_OP_EN_0		0x165d
++#define MT6363_BUCK_VBUCK4_HW_LP_MODE		0x1668
++#define MT6363_RG_BUCK_VBUCK4_SSHUB_EN_ADDR	0x166a
++#define MT6363_RG_BUCK_VBUCK4_SSHUB_VOSEL_ADDR	0x166b
++#define MT6363_RG_BUCK_VBUCK4_SSHUB_VOSEL_MASK	GENMASK(7, 0)
++#define MT6363_BUCK_VBUCK5_OP_EN_0		0x16dd
++#define MT6363_BUCK_VBUCK5_HW_LP_MODE		0x16e8
++#define MT6363_BUCK_VBUCK6_OP_EN_0		0x175d
++#define MT6363_BUCK_VBUCK6_HW_LP_MODE		0x1768
++#define MT6363_BUCK_VBUCK7_OP_EN_0		0x17dd
++#define MT6363_BUCK_VBUCK7_HW_LP_MODE		0x17e8
++#define MT6363_BUCK_VS1_OP_EN_0			0x185d
++#define MT6363_BUCK_VS1_HW_LP_MODE		0x1868
++#define MT6363_BUCK_VS3_OP_EN_0			0x18dd
++#define MT6363_BUCK_VS3_HW_LP_MODE		0x18e8
++#define MT6363_RG_VS1_FCCM_ADDR			0x1964
++#define MT6363_RG_VS1_FCCM_BIT			0
++#define MT6363_RG_VS3_FCCM_ADDR			0x1973
++#define MT6363_RG_VS3_FCCM_BIT			0
++#define MT6363_RG_BUCK0_FCCM_ADDR		0x1a02
++#define MT6363_RG_VBUCK1_FCCM_BIT		0
++#define MT6363_RG_VBUCK2_FCCM_BIT		1
++#define MT6363_RG_VBUCK3_FCCM_BIT		2
++#define MT6363_RG_VS2_FCCM_BIT			3
++#define MT6363_RG_BUCK0_1_FCCM_ADDR		0x1a82
++#define MT6363_RG_VBUCK4_FCCM_BIT		0
++#define MT6363_RG_VBUCK5_FCCM_BIT		1
++#define MT6363_RG_VBUCK6_FCCM_BIT		2
++#define MT6363_RG_VBUCK7_FCCM_BIT		3
++#define MT6363_RG_VCN13_VOSEL_ADDR		0x1b0f
++#define MT6363_RG_VCN13_VOSEL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VEMC_VOSEL_ADDR		0x1b10
++#define MT6363_RG_VEMC_VOSEL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VEMC_VOSEL_1_MASK		GENMASK(7, 4)
++#define MT6363_RG_LDO_VSRAM_CPUB_VOSEL_ADDR	0x1b14
++#define MT6363_RG_LDO_VSRAM_CPUB_VOSEL_MASK	GENMASK(6, 0)
++#define MT6363_RG_LDO_VSRAM_CPUM_VOSEL_ADDR	0x1b15
++#define MT6363_RG_LDO_VSRAM_CPUM_VOSEL_MASK	GENMASK(6, 0)
++#define MT6363_RG_LDO_VSRAM_CPUL_VOSEL_ADDR	0x1b16
++#define MT6363_RG_LDO_VSRAM_CPUL_VOSEL_MASK	GENMASK(6, 0)
++#define MT6363_RG_LDO_VSRAM_APU_VOSEL_ADDR	0x1b17
++#define MT6363_RG_LDO_VSRAM_APU_VOSEL_MASK	GENMASK(6, 0)
++#define MT6363_RG_VEMC_VOCAL_ADDR		0x1b1b
++#define MT6363_RG_VEMC_VOCAL_MASK		GENMASK(3, 0)
++#define MT6363_RG_LDO_VCN15_ADDR		0x1b57
++#define MT6363_RG_LDO_VCN15_EN_BIT		0
++#define MT6363_RG_LDO_VCN15_LP_BIT		1
++#define MT6363_LDO_VCN15_HW_LP_MODE		0x1b5b
++#define MT6363_LDO_VCN15_OP_EN0			0x1b5c
++#define MT6363_RG_LDO_VRF09_ADDR		0x1b65
++#define MT6363_RG_LDO_VRF09_EN_BIT		0
++#define MT6363_RG_LDO_VRF09_LP_BIT		1
++#define MT6363_LDO_VRF09_HW_LP_MODE		0x1b69
++#define MT6363_LDO_VRF09_OP_EN0			0x1b6a
++#define MT6363_RG_LDO_VRF12_ADDR		0x1b73
++#define MT6363_RG_LDO_VRF12_EN_BIT		0
++#define MT6363_RG_LDO_VRF12_LP_BIT		1
++#define MT6363_LDO_VRF12_HW_LP_MODE		0x1b77
++#define MT6363_LDO_VRF12_OP_EN0			0x1b78
++#define MT6363_RG_LDO_VRF13_ADDR		0x1b81
++#define MT6363_RG_LDO_VRF13_EN_BIT		0
++#define MT6363_RG_LDO_VRF13_LP_BIT		1
++#define MT6363_LDO_VRF13_HW_LP_MODE		0x1b85
++#define MT6363_LDO_VRF13_OP_EN0			0x1b86
++#define MT6363_RG_LDO_VRF18_ADDR		0x1b8f
++#define MT6363_RG_LDO_VRF18_EN_BIT		0
++#define MT6363_RG_LDO_VRF18_LP_BIT		1
++#define MT6363_LDO_VRF18_HW_LP_MODE		0x1b93
++#define MT6363_LDO_VRF18_OP_EN0			0x1b94
++#define MT6363_RG_LDO_VRFIO18_ADDR		0x1b9d
++#define MT6363_RG_LDO_VRFIO18_EN_BIT		0
++#define MT6363_RG_LDO_VRFIO18_LP_BIT		1
++#define MT6363_LDO_VRFIO18_HW_LP_MODE		0x1ba1
++#define MT6363_LDO_VRFIO18_OP_EN0		0x1ba2
++#define MT6363_RG_LDO_VTREF18_ADDR		0x1bd7
++#define MT6363_RG_LDO_VTREF18_EN_BIT		0
++#define MT6363_RG_LDO_VTREF18_LP_BIT		1
++#define MT6363_LDO_VTREF18_HW_LP_MODE		0x1bdb
++#define MT6363_LDO_VTREF18_OP_EN0		0x1bdc
++#define MT6363_RG_LDO_VAUX18_ADDR		0x1be5
++#define MT6363_RG_LDO_VAUX18_EN_BIT		0
++#define MT6363_RG_LDO_VAUX18_LP_BIT		1
++#define MT6363_LDO_VAUX18_HW_LP_MODE		0x1be9
++#define MT6363_LDO_VAUX18_OP_EN0		0x1bea
++#define MT6363_RG_LDO_VEMC_ADDR			0x1bf3
++#define MT6363_RG_LDO_VEMC_EN_BIT		0
++#define MT6363_RG_LDO_VEMC_LP_BIT		1
++#define MT6363_LDO_VEMC_HW_LP_MODE		0x1bf7
++#define MT6363_LDO_VEMC_OP_EN0			0x1bf8
++#define MT6363_RG_LDO_VUFS12_ADDR		0x1c01
++#define MT6363_RG_LDO_VUFS12_EN_BIT		0
++#define MT6363_RG_LDO_VUFS12_LP_BIT		1
++#define MT6363_LDO_VUFS12_HW_LP_MODE		0x1c05
++#define MT6363_LDO_VUFS12_OP_EN0		0x1c06
++#define MT6363_RG_LDO_VUFS18_ADDR		0x1c0f
++#define MT6363_RG_LDO_VUFS18_EN_BIT		0
++#define MT6363_RG_LDO_VUFS18_LP_BIT		1
++#define MT6363_LDO_VUFS18_HW_LP_MODE		0x1c13
++#define MT6363_LDO_VUFS18_OP_EN0		0x1c14
++#define MT6363_RG_LDO_VIO18_ADDR		0x1c1d
++#define MT6363_RG_LDO_VIO18_EN_BIT		0
++#define MT6363_RG_LDO_VIO18_LP_BIT		1
++#define MT6363_LDO_VIO18_HW_LP_MODE		0x1c21
++#define MT6363_LDO_VIO18_OP_EN0			0x1c22
++#define MT6363_RG_LDO_VIO075_ADDR		0x1c57
++#define MT6363_RG_LDO_VIO075_EN_BIT		0
++#define MT6363_RG_LDO_VIO075_LP_BIT		1
++#define MT6363_LDO_VIO075_HW_LP_MODE		0x1c5b
++#define MT6363_LDO_VIO075_OP_EN0		0x1c5c
++#define MT6363_RG_LDO_VA12_1_ADDR		0x1c65
++#define MT6363_RG_LDO_VA12_1_EN_BIT		0
++#define MT6363_RG_LDO_VA12_1_LP_BIT		1
++#define MT6363_LDO_VA12_1_HW_LP_MODE		0x1c69
++#define MT6363_LDO_VA12_1_OP_EN0		0x1c6a
++#define MT6363_RG_LDO_VA12_2_ADDR		0x1c73
++#define MT6363_RG_LDO_VA12_2_EN_BIT		0
++#define MT6363_RG_LDO_VA12_2_LP_BIT		1
++#define MT6363_LDO_VA12_2_HW_LP_MODE		0x1c77
++#define MT6363_LDO_VA12_2_OP_EN0		0x1c78
++#define MT6363_RG_LDO_VA15_ADDR			0x1c81
++#define MT6363_RG_LDO_VA15_EN_BIT		0
++#define MT6363_RG_LDO_VA15_LP_BIT		1
++#define MT6363_LDO_VA15_HW_LP_MODE		0x1c85
++#define MT6363_LDO_VA15_OP_EN0			0x1c86
++#define MT6363_RG_LDO_VM18_ADDR			0x1c8f
++#define MT6363_RG_LDO_VM18_EN_BIT		0
++#define MT6363_RG_LDO_VM18_LP_BIT		1
++#define MT6363_LDO_VM18_HW_LP_MODE		0x1c93
++#define MT6363_LDO_VM18_OP_EN0			0x1c94
++#define MT6363_RG_LDO_VCN13_ADDR		0x1cd7
++#define MT6363_RG_LDO_VCN13_EN_BIT		0
++#define MT6363_RG_LDO_VCN13_LP_BIT		1
++#define MT6363_LDO_VCN13_HW_LP_MODE		0x1cdb
++#define MT6363_LDO_VCN13_OP_EN0			0x1ce4
++#define MT6363_LDO_VSRAM_DIGRF_HW_LP_MODE	0x1cf1
++#define MT6363_LDO_VSRAM_DIGRF_OP_EN0		0x1cfa
++#define MT6363_LDO_VSRAM_MDFE_HW_LP_MODE	0x1d5b
++#define MT6363_LDO_VSRAM_MDFE_OP_EN0		0x1d64
++#define MT6363_LDO_VSRAM_MODEM_HW_LP_MODE	0x1d76
++#define MT6363_LDO_VSRAM_MODEM_OP_EN0		0x1d7f
++#define MT6363_RG_LDO_VSRAM_CPUB_ADDR		0x1dd7
++#define MT6363_RG_LDO_VSRAM_CPUB_EN_BIT		0
++#define MT6363_RG_LDO_VSRAM_CPUB_LP_BIT		1
++#define MT6363_LDO_VSRAM_CPUB_HW_LP_MODE	0x1ddb
++#define MT6363_LDO_VSRAM_CPUB_OP_EN0		0x1de4
++#define MT6363_RG_LDO_VSRAM_CPUM_ADDR		0x1ded
++#define MT6363_RG_LDO_VSRAM_CPUM_EN_BIT		0
++#define MT6363_RG_LDO_VSRAM_CPUM_LP_BIT		1
++#define MT6363_LDO_VSRAM_CPUM_HW_LP_MODE	0x1df1
++#define MT6363_LDO_VSRAM_CPUM_OP_EN0		0x1dfa
++#define MT6363_RG_LDO_VSRAM_CPUL_ADDR		0x1e57
++#define MT6363_RG_LDO_VSRAM_CPUL_EN_BIT		0
++#define MT6363_RG_LDO_VSRAM_CPUL_LP_BIT		1
++#define MT6363_LDO_VSRAM_CPUL_HW_LP_MODE	0x1e5b
++#define MT6363_LDO_VSRAM_CPUL_OP_EN0		0x1e64
++#define MT6363_RG_LDO_VSRAM_APU_ADDR		0x1e6d
++#define MT6363_RG_LDO_VSRAM_APU_EN_BIT		0
++#define MT6363_RG_LDO_VSRAM_APU_LP_BIT		1
++#define MT6363_LDO_VSRAM_APU_HW_LP_MODE		0x1e71
++#define MT6363_LDO_VSRAM_APU_OP_EN0		0x1e7a
++#define MT6363_RG_VTREF18_VOCAL_ADDR		0x1ed8
++#define MT6363_RG_VTREF18_VOCAL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VTREF18_VOSEL_ADDR		0x1ed9
++#define MT6363_RG_VTREF18_VOSEL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VAUX18_VOCAL_ADDR		0x1edc
++#define MT6363_RG_VAUX18_VOCAL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VAUX18_VOSEL_ADDR		0x1edd
++#define MT6363_RG_VAUX18_VOSEL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VCN15_VOCAL_ADDR		0x1ee3
++#define MT6363_RG_VCN15_VOCAL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VCN15_VOSEL_ADDR		0x1ee4
++#define MT6363_RG_VCN15_VOSEL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VUFS18_VOCAL_ADDR		0x1ee7
++#define MT6363_RG_VUFS18_VOCAL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VUFS18_VOSEL_ADDR		0x1ee8
++#define MT6363_RG_VUFS18_VOSEL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VIO18_VOCAL_ADDR		0x1eeb
++#define MT6363_RG_VIO18_VOCAL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VIO18_VOSEL_ADDR		0x1eec
++#define MT6363_RG_VIO18_VOSEL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VM18_VOCAL_ADDR		0x1eef
++#define MT6363_RG_VM18_VOCAL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VM18_VOSEL_ADDR		0x1ef0
++#define MT6363_RG_VM18_VOSEL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VA15_VOCAL_ADDR		0x1ef3
++#define MT6363_RG_VA15_VOCAL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VA15_VOSEL_ADDR		0x1ef4
++#define MT6363_RG_VA15_VOSEL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VRF18_VOCAL_ADDR		0x1ef7
++#define MT6363_RG_VRF18_VOCAL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VRF18_VOSEL_ADDR		0x1ef8
++#define MT6363_RG_VRF18_VOSEL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VRFIO18_VOCAL_ADDR		0x1efb
++#define MT6363_RG_VRFIO18_VOCAL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VRFIO18_VOSEL_ADDR		0x1efc
++#define MT6363_RG_VRFIO18_VOSEL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VIO075_VOCFG_ADDR		0x1f01
++#define MT6363_RG_VIO075_VOCAL_ADDR		MT6363_RG_VIO075_VOCFG_ADDR
++#define MT6363_RG_VIO075_VOCAL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VIO075_VOSEL_ADDR		MT6363_RG_VIO075_VOCFG_ADDR
++#define MT6363_RG_VIO075_VOSEL_MASK		GENMASK(6, 4)
++#define MT6363_RG_VCN13_VOCAL_ADDR		0x1f58
++#define MT6363_RG_VCN13_VOCAL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VUFS12_VOCAL_ADDR		0x1f61
++#define MT6363_RG_VUFS12_VOCAL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VUFS12_VOSEL_ADDR		0x1f62
++#define MT6363_RG_VUFS12_VOSEL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VA12_1_VOCAL_ADDR		0x1f65
++#define MT6363_RG_VA12_1_VOCAL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VA12_1_VOSEL_ADDR		0x1f66
++#define MT6363_RG_VA12_1_VOSEL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VA12_2_VOCAL_ADDR		0x1f69
++#define MT6363_RG_VA12_2_VOCAL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VA12_2_VOSEL_ADDR		0x1f6a
++#define MT6363_RG_VA12_2_VOSEL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VRF12_VOCAL_ADDR		0x1f6d
++#define MT6363_RG_VRF12_VOCAL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VRF12_VOSEL_ADDR		0x1f6e
++#define MT6363_RG_VRF12_VOSEL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VRF13_VOCAL_ADDR		0x1f71
++#define MT6363_RG_VRF13_VOCAL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VRF13_VOSEL_ADDR		0x1f72
++#define MT6363_RG_VRF13_VOSEL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VRF09_VOCAL_ADDR		0x1f78
++#define MT6363_RG_VRF09_VOCAL_MASK		GENMASK(3, 0)
++#define MT6363_RG_VRF09_VOSEL_ADDR		0x1f79
++#define MT6363_RG_VRF09_VOSEL_MASK		GENMASK(3, 0)
++#define MT6363_ISINK_EN_CTRL0			0x21db
++#define MT6363_ISINK_CTRL0_MASK			GENMASK(7, 0)
++#define MT6363_ISINK_EN_CTRL1			0x21dc
++#define MT6363_ISINK_CTRL1_MASK			GENMASK(7, 4)
 +
-+#define MT6373_PMIC_RG_BUCK0_EN_ADDR		0x210
-+#define MT6373_PMIC_RG_BUCK_VBUCK0_EN_BIT	0
-+#define MT6373_PMIC_RG_BUCK_VBUCK1_EN_BIT	1
-+#define MT6373_PMIC_RG_BUCK_VBUCK2_EN_BIT	2
-+#define MT6373_PMIC_RG_BUCK_VBUCK3_EN_BIT	3
-+#define MT6373_PMIC_RG_BUCK_VBUCK4_EN_BIT	4
-+#define MT6373_PMIC_RG_BUCK_VBUCK5_EN_BIT	5
-+#define MT6373_PMIC_RG_BUCK_VBUCK6_EN_BIT	6
-+#define MT6373_PMIC_RG_BUCK_VBUCK7_EN_BIT	7
-+
-+#define MT6373_PMIC_RG_BUCK1_EN_ADDR		0x213
-+#define MT6373_PMIC_RG_BUCK_VBUCK8_EN_BIT	0
-+#define MT6373_PMIC_RG_BUCK_VBUCK9_EN_BIT	1
-+
-+#define MT6373_PMIC_RG_BUCK0_LP_ADDR		0x216
-+#define MT6373_PMIC_RG_BUCK_VBUCK0_LP_BIT	0
-+#define MT6373_PMIC_RG_BUCK_VBUCK1_LP_BIT	1
-+#define MT6373_PMIC_RG_BUCK_VBUCK2_LP_BIT	2
-+#define MT6373_PMIC_RG_BUCK_VBUCK3_LP_BIT	3
-+#define MT6373_PMIC_RG_BUCK_VBUCK4_LP_BIT	4
-+#define MT6373_PMIC_RG_BUCK_VBUCK5_LP_BIT	5
-+#define MT6373_PMIC_RG_BUCK_VBUCK6_LP_BIT	6
-+#define MT6373_PMIC_RG_BUCK_VBUCK7_LP_BIT	7
-+
-+#define MT6373_PMIC_RG_BUCK1_LP_ADDR		0x219
-+#define MT6373_PMIC_RG_BUCK_VBUCK8_LP_BIT	0
-+#define MT6373_PMIC_RG_BUCK_VBUCK9_LP_BIT	1
-+
-+#define MT6373_PMIC_RG_BUCK_VBUCK0_VOSEL_ADDR	0x21c
-+#define MT6373_PMIC_RG_BUCK_VBUCK1_VOSEL_ADDR	0x21d
-+#define MT6373_PMIC_RG_BUCK_VBUCK2_VOSEL_ADDR	0x21e
-+#define MT6373_PMIC_RG_BUCK_VBUCK3_VOSEL_ADDR	0x21f
-+#define MT6373_PMIC_RG_BUCK_VBUCK4_VOSEL_ADDR	0x220
-+#define MT6373_PMIC_RG_BUCK_VBUCK5_VOSEL_ADDR	0x221
-+#define MT6373_PMIC_RG_BUCK_VBUCK6_VOSEL_ADDR	0x222
-+#define MT6373_PMIC_RG_BUCK_VBUCK7_VOSEL_ADDR	0x223
-+#define MT6373_PMIC_RG_BUCK_VBUCK8_VOSEL_ADDR	0x224
-+#define MT6373_PMIC_RG_BUCK_VBUCK9_VOSEL_ADDR	0x225
-+#define MT6373_PMIC_RG_BUCK_VOSEL_MASK		GENMASK(8, 0)
-+
-+#define MT6373_PLG_CFG_ELR1			0x37b
-+#define MT6373_ELR_VARIANT_MASK			GENMASK(3, 2)
-+#define MT6373_ELR_VARIANT_MT6373CW		1
-+#define MT6373_RG_RSV_SWREG_H			0x9d9
-+#define MT6373_RG_RSV_SWREG_VBUCK4_HW_CTRL	BIT(0)
-+
-+#define MT6373_BUCK_TOP_KEY_PROT_LO		0x13fa
-+
-+#define MT6373_PMIC_RG_BUCK1_FCCM_ADDR		0x196d
-+#define MT6373_PMIC_RG_VBUCK8_FCCM_BIT		6
-+#define MT6373_PMIC_RG_VBUCK9_FCCM_BIT		7
-+
-+#define MT6373_PMIC_RG_BUCK0_FCCM_ADDR		0x1a02
-+#define MT6373_PMIC_RG_VBUCK0_FCCM_BIT		0
-+#define MT6373_PMIC_RG_VBUCK1_FCCM_BIT		1
-+#define MT6373_PMIC_RG_VBUCK2_FCCM_BIT		2
-+#define MT6373_PMIC_RG_VBUCK3_FCCM_BIT		3
-+
-+#define MT6373_PMIC_RG_BUCK0_1_FCCM_ADDR	0x1a82
-+#define MT6373_PMIC_RG_VBUCK4_FCCM_BIT		0
-+#define MT6373_PMIC_RG_VBUCK5_FCCM_BIT		1
-+#define MT6373_PMIC_RG_VBUCK6_FCCM_BIT		2
-+#define MT6373_PMIC_RG_VBUCK7_FCCM_BIT		3
-+
-+#define MT6373_PMIC_RG_VSRAM_DIGRF_AIF_VOSEL_ADDR 0x1b09
-+#define MT6373_PMIC_RG_VSRAM_DIGRF_AIF_VOSEL_MASK GENMASK(6, 0)
-+
-+#define MT6373_PMIC_RG_LDO_VAUD18_ADDR		0x1b57
-+#define MT6373_PMIC_RG_LDO_VUSB_ADDR		0x1b65
-+#define MT6373_PMIC_RG_LDO_VAUX18_ADDR		0x1b73
-+#define MT6373_PMIC_RG_LDO_VRF13_AIF_ADDR	0x1b81
-+#define MT6373_PMIC_RG_LDO_VRF18_AIF_ADDR	0x1b8f
-+#define MT6373_PMIC_RG_LDO_VRFIO18_AIF_ADDR	0x1b9d
-+#define MT6373_PMIC_RG_LDO_VCN33_1_ADDR		0x1bd7
-+#define MT6373_PMIC_RG_LDO_VCN33_2_ADDR		0x1be5
-+#define MT6373_PMIC_RG_LDO_VCN33_3_ADDR		0x1bf3
-+#define MT6373_PMIC_RG_LDO_VCN18IO_ADDR		0x1c01
-+#define MT6373_PMIC_RG_LDO_VRF09_AIF_ADDR	0x1c0f
-+#define MT6373_PMIC_RG_LDO_VRF12_AIF_ADDR	0x1c1d
-+#define MT6373_PMIC_RG_LDO_VANT18_ADDR		0x1c57
-+#define MT6373_PMIC_RG_LDO_VEFUSE_ADDR		0x1c73
-+#define MT6373_PMIC_RG_LDO_VMCH_ADDR		0x1c81
-+#define MT6373_PMIC_RG_LDO_VMCH_EINT_ADDR	0x1c8f
-+#define MT6373_PMIC_RG_LDO_VMCH_EINT_HIGH_ADDR	MT6373_PMIC_RG_LDO_VMCH_EINT_ADDR
-+#define MT6373_PMIC_RG_LDO_VMCH_EINT_LOW_ADDR	MT6373_PMIC_RG_LDO_VMCH_EINT_ADDR
-+#define MT6373_PMIC_RG_LDO_VMCH_EINT_POL_BIT	BIT(2)
-+#define MT6373_PMIC_RG_LDO_VMC_ADDR		0x1c90
-+#define MT6373_PMIC_RG_LDO_VIBR_ADDR		0x1c9e
-+#define MT6373_PMIC_RG_LDO_VIO28_ADDR		0x1cd7
-+#define MT6373_PMIC_RG_LDO_VFP_ADDR		0x1ce5
-+#define MT6373_PMIC_RG_LDO_VTP_ADDR		0x1cf3
-+#define MT6373_PMIC_RG_LDO_VSIM1_ADDR		0x1d01
-+#define MT6373_PMIC_RG_LDO_VSIM2_ADDR		0x1d10
-+#define MT6373_PMIC_RG_LDO_VSIM2_LP_ADDR	0x1d10
-+#define MT6373_PMIC_RG_LDO_VSRAM_DIGRF_AIF_ADDR	0x1d57
-+#define MT6373_PMIC_RG_VAUX18_VOCAL_ADDR	0x1dd8
-+#define MT6373_PMIC_RG_VAUX18_VOSEL_ADDR	0x1dd9
-+#define MT6373_PMIC_RG_VUSB_VOCAL_ADDR		0x1ddc
-+#define MT6373_PMIC_RG_VUSB_VOSEL_ADDR		0x1ddd
-+#define MT6373_PMIC_RG_VCN33_1_VOCAL_ADDR	0x1de0
-+#define MT6373_PMIC_RG_VCN33_1_VOSEL_ADDR	0x1de1
-+#define MT6373_PMIC_RG_VCN33_2_VOCAL_ADDR	0x1de4
-+#define MT6373_PMIC_RG_VCN33_2_VOSEL_ADDR	0x1de5
-+#define MT6373_PMIC_RG_VCN33_3_VOCAL_ADDR	0x1de8
-+#define MT6373_PMIC_RG_VCN33_3_VOSEL_ADDR	0x1de9
-+#define MT6373_PMIC_RG_VMCH_VOCAL_ADDR		0x1dec
-+#define MT6373_PMIC_RG_VMCH_VOSEL_ADDR		0x1ded
-+#define MT6373_PMIC_RG_VMCH_EINT_HIGH_VOSEL_ADDR MT6373_PMIC_RG_VMCH_VOSEL_ADDR
-+#define MT6373_PMIC_RG_VMCH_EINT_LOW_VOSEL_ADDR	MT6373_PMIC_RG_VMCH_VOSEL_ADDR
-+#define MT6373_PMIC_RG_VEFUSE_VOCAL_ADDR	0x1df0
-+#define MT6373_PMIC_RG_VEFUSE_VOSEL_ADDR	0x1df1
-+#define MT6373_PMIC_RG_VMC_VOCAL_ADDR		0x1df4
-+#define MT6373_PMIC_RG_VMCH_EINT_HIGH_VOCAL_ADDR MT6373_PMIC_RG_VMC_VOCAL_ADDR
-+#define MT6373_PMIC_RG_VMCH_EINT_LOW_VOCAL_ADDR	MT6373_PMIC_RG_VMC_VOCAL_ADDR
-+#define MT6373_PMIC_RG_VMC_VOSEL_ADDR		0x1df5
-+#define MT6373_PMIC_RG_VIBR_VOCAL_ADDR		0x1df8
-+#define MT6373_PMIC_RG_VIBR_VOSEL_ADDR		0x1df9
-+#define MT6373_PMIC_RG_VIO28_VOCAL_ADDR		0x1dfc
-+#define MT6373_PMIC_RG_VIO28_VOSEL_ADDR		0x1dfd
-+#define MT6373_PMIC_RG_VFP_VOCAL_ADDR		0x1e00
-+#define MT6373_PMIC_RG_VFP_VOSEL_ADDR		0x1e01
-+#define MT6373_PMIC_RG_VTP_VOCAL_ADDR		0x1e04
-+#define MT6373_PMIC_RG_VTP_VOSEL_ADDR		0x1e05
-+#define MT6373_PMIC_RG_VSIM1_VOCAL_ADDR		0x1e08
-+#define MT6373_PMIC_RG_VSIM1_VOSEL_ADDR		0x1e09
-+#define MT6373_PMIC_RG_VSIM2_VOCAL_ADDR		0x1e0c
-+#define MT6373_PMIC_RG_VSIM2_VOSEL_ADDR		0x1e0d
-+#define MT6373_PMIC_RG_VAUD18_VOCAL_ADDR	0x1e58
-+#define MT6373_PMIC_RG_VAUD18_VOSEL_ADDR	0x1e59
-+#define MT6373_PMIC_RG_VRF18_AIF_VOCAL_ADDR	0x1e5c
-+#define MT6373_PMIC_RG_VRF18_AIF_VOSEL_ADDR	0x1e5d
-+#define MT6373_PMIC_RG_VCN18IO_VOCAL_ADDR	0x1e60
-+#define MT6373_PMIC_RG_VCN18IO_VOSEL_ADDR	0x1e61
-+#define MT6373_PMIC_RG_VRFIO18_AIF_VOCAL_ADDR	0x1e64
-+#define MT6373_PMIC_RG_VRFIO18_AIF_VOSEL_ADDR	0x1e65
-+#define MT6373_PMIC_RG_VANT18_VOCAL_ADDR	0x1e68
-+#define MT6373_PMIC_RG_VANT18_VOSEL_ADDR	0x1e69
-+#define MT6373_PMIC_RG_VRF13_AIF_VOCAL_ADDR	0x1ed8
-+#define MT6373_PMIC_RG_VRF13_AIF_VOSEL_ADDR	0x1ed9
-+#define MT6373_PMIC_RG_VRF12_AIF_VOCAL_ADDR	0x1edc
-+#define MT6373_PMIC_RG_VRF12_AIF_VOSEL_ADDR	0x1edd
-+#define MT6373_PMIC_RG_VRF09_AIF_VOCAL_ADDR	0x1f58
-+#define MT6373_PMIC_RG_VRF09_AIF_VOSEL_ADDR	0x1f59
-+#define MT6373_PMIC_RG_LDO_VT_VOCALSEL_MASK	GENMASK(7, 0)
-+
-+#endif /* __LINUX_REGULATOR_MT6373_H */
++#endif /* __LINUX_REGULATOR_MT6363_H */
 -- 
 2.51.0
 
