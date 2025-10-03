@@ -4,78 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72DDCCAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 12:05:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D55E7CCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 12:16:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XY/NICcYo4c4EqbeoVxlLf6ZpKoUb9CC4wsHsE205m8=; b=4kDtt5Lly3Sr7Zj5PdwOyKvEEH
-	2G8cEWBNZHn5ylBGTQWhUnOr6do+FhwCF+3gQeGMlxiJg9vNEWpTr9aO+2gpkrlt8a0nd6QFGgczW
-	lJqwu4Yu5PepTeC94mlNeJ4Af0v8CmwQu+6OQSc2VfL/g1ujqZEVQQlBR9poWckHQiQRcMEwEhvCy
-	HBKJ6M3yuofGad1xT7fQ9+O8+v1y40qUQ+TTF+Y4CJdFVDrLETRbYduTTIaVKsevI60tm5eC2Yp6h
-	gtM9wGj1+gM1H6CPBHt8CC8jAvlEq8EGmEVXOglKv+iBjDUAhzCjgcuz//I3CpyI/e515vYcnthYS
-	n8Gzou7w==;
+	Content-Type:MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=TqblJqfbXrrmCzEUxWga4pPKLpbgkCtwFBWjaGRMyg4=; b=GL2snNJXUDcChCAKu5L00p1WJm
+	Yc6Gg0JfLJYkkCzovMbJb8/FGZAq6i+aQcFlH1UpaDSkYkjuZxqPtqUlzoZubJtuwn1hqp1sFjfAI
+	YqWzOGpcgbwUVNb0HMCNVN+vo+2IO95u2LPckhequmndZID0J17LMxWCscHjArA3MG7BqTeNAAVTn
+	nqORYJaS/l2Y/Hi3rtdVkd3VgqbEUBGCHX2pp5DCERczMfdvs29FWmeJo8Bw82cdjgp9FWBE4Kpq/
+	bMlnOiEM33KHmVWOQh2VVXgAyofPoEkjVbgZXWByVKL1C1EDe9zgVfnXbF85b2iWn7a//lQG8seir
+	BliUJTNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4eXC-0000000CEgK-3nKd;
-	Fri, 03 Oct 2025 12:05:14 +0000
-Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	id 1v4ehV-0000000CF7P-24D9;
+	Fri, 03 Oct 2025 12:15:53 +0000
+Received: from fra-out-011.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([52.28.197.132])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4eX9-0000000CEfu-2rkL
+	id 1v4ehR-0000000CF6m-3CHW
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Oct 2025 12:05:13 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 593C4fLM3032131;
-	Fri, 3 Oct 2025 07:04:41 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1759493081;
-	bh=XY/NICcYo4c4EqbeoVxlLf6ZpKoUb9CC4wsHsE205m8=;
-	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=B05SXjQms13cJWGFp7OSJSs4G9q6PGegh5oUltsyKP99PXVPrJ8+icJ6deUJ6iwot
-	 LKpxSnOoY1Pt0RnjK41r/dEYBmb4duNbsJDblfzJSStcZBX1fN/MIMXn6i45B40C59
-	 WYFwE2ouvyC+7NaCCFQ4wGm03j/rqyn3CAlxu34k=
-Received: from DLEE209.ent.ti.com (dlee209.ent.ti.com [157.170.170.98])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 593C4fRY126874
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Fri, 3 Oct 2025 07:04:41 -0500
-Received: from DLEE200.ent.ti.com (157.170.170.75) by DLEE209.ent.ti.com
- (157.170.170.98) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Fri, 3 Oct
- 2025 07:04:40 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE200.ent.ti.com
- (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 3 Oct 2025 07:04:40 -0500
-Received: from [172.24.233.20] (a0512632.dhcp.ti.com [172.24.233.20])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 593C4aEV3606964;
-	Fri, 3 Oct 2025 07:04:37 -0500
-Message-ID: <5d91923f-8929-4bce-94e7-2b96fa2062af@ti.com>
-Date: Fri, 3 Oct 2025 17:34:36 +0530
+	Fri, 03 Oct 2025 12:15:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1759493749; x=1791029749;
+  h=from:to:subject:date:message-id:mime-version:
+   content-transfer-encoding;
+  bh=TqblJqfbXrrmCzEUxWga4pPKLpbgkCtwFBWjaGRMyg4=;
+  b=iODA/Xv+fzLZVdYchbgWxIiERM+NrjlD5siKrHJuQoSliD0i30sRlGyw
+   EnNuze4ltx3M+F7gvduT6LV2gqEb/9soKU9TChF1T3++BbHW6SSHxfstB
+   RSQvcciX03urDRcWpQeS8CE+Zwsh3COog5IDjAtmghHePOzyq0B8Uem8E
+   uPjeqidBUCJTZNVcnps1tr9Xc8jSGxTmusxO2s4lTvfuRy2d5zUKJC5Z5
+   JevVascl1JDQPrf0sNHX0QB+DiHl8OJvgEJjIOF4fdEdwmRERkNSpRg1M
+   3I99QoVJyBF/s7CZ+snDYDOb824bVRlsjK5Tl0hSYTUwKsHMSaZq6+wea
+   Q==;
+X-CSE-ConnectionGUID: MPRaiQ9mQMGHc/f2hmpJPw==
+X-CSE-MsgGUID: EATtKZGOSduCjCv28xmVFQ==
+X-IronPort-AV: E=Sophos;i="6.18,312,1751241600"; 
+   d="scan'208";a="2957925"
+Received: from ip-10-6-6-97.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.6.97])
+  by internal-fra-out-011.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Oct 2025 12:15:38 +0000
+Received: from EX19MTAEUB001.ant.amazon.com [54.240.197.234:5820]
+ by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.21.15:2525] with esmtp (Farcaster)
+ id 965d80e9-c758-4875-b5c1-af6f5c12ff0a; Fri, 3 Oct 2025 12:15:38 +0000 (UTC)
+X-Farcaster-Flow-ID: 965d80e9-c758-4875-b5c1-af6f5c12ff0a
+Received: from EX19D018EUA004.ant.amazon.com (10.252.50.85) by
+ EX19MTAEUB001.ant.amazon.com (10.252.51.28) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
+ Fri, 3 Oct 2025 12:15:37 +0000
+Received: from dev-dsk-farbere-1a-46ecabed.eu-west-1.amazon.com
+ (172.19.116.181) by EX19D018EUA004.ant.amazon.com (10.252.50.85) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20; Fri, 3 Oct 2025
+ 12:15:27 +0000
+From: Eliav Farber <farbere@amazon.com>
+To: <gregkh@linuxfoundation.org>, <kenneth.feng@amd.com>,
+	<alexander.deucher@amd.com>, <christian.koenig@amd.com>, <airlied@gmail.com>,
+	<simona@ffwll.ch>, <linus.walleij@linaro.org>, <dmitry.torokhov@gmail.com>,
+	<tglx@linutronix.de>, <wens@csie.org>, <jernej.skrabec@gmail.com>,
+	<samuel@sholland.org>, <agk@redhat.com>, <snitzer@kernel.org>,
+	<mpatocka@redhat.com>, <clm@fb.com>, <dsterba@suse.com>,
+	<luc.vanoostenryck@gmail.com>, <pmladek@suse.com>, <rostedt@goodmis.org>,
+	<andriy.shevchenko@linux.intel.com>, <linux@rasmusvillemoes.dk>,
+	<senozhatsky@chromium.org>, <akpm@linux-foundation.org>,
+	<lijo.lazar@amd.com>, <asad.kamal@amd.com>, <kevinyang.wang@amd.com>,
+	<David.Laight@ACULAB.COM>, <amd-gfx@lists.freedesktop.org>,
+	<dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>,
+	<linux-input@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-sunxi@lists.linux.dev>, <dm-devel@lists.linux.dev>,
+	<linux-btrfs@vger.kernel.org>, <linux-sparse@vger.kernel.org>,
+	<stable@vger.kernel.org>, <farbere@amazon.com>
+Subject: [PATCH v4 00/11 6.1.y] Backport minmax.h updates from v6.17-rc7
+Date: Fri, 3 Oct 2025 12:15:09 +0000
+Message-ID: <20251003121520.8176-1-farbere@amazon.com>
+X-Mailer: git-send-email 2.47.3
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] arm64: dts: ti: am625-phyboard-lyra: Add Lincoln
- LCD185-101CT panel overlay
-To: Wadim Egorov <w.egorov@phytec.de>, <nm@ti.com>, <vigneshr@ti.com>,
-        <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-        <conor+dt@kernel.org>, <aradhya.bhatia@linux.dev>,
-        "Thakkar, Devarsh"
-	<devarsht@ti.com>
-CC: <linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <upstream@lists.phytec.de>
-References: <20250925100038.3008298-1-w.egorov@phytec.de>
- <20250925100038.3008298-3-w.egorov@phytec.de>
-Content-Language: en-US
-From: Swamil Jain <s-jain1@ti.com>
-In-Reply-To: <20250925100038.3008298-3-w.egorov@phytec.de>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 8bit
+X-Originating-IP: [172.19.116.181]
+X-ClientProxiedBy: EX19D032UWA004.ant.amazon.com (10.13.139.56) To
+ EX19D018EUA004.ant.amazon.com (10.252.50.85)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_050511_894551_E8462613 
-X-CRM114-Status: GOOD (  18.19  )
+X-CRM114-CacheID: sfid-20251003_051550_119999_FC13CF87 
+X-CRM114-Status: GOOD (  14.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,249 +103,113 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Wadim,
+This series backports 11 patches to update minmax.h in the 6.1.y branch,
+aligning it with v6.17-rc7.
 
-On 9/25/25 15:30, Wadim Egorov wrote:
-> The panel is a Lincoln Technology Solutions LCD185-101CT [0]. It is
-> a dual-link LVDS panel and supports WUXGA resolution (1920x1200).
-> Furthermore, it has an I2C based touch controller: Goodix-GT928.
-> 
-> Add an device tree overlay to support the Lincoln LCD185-101CT panel
-> in combination with the phyBOARD-Lyra-AM62x.
-> 
-> [0] https://lincolntechsolutions.com/wp-content/uploads/2024/09/LCD185-101CTL1ARNTT_DS_R1.3.pdf
-> 
-> Signed-off-by: Wadim Egorov <w.egorov@phytec.de>
-> ---
-NACK. PATCH 1/3 and 2/3 are posted and reviewed already, please add link 
-to your PATCH and mention to apply it on top of the series[1].
+The ultimate goal is to synchronize all longterm branches so that they
+include the full set of minmax.h changes (6.12.y and 6.6.y were already
+backported by me and are now aligned).
 
-[1]: https://lore.kernel.org/all/20250913064205.4152249-1-s-jain1@ti.com/
+The key motivation is to bring in commit d03eba99f5bf ("minmax: allow
+min()/max()/clamp() if the arguments have the same signedness"), which
+is missing in older kernels.
 
-Regards,
-Swamil
-> v1: https://lists.infradead.org/pipermail/linux-arm-kernel/2025-September/1065767.html
-> v2: Use port dummies defined in previous patch
-> ---
->   arch/arm64/boot/dts/ti/Makefile               |   3 +
->   .../k3-am625-phyboard-lyra-oldi-lcd185.dtso   | 188 ++++++++++++++++++
->   2 files changed, 191 insertions(+)
->   create mode 100644 arch/arm64/boot/dts/ti/k3-am625-phyboard-lyra-oldi-lcd185.dtso
-> 
-> diff --git a/arch/arm64/boot/dts/ti/Makefile b/arch/arm64/boot/dts/ti/Makefile
-> index aad9177930e6..aa34a0d77615 100644
-> --- a/arch/arm64/boot/dts/ti/Makefile
-> +++ b/arch/arm64/boot/dts/ti/Makefile
-> @@ -13,6 +13,7 @@ dtb-$(CONFIG_ARCH_K3) += k3-am625-beagleplay.dtb
->   dtb-$(CONFIG_ARCH_K3) += k3-am625-beagleplay-csi2-ov5640.dtbo
->   dtb-$(CONFIG_ARCH_K3) += k3-am625-beagleplay-csi2-tevi-ov5640.dtbo
->   dtb-$(CONFIG_ARCH_K3) += k3-am625-phyboard-lyra-rdk.dtb
-> +dtb-$(CONFIG_ARCH_K3) += k3-am652-phyboard-lyra-oldi-lcd185.dtbo
->   dtb-$(CONFIG_ARCH_K3) += k3-am625-sk.dtb
->   dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-dahlia.dtb
->   dtb-$(CONFIG_ARCH_K3) += k3-am625-verdin-nonwifi-dev.dtb
-> @@ -165,6 +166,8 @@ k3-am625-phyboard-lyra-gpio-fan-dtbs := k3-am625-phyboard-lyra-rdk.dtb \
->   	k3-am62x-phyboard-lyra-gpio-fan.dtbo
->   k3-am625-phyboard-lyra-qspi-nor-dtbs := k3-am625-phyboard-lyra-rdk.dtb \
->   	k3-am6xx-phycore-qspi-nor.dtbo
-> +k3-am625-phyboard-lyra-oldi-lcd185-dtbs := k3-am625-phyboard-lyra-rdk.dtb \
-> +	k3-am625-phyboard-lyra-oldi-lcd185.dtbo
->   k3-am625-sk-csi2-imx219-dtbs := k3-am625-sk.dtb \
->   	k3-am62x-sk-csi2-imx219.dtbo
->   k3-am625-sk-csi2-ov5640-dtbs := k3-am625-sk.dtb \
-> diff --git a/arch/arm64/boot/dts/ti/k3-am625-phyboard-lyra-oldi-lcd185.dtso b/arch/arm64/boot/dts/ti/k3-am625-phyboard-lyra-oldi-lcd185.dtso
-> new file mode 100644
-> index 000000000000..b1feb665248b
-> --- /dev/null
-> +++ b/arch/arm64/boot/dts/ti/k3-am625-phyboard-lyra-oldi-lcd185.dtso
-> @@ -0,0 +1,188 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +/*
-> + * Copyright (C) 2025 PHYTEC Messtechnik GmbH
-> + * Author: Wadim Egorov <w.egorov@phytec.de>
-> + */
-> +
-> +/dts-v1/;
-> +/plugin/;
-> +
-> +#include <dt-bindings/pwm/pwm.h>
-> +#include <dt-bindings/gpio/gpio.h>
-> +#include <dt-bindings/interrupt-controller/irq.h>
-> +#include "k3-pinctrl.h"
-> +
-> +&{/} {
-> +	display {
-> +		compatible = "lincolntech,lcd185-101ct";
-> +		backlight = <&backlight>;
-> +		power-supply = <&vdd_usb_5v0>;
-> +
-> +		ports {
-> +			#address-cells = <1>;
-> +			#size-cells = <0>;
-> +
-> +			port@0 {
-> +				reg = <0>;
-> +				dual-lvds-odd-pixels;
-> +				lcd_in0: endpoint {
-> +					remote-endpoint = <&oldi_0_out>;
-> +				};
-> +			};
-> +
-> +			port@1 {
-> +				reg = <1>;
-> +				dual-lvds-even-pixels;
-> +				lcd_in1: endpoint {
-> +					remote-endpoint = <&oldi_1_out>;
-> +				};
-> +			};
-> +		};
-> +	};
-> +
-> +	backlight: backlight {
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&bl_pwm_pins_default>;
-> +
-> +		compatible = "pwm-backlight";
-> +
-> +		brightness-levels = <0 4 8 16 32 64 128 255>;
-> +		default-brightness-level = <6>;
-> +
-> +		enable-gpios = <&gpio_exp 5 GPIO_ACTIVE_HIGH>;
-> +		pwms = <&epwm0 1 50000 0>;
-> +	};
-> +
-> +        vdd_usb_5v0: regulator-vdd-usb5v0 {
-> +                compatible = "regulator-fixed";
-> +                regulator-name = "vdd-usb5v0";
-> +                regulator-min-microvolt = <5000000>;
-> +                regulator-max-microvolt = <5000000>;
-> +                regulator-always-on;
-> +                regulator-boot-on;
-> +        };
-> +};
-> +
-> +&dss {
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&main_oldi0_pins_default &main_dss0_pins_default>;
-> +};
-> +
-> +&dss_ports {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +
-> +	/* VP1: Output to OLDI */
-> +	port@0 {
-> +		reg = <0>;
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		dpi0_out0: endpoint@0 {
-> +			reg = <0>;
-> +			remote-endpoint = <&oldi_0_in>;
-> +		};
-> +
-> +		dpi0_out1: endpoint@1 {
-> +			reg = <1>;
-> +			remote-endpoint = <&oldi_1_in>;
-> +		};
-> +	};
-> +};
-> +
-> +&epwm0 {
-> +	status = "okay";
-> +};
-> +
-> +&main_i2c1 {
-> +	#address-cells = <1>;
-> +	#size-cells = <0>;
-> +
-> +	touchscreen@5d {
-> +		compatible = "goodix,gt928";
-> +		reg = <0x5d>;
-> +
-> +		pinctrl-names = "default";
-> +		pinctrl-0 = <&touch_screen_pins_default>;
-> +
-> +		interrupt-parent = <&main_gpio0>;
-> +		interrupts = <19 IRQ_TYPE_LEVEL_LOW>;
-> +
-> +		reset-gpios = <&main_gpio0 18 GPIO_ACTIVE_HIGH>;
-> +		irq-gpios = <&main_gpio0 19 GPIO_ACTIVE_HIGH>;
-> +	};
-> +};
-> +
-> +&main_pmx0 {
-> +	bl_pwm_pins_default: bl-pwm-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62X_IOPAD(0x01b8, PIN_INPUT, 2) /* (C13) SPI0_CS1.EHRPWM0_B */
-> +		>;
-> +	};
-> +
-> +	touch_screen_pins_default: touch-screen-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62X_IOPAD(0x048, PIN_OUTPUT, 7) /* (N25) GPMC0_AD3.GPIO0_18 - RST */
-> +			AM62X_IOPAD(0x04c, PIN_INPUT, 7) /* (P24) GPMC0_AD4.GPIO0_19 - INT */
-> +		>;
-> +	};
-> +
-> +	main_oldi0_pins_default: main-oldi0-default-pins {
-> +		pinctrl-single,pins = <
-> +			AM62X_IOPAD(0x0260, PIN_OUTPUT, 0) /* (AA5) OLDI0_A0N */
-> +			AM62X_IOPAD(0x025c, PIN_OUTPUT, 0) /* (Y6) OLDI0_A0P */
-> +			AM62X_IOPAD(0x0268, PIN_OUTPUT, 0) /* (AD3) OLDI0_A1N */
-> +			AM62X_IOPAD(0x0264, PIN_OUTPUT, 0) /* (AB4) OLDI0_A1P */
-> +			AM62X_IOPAD(0x0270, PIN_OUTPUT, 0) /* (Y8) OLDI0_A2N */
-> +			AM62X_IOPAD(0x026c, PIN_OUTPUT, 0) /* (AA8) OLDI0_A2P */
-> +			AM62X_IOPAD(0x0278, PIN_OUTPUT, 0) /* (AB6) OLDI0_A3N */
-> +			AM62X_IOPAD(0x0274, PIN_OUTPUT, 0) /* (AA7) OLDI0_A3P */
-> +			AM62X_IOPAD(0x0280, PIN_OUTPUT, 0) /* (AC6) OLDI0_A4N */
-> +			AM62X_IOPAD(0x027c, PIN_OUTPUT, 0) /* (AC5) OLDI0_A4P */
-> +			AM62X_IOPAD(0x0288, PIN_OUTPUT, 0) /* (AE5) OLDI0_A5N */
-> +			AM62X_IOPAD(0x0284, PIN_OUTPUT, 0) /* (AD6) OLDI0_A5P */
-> +			AM62X_IOPAD(0x0290, PIN_OUTPUT, 0) /* (AE6) OLDI0_A6N */
-> +			AM62X_IOPAD(0x028c, PIN_OUTPUT, 0) /* (AD7) OLDI0_A6P */
-> +			AM62X_IOPAD(0x0298, PIN_OUTPUT, 0) /* (AD8) OLDI0_A7N */
-> +			AM62X_IOPAD(0x0294, PIN_OUTPUT, 0) /* (AE7) OLDI0_A7P */
-> +			AM62X_IOPAD(0x02a0, PIN_OUTPUT, 0) /* (AD4) OLDI0_CLK0N */
-> +			AM62X_IOPAD(0x029c, PIN_OUTPUT, 0) /* (AE3) OLDI0_CLK0P */
-> +			AM62X_IOPAD(0x02a8, PIN_OUTPUT, 0) /* (AE4) OLDI0_CLK1N */
-> +			AM62X_IOPAD(0x02a4, PIN_OUTPUT, 0) /* (AD5) OLDI0_CLK1P */
-> +		>;
-> +	};
-> +};
-> +
-> +&oldi0 {
-> +	ti,companion-oldi = <&oldi1>;
-> +	status = "okay";
-> +};
-> +
-> +&oldi0_port0 {
-> +	oldi_0_in: endpoint {
-> +		remote-endpoint = <&dpi0_out0>;
-> +	};
-> +};
-> +
-> +&oldi0_port1 {
-> +	oldi_0_out: endpoint {
-> +		remote-endpoint = <&lcd_in0>;
-> +	};
-> +};
-> +
-> +&oldi1 {
-> +	ti,secondary-oldi;
-> +	status = "okay";
-> +};
-> +
-> +&oldi1_port0 {
-> +	oldi_1_in: endpoint {
-> +		remote-endpoint = <&dpi0_out1>;
-> +	};
-> +};
-> +
-> +&oldi1_port1 {
-> +	oldi_1_out: endpoint {
-> +		remote-endpoint = <&lcd_in1>;
-> +	};
-> +};
+In mainline, this change enables min()/max()/clamp() to accept mixed
+argument types, provided both have the same signedness. Without it,
+backported patches that use these forms may trigger compiler warnings,
+which escalate to build failures when -Werror is enabled.
+
+Changes in v4:
+- Just swap the order of the first 2 patches in this chain, because
+  commit cb04e8b1d2f2 ("minmax: don't use max() in situations that want
+  a C constant expression") should come before commit dc1c8034e31b
+  ("minmax: simplify min()/max()/clamp() implementation").
+
+Changes in v3:
+- v2 included 13 patches:
+  https://lore.kernel.org/stable/20250929183358.18982-1-farbere@amazon.com/
+- First 2 were accepted and are part of 6.1.155.
+- 3rd caused build in drivers/md/ to fail:
+
+In file included from ./include/linux/container_of.h:5,
+                 from ./include/linux/list.h:5,
+                 from ./include/linux/wait.h:7,
+                 from ./include/linux/mempool.h:8,
+                 from ./include/linux/bio.h:8,
+                 from drivers/md/dm-bio-record.h:10,
+                 from drivers/md/dm-integrity.c:9:
+drivers/md/dm-integrity.c: In function ‘integrity_metadata’:
+drivers/md/dm-integrity.c:131:105: error: ISO C90 forbids variable length array ‘checksums_onstack’ [-Werror=vla]
+  131 | #define MAX_TAG_SIZE                    (JOURNAL_SECTOR_DATA - JOURNAL_MAC_PER_SECTOR - offsetof(struct journal_entry, last_bytes[MAX_SECTORS_PER_BLOCK]))
+      |                                                                                                         ^~~~~~~~~~~~~
+./include/linux/build_bug.h:78:56: note: in definition of macro ‘__static_assert’
+   78 | #define __static_assert(expr, msg, ...) _Static_assert(expr, msg)
+      |                                                        ^~~~
+./include/linux/minmax.h:56:9: note: in expansion of macro ‘static_assert’
+   56 |         static_assert(__types_ok(x, y, ux, uy),         \
+      |         ^~~~~~~~~~~~~
+./include/linux/minmax.h:41:31: note: in expansion of macro ‘__is_noneg_int’
+   41 |          __is_noneg_int(x) || __is_noneg_int(y))
+      |                               ^~~~~~~~~~~~~~
+./include/linux/minmax.h:56:23: note: in expansion of macro ‘__types_ok’
+   56 |         static_assert(__types_ok(x, y, ux, uy),         \
+      |                       ^~~~~~~~~~
+./include/linux/minmax.h:61:9: note: in expansion of macro ‘__careful_cmp_once’
+   61 |         __careful_cmp_once(op, x, y, __UNIQUE_ID(x_), __UNIQUE_ID(y_))
+      |         ^~~~~~~~~~~~~~~~~~
+./include/linux/minmax.h:92:25: note: in expansion of macro ‘__careful_cmp’
+   92 | #define max(x, y)       __careful_cmp(max, x, y)
+      |                         ^~~~~~~~~~~~~
+drivers/md/dm-integrity.c:1797:40: note: in expansion of macro ‘max’
+ 1797 |                 char checksums_onstack[max((size_t)HASH_MAX_DIGESTSIZE, MAX_TAG_SIZE)];
+      |                                        ^~~
+drivers/md/dm-integrity.c:131:89: note: in expansion of macro ‘offsetof’
+  131 | #define MAX_TAG_SIZE                    (JOURNAL_SECTOR_DATA - JOURNAL_MAC_PER_SECTOR - offsetof(struct journal_entry, last_bytes[MAX_SECTORS_PER_BLOCK]))
+      |                                                                                         ^~~~~~~~
+drivers/md/dm-integrity.c:1797:73: note: in expansion of macro ‘MAX_TAG_SIZE’
+ 1797 |                 char checksums_onstack[max((size_t)HASH_MAX_DIGESTSIZE, MAX_TAG_SIZE)];
+      |                                                                         ^~~~~~~~~~~~
+
+- The build was fixed in the second patch of this series.
+
+Changes in v2:
+- v1 included 19 patches:
+  https://lore.kernel.org/stable/20250924202320.32333-1-farbere@amazon.com/
+- First 6 were pushed to the stable-tree.
+- 7th cauded amd driver's build to fail.
+- This change fixes it.
+- Modified files:
+   drivers/gpu/drm/amd/amdgpu/amdgpu.h
+   drivers/gpu/drm/amd/pm/swsmu/smu11/sienna_cichlid_ppt.c
+   drivers/gpu/drm/amd/pm/swsmu/smu13/smu_v13_0_0_ppt.c
+
+David Laight (7):
+  minmax.h: add whitespace around operators and after commas
+  minmax.h: update some comments
+  minmax.h: reduce the #define expansion of min(), max() and clamp()
+  minmax.h: use BUILD_BUG_ON_MSG() for the lo < hi test in clamp()
+  minmax.h: move all the clamp() definitions after the min/max() ones
+  minmax.h: simplify the variants of clamp()
+  minmax.h: remove some #defines that are only expanded once
+
+Linus Torvalds (4):
+  minmax: don't use max() in situations that want a C constant
+    expression
+  minmax: simplify min()/max()/clamp() implementation
+  minmax: improve macro expansion and type checking
+  minmax: fix up min3() and max3() too
+
+ drivers/gpu/drm/amd/pm/swsmu/smu_cmn.c   |   2 +-
+ drivers/input/touchscreen/cyttsp4_core.c |   2 +-
+ drivers/irqchip/irq-sun6i-r.c            |   2 +-
+ drivers/md/dm-integrity.c                |   2 +-
+ fs/btrfs/tree-checker.c                  |   2 +-
+ include/linux/compiler.h                 |   9 +
+ include/linux/minmax.h                   | 222 +++++++++++++----------
+ lib/vsprintf.c                           |   2 +-
+ 8 files changed, 143 insertions(+), 100 deletions(-)
+
+-- 
+2.47.3
 
 
