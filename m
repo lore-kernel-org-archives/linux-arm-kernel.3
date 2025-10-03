@@ -4,73 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 068F0CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 17:22:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC6F9CCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 17:23:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=j2DGA3Bok6OxXF04sWu7pIRi9GIVarqqtQ8WUMH2D0E=; b=HKlCMjU5yWiSj6
-	REWsFdqa7CNKlSysS6+ZfE614IHVHXYWfhAUzbmoya62n+GGT9oWaEpnT9kW/VsenetcxhKII5EUo
-	1ajVRCvvP2/xylKdJaSbWspPv6Kbw36EN+enZi9ynLOY1X48630Hui2S3IjjCaFQXodpEiMAVYMOO
-	c1x8xaPqVuEjkko1/QIpq804YsiDzuzqvNLGrzj63s5XEFGV4E5yiJk2c6S6sH3buqsUg5OJyqB3Z
-	iePo5167XipC+J6kqYDYwOo3rAT29U7JfNJhFfbzrpXFu1tuqk5JclGn/ErzUUuR0XbA8pldZ+9t7
-	GyClP9BM4KIuVmHeK70A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LGWR7Op0jGJB/hnyDRBm1VaEtVV6gV3pqYTKcigBXCc=; b=b3YGSdtAhDpDnEfVxKzsu8X6Hz
+	mnF1KpFLnRRSVcvSKOnOm5kWo+zLbcvbGXjMbKRhDohnnktYHwF3b/hxdObsRJP/irRJuWC1A8snz
+	tdLXcQXepzVK67POzk64af+My8I7EU9idaKvJdYyoCW5C/REMH6cRszo/ZMcEQZGH58yAaeNS9uYy
+	cTbpy+PcjRTRxtKVllTUzeIKkGojIs4K8gAcF7zc8HbjfSB4APvnGT2gyB8N1rYLYHiQl8ls0GzJF
+	8h/XNs37EyHhEH8tNGbFFhTIPwA7yEOUytkVVoAX/G7ovvyMVbBms9jbh5NobYntMiHYAZoEH84cL
+	eOTdRYgg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4jTm-0000000Cp8S-0taG;
-	Fri, 03 Oct 2025 17:22:02 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v4jUi-0000000CpIh-2S1o;
+	Fri, 03 Oct 2025 17:23:00 +0000
+Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4jTj-0000000Cp7t-0BxN
+	id 1v4jUg-0000000CpIG-1NVj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Oct 2025 17:22:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 59A7C409B4;
-	Fri,  3 Oct 2025 17:21:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0CAA7C4CEF5;
-	Fri,  3 Oct 2025 17:21:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759512118;
-	bh=gJyCL8uxswVnUfA7Rwci8BgxqWn7pX8aafHn3LwvUy4=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:From;
-	b=Th30eFDgAR9AWh5/pYf4m8ToHxrvKDRYPxME7aMWPS78o9w6gaabq4RznHz9NaAnS
-	 enA90sfpO8CF4nZDNrI2p9vx6Lxa0w8WyWiyKWt9qPLhqwDRlKue3a2Ztc4IuizavR
-	 3grRXBqmsYav+iOJPUZMm/yL6sxnnD4sT7ULhx1jO4XpwMMVwJp0Ry9Ao6mIhIMp2b
-	 z1fVIFXRsKi03U4uoop5AHsw6kYxWdbiFeHGugBOH/VIvdWIuMiy3L/tX77YCFWJR/
-	 Hymy2LuptIJQ3z3E6sgLQKSyEmAhn8sypAVkhCU64Wav5pqtBza9OWr/uET8lAK97p
-	 cGMcNG+TdjDkQ==
-Date: Fri, 3 Oct 2025 12:21:56 -0500
-From: Bjorn Helgaas <helgaas@kernel.org>
-To: Frank Li <Frank.li@nxp.com>
-Cc: Hongxing Zhu <hongxing.zhu@nxp.com>,
-	"jingoohan1@gmail.com" <jingoohan1@gmail.com>,
-	"l.stach@pengutronix.de" <l.stach@pengutronix.de>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"kwilczynski@kernel.org" <kwilczynski@kernel.org>,
-	"mani@kernel.org" <mani@kernel.org>,
-	"robh@kernel.org" <robh@kernel.org>,
-	"bhelgaas@google.com" <bhelgaas@google.com>,
-	"shawnguo@kernel.org" <shawnguo@kernel.org>,
-	"s.hauer@pengutronix.de" <s.hauer@pengutronix.de>,
-	"kernel@pengutronix.de" <kernel@pengutronix.de>,
-	"festevam@gmail.com" <festevam@gmail.com>,
-	"linux-pci@vger.kernel.org" <linux-pci@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v5 2/2] PCI: imx6: Add a method to handle CLKREQ#
- override active low
-Message-ID: <20251003172156.GA357448@bhelgaas>
+	Fri, 03 Oct 2025 17:22:59 +0000
+Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-71d601859f5so28522047b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Oct 2025 10:22:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1759512177; x=1760116977; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=LGWR7Op0jGJB/hnyDRBm1VaEtVV6gV3pqYTKcigBXCc=;
+        b=RWOtgBVYBFdwe5+GkbwNLlGIK5zKewO3Eq/AbTvwQm5fQwiGsTO46RxYYnYPghp64t
+         dncW1SSWYkNl89P9Czj30zUGgNMQWYDZELgk1zxUTYAepDhkNxz25F1wUzhcY3c6AKu6
+         ukamzTyAfKRQTN4dkAFd6EIv7QyeLxduaTGa/ccQuLpNRCXN4Qs5hBPs/AQSmK0ipvgK
+         ex463t9xoJ4E27Nn7682zKQN/YGrrZo88D4jBOP0Bx1+lDn+ZoFB+ENzbTMSxiXJWmp2
+         6wpO86tgFGyczfvhKeXmiVffNf9WDmfa33gxBJ9x8+/qfZMTbHvBwxKrsSN01TnBHA7W
+         yWhg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759512177; x=1760116977;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=LGWR7Op0jGJB/hnyDRBm1VaEtVV6gV3pqYTKcigBXCc=;
+        b=UdNFdQRnhla4VPoFUzImbz9d3HDlq9fjAZLEA1XUe89Husb3agiTmH8FIWvurd9osf
+         46A2kpaoLdSnutWqcr5YivNGMUNxge+PWq6PYe5dy1micn0SyGzg0kyS8rlQ2s6SbvA8
+         0BI4u1JFHWPjiFXqS3bsQgiMtaAKA8jVTBbglRlvMws7Joc9W/hNm9SuBjw0B8mdv3BB
+         FErc6+bCJd1w3sE3/ttyzDVwieZnsNO3lA3Qmij/PmM00t3eOFLD+jYM/vji8AlDRFMe
+         q/0IvEGnm/HDnXPyC4CnCVbWTil4O8JeXQxvFERPzozBvgiof9kxYYm6+4SGvPWeb/cx
+         jH3w==
+X-Forwarded-Encrypted: i=1; AJvYcCXJjKlzpktEd/DOxs84t2hjXgViHyhsB7dVnEW7mvAuNYIyQiikuRQ8oG1+/B0zm1gVDqfhnVsWCgHv/THEyepq@lists.infradead.org
+X-Gm-Message-State: AOJu0YxoFShHsTsq6ODItvRDqcjpHmI6AQieMoSrYHF1ckXiqGEWiBC/
+	ooRgnF/qTEjl73rGNEUbSkByvQUcE1rwxWH7LBjPAcsWBT+eZDi8cfIv3TxLiaUG0EcXNyw2oMk
+	rzqrHv6oxZGwZYBLq6n6GiUUKn1OF4mulhspRbYfE3w==
+X-Gm-Gg: ASbGncvaWmuZqET7ozbCsvc7FYZAbP6C2XUYD90/w9Ouy2LrgBErXN1bsV2Mxkxsn6G
+	H5Yt54ydh4NZyIwLtVMkZFD+V5SKrOkjXtNFNGiH29/Vh8fyoJAVrOEW3p7KPt+GgA0jsVqjb5P
+	Bje1hAEI1GGMis8OV6qbKTDelSQ23ZKYKIjZak01Nlf4sWaXkcDPQ1KUPNl2u+T0mq3/jOKeyrq
+	OASfVcbzT/NEWEaqe8FUP5BAJ8pJFRl+uShhLqVXZko
+X-Google-Smtp-Source: AGHT+IEaOvU8KB5Em4L2bWs/Xj/IkcvvxTcqZJWq4PxSiqWi8wXfy+Ft4q6LsFqAEYTMabgdZG5h7FcKPPHNINr43CI=
+X-Received: by 2002:a05:690e:1c4:b0:636:d230:7d82 with SMTP id
+ 956f58d0204a3-63b9a0e08bdmr1960868d50.26.1759512176832; Fri, 03 Oct 2025
+ 10:22:56 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aNcXxC7cJ6yha+ff@lizhi-Precision-Tower-5810>
+References: <20251002-gs101-pmu-regmap-tables-v1-0-1f96f0920eb3@linaro.org> <20251002-gs101-pmu-regmap-tables-v1-1-1f96f0920eb3@linaro.org>
+In-Reply-To: <20251002-gs101-pmu-regmap-tables-v1-1-1f96f0920eb3@linaro.org>
+From: Sam Protsenko <semen.protsenko@linaro.org>
+Date: Fri, 3 Oct 2025 12:22:46 -0500
+X-Gm-Features: AS18NWBQR2ismkqxDcti8kjrNtnGND89e5O87aRDbFrbCUVqVqwZBLFSImHDwoE
+Message-ID: <CAPLW+4=mVbXex9Sxm2oEq0j3RJ0_KtXRq2Ttt5cfQ_dxXTuhSA@mail.gmail.com>
+Subject: Re: [PATCH 1/3] soc: samsung: exynos-pmu: allow specifying read &
+ write access tables for secure regmap
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
+	Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_102159_127471_28C680AB 
-X-CRM114-Status: GOOD (  42.18  )
+X-CRM114-CacheID: sfid-20251003_102258_374384_0710C671 
+X-CRM114-Status: GOOD (  25.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,110 +99,84 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Sep 26, 2025 at 06:46:28PM -0400, Frank Li wrote:
-> On Fri, Sep 26, 2025 at 03:25:21PM -0500, Bjorn Helgaas wrote:
-> > On Fri, Sep 26, 2025 at 03:08:30AM +0000, Hongxing Zhu wrote:
-> > > > -----Original Message-----
-> > > > From: Bjorn Helgaas <helgaas@kernel.org>
-> >
-> > > > On Fri, Sep 26, 2025 at 02:19:37AM +0000, Hongxing Zhu wrote:
-> > > > > > -----Original Message-----
-> > > > > > From: Bjorn Helgaas <helgaas@kernel.org> On Tue, Sep 23, 2025 at
-> > > > > > 03:39:13PM +0800, Richard Zhu wrote:
-> > > > > > > The CLKREQ# is an open drain, active low signal that is
-> > > > > > > driven low by the card to request reference clock. It's an
-> > > > > > > optional signal added in PCIe CEM r4.0, sec 2. Thus, this
-> > > > > > > signal wouldn't be driven low if it's reserved.
-> > > > > > >
-> > > > > > > Since the reference clock controlled by CLKREQ# may be
-> > > > > > > required by i.MX PCIe host too. To make sure this clock is
-> > > > > > > ready even when the CLKREQ# isn't driven low by the card(e.x
-> > > > > > > the scenario described above), force CLKREQ# override active
-> > > > > > > low for i.MX PCIe host during initialization.
-> > > > > > >
-> > > > > > > The CLKREQ# override can be cleared safely when
-> > > > > > > supports-clkreq is present and PCIe link is up later.
-> > > > > > > Because the CLKREQ# would be driven low by the card at this
-> > > > > > > time.
-> > > > > >
-> > > > > > What happens if we clear the CLKREQ# override (so the host
-> > > > > > doesn't assert it), and the link is up but the card never
-> > > > > > asserts CLKREQ# (since it's an optional signal)?
-> > > > > >
-> > > > > > Does the i.MX host still work?
-> > > > >
-> > > > > The CLKREQ# override active low only be cleared when link is up
-> > > > > and supports-clkreq is present. In the other words, there is a
-> > > > > remote endpoint  device, and the CLKREQ# would be driven active
-> > > > > low by this endpoint device.
-> > > >
-> > > > Assume an endpoint designed to CEM r2.0.  CLKREQ# doesn't exist in
-> > > > CEM r2.0, so even if the endpoint is present and the link is up,
-> > > > the endpoint will not assert CLKREQ#.
-> > > >
-> > > > Will the i.MX host still work?
-> >
-> > > Yes, i.MX host still work.
-> > > If the endpoint designed to CEM r2.0, and CLKREQ# is reserved. The
-> > > property suppots-clkreq wouldn't present in this scenario. Thus, the
-> > > CLKREQ# override active low set by host driver wouldn't be cleared
-> > > later, although the link is up and an endpoint is present.
-> >
-> > Do you mean 'supports-clkreq' describes the *endpoint*, and you need
-> > to change the devicetree depending on which endpoint is connected?
-> 
-> It is NOT descript *endpoint*. supports-clkreq descript the board design,
-> which connect CLKREQ# signal. Because standard slot's CLKREQ# (PIN12) is
-> reserved in beggin, so some old PCIe card have not pull down this signal as
-> latest spec requirement.
-> 
-> PCIe Standard slot with INTEL E2000 1G ethernet card, which is producted
-> around 10 year ago, PIN12 is reserved.
-> 
-> So we don't set supports-clkreq for stardard PCI slot, only set it for
-> M.2 slot. So stardard PCI slot in imx95 evk can support most cards. We have
-> not vendor card lists, which already connect/not connect CLKREQ#, so we
-> have to fallback to disconnect CLKREQ# situation by clarm our evk board
-> have not connect CLKREQ# to make all card works, eventhough it lost power
-> save feature. work is more impantant then power saving.
-> 
-> > The schema says 'supports-clkreq' tells us whether CLKREQ# signal
-> > routing exists, not whether the downstream device actually supports
-> > CLKREQ#:
-> >
-> >   https://github.com/devicetree-org/dt-schema/blob/4b28bc79fdc552f3e0b870ef1362bb711925f4f3/dtschema/schemas/pci/pci-bus-common.yaml#L155
-> >
-> > I don't see 'supports-clkreq' in any devicetree related to imx6, so
-> > I'm not sure this patch is needed yet.  Does it fix an existing
-> > problem?
-> 
-> The patch adding 'supports-clkreq' in dts is on going. No funtional broken
-> because it just impact l1ss power saving features.
-> 
-> > If it enables some future functionality, maybe we should defer it
-> > until we're actually ready to enable that functionality?
-> 
-> Actually, it fixes i.MX95 19x19 EVK second slot problem. At least
-> INTEL E2000 1G ethernet card can't work at i.MX95 EVK boards at main
-> stream kernel without this patch.
+On Thu, Oct 2, 2025 at 5:33=E2=80=AFAM Andr=C3=A9 Draszik <andre.draszik@li=
+naro.org> wrote:
+>
+> Accessing non-existent PMU registers causes an SError, halting the
+> system.
+>
+> regmap can help us with that by allowing to pass the list of valid
+> registers as part of the config during creation. When this driver
+> creates a new regmap itself rather than relying on
+> syscon_node_to_regmap(), it's therefore easily possible to hook in
+> custom access tables for valid read and write registers.
+>
+> Specifying access tables avoids SErrors for invalid registers and
+> instead the regmap core can just return an error. Outside drivers, this
+> is also helpful when using debugfs to access the regmap.
+>
+> Make it possible for drivers to specify read and write tables to be
+> used on creation of the secure regmap.
+>
+> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+> ---
+>  drivers/soc/samsung/exynos-pmu.c | 3 +++
+>  drivers/soc/samsung/exynos-pmu.h | 4 ++++
+>  2 files changed, 7 insertions(+)
+>
+> diff --git a/drivers/soc/samsung/exynos-pmu.c b/drivers/soc/samsung/exyno=
+s-pmu.c
+> index 22c50ca2aa79bf1945255ee6cc7443d7309b2573..9f416de03610b1727d8cc7761=
+6e5c87e2525cc69 100644
+> --- a/drivers/soc/samsung/exynos-pmu.c
+> +++ b/drivers/soc/samsung/exynos-pmu.c
+> @@ -635,6 +635,9 @@ static int exynos_pmu_probe(struct platform_device *p=
+dev)
+>                 pmu_regmcfg =3D regmap_smccfg;
+>                 pmu_regmcfg.max_register =3D resource_size(res) -
+>                                            pmu_regmcfg.reg_stride;
+> +               pmu_regmcfg.wr_table =3D pmu_context->pmu_data->wr_table;
+> +               pmu_regmcfg.rd_table =3D pmu_context->pmu_data->rd_table;
+> +
 
-I deferred these two patches so we have time to tidy these up:
+Seems like pmu_regmcfg declaration can be pulled under this "if" scope
+-- just a thought for future.
 
-  - Coordinate with adding 'supports-clkreq' in devicetrees.
+>                 /* Need physical address for SMC call */
+>                 regmap =3D devm_regmap_init(dev, NULL,
+>                                           (void *)(uintptr_t)res->start,
+> diff --git a/drivers/soc/samsung/exynos-pmu.h b/drivers/soc/samsung/exyno=
+s-pmu.h
+> index 0938bb4fe15f439e2d8bddeec51b6077e79a7e84..113149ed32c88a09b075be820=
+50c26970e4c0620 100644
+> --- a/drivers/soc/samsung/exynos-pmu.h
+> +++ b/drivers/soc/samsung/exynos-pmu.h
+> @@ -27,6 +27,10 @@ struct exynos_pmu_data {
+>         void (*pmu_init)(void);
+>         void (*powerdown_conf)(enum sys_powerdown);
+>         void (*powerdown_conf_extra)(enum sys_powerdown);
+> +
+> +       /* for the pmu_secure case */
+> +       const struct regmap_access_table *rd_table;
+> +       const struct regmap_access_table *wr_table;
 
-  - Fix the imx95 refclk enable that was missed in the v5 series.
+Maybe it's worth to add #include <linux/regmap.h> in this header, or
+at least forward declaration struct regmap_access_table?
 
-  - Consider making imx95 refclk enable parallel to the other
-    versions, e.g., by using .enable_ref_clk() instead of doing it in
-    imx95_pcie_init_phy().
+Also, would be nice to have kernel-doc comment for struct
+exynos_pmu_data at this point, but it might be out of scope for this
+patch.
 
-  - Describe the "i.MX95 19x19 EVK second slot problem" in the commit
-    log.  Possibly split that into a second patch if it can be
-    separated from the CLKREQ# override.  It sounds like this part
-    doesn't depend on 'supports-clkreq' in a devicetree?
+Other than those minor nitpicks -- LGTM:
 
-Maybe we can also figure out how to explain why CLKREQ# override is an
-issue for imx6 but not for other DWC-based drivers.
+Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
 
-Bjorn
+>  };
+>
+>  extern void __iomem *pmu_base_addr;
+>
+> --
+> 2.51.0.618.g983fd99d29-goog
+>
+>
 
