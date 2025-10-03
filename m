@@ -4,216 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0242ECAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 03:10:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13F48CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 03:21:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YNuFZNH8I4tmPAebYIN5o3V+KDzK7+DnTxOqsI5kAzU=; b=PS2iBo2UJkF0WwwOE9XXwJGCh9
-	v0Rks4GpwB9BKs4bRCZ7bHADPQcTRYC7KZZJKtvhF73rXzFgsPsVA/8wnM/o0HEVlUiQC3sIhhE9G
-	tc1RY28JoWHTkfLT/SawlMqIkCf6kqUSLhpnfoAY5Sn+g8NZWejWTNtA3p4wI+MBh17Pb69PhHvuo
-	oIm9MSPxo5mwgPjuEZf4jLs5yN3fCl/AYLXMxZQKXSN5aRoNi6kN/XgW4mnyZ28MgZOdVuGa2ROwQ
-	umMYbnwjMAf3IIIEe4n6Y4mz4XqUE4c5M+bk9xy2wYiMkZryyUFbGZifGPHfm9uHgW2IW+b0gRNQS
-	jvn8x4bQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=MUO4rDsZWKCl45RHWWZ4FTSOP5btGm8sewqyPs9LAbs=; b=K4+W0Fu8g1ktjXUS4KsfYh5Ifx
+	GeBq9YH8sUtKVcyXp3N708pIq+BjULcYrkQrSup5trBY+iQDpJ8IkB5iGb2d2vJiMqWP5K2me+lIv
+	u/bI09winRg6HIZVQwDCiTVkFEpCeFi2p4pVO2ZAKZPGjh8f9ODLh5mbsGR6fDF/1ENRjrkwZ85Wl
+	O9iD3a7kv8XAkj1gw6YHiDgjbbPqoLaNj24XZI4GACq5lPBcSGASpcQ+Qs8fPzi+z+Yt/hAcH8zgP
+	AAhObaXgv+eXeZH8mWs75Lff13ED1lc7/yahir9PeN4/L9CStPebkCfnpUm9XYWQFoJO9PXIV5guk
+	wTX/6N5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4WBS-0000000BabU-20Z7;
-	Fri, 03 Oct 2025 03:10:14 +0000
-Received: from mailgw02.mediatek.com ([216.200.240.185])
+	id 1v4WM8-0000000Bb5R-0NP6;
+	Fri, 03 Oct 2025 03:21:16 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4WBP-0000000Baat-2gvR;
-	Fri, 03 Oct 2025 03:10:12 +0000
-X-UUID: 76f9656ea00611f0a52f393f94899d25-20251002
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=YNuFZNH8I4tmPAebYIN5o3V+KDzK7+DnTxOqsI5kAzU=;
-	b=rx1Sd1MXTmcaIVVhHnuwuiHsuf0N2D2HHS7Pl8Nr20Y+5Ws6E0TZ+MXn23mbrt5hK2725+vZhOtaUEtjIGK1ZDYI77MnDy9lYuSKJKlbzj45GT5rKMHvAxy5Ss13xRC808glnp0ZtzHGIU4JxI9GrY54Ftk/ouSge43HlKns/pI=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:5eb90de7-5713-4ed7-aaa6-276478755cd7,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:a9d874c,CLOUDID:1529f0f8-ebfe-43c9-88c9-80cb93f22ca4,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|888|898,
-	TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:nil,Bulk:nil,QS:nil,
-	BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 76f9656ea00611f0a52f393f94899d25-20251002
-Received: from mtkmbs13n2.mediatek.inc [(172.21.101.108)] by mailgw02.mediatek.com
-	(envelope-from <peter.wang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 184698164; Thu, 02 Oct 2025 20:10:07 -0700
-Received: from mtkmbs10n1.mediatek.inc (172.21.101.34) by
- mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Fri, 3 Oct 2025 11:10:04 +0800
-Received: from SI4PR04CU002.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n1.mediatek.inc (172.21.101.34) with Microsoft SMTP Server id
- 15.2.1748.10 via Frontend Transport; Fri, 3 Oct 2025 11:10:04 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Jy2Vs9OHg+ZiNac8MVxosrXjZng0poT+gaZHOzyWE2gT6yPc12ZoLso6ZMT17gqAW+BjLzgf9zUFSDR6m6/qf+T3czes1cHOudslRnh8pk2zJmRvicChFgPStQoMOoOLDN9IU43OMBLr90VhoJFg8KaMQfYzZF5jfQu10i6nLmE3xEtP3RivnIaO0gNSLzUsDR3mvBDM/hX6XHxdHl3jMDKdrvx27YtMq0Z5pLN1xeaE9q/puFykYwMQ76c0eTJaXwXuX1C4i3k+0qiyNtMVLwicPscPGcm+jTpKqm9yNdRdW0u927lqKDg7JdSaBoKCjefDvYeWrG37XWFrl2VYOg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=YNuFZNH8I4tmPAebYIN5o3V+KDzK7+DnTxOqsI5kAzU=;
- b=vcTK0PX/bBjqIMYb0c4rgC7KJC7D0UbqiqBidPVTb6bt8lIPPzNJTUpO58dFFEAQLCJvbyVZssmopHRAeZAp23lk0btjvGyPzinBVSc5zGSD0/JLVVGD0KD91CYe1etuNaIeEgvP2dFaSIhxdWd1bBV0GfbwkoI/jb/7yDzD1OJw+4AxmF2UiDGoU2dCW4M85/xB3Y02qj5SOjkJ/O2CE6xx7+ctI9cP5xkm+2sPzUhKcti6E4a9n3P8Mwk2VX0Lk7LhH0Fb2pluSzFqfurWpaYW9xaa/eClWMsqxlXBLruRsXwy+bhPnRXBOOMNR5GiXboYnZqVg4bFSya/PGMAyQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=YNuFZNH8I4tmPAebYIN5o3V+KDzK7+DnTxOqsI5kAzU=;
- b=bEIusE+sQbK8clFc+libcGtVhTlvYdhAgbBcSWFuD6j0KQaqPgiTDlux3s9Ux9kbR8KwR6CHX4z9vCxrwPCLIcroEhERNRqUzngaZTmmLALAc3qB80cgcRRqd8Q7/C0I0wxiHIuWrR4iDbCNYPy7A0RgZNpdN/tJuGWqKrLcf2M=
-Received: from PSAPR03MB5605.apcprd03.prod.outlook.com (2603:1096:301:66::6)
- by KL1PR03MB8219.apcprd03.prod.outlook.com (2603:1096:820:109::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9182.16; Fri, 3 Oct
- 2025 03:10:01 +0000
-Received: from PSAPR03MB5605.apcprd03.prod.outlook.com
- ([fe80::3945:7dbc:62bd:c31c]) by PSAPR03MB5605.apcprd03.prod.outlook.com
- ([fe80::3945:7dbc:62bd:c31c%6]) with mapi id 15.20.9182.015; Fri, 3 Oct 2025
- 03:10:01 +0000
-From: =?utf-8?B?UGV0ZXIgV2FuZyAo546L5L+h5Y+LKQ==?= <peter.wang@mediatek.com>
-To: "avri.altman@wdc.com" <avri.altman@wdc.com>, "quic_cang@quicinc.com"
-	<quic_cang@quicinc.com>, "quic_nitirawa@quicinc.com"
-	<quic_nitirawa@quicinc.com>, "quic_nguyenb@quicinc.com"
-	<quic_nguyenb@quicinc.com>, "manivannan.sadhasivam@linaro.org"
-	<manivannan.sadhasivam@linaro.org>, "bvanassche@acm.org"
-	<bvanassche@acm.org>, "adrian.hunter@intel.com" <adrian.hunter@intel.com>,
-	"martin.petersen@oracle.com" <martin.petersen@oracle.com>
-CC: "beanhuo@micron.com" <beanhuo@micron.com>, "chu.stanley@gmail.com"
-	<chu.stanley@gmail.com>, "quic_mapa@quicinc.com" <quic_mapa@quicinc.com>,
-	"linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>, "AngeloGioacchino
- Del Regno" <angelogioacchino.delregno@collabora.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"alim.akhtar@samsung.com" <alim.akhtar@samsung.com>,
-	"linux-arm-msm@vger.kernel.org" <linux-arm-msm@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, "James.Bottomley@HansenPartnership.com"
-	<James.Bottomley@HansenPartnership.com>, "mani@kernel.org" <mani@kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>
-Subject: Re: [PATCH v1 1/2] scsi: ufs: core: Remove
- UFS_DEVICE_QUIRK_DELAY_AFTER_LPM quirk
-Thread-Topic: [PATCH v1 1/2] scsi: ufs: core: Remove
- UFS_DEVICE_QUIRK_DELAY_AFTER_LPM quirk
-Thread-Index: AQHcMxYfOksnBxmnP02s2Q6lFEkIhrSufh+AgAC2GICAAIwFAA==
-Date: Fri, 3 Oct 2025 03:10:01 +0000
-Message-ID: <9706ab36ba82a2522931326e114155c027da5461.camel@mediatek.com>
-References: <cover.1759348507.git.quic_nguyenb@quicinc.com>
-	 <0f0a7d5518d29fc384aace558d2bf098d792e0db.1759348507.git.quic_nguyenb@quicinc.com>
-	 <450e834545af935010ffc4f9079e56e47851f197.camel@mediatek.com>
-	 <69a111a2-219e-e3d4-8b89-3400facc02e3@quicinc.com>
-In-Reply-To: <69a111a2-219e-e3d4-8b89-3400facc02e3@quicinc.com>
-Accept-Language: zh-TW, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PSAPR03MB5605:EE_|KL1PR03MB8219:EE_
-x-ms-office365-filtering-correlation-id: 324da6e5-576f-4f78-0322-08de022a578b
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|7416014|1800799024|376014|366016|38070700021;
-x-microsoft-antispam-message-info: =?utf-8?B?dE1xazdUcU1RWUoyTUpzYllDbVQ4SnQrZ3VXYjlvYWV6eWN1ZldpaWNCTGhw?=
- =?utf-8?B?V1BuRXdKRFNXSU1GL2xIcG1YbnRmUlpCd09KM0pBNnhaNnh0bCtOY0djbTBE?=
- =?utf-8?B?emx1UTN2L3BTTkkwWXhKMEVUMGxZSHAwL3laS2wzRXFFS1JubGRMWCtmMjRr?=
- =?utf-8?B?c1ZQOXNTdzJUa2xwNlA0cUFRME1EaFIvcjV4WS9LT0hoR3BpQ3FUOFllekhh?=
- =?utf-8?B?ejhaQlJNWThWY3h3cDVQeDBCZHZkaWZMb1lIMFR2NjFaV1YzNllmRFZTMU5x?=
- =?utf-8?B?SEJJZGN2ek9zRzdaUFlxNmJqVHFZa0ZBNjZiWXArbjlqUEFxUnhTQTArVFBv?=
- =?utf-8?B?cEVReTBPclNFZ1JvbVpUSlhXT05jbVRlQ3p4VXBFWldsQmtZbzB6ZStZY2Yz?=
- =?utf-8?B?QjNibGxuNHJVWEc5SVZ6UjBuRHpjVGgzazFTVmUzNkhjVDNRYlVuUzkvZmZ2?=
- =?utf-8?B?d1hxRVJWcytSeksxbDBaa29JRDhiNVRxaUFaeVZNSmF2VkZyb0hYc0tOa3pF?=
- =?utf-8?B?TmMzWVV5ZEJsbGdkaGlndTlNSWFJanpGVmxaV0hhOElweEIydUdVMUx2cjNK?=
- =?utf-8?B?OFhoWmJwbGxnMjF6L1Z5WTgwSFFlZ3pxL1BGYzFFRWZoZldqdmwxcWFYNVRD?=
- =?utf-8?B?Q29jd1M5VVowdm5FUjVsK3Zuak4veGlSV1QrckpUK3hIaDBjMm1OUnlNM2U1?=
- =?utf-8?B?Z2xvV29GZERNMUlEclNxakgzUWYxRTRjY3FnSGIySldGNDFkOHBGU2hTeENw?=
- =?utf-8?B?OThYcjdGSlNBTjF3UVAxWWdmNkZSLzFBa0J6bG4rR2dRU3Zkc1p0T2gzV043?=
- =?utf-8?B?NmtDL2tDcVpReUs3bVRDQTZxTm80SktKZTdDSFFIay94UHlEUDFTN3lMbVpM?=
- =?utf-8?B?bjBEMWtaNm1JNGtaZWgrTktpWHlFU2MrQWJWZ1NXOUlHSHgyOVphaFdFWFgy?=
- =?utf-8?B?L0dSU00xbU5Ba0RjZGp1dFZjT1RpRlV3VHNIbWZ5aXY0Y2k0M3haTWYrWEx0?=
- =?utf-8?B?Q21DL2c0SnJiUThnVmI0bTIvclhacnp6R0NuYS9iWmE2QjJwZFFNWjZ2alE1?=
- =?utf-8?B?QmVyblNqRTZBK25rVDRlakNUQzI2bWJqVWZkSHU4cmZmRFVsNUlMRHZyeDdY?=
- =?utf-8?B?bGVxYlJkUDRKY0lxdFhPWTk0bFcvZm1ML2lHMGNuTFJ6TFljSXdnb3B4V0xw?=
- =?utf-8?B?TXpiY1hYdUlkSWdROXVBYkdEMzZhemxCZ0M5LzRWTzZHbTM3ZmZabTVMdUNB?=
- =?utf-8?B?QnB5dWNLQklHS3JJdW5hSVROcGdaZnFGbXUrbVpnYmgvVnBpSFZrNldybER1?=
- =?utf-8?B?dDhTTUxpZStKbU52blhqSjhPekFCSityQ2UwWmZNeDY4NmVwdjJQWlorYnJW?=
- =?utf-8?B?OWJUQ0hLR2JXcjJKZUZwR3JMWWoxaDdOSkxxRjk1dElwTG0yNkR3Q1hSUC84?=
- =?utf-8?B?QU9VOHU1MGtDNGU2UU9OdDZQQyt1Nkk2NmR4RENnSmJHMURmUVgxK1A1Rm1y?=
- =?utf-8?B?UDVSaWRWN3kxVW1HN1NpU0ZubHg4ckZpd2svSFUxN1gzcWs2Mitmc20vcElE?=
- =?utf-8?B?anF6WFM4OFA2SmU0dUdJMkJxQXZ5SFo3TmVXZzI4YXl4enNqd2FxdUgyNFpV?=
- =?utf-8?B?djVRaDRML3Y0MzhqL2hLVTdHelVOblBHQVhpb3BhWkh4aXJqYjRES0FlRXRQ?=
- =?utf-8?B?V3hYYlB4S2hVcGhpVDVZUGZSR2l2WWxRcVd6SHVHZEVaaXJFTHdBT3hMZVZi?=
- =?utf-8?B?YWVlTnl3bWgxc3JqU2NvODR5TU9EeTRxbDZ6cmJEMXE0MUJJZkFYa1E2M200?=
- =?utf-8?B?UjJENkZCc3dyQnUzLytpRjBINGo0WFFiMEw4NFpkQndRM0ZWbVA4bzVlNlpj?=
- =?utf-8?B?UGJtV0ZtdUpOeEdpbklaa2t4TStMcE80emduMXVyUzJaLy9TZTNGMy9hd0cr?=
- =?utf-8?B?T3pDVDVFd1lFZWhlMnMwazY2UzlSOEZGWFlkUXc4SlcybVhlTUwwRUNDL3RQ?=
- =?utf-8?B?ejBBVXU5Q0d0YnMzYThoMEdvdVkyejBLc0QrbFNGWkJIZ3Bram1sbmVWeTlo?=
- =?utf-8?Q?tvzxgQ?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PSAPR03MB5605.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(1800799024)(376014)(366016)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?Y3VTVlMvOVJ0OCtaNEYxRkllRTdQUDVxa2FIZ3hrOEo3UmpONUlNeUZjd0ZT?=
- =?utf-8?B?ZmVDenNmQkFWL0hwbzdMQ2pZMlU5bXRSMDFFMFFHbFNSUTZKQTBSZjZXbjE1?=
- =?utf-8?B?QnpVV3RCM0o0TFgwek8yRWR1Vm5Nb2xsVC9NMG4zTVN4S3pZY0JXMzJ4b0Z2?=
- =?utf-8?B?V0xTbXN0SVBpMDEwRjNtZlVDQ1BTREFQSUM1RC83VUc0UmM2em9jb0hndElx?=
- =?utf-8?B?MldqQ0F0eUFhdnhCRzQwN0dCai9DdUdOV0lETDRVdlozRFJiSmhMTUhQMXR5?=
- =?utf-8?B?NERXZGZDazdkV2JzQXJrUEk4QTA4R2VkeUY2VzR4U2VEa2RMTWNSR1Y5QkNa?=
- =?utf-8?B?cHQzY1RTNFNLSDdDL2V0d3d5NWFudGFpVEsxaGE2anYrbWJreTBUOUJlSnVY?=
- =?utf-8?B?TGtyZ2Mra2FuNmJmK2E0L1IzLzdpeXB5TFA3L1hkcGh6ZVMzS3U3dTJjZUNw?=
- =?utf-8?B?SGVaL1ZwVi9FZmxOZlJ5RTg1NTE5eTJkWEs2cWxnM0IzZkdrNnhYV3Vielkv?=
- =?utf-8?B?SHd4clg1L0twOGgwZXRjZ1ovVnY3SmVJK3FpNlBrcmQ2TU9ST1RqbUppb2Nl?=
- =?utf-8?B?SDZoZG9wMTVjOFhleXhXRWdpS2dRSUtPQ0o3S0VHRmE2dFlXbzVnOU05WWlS?=
- =?utf-8?B?TzNaM3p4NERmYkxabTl1RHVJY2pmTlJ2WVBEQVNldXNPanpDcWJSVHp2UzQ4?=
- =?utf-8?B?VDBRREpNRWR4TEZOQi9qaVJKY1hBQTFaQXlLbDg1c0tpbm9zL1lobnlGcmV5?=
- =?utf-8?B?OVhaQlVsQ2VWajQvTm1DT2FFWC83MGtnZmdlMkVrRFF0M1JJb3NjUkZCV1R4?=
- =?utf-8?B?V0dsZm9PVDBSOHo2K2ZMVWRXemxtVE1WRjc1cUFRN01rZDdmUVBQVnlOMzV5?=
- =?utf-8?B?WjNFbjA5b0tkOWl0c3YwS2Vua2tYUVErQWdsUkx5QU5CS3R3elV4NTQ3c2xr?=
- =?utf-8?B?a3ZQVWRRdzBnUXBKVlpWOVlpQ0thUHBnVzlBTDgxVjJWZVVrTC9KWU96VzJQ?=
- =?utf-8?B?NlFkcXFIKzZpU2pnVWFFZU0wQ1JSZ0FaRHpZNEk2S0h1WTVrOURxNkFhamZK?=
- =?utf-8?B?OTJDMVlsOWJ6bG5OcXFNY1dwc255bVN6bXBYU040RU53V2VUU1g2MklGbUV5?=
- =?utf-8?B?eUJDWFZ3TFhmTWw0akZVYitiejY3aFE3RW5senNucXFEUlpKTHorTlVtaThU?=
- =?utf-8?B?M21EYWJSeDFvK3pUeHBLZXZBZDVLK0x4R0l0c0N1VWdSVU56bVZPUGFsMmow?=
- =?utf-8?B?aE10TWdlc2hOdGcwcVMzOW1UcjliWVNIaVlsbGg1SXo2TVc2MHQ5c0lNQjU3?=
- =?utf-8?B?aUJCa09oekF5aWxCTUh4bmhxbk1KZDdmNUFKd1VHYmVmOTY2eHBiQmJic1dm?=
- =?utf-8?B?VkMrWGY1SjQrQkZtVkIrS2ZYNG84Q0xvNmxpNFNZRm9uL3FZQXhtYms5SmVm?=
- =?utf-8?B?c1BCZ29hUzM4VXpEbWRLUlJqTDNZbUZacGE4K0MxL2pJYWN3Y1BiUUdhSVlw?=
- =?utf-8?B?dHF3aEkzWktBVFhQM1lTVk11Ry91RllPWFdIc2M0VFhXWnBDSEc5a0pvdzdT?=
- =?utf-8?B?a01xaEZuY0pVeDh2WnFPWXZWVWNObEtYQk14RDJLWS8vbFd4aXBoaS9VeXNO?=
- =?utf-8?B?SjhPK2RGMitxRFpWRkJJTUI2c2xBK0h2eDkzT01MQW9NMTgxN1F0aTdub3J5?=
- =?utf-8?B?V1FDU24xc2Q3dkE1WmZ0SHFJUWZORXlyOUYyQTd5L1lXRU5QQnlIN2NhVllX?=
- =?utf-8?B?UmVBVFlNRUtLVkVYM2VWeEVqdzJER1hJZUtsb1UraXZ6K2NnUzd1Y0pjL2o3?=
- =?utf-8?B?SzNmdkhWamQxcEZBbTFJWkVLR1JRL0xwdEMyaWxWSlVrNEh2T1lBWSs4cW9K?=
- =?utf-8?B?SmNIZURvYmVtdzFVQXpTV1BNVG9vUkxTQXFub2JtNEZ3azdTRk1qcS9USTkx?=
- =?utf-8?B?L3Z3SlhxY09Yanl2ZG1VV3puZGJYOXBaWkptUXMxL05hdGoyUS9xZ1VlVmJt?=
- =?utf-8?B?VFhqWjV4aEoyZnMzWHhwWWNNSFEvbmpNVlZMY29raG8rUjNIMXo4eHlaVSth?=
- =?utf-8?B?NTJpT01TYkVudGxmb2l3dG8waks2cWtqTjU0ZkxXREpwTG9TNkFiMjdkaFFW?=
- =?utf-8?B?c0tLeEVVQ0hLOEVHeDl6Q3BuWElPU09rRFdMa3RBcmc1TDRMeUxLRXJLYWFD?=
- =?utf-8?B?WHc9PQ==?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <75AFEF1267AFD640AC7F870A835E52C8@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1v4WM6-0000000Bb5I-2Dcj;
+	Fri, 03 Oct 2025 03:21:14 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id B466C601E2;
+	Fri,  3 Oct 2025 03:18:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39890C4CEF4;
+	Fri,  3 Oct 2025 03:17:31 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759461455;
+	bh=aQcsjYTZESdxGoQkRfLj0JfM4I3vXx+kRPO/aGy6V1I=;
+	h=From:Date:Subject:To:Cc:From;
+	b=ru8rgkZ/nB7O0qxsH2WkfPmOY5pha2rpij/AbFEsRZxXwFWu9CK5/N+Cz1nIBQFIZ
+	 gkKFrTMSuYtfctfsJy6mNcLqflsqncNJkoSPZmez/KxbrIQM1hU2sqFGXGY2lSquxf
+	 M/ziRh3rwGh2Hcczg1lOu9k4uhB7OfPiv11/WkMeSpc0fuyCGRAEnomxO21BE9T4Tt
+	 cKMe8qMBd8OK9SCERNb75Tv2x07pYlkOlZQI29X+79S1dCoigWvWHVXO9e2saIE46u
+	 1GlqU+1u2r9ozQUWZbqTHSuOsa+mq6GQqbHsyTrLhvAufh842SVe6ORZenuXH5tFhY
+	 FTP5ty8k/0q4g==
+From: Vincent Mailhol <mailhol@kernel.org>
+Date: Fri, 03 Oct 2025 12:16:38 +0900
+Subject: [PATCH] can: treewide: remove can_change_mtu()
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PSAPR03MB5605.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 324da6e5-576f-4f78-0322-08de022a578b
-X-MS-Exchange-CrossTenant-originalarrivaltime: 03 Oct 2025 03:10:01.3231
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: xVzUQ+HRG1afVFzCnMXvkG7JJvaqnJo+dREN/huTYz/uAWarLmS2esFP3xV927dLNKSe6IVg2Iikp45lu40G0g==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: KL1PR03MB8219
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_201011_712244_3BF48942 
-X-CRM114-Status: GOOD (  18.44  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251003-remove-can_change_mtu-v1-1-337f8bc21181@kernel.org>
+X-B4-Tracking: v=1; b=H4sIABVA32gC/yWMQQ7CIBREr0L+WuJvq5texTQN0Kn+BaBAG5Omd
+ 5fI8k3mvYMykiDTqA5K2CVLDBW6iyL3MuEJLUtl6rm/d8yDTvBxh3YmzO0w+7JpMNzNsV0BS9V
+ 9J6zy/XcfU+OEz1bzpY1kTa6V6L2UUQWUqzcSaDrPH2Uom1mTAAAA
+X-Change-ID: 20251003-remove-can_change_mtu-e0ec4c0bfeeb
+To: Marc Kleine-Budde <mkl@pengutronix.de>, 
+ Oliver Hartkopp <socketcan@hartkopp.net>
+Cc: Nicolas Ferre <nicolas.ferre@microchip.com>, 
+ Alexandre Belloni <alexandre.belloni@bootlin.com>, 
+ Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
+ Dario Binacchi <dario.binacchi@amarulasolutions.com>, 
+ Max Staudt <max@enpas.org>, Pavel Pisa <pisa@cmp.felk.cvut.cz>, 
+ Ondrej Ille <ondrej.ille@gmail.com>, 
+ =?utf-8?q?Stefan_M=C3=A4tje?= <stefan.maetje@esd.eu>, socketcan@esd.eu, 
+ Chandrasekar Ramakrishnan <rcsekar@samsung.com>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>, 
+ Magnus Damm <magnus.damm@gmail.com>, kernel@pengutronix.de, 
+ Heiko Stuebner <heiko@sntech.de>, Manivannan Sadhasivam <mani@kernel.org>, 
+ Thomas Kopp <thomas.kopp@microchip.com>, Chen-Yu Tsai <wens@csie.org>, 
+ Jernej Skrabec <jernej.skrabec@gmail.com>, 
+ Samuel Holland <samuel@sholland.org>, 
+ Frank Jungclaus <frank.jungclaus@esd.eu>, 
+ "Ji-Ze Hong (Peter Hong)" <peter_hong@fintek.com.tw>, 
+ Yasushi SHOJI <yashi@spacecubics.com>, Ming Yu <tmyu0@nuvoton.com>, 
+ Appana Durga Kedareswara rao <appana.durga.rao@xilinx.com>, 
+ Michal Simek <michal.simek@amd.com>, linux-can@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+ linux-sunxi@lists.linux.dev, Vincent Mailhol <mailhol@kernel.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=openpgp-sha256; l=25384; i=mailhol@kernel.org;
+ h=from:subject:message-id; bh=aQcsjYTZESdxGoQkRfLj0JfM4I3vXx+kRPO/aGy6V1I=;
+ b=owGbwMvMwCV2McXO4Xp97WbG02pJDBn3Hdw1DUXkpknMic5gOCwd/zbrOm+afNB9tplPxXXuL
+ Xv3nndhRykLgxgXg6yYIsuyck5uhY5C77BDfy1h5rAygQxh4OIUgInMeMLIcCrC6eXRrEuW7JNj
+ MtIOnGguvv3g3TLrmgZRCyt+rq/n+xn+aab+v7Ti9EIOkeUdtY4P5/XUNhiHHJoW+8B+daj0guA
+ V7AA=
+X-Developer-Key: i=mailhol@kernel.org; a=openpgp;
+ fpr=ED8F700574E67F20E574E8E2AB5FEB886DBB99C2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -228,27 +99,616 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gVGh1LCAyMDI1LTEwLTAyIGF0IDExOjQ4IC0wNzAwLCBCYW8gRC4gTmd1eWVuIHdyb3RlOg0K
-PiANCj4gDQo+IEhpIFBldGVyLA0KPiANCj4gVGhlIGN1cnJlbnQgTWVkaWF0ZWsgcGxhdGZvcm0g
-ZHJpdmVyIGFwcGxpZXMgdGhpcyBxdWlyayB0byBhbGwgdWZzDQo+IHZlbmRvcnMgd2hpY2ggaXMg
-Y29uc2lzdGVudCB3aXRoIHdoYXQgd2Ugd291bGQgbGlrZSB0byBkbyBpbiB0aGUNCj4gUXVhbGNv
-bW0gcGxhdGZvcm0gZHJpdmVyIHBlciB0aGUgdmVuZG9yJ3MgcmVxdWVzdHMuDQo+IA0KPiBJIGRv
-IHNlZSB0aGF0LCBhYm91dCA1IHllYXJzIGFnbywgTWVkaWF0ZWsgbWVyZ2VkIGEgcGF0Y2ggdG8g
-a2VlcCB0aGUNCj4gZGV2aWNlIHZjYyBhbHdheXMgb24sIHByb2JhYmx5IHRvIHdvcmthcm91bmQg
-c29tZSBIVyBpc3N1ZXMuIFNpbmNlIA0KDQpIaSBCYW8sDQoNClllcywgc29tZSBVRlMgZGV2aWNl
-cyBtYXkgaGF2ZSBpc3N1ZXMgd2hlbiB0dXJuaW5nIG9mZiBWQ0MuDQoNCj4gdGhpcw0KPiBpcyBh
-IHZlcnkgb2xkIHBhdGNoIGFuZCB0aGUgaW1wYWN0IG9mIHRoaXMgY2hhbmdlIG9uIGEgYnJva2Vu
-DQo+IGhhcmR3YXJlDQo+IGlzIG1pbmltYWwsIEkgd291bGQgbGlrZSB3ZWlnaHQgdGhlIGJlbmVm
-aXQgb2YgY2xlYW5pbmcgdXAgdGhlIHVmcw0KPiBjb3JlDQo+IGRyaXZlciBieSByZW1vdmluZyB0
-aGUgdW5uZWNlc3NhcnkgcXVpcmsNCj4gVUZTX0RFVklDRV9RVUlSS19ERUxBWV9BRlRFUl9MUE0g
-dnMgdGhlIGluY29udmVuaWVuY2Ugb2YgYSA1bXMNCj4gKHBvdGVudGlhbGx5IHJlZHVjZSB0byAy
-bXMpIGRlbGF5IGltcGFjdCBpdCBtYXkgY2F1c2Ugb24gYW4gb2xkDQo+IGJyb2tlbg0KPiBIVyBp
-biB0aGUgc3VzcGVuZC9zaHV0ZG93biBwYXRoLg0KPiANCj4gSSBiZWxpZXZlIHJlbW92aW5nIHRo
-ZSBVRlNfREVWSUNFX1FVSVJLX0RFTEFZX0FGVEVSX0xQTSBxdWlyayBpbiB0aGUNCj4gdWZzDQo+
-IGNvcmUgZHJpdmVyIGFzIHdlbGwgYXMgYWxsIHRoZSBwbGF0Zm9ybSBkcml2ZXJzIHlpZWxkcyBw
-b3NpdGl2ZSBuZXQNCj4gYmVuZWZpdHMgaW4gdGhpcyBjYXNlLg0KPiANCj4gVGhhbmtzLCBCYW8N
-Cj4gDQo+IA0KDQpJIHRoaW5rIHlvdSBtaXN1bmRlcnN0b29kIG15IHBvaW50Lg0KSSBhbSBva2F5
-IHdpdGggcmVtb3ZpbmcgdGhpcyBmbGFnLCBidXQgdGhpcyBwYXRjaCB3aWxsIGNhdXNlDQpkZXZp
-Y2VzIHdpdGggVkNDIGFsd2F5cyBvbiB0byB1bm5lY2Vzc2FyaWx5IHdhaXQgZm9yIHRoZSANCmRl
-bGF5LCByZXN1bHRpbmcgaW4gd2FzdGVkIHRpbWUuDQoNClRoYW5rcw0KUGV0ZXINCg0KDQo=
+can_change_mtu() became obsolete by commit 23049938605b ("can:
+populate the minimum and maximum MTU values"). Now that
+net_device->min_mtu and net_device->max_mtu are populated, all the
+checks are already done by dev_validate_mtu() in net/core/dev.c.
+
+Remove the net_device_ops->ndo_change_mtu() callback of all the
+physical interfaces, then remove can_change_mtu(). Only keep the
+vcan_change_mtu() and vxcan_change_mtu() because the virtual
+interfaces use their own different MTU logic.
+
+The only functional change this patch introduces is that now the user
+will be able to change the MTU even if the interface is up. This does
+not matter for Classical CAN and CAN FD because their MTU range is
+composed of only one value, respectively CAN_MTU and CANFD_MTU. For
+the upcoming CAN XL, the MTU will be configurable within the
+CANXL_MIN_MTU to CANXL_MAX_MTU range at any time, even if the
+interface is up. This is consistent with the other net protocols and
+does not contradict ISO 11898-1:2024 as having a modifiable MTU is a
+kernel extension.
+
+Signed-off-by: Vincent Mailhol <mailhol@kernel.org>
+---
+This patch used to be part of [1]. But it had to be removed from that
+series to avoid some merge conflict because some pending changes from
+other maintainers' trees still depended on can_change_mtu().
+
+Now that all those pending changes reached upstream, this patch can be
+merged without any merge conflict. If possible, I would like this to
+go through net/main. Even if this is not a bug fix, keeping the now
+dead-code can_change_mtu() is a bit ugly and this removal was planned
+anyway for the v6.18 merge windows, it was artificially delayed to
+prevent the previously mentioned merge conflicts.
+
+Changelog:
+
+patch from [1] -> v1
+
+  - rebase on latest net/main tree.
+  - also remove the can_change_mtu() from the nct6694_canfd driver.
+  - add further details to the patch description.
+
+[1] can: rework the CAN MTU logic
+Link: https://lore.kernel.org/linux-can/20250918-can-fix-mtu-v1-0-471edb942295@kernel.org/
+---
+ drivers/net/can/at91_can.c                         |  1 -
+ drivers/net/can/bxcan.c                            |  1 -
+ drivers/net/can/c_can/c_can_main.c                 |  1 -
+ drivers/net/can/can327.c                           |  1 -
+ drivers/net/can/cc770/cc770.c                      |  1 -
+ drivers/net/can/ctucanfd/ctucanfd_base.c           |  1 -
+ drivers/net/can/dev/dev.c                          | 38 ----------------------
+ drivers/net/can/esd/esd_402_pci-core.c             |  1 -
+ drivers/net/can/flexcan/flexcan-core.c             |  1 -
+ drivers/net/can/grcan.c                            |  1 -
+ drivers/net/can/ifi_canfd/ifi_canfd.c              |  1 -
+ drivers/net/can/janz-ican3.c                       |  1 -
+ drivers/net/can/kvaser_pciefd/kvaser_pciefd_core.c |  1 -
+ drivers/net/can/m_can/m_can.c                      |  1 -
+ drivers/net/can/mscan/mscan.c                      |  1 -
+ drivers/net/can/peak_canfd/peak_canfd.c            |  1 -
+ drivers/net/can/rcar/rcar_can.c                    |  1 -
+ drivers/net/can/rcar/rcar_canfd.c                  |  1 -
+ drivers/net/can/rockchip/rockchip_canfd-core.c     |  1 -
+ drivers/net/can/sja1000/sja1000.c                  |  1 -
+ drivers/net/can/slcan/slcan-core.c                 |  1 -
+ drivers/net/can/softing/softing_main.c             |  1 -
+ drivers/net/can/spi/hi311x.c                       |  1 -
+ drivers/net/can/spi/mcp251x.c                      |  1 -
+ drivers/net/can/spi/mcp251xfd/mcp251xfd-core.c     |  1 -
+ drivers/net/can/sun4i_can.c                        |  1 -
+ drivers/net/can/ti_hecc.c                          |  1 -
+ drivers/net/can/usb/ems_usb.c                      |  1 -
+ drivers/net/can/usb/esd_usb.c                      |  1 -
+ drivers/net/can/usb/etas_es58x/es58x_core.c        |  1 -
+ drivers/net/can/usb/f81604.c                       |  1 -
+ drivers/net/can/usb/gs_usb.c                       |  1 -
+ drivers/net/can/usb/kvaser_usb/kvaser_usb_core.c   |  1 -
+ drivers/net/can/usb/mcba_usb.c                     |  1 -
+ drivers/net/can/usb/nct6694_canfd.c                |  1 -
+ drivers/net/can/usb/peak_usb/pcan_usb_core.c       |  1 -
+ drivers/net/can/usb/ucan.c                         |  1 -
+ drivers/net/can/usb/usb_8dev.c                     |  1 -
+ drivers/net/can/xilinx_can.c                       |  1 -
+ include/linux/can/dev.h                            |  1 -
+ 40 files changed, 77 deletions(-)
+
+diff --git a/drivers/net/can/at91_can.c b/drivers/net/can/at91_can.c
+index 191707d7e3da..c2a3a4eef5b2 100644
+--- a/drivers/net/can/at91_can.c
++++ b/drivers/net/can/at91_can.c
+@@ -948,7 +948,6 @@ static const struct net_device_ops at91_netdev_ops = {
+ 	.ndo_open	= at91_open,
+ 	.ndo_stop	= at91_close,
+ 	.ndo_start_xmit	= at91_start_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ static const struct ethtool_ops at91_ethtool_ops = {
+diff --git a/drivers/net/can/bxcan.c b/drivers/net/can/bxcan.c
+index bfc60eb33dc3..9c3af7049814 100644
+--- a/drivers/net/can/bxcan.c
++++ b/drivers/net/can/bxcan.c
+@@ -881,7 +881,6 @@ static const struct net_device_ops bxcan_netdev_ops = {
+ 	.ndo_open = bxcan_open,
+ 	.ndo_stop = bxcan_stop,
+ 	.ndo_start_xmit = bxcan_start_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ static const struct ethtool_ops bxcan_ethtool_ops = {
+diff --git a/drivers/net/can/c_can/c_can_main.c b/drivers/net/can/c_can/c_can_main.c
+index cc371d0c9f3c..3702cac7fbf0 100644
+--- a/drivers/net/can/c_can/c_can_main.c
++++ b/drivers/net/can/c_can/c_can_main.c
+@@ -1362,7 +1362,6 @@ static const struct net_device_ops c_can_netdev_ops = {
+ 	.ndo_open = c_can_open,
+ 	.ndo_stop = c_can_close,
+ 	.ndo_start_xmit = c_can_start_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ int register_c_can_dev(struct net_device *dev)
+diff --git a/drivers/net/can/can327.c b/drivers/net/can/can327.c
+index 24af63961030..b66fc16aedd2 100644
+--- a/drivers/net/can/can327.c
++++ b/drivers/net/can/can327.c
+@@ -849,7 +849,6 @@ static const struct net_device_ops can327_netdev_ops = {
+ 	.ndo_open = can327_netdev_open,
+ 	.ndo_stop = can327_netdev_close,
+ 	.ndo_start_xmit = can327_netdev_start_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ static const struct ethtool_ops can327_ethtool_ops = {
+diff --git a/drivers/net/can/cc770/cc770.c b/drivers/net/can/cc770/cc770.c
+index 30909f3aab57..8d5abd643c06 100644
+--- a/drivers/net/can/cc770/cc770.c
++++ b/drivers/net/can/cc770/cc770.c
+@@ -834,7 +834,6 @@ static const struct net_device_ops cc770_netdev_ops = {
+ 	.ndo_open = cc770_open,
+ 	.ndo_stop = cc770_close,
+ 	.ndo_start_xmit = cc770_start_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ static const struct ethtool_ops cc770_ethtool_ops = {
+diff --git a/drivers/net/can/ctucanfd/ctucanfd_base.c b/drivers/net/can/ctucanfd/ctucanfd_base.c
+index 8bd3f0fc385c..1e6b9e3dc2fe 100644
+--- a/drivers/net/can/ctucanfd/ctucanfd_base.c
++++ b/drivers/net/can/ctucanfd/ctucanfd_base.c
+@@ -1301,7 +1301,6 @@ static const struct net_device_ops ctucan_netdev_ops = {
+ 	.ndo_open	= ctucan_open,
+ 	.ndo_stop	= ctucan_close,
+ 	.ndo_start_xmit	= ctucan_start_xmit,
+-	.ndo_change_mtu	= can_change_mtu,
+ };
+ 
+ static const struct ethtool_ops ctucan_ethtool_ops = {
+diff --git a/drivers/net/can/dev/dev.c b/drivers/net/can/dev/dev.c
+index 15ccedbb3f8d..0cc3d008adb3 100644
+--- a/drivers/net/can/dev/dev.c
++++ b/drivers/net/can/dev/dev.c
+@@ -359,44 +359,6 @@ void can_set_default_mtu(struct net_device *dev)
+ 	}
+ }
+ 
+-/* changing MTU and control mode for CAN/CANFD devices */
+-int can_change_mtu(struct net_device *dev, int new_mtu)
+-{
+-	struct can_priv *priv = netdev_priv(dev);
+-	u32 ctrlmode_static = can_get_static_ctrlmode(priv);
+-
+-	/* Do not allow changing the MTU while running */
+-	if (dev->flags & IFF_UP)
+-		return -EBUSY;
+-
+-	/* allow change of MTU according to the CANFD ability of the device */
+-	switch (new_mtu) {
+-	case CAN_MTU:
+-		/* 'CANFD-only' controllers can not switch to CAN_MTU */
+-		if (ctrlmode_static & CAN_CTRLMODE_FD)
+-			return -EINVAL;
+-
+-		priv->ctrlmode &= ~CAN_CTRLMODE_FD;
+-		break;
+-
+-	case CANFD_MTU:
+-		/* check for potential CANFD ability */
+-		if (!(priv->ctrlmode_supported & CAN_CTRLMODE_FD) &&
+-		    !(ctrlmode_static & CAN_CTRLMODE_FD))
+-			return -EINVAL;
+-
+-		priv->ctrlmode |= CAN_CTRLMODE_FD;
+-		break;
+-
+-	default:
+-		return -EINVAL;
+-	}
+-
+-	WRITE_ONCE(dev->mtu, new_mtu);
+-	return 0;
+-}
+-EXPORT_SYMBOL_GPL(can_change_mtu);
+-
+ /* helper to define static CAN controller features at device creation time */
+ int can_set_static_ctrlmode(struct net_device *dev, u32 static_mode)
+ {
+diff --git a/drivers/net/can/esd/esd_402_pci-core.c b/drivers/net/can/esd/esd_402_pci-core.c
+index 5d6d2828cd04..05adecae6375 100644
+--- a/drivers/net/can/esd/esd_402_pci-core.c
++++ b/drivers/net/can/esd/esd_402_pci-core.c
+@@ -86,7 +86,6 @@ static const struct net_device_ops pci402_acc_netdev_ops = {
+ 	.ndo_open = acc_open,
+ 	.ndo_stop = acc_close,
+ 	.ndo_start_xmit = acc_start_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ 	.ndo_eth_ioctl = can_eth_ioctl_hwts,
+ };
+ 
+diff --git a/drivers/net/can/flexcan/flexcan-core.c b/drivers/net/can/flexcan/flexcan-core.c
+index 06d5d35fc1b5..f5d22c61503f 100644
+--- a/drivers/net/can/flexcan/flexcan-core.c
++++ b/drivers/net/can/flexcan/flexcan-core.c
+@@ -1867,7 +1867,6 @@ static const struct net_device_ops flexcan_netdev_ops = {
+ 	.ndo_open	= flexcan_open,
+ 	.ndo_stop	= flexcan_close,
+ 	.ndo_start_xmit	= flexcan_start_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ static int register_flexcandev(struct net_device *dev)
+diff --git a/drivers/net/can/grcan.c b/drivers/net/can/grcan.c
+index c5784d9779ef..3b1b09943436 100644
+--- a/drivers/net/can/grcan.c
++++ b/drivers/net/can/grcan.c
+@@ -1561,7 +1561,6 @@ static const struct net_device_ops grcan_netdev_ops = {
+ 	.ndo_open	= grcan_open,
+ 	.ndo_stop	= grcan_close,
+ 	.ndo_start_xmit	= grcan_start_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ static const struct ethtool_ops grcan_ethtool_ops = {
+diff --git a/drivers/net/can/ifi_canfd/ifi_canfd.c b/drivers/net/can/ifi_canfd/ifi_canfd.c
+index 2eeee65f606f..0f83335e4d07 100644
+--- a/drivers/net/can/ifi_canfd/ifi_canfd.c
++++ b/drivers/net/can/ifi_canfd/ifi_canfd.c
+@@ -944,7 +944,6 @@ static const struct net_device_ops ifi_canfd_netdev_ops = {
+ 	.ndo_open	= ifi_canfd_open,
+ 	.ndo_stop	= ifi_canfd_close,
+ 	.ndo_start_xmit	= ifi_canfd_start_xmit,
+-	.ndo_change_mtu	= can_change_mtu,
+ };
+ 
+ static const struct ethtool_ops ifi_canfd_ethtool_ops = {
+diff --git a/drivers/net/can/janz-ican3.c b/drivers/net/can/janz-ican3.c
+index bfa5cbe88017..1efdd1fd8caa 100644
+--- a/drivers/net/can/janz-ican3.c
++++ b/drivers/net/can/janz-ican3.c
+@@ -1752,7 +1752,6 @@ static const struct net_device_ops ican3_netdev_ops = {
+ 	.ndo_open	= ican3_open,
+ 	.ndo_stop	= ican3_stop,
+ 	.ndo_start_xmit	= ican3_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ static const struct ethtool_ops ican3_ethtool_ops = {
+diff --git a/drivers/net/can/kvaser_pciefd/kvaser_pciefd_core.c b/drivers/net/can/kvaser_pciefd/kvaser_pciefd_core.c
+index 0880023611be..705f9bb74cd2 100644
+--- a/drivers/net/can/kvaser_pciefd/kvaser_pciefd_core.c
++++ b/drivers/net/can/kvaser_pciefd/kvaser_pciefd_core.c
+@@ -904,7 +904,6 @@ static const struct net_device_ops kvaser_pciefd_netdev_ops = {
+ 	.ndo_stop = kvaser_pciefd_stop,
+ 	.ndo_eth_ioctl = can_eth_ioctl_hwts,
+ 	.ndo_start_xmit = kvaser_pciefd_start_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ static int kvaser_pciefd_set_phys_id(struct net_device *netdev,
+diff --git a/drivers/net/can/m_can/m_can.c b/drivers/net/can/m_can/m_can.c
+index e1d725979685..a9e63a75085f 100644
+--- a/drivers/net/can/m_can/m_can.c
++++ b/drivers/net/can/m_can/m_can.c
+@@ -2129,7 +2129,6 @@ static const struct net_device_ops m_can_netdev_ops = {
+ 	.ndo_open = m_can_open,
+ 	.ndo_stop = m_can_close,
+ 	.ndo_start_xmit = m_can_start_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ static int m_can_get_coalesce(struct net_device *dev,
+diff --git a/drivers/net/can/mscan/mscan.c b/drivers/net/can/mscan/mscan.c
+index 8c2a7bc64d3d..39c7aa2a0b2f 100644
+--- a/drivers/net/can/mscan/mscan.c
++++ b/drivers/net/can/mscan/mscan.c
+@@ -607,7 +607,6 @@ static const struct net_device_ops mscan_netdev_ops = {
+ 	.ndo_open	= mscan_open,
+ 	.ndo_stop	= mscan_close,
+ 	.ndo_start_xmit	= mscan_start_xmit,
+-	.ndo_change_mtu	= can_change_mtu,
+ };
+ 
+ static const struct ethtool_ops mscan_ethtool_ops = {
+diff --git a/drivers/net/can/peak_canfd/peak_canfd.c b/drivers/net/can/peak_canfd/peak_canfd.c
+index b5bc80ac7876..a53c9d347b7b 100644
+--- a/drivers/net/can/peak_canfd/peak_canfd.c
++++ b/drivers/net/can/peak_canfd/peak_canfd.c
+@@ -773,7 +773,6 @@ static const struct net_device_ops peak_canfd_netdev_ops = {
+ 	.ndo_stop = peak_canfd_close,
+ 	.ndo_eth_ioctl = peak_eth_ioctl,
+ 	.ndo_start_xmit = peak_canfd_start_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ static int peak_get_ts_info(struct net_device *dev,
+diff --git a/drivers/net/can/rcar/rcar_can.c b/drivers/net/can/rcar/rcar_can.c
+index 5f85f4e27205..fc3df328e877 100644
+--- a/drivers/net/can/rcar/rcar_can.c
++++ b/drivers/net/can/rcar/rcar_can.c
+@@ -635,7 +635,6 @@ static const struct net_device_ops rcar_can_netdev_ops = {
+ 	.ndo_open = rcar_can_open,
+ 	.ndo_stop = rcar_can_close,
+ 	.ndo_start_xmit = rcar_can_start_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ static const struct ethtool_ops rcar_can_ethtool_ops = {
+diff --git a/drivers/net/can/rcar/rcar_canfd.c b/drivers/net/can/rcar/rcar_canfd.c
+index 45d36adb51b7..49ab65274b51 100644
+--- a/drivers/net/can/rcar/rcar_canfd.c
++++ b/drivers/net/can/rcar/rcar_canfd.c
+@@ -1818,7 +1818,6 @@ static const struct net_device_ops rcar_canfd_netdev_ops = {
+ 	.ndo_open = rcar_canfd_open,
+ 	.ndo_stop = rcar_canfd_close,
+ 	.ndo_start_xmit = rcar_canfd_start_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ static const struct ethtool_ops rcar_canfd_ethtool_ops = {
+diff --git a/drivers/net/can/rockchip/rockchip_canfd-core.c b/drivers/net/can/rockchip/rockchip_canfd-core.c
+index 046f0a0ae4d4..29de0c01e4ed 100644
+--- a/drivers/net/can/rockchip/rockchip_canfd-core.c
++++ b/drivers/net/can/rockchip/rockchip_canfd-core.c
+@@ -761,7 +761,6 @@ static const struct net_device_ops rkcanfd_netdev_ops = {
+ 	.ndo_open = rkcanfd_open,
+ 	.ndo_stop = rkcanfd_stop,
+ 	.ndo_start_xmit = rkcanfd_start_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ static int __maybe_unused rkcanfd_runtime_suspend(struct device *dev)
+diff --git a/drivers/net/can/sja1000/sja1000.c b/drivers/net/can/sja1000/sja1000.c
+index 4d245857ef1c..acfa49db3907 100644
+--- a/drivers/net/can/sja1000/sja1000.c
++++ b/drivers/net/can/sja1000/sja1000.c
+@@ -697,7 +697,6 @@ static const struct net_device_ops sja1000_netdev_ops = {
+ 	.ndo_open	= sja1000_open,
+ 	.ndo_stop	= sja1000_close,
+ 	.ndo_start_xmit	= sja1000_start_xmit,
+-	.ndo_change_mtu	= can_change_mtu,
+ };
+ 
+ static const struct ethtool_ops sja1000_ethtool_ops = {
+diff --git a/drivers/net/can/slcan/slcan-core.c b/drivers/net/can/slcan/slcan-core.c
+index 58ff2ec1d975..cd789e178d34 100644
+--- a/drivers/net/can/slcan/slcan-core.c
++++ b/drivers/net/can/slcan/slcan-core.c
+@@ -774,7 +774,6 @@ static const struct net_device_ops slcan_netdev_ops = {
+ 	.ndo_open               = slcan_netdev_open,
+ 	.ndo_stop               = slcan_netdev_close,
+ 	.ndo_start_xmit         = slcan_netdev_xmit,
+-	.ndo_change_mtu         = can_change_mtu,
+ };
+ 
+ /******************************************
+diff --git a/drivers/net/can/softing/softing_main.c b/drivers/net/can/softing/softing_main.c
+index 278ee8722770..79bc64395ac4 100644
+--- a/drivers/net/can/softing/softing_main.c
++++ b/drivers/net/can/softing/softing_main.c
+@@ -609,7 +609,6 @@ static const struct net_device_ops softing_netdev_ops = {
+ 	.ndo_open = softing_netdev_open,
+ 	.ndo_stop = softing_netdev_stop,
+ 	.ndo_start_xmit	= softing_netdev_start_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ static const struct ethtool_ops softing_ethtool_ops = {
+diff --git a/drivers/net/can/spi/hi311x.c b/drivers/net/can/spi/hi311x.c
+index 6d4b643e135f..e00d3dbc4cf4 100644
+--- a/drivers/net/can/spi/hi311x.c
++++ b/drivers/net/can/spi/hi311x.c
+@@ -799,7 +799,6 @@ static const struct net_device_ops hi3110_netdev_ops = {
+ 	.ndo_open = hi3110_open,
+ 	.ndo_stop = hi3110_stop,
+ 	.ndo_start_xmit = hi3110_hard_start_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ static const struct ethtool_ops hi3110_ethtool_ops = {
+diff --git a/drivers/net/can/spi/mcp251x.c b/drivers/net/can/spi/mcp251x.c
+index b797e08499d7..1e54e1a22702 100644
+--- a/drivers/net/can/spi/mcp251x.c
++++ b/drivers/net/can/spi/mcp251x.c
+@@ -1270,7 +1270,6 @@ static const struct net_device_ops mcp251x_netdev_ops = {
+ 	.ndo_open = mcp251x_open,
+ 	.ndo_stop = mcp251x_stop,
+ 	.ndo_start_xmit = mcp251x_hard_start_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ static const struct ethtool_ops mcp251x_ethtool_ops = {
+diff --git a/drivers/net/can/spi/mcp251xfd/mcp251xfd-core.c b/drivers/net/can/spi/mcp251xfd/mcp251xfd-core.c
+index 7450ea42c1ea..9402530ba3d4 100644
+--- a/drivers/net/can/spi/mcp251xfd/mcp251xfd-core.c
++++ b/drivers/net/can/spi/mcp251xfd/mcp251xfd-core.c
+@@ -1715,7 +1715,6 @@ static const struct net_device_ops mcp251xfd_netdev_ops = {
+ 	.ndo_stop = mcp251xfd_stop,
+ 	.ndo_start_xmit	= mcp251xfd_start_xmit,
+ 	.ndo_eth_ioctl = can_eth_ioctl_hwts,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ static void
+diff --git a/drivers/net/can/sun4i_can.c b/drivers/net/can/sun4i_can.c
+index 53bfd873de9b..6fcb301ef611 100644
+--- a/drivers/net/can/sun4i_can.c
++++ b/drivers/net/can/sun4i_can.c
+@@ -768,7 +768,6 @@ static const struct net_device_ops sun4ican_netdev_ops = {
+ 	.ndo_open = sun4ican_open,
+ 	.ndo_stop = sun4ican_close,
+ 	.ndo_start_xmit = sun4ican_start_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ static const struct ethtool_ops sun4ican_ethtool_ops = {
+diff --git a/drivers/net/can/ti_hecc.c b/drivers/net/can/ti_hecc.c
+index e6d6661a908a..1d3dbf28b105 100644
+--- a/drivers/net/can/ti_hecc.c
++++ b/drivers/net/can/ti_hecc.c
+@@ -829,7 +829,6 @@ static const struct net_device_ops ti_hecc_netdev_ops = {
+ 	.ndo_open		= ti_hecc_open,
+ 	.ndo_stop		= ti_hecc_close,
+ 	.ndo_start_xmit		= ti_hecc_xmit,
+-	.ndo_change_mtu		= can_change_mtu,
+ };
+ 
+ static const struct ethtool_ops ti_hecc_ethtool_ops = {
+diff --git a/drivers/net/can/usb/ems_usb.c b/drivers/net/can/usb/ems_usb.c
+index 5355bac4dccb..de8e212a1366 100644
+--- a/drivers/net/can/usb/ems_usb.c
++++ b/drivers/net/can/usb/ems_usb.c
+@@ -885,7 +885,6 @@ static const struct net_device_ops ems_usb_netdev_ops = {
+ 	.ndo_open = ems_usb_open,
+ 	.ndo_stop = ems_usb_close,
+ 	.ndo_start_xmit = ems_usb_start_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ static const struct ethtool_ops ems_usb_ethtool_ops = {
+diff --git a/drivers/net/can/usb/esd_usb.c b/drivers/net/can/usb/esd_usb.c
+index 9bc1824d7be6..08da507faef4 100644
+--- a/drivers/net/can/usb/esd_usb.c
++++ b/drivers/net/can/usb/esd_usb.c
+@@ -1011,7 +1011,6 @@ static const struct net_device_ops esd_usb_netdev_ops = {
+ 	.ndo_open = esd_usb_open,
+ 	.ndo_stop = esd_usb_close,
+ 	.ndo_start_xmit = esd_usb_start_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ static const struct ethtool_ops esd_usb_ethtool_ops = {
+diff --git a/drivers/net/can/usb/etas_es58x/es58x_core.c b/drivers/net/can/usb/etas_es58x/es58x_core.c
+index adc91873c083..47d9e03f3044 100644
+--- a/drivers/net/can/usb/etas_es58x/es58x_core.c
++++ b/drivers/net/can/usb/etas_es58x/es58x_core.c
+@@ -1977,7 +1977,6 @@ static const struct net_device_ops es58x_netdev_ops = {
+ 	.ndo_stop = es58x_stop,
+ 	.ndo_start_xmit = es58x_start_xmit,
+ 	.ndo_eth_ioctl = can_eth_ioctl_hwts,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ static const struct ethtool_ops es58x_ethtool_ops = {
+diff --git a/drivers/net/can/usb/f81604.c b/drivers/net/can/usb/f81604.c
+index e0cfa1460b0b..efe61ece79ea 100644
+--- a/drivers/net/can/usb/f81604.c
++++ b/drivers/net/can/usb/f81604.c
+@@ -1052,7 +1052,6 @@ static const struct net_device_ops f81604_netdev_ops = {
+ 	.ndo_open = f81604_open,
+ 	.ndo_stop = f81604_close,
+ 	.ndo_start_xmit = f81604_start_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ static const struct can_bittiming_const f81604_bittiming_const = {
+diff --git a/drivers/net/can/usb/gs_usb.c b/drivers/net/can/usb/gs_usb.c
+index c9482d6e947b..aea35aa15a7c 100644
+--- a/drivers/net/can/usb/gs_usb.c
++++ b/drivers/net/can/usb/gs_usb.c
+@@ -1105,7 +1105,6 @@ static const struct net_device_ops gs_usb_netdev_ops = {
+ 	.ndo_open = gs_can_open,
+ 	.ndo_stop = gs_can_close,
+ 	.ndo_start_xmit = gs_can_start_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ 	.ndo_eth_ioctl = gs_can_eth_ioctl,
+ };
+ 
+diff --git a/drivers/net/can/usb/kvaser_usb/kvaser_usb_core.c b/drivers/net/can/usb/kvaser_usb/kvaser_usb_core.c
+index 90e77fa0ff4a..89e22b66f919 100644
+--- a/drivers/net/can/usb/kvaser_usb/kvaser_usb_core.c
++++ b/drivers/net/can/usb/kvaser_usb/kvaser_usb_core.c
+@@ -786,7 +786,6 @@ static const struct net_device_ops kvaser_usb_netdev_ops = {
+ 	.ndo_stop = kvaser_usb_close,
+ 	.ndo_eth_ioctl = can_eth_ioctl_hwts,
+ 	.ndo_start_xmit = kvaser_usb_start_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ static const struct ethtool_ops kvaser_usb_ethtool_ops = {
+diff --git a/drivers/net/can/usb/mcba_usb.c b/drivers/net/can/usb/mcba_usb.c
+index 1f9b915094e6..41c0a1c399bf 100644
+--- a/drivers/net/can/usb/mcba_usb.c
++++ b/drivers/net/can/usb/mcba_usb.c
+@@ -761,7 +761,6 @@ static const struct net_device_ops mcba_netdev_ops = {
+ 	.ndo_open = mcba_usb_open,
+ 	.ndo_stop = mcba_usb_close,
+ 	.ndo_start_xmit = mcba_usb_start_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ static const struct ethtool_ops mcba_ethtool_ops = {
+diff --git a/drivers/net/can/usb/nct6694_canfd.c b/drivers/net/can/usb/nct6694_canfd.c
+index 8deff16491a1..dd6df2ec3742 100644
+--- a/drivers/net/can/usb/nct6694_canfd.c
++++ b/drivers/net/can/usb/nct6694_canfd.c
+@@ -690,7 +690,6 @@ static const struct net_device_ops nct6694_canfd_netdev_ops = {
+ 	.ndo_open = nct6694_canfd_open,
+ 	.ndo_stop = nct6694_canfd_close,
+ 	.ndo_start_xmit = nct6694_canfd_start_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ static const struct ethtool_ops nct6694_canfd_ethtool_ops = {
+diff --git a/drivers/net/can/usb/peak_usb/pcan_usb_core.c b/drivers/net/can/usb/peak_usb/pcan_usb_core.c
+index c74302ca7cee..94b1d7f15d27 100644
+--- a/drivers/net/can/usb/peak_usb/pcan_usb_core.c
++++ b/drivers/net/can/usb/peak_usb/pcan_usb_core.c
+@@ -814,7 +814,6 @@ static const struct net_device_ops peak_usb_netdev_ops = {
+ 	.ndo_stop = peak_usb_ndo_stop,
+ 	.ndo_eth_ioctl = peak_eth_ioctl,
+ 	.ndo_start_xmit = peak_usb_ndo_start_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ /* CAN-USB devices generally handle 32-bit CAN channel IDs.
+diff --git a/drivers/net/can/usb/ucan.c b/drivers/net/can/usb/ucan.c
+index 07406daf7c88..de61d9da99e3 100644
+--- a/drivers/net/can/usb/ucan.c
++++ b/drivers/net/can/usb/ucan.c
+@@ -1233,7 +1233,6 @@ static const struct net_device_ops ucan_netdev_ops = {
+ 	.ndo_open = ucan_open,
+ 	.ndo_stop = ucan_close,
+ 	.ndo_start_xmit = ucan_start_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ static const struct ethtool_ops ucan_ethtool_ops = {
+diff --git a/drivers/net/can/usb/usb_8dev.c b/drivers/net/can/usb/usb_8dev.c
+index 8a5596ce4e46..7449328f7cd7 100644
+--- a/drivers/net/can/usb/usb_8dev.c
++++ b/drivers/net/can/usb/usb_8dev.c
+@@ -868,7 +868,6 @@ static const struct net_device_ops usb_8dev_netdev_ops = {
+ 	.ndo_open = usb_8dev_open,
+ 	.ndo_stop = usb_8dev_close,
+ 	.ndo_start_xmit = usb_8dev_start_xmit,
+-	.ndo_change_mtu = can_change_mtu,
+ };
+ 
+ static const struct ethtool_ops usb_8dev_ethtool_ops = {
+diff --git a/drivers/net/can/xilinx_can.c b/drivers/net/can/xilinx_can.c
+index a25a3ca62c12..43d7f22820b8 100644
+--- a/drivers/net/can/xilinx_can.c
++++ b/drivers/net/can/xilinx_can.c
+@@ -1702,7 +1702,6 @@ static const struct net_device_ops xcan_netdev_ops = {
+ 	.ndo_open	= xcan_open,
+ 	.ndo_stop	= xcan_close,
+ 	.ndo_start_xmit	= xcan_start_xmit,
+-	.ndo_change_mtu	= can_change_mtu,
+ };
+ 
+ static const struct ethtool_ops xcan_ethtool_ops = {
+diff --git a/include/linux/can/dev.h b/include/linux/can/dev.h
+index a2229a61ccde..0fe8f80f223e 100644
+--- a/include/linux/can/dev.h
++++ b/include/linux/can/dev.h
+@@ -127,7 +127,6 @@ struct can_priv *safe_candev_priv(struct net_device *dev);
+ int open_candev(struct net_device *dev);
+ void close_candev(struct net_device *dev);
+ void can_set_default_mtu(struct net_device *dev);
+-int can_change_mtu(struct net_device *dev, int new_mtu);
+ int __must_check can_set_static_ctrlmode(struct net_device *dev,
+ 					 u32 static_mode);
+ int can_eth_ioctl_hwts(struct net_device *netdev, struct ifreq *ifr, int cmd);
+
+---
+base-commit: 07fdad3a93756b872da7b53647715c48d0f4a2d0
+change-id: 20251003-remove-can_change_mtu-e0ec4c0bfeeb
+
+Best regards,
+-- 
+Vincent Mailhol <mailhol@kernel.org>
+
 
