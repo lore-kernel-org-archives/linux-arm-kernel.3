@@ -4,77 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8EBCBCAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 13:50:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7357DCCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 14:00:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7cyDKQoLb5v05sCvUle4+p2qhZB8eTTDBt0WH24rd9U=; b=p3WQWgOPbhfWmkv6eIhO2IlYNF
-	BWLRWlvW5IadUjTODkxp6HInHU/JWIFuitsdL2b9Yt5D0KnTagPvjpSFhbfmymf0JsKaMnFVimabu
-	Yk6c1Kycq1z7jSQE+0YwNAdqXpVgm1k1T7ZOEin3DL3uM617LKdnPQni8+acfX9ZLcEmantAEzr0u
-	KUelI6os1hTdsnPf+gobdkH+04LQM7DAq2aave06+GYjRg39Jl+dY2/PRlfLPNsmEqwE4Fg/dBF7t
-	ClUezLnYJBTd1eENj5jzv7ZLMNk1sb3eyUWSKDTfFYXlc9yxkm2WOFxVjdFYgzzI4Fbe92XUINopg
-	l7x9DpBA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QIvs9jD5/EL3q+VedBCTg6fyJOEdMcFedFll4VTeYvc=; b=W68d2sifAjx6mJOwtjkSdnTfJI
+	aKj7Hl2o7C8BdSdTnxjqcTlkAkxarb3tUUQxex/gVSzjDwpv5vsMvzv7vhP2E92gDkFrBhsfX0H9j
+	cqNzB0fKna9yhjO6ntubuHGdh0ZcrfEnI1zOPyyviwYMyJibgkR9VIYE91W1OgofTEhb2U5u+Ofpl
+	wsOifmiiPdt08IP5Mn27+ZUAK/MQzgYIfbwXancqXGdfKrL+ilnqXh9FbbPNAfvUdr8ro8Z0XNa3F
+	9SSoQTZ/Ecwzxgob7RncWeUHRMoHNlg91Qlx8v2Jup5aDnWuEpCEwTmtRwtLtgUGcj/GI3Y4Q2Zkn
+	SLq4pisw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4gAr-0000000CUYd-1zFP;
-	Fri, 03 Oct 2025 13:50:17 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4gAo-0000000CUY9-29Vu;
-	Fri, 03 Oct 2025 13:50:16 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1759499411;
-	bh=APXL16u9DtsmEsPU93iOfNZjpSUSe6UPagw99C/Plzg=;
-	h=From:Date:Subject:To:Cc:From;
-	b=Ggt9SLWpKqSfaRytZouU7I7WygLTtSOqywnoCOk1auGHLUReQIj6aWCgHQ8ccQYfm
-	 aDhHB5YCN3kY0RqjqX+g0p6FgLxWrIdvkuk9UQ0gILn276vmRRTHcJ6La+qk1OXbzl
-	 tAjZ8z+1MVbys4VR4G2+QpbJSpHJqr2OqCVq2FHoDPlyVFJ+XRjXyghYX/fHsM2HZP
-	 KXc5dnW+Mhqejly3DABMqGtJ6NwReWGRyk0Jsg2IsKgQrdc97h89Eezs/dYNcdsOeS
-	 /ZaLUMMp1otn1oxWMsMB39tbuIYM+Lvm0ET409e5MlCrY+0l0cPlOV4aEawTOFOl/H
-	 rQakgarywY3yg==
-Received: from yukiji.home (lfbn-idf1-1-2269-27.w92-151.abo.wanadoo.fr [92.151.67.27])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: laeyraud)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8604917E00AC;
-	Fri,  3 Oct 2025 15:50:11 +0200 (CEST)
-From: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-Date: Fri, 03 Oct 2025 15:48:49 +0200
-Subject: [PATCH] pinctrl: mediatek: mt8189: align register base names to
- dt-bindings ones
+	id 1v4gK9-0000000CVKR-2XDl;
+	Fri, 03 Oct 2025 13:59:53 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v4gK6-0000000CVK7-39sH
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Oct 2025 13:59:52 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id EF8151655;
+	Fri,  3 Oct 2025 06:59:40 -0700 (PDT)
+Received: from localhost (e132581.arm.com [10.1.196.87])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 960383F5A1;
+	Fri,  3 Oct 2025 06:59:48 -0700 (PDT)
+Date: Fri, 3 Oct 2025 14:59:46 +0100
+From: Leo Yan <leo.yan@arm.com>
+To: Mike Leach <mike.leach@linaro.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
+	James Clark <james.clark@linaro.org>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>,
+	Yabin Cui <yabinc@google.com>, Keita Morisaki <keyz@google.com>,
+	Yuanfang Zhang <quic_yuanfang@quicinc.com>,
+	coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v3 19/31] coresight: cti: Introduce CS_MODE_DEBUG mode
+Message-ID: <20251003135946.GY7985@e132581.arm.com>
+References: <20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com>
+ <20250915-arm_coresight_power_management_fix-v3-19-ea49e91124ec@arm.com>
+ <CAJ9a7VgQoJMQyuGP6UP8ptg4xcoV2cbR4bwz6ooRy5O_SaiCVA@mail.gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251003-fix-mt8189-pinctrl-regnames-v1-1-408a2531b127@collabora.com>
-X-B4-Tracking: v=1; b=H4sIAEDU32gC/zWNQQrCMBBFrxJm7UASG2l7FekipmMdMGmdRCmU3
- t1gcfk+n/c2yCRMGXq1gdCHM8+pgjkpCA+fJkIeK4PV1hmtz3jnFWNpTdvhwikUeaLQlHykjMH
- psaHmElxnoRoWoXr/2a/DwUKvd42UY4Sbz4RhjpFLrxKtBf8hGPb9C78AvPqeAAAA
-X-Change-ID: 20251003-fix-mt8189-pinctrl-regnames-c50d4e46c592
-To: Sean Wang <sean.wang@kernel.org>, 
- Linus Walleij <linus.walleij@linaro.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Cathy Xu <ot_cathy.xu@mediatek.com>
-Cc: kernel@collabora.com, linux-mediatek@lists.infradead.org, 
- linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1759499411; l=1688;
- i=louisalexis.eyraud@collabora.com; s=20250113; h=from:subject:message-id;
- bh=APXL16u9DtsmEsPU93iOfNZjpSUSe6UPagw99C/Plzg=;
- b=FtEYOCuxQadnGf2/o9O5sK78bMhzTIAs8Hdkmjhzw9XdolUDhujJGHWtbD/L0lo/zU/U1os8+
- xnXmI+K1GgUApnqB6mIta4ahvdP9cGxQllRifnouOgxj29wqyZLzSSQ
-X-Developer-Key: i=louisalexis.eyraud@collabora.com; a=ed25519;
- pk=CHFBDB2Kqh4EHc6JIqFn69GhxJJAzc0Zr4e8QxtumuM=
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAJ9a7VgQoJMQyuGP6UP8ptg4xcoV2cbR4bwz6ooRy5O_SaiCVA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_065014_729936_14486B95 
-X-CRM114-Status: GOOD (  10.84  )
+X-CRM114-CacheID: sfid-20251003_065950_834911_1D4D4D07 
+X-CRM114-Status: GOOD (  16.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,43 +70,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The mt8189-pinctrl driver requires to probe that a device tree uses
-in the device node the same names than mt8189_pinctrl_register_base_names
-array. But they are not matching the required ones in the
-"mediatek,mt8189-pinctrl" dt-bindings, leading to possible dtbs check
-issues. The mt8189_pinctrl_register_base_names entry order is also
-different.
-So, align all mt8189_pinctrl_register_base_names entry names and order
-on dt-bindings.
+On Thu, Oct 02, 2025 at 11:31:52AM +0100, Mike Leach wrote:
+> Hi,
+> 
+> On Mon, 15 Sept 2025 at 11:34, Leo Yan <leo.yan@arm.com> wrote:
+> >
+> > Introduce a new CS_MODE_DEBUG mode to indicate that a device is being
+> > used for debugging purposes, e.g, if a system enables CTI for debugging
+> > but not for hardware trace
+> >
+> 
+> How can you know why the CTI is being enabled?
 
-Fixes: a3fe1324c3c5 ("pinctrl: mediatek: Add pinctrl driver for mt8189")
-Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
----
- drivers/pinctrl/mediatek/pinctrl-mt8189.c | 4 +---
- 1 file changed, 1 insertion(+), 3 deletions(-)
+Depend on which CTI enablement path is invoked.
 
-diff --git a/drivers/pinctrl/mediatek/pinctrl-mt8189.c b/drivers/pinctrl/mediatek/pinctrl-mt8189.c
-index 7028aff55ae5869880e9e9b14a3ad8cad6780bc6..f6a3e584588b0e8a1aafa9dca74c559974a57af5 100644
---- a/drivers/pinctrl/mediatek/pinctrl-mt8189.c
-+++ b/drivers/pinctrl/mediatek/pinctrl-mt8189.c
-@@ -1642,9 +1642,7 @@ static const struct mtk_pin_reg_calc mt8189_reg_cals[PINCTRL_PIN_REG_MAX] = {
- };
- 
- static const char * const mt8189_pinctrl_register_base_names[] = {
--	"gpio_base", "iocfg_bm0_base", "iocfg_bm1_base", "iocfg_bm2_base", "iocfg_lm_base",
--	"iocfg_lt0_base", "iocfg_lt1_base", "iocfg_rb0_base", "iocfg_rb1_base",
--	"iocfg_rt_base"
-+	"base", "lm", "rb0", "rb1", "bm0", "bm1", "bm2", "lt0", "lt1", "rt",
- };
- 
- static const struct mtk_eint_hw mt8189_eint_hw = {
+> System CTIs are attached to key HW trace infrastucture such as input
+> triggers for ETR/ETB that have direct effect on trace.
+> CoreCTIs, while they have some debug triggers, can also trigger ETM events.
 
----
-base-commit: 4a7bcf9e0158d9976525370ff84401a1e955bbee
-change-id: 20251003-fix-mt8189-pinctrl-regnames-c50d4e46c592
+Seems to me, it is no matter system CTIs or Core CTIs. Here, I am trying
+to distinguish three methods for enabling CTI:
 
-Best regards,
--- 
-Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+  (1) Enable CTI within a perf session.
+  (2) Enable CTI within a sysfs session.
+  (3) Enable CTI using the CTI driver's sysfs knob(s).
 
+Currently, methods (2) and (3) are both using CS_MODE_SYSFS.
+
+Method (2) enables a CTI device when we enable a source-to-sink path
+via the sysfs interface; CTI acts as a helper in this case.
+
+Since the CTI driver also provides its own sysfs knobs to enable the
+CTI device by itself (defined in coresight-cti-sysfs.c), to
+distinguish this from method (2), this patch introduces CS_MODE_DEBUG.
+
+Thanks,
+Leo
 
