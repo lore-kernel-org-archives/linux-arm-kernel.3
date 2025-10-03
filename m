@@ -4,93 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 158B3CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 08:36:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A32FCCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 09:12:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:References:
-	List-Owner; bh=bSviWDocZr7eRFQ1iMDzT5Qi5FWE3ORY1UYGHnObtBk=; b=y88p9kynz++KlV
-	OfjPRW08jFZligaGkholEHnD7ArDY3gUctPrZBNaPdVSRa145yPva5QaxHpgdzueZexu6zQSHiS0D
-	pLB2/b4KkS+ia/VGDl/I9KGRn7KyyDX2qvpodAxVBA+BmCED2P4pAeljB7QFOO+sKw1ldnVjoxVc8
-	ytKvDIwQl2Dea13pwlaixkL3a0Hn8fe+2ES88rftfNkU9RwL3bpo13OQPBaxfTkFEZTRjAEm3Ly+s
-	+hkL5nUsUEzxf6uYeWR1fYZ92tnUBzFd7XNpTl4MYTuMvYmMyuIAZA0sm/0JlarrXn9B7lCYV1IC/
-	TNH13GDPjCNNz8crIp4Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=kJV77w+rWzQIw8ID8TruS68NyBvPrNL8F4RB7Cte4AY=; b=Dh67a8ndfroXEkR32LOEfIAqHo
+	niZm/XpRaynejG3Fx+FAAZAjKc3GYJgAK/28aYkUS+FD5mWqXHnQsbj0L6etBxSFXtZzaRfO6QeKY
+	O1acJ6/FUMR0vUZebH3EXSJeCI8399AN1bi+tZO/VIcoogWEuJ3s8vdyRKTrzUOQrkUhGXLFlSteo
+	rkI6hVMSgZIsEzq7RB2rEAY9G0vyy40m9q6qBusJwRG1WituYZdeB+VvHpTKVwcAL7KYH/bLiUcyj
+	FueH1UggWy+jeX8652uZtxHPHD5y/BRHqb7FzW4raxmKU37tNgkYOJ5KRDlM497sayuUgmiL41bl8
+	g816TLaw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4bGv-0000000BshM-392t;
-	Fri, 03 Oct 2025 08:36:13 +0000
-Received: from mail-wm1-x32d.google.com ([2a00:1450:4864:20::32d])
+	id 1v4bpf-0000000BvZA-1Wb0;
+	Fri, 03 Oct 2025 09:12:07 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4bGs-0000000BsgT-1s3H
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Oct 2025 08:36:11 +0000
-Received: by mail-wm1-x32d.google.com with SMTP id 5b1f17b1804b1-46e5980471eso9435355e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Oct 2025 01:36:09 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1759480568; x=1760085368; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=bSviWDocZr7eRFQ1iMDzT5Qi5FWE3ORY1UYGHnObtBk=;
-        b=Is/Idv4oFGsfzRFcoho1k3qFEDMT8Gq2BITz9mNxasxGEkCoi7y09njYkq4ImQNycC
-         jJtOxjqtjj7yp+aFefvcAapemonZKJczxxB7Nbhsrk3KPXF0CZwDQgcSCxEW91RHxI9D
-         1vhcYhx63w2NYW8aygzcol82H+qBwOr8pzp/4vh5TXygXt79Jtg7jctxaSzTPPabhzyw
-         awTMFjLySlopx16iaUQcAqevzgLEixdXzCnOdqBwviFf9Bs/DAqw8VEGFqaPf+Quhopv
-         S4w6vDfwfmJz3x4YadYLJQguIofGN1fNLkp6gy8IXOZvFlYy1FfzBczutR/EymERsToC
-         4yNA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759480568; x=1760085368;
-        h=in-reply-to:content-disposition:mime-version:message-id:subject:cc
-         :to:from:date:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=bSviWDocZr7eRFQ1iMDzT5Qi5FWE3ORY1UYGHnObtBk=;
-        b=MEX/Vyca7wtrWVG8L3c3J5yg990+eDxSO5XO3AnvYGXTKXGX230N8DYkJNoQ78Ipo0
-         DquP/ZF7EvlL20F6OunDLb5/icauHNquawBPsS8WbSz6vJEdeK08qCF8ZutXxPHgdZbW
-         klJ+5Jn+3Njlh6JRuu8SErRSjOx5GxXa7r3NWUoEagHz8NukCKInaPeac6Qk5+tDB0nM
-         Rl2XKDo383wBTrAuDUrmTB/v646ZUkT43RNQwM6eJhCTdUaet12ttdfUtia+hvMrTo8g
-         PBuLnYz3yk/IIG+pn6DZffTu0Z/5J2OXtQnamwd7OwxnbOXNzn+1+wes1C8FVGjVQ9Qk
-         dmNQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVhfn/hE65t5wROtizRljhGw/Ep9xZ8DeT5eBdeW9UEL704rYxdvAQFq1UaCYziqheCBfu6sWdZmkEPdkzCCoaV@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/Y8rES5sz361eGi7ttTQp3p9JqTHyr3sLreX0SI0uh1Ni2/yh
-	pKy5EiB4nhds5zn456Jq8f1Mo/cWaZ3OB8s59btypbFoaWvhpdg8/bpe/N39cr90HZw=
-X-Gm-Gg: ASbGnctYzX3e1SBF7NErKeTD7bS87+5d3kZWSppnWuzY33c17msY+yr/KjMtas3B+LJ
-	UIZja3iBiwU3avDvW7IKSBCzWEMKOSRZjicwNHZ6pVDOg6w2J1T0SvogygvsCIyyFrGbh3lJNC9
-	0I/kuvG3GU4xRUEVR8AtcBfwMIoBUH0+XxMZC67LqaNpT28KUDUQrMlQhS7uBFAc7OYOIMs0TP8
-	f5yEFTb+BBrB1jzdSbcUjwIuKzzB4IlaUTKBiRdVIe3plu/uBs2q+vyFetorq5wiqcAe0i7zZ8E
-	MTaqAhp9Vzrzb83f9Jnx3Q1lzEFoGWktD4K+0FcCH7kXpr0hAqUzaa0JF350pMB2n/6vV1/uZs/
-	Mt9tDAopalXrnMBu7S139PNe1aJV0+ARYWA3P1ZAlwz+g0oizfihdZ9Qj
-X-Google-Smtp-Source: AGHT+IE76AssVOnYZ6flrpm/T7LxOGT/eMAoKYwNOlcK4L0ObcJKZqXObYnm2Ncd1mks7lx/eY9Deg==
-X-Received: by 2002:a05:6000:2887:b0:3ee:126a:7aab with SMTP id ffacd0b85a97d-425671c3abemr1117681f8f.57.1759480567855;
-        Fri, 03 Oct 2025 01:36:07 -0700 (PDT)
-Received: from localhost ([196.207.164.177])
-        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4255d8abf0bsm6826213f8f.17.2025.10.03.01.36.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Oct 2025 01:36:07 -0700 (PDT)
-Date: Fri, 3 Oct 2025 11:36:03 +0300
-From: Dan Carpenter <dan.carpenter@linaro.org>
-To: oe-kbuild@lists.linux.dev,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	linux-mediatek@lists.infradead.org
-Cc: lkp@intel.com, oe-kbuild-all@lists.linux.dev, lee@kernel.org,
-	robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
-	lgirdwood@gmail.com, broonie@kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com, wenst@chromium.org,
+	id 1v4bpc-0000000BvX4-1xLF;
+	Fri, 03 Oct 2025 09:12:06 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1759482721;
+	bh=/hHX1Tyilb/GoDqQ7xipmoiTYR4B4XYZ3E+fQk/rX38=;
+	h=From:To:Cc:Subject:Date:From;
+	b=kuGnapxYkpy3WKrfJ8k665VehWug4tdrmJ18mCdPW7pHerXvu3LQgcTi9eNEiVsJa
+	 4z7Ci745EGpP6q+GoJvCybfRdNNq3Yn7i1bqcVN17Rt2NHuyuKmUvRcsLtGqxR3d2d
+	 U5cK/g2lrhE8TOnN+Mz6y9U58nr8/IdxDsL3Px6r34diM3ZtspScY6uQqRdWK8nZbh
+	 bKL2M+9nKcOd771ppLU++0BlzQS0st/coGy+z+GdKuBUm32DbKB81N4nICPuUPMSKL
+	 XglwqTfCwlQlO8MGe+zPKaiRpsokVf2MLGCek/NqLXTVLa4VHXhcbTnYhz24j10C5k
+	 LVbTZItBVqPfw==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0963F17E108C;
+	Fri,  3 Oct 2025 11:12:00 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: linux-mediatek@lists.infradead.org
+Cc: lee@kernel.org,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	matthias.bgg@gmail.com,
+	angelogioacchino.delregno@collabora.com,
+	lgirdwood@gmail.com,
+	broonie@kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	kernel@collabora.com,
+	wenst@chromium.org,
 	igor.belwon@mentallysanemainliners.org
-Subject: Re: [PATCH v7 6/9] regulator: Add support for MediaTek MT6373 SPMI
- PMIC Regulators
-Message-ID: <202510030902.aQS5rL8n-lkp@intel.com>
+Subject: [PATCH v8 0/9] Add support MT6316/6363/MT6373 PMICs regulators and MFD
+Date: Fri,  3 Oct 2025 11:11:49 +0200
+Message-ID: <20251003091158.26748-1-angelogioacchino.delregno@collabora.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251002090028.1796462-7-angelogioacchino.delregno@collabora.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_013610_509717_336C18E4 
-X-CRM114-Status: UNSURE (   9.99  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251003_021204_710194_23F873AD 
+X-CRM114-Status: GOOD (  22.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,58 +83,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi AngeloGioacchino,
+Changes in v8:
+ - Added REGMAP_SPMI selection in Kconfig for all of MT6316/6363/6373
+   to satisfy __devm_regmap_init_spmi_ext() dependency in case they
+   are built with COMPILE_TEST (+randconfig) configuration
+ - Fixed indentation in Kconfig on help lines (some were using spaces
+   instead of tab + 2 spaces, don't know how that happened)
+ - Removed forgotten final blank line on mt63{6,7}3-regulator.h header
+ - Fixed error checks in mt6363-regulator, mt6373-regulator for call
+   to mt63{6,7}e_spmi_register_regmap()
+ - Tested again on MT8196 Chromebook.
 
-kernel test robot noticed the following build warnings:
+Changes in v7:
+ - Removed unintentionally added, useless Link tags from all patches
+ - #size-cells is now required in mfd mt6363 binding
+ - Further fixes in mt6363/73 regulator bindings
+ - Mentioned weird 9-bits BE format and usage of undocumented set/clr
+   registers in commit description for the MT6316 regulator driver
+ - Refactored bindings for MT6316 PMIC (regulators):
+   - Added reg, #address-cells as required properties
+   - Added regulator-allowed-modes and its description
+   - Changed mt6316b/mt6316c to use patternProperties instead, as it
+     now makes sense to avoid duplication while keeping documentation
+     for the regulator-allowed-modes property in all vbuck entries
+   - Added decent examples that correctly describes the MT6316 PMICs
 
-https://git-scm.com/docs/git-format-patch#_base_tree_information]
+Changes in v6:
+ - Added missing bitfield.h header inclusion in mt6363-regulator.c
+ - Added commit "dt-bindings: iio: adc: mt6359: Allow reg for SPMI PMICs AuxADC"
+   to fix warnings on specifying reg property in adc node
+ - Added $ref in mt6363/73 regulator bindings to reduce duplication on LDOs
+ - Moved MT6363 regulators example to MFD binding
+ - Rebased on next-20250929
 
-url:    https://github.com/intel-lab-lkp/linux/commits/AngeloGioacchino-Del-Regno/dt-bindings-regulator-Document-MediaTek-MT6316-PMIC-Regulators/20251002-170532
-base:   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/regulator.git for-next
-patch link:    https://lore.kernel.org/r/20251002090028.1796462-7-angelogioacchino.delregno%40collabora.com
-patch subject: [PATCH v7 6/9] regulator: Add support for MediaTek MT6373 SPMI PMIC Regulators
-config: arm-randconfig-r071-20251003 (https://download.01.org/0day-ci/archive/20251003/202510030902.aQS5rL8n-lkp@intel.com/config)
-compiler: arm-linux-gnueabi-gcc (GCC) 8.5.0
+Changes in v5:
+ - This time the dt-bindings commits are the right ones... sorry again :-)
+ - Removed accidentally added Link: tags in all patches.
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Reported-by: Dan Carpenter <dan.carpenter@linaro.org>
-| Closes: https://lore.kernel.org/r/202510030902.aQS5rL8n-lkp@intel.com/
+Changes in v4:
+ - Rewritten all register definitions for both MT6363 and MT6373
+   regulators to be register offsets instead
+ - Added the appropriate supply_name to all vregs in 6363 and 6373
+ - Simplified the macro parameters for all vregs in 6363 and 6373
+   - Added common definitions pattern in macros to avoid plain writing
+     register definitions in every macro call
+ - Added registration of SPMI sub-device in MT6363/73 and setup of
+   regmap reg_base based on `reg` parsed from devicetree
+ - Removed interrupts parsing from devicetree
+   - Moved (pmic-internal) IRQs to macros
+ - mtk-spmi-pmic: Added parsing if irqspec with param_count=2 for
+   easier irqs registration from regulator drivers
 
-smatch warnings:
-drivers/regulator/mt6373-regulator.c:664 mt6373_regulator_probe() warn: passing zero to 'PTR_ERR'
+Changes in v3:
+ - Added buck and ldo supplies to mt6363 and mt6373 drivers and bindings;
+ - Removed interrupts from mt6363 and mt6373 bindings;
+ - Added registering interrupts in mt6363/73 drivers instead:
+   this avoids big arrays in the mfd driver, which will grow
+   uncontrollably (as it already happened in multiple MediaTek
+   drivers) and with each new(future) supported PMIC;
+ - Removed "ldo-" and "buck-" prefixes from mt6363 regulators
+   - Renamed "vbX" to "vbuckX", reflecting datasheet name
+ - Changed all LDOs in MT6363 and MT6373 to add VOCAL usage, both
+   increasing the number of voltage steps (2.5 or 10mV increments
+   depending on the LDO) and the accuracy of the reported voltages
+ - Tested again on MT8196 board
 
-vim +/PTR_ERR +664 drivers/regulator/mt6373-regulator.c
+Changes in v2:
+ - Merged MFD and regulator in one series
+ - Split mediatek,mt6316-regulator.yaml in three files as
+   suggested by krzk
+ - Added interrupt-names list in MT6363/MT6373 bindings as
+   suggested by krzk
+ - Documented regulator modes in MT6363/73 as suggested by krzk
+ - Fixed interrupt and interrupt-names maxItems in both 6363/73
+   because, well... I miscounted them in v1 :-)
+ - Removed keys from mt6363 binding: the compatible was not yet
+   added to the keys binding and doing that will take quite a
+   while, as I have to find a way to test the code before that
+   as unfortunately my HW does not provide any way to test the
+   PMIC keys (thought it did, but then turns out it doesn't...)
+ - Completed the mt6363 MFD example with ADC as suggested by Rob
+ - Avoided applying regulator schemas multiple times as pointed
+   out by Rob (in mfd binding)
+ - Fixed MT6363/73 issues pointed out by lkp (eh, sorry, that
+   happened during a last minute cleanup... ugh!).
+ - Brewed some more coffee :-)
 
-910ce1c7c9122a AngeloGioacchino Del Regno 2025-10-02  645  static int mt6373_regulator_probe(struct platform_device *pdev)
-910ce1c7c9122a AngeloGioacchino Del Regno 2025-10-02  646  {
-910ce1c7c9122a AngeloGioacchino Del Regno 2025-10-02  647  	struct irq_fwspec fwspec = {
-910ce1c7c9122a AngeloGioacchino Del Regno 2025-10-02  648  		.param_count = 2,
-910ce1c7c9122a AngeloGioacchino Del Regno 2025-10-02  649  		.param = { 0, IRQ_TYPE_LEVEL_HIGH },
-910ce1c7c9122a AngeloGioacchino Del Regno 2025-10-02  650  	};
-910ce1c7c9122a AngeloGioacchino Del Regno 2025-10-02  651  	struct device_node *interrupt_parent;
-910ce1c7c9122a AngeloGioacchino Del Regno 2025-10-02  652  	struct regulator_config config = {};
-910ce1c7c9122a AngeloGioacchino Del Regno 2025-10-02  653  	struct mt6373_regulator_info *info;
-910ce1c7c9122a AngeloGioacchino Del Regno 2025-10-02  654  	struct device *dev = &pdev->dev;
-910ce1c7c9122a AngeloGioacchino Del Regno 2025-10-02  655  	struct regulator_dev *rdev;
-910ce1c7c9122a AngeloGioacchino Del Regno 2025-10-02  656  	struct irq_domain *domain;
-910ce1c7c9122a AngeloGioacchino Del Regno 2025-10-02  657  	bool is_vbuck4_hw_ctrl;
-910ce1c7c9122a AngeloGioacchino Del Regno 2025-10-02  658  	bool is_cw_variant;
-910ce1c7c9122a AngeloGioacchino Del Regno 2025-10-02  659  	int i, ret;
-910ce1c7c9122a AngeloGioacchino Del Regno 2025-10-02  660  	u32 val;
-910ce1c7c9122a AngeloGioacchino Del Regno 2025-10-02  661  
-910ce1c7c9122a AngeloGioacchino Del Regno 2025-10-02  662  	config.regmap = mt6373_spmi_register_regmap(dev);
-910ce1c7c9122a AngeloGioacchino Del Regno 2025-10-02  663  	if (!config.regmap)
 
-This should be if (IS_ERR(config.regmap)) ...
+This series adds support for three new MediaTek PMICs: MT6316, MT6363
+and MT6373 and their variants - used in board designs featuring the
+MediaTek MT8196 Chromebook SoC, or the MT6991 Dimensity 9400 Smartphone
+SoC.
 
-910ce1c7c9122a AngeloGioacchino Del Regno 2025-10-02 @664  		return dev_err_probe(dev, PTR_ERR(config.regmap)i,
-910ce1c7c9122a AngeloGioacchino Del Regno 2025-10-02  665  				     "Cannot get regmap\n");
-910ce1c7c9122a AngeloGioacchino Del Regno 2025-10-02  666  	config.dev = dev;
+In particular, MT6316 is a regulator, but the MT6363 and MT6373 PMICs
+are multi-function devices, as they have and expose multiple sub-devices;
+moreover, some of those also contain an interrupt controller, managing
+internal IPs interrupts: for those, a chained interrupt handler is
+registered, which parent is the SPMI controller itself.
+
+This series adds support for all of the MT6316 regulator variants and
+for MT6363, MT6373 SPMI PMICs and their interrupt controller.
+
+
+AngeloGioacchino Del Regno (9):
+  dt-bindings: regulator: Document MediaTek MT6316 PMIC Regulators
+  regulator: Add support for MediaTek MT6316 SPMI PMIC Regulators
+  dt-bindings: regulator: Document MediaTek MT6363 PMIC Regulators
+  regulator: Add support for MediaTek MT6363 SPMI PMIC Regulators
+  dt-bindings: regulator: Document MediaTek MT6373 PMIC Regulators
+  regulator: Add support for MediaTek MT6373 SPMI PMIC Regulators
+  dt-bindings: iio: adc: mt6359: Allow reg for SPMI PMICs AuxADC
+  dt-bindings: mfd: Add binding for MediaTek MT6363 series SPMI PMIC
+  drivers: mfd: Add support for MediaTek SPMI PMICs and MT6363/73
+
+ .../iio/adc/mediatek,mt6359-auxadc.yaml       |  17 +
+ .../bindings/mfd/mediatek,mt6363.yaml         | 116 +++
+ .../regulator/mediatek,mt6316b-regulator.yaml |  80 ++
+ .../regulator/mediatek,mt6316c-regulator.yaml |  80 ++
+ .../regulator/mediatek,mt6316d-regulator.yaml |  79 ++
+ .../regulator/mediatek,mt6363-regulator.yaml  | 146 +++
+ .../regulator/mediatek,mt6373-regulator.yaml  | 137 +++
+ drivers/mfd/Kconfig                           |  17 +
+ drivers/mfd/Makefile                          |   1 +
+ drivers/mfd/mtk-spmi-pmic.c                   | 410 ++++++++
+ drivers/regulator/Kconfig                     |  30 +
+ drivers/regulator/Makefile                    |   3 +
+ drivers/regulator/mt6316-regulator.c          | 345 +++++++
+ drivers/regulator/mt6363-regulator.c          | 935 ++++++++++++++++++
+ drivers/regulator/mt6373-regulator.c          | 762 ++++++++++++++
+ include/linux/mfd/mt6363.h                    |  26 +
+ include/linux/mfd/mt6373.h                    |  21 +
+ include/linux/regulator/mt6363-regulator.h    | 330 +++++++
+ include/linux/regulator/mt6373-regulator.h    | 161 +++
+ 19 files changed, 3696 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/mfd/mediatek,mt6363.yaml
+ create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6316b-regulator.yaml
+ create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6316c-regulator.yaml
+ create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6316d-regulator.yaml
+ create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6363-regulator.yaml
+ create mode 100644 Documentation/devicetree/bindings/regulator/mediatek,mt6373-regulator.yaml
+ create mode 100644 drivers/mfd/mtk-spmi-pmic.c
+ create mode 100644 drivers/regulator/mt6316-regulator.c
+ create mode 100644 drivers/regulator/mt6363-regulator.c
+ create mode 100644 drivers/regulator/mt6373-regulator.c
+ create mode 100644 include/linux/mfd/mt6363.h
+ create mode 100644 include/linux/mfd/mt6373.h
+ create mode 100644 include/linux/regulator/mt6363-regulator.h
+ create mode 100644 include/linux/regulator/mt6373-regulator.h
 
 -- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+2.51.0
 
 
