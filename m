@@ -4,54 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F90ACAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 07:31:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAD4FCCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 07:35:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=HqBw6IJjjhWmX9IjULM9zUwJkQUnzyzPDEdXhc0NseY=; b=PC3gfmQ7HCGgODdMbtz+2SwhWa
-	ETZ6ROdQrrTK/7RmaHkfFCTU4UxHQnvXboG3IOaMDKfKw89NLj07U0eqvhdyrxXcYkTf7LxPUfrer
-	opU1Ld8VI0YW1rP0ya5KQiaayltKiya4nyuG4pD+LRmTUPJ5jad4uElyo87rsCf+JjV3AY7ipJvH7
-	CBN/hDaQQhD9jsvbJZI176hURTjg2RJ9SOtmvAwukOg27T7oAOdzsY1USet3ap8PPbtjrhuQFlveg
-	wUW4THu6lkqtgRa7ChkQVgOcjoSEE7mp+TUxNNTb/cFQAN6o3mD4ILmsseHiNc+hn7bCy+mKPKW4Z
-	zx2bS/og==;
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DniS63K40mZp/zefKvHAEKMgyEYOkDSoRUV3MskhVNs=; b=mCyq0/LF+fPnEEjvuRj0chM5SL
+	A9UTs+86TEFcqAyshwm8lldB22SwnbyYNcexGGr8olVdN+4rl/85uAmsorvAQQqXQtfRbM4DrtWCa
+	0cU3FQgMqQA4N3FNCgBud/DKgb6QoWZoUPPeNHzdmzyXXn5Al8uq7ymWjHIwvJ3GeBa7RtBJJRsSO
+	8f2iq2tKFGfpJIJxKKYLvt3/TH17xlnxgnzV2JOyAxUD/uqUsWpuEFZ4TI1oE7AD65RVn9LCzjgtf
+	O6Jj7woOYpYPTJ8ehZ1EMxVhfUXn1qTQzdf4QyH7SKm6EHWkQba1pwtt5OZzXNNO+LD59VQx//dJx
+	X+57hfOA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4aGM-0000000BobI-2Iiv;
-	Fri, 03 Oct 2025 07:31:34 +0000
-Received: from mail.taskedia.pl ([164.132.227.82])
+	id 1v4aJq-0000000Bp63-2aAX;
+	Fri, 03 Oct 2025 07:35:10 +0000
+Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4aGK-0000000BoZ2-1kVk
+	id 1v4aJn-0000000Bp4b-1iuk
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Oct 2025 07:31:33 +0000
-Received: by mail.taskedia.pl (Postfix, from userid 1002)
-	id D6DBB47532; Fri,  3 Oct 2025 09:31:06 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=taskedia.pl; s=mail;
-	t=1759476685; bh=29YVHHbrli9hU+E8sZ8/0H23hGAmqTbAMfI+9Asx7Og=;
-	h=Date:From:To:Subject:From;
-	b=lmlFmF6I3SXdER5TpnGKLj9+/YFRne4ZQPVtM7BJU0REaEpCxmjv+Y096k/SXgl0+
-	 W1fLIaDFpBESiCZ9aZ8v8doJmqkHUL7gmZsrMorwklIwYf7XcOxXtRozWvVMoBARlt
-	 YdnqhQJhzcfcDgHHKpGLXG1ICgomL+kNqfT1JSJ8nG+u5n93BNF/g1ZSye0l3iEC6S
-	 /j+FnovJM5SOn+cqoLY59+0N/gJcbR+6rBgK1Qq922boHBjYllGG35cNvP60j+wI4B
-	 DZqlv4BNbz6t1/9FGqTmC9VF9j3hTx4TpZv2UO9r2bvfL/ZExf/TnM9xPVovjLJvdO
-	 qPoZvrE45iRtQ==
-Received: by mail.taskedia.pl for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Oct 2025 07:30:49 GMT
-Message-ID: <20251003084500-0.1.g8.1klzf.0.rl53cuqx9m@taskedia.pl>
-Date: Fri,  3 Oct 2025 07:30:49 GMT
-From: "Filip Radelecki" <filip.radelecki@taskedia.pl>
-To: <linux-arm-kernel@lists.infradead.org>
-Subject: Odzyskaj nawet 5 lat podatku CIT/PIT i sfinansuj inwestycje
-X-Mailer: mail.taskedia.pl
+	Fri, 03 Oct 2025 07:35:09 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 8F4DAC00D9D;
+	Fri,  3 Oct 2025 07:34:44 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 865FF60683;
+	Fri,  3 Oct 2025 07:35:02 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 5B157102F1C25;
+	Fri,  3 Oct 2025 09:34:36 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1759476901; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:in-reply-to:references;
+	bh=DniS63K40mZp/zefKvHAEKMgyEYOkDSoRUV3MskhVNs=;
+	b=UOuzOIjMWBTMrpGD/VHIltalTbABDWzlzm/0eWOj7r4d7cathtY0DLrjIYc2gZmOnWxme2
+	u68J4G+CKIlcGLbDAXifRgxNS2/9+l/ZuO9baNqTeNaLPa6Xb0Q4tQ7RMVEEJmybvzK9DR
+	weJ6wE9ndD7E/6zeWFMVOigjQqZCx9cG6gkt6eh9ziaE6SZ+UNuHEtazk56voORfirupVx
+	4zVOLDxqDX9mhs7kTn4iu3Mly2bdrECTlw3OinNdGmNg2kGi3wz56AuDyih1hktbTkDWpG
+	48ahzOit15uRdHOgWYOWfUsSFhd0yVupBDWZgv5FTrpVvfCnZR6Q3tf9EJfLEw==
+Date: Fri, 3 Oct 2025 09:34:35 +0200
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+To: Damon Ding <damon.ding@rock-chips.com>
+Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
+ Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
+ jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
+ mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
+ simona@ffwll.ch, shawnguo@kernel.org, s.hauer@pengutronix.de,
+ kernel@pengutronix.de, festevam@gmail.com, inki.dae@samsung.com,
+ sw0312.kim@samsung.com, kyungmin.park@samsung.com, krzk@kernel.org,
+ alim.akhtar@samsung.com, jingoohan1@gmail.com, p.zabel@pengutronix.de,
+ hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
+ dmitry.baryshkov@oss.qualcomm.com, dianders@chromium.org,
+ m.szyprowski@samsung.com, jani.nikula@intel.com,
+ linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v6 11/18] drm/display: bridge_connector: Ensure last
+ bridge determines EDID/modes detection capabilities
+Message-ID: <20251003093435.415866c7@booty>
+In-Reply-To: <20251001180922.6bbe42ac@booty>
+References: <20250930090920.131094-1-damon.ding@rock-chips.com>
+	<20250930090920.131094-12-damon.ding@rock-chips.com>
+	<20251001180922.6bbe42ac@booty>
+Organization: Bootlin
+X-Mailer: Claws Mail 4.3.1 (GTK 3.24.49; x86_64-redhat-linux-gnu)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=US-ASCII
+Content-Transfer-Encoding: 7bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_003132_750590_EAE17A96 
-X-CRM114-Status: UNSURE (   1.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251003_003507_626502_EB2253C3 
+X-CRM114-Status: GOOD (  10.84  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,37 +91,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Szanowni Pa=C5=84stwo,
+Hello Damon,
 
-czy wiedz=C4=85 Pa=C5=84stwo, =C5=BCe firmy produkcyjne, przemys=C5=82owe=
-, przetw=C3=B3rcze oraz IT mog=C4=85 skorzysta=C4=87 z mo=C5=BCliwo=C5=9B=
-ci odzyskania zap=C5=82aconego podatku dochodowego (CIT/PIT) nawet do 5 l=
-at wstecz dzi=C4=99ki uldze badawczo-rozwojowej (B+R)?
+On Wed, 1 Oct 2025 18:09:22 +0200
+Luca Ceresoli <luca.ceresoli@bootlin.com> wrote:
 
-To realna szansa na odzyskanie znacznych =C5=9Brodk=C3=B3w, kt=C3=B3re mo=
-=C5=BCna przeznaczy=C4=87 na dalszy rozw=C3=B3j przedsi=C4=99biorstwa - b=
-ez konieczno=C5=9Bci sk=C5=82adania wniosk=C3=B3w o dotacje czy udzia=C5=82=
-u w konkursach.
+> Another thing to note is that this patch conflicts with [0], which I
+> plan to apply in the next few days. The two patches are orthogonal but
+> they insist on the same lines (those assigning
+> bridge_connector->bridge_* = bridge). Not a big deal, whichever patch
+> comes later will be easily adapted. Just wanted to ensure you are aware.
+> 
+> [0] https://lore.kernel.org/all/20250926-drm-bridge-alloc-getput-bridge-connector-v2-1-138b4bb70576@bootlin.com/
 
-Dodatkowo, planuj=C4=85c nowe inwestycje - takie jak:
+The patch I mentioned is now merged on drm-misc-next [1], so you'll
+need to rebase yours on top adapting the changes. I expect it to be
+simple enough, but don't hesitate to ask here in case it's not.
 
-=E2=80=A2 zakup nowoczesnych maszyn i linii technologicznych,
-=E2=80=A2 budowa lub rozbudowa hal produkcyjnych,
-=E2=80=A2 zakup grunt=C3=B3w pod inwestycje,
-=E2=80=A2 wdro=C5=BCenie instalacji OZE (np. fotowoltaika, magazyn energi=
-i)
-=E2=80=A2 mog=C4=85 Pa=C5=84stwo skorzysta=C4=87 r=C3=B3wnie=C5=BC z ulgi=
- inwestycyjnej, kt=C3=B3ra umo=C5=BCliwia odzyskanie  =20
-  nawet do 70% poniesionych koszt=C3=B3w.
+[1] https://gitlab.freedesktop.org/drm/misc/kernel/-/commit/2be300f9a0b6f6b0ae2a90be97e558ec0535be54
 
-Po=C5=82=C4=85czenie tych instrument=C3=B3w daje firmom przemys=C5=82owym=
- i produkcyjnym unikaln=C4=85 mo=C5=BCliwo=C5=9B=C4=87 sfinansowania cz=C4=
-=99=C5=9Bci inwestycji z wcze=C5=9Bniej zap=C5=82aconych podatk=C3=B3w.
+Luca
 
-Oferujemy bezp=C5=82atn=C4=85 wst=C4=99pn=C4=85 analiz=C4=99 kwalifikowal=
-no=C5=9Bci i pomoc we wdro=C5=BCeniu ulg.
-
-
-Pozdrawiam
-Filip Radelecki
+-- 
+Luca Ceresoli, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
