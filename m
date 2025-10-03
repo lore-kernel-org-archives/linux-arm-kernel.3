@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AEB0DCAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 13:39:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85F19CCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 13:39:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=d5ChM7xYZbIcJhJhkgKHyrsGnApdkThlCNMDyu2wV38=; b=mWQjEcvGlDRnOV87WaDBvOC9Gr
-	lWRPdjJZ6PMi2f/hjs0yRZKpUIzr0xuTDQ5KhfrLZshMyksMf719QSFagEO7xNbJLQ3dcHCUbYyZp
-	jY9cw6owf/aK95ZIuae6AUPuVpAdn2/29eyiLOA187m/5BMjQpOv3eDpx2/Rq8TEUljAhrv2zQQa1
-	eUqv8XzOyg+dMYvXAk9aB5j+al+OXrZVR4j2ec5E8dEp7L6uJzv034gIqR6hPG6R7UJn9kdtjQJhN
-	nHifVCIGzdW6MbHTDfCXo1jr+i8vuDwQoIerrDBJldB0EILv20TS3LabIOA6wv+RRrEcnsPDn6tKj
-	QD68+D5w==;
+	bh=5yvbWhTiB0g5MKRQJDvE9eSL8LzKl9DcqfgxeSAHNnQ=; b=Azbs22jsUvFTsn+7/77HsCqc9L
+	qrG2Rr++/ooYWV8ANTRbheTzJ7BaykiB49NEungz+Df0M+WESi1bxcw3d5z/qrdtHJJ4anR38m/CS
+	upV/yeYgoZk8J9MftstmgRmxwgMSxH4IQC/0zkk6gC0bydY8INWWyncYl1I9kGPcDD1IsX5o6c765
+	Yc9/zyu9Yyx5SRHo+Cg7HnAX8xm2I5TtxncRy0/7moZGE+s3TdNVl6wWaNX/+E3ycYdcX7KAOdXR2
+	o5Q7CQrVpRk6R15lTVyIWMqm0P9Fh62nSlz5ubmQ2N+PXcakPHbbW7Iu1mJB4vScWMzCoLrit6V1j
+	xJti4+8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4g05-0000000CQBa-0kg0;
-	Fri, 03 Oct 2025 13:39:09 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1v4fzy-0000000CQ46-18Zh;
+	Fri, 03 Oct 2025 13:39:02 +0000
+Received: from mail-ej1-x64a.google.com ([2a00:1450:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4g01-0000000CQ4y-0kT4
+	id 1v4fzv-0000000CQ2I-45ze
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Oct 2025 13:39:06 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-46e3dcb36a1so16039055e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Oct 2025 06:39:04 -0700 (PDT)
+	Fri, 03 Oct 2025 13:39:01 +0000
+Received: by mail-ej1-x64a.google.com with SMTP id a640c23a62f3a-b04a8ae1409so306577566b.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Oct 2025 06:38:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1759498743; x=1760103543; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1759498738; x=1760103538; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=d5ChM7xYZbIcJhJhkgKHyrsGnApdkThlCNMDyu2wV38=;
-        b=0OZcdEGKDh34CVooWKSjUtCmg73Qk2cSHbl2RLNgAGG0cJMQEGaUPm60oOClRNv35/
-         HBw21P+weUQmGcb2cDiJ9b7ScRxdUIwqs4UIDxaWQ8Z5T+80vbdSdCsEAfnianpjRTef
-         w2b4ESS1HVDf75sqPCo0tk8kANF7IFsdbes/sppe5KtxkMPrnFEtlMzlVvhjPOfNOU5d
-         GsSNF+pK1eVdk8gWXMnzQicThiANHYikLfEKhRMb26Qyw9yRR0Zgovwz/LL7Poi2T7Cr
-         GUo//+r4DVcdy3N9/YhNCAbZxAvL9sgHXmNxXG20o0jAc/Z42dr0ElwWqyUDoIHImE7I
-         R6dw==
+        bh=5yvbWhTiB0g5MKRQJDvE9eSL8LzKl9DcqfgxeSAHNnQ=;
+        b=BmtciHIAZSA8ty/RrZpRsBjvRmlrytdw/jIW03Q4A1s6Orb/YZm3yV+PFMyCoU9G5b
+         lOOTSNC9wolDqmSJbN9BVUC5lOrVcjBR20HoLBoJ/awyP5gLlrwX+Obff7q6b8uTzHPl
+         8x28JVDKp9Qi4E2en6tAyBCwXiypF1UCrRpXLAe0JChsSCa2qIl/HH0boWVBBUJ0GZMf
+         FSvjM7pYYsn4iRdb8Htq//Cyz2+Tw8BXYoplRTdMGfFYgIgawmk+ds8a/bpVXML58BWr
+         o0prXw+H3FeR8LI0GvqA+vKHTol61q6EeHiTynEsRW6dSH9Sjpqxw1in0F1Xgm0OE8jr
+         wq6w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759498743; x=1760103543;
+        d=1e100.net; s=20230601; t=1759498738; x=1760103538;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=d5ChM7xYZbIcJhJhkgKHyrsGnApdkThlCNMDyu2wV38=;
-        b=smrWVWwae2PZMP82O7uRtgxNI5JrjPR69vJRhuFqsmu4fUdozvAXLA4oO13K6Nf3lI
-         MFK4n36EC19YprkXtGN4u1Vu/AwhTagD+SAfpsVce7J2vD3Ot0qE4EmCca10M2D5U+Pf
-         V181/zpXGOKQuUKPopgM8+ht1R17eUuRcKYoL/m98mRwJZbNFrudeNx5v2yRvSCvpVL+
-         BjjTe27w2ciayVHoQkXniVIVuoaj7ETdjpaA2atM0N8FGXSkJbC/w3h0/w7mYmU/x0i6
-         cpEIkZPK6u5j6SKp4Zw5jP1ZEWZU0eDd0AWuDoXzxFuE/0nOvFuD+Di1+n4MsgUHITGz
-         8ysA==
-X-Forwarded-Encrypted: i=1; AJvYcCU75nIRbpLl6BVyaYYJqi5m08wqpI4K+znKrvuCvSIj4yVGJLvTNkOB1FnA55Y6UdCQTbjPvtAvknfB2NfAKJCB@lists.infradead.org
-X-Gm-Message-State: AOJu0YwViF0xsZl+jNeVB7FhWR6jL2kMMl/rAnSSd0Xxpn5CyNdw5ZrK
-	9Pq1tTPP6+f+sV6l4Tvs7eEM9beoG0DyeCcJI7ty/cG5FyhF0pyO+hCfxaLmO8Y0wY2Va/UF03o
-	idBE2d4IOk4SSVc7TY0cOqg==
-X-Google-Smtp-Source: AGHT+IGEKVUnoX9TtZqLBT0f/tik6zhh9b91Brx6pOn/31k484u2FIJbEyDbYJWN7r7k8vY/aCKrmMghs8AZJmNC
-X-Received: from wmcn6.prod.google.com ([2002:a05:600c:c0c6:b0:45d:d522:48a9])
+        bh=5yvbWhTiB0g5MKRQJDvE9eSL8LzKl9DcqfgxeSAHNnQ=;
+        b=he0rH2Dno215rahAayRsJO7ApIVYD9qBcKovmGW96xlUf5eUGISxzQqW6xrC4CRoSq
+         4NnGnS9hJPoqazRhCnRcBrDYaNQDFPFdM0a4j2BcvTzLXUcD2aUcW4Br+WRaiFIoL+oW
+         OhX/cBspEAdTJqj17PojzKzQ03s1kG+BJhEZ6Qz0Wy/UydQvM2iUtB4nMY7ncyo9cKxX
+         ly7FWJ1SK0mhgixJFwuuoUnJr3BtzjyY+e0zQ40CfB9JQXGm/B3FjerQUQzowmIEdwqx
+         fJzzqQPzhREPrCtkAaBhHjhWYweAWcJB4tmwJC8IGB2d/NRaqPShxnqAzj/59e75WYfu
+         U4QQ==
+X-Forwarded-Encrypted: i=1; AJvYcCV88vTqCM52sto6U1UPytKo+2ML69fAz1EbRz9bE0JD6T4zVtBng1BRnMqgErqOiyFujpMRyczr89fzMF69NGf2@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+mZ4w6PHhrPbeyTxy957nujdfryD6HogXBhzaDk5TmOBSsSx1
+	1po87gczvzMISQaJdMwmm+XXNc5c3XnYEgqcExuYueHOk6wY6Pnzc0FGjcKzLE4Wm5B2SuZ8yfz
+	s1Jhkxy0onlvbFZ5dgaSNBg==
+X-Google-Smtp-Source: AGHT+IEDmCVx4kHhiREAX0skvRTb6ED4U7OtfqA8ZOw1gh/kLPh63qYxbg7uCqtcVIZm2PCNUon2JI3FP9RVn5iq
+X-Received: from ejcsa18.prod.google.com ([2002:a17:907:6d12:b0:b3b:b79e:764])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:3d90:b0:46e:3d5a:d15d with SMTP id 5b1f17b1804b1-46e7114dea1mr21903175e9.26.1759498743037;
- Fri, 03 Oct 2025 06:39:03 -0700 (PDT)
-Date: Fri,  3 Oct 2025 14:38:03 +0100
+ 2002:a17:906:4789:b0:b04:1249:2b24 with SMTP id a640c23a62f3a-b49c3933062mr408664166b.37.1759498737576;
+ Fri, 03 Oct 2025 06:38:57 -0700 (PDT)
+Date: Fri,  3 Oct 2025 14:37:58 +0100
 In-Reply-To: <20251003133825.2068970-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20251003133825.2068970-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.51.0.618.g983fd99d29-goog
-Message-ID: <20251003133825.2068970-7-vdonnefort@google.com>
-Subject: [PATCH v7 06/28] tracing: Add reset to trace remotes
+Message-ID: <20251003133825.2068970-2-vdonnefort@google.com>
+Subject: [PATCH v7 01/28] ring-buffer: Add page statistics to the meta-page
 From: Vincent Donnefort <vdonnefort@google.com>
 To: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
 	linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
@@ -77,8 +77,9 @@ Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_063905_247174_4467F158 
-X-CRM114-Status: GOOD (  13.87  )
+X-CRM114-CacheID: sfid-20251003_063900_028941_65415017 
+X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,115 +94,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Allow to reset the trace remote buffer by writing to the Tracefs "trace"
-file. This is similar to the regular Tracefs interface.
+Add two fields pages_touched and pages_lost to the ring-buffer
+meta-page. Those fields are useful to get the number of used pages in
+the ring-buffer.
 
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-diff --git a/include/linux/trace_remote.h b/include/linux/trace_remote.h
-index feb3433c2128..55754ef78104 100644
---- a/include/linux/trace_remote.h
-+++ b/include/linux/trace_remote.h
-@@ -18,6 +18,8 @@
-  *			remote to allow writing.
-  * @swap_reader_page:	Called when Tracefs consumes a new page from a
-  *			ring-buffer. It is expected from the remote to isolate a
-+ * @reset:		Called on `echo 0 > trace`. It is expected from the
-+ *			remote to reset all ring-buffer pages.
-  *			new reader-page from the @cpu ring-buffer.
+diff --git a/include/uapi/linux/trace_mmap.h b/include/uapi/linux/trace_mmap.h
+index c102ef35d11e..e8185889a1c8 100644
+--- a/include/uapi/linux/trace_mmap.h
++++ b/include/uapi/linux/trace_mmap.h
+@@ -17,8 +17,8 @@
+  * @entries:		Number of entries in the ring-buffer.
+  * @overrun:		Number of entries lost in the ring-buffer.
+  * @read:		Number of entries that have been read.
+- * @Reserved1:		Internal use only.
+- * @Reserved2:		Internal use only.
++ * @pages_lost:		Number of pages overwritten by the writer.
++ * @pages_touched:	Number of pages written by the writer.
   */
- struct trace_remote_callbacks {
-@@ -25,6 +27,7 @@ struct trace_remote_callbacks {
- 	void	(*unload_trace_buffer)(struct trace_buffer_desc *desc, void *priv);
- 	int	(*enable_tracing)(bool enable, void *priv);
- 	int	(*swap_reader_page)(unsigned int cpu, void *priv);
-+	int	(*reset)(unsigned int cpu, void *priv);
+ struct trace_buffer_meta {
+ 	__u32		meta_page_size;
+@@ -39,8 +39,8 @@ struct trace_buffer_meta {
+ 	__u64	overrun;
+ 	__u64	read;
+ 
+-	__u64	Reserved1;
+-	__u64	Reserved2;
++	__u64	pages_lost;
++	__u64	pages_touched;
  };
  
- /**
-diff --git a/kernel/trace/trace_remote.c b/kernel/trace/trace_remote.c
-index 3d76a4d7d5f5..abf83ff75df5 100644
---- a/kernel/trace/trace_remote.c
-+++ b/kernel/trace/trace_remote.c
-@@ -63,6 +63,7 @@ static int trace_remote_load(struct trace_remote *remote)
- 	rb_remote->desc = remote->trace_buffer_desc;
- 	rb_remote->swap_reader_page = remote->cbs->swap_reader_page;
- 	rb_remote->priv = remote->priv;
-+	rb_remote->reset = remote->cbs->reset;
- 	remote->trace_buffer = ring_buffer_alloc_remote(rb_remote);
- 	if (!remote->trace_buffer) {
- 		remote->cbs->unload_trace_buffer(remote->trace_buffer_desc, remote->priv);
-@@ -136,6 +137,21 @@ static int trace_remote_disable_tracing(struct trace_remote *remote)
- 	return 0;
- }
+ #define TRACE_MMAP_IOCTL_GET_READER		_IO('R', 0x20)
+diff --git a/kernel/trace/ring_buffer.c b/kernel/trace/ring_buffer.c
+index 43460949ad3f..2c157cb86989 100644
+--- a/kernel/trace/ring_buffer.c
++++ b/kernel/trace/ring_buffer.c
+@@ -6113,6 +6113,8 @@ static void rb_update_meta_page(struct ring_buffer_per_cpu *cpu_buffer)
+ 	meta->entries = local_read(&cpu_buffer->entries);
+ 	meta->overrun = local_read(&cpu_buffer->overrun);
+ 	meta->read = cpu_buffer->read;
++	meta->pages_lost = local_read(&cpu_buffer->pages_lost);
++	meta->pages_touched = local_read(&cpu_buffer->pages_touched);
  
-+static void trace_remote_reset(struct trace_remote *remote, int cpu)
-+{
-+	lockdep_assert_held(&remote->lock);
-+
-+	if (!trace_remote_loaded(remote))
-+		return;
-+
-+	if (cpu == RING_BUFFER_ALL_CPUS)
-+		ring_buffer_reset(remote->trace_buffer);
-+	else
-+		ring_buffer_reset_cpu(remote->trace_buffer, cpu);
-+
-+	trace_remote_try_unload(remote);
-+}
-+
- static ssize_t
- tracing_on_write(struct file *filp, const char __user *ubuf, size_t cnt, loff_t *ppos)
- {
-@@ -411,6 +427,26 @@ static const struct file_operations trace_pipe_fops = {
- 	.release	= trace_pipe_release,
- };
- 
-+static ssize_t trace_write(struct file *filp, const char __user *ubuf, size_t cnt, loff_t *ppos)
-+{
-+	struct inode *inode = file_inode(filp);
-+	struct trace_remote *remote = inode->i_private;
-+	int cpu = RING_BUFFER_ALL_CPUS;
-+
-+	if (inode->i_cdev)
-+		cpu = (long)inode->i_cdev - 1;
-+
-+	guard(mutex)(&remote->lock);
-+
-+	trace_remote_reset(remote, cpu);
-+
-+	return cnt;
-+}
-+
-+static const struct file_operations trace_fops = {
-+	.write		= trace_write,
-+};
-+
- static int trace_remote_init_tracefs(const char *name, struct trace_remote *remote)
- {
- 	struct dentry *remote_d, *percpu_d;
-@@ -441,7 +477,9 @@ static int trace_remote_init_tracefs(const char *name, struct trace_remote *remo
- 	    !trace_create_file("buffer_size_kb", TRACEFS_MODE_WRITE, remote_d, remote,
- 			       &buffer_size_kb_fops) ||
- 	    !trace_create_file("trace_pipe", TRACEFS_MODE_READ, remote_d, remote,
--			       &trace_pipe_fops))
-+			       &trace_pipe_fops) ||
-+	    !trace_create_file("trace", TRACEFS_MODE_WRITE, remote_d, remote,
-+			       &trace_fops))
- 		goto err;
- 
- 	percpu_d = tracefs_create_dir("per_cpu", remote_d);
-@@ -463,7 +501,9 @@ static int trace_remote_init_tracefs(const char *name, struct trace_remote *remo
- 		}
- 
- 		if (!trace_create_cpu_file("trace_pipe", TRACEFS_MODE_READ, cpu_d, remote, cpu,
--					   &trace_pipe_fops))
-+					   &trace_pipe_fops) ||
-+		    !trace_create_cpu_file("trace", TRACEFS_MODE_WRITE, cpu_d, remote, cpu,
-+					   &trace_fops))
- 			goto err;
- 	}
- 
+ 	/* Some archs do not have data cache coherency between kernel and user-space */
+ 	flush_kernel_vmap_range(cpu_buffer->meta_page, PAGE_SIZE);
 -- 
 2.51.0.618.g983fd99d29-goog
 
