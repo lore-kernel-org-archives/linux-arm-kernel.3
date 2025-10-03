@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C827CCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 09:12:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9DCACAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 09:12:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oM3tI8mY+kGsTe04xj2cVMzBnTs9+D3oQzrLghj3T/I=; b=JuXaWCrJyEQ8V7q+UYjuA90Mi5
-	sZo+cKQRq5hotdgnd+iE3BbuOQIyaf6gy/x013tSXO7W2g/EXt5J7jP9dCbM6h/sKo/bYsnaorURQ
-	BO7DcLePYxrGJ5jOnNQzq5hq6lwqPWW9xUwukeA1QxIi/pzzMvYLSmg24HhONSj/Og5aa8Ne/kQGP
-	O5zdvO6ZSH/g9qV+SoWYHt/rw/r4sP6Bq3wbhGcaT7Qcgo2tTXhMc4K3mf6V+WTEMsav0wKAv0bDu
-	bk5rFhKWEtRK3KDiK54oU5S4juvcj6NktRKFV/1pY1B9UoaceogvrudAtevIXSg5udcPNnFQFWfs/
-	HrwApK/Q==;
+	bh=iYnLspb87xVDhMwy8tdV63gncajVZud2EaXAT1DC2I4=; b=AnOOpG4kg+UlohnL5G6/y+I+Ps
+	Oo4E0ZwKsyNqcX9K+6rcZWgQB2rg+8Dk7JSbUCE8esNexVW/1nUll/Ss1lPHCwKWwzRb2/oRlJuuC
+	AnJ6dhvd/TFKrD3y9eak1DjoOLquHhK+Ulm4kJryFFg+jZL2ABlqkSOQP3uXugn72oAC2ZHjOdr2f
+	Gc1o+yQGWxR61kg9TKN9Q9FX7afyRu84EgMPs5y2YJDwA0ew91Hq5b9rXVKfO8IWIKfvYbqIrNoHf
+	0SoyOzADISxW3Wp/oGlTaGwNpdeXKYs0Qs5YymIwws8TPaUtg5yvX78RI0xznjtIqff9iduCzPpZG
+	tLLl7lvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4bpo-0000000Bvkz-1FPJ;
-	Fri, 03 Oct 2025 09:12:16 +0000
+	id 1v4bpp-0000000BvmK-0yMW;
+	Fri, 03 Oct 2025 09:12:17 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4bpg-0000000BvZB-3Lqx;
-	Fri, 03 Oct 2025 09:12:10 +0000
+	id 1v4bph-0000000BvaA-2Zbw;
+	Fri, 03 Oct 2025 09:12:11 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1759482726;
-	bh=hXxs0guUv2+YNHky2gE0MkQPs7q5vu8jR9rLRZw+U8E=;
+	s=mail; t=1759482727;
+	bh=TZW3NB4/OAPrx3REXijGTRzYymbTmMvwT8YxeXIwCCk=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=HF/W8Eg0w9KCJhLOkOZrdGHTUmOUiW174ezeJ4/GN0FYmjZFzQntC2WDzZiBJjjgg
-	 Kqw6K6faghJpoDIGq8cwC5iRIeNl+zm07yKCwJzHiyelc3Wqwt/ol3XgRP0fQ3LIua
-	 B0UjV3fJV8m3nDvl0X2egvz6mHc4eSVbtAz+PeqrVo89cPPIEHfSX42ik+GCmra/YW
-	 lP0r9zo5jwl9QGX9wOlknrxJmpC3jiiuNXVVGP3iC10lNr5OVsXl4ZB58dT8FEsSBg
-	 R79zMD8H449kMMuE6JNk79MInKVPyC8BKvSWCNswTQTQRunCpeuN38mYE6kOpeU3m+
-	 jahypwFme4LRA==
+	b=aFhuMm/hXG4JpG3JhhMnBG8wXrAj5KL5LNQek8WqupkZww9lLvxacuMGPg3VG3RqL
+	 NGNiRX/twGiIhNbUM7bzpQs/X1vjZT2S+fJRxdCuU9B6OvYF2H0tmFdd9khsCkVWK5
+	 3HMI/nm27G69odjVuWKh6L6clBOVaRi/b18OkWcr+hq7kwsOxFcwpbniBLd5fd8cAo
+	 1bRDQw+t6+mBXCueF3vdn4IfPPI+kprou8GGET/RMoSID2dM/2t8i3TkgSXiP7g9HE
+	 QIvo+YR/RSbscLXWq/e9Nq5oLq2HzJtodfeh0oFNNO0Fnc1ZK7B2ZRAcF6MF2mNbpB
+	 l6Wwf0gjlnfXA==
 Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 3CD5817E108C;
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id F149E17E13C1;
 	Fri,  3 Oct 2025 11:12:06 +0200 (CEST)
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 To: linux-mediatek@lists.infradead.org
@@ -58,19 +58,20 @@ Cc: lee@kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	kernel@collabora.com,
 	wenst@chromium.org,
-	igor.belwon@mentallysanemainliners.org
-Subject: [PATCH v8 7/9] dt-bindings: iio: adc: mt6359: Allow reg for SPMI PMICs AuxADC
-Date: Fri,  3 Oct 2025 11:11:56 +0200
-Message-ID: <20251003091158.26748-8-angelogioacchino.delregno@collabora.com>
+	igor.belwon@mentallysanemainliners.org,
+	=?UTF-8?q?N=C3=ADcolas=20F=2E=20R=2E=20A=2E=20Prado?= <nfraprado@collabora.com>
+Subject: [PATCH v8 8/9] dt-bindings: mfd: Add binding for MediaTek MT6363 series SPMI PMIC
+Date: Fri,  3 Oct 2025 11:11:57 +0200
+Message-ID: <20251003091158.26748-9-angelogioacchino.delregno@collabora.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251003091158.26748-1-angelogioacchino.delregno@collabora.com>
 References: <20251003091158.26748-1-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_021209_011273_E62E2276 
-X-CRM114-Status: UNSURE (   7.77  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251003_021209_837893_266D9D8E 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,51 +86,143 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-When one or multiple Auxiliary ADC IPs are embedded in a SPMI PMIC
-it is reachable at a specific address.
+Add a binding for the MediaTek MT6363/6373 (and similar) multi
+function PMICs connected over SPMI.
 
-Allow specifying the `reg` property and make it a required one for
-MediaTek MT6363/6373 PMICs as those communicate over SPMI and also
-disallow it for the others (as it wouldn't be applicable).
+These PMICs are found on board designs using newer MediaTek SoCs,
+such as the Dimensity 9400 Smartphone chip, or the Chromebook
+MT8196 chip.
 
+Reviewed-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
 Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 ---
- .../iio/adc/mediatek,mt6359-auxadc.yaml         | 17 +++++++++++++++++
- 1 file changed, 17 insertions(+)
+ .../bindings/mfd/mediatek,mt6363.yaml         | 116 ++++++++++++++++++
+ 1 file changed, 116 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/mfd/mediatek,mt6363.yaml
 
-diff --git a/Documentation/devicetree/bindings/iio/adc/mediatek,mt6359-auxadc.yaml b/Documentation/devicetree/bindings/iio/adc/mediatek,mt6359-auxadc.yaml
-index 5d4ab701f51a..e685e5ee224a 100644
---- a/Documentation/devicetree/bindings/iio/adc/mediatek,mt6359-auxadc.yaml
-+++ b/Documentation/devicetree/bindings/iio/adc/mediatek,mt6359-auxadc.yaml
-@@ -25,6 +25,9 @@ properties:
-       - mediatek,mt6363-auxadc
-       - mediatek,mt6373-auxadc
- 
+diff --git a/Documentation/devicetree/bindings/mfd/mediatek,mt6363.yaml b/Documentation/devicetree/bindings/mfd/mediatek,mt6363.yaml
+new file mode 100644
+index 000000000000..8cfb2e9a9389
+--- /dev/null
++++ b/Documentation/devicetree/bindings/mfd/mediatek,mt6363.yaml
+@@ -0,0 +1,116 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/mfd/mediatek,mt6363.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: MediaTek MT6363 series SPMI PMICs multi-function device
++
++maintainers:
++  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
++
++description: |
++  Some MediaTek Power Management ICs (PMICs) found in board designs with
++  the Helio, Dimensity and/or Kompanio series of SoCs are interfaced to
++  the chip via the System Power Management Interface (SPMI) bus.
++
++  These PMICs are multi-function devices with various sub modules.
++  For example, those may include one, or more of the following:
++  - Auxiliary ADC Controller
++  - Clock Controller
++  - eFuses
++  - GPIO Controller
++  - Interrupt Controller
++  - Keys
++  - LEDs Controller
++  - Regulators
++  - RTC
++
++properties:
++  compatible:
++    enum:
++      - mediatek,mt6363
++      - mediatek,mt6373
++
 +  reg:
 +    maxItems: 1
 +
-   "#io-channel-cells":
-     const: 1
- 
-@@ -33,3 +36,17 @@ required:
-   - "#io-channel-cells"
- 
- additionalProperties: false
++  '#address-cells':
++    const: 1
 +
-+if:
-+  properties:
-+    compatible:
-+      contains:
-+        enum:
-+          - mediatek,mt6363-auxadc
-+          - mediatek,mt6373-auxadc
-+then:
-+  required:
-+    - reg
-+else:
-+  properties:
-+    reg: false
++  '#size-cells':
++    const: 0
++
++  interrupts:
++    maxItems: 1
++
++  interrupt-controller: true
++
++  "#interrupt-cells":
++    const: 3
++
++patternProperties:
++  "^adc@[0-9a-f]+$":
++    type: object
++    $ref: /schemas/iio/adc/mediatek,mt6359-auxadc.yaml#
++
++  "^regulators@[0-9a-f]+$":
++    type: object
++    properties:
++      compatible:
++        contains:
++          enum:
++            - mediatek,mt6363-regulator
++            - mediatek,mt6373-regulator
++    oneOf:
++      - $ref: /schemas/regulator/mediatek,mt6363-regulator.yaml#
++      - $ref: /schemas/regulator/mediatek,mt6373-regulator.yaml#
++    additionalProperties: true
++
++required:
++  - compatible
++  - reg
++  - '#address-cells'
++  - '#size-cells'
++
++additionalProperties: false
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/irq.h>
++    #include <dt-bindings/spmi/spmi.h>
++
++    spmi {
++      #address-cells = <2>;
++      #size-cells = <0>;
++
++      pmic@4 {
++        compatible = "mediatek,mt6363";
++        reg = <0x4 SPMI_USID>;
++        interrupts = <4 64 IRQ_TYPE_LEVEL_HIGH>;
++        interrupt-controller;
++        #address-cells = <1>;
++        #interrupt-cells = <3>;
++        #size-cells = <0>;
++
++        regulators@30 {
++          compatible = "mediatek,mt6363-regulator";
++          reg = <0x30>;
++
++          vio18 {
++            regulator-name = "pp1800-vio18-s3";
++            regulator-min-microvolt = <1800000>;
++            regulator-max-microvolt = <1800000>;
++            regulator-allowed-modes = <0 2>;
++            regulator-allow-set-load;
++            regulator-over-current-protection;
++          };
++        };
++
++        adc@1000 {
++          compatible = "mediatek,mt6363-auxadc";
++          reg = <0x1000>;
++          #io-channel-cells = <1>;
++        };
++      };
++    };
 -- 
 2.51.0
 
