@@ -4,87 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC6F9CCA471
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 17:23:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EECB4CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 17:24:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LGWR7Op0jGJB/hnyDRBm1VaEtVV6gV3pqYTKcigBXCc=; b=b3YGSdtAhDpDnEfVxKzsu8X6Hz
-	mnF1KpFLnRRSVcvSKOnOm5kWo+zLbcvbGXjMbKRhDohnnktYHwF3b/hxdObsRJP/irRJuWC1A8snz
-	tdLXcQXepzVK67POzk64af+My8I7EU9idaKvJdYyoCW5C/REMH6cRszo/ZMcEQZGH58yAaeNS9uYy
-	cTbpy+PcjRTRxtKVllTUzeIKkGojIs4K8gAcF7zc8HbjfSB4APvnGT2gyB8N1rYLYHiQl8ls0GzJF
-	8h/XNs37EyHhEH8tNGbFFhTIPwA7yEOUytkVVoAX/G7ovvyMVbBms9jbh5NobYntMiHYAZoEH84cL
-	eOTdRYgg==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:MIME-Version:Date:Message-ID:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	List-Owner; bh=eKU8SJ09O6RAdk9rzTuf+EPgBar7M5OPCHBeslmadhA=; b=QxpSkr77Y9IS9j
+	2GlwWlS/wPan6k0uKng0w+L5hkBLdll3HC+3CY5iLWXComErLNVhHixh50iCB7KdZRj5KRjutCrnm
+	Ijd4LCRpZluVMt0FVH5ERH6ESRzH7laVgVz0ok3W7kCBIYzNMYObSlAxMG6VKhdJprgz3lyU1pJvQ
+	zieUDCQRcXMxhwtQ4R7819rWkXRKa2Ezp9hoNm4imGP+hQxuoDqZTh9dOw6YrSW2MmlGO/tGVmon2
+	eeZnkkkAVFkuYKawGJyaQHK5tfgAguwUfCuyHKy/RJ9fkoYPfUCOhUofPwtdfCsjwMKM9qToKYDEK
+	rqoeCr3QJaSlxKkd3lfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4jUi-0000000CpIh-2S1o;
-	Fri, 03 Oct 2025 17:23:00 +0000
-Received: from mail-yw1-x112b.google.com ([2607:f8b0:4864:20::112b])
+	id 1v4jW0-0000000CpdY-4409;
+	Fri, 03 Oct 2025 17:24:20 +0000
+Received: from fra-out-013.esa.eu-central-1.outbound.mail-perimeter.amazon.com ([63.178.132.221])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4jUg-0000000CpIG-1NVj
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Oct 2025 17:22:59 +0000
-Received: by mail-yw1-x112b.google.com with SMTP id 00721157ae682-71d601859f5so28522047b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Oct 2025 10:22:58 -0700 (PDT)
+	id 1v4jVx-0000000CpcB-3E3D;
+	Fri, 03 Oct 2025 17:24:19 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1759512177; x=1760116977; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=LGWR7Op0jGJB/hnyDRBm1VaEtVV6gV3pqYTKcigBXCc=;
-        b=RWOtgBVYBFdwe5+GkbwNLlGIK5zKewO3Eq/AbTvwQm5fQwiGsTO46RxYYnYPghp64t
-         dncW1SSWYkNl89P9Czj30zUGgNMQWYDZELgk1zxUTYAepDhkNxz25F1wUzhcY3c6AKu6
-         ukamzTyAfKRQTN4dkAFd6EIv7QyeLxduaTGa/ccQuLpNRCXN4Qs5hBPs/AQSmK0ipvgK
-         ex463t9xoJ4E27Nn7682zKQN/YGrrZo88D4jBOP0Bx1+lDn+ZoFB+ENzbTMSxiXJWmp2
-         6wpO86tgFGyczfvhKeXmiVffNf9WDmfa33gxBJ9x8+/qfZMTbHvBwxKrsSN01TnBHA7W
-         yWhg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759512177; x=1760116977;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=LGWR7Op0jGJB/hnyDRBm1VaEtVV6gV3pqYTKcigBXCc=;
-        b=UdNFdQRnhla4VPoFUzImbz9d3HDlq9fjAZLEA1XUe89Husb3agiTmH8FIWvurd9osf
-         46A2kpaoLdSnutWqcr5YivNGMUNxge+PWq6PYe5dy1micn0SyGzg0kyS8rlQ2s6SbvA8
-         0BI4u1JFHWPjiFXqS3bsQgiMtaAKA8jVTBbglRlvMws7Joc9W/hNm9SuBjw0B8mdv3BB
-         FErc6+bCJd1w3sE3/ttyzDVwieZnsNO3lA3Qmij/PmM00t3eOFLD+jYM/vji8AlDRFMe
-         q/0IvEGnm/HDnXPyC4CnCVbWTil4O8JeXQxvFERPzozBvgiof9kxYYm6+4SGvPWeb/cx
-         jH3w==
-X-Forwarded-Encrypted: i=1; AJvYcCXJjKlzpktEd/DOxs84t2hjXgViHyhsB7dVnEW7mvAuNYIyQiikuRQ8oG1+/B0zm1gVDqfhnVsWCgHv/THEyepq@lists.infradead.org
-X-Gm-Message-State: AOJu0YxoFShHsTsq6ODItvRDqcjpHmI6AQieMoSrYHF1ckXiqGEWiBC/
-	ooRgnF/qTEjl73rGNEUbSkByvQUcE1rwxWH7LBjPAcsWBT+eZDi8cfIv3TxLiaUG0EcXNyw2oMk
-	rzqrHv6oxZGwZYBLq6n6GiUUKn1OF4mulhspRbYfE3w==
-X-Gm-Gg: ASbGncvaWmuZqET7ozbCsvc7FYZAbP6C2XUYD90/w9Ouy2LrgBErXN1bsV2Mxkxsn6G
-	H5Yt54ydh4NZyIwLtVMkZFD+V5SKrOkjXtNFNGiH29/Vh8fyoJAVrOEW3p7KPt+GgA0jsVqjb5P
-	Bje1hAEI1GGMis8OV6qbKTDelSQ23ZKYKIjZak01Nlf4sWaXkcDPQ1KUPNl2u+T0mq3/jOKeyrq
-	OASfVcbzT/NEWEaqe8FUP5BAJ8pJFRl+uShhLqVXZko
-X-Google-Smtp-Source: AGHT+IEaOvU8KB5Em4L2bWs/Xj/IkcvvxTcqZJWq4PxSiqWi8wXfy+Ft4q6LsFqAEYTMabgdZG5h7FcKPPHNINr43CI=
-X-Received: by 2002:a05:690e:1c4:b0:636:d230:7d82 with SMTP id
- 956f58d0204a3-63b9a0e08bdmr1960868d50.26.1759512176832; Fri, 03 Oct 2025
- 10:22:56 -0700 (PDT)
+  d=amazon.com; i=@amazon.com; q=dns/txt; s=amazoncorp2;
+  t=1759512257; x=1791048257;
+  h=message-id:date:mime-version:reply-to:subject:to:cc:
+   references:from:in-reply-to:content-transfer-encoding;
+  bh=eKU8SJ09O6RAdk9rzTuf+EPgBar7M5OPCHBeslmadhA=;
+  b=f5vI/2oSeIDW4VsIzPXPfIqF3OVeJuds+Yxo6bZqrUDE9e9/ktBky/3D
+   TbaQp/sT7GDkj/yq2uyWqTrUzNr5RkNv0z9gclkDtExkmDCPjgPh5LwLa
+   dfFnBu3qvJ6Tx3Hbk+HMt1w1847puEDWewVeT2tiG44LedTJr1jI+ER9q
+   Djxq/3rbigkLTAIp+Zm76M8g3Nf58imda/JdjDh0gUglPmlAg7sx9Y9Vc
+   BnofYvXSwmttXeqXpDNXtQcQPtVwkfzOJ0l08XdUy8V8wPp1aQgproTa6
+   VtnKy730PYDsakHokgzkB26aHN4ahlB7K6zq6IL0P3qiydVaheAIde9rq
+   A==;
+X-CSE-ConnectionGUID: /bGeMqI5QHGO7ZeMBtXCHg==
+X-CSE-MsgGUID: d1ZXsYzERHSwet8rfgRFpg==
+X-IronPort-AV: E=Sophos;i="6.18,313,1751241600"; 
+   d="scan'208";a="2975643"
+Received: from ip-10-6-3-216.eu-central-1.compute.internal (HELO smtpout.naws.eu-central-1.prod.farcaster.email.amazon.dev) ([10.6.3.216])
+  by internal-fra-out-013.esa.eu-central-1.outbound.mail-perimeter.amazon.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 03 Oct 2025 17:24:05 +0000
+Received: from EX19MTAEUC001.ant.amazon.com [54.240.197.225:5746]
+ by smtpin.naws.eu-central-1.prod.farcaster.email.amazon.dev [10.0.33.147:2525] with esmtp (Farcaster)
+ id f44c7b7f-75fc-43b3-8033-16cf4d5d0ded; Fri, 3 Oct 2025 17:24:04 +0000 (UTC)
+X-Farcaster-Flow-ID: f44c7b7f-75fc-43b3-8033-16cf4d5d0ded
+Received: from EX19D022EUC002.ant.amazon.com (10.252.51.137) by
+ EX19MTAEUC001.ant.amazon.com (10.252.51.193) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20;
+ Fri, 3 Oct 2025 17:24:04 +0000
+Received: from [192.168.4.149] (10.106.83.12) by EX19D022EUC002.ant.amazon.com
+ (10.252.51.137) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA) id 15.2.2562.20; Fri, 3 Oct 2025
+ 17:24:02 +0000
+Message-ID: <fc0bb268-07b7-41ef-9a82-791d381f56ac@amazon.com>
+Date: Fri, 3 Oct 2025 18:23:57 +0100
 MIME-Version: 1.0
-References: <20251002-gs101-pmu-regmap-tables-v1-0-1f96f0920eb3@linaro.org> <20251002-gs101-pmu-regmap-tables-v1-1-1f96f0920eb3@linaro.org>
-In-Reply-To: <20251002-gs101-pmu-regmap-tables-v1-1-1f96f0920eb3@linaro.org>
-From: Sam Protsenko <semen.protsenko@linaro.org>
-Date: Fri, 3 Oct 2025 12:22:46 -0500
-X-Gm-Features: AS18NWBQR2ismkqxDcti8kjrNtnGND89e5O87aRDbFrbCUVqVqwZBLFSImHDwoE
-Message-ID: <CAPLW+4=mVbXex9Sxm2oEq0j3RJ0_KtXRq2Ttt5cfQ_dxXTuhSA@mail.gmail.com>
-Subject: Re: [PATCH 1/3] soc: samsung: exynos-pmu: allow specifying read &
- write access tables for secure regmap
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
-	Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 15/34] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
+ guest-specific backing memory
+To: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>,
+	"Oliver Upton" <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>,
+	"Michael Ellerman" <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>,
+	"Paul Walmsley" <paul.walmsley@sifive.com>, Palmer Dabbelt
+	<palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>, Sean Christopherson
+	<seanjc@google.com>, Alexander Viro <viro@zeniv.linux.org.uk>, Christian
+ Brauner <brauner@kernel.org>, "Matthew Wilcox (Oracle)"
+	<willy@infradead.org>, "Andrew Morton" <akpm@linux-foundation.org>
+CC: <kvm@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<kvmarm@lists.linux.dev>, <linux-mips@vger.kernel.org>,
+	<linuxppc-dev@lists.ozlabs.org>, <kvm-riscv@lists.infradead.org>,
+	<linux-riscv@lists.infradead.org>, <linux-fsdevel@vger.kernel.org>,
+	<linux-mm@kvack.org>, <linux-kernel@vger.kernel.org>, Xiaoyao Li
+	<xiaoyao.li@intel.com>, Xu Yilun <yilun.xu@intel.com>, Chao Peng
+	<chao.p.peng@linux.intel.com>, Fuad Tabba <tabba@google.com>, Jarkko Sakkinen
+	<jarkko@kernel.org>, Anish Moorthy <amoorthy@google.com>, David Matlack
+	<dmatlack@google.com>, Yu Zhang <yu.c.zhang@linux.intel.com>, Isaku Yamahata
+	<isaku.yamahata@intel.com>, =?UTF-8?B?TWlja2HDq2wgU2FsYcO8?= =?UTF-8?Q?n?=
+	<mic@digikod.net>, Vlastimil Babka <vbabka@suse.cz>, Vishal Annapurve
+	<vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>, "Maciej
+ Szmigiero" <mail@maciej.szmigiero.name>, David Hildenbrand
+	<david@redhat.com>, Quentin Perret <qperret@google.com>, Michael Roth
+	<michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, Liam Merwick
+	<liam.merwick@oracle.com>, "Isaku Yamahata" <isaku.yamahata@gmail.com>,
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+References: <20231105163040.14904-1-pbonzini@redhat.com>
+ <20231105163040.14904-16-pbonzini@redhat.com>
+Content-Language: en-US
+From: Nikita Kalyazin <kalyazin@amazon.com>
+Autocrypt: addr=kalyazin@amazon.com; keydata=
+ xjMEY+ZIvRYJKwYBBAHaRw8BAQdA9FwYskD/5BFmiiTgktstviS9svHeszG2JfIkUqjxf+/N
+ JU5pa2l0YSBLYWx5YXppbiA8a2FseWF6aW5AYW1hem9uLmNvbT7CjwQTFggANxYhBGhhGDEy
+ BjLQwD9FsK+SyiCpmmTzBQJnrNfABQkFps9DAhsDBAsJCAcFFQgJCgsFFgIDAQAACgkQr5LK
+ IKmaZPOpfgD/exazh4C2Z8fNEz54YLJ6tuFEgQrVQPX6nQ/PfQi2+dwBAMGTpZcj9Z9NvSe1
+ CmmKYnYjhzGxzjBs8itSUvWIcMsFzjgEY+ZIvRIKKwYBBAGXVQEFAQEHQCqd7/nb2tb36vZt
+ ubg1iBLCSDctMlKHsQTp7wCnEc4RAwEIB8J+BBgWCAAmFiEEaGEYMTIGMtDAP0Wwr5LKIKma
+ ZPMFAmes18AFCQWmz0MCGwwACgkQr5LKIKmaZPNTlQEA+q+rGFn7273rOAg+rxPty0M8lJbT
+ i2kGo8RmPPLu650A/1kWgz1AnenQUYzTAFnZrKSsXAw5WoHaDLBz9kiO5pAK
+In-Reply-To: <20231105163040.14904-16-pbonzini@redhat.com>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.106.83.12]
+X-ClientProxiedBy: EX19D013EUA004.ant.amazon.com (10.252.50.48) To
+ EX19D022EUC002.ant.amazon.com (10.252.51.137)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_102258_374384_0710C671 
-X-CRM114-Status: GOOD (  25.69  )
+X-CRM114-CacheID: sfid-20251003_102418_630216_C24D3685 
+X-CRM114-Status: GOOD (  14.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,87 +121,60 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: kalyazin@amazon.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 2, 2025 at 5:33=E2=80=AFAM Andr=C3=A9 Draszik <andre.draszik@li=
-naro.org> wrote:
->
-> Accessing non-existent PMU registers causes an SError, halting the
-> system.
->
-> regmap can help us with that by allowing to pass the list of valid
-> registers as part of the config during creation. When this driver
-> creates a new regmap itself rather than relying on
-> syscon_node_to_regmap(), it's therefore easily possible to hook in
-> custom access tables for valid read and write registers.
->
-> Specifying access tables avoids SErrors for invalid registers and
-> instead the regmap core can just return an error. Outside drivers, this
-> is also helpful when using debugfs to access the regmap.
->
-> Make it possible for drivers to specify read and write tables to be
-> used on creation of the secure regmap.
->
-> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
-> ---
->  drivers/soc/samsung/exynos-pmu.c | 3 +++
->  drivers/soc/samsung/exynos-pmu.h | 4 ++++
->  2 files changed, 7 insertions(+)
->
-> diff --git a/drivers/soc/samsung/exynos-pmu.c b/drivers/soc/samsung/exyno=
-s-pmu.c
-> index 22c50ca2aa79bf1945255ee6cc7443d7309b2573..9f416de03610b1727d8cc7761=
-6e5c87e2525cc69 100644
-> --- a/drivers/soc/samsung/exynos-pmu.c
-> +++ b/drivers/soc/samsung/exynos-pmu.c
-> @@ -635,6 +635,9 @@ static int exynos_pmu_probe(struct platform_device *p=
-dev)
->                 pmu_regmcfg =3D regmap_smccfg;
->                 pmu_regmcfg.max_register =3D resource_size(res) -
->                                            pmu_regmcfg.reg_stride;
-> +               pmu_regmcfg.wr_table =3D pmu_context->pmu_data->wr_table;
-> +               pmu_regmcfg.rd_table =3D pmu_context->pmu_data->rd_table;
+
+
+On 05/11/2023 16:30, Paolo Bonzini wrote:
+> From: Sean Christopherson <seanjc@google.com>
+> 
+> Introduce an ioctl(), KVM_CREATE_GUEST_MEMFD, to allow creating file-based
+> memory that is tied to a specific KVM virtual machine and whose primary
+> purpose is to serve guest memory.
+
+...
+> diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+> index f1a575d39b3b..8f46d757a2c5 100644
+> --- a/virt/kvm/kvm_main.c
+> +++ b/virt/kvm/kvm_main.c
+
+...
+
+> -static int check_memory_region_flags(const struct kvm_userspace_memory_region2 *mem)
+> +static int check_memory_region_flags(struct kvm *kvm,
+> +				     const struct kvm_userspace_memory_region2 *mem)
+>   {
+>   	u32 valid_flags = KVM_MEM_LOG_DIRTY_PAGES;
+>   
+> +	if (kvm_arch_has_private_mem(kvm))
+> +		valid_flags |= KVM_MEM_GUEST_MEMFD;
 > +
+> +	/* Dirty logging private memory is not currently supported. */
+> +	if (mem->flags & KVM_MEM_GUEST_MEMFD)
+> +		valid_flags &= ~KVM_MEM_LOG_DIRTY_PAGES;
 
-Seems like pmu_regmcfg declaration can be pulled under this "if" scope
--- just a thought for future.
+I was wondering whether this restriction is still required at this stage 
+or can be lifted in cases where the guest memory is accessible by the 
+host.  Specifically, it would be useful to support differential memory 
+snapshots based on dirty page tracking in Firecracker [1] or in live 
+migration.  As an experiment, I removed the check and was able to 
+produce a diff snapshot and restore a Firecracker VM from it.
 
->                 /* Need physical address for SMC call */
->                 regmap =3D devm_regmap_init(dev, NULL,
->                                           (void *)(uintptr_t)res->start,
-> diff --git a/drivers/soc/samsung/exynos-pmu.h b/drivers/soc/samsung/exyno=
-s-pmu.h
-> index 0938bb4fe15f439e2d8bddeec51b6077e79a7e84..113149ed32c88a09b075be820=
-50c26970e4c0620 100644
-> --- a/drivers/soc/samsung/exynos-pmu.h
-> +++ b/drivers/soc/samsung/exynos-pmu.h
-> @@ -27,6 +27,10 @@ struct exynos_pmu_data {
->         void (*pmu_init)(void);
->         void (*powerdown_conf)(enum sys_powerdown);
->         void (*powerdown_conf_extra)(enum sys_powerdown);
+[1] 
+https://github.com/firecracker-microvm/firecracker/blob/main/docs/snapshotting/snapshot-support.md#creating-diff-snapshots
+
 > +
-> +       /* for the pmu_secure case */
-> +       const struct regmap_access_table *rd_table;
-> +       const struct regmap_access_table *wr_table;
-
-Maybe it's worth to add #include <linux/regmap.h> in this header, or
-at least forward declaration struct regmap_access_table?
-
-Also, would be nice to have kernel-doc comment for struct
-exynos_pmu_data at this point, but it might be out of scope for this
-patch.
-
-Other than those minor nitpicks -- LGTM:
-
-Reviewed-by: Sam Protsenko <semen.protsenko@linaro.org>
-
->  };
->
->  extern void __iomem *pmu_base_addr;
->
-> --
-> 2.51.0.618.g983fd99d29-goog
->
->
+>   #ifdef __KVM_HAVE_READONLY_MEM
+>   	valid_flags |= KVM_MEM_READONLY;
+>   #endif
+> @@ -2018,7 +2029,7 @@ int __kvm_set_memory_region(struct kvm *kvm,
+>   	int as_id, id;
+>   	int r;
+>   
+> -	r = check_memory_region_flags(mem);
+> +	r = check_memory_region_flags(kvm, mem);
+>   	if (r)
+>   		return r;
 
