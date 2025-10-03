@@ -4,55 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3071CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 07:51:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B929CCCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 08:09:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=E8lJQPfLjYVHk8CS76IyIm3PF5+xLeDEh0bD99wDfoU=; b=ZK86691ZaSKdUV0Z+6D10ydy4r
-	5D/gpv5BHKd9gHp+QrTTusDNsgks3bWtG7KGDqal5gjnp091F0Oi1PEGB2dWZ5EuWPjGnmL222pQt
-	8/qLa3Jptb2gf62QrPYRAHCIg7dTplGRiZUN6cm3MWz59P4ezGc2sDRKlmV+tWDcVcaTbGn7n8qct
-	5hZ3+W6AcNpj5xFaWpx1zQnftmQ2GNQbAUqzhBBtRhwohxg+Au3NRIjwAlf82mgNvtPZx5PGmYt7c
-	cX36O/YFp8XAV3rW8HkuKX/YoyKYODC7cctbHpaGnUs4YO5kfc5ES/DbLZFDnAumS6B1q1Uiw1NZs
-	6RrYoOgQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=hhS+Ifei7tMzhG+IktzCTPlAHqpoGjdHL0NFGBDAyKQ=; b=gIbbT3+wImHvpw0lHt8AbCjYOl
+	U5ntO9zVNOeFSBzCcnJ17fG9uJE0yngnOLa8kUP3S7iIOWx17k4vQ+KHeAKV2T8TBgTciH0uB8aTk
+	AsPZ813x7hSlE7JtFe72awHjYejNMKJcsOi8g5uWpELV3bALQoxG0HAw+8ozIVkcKgMsTKngoyMFt
+	irXG3BpkelWLu1SKfmlrStK981Bc7VxG18Y/cLxNWO2XJ+Gw2moItamGmVnFo3TlAeE/VGQJ5RwJ+
+	z57tGRhgWrDZ4/i4237DT6sPA/jtyBo5B1SBnc8g3phLTTWpC+gsw3Sue8AQ7fOUYkNfO7CBRXp2Z
+	2JamEqXg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4aZZ-0000000BqYW-1LpH;
-	Fri, 03 Oct 2025 07:51:25 +0000
-Received: from mail.commetrax.com ([141.95.18.165])
+	id 1v4aqm-0000000Br9N-0Ay8;
+	Fri, 03 Oct 2025 08:09:12 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4aZW-0000000BqYC-3M2F
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Oct 2025 07:51:24 +0000
-Received: by mail.commetrax.com (Postfix, from userid 1002)
-	id 6AFA7248C8; Fri,  3 Oct 2025 09:51:03 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=commetrax.com;
-	s=mail; t=1759477880;
-	bh=E8lJQPfLjYVHk8CS76IyIm3PF5+xLeDEh0bD99wDfoU=;
-	h=Date:From:To:Subject:From;
-	b=HvwXxMQIjibQzRdkwpO17sQss/QrIfr0eKtBDJEukNARU9XV6/6dA/c+LRLLbJe+S
-	 177X2A3EWo3fNSL0ofDNxWU6v6l4BWfTTuXlc65QoJFh5KwCLTo+MpMOYjpRC4wAaw
-	 DdpRKN0wM/a9Eg4oIwwdDwZPgEANUk64r697Z6f77ToGhFe3o9+ATNcbGuFC2WjZ1+
-	 PqIkZ2EjzwQrlYnJnRLYNVQ73v4Wlcf2cFqIfnwbP1zJnutwzAOo+ibghH+qxMmgAH
-	 SPn0oMBzOS4A2I9ZLvqFoVLzv8XO0z86DqhKNkfEgbotWUzvZoek7YbAXf6Y4Hd/Aj
-	 0Xib4bncnlBlQ==
-Received: by mail.commetrax.com for <linux-arm-kernel@lists.infradead.org>; Fri,  3 Oct 2025 07:50:43 GMT
-Message-ID: <20251003084500-0.1.c2.151xs.0.qbamlfsifk@commetrax.com>
-Date: Fri,  3 Oct 2025 07:50:43 GMT
-From: "Luke Walsh" <luke.walsh@commetrax.com>
-To: <linux-arm-kernel@lists.infradead.org>
-Subject: Welders
-X-Mailer: mail.commetrax.com
+	id 1v4aqj-0000000Br8k-0Yg8;
+	Fri, 03 Oct 2025 08:09:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1759478946;
+	bh=6GfjdzBYXtQXVVzw5qbP/vPa3zyw2hMXgRM8SkcABNI=;
+	h=From:Date:Subject:To:Cc:From;
+	b=oICQE8tX3CqBblaW09lSMpOQUtAuCbJs6wfJzLVVSjgEoD5wfa3oC0Y3vuRsI/QF6
+	 u7LhLgWr8FZagjzt0PsH7JZTfW1DeRT/UTVddR0NQsNqAJble8hLgJe9WcvIFQUJpv
+	 Is0imdaLS5RurRtKUncJ18OwjumZeJovPone6Dr9Hffw5Sbs0CgwftDbRsRZBLh9Je
+	 QH2wfHhMtP9FljxC6F2TJTIUS4M2fP5jgwh0TCx+9EnvflmmDNQtTKJ53E88j5651g
+	 Jrf94DhxRhHMdp2X0Lf7mKc3JmfRSonCO7T4jIhhd++kA8ZmMCperfbVFnnTvBqTEj
+	 ivk8FpbpqM4dg==
+Received: from beast.luon.net (simons.connected.by.freedominter.net [45.83.240.172])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: sjoerd)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 0043917E0B83;
+	Fri,  3 Oct 2025 10:09:05 +0200 (CEST)
+Received: by beast.luon.net (Postfix, from userid 1000)
+	id 902001066940D; Fri, 03 Oct 2025 10:09:05 +0200 (CEST)
+From: Sjoerd Simons <sjoerd@collabora.com>
+Date: Fri, 03 Oct 2025 10:08:28 +0200
+Subject: [PATCH] drm/mediatek: Fix refcounting in mtk_drm_get_all_drm_priv
 MIME-Version: 1.0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251003-mtk-drm-refcount-v1-1-3b3f2813b0db@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAHuE32gC/x2MWwqAIBAArxL73YLau6tEH5FrLZGFWgTS3ZM+h
+ 2EmgifH5KHPIji62fNhE8g8g3md7ELIOjEooSophMI9bKjdjo7MfFw2IAnTyFZ3RV1OkLIzGX7
+ +5TC+7wfuibDKYgAAAA==
+X-Change-ID: 20251002-mtk-drm-refcount-e0f718d9364a
+To: Chun-Kuang Hu <chunkuang.hu@kernel.org>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, David Airlie <airlied@gmail.com>, 
+ Simona Vetter <simona@ffwll.ch>, Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ CK Hu <ck.hu@mediatek.com>, Johan Hovold <johan@kernel.org>
+Cc: dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ kernel@collabora.com, stable@vger.kernel.org, 
+ Sjoerd Simons <sjoerd@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_005123_123537_BB251846 
-X-CRM114-Status: UNSURE (   0.43  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251003_010909_340563_76653B49 
+X-CRM114-Status: GOOD (  15.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,26 +83,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Dear Sir or Madam,
+dev_get_drvdata simply returns the driver data part of drm_dev, which
+has its lifetime bound to the drm_dev. So only drop the reference in the
+error paths, on success they will get dropped later.
 
-I am contacting you on behalf of a company specialising in comprehensive =
-industrial services for businesses requiring the highest precision in com=
-ponent manufacturing.
+Cc: stable@vger.kernel.org
+Fixes: 9ba2556cef1df ("drm/mediatek: clean up driver data initialisation")
+Signed-off-by: Sjoerd Simons <sjoerd@collabora.com>
+---
+ drivers/gpu/drm/mediatek/mtk_drm_drv.c | 22 ++++++++++++++++------
+ 1 file changed, 16 insertions(+), 6 deletions(-)
 
-Within one cooperation we provide the outsourcing of certified welders, l=
-ocksmiths and fitters, as well as professional welding services and the a=
-ssembly of steel and industrial structures.
+diff --git a/drivers/gpu/drm/mediatek/mtk_drm_drv.c b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+index 7841f59c52ee772dba3de416f410604f5f13eef2..c85fbecce9d6f0ade700e047e067ee7f9250f037 100644
+--- a/drivers/gpu/drm/mediatek/mtk_drm_drv.c
++++ b/drivers/gpu/drm/mediatek/mtk_drm_drv.c
+@@ -373,7 +373,7 @@ static int mtk_drm_match(struct device *dev, const void *data)
+ static bool mtk_drm_get_all_drm_priv(struct device *dev)
+ {
+ 	struct mtk_drm_private *drm_priv = dev_get_drvdata(dev);
+-	struct mtk_drm_private *all_drm_priv[MAX_CRTC];
++	struct mtk_drm_private *all_drm_priv[MAX_CRTC] = { NULL, };
+ 	struct mtk_drm_private *temp_drm_priv;
+ 	struct device_node *phandle = dev->parent->of_node;
+ 	const struct of_device_id *of_id;
+@@ -399,16 +399,22 @@ static bool mtk_drm_get_all_drm_priv(struct device *dev)
+ 			continue;
+ 
+ 		temp_drm_priv = dev_get_drvdata(drm_dev);
+-		put_device(drm_dev);
+-		if (!temp_drm_priv)
++		if (!temp_drm_priv) {
++			put_device(drm_dev);
+ 			continue;
++		}
+ 
+-		if (temp_drm_priv->data->main_len)
++		if (temp_drm_priv->data->main_len) {
+ 			all_drm_priv[CRTC_MAIN] = temp_drm_priv;
+-		else if (temp_drm_priv->data->ext_len)
++		} else if (temp_drm_priv->data->ext_len) {
+ 			all_drm_priv[CRTC_EXT] = temp_drm_priv;
+-		else if (temp_drm_priv->data->third_len)
++		} else if (temp_drm_priv->data->third_len) {
+ 			all_drm_priv[CRTC_THIRD] = temp_drm_priv;
++		} else {
++			dev_warn(drm_dev, "Could not determine crtc type");
++			put_device(drm_dev);
++			continue;
++		}
+ 
+ 		if (temp_drm_priv->mtk_drm_bound)
+ 			cnt++;
+@@ -427,6 +433,10 @@ static bool mtk_drm_get_all_drm_priv(struct device *dev)
+ 		return true;
+ 	}
+ 
++	for (i = 0; i < MAX_CRTC; i++)
++		if (all_drm_priv[i])
++			put_device(all_drm_priv[i]->dev);
++
+ 	return false;
+ }
+ 
 
-Consolidating services with one partner allows you to significantly reduc=
-e costs, minimise the risk of downtime, and increase flexibility in proje=
-ct execution.
+---
+base-commit: 22b5e8cde1db67c64b83fc0e4e1ab166cacff246
+change-id: 20251002-mtk-drm-refcount-e0f718d9364a
 
-A dedicated coordinator will ensure on-time delivery and high quality, he=
-lping to build long-term, trust-based business relationships.
+Best regards,
+-- 
+Sjoerd Simons <sjoerd@collabora.com>
 
-May I present what we can do for you in this field?
-
-
-Best regards
-Luke Walsh
 
