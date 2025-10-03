@@ -4,88 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8B6B6CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 21:34:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B8137CCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 21:41:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AolOsZu5isQ6acd/8wA384z0bhlwgTK8nhLOayCIhiU=; b=hbb37pSQ8ES5BXpY9qepmNhv8N
-	0fUDz0/CjgmF92i2Mvn8urTpB6koJOCPoUO6ibNb1pWlmvbsCYw7VlMXDxvtzJ1zoz60QKCVVQlPE
-	vxNYk75AnDwvvBc8sia5i4r6Cr63J8gZYzTry8kfGprZbgZqkdrBB9bGjO3C3q6R+6ElqagGSxVIY
-	j+7cHF2rLikinelHCuPuftihBuY+OFcI8kQ1yHnIQDYFQBbZ+f2nSyoANV7dH9yTg3LfxqmaI/Lgi
-	JKN3NuzdipEHxjlIxeotFR+W4RKneT7YNaBHWoLGrLtOJ6bVCv7Giyw7VrGeXtBMGBCYjHm7fg0fB
-	dvskdbfQ==;
+	bh=8UUYFCqYZ++M1SNLRvfnBEMc8eDA11OJCrWneq89QMU=; b=GHVpA1UADJ30Yo+B42SPhJNHhw
+	4p6d/BKrVoKy0PAz22mbN7QetzgCxYAYz3g0sACA2zehdNhjayaIj4dFOuhvynb0kEh7Mft8IxqAs
+	1rYDqO5pmBN6+6Ukbz+g77CQyynFKUDJ7A8JZUQ46DaiqRq9ZN7ZVDa88M6fwZ8K+itx1z5rPK0Ll
+	Ldj19pd68sYqbv/R8WXjo2pyJY1jrowex1pxNiepW+0K6aUt92SbZ95Rssz58PllZSBf/9kETBxra
+	yZcS1716N3neiSCZEquhghPjv3vyzRIPamX/ijS8M4pSjfZqdqiSRkPrgIRBY+WQ8z5lKzZpT58p8
+	FIcNZJqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4nQF-0000000DAEd-2RvM;
-	Fri, 03 Oct 2025 21:34:39 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1v4nWt-0000000DAgH-1lT0;
+	Fri, 03 Oct 2025 21:41:31 +0000
+Received: from mail-yw1-x112c.google.com ([2607:f8b0:4864:20::112c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4nQD-0000000DADY-1N7r
+	id 1v4nWq-0000000DAfb-3qFz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Oct 2025 21:34:38 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-46e2b7eee0dso7695e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Oct 2025 14:34:36 -0700 (PDT)
+	Fri, 03 Oct 2025 21:41:30 +0000
+Received: by mail-yw1-x112c.google.com with SMTP id 00721157ae682-71d603acc23so31117407b3.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Oct 2025 14:41:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1759527275; x=1760132075; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1759527688; x=1760132488; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=AolOsZu5isQ6acd/8wA384z0bhlwgTK8nhLOayCIhiU=;
-        b=cEMrFflEh4HwH5f7j4zzn23CbpMI34e9byABJPg5sOOqKoWNmw2ycnxkJJ5yBavSeU
-         pzE99JJ+0MeMSW9keSoKFVB4+Z8uNB8gbL8fRx0A+Oc1XzlP2rH3o0kzVlw4VX9Uv4ef
-         lzeyocmoMJm8M8ludA0m67mHavPkbx8S8gai5dQp8PUottNRPeNOfMkuTb8N9CEBxzYF
-         3LHnFpqpBKHfusa6Z798m0EGs3DeZ7OU7NxsnbQsYlJfXvQ+UcPqnR04qyff3wLKrPGr
-         mAAat/XSlF9i/Zy6OdKqnK4Ci2H9Afc57Q1cMONgepDrjZKSNqjhwsa0Zuhz54mRsHj1
-         iMvg==
+        bh=8UUYFCqYZ++M1SNLRvfnBEMc8eDA11OJCrWneq89QMU=;
+        b=kfSg8naELjRCkHIvCTQ0ayWP0OEre1FYa9Wy9R5yEPDBDvket7BdTuh9lVS7tojmLM
+         EvcCNB1nd0wQ1Tu4Mz/Rl9Cd5TscCHi4Hz5YjdpWDalKEpmYKXd995NYvzTkVd+M6TY5
+         rP1QZ5LTrzDrDLqJ5NUB0jEpw3UIxWLsVUQR+YtiMEfiq+5ttO3Lm7aYiUIbof6S1qMw
+         /4CURTBw5jZgpzAHyqQuV0IVR1te5o0AbkskftAudo03CsXrPeGpl/l5GKxYkeF/forp
+         0e8w84B4KrqUy+rImykCW/zzeOxtK9KPXmhjefm/1gu0rai0dNSrHv1+QvtipFCubjdK
+         /TMQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759527275; x=1760132075;
+        d=1e100.net; s=20230601; t=1759527688; x=1760132488;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=AolOsZu5isQ6acd/8wA384z0bhlwgTK8nhLOayCIhiU=;
-        b=sYPsF6IEm1xH11WSiqvt+xta0+Zw8y9xV+UbIbqsq17uiZbZlaRmlR4wNNP88sgxYX
-         IvsWGdk8npGdNb9lsjIfTXO55BGO5dLsvvAN0cKFMk/5Pahb53CqU0LIXLsVw3uWtbdk
-         IwzPHRHrs93vMpVL6DrlPis86J7kHJ/RvwAO1Bpw2FeNId3tQsQIXiMO/byed+it2A7C
-         WHXWRLWMQ8qHERKZMvzPNgXiXNGeOc/bo8BHXHMPixg3beAxKsVKN5VU4C+kQAw7V/21
-         orWycXhwSl9acjbvWXG64iG5N459UozzdwCvdOPZxcnVydklYJJSTk8DhsiESnA5lEng
-         n+Uw==
-X-Forwarded-Encrypted: i=1; AJvYcCUpq6+tcW2fuIRlPGxO9vaW8bN5tLwe5u91VZhgUopXlidXI9UqfbG4lVGGuRg8oJtfzb7HzZJsUshh5cHAw7bV@lists.infradead.org
-X-Gm-Message-State: AOJu0YyBuJPigzb5o3onXg+cm7ZcGmR7dzyJLD2N2oqFnoumNgEkNHfM
-	vFx5nlU2LQXgySgWDM7Xg1D4EUu66/5PfUnQCWXNFdY4wUVhfXGvy4kwupJ0jaCVeGVOGNn6HsV
-	leChXV3cMDd+sZhd0DH+ih6zxtD9h6msi/lKWs72H
-X-Gm-Gg: ASbGncs4ofm7wK8ffchlHUO+XT69vrxN89Z/zZzG3e53oJsnHnDw9fWC6bVpS4oLYZJ
-	n4eSx/qnLotfuZa70jQQvPtJXGpDUwhqrJHzeorRdM90Q8KF4VRHo6NEhcV5ModriTg5EZQEG7R
-	RNuUMWBGvFM3VmirPeOgZvkRui8QRykfUsUkkMIPnCfU5+rln2j9dQHRXVGJ/ISyKTvGUy12W4e
-	cjYCHlXCFPOJFba5hfk+rIn+9nyWI2q/AH1irmWcsWrMm4901h1YZWE2sc0AbQ5+5ymnLVZk6uL
-	lTo=
-X-Google-Smtp-Source: AGHT+IG+g888nHbRtas0R01E+jPK4UfBpLJ8GQnOWINQky6xv5HWVReEjuHHu18tH8G5o/mleUJVD+7aBJEJSt2Urkg=
-X-Received: by 2002:a05:600c:8582:b0:45f:2e6d:ca01 with SMTP id
- 5b1f17b1804b1-46e789ad00amr340925e9.4.1759527275228; Fri, 03 Oct 2025
- 14:34:35 -0700 (PDT)
+        bh=8UUYFCqYZ++M1SNLRvfnBEMc8eDA11OJCrWneq89QMU=;
+        b=gx59h60WTdUhZG+4sENkeyaglv608Z0a/fQgfrns/t2ZrKwOQ1YnjmTgevyZxiCmyV
+         5Oe7Rq9j1X3HEi7ALUC616haoYcUf2IUNFNPiBTt573e/TElzmQCWgzOMnOdglcY10AO
+         6PUANkIsQ0xJ9jkj2OLC413Ndpor+MKwPvilUv2TfWZnsKFQl8bWMPJt1EgTmdLoelMm
+         9iXtKT0ByrvlXl9T2CRFfSsAPf8VNWG+57sSFdkt+a0BYnrYO5JMRctJFJQ7UQ6kmYcY
+         hmscoTdyHsMw2U189QLWpWulupyYe3q3hwe42ae0YeB9UJoCgPBLez6BhVIUX+S2ALX/
+         5Nzw==
+X-Forwarded-Encrypted: i=1; AJvYcCV/XySCkjKLHfwBp7zWZqJJYBTNRRHUwIC6QWa6MoPVYcUcbqhmk/MrMUCM6j7blFnfBW/67lE5syBvh9DwPH/z@lists.infradead.org
+X-Gm-Message-State: AOJu0YxVa5VdfxeyH1+ghkHk1BkUStkt2MfSaHvriNr5kNgMh/xtJbGu
+	viggNWnpyBFF25Eh+g2LUCnGgBPsMF1v5AeF7t5AMcXoU9BEGtth58+PhxwGa6n8uaYimfRH8+v
+	CHcR8KBRBS05eREBDEEtYYCwaDEhoSI2F+Rn7XPs=
+X-Gm-Gg: ASbGncvvo0TMgKSoWJWgbIJly6z6NQZgRKwZvM3MlPMp0C24jAtk9gcf3ypD/quRa7n
+	PkljsAlWSa4N1+866TQqwkJTfBMEQW/xIcxmc72MzHwOdSE+1SDvkcTmcmlKPSRRErPTGLCYxp9
+	a97fTInGBS8E0j4y+9MaZEg5FMhb47RCTRkELmrSsHNt11uIRzpj0RUqYNPIpKsmOqQtEV3T5EP
+	yGkwRuYuC2UgeVcOArFRRmjsqBdB1fvMNXy7e7CgNqvqXQYhHJLoU5F+O8nNrJYpBFCnhp4OjVu
+	batSXWsSjKp7K8ER42P/8L0zO528Ia1NyLnNfNEoClY=
+X-Google-Smtp-Source: AGHT+IFsEBPVzXvwHuM4QLRckQ1pwH09RM2qcZ+I8xh8RlXcjUu54Stm4Ca7trrl5nG3IQUJmBvrF+RgEH/+4vhA4Po=
+X-Received: by 2002:a53:ca11:0:b0:62c:70de:7cba with SMTP id
+ 956f58d0204a3-63b9a0a7345mr3380422d50.22.1759527687648; Fri, 03 Oct 2025
+ 14:41:27 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250731205844.1346839-1-jiaqiyan@google.com>
-In-Reply-To: <20250731205844.1346839-1-jiaqiyan@google.com>
-From: Jiaqi Yan <jiaqiyan@google.com>
-Date: Fri, 3 Oct 2025 14:34:23 -0700
-X-Gm-Features: AS18NWC200qL2INhmKRcSigwRYSlRaKCFejFFI6CifV04SzXltQ6LUTRzublc7I
-Message-ID: <CACw3F51QG70YpSfWaj_gQjAwoPcZ6uFa5dfd+Ave5PxQYDt-Ew@mail.gmail.com>
-Subject: Re: [PATCH v3 0/3] VMM can handle guest SEA via KVM_EXIT_ARM_SEA
-To: maz@kernel.org, oliver.upton@linux.dev
-Cc: joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, 
-	catalin.marinas@arm.com, will@kernel.org, pbonzini@redhat.com, corbet@lwn.net, 
-	shuah@kernel.org, kvm@vger.kernel.org, kvmarm@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-doc@vger.kernel.org, linux-kselftest@vger.kernel.org, 
-	duenwen@google.com, rananta@google.com, jthoughton@google.com
+References: <20251003-mt8196-gpufreq-v6-0-76498ad61d9e@collabora.com> <20251003-mt8196-gpufreq-v6-7-76498ad61d9e@collabora.com>
+In-Reply-To: <20251003-mt8196-gpufreq-v6-7-76498ad61d9e@collabora.com>
+From: Chia-I Wu <olvaffe@gmail.com>
+Date: Fri, 3 Oct 2025 14:41:16 -0700
+X-Gm-Features: AS18NWBtZLeN2JMlM8B0j97iXzqvvw6RLai7sdHK1_VKcIavLpBYUP0KgralcMQ
+Message-ID: <CAPaKu7QWBShwr+YhFi+nUFo0kJ06k4PK3zggcCefWGjqUmTx5w@mail.gmail.com>
+Subject: Re: [PATCH v6 7/7] pmdomain: mediatek: Add support for MFlexGraphics
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Boris Brezillon <boris.brezillon@collabora.com>, Jassi Brar <jassisinghbrar@gmail.com>, 
+	Chen-Yu Tsai <wenst@chromium.org>, Steven Price <steven.price@arm.com>, 
+	Liviu Dudau <liviu.dudau@arm.com>, Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+	Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Matthias Brugger <matthias.bgg@gmail.com>, Kees Cook <kees@kernel.org>, 
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, kernel@collabora.com, 
+	dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, linux-hardening@vger.kernel.org, 
+	linux-pm@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_143437_410660_A390B69A 
-X-CRM114-Status: GOOD (  30.20  )
+X-CRM114-CacheID: sfid-20251003_144128_997450_A3E79088 
+X-CRM114-Status: GOOD (  29.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,132 +107,315 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Marc, Oliver, and other upstream friends, can you help review this
-patch series? I would really appreciate any comments and feedback.
+On Fri, Oct 3, 2025 at 1:16=E2=80=AFPM Nicolas Frattaroli
+<nicolas.frattaroli@collabora.com> wrote:
+>
+> Various MediaTek SoCs use GPU integration silicon named "MFlexGraphics"
+> by MediaTek. On the MT8196 and MT6991 SoCs, interacting with this
+> integration silicon is required to power on the GPU.
+>
+> This glue silicon is in the form of an embedded microcontroller running
+> special-purpose firmware, which autonomously adjusts clocks and
+> regulators.
+>
+> Implement a driver, modelled as a pmdomain driver with a
+> set_performance_state operation, to support these SoCs.
+I like this model a lot. Thanks!
 
-[sorry for resending, as previous msg was sent as HTML]
+panthor might potentially need to interact with this driver beyond
+what pmdomain provides. I am thinking about querying
+GF_REG_SHADER_PRESENT. Not sure if we've heard back from the vendor.
+Have you considered moving this to drivers/soc/mediatek such that we
+can provide include/linux/mtk-mfg.h to panthor?
 
+>
+> The driver also exposes the actual achieved clock rate, as read back
+> from the MCU, as common clock framework clocks, by acting as a clock
+> provider as well.
+>
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> ---
+>  drivers/pmdomain/mediatek/Kconfig            |   16 +
+>  drivers/pmdomain/mediatek/Makefile           |    1 +
+>  drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c | 1027 ++++++++++++++++++++=
+++++++
+>  3 files changed, 1044 insertions(+)
+[...]
+> +static int mtk_mfg_init_shared_mem(struct mtk_mfg *mfg)
+> +{
+> +       struct device *dev =3D &mfg->pdev->dev;
+> +       struct mtk_mfg_ipi_msg msg =3D {};
+> +       int ret;
+> +
+> +       dev_dbg(dev, "clearing GPUEB shared memory, 0x%X bytes\n", mfg->s=
+hared_mem_size);
+> +       memset_io(mfg->shared_mem, 0, mfg->shared_mem_size);
+> +
+> +       msg.cmd =3D CMD_INIT_SHARED_MEM;
+> +       msg.u.shared_mem.base =3D mfg->shared_mem_phys;
+> +       msg.u.shared_mem.size =3D mfg->shared_mem_size;
+> +
+> +       ret =3D mtk_mfg_send_ipi(mfg, &msg);
+> +       if (ret)
+> +               return ret;
+> +
+> +       if (readl(mfg->shared_mem) !=3D GPUEB_MEM_MAGIC) {
+Add the offset GF_REG_MAGIC, even though it is 0.
 
+> +               dev_err(dev, "EB did not initialise shared memory correct=
+ly\n");
+> +               return -EIO;
+> +       }
+> +
+> +       return 0;
+> +}
+[...]
+> +static int mtk_mfg_mt8196_init(struct mtk_mfg *mfg)
+> +{
+> +       void __iomem *e2_base;
+> +
+> +       e2_base =3D devm_platform_ioremap_resource_byname(mfg->pdev, "hw-=
+revision");
+> +       if (IS_ERR(e2_base))
+> +               return dev_err_probe(&mfg->pdev->dev, PTR_ERR(e2_base),
+> +                                    "Couldn't get hw-revision register\n=
+");
+> +
+> +       if (readl(e2_base) =3D=3D MFG_MT8196_E2_ID)
+> +               mfg->ghpm_en_reg =3D RPC_DUMMY_REG_2;
+> +       else
+> +               mfg->ghpm_en_reg =3D RPC_GHPM_CFG0_CON;
+> +
+> +       return 0;
+> +};
+Extraneous semicolon.
 
-On Thu, Jul 31, 2025 at 1:58=E2=80=AFPM Jiaqi Yan <jiaqiyan@google.com> wro=
-te:
->
-> Problem
-> =3D=3D=3D=3D=3D=3D=3D
->
-> When host APEI is unable to claim a synchronous external abort (SEA)
-> during guest abort, today KVM directly injects an asynchronous SError
-> into the VCPU then resumes it. The injected SError usually results in
-> unpleasant guest kernel panic.
->
-> One of the major situation of guest SEA is when VCPU consumes recoverable
-> uncorrected memory error (UER), which is not uncommon at all in modern
-> datacenter servers with large amounts of physical memory. Although SError
-> and guest panic is sufficient to stop the propagation of corrupted memory=
-,
-> there is room to recover from an UER in a more graceful manner.
->
-> Proposed Solution
-> =3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D=3D
->
-> The idea is, we can replay the SEA to the faulting VCPU. If the memory
-> error consumption or the fault that cause SEA is not from guest kernel,
-> the blast radius can be limited to the poison-consuming guest process,
-> while the VM can keep running.
->
-> In addition, instead of doing under the hood without involving userspace,
-> there are benefits to redirect the SEA to VMM:
->
-> - VM customers care about the disruptions caused by memory errors, and
->   VMM usually has the responsibility to start the process of notifying
->   the customers of memory error events in their VMs. For example some
->   cloud provider emits a critical log in their observability UI [1], and
->   provides a playbook for customers on how to mitigate disruptions to
->   their workloads.
->
-> - VMM can protect future memory error consumption by unmapping the poison=
-ed
->   pages from stage-2 page table with KVM userfault [2], or by splitting t=
-he
->   memslot that contains the poisoned pages.
->
-> - VMM can keep track of SEA events in the VM. When VMM thinks the status
->   on the host or the VM is bad enough, e.g. number of distinct SEAs
->   exceeds a threshold, it can restart the VM on another healthy host.
->
-> - Behavior parity with x86 architecture. When machine check exception
->   (MCE) is caused by VCPU, kernel or KVM signals userspace SIGBUS to
->   let VMM either recover from the MCE, or terminate itself with VM.
->   The prior RFC proposes to implement SIGBUS on arm64 as well, but
->   Marc preferred KVM exit over signal [3]. However, implementation
->   aside, returning SEA to VMM is on par with returning MCE to VMM.
->
-> Once SEA is redirected to VMM, among other actions, VMM is encouraged
-> to inject external aborts into the faulting VCPU.
->
-> New UAPIs
-> =3D=3D=3D=3D=3D=3D=3D=3D=3D
->
-> This patchset introduces following userspace-visible changes to empower
-> VMM to control what happens for SEA on guest memory:
->
-> - KVM_CAP_ARM_SEA_TO_USER. While taking SEA, if userspace has enabled
->   this new capability at VM creation, and the SEA is not owned by kernel
->   allocated memory, instead of injecting SError, return KVM_EXIT_ARM_SEA
->   to userspace.
->
-> - KVM_EXIT_ARM_SEA. This is the VM exit reason VMM gets. The details
->   about the SEA is provided in arm_sea as much as possible, including
->   sanitized ESR value at EL2, faulting guest virtual and physical
->   addresses if available.
->
-> * From v2 [4]:
->   - Rebased on "[PATCH] KVM: arm64: nv: Handle SEAs due to VNCR redirecti=
-on" [5]
->     and kvmarm/next commit 7b8346bd9fce ("KVM: arm64: Don't attempt vLPI
->     mappings when vPE allocation is disabled")
->   - Took the host_owns_sea implementation from Oliver [6, 7].
->   - Excluded the guest SEA injection patches.
->   - Updated selftest.
->
-> * From v1 [8]:
->   - Rebased on commit 4d62121ce9b5 ("KVM: arm64: vgic-debug: Avoid
->     dereferencing NULL ITE pointer").
->   - Sanitize ESR_EL2 before reporting it to userspace.
->   - Do not do KVM_EXIT_ARM_SEA when SEA is caused by memory allocated to
->     stage-2 translation table.
->
-> [1] https://cloud.google.com/solutions/sap/docs/manage-host-errors
-> [2] https://lore.kernel.org/kvm/20250109204929.1106563-1-jthoughton@googl=
-e.com
-> [3] https://lore.kernel.org/kvm/86pljbqqh0.wl-maz@kernel.org
-> [4] https://lore.kernel.org/kvm/20250604050902.3944054-1-jiaqiyan@google.=
-com/
-> [5] https://lore.kernel.org/kvmarm/20250729182342.3281742-1-oliver.upton@=
-linux.dev/
-> [6] https://lore.kernel.org/kvm/aHFohmTb9qR_JG1E@linux.dev/#t
-> [7] https://lore.kernel.org/kvm/aHK-DPufhLy5Dtuk@linux.dev/
-> [8] https://lore.kernel.org/kvm/20250505161412.1926643-1-jiaqiyan@google.=
-com
->
-> Jiaqi Yan (3):
->   KVM: arm64: VM exit to userspace to handle SEA
->   KVM: selftests: Test for KVM_EXIT_ARM_SEA
->   Documentation: kvm: new UAPI for handling SEA
->
->  Documentation/virt/kvm/api.rst                |  61 ++++
->  arch/arm64/include/asm/kvm_host.h             |   2 +
->  arch/arm64/kvm/arm.c                          |   5 +
->  arch/arm64/kvm/mmu.c                          |  68 +++-
->  include/uapi/linux/kvm.h                      |  10 +
->  tools/arch/arm64/include/asm/esr.h            |   2 +
->  tools/testing/selftests/kvm/Makefile.kvm      |   1 +
->  .../testing/selftests/kvm/arm64/sea_to_user.c | 327 ++++++++++++++++++
->  tools/testing/selftests/kvm/lib/kvm_util.c    |   1 +
->  9 files changed, 476 insertions(+), 1 deletion(-)
->  create mode 100644 tools/testing/selftests/kvm/arm64/sea_to_user.c
->
-> --
-> 2.50.1.565.gc32cd1483b-goog
->
+> +static int mtk_mfg_init_mbox(struct mtk_mfg *mfg)
+> +{
+> +       struct device *dev =3D &mfg->pdev->dev;
+> +       struct mtk_mfg_mbox *gf;
+> +       struct mtk_mfg_mbox *slp;
+> +
+> +       gf =3D devm_kzalloc(dev, sizeof(*gf), GFP_KERNEL);
+> +       if (!gf)
+> +               return -ENOMEM;
+> +
+> +       gf->rx_data =3D devm_kzalloc(dev, GPUEB_MBOX_MAX_RX_SIZE, GFP_KER=
+NEL);
+It looks like gfx->rx_data can simply be "struct mtk_mfg_ipi_msg rx_data;".
+
+> +       if (!gf->rx_data)
+> +               return -ENOMEM;
+> +
+> +       gf->mfg =3D mfg;
+> +       init_completion(&gf->rx_done);
+> +       gf->cl.dev =3D dev;
+> +       gf->cl.rx_callback =3D mtk_mfg_mbox_rx_callback;
+> +       gf->cl.tx_tout =3D GPUEB_TIMEOUT_US / USEC_PER_MSEC;
+> +       gf->ch =3D mbox_request_channel_byname(&gf->cl, "gpufreq");
+> +       if (IS_ERR(gf->ch))
+> +               return PTR_ERR(gf->ch);
+> +
+> +       mfg->gf_mbox =3D gf;
+> +
+> +       slp =3D devm_kzalloc(dev, sizeof(*slp), GFP_KERNEL);
+> +       if (!slp)
+> +               return -ENOMEM;
+> +
+> +       slp->mfg =3D mfg;
+> +       init_completion(&slp->rx_done);
+> +       slp->cl.dev =3D dev;
+> +       slp->cl.tx_tout =3D GPUEB_TIMEOUT_US / USEC_PER_MSEC;
+> +       slp->cl.tx_block =3D true;
+> +       slp->ch =3D mbox_request_channel_byname(&slp->cl, "sleep");
+> +       if (IS_ERR(slp->ch))
+> +               return PTR_ERR(slp->ch);
+Free gf->ch.
+> +
+> +       mfg->slp_mbox =3D slp;
+> +
+> +       return 0;
+> +}
+> +
+> +static int mtk_mfg_init_clk_provider(struct mtk_mfg *mfg)
+> +{
+> +       struct device *dev =3D &mfg->pdev->dev;
+> +       struct clk_hw_onecell_data *clk_data;
+> +       int ret;
+> +
+> +       clk_data =3D devm_kzalloc(dev, struct_size(clk_data, hws, 2), GFP=
+_KERNEL);
+> +       if (!clk_data)
+> +               return -ENOMEM;
+> +
+> +       clk_data->num =3D 2;
+> +
+> +       mfg->clk_core_hw.init =3D &mtk_mfg_clk_gpu_init;
+> +       mfg->clk_stack_hw.init =3D &mtk_mfg_clk_stack_init;
+> +
+> +       ret =3D devm_clk_hw_register(dev, &mfg->clk_core_hw);
+> +       if (ret)
+> +               return dev_err_probe(dev, ret, "Couldn't register GPU cor=
+e clock\n");
+> +
+> +       ret =3D devm_clk_hw_register(dev, &mfg->clk_stack_hw);
+> +       if (ret)
+> +               return dev_err_probe(dev, ret, "Couldn't register GPU sta=
+ck clock\n");
+> +
+> +       clk_data->hws[0] =3D &mfg->clk_core_hw;
+> +       clk_data->hws[1] =3D &mfg->clk_stack_hw;
+> +
+> +       ret =3D devm_of_clk_add_hw_provider(dev, of_clk_hw_onecell_get, c=
+lk_data);
+> +       if (ret)
+> +               return dev_err_probe(dev, ret, "Couldn't register clock p=
+rovider\n");
+> +
+> +       return 0;
+> +}
+> +
+> +static int mtk_mfg_probe(struct platform_device *pdev)
+> +{
+> +       struct device_node *shmem __free(device_node);
+> +       struct mtk_mfg *mfg;
+> +       struct device *dev =3D &pdev->dev;
+> +       const struct mtk_mfg_variant *data =3D of_device_get_match_data(d=
+ev);
+> +       struct resource res;
+> +       int ret, i;
+> +
+> +       mfg =3D devm_kzalloc(dev, sizeof(*mfg), GFP_KERNEL);
+> +       if (!mfg)
+> +               return -ENOMEM;
+> +
+> +       mfg->pdev =3D pdev;
+> +       mfg->variant =3D data;
+> +
+> +       dev_set_drvdata(dev, mfg);
+> +
+> +       mfg->gpr =3D devm_platform_ioremap_resource(pdev, 0);
+> +       if (IS_ERR(mfg->gpr))
+> +               return dev_err_probe(dev, PTR_ERR(mfg->gpr),
+> +                                    "Couldn't retrieve GPR MMIO register=
+s\n");
+> +
+> +       mfg->rpc =3D devm_platform_ioremap_resource(pdev, 1);
+> +       if (IS_ERR(mfg->rpc))
+> +               return dev_err_probe(dev, PTR_ERR(mfg->rpc),
+> +                                    "Couldn't retrieve RPC MMIO register=
+s\n");
+> +
+> +       mfg->clk_eb =3D devm_clk_get(dev, "eb");
+> +       if (IS_ERR(mfg->clk_eb))
+> +               return dev_err_probe(dev, PTR_ERR(mfg->clk_eb),
+> +                                    "Couldn't get 'eb' clock\n");
+> +
+> +       mfg->gpu_clks =3D devm_kcalloc(dev, data->num_clks, sizeof(*mfg->=
+gpu_clks),
+> +                                    GFP_KERNEL);
+> +       if (!mfg->gpu_clks)
+> +               return -ENOMEM;
+> +
+> +       for (i =3D 0; i < data->num_clks; i++)
+> +               mfg->gpu_clks[i].id =3D data->clk_names[i];
+> +
+> +       ret =3D devm_clk_bulk_get(dev, data->num_clks, mfg->gpu_clks);
+> +       if (ret)
+> +               return dev_err_probe(dev, ret, "Couldn't get GPU clocks\n=
+");
+> +
+> +       mfg->gpu_regs =3D devm_kcalloc(dev, data->num_regulators,
+> +                                    sizeof(*mfg->gpu_regs), GFP_KERNEL);
+> +       if (!mfg->gpu_regs)
+> +               return -ENOMEM;
+> +
+> +       for (i =3D 0; i < data->num_regulators; i++)
+> +               mfg->gpu_regs[i].supply =3D data->regulator_names[i];
+> +
+> +       ret =3D devm_regulator_bulk_get(dev, data->num_regulators, mfg->g=
+pu_regs);
+> +       if (ret)
+> +               return dev_err_probe(dev, ret, "Couldn't get GPU regulato=
+rs\n");
+> +
+> +       ret =3D of_reserved_mem_region_to_resource(dev->of_node, 0, &res)=
+;
+> +       if (ret)
+> +               return dev_err_probe(dev, ret, "Couldn't get GPUEB shared=
+ memory\n");
+> +
+> +       mfg->shared_mem =3D devm_ioremap(dev, res.start, resource_size(&r=
+es));
+> +       if (!mfg->shared_mem)
+> +               return dev_err_probe(dev, -ENOMEM, "Can't ioremap GPUEB s=
+hared memory\n");
+> +       mfg->shared_mem_size =3D resource_size(&res);
+> +       mfg->shared_mem_phys =3D res.start;
+> +
+> +       if (data->init) {
+> +               ret =3D data->init(mfg);
+> +               if (ret)
+> +                       return dev_err_probe(dev, ret, "Variant init fail=
+ed\n");
+> +       }
+> +
+> +       mfg->pd.name =3D dev_name(dev);
+> +       mfg->pd.attach_dev =3D mtk_mfg_attach_dev;
+> +       mfg->pd.detach_dev =3D mtk_mfg_detach_dev;
+> +       mfg->pd.power_off =3D mtk_mfg_power_off;
+> +       mfg->pd.power_on =3D mtk_mfg_power_on;
+> +       mfg->pd.set_performance_state =3D mtk_mfg_set_performance;
+> +       mfg->pd.flags =3D GENPD_FLAG_OPP_TABLE_FW;
+> +
+> +       ret =3D pm_genpd_init(&mfg->pd, NULL, false);
+> +       if (ret)
+> +               return dev_err_probe(dev, ret, "Failed to initialise powe=
+r domain\n");
+We need to clean up mgf->md on errors from this point on. Maybe we can
+move this to a later point?
+
+> +
+> +       ret =3D mtk_mfg_init_mbox(mfg);
+> +       if (ret)
+> +               return dev_err_probe(dev, ret, "Couldn't initialise mailb=
+ox\n");
+We need to free the mboxes from this point on.
+
+> +       ret =3D mtk_mfg_power_on(&mfg->pd);
+> +       if (ret)
+> +               return dev_err_probe(dev, ret, "Failed to power on MFG\n"=
+);
+> +
+> +       ret =3D mtk_mfg_init_shared_mem(mfg);
+> +       if (ret) {
+> +               dev_err_probe(dev, ret, "Couldn't initialize EB shared me=
+mory\n");
+> +               goto out;
+> +       }
+> +
+> +       ret =3D mtk_mfg_read_opp_tables(mfg);
+> +       if (ret) {
+> +               dev_err_probe(dev, ret, "Error reading OPP tables from EB=
+\n");
+> +               goto out;
+> +       }
+> +
+> +       ret =3D mtk_mfg_init_clk_provider(mfg);
+> +       if (ret)
+> +               goto out;
+> +
+> +       ret =3D of_genpd_add_provider_simple(dev->of_node, &mfg->pd);
+> +       if (ret) {
+> +               dev_err_probe(dev, ret, "Failed to add pmdomain provider\=
+n");
+> +               goto out;
+> +       }
+> +
+> +       return 0;
+> +
+> +out:
+> +       mtk_mfg_power_off(&mfg->pd);
+> +       return ret;
+> +}
 
