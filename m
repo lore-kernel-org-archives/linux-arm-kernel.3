@@ -4,87 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13F48CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 03:21:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67A76CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 03:54:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MUO4rDsZWKCl45RHWWZ4FTSOP5btGm8sewqyPs9LAbs=; b=K4+W0Fu8g1ktjXUS4KsfYh5Ifx
-	GeBq9YH8sUtKVcyXp3N708pIq+BjULcYrkQrSup5trBY+iQDpJ8IkB5iGb2d2vJiMqWP5K2me+lIv
-	u/bI09winRg6HIZVQwDCiTVkFEpCeFi2p4pVO2ZAKZPGjh8f9ODLh5mbsGR6fDF/1ENRjrkwZ85Wl
-	O9iD3a7kv8XAkj1gw6YHiDgjbbPqoLaNj24XZI4GACq5lPBcSGASpcQ+Qs8fPzi+z+Yt/hAcH8zgP
-	AAhObaXgv+eXeZH8mWs75Lff13ED1lc7/yahir9PeN4/L9CStPebkCfnpUm9XYWQFoJO9PXIV5guk
-	wTX/6N5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GqXBGsEvLB/eC0uyHIzRTOrZF87Gi56IDylcMc4Mqyk=; b=E+gENBYfz0GaXoyv18FS6/MtcY
+	KWOAHLELKKZEP6zHosSRT7iQm/Q0XdQoa1eGPhbChQ+ReVJAPMvkpz1PNaODosjki0/XmziTrjZxg
+	eI1aRGFuQR7LV7iwhJyO0kRcew8Xg9quRrbquGA29Wu9k3h3V+U0/gpY8/+QxMzgnw2NgZ31ljzsc
+	6OBzwB1yqyQs4r3msdCnkJmEijOXWZlrUPqSu1K6fRDtqbQlwnY2f1pMqrNFWUZUHvdO5ehi22Ssn
+	3XEqE3uWlmAMzVYTZW3g6xulhW8e9Jfx5+Fz5dekQmvcUZF129L3OKzyaOnK0RTs6yEP8/DwBeH7j
+	a0AOVoCA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4WM8-0000000Bb5R-0NP6;
-	Fri, 03 Oct 2025 03:21:16 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v4Ws8-0000000BcPt-057q;
+	Fri, 03 Oct 2025 03:54:20 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4WM6-0000000Bb5I-2Dcj;
-	Fri, 03 Oct 2025 03:21:14 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B466C601E2;
-	Fri,  3 Oct 2025 03:18:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39890C4CEF4;
-	Fri,  3 Oct 2025 03:17:31 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759461455;
-	bh=aQcsjYTZESdxGoQkRfLj0JfM4I3vXx+kRPO/aGy6V1I=;
-	h=From:Date:Subject:To:Cc:From;
-	b=ru8rgkZ/nB7O0qxsH2WkfPmOY5pha2rpij/AbFEsRZxXwFWu9CK5/N+Cz1nIBQFIZ
-	 gkKFrTMSuYtfctfsJy6mNcLqflsqncNJkoSPZmez/KxbrIQM1hU2sqFGXGY2lSquxf
-	 M/ziRh3rwGh2Hcczg1lOu9k4uhB7OfPiv11/WkMeSpc0fuyCGRAEnomxO21BE9T4Tt
-	 cKMe8qMBd8OK9SCERNb75Tv2x07pYlkOlZQI29X+79S1dCoigWvWHVXO9e2saIE46u
-	 1GlqU+1u2r9ozQUWZbqTHSuOsa+mq6GQqbHsyTrLhvAufh842SVe6ORZenuXH5tFhY
-	 FTP5ty8k/0q4g==
-From: Vincent Mailhol <mailhol@kernel.org>
-Date: Fri, 03 Oct 2025 12:16:38 +0900
-Subject: [PATCH] can: treewide: remove can_change_mtu()
+	id 1v4Ws3-0000000BcP9-2lDC
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 03 Oct 2025 03:54:18 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1759463653;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=GqXBGsEvLB/eC0uyHIzRTOrZF87Gi56IDylcMc4Mqyk=;
+	b=PAEcurTEUYztvPw10z0e8Hc91SQFPPTPaKuvz124+gEBBC90NhWBLRzLuZWRp9RPbtCYP1
+	K8ns08udLGNC9ZfXpzCPlHoF1wbFmkvw5eTKKYp2xqrEpBEM6TYhAOLy7vV0OTu/p7/7HB
+	07mvyNoptPaSVTZVabhfmSTB0q+JFCM=
+Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com
+ [209.85.215.197]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-479-5C0IZFwOOcu6pab-In4Yrw-1; Thu, 02 Oct 2025 23:54:10 -0400
+X-MC-Unique: 5C0IZFwOOcu6pab-In4Yrw-1
+X-Mimecast-MFC-AGG-ID: 5C0IZFwOOcu6pab-In4Yrw_1759463649
+Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-b5529da7771so1187597a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Oct 2025 20:54:09 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759463648; x=1760068448;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=GqXBGsEvLB/eC0uyHIzRTOrZF87Gi56IDylcMc4Mqyk=;
+        b=CGT7iZl3SW6LZMXXaxRNwxQ+dCGA6JucOnItQgVVNdb2pdi3fWp6DMGVTJL+7ZM60q
+         z3dKWMmfG9n1l85xtkW+dPKwPafTAXWboJLAIzRy4UMYsLtzMhGK66TNW+nOdUC/WLb1
+         d8S7MDKGXn1I/UGe5a5SnsLD+d9iCDTWzCb4pS+kTdjwaoKcpeGvJ194h1BWExHyv5Zm
+         eSZ09cuGYl7G921TPrQNokkb5PB8Mo/n/sFrqEa+mHbvAdzT3AuPC4qFKtdoFmQgSZzO
+         3XK7ArSmkqQq6eHuZx/Q+bMT4Cc0YC5pTkYanHQYwXX7Vd3ElycVKdkhuj2ftI+Rx84H
+         W0pQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWiMJYnmt/X7ad9ROjVHGYQhbrbG4CGYKxRTvFWu98PtuEkUsDU2E6W81kBAG82g2TvmHviMYGuyt4vcNE5eAb0@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywr0s2zs30HTsITOIRaRcjjc9eOpBIy7joPDhS8doYFbw6vDxr4
+	ovjysomh8GG9QogQPSefTv3GMdKj1HL6/V4pBZp21FaRvJbjYunEDGat6vZPhVTWWOTL01R8cBh
+	KXqY1xvX2u+F1jTO+sMXzaTDvSHBn/uMtWiD65tGzlMggWZ5quLEgUiUOGBCy/3y9kGgj4OkCnn
+	+xxgOnleDD
+X-Gm-Gg: ASbGncvJ1bblCxY1VD4uQqR14ADUjlI7rE6uXW8lVkOY7okuTnqjuEgQy1+5pzrWQ/y
+	KVUUZWGbxr6+4lia2VUT0H66V4HhoQmV6VM9rY7PpvhCwr4Q9VgA0EM2Z3JMDB2VrDJ4qAYnYPd
+	B1e2Q/lUt5YgmsnV6CcOr2yZ8VUBmXubmJNUsQ0zXfUWrS1ynMmc06HpWjnyOKje9NV+zl1srxZ
+	3e35W1YlPoHufc4IGyFdQPOYSFvoNF/rSJpeRRN9+D5z6Oj2BpffWSo2NTX4N/2gJKzJbtho60x
+	4Xcv4Nrg6zwloy/w2+Y0RgutVRuEIFH5Xf+Okbmb7rpQI+DyN0U1hCAmckJ8i/JnZH2LQXZ8/qR
+	nIw6GhJxYzg==
+X-Received: by 2002:a05:6a21:32a8:b0:2fd:a3b:933d with SMTP id adf61e73a8af0-32b6212a95amr2324638637.58.1759463647693;
+        Thu, 02 Oct 2025 20:54:07 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IEO1eVNkhxjeEpcrSCvF3IK8zgy7mUiMHjQ5jYBycjzCT0xV0FuBp/gmh5QAf2pAUHLGCkC3w==
+X-Received: by 2002:a05:6a21:32a8:b0:2fd:a3b:933d with SMTP id adf61e73a8af0-32b6212a95amr2324606637.58.1759463647199;
+        Thu, 02 Oct 2025 20:54:07 -0700 (PDT)
+Received: from [192.168.68.51] (n175-34-62-5.mrk21.qld.optusnet.com.au. [175.34.62.5])
+        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b6099add290sm3271259a12.6.2025.10.02.20.53.56
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 02 Oct 2025 20:54:06 -0700 (PDT)
+Message-ID: <29886bb9-bca3-4f26-ae31-a339b8d001f1@redhat.com>
+Date: Fri, 3 Oct 2025 13:53:54 +1000
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 07/29] arm_mpam: Add probe/remove for mpam msc driver
+ and kbuild boiler plate
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
+ <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>
+References: <20250910204309.20751-1-james.morse@arm.com>
+ <20250910204309.20751-8-james.morse@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20250910204309.20751-8-james.morse@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: r7-HBwnNZld7IhuuRHiDYgjw2DjGwE6CMlgeOSBkDis_1759463649
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251003-remove-can_change_mtu-v1-1-337f8bc21181@kernel.org>
-X-B4-Tracking: v=1; b=H4sIABVA32gC/yWMQQ7CIBREr0L+WuJvq5texTQN0Kn+BaBAG5Omd
- 5fI8k3mvYMykiDTqA5K2CVLDBW6iyL3MuEJLUtl6rm/d8yDTvBxh3YmzO0w+7JpMNzNsV0BS9V
- 9J6zy/XcfU+OEz1bzpY1kTa6V6L2UUQWUqzcSaDrPH2Uom1mTAAAA
-X-Change-ID: 20251003-remove-can_change_mtu-e0ec4c0bfeeb
-To: Marc Kleine-Budde <mkl@pengutronix.de>, 
- Oliver Hartkopp <socketcan@hartkopp.net>
-Cc: Nicolas Ferre <nicolas.ferre@microchip.com>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Claudiu Beznea <claudiu.beznea@tuxon.dev>, 
- Dario Binacchi <dario.binacchi@amarulasolutions.com>, 
- Max Staudt <max@enpas.org>, Pavel Pisa <pisa@cmp.felk.cvut.cz>, 
- Ondrej Ille <ondrej.ille@gmail.com>, 
- =?utf-8?q?Stefan_M=C3=A4tje?= <stefan.maetje@esd.eu>, socketcan@esd.eu, 
- Chandrasekar Ramakrishnan <rcsekar@samsung.com>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- Magnus Damm <magnus.damm@gmail.com>, kernel@pengutronix.de, 
- Heiko Stuebner <heiko@sntech.de>, Manivannan Sadhasivam <mani@kernel.org>, 
- Thomas Kopp <thomas.kopp@microchip.com>, Chen-Yu Tsai <wens@csie.org>, 
- Jernej Skrabec <jernej.skrabec@gmail.com>, 
- Samuel Holland <samuel@sholland.org>, 
- Frank Jungclaus <frank.jungclaus@esd.eu>, 
- "Ji-Ze Hong (Peter Hong)" <peter_hong@fintek.com.tw>, 
- Yasushi SHOJI <yashi@spacecubics.com>, Ming Yu <tmyu0@nuvoton.com>, 
- Appana Durga Kedareswara rao <appana.durga.rao@xilinx.com>, 
- Michal Simek <michal.simek@amd.com>, linux-can@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- linux-renesas-soc@vger.kernel.org, linux-rockchip@lists.infradead.org, 
- linux-sunxi@lists.linux.dev, Vincent Mailhol <mailhol@kernel.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=25384; i=mailhol@kernel.org;
- h=from:subject:message-id; bh=aQcsjYTZESdxGoQkRfLj0JfM4I3vXx+kRPO/aGy6V1I=;
- b=owGbwMvMwCV2McXO4Xp97WbG02pJDBn3Hdw1DUXkpknMic5gOCwd/zbrOm+afNB9tplPxXXuL
- Xv3nndhRykLgxgXg6yYIsuyck5uhY5C77BDfy1h5rAygQxh4OIUgInMeMLIcCrC6eXRrEuW7JNj
- MtIOnGguvv3g3TLrmgZRCyt+rq/n+xn+aab+v7Ti9EIOkeUdtY4P5/XUNhiHHJoW+8B+daj0guA
- V7AA=
-X-Developer-Key: i=mailhol@kernel.org; a=openpgp;
- fpr=ED8F700574E67F20E574E8E2AB5FEB886DBB99C2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251002_205415_863125_0B36205F 
+X-CRM114-Status: GOOD (  43.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,616 +129,384 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-can_change_mtu() became obsolete by commit 23049938605b ("can:
-populate the minimum and maximum MTU values"). Now that
-net_device->min_mtu and net_device->max_mtu are populated, all the
-checks are already done by dev_validate_mtu() in net/core/dev.c.
+Hi James,
 
-Remove the net_device_ops->ndo_change_mtu() callback of all the
-physical interfaces, then remove can_change_mtu(). Only keep the
-vcan_change_mtu() and vxcan_change_mtu() because the virtual
-interfaces use their own different MTU logic.
+On 9/11/25 6:42 AM, James Morse wrote:
+> Probing MPAM is convoluted. MSCs that are integrated with a CPU may
+> only be accessible from those CPUs, and they may not be online.
+> Touching the hardware early is pointless as MPAM can't be used until
+> the system-wide common values for num_partid and num_pmg have been
+> discovered.
+> 
+> Start with driver probe/remove and mapping the MSC.
+> 
+> CC: Carl Worth <carl@os.amperecomputing.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> ---
+> Changes since v1:
+>   * Avoid selecting driver on other architectrues.
+>   * Removed PCC support stub.
+>   * Use for_each_available_child_of_node_scoped() and of_property_read_reg()
+>   * Clarified a comment.
+>   * Stopped using mpam_num_msc as an id,a and made it atomic.
+>   * Size of -1 returned from cache_of_calculate_id()
+>   * Renamed some struct members.
+>   * Made a bunch of pr_err() dev_err_ocne().
+>   * Used more cleanup magic.
+>   * Inlined a print message.
+>   * Fixed error propagation from mpam_dt_parse_resources().
+>   * Moved cache accessibility checks earlier.
+> 
+> Changes since RFC:
+>   * Check for status=broken DT devices.
+>   * Moved all the files around.
+>   * Made Kconfig symbols depend on EXPERT
+> ---
+>   arch/arm64/Kconfig              |   1 +
+>   drivers/Kconfig                 |   2 +
+>   drivers/Makefile                |   1 +
+>   drivers/resctrl/Kconfig         |  14 +++
+>   drivers/resctrl/Makefile        |   4 +
+>   drivers/resctrl/mpam_devices.c  | 180 ++++++++++++++++++++++++++++++++
+>   drivers/resctrl/mpam_internal.h |  65 ++++++++++++
+>   7 files changed, 267 insertions(+)
+>   create mode 100644 drivers/resctrl/Kconfig
+>   create mode 100644 drivers/resctrl/Makefile
+>   create mode 100644 drivers/resctrl/mpam_devices.c
+>   create mode 100644 drivers/resctrl/mpam_internal.h
+> 
+> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+> index 6487c511bdc6..93e563e1cce4 100644
+> --- a/arch/arm64/Kconfig
+> +++ b/arch/arm64/Kconfig
+> @@ -2062,6 +2062,7 @@ config ARM64_TLB_RANGE
+>   
+>   config ARM64_MPAM
+>   	bool "Enable support for MPAM"
+> +	select ARM64_MPAM_DRIVER if EXPERT
+>   	select ACPI_MPAM if ACPI
+>   	help
+>   	  Memory System Resource Partitioning and Monitoring (MPAM) is an
+> diff --git a/drivers/Kconfig b/drivers/Kconfig
+> index 4915a63866b0..3054b50a2f4c 100644
+> --- a/drivers/Kconfig
+> +++ b/drivers/Kconfig
+> @@ -251,4 +251,6 @@ source "drivers/hte/Kconfig"
+>   
+>   source "drivers/cdx/Kconfig"
+>   
+> +source "drivers/resctrl/Kconfig"
+> +
+>   endmenu
+> diff --git a/drivers/Makefile b/drivers/Makefile
+> index b5749cf67044..f41cf4eddeba 100644
+> --- a/drivers/Makefile
+> +++ b/drivers/Makefile
+> @@ -194,5 +194,6 @@ obj-$(CONFIG_HTE)		+= hte/
+>   obj-$(CONFIG_DRM_ACCEL)		+= accel/
+>   obj-$(CONFIG_CDX_BUS)		+= cdx/
+>   obj-$(CONFIG_DPLL)		+= dpll/
+> +obj-y				+= resctrl/
+>   
+>   obj-$(CONFIG_S390)		+= s390/
+> diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
+> new file mode 100644
+> index 000000000000..c30532a3a3a4
+> --- /dev/null
+> +++ b/drivers/resctrl/Kconfig
+> @@ -0,0 +1,14 @@
+> +menuconfig ARM64_MPAM_DRIVER
+> +	bool "MPAM driver"
+> +	depends on ARM64 && ARM64_MPAM && EXPERT
+> +	help
+> +	  MPAM driver for System IP, e,g. caches and memory controllers.
+> +
+> +if ARM64_MPAM_DRIVER
+> +config ARM64_MPAM_DRIVER_DEBUG
+> +	bool "Enable debug messages from the MPAM driver"
+> +	depends on ARM64_MPAM_DRIVER
+> +	help
+> +	  Say yes here to enable debug messages from the MPAM driver.
+> +
+> +endif
+> diff --git a/drivers/resctrl/Makefile b/drivers/resctrl/Makefile
+> new file mode 100644
+> index 000000000000..92b48fa20108
+> --- /dev/null
+> +++ b/drivers/resctrl/Makefile
+> @@ -0,0 +1,4 @@
+> +obj-$(CONFIG_ARM64_MPAM_DRIVER)			+= mpam.o
+> +mpam-y						+= mpam_devices.o
+> +
+> +cflags-$(CONFIG_ARM64_MPAM_DRIVER_DEBUG)	+= -DDEBUG
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> new file mode 100644
+> index 000000000000..efc4738e3b4d
+> --- /dev/null
+> +++ b/drivers/resctrl/mpam_devices.c
+> @@ -0,0 +1,180 @@
+> +// SPDX-License-Identifier: GPL-2.0
+> +// Copyright (C) 2025 Arm Ltd.
+> +
+> +#define pr_fmt(fmt) "%s:%s: " fmt, KBUILD_MODNAME, __func__
+> +
+> +#include <linux/acpi.h>
+> +#include <linux/arm_mpam.h>
+> +#include <linux/cacheinfo.h>
+> +#include <linux/cpu.h>
+> +#include <linux/cpumask.h>
+> +#include <linux/device.h>
+> +#include <linux/errno.h>
+> +#include <linux/gfp.h>
+> +#include <linux/list.h>
+> +#include <linux/lockdep.h>
+> +#include <linux/mutex.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/printk.h>
+> +#include <linux/slab.h>
+> +#include <linux/spinlock.h>
+> +#include <linux/srcu.h>
+> +#include <linux/types.h>
+> +
+> +#include "mpam_internal.h"
+> +
+> +/*
+> + * mpam_list_lock protects the SRCU lists when writing. Once the
+> + * mpam_enabled key is enabled these lists are read-only,
+> + * unless the error interrupt disables the driver.
+> + */
+> +static DEFINE_MUTEX(mpam_list_lock);
+> +static LIST_HEAD(mpam_all_msc);
+> +
+> +static struct srcu_struct mpam_srcu;
+> +
+> +/*
+> + * Number of MSCs that have been probed. Once all MSC have been probed MPAM
+> + * can be enabled.
+> + */
+> +static atomic_t mpam_num_msc;
+> +
+> +/*
+> + * An MSC can control traffic from a set of CPUs, but may only be accessible
+> + * from a (hopefully wider) set of CPUs. The common reason for this is power
+> + * management. If all the CPUs in a cluster are in PSCI:CPU_SUSPEND, the
+> + * corresponding cache may also be powered off. By making accesses from
+> + * one of those CPUs, we ensure this isn't the case.
+> + */
+> +static int update_msc_accessibility(struct mpam_msc *msc)
+> +{
+> +	u32 affinity_id;
+> +	int err;
+> +
+> +	err = device_property_read_u32(&msc->pdev->dev, "cpu_affinity",
+> +				       &affinity_id);
+> +	if (err)
+> +		cpumask_copy(&msc->accessibility, cpu_possible_mask);
+> +	else
+> +		acpi_pptt_get_cpus_from_container(affinity_id,
+> +						  &msc->accessibility);
+> +
+> +	return 0;
+> +
+> +	return err;
+> +}
+> +
 
-The only functional change this patch introduces is that now the user
-will be able to change the MTU even if the interface is up. This does
-not matter for Classical CAN and CAN FD because their MTU range is
-composed of only one value, respectively CAN_MTU and CANFD_MTU. For
-the upcoming CAN XL, the MTU will be configurable within the
-CANXL_MIN_MTU to CANXL_MAX_MTU range at any time, even if the
-interface is up. This is consistent with the other net protocols and
-does not contradict ISO 11898-1:2024 as having a modifiable MTU is a
-kernel extension.
+Double return here and different values have been returned. I think here we
+need "return err". In this case, we needn't copy @cpu_possible_mask on error
+because the caller mpam_msc_drv_probe() will release the MSC instance.
 
-Signed-off-by: Vincent Mailhol <mailhol@kernel.org>
----
-This patch used to be part of [1]. But it had to be removed from that
-series to avoid some merge conflict because some pending changes from
-other maintainers' trees still depended on can_change_mtu().
+> +static int fw_num_msc;
+> +
+> +static void mpam_msc_drv_remove(struct platform_device *pdev)
+> +{
+> +	struct mpam_msc *msc = platform_get_drvdata(pdev);
+> +
+> +	if (!msc)
+> +		return;
+> +
+> +	mutex_lock(&mpam_list_lock);
+> +	platform_set_drvdata(pdev, NULL);
+> +	list_del_rcu(&msc->all_msc_list);
+> +	synchronize_srcu(&mpam_srcu);
+> +	mutex_unlock(&mpam_list_lock);
+> +}
+> +
+> +static int mpam_msc_drv_probe(struct platform_device *pdev)
+> +{
+> +	int err;
+> +	struct mpam_msc *msc;
+> +	struct resource *msc_res;
+> +	struct device *dev = &pdev->dev;
+> +	void *plat_data = pdev->dev.platform_data;
+> +
+> +	mutex_lock(&mpam_list_lock);
+> +	do {
+> +		msc = devm_kzalloc(&pdev->dev, sizeof(*msc), GFP_KERNEL);
+> +		if (!msc) {
+> +			err = -ENOMEM;
+> +			break;
+> +		}
+> +
+> +		mutex_init(&msc->probe_lock);
+> +		mutex_init(&msc->part_sel_lock);
+> +		mutex_init(&msc->outer_mon_sel_lock);
+> +		raw_spin_lock_init(&msc->inner_mon_sel_lock);
+> +		msc->id = pdev->id;
+> +		msc->pdev = pdev;
+> +		INIT_LIST_HEAD_RCU(&msc->all_msc_list);
+> +		INIT_LIST_HEAD_RCU(&msc->ris);
+> +
+> +		err = update_msc_accessibility(msc);
+> +		if (err)
+> +			break;
+> +		if (cpumask_empty(&msc->accessibility)) {
+> +			dev_err_once(dev, "MSC is not accessible from any CPU!");
+> +			err = -EINVAL;
+> +			break;
+> +		}
+> +
 
-Now that all those pending changes reached upstream, this patch can be
-merged without any merge conflict. If possible, I would like this to
-go through net/main. Even if this is not a bug fix, keeping the now
-dead-code can_change_mtu() is a bit ugly and this removal was planned
-anyway for the v6.18 merge windows, it was artificially delayed to
-prevent the previously mentioned merge conflicts.
+This check (cpumask_empty()) would be part of update_msc_accessibility() since
+msc->accessibility is sorted out in that function where it should be validated.
 
-Changelog:
+> +		if (device_property_read_u32(&pdev->dev, "pcc-channel",
+> +					     &msc->pcc_subspace_id))
+> +			msc->iface = MPAM_IFACE_MMIO;
+> +		else
+> +			msc->iface = MPAM_IFACE_PCC;
+> +
+> +		if (msc->iface == MPAM_IFACE_MMIO) {
+> +			void __iomem *io;
+> +
+> +			io = devm_platform_get_and_ioremap_resource(pdev, 0,
+> +								    &msc_res);
+> +			if (IS_ERR(io)) {
+> +				dev_err_once(dev, "Failed to map MSC base address\n");
+> +				err = PTR_ERR(io);
+> +				break;
+> +			}
+> +			msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
+> +			msc->mapped_hwpage = io;
+> +		}
+> +
+> +		list_add_rcu(&msc->all_msc_list, &mpam_all_msc);
+> +		platform_set_drvdata(pdev, msc);
+> +	} while (0);
+> +	mutex_unlock(&mpam_list_lock);
+> +
+> +	if (!err) {
+> +		/* Create RIS entries described by firmware */
+> +		err = acpi_mpam_parse_resources(msc, plat_data);
+> +	}
+> +
+> +	if (err && msc)
+> +		mpam_msc_drv_remove(pdev);
+> +
+> +	if (!err && atomic_add_return(1, &mpam_num_msc) == fw_num_msc)
+> +		pr_info("Discovered all MSC\n");
+> +
+> +	return err;
+> +}
+> +
+> +static struct platform_driver mpam_msc_driver = {
+> +	.driver = {
+> +		.name = "mpam_msc",
+> +	},
+> +	.probe = mpam_msc_drv_probe,
+> +	.remove = mpam_msc_drv_remove,
+> +};
+> +
+> +static int __init mpam_msc_driver_init(void)
+> +{
+> +	if (!system_supports_mpam())
+> +		return -EOPNOTSUPP;
+> +
+> +	init_srcu_struct(&mpam_srcu);
+> +
+> +	fw_num_msc = acpi_mpam_count_msc();
+> +
+> +	if (fw_num_msc <= 0) {
+> +		pr_err("No MSC devices found in firmware\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	return platform_driver_register(&mpam_msc_driver);
+> +}
+> +subsys_initcall(mpam_msc_driver_init);
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> new file mode 100644
+> index 000000000000..7c63d590fc98
+> --- /dev/null
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -0,0 +1,65 @@
+> +/* SPDX-License-Identifier: GPL-2.0 */
+> +// Copyright (C) 2025 Arm Ltd.
+> +
+> +#ifndef MPAM_INTERNAL_H
+> +#define MPAM_INTERNAL_H
+> +
+> +#include <linux/arm_mpam.h>
+> +#include <linux/cpumask.h>
+> +#include <linux/io.h>
+> +#include <linux/mailbox_client.h>
+> +#include <linux/mutex.h>
+> +#include <linux/resctrl.h>
+> +#include <linux/sizes.h>
+> +
+> +struct mpam_msc {
+> +	/* member of mpam_all_msc */
+> +	struct list_head        all_msc_list;
+> +
+> +	int			id;
+> +	struct platform_device *pdev;
+> +
+> +	/* Not modified after mpam_is_enabled() becomes true */
+> +	enum mpam_msc_iface	iface;
+> +	u32			pcc_subspace_id;
+> +	struct mbox_client	pcc_cl;
+> +	struct pcc_mbox_chan	*pcc_chan;
+> +	u32			nrdy_usec;
+> +	cpumask_t		accessibility;
+> +
+> +	/*
+> +	 * probe_lock is only taken during discovery. After discovery these
+> +	 * properties become read-only and the lists are protected by SRCU.
+> +	 */
+> +	struct mutex		probe_lock;
+> +	unsigned long		ris_idxs;
+> +	u32			ris_max;
+> +
+> +	/* mpam_msc_ris of this component */
+> +	struct list_head	ris;
+> +
+> +	/*
+> +	 * part_sel_lock protects access to the MSC hardware registers that are
+> +	 * affected by MPAMCFG_PART_SEL. (including the ID registers that vary
+> +	 * by RIS).
+> +	 * If needed, take msc->probe_lock first.
+> +	 */
+> +	struct mutex		part_sel_lock;
+> +
+> +	/*
+> +	 * mon_sel_lock protects access to the MSC hardware registers that are
+> +	 * affected by MPAMCFG_MON_SEL.
+> +	 * If needed, take msc->probe_lock first.
+> +	 */
+> +	struct mutex		outer_mon_sel_lock;
+> +	raw_spinlock_t		inner_mon_sel_lock;
+> +	unsigned long		inner_mon_sel_flags;
+> +
+> +	void __iomem		*mapped_hwpage;
+> +	size_t			mapped_hwpage_sz;
+> +};
+> +
+> +int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
+> +				   cpumask_t *affinity);
+> +
+> +#endif /* MPAM_INTERNAL_H */
 
-patch from [1] -> v1
-
-  - rebase on latest net/main tree.
-  - also remove the can_change_mtu() from the nct6694_canfd driver.
-  - add further details to the patch description.
-
-[1] can: rework the CAN MTU logic
-Link: https://lore.kernel.org/linux-can/20250918-can-fix-mtu-v1-0-471edb942295@kernel.org/
----
- drivers/net/can/at91_can.c                         |  1 -
- drivers/net/can/bxcan.c                            |  1 -
- drivers/net/can/c_can/c_can_main.c                 |  1 -
- drivers/net/can/can327.c                           |  1 -
- drivers/net/can/cc770/cc770.c                      |  1 -
- drivers/net/can/ctucanfd/ctucanfd_base.c           |  1 -
- drivers/net/can/dev/dev.c                          | 38 ----------------------
- drivers/net/can/esd/esd_402_pci-core.c             |  1 -
- drivers/net/can/flexcan/flexcan-core.c             |  1 -
- drivers/net/can/grcan.c                            |  1 -
- drivers/net/can/ifi_canfd/ifi_canfd.c              |  1 -
- drivers/net/can/janz-ican3.c                       |  1 -
- drivers/net/can/kvaser_pciefd/kvaser_pciefd_core.c |  1 -
- drivers/net/can/m_can/m_can.c                      |  1 -
- drivers/net/can/mscan/mscan.c                      |  1 -
- drivers/net/can/peak_canfd/peak_canfd.c            |  1 -
- drivers/net/can/rcar/rcar_can.c                    |  1 -
- drivers/net/can/rcar/rcar_canfd.c                  |  1 -
- drivers/net/can/rockchip/rockchip_canfd-core.c     |  1 -
- drivers/net/can/sja1000/sja1000.c                  |  1 -
- drivers/net/can/slcan/slcan-core.c                 |  1 -
- drivers/net/can/softing/softing_main.c             |  1 -
- drivers/net/can/spi/hi311x.c                       |  1 -
- drivers/net/can/spi/mcp251x.c                      |  1 -
- drivers/net/can/spi/mcp251xfd/mcp251xfd-core.c     |  1 -
- drivers/net/can/sun4i_can.c                        |  1 -
- drivers/net/can/ti_hecc.c                          |  1 -
- drivers/net/can/usb/ems_usb.c                      |  1 -
- drivers/net/can/usb/esd_usb.c                      |  1 -
- drivers/net/can/usb/etas_es58x/es58x_core.c        |  1 -
- drivers/net/can/usb/f81604.c                       |  1 -
- drivers/net/can/usb/gs_usb.c                       |  1 -
- drivers/net/can/usb/kvaser_usb/kvaser_usb_core.c   |  1 -
- drivers/net/can/usb/mcba_usb.c                     |  1 -
- drivers/net/can/usb/nct6694_canfd.c                |  1 -
- drivers/net/can/usb/peak_usb/pcan_usb_core.c       |  1 -
- drivers/net/can/usb/ucan.c                         |  1 -
- drivers/net/can/usb/usb_8dev.c                     |  1 -
- drivers/net/can/xilinx_can.c                       |  1 -
- include/linux/can/dev.h                            |  1 -
- 40 files changed, 77 deletions(-)
-
-diff --git a/drivers/net/can/at91_can.c b/drivers/net/can/at91_can.c
-index 191707d7e3da..c2a3a4eef5b2 100644
---- a/drivers/net/can/at91_can.c
-+++ b/drivers/net/can/at91_can.c
-@@ -948,7 +948,6 @@ static const struct net_device_ops at91_netdev_ops = {
- 	.ndo_open	= at91_open,
- 	.ndo_stop	= at91_close,
- 	.ndo_start_xmit	= at91_start_xmit,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- static const struct ethtool_ops at91_ethtool_ops = {
-diff --git a/drivers/net/can/bxcan.c b/drivers/net/can/bxcan.c
-index bfc60eb33dc3..9c3af7049814 100644
---- a/drivers/net/can/bxcan.c
-+++ b/drivers/net/can/bxcan.c
-@@ -881,7 +881,6 @@ static const struct net_device_ops bxcan_netdev_ops = {
- 	.ndo_open = bxcan_open,
- 	.ndo_stop = bxcan_stop,
- 	.ndo_start_xmit = bxcan_start_xmit,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- static const struct ethtool_ops bxcan_ethtool_ops = {
-diff --git a/drivers/net/can/c_can/c_can_main.c b/drivers/net/can/c_can/c_can_main.c
-index cc371d0c9f3c..3702cac7fbf0 100644
---- a/drivers/net/can/c_can/c_can_main.c
-+++ b/drivers/net/can/c_can/c_can_main.c
-@@ -1362,7 +1362,6 @@ static const struct net_device_ops c_can_netdev_ops = {
- 	.ndo_open = c_can_open,
- 	.ndo_stop = c_can_close,
- 	.ndo_start_xmit = c_can_start_xmit,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- int register_c_can_dev(struct net_device *dev)
-diff --git a/drivers/net/can/can327.c b/drivers/net/can/can327.c
-index 24af63961030..b66fc16aedd2 100644
---- a/drivers/net/can/can327.c
-+++ b/drivers/net/can/can327.c
-@@ -849,7 +849,6 @@ static const struct net_device_ops can327_netdev_ops = {
- 	.ndo_open = can327_netdev_open,
- 	.ndo_stop = can327_netdev_close,
- 	.ndo_start_xmit = can327_netdev_start_xmit,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- static const struct ethtool_ops can327_ethtool_ops = {
-diff --git a/drivers/net/can/cc770/cc770.c b/drivers/net/can/cc770/cc770.c
-index 30909f3aab57..8d5abd643c06 100644
---- a/drivers/net/can/cc770/cc770.c
-+++ b/drivers/net/can/cc770/cc770.c
-@@ -834,7 +834,6 @@ static const struct net_device_ops cc770_netdev_ops = {
- 	.ndo_open = cc770_open,
- 	.ndo_stop = cc770_close,
- 	.ndo_start_xmit = cc770_start_xmit,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- static const struct ethtool_ops cc770_ethtool_ops = {
-diff --git a/drivers/net/can/ctucanfd/ctucanfd_base.c b/drivers/net/can/ctucanfd/ctucanfd_base.c
-index 8bd3f0fc385c..1e6b9e3dc2fe 100644
---- a/drivers/net/can/ctucanfd/ctucanfd_base.c
-+++ b/drivers/net/can/ctucanfd/ctucanfd_base.c
-@@ -1301,7 +1301,6 @@ static const struct net_device_ops ctucan_netdev_ops = {
- 	.ndo_open	= ctucan_open,
- 	.ndo_stop	= ctucan_close,
- 	.ndo_start_xmit	= ctucan_start_xmit,
--	.ndo_change_mtu	= can_change_mtu,
- };
- 
- static const struct ethtool_ops ctucan_ethtool_ops = {
-diff --git a/drivers/net/can/dev/dev.c b/drivers/net/can/dev/dev.c
-index 15ccedbb3f8d..0cc3d008adb3 100644
---- a/drivers/net/can/dev/dev.c
-+++ b/drivers/net/can/dev/dev.c
-@@ -359,44 +359,6 @@ void can_set_default_mtu(struct net_device *dev)
- 	}
- }
- 
--/* changing MTU and control mode for CAN/CANFD devices */
--int can_change_mtu(struct net_device *dev, int new_mtu)
--{
--	struct can_priv *priv = netdev_priv(dev);
--	u32 ctrlmode_static = can_get_static_ctrlmode(priv);
--
--	/* Do not allow changing the MTU while running */
--	if (dev->flags & IFF_UP)
--		return -EBUSY;
--
--	/* allow change of MTU according to the CANFD ability of the device */
--	switch (new_mtu) {
--	case CAN_MTU:
--		/* 'CANFD-only' controllers can not switch to CAN_MTU */
--		if (ctrlmode_static & CAN_CTRLMODE_FD)
--			return -EINVAL;
--
--		priv->ctrlmode &= ~CAN_CTRLMODE_FD;
--		break;
--
--	case CANFD_MTU:
--		/* check for potential CANFD ability */
--		if (!(priv->ctrlmode_supported & CAN_CTRLMODE_FD) &&
--		    !(ctrlmode_static & CAN_CTRLMODE_FD))
--			return -EINVAL;
--
--		priv->ctrlmode |= CAN_CTRLMODE_FD;
--		break;
--
--	default:
--		return -EINVAL;
--	}
--
--	WRITE_ONCE(dev->mtu, new_mtu);
--	return 0;
--}
--EXPORT_SYMBOL_GPL(can_change_mtu);
--
- /* helper to define static CAN controller features at device creation time */
- int can_set_static_ctrlmode(struct net_device *dev, u32 static_mode)
- {
-diff --git a/drivers/net/can/esd/esd_402_pci-core.c b/drivers/net/can/esd/esd_402_pci-core.c
-index 5d6d2828cd04..05adecae6375 100644
---- a/drivers/net/can/esd/esd_402_pci-core.c
-+++ b/drivers/net/can/esd/esd_402_pci-core.c
-@@ -86,7 +86,6 @@ static const struct net_device_ops pci402_acc_netdev_ops = {
- 	.ndo_open = acc_open,
- 	.ndo_stop = acc_close,
- 	.ndo_start_xmit = acc_start_xmit,
--	.ndo_change_mtu = can_change_mtu,
- 	.ndo_eth_ioctl = can_eth_ioctl_hwts,
- };
- 
-diff --git a/drivers/net/can/flexcan/flexcan-core.c b/drivers/net/can/flexcan/flexcan-core.c
-index 06d5d35fc1b5..f5d22c61503f 100644
---- a/drivers/net/can/flexcan/flexcan-core.c
-+++ b/drivers/net/can/flexcan/flexcan-core.c
-@@ -1867,7 +1867,6 @@ static const struct net_device_ops flexcan_netdev_ops = {
- 	.ndo_open	= flexcan_open,
- 	.ndo_stop	= flexcan_close,
- 	.ndo_start_xmit	= flexcan_start_xmit,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- static int register_flexcandev(struct net_device *dev)
-diff --git a/drivers/net/can/grcan.c b/drivers/net/can/grcan.c
-index c5784d9779ef..3b1b09943436 100644
---- a/drivers/net/can/grcan.c
-+++ b/drivers/net/can/grcan.c
-@@ -1561,7 +1561,6 @@ static const struct net_device_ops grcan_netdev_ops = {
- 	.ndo_open	= grcan_open,
- 	.ndo_stop	= grcan_close,
- 	.ndo_start_xmit	= grcan_start_xmit,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- static const struct ethtool_ops grcan_ethtool_ops = {
-diff --git a/drivers/net/can/ifi_canfd/ifi_canfd.c b/drivers/net/can/ifi_canfd/ifi_canfd.c
-index 2eeee65f606f..0f83335e4d07 100644
---- a/drivers/net/can/ifi_canfd/ifi_canfd.c
-+++ b/drivers/net/can/ifi_canfd/ifi_canfd.c
-@@ -944,7 +944,6 @@ static const struct net_device_ops ifi_canfd_netdev_ops = {
- 	.ndo_open	= ifi_canfd_open,
- 	.ndo_stop	= ifi_canfd_close,
- 	.ndo_start_xmit	= ifi_canfd_start_xmit,
--	.ndo_change_mtu	= can_change_mtu,
- };
- 
- static const struct ethtool_ops ifi_canfd_ethtool_ops = {
-diff --git a/drivers/net/can/janz-ican3.c b/drivers/net/can/janz-ican3.c
-index bfa5cbe88017..1efdd1fd8caa 100644
---- a/drivers/net/can/janz-ican3.c
-+++ b/drivers/net/can/janz-ican3.c
-@@ -1752,7 +1752,6 @@ static const struct net_device_ops ican3_netdev_ops = {
- 	.ndo_open	= ican3_open,
- 	.ndo_stop	= ican3_stop,
- 	.ndo_start_xmit	= ican3_xmit,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- static const struct ethtool_ops ican3_ethtool_ops = {
-diff --git a/drivers/net/can/kvaser_pciefd/kvaser_pciefd_core.c b/drivers/net/can/kvaser_pciefd/kvaser_pciefd_core.c
-index 0880023611be..705f9bb74cd2 100644
---- a/drivers/net/can/kvaser_pciefd/kvaser_pciefd_core.c
-+++ b/drivers/net/can/kvaser_pciefd/kvaser_pciefd_core.c
-@@ -904,7 +904,6 @@ static const struct net_device_ops kvaser_pciefd_netdev_ops = {
- 	.ndo_stop = kvaser_pciefd_stop,
- 	.ndo_eth_ioctl = can_eth_ioctl_hwts,
- 	.ndo_start_xmit = kvaser_pciefd_start_xmit,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- static int kvaser_pciefd_set_phys_id(struct net_device *netdev,
-diff --git a/drivers/net/can/m_can/m_can.c b/drivers/net/can/m_can/m_can.c
-index e1d725979685..a9e63a75085f 100644
---- a/drivers/net/can/m_can/m_can.c
-+++ b/drivers/net/can/m_can/m_can.c
-@@ -2129,7 +2129,6 @@ static const struct net_device_ops m_can_netdev_ops = {
- 	.ndo_open = m_can_open,
- 	.ndo_stop = m_can_close,
- 	.ndo_start_xmit = m_can_start_xmit,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- static int m_can_get_coalesce(struct net_device *dev,
-diff --git a/drivers/net/can/mscan/mscan.c b/drivers/net/can/mscan/mscan.c
-index 8c2a7bc64d3d..39c7aa2a0b2f 100644
---- a/drivers/net/can/mscan/mscan.c
-+++ b/drivers/net/can/mscan/mscan.c
-@@ -607,7 +607,6 @@ static const struct net_device_ops mscan_netdev_ops = {
- 	.ndo_open	= mscan_open,
- 	.ndo_stop	= mscan_close,
- 	.ndo_start_xmit	= mscan_start_xmit,
--	.ndo_change_mtu	= can_change_mtu,
- };
- 
- static const struct ethtool_ops mscan_ethtool_ops = {
-diff --git a/drivers/net/can/peak_canfd/peak_canfd.c b/drivers/net/can/peak_canfd/peak_canfd.c
-index b5bc80ac7876..a53c9d347b7b 100644
---- a/drivers/net/can/peak_canfd/peak_canfd.c
-+++ b/drivers/net/can/peak_canfd/peak_canfd.c
-@@ -773,7 +773,6 @@ static const struct net_device_ops peak_canfd_netdev_ops = {
- 	.ndo_stop = peak_canfd_close,
- 	.ndo_eth_ioctl = peak_eth_ioctl,
- 	.ndo_start_xmit = peak_canfd_start_xmit,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- static int peak_get_ts_info(struct net_device *dev,
-diff --git a/drivers/net/can/rcar/rcar_can.c b/drivers/net/can/rcar/rcar_can.c
-index 5f85f4e27205..fc3df328e877 100644
---- a/drivers/net/can/rcar/rcar_can.c
-+++ b/drivers/net/can/rcar/rcar_can.c
-@@ -635,7 +635,6 @@ static const struct net_device_ops rcar_can_netdev_ops = {
- 	.ndo_open = rcar_can_open,
- 	.ndo_stop = rcar_can_close,
- 	.ndo_start_xmit = rcar_can_start_xmit,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- static const struct ethtool_ops rcar_can_ethtool_ops = {
-diff --git a/drivers/net/can/rcar/rcar_canfd.c b/drivers/net/can/rcar/rcar_canfd.c
-index 45d36adb51b7..49ab65274b51 100644
---- a/drivers/net/can/rcar/rcar_canfd.c
-+++ b/drivers/net/can/rcar/rcar_canfd.c
-@@ -1818,7 +1818,6 @@ static const struct net_device_ops rcar_canfd_netdev_ops = {
- 	.ndo_open = rcar_canfd_open,
- 	.ndo_stop = rcar_canfd_close,
- 	.ndo_start_xmit = rcar_canfd_start_xmit,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- static const struct ethtool_ops rcar_canfd_ethtool_ops = {
-diff --git a/drivers/net/can/rockchip/rockchip_canfd-core.c b/drivers/net/can/rockchip/rockchip_canfd-core.c
-index 046f0a0ae4d4..29de0c01e4ed 100644
---- a/drivers/net/can/rockchip/rockchip_canfd-core.c
-+++ b/drivers/net/can/rockchip/rockchip_canfd-core.c
-@@ -761,7 +761,6 @@ static const struct net_device_ops rkcanfd_netdev_ops = {
- 	.ndo_open = rkcanfd_open,
- 	.ndo_stop = rkcanfd_stop,
- 	.ndo_start_xmit = rkcanfd_start_xmit,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- static int __maybe_unused rkcanfd_runtime_suspend(struct device *dev)
-diff --git a/drivers/net/can/sja1000/sja1000.c b/drivers/net/can/sja1000/sja1000.c
-index 4d245857ef1c..acfa49db3907 100644
---- a/drivers/net/can/sja1000/sja1000.c
-+++ b/drivers/net/can/sja1000/sja1000.c
-@@ -697,7 +697,6 @@ static const struct net_device_ops sja1000_netdev_ops = {
- 	.ndo_open	= sja1000_open,
- 	.ndo_stop	= sja1000_close,
- 	.ndo_start_xmit	= sja1000_start_xmit,
--	.ndo_change_mtu	= can_change_mtu,
- };
- 
- static const struct ethtool_ops sja1000_ethtool_ops = {
-diff --git a/drivers/net/can/slcan/slcan-core.c b/drivers/net/can/slcan/slcan-core.c
-index 58ff2ec1d975..cd789e178d34 100644
---- a/drivers/net/can/slcan/slcan-core.c
-+++ b/drivers/net/can/slcan/slcan-core.c
-@@ -774,7 +774,6 @@ static const struct net_device_ops slcan_netdev_ops = {
- 	.ndo_open               = slcan_netdev_open,
- 	.ndo_stop               = slcan_netdev_close,
- 	.ndo_start_xmit         = slcan_netdev_xmit,
--	.ndo_change_mtu         = can_change_mtu,
- };
- 
- /******************************************
-diff --git a/drivers/net/can/softing/softing_main.c b/drivers/net/can/softing/softing_main.c
-index 278ee8722770..79bc64395ac4 100644
---- a/drivers/net/can/softing/softing_main.c
-+++ b/drivers/net/can/softing/softing_main.c
-@@ -609,7 +609,6 @@ static const struct net_device_ops softing_netdev_ops = {
- 	.ndo_open = softing_netdev_open,
- 	.ndo_stop = softing_netdev_stop,
- 	.ndo_start_xmit	= softing_netdev_start_xmit,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- static const struct ethtool_ops softing_ethtool_ops = {
-diff --git a/drivers/net/can/spi/hi311x.c b/drivers/net/can/spi/hi311x.c
-index 6d4b643e135f..e00d3dbc4cf4 100644
---- a/drivers/net/can/spi/hi311x.c
-+++ b/drivers/net/can/spi/hi311x.c
-@@ -799,7 +799,6 @@ static const struct net_device_ops hi3110_netdev_ops = {
- 	.ndo_open = hi3110_open,
- 	.ndo_stop = hi3110_stop,
- 	.ndo_start_xmit = hi3110_hard_start_xmit,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- static const struct ethtool_ops hi3110_ethtool_ops = {
-diff --git a/drivers/net/can/spi/mcp251x.c b/drivers/net/can/spi/mcp251x.c
-index b797e08499d7..1e54e1a22702 100644
---- a/drivers/net/can/spi/mcp251x.c
-+++ b/drivers/net/can/spi/mcp251x.c
-@@ -1270,7 +1270,6 @@ static const struct net_device_ops mcp251x_netdev_ops = {
- 	.ndo_open = mcp251x_open,
- 	.ndo_stop = mcp251x_stop,
- 	.ndo_start_xmit = mcp251x_hard_start_xmit,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- static const struct ethtool_ops mcp251x_ethtool_ops = {
-diff --git a/drivers/net/can/spi/mcp251xfd/mcp251xfd-core.c b/drivers/net/can/spi/mcp251xfd/mcp251xfd-core.c
-index 7450ea42c1ea..9402530ba3d4 100644
---- a/drivers/net/can/spi/mcp251xfd/mcp251xfd-core.c
-+++ b/drivers/net/can/spi/mcp251xfd/mcp251xfd-core.c
-@@ -1715,7 +1715,6 @@ static const struct net_device_ops mcp251xfd_netdev_ops = {
- 	.ndo_stop = mcp251xfd_stop,
- 	.ndo_start_xmit	= mcp251xfd_start_xmit,
- 	.ndo_eth_ioctl = can_eth_ioctl_hwts,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- static void
-diff --git a/drivers/net/can/sun4i_can.c b/drivers/net/can/sun4i_can.c
-index 53bfd873de9b..6fcb301ef611 100644
---- a/drivers/net/can/sun4i_can.c
-+++ b/drivers/net/can/sun4i_can.c
-@@ -768,7 +768,6 @@ static const struct net_device_ops sun4ican_netdev_ops = {
- 	.ndo_open = sun4ican_open,
- 	.ndo_stop = sun4ican_close,
- 	.ndo_start_xmit = sun4ican_start_xmit,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- static const struct ethtool_ops sun4ican_ethtool_ops = {
-diff --git a/drivers/net/can/ti_hecc.c b/drivers/net/can/ti_hecc.c
-index e6d6661a908a..1d3dbf28b105 100644
---- a/drivers/net/can/ti_hecc.c
-+++ b/drivers/net/can/ti_hecc.c
-@@ -829,7 +829,6 @@ static const struct net_device_ops ti_hecc_netdev_ops = {
- 	.ndo_open		= ti_hecc_open,
- 	.ndo_stop		= ti_hecc_close,
- 	.ndo_start_xmit		= ti_hecc_xmit,
--	.ndo_change_mtu		= can_change_mtu,
- };
- 
- static const struct ethtool_ops ti_hecc_ethtool_ops = {
-diff --git a/drivers/net/can/usb/ems_usb.c b/drivers/net/can/usb/ems_usb.c
-index 5355bac4dccb..de8e212a1366 100644
---- a/drivers/net/can/usb/ems_usb.c
-+++ b/drivers/net/can/usb/ems_usb.c
-@@ -885,7 +885,6 @@ static const struct net_device_ops ems_usb_netdev_ops = {
- 	.ndo_open = ems_usb_open,
- 	.ndo_stop = ems_usb_close,
- 	.ndo_start_xmit = ems_usb_start_xmit,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- static const struct ethtool_ops ems_usb_ethtool_ops = {
-diff --git a/drivers/net/can/usb/esd_usb.c b/drivers/net/can/usb/esd_usb.c
-index 9bc1824d7be6..08da507faef4 100644
---- a/drivers/net/can/usb/esd_usb.c
-+++ b/drivers/net/can/usb/esd_usb.c
-@@ -1011,7 +1011,6 @@ static const struct net_device_ops esd_usb_netdev_ops = {
- 	.ndo_open = esd_usb_open,
- 	.ndo_stop = esd_usb_close,
- 	.ndo_start_xmit = esd_usb_start_xmit,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- static const struct ethtool_ops esd_usb_ethtool_ops = {
-diff --git a/drivers/net/can/usb/etas_es58x/es58x_core.c b/drivers/net/can/usb/etas_es58x/es58x_core.c
-index adc91873c083..47d9e03f3044 100644
---- a/drivers/net/can/usb/etas_es58x/es58x_core.c
-+++ b/drivers/net/can/usb/etas_es58x/es58x_core.c
-@@ -1977,7 +1977,6 @@ static const struct net_device_ops es58x_netdev_ops = {
- 	.ndo_stop = es58x_stop,
- 	.ndo_start_xmit = es58x_start_xmit,
- 	.ndo_eth_ioctl = can_eth_ioctl_hwts,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- static const struct ethtool_ops es58x_ethtool_ops = {
-diff --git a/drivers/net/can/usb/f81604.c b/drivers/net/can/usb/f81604.c
-index e0cfa1460b0b..efe61ece79ea 100644
---- a/drivers/net/can/usb/f81604.c
-+++ b/drivers/net/can/usb/f81604.c
-@@ -1052,7 +1052,6 @@ static const struct net_device_ops f81604_netdev_ops = {
- 	.ndo_open = f81604_open,
- 	.ndo_stop = f81604_close,
- 	.ndo_start_xmit = f81604_start_xmit,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- static const struct can_bittiming_const f81604_bittiming_const = {
-diff --git a/drivers/net/can/usb/gs_usb.c b/drivers/net/can/usb/gs_usb.c
-index c9482d6e947b..aea35aa15a7c 100644
---- a/drivers/net/can/usb/gs_usb.c
-+++ b/drivers/net/can/usb/gs_usb.c
-@@ -1105,7 +1105,6 @@ static const struct net_device_ops gs_usb_netdev_ops = {
- 	.ndo_open = gs_can_open,
- 	.ndo_stop = gs_can_close,
- 	.ndo_start_xmit = gs_can_start_xmit,
--	.ndo_change_mtu = can_change_mtu,
- 	.ndo_eth_ioctl = gs_can_eth_ioctl,
- };
- 
-diff --git a/drivers/net/can/usb/kvaser_usb/kvaser_usb_core.c b/drivers/net/can/usb/kvaser_usb/kvaser_usb_core.c
-index 90e77fa0ff4a..89e22b66f919 100644
---- a/drivers/net/can/usb/kvaser_usb/kvaser_usb_core.c
-+++ b/drivers/net/can/usb/kvaser_usb/kvaser_usb_core.c
-@@ -786,7 +786,6 @@ static const struct net_device_ops kvaser_usb_netdev_ops = {
- 	.ndo_stop = kvaser_usb_close,
- 	.ndo_eth_ioctl = can_eth_ioctl_hwts,
- 	.ndo_start_xmit = kvaser_usb_start_xmit,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- static const struct ethtool_ops kvaser_usb_ethtool_ops = {
-diff --git a/drivers/net/can/usb/mcba_usb.c b/drivers/net/can/usb/mcba_usb.c
-index 1f9b915094e6..41c0a1c399bf 100644
---- a/drivers/net/can/usb/mcba_usb.c
-+++ b/drivers/net/can/usb/mcba_usb.c
-@@ -761,7 +761,6 @@ static const struct net_device_ops mcba_netdev_ops = {
- 	.ndo_open = mcba_usb_open,
- 	.ndo_stop = mcba_usb_close,
- 	.ndo_start_xmit = mcba_usb_start_xmit,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- static const struct ethtool_ops mcba_ethtool_ops = {
-diff --git a/drivers/net/can/usb/nct6694_canfd.c b/drivers/net/can/usb/nct6694_canfd.c
-index 8deff16491a1..dd6df2ec3742 100644
---- a/drivers/net/can/usb/nct6694_canfd.c
-+++ b/drivers/net/can/usb/nct6694_canfd.c
-@@ -690,7 +690,6 @@ static const struct net_device_ops nct6694_canfd_netdev_ops = {
- 	.ndo_open = nct6694_canfd_open,
- 	.ndo_stop = nct6694_canfd_close,
- 	.ndo_start_xmit = nct6694_canfd_start_xmit,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- static const struct ethtool_ops nct6694_canfd_ethtool_ops = {
-diff --git a/drivers/net/can/usb/peak_usb/pcan_usb_core.c b/drivers/net/can/usb/peak_usb/pcan_usb_core.c
-index c74302ca7cee..94b1d7f15d27 100644
---- a/drivers/net/can/usb/peak_usb/pcan_usb_core.c
-+++ b/drivers/net/can/usb/peak_usb/pcan_usb_core.c
-@@ -814,7 +814,6 @@ static const struct net_device_ops peak_usb_netdev_ops = {
- 	.ndo_stop = peak_usb_ndo_stop,
- 	.ndo_eth_ioctl = peak_eth_ioctl,
- 	.ndo_start_xmit = peak_usb_ndo_start_xmit,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- /* CAN-USB devices generally handle 32-bit CAN channel IDs.
-diff --git a/drivers/net/can/usb/ucan.c b/drivers/net/can/usb/ucan.c
-index 07406daf7c88..de61d9da99e3 100644
---- a/drivers/net/can/usb/ucan.c
-+++ b/drivers/net/can/usb/ucan.c
-@@ -1233,7 +1233,6 @@ static const struct net_device_ops ucan_netdev_ops = {
- 	.ndo_open = ucan_open,
- 	.ndo_stop = ucan_close,
- 	.ndo_start_xmit = ucan_start_xmit,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- static const struct ethtool_ops ucan_ethtool_ops = {
-diff --git a/drivers/net/can/usb/usb_8dev.c b/drivers/net/can/usb/usb_8dev.c
-index 8a5596ce4e46..7449328f7cd7 100644
---- a/drivers/net/can/usb/usb_8dev.c
-+++ b/drivers/net/can/usb/usb_8dev.c
-@@ -868,7 +868,6 @@ static const struct net_device_ops usb_8dev_netdev_ops = {
- 	.ndo_open = usb_8dev_open,
- 	.ndo_stop = usb_8dev_close,
- 	.ndo_start_xmit = usb_8dev_start_xmit,
--	.ndo_change_mtu = can_change_mtu,
- };
- 
- static const struct ethtool_ops usb_8dev_ethtool_ops = {
-diff --git a/drivers/net/can/xilinx_can.c b/drivers/net/can/xilinx_can.c
-index a25a3ca62c12..43d7f22820b8 100644
---- a/drivers/net/can/xilinx_can.c
-+++ b/drivers/net/can/xilinx_can.c
-@@ -1702,7 +1702,6 @@ static const struct net_device_ops xcan_netdev_ops = {
- 	.ndo_open	= xcan_open,
- 	.ndo_stop	= xcan_close,
- 	.ndo_start_xmit	= xcan_start_xmit,
--	.ndo_change_mtu	= can_change_mtu,
- };
- 
- static const struct ethtool_ops xcan_ethtool_ops = {
-diff --git a/include/linux/can/dev.h b/include/linux/can/dev.h
-index a2229a61ccde..0fe8f80f223e 100644
---- a/include/linux/can/dev.h
-+++ b/include/linux/can/dev.h
-@@ -127,7 +127,6 @@ struct can_priv *safe_candev_priv(struct net_device *dev);
- int open_candev(struct net_device *dev);
- void close_candev(struct net_device *dev);
- void can_set_default_mtu(struct net_device *dev);
--int can_change_mtu(struct net_device *dev, int new_mtu);
- int __must_check can_set_static_ctrlmode(struct net_device *dev,
- 					 u32 static_mode);
- int can_eth_ioctl_hwts(struct net_device *netdev, struct ifreq *ifr, int cmd);
-
----
-base-commit: 07fdad3a93756b872da7b53647715c48d0f4a2d0
-change-id: 20251003-remove-can_change_mtu-e0ec4c0bfeeb
-
-Best regards,
--- 
-Vincent Mailhol <mailhol@kernel.org>
+Thanks,
+Gavin
 
 
