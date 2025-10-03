@@ -4,117 +4,179 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67A76CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 03:54:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A2CCFCCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 05:04:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GqXBGsEvLB/eC0uyHIzRTOrZF87Gi56IDylcMc4Mqyk=; b=E+gENBYfz0GaXoyv18FS6/MtcY
-	KWOAHLELKKZEP6zHosSRT7iQm/Q0XdQoa1eGPhbChQ+ReVJAPMvkpz1PNaODosjki0/XmziTrjZxg
-	eI1aRGFuQR7LV7iwhJyO0kRcew8Xg9quRrbquGA29Wu9k3h3V+U0/gpY8/+QxMzgnw2NgZ31ljzsc
-	6OBzwB1yqyQs4r3msdCnkJmEijOXWZlrUPqSu1K6fRDtqbQlwnY2f1pMqrNFWUZUHvdO5ehi22Ssn
-	3XEqE3uWlmAMzVYTZW3g6xulhW8e9Jfx5+Fz5dekQmvcUZF129L3OKzyaOnK0RTs6yEP8/DwBeH7j
-	a0AOVoCA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iplH5jn4C0klpNNVCzIs9dMDCkQEOLLe2i1eeO4XarY=; b=yY03cBZBly1aMpdqkAtNMmS25T
+	8rj28ttSNiLoKVdOEdtaFoIM7Q2bz84BYTjJ6YE8g47CdgB3A8S8zOk0vC0KNuNRXcablJnLqj6bq
+	HJ9y91801aj8qAq3ES4I1yGb/7pU7P3q46tRrnf8ZpM942ENwEhyFU1ztdbfsSB/xqLZvUZ4M0WNH
+	3zYrpa3kd8T+3Z3wbKOD+TViXhv3TXucvNZq7WSsMNv6NE4vyY0nCyjRbTTjoZUOJ3lRo2L2EX63p
+	MN3TnNsmgL20j3AwA/21aPZhRwKGxQ8vJ8H1C6X24HwCZbmS6hoLGsQ//qIGatEve/9r0QyUuWb28
+	iCVQnCwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4Ws8-0000000BcPt-057q;
-	Fri, 03 Oct 2025 03:54:20 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1v4Xxv-0000000BgFq-3AJi;
+	Fri, 03 Oct 2025 05:04:23 +0000
+Received: from mail-southcentralusazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c10d::3] helo=SN4PR0501CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4Ws3-0000000BcP9-2lDC
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Oct 2025 03:54:18 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1759463653;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=GqXBGsEvLB/eC0uyHIzRTOrZF87Gi56IDylcMc4Mqyk=;
-	b=PAEcurTEUYztvPw10z0e8Hc91SQFPPTPaKuvz124+gEBBC90NhWBLRzLuZWRp9RPbtCYP1
-	K8ns08udLGNC9ZfXpzCPlHoF1wbFmkvw5eTKKYp2xqrEpBEM6TYhAOLy7vV0OTu/p7/7HB
-	07mvyNoptPaSVTZVabhfmSTB0q+JFCM=
-Received: from mail-pg1-f197.google.com (mail-pg1-f197.google.com
- [209.85.215.197]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-479-5C0IZFwOOcu6pab-In4Yrw-1; Thu, 02 Oct 2025 23:54:10 -0400
-X-MC-Unique: 5C0IZFwOOcu6pab-In4Yrw-1
-X-Mimecast-MFC-AGG-ID: 5C0IZFwOOcu6pab-In4Yrw_1759463649
-Received: by mail-pg1-f197.google.com with SMTP id 41be03b00d2f7-b5529da7771so1187597a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 02 Oct 2025 20:54:09 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759463648; x=1760068448;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=GqXBGsEvLB/eC0uyHIzRTOrZF87Gi56IDylcMc4Mqyk=;
-        b=CGT7iZl3SW6LZMXXaxRNwxQ+dCGA6JucOnItQgVVNdb2pdi3fWp6DMGVTJL+7ZM60q
-         z3dKWMmfG9n1l85xtkW+dPKwPafTAXWboJLAIzRy4UMYsLtzMhGK66TNW+nOdUC/WLb1
-         d8S7MDKGXn1I/UGe5a5SnsLD+d9iCDTWzCb4pS+kTdjwaoKcpeGvJ194h1BWExHyv5Zm
-         eSZ09cuGYl7G921TPrQNokkb5PB8Mo/n/sFrqEa+mHbvAdzT3AuPC4qFKtdoFmQgSZzO
-         3XK7ArSmkqQq6eHuZx/Q+bMT4Cc0YC5pTkYanHQYwXX7Vd3ElycVKdkhuj2ftI+Rx84H
-         W0pQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWiMJYnmt/X7ad9ROjVHGYQhbrbG4CGYKxRTvFWu98PtuEkUsDU2E6W81kBAG82g2TvmHviMYGuyt4vcNE5eAb0@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywr0s2zs30HTsITOIRaRcjjc9eOpBIy7joPDhS8doYFbw6vDxr4
-	ovjysomh8GG9QogQPSefTv3GMdKj1HL6/V4pBZp21FaRvJbjYunEDGat6vZPhVTWWOTL01R8cBh
-	KXqY1xvX2u+F1jTO+sMXzaTDvSHBn/uMtWiD65tGzlMggWZ5quLEgUiUOGBCy/3y9kGgj4OkCnn
-	+xxgOnleDD
-X-Gm-Gg: ASbGncvJ1bblCxY1VD4uQqR14ADUjlI7rE6uXW8lVkOY7okuTnqjuEgQy1+5pzrWQ/y
-	KVUUZWGbxr6+4lia2VUT0H66V4HhoQmV6VM9rY7PpvhCwr4Q9VgA0EM2Z3JMDB2VrDJ4qAYnYPd
-	B1e2Q/lUt5YgmsnV6CcOr2yZ8VUBmXubmJNUsQ0zXfUWrS1ynMmc06HpWjnyOKje9NV+zl1srxZ
-	3e35W1YlPoHufc4IGyFdQPOYSFvoNF/rSJpeRRN9+D5z6Oj2BpffWSo2NTX4N/2gJKzJbtho60x
-	4Xcv4Nrg6zwloy/w2+Y0RgutVRuEIFH5Xf+Okbmb7rpQI+DyN0U1hCAmckJ8i/JnZH2LQXZ8/qR
-	nIw6GhJxYzg==
-X-Received: by 2002:a05:6a21:32a8:b0:2fd:a3b:933d with SMTP id adf61e73a8af0-32b6212a95amr2324638637.58.1759463647693;
-        Thu, 02 Oct 2025 20:54:07 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEO1eVNkhxjeEpcrSCvF3IK8zgy7mUiMHjQ5jYBycjzCT0xV0FuBp/gmh5QAf2pAUHLGCkC3w==
-X-Received: by 2002:a05:6a21:32a8:b0:2fd:a3b:933d with SMTP id adf61e73a8af0-32b6212a95amr2324606637.58.1759463647199;
-        Thu, 02 Oct 2025 20:54:07 -0700 (PDT)
-Received: from [192.168.68.51] (n175-34-62-5.mrk21.qld.optusnet.com.au. [175.34.62.5])
-        by smtp.gmail.com with ESMTPSA id 41be03b00d2f7-b6099add290sm3271259a12.6.2025.10.02.20.53.56
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 02 Oct 2025 20:54:06 -0700 (PDT)
-Message-ID: <29886bb9-bca3-4f26-ae31-a339b8d001f1@redhat.com>
-Date: Fri, 3 Oct 2025 13:53:54 +1000
-MIME-Version: 1.0
+	id 1v4Xxs-0000000BgE7-1cYf;
+	Fri, 03 Oct 2025 05:04:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZmnvLqQJoPH6PjcpyXkHZzqsEBFfrHe0BVPWwEdgYEmlJK9XGZYTSmbWQbBPGCCQoF1HS5HYqm9soumGUOWXMAvXTkVVzlXWDcdY4BC3XX/bPFUtWo9Sgr4Mh8XAHkKZRIGmD+fYLdc32PkCowglJtoHO4cR+3bPrD88V5Qm8wIBcL0l25XRR10vTm9XWYKNHNfBfVZfFPD90aQXmJZoB9MnINMGMWAo/GjmknUYDqu0s/2qxhIKjKhkGSPc27lHxjIBUoc2GzcNEyb5KxNGvk5KxM1qIfyM3Tv2oq0vHiHdFcgRCdVdiuaTpbeIHmeXPHFV09BCzdKPA0fEn+cclw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=iplH5jn4C0klpNNVCzIs9dMDCkQEOLLe2i1eeO4XarY=;
+ b=vdgbh3Gp9yFbWD4rJGqZpviupTcgFHFRHQo4y7XG4awCqVb9kfzHOtnBeyCHaJJA0to4xsuTCbnJ5LewkSOf1Y9twNdo//1y35GMhUNhlfAzoyRAXLZr2g4OBZa/3O6NT0EL4GSFrb+oIX/aH3tk3bT8Fr2HyF7IefJqW1IV6p7SlqPR653Q+VixvtNoUfkNPCljQPay+PR5b03Jv1J06WwY74D2qaICVIqblj0pjoslvJ1KpU5thdsKoM6N3Z641/gunYqspyJtagDAtMgddPdmq5z5KAc/CnIzV/9/+Krug9XrED2YKnLBRlLWmz8hLasDjZGzZ/+cTUrNWjNJEg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=iplH5jn4C0klpNNVCzIs9dMDCkQEOLLe2i1eeO4XarY=;
+ b=dNwffRs5+LA+dIMsnCJDDcCNynYbNF5HU90An3uQvFIAeVfRPPlm67Ff9SERr26VTJBXtlKzDGSxjS1PT6wbnaWuza7FuvqC3mh+cET+TOzcbYdioq0yyNBSdlpc7Bg8TFuqm9rp03wbMQucHiINJN1289+fff5Tr52Swcv8v3Q=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from PH7PR12MB5712.namprd12.prod.outlook.com (2603:10b6:510:1e3::13)
+ by LV2PR12MB5989.namprd12.prod.outlook.com (2603:10b6:408:171::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9160.18; Fri, 3 Oct
+ 2025 05:04:05 +0000
+Received: from PH7PR12MB5712.namprd12.prod.outlook.com
+ ([fe80::2efc:dc9f:3ba8:3291]) by PH7PR12MB5712.namprd12.prod.outlook.com
+ ([fe80::2efc:dc9f:3ba8:3291%6]) with mapi id 15.20.9160.017; Fri, 3 Oct 2025
+ 05:04:04 +0000
+Message-ID: <bd144177-94e6-49b2-8c9e-b5edbaa42aeb@amd.com>
+Date: Fri, 3 Oct 2025 10:33:43 +0530
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 07/29] arm_mpam: Add probe/remove for mpam msc driver
- and kbuild boiler plate
-To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
-Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- fenghuay@nvidia.com, baisheng.gao@unisoc.com,
- Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
- <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>
-References: <20250910204309.20751-1-james.morse@arm.com>
- <20250910204309.20751-8-james.morse@arm.com>
-From: Gavin Shan <gshan@redhat.com>
-In-Reply-To: <20250910204309.20751-8-james.morse@arm.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: r7-HBwnNZld7IhuuRHiDYgjw2DjGwE6CMlgeOSBkDis_1759463649
-X-Mimecast-Originator: redhat.com
+Subject: Re: [PATCH v5 32/44] KVM: x86/pmu: Disable interception of select PMU
+ MSRs for mediated vPMUs
+To: Sean Christopherson <seanjc@google.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+ Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>,
+ Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ kvm@vger.kernel.org, loongarch@lists.linux.dev,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ Kan Liang <kan.liang@linux.intel.com>, Yongwei Ma <yongwei.ma@intel.com>,
+ Mingwei Zhang <mizhang@google.com>,
+ Xiong Zhang <xiong.y.zhang@linux.intel.com>,
+ Sandipan Das <sandipan.das@amd.com>, Dapeng Mi <dapeng1.mi@linux.intel.com>
+References: <20250806195706.1650976-1-seanjc@google.com>
+ <20250806195706.1650976-33-seanjc@google.com>
+ <f896966e-8925-4b4f-8f0d-f1ae8aa197f7@amd.com> <aN1vfykNs8Dmv_g0@google.com>
 Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Sandipan Das <sandidas@amd.com>
+In-Reply-To: <aN1vfykNs8Dmv_g0@google.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: MA0PR01CA0091.INDPRD01.PROD.OUTLOOK.COM
+ (2603:1096:a01:ae::14) To PH7PR12MB5712.namprd12.prod.outlook.com
+ (2603:10b6:510:1e3::13)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH7PR12MB5712:EE_|LV2PR12MB5989:EE_
+X-MS-Office365-Filtering-Correlation-Id: 65c033f2-89d6-4143-610e-08de023a4632
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?bVp2UEQ3UkRVNk5VKzZWZUtrK1l5OXFVVUMraCtOSUZOdisxQ0pQZXo0bUlt?=
+ =?utf-8?B?YXE0aytESTloZkhkTm5HRHByTk5JYUZEaEpWQWNuRzBlNThqWWYraUNpOU45?=
+ =?utf-8?B?K0Q1alNJR2FLSGlCeklHV25TZld0bmI0Yk1mMnVRWCtCclJiWGNCK0dqUjRM?=
+ =?utf-8?B?NGFtenNKZS9WZjUwdVNMeDcrWHVhbm5yd3JkdHFveGRmVWZFTzl4UkVtUy9v?=
+ =?utf-8?B?dWxtQXd2QVFpWklXQWNFM0xYWXRIM0RsLzlhT2U4cVBGNHBYb1dDYXVLN1ZS?=
+ =?utf-8?B?SDJlU2t6NTBWZy9VYU1HTWZZdlorQUxiWjdMakthZnNXUmVVQUx3R1pXYUJv?=
+ =?utf-8?B?Wk9maW02VGgyNzZoSGtTa0h3aU5YSDdZdStRQk42c0VOUkRjR3NyVGdTQ0JD?=
+ =?utf-8?B?Y3JZNGI5a2hIYytqSjVpYnhJa1RiSGx1WG0yTm9mRFhzbytmaFdNZ1BaWU4w?=
+ =?utf-8?B?YTZGRWxBbW05S0prWGVCL2lzdjBURkw3K0JpVG5WRjkzdWlSLzkzVmFGK0hI?=
+ =?utf-8?B?U256VEI4eSthOXRuQmFucFpoZU9BWWdzMUM1RVBpQUFDdjBoOFdMcG1ybEp4?=
+ =?utf-8?B?WC9IQ3BZMzI2WlFSTUtPQjBuUUhSaDR5TVM5TEVrNGtVZGR5R3FDNGZvNWZl?=
+ =?utf-8?B?ZDZoaStXQ0xSWExwMXZWeFhGaGxvSXVzUnZNRmRGL21XWG0zcXNjS2U5THFv?=
+ =?utf-8?B?UmdsS2szcEhNRVJoWjU3SU5UWFVyUGdEcmYxdkUwUE5hVDZ2SWNzVFhIY0xk?=
+ =?utf-8?B?QjRRMVE3cE43aU5QcXduZ3BIbVBtbzl2SWhkQVh6VU9JSUxsSWlDd1RrOGIv?=
+ =?utf-8?B?Vm9uMGE2T2h2eXQvNUVjQWF2SmhlZEhaUEZpNlMvUDlQWXRVeVkvWkhqUHhh?=
+ =?utf-8?B?QXNvSjJvTCthSVc1THUvZUtlbVJQdGxxdWxiUzVVVjBHKzhaNk41dGhrNGpN?=
+ =?utf-8?B?MHRtemhKV2hwTUE3R0gyaDhhU20wcldFTmNDZWZDTzg3Q28yZ2Y0bUhMaDVx?=
+ =?utf-8?B?RTN6Q3gvaGsxMXBMMnhvQ1UxdDN3SFI1VlQyWUFYbGZWeWwzTWZYOTZldnBP?=
+ =?utf-8?B?cFZzWU1pQlJRbWhlcUVTZ1liZDNTTHVzWE5iZUo4MkJKc1p2d0FsMlNWR21v?=
+ =?utf-8?B?QTJVcHp4WkZzaU10MTI5cTFVd3d6cmk0WTdRVGcyQTNSRkhpUmNxdW5Qb2Ux?=
+ =?utf-8?B?THdsdTYwa0UzYkpHWHpSbzl2c0p1UGtXN1dTVjdSQ3lnWE1CNHVJVnE5aU1a?=
+ =?utf-8?B?NkU4SVRhRHZMTFlybkgwcWRyRlVGbW1LaEU1S2VITHhyajZoUUhsS0R6UU5s?=
+ =?utf-8?B?VHhaRElybWJhQWdTL0tGSUEwQkNyaEpqNk1Hb3RKUGxtVFNhWi9UUUg5L2gy?=
+ =?utf-8?B?TW52OHBkREs0eVN5bVMzQlhOUFcrdnQ3R0tOSDZwN2FrU1pJTi9vWUZHK2Jo?=
+ =?utf-8?B?NmNyeWg4blYvTkdRRTBrRGNpVFlWdldTZTlodWxnU3ExVEZJOHUzVWVocEt4?=
+ =?utf-8?B?MnRiZXdFbnRSQ0FPckZ5Uzhna0lseDE4UmVMUnp4c1hvT210ajZGa0k4Z2o3?=
+ =?utf-8?B?Y0t0RzdaUnFYd0lhWGhzcU96Z3RVWjdvWHVtNTNrTUZicUpzR1hYdUhlbUpF?=
+ =?utf-8?B?TG5PVEJzcFIrMC9hYVJud1p5MFRWS01QbmhuYndkMG1RZlNOTW1hSlVOL0Fp?=
+ =?utf-8?B?MGhnZnBRR3VqMERjTU9xbDNucFNlN3oyUC9UMG0wQmRVT2VQWjc5eGhrMnZ6?=
+ =?utf-8?B?UklQemI0T2ZaMm1BeitWWGEvemhIZnhueVBTVXdtQitBUHRZQkwxRkF0NkFv?=
+ =?utf-8?B?dC90d0hpQVVUTFV4WkhoUC9WTkZQb3JLanAzQmpYRmdKbnpGNC9sRzlybUNV?=
+ =?utf-8?B?enZ2V2VSSEs5QU8xQ1ZINUk5RzNORWgyeW9LRGthWWF3SVFpQTdqaU4yZm56?=
+ =?utf-8?Q?IOKUBlLsm9RZmsfMOxp8tXAeRHuEOGN9?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5712.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?eXpwbzc0L1c0ZGlTYW41UFMrQlp5eEk0dDJVZ0xYUEtadmdIZE5PVTFrNXNw?=
+ =?utf-8?B?VzExK0pVd0E1RnFOWjk5OVFwUml6Q0tqRGIwODZTU0dQVkt4VE9rWWV6eEF4?=
+ =?utf-8?B?U2pDeXI3VFRydFd1MjF1VFUydE10MmZCY2Y1Z3VwY1phdzBwbkVzektEdUJW?=
+ =?utf-8?B?Mnp4WWEyd3hKajB0anVtNlpCdldQUjFwSktPWktkVkRtR1h3cElTSWVBVlJ3?=
+ =?utf-8?B?UzNLSXk5YkNUTUh5SHlPeTdabHBQNy9HZGc2WGR3R09Ob1RIUGI5dSt1R3FF?=
+ =?utf-8?B?ZGg4VXprNzd2QTVkckNvaGZIWVIrTjJRaTRwcytueDRtMG5LSmdxSktlM0gy?=
+ =?utf-8?B?WDlRbC9wdkxieExTYytIN1cxU3VldFJzcHhtaldFa1NGdi9Mb3BXZC83THI1?=
+ =?utf-8?B?NGRxMjFpSzZPYnQ2WEpoRVBGQ2REZ0lab0cyWWQ0Z0lkVEVrMUEvVnhaaCt3?=
+ =?utf-8?B?WXZ0aWZ5NVFhNVFscTNmY3hwdW1TNStPMjRjZjF5bklFR0N2NWhOU0ZRMEll?=
+ =?utf-8?B?U2hSbEJBS1JsVW1UUWp4QWl6eFU5TzRWbjk3bGFqM21vTUNpRHlxZUZUN0pw?=
+ =?utf-8?B?NUt5VkJsYnMyN1dsUFdnWk9LajhtZHUyMXU1emtRalMyblROZm9Qa1hnM1pN?=
+ =?utf-8?B?YWt1WFZzMGlHSFFvNFA4Sjd1UFc5R3B3YlUxWko1Q2VOdVR0SzlkK3BlV3JM?=
+ =?utf-8?B?UmlZUHpmNGRETC8vdFRjMVc0aDVKMC82T3NWaEtHSUxRcDVQR3VYMjZDT3kr?=
+ =?utf-8?B?UW5RbnlEQmZ0LzNtelhRclZjZzdtYVpwTmI5anEyWnBjWGl5R0xWekt3ZDVz?=
+ =?utf-8?B?STR2TzREQmkxVEhnZzkyMkwrTDZpcjIrb1BxTVpuOXprWlRKZzJFZVlWS1M5?=
+ =?utf-8?B?TWFxRDJ4bldGaU5veVdMNXJOS3dESEJxVVE2bnlSOVJsWTdWYTFqc1FZRG1I?=
+ =?utf-8?B?VWVTenlRZGJqRy9xUmljSTZmVTFNc2diYzlMM2JUUER4QXI3SW5mWmU2RnJV?=
+ =?utf-8?B?QmcyaFlGamR3YWZONTl2T1lXMkVwNWVzRzNPQUtqbGx1QzlqWHE2TWRxbXNW?=
+ =?utf-8?B?bkM2TWljbld4a2kxVlNwbnY0VllzUnI2aHBhREtEMWpSNG9qdENodEQyQTdu?=
+ =?utf-8?B?T1JEYzJOMnBMb1ZiODhRSmR1V3JucVRHOGdjdFZ6SWQzUytUNm5QRGlGT3dV?=
+ =?utf-8?B?ZHdCSmhXZk11ZEZvZ3E5VnhnOVQwKzdndkFaMVU5eW8xdnladzREV3dId0tG?=
+ =?utf-8?B?Uk12cW1zeHFOV2VGRjdEVHdLSkRYa25YbDVnZk13bXFWYkxpOWdhU1N4cDdp?=
+ =?utf-8?B?ZGFpNnUwcSt0UHZuN3pBOTRUcm9tdmZzU3lnRnY1OFdDbTFnaHlOQlV2d0Jh?=
+ =?utf-8?B?NGRWMzR6bWc2ZFprTWQraGx6WVVTaGVCWjVwcmF4ME8rb3NoOFd0N01hVmRj?=
+ =?utf-8?B?TG5IQ3hGbzNIUnd5SGsyaytqWnhQRFVkL0NEWERITUdza3dzUTdxd1k3eENu?=
+ =?utf-8?B?OTRsSVhCeTk0Umg4ZE5Kd3VjR0NvRW1iTFBKL3E1TjYzaWdtc0loSkp0SUsv?=
+ =?utf-8?B?Tit6cFdic09ZSUJIU1lGZldYQlFHK2dhUGtBbHdkNk9RRDhqbTM2YmJXcTJI?=
+ =?utf-8?B?d3JSQnN6NHVOUGFrc0dUQWtsV0w2d3BmU2lOcDRSRm1PT29GUzU4anBqSVFp?=
+ =?utf-8?B?YkdEOUpKRkVGV3RHRUhsVEJrRERVRyt0eFBPVzF5SkUrTnhlZFpPUFpjNDVP?=
+ =?utf-8?B?R3E0ditlMTNkWjFzcFZpRVRWeWVlOGMzZlFOS1lHSm0rYXVxYVM5U1VwSU5R?=
+ =?utf-8?B?VGh4TE53VG9oNTFnOXJ2OCtrV25sZkZwb2xkckFhbU5GVm40bHEwbVF0NnhK?=
+ =?utf-8?B?ODViUUlXaFRoaVF4bDF2VlRsc3JDUXdEaHN5dXd0NjNyZ0k3Ly9JK2RuUXVl?=
+ =?utf-8?B?akNmN2tMdm9WTHgwU0Q1SUtGeVo4ckNXWFdtQXBBYzArYjVaWUMxZDY5RVRs?=
+ =?utf-8?B?QWZYQUJyM0ljcHE1MXpha2JUY2FnQUxRamg0VTJUQUJ0YWJzZ0ExZWk4N3k1?=
+ =?utf-8?B?dE1palRRL2Y1cDJYVEJRaU9sODJvN1J4TC9TTGoxck0wZTZhSjhhZFdBbGtL?=
+ =?utf-8?Q?pvW0351KuCOmuyN4OUOboxpDi?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 65c033f2-89d6-4143-610e-08de023a4632
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5712.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 03 Oct 2025 05:04:04.6435
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: WSYiXZXU/+Js+nYnbGsNH396/VpLDn+SsYlivjFMDLKwA68AxYMyyLRWBUnrq5wubBY8CVyZUeiFUDXjKOXjFA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: LV2PR12MB5989
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251002_205415_863125_0B36205F 
-X-CRM114-Status: GOOD (  43.26  )
+X-CRM114-CacheID: sfid-20251002_220421_042135_1062A072 
+X-CRM114-Status: GOOD (  23.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -129,384 +191,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
-
-On 9/11/25 6:42 AM, James Morse wrote:
-> Probing MPAM is convoluted. MSCs that are integrated with a CPU may
-> only be accessible from those CPUs, and they may not be online.
-> Touching the hardware early is pointless as MPAM can't be used until
-> the system-wide common values for num_partid and num_pmg have been
-> discovered.
+On 10/1/2025 11:44 PM, Sean Christopherson wrote:
+> On Fri, Sep 26, 2025, Sandipan Das wrote:
+>> On 8/7/2025 1:26 AM, Sean Christopherson wrote:
+>>> From: Dapeng Mi <dapeng1.mi@linux.intel.com>
+>>>
+>>> For vCPUs with a mediated vPMU, disable interception of counter MSRs for
+>>> PMCs that are exposed to the guest, and for GLOBAL_CTRL and related MSRs
+>>> if they are fully supported according to the vCPU model, i.e. if the MSRs
+>>> and all bits supported by hardware exist from the guest's point of view.
+>>>
+>>> Do NOT passthrough event selector or fixed counter control MSRs, so that
+>>> KVM can enforce userspace-defined event filters, e.g. to prevent use of
+>>> AnyThread events (which is unfortunately a setting in the fixed counter
+>>> control MSR).
+>>>
+>>> Defer support for nested passthrough of mediated PMU MSRs to the future,
+>>> as the logic for nested MSR interception is unfortunately vendor specific.
 > 
-> Start with driver probe/remove and mapping the MSC.
+> ...
 > 
-> CC: Carl Worth <carl@os.amperecomputing.com>
-> Signed-off-by: James Morse <james.morse@arm.com>
-> ---
-> Changes since v1:
->   * Avoid selecting driver on other architectrues.
->   * Removed PCC support stub.
->   * Use for_each_available_child_of_node_scoped() and of_property_read_reg()
->   * Clarified a comment.
->   * Stopped using mpam_num_msc as an id,a and made it atomic.
->   * Size of -1 returned from cache_of_calculate_id()
->   * Renamed some struct members.
->   * Made a bunch of pr_err() dev_err_ocne().
->   * Used more cleanup magic.
->   * Inlined a print message.
->   * Fixed error propagation from mpam_dt_parse_resources().
->   * Moved cache accessibility checks earlier.
+>>>  #define MSR_AMD64_LBR_SELECT			0xc000010e
+>>> diff --git a/arch/x86/kvm/pmu.c b/arch/x86/kvm/pmu.c
+>>> index 4246e1d2cfcc..817ef852bdf9 100644
+>>> --- a/arch/x86/kvm/pmu.c
+>>> +++ b/arch/x86/kvm/pmu.c
+>>> @@ -715,18 +715,14 @@ int kvm_pmu_rdpmc(struct kvm_vcpu *vcpu, unsigned idx, u64 *data)
+>>>  	return 0;
+>>>  }
+>>>  
+>>> -bool kvm_need_rdpmc_intercept(struct kvm_vcpu *vcpu)
+>>> +bool kvm_need_perf_global_ctrl_intercept(struct kvm_vcpu *vcpu)
+>>>  {
+>>>  	struct kvm_pmu *pmu = vcpu_to_pmu(vcpu);
+>>>  
+>>>  	if (!kvm_vcpu_has_mediated_pmu(vcpu))
+>>>  		return true;
+>>>  
+>>> -	/*
+>>> -	 * VMware allows access to these Pseduo-PMCs even when read via RDPMC
+>>> -	 * in Ring3 when CR4.PCE=0.
+>>> -	 */
+>>> -	if (enable_vmware_backdoor)
+>>> +	if (!kvm_pmu_has_perf_global_ctrl(pmu))
+>>>  		return true;
+>>>  
+>>>  	/*
+>>> @@ -735,7 +731,22 @@ bool kvm_need_rdpmc_intercept(struct kvm_vcpu *vcpu)
+>>>  	 * capabilities themselves may be a subset of hardware capabilities.
+>>>  	 */
+>>>  	return pmu->nr_arch_gp_counters != kvm_host_pmu.num_counters_gp ||
+>>> -	       pmu->nr_arch_fixed_counters != kvm_host_pmu.num_counters_fixed ||
+>>> +	       pmu->nr_arch_fixed_counters != kvm_host_pmu.num_counters_fixed;
+>>> +}
+>>> +EXPORT_SYMBOL_GPL(kvm_need_perf_global_ctrl_intercept);
+>>> +
+>>> +bool kvm_need_rdpmc_intercept(struct kvm_vcpu *vcpu)
+>>> +{
+>>> +	struct kvm_pmu *pmu = vcpu_to_pmu(vcpu);
+>>> +
+>>> +	/*
+>>> +	 * VMware allows access to these Pseduo-PMCs even when read via RDPMC
+>>> +	 * in Ring3 when CR4.PCE=0.
+>>> +	 */
+>>> +	if (enable_vmware_backdoor)
+>>> +		return true;
+>>> +
+>>> +	return kvm_need_perf_global_ctrl_intercept(vcpu) ||
+>>>  	       pmu->counter_bitmask[KVM_PMC_GP] != (BIT_ULL(kvm_host_pmu.bit_width_gp) - 1) ||
+>>>  	       pmu->counter_bitmask[KVM_PMC_FIXED] != (BIT_ULL(kvm_host_pmu.bit_width_fixed) - 1);
+>>>  }
+>>
+>> There is a case for AMD processors where the global MSRs are absent in the guest
+>> but the guest still uses the same number of counters as what is advertised by the
+>> host capabilities. So RDPMC interception is not necessary for all cases where
+>> global control is unavailable.o
 > 
-> Changes since RFC:
->   * Check for status=broken DT devices.
->   * Moved all the files around.
->   * Made Kconfig symbols depend on EXPERT
-> ---
->   arch/arm64/Kconfig              |   1 +
->   drivers/Kconfig                 |   2 +
->   drivers/Makefile                |   1 +
->   drivers/resctrl/Kconfig         |  14 +++
->   drivers/resctrl/Makefile        |   4 +
->   drivers/resctrl/mpam_devices.c  | 180 ++++++++++++++++++++++++++++++++
->   drivers/resctrl/mpam_internal.h |  65 ++++++++++++
->   7 files changed, 267 insertions(+)
->   create mode 100644 drivers/resctrl/Kconfig
->   create mode 100644 drivers/resctrl/Makefile
->   create mode 100644 drivers/resctrl/mpam_devices.c
->   create mode 100644 drivers/resctrl/mpam_internal.h
+> Hmm, I think Intel would be the same?  Ah, no, because the host will have fixed
+> counters, but the guest will not.  However, that's not directly related to
+> kvm_pmu_has_perf_global_ctrl(), so I think this would be correct?
 > 
-> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-> index 6487c511bdc6..93e563e1cce4 100644
-> --- a/arch/arm64/Kconfig
-> +++ b/arch/arm64/Kconfig
-> @@ -2062,6 +2062,7 @@ config ARM64_TLB_RANGE
->   
->   config ARM64_MPAM
->   	bool "Enable support for MPAM"
-> +	select ARM64_MPAM_DRIVER if EXPERT
->   	select ACPI_MPAM if ACPI
->   	help
->   	  Memory System Resource Partitioning and Monitoring (MPAM) is an
-> diff --git a/drivers/Kconfig b/drivers/Kconfig
-> index 4915a63866b0..3054b50a2f4c 100644
-> --- a/drivers/Kconfig
-> +++ b/drivers/Kconfig
-> @@ -251,4 +251,6 @@ source "drivers/hte/Kconfig"
->   
->   source "drivers/cdx/Kconfig"
->   
-> +source "drivers/resctrl/Kconfig"
+> diff --git a/arch/x86/kvm/pmu.c b/arch/x86/kvm/pmu.c
+> index 4414d070c4f9..4c5b2712ee4c 100644
+> --- a/arch/x86/kvm/pmu.c
+> +++ b/arch/x86/kvm/pmu.c
+> @@ -744,16 +744,13 @@ int kvm_pmu_rdpmc(struct kvm_vcpu *vcpu, unsigned idx, u64 *data)
+>         return 0;
+>  }
+>  
+> -bool kvm_need_perf_global_ctrl_intercept(struct kvm_vcpu *vcpu)
+> +static bool kvm_need_pmc_intercept(struct kvm_vcpu *vcpu)
+>  {
+>         struct kvm_pmu *pmu = vcpu_to_pmu(vcpu);
+>  
+>         if (!kvm_vcpu_has_mediated_pmu(vcpu))
+>                 return true;
+>  
+> -       if (!kvm_pmu_has_perf_global_ctrl(pmu))
+> -               return true;
+> -
+>         /*
+>          * Note!  Check *host* PMU capabilities, not KVM's PMU capabilities, as
+>          * KVM's capabilities are constrained based on KVM support, i.e. KVM's
+> @@ -762,6 +759,13 @@ bool kvm_need_perf_global_ctrl_intercept(struct kvm_vcpu *vcpu)
+>         return pmu->nr_arch_gp_counters != kvm_host_pmu.num_counters_gp ||
+>                pmu->nr_arch_fixed_counters != kvm_host_pmu.num_counters_fixed;
+>  }
 > +
->   endmenu
-> diff --git a/drivers/Makefile b/drivers/Makefile
-> index b5749cf67044..f41cf4eddeba 100644
-> --- a/drivers/Makefile
-> +++ b/drivers/Makefile
-> @@ -194,5 +194,6 @@ obj-$(CONFIG_HTE)		+= hte/
->   obj-$(CONFIG_DRM_ACCEL)		+= accel/
->   obj-$(CONFIG_CDX_BUS)		+= cdx/
->   obj-$(CONFIG_DPLL)		+= dpll/
-> +obj-y				+= resctrl/
->   
->   obj-$(CONFIG_S390)		+= s390/
-> diff --git a/drivers/resctrl/Kconfig b/drivers/resctrl/Kconfig
-> new file mode 100644
-> index 000000000000..c30532a3a3a4
-> --- /dev/null
-> +++ b/drivers/resctrl/Kconfig
-> @@ -0,0 +1,14 @@
-> +menuconfig ARM64_MPAM_DRIVER
-> +	bool "MPAM driver"
-> +	depends on ARM64 && ARM64_MPAM && EXPERT
-> +	help
-> +	  MPAM driver for System IP, e,g. caches and memory controllers.
-> +
-> +if ARM64_MPAM_DRIVER
-> +config ARM64_MPAM_DRIVER_DEBUG
-> +	bool "Enable debug messages from the MPAM driver"
-> +	depends on ARM64_MPAM_DRIVER
-> +	help
-> +	  Say yes here to enable debug messages from the MPAM driver.
-> +
-> +endif
-> diff --git a/drivers/resctrl/Makefile b/drivers/resctrl/Makefile
-> new file mode 100644
-> index 000000000000..92b48fa20108
-> --- /dev/null
-> +++ b/drivers/resctrl/Makefile
-> @@ -0,0 +1,4 @@
-> +obj-$(CONFIG_ARM64_MPAM_DRIVER)			+= mpam.o
-> +mpam-y						+= mpam_devices.o
-> +
-> +cflags-$(CONFIG_ARM64_MPAM_DRIVER_DEBUG)	+= -DDEBUG
-> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
-> new file mode 100644
-> index 000000000000..efc4738e3b4d
-> --- /dev/null
-> +++ b/drivers/resctrl/mpam_devices.c
-> @@ -0,0 +1,180 @@
-> +// SPDX-License-Identifier: GPL-2.0
-> +// Copyright (C) 2025 Arm Ltd.
-> +
-> +#define pr_fmt(fmt) "%s:%s: " fmt, KBUILD_MODNAME, __func__
-> +
-> +#include <linux/acpi.h>
-> +#include <linux/arm_mpam.h>
-> +#include <linux/cacheinfo.h>
-> +#include <linux/cpu.h>
-> +#include <linux/cpumask.h>
-> +#include <linux/device.h>
-> +#include <linux/errno.h>
-> +#include <linux/gfp.h>
-> +#include <linux/list.h>
-> +#include <linux/lockdep.h>
-> +#include <linux/mutex.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/printk.h>
-> +#include <linux/slab.h>
-> +#include <linux/spinlock.h>
-> +#include <linux/srcu.h>
-> +#include <linux/types.h>
-> +
-> +#include "mpam_internal.h"
-> +
-> +/*
-> + * mpam_list_lock protects the SRCU lists when writing. Once the
-> + * mpam_enabled key is enabled these lists are read-only,
-> + * unless the error interrupt disables the driver.
-> + */
-> +static DEFINE_MUTEX(mpam_list_lock);
-> +static LIST_HEAD(mpam_all_msc);
-> +
-> +static struct srcu_struct mpam_srcu;
-> +
-> +/*
-> + * Number of MSCs that have been probed. Once all MSC have been probed MPAM
-> + * can be enabled.
-> + */
-> +static atomic_t mpam_num_msc;
-> +
-> +/*
-> + * An MSC can control traffic from a set of CPUs, but may only be accessible
-> + * from a (hopefully wider) set of CPUs. The common reason for this is power
-> + * management. If all the CPUs in a cluster are in PSCI:CPU_SUSPEND, the
-> + * corresponding cache may also be powered off. By making accesses from
-> + * one of those CPUs, we ensure this isn't the case.
-> + */
-> +static int update_msc_accessibility(struct mpam_msc *msc)
+> +bool kvm_need_perf_global_ctrl_intercept(struct kvm_vcpu *vcpu)
 > +{
-> +	u32 affinity_id;
-> +	int err;
 > +
-> +	err = device_property_read_u32(&msc->pdev->dev, "cpu_affinity",
-> +				       &affinity_id);
-> +	if (err)
-> +		cpumask_copy(&msc->accessibility, cpu_possible_mask);
-> +	else
-> +		acpi_pptt_get_cpus_from_container(affinity_id,
-> +						  &msc->accessibility);
-> +
-> +	return 0;
-> +
-> +	return err;
+> +       return kvm_need_pmc_intercept(vcpu) ||
+> +              !kvm_pmu_has_perf_global_ctrl(vcpu_to_pmu(vcpu));
 > +}
-> +
+>  EXPORT_SYMBOL_GPL(kvm_need_perf_global_ctrl_intercept);
+>  
+>  bool kvm_need_rdpmc_intercept(struct kvm_vcpu *vcpu)
+> @@ -775,7 +779,7 @@ bool kvm_need_rdpmc_intercept(struct kvm_vcpu *vcpu)
+>         if (enable_vmware_backdoor)
+>                 return true;
+>  
+> -       return kvm_need_perf_global_ctrl_intercept(vcpu) ||
+> +       return kvm_need_pmc_intercept(vcpu) ||
+>                pmu->counter_bitmask[KVM_PMC_GP] != (BIT_ULL(kvm_host_pmu.bit_width_gp) - 1) ||
+>                pmu->counter_bitmask[KVM_PMC_FIXED] != (BIT_ULL(kvm_host_pmu.bit_width_fixed) - 1);
+>  }
 
-Double return here and different values have been returned. I think here we
-need "return err". In this case, we needn't copy @cpu_possible_mask on error
-because the caller mpam_msc_drv_probe() will release the MSC instance.
-
-> +static int fw_num_msc;
-> +
-> +static void mpam_msc_drv_remove(struct platform_device *pdev)
-> +{
-> +	struct mpam_msc *msc = platform_get_drvdata(pdev);
-> +
-> +	if (!msc)
-> +		return;
-> +
-> +	mutex_lock(&mpam_list_lock);
-> +	platform_set_drvdata(pdev, NULL);
-> +	list_del_rcu(&msc->all_msc_list);
-> +	synchronize_srcu(&mpam_srcu);
-> +	mutex_unlock(&mpam_list_lock);
-> +}
-> +
-> +static int mpam_msc_drv_probe(struct platform_device *pdev)
-> +{
-> +	int err;
-> +	struct mpam_msc *msc;
-> +	struct resource *msc_res;
-> +	struct device *dev = &pdev->dev;
-> +	void *plat_data = pdev->dev.platform_data;
-> +
-> +	mutex_lock(&mpam_list_lock);
-> +	do {
-> +		msc = devm_kzalloc(&pdev->dev, sizeof(*msc), GFP_KERNEL);
-> +		if (!msc) {
-> +			err = -ENOMEM;
-> +			break;
-> +		}
-> +
-> +		mutex_init(&msc->probe_lock);
-> +		mutex_init(&msc->part_sel_lock);
-> +		mutex_init(&msc->outer_mon_sel_lock);
-> +		raw_spin_lock_init(&msc->inner_mon_sel_lock);
-> +		msc->id = pdev->id;
-> +		msc->pdev = pdev;
-> +		INIT_LIST_HEAD_RCU(&msc->all_msc_list);
-> +		INIT_LIST_HEAD_RCU(&msc->ris);
-> +
-> +		err = update_msc_accessibility(msc);
-> +		if (err)
-> +			break;
-> +		if (cpumask_empty(&msc->accessibility)) {
-> +			dev_err_once(dev, "MSC is not accessible from any CPU!");
-> +			err = -EINVAL;
-> +			break;
-> +		}
-> +
-
-This check (cpumask_empty()) would be part of update_msc_accessibility() since
-msc->accessibility is sorted out in that function where it should be validated.
-
-> +		if (device_property_read_u32(&pdev->dev, "pcc-channel",
-> +					     &msc->pcc_subspace_id))
-> +			msc->iface = MPAM_IFACE_MMIO;
-> +		else
-> +			msc->iface = MPAM_IFACE_PCC;
-> +
-> +		if (msc->iface == MPAM_IFACE_MMIO) {
-> +			void __iomem *io;
-> +
-> +			io = devm_platform_get_and_ioremap_resource(pdev, 0,
-> +								    &msc_res);
-> +			if (IS_ERR(io)) {
-> +				dev_err_once(dev, "Failed to map MSC base address\n");
-> +				err = PTR_ERR(io);
-> +				break;
-> +			}
-> +			msc->mapped_hwpage_sz = msc_res->end - msc_res->start;
-> +			msc->mapped_hwpage = io;
-> +		}
-> +
-> +		list_add_rcu(&msc->all_msc_list, &mpam_all_msc);
-> +		platform_set_drvdata(pdev, msc);
-> +	} while (0);
-> +	mutex_unlock(&mpam_list_lock);
-> +
-> +	if (!err) {
-> +		/* Create RIS entries described by firmware */
-> +		err = acpi_mpam_parse_resources(msc, plat_data);
-> +	}
-> +
-> +	if (err && msc)
-> +		mpam_msc_drv_remove(pdev);
-> +
-> +	if (!err && atomic_add_return(1, &mpam_num_msc) == fw_num_msc)
-> +		pr_info("Discovered all MSC\n");
-> +
-> +	return err;
-> +}
-> +
-> +static struct platform_driver mpam_msc_driver = {
-> +	.driver = {
-> +		.name = "mpam_msc",
-> +	},
-> +	.probe = mpam_msc_drv_probe,
-> +	.remove = mpam_msc_drv_remove,
-> +};
-> +
-> +static int __init mpam_msc_driver_init(void)
-> +{
-> +	if (!system_supports_mpam())
-> +		return -EOPNOTSUPP;
-> +
-> +	init_srcu_struct(&mpam_srcu);
-> +
-> +	fw_num_msc = acpi_mpam_count_msc();
-> +
-> +	if (fw_num_msc <= 0) {
-> +		pr_err("No MSC devices found in firmware\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	return platform_driver_register(&mpam_msc_driver);
-> +}
-> +subsys_initcall(mpam_msc_driver_init);
-> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
-> new file mode 100644
-> index 000000000000..7c63d590fc98
-> --- /dev/null
-> +++ b/drivers/resctrl/mpam_internal.h
-> @@ -0,0 +1,65 @@
-> +/* SPDX-License-Identifier: GPL-2.0 */
-> +// Copyright (C) 2025 Arm Ltd.
-> +
-> +#ifndef MPAM_INTERNAL_H
-> +#define MPAM_INTERNAL_H
-> +
-> +#include <linux/arm_mpam.h>
-> +#include <linux/cpumask.h>
-> +#include <linux/io.h>
-> +#include <linux/mailbox_client.h>
-> +#include <linux/mutex.h>
-> +#include <linux/resctrl.h>
-> +#include <linux/sizes.h>
-> +
-> +struct mpam_msc {
-> +	/* member of mpam_all_msc */
-> +	struct list_head        all_msc_list;
-> +
-> +	int			id;
-> +	struct platform_device *pdev;
-> +
-> +	/* Not modified after mpam_is_enabled() becomes true */
-> +	enum mpam_msc_iface	iface;
-> +	u32			pcc_subspace_id;
-> +	struct mbox_client	pcc_cl;
-> +	struct pcc_mbox_chan	*pcc_chan;
-> +	u32			nrdy_usec;
-> +	cpumask_t		accessibility;
-> +
-> +	/*
-> +	 * probe_lock is only taken during discovery. After discovery these
-> +	 * properties become read-only and the lists are protected by SRCU.
-> +	 */
-> +	struct mutex		probe_lock;
-> +	unsigned long		ris_idxs;
-> +	u32			ris_max;
-> +
-> +	/* mpam_msc_ris of this component */
-> +	struct list_head	ris;
-> +
-> +	/*
-> +	 * part_sel_lock protects access to the MSC hardware registers that are
-> +	 * affected by MPAMCFG_PART_SEL. (including the ID registers that vary
-> +	 * by RIS).
-> +	 * If needed, take msc->probe_lock first.
-> +	 */
-> +	struct mutex		part_sel_lock;
-> +
-> +	/*
-> +	 * mon_sel_lock protects access to the MSC hardware registers that are
-> +	 * affected by MPAMCFG_MON_SEL.
-> +	 * If needed, take msc->probe_lock first.
-> +	 */
-> +	struct mutex		outer_mon_sel_lock;
-> +	raw_spinlock_t		inner_mon_sel_lock;
-> +	unsigned long		inner_mon_sel_flags;
-> +
-> +	void __iomem		*mapped_hwpage;
-> +	size_t			mapped_hwpage_sz;
-> +};
-> +
-> +int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
-> +				   cpumask_t *affinity);
-> +
-> +#endif /* MPAM_INTERNAL_H */
-
-Thanks,
-Gavin
-
+This looks good. Thanks.
 
