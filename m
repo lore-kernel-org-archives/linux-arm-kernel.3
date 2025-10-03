@@ -4,69 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A0944CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 13:40:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 47583CCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 13:40:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CKoVOt7SfjBg9tHla8UyfyracQ+ttFmAkYCdQchY/Cw=; b=ojR+iGRyHTr5mXnVATwTN+vsaJ
-	C2Q0Tz+kdBYBXCJYKbtofBCpL5SUQMXiBLV/wUea2Zx9XQIMBv9y9TvWpOPSO4bdiNgwfHTNLWFNj
-	ByXc4iKTGHsNIiZtVkT3OPjH7fesWpDdOkAYHnIKqG2d5cP2D4WaY2oA4LC7hVSyHTdKvLQbw2XB7
-	5noTpvz5FbgTUrffOabXwRrOECj/2Mu6ATFEZdOazNT9TalPYZgirrtomE1y3xNob3HLKtgA6aNDR
-	WWJqx8TLrh+iB/7Gcwqll8p/NKZlagWQMIbF6yQ/wRwDcbVpaH2QPOWN+QJ9jtPOfYMsYz+1mdmD0
-	pm8NELUg==;
+	bh=zQpWFI+mvDhlS6QzvPWKy0HH/MqUOwvvkoBBWzfvzIQ=; b=CBnSFsY59Bk2zfUf+x5wLI4dDY
+	fLQUnSCjWUi1dRSUBocbJWyy9HCsidxNIE4a2UKZlXhr01fUNFKPSauxvR4mRK4KlPRr/0rqIxlFq
+	jf10OZjjuIdXGcjNA5go5xfBpeKccFzfirTBO0hINGrIYZyqtaT/s6sXiu8RZKFmZweBzbKSsbCwR
+	YHada7weMaUKbxFOlf7ktjiwYFvp9n7zXzljwtqMudZCkT1u+xQH/N4NmbEcErgjQdSFEQbw+L3WW
+	9iByyxaH0yXh9QHpYeLTEG1Nn7Ho3O1FKblkoQTIuP1Djf66WCQO67sFtwAQB9hHhH3OK1n6ivzlN
+	N0BNd9LA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4g0q-0000000CRMW-3ltl;
-	Fri, 03 Oct 2025 13:39:56 +0000
-Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
+	id 1v4g0t-0000000CRQP-2IoK;
+	Fri, 03 Oct 2025 13:39:59 +0000
+Received: from mail-wr1-f73.google.com ([209.85.221.73])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4g0I-0000000CQSn-2LLM
+	id 1v4g0L-0000000CQWd-1PBn
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Oct 2025 13:39:28 +0000
-Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-4255d025f41so1512192f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Oct 2025 06:39:21 -0700 (PDT)
+	Fri, 03 Oct 2025 13:39:29 +0000
+Received: by mail-wr1-f73.google.com with SMTP id ffacd0b85a97d-401dbafbcfaso1446502f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Oct 2025 06:39:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1759498759; x=1760103559; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1759498761; x=1760103561; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=CKoVOt7SfjBg9tHla8UyfyracQ+ttFmAkYCdQchY/Cw=;
-        b=W3sVkONRty+brcG3M07zSwNTWpoGJAJtDyyKQrFl9kTg6AgSy7moXznS+l26ph/M2L
-         nzSIhXIwDh7Cwt9p8sU5YJ1heVLI/Kl7Isww5SEhV9HxjTMg2ufTxpN34IwwP5lDnRj6
-         frNwxKQCziWAUIZWbZqbxFiciPiHy7qYucRjcvfk/7qQzBMJLOlPSK9ds7F0ZeKp847T
-         6PoeNLxMsVLxJd2osiY+aTlUXxgp0JJcBAEMO+fnaMzOpcmCtWPLI0RX1+kPcnqdEnfP
-         joQSzvLHysCsfPWfRMVhjJnP8VgD7GrJ3ylCQgyy+rnhRxP5HZSgP3Ndcn/1xKYWuJe1
-         xwbw==
+        bh=zQpWFI+mvDhlS6QzvPWKy0HH/MqUOwvvkoBBWzfvzIQ=;
+        b=JKfu2m8QwNemtx7diY7xI2J2oeWiNRfSEqPdAzg7S+xN3xxqvuvTmri5MglwrU2s4k
+         AHUGZVxhqM/S/p+A90udKg7Fxc3o8Wh8MSuXv4YdxcPPLoj111CthIBwHjcsqfXEjIe8
+         vh9bpBBx8yuHkbdLtyf5+7Vtvag2eSd4psCmsv2rfqLJu7ld6+qCyf1bVy3Ty2hg8ZjO
+         NLfMPmWWGjQLq7kGGpLgui8SStSoxcs/4dAUew++dQ435I8gwztkVHssP7Mq09oUzg6l
+         DBA69ndXA0NYsWatvuH+O3ilg0l4QR0YJKMH+2jQ0UmeuTbqsvF+DPW/srmPyi3aXXbu
+         V64g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759498759; x=1760103559;
+        d=1e100.net; s=20230601; t=1759498761; x=1760103561;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=CKoVOt7SfjBg9tHla8UyfyracQ+ttFmAkYCdQchY/Cw=;
-        b=aCJfCSRkGPB/lmeGOSDf//MHcH3vc0EfgT1mmoEdDz510OmzbS79fLefww5LhqIg2h
-         JHgsahzIaNf6uVT+pSugVr2CHxc7gIgbio7bbsyuYEa0ePpzW9RIIfHnv4vMI3GQwqOO
-         BPWYBwnP56b06wMd2iudCErxGH0EReloWiXR704gwMYuz80GV6+AS0GaJlsqiRg50dV/
-         aHzfB98DTm06ntSa+d3A2/borb/fjU+KlwjPxqF7iK9WuPtdd5Ffa+2Ya3tOIs3+pjuU
-         Kuh1+qM34uv79RZbr8WVel+1h+/Injgu0HixZoNomiUx39IbHanfcRE25g3Fo95B3iyq
-         lacA==
-X-Forwarded-Encrypted: i=1; AJvYcCVUdYPFnDDbYqzVuTiDr1LEy2rZzk7sUvydr7SEiUX19RK82d1vOfP1fPvUj21L1iuQtCp3tWcSlGP7mnsYdlSD@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwR2MoAL91Bjg7mbH0B2Wqota4VkiixWveQykrsiyGD3k5R5hj
-	eDLzxZ+r3lccc+1sHYM32rWCZ2PbblJjAbWAWkYddSrXlXr4RBuWdUx1ixV0ZLclgTBY51+s+P7
-	yXe6iyU20k+4VOTwkMQRgyA==
-X-Google-Smtp-Source: AGHT+IF3XrIOuZLzr95zLbd7FnCvuwGAUE/NKipTgwAL9Vm4NhQ+xCaEbNPY72ptqM5YQLLSLemYx+UklOwNUX8Q
-X-Received: from wmoe6.prod.google.com ([2002:a05:600c:4486:b0:46e:67c8:72a6])
+        bh=zQpWFI+mvDhlS6QzvPWKy0HH/MqUOwvvkoBBWzfvzIQ=;
+        b=M1XBTOUP49LVyIcYfLy7Pbt+zzx4mq1cPfaSNFDhnwHk+voTbwxNU6fVBZcxdX3/gW
+         hC3/O15u4GXSf/UDAGdK+m4VFxYOF6riAH/zDaSO+Pf7rFZB0+xySMpv6XVZz9tOVpXl
+         5Q1SvkirTMs5uzEaxUSmVkR9JPR/NxTgNWNqtzeei0GNKtjTLWEcUKbQ4cxm8fsaWpi1
+         xVTFJ3BtqqSfvX+s60Z+lhSG3oHNYwqJOZICrbq+bjH1lTKojYPAY66eT296+1W5c4mB
+         HpGsk+laL9t/sg8nCt7x7KbPiiCFqDsr3xoLV0v7UYGSTyiQBAF0915fI94RTzkcrUdp
+         BBBw==
+X-Forwarded-Encrypted: i=1; AJvYcCW5jD3VTniMoIS+vgEQRyxejL4eL4T6IfnNsu9Jii9lu+mRjKDtzQxQ98qBNL8ZTuZfoKNSftlFdibJDIy2WKCg@lists.infradead.org
+X-Gm-Message-State: AOJu0YyY4/TPwm8qZiMciOl2URBuxE1slQlxFdJfX4lx5JeDcmW1DZwW
+	lQrksCyVH1tmq1L8aykPFU541DBTAX0dF9SGuFq7S/t5kISZ+3EakucJdcEhValjMAxp1F9ntq3
+	F9HUWO2C0yhypxVeQhshC0Q==
+X-Google-Smtp-Source: AGHT+IG52bRYhXeAJFDgF8uvfHA2+/FCR+eKvs+CIPgd7e1dd8btx3CvmT6Gt+2L3xnnRQYWHWkcwf2OxLo8X/Rp
+X-Received: from wmpj2.prod.google.com ([2002:a05:600c:4882:b0:46e:684e:1977])
  (user=vdonnefort job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:600c:3551:b0:46d:27b7:e7ff with SMTP id 5b1f17b1804b1-46e7115c811mr23867565e9.36.1759498759672;
- Fri, 03 Oct 2025 06:39:19 -0700 (PDT)
-Date: Fri,  3 Oct 2025 14:38:21 +0100
+ 2002:a5d:5885:0:b0:3ee:13b1:d70e with SMTP id ffacd0b85a97d-425671aa0b6mr2309114f8f.40.1759498761198;
+ Fri, 03 Oct 2025 06:39:21 -0700 (PDT)
+Date: Fri,  3 Oct 2025 14:38:23 +0100
 In-Reply-To: <20251003133825.2068970-1-vdonnefort@google.com>
 Mime-Version: 1.0
 References: <20251003133825.2068970-1-vdonnefort@google.com>
 X-Mailer: git-send-email 2.51.0.618.g983fd99d29-goog
-Message-ID: <20251003133825.2068970-25-vdonnefort@google.com>
-Subject: [PATCH v7 24/28] KVM: arm64: Add trace reset to the pKVM hyp
+Message-ID: <20251003133825.2068970-27-vdonnefort@google.com>
+Subject: [PATCH v7 26/28] KVM: arm64: Add hyp_enter/hyp_exit events to pKVM hyp
 From: Vincent Donnefort <vdonnefort@google.com>
 To: rostedt@goodmis.org, mhiramat@kernel.org, mathieu.desnoyers@efficios.com, 
 	linux-trace-kernel@vger.kernel.org, maz@kernel.org, oliver.upton@linux.dev, 
@@ -77,8 +77,8 @@ Cc: kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org, Vincent Donnefort <vdonnefort@google.com>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_063922_701579_9E97A4C9 
-X-CRM114-Status: GOOD (  12.34  )
+X-CRM114-CacheID: sfid-20251003_063925_454841_EED53D75 
+X-CRM114-Status: GOOD (  14.01  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,112 +93,178 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Let the hypervisor reset the trace buffer when triggered from the
-tracefs file remotes/hypervisor/trace.
+The hyp_enter and hyp_exit events are logged by the hypervisor any time
+it is entered and exited.
 
 Signed-off-by: Vincent Donnefort <vdonnefort@google.com>
 
-diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-index d122d79718a0..c40820a4b049 100644
---- a/arch/arm64/include/asm/kvm_asm.h
-+++ b/arch/arm64/include/asm/kvm_asm.h
-@@ -91,6 +91,7 @@ enum __kvm_host_smccc_func {
- 	__KVM_HOST_SMCCC_FUNC___pkvm_load_tracing,
- 	__KVM_HOST_SMCCC_FUNC___pkvm_unload_tracing,
- 	__KVM_HOST_SMCCC_FUNC___pkvm_enable_tracing,
-+	__KVM_HOST_SMCCC_FUNC___pkvm_reset_tracing,
- 	__KVM_HOST_SMCCC_FUNC___pkvm_swap_reader_tracing,
- };
+diff --git a/arch/arm64/include/asm/kvm_hypevents.h b/arch/arm64/include/asm/kvm_hypevents.h
+index d6e033c96c52..ce3953bc884a 100644
+--- a/arch/arm64/include/asm/kvm_hypevents.h
++++ b/arch/arm64/include/asm/kvm_hypevents.h
+@@ -7,4 +7,21 @@
+ #include <nvhe/trace.h>
+ #endif
  
-diff --git a/arch/arm64/kvm/hyp/include/nvhe/trace.h b/arch/arm64/kvm/hyp/include/nvhe/trace.h
-index 4e11dcdf049b..0d2732f0d406 100644
---- a/arch/arm64/kvm/hyp/include/nvhe/trace.h
-+++ b/arch/arm64/kvm/hyp/include/nvhe/trace.h
-@@ -11,6 +11,7 @@ void __pkvm_update_clock_tracing(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cy
- int __pkvm_load_tracing(unsigned long desc_va, size_t desc_size);
- void __pkvm_unload_tracing(void);
- int __pkvm_enable_tracing(bool enable);
-+int __pkvm_reset_tracing(unsigned int cpu);
- int __pkvm_swap_reader_tracing(unsigned int cpu);
- #else
- static inline void *tracing_reserve_entry(unsigned long length) { return NULL; }
-@@ -21,6 +22,7 @@ void __pkvm_update_clock_tracing(u32 mult, u32 shift, u64 epoch_ns, u64 epoch_cy
- static inline int __pkvm_load_tracing(unsigned long desc_va, size_t desc_size) { return -ENODEV; }
- static inline void __pkvm_unload_tracing(void) { }
- static inline int __pkvm_enable_tracing(bool enable) { return -ENODEV; }
-+static inline int __pkvm_reset_tracing(unsigned int cpu) { return -ENODEV; }
- static inline int __pkvm_swap_reader_tracing(unsigned int cpu) { return -ENODEV; }
++HYP_EVENT(hyp_enter,
++	HE_PROTO(void),
++	HE_STRUCT(
++	),
++	HE_ASSIGN(
++	),
++	HE_PRINTK()
++);
++
++HYP_EVENT(hyp_exit,
++	HE_PROTO(void),
++	HE_STRUCT(
++	),
++	HE_ASSIGN(
++	),
++	HE_PRINTK()
++);
  #endif
- #endif
+diff --git a/arch/arm64/kvm/hyp/include/nvhe/arm-smccc.h b/arch/arm64/kvm/hyp/include/nvhe/arm-smccc.h
+new file mode 100644
+index 000000000000..4b69d33e4f2d
+--- /dev/null
++++ b/arch/arm64/kvm/hyp/include/nvhe/arm-smccc.h
+@@ -0,0 +1,13 @@
++/* SPDX-License-Identifier: GPL-2.0-only */
++
++#include <asm/kvm_hypevents.h>
++
++#include <linux/arm-smccc.h>
++
++#undef arm_smccc_1_1_smc
++#define arm_smccc_1_1_smc(...)					\
++	do {							\
++		trace_hyp_exit();				\
++		__arm_smccc_1_1(SMCCC_SMC_INST, __VA_ARGS__);	\
++		trace_hyp_enter();				\
++	} while (0)
+diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
+index 3369dd0c4009..e00931fd194f 100644
+--- a/arch/arm64/kvm/hyp/nvhe/ffa.c
++++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
+@@ -26,10 +26,10 @@
+  * the duration and are therefore serialised.
+  */
+ 
+-#include <linux/arm-smccc.h>
+ #include <linux/arm_ffa.h>
+ #include <asm/kvm_pkvm.h>
+ 
++#include <nvhe/arm-smccc.h>
+ #include <nvhe/ffa.h>
+ #include <nvhe/mem_protect.h>
+ #include <nvhe/memory.h>
 diff --git a/arch/arm64/kvm/hyp/nvhe/hyp-main.c b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-index 36a263422e4e..a7c5e9fc27a0 100644
+index aebed41f7de7..f8361520967b 100644
 --- a/arch/arm64/kvm/hyp/nvhe/hyp-main.c
 +++ b/arch/arm64/kvm/hyp/nvhe/hyp-main.c
-@@ -608,6 +608,13 @@ static void handle___pkvm_enable_tracing(struct kvm_cpu_context *host_ctxt)
- 	cpu_reg(host_ctxt, 1) = __pkvm_enable_tracing(enable);
+@@ -12,6 +12,7 @@
+ #include <asm/kvm_emulate.h>
+ #include <asm/kvm_host.h>
+ #include <asm/kvm_hyp.h>
++#include <asm/kvm_hypevents.h>
+ #include <asm/kvm_mmu.h>
+ 
+ #include <nvhe/ffa.h>
+@@ -716,7 +717,9 @@ static void handle_host_hcall(struct kvm_cpu_context *host_ctxt)
+ 
+ static void default_host_smc_handler(struct kvm_cpu_context *host_ctxt)
+ {
++	trace_hyp_exit();
+ 	__kvm_hyp_host_forward_smc(host_ctxt);
++	trace_hyp_enter();
  }
  
-+static void handle___pkvm_reset_tracing(struct kvm_cpu_context *host_ctxt)
-+{
-+	DECLARE_REG(unsigned int, cpu, host_ctxt, 1);
-+
-+	cpu_reg(host_ctxt, 1) = __pkvm_reset_tracing(cpu);
-+}
-+
- static void handle___pkvm_swap_reader_tracing(struct kvm_cpu_context *host_ctxt)
+ static void handle_host_smc(struct kvm_cpu_context *host_ctxt)
+@@ -740,6 +743,8 @@ void handle_trap(struct kvm_cpu_context *host_ctxt)
  {
- 	DECLARE_REG(unsigned int, cpu, host_ctxt, 1);
-@@ -658,6 +665,7 @@ static const hcall_t host_hcall[] = {
- 	HANDLE_FUNC(__pkvm_load_tracing),
- 	HANDLE_FUNC(__pkvm_unload_tracing),
- 	HANDLE_FUNC(__pkvm_enable_tracing),
-+	HANDLE_FUNC(__pkvm_reset_tracing),
- 	HANDLE_FUNC(__pkvm_swap_reader_tracing),
- };
+ 	u64 esr = read_sysreg_el2(SYS_ESR);
  
-diff --git a/arch/arm64/kvm/hyp/nvhe/trace.c b/arch/arm64/kvm/hyp/nvhe/trace.c
-index d146ac3046de..1fd9b32950fe 100644
---- a/arch/arm64/kvm/hyp/nvhe/trace.c
-+++ b/arch/arm64/kvm/hyp/nvhe/trace.c
-@@ -236,6 +236,25 @@ int __pkvm_enable_tracing(bool enable)
- 	return ret;
++	trace_hyp_enter();
++
+ 	switch (ESR_ELx_EC(esr)) {
+ 	case ESR_ELx_EC_HVC64:
+ 		handle_host_hcall(host_ctxt);
+@@ -754,4 +759,6 @@ void handle_trap(struct kvm_cpu_context *host_ctxt)
+ 	default:
+ 		BUG();
+ 	}
++
++	trace_hyp_exit();
+ }
+diff --git a/arch/arm64/kvm/hyp/nvhe/psci-relay.c b/arch/arm64/kvm/hyp/nvhe/psci-relay.c
+index c3e196fb8b18..64d1d418df1d 100644
+--- a/arch/arm64/kvm/hyp/nvhe/psci-relay.c
++++ b/arch/arm64/kvm/hyp/nvhe/psci-relay.c
+@@ -6,11 +6,12 @@
+ 
+ #include <asm/kvm_asm.h>
+ #include <asm/kvm_hyp.h>
++#include <asm/kvm_hypevents.h>
+ #include <asm/kvm_mmu.h>
+-#include <linux/arm-smccc.h>
+ #include <linux/kvm_host.h>
+ #include <uapi/linux/psci.h>
+ 
++#include <nvhe/arm-smccc.h>
+ #include <nvhe/memory.h>
+ #include <nvhe/trap_handler.h>
+ 
+@@ -205,6 +206,7 @@ asmlinkage void __noreturn __kvm_host_psci_cpu_entry(bool is_cpu_on)
+ 	struct psci_boot_args *boot_args;
+ 	struct kvm_cpu_context *host_ctxt;
+ 
++	trace_hyp_enter();
+ 	host_ctxt = host_data_ptr(host_ctxt);
+ 
+ 	if (is_cpu_on)
+@@ -221,6 +223,7 @@ asmlinkage void __noreturn __kvm_host_psci_cpu_entry(bool is_cpu_on)
+ 	write_sysreg_el1(INIT_SCTLR_EL1_MMU_OFF, SYS_SCTLR);
+ 	write_sysreg(INIT_PSTATE_EL1, SPSR_EL2);
+ 
++	trace_hyp_exit();
+ 	__host_enter(host_ctxt);
  }
  
-+int __pkvm_reset_tracing(unsigned int cpu)
-+{
-+	int ret = 0;
-+
-+	if (cpu >= hyp_nr_cpus)
-+		return -EINVAL;
-+
-+	hyp_spin_lock(&trace_buffer.lock);
-+
-+	if (hyp_trace_buffer_loaded(&trace_buffer))
-+		ret = simple_ring_buffer_reset(per_cpu_ptr(trace_buffer.simple_rbs, cpu));
-+	else
-+		ret = -ENODEV;
-+
-+	hyp_spin_unlock(&trace_buffer.lock);
-+
-+	return ret;
-+}
-+
- int __pkvm_swap_reader_tracing(unsigned int cpu)
- {
- 	int ret;
-diff --git a/arch/arm64/kvm/hyp_trace.c b/arch/arm64/kvm/hyp_trace.c
-index 4f154ec743f3..1062b4310f8c 100644
---- a/arch/arm64/kvm/hyp_trace.c
-+++ b/arch/arm64/kvm/hyp_trace.c
-@@ -302,7 +302,7 @@ static int hyp_trace_swap_reader_page(unsigned int cpu, void *priv)
+diff --git a/arch/arm64/kvm/hyp/nvhe/switch.c b/arch/arm64/kvm/hyp/nvhe/switch.c
+index d3b9ec8a7c28..66ed30135815 100644
+--- a/arch/arm64/kvm/hyp/nvhe/switch.c
++++ b/arch/arm64/kvm/hyp/nvhe/switch.c
+@@ -7,7 +7,6 @@
+ #include <hyp/switch.h>
+ #include <hyp/sysreg-sr.h>
  
- static int hyp_trace_reset(unsigned int cpu, void *priv)
- {
--	return 0;
-+	return kvm_call_hyp_nvhe(__pkvm_reset_tracing, cpu);
- }
+-#include <linux/arm-smccc.h>
+ #include <linux/kvm_host.h>
+ #include <linux/types.h>
+ #include <linux/jump_label.h>
+@@ -21,6 +20,7 @@
+ #include <asm/kvm_asm.h>
+ #include <asm/kvm_emulate.h>
+ #include <asm/kvm_hyp.h>
++#include <asm/kvm_hypevents.h>
+ #include <asm/kvm_mmu.h>
+ #include <asm/fpsimd.h>
+ #include <asm/debug-monitors.h>
+@@ -308,10 +308,13 @@ int __kvm_vcpu_run(struct kvm_vcpu *vcpu)
+ 	__debug_switch_to_guest(vcpu);
  
- static int hyp_trace_enable_event(unsigned short id, bool enable, void *priv)
+ 	do {
++		trace_hyp_exit();
++
+ 		/* Jump in the fire! */
+ 		exit_code = __guest_enter(vcpu);
+ 
+ 		/* And we're baaack! */
++		trace_hyp_enter();
+ 	} while (fixup_guest_exit(vcpu, &exit_code));
+ 
+ 	__sysreg_save_state_nvhe(guest_ctxt);
 -- 
 2.51.0.618.g983fd99d29-goog
 
