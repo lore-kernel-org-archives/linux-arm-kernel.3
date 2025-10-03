@@ -4,105 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6932BCAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 14:12:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18DE4CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 14:14:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DIh0ta/ySV31IDAsjscXZdxDAf93kz39y+kPAUa/I64=; b=3O4dsCXtjPz9RGB7212W5lkL7o
-	M3Sg06BaW3EkjNSjU+nEKq+Nnx3x3unBhEgNTpj/d+Hsn+yCRipwf0TADfszRB8VI1wRv1SYSDKKT
-	JG7VYnwlagw+M6uqS0kf2Hgk8OIENcMR5X9EMCtfN3cLlNZUm4sFGBv3c7WmzUPQNN3UHKz3R2DqF
-	aUswcROmp08GGqzAfY13hoLjb5OBx9wdgwbhieYqGKYCP56G7FCQCAHxlgKsGsbI1Hebz7gqorSx0
-	foYfdaV4qQOs3L3hpHi3LkeEn2/6w1EEXgJ2+WpVfzRo7jZO1xyV2ugk/Q1gjxXeQ/5wBN+zFnSWf
-	+QNiqF2Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=5eiR0rgb8eb14UCK8OF6nqxlziRjDbGGmUvvYEGUxVw=; b=4rnbBDlTqrfJQL22SmUkAHyyKc
+	ujYh6Tlo+WYnGiWLz2qw4MDlSbd6ZLfSDIgtdwdAltsoWLEqMbMg/QlD3dFN5O+gb6Z8P5dYTKyMg
+	W99dX1BK5cXblCPSS2TJ66thkMTYU53drdd/P/reu1zfVbRIbpqd3eqWvmbPSJy6Lw47SkaivDpGq
+	2//2JMb7LZLaVoBw4SSaMi2JD9BqiMLohoH8CgH34rAzOQeh4y+pnUTYiPFkjgSXXkWRB1MvJk8dJ
+	lhL1NKSlU51XOmgmqukMJG6T/u7uHjOV0QdKg+zMws8ASxQmKnpodaFYL0pDuAHfBt6dguwh+sy9W
+	mJowNOvQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4gWA-0000000CWWO-16wp;
-	Fri, 03 Oct 2025 14:12:18 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1v4gXj-0000000CWs5-3u61;
+	Fri, 03 Oct 2025 14:13:55 +0000
+Received: from mail-qk1-x731.google.com ([2607:f8b0:4864:20::731])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4gW7-0000000CWVU-1LMm
+	id 1v4gXg-0000000CWqG-2o52
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 03 Oct 2025 14:12:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1759500734;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=DIh0ta/ySV31IDAsjscXZdxDAf93kz39y+kPAUa/I64=;
-	b=d1qY01MTSTt9YXjYLXXaFViv+CZAqgj8i+IgLfRDG0iMwUF2xbJOcG7hEpgnWlzJZSaSLd
-	gothpZuCLoYc5yaSqH73Mb4hRu3HOI24JGt8MRNAIB8XDRXaY+PWgTcdWqqCBCML8lcArL
-	yfGGxMgOVL6Mv0rRcmB2fbe+CpNz0dQ=
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
- [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-526-p7-gEo1SOo6uURtbNF1Mbw-1; Fri, 03 Oct 2025 10:12:10 -0400
-X-MC-Unique: p7-gEo1SOo6uURtbNF1Mbw-1
-X-Mimecast-MFC-AGG-ID: p7-gEo1SOo6uURtbNF1Mbw_1759500729
-Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-46e45899798so9854845e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Oct 2025 07:12:10 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759500729; x=1760105529;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+	Fri, 03 Oct 2025 14:13:54 +0000
+Received: by mail-qk1-x731.google.com with SMTP id af79cd13be357-86420079b01so219638285a.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 03 Oct 2025 07:13:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1759500831; x=1760105631; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=DIh0ta/ySV31IDAsjscXZdxDAf93kz39y+kPAUa/I64=;
-        b=hbZZ/jph337AfxyemMSl1WBNU6ibU703eobBPtiVSmFYNg6EGQnSyN1/OraX151nik
-         IdSuPPq94Z8bWD3kQnxt7tWYuucEQgU5RLlkg4OJGbkk08g9yIZlO6krngX36vqYqVda
-         BdNMej99jyyWwa4wYNqgaWWj7pMANLzP3KoXgW/Ij8sh6IN6L4CRbibufoy/Pup78B33
-         aKY3V/6dXS1Xj9xhZuGvoNcw4+kmQn70mb7V6b6wOwjecgljDLy9Dzl3y8t3/AkU1lpu
-         UPulbE0Q47ckTLhnzmVlLCcME/J1oHx+/u3vdDru+OueeXavnDMtDdAOwCDNSq46bKAB
-         7ARw==
-X-Forwarded-Encrypted: i=1; AJvYcCXctyI7/ZzNJyWLCYQ+ZVElfzBsm0D1ADqgTyQNZIl+Mctgz/SXfFlUdGdid7dpC3/RwDqoovpkNWSKwXh3oaPc@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzhxen28HhQUTOjv1eYSzT5uI7kT5yFBJwOTz7pHjjpIxuyyWAp
-	SARNIIzs83u9odenevdv3Qa/RoCEbuNoIPbvk/Q8LTly1v9OwM1rW0WAPBEurWKkQmuuVMmw7fT
-	lu5WGxzjr1VKJ8gi1WU6EVTqmYFyxYCG5nHUgR2DITBRXg74Zf7bC2jzTf72YHd44QwwR3aHtuK
-	0b
-X-Gm-Gg: ASbGncvwJwinyHKnkuqbwP1+oD3c+ee4ih6oS5RJhDWFFkp9Kv9lGil5Q6fNk1DWmb2
-	o5JDhwq668+1yt/LpVMYWlL0cuJvu5Pmow4J3N+p6krXt2TQKyQ8Hhaful0EdOk4fyi1QJoRPUI
-	S2uzrdOLAxh54ZQBctgXSbwMGW/Hg1PQiLeRc8hZh8saAcJ6xUrLEhc7RwOQxmc4dv/TqKeuKMW
-	WzHNcBssm1DV/zkWWS/0OivZ6VnTc9b3+Hxr9LWD5ux+OY1pPd0YjiectQhQTX1J+kkBdfMSxyF
-	xj49IMzfuyRQ9M6pyfPejQ==
-X-Received: by 2002:a05:600c:1986:b0:46e:4287:a85e with SMTP id 5b1f17b1804b1-46e71109f78mr19837015e9.13.1759500729023;
-        Fri, 03 Oct 2025 07:12:09 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEvZE78Vlry2HWGKctUpuvV3NYdSpp6VF7NSq0LXvMOwPsaZRtbqFATFnYhybF+GpisNk1RcA==
-X-Received: by 2002:a05:600c:1986:b0:46e:4287:a85e with SMTP id 5b1f17b1804b1-46e71109f78mr19836735e9.13.1759500728555;
-        Fri, 03 Oct 2025 07:12:08 -0700 (PDT)
-Received: from localhost ([2a01:e0a:b25:f902::ff])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46e7234f69bsm36548575e9.8.2025.10.03.07.12.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 03 Oct 2025 07:12:08 -0700 (PDT)
-Date: Fri, 3 Oct 2025 16:12:07 +0200
-From: Maxime Ripard <mripard@redhat.com>
-To: Jens Wiklander <jens.wiklander@linaro.org>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	dri-devel@lists.freedesktop.org, linaro-mm-sig@lists.linaro.org, op-tee@lists.trustedfirmware.org, 
-	linux-arm-kernel@lists.infradead.org, Olivier Masse <olivier.masse@nxp.com>, 
-	Thierry Reding <thierry.reding@gmail.com>, Yong Wu <yong.wu@mediatek.com>, 
-	Sumit Semwal <sumit.semwal@linaro.org>, Benjamin Gaignard <benjamin.gaignard@collabora.com>, 
-	Brian Starkey <Brian.Starkey@arm.com>, John Stultz <jstultz@google.com>, 
-	"T . J . Mercier" <tjmercier@google.com>, Christian =?utf-8?B?S8O2bmln?= <christian.koenig@amd.com>, 
-	Sumit Garg <sumit.garg@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, azarrabi@qti.qualcomm.com, 
-	Simona Vetter <simona.vetter@ffwll.ch>, Daniel Stone <daniel@fooishbar.org>, 
-	Rouven Czerwinski <rouven.czerwinski@linaro.org>, robin.murphy@arm.com, Sumit Garg <sumit.garg@oss.qualcomm.com>
-Subject: Re: [PATCH v12 3/9] tee: implement protected DMA-heap
-Message-ID: <20251003-majestic-indigo-emu-d9dbdd@houat>
-References: <20250911135007.1275833-1-jens.wiklander@linaro.org>
- <20250911135007.1275833-4-jens.wiklander@linaro.org>
- <20251002-sceptical-goose-of-fame-7b33d6@houat>
- <CAHUa44H3nGgY9q68YRRp5A7Q6Ku3P_URuv+L7H8chYzLAKd8mQ@mail.gmail.com>
+        bh=5eiR0rgb8eb14UCK8OF6nqxlziRjDbGGmUvvYEGUxVw=;
+        b=ex8xOpWzVl/P4OPlHQfaLgwj+iLwmfMJkU05bTCYehcJEMezSK7BY3XiJX0UzPCK2A
+         bQouirvLaT0+IM6XwNBr/NMbRXpZiF8sjImdjT9y7QWnEhwXRWUxlLRPPEKJBtLTVcJc
+         r3TaSS8KK7adziXZ1rUZsokxbrFHHBAk+pGyBSlDUVBqQ2m05YEJJhlumcvROtQQBdW9
+         NvWc7HJfaL4ZgrpDdiEuJuyJiUi8uyMA8zSSZRxqdwckdAXFulqW81Ny1Ru33YJydG4R
+         4e+2W73QJMmg2PDPYDdsXDS0H8Q/Q91QqqLO4yrb+zA1Ienty935CvbchHmM1Vi4t1De
+         rY4A==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759500831; x=1760105631;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=5eiR0rgb8eb14UCK8OF6nqxlziRjDbGGmUvvYEGUxVw=;
+        b=W4YPKycgdMGVwjC1q/D1YRMvPABj0okd8BFcacziv+ATp1tAiMBSPPCyVHEMZhBadU
+         XsLn6lfvcsypiSqROvcQ04NsSFkLM800g2fJA4U1qepgIeNuCglfcfWBc6qG+dtj+QT4
+         gkbmJERmmNnFhq5bdIQ3syFdAyFOwpDvaDgVLE5MljjjTBuzuqqGYxaheeDIFg7yPPIJ
+         93ZFQOn2icjJWJonNMVpUjCdcMbwrmL8LWVdQh+r9o61pcgXFdAsNuxkQUHqw++Pfj3d
+         UVK4bMb1P5DI6HTRcksI99KL5v8V0r9RRBFOW4W+kRdgE3KLFiniJ3p2qgTmDzGkYXhJ
+         xOBg==
+X-Forwarded-Encrypted: i=1; AJvYcCWhAlv+Naj06XiI+IiPc3pOEp0NTlfZREkVKrqTBhRolS6iYptRaeMDlZyAoPaFYkj0jVMHeesqT9KDvDZ6T+dl@lists.infradead.org
+X-Gm-Message-State: AOJu0YybhIZr1AbMbTM7ph6bJhES2D4uJCzin02pclM0Oy8Pfn4pYU6p
+	Ndl1q9b6u+Tb/eC5VKmxe7p9HWX24JdSHaCBtc0TvCkVCMiZaBxzGk8CEY//a2LRITqxpMZVbJA
+	e7feQDKlRVluNEBqQAHg3+Bv9G5Z89K8=
+X-Gm-Gg: ASbGncvziB0LstuPCQlxQAx7gCINrh5ZjiUUp1wT7RhMQT3RqZ5fuefM1hRIZqBFSzA
+	hABvXtbJ2qifVmELvQIHieXcOsg4QIRKkwDZH0Ljs2jqCVMNPtKpTb2wsNfnEdeJdKtZqK6KHR/
+	yE+Yv1gNyI8rWlopmmpaDl2ULTL02o5j7QYmmL7UCCWepWI+j2VesNwwU5PtrxB0pCAPlp1nDiD
+	XzKfOUcoC2vuk3wEPArQhX31mEG223pl6Rc0XG+AhhILsyltn9bH/k/33qF0d99T+2si+Pco/B/
+	xGGGUm2ERQ==
+X-Google-Smtp-Source: AGHT+IF1x6d1SXgWlIOwQSzb64vcGY7LmH9kcXNKvkdLjUNWf0fEfHQbonCQLlSRkqLoUgYilLGKYu0omGuSD7gRJpw=
+X-Received: by 2002:a05:620a:2a0d:b0:866:a24e:2eb1 with SMTP id
+ af79cd13be357-87a378d2e60mr519951485a.40.1759500831038; Fri, 03 Oct 2025
+ 07:13:51 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha384;
-	protocol="application/pgp-signature"; boundary="uh2g5nrijwsim4uc"
-Content-Disposition: inline
-In-Reply-To: <CAHUa44H3nGgY9q68YRRp5A7Q6Ku3P_URuv+L7H8chYzLAKd8mQ@mail.gmail.com>
+References: <20250124052611.3705-1-eagle.alexander923@gmail.com>
+ <CABjd4YwA8P9LVuDviO6xydkHpuuOY7XT0pk1oa+FDqOo=uZN4A@mail.gmail.com>
+ <a76f315f023a3f8f5435e0681119b4eb@manjaro.org> <CABjd4Ywh_AkbXHonx-8vL-hNY5LMLJge5e4oqxvUG+qe6OF-Og@mail.gmail.com>
+ <61b494b209d7360d0f36adbf6d5443a4@manjaro.org> <CABjd4Yx0p0B=e00MjCpDDq8Z=0FtM0s9EN86WdvRimt-_+kh2w@mail.gmail.com>
+ <CABjd4Yy14bpjzvFyc8et-=pmds5uwzfxNqcs7L=+XRXBogZEsQ@mail.gmail.com> <20251003133304.GA21023@pendragon.ideasonboard.com>
+In-Reply-To: <20251003133304.GA21023@pendragon.ideasonboard.com>
+From: Alexey Charkov <alchark@gmail.com>
+Date: Fri, 3 Oct 2025 18:13:39 +0400
+X-Gm-Features: AS18NWBIZkivEeoQjAejLL_ZipTHn0V26YdQouI-n9UYPc0VVnN7Wrl6g590H6Y
+Message-ID: <CABjd4YxbyUWghd1ya8UayFkAE-VWQSd5-J2QD0sV7WmS8AXkCg@mail.gmail.com>
+Subject: Re: [PATCH] arm64: dts: rockchip: Fix broken tsadc pinctrl binding
+ for rk3588
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Dragan Simic <dsimic@manjaro.org>, Alexander Shiyan <eagle.alexander923@gmail.com>, 
+	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
+	devicetree@vger.kernel.org, 
+	Sebastian Reichel <sebastian.reichel@collabora.com>, stable@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_071215_429056_9A11D0BE 
-X-CRM114-Status: GOOD (  26.33  )
+X-CRM114-CacheID: sfid-20251003_071352_742744_5FBE9FC7 
+X-CRM114-Status: GOOD (  51.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,84 +105,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Laurent,
 
---uh2g5nrijwsim4uc
-Content-Type: text/plain; protected-headers=v1; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: [PATCH v12 3/9] tee: implement protected DMA-heap
-MIME-Version: 1.0
-
-On Thu, Oct 02, 2025 at 02:57:25PM +0200, Jens Wiklander wrote:
-> Hi,
->=20
-> On Thu, Oct 2, 2025 at 9:54=E2=80=AFAM Maxime Ripard <mripard@redhat.com>=
- wrote:
+On Fri, Oct 3, 2025 at 5:33=E2=80=AFPM Laurent Pinchart
+<laurent.pinchart@ideasonboard.com> wrote:
+>
+> On Fri, Jan 24, 2025 at 11:44:34PM +0400, Alexey Charkov wrote:
+> > On Fri, Jan 24, 2025 at 9:23=E2=80=AFPM Alexey Charkov <alchark@gmail.c=
+om> wrote:
+> > > On Fri, Jan 24, 2025 at 2:37=E2=80=AFPM Dragan Simic <dsimic@manjaro.=
+org> wrote:
+> > > > On 2025-01-24 11:25, Alexey Charkov wrote:
+> > > > > On Fri, Jan 24, 2025 at 2:06=E2=80=AFPM Dragan Simic <dsimic@manj=
+aro.org>
+> > > > > wrote:
+> > > > >> On 2025-01-24 09:33, Alexey Charkov wrote:
+> > > > >> > On Fri, Jan 24, 2025 at 9:26=E2=80=AFAM Alexander Shiyan
+> > > > >> > <eagle.alexander923@gmail.com> wrote:
+> > > > >> >>
+> > > > >> >> There is no pinctrl "gpio" and "otpout" (probably designed as
+> > > > >> >> "output")
+> > > > >> >> handling in the tsadc driver.
+> > > > >> >> Let's use proper binding "default" and "sleep".
+> > > > >> >
+> > > > >> > This looks reasonable, however I've tried it on my Radxa Rock =
+5C and
+> > > > >> > the driver still doesn't claim GPIO0 RK_PA1 even with this cha=
+nge. As
+> > > > >> > a result, a simulated thermal runaway condition (I've changed =
+the
+> > > > >> > tshut temperature to 65000 and tshut mode to 1) doesn't trigge=
+r a PMIC
+> > > > >> > reset, even though a direct `gpioset 0 1=3D0` does.
+> > > > >> >
+> > > > >> > Are any additional changes needed to the driver itself?
+> > > > >>
+> > > > >> I've been digging through this patch the whole TSADC/OTP thing i=
+n the
+> > > > >> last couple of hours, and AFAIK some parts of the upstream drive=
+r are
+> > > > >> still missing, in comparison with the downstream driver.
+> > > > >>
+> > > > >> I've got some small suggestions for the patch itself, but the is=
+sue
+> > > > >> you observed is obviously of higher priority, and I've singled i=
+t out
+> > > > >> as well while digging through the code.
+> > > > >>
+> > > > >> Could you, please, try the patch below quickly, to see is it goi=
+ng to
+> > > > >> fix the issue you observed?  I've got some "IRL stuff" to take c=
+are of
+> > > > >> today, so I can't test it myself, and it would be great to know =
+is it
+> > > > >> the right path to the proper fix.
+> > > > >>
+> > > > >> diff --git i/drivers/thermal/rockchip_thermal.c
+> > > > >> w/drivers/thermal/rockchip_thermal.c
+> > > > >> index f551df48eef9..62f0e14a8d98 100644
+> > > > >> --- i/drivers/thermal/rockchip_thermal.c
+> > > > >> +++ w/drivers/thermal/rockchip_thermal.c
+> > > > >> @@ -1568,6 +1568,11 @@ static int rockchip_thermal_probe(struct
+> > > > >> platform_device *pdev)
+> > > > >>          thermal->chip->initialize(thermal->grf, thermal->regs,
+> > > > >>                                    thermal->tshut_polarity);
+> > > > >>
+> > > > >> +       if (thermal->tshut_mode =3D=3D TSHUT_MODE_GPIO)
+> > > > >> +               pinctrl_select_default_state(dev);
+> > > > >> +       else
+> > > > >> +               pinctrl_select_sleep_state(dev);
+> > > > >
+> > > > > I believe no 'else' block is needed here, because if tshut_mode i=
+s not
+> > > > > TSHUT_MODE_GPIO then the TSADC doesn't use this pin at all, so th=
+ere's
+> > > > > no reason for the driver to mess with its pinctrl state. I'd rath=
+er
+> > > > > put a mirroring block to put the pin back to its 'sleep' state in=
+ the
+> > > > > removal function for the TSHUT_MODE_GPIO case.
+> > > >
+> > > > You're right, but the "else block" is what the downstream driver do=
+es,
+> > >
+> > > Does it though? It only handles the TSHUT_MODE_GPIO case as far as I
+> > > can tell (or TSHUT_MODE_OTP in downstream driver lingo) [1]
+> > >
+> > > [1] https://github.com/radxa/kernel/blob/edb3eeeaa4643ecac6f4185d6d39=
+1c574735fca1/drivers/thermal/rockchip_thermal.c#L2564
+> > >
+> > > > so I think it's better to simply stay on the safe side and follow t=
+hat
+> > > > logic in the upstream driver.  Is it really needed?  Perhaps not, b=
+ut
+> > > > it also shouldn't hurt.
+> > > >
+> > > > > Will try and revert.
+> > > >
+> > > > Awesome, thanks!
+> > > >
+> > > > > P.S. Just looked at the downstream driver, and it actually calls
+> > > > > TSHUT_MODE_GPIO TSHUT_MODE_OTP instead, so it seems that "otpout"=
+ was
+> > > > > not a typo in the first place. So maybe the right approach here i=
+s not
+> > > > > to change the device tree but rather fix the "gpio" / "otpout" pi=
+nctrl
+> > > > > state handling in the driver.
+> > > >
+> > > > Indeed, "otpout" wasn't a typo, and I've already addressed that in =
+my
+> > > > comments to Alexander's patch.  Will send that response a bit later=
+.
+> > > >
+> > > > I think it's actually better to accept the approach in Alexander's
+> > > > patch, because the whole thing applies to other Rockchip SoCs as we=
+ll,
+> > > > not just to the RK3588(S).
+> > >
+> > > Anyway, I've just tried it after including the changes below, and
+> > > while /sys/kernel/debug/pinctrl/pinctrl-handles shows the expected
+> > > pinctrls under tsadc, the driver still doesn't seem to be triggering =
+a
+> > > PMIC reset. Weird. Any thoughts welcome.
 > >
-> > On Thu, Sep 11, 2025 at 03:49:44PM +0200, Jens Wiklander wrote:
-> > > +static const char *heap_id_2_name(enum tee_dma_heap_id id)
-> > > +{
-> > > +     switch (id) {
-> > > +     case TEE_DMA_HEAP_SECURE_VIDEO_PLAY:
-> > > +             return "protected,secure-video";
-> > > +     case TEE_DMA_HEAP_TRUSTED_UI:
-> > > +             return "protected,trusted-ui";
-> > > +     case TEE_DMA_HEAP_SECURE_VIDEO_RECORD:
-> > > +             return "protected,secure-video-record";
-> > > +     default:
-> > > +             return NULL;
-> > > +     }
-> > > +}
-> >
-> > We've recently agreed on a naming guideline (even though it's not merge=
-d yet)
-> >
-> > https://lore.kernel.org/r/20250728-dma-buf-heap-names-doc-v4-1-f73f71cf=
-0dfd@kernel.org
->=20
-> I wasn't aware of that (or had forgotten it), but during the revisions
-> of this patch set, we changed to use "protected".
+> > I found the culprit. "otpout" (or "default" if we follow Alexander's
+> > suggested approach) pinctrl state should refer to the &tsadc_shut_org
+> > config instead of &tsadc_shut - then the PMIC reset works.
+>
+> I've recently brought up an RK3588S-based Orange Pi CM5 Base board, made
+> of a compute module (CM5, see [1]) and a carrier board (Base, see [2]).
+> The carrier board has a reset button which pulls the PMIC_RESET_L signal
+> of the CM5 to GND (see page 3 of the schematics in [3]).
+>
+> With &tsadc_shut_org the reset button has absolutely no effect. With
+> &tsadc_shut it resets the board as expected.
 
-I think protected is fine and what is documented in that patch, right?
+Interesting. The TSADC shouldn't affect the physical button operation
+at all, if it's really wired to the PMIC as the signal name implies.
+There isn't even any default pull value associated with the TSHUT pin
+config.
 
-> > Secure and trusted should be defined I guess, because secure and
-> > protected at least seem redundant to me.
->=20
-> Depending on the use case, the protected buffer is only accessible to
-> a specific set of devices. This is typically configured by the TEE
-> firmware based on which heap we're using. To distinguish between the
-> different heaps, I've simply added the name of the use case after the
-> comma. So the name of the heap for the Trusted-UI use case is
-> "protected,trusted-ui".
+What if you switch the GPIO0_A1 pin to GPIO output mode with no pull?
+Does the button work then? Does the board reset if you toggle the GPIO
+value with `gpioset`?
 
-I guess my point is that, without any prior knowledge of how that heap
-works, I have no idea what the "trusted-ui" use case actually is.
-
-> What would a heap called "protected,ui" represent? Protected buffers
-> for a UI use case? What kind of UI use case?
-
-I agree with all those questions. They apply equally to trusted-ui and
-secure-video though.
-
-If you want to have a vendor-specific name, I guess that's fine. But you
-should at the very least document what all these heaps are for and the
-subtleties like the set of device that can access those buffers (or how
-to figure out that list if it's somewhat dynamic).
-
-Maxime
-
---uh2g5nrijwsim4uc
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iJUEABMJAB0WIQTkHFbLp4ejekA/qfgnX84Zoj2+dgUCaN/ZtwAKCRAnX84Zoj2+
-dk9GAYDf6fryp88Ahl12b+j+v2rumlMEN3n/cHougouDTADzYYFHD5FrzdVXoXCH
-2w49Sa0BgPbuh4M8qU3Ly9kSPtLFD2tEJs/iA5V+MezAw2Egx8cvBUXOLP8pdylA
-HFFK1Cqtug==
-=PVWB
------END PGP SIGNATURE-----
-
---uh2g5nrijwsim4uc--
-
+Best regards,
+Alexey
 
