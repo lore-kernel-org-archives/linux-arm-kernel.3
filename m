@@ -4,70 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99B02CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Fri,  3 Oct 2025 23:52:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06F9DCCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Oct 2025 02:12:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=3fnlEmi/ZNwUs/VqJILeHjheiGJhpYyObno0DntKb3Q=; b=ZRkAoK5CbJHJ9Qh3jHMONQ6LSq
-	2r9DIWexIxZPIsrIVTXnVYceIF894c0BWAXQhqe80qDqMRQZIpsBNiT8LdFA93TSNj0CQ67ORPDmt
-	P8UyZW9UQUqNe+pQ7FbuVCSta05GgxtGOhXQPWgVBjf18cv7fBL7lTWsJdWixMl5IYi7eoubMtDFQ
-	MDYyKDAmeHwsZsypy+lziQyW7o1P6CBMpbWSruz7n69HbAu9B+o2ve1/jbMER8eGbiw/i800PbTfr
-	xnGiWK/zDH4VCvNf1k/sjgJVqfEs15N6hv3ei+ymbKJB1fQjwQwzGeDJGnI7fQGooM5gE/ZB6g7zo
-	ls6w9lAw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Message-Id:MIME-Version:To:Date:Subject:From:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=D65Z4HqbH5fqtWhTWQIoJmtesb5HnONvZSASibAwwEs=; b=AGK6Ihls2526+kHmByEnTLiC9X
+	kjDVSRd0ELMr5K581QqqSJNvznnk/1QHNQfYS6gaURsAf0PgORnTgtIw6hU+UyRq/KfriPZ1LRMTy
+	7Q9XtLNg29cUA1aJ/WNiuk81AsU6MumdAOhfARrkK59MHB55q/47rT4iFwyyTCFEZxL4cMuGKYVTG
+	znLSojxtDQWC8zoSJ07/BLInFXx9QBSD6kgxv+eRsbDk2jWF030/cKt9zUVbVnQUWQcNJ1POtbRft
+	0gBklLqkEB22+8pEU5COdtVo9Ohofk4Qe0Ot7A5UDc8hH7blSD3+ALTLtp1jvjLdqv7f5r/xcIlNQ
+	GWQE0emQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4pZq-0000000DIWf-3rgP;
-	Fri, 03 Oct 2025 23:52:42 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1v4rl3-0000000DNcG-2yTn;
+	Sat, 04 Oct 2025 02:12:25 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v4pZm-0000000DIWG-1rnY;
-	Fri, 03 Oct 2025 23:52:41 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id B41371340;
-	Sat,  4 Oct 2025 01:51:05 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1759535465;
-	bh=bgbeQkYqa1A2Y3gpDzbMy9FRoP1Nbs7BaWl5sEjJKKM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=UV+d3WKy7zPh0026oTMivv9SmFnqH8QBxKHMiBRLoktA855IEEoyfVH5DUrIBwQG5
-	 /xyeEuU58IE4NnOf95DpLw8AiQkJ6QN7jjVp6J1cybnDVBHhwe0dcdXVI/sz8goi3I
-	 YvFc/W2Emwa5wRbNljuwPeXQBbhA8AzM2Ka9Mx68=
-Date: Sat, 4 Oct 2025 02:52:30 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Alexey Charkov <alchark@gmail.com>
-Cc: Dragan Simic <dsimic@manjaro.org>,
-	Alexander Shiyan <eagle.alexander923@gmail.com>,
-	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	stable@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] arm64: dts: rockchip: Fix broken tsadc pinctrl binding
- for rk3588
-Message-ID: <20251003235230.GD1492@pendragon.ideasonboard.com>
-References: <20250124052611.3705-1-eagle.alexander923@gmail.com>
- <CABjd4YwA8P9LVuDviO6xydkHpuuOY7XT0pk1oa+FDqOo=uZN4A@mail.gmail.com>
- <a76f315f023a3f8f5435e0681119b4eb@manjaro.org>
- <CABjd4Ywh_AkbXHonx-8vL-hNY5LMLJge5e4oqxvUG+qe6OF-Og@mail.gmail.com>
- <61b494b209d7360d0f36adbf6d5443a4@manjaro.org>
- <CABjd4Yx0p0B=e00MjCpDDq8Z=0FtM0s9EN86WdvRimt-_+kh2w@mail.gmail.com>
- <CABjd4Yy14bpjzvFyc8et-=pmds5uwzfxNqcs7L=+XRXBogZEsQ@mail.gmail.com>
- <20251003133304.GA21023@pendragon.ideasonboard.com>
- <CABjd4YxbyUWghd1ya8UayFkAE-VWQSd5-J2QD0sV7WmS8AXkCg@mail.gmail.com>
+	id 1v4rl1-0000000DNbY-08Gi
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 04 Oct 2025 02:12:25 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1759543937;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=D65Z4HqbH5fqtWhTWQIoJmtesb5HnONvZSASibAwwEs=;
+	b=O/FrzR9kAVkD84RrkPdOC3jMWVpRFkD46m4sW0ywm7hhBKDgWsR5/80XaJ1rRsBOYCG0NX
+	qsUBY0r6Ws7E3rysrVT6pSvTmT++MgqGvXhrnXeqYerSWo1Aknn0plC/p9d10uOiJBU06T
+	g7T46dxP8C5jTc3L91DHnLNNNHAqfGg=
+Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-480-1hVTpkkMM2uF17G-PT_kAA-1; Fri,
+ 03 Oct 2025 22:12:14 -0400
+X-MC-Unique: 1hVTpkkMM2uF17G-PT_kAA-1
+X-Mimecast-MFC-AGG-ID: 1hVTpkkMM2uF17G-PT_kAA_1759543933
+Received: from mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.12])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id AE221180047F;
+	Sat,  4 Oct 2025 02:12:07 +0000 (UTC)
+Received: from [172.20.150.82] (unknown [10.30.45.111])
+	by mx-prod-int-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id CF40319560B1;
+	Sat,  4 Oct 2025 02:12:06 +0000 (UTC)
+From: cki-project@redhat.com
+Subject: =?utf-8?b?4pyF?= PASS: Test report for for-kernelci (6.17.0-rc7,
+ upstream-arm-next, bf45a62b)
+Date: Sat, 04 Oct 2025 02:12:06 -0000
+To: catalin.marinas@arm.com, will@kernel.org,
+ linux-arm-kernel@lists.infradead.org
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CABjd4YxbyUWghd1ya8UayFkAE-VWQSd5-J2QD0sV7WmS8AXkCg@mail.gmail.com>
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.12
+Message-Id: <90419.125100322121400172@us-mta-480.us.mimecast.lan>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: ZNdzBo0VEL7HdwhE9M9RJcT1AD6vZIjSNwDycw9Q-kE_1759543933
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251003_165238_626667_842710FF 
-X-CRM114-Status: GOOD (  53.53  )
+X-CRM114-CacheID: sfid-20251003_191223_321985_B40FF941 
+X-CRM114-Status: UNSURE (   6.37  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,127 +84,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 03, 2025 at 06:13:39PM +0400, Alexey Charkov wrote:
-> On Fri, Oct 3, 2025 at 5:33 PM Laurent Pinchart wrote:
-> > On Fri, Jan 24, 2025 at 11:44:34PM +0400, Alexey Charkov wrote:
-> > > On Fri, Jan 24, 2025 at 9:23 PM Alexey Charkov <alchark@gmail.com> wrote:
-> > > > On Fri, Jan 24, 2025 at 2:37 PM Dragan Simic <dsimic@manjaro.org> wrote:
-> > > > > On 2025-01-24 11:25, Alexey Charkov wrote:
-> > > > > > On Fri, Jan 24, 2025 at 2:06 PM Dragan Simic <dsimic@manjaro.org>
-> > > > > > wrote:
-> > > > > >> On 2025-01-24 09:33, Alexey Charkov wrote:
-> > > > > >> > On Fri, Jan 24, 2025 at 9:26 AM Alexander Shiyan
-> > > > > >> > <eagle.alexander923@gmail.com> wrote:
-> > > > > >> >>
-> > > > > >> >> There is no pinctrl "gpio" and "otpout" (probably designed as
-> > > > > >> >> "output")
-> > > > > >> >> handling in the tsadc driver.
-> > > > > >> >> Let's use proper binding "default" and "sleep".
-> > > > > >> >
-> > > > > >> > This looks reasonable, however I've tried it on my Radxa Rock 5C and
-> > > > > >> > the driver still doesn't claim GPIO0 RK_PA1 even with this change. As
-> > > > > >> > a result, a simulated thermal runaway condition (I've changed the
-> > > > > >> > tshut temperature to 65000 and tshut mode to 1) doesn't trigger a PMIC
-> > > > > >> > reset, even though a direct `gpioset 0 1=0` does.
-> > > > > >> >
-> > > > > >> > Are any additional changes needed to the driver itself?
-> > > > > >>
-> > > > > >> I've been digging through this patch the whole TSADC/OTP thing in the
-> > > > > >> last couple of hours, and AFAIK some parts of the upstream driver are
-> > > > > >> still missing, in comparison with the downstream driver.
-> > > > > >>
-> > > > > >> I've got some small suggestions for the patch itself, but the issue
-> > > > > >> you observed is obviously of higher priority, and I've singled it out
-> > > > > >> as well while digging through the code.
-> > > > > >>
-> > > > > >> Could you, please, try the patch below quickly, to see is it going to
-> > > > > >> fix the issue you observed?  I've got some "IRL stuff" to take care of
-> > > > > >> today, so I can't test it myself, and it would be great to know is it
-> > > > > >> the right path to the proper fix.
-> > > > > >>
-> > > > > >> diff --git i/drivers/thermal/rockchip_thermal.c
-> > > > > >> w/drivers/thermal/rockchip_thermal.c
-> > > > > >> index f551df48eef9..62f0e14a8d98 100644
-> > > > > >> --- i/drivers/thermal/rockchip_thermal.c
-> > > > > >> +++ w/drivers/thermal/rockchip_thermal.c
-> > > > > >> @@ -1568,6 +1568,11 @@ static int rockchip_thermal_probe(struct
-> > > > > >> platform_device *pdev)
-> > > > > >>          thermal->chip->initialize(thermal->grf, thermal->regs,
-> > > > > >>                                    thermal->tshut_polarity);
-> > > > > >>
-> > > > > >> +       if (thermal->tshut_mode == TSHUT_MODE_GPIO)
-> > > > > >> +               pinctrl_select_default_state(dev);
-> > > > > >> +       else
-> > > > > >> +               pinctrl_select_sleep_state(dev);
-> > > > > >
-> > > > > > I believe no 'else' block is needed here, because if tshut_mode is not
-> > > > > > TSHUT_MODE_GPIO then the TSADC doesn't use this pin at all, so there's
-> > > > > > no reason for the driver to mess with its pinctrl state. I'd rather
-> > > > > > put a mirroring block to put the pin back to its 'sleep' state in the
-> > > > > > removal function for the TSHUT_MODE_GPIO case.
-> > > > >
-> > > > > You're right, but the "else block" is what the downstream driver does,
-> > > >
-> > > > Does it though? It only handles the TSHUT_MODE_GPIO case as far as I
-> > > > can tell (or TSHUT_MODE_OTP in downstream driver lingo) [1]
-> > > >
-> > > > [1] https://github.com/radxa/kernel/blob/edb3eeeaa4643ecac6f4185d6d391c574735fca1/drivers/thermal/rockchip_thermal.c#L2564
-> > > >
-> > > > > so I think it's better to simply stay on the safe side and follow that
-> > > > > logic in the upstream driver.  Is it really needed?  Perhaps not, but
-> > > > > it also shouldn't hurt.
-> > > > >
-> > > > > > Will try and revert.
-> > > > >
-> > > > > Awesome, thanks!
-> > > > >
-> > > > > > P.S. Just looked at the downstream driver, and it actually calls
-> > > > > > TSHUT_MODE_GPIO TSHUT_MODE_OTP instead, so it seems that "otpout" was
-> > > > > > not a typo in the first place. So maybe the right approach here is not
-> > > > > > to change the device tree but rather fix the "gpio" / "otpout" pinctrl
-> > > > > > state handling in the driver.
-> > > > >
-> > > > > Indeed, "otpout" wasn't a typo, and I've already addressed that in my
-> > > > > comments to Alexander's patch.  Will send that response a bit later.
-> > > > >
-> > > > > I think it's actually better to accept the approach in Alexander's
-> > > > > patch, because the whole thing applies to other Rockchip SoCs as well,
-> > > > > not just to the RK3588(S).
-> > > >
-> > > > Anyway, I've just tried it after including the changes below, and
-> > > > while /sys/kernel/debug/pinctrl/pinctrl-handles shows the expected
-> > > > pinctrls under tsadc, the driver still doesn't seem to be triggering a
-> > > > PMIC reset. Weird. Any thoughts welcome.
-> > >
-> > > I found the culprit. "otpout" (or "default" if we follow Alexander's
-> > > suggested approach) pinctrl state should refer to the &tsadc_shut_org
-> > > config instead of &tsadc_shut - then the PMIC reset works.
-> >
-> > I've recently brought up an RK3588S-based Orange Pi CM5 Base board, made
-> > of a compute module (CM5, see [1]) and a carrier board (Base, see [2]).
-> > The carrier board has a reset button which pulls the PMIC_RESET_L signal
-> > of the CM5 to GND (see page 3 of the schematics in [3]).
-> >
-> > With &tsadc_shut_org the reset button has absolutely no effect. With
-> > &tsadc_shut it resets the board as expected.
-> 
-> Interesting. The TSADC shouldn't affect the physical button operation
-> at all, if it's really wired to the PMIC as the signal name implies.
-> There isn't even any default pull value associated with the TSHUT pin
-> config.
-> 
-> What if you switch the GPIO0_A1 pin to GPIO output mode with no pull?
-> Does the button work then? Does the board reset if you toggle the GPIO
-> value with `gpioset`?
+Hi, we tested your kernel and here are the results:
 
-The button works when GPIO0_A1 is configured as a GPIO input. It doesn't
-work anymore when the GPIO is set to 1, and setting the GPIO to 0 resets
-the board. This confirms your hypothesis that the reset button
-functionality conflicts with TSADC_SHUT being configured as a push-pull
-output.
+    Overall result: PASSED
+             Merge: OK
+           Compile: OK
+              Test: OK
 
--- 
-Regards,
+Tested-by: CKI Project <cki-project@redhat.com>
 
-Laurent Pinchart
+Kernel information:
+    Commit message: Merge branch 'for-next/core' into for-kernelci
+
+You can find all the details about the test run at
+    https://datawarehouse.cki-project.org/kcidb/checkouts/redhat:2079202349
+
+
+If you find a failure unrelated to your changes, please ask the test mainta=
+iner to review it.
+This will prevent the failures from being incorrectly reported in the futur=
+e.
+
+Please reply to this email if you have any questions about the tests that w=
+e
+ran or if you have any suggestions on how to make future tests more effecti=
+ve.
+
+        ,-.   ,-.
+       ( C ) ( K )  Continuous
+        `-',-.`-'   Kernel
+          ( I )     Integration
+           `-'
+___________________________________________________________________________=
+___
+
 
