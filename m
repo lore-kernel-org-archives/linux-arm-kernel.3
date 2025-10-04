@@ -4,64 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97CE0CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Oct 2025 13:25:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8DE0CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Sat,  4 Oct 2025 13:32:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=v0hnA0tM8jZVaYJeVhFId5qO5saJXLGBc/fF/KTNJoI=; b=stwwCF4Xhui3rSVOb9hkbeH8PY
-	Cw+3L93qZz5knG1pQFRBdsoAIdyhgivMI/i82CxzfXxkE1Mp2ahZfXz0DZyWvUfkzHw7NVBq9Vzpz
-	OyYggscnDNohgBoVu/pbh5nQAREMMIwvLd4eBDBxmCeni6rUdyrTHjRlFGUgdB7unEELvVdPUXEkz
-	/o6r7u72A3Pe3lpjoMxf7TCP2Hfj2AdljOtB0D9HjoS20alfZcxIjyZd54v0pjdHBMUp+sDptAfrS
-	dSI6Bnj5iS0khQPWPsVY88Bja3yTZYXGRT7X2+LBCL2jfxPJTFyMzJURiy+Hq0kZgq7EAlQiesMpX
-	gp4RkFwA==;
+	bh=mrWB8sF1/5u5fUBPR7rc6yZxprIzP63I9S7oZRBpdx0=; b=2pmsPWSNginntZrA1I6bdS9ARP
+	pTqyMeQUwkdnNmCTG7mWRF7Rf5s8M8liFQQzg35Cx4pay9KzXraU2SrDpPEkyRqtK4tyAFcLZfpj7
+	Ns57+MuNAbhtKHwxWxZU0JSbBt4D4uxk6/25dFWyy1VA2uhN5Qqpgt36fzjWAXBw7/DRsbv1odM7d
+	JSOtWYCGJWGo7z0NUQH2hg4Rvu25W82jbSevDCOnXvdongJpICbWW9MEjBKPuGMJQUhnK4kDXmLQv
+	zTwewLJ1TFYfqWqk8b39QO3T4LgaklOMuRIzm6SLH/GpI3buH4boXujQc0dfzUsPJ/iNY3CQoI7OP
+	BmCEsnwg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v52GP-0000000Djs4-1hrf;
-	Sat, 04 Oct 2025 13:25:29 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v52Mm-0000000DkFO-0rIv;
+	Sat, 04 Oct 2025 13:32:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v52GO-0000000Djry-0XNa
+	id 1v52Mk-0000000DkFG-3X8U
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 04 Oct 2025 13:25:28 +0000
+	Sat, 04 Oct 2025 13:32:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 1CFDF60144;
-	Sat,  4 Oct 2025 13:25:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44C60C4CEF1;
-	Sat,  4 Oct 2025 13:25:22 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E99BF60144;
+	Sat,  4 Oct 2025 13:32:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2D834C4CEF1;
+	Sat,  4 Oct 2025 13:31:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759584326;
-	bh=bc5bP7EqrX/7tverHK4ahEMxMXdfuaRoCJxs+IXR4UI=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=isrBaMWfApwQ1NDz1qxYerr3ggmdcFTR9LgDdgHJYQ39uEppFCwRZbzDkDTYqIZO8
-	 BtOqmkcx73Hww6vj5nUDaAK5msqyyJqgg9lGfSngFsus5mReiwGCb4TIzeDMlSKyxM
-	 S39iQ9sSMoUSCQYj82BBrXcE/ZfosunC3Xuk2z9JEDJ+Zc5x3pQRwTCAMD/kRn6OUt
-	 tYN6hcLHKcPxTOrcjOTjWdzGTocQp/+z5/AlZlMcWZZcV9n08/CT2hsiF5iOM2/QfM
-	 mCEyOYo8cWREIDsLjD7+CLWL0tbQD1Qtt+a0o5WlqGonWbx4jZRB3ZbpLJ5Z6ht4/I
-	 IAWGofaVST+GQ==
-Date: Sat, 4 Oct 2025 14:25:17 +0100
-From: Jonathan Cameron <jic23@kernel.org>
-To: Nuno =?UTF-8?B?U8Oh?= <noname.nuno@gmail.com>
-Cc: Olivier Moysan <olivier.moysan@foss.st.com>, David Lechner
- <dlechner@baylibre.com>, Nuno =?UTF-8?B?U8Oh?=	 <nuno.sa@analog.com>, Andy
- Shevchenko <andy@kernel.org>, Maxime Coquelin	 <mcoquelin.stm32@gmail.com>,
- Alexandre Torgue <alexandre.torgue@foss.st.com>, Jonathan Cameron
- <Jonathan.Cameron@huawei.com>, linux-iio@vger.kernel.org,
- linux-stm32@st-md-mailman.stormreply.com,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] iio: adc: stm32-dfsdm: fix st,adc-alt-channel property
- handling
-Message-ID: <20251004142517.0cf3e7a2@jic23-huawei>
-In-Reply-To: <5243c2c5a8f3dd24f40e30a695e2a3d4f948f388.camel@gmail.com>
-References: <20251002112250.2270144-1-olivier.moysan@foss.st.com>
-	<5243c2c5a8f3dd24f40e30a695e2a3d4f948f388.camel@gmail.com>
-X-Mailer: Claws Mail 4.3.1 (GTK 3.24.51; x86_64-pc-linux-gnu)
+	s=k20201202; t=1759584721;
+	bh=dtmZx205TbjsYteBttndCYNtOK23Kq5LL1dH+feqtx4=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=tuK8CBuoTxTO4Xa5yiMNdJJpBschaPLAH1WzqJwCfhIDwg5uol+XtbGz96beo1vIq
+	 btMwgsthkafHWvTyJwJt0JegsZLrVX7jXSWEfU4g0mu/IG/QVY9QzKynR9aIy2ld+3
+	 z4b5IljflliTuGzxvzPJgYeTRRH6QhbWoqIanV1io4e8wdHEjGRrKxcKXNR4NMKudH
+	 XO8i8Ua7OYjmfZgAa2XX5S1SJbebFap5Lqvw2rILtR4F6bALaFS4Sn7ghteYbfPayz
+	 PzJqjQauzvh43v/u0M1Evxq2AgbaAMIbiSesM2SQTBFOvkQ9r0u1atoM4jSHNJZGvK
+	 ppBUonXw54Qyg==
+Message-ID: <0b402bba-0399-4f93-873e-890a78570ff7@kernel.org>
+Date: Sat, 4 Oct 2025 14:31:16 +0100
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RFC 0/9] gpio: improve support for shared GPIOs
+To: Bartosz Golaszewski <brgl@bgdev.pl>, Kees Cook <kees@kernel.org>,
+ Mika Westerberg <westeri@kernel.org>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Andy Shevchenko <andy@kernel.org>, Catalin Marinas
+ <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+ Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
+ Takashi Iwai <tiwai@suse.com>
+Cc: linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+ Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+References: <20250924-gpio-shared-v1-0-775e7efeb1a3@linaro.org>
+Content-Language: en-US
+From: Srinivas Kandagatla <srini@kernel.org>
+In-Reply-To: <20250924-gpio-shared-v1-0-775e7efeb1a3@linaro.org>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,56 +85,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 03 Oct 2025 07:15:56 +0100
-Nuno S=C3=A1 <noname.nuno@gmail.com> wrote:
 
-> On Thu, 2025-10-02 at 13:22 +0200, Olivier Moysan wrote:
-> > Initially st,adc-alt-channel property was defined as an enum in the DFS=
-DM
-> > binding. The DFSDM binding has been changed to use the new IIO backend
-> > framework, along with the adoption of IIO generic channels.
-> > In this new binding st,adc-alt-channel is defined as a boolean property,
-> > but it is still handled has an enum in DFSDM driver.
-> > Fix st,adc-alt-channel property handling in DFSDM driver.
-> >=20
-> > Fixes: 3208fa0cd919 ("iio: adc: stm32-dfsdm: adopt generic channels bin=
-dings")
-> > Signed-off-by: Olivier Moysan <olivier.moysan@foss.st.com>
-> > --- =20
->=20
-> Reviewed-by: Nuno S=C3=A1 <nuno.sa@analog.com>
-Applied to my temporary fixes branch that I'll rebase on rc1 once available.
-Also marked for stable.
+On 9/24/25 3:51 PM, Bartosz Golaszewski wrote:
+> Here's a functional RFC for improving the handling of shared GPIOs in
+> linux.
+> 
+> Problem statement: GPIOs are implemented as a strictly exclusive
+> resource in the kernel but there are lots of platforms on which single
+> pin is shared by multiple devices which don't communicate so need some
+> way of properly sharing access to a GPIO. What we have now is the
+> GPIOD_FLAGS_BIT_NONEXCLUSIVE flag which was introduced as a hack and
+> doesn't do any locking or arbitration of access - it literally just hand
+> the same GPIO descriptor to all interested users.
 
-thanks,
+Isn't the main issue here is about not using a correct framework around
+to the gpios that driver uses. ex: the codec usecase that you are
+refering in this is using gpio to reset the line, instead of using a
+proper gpio-reset control. same with some of the gpio-muxes. the problem
+is fixed once such direct users of gpio are move their correct frameworks.
 
-Jonathan
+Am not sure adding a abstraction with-in gpio framework is right
+solution, But I do agree that NONEXCLUSIVE flags should disappear and
+users that are using this should be moved to correct frameworks where
+they belong.
 
->=20
-> > =C2=A0drivers/iio/adc/stm32-dfsdm-adc.c | 5 ++---
-> > =C2=A01 file changed, 2 insertions(+), 3 deletions(-)
-> >=20
-> > diff --git a/drivers/iio/adc/stm32-dfsdm-adc.c b/drivers/iio/adc/stm32-=
-dfsdm-adc.c
-> > index 74b1b4dc6e81..9664b9bd75d4 100644
-> > --- a/drivers/iio/adc/stm32-dfsdm-adc.c
-> > +++ b/drivers/iio/adc/stm32-dfsdm-adc.c
-> > @@ -725,9 +725,8 @@ static int stm32_dfsdm_generic_channel_parse_of(str=
-uct
-> > stm32_dfsdm *dfsdm,
-> > =C2=A0	}
-> > =C2=A0	df_ch->src =3D val;
-> > =C2=A0
-> > -	ret =3D fwnode_property_read_u32(node, "st,adc-alt-channel", &df_ch- =
-=20
-> > >alt_si); =20
-> > -	if (ret !=3D -EINVAL)
-> > -		df_ch->alt_si =3D 0;
-> > +	if (fwnode_property_present(node, "st,adc-alt-channel"))
-> > +		df_ch->alt_si =3D 1;
-> > =C2=A0
-> > =C2=A0	if (adc->dev_data->type =3D=3D DFSDM_IIO) {
-> > =C2=A0		backend =3D devm_iio_backend_fwnode_get(&indio_dev->dev, NULL,
-> > node); =20
+--srini
+
+> 
+> The proposed solution is composed of three major parts: the high-level,
+> shared GPIO proxy driver that arbitrates access to the shared pin and
+> exposes a regular GPIO chip interface to consumers, a low-level shared
+> GPIOLIB module that scans firmware nodes and creates auxiliary devices
+> that attach to the proxy driver and finally a set of core GPIOLIB
+> changes that plug the former into the GPIO lookup path.
+> 
+> The changes are implemented in a way that allows to seamlessly compile
+> out any code related to sharing GPIOs for systems that don't need it.
+> 
+> The practical use-case for this are the powerdown GPIOs shared by
+> speakers on Qualcomm db845c platform, however I have also extensively
+> tested it using gpio-virtuser on arm64 qemu with various DT
+> configurations.
+> 
+> I'm Cc'ing some people that may help with reviewing/be interested in
+> this: OF maintainers (because the main target are OF systems initially),
+> Mark Brown because most users of GPIOD_FLAGS_BIT_NONEXCLUSIVE live
+> in audio or regulator drivers and one of the goals of this series is
+> dropping the hand-crafted GPIO enable counting via struct
+> regulator_enable_gpio in regulator core), Andy and Mika because I'd like
+> to also cover ACPI (even though I don't know about any ACPI platform that
+> would need this at the moment, I think it makes sense to make the
+> solution complete), Dmitry (same thing but for software nodes), Mani
+> (because you have a somewhat related use-case for the PERST# signal and
+> I'd like to hear your input on whether this is something you can use or
+> maybe it needs a separate, implicit gpio-perst driver similar to what
+> Krzysztof did for reset-gpios) and Greg (because I mentioned this to you
+> last week in person and I also use the auxiliary bus for the proxy
+> devices).
+> 
+> First patch in the series is a bugfix targetting stable, I'm surprised
+> nobody noticed the lockdep splat yet. The second adds a library function
+> I use in a later patch. All remaining patches implement or use the
+> shared GPIO support.
+> 
+> Signed-off-by: Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+> ---
+> Bartosz Golaszewski (9):
+>       gpio: wcd934x: mark the GPIO controller as sleeping
+>       string: provide strends()
+>       gpiolib: define GPIOD_FLAG_SHARED
+>       gpiolib: implement low-level, shared GPIO support
+>       gpio: shared-proxy: implement the shared GPIO proxy driver
+>       gpiolib: support shared GPIOs in core subsystem code
+>       arm64: select HAVE_SHARED_GPIOS for ARCH_QCOM
+>       ASoC: wsa881x: drop GPIOD_FLAGS_BIT_NONEXCLUSIVE flag from GPIO lookup
+>       ASoC: wsa883x: drop GPIOD_FLAGS_BIT_NONEXCLUSIVE flag from GPIO lookup
+> 
+>  arch/arm64/Kconfig.platforms     |   1 +
+>  drivers/gpio/Kconfig             |  17 ++
+>  drivers/gpio/Makefile            |   2 +
+>  drivers/gpio/gpio-shared-proxy.c | 328 ++++++++++++++++++++++++++
+>  drivers/gpio/gpio-wcd934x.c      |   2 +-
+>  drivers/gpio/gpiolib-shared.c    | 481 +++++++++++++++++++++++++++++++++++++++
+>  drivers/gpio/gpiolib-shared.h    |  71 ++++++
+>  drivers/gpio/gpiolib.c           |  50 +++-
+>  drivers/gpio/gpiolib.h           |   1 +
+>  include/linux/string.h           |   2 +
+>  lib/string.c                     |  19 ++
+>  lib/tests/string_kunit.c         |  13 ++
+>  sound/soc/codecs/wsa881x.c       |   3 +-
+>  sound/soc/codecs/wsa883x.c       |   7 +-
+>  14 files changed, 980 insertions(+), 17 deletions(-)
+> ---
+> base-commit: b46f7370d4a0f0b55f05b854e73b2a90dff41e1b
+> change-id: 20250908-gpio-shared-67ec352884b6
+> 
+> Best regards,
 
 
