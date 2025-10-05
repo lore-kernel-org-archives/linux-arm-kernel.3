@@ -4,62 +4,180 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F845CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Oct 2025 00:25:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7E6E4CAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Oct 2025 00:53:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fvn4CHSraloNg0d77ItQy+gRuXQjVxFxzAVd5hx04PQ=; b=eIo7cexT+Y7VjLx4mkYMV77KPp
-	9aWhNPb4Lx3lbnx6OUQYKBb6mxGUoShZp0T3tfa8XllX4oAkjF8RL3OHNLy8hl96hq5cnJRjzAv4q
-	flMULGqcBWE8lcniBd3TGga06CMcaZ0sjOpKLs9JKrlmvR6PTp82P0q/lw+qyhaNuniPGsDGcTsq0
-	gNYAASrN31EDm1BDTLUbicKPl7ucQO1XhxKjhbf9zLlg+NRMB7lPp8z15bwXcS6d7RI5Y2ksdo6Hv
-	PAjMiBhODJzwbWxPMX+tXocIVBEwfFMIe5yP25GuWVS9iQhYrpuK3ApOGdXm+F+EPBe1awCuRWHBQ
-	xOVKDe9Q==;
+	bh=Iyr3+fyNgTGnRRCM9BUuv/Dxmti0CPZo7VAJGCRs4bw=; b=r8Od7ZLg2YeqfePiwLR2cbCEbA
+	VhrfMJ4ALftqaSL00Yewj651JhfMRLxGjotEBc/66OqIqbJK6W18OU3A0LxMt1n1I+o3rYD6E8pbJ
+	pCi12WG0HWB78MvtmXa8T8fF4bezGeMnMlAW2RDClAcMrXD6zQ9aXd3gaif1PwkUWEeiFCRhUymfa
+	/BkP+uKvfLQD+kPAQlzutLYtAbt1rR9UpZF87mXtek1qcq7iuJEwFswf/v6vSNwDuVKzbXv5aIu9w
+	CEJ4lvTZF2MHeyGFUC97a8t7YPY7oKabLZ/+P08dK65FU5COxq1OuxjbQ0G1iHP1xrW3EImr9SJNe
+	pB8FaMHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5CYj-0000000E8gu-0ZyF;
-	Sun, 05 Oct 2025 00:25:05 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1v5D0R-0000000E9Nc-2zSV;
+	Sun, 05 Oct 2025 00:53:43 +0000
+Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5CYf-0000000E8gQ-3ydC;
-	Sun, 05 Oct 2025 00:25:03 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 9808BC6E;
-	Sun,  5 Oct 2025 02:23:28 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1759623808;
-	bh=gQv8rVt3G5Sp/h+9pCG5bWX/kK8RHwN2ZheTAD4EXIk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=l2peJZjuAyJ81txRk4qoY/Ur0O6bFvvsDsyhwMyer/VKPa5qPb8elcdgidPiibbcX
-	 yIqG3zibNUlNupGh5IBzWNANJUxVkcsZmGoQjnn6bruWJpEAry30K2tuUtTNLfKBW/
-	 MS99wot2Qevcz3QM/7zLiwV6b2wjw4JBjrzp+hi4=
-Date: Sun, 5 Oct 2025 03:24:53 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Cc: Dafna Hirschfeld <dafna@fastmail.com>, Keke Li <keke.li@amlogic.com>,
-	Mauro Carvalho Chehab <mchehab@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>,
-	Dan Scally <dan.scally@ideasonboard.com>,
-	Sakari Ailus <sakari.ailus@linux.intel.com>,
-	Antoine Bouyer <antoine.bouyer@nxp.com>,
-	linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v5 3/8] media: uapi: Convert Amlogic C3 to V4L2
- extensible params
-Message-ID: <20251005002453.GC13055@pendragon.ideasonboard.com>
-References: <20250915-extensible-parameters-validation-v5-0-e6db94468af3@ideasonboard.com>
- <20250915-extensible-parameters-validation-v5-3-e6db94468af3@ideasonboard.com>
+	id 1v5D0P-0000000E9Me-2Jsu
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 05 Oct 2025 00:53:42 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=u4MXLHZ+F/6RD1qu+QOYk6rBdAW3dNqEmkm+6ldArj4ICudVGi6BFRi2IUeO8yLId5FFdtGwfNnk/TJraCSMkR+3nfcILiPx7NpE+etEIvZfYX6umKHAQjobhtt2LeS9DpO31wig+Zjonn0oJ9m7jc43JpBhlWNIoe+L4umXNaoHbBw9hVJGrRp1BhwsB9pSytRYgDmjQkM68cUZUTpQOQ4pRAod5JMyhtPnrDE9jpXpQ4Au/zCAefZjZnu7YEV/lxO6BjkcN3uOnsnpJ1+XVkhfuUG2xAEOxcWQJ2DkJAMbtavSrNCBYxdwgQtfZkUk7ElADXxhdwSK1lNDGewA4w==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=Iyr3+fyNgTGnRRCM9BUuv/Dxmti0CPZo7VAJGCRs4bw=;
+ b=WvqBmpmGO10orzUXTgapct661qjISHu08Tid6YX/LSjvKhexGafSao0rwZwQ4y5ThtlhoiRQxg1YQjPk8nE8FjgZwRoekYVT/60PGxxEhkdQPM/JZCtWAze6Fl6E6PxQDYX83ySc4ERrc4cmJRqo4mU4QP1BtRqrvBDQRDsF3pWMOm1ljvdZxtzrcV208EMpmd6iW8M5xWY1xqKoq5u7cj7iOPr2SDFoEmsJfLsIyBrPY6IH8+PFs5ro4tBhbkZ+XrYz9heE9Fs/Ey792uBrSB1nRJgj57OjrpMszav+uL7Wt5joc8p3WelhN1+J2HupoA1N8sEtQwjybJWd+ibyog==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=Iyr3+fyNgTGnRRCM9BUuv/Dxmti0CPZo7VAJGCRs4bw=;
+ b=N65kl0JJmtmJUmEo+MKUbjdfO0l/Umr6wjkDwWkL3Un38/aYNPZK8KnjWgo9eK2kJFROMqmaeahbHMOCMyrf4j18m3gArtI441l2VM8FyMo03lMUZGrNFBOVtxF8Z2AxalI4wYJ1a6CsXV3f8KR7ZnnOjbFAK2aSzC9950KBNI4PCfNOqp/qMun5FE4p7HT3Gtp3qgGtbi1WN83T+hMbH6+ZMY8pVP6z0IipcYz2jis+PzbWTJvLzGWfVAE0XEHo8uNlL+vrrmZj5BfdhAtP1g9jKZxPKx8MDndH1e85t94E/Mq7+NVZYa2jJtt2XZpXS1K7c5I6BHZ5PL7b1rUVHw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB2667.namprd12.prod.outlook.com (2603:10b6:5:42::28) by
+ SA5PPF9176ED2F1.namprd12.prod.outlook.com (2603:10b6:80f:fc04::8d7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9115.21; Sun, 5 Oct
+ 2025 00:53:21 +0000
+Received: from DM6PR12MB2667.namprd12.prod.outlook.com
+ ([fe80::bd88:b883:813d:54a2]) by DM6PR12MB2667.namprd12.prod.outlook.com
+ ([fe80::bd88:b883:813d:54a2%6]) with mapi id 15.20.9182.015; Sun, 5 Oct 2025
+ 00:53:21 +0000
+Message-ID: <600dc476-6922-4cd5-b3e3-ef10cd38085e@nvidia.com>
+Date: Sat, 4 Oct 2025 17:53:18 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 13/29] arm_mpam: Probe the hardware features resctrl
+ supports
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
+ Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>
+References: <20250910204309.20751-1-james.morse@arm.com>
+ <20250910204309.20751-14-james.morse@arm.com>
+Content-Language: en-US
+From: Fenghua Yu <fenghuay@nvidia.com>
+In-Reply-To: <20250910204309.20751-14-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SJ0PR03CA0256.namprd03.prod.outlook.com
+ (2603:10b6:a03:3a0::21) To DM6PR12MB2667.namprd12.prod.outlook.com
+ (2603:10b6:5:42::28)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <20250915-extensible-parameters-validation-v5-3-e6db94468af3@ideasonboard.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR12MB2667:EE_|SA5PPF9176ED2F1:EE_
+X-MS-Office365-Filtering-Correlation-Id: 84953a07-05f5-4e17-36fe-08de03a99473
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?MzRsUG9BVnVWQ3hvL1IwdGpEMSs1S3BoVzJBNEJXYjVTYmlYTytQSlZMNy9J?=
+ =?utf-8?B?cHlueCtRanh5cTRieFYxV3Yxd1ZYZjN0K2Nub0JGMU9ZVjg3ZHEzM0Rra2pv?=
+ =?utf-8?B?Z3N2OGpURWY3ekpySWU1bURDVmZkWW1NNU1MTlM0NlhWV0FPV1hNZnJKdk04?=
+ =?utf-8?B?TnBRY2JTVmJjSVRORE1OR29hT25pMWRONnJuTVJsZ04wazI3NlRrbFVRYnlH?=
+ =?utf-8?B?WWdUSnF3YTdGeG1jYkJNMWkzU1J2UVMweEY0N0RpeXBhZGtHWldzVTlRQlNr?=
+ =?utf-8?B?aXE5R2x2b1l0K3pwQzNZWXUvTUVaMC9VUmk4N1QreGg3MElUbFlNbkZxZ2lQ?=
+ =?utf-8?B?dDFoa3owdmdKb0JUeWNYMlR3OGxFcFlzT0NWZ2dFRkV3ZkJpUCs3dXFGbk9k?=
+ =?utf-8?B?cGd3ZmwvL3VkNnVNL0tybUtWbU4zdFdyYWlEVmozbUFha2pJc2dIS0Fna241?=
+ =?utf-8?B?c2c1OFpTcGI2ckFvM2xvOTFxTFRiaDFqQ0VvaENjNlJ4U1JQUnJDbVp2UnVU?=
+ =?utf-8?B?NTJzZ2Y1ZkR4dXRGUmNPV2llckFPaElWV05SeXdaUzRUbGtVVkJEcU1wL3U2?=
+ =?utf-8?B?ekg2WmZNRGNueWxHdndDdW9MM0lPa25qM1pHZzhZam4zNTRsVVVpZ2pLbDJU?=
+ =?utf-8?B?Q1lDSmJuSloxcXNZTkx5NWk1WnNIa21hVXlUcmU1Y0hFVVBhOGJzbk5iUXVI?=
+ =?utf-8?B?S2dQSk93dXRYeEhhcGxNWDNIZ2MvaHVmR3NjYm41bkNoQ3d5a0FHdjkramJa?=
+ =?utf-8?B?aDlQN0tIa28zWjAyYUQzR25DQVI0TGJXMjA0bERVUWtvSjRvMmZCdmlyaGJO?=
+ =?utf-8?B?cjUxcG9tTlhIbGJjK244cExONzk5bDlCdHFHM1h6SzFsZnhqMmYwVy9EdTB0?=
+ =?utf-8?B?Rkp5Y1ZaMytIN0JlWllBWVFMQncvbVNjV2xkaWpWQWk4VUtvWnRIQnFwVTFZ?=
+ =?utf-8?B?M2kzVTk0UmdzVWpONzB2Rk41SlVONFpOSE0wUkJaN0VwenlDcUNtM3dDUHlx?=
+ =?utf-8?B?bm1VbXFLODZyVGRuZFZFbXBnU3ZqNVcrZzNsOXBkUWUrdzRZV1MwbTVFV3R1?=
+ =?utf-8?B?YVo2Mm5HY3E4bHlURC8yN2lWNWNqNi9oK0J3U0JNdlR5OFYzSHpZajUxUWQ2?=
+ =?utf-8?B?ZHdzWlYwcG9sdDFENytKQXNYWHBnRUk3WFlqSkN5OVdZVDROaW93czJTMVN2?=
+ =?utf-8?B?WG95KzdFNEdxTm1lUUtDQjlEWjRYN3NmV2RVWjhIWGZtd3RGdDlhdnlXa3J4?=
+ =?utf-8?B?aSsvUHdVUnpOU3E3QlArVTdCWFR3Ym0rWFBwUGdQOXpSTnNKUkhBQVB5OFNU?=
+ =?utf-8?B?S3VjQ3NrS3VTaHBmalJ2REZlR2FrRVh5UTduMEQ3Wm5lTFViVWZyUDk0R0pG?=
+ =?utf-8?B?U3plR1gzTS9QRnBVUFNsYm14RXMvNm5VdVBZM1RrRXF2bXJkZFZaaVVPLzNE?=
+ =?utf-8?B?QTF0Wld1ZmZrNDU2eGtTL3hXQlN5MFNKazZxUnphdFk5MVdXd203R0tDajhw?=
+ =?utf-8?B?SEVOOUhOZFZLSTM3VGJWSURiVlhVbVAzNE16c2o1ZHRSc3lwUUNkQ1BCV09R?=
+ =?utf-8?B?OHgvZ3c5bFRSMkZUaEZTSFN4V1c0aWt1VmxIVE5ZWnFjYkpoT2JDR3pqRDYr?=
+ =?utf-8?B?ak8zdmRPbkMvVGZhKzRaL2J5SXhVMEZsNHZPSGJjc2JsQnk2a1NzbkNoL2Vq?=
+ =?utf-8?B?c28rSWViZXlDRUpSd2pYNE5yc1cza0xiSjFIRDhqM21sZUEybDRZRmJpRlJP?=
+ =?utf-8?B?RjY1RzN1c1pYS1JmcUczWENhR1lBdUJMVFBsYzI4cXdtRzhDOThWdTVvQXBo?=
+ =?utf-8?B?OGRQOUNiTExqSWNoeUZDSW5VTEJCZDM2dmxvTHlBa3N5cUZqcnIxVFo4cURJ?=
+ =?utf-8?B?UXMvd1FZYXdhWDhXSDdCMldJR1pzS2FSVWJwb3A0bUphWnBGdE14bVNzWWp3?=
+ =?utf-8?Q?Ks6aPZb9DVhJmC91Cack8VUJhtZCTHet?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB2667.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?SDZ6Qy96RFJ2a2dNcnNTWHpVZkR2ekNPbkl2RGVPNVJTUDVsaVNnOTdVbjU3?=
+ =?utf-8?B?enkzejdidGN4VHQ2c2IzOUlIdHZMYjk1YUNDQkVoNXRFVDZzUzFSRUtVNG1Q?=
+ =?utf-8?B?Y2ozaENhSFMrVVQzSHdjeUl6ci9RRlg3MjNqUTVqcEI2SWpTTHBiSzRVNUFp?=
+ =?utf-8?B?R2p4b3VmL1krQ3M1ZllXOEd5WVVWOUtDbWFpbFpiR2tFbjV3M0tWK21PcG85?=
+ =?utf-8?B?SUJUcUsrdXZyMlZ3ZlNZM2pSWW9BSEtPbEIvMHc3TDI1eDRpMFU5cjBScnR4?=
+ =?utf-8?B?TW1SSnJEVTFJeFBaWnNaeHBKcERGK2orVmpWaGMreXhoc24xbmtheEdld25v?=
+ =?utf-8?B?bFZQV1JDMFZEa3RRZmtlRFFsY2VPQWhHNzQ5SkEzRDg2WERobkR0emo1SzBi?=
+ =?utf-8?B?WVY1V0lXUnI2bHlkd2ZaZ3ErMHFWcC9OdDhCeGZOc3drUDBneTcrRUJLZXVZ?=
+ =?utf-8?B?WlRjWFQveC96bStqekU3eWZCYmRFcVNiWTJrTWpJa2c4eWdJSVVoKzBUbEdq?=
+ =?utf-8?B?ZHRJZ2ZQOFZ0cGoxMmhWZ2xjY3lJOE5kRmFSMlg0Q0JTZGxiRzA3VEp5Z1JD?=
+ =?utf-8?B?RFpjUitYMVFRMGkwN1pybCtybmJkWjJsV3hYcTdpY2JLdjlidHR0c0laOEtw?=
+ =?utf-8?B?bkF5WEU1eVlSblBFWWYzOWRWOU8wZUREaEpUbGxnTjhNakQzMklnZGhPbkZl?=
+ =?utf-8?B?VVNqcWpLNm1kYVJxdE5GTlhuMElHcjh1TkVwdGhuQzl4NG80UjlZZHBvOElO?=
+ =?utf-8?B?dHhOdWhJdVJJTkF4ajlTcnZOYmR3bjlwV293Y2ROdFU4U1JSa0VHZEpJTlc5?=
+ =?utf-8?B?aXNzTHViY05JY2NxMXpIYjVLdHZnV1QxUlI5YUsvRVk5U3RLQVFvWFlZdUpC?=
+ =?utf-8?B?R2h6dnRoRXV0ajBMZytQc1VUT2ZOUnlRM0xVa25mMURPcjdpZURNbFFLVVZp?=
+ =?utf-8?B?Y3JjaDF5ZXRNNFZkZml6WHlJOEpHb3diNk82TEpCSjJjRWZGeCthcmpidkh4?=
+ =?utf-8?B?aXZ6Zi9WNkxzQml6UDhESTR2N3NmS0ttaHUrUjc1YnpFVHhKVml4RkVmM0pP?=
+ =?utf-8?B?YU40ZEhIZ3JFdFV0TUlhK0dJMXEvS1JxY0JNMDVHZkVPcmgrdDl3NTQvbi9Q?=
+ =?utf-8?B?cUZYQTZkNlk0Yi9rRlREMWx3akdPV3k1QVVtTEJzM1ptSEpkTFFobEpmK2ly?=
+ =?utf-8?B?RHg1amhTVUlyQWxmai9CSE1mN2x1SEl6SGllbXF1dDJkOTZHNVRoQ2l5aHJB?=
+ =?utf-8?B?U3Z6QUFyNkdtVXEzU0QwdXVNMTlVdjlMY293bmtHN2RZOU85am1XZlpFTWF0?=
+ =?utf-8?B?cldQem1ldHdFQ0ErUHA1c2E2Q0xvcXBLVFZOWDNCOWdPZmtTOHhoaDFVRnBp?=
+ =?utf-8?B?QlZhd2tEK1NROEk2elFFMkorMlZoWnJuSDNRWk5jeXFDbnlseE9lVGUyUkdB?=
+ =?utf-8?B?QWJWT2FOTmMvcUZFU0VBM1pVU3pFQzZwdWdUOWcxSFdaWnJGSHpvZTJxTWJM?=
+ =?utf-8?B?MzJpQ2hBSjh6REExRW1lRDZWVlFMcE1GcFErUGNXK20xMDJvQW9aSllkWktz?=
+ =?utf-8?B?WFFpeURPTml5RDEyUW5MeGd3YmIwOUdoQlhsMTBYQmVuYU9leUJyK2JRdk02?=
+ =?utf-8?B?SHEzaVhjY1MySUpacWNVMkhleWN2U2FiYW8rYXlSNkVNNWZWaW5Ia0xRK2Zi?=
+ =?utf-8?B?czVmUFhkYjlKL2t4Z2ZPZDF1RUVDWklRSTBwaHVnL29mZzNBcjRzRzdSRDkz?=
+ =?utf-8?B?cHVzVUs4dno1UFBndVZHN0w4S2VMQ0Q5Qm5ESlQ0NGVXOURQdU1mWmZsaFNv?=
+ =?utf-8?B?MnhhU3RDNFl4S3pxNC9IblJIZ25lWUhJT3lRemZLOForUUdlQkkwT3ZET0RW?=
+ =?utf-8?B?eTREMk1CSjNUSFc3ZUVwRkdjb0g0SnY4QlE4SkIwV09zWXlGbkg1L3BYU3o3?=
+ =?utf-8?B?RVV2TnVXamlEQzBNSmdsV3VyYjBtczlGdTNxQThoSDZMeThoa203bldBTmwz?=
+ =?utf-8?B?OGlIdU1TNHZHaUtLUGlRcVB2UFVDWlM2bUtGT2xacTZxcS8zaGhNSU9OWi9X?=
+ =?utf-8?B?NXd4ZVJBeTZ1dXJtWmduL3VNKytkb2U4SzBpWDFjNitEUXlTMjJNTENPWjVY?=
+ =?utf-8?Q?mbtoQVgywBe0oGN7YHxgxWW73?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 84953a07-05f5-4e17-36fe-08de03a99473
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB2667.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Oct 2025 00:53:21.2312
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 2UgOziKq4gZzEQHChdPhU6zeY8wF3ybG++CpFurQSM4qZ9lMeHfnuM/zyOM8/uEd/oAWTn3ySlI8YTzWQv7dMQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA5PPF9176ED2F1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251004_172502_135774_A83B8E7C 
-X-CRM114-Status: GOOD (  40.31  )
+X-CRM114-CacheID: sfid-20251004_175341_586271_65857075 
+X-CRM114-Status: GOOD (  19.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,174 +192,82 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jacopo,
 
-Thank you for the patch.
+On 9/10/25 13:42, James Morse wrote:
+> Expand the probing support with the control and monitor types
+> we can use with resctrl.
+>
+> CC: Dave Martin <Dave.Martin@arm.com>
+> Signed-off-by: James Morse <james.morse@arm.com>
 
-On Mon, Sep 15, 2025 at 07:18:12PM +0200, Jacopo Mondi wrote:
-> With the introduction of common types for extensible parameters
-> format, convert the c3-isp-config.h header to use the new types.
-> 
-> Factor-out the documentation that is now part of the common header
-> and only keep the driver-specific on in place.
-> 
-> The conversion to use common types doesn't impact userspace as the
-> new types are either identical to the ones already existing in the
-> C3 ISP uAPI or are 1-to-1 type convertible.
+Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
 
-You can reflow the commit message.
+A couple of minor comments below.
 
-> Reviewed-by: Daniel Scally <dan.scally@ideasonboard.com>
-> Reviewed-by: Keke Li <keke.li@amlogic.com>
-> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
 > ---
->  include/uapi/linux/media/amlogic/c3-isp-config.h | 86 ++++++------------------
->  1 file changed, 20 insertions(+), 66 deletions(-)
-> 
-> diff --git a/include/uapi/linux/media/amlogic/c3-isp-config.h b/include/uapi/linux/media/amlogic/c3-isp-config.h
-> index ed085ea62a574932c7ad8d59d34b2c5c74a597d8..bf6de55b27a7d4d15effcca5525865650d9070fb 100644
-> --- a/include/uapi/linux/media/amlogic/c3-isp-config.h
-> +++ b/include/uapi/linux/media/amlogic/c3-isp-config.h
-> @@ -6,8 +6,13 @@
->  #ifndef _UAPI_C3_ISP_CONFIG_H_
->  #define _UAPI_C3_ISP_CONFIG_H_
->  
-> +#ifdef __KERNEL__
-> +#include <linux/build_bug.h>
-> +#endif /* __KERNEL__ */
->  #include <linux/types.h>
->  
-> +#include <linux/media/v4l2-isp.h>
+> Changes since v1:
+>   * added an underscore to a variable name.
+>
+> Changes since RFC:
+>   * Made mpam_ris_hw_probe_hw_nrdy() more in C.
+>   * Added static assert on features bitmap size.
+> ---
+>   drivers/resctrl/mpam_devices.c  | 151 ++++++++++++++++++++++++++++++++
+>   drivers/resctrl/mpam_internal.h |  53 +++++++++++
+>   2 files changed, 204 insertions(+)
+>
+> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
+> index a26b012452e2..ba8e8839cdc4 100644
+> --- a/drivers/resctrl/mpam_devices.c
+> +++ b/drivers/resctrl/mpam_devices.c
+[SNIP]
+> @@ -592,6 +736,7 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>   	mutex_lock(&msc->part_sel_lock);
+>   	idr = mpam_msc_read_idr(msc);
+>   	mutex_unlock(&msc->part_sel_lock);
 > +
->  /*
->   * Frames are split into zones of almost equal width and height - a zone is a
->   * rectangular tile of a frame. The metering blocks within the ISP collect
-> @@ -176,62 +181,22 @@ enum c3_isp_params_block_type {
->  	C3_ISP_PARAMS_BLOCK_SENTINEL
->  };
->  
-> -#define C3_ISP_PARAMS_BLOCK_FL_DISABLE (1U << 0)
-> -#define C3_ISP_PARAMS_BLOCK_FL_ENABLE (1U << 1)
-> +/* For backward compatibility */
-> +#define C3_ISP_PARAMS_BLOCK_FL_DISABLE	V4L2_PARAMS_FL_BLOCK_DISABLE
-> +#define C3_ISP_PARAMS_BLOCK_FL_ENABLE	V4L2_PARAMS_FL_BLOCK_ENABLE
->  
->  /**
->   * struct c3_isp_params_block_header - C3 ISP parameter block header
->   *
->   * This structure represents the common part of all the ISP configuration
-> - * blocks. Each parameters block shall embed an instance of this structure type
-> - * as its first member, followed by the block-specific configuration data. The
-> - * driver inspects this common header to discern the block type and its size and
-> - * properly handle the block content by casting it to the correct block-specific
-> - * type.
 
-+ * blocks and is identical to :c:type:`v4l2_params_block_header`.
+Adding this blank line is irrelevant to this patch. It's better to move 
+this blank line to the original patch #11.
 
->   *
->   * The @type field is one of the values enumerated by
-
-s/@type/type/
-
-Please compile the documentation for the next version. I expect the
-'struct c3_isp_params_block_header' above to not be appreciated by
-sphinx as there's no corresponding structure.
-
-Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-
->   * :c:type:`c3_isp_params_block_type` and specifies how the data should be
-> - * interpreted by the driver. The @size field specifies the size of the
-> - * parameters block and is used by the driver for validation purposes. The
-> - * @flags field is a bitmask of per-block flags C3_ISP_PARAMS_FL*.
-> - *
-> - * When userspace wants to disable an ISP block the
-> - * C3_ISP_PARAMS_BLOCK_FL_DISABLED bit should be set in the @flags field. In
-> - * this case userspace may optionally omit the remainder of the configuration
-> - * block, which will be ignored by the driver.
-> - *
-> - * When a new configuration of an ISP block needs to be applied userspace
-> - * shall fully populate the ISP block and omit setting the
-> - * C3_ISP_PARAMS_BLOCK_FL_DISABLED bit in the @flags field.
-> - *
-> - * Userspace is responsible for correctly populating the parameters block header
-> - * fields (@type, @flags and @size) and the block-specific parameters.
-> - *
-> - * For example:
-> - *
-> - * .. code-block:: c
-> + * interpreted by the driver.
->   *
-> - *	void populate_pst_gamma(struct c3_isp_params_block_header *block) {
-> - *		struct c3_isp_params_pst_gamma *gamma =
-> - *			(struct c3_isp_params_pst_gamma *)block;
-> - *
-> - *		gamma->header.type = C3_ISP_PARAMS_BLOCK_PST_GAMMA;
-> - *		gamma->header.flags = C3_ISP_PARAMS_BLOCK_FL_ENABLE;
-> - *		gamma->header.size = sizeof(*gamma);
-> - *
-> - *		for (unsigned int i = 0; i < 129; i++)
-> - *			gamma->pst_gamma_lut[i] = i;
-> - *	}
-> - *
-> - * @type: The parameters block type from :c:type:`c3_isp_params_block_type`
-> - * @flags: A bitmask of block flags
-> - * @size: Size (in bytes) of the parameters block, including this header
-> + * The flags field is a bitmask of per-block flags C3_ISP_PARAMS_FL_*.
->   */
-> -struct c3_isp_params_block_header {
-> -	__u16 type;
-> -	__u16 flags;
-> -	__u32 size;
-> -};
-> +#define c3_isp_params_block_header v4l2_params_block_header
->  
->  /**
->   * struct c3_isp_params_awb_gains - Gains for auto-white balance
-> @@ -498,26 +463,9 @@ struct c3_isp_params_blc {
->  /**
->   * struct c3_isp_params_cfg - C3 ISP configuration parameters
->   *
-> - * This struct contains the configuration parameters of the C3 ISP
-> - * algorithms, serialized by userspace into an opaque data buffer. Each
-> - * configuration parameter block is represented by a block-specific structure
-> - * which contains a :c:type:`c3_isp_param_block_header` entry as first
-> - * member. Userspace populates the @data buffer with configuration parameters
-> - * for the blocks that it intends to configure. As a consequence, the data
-> - * buffer effective size changes according to the number of ISP blocks that
-> - * userspace intends to configure.
-> - *
-> - * The parameters buffer is versioned by the @version field to allow modifying
-> - * and extending its definition. Userspace should populate the @version field to
-> - * inform the driver about the version it intends to use. The driver will parse
-> - * and handle the @data buffer according to the data layout specific to the
-> - * indicated revision and return an error if the desired revision is not
-> - * supported.
-> - *
-> - * For each ISP block that userspace wants to configure, a block-specific
-> - * structure is appended to the @data buffer, one after the other without gaps
-> - * in between nor overlaps. Userspace shall populate the @total_size field with
-> - * the effective size, in bytes, of the @data buffer.
-> + * This is the driver-specific implementation of :c:type:`v4l2_params_buffer`.
-> + *
-> + * Currently only C3_ISP_PARAM_BUFFER_V0 is supported.
->   *
->   * The expected memory layout of the parameters buffer is::
->   *
-> @@ -561,4 +509,10 @@ struct c3_isp_params_cfg {
->  	__u8 data[C3_ISP_PARAMS_MAX_SIZE];
->  };
->  
-> +#ifdef __KERNEL__
-> +/* Make sure the header is type-convertible to the generic v4l2 params one */
-> +static_assert((sizeof(struct c3_isp_params_cfg) - C3_ISP_PARAMS_MAX_SIZE) ==
-> +	      sizeof(struct v4l2_params_buffer));
-> +#endif /* __KERNEL__ */
+>   	msc->ris_max = FIELD_GET(MPAMF_IDR_RIS_MAX, idr);
+>   
+>   	/* Use these values so partid/pmg always starts with a valid value */
+> @@ -614,6 +759,12 @@ static int mpam_msc_hw_probe(struct mpam_msc *msc)
+>   		mutex_unlock(&mpam_list_lock);
+>   		if (IS_ERR(ris))
+>   			return PTR_ERR(ris);
+> +		ris->idr = idr;
 > +
->  #endif
-> 
+> +		mutex_lock(&msc->part_sel_lock);
+> +		__mpam_part_sel(ris_idx, 0, msc);
+> +		mpam_ris_hw_probe(ris);
+> +		mutex_unlock(&msc->part_sel_lock);
+>   	}
+>   
+>   	spin_lock(&partid_max_lock);
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> index 4cc44d4e21c4..5ae5d4eee8ec 100644
+> --- a/drivers/resctrl/mpam_internal.h
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -112,6 +112,55 @@ static inline void mpam_mon_sel_lock_init(struct mpam_msc *msc)
+>   	raw_spin_lock_init(&msc->_mon_sel_lock);
+>   }
+>   
+> +/*
+> + * When we compact the supported features, we don't care what they are.
+> + * Storing them as a bitmap makes life easy.
+> + */
+> +typedef u16 mpam_features_t;
+> +
 
--- 
-Regards,
+mpam_features_t is changed to u32 later in patch #21. It's better to 
+directly define it as u32 here and remove the type change in patch #21.
 
-Laurent Pinchart
+[SNIP]
+
+Thanks.
+
+-Fenghua
+
 
