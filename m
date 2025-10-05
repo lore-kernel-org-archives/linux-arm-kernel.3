@@ -4,94 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 17A08CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Oct 2025 10:55:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2ADCCAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Oct 2025 11:38:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SzLT2VU9AZrprVMKaIriIjeuBSSmoOGolyPhiSrywBQ=; b=PWDp0U0WqcTlIGHjIJLN5AImDL
-	vsPGDRVYt4ayPqFj5LicetEaXBqyyLL4ajcmP172UjQFmj7zre/8ajXga3KZySAjyszeuyY64DciH
-	dr1CAqDUNhrDM+ExMvQ1KIpU7lzsQVt2cVL9gONJX3XIhLS3ixaFzO0evi3Mva2BBCSN0Jyr9FeAj
-	wsrER/MnDE3HMG7/1X8JN474dDn01kl4skbZtm6nQrWUSa5PQnUWMpNxfQeIWTA207e3PwLafBgUh
-	0JPj/4BxovPQ1ZYJ/eFqsE8nouh8uyoqPFscF918xwhMSiEv94poDrijyc2RyxXiwnSDnOEirdhUg
-	l8keuzEQ==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sVsFTFjEv9kM8rDChOfPUs/cIN5z2bUzO1qk6xeCpWQ=; b=2ALAXfbVRJxTytliLu61jg6dSm
+	58pztajV+Pr0DiSE0R1p6tWYK2HmmyTKn8zfFixp+309XZLaleeeVTybLE1Eaw6NrZALab7bATze5
+	JtyvpSa7+RvxcB4rsU+Z6jdhZ1CUmaGkOGdxlsEsbvq62jaPIQ5qTycv0U72576tcbe/lSya3yWh1
+	+EeDMMVWLhHjk1mtWQdGpCFtBYTdhWERANyAsMosRjFewxs2El0gJWY5gZkWxXTkxRcO4zxWuaCSa
+	LQ8ZIavDaOnSG7FZoufiFnQ8peKuE1ukAa5IwLjQDNx9uvlFQ6AvUU9VrzuCzOOtdcDZsyXYKSoZ+
+	H8/oQvaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5MOh-0000000EloI-0fME;
-	Sun, 05 Oct 2025 10:55:23 +0000
-Received: from mail-qk1-x732.google.com ([2607:f8b0:4864:20::732])
+	id 1v5N4S-0000000Eu8C-21hc;
+	Sun, 05 Oct 2025 11:38:32 +0000
+Received: from mout.gmx.net ([212.227.15.18])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5MOe-0000000Elmg-0ZXg
+	id 1v5N4P-0000000Eu6b-1dTQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Oct 2025 10:55:21 +0000
-Received: by mail-qk1-x732.google.com with SMTP id af79cd13be357-8599c274188so330645685a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Oct 2025 03:55:19 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1759661719; x=1760266519; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=SzLT2VU9AZrprVMKaIriIjeuBSSmoOGolyPhiSrywBQ=;
-        b=C7PsiO5gBb9H8Tf6B27CSdHO2IH2qRZgjIDzCy2D+UtmCkfDnYMkum0LsvitxDWIN/
-         FuFy+BVppCF8PiBbnKkP6A7PbwGbltnRVA4d+fhRE8CIf2zjYXxAfOQDVydNFnJKyocX
-         9jf6X5wNRHJKJpX07jV9+Jh1PFQxUO3Lz5WbUvtcDLFlW0dSuZvBdoeafnoYzyAxX/yP
-         uLXtgu1uArf6/YnII7ZRqktsvEhSAccJqPMwQLC69kY82efa13P5DsJ6oWgYuicolmyE
-         Le4J713WOVBLo12LckTzeb68NM3wBCshT9Maz84zZ10jJo0uyCdGVrPpaAI6flo6WEsV
-         MeNw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759661719; x=1760266519;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=SzLT2VU9AZrprVMKaIriIjeuBSSmoOGolyPhiSrywBQ=;
-        b=QPaD/sn99+JqbUQB9aQEkx9zsyZK20FieeTDMblS7hxO4eZWZwoOHpF5U8Oe8fWPUA
-         2Rbp26pjoe/SgXxX2OKdBCaMJvujbvp45sT5jbGJUrsEK34h/Vu1mULFxExvR2l8tmG2
-         IXgGK6Py11HZaUR+L+oYWGK9AXYPY75wBEnseQ+jj5H0FWYgpLJbjk4pLNnhh9aOH6Jo
-         l09K9KjSQyUamSPnoAlZwkbNu28h5qquc7nrV+TP9PE9mA8Go6L4np5fRel2INuYDAla
-         dFwGZKXYsmJPvlFAjO/zmV2XR8jXID7oalnUH4uLNnoEQh0yOTep+kj+WorotBkIWQNe
-         h1ow==
-X-Forwarded-Encrypted: i=1; AJvYcCXk+3j5ayGqi41cC+uiQbgMtZVMm0nG+RfzSWUsqwQ2xE04ty4Xxml+G1/euUtIC2RQ/nQahuT2peghBrIUvJGX@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyr6STOK84tU4uqdtDqMYApp4M6uswm+ddgPJChK/bBpRwPDTqH
-	3PmlVMb2s3kxmVB/6nbrQs+2/cVeLpqHvaCeDS3NeYLxZPTvzdQalyyzhNV2YLLeDnz+w2ZybvR
-	tkFWDZZbkjW7rspW7HzwyhDJdclWAmhA=
-X-Gm-Gg: ASbGnctSo+aFe1Cff5iNS/pNgBFWv1fq7cTQSXk8S/b5U4Uw5M5IGsGa2K0LEzXBNo9
-	v91QxFjxZg2gjOQ9GS/4vfhO35KykEVrMREhQ5Pe3XO3uV1XEBYmf5M7UqZHJ7aw+1KKjfBdKGk
-	y+W/ucq3LlUA7XoynkqdUDs2oDeZ6vykdW9khi50MBlgrUutHziYlYVFiIBui0/1TvsSeY27juy
-	t6U4rajhrZ8wdloU+1Zkv/4sRghEfww9o7azYRJIY6xtJZVchJKnro=
-X-Google-Smtp-Source: AGHT+IFCrj2Udm0U0cWFhFJiQLU1ddUKbzdouHN8/JOmQqz2+KfbPT/k9liTJOs+57MzVtTZ8JhEfUehhe7xAfv7PN8=
-X-Received: by 2002:a05:620a:29c8:b0:85e:5fef:8710 with SMTP id
- af79cd13be357-87a377dd5e1mr1187717885a.47.1759661718455; Sun, 05 Oct 2025
- 03:55:18 -0700 (PDT)
+	Sun, 05 Oct 2025 11:38:31 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=gmx.net;
+	s=s31663417; t=1759664305; x=1760269105; i=wahrenst@gmx.net;
+	bh=sVsFTFjEv9kM8rDChOfPUs/cIN5z2bUzO1qk6xeCpWQ=;
+	h=X-UI-Sender-Class:From:To:Cc:Subject:Date:Message-ID:
+	 MIME-Version:Content-Transfer-Encoding:cc:
+	 content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=NiGpB2nApqlZ7Hi+sBV9hjYpNAmMrwsXu6WdzWd2bq+ZRjrghzBTOec7ZJMOSLcL
+	 Fnzw3COy4T74sSODZBjWjj1U1zoy6Wv0oQ+uVHR1+CGGgomP4RXZ9egxLTJo+/SxB
+	 JX7MFW0HIC5qrPwIuR0m7qml3E99eJbFEEApK6/GYtwy1VVT7+FUp/y5LV55a6WI6
+	 pG9yKuUDPS4VukKeR6IE7KZ3xV44EBgN1Dq0474SttYMPQg2GwktXNX2C3SDuG8Sf
+	 K6pyySCNeI9sUsUHT51EHpUzi/nror3gR4tkEp6GB8KdnWMYRWY9OadI8i9NzGjGT
+	 LILWUhQrMPb+y66i4g==
+X-UI-Sender-Class: 724b4f7f-cbec-4199-ad4e-598c01a50d3a
+Received: from schenker ([79.235.128.112]) by mail.gmx.net (mrgmx004
+ [212.227.17.190]) with ESMTPSA (Nemesis) id 1M9o1v-1vB8MO11s5-001Ke5; Sun, 05
+ Oct 2025 13:38:25 +0200
+From: Stefan Wahren <wahrenst@gmx.net>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>
+Cc: bcm-kernel-feedback-list@broadcom.com,
+	Ray Jui <rjui@broadcom.com>,
+	Scott Branden <sbranden@broadcom.com>,
+	Melissa Wen <mwen@igalia.com>,
+	=?UTF-8?q?Ma=C3=ADra=20Canal?= <mcanal@igalia.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	kernel-dev@igalia.com,
+	kernel-list@raspberrypi.com,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Stefan Wahren <wahrenst@gmx.net>
+Subject: [PATCH] ARM: dts: broadcom: rpi: Switch to V3D firmware clock
+Date: Sun,  5 Oct 2025 13:38:16 +0200
+Message-ID: <20251005113816.6721-1-wahrenst@gmx.net>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <a76f315f023a3f8f5435e0681119b4eb@manjaro.org> <CABjd4Ywh_AkbXHonx-8vL-hNY5LMLJge5e4oqxvUG+qe6OF-Og@mail.gmail.com>
- <61b494b209d7360d0f36adbf6d5443a4@manjaro.org> <CABjd4Yx0p0B=e00MjCpDDq8Z=0FtM0s9EN86WdvRimt-_+kh2w@mail.gmail.com>
- <CABjd4Yy14bpjzvFyc8et-=pmds5uwzfxNqcs7L=+XRXBogZEsQ@mail.gmail.com>
- <20251003133304.GA21023@pendragon.ideasonboard.com> <CABjd4YxbyUWghd1ya8UayFkAE-VWQSd5-J2QD0sV7WmS8AXkCg@mail.gmail.com>
- <CABjd4YwtwUYFX4bX5vy=AFi=Dn1r6nxWtMvmeKBSjkvriNJtsQ@mail.gmail.com>
- <20251003232856.GC1492@pendragon.ideasonboard.com> <CABjd4Yx9rt2W=MhCSyO5vaxndD1jvGHNWsz7J=HnvnJcgOvQHw@mail.gmail.com>
- <20251004220326.GC20317@pendragon.ideasonboard.com>
-In-Reply-To: <20251004220326.GC20317@pendragon.ideasonboard.com>
-From: Alexey Charkov <alchark@gmail.com>
-Date: Sun, 5 Oct 2025 14:55:07 +0400
-X-Gm-Features: AS18NWCuY7b2iQ0RZGkQTZdghFPEhu9IsvjzDeHFMK_prX2xIp0MyG4PQ_3f7Y0
-Message-ID: <CABjd4YwLQ_kr3tA=XnzR4_zmQ0CQs4TuQr-2OWbiOWQfDhP4xw@mail.gmail.com>
-Subject: Re: [PATCH] arm64: dts: rockchip: Fix broken tsadc pinctrl binding
- for rk3588
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Dragan Simic <dsimic@manjaro.org>, Alexander Shiyan <eagle.alexander923@gmail.com>, 
-	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	devicetree@vger.kernel.org, 
-	Sebastian Reichel <sebastian.reichel@collabora.com>, stable@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:tl2pUraJCzJrGS08mP2ZU3Pj3wzwfPShp3iheV8jKEDC6OT3tK6
+ 8iQxZ1vm0wBnmOlCr3G8RsD1B1SIb97ye6MSi50KwgCe8UmRoqLZ6EVvMwQsiuzM+heTH9d
+ CTC7ID4i5L51xqseL4hIvbs9qP7heJpj4QacYo72ggM09tKcmGKyMT7cuLTvOUJjGrcLSdD
+ rMcNIKGaawaEJPjrB6s0g==
+UI-OutboundReport: notjunk:1;M01:P0:eS7tb2uXEV4=;h2kG05y5iWOJF4HcaDjRZqBLdoQ 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 bSDFfYPJzvFzuZ4LZ32HuHhVzIduPT2mlNkcS9
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251005_035520_203083_42E50E11 
-X-CRM114-Status: GOOD (  69.76  )
+X-CRM114-CacheID: sfid-20251005_043829_798993_9EB312C1 
+X-CRM114-Status: GOOD (  11.06  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,244 +91,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 5, 2025 at 2:03=E2=80=AFAM Laurent Pinchart
-<laurent.pinchart@ideasonboard.com> wrote:
->
-> On Sat, Oct 04, 2025 at 03:41:41PM +0400, Alexey Charkov wrote:
-> > On Sat, Oct 4, 2025 at 3:29=E2=80=AFAM Laurent Pinchart wrote:
-> > > On Fri, Oct 03, 2025 at 06:55:26PM +0400, Alexey Charkov wrote:
-> > > > On Fri, Oct 3, 2025 at 6:13=E2=80=AFPM Alexey Charkov wrote:
-> > > > > On Fri, Oct 3, 2025 at 5:33=E2=80=AFPM Laurent Pinchart wrote:
-> > > > > > On Fri, Jan 24, 2025 at 11:44:34PM +0400, Alexey Charkov wrote:
-> > > > > > > On Fri, Jan 24, 2025 at 9:23=E2=80=AFPM Alexey Charkov wrote:
-> > > > > > > > On Fri, Jan 24, 2025 at 2:37=E2=80=AFPM Dragan Simic wrote:
-> > > > > > > > > On 2025-01-24 11:25, Alexey Charkov wrote:
-> > > > > > > > > > On Fri, Jan 24, 2025 at 2:06=E2=80=AFPM Dragan Simic wr=
-ote:
-> > > > > > > > > >> On 2025-01-24 09:33, Alexey Charkov wrote:
-> > > > > > > > > >> > On Fri, Jan 24, 2025 at 9:26=E2=80=AFAM Alexander Sh=
-iyan wrote:
-> > > > > > > > > >> >>
-> > > > > > > > > >> >> There is no pinctrl "gpio" and "otpout" (probably d=
-esigned as
-> > > > > > > > > >> >> "output")
-> > > > > > > > > >> >> handling in the tsadc driver.
-> > > > > > > > > >> >> Let's use proper binding "default" and "sleep".
-> > > > > > > > > >> >
-> > > > > > > > > >> > This looks reasonable, however I've tried it on my R=
-adxa Rock 5C and
-> > > > > > > > > >> > the driver still doesn't claim GPIO0 RK_PA1 even wit=
-h this change. As
-> > > > > > > > > >> > a result, a simulated thermal runaway condition (I'v=
-e changed the
-> > > > > > > > > >> > tshut temperature to 65000 and tshut mode to 1) does=
-n't trigger a PMIC
-> > > > > > > > > >> > reset, even though a direct `gpioset 0 1=3D0` does.
-> > > > > > > > > >> >
-> > > > > > > > > >> > Are any additional changes needed to the driver itse=
-lf?
-> > > > > > > > > >>
-> > > > > > > > > >> I've been digging through this patch the whole TSADC/O=
-TP thing in the
-> > > > > > > > > >> last couple of hours, and AFAIK some parts of the upst=
-ream driver are
-> > > > > > > > > >> still missing, in comparison with the downstream drive=
-r.
-> > > > > > > > > >>
-> > > > > > > > > >> I've got some small suggestions for the patch itself, =
-but the issue
-> > > > > > > > > >> you observed is obviously of higher priority, and I've=
- singled it out
-> > > > > > > > > >> as well while digging through the code.
-> > > > > > > > > >>
-> > > > > > > > > >> Could you, please, try the patch below quickly, to see=
- is it going to
-> > > > > > > > > >> fix the issue you observed?  I've got some "IRL stuff"=
- to take care of
-> > > > > > > > > >> today, so I can't test it myself, and it would be grea=
-t to know is it
-> > > > > > > > > >> the right path to the proper fix.
-> > > > > > > > > >>
-> > > > > > > > > >> diff --git i/drivers/thermal/rockchip_thermal.c
-> > > > > > > > > >> w/drivers/thermal/rockchip_thermal.c
-> > > > > > > > > >> index f551df48eef9..62f0e14a8d98 100644
-> > > > > > > > > >> --- i/drivers/thermal/rockchip_thermal.c
-> > > > > > > > > >> +++ w/drivers/thermal/rockchip_thermal.c
-> > > > > > > > > >> @@ -1568,6 +1568,11 @@ static int rockchip_thermal_pro=
-be(struct
-> > > > > > > > > >> platform_device *pdev)
-> > > > > > > > > >>          thermal->chip->initialize(thermal->grf, therm=
-al->regs,
-> > > > > > > > > >>                                    thermal->tshut_pola=
-rity);
-> > > > > > > > > >>
-> > > > > > > > > >> +       if (thermal->tshut_mode =3D=3D TSHUT_MODE_GPIO=
-)
-> > > > > > > > > >> +               pinctrl_select_default_state(dev);
-> > > > > > > > > >> +       else
-> > > > > > > > > >> +               pinctrl_select_sleep_state(dev);
-> > > > > > > > > >
-> > > > > > > > > > I believe no 'else' block is needed here, because if ts=
-hut_mode is not
-> > > > > > > > > > TSHUT_MODE_GPIO then the TSADC doesn't use this pin at =
-all, so there's
-> > > > > > > > > > no reason for the driver to mess with its pinctrl state=
-. I'd rather
-> > > > > > > > > > put a mirroring block to put the pin back to its 'sleep=
-' state in the
-> > > > > > > > > > removal function for the TSHUT_MODE_GPIO case.
-> > > > > > > > >
-> > > > > > > > > You're right, but the "else block" is what the downstream=
- driver does,
-> > > > > > > >
-> > > > > > > > Does it though? It only handles the TSHUT_MODE_GPIO case as=
- far as I
-> > > > > > > > can tell (or TSHUT_MODE_OTP in downstream driver lingo) [1]
-> > > > > > > >
-> > > > > > > > [1] https://github.com/radxa/kernel/blob/edb3eeeaa4643ecac6=
-f4185d6d391c574735fca1/drivers/thermal/rockchip_thermal.c#L2564
-> > > > > > > >
-> > > > > > > > > so I think it's better to simply stay on the safe side an=
-d follow that
-> > > > > > > > > logic in the upstream driver.  Is it really needed?  Perh=
-aps not, but
-> > > > > > > > > it also shouldn't hurt.
-> > > > > > > > >
-> > > > > > > > > > Will try and revert.
-> > > > > > > > >
-> > > > > > > > > Awesome, thanks!
-> > > > > > > > >
-> > > > > > > > > > P.S. Just looked at the downstream driver, and it actua=
-lly calls
-> > > > > > > > > > TSHUT_MODE_GPIO TSHUT_MODE_OTP instead, so it seems tha=
-t "otpout" was
-> > > > > > > > > > not a typo in the first place. So maybe the right appro=
-ach here is not
-> > > > > > > > > > to change the device tree but rather fix the "gpio" / "=
-otpout" pinctrl
-> > > > > > > > > > state handling in the driver.
-> > > > > > > > >
-> > > > > > > > > Indeed, "otpout" wasn't a typo, and I've already addresse=
-d that in my
-> > > > > > > > > comments to Alexander's patch.  Will send that response a=
- bit later.
-> > > > > > > > >
-> > > > > > > > > I think it's actually better to accept the approach in Al=
-exander's
-> > > > > > > > > patch, because the whole thing applies to other Rockchip =
-SoCs as well,
-> > > > > > > > > not just to the RK3588(S).
-> > > > > > > >
-> > > > > > > > Anyway, I've just tried it after including the changes belo=
-w, and
-> > > > > > > > while /sys/kernel/debug/pinctrl/pinctrl-handles shows the e=
-xpected
-> > > > > > > > pinctrls under tsadc, the driver still doesn't seem to be t=
-riggering a
-> > > > > > > > PMIC reset. Weird. Any thoughts welcome.
-> > > > > > >
-> > > > > > > I found the culprit. "otpout" (or "default" if we follow Alex=
-ander's
-> > > > > > > suggested approach) pinctrl state should refer to the &tsadc_=
-shut_org
-> > > > > > > config instead of &tsadc_shut - then the PMIC reset works.
-> > > > > >
-> > > > > > I've recently brought up an RK3588S-based Orange Pi CM5 Base bo=
-ard, made
-> > > > > > of a compute module (CM5, see [1]) and a carrier board (Base, s=
-ee [2]).
-> > > > > > The carrier board has a reset button which pulls the PMIC_RESET=
-_L signal
-> > > > > > of the CM5 to GND (see page 3 of the schematics in [3]).
-> > > > > >
-> > > > > > With &tsadc_shut_org the reset button has absolutely no effect.=
- With
-> > > > > > &tsadc_shut it resets the board as expected.
-> > > > >
-> > > > > Interesting. The TSADC shouldn't affect the physical button opera=
-tion
-> > > > > at all, if it's really wired to the PMIC as the signal name impli=
-es.
-> > > > > There isn't even any default pull value associated with the TSHUT=
- pin
-> > > > > config.
-> > > >
-> > > > On a second thought, I've got another hypothesis. Your baseboard on=
-ly
-> > > > pulls the reset line through  a 100 Ohm resistor when the button is
-> > > > pressed. So if the TSHUT pin is in its default push-pull mode and
-> > > > stays high when no thermal runaway reset is requested, the reset
-> > > > button won't pull the line fully to zero, as the TSHUT line pulls i=
-t
-> > > > high at the same time.
-> > >
-> > > That's the most likely cause, I agree.
-> > >
-> > > > If you switch it from &tsadc_shut_org to &tsadc_shut, then it stops
-> > > > working properly as the thermal protection reset, and GPIO0_A1 rema=
-ins
-> > > > high-impendance, thus allowing the reset button to function even
-> > > > though its pull is too weak.
-> > >
-> > > By the way, what is the difference between tsadc_shut_org and tsadc_s=
-hut
-> > > ? I haven't seen it being clearly documented in the TRM.
-> >
-> > No idea frankly. Looks like a half-finished design change to me, which
-> > left the non-"org" version unconnected internally.
->
-> :-/
->
-> > > > So maybe change the pin configuration of &tsadc_shut_org in
-> > > > rk3588-base-pinctrl.dtsi to open drain and retry?
-> > >
-> > > That's a good idea, but... how ? The pinctrl-rockchip driver doesn't
-> > > seem to support generic open-drain configuration.
-> >
-> > I thought I saw open-drain configurations here, but after reviewing
-> > the TRM, bindings and the driver it turns out I must have been
-> > daydreaming :( Sorry.
-> >
-> > Looks like the best we can try is a lower drive strength while keeping
-> > the push-pull mode, but I'm afraid this 100 Ohm pulldown is too weak,
-> > because the lowest TSHUT drive strength Rockchip offers is 100 Ohm,
-> > while the PMIC would only count anything below 30% reference voltage
-> > as logical low. Maybe adding a pulldown to the pin config can help,
-> > but most likely this board will require switching the pin to GPIO
-> > input for high-z, and switching the TSHUT mode to CRU.
->
-> I agree with you, going through the CRU seems the best solution for this
-> board. This is actually the default mode in
-> arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:
->
->         rockchip,hw-tshut-mode =3D <0>; /* tshut mode 0:CRU 1:GPIO */
->         rockchip,hw-tshut-polarity =3D <0>; /* tshut polarity 0:LOW 1:HIG=
-H */
->         pinctrl-0 =3D <&tsadc_shut_org>;
->         pinctrl-1 =3D <&tsadc_gpio_func>;
->
-> If hw-tshut-mode defaults to 0, why do we need to setup the GPIO0_A1 pin
-> to output the TSADC_SHUT signal ?
+Until commit 919d6924ae9b ("clk: bcm: rpi: Turn firmware clock on/off
+when preparing/unpreparing") the clk-raspberrypi driver wasn't able
+to change the state of the V3D clock. Only the clk-bcm2835 was able
+to do this before. After this commit both drivers were able to work
+against each other, which could result in a system freeze. One step
+to avoid this conflict is to switch all V3D consumer to the firmware
+clock.
 
-I believe the thinking was along the lines of "it can't hurt, so let's
-provide a default that's likely to work both for the boards where
-TSHUT is routed to the PMIC and those where it's not, with an added
-benefit of hogging the pin to prevent anyone from accidentally
-triggering it to a low level from user space thus suddenly resetting
-the board".
+Reported-by: Marek Szyprowski <m.szyprowski@samsung.com>
+Closes: https://lore.kernel.org/linux-arm-kernel/727aa0c8-2981-4662-adf3-6=
+9cac2da956d@samsung.com/
+Fixes: 919d6924ae9b ("clk: bcm: rpi: Turn firmware clock on/off when prepa=
+ring/unpreparing")
+Signed-off-by: Stefan Wahren <wahrenst@gmx.net>
+Co-developed-by: Melissa Wen <mwen@igalia.com>
+Signed-off-by: Melissa Wen <mwen@igalia.com>
+=2D--
+ arch/arm/boot/dts/broadcom/bcm2711-rpi.dtsi        | 8 ++++++++
+ arch/arm/boot/dts/broadcom/bcm2835-rpi-common.dtsi | 9 +++++++++
+ 2 files changed, 17 insertions(+)
 
-But this case of "TSHUT is routed, but with a deviation from the
-reference schematic which makes it impossible to use as designed" was
-likely never envisaged.
+diff --git a/arch/arm/boot/dts/broadcom/bcm2711-rpi.dtsi b/arch/arm/boot/d=
+ts/broadcom/bcm2711-rpi.dtsi
+index c78ed064d166..1eb6406449d1 100644
+=2D-- a/arch/arm/boot/dts/broadcom/bcm2711-rpi.dtsi
++++ b/arch/arm/boot/dts/broadcom/bcm2711-rpi.dtsi
+@@ -77,6 +77,14 @@ &i2c0 {
+ 	/delete-property/ pinctrl-0;
+ };
+=20
++&pm {
++	clocks =3D <&firmware_clocks 5>,
++		 <&clocks BCM2835_CLOCK_PERI_IMAGE>,
++		 <&clocks BCM2835_CLOCK_H264>,
++		 <&clocks BCM2835_CLOCK_ISP>;
++	clock-names =3D "v3d", "peri_image", "h264", "isp";
++};
++
+ &rmem {
+ 	/*
+ 	 * RPi4's co-processor will copy the board's bootloader configuration
+diff --git a/arch/arm/boot/dts/broadcom/bcm2835-rpi-common.dtsi b/arch/arm=
+/boot/dts/broadcom/bcm2835-rpi-common.dtsi
+index 8b3c21d9f333..fa9d784c88b6 100644
+=2D-- a/arch/arm/boot/dts/broadcom/bcm2835-rpi-common.dtsi
++++ b/arch/arm/boot/dts/broadcom/bcm2835-rpi-common.dtsi
+@@ -13,7 +13,16 @@ &hdmi {
+ 	clock-names =3D "pixel", "hdmi";
+ };
+=20
++&pm {
++	clocks =3D <&firmware_clocks 5>,
++		 <&clocks BCM2835_CLOCK_PERI_IMAGE>,
++		 <&clocks BCM2835_CLOCK_H264>,
++		 <&clocks BCM2835_CLOCK_ISP>;
++	clock-names =3D "v3d", "peri_image", "h264", "isp";
++};
++
+ &v3d {
++	clocks =3D <&firmware_clocks 5>;
+ 	power-domains =3D <&power RPI_POWER_DOMAIN_V3D>;
+ };
+=20
+=2D-=20
+2.43.0
 
-Technically, there is no reason to switch the pin to tsadc_shut_org
-when CRU mode is used, and the boottime default for this pin is
-high-impedance.
-
-Heiko, shall we remove the pinctrl properties from the common .dtsi
-and move them to board specific .dts for those boards that use
-PMIC-assisted thermal resets? Happy to produce a patch to that effect.
-
-Best regards,
-Alexey
 
