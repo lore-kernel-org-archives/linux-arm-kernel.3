@@ -4,69 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13AEBCAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Oct 2025 14:57:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADC08CAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Oct 2025 14:57:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=c8AGXy212N3kdVfNJhpst9A7JatlOfB3mUAIy92xJPg=; b=lfZQoZ0l7BJnpHMh5gmMGS2dkq
-	AALp0VSfh4rSeLJnpZfe2S89lsMHyTJ/V23u4EaGREt7tsAMtAHb7mX/brM0X7NiQDVYfF4w9OQFB
-	ALFUe8z/ogJ1IBfCbtlsTeEPC1fsFfY38zkZkmPM+JhUKOF7IX0nGtXwQhr1SFlZkGzWFD5V+BzIh
-	2SYwUMPlWGhh1wgtZ/F/TTSAk/xQPyel/5BMsDOB+Oy+8crD47dPqN1x1SAVcaq7daD8TfWGIDA7N
-	gmqdj6OtIaZjEa7QloHAIRjqdJFTA1piUyoyUiip9wGraEirK9dZInPgcGU4zndKH42KMzZ4kaBla
-	h5elO3ew==;
+	bh=EYidqcEX9U3o7Bztkz8i90HOOyfwJwJtx1hIlUqq8Ww=; b=2Ou+D3r6f8Wwc+Dj4vHbgJqC2R
+	yObdLphG4AcLWXDIo7syE95X9+aussKDWgALJz832yqqhLb3mFFLKwcExLYLbXcX2D+2aKj4QrV7W
+	Vkwy1yAaPy99oTF0mtSTldPEoGOl9ax59isbcCmFxnliWpykpRrLxySzqpPxu962Xt2zbuxrGRqfa
+	QHPPWqkJ2zdHzYoE81gRlLpknqWztqkPlV3SwgYWwFvUEMGPWUU7egnCF4O3X3XAljFWSo/36ZLwc
+	I0vx5K+zMLhbcOqJC5KgrRjDs1rUwGtFMsa3eR2gRJ6ucs8nZBbKpZVU7J53q0vr4MNtlrUOH1t/L
+	YwxA9eQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5QAY-0000000FXzc-1nds;
-	Sun, 05 Oct 2025 14:57:02 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v5QAk-0000000FY4M-2iVZ;
+	Sun, 05 Oct 2025 14:57:14 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5QAW-0000000FXzF-3xB9
+	id 1v5QAi-0000000FY36-1fSQ
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Oct 2025 14:57:01 +0000
+	Sun, 05 Oct 2025 14:57:13 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 61379602A4
-	for <linux-arm-kernel@lists.infradead.org>; Sun,  5 Oct 2025 14:57:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12E89C4AF0B
-	for <linux-arm-kernel@lists.infradead.org>; Sun,  5 Oct 2025 14:57:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 4D0EE45504
+	for <linux-arm-kernel@lists.infradead.org>; Sun,  5 Oct 2025 14:57:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F687C4CEFF
+	for <linux-arm-kernel@lists.infradead.org>; Sun,  5 Oct 2025 14:57:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759676220;
-	bh=Y+L7oxTglEs6TaCqZRGlKflLvr+9eNVWa1dQwDozuzA=;
+	s=k20201202; t=1759676231;
+	bh=OfxBuX2NG6qRYHgT4owtNmha9ytoyldyaEdP+EyW59o=;
 	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=h/gVkemHyk7NBmLosH9fbxJZ7kpNS6zu0xluG4bFqvLGYOGUZDp6b8uTHIegJJFR1
-	 e1V5c2Jode7NctLrza9M3X0VUiIcJSVrxiadM7eAbXtF/1peBo+2F5iz/m2u79Aay5
-	 RQ/d6zAAJBKImTcpGCVc/KAT0ucR63DQh9aWlVqUkXVVN7Y+maoYXuI99qHtv7o/KW
-	 QBB+gp+zOfrZJQPH/3aWxjtNcHTAX3ecR2nybTTsw8Pfmz+fD86YwL99u0wy6G7T2J
-	 Y2duyHIJwnwdg37eqvy9J1z1XtRCOuVvNmJ6nxOTYMbYTtsMVW/ge7zM7ipeE16HEK
-	 A+78z8xQfxCHA==
-Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-363cb0cd8a1so49197341fa.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Oct 2025 07:56:59 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXYTCovlsvl51gMTMLmvzuLLdioYxAeg8TM2nc4gBRKGUlIt/3HcWqhZzdhGffjKAcOzNIomZCN0mI4GIEvq91I@lists.infradead.org
-X-Gm-Message-State: AOJu0YxdOBR4ns3ZT1EPHQdDhMZOa3CDm5sLfJBRYhvmd+wsBW8Qxg4C
-	BFhP2sZDeStqDMqYVAfVcHujW/mRYAzj6TprM0QC+qCt3Hfs1tCCwCjINlaXtNZ5m9eGRZTt2us
-	HGEGGEt8Yslzno+9grO2gZu58p77nBSo=
-X-Google-Smtp-Source: AGHT+IH7twvgnWuXM008bvuQkIdqZ77ZYuE4LRpBwjrRe3xkGR35VYjfgbhseLv8khD47pSwTdtdIDoHVJz+SLkG1xQ=
-X-Received: by 2002:a05:651c:2112:b0:352:b6c0:d33e with SMTP id
- 38308e7fff4ca-374c36fe0aemr30436501fa.11.1759676218449; Sun, 05 Oct 2025
- 07:56:58 -0700 (PDT)
+	b=hIHuPo7nD/q6+vT/w6NqUCxbffUHAqbz+zHUQOObboqixR5e07MZnIo2dnIeK7lrR
+	 REGdcmTP4HqQrYRyXZ1doZjbTkaKHNFdIESi6j/tK82CYv/7+n3T4vX+3PTrNHUMrj
+	 ZfGpSSEcyDOnvKw6ULvk6GhulAvUCZfxueiw6x93KqSXKKb6U9Hc/UD5axNH1FXGYB
+	 Z5Bs24H9PYv66JynSqQ/W22oPytOMqLk1usm97IlBtpYtg4WwGH0MvVKlkqH7ALAuT
+	 AciCHqcq5xwjfRRoodYba8iVgblVx0DK7nJtFC4Eck60xAy1bIQLeK7iUcUEgc+HX6
+	 AKJcyCr0Qww9A==
+Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-373a5376d0bso40402041fa.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Oct 2025 07:57:11 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCV6mJ0e/M/ud998NJA/RYL3MY2EXCD0/joIwDjkzKLi1okVkztbYAn6vhRaTKnl8/UodcCvBXTvuMwMSYX8AT2A@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx96IvY0+0tJNezF60yKjSNb6qO6MxxBoS/N6IMgoYYQ68UNdVw
+	TSDsgFA4ZQSOYqvm2PgAsdYqspRVh0TU7ZrMfr1DdcCg6toFf7ZbfJCQD0l3KLu+QGaR3cH7Gzc
+	ZRpD1WI5KtyjsUkbQhagJZp2VE24Vt7Q=
+X-Google-Smtp-Source: AGHT+IFdUUomsft5E8FUnkormYOwKRzYQeKZmO/G18QMqhFbnT5zgoA+GQiOMmDzGpZq09lHMaM7alUM8i7Yu8aR1j4=
+X-Received: by 2002:a05:651c:12c1:b0:36a:878b:6e34 with SMTP id
+ 38308e7fff4ca-374c3434da7mr21926661fa.0.1759676229581; Sun, 05 Oct 2025
+ 07:57:09 -0700 (PDT)
 MIME-Version: 1.0
-References: <20251003184054.4286-1-will@kernel.org>
-In-Reply-To: <20251003184054.4286-1-will@kernel.org>
+References: <20251003184018.4264-1-will@kernel.org>
+In-Reply-To: <20251003184018.4264-1-will@kernel.org>
 From: Ard Biesheuvel <ardb@kernel.org>
-Date: Sun, 5 Oct 2025 16:56:47 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXFmXZCPiB+oMsOjoqhwi4hBykamerki5dMOZMy2uouUMw@mail.gmail.com>
-X-Gm-Features: AS18NWDdh4ZAp5XFFokXYmAoqAnRwM3Raujv5rpRowuKAB4ovo24Z1H_fbAUyiE
-Message-ID: <CAMj1kXFmXZCPiB+oMsOjoqhwi4hBykamerki5dMOZMy2uouUMw@mail.gmail.com>
-Subject: Re: [STABLE 6.6.y] [PATCH] KVM: arm64: Fix softirq masking in FPSIMD
+Date: Sun, 5 Oct 2025 16:56:58 +0200
+X-Gmail-Original-Message-ID: <CAMj1kXEo-4Rw=Nttbfnf2Bjv7zSomw1FAnNwbCe97i5UmQ7EVA@mail.gmail.com>
+X-Gm-Features: AS18NWAWBJWNYFeWaecMOW4SEUuN_L3lqjI9wswzCjVaIi0JK_wVGUBis0E81yk
+Message-ID: <CAMj1kXEo-4Rw=Nttbfnf2Bjv7zSomw1FAnNwbCe97i5UmQ7EVA@mail.gmail.com>
+Subject: Re: [STABLE 6.1.y] [PATCH] KVM: arm64: Fix softirq masking in FPSIMD
  register saving sequence
 To: Will Deacon <will@kernel.org>
 Cc: stable@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
 	kvmarm@lists.linux.dev, Lee Jones <lee@kernel.org>, Sasha Levin <sashal@kernel.org>, 
 	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Kenneth Van Alstyne <kvanals@kvanals.org>
 Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251005_075712_479838_B9D2BDD4 
+X-CRM114-Status: GOOD (  11.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,9 +84,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 3 Oct 2025 at 20:41, Will Deacon <will@kernel.org> wrote:
+On Fri, 3 Oct 2025 at 20:40, Will Deacon <will@kernel.org> wrote:
 >
-> Stable commit 28b82be094e2 ("KVM: arm64: Fix kernel BUG() due to bad
+> Stable commit 8f4dc4e54eed ("KVM: arm64: Fix kernel BUG() due to bad
 > backport of FPSIMD/SVE/SME fix") fixed a kernel BUG() caused by a bad
 > backport of upstream commit fbc7e61195e2 ("KVM: arm64: Unconditionally
 > save+flush host FPSIMD/SVE/SME state") by ensuring that softirqs are
@@ -130,8 +133,8 @@ On Fri, 3 Oct 2025 at 20:41, Will Deacon <will@kernel.org> wrote:
 > Cc: Lee Jones <lee@kernel.org>
 > Cc: Sasha Levin <sashal@kernel.org>
 > Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> Cc: <stable@vger.kernel.org> # 6.6.y
-> Fixes: 28b82be094e2 ("KVM: arm64: Fix kernel BUG() due to bad backport of FPSIMD/SVE/SME fix")
+> Cc: <stable@vger.kernel.org> # 6.1.y
+> Fixes: 8f4dc4e54eed ("KVM: arm64: Fix kernel BUG() due to bad backport of FPSIMD/SVE/SME fix")
 > Reported-by: Kenneth Van Alstyne <kvanals@kvanals.org>
 > Link: https://lore.kernel.org/r/010001999bae0958-4d80d25d-8dda-4006-a6b9-798f3e774f6c-000000@email.amazonses.com
 > Signed-off-by: Will Deacon <will@kernel.org>
