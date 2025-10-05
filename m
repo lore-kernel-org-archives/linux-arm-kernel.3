@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADC08CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Oct 2025 14:57:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A11EECAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Oct 2025 18:29:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EYidqcEX9U3o7Bztkz8i90HOOyfwJwJtx1hIlUqq8Ww=; b=2Ou+D3r6f8Wwc+Dj4vHbgJqC2R
-	yObdLphG4AcLWXDIo7syE95X9+aussKDWgALJz832yqqhLb3mFFLKwcExLYLbXcX2D+2aKj4QrV7W
-	Vkwy1yAaPy99oTF0mtSTldPEoGOl9ax59isbcCmFxnliWpykpRrLxySzqpPxu962Xt2zbuxrGRqfa
-	QHPPWqkJ2zdHzYoE81gRlLpknqWztqkPlV3SwgYWwFvUEMGPWUU7egnCF4O3X3XAljFWSo/36ZLwc
-	I0vx5K+zMLhbcOqJC5KgrRjDs1rUwGtFMsa3eR2gRJ6ucs8nZBbKpZVU7J53q0vr4MNtlrUOH1t/L
-	YwxA9eQw==;
+	bh=CYBAH03JjF0/LKyIMo/IHaTZdNOgizrQt7OdUnWE1vg=; b=OdcaHnzEBHubXtiXpsZy3wU0a5
+	ZWg9EXQ/yShOe+HHKgUsmaO1A7vFLuOvgGs8DCyw7kCxj9EM7Kti26/PDTHRhG1SZHIuviY2S5nnI
+	weA4+T/eco6xCcTvP4JKakTo2ZUvGoLb9XbTmCrFmbfrUK3Et6HLEOw/5Wv+2Q+pg5gIrbZwofiuq
+	5ttvhYC+eiVFIoyCgnJMLPZVqSMoteqztp5JqoaYn5BIRLEipZaZk0kw7BaG3tEEx4cpl4UO+cXfe
+	034VOeEISt1BCpEAPJte36SKMaoH97LfP58NCSKdWcLp9bsaUPOObFlDR9mRLfcZkrxBJnvUqLAGD
+	Om0XP4qg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5QAk-0000000FY4M-2iVZ;
-	Sun, 05 Oct 2025 14:57:14 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v5TTv-0000000GERE-0fKY;
+	Sun, 05 Oct 2025 18:29:15 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5QAi-0000000FY36-1fSQ
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 05 Oct 2025 14:57:13 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4D0EE45504
-	for <linux-arm-kernel@lists.infradead.org>; Sun,  5 Oct 2025 14:57:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2F687C4CEFF
-	for <linux-arm-kernel@lists.infradead.org>; Sun,  5 Oct 2025 14:57:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759676231;
-	bh=OfxBuX2NG6qRYHgT4owtNmha9ytoyldyaEdP+EyW59o=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=hIHuPo7nD/q6+vT/w6NqUCxbffUHAqbz+zHUQOObboqixR5e07MZnIo2dnIeK7lrR
-	 REGdcmTP4HqQrYRyXZ1doZjbTkaKHNFdIESi6j/tK82CYv/7+n3T4vX+3PTrNHUMrj
-	 ZfGpSSEcyDOnvKw6ULvk6GhulAvUCZfxueiw6x93KqSXKKb6U9Hc/UD5axNH1FXGYB
-	 Z5Bs24H9PYv66JynSqQ/W22oPytOMqLk1usm97IlBtpYtg4WwGH0MvVKlkqH7ALAuT
-	 AciCHqcq5xwjfRRoodYba8iVgblVx0DK7nJtFC4Eck60xAy1bIQLeK7iUcUEgc+HX6
-	 AKJcyCr0Qww9A==
-Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-373a5376d0bso40402041fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Oct 2025 07:57:11 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCV6mJ0e/M/ud998NJA/RYL3MY2EXCD0/joIwDjkzKLi1okVkztbYAn6vhRaTKnl8/UodcCvBXTvuMwMSYX8AT2A@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx96IvY0+0tJNezF60yKjSNb6qO6MxxBoS/N6IMgoYYQ68UNdVw
-	TSDsgFA4ZQSOYqvm2PgAsdYqspRVh0TU7ZrMfr1DdcCg6toFf7ZbfJCQD0l3KLu+QGaR3cH7Gzc
-	ZRpD1WI5KtyjsUkbQhagJZp2VE24Vt7Q=
-X-Google-Smtp-Source: AGHT+IFdUUomsft5E8FUnkormYOwKRzYQeKZmO/G18QMqhFbnT5zgoA+GQiOMmDzGpZq09lHMaM7alUM8i7Yu8aR1j4=
-X-Received: by 2002:a05:651c:12c1:b0:36a:878b:6e34 with SMTP id
- 38308e7fff4ca-374c3434da7mr21926661fa.0.1759676229581; Sun, 05 Oct 2025
- 07:57:09 -0700 (PDT)
+	id 1v5TTs-0000000GEOs-0GvF;
+	Sun, 05 Oct 2025 18:29:13 +0000
+Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
+	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 4DB701A89;
+	Sun,  5 Oct 2025 20:27:37 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1759688857;
+	bh=TH3yJBoT1mUNCSNf2l7RFS/wz9BfOxVp0X2N76eTNkE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=d4xcUnIvV0WL2SnbyFsyAiEuedlq5f1Hkj9Wjdv1UDdjEDXh7gsy7XYDNhx5H+HGu
+	 g34QPioBoSfVUJfvlPy14h4njDrexj3cgtW1O9qJZ2n2CO9vUzKUVpVNRwVCiTLPok
+	 /jZyTqqA/0SxHvsmU/43MTLc+KCpiVbkZaXIUBv8=
+Date: Sun, 5 Oct 2025 21:29:03 +0300
+From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+To: Alexey Charkov <alchark@gmail.com>
+Cc: Dragan Simic <dsimic@manjaro.org>,
+	Alexander Shiyan <eagle.alexander923@gmail.com>,
+	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org,
+	Sebastian Reichel <sebastian.reichel@collabora.com>,
+	stable@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-rockchip@lists.infradead.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] arm64: dts: rockchip: Fix broken tsadc pinctrl binding
+ for rk3588
+Message-ID: <20251005182903.GA29493@pendragon.ideasonboard.com>
+References: <61b494b209d7360d0f36adbf6d5443a4@manjaro.org>
+ <CABjd4Yx0p0B=e00MjCpDDq8Z=0FtM0s9EN86WdvRimt-_+kh2w@mail.gmail.com>
+ <CABjd4Yy14bpjzvFyc8et-=pmds5uwzfxNqcs7L=+XRXBogZEsQ@mail.gmail.com>
+ <20251003133304.GA21023@pendragon.ideasonboard.com>
+ <CABjd4YxbyUWghd1ya8UayFkAE-VWQSd5-J2QD0sV7WmS8AXkCg@mail.gmail.com>
+ <CABjd4YwtwUYFX4bX5vy=AFi=Dn1r6nxWtMvmeKBSjkvriNJtsQ@mail.gmail.com>
+ <20251003232856.GC1492@pendragon.ideasonboard.com>
+ <CABjd4Yx9rt2W=MhCSyO5vaxndD1jvGHNWsz7J=HnvnJcgOvQHw@mail.gmail.com>
+ <20251004220326.GC20317@pendragon.ideasonboard.com>
+ <CABjd4YwLQ_kr3tA=XnzR4_zmQ0CQs4TuQr-2OWbiOWQfDhP4xw@mail.gmail.com>
 MIME-Version: 1.0
-References: <20251003184018.4264-1-will@kernel.org>
-In-Reply-To: <20251003184018.4264-1-will@kernel.org>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Sun, 5 Oct 2025 16:56:58 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXEo-4Rw=Nttbfnf2Bjv7zSomw1FAnNwbCe97i5UmQ7EVA@mail.gmail.com>
-X-Gm-Features: AS18NWAWBJWNYFeWaecMOW4SEUuN_L3lqjI9wswzCjVaIi0JK_wVGUBis0E81yk
-Message-ID: <CAMj1kXEo-4Rw=Nttbfnf2Bjv7zSomw1FAnNwbCe97i5UmQ7EVA@mail.gmail.com>
-Subject: Re: [STABLE 6.1.y] [PATCH] KVM: arm64: Fix softirq masking in FPSIMD
- register saving sequence
-To: Will Deacon <will@kernel.org>
-Cc: stable@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, Lee Jones <lee@kernel.org>, Sasha Levin <sashal@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Kenneth Van Alstyne <kvanals@kvanals.org>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CABjd4YwLQ_kr3tA=XnzR4_zmQ0CQs4TuQr-2OWbiOWQfDhP4xw@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251005_075712_479838_B9D2BDD4 
-X-CRM114-Status: GOOD (  11.82  )
+X-CRM114-CacheID: sfid-20251005_112912_246206_8BBF621C 
+X-CRM114-Status: GOOD (  74.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,60 +83,203 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 3 Oct 2025 at 20:40, Will Deacon <will@kernel.org> wrote:
->
-> Stable commit 8f4dc4e54eed ("KVM: arm64: Fix kernel BUG() due to bad
-> backport of FPSIMD/SVE/SME fix") fixed a kernel BUG() caused by a bad
-> backport of upstream commit fbc7e61195e2 ("KVM: arm64: Unconditionally
-> save+flush host FPSIMD/SVE/SME state") by ensuring that softirqs are
-> disabled/enabled across the fpsimd register save operation.
->
-> Unfortunately, although this fixes the original issue, it can now lead
-> to deadlock when re-enabling softirqs causes pending softirqs to be
-> handled with locks already held:
->
->  | BUG: spinlock recursion on CPU#7, CPU 3/KVM/57616
->  |  lock: 0xffff3045ef850240, .magic: dead4ead, .owner: CPU 3/KVM/57616, .owner_cpu: 7
->  | CPU: 7 PID: 57616 Comm: CPU 3/KVM Tainted: G           O       6.1.152 #1
->  | Hardware name: SoftIron SoftIron Platform Mainboard/SoftIron Platform Mainboard, BIOS 1.31 May 11 2023
->  | Call trace:
->  |  dump_backtrace+0xe4/0x110
->  |  show_stack+0x20/0x30
->  |  dump_stack_lvl+0x6c/0x88
->  |  dump_stack+0x18/0x34
->  |  spin_dump+0x98/0xac
->  |  do_raw_spin_lock+0x70/0x128
->  |  _raw_spin_lock+0x18/0x28
->  |  raw_spin_rq_lock_nested+0x18/0x28
->  |  update_blocked_averages+0x70/0x550
->  |  run_rebalance_domains+0x50/0x70
->  |  handle_softirqs+0x198/0x328
->  |  __do_softirq+0x1c/0x28
->  |  ____do_softirq+0x18/0x28
->  |  call_on_irq_stack+0x30/0x48
->  |  do_softirq_own_stack+0x24/0x30
->  |  do_softirq+0x74/0x90
->  |  __local_bh_enable_ip+0x64/0x80
->  |  fpsimd_save_and_flush_cpu_state+0x5c/0x68
->  |  kvm_arch_vcpu_put_fp+0x4c/0x88
->  |  kvm_arch_vcpu_put+0x28/0x88
->  |  kvm_sched_out+0x38/0x58
->  |  __schedule+0x55c/0x6c8
->  |  schedule+0x60/0xa8
->
-> Take a tiny step towards the upstream fix in 9b19700e623f ("arm64:
-> fpsimd: Drop unneeded 'busy' flag") by additionally disabling hardirqs
-> while saving the fpsimd registers.
->
-> Cc: Ard Biesheuvel <ardb@kernel.org>
-> Cc: Lee Jones <lee@kernel.org>
-> Cc: Sasha Levin <sashal@kernel.org>
-> Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-> Cc: <stable@vger.kernel.org> # 6.1.y
-> Fixes: 8f4dc4e54eed ("KVM: arm64: Fix kernel BUG() due to bad backport of FPSIMD/SVE/SME fix")
-> Reported-by: Kenneth Van Alstyne <kvanals@kvanals.org>
-> Link: https://lore.kernel.org/r/010001999bae0958-4d80d25d-8dda-4006-a6b9-798f3e774f6c-000000@email.amazonses.com
-> Signed-off-by: Will Deacon <will@kernel.org>
+On Sun, Oct 05, 2025 at 02:55:07PM +0400, Alexey Charkov wrote:
+> On Sun, Oct 5, 2025 at 2:03 AM Laurent Pinchart wrote:
+> > On Sat, Oct 04, 2025 at 03:41:41PM +0400, Alexey Charkov wrote:
+> > > On Sat, Oct 4, 2025 at 3:29 AM Laurent Pinchart wrote:
+> > > > On Fri, Oct 03, 2025 at 06:55:26PM +0400, Alexey Charkov wrote:
+> > > > > On Fri, Oct 3, 2025 at 6:13 PM Alexey Charkov wrote:
+> > > > > > On Fri, Oct 3, 2025 at 5:33 PM Laurent Pinchart wrote:
+> > > > > > > On Fri, Jan 24, 2025 at 11:44:34PM +0400, Alexey Charkov wrote:
+> > > > > > > > On Fri, Jan 24, 2025 at 9:23 PM Alexey Charkov wrote:
+> > > > > > > > > On Fri, Jan 24, 2025 at 2:37 PM Dragan Simic wrote:
+> > > > > > > > > > On 2025-01-24 11:25, Alexey Charkov wrote:
+> > > > > > > > > > > On Fri, Jan 24, 2025 at 2:06 PM Dragan Simic wrote:
+> > > > > > > > > > >> On 2025-01-24 09:33, Alexey Charkov wrote:
+> > > > > > > > > > >> > On Fri, Jan 24, 2025 at 9:26 AM Alexander Shiyan wrote:
+> > > > > > > > > > >> >>
+> > > > > > > > > > >> >> There is no pinctrl "gpio" and "otpout" (probably designed as
+> > > > > > > > > > >> >> "output")
+> > > > > > > > > > >> >> handling in the tsadc driver.
+> > > > > > > > > > >> >> Let's use proper binding "default" and "sleep".
+> > > > > > > > > > >> >
+> > > > > > > > > > >> > This looks reasonable, however I've tried it on my Radxa Rock 5C and
+> > > > > > > > > > >> > the driver still doesn't claim GPIO0 RK_PA1 even with this change. As
+> > > > > > > > > > >> > a result, a simulated thermal runaway condition (I've changed the
+> > > > > > > > > > >> > tshut temperature to 65000 and tshut mode to 1) doesn't trigger a PMIC
+> > > > > > > > > > >> > reset, even though a direct `gpioset 0 1=0` does.
+> > > > > > > > > > >> >
+> > > > > > > > > > >> > Are any additional changes needed to the driver itself?
+> > > > > > > > > > >>
+> > > > > > > > > > >> I've been digging through this patch the whole TSADC/OTP thing in the
+> > > > > > > > > > >> last couple of hours, and AFAIK some parts of the upstream driver are
+> > > > > > > > > > >> still missing, in comparison with the downstream driver.
+> > > > > > > > > > >>
+> > > > > > > > > > >> I've got some small suggestions for the patch itself, but the issue
+> > > > > > > > > > >> you observed is obviously of higher priority, and I've singled it out
+> > > > > > > > > > >> as well while digging through the code.
+> > > > > > > > > > >>
+> > > > > > > > > > >> Could you, please, try the patch below quickly, to see is it going to
+> > > > > > > > > > >> fix the issue you observed?  I've got some "IRL stuff" to take care of
+> > > > > > > > > > >> today, so I can't test it myself, and it would be great to know is it
+> > > > > > > > > > >> the right path to the proper fix.
+> > > > > > > > > > >>
+> > > > > > > > > > >> diff --git i/drivers/thermal/rockchip_thermal.c
+> > > > > > > > > > >> w/drivers/thermal/rockchip_thermal.c
+> > > > > > > > > > >> index f551df48eef9..62f0e14a8d98 100644
+> > > > > > > > > > >> --- i/drivers/thermal/rockchip_thermal.c
+> > > > > > > > > > >> +++ w/drivers/thermal/rockchip_thermal.c
+> > > > > > > > > > >> @@ -1568,6 +1568,11 @@ static int rockchip_thermal_probe(struct
+> > > > > > > > > > >> platform_device *pdev)
+> > > > > > > > > > >>          thermal->chip->initialize(thermal->grf, thermal->regs,
+> > > > > > > > > > >>                                    thermal->tshut_polarity);
+> > > > > > > > > > >>
+> > > > > > > > > > >> +       if (thermal->tshut_mode == TSHUT_MODE_GPIO)
+> > > > > > > > > > >> +               pinctrl_select_default_state(dev);
+> > > > > > > > > > >> +       else
+> > > > > > > > > > >> +               pinctrl_select_sleep_state(dev);
+> > > > > > > > > > >
+> > > > > > > > > > > I believe no 'else' block is needed here, because if tshut_mode is not
+> > > > > > > > > > > TSHUT_MODE_GPIO then the TSADC doesn't use this pin at all, so there's
+> > > > > > > > > > > no reason for the driver to mess with its pinctrl state. I'd rather
+> > > > > > > > > > > put a mirroring block to put the pin back to its 'sleep' state in the
+> > > > > > > > > > > removal function for the TSHUT_MODE_GPIO case.
+> > > > > > > > > >
+> > > > > > > > > > You're right, but the "else block" is what the downstream driver does,
+> > > > > > > > >
+> > > > > > > > > Does it though? It only handles the TSHUT_MODE_GPIO case as far as I
+> > > > > > > > > can tell (or TSHUT_MODE_OTP in downstream driver lingo) [1]
+> > > > > > > > >
+> > > > > > > > > [1] https://github.com/radxa/kernel/blob/edb3eeeaa4643ecac6f4185d6d391c574735fca1/drivers/thermal/rockchip_thermal.c#L2564
+> > > > > > > > >
+> > > > > > > > > > so I think it's better to simply stay on the safe side and follow that
+> > > > > > > > > > logic in the upstream driver.  Is it really needed?  Perhaps not, but
+> > > > > > > > > > it also shouldn't hurt.
+> > > > > > > > > >
+> > > > > > > > > > > Will try and revert.
+> > > > > > > > > >
+> > > > > > > > > > Awesome, thanks!
+> > > > > > > > > >
+> > > > > > > > > > > P.S. Just looked at the downstream driver, and it actually calls
+> > > > > > > > > > > TSHUT_MODE_GPIO TSHUT_MODE_OTP instead, so it seems that "otpout" was
+> > > > > > > > > > > not a typo in the first place. So maybe the right approach here is not
+> > > > > > > > > > > to change the device tree but rather fix the "gpio" / "otpout" pinctrl
+> > > > > > > > > > > state handling in the driver.
+> > > > > > > > > >
+> > > > > > > > > > Indeed, "otpout" wasn't a typo, and I've already addressed that in my
+> > > > > > > > > > comments to Alexander's patch.  Will send that response a bit later.
+> > > > > > > > > >
+> > > > > > > > > > I think it's actually better to accept the approach in Alexander's
+> > > > > > > > > > patch, because the whole thing applies to other Rockchip SoCs as well,
+> > > > > > > > > > not just to the RK3588(S).
+> > > > > > > > >
+> > > > > > > > > Anyway, I've just tried it after including the changes below, and
+> > > > > > > > > while /sys/kernel/debug/pinctrl/pinctrl-handles shows the expected
+> > > > > > > > > pinctrls under tsadc, the driver still doesn't seem to be triggering a
+> > > > > > > > > PMIC reset. Weird. Any thoughts welcome.
+> > > > > > > >
+> > > > > > > > I found the culprit. "otpout" (or "default" if we follow Alexander's
+> > > > > > > > suggested approach) pinctrl state should refer to the &tsadc_shut_org
+> > > > > > > > config instead of &tsadc_shut - then the PMIC reset works.
+> > > > > > >
+> > > > > > > I've recently brought up an RK3588S-based Orange Pi CM5 Base board, made
+> > > > > > > of a compute module (CM5, see [1]) and a carrier board (Base, see [2]).
+> > > > > > > The carrier board has a reset button which pulls the PMIC_RESET_L signal
+> > > > > > > of the CM5 to GND (see page 3 of the schematics in [3]).
+> > > > > > >
+> > > > > > > With &tsadc_shut_org the reset button has absolutely no effect. With
+> > > > > > > &tsadc_shut it resets the board as expected.
+> > > > > >
+> > > > > > Interesting. The TSADC shouldn't affect the physical button operation
+> > > > > > at all, if it's really wired to the PMIC as the signal name implies.
+> > > > > > There isn't even any default pull value associated with the TSHUT pin
+> > > > > > config.
+> > > > >
+> > > > > On a second thought, I've got another hypothesis. Your baseboard only
+> > > > > pulls the reset line through  a 100 Ohm resistor when the button is
+> > > > > pressed. So if the TSHUT pin is in its default push-pull mode and
+> > > > > stays high when no thermal runaway reset is requested, the reset
+> > > > > button won't pull the line fully to zero, as the TSHUT line pulls it
+> > > > > high at the same time.
+> > > >
+> > > > That's the most likely cause, I agree.
+> > > >
+> > > > > If you switch it from &tsadc_shut_org to &tsadc_shut, then it stops
+> > > > > working properly as the thermal protection reset, and GPIO0_A1 remains
+> > > > > high-impendance, thus allowing the reset button to function even
+> > > > > though its pull is too weak.
+> > > >
+> > > > By the way, what is the difference between tsadc_shut_org and tsadc_shut
+> > > > ? I haven't seen it being clearly documented in the TRM.
+> > >
+> > > No idea frankly. Looks like a half-finished design change to me, which
+> > > left the non-"org" version unconnected internally.
+> >
+> > :-/
+> >
+> > > > > So maybe change the pin configuration of &tsadc_shut_org in
+> > > > > rk3588-base-pinctrl.dtsi to open drain and retry?
+> > > >
+> > > > That's a good idea, but... how ? The pinctrl-rockchip driver doesn't
+> > > > seem to support generic open-drain configuration.
+> > >
+> > > I thought I saw open-drain configurations here, but after reviewing
+> > > the TRM, bindings and the driver it turns out I must have been
+> > > daydreaming :( Sorry.
+> > >
+> > > Looks like the best we can try is a lower drive strength while keeping
+> > > the push-pull mode, but I'm afraid this 100 Ohm pulldown is too weak,
+> > > because the lowest TSHUT drive strength Rockchip offers is 100 Ohm,
+> > > while the PMIC would only count anything below 30% reference voltage
+> > > as logical low. Maybe adding a pulldown to the pin config can help,
+> > > but most likely this board will require switching the pin to GPIO
+> > > input for high-z, and switching the TSHUT mode to CRU.
+> >
+> > I agree with you, going through the CRU seems the best solution for this
+> > board. This is actually the default mode in
+> > arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:
+> >
+> >         rockchip,hw-tshut-mode = <0>; /* tshut mode 0:CRU 1:GPIO */
+> >         rockchip,hw-tshut-polarity = <0>; /* tshut polarity 0:LOW 1:HIGH */
+> >         pinctrl-0 = <&tsadc_shut_org>;
+> >         pinctrl-1 = <&tsadc_gpio_func>;
+> >
+> > If hw-tshut-mode defaults to 0, why do we need to setup the GPIO0_A1 pin
+> > to output the TSADC_SHUT signal ?
+> 
+> I believe the thinking was along the lines of "it can't hurt, so let's
+> provide a default that's likely to work both for the boards where
+> TSHUT is routed to the PMIC and those where it's not, with an added
+> benefit of hogging the pin to prevent anyone from accidentally
+> triggering it to a low level from user space thus suddenly resetting
+> the board".
+> 
+> But this case of "TSHUT is routed, but with a deviation from the
+> reference schematic which makes it impossible to use as designed" was
+> likely never envisaged.
+> 
+> Technically, there is no reason to switch the pin to tsadc_shut_org
+> when CRU mode is used, and the boottime default for this pin is
+> high-impedance.
 
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
+I tried to trigger an over-temperature condition by setting
+rockchip,hw-tshut-temp to 40°C (yes, it's getting cold in Finland). With
+pinctrl-0 set to <&tsadc_shut_org>, the system reset when the trip point
+was reached, regardless of rockchip,hw-tshut-mode.
+
+With pinctrl-0 set to <&tsadc_gpio_func>, reaching 40°C caused a reset
+with rockchip,hw-tshut-mode set to 0 (CRU), and no action occurred when
+rockchip,hw-tshut-mode was set to 1 (GPIO).
+
+I've also tested <&tsadc_shut>. It resulted in a reset in CRU mode and
+no action in GPIO mode.
+
+> Heiko, shall we remove the pinctrl properties from the common .dtsi
+> and move them to board specific .dts for those boards that use
+> PMIC-assisted thermal resets? Happy to produce a patch to that effect.
+
+-- 
+Regards,
+
+Laurent Pinchart
 
