@@ -4,71 +4,180 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A11EECAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Oct 2025 18:29:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EFF01CAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Sun,  5 Oct 2025 21:09:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CYBAH03JjF0/LKyIMo/IHaTZdNOgizrQt7OdUnWE1vg=; b=OdcaHnzEBHubXtiXpsZy3wU0a5
-	ZWg9EXQ/yShOe+HHKgUsmaO1A7vFLuOvgGs8DCyw7kCxj9EM7Kti26/PDTHRhG1SZHIuviY2S5nnI
-	weA4+T/eco6xCcTvP4JKakTo2ZUvGoLb9XbTmCrFmbfrUK3Et6HLEOw/5Wv+2Q+pg5gIrbZwofiuq
-	5ttvhYC+eiVFIoyCgnJMLPZVqSMoteqztp5JqoaYn5BIRLEipZaZk0kw7BaG3tEEx4cpl4UO+cXfe
-	034VOeEISt1BCpEAPJte36SKMaoH97LfP58NCSKdWcLp9bsaUPOObFlDR9mRLfcZkrxBJnvUqLAGD
-	Om0XP4qg==;
+	bh=lKSHGS57h5QMYQrbbvJNlsAmOl9zd72iqB/F09y743Y=; b=uxHZpk687mzcNzwQQeGj5QhHB6
+	blGDpziSCtBxE3ohMlDXK8Deaot1VcIowvyKMrPWoaWjhsrndh+aidpwZmaq/gr9IYZdDeJNXPSVs
+	FRun6wqKmAIFda3cCBhn/ZYG016dhhN+ZN+8DkhrUpC6zCpAUbXT5u8hkVuZN3lTfSDDT+LB+0aQk
+	HO56dKXmK52eabRlxq0GhVESOIVpSSAs7JGtKw+p2jVY/trt+FuOKwgSPbpDAe1hTyD4FPmfiWLBb
+	Etyma/aTtitHXJI8DdkV69JbuLTmeH3Aq8rvTkBwVklXM6XLh6DCLEQwvCLfIi27bhrVxFyDmPsfO
+	qeFIS1aQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5TTv-0000000GERE-0fKY;
-	Sun, 05 Oct 2025 18:29:15 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1v5Vyp-0000000Ge2V-10Wo;
+	Sun, 05 Oct 2025 21:09:19 +0000
+Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5TTs-0000000GEOs-0GvF;
-	Sun, 05 Oct 2025 18:29:13 +0000
-Received: from pendragon.ideasonboard.com (81-175-209-231.bb.dnainternet.fi [81.175.209.231])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id 4DB701A89;
-	Sun,  5 Oct 2025 20:27:37 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1759688857;
-	bh=TH3yJBoT1mUNCSNf2l7RFS/wz9BfOxVp0X2N76eTNkE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=d4xcUnIvV0WL2SnbyFsyAiEuedlq5f1Hkj9Wjdv1UDdjEDXh7gsy7XYDNhx5H+HGu
-	 g34QPioBoSfVUJfvlPy14h4njDrexj3cgtW1O9qJZ2n2CO9vUzKUVpVNRwVCiTLPok
-	 /jZyTqqA/0SxHvsmU/43MTLc+KCpiVbkZaXIUBv8=
-Date: Sun, 5 Oct 2025 21:29:03 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Alexey Charkov <alchark@gmail.com>
-Cc: Dragan Simic <dsimic@manjaro.org>,
-	Alexander Shiyan <eagle.alexander923@gmail.com>,
-	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	stable@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH] arm64: dts: rockchip: Fix broken tsadc pinctrl binding
- for rk3588
-Message-ID: <20251005182903.GA29493@pendragon.ideasonboard.com>
-References: <61b494b209d7360d0f36adbf6d5443a4@manjaro.org>
- <CABjd4Yx0p0B=e00MjCpDDq8Z=0FtM0s9EN86WdvRimt-_+kh2w@mail.gmail.com>
- <CABjd4Yy14bpjzvFyc8et-=pmds5uwzfxNqcs7L=+XRXBogZEsQ@mail.gmail.com>
- <20251003133304.GA21023@pendragon.ideasonboard.com>
- <CABjd4YxbyUWghd1ya8UayFkAE-VWQSd5-J2QD0sV7WmS8AXkCg@mail.gmail.com>
- <CABjd4YwtwUYFX4bX5vy=AFi=Dn1r6nxWtMvmeKBSjkvriNJtsQ@mail.gmail.com>
- <20251003232856.GC1492@pendragon.ideasonboard.com>
- <CABjd4Yx9rt2W=MhCSyO5vaxndD1jvGHNWsz7J=HnvnJcgOvQHw@mail.gmail.com>
- <20251004220326.GC20317@pendragon.ideasonboard.com>
- <CABjd4YwLQ_kr3tA=XnzR4_zmQ0CQs4TuQr-2OWbiOWQfDhP4xw@mail.gmail.com>
+	id 1v5Vym-0000000Ge2A-3013
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 05 Oct 2025 21:09:17 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=KLr7dSOPUEARGaLyyF58ctWWv6srclVRoBz7zcJYbmyb+XdBcoxwYoGxm2QJGNinTuZJCWSbj0k6pUkQ8c/iTM9CbdP9GkO9FN3brGrzyGRenndDH5pvUrobXPmXfSjtjo0sQuxXX9PwXjwWVZB8f29BzoZBUOVD4jMbJ5EoiymL/hHYl06VzrJQsjW4Wc7KYTBMuPIN4TfGjLc3led7KKqOmtZNgLmeQCS4Bs1eEsLAxwZURdRivk891+Q2fCsyEs+FczcgXvS4LAscVi45g8KYk9ViOFkbe7WCO3fugTS1Wbi7fQxEwITceAu7kqgYDNOD3oLrRgI3p/dbqu62Wg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=lKSHGS57h5QMYQrbbvJNlsAmOl9zd72iqB/F09y743Y=;
+ b=SztrPO6lwcmaV4rss19QXButDdZEVCgcZ/Ump6MzpNHTPkMv+RGq83hZLjsEJKnipynlVsLgZfVHJlGygNzRXgrUFCYfI1LYYlZRtfEEMdqoNNa5q45T/qMZaSeIQ4fSvZaVFUcRYiy9Gqs1oCSUxRcnmGvO3iEDTj7zO3RK2VDkM0C0e4jOHA/ExESTzv0UR3o1LSonYCtc6eXL0i3t0qJ6fzItU4TJGTwsmCfMtfDQ04oKZZjgloGbwZCJ7foQIFobaX3uOonbFFXgRyPNQT7eWk840B2iES36zynSPqZI1pTI8bbwQm2rUtbnfvJ39rdDivwW0iktxzGzlzIVyg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=lKSHGS57h5QMYQrbbvJNlsAmOl9zd72iqB/F09y743Y=;
+ b=B57gKo7XSBXH1FkNID7CyHXg8wasmIgsL5j4l7njAb/ELRJvfNpjNlNZSBQjWQIeE78TbmakjNLff7GrIcw8QU6/dACSPabX1ArKXv/7P29C8zdQ2XEIZwgjK+hBOnaal9Glv45R0zYMOgJ1aNFPUWyFLuhKBh7RKkQKZB3YVhoJ5dmTxRHV1Kgi73yytzN5kCO8F12Bzf/Ip5oLuRWfyHMKjdnkfEoxbkd0FxpePq3oPc9hRKdHZFsPB3/S6tVgxapDXVO0FBXLmsqRNvbL/HPdpvb3EIq+srtGAuiN8zLhuONnhxXppmFnKA9jgDqans8VKIZN/04PUznoFTH7NA==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DM6PR12MB2667.namprd12.prod.outlook.com (2603:10b6:5:42::28) by
+ CH2PR12MB4245.namprd12.prod.outlook.com (2603:10b6:610:af::15) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9182.20; Sun, 5 Oct 2025 21:09:02 +0000
+Received: from DM6PR12MB2667.namprd12.prod.outlook.com
+ ([fe80::bd88:b883:813d:54a2]) by DM6PR12MB2667.namprd12.prod.outlook.com
+ ([fe80::bd88:b883:813d:54a2%6]) with mapi id 15.20.9182.017; Sun, 5 Oct 2025
+ 21:09:02 +0000
+Message-ID: <46bfa3cb-3f8a-4780-bf69-c6fedd673649@nvidia.com>
+Date: Sun, 5 Oct 2025 14:08:59 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 16/29] arm_mpam: Add a helper to touch an MSC from any
+ CPU
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
+ Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>, Ben Horgan <ben.horgan@arm.com>
+References: <20250910204309.20751-1-james.morse@arm.com>
+ <20250910204309.20751-17-james.morse@arm.com>
+Content-Language: en-US
+From: Fenghua Yu <fenghuay@nvidia.com>
+In-Reply-To: <20250910204309.20751-17-james.morse@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SJ0PR03CA0260.namprd03.prod.outlook.com
+ (2603:10b6:a03:3a0::25) To DM6PR12MB2667.namprd12.prod.outlook.com
+ (2603:10b6:5:42::28)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CABjd4YwLQ_kr3tA=XnzR4_zmQ0CQs4TuQr-2OWbiOWQfDhP4xw@mail.gmail.com>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DM6PR12MB2667:EE_|CH2PR12MB4245:EE_
+X-MS-Office365-Filtering-Correlation-Id: c9338445-fbeb-4d43-e79c-08de045368d9
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|1800799024|366016|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?NGdHbVh4a3FXUitDYThjZWdDb0c2QWVGejN5b1U4OWtCUTB0WkJldTJyaUZE?=
+ =?utf-8?B?WklRUytkTHkxeTBJcjQ0ZXBDNHpqSy8raVlhcUQ1ZjVoNlQ0RC80c0h0ZXBC?=
+ =?utf-8?B?Y2JiMThJOWxlWU1uNzBPQ2J2VGU2aFI3SGlObjhDdjEwdXNvczA1aU5nN2Nw?=
+ =?utf-8?B?NUsxSDlCVnZxUUQzUVpmWEh1WEUzQVllUDR5L1ZCTU5NYWtUU0VuMXExcGt2?=
+ =?utf-8?B?b0pHeGl2N3d5T0UwNVhqV1lNVTZncmZ6bS8vQ3RHSWJqSlFSNndyM0tkYndI?=
+ =?utf-8?B?SUxqKzduYTN1RGhWcnN1bXBLSWtjcEhVQjNKNmNFazdNR2svc0tDRGRnTlJW?=
+ =?utf-8?B?MFczakdWSTVwL1N3NGZvTFpmNnBNN0FwSkZZQWwyV2NGNUE0NTg3TlBQZGxE?=
+ =?utf-8?B?blNWb1RWL0ZvSDFQSjF5V25jbktabnZVY2ZHeFdQSjhHTDVKaXhRc1BUSy9V?=
+ =?utf-8?B?WnVEeFhZSER5ZXhWMWpXOHV5TWxwdUwrMnhSOFVaN1ljN2FLZ2o0NE51QmZ4?=
+ =?utf-8?B?Q2NncE8xRzh6N0s4TFZQbmQ1bThNdEZkOFVnOGhidFd5ekRRRWYrWDQ0NEdS?=
+ =?utf-8?B?Y3M2ZG4wQkV2Uy9xWkFaWDBUeFJ1dnA3RkVPVWQwNS9nVFl0eVRjd3lZVlZ1?=
+ =?utf-8?B?L0lrSkRHeitkSFRhbG1zTnBlWTQ4TWlHL3lyMW0zTGhBTG03VDcyUFZpQ0pu?=
+ =?utf-8?B?QjNxT2Z2M0d6cXFEVVhKYXVRTlVzZVhqUVF4NTM1TDBLSlhnSW5od0hEU3dD?=
+ =?utf-8?B?aWV6U1dUSy9TZVdBcHhIUW10cGpzOTJRSTA1bkVPaUFIZ2NDNzdWQ1kzRHZE?=
+ =?utf-8?B?TklDWXlwc2NBakVRS0lKY0Y4UmtPRUkyeHdrUi95R01FYzJTdUVlbUtJRDh0?=
+ =?utf-8?B?L3FWYlBORndYeDZIbmtaSXJYU3RJVjZKZGlEL2hiNGp5NmUrQURkYmZHLzYv?=
+ =?utf-8?B?eDkydlAzVS9IVFhPcGtZa3FId1FRbXU5QWpDa2dqVGhRU2VRZ1ljYzZHdXpk?=
+ =?utf-8?B?SkZTbzRGMFlBZ0l1RVlMdWowbmR5OUFSZ1J1Tk9KRnhnYWdMcjU5Y2FIK2Ra?=
+ =?utf-8?B?bTZiV2Q5K0diWjd2YzhTbnV4aERMa0J3V1drL3dVNGtHeHBXWWVGa29WYlpF?=
+ =?utf-8?B?RTN6SkdQNjlIN1hEQW1sM1dQODVHc0hqSG9lYThFZWpKdHJOS1RzK2Nvcy8y?=
+ =?utf-8?B?Q3pOYUo3TStCT0tZOE5UL21vYzBDbUtaRXBPUitWVHRCZFZITE40aHBWT3p0?=
+ =?utf-8?B?ZWJTdUwyMXQ1ck1zUFhDbnhkdGIzUkRiaFpYZU5FWVQyWVFwc1pnRlQyTUZV?=
+ =?utf-8?B?VUwwUWNzRVEzS0NsSW5XM3FCdEZQRGVCSmkvV0U0WFk0ZC9yczNPUUE5RFY4?=
+ =?utf-8?B?bDRKaTZsYzJHUXkyWVVNWFNmMW9wRVcvbFdyZnl1QjROdmRpanJSYzNqMVZH?=
+ =?utf-8?B?UE94TXU0MW52K3d0U0hYZUVQc096UVZEQ3k5N3JmZENiTmFNVmZLeGI3Tk1l?=
+ =?utf-8?B?ai80ekRHVllJNjdCNktVM2l0SDR3OXVmeEJFQURzRmdZWXFZRXlGU3hrWnhG?=
+ =?utf-8?B?K2JLR1d0b1l6bGNwRjBMZUFBMk5xbklZYSs4SUJTRVVkejdaVnlmYkxTUFZj?=
+ =?utf-8?B?dzlvcWlOMjMyZDQvU3J5dVVTbkdIRWE3aHhjcXBXR0JiWkJWZ1B2L1FCVkJE?=
+ =?utf-8?B?OW9rcEhSMDNMa2Y2YlhNV2tBOS9nWU5ML3djRnkyV0ttWFlkVllIdE8zZUVk?=
+ =?utf-8?B?cFJVY3didVN3bTZqZERSclE5KzEybERtZ3Jtc0hLRkg5ekxtK2lNWUYvUisz?=
+ =?utf-8?B?ZmRqVnVPN05HWlg0cThOVWp0UURFN29aZ1FzUlNzSWMrbktRcnZheTNKdWxn?=
+ =?utf-8?B?aUkrMUdsQXMxaVFyS2VhYTlQSUFTeDJSYStvK0pxc0wzOGJSa2xubW0yYlJh?=
+ =?utf-8?Q?6rK7fUTdKZbPZiNPwOmKhmbkiYNQRC75?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DM6PR12MB2667.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?K29SS2VxWjVLVjdTcE9TaDJ4eHd6aW1EZXdoRkZDb0VJOStzRk93d2wrclI0?=
+ =?utf-8?B?Q2RTQWUzZVZyc2pGUWZyMkFkVSswOCtKd1doZnpzQ2VqbkljWS8wWFdXOGd1?=
+ =?utf-8?B?Y1NZUEowMVdHSFJoRyt5dVMxdWNMSktBS0J0TmR6NHpvOEFvVXA5ZE9ZWXdH?=
+ =?utf-8?B?N2lVeVZWUlhoRW81MVhBS1ZuZFcrankvZGJ0MG5kUGk0aGg4WkRQS3ZWRDhW?=
+ =?utf-8?B?Q1Rib2ZHOWtHTW9oK3VHcnNrRnhNbkU4elFnL1RCT1ArdVFmRHFlRE1XZUVM?=
+ =?utf-8?B?L1poS3dRaTBENUFkNXFRYzVOdVducEU5aFEyU0ZVVjFzK3dmR0toRU9wR2Zn?=
+ =?utf-8?B?dGg2SFR6UGtkRUVRWXd6UXpNMFI2dWxOQWticXlHVXhiVlNJVmpRbFl3MDhQ?=
+ =?utf-8?B?V0J0ek1oYlRzVVcyUmtzSmlBdUN5NUdtd3VISFo4UTJMU1BWeTg1VUpxOW1T?=
+ =?utf-8?B?TVZUQkZIWUx2Ym95azZwNkIyK2o5emxkclE0VTRmdFFjRXVqU0JwTE9ZUW5v?=
+ =?utf-8?B?a3l3eC9wdlozUVM2Vjh0dG5aNFBwb2w1Y3hKVTZvOXpCenFSS3pBOTNtdTll?=
+ =?utf-8?B?ZE5PQXFEYlBvb0FraWNWTkFzSWNkZEE1MDJ6VTJkYys4TFluaUNMa09YZzZM?=
+ =?utf-8?B?V0EzODgrTi9ZR2ZaZ0lSYmY0WGVUQVV0Q05heFJEWTZaV243dWMwWERvMFI1?=
+ =?utf-8?B?a050ckdtRS9FSUhtK3RvRjZiSElWUmx4Z0xINDBoQnI2VDRkL2VLUitzb0pz?=
+ =?utf-8?B?OUhjbFlFL2k1dXBZS0YzRXRON20zMzlhWnFtSWtid1hzaUdpajhIOGRUR3VW?=
+ =?utf-8?B?RmNYL3Q1ODlUOXlndDJvRENSdk43MGZYcXoxOW90QWtVV0tBVTBRakRwMVVz?=
+ =?utf-8?B?S0hiL0FGWGl2eU95QlB3dEJRNG9QS2NkZ0txbUdTR0R6dzFHbWJidytkN2Iy?=
+ =?utf-8?B?R04wZFdYTmFleHZlZ21uNGlMaGEvTGFkK0F1Z1ZRdEdIaVF4bDg5ZE5ORWNU?=
+ =?utf-8?B?ZlFsTUVpT0ZZSmdndTVua1hXV0VrK2FIZUp1S0kwVTN4aVFMME5qMjlFaE15?=
+ =?utf-8?B?K2RYbHROTDkrSmVpbHhkNHlaamxuOXh2TUgzc2w3S1RGSnBhNWt6S1ZwU1Ir?=
+ =?utf-8?B?K0pnL3hEN2Y0U3dxVjNGeDNyRjFXUEVDazEvYmhlTGJML2QxSW9NYWhnSVha?=
+ =?utf-8?B?dVJBd0hOOHNnY29XV1MrNWZEdm8wOG4rdE1mT1h1bmRzYkFaeVRXR05PRjlW?=
+ =?utf-8?B?dHZJZG9BVDdmTm1tN3RrSUg0SlRXR2p3VE43OVpPdUlETS9nYU16TEYxdXBq?=
+ =?utf-8?B?KzJqbGxUaHpLcDFOTFgra0JRNS95R3RubmZXeGVvdVBBNHVad0xGVlZldG5k?=
+ =?utf-8?B?QUxlR1JwckE0cmNPbjRPWXczZHVoUjZ5ZURsbWNXVXE1UXUxYk5aRFRuOGQw?=
+ =?utf-8?B?bEs2MEc4L0k1cFRqeTVJa1hjRmlCUXdHOW5NdXV1L1Yram15eHN2cytGN2E3?=
+ =?utf-8?B?N0tQZVpBVjVvVkxhdDF4TGtwOWdVUXhvZHBZL3pac20vTnJxbXZiNGFmcXN0?=
+ =?utf-8?B?MjFCdXJWVExDNDliWXNlSUszOFZqeTFLR09iRHE5YjFJN3BGa2p6MzdWbzZz?=
+ =?utf-8?B?Uis5Q3cvMy9STUppQTBSSDE0YWRSR2dUYUl5YllxeU4ralNJWXAwR2NOVTdW?=
+ =?utf-8?B?a3k5ZzlsWmVFSkxrMXZDVTZONW5wUXVUZHJpZnRCdlZhTVdYQ3lZMWU0TGR6?=
+ =?utf-8?B?OFpScnhHbTJDYW9sOTQ1WndBb1cxRWhlWGRTYzJEZnhnalppOFNnalBPODlm?=
+ =?utf-8?B?UVRkcUtFdzF6VmRiUUJJa3Nmakdsa3VCaHYraFlJUHluM1FTeUFyUjhDSnJ0?=
+ =?utf-8?B?YmNRTDhnaUZUNzFsZjAwZnVRNmlCdGozMzd4dndwQ3IzQTJtL2FoNEJoTDhU?=
+ =?utf-8?B?TnZCaXFBeWdLNlF0b3N0aHh0Wk5CVFlQTUVlRGUvNmFmL2VXMzFkb3VNU1Mr?=
+ =?utf-8?B?ZXlKUHNDbUIrM2xIRThmLzNjY3RyYVdoTmJBRHBRRTJlZzgrT05yM0lKSGV4?=
+ =?utf-8?B?NmtKaEZjRWpGSFVuNGFuL3FzaFFLczVQODA4SGkxV3JqQk8rZzBaWlNIcWcw?=
+ =?utf-8?Q?chmR+C5X+MnUWwbZcvOk9HwEN?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: c9338445-fbeb-4d43-e79c-08de045368d9
+X-MS-Exchange-CrossTenant-AuthSource: DM6PR12MB2667.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 05 Oct 2025 21:09:02.7496
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: va3YWa7en1/swHlI5UkUVUvdd5skXXc5j+Kf+HfCBd7bZmiCfiOYnE0iyEnyAjPg3plELQgwOwzv00qauQJkJQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CH2PR12MB4245
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251005_112912_246206_8BBF621C 
-X-CRM114-Status: GOOD (  74.70  )
+X-CRM114-CacheID: sfid-20251005_140916_772615_62954CFA 
+X-CRM114-Status: UNSURE (   9.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,203 +192,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sun, Oct 05, 2025 at 02:55:07PM +0400, Alexey Charkov wrote:
-> On Sun, Oct 5, 2025 at 2:03 AM Laurent Pinchart wrote:
-> > On Sat, Oct 04, 2025 at 03:41:41PM +0400, Alexey Charkov wrote:
-> > > On Sat, Oct 4, 2025 at 3:29 AM Laurent Pinchart wrote:
-> > > > On Fri, Oct 03, 2025 at 06:55:26PM +0400, Alexey Charkov wrote:
-> > > > > On Fri, Oct 3, 2025 at 6:13 PM Alexey Charkov wrote:
-> > > > > > On Fri, Oct 3, 2025 at 5:33 PM Laurent Pinchart wrote:
-> > > > > > > On Fri, Jan 24, 2025 at 11:44:34PM +0400, Alexey Charkov wrote:
-> > > > > > > > On Fri, Jan 24, 2025 at 9:23 PM Alexey Charkov wrote:
-> > > > > > > > > On Fri, Jan 24, 2025 at 2:37 PM Dragan Simic wrote:
-> > > > > > > > > > On 2025-01-24 11:25, Alexey Charkov wrote:
-> > > > > > > > > > > On Fri, Jan 24, 2025 at 2:06 PM Dragan Simic wrote:
-> > > > > > > > > > >> On 2025-01-24 09:33, Alexey Charkov wrote:
-> > > > > > > > > > >> > On Fri, Jan 24, 2025 at 9:26 AM Alexander Shiyan wrote:
-> > > > > > > > > > >> >>
-> > > > > > > > > > >> >> There is no pinctrl "gpio" and "otpout" (probably designed as
-> > > > > > > > > > >> >> "output")
-> > > > > > > > > > >> >> handling in the tsadc driver.
-> > > > > > > > > > >> >> Let's use proper binding "default" and "sleep".
-> > > > > > > > > > >> >
-> > > > > > > > > > >> > This looks reasonable, however I've tried it on my Radxa Rock 5C and
-> > > > > > > > > > >> > the driver still doesn't claim GPIO0 RK_PA1 even with this change. As
-> > > > > > > > > > >> > a result, a simulated thermal runaway condition (I've changed the
-> > > > > > > > > > >> > tshut temperature to 65000 and tshut mode to 1) doesn't trigger a PMIC
-> > > > > > > > > > >> > reset, even though a direct `gpioset 0 1=0` does.
-> > > > > > > > > > >> >
-> > > > > > > > > > >> > Are any additional changes needed to the driver itself?
-> > > > > > > > > > >>
-> > > > > > > > > > >> I've been digging through this patch the whole TSADC/OTP thing in the
-> > > > > > > > > > >> last couple of hours, and AFAIK some parts of the upstream driver are
-> > > > > > > > > > >> still missing, in comparison with the downstream driver.
-> > > > > > > > > > >>
-> > > > > > > > > > >> I've got some small suggestions for the patch itself, but the issue
-> > > > > > > > > > >> you observed is obviously of higher priority, and I've singled it out
-> > > > > > > > > > >> as well while digging through the code.
-> > > > > > > > > > >>
-> > > > > > > > > > >> Could you, please, try the patch below quickly, to see is it going to
-> > > > > > > > > > >> fix the issue you observed?  I've got some "IRL stuff" to take care of
-> > > > > > > > > > >> today, so I can't test it myself, and it would be great to know is it
-> > > > > > > > > > >> the right path to the proper fix.
-> > > > > > > > > > >>
-> > > > > > > > > > >> diff --git i/drivers/thermal/rockchip_thermal.c
-> > > > > > > > > > >> w/drivers/thermal/rockchip_thermal.c
-> > > > > > > > > > >> index f551df48eef9..62f0e14a8d98 100644
-> > > > > > > > > > >> --- i/drivers/thermal/rockchip_thermal.c
-> > > > > > > > > > >> +++ w/drivers/thermal/rockchip_thermal.c
-> > > > > > > > > > >> @@ -1568,6 +1568,11 @@ static int rockchip_thermal_probe(struct
-> > > > > > > > > > >> platform_device *pdev)
-> > > > > > > > > > >>          thermal->chip->initialize(thermal->grf, thermal->regs,
-> > > > > > > > > > >>                                    thermal->tshut_polarity);
-> > > > > > > > > > >>
-> > > > > > > > > > >> +       if (thermal->tshut_mode == TSHUT_MODE_GPIO)
-> > > > > > > > > > >> +               pinctrl_select_default_state(dev);
-> > > > > > > > > > >> +       else
-> > > > > > > > > > >> +               pinctrl_select_sleep_state(dev);
-> > > > > > > > > > >
-> > > > > > > > > > > I believe no 'else' block is needed here, because if tshut_mode is not
-> > > > > > > > > > > TSHUT_MODE_GPIO then the TSADC doesn't use this pin at all, so there's
-> > > > > > > > > > > no reason for the driver to mess with its pinctrl state. I'd rather
-> > > > > > > > > > > put a mirroring block to put the pin back to its 'sleep' state in the
-> > > > > > > > > > > removal function for the TSHUT_MODE_GPIO case.
-> > > > > > > > > >
-> > > > > > > > > > You're right, but the "else block" is what the downstream driver does,
-> > > > > > > > >
-> > > > > > > > > Does it though? It only handles the TSHUT_MODE_GPIO case as far as I
-> > > > > > > > > can tell (or TSHUT_MODE_OTP in downstream driver lingo) [1]
-> > > > > > > > >
-> > > > > > > > > [1] https://github.com/radxa/kernel/blob/edb3eeeaa4643ecac6f4185d6d391c574735fca1/drivers/thermal/rockchip_thermal.c#L2564
-> > > > > > > > >
-> > > > > > > > > > so I think it's better to simply stay on the safe side and follow that
-> > > > > > > > > > logic in the upstream driver.  Is it really needed?  Perhaps not, but
-> > > > > > > > > > it also shouldn't hurt.
-> > > > > > > > > >
-> > > > > > > > > > > Will try and revert.
-> > > > > > > > > >
-> > > > > > > > > > Awesome, thanks!
-> > > > > > > > > >
-> > > > > > > > > > > P.S. Just looked at the downstream driver, and it actually calls
-> > > > > > > > > > > TSHUT_MODE_GPIO TSHUT_MODE_OTP instead, so it seems that "otpout" was
-> > > > > > > > > > > not a typo in the first place. So maybe the right approach here is not
-> > > > > > > > > > > to change the device tree but rather fix the "gpio" / "otpout" pinctrl
-> > > > > > > > > > > state handling in the driver.
-> > > > > > > > > >
-> > > > > > > > > > Indeed, "otpout" wasn't a typo, and I've already addressed that in my
-> > > > > > > > > > comments to Alexander's patch.  Will send that response a bit later.
-> > > > > > > > > >
-> > > > > > > > > > I think it's actually better to accept the approach in Alexander's
-> > > > > > > > > > patch, because the whole thing applies to other Rockchip SoCs as well,
-> > > > > > > > > > not just to the RK3588(S).
-> > > > > > > > >
-> > > > > > > > > Anyway, I've just tried it after including the changes below, and
-> > > > > > > > > while /sys/kernel/debug/pinctrl/pinctrl-handles shows the expected
-> > > > > > > > > pinctrls under tsadc, the driver still doesn't seem to be triggering a
-> > > > > > > > > PMIC reset. Weird. Any thoughts welcome.
-> > > > > > > >
-> > > > > > > > I found the culprit. "otpout" (or "default" if we follow Alexander's
-> > > > > > > > suggested approach) pinctrl state should refer to the &tsadc_shut_org
-> > > > > > > > config instead of &tsadc_shut - then the PMIC reset works.
-> > > > > > >
-> > > > > > > I've recently brought up an RK3588S-based Orange Pi CM5 Base board, made
-> > > > > > > of a compute module (CM5, see [1]) and a carrier board (Base, see [2]).
-> > > > > > > The carrier board has a reset button which pulls the PMIC_RESET_L signal
-> > > > > > > of the CM5 to GND (see page 3 of the schematics in [3]).
-> > > > > > >
-> > > > > > > With &tsadc_shut_org the reset button has absolutely no effect. With
-> > > > > > > &tsadc_shut it resets the board as expected.
-> > > > > >
-> > > > > > Interesting. The TSADC shouldn't affect the physical button operation
-> > > > > > at all, if it's really wired to the PMIC as the signal name implies.
-> > > > > > There isn't even any default pull value associated with the TSHUT pin
-> > > > > > config.
-> > > > >
-> > > > > On a second thought, I've got another hypothesis. Your baseboard only
-> > > > > pulls the reset line through  a 100 Ohm resistor when the button is
-> > > > > pressed. So if the TSHUT pin is in its default push-pull mode and
-> > > > > stays high when no thermal runaway reset is requested, the reset
-> > > > > button won't pull the line fully to zero, as the TSHUT line pulls it
-> > > > > high at the same time.
-> > > >
-> > > > That's the most likely cause, I agree.
-> > > >
-> > > > > If you switch it from &tsadc_shut_org to &tsadc_shut, then it stops
-> > > > > working properly as the thermal protection reset, and GPIO0_A1 remains
-> > > > > high-impendance, thus allowing the reset button to function even
-> > > > > though its pull is too weak.
-> > > >
-> > > > By the way, what is the difference between tsadc_shut_org and tsadc_shut
-> > > > ? I haven't seen it being clearly documented in the TRM.
-> > >
-> > > No idea frankly. Looks like a half-finished design change to me, which
-> > > left the non-"org" version unconnected internally.
-> >
-> > :-/
-> >
-> > > > > So maybe change the pin configuration of &tsadc_shut_org in
-> > > > > rk3588-base-pinctrl.dtsi to open drain and retry?
-> > > >
-> > > > That's a good idea, but... how ? The pinctrl-rockchip driver doesn't
-> > > > seem to support generic open-drain configuration.
-> > >
-> > > I thought I saw open-drain configurations here, but after reviewing
-> > > the TRM, bindings and the driver it turns out I must have been
-> > > daydreaming :( Sorry.
-> > >
-> > > Looks like the best we can try is a lower drive strength while keeping
-> > > the push-pull mode, but I'm afraid this 100 Ohm pulldown is too weak,
-> > > because the lowest TSHUT drive strength Rockchip offers is 100 Ohm,
-> > > while the PMIC would only count anything below 30% reference voltage
-> > > as logical low. Maybe adding a pulldown to the pin config can help,
-> > > but most likely this board will require switching the pin to GPIO
-> > > input for high-z, and switching the TSHUT mode to CRU.
-> >
-> > I agree with you, going through the CRU seems the best solution for this
-> > board. This is actually the default mode in
-> > arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:
-> >
-> >         rockchip,hw-tshut-mode = <0>; /* tshut mode 0:CRU 1:GPIO */
-> >         rockchip,hw-tshut-polarity = <0>; /* tshut polarity 0:LOW 1:HIGH */
-> >         pinctrl-0 = <&tsadc_shut_org>;
-> >         pinctrl-1 = <&tsadc_gpio_func>;
-> >
-> > If hw-tshut-mode defaults to 0, why do we need to setup the GPIO0_A1 pin
-> > to output the TSADC_SHUT signal ?
-> 
-> I believe the thinking was along the lines of "it can't hurt, so let's
-> provide a default that's likely to work both for the boards where
-> TSHUT is routed to the PMIC and those where it's not, with an added
-> benefit of hogging the pin to prevent anyone from accidentally
-> triggering it to a low level from user space thus suddenly resetting
-> the board".
-> 
-> But this case of "TSHUT is routed, but with a deviation from the
-> reference schematic which makes it impossible to use as designed" was
-> likely never envisaged.
-> 
-> Technically, there is no reason to switch the pin to tsadc_shut_org
-> when CRU mode is used, and the boottime default for this pin is
-> high-impedance.
 
-I tried to trigger an over-temperature condition by setting
-rockchip,hw-tshut-temp to 40°C (yes, it's getting cold in Finland). With
-pinctrl-0 set to <&tsadc_shut_org>, the system reset when the trip point
-was reached, regardless of rockchip,hw-tshut-mode.
+On 9/10/25 13:42, James Morse wrote:
+> Resetting RIS entries from the cpuhp callback is easy as the
+> callback occurs on the correct CPU. This won't be true for any other
+> caller that wants to reset or configure an MSC.
+>
+> Add a helper that schedules the provided function if necessary.
+>
+> Callers should take the cpuhp lock to prevent the cpuhp callbacks from
+> changing the MSC state.
+>
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
 
-With pinctrl-0 set to <&tsadc_gpio_func>, reaching 40°C caused a reset
-with rockchip,hw-tshut-mode set to 0 (CRU), and no action occurred when
-rockchip,hw-tshut-mode was set to 1 (GPIO).
+Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
 
-I've also tested <&tsadc_shut>. It resulted in a reset in CRU mode and
-no action in GPIO mode.
+Thanks.
 
-> Heiko, shall we remove the pinctrl properties from the common .dtsi
-> and move them to board specific .dts for those boards that use
-> PMIC-assisted thermal resets? Happy to produce a patch to that effect.
+-Fenghua
 
--- 
-Regards,
-
-Laurent Pinchart
+[SNIP]
 
