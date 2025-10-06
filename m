@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84E11CCD186
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19D89CCA470
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 16:43:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,87 +12,86 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CpB7AuKalXwpl/RbLMZ5nDUUEYNNft2mby5//un8yy4=; b=oUqbjH4h2w3sjZdR59H/awo2yy
-	alRLSJHz4JQxwfE9faOCXNrWJiJKwZIi1yspG0B9fTQOMEFfaUo/I2KNvfGpWc+i11B228x9Faq5p
-	fWKFdbP42q8LaIwsrO+2yj7gaK5X3qmYi05T25vUJpwmHfDRPTJJwRuC62RVvDtelQIB8t9yrDeIO
-	Cqc5eJA4OBAfoBshxH77MBtwG0crlKm4Shm8DsNTErNlF5cHwCww9LMi4qO2+D47e8mcPngHkQDs4
-	bkRIx6/oR1d7N8wNNfkhVc3RuNaN3EODLhEErJAgmB88Y25q1+DnfOj1g5PRcneipbG3QJGaNb/D9
-	ofmQE6jQ==;
+	bh=MVFnz052bxUssLjPn/irFYLe8FvTO4x2oRG7kChOyXg=; b=camMNUYSTczsHvPZYYLO0J59Yg
+	+orbT+N197FUxYzWBxvEOQp3v9z1OJ6BDHFaUBOQHDlgNmdf8sUmu/oTE2vjXac9xP4lqv8WmF03q
+	6aHSHDqpxf3LTb4WimdvEz8N9JYDHuE1mEIDNVUrfG6SDVp8tIzOOPbT4GGrNwH1w7T1c3GbR//m/
+	ISBQVgIczHYWVnBruFguSIPm2IdTOFU3KqJxlls4qJEB67cByg40exrBlo6C+FmaGfUIFrKSHP3Bd
+	Hb6dlkf1srOwmjRTIne+DcaC52kGoSwzO0GvNBbDdEdYMs+N4KvjyUePsI2q/pvr7iO9E3MVhBNEE
+	s8Sms54w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5oJI-00000000QZe-1StW;
-	Mon, 06 Oct 2025 16:43:40 +0000
+	id 1v5oJJ-00000000Qat-0DH5;
+	Mon, 06 Oct 2025 16:43:41 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5oJD-00000000QUQ-1hnr
+	id 1v5oJF-00000000QVq-25RM
 	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 06 Oct 2025 16:43:35 +0000
+	Mon, 06 Oct 2025 16:43:37 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Cc:To:In-Reply-To:References:
 	Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Sender:Reply-To:Content-ID:Content-Description;
-	bh=CpB7AuKalXwpl/RbLMZ5nDUUEYNNft2mby5//un8yy4=; b=c6CM70SUz7ym9gTB6T+dGbYhio
-	hJCvzBLwCUjEotT9PfB6XaCe8JJmXwn4N7heqTkZ5Bx+fRzER7njZv4nJNWSDRwUDv7Hl+5Da4G/D
-	+HSwkQfvgQ2MmcEY1X+fH7S6cfHLvWZJjAiEOLKogALkrfLAhuya0E9WZoknPz1ngC5wqS85HeU5W
-	B8tOqsz3lpts4mDh+aaCzApJR8RAHsZEI/EnWtwPwoVVDaySqlIH/HIFjIIG7hFhrb46+8mk1wrfA
-	uJc9cobZoy5IkkotbwLCVe2ZH3IpjELOe6zcy3xLknYvz06U+JX4+mdHC07wnEJUpbROetagQLNbv
-	Lfc31VzQ==;
-Received: from mail-ed1-x52e.google.com ([2a00:1450:4864:20::52e])
+	bh=MVFnz052bxUssLjPn/irFYLe8FvTO4x2oRG7kChOyXg=; b=KOYx3Rfpr8d2cYFo0G0rjcGB/4
+	Kv6MeU5Q/C0jbZ2NDSwl4HIDkDVqpy74aO2IcQADDpqvYr8gRAvVNlEiNnN2xwiqor2IzL7WKKcSm
+	4YyUm/oSRw1CVJcMs2SMfQPkKtoNDsyCN/I9f/4SjtnCrukE5E0BwsKfyLnBp+dnP40JxxgmTJguO
+	zChzwatOHc5zaZOb46qjklEaByW596uOi2L+5mA0hc1b7SwTZ9YKnH1y1eHQrfPvk0YTz7HvAAylD
+	7G+QozOQFpG4p2ejVZNVzM6TZTp4U9xmbl8ks9VoLY82atUK+/xvAarJf0rbV41JKTq91R+ohynCK
+	0mUxnyzw==;
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5oJ9-0000000H3B0-3oP6
+	id 1v5oJC-0000000H3Bk-1fll
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Oct 2025 16:43:34 +0000
-Received: by mail-ed1-x52e.google.com with SMTP id 4fb4d7f45d1cf-62fa062a1abso9741245a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Oct 2025 09:43:31 -0700 (PDT)
+	Mon, 06 Oct 2025 16:43:36 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-afcb7ae6ed0so867579166b.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Oct 2025 09:43:34 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1759769010; x=1760373810; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1759769013; x=1760373813; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=CpB7AuKalXwpl/RbLMZ5nDUUEYNNft2mby5//un8yy4=;
-        b=zdtyNRFxtnq7m2mUgHdxlAXhLKxKvZLK4SW27TsNUzCFBs7VS1oxl6utqPrFOmDxpO
-         phdpUrK20k4wT73X7edn3/xlFKppS9J7+VeAY8LXQOxj3Pex/sHUUOLoZWf9yaIUG/67
-         s8f1v+bAdSagNFABDHOOJxRBJUacG7Oo/JGUa5gN+BS8Q6ciGPxXna3gKKAnyTcvU49q
-         TPq3GZ8NU99zG8zRV1x+fwYzp1Ra8x4MNIlaXfsE9gz3fTvQoKmYMyRe8WGecBcK/973
-         BOTC/4SwTT51d3udO2Hhazg5HsHCZcHUmi5Qgb7W+Zc18HqlSvgAjN1APRQoGvIg0QKE
-         Ddrg==
+        bh=MVFnz052bxUssLjPn/irFYLe8FvTO4x2oRG7kChOyXg=;
+        b=J8XqLemZ0JK1XyGg3qaO0FO/Kik18kZCgArHd3qJbrMn27aEVaCEoXkmy5Ew4nJpQw
+         SUF3nK2Z49Fzxfi/o+8jq3TiMqg1hO6H/+aF5spTZ2rRoKl8BIo3wxnXjin9O5RVzKty
+         sCgFQfHimQOlLOScTEfEvGpMHD/i1kWHRblDPwr9kJy7WDl8PNjLvJOiQFxpTzWeCXLI
+         SX8ovsjNXQrqe7KHmmxSgl/WDkI1arwGsgIa/rVtx1ydB8FIh1zI9E0y5ccuoD3A1lNw
+         uZBDtPD7Uz1x6D6HJC5qJzlCyEED6qM4P8YzlCkr+pFGL5OyalbvWrUP3qLRvwFFpagW
+         FtNQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759769010; x=1760373810;
+        d=1e100.net; s=20230601; t=1759769013; x=1760373813;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=CpB7AuKalXwpl/RbLMZ5nDUUEYNNft2mby5//un8yy4=;
-        b=XbnULRpedHoGDdxE+NaGbBTku72CrvJASAJRg8umhLduZIBB98EynPQ2GihPXIOBAO
-         2LWK7x1eaeqwKnmIXht9faCxZRgXVja9UkZCb3Gklh2Ukt8ArJjklQqFWsKPFg2zSzpz
-         dd21DMYZyPNwQtQDLTCF7eDtpfphRh8SHV978e9pJhgo2X4LH+oZhMxM8uzzAx6/lOWA
-         SD/TArUfQ5DvRPm7raw40rYK42VZmiswHqjD6FrA3ol9TFA0GvaByvfGaOnQ9ygzCprT
-         Ey4Ge6SIV8qUKoM9YbVDwQQOG9JKIk0dWdOPGtRfhqk1qoHkpSl25DV+WJ3E9zTYFLz9
-         yINQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXI5GrE4fJLyurwOWCxQyFLltxh/y6bXW/1kpES6wEacStTj2Vg5VwkCFbD48rXC85KBhqpk696Afod5layNSRy@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx7KToqEXvbx9Zb4PmZ/xqzlT6e494Lk+7kjPVQEnp8lbbEQCJV
-	7rODqcLNuu4pPWqLnWDh6mQvpRHNvGqyEt3Z7H3c18GpmOHHFQWfZMilIhj/I+S4Cik=
-X-Gm-Gg: ASbGncuDBEtasACFz1iEiTu0NWlhyGNHyMgqSlGgLRtaOe5WLQ8aD7rWd5ZZkh7phaH
-	I9EbFOyCDZp0xkSGT6H4v0KrVjUSCGAKP7yc8r+bTtHHDKpo5pWtCDQc0Zin8iGI/Ll5kiXJFKr
-	iZ9FvMTkYpFW6KW7uC3SbLxSE1RaHU+J3qGI6eb7Zmassap3W1RmAo0afP54oXZsgExvJFq6vBe
-	iqa+COaOPJ5znSaWYN6jE/MSPeZYjIPMjifpuklDpneIRKaXdmytGO6UJcIS4JbXKdq1Ctki5Cf
-	Lp2TokSx7nxFbdHb8ygBhqs898GMXMIFQ3LY+VLP+vqkDg+y7QFNcy8LF96cf5Mg0MfvUZ5lSCk
-	AE64J6Lw/uAyAuUAX/bdQUuvgOab5a/Wqx9xE+gzOyvbYTaZRVjqs+gyVplFNFYHN/J1NsXqV1g
-	ZzW9zPIUn9lJWxqrxJt+vStp/pT8BksOUuiP2ZE/KMxZIpOZE13dU=
-X-Google-Smtp-Source: AGHT+IHBkJ6T+XP8HkZDYRjvyUd2ghQ/PYqM+/0Cceabo1BsPtNMlQLAkihUvoTvqsgb4eUlM6RIwA==
-X-Received: by 2002:a17:907:3da0:b0:b48:44bc:44f2 with SMTP id a640c23a62f3a-b49c393a608mr1526934466b.43.1759769009794;
-        Mon, 06 Oct 2025 09:43:29 -0700 (PDT)
+        bh=MVFnz052bxUssLjPn/irFYLe8FvTO4x2oRG7kChOyXg=;
+        b=SRt8PmJAIMWKUtykGAGlwUjHeR04v44VwWi8mqmHgZU72vdQwjiBEJc0Nay89amwq7
+         AjAKmVbG+Z5KebFh0H9I7NfrnKKjj0Z8LOJpJ+58Vx1L/+QKMdsDym/f1pYClmioqIrH
+         eJp7+A4l8ZEnni+/IQteTJvvwZuvWm3qmsKLhOvuK41wcpo2CEZO4Ko0mHeyCIywdzKR
+         HPYsRSFssUyUimm1tSGEdygCZ3kqfUFC09YuwCN84b8Osl36Bx5FMkYEfZ7uOzR0KJec
+         MQ3HtXHfQigeByq7HYRp5ieRZpR/q6hZff/OY348e0udMUjdxSID6ApPSvK69wDRPpxE
+         BUnQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWt8b5xZoWbr8Gn/p0GCRpyS2RIPFWGNslsn5AibNloMCUWPg8yzql/P8B1Q+r+p2w3Rgj7ogxKqjI/RNw/9qnv@lists.infradead.org
+X-Gm-Message-State: AOJu0YyTLAQFrcwm8rrgynoITZ5Lxe+kNBpMc/DoswDWE3apuDbXvKg5
+	PZyYtOAF0jCP5Y75kZuqy5oJmwlJnloL6Q63V2Yx6Ec0rV8VoxXtnG1/+tYSYfKPp8E=
+X-Gm-Gg: ASbGncuTZ+py21xgGZTQhd+6L8LLjRCSW8Q+1BNdr2xWkuGphqu4cSEKAR+ZWf9E7Zw
+	ZwfqvQeVkklEJuNEk8yummW3BQDPtOm5tcbJzkogrkPwBxSrQZApBbvJRks6XniwQd9+s57hzpe
+	Z08j0IrrUis/XS3sGYFkXnuBggmxJzWU5WMEqB2JpP3YpEVe16buEjoT4HZMcWcY09uqHfd0+i1
+	Qo6epyJH5Lo3QmvK/KYED68o5BwKqci6IGtE/GyAMNa7F24/PUpiNriloMfvduzRIAvGygeunm4
+	Tp3EmE534TR2IsJVNk/n99c3GH/FQYD7hhs5iB+hUm6497XHMb5fmn3pnBdWi750vvBLr0PigXf
+	MyqEXo+5TsuiVWjtwY/Wa74BWhPsSqUMmXrZ88coy1IyXTXnLmagoeEXuZd8chYiGgSRP4SJ4M7
+	UHlXjNNvuxFHVPe1NPTsvMqUVnAcVRraIRHc5YibbktzRPJwzLlkY=
+X-Google-Smtp-Source: AGHT+IFsGub9LAc6/mBjGGGSdlVFrrBBzCQQUOCqnEH/i741mIaqZ3IINkZ5oqZ8jsa69BC1Q2QS0Q==
+X-Received: by 2002:a17:907:3d9f:b0:b3e:b226:5bba with SMTP id a640c23a62f3a-b49c23431famr1629117766b.15.1759769012661;
+        Mon, 06 Oct 2025 09:43:32 -0700 (PDT)
 Received: from puffmais2.c.googlers.com (224.138.204.35.bc.googleusercontent.com. [35.204.138.224])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b48652aa01esm1193841866b.2.2025.10.06.09.43.29
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b48652aa01esm1193841866b.2.2025.10.06.09.43.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Oct 2025 09:43:29 -0700 (PDT)
+        Mon, 06 Oct 2025 09:43:32 -0700 (PDT)
 From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Mon, 06 Oct 2025 17:43:29 +0100
-Subject: [PATCH 03/10] pmdomain: samsung: use to devm_kstrdup_const() to
- simplify error handling
+Date: Mon, 06 Oct 2025 17:43:35 +0100
+Subject: [PATCH 09/10] pmdomain: samsung: use dev_err() instead of pr_err()
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20251006-gs101-pd-v1-3-f0cb0c01ea7b@linaro.org>
+Message-Id: <20251006-gs101-pd-v1-9-f0cb0c01ea7b@linaro.org>
 References: <20251006-gs101-pd-v1-0-f0cb0c01ea7b@linaro.org>
 In-Reply-To: <20251006-gs101-pd-v1-0-f0cb0c01ea7b@linaro.org>
 To: Krzysztof Kozlowski <krzk@kernel.org>, 
@@ -109,8 +108,8 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_174332_335417_79566F93 
-X-CRM114-Status: GOOD (  12.02  )
+X-CRM114-CacheID: sfid-20251006_174334_623985_03326C03 
+X-CRM114-Status: GOOD (  12.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,53 +124,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert to using devm_kstrdup_const() so as to simplify cleanup during
-error handling.
+dev_err() gives us more consistent error messages, which include the
+device. Switch to using dev_err().
 
 Signed-off-by: André Draszik <andre.draszik@linaro.org>
 ---
- drivers/pmdomain/samsung/exynos-pm-domains.c | 11 +++++------
- 1 file changed, 5 insertions(+), 6 deletions(-)
+ drivers/pmdomain/samsung/exynos-pm-domains.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
 diff --git a/drivers/pmdomain/samsung/exynos-pm-domains.c b/drivers/pmdomain/samsung/exynos-pm-domains.c
-index 5d478bb37ad68afc7aed7c6ae19b5fefc94a9035..f53e1bd2479807988f969774b4b7b4c5739c1aba 100644
+index c1b5830b2ad3e8b272dcc8ebc364be49aa7fda7c..06e1b0eaca18205a549c8e8136ee15279eb3089d 100644
 --- a/drivers/pmdomain/samsung/exynos-pm-domains.c
 +++ b/drivers/pmdomain/samsung/exynos-pm-domains.c
-@@ -92,13 +92,14 @@ static const struct of_device_id exynos_pm_domain_of_match[] = {
- 	{ },
- };
+@@ -29,6 +29,7 @@ struct exynos_pm_domain_config {
+  */
+ struct exynos_pm_domain {
+ 	struct regmap *regmap;
++	struct device *dev;
+ 	struct generic_pm_domain pd;
+ 	u32 local_pwr_cfg;
+ 	u32 configuration_reg;
+@@ -53,8 +54,9 @@ static int exynos_pd_power(struct generic_pm_domain *domain, bool power_on)
+ 				       (val & pd->local_pwr_cfg) == pwr,
+ 				       100, 1 * USEC_PER_MSEC);
+ 	if (err)
+-		pr_err("Power domain %s %sable failed: %d (%#.2x)\n",
+-		       domain->name, power_on ? "en" : "dis", err, val);
++		dev_err(pd->dev,
++			"Power domain %s %sable failed: %d (%#.2x)\n",
++			domain->name, power_on ? "en" : "dis", err, val);
  
--static const char *exynos_get_domain_name(struct device_node *node)
-+static const char *exynos_get_domain_name(struct device *dev,
-+					  struct device_node *node)
- {
- 	const char *name;
- 
- 	if (of_property_read_string(node, "label", &name) < 0)
- 		name = kbasename(node->full_name);
--	return kstrdup_const(name, GFP_KERNEL);
-+	return devm_kstrdup_const(dev, name, GFP_KERNEL);
+ 	return err;
  }
- 
- static int exynos_pd_probe(struct platform_device *pdev)
-@@ -115,15 +116,13 @@ static int exynos_pd_probe(struct platform_device *pdev)
+@@ -116,6 +118,8 @@ static int exynos_pd_probe(struct platform_device *pdev)
  	if (!pd)
  		return -ENOMEM;
  
--	pd->pd.name = exynos_get_domain_name(np);
-+	pd->pd.name = exynos_get_domain_name(dev, np);
++	pd->dev = dev;
++
+ 	pd->pd.name = exynos_get_domain_name(dev, np);
  	if (!pd->pd.name)
  		return -ENOMEM;
- 
- 	pd->base = of_iomap(np, 0);
--	if (!pd->base) {
--		kfree_const(pd->pd.name);
-+	if (!pd->base)
- 		return -ENODEV;
--	}
- 
- 	pd->pd.power_off = exynos_pd_power_off;
- 	pd->pd.power_on = exynos_pd_power_on;
 
 -- 
 2.51.0.618.g983fd99d29-goog
