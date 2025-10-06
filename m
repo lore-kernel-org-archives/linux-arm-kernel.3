@@ -4,130 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74C21CCA471
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 12:02:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B560CCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 12:17:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DEIWohyV4TRe4//3qeB6UZeYhG+0MCT6jVtLZiAZjuw=; b=AABiAnlY/fQUW9eRnnk8o4r1/K
-	zK8L+IzRET3ZvY/sW4GDfQC8ckjzMMrpYMq6caAgsMMMv3ibZRiGWBsqScTktK7YmLBo5iSZWcJm3
-	q1cwJ7Loocp/o3jVIeRkUky4eAa40PxNacMQtkSMHmEb3RsLp1Iz3a/R4BoaRkPTAJgb4h69xDyUp
-	qQ8X2x3YKBpaSkNZvHV2tKjF/Mq2jVOTgdqrXKfaeNfVNkU3vfOJ8EPEuKMjY5sveDKp8FqiEWSuL
-	D7DJruhb9HEiYlpA6LrosC+UuurSjmZS7jbFdPaP9SoHmsvU8LMFaCk/2CSYfU82S7zukoo2AgmCk
-	sX0dacRw==;
+	bh=xzolk6m0qZ/E++3QNlLoa9z0TzMad5MeklLKYrPsI5A=; b=tKPQpp/qOtDP+VEKt0cZ5QBSsk
+	jerXg+mIKwVGjWZyrWkphJIt6DI1OCKgEzid5qv3pCz3cnaY1O88IHbxOYVMbZFChrCqRkZBUNyLQ
+	KyNzztI0+tjQLlzruAnFPxnd3V2r2tOWaCUEjqp+/kdPMMt5A4Xq6ThiWKLZB/juYK2eOA24x08qn
+	RGjeSXV6n5w8t3ZxkKz2jPcAEG+acxmUpem0vEz7VCDmEYyWUFIRB3SIH/OWd8E1dcOz1xGANPnHu
+	rEUkPkFsFRa9cGwJhX53wP+XxCNLR7buBLCTNxjo+RyI9zWFvgYpWzwhmMlGwe8aFEC5Wlk4yKzCX
+	j2hJZOqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5juy-0000000HXZY-0uFi;
-	Mon, 06 Oct 2025 12:02:16 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1v5k9t-0000000Hatr-0iJh;
+	Mon, 06 Oct 2025 12:17:41 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5juu-0000000HXYi-2WGJ
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Oct 2025 12:02:14 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5960c92W022432
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 6 Oct 2025 12:02:12 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=DEIWohyV4TRe4//3qeB6UZeY
-	hG+0MCT6jVtLZiAZjuw=; b=FJCPqW3Ma4T4Xny202WCSSSn3EU+uh23VWJBCeJV
-	GzU1vmFYL2dJsPp5Plj7dpQ1zllyPFtXo+wGUMmybpU8WaUIBvh9osTVT1mL7r3M
-	gcZUh141jzJxFzpCLygHwfPKhCYUvQIxPEZnMVWVhAsNdDe4cesdSImRt08KJN3J
-	McoE0qbBv9LF/9pqwMF4uEbsqUyCArNK7U8drntVeh/CXO2LmXh5n7ehAJE0c7yR
-	4/q0rw3/MPr6iubfY8v3EoZyO3xtEylij29Ik3zaOpTUYQvIcSM6YbGonso2qbpO
-	XweGPqN1Bxs/+XRdC2r/wivd1widb0doQRRhfQOeiVwUpQ==
-Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49jvv7kk6u-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Oct 2025 12:02:12 +0000 (GMT)
-Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-b62da9810eeso2579924a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Oct 2025 05:02:11 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759752131; x=1760356931;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=DEIWohyV4TRe4//3qeB6UZeYhG+0MCT6jVtLZiAZjuw=;
-        b=eeIPmFQ/jCq0sRIRBofCMV1U6nXJoDI7l0qsgHeE1jCvfVjy3AvZp4gLJWOOo5xNXB
-         4K6MzKAcXW/sqJlWWEtYqvf4ixdCgFYnNiqGwum+q6DZIFcC+CvspCeh4ZtzFD9X74VS
-         aIIWdsZ8JJ7cO9ktvMKzb0uN3NKPn+DvOuYeoeHCnDDO8AG7rYNzQbM4ZjmW/nTXhtf+
-         XG+euOzAcGZG6iztILJ06ix9adWBPHujspn17nc6EW4091+RLC52qJgutmtZ3yM+H+sE
-         cbkQIT9A7lw9UroTV3XnkNi0xiUHeMTZPNLHnoZN9GtMabTtsxgb6r/Bauy0Am2wmqQQ
-         Gi0w==
-X-Forwarded-Encrypted: i=1; AJvYcCUXkz+MdcELSYazk0E30Ks3200B4TRYs6SUjnSDss8qby55lVCTnGUk4TYCJhDed8pMSJrnk6HzPkSiVJLdaxWT@lists.infradead.org
-X-Gm-Message-State: AOJu0YxvXXlVUZLhXt91IDQDaHrLzKVkZGZwp4UQkIbTQDgnHKNzEjZT
-	SDPS9A9p6YFgTuveeqYTeEkOFWDpp+I8FT4xL0sq+tjqZxfJtM0giOJU7fTAzwwQSNoTZ1KkBKO
-	T28wPtRJ2dmQzigRJBVQBCwVt7jciT4xMwU8YZkeuIpSrFV4Bfn0lhJ0CWc/wAvStZVqIqUpqJw
-	YwzA==
-X-Gm-Gg: ASbGncsDLnTOvwEVhrPhQghg3mGiFllBG8HKigV8Jb7K1imhvJNyEyIDcjVRtXS0FYh
-	dJGtEJUMH6t4n7aT6ftChExUDekZRXUVZQYn5SfKJPwfCPVHcVtca+21FPUaZeXkFauRb4rtVSf
-	sYDKJhXoqBETK4PM8uF+bE5ylOQe/7sHLy1XJIT0ZdHi/ChxWw6m6o7aDCccz2ug3dgFFIAlZKC
-	cakYcncplufaxiZW2YokdJy75oGCJxnxs95K813RKiXRhtPlY87U8ivkLrd9gP6BTnphDQXG0DD
-	5krc47pdrKCQtgVWHRhbgDEX3hfck0o8+S4dz1oqBrwemQ68N8Ma9MPemG0BmJXFiHVzYq4Wp1Q
-	T4SHSdykZBQDaiNhbSlP16aoKgsbc7tmZeGk3PZTWd8GnRvimy0yh5C0QcQ==
-X-Received: by 2002:a05:6a21:3086:b0:306:51fd:553e with SMTP id adf61e73a8af0-32b61e58357mr13767916637.18.1759752130967;
-        Mon, 06 Oct 2025 05:02:10 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGnZ6Jftw4/I+2aJuBHfcBIzABFc5tCF963mt/Fx5kOV89uuJNQzyr0DGxxoXdMJk4kqaEwrA==
-X-Received: by 2002:a05:6a21:3086:b0:306:51fd:553e with SMTP id adf61e73a8af0-32b61e58357mr13767850637.18.1759752130392;
-        Mon, 06 Oct 2025 05:02:10 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-58b0112439csm4998490e87.18.2025.10.06.05.02.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Oct 2025 05:02:09 -0700 (PDT)
-Date: Mon, 6 Oct 2025 15:02:06 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, Alexey Charkov <alchark@gmail.com>,
-        Algea Cao <algea.cao@rock-chips.com>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Cenk Uluisik <cenk.uluisik@googlemail.com>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-        Heiko Stuebner <heiko@sntech.de>, Jimmy Hon <honyuenkwun@gmail.com>,
-        Kever Yang <kever.yang@rock-chips.com>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Maxime Ripard <mripard@kernel.org>,
-        Muhammed Efe Cetin <efectn@6tel.net>, Ondrej Jirman <megi@xff.cz>,
-        Rob Herring <robh@kernel.org>, Sandy Huang <hjc@rock-chips.com>
-Subject: Re: [PATCH v2 2/5] drm/rockchip: dw_hdmi_qp: Improve error handling
- with dev_err_probe()
-Message-ID: <gai5hfvu6xbbqpk4mu3i6nejolijeokjy3mkzca5xwzb4xwic7@jmee36svmwnb>
-References: <20251005235542.1017-1-laurent.pinchart@ideasonboard.com>
- <20251005235542.1017-3-laurent.pinchart@ideasonboard.com>
+	id 1v5k97-0000000HZdI-3uYN;
+	Mon, 06 Oct 2025 12:17:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1759752989; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=a6x7zuYkIf6pcWAp1t84saCIQagHj6w7SvYm40DB6O4vOCK8JkwoMBEhoa5dujrzLm8m9U7Z+fLMobrYy8+U4eG/X7kY+FfbYf5e5Q7n1PsUVwjlI1FHk3rj+78KYhqr6YJC1GUxrHqqwAZM4/qerIjywq1daQMIPEjGFWYm3eI=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1759752989; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=xzolk6m0qZ/E++3QNlLoa9z0TzMad5MeklLKYrPsI5A=; 
+	b=he0euUpyZen3eJWtsT6mHoJlusD8TdcJDKTPrBRGnbQdJ5qJ61T0itmskwDXiRwD8xqJCQAoSizonffxlL6zA4uHF4xvS4gVZ81KyD34sBaCJ/5ZJ6Bi/ZyaOe3Vw8aBtQfPvTE4eU60Q4MudWKJ63qzAs9MHuIUdhJgCZsMgo0=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1759752989;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=xzolk6m0qZ/E++3QNlLoa9z0TzMad5MeklLKYrPsI5A=;
+	b=j8w2nfguUCjVtBHEGUD2kliwcNRekCVM/F3ivqwnqFGqeZ3cddCU2c5z1A8A6pIk
+	cFr4jPgQssRHCSaVxvRBr0J7RhL0Kav70tcQmvwt/ZHo0urjfuoShO2+G6U9j7qqhaf
+	aylj+KCZYezaEQMCzrp73IHudQHmOVnpp4eVDbmw=
+Received: by mx.zohomail.com with SMTPS id 1759752987761633.2600925458459;
+	Mon, 6 Oct 2025 05:16:27 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: Chia-I Wu <olvaffe@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Boris Brezillon <boris.brezillon@collabora.com>,
+ Jassi Brar <jassisinghbrar@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
+ Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>, Kees Cook <kees@kernel.org>,
+ "Gustavo A. R. Silva" <gustavoars@kernel.org>,
+ Ulf Hansson <ulf.hansson@linaro.org>, kernel@collabora.com,
+ dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, linux-hardening@vger.kernel.org,
+ linux-pm@vger.kernel.org
+Subject: Re: [PATCH v6 7/7] pmdomain: mediatek: Add support for MFlexGraphics
+Date: Mon, 06 Oct 2025 14:16:16 +0200
+Message-ID: <4457422.ejJDZkT8p0@workhorse>
+In-Reply-To: <94866bc6-0fdb-4e6c-ba78-5ebd7138f193@collabora.com>
+References: <20251003-mt8196-gpufreq-v6-0-76498ad61d9e@collabora.com>
+ <8586490.T7Z3S40VBb@workhorse>
+ <94866bc6-0fdb-4e6c-ba78-5ebd7138f193@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251005235542.1017-3-laurent.pinchart@ideasonboard.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDA0MDAzNyBTYWx0ZWRfXzbBbda7HiU3A
- 02wtmv2hp/i169hSWt4o5/fjq0iZeybnHM890i6IKsT3CNcRIJ/t+/IAKkDuwNWxArIE9QEk/A5
- l9rvRRsvycFdDgA9W4cWd9xq0R+K6SQi5MQZ6CmQBbFnh7XEqbn/g7DI8AceYYIxjN17VcqUgOz
- 1xRzMykrWmeEaUlzytkjkbsfPDJvQOzTn6aD407TCDYWsGI6TmzUVFqaZiQcKnRfobaCqw0xmeU
- vYX95VmJfeD0GnGz37Pv76ca6Pgut1oLykevvrnfeUwliQ4k9aHkNLs4ErP7VnN1nRiixPXmRR+
- Y6dAHw5Cc3E+HrNnRyV7juc7dZ02pA47znh5S459Hv2m7Y1PXLTXl8/82do9SMhHwoLvrNAS3Hz
- qG+WDogCOEiSplf6UB0hMTcjG7Uj7Q==
-X-Proofpoint-ORIG-GUID: NJ2Qo2X2mfHqDtm1b_IsjY2GU8gsOKnz
-X-Authority-Analysis: v=2.4 cv=WIdyn3sR c=1 sm=1 tr=0 ts=68e3afc4 cx=c_pps
- a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=x6icFKpwvdMA:10 a=QX4gbG5DAAAA:8 a=P1BnusSwAAAA:8 a=nUXw1gjoltVkaJc6RoAA:9
- a=CjuIK1q_8ugA:10 a=3WC7DwWrALyhR5TkjVHa:22 a=AbAUZ8qAyYyZVLSsDulk:22
- a=D0XLA9XvdZm18NrgonBM:22
-X-Proofpoint-GUID: NJ2Qo2X2mfHqDtm1b_IsjY2GU8gsOKnz
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-06_04,2025-10-02_03,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 phishscore=0 priorityscore=1501 impostorscore=0 malwarescore=0
- bulkscore=0 spamscore=0 adultscore=0 clxscore=1015 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2509150000 definitions=main-2510040037
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_050212_646851_BDB2F823 
-X-CRM114-Status: GOOD (  28.83  )
+X-CRM114-CacheID: sfid-20251006_051654_136531_8F8EE9C3 
+X-CRM114-Status: GOOD (  71.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -142,146 +91,261 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 06, 2025 at 02:55:38AM +0300, Laurent Pinchart wrote:
-> From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> 
-> The error handling in dw_hdmi_qp_rockchip_bind() is quite inconsistent,
-> i.e. in some cases the error code is not included in the message, while
-> in some other cases there is no check for -EPROBE_DEFER.
-> 
-> Since this is part of the probe path, address the aforementioned issues
-> by switching to dev_err_probe(), which also reduces the code a bit.
-> 
-> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> ---
->  .../gpu/drm/rockchip/dw_hdmi_qp-rockchip.c    | 62 +++++++------------
->  1 file changed, 24 insertions(+), 38 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-> index 7d531b6f4c09..4e7794aa2dde 100644
-> --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-> +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
-> @@ -457,10 +457,8 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
->  		return -ENODEV;
->  
->  	if (!cfg->ctrl_ops || !cfg->ctrl_ops->io_init ||
-> -	    !cfg->ctrl_ops->irq_callback || !cfg->ctrl_ops->hardirq_callback) {
-> -		dev_err(dev, "Missing platform ctrl ops\n");
-> -		return -ENODEV;
-> -	}
-> +	    !cfg->ctrl_ops->irq_callback || !cfg->ctrl_ops->hardirq_callback)
-> +		return dev_err_probe(dev, -ENODEV, "Missing platform ctrl ops\n");
+On Monday, 6 October 2025 13:37:28 Central European Summer Time AngeloGioac=
+chino Del Regno wrote:
+> Il 06/10/25 12:58, Nicolas Frattaroli ha scritto:
+> > On Friday, 3 October 2025 23:41:16 Central European Summer Time Chia-I =
+Wu wrote:
+> >> On Fri, Oct 3, 2025 at 1:16=E2=80=AFPM Nicolas Frattaroli
+> >> <nicolas.frattaroli@collabora.com> wrote:
+> >>>
+> >>> Various MediaTek SoCs use GPU integration silicon named "MFlexGraphic=
+s"
+> >>> by MediaTek. On the MT8196 and MT6991 SoCs, interacting with this
+> >>> integration silicon is required to power on the GPU.
+> >>>
+> >>> This glue silicon is in the form of an embedded microcontroller runni=
+ng
+> >>> special-purpose firmware, which autonomously adjusts clocks and
+> >>> regulators.
+> >>>
+> >>> Implement a driver, modelled as a pmdomain driver with a
+> >>> set_performance_state operation, to support these SoCs.
+> >> I like this model a lot. Thanks!
+> >>
+> >> panthor might potentially need to interact with this driver beyond
+> >> what pmdomain provides. I am thinking about querying
+> >> GF_REG_SHADER_PRESENT. Not sure if we've heard back from the vendor.
+> >=20
+> > We did. The vendor confirmed this value is read by the EB firmware
+> > from an efuse, but considers the efuse address to be confidential.
+> > Consequently, we are not allowed to know the efuse address, or any
+> > of the other information required to read the efuse ourselves
+> > directly, such as what clocks and power domains it depends on.
+> >=20
+> > We therefore likely need to pass GF_REG_SHADER_PRESENT onward, but
+> > I do have an idea for that: struct generic_pm_domain has a member
+> > "cpumask_var_t cpus", which is there to communicate a mask of which
+> > CPUs are attached to a power domain if the power domain has the flag
+> > GENPD_FLAG_CPU_DOMAIN set. If the flag isn't set, the member is
+> > unused.
+>=20
+> cpumask_var_t is not going to be the right type for anything else that is
+> not a cpumask, as that is limited by NR_CPUS.
 
-This only makes sense for the purpose of unification.
+Hmmm, good point, I thought that would be done by the allocation
+but nope.
+=20
+> You'd have to declare a new bitmap, suitable for generic devices, which m=
+ay
+> get a little complicated on deciding how many bits would be enough... and
+> if we look at GPUs... AMD and nV have lots of cores, so that becomes a bit
+> unfeasible to put in a bitmap.
+>=20
+> Not sure then how generic that would be.
 
->  
->  	hdmi->ctrl_ops = cfg->ctrl_ops;
->  	hdmi->dev = &pdev->dev;
-> @@ -473,10 +471,9 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
->  			break;
->  		}
->  	}
-> -	if (hdmi->port_id < 0) {
-> -		dev_err(hdmi->dev, "Failed to match HDMI port ID\n");
-> -		return hdmi->port_id;
-> -	}
-> +	if (hdmi->port_id < 0)
-> +		return dev_err_probe(hdmi->dev, hdmi->port_id,
-> +				     "Failed to match HDMI port ID\n");
+Yeah, at this point I'm rapidly approaching "shove stuff into pmdomain
+for no obvious pmdomain reason" territory, because we're not really
+communicating that this pmdomain is only tied to these cores, but
+rather that only these cores are present. Subtle difference that
+could come bite us in the rear once some other chip has several power
+domains that tie to different GPU shader cores.
 
-The port_id can't become -EPROBE_DEFER, so it also unnecessary.
+>=20
+> >=20
+> > This means we could overload its meaning, e.g. with a new flag, to
+> > communicate such masks for other purposes, since it's already the
+> > right type and all. This would be quite a generic way for hardware
+> > other than cpus to communicate such core masks. I was planning to
+> > develop and send out an RFC series for this, to gauge how much Ulf
+> > Hansson hates that approach.
+> >=20
+> > A different solution could be that mtk-mfg-pmdomain could act as an
+> > nvmem provider, and then we integrate generic "shader_present is
+> > stored in nvmem" support in panthor, and adjust the DT binding for
+> > this.
+> >=20
+> > This approach would again be generic across vendors from panthor's
+> > perspective. It would, however, leak into DT the fact that we have
+> > to implement this in the gpufreq device, rather than having the
+> > efuse read directly.
+> >=20
+> >> Have you considered moving this to drivers/soc/mediatek such that we
+> >> can provide include/linux/mtk-mfg.h to panthor?
+> >=20
+> > Having panthor read data structures from mtk-mfg-pmdomain would be a
+> > last resort for me if none of the other approaches work out, as I'm
+> > not super keen on adding vendor-specific code paths to panthor
+> > itself. A new generic code path in panthor that is only used by one
+> > vendor for now is different in that it has the potential to be used
+> > by a different vendor's integration logic in the future as well.
+> >=20
+> > So for now I'd like to keep it out of public includes and panthor as
+> > much as possible, unless the two other approaches don't work out for
+> > us.
+> >=20
+>=20
+> I don't really like seeing more and more vendor specific APIs: MediaTek d=
+oes
+> suffer quite a lot from that, with cmdq being one of the examples - and t=
+he
+> fact that it's not just MediaTek having those, but also others like Qualc=
+omm,
+> Rockchip, etc, is not an excuse to keep adding new ones when there are ot=
+her
+> alternatives.
+>=20
+> Also another fact there is that I don't think that panthor should get any
+> vendor specific "things" added (I mean, that should be avoided as much as
+> possible).
 
->  
->  	plat_data.phy_ops = cfg->phy_ops;
->  	plat_data.phy_data = hdmi;
-> @@ -497,39 +494,30 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
->  
->  	hdmi->regmap = syscon_regmap_lookup_by_phandle(dev->of_node,
->  						       "rockchip,grf");
-> -	if (IS_ERR(hdmi->regmap)) {
-> -		dev_err(hdmi->dev, "Unable to get rockchip,grf\n");
-> -		return PTR_ERR(hdmi->regmap);
-> -	}
-> +	if (IS_ERR(hdmi->regmap))
-> +		return dev_err_probe(hdmi->dev, PTR_ERR(hdmi->regmap),
-> +				     "Unable to get rockchip,grf\n");
->  
->  	hdmi->vo_regmap = syscon_regmap_lookup_by_phandle(dev->of_node,
->  							  "rockchip,vo-grf");
-> -	if (IS_ERR(hdmi->vo_regmap)) {
-> -		dev_err(hdmi->dev, "Unable to get rockchip,vo-grf\n");
-> -		return PTR_ERR(hdmi->vo_regmap);
-> -	}
-> +	if (IS_ERR(hdmi->vo_regmap))
-> +		return dev_err_probe(hdmi->dev, PTR_ERR(hdmi->vo_regmap),
-> +				     "Unable to get rockchip,vo-grf\n");
->  
->  	ret = devm_clk_bulk_get_all_enabled(hdmi->dev, &clks);
-> -	if (ret < 0) {
-> -		dev_err(hdmi->dev, "Failed to get clocks: %d\n", ret);
-> -		return ret;
-> -	}
-> +	if (ret < 0)
-> +		return dev_err_probe(hdmi->dev, ret, "Failed to get clocks\n");
->  
->  	hdmi->enable_gpio = devm_gpiod_get_optional(hdmi->dev, "enable",
->  						    GPIOD_OUT_HIGH);
-> -	if (IS_ERR(hdmi->enable_gpio)) {
-> -		ret = PTR_ERR(hdmi->enable_gpio);
-> -		dev_err(hdmi->dev, "Failed to request enable GPIO: %d\n", ret);
-> -		return ret;
-> -	}
-> +	if (IS_ERR(hdmi->enable_gpio))
-> +		return dev_err_probe(hdmi->dev, PTR_ERR(hdmi->enable_gpio),
-> +				     "Failed to request enable GPIO\n");
->  
->  	hdmi->phy = devm_of_phy_get_by_index(dev, dev->of_node, 0);
-> -	if (IS_ERR(hdmi->phy)) {
-> -		ret = PTR_ERR(hdmi->phy);
-> -		if (ret != -EPROBE_DEFER)
-> -			dev_err(hdmi->dev, "failed to get phy: %d\n", ret);
-> -		return ret;
-> -	}
-> +	if (IS_ERR(hdmi->phy))
-> +		return dev_err_probe(hdmi->dev, PTR_ERR(hdmi->phy),
-> +				     "Failed to get phy\n");
->  
->  	cfg->ctrl_ops->io_init(hdmi);
->  
-> @@ -558,17 +546,15 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
->  
->  	hdmi->hdmi = dw_hdmi_qp_bind(pdev, encoder, &plat_data);
->  	if (IS_ERR(hdmi->hdmi)) {
-> -		ret = PTR_ERR(hdmi->hdmi);
->  		drm_encoder_cleanup(encoder);
-> -		return ret;
-> +		return dev_err_probe(hdmi->dev, PTR_ERR(hdmi->hdmi),
-> +				     "Failed to bind dw-hdmi-qp");
->  	}
->  
->  	connector = drm_bridge_connector_init(drm, encoder);
+The big issue to me is that vendors will always prefer to shoehorn
+more vendor specific hacks into panthor, because the alternative is
+to tell us how the hardware actually works. Which they all hate
+doing. I definitely agree that we should work from the assumption
+that panthor can support a Mali implementation without adding too
+much special code for it, because in 10 years there will still be
+new devices that use panthor as a driver, but few people will still
+be testing MT8196 codepaths within panthor, which makes refactoring
+prone to subtle breakage.
 
-This one is also not supposed to return -EPROBE_DEFER.
+Not to mention that we don't want to rewrite all the vendor specific
+code for Tyr.
 
-> -	if (IS_ERR(connector)) {
-> -		ret = PTR_ERR(connector);
-> -		dev_err(hdmi->dev, "failed to init bridge connector: %d\n", ret);
-> -		return ret;
-> -	}
-> +	if (IS_ERR(connector))
-> +		return dev_err_probe(hdmi->dev, PTR_ERR(connector),
-> +				     "Failed to init bridge connector\n");
->  
->  	return drm_connector_attach_encoder(connector, encoder);
->  }
-> -- 
-> Regards,
-> 
-> Laurent Pinchart
-> 
+> That said - what you will be trying to pass is really a value that is read
+> from eFuse, with the EB firmware being a wrapper over that: if we want, we
+> could see that yet-another-way of interfacing ourselves with reading nvmem
+> where, instead of a direct MMIO read, we're asking a firmware to give us a
+> readout.
+>=20
+> This leads me to think that one of the possible options could be to actua=
+lly
+> register (perhaps as a new platform device, because I'm not sure that it =
+could
+> be feasible to register a pmdomain driver as a nvmem provider, but ultima=
+tely
+> that is Ulf and Srinivas' call I guess) a nvmem driver that makes an IPI =
+call
+> to GPUEB and gives back the value to panthor through generic bindings.
 
--- 
-With best wishes
-Dmitry
+Lee Jones will probably tell me to use MFD instead and that I'm silly
+for not using MFD, so we might as well. Should I do that for v7 or
+should v7 be less disruptive? Also, would I fillet out the clock
+provider stuff into an MFD cell as well, or is that too much?
+
+Also, nb: there is no IPI call for getting the SHADER_PRESENT value
+that we know of. It's a location in the reserved shared memory
+populated by the EB during the shared mem init, which ideally isn't
+done multiple times by multiple drivers because that's dumb.
+
+On the other hand, I don't really know what we get out of splitting
+this up into several drivers, other than a more pleasing directory
+structure and get_maintainers picking up the right subsystem people.
+
+> >>>
+> >>> The driver also exposes the actual achieved clock rate, as read back
+> >>> from the MCU, as common clock framework clocks, by acting as a clock
+> >>> provider as well.
+> >>>
+> >>> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> >>> ---
+> >>>   drivers/pmdomain/mediatek/Kconfig            |   16 +
+> >>>   drivers/pmdomain/mediatek/Makefile           |    1 +
+> >>>   drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c | 1027 +++++++++++++++=
++++++++++++
+> >>>   3 files changed, 1044 insertions(+)
+> >> [...]
+> >>> +static int mtk_mfg_init_shared_mem(struct mtk_mfg *mfg)
+> >>> +{
+> >>> +       struct device *dev =3D &mfg->pdev->dev;
+> >>> +       struct mtk_mfg_ipi_msg msg =3D {};
+> >>> +       int ret;
+> >>> +
+> >>> +       dev_dbg(dev, "clearing GPUEB shared memory, 0x%X bytes\n", mf=
+g->shared_mem_size);
+> >>> +       memset_io(mfg->shared_mem, 0, mfg->shared_mem_size);
+> >>> +
+> >>> +       msg.cmd =3D CMD_INIT_SHARED_MEM;
+> >>> +       msg.u.shared_mem.base =3D mfg->shared_mem_phys;
+> >>> +       msg.u.shared_mem.size =3D mfg->shared_mem_size;
+> >>> +
+> >>> +       ret =3D mtk_mfg_send_ipi(mfg, &msg);
+> >>> +       if (ret)
+> >>> +               return ret;
+> >>> +
+> >>> +       if (readl(mfg->shared_mem) !=3D GPUEB_MEM_MAGIC) {
+> >> Add the offset GF_REG_MAGIC, even though it is 0.
+> >=20
+> > Good catch, will do!
+> >=20
+> >>
+> >>> +               dev_err(dev, "EB did not initialise shared memory cor=
+rectly\n");
+> >>> +               return -EIO;
+> >>> +       }
+> >>> +
+> >>> +       return 0;
+> >>> +}
+> >> [...]
+> >>> +static int mtk_mfg_mt8196_init(struct mtk_mfg *mfg)
+> >>> +{
+> >>> +       void __iomem *e2_base;
+> >>> +
+> >>> +       e2_base =3D devm_platform_ioremap_resource_byname(mfg->pdev, =
+"hw-revision");
+> >>> +       if (IS_ERR(e2_base))
+> >>> +               return dev_err_probe(&mfg->pdev->dev, PTR_ERR(e2_base=
+),
+> >>> +                                    "Couldn't get hw-revision regist=
+er\n");
+> >>> +
+> >>> +       if (readl(e2_base) =3D=3D MFG_MT8196_E2_ID)
+> >>> +               mfg->ghpm_en_reg =3D RPC_DUMMY_REG_2;
+> >>> +       else
+> >>> +               mfg->ghpm_en_reg =3D RPC_GHPM_CFG0_CON;
+> >>> +
+> >>> +       return 0;
+> >>> +};
+> >> Extraneous semicolon.
+> >=20
+> > Good catch, will fix!
+> >=20
+> >>
+> >>> +static int mtk_mfg_init_mbox(struct mtk_mfg *mfg)
+> >>> +{
+> >>> +       struct device *dev =3D &mfg->pdev->dev;
+> >>> +       struct mtk_mfg_mbox *gf;
+> >>> +       struct mtk_mfg_mbox *slp;
+> >>> +
+> >>> +       gf =3D devm_kzalloc(dev, sizeof(*gf), GFP_KERNEL);
+> >>> +       if (!gf)
+> >>> +               return -ENOMEM;
+> >>> +
+> >>> +       gf->rx_data =3D devm_kzalloc(dev, GPUEB_MBOX_MAX_RX_SIZE, GFP=
+_KERNEL);
+> >> It looks like gfx->rx_data can simply be "struct mtk_mfg_ipi_msg rx_da=
+ta;".
+> >=20
+> > Hmmm, good point. I'll change it to that.
+> >=20
+>=20
+> Honestly, I prefer the current version. No strong opinions though.
+
+And I just realised you're sorta right in that; struct mtk_mfg_mbox is
+a type used by both the gpufreq mbox and the sleep mbox. The struct
+mtk_mfg_ipi_msg type is only the right type to use for the gpufreq
+mbox. By making rx_data a `struct mtk_mfg_ipi_msg` type, we're
+allocating it for both channels, and in the case of the sleep mailbox,
+it's the wrong type to boot (though not like sleep replies).
+
+So yeah I think I'll keep the current construct. If this driver grows
+another limb in the future that talks to yet another mailbox channel,
+we'll appreciate not having to untangle that.
+
+> [...]
+
+Kind regards,
+Nicolas Frattaroli
+
+
 
