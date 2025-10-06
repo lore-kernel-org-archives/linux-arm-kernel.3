@@ -4,76 +4,146 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 605C8CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 19:02:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90A70CAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 19:35:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=O1JDYsT150BDUca3Z4ctGricew8pDdsRotfUdYSg0Rc=; b=Tzmx/gs7HW9vyZk6O/N5EsWY18
-	u1L4aUBkna2HgBxEe1QtLeCNgGdV+/dHfQiNIK1E6UPqa7JZv4iAvDgkWL+r05IGD7hzbvWgyN874
-	Lh0RfZ9xIFnoDZTiqDGnJbhKH0ial9834GGcc/mP42QnHrV8TSpiaHmOsuA98DtZ3naRyaUV8a3+L
-	T3tannNzZ9uvrEAAQCxwNJMlv42hhDVh++uZ5IXSd3Mc+iGtE4LwS69G4rmZq842s7Xf/PGnw4IKK
-	XzPoFX6rKV0TCNmYtcf5KICP5YlPtH0EZk4/A/1lsVP0QnY4RYVfPUrRDToJLQXGeChqzh247Y2yp
-	gl5iix6Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=g33QJENoKMBd4tbu8sSihTDRSw0h67rGYA9n8lHSYDU=; b=2y+FwYxsuPBHXm8hrT7+KUjhzU
+	vagCrNBhb0TQvi1hcd8Kfy2yUGSTFxq5R3AJ9vgQsLEfnarA3CZJlMISBZO7G27BW3UBSQHGtHON0
+	qwz7LQdh4LJrkBISssaKfXamvfLkJ/s00J/BOuWkMs7Qn4sGIwftaoF0a38DuWLxRG/543b2EVK6f
+	HcHZuiGWYL3XkF0iLQzyuuGPDF6h+IK+K6FEldzkCKzbqSeLDayVoJAFumLdqYDwbPEez1UY053eJ
+	XDlLlPqDK9/ja8UA73ItnU3ng/Eki/yequWGXrDIcAyK5hAj7Z0GiHjZg9rGlou5YE2U1MZcUH8Uo
+	6Ejtd85Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5qTS-00000000e8V-1O3l;
-	Mon, 06 Oct 2025 19:02:18 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1v5qzb-00000000gAg-0sVW;
+	Mon, 06 Oct 2025 19:35:31 +0000
+Received: from mail-yw1-x1163.google.com ([2607:f8b0:4864:20::1163])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5qTP-00000000e7x-3oYS;
-	Mon, 06 Oct 2025 19:02:17 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1759777319; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=VojlPtg9/Rfvpj6UlK0cOvbwN9k91tInVLcIwzrzUVl2GINHhvD9imC4Tia7PoX9Hc5QFe517MrTqhSc73G0M0RoBvd0jCXAwwaeLLuey0D65mwEUwzOUDXvyFznXByUQKXZOprKkhG/dYgUAdryE32tgRWJlnLrYTpS1LWR3+4=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1759777319; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=O1JDYsT150BDUca3Z4ctGricew8pDdsRotfUdYSg0Rc=; 
-	b=BCSWtwNT/iKBhlByQj4qjqVtgYcyYACR6XXXR1SkNTX6E2nv1P86kIj1/5pBVFWkb/0f2jry28uKo33B880//X12jg84QEZYoc15xSF5orpu4a44ibQl602MwJLKkKKZTZuNphIPFB1J2m6kme56Wyk1KT4ZM8x43IAYrJsPG+s=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1759777319;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=O1JDYsT150BDUca3Z4ctGricew8pDdsRotfUdYSg0Rc=;
-	b=hMAMpiR06OFOnsGU3Fvgcr2CLJjq5ARkTZkyPPbwAD5OZXErrqQ6ptAHmQ5Lc0T7
-	OhUrIzRLjYRTwM070arweqotenbPkfwgd1xEWG5h926h0qeUhlq5Hf8d7htDTYe5CD7
-	kJaO0jfcPG2aMTsrEyNLf0MKhI9sQK5s0FyIWrww=
-Received: by mx.zohomail.com with SMTPS id 1759777318037550.8501866601403;
-	Mon, 6 Oct 2025 12:01:58 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Michael Turquette <mturquette@baylibre.com>,
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Guangjie Song <guangjie.song@mediatek.com>,
- Laura Nao <laura.nao@collabora.com>,
- =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>,
- Yassine Oudjana <y.oudjana@protonmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: kernel@collabora.com,
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH 4/4] clk: mediatek: Add rpm clocks to clk-mt8196-mfg
-Date: Mon, 06 Oct 2025 21:01:52 +0200
-Message-ID: <2164240.KlZ2vcFHjT@workhorse>
-In-Reply-To: <6441788.lOV4Wx5bFT@workhorse>
-References: <20250929-mtk-pll-rpm-v1-0-49541777878d@collabora.com>
- <748f1176-c73c-48af-a1af-0b63d088e834@collabora.com>
- <6441788.lOV4Wx5bFT@workhorse>
+	id 1v5qzX-00000000gA1-3swX
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Oct 2025 19:35:29 +0000
+Received: by mail-yw1-x1163.google.com with SMTP id 00721157ae682-71d6051afbfso58750417b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Oct 2025 12:35:27 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759779326; x=1760384126;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:dkim-signature:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=g33QJENoKMBd4tbu8sSihTDRSw0h67rGYA9n8lHSYDU=;
+        b=hdRGB3P+Fq45Maf72YdgVvvqwfL/yDZ3K1vM0w3ZFGlKBVMpjiU3s22fnpG/okshgk
+         qH5hrSP1i1BJerHEIAQKEw2YRM9gwC5woPYXxyuDjbtS+f8c1Wzgv6YMaMK8h39DYAPn
+         UViO/oEmVKmaJ/PUCWenaq7dd8bVIxrgGTn+Mh9/QrNgyvO8oCScPMrUoQibIcBYaLJS
+         Fdj2wtfruq/AdiwH81RPM2lUYtsojJwuSQ6FAcERJSSAJlvn9iZijdBk3/5N1wipmKHk
+         RZ4+LCMC3fyyV/exAjmPZ7eEkiaNY0TEYoY5lMwk6NlZqSbT5yr4K83vnHp/iUDIM7Y8
+         Jq0w==
+X-Forwarded-Encrypted: i=1; AJvYcCXKVgrT+niumniDjUG/DaElDXDwrdxY1ri/y3lhSz3EhrfxTbUakfGhMCRmVa1dzSBbkSoHoUx/Tg9hcyOEDkbU@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4kj7CJtD41DjzLFGLIYgq4zAhN7QOvtV8LOp6o1E72wSfwa46
+	5gsrm0S2w8wgVaGWeV2ROE8cKr09y8GEm0OcYrv8a8UBJXDZseFrOfEEoMVBaPWWtySIWW7zXIE
+	ZHzcuiY9HL1hwyVEuMd5VXwUqJki3KRJZxQ2qNFdQfKse2HkrSUs9oyF7ivgksSoGHcRn3Zqw74
+	A9VeR3YuiYynRW1rRb02ZjQQcI4gUsOhSXxPdRoejjgtcu4CoAZKZJQpaXMULG07bUjSv7AucS8
+	8/X0kRCEULzu6qMqjKNriPPmLzZ7ZZ5lIg=
+X-Gm-Gg: ASbGncsXovRlOOw4yVv1snhLG7L2JWfEpmcrzkOkZoWnYYT6+WDRL3FdwkbS30oVw8c
+	aJqlY40zEAyeTWHr1kL1d6HiZ4T8g6WBKBYu93v5DTTv5ToidGwSOXPSJNVa9DNQ0ufs57kzINC
+	tlHDmG37avj44wK9q+9XelYtBIpHGZnT3PGTtGqs3f4g/i1P995r/DmjsXIW1NexpHGTqZvohu9
+	Ic9ze+Akm6Jigd5CYJDiD8SGKukyJmNtf8FjVRVC/Ox0HCgrAc+knZsZWL753UtL2nSLLcN4gf7
+	27VzYtLup+KRwPC1ot0ysTo4Dgj8ny9oxefta+aNwkF6fWb43ldFf1J1K0hyeJNiz87z0NumoDm
+	5e3IEs1U329y3dbRpFLp6E1mjFkpfM5OeSw==
+X-Google-Smtp-Source: AGHT+IGbYG0jPXfPM1u6kQvf2VQ7cdcH2emURk74Tz5L8PMthdxdMkasxhCB8rWYK2CI85dlN6l3jP/9rLmt
+X-Received: by 2002:a05:690c:6f02:b0:76d:ede6:d695 with SMTP id 00721157ae682-77f942b92d5mr164974247b3.17.1759779326293;
+        Mon, 06 Oct 2025 12:35:26 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com ([144.49.247.127])
+        by smtp-relay.gmail.com with ESMTPS id 00721157ae682-77f81d026c9sm7981397b3.21.2025.10.06.12.35.26
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 06 Oct 2025 12:35:26 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-pg1-f198.google.com with SMTP id 41be03b00d2f7-b630b4d8d52so952229a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Oct 2025 12:35:25 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1759779325; x=1760384125; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=g33QJENoKMBd4tbu8sSihTDRSw0h67rGYA9n8lHSYDU=;
+        b=baENvr0krJk1vXIFbtGJp4LN/+yVkLZxE9mL7W1js4m2dSUnlqsS8jp67k2gr5OBuY
+         7jYzcRGYdABD6IDMw6aE4E2uW1Ggwx8NwWgPSO84nkyDUVI3WWKjI02TTR1nxDhRh8wR
+         7u9RmRH5yaaHoGPuK5gfXEfjpjJLPGEWmvBus=
+X-Forwarded-Encrypted: i=1; AJvYcCUSYN8L2JRGQJ/VImequ1nHksd+8qjoK1E6ia7AFdcvJzdFDxtsL/wbrwTLwfs+0nkfY6lDW40j2wP77WMD1Mt3@lists.infradead.org
+X-Received: by 2002:a17:902:f78d:b0:28e:a70f:e882 with SMTP id d9443c01a7336-28ea70feae1mr113856375ad.11.1759779325011;
+        Mon, 06 Oct 2025 12:35:25 -0700 (PDT)
+X-Received: by 2002:a17:902:f78d:b0:28e:a70f:e882 with SMTP id d9443c01a7336-28ea70feae1mr113856075ad.11.1759779324589;
+        Mon, 06 Oct 2025 12:35:24 -0700 (PDT)
+Received: from [192.168.1.3] (ip68-4-215-93.oc.oc.cox.net. [68.4.215.93])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-28e8d1f19ddsm141472345ad.127.2025.10.06.12.35.21
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 06 Oct 2025 12:35:22 -0700 (PDT)
+Message-ID: <23cc004b-f3e9-4685-880d-362619c180e6@broadcom.com>
+Date: Mon, 6 Oct 2025 12:35:19 -0700
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] PCI: brcmstb: Fix use of incorrect constant
+To: Jim Quinlan <james.quinlan@broadcom.com>, linux-pci@vger.kernel.org,
+ Nicolas Saenz Julienne <nsaenz@kernel.org>,
+ Bjorn Helgaas <bhelgaas@google.com>,
+ Lorenzo Pieralisi <lorenzo.pieralisi@arm.com>,
+ bcm-kernel-feedback-list@broadcom.com, jim2101024@gmail.com
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
+ "moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE"
+ <linux-rpi-kernel@lists.infradead.org>,
+ "moderated list:BROADCOM BCM2711/BCM2835 ARM ARCHITECTURE"
+ <linux-arm-kernel@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>
+References: <20251003170436.1446030-1-james.quinlan@broadcom.com>
+Content-Language: en-US
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <20251003170436.1446030-1-james.quinlan@broadcom.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_120216_010078_808EA276 
-X-CRM114-Status: GOOD (  49.79  )
+X-CRM114-CacheID: sfid-20251006_123528_035672_CFDCF01A 
+X-CRM114-Status: GOOD (  12.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,358 +158,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wednesday, 1 October 2025 15:17:13 Central European Summer Time Nicolas Frattaroli wrote:
-> On Wednesday, 1 October 2025 13:49:54 Central European Summer Time AngeloGioacchino Del Regno wrote:
-> > Il 29/09/25 14:13, Nicolas Frattaroli ha scritto:
-> > > The mfgpll clocks on mt8196 require that the MFG's EB clock is on if
-> > > their control registers are touched in any way at all.
-> > 
-> > ....so, the MFGPLL clocks are children of EB?
-> > 
-> > Why are you using such a convoluted way of adding a parent clock to the MFGPLL
-> > instead of just
-> > ---->   `.parent_name = "mfg_eb"`  <-----
-> > 
-> > ???????
+
+
+On 10/3/2025 10:04 AM, Jim Quinlan wrote:
+> The driver was using the PCIE_LINK_STATE_L1 constant as a field mask for
+> setting the private PCI_EXP_LNKCAP register, but this constant is
+> Linux-created and has nothing to do with the PCIe spec.  Serendipitously,
+> the value of this constant was correct for its usage until after 6.1, when
+> its value changed from BIT(1) to BIT(2);
 > 
-> They're not children. A child would mean that they derive their
-> clock rate from the parent clock. This isn't the relationship here
-> though, their clock signal is completely independent of mfg_eb,
-> but the registers they access for clock control depend on mfg_eb to
-> be on. This means that even if mfgpll is off, and something wants to
-> check if they're on or not, the mfg_eb needs to be on for that
-> register access to happen. Similarly, when reconfiguring the mfgpll
-> rate, the clock rate of mfg_eb plays no role. It just needs to be on
-> for the register access.
+> In addition, the driver was assuming that the HW is ASPM L1 capable when it
+> should not be telling the HW what it is capable of.
 > 
-> mfg_eb here is a clock that drives a register, the register just
-> happens to be part of a clock controller.
-
-As a follow-up to this, I've done some experiments now, as Angelo
-let me know that the only way we can know for sure is by observing
-mfgpll working while mfg_eb is off.
-
-With horrid hacks, I've managed to manufacture a scenario in which
-EB was definitely off, the mfgplls were still on, the GPUEB didn't
-try to ruin the party by fiddling with the mfgpll clock registers,
-and what I got in return was panthor printing errors about its jobs
-timing out, before an SError splat after several timeouts.
-
-This makes me think that mfg_eb really is a parent of mfgpll, as
-evidently mfgpll didn't seem to be ticking anymore and caused the
-timeouts to happen before something touched unclocked registers
-and caused an SError. Put in glmark2 terms, the horse was no longer
-spinning around its axis, causing much grief.
-
-The other possibility is, and I think this is quite likely: we are
-modeling the mfgpll power up/down wrong anyway, and always rely on
-the GPUEB to actually do this properly. I've diffed the mfgpll clock
-registers with the GPUEB running and with it not running, here are
-the results in addr u32 u32 u32 u32 format:
-
-$ diff -u mfgplldump-not-running.txt mfgplldump-running.txt 
---- mfgplldump-not-running.txt  2025-10-06 20:03:11.902125545 +0200
-+++ mfgplldump-running.txt      2025-10-06 20:03:08.457020814 +0200
-@@ -1,5 +1,5 @@
--4b810000  00000000 0001fc23  00084444 831a0000
--4b810010  001a0000 00000002  00000048 00000200
-+4b810000  00000000 0001fc23  00084445 031a0000
-+4b810010  001a0000 80000002  00000048 00000200
- 4b810020  00000000 00000000  00000000 00000000
- 4b810030  00000000 00000000  00000000 00000000
- 4b810040  00018000 01ff1a00  00000000 00000000
-@@ -62,8 +62,8 @@
- 4b8103d0  00000000 00000000  00000000 00000000
- 4b8103e0  00000000 00000000  00000000 00000000
- 4b8103f0  00000000 00000000  00000000 00000000
--4b810400  00000000 0001fc23  00084444 831a0000
--4b810410  001a0000 00000002  00000048 00000200
-+4b810400  00000000 0001fc23  00084445 031a0000
-+4b810410  001a0000 80000002  00000048 00000200
- 4b810420  00000000 00000000  00000000 00000000
- 4b810430  00000000 00000000  00000000 00000000
- 4b810440  00018000 01ff1a00  00000000 00000000
-@@ -126,8 +126,8 @@
- 4b8107d0  00000000 00000000  00000000 00000000
- 4b8107e0  00000000 00000000  00000000 00000000
- 4b8107f0  00000000 00000000  00000000 00000000
--4b810800  00000000 0001fc23  00084444 831a0000
--4b810810  001a0000 00000002  00000048 00000200
-+4b810800  00000000 0001fc23  00084445 031a0000
-+4b810810  001a0000 80000002  00000048 00000200
- 4b810820  00000000 00000000  00000000 00000000
- 4b810830  00000000 00000000  00000000 00000000
- 4b810840  00018000 01ff1a00  00000000 00000000
-
-Note how bit 31 of MFGPLL*CON3 gets flipped to 1 in the registers
-when the GPUEB is running. Nothing in our code would model it to be
-like this.
-
-I'll rework the series to just model MFG_EB as a parent. I'll drop the
-bindings patch, but will keep the refactor since it's still useful.
-Then I'll drop the mfgpll RPM patch and make it a fixes patch to add
-the EB parent instead.
-
-However, I'm not happy about this, because I am quite certain that
-the code here is not all that correct, but we do not have access to
-the documentation to show us how it would be correct, and downstream
-kernels are not of any help either.
-
-I also can't just adjust the mfgpll stuff to fit the bit writes I
-actually see happening from the EB, because powering off the EB so
-it doesn't try to touch them and then setting those registers right
-again will still leave a gap wherein the register is not correct
-and who knows what happens. Ditto for the regulators. Similarly,
-I can't just try disabling MFG_EB while the EB is running, because
-it will touch the control registers of the clocks and depends on
-MFG_EB for sure, and I can't observe whether MFGPLL is ticking in
-any other way other than looking at whether the GPU is working. Or
-maybe I can and there's some monitor register somewhere, but not
-anywhere I have documentation for.
-
-I've checked the remaining memory area of the mfgpll clock controllers,
-and found no suspiciously changing values in there that could indicate
-a monitor register that contains the actual pll frequency.
-
-Kind regards,
-Nicolas Frattaroli
-
+> Fixes: caab002d5069 ("PCI: brcmstb: Disable L0s component of ASPM if requested")
+> Reported-by: Bjorn Helgaas <bhelgaas@google.com>
 > 
-> Kind regards,
-> Nicolas Frattaroli
-> 
-> > 
-> > Cheers,
-> > Angelo
-> > 
-> > > Failing to ensure
-> > > this results in a pleasant SError interrupt if the EB clock happens to
-> > > be off.
-> > > 
-> > > To achieve this, leverage the CCF core's runtime power management
-> > > support. Define the necessary suspend/resume callbacks, add the
-> > > necessary code to get RPM clocks from the DT, and make sure RPM is
-> > > enabled before clock registration happens.
-> > > 
-> > > For the RPM callbacks to really make much sense at all, we change the
-> > > drvdata from clk_data to a new private struct, as is common in drivers
-> > > across the Linux kernel.
-> > > 
-> > > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> > > ---
-> > >   drivers/clk/mediatek/clk-mt8196-mfg.c | 104 +++++++++++++++++++++++++++-------
-> > >   drivers/clk/mediatek/clk-pll.h        |   2 +
-> > >   2 files changed, 87 insertions(+), 19 deletions(-)
-> > > 
-> > > diff --git a/drivers/clk/mediatek/clk-mt8196-mfg.c b/drivers/clk/mediatek/clk-mt8196-mfg.c
-> > > index 8e09c0f7b7548f8e286671cea2dac64530b8ce47..64cc0c037f62d7eab8d0e7fc00c05d122bf4130c 100644
-> > > --- a/drivers/clk/mediatek/clk-mt8196-mfg.c
-> > > +++ b/drivers/clk/mediatek/clk-mt8196-mfg.c
-> > > @@ -13,6 +13,7 @@
-> > >   #include <linux/of_address.h>
-> > >   #include <linux/of_device.h>
-> > >   #include <linux/platform_device.h>
-> > > +#include <linux/pm_runtime.h>
-> > >   
-> > >   #include "clk-mtk.h"
-> > >   #include "clk-pll.h"
-> > > @@ -38,7 +39,7 @@
-> > >   	    _flags, _rst_bar_mask,				\
-> > >   	    _pd_reg, _pd_shift, _tuner_reg,			\
-> > >   	    _tuner_en_reg, _tuner_en_bit,			\
-> > > -	    _pcw_reg, _pcw_shift, _pcwbits) {			\
-> > > +	    _pcw_reg, _pcw_shift, _pcwbits, _rpm_clks) {	\
-> > >   		.id = _id,					\
-> > >   		.name = _name,					\
-> > >   		.reg = _reg,					\
-> > > @@ -58,26 +59,60 @@
-> > >   		.pcw_shift = _pcw_shift,			\
-> > >   		.pcwbits = _pcwbits,				\
-> > >   		.pcwibits = MT8196_INTEGER_BITS,		\
-> > > +		.rpm_clk_names = _rpm_clks,			\
-> > > +		.num_rpm_clks = ARRAY_SIZE(_rpm_clks),		\
-> > >   	}
-> > >   
-> > > +static const char * const mfgpll_rpm_clk_names[] = {
-> > > +	NULL
-> > > +};
-> > > +
-> > >   static const struct mtk_pll_data mfg_ao_plls[] = {
-> > >   	PLL(CLK_MFG_AO_MFGPLL, "mfgpll", MFGPLL_CON0, MFGPLL_CON0, 0, 0, 0,
-> > > -	    BIT(0), MFGPLL_CON1, 24, 0, 0, 0,
-> > > -	    MFGPLL_CON1, 0, 22),
-> > > +	    BIT(0), MFGPLL_CON1, 24, 0, 0, 0, MFGPLL_CON1, 0, 22,
-> > > +	    mfgpll_rpm_clk_names),
-> > >   };
-> > >   
-> > >   static const struct mtk_pll_data mfgsc0_ao_plls[] = {
-> > >   	PLL(CLK_MFGSC0_AO_MFGPLL_SC0, "mfgpll-sc0", MFGPLL_SC0_CON0,
-> > >   	    MFGPLL_SC0_CON0, 0, 0, 0, BIT(0), MFGPLL_SC0_CON1, 24, 0, 0, 0,
-> > > -	    MFGPLL_SC0_CON1, 0, 22),
-> > > +	    MFGPLL_SC0_CON1, 0, 22, mfgpll_rpm_clk_names),
-> > >   };
-> > >   
-> > >   static const struct mtk_pll_data mfgsc1_ao_plls[] = {
-> > >   	PLL(CLK_MFGSC1_AO_MFGPLL_SC1, "mfgpll-sc1", MFGPLL_SC1_CON0,
-> > >   	    MFGPLL_SC1_CON0, 0, 0, 0, BIT(0), MFGPLL_SC1_CON1, 24, 0, 0, 0,
-> > > -	    MFGPLL_SC1_CON1, 0, 22),
-> > > +	    MFGPLL_SC1_CON1, 0, 22, mfgpll_rpm_clk_names),
-> > >   };
-> > >   
-> > > +struct clk_mt8196_mfg {
-> > > +	struct clk_hw_onecell_data *clk_data;
-> > > +	struct clk_bulk_data *rpm_clks;
-> > > +	unsigned int num_rpm_clks;
-> > > +};
-> > > +
-> > > +static int __maybe_unused clk_mt8196_mfg_resume(struct device *dev)
-> > > +{
-> > > +	struct clk_mt8196_mfg *clk_mfg = dev_get_drvdata(dev);
-> > > +
-> > > +	if (!clk_mfg || !clk_mfg->rpm_clks)
-> > > +		return 0;
-> > > +
-> > > +	return clk_bulk_prepare_enable(clk_mfg->num_rpm_clks, clk_mfg->rpm_clks);
-> > > +}
-> > > +
-> > > +static int __maybe_unused clk_mt8196_mfg_suspend(struct device *dev)
-> > > +{
-> > > +	struct clk_mt8196_mfg *clk_mfg = dev_get_drvdata(dev);
-> > > +
-> > > +	if (!clk_mfg || !clk_mfg->rpm_clks)
-> > > +		return 0;
-> > > +
-> > > +	clk_bulk_disable_unprepare(clk_mfg->num_rpm_clks, clk_mfg->rpm_clks);
-> > > +
-> > > +	return 0;
-> > > +}
-> > > +
-> > >   static const struct of_device_id of_match_clk_mt8196_mfg[] = {
-> > >   	{ .compatible = "mediatek,mt8196-mfgpll-pll-ctrl",
-> > >   	  .data = &mfg_ao_plls },
-> > > @@ -92,35 +127,60 @@ MODULE_DEVICE_TABLE(of, of_match_clk_mt8196_mfg);
-> > >   static int clk_mt8196_mfg_probe(struct platform_device *pdev)
-> > >   {
-> > >   	const struct mtk_pll_data *plls;
-> > > -	struct clk_hw_onecell_data *clk_data;
-> > > +	struct clk_mt8196_mfg *clk_mfg;
-> > >   	struct device_node *node = pdev->dev.of_node;
-> > > +	struct device *dev = &pdev->dev;
-> > >   	const int num_plls = 1;
-> > > -	int r;
-> > > +	int r, i;
-> > >   
-> > > -	plls = of_device_get_match_data(&pdev->dev);
-> > > +	plls = of_device_get_match_data(dev);
-> > >   	if (!plls)
-> > >   		return -EINVAL;
-> > >   
-> > > -	clk_data = mtk_alloc_clk_data(num_plls);
-> > > -	if (!clk_data)
-> > > +	clk_mfg = devm_kzalloc(dev, sizeof(*clk_mfg), GFP_KERNEL);
-> > > +	if (!clk_mfg)
-> > >   		return -ENOMEM;
-> > >   
-> > > -	r = mtk_clk_register_plls(&pdev->dev, plls, num_plls, clk_data);
-> > > +	clk_mfg->num_rpm_clks = plls[0].num_rpm_clks;
-> > > +
-> > > +	if (clk_mfg->num_rpm_clks) {
-> > > +		clk_mfg->rpm_clks = devm_kcalloc(dev, clk_mfg->num_rpm_clks,
-> > > +						 sizeof(*clk_mfg->rpm_clks),
-> > > +						 GFP_KERNEL);
-> > > +		if (!clk_mfg->rpm_clks)
-> > > +			return -ENOMEM;
-> > > +
-> > > +		for (i = 0; i < clk_mfg->num_rpm_clks; i++)
-> > > +			clk_mfg->rpm_clks->id = plls[0].rpm_clk_names[i];
-> > > +
-> > > +		r = devm_clk_bulk_get(dev, clk_mfg->num_rpm_clks,
-> > > +				      clk_mfg->rpm_clks);
-> > > +		if (r)
-> > > +			return r;
-> > > +	}
-> > > +
-> > > +	clk_mfg->clk_data = mtk_alloc_clk_data(num_plls);
-> > > +	if (!clk_mfg->clk_data)
-> > > +		return -ENOMEM;
-> > > +
-> > > +	dev_set_drvdata(dev, clk_mfg);
-> > > +	pm_runtime_enable(dev);
-> > > +
-> > > +	r = mtk_clk_register_plls(dev, plls, num_plls, clk_mfg->clk_data);
-> > >   	if (r)
-> > >   		goto free_clk_data;
-> > >   
-> > > -	r = of_clk_add_hw_provider(node, of_clk_hw_onecell_get, clk_data);
-> > > +	r = of_clk_add_hw_provider(node, of_clk_hw_onecell_get,
-> > > +				   clk_mfg->clk_data);
-> > >   	if (r)
-> > >   		goto unregister_plls;
-> > >   
-> > > -	platform_set_drvdata(pdev, clk_data);
-> > > -
-> > >   	return r;
-> > >   
-> > >   unregister_plls:
-> > > -	mtk_clk_unregister_plls(plls, num_plls, clk_data);
-> > > +	mtk_clk_unregister_plls(plls, num_plls, clk_mfg->clk_data);
-> > >   free_clk_data:
-> > > -	mtk_free_clk_data(clk_data);
-> > > +	mtk_free_clk_data(clk_mfg->clk_data);
-> > >   
-> > >   	return r;
-> > >   }
-> > > @@ -128,20 +188,26 @@ static int clk_mt8196_mfg_probe(struct platform_device *pdev)
-> > >   static void clk_mt8196_mfg_remove(struct platform_device *pdev)
-> > >   {
-> > >   	const struct mtk_pll_data *plls = of_device_get_match_data(&pdev->dev);
-> > > -	struct clk_hw_onecell_data *clk_data = platform_get_drvdata(pdev);
-> > > +	struct clk_mt8196_mfg *clk_mfg = dev_get_drvdata(&pdev->dev);
-> > >   	struct device_node *node = pdev->dev.of_node;
-> > >   
-> > >   	of_clk_del_provider(node);
-> > > -	mtk_clk_unregister_plls(plls, 1, clk_data);
-> > > -	mtk_free_clk_data(clk_data);
-> > > +	mtk_clk_unregister_plls(plls, 1, clk_mfg->clk_data);
-> > > +	mtk_free_clk_data(clk_mfg->clk_data);
-> > >   }
-> > >   
-> > > +static DEFINE_RUNTIME_DEV_PM_OPS(clk_mt8196_mfg_pm_ops,
-> > > +				 clk_mt8196_mfg_suspend,
-> > > +				 clk_mt8196_mfg_resume,
-> > > +				 NULL);
-> > > +
-> > >   static struct platform_driver clk_mt8196_mfg_drv = {
-> > >   	.probe = clk_mt8196_mfg_probe,
-> > >   	.remove = clk_mt8196_mfg_remove,
-> > >   	.driver = {
-> > >   		.name = "clk-mt8196-mfg",
-> > >   		.of_match_table = of_match_clk_mt8196_mfg,
-> > > +		.pm = pm_ptr(&clk_mt8196_mfg_pm_ops),
-> > >   	},
-> > >   };
-> > >   module_platform_driver(clk_mt8196_mfg_drv);
-> > > diff --git a/drivers/clk/mediatek/clk-pll.h b/drivers/clk/mediatek/clk-pll.h
-> > > index 0f2a1d19eea78b7390b221af47016eb9897f3596..82b86b849a67359d8f23d828f50422081c2747e3 100644
-> > > --- a/drivers/clk/mediatek/clk-pll.h
-> > > +++ b/drivers/clk/mediatek/clk-pll.h
-> > > @@ -53,6 +53,8 @@ struct mtk_pll_data {
-> > >   	u8 pll_en_bit; /* Assume 0, indicates BIT(0) by default */
-> > >   	u8 pcw_chg_bit;
-> > >   	u8 fenc_sta_bit;
-> > > +	const char * const *rpm_clk_names;
-> > > +	unsigned int num_rpm_clks;
-> > >   };
-> > >   
-> > >   /*
-> > > 
-> > 
-> > 
-> > 
-> 
-> 
+> Signed-off-by: Jim Quinlan <james.quinlan@broadcom.com>
 
-
-
+Reviewed-by: Florian Fainelli <florian.fainelli@broadcom.com>
+-- 
+Florian
 
 
