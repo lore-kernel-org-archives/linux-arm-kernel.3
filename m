@@ -4,63 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7BC40CCA471
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 15:51:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBF11CCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 15:55:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Wdd5c/PHXgFX18ZoE3M5BpB+K9x9piTq/ykZtbdV/vs=; b=iIx/TqOW9amJu76v5PDdX5w1CD
-	V5eRNDGxKA4WN2M11Rln1f/E64x0kLX0y6Hue3a1BXizsvpVcoExCm982Q4Ma4qESLzfLFYNwd/tg
-	sHIkU6FngP72IinQ1li0V+I39aSJnJ5C72hnWolw0QkyhxUlE/o29rVrA6qKbhG4LJL9BCT9FcD1J
-	ExX1lqjq5ucJIHABeK/hJN7QSvC1yDqwqSF4bYSo78MotzaW8GqTU60AA4OdvxGVwc/a9IlHJYsWj
-	Nl4GxpKgQ2CUEqPEsw2uyomUCA5Rb0HrNct8k7ICiQYypUk7vCia99JFQYxc+tlgtdRDUlsH3Ux+Z
-	z9V9odDQ==;
+	bh=lpyqZrPl+Z0QLpDFjeR+Sx0txUodqBQiZUQNeSFTO2o=; b=1jGKjE/tlgJHGLvg9q3+nmbjP1
+	UgiMlZz+6iaZb1FYymvU2sBMa2F4Q1ddfGvnpqQOrxcLIVpAcd/akJF36FNmzaI++nh4fw2kP8iEp
+	OkKuKOV7n3Up13YBYdUkPss5JnVDILINAz6uFXSHh0wkIAPkPwJZlfJJv/GN4lbhiOl5gbHFFi/6A
+	/e3J2J5omYKs/TFWne06TPPDYO3pOr3m72P90DRNeAgSU03XVVrPglelU+H+tjJtMmyGs9Gs0VMz9
+	hMGlfQeGYmm7VESn5+cS3If+ldQPfXMp/36eawSEB/KZxKQoB5RDsyaXIRubEU/31ge4CciBDRSLo
+	z0hanLdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5nUq-00000000K0f-139F;
-	Mon, 06 Oct 2025 15:51:32 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1v5nZ2-00000000KKj-0dul;
+	Mon, 06 Oct 2025 15:55:52 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5nUn-00000000Jzf-1ne6;
-	Mon, 06 Oct 2025 15:51:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=Wdd5c/PHXgFX18ZoE3M5BpB+K9x9piTq/ykZtbdV/vs=; b=0cKSouln3fYahi+dyaR8+Yz9uV
-	CXgXVf4HWqLJUlmoB648heg2O1fZ8rgmGn/F1ne3hILrCyD+TNQDDxzvVj4iO2hZRTVllVKlo1KMr
-	aL+Zu3WYEcwCWPuQFBCDH4LpLnis/cxt9Ouv1iFnXC3unxAxAN+cMED+PYx2faXsGgFA=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1v5nUZ-00AIzL-PJ; Mon, 06 Oct 2025 17:51:15 +0200
-Date: Mon, 6 Oct 2025 17:51:15 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Liangbin Lian <jjm2473@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	heiko@sntech.de, quentin.schulz@cherry.de,
-	kever.yang@rock-chips.com, naoki@radxa.com, honyuenkwun@gmail.com,
-	inindev@gmail.com, ivan8215145640@gmail.com,
-	neil.armstrong@linaro.org, mani@kernel.org, dsimic@manjaro.org,
-	pbrobinson@gmail.com, alchark@gmail.com, didi.debian@cknow.org,
-	jbx6244@gmail.com, devicetree@vger.kernel.org,
+	id 1v5nZ0-00000000KKb-3M0h
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Oct 2025 15:55:50 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3E8D960581;
+	Mon,  6 Oct 2025 15:55:50 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF5F2C4CEF5;
+	Mon,  6 Oct 2025 15:55:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759766149;
+	bh=PNewJkNL6CSZlcvcVRzdF4vG0QntxYg8acRL1wWz8xQ=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=llB2pjvrsfAQsrqHn6tONxtl59AYRr+QlQq0ELqOELOEZyntMxjcpFMmkvl4KBGSB
+	 7dvb5gB33pbJd9n3W7WBc12p+LFft9mgaeN9cz5ue6V6v2mZhiKxMRQNPDnFVZznCd
+	 I2mPvizxGNY/GOabl2Aq7QrrBeaqQdFkkcrsogpLWyFxg1ynh9AlJdO/Akalb08deV
+	 8gHGQf1MoH00M/m6l0xJ5ruejk27SCdDvq2GZRScYVk3C2JvKYQvdeTOfsaagkSVgl
+	 oZQvtjHABSDDctU2eG7cNU/i3mCxW3PbfdEiw2qGs0yECldiVnjAK1otZscPZKHcvj
+	 /Vd5kyZJKVisg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1v5nYx-0000000BtEa-23VH;
+	Mon, 06 Oct 2025 15:55:47 +0000
+Date: Mon, 06 Oct 2025 16:55:47 +0100
+Message-ID: <865xcsyqgs.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Maulik Shah <quic_mkshah@quicinc.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	linux-pm@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v3 3/3] arm64: dts: rockchip: add LinkEase EasePi R1
-Message-ID: <d8ad476c-d0c7-4e97-9e76-540a539ffb52@lunn.ch>
-References: <20250929065714.27741-1-jjm2473@gmail.com>
- <20250929065714.27741-4-jjm2473@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250929065714.27741-4-jjm2473@gmail.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_085129_464134_BF344A9E 
-X-CRM114-Status: UNSURE (   9.96  )
-X-CRM114-Notice: Please train this message.
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/3] arm64: smp: Implement cpus_has_pending_ipi()
+In-Reply-To: <20251003150251.520624-3-ulf.hansson@linaro.org>
+References: <20251003150251.520624-1-ulf.hansson@linaro.org>
+	<20251003150251.520624-3-ulf.hansson@linaro.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ulf.hansson@linaro.org, rafael@kernel.org, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, tglx@linutronix.de, quic_mkshah@quicinc.com, sudeep.holla@arm.com, daniel.lezcano@linaro.org, vincent.guittot@linaro.org, linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,45 +91,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +&gmac0 {
-> +	phy-mode = "rgmii";
-
-Did i really miss this patch series in its earlier version, or did you
-ignore me?
-
-https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bindings/net/ethernet-controller.yaml#L287
-
-> +	tx_delay = <0x3c>;
-> +	rx_delay = <0x2f>;
-
-Please change it to rgmii-id, and smaller tx/rx_delay values. Or show
-us the schematics which clearly show extra long clock lines.
-
-> +/* Micro SD card slot is not mounted */
-> +&sdmmc0 {
-> +	max-frequency = <150000000>;
-> +	no-sdio;
-> +	no-mmc;
-> +	bus-width = <4>;
-> +	cap-mmc-highspeed;
-> +	cap-sd-highspeed;
-> +	disable-wp;
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&sdmmc0_bus4 &sdmmc0_clk &sdmmc0_cmd &sdmmc0_det>;
-> +	vmmc-supply = <&vcc3v3_sd>;
-> +	vqmmc-supply = <&vccio_sd>;
-> +	status = "disabled";
-> +};
+On Fri, 03 Oct 2025 16:02:44 +0100,
+Ulf Hansson <ulf.hansson@linaro.org> wrote:
+> 
+> To add support for keeping track of whether there may be a pending IPI
+> scheduled for a CPU or a group of CPUs, let's implement
+> cpus_has_pending_ipi() for arm64.
+> 
+> Note, the implementation is intentionally lightweight and doesn't use any
+> additional lock. This is good enough for cpuidle based decisions.
+> 
+> Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+> ---
+>  arch/arm64/kernel/smp.c | 20 ++++++++++++++++++++
+>  1 file changed, 20 insertions(+)
+> 
+> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+> index 68cea3a4a35c..dd1acfa91d44 100644
+> --- a/arch/arm64/kernel/smp.c
+> +++ b/arch/arm64/kernel/smp.c
+> @@ -55,6 +55,8 @@
+>  
+>  #include <trace/events/ipi.h>
+>  
+> +static DEFINE_PER_CPU(bool, pending_ipi);
 > +
-> +/* Wifi module is not mounted */
-> +&sdmmc2 {
+>  /*
+>   * as from 2.5, kernels no longer have an init_tasks structure
+>   * so we need some other way of telling a new secondary core
+> @@ -1012,6 +1014,8 @@ static void do_handle_IPI(int ipinr)
+>  
+>  	if ((unsigned)ipinr < NR_IPI)
+>  		trace_ipi_exit(ipi_types[ipinr]);
+> +
+> +	per_cpu(pending_ipi, cpu) = false;
+>  }
+>  
+>  static irqreturn_t ipi_handler(int irq, void *data)
+> @@ -1024,10 +1028,26 @@ static irqreturn_t ipi_handler(int irq, void *data)
+>  
+>  static void smp_cross_call(const struct cpumask *target, unsigned int ipinr)
+>  {
+> +	unsigned int cpu;
+> +
+> +	for_each_cpu(cpu, target)
+> +		per_cpu(pending_ipi, cpu) = true;
+> +
 
-What do you mean by "not mounted"?
+Why isn't all of this part of the core IRQ management? We already
+track things like timers, I assume for similar reasons. If IPIs have
+to be singled out, I'd rather this is done in common code, and not on
+a per architecture basis.
 
-Often you would say "not populated", to indicate the PCB has all the
-tracks in place, but the chip has simply not been soldered in place.
+>  	trace_ipi_raise(target, ipi_types[ipinr]);
+>  	arm64_send_ipi(target, ipinr);
+>  }
+>  
+> +bool cpus_has_pending_ipi(const struct cpumask *mask)
+> +{
+> +	unsigned int cpu;
+> +
+> +	for_each_cpu(cpu, mask) {
+> +		if (per_cpu(pending_ipi, cpu))
+> +			return true;
+> +	}
+> +	return false;
+> +}
+> +
 
-Or is there a connector here, and nothing plugged into the connector?
+The lack of memory barriers makes me wonder how reliable this is.
+Maybe this is relying on the IPIs themselves acting as such, but
+that's extremely racy no matter how you look at it.
 
-   Andrew
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
