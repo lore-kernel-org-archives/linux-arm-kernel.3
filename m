@@ -4,74 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8636ACCA471
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 06:45:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F192CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 06:52:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
 	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
 	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NMuoAimQl5z1QVIEkiLJdaqZSbw3bEnf0VXzo5Y71N4=; b=iiFVU33A90dF7kv66NudsYkzsY
-	CWjfdlL3tevsXqoWH0JbST6vVPoBT/snTlvjMREv/bsJwFVCGjuWjVLEfBT9M+NJUMElFNy/nfsaG
-	QGvMSoQqW7qcrj/l94R3K5LpFF0aSjGwbIT8amH/VLVpJtsAWwN07YqdP7WLpCkLPqVb+bekQgua7
-	4fpsv//RzeXhaMj5/Ix5cVMYMNklK3WDQDUiTAtaPchJbHhNRMBbf0eiIJTqF+RMbaEcKuiTxbzqL
-	qQ0U0ae0cp7I7BRLmVQe5C8BK7wNSOR8BvNoYAjeMbgrIYpvdHmsE/pdZ0faUzhSU/W0ahY8sT5Vc
-	Wa0Qo8fQ==;
+	bh=HXmc7QpSTt9ZosNT5x1nSeoE8ULcpihYGG51Sy2vopY=; b=YNwU98NcJ3/knBD916MzMkCp4G
+	0nuiJZdXpBrbwHaERlqxocYkTzxoevr145e/vdlScJM/4HFCoKtVdKdjDCRYEs/Mlb4hDxcMf1opD
+	mRvkDcObRtcjhW02Au5ho3z3oQ4+9E1WGXk4/hITPK8YX681xl/9pNDS/IeMUd5FdhIjKrocvEErL
+	+Zw+sexrqR3k45r58e53UV7Fv3SLT8ZqED6bLbZOVasiEJ+7NkW8Z0WgsOUhr2cIpsb5d/VksBf+F
+	FCSOjvzlY+gMruWxqpigNYpXTVtxv1fsj80FQ9vmFDk9jm2CShdz5Xz+jSm4SexERsn8yV54powhX
+	u40FGt7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5eyS-0000000H2TK-2D81;
-	Mon, 06 Oct 2025 06:45:32 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1v5f5S-0000000H37t-3AB1;
+	Mon, 06 Oct 2025 06:52:46 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5eyQ-0000000H2Sj-20Fg
+	id 1v5f5P-0000000H37S-350Q
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Oct 2025 06:45:31 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-b457d93c155so801752666b.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Oct 2025 23:45:29 -0700 (PDT)
+	Mon, 06 Oct 2025 06:52:45 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-b456d2dc440so722956666b.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 05 Oct 2025 23:52:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1759733129; x=1760337929; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1759733562; x=1760338362; darn=lists.infradead.org;
         h=mime-version:user-agent:content-transfer-encoding:references
          :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
          :date:message-id:reply-to;
-        bh=NMuoAimQl5z1QVIEkiLJdaqZSbw3bEnf0VXzo5Y71N4=;
-        b=vQMW/FnogjeYXInA2V/dRqyEkgBHEiwXO3vd2ywxHl6te13PpSMmsdW++WTpfgcBxE
-         Y+j0WCMvXaELRhgd6IzV/6jF2MXHpa3NXO2XYL7VI3Wd7YJ2/1NWqAPJlc60OIUG8Yvo
-         +ydVg4coGT1AEMrXxIMBSWedrbW2/MOwIcwWGrvmS39RRib/3At+D/hscOXmIJJGB8vZ
-         qrcu0ZqGB0IGhOJGDAX76G8gKXol2dfLXBHT/kBs3KjX8g2GFrGKwSfRN8OUXELMbBKT
-         Vv8GFzb3bBF5Gj2QFtL4CSq4yBp0IOvolwOlyDZER/fiKyblYfJCvVJKQeuowyzfjp2o
-         s61A==
+        bh=HXmc7QpSTt9ZosNT5x1nSeoE8ULcpihYGG51Sy2vopY=;
+        b=xAY/bneoAP8WEBDm0U43HMzrHkdFNlXdDtG77MYhp5AC1O4OP6ED6VSUqto7Ye1Qyo
+         SkshlR6csValYw+gQ4gV6uN6AYSuJ1mxK5vjLdJFDePAtq4/6lbrNogGsh6WJRSiPeTV
+         lP6WE6FnUtspwP/boU7NebGKvc2aWpg+5FLlmZ3ATcFtdPz8+Fohn9U4T8f89YrQHtNH
+         aUfXaAaImuTtJnrR+ACKvmMtQU/wpGiYJ4YS70821QqEtxh9JPkyZ2CJ4dvUUkNbJjk4
+         k4t93IOXSYhItG0apqJ2UUVpskHzPmUUxbA0O3GemVMOvYgaAl7iWuYMZHHyggM1e7w/
+         S0kQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759733129; x=1760337929;
+        d=1e100.net; s=20230601; t=1759733562; x=1760338362;
         h=mime-version:user-agent:content-transfer-encoding:references
          :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
          :from:to:cc:subject:date:message-id:reply-to;
-        bh=NMuoAimQl5z1QVIEkiLJdaqZSbw3bEnf0VXzo5Y71N4=;
-        b=dDTPVg8hp81gNr46bldkiBKRc9nuQw33Wk7l8bAXD6mm63qNPHc7aKLi4OZ+aEb6bB
-         Gql8vDLCgk+HSHUkGoNRjSDEYsx2zPRB1cPZWQBkEwPNefIrHdAS7YDuocSiMoIbgadQ
-         MxjnAxw/3xrIGMGZ58oFMDFfihVCc+9XFqVu0VXqMdsSahPWi9NSfHWbyhoelzVq+Mu1
-         kvlp1DJx+n6aIYsF4dpgyJCG3ZY6NShw6i3Ete7yoz+aWiBY2pQppnu2pg/WO9VAuIi0
-         hvys+xH79EY1F6tCqVDtpNIxU4fm4MuhIrW9gAC34evMd+WlFQd/IEWPWQ2aLOAUZ45B
-         y2Gw==
-X-Forwarded-Encrypted: i=1; AJvYcCVpOh/rgaXDq3v7BbdVQV1JKBerMj2/KuLipru8S4dSCv3yXObIEyKskU7TxtrbQxMKakYD2wG6sQkpb/5EjQ1D@lists.infradead.org
-X-Gm-Message-State: AOJu0YyRuDDymWCn7EVP3xAzzXAp/izx5HJ80gHSjgnNSIg/iVVsAm8j
-	xwLHFA9V3RrHfK3xZGKeDbRuVfpjZssNlJ9ZOAiY0ymZgaEdk7ayvgHWih6YOr0OJ/Y=
-X-Gm-Gg: ASbGncvocaQE/BgA5ULoH0ZhWP3sXS/5Sx408J6nmLHKiZSzdMQQrvoE/T7HIqRCCRQ
-	k0CzoI4g85LriItrr6Xk2Vmraqhwa684GUaf0nbf+N6HmVlp3/vAXYLShJ+zHbPEtsbNWopOjQi
-	WtRTGySH/izvbVX3pVR8dXxE/4I/1P+WwbmRagozzq6Qd4Tu9K2btyqiIGhQdOmqbBrIQ2fuiTU
-	TiKDXvtOEoZ2GPYRy5kbseAl6YVmb/ve5svQCQ1iQtblzKlDx/0w3qMkFlhdVN5W9qHcmBDNMoV
-	33aSr2beQrDvYHIP65DXnhxJNFFL5qlrR+3F4zHApW+fD6nagEXx0PTgX6N5W7RVzih8xj97sH+
-	RXVHEx26+1f3FLC39sK2/5P+OBDMxSrQHA5dvmnwTbOkLXO5650s+CosAc2hAtCf8
-X-Google-Smtp-Source: AGHT+IGqbaxYVflPhQwlvzE4KWt9YOkvCpxShS92JNaxOYhBBBWeZkGh8ms2wjKFHVFGM9v06iNJOg==
-X-Received: by 2002:a17:907:608b:b0:b45:8370:eefd with SMTP id a640c23a62f3a-b49c146e6c8mr1381123966b.5.1759733128600;
-        Sun, 05 Oct 2025 23:45:28 -0700 (PDT)
+        bh=HXmc7QpSTt9ZosNT5x1nSeoE8ULcpihYGG51Sy2vopY=;
+        b=oitEZFRKQhImdDHlAl7fpzuLM73ZqPX89OhIupV20CuL7Yf7LO4ch+6KsaOiFwZKJY
+         OGra9alqZN4dT9qzS1gJpzo81bwp5at0eE/99Eg8VLf4XZ7g8dSMonwjVozdErntuGvm
+         rzta5Jb3CReU/LxHywubRztuAmN/kskmZ2wp0mfnxqjCX2XPoWKPeSSiwcYDOk4LpswJ
+         yBxXqmYRAuhdFzFVCZFNJY/4HkCTjkq39kWb2F6/4zQcaYxeSfjj9jkgRlwkpID4F125
+         xZ5Qvs0ooA7VLT7MMsxp7F1bFEGZP48I8AkdjOcZJQBWxUMCll/s5+yxsdffl46Hl64H
+         cevQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVoXxZIpJJ6xBKwK3W2iD8SnaXEQSYqrPZTybbBjZrIBik3XNF35w4B1VOEThQLtduF14/ITzG3Hsog9sPJV5jo@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz0j/qgbhOgMo6WHf034bXFWG2Us/a+gVgN0xQzkxj5abYPrzsl
+	d9N3Qg+GsHLdVXM9U+j1EOkOYniWrjrWqNnceOYqf2+1ETXOa/QqQqlQ4EHzmdCx8Qg=
+X-Gm-Gg: ASbGncuZUFJAkM53WNWZCad8oI2ziScRt+PGsO6TnRCPhtp3pvoBvywMZUx7Ey1xrLO
+	zQ5HJ08W2NeVoGKwVOGyIwsbdq2JHuqD5qJb4KYzfxmI3Aaxfi+bRuqs7Y3P5m64kyrgFykQWrD
+	02b04MbTfqoG1htJ4Qr5e+7j3ZJDLMI0X6VLpOy456mdl8pfpV2yookko6RjadxN8QbbqbWDStQ
+	1sMdGAAE0wKMDFy+Wq6dJypeTlMDXl+5+4QJtfQfq8+V4f/OHSnt7Fa+sv+3ghD9HlUquRzOEGq
+	sONt59gCaloL3eYZJOE7fiCL4tU1ExMxMMhGkXWA2nCIZMSBsaFR6squzxE7eBJ8sB3zzNh7suQ
+	k/9htK6lVV30+L1tk2apGZs7UwWzt6gkxebbDdJ2velerkqr0xwUH3JL34dxYE3bd
+X-Google-Smtp-Source: AGHT+IFH+Nm6t/KLP6g5tq5oQKi62aAAd8k2tFyYYm8tKkws1sxOeiOGOYBNadAisWD6RX0oCu0zaA==
+X-Received: by 2002:a17:907:3f0a:b0:b45:60ad:daff with SMTP id a640c23a62f3a-b49c214c03fmr1480542166b.28.1759733561787;
+        Sun, 05 Oct 2025 23:52:41 -0700 (PDT)
 Received: from draszik.lan ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b48652a9f50sm1068769666b.9.2025.10.05.23.45.27
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b486a173b03sm1058949066b.84.2025.10.05.23.52.40
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 05 Oct 2025 23:45:28 -0700 (PDT)
-Message-ID: <662c6a56055a295e3f9bd594b8751e405590abff.camel@linaro.org>
-Subject: Re: [PATCH 1/3] soc: samsung: exynos-pmu: allow specifying read &
- write access tables for secure regmap
+        Sun, 05 Oct 2025 23:52:41 -0700 (PDT)
+Message-ID: <949da0fec08f09bd6b70b14f3361f4a4584b42c3.camel@linaro.org>
+Subject: Re: [PATCH 2/3] soc: samsung: exynos-pmu: move some gs101 related
+ code into new file
 From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
 To: Sam Protsenko <semen.protsenko@linaro.org>
 Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar
@@ -80,18 +80,18 @@ Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar
  <willmcvicker@google.com>, kernel-team@android.com, 
 	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
 	linux-kernel@vger.kernel.org
-Date: Mon, 06 Oct 2025 07:45:27 +0100
-In-Reply-To: <CAPLW+4=mVbXex9Sxm2oEq0j3RJ0_KtXRq2Ttt5cfQ_dxXTuhSA@mail.gmail.com>
+Date: Mon, 06 Oct 2025 07:52:40 +0100
+In-Reply-To: <CAPLW+4=+efttfgj9gMSGpv2sjhJQ7whtoCuitK+Ku4U7hzE+1A@mail.gmail.com>
 References: <20251002-gs101-pmu-regmap-tables-v1-0-1f96f0920eb3@linaro.org>
-	 <20251002-gs101-pmu-regmap-tables-v1-1-1f96f0920eb3@linaro.org>
-	 <CAPLW+4=mVbXex9Sxm2oEq0j3RJ0_KtXRq2Ttt5cfQ_dxXTuhSA@mail.gmail.com>
+	 <20251002-gs101-pmu-regmap-tables-v1-2-1f96f0920eb3@linaro.org>
+	 <CAPLW+4=+efttfgj9gMSGpv2sjhJQ7whtoCuitK+Ku4U7hzE+1A@mail.gmail.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 User-Agent: Evolution 3.56.2-2 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251005_234530_545741_FED5446C 
-X-CRM114-Status: GOOD (  20.66  )
+X-CRM114-CacheID: sfid-20251005_235243_805201_9018D9BE 
+X-CRM114-Status: GOOD (  20.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,89 +108,82 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 Hi Sam,
 
-On Fri, 2025-10-03 at 12:22 -0500, Sam Protsenko wrote:
+On Fri, 2025-10-03 at 12:55 -0500, Sam Protsenko wrote:
 > On Thu, Oct 2, 2025 at 5:33=E2=80=AFAM Andr=C3=A9 Draszik <andre.draszik@=
 linaro.org> wrote:
+> >=20
+> > To avoid cluttering common code, move most of the gs101 code into a new
+> > file, gs101-pmu.c
+> >=20
+> > More code is going to be added for gs101 - having it all in one file
+> > helps keeping the common code (file) more readable.
+> >=20
 >=20
+> Maybe add "no functional change" note for refactoring/cleanup patches lik=
+e this.
+
+Sure
+
 
 [...]
 
 > >=20
-> > diff --git a/drivers/soc/samsung/exynos-pmu.c b/drivers/soc/samsung/exy=
-nos-pmu.c
-> > index 22c50ca2aa79bf1945255ee6cc7443d7309b2573..9f416de03610b1727d8cc77=
-616e5c87e2525cc69 100644
-> > --- a/drivers/soc/samsung/exynos-pmu.c
-> > +++ b/drivers/soc/samsung/exynos-pmu.c
-> > @@ -635,6 +635,9 @@ static int exynos_pmu_probe(struct platform_device =
-*pdev)
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 pmu_regmcfg =3D regmap_smccfg;
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 pmu_regmcfg.max_register =3D resource_size(res) -
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 pmu_regmcfg.reg_stride;
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 pmu_regmcfg.wr_table =3D pmu_context->pmu_data->wr_table;
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 pmu_regmcfg.rd_table =3D pmu_context->pmu_data->rd_table;
-> > +
->=20
-> Seems like pmu_regmcfg declaration can be pulled under this "if" scope
-> -- just a thought for future.
-
-Yes, there is room for improvement. It might be even better if a platform c=
-ould
-provide its own regmap, rather than just a flag and the code here copying a=
-nd
-updating pmu_regmcfg.
-I wanted to keep changes minimal at this stage, as there might be other con=
-siderations.
-
->=20
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 /* Need physical address for SMC call */
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0 regmap =3D devm_regmap_init(dev, NULL,
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0 (void *)(uintptr_t)res->start,
 > > diff --git a/drivers/soc/samsung/exynos-pmu.h b/drivers/soc/samsung/exy=
 nos-pmu.h
-> > index 0938bb4fe15f439e2d8bddeec51b6077e79a7e84..113149ed32c88a09b075be8=
-2050c26970e4c0620 100644
+> > index 113149ed32c88a09b075be82050c26970e4c0620..fe11adc4f6ac8fc8bce228d=
+5852deaff7c438221 100644
 > > --- a/drivers/soc/samsung/exynos-pmu.h
 > > +++ b/drivers/soc/samsung/exynos-pmu.h
-> > @@ -27,6 +27,10 @@ struct exynos_pmu_data {
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 void (*pmu_init)(void);
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 void (*powerdown_conf)(enum =
-sys_powerdown);
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 void (*powerdown_conf_extra)=
-(enum sys_powerdown);
+> > @@ -44,7 +44,14 @@ extern const struct exynos_pmu_data exynos4412_pmu_d=
+ata;
+> > =C2=A0extern const struct exynos_pmu_data exynos5250_pmu_data;
+> > =C2=A0extern const struct exynos_pmu_data exynos5420_pmu_data;
+> > =C2=A0#endif
+> > +extern const struct exynos_pmu_data gs101_pmu_data;
+> >=20
+> > =C2=A0extern void pmu_raw_writel(u32 val, u32 offset);
+> > =C2=A0extern u32 pmu_raw_readl(u32 offset);
 > > +
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 /* for the pmu_secure case */
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 const struct regmap_access_table =
-*rd_table;
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 const struct regmap_access_table =
-*wr_table;
+> > +int tensor_sec_reg_write(void *context, unsigned int reg, unsigned int=
+ val);
+> > +int tensor_sec_reg_read(void *context, unsigned int reg, unsigned int =
+*val);
+> > +int tensor_sec_update_bits(void *ctx, unsigned int reg, unsigned int m=
+ask,
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
+=C2=A0 unsigned int val);
 >=20
-> Maybe it's worth to add #include <linux/regmap.h> in this header, or
-> at least forward declaration struct regmap_access_table?
+> Nitpick: just noticed the inconsistency between context/ctx wording
+> usage in above function arguments.
 
-Thanks! I'll add the forward declaration, as not all users of this header n=
-eed
-regmap.
+Interesting... I'll fix it as part of the move.
 
-> Also, would be nice to have kernel-doc comment for struct
-> exynos_pmu_data at this point, but it might be out of scope for this
-> patch.
 >=20
-> Other than those minor nitpicks -- LGTM:
+> > +
+> > =C2=A0#endif /* __EXYNOS_PMU_H */
+> > diff --git a/drivers/soc/samsung/gs101-pmu.c b/drivers/soc/samsung/gs10=
+1-pmu.c
+> > new file mode 100644
+> > index 0000000000000000000000000000000000000000..b5a535822ec830b751e36a3=
+3121e2a03ef2ebcb2
+> > --- /dev/null
+> > +++ b/drivers/soc/samsung/gs101-pmu.c
+> > @@ -0,0 +1,141 @@
+> > +// SPDX-License-Identifier: GPL-2.0
+> > +//
+> > +// Copyright 2025 Linaro Ltd.
+> > +//
+> > +// GS101 PMU (Power Management Unit) support
+> > +
+>=20
+> AFAIR headers like these should be made using multi-line comments (not
+> talking about SPDX part). Or is it the latest fashion trends in
+> kernel?
 
-I'll add something for the next version.
+Depends on subsystem, but multi-line for most. Here I went with existing st=
+yle for
+the PMU-related files, though.
 
 Cheers,
 Andre'
