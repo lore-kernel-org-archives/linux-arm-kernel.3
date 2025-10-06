@@ -4,94 +4,147 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DE3A6CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 07:06:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48C55CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 07:46:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HuSzaxHt2WjkCZsaacpzvkRWkgXa3kCzT0kK4JkGdSQ=; b=oRK4rTy7ZPWQN+DpJBSd8c/WM6
-	QlitQSk3gH7MbGIgP+l9jyYFQeO7+4U1s3COn47VUxapTueYOjpstz2+zDbBHa7PiKYPvZifS3Nk3
-	nDM0FVoOz+5IT5toGK0T54eIq4jpySFSgbSXKsrIJoFIHYl3/CanKhlxIT4KI/HAkcbwlOIxhC6WY
-	gASihMFfcLvLy8bML29Vt8+0SZ/n1EXLtosV1Y4M9EbrhqfYagIL786SLSll/1Uy6C8bWKigrRZ+R
-	kaYuqzXkqlHnXM3L+7cS6ztW0uDZEm/Qj2insfpGZYfCVoCSBjQWzjqR2U1mKeLS+rSnIZhBbe3A3
-	LLH15JqA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZvM0T1diHWLFh/V+o8K67eUpGrN/UfnAd4xBYpsVxkk=; b=jRAUDcxRdmNqvcu4YZ9nuoxL5c
+	wCOyuLJIgSYXvsXOdzShE9TLvUi4TiADCmRkbyZU5O/1JBOnn1cfW/pF+hht+08UqfVnoFH9vAjIR
+	TDiZzxo620SBT92KktysToX2B7AEvTIh9YeQ/44wxHmDeLUNZG7HUVSsKiQIBU1CZ0G+JjC8n3fJP
+	pQd/XqroAUswHndRquAfvfadzzr1xB/00SVQiBaJ34Wobx7AUJJnW1SSKcW6J7Gy0frJs4IOmSkXY
+	DF3OiSt/j4x5LBc/GxIf44POPd72upEwZWikPlQcpdygvtww4dZIa4sStrbyVkWJ+EVkwnMeP+mUg
+	KNsfgjeg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5fIn-0000000H3xa-12lp;
-	Mon, 06 Oct 2025 07:06:33 +0000
-Received: from mail-ed1-x529.google.com ([2a00:1450:4864:20::529])
+	id 1v5fvh-0000000H7J1-1Kxm;
+	Mon, 06 Oct 2025 07:46:45 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5fIk-0000000H3xB-20r6
+	id 1v5fve-0000000H7GX-23Y7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Oct 2025 07:06:31 +0000
-Received: by mail-ed1-x529.google.com with SMTP id 4fb4d7f45d1cf-6394b4ff908so6540766a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Oct 2025 00:06:29 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1759734388; x=1760339188; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=HuSzaxHt2WjkCZsaacpzvkRWkgXa3kCzT0kK4JkGdSQ=;
-        b=CQ48MKVODypo0ZBLXVLivIV0HI7vmA/ia3ndBUmuUy0ONJwVusF7yDnbq3RCRfaCeH
-         IJRv2t0hQNQIwR1ogEOItkI7iNp/EMaMQzjsIWEliPNWqH7SqWjw+77Tflpqdr3XusRz
-         zmrdIjNyf3UJWGGH6XODHhhKMvL2hWVx+b1xjOHImTriCkyzw1zEjVXs28WmGYx8b8/U
-         9oYO5WFXTBpTrYvdJNe7w3Ar0Zej8OiAtqlVdMqLiO+DwZd/u4CYiEUBB9teenhDexn+
-         JPJGiWae/uobGrU1h2mFPJjTEtNPkaSBqe1HqvVR/b4pVGmbjGKRMLzohpE1lhkSoOrv
-         MHEQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759734388; x=1760339188;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=HuSzaxHt2WjkCZsaacpzvkRWkgXa3kCzT0kK4JkGdSQ=;
-        b=ZHw65zN+Ob53JrQBBthMddzz/wf5XxjfhkXllR/bQ7a5YN1uzfAmTRWDGfRM9/24Vh
-         CX+AWvYpEGdaZ+WmP/O8M7Tkm3GZAxDdh5BJevHPrSMgKNKUR7LJXbvMHxOaLZlrNM0H
-         1CP9GDPjhfP1y6ICKF76FBFLOxQ3Cf6B16Zdmhqi78WBfnbDwh2qw9KxiQY+6tLSAlEi
-         KeZXaAv3ZZDf+Sl7EDWmggdRReVfYNw2qg6Hji6FllJsmt0l/cR+HYQKYu6kqocAw7aD
-         uIE94IWLuWHWksc/CNOfDK1wp7Pkqd1uQnsHaYbCxvpk7cqBSnx5PaMXuHB2LoAelkvD
-         VKfA==
-X-Forwarded-Encrypted: i=1; AJvYcCV1H0BhfzWQVi8xxvh1svchP1utTNhHe+wLa9aVFEEEtPSMOgsCC7DoRMKSyHYhaoWylE3mCpgBcw+exMpizLfe@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywd8x2Wbp7wIaQZD8MwUxdb4fZGh27gGqk0yzfqfjJYo78vOB6f
-	SgDZjFIIfEnHLGkOQIF/CTxngzniWHxsocrg0Z2+h4xBkC2VXTYI2WA7kYpBBYB6RLk=
-X-Gm-Gg: ASbGncseXgLC4YWx4wZR5vsnA2bD6JLyra6FuKHFX4hGOsrgxkW5HKSKZek1iqN3VIt
-	9SUj55gwnD6LvwNPpPIwCXnLQFw4ZBbDboKRUGv3XkqkpTS/60cjMFBp9TEu5deYnhn7SxUETPA
-	1go8bOeRKbScX7XSjYuxwH4Mrh4/wSDf+SC9dWqmREMtVkLkaQMAuJOxt1FI2Zimc4j6l72u4PC
-	M0y7v8lPrBk3NOeW2cam0x3OBHuQtBviN4pKopgdG32s7wxSsNjaRfztR1XSHDnltBtUqUwAXp8
-	y3JFUMnrifOFuBXqYnxCyk0by2u6J6Oe2ovGH+89yCcr/tcVxD2/rCjXvNm9zr3FGWoC9S8CyZR
-	g0pevqp7WDwNZ38KBiaOCzV2uCDF0+oyivgMG8HSNuLD5rzZy1jGHYrjK4Rj1SCoO
-X-Google-Smtp-Source: AGHT+IEwbtOWhrJkM+5+XAaKyLXT4+RAoqahDvyQ66RfyOQrQ4PJvtBnJFcYl5rm+NOF2Nq60WjVQA==
-X-Received: by 2002:a05:6402:1e90:b0:636:67c8:59d8 with SMTP id 4fb4d7f45d1cf-63934900291mr11938562a12.13.1759734388488;
-        Mon, 06 Oct 2025 00:06:28 -0700 (PDT)
-Received: from draszik.lan ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-637881000besm9623517a12.23.2025.10.06.00.06.27
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 06 Oct 2025 00:06:28 -0700 (PDT)
-Message-ID: <2c36d66dc3eaf8f0f9778dd6a1d45806e7d9bcdd.camel@linaro.org>
-Subject: Re: [PATCH 3/3] soc: samsung: gs101-pmu: implement access tables
- for read and write
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Sam Protsenko <semen.protsenko@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar
- <alim.akhtar@samsung.com>,  Peter Griffin <peter.griffin@linaro.org>, Tudor
- Ambarus <tudor.ambarus@linaro.org>, Will McVicker	
- <willmcvicker@google.com>, kernel-team@android.com, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Date: Mon, 06 Oct 2025 08:06:26 +0100
-In-Reply-To: <CAPLW+4nvuGd8AoDKK1VdF2pabCHzjgYHRJkYrcncRt4s=qt8Dw@mail.gmail.com>
-References: <20251002-gs101-pmu-regmap-tables-v1-0-1f96f0920eb3@linaro.org>
-	 <20251002-gs101-pmu-regmap-tables-v1-3-1f96f0920eb3@linaro.org>
-	 <CAPLW+4nvuGd8AoDKK1VdF2pabCHzjgYHRJkYrcncRt4s=qt8Dw@mail.gmail.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-2 
+	Mon, 06 Oct 2025 07:46:44 +0000
+Received: from imap1.dmz-prg2.suse.org (imap1.dmz-prg2.suse.org [IPv6:2a07:de40:b281:104:10:150:64:97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id D837A1F789;
+	Mon,  6 Oct 2025 07:46:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
+	t=1759736800; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZvM0T1diHWLFh/V+o8K67eUpGrN/UfnAd4xBYpsVxkk=;
+	b=Mj0SvOTaiIuBEpCQDoFUpGXaEPQdCLGR3daX6OuudI64Ra6trTD7+IdfsEixk15QUFCvgT
+	u1S/J/t7UvHt+0FQjCC2eF78iJmjm1bW7g5177ojixoHO8zoURCy7g9ZExN3zhcntfthPG
+	48Ixziy2rUm+DhnmH/OyrvVUV1lk+rI=
+Authentication-Results: smtp-out2.suse.de;
+	dkim=pass header.d=suse.com header.s=susede1 header.b=Mj0SvOTa
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.com; s=susede1;
+	t=1759736800; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=ZvM0T1diHWLFh/V+o8K67eUpGrN/UfnAd4xBYpsVxkk=;
+	b=Mj0SvOTaiIuBEpCQDoFUpGXaEPQdCLGR3daX6OuudI64Ra6trTD7+IdfsEixk15QUFCvgT
+	u1S/J/t7UvHt+0FQjCC2eF78iJmjm1bW7g5177ojixoHO8zoURCy7g9ZExN3zhcntfthPG
+	48Ixziy2rUm+DhnmH/OyrvVUV1lk+rI=
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id BBF8313A7E;
+	Mon,  6 Oct 2025 07:46:39 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id MyJwLN9z42hcHgAAD6G6ig
+	(envelope-from <jgross@suse.com>); Mon, 06 Oct 2025 07:46:39 +0000
+From: Juergen Gross <jgross@suse.com>
+To: linux-kernel@vger.kernel.org,
+	x86@kernel.org,
+	virtualization@lists.linux.dev,
+	loongarch@lists.linux.dev,
+	linuxppc-dev@lists.ozlabs.org,
+	linux-riscv@lists.infradead.org
+Cc: Juergen Gross <jgross@suse.com>,
+	Ajay Kaher <ajay.kaher@broadcom.com>,
+	Alexey Makhalov <alexey.makhalov@broadcom.com>,
+	Broadcom internal kernel review list <bcm-kernel-feedback-list@broadcom.com>,
+	Russell King <linux@armlinux.org.uk>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Huacai Chen <chenhuacai@kernel.org>,
+	WANG Xuerui <kernel@xen0n.name>,
+	Madhavan Srinivasan <maddy@linux.ibm.com>,
+	Michael Ellerman <mpe@ellerman.id.au>,
+	Nicholas Piggin <npiggin@gmail.com>,
+	Christophe Leroy <christophe.leroy@csgroup.eu>,
+	Paul Walmsley <pjw@kernel.org>,
+	Palmer Dabbelt <palmer@dabbelt.com>,
+	Albert Ou <aou@eecs.berkeley.edu>,
+	Alexandre Ghiti <alex@ghiti.fr>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>,
+	Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Juri Lelli <juri.lelli@redhat.com>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	Dietmar Eggemann <dietmar.eggemann@arm.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ben Segall <bsegall@google.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Valentin Schneider <vschneid@redhat.com>,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH v3 05/21] paravirt: Remove asm/paravirt_api_clock.h
+Date: Mon,  6 Oct 2025 09:45:50 +0200
+Message-ID: <20251006074606.1266-6-jgross@suse.com>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251006074606.1266-1-jgross@suse.com>
+References: <20251006074606.1266-1-jgross@suse.com>
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Rspamd-Queue-Id: D837A1F789
+X-Rspamd-Action: no action
+X-Rspamd-Server: rspamd1.dmz-prg2.suse.org
+X-Spamd-Result: default: False [-3.01 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	MID_CONTAINS_FROM(1.00)[];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	R_MISSING_CHARSET(0.50)[];
+	R_DKIM_ALLOW(-0.20)[suse.com:s=susede1];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	MX_GOOD(-0.01)[];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	RCVD_COUNT_TWO(0.00)[2];
+	DKIM_SIGNED(0.00)[suse.com:s=susede1];
+	RBL_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	SPAMHAUS_XBL(0.00)[2a07:de40:b281:104:10:150:64:97:from];
+	RCPT_COUNT_TWELVE(0.00)[37];
+	URIBL_BLOCKED(0.00)[suse.com:dkim,suse.com:mid,suse.com:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,infradead.org:email];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	RECEIVED_SPAMHAUS_BLOCKED_OPENRESOLVER(0.00)[2a07:de40:b281:106:10:150:64:167:received];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[infradead.org:email,imap1.dmz-prg2.suse.org:rdns,imap1.dmz-prg2.suse.org:helo,suse.com:dkim,suse.com:mid,suse.com:email];
+	FROM_EQ_ENVFROM(0.00)[];
+	R_RATELIMIT(0.00)[to_ip_from(RLkdkdrsxe9hqhhs5ask8616i6)];
+	RCVD_TLS_ALL(0.00)[];
+	DKIM_TRACE(0.00)[suse.com:+];
+	TO_DN_SOME(0.00)[];
+	FREEMAIL_CC(0.00)[suse.com,broadcom.com,armlinux.org.uk,arm.com,kernel.org,xen0n.name,linux.ibm.com,ellerman.id.au,gmail.com,csgroup.eu,dabbelt.com,eecs.berkeley.edu,ghiti.fr,linutronix.de,redhat.com,alien8.de,linux.intel.com,zytor.com,infradead.org,linaro.org,goodmis.org,google.com,suse.de,lists.infradead.org];
+	FREEMAIL_ENVRCPT(0.00)[gmail.com]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_000630_550885_21472B68 
-X-CRM114-Status: GOOD (  24.86  )
+X-CRM114-CacheID: sfid-20251006_004642_671901_539A1AF5 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,127 +159,89 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2025-10-03 at 13:24 -0500, Sam Protsenko wrote:
-> On Thu, Oct 2, 2025 at 5:33=E2=80=AFAM Andr=C3=A9 Draszik <andre.draszik@=
-linaro.org> wrote:
-> >=20
-> > Accessing non-existent PMU registers causes an SError, halting the
-> > system.
-> >=20
-> > Implement read and write access tables for the gs101-PMU to specify
-> > which registers are read- and/or writable to avoid that SError.
-> >=20
-> > Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
->=20
-> I think having "Fixes:" tag would be justified here?
+All architectures supporting CONFIG_PARAVIRT share the same contents
+of asm/paravirt_api_clock.h:
 
-I decided against, because IMHO it's not a bug fix as such, it's a new feat=
-ure.
->=20
+  #include <asm/paravirt.h>
 
-> > ---
-> > Note there are checkpatch warnings 'Macros with complex values should
-> > be enclosed in parentheses' and 'Macro argument reuse' for macros like
-> > CLUSTER_CPU_RANGE(). Since they are used in an initialiser, the only
-> > way to get rid of the warnings is to avoid the macros and duplicate all
-> > the related register ranges I believe, which I'd rather not due to the
-> > sheer amount of similar blocks.
-> > ---
-> > =C2=A0drivers/soc/samsung/gs101-pmu.c=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 306 ++++++++++++++++++++++++-
-> > =C2=A0include/linux/soc/samsung/exynos-regs-pmu.h | 343 +++++++++++++++=
-++++++++++++-
-> > =C2=A02 files changed, 640 insertions(+), 9 deletions(-)
-> >=20
-> > diff --git a/drivers/soc/samsung/gs101-pmu.c b/drivers/soc/samsung/gs10=
-1-pmu.c
-> > index b5a535822ec830b751e36a33121e2a03ef2ebcb2..5be1cbfa58c95e466bbdf95=
-4923f324f74460783 100644
-> > --- a/drivers/soc/samsung/gs101-pmu.c
-> > +++ b/drivers/soc/samsung/gs101-pmu.c
-> > @@ -8,6 +8,7 @@
-> > =C2=A0#include <linux/array_size.h>
-> > =C2=A0#include <linux/soc/samsung/exynos-pmu.h>
-> > =C2=A0#include <linux/soc/samsung/exynos-regs-pmu.h>
-> > +#include <linux/regmap.h>
->=20
-> If you decide to add this line to exynos-pmu.h (as I commented in the
-> preceding patch), it can then be omitted here.
->=20
-> >=20
-> > =C2=A0#include "exynos-pmu.h"
-> >=20
-> > @@ -19,9 +20,312 @@
-> > =C2=A0#define TENSOR_PMUREG_WRITE=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 1
-> > =C2=A0#define TENSOR_PMUREG_RMW=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 2
+So remove all incarnations of asm/paravirt_api_clock.h and remove the
+only place where it is included, as there asm/paravirt.h is included
+anyway.
 
-[...]
+Signed-off-by: Juergen Gross <jgross@suse.com>
+Acked-by: Peter Zijlstra (Intel) <peterz@infradead.org>
+---
+ arch/arm/include/asm/paravirt_api_clock.h       | 1 -
+ arch/arm64/include/asm/paravirt_api_clock.h     | 1 -
+ arch/loongarch/include/asm/paravirt_api_clock.h | 1 -
+ arch/powerpc/include/asm/paravirt_api_clock.h   | 2 --
+ arch/riscv/include/asm/paravirt_api_clock.h     | 1 -
+ arch/x86/include/asm/paravirt_api_clock.h       | 1 -
+ kernel/sched/sched.h                            | 1 -
+ 7 files changed, 8 deletions(-)
+ delete mode 100644 arch/arm/include/asm/paravirt_api_clock.h
+ delete mode 100644 arch/arm64/include/asm/paravirt_api_clock.h
+ delete mode 100644 arch/loongarch/include/asm/paravirt_api_clock.h
+ delete mode 100644 arch/powerpc/include/asm/paravirt_api_clock.h
+ delete mode 100644 arch/riscv/include/asm/paravirt_api_clock.h
+ delete mode 100644 arch/x86/include/asm/paravirt_api_clock.h
 
-> > +#define CLUSTER_NONCPU_RANGE(cl)=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 \
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 regmap_reg_range(GS101_CLUSTER_NO=
-NCPU_IN(cl),=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 \
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 GS101=
-_CLUSTER_NONCPU_IN(cl)),=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 \
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 regmap_reg_range(GS101_CLUSTER_NO=
-NCPU_INT_IN(cl),=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0 \
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 GS101=
-_CLUSTER_NONCPU_INT_IN(cl)),=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 \
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 regmap_reg_range(GS101_CLUSTER_NO=
-NCPU_DUALRAIL_CTRL_IN(cl),=C2=A0=C2=A0=C2=A0=C2=A0 \
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 GS101=
-_CLUSTER_NONCPU_DUALRAIL_CTRL_IN(cl))
-> > +
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 CLUSTER_NONCPU_RANGE(0),
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 CLUSTER_NONCPU_RANGE(1),
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 CLUSTER_NONCPU_RANGE(2),
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 regmap_reg_range(GS101_CLUSTER_NO=
-NCPU_INT_EN(2),
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 GS101=
-_CLUSTER_NONCPU_INT_DIR(2)),
-> > +#undef CLUSTER_NONCPU_RANGE
-> > +
-> > +#define SUBBLK_RANGE(blk)=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
- \
->=20
-> Reusing the same names for different macros seems a bit confusing. But
-> that might be just a matter of my taste, so no strong opinion.
+diff --git a/arch/arm/include/asm/paravirt_api_clock.h b/arch/arm/include/asm/paravirt_api_clock.h
+deleted file mode 100644
+index 65ac7cee0dad..000000000000
+--- a/arch/arm/include/asm/paravirt_api_clock.h
++++ /dev/null
+@@ -1 +0,0 @@
+-#include <asm/paravirt.h>
+diff --git a/arch/arm64/include/asm/paravirt_api_clock.h b/arch/arm64/include/asm/paravirt_api_clock.h
+deleted file mode 100644
+index 65ac7cee0dad..000000000000
+--- a/arch/arm64/include/asm/paravirt_api_clock.h
++++ /dev/null
+@@ -1 +0,0 @@
+-#include <asm/paravirt.h>
+diff --git a/arch/loongarch/include/asm/paravirt_api_clock.h b/arch/loongarch/include/asm/paravirt_api_clock.h
+deleted file mode 100644
+index 65ac7cee0dad..000000000000
+--- a/arch/loongarch/include/asm/paravirt_api_clock.h
++++ /dev/null
+@@ -1 +0,0 @@
+-#include <asm/paravirt.h>
+diff --git a/arch/powerpc/include/asm/paravirt_api_clock.h b/arch/powerpc/include/asm/paravirt_api_clock.h
+deleted file mode 100644
+index d25ca7ac57c7..000000000000
+--- a/arch/powerpc/include/asm/paravirt_api_clock.h
++++ /dev/null
+@@ -1,2 +0,0 @@
+-/* SPDX-License-Identifier: GPL-2.0 */
+-#include <asm/paravirt.h>
+diff --git a/arch/riscv/include/asm/paravirt_api_clock.h b/arch/riscv/include/asm/paravirt_api_clock.h
+deleted file mode 100644
+index 65ac7cee0dad..000000000000
+--- a/arch/riscv/include/asm/paravirt_api_clock.h
++++ /dev/null
+@@ -1 +0,0 @@
+-#include <asm/paravirt.h>
+diff --git a/arch/x86/include/asm/paravirt_api_clock.h b/arch/x86/include/asm/paravirt_api_clock.h
+deleted file mode 100644
+index 65ac7cee0dad..000000000000
+--- a/arch/x86/include/asm/paravirt_api_clock.h
++++ /dev/null
+@@ -1 +0,0 @@
+-#include <asm/paravirt.h>
+diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+index 1f5d07067f60..0d0fa13cab5c 100644
+--- a/kernel/sched/sched.h
++++ b/kernel/sched/sched.h
+@@ -84,7 +84,6 @@ struct cpuidle_state;
+ 
+ #ifdef CONFIG_PARAVIRT
+ # include <asm/paravirt.h>
+-# include <asm/paravirt_api_clock.h>
+ #endif
+ 
+ #include <asm/barrier.h>
+-- 
+2.51.0
 
-And I OTOH explicitly picked the same name because it's the same block, jus=
-t
-for r/o instead of r/w :-)
-
-[...]
-
->=20
-> That's quite an extensive list of registers! Does this PMU driver
-> really have to cover all of those?
-
-That's what all Samsung PMU drivers do, it's the PMU region after all.=C2=
-=A0Also,
-in the gs101 case, only the PMU driver knows how to do the secure access:=
-=C2=A0Various
-other drivers have references to this PMU regmap, e.g. phy drivers for isol=
-ation
-(USB & UFS) and upcoming PD driver will do too. We don't want to reimplemen=
-t
-secure access in all of those.
-
-Cheers,
-Andre'
 
