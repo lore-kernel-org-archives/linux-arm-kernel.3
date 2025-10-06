@@ -4,98 +4,117 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E846CCA471
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 23:22:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49BCCCCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 23:26:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HdBa1dNHqFCAS2+hTTbLrjvc4+nTHZT05jW4kQYHqAU=; b=1yrXmLnoRDY8l/hZe5DI5D9Rfx
-	Y8Lug9y12yMH+mPCKtTs1yamV2Zx776DQe03y9lano8+EYDVnz7lqTZ9eSpLwxNoyxPAhBiuOCgs6
-	ZnlW3CEVJOuN8bVNjY2GDmkOc1NQF8Y3demwPHTPawMx9tpvzXhUUbX9LH1I+vnKwSE9c/TS8BuPf
-	dl3wPyhQlmc9K5QfBIqC/kvlnzCp7zC0BB+/jbVFm0H10ZLuoYMMeLHQ/0I35G7aAjhEV/SyBU+lv
-	Ku4K8a71WGgNUjC/jUJOKgudKIOOndvUfq1hByZShiaLSJDhNo/DJ6SxGpzSWeO48TSZOnOBT+4pt
-	/0vnerXw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=NyB/2Pk5wijagVYBD6/smx6bBOT8c4NVWW3i8n/rIkA=; b=faw7L4Ym1f+2yNw3lesPECwnUc
+	MPydT/8j2vZGEVJP/O7VgXs7i6zqfZIz3DFF4zK31+ueOjYEaSNMfHm8fUp1TtvDDD3TXD+huUIcc
+	zT+F5JjUcTlP9U65YV10mS80rlWsyiLPxaAxJhqRn45GirMPRl6z7GRKDGSYue+YkxxMTQ9CPyUX9
+	e3SvTCO9zPrPFZXvilqSLfOyXZ+YHPvH0VvSw7eZVs07KQ1CcTvskk4bJGUZ3Mu8OBYGr00KMzjGL
+	i2b17UnNF5IHpeN70ZMwd1GT1mX5qEx1Ia7uqK9EMNgDDRVlCWTTVorWVqfaeAVdIl4w5Fdywgnsq
+	rVeRGnqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5uWu-00000000zxI-0gvI;
-	Mon, 06 Oct 2025 23:22:08 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v5uar-000000010e4-0gk9;
+	Mon, 06 Oct 2025 23:26:13 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5uWs-00000000zw4-3whc
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 06 Oct 2025 23:22:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:From:Subject:
-	Message-ID:References:Mime-Version:In-Reply-To:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=HdBa1dNHqFCAS2+hTTbLrjvc4+nTHZT05jW4kQYHqAU=; b=gxRBRbwINjYpKfv0wu/Gvd12Gh
-	Ya/ysvxcYcFPRx9mzVmgdVBbNNhFDtxOAbSlrJX8WugVZrZP4aaXgHB7p32fEpWGZ51Rb3L7tKWTz
-	Y3ySUN5gndporAjH3uajGSg5VGa8zJqbvuS5N6c/fZyWFYoVpnp2aJ4d6j33jxBIODgeH08ke13lA
-	d80jTuKWKHrCx6yDdhX+dJmc7+3M0IIjxGDGmGtPUVB6LdPSbqDDLEJOWjZUaFlDB2d9ram1jAPUU
-	0rAoYcVHaLGsgN7sHSYHx8Rwg1rOyVtKYfHrrlko1BToUH3Y93AP7YccSgHlRzevtwCkmkZbWJ3g0
-	k+/6RbBg==;
-Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5uWo-0000000HFYa-1op0
+	id 1v5uap-000000010dk-0HU0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Oct 2025 23:22:05 +0000
-Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-32eb18b5659so4585090a91.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Oct 2025 16:22:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1759792918; x=1760397718; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=HdBa1dNHqFCAS2+hTTbLrjvc4+nTHZT05jW4kQYHqAU=;
-        b=h74nSn2WVm50ojN1/wf+cwbixZJN77ek3CNhYKvStXvA27nAB0cbF6p2WOgt7aRkJC
-         483A38AnlLIv4LEnxmoqWVITsW87KHxpWuJd233GQbtC1G9gjV5zzxFiZ3qG8F6nbaxI
-         vHsF/jh2aIaSh6/5lMfb1FD+vLpTTwQg01mWRVrsjWIAcDIbeGx2VrQAChUDwQsRPSYj
-         qIDlUbMtR03gAzye+QdG9vo0XrukWGVUkOU5od/v2zB3U8uumB3eXkoMJEVEWeB9kx3a
-         4kFqQFDjmNRU/VKSocogi5KTYbl0H41Avc30dQDZjixF12D4LQ6EnnKTxGrs4r9OJDLP
-         +NuQ==
+	Mon, 06 Oct 2025 23:26:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1759793170;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=NyB/2Pk5wijagVYBD6/smx6bBOT8c4NVWW3i8n/rIkA=;
+	b=AbLHdYro6p8XL/0/7lrqOPWhCRymXVEihMuEjBT0EjLc/O/SZgAh0J72LviqtvDFtTlDL0
+	AfcXYhtYpV5OZC9rSqz+tkNvOu/7M/QJ3oTlwuCPjFf61nYmNRodlpxROl74W+2MiDFK+M
+	ztm8QowS6okKwCIcuWRJQcRoXBZbyAY=
+Received: from mail-pj1-f71.google.com (mail-pj1-f71.google.com
+ [209.85.216.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-186-PEBOn8Z5O9eifOf4m0Rc5A-1; Mon, 06 Oct 2025 19:26:08 -0400
+X-MC-Unique: PEBOn8Z5O9eifOf4m0Rc5A-1
+X-Mimecast-MFC-AGG-ID: PEBOn8Z5O9eifOf4m0Rc5A_1759793167
+Received: by mail-pj1-f71.google.com with SMTP id 98e67ed59e1d1-3352a336ee1so10021127a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Oct 2025 16:26:08 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759792918; x=1760397718;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=HdBa1dNHqFCAS2+hTTbLrjvc4+nTHZT05jW4kQYHqAU=;
-        b=HNs3L3kEcXsvxUrkt1ZBZkavwoZ73o/fh1Dw89gVk10AT00yuh4UjC7fWWpyI5cfXP
-         bBGg+U4E7HqTDHEX6inXVJgGwLBknlbg+sfbmYq/OC6+5fHKUHPSQfTbdPJuXUMaMTbg
-         Exnzs5H5HeLovhTxb7FjMHTaqE4q4RqPh52eOOY9w6KnAltOgUhs1ulc5ayYC1A3+8uz
-         f8vqz7iMrYI8PNBWkXg59ZHo5LAjmkgtlzYFp1SAMc6nqV5XIJ4CSgVe4Ighj/0aZ4NQ
-         cLIoaCpH2zONMl5tcHoWu4zH9gawUog08dAyong13TPe5L5/Qmmh3/ZqEwGS59hNGqYP
-         emeg==
-X-Forwarded-Encrypted: i=1; AJvYcCVn5vZbboqZsx3G3qZHZjdE+n/YfcWAZAofUmNbnSOvrnhsq2ioezJeB8WuiRpauIkmcpev95uakR5O/jv1aZ+a@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw/KDIivy1xG3KEdHcQLCDFwn/x7MnEDP5Gi7PZ6f0ou3I9aq/v
-	7xY+STmcrkdgFW/xXlMXQmznBU56Aldicie2ZHUI9RAUMARaUDcRJYaYi1XLzb/u62sa/P7iYah
-	ezUQ3PQ==
-X-Google-Smtp-Source: AGHT+IHCrazxJE0VodxQkYh/ySiAwffUOkcLakkOzySzdYCDetGseFf+qCf9zIoQeCWY/XlH7ga9uvTYgzY=
-X-Received: from pjbb16.prod.google.com ([2002:a17:90a:110:b0:32f:46d:993b])
- (user=royluo job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:4a8f:b0:330:852e:2bcc
- with SMTP id 98e67ed59e1d1-339c27b94e9mr15676987a91.21.1759792918222; Mon, 06
- Oct 2025 16:21:58 -0700 (PDT)
-Date: Mon,  6 Oct 2025 23:21:24 +0000
-In-Reply-To: <20251006232125.1833979-1-royluo@google.com>
-Mime-Version: 1.0
-References: <20251006232125.1833979-1-royluo@google.com>
-X-Mailer: git-send-email 2.51.0.618.g983fd99d29-goog
-Message-ID: <20251006232125.1833979-4-royluo@google.com>
-Subject: [PATCH v1 3/4] usb: dwc3: Add Google SoC USB PHY driver
-From: Roy Luo <royluo@google.com>
-To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, Peter Griffin <peter.griffin@linaro.org>, 
-	"=?UTF-8?q?Andr=C3=A9=20Draszik?=" <andre.draszik@linaro.org>, Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>, Roy Luo <royluo@google.com>, 
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+        d=1e100.net; s=20230601; t=1759793167; x=1760397967;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=NyB/2Pk5wijagVYBD6/smx6bBOT8c4NVWW3i8n/rIkA=;
+        b=V9gCGK4prnlyu23H0X3B5amaBqSWvoN+SeDUF7ldQ5+vFz/9RI7F7aLKjNUPDcSzeJ
+         0zqO4Sh6W8mIcWHpfYgbGZd8jQQ32oyUqQz9TaWt56zNCVz+kqHuE7P99Lhh2Gso89aQ
+         fv2EM9N1JdQTlwxlpbkJC2kE2DZ/ZoTYoVk4koOaTFxsAu02QaislQuk4MybrRLLXrSF
+         nEU3XfVr67TsJ9uIbw1PJmOoKDsfpuJjsqYAiFmTMmLqvpR68Im1qdx2QaxWO+iL8W3e
+         dZ4uvnvFqZmV0zC1HIkaa1xe0mUZecCSTpo3d/1LuBbClEVtcsGFOFlspBAAYocnnhnq
+         evTA==
+X-Forwarded-Encrypted: i=1; AJvYcCWz9LaO6Bx3uSRk50043YGdk3pgpJMdehlF41pq48WAc+pbE7+iylQwl48kdCxnGk7XOXmveSnmwzSkGtnnnhRN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy6VZxU+hWK9zK6cMd4zDHT1YA/SCENit83NPoI16i3CYPO0KYp
+	2yn890Ux8eCx9wUxSvzQCC50JwS6PUKc3r5uTU88LKs+5s52P5HNc4Ghm6uU/yiLWJLWG/anfIG
+	BsyF921kzsVG1vk8f8pFHgCPas/MTg1He9xzvSzcmej9wYfuga9YhxuWSB5WuD1Qta3CljDyUHd
+	eP
+X-Gm-Gg: ASbGncsTTELjDIQ7e+UvkImfgqCv36+n7aJ8rH8r/43oIrrBiali7xBWqG1QPA2SxAe
+	LU8Oklf6rjOkdb/c72ooDrBKyhZjpwurENfavhqjg2vVgEaJyF5lsHyi59Li6qTkAFWoeH7Ng/x
+	ZlnIJlQoyk05810bVzZuHBImN1fyyT+RHbXS+PHCe3q+3xS2krIHYwC12yEv8DMChfbcoSSlhSC
+	PsbgzZJmFMba2VbtS3H037QxXbWz4+M7YubTbS2iJSsEI01rS8tOB4lr6j3J53MOFhEKoeH9xmF
+	OilPqPukasR5FWV0suqhqtmB5KChTY5/p+b4s+jUklXa/B3GG+JXwpvybSwd6wER3Mpva94UVT8
+	/DEMm+r49IA==
+X-Received: by 2002:a17:90b:4a8c:b0:32b:cb05:849a with SMTP id 98e67ed59e1d1-339c27bc475mr17899831a91.29.1759793167276;
+        Mon, 06 Oct 2025 16:26:07 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IERIFLl8GkviCDqbLVDIbfSKCg91e+HAkaXDPlbRbY5H7aG5yx3n7cRQWkYPRFuLdo2BGpp1g==
+X-Received: by 2002:a17:90b:4a8c:b0:32b:cb05:849a with SMTP id 98e67ed59e1d1-339c27bc475mr17899797a91.29.1759793166872;
+        Mon, 06 Oct 2025 16:26:06 -0700 (PDT)
+Received: from [192.168.68.51] (n175-34-62-5.mrk21.qld.optusnet.com.au. [175.34.62.5])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-339a6ff256dsm17874793a91.16.2025.10.06.16.25.55
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 06 Oct 2025 16:26:06 -0700 (PDT)
+Message-ID: <92e05ef2-356b-4c1f-99c3-1e7482775cdc@redhat.com>
+Date: Tue, 7 Oct 2025 09:25:53 +1000
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 09/29] arm_mpam: Add MPAM MSC register layout
+ definitions
+To: James Morse <james.morse@arm.com>, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
+Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
+ <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
+ Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
+ <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>, Ben Horgan <ben.horgan@arm.com>
+References: <20250910204309.20751-1-james.morse@arm.com>
+ <20250910204309.20751-10-james.morse@arm.com>
+From: Gavin Shan <gshan@redhat.com>
+In-Reply-To: <20250910204309.20751-10-james.morse@arm.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: nvJtIIFSKtgpAm875eHCH1K7psffU9zsFpXPu-A7FNM_1759793167
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_002202_548904_6E75E6F3 
-X-CRM114-Status: GOOD (  26.24  )
+X-CRM114-CacheID: sfid-20251006_162611_182249_839CDDF2 
+X-CRM114-Status: GOOD (  18.48  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,374 +129,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Support the USB PHY found on Google Tensor SoCs.
-This particular USB PHY supports both high-speed and super-speed
-operations, and is paired with the SNPS DWC3 controller that's also
-integrated on the SoCs.
-This initial patch specifically adds functionality for high-speed.
+Hi James,
 
-Co-developed-by: Joy Chakraborty <joychakr@google.com>
-Signed-off-by: Joy Chakraborty <joychakr@google.com>
-Co-developed-by: Naveen Kumar <mnkumar@google.com>
-Signed-off-by: Naveen Kumar <mnkumar@google.com>
-Signed-off-by: Roy Luo <royluo@google.com>
----
- drivers/phy/Kconfig                 |   1 +
- drivers/phy/Makefile                |   1 +
- drivers/phy/google/Kconfig          |  15 ++
- drivers/phy/google/Makefile         |   2 +
- drivers/phy/google/phy-google-usb.c | 286 ++++++++++++++++++++++++++++
- 5 files changed, 305 insertions(+)
- create mode 100644 drivers/phy/google/Kconfig
- create mode 100644 drivers/phy/google/Makefile
- create mode 100644 drivers/phy/google/phy-google-usb.c
+On 9/11/25 6:42 AM, James Morse wrote:
+> Memory Partitioning and Monitoring (MPAM) has memory mapped devices
+> (MSCs) with an identity/configuration page.
+> 
+> Add the definitions for these registers as offset within the page(s).
+> 
+> Link: https://developer.arm.com/documentation/ihi0099/latest/
+> Signed-off-by: James Morse <james.morse@arm.com>
+> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
+> ---
+> Changes since v1:
+>   * Whitespace.
+>   * Added constants for CASSOC and XCL.
+>   * Merged FLT/CTL defines.
+>   * Fixed MSMON_CFG_CSU_CTL_TYPE_CSU definition.
+> 
+> Changes since RFC:
+>   * Renamed MSMON_CFG_MBWU_CTL_TYPE_CSU as MSMON_CFG_CSU_CTL_TYPE_CSU
+>   * Whitepsace churn.
+>   * Cite a more recent document.
+>   * Removed some stale feature, fixed some names etc.
+> ---
+>   drivers/resctrl/mpam_internal.h | 267 ++++++++++++++++++++++++++++++++
+>   1 file changed, 267 insertions(+)
+> 
+> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+> index 02e9576ece6b..109f03df46c2 100644
+> --- a/drivers/resctrl/mpam_internal.h
+> +++ b/drivers/resctrl/mpam_internal.h
+> @@ -152,4 +152,271 @@ extern struct list_head mpam_classes;
+>   int mpam_get_cpumask_from_cache_id(unsigned long cache_id, u32 cache_level,
+>   				   cpumask_t *affinity);
+>   
+> +/*
+> + * MPAM MSCs have the following register layout. See:
+> + * Arm Memory System Resource Partitioning and Monitoring (MPAM) System
+> + * Component Specification.
+> + * https://developer.arm.com/documentation/ihi0099/latest/
+> + */
+> +#define MPAM_ARCHITECTURE_V1    0x10
+> +
+> +/* Memory mapped control pages: */
 
-diff --git a/drivers/phy/Kconfig b/drivers/phy/Kconfig
-index 58c911e1b2d2..7772c04d5f5c 100644
---- a/drivers/phy/Kconfig
-+++ b/drivers/phy/Kconfig
-@@ -106,6 +106,7 @@ source "drivers/phy/amlogic/Kconfig"
- source "drivers/phy/broadcom/Kconfig"
- source "drivers/phy/cadence/Kconfig"
- source "drivers/phy/freescale/Kconfig"
-+source "drivers/phy/google/Kconfig"
- source "drivers/phy/hisilicon/Kconfig"
- source "drivers/phy/ingenic/Kconfig"
- source "drivers/phy/lantiq/Kconfig"
-diff --git a/drivers/phy/Makefile b/drivers/phy/Makefile
-index c670a8dac468..1b6dd784351c 100644
---- a/drivers/phy/Makefile
-+++ b/drivers/phy/Makefile
-@@ -18,6 +18,7 @@ obj-y					+= allwinner/	\
- 					   broadcom/	\
- 					   cadence/	\
- 					   freescale/	\
-+					   google/	\
- 					   hisilicon/	\
- 					   ingenic/	\
- 					   intel/	\
-diff --git a/drivers/phy/google/Kconfig b/drivers/phy/google/Kconfig
-new file mode 100644
-index 000000000000..2ba13b77c819
---- /dev/null
-+++ b/drivers/phy/google/Kconfig
-@@ -0,0 +1,15 @@
-+# SPDX-License-Identifier: GPL-2.0
-+#
-+# Phy drivers for Google platforms
-+#
-+config PHY_GOOGLE_USB
-+	tristate "Google Tensor SoC series USB PHY driver"
-+	depends on HAS_IOMEM
-+	depends on OF
-+	depends on TYPEC
-+	depends on USB_DWC3_GOOGLE
-+	select GENERIC_PHY
-+	default y
-+	help
-+	  Add support for the USB PHY on Google SoC series, providing
-+	  the PHY interface for the integrated USB DRD controller.
-diff --git a/drivers/phy/google/Makefile b/drivers/phy/google/Makefile
-new file mode 100644
-index 000000000000..f926bd033533
---- /dev/null
-+++ b/drivers/phy/google/Makefile
-@@ -0,0 +1,2 @@
-+# SPDX-License-Identifier: GPL-2.0
-+obj-$(CONFIG_PHY_GOOGLE_USB)	+= phy-google-usb.o
-diff --git a/drivers/phy/google/phy-google-usb.c b/drivers/phy/google/phy-google-usb.c
-new file mode 100644
-index 000000000000..f666ea6fbd4e
---- /dev/null
-+++ b/drivers/phy/google/phy-google-usb.c
-@@ -0,0 +1,286 @@
-+// SPDX-License-Identifier: GPL-2.0
-+/*
-+ * phy-google-usb.c - Google USB PHY driver
-+ *
-+ * Copyright (C) 2025, Google LLC
-+ */
-+
-+#include <linux/bitfield.h>
-+#include <linux/clk.h>
-+#include <linux/reset.h>
-+#include <linux/io.h>
-+#include <linux/kernel.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/phy/phy.h>
-+#include <linux/platform_device.h>
-+#include <linux/mutex.h>
-+#include <linux/cleanup.h>
-+#include <linux/usb/typec_mux.h>
-+
-+#define USBCS_USB2PHY_CFG19_OFFSET 0x0
-+#define USBCS_USB2PHY_CFG19_PHY_CFG_PLL_FB_DIV GENMASK(19, 8)
-+
-+#define USBCS_USB2PHY_CFG21_OFFSET 0x8
-+#define USBCS_USB2PHY_CFG21_PHY_ENABLE BIT(12)
-+#define USBCS_USB2PHY_CFG21_REF_FREQ_SEL GENMASK(15, 13)
-+#define USBCS_USB2PHY_CFG21_PHY_TX_DIG_BYPASS_SEL BIT(19)
-+
-+#define USBCS_PHY_CFG1_OFFSET 0x28
-+#define USBCS_PHY_CFG1_SYS_VBUSVALID BIT(17)
-+
-+#define USBCS_TOP_CTRL_CFG1_OFFSET 0x0
-+#define USBCS_TOP_CTRL_CFG1_USB2ONLY_MODE BIT(5)
-+
-+enum google_usb_phy_id {
-+	GOOGLE_USB2_PHY,
-+	GOOGLE_USB_PHY_NUM,
-+};
-+
-+struct google_usb_phy_instance {
-+	int index;
-+	struct phy *phy;
-+	struct clk *clk;
-+	struct reset_control *rst;
-+};
-+
-+struct google_usb_phy {
-+	struct device *dev;
-+	void __iomem *usb2_cfg_base;
-+	void __iomem *dp_top_base;
-+	void __iomem *usb_top_cfg_base;
-+	struct google_usb_phy_instance insts[GOOGLE_USB_PHY_NUM];
-+	/* serialize phy access */
-+	struct mutex phy_mutex;
-+	struct typec_switch_dev *sw;
-+	enum typec_orientation orientation;
-+};
-+
-+static inline struct google_usb_phy *to_google_usb_phy(struct google_usb_phy_instance *inst)
-+{
-+	return container_of(inst, struct google_usb_phy, insts[inst->index]);
-+}
-+
-+static void set_vbus_valid(struct google_usb_phy *gphy)
-+{
-+	u32 reg;
-+
-+	if (gphy->orientation == TYPEC_ORIENTATION_NONE) {
-+		reg = readl(gphy->dp_top_base + USBCS_PHY_CFG1_OFFSET);
-+		reg &= ~USBCS_PHY_CFG1_SYS_VBUSVALID;
-+		writel(reg, gphy->dp_top_base + USBCS_PHY_CFG1_OFFSET);
-+	} else {
-+		reg = readl(gphy->dp_top_base + USBCS_PHY_CFG1_OFFSET);
-+		reg |= USBCS_PHY_CFG1_SYS_VBUSVALID;
-+		writel(reg, gphy->dp_top_base + USBCS_PHY_CFG1_OFFSET);
-+	}
-+}
-+
-+static int google_usb_set_orientation(struct typec_switch_dev *sw,
-+				      enum typec_orientation orientation)
-+{
-+	struct google_usb_phy *gphy = typec_switch_get_drvdata(sw);
-+
-+	dev_dbg(gphy->dev, "set orientation %d\n", orientation);
-+
-+	gphy->orientation = orientation;
-+
-+	if (pm_runtime_suspended(gphy->dev))
-+		return 0;
-+
-+	guard(mutex)(&gphy->phy_mutex);
-+
-+	set_vbus_valid(gphy);
-+
-+	return 0;
-+}
-+
-+static int google_usb2_phy_init(struct phy *_phy)
-+{
-+	struct google_usb_phy_instance *inst = phy_get_drvdata(_phy);
-+	struct google_usb_phy *gphy = to_google_usb_phy(inst);
-+	u32 reg;
-+	int ret = 0;
-+
-+	dev_dbg(gphy->dev, "initializing usb2 phy\n");
-+
-+	guard(mutex)(&gphy->phy_mutex);
-+
-+	 /*
-+	  * TODO: usb2only mode should be removed once usb3 is supported
-+	  */
-+	reg = readl(gphy->usb_top_cfg_base + USBCS_TOP_CTRL_CFG1_OFFSET);
-+	reg |= USBCS_TOP_CTRL_CFG1_USB2ONLY_MODE;
-+	writel(reg, gphy->usb_top_cfg_base + USBCS_TOP_CTRL_CFG1_OFFSET);
-+
-+	reg = readl(gphy->usb2_cfg_base + USBCS_USB2PHY_CFG21_OFFSET);
-+	reg &= ~USBCS_USB2PHY_CFG21_PHY_TX_DIG_BYPASS_SEL;
-+	reg &= ~USBCS_USB2PHY_CFG21_REF_FREQ_SEL;
-+	reg |= FIELD_PREP(USBCS_USB2PHY_CFG21_REF_FREQ_SEL, 0);
-+	writel(reg, gphy->usb2_cfg_base + USBCS_USB2PHY_CFG21_OFFSET);
-+
-+	reg = readl(gphy->usb2_cfg_base + USBCS_USB2PHY_CFG19_OFFSET);
-+	reg &= ~USBCS_USB2PHY_CFG19_PHY_CFG_PLL_FB_DIV;
-+	reg |= FIELD_PREP(USBCS_USB2PHY_CFG19_PHY_CFG_PLL_FB_DIV, 368);
-+	writel(reg, gphy->usb2_cfg_base + USBCS_USB2PHY_CFG19_OFFSET);
-+
-+	set_vbus_valid(gphy);
-+
-+	ret = clk_prepare_enable(inst->clk);
-+	if (ret)
-+		return ret;
-+
-+	ret = reset_control_deassert(inst->rst);
-+	if (ret) {
-+		clk_disable_unprepare(inst->clk);
-+		return ret;
-+	}
-+
-+	reg = readl(gphy->usb2_cfg_base + USBCS_USB2PHY_CFG21_OFFSET);
-+	reg |= USBCS_USB2PHY_CFG21_PHY_ENABLE;
-+	writel(reg, gphy->usb2_cfg_base + USBCS_USB2PHY_CFG21_OFFSET);
-+
-+	return ret;
-+}
-+
-+static int google_usb2_phy_exit(struct phy *_phy)
-+{
-+	struct google_usb_phy_instance *inst = phy_get_drvdata(_phy);
-+	struct google_usb_phy *gphy = to_google_usb_phy(inst);
-+	u32 reg;
-+
-+	dev_dbg(gphy->dev, "exiting usb2 phy\n");
-+
-+	guard(mutex)(&gphy->phy_mutex);
-+
-+	reg = readl(gphy->usb2_cfg_base + USBCS_USB2PHY_CFG21_OFFSET);
-+	reg &= ~USBCS_USB2PHY_CFG21_PHY_ENABLE;
-+	writel(reg, gphy->usb2_cfg_base + USBCS_USB2PHY_CFG21_OFFSET);
-+
-+	reset_control_assert(inst->rst);
-+	clk_disable_unprepare(inst->clk);
-+
-+	return 0;
-+}
-+
-+static const struct phy_ops google_usb2_phy_ops = {
-+	.init		= google_usb2_phy_init,
-+	.exit		= google_usb2_phy_exit,
-+};
-+
-+static struct phy *google_usb_phy_xlate(struct device *dev,
-+					const struct of_phandle_args *args)
-+{
-+	struct google_usb_phy *gphy = dev_get_drvdata(dev);
-+
-+	if (args->args[0] >= GOOGLE_USB_PHY_NUM) {
-+		dev_err(dev, "invalid PHY index requested from DT\n");
-+		return ERR_PTR(-ENODEV);
-+	}
-+	return gphy->insts[args->args[0]].phy;
-+}
-+
-+static int google_usb_phy_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct google_usb_phy *gphy;
-+	struct phy *phy;
-+	struct google_usb_phy_instance *inst;
-+	struct phy_provider *phy_provider;
-+	struct typec_switch_desc sw_desc = { };
-+	int ret;
-+
-+	gphy = devm_kzalloc(dev, sizeof(*gphy), GFP_KERNEL);
-+	if (!gphy)
-+		return -ENOMEM;
-+
-+	dev_set_drvdata(dev, gphy);
-+	gphy->dev = dev;
-+
-+	ret = devm_mutex_init(dev, &gphy->phy_mutex);
-+	if (ret)
-+		return ret;
-+
-+	gphy->usb2_cfg_base =
-+			devm_platform_ioremap_resource_byname(pdev, "usb2_cfg_csr");
-+	if (IS_ERR(gphy->usb2_cfg_base))
-+		return dev_err_probe(dev, PTR_ERR(gphy->usb2_cfg_base),
-+				    "invalid usb2 cfg csr\n");
-+
-+	gphy->dp_top_base =
-+			devm_platform_ioremap_resource_byname(pdev, "dp_top_csr");
-+	if (IS_ERR(gphy->dp_top_base))
-+		return dev_err_probe(dev, PTR_ERR(gphy->dp_top_base),
-+				    "invalid dp top csr\n");
-+
-+	gphy->usb_top_cfg_base =
-+			devm_platform_ioremap_resource_byname(pdev, "usb_top_cfg_csr");
-+	if (IS_ERR(gphy->usb_top_cfg_base))
-+		return dev_err_probe(dev, PTR_ERR(gphy->usb_top_cfg_base),
-+				    "invalid usb top cfg csr\n");
-+
-+	inst = &gphy->insts[GOOGLE_USB2_PHY];
-+	inst->index = GOOGLE_USB2_PHY;
-+	phy = devm_phy_create(dev, NULL, &google_usb2_phy_ops);
-+	if (IS_ERR(phy))
-+		return dev_err_probe(dev, PTR_ERR(phy),
-+				     "failed to create usb2 phy instance\n");
-+	inst->phy = phy;
-+	phy_set_drvdata(phy, inst);
-+	inst->clk = devm_clk_get(dev, "usb2_phy_clk");
-+	if (IS_ERR(inst->clk))
-+		return dev_err_probe(dev, PTR_ERR(inst->clk),
-+				     "failed to get usb2 phy clk\n");
-+	inst->rst = devm_reset_control_get_exclusive(dev, "usb2_phy_reset");
-+	if (IS_ERR(inst->rst))
-+		return dev_err_probe(dev, PTR_ERR(inst->rst),
-+				     "failed to get usb2 phy reset\n");
-+
-+	phy_provider = devm_of_phy_provider_register(dev, google_usb_phy_xlate);
-+	if (IS_ERR(phy_provider))
-+		return dev_err_probe(dev, PTR_ERR(phy_provider),
-+				     "failed to register phy provider\n");
-+
-+	pm_runtime_enable(dev);
-+
-+	sw_desc.fwnode = dev_fwnode(dev);
-+	sw_desc.drvdata = gphy;
-+	sw_desc.name = fwnode_get_name(dev_fwnode(dev));
-+	sw_desc.set = google_usb_set_orientation;
-+
-+	gphy->sw = typec_switch_register(dev, &sw_desc);
-+	if (IS_ERR(gphy->sw))
-+		return dev_err_probe(dev, PTR_ERR(gphy->sw),
-+				     "failed to register typec switch\n");
-+
-+	return 0;
-+}
-+
-+static void google_usb_phy_remove(struct platform_device *pdev)
-+{
-+	struct google_usb_phy *gphy = dev_get_drvdata(&pdev->dev);
-+
-+	typec_switch_unregister(gphy->sw);
-+	pm_runtime_disable(&pdev->dev);
-+}
-+
-+static const struct of_device_id google_usb_phy_of_match[] = {
-+	{
-+		.compatible = "google,usb-phy",
-+	},
-+	{ }
-+};
-+MODULE_DEVICE_TABLE(of, google_usb_phy_of_match);
-+
-+static struct platform_driver google_usb_phy = {
-+	.probe	= google_usb_phy_probe,
-+	.remove = google_usb_phy_remove,
-+	.driver = {
-+		.name		= "google-usb-phy",
-+		.of_match_table	= google_usb_phy_of_match,
-+	}
-+};
-+
-+module_platform_driver(google_usb_phy);
-+MODULE_LICENSE("GPL");
-+MODULE_DESCRIPTION("Google USB phy driver");
--- 
-2.51.0.618.g983fd99d29-goog
+":" seems unnecessary.
+
+> +/* ID Register offsets in the memory mapped page */
+> +#define MPAMF_IDR		0x0000  /* features id register */
+> +#define MPAMF_MSMON_IDR		0x0080  /* performance monitoring features */
+> +#define MPAMF_IMPL_IDR		0x0028  /* imp-def partitioning */
+> +#define MPAMF_CPOR_IDR		0x0030  /* cache-portion partitioning */
+> +#define MPAMF_CCAP_IDR		0x0038  /* cache-capacity partitioning */
+> +#define MPAMF_MBW_IDR		0x0040  /* mem-bw partitioning */
+> +#define MPAMF_PRI_IDR		0x0048  /* priority partitioning */
+> +#define MPAMF_CSUMON_IDR	0x0088  /* cache-usage monitor */
+> +#define MPAMF_MBWUMON_IDR	0x0090  /* mem-bw usage monitor */
+> +#define MPAMF_PARTID_NRW_IDR	0x0050  /* partid-narrowing */
+> +#define MPAMF_IIDR		0x0018  /* implementer id register */
+> +#define MPAMF_AIDR		0x0020  /* architectural id register */
+> +
+> +/* Configuration and Status Register offsets in the memory mapped page */
+> +#define MPAMCFG_PART_SEL	0x0100  /* partid to configure: */
+
+":" seems unnecessary.
+
+> +#define MPAMCFG_CPBM		0x1000  /* cache-portion config */
+> +#define MPAMCFG_CMAX		0x0108  /* cache-capacity config */
+> +#define MPAMCFG_CMIN		0x0110  /* cache-capacity config */
+> +#define MPAMCFG_CASSOC		0x0118  /* cache-associativity config */
+> +#define MPAMCFG_MBW_MIN		0x0200  /* min mem-bw config */
+> +#define MPAMCFG_MBW_MAX		0x0208  /* max mem-bw config */
+> +#define MPAMCFG_MBW_WINWD	0x0220  /* mem-bw accounting window config */
+> +#define MPAMCFG_MBW_PBM		0x2000  /* mem-bw portion bitmap config */
+> +#define MPAMCFG_PRI		0x0400  /* priority partitioning config */
+> +#define MPAMCFG_MBW_PROP	0x0500  /* mem-bw stride config */
+> +#define MPAMCFG_INTPARTID	0x0600  /* partid-narrowing config */
+> +
+
+[...]
+
+Thanks,
+Gavin
 
 
