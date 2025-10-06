@@ -4,206 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B6E8CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 10:22:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 159DFCAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 10:26:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:CC:To:From:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GuTEYHHA0dGDtHFSQE829sS4g8dP4a9BQgLq4sfKIPU=; b=DDJIfncTriYYob1iegqcUoLb5q
-	TQtSLkxo5p8fL/icuWQgECO/XEc65ZXtnSQYEKu1nVvU0kIFtT2QqvRT/xS3fBzRXF3l0Avkx8fPT
-	6gwARgr4KbpVu5e4WpP7/ytZwqw8FOg9q4KrFVdefT2CKucC3sLlMHIXOlKKkfjn/CW3nPgFzlhB4
-	kKVUVKAbAbMMbahrOPBzwW624329pKDjHvL/UC/O7naRrYq9hJECdzJYMMf1eftcZeMTkBzLnZBHn
-	9Rog9vPA6vwqOK3ROqA5xhCr5HsjFNbprG+l17rJGKhXdTosG6GVCx5veP+fLQfQRowVK32zWqbK1
-	PlNFJUzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OT3f3VGDd34OsC3Y7H+jqbbIBhz/C3VTvr8AlCGCEZU=; b=kb3F0GdHQovbd683rEGD1Wfi8N
+	9UbmRl+iyUIX3lDCJZsCbcIuOe1dwMCo9bl1UkFfx9mn7AWwI9n512LRGch+ZU/EbGz4U0gIbGoj3
+	E4WAsNsDL/8NJX4/ZuLHb9mK2O5Of4Rt1O8904qanoELnaEEdI9AORRQWPSecsM/+mlbfELvcuiC9
+	6g/AXXv59Mefyv8so1qWUF6yrQum+A4OvcuxgFDDZTGl9xkh/NXgCYuMqO0mIYH3zYp+T/qYyugY+
+	d3lqvIMkJNE5v0U0nl9+qPExLTpOGmCeEkjYf7Vky6tXEngUgebEcekuCkDUUtluIATmdcYoSFoT4
+	SpyNwm8g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5iMG-0000000HMFZ-4Bgk;
-	Mon, 06 Oct 2025 10:22:21 +0000
-Received: from mgamail.intel.com ([198.175.65.14])
+	id 1v5iQI-0000000HMeV-2Hqk;
+	Mon, 06 Oct 2025 10:26:30 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5iME-0000000HMFF-3ZRt
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Oct 2025 10:22:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1759746139; x=1791282139;
-  h=message-id:date:subject:from:to:cc:references:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=9j+/OIdyNCdXrtrS/Uq0Ylx2ksw0XyoxhCmwYM2vcNM=;
-  b=XX5BdmTF1RcgkY7X04z0s6nsStr2YDJ1LqTUtuRt0U/0BWzWjXtfsbs9
-   cPpY0Re/OIq8b31MXJBVi0qKdv3zrUsshq0Ie/8GxAgCdcbrL5AQGVsyq
-   X0pIeLg1pLo8rnCa6gy8VGzScrqV4amoHLglLE2i1uTV6h3COS8qfTW/9
-   wz467lWwMQBUinJjzmdBkwDCBdpBabI2qsO6Zw65pCgnJNrI205c1rhyl
-   53M3P3tVf2cS3fuyUrRQj2/vb5MDKQ/E3DAVxohuEE9ZDRHu86iLxHuKk
-   EWdykdsBRIvDDC9KWzuaJCEiM//mqqd50wbhc4AB2BnTM8XolBX/1SrF7
-   g==;
-X-CSE-ConnectionGUID: 6O+iGuXzRve1xNi0WFVg+A==
-X-CSE-MsgGUID: 7ut79iOZRP6KhUR8wt2KdA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="65747972"
-X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
-   d="scan'208";a="65747972"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by orvoesa106.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Oct 2025 03:22:16 -0700
-X-CSE-ConnectionGUID: B0WCnlcFSuuzpCmJPbmaAQ==
-X-CSE-MsgGUID: LPwHHz7kR2m7jlEQADcOFg==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.18,319,1751266800"; 
-   d="scan'208";a="179784548"
-Received: from fmsmsx901.amr.corp.intel.com ([10.18.126.90])
-  by fmviesa006.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Oct 2025 03:22:16 -0700
-Received: from FMSMSX901.amr.corp.intel.com (10.18.126.90) by
- fmsmsx901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27; Mon, 6 Oct 2025 03:22:15 -0700
-Received: from fmsedg903.ED.cps.intel.com (10.1.192.145) by
- FMSMSX901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27 via Frontend Transport; Mon, 6 Oct 2025 03:22:15 -0700
-Received: from SJ2PR03CU001.outbound.protection.outlook.com (52.101.43.21) by
- edgegateway.intel.com (192.55.55.83) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27; Mon, 6 Oct 2025 03:22:12 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=hU3NDwom1pH9UqzKUFKtEcUUZwm8WvAXCJhTZUFNh0Y2+3VB9sGYSs4gIcA3G/+Dvkj2W+EiqYiYGmZnHFuPtzeFiRJsnB9wXE4at0yuXkbEqhys3jC/xd/Swqc1H0RRJ4IrbR3PKUUAiNa9rC3u2eBcqOCUiWNwa3JNPY6G2sHnswk5NcasvyUT+i0D0UgnbE/ExKJZ5cOIzi/qvN5MdyHIqS6WY4lmwGGCNMGohVA57II+4NBq68HDE7GZZf9J60r+FgfWH0xNIVQ8i2BLcRaWPTpzdn61Fn8IkMpXY6mQBzpm1NI5rIgoqZFsDc3TnP4Uy/LyCEbqLQhJo3X6ew==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=GuTEYHHA0dGDtHFSQE829sS4g8dP4a9BQgLq4sfKIPU=;
- b=uAiwovgwx1YJvpewOti1ObXEp2TGqeDHz/s6gWBuUJhxil5/I9hZ5KN9xk1iAz8diGuBMWdneXrsJ/QwRfqRHu7G9as8AnONssRiAoCP58RhpJufROD9WHCppQfyw2tcTpbPwk/SL+IeOs/wNSx1ZuYhbpyIEgsBZ/ET/050PmKCRnuim6ipUarF4ibAo7yVHijm4vChBcMRcOY3OGiDdeetM4sYWoqMXB+Coa9cttJHPUIHg/qp9v1vuUMuNRImOzsPq5rsEX+GSbLY11I+8awxR90nU0iM+gLOTpRTLHXP0T2mbN4bRBFwE2nz2Cp5DEw9HjzyejpUpq9A8C6z7g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from IA1PR11MB7198.namprd11.prod.outlook.com (2603:10b6:208:419::15)
- by DM6PR11MB4721.namprd11.prod.outlook.com (2603:10b6:5:2a3::14) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9182.20; Mon, 6 Oct
- 2025 10:22:07 +0000
-Received: from IA1PR11MB7198.namprd11.prod.outlook.com
- ([fe80::2c4e:e92a:4fa:a456]) by IA1PR11MB7198.namprd11.prod.outlook.com
- ([fe80::2c4e:e92a:4fa:a456%3]) with mapi id 15.20.9182.017; Mon, 6 Oct 2025
- 10:22:07 +0000
-Message-ID: <957d5c73-528f-4182-b655-116fb6b94f3f@intel.com>
-Date: Mon, 6 Oct 2025 13:22:02 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/3] mmc: brcmstb: save and restore registers during PM
-From: Adrian Hunter <adrian.hunter@intel.com>
-To: Kamal Dasu <kamal.dasu@broadcom.com>, <andersson@kernel.org>,
-	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<florian.fainelli@broadcom.com>, <ulf.hansson@linaro.org>
-CC: <bcm-kernel-feedback-list@broadcom.com>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-mmc@vger.kernel.org>
-References: <20251002210426.2490368-1-kamal.dasu@broadcom.com>
- <20251002210426.2490368-4-kamal.dasu@broadcom.com>
- <24a58a70-b4db-4925-8454-78dea4fb22b2@intel.com>
-Content-Language: en-US
-Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park,
- 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 -
- 4, Domiciled in Helsinki
-In-Reply-To: <24a58a70-b4db-4925-8454-78dea4fb22b2@intel.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: DUZPR01CA0053.eurprd01.prod.exchangelabs.com
- (2603:10a6:10:469::11) To IA1PR11MB7198.namprd11.prod.outlook.com
- (2603:10b6:208:419::15)
+	id 1v5iQF-0000000HMds-1QFy;
+	Mon, 06 Oct 2025 10:26:29 +0000
+Received: from [192.168.0.43] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 44A75BD2;
+	Mon,  6 Oct 2025 12:24:52 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1759746292;
+	bh=FxCnUKMH27ciSdfNjoJzHxg00qoaZodlCuS5GuxwJlw=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Or6tBFwlJyhLHQJXYnVzCTjzsVPBKeFJ1hyS6WIfHX6tMj1tYcPzjXpn+mnOoe61Y
+	 p1guSZeFlBen4U6v3SeNLCBPyly39L2A3rrCdgvFZNkFVstlO10JIH6rxYTp5FRIIR
+	 b+51sF1I7BG4Inq5XNJRzmUJ6o2JsDwPjWqcDcKc=
+Message-ID: <71d2f967-7e7f-43d6-9f7e-28c7f438d03c@ideasonboard.com>
+Date: Mon, 6 Oct 2025 11:26:22 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA1PR11MB7198:EE_|DM6PR11MB4721:EE_
-X-MS-Office365-Filtering-Correlation-Id: c4fe6145-bdb9-48ac-f3b7-08de04c233a1
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?RjllQUV0TVhsZ3FyZHpoUFdaTEtwV1ZGMkpkMCs2UFd2bnc5b0JxSkNCNHdl?=
- =?utf-8?B?ekhjdmZFckxDQmlMQ1J6TEZZTHpjblVHN3dxcHFBTTIvMDBjY1dVNHluRWJh?=
- =?utf-8?B?RENaSUY2eWRoQ1VqZzNLZENRYTB0eWhVU1RwdC9ZbXM2TDB1QmdaeXY3bkZz?=
- =?utf-8?B?elhBeU9DWkFwM05maFZGaitQTlVZRXZwNXF0cEVoVUNFRXljT0NHMER2NTJD?=
- =?utf-8?B?dk5sNEhIOFowblZMSDJDeUlkVTFqZncwRXUvRzVJaDM2SUtRZGd1Rm5yRU5E?=
- =?utf-8?B?dy9hSE11b051OURhZ3huRjR4aitoa1RQeFhyK0Rzb1pZL0gxOGlNbFlFbWcy?=
- =?utf-8?B?K1FTTEkyMDBhampJc2NycVNJQ3hzeGg5RzFSSUs1ejlRR05RMWxtM0F6dnpZ?=
- =?utf-8?B?Qk1hWWE1cTh3QmExZDEwVGV5R1RldnNyc0lRR3BjdGN5SWl6ZDd2RGc5Vkpu?=
- =?utf-8?B?d2tDdDNhWVllVS9qM253dW5DbjNGbnhDUUMzSE9NZEhKZkg1SnI0VW05RDl0?=
- =?utf-8?B?LzVVSExOc1RNTGVlY1M3ZXlUUGdSallybDdKaWFaTndPSjZCbGVJUTZvQjJ0?=
- =?utf-8?B?eHZCLzYzalNHbDFUK2lESVlheVNvRmg4WVhGM2IyOUthb25hTGdBWG9YcjJa?=
- =?utf-8?B?cHFpTFZaSm1YK0p0dlZMN0IzY0VIdmZCblJhOHBic2M4K0VpNmZNWU5qcmlH?=
- =?utf-8?B?UkxoVTMxK2tpL25iamVyS3JnblBEeVBTQW1BMHl0VFNaWC9ZRlZDNjNSR2RZ?=
- =?utf-8?B?WW5UUWFQSTdTaFV0RnJ1MEVYOHZrSUh2RVVVKzRZaldBSjlXb25uYXh2RkV3?=
- =?utf-8?B?U2VCSG91K0wwKzBwSzVsK2hURDJ6aFdvckw4VTdJdkYvSzI5c1BYR0FTdDBD?=
- =?utf-8?B?aVZRbjdNVHBCQUQ5K0owQjAyMDl4RDhTTnp2eUxocndLdHF6ZDViaEs1M0Q3?=
- =?utf-8?B?T0tsU0dkbVA1RnEzb25nVnBvd1h2amdxNnJ0Ykp4NFBTWlVIeE52a0t5SEFX?=
- =?utf-8?B?UEJkbXdOdHVtWjk3RWl5Mno2a013N05SWjB4TGllRXRBOUltRDRHVnA0UDlE?=
- =?utf-8?B?L1hoSlhoSlBCKytnanJLa0JvYmJkZ2IyTFNJQWc2WDBxd2xNOWJpNlVCWTBL?=
- =?utf-8?B?Qm9nOEUrRnU4WnlJTmFYOXRZMys2SGM0WUJ6WDJlU2IyeDN4ZGxETjQxcWNZ?=
- =?utf-8?B?M0h5UFVsekhMVGdwZS9QSGs4VFNCWHEvdDFDS2JmenljM0VuaFlxcE1rdnRQ?=
- =?utf-8?B?bXN2amV3NHRPS1k5SXgwTFVHNWh4OGYxVW5nZ2xxbGc2MTE2YUNURHlZRjQr?=
- =?utf-8?B?bWRaWktaWElVSW5pZ05aNFhKWVErbWp3cWhaV2FmMlpyUDBMWjN0RDdQV0tI?=
- =?utf-8?B?TXRlTisxcnYrb0JGZGlmbWtmWHlWYVZINm5ZdGp6SUZMeHh2S2NXc0JOSkRW?=
- =?utf-8?B?QjduRmJnd2NxS1QxaTlqcE0ySStNSU9kWXRzdzFVaTEvSURYSG14bmw5N2ZC?=
- =?utf-8?B?K2h6aDZtWU4wWXU1dmdoQ1JlcmxuRVZ4OHFFbUNITXI0bGcyVlVTczNYVjhC?=
- =?utf-8?B?WTdmcXVWYlltRGdoZjhoZTJlWE44OXVUNlRGdkczUmh6Y3FRY2ErM3RPNXo3?=
- =?utf-8?B?ZngzYU53WEZrTE1LU0pUaWZiWUpVZnNueUZHYjlwbVB0WWpsUTBGZ3JqcTlQ?=
- =?utf-8?B?TUd6elc4NzRPM3YzOFZ2c1dBdDNnZ0ZXUS9iRU9ZdVRhZldKQXNJdzhQL1ph?=
- =?utf-8?B?MTQrR2YyaGltZjNsRnE5bENISVJFaSs0bHBsQnR2MGhYVWYyUWRoeXJzL00x?=
- =?utf-8?B?WG1xakRQWFlPTWRGUi9BWDZZaEZTN1lhS2FZMUJQWXJGZ3NpZ1B1SFo2SERD?=
- =?utf-8?B?OFdFWEJ1US9vREZ4OXA3WGlnVGxiZ2ZMM0VwSVU3ZEJ0dHB6ek5RV25sMTBU?=
- =?utf-8?Q?RFEnDB1EIxq/FL0Gf0JABstIaOiDvpzS?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR11MB7198.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?WjFPOWN2TVduMDVCcUttN2dsYkJldE96aCs0ckM0eVlJL2I4aEUxWDlGMGpK?=
- =?utf-8?B?QSttakxRcTdWRmF5RDczL1dxODI4aXlqdnB4amliVHFlWk9nenJGUnM5V0FQ?=
- =?utf-8?B?bFp4TDEvc2lpWHpaSjhWS1dYN1ROdEZST2tCbnEzd0o4Y2RIaE1mcVJIUmY1?=
- =?utf-8?B?WTIxMFdxMDIvWDY1c1VzaE5BWXdFTGhsY2l5b1VyYTVLaEZyUG1TZFRPRDNZ?=
- =?utf-8?B?RVRUaEFqOVRQYUZzaENDelBkOGZMT3dIc3RJMlZMakVFOXFZYXpTbms3SDJW?=
- =?utf-8?B?VGpwUDVWWVpVWldRLzI5QWwvdEdEZTJZdDBBaWFJMzNDWVRudi9RZll6eCt4?=
- =?utf-8?B?S3VaeGpBdHJKWVlHblppdWJQTW5Db3pxRWxFbG45akZlSUtYMHFqVVpFQVd0?=
- =?utf-8?B?TlkxMzJHSnhXSFgwU1Q0Q1I3ZGx5dUM0T1o3ZWlOVU5DYUpvNkI4b1Rwcll2?=
- =?utf-8?B?b1hRVDVQdlF1aEFNQ1FzY1NaaWFJMWdXMkYwNXNaOXdYbzZ6SXNxT1BJekJw?=
- =?utf-8?B?d0ZjTytBd2Q5ME11K2NETWh1NDZheFpTS25mTDFTM093UjRZOFFxUXdncnkv?=
- =?utf-8?B?alF0VGkxaWYyQTIra1V1Wmp5VFBEMWV1b0NGdkFlRjhpRElsTkNGNEh2bDZ3?=
- =?utf-8?B?WmN3Yy9xTzVuY1ZUNTd0OUlsbkpvT0NUWjN6TkN4RmxjSElhcDhDN3MrSHVm?=
- =?utf-8?B?cTVxTXBEcVIxbE83NWJjVDI3OHh0dWczOHpWS1JrMWM3REEwRFhBZVVHZDE0?=
- =?utf-8?B?dWxGR3UxU0FvWkpHSnR0Ny85T3hmRllsYlRMY3M0R1NkMG0yd3BRREZEV2NB?=
- =?utf-8?B?S2VZajY2cGkrRjR6VHRlRG5YaDloMVJoUjRJVml3U0ZJVGo5MU4xY0dESmYz?=
- =?utf-8?B?dkZVYmtkaEtDbWFoWjZtOWNqTXo5am1TOG9JUmdsSXBzY3AyQXdkVEhyNjNv?=
- =?utf-8?B?YmUvY3ZReEJ0V1RSUkNwNHpFME9VVVBuUW5RbjkyRDNsbnpxdktNSFNmQXdT?=
- =?utf-8?B?Y2o2VTZOdXNtdWJCKzl0aVBJN0xmV2Q5TGdxdCtYV3JaUE5WMWJBYndkRHJ4?=
- =?utf-8?B?QTdaZTRIa0lRZmNsdHdHclhkYmN1SHFHNmxyYldldlNmdE5vMmYwZjlIVG5m?=
- =?utf-8?B?Q1lZT1c0WEhkN3hEdkxobURMblhiQnZZZVIyL0ltbThlWkZoaTFoNjZOcGcx?=
- =?utf-8?B?UjZ0SE9LRlJuVkRjWUthQkszeG52QitvY3pITk5BTm9WZ3dRZ1RkYWhOb1V6?=
- =?utf-8?B?ajh5U2RJTE9sRlIweHl3SCtzK2F5Vnl4RklDaHB2dGpTNEhSWi95T2Q4UklG?=
- =?utf-8?B?Y1RiT05vMVV5YVBGdU1ldFVYZkVJdnBEUFVPOENVY1VvYUxCamhJKzhKRFNT?=
- =?utf-8?B?eXBZL3VTajNwelRScWdlUGlKMDhVRUs2WGN4TE9OZXE4WU5YMFhsMUhYb2Ix?=
- =?utf-8?B?cUErRzRwUFAxUWRWZzdZbFRWa0ZnQURjalBVVXlaN0JiTGxzS1hOMHdUdXEr?=
- =?utf-8?B?UWFMWjgyWHRleUtxWGlHQmsrU3FHSEk3aGNmUFVYTmxtUjhUbmZqZFMvVWVK?=
- =?utf-8?B?NnM3c1FQMDhKWUdPOVhDRktWVVFSbXJsMmZFSUh6ZTZtODBsdnk4Q2c5R1Uy?=
- =?utf-8?B?V3NMQ1NST3VWcERHdHRpQzJ5MHluSUVEVHRZQm9JZHlRb2ZUY1dFZTd6VEgx?=
- =?utf-8?B?bUsxVHJvMVl0bDJrOG9TQlpwR09qUFRvUUt0dXUrT1dkOG5yU2wwbzVDZDJp?=
- =?utf-8?B?YmZaZFNJd2N0UUVhNUZTdit1VjV3SXFEOE9DZHpMWENMaTdxdHBlNVoxUzh2?=
- =?utf-8?B?WlR5SFFRQlVpcVFEY2lVRzlMUytTSEppS1ZJNlJ0c29KeXZaelk2aHI1QlNj?=
- =?utf-8?B?RWxLQVFWZlFRdUNjL2FGVzFWVXRtdmF0ZVRZZmtkTDdvTUgxcWQzcWtXbGh5?=
- =?utf-8?B?TTNPcXRYeUVZbStXTEM3QXVOVjYrK0NPQnlrbytSaS94cUtSYlR6L2JSUUFr?=
- =?utf-8?B?cnlKZU5IY21KN1Z6emxURjBwdXRnUk1uTlBpQVl2OCtEdjdDaGd3blZOdW14?=
- =?utf-8?B?TW9RUS9TalNvSlNiR1crZEI5YS82RmJoTHFod0N2eERwbm1TZlFUaTFURWxr?=
- =?utf-8?B?bEN1V1p2SFc3ajJHNE9tS2hZYVJzWHY3NVl1MGVLR2NXSWVjNENLa1RNUlVT?=
- =?utf-8?B?Rnc9PQ==?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: c4fe6145-bdb9-48ac-f3b7-08de04c233a1
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR11MB7198.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2025 10:22:07.1671
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: zOE0V37BhRymD4z65tWL8bFF7c0b8uaqFq1tuwWCgDWB/irj9K9NhDYd/jRTm4+M2Fdng+HRywdoxJjJ4hCLSA==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DM6PR11MB4721
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/8] media: uapi: Introduce V4L2 generic ISP types
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+ Dafna Hirschfeld <dafna@fastmail.com>, Keke Li <keke.li@amlogic.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Antoine Bouyer <antoine.bouyer@nxp.com>, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20250915-extensible-parameters-validation-v5-0-e6db94468af3@ideasonboard.com>
+ <20250915-extensible-parameters-validation-v5-1-e6db94468af3@ideasonboard.com>
+ <20251005000602.GA13055@pendragon.ideasonboard.com>
+ <badf4971-0916-45f9-952c-09963c6cb19a@ideasonboard.com>
+ <20251006082751.GA16422@pendragon.ideasonboard.com>
+ <246ae834-3077-4e38-b419-5c8773139e65@ideasonboard.com>
+ <20251006090637.GA5944@pendragon.ideasonboard.com>
+ <ecda9183-bd84-48fd-a1e0-e37b6dbacec6@ideasonboard.com>
+ <20251006095850.GC5944@pendragon.ideasonboard.com>
+Content-Language: en-US
+From: Dan Scally <dan.scally@ideasonboard.com>
+In-Reply-To: <20251006095850.GC5944@pendragon.ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_032219_015236_931D3FF8 
-X-CRM114-Status: GOOD (  13.59  )
+X-CRM114-CacheID: sfid-20251006_032627_683771_C3C927F0 
+X-CRM114-Status: GOOD (  35.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -218,244 +80,279 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 06/10/2025 13:08, Adrian Hunter wrote:
-> On 03/10/2025 00:04, Kamal Dasu wrote:
->> Added support to save and restore registers that are critical
->> during PM.
+Hi Laurent
+
+On 06/10/2025 10:58, Laurent Pinchart wrote:
+> On Mon, Oct 06, 2025 at 10:51:33AM +0100, Daniel Scally wrote:
+>> On 06/10/2025 10:06, Laurent Pinchart wrote:
+>>> On Mon, Oct 06, 2025 at 09:46:26AM +0100, Daniel Scally wrote:
+>>>> On 06/10/2025 09:27, Laurent Pinchart wrote:
+>>>>> On Mon, Oct 06, 2025 at 09:15:47AM +0100, Daniel Scally wrote:
+>>>>>> On 05/10/2025 01:06, Laurent Pinchart wrote:
+>>>>>>> On Mon, Sep 15, 2025 at 07:18:10PM +0200, Jacopo Mondi wrote:
+>>>>>>>> Introduce v4l2-isp.h in the Linux kernel uAPI.
+>>>>>>>>
+>>>>>>>> The header includes types for generic ISP configuration parameters
+>>>>>>>> and will be extended in future with support for generic ISP statistics
+>>>>>>>
+>>>>>>> s/in future/in the future/
+>>>>>>>
+>>>>>>> (and you can reflow the commit message)
+>>>>>>>
+>>>>>>>> formats.
+>>>>>>>>
+>>>>>>>> Generic ISP parameters support is provided by introducing two new
+>>>>>>>> types that represent an extensible and versioned buffer of ISP
+>>>>>>>> configuration parameters.
+>>>>>>>>
+>>>>>>>> The v4l2_params_block_header structure represents the header to be
+>>>>>>>> prepend to each ISP configuration block and the v4l2_params_buffer type
+>>>>>>>> represents the base type for the configuration parameters buffer.
+>>>>>>>
+>>>>>>> The second part of the sentence describes the same structure as the next
+>>>>>>> paragraph.
+>>>>>>>
+>>>>>>>> The v4l2_params_buffer represents the container for the ISP
+>>>>>>>> configuration data block. The generic type is defined with a 0-sized
+>>>>>>>> data member that the ISP driver implementations shall properly size
+>>>>>>>> according to their capabilities.
+>>>>>>>
+>>>>>>> This will be easier to understand if you describe v4l2_params_buffer
+>>>>>>> first.
+>>>>>>>
+>>>>>>> The commit message would benefit from being rewritten.
+>>>>>>>
+>>>>>>>> [Add v4l2_params_buffer_size()]
+>>>>>>>> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
+>>>>>>>> Reviewed-by: Daniel Scally <dan.scally@ideasonboard.com>
+>>>>>>>> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+>>>>>>>> ---
+>>>>>>>>      MAINTAINERS                         |   6 +++
+>>>>>>>>      include/uapi/linux/media/v4l2-isp.h | 100 ++++++++++++++++++++++++++++++++++++
+>>>>>>>>      2 files changed, 106 insertions(+)
+>>>>>>>>
+>>>>>>>> diff --git a/MAINTAINERS b/MAINTAINERS
+>>>>>>>> index ee8cb2db483f6a5e96b62b6f2edd05b1427b69f5..e82c3d0758d6033fe8fcd56ffde2c03c4319fd11 100644
+>>>>>>>> --- a/MAINTAINERS
+>>>>>>>> +++ b/MAINTAINERS
+>>>>>>>> @@ -26410,6 +26410,12 @@ F:	drivers/media/i2c/vd55g1.c
+>>>>>>>>      F:	drivers/media/i2c/vd56g3.c
+>>>>>>>>      F:	drivers/media/i2c/vgxy61.c
+>>>>>>>>      
+>>>>>>>> +V4L2 GENERIC ISP PARAMETERS AND STATISTIC FORMATS
+>>>>>>>> +M:	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+>>>>>>>> +L:	linux-media@vger.kernel.org
+>>>>>>>> +S:	Maintained
+>>>>>>>> +F:	include/uapi/linux/media/v4l2-isp.h
+>>>>>>>> +
+>>>>>>>>      VF610 NAND DRIVER
+>>>>>>>>      M:	Stefan Agner <stefan@agner.ch>
+>>>>>>>>      L:	linux-mtd@lists.infradead.org
+>>>>>>>> diff --git a/include/uapi/linux/media/v4l2-isp.h b/include/uapi/linux/media/v4l2-isp.h
+>>>>>>>> new file mode 100644
+>>>>>>>> index 0000000000000000000000000000000000000000..b838555dce2b290a14136ab09ea4d2dfdc95b26b
+>>>>>>>> --- /dev/null
+>>>>>>>> +++ b/include/uapi/linux/media/v4l2-isp.h
+>>>>>>>> @@ -0,0 +1,100 @@
+>>>>>>>> +/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
+>>>>>>>> +/*
+>>>>>>>> + * Video4Linux2 generic ISP parameters and statistics support
+>>>>>>>> + *
+>>>>>>>> + * Copyright (C) 2025 Ideas On Board Oy
+>>>>>>>> + * Author: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+>>>>>>>> + */
+>>>>>>>> +
+>>>>>>>> +#ifndef _UAPI_V4L2_ISP_H_
+>>>>>>>> +#define _UAPI_V4L2_ISP_H_
+>>>>>>>> +
+>>>>>>>> +#include <linux/stddef.h>
+>>>>>>>> +#include <linux/types.h>
+>>>>>>>> +
+>>>>>>>> +#define V4L2_PARAMS_FL_BLOCK_DISABLE	(1U << 0)
+>>>>>>>> +#define V4L2_PARAMS_FL_BLOCK_ENABLE	(1U << 1)
+>>>>>>>> +
+>>>>>>>> +/*
+>>>>>>>> + * Reserve the first 8 bits for V4L2_PARAMS_FL_* flag.
+>>>>>>>> + *
+>>>>>>>> + * Driver-specific flags should be defined as:
+>>>>>>>> + * #define PLATFORM_SPECIFIC_FLAG0     ((1U << V4L2_PARAMS_FL_DRIVER_FLAGS(0))
+>>>>>>>
+>>>>>>> s/PLATFORM/DRIVER/
+>>>>>>>
+>>>>>>>> + * #define PLATFORM_SPECIFIC_FLAG1     ((1U << V4L2_PARAMS_FL_DRIVER_FLAGS(1))
+>>>>>>>> + */
+>>>>>>>> +#define V4L2_PARAMS_FL_DRIVER_FLAGS(n)       ((n) + 8)
+>>>>>>>> +
+>>>>>>>> +/**
+>>>>>>>> + * struct v4l2_params_block_header - V4L2 extensible parameters block header
+>>>>>>>> + *
+>>>>>>>> + * This structure represents the common part of all the ISP configuration
+>>>>>>>> + * blocks. Each parameters block shall embed an instance of this structure type
+>>>>>>>> + * as its first member, followed by the block-specific configuration data. The
+>>>>>>>> + * driver inspects this common header to discern the block type and its size and
+>>>>>>>> + * properly handle the block content.
+>>>>>>>
+>>>>>>> The last sentence is not relevant for the UAPI.
+>>>>>>>
+>>>>>>>> + *
+>>>>>>>> + * The @type field is an ISP driver-specific value that identifies the block
+>>>>>>>> + * type. The @size field specifies the size of the parameters block.
+>>>>>>>> + *
+>>>>>>>> + * The @flags field is a bitmask of per-block flags V4L2_PARAMS_FL_* and
+>>>>>>>> + * driver-specific flags specified by the driver header.
+>>>>>>>> + *
+>>>>>>>> + * @type: The parameters block type (driver-specific)
+>>>>>>>> + * @flags: A bitmask of block flags (driver-specific)
+>>>>>>>> + * @size: Size (in bytes) of the parameters block, including this header
+>>>>>>>
+>>>>>>> I think the fields usually go right after the structure name, followed
+>>>>>>> by the rest of the documentation.
+>>>>>>>
+>>>>>>>> + */
+>>>>>>>> +struct v4l2_params_block_header {
+>>>>>>>> +	__u16 type;
+>>>>>>>> +	__u16 flags;
+>>>>>>>> +	__u32 size;
+>>>>>>>> +} __attribute__((aligned(8)));
+>>>>>>>> +
+>>>>>>>> +/**
+>>>>>>>> + * v4l2_params_buffer_size - Calculate size of v4l2_params_buffer for a platform
+>>>>>>>> + *
+>>>>>>>> + * Users of the v4l2 extensible parameters will have differing sized data arrays
+>>>>>>>> + * depending on their specific parameter buffers. Drivers and userspace will
+>>>>>>>> + * need to be able to calculate the appropriate size of the struct to
+>>>>>>>> + * accommodate all ISP configuration blocks provided by the platform.
+>>>>>>>> + * This macro provides a convenient tool for the calculation.
+>>>>>>>> + *
+>>>>>>>> + * @max_params_size: The total size of the ISP configuration blocks
+>>>>>>>> + */
+>>>>>>>> +#define v4l2_params_buffer_size(max_params_size) \
+>>>>>>>> +	(offsetof(struct v4l2_params_buffer, data) + (max_params_size))
+>>>>>>>
+>>>>>>> This isn't used in this series as far as I can tell, and neither is it
+>>>>>>> used in your libcamera implementation. I'd drop the macro (as well as
+>>>>>>> the mention in the commit message).
+>>>>>>
+>>>>>> This is because the rkisp1 and c3 ISP implementations are already merged with a custom parameters
+>>>>>> buffer struct defined at [1] and [2]. There the array size is set to the max size macro. This series
+>>>>>> just asserts that the header part is a size match for struct v4l2_params_buffer to guarantee
+>>>>>> compatibility, so throughout those drivers they can use sizeof(struct c3_isp_params_cfg) or the
+>>>>>> rkisp equivalent and it's fine.
+>>>>>>
+>>>>>> For new users that don't have a custom struct in their uAPI and are relying on struct
+>>>>>> v4l2_params_buffer we can't just do sizeof(), so the idea was for this to provide a canonical way
+>>>>>> for the size calculation to be done across both the kernel and userspace.
+>>>>>>
+>>>>>> If we decide that it's worth keeping but want a user in this series to justify its inclusion, it
+>>>>>> could be used in patches 2 and 3 - I'll reply to patch 2 in a second to indicate where.
+>>>>>
+>>>>> Will it be used by userspace too for the Mali C55, or only by the kernel
+>>>>
+>>>> I have used it in userspace too.
+>>>
+>>> Any pointer to the code ?
 >>
->> Signed-off-by: Kamal Dasu <kamal.dasu@broadcom.com>
->> ---
->>  drivers/mmc/host/sdhci-brcmstb.c | 124 +++++++++++++++++++++++++++++--
->>  1 file changed, 119 insertions(+), 5 deletions(-)
+>> I didn't post my commits to adapt the mali-c55 IPA to the extensible parameters, but it's basically
+>> the same as Jacopo's patch here:
+>> https://lists.libcamera.org/pipermail/libcamera-devel/2025-October/053567.html
 >>
->> diff --git a/drivers/mmc/host/sdhci-brcmstb.c b/drivers/mmc/host/sdhci-brcmstb.c
->> index 0905b316a24b..ffa602a99ab7 100644
->> --- a/drivers/mmc/host/sdhci-brcmstb.c
->> +++ b/drivers/mmc/host/sdhci-brcmstb.c
->> @@ -24,7 +24,9 @@
->>  #define BRCMSTB_MATCH_FLAGS_NO_64BIT		BIT(0)
->>  #define BRCMSTB_MATCH_FLAGS_BROKEN_TIMEOUT	BIT(1)
->>  #define BRCMSTB_MATCH_FLAGS_HAS_CLOCK_GATE	BIT(2)
->> -#define BRCMSTB_MATCH_FLAGS_USE_CARD_BUSY	BIT(4)
->> +#define BRCMSTB_MATCH_FLAGS_HAS_CFG_V1		BIT(3)
->> +#define BRCMSTB_MATCH_FLAGS_HAS_CFG_V2		BIT(4)
->> +#define BRCMSTB_MATCH_FLAGS_USE_CARD_BUSY	BIT(5)
->>  
->>  #define BRCMSTB_PRIV_FLAGS_HAS_CQE		BIT(0)
->>  #define BRCMSTB_PRIV_FLAGS_GATE_CLOCK		BIT(1)
->> @@ -38,19 +40,39 @@
->>  #define SDIO_CFG_OP_DLY_DEFAULT			0x80000003
->>  #define SDIO_CFG_CQ_CAPABILITY			0x4c
->>  #define SDIO_CFG_CQ_CAPABILITY_FMUL		GENMASK(13, 12)
->> +#define SDIO_CFG_SD_PIN_SEL			0x44
->> +#define SDIO_CFG_V1_SD_PIN_SEL			0x54
->> +#define SDIO_CFG_PHY_SW_MODE_0_RX_CTRL		0x7C
->>  #define SDIO_CFG_MAX_50MHZ_MODE			0x1ac
->>  #define SDIO_CFG_MAX_50MHZ_MODE_STRAP_OVERRIDE	BIT(31)
->>  #define SDIO_CFG_MAX_50MHZ_MODE_ENABLE		BIT(0)
->>  
->> +#define SDIO_BOOT_MAIN_CTL			0x0
->> +
->>  #define MMC_CAP_HSE_MASK	(MMC_CAP2_HSX00_1_2V | MMC_CAP2_HSX00_1_8V)
->>  /* Select all SD UHS type I SDR speed above 50MB/s */
->>  #define MMC_CAP_UHS_I_SDR_MASK	(MMC_CAP_UHS_SDR50 | MMC_CAP_UHS_SDR104)
->>  
->> +enum cfg_core_ver {
->> +	SDIO_CFG_CORE_V1 = 1,
->> +	SDIO_CFG_CORE_V2,
->> +};
->> +
->> +struct sdhci_brcmstb_saved_regs {
->> +	u32 sd_pin_sel;
->> +	u32 phy_sw_mode0_rxctrl;
->> +	u32 max_50mhz_mode;
->> +	u32 boot_main_ctl;
->> +};
->> +
->>  struct sdhci_brcmstb_priv {
->>  	void __iomem *cfg_regs;
->> +	void __iomem *boot_regs;
->> +	struct sdhci_brcmstb_saved_regs saved_regs;
->>  	unsigned int flags;
->>  	struct clk *base_clk;
->>  	u32 base_freq_hz;
->> +	void (*save_restore_regs)(struct mmc_host *mmc, int save);
->>  };
->>  
->>  struct brcmstb_match_priv {
->> @@ -60,6 +82,69 @@ struct brcmstb_match_priv {
->>  	const unsigned int flags;
->>  };
->>  
->> +static void sdhci_brcmstb_save_regs(struct mmc_host *mmc, enum cfg_core_ver ver)
->> +{
->> +	struct sdhci_host *host = mmc_priv(mmc);
->> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
->> +	struct sdhci_brcmstb_priv *priv = sdhci_pltfm_priv(pltfm_host);
->> +	struct sdhci_brcmstb_saved_regs *sr = &priv->saved_regs;
->> +	void __iomem *cr = priv->cfg_regs;
->> +	bool is_emmc = mmc->caps & MMC_CAP_NONREMOVABLE;
->> +
->> +	/* save  */
+>> And the change I made using the macro was in IPAMaliC55::fillParams():
 
-Comment is not really needed.
+Just for context, that function currently is:
 
->> +	if (is_emmc && priv->boot_regs)
->> +		sr->boot_main_ctl = readl(priv->boot_regs + SDIO_BOOT_MAIN_CTL);
->> +
->> +	if (ver == SDIO_CFG_CORE_V1) {
->> +		sr->sd_pin_sel = readl(cr + SDIO_CFG_V1_SD_PIN_SEL);
->> +		return;
->> +	}
->> +
->> +	sr->sd_pin_sel = readl(cr + SDIO_CFG_SD_PIN_SEL);
->> +	sr->phy_sw_mode0_rxctrl = readl(cr + SDIO_CFG_PHY_SW_MODE_0_RX_CTRL);
->> +	sr->max_50mhz_mode = readl(cr + SDIO_CFG_MAX_50MHZ_MODE);
->> +}
->> +
->> +static void sdhci_brcmstb_restore_regs(struct mmc_host *mmc,
->> +						enum cfg_core_ver ver)
+void IPAMaliC55::fillParams(unsigned int request,
+			    [[maybe_unused]] uint32_t bufferId)
+{
+	struct mali_c55_params_buffer *params;
+	IPAFrameContext &frameContext = context_.frameContexts.get(request);
 
-Prefer to line up function parameters.  Using up to 100 columns is also ok.
+	params = reinterpret_cast<mali_c55_params_buffer *>(
+		buffers_.at(bufferId).planes()[0].data());
+	memset(params, 0, sizeof(mali_c55_params_buffer));
 
->> +{
->> +	struct sdhci_host *host = mmc_priv(mmc);
->> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
->> +	struct sdhci_brcmstb_priv *priv = sdhci_pltfm_priv(pltfm_host);
->> +	struct sdhci_brcmstb_saved_regs *sr = &priv->saved_regs;
->> +	void __iomem *cr = priv->cfg_regs;
->> +	bool is_emmc = mmc->caps & MMC_CAP_NONREMOVABLE;
->> +
->> +	/* restore */
+	params->version = MALI_C55_PARAM_BUFFER_V1;
 
-Comment is not really needed.
+	for (auto const &algo : algorithms()) {
+		algo->prepare(context_, request, frameContext, params);
 
->> +	if (is_emmc && priv->boot_regs)
->> +		writel(sr->boot_main_ctl, priv->boot_regs + SDIO_BOOT_MAIN_CTL);
->> +
->> +	if (ver == SDIO_CFG_CORE_V1) {
->> +		writel(sr->sd_pin_sel, cr + SDIO_CFG_SD_PIN_SEL);
->> +		return;
->> +	}
->> +
->> +	writel(sr->sd_pin_sel, cr + SDIO_CFG_SD_PIN_SEL);
->> +	writel(sr->phy_sw_mode0_rxctrl, cr + SDIO_CFG_PHY_SW_MODE_0_RX_CTRL);
->> +	writel(sr->max_50mhz_mode, cr + SDIO_CFG_MAX_50MHZ_MODE);
->> +}
->> +
->> +static void sdhci_brcmstb_save_restore_regs_v1(struct mmc_host *mmc, int save)
->> +{
->> +	if (save)
->> +		sdhci_brcmstb_save_regs(mmc, SDIO_CFG_CORE_V1);
->> +	else
->> +		sdhci_brcmstb_restore_regs(mmc, SDIO_CFG_CORE_V1);
->> +}
->> +
->> +static void sdhci_brcmstb_save_restore_regs_v2(struct mmc_host *mmc, int save)
->> +{
->> +	if (save)
->> +		sdhci_brcmstb_save_regs(mmc, SDIO_CFG_CORE_V2);
->> +	else
->> +		sdhci_brcmstb_restore_regs(mmc, SDIO_CFG_CORE_V2);
->> +}
->> +
->>  static inline void enable_clock_gating(struct sdhci_host *host)
->>  {
->>  	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
->> @@ -300,24 +385,33 @@ static struct brcmstb_match_priv match_priv_7425 = {
->>  	.ops = &sdhci_brcmstb_ops,
->>  };
->>  
->> -static struct brcmstb_match_priv match_priv_7445 = {
->> +static struct brcmstb_match_priv match_priv_74371 = {
->>  	.flags = BRCMSTB_MATCH_FLAGS_BROKEN_TIMEOUT,
->>  	.ops = &sdhci_brcmstb_ops,
->>  };
->>  
->> +static struct brcmstb_match_priv match_priv_7445 = {
->> +	.flags = BRCMSTB_MATCH_FLAGS_BROKEN_TIMEOUT |
->> +			BRCMSTB_MATCH_FLAGS_HAS_CFG_V1,
->> +	.ops = &sdhci_brcmstb_ops,
->> +};
->> +
->>  static struct brcmstb_match_priv match_priv_72116 = {
->> -	.flags = BRCMSTB_MATCH_FLAGS_BROKEN_TIMEOUT,
->> +	.flags = BRCMSTB_MATCH_FLAGS_BROKEN_TIMEOUT |
->> +			BRCMSTB_MATCH_FLAGS_HAS_CFG_V1,
->>  	.ops = &sdhci_brcmstb_ops_72116,
->>  };
->>  
->>  static const struct brcmstb_match_priv match_priv_7216 = {
->> -	.flags = BRCMSTB_MATCH_FLAGS_HAS_CLOCK_GATE,
->> +	.flags = BRCMSTB_MATCH_FLAGS_HAS_CLOCK_GATE |
->> +			BRCMSTB_MATCH_FLAGS_HAS_CFG_V2,
->>  	.hs400es = sdhci_brcmstb_hs400es,
->>  	.ops = &sdhci_brcmstb_ops_7216,
->>  };
->>  
->>  static struct brcmstb_match_priv match_priv_74165b0 = {
->> -	.flags = BRCMSTB_MATCH_FLAGS_HAS_CLOCK_GATE,
->> +	.flags = BRCMSTB_MATCH_FLAGS_HAS_CLOCK_GATE |
->> +			BRCMSTB_MATCH_FLAGS_HAS_CFG_V2,
->>  	.hs400es = sdhci_brcmstb_hs400es,
->>  	.ops = &sdhci_brcmstb_ops_74165b0,
->>  };
->> @@ -325,6 +419,7 @@ static struct brcmstb_match_priv match_priv_74165b0 = {
->>  static const struct of_device_id __maybe_unused sdhci_brcm_of_match[] = {
->>  	{ .compatible = "brcm,bcm2712-sdhci", .data = &match_priv_2712 },
->>  	{ .compatible = "brcm,bcm7425-sdhci", .data = &match_priv_7425 },
->> +	{ .compatible = "brcm,bcm74371-sdhci", .data = &match_priv_74371 },
+		ASSERT(params->total_size <= MALI_C55_PARAMS_MAX_SIZE);
+	}
+
+	size_t bytesused = offsetof(struct mali_c55_params_buffer, data) + params->total_size;
+	paramsComputed.emit(request, bytesused);
+}
+
+>>
+>> -       memset(params, 0, sizeof(mali_c55_params_buffer));
+>> +       memset(params, 0, v4l2_params_buffer_size(MALI_C55_PARAMS_MAX_SIZE));
 > 
-> Shouldn't adding brcm,bcm74371-sdhci be a separate patch?
+> Given that the buffer should be sized for the worst case, wouldn't it be
+> better to memset .planes()[0].data().size() ?
+
+Won't buffers_.at(bufferId).planes()[0].size() be the same as 
+v4l2_params_buffer_size(MALI_C55_PARAMS_MAX_SIZE)? I am under the impression that that size will 
+come ultimately from .queue_setup() which will be setting the sizes with:
+
+sizes[0] = v4l2_params_buffer_size(MALI_C55_PARAMS_MAX_SIZE);
+
+In that sense I suppose that that would remove the need for v4l2_params_buffer_size() to be used in 
+userspace and we could just fallback to struct_size_t() within the kernel though.
+
 > 
->>  	{ .compatible = "brcm,bcm7445-sdhci", .data = &match_priv_7445 },
->>  	{ .compatible = "brcm,bcm72116-sdhci", .data = &match_priv_72116 },
->>  	{ .compatible = "brcm,bcm7216-sdhci", .data = &match_priv_7216 },
->> @@ -441,6 +536,19 @@ static int sdhci_brcmstb_probe(struct platform_device *pdev)
->>  	if (res)
->>  		goto err;
->>  
->> +	/* map non-standard BOOT registers if present */
->> +	if (host->mmc->caps & MMC_CAP_NONREMOVABLE) {
->> +		priv->boot_regs = devm_platform_get_and_ioremap_resource(pdev, 2, NULL);
->> +		if (IS_ERR(priv->boot_regs))
->> +			priv->boot_regs = NULL;
->> +	}
->> +
->> +	if (match_priv->flags & BRCMSTB_MATCH_FLAGS_HAS_CFG_V1)
->> +		priv->save_restore_regs = sdhci_brcmstb_save_restore_regs_v1;
->> +
->> +	if (match_priv->flags & BRCMSTB_MATCH_FLAGS_HAS_CFG_V2)
->> +		priv->save_restore_regs = sdhci_brcmstb_save_restore_regs_v2;
+>>>>> driver ?
+>>>>>
+>>>>>> [1] https://elixir.bootlin.com/linux/v6.17/source/include/uapi/linux/rkisp1-config.h#L1675
+>>>>>> [2] https://elixir.bootlin.com/linux/v6.17/source/include/uapi/linux/media/amlogic/c3-isp-config.h#L558>
+>>>>>>
+>>>>>>>> +
+>>>>>>>> +/**
+>>>>>>>> + * struct v4l2_params_buffer - V4L2 extensible parameters configuration
+>>>>>>>> + *
+>>>>>>>> + * This struct contains the configuration parameters of the ISP algorithms,
+>>>>>>>
+>>>>>>> s/struct/structure/
+>>>>>>>
+>>>>>>>> + * serialized by userspace into a data buffer. Each configuration parameter
+>>>>>>>> + * block is represented by a block-specific structure which contains a
+>>>>>>>> + * :c:type:`v4l2_params_block_header` entry as first member. Userspace populates
+>>>>>>>> + * the @data buffer with configuration parameters for the blocks that it intends
+>>>>>>>> + * to configure. As a consequence, the data buffer effective size changes
+>>>>>>>> + * according to the number of ISP blocks that userspace intends to configure and
+>>>>>>>> + * is set by userspace in the @data_size field.
+>>>>>>>> + *
+>>>>>>>> + * The parameters buffer is versioned by the @version field to allow modifying
+>>>>>>>> + * and extending its definition. Userspace shall populate the @version field to
+>>>>>>>> + * inform the driver about the version it intends to use. The driver will parse
+>>>>>>>> + * and handle the @data buffer according to the data layout specific to the
+>>>>>>>> + * indicated version and return an error if the desired version is not
+>>>>>>>> + * supported.
+>>>>>>>> + *
+>>>>>>>> + * For each ISP block that userspace wants to configure, a block-specific
+>>>>>>>> + * structure is appended to the @data buffer, one after the other without gaps
+>>>>>>>> + * in between nor overlaps. Userspace shall populate the @data_size field with
+>>>>>>>
+>>>>>>> I think you can drop "nor overlaps", nobody in their right mind should
+>>>>>>> think the blocks could be overlayed :-)
+>>>>>>>
+>>>>>>>> + * the effective size, in bytes, of the @data buffer.
+>>>>>>>> + *
+>>>>>>>> + * @version: The parameters buffer version (driver-specific)
+>>>>>>>> + * @data_size: The configuration data effective size, excluding this header
+>>>>>>>> + * @data: The configuration data
+>>>>>>>
+>>>>>>> Move the fields up just after the structure name.
+>>>>>>>
+>>>>>>> Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+>>>>>>>
+>>>>>>>> + */
+>>>>>>>> +struct v4l2_params_buffer {
+>>>>>>>> +	__u32 version;
+>>>>>>>> +	__u32 data_size;
+>>>>>>>> +	__u8 data[] __counted_by(data_size);
+>>>>>>>> +};
+>>>>>>>> +
+>>>>>>>> +#endif /* _UAPI_V4L2_ISP_H_ */
 > 
-> It is not ideal to use a flag to set a callback.  Perhaps sdhci_brcmstb_priv
-> should have a pointer to brcmstb_match_priv, then ->save_restore_regs() could
-> just be put there, and BRCMSTB_MATCH_FLAGS_HAS_CFG_V* are not needed.
-> 
->> +
->>  	/*
->>  	 * Automatic clock gating does not work for SD cards that may
->>  	 * voltage switch so only enable it for non-removable devices.
->> @@ -533,6 +641,9 @@ static int sdhci_brcmstb_suspend(struct device *dev)
->>  	struct sdhci_brcmstb_priv *priv = sdhci_pltfm_priv(pltfm_host);
->>  	int ret;
->>  
->> +	if (priv->save_restore_regs)
->> +		priv->save_restore_regs(host->mmc, 1);
->> +
->>  	clk_disable_unprepare(priv->base_clk);
->>  	if (host->mmc->caps2 & MMC_CAP2_CQE) {
->>  		ret = cqhci_suspend(host->mmc);
->> @@ -564,6 +675,9 @@ static int sdhci_brcmstb_resume(struct device *dev)
->>  			ret = clk_set_rate(priv->base_clk, priv->base_freq_hz);
->>  	}
->>  
->> +	if (priv->save_restore_regs)
->> +		priv->save_restore_regs(host->mmc, 0);
->> +
->>  	if (host->mmc->caps2 & MMC_CAP2_CQE)
->>  		ret = cqhci_resume(host->mmc);
->>  
-> 
+
 
 
