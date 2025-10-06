@@ -4,76 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC33ECAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 12:19:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51D4FCCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 12:23:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Z6wafg2QwsuXq7WoC2lKdb5ppvY0nwE7Df6gak0UIg0=; b=4n9DsYytxavb4jG1W+pH1LVwi+
-	ee1Ei6XaqqOT1Zrq+6YVg7ivWpL7jmcJYorXVSG/PGlpzmj9pjKFc58t3JiFMK68tsA9sywjQYJzT
-	UuEbd3OIky+MECSOI0jGTSVmT6L8YkQaKx2oD55pTrxt3NoHMP3UztN05xlcBQLsQ1iOwdgHDI41g
-	MxpGxQHNnM0lIiVMEnXQqngwoZ/HWD6vsgD8kCNmayYTcrd7+SkGoP0YSWOY5rETPZvnpzwXm2XKy
-	akC67OixQoIsO5qmuQQCwvLfJCwYn7DtMDiGqPGkWxTp5JkGP6WAFSEk5NBJa2iqskJ40fXw7rwcq
-	BzVeyKkQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Azz9O4mUwwwsxG7mSBpJ+zeBvEA2Nl0F6icaY3vg3+s=; b=gL/fsyBVHJE4HJkSHST9Ig/ErQ
+	umqNL9lou6gu0fKIy1H+fT+zdmZTQRuNLLahDcqkrZyI4pljj8MP0XyIMRCvWUii36C1bZ1+S1Vm4
+	HiOeZfGOLRksvBg0c/ADhGY/6jUfvjRKdrm0GaTdoxsXDhEX2J6tYI6XqcSoS0t3Yxc3t+q4+KIvJ
+	2cL/6z5m2nuJEixuApjrA5Ql12BKNMncG7sF2pwekirYwSEhDuL3k28DjPjraZmTaZoSgLOt5ur8s
+	Qu+zdadJm0Iu028BY+fC+uOeiPM9Z/1a4aD0ztWU01k+9OACjGjKbYSqZJB9eTCJzl4LBroV+wYkj
+	cfWEkNpQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5kBo-000000000Hz-33Xy;
-	Mon, 06 Oct 2025 12:19:40 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v5kFX-000000000YY-1ZoL;
+	Mon, 06 Oct 2025 12:23:31 +0000
+Received: from mail-yx1-xb12a.google.com ([2607:f8b0:4864:20::b12a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5kBn-000000000Hp-1Mw1
+	id 1v5kFU-000000000Y9-2gD1
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Oct 2025 12:19:39 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 7E9F06049B;
-	Mon,  6 Oct 2025 12:19:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F1A3C4CEF5;
-	Mon,  6 Oct 2025 12:19:33 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759753178;
-	bh=Z6wafg2QwsuXq7WoC2lKdb5ppvY0nwE7Df6gak0UIg0=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ngQAkhFmSP7SRB8JHkFxUzhtWlW+1qWIuECHxF3MXxp5gU2xRgmAkpgP3n/108fJe
-	 rmql6SeToRQUUT+XF1V4Auu/v6ksjdgv1m+sh3mv2cJtkJjJDkWT9dPqp/6MAj8DK8
-	 N7I+7Vdntgdi7bRLJMM9wdJN2b1CK14wO49xipehkGx92x9ZZsnhW8HZyn9rdomtyX
-	 d95EiRQI8ql1VheLGGjA8hp6/srzJBNW0egkVx2/QatYxJoUiW4GKZLkiyr5h6ve7H
-	 ZmXDsfJj7aUW4V/fitw3HouVkkSzSlCNUVIqn6ElUydSnhB6i8t6psEO7/Y9rC8yFj
-	 8Lvv6gnWCgH6g==
-Date: Mon, 6 Oct 2025 13:19:30 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Srinivas Kandagatla <srini@kernel.org>
-Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Kees Cook <kees@kernel.org>,
-	Mika Westerberg <westeri@kernel.org>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Saravana Kannan <saravanak@google.com>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Andy Shevchenko <andy@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
-	linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH RFC 0/9] gpio: improve support for shared GPIOs
-Message-ID: <5550fc25-b571-489c-9855-5a9b08822c0e@sirena.org.uk>
-References: <20250924-gpio-shared-v1-0-775e7efeb1a3@linaro.org>
- <0b402bba-0399-4f93-873e-890a78570ff7@kernel.org>
+	Mon, 06 Oct 2025 12:23:29 +0000
+Received: by mail-yx1-xb12a.google.com with SMTP id 956f58d0204a3-633c1b740c5so5437634d50.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Oct 2025 05:23:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1759753406; x=1760358206; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=Azz9O4mUwwwsxG7mSBpJ+zeBvEA2Nl0F6icaY3vg3+s=;
+        b=cUK9RwLjUangEc/1beM5FCTBwTu0nBYAVEkf72P2UN4uHOm965ePnX5Y4hMrsE+qpR
+         zNQt4Z1Q4v+IzCAC4FDsGz+porklGopOKUuaKOVFzKW+R8Remawn39sTXR4nCLL4/a/Y
+         yQA/EOSA5d+sknnkN4+IBHv8cafZD4UkaoUoYAxPA2pyyoW8UYBrASUJZQbidbYK0Te+
+         F1U1/wunGtVMdW4cE6eVYfTzC5F0plHcWEzGLmRXNCg46zpcLcGOJwH1mFm+dn4FpTlW
+         C0ETcU9lkgUidemsQiPWYlHuq95q1GTT7xyDuoLXhZTVQGOtlyCMeymx+qt6HCl9zJXt
+         k+SA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759753406; x=1760358206;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=Azz9O4mUwwwsxG7mSBpJ+zeBvEA2Nl0F6icaY3vg3+s=;
+        b=Ho9vklCda4eRdpnm8JkrPmF5x/twpDPDxlLC2MFyzRLDowK4klAJ9NolCsQaHtMBXD
+         4pTDFMcGFSwkJp6+QEMNO5HnIYel4VUdcdIpR/CpTCsDwHVNev3gUaPVo8TI4vFTx5jo
+         9czhiZ8v+fJT1QEKJJ6yprrL3eoVRcc5EsNieLrNNzMma0IffTpUIsXLMiBh5dV2pXWa
+         dOUleRyh8jPZS0U6LgUFgyCVGfZ4bSXjSCk6HQfY0lCfC9TMAfX+Dc/NJ1GCf+IAx6F5
+         lmO92WaRp7xb5Amz/WcQ+RihLjhvPwFNFLThfDEHcj0IhdIw5nTLeVXqeQbzv/l28D04
+         ta3Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVZ3PtoTKOskMpeBxXjrL0LCH63EYZ11AF7gxpVuZNhANcxftpYA+R5RHy5dkQ7dRwoOekjLcYjDtJBrpWHqo9M@lists.infradead.org
+X-Gm-Message-State: AOJu0YypFwDfv4CvnWwhj8eHgWp0jS5NnHfuZOQ4ajjxhu3tlxwlsCjx
+	sLVbnzY9NC2a2OMJkxE4BKJAbH2LQDvxvTmE8k+HBH5dcdrpOQnS2Bqyx8/7phnqMSS+w+BxQDK
+	35y8IEZ/iUihp5MRmEzLgM4vsaDLmepfKTOtQKJr0Uw==
+X-Gm-Gg: ASbGncsubEdDeVe48/lIR/yOH9+zWbGUwWfxewe7YxqcIgmkItU42NO5tryQlrqrj/K
+	FpxPCFlhvndlhKtH0GYRIRpWswni9Ga3n5AziV3Sf7ROlp7j55wC4w2pufLFXahVxaDeLTHdmJG
+	Jpv1gqMJkT9VuSeKnCqZ+7Z3d3Q0El3N9bO1+kppktQSBApejs7NI/Ivq5uRCb8XYkXCyOLNf1r
+	y25gnRmKEQLZgf8olyoP21xiN3h3V0QKwGRfgGAley59CI=
+X-Google-Smtp-Source: AGHT+IH2DWL1rMufHJoRTaOEsDQX80kfcKh2Smoz9/7LaEmtgBq0ndRVK0/fgAr61uabtKnXzQgGo5LH2G/ebFNXG8o=
+X-Received: by 2002:a53:a006:0:b0:636:13d5:6968 with SMTP id
+ 956f58d0204a3-63b9a07802cmr9764799d50.15.1759753404956; Mon, 06 Oct 2025
+ 05:23:24 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="TVznfU2XOoE/mFMu"
-Content-Disposition: inline
-In-Reply-To: <0b402bba-0399-4f93-873e-890a78570ff7@kernel.org>
-X-Cookie: You must be present to win.
+References: <20251003150251.520624-1-ulf.hansson@linaro.org>
+ <20251003150251.520624-3-ulf.hansson@linaro.org> <20251006-manipulative-urban-antelope-31101f@sudeepholla>
+In-Reply-To: <20251006-manipulative-urban-antelope-31101f@sudeepholla>
+From: Ulf Hansson <ulf.hansson@linaro.org>
+Date: Mon, 6 Oct 2025 14:22:49 +0200
+X-Gm-Features: AS18NWCQYiaPlcdiDQop43x4w0EDfpR_gEuiAFidF0pHvlZI8_2qX-prnyesMvw
+Message-ID: <CAPDyKFoz4P6cZWNA-omNtF3XqKKciC07aVXBTVQp8ueyyYxmxA@mail.gmail.com>
+Subject: Re: [PATCH 2/3] arm64: smp: Implement cpus_has_pending_ipi()
+To: Sudeep Holla <sudeep.holla@arm.com>
+Cc: "Rafael J . Wysocki" <rafael@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
+	Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Thomas Gleixner <tglx@linutronix.de>, Maulik Shah <quic_mkshah@quicinc.com>, 
+	Daniel Lezcano <daniel.lezcano@linaro.org>, Vincent Guittot <vincent.guittot@linaro.org>, 
+	linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251006_052328_691632_B7CB9569 
+X-CRM114-Status: GOOD (  24.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,35 +100,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Mon, 6 Oct 2025 at 12:54, Sudeep Holla <sudeep.holla@arm.com> wrote:
+>
+> On Fri, Oct 03, 2025 at 05:02:44PM +0200, Ulf Hansson wrote:
+> > To add support for keeping track of whether there may be a pending IPI
+> > scheduled for a CPU or a group of CPUs, let's implement
+> > cpus_has_pending_ipi() for arm64.
+> >
+> > Note, the implementation is intentionally lightweight and doesn't use a=
+ny
+> > additional lock. This is good enough for cpuidle based decisions.
+> >
+>
+> I=E2=80=99m not completely against this change, but I=E2=80=99d like to d=
+iscuss a few points
+> based on my understanding (which might also be incorrect):
+>
+> 1. For systems that don=E2=80=99t use PM domains for idle, wouldn=E2=80=
+=99t this be
+>    unnecessary? It might be worth making this conditional if we decide to
+>    proceed.
 
---TVznfU2XOoE/mFMu
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+For the non PM domain case, cpuidle_idle_call() calls need_resched()
+and bails out if it returns true. I think that does the job, for other
+more common cases.
 
-On Sat, Oct 04, 2025 at 02:31:16PM +0100, Srinivas Kandagatla wrote:
+Making this conditional could make sense. Not sure how costly it is to
+update the per CPU variables.
 
-> Isn't the main issue here is about not using a correct framework around
-> to the gpios that driver uses. ex: the codec usecase that you are
-> refering in this is using gpio to reset the line, instead of using a
-> proper gpio-reset control. same with some of the gpio-muxes. the problem
-> is fixed once such direct users of gpio are move their correct frameworks.
+>
+> 2. I understand this is intended for the DragonBoard 410c, where the firm=
+ware
+>    can=E2=80=99t be updated. However, ideally, the PSCI firmware should h=
+andle checking
+>    for pending IPIs if that=E2=80=99s important for the platform. The fir=
+mware could
+>    perform this check at the CPU PPU/HW level and prevent entering the
+>    state if needed.
 
-It's common to have GPIO controls for other things, mutes for example.
+I think this is exactly what is happening on Dragonboard 410c (see the
+stats I shared in the commit message in patch3).
 
---TVznfU2XOoE/mFMu
-Content-Type: application/pgp-signature; name="signature.asc"
+The PSCI FW refuses to enter the suggested idlestate and the call fails.
 
------BEGIN PGP SIGNATURE-----
+>
+> 3. I=E2=80=99m not an expert, but on systems with a large number of CPUs,=
+ tracking
+>    this for idle (which may or may not be enabled) seems a bit excessive,
+>    especially under heavy load when the system isn=E2=80=99t really idlin=
+g.
 
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmjjs9EACgkQJNaLcl1U
-h9B7ygf+Nk+FdgamUTpfwmlLaO+GIiuF8L1iwF53ymUmyUQHcvWpf2IMsk5oIfBB
-EsMVkL2c77ZuLy5ehS6ywdt8irgeG3DZt4aMI9UqYvHwsoN5IgsIcFKc6DV6wNZN
-kYVD53ZLD3hJGlY40sYdcZ/gJPnChAFHPgXCTqXtZPAFauDxrgY6MP6cD5W7sJpI
-brFXuZ2OUQr76vPSpOm3cfSbWSIiV1wInqr5yqxcmtBkhFJJ7+3d/veBKClywuvV
-hfIGxgwx3mNhUbhJQZcbxecrN3+3gb7UM/lf+eNjNWveK+EfF+EW6fHl8FzL7Gpn
-i83NmntXGVFA8LF57NmHwnjt6rJrHA==
-=4eQ9
------END PGP SIGNATURE-----
+Right, making the tracking mechanism conditional sounds like worth
+exploring. I guess the trick is to find a good way to dynamically
+enable it.
 
---TVznfU2XOoE/mFMu--
+Kind regards
+Uffe
 
