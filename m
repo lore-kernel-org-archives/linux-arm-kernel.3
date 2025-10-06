@@ -4,68 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB381CCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 15:43:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B33B0CCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 15:44:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
 	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
 	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6rxsm8dROfHJzJS5T442q1f8SyIa/yfC7dsK0KWY//o=; b=A+P4L8Kpn0h6YwAt0YmUWPs6CB
-	BzoObcLxjUJeK3bX/N2pmIn7hds+JGliYpdv9KEQ8hKp4Rzn/o0sGnUjQSQRfS0CCrEP9NqlfV57H
-	uF1S9KIRiw81j7c+5OLdXxdG1qyGC6RvhIMgAD0S4uvBHTVyU4+M/8aYKd+TRM1NXN01UcLvi9/dJ
-	ZZbww608xQIQycZxQ9cvWJDWBrBgAme/W9Rxl1OG9GxCjaqIR/Ejr57rBIB73zRqTikFPbKfr2HZo
-	0lmwbCbVnrmvI3wj8SCFpCedq2Qetpko03oAj+w6q6sfMB2jU5AkWzVwjfUkkWp+PJ8SaPt99fnau
-	LbaB+J7w==;
+	bh=5lizV0k8IvCTAEiYWCtHMTokoOjYS99KwY/En0ypzY4=; b=yRzwL5MILKlLhblDIZSWhVNMT0
+	R+Gpux7tJ80V6LQEJMsdxc+uNnpetGdmEc4b3zvUKzk5Q3Hn7yqOszJSqyqIepWpEyr2bklasnQjr
+	AbJU3JZvv9H1iJ8NyCU6fldxP8ArcV0/zHpVxU9zjIfoa/vqkVzCA55xbt0Ih6l+BdgnDcjjkulSU
+	fRD1N0Uabu9QA3uwqofStj02d1gxhSG4TaUG/hYYx8QJ5OxidTyXbIEc6/i7lEggi7JreLM3do8Xc
+	Izo7Mx+UR13EV7yy1bZgjYJZeN1bdgm1DaRfgc6NSIKB/A2PJJZsqMo5mibW9fWp2YrHRVGOQnQV2
+	NhwZQGtg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5nNP-00000000JE9-3Mo7;
-	Mon, 06 Oct 2025 15:43:51 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v5nNV-00000000JFj-0P9P;
+	Mon, 06 Oct 2025 15:43:57 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5nNO-00000000JE2-2GJQ
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Oct 2025 15:43:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id EDD6660579;
-	Mon,  6 Oct 2025 15:43:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5B325C4CEF5;
-	Mon,  6 Oct 2025 15:43:48 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759765429;
-	bh=U9taQDdhEq0Hr+LrDG0gIGzCorDNrdISkQr4eQ/LzLI=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=M9wVRa1m/ER2+xT1SLzEI+eRcA3ZENPekBsLbBSuDM+SW5K5ZqvgN2Pl0lYu8qPLZ
-	 iXr74DqgjReTkOFRsIoynkficpE2aHVAxYMCKLyFpC2dlpGTUFMZLBPnJ3+wdarTO0
-	 0tsBt19WkNaP+VV/W+PKm6wTRxd20RXf2cXWppSrlvz3vNWHYM0tifMR6OOyuMG2aB
-	 BJM/ENlMx0f2hoUmbwgFaZn54PHceuPvJa1Vc6uSGPi/fTW1TVfOtm+h+4VoM6fVrs
-	 UvoovmWW+8cKyuRrAvj/v0dC37FRCu41fmn/X6sWPOgaxY+vSg+T+YORmBfB5jZH9h
-	 8UqkyPahSVsoA==
-Date: Mon, 6 Oct 2025 08:43:47 -0700
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Dmitry Torokhov <dmitry.torokhov@gmail.com>
-Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Kees Cook <kees@kernel.org>, 
-	Mika Westerberg <westeri@kernel.org>, Andrew Morton <akpm@linux-foundation.org>, 
-	Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Andy Shevchenko <andy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, 
-	Will Deacon <will@kernel.org>, Srinivas Kandagatla <srini@kernel.org>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
-	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, linux-hardening@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Subject: Re: [PATCH RFC 0/9] gpio: improve support for shared GPIOs
-Message-ID: <zk4ea5cibrkp4vttuy4evrqybf76b3nop5lnyck4ws4nyf2yc4@ghj2eyswsoow>
-References: <20250924-gpio-shared-v1-0-775e7efeb1a3@linaro.org>
- <hyzzrjn7jzo3tt3oyg7azijouawe3zopfjzq6zfhoo6e6z2m4t@ssl5vl4g557e>
+	id 1v5nNS-00000000JE8-2gwa;
+	Mon, 06 Oct 2025 15:43:55 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Transfer-Encoding:Content-Disposition:
+	Content-Type:MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:From:
+	Sender:Reply-To:Subject:Date:Message-ID:To:Cc:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Content-Disposition:
+	In-Reply-To:References; bh=5lizV0k8IvCTAEiYWCtHMTokoOjYS99KwY/En0ypzY4=; b=DU
+	J9mxgdICTXHVmXLXd/h2dC36s8rbQWQZwud+V5Py7qhz4LGMYIo0W+pZ81un18cjeEkCf4a2cKClj
+	ydermpj2SPzI1QPUzMs9WVL1LtDY1FPyTYui2JelvlPMRGQXOPPqwuGF3e537Pv9zkhzVqKVQCFmH
+	P9jxMvkJaUh0bbk=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1v5nN8-00AIxf-9q; Mon, 06 Oct 2025 17:43:34 +0200
+Date: Mon, 6 Oct 2025 17:43:34 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: jjm2473 <jjm2473@gmail.com>
+Cc: Heiko Stuebner <heiko@sntech.de>, robh@kernel.org, krzk+dt@kernel.org,
+	conor+dt@kernel.org, quentin.schulz@cherry.de,
+	kever.yang@rock-chips.com, naoki@radxa.com, honyuenkwun@gmail.com,
+	inindev@gmail.com, ivan8215145640@gmail.com,
+	neil.armstrong@linaro.org, mani@kernel.org, dsimic@manjaro.org,
+	pbrobinson@gmail.com, alchark@gmail.com, didi.debian@cknow.org,
+	jbx6244@gmail.com, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 2/3] dt-bindings: arm: rockchip: Add LinkEase EasePi R1
+Message-ID: <6a5b9e68-4f23-49b9-b744-e84fc28a96b0@lunn.ch>
+References: <20250929065714.27741-1-jjm2473@gmail.com>
+ <20250929065714.27741-3-jjm2473@gmail.com>
+ <5700676.tIAgqjz4sF@phil>
+ <CAP_9mL6e8ekL14xycSfPmVSkL7pANLeyewWd=rjxbtMgMQXxxw@mail.gmail.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <hyzzrjn7jzo3tt3oyg7azijouawe3zopfjzq6zfhoo6e6z2m4t@ssl5vl4g557e>
+In-Reply-To: <CAP_9mL6e8ekL14xycSfPmVSkL7pANLeyewWd=rjxbtMgMQXxxw@mail.gmail.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251006_084354_683351_04A8BE31 
+X-CRM114-Status: GOOD (  11.10  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,48 +78,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Sep 24, 2025 at 11:25:12AM -0700, Dmitry Torokhov wrote:
-> Hi Bartosz,
+On Tue, Sep 30, 2025 at 02:20:57AM +0800, jjm2473 wrote:
+> Heiko Stuebner <heiko@sntech.de> 于2025年9月29日周一 20:28写道：
+> >
+> > Am Montag, 29. September 2025, 08:57:13 Mitteleuropäische Sommerzeit schrieb Liangbin Lian:
+> > > LinkEase EasePi R1 is a high-performance mini router based on RK3568.
+> > >
+> > > Signed-off-by: Liangbin Lian <jjm2473@gmail.com>
+> >
+> > In v1 this patch received an
+> > Acked-by: Conor Dooley <conor.dooley@microchip.com>
+> >
+> >
+> >
 > 
-> On Wed, Sep 24, 2025 at 04:51:28PM +0200, Bartosz Golaszewski wrote:
-> > Here's a functional RFC for improving the handling of shared GPIOs in
-> > linux.
-> > 
-> > Problem statement: GPIOs are implemented as a strictly exclusive
-> > resource in the kernel but there are lots of platforms on which single
-> > pin is shared by multiple devices which don't communicate so need some
-> > way of properly sharing access to a GPIO. What we have now is the
-> > GPIOD_FLAGS_BIT_NONEXCLUSIVE flag which was introduced as a hack and
-> > doesn't do any locking or arbitration of access - it literally just hand
-> > the same GPIO descriptor to all interested users.
-> > 
-> > The proposed solution is composed of three major parts: the high-level,
-> > shared GPIO proxy driver that arbitrates access to the shared pin and
-> > exposes a regular GPIO chip interface to consumers, a low-level shared
-> > GPIOLIB module that scans firmware nodes and creates auxiliary devices
-> > that attach to the proxy driver and finally a set of core GPIOLIB
-> > changes that plug the former into the GPIO lookup path.
-> > 
-> > The changes are implemented in a way that allows to seamlessly compile
-> > out any code related to sharing GPIOs for systems that don't need it.
-> > 
-> > The practical use-case for this are the powerdown GPIOs shared by
-> > speakers on Qualcomm db845c platform, however I have also extensively
-> > tested it using gpio-virtuser on arm64 qemu with various DT
-> > configurations.
-> 
-> How is this different from the existing gpio-backed regulator/supply?
-> IMO GPIOs are naturally exclusive-use resources (in cases when you need
-> to control them, not simply read their state), and when there is a need
-> to share them there are more appropriate abstractions that are built on
-> top of GPIOs...
-> 
+> In the next version, I will add 'Acked-by' to the commit message
+> and then run `git format-patch` to avoid missing it.
 
-Not always... For something like shared reset line, consumers request the line
-as GPIO and expect gpiolib to do resource manangement.
+Please consider using b4. It will automagically collect all these
+reviewed-by, acked-by tags and all them to the patches for you.
 
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
+	     Andrew
 
