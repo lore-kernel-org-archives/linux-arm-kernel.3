@@ -4,79 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B1BEBCAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 11:41:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 73F1CCCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 11:49:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2zSa8t0BLFbE2sFL8sEge/sB6GfievzXdAQnRQjaaHE=; b=ExwCKRYKtLrcZ2ujtEG0Vr02/L
-	GfnCPlxRQiC5/Hnl5L/dka9iomuSQc3f/eGC+FGIl+pADhKPoZJqU2/meNQGkgWSBcInF5eg30M+C
-	XyYCN7TfeAqueEVcG9S40ko269rsOj4IQyF/1Mouap5+ohUZkALB3UJ4WPTVs7nVqSRZQO+EF8yFV
-	mS2MK5Y7uuJ5ZarQIHv/s2wkbz+F3Q67G0hgfFK2Q9AmDPPhMcS1UziqlVwkZ/3yLNIJ+EJN/Tj69
-	9aomthk10e546K3oCE3b1l84qHDB78QHsh0klx3MzFPU1uTaBFRa1lPwATFI6xR6Sh6woBpcF47AW
-	e8qSL4QA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KYptHwQxYppzTfCWVdL/R5bMHuCmx/luf6VVt6namUI=; b=tPwcaZAPAlRWsqgIEUYmyFdtCf
+	HQPeB3FdPWYBmFUJwCHVFGF0Svm7SN+6hZmySZMqxatE+0bMom+7YgAABlJMfBXWJOZ4yApRx0lvA
+	V6FFqQf4YWMHO7wLKVRzoqsku1kZ4ukvMvyr7uuBv5mF7kh+ugaiE7BwNjZXqqHiRVgBeMOAxmEwZ
+	gdJgp2N93J53Oxsx58fU1xAxbvBrjH5+aNM4F/twAVe0G76BVagZpFHTaw3S9uAjlEVZDLgt4ssW1
+	v1lu6we4mmVnU4ItIphaP1M7A4bSpjK/ylJO+TEFEs204MGEC/zK7DRust0MBZXA0xvw3EemD+CL2
+	JQeyy0Ig==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5jaP-0000000HVMK-0Wuz;
-	Mon, 06 Oct 2025 11:41:01 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1v5jik-0000000HW9M-3zjO;
+	Mon, 06 Oct 2025 11:49:38 +0000
+Received: from mx-relay04-hz1.antispameurope.com ([94.100.132.204])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5jaN-0000000HVLV-000V;
-	Mon, 06 Oct 2025 11:41:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1759750843; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=C8pwcjsJ+qowHJ37zlXp12Ma1w0Ko/I/NzluVBpY+/82lmGqlPpQvMpphsi4l9HCJpYdFV3dIJotUDRoRbIzK1u6ioMrJtEmt2FeIWl9tKwOqWP9xOq11BwfRRCYCeYEGXkX8gE5YRTUJrf9FsmKfBnMPytChaMtIyvSFrXRggk=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1759750843; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=2zSa8t0BLFbE2sFL8sEge/sB6GfievzXdAQnRQjaaHE=; 
-	b=npgMq/QsQ/ncrLWzA2MOJFVNkUM49rUnZfnuxYOiG++NPcP5dp0wk2W4d2JT/tcHCvch/mfY/S0OWF9kuMJn+j/C4pGf+UYoMPBPmGlIA9GsnOLlFulC9AVMVoXiifzsLZy5fTlu7FBrkE3xZCoVO3SnmPBdt1Y1q3JVC9oDafk=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1759750843;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=2zSa8t0BLFbE2sFL8sEge/sB6GfievzXdAQnRQjaaHE=;
-	b=MMZpYfqpYfrc7dXHgD412byATIiTHhnz7W4rKmFMt2MG3Zl2+7d0+d0Ced8fa1W1
-	iBcyNF/oSgkohtiQC+CM3LAixL1bPSoHqFOaTAqQP+eHRAE4iMk2jsDArs+EnEt5AiJ
-	L4Jk/8QKvYFz2ARu1LgCLJ4C0C0B7pp+XYoUnv/o=
-Received: by mx.zohomail.com with SMTPS id 1759750841484642.2099292517786;
-	Mon, 6 Oct 2025 04:40:41 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Chia-I Wu <olvaffe@gmail.com>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Boris Brezillon <boris.brezillon@collabora.com>,
- Jassi Brar <jassisinghbrar@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
- Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>, Kees Cook <kees@kernel.org>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- Ulf Hansson <ulf.hansson@linaro.org>, kernel@collabora.com,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-hardening@vger.kernel.org,
- linux-pm@vger.kernel.org
-Subject: Re: [PATCH v6 7/7] pmdomain: mediatek: Add support for MFlexGraphics
-Date: Mon, 06 Oct 2025 13:40:35 +0200
-Message-ID: <2323923.iZASKD2KPV@workhorse>
-In-Reply-To: <8586490.T7Z3S40VBb@workhorse>
-References: <20251003-mt8196-gpufreq-v6-0-76498ad61d9e@collabora.com>
- <CAPaKu7QWBShwr+YhFi+nUFo0kJ06k4PK3zggcCefWGjqUmTx5w@mail.gmail.com>
- <8586490.T7Z3S40VBb@workhorse>
+	id 1v5jii-0000000HW8d-08Td
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Oct 2025 11:49:37 +0000
+ARC-Authentication-Results: i=1; mx-gate04-hz1.hornetsecurity.com 1; spf=pass
+ reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com
+ smtp.helo=hmail-p-smtp01-out04-hz1.hornetsecurity.com; dmarc=pass
+ header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=KYptHwQxYppzTfCWVdL/R5bMHuCmx/luf6VVt6namUI=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1759751359;
+ b=DmU4TQn+OJ6FHxtrlliwdRsZczCN54ywsRRK/S73svW9yDUgtqB8hl9tPCXYVfo/3XjHhadI
+ h4QZtx1u/mrzz0B1RBAEJ52XUQzypdbiiwza+Vj7eTEsnSUh5RY52S1szCwhub6uoh7UG9ysZ99
+ /NHZECY+qUFWJ/zWciF6H7972b8SzRo5bi/BZkX/4rh6vPqK1PnWf6rNgRTISWThZMVNcgdJQ9r
+ 7hwKces3O6ZdvWWGdsHXUv8qYyOdY2zYe+giYUp7peO2cyTF0moHFr0LIeu47FecRYYVG0fhTPq
+ 4mmoh7oECtfdYwKIfzyhJLt84iNOTiDcLEW/+W9t1Ep/g==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1759751359;
+ b=ZWFSALrweJH4kz5GOl4sP6ZtePxbddmepWHjg8mhLeixisLUDGywsmMt2slHoSbLXSqrvUEF
+ HTnyiP5sl1oDhmoOxC/Z6b/9iefVJFPIH0f3Qj3N/FWSRUW1Lu+Oewcw+1ecjHp0xx45c6Jt/BQ
+ O5LlidCG4lDYFlmBMzryT53lTmn6+HMg8nqCqZEvBYAN5dqX4CngQvkujGY6NdrSHs87mFvgXLt
+ q93UKfo7rfgSwqyLewYgv1InLGSHxkhjd+8zaZWVmknj6SavG/M4dSpwy7PpEZFtRwH8x8Z2TsS
+ kCXDsDpkSHWWkjEs+mLWGsQRBJY3m247lDfCKw/9k+/IQ==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay04-hz1.antispameurope.com;
+ Mon, 06 Oct 2025 13:49:19 +0200
+Received: from schifferm-ubuntu.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: matthias.schiffer@ew.tq-group.com)
+	by hmail-p-smtp01-out04-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 4F5EC220CF2;
+	Mon,  6 Oct 2025 13:49:03 +0200 (CEST)
+From: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+To: Nishanth Menon <nm@ti.com>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Tero Kristo <kristo@kernel.org>
+Cc: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Kees Cook <kees@kernel.org>,
+	Tony Luck <tony.luck@intel.com>,
+	"Guilherme G. Piccoli" <gpiccoli@igalia.com>,
+	Andrew Lunn <andrew@lunn.ch>,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-hardening@vger.kernel.org,
+	linux@ew.tq-group.com,
+	Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+Subject: [PATCH v3 1/2] dt-bindings: arm: ti: Add compatible for AM625-based TQMa62xx SOM family and carrier board
+Date: Mon,  6 Oct 2025 13:47:47 +0200
+Message-ID: <7691a2ca5ed49da6276d406e5dd986c91f221c9b.1759749553.git.matthias.schiffer@ew.tq-group.com>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <cover.1759749553.git.matthias.schiffer@ew.tq-group.com>
+References: <cover.1759749553.git.matthias.schiffer@ew.tq-group.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-cloud-security-sender: matthias.schiffer@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: matthias.schiffer@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay04-hz1.antispameurope.com with 4cgHc010rQzS0jY
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: b8a1cefe5a1b3338a1f745c2baa9dc55
+X-cloud-security: scantime:2.278
+DKIM-Signature: a=rsa-sha256;
+ bh=KYptHwQxYppzTfCWVdL/R5bMHuCmx/luf6VVt6namUI=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1759751358; v=1;
+ b=Wl9qLE34WerpiOAtskTM2X9EeaTu2/EapQo3gLkSarJ4v/JMkQT8MTgmsg//9Bo1qSfCo/xt
+ 3o/S/gMcbsc9LN+0bGcihJO/xHKcj4BCsksOHZKGMqc8ZdTyVl3N57+Tt2R5t2MvhMcAeMOWgF3
+ bkWMjUIU8i04ApaqSHx7pxz8l7eVSM61gPjWuBpsf8rOpP912c2DJfoLrZcD6UMB92zxoOF0Ot+
+ 1Y+boB3nCbefxccKHUsyUMnlT5RWG3542kXuyxUuCe0lg7xy5wMdLJqcwf5T7bh1JLAPFPE+Sdo
+ wF76c5EmWNNXJG6T+UsZid/1KHhYgXW9lqOG9gGlxlHog==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_044059_058571_3C832EB5 
-X-CRM114-Status: GOOD (  24.24  )
+X-CRM114-CacheID: sfid-20251006_044936_209420_2264F1D5 
+X-CRM114-Status: GOOD (  10.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,149 +117,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Monday, 6 October 2025 12:58:55 Central European Summer Time Nicolas Fra=
-ttaroli wrote:
-> On Friday, 3 October 2025 23:41:16 Central European Summer Time Chia-I Wu=
- wrote:
-> > On Fri, Oct 3, 2025 at 1:16=E2=80=AFPM Nicolas Frattaroli
-> > <nicolas.frattaroli@collabora.com> wrote:
-> > >
-> > > Various MediaTek SoCs use GPU integration silicon named "MFlexGraphic=
-s"
-> > > by MediaTek. On the MT8196 and MT6991 SoCs, interacting with this
-> > > integration silicon is required to power on the GPU.
-> > >
-> > > This glue silicon is in the form of an embedded microcontroller runni=
-ng
-> > > special-purpose firmware, which autonomously adjusts clocks and
-> > > regulators.
-> > >
-> > > Implement a driver, modelled as a pmdomain driver with a
-> > > set_performance_state operation, to support these SoCs.
-> [...]
-> > > +static int mtk_mfg_probe(struct platform_device *pdev)
-> > > +{
-> > > +       struct device_node *shmem __free(device_node);
-> > > +       struct mtk_mfg *mfg;
-> > > +       struct device *dev =3D &pdev->dev;
-> > > +       const struct mtk_mfg_variant *data =3D of_device_get_match_da=
-ta(dev);
-> > > +       struct resource res;
-> > > +       int ret, i;
-> > > +
-> > > +       mfg =3D devm_kzalloc(dev, sizeof(*mfg), GFP_KERNEL);
-> > > +       if (!mfg)
-> > > +               return -ENOMEM;
-> > > +
-> > > +       mfg->pdev =3D pdev;
-> > > +       mfg->variant =3D data;
-> > > +
-> > > +       dev_set_drvdata(dev, mfg);
-> > > +
-> > > +       mfg->gpr =3D devm_platform_ioremap_resource(pdev, 0);
-> > > +       if (IS_ERR(mfg->gpr))
-> > > +               return dev_err_probe(dev, PTR_ERR(mfg->gpr),
-> > > +                                    "Couldn't retrieve GPR MMIO regi=
-sters\n");
-> > > +
-> > > +       mfg->rpc =3D devm_platform_ioremap_resource(pdev, 1);
-> > > +       if (IS_ERR(mfg->rpc))
-> > > +               return dev_err_probe(dev, PTR_ERR(mfg->rpc),
-> > > +                                    "Couldn't retrieve RPC MMIO regi=
-sters\n");
-> > > +
-> > > +       mfg->clk_eb =3D devm_clk_get(dev, "eb");
-> > > +       if (IS_ERR(mfg->clk_eb))
-> > > +               return dev_err_probe(dev, PTR_ERR(mfg->clk_eb),
-> > > +                                    "Couldn't get 'eb' clock\n");
-> > > +
-> > > +       mfg->gpu_clks =3D devm_kcalloc(dev, data->num_clks, sizeof(*m=
-fg->gpu_clks),
-> > > +                                    GFP_KERNEL);
-> > > +       if (!mfg->gpu_clks)
-> > > +               return -ENOMEM;
-> > > +
-> > > +       for (i =3D 0; i < data->num_clks; i++)
-> > > +               mfg->gpu_clks[i].id =3D data->clk_names[i];
-> > > +
-> > > +       ret =3D devm_clk_bulk_get(dev, data->num_clks, mfg->gpu_clks);
-> > > +       if (ret)
-> > > +               return dev_err_probe(dev, ret, "Couldn't get GPU cloc=
-ks\n");
-> > > +
-> > > +       mfg->gpu_regs =3D devm_kcalloc(dev, data->num_regulators,
-> > > +                                    sizeof(*mfg->gpu_regs), GFP_KERN=
-EL);
-> > > +       if (!mfg->gpu_regs)
-> > > +               return -ENOMEM;
-> > > +
-> > > +       for (i =3D 0; i < data->num_regulators; i++)
-> > > +               mfg->gpu_regs[i].supply =3D data->regulator_names[i];
-> > > +
-> > > +       ret =3D devm_regulator_bulk_get(dev, data->num_regulators, mf=
-g->gpu_regs);
-> > > +       if (ret)
-> > > +               return dev_err_probe(dev, ret, "Couldn't get GPU regu=
-lators\n");
-> > > +
-> > > +       ret =3D of_reserved_mem_region_to_resource(dev->of_node, 0, &=
-res);
-> > > +       if (ret)
-> > > +               return dev_err_probe(dev, ret, "Couldn't get GPUEB sh=
-ared memory\n");
-> > > +
-> > > +       mfg->shared_mem =3D devm_ioremap(dev, res.start, resource_siz=
-e(&res));
-> > > +       if (!mfg->shared_mem)
-> > > +               return dev_err_probe(dev, -ENOMEM, "Can't ioremap GPU=
-EB shared memory\n");
-> > > +       mfg->shared_mem_size =3D resource_size(&res);
-> > > +       mfg->shared_mem_phys =3D res.start;
-> > > +
-> > > +       if (data->init) {
-> > > +               ret =3D data->init(mfg);
-> > > +               if (ret)
-> > > +                       return dev_err_probe(dev, ret, "Variant init =
-failed\n");
-> > > +       }
-> > > +
-> > > +       mfg->pd.name =3D dev_name(dev);
-> > > +       mfg->pd.attach_dev =3D mtk_mfg_attach_dev;
-> > > +       mfg->pd.detach_dev =3D mtk_mfg_detach_dev;
-> > > +       mfg->pd.power_off =3D mtk_mfg_power_off;
-> > > +       mfg->pd.power_on =3D mtk_mfg_power_on;
-> > > +       mfg->pd.set_performance_state =3D mtk_mfg_set_performance;
-> > > +       mfg->pd.flags =3D GENPD_FLAG_OPP_TABLE_FW;
-> > > +
-> > > +       ret =3D pm_genpd_init(&mfg->pd, NULL, false);
-> > > +       if (ret)
-> > > +               return dev_err_probe(dev, ret, "Failed to initialise =
-power domain\n");
-> > We need to clean up mgf->md on errors from this point on. Maybe we can
-> > move this to a later point?
-> >=20
-> > > +
-> > > +       ret =3D mtk_mfg_init_mbox(mfg);
-> > > +       if (ret)
-> > > +               return dev_err_probe(dev, ret, "Couldn't initialise m=
-ailbox\n");
-> > We need to free the mboxes from this point on.
-> >=20
->=20
-> For this and the one above, does .remove not get called on probe failure?=
- If not,
-> I'll definitely do this. Otherwise it seems redundant, though with the ad=
-ded
-> concern that .remove does not check before calling those functions.
->=20
+The TQMa62xx is a SoM family with a pluggable connector. The MBa62xx is
+the matching reference/starterkit carrier board.
 
-Alright nevermind, I'm being confused by devres vs. remove callback.
+Signed-off-by: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ Documentation/devicetree/bindings/arm/ti/k3.yaml | 7 +++++++
+ 1 file changed, 7 insertions(+)
 
-=2Eremove does not get called if the probe function fails, but devres
-handlers still do get called.
-
-Sorry for the confusion, will fix things accordingly.
-
-
+diff --git a/Documentation/devicetree/bindings/arm/ti/k3.yaml b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+index 0105dcda6e04d..ed89a7a36e1f8 100644
+--- a/Documentation/devicetree/bindings/arm/ti/k3.yaml
++++ b/Documentation/devicetree/bindings/arm/ti/k3.yaml
+@@ -89,6 +89,13 @@ properties:
+           - const: toradex,verdin-am62          # Verdin AM62 Module
+           - const: ti,am625
+ 
++      - description: K3 AM625 SoC on TQ-Systems TQMa62xx SoM
++        items:
++          - enum:
++              - tq,am625-tqma6254-mba62xx # MBa62xx base board
++          - const: tq,am625-tqma6254
++          - const: ti,am625
++
+       - description: K3 AM62P5 SoC Toradex Verdin Modules and Carrier Boards
+         items:
+           - enum:
+-- 
+TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
+Amtsgericht München, HRB 105018
+Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
+https://www.tq-group.com/
 
 
