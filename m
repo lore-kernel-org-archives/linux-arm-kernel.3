@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9779ECAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 16:01:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F7AACCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 16:06:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Ygug8+cF9r/CjSHjQ6eFGDARziGIKPc/GQ1PbW1jXLw=; b=Zfv7RDLyy7wK0cG8kVg7m1D5U9
-	Uj5ysI+8yx4TOvsZcnoZ9OoZ1f04bUKWe3dALF+jm6KZn67iiInb9hheaKL1IMeiQk/T4UB0/gdtZ
-	5uqJJ7iqaHmidtNWtxe84NCBtj97gOkJkUOX1GtGHKPMz7YXh33j9xprlwjojrC/oJ1xl3QYOu6rW
-	NCQplPRbUL+T/4eLu/ogwKU7+JqvVjU7KV+zWqg8WpSjWXA2++WgqyC2pYGVso7pZa98PVvFknr9x
-	tSTILytW3+lg9QJQwgXNN0o+/8CkQMaIfThPPo/TMiPkpTa+lpUoSmC5Spn2vQCdtKMecFJuBQx1+
-	n59k3RDQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BAgyMAPnS0Hb98FmqDxYvuYrFMU1TlWK4dPYQ9fT3xA=; b=qFlY4DsuJokePTgAGDTjjxub30
+	bTPMRN3zuzfXlz+k1XmRD0mPq44/VCkcZoHg2k52QMOeXaVuYxGD7qwtmL9SltEoHh3/DpimY5OvI
+	pixPAoXNRth81iWNlK/xaoR7cidQw2mtyyQb4V63jircUcMcO/K8tfS76C2Uxe6HKIRevbtD51U0R
+	rIn7f5ErFND82HiZ//dX2JH+NDAv4mz6Bc6KtDTs3q3oU8y8bdMVbLRsNJZEbRPxTihGrHGO3ueB5
+	XPxiGApdlmH2sT2GDLTnRTZq3PsulL0Ped5Ow3g3AAFqx4Mum8a6W8Lpsy6/wCej5eUywPiK3eUW0
+	uGVM9+rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5ndy-00000000LEp-2jI8;
-	Mon, 06 Oct 2025 16:00:58 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5ndw-00000000LDt-2DHa
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Oct 2025 16:00:57 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CDEA11516;
-	Mon,  6 Oct 2025 09:00:47 -0700 (PDT)
-Received: from [10.1.197.69] (eglon.cambridge.arm.com [10.1.197.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id BDB993F738;
-	Mon,  6 Oct 2025 09:00:50 -0700 (PDT)
-Message-ID: <ca0d63a6-0325-4a1d-8b80-6bdc41034fa8@arm.com>
-Date: Mon, 6 Oct 2025 17:00:49 +0100
+	id 1v5njK-00000000LgC-1bJS;
+	Mon, 06 Oct 2025 16:06:30 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v5njH-00000000LfU-3BnG;
+	Mon, 06 Oct 2025 16:06:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=BAgyMAPnS0Hb98FmqDxYvuYrFMU1TlWK4dPYQ9fT3xA=; b=HA4YuuoOqpokJk8bCto6LWkS/V
+	WleA3AulFkSF3p82isDuCbu0Dh+q3ItRjOittlQj70j1jlclODyAkx+nmI55npIjVnSnzIWHd5rTS
+	0Hb12jTUzyH/qw4Le25IpcIBwjkU0Eg5UmFSw6U4U3GFVIb2PsCLPHhFMqIsS6fsioho=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1v5njB-00AJ3z-A6; Mon, 06 Oct 2025 18:06:21 +0200
+Date: Mon, 6 Oct 2025 18:06:21 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	Algea Cao <algea.cao@rock-chips.com>,
+	Andy Yan <andy.yan@rock-chips.com>,
+	Cenk Uluisik <cenk.uluisik@googlemail.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+	Heiko Stuebner <heiko@sntech.de>, Jimmy Hon <honyuenkwun@gmail.com>,
+	Kever Yang <kever.yang@rock-chips.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	Muhammed Efe Cetin <efectn@6tel.net>, Ondrej Jirman <megi@xff.cz>,
+	Rob Herring <robh@kernel.org>, Sandy Huang <hjc@rock-chips.com>
+Subject: Re: [PATCH 3/3] arm64: dts: rockchip: Add rk3588s-orangepi-cm5-base
+ device tree
+Message-ID: <4d337915-e3a9-46b7-a30b-ccb47ad33556@lunn.ch>
+References: <20251002034708.19248-1-laurent.pinchart@ideasonboard.com>
+ <20251002034708.19248-4-laurent.pinchart@ideasonboard.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 23/29] arm_mpam: Add mpam_msmon_read() to read monitor
- value
-To: Ben Horgan <ben.horgan@arm.com>, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
-Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- fenghuay@nvidia.com, baisheng.gao@unisoc.com,
- Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
- <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
- Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
- Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
- <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>
-References: <20250910204309.20751-1-james.morse@arm.com>
- <20250910204309.20751-24-james.morse@arm.com>
- <1344b395-66aa-4714-b1fc-9c970c0fd0bf@arm.com>
- <842edca0-11c7-43ac-ba4b-ab40678034e2@arm.com>
-Content-Language: en-GB
-From: James Morse <james.morse@arm.com>
-In-Reply-To: <842edca0-11c7-43ac-ba4b-ab40678034e2@arm.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251002034708.19248-4-laurent.pinchart@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_090056_610216_7C3FF218 
-X-CRM114-Status: GOOD (  11.62  )
+X-CRM114-CacheID: sfid-20251006_090627_796788_52B3E722 
+X-CRM114-Status: UNSURE (   7.78  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,59 +80,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Ben,
+> +&gmac1 {
+> +	clock_in_out = "output";
+> +	phy-handle = <&rgmii_phy>;
+> +	phy-mode = "rgmii-id";
+> +	phy-supply = <&vcc_3v3>;
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&gmac1_miim
+> +		     &gmac1_rx_bus2
+> +		     &gmac1_tx_bus2
+> +		     &gmac1_rgmii_clk
+> +		     &gmac1_rgmii_bus>;
+> +	tx_delay = <0x42>;
 
-On 12/09/2025 16:08, Ben Horgan wrote:
-> On 9/11/25 16:46, Ben Horgan wrote:
->> On 9/10/25 21:43, James Morse wrote:
->>> Reading a monitor involves configuring what you want to monitor, and
->>> reading the value. Components made up of multiple MSC may need values
->>> from each MSC. MSCs may take time to configure, returning 'not ready'.
->>> The maximum 'not ready' time should have been provided by firmware.
->>>
->>> Add mpam_msmon_read() to hide all this. If (one of) the MSC returns
->>> not ready, then wait the full timeout value before trying again.
+Nice to see phy-mode 'rgmii-id', but 0x42 is pretty high in comparison
+to other boards correctly using 'rgmii-id', and is asymmetric with no
+rx_delay value.
 
->>> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->>> index cf190f896de1..1543c33c5d6a 100644
->>> --- a/drivers/resctrl/mpam_devices.c
->>> +++ b/drivers/resctrl/mpam_devices.c
->>> +
->>> +static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
->>> +				   u32 *flt_val)
->>> +{
->>> +	struct mon_cfg *ctx = m->ctx;
->>> +
->>> +	/*
->>> +	 * For CSU counters its implementation-defined what happens when not
->>> +	 * filtering by partid.
->>> +	 */
->>> +	*ctl_val |= MSMON_CFG_x_CTL_MATCH_PARTID;
->>> +
->>> +	*flt_val = FIELD_PREP(MSMON_CFG_x_FLT_PARTID, ctx->partid);
->>> +	if (m->ctx->match_pmg) {
->>> +		*ctl_val |= MSMON_CFG_x_CTL_MATCH_PMG;
->>> +		*flt_val |= FIELD_PREP(MSMON_CFG_x_FLT_PMG, ctx->pmg);
->>> +	}
->>> +
->>> +	switch (m->type) {
->>> +	case mpam_feat_msmon_csu:
->>> +		*ctl_val = MSMON_CFG_CSU_CTL_TYPE_CSU;
->>> +
->>> +		if (mpam_has_feature(mpam_feat_msmon_csu_xcl, &m->ris->props))
->>> +			*flt_val |= FIELD_PREP(MSMON_CFG_CSU_FLT_XCL,
->>> +					       ctx->csu_exclude_clean);
->>> +
->>> +		break;
->>> +	case mpam_feat_msmon_mbwu:
->>> +		*ctl_val = MSMON_CFG_MBWU_CTL_TYPE_MBWU;
-> 
-> As you mentioned offline, this zeroes the other bits in *ctl_val.
+I cannot say this is wrong, it is just odd, not what i would expect.
 
-Yes - a bug introduced during a late night, I've fixed this up.
-
-
-Thanks,
-
-James
+  Andrew
 
