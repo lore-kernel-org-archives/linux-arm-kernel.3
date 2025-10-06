@@ -4,56 +4,203 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6171CCA471
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 10:08:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAD3FCAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 10:09:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:In-Reply-To:Date:From:Cc:To:Subject:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
-	bh=mT8h36Kt0GYhHsv17MPYVpFKN/FeljKty60VIdhXUyc=; b=z5fhPXgZqUyhVdv/B0MpnCt0bI
-	2z5FGKojJ/U0nLcFv1NYwPSIvLIoGXLhJmyr1gJGwXT/PPc7Xrs2idTza7sIPO2t7dank5rO1SGpI
-	CmCwwAO9MhDGwYPwpKRl4uVBO88Q0qIHxeLVKGIpds0SqV95SEVDOlPnBQqJyYpWwQuauWdQCKm1a
-	5pcF44jAakahGmSM6SfyzLCrFvmkz/5lIXJifz1aJpPT9nwT2eoucaS8A92Rl5FVCAatvLzNmJ2ZN
-	c93QEPLjUOnkr9STgmZ3OLR9dzc5+FrREknoElb8nYmEULxXHV9trUIWfaAj0vKqaH1mTDAVViIXM
-	+xcYRTVA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=n7g11Cw+pZW+f/vNpWhhXbRpUSph/jrP51WiDE3a1eI=; b=iWS7uph8Ui+MD/IuUglCrEuTpT
+	YVHWh7aagKuKO0mYhHMqz0vr97WULZ6Zj1IzxpGsh0hAOt0krqQOnQzzUu/3SNVtDPth2Qpcx7K4y
+	00DeV3w9OyF+Gw6v6ZNTb5JLqbiHKe1u26IUzHp9hWnzw+s+1Z3/55ycLzAaYwL/YK1UMw+DSRUeq
+	X0u3HuVomtrR/oZf3dHYxpWpVWNx9ix4D5t5OQsnA8AMcZz2+5/srKI9k52M2LBWj4mA14qdEw2qB
+	r7LdpHFbevOxhOcudxkqkNKqc98J3sDGFiXO2tTR+fqP/+dhUDBkJ2k+qqY9OQvZA25UjNFc8WPNz
+	MDYjZS8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5i92-0000000HKRi-17YW;
-	Mon, 06 Oct 2025 10:08:40 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v5i9e-0000000HKhi-1tiY;
+	Mon, 06 Oct 2025 10:09:18 +0000
+Received: from mgamail.intel.com ([192.198.163.12])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5i8z-0000000HKQ6-1xHC
+	id 1v5i9c-0000000HKgX-04tw
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Oct 2025 10:08:38 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B562B44EBC;
-	Mon,  6 Oct 2025 10:08:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 39955C4CEF5;
-	Mon,  6 Oct 2025 10:08:36 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1759745316;
-	bh=9l3H9m98dWuqVcEguJJCwW2d8nWAjAjRtMaaZIkr8e8=;
-	h=Subject:To:Cc:From:Date:In-Reply-To:From;
-	b=lzU5ayyB3/nLpMp1mvbssfCh14ecYJQO9HvzGQiIlAjYYzTCxhWSqtJMt4Qvp+ze+
-	 40NOSNBP6ewWIU7are/aX6kKsQ/Tlj7HjEM3tysG8DBxIzQa8tdpdfur/2cjSvV4wb
-	 yrpDHtp29hMzwy8/IQ3O+5hfVrqgBdO4kA84bCmA=
-Subject: Patch "KVM: arm64: Fix softirq masking in FPSIMD register saving sequence" has been added to the 6.6-stable tree
-To: ardb@kernel.org,gregkh@linuxfoundation.org,kvanals@kvanals.org,kvmarm@lists.linux.dev,lee@kernel.org,linux-arm-kernel@lists.infradead.org,sashal@kernel.org,will@kernel.org
-Cc: <stable-commits@vger.kernel.org>
-From: <gregkh@linuxfoundation.org>
-Date: Mon, 06 Oct 2025 12:08:26 +0200
-In-Reply-To: <20251003184054.4286-1-will@kernel.org>
-Message-ID: <2025100626-tinderbox-captive-517f@gregkh>
+	Mon, 06 Oct 2025 10:09:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1759745356; x=1791281356;
+  h=message-id:date:subject:to:cc:references:from:
+   in-reply-to:content-transfer-encoding:mime-version;
+  bh=qCk5wY5kJcgB2GYeeagI3S83bsvs5LwFOjVCWERLnFI=;
+  b=BxnP1qxTSy0D7dNswmgZS1gOSZFiyUua0LAj4RWc18Ur0RaRuzJuW1kZ
+   Tqm1gHhcSDeBDhN0JcIJ2PP1uDCzONjv32LJvKgvnppchwTYiJyx4losu
+   9NbLx6aYH6GmmZOF8DmpCCoZRqmtCJfNKkrxOrM8dNFR+v8vA6zE0cr30
+   T9wj+ekaDuxajnF4xkBl07GxJaobLSsAnBjBqBRTNbNRnU1Do2LQsHUPt
+   JVqTbmBTjRInjDKFG9A3lHJNHTOZOJDyPW/JibYkdLW61q+p/2JyPrYB+
+   bG/wgwcpE+QS4q1SCrY9V4fmNOs2ZaRl0J+FWZiKbvWAedpDJgs0zSecq
+   Q==;
+X-CSE-ConnectionGUID: FrbxledPTM2Nmhri2qwPJQ==
+X-CSE-MsgGUID: wrTT2rCDQGyBu3aDkLlFqg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11573"; a="65766378"
+X-IronPort-AV: E=Sophos;i="6.18,319,1751266800"; 
+   d="scan'208";a="65766378"
+Received: from fmviesa003.fm.intel.com ([10.60.135.143])
+  by fmvoesa106.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Oct 2025 03:09:13 -0700
+X-CSE-ConnectionGUID: Z982IGIsTtuaqdx6TZr3OA==
+X-CSE-MsgGUID: Dql3k8yySH2gjY1OVmZh0g==
+X-ExtLoop1: 1
+Received: from orsmsx901.amr.corp.intel.com ([10.22.229.23])
+  by fmviesa003.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 06 Oct 2025 03:09:12 -0700
+Received: from ORSMSX903.amr.corp.intel.com (10.22.229.25) by
+ ORSMSX901.amr.corp.intel.com (10.22.229.23) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27; Mon, 6 Oct 2025 03:09:11 -0700
+Received: from ORSEDG903.ED.cps.intel.com (10.7.248.13) by
+ ORSMSX903.amr.corp.intel.com (10.22.229.25) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27 via Frontend Transport; Mon, 6 Oct 2025 03:09:11 -0700
+Received: from PH8PR06CU001.outbound.protection.outlook.com (40.107.209.64) by
+ edgegateway.intel.com (134.134.137.113) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.27; Mon, 6 Oct 2025 03:09:08 -0700
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=U91RRzDX2TqGQBJrVuQW3EuoOhBgCgUvTGpL1CL9wwD2P1lQrxak/Lrgt5CmmR5ew1qoYLbmaVuZUVNg8ZYoyoQq3odUTmAZPase0/lnh2O6fGMlesjAw3Mmyo/O2KTtYwGJhqtgrLoObojlq977KmvXrCwM/C0K4yWv9qi4nVn/JnAgp/SwiI30N+JmMR/DlK1IpHgFSznwQQlRekrXjV65swGyuynsdzMb6IMh9OGNOljfKa8JYz/Qhbo+EYy3DW07rSpwVMaz9pbsLADvQS8GhPg++EnBks5EwWzMeZjxqu6PeZe2bN4zGVfwVco9WuNntwQ5/Lh0Ftuyhkp3CA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=n7g11Cw+pZW+f/vNpWhhXbRpUSph/jrP51WiDE3a1eI=;
+ b=oY4Eqv3ki7Sgk3wlpT+TP7ZaBlfmvIoRdpt25RLcoJpWOx5vWGy6nWeCd4yJrGf9d2+ntDnsZj9dW2fvIhWoN/AQsd+bp2y8H+VANIutlylM4DPNlE9nnkNdR9CRN+v1fgYUrRbI1ZPB8Rn894puf825n97TyNdTUX58RcgW6vOfDn/PKob0hwN9JVU/LvCcC/kBHLy0wiZ4O0EepipP5QoLOA4YYt6tf1+CYzIv49QWmF4o07pRslhMjKul+PUBUVnYxIRpCcyUeZiprjfnNkwmIhkXUYPOWO8Mz2pbO8s58rddyDF+hdhvuc1DKpxMa5bVr97d+fjNbiIHESGJvA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
+ dkim=pass header.d=intel.com; arc=none
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=intel.com;
+Received: from IA1PR11MB7198.namprd11.prod.outlook.com (2603:10b6:208:419::15)
+ by PH0PR11MB4805.namprd11.prod.outlook.com (2603:10b6:510:32::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9182.20; Mon, 6 Oct
+ 2025 10:09:02 +0000
+Received: from IA1PR11MB7198.namprd11.prod.outlook.com
+ ([fe80::2c4e:e92a:4fa:a456]) by IA1PR11MB7198.namprd11.prod.outlook.com
+ ([fe80::2c4e:e92a:4fa:a456%3]) with mapi id 15.20.9182.017; Mon, 6 Oct 2025
+ 10:09:02 +0000
+Message-ID: <24a58a70-b4db-4925-8454-78dea4fb22b2@intel.com>
+Date: Mon, 6 Oct 2025 13:08:57 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 3/3] mmc: brcmstb: save and restore registers during PM
+To: Kamal Dasu <kamal.dasu@broadcom.com>, <andersson@kernel.org>,
+	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
+	<florian.fainelli@broadcom.com>, <ulf.hansson@linaro.org>
+CC: <bcm-kernel-feedback-list@broadcom.com>, <devicetree@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
+	<linux-mmc@vger.kernel.org>
+References: <20251002210426.2490368-1-kamal.dasu@broadcom.com>
+ <20251002210426.2490368-4-kamal.dasu@broadcom.com>
+Content-Language: en-US
+From: Adrian Hunter <adrian.hunter@intel.com>
+Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park,
+ 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 -
+ 4, Domiciled in Helsinki
+In-Reply-To: <20251002210426.2490368-4-kamal.dasu@broadcom.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: DB9PR01CA0029.eurprd01.prod.exchangelabs.com
+ (2603:10a6:10:1d8::34) To IA1PR11MB7198.namprd11.prod.outlook.com
+ (2603:10b6:208:419::15)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=ANSI_X3.4-1968
-Content-Transfer-Encoding: 8bit
-X-stable: commit
-X-Patchwork-Hint: ignore 
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: IA1PR11MB7198:EE_|PH0PR11MB4805:EE_
+X-MS-Office365-Filtering-Correlation-Id: 73753c16-668d-46eb-15b3-08de04c05fbe
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?aUxmQ0NrRWVBYloyQlVhZVBTZHBtVEUrbGVuejQyUnpYTjJkdE5FU3VySUk5?=
+ =?utf-8?B?OXFUc0wyOFowSExGM2JwMlB2cTRYcE8yV1haTjNZUHRqc3RVOWNFTGlpR0Ry?=
+ =?utf-8?B?bktrVGRBeGljWFJVNmhuSGhKRkFhdjBCZ3lLSWdyRHZhQ1Rqcng5S0VNZktB?=
+ =?utf-8?B?OHk4T0xFN2FLbTgrdnk1dnVoNklTNmFmQ3VoU3psaDRENzNtRWhqeUZQd1I4?=
+ =?utf-8?B?RklSUzZCTTZlUHd5QTZEc1JIUllKZFhMUkhzSWEvSE9KWWJ1aDg0eGRLTnNV?=
+ =?utf-8?B?MlZmUHhlVGFWMTM2aWhNUUEwS2d4cHYxZkNBVGVqSzlRUUpkcHA1RmJLSkl1?=
+ =?utf-8?B?UmpRbDV3SmNmTVJWU25rcm1NUlViOTlUVUNVZXhOSC9uZTFXVS9EMmNUTzB6?=
+ =?utf-8?B?Q3VZTEFoc0VrQXdQNkxKNmxDT1U4c2MvM1FUbmdXUHlUa0Q4c3hyTkdaUGtj?=
+ =?utf-8?B?V0pMN0NPakpnemJDdW0wNW50TERXTnBjanVUVHp6NmFBSDdGWk4vLzJaVzAw?=
+ =?utf-8?B?a0hEYit6Q1QrS3N1SncwdXVNTnZOVnpGa2xaNGx3a0h4WWRzb1FWWWFIL3dX?=
+ =?utf-8?B?ektmWkZEMGI0bFpsSGtURlBXNVZ5MkdXRnl3TkxYL3U3dS9MQVNGTTh4Ry9i?=
+ =?utf-8?B?U3EvQnhhb3lNN1FGWXNZTm02RjYzWkIyVlZPT1NEbVh0Ui9acUFsemZtdVhR?=
+ =?utf-8?B?NEUzNUsyNjhqR3FWeU5kY3RJb0N2WkliRERtczJiQVJBenc5dmNleHh2THdv?=
+ =?utf-8?B?eUpETWNsOFlmWklob3VrdGNHOFlIWXNZWVFCOFpKL29VNGxQZm1haUVjNFJ2?=
+ =?utf-8?B?YnMweTcraUdFdEhueFgxS1lRTmtET3lBT3BCaUtuWWFLNWNWYk1USkVqcm1a?=
+ =?utf-8?B?MjNBYnlVcm9rcTY2T1ZjUW1KTlhFb3YvU3BYT0p1Ymc2U2NiUC9ETU45QTdj?=
+ =?utf-8?B?a0R0aUVSUy9ueFlab2hlWlFNVlVjbmdDYlFrNEN3VHlBaDFTNXZlNUVmbldw?=
+ =?utf-8?B?RkRGdkFtVGJkV1NaSFdIdXV2WjVxYjJYTHlVZGRGQ0dZY3hWcFhRUUpMVnN0?=
+ =?utf-8?B?bkc1cmFFdEJBTFdPc0VpZEd6bzFUdDNhbUhqTVA0amw2Y1NOR0dhVk1Tc2Ir?=
+ =?utf-8?B?ZVVyL2tVWWNzUWVBQjRoM0V4WXczZTg0Q3ZBTERkRTZMOUM2QjlVMmVCRndo?=
+ =?utf-8?B?TW5zWlBzeDhnakVxR2xMOUxUbU1acnE4NE52dmFGbTNnbXF5MHlYSGhKN0VM?=
+ =?utf-8?B?RXRFV05IckJkUEp1aldkTlNES0NkZThWeEZNSTU2RVZHblNnWEdsQWdYMEUr?=
+ =?utf-8?B?RDlWUlVLYmN4VjdRcjdJS0ZFaUVKbGVvcmpzNEgzRGlYU3duUzdRMG1WalpX?=
+ =?utf-8?B?di91NWNIbnlUbWFZc0tMZnd3NHZ3ZUJNUEdxQ1U5ZVJic3FNVDNLQjBRbS8z?=
+ =?utf-8?B?QzArZlBrUnd3NHh4SzNsRzR3UmFDd0Vxd3EwUnkxMnNnSys1TlpIYWxSVHh3?=
+ =?utf-8?B?Q0YvaENiMEEvQ1phOVNhS3hFNVdva2dxbW1HYzdkNDZvYXgxQVJGaGRweHZ0?=
+ =?utf-8?B?MkRoallaeXNhNkZVdk43RThJV1M4S2hXUUszRWVsRElSQ2JiMmRhVG9MVHpS?=
+ =?utf-8?B?UldRbGJPd3JaR2lrNDY2SDRmKzhSc3VTVFpsWmQxQWMyRTRrUnczb3pRbGZR?=
+ =?utf-8?B?aHh0SVhoNWI4ek12czJ2KytzdHBEZUZTcjB6czVJUzVzdDluZFRGK0g5dllD?=
+ =?utf-8?B?REhNWTJnUklHVE0zbUROVlRJQjZsOXV2bCtDQzVjdWhWVE11R1p1dFA1d3hk?=
+ =?utf-8?B?dWx4ZU1pOWV1QWswMVRib212U2ZjZ1FENVJSa3oxT3VuQXRWMDlKM1VBRFJJ?=
+ =?utf-8?B?V1RkWnUwOVgwSDBDQThETVZJUk0yamkzZEd0UXYxbzBOMEMrdnhPM3FCOGl2?=
+ =?utf-8?Q?b7eckxUijePf3oS+/OfCKCZ+yb9vkBfA?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA1PR11MB7198.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?M3Y4Z2ZCQXlmb0JBcDJsbGdIcWx4Tm9mSzduQnFaODloME8rbEhlRGZaSHBs?=
+ =?utf-8?B?V0psMG9PUE01NGUxZzA0RTNWRWJZR0R5bnRIc1hMb210b1JjZVptYkllUFY1?=
+ =?utf-8?B?VlhPMnd4TFZSb2xhaXhiS05ZcVZnM0tSTElyNHRvemhjaVdYc3NLaEM1Y2tL?=
+ =?utf-8?B?WlErMG1ZQTJGbVpTWm1Ebk5ISWZwK01mZ1lzczRuRlFZUlI0UnFZZUdSSjBv?=
+ =?utf-8?B?aDlVb1J3elk3b0NacDI0d1FRdTR1WDJUQmtxeWNCNGR3YzRabWF2cTROdDhv?=
+ =?utf-8?B?Z0JDa2xhaG5MZTRwcjJKTkRjUFMvNGhET1lFOEttempHc2pudTFsSk92QjlJ?=
+ =?utf-8?B?QU1TREUyYzIvTkM0Y2IweTVuVUFsdkc4U0dUYVBjUlcrS25BS2g2Q2hQNVhG?=
+ =?utf-8?B?MkF6MWtHQjl5R21ONWVXYm41bG5VcitjTHpZTUE3OGJkbHFwUWdpTXRJSEpj?=
+ =?utf-8?B?Uy9keHo0K2tuN0tURDAzZis4RVJNa0tMYVdxVldNdXRBaU1ZRnkwTnlZUmZ2?=
+ =?utf-8?B?T3lJbjFkOUpHaGdEM0dVQTR6VFgyUTRScVBkT25oVnZBa0tRck4veVJTeEhO?=
+ =?utf-8?B?S2g4dUlMeXNXbGFudnhVd3htUTZTeHdVbzBzYlpHMnZzL2gxUWNoNGlSWVgy?=
+ =?utf-8?B?eDYrY3pwUkg0d3g3QWJiejZIa1dJV1B3RDh3QWdBa0Q4VUV3NVJxV1NyMHkx?=
+ =?utf-8?B?MWNlOEQ1aS9IT0FDQ2gwZHZNeGlYZ2EwdVE2UHNnNnNsZWtuemMvWkdGbkVW?=
+ =?utf-8?B?UHBQSGFTaUc1d0tqQVpsdksvbWJNT2VWVUZHeGl2ZXJCRHcxU2pENHo4QU9l?=
+ =?utf-8?B?dlpqUnNia3VxdFBHV1lvZnp4Y2hnY1E4dVRWTWFkVWdrYzBrM3VpYUxROWNw?=
+ =?utf-8?B?TXR1UDhxbEZWVzFud0kzMHBScjNMRXpObjV6Rk8xL3RyV2tQbFJRL3NMU2RY?=
+ =?utf-8?B?dmlEOEh1VitiN3E3Z2pEczZFR0JoMkxSbkczZUNtRnhPa0tFOXJQbDV1Y1Na?=
+ =?utf-8?B?eFRGZlhmZUh2cGdEbnFtcytKR2t5YWcyOFFQb1RVOGw1Y3BBUlZPVFA4T3k2?=
+ =?utf-8?B?SmhidFVpVDk5NC9ZeG9POEZZaVF0Q3c2ZWlHMDE4Z0FNdXplbG43NnQyTStJ?=
+ =?utf-8?B?eFlReWZ5TWI2aHI4U0VtckNLL2ZUQVVNQjdNcTBmVWo3UitwQml6SHZsQjFI?=
+ =?utf-8?B?R2ovSjFtcXN0V2dMRHJPTHdVaUNSZXkwR3dvbFZpK3h6bUdZMnpNV0pqTDdI?=
+ =?utf-8?B?aFU1QWpkdmYwcGNWeVFpc2JxSmVlbmZhMXdjTUZHYUxMWjExb01RQkNtNlo2?=
+ =?utf-8?B?d0hIYjIxNTM1UWZPbTdVam5yR2dGVWhpdHBhdkE4VnFBMkhqdnVEN0k0d2Vn?=
+ =?utf-8?B?NmxjeG9RV0lycU9uMVZvY080TGZodkdOYmRsTDBQcDhuODgzN1ZqMmF4azZM?=
+ =?utf-8?B?VzhjV05yVGcyTWtpWGlQM0FjUjFLb3lSK1JsUEF1aGUyaDVrQ0hqcU9zRlZ5?=
+ =?utf-8?B?NGxMYnBnOHV4MW5EOEdDS0lMaU9YcGxVSmQ2cEFaWXlnbTZJL3lhTXh3cVQv?=
+ =?utf-8?B?UGtyUFhKK0NLVW1wVmNxdlpVVVNBYmFtZ3R3d2w3ZGM2ZWt1a0dyZHJxVTRJ?=
+ =?utf-8?B?MGZFSnduVnovSjhrcWgxUGZQU2V0b3lrTjVPWEFZNVJRKzhVYlMwVlY2Tity?=
+ =?utf-8?B?SGdFM2FxUjVWOFRKTUlHbENlV0NMbkR0ZDhxODhTdnlZSUhNM0tlUXRnQlhn?=
+ =?utf-8?B?Y2lmYnNDb1o2NWR5eTZRZTdPd3hja2laaXZBd1ZJeGEzSmRGMTRxUnlOYXBB?=
+ =?utf-8?B?bEprVHM1RGl4VDVqQzRHTEorT1p0YTlrYlUzYXY0UU84Mnl4cXM0d29WWE43?=
+ =?utf-8?B?SFpraStkSUUzOG5CbWNoZzFMU0ZzK0x3WjV3cE1MYmFnUFZWWW5JY1dzRDl3?=
+ =?utf-8?B?K1V2VXZSTFJHMUVyYlZuaWI3cGdFMXZMY244Z0RIZHNqQkQ3VUgwRjFHdnNw?=
+ =?utf-8?B?WFR0Z3pTN0lXS01nMFVFa2FsMFE1bDIwdEZGb3VsTEc5dFMxczNSM0NtVXdT?=
+ =?utf-8?B?Y3I0bFo3TGFjM0UrL0gxbHFiSjBsQVZsYU1xZnpnaktkNEJrbHRVMXErYktj?=
+ =?utf-8?B?Y2ZMMXZBU2UxK0d0ZHBseVpmTGxwUEVTd0lZUlFYb1RndXIva3Q5QytlZ3Yr?=
+ =?utf-8?B?cWc9PQ==?=
+X-MS-Exchange-CrossTenant-Network-Message-Id: 73753c16-668d-46eb-15b3-08de04c05fbe
+X-MS-Exchange-CrossTenant-AuthSource: IA1PR11MB7198.namprd11.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2025 10:09:02.4845
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: G+SGpWot6C/HqDCKqM6Q47De1EiZK7zjkJ7YDpemOr2N/Ske+KvBltLAuO9Zvb9+Uhw/tDzgpbOU75VQZfohzA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR11MB4805
+X-OriginatorOrg: intel.com
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_030837_672471_6D6E42AD 
-X-CRM114-Status: GOOD (  16.27  )
+X-CRM114-CacheID: sfid-20251006_030916_087962_FB5799DC 
+X-CRM114-Status: GOOD (  16.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -68,120 +215,233 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 03/10/2025 00:04, Kamal Dasu wrote:
+> Added support to save and restore registers that are critical
+> during PM.
+> 
+> Signed-off-by: Kamal Dasu <kamal.dasu@broadcom.com>
+> ---
+>  drivers/mmc/host/sdhci-brcmstb.c | 124 +++++++++++++++++++++++++++++--
+>  1 file changed, 119 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/mmc/host/sdhci-brcmstb.c b/drivers/mmc/host/sdhci-brcmstb.c
+> index 0905b316a24b..ffa602a99ab7 100644
+> --- a/drivers/mmc/host/sdhci-brcmstb.c
+> +++ b/drivers/mmc/host/sdhci-brcmstb.c
+> @@ -24,7 +24,9 @@
+>  #define BRCMSTB_MATCH_FLAGS_NO_64BIT		BIT(0)
+>  #define BRCMSTB_MATCH_FLAGS_BROKEN_TIMEOUT	BIT(1)
+>  #define BRCMSTB_MATCH_FLAGS_HAS_CLOCK_GATE	BIT(2)
+> -#define BRCMSTB_MATCH_FLAGS_USE_CARD_BUSY	BIT(4)
+> +#define BRCMSTB_MATCH_FLAGS_HAS_CFG_V1		BIT(3)
+> +#define BRCMSTB_MATCH_FLAGS_HAS_CFG_V2		BIT(4)
+> +#define BRCMSTB_MATCH_FLAGS_USE_CARD_BUSY	BIT(5)
+>  
+>  #define BRCMSTB_PRIV_FLAGS_HAS_CQE		BIT(0)
+>  #define BRCMSTB_PRIV_FLAGS_GATE_CLOCK		BIT(1)
+> @@ -38,19 +40,39 @@
+>  #define SDIO_CFG_OP_DLY_DEFAULT			0x80000003
+>  #define SDIO_CFG_CQ_CAPABILITY			0x4c
+>  #define SDIO_CFG_CQ_CAPABILITY_FMUL		GENMASK(13, 12)
+> +#define SDIO_CFG_SD_PIN_SEL			0x44
+> +#define SDIO_CFG_V1_SD_PIN_SEL			0x54
+> +#define SDIO_CFG_PHY_SW_MODE_0_RX_CTRL		0x7C
+>  #define SDIO_CFG_MAX_50MHZ_MODE			0x1ac
+>  #define SDIO_CFG_MAX_50MHZ_MODE_STRAP_OVERRIDE	BIT(31)
+>  #define SDIO_CFG_MAX_50MHZ_MODE_ENABLE		BIT(0)
+>  
+> +#define SDIO_BOOT_MAIN_CTL			0x0
+> +
+>  #define MMC_CAP_HSE_MASK	(MMC_CAP2_HSX00_1_2V | MMC_CAP2_HSX00_1_8V)
+>  /* Select all SD UHS type I SDR speed above 50MB/s */
+>  #define MMC_CAP_UHS_I_SDR_MASK	(MMC_CAP_UHS_SDR50 | MMC_CAP_UHS_SDR104)
+>  
+> +enum cfg_core_ver {
+> +	SDIO_CFG_CORE_V1 = 1,
+> +	SDIO_CFG_CORE_V2,
+> +};
+> +
+> +struct sdhci_brcmstb_saved_regs {
+> +	u32 sd_pin_sel;
+> +	u32 phy_sw_mode0_rxctrl;
+> +	u32 max_50mhz_mode;
+> +	u32 boot_main_ctl;
+> +};
+> +
+>  struct sdhci_brcmstb_priv {
+>  	void __iomem *cfg_regs;
+> +	void __iomem *boot_regs;
+> +	struct sdhci_brcmstb_saved_regs saved_regs;
+>  	unsigned int flags;
+>  	struct clk *base_clk;
+>  	u32 base_freq_hz;
+> +	void (*save_restore_regs)(struct mmc_host *mmc, int save);
+>  };
+>  
+>  struct brcmstb_match_priv {
+> @@ -60,6 +82,69 @@ struct brcmstb_match_priv {
+>  	const unsigned int flags;
+>  };
+>  
+> +static void sdhci_brcmstb_save_regs(struct mmc_host *mmc, enum cfg_core_ver ver)
+> +{
+> +	struct sdhci_host *host = mmc_priv(mmc);
+> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+> +	struct sdhci_brcmstb_priv *priv = sdhci_pltfm_priv(pltfm_host);
+> +	struct sdhci_brcmstb_saved_regs *sr = &priv->saved_regs;
+> +	void __iomem *cr = priv->cfg_regs;
+> +	bool is_emmc = mmc->caps & MMC_CAP_NONREMOVABLE;
+> +
+> +	/* save  */
+> +	if (is_emmc && priv->boot_regs)
+> +		sr->boot_main_ctl = readl(priv->boot_regs + SDIO_BOOT_MAIN_CTL);
+> +
+> +	if (ver == SDIO_CFG_CORE_V1) {
+> +		sr->sd_pin_sel = readl(cr + SDIO_CFG_V1_SD_PIN_SEL);
+> +		return;
+> +	}
+> +
+> +	sr->sd_pin_sel = readl(cr + SDIO_CFG_SD_PIN_SEL);
+> +	sr->phy_sw_mode0_rxctrl = readl(cr + SDIO_CFG_PHY_SW_MODE_0_RX_CTRL);
+> +	sr->max_50mhz_mode = readl(cr + SDIO_CFG_MAX_50MHZ_MODE);
+> +}
+> +
+> +static void sdhci_brcmstb_restore_regs(struct mmc_host *mmc,
+> +						enum cfg_core_ver ver)
+> +{
+> +	struct sdhci_host *host = mmc_priv(mmc);
+> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+> +	struct sdhci_brcmstb_priv *priv = sdhci_pltfm_priv(pltfm_host);
+> +	struct sdhci_brcmstb_saved_regs *sr = &priv->saved_regs;
+> +	void __iomem *cr = priv->cfg_regs;
+> +	bool is_emmc = mmc->caps & MMC_CAP_NONREMOVABLE;
+> +
+> +	/* restore */
+> +	if (is_emmc && priv->boot_regs)
+> +		writel(sr->boot_main_ctl, priv->boot_regs + SDIO_BOOT_MAIN_CTL);
+> +
+> +	if (ver == SDIO_CFG_CORE_V1) {
+> +		writel(sr->sd_pin_sel, cr + SDIO_CFG_SD_PIN_SEL);
+> +		return;
+> +	}
+> +
+> +	writel(sr->sd_pin_sel, cr + SDIO_CFG_SD_PIN_SEL);
+> +	writel(sr->phy_sw_mode0_rxctrl, cr + SDIO_CFG_PHY_SW_MODE_0_RX_CTRL);
+> +	writel(sr->max_50mhz_mode, cr + SDIO_CFG_MAX_50MHZ_MODE);
+> +}
+> +
+> +static void sdhci_brcmstb_save_restore_regs_v1(struct mmc_host *mmc, int save)
+> +{
+> +	if (save)
+> +		sdhci_brcmstb_save_regs(mmc, SDIO_CFG_CORE_V1);
+> +	else
+> +		sdhci_brcmstb_restore_regs(mmc, SDIO_CFG_CORE_V1);
+> +}
+> +
+> +static void sdhci_brcmstb_save_restore_regs_v2(struct mmc_host *mmc, int save)
+> +{
+> +	if (save)
+> +		sdhci_brcmstb_save_regs(mmc, SDIO_CFG_CORE_V2);
+> +	else
+> +		sdhci_brcmstb_restore_regs(mmc, SDIO_CFG_CORE_V2);
+> +}
+> +
+>  static inline void enable_clock_gating(struct sdhci_host *host)
+>  {
+>  	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
+> @@ -300,24 +385,33 @@ static struct brcmstb_match_priv match_priv_7425 = {
+>  	.ops = &sdhci_brcmstb_ops,
+>  };
+>  
+> -static struct brcmstb_match_priv match_priv_7445 = {
+> +static struct brcmstb_match_priv match_priv_74371 = {
+>  	.flags = BRCMSTB_MATCH_FLAGS_BROKEN_TIMEOUT,
+>  	.ops = &sdhci_brcmstb_ops,
+>  };
+>  
+> +static struct brcmstb_match_priv match_priv_7445 = {
+> +	.flags = BRCMSTB_MATCH_FLAGS_BROKEN_TIMEOUT |
+> +			BRCMSTB_MATCH_FLAGS_HAS_CFG_V1,
+> +	.ops = &sdhci_brcmstb_ops,
+> +};
+> +
+>  static struct brcmstb_match_priv match_priv_72116 = {
+> -	.flags = BRCMSTB_MATCH_FLAGS_BROKEN_TIMEOUT,
+> +	.flags = BRCMSTB_MATCH_FLAGS_BROKEN_TIMEOUT |
+> +			BRCMSTB_MATCH_FLAGS_HAS_CFG_V1,
+>  	.ops = &sdhci_brcmstb_ops_72116,
+>  };
+>  
+>  static const struct brcmstb_match_priv match_priv_7216 = {
+> -	.flags = BRCMSTB_MATCH_FLAGS_HAS_CLOCK_GATE,
+> +	.flags = BRCMSTB_MATCH_FLAGS_HAS_CLOCK_GATE |
+> +			BRCMSTB_MATCH_FLAGS_HAS_CFG_V2,
+>  	.hs400es = sdhci_brcmstb_hs400es,
+>  	.ops = &sdhci_brcmstb_ops_7216,
+>  };
+>  
+>  static struct brcmstb_match_priv match_priv_74165b0 = {
+> -	.flags = BRCMSTB_MATCH_FLAGS_HAS_CLOCK_GATE,
+> +	.flags = BRCMSTB_MATCH_FLAGS_HAS_CLOCK_GATE |
+> +			BRCMSTB_MATCH_FLAGS_HAS_CFG_V2,
+>  	.hs400es = sdhci_brcmstb_hs400es,
+>  	.ops = &sdhci_brcmstb_ops_74165b0,
+>  };
+> @@ -325,6 +419,7 @@ static struct brcmstb_match_priv match_priv_74165b0 = {
+>  static const struct of_device_id __maybe_unused sdhci_brcm_of_match[] = {
+>  	{ .compatible = "brcm,bcm2712-sdhci", .data = &match_priv_2712 },
+>  	{ .compatible = "brcm,bcm7425-sdhci", .data = &match_priv_7425 },
+> +	{ .compatible = "brcm,bcm74371-sdhci", .data = &match_priv_74371 },
 
-This is a note to let you know that I've just added the patch titled
+Shouldn't adding brcm,bcm74371-sdhci be a separate patch?
 
-    KVM: arm64: Fix softirq masking in FPSIMD register saving sequence
+>  	{ .compatible = "brcm,bcm7445-sdhci", .data = &match_priv_7445 },
+>  	{ .compatible = "brcm,bcm72116-sdhci", .data = &match_priv_72116 },
+>  	{ .compatible = "brcm,bcm7216-sdhci", .data = &match_priv_7216 },
+> @@ -441,6 +536,19 @@ static int sdhci_brcmstb_probe(struct platform_device *pdev)
+>  	if (res)
+>  		goto err;
+>  
+> +	/* map non-standard BOOT registers if present */
+> +	if (host->mmc->caps & MMC_CAP_NONREMOVABLE) {
+> +		priv->boot_regs = devm_platform_get_and_ioremap_resource(pdev, 2, NULL);
+> +		if (IS_ERR(priv->boot_regs))
+> +			priv->boot_regs = NULL;
+> +	}
+> +
+> +	if (match_priv->flags & BRCMSTB_MATCH_FLAGS_HAS_CFG_V1)
+> +		priv->save_restore_regs = sdhci_brcmstb_save_restore_regs_v1;
+> +
+> +	if (match_priv->flags & BRCMSTB_MATCH_FLAGS_HAS_CFG_V2)
+> +		priv->save_restore_regs = sdhci_brcmstb_save_restore_regs_v2;
 
-to the 6.6-stable tree which can be found at:
-    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
+It is not ideal to use a flag to set a callback.  Perhaps sdhci_brcmstb_priv
+should have a pointer to brcmstb_match_priv, then ->save_restore_regs() could
+just be put there, and BRCMSTB_MATCH_FLAGS_HAS_CFG_V* are not needed.
 
-The filename of the patch is:
-     kvm-arm64-fix-softirq-masking-in-fpsimd-register-saving-sequence.patch
-and it can be found in the queue-6.6 subdirectory.
+> +
+>  	/*
+>  	 * Automatic clock gating does not work for SD cards that may
+>  	 * voltage switch so only enable it for non-removable devices.
+> @@ -533,6 +641,9 @@ static int sdhci_brcmstb_suspend(struct device *dev)
+>  	struct sdhci_brcmstb_priv *priv = sdhci_pltfm_priv(pltfm_host);
+>  	int ret;
+>  
+> +	if (priv->save_restore_regs)
+> +		priv->save_restore_regs(host->mmc, 1);
+> +
+>  	clk_disable_unprepare(priv->base_clk);
+>  	if (host->mmc->caps2 & MMC_CAP2_CQE) {
+>  		ret = cqhci_suspend(host->mmc);
+> @@ -564,6 +675,9 @@ static int sdhci_brcmstb_resume(struct device *dev)
+>  			ret = clk_set_rate(priv->base_clk, priv->base_freq_hz);
+>  	}
+>  
+> +	if (priv->save_restore_regs)
+> +		priv->save_restore_regs(host->mmc, 0);
+> +
+>  	if (host->mmc->caps2 & MMC_CAP2_CQE)
+>  		ret = cqhci_resume(host->mmc);
+>  
 
-If you, or anyone else, feels it should not be added to the stable tree,
-please let <stable@vger.kernel.org> know about it.
-
-
-From will@kernel.org  Mon Oct  6 11:58:17 2025
-From: Will Deacon <will@kernel.org>
-Date: Fri,  3 Oct 2025 19:40:54 +0100
-Subject: KVM: arm64: Fix softirq masking in FPSIMD register saving sequence
-To: stable@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, Will Deacon <will@kernel.org>, Ard Biesheuvel <ardb@kernel.org>, Lee Jones <lee@kernel.org>, Sasha Levin <sashal@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Kenneth Van Alstyne <kvanals@kvanals.org>
-Message-ID: <20251003184054.4286-1-will@kernel.org>
-
-From: Will Deacon <will@kernel.org>
-
-Stable commit 28b82be094e2 ("KVM: arm64: Fix kernel BUG() due to bad
-backport of FPSIMD/SVE/SME fix") fixed a kernel BUG() caused by a bad
-backport of upstream commit fbc7e61195e2 ("KVM: arm64: Unconditionally
-save+flush host FPSIMD/SVE/SME state") by ensuring that softirqs are
-disabled/enabled across the fpsimd register save operation.
-
-Unfortunately, although this fixes the original issue, it can now lead
-to deadlock when re-enabling softirqs causes pending softirqs to be
-handled with locks already held:
-
- | BUG: spinlock recursion on CPU#7, CPU 3/KVM/57616
- |  lock: 0xffff3045ef850240, .magic: dead4ead, .owner: CPU 3/KVM/57616, .owner_cpu: 7
- | CPU: 7 PID: 57616 Comm: CPU 3/KVM Tainted: G           O       6.1.152 #1
- | Hardware name: SoftIron SoftIron Platform Mainboard/SoftIron Platform Mainboard, BIOS 1.31 May 11 2023
- | Call trace:
- |  dump_backtrace+0xe4/0x110
- |  show_stack+0x20/0x30
- |  dump_stack_lvl+0x6c/0x88
- |  dump_stack+0x18/0x34
- |  spin_dump+0x98/0xac
- |  do_raw_spin_lock+0x70/0x128
- |  _raw_spin_lock+0x18/0x28
- |  raw_spin_rq_lock_nested+0x18/0x28
- |  update_blocked_averages+0x70/0x550
- |  run_rebalance_domains+0x50/0x70
- |  handle_softirqs+0x198/0x328
- |  __do_softirq+0x1c/0x28
- |  ____do_softirq+0x18/0x28
- |  call_on_irq_stack+0x30/0x48
- |  do_softirq_own_stack+0x24/0x30
- |  do_softirq+0x74/0x90
- |  __local_bh_enable_ip+0x64/0x80
- |  fpsimd_save_and_flush_cpu_state+0x5c/0x68
- |  kvm_arch_vcpu_put_fp+0x4c/0x88
- |  kvm_arch_vcpu_put+0x28/0x88
- |  kvm_sched_out+0x38/0x58
- |  __schedule+0x55c/0x6c8
- |  schedule+0x60/0xa8
-
-Take a tiny step towards the upstream fix in 9b19700e623f ("arm64:
-fpsimd: Drop unneeded 'busy' flag") by additionally disabling hardirqs
-while saving the fpsimd registers.
-
-Cc: Ard Biesheuvel <ardb@kernel.org>
-Cc: Lee Jones <lee@kernel.org>
-Cc: Sasha Levin <sashal@kernel.org>
-Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-Cc: <stable@vger.kernel.org> # 6.6.y
-Fixes: 28b82be094e2 ("KVM: arm64: Fix kernel BUG() due to bad backport of FPSIMD/SVE/SME fix")
-Reported-by: Kenneth Van Alstyne <kvanals@kvanals.org>
-Link: https://lore.kernel.org/r/010001999bae0958-4d80d25d-8dda-4006-a6b9-798f3e774f6c-000000@email.amazonses.com
-Signed-off-by: Will Deacon <will@kernel.org>
-Acked-by: Ard Biesheuvel <ardb@kernel.org>
-Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
----
- arch/arm64/kernel/fpsimd.c | 8 ++++++--
- 1 file changed, 6 insertions(+), 2 deletions(-)
-
-diff --git a/arch/arm64/kernel/fpsimd.c b/arch/arm64/kernel/fpsimd.c
-index d0d836448a76..83827384982e 100644
---- a/arch/arm64/kernel/fpsimd.c
-+++ b/arch/arm64/kernel/fpsimd.c
-@@ -1873,13 +1873,17 @@ static void fpsimd_flush_cpu_state(void)
-  */
- void fpsimd_save_and_flush_cpu_state(void)
- {
-+	unsigned long flags;
-+
- 	if (!system_supports_fpsimd())
- 		return;
- 	WARN_ON(preemptible());
--	get_cpu_fpsimd_context();
-+	local_irq_save(flags);
-+	__get_cpu_fpsimd_context();
- 	fpsimd_save();
- 	fpsimd_flush_cpu_state();
--	put_cpu_fpsimd_context();
-+	__put_cpu_fpsimd_context();
-+	local_irq_restore(flags);
- }
- 
- #ifdef CONFIG_KERNEL_MODE_NEON
--- 
-2.51.0.618.g983fd99d29-goog
-
-
-
-Patches currently in stable-queue which might be from will@kernel.org are
-
-queue-6.6/kvm-arm64-fix-softirq-masking-in-fpsimd-register-saving-sequence.patch
 
