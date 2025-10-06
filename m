@@ -4,91 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 31F16CCA472
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 07:56:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 615CCCCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 08:07:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y3jKOu9b+P0Ih93AICIcneY/oMkTMn7T+Krlp2E8KKA=; b=hhFiXFTsm3UNuLiGCgq4kpwAiS
-	w0yT5yawavFBKzXiPEgIzgJD4Jt3ny4TMg3lsgHJIeRGHzlwagfFSymDO4kS1H51xHuenu0C3sqJb
-	gMcbhkVicvXDXN8pcx6qVb00c7dRY4VHbKJQHCPfHF9gBJShJkmdC6cUUT9H1A7Tsisg1FwefV3xE
-	JA1Blw5iBFwSv8ESwtWpvyrW5w2+PO5qfMB95w0o/TWwVX1Q/jKRmg4iB+vGAQya19r+S1aCe8l1r
-	upsEwyyHKXUag0f87Cpfy/pe4oAfxh0CVJ23trtd6oMuhursqkX9uW9/B3Ta3J6EeYA8gZ+5PrdEi
-	1O+llPaw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=4qerrj6UX/Z0xW9m5oFGqvhu+d9Lea7yfQjzYQpDbWQ=; b=AgqoUUtWxCZ0r0bQ1Lzjpa4VRG
+	QaxnxsD24TuS7+S34AHEyqTiM4NT87vEdPv8SyT06oQ9QXCCpeVpSlwL1it+mpd8USBfLhact3u9W
+	v8xCdy1TIX7RcE/xAKQOn3TMFhjpFyRLwL6QsKZ/Itkl+gzCXjnqrIAJY2rPe8hxf268JYZan9XKQ
+	iiRjP07fA8wf62cFBNRY+DjFmvXdoYB9HKYbNNt6f0PrW1vC8ZYcsEjWJhFLjQm57RPOif9A4MUHt
+	bkSriWunxGZZe/JZQoDR3gqjAPmqMaqL8NP4v5/YP+M718/wC5uX48KT2qFiIaAfs0ZA1ARebeNaK
+	uDVdzexQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5g4w-0000000H9AD-03WE;
-	Mon, 06 Oct 2025 07:56:18 +0000
-Received: from mailout2.samsung.com ([203.254.224.25])
+	id 1v5gFZ-0000000HA1I-30us;
+	Mon, 06 Oct 2025 08:07:17 +0000
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5g4q-0000000H98z-3RXR
+	id 1v5gFX-0000000HA0S-0Spr
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Oct 2025 07:56:16 +0000
-Received: from epcas5p3.samsung.com (unknown [182.195.41.41])
-	by mailout2.samsung.com (KnoxPortal) with ESMTP id 20251006075605epoutp02569268e68ea2f8714d0014e4e518df67~r189tOi9r2906029060epoutp02t
-	for <linux-arm-kernel@lists.infradead.org>; Mon,  6 Oct 2025 07:56:05 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout2.samsung.com 20251006075605epoutp02569268e68ea2f8714d0014e4e518df67~r189tOi9r2906029060epoutp02t
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1759737365;
-	bh=y3jKOu9b+P0Ih93AICIcneY/oMkTMn7T+Krlp2E8KKA=;
-	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
-	b=F4D8FWIXj/ijjKU7Fj+GximToN7e4DiY0q0oKVkmyNh3sFfuzgBLg+3Fwv+21A/8g
-	 l3QSx0pmM3KxioyAccJ3TErPRfOO98ZbHkYNsdQP+2SSnkZNlnjjfqFwc9jMx9W2b/
-	 JWACmnEZu08FxzRSomen6pSfhzB+UlIKrNMSy6as=
-Received: from epsnrtp03.localdomain (unknown [182.195.42.155]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
-	20251006075604epcas5p2340605e3e9393140844ab163feb26c00~r189NvSTp1431114311epcas5p24;
-	Mon,  6 Oct 2025 07:56:04 +0000 (GMT)
-Received: from epcas5p4.samsung.com (unknown [182.195.38.94]) by
-	epsnrtp03.localdomain (Postfix) with ESMTP id 4cgBR75fF4z3hhT3; Mon,  6 Oct
-	2025 07:56:03 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p1.samsung.com (KnoxPortal) with ESMTPA id
-	20251006075603epcas5p1b56873cad2f305bcdee52ea7c550529f~r187tLzhK0791807918epcas5p1R;
-	Mon,  6 Oct 2025 07:56:03 +0000 (GMT)
-Received: from INBRO001840 (unknown [107.122.3.105]) by epsmtip2.samsung.com
-	(KnoxPortal) with ESMTPA id
-	20251006075600epsmtip20e24c5f8001f5c1fad71053ea9c0d0e8~r1842CSE20799907999epsmtip2K;
-	Mon,  6 Oct 2025 07:55:59 +0000 (GMT)
-From: "Pritam Manohar Sutar" <pritam.sutar@samsung.com>
-To: "'Alim Akhtar'" <alim.akhtar@samsung.com>, <vkoul@kernel.org>,
-	<kishon@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
-	<conor+dt@kernel.org>, <andre.draszik@linaro.org>,
-	<peter.griffin@linaro.org>, <kauschluss@disroot.org>,
-	<ivo.ivanov.ivanov1@gmail.com>, <igor.belwon@mentallysanemainliners.org>,
-	<m.szyprowski@samsung.com>, <s.nawrocki@samsung.com>
-Cc: <linux-phy@lists.infradead.org>, <devicetree@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-samsung-soc@vger.kernel.org>, <rosa.pila@samsung.com>,
-	<dev.tailor@samsung.com>, <faraz.ata@samsung.com>,
-	<muhammed.ali@samsung.com>, <selvarasu.g@samsung.com>
-In-Reply-To: <001301dc310c$b7a78550$26f68ff0$@samsung.com>
-Subject: RE: [PATCH v8 1/6] dt-bindings: phy: samsung,usb3-drd-phy: add
- ExynosAutov920 HS phy compatible
-Date: Mon, 6 Oct 2025 13:25:58 +0530
-Message-ID: <000001dc3696$a97bcf10$fc736d30$@samsung.com>
+	Mon, 06 Oct 2025 08:07:16 +0000
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-b3d196b7eeeso695266566b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Oct 2025 01:07:14 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1759738033; x=1760342833; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=4qerrj6UX/Z0xW9m5oFGqvhu+d9Lea7yfQjzYQpDbWQ=;
+        b=yXvTccWu2r1CfmVF1UT/REPTuhRlBv9TIwTvm/dGFSmXmbvPy8N9Li7xthyD3241bB
+         XdIe/gRrfL9qXe9PIn/qhMYCpkFdMsT1CVcfmjYAmr+CQMUQfG0wG0IyDfctIN/TZmu4
+         j/Vu/bRZvK1LesJtPDWUwfk9526dIXM2GfbPmZS6FDoYDr4VmcpxnVMLgk1btWDrHCHf
+         TMKTAo0/Wt6meXG3y1rOcTXaHmjg3Eqt+5jmf2BlZqvWj5VYbolYhBS10F8KQxln4bd/
+         9wMSrdFivAgekU5VNXtEf6WJf0t2orOu+KXiVuDUa2aaSCVLQKgnf6Lvgdsw1vCBbUTX
+         e6+w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759738033; x=1760342833;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=4qerrj6UX/Z0xW9m5oFGqvhu+d9Lea7yfQjzYQpDbWQ=;
+        b=MP6pQHVPuJgQ7StydYm+rjcOBJnMbTGRPh8w323ylUGI5Jk978lJLM6d3FBVK6jdig
+         eJM5M7PSpzEsqANxyLSlhU/yHkX5OR95WuAWJLqqC4xq1iqwr+XwH8LKRJrNcUFvxXXZ
+         fuztdmDhcxZhmPo9QwkwWEq56Gbe1ygvVHzB1IXDWdh1EAp95qAkP8TRQGV2SPbZb2kw
+         vGbRvUBiXcJ9O87XycqYMj4q1L1aMWZn8yfPUv/u4ky6t89hrDeZcHX/ApdWpnRNqsjt
+         ZEqSYANlwVMpmZTlwPZs24prfv/lwV+grEpeqWaPBh6F4yJhJoShyQEpzdukrf4r6K3T
+         UdFQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUOZid0IIZDyJtImSmS4bc/nwv2MRb/z+5SpyNNQMqFJf+3vHAoyrNMq7o6j4hfzKfLMNHZsl86u0LnfSVSuWCy@lists.infradead.org
+X-Gm-Message-State: AOJu0YyiTEbfXuYZSKhNFU/6DERFXDviN35NPOSgR5DgjdQD3BtiS1nx
+	fXhVSfXiXmCIvlUwO+e5WZ/Tcx4UAfE8CgMzGJpaa9u2UzPwndt2BV9UJYbzCIW9sFS4NpP3Gui
+	jr+Cepc4=
+X-Gm-Gg: ASbGncsw7by3yJh2x43AN5u+qHi2h+bBVEnS4G7Y5Aq8YKxhWEN2b2qsfrLbkNv/yAi
+	LTUVNN+C80YVhCmpUm9waixW6Rnq6gLWB6g44jbThcnbdI646LFqDALxew+JzI0k5ay8ukrUZTW
+	JIqtB02hRGldOpp7DiJG9mEDh6NgVWbIh7PEWWNP3zMjyGZtjONkwHLDQWrFJD+FHTAt1c1882s
+	aMdyn1ZYMMrMa7FGDRsGo1iVHlMZBunLixWImOihplyT2EDsYfBNs7V2u02OGuzbOWaUne3hjF8
+	YCsHGN0ZMuknSwIZBFjc7HuwaFTRFyFIGM99CWXJA6l+NHw9ezu3kRbkYtRiPEqKi/Nu/+v/BJ+
+	oQlNWGRjp/dR0IOPKXEe4wV85by4v3vhwZMErDHmIKD5+/ZEwLNtiDMr+MIXD2BxRrMCb+pjTnt
+	s3HoiopcK+1kuq7h7fSxnAjO1i+U2NsPPxbf6UYw2C
+X-Google-Smtp-Source: AGHT+IHPnvEx2+1A8spGyxDZCYqGJPXGgpZv7W3X/UPXBelvQzXyrYlDdDiI9fhuch4s1Ysd9y+b0A==
+X-Received: by 2002:a17:907:86ab:b0:b47:c1d9:51c9 with SMTP id a640c23a62f3a-b49c3f7d31emr1499754266b.62.1759738033192;
+        Mon, 06 Oct 2025 01:07:13 -0700 (PDT)
+Received: from puffmais2.c.googlers.com (224.138.204.35.bc.googleusercontent.com. [35.204.138.224])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b4869b4f1d1sm1073772766b.71.2025.10.06.01.07.12
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 06 Oct 2025 01:07:12 -0700 (PDT)
+From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Date: Mon, 06 Oct 2025 09:07:12 +0100
+Subject: [PATCH] phy: exynos5-usbdrd: fix clock prepare imbalance
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-X-Mailer: Microsoft Outlook 16.0
-Thread-Index: AQIRMOVGdWg5oRjNsRBgEjzIeIB8IgGabj6EAmTXuDcDLshEdrQRTsmg
-Content-Language: en-in
-X-CMS-MailID: 20251006075603epcas5p1b56873cad2f305bcdee52ea7c550529f
-X-Msg-Generator: CA
 Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20250903072936epcas5p4a28d0e63c7f0792b516b0cbc68bf3a8e
-References: <20250903073827.3015662-1-pritam.sutar@samsung.com>
-	<CGME20250903072936epcas5p4a28d0e63c7f0792b516b0cbc68bf3a8e@epcas5p4.samsung.com>
-	<20250903073827.3015662-2-pritam.sutar@samsung.com>
-	<001301dc310c$b7a78550$26f68ff0$@samsung.com>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20251006-gs101-usb-phy-clk-imbalance-v1-1-205b206126cf@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAK9442gC/x3MwQqDMAwA0F+RnA00Za2wXxEPbc006Ko0bCjiv
+ 6/s+C7vAuUirPBsLij8FZUtV1DbQJpDnhhlrAZrrCNjPE5KhvCjEff5xLQuKO8Y1pATo7ccH9x
+ 5Gp2DOuyFX3L893647x9CN6EgbQAAAA==
+X-Change-ID: 20251006-gs101-usb-phy-clk-imbalance-62eb4e761d55
+To: Vinod Koul <vkoul@kernel.org>, 
+ Kishon Vijay Abraham I <kishon@kernel.org>, 
+ Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
+ linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ stable@vger.kernel.org, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_005615_114228_CD9861EE 
-X-CRM114-Status: GOOD (  15.50  )
+X-CRM114-CacheID: sfid-20251006_010715_178308_4B086443 
+X-CRM114-Status: GOOD (  11.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,74 +110,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Commit f4fb9c4d7f94 ("phy: exynos5-usbdrd: allow DWC3 runtime suspend
+with UDC bound (E850+)") incorrectly added clk_bulk_disable() as the
+inverse of clk_bulk_prepare_enable() while it should have of course
+used clk_bulk_disable_unprepare(). This means incorrect reference
+counts to the CMU driver remain.
 
-=20
-> -----Original Message-----
-> From: Alim Akhtar <alim.akhtar=40samsung.com>
-> Sent: 29 September 2025 12:16 PM
-> To: 'Pritam Manohar Sutar' <pritam.sutar=40samsung.com>; vkoul=40kernel.o=
-rg;
-> kishon=40kernel.org; robh=40kernel.org; krzk+dt=40kernel.org;
-> conor+dt=40kernel.org; andre.draszik=40linaro.org; peter.griffin=40linaro=
-.org;
-> kauschluss=40disroot.org; ivo.ivanov.ivanov1=40gmail.com;
-> igor.belwon=40mentallysanemainliners.org; m.szyprowski=40samsung.com;
-> s.nawrocki=40samsung.com
-> Cc: linux-phy=40lists.infradead.org; devicetree=40vger.kernel.org; linux-
-> kernel=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org; linux-s=
-amsung-
-> soc=40vger.kernel.org; rosa.pila=40samsung.com; dev.tailor=40samsung.com;
-> faraz.ata=40samsung.com; muhammed.ali=40samsung.com;
-> selvarasu.g=40samsung.com
-> Subject: RE: =5BPATCH v8 1/6=5D dt-bindings: phy: samsung,usb3-drd-phy: a=
-dd
-> ExynosAutov920 HS phy compatible
->=20
-> Hi Pritam
->=20
-> > -----Original Message-----
-> > From: Pritam Manohar Sutar <pritam.sutar=40samsung.com>
-> > Sent: Wednesday, September 3, 2025 1:08 PM
-> > To: vkoul=40kernel.org; kishon=40kernel.org; robh=40kernel.org;
-> > krzk+dt=40kernel.org; conor+dt=40kernel.org; alim.akhtar=40samsung.com;
-> > andre.draszik=40linaro.org; peter.griffin=40linaro.org;
-> > kauschluss=40disroot.org; ivo.ivanov.ivanov1=40gmail.com;
-> > igor.belwon=40mentallysanemainliners.org;
-> > m.szyprowski=40samsung.com; s.nawrocki=40samsung.com;
-> > pritam.sutar=40samsung.com
-> > Cc: linux-phy=40lists.infradead.org; devicetree=40vger.kernel.org; linu=
-x-
-> > kernel=40vger.kernel.org; linux-arm-kernel=40lists.infradead.org; linux=
--
-> > samsung-soc=40vger.kernel.org; rosa.pila=40samsung.com;
-> > dev.tailor=40samsung.com; faraz.ata=40samsung.com;
-> > muhammed.ali=40samsung.com; selvarasu.g=40samsung.com
-> > Subject: =5BPATCH v8 1/6=5D dt-bindings: phy: samsung,usb3-drd-phy: add
-> > ExynosAutov920 HS phy compatible
-> >
-> > Document support for the USB20 phy found on the ExynosAutov920 SoC.
-> > The
-> > USB20 phy is functionally identical to that on the Exynos850 SoC, so
-> > no driver changes are needed to support this phy. However, add a
-> > dedicated compatible string for USB20 phy found in this SoC.
-> >
-> > Signed-off-by: Pritam Manohar Sutar <pritam.sutar=40samsung.com>
-> > ---
-> Reviewed-by: Alim Akhtar <alim.akhtar=40samsung.com>
+Update the code accordingly.
 
-Hi Alim,
-Thank you for RB tag.
+Fixes: f4fb9c4d7f94 ("phy: exynos5-usbdrd: allow DWC3 runtime suspend with UDC bound (E850+)")
+CC: stable@vger.kernel.org
+Signed-off-by: André Draszik <andre.draszik@linaro.org>
+---
+ drivers/phy/samsung/phy-exynos5-usbdrd.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-Hi Vinod,=20
-Addressed comments on phy drivers those were given in patch-set v5.=20
-Can you please check and let me know if any other comments?=20
+diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+index a88ba95bdc8f539dd8d908960ee2079905688622..1c8bf80119f11e2cd2f07c829986908c150688ac 100644
+--- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
++++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
+@@ -1823,7 +1823,7 @@ static int exynos5_usbdrd_orien_sw_set(struct typec_switch_dev *sw,
+ 		phy_drd->orientation = orientation;
+ 	}
+ 
+-	clk_bulk_disable(phy_drd->drv_data->n_clks, phy_drd->clks);
++	clk_bulk_disable_unprepare(phy_drd->drv_data->n_clks, phy_drd->clks);
+ 
+ 	return 0;
+ }
 
-Hi Krzysztof,=20
-Please let me know if you want me send v9 by retaining  your RB on=20
-patch1 and patch3? Also do let me know if any other concerns need=20
-to be addressed?
+---
+base-commit: 3b9b1f8df454caa453c7fb07689064edb2eda90a
+change-id: 20251006-gs101-usb-phy-clk-imbalance-62eb4e761d55
 
-Regards,
-Pritam
+Best regards,
+-- 
+André Draszik <andre.draszik@linaro.org>
 
 
