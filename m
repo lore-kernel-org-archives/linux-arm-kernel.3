@@ -4,118 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 933BCCCA471
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 11:59:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74C21CCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 12:02:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7GQ/0jR0gVdoLEQuuwM/Hs1zQEnI3s78mUUBE3R9tUM=; b=rJccHjZ7S8mkL6RmpbyXac/iCe
-	GA/c0kv60+A7xPLWbanRHkwZMriH56vO2gqSUqWZKN9wgIPrPK2XZpnw8t6Bv3F4pV/d8lTFsqOra
-	Vv2HzpUzl1VlW25C37CSw6wXzJGEOZhtcFM5GLiEC2hxdgpjG1uT/wzCgO372zTzzZ8MswFbLfECG
-	sllNzYJmGJWsTq9YwE9/xYszElowp29QQDbkdtaBcHeQmJ03s1U2XTKh+7l38NJTepk3EgwN27saW
-	JPYK+WP1i//tGO9p8TSgytFDYxzQRD21DON0Jx8V4CqykrftcgYdD0J7DCE9zHN9yJMAnNhVKzqBt
-	S5blpUcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DEIWohyV4TRe4//3qeB6UZeYhG+0MCT6jVtLZiAZjuw=; b=AABiAnlY/fQUW9eRnnk8o4r1/K
+	zK8L+IzRET3ZvY/sW4GDfQC8ckjzMMrpYMq6caAgsMMMv3ibZRiGWBsqScTktK7YmLBo5iSZWcJm3
+	q1cwJ7Loocp/o3jVIeRkUky4eAa40PxNacMQtkSMHmEb3RsLp1Iz3a/R4BoaRkPTAJgb4h69xDyUp
+	qQ8X2x3YKBpaSkNZvHV2tKjF/Mq2jVOTgdqrXKfaeNfVNkU3vfOJ8EPEuKMjY5sveDKp8FqiEWSuL
+	D7DJruhb9HEiYlpA6LrosC+UuurSjmZS7jbFdPaP9SoHmsvU8LMFaCk/2CSYfU82S7zukoo2AgmCk
+	sX0dacRw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5jrt-0000000HXKn-1Y39;
-	Mon, 06 Oct 2025 11:59:05 +0000
-Received: from fhigh-a4-smtp.messagingengine.com ([103.168.172.155])
+	id 1v5juy-0000000HXZY-0uFi;
+	Mon, 06 Oct 2025 12:02:16 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5jrr-0000000HXKS-1H7N
+	id 1v5juu-0000000HXYi-2WGJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Oct 2025 11:59:04 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfhigh.phl.internal (Postfix) with ESMTP id 039E514000E2;
-	Mon,  6 Oct 2025 07:59:02 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Mon, 06 Oct 2025 07:59:02 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1759751942;
-	 x=1759838342; bh=7GQ/0jR0gVdoLEQuuwM/Hs1zQEnI3s78mUUBE3R9tUM=; b=
-	qhMhXeJkK0ZAsD8fQDGc9FkqBOdXuWYRz1JK0xf20I4m8zCP6yT4cHe6eiG+84zZ
-	cJCFYYa7AJux2umtoU1iLS817iOgJYfby79rTIDeTuhj4id2EVjaHlj3O1oSn9xl
-	JRufo260ZpCRun9DtA3wLjw+PTY57h6mY8oE8iEF9gQRB6B+4kI9e2qXa7i7PTKr
-	n3r8e5ed+/HWyqSybNNiXxF7yu0a1kjVww4+d3zC8SqhBErxFuJtauZPMWwuOl+i
-	qr9GOE1jsLW7upa8hXJT/EbRT8darbErd4x3bXzqJHGQU42NiR165Jjt6+jGYyK/
-	NygIlALHsVC17dqMTDa3lA==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1759751942; x=
-	1759838342; bh=7GQ/0jR0gVdoLEQuuwM/Hs1zQEnI3s78mUUBE3R9tUM=; b=B
-	76/Ywx9vbXjDjujzUcyhVWlQsYtwTAcOOGqpU1mFDCW9V5C6sUawSoYQlsCoVtgL
-	C6wZ0lQd0fQca7BHIjvhBmSG3NWQslmNdruZ7pKIYs9lrDefQ0Mbt+cWHR/mQbkW
-	Y2bNJcuzRXAbF41RqL0tAFwNCNZU6HewB0gGXAdf4OPIqLc8JLn/VmrM9uBWov1+
-	p5DmYWIU/8PBsqOiSTKwrY7Xr58rluhEWeKgifUv8ujqGVHOZLjQ8bJOo1djywL/
-	Figu72Xmtrwqj/ZzF5S+61uCsM55n3xyokp7LQZgyzxJ7ZbecLWFju/0I/mqy9nF
-	RdQKng5NtssSajknVV/DA==
-X-ME-Sender: <xms:Ba_jaEfGweUCEwN3MH9DoD4rXHqUcGIMIKY0UFGVRyI43VB3fwoeSA>
-    <xme:Ba_jaBAKqCIEh2FrkI6Rx4soK0iddDYv5Kxnj7hFhAy03QtSJWKgn_uO-bqey-NY9
-    -odQKcd38I7loLduSZJESt6NvHqwDdnmkcr_iwGQ0AknDPY-WjctbA>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdeljeegkecutefuodetggdotefrod
-    ftvfcurfhrohhfihhlvgemucfhrghsthforghilhdpuffrtefokffrpgfnqfghnecuuegr
-    ihhlohhuthemuceftddtnecusecvtfgvtghiphhivghnthhsucdlqddutddtmdenucfjug
-    hrpefoggffhffvvefkjghfufgtgfesthejredtredttdenucfhrhhomhepfdetrhhnugcu
-    uegvrhhgmhgrnhhnfdcuoegrrhhnugesrghrnhgusgdruggvqeenucggtffrrghtthgvrh
-    hnpeefuddtfeeukefgteduieeiuedvjeelgfettddtiefhfeefhfefffelvefhveeileen
-    ucffohhmrghinhepghhoohhglhgvshhouhhrtggvrdgtohhmpdhkvghrnhgvlhdrohhrgh
-    enucevlhhushhtvghrufhiiigvpedtnecurfgrrhgrmhepmhgrihhlfhhrohhmpegrrhhn
-    ugesrghrnhgusgdruggvpdhnsggprhgtphhtthhopedujedpmhhouggvpehsmhhtphhouh
-    htpdhrtghpthhtoheprghruggssehkvghrnhgvlhdrohhrghdprhgtphhtthhopehkuhgs
-    rgeskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepnhgrthhhrghnsehkvghrnhgvlhdroh
-    hrghdprhgtphhtthhopegrnhguvghrshdrrhhogigvlhhlsehlihhnrghrohdrohhrghdp
-    rhgtphhtthhopegsvghnjhgrmhhinhdrtghophgvlhgrnhgusehlihhnrghrohdrohhrgh
-    dprhgtphhtthhopegurghnrdgtrghrphgvnhhtvghrsehlihhnrghrohdrohhrghdprhgt
-    phhtthhopehnrghrvghshhdrkhgrmhgsohhjuheslhhinhgrrhhordhorhhgpdhrtghpth
-    htoheplhhinhhugidqrghrmhdqkhgvrhhnvghlsehlihhsthhsrdhinhhfrhgruggvrggu
-    rdhorhhgpdhrtghpthhtoheplhhkfhhtqdhtrhhirghgvgeslhhishhtshdrlhhinhgrrh
-    hordhorhhg
-X-ME-Proxy: <xmx:Ba_jaKAGybnjVE-uWoUnRgJKlfqjmUKzRGjKe5q7nuLC4S_gzhkSwQ>
-    <xmx:Ba_jaNQtNC8ngmUykBG9GqraoJJS2h74jGCmuEaZ-J-FY_CxmDAl6A>
-    <xmx:Ba_jaMQac1xHqd8lsMQhNQm3ubOhUb9e6Pvi3vfNwtW0XA_CJZBaWg>
-    <xmx:Ba_jaLIU2c2cSGXiBrkAGglM2IVJxfWblgLf2CqrhvL0QcX1LqRTvA>
-    <xmx:Ba_jaO_bqHvRa8C_Gf8CDe9AB-0F0mHSrqoHkmY2exYkdtLoOdXjHIvZ>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 73FF3700065; Mon,  6 Oct 2025 07:59:01 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Mon, 06 Oct 2025 12:02:14 +0000
+Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 5960c92W022432
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 6 Oct 2025 12:02:12 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=DEIWohyV4TRe4//3qeB6UZeY
+	hG+0MCT6jVtLZiAZjuw=; b=FJCPqW3Ma4T4Xny202WCSSSn3EU+uh23VWJBCeJV
+	GzU1vmFYL2dJsPp5Plj7dpQ1zllyPFtXo+wGUMmybpU8WaUIBvh9osTVT1mL7r3M
+	gcZUh141jzJxFzpCLygHwfPKhCYUvQIxPEZnMVWVhAsNdDe4cesdSImRt08KJN3J
+	McoE0qbBv9LF/9pqwMF4uEbsqUyCArNK7U8drntVeh/CXO2LmXh5n7ehAJE0c7yR
+	4/q0rw3/MPr6iubfY8v3EoZyO3xtEylij29Ik3zaOpTUYQvIcSM6YbGonso2qbpO
+	XweGPqN1Bxs/+XRdC2r/wivd1widb0doQRRhfQOeiVwUpQ==
+Received: from mail-pg1-f200.google.com (mail-pg1-f200.google.com [209.85.215.200])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49jvv7kk6u-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Oct 2025 12:02:12 +0000 (GMT)
+Received: by mail-pg1-f200.google.com with SMTP id 41be03b00d2f7-b62da9810eeso2579924a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Oct 2025 05:02:11 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759752131; x=1760356931;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=DEIWohyV4TRe4//3qeB6UZeYhG+0MCT6jVtLZiAZjuw=;
+        b=eeIPmFQ/jCq0sRIRBofCMV1U6nXJoDI7l0qsgHeE1jCvfVjy3AvZp4gLJWOOo5xNXB
+         4K6MzKAcXW/sqJlWWEtYqvf4ixdCgFYnNiqGwum+q6DZIFcC+CvspCeh4ZtzFD9X74VS
+         aIIWdsZ8JJ7cO9ktvMKzb0uN3NKPn+DvOuYeoeHCnDDO8AG7rYNzQbM4ZjmW/nTXhtf+
+         XG+euOzAcGZG6iztILJ06ix9adWBPHujspn17nc6EW4091+RLC52qJgutmtZ3yM+H+sE
+         cbkQIT9A7lw9UroTV3XnkNi0xiUHeMTZPNLHnoZN9GtMabTtsxgb6r/Bauy0Am2wmqQQ
+         Gi0w==
+X-Forwarded-Encrypted: i=1; AJvYcCUXkz+MdcELSYazk0E30Ks3200B4TRYs6SUjnSDss8qby55lVCTnGUk4TYCJhDed8pMSJrnk6HzPkSiVJLdaxWT@lists.infradead.org
+X-Gm-Message-State: AOJu0YxvXXlVUZLhXt91IDQDaHrLzKVkZGZwp4UQkIbTQDgnHKNzEjZT
+	SDPS9A9p6YFgTuveeqYTeEkOFWDpp+I8FT4xL0sq+tjqZxfJtM0giOJU7fTAzwwQSNoTZ1KkBKO
+	T28wPtRJ2dmQzigRJBVQBCwVt7jciT4xMwU8YZkeuIpSrFV4Bfn0lhJ0CWc/wAvStZVqIqUpqJw
+	YwzA==
+X-Gm-Gg: ASbGncsDLnTOvwEVhrPhQghg3mGiFllBG8HKigV8Jb7K1imhvJNyEyIDcjVRtXS0FYh
+	dJGtEJUMH6t4n7aT6ftChExUDekZRXUVZQYn5SfKJPwfCPVHcVtca+21FPUaZeXkFauRb4rtVSf
+	sYDKJhXoqBETK4PM8uF+bE5ylOQe/7sHLy1XJIT0ZdHi/ChxWw6m6o7aDCccz2ug3dgFFIAlZKC
+	cakYcncplufaxiZW2YokdJy75oGCJxnxs95K813RKiXRhtPlY87U8ivkLrd9gP6BTnphDQXG0DD
+	5krc47pdrKCQtgVWHRhbgDEX3hfck0o8+S4dz1oqBrwemQ68N8Ma9MPemG0BmJXFiHVzYq4Wp1Q
+	T4SHSdykZBQDaiNhbSlP16aoKgsbc7tmZeGk3PZTWd8GnRvimy0yh5C0QcQ==
+X-Received: by 2002:a05:6a21:3086:b0:306:51fd:553e with SMTP id adf61e73a8af0-32b61e58357mr13767916637.18.1759752130967;
+        Mon, 06 Oct 2025 05:02:10 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGnZ6Jftw4/I+2aJuBHfcBIzABFc5tCF963mt/Fx5kOV89uuJNQzyr0DGxxoXdMJk4kqaEwrA==
+X-Received: by 2002:a05:6a21:3086:b0:306:51fd:553e with SMTP id adf61e73a8af0-32b61e58357mr13767850637.18.1759752130392;
+        Mon, 06 Oct 2025 05:02:10 -0700 (PDT)
+Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-58b0112439csm4998490e87.18.2025.10.06.05.02.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 06 Oct 2025 05:02:09 -0700 (PDT)
+Date: Mon, 6 Oct 2025 15:02:06 +0300
+From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
+        linux-arm-kernel@lists.infradead.org,
+        linux-rockchip@lists.infradead.org, Alexey Charkov <alchark@gmail.com>,
+        Algea Cao <algea.cao@rock-chips.com>,
+        Andy Yan <andy.yan@rock-chips.com>,
+        Cenk Uluisik <cenk.uluisik@googlemail.com>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
+        Heiko Stuebner <heiko@sntech.de>, Jimmy Hon <honyuenkwun@gmail.com>,
+        Kever Yang <kever.yang@rock-chips.com>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Maxime Ripard <mripard@kernel.org>,
+        Muhammed Efe Cetin <efectn@6tel.net>, Ondrej Jirman <megi@xff.cz>,
+        Rob Herring <robh@kernel.org>, Sandy Huang <hjc@rock-chips.com>
+Subject: Re: [PATCH v2 2/5] drm/rockchip: dw_hdmi_qp: Improve error handling
+ with dev_err_probe()
+Message-ID: <gai5hfvu6xbbqpk4mu3i6nejolijeokjy3mkzca5xwzb4xwic7@jmee36svmwnb>
+References: <20251005235542.1017-1-laurent.pinchart@ideasonboard.com>
+ <20251005235542.1017-3-laurent.pinchart@ideasonboard.com>
 MIME-Version: 1.0
-X-ThreadId: AOEbzVvuXYlJ
-Date: Mon, 06 Oct 2025 13:58:41 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Naresh Kamboju" <naresh.kamboju@linaro.org>,
- Netdev <netdev@vger.kernel.org>,
- "Linux ARM" <linux-arm-kernel@lists.infradead.org>,
- "open list" <linux-kernel@vger.kernel.org>, lkft-triage@lists.linaro.org,
- "Linux Regressions" <regressions@lists.linux.dev>, linux-rdma@vger.kernel.org
-Cc: "Ard Biesheuvel" <ardb@kernel.org>,
- "Patrisious Haddad" <phaddad@nvidia.com>,
- "Michael Guralnik" <michaelgur@nvidia.com>,
- "Moshe Shemesh" <moshe@nvidia.com>, "Tariq Toukan" <tariqt@nvidia.com>,
- "Jakub Kicinski" <kuba@kernel.org>,
- "Dan Carpenter" <dan.carpenter@linaro.org>,
- "Anders Roxell" <anders.roxell@linaro.org>,
- "Benjamin Copeland" <benjamin.copeland@linaro.org>,
- "Nathan Chancellor" <nathan@kernel.org>
-Message-Id: <a2357b92-8a8a-4d79-afb8-0bb8aee244ac@app.fastmail.com>
-In-Reply-To: <CA+G9fYt+9QZ4TwEx7+m2S5Vtn7cq1N54oGceSR72upZJTrzkng@mail.gmail.com>
-References: <CA+G9fYu-5gS0Z6+18qp1xdrYRtHXG_FeTV0hYEbhavuGe_jGQg@mail.gmail.com>
- <CA+G9fYt+9QZ4TwEx7+m2S5Vtn7cq1N54oGceSR72upZJTrzkng@mail.gmail.com>
-Subject: Re: next-20251002: arm64: gcc-8-defconfig: Assembler messages: Error: unknown
- architectural extension `simd;'
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251005235542.1017-3-laurent.pinchart@ideasonboard.com>
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDA0MDAzNyBTYWx0ZWRfXzbBbda7HiU3A
+ 02wtmv2hp/i169hSWt4o5/fjq0iZeybnHM890i6IKsT3CNcRIJ/t+/IAKkDuwNWxArIE9QEk/A5
+ l9rvRRsvycFdDgA9W4cWd9xq0R+K6SQi5MQZ6CmQBbFnh7XEqbn/g7DI8AceYYIxjN17VcqUgOz
+ 1xRzMykrWmeEaUlzytkjkbsfPDJvQOzTn6aD407TCDYWsGI6TmzUVFqaZiQcKnRfobaCqw0xmeU
+ vYX95VmJfeD0GnGz37Pv76ca6Pgut1oLykevvrnfeUwliQ4k9aHkNLs4ErP7VnN1nRiixPXmRR+
+ Y6dAHw5Cc3E+HrNnRyV7juc7dZ02pA47znh5S459Hv2m7Y1PXLTXl8/82do9SMhHwoLvrNAS3Hz
+ qG+WDogCOEiSplf6UB0hMTcjG7Uj7Q==
+X-Proofpoint-ORIG-GUID: NJ2Qo2X2mfHqDtm1b_IsjY2GU8gsOKnz
+X-Authority-Analysis: v=2.4 cv=WIdyn3sR c=1 sm=1 tr=0 ts=68e3afc4 cx=c_pps
+ a=oF/VQ+ItUULfLr/lQ2/icg==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
+ a=x6icFKpwvdMA:10 a=QX4gbG5DAAAA:8 a=P1BnusSwAAAA:8 a=nUXw1gjoltVkaJc6RoAA:9
+ a=CjuIK1q_8ugA:10 a=3WC7DwWrALyhR5TkjVHa:22 a=AbAUZ8qAyYyZVLSsDulk:22
+ a=D0XLA9XvdZm18NrgonBM:22
+X-Proofpoint-GUID: NJ2Qo2X2mfHqDtm1b_IsjY2GU8gsOKnz
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-06_04,2025-10-02_03,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 phishscore=0 priorityscore=1501 impostorscore=0 malwarescore=0
+ bulkscore=0 spamscore=0 adultscore=0 clxscore=1015 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2509150000 definitions=main-2510040037
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_045903_415271_DD306B77 
-X-CRM114-Status: UNSURE (   9.16  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251006_050212_646851_BDB2F823 
+X-CRM114-Status: GOOD (  28.83  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,37 +142,146 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 6, 2025, at 13:31, Naresh Kamboju wrote:
-> + linux-rdma@vger.kernel.org
->
-> On Mon, 6 Oct 2025 at 17:00, Naresh Kamboju <naresh.kamboju@linaro.org> wrote:
->> ### Build error log
->> /tmp/cclfMnj9.s: Assembler messages:
->> /tmp/cclfMnj9.s:656: Error: unknown architectural extension `simd;'
->> make[8]: *** [scripts/Makefile.build:287:
->> drivers/net/ethernet/mellanox/mlx5/core/wc.o] Error 1
->>
->> Suspecting commit,
->> $ git blame -L 269 drivers/net/ethernet/mellanox/mlx5/core/wc.c
->> fd8c8216648cd8 (Patrisious Haddad 2025-09-29 00:08:08 +0300 269)
->>          (".arch_extension simd;\n\t"
->> fd8c8216648cd net/mlx5: Improve write-combining test reliability for
->> ARM64 Grace CPUs
->>
->> ## Source
->> * Kernel version: 6.17.0
->> * Git tree: https://kernel.googlesource.com/pub/scm/linux/kernel/git/next/linux-next.git
->> * Git commit: 47a8d4b89844f5974f634b4189a39d5ccbacd81c
->> * Architectures: arm64
->> * Toolchains: gcc-8
->> * Kconfigs: defconfig
->>
+On Mon, Oct 06, 2025 at 02:55:38AM +0300, Laurent Pinchart wrote:
+> From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> 
+> The error handling in dw_hdmi_qp_rockchip_bind() is quite inconsistent,
+> i.e. in some cases the error code is not included in the message, while
+> in some other cases there is no check for -EPROBE_DEFER.
+> 
+> Since this is part of the probe path, address the aforementioned issues
+> by switching to dev_err_probe(), which also reduces the code a bit.
+> 
+> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+> Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> ---
+>  .../gpu/drm/rockchip/dw_hdmi_qp-rockchip.c    | 62 +++++++------------
+>  1 file changed, 24 insertions(+), 38 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+> index 7d531b6f4c09..4e7794aa2dde 100644
+> --- a/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+> +++ b/drivers/gpu/drm/rockchip/dw_hdmi_qp-rockchip.c
+> @@ -457,10 +457,8 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
+>  		return -ENODEV;
+>  
+>  	if (!cfg->ctrl_ops || !cfg->ctrl_ops->io_init ||
+> -	    !cfg->ctrl_ops->irq_callback || !cfg->ctrl_ops->hardirq_callback) {
+> -		dev_err(dev, "Missing platform ctrl ops\n");
+> -		return -ENODEV;
+> -	}
+> +	    !cfg->ctrl_ops->irq_callback || !cfg->ctrl_ops->hardirq_callback)
+> +		return dev_err_probe(dev, -ENODEV, "Missing platform ctrl ops\n");
 
-Nathan already analyzed the problem and suggested a fix, but I could
-not find a patch on the mailing list so far and sent his suggestion
-now. Please check
+This only makes sense for the purpose of unification.
 
-https://lore.kernel.org/all/20251006115640.497169-1-arnd@kernel.org/
+>  
+>  	hdmi->ctrl_ops = cfg->ctrl_ops;
+>  	hdmi->dev = &pdev->dev;
+> @@ -473,10 +471,9 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
+>  			break;
+>  		}
+>  	}
+> -	if (hdmi->port_id < 0) {
+> -		dev_err(hdmi->dev, "Failed to match HDMI port ID\n");
+> -		return hdmi->port_id;
+> -	}
+> +	if (hdmi->port_id < 0)
+> +		return dev_err_probe(hdmi->dev, hdmi->port_id,
+> +				     "Failed to match HDMI port ID\n");
 
-    Arnd
+The port_id can't become -EPROBE_DEFER, so it also unnecessary.
+
+>  
+>  	plat_data.phy_ops = cfg->phy_ops;
+>  	plat_data.phy_data = hdmi;
+> @@ -497,39 +494,30 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
+>  
+>  	hdmi->regmap = syscon_regmap_lookup_by_phandle(dev->of_node,
+>  						       "rockchip,grf");
+> -	if (IS_ERR(hdmi->regmap)) {
+> -		dev_err(hdmi->dev, "Unable to get rockchip,grf\n");
+> -		return PTR_ERR(hdmi->regmap);
+> -	}
+> +	if (IS_ERR(hdmi->regmap))
+> +		return dev_err_probe(hdmi->dev, PTR_ERR(hdmi->regmap),
+> +				     "Unable to get rockchip,grf\n");
+>  
+>  	hdmi->vo_regmap = syscon_regmap_lookup_by_phandle(dev->of_node,
+>  							  "rockchip,vo-grf");
+> -	if (IS_ERR(hdmi->vo_regmap)) {
+> -		dev_err(hdmi->dev, "Unable to get rockchip,vo-grf\n");
+> -		return PTR_ERR(hdmi->vo_regmap);
+> -	}
+> +	if (IS_ERR(hdmi->vo_regmap))
+> +		return dev_err_probe(hdmi->dev, PTR_ERR(hdmi->vo_regmap),
+> +				     "Unable to get rockchip,vo-grf\n");
+>  
+>  	ret = devm_clk_bulk_get_all_enabled(hdmi->dev, &clks);
+> -	if (ret < 0) {
+> -		dev_err(hdmi->dev, "Failed to get clocks: %d\n", ret);
+> -		return ret;
+> -	}
+> +	if (ret < 0)
+> +		return dev_err_probe(hdmi->dev, ret, "Failed to get clocks\n");
+>  
+>  	hdmi->enable_gpio = devm_gpiod_get_optional(hdmi->dev, "enable",
+>  						    GPIOD_OUT_HIGH);
+> -	if (IS_ERR(hdmi->enable_gpio)) {
+> -		ret = PTR_ERR(hdmi->enable_gpio);
+> -		dev_err(hdmi->dev, "Failed to request enable GPIO: %d\n", ret);
+> -		return ret;
+> -	}
+> +	if (IS_ERR(hdmi->enable_gpio))
+> +		return dev_err_probe(hdmi->dev, PTR_ERR(hdmi->enable_gpio),
+> +				     "Failed to request enable GPIO\n");
+>  
+>  	hdmi->phy = devm_of_phy_get_by_index(dev, dev->of_node, 0);
+> -	if (IS_ERR(hdmi->phy)) {
+> -		ret = PTR_ERR(hdmi->phy);
+> -		if (ret != -EPROBE_DEFER)
+> -			dev_err(hdmi->dev, "failed to get phy: %d\n", ret);
+> -		return ret;
+> -	}
+> +	if (IS_ERR(hdmi->phy))
+> +		return dev_err_probe(hdmi->dev, PTR_ERR(hdmi->phy),
+> +				     "Failed to get phy\n");
+>  
+>  	cfg->ctrl_ops->io_init(hdmi);
+>  
+> @@ -558,17 +546,15 @@ static int dw_hdmi_qp_rockchip_bind(struct device *dev, struct device *master,
+>  
+>  	hdmi->hdmi = dw_hdmi_qp_bind(pdev, encoder, &plat_data);
+>  	if (IS_ERR(hdmi->hdmi)) {
+> -		ret = PTR_ERR(hdmi->hdmi);
+>  		drm_encoder_cleanup(encoder);
+> -		return ret;
+> +		return dev_err_probe(hdmi->dev, PTR_ERR(hdmi->hdmi),
+> +				     "Failed to bind dw-hdmi-qp");
+>  	}
+>  
+>  	connector = drm_bridge_connector_init(drm, encoder);
+
+This one is also not supposed to return -EPROBE_DEFER.
+
+> -	if (IS_ERR(connector)) {
+> -		ret = PTR_ERR(connector);
+> -		dev_err(hdmi->dev, "failed to init bridge connector: %d\n", ret);
+> -		return ret;
+> -	}
+> +	if (IS_ERR(connector))
+> +		return dev_err_probe(hdmi->dev, PTR_ERR(connector),
+> +				     "Failed to init bridge connector\n");
+>  
+>  	return drm_connector_attach_encoder(connector, encoder);
+>  }
+> -- 
+> Regards,
+> 
+> Laurent Pinchart
+> 
+
+-- 
+With best wishes
+Dmitry
 
