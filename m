@@ -4,57 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DE07CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 10:00:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5B998CAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 10:02:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Kqj912jHg1nZB/S//B1b7Qrhd1+TE5kArI8a3PspfuE=; b=SutdjYNhzCnE7PLZ5bFXDe0Kil
-	VGnScDeJKbQuXPKWFtqkSMNO2hASRqoR5B39VfE7Y5vpe4Wc0U9XUOSTDwxNpZL524ZsIDlPOwcZ2
-	t0Umqf0eu+bbhVieIaRlf5CHDiuoHWqVNYu4X/7p6Om/kx4qWens9TeQH5KYRpaI6S/A+M8fh5ZM6
-	wYN/+UDGrYxFj6afmY4sn1uHjLqYaYdjkr7P0BPKkNEqpfWnQtUurun/zAJBwq9ZFpIU2Yh7DcAnp
-	pjtsW1zIHoXZkdwa0Y3Y1A3AzURH1WKi3S72Vyt1+VY4LloLB+cB483a25oOlqbN6nx7FDWmTS4/g
-	UVrVvQ7A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:References:
+	Subject:To:From:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:
+	Mime-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=M2+AdvJEarXyjOc4kgwr0OGK2UDYTIAIMd4EPnbaUnk=; b=Yrq3ueWFDxpmjmh6SDpIOgtoae
+	rNPfr5+lJlkCARyecxSnfUnLkdN46xssEuVJkXwM+B2ACqAbVY9CXvs9BC2qeJPQ0LKvtBRm8rCPN
+	kFGcoJlGhutOkmSmuW4mUW/iPgM4miEbaPXEzCffzaq9pDthA1Ngzr6H8BPiYlVDEo7XG0GdmUiE8
+	eeAsYUI+vlfv/RY4FMtD0J8u0xID0Ygrg6w1BIhz3P//VgfU0dhFrtCZrgbYNcfbb+YhqeStR0/uM
+	lIJmKezj3dD3JtP4TJkNwJUe2DeZkFYe7TFc9PyWr051RBcwwUHTX6VEQuEKPsTfzFaewRAwqxpJF
+	0W9XktVg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5i0k-0000000HIbf-3DfE;
-	Mon, 06 Oct 2025 10:00:06 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v5i2f-0000000HInn-0tFs;
+	Mon, 06 Oct 2025 10:02:05 +0000
+Received: from www522.your-server.de ([195.201.215.122])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5i0j-0000000HIbX-2YfY
+	id 1v5i2c-0000000HInM-1GrM
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Oct 2025 10:00:05 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0C75160407;
-	Mon,  6 Oct 2025 10:00:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 399D7C4CEF7;
-	Mon,  6 Oct 2025 10:00:04 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1759744804;
-	bh=HmCN+7Mqf/MRdFKZQf5GfilkUM5v3O6PnYlANxH+lYk=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=GcK951BVY6eNOsq8UkKBT79D/4LwVGMYN73Kh7H+2tp0kYNTImy/2HGvuo7iNrBNW
-	 CcLxxOFnGZzkJ/VJxgc1j3YyHhYSNA8MW12qHBkRD73/FXSBMaDudUAlAseSbVChCc
-	 /uXyC9ofKpzwzwAScFaRTD7qXRah83XPIq5TREdE=
-Date: Mon, 6 Oct 2025 12:00:02 +0200
-From: Greg KH <gregkh@linuxfoundation.org>
-To: Will Deacon <will@kernel.org>
-Cc: stable@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev, Ard Biesheuvel <ardb@kernel.org>,
-	Lee Jones <lee@kernel.org>, Sasha Levin <sashal@kernel.org>,
-	Kenneth Van Alstyne <kvanals@kvanals.org>
-Subject: Re: [STABLE 5.15.y] [PATCH] KVM: arm64: Fix softirq masking in
- FPSIMD register saving sequence
-Message-ID: <2025100641-guileless-retainer-c885@gregkh>
-References: <20251003183917.4209-1-will@kernel.org>
- <aOAZR0-4ZCq78DZ8@willie-the-truck>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aOAZR0-4ZCq78DZ8@willie-the-truck>
+	Mon, 06 Oct 2025 10:02:03 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=folker-schwesinger.de; s=default2212; h=In-Reply-To:References:Subject:To:
+	From:Cc:Message-Id:Date:Content-Type:Content-Transfer-Encoding:Mime-Version:
+	Sender:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID;
+	bh=M2+AdvJEarXyjOc4kgwr0OGK2UDYTIAIMd4EPnbaUnk=; b=U1YWadyoifm7mM0YGP+poyHkVT
+	CQzuj1ezWhJjFCvgKBX1PwHo868THq65o/dt6vLLvzRFg2k6Jn6tDtGPDi9Tby22L4H0ckzeOGtsA
+	i5Kd6FAj9HxgLJbEl6aRrXZuEe6eHkYk3yXKFCWhl03Ohq0frjynbbsSvf5ziD0FyDxA6wYshycOD
+	AQxfENVX39WT8yQK9d4Ob2Zc9jpk3AdH8u1MU9bfO8xHMdAxNTWBJubJLwiG8mveJre2JAmn9vtZ+
+	crg7vQFCJ7cKctWs5RGjOPfg3IMbL/p+DS2rer5t2erLusdoVmlpmDU6RufiywivdEr1EC66Ev8gY
+	Sm0alTnQ==;
+Received: from sslproxy05.your-server.de ([78.46.172.2])
+	by www522.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96.2)
+	(envelope-from <dev@folker-schwesinger.de>)
+	id 1v5i2V-000C3T-0E;
+	Mon, 06 Oct 2025 12:01:55 +0200
+Received: from localhost ([127.0.0.1])
+	by sslproxy05.your-server.de with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.96)
+	(envelope-from <dev@folker-schwesinger.de>)
+	id 1v5i2U-000EoX-1D;
+	Mon, 06 Oct 2025 12:01:54 +0200
+Mime-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=UTF-8
+Date: Mon, 06 Oct 2025 10:01:54 +0000
+Message-Id: <DDB5IDDEOVBT.NHJF03FYW2BN@folker-schwesinger.de>
+Cc: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+ <linux-kernel@vger.kernel.org>
+From: "Folker Schwesinger" <dev@folker-schwesinger.de>
+To: "Suraj Gupta" <suraj.gupta2@amd.com>, <vkoul@kernel.org>,
+ <radhey.shyam.pandey@amd.com>, <michal.simek@amd.com>
+Subject: Re: [PATCH V2 1/3] dmaengine: xilinx_dma: Fix channel idle state
+ management in AXIDMA and MCDMA interrupt handlers
+X-Mailer: aerc 0.21.0-9-ga57e783008e9
+References: <20251003061910.471575-1-suraj.gupta2@amd.com>
+ <20251003061910.471575-2-suraj.gupta2@amd.com>
+In-Reply-To: <20251003061910.471575-2-suraj.gupta2@amd.com>
+X-Virus-Scanned: Clear (ClamAV 1.0.9/27780/Thu Oct  2 04:58:32 2025)
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251006_030202_669369_73EC4ACE 
+X-CRM114-Status: GOOD (  15.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,62 +84,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 03, 2025 at 07:43:19PM +0100, Will Deacon wrote:
-> On Fri, Oct 03, 2025 at 07:39:17PM +0100, Will Deacon wrote:
-> > Stable commit 23249dade24e ("KVM: arm64: Fix kernel BUG() due to bad
-> > backport of FPSIMD/SVE/SME fix") fixed a kernel BUG() caused by a bad
-> > backport of upstream commit fbc7e61195e2 ("KVM: arm64: Unconditionally
-> > save+flush host FPSIMD/SVE/SME state") by ensuring that softirqs are
-> > disabled/enabled across the fpsimd register save operation.
-> > 
-> > Unfortunately, although this fixes the original issue, it can now lead
-> > to deadlock when re-enabling softirqs causes pending softirqs to be
-> > handled with locks already held:
-> > 
-> >  | BUG: spinlock recursion on CPU#7, CPU 3/KVM/57616
-> >  |  lock: 0xffff3045ef850240, .magic: dead4ead, .owner: CPU 3/KVM/57616, .owner_cpu: 7
-> >  | CPU: 7 PID: 57616 Comm: CPU 3/KVM Tainted: G           O       6.1.152 #1
-> >  | Hardware name: SoftIron SoftIron Platform Mainboard/SoftIron Platform Mainboard, BIOS 1.31 May 11 2023
-> >  | Call trace:
-> >  |  dump_backtrace+0xe4/0x110
-> >  |  show_stack+0x20/0x30
-> >  |  dump_stack_lvl+0x6c/0x88
-> >  |  dump_stack+0x18/0x34
-> >  |  spin_dump+0x98/0xac
-> >  |  do_raw_spin_lock+0x70/0x128
-> >  |  _raw_spin_lock+0x18/0x28
-> >  |  raw_spin_rq_lock_nested+0x18/0x28
-> >  |  update_blocked_averages+0x70/0x550
-> >  |  run_rebalance_domains+0x50/0x70
-> >  |  handle_softirqs+0x198/0x328
-> >  |  __do_softirq+0x1c/0x28
-> >  |  ____do_softirq+0x18/0x28
-> >  |  call_on_irq_stack+0x30/0x48
-> >  |  do_softirq_own_stack+0x24/0x30
-> >  |  do_softirq+0x74/0x90
-> >  |  __local_bh_enable_ip+0x64/0x80
-> >  |  fpsimd_save_and_flush_cpu_state+0x5c/0x68
-> >  |  kvm_arch_vcpu_put_fp+0x4c/0x88
-> >  |  kvm_arch_vcpu_put+0x28/0x88
-> >  |  kvm_sched_out+0x38/0x58
-> >  |  __schedule+0x55c/0x6c8
-> >  |  schedule+0x60/0xa8
-> > 
-> > Take a tiny step towards the upstream fix in 9b19700e623f ("arm64:
-> > fpsimd: Drop unneeded 'busy' flag") by additionally disabling hardirqs
-> > while saving the fpsimd registers.
-> > 
-> > Cc: Ard Biesheuvel <ardb@kernel.org>
-> > Cc: Lee Jones <lee@kernel.org>
-> > Cc: Sasha Levin <sashal@kernel.org>
-> > Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org
-> 
-> Sorry, Greg, I lost a stray '>' here ^^^  and so you didn't end up on CC
-> for this one.
+On Fri Oct 3, 2025 at 8:19 AM CEST, Suraj Gupta wrote:
+> Fix a race condition in AXIDMA and MCDMA irq handlers where the channel
+> could be incorrectly marked as idle and attempt spurious transfers when
+> descriptors are still being processed.
+>
+> The issue occurs when:
+> 1. Multiple descriptors are queued and active.
+> 2. An interrupt fires after completing some descriptors.
+> 3. xilinx_dma_complete_descriptor() moves completed descriptors to
+> done_list.
+> 4. Channel is marked idle and start_transfer() is called even though
+>    active_list still contains unprocessed descriptors.
+> 5. This leads to premature transfer attempts and potential descriptor
+>    corruption or missed completions.
+>
+> Only mark the channel as idle and start new transfers when the active lis=
+t
+> is actually empty, ensuring proper channel state management and avoiding
+> spurious transfer attempts.
+>
+> Signed-off-by: Suraj Gupta <suraj.gupta2@amd.com>
+> Co-developed-by: Srinivas Neeli <srinivas.neeli@amd.com>
+> Signed-off-by: Srinivas Neeli <srinivas.neeli@amd.com>
+> Fixes: c0bba3a99f07 ("dmaengine: vdma: Add Support for Xilinx AXI Direct =
+Memory Access Engine")
 
-No worries, I see the stuff going to stable@vger.kernel.org as well :)
+For the AXIDMA code paths:
 
-Now all queued up, thanks for these.
+Tested-by: Folker Schwesinger <dev@folker-schwesinger.de>
 
-greg k-h
+> ---
+>  drivers/dma/xilinx/xilinx_dma.c | 12 ++++++++----
+>  1 file changed, 8 insertions(+), 4 deletions(-)
+>
+> diff --git a/drivers/dma/xilinx/xilinx_dma.c b/drivers/dma/xilinx/xilinx_=
+dma.c
+> index fabff602065f..53b82ddad007 100644
+> --- a/drivers/dma/xilinx/xilinx_dma.c
+> +++ b/drivers/dma/xilinx/xilinx_dma.c
+> @@ -1857,8 +1857,10 @@ static irqreturn_t xilinx_mcdma_irq_handler(int ir=
+q, void *data)
+>  	if (status & XILINX_MCDMA_IRQ_IOC_MASK) {
+>  		spin_lock(&chan->lock);
+>  		xilinx_dma_complete_descriptor(chan);
+> -		chan->idle =3D true;
+> -		chan->start_transfer(chan);
+> +		if (list_empty(&chan->active_list)) {
+> +			chan->idle =3D true;
+> +			chan->start_transfer(chan);
+> +		}
+>  		spin_unlock(&chan->lock);
+>  	}
+> =20
+> @@ -1914,8 +1916,10 @@ static irqreturn_t xilinx_dma_irq_handler(int irq,=
+ void *data)
+>  		      XILINX_DMA_DMASR_DLY_CNT_IRQ)) {
+>  		spin_lock(&chan->lock);
+>  		xilinx_dma_complete_descriptor(chan);
+> -		chan->idle =3D true;
+> -		chan->start_transfer(chan);
+> +		if (list_empty(&chan->active_list)) {
+> +			chan->idle =3D true;
+> +			chan->start_transfer(chan);
+> +		}
+>  		spin_unlock(&chan->lock);
+>  	}
+> =20
+
 
