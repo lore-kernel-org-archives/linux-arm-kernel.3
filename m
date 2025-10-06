@@ -4,96 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56B64CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 22:12:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A9516CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 23:02:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=+FgDHRlDmcsgJ4VxNj4kBWd3s+eiFbP/oYJUJ1RSnuQ=; b=N6vzRhqVZU9ryW+Rg7DvsK/MmC
-	KV7E9sTusteX/K4lqF+29johjJJxAzirt6tluiKbBPye/DuWY/q1T8FBGjhaVEw2ymuMWLauHpiA+
-	Xd1PIqfzylNRtQ9dD/Zww+1AghLlJMtx7/PUbURZmrGOcCLS2h5nSl2Zig874r81MFgR79EiOy21V
-	T8Z+TyitP/5h/T7Lv+CVmAWOQVgj8fnuQ42rLV7cTJvWSte4u2XaE2QNt88vVQbQkmKIjQ7C1K1/3
-	zw6Y9JPhR/f3Bf6PHLpOmrRwx0olZOkUhYYDqUdQjrpfF+EsYqJeq6sB0ZmIZK4QawsPIEXPnICCG
-	nQGfTUmw==;
+	bh=rPUqxHqoYN9o/nXYPPPYebq9RP8korJ6LZObH1VKs1Y=; b=Skg2m1ZLb8ercl+1ikH1oIz7VQ
+	2ZGBFvqd2+jJi4hnxDOwGyZcpy4Iax85J4wIazVuS4H7jANLiuptp8HM6Ni+MXAwh9J1PEg/UU7GP
+	yfOPGodmLVtALXKlp/r3z6umIaNY0rQLvHFnktnIRMR6hHSGQL9j4i55u05vpuAPExTtfaDzy70o2
+	BPaF14MGysnFTkpHpmTFyDxeUgCr352B7EulxTJjjzcQBYFRT9n4w5yf6ZIObbWM5Ejw652FsFJlo
+	IHj7fEi39NylwMHPKv2AU6UkxfgYTXzDy3VaurxyzEgkOwTQvBvQWu2Eq/gEscvidd5k0QNsHefYj
+	S27vPyrA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5tRt-00000000tmW-0XUf;
-	Mon, 06 Oct 2025 22:12:53 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v5uDv-00000000xo7-2oWz;
+	Mon, 06 Oct 2025 23:02:31 +0000
+Received: from mail-io1-xd2c.google.com ([2607:f8b0:4864:20::d2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5tRr-00000000tle-0zaG;
-	Mon, 06 Oct 2025 22:12:51 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Content-ID:Content-Description:In-Reply-To:References;
-	bh=+FgDHRlDmcsgJ4VxNj4kBWd3s+eiFbP/oYJUJ1RSnuQ=; b=hsOQl+UmySI8bLddQDrA14MXyF
-	Rs+HUXKs/Z9SE8XcBJrPv64pXmgBi++F5ycV6sgoUmt+XD9ahMXXqimPoDM4ydlT+lw4/IuAgSI+q
-	5MMim431opg0R4uAgwjkuqhGaJRL/XLR/8gjKFj5GMFaqpBgc8LxwI/QuwMdOARi+sNkz/a/GY8FW
-	/T6xe9++wTeutiDFWgH15k9GjrNcsT5AtYTrSej8p3lObFPyqnfwpSEW/c6KItQ2wcz0SduvCRN3e
-	KNJjIGkfC7GrIFugdeihMcMzH8f0AmsFaSj6KPTm+qRT8exCRMfcpraL7O9oXNdnj8V+KJhru5r/F
-	0uPzWWlw==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5tRn-0000000HDVC-3e1Z;
-	Mon, 06 Oct 2025 22:12:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 6368240577;
-	Mon,  6 Oct 2025 22:12:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 3B4E5C4CEF5;
-	Mon,  6 Oct 2025 22:12:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759788763;
-	bh=frN59PtaP2NnDY37GTjkkk5HaJHZi6o8TAEh204hsUw=;
-	h=From:Date:Subject:To:Cc:Reply-To:From;
-	b=Y990LoQPFXJep5tZcVNY1X9Hd8cChZMnMlx5TuuDQTTiBWY0EN2fa43UR8eP9lBFQ
-	 tFi8EFE9pkzG55PxKvDK4znwjfZIgkOv4tYx7cpCjp9M7eXIxD03OBKV145pu6jYiP
-	 RU37evp4JBS2qJ/t9HZXLfvlCX302REhA1DTENeJDAIEfm733lEyUDSAnDZ5IfMHIs
-	 vDeZsC9h6WHfGYYYbd62VdmMuw4BvvORGHe19TsIt0Loxjqez3AlxTFNrJrueanflE
-	 zN/bchdlMVAgYtOrtDdXk7aHPdGZS/fbj+GSjuwCU/XLZ2Symr4GWTf5hsKIslyt7x
-	 n3KQESdCio3fg==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 2790DCCA471;
-	Mon,  6 Oct 2025 22:12:43 +0000 (UTC)
-From: Valerio Setti via B4 Relay <devnull+vsetti.baylibre.com@kernel.org>
-Date: Tue, 07 Oct 2025 00:12:19 +0200
-Subject: [PATCH] ASoC: meson: aiu-encoder-i2s: fix bit clock polarity
+	id 1v5uDs-00000000xnk-3ECt
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Oct 2025 23:02:30 +0000
+Received: by mail-io1-xd2c.google.com with SMTP id ca18e2360f4ac-92aee734585so216959439f.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Oct 2025 16:02:28 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1759791747; x=1760396547; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=rPUqxHqoYN9o/nXYPPPYebq9RP8korJ6LZObH1VKs1Y=;
+        b=iU4m1aUtKNeOhdSn9aCfU4SAaXPJzAp4X/S5q5rTc5ySx3IWVJXbbcd4H6EncRA/rV
+         dPWMsptp9rmjZuFSl0XhYi2VO0EJDTpZTqoCWRj/ELPlUtcOmEsVTuH2pG/O0uaayglm
+         tivSaoZdu743BB0MhY+iX76ouYm+P6+E97mUs=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759791747; x=1760396547;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=rPUqxHqoYN9o/nXYPPPYebq9RP8korJ6LZObH1VKs1Y=;
+        b=uQP3sc2f9MIhrF/CStIXtfeTsegjGaE16y967bW1tAuBD8zyVvG2IB5zAaba6ASRDn
+         H6x5CkpRmZ6/buosbOAk2So3Xn9w4dQraY0+0Arr4R/+ghh4TFi0Oyte+IhYVNEnvSiY
+         35tXxI2RA1hbQ3w10TCZbDzpNXW9FOGjmKLyqpL4kpmjZIaDPJQtL0mPNkcOmjSYvMRx
+         vk8yLH9Qbvl9SOlQsYxNlO7/8OZ22Jafs9pzw1gPthe7Y8u6WYI96lUjDP0tDUinMkwW
+         sbf8LMS/10PJ8AgNBjBNomWUBPxIYUuc+AKQkPZ/FyLLDNX12QLKjerpZOSKFnxzT3q4
+         2yLQ==
+X-Gm-Message-State: AOJu0YwJOk8blyo20aHNCiUkaUSfOU6UsMbXfmN8O06ke8LePnpN7ORs
+	5I4eEBB8cFf0SZpqGZ1YKWI6Eq0vn+h4m0qMbcmfBNXnp8RmmBRedp5gGHcfsY+hkf68m50/6Pe
+	wBWJ2Vw==
+X-Gm-Gg: ASbGncuFOwjFH6bCuYQAp8M3KV2SfF5ONjF7IyYKONM7e4UFEI1Gt/vwnhSVh7FvbFM
+	VYNX3UEUVR0fLm7FEZBWcChESQuSqQdYX2CJCL1EhOJBzaZ7BOqWC8TEcvuQUCW07tWHIcVt5bb
+	nHrKEJmCgLkaZ6FxTKjUgz3pSaaYg4QJ5q/0E1T6i211heevV1vXOc05/tCZLKHQYqYbsoPZvha
+	D9EO8jPIaRbwKCNzOxTG7sWALgehcGcLBuz5poAeK4IUwToIEMDnetyXAbTptCTpTKygBzYlU7I
+	vY8e/N2Zi2RssTqjcWqrnedr7OCfPQ+IIVVQfY9qc78SRTI7FKw7JrGTJlhbPxBflJ77VkKKDuz
+	fxbYlaM1DaC12TxH5Dn0Lo9vqNEgFedWLK7JnUmEPcQA/7gLPcS6/Lg==
+X-Google-Smtp-Source: AGHT+IE7/YGoPn47lQ3d5uWVlrWlTdbeR9OUwTMznvi5Kz+D26CuC+sguo/JsRy3VZbgrzZGikj0VQ==
+X-Received: by 2002:a05:6602:1405:b0:887:574d:dfbb with SMTP id ca18e2360f4ac-93b96a5a9c7mr1831470639f.11.1759791746857;
+        Mon, 06 Oct 2025 16:02:26 -0700 (PDT)
+Received: from chromium.org ([50.235.115.130])
+        by smtp.gmail.com with ESMTPSA id 8926c6da1cb9f-57b5ec55bc7sm5422226173.69.2025.10.06.16.02.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 06 Oct 2025 16:02:25 -0700 (PDT)
+From: Simon Glass <sjg@chromium.org>
+To: linux-arm-kernel@lists.infradead.org
+Cc: Chen-Yu Tsai <wenst@chromium.org>,
+	Ahmad Fatoum <a.fatoum@pengutronix.de>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	=?UTF-8?q?J=20=2E=20Neusch=C3=A4fer?= <j.ne@posteo.net>,
+	Nicolas Schier <nicolas@fjasle.eu>,
+	Tom Rini <trini@konsulko.com>,
+	Simon Glass <sjg@chromium.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	David Sterba <dsterba@suse.com>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Kees Cook <kees@kernel.org>,
+	Nathan Chancellor <nathan@kernel.org>,
+	Nick Terrell <terrelln@fb.com>,
+	Nicolas Schier <nicolas.schier@linux.dev>,
+	Rong Xu <xur@google.com>,
+	Will Deacon <will@kernel.org>,
+	linux-kbuild@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v4 0/7] scripts/make_fit: Support ramdisks and faster operations
+Date: Mon,  6 Oct 2025 17:01:51 -0600
+Message-ID: <20251006230205.521341-1-sjg@chromium.org>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251007-fix-i2s-polarity-v1-1-86704d9cda10@baylibre.com>
-X-B4-Tracking: v=1; b=H4sIAMI+5GgC/x2MWwqAIBAArxL73YKt9qCrRB9SWy2EhkYU0t2TP
- gdmJkHkIByhLxIEviSKdxmqsoBps25llDkzkKK6UqrBRW4Uinj43QY5H5xbY7TuFkukIWdH4Oz
- 8y2F83w/n6ZUSYgAAAA==
-X-Change-ID: 20251006-fix-i2s-polarity-d744338fa223
-To: Jerome Brunet <jbrunet@baylibre.com>, 
- Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
- Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
- Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org, 
- Valerio Setti <vsetti@baylibre.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1584;
- i=vsetti@baylibre.com; h=from:subject:message-id;
- bh=yhS4Hp8u/Or3vlCBo8NKBwUHK5bFZ95+lSDqT7ffm68=;
- b=owGbwMvMwCF2z3ty7kUrRgbG02pJDBlP7G7Vcrw8+WNXspbGklMbFI6a5LY+1/gg9v5pfgqHn
- ozu2umiHaUsDGIcDLJiiiws0+/9LihVe2iccLIAZg4rE8gQBi5OAZhIlAzDT0aRdVUTjRINNFhD
- Sg6cPrPmuFXCOu/OksauQpW5T2W/+zIy/FO7m1Wq8VTx9nf/GRt3bdV6nfajzTH9xteVf6afa9P
- azgAA
-X-Developer-Key: i=vsetti@baylibre.com; a=openpgp;
- fpr=0497DEFB707526E13360C970DE4B936DD13A0100
-X-Endpoint-Received: by B4 Relay for vsetti@baylibre.com/default with
- auth_id=515
-X-Original-From: Valerio Setti <vsetti@baylibre.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_231248_441772_3AC4F69B 
-X-CRM114-Status: GOOD (  13.14  )
+X-CRM114-CacheID: sfid-20251006_160228_813885_124F3807 
+X-CRM114-Status: GOOD (  16.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,56 +107,53 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: vsetti@baylibre.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Valerio Setti <vsetti@baylibre.com>
+This series updates 'make image.fit' to support adding a ramdisk to the
+FIT, either one provided as a parameter or one created from all the
+kernel modules.
 
-According to I2S specs audio data is sampled on the rising edge of the
-clock and it can change on the falling one. When operating in normal mode
-this SoC behaves the opposite so a clock polarity inversion is required
-in this case.
+It also includes a few performance improvement, so that building a FIT
+from ~450MB of kernel/module/devicetree files only takes a few seconds
+on a modern machine.
 
-This was tested on an OdroidC2 (Amlogic S905 SoC) board.
+Changes in v4:
+- Provide the list of modules from the Makefile
+- Reduce verbosity (don't print every module filename)
+- Rename the Makefile variable from 'EXTRA' to 'MAKE_FIT_FLAGS'
+- Use an empty FIT_MODULES to disable the feature, instead of '0'
+- Make use of the 'modules' dependency to ensure modules are built
+- Pass the list of modules to the script
 
-Signed-off-by: Valerio Setti <vsetti@baylibre.com>
----
- sound/soc/meson/aiu-encoder-i2s.c | 9 ++++++---
- 1 file changed, 6 insertions(+), 3 deletions(-)
+Changes in v3:
+- Move the ramdisk chunk into the correct patch
+- Add a comment at the top of the file about the -r option
+- Count the ramdisk in the total files
+- Update the commit message
+- Update the commit message
+- Add a way to add built modules into the FIT
 
-diff --git a/sound/soc/meson/aiu-encoder-i2s.c b/sound/soc/meson/aiu-encoder-i2s.c
-index a0dd914c8ed13616fbcbc0828e36418cfd255391..3b4061508c18047fe8d6f3f98061720f8ce238f2 100644
---- a/sound/soc/meson/aiu-encoder-i2s.c
-+++ b/sound/soc/meson/aiu-encoder-i2s.c
-@@ -236,8 +236,12 @@ static int aiu_encoder_i2s_set_fmt(struct snd_soc_dai *dai, unsigned int fmt)
- 	    inv == SND_SOC_DAIFMT_IB_IF)
- 		val |= AIU_CLK_CTRL_LRCLK_INVERT;
- 
--	if (inv == SND_SOC_DAIFMT_IB_NF ||
--	    inv == SND_SOC_DAIFMT_IB_IF)
-+	/*
-+	 * The SoC changes data on the rising edge of the bitclock
-+	 * so an inversion of the bitclock is required in normal mode
-+	 */
-+	if (inv == SND_SOC_DAIFMT_NB_NF ||
-+	    inv == SND_SOC_DAIFMT_NB_IF)
- 		val |= AIU_CLK_CTRL_AOCLK_INVERT;
- 
- 	/* Signal skew */
-@@ -328,4 +332,3 @@ const struct snd_soc_dai_ops aiu_encoder_i2s_dai_ops = {
- 	.startup	= aiu_encoder_i2s_startup,
- 	.shutdown	= aiu_encoder_i2s_shutdown,
- };
--
+Changes in v2:
+- Don't compress the ramdisk as it is already compressed
 
----
-base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
-change-id: 20251006-fix-i2s-polarity-d744338fa223
+Simon Glass (7):
+  scripts/make_fit: Speed up operation
+  scripts/make_fit: Support an initial ramdisk
+  scripts/make_fit: Move dtb processing into a function
+  scripts/make_fit: Provide a way to add built modules
+  kbuild: Allow adding modules into the FIT ramdisk
+  scripts/make_fit: Support a few more parallel compressors
+  scripts/make_fit: Compress dtbs in parallel
 
-Best regards,
+ arch/arm64/boot/Makefile |   4 +
+ scripts/Makefile.lib     |  10 +-
+ scripts/make_fit.py      | 264 +++++++++++++++++++++++++++++++++------
+ 3 files changed, 239 insertions(+), 39 deletions(-)
+
 -- 
-Valerio Setti <vsetti@baylibre.com>
+2.43.0
 
-
+base-commit: 4a71531471926e3c391665ee9c42f4e0295a4585
+branch: fita4
 
