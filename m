@@ -4,73 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04A8DCCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 20:48:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F0DCCCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 20:53:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VIKAcr7AiKo1tJTrh+bk2m2hYbyR4gITRIGMmYNi20Y=; b=l96u9pW9iLMkqdQklQ33kMJ2QF
-	Bp3FpnyjDZ/RWBmGNnxjy58vP+QoAUA6mgPVla5jbqCoY8j6P2og55O42dowkZGEW7OzK8mbQkGbp
-	MZKXIX2tEoNGA2b75E8/7UV8fT6+4ygmqH8xPtTOoElcOBdGSBITslESN9CKDVi0J+RCA+62IRo55
-	lGeeS94Lqb5J1U2vHVy2XQDBD/5hcTeruU9yYfS357GUBWWReN0L/AZEN9L6eip0043GSLU094rp9
-	yfaOeqzOtoSnlkK2TiXGHux9SLdeBFchFIHN7HYq//ogQSvdazlubDHegBvt0DYvKQGobGjEvvy5U
-	rqVuXWRA==;
+	bh=v2Ovqc/nTi5/UXw483+mGacXvgUl3L1/5cp/GbV9sQE=; b=Q1esMJLe7MTqIxXuqfhEq41GUg
+	zukze4vwd4J7Vi/Zkw9sm76q2ujSlmr7PZGWlvB/f7KKnUBSrNJu7ddqr5FK3/3xmMsjkMd+UEXvA
+	t1YyGKTz3iiqkraNRQ/WyhctlLINXBZ7DCehrecWrmEDuR98PTlxJUN4Lqy/NJ2yQqtGBYNJWJ6Tz
+	Y8PnHICTFONOmJtYPRDww3Yo5hABwE8bopFUclDp5BqqNDuTBXERxIGbvcig43y0U91YOHIwoPSFc
+	OBKprIRIO7EQTSqIDBkdKDcyEO6G1nu7QovYV64WA2EQtZNTdtYkSIDO1eGUtq7nRKhbY9I70eMnk
+	PAxND3GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5s8B-00000000m7B-1Ttn;
-	Mon, 06 Oct 2025 20:48:27 +0000
-Received: from s3.sipsolutions.net ([2a01:4f8:242:246e::2] helo=sipsolutions.net)
+	id 1v5sDE-00000000maB-0ex5;
+	Mon, 06 Oct 2025 20:53:40 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5s89-00000000m5J-3MAS;
-	Mon, 06 Oct 2025 20:48:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=sipsolutions.net; s=mail; h=MIME-Version:Content-Transfer-Encoding:
-	Content-Type:References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Sender
-	:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-To:
-	Resent-Cc:Resent-Message-ID; bh=VIKAcr7AiKo1tJTrh+bk2m2hYbyR4gITRIGMmYNi20Y=;
-	t=1759783705; x=1760993305; b=pG6G3THD/sdNheUiviI/XbH5xPQ8JzQshOX9RPgXkoiDmMH
-	vWyQyFPoEN/r1Rt9XMLmYwqa9Jiu6wCLfKGBKiOHdUUmKuxJLodF2J5z42cGGkjOFhOXUsPSE8SOM
-	r5z4lq0l8fNzY1y+1SoXFXv4SsRrnaFslcgk0TEPuOMPxzEH+PtvHt1/5N/73EYMAgf0weV2wGRt1
-	/akHIk9cU9yC4KyFplsHVnq4QDsXh59lbqrkMBfStBbGQ40ud9VV46/cHdfmrZyPtmmSIDSfIypiJ
-	38P19aq+yOtt6W0AJs9HY7ZxJtWFzQsNHaoah6JKsXFYFXxnCpsCxzRCyZxgLRTw==;
-Received: by sipsolutions.net with esmtpsa (TLS1.3:ECDHE_X25519__RSA_PSS_RSAE_SHA256__AES_256_GCM:256)
-	(Exim 4.98.2)
-	(envelope-from <johannes@sipsolutions.net>)
-	id 1v5s80-0000000FBWk-3fK8;
-	Mon, 06 Oct 2025 22:48:17 +0200
-Message-ID: <1697b64e2b64682dbf83186f17f42c50ecf88fa8.camel@sipsolutions.net>
-Subject: Re: [PATCH mt76 v2 1/3] dt-bindings: net: wireless: mt76: Document
- power-limits country property
-From: Johannes Berg <johannes@sipsolutions.net>
-To: Rob Herring <robh@kernel.org>, "Sven Eckelmann (Plasma Cloud)"
-	 <se@simonwunderlich.de>
-Cc: Felix Fietkau <nbd@nbd.name>, Lorenzo Bianconi <lorenzo@kernel.org>, 
- Ryder Lee <ryder.lee@mediatek.com>, Shayne Chen <shayne.chen@mediatek.com>,
- Sean Wang	 <sean.wang@mediatek.com>, Matthias Brugger
- <matthias.bgg@gmail.com>,  AngeloGioacchino Del Regno
- <angelogioacchino.delregno@collabora.com>, Maxime Coquelin
- <mcoquelin.stm32@gmail.com>, Alexandre Torgue	
- <alexandre.torgue@foss.st.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, linux-wireless@vger.kernel.org,
- linux-kernel@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, 
-	linux-stm32@st-md-mailman.stormreply.com, devicetree@vger.kernel.org
-Date: Mon, 06 Oct 2025 22:48:15 +0200
-In-Reply-To: <20251006204529.GA549972-robh@kernel.org>
+	id 1v5sDC-00000000mZb-1kZK;
+	Mon, 06 Oct 2025 20:53:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BA49A43890;
+	Mon,  6 Oct 2025 20:53:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7199AC4CEF5;
+	Mon,  6 Oct 2025 20:53:37 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759784017;
+	bh=0tCd4WF0gQtfi6/fB2e1mBANwyNMnWMhiYWPsP6L4b4=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=igLEaH4CU8kFnBHLB8+7B/C+/775mvsFWWGMwqL/+iOGRFpic5iwoBGBCMunOKQj1
+	 caxJUTzwJQsFj2+GTKVA6x/Be2ciFIV2vsPxOfFlpyGSixxfYrPNA7mop0Y/RHFVwb
+	 EpGtxCL4NdwCKZVUF9bL3615/Hxt7B+dxTWxJ+0vb6rRvgUWm2ViiTR5Vz0b5qmFq1
+	 UYctq6gFsHmXYLXJvjJxwYlTilTF0ODJsEqgfztVaGXLR4iIPPcy7DEG0yGPHtDyfB
+	 2Z1qb8LOySvxZP5qoUzlwxq91n1FVsrIWGyj0S7srBm56v0dsTqyYwM7gBAIuktG07
+	 5SwJceazLJCBA==
+Date: Mon, 6 Oct 2025 15:53:36 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: "Sven Eckelmann (Plasma Cloud)" <se@simonwunderlich.de>
+Cc: Lorenzo Bianconi <lorenzo@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Sean Wang <sean.wang@mediatek.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Johannes Berg <johannes@sipsolutions.net>,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Ryder Lee <ryder.lee@mediatek.com>, Felix Fietkau <nbd@nbd.name>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	linux-wireless@vger.kernel.org,
+	Shayne Chen <shayne.chen@mediatek.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org
+Subject: Re: [PATCH mt76 v2 2/3] dt-bindings: net: wireless: mt76: introduce
+ backoff limit properties
+Message-ID: <175978385977.561952.12777844195936444721.robh@kernel.org>
 References: <20250926-backoff-table-support-v2-0-16d3726646c4@simonwunderlich.de>
-	 <20250926-backoff-table-support-v2-1-16d3726646c4@simonwunderlich.de>
-	 <20251006204529.GA549972-robh@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+ <20250926-backoff-table-support-v2-2-16d3726646c4@simonwunderlich.de>
 MIME-Version: 1.0
-X-malware-bazaar: not-scanned
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250926-backoff-table-support-v2-2-16d3726646c4@simonwunderlich.de>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_134825_869858_09C2E637 
-X-CRM114-Status: UNSURE (   9.48  )
+X-CRM114-CacheID: sfid-20251006_135338_474528_56B9677C 
+X-CRM114-Status: UNSURE (   8.67  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -86,21 +87,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 2025-10-06 at 15:45 -0500, Rob Herring wrote:
->=20
-> > +          country:
-> > +            $ref: /schemas/types.yaml#/definitions/string
-> > +            description:
-> > +              ISO 3166-1 alpha-2 country code for power limits
->=20
-> This would be constrained to something like this?:
->=20
-> pattern: '^[A-Z]{2}$'
 
-There's a "00" special case for "world roaming", so maybe that would
-have to be '^([A-Z]{2}|00)$'? Not sure you'd ever want to specify that
-though. We also use '99' internally for even more special cases, but I'm
-pretty sure that shouldn't be specified externally.
+On Fri, 26 Sep 2025 12:04:53 +0200, Sven Eckelmann (Plasma Cloud) wrote:
+> Introduce path backoff limit properties in mt76 binding in order to specify
+> beamforming and non-beamforming backoff limits for 802.11n/ac/ax.
+> 
+> Signed-off-by: Sven Eckelmann (Plasma Cloud) <se@simonwunderlich.de>
+> ---
+>  .../bindings/net/wireless/mediatek,mt76.yaml       | 60 ++++++++++++++++++++++
+>  1 file changed, 60 insertions(+)
+> 
 
-johannes
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+
+Though I know nothing about this. Is there any reason why this is 
+all specific to mt76 rather than being common? Perhaps these settings 
+are all just part of the opaque "calibration data" in the QCom case?
+
+Rob
 
