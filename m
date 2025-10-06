@@ -4,74 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9600CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 21:52:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6B63BCAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 21:55:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mOo3qFkbufbHKgm/0F6bZDuICwPe3kT9r1r8xOxSOns=; b=sGaCPJXy+XhbhqSVRz1CrlVIpx
-	A3KTyYQtmROsl0KwhXZ49oaCcHoNNBwha0uGyxlvL0+oh7uiVHBMDKEW+VLcr2JRIdWrqvEF0xx7Q
-	U6tpsbKn+/tEQBu17Ew8IRjeeup0e/5qh1zs50ThY8rWxX0CsdW25IPDOaCgDmeSlyLjnLH8E+ykU
-	Lj36TcQ2URsE6ZnKNwdrWVEXCAsRTn+uXjAhKXnzxRXbOD6zmDgm02jB5och2Bf2QcUbm+lahEd1R
-	Ychsm36cx6ipO4RPIl73qlHgWEtN3LTCuwvDICeF/KVdYr3TUbCO2uPverpYYu2XHLaMFtVCzEBib
-	5yvhj0Zg==;
+	bh=s6eTDANOKzYaDbCM/Tul/+8oaMhQembSLIYZ+qsNhrc=; b=nixSVXC6Tk1q6rgJ3wmch9oW11
+	0kuD4e4SaBI97o0wLQ6CnQWkb8mjAcb8XY4ASuWtm95k8DqJsDHLVo1JdAOSLC/eff+4pLcozWVol
+	GcXAgoadFkbgVB3duTw+3XasGTY5aqnE1RhOy8dQNdquH0zfKyJjvZKmIn40xqxZ2IX9Crn9zFkt3
+	WvosMFJ5QtclTWVjCkcgwFI9ytl8eKDoTHd+eYuH3VsWA0Wfuo64xhS6oODS0rkSdVPXLyIdQGIXZ
+	XYT4kW1Thmxf9H6IWv+akWWKIaoXsvdP59PBupXgHEM24GzySR/zMBKDU7wHwDZTlxuZIpy1zu7wB
+	Vg+5vXeA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5t7w-00000000sKd-2MzR;
-	Mon, 06 Oct 2025 21:52:16 +0000
+	id 1v5tAn-00000000shx-2PST;
+	Mon, 06 Oct 2025 21:55:13 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5t7v-00000000sKX-00KP
+	id 1v5tAl-00000000shB-2Wr0
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Oct 2025 21:52:15 +0000
+	Mon, 06 Oct 2025 21:55:11 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 032CF61188;
-	Mon,  6 Oct 2025 21:52:14 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E6D15C4CEF5;
-	Mon,  6 Oct 2025 21:52:11 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0766061194;
+	Mon,  6 Oct 2025 21:55:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C649C4CEF9;
+	Mon,  6 Oct 2025 21:55:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759787533;
-	bh=/IUG+40uZFRvQzJPeoV/VrSw+bnfl+PWRnxqENQAWNw=;
+	s=k20201202; t=1759787710;
+	bh=2aJnYVaGf8XUqQHTpB1VtEpe3tVyvm1Pn5nKvnx2EKI=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=VRR/V6J8hplpp5KWwR3ee4ChrEL9pTCiqGSitqsv6BZbpvWxb5XtcKD6C99dF2/WW
-	 +rLhe53Du32Z1XhS2hw9+SRtujl+YytnYf6GVdcgZEfBwO03eTZZxewnsyfkVQ2UhT
-	 M+sIOrmzyHoJ1Fdaw+R05hAmD0bToLqT8gy1zlMzxEg9sVC5FWkrtpDan5D+AdT8op
-	 UvNqXYTBIBWEic6Lnbm2/82m2owoNlfDGCzFgyAWYx/PHJ5ZfXcCW1L2WKmm6pxswk
-	 QU6i8UY8n0VppiURDxhbyvmse3/Bbgi1S8rhdYN/fLBwGSdTgktdvtZqOlqTSi/z41
-	 ZVvhHaZMPrUHA==
-Message-ID: <6fe16d18-b2e3-4a33-b03a-a30561dabbbf@kernel.org>
-Date: Mon, 6 Oct 2025 22:52:06 +0100
+	b=sDCMggo7LWAQ4bGGtpFw4mVsQnmJ8vYPGTBLFLD08OlFnkZ5rQvP8L7bOBcsCjeu1
+	 15MuEbCjbb/Ga3sQWrglz38c/riM+jyd6Iz/dNYD2DWgqF6f9mHNpuuNZE0LtcWbEi
+	 pgQ+20XL+LbqmKMBE5nLoUcnMFoYPsZ23MuOghofJ0wSyQDRs5jvm0mi73Z5jItlWG
+	 7u7abns/YhJzb9tB8844XHa6iXFxM2hbsPxuYjJzJfVduuOuDZQ/+g3Yy2VzCYvPc1
+	 iWldpKvf8ET82qOTJddDsXKtquQZ7yJ/dHAtGgWvvtthetXt1XADT4Xy+2CaEHA3dB
+	 nPzn4bwaSM6yw==
+Message-ID: <80347dcf-419b-489e-9b0e-d901fbacc71a@kernel.org>
+Date: Mon, 6 Oct 2025 22:55:04 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH RFC 0/9] gpio: improve support for shared GPIOs
 To: Bartosz Golaszewski <brgl@bgdev.pl>,
- Manivannan Sadhasivam <mani@kernel.org>
-Cc: Dmitry Torokhov <dmitry.torokhov@gmail.com>, Kees Cook <kees@kernel.org>,
- Mika Westerberg <westeri@kernel.org>,
+ Srinivas Kandagatla <srini@kernel.org>
+Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>,
+ Dmitry Torokhov <dmitry.torokhov@gmail.com>,
  Andrew Morton <akpm@linux-foundation.org>,
- Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
+ Linus Walleij <linus.walleij@linaro.org>,
+ Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Saravana Kannan <saravanak@google.com>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Andy Shevchenko <andy@kernel.org>, Catalin Marinas
  <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Srinivas Kandagatla <srini@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
- Mark Brown <broonie@kernel.org>, Jaroslav Kysela <perex@perex.cz>,
- Takashi Iwai <tiwai@suse.com>, linux-hardening@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org,
- linux-arm-msm@vger.kernel.org,
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>,
+ Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+ linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org,
  Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
 References: <20250924-gpio-shared-v1-0-775e7efeb1a3@linaro.org>
- <hyzzrjn7jzo3tt3oyg7azijouawe3zopfjzq6zfhoo6e6z2m4t@ssl5vl4g557e>
- <zk4ea5cibrkp4vttuy4evrqybf76b3nop5lnyck4ws4nyf2yc4@ghj2eyswsoow>
- <CAMRc=MdWmO4wvX6zpzN0-LZF1pF5Y2=sS8fBwr=CKMGWHg+shA@mail.gmail.com>
+ <0b402bba-0399-4f93-873e-890a78570ff7@kernel.org>
+ <CAMRc=MfwEHGV-HZQURR3JNg1HatAeWO17qbRmkWUXTSBWj5jSg@mail.gmail.com>
 Content-Language: en-US
 From: Srinivas Kandagatla <srini@kernel.org>
-In-Reply-To: <CAMRc=MdWmO4wvX6zpzN0-LZF1pF5Y2=sS8fBwr=CKMGWHg+shA@mail.gmail.com>
+In-Reply-To: <CAMRc=MfwEHGV-HZQURR3JNg1HatAeWO17qbRmkWUXTSBWj5jSg@mail.gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -90,36 +89,49 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 10/6/25 5:10 PM, Bartosz Golaszewski wrote:
-> On Mon, Oct 6, 2025 at 5:43 PM Manivannan Sadhasivam <mani@kernel.org> wrote:
+On 10/6/25 12:55 PM, Bartosz Golaszewski wrote:
+> On Sat, Oct 4, 2025 at 3:32 PM Srinivas Kandagatla <srini@kernel.org> wrote:
+>> On 9/24/25 3:51 PM, Bartosz Golaszewski wrote:
+>>> Here's a functional RFC for improving the handling of shared GPIOs in
+>>> linux.
+>>>
+>>> Problem statement: GPIOs are implemented as a strictly exclusive
+>>> resource in the kernel but there are lots of platforms on which single
+>>> pin is shared by multiple devices which don't communicate so need some
+>>> way of properly sharing access to a GPIO. What we have now is the
+>>> GPIOD_FLAGS_BIT_NONEXCLUSIVE flag which was introduced as a hack and
+>>> doesn't do any locking or arbitration of access - it literally just hand
+>>> the same GPIO descriptor to all interested users.
 >>
->> On Wed, Sep 24, 2025 at 11:25:12AM -0700, Dmitry Torokhov wrote:
->>> Hi Bartosz,
->>>
->>>>
->>>> The practical use-case for this are the powerdown GPIOs shared by
->>>> speakers on Qualcomm db845c platform, however I have also extensively
->>>> tested it using gpio-virtuser on arm64 qemu with various DT
->>>> configurations.
->>>
->>> How is this different from the existing gpio-backed regulator/supply?
->>> IMO GPIOs are naturally exclusive-use resources (in cases when you need
->>> to control them, not simply read their state), and when there is a need
->>> to share them there are more appropriate abstractions that are built on
->>> top of GPIOs...
->>>
->>
->> Not always... For something like shared reset line, consumers request the line
->> as GPIO and expect gpiolib to do resource manangement.
+>> Isn't the main issue here is about not using a correct framework around
+>> to the gpios that driver uses. ex: the codec usecase that you are
+>> refering in this is using gpio to reset the line, instead of using a
+>> proper gpio-reset control. same with some of the gpio-muxes. the problem
+>> is fixed once such direct users of gpio are move their correct frameworks.
 >>
 > 
-> They could use the reset API and it would implicitly create a virtual
-> device that requests the reset GPIO and controls its enable count.
-> Except that some devices also do a specific reset sequence with delays
-> etc. That would require some additional logic in reset-gpio.
-That should be a platform specific reset controller driver.
+> If they were called "reset-gpios" then we could (and should) use
+> Krzysztof's reset-gpio driver here, but we have many cases where
+> that's not the case and the names (and implied functions) are
+Yes, these codec drivers are due to be moved to use reset-gpios.
 
+--srini
+> arbitrary. In the case addressed in this series, the GPIOs are called
+> "powerdown". The second big user of nonexclusive GPIOs are fixed
+> regulators where the line isn't called "reset" either. There are also
+> various other uses sprinkled all over the kernel for which no good
+> abstraction exists or can even be designed in a generic way.
 > 
-> Bart
+>> Am not sure adding a abstraction with-in gpio framework is right
+>> solution, But I do agree that NONEXCLUSIVE flags should disappear and
+>> users that are using this should be moved to correct frameworks where
+>> they belong.
+>>
+> 
+> I'm open to suggestions but DT maintainers have not been particularly
+> fond of creating "virtual" devices to accommodate driver
+> implementations.
+> 
+> Bartosz
 
 
