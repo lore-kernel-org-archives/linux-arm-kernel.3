@@ -4,79 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBF11CCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 15:55:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EF4CCCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 15:56:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=lpyqZrPl+Z0QLpDFjeR+Sx0txUodqBQiZUQNeSFTO2o=; b=1jGKjE/tlgJHGLvg9q3+nmbjP1
-	UgiMlZz+6iaZb1FYymvU2sBMa2F4Q1ddfGvnpqQOrxcLIVpAcd/akJF36FNmzaI++nh4fw2kP8iEp
-	OkKuKOV7n3Up13YBYdUkPss5JnVDILINAz6uFXSHh0wkIAPkPwJZlfJJv/GN4lbhiOl5gbHFFi/6A
-	/e3J2J5omYKs/TFWne06TPPDYO3pOr3m72P90DRNeAgSU03XVVrPglelU+H+tjJtMmyGs9Gs0VMz9
-	hMGlfQeGYmm7VESn5+cS3If+ldQPfXMp/36eawSEB/KZxKQoB5RDsyaXIRubEU/31ge4CciBDRSLo
-	z0hanLdw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZIaRfty0fgGTgthQnmfH5a6bDL038pQdk3gJqh/+eKY=; b=R2m/iinAFYsjNIWzAmig0aqbUM
+	yqHjKbgkwlH/c5XZ+zkRdO3pR3fRgn5DyUWCxY+MPahoJqphez0rx3OulW5psMXBS7Jyb744Qsxcq
+	rNl4MOi9ctp4Ee+LfXgFclsh9+Glw+NBzKoQwlMprzy6DXUaSprOHtKR1/tzh93bsRRAK8AtLHDQB
+	K4KMpgnfiFo9WI+KpxptRg2Ro5Xrro8cp0AVIWUvPTd/+tjSRk0el7E2wYfhVCvIKS17tcgh2k9Um
+	jsB3HOPrVlBsQ+06crtNecu6XHEd+v+V6+TLt9X/glH3tknvUM4Y9mv2/Xg3Sb5/adeurvUbnQkst
+	Tu5I23fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5nZ2-00000000KKj-0dul;
-	Mon, 06 Oct 2025 15:55:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5nZ0-00000000KKb-3M0h
+	id 1v5nZu-00000000KVD-2MuE;
+	Mon, 06 Oct 2025 15:56:46 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v5nZs-00000000KUn-0iWT
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Oct 2025 15:55:50 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3E8D960581;
-	Mon,  6 Oct 2025 15:55:50 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DF5F2C4CEF5;
-	Mon,  6 Oct 2025 15:55:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759766149;
-	bh=PNewJkNL6CSZlcvcVRzdF4vG0QntxYg8acRL1wWz8xQ=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=llB2pjvrsfAQsrqHn6tONxtl59AYRr+QlQq0ELqOELOEZyntMxjcpFMmkvl4KBGSB
-	 7dvb5gB33pbJd9n3W7WBc12p+LFft9mgaeN9cz5ue6V6v2mZhiKxMRQNPDnFVZznCd
-	 I2mPvizxGNY/GOabl2Aq7QrrBeaqQdFkkcrsogpLWyFxg1ynh9AlJdO/Akalb08deV
-	 8gHGQf1MoH00M/m6l0xJ5ruejk27SCdDvq2GZRScYVk3C2JvKYQvdeTOfsaagkSVgl
-	 oZQvtjHABSDDctU2eG7cNU/i3mCxW3PbfdEiw2qGs0yECldiVnjAK1otZscPZKHcvj
-	 /Vd5kyZJKVisg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1v5nYx-0000000BtEa-23VH;
-	Mon, 06 Oct 2025 15:55:47 +0000
-Date: Mon, 06 Oct 2025 16:55:47 +0100
-Message-ID: <865xcsyqgs.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Ulf Hansson <ulf.hansson@linaro.org>
-Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Maulik Shah <quic_mkshah@quicinc.com>,
-	Sudeep Holla <sudeep.holla@arm.com>,
-	Daniel Lezcano <daniel.lezcano@linaro.org>,
-	Vincent Guittot <vincent.guittot@linaro.org>,
-	linux-pm@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH 2/3] arm64: smp: Implement cpus_has_pending_ipi()
-In-Reply-To: <20251003150251.520624-3-ulf.hansson@linaro.org>
-References: <20251003150251.520624-1-ulf.hansson@linaro.org>
-	<20251003150251.520624-3-ulf.hansson@linaro.org>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: ulf.hansson@linaro.org, rafael@kernel.org, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, tglx@linutronix.de, quic_mkshah@quicinc.com, sudeep.holla@arm.com, daniel.lezcano@linaro.org, vincent.guittot@linaro.org, linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 06 Oct 2025 15:56:45 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D87DE1515;
+	Mon,  6 Oct 2025 08:56:32 -0700 (PDT)
+Received: from [10.1.197.69] (eglon.cambridge.arm.com [10.1.197.69])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id B33D23F738;
+	Mon,  6 Oct 2025 08:56:35 -0700 (PDT)
+Message-ID: <0db211ba-d1b0-4394-b765-009192e67565@arm.com>
+Date: Mon, 6 Oct 2025 16:56:34 +0100
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 22/29] arm_mpam: Add helpers to allocate monitors
+To: Jonathan Cameron <jonathan.cameron@huawei.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-acpi@vger.kernel.org,
+ D Scott Phillips OS <scott@os.amperecomputing.com>,
+ carl@os.amperecomputing.com, lcherian@marvell.com,
+ bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
+ baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
+ Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
+ dfustini@baylibre.com, amitsinght@marvell.com,
+ David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
+ Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com, Rob Herring <robh@kernel.org>,
+ Rohit Mathew <rohit.mathew@arm.com>, Rafael Wysocki <rafael@kernel.org>,
+ Len Brown <lenb@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
+ Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
+ Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Danilo Krummrich <dakr@kernel.org>, Ben Horgan <ben.horgan@arm.com>
+References: <20250910204309.20751-1-james.morse@arm.com>
+ <20250910204309.20751-23-james.morse@arm.com>
+ <20250912141123.000068e2@huawei.com>
+Content-Language: en-GB
+From: James Morse <james.morse@arm.com>
+In-Reply-To: <20250912141123.000068e2@huawei.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251006_085644_247218_4E91BEBF 
+X-CRM114-Status: GOOD (  12.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,80 +81,50 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 03 Oct 2025 16:02:44 +0100,
-Ulf Hansson <ulf.hansson@linaro.org> wrote:
+Hi Jonathan,
+
+On 12/09/2025 14:11, Jonathan Cameron wrote:
+> On Wed, 10 Sep 2025 20:43:02 +0000
+> James Morse <james.morse@arm.com> wrote:
 > 
-> To add support for keeping track of whether there may be a pending IPI
-> scheduled for a CPU or a group of CPUs, let's implement
-> cpus_has_pending_ipi() for arm64.
+>> MPAM's MSC support a number of monitors, each of which supports
+>> bandwidth counters, or cache-storage-utilisation counters. To use
+>> a counter, a monitor needs to be configured. Add helpers to allocate
+>> and free CSU or MBWU monitors.
+>>
+>> Signed-off-by: James Morse <james.morse@arm.com>
+>> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
 > 
-> Note, the implementation is intentionally lightweight and doesn't use any
-> additional lock. This is good enough for cpuidle based decisions.
+> One minor requested change inline that will probably otherwise get picked
+> up by someone's cleanup script
 > 
-> Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
-> ---
->  arch/arm64/kernel/smp.c | 20 ++++++++++++++++++++
->  1 file changed, 20 insertions(+)
+> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+
+Thanks!
+
+
+>> diff --git a/drivers/resctrl/mpam_internal.h b/drivers/resctrl/mpam_internal.h
+>> index 326ba9114d70..81c4c2bfea3d 100644
+>> --- a/drivers/resctrl/mpam_internal.h
+>> +++ b/drivers/resctrl/mpam_internal.h
+
+>> +static inline int mpam_alloc_mbwu_mon(struct mpam_class *class)
+>> +{
+>> +	struct mpam_props *cprops = &class->props;
+>> +
+>> +	if (!mpam_has_feature(mpam_feat_msmon_mbwu, cprops))
+>> +		return -EOPNOTSUPP;
+>> +
+>> +	return ida_alloc_range(&class->ida_mbwu_mon, 0,
+>> +			       cprops->num_mbwu_mon - 1, GFP_KERNEL);
 > 
-> diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-> index 68cea3a4a35c..dd1acfa91d44 100644
-> --- a/arch/arm64/kernel/smp.c
-> +++ b/arch/arm64/kernel/smp.c
-> @@ -55,6 +55,8 @@
->  
->  #include <trace/events/ipi.h>
->  
-> +static DEFINE_PER_CPU(bool, pending_ipi);
-> +
->  /*
->   * as from 2.5, kernels no longer have an init_tasks structure
->   * so we need some other way of telling a new secondary core
-> @@ -1012,6 +1014,8 @@ static void do_handle_IPI(int ipinr)
->  
->  	if ((unsigned)ipinr < NR_IPI)
->  		trace_ipi_exit(ipi_types[ipinr]);
-> +
-> +	per_cpu(pending_ipi, cpu) = false;
->  }
->  
->  static irqreturn_t ipi_handler(int irq, void *data)
-> @@ -1024,10 +1028,26 @@ static irqreturn_t ipi_handler(int irq, void *data)
->  
->  static void smp_cross_call(const struct cpumask *target, unsigned int ipinr)
->  {
-> +	unsigned int cpu;
-> +
-> +	for_each_cpu(cpu, target)
-> +		per_cpu(pending_ipi, cpu) = true;
-> +
+> ida_alloc_max() - which is just a wrapper that sets the minimum to 0
+> but none the less perhaps conveys things slightly better.
 
-Why isn't all of this part of the core IRQ management? We already
-track things like timers, I assume for similar reasons. If IPIs have
-to be singled out, I'd rather this is done in common code, and not on
-a per architecture basis.
+Sure - I didn't spot that when I did this.
 
->  	trace_ipi_raise(target, ipi_types[ipinr]);
->  	arm64_send_ipi(target, ipinr);
->  }
->  
-> +bool cpus_has_pending_ipi(const struct cpumask *mask)
-> +{
-> +	unsigned int cpu;
-> +
-> +	for_each_cpu(cpu, mask) {
-> +		if (per_cpu(pending_ipi, cpu))
-> +			return true;
-> +	}
-> +	return false;
-> +}
-> +
 
-The lack of memory barriers makes me wonder how reliable this is.
-Maybe this is relying on the IPIs themselves acting as such, but
-that's extremely racy no matter how you look at it.
+Thanks,
 
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+James
 
