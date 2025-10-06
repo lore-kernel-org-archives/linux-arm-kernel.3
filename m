@@ -4,82 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11DC2CCA476
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0CE9FCCA470
 	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 16:43:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZygAzCt4BgJHIzlNAdvVKPmowO3lR1rw3aDJhpq+oRQ=; b=mIqEbJwvuZ47PQ+lfE7P4HuTR8
-	EvSJ6b1mPPvg0BPULWC56ucfGEsUvCjwffVrRO9p1ccqUJm54kHnZFlmWb/etNZRFdmbiuSJObVSg
-	ogrESjlVPD0fM9aFBnFQqM/lwZldwQ2kYDbRVPH+pCl+BS9oegayegXM3achBKO17N7lMMlF1PQd8
-	rffgFi3G/BXuABctXlmXL7q/J5wXjrFdNBC5530blpnZyXB2guo+Z3DpOBhywptZMc2uwCF4YNswM
-	EWXMM7mq515GGT01zuSSSZXfs/+fJqf7hWY0TjUA1JWaiTc760c3oXXtOYHkI9Wb7QPjKJnIBhOrY
-	61J+xmqA==;
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=oKtphuJ/4di9yNIsz6yNlkrtQKgCMc1BLXd/ATWAWto=; b=1pmfy2VNgjVZQc
+	dnNOoN4272nL6Ys/aJt6lzCCtshtagrpiP0IANBD58XzakMV3kIF83TY4MsGZzZSKHbuvVjO7xo/z
+	ZdrjSWbZ2TrGXO9rybNbYF0TtCwp76S2H6xiiWJtyuQNG4Ry+RY9o8iwYgOjHhqObtC2ikZjJZQNo
+	e6blwMYg5xqATk3z3qrdGRCPqwH/desybk/IewCOKODpwlj2OOlZBA6S1tXiqdLlaNhzbSri/TI3u
+	M1TIRC6Ed3MdTillRGkbu+SAiSSvC7YiYnWWpd7ykm/rVMG/SCtLuLG8C8BiTjePIVv7CwnMtWyyM
+	pTPVFLaiJqBEYy4daVLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5oJB-00000000QTZ-3uKR;
+	id 1v5oJB-00000000QTF-2bNK;
 	Mon, 06 Oct 2025 16:43:33 +0000
-Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
+Received: from mail-ej1-x631.google.com ([2a00:1450:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5oJ8-00000000QRL-32um
+	id 1v5oJ8-00000000QRI-0z50
 	for linux-arm-kernel@lists.infradead.org;
 	Mon, 06 Oct 2025 16:43:31 +0000
-Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-b3dbf11fa9eso960433966b.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Oct 2025 09:43:30 -0700 (PDT)
+Received: by mail-ej1-x631.google.com with SMTP id a640c23a62f3a-b4736e043f9so924368066b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Oct 2025 09:43:29 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1759769009; x=1760373809; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=ZygAzCt4BgJHIzlNAdvVKPmowO3lR1rw3aDJhpq+oRQ=;
-        b=qreydj2eyYqd+Fc9wjl9ehOdrIrgwOSt53aT+LufAT392JKMDfeTxfIC16SP47SeFJ
-         OUdF08IeVPuNuSeDQrDiPfsEdfG5Jgtywzkurnx244D2oBOKOXfMuOhguqu5hX0Kl5us
-         q34i2CxQRFHq2/Uc5B8DwkUlsqSGJItrI9AYvY0n7h23My5S/UUpqCfIAWj1HQLMSjBy
-         0u11Z/2EG5PU9pX/HxwA1tImrfXyeH4vQfKxLFlKy8ip7KXe1eXyMGDJFwycq8aX2n4r
-         PInCZKjY+mTTqRzTGIeLmvENbL1dcPIW8jBjowocOLdeNwIuSW9Uyh+nduqRIKKq4t03
-         Vb8g==
+        d=linaro.org; s=google; t=1759769008; x=1760373808; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=oKtphuJ/4di9yNIsz6yNlkrtQKgCMc1BLXd/ATWAWto=;
+        b=g1o/OK2pMc12oMsTdXjI2Oeb9kGCOIcKwE18xT2omtoq1RAeuMUD7RzX+k6z1yQvE+
+         PrTAZjiFuVS4poQwcp2l3rNjwzvNpnJlZDbztbxnQQncDPG92Zi0CdVGT/cqqT+eNZuA
+         5UnubRxUp8/HxdlXOQMTF9MfsHYzsDqxhlU+XNQaxnLHhDhDtA8lU9kO6nnooIMc5emZ
+         5/O565BISyej/t95F7CKLCD0stIQi0GsLTjG9Uhxxr8M2COyw7dUTnTDBQ3lDsN1Wq6o
+         sD8jl+ajm+JJizafNjUn8ygpOd2T3aWKY4b/x0V/5yP/eBvD3ZhvfG1zhnwb2Aa7t2Ps
+         +wDg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759769009; x=1760373809;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=ZygAzCt4BgJHIzlNAdvVKPmowO3lR1rw3aDJhpq+oRQ=;
-        b=vKKSFEZCGt1ExBJBLQzfxFAH8F8vqB1wMfjOFLMd5wO2i1CMBF+b4IXjZvaLwAPkA5
-         0JSDkAjn1A/7+T1F4yKR+Swp4IZ0JdwRlpvxRyL4u9ZegSzkcKCNO7czt9FGAZXY7fQz
-         WmtPfdjcky8A3gWU0IzjA16/AaTTBCipWxgWLJ9+sbGfOFPUlHKmEkszFni9GqXovLat
-         jKuAxp2b3BGKtRrEuRr1qo0AVv8yu6iIypvLu6B8TZ5rtPGXioKM/Jqk/dpN7yHaRzMc
-         wpmscLH6mcHWmYsxZpQ1DKabbd2C323ZYV91tW0MOCdvejyEO9iN9BQA99oDxmvMBUsd
-         KK8Q==
-X-Forwarded-Encrypted: i=1; AJvYcCX6EGlyjGw911PYMDQhv98VOuJ0Q8VcGaPnmO7UoKt+KKQTgNEX57+5gKFZY9XQ0eK0fixAyhV5V7OJRYpXDnqi@lists.infradead.org
-X-Gm-Message-State: AOJu0YzTEzCMNkOPL+LklIcq3CHt/Qxj9KZxa4BAStT3QDJmaOXh139e
-	guUwzF0CwrCEP6GoewS6wcyz9HW6L6jkrmCPuymH6WU7JSetkYV/MpnYIZW+6YXRP8dJ5xtuxm2
-	p8KW7Eb8=
-X-Gm-Gg: ASbGncvI/fmJmMhOHOrtt50qvtLVN6tNbjbVfjmSW1VwfKGIsT0hxS2F2lN0J7ZW4dc
-	nPPL4fBcuohXqLe2eMgIUsuG1CNQJtvrumvd+HILox2LjZ2MiE94cGzvM4lTEDH4e5s7XQxQ0QV
-	B2ee/fnHkz5suuskP0pSTUVf2GruBMReJzP1rc4MMnS8q6vnIx6Z+GiXqzRZ4oFIbfVe8iGTx8J
-	A3/VjsV6nvYSdtghmAL4zDWWQh+alEp1NQpxIC/IgerusoB4F6RrZYMYB2hmICyl7Mlpy+Uz7wX
-	iLbtJ17NAA2JnOVzLmabNDlswScasSAtCabd55SDciAP31eeJrLb3D54Ut8XOqrvE/eZ2SlclOV
-	YAS9tDH/FZPHIX70lkMldYuiTW8DsodY3Gz4u5P580DoXfYOAFdS8OJdWDESCqJxKxyk8+eZ47X
-	zREEDrridAOhkofHUdx3Zyp5C9iYMb1nnfWpIbKW6D1xuZbmds4XU=
-X-Google-Smtp-Source: AGHT+IFKZW5wiQTkUSviOMSQIOsmLTTkBC5m6wYT7o0NG+U9VIzLggcGukVJvrDeFkRocqCcAImACQ==
-X-Received: by 2002:a17:907:1b26:b0:b45:1063:fb62 with SMTP id a640c23a62f3a-b49c1d60b06mr1448559466b.24.1759769008797;
+        d=1e100.net; s=20230601; t=1759769008; x=1760373808;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=oKtphuJ/4di9yNIsz6yNlkrtQKgCMc1BLXd/ATWAWto=;
+        b=V+eeHQuhC7x+dhlXMOFeja4SGFdQwFnlWeEyEnV6HioGI1pQADHCRev0GBUovNAKpX
+         5eJ19KdE54MdQdUXD3V5YpDP3xHBG/XPivH4BiyqZHvL0Qo0/2Mq3CNKFZ74QhX6QvCi
+         NijPiCXwczy7Hg+NhU8Hk2ek6fMt5KsIuI3/LzoMfC9wSjzvpyUcT9IDninAOuLev+d+
+         RpvaqH4vooTACP8aSRnL9crhb5Gj06IimCnR5yoIcshnUV9+3/QY3idL4zwFN6EMD3py
+         IewoQSzmz9Br6Vgz4by9PcQgnj5aZG+xpSd51vYAhG8CSzl5Ex1aZDTA0LVNHcvNMUtg
+         c3AQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVVw6GuH1sAS2qY3IHCeOzbMgLBFjeIlTcnCvLeS9i3OkF/WCDdi10qN0y0sM8oYsJLlA/GTHpYlBLZBASFvRPx@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywiq3svrXG5rKUVfgep8io/W4gcygb2JWxTQBE9zC0EsMQaCNMA
+	BAJAPttV6AcgaqNdg5IofmG657zwIAstFMqevN+Addud15KXy2uZUka6YUvDP0tRvCk=
+X-Gm-Gg: ASbGncvmN6od+byUcWROAsU3AP+F3IOyQ6Axx4Hct8NCY42Ucn+5kdqh+U2kS3kE/Rm
+	Gwk3UxwVLOcIMkF6+C0DPutVmQFBlVLHvcvwiwm1FOD+iT1QuDy5wpftvW5j+LGYDP4JKtTKZ9H
+	GHh2gukA+LAaHB+wvMMW8j6q+ZGWttyXpmFh/TvPikUNAQJ7YaVIGm10iIzXjbcXMTN6ZABYxPt
+	ggn7+7flY0av4yHXx3KiM2YRLoykV7G5yYcsphPvB79BDLAH6vUSbiqq2zj84mWIFZwXCe/1wP6
+	0XYZpkPifBb0sfraN2TEOMpRxSdMu6FwhxDEiXIl5RI8ixdjCNNSYRAHlYc8eobAxYjPmwKM4Xz
+	eWFlbx4+utLQWqRX/KGILPlSVgb3KpzDyxWGkwa/gTLP3Bh+OGCPP0odz/dgL7jjN4FEby75P9X
+	N883MSJpDuo3WlEQV9ZqyBxrW3ZcEeekutMQUXRu3/qBw0BB1ZEtw=
+X-Google-Smtp-Source: AGHT+IEH9sBJd0VNAAJtz9rRu8u+k/yXhel69FaA4JYwSprBvbLGJFT33oMJuv5fmnK6KbnU7ExmwA==
+X-Received: by 2002:a17:906:7951:b0:b44:7c83:cd9 with SMTP id a640c23a62f3a-b49c47accbdmr1839696566b.40.1759769008357;
         Mon, 06 Oct 2025 09:43:28 -0700 (PDT)
 Received: from puffmais2.c.googlers.com (224.138.204.35.bc.googleusercontent.com. [35.204.138.224])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b48652aa01esm1193841866b.2.2025.10.06.09.43.28
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b48652aa01esm1193841866b.2.2025.10.06.09.43.27
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
         Mon, 06 Oct 2025 09:43:28 -0700 (PDT)
 From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Mon, 06 Oct 2025 17:43:27 +0100
-Subject: [PATCH 01/10] dt-bindings: power: samsung: add google,gs101-pd
+Subject: [PATCH 00/10] pmdomain: samsung: add supoort for Google GS101
+Date: Mon, 06 Oct 2025 17:43:26 +0100
+Message-Id: <20251006-gs101-pd-v1-0-f0cb0c01ea7b@linaro.org>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20251006-gs101-pd-v1-1-f0cb0c01ea7b@linaro.org>
-References: <20251006-gs101-pd-v1-0-f0cb0c01ea7b@linaro.org>
-In-Reply-To: <20251006-gs101-pd-v1-0-f0cb0c01ea7b@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAK7x42gC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1NDAwND3fRiQyBZkKKbYpKSbGmeYm6QaGGiBFReUJSallkBNio6trYWAAe
+ OGYtaAAAA
+X-Change-ID: 20251001-gs101-pd-d4dc97d70a84
 To: Krzysztof Kozlowski <krzk@kernel.org>, 
  Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>, 
  Conor Dooley <conor+dt@kernel.org>, 
@@ -94,9 +94,8 @@ Cc: Peter Griffin <peter.griffin@linaro.org>,
  =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_094330_783922_B5DCB705 
-X-CRM114-Status: UNSURE (   9.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251006_094330_450321_06097765 
+X-CRM114-Status: GOOD (  11.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,28 +110,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for the Google gs101 version of the Exynos power domains. A
-new compatible is needed because register fields have changed.
+Hi,
+
+This series adds support for the power domains on Google GS101. It's
+fairly similar to SoCs already supported by this driver, except that
+register acces does not work via plain ioremap() / readl() / writel().
+Instead, the regmap created by the PMU driver must be used (which uses
+Arm SMCC calls under the hood).
+
+The DT update to add the new required properties on gs101 will be
+posted separately.
 
 Signed-off-by: André Draszik <andre.draszik@linaro.org>
 ---
- Documentation/devicetree/bindings/power/pd-samsung.yaml | 1 +
- 1 file changed, 1 insertion(+)
+André Draszik (10):
+      dt-bindings: power: samsung: add google,gs101-pd
+      dt-bindings: soc: samsung: exynos-pmu: allow power domains as child on g101
+      pmdomain: samsung: use to devm_kstrdup_const() to simplify error handling
+      pmdomain: samsung: convert to using regmap
+      pmdomain: samsung: convert to regmap_read_poll_timeout()
+      pmdomain: samsung: don't hardcode offset for registers to 0 and 4
+      pmdomain: samsung: selectively handle enforced sync_state
+      pmdomain: samsung: try to get PMU (syscon) regmap
+      pmdomain: samsung: use dev_err() instead of pr_err()
+      pmdomain: samsung: add support for google,gs101-pd
 
-diff --git a/Documentation/devicetree/bindings/power/pd-samsung.yaml b/Documentation/devicetree/bindings/power/pd-samsung.yaml
-index 9c2c51133457112ca0098c043e123f0a02fa1291..c35c9cb0115d79e5c36142da2c2a5dd30cd2ad47 100644
---- a/Documentation/devicetree/bindings/power/pd-samsung.yaml
-+++ b/Documentation/devicetree/bindings/power/pd-samsung.yaml
-@@ -19,6 +19,7 @@ allOf:
- properties:
-   compatible:
-     enum:
-+      - google,gs101-pd
-       - samsung,exynos4210-pd
-       - samsung,exynos5433-pd
- 
+ .../devicetree/bindings/power/pd-samsung.yaml      |   1 +
+ .../bindings/soc/samsung/exynos-pmu.yaml           |  53 ++++++++-
+ drivers/pmdomain/samsung/exynos-pm-domains.c       | 126 +++++++++++++++------
+ 3 files changed, 145 insertions(+), 35 deletions(-)
+---
+base-commit: a5f97c90e75f09f24ece2dca34168722b140a798
+change-id: 20251001-gs101-pd-d4dc97d70a84
 
+Best regards,
 -- 
-2.51.0.618.g983fd99d29-goog
+André Draszik <andre.draszik@linaro.org>
 
 
