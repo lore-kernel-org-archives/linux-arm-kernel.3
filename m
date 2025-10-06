@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AFBFCAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 09:39:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B79B8CCA472
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 09:50:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dH9nHaS4B52f2Ty1WjrWRsgtAsT8zLM7ML9L5CEJn6M=; b=WOQqJP+H0274cHSlVUalapFvTe
-	AK9Ku7DqrBzTRgQHy1jXK86lUu4ELbp004Lka1RdfzTu4PsHrUO1a583nEz+TtQeM/EbzTtRA8ZYE
-	yuKTh5+tj1xYlaOBkNCTawx0DH7c/zPxC6XrKgRyZvv+EIPja+XlS8Lvmx/5hjcbTIjjtZHCXiCCb
-	1KoEcDaFGlqB5XOrgd5ygm90ip1xL0+0g9vj1ST3lA5s6w9xzk+cLCHQkTUfyyn7e3cpWVDjvHsCU
-	GQOnDSzDUxacfqF0FZrts8gIRKgKEmOkqXOMxWmaYdGnAeCjLQCqscSoeEW5dRHcjPPzsn80AYLvM
-	8qwoqfsQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KrUG+CFDWdFhl2oO5Mb/bp0M33QnqWfcHQcX232OcnE=; b=ccqVZxydd+pYH6KqorUe3W7T5R
+	+ETC1eQMKLXBlLn8f6qZln6IhT4IjShIzEl0Uvi9VYXLCHTXvj5UhmHMBdWG1Z6WMylxx2b17ye8g
+	cw11GU18cnCnzLKq2DXmCS0RzdFtA10Pi17t+wpH9od1O7pI8uYvmD3bgGVEvw5mkM8a9SwoH/apT
+	sbBb6p+wEZydZfgUUjaDrAy19I+GGWWA3P0eeJcjDDQZk7gvVVhgTaRmTHNISiLoUg9/Q0XRiD8bc
+	60R35+TN8uPGwLnfSH65sjyiQDqwc6NYgKp2N83gZDNOSDKuOorobt1s4WmyweJOCulGKG03KxAxH
+	3qFE4dzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5hgL-0000000HFwX-1Z54;
-	Mon, 06 Oct 2025 09:39:01 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1v5hqr-0000000HGx5-0QmB;
+	Mon, 06 Oct 2025 09:49:53 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5hgI-0000000HFtq-2WLf;
-	Mon, 06 Oct 2025 09:38:59 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1759743536;
-	bh=VGWfaj8Jc+RJr6PNFRH8ZLLpOaLe5dnDc71A2t0YLZE=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=nNR4zdDkBV58C6+8qKwLmWWiFLn1XSz0SkCndjLNlz6jYxdICDJHXVsEVLcxcwx84
-	 qZHg2HM/NSoffFxRJtdvTkqQqWScAOoorSA80U26A+gQx+kwxay4CkxNP9o2qACHkA
-	 9k5kjW5dfLEJ9nOzcqqKwKrhZf4X562iWCkfjdx7VyVZBC59fPMrhQ8Qa54pN+veha
-	 GL081DkvsbJ3xdCIh165w+OUTX6qnz1uqwKSANz3yAmnDwOePzAmYmxNhBa2SKMt8b
-	 vEPg7qHVMFAi1J6E1ttI33LLC3/k9yfK6SEODctsC+IvmBR0F6qioj7oyiX96qqB+I
-	 xQqMiPsmxK3UA==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id B014817E009B;
-	Mon,  6 Oct 2025 11:38:55 +0200 (CEST)
-Message-ID: <a1d9a470-c6fe-4c8d-b36a-c4952c4d3494@collabora.com>
-Date: Mon, 6 Oct 2025 11:38:55 +0200
+	id 1v5hqo-0000000HGwR-3Y8q;
+	Mon, 06 Oct 2025 09:49:52 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6943C40A5C;
+	Mon,  6 Oct 2025 09:49:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 409EBC4CEF5;
+	Mon,  6 Oct 2025 09:49:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759744189;
+	bh=bQYO0VYtBtio80MmlSTfZwF05jmL0sNFgnqPZjKtqzo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=r8NcdP3tmUHEJD/5oHfudOZ3+YWlX59Fzq+n2oTdWwrvPdSOEOpBO04z+2qMleb2t
+	 mTSxMK6cFadRiZbhMGuRNRCanftfMrGqUS1EIO1lLxiDAFrzwCwHDxNA6EQqxHFk2H
+	 u03XXCBG9JKSAG1S3iGxX+OTGY0jH/qcmQWU2Pow13z0tm/lyQWDe1Rh7gs9YNbZfD
+	 x3R387n+1EwQwBU7OwpJQd0iQkaIjOplQsG0Rfd9D6cvKhFQopXDu6mdCCjju3+VAz
+	 3qKpA/bwvjD7QpTj7cjlEK7lHHT4+IezQzZTzKDkFRq8QwDqAvHsJtP4a2wCxyhSWa
+	 8kr+wc2WDemIw==
+Received: from johan by xi.lan with local (Exim 4.98.2)
+	(envelope-from <johan@kernel.org>)
+	id 1v5hql-000000007Oc-0j5U;
+	Mon, 06 Oct 2025 11:49:47 +0200
+Date: Mon, 6 Oct 2025 11:49:47 +0200
+From: Johan Hovold <johan@kernel.org>
+To: Sjoerd Simons <sjoerd@collabora.com>
+Cc: Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	CK Hu <ck.hu@mediatek.com>, dri-devel@lists.freedesktop.org,
+	linux-mediatek@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
+	stable@vger.kernel.org
+Subject: Re: [PATCH] drm/mediatek: Fix refcounting in mtk_drm_get_all_drm_priv
+Message-ID: <aOOQu9Lu_3-EhtGd@hovoldconsulting.com>
+References: <20251003-mtk-drm-refcount-v1-1-3b3f2813b0db@collabora.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] pinctrl: mediatek: mt8189: align register base names to
- dt-bindings ones
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
- Sean Wang <sean.wang@kernel.org>, Linus Walleij <linus.walleij@linaro.org>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Cathy Xu <ot_cathy.xu@mediatek.com>
-Cc: kernel@collabora.com, linux-mediatek@lists.infradead.org,
- linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org
-References: <20251003-fix-mt8189-pinctrl-regnames-v1-1-408a2531b127@collabora.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20251003-fix-mt8189-pinctrl-regnames-v1-1-408a2531b127@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251003-mtk-drm-refcount-v1-1-3b3f2813b0db@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_023858_820191_5CC0B8BD 
-X-CRM114-Status: UNSURE (   8.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251006_024950_976908_5C2E0F6C 
+X-CRM114-Status: GOOD (  13.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -80,20 +81,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 03/10/25 15:48, Louis-Alexis Eyraud ha scritto:
-> The mt8189-pinctrl driver requires to probe that a device tree uses
-> in the device node the same names than mt8189_pinctrl_register_base_names
-> array. But they are not matching the required ones in the
-> "mediatek,mt8189-pinctrl" dt-bindings, leading to possible dtbs check
-> issues. The mt8189_pinctrl_register_base_names entry order is also
-> different.
-> So, align all mt8189_pinctrl_register_base_names entry names and order
-> on dt-bindings.
-> 
-> Fixes: a3fe1324c3c5 ("pinctrl: mediatek: Add pinctrl driver for mt8189")
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+On Fri, Oct 03, 2025 at 10:08:28AM +0200, Sjoerd Simons wrote:
+> dev_get_drvdata simply returns the driver data part of drm_dev, which
+> has its lifetime bound to the drm_dev.
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+No, that is not correct: the driver data goes away when the driver is
+unbound, not when the device is freed.
 
+> So only drop the reference in the
+> error paths, on success they will get dropped later.
 
+But there is indeed a partial fix for the device leak here which was
+overlooked. Good catch.
+
+> Cc: stable@vger.kernel.org
+> Fixes: 9ba2556cef1df ("drm/mediatek: clean up driver data initialisation")
+
+This is clearly not the commit that introduced the issue (even if I also
+failed to notice the reference imbalance).
+
+Since there is no need to keep the references, I've just sent a fix
+which instead fixes this by dropping the previous partial fix:
+
+	https://lore.kernel.org/r/20251006093937.27869-1-johan@kernel.org
+
+Johan
 
