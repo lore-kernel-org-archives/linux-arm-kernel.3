@@ -4,76 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C57BBCCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 16:43:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11DC2CCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 16:43:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/7TNCTUNiJRT/FCS4HIFvSuneHyW63inl/vDgi1Olxo=; b=WR5MbLSjng132FQuLmYhPLOVic
-	aTxtGA/XB/LKCN0wTCvndN2d9lcCxGBweIIP2h74sw+BdG9CadnbiCNasD59+MBLvWorN6AikYfaV
-	za+bTs0vPhzFBEcRLVoYzN3VVjBdXIpfOVKbqkzYj88XARwDmM5jvuHCR5mPfgtIH3p/mEvU4iO2t
-	NWWcwxd09JHN0/xNSZ25KeyP6bpPAPdA/zomNk2ClyJ6ywM3FaBGhan8jjd4zWFacqRM4cAtZ7xeB
-	lM0X65W0dgHOx85h3zWx8bAXtQqOMuXokZcXa1K/yqnQIDvPEQ5wBSEd/ZalHdE5+40tsGE1yhCXw
-	mbOWHQDA==;
+	bh=ZygAzCt4BgJHIzlNAdvVKPmowO3lR1rw3aDJhpq+oRQ=; b=mIqEbJwvuZ47PQ+lfE7P4HuTR8
+	EvSJ6b1mPPvg0BPULWC56ucfGEsUvCjwffVrRO9p1ccqUJm54kHnZFlmWb/etNZRFdmbiuSJObVSg
+	ogrESjlVPD0fM9aFBnFQqM/lwZldwQ2kYDbRVPH+pCl+BS9oegayegXM3achBKO17N7lMMlF1PQd8
+	rffgFi3G/BXuABctXlmXL7q/J5wXjrFdNBC5530blpnZyXB2guo+Z3DpOBhywptZMc2uwCF4YNswM
+	EWXMM7mq515GGT01zuSSSZXfs/+fJqf7hWY0TjUA1JWaiTc760c3oXXtOYHkI9Wb7QPjKJnIBhOrY
+	61J+xmqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5oIh-00000000QMr-0Azl;
-	Mon, 06 Oct 2025 16:43:03 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1v5oJB-00000000QTZ-3uKR;
+	Mon, 06 Oct 2025 16:43:33 +0000
+Received: from mail-ej1-x62c.google.com ([2a00:1450:4864:20::62c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5oIe-00000000QM3-2nMb;
-	Mon, 06 Oct 2025 16:43:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1759768977;
-	bh=MJpXLH2WyUVVbdTuWfHINRtUwiFCM4iGx0TBERf8ldA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=p1YtwLrUcTQd2vh/f18Hp0b/5gML91x22BaAvA3JhDCTTN6r+8UcPX3jjHgp0cZyz
-	 OXYa5bWkAcjehab+PZFYKN065fcf2xEbL8v9/4EzN1PYwfwmzp6iyuhJVNlW34XH37
-	 qG0mKLuW5kZI6dtMxFcQp91koW7cuH0afLLviwqW8Uvtqof26ZUcZIThOMfTrLyszV
-	 G4ykG9jZUMaNq25VKnEgSONSmgpco4bKZMPn9bkMwleMd/Qn2gV3KSwg/KpPSNlpXk
-	 ahVYebKW6tc9D1rig9xVgrJ0DwiCfLapaLUkWqmi/1idLR9JyD/AlOIyshKSetrVqy
-	 VhA7WZ0qxdxUw==
-Received: from [192.168.1.90] (unknown [82.79.138.145])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: cristicc)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id A51F517E02B0;
-	Mon,  6 Oct 2025 18:42:56 +0200 (CEST)
-Message-ID: <d423560e-dcd4-45d8-a1e4-5a8b2a21ef86@collabora.com>
-Date: Mon, 6 Oct 2025 19:42:56 +0300
+	id 1v5oJ8-00000000QRL-32um
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Oct 2025 16:43:31 +0000
+Received: by mail-ej1-x62c.google.com with SMTP id a640c23a62f3a-b3dbf11fa9eso960433966b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Oct 2025 09:43:30 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1759769009; x=1760373809; darn=lists.infradead.org;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=ZygAzCt4BgJHIzlNAdvVKPmowO3lR1rw3aDJhpq+oRQ=;
+        b=qreydj2eyYqd+Fc9wjl9ehOdrIrgwOSt53aT+LufAT392JKMDfeTxfIC16SP47SeFJ
+         OUdF08IeVPuNuSeDQrDiPfsEdfG5Jgtywzkurnx244D2oBOKOXfMuOhguqu5hX0Kl5us
+         q34i2CxQRFHq2/Uc5B8DwkUlsqSGJItrI9AYvY0n7h23My5S/UUpqCfIAWj1HQLMSjBy
+         0u11Z/2EG5PU9pX/HxwA1tImrfXyeH4vQfKxLFlKy8ip7KXe1eXyMGDJFwycq8aX2n4r
+         PInCZKjY+mTTqRzTGIeLmvENbL1dcPIW8jBjowocOLdeNwIuSW9Uyh+nduqRIKKq4t03
+         Vb8g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759769009; x=1760373809;
+        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
+         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ZygAzCt4BgJHIzlNAdvVKPmowO3lR1rw3aDJhpq+oRQ=;
+        b=vKKSFEZCGt1ExBJBLQzfxFAH8F8vqB1wMfjOFLMd5wO2i1CMBF+b4IXjZvaLwAPkA5
+         0JSDkAjn1A/7+T1F4yKR+Swp4IZ0JdwRlpvxRyL4u9ZegSzkcKCNO7czt9FGAZXY7fQz
+         WmtPfdjcky8A3gWU0IzjA16/AaTTBCipWxgWLJ9+sbGfOFPUlHKmEkszFni9GqXovLat
+         jKuAxp2b3BGKtRrEuRr1qo0AVv8yu6iIypvLu6B8TZ5rtPGXioKM/Jqk/dpN7yHaRzMc
+         wpmscLH6mcHWmYsxZpQ1DKabbd2C323ZYV91tW0MOCdvejyEO9iN9BQA99oDxmvMBUsd
+         KK8Q==
+X-Forwarded-Encrypted: i=1; AJvYcCX6EGlyjGw911PYMDQhv98VOuJ0Q8VcGaPnmO7UoKt+KKQTgNEX57+5gKFZY9XQ0eK0fixAyhV5V7OJRYpXDnqi@lists.infradead.org
+X-Gm-Message-State: AOJu0YzTEzCMNkOPL+LklIcq3CHt/Qxj9KZxa4BAStT3QDJmaOXh139e
+	guUwzF0CwrCEP6GoewS6wcyz9HW6L6jkrmCPuymH6WU7JSetkYV/MpnYIZW+6YXRP8dJ5xtuxm2
+	p8KW7Eb8=
+X-Gm-Gg: ASbGncvI/fmJmMhOHOrtt50qvtLVN6tNbjbVfjmSW1VwfKGIsT0hxS2F2lN0J7ZW4dc
+	nPPL4fBcuohXqLe2eMgIUsuG1CNQJtvrumvd+HILox2LjZ2MiE94cGzvM4lTEDH4e5s7XQxQ0QV
+	B2ee/fnHkz5suuskP0pSTUVf2GruBMReJzP1rc4MMnS8q6vnIx6Z+GiXqzRZ4oFIbfVe8iGTx8J
+	A3/VjsV6nvYSdtghmAL4zDWWQh+alEp1NQpxIC/IgerusoB4F6RrZYMYB2hmICyl7Mlpy+Uz7wX
+	iLbtJ17NAA2JnOVzLmabNDlswScasSAtCabd55SDciAP31eeJrLb3D54Ut8XOqrvE/eZ2SlclOV
+	YAS9tDH/FZPHIX70lkMldYuiTW8DsodY3Gz4u5P580DoXfYOAFdS8OJdWDESCqJxKxyk8+eZ47X
+	zREEDrridAOhkofHUdx3Zyp5C9iYMb1nnfWpIbKW6D1xuZbmds4XU=
+X-Google-Smtp-Source: AGHT+IFKZW5wiQTkUSviOMSQIOsmLTTkBC5m6wYT7o0NG+U9VIzLggcGukVJvrDeFkRocqCcAImACQ==
+X-Received: by 2002:a17:907:1b26:b0:b45:1063:fb62 with SMTP id a640c23a62f3a-b49c1d60b06mr1448559466b.24.1759769008797;
+        Mon, 06 Oct 2025 09:43:28 -0700 (PDT)
+Received: from puffmais2.c.googlers.com (224.138.204.35.bc.googleusercontent.com. [35.204.138.224])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b48652aa01esm1193841866b.2.2025.10.06.09.43.28
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 06 Oct 2025 09:43:28 -0700 (PDT)
+From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Date: Mon, 06 Oct 2025 17:43:27 +0100
+Subject: [PATCH 01/10] dt-bindings: power: samsung: add google,gs101-pd
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/5] dt-bindings: display: rk3588-dw-hdmi-qp: Add
- tmds-enable-gpios property
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- Alexey Charkov <alchark@gmail.com>, Algea Cao <algea.cao@rock-chips.com>,
- Andy Yan <andy.yan@rock-chips.com>,
- Cenk Uluisik <cenk.uluisik@googlemail.com>,
- Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
- Jimmy Hon <honyuenkwun@gmail.com>, Kever Yang <kever.yang@rock-chips.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Maxime Ripard
- <mripard@kernel.org>, Muhammed Efe Cetin <efectn@6tel.net>,
- Ondrej Jirman <megi@xff.cz>, Rob Herring <robh@kernel.org>,
- Sandy Huang <hjc@rock-chips.com>
-References: <20251005235542.1017-1-laurent.pinchart@ideasonboard.com>
- <20251005235542.1017-2-laurent.pinchart@ideasonboard.com>
- <c5kwmvu3j72evbgdmjn6qn5nqx7ywbiwpzhnpeh6hjjhbz5vwo@jpe3onblwhmy>
- <20251006162518.GJ5944@pendragon.ideasonboard.com>
-Content-Language: en-US
-From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-In-Reply-To: <20251006162518.GJ5944@pendragon.ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20251006-gs101-pd-v1-1-f0cb0c01ea7b@linaro.org>
+References: <20251006-gs101-pd-v1-0-f0cb0c01ea7b@linaro.org>
+In-Reply-To: <20251006-gs101-pd-v1-0-f0cb0c01ea7b@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>, 
+ Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Ulf Hansson <ulf.hansson@linaro.org>
+Cc: Peter Griffin <peter.griffin@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ linux-pm@vger.kernel.org, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_094301_041518_ACC320D2 
-X-CRM114-Status: GOOD (  12.33  )
+X-CRM114-CacheID: sfid-20251006_094330_783922_B5DCB705 
+X-CRM114-Status: UNSURE (   9.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,49 +111,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/6/25 7:25 PM, Laurent Pinchart wrote:
-> On Mon, Oct 06, 2025 at 02:19:24PM +0300, Dmitry Baryshkov wrote:
->> On Mon, Oct 06, 2025 at 02:55:37AM +0300, Laurent Pinchart wrote:
->>> From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->>>
->>> Add an optional property to RK3588 HDMI TX Controller binding describing
->>> a GPIO line to be asserted when operating in HDMI 1.4/2.0 TMDS mode and
->>> deasserted for HDMI 2.1 FRL.
->>>
->>> This is used to control an external level shifter for HDMI data lines.
->>>
->>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
->>> Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
->>> ---
->>>  .../display/rockchip/rockchip,rk3588-dw-hdmi-qp.yaml   | 10 ++++++++++
->>>  1 file changed, 10 insertions(+)
->>>
->>> diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3588-dw-hdmi-qp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3588-dw-hdmi-qp.yaml
->>> index 96b4b088eebe..eec0d40c91ea 100644
->>> --- a/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3588-dw-hdmi-qp.yaml
->>> +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3588-dw-hdmi-qp.yaml
->>> @@ -113,6 +113,13 @@ properties:
->>>      description:
->>>        Additional HDMI QP related data is accessed through VO GRF regs.
->>>  
->>> +  tmds-enable-gpios:
->>> +    description:
->>> +      Optional GPIO line to be asserted when operating in HDMI 1.4/2.0
->>> +      TMDS mode and deasserted for HDMI 2.1 FRL. It can be used to control
->>> +      an external level shifter for HDMI data lines.
->>> +    maxItems: 1
->>
->> Just my 2c: since TMDS is assumed to be a default mode, shouldn't this
->> be a frl-enable-gpios instead?
-> 
-> I don't mind either way. Cristian, any opinion ?
+Add support for the Google gs101 version of the Exynos power domains. A
+new compatible is needed because register fields have changed.
 
-No strong opinion either; we could go for Dmitry's suggestion.
+Signed-off-by: André Draszik <andre.draszik@linaro.org>
+---
+ Documentation/devicetree/bindings/power/pd-samsung.yaml | 1 +
+ 1 file changed, 1 insertion(+)
 
->>> +
->>>  required:
->>>    - compatible
->>>    - reg
-> 
+diff --git a/Documentation/devicetree/bindings/power/pd-samsung.yaml b/Documentation/devicetree/bindings/power/pd-samsung.yaml
+index 9c2c51133457112ca0098c043e123f0a02fa1291..c35c9cb0115d79e5c36142da2c2a5dd30cd2ad47 100644
+--- a/Documentation/devicetree/bindings/power/pd-samsung.yaml
++++ b/Documentation/devicetree/bindings/power/pd-samsung.yaml
+@@ -19,6 +19,7 @@ allOf:
+ properties:
+   compatible:
+     enum:
++      - google,gs101-pd
+       - samsung,exynos4210-pd
+       - samsung,exynos5433-pd
+ 
+
+-- 
+2.51.0.618.g983fd99d29-goog
 
 
