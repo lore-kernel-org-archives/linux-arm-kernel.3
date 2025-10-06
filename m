@@ -4,108 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67DE5CAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 10:30:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56AECCAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 10:40:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t5xfuud6MwgsUDEjd3HFOo37DEBoFTAysRaS0lS4b1w=; b=n6fq8bTwAOLAiYplHgyd4GiEWj
-	fZEGrtd3wvzJ1gUA6K47XpKsVOG3ATz23TvK+ij/GPaK13vDPcEuBG9UI5igcr+JEkTLDmQwwqUKv
-	vntWTi6mvT/1JweLenJVmL9Joz6B2zYzOQVLX32NJ8xljeGlROHdNJdWLp9fOum3wrBY04vWL04Gu
-	Ix+cadey5T9qCFL4aDT8bk7yp+y3vkCPoUCdGlFYndT1gJOLVyLoChe7wD7wG9ZgxTlztnCXs3jOA
-	YLI8ohXX+ICoEBB50Vq8WSwPNYGuvb7E7tUXNkY35NjmP/9XWeZpmELC/ikDX0/ktK8c/DkPtp+L+
-	Dr1X60PQ==;
+	Content-Type:MIME-Version:Message-ID:In-Reply-To:Date:From:Cc:To:Subject:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:References:List-Owner;
+	bh=r9rTm5qASXa//QifUdzfODpRtWys30dUWuj9+fuIWAc=; b=0nc3zR5N301kcci1rH11dKIf1B
+	6rFXzEzeRLq6S2gZz9j/fIPetcYSWlvgNgbxDowzyBJT5rW3rgrBfzsmIay3h7Iy9YDBjUdsBq/yM
+	t3dzHT6vhU1JfVkCJly1d09V32yH10H7mQOFumstCsuPVUZddspq7kXOj3vI1ZOWfYT9Lzfvcg3Jq
+	Yv3a6JvbYVhmUCrCTqUdmODJMkhCNMAA4B3jtoFKXABlkk7vKsF18YwjKChEK4yG+Pjlqrg22qv8d
+	Gi1LvJ05AXGemJCqK4RrCHrvLmMG9nuXt0yS0A21KTZrq9tI77Nr5cNzuF1M2e1trZtYRCrDBoR4W
+	WdEDL0zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5iUA-0000000HN7f-3yS1;
-	Mon, 06 Oct 2025 10:30:30 +0000
-Received: from ip-94-112-25-9.bb.vodafone.cz ([94.112.25.9] helo=ixit.cz)
+	id 1v5idW-0000000HNu3-2H1N;
+	Mon, 06 Oct 2025 10:40:10 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5iU8-0000000HN5x-1q6f
+	id 1v5idT-0000000HNt7-1zZl
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Oct 2025 10:30:29 +0000
-Received: from [192.168.1.228] (unknown [79.140.117.87])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange x25519)
-	(No client certificate requested)
-	by ixit.cz (Postfix) with ESMTPSA id B549F53433A4;
-	Mon, 06 Oct 2025 12:20:08 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ixit.cz; s=dkim;
-	t=1759746009;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=t5xfuud6MwgsUDEjd3HFOo37DEBoFTAysRaS0lS4b1w=;
-	b=lHmOzhbj0bC/t0ylVh7eXgsGrmcEZ598/fr2iP4zytLDsvqs5N1eVYpfbIx3AOrmqNyDjW
-	VXjjl/tKXcLuE7FsxnRCqjctZfH0BO3XI8ixJx9ALDiSh9TyZe6e970cOAPb61oHeHpeWq
-	+lEvVByej2i+w9ddZrL4U++BMS9A4Hw=
-Message-ID: <fabf130b-72e4-4aaa-8570-b6b8378c09a7@ixit.cz>
-Date: Mon, 6 Oct 2025 12:20:07 +0200
+	Mon, 06 Oct 2025 10:40:09 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 17AD944FED;
+	Mon,  6 Oct 2025 10:40:06 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 67220C4CEF5;
+	Mon,  6 Oct 2025 10:40:05 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1759747205;
+	bh=Oy0x0l9dvNGSK/4iWDLpJJ1Oq4vRllDkRttPvYtvK6s=;
+	h=Subject:To:Cc:From:Date:In-Reply-To:From;
+	b=BgEg1mQyT0hghjEHgtGYQxEA2fduEpMljyfzV3idljRdylDHKJtAkLh+wuyonvVHi
+	 GcYJNsfT/aLgxoeYajfgNfWwB8VzjV8t3kQFVQ1fCQ+7ZZ0S1xSdxfumUi/AoAvY7C
+	 LL7WsXKp29k3/Mzn5uB16ooRAWKObnyTTCVpm9mw=
+Subject: Patch "minmax: fix up min3() and max3() too" has been added to the 6.1-stable tree
+To: David.Laight@ACULAB.COM,David.Laight@aculab.com,agk@redhat.com,airlied@gmail.com,akpm@linux-foundation.org,alexander.deucher@amd.com,amd-gfx@lists.freedesktop.org,andriy.shevchenko@linux.intel.com,arnd@kernel.org,asad.kamal@amd.com,christian.koenig@amd.com,clm@fb.com,dm-devel@lists.linux.dev,dmitry.torokhov@gmail.com,dri-devel@lists.freedesktop.org,dsterba@suse.com,farbere@amazon.com,gregkh@linuxfoundation.org,jernej.skrabec@gmail.com,kenneth.feng@amd.com,kevinyang.wang@amd.com,lijo.lazar@amd.com,linus.walleij@linaro.org,linux-arm-kernel@lists.infradead.org,linux-sunxi@lists.linux.dev,linux@rasmusvillemoes.dk,luc.vanoostenryck@gmail.com,mpatocka@redhat.com,pmladek@suse.com,rostedt@goodmis.org,samuel@sholland.org,senozhatsky@chromium.org,simona@ffwll.ch,snitzer@kernel.org,tglx@linutronix.de,torvalds@linux-foundation.org,wens@csie.org
+Cc: <stable-commits@vger.kernel.org>
+From: <gregkh@linuxfoundation.org>
+Date: Mon, 06 Oct 2025 12:39:09 +0200
+In-Reply-To: <20251003121520.8176-5-farbere@amazon.com>
+Message-ID: <2025100609-exposable-subside-4c76@gregkh>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: head: set TEXT_OFFSET to the historical value
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Bjorn Andersson <andersson@kernel.org>,
- Konrad Dybcio <konradybcio@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-arm-msm@vger.kernel.org,
- linux-kernel@vger.kernel.org, Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-References: <20251006-arm64-text-offset-v1-1-bf0e8a27383b@oss.qualcomm.com>
-Content-Language: en-US
-From: David Heidelberg <david@ixit.cz>
-Autocrypt: addr=david@ixit.cz; keydata=
- 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
-In-Reply-To: <20251006-arm64-text-offset-v1-1-bf0e8a27383b@oss.qualcomm.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=ANSI_X3.4-1968
+Content-Transfer-Encoding: 8bit
+X-stable: commit
+X-Patchwork-Hint: ignore 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_033028_628626_14C7259F 
-X-CRM114-Status: GOOD (  24.07  )
+X-CRM114-CacheID: sfid-20251006_034007_708967_9297410B 
+X-CRM114-Status: GOOD (  14.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,70 +68,115 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi.
 
-So far, only Pixel 3 and 3 XL with "recent" bootloaders are affected.
+This is a note to let you know that I've just added the patch titled
 
-As I see it, the cost of making it compatible is accepting the commit at 
-zero maintenance or runtime cost.
+    minmax: fix up min3() and max3() too
 
-Would make sense to also update the comment in the code to reflect the 
-change?
+to the 6.1-stable tree which can be found at:
+    http://www.kernel.org/git/?p=linux/kernel/git/stable/stable-queue.git;a=summary
 
-Thank you!
+The filename of the patch is:
+     minmax-fix-up-min3-and-max3-too.patch
+and it can be found in the queue-6.1 subdirectory.
 
-Reviewed-by: David Heidelberg <david@ixit.cz>
+If you, or anyone else, feels it should not be added to the stable tree,
+please let <stable@vger.kernel.org> know about it.
 
 
-On 06/10/2025 00:21, Dmitry Baryshkov wrote:
-> From: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> 
-> Historically arm64 kernel contained (almost fixed) value of 0x8000 at
-> the TEXT_OFFSET. The commit cfa7ede20f13 ("arm64: set TEXT_OFFSET to 0x0
-> in preparation for removing it entirely") and then commit 120dc60d0bdb
-> ("arm64: get rid of TEXT_OFFSET") replaced this field with 0.
-> 
-> This caused no problems so far, because nobody seemed to be playing with
-> the extremely picky Qualcomm bootloader as used on some of Google Pixel
-> phones. Current attempting to boot the Linux kernel on those devices
-> will fail to load on those phones with the following message:
-> 
-> KernelDecompress failed: Invalid Parameter Kernel TextOffset does not match
-> Error calling BootPrepareAsync Invalid Parameter
-> 
-> Since the kernel ignores the field, set it to the expected value of
-> 0x8000, unbreaking boot of upstream kernels on Qualcomm devices.
-> 
-> Note: I purposedly didn't add Fixes tags, since those commits didn't
-> break any of devices that were supported at that time.
-> 
-> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@linaro.org>
-> Signed-off-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-> ---
->   arch/arm64/kernel/head.S | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/arch/arm64/kernel/head.S b/arch/arm64/kernel/head.S
-> index ca04b338cb0d173f6d9f5bcee52f6d3d06552599..05e874977de376835625f52bfdda78305dca28b5 100644
-> --- a/arch/arm64/kernel/head.S
-> +++ b/arch/arm64/kernel/head.S
-> @@ -60,7 +60,7 @@
->   	 */
->   	efi_signature_nop			// special NOP to identity as PE/COFF executable
->   	b	primary_entry			// branch to kernel start, magic
-> -	.quad	0				// Image load offset from start of RAM, little-endian
-> +	.quad	0x80000				// Image load offset from start of RAM, little-endian
->   	le64sym	_kernel_size_le			// Effective size of kernel image, little-endian
->   	le64sym	_kernel_flags_le		// Informative flags, little-endian
->   	.quad	0				// reserved
-> 
-> ---
-> base-commit: bd773c01d149aec064ea0fc890a54be277acfa3b
-> change-id: 20251006-arm64-text-offset-a45fee505c4d
-> 
-> Best regards,
+From stable+bounces-183175-greg=kroah.com@vger.kernel.org Fri Oct  3 14:17:52 2025
+From: Eliav Farber <farbere@amazon.com>
+Date: Fri, 3 Oct 2025 12:15:13 +0000
+Subject: minmax: fix up min3() and max3() too
+To: <gregkh@linuxfoundation.org>, <kenneth.feng@amd.com>, <alexander.deucher@amd.com>, <christian.koenig@amd.com>, <airlied@gmail.com>, <simona@ffwll.ch>, <linus.walleij@linaro.org>, <dmitry.torokhov@gmail.com>, <tglx@linutronix.de>, <wens@csie.org>, <jernej.skrabec@gmail.com>, <samuel@sholland.org>, <agk@redhat.com>, <snitzer@kernel.org>, <mpatocka@redhat.com>, <clm@fb.com>, <dsterba@suse.com>, <luc.vanoostenryck@gmail.com>, <pmladek@suse.com>, <rostedt@goodmis.org>, <andriy.shevchenko@linux.intel.com>, <linux@rasmusvillemoes.dk>, <senozhatsky@chromium.org>, <akpm@linux-foundation.org>, <lijo.lazar@amd.com>, <asad.kamal@amd.com>, <kevinyang.wang@amd.com>, <David.Laight@ACULAB.COM>, <amd-gfx@lists.freedesktop.org>, <dri-devel@lists.freedesktop.org>, <linux-kernel@vger.kernel.org>, <linux-input@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>, <linux-sunxi@lists.linux.dev>, <dm-devel@lists.linux.dev>, <linux-btrfs@vger.kernel.org>, <linux-sparse@vger.kernel.org>, <stable@vger.
+ kernel.org>, <farbere@amazon.com>
+Cc: Linus Torvalds <torvalds@linux-foundation.org>, David Laight <David.Laight@aculab.com>, Arnd Bergmann <arnd@kernel.org>
+Message-ID: <20251003121520.8176-5-farbere@amazon.com>
 
--- 
-David Heidelberg
+From: Linus Torvalds <torvalds@linux-foundation.org>
 
+[ Upstream commit 21b136cc63d2a9ddd60d4699552b69c214b32964 ]
+
+David Laight pointed out that we should deal with the min3() and max3()
+mess too, which still does excessive expansion.
+
+And our current macros are actually rather broken.
+
+In particular, the macros did this:
+
+  #define min3(x, y, z) min((typeof(x))min(x, y), z)
+  #define max3(x, y, z) max((typeof(x))max(x, y), z)
+
+and that not only is a nested expansion of possibly very complex
+arguments with all that involves, the typing with that "typeof()" cast
+is completely wrong.
+
+For example, imagine what happens in max3() if 'x' happens to be a
+'unsigned char', but 'y' and 'z' are 'unsigned long'.  The types are
+compatible, and there's no warning - but the result is just random
+garbage.
+
+No, I don't think we've ever hit that issue in practice, but since we
+now have sane infrastructure for doing this right, let's just use it.
+It fixes any excessive expansion, and also avoids these kinds of broken
+type issues.
+
+Requested-by: David Laight <David.Laight@aculab.com>
+Acked-by: Arnd Bergmann <arnd@kernel.org>
+Signed-off-by: Linus Torvalds <torvalds@linux-foundation.org>
+Signed-off-by: Eliav Farber <farbere@amazon.com>
+Signed-off-by: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+---
+ include/linux/minmax.h |   12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
+
+--- a/include/linux/minmax.h
++++ b/include/linux/minmax.h
+@@ -152,13 +152,20 @@
+ #define umax(x, y)	\
+ 	__careful_cmp(max, (x) + 0u + 0ul + 0ull, (y) + 0u + 0ul + 0ull)
+ 
++#define __careful_op3(op, x, y, z, ux, uy, uz) ({			\
++	__auto_type ux = (x); __auto_type uy = (y);__auto_type uz = (z);\
++	BUILD_BUG_ON_MSG(!__types_ok3(x,y,z,ux,uy,uz),			\
++		#op"3("#x", "#y", "#z") signedness error");		\
++	__cmp(op, ux, __cmp(op, uy, uz)); })
++
+ /**
+  * min3 - return minimum of three values
+  * @x: first value
+  * @y: second value
+  * @z: third value
+  */
+-#define min3(x, y, z) min((typeof(x))min(x, y), z)
++#define min3(x, y, z) \
++	__careful_op3(min, x, y, z, __UNIQUE_ID(x_), __UNIQUE_ID(y_), __UNIQUE_ID(z_))
+ 
+ /**
+  * max3 - return maximum of three values
+@@ -166,7 +173,8 @@
+  * @y: second value
+  * @z: third value
+  */
+-#define max3(x, y, z) max((typeof(x))max(x, y), z)
++#define max3(x, y, z) \
++	__careful_op3(max, x, y, z, __UNIQUE_ID(x_), __UNIQUE_ID(y_), __UNIQUE_ID(z_))
+ 
+ /**
+  * min_not_zero - return the minimum that is _not_ zero, unless both are zero
+
+
+Patches currently in stable-queue which might be from farbere@amazon.com are
+
+queue-6.1/minmax-improve-macro-expansion-and-type-checking.patch
+queue-6.1/minmax.h-simplify-the-variants-of-clamp.patch
+queue-6.1/minmax.h-move-all-the-clamp-definitions-after-the-min-max-ones.patch
+queue-6.1/minmax-don-t-use-max-in-situations-that-want-a-c-constant-expression.patch
+queue-6.1/minmax.h-remove-some-defines-that-are-only-expanded-once.patch
+queue-6.1/minmax.h-use-build_bug_on_msg-for-the-lo-hi-test-in-clamp.patch
+queue-6.1/minmax-simplify-min-max-clamp-implementation.patch
+queue-6.1/minmax.h-add-whitespace-around-operators-and-after-commas.patch
+queue-6.1/minmax-fix-up-min3-and-max3-too.patch
+queue-6.1/minmax.h-reduce-the-define-expansion-of-min-max-and-clamp.patch
+queue-6.1/minmax.h-update-some-comments.patch
 
