@@ -4,79 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B560CCA471
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 12:17:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC33ECAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 12:19:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xzolk6m0qZ/E++3QNlLoa9z0TzMad5MeklLKYrPsI5A=; b=tKPQpp/qOtDP+VEKt0cZ5QBSsk
-	jerXg+mIKwVGjWZyrWkphJIt6DI1OCKgEzid5qv3pCz3cnaY1O88IHbxOYVMbZFChrCqRkZBUNyLQ
-	KyNzztI0+tjQLlzruAnFPxnd3V2r2tOWaCUEjqp+/kdPMMt5A4Xq6ThiWKLZB/juYK2eOA24x08qn
-	RGjeSXV6n5w8t3ZxkKz2jPcAEG+acxmUpem0vEz7VCDmEYyWUFIRB3SIH/OWd8E1dcOz1xGANPnHu
-	rEUkPkFsFRa9cGwJhX53wP+XxCNLR7buBLCTNxjo+RyI9zWFvgYpWzwhmMlGwe8aFEC5Wlk4yKzCX
-	j2hJZOqw==;
+	bh=Z6wafg2QwsuXq7WoC2lKdb5ppvY0nwE7Df6gak0UIg0=; b=4n9DsYytxavb4jG1W+pH1LVwi+
+	ee1Ei6XaqqOT1Zrq+6YVg7ivWpL7jmcJYorXVSG/PGlpzmj9pjKFc58t3JiFMK68tsA9sywjQYJzT
+	UuEbd3OIky+MECSOI0jGTSVmT6L8YkQaKx2oD55pTrxt3NoHMP3UztN05xlcBQLsQ1iOwdgHDI41g
+	MxpGxQHNnM0lIiVMEnXQqngwoZ/HWD6vsgD8kCNmayYTcrd7+SkGoP0YSWOY5rETPZvnpzwXm2XKy
+	akC67OixQoIsO5qmuQQCwvLfJCwYn7DtMDiGqPGkWxTp5JkGP6WAFSEk5NBJa2iqskJ40fXw7rwcq
+	BzVeyKkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5k9t-0000000Hatr-0iJh;
-	Mon, 06 Oct 2025 12:17:41 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1v5kBo-000000000Hz-33Xy;
+	Mon, 06 Oct 2025 12:19:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5k97-0000000HZdI-3uYN;
-	Mon, 06 Oct 2025 12:17:00 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1759752989; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=a6x7zuYkIf6pcWAp1t84saCIQagHj6w7SvYm40DB6O4vOCK8JkwoMBEhoa5dujrzLm8m9U7Z+fLMobrYy8+U4eG/X7kY+FfbYf5e5Q7n1PsUVwjlI1FHk3rj+78KYhqr6YJC1GUxrHqqwAZM4/qerIjywq1daQMIPEjGFWYm3eI=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1759752989; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=xzolk6m0qZ/E++3QNlLoa9z0TzMad5MeklLKYrPsI5A=; 
-	b=he0euUpyZen3eJWtsT6mHoJlusD8TdcJDKTPrBRGnbQdJ5qJ61T0itmskwDXiRwD8xqJCQAoSizonffxlL6zA4uHF4xvS4gVZ81KyD34sBaCJ/5ZJ6Bi/ZyaOe3Vw8aBtQfPvTE4eU60Q4MudWKJ63qzAs9MHuIUdhJgCZsMgo0=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1759752989;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=xzolk6m0qZ/E++3QNlLoa9z0TzMad5MeklLKYrPsI5A=;
-	b=j8w2nfguUCjVtBHEGUD2kliwcNRekCVM/F3ivqwnqFGqeZ3cddCU2c5z1A8A6pIk
-	cFr4jPgQssRHCSaVxvRBr0J7RhL0Kav70tcQmvwt/ZHo0urjfuoShO2+G6U9j7qqhaf
-	aylj+KCZYezaEQMCzrp73IHudQHmOVnpp4eVDbmw=
-Received: by mx.zohomail.com with SMTPS id 1759752987761633.2600925458459;
-	Mon, 6 Oct 2025 05:16:27 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Chia-I Wu <olvaffe@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: Boris Brezillon <boris.brezillon@collabora.com>,
- Jassi Brar <jassisinghbrar@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>,
- Steven Price <steven.price@arm.com>, Liviu Dudau <liviu.dudau@arm.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>,
- Matthias Brugger <matthias.bgg@gmail.com>, Kees Cook <kees@kernel.org>,
- "Gustavo A. R. Silva" <gustavoars@kernel.org>,
- Ulf Hansson <ulf.hansson@linaro.org>, kernel@collabora.com,
- dri-devel@lists.freedesktop.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, linux-hardening@vger.kernel.org,
- linux-pm@vger.kernel.org
-Subject: Re: [PATCH v6 7/7] pmdomain: mediatek: Add support for MFlexGraphics
-Date: Mon, 06 Oct 2025 14:16:16 +0200
-Message-ID: <4457422.ejJDZkT8p0@workhorse>
-In-Reply-To: <94866bc6-0fdb-4e6c-ba78-5ebd7138f193@collabora.com>
-References: <20251003-mt8196-gpufreq-v6-0-76498ad61d9e@collabora.com>
- <8586490.T7Z3S40VBb@workhorse>
- <94866bc6-0fdb-4e6c-ba78-5ebd7138f193@collabora.com>
+	id 1v5kBn-000000000Hp-1Mw1
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Oct 2025 12:19:39 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 7E9F06049B;
+	Mon,  6 Oct 2025 12:19:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F1A3C4CEF5;
+	Mon,  6 Oct 2025 12:19:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759753178;
+	bh=Z6wafg2QwsuXq7WoC2lKdb5ppvY0nwE7Df6gak0UIg0=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=ngQAkhFmSP7SRB8JHkFxUzhtWlW+1qWIuECHxF3MXxp5gU2xRgmAkpgP3n/108fJe
+	 rmql6SeToRQUUT+XF1V4Auu/v6ksjdgv1m+sh3mv2cJtkJjJDkWT9dPqp/6MAj8DK8
+	 N7I+7Vdntgdi7bRLJMM9wdJN2b1CK14wO49xipehkGx92x9ZZsnhW8HZyn9rdomtyX
+	 d95EiRQI8ql1VheLGGjA8hp6/srzJBNW0egkVx2/QatYxJoUiW4GKZLkiyr5h6ve7H
+	 ZmXDsfJj7aUW4V/fitw3HouVkkSzSlCNUVIqn6ElUydSnhB6i8t6psEO7/Y9rC8yFj
+	 8Lvv6gnWCgH6g==
+Date: Mon, 6 Oct 2025 13:19:30 +0100
+From: Mark Brown <broonie@kernel.org>
+To: Srinivas Kandagatla <srini@kernel.org>
+Cc: Bartosz Golaszewski <brgl@bgdev.pl>, Kees Cook <kees@kernel.org>,
+	Mika Westerberg <westeri@kernel.org>,
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Andy Shevchenko <andy@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Liam Girdwood <lgirdwood@gmail.com>,
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>,
+	linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org,
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Subject: Re: [PATCH RFC 0/9] gpio: improve support for shared GPIOs
+Message-ID: <5550fc25-b571-489c-9855-5a9b08822c0e@sirena.org.uk>
+References: <20250924-gpio-shared-v1-0-775e7efeb1a3@linaro.org>
+ <0b402bba-0399-4f93-873e-890a78570ff7@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_051654_136531_8F8EE9C3 
-X-CRM114-Status: GOOD (  71.54  )
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="TVznfU2XOoE/mFMu"
+Content-Disposition: inline
+In-Reply-To: <0b402bba-0399-4f93-873e-890a78570ff7@kernel.org>
+X-Cookie: You must be present to win.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,261 +88,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Monday, 6 October 2025 13:37:28 Central European Summer Time AngeloGioac=
-chino Del Regno wrote:
-> Il 06/10/25 12:58, Nicolas Frattaroli ha scritto:
-> > On Friday, 3 October 2025 23:41:16 Central European Summer Time Chia-I =
-Wu wrote:
-> >> On Fri, Oct 3, 2025 at 1:16=E2=80=AFPM Nicolas Frattaroli
-> >> <nicolas.frattaroli@collabora.com> wrote:
-> >>>
-> >>> Various MediaTek SoCs use GPU integration silicon named "MFlexGraphic=
-s"
-> >>> by MediaTek. On the MT8196 and MT6991 SoCs, interacting with this
-> >>> integration silicon is required to power on the GPU.
-> >>>
-> >>> This glue silicon is in the form of an embedded microcontroller runni=
-ng
-> >>> special-purpose firmware, which autonomously adjusts clocks and
-> >>> regulators.
-> >>>
-> >>> Implement a driver, modelled as a pmdomain driver with a
-> >>> set_performance_state operation, to support these SoCs.
-> >> I like this model a lot. Thanks!
-> >>
-> >> panthor might potentially need to interact with this driver beyond
-> >> what pmdomain provides. I am thinking about querying
-> >> GF_REG_SHADER_PRESENT. Not sure if we've heard back from the vendor.
-> >=20
-> > We did. The vendor confirmed this value is read by the EB firmware
-> > from an efuse, but considers the efuse address to be confidential.
-> > Consequently, we are not allowed to know the efuse address, or any
-> > of the other information required to read the efuse ourselves
-> > directly, such as what clocks and power domains it depends on.
-> >=20
-> > We therefore likely need to pass GF_REG_SHADER_PRESENT onward, but
-> > I do have an idea for that: struct generic_pm_domain has a member
-> > "cpumask_var_t cpus", which is there to communicate a mask of which
-> > CPUs are attached to a power domain if the power domain has the flag
-> > GENPD_FLAG_CPU_DOMAIN set. If the flag isn't set, the member is
-> > unused.
->=20
-> cpumask_var_t is not going to be the right type for anything else that is
-> not a cpumask, as that is limited by NR_CPUS.
 
-Hmmm, good point, I thought that would be done by the allocation
-but nope.
-=20
-> You'd have to declare a new bitmap, suitable for generic devices, which m=
-ay
-> get a little complicated on deciding how many bits would be enough... and
-> if we look at GPUs... AMD and nV have lots of cores, so that becomes a bit
-> unfeasible to put in a bitmap.
->=20
-> Not sure then how generic that would be.
+--TVznfU2XOoE/mFMu
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 
-Yeah, at this point I'm rapidly approaching "shove stuff into pmdomain
-for no obvious pmdomain reason" territory, because we're not really
-communicating that this pmdomain is only tied to these cores, but
-rather that only these cores are present. Subtle difference that
-could come bite us in the rear once some other chip has several power
-domains that tie to different GPU shader cores.
+On Sat, Oct 04, 2025 at 02:31:16PM +0100, Srinivas Kandagatla wrote:
 
->=20
-> >=20
-> > This means we could overload its meaning, e.g. with a new flag, to
-> > communicate such masks for other purposes, since it's already the
-> > right type and all. This would be quite a generic way for hardware
-> > other than cpus to communicate such core masks. I was planning to
-> > develop and send out an RFC series for this, to gauge how much Ulf
-> > Hansson hates that approach.
-> >=20
-> > A different solution could be that mtk-mfg-pmdomain could act as an
-> > nvmem provider, and then we integrate generic "shader_present is
-> > stored in nvmem" support in panthor, and adjust the DT binding for
-> > this.
-> >=20
-> > This approach would again be generic across vendors from panthor's
-> > perspective. It would, however, leak into DT the fact that we have
-> > to implement this in the gpufreq device, rather than having the
-> > efuse read directly.
-> >=20
-> >> Have you considered moving this to drivers/soc/mediatek such that we
-> >> can provide include/linux/mtk-mfg.h to panthor?
-> >=20
-> > Having panthor read data structures from mtk-mfg-pmdomain would be a
-> > last resort for me if none of the other approaches work out, as I'm
-> > not super keen on adding vendor-specific code paths to panthor
-> > itself. A new generic code path in panthor that is only used by one
-> > vendor for now is different in that it has the potential to be used
-> > by a different vendor's integration logic in the future as well.
-> >=20
-> > So for now I'd like to keep it out of public includes and panthor as
-> > much as possible, unless the two other approaches don't work out for
-> > us.
-> >=20
->=20
-> I don't really like seeing more and more vendor specific APIs: MediaTek d=
-oes
-> suffer quite a lot from that, with cmdq being one of the examples - and t=
-he
-> fact that it's not just MediaTek having those, but also others like Qualc=
-omm,
-> Rockchip, etc, is not an excuse to keep adding new ones when there are ot=
-her
-> alternatives.
->=20
-> Also another fact there is that I don't think that panthor should get any
-> vendor specific "things" added (I mean, that should be avoided as much as
-> possible).
+> Isn't the main issue here is about not using a correct framework around
+> to the gpios that driver uses. ex: the codec usecase that you are
+> refering in this is using gpio to reset the line, instead of using a
+> proper gpio-reset control. same with some of the gpio-muxes. the problem
+> is fixed once such direct users of gpio are move their correct frameworks.
 
-The big issue to me is that vendors will always prefer to shoehorn
-more vendor specific hacks into panthor, because the alternative is
-to tell us how the hardware actually works. Which they all hate
-doing. I definitely agree that we should work from the assumption
-that panthor can support a Mali implementation without adding too
-much special code for it, because in 10 years there will still be
-new devices that use panthor as a driver, but few people will still
-be testing MT8196 codepaths within panthor, which makes refactoring
-prone to subtle breakage.
+It's common to have GPIO controls for other things, mutes for example.
 
-Not to mention that we don't want to rewrite all the vendor specific
-code for Tyr.
+--TVznfU2XOoE/mFMu
+Content-Type: application/pgp-signature; name="signature.asc"
 
-> That said - what you will be trying to pass is really a value that is read
-> from eFuse, with the EB firmware being a wrapper over that: if we want, we
-> could see that yet-another-way of interfacing ourselves with reading nvmem
-> where, instead of a direct MMIO read, we're asking a firmware to give us a
-> readout.
->=20
-> This leads me to think that one of the possible options could be to actua=
-lly
-> register (perhaps as a new platform device, because I'm not sure that it =
-could
-> be feasible to register a pmdomain driver as a nvmem provider, but ultima=
-tely
-> that is Ulf and Srinivas' call I guess) a nvmem driver that makes an IPI =
-call
-> to GPUEB and gives back the value to panthor through generic bindings.
+-----BEGIN PGP SIGNATURE-----
 
-Lee Jones will probably tell me to use MFD instead and that I'm silly
-for not using MFD, so we might as well. Should I do that for v7 or
-should v7 be less disruptive? Also, would I fillet out the clock
-provider stuff into an MFD cell as well, or is that too much?
+iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmjjs9EACgkQJNaLcl1U
+h9B7ygf+Nk+FdgamUTpfwmlLaO+GIiuF8L1iwF53ymUmyUQHcvWpf2IMsk5oIfBB
+EsMVkL2c77ZuLy5ehS6ywdt8irgeG3DZt4aMI9UqYvHwsoN5IgsIcFKc6DV6wNZN
+kYVD53ZLD3hJGlY40sYdcZ/gJPnChAFHPgXCTqXtZPAFauDxrgY6MP6cD5W7sJpI
+brFXuZ2OUQr76vPSpOm3cfSbWSIiV1wInqr5yqxcmtBkhFJJ7+3d/veBKClywuvV
+hfIGxgwx3mNhUbhJQZcbxecrN3+3gb7UM/lf+eNjNWveK+EfF+EW6fHl8FzL7Gpn
+i83NmntXGVFA8LF57NmHwnjt6rJrHA==
+=4eQ9
+-----END PGP SIGNATURE-----
 
-Also, nb: there is no IPI call for getting the SHADER_PRESENT value
-that we know of. It's a location in the reserved shared memory
-populated by the EB during the shared mem init, which ideally isn't
-done multiple times by multiple drivers because that's dumb.
-
-On the other hand, I don't really know what we get out of splitting
-this up into several drivers, other than a more pleasing directory
-structure and get_maintainers picking up the right subsystem people.
-
-> >>>
-> >>> The driver also exposes the actual achieved clock rate, as read back
-> >>> from the MCU, as common clock framework clocks, by acting as a clock
-> >>> provider as well.
-> >>>
-> >>> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> >>> ---
-> >>>   drivers/pmdomain/mediatek/Kconfig            |   16 +
-> >>>   drivers/pmdomain/mediatek/Makefile           |    1 +
-> >>>   drivers/pmdomain/mediatek/mtk-mfg-pmdomain.c | 1027 +++++++++++++++=
-+++++++++++
-> >>>   3 files changed, 1044 insertions(+)
-> >> [...]
-> >>> +static int mtk_mfg_init_shared_mem(struct mtk_mfg *mfg)
-> >>> +{
-> >>> +       struct device *dev =3D &mfg->pdev->dev;
-> >>> +       struct mtk_mfg_ipi_msg msg =3D {};
-> >>> +       int ret;
-> >>> +
-> >>> +       dev_dbg(dev, "clearing GPUEB shared memory, 0x%X bytes\n", mf=
-g->shared_mem_size);
-> >>> +       memset_io(mfg->shared_mem, 0, mfg->shared_mem_size);
-> >>> +
-> >>> +       msg.cmd =3D CMD_INIT_SHARED_MEM;
-> >>> +       msg.u.shared_mem.base =3D mfg->shared_mem_phys;
-> >>> +       msg.u.shared_mem.size =3D mfg->shared_mem_size;
-> >>> +
-> >>> +       ret =3D mtk_mfg_send_ipi(mfg, &msg);
-> >>> +       if (ret)
-> >>> +               return ret;
-> >>> +
-> >>> +       if (readl(mfg->shared_mem) !=3D GPUEB_MEM_MAGIC) {
-> >> Add the offset GF_REG_MAGIC, even though it is 0.
-> >=20
-> > Good catch, will do!
-> >=20
-> >>
-> >>> +               dev_err(dev, "EB did not initialise shared memory cor=
-rectly\n");
-> >>> +               return -EIO;
-> >>> +       }
-> >>> +
-> >>> +       return 0;
-> >>> +}
-> >> [...]
-> >>> +static int mtk_mfg_mt8196_init(struct mtk_mfg *mfg)
-> >>> +{
-> >>> +       void __iomem *e2_base;
-> >>> +
-> >>> +       e2_base =3D devm_platform_ioremap_resource_byname(mfg->pdev, =
-"hw-revision");
-> >>> +       if (IS_ERR(e2_base))
-> >>> +               return dev_err_probe(&mfg->pdev->dev, PTR_ERR(e2_base=
-),
-> >>> +                                    "Couldn't get hw-revision regist=
-er\n");
-> >>> +
-> >>> +       if (readl(e2_base) =3D=3D MFG_MT8196_E2_ID)
-> >>> +               mfg->ghpm_en_reg =3D RPC_DUMMY_REG_2;
-> >>> +       else
-> >>> +               mfg->ghpm_en_reg =3D RPC_GHPM_CFG0_CON;
-> >>> +
-> >>> +       return 0;
-> >>> +};
-> >> Extraneous semicolon.
-> >=20
-> > Good catch, will fix!
-> >=20
-> >>
-> >>> +static int mtk_mfg_init_mbox(struct mtk_mfg *mfg)
-> >>> +{
-> >>> +       struct device *dev =3D &mfg->pdev->dev;
-> >>> +       struct mtk_mfg_mbox *gf;
-> >>> +       struct mtk_mfg_mbox *slp;
-> >>> +
-> >>> +       gf =3D devm_kzalloc(dev, sizeof(*gf), GFP_KERNEL);
-> >>> +       if (!gf)
-> >>> +               return -ENOMEM;
-> >>> +
-> >>> +       gf->rx_data =3D devm_kzalloc(dev, GPUEB_MBOX_MAX_RX_SIZE, GFP=
-_KERNEL);
-> >> It looks like gfx->rx_data can simply be "struct mtk_mfg_ipi_msg rx_da=
-ta;".
-> >=20
-> > Hmmm, good point. I'll change it to that.
-> >=20
->=20
-> Honestly, I prefer the current version. No strong opinions though.
-
-And I just realised you're sorta right in that; struct mtk_mfg_mbox is
-a type used by both the gpufreq mbox and the sleep mbox. The struct
-mtk_mfg_ipi_msg type is only the right type to use for the gpufreq
-mbox. By making rx_data a `struct mtk_mfg_ipi_msg` type, we're
-allocating it for both channels, and in the case of the sleep mailbox,
-it's the wrong type to boot (though not like sleep replies).
-
-So yeah I think I'll keep the current construct. If this driver grows
-another limb in the future that talks to yet another mailbox channel,
-we'll appreciate not having to untangle that.
-
-> [...]
-
-Kind regards,
-Nicolas Frattaroli
-
-
+--TVznfU2XOoE/mFMu--
 
