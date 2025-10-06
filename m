@@ -4,167 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70EACCCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 17:43:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC615CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 18:25:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JQKk3+RhI16uDm1fxcKCp7YQg/1j+Z3a1egQaOsifoQ=; b=yo1SKshoDkavfwNrYE9L5e6qFr
-	NmtpmWA6Q3LPMrqKmR1dFg2w9Bp/v5NmcUGnP5nnY3DWRw7nnQlPv+OMw1MCdtt6Indg4j1ieN5UF
-	q/Lv73gqFEa6t2E0dzlamUnB3p2k691A7kaK/hcKiNQpAo0AB6DwdhWFizxqEL0tIjL0j6xmu0MBf
-	HYGYnX9NWNb0WCahtWlUot2cnDdFgaHNi2iWKPqw33ENJwZVfkjsDpH6fG077XiER57qs0Qp5cz2m
-	+WA4LNDNaEuifdhgC1SMjqm07fVYijMyT88SvE0Y/mVeYMDg0hOe1s26j33TAkX8cYdAoRk4jkc7E
-	P0toCf/w==;
+	bh=M8VEWtNYYF9CKiz6QsiawLKJVYCUWv6TtUf0RvO0PF4=; b=QhypXHwtDcJbJVw5+joY5iBmdi
+	Kxi2+yhXCYB5lEPe74cCOEwiRFrQliiaSADJA6XXYkLdzLoGpokc5W59Q2Chp9nPa7YLmoQvfs6v1
+	hu5/gs5p+3FwX7Ipkj1ahoDpnOI8KEKTfr+FGZLjqPiypmvlT6/pGGW9nAeK0A4X/kXdyiI05oqHz
+	oC7tLfyrMysuC7vzdi4tto8keehDe7xdlH7zodODnOmEUONtBkKmKq1aVKfHOgkbmE1BYTZGSaNXc
+	rIr3P4DwlBLdeW2RzEPVPp4pRfLqix2wXOxjoWm+V0VjpCzvZ8rmoEZCDa7WuQa5cp0vMuQ98D9H1
+	QGMoGsdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5pEn-00000000VpV-0Q2M;
-	Mon, 06 Oct 2025 17:43:05 +0000
-Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1v5puA-00000000aK1-1Y37;
+	Mon, 06 Oct 2025 18:25:50 +0000
+Received: from mail-qt1-x861.google.com ([2607:f8b0:4864:20::861])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5pEi-00000000VoC-49Xv
+	id 1v5pu7-00000000aJf-3omi
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Oct 2025 17:43:03 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MVcKs1AfQKl8x0Ws7SPhd/SznJSM6EdhltvsZEyRUvJr938If1RJGE6drIy3+j4Bh6Y61ozl9atPr58KUBCbrcHe7IKiDTn7kFqdToLPpI7E0bttHagunNLVAIRL1lKmgtb4+pG7Bp0OzNWo0F0jjcQeBKtSWvmktc0ZuWV3T5VYYTyrqP+mmlEvAkRRxoJV+1zkjRy9aYA9VaAjd5Bat4R3+DuQ7V4zAFnbL2I/PoEN6B3ATHh90MJOfI1dUr8XzZcm0l2LViY3tPWw7YD2g1AhJIRbLBtgT4avsIxVErj25sIDzYS4paPwG94/nCywHS5PaYYLgTV88nuUueylUw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=JQKk3+RhI16uDm1fxcKCp7YQg/1j+Z3a1egQaOsifoQ=;
- b=azHfrEfQrMnGZYL484EkgUGOBXmdo8CPVH0dDkuiTCWiwt08FHcb6kfvgrVUZWS9N7Tw3eyroBWJX6jygbDBzSP5WgjAvNFLe0nsF7EperQJe5e6Di+Nj+E132gKwKczghNHXnfx0FOJBRT7aOK6g789YBfndsY4U38/rXEi3954h55CDNwNCrHlWUjICx7aBvS51Uaaxbr50APu79SEkDGFgHNb4YqJoQhXE3HNdPVX+JfXyiKCcZ2ZeVGOGE9Olz+cScvmXKh+IOiwPQ6LzguOqq6UK1SuzzbJ52gqHdUliP1UzX1n6uivqYujQd0wE9KHGyekzeqIjG9fvNPZrQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=JQKk3+RhI16uDm1fxcKCp7YQg/1j+Z3a1egQaOsifoQ=;
- b=ieJzNkYtMhuaKXDEyns+ViH0hMWpsafMv4beX+FRPvZTeZG1Yc8ePg6OnyJkkvRyZZVRhCIHAi3AcKH7z2u7btfcvNXRK9cElKgVspo5f5wQBbxdg1+RysHLBZHXsuyvuvRC2cGv3M5/0nmtKOgebgarnfBFw41noMMgFcq0QS0=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from PH7PR12MB5685.namprd12.prod.outlook.com (2603:10b6:510:13c::22)
- by SJ0PR12MB6759.namprd12.prod.outlook.com (2603:10b6:a03:44b::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9182.20; Mon, 6 Oct
- 2025 17:42:48 +0000
-Received: from PH7PR12MB5685.namprd12.prod.outlook.com
- ([fe80::46fb:96f2:7667:7ca5]) by PH7PR12MB5685.namprd12.prod.outlook.com
- ([fe80::46fb:96f2:7667:7ca5%4]) with mapi id 15.20.9182.017; Mon, 6 Oct 2025
- 17:42:47 +0000
-Message-ID: <5824c012-dcb2-4312-9b16-810656290831@amd.com>
-Date: Mon, 6 Oct 2025 19:42:38 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/amd/display: Fix unsafe uses of kernel mode FPU
-To: Ard Biesheuvel <ardb+git@google.com>, linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, will@kernel.org,
- catalin.marinas@arm.com, mark.rutland@arm.com, broonie@kernel.org,
- Ard Biesheuvel <ardb@kernel.org>, Austin Zheng <austin.zheng@amd.com>,
- Jun Lei <jun.lei@amd.com>, Harry Wentland <harry.wentland@amd.com>,
- Leo Li <sunpeng.li@amd.com>, Rodrigo Siqueira <siqueira@igalia.com>,
- Alex Deucher <alexander.deucher@amd.com>, amd-gfx@lists.freedesktop.org,
- dri-devel@lists.freedesktop.org
-References: <20251002210044.1726731-2-ardb+git@google.com>
-Content-Language: en-US
-From: =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
-In-Reply-To: <20251002210044.1726731-2-ardb+git@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: BN9PR03CA0701.namprd03.prod.outlook.com
- (2603:10b6:408:ef::16) To PH7PR12MB5685.namprd12.prod.outlook.com
- (2603:10b6:510:13c::22)
+	Mon, 06 Oct 2025 18:25:49 +0000
+Received: by mail-qt1-x861.google.com with SMTP id d75a77b69052e-4df60ea79d1so57300631cf.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Oct 2025 11:25:47 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759775146; x=1760379946;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:dkim-signature:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=M8VEWtNYYF9CKiz6QsiawLKJVYCUWv6TtUf0RvO0PF4=;
+        b=FB0HTxBqIT0iQFSkSo70lPpmVw3nRk8sUiY5Un2rT25lQlYBWSGsecRP2FmpxMyqFn
+         xXZo8QDKyF4KeDFQl07SBogCfDAHoaW7KKIMbDKP4Xqhj90HvckIomiUoDMjznbWGoRf
+         4cjXScX1W763iLJmp8N7yqEeytRBjV7rm/Ff0MztANUqy37PAoujFc+1FAqSVSEpBZVD
+         3M1FDxTzCctASlYPY/aIccFXNHmQqVp0NlCdh0ih5VqF6LYRLHrNy4drxc6GMS0287/E
+         H1JSVhNf3e0D1479n5719KouSZiJTueI9h/tlHbCGRksLe3PY+NzTgG/VGOa7Rg9S8Uu
+         1E6A==
+X-Forwarded-Encrypted: i=1; AJvYcCUSw6ohA4oRzA141vAzF2lbEXiGbx4ZTyZVK//m320JnvpTbO7I5dxm9gn/aBsvnCCEy5ybzqQYNvOge4tQiei0@lists.infradead.org
+X-Gm-Message-State: AOJu0YylXC7eAq92kt4XSqlOANzBlE7/kWnuxYk+DoApVa/njIfv8xm+
+	/l/dzuGkOM9Yq03SV55rk4zbcC76/gGnbF6NTzVAMvhilDLllKU5LNH5J3w+BqdrhshWG4iOpzU
+	6be6zeYjEtPFKlSbvHq3ppIy+RgGuLaAogUcOsuB5FFDj5eHW1fJyhzAb6SAi1gATtD2oiXJ7kH
+	KAmXIHkNDN5yLaiOVuUR0XIb9JckZVirymBdQICg0R4PQMy+3BX+/Dq9oW96LvL1UlI0tJS1KJl
+	eNiiHNQqaroU5jtpdwF5timTl4=
+X-Gm-Gg: ASbGncuPI12GqDoqyeDmRt0Yus0zk/aK1NB47EnETMQ+nXf+jaCYGzNjruJ3B2pToia
+	OixT3MRDVV+GA3sL7x1OhIvDTIQYRnU+Jkro0r3a8jMwExYXTC672v0Ac5xUizM1+AW9jAtEcxM
+	aryrdyUDbhfrChhOUxiN0OLjqtP94Cp0UMUBS4CopbHssoMshbL3qHP8oHRdGtEoTAB/PUQ5Q2q
+	xCuRywd+48P0G2jKEhbJGI33m8a392m+Iqdzr89Q4dCiyOjefsLIhIQHTUMBcGDxPjFXtuh4kwn
+	wOCfSvjlKnhJungozFNvhAMgt/7tka/V/mVkpFTY7OCkk6r6DiGSnWbamLBOzqaru1LOsbZxU7l
+	x/ZLbup3+Ibpy1RDfLBsnrf1a8yThvtRaZy5n0emiGKSfPxEfTsifHcTtkZr0JovRq+z03e7Ghr
+	7d/f6m
+X-Google-Smtp-Source: AGHT+IGa2jif0mnhFTuIslpvuh4/XHK91N4Dm+wwBP9sQ0q3KxZyBA//h3sBv7H4Rdv29CtYTu9Se/372JKL
+X-Received: by 2002:ac8:7f4a:0:b0:4e5:6eef:cf5d with SMTP id d75a77b69052e-4e576b3e267mr179072641cf.82.1759775146122;
+        Mon, 06 Oct 2025 11:25:46 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-100.dlp.protect.broadcom.com. [144.49.247.100])
+        by smtp-relay.gmail.com with ESMTPS id d75a77b69052e-4e55ab3fa99sm3860201cf.7.2025.10.06.11.25.45
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Mon, 06 Oct 2025 11:25:46 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-pg1-f199.google.com with SMTP id 41be03b00d2f7-b6097ca315bso8650904a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Oct 2025 11:25:45 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1759775145; x=1760379945; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=M8VEWtNYYF9CKiz6QsiawLKJVYCUWv6TtUf0RvO0PF4=;
+        b=C0d7StaJPDrUjNjwOo2asMRNPmUZ7RA1C1MoftCTjaN4jMZ0ZcBPL/5FmARFk9HhC7
+         GlWKmOEBcO9DwNFtI/s7x+NcSngDMIHDmy2Qw+y/AwqLnTEWWMRHr5ne+SU6b4heYIeq
+         ZijNOjgrCVKsS2HLm/ac3jG7VM+UWJaYhU6YQ=
+X-Forwarded-Encrypted: i=1; AJvYcCX3Wlab4b6l6d//vd6oLEGQa+25A5rwToHVurggusQXzueb5GYNLL52o8Td5JFWFGBvhizBbK1PR4kSIJA4ilyH@lists.infradead.org
+X-Received: by 2002:a17:903:1786:b0:288:e46d:b32b with SMTP id d9443c01a7336-28e9a58dd00mr166518135ad.17.1759775144681;
+        Mon, 06 Oct 2025 11:25:44 -0700 (PDT)
+X-Received: by 2002:a17:903:1786:b0:288:e46d:b32b with SMTP id
+ d9443c01a7336-28e9a58dd00mr166517985ad.17.1759775144181; Mon, 06 Oct 2025
+ 11:25:44 -0700 (PDT)
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PH7PR12MB5685:EE_|SJ0PR12MB6759:EE_
-X-MS-Office365-Filtering-Correlation-Id: ed5af9e5-2e65-4d29-46b4-08de04ffc362
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|7416014|376014|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?aWJ4YU1tbkRBWml3R2hSY3pLYk1yaVRCN25oVnZUMWRQQ2dGVlBRSmt1ZGZ3?=
- =?utf-8?B?Z3Q2ekk2SHM1NGZOd1k4Y3V6RERGRGd1RkM1SUFOQkdlUEZKUFZhNlQ3SmJX?=
- =?utf-8?B?YitzRGhFMWhaZUMxeGNIMEszQzhEN1VaZHpSS0xwMkhZR0ZjWS9HQ3NpYWFw?=
- =?utf-8?B?Rzk2WUExSXJHelFvcldqeXBKbVcwUjRZV2tLKzJONGYzcjVZSzZYaE5xb2JK?=
- =?utf-8?B?U1dORE1XSy9rb2t0UUFMcEVWMmZyd3JFcjZCZHQ5bTVDTVZPTG1DaXNxcjNV?=
- =?utf-8?B?QjNIU2lsVFZSbVVveWxWeU5acHd3NldJZmFWR1YzSnc4YVZESlR3R0Z2czdw?=
- =?utf-8?B?YWZSMjF1UjF4Z3FHMWV2dmlFWndlb1MvOTlCZDBTbmJBQmo2QkcyNGx1eUVa?=
- =?utf-8?B?VC9YRlo1K0Q2bnExejhFU2hNNksxNmhyd3JpUmxhcjhyNnNlNWl0Z0c4V2wz?=
- =?utf-8?B?MVRrb1Ywc2VCb3NqSHpLZnloN2lGR3NhLzBlb0taQlJGOHM3cjBFMGhRZ203?=
- =?utf-8?B?d1lDVTZ6VFJFb20rK1ZTa1cwcGZDUlF4NWdnbmo5cXREZFROSXN3Y3BNMWVy?=
- =?utf-8?B?MUNmdFJnbitiTjFYeExkWUFHQXBpUUZJMHBwNEd2a1BFb0hLdnJaZ25mNjhn?=
- =?utf-8?B?ek5Xa3FhMHA5UFpuYjAyMnQxamw2cGh5TjZJbjVST3RCT1ZyWG5YNVZheXdz?=
- =?utf-8?B?bTdvMEVYZG5XbmJnK1Fya041Um4rcGpacTZLd01EcEJWSmRrVzdhZEJPWUt6?=
- =?utf-8?B?dXlxM202bHcxODNIZEh0QkpTSUZtcnFwTGRCVGRwQzEwTjMyUEl2TFFPL243?=
- =?utf-8?B?aHVEcS9HTU5uYzhhZHNZM1QyMzFhZWpEdkdBZ1RoTGluSVpHOFNiMnRjV0Q5?=
- =?utf-8?B?WTJ2TmVoOStaRHNJbU4zUkw4RW43eUE2UGtJWFRZK2JLbWNSeForM3VJR2t4?=
- =?utf-8?B?bWN6TFRocDZpRngwSExhY0MyVEJBZ1VDdWJZem91Tm1xL2drL3hSVzhOUEtu?=
- =?utf-8?B?TUVxeWw3U242Ny8rMHZOSVB3ZHJQZGFHQVMyK09oMVNrK2tLRldNNmRaR3dp?=
- =?utf-8?B?blJZT3dyNXpQMnFPVmR2QXZGQiszYmY0cWt6WGNWK1NtSE1yaEZpUGlDd2xO?=
- =?utf-8?B?cE5SWGxzUmVEcGRhOVlVTmMxN2VVcjJkTnlSazBmNldjaEhGWmVYcm1sbDE3?=
- =?utf-8?B?S2VXTW9ZSHpmNXIzN0xkV2poQjNKcXlTdlZ4V1BCZnlBb2dCbndmeWJta3Q1?=
- =?utf-8?B?OUFpY3lKSjhoV2YzS2ZaUm9tejZzQ3ZDRVU5VXBJWEFhRDIrVmNrTGF2cHJS?=
- =?utf-8?B?WURNaTdaWUM1dnRpOUVXL1J1cXVYOTd2THdJWTd0U0hhZ1FiS1p5UHRybnVs?=
- =?utf-8?B?MGxERWdvQlpzbTRuYWZLYy91cnFBQWZxUkhVbEtwNGtTV2hVN1lTaEYvS3l5?=
- =?utf-8?B?SHlVa0hPSXJNTldXZU9yRm9UVG1ZYVA1c1hRb1VIbW11NmVBSFJ4a014dWcr?=
- =?utf-8?B?T0RwRitXeFlQTURvcWJLSUdsd3p5Y0FkUFdCSGliT3dBQWs1RTZqRjNJWk9M?=
- =?utf-8?B?bThyVG9lTzl3N3BRMW1CbEUzUjR3aUxlOGJBRUNFVmtRSnBIZStLVVpuUDdr?=
- =?utf-8?B?bTB2V29NcG0vaDRyQXVncldkMElUYzUyZUpxWlBYUFladlE3MFB0OGQrRGNN?=
- =?utf-8?B?Mll1ck1oOWtqMzN6UHBkaUNMSUpXdGdPb2YrN2dPcUpRMXdRSjhMM2JYWUQ3?=
- =?utf-8?B?MGVsNmlWeUo2dVBuZlE5dUpEajdNZkdsdm5UWlNoWVVjUGRhODJwdSswQlk3?=
- =?utf-8?B?ZTJ2RXovK0hVRk5PNVVtNHpFTE9jb3ZsM1llY0JPa0FoTFRaZlNSRHZvb2RH?=
- =?utf-8?B?cm9RVGtTVVE4U1Rob1ZsRHZDR2ZwNTdrSEJDekxHTFY0cmhBd0dLdHpPeDJr?=
- =?utf-8?Q?KD3albMZezpEt03uUyK6wtU06/HlwAzA?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5685.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(7416014)(376014)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?VzBMblNFNXdPZ2gzck9ZVjBxNnJwcmFZVnVHem9reVFUM3RrTDF0NWdVQzV2?=
- =?utf-8?B?RFZxODgwUFdFdDdWaWluRGduYVBkYnFCZFJpV3J4M1ZRbmNhdjg3NmhQQ2JP?=
- =?utf-8?B?UjlrTWQxNUt6Y1pTallFWUtRZ0pnRDhKL2xiM29SQWFDTHA3djBxRDVReVZW?=
- =?utf-8?B?aTRFakErZWJIbHJzZnJMZW9LeWVJcVlvR3BYL25UclJOTnVZcTREeTIyUjRQ?=
- =?utf-8?B?UUR6S0FtSkJlbDBaNW5PSUQ3Y3JBMWFFZHJ0S0NoRFFhc3NhMk1sdFExQmVy?=
- =?utf-8?B?dThaOHBKcXFMY3lFMmxpUFRNZzd6d1JIUWFlbkNaUTZJZzRnV01xVUZVOGov?=
- =?utf-8?B?aDF2a0h1bStPaStDd0NrdjhwdUhkUmFDWGZIS0I4ZXVQM3BnK0xRSERXVkFB?=
- =?utf-8?B?Z1lYN3FxcHUwS0FJRW4rOUJRRFJOY0xURmg3VUMzSnFYSmE5RllUWFRvRENB?=
- =?utf-8?B?dElOcksrcVM1NXdjcW45T1ZDQzlSajl4QTk1MDNQc2syMkY0NXdaYU1Mb3ZC?=
- =?utf-8?B?YkFnQ1Y5QTBodHpjMjlNcERsMEdWdmthaHlTSlZSWmV6T1dSdklod2lWYUZH?=
- =?utf-8?B?c0Z2bmE2THIvT3NMbFF2d3NxWFgrem9Zb0Yvb25QMzNuREJMNngzU3UrOG9s?=
- =?utf-8?B?dWZ2ZmQrT0hGTjVRa2NlNmlZZUN1WFpSSllWbU5lell5OXltR2MwVkxndUdH?=
- =?utf-8?B?eGNNSzQzUEZlRlRzZ1NLTUVRdGp4bzhPNStPVHFFdlFGL1ByVEZBMjZkdjBZ?=
- =?utf-8?B?N3prMnk5bnNGazJRN0MveTFBOHBHMEtKRWF1OUQ3MlhKNlpUN2tKNCtpamEx?=
- =?utf-8?B?OVFrb3k5SnlHejI4QkFlYlpaenhWVzVCQzBpN3hSdDdlMENpR2hFL3QyYWxE?=
- =?utf-8?B?T1ZodldDVzN0bjBHR1pXMUdCakpqK1VRWmxPYjhVRWIvM2FQenlTUnFkRVVB?=
- =?utf-8?B?eC9pSWs5UUh5MzJTUUtDc1JCa0lWZ1VEdWJMM0luaGJ1cVZZZzRVeENYZnpJ?=
- =?utf-8?B?MFp3eDcwckdCcU9haVlLTUgrUEdISW8vZGFJUS9leGxHWnZTM3lENWZIZUNV?=
- =?utf-8?B?Z1UvV2QrR1k3L3hrZTRlNXdlZG1kY1FMZWtDeUxGZm53Vm43aktJWTFuUXZk?=
- =?utf-8?B?ZTNjWC8vajBobGdXQ1EweExPbkZpR3RidVd6L1dDVE9PSjQ1a29kdzN5V0NG?=
- =?utf-8?B?SytMTE5XUlV3UFMzb0pBT2hsckVDcWVsZTBBbkM1L1ZQMEpTblZheWpNcjFP?=
- =?utf-8?B?VWMrZnBsdzc0VGltMHpyYW5nK21Oa1l5bVFyTjh6ZmJXYnJwMjIzRDJTbXdY?=
- =?utf-8?B?RkUxVHBZenp1RjhPak5wRUI3dGJvNjcyc0ZNTWVZdldOTjNuNzBTbFVvRmJn?=
- =?utf-8?B?TE00Yks5cXRycEJvOWRHZ3M1c2hhZWUyQWprYWcralQxTlYrdEJmWGRvTkMx?=
- =?utf-8?B?UXhSaUtoRlNjU01xQWJjeGp4MDUvTEpGaHc0RVJXVS9wNU9nVXh3MlhmMG9t?=
- =?utf-8?B?b1l4dnR0dkoycjZKbWw1Tk44OUV2MWxPU2ZGYjAyR0lUa0lvNjlvajJueUlF?=
- =?utf-8?B?bzR3UVA0OXc3RkM4cmMzbTVHSExIL21wb2VyVy85SEhXSWpYM3BRU2Frdm9X?=
- =?utf-8?B?dW14TG1RRllXVk1pVWhnN2M1L2pPNXZoQ2pJSk5CRkNHVysvcWxEaGFGLzZv?=
- =?utf-8?B?Rzk0Mkt3TFF5YThGMjVyUm1aOFJQTVpQd0ZOWXNiaEM1N2dFRjZPYjBaNG1q?=
- =?utf-8?B?MFlERXIyZ3ViMGJURjVqTjl5SnJlVSt4bS9PSDBmbDhWRE0vbHNRZlEreTBx?=
- =?utf-8?B?RGZTQXp1K0xmWmpaYUdIc2xMcUd5ZkhwdG4zcFd6R1YrVVZYTDNIaEJScUQ5?=
- =?utf-8?B?Q1JsY0Z6TEhQUU04eWszV2k3SFBlSDBNTVI1MUZyMUVabEV4SkEvVU9SdmZs?=
- =?utf-8?B?NW5UaDVmOGdHSks3Q09FOE4yeWdBdXowTTFzZU9XTkdGRHBFdE0vUnVUa05W?=
- =?utf-8?B?cjhSNjJoQWthZlJnZFFYWjU1NEEwbWJuMVY4b3lqUXBHZyswQVZENlE5TEw1?=
- =?utf-8?B?RFg1RmwzRnBsdzIrSVJ1UHhJRjN3RFZXRzVrK25rTDlWL0dmVG9iK3FZSmVK?=
- =?utf-8?Q?ey7hvfRZxGLLBW68qremFSi2r?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: ed5af9e5-2e65-4d29-46b4-08de04ffc362
-X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5685.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 06 Oct 2025 17:42:47.6729
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 1z9UdfMsRycclGzcr+nAk/cwB5jHHze3OE+L5ibtdZ8t4kC3jLabxvDPHcAAJbsr
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ0PR12MB6759
+References: <20251002210426.2490368-1-kamal.dasu@broadcom.com>
+ <20251002210426.2490368-4-kamal.dasu@broadcom.com> <24a58a70-b4db-4925-8454-78dea4fb22b2@intel.com>
+ <957d5c73-528f-4182-b655-116fb6b94f3f@intel.com>
+In-Reply-To: <957d5c73-528f-4182-b655-116fb6b94f3f@intel.com>
+From: Kamal Dasu <kamal.dasu@broadcom.com>
+Date: Mon, 6 Oct 2025 14:25:05 -0400
+X-Gm-Features: AS18NWAYskofCaCne01eO5HckllhJb6_szW_z_kw6AYLXSV_TS1luC3iIY63pw4
+Message-ID: <CAKekbetcu9QHi2j-EYG2JCqDU=M8_5wMohbmTvkDU2nJjx6ySQ@mail.gmail.com>
+Subject: Re: [PATCH 3/3] mmc: brcmstb: save and restore registers during PM
+To: Adrian Hunter <adrian.hunter@intel.com>
+Cc: andersson@kernel.org, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, florian.fainelli@broadcom.com, ulf.hansson@linaro.org, 
+	bcm-kernel-feedback-list@broadcom.com, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-mmc@vger.kernel.org
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
+Content-Type: multipart/signed; protocol="application/pkcs7-signature"; micalg=sha-256;
+	boundary="0000000000006ab8d00640819463"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_104301_261128_1C93B87E 
-X-CRM114-Status: GOOD (  26.40  )
+X-CRM114-CacheID: sfid-20251006_112548_074123_FE0F795C 
+X-CRM114-Status: GOOD (  30.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,236 +116,386 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 02.10.25 23:00, Ard Biesheuvel wrote:
-> From: Ard Biesheuvel <ardb@kernel.org>
-> 
-> The point of isolating code that uses kernel mode FPU in separate
-> compilation units is to ensure that even implicit uses of, e.g., SIMD
-> registers for spilling occur only in a context where this is permitted,
-> i.e., from inside a kernel_fpu_begin/end block.
-> 
-> This is important on arm64, which uses -mgeneral-regs-only to build all
-> kernel code, with the exception of such compilation units where FP or
-> SIMD registers are expected to be used. Given that the compiler may
-> invent uses of FP/SIMD anywhere in such a unit, none of its code may be
-> accessible from outside a kernel_fpu_begin/end block.
-> 
-> This means that all callers into such compilation units must use the
-> DC_FP start/end macros, which must not occur there themselves. For
-> robustness, all functions with external linkage that reside there should
-> call dc_assert_fp_enabled() to assert that the FPU context was set up
-> correctly.
+--0000000000006ab8d00640819463
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-Thanks a lot for that, I've pointed out this restriction before as well.
+On Mon, Oct 6, 2025 at 6:22=E2=80=AFAM Adrian Hunter <adrian.hunter@intel.c=
+om> wrote:
+>
+> On 06/10/2025 13:08, Adrian Hunter wrote:
+> > On 03/10/2025 00:04, Kamal Dasu wrote:
+> >> Added support to save and restore registers that are critical
+> >> during PM.
+> >>
+> >> Signed-off-by: Kamal Dasu <kamal.dasu@broadcom.com>
+> >> ---
+> >>  drivers/mmc/host/sdhci-brcmstb.c | 124 +++++++++++++++++++++++++++++-=
+-
+> >>  1 file changed, 119 insertions(+), 5 deletions(-)
+> >>
+> >> diff --git a/drivers/mmc/host/sdhci-brcmstb.c b/drivers/mmc/host/sdhci=
+-brcmstb.c
+> >> index 0905b316a24b..ffa602a99ab7 100644
+> >> --- a/drivers/mmc/host/sdhci-brcmstb.c
+> >> +++ b/drivers/mmc/host/sdhci-brcmstb.c
+> >> @@ -24,7 +24,9 @@
+> >>  #define BRCMSTB_MATCH_FLAGS_NO_64BIT                BIT(0)
+> >>  #define BRCMSTB_MATCH_FLAGS_BROKEN_TIMEOUT  BIT(1)
+> >>  #define BRCMSTB_MATCH_FLAGS_HAS_CLOCK_GATE  BIT(2)
+> >> -#define BRCMSTB_MATCH_FLAGS_USE_CARD_BUSY   BIT(4)
+> >> +#define BRCMSTB_MATCH_FLAGS_HAS_CFG_V1              BIT(3)
+> >> +#define BRCMSTB_MATCH_FLAGS_HAS_CFG_V2              BIT(4)
+> >> +#define BRCMSTB_MATCH_FLAGS_USE_CARD_BUSY   BIT(5)
+> >>
+> >>  #define BRCMSTB_PRIV_FLAGS_HAS_CQE          BIT(0)
+> >>  #define BRCMSTB_PRIV_FLAGS_GATE_CLOCK               BIT(1)
+> >> @@ -38,19 +40,39 @@
+> >>  #define SDIO_CFG_OP_DLY_DEFAULT                     0x80000003
+> >>  #define SDIO_CFG_CQ_CAPABILITY                      0x4c
+> >>  #define SDIO_CFG_CQ_CAPABILITY_FMUL         GENMASK(13, 12)
+> >> +#define SDIO_CFG_SD_PIN_SEL                 0x44
+> >> +#define SDIO_CFG_V1_SD_PIN_SEL                      0x54
+> >> +#define SDIO_CFG_PHY_SW_MODE_0_RX_CTRL              0x7C
+> >>  #define SDIO_CFG_MAX_50MHZ_MODE                     0x1ac
+> >>  #define SDIO_CFG_MAX_50MHZ_MODE_STRAP_OVERRIDE      BIT(31)
+> >>  #define SDIO_CFG_MAX_50MHZ_MODE_ENABLE              BIT(0)
+> >>
+> >> +#define SDIO_BOOT_MAIN_CTL                  0x0
+> >> +
+> >>  #define MMC_CAP_HSE_MASK    (MMC_CAP2_HSX00_1_2V | MMC_CAP2_HSX00_1_8=
+V)
+> >>  /* Select all SD UHS type I SDR speed above 50MB/s */
+> >>  #define MMC_CAP_UHS_I_SDR_MASK      (MMC_CAP_UHS_SDR50 | MMC_CAP_UHS_=
+SDR104)
+> >>
+> >> +enum cfg_core_ver {
+> >> +    SDIO_CFG_CORE_V1 =3D 1,
+> >> +    SDIO_CFG_CORE_V2,
+> >> +};
+> >> +
+> >> +struct sdhci_brcmstb_saved_regs {
+> >> +    u32 sd_pin_sel;
+> >> +    u32 phy_sw_mode0_rxctrl;
+> >> +    u32 max_50mhz_mode;
+> >> +    u32 boot_main_ctl;
+> >> +};
+> >> +
+> >>  struct sdhci_brcmstb_priv {
+> >>      void __iomem *cfg_regs;
+> >> +    void __iomem *boot_regs;
+> >> +    struct sdhci_brcmstb_saved_regs saved_regs;
+> >>      unsigned int flags;
+> >>      struct clk *base_clk;
+> >>      u32 base_freq_hz;
+> >> +    void (*save_restore_regs)(struct mmc_host *mmc, int save);
+> >>  };
+> >>
+> >>  struct brcmstb_match_priv {
+> >> @@ -60,6 +82,69 @@ struct brcmstb_match_priv {
+> >>      const unsigned int flags;
+> >>  };
+> >>
+> >> +static void sdhci_brcmstb_save_regs(struct mmc_host *mmc, enum cfg_co=
+re_ver ver)
+> >> +{
+> >> +    struct sdhci_host *host =3D mmc_priv(mmc);
+> >> +    struct sdhci_pltfm_host *pltfm_host =3D sdhci_priv(host);
+> >> +    struct sdhci_brcmstb_priv *priv =3D sdhci_pltfm_priv(pltfm_host);
+> >> +    struct sdhci_brcmstb_saved_regs *sr =3D &priv->saved_regs;
+> >> +    void __iomem *cr =3D priv->cfg_regs;
+> >> +    bool is_emmc =3D mmc->caps & MMC_CAP_NONREMOVABLE;
+> >> +
+> >> +    /* save  */
+>
+> Comment is not really needed.
+>
+> >> +    if (is_emmc && priv->boot_regs)
+> >> +            sr->boot_main_ctl =3D readl(priv->boot_regs + SDIO_BOOT_M=
+AIN_CTL);
+> >> +
+> >> +    if (ver =3D=3D SDIO_CFG_CORE_V1) {
+> >> +            sr->sd_pin_sel =3D readl(cr + SDIO_CFG_V1_SD_PIN_SEL);
+> >> +            return;
+> >> +    }
+> >> +
+> >> +    sr->sd_pin_sel =3D readl(cr + SDIO_CFG_SD_PIN_SEL);
+> >> +    sr->phy_sw_mode0_rxctrl =3D readl(cr + SDIO_CFG_PHY_SW_MODE_0_RX_=
+CTRL);
+> >> +    sr->max_50mhz_mode =3D readl(cr + SDIO_CFG_MAX_50MHZ_MODE);
+> >> +}
+> >> +
+> >> +static void sdhci_brcmstb_restore_regs(struct mmc_host *mmc,
+> >> +                                            enum cfg_core_ver ver)
+>
+> Prefer to line up function parameters.  Using up to 100 columns is also o=
+k.
+>
+> >> +{
+> >> +    struct sdhci_host *host =3D mmc_priv(mmc);
+> >> +    struct sdhci_pltfm_host *pltfm_host =3D sdhci_priv(host);
+> >> +    struct sdhci_brcmstb_priv *priv =3D sdhci_pltfm_priv(pltfm_host);
+> >> +    struct sdhci_brcmstb_saved_regs *sr =3D &priv->saved_regs;
+> >> +    void __iomem *cr =3D priv->cfg_regs;
+> >> +    bool is_emmc =3D mmc->caps & MMC_CAP_NONREMOVABLE;
+> >> +
+> >> +    /* restore */
+>
+> Comment is not really needed.
+>
+> >> +    if (is_emmc && priv->boot_regs)
+> >> +            writel(sr->boot_main_ctl, priv->boot_regs + SDIO_BOOT_MAI=
+N_CTL);
+> >> +
+> >> +    if (ver =3D=3D SDIO_CFG_CORE_V1) {
+> >> +            writel(sr->sd_pin_sel, cr + SDIO_CFG_SD_PIN_SEL);
+> >> +            return;
+> >> +    }
+> >> +
+> >> +    writel(sr->sd_pin_sel, cr + SDIO_CFG_SD_PIN_SEL);
+> >> +    writel(sr->phy_sw_mode0_rxctrl, cr + SDIO_CFG_PHY_SW_MODE_0_RX_CT=
+RL);
+> >> +    writel(sr->max_50mhz_mode, cr + SDIO_CFG_MAX_50MHZ_MODE);
+> >> +}
+> >> +
+> >> +static void sdhci_brcmstb_save_restore_regs_v1(struct mmc_host *mmc, =
+int save)
+> >> +{
+> >> +    if (save)
+> >> +            sdhci_brcmstb_save_regs(mmc, SDIO_CFG_CORE_V1);
+> >> +    else
+> >> +            sdhci_brcmstb_restore_regs(mmc, SDIO_CFG_CORE_V1);
+> >> +}
+> >> +
+> >> +static void sdhci_brcmstb_save_restore_regs_v2(struct mmc_host *mmc, =
+int save)
+> >> +{
+> >> +    if (save)
+> >> +            sdhci_brcmstb_save_regs(mmc, SDIO_CFG_CORE_V2);
+> >> +    else
+> >> +            sdhci_brcmstb_restore_regs(mmc, SDIO_CFG_CORE_V2);
+> >> +}
+> >> +
+> >>  static inline void enable_clock_gating(struct sdhci_host *host)
+> >>  {
+> >>      struct sdhci_pltfm_host *pltfm_host =3D sdhci_priv(host);
+> >> @@ -300,24 +385,33 @@ static struct brcmstb_match_priv match_priv_7425=
+ =3D {
+> >>      .ops =3D &sdhci_brcmstb_ops,
+> >>  };
+> >>
+> >> -static struct brcmstb_match_priv match_priv_7445 =3D {
+> >> +static struct brcmstb_match_priv match_priv_74371 =3D {
+> >>      .flags =3D BRCMSTB_MATCH_FLAGS_BROKEN_TIMEOUT,
+> >>      .ops =3D &sdhci_brcmstb_ops,
+> >>  };
+> >>
+> >> +static struct brcmstb_match_priv match_priv_7445 =3D {
+> >> +    .flags =3D BRCMSTB_MATCH_FLAGS_BROKEN_TIMEOUT |
+> >> +                    BRCMSTB_MATCH_FLAGS_HAS_CFG_V1,
+> >> +    .ops =3D &sdhci_brcmstb_ops,
+> >> +};
+> >> +
+> >>  static struct brcmstb_match_priv match_priv_72116 =3D {
+> >> -    .flags =3D BRCMSTB_MATCH_FLAGS_BROKEN_TIMEOUT,
+> >> +    .flags =3D BRCMSTB_MATCH_FLAGS_BROKEN_TIMEOUT |
+> >> +                    BRCMSTB_MATCH_FLAGS_HAS_CFG_V1,
+> >>      .ops =3D &sdhci_brcmstb_ops_72116,
+> >>  };
+> >>
+> >>  static const struct brcmstb_match_priv match_priv_7216 =3D {
+> >> -    .flags =3D BRCMSTB_MATCH_FLAGS_HAS_CLOCK_GATE,
+> >> +    .flags =3D BRCMSTB_MATCH_FLAGS_HAS_CLOCK_GATE |
+> >> +                    BRCMSTB_MATCH_FLAGS_HAS_CFG_V2,
+> >>      .hs400es =3D sdhci_brcmstb_hs400es,
+> >>      .ops =3D &sdhci_brcmstb_ops_7216,
+> >>  };
+> >>
+> >>  static struct brcmstb_match_priv match_priv_74165b0 =3D {
+> >> -    .flags =3D BRCMSTB_MATCH_FLAGS_HAS_CLOCK_GATE,
+> >> +    .flags =3D BRCMSTB_MATCH_FLAGS_HAS_CLOCK_GATE |
+> >> +                    BRCMSTB_MATCH_FLAGS_HAS_CFG_V2,
+> >>      .hs400es =3D sdhci_brcmstb_hs400es,
+> >>      .ops =3D &sdhci_brcmstb_ops_74165b0,
+> >>  };
+> >> @@ -325,6 +419,7 @@ static struct brcmstb_match_priv match_priv_74165b=
+0 =3D {
+> >>  static const struct of_device_id __maybe_unused sdhci_brcm_of_match[]=
+ =3D {
+> >>      { .compatible =3D "brcm,bcm2712-sdhci", .data =3D &match_priv_271=
+2 },
+> >>      { .compatible =3D "brcm,bcm7425-sdhci", .data =3D &match_priv_742=
+5 },
+> >> +    { .compatible =3D "brcm,bcm74371-sdhci", .data =3D &match_priv_74=
+371 },
+> >
+> > Shouldn't adding brcm,bcm74371-sdhci be a separate patch?
+> >
+> >>      { .compatible =3D "brcm,bcm7445-sdhci", .data =3D &match_priv_744=
+5 },
+> >>      { .compatible =3D "brcm,bcm72116-sdhci", .data =3D &match_priv_72=
+116 },
+> >>      { .compatible =3D "brcm,bcm7216-sdhci", .data =3D &match_priv_721=
+6 },
+> >> @@ -441,6 +536,19 @@ static int sdhci_brcmstb_probe(struct platform_de=
+vice *pdev)
+> >>      if (res)
+> >>              goto err;
+> >>
+> >> +    /* map non-standard BOOT registers if present */
+> >> +    if (host->mmc->caps & MMC_CAP_NONREMOVABLE) {
+> >> +            priv->boot_regs =3D devm_platform_get_and_ioremap_resourc=
+e(pdev, 2, NULL);
+> >> +            if (IS_ERR(priv->boot_regs))
+> >> +                    priv->boot_regs =3D NULL;
+> >> +    }
+> >> +
+> >> +    if (match_priv->flags & BRCMSTB_MATCH_FLAGS_HAS_CFG_V1)
+> >> +            priv->save_restore_regs =3D sdhci_brcmstb_save_restore_re=
+gs_v1;
+> >> +
+> >> +    if (match_priv->flags & BRCMSTB_MATCH_FLAGS_HAS_CFG_V2)
+> >> +            priv->save_restore_regs =3D sdhci_brcmstb_save_restore_re=
+gs_v2;
+> >
+> > It is not ideal to use a flag to set a callback.  Perhaps sdhci_brcmstb=
+_priv
+> > should have a pointer to brcmstb_match_priv, then ->save_restore_regs()=
+ could
+> > just be put there, and BRCMSTB_MATCH_FLAGS_HAS_CFG_V* are not needed.
+> >
+> >> +
+> >>      /*
+> >>       * Automatic clock gating does not work for SD cards that may
+> >>       * voltage switch so only enable it for non-removable devices.
+> >> @@ -533,6 +641,9 @@ static int sdhci_brcmstb_suspend(struct device *de=
+v)
+> >>      struct sdhci_brcmstb_priv *priv =3D sdhci_pltfm_priv(pltfm_host);
+> >>      int ret;
+> >>
+> >> +    if (priv->save_restore_regs)
+> >> +            priv->save_restore_regs(host->mmc, 1);
+> >> +
+> >>      clk_disable_unprepare(priv->base_clk);
+> >>      if (host->mmc->caps2 & MMC_CAP2_CQE) {
+> >>              ret =3D cqhci_suspend(host->mmc);
+> >> @@ -564,6 +675,9 @@ static int sdhci_brcmstb_resume(struct device *dev=
+)
+> >>                      ret =3D clk_set_rate(priv->base_clk, priv->base_f=
+req_hz);
+> >>      }
+> >>
+> >> +    if (priv->save_restore_regs)
+> >> +            priv->save_restore_regs(host->mmc, 0);
+> >> +
+> >>      if (host->mmc->caps2 & MMC_CAP2_CQE)
+> >>              ret =3D cqhci_resume(host->mmc);
+> >>
+> >
+>
+Thanks for the review. Ok let me fix all the review comments and send a v2.
 
-Since we had that issue multiple times now would it be somehow possible to automate rejecting new code getting this wrong?
+--0000000000006ab8d00640819463
+Content-Type: application/pkcs7-signature; name="smime.p7s"
+Content-Transfer-Encoding: base64
+Content-Disposition: attachment; filename="smime.p7s"
+Content-Description: S/MIME Cryptographic Signature
 
-E.g. adding something to the DC_FP_START()/DC_FP_END() or kernel_fpu_begin/end macros to make sure that they fail to compile on compolation units where FP use is enabled?
-
-Regards,
-Christian.
-
-> 
-> Fix this for the DCN35, DCN351 and DCN36 implementations.
-> 
-> Cc: Austin Zheng <austin.zheng@amd.com>
-> Cc: Jun Lei <jun.lei@amd.com>
-> Cc: Harry Wentland <harry.wentland@amd.com>
-> Cc: Leo Li <sunpeng.li@amd.com>
-> Cc: Rodrigo Siqueira <siqueira@igalia.com>
-> Cc: Alex Deucher <alexander.deucher@amd.com>
-> Cc: "Christian König" <christian.koenig@amd.com>
-> Cc: amd-gfx@lists.freedesktop.org
-> Cc: dri-devel@lists.freedesktop.org
-> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> ---
->  .../drm/amd/display/dc/dml/dcn31/dcn31_fpu.c    |  4 ++++
->  .../drm/amd/display/dc/dml/dcn35/dcn35_fpu.c    |  6 ++++--
->  .../drm/amd/display/dc/dml/dcn351/dcn351_fpu.c  |  4 ++--
->  .../display/dc/resource/dcn35/dcn35_resource.c  | 16 +++++++++++++++-
->  .../dc/resource/dcn351/dcn351_resource.c        | 17 ++++++++++++++++-
->  .../display/dc/resource/dcn36/dcn36_resource.c  | 16 +++++++++++++++-
->  6 files changed, 56 insertions(+), 7 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/amd/display/dc/dml/dcn31/dcn31_fpu.c b/drivers/gpu/drm/amd/display/dc/dml/dcn31/dcn31_fpu.c
-> index 17a21bcbde17..1a28061bb9ff 100644
-> --- a/drivers/gpu/drm/amd/display/dc/dml/dcn31/dcn31_fpu.c
-> +++ b/drivers/gpu/drm/amd/display/dc/dml/dcn31/dcn31_fpu.c
-> @@ -808,6 +808,8 @@ void dcn316_update_bw_bounding_box(struct dc *dc, struct clk_bw_params *bw_param
->  
->  int dcn_get_max_non_odm_pix_rate_100hz(struct _vcs_dpi_soc_bounding_box_st *soc)
->  {
-> +	dc_assert_fp_enabled();
-> +
->  	return soc->clock_limits[0].dispclk_mhz * 10000.0 / (1.0 + soc->dcn_downspread_percent / 100.0);
->  }
->  
-> @@ -815,6 +817,8 @@ int dcn_get_approx_det_segs_required_for_pstate(
->  		struct _vcs_dpi_soc_bounding_box_st *soc,
->  		int pix_clk_100hz, int bpp, int seg_size_kb)
->  {
-> +	dc_assert_fp_enabled();
-> +
->  	/* Roughly calculate required crb to hide latency. In practice there is slightly
->  	 * more buffer available for latency hiding
->  	 */
-> diff --git a/drivers/gpu/drm/amd/display/dc/dml/dcn35/dcn35_fpu.c b/drivers/gpu/drm/amd/display/dc/dml/dcn35/dcn35_fpu.c
-> index 5d73efa2f0c9..15a1d77dfe36 100644
-> --- a/drivers/gpu/drm/amd/display/dc/dml/dcn35/dcn35_fpu.c
-> +++ b/drivers/gpu/drm/amd/display/dc/dml/dcn35/dcn35_fpu.c
-> @@ -445,6 +445,8 @@ int dcn35_populate_dml_pipes_from_context_fpu(struct dc *dc,
->  	bool upscaled = false;
->  	const unsigned int max_allowed_vblank_nom = 1023;
->  
-> +	dc_assert_fp_enabled();
-> +
->  	dcn31_populate_dml_pipes_from_context(dc, context, pipes,
->  					      validate_mode);
->  
-> @@ -498,9 +500,7 @@ int dcn35_populate_dml_pipes_from_context_fpu(struct dc *dc,
->  
->  		pipes[pipe_cnt].pipe.src.unbounded_req_mode = false;
->  
-> -		DC_FP_START();
->  		dcn31_zero_pipe_dcc_fraction(pipes, pipe_cnt);
-> -		DC_FP_END();
->  
->  		pipes[pipe_cnt].pipe.dest.vfront_porch = timing->v_front_porch;
->  		pipes[pipe_cnt].pipe.src.dcc_rate = 3;
-> @@ -581,6 +581,8 @@ void dcn35_decide_zstate_support(struct dc *dc, struct dc_state *context)
->  	unsigned int i, plane_count = 0;
->  	DC_LOGGER_INIT(dc->ctx->logger);
->  
-> +	dc_assert_fp_enabled();
-> +
->  	for (i = 0; i < dc->res_pool->pipe_count; i++) {
->  		if (context->res_ctx.pipe_ctx[i].plane_state)
->  			plane_count++;
-> diff --git a/drivers/gpu/drm/amd/display/dc/dml/dcn351/dcn351_fpu.c b/drivers/gpu/drm/amd/display/dc/dml/dcn351/dcn351_fpu.c
-> index 6f516af82956..e5cfe73f640a 100644
-> --- a/drivers/gpu/drm/amd/display/dc/dml/dcn351/dcn351_fpu.c
-> +++ b/drivers/gpu/drm/amd/display/dc/dml/dcn351/dcn351_fpu.c
-> @@ -478,6 +478,8 @@ int dcn351_populate_dml_pipes_from_context_fpu(struct dc *dc,
->  	bool upscaled = false;
->  	const unsigned int max_allowed_vblank_nom = 1023;
->  
-> +	dc_assert_fp_enabled();
-> +
->  	dcn31_populate_dml_pipes_from_context(dc, context, pipes,
->  					      validate_mode);
->  
-> @@ -531,9 +533,7 @@ int dcn351_populate_dml_pipes_from_context_fpu(struct dc *dc,
->  
->  		pipes[pipe_cnt].pipe.src.unbounded_req_mode = false;
->  
-> -		DC_FP_START();
->  		dcn31_zero_pipe_dcc_fraction(pipes, pipe_cnt);
-> -		DC_FP_END();
->  
->  		pipes[pipe_cnt].pipe.dest.vfront_porch = timing->v_front_porch;
->  		pipes[pipe_cnt].pipe.src.dcc_rate = 3;
-> diff --git a/drivers/gpu/drm/amd/display/dc/resource/dcn35/dcn35_resource.c b/drivers/gpu/drm/amd/display/dc/resource/dcn35/dcn35_resource.c
-> index 8475c6eec547..32678b66c410 100644
-> --- a/drivers/gpu/drm/amd/display/dc/resource/dcn35/dcn35_resource.c
-> +++ b/drivers/gpu/drm/amd/display/dc/resource/dcn35/dcn35_resource.c
-> @@ -1760,6 +1760,20 @@ enum dc_status dcn35_patch_unknown_plane_state(struct dc_plane_state *plane_stat
->  }
->  
->  
-> +static int populate_dml_pipes_from_context_fpu(struct dc *dc,
-> +					       struct dc_state *context,
-> +					       display_e2e_pipe_params_st *pipes,
-> +					       enum dc_validate_mode validate_mode)
-> +{
-> +	int ret;
-> +
-> +	DC_FP_START();
-> +	ret = dcn35_populate_dml_pipes_from_context_fpu(dc, context, pipes, validate_mode);
-> +	DC_FP_END();
-> +
-> +	return ret;
-> +}
-> +
->  static struct resource_funcs dcn35_res_pool_funcs = {
->  	.destroy = dcn35_destroy_resource_pool,
->  	.link_enc_create = dcn35_link_encoder_create,
-> @@ -1770,7 +1784,7 @@ static struct resource_funcs dcn35_res_pool_funcs = {
->  	.validate_bandwidth = dcn35_validate_bandwidth,
->  	.calculate_wm_and_dlg = NULL,
->  	.update_soc_for_wm_a = dcn31_update_soc_for_wm_a,
-> -	.populate_dml_pipes = dcn35_populate_dml_pipes_from_context_fpu,
-> +	.populate_dml_pipes = populate_dml_pipes_from_context_fpu,
->  	.acquire_free_pipe_as_secondary_dpp_pipe = dcn20_acquire_free_pipe_for_layer,
->  	.release_pipe = dcn20_release_pipe,
->  	.add_stream_to_ctx = dcn30_add_stream_to_ctx,
-> diff --git a/drivers/gpu/drm/amd/display/dc/resource/dcn351/dcn351_resource.c b/drivers/gpu/drm/amd/display/dc/resource/dcn351/dcn351_resource.c
-> index 0971c0f74186..677cee27589c 100644
-> --- a/drivers/gpu/drm/amd/display/dc/resource/dcn351/dcn351_resource.c
-> +++ b/drivers/gpu/drm/amd/display/dc/resource/dcn351/dcn351_resource.c
-> @@ -1732,6 +1732,21 @@ static enum dc_status dcn351_validate_bandwidth(struct dc *dc,
->  	return out ? DC_OK : DC_FAIL_BANDWIDTH_VALIDATE;
->  }
->  
-> +static int populate_dml_pipes_from_context_fpu(struct dc *dc,
-> +					       struct dc_state *context,
-> +					       display_e2e_pipe_params_st *pipes,
-> +					       enum dc_validate_mode validate_mode)
-> +{
-> +	int ret;
-> +
-> +	DC_FP_START();
-> +	ret = dcn351_populate_dml_pipes_from_context_fpu(dc, context, pipes, validate_mode);
-> +	DC_FP_END();
-> +
-> +	return ret;
-> +
-> +}
-> +
->  static struct resource_funcs dcn351_res_pool_funcs = {
->  	.destroy = dcn351_destroy_resource_pool,
->  	.link_enc_create = dcn35_link_encoder_create,
-> @@ -1742,7 +1757,7 @@ static struct resource_funcs dcn351_res_pool_funcs = {
->  	.validate_bandwidth = dcn351_validate_bandwidth,
->  	.calculate_wm_and_dlg = NULL,
->  	.update_soc_for_wm_a = dcn31_update_soc_for_wm_a,
-> -	.populate_dml_pipes = dcn351_populate_dml_pipes_from_context_fpu,
-> +	.populate_dml_pipes = populate_dml_pipes_from_context_fpu,
->  	.acquire_free_pipe_as_secondary_dpp_pipe = dcn20_acquire_free_pipe_for_layer,
->  	.release_pipe = dcn20_release_pipe,
->  	.add_stream_to_ctx = dcn30_add_stream_to_ctx,
-> diff --git a/drivers/gpu/drm/amd/display/dc/resource/dcn36/dcn36_resource.c b/drivers/gpu/drm/amd/display/dc/resource/dcn36/dcn36_resource.c
-> index 8bae7fcedc22..d81540515e5c 100644
-> --- a/drivers/gpu/drm/amd/display/dc/resource/dcn36/dcn36_resource.c
-> +++ b/drivers/gpu/drm/amd/display/dc/resource/dcn36/dcn36_resource.c
-> @@ -1734,6 +1734,20 @@ static enum dc_status dcn35_validate_bandwidth(struct dc *dc,
->  }
->  
->  
-> +static int populate_dml_pipes_from_context_fpu(struct dc *dc,
-> +					       struct dc_state *context,
-> +					       display_e2e_pipe_params_st *pipes,
-> +					       enum dc_validate_mode validate_mode)
-> +{
-> +	int ret;
-> +
-> +	DC_FP_START();
-> +	ret = dcn35_populate_dml_pipes_from_context_fpu(dc, context, pipes, validate_mode);
-> +	DC_FP_END();
-> +
-> +	return ret;
-> +}
-> +
->  static struct resource_funcs dcn36_res_pool_funcs = {
->  	.destroy = dcn36_destroy_resource_pool,
->  	.link_enc_create = dcn35_link_encoder_create,
-> @@ -1744,7 +1758,7 @@ static struct resource_funcs dcn36_res_pool_funcs = {
->  	.validate_bandwidth = dcn35_validate_bandwidth,
->  	.calculate_wm_and_dlg = NULL,
->  	.update_soc_for_wm_a = dcn31_update_soc_for_wm_a,
-> -	.populate_dml_pipes = dcn35_populate_dml_pipes_from_context_fpu,
-> +	.populate_dml_pipes = populate_dml_pipes_from_context_fpu,
->  	.acquire_free_pipe_as_secondary_dpp_pipe = dcn20_acquire_free_pipe_for_layer,
->  	.release_pipe = dcn20_release_pipe,
->  	.add_stream_to_ctx = dcn30_add_stream_to_ctx,
-
+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
+H0K0rs+X8O45xZIUJlxzf5UZex3BLi1f/H+08rSQULWEtO/ECwkFod2DIzSX7fZdz5RQ1PpziEOp
+goo/JZPYIeCmgt3rIyvMuupj8Ymb0J/velhpXfQuYUM52viw2nmqVcxCwBqyM3Iq7eI4xtEOFRmR
+wxSizd3MSQMf6GCHA4/B/6ttnxhGAr3utaOU+x/RnzG0gPLTW1XRAQ0+GVc/tGFdI864OG1cyrRl
+GvBnHJQSAFOIKwYrUk2oFpgMbafQ6osCAwEAAaOCAdswggHXMA4GA1UdDwEB/wQEAwIFoDAMBgNV
+HRMBAf8EAjAAMIGTBggrBgEFBQcBAQSBhjCBgzBGBggrBgEFBQcwAoY6aHR0cDovL3NlY3VyZS5n
+bG9iYWxzaWduLmNvbS9jYWNlcnQvZ3NnY2NyNnNtaW1lY2EyMDIzLmNydDA5BggrBgEFBQcwAYYt
+aHR0cDovL29jc3AuZ2xvYmFsc2lnbi5jb20vZ3NnY2NyNnNtaW1lY2EyMDIzMGUGA1UdIAReMFww
+CQYHZ4EMAQUDAzALBgkrBgEEAaAyASgwQgYKKwYBBAGgMgoDAjA0MDIGCCsGAQUFBwIBFiZodHRw
+czovL3d3dy5nbG9iYWxzaWduLmNvbS9yZXBvc2l0b3J5LzBBBgNVHR8EOjA4MDagNKAyhjBodHRw
+Oi8vY3JsLmdsb2JhbHNpZ24uY29tL2dzZ2NjcjZzbWltZWNhMjAyMy5jcmwwIgYDVR0RBBswGYEX
+a2FtYWwuZGFzdUBicm9hZGNvbS5jb20wEwYDVR0lBAwwCgYIKwYBBQUHAwQwHwYDVR0jBBgwFoAU
+ACk2nlx6ug+vLVAt26AjhRiwoJIwHQYDVR0OBBYEFOV9h+N/T9ZsJ40qRxh7NYYD+N6MMA0GCSqG
+SIb3DQEBCwUAA4ICAQAKtKh30wv1/30230mCimgUjMWQE/LImRmyfDgrp2IhBVS6mDun+wH8thEB
+WhBHQMz3gsGixU4ZBJG72eWi39IzQ7CGnisJwA0+hsGaGg03AVtFtqo1rXYRZ81MEDOb6BPYLigJ
+RsHbNmrUGR+LsGeUwOWUeRXqBrYaYFrkgHKvVK1NEewv+vUY08n4tsezO3jq0HKhVDY46bMbf8vL
+oQqqhtcQvu2+5FK2jpUayeubpzPwobjEG61RIhBvM0KivY4CB2s9A7qgjL1XBycAybIvG03BbFoT
+t282FqXwk9JU6YihLlt+hpzO9UF7E8GZYlQlVIZOLOvytqilhua+2h77Yy8Jz/FJyIXKuaLPtvb2
+SC2shL7jF28kQbP3QUKwAig+cxwbpngnUkd9D9cXSHVq9PPwYm0A4eAO0YQ/80Uq20+gXF++g0sy
+NKrrV3i0T1dbCd86miGDKvarGzjh7pdsdwNY15liGP6Orib1tnWkJcbtP1rJty4r/mbbxcK8ILO4
+IvTGFG6BfjJ+La0aRt69i1fQmjUWHLwzkLNpw9cJH8/MONZcEJeDkq9WELSyy29bagStk5KHu7NO
+TH65sZg+i/4qmj3DEeEGTr/Shzp4YWSNn4W7NEelr0VgDlwa7xqlwZjXxG4MIJqy0SsQlAwEXtqd
+nH2FpJfzgAetkuyU6DGCAlcwggJTAgEBMGIwUjELMAkGA1UEBhMCQkUxGTAXBgNVBAoTEEdsb2Jh
+bFNpZ24gbnYtc2ExKDAmBgNVBAMTH0dsb2JhbFNpZ24gR0NDIFI2IFNNSU1FIENBIDIwMjMCDEca
+ZUGCu6d0oT1M+zANBglghkgBZQMEAgEFAKCBxzAvBgkqhkiG9w0BCQQxIgQgTZEmvZl17glf1scg
+9VzoMaGwDk6nR0huErZT4zh/qtwwGAYJKoZIhvcNAQkDMQsGCSqGSIb3DQEHATAcBgkqhkiG9w0B
+CQUxDxcNMjUxMDA2MTgyNTQ1WjBcBgkqhkiG9w0BCQ8xTzBNMAsGCWCGSAFlAwQBKjALBglghkgB
+ZQMEARYwCwYJYIZIAWUDBAECMAoGCCqGSIb3DQMHMAsGCSqGSIb3DQEBBzALBglghkgBZQMEAgEw
+DQYJKoZIhvcNAQEBBQAEggEASMndznfIczNjsu8ZBYrniekr2vq3FdDib+N0eTed1FAORfOpkDZS
+U+uC0PWwZogARysVlZJ0jS77XKshWhfeNnDKHtiZ+Gr2HkaXiry7AuO/YtUI7UeiaViWER46DV5n
+A9oiudwTTHa9TEd95rH/onHV6zJxyeqb+8V2EditxBBG6HUPht25dGHS3hAIM99wol8Y4LNOcMMj
+EqrIfE8lrVjfdC9bkOfMy9jnsxSocfIJEJ647WpijVa66zlqk/5fSSEu+QdYQKj9fMoPxlnAQpGE
+2PECAlogYgT+JeXFIvEJee7Vgk4hjlmGhmzr0yVPxmVvou6Qw5o4A0JNvmnbFQ==
+--0000000000006ab8d00640819463--
 
