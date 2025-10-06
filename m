@@ -4,62 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77723CCA471
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 15:00:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3716BCCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 15:01:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=wUV1zhKel1DKRfOjCbA7sNtjeeARZvSLR3bme+beO9I=; b=gQsoSR/onv5/4fIHwQ9B2KkYzC
-	plx9zOU8T5qCJ0XTf/RORehyyKfrg2xFf0Od9eFbiQnuLG5tFIvID4bcL5fSJmPSOu+kMs91kJoEl
-	xpPSdH1wd9mvxFAfmoZ0RTy9l/P7eSd5JtrLqWLveCP9+R2me+CvePheH9uorsIGA8C2TBP8+yBSJ
-	9O4V325BMXi8vCpGjwnjGAf4lR33wbyW81a0c6gEEBQYNqcSB2lKktNc43amWuS0KUIlf+k/JGg1w
-	fDIE1S0iNogl+KBstr0L9v0PxEPkf8aMUF5dRFTpMZNjHrEAwfGPgyYxhchkL5OrMXzxHvedCCx5H
-	g7oYAa7w==;
+	bh=PGcuv8Yd9q2uyY+aUlzCadaLNPcWn0GaF5PiA+ShlYI=; b=YQi9Y5uA0vrc6ySC1oeg68x1KJ
+	zWG79tRyqmUqgcyqSSuJAeudxxaVt8p24ohyMKqHCiCRnPV0ZJUgw3f6FFW01e5RRzCYYYxr4Komq
+	aNeu9CeDiY4yYAbHjltRDXD1uSFkQRyePWvPSd4Euq1u1PEYSr0NW5gxN80YwC8+MS+0D/mlabiXT
+	/rblzuNALaVs6LLgoRldp7kPctOmWOwhmHmaQElXtgDtlChASMpm9cLGEcK6gG2h1KB/aImeE+7Aa
+	iW4hgchGoNaYScv8DygrGtzlxyTb7eoYrTctixc/ztvBDNLZhvUKed3NQl8hl00aWWlDGGX0LV4qI
+	rjQANneQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5mhH-00000000EvU-1CHa;
-	Mon, 06 Oct 2025 15:00:19 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1v5mi0-00000000FA8-1Ljl;
+	Mon, 06 Oct 2025 15:01:04 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5mh5-00000000Elt-2ocf;
-	Mon, 06 Oct 2025 15:00:09 +0000
-Received: from ideasonboard.com (93-61-96-190.ip145.fastwebnet.it [93.61.96.190])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id E9D60B0B;
-	Mon,  6 Oct 2025 16:58:32 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1759762713;
-	bh=46J1PPuvG8Gm4UhljYx+4lHnM1HtO2zBmP19JPtdw1w=;
+	id 1v5mhz-00000000F9y-0jdT
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 06 Oct 2025 15:01:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 8A1586053F;
+	Mon,  6 Oct 2025 15:01:02 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6E92EC4CEF5;
+	Mon,  6 Oct 2025 15:00:59 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759762862;
+	bh=PRg9QTHdBIQ2drBq4Jauhpal3A3q0Xroku6xft7iOEk=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ZA12634j1YDlCN2699XCLG6/lYx3E4/ky/Dg5EjoUFUzUhcFY+FFsrU5AwJiNbSY/
-	 JN9vTldoYXYHVNQriyjbGMLezz9SzseCYP3LLprkeDyChfbdCxGU1RXGC46TNDkexN
-	 E6RpMpvksUf91TjfS1uH/PejWam914fcy+0UzEYI=
-Date: Mon, 6 Oct 2025 17:00:02 +0200
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>, 
-	Dafna Hirschfeld <dafna@fastmail.com>, Keke Li <keke.li@amlogic.com>, 
-	Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, 
-	Dan Scally <dan.scally@ideasonboard.com>, Sakari Ailus <sakari.ailus@linux.intel.com>, 
-	Antoine Bouyer <antoine.bouyer@nxp.com>, linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
-	linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org
-Subject: Re: [PATCH v5 5/8] media: v4l2-core: Introduce v4l2-isp.c
-Message-ID: <oxdz45eeadwm3ok5cddqbgshj4xlnllm6qvtajnbr4lbcpj7eh@h3ysovvnrjbw>
-References: <20250915-extensible-parameters-validation-v5-0-e6db94468af3@ideasonboard.com>
- <20250915-extensible-parameters-validation-v5-5-e6db94468af3@ideasonboard.com>
- <20251006004741.GA29231@pendragon.ideasonboard.com>
- <20251006010806.GB3305@pendragon.ideasonboard.com>
- <ylea2fwhdzpo6fqkgk4g5frlriiawd5lyn6vjbghcmswfmy7hq@j7jksyyjkzkb>
- <20251006145146.GG5944@pendragon.ideasonboard.com>
+	b=ghD8fpiZsoXXJu9uoHHp6SN+bVL1Vz+pFOosG1v3TxPaC8aN6TsjsZXQA/60mCtJ6
+	 XEcwlIVFTjDI/+5DzteTNePKVXs0L3MRU/dEYfN80EVa2uj85p9Pu0yX5vDS3NhnpX
+	 9txbpPWiJ1HBrN15Xi8AYwUi0Q7spUqFcG/j7kqctqPSx1Of8MHdENllihszCYIPPT
+	 3zEsxeu34QItDPb+izcWyc3wl375PUQcDQdFHREDx4Io84ucrxRYK6477xv3IYLMJh
+	 /XZjjkC54p/EytjpOioxbPtpMF+Zykm+GPVpW/kTNSU64CX6jSOOcmgLAPmSVUAaCz
+	 n2a8WrmSGTCIA==
+Date: Mon, 6 Oct 2025 17:00:56 +0200
+From: Lorenzo Pieralisi <lpieralisi@kernel.org>
+To: Catalin Marinas <catalin.marinas@arm.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	Sascha Bischoff <sascha.bischoff@arm.com>,
+	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>
+Subject: Re: [PATCH] irqchip/gic-v5: Fix GIC CDEOI instruction encoding
+Message-ID: <aOPZqM2xGIrPJH/d@lpieralisi>
+References: <20251006100758.624934-1-lpieralisi@kernel.org>
+ <aOPEXEx-QRv7v9A5@arm.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251006145146.GG5944@pendragon.ideasonboard.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_080008_006736_274EE5D3 
-X-CRM114-Status: GOOD (  61.38  )
+In-Reply-To: <aOPEXEx-QRv7v9A5@arm.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,383 +71,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 06, 2025 at 05:51:46PM +0300, Laurent Pinchart wrote:
-> On Mon, Oct 06, 2025 at 12:28:01PM +0200, Jacopo Mondi wrote:
-> > On Mon, Oct 06, 2025 at 04:08:06AM +0300, Laurent Pinchart wrote:
-> > > On Mon, Oct 06, 2025 at 03:47:43AM +0300, Laurent Pinchart wrote:
-> > > > On Mon, Sep 15, 2025 at 07:18:14PM +0200, Jacopo Mondi wrote:
-> > > > > Add to the v4l2 framework helper functions to support drivers
-> > > >
-> > > > s/v4l2/V4L2/
-> > > >
-> > > > > when validating a buffer of extensible ISP parameters.
-> > > > >
-> > > > > Introduce new types in include/media/v4l2-isp.h that drivers shall use
-> > > > > in order to comply with the generic ISP parameters validation procedure,
-> > > > > and add helper functionss to v4l2-isp.c to perform blocks and buffer
-> > > > > validation.
-> > > > >
-> > > > > Reviewed-by: Daniel Scally <dan.scally@ideasonboard.com>
-> > > > > Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> > > > > ---
-> > > > >  MAINTAINERS                        |   2 +
-> > > > >  drivers/media/v4l2-core/Kconfig    |   4 ++
-> > > > >  drivers/media/v4l2-core/Makefile   |   1 +
-> > > > >  drivers/media/v4l2-core/v4l2-isp.c | 108 +++++++++++++++++++++++++++++++++++++
-> > > > >  include/media/v4l2-isp.h           | 100 ++++++++++++++++++++++++++++++++++
-> > > > >  5 files changed, 215 insertions(+)
-> > > > >
-> > > > > diff --git a/MAINTAINERS b/MAINTAINERS
-> > > > > index abba872cb63f1430a49a2afbace4b9f9958c3991..5e0e4208ebe6c58a9ea0834e1ebb36abd2de06e1 100644
-> > > > > --- a/MAINTAINERS
-> > > > > +++ b/MAINTAINERS
-> > > > > @@ -26415,6 +26415,8 @@ M:	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> > > > >  L:	linux-media@vger.kernel.org
-> > > > >  S:	Maintained
-> > > > >  F:	Documentation/userspace-api/media/v4l/extensible-parameters.rst
-> > > > > +F:	drivers/media/v4l2-core/v4l2-isp.c
-> > > > > +F:	include/media/v4l2-isp.h
-> > > > >  F:	include/uapi/linux/media/v4l2-isp.h
-> > > > >
-> > > > >  VF610 NAND DRIVER
-> > > > > diff --git a/drivers/media/v4l2-core/Kconfig b/drivers/media/v4l2-core/Kconfig
-> > > > > index 331b8e535e5bbf33f22638b2ae8bc764ad5fc407..d50ccac9733cc39a43426ae7e7996dd0b5b45186 100644
-> > > > > --- a/drivers/media/v4l2-core/Kconfig
-> > > > > +++ b/drivers/media/v4l2-core/Kconfig
-> > > > > @@ -82,3 +82,7 @@ config V4L2_CCI_I2C
-> > > > >  	depends on I2C
-> > > > >  	select REGMAP_I2C
-> > > > >  	select V4L2_CCI
-> > > > > +
-> > > > > +config V4L2_ISP
-> > > > > +	tristate
-> > > > > +	depends on VIDEOBUF2_CORE
-> > > > > diff --git a/drivers/media/v4l2-core/Makefile b/drivers/media/v4l2-core/Makefile
-> > > > > index 2177b9d63a8ffc1127c5a70118249a2ff63cd759..329f0eadce994cc1c8580beb435f68fa7e2a7aeb 100644
-> > > > > --- a/drivers/media/v4l2-core/Makefile
-> > > > > +++ b/drivers/media/v4l2-core/Makefile
-> > > > > @@ -29,6 +29,7 @@ obj-$(CONFIG_V4L2_CCI) += v4l2-cci.o
-> > > > >  obj-$(CONFIG_V4L2_FLASH_LED_CLASS) += v4l2-flash-led-class.o
-> > > > >  obj-$(CONFIG_V4L2_FWNODE) += v4l2-fwnode.o
-> > > > >  obj-$(CONFIG_V4L2_H264) += v4l2-h264.o
-> > > > > +obj-$(CONFIG_V4L2_ISP) += v4l2-isp.o
-> > > > >  obj-$(CONFIG_V4L2_JPEG_HELPER) += v4l2-jpeg.o
-> > > > >  obj-$(CONFIG_V4L2_MEM2MEM_DEV) += v4l2-mem2mem.o
-> > > > >  obj-$(CONFIG_V4L2_VP9) += v4l2-vp9.o
-> > > > > diff --git a/drivers/media/v4l2-core/v4l2-isp.c b/drivers/media/v4l2-core/v4l2-isp.c
-> > > > > new file mode 100644
-> > > > > index 0000000000000000000000000000000000000000..e350bdaf53b5502e1ec2a4989c20df1100ab2d2a
-> > > > > --- /dev/null
-> > > > > +++ b/drivers/media/v4l2-core/v4l2-isp.c
-> > > > > @@ -0,0 +1,108 @@
-> > > > > +// SPDX-License-Identifier: GPL-2.0-or-later
-> > > > > +/*
-> > > > > + * Video4Linux2 generic ISP parameters and statistics support
-> > > > > + *
-> > > > > + * Copyright (C) 2025 Ideas On Board Oy
-> > > > > + * Author: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> > > > > + */
-> > > > > +
-> > > > > +#include <linux/bitops.h>
-> > > > > +#include <linux/device.h>
-> > > > > +
-> > > > > +#include <media/videobuf2-core.h>
-> > > > > +#include <media/v4l2-isp.h>
-> > > >
-> > > > v4l2-isp goes first.
-> > > >
-> > > > > +
-> > > > > +int v4l2_params_buffer_validate(struct device *dev, struct vb2_buffer *vb,
-> > > > > +				size_t max_size)
-> > > > > +{
-> > > > > +	size_t header_size = offsetof(struct v4l2_params_buffer, data);
-> > > > > +	struct v4l2_params_buffer *buffer = vb2_plane_vaddr(vb, 0);
-> > > > > +	size_t payload_size = vb2_get_plane_payload(vb, 0);
-> > > > > +	size_t buffer_size;
-> > > > > +
-> > > > > +	/* Payload size can't be greater than the destination buffer size */
-> > > > > +	if (payload_size > max_size) {
-> > > > > +		dev_dbg(dev, "Payload size is too large: %zu\n", payload_size);
-> > > > > +		return -EINVAL;
-> > > > > +	}
-> > > > > +
-> > > > > +	/* Payload size can't be smaller than the header size */
-> > > > > +	if (payload_size < header_size) {
-> > > > > +		dev_dbg(dev, "Payload size is too small: %zu\n", payload_size);
-> > > > > +		return -EINVAL;
-> > > > > +	}
-> > > > > +
-> > > > > +	/* Validate the size reported in the parameter buffer header */
-> > > > > +	buffer_size = header_size + buffer->data_size;
-> > > > > +	if (buffer_size != payload_size) {
-> > > > > +		dev_dbg(dev, "Data size %zu and payload size %zu are different\n",
-> > > > > +			buffer_size, payload_size);
-> > > > > +		return -EINVAL;
-> > > > > +	}
-> > > >
-> > > > This check needs to go to v4l2_params_blocks_validate() as it has to be
-> > > > performed on the data after copying.
-> > > >
-> >
-> > I'm not sure. The aim of pre-validation (if we want to call it in this
-> > way) is to check the correctness of the userspace provided buffer, and
-> > the function as its main argument the vb2 buffer pointer for this
-> > reason.
-> >
-> > Isn't it important to check that the sizes are correct before doing a
-> > mem copy ?
->
-> This check reads buffer->data_size. It can be modified by userspace
-> after the check and before doing the copy, which will lead to an invalid
-> value being used in v4l2_params_blocks_validate(). Pre-copy validation
-> can't use anything from within the buffer.
+On Mon, Oct 06, 2025 at 02:30:04PM +0100, Catalin Marinas wrote:
+> On Mon, Oct 06, 2025 at 12:07:58PM +0200, Lorenzo Pieralisi wrote:
+> > diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+> > index 6455db1b54fd..6cf8c46ddde5 100644
+> > --- a/arch/arm64/include/asm/sysreg.h
+> > +++ b/arch/arm64/include/asm/sysreg.h
+> > @@ -113,14 +113,14 @@
+> >  /* Register-based PAN access, for save/restore purposes */
+> >  #define SYS_PSTATE_PAN			sys_reg(3, 0, 4, 2, 3)
+> >  
+> > -#define __SYS_BARRIER_INSN(op0, op1, CRn, CRm, op2, Rt)			\
+> > +#define __SYS_INSN(op0, op1, CRn, CRm, op2, Rt)				\
+> >  	__emit_inst(0xd5000000					|	\
+> >  		    sys_insn((op0), (op1), (CRn), (CRm), (op2))	|	\
+> >  		    ((Rt) & 0x1f))
+> >  
+> > -#define SB_BARRIER_INSN			__SYS_BARRIER_INSN(0, 3, 3, 0, 7, 31)
+> > -#define GSB_SYS_BARRIER_INSN		__SYS_BARRIER_INSN(1, 0, 12, 0, 0, 31)
+> > -#define GSB_ACK_BARRIER_INSN		__SYS_BARRIER_INSN(1, 0, 12, 0, 1, 31)
+> > +#define SB_BARRIER_INSN			__SYS_INSN(0, 3, 3, 0, 7, 31)
+> > +#define GSB_SYS_BARRIER_INSN		__SYS_INSN(1, 0, 12, 0, 0, 31)
+> > +#define GSB_ACK_BARRIER_INSN		__SYS_INSN(1, 0, 12, 0, 1, 31)
+> >  
+> >  /* Data cache zero operations */
+> >  #define SYS_DC_ISW			sys_insn(1, 0, 7, 6, 2)
+> > @@ -1075,7 +1075,6 @@
+> >  #define GICV5_OP_GIC_CDDIS		sys_insn(1, 0, 12, 1, 0)
+> >  #define GICV5_OP_GIC_CDHM		sys_insn(1, 0, 12, 2, 1)
+> >  #define GICV5_OP_GIC_CDEN		sys_insn(1, 0, 12, 1, 1)
+> > -#define GICV5_OP_GIC_CDEOI		sys_insn(1, 0, 12, 1, 7)
+> >  #define GICV5_OP_GIC_CDPEND		sys_insn(1, 0, 12, 1, 4)
+> >  #define GICV5_OP_GIC_CDPRI		sys_insn(1, 0, 12, 1, 2)
+> >  #define GICV5_OP_GIC_CDRCFG		sys_insn(1, 0, 12, 1, 5)
+> > @@ -1129,6 +1128,17 @@
+> >  #define gicr_insn(insn)			read_sysreg_s(GICV5_OP_GICR_##insn)
+> >  #define gic_insn(v, insn)		write_sysreg_s(v, GICV5_OP_GIC_##insn)
+> >  
+> > +/*
+> > + * GIC CDEOI encoding requires Rt to be 0b11111.
+> > + * gic_insn() with an immediate value of 0 cannot be used to encode it
+> > + * because some compilers do not follow asm inline constraints in
+> > + * write_sysreg_s() to turn an immediate 0 value into an XZR as
+> > + * MSR source register.
+> > + * Use __SYS_INSN to specify its precise encoding explicitly.
+> > + */
+> > +#define GICV5_CDEOI_INSN		__SYS_INSN(1, 0, 12, 1, 7, 31)
+> > +#define gic_cdeoi()			asm volatile(GICV5_CDEOI_INSN)
+> 
+> Would something like this work? Completely untested (and build still
+> going):
 
-The helper is intended to be called in the .buf_prepare callback,
-which is in the QBUF ioctl call path. Is there a window where
-userspace could modify the buffer during the ioctl call ?
+I tested the GIC CDEOI code generated with GCC/LLVM and it works.
 
->
-> > > > > +
-> > > > > +	return 0;
-> > > > > +}
-> > > > > +EXPORT_SYMBOL_GPL(v4l2_params_buffer_validate);
-> > > > > +
-> > > > > +int v4l2_params_blocks_validate(struct device *dev,
-> > > > > +				const struct v4l2_params_buffer *buffer,
-> > > > > +				const struct v4l2_params_handler *handlers,
-> > > > > +				size_t num_handlers)
-> >
-> > While the actual "validation" checks the content of v4l2_params_buffer
-> > after it has been copied to a kernel-only memory location. If I would
-> > have to check its size I would have to receive here the vb2 buffer size
-> > as argument (which the drivers should have just used as argument to
-> > the memcpy). It feels a bit mixing two things (that's also why I liked
-> > having a 'buffer validate' and a 'blocks validate' function, but I
-> > won't argue)
-> >
+My only remark there is that even as the code in mainline stands with
+GCC, it is not very clear that we rely on implicit XZR generation to
+make sure the instruction encoding generated is correct - it looks
+like a bit of a stretch to reuse a sysreg write with immediate value == 0
+to generate a system instruction write with Rt == 0b11111, it works
+but it is a bit opaque or at least not straighforward to grok.
 
-Could you provide then the design for a nice interface where the vb2
-buffer size can be passed to this function if validation of the vb2
-buffer size should be moved here ?
+Obviously the patch below improves LLVM code generation too in the process.
 
-> > > > > +{
-> > > > > +	size_t block_offset = 0;
-> > > > > +	size_t buffer_size;
-> > > > > +
-> > > > > +	/* Walk the list of parameter blocks and validate them. */
-> > > > > +	buffer_size = buffer->data_size;
-> > > > > +	while (buffer_size >= sizeof(struct v4l2_params_block_header)) {
-> > > > > +		const struct v4l2_params_handler *handler;
-> > > > > +		const struct v4l2_params_block_header *block;
-> > > > > +
-> > > > > +		/* Validate block sizes and types against the handlers. */
-> > > > > +		block = (const struct v4l2_params_block_header *)
-> > > > > +			(buffer->data + block_offset);
-> > > > > +
-> > > > > +		if (block->type >= num_handlers) {
-> > > > > +			dev_dbg(dev, "Invalid parameters block type\n");
-> > > >
-> > > > I'd print the type and offset in the message to ease debugging.
-> > > >
-> > > > > +			return -EINVAL;
-> > > > > +		}
-> > > > > +
-> > > > > +		if (block->size > buffer_size) {
-> > > > > +			dev_dbg(dev, "Premature end of parameters data\n");
-> > > > > +			return -EINVAL;
-> > > > > +		}
-> > > > > +
-> > > > > +		/* It's invalid to specify both ENABLE and DISABLE. */
-> > > > > +		if ((block->flags & (V4L2_PARAMS_FL_BLOCK_ENABLE |
-> > > > > +				     V4L2_PARAMS_FL_BLOCK_DISABLE)) ==
-> > > > > +		     (V4L2_PARAMS_FL_BLOCK_ENABLE |
-> > > > > +		     V4L2_PARAMS_FL_BLOCK_DISABLE)) {
-> > > > > +			dev_dbg(dev, "Invalid parameters block flags\n");
-> > > >
-> > > > Same here (print the flags and offset).
-> > > >
-> > > > > +			return -EINVAL;
-> > > > > +		}
-> > > > > +
-> > > > > +		/*
-> > > > > +		 * Match the block reported size against the handler's expected
-> > > > > +		 * one, but allow the block to only contain the header in
-> > > > > +		 * case it is going to be disabled.
-> > > > > +		 */
-> > > > > +		handler = &handlers[block->type];
-> > > > > +		if (block->size != handler->size &&
-> > > > > +		    (!(block->flags & V4L2_PARAMS_FL_BLOCK_DISABLE) ||
-> > > > > +		    block->size != sizeof(*block))) {
-> > > > > +			dev_dbg(dev, "Invalid parameters block size\n");
-> > > >
-> > > > And here too (print the size and offset).
-> > > >
-> > > > > +			return -EINVAL;
-> > > > > +		}
-> > > > > +
-> > > > > +		block_offset += block->size;
-> > > > > +		buffer_size -= block->size;
-> > > > > +	}
-> > > > > +
-> > > > > +	if (buffer_size) {
-> > > > > +		dev_dbg(dev, "Unexpected data after the parameters buffer end\n");
-> > > > > +		return -EINVAL;
-> > > > > +	}
-> > > > > +
-> > > > > +	return 0;
-> > > > > +}
-> > > > > +EXPORT_SYMBOL_GPL(v4l2_params_blocks_validate);
-> > > > > diff --git a/include/media/v4l2-isp.h b/include/media/v4l2-isp.h
-> > > > > new file mode 100644
-> > > > > index 0000000000000000000000000000000000000000..2ad62c6169eef3d0fb8d245de56cc6bd7e6227e4
-> > > > > --- /dev/null
-> > > > > +++ b/include/media/v4l2-isp.h
-> > > > > @@ -0,0 +1,100 @@
-> > > > > +/* SPDX-License-Identifier: GPL-2.0-or-later */
-> > > > > +/*
-> > > > > + * Video4Linux2 generic ISP parameters and statistics support
-> > > > > + *
-> > > > > + * Copyright (C) 2025 Ideas On Board Oy
-> > > > > + * Author: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> > > > > + */
-> > > > > +
-> > > > > +#ifndef V4L2_PARAMS_H_
-> > > > > +#define V4L2_PARAMS_H_
-> > > >
-> > > > V4L2_ISP_H_
-> > > >
-> > > > > +
-> > > > > +#include <linux/media/v4l2-isp.h>
-> > > > > +
-> > > > > +struct device;
-> > > > > +struct vb2_buffer;
-> > > > > +
-> > > > > +/**
-> > > > > + * typedef v4l2_params_block_handler - V4L2 extensible format block handler
-> > > >
-> > > > As commented on 1/8, let's use the v4l2_isp_ prefix.
-> > > >
-> > > > > + * @arg: pointer the driver-specific argument
-> > > > > + * @block: the ISP configuration block to handle
-> > > > > + *
-> > > > > + * Defines the function signature of the functions that handle an ISP block
-> > > > > + * configuration.
-> > > > > + */
-> > > > > +typedef void (*v4l2_params_block_handler)(void *arg,
-> > > > > +					  const struct v4l2_params_block_header *block);
-> > > > > +
-> > > > > +/**
-> > > > > + * struct v4l2_params_handler - V4L2 extensible format handler
-> > > > > + * @size: the block expected size
-> > > > > + * @handler: the block handler function
-> > > > > + *
-> > > > > + * The v4l2_params_handler defines the type that driver making use of the
-> > > > > + * V4L2 extensible parameters shall use to define their own ISP block
-> > > > > + * handlers.
-> > > > > + *
-> > > > > + * Drivers shall prepare a list of handlers, one for each supported ISP block
-> > > > > + * and correctly populate the structure's field with the expected block @size
-> > > > > + * (used for validation) and a pointer to each block @handler function.
-> > > > > + */
-> > > > > +struct v4l2_params_handler {
-> > > > > +	size_t size;
-> > > > > +	v4l2_params_block_handler handler;
-> > > > > +};
-> > > > > +
-> > > > > +/**
-> > > > > + * v4l2_params_buffer_validate - Validate a V4L2 extensible parameters buffer
-> > > >
-> > > > As this is the pre-copy validation, what would you think of calling the
-> > > > function v4l2_isp_params_pre_validate_buffer() ? The next function would
-> > > > be called v4l2_isp_params_validate_buffer(), as they're both about
-> > > > buffer validation. I'm also OK to keep the current names (with a
-> > > > v4l2_isp_ prefix).
-> > > >
-> > > > I'm also thinking that the copy could be moved to the helper, but it can
-> > > > be done later.
-> > > >
-> > > > > + * @dev: the driver's device pointer
-> > > > > + * @vb: the videobuf2 buffer
-> > > > > + * @max_size: the maximum allowed buffer size
-> > > > > + * @buffer_validate: callback to the driver-specific buffer validation
-> > > >
-> > > > You forgot to drop the documentation for this argument.
-> > > >
-> > > > > + *
-> > > > > + * Helper function that performs validation of an extensible parameters buffer.
-> > > > > + *
-> > > > > + * The helper is meant to be used by drivers to perform validation of the
-> > > > > + * extensible parameters buffer size correctness.
-> > > > > + *
-> > > > > + * The @vb buffer as received from the vb2 .buf_prepare() operation is checked
-> > > > > + * against @max_size and its validated to be large enough to accommodate at
-> > > > > + * least one ISP configuration block. The effective buffer size is compared
-> > > > > + * with the reported data size to make sure they match.
-> > > > > + *
-> > > > > + * Drivers should use this function to validate the buffer size correctness
-> > > > > + * before performing a copy of the user-provided videobuf2 buffer content into a
-> > > > > + * kernel-only memory buffer to prevent userspace from modifying the buffer
-> > > > > + * content after it has been submitted to the driver.
-> > > > > + */
-> > > > > +int v4l2_params_buffer_validate(struct device *dev, struct vb2_buffer *vb,
-> > > > > +				size_t max_size);
-> > > > > +
-> > > > > +/**
-> > > > > + * v4l2_params_blocks_validate - Validate V4L2 extensible parameters ISP
-> > > > > + *				 configuration blocks
-> > > > > + * @dev: the driver's device pointer
-> > > > > + * @buffer: the extensible parameters configuration buffer
-> > > > > + * @handlers: the list of block handlers
-> > > >
-> > > > array of block handlers
-> > > >
-> > > > > + * @num_handlers: the number of block handlers
-> > > > > + *
-> > > > > + * Helper function that performs validation of the ISP configuration blocks in
-> > > > > + * an extensible parameters buffer.
-> > > > > + *
-> > > > > + * The helper is meant to be used by drivers to perform validation of the
-> > > > > + * ISP configuration data blocks. For each block in the extensible parameters
-> > > > > + * buffer, its size and correctness are validated against its associated handler
-> > > > > + * in the @handlers list.
-> > > >
-> > > > You need to explain somewhere that the handlers array is indexed by
-> > > > block type.
-> > > >
-> > > > > + *
-> > > > > + * Drivers should use this function to validate the ISP configuration blocks
-> > > > > + * after having validated the correctness of the vb2 buffer sizes by using the
-> > > > > + * v4l2_params_buffer_validate() helper first. Once the buffer size has been
-> > > > > + * validated, drivers should perform a copy of the user-provided buffer into a
-> > > > > + * kernel-only memory buffer to prevent userspace from modifying the buffer
-> > > > > + * content after it has been submitted to the driver, and then call this
-> > > > > + * function to perform per-block validation.
-> > > >
-> > > > There's room for improvement in the documentation. I think it would be
-> > > > clearer if you explained the big picture in
-> > > > Documentation/userspace-api/media/v4l/extensible-parameters.rst
-> > >
-> > > My bad, that should be Documentation/driver-api/media/v4l2-isp.rst.
-> > >
-> > > > (pre-validation, copy and post-validation), and only focussed on what
-> > > > those two functions do in their kerneldoc. That can be done later,
-> > > > nothing that you say here is incorrect.
-> > > >
-> > > > With the other comments addressed,
-> > > >
-> > > > Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-> > > >
-> > > > > + */
-> > > > > +int v4l2_params_blocks_validate(struct device *dev,
-> > > > > +				const struct v4l2_params_buffer *buffer,
-> > > > > +				const struct v4l2_params_handler *handlers,
-> > > > > +				size_t num_handlers);
-> > > > > +
-> > > > > +#endif /* V4L2_PARAMS_H_ */
->
-> --
-> Regards,
->
-> Laurent Pinchart
->
+I don't know what's best - I admit I am on the fence on this one.
+
+Thanks !
+Lorenzo
+
+> diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
+> index 6604fd6f33f4..7aa962f7bdd6 100644
+> --- a/arch/arm64/include/asm/sysreg.h
+> +++ b/arch/arm64/include/asm/sysreg.h
+> @@ -1234,7 +1234,10 @@
+>  #define write_sysreg_s(v, r) do {					\
+>  	u64 __val = (u64)(v);						\
+>  	u32 __maybe_unused __check_r = (u32)(r);			\
+> -	asm volatile(__msr_s(r, "%x0") : : "rZ" (__val));		\
+> +	if (__builtin_constant_p(__val) && __val == 0)			\
+> +		asm volatile(__msr_s(r, "xzr"));			\
+> +	else								\
+> +		asm volatile(__msr_s(r, "%x0") : : "r" (__val));	\
+>  } while (0)
+>  
+>  /*
+> 
+> -- 
+> Catalin
 
