@@ -4,97 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B85CACAC5B8
-	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 09:51:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 16A7FCCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Mon,  6 Oct 2025 09:51:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ZrFYIzPuk9rtzNXWXOQAERqhNp/BdwtufnfrutqIGq8=; b=Pw8DfwshTpuu80KhnnG+9+NStI
-	sx4AAcQEWq2wzjG5O9/fhiTPjC2FGP1ohHXLx2t3I1dp9oxJvVg7BcxCaCukK0Zwo0QDThSze6RPd
-	UlwahOjpdiRmcQ+H80GBQj3M7dNhRnVh9S7uiSQGGJmf4Z+QoFyZ3NFhLXWvrmYJTo/oPaqY7307s
-	acTboLmEeZVekJRhrhW9zKDsAjGQu7VxYRroNbdMtZB5UoBEpON0zZ1VF6CAhYLSkjfpRNKsS4lbq
-	7g0EK8pZkGOuwaiael5d2fxEfpv6DS1JCoDLeHD98edr/QAHVxue/I6kc8CtkD29Mt7nR8T6yihLO
-	srvv4jqA==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=3LoxJfvu/olbsoAmGXdrEtyCV3WOgYZiqCl+aXGdZn0=; b=QNatGchnr+5ngEQpeDl7EZgyCO
+	Q3+YEeEWfcDGnR61XOpPM2MVQrznF7RywQUQaSSddiu7MrWVwzbyFg399wFIU6xc5l+qly1jUMEtG
+	8BsPkWWoJBW1o80GZQv+KhqD9S9fWyEFaPGFTXiIQ8TbFaB6PggEOrfAvcTltbMmsJaKG0nh8rL7a
+	lqB3JErRx81ulVNNsFN3N3JAfZR0W9FRK743i3cFZmNxlUI+Y0Xg42p+dcp6u8WjKqBq8FNqLp3TE
+	sJcC9M8k7HbKtHpz7TOFP/AZfnTdtPZ1yQkU7X82OiJXcUGsCPkpnF29w3qp+rm/DZjBIix6SUorn
+	KJJ5CVOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5hsK-0000000HH9c-3Q5h;
-	Mon, 06 Oct 2025 09:51:24 +0000
-Received: from mx-relay95-hz2.antispameurope.com ([94.100.136.195])
+	id 1v5hsc-0000000HHC7-0UhK;
+	Mon, 06 Oct 2025 09:51:42 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5hsF-0000000HH94-3ME8
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 06 Oct 2025 09:51:23 +0000
-ARC-Authentication-Results: i=1; mx-gate95-hz2.hornetsecurity.com 1; spf=pass
- reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
- smtp.mailfrom=ew.tq-group.com smtp.helo=smtp-out01-hz1.hornetsecurity.com;
- dmarc=pass header.from=ew.tq-group.com orig.disposition=pass
-ARC-Message-Signature: a=rsa-sha256;
- bh=ZrFYIzPuk9rtzNXWXOQAERqhNp/BdwtufnfrutqIGq8=; c=relaxed/relaxed;
- d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
- t=1759744266;
- b=BcCCDO6Yes0vPrdiuAnWbd5tbFPtbM0XjY1M7/SXV6ZvAHi0lygUrW0YsoTpK0GBkqzWhGpQ
- xtoNnS0t9po6dcyzpd+lZJ3/RlFJNSLD33o15f4Bie3D1bz/TmGTfzoxqpJ3op77MJUrIwcMaTK
- j/DNn3IBlD+OGGna7HUoFtzmLHQqyl/trl8EzdugPf2sFEQa7t6fwMatXFg6rnlmdyhQzkurZYW
- CC8QZfG0MYKHtrUOXSDkCoUXpNO00iEBAu83cExzG2+j6P0Ww1aK/acpsqW6nFOniKhPnM+zj9D
- vh2hX4uzcQUqS4i7IhKC+KUM0HWFgD0ER4WD7x3kK2bvw==
-ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
- t=1759744266;
- b=diGZZvLwrWDEr/EJmW9Q9xqs5TyLPSkGjyEt9ddML7EG8HKJK4MeRV56SnY+qbYMJeuUnIPS
- IdGBkO6V5mjc28z8jH1Vr7+s/ugd+WtC9WfqudaGSdkWzVT4rlKD3fOyFDiUuYq3MGvEUZKqoQf
- soHBT9zs+uRc6kU02FRlGpD+Md9auEntrSKm0Pi7AW5l0JVrgGbMkDxqss/5dkH/RpCz07ZGByi
- t1l0VdZqKp57tSGBVfDvghNNuThW62L7z8SPOyhXxWSodUNpLI8YFIQmtP3TxFgcxqe2qCCFtWa
- yNtyoggN0KVzjgdcFRNqksp3APIxbtcp3aplnnbsVKldA==
-Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay95-hz2.antispameurope.com;
- Mon, 06 Oct 2025 11:51:06 +0200
-Received: from schifferm-ubuntu.tq-net.de (host-82-135-125-110.customer.m-online.net [82.135.125.110])
-	(Authenticated sender: matthias.schiffer@ew.tq-group.com)
-	by smtp-out01-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 279CFA4070E;
-	Mon,  6 Oct 2025 11:50:57 +0200 (CEST)
-From: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-To: Nishanth Menon <nm@ti.com>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Tero Kristo <kristo@kernel.org>
-Cc: Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux@ew.tq-group.com,
-	Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
-Subject: [PATCH] arm64: dts: ti: k3-am642-tqma64xxl: add boot phase tags
-Date: Mon,  6 Oct 2025 11:50:36 +0200
-Message-ID: <20251006095036.16367-1-matthias.schiffer@ew.tq-group.com>
-X-Mailer: git-send-email 2.51.0
+	id 1v5hsZ-0000000HHBJ-2O2A;
+	Mon, 06 Oct 2025 09:51:40 +0000
+Received: from [192.168.0.43] (cpc141996-chfd3-2-0-cust928.12-3.cable.virginm.net [86.13.91.161])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 9EA771BD0;
+	Mon,  6 Oct 2025 11:50:03 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1759744204;
+	bh=rc5BG+lRGqgl0CMITKQv1aS/k3KNTpiV+niDCqcW8lk=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=R1pJmD7HmIavwGRkCYmlm6Jj2h9cE+VljC5kSBRzQyf0KlQfBWzuqf6oU2KyyFoOd
+	 Pga/mMnQJGesLVEivcrJseVIsmYFghq8Lcj4lDNxNS9WDz0aWUqWHTSjZkGkkDLG6g
+	 VKa69ykv/GNMKtFr2yJw8S866q2WOU1q27iBnj6g=
+Message-ID: <ecda9183-bd84-48fd-a1e0-e37b6dbacec6@ideasonboard.com>
+Date: Mon, 6 Oct 2025 10:51:33 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-cloud-security-sender: matthias.schiffer@ew.tq-group.com
-X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
-X-cloud-security-crypt: load encryption module
-X-cloud-security-Mailarchiv: E-Mail archived for: matthias.schiffer@ew.tq-group.com
-X-cloud-security-Mailarchivtype: outbound
-X-cloud-security-Virusscan: CLEAN
-X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay95-hz2.antispameurope.com with 4cgDzj62dxz2Dj9k
-X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
-X-cloud-security-Digest: a80b39d10b8b7722f74fa46e8949e3b1
-X-cloud-security: scantime:1.793
-DKIM-Signature: a=rsa-sha256;
- bh=ZrFYIzPuk9rtzNXWXOQAERqhNp/BdwtufnfrutqIGq8=; c=relaxed/relaxed;
- d=ew.tq-group.com;
- h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
- t=1759744266; v=1;
- b=EXYp671mMSb0rlBN9BU6a9v0UyandQjAWunB0F+zsk+gZjPL1nCruFKhQRvdA740Xqpt/7Cz
- mi/2DVTgQOEDoz67aoTuw9cFVIw0vRJWpE+3WUli0sUjucZd1L3pnB2IGXkthW+kd2RdmX1NkOk
- cv4yf3kcN+DWx/tf661ZSi6wnYOoIrCgkimKNPovAGQADCHvw4Mml6qn4yjGYWebV+bW0ifuP1Y
- 3X0c/46Yhqs4lrEnLCNCZV3Ox6gXi5bfXiRR4q8yrEi9wMRyB9rbxiIX9Qys2rv54dyaacFrcC9
- xZTQXSREvPzczjtqDSlWICa16kHssG7vwQJ55QzsWrvzg==
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 1/8] media: uapi: Introduce V4L2 generic ISP types
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+ Dafna Hirschfeld <dafna@fastmail.com>, Keke Li <keke.li@amlogic.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Antoine Bouyer <antoine.bouyer@nxp.com>, linux-kernel@vger.kernel.org,
+ linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org
+References: <20250915-extensible-parameters-validation-v5-0-e6db94468af3@ideasonboard.com>
+ <20250915-extensible-parameters-validation-v5-1-e6db94468af3@ideasonboard.com>
+ <20251005000602.GA13055@pendragon.ideasonboard.com>
+ <badf4971-0916-45f9-952c-09963c6cb19a@ideasonboard.com>
+ <20251006082751.GA16422@pendragon.ideasonboard.com>
+ <246ae834-3077-4e38-b419-5c8773139e65@ideasonboard.com>
+ <20251006090637.GA5944@pendragon.ideasonboard.com>
+Content-Language: en-US
+From: Dan Scally <dan.scally@ideasonboard.com>
+In-Reply-To: <20251006090637.GA5944@pendragon.ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_025120_219995_1FD8D4E9 
-X-CRM114-Status: GOOD (  12.98  )
+X-CRM114-CacheID: sfid-20251006_025139_759824_AAD20852 
+X-CRM114-Status: GOOD (  33.49  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,212 +78,241 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Similar to other AM64x-based boards, add boot phase tags to make the
-Device Trees usable for firmware/bootloaders without modification.
+Hi Laurent
 
-Supported boot devices are eMMC/SD card, SPI-NOR and USB (both mass
-storage and DFU). The I2C EEPROM is included to allow the firmware to
-select the correct RAM configuration for different TQMa64xxL variants.
+On 06/10/2025 10:06, Laurent Pinchart wrote:
+> On Mon, Oct 06, 2025 at 09:46:26AM +0100, Daniel Scally wrote:
+>> On 06/10/2025 09:27, Laurent Pinchart wrote:
+>>> On Mon, Oct 06, 2025 at 09:15:47AM +0100, Daniel Scally wrote:
+>>>> On 05/10/2025 01:06, Laurent Pinchart wrote:
+>>>>> On Mon, Sep 15, 2025 at 07:18:10PM +0200, Jacopo Mondi wrote:
+>>>>>> Introduce v4l2-isp.h in the Linux kernel uAPI.
+>>>>>>
+>>>>>> The header includes types for generic ISP configuration parameters
+>>>>>> and will be extended in future with support for generic ISP statistics
+>>>>>
+>>>>> s/in future/in the future/
+>>>>>
+>>>>> (and you can reflow the commit message)
+>>>>>
+>>>>>> formats.
+>>>>>>
+>>>>>> Generic ISP parameters support is provided by introducing two new
+>>>>>> types that represent an extensible and versioned buffer of ISP
+>>>>>> configuration parameters.
+>>>>>>
+>>>>>> The v4l2_params_block_header structure represents the header to be
+>>>>>> prepend to each ISP configuration block and the v4l2_params_buffer type
+>>>>>> represents the base type for the configuration parameters buffer.
+>>>>>
+>>>>> The second part of the sentence describes the same structure as the next
+>>>>> paragraph.
+>>>>>
+>>>>>> The v4l2_params_buffer represents the container for the ISP
+>>>>>> configuration data block. The generic type is defined with a 0-sized
+>>>>>> data member that the ISP driver implementations shall properly size
+>>>>>> according to their capabilities.
+>>>>>
+>>>>> This will be easier to understand if you describe v4l2_params_buffer
+>>>>> first.
+>>>>>
+>>>>> The commit message would benefit from being rewritten.
+>>>>>
+>>>>>> [Add v4l2_params_buffer_size()]
+>>>>>> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
+>>>>>> Reviewed-by: Daniel Scally <dan.scally@ideasonboard.com>
+>>>>>> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+>>>>>> ---
+>>>>>>     MAINTAINERS                         |   6 +++
+>>>>>>     include/uapi/linux/media/v4l2-isp.h | 100 ++++++++++++++++++++++++++++++++++++
+>>>>>>     2 files changed, 106 insertions(+)
+>>>>>>
+>>>>>> diff --git a/MAINTAINERS b/MAINTAINERS
+>>>>>> index ee8cb2db483f6a5e96b62b6f2edd05b1427b69f5..e82c3d0758d6033fe8fcd56ffde2c03c4319fd11 100644
+>>>>>> --- a/MAINTAINERS
+>>>>>> +++ b/MAINTAINERS
+>>>>>> @@ -26410,6 +26410,12 @@ F:	drivers/media/i2c/vd55g1.c
+>>>>>>     F:	drivers/media/i2c/vd56g3.c
+>>>>>>     F:	drivers/media/i2c/vgxy61.c
+>>>>>>     
+>>>>>> +V4L2 GENERIC ISP PARAMETERS AND STATISTIC FORMATS
+>>>>>> +M:	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+>>>>>> +L:	linux-media@vger.kernel.org
+>>>>>> +S:	Maintained
+>>>>>> +F:	include/uapi/linux/media/v4l2-isp.h
+>>>>>> +
+>>>>>>     VF610 NAND DRIVER
+>>>>>>     M:	Stefan Agner <stefan@agner.ch>
+>>>>>>     L:	linux-mtd@lists.infradead.org
+>>>>>> diff --git a/include/uapi/linux/media/v4l2-isp.h b/include/uapi/linux/media/v4l2-isp.h
+>>>>>> new file mode 100644
+>>>>>> index 0000000000000000000000000000000000000000..b838555dce2b290a14136ab09ea4d2dfdc95b26b
+>>>>>> --- /dev/null
+>>>>>> +++ b/include/uapi/linux/media/v4l2-isp.h
+>>>>>> @@ -0,0 +1,100 @@
+>>>>>> +/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
+>>>>>> +/*
+>>>>>> + * Video4Linux2 generic ISP parameters and statistics support
+>>>>>> + *
+>>>>>> + * Copyright (C) 2025 Ideas On Board Oy
+>>>>>> + * Author: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+>>>>>> + */
+>>>>>> +
+>>>>>> +#ifndef _UAPI_V4L2_ISP_H_
+>>>>>> +#define _UAPI_V4L2_ISP_H_
+>>>>>> +
+>>>>>> +#include <linux/stddef.h>
+>>>>>> +#include <linux/types.h>
+>>>>>> +
+>>>>>> +#define V4L2_PARAMS_FL_BLOCK_DISABLE	(1U << 0)
+>>>>>> +#define V4L2_PARAMS_FL_BLOCK_ENABLE	(1U << 1)
+>>>>>> +
+>>>>>> +/*
+>>>>>> + * Reserve the first 8 bits for V4L2_PARAMS_FL_* flag.
+>>>>>> + *
+>>>>>> + * Driver-specific flags should be defined as:
+>>>>>> + * #define PLATFORM_SPECIFIC_FLAG0     ((1U << V4L2_PARAMS_FL_DRIVER_FLAGS(0))
+>>>>>
+>>>>> s/PLATFORM/DRIVER/
+>>>>>
+>>>>>> + * #define PLATFORM_SPECIFIC_FLAG1     ((1U << V4L2_PARAMS_FL_DRIVER_FLAGS(1))
+>>>>>> + */
+>>>>>> +#define V4L2_PARAMS_FL_DRIVER_FLAGS(n)       ((n) + 8)
+>>>>>> +
+>>>>>> +/**
+>>>>>> + * struct v4l2_params_block_header - V4L2 extensible parameters block header
+>>>>>> + *
+>>>>>> + * This structure represents the common part of all the ISP configuration
+>>>>>> + * blocks. Each parameters block shall embed an instance of this structure type
+>>>>>> + * as its first member, followed by the block-specific configuration data. The
+>>>>>> + * driver inspects this common header to discern the block type and its size and
+>>>>>> + * properly handle the block content.
+>>>>>
+>>>>> The last sentence is not relevant for the UAPI.
+>>>>>
+>>>>>> + *
+>>>>>> + * The @type field is an ISP driver-specific value that identifies the block
+>>>>>> + * type. The @size field specifies the size of the parameters block.
+>>>>>> + *
+>>>>>> + * The @flags field is a bitmask of per-block flags V4L2_PARAMS_FL_* and
+>>>>>> + * driver-specific flags specified by the driver header.
+>>>>>> + *
+>>>>>> + * @type: The parameters block type (driver-specific)
+>>>>>> + * @flags: A bitmask of block flags (driver-specific)
+>>>>>> + * @size: Size (in bytes) of the parameters block, including this header
+>>>>>
+>>>>> I think the fields usually go right after the structure name, followed
+>>>>> by the rest of the documentation.
+>>>>>
+>>>>>> + */
+>>>>>> +struct v4l2_params_block_header {
+>>>>>> +	__u16 type;
+>>>>>> +	__u16 flags;
+>>>>>> +	__u32 size;
+>>>>>> +} __attribute__((aligned(8)));
+>>>>>> +
+>>>>>> +/**
+>>>>>> + * v4l2_params_buffer_size - Calculate size of v4l2_params_buffer for a platform
+>>>>>> + *
+>>>>>> + * Users of the v4l2 extensible parameters will have differing sized data arrays
+>>>>>> + * depending on their specific parameter buffers. Drivers and userspace will
+>>>>>> + * need to be able to calculate the appropriate size of the struct to
+>>>>>> + * accommodate all ISP configuration blocks provided by the platform.
+>>>>>> + * This macro provides a convenient tool for the calculation.
+>>>>>> + *
+>>>>>> + * @max_params_size: The total size of the ISP configuration blocks
+>>>>>> + */
+>>>>>> +#define v4l2_params_buffer_size(max_params_size) \
+>>>>>> +	(offsetof(struct v4l2_params_buffer, data) + (max_params_size))
+>>>>>
+>>>>> This isn't used in this series as far as I can tell, and neither is it
+>>>>> used in your libcamera implementation. I'd drop the macro (as well as
+>>>>> the mention in the commit message).
+>>>>
+>>>> This is because the rkisp1 and c3 ISP implementations are already merged with a custom parameters
+>>>> buffer struct defined at [1] and [2]. There the array size is set to the max size macro. This series
+>>>> just asserts that the header part is a size match for struct v4l2_params_buffer to guarantee
+>>>> compatibility, so throughout those drivers they can use sizeof(struct c3_isp_params_cfg) or the
+>>>> rkisp equivalent and it's fine.
+>>>>
+>>>> For new users that don't have a custom struct in their uAPI and are relying on struct
+>>>> v4l2_params_buffer we can't just do sizeof(), so the idea was for this to provide a canonical way
+>>>> for the size calculation to be done across both the kernel and userspace.
+>>>>
+>>>> If we decide that it's worth keeping but want a user in this series to justify its inclusion, it
+>>>> could be used in patches 2 and 3 - I'll reply to patch 2 in a second to indicate where.
+>>>
+>>> Will it be used by userspace too for the Mali C55, or only by the kernel
+>>
+>> I have used it in userspace too.
+> 
+> Any pointer to the code ?
 
-Signed-off-by: Matthias Schiffer <matthias.schiffer@ew.tq-group.com>
----
- .../dts/ti/k3-am642-tqma64xxl-mbax4xxl.dts     | 18 ++++++++++++++++++
- arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi | 12 ++++++++++++
- 2 files changed, 30 insertions(+)
+I didn't post my commits to adapt the mali-c55 IPA to the extensible parameters, but it's basically 
+the same as Jacopo's patch here: 
+https://lists.libcamera.org/pipermail/libcamera-devel/2025-October/053567.html
 
-diff --git a/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl-mbax4xxl.dts b/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl-mbax4xxl.dts
-index 8f64d6272b1ba..81e9e047281fd 100644
---- a/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl-mbax4xxl.dts
-+++ b/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl-mbax4xxl.dts
-@@ -167,6 +167,7 @@ reg_pwm_fan: regulator-pwm-fan {
- 	};
- 
- 	reg_sd: regulator-sd {
-+		bootph-all;
- 		compatible = "regulator-fixed";
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&main_mmc1_reg_pins>;
-@@ -245,6 +246,7 @@ icssg1_phy0c: ethernet-phy@c {
- 
- 
- &main_gpio0 {
-+	bootph-all;
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_gpio0_digital_pins>,
- 		    <&main_gpio0_hog_pins>;
-@@ -263,6 +265,7 @@ &main_gpio0 {
- };
- 
- &main_gpio1 {
-+	bootph-all;
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_gpio1_hog_pins>,
- 		    <&main_gpio1_pru_pins>;
-@@ -332,6 +335,7 @@ &main_spi0 {
- 
- /* UART/USB adapter port 1 */
- &main_uart0 {
-+	bootph-pre-ram;
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_uart0_pins>;
- 	status = "okay";
-@@ -492,11 +496,17 @@ &mcu_uart1 {
- };
- 
- &serdes_ln_ctrl {
-+	bootph-all;
- 	idle-states = <AM64_SERDES0_LANE0_USB>;
- };
- 
-+&serdes_refclk {
-+	bootph-all;
-+};
-+
- &serdes0 {
- 	serdes0_usb_link: phy@0 {
-+		bootph-all;
- 		reg = <0>;
- 		#phy-cells = <0>;
- 		resets = <&serdes_wiz0 1>;
-@@ -506,6 +516,7 @@ serdes0_usb_link: phy@0 {
- };
- 
- &sdhci1 {
-+	bootph-all;
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_mmc1_pins>;
- 	bus-width = <4>;
-@@ -524,6 +535,7 @@ adc {
- };
- 
- &usb0 {
-+	bootph-all;
- 	/*
- 	 * The CDNS USB driver currently doesn't support overcurrent GPIOs,
- 	 * so there is no overcurrent detection. The OC pin is configured
-@@ -538,6 +550,7 @@ &usb0 {
- };
- 
- &usbss0 {
-+	bootph-all;
- 	ti,vbus-divider;
- };
- 
-@@ -621,6 +634,7 @@ AM64X_IOPAD(0x00ac, PIN_INPUT, 7)
- 	};
- 
- 	main_gpio0_hog_pins: main-gpio0-hog-pins {
-+		bootph-all;
- 		pinctrl-single,pins = <
- 			/* (P19) GPMC0_CSn2.GPIO0_43 - MMC1_CTRL */
- 			AM64X_IOPAD(0x00b0, PIN_OUTPUT, 7)
-@@ -730,6 +744,7 @@ AM64X_IOPAD(0x0258, PIN_OUTPUT, 0)
- 	};
- 
- 	main_mmc1_pins: main-mmc1-pins {
-+		bootph-all;
- 		pinctrl-single,pins = <
- 			/* (J19) MMC1_CMD */
- 			AM64X_IOPAD(0x0294, PIN_INPUT, 0)
-@@ -751,6 +766,7 @@ AM64X_IOPAD(0x0290, PIN_INPUT, 0)
- 	};
- 
- 	main_mmc1_reg_pins: main-mmc1-reg-pins {
-+		bootph-all;
- 		pinctrl-single,pins = <
- 			/* (C13) SPI0_CS1.GPIO1_43 - MMC1_SD_EN */
- 			AM64X_IOPAD(0x020c, PIN_OUTPUT, 7)
-@@ -791,6 +807,7 @@ AM64X_IOPAD(0x026c, PIN_INPUT, 7)
- 	};
- 
- 	main_uart0_pins: main-uart0-pins {
-+		bootph-pre-ram;
- 		pinctrl-single,pins = <
- 			/* (D15) UART0_RXD */
- 			AM64X_IOPAD(0x0230, PIN_INPUT, 0)
-@@ -861,6 +878,7 @@ AM64X_IOPAD(0x0088, PIN_OUTPUT, 2)
- 	};
- 
- 	main_usb0_pins: main-usb0-pins {
-+		bootph-all;
- 		pinctrl-single,pins = <
- 			/* (E19) USB0_DRVVBUS */
- 			AM64X_IOPAD(0x02a8, PIN_OUTPUT, 0)
-diff --git a/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi b/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi
-index ff3b2e0b8dd45..a78297b9fa57e 100644
---- a/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi
-+++ b/arch/arm64/boot/dts/ti/k3-am642-tqma64xxl.dtsi
-@@ -14,6 +14,7 @@ aliases {
- 	};
- 
- 	memory@80000000 {
-+		bootph-pre-ram;
- 		device_type = "memory";
- 		/* 1G RAM - default variant */
- 		reg = <0x00000000 0x80000000 0x00000000 0x40000000>;
-@@ -54,7 +55,12 @@ reg_1v8: regulator-1v8 {
- 	};
- };
- 
-+&fss {
-+	bootph-all;
-+};
-+
- &main_i2c0 {
-+	bootph-pre-ram;
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&main_i2c0_pins>;
- 	clock-frequency = <400000>;
-@@ -67,6 +73,7 @@ tmp1075: temperature-sensor@4a {
- 	};
- 
- 	eeprom0: eeprom@50 {
-+		bootph-pre-ram;
- 		compatible = "st,24c02", "atmel,24c02";
- 		reg = <0x50>;
- 		vcc-supply = <&reg_1v8>;
-@@ -89,11 +96,13 @@ eeprom1: eeprom@54 {
- };
- 
- &ospi0 {
-+	bootph-all;
- 	status = "okay";
- 	pinctrl-names = "default";
- 	pinctrl-0 = <&ospi0_pins>;
- 
- 	flash@0 {
-+		bootph-all;
- 		compatible = "jedec,spi-nor";
- 		reg = <0>;
- 		spi-tx-bus-width = <8>;
-@@ -116,6 +125,7 @@ partitions {
- };
- 
- &sdhci0 {
-+	bootph-all;
- 	status = "okay";
- 	non-removable;
- 	disable-wp;
-@@ -126,6 +136,7 @@ &sdhci0 {
- 
- &main_pmx0 {
- 	main_i2c0_pins: main-i2c0-pins {
-+		bootph-pre-ram;
- 		pinctrl-single,pins = <
- 			/* (A18) I2C0_SCL */
- 			AM64X_IOPAD(0x0260, PIN_INPUT_PULLUP, 0)
-@@ -135,6 +146,7 @@ AM64X_IOPAD(0x0264, PIN_INPUT_PULLUP, 0)
- 	};
- 
- 	ospi0_pins: ospi0-pins {
-+		bootph-all;
- 		pinctrl-single,pins = <
- 			/* (N20) OSPI0_CLK */
- 			AM64X_IOPAD(0x0000, PIN_OUTPUT, 0)
--- 
-TQ-Systems GmbH | Mühlstraße 2, Gut Delling | 82229 Seefeld, Germany
-Amtsgericht München, HRB 105018
-Geschäftsführer: Detlef Schneider, Rüdiger Stahl, Stefan Schneider
-https://www.tq-group.com/
+And the change I made using the macro was in IPAMaliC55::fillParams():
+
+-       memset(params, 0, sizeof(mali_c55_params_buffer));
++       memset(params, 0, v4l2_params_buffer_size(MALI_C55_PARAMS_MAX_SIZE));
+
+Dan
+
+> 
+>>> driver ?
+>>>
+>>>> [1] https://elixir.bootlin.com/linux/v6.17/source/include/uapi/linux/rkisp1-config.h#L1675
+>>>> [2] https://elixir.bootlin.com/linux/v6.17/source/include/uapi/linux/media/amlogic/c3-isp-config.h#L558>
+>>>>
+>>>>>> +
+>>>>>> +/**
+>>>>>> + * struct v4l2_params_buffer - V4L2 extensible parameters configuration
+>>>>>> + *
+>>>>>> + * This struct contains the configuration parameters of the ISP algorithms,
+>>>>>
+>>>>> s/struct/structure/
+>>>>>
+>>>>>> + * serialized by userspace into a data buffer. Each configuration parameter
+>>>>>> + * block is represented by a block-specific structure which contains a
+>>>>>> + * :c:type:`v4l2_params_block_header` entry as first member. Userspace populates
+>>>>>> + * the @data buffer with configuration parameters for the blocks that it intends
+>>>>>> + * to configure. As a consequence, the data buffer effective size changes
+>>>>>> + * according to the number of ISP blocks that userspace intends to configure and
+>>>>>> + * is set by userspace in the @data_size field.
+>>>>>> + *
+>>>>>> + * The parameters buffer is versioned by the @version field to allow modifying
+>>>>>> + * and extending its definition. Userspace shall populate the @version field to
+>>>>>> + * inform the driver about the version it intends to use. The driver will parse
+>>>>>> + * and handle the @data buffer according to the data layout specific to the
+>>>>>> + * indicated version and return an error if the desired version is not
+>>>>>> + * supported.
+>>>>>> + *
+>>>>>> + * For each ISP block that userspace wants to configure, a block-specific
+>>>>>> + * structure is appended to the @data buffer, one after the other without gaps
+>>>>>> + * in between nor overlaps. Userspace shall populate the @data_size field with
+>>>>>
+>>>>> I think you can drop "nor overlaps", nobody in their right mind should
+>>>>> think the blocks could be overlayed :-)
+>>>>>
+>>>>>> + * the effective size, in bytes, of the @data buffer.
+>>>>>> + *
+>>>>>> + * @version: The parameters buffer version (driver-specific)
+>>>>>> + * @data_size: The configuration data effective size, excluding this header
+>>>>>> + * @data: The configuration data
+>>>>>
+>>>>> Move the fields up just after the structure name.
+>>>>>
+>>>>> Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+>>>>>
+>>>>>> + */
+>>>>>> +struct v4l2_params_buffer {
+>>>>>> +	__u32 version;
+>>>>>> +	__u32 data_size;
+>>>>>> +	__u8 data[] __counted_by(data_size);
+>>>>>> +};
+>>>>>> +
+>>>>>> +#endif /* _UAPI_V4L2_ISP_H_ */
+> 
 
 
