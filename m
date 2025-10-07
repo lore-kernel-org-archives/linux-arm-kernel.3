@@ -4,66 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FA77CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 05:51:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B917ECAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 05:55:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Bje43vOA/n+19r7S0TcLj4o3Rl7bZDJnvRI+HwsLsy0=; b=MkdnE76C+c6O155QlGRAZkYMLd
-	2FFG3m0wZ3VGNCT2Tu/z9123LKKUB5g76C1h/eJPQ2YvS4o040sWQljtUqbHcgKu2z10jNnE/4AEP
-	/+HWWhDqzGflzykjGJWdLFfewVnI/IutLZA4tWZDUXP0ch1k1x4VBOYHXe7gfuxYqQLDU+E70eIsN
-	zPNWvw2jJxHY1VoWmjZmOGr/ffSMUouHIQr2jdWbg74XZtN5YuW7bY4GjCvfINpWJLmuGKrtQi+jU
-	a3dbFu3UQErYTeTkiN79ndftHgzv6tjGTKJiD7hiXxkl6/ewvtLY7UMjKIvOLG9gS9YzuyYwr52jx
-	znNa+fOw==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=LcQuVw/J9+OwtI925SmuMsmyDOciy3HpgHqq+vmDC0A=; b=AFdGF+WUiV9hs0tzlJSw6qgR97
+	5gfIOtREP/IH37ZYk565HmzyoxjfxtKu2sJm+C6YDFh4u3D5UkX0UR6p+GYnXCG1TZoaZceRecPkQ
+	5BVBkqvu5bipfJ12JRHBmo0WFALPHGq4sHRIVS4F8v/DUGh5Nmh9KhfyJMx3/43DYYkzumCcpglPA
+	C02Pmv/RIPaZeo1EAJ/XpDTBs9kq/QLejpOjq5VHf3GXGOiTwm/s0WgwGT2gsMA9O7Hi3njz0ulHJ
+	Cr0vYNewFzO3sLXZntMNrx7x8P9Xfw8kcIokKAT4jXWbtywLsnRRAM06DZ/WGWFpLmWgmRfj7IYyU
+	ychZKOpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v60bm-00000001JBj-2ANt;
-	Tue, 07 Oct 2025 05:51:34 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v60fv-00000001JTL-1Vo9;
+	Tue, 07 Oct 2025 05:55:51 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v60bk-00000001JBY-2X4Z;
-	Tue, 07 Oct 2025 05:51:33 +0000
+	id 1v60fu-00000001JS0-0VfK
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 07 Oct 2025 05:55:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0E8D061215;
-	Tue,  7 Oct 2025 05:51:30 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 384EAC4CEF1;
-	Tue,  7 Oct 2025 05:51:29 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
-	s=korg; t=1759816289;
-	bh=LPQQPlIwuR2+Qcdx0QIWLHqlQNGepDAbb03LkBRGWUE=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=JAJlWI1h8cZeELmkitk9Hz2GVuULYk1cHI3gCRt/ZfSKrGohI+U9rVFP8ZXwFrSa9
-	 DW/iLS9KT0KU+6L0wk+LFrZMaDdcd0RIeAbBO49gFGrHqZu2RNnBuGI2/+9phU+GhB
-	 Y9c1+pAR4MLaUzmZetibux383gBX/aA7BoudcwkM=
-Date: Tue, 7 Oct 2025 07:51:27 +0200
-From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
-To: Roy Luo <royluo@google.com>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Joy Chakraborty <joychakr@google.com>,
-	Naveen Kumar <mnkumar@google.com>, linux-phy@lists.infradead.org,
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH v1 3/4] usb: dwc3: Add Google SoC USB PHY driver
-Message-ID: <2025100735-gulf-error-2ce2@gregkh>
-References: <20251006232125.1833979-1-royluo@google.com>
- <20251006232125.1833979-4-royluo@google.com>
+	by tor.source.kernel.org (Postfix) with ESMTP id 45FEC6121E;
+	Tue,  7 Oct 2025 05:55:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id EAA07C4CEF9;
+	Tue,  7 Oct 2025 05:55:48 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759816549;
+	bh=Gf2m2IDyByH7gmdlj92TgGHt/kPecA91fuSLd1/3x9A=;
+	h=From:Subject:Date:To:Cc:Reply-To:From;
+	b=DIe5+HwmMh+CxenYgQjBf7eh7ra6GAu+eA/KSdv/htod35kmYPfc7cEvFkVTyafXt
+	 jA2XHc0thB3aGYnj1XtL1G0zW+TnlYzsFWj7J+ldl67uMkFyslnvnthgbvblDMGTgi
+	 ODHwxPQhXmOfYIn+7sPK9Y0mnvkPPDGwczrz8S/N+EguHkne9nrN5HL2S6Q2Y3x5Vo
+	 sRDU5P9r5amJZtt33yARnHKEwWgWKyn8WoQFPEtShqKYFvefyzOV1IeYTpKZINo/zv
+	 wcd0fco8eAZD8ZeK1+25hmL6t+W8ADe6SSqqqCeelzaM9rkUDVafNhZdDStsEKkGsL
+	 5qW90SIdSe7mw==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id D6622CAC5B8;
+	Tue,  7 Oct 2025 05:55:48 +0000 (UTC)
+From: Alexandre Messier via B4 Relay <devnull+alex.me.ssier.org@kernel.org>
+Subject: [PATCH 0/4] Describe more hardware of the HTC One (M8)
+Date: Tue, 07 Oct 2025 01:55:41 -0400
+Message-Id: <20251007-m8-dts-additions-v1-0-53d7ab3594e7@me.ssier.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251006232125.1833979-4-royluo@google.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAF2r5GgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
+ vPSU3UzU4B8JSMDI1NDAwNz3VwL3ZSSYt3ElJTMEqBaICsZKGdpmJiWaGSiBNRWUJSallkBNjI
+ 6trYWACYatAdiAAAA
+X-Change-ID: 20251007-m8-dts-additions-ac20291afa24
+To: Bjorn Andersson <andersson@kernel.org>, 
+ Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>
+Cc: Luca Weiss <luca@lucaweiss.eu>, linux-arm-kernel@lists.infradead.org, 
+ linux-arm-msm@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht, 
+ phone-devel@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, Alexandre Messier <alex@me.ssier.org>
+X-Mailer: b4 0.14.3
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1759816548; l=751;
+ i=alex@me.ssier.org; s=20240603; h=from:subject:message-id;
+ bh=Gf2m2IDyByH7gmdlj92TgGHt/kPecA91fuSLd1/3x9A=;
+ b=5ibouckw/wXrYl4/1BrXypwgXknGcJqzOUQh6dcjqcFKMMvY/k9z74zd60/bSZG0EfDv9s+B8
+ EzG91zLwpQFB8ZlYwSVn66l7/BfCCKOPEQDf/3bXylR5woqjL2zMLfY
+X-Developer-Key: i=alex@me.ssier.org; a=ed25519;
+ pk=JjRqVfLd2XLHX2QTylKoROw346/1LOyZJX0q6cfnrKw=
+X-Endpoint-Received: by B4 Relay for alex@me.ssier.org/20240603 with
+ auth_id=168
+X-Original-From: Alexandre Messier <alex@me.ssier.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,36 +86,34 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: alex@me.ssier.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 06, 2025 at 11:21:24PM +0000, Roy Luo wrote:
-> Support the USB PHY found on Google Tensor SoCs.
+Add hardware description for these parts of the HTC One (M8):
 
-That's great, but that's not what your subject line says (it says "usb:
-dwc3")
+ - Notification LEDs
+ - Bluetooth
+ - NFC
+ - Touchscreen
 
-> This particular USB PHY supports both high-speed and super-speed
-> operations, and is paired with the SNPS DWC3 controller that's also
-> integrated on the SoCs.
-> This initial patch specifically adds functionality for high-speed.
-> 
-> Co-developed-by: Joy Chakraborty <joychakr@google.com>
-> Signed-off-by: Joy Chakraborty <joychakr@google.com>
-> Co-developed-by: Naveen Kumar <mnkumar@google.com>
-> Signed-off-by: Naveen Kumar <mnkumar@google.com>
-> Signed-off-by: Roy Luo <royluo@google.com>
-> ---
->  drivers/phy/Kconfig                 |   1 +
->  drivers/phy/Makefile                |   1 +
->  drivers/phy/google/Kconfig          |  15 ++
->  drivers/phy/google/Makefile         |   2 +
->  drivers/phy/google/phy-google-usb.c | 286 ++++++++++++++++++++++++++++
+Signed-off-by: Alexandre Messier <alex@me.ssier.org>
+---
+Alexandre Messier (4):
+      ARM: dts: qcom: msm8974pro-htc-m8: add status LEDs
+      ARM: dts: qcom: msm8974pro-htc-m8: add NFC support
+      ARM: dts: qcom: msm8974pro-htc-m8: add Bluetooth pins
+      ARM: dts: qcom: msm8974pro-htc-m8: add touchscreen
 
-And as others said, you don't need a whole new directory for one single
-.c file.
+ arch/arm/boot/dts/qcom/qcom-msm8974pro-htc-m8.dts | 88 +++++++++++++++++++++--
+ 1 file changed, 84 insertions(+), 4 deletions(-)
+---
+base-commit: e5f0a698b34ed76002dc5cff3804a61c80233a7a
+change-id: 20251007-m8-dts-additions-ac20291afa24
 
-thanks,
+Best regards,
+-- 
+Alexandre Messier <alex@me.ssier.org>
 
-greg k-h
+
 
