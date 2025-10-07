@@ -4,86 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5DCECCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 14:05:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90C1ACCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 14:05:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nQDseboPoN7tnrpn/frcsPgqqEsYL+e4oPXMaYNhgu8=; b=CB9ER82OhDO0QBh+c3f7g669lJ
-	JvQWt2KRtCi9l1+KTwRnml58j+KUTl9HVq8rbLf5QO9nxl+cyZ7VHoj00Rr89cXEDPdO8Lmd44K/m
-	5tXFMFwzbJN/G9WcgRTSm7OxJyjqBhMJjatFyozFKVH8mNHCTSWA5ssbTXv+Fi9ucLg773la33pPW
-	SCWtWcqMKSn59Pd4BH2lki3iqJrNyAm7gtCsz58ru+As3IMAPvtjOtX1+6KSAeq+ALHw+17JXFq6K
-	YnIOGZq0+7sh/D6ZkozhP+CYzJgsKsIao9heJ0bhnWcJssYbhN+wSE2pP+nfFkuBooY0cn9fRPvxP
-	eaNX+rqA==;
+	bh=nQDseboPoN7tnrpn/frcsPgqqEsYL+e4oPXMaYNhgu8=; b=nHvrmGqAV9auUqbZ0lgHRHkC4l
+	B27VXRQt5D41YPUd+Z5J9vjbnIsupB3DRtw73IL6GiaZLF1Bejodrpz8i/qPMXJhDZKom786QRzYm
+	lH4hNVrjdTihuUoyK6ofdMT+c792kwaHQvn07FeiaJ6D73NezFh9loGjKJjoN2PP9DUqLrzN9G253
+	hgDO8PQ81ivZ6i3g16zIzvoh1YmoxhVOpUjVDzvpHZrgvl2oRxgrvNYY+cULDr+VPQpEBOarEmr6t
+	NoGXXZnkdc0jo1mFzIEDxA7G+74FOV4vQcSYrU9ntDqSvXzoO0pYTmMMvMpFcghudbS1YTtHj+PHL
+	/dUcwY3w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v68JX-000000028DD-1gk7;
-	Tue, 07 Oct 2025 14:05:15 +0000
-Received: from mail-ot1-x364.google.com ([2607:f8b0:4864:20::364])
+	id 1v68Jh-000000028Jt-13Qm;
+	Tue, 07 Oct 2025 14:05:25 +0000
+Received: from mail-pf1-x463.google.com ([2607:f8b0:4864:20::463])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v68JV-000000028BY-0Llc
+	id 1v68Je-000000028Hn-3drg
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 14:05:14 +0000
-Received: by mail-ot1-x364.google.com with SMTP id 46e09a7af769-74526ca7a46so2150702a34.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 07:05:12 -0700 (PDT)
+	Tue, 07 Oct 2025 14:05:24 +0000
+Received: by mail-pf1-x463.google.com with SMTP id d2e1a72fcca58-781db5068b8so5258830b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 07:05:22 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759845912; x=1760450712;
+        d=1e100.net; s=20230601; t=1759845922; x=1760450722;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:dkim-signature
          :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
         bh=nQDseboPoN7tnrpn/frcsPgqqEsYL+e4oPXMaYNhgu8=;
-        b=G7VHYb1tN6GMVd+0FTr8MEDgcCfTd6EmKGnEoQynTqOfabSocqgPeKuyFi7EJNv4ck
-         2u4qnOVELO/mmqVDz7918oMDuwx0uJb7z4KFBfb4W5/AeYS9BI5eqEUXh+CY7nXOnzcn
-         rxVxLR0+vbzLpaiTiXePxsPP9dgT5V/GC/iMByutkPs73fh4o6I1orwxihvmmyS3YeDA
-         /w+ilnM5ciQiETy4JXNSpLyoXYuYFlA6YwCP9hT8CM5fjtfIzt/gq5fbS68IIeIqyK+0
-         0mMAUXmZeCG6sDKGsa6py5vrxHdskico5oA09R1ukXID0rv8iRrevzduvn3vaiYYwjyE
-         3WeA==
-X-Forwarded-Encrypted: i=1; AJvYcCWWNBwCHzLfQ4P1rBebT4r/YHQpa6ewWc1FrUMdC0+FMajSzOKl8/krngQpAdoirJDOa76Uax1adnjT5f4i3gHB@lists.infradead.org
-X-Gm-Message-State: AOJu0YzenkclNDehXvYUIO3oDW0dQvRBKg8WVoFtmFhUzYiHLlm/VDCi
-	7y477PH/CgXROGpIX+si2kmWIit/qU8AtwmL8gVUTP9VKlmHUeqfjAgvnSBdDlW8AgmQamT0ixr
-	vsvdVjro+asINPz36/ej70g2yX+FUI2PaYwRsVtQVjkAiNtJ+4cntC8o8fk5oS4srSMTv2bxek6
-	K5oB9CjixyP/NQEfhEZ8xJu9vFhIICz2v9BLx93wCa0tFukQH3uWkRE3Cucx5t+mkEcmCq+SC0T
-	mNxBo4RjLOU9UyLUlF8YEVbVoY=
-X-Gm-Gg: ASbGncsRTBH1O159jqbo1vqoXdn1BIO3ueB5NTD7/HqPlppBLe+X+srnK2CbmE0MVwH
-	ZdyVFnwOXnhYdBxUJk26nBrr1U6X+mpVbsIp5hWXgMw4T0ddnQJgE44+pBLnYG0ZlASBZO6Sv0R
-	73AZCxyDcthxSaPxHZZinMoIKrSj78F10dT/fYj0TVfkuW3qGEMluk8tKygYSc9q2E2Jqny7QxD
-	QzV/QQWS7k93RqZCBvUfBO1VEFJ6ASoKr2WNiqFVeURGMYlppo5j4fwilFYI+tAsvUYLJmfHtmo
-	ijFt7inPCbNhSNNH0ZzjPZ7YihQvcB7tAYabcrd7vurbLq9bdcEMtGl59TjKzfocPDhmzffcm3X
-	nuhw5NgZQGaMrR6g3wUi3rCKq7NoCUUcWFbS8NNJR6evt9eGQdhjZgVX5Wzjq8X45yu+ljXFYSc
-	jUGbcM
-X-Google-Smtp-Source: AGHT+IHl4H7XK3NiLboSn2NcZt+PRPo5/oEs0sHlil56xVLlyGS3A0gm7Wuk70eJpIQuVw0sS04uuEcbwqrF
-X-Received: by 2002:a05:6830:b88:b0:79b:7702:d3ab with SMTP id 46e09a7af769-7bf772608d7mr9630764a34.5.1759845911500;
-        Tue, 07 Oct 2025 07:05:11 -0700 (PDT)
-Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-117.dlp.protect.broadcom.com. [144.49.247.117])
-        by smtp-relay.gmail.com with ESMTPS id 46e09a7af769-7bf419f56c0sm993817a34.6.2025.10.07.07.05.11
+        b=mhRTlifg5z74eCgN0VMScsEinlyBgPsNLFFL8OT8EIfhCLMi8RaVa1WiyGbFxx3lBn
+         ytdbP+vPE6pYbUGV5ItPoBmrAwl4s36TgEwzsNqoS99VRpbpkfRcX0vAsGtyDYtwMwrE
+         /g/vvxrnggHuU5fDrwYpWmEPBDaBisJViQnnJTuG2JL2OuN4noGn7BhH+Dm5ojwy/rv9
+         zfYIFHiPWD21TLaiZ9pqfI0ObB6ibrsHFMVpQB10IH4rmBDitNrAF5e43Fd2OKlB5ir5
+         e5u02ZaU4R6YL8MsYXAFH8jTEjoS0i8y44PLzL8/u2BpdQE7TmClCxidetcyWIHqPz7V
+         3B+w==
+X-Forwarded-Encrypted: i=1; AJvYcCXaeIQFKCWVjCsJcJTtOFSVTuzOgQ95ZOSIaWobvbEdAisXzr+nN1WVa4yvMX9RDKWFNRDrGROBf268L887FyPL@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyzv17uCMjARd7D4XnC2YhIlfX4ymekv1V9PJrqhPq38FZpYpac
+	caawV4Re+iHVXEtWAj5uX6EkXQDkph44aNw7QHUZSfQrK45oNjvtxnh7NyD8cXBF7AONOocKGH9
+	BbOE/6Ubky69VFokMBm8CLkwZ6GiQoGkD31bhVP4Tc0qDxWvH+3Rt7T7Sj9UhcjgDZZkeyh9F7e
+	FhnSioIqquzMnwdP7zmdLwHe5FrMsmmscuk++r5QCvDPAXeOPiJq4MEXBY1J6YPrbgzTo2CpArU
+	5zA574q1d3I/O1MZw0EsEKU9Ig=
+X-Gm-Gg: ASbGncuVtMXxhWyOhVC9vzP8BrJrCLxC7FY/L+7eXb0Uk+wfAQ3M2myY+6UdpXBwmi8
+	+3e5I9fwNFwkTh5GAVb20tpkpG35o7hQ2l7i51SJHgGasWlj0JYoAIjTbdBaA4kblefXPu0sIl3
+	7s6LhKN9G6qFEj9lUB/WYEzOXQqCrn+qY5JSOb7zLEU3BHf+NOGeMY8ahiBUNtAcSvw1hzGt17X
+	wRxLNuQOI/T02GBUKNXIpjxciZ2zd8uXGa23Yo5mMv1dRFtdyjVTkiOHMIPSGu996jyLZhda4Dy
+	TtEfE78RxRDdxuli2D03k+m7K3IHlf9TzQIa5CgXl7qzKcAjJAWl65o+HrKz1X5yQs3OErLQk2K
+	L/jRVzTEtJs7DqPl4tuzkOTX1nBJl/sDvkB78FlFcxuPK7C1LN0xedUpPXFaG506nmzMALP+O+A
+	gGh5eS
+X-Google-Smtp-Source: AGHT+IE64T6rXuE57XimBN1k6j686XbfD6lZ+lEMrBjkoJZHs+kBn+YaIFhot9mOP9H5jeGwIBkH1TdwcjeC
+X-Received: by 2002:a05:6a00:4650:b0:781:1d38:d571 with SMTP id d2e1a72fcca58-78c98dc19femr23531246b3a.17.1759845921431;
+        Tue, 07 Oct 2025 07:05:21 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-118.dlp.protect.broadcom.com. [144.49.247.118])
+        by smtp-relay.gmail.com with ESMTPS id d2e1a72fcca58-78b01f90272sm1047656b3a.1.2025.10.07.07.05.20
         for <linux-arm-kernel@lists.infradead.org>
         (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
-        Tue, 07 Oct 2025 07:05:11 -0700 (PDT)
+        Tue, 07 Oct 2025 07:05:21 -0700 (PDT)
 X-Relaying-Domain: broadcom.com
 X-CFilter-Loop: Reflected
-Received: by mail-yx1-f70.google.com with SMTP id 956f58d0204a3-63604a1a14aso7859365d50.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 07:05:10 -0700 (PDT)
+Received: by mail-qv1-f71.google.com with SMTP id 6a1803df08f44-803339f345bso92134276d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 07:05:19 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=broadcom.com; s=google; t=1759845910; x=1760450710; darn=lists.infradead.org;
+        d=broadcom.com; s=google; t=1759845919; x=1760450719; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
         bh=nQDseboPoN7tnrpn/frcsPgqqEsYL+e4oPXMaYNhgu8=;
-        b=hfA1kan8VSQe2Kf+aMfWid0oBQ1CoI0pU4ksbEbidqvuo+vc5Y2BrTNJ1MLUkjJwoY
-         lYF0B9kOhFlkREYXI5KqVAL2AFhb2rh2qiOpafwGfH4pGqMpviW8pU65HpuzI0zx4bSU
-         RVbJlT1TofrXP5gnPs9NfCpjzxYBkDft63CCI=
-X-Forwarded-Encrypted: i=1; AJvYcCVzeBcZUbcBK99OmPYjQqGfU+zR5ylkXkEQawiPsM/uBm5F7jJ4F9eQl/h4p188U2d4KeoLJ3d0kd09UU3QRAy+@lists.infradead.org
-X-Received: by 2002:a53:c056:0:20b0:629:9c6b:b3ab with SMTP id 956f58d0204a3-63b9a06436amr14591608d50.1.1759845909737;
-        Tue, 07 Oct 2025 07:05:09 -0700 (PDT)
-X-Received: by 2002:a53:c056:0:20b0:629:9c6b:b3ab with SMTP id 956f58d0204a3-63b9a06436amr14591546d50.1.1759845908938;
-        Tue, 07 Oct 2025 07:05:08 -0700 (PDT)
+        b=gsM8ovrQJM/RgXhJIRAxRRfkSSFfsTluw8VDWICaO5p/i0K3zm0QJVib8TMNNcmwXk
+         JZio5c+WPPzk9osoTB4JJuwVVrp9ROQpirFAy2i2ndYFOjwGdTk2we8BQzK/TNgDRNl1
+         Afq4jo7PPhRcmxy4zpLzWbmU7PdWclXdE8/EE=
+X-Forwarded-Encrypted: i=1; AJvYcCW/+SwZobnkfoa6KYHFH94s9DsvNODsqmrenG+idwWtULW6pTCAJ+aBSl9b/BpsnwIxYauKIRG6k/AXWyd/3Sq/@lists.infradead.org
+X-Received: by 2002:a05:6214:2682:b0:874:3018:f958 with SMTP id 6a1803df08f44-879dc77b8e8mr209784536d6.5.1759845918814;
+        Tue, 07 Oct 2025 07:05:18 -0700 (PDT)
+X-Received: by 2002:a05:6214:2682:b0:874:3018:f958 with SMTP id 6a1803df08f44-879dc77b8e8mr209783356d6.5.1759845917674;
+        Tue, 07 Oct 2025 07:05:17 -0700 (PDT)
 Received: from mail.broadcom.net ([192.19.144.250])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-878bae60b67sm142718956d6.9.2025.10.07.07.05.07
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-878bae60b67sm142718956d6.9.2025.10.07.07.05.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Oct 2025 07:05:08 -0700 (PDT)
+        Tue, 07 Oct 2025 07:05:17 -0700 (PDT)
 From: Kamal Dasu <kamal.dasu@broadcom.com>
 To: andersson@kernel.org,
 	robh@kernel.org,
@@ -98,9 +98,9 @@ Cc: bcm-kernel-feedback-list@broadcom.com,
 	linux-kernel@vger.kernel.org,
 	linux-mmc@vger.kernel.org,
 	Kamal Dasu <kamal.dasu@broadcom.com>
-Subject: [PATCH v2 5/5] mmc: brcmstb: save and restore registers during PM
-Date: Tue,  7 Oct 2025 10:04:33 -0400
-Message-Id: <20251007140434.606051-6-kamal.dasu@broadcom.com>
+Subject: [PATCH v2 5/5] mmc: sdhci-brcmstb: save and restore registers during PM
+Date: Tue,  7 Oct 2025 10:04:34 -0400
+Message-Id: <20251007140434.606051-7-kamal.dasu@broadcom.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20251007140434.606051-1-kamal.dasu@broadcom.com>
 References: <20251007140434.606051-1-kamal.dasu@broadcom.com>
@@ -108,7 +108,7 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_070513_145485_69A2B78E 
+X-CRM114-CacheID: sfid-20251007_070522_918173_07640180 
 X-CRM114-Status: GOOD (  19.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
