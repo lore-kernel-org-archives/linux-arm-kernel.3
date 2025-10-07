@@ -4,77 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAC72CCD189
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 18:12:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D80CCCCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 18:13:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rwZhRoOLUq+VvbZslcEN1XEpOc4eeCaoeVObL2nMWQ0=; b=pMjMFXS/xpf1Y+Gk/GJFwvNLeF
-	2eyUnA9TmNMUmP883KqxBiNtjQbd3a5w2B3ERzsEePnEkedCS9rIuJvZk5ejcdxEbDSygtQVkiaco
-	9Nd5yZV76oORzcN0hkL2AsTP45W0sW/Nq0E1jkyw0rySJClDlBYs9jAbvepAFS395cIZHitEXXtJ5
-	EVEK8ZTnAuMrPa+snWhBJm5dBDguqsPaGrwSW65od7rssh3yGujoNsPksYCpaXDfUue8+vkAVzwJp
-	ZDCCpmJv36ihnK3htIm8e5msYajye7rJ9aCmuO1HeWZgmHxsKkRilEjCe8fWJyI0Wq2ge0VwZTuaj
-	rXBu4c4w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=8SHmDoHdQmKTfiI5PMccAlbyA1V46slp40pEW9LImx8=; b=bZp/ypppHCt6R4QVtASemCbDTU
+	vrpueesMcjFLRCtERcoCHkPCs0qMMFXBeulXIiqMO+uTluH0tJeKC5jOrbRYmyOQPlT5M2YUuepfa
+	+dlPu2rjDeb1k7kWGPQj+CxV0Aw6V4RxjxFrUyGN01wuGrWtVsNjhYXLlEgWL4b26CUuQr1EWvaeS
+	Mh20QJXYBt1+aj7K1Lt5HBHWVNHtwG6NBsdDRQNmvDYSxN3Fx3uhT7Nd+DluD56czqXc9t+I8QCRw
+	1C9eiAegKHTnGQHdzbOPXjRwtYBpczHDn2jwylwJy9FLbCX6P9af4jm3ajiGMPe52esaBGgKzLMyl
+	QAB9c2XQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6CB0-00000002Y7o-1FY9;
-	Tue, 07 Oct 2025 18:12:42 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1v6CBG-00000002YYy-2547;
+	Tue, 07 Oct 2025 18:12:58 +0000
+Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6CAt-00000002Xva-0lNG;
-	Tue, 07 Oct 2025 18:12:36 +0000
-Received: from [192.168.1.102] (93-61-96-190.ip145.fastwebnet.it [93.61.96.190])
-	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 74FD2EBA;
-	Tue,  7 Oct 2025 20:10:56 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1759860657;
-	bh=CMSnpKWFm8f6XNXGl5yxfM39oQyAVrbdQCzRsiilxxg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=ZAQCMMoumIqaa0eEy06lC3j0q9xyq7A7NqBgu0hL9OyZMxdANWiMz1inSmugkstUy
-	 Vva2VfrRSp2+1ICVI4Kfghw8bRYtIvbVnQMiUl4dbm/laYNnR+yQTIYIPOzIkbgoKL
-	 ULxx66FNnBtA9efzwbwymngLymFASnjp9l9M0p5M=
-From: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-Date: Tue, 07 Oct 2025 20:12:15 +0200
-Subject: [PATCH v6 6/8] media: rkisp1: Use v4l2-isp for validation
+	id 1v6CBA-00000002YOX-0V9V
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 07 Oct 2025 18:12:56 +0000
+Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-85c66a8a462so940969885a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 11:12:51 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1759860770; x=1760465570; darn=lists.infradead.org;
+        h=mime-version:user-agent:references:in-reply-to:date:cc:to:from
+         :subject:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=8SHmDoHdQmKTfiI5PMccAlbyA1V46slp40pEW9LImx8=;
+        b=lkVfnqXHyX5PPXgSWaE3luVGYHYx/zEWR0Os2DIKritXG9ppgBPb9Rnc5M/lAClA2I
+         TjinoBni0SgwCRDcFTq7+lvrtlcWp6yoGSI11kZWCf916wUKjJ4Q3R8AyuFhPTlNT2s+
+         uF79n5HCKMy3Awfoh4y96vcmFbyAZ2bVlX8pWT+AYdOdL3dlvZzDZ3UtuvnPgmRPIFpO
+         oHQH9kjDyA8XDxxTw4kCJ62IYq+C10D2LlMk4Ye9UcUg7yp/X+gqn3kWzTyX1Z7pm5tH
+         QAJ9iEKFtK7HppIut83m/OhNCiptPz97tSZGZ0xG8dvtQyNEqQrLbJD1G923SxxynEN4
+         tccg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759860770; x=1760465570;
+        h=mime-version:user-agent:references:in-reply-to:date:cc:to:from
+         :subject:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=8SHmDoHdQmKTfiI5PMccAlbyA1V46slp40pEW9LImx8=;
+        b=FitapBWovrpGi0h8hgVpy//5B+S4R30T4rp3mIe/NpieFaEzCNNh4W2NkWmx+ukAI/
+         j/K1cp953qnKzlQoGD7CvWiNv7jyceL/6yfMHnx9YWW2LD9bIDwuLAmkQ+/2hyWIr+tt
+         0vKz/Xo8GYMJlWIjlNewZMleMsQOmFVfOMcM9NT1oockUbqY+AQNRu6Xtv1eyq2GMQ3r
+         Dd4gq+XYJJkEJ8oqZyiPD/fgwmbxIuoNTFy+lHN1oFZIDFCW8aX86YuRzNSLxBISpseD
+         CprGTZt5B6M3HKzaKFxIXKJsa14tTksZmTS+xBey6e/fCBj38XPSx1SzUNuOhaoDjaWy
+         MNsQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUBUWHHyragpEjeRu2r+bb+2m9X4CpTuUYp9sFWz4NweuNUKH+M9KLL+qw5p9+7ZZq+QBNv7DvU8bt3kwOQZGB8@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywu7Jb07K16dhf5aHIyI3cIqNqRAfZmySaPiPBAVotz8rbjPz1M
+	4Adv0a8+IS534iT7IebnmvOwfcEVK5PfUTE6nF0zEksXjQKt9iynlhI7dJ2j59PV+SA=
+X-Gm-Gg: ASbGncuf9YngxMPMBl3wd8cJ7p7mAiOrl0mhQ3e5LJC3bSUmDycH9vV6ZRudyejk6/T
+	fCgoT/0U9CRueWg6Fo4mS8bzdHN5XmuHWXw9wJDNY926RZ6NoAlT+DhK9aGUbNS/iVvKsf+c5F0
+	LPteyvrPZaHfnf04GA3GM138Fmacot+xED79WbUXFP2SuXBVvtkPtAvaS4P4Whp+tS1xya82vQC
+	S+qqTu+8AL8Zfc+CfRmwPcmOz76WWTHHSWYVbqa2vg8aUdUWTOeHGH/0VpCu2F51N2S4lWaM2io
+	TftO2Mnq2YTbEaqqGpnjPbm7+r2IxcF3vbGX1hmXKZOndJRv6eNr1SQiyrLVVEXqNhQ+h2CtJEk
+	sPcA/SaVhuwh9/S1qUTsLb/PjI2fWjYA29+C1EQmoq3hC0lB+LI0j
+X-Google-Smtp-Source: AGHT+IFJwiFyqdn6vHfsVW5AqTzfPU59JdPTe9jsCTVyjegINt2FetoGEQEhtGUGJnu4FO7lY33Vsw==
+X-Received: by 2002:a05:620a:1a8e:b0:878:671f:7395 with SMTP id af79cd13be357-8835410ff67mr108686985a.69.1759860770343;
+        Tue, 07 Oct 2025 11:12:50 -0700 (PDT)
+Received: from ?IPv6:2606:6d00:17:ebd3::c41? ([2606:6d00:17:ebd3::c41])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-877794b8c0esm1649064985a.45.2025.10.07.11.12.48
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 07 Oct 2025 11:12:49 -0700 (PDT)
+Message-ID: <dd5f934f222116a29ef5ec19a52a9b3ae7433de9.camel@ndufresne.ca>
+Subject: Re: [PATCH 13/16] media: dt-bindings: media: rockchip-rga: add
+ rockchip,rk3588-rga3
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Sven =?ISO-8859-1?Q?P=FCschel?=	
+ <s.pueschel@pengutronix.de>, Jacob Chen <jacob-chen@iotwrt.com>, Ezequiel
+ Garcia <ezequiel@vanguardiasur.com.ar>, Mauro Carvalho Chehab
+ <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor Dooley
+ <conor+dt@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, kernel@pengutronix.de
+Date: Tue, 07 Oct 2025 14:12:48 -0400
+In-Reply-To: <c4b0f1d0-cebd-4381-b2c0-20c177c0732c@kernel.org>
+References: <20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de>
+	 <20251007-spu-rga3-v1-13-36ad85570402@pengutronix.de>
+	 <c4b0f1d0-cebd-4381-b2c0-20c177c0732c@kernel.org>
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-7gUIbCmFrGsfnm1LXQ2d"
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251007-extensible-parameters-validation-v6-6-5f719d9f39e5@ideasonboard.com>
-References: <20251007-extensible-parameters-validation-v6-0-5f719d9f39e5@ideasonboard.com>
-In-Reply-To: <20251007-extensible-parameters-validation-v6-0-5f719d9f39e5@ideasonboard.com>
-To: Dafna Hirschfeld <dafna@fastmail.com>, 
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
- Keke Li <keke.li@amlogic.com>, Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Heiko Stuebner <heiko@sntech.de>, Dan Scally <dan.scally@ideasonboard.com>, 
- Sakari Ailus <sakari.ailus@linux.intel.com>, 
- Antoine Bouyer <antoine.bouyer@nxp.com>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org, 
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org, 
- Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=12850;
- i=jacopo.mondi@ideasonboard.com; h=from:subject:message-id;
- bh=CMSnpKWFm8f6XNXGl5yxfM39oQyAVrbdQCzRsiilxxg=;
- b=owEBbQKS/ZANAwAKAXI0Bo8WoVY8AcsmYgBo5VgHH/oMp1C7/8X/Ms0vwkM77ZZ/iX4ZUsw/0
- NCl4zpm+O6JAjMEAAEKAB0WIQS1xD1IgJogio9YOMByNAaPFqFWPAUCaOVYBwAKCRByNAaPFqFW
- PC3LEACn7xuhDwTCrhW+XxCaUFEPQ7Tyq8neeaQ9/IF6huMiSKT0FA7VFXSBjdoLjpRazE6le3I
- TvgFJUJzl+CxxMQzZzIrF+j5oJG5TEUMO+MRRzmxQYOwoACs2jGcYZBBYwpQXS6DWpmwhlWYStK
- OfIwj7LnUCYtvCVYS3YL1zMwcdn/q9pEL+4fbrtW2iYKvkGd5T5Dz32MakB0bO6MqnDzOy53JXn
- vnoim0ilTk2CqGIkqZfWkpkTyNTdsCr02O74Ul7LNZ9XAKOkK0n3DHrlkOVE3iDSTahHxhzeDU7
- OcifPCz8UjEOjMA8sSNB3iIMC3AnigqGYCx795kLkHcivxGHaGvKJDnIfm10J9FW/dY2xJcH5Tu
- bHJhbsOZKHqqfY5qawrLBQE9TsraPnDyOsrAAHIV8O4Kq6XQoStpkRVyr79RhYkP2ev2nc0tg8C
- +z6paJpti7yAXS7sfINzMJOAzmbWUzDQYpvDHrLvxlqc/a3bZqEPpiP0rm1zITpgqVOqDurZm+9
- eZmQdbDmt5DoECUF1p6uq6RajCYpOdN8fedVKd0SjiRp5W0KGsnlu0bR2nRDQn3WrtZ9tqrdjEy
- b1jLXLCtMYgxbdzElKNdNfH7AW5B8fvOJWe1nJpZgWso17vZ/cWbo2xPFPWK6kdzvC2o2FdEhzE
- ZHCeW6CLEFjUQEA==
-X-Developer-Key: i=jacopo.mondi@ideasonboard.com; a=openpgp;
- fpr=72392EDC88144A65C701EA9BA5826A2587AD026B
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_111235_510531_FE2BC063 
-X-CRM114-Status: GOOD (  19.11  )
+X-CRM114-CacheID: sfid-20251007_111252_234487_3173BE59 
+X-CRM114-Status: GOOD (  19.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,348 +107,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert rkisp1-params.c to use the helpers defined in v4l2-isp.h
-to perform validation of a ISP parameters buffer.
 
-Reviewed-by: Daniel Scally <dan.scally@ideasonboard.com>
-Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
----
- drivers/media/platform/rockchip/rkisp1/Kconfig     |   1 +
- .../media/platform/rockchip/rkisp1/rkisp1-params.c | 183 +++++++++------------
- 2 files changed, 81 insertions(+), 103 deletions(-)
+--=-7gUIbCmFrGsfnm1LXQ2d
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-diff --git a/drivers/media/platform/rockchip/rkisp1/Kconfig b/drivers/media/platform/rockchip/rkisp1/Kconfig
-index 731c9acbf6efa33188617204d441fb0ea59adebc..f53eb1f3f3e7003d8e02c9236aeabb5ae8844f7b 100644
---- a/drivers/media/platform/rockchip/rkisp1/Kconfig
-+++ b/drivers/media/platform/rockchip/rkisp1/Kconfig
-@@ -10,6 +10,7 @@ config VIDEO_ROCKCHIP_ISP1
- 	select VIDEOBUF2_VMALLOC
- 	select V4L2_FWNODE
- 	select GENERIC_PHY_MIPI_DPHY
-+	select V4L2_ISP
- 	default n
- 	help
- 	  Enable this to support the Image Signal Processing (ISP) module
-diff --git a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-index f1585f8fa0f478304f74317fd9dd09199c94ec82..7946adb1c7f322042d39a269715a674ce347794f 100644
---- a/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-+++ b/drivers/media/platform/rockchip/rkisp1/rkisp1-params.c
-@@ -12,6 +12,7 @@
- #include <media/v4l2-common.h>
- #include <media/v4l2-event.h>
- #include <media/v4l2-ioctl.h>
-+#include <media/v4l2-isp.h>
- #include <media/videobuf2-core.h>
- #include <media/videobuf2-vmalloc.h>	/* for ISP params */
- 
-@@ -2097,122 +2098,166 @@ typedef void (*rkisp1_block_handler)(struct rkisp1_params *params,
- 			     const union rkisp1_ext_params_config *config);
- 
- static const struct rkisp1_ext_params_handler {
--	size_t size;
- 	rkisp1_block_handler handler;
- 	unsigned int group;
- 	unsigned int features;
- } rkisp1_ext_params_handlers[] = {
- 	[RKISP1_EXT_PARAMS_BLOCK_TYPE_BLS] = {
--		.size		= sizeof(struct rkisp1_ext_params_bls_config),
- 		.handler	= rkisp1_ext_params_bls,
- 		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
- 		.features       = RKISP1_FEATURE_BLS,
- 	},
- 	[RKISP1_EXT_PARAMS_BLOCK_TYPE_DPCC] = {
--		.size		= sizeof(struct rkisp1_ext_params_dpcc_config),
- 		.handler	= rkisp1_ext_params_dpcc,
- 		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
- 	},
- 	[RKISP1_EXT_PARAMS_BLOCK_TYPE_SDG] = {
--		.size		= sizeof(struct rkisp1_ext_params_sdg_config),
- 		.handler	= rkisp1_ext_params_sdg,
- 		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
- 	},
- 	[RKISP1_EXT_PARAMS_BLOCK_TYPE_AWB_GAIN] = {
--		.size		= sizeof(struct rkisp1_ext_params_awb_gain_config),
- 		.handler	= rkisp1_ext_params_awbg,
- 		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
- 	},
- 	[RKISP1_EXT_PARAMS_BLOCK_TYPE_FLT] = {
--		.size		= sizeof(struct rkisp1_ext_params_flt_config),
- 		.handler	= rkisp1_ext_params_flt,
- 		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
- 	},
- 	[RKISP1_EXT_PARAMS_BLOCK_TYPE_BDM] = {
--		.size		= sizeof(struct rkisp1_ext_params_bdm_config),
- 		.handler	= rkisp1_ext_params_bdm,
- 		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
- 	},
- 	[RKISP1_EXT_PARAMS_BLOCK_TYPE_CTK] = {
--		.size		= sizeof(struct rkisp1_ext_params_ctk_config),
- 		.handler	= rkisp1_ext_params_ctk,
- 		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
- 	},
- 	[RKISP1_EXT_PARAMS_BLOCK_TYPE_GOC] = {
--		.size		= sizeof(struct rkisp1_ext_params_goc_config),
- 		.handler	= rkisp1_ext_params_goc,
- 		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
- 	},
- 	[RKISP1_EXT_PARAMS_BLOCK_TYPE_DPF] = {
--		.size		= sizeof(struct rkisp1_ext_params_dpf_config),
- 		.handler	= rkisp1_ext_params_dpf,
- 		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
- 	},
- 	[RKISP1_EXT_PARAMS_BLOCK_TYPE_DPF_STRENGTH] = {
--		.size		= sizeof(struct rkisp1_ext_params_dpf_strength_config),
- 		.handler	= rkisp1_ext_params_dpfs,
- 		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
- 	},
- 	[RKISP1_EXT_PARAMS_BLOCK_TYPE_CPROC] = {
--		.size		= sizeof(struct rkisp1_ext_params_cproc_config),
- 		.handler	= rkisp1_ext_params_cproc,
- 		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
- 	},
- 	[RKISP1_EXT_PARAMS_BLOCK_TYPE_IE] = {
--		.size		= sizeof(struct rkisp1_ext_params_ie_config),
- 		.handler	= rkisp1_ext_params_ie,
- 		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
- 	},
- 	[RKISP1_EXT_PARAMS_BLOCK_TYPE_LSC] = {
--		.size		= sizeof(struct rkisp1_ext_params_lsc_config),
- 		.handler	= rkisp1_ext_params_lsc,
- 		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_LSC,
- 	},
- 	[RKISP1_EXT_PARAMS_BLOCK_TYPE_AWB_MEAS] = {
--		.size		= sizeof(struct rkisp1_ext_params_awb_meas_config),
- 		.handler	= rkisp1_ext_params_awbm,
- 		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
- 	},
- 	[RKISP1_EXT_PARAMS_BLOCK_TYPE_HST_MEAS] = {
--		.size		= sizeof(struct rkisp1_ext_params_hst_config),
- 		.handler	= rkisp1_ext_params_hstm,
- 		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
- 	},
- 	[RKISP1_EXT_PARAMS_BLOCK_TYPE_AEC_MEAS] = {
--		.size		= sizeof(struct rkisp1_ext_params_aec_config),
- 		.handler	= rkisp1_ext_params_aecm,
- 		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
- 	},
- 	[RKISP1_EXT_PARAMS_BLOCK_TYPE_AFC_MEAS] = {
--		.size		= sizeof(struct rkisp1_ext_params_afc_config),
- 		.handler	= rkisp1_ext_params_afcm,
- 		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
- 	},
- 	[RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_BLS] = {
--		.size		= sizeof(struct rkisp1_ext_params_compand_bls_config),
- 		.handler	= rkisp1_ext_params_compand_bls,
- 		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
- 		.features	= RKISP1_FEATURE_COMPAND,
- 	},
- 	[RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_EXPAND] = {
--		.size		= sizeof(struct rkisp1_ext_params_compand_curve_config),
- 		.handler	= rkisp1_ext_params_compand_expand,
- 		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
- 		.features	= RKISP1_FEATURE_COMPAND,
- 	},
- 	[RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_COMPRESS] = {
--		.size		= sizeof(struct rkisp1_ext_params_compand_curve_config),
- 		.handler	= rkisp1_ext_params_compand_compress,
- 		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
- 		.features	= RKISP1_FEATURE_COMPAND,
- 	},
- 	[RKISP1_EXT_PARAMS_BLOCK_TYPE_WDR] = {
--		.size		= sizeof(struct rkisp1_ext_params_wdr_config),
- 		.handler	= rkisp1_ext_params_wdr,
- 		.group		= RKISP1_EXT_PARAMS_BLOCK_GROUP_OTHERS,
- 	},
- };
- 
-+static const struct v4l2_isp_params_block_info rkisp1_ext_params_blocks_info[] = {
-+	[RKISP1_EXT_PARAMS_BLOCK_TYPE_BLS] = {
-+		.size		= sizeof(struct rkisp1_ext_params_bls_config),
-+	},
-+	[RKISP1_EXT_PARAMS_BLOCK_TYPE_DPCC] = {
-+		.size		= sizeof(struct rkisp1_ext_params_dpcc_config),
-+	},
-+	[RKISP1_EXT_PARAMS_BLOCK_TYPE_SDG] = {
-+		.size		= sizeof(struct rkisp1_ext_params_sdg_config),
-+	},
-+	[RKISP1_EXT_PARAMS_BLOCK_TYPE_AWB_GAIN] = {
-+		.size		= sizeof(struct rkisp1_ext_params_awb_gain_config),
-+	},
-+	[RKISP1_EXT_PARAMS_BLOCK_TYPE_FLT] = {
-+		.size		= sizeof(struct rkisp1_ext_params_flt_config),
-+	},
-+	[RKISP1_EXT_PARAMS_BLOCK_TYPE_BDM] = {
-+		.size		= sizeof(struct rkisp1_ext_params_bdm_config),
-+	},
-+	[RKISP1_EXT_PARAMS_BLOCK_TYPE_CTK] = {
-+		.size		= sizeof(struct rkisp1_ext_params_ctk_config),
-+	},
-+	[RKISP1_EXT_PARAMS_BLOCK_TYPE_GOC] = {
-+		.size		= sizeof(struct rkisp1_ext_params_goc_config),
-+	},
-+	[RKISP1_EXT_PARAMS_BLOCK_TYPE_DPF] = {
-+		.size		= sizeof(struct rkisp1_ext_params_dpf_config),
-+	},
-+	[RKISP1_EXT_PARAMS_BLOCK_TYPE_DPF_STRENGTH] = {
-+		.size		= sizeof(struct rkisp1_ext_params_dpf_strength_config),
-+	},
-+	[RKISP1_EXT_PARAMS_BLOCK_TYPE_CPROC] = {
-+		.size		= sizeof(struct rkisp1_ext_params_cproc_config),
-+	},
-+	[RKISP1_EXT_PARAMS_BLOCK_TYPE_IE] = {
-+		.size		= sizeof(struct rkisp1_ext_params_ie_config),
-+	},
-+	[RKISP1_EXT_PARAMS_BLOCK_TYPE_LSC] = {
-+		.size		= sizeof(struct rkisp1_ext_params_lsc_config),
-+	},
-+	[RKISP1_EXT_PARAMS_BLOCK_TYPE_AWB_MEAS] = {
-+		.size		= sizeof(struct rkisp1_ext_params_awb_meas_config),
-+	},
-+	[RKISP1_EXT_PARAMS_BLOCK_TYPE_HST_MEAS] = {
-+		.size		= sizeof(struct rkisp1_ext_params_hst_config),
-+	},
-+	[RKISP1_EXT_PARAMS_BLOCK_TYPE_AEC_MEAS] = {
-+		.size		= sizeof(struct rkisp1_ext_params_aec_config),
-+	},
-+	[RKISP1_EXT_PARAMS_BLOCK_TYPE_AFC_MEAS] = {
-+		.size		= sizeof(struct rkisp1_ext_params_afc_config),
-+	},
-+	[RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_BLS] = {
-+		.size		= sizeof(struct rkisp1_ext_params_compand_bls_config),
-+	},
-+	[RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_EXPAND] = {
-+		.size		= sizeof(struct rkisp1_ext_params_compand_curve_config),
-+	},
-+	[RKISP1_EXT_PARAMS_BLOCK_TYPE_COMPAND_COMPRESS] = {
-+		.size		= sizeof(struct rkisp1_ext_params_compand_curve_config),
-+	},
-+	[RKISP1_EXT_PARAMS_BLOCK_TYPE_WDR] = {
-+		.size		= sizeof(struct rkisp1_ext_params_wdr_config),
-+	},
-+};
-+
- static void rkisp1_ext_params_config(struct rkisp1_params *params,
- 				     struct rkisp1_ext_params_cfg *cfg,
- 				     u32 block_group_mask)
-@@ -2646,31 +2691,24 @@ static int rkisp1_params_prepare_ext_params(struct rkisp1_params *params,
- {
- 	struct vb2_v4l2_buffer *vbuf = to_vb2_v4l2_buffer(vb);
- 	struct rkisp1_params_buffer *params_buf = to_rkisp1_params_buffer(vbuf);
--	size_t header_size = offsetof(struct rkisp1_ext_params_cfg, data);
- 	struct rkisp1_ext_params_cfg *cfg = params_buf->cfg;
- 	size_t payload_size = vb2_get_plane_payload(vb, 0);
- 	struct rkisp1_ext_params_cfg *usr_cfg =
- 		vb2_plane_vaddr(&vbuf->vb2_buf, 0);
--	size_t block_offset = 0;
--	size_t cfg_size;
-+	int ret;
- 
--	/*
--	 * Validate the buffer payload size before copying the parameters. The
--	 * payload has to be smaller than the destination buffer size and larger
--	 * than the header size.
--	 */
--	if (payload_size > params->metafmt->buffersize) {
-+	/* Only v1 is supported at the moment. */
-+	if (usr_cfg->version != RKISP1_EXT_PARAM_BUFFER_V1) {
- 		dev_dbg(params->rkisp1->dev,
--			"Too large buffer payload size %zu\n", payload_size);
-+			"Unsupported extensible parameters version: %u\n",
-+			usr_cfg->version);
- 		return -EINVAL;
- 	}
- 
--	if (payload_size < header_size) {
--		dev_dbg(params->rkisp1->dev,
--			"Buffer payload %zu smaller than header size %zu\n",
--			payload_size, header_size);
--		return -EINVAL;
--	}
-+	ret = v4l2_isp_params_validate_buffer_size(params->rkisp1->dev, vb,
-+						   params->metafmt->buffersize);
-+	if (ret)
-+		return ret;
- 
- 	/*
- 	 * Copy the parameters buffer to the internal scratch buffer to avoid
-@@ -2678,71 +2716,10 @@ static int rkisp1_params_prepare_ext_params(struct rkisp1_params *params,
- 	 */
- 	memcpy(cfg, usr_cfg, payload_size);
- 
--	/* Only v1 is supported at the moment. */
--	if (cfg->version != RKISP1_EXT_PARAM_BUFFER_V1) {
--		dev_dbg(params->rkisp1->dev,
--			"Unsupported extensible format version: %u\n",
--			cfg->version);
--		return -EINVAL;
--	}
--
--	/* Validate the size reported in the parameters buffer header. */
--	cfg_size = header_size + cfg->data_size;
--	if (cfg_size != payload_size) {
--		dev_dbg(params->rkisp1->dev,
--			"Data size %zu different than buffer payload size %zu\n",
--			cfg_size, payload_size);
--		return -EINVAL;
--	}
--
--	/* Walk the list of parameter blocks and validate them. */
--	cfg_size = cfg->data_size;
--	while (cfg_size >= sizeof(struct rkisp1_ext_params_block_header)) {
--		const struct rkisp1_ext_params_block_header *block;
--		const struct rkisp1_ext_params_handler *handler;
--
--		block = (const struct rkisp1_ext_params_block_header *)
--			&cfg->data[block_offset];
--
--		if (block->type >= ARRAY_SIZE(rkisp1_ext_params_handlers)) {
--			dev_dbg(params->rkisp1->dev,
--				"Invalid parameters block type\n");
--			return -EINVAL;
--		}
--
--		if (block->size > cfg_size) {
--			dev_dbg(params->rkisp1->dev,
--				"Premature end of parameters data\n");
--			return -EINVAL;
--		}
--
--		if ((block->flags & (RKISP1_EXT_PARAMS_FL_BLOCK_ENABLE |
--				     RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE)) ==
--		   (RKISP1_EXT_PARAMS_FL_BLOCK_ENABLE |
--		    RKISP1_EXT_PARAMS_FL_BLOCK_DISABLE)) {
--			dev_dbg(params->rkisp1->dev,
--				"Invalid parameters block flags\n");
--			return -EINVAL;
--		}
--
--		handler = &rkisp1_ext_params_handlers[block->type];
--		if (block->size != handler->size) {
--			dev_dbg(params->rkisp1->dev,
--				"Invalid parameters block size\n");
--			return -EINVAL;
--		}
--
--		block_offset += block->size;
--		cfg_size -= block->size;
--	}
--
--	if (cfg_size) {
--		dev_dbg(params->rkisp1->dev,
--			"Unexpected data after the parameters buffer end\n");
--		return -EINVAL;
--	}
--
--	return 0;
-+	return v4l2_isp_params_validate_buffer(params->rkisp1->dev, vb,
-+				(struct v4l2_isp_params_buffer *)cfg,
-+				rkisp1_ext_params_blocks_info,
-+				ARRAY_SIZE(rkisp1_ext_params_blocks_info));
- }
- 
- static int rkisp1_params_vb2_buf_prepare(struct vb2_buffer *vb)
+Hi,
 
--- 
-2.51.0
+Le mardi 07 octobre 2025 =C3=A0 17:38 +0900, Krzysztof Kozlowski a =C3=A9cr=
+it=C2=A0:
+> On 07/10/2025 17:32, Sven P=C3=BCschel wrote:
+> > Add a new compatible for the rk3588 Rockchip SoC, which features an
+> > RGA3, which is described in the TRM Part2.
 
+Please write something here. You can't explain why RK did this, but at leas=
+t
+explain what are the differences and additional feature. It should also be =
+super
+clear through your patchset everything you didn't support, since when readi=
+ng
+your set, it really have nothing extra implemented.
+
+> >=20
+> > Signed-off-by: Sven P=C3=BCschel <s.pueschel@pengutronix.de>
+> > ---
+> > =C2=A0Documentation/devicetree/bindings/media/rockchip-rga.yaml | 1 +
+> > =C2=A01 file changed, 1 insertion(+)
+> >=20
+> > diff --git a/Documentation/devicetree/bindings/media/rockchip-rga.yaml
+> > b/Documentation/devicetree/bindings/media/rockchip-rga.yaml
+> > index
+> > ac17cda65191be047fc61d0c806f806c6af07c7b..11e86333c56aab55d9358dc88e45e=
+7c1eb
+> > faae9e 100644
+> > --- a/Documentation/devicetree/bindings/media/rockchip-rga.yaml
+> > +++ b/Documentation/devicetree/bindings/media/rockchip-rga.yaml
+> > @@ -20,6 +20,7 @@ properties:
+> > =C2=A0=C2=A0=C2=A0=C2=A0 oneOf:
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: rockchip,rk3288-rga
+> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: rockchip,rk3399-rga
+> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: rockchip,rk3588-rga3
+>=20
+> There is already rk3588-rga, so please explain in commit msg
+> differences, including compatibility or lack thereof. I am confused why
+> there are two completely different 2D accelerators simultaneously on
+> that SoC.
+
+It is quite strange hardware design, but this is really how the hardware is=
+. I
+personally don't expect an explanation from a third party. Its a mirror of =
+the
+VOP2 planes really.
+
+Nicolas
+
+>=20
+> Best regards,
+> Krzysztof
+
+--=-7gUIbCmFrGsfnm1LXQ2d
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaOVYIAAKCRDZQZRRKWBy
+9Go6AP9e4y2IiSL2I+67c8y9Mn1TNSV8ucapX8SFj5r6BqkeaAD/ebUK9jFL041m
+do23vyGkPpDC61NKSkX4f+0FGc9xDwc=
+=HOjH
+-----END PGP SIGNATURE-----
+
+--=-7gUIbCmFrGsfnm1LXQ2d--
 
