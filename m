@@ -4,59 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0C82BCCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 08:40:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64CD0CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 08:41:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e+3xqTJWMJwGiBlS/D8a1yrKsXWi3lLfS/5KhLBbFLk=; b=gZU+ryIVIlw7URvxNTgHKANtxe
-	f/54npu9iRmpzW9r2GNA+GfgN4Vu0sd2ZZ8+kdBTy25jOd8M2LwtfJB/WD2FsNmnDHpG8Elbtt48O
-	2DYgx/E/mXnJM7h3EFtANl2QcxV0mdNg8aiV1nWdq87A12fG8dfqGrIxImxASORYF872qmPwr4UTy
-	exfcvPD2dE8Zutti4IULb/vpKCvJP8hfhWcMRRPa/PUJW8rnMr6CQaMhpccOUXTpHPzx3QZqEHVVV
-	p1/affRNocf9AqnUCt1n2gLYglkkbKVAUqj9gOrpzJyEhxmj/7gG2dP0+CHdJ+imEX8FJfoiaW9Nv
-	sAEKnZmg==;
+	bh=0+3FLzqMZDgy6F9S6NI89Z2GN5wDJOXCOV6GLppmymE=; b=T8Oknqk3SSB8Pl55Hw4hamL8pk
+	g5vI1aivLXJCik83XvapwoQYnmjDGaMrYyjj/gDT8UegigmBJK5dORvSWs0gsVlY3snC17in+0KQM
+	4KCVIWjZ1bdaixl8nNWx0JWr/CTrdln+w5fQIgRVtBmGepO0lAsfgcNc6cfq1FN7iCdhlixoI2MiR
+	UTPrdOoK/xyzVxWzWFDEd7R5JZjx5vj3kYJExU9K5CeAiwEyT2K5/T0qrwplfUZTy/5VhJDSqX6Ne
+	g2BfbvLgLATZaLtjX6pjZzqaOohMGdhYqXnvwSb2X0HxrD8cvYharYo4/nsa/VWJawto36dOsqpYI
+	6n3XJ+QA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v63Ev-00000001cRM-2f8z;
-	Tue, 07 Oct 2025 08:40:09 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v63Fz-00000001clI-1Hoh;
+	Tue, 07 Oct 2025 08:41:15 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v63Et-00000001cQG-2Gz6;
-	Tue, 07 Oct 2025 08:40:07 +0000
+	id 1v63Fx-00000001ck6-0kkd
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 07 Oct 2025 08:41:14 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0078161276;
-	Tue,  7 Oct 2025 08:40:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12B77C4CEF1;
-	Tue,  7 Oct 2025 08:40:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D094F40356;
+	Tue,  7 Oct 2025 08:41:12 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id BF125C4CEF7;
+	Tue,  7 Oct 2025 08:41:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759826405;
-	bh=ULdJHvp2iv6Ky3Iqrm5VtlFlG83osZXuLpJhxiQXQSU=;
+	s=k20201202; t=1759826472;
+	bh=0+3FLzqMZDgy6F9S6NI89Z2GN5wDJOXCOV6GLppmymE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=HaE0TZt5y97m0c6Xj7fLNKmGtZTKzBCa3ynPemYX6pB4lB5S9I6Vp6984PPTNZPMt
-	 BOotI8LY40+I4t0NpJBXkdbCT+p4E+15MAPttslX+Ma85ymeJokjEd6bUxTs6CwK8K
-	 VZo873oy2JfvbRGWl8UkAkiIELT/ZgKZmJYBIwGy0XwAambVUD40b0jFpKlaWEJADq
-	 9nFwWebY0qU6B2PSfUlJMSVzNSN+Ccpb5Yi6bTYyoTuIbBWCQIoKBekfPgLc5+JQkI
-	 sfBKJyB9RyY9bB4IjuuBD83RXsIV8iJo9Xx/qdIJly68aptayxNbq9qezttEaz7cEp
-	 AR44c0VROH7/g==
-Message-ID: <bf989d9f-9e8e-4acc-b502-1674ce215318@kernel.org>
-Date: Tue, 7 Oct 2025 17:39:58 +0900
+	b=szMxXXBohi0P9bL4IrE30Xmzg0GXmSu2p8TasyXjCSAXP53Oo99Ot2BDbYbk2gNq5
+	 S+eINJ1R1WDwYhn90xTNEYFZBz4PEqW9wgyqktT5TI0p7Y0kZ4YuvpqO1BHYb/LP2k
+	 7Wg/wPZaxhMoBWpRV9wPnGqfCjRagYK8LRN44eYxPHcZV/ZBzQx7q1DoihxL8SRoXG
+	 xStyPVXMwXvz0gnphz06ArQ0eMjvHjNgMVMxmpk9S0zTl/5ijHBhdlW1luVb+6Qq/L
+	 CjX+VuSl0OYryzL0Y4zC3qbRbYbhv+kQmbVX200PQPoRtYDYryQys/5uaMftWznZM8
+	 S/bBjCHMVmdTQ==
+Message-ID: <342abe63-4062-4e37-9beb-4bfe8d55cd9b@kernel.org>
+Date: Tue, 7 Oct 2025 17:41:06 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 16/16] media: rockchip: rga: add rga3 support
-To: =?UTF-8?Q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>,
- Jacob Chen <jacob-chen@iotwrt.com>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+Subject: Re: [PATCH v4 1/4] arm64: dts: im8mp-phy{board,core}: update license
+ and copyright
+To: Yannic Moog <y.moog@phytec.de>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, kernel@pengutronix.de
-References: <20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de>
- <20251007-spu-rga3-v1-16-36ad85570402@pengutronix.de>
+Cc: imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ upstream@lists.phytec.de
+References: <20251007-imx8mp-pollux-display-overlays-v4-0-778c61a4495c@phytec.de>
+ <20251007-imx8mp-pollux-display-overlays-v4-1-778c61a4495c@phytec.de>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,9 +103,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251007-spu-rga3-v1-16-36ad85570402@pengutronix.de>
+In-Reply-To: <20251007-imx8mp-pollux-display-overlays-v4-1-778c61a4495c@phytec.de>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251007_014113_267461_41B81287 
+X-CRM114-Status: UNSURE (   6.25  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,28 +124,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/10/2025 17:32, Sven Püschel wrote:
-> Add support for the RGA3 unit contained in the RK3588.
-> 
-> Only a basic feature set consisting of scaling and color conversion is
-> implemented. Advanced features like rotation and cropping will just be
-> ignored. Also the BT601F color space conversion is currently hard coded.
-> 
-> The register address defines were copied from the
-> vendor Rockchip kernel sources and slightly adjusted to not start at 0
-> again for the cmd registers.
-> 
-> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
-> ---
->  drivers/media/platform/rockchip/rga/Makefile  |   2 +-
->  drivers/media/platform/rockchip/rga/rga.c     |   4 +
->  drivers/media/platform/rockchip/rga/rga.h     |   2 +-
->  drivers/media/platform/rockchip/rga/rga3-hw.c | 490 ++++++++++++++++++++++++++
->  drivers/media/platform/rockchip/rga/rga3-hw.h | 186 ++++++++++
->  5 files changed, 682 insertions(+), 2 deletions(-)
+On 07/10/2025 17:13, Yannic Moog wrote:
+> Update Copyright year and change license from GPL-2.0 to
+> GPL-2.0-or-later OR MIT. Use syntax as defined in the SPDX standard.
+> Also remove individual authorship.
 
-Your order of patches is a mess. DTS cannot be in the middle. In fact,
-DTS should not be even in this patchset, because you are targeting media.
+You did not explain why. I see no reason (no explanation) to claim that
+you added copyrighted material for each of these individual dates.
+
+Write complete changelogs explaining such details.
 
 Best regards,
 Krzysztof
