@@ -4,93 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE84FCCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 18:30:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 77D70CCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 18:33:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jb3tcA1W3FmGk+8TVe8vqOzjSK1aS/TXDE04iZAy/ws=; b=XmHFmH6QTYM558m/Bc0W/eMu7R
-	JWZxIY0dix5HLYGsAClv9xFG3hmy0rEGnOetCCGNGMZHzQNmpgMbmfSrpkfDjtr5liHNa7C6gRV2e
-	acMqCy0flKU9v2wgu7FWo7QtTJvQIMn7mSDO5Mrs1rlt0rsDW4rPnJjE5A1pzQy00yj6/vaIWpqp/
-	aDMzljfrlhkhbmtVgsCbDAFIijR0YYZIC+1bDjrK3LTBlD38n2hzOhnFTjMCyC2S5SSOvjqIGz+75
-	ilRGjCJnjmRuQ5kYtgopvm/PEjXCAzAJgwZs0alW9DvEWapGJIahJLR8OqYvVuu1fy1shlt1kD4mk
-	+Gq1hZ9A==;
+	bh=nXZFtFTkE8xIC71M/N7hUPoMl0yiOIyLa6hKguyz/kw=; b=wMWPBD4BxJGxs38x7RJXfJqslD
+	XW6Dx+2TYZ8iQXri6sVvsS6JGfU7vA2zV1hnR938muLHz91GdLy1lquDA/ayG/1y2qsd5OBYGG7B+
+	kvnFK6/aIlrHSnPZhRmrCMi1hWLW7JtNiaCmA6XYFbIlds/7e6um6dWXWdN9D2xYF9InDbRGDssgK
+	Sfhc4YboXbwdCBxyVhMw566+LEO9NhrYSsHolAuNwbZOHe3dNd+U74LC2loqRkdNNRnaoNYXS1D4z
+	1aUMyah4oZxM/Mj51ATgDLGiKjItX+AW72NwhR8W+RuMbttMs5btr6LYnVNLjKFPl3aGfseZhQTYo
+	LqncOC6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6CSP-00000002asB-11lE;
-	Tue, 07 Oct 2025 18:30:41 +0000
-Received: from mail-qv1-xf35.google.com ([2607:f8b0:4864:20::f35])
+	id 1v6CUj-00000002b3a-40XP;
+	Tue, 07 Oct 2025 18:33:05 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6CSN-00000002ar3-0Rqi
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 18:30:40 +0000
-Received: by mail-qv1-xf35.google.com with SMTP id 6a1803df08f44-796d68804a0so79943336d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 11:30:38 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1759861838; x=1760466638; darn=lists.infradead.org;
-        h=mime-version:user-agent:references:in-reply-to:date:cc:to:from
-         :subject:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=Jb3tcA1W3FmGk+8TVe8vqOzjSK1aS/TXDE04iZAy/ws=;
-        b=sDiFzyavivg/260NBizSf84xDptR/AfQqrR8zK+T2mStK1kYWE7W5Vlm4Qvjrinm6B
-         luySKr3kULdnlsKzsYNRuOhSgMXOg5WZjSDNxEIUkQFYPAY87NSOhuo6s74xr/I/IHi6
-         +J3ZN0fW6w6TBaQG9Ct7xqYMy+Df76c8ypnQSzhuwT66XDinMS4pKhi8EWgpVhSEw5JH
-         1n3IFXNzeDsOK+BTNyaC/xhliNfjT9dRdEUY8RyFEg+fBwOztyqQSK+NU/mhBREdLTxg
-         EeWsjyeWCbrQD4+H8k1Jo08VpvZLNena+CCI20qjbrYT28/wh3IpmUiU+buf1VQTL3iT
-         jtJw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759861838; x=1760466638;
-        h=mime-version:user-agent:references:in-reply-to:date:cc:to:from
-         :subject:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Jb3tcA1W3FmGk+8TVe8vqOzjSK1aS/TXDE04iZAy/ws=;
-        b=xHTnUvIvYEUCH7Bwl8hfjPrT4vmuaXEtrv4ApQ/q/sMzW41nXw1TS3sMt5T3BE6pdr
-         hVKFxksCQCrAzQ8PiW3ksEoKOXIyy4LbdzHipihTJitXORYfsVV0a2BKl9Qf5gi/Umbh
-         DRh047CIiwyyH+MWzQ3KiQ8hpWsdttPf0hcFE5S8RVHdOil1rcpqHhH71/IHAmCPUBI7
-         ItAhUdumyQjs+t1jRkkSx7P73FfqHIErRxiWQ/DxoRrUzp7/ymPZQnU0Y5IpmBUdTPtC
-         Q/yfmxxjgaqnZ7m77J1Vckwn2/NH+mI6TVoRn4LUwewLbJbB34AMrL5GdGafEkKNYZjW
-         SyZA==
-X-Forwarded-Encrypted: i=1; AJvYcCWC7wwc9pDCF0GGYPWp2SGQ0jpAS2a30Tfmf+rtiuH2kwkxbHPr+oUra88XyZezVuHkQmLGmETDiPbfqa2ESDP4@lists.infradead.org
-X-Gm-Message-State: AOJu0YzDzt7QtCeA6QxbvuKGZnRvC2fPa1Jtkz8f+lIIDuM9/ZS7wLRN
-	VIHe1K0yK644kJaWcRkQ3oa4c5g4aFA6VSYZx1/FfTEGLdzufHrt38H9uNnmYGwQfJw=
-X-Gm-Gg: ASbGnctd9uLc7ikqqH7w3O3Qk86r5jJEKgDDuK++bkmiGNPPuPtwI9oLkadGr5R+LG7
-	ICHgVF7Ljoy497kPLBB1hAem9gjY2AeY3cxqNr/2X6tLGp4G4iVLOJYuaXkVNg7PW1/8tGIkJlw
-	iCyYmlnnSsbtn/mYIXd1jZdaCdzUdF3wk1x0ibMyNXH7Dn7PQ8wjGTmRjQUgosZGgZ6SZTxlNPR
-	pRKrumZMUsRG/Jgx6CDH6OqUKChRsoNESwNaHuSzEGuIase/ip/yyMlm3Zyy1IAGGhY+WRHkZfZ
-	muRuLbIPNnuODYXP6qb4EAvle9KehqUKi5b+wgp7pfk01mAIZaHFtTdGhuG4IJQVHQHF/773Kte
-	daw+DH4FR3iKGlph6XYe0+Ezzi2xNl2U/aB/3T3fnnlz4JyT8Fv6/
-X-Google-Smtp-Source: AGHT+IG7oPC1tRwzaeHEd7zVyRiz9owBfrM5atH+5WnqTKGdGFmZwYm2VcF1mt295mM1N+XGahIowQ==
-X-Received: by 2002:a05:6214:c65:b0:78d:ae5d:961e with SMTP id 6a1803df08f44-87b2efc2c83mr5392146d6.44.1759861837282;
-        Tue, 07 Oct 2025 11:30:37 -0700 (PDT)
-Received: from ?IPv6:2606:6d00:17:ebd3::c41? ([2606:6d00:17:ebd3::c41])
-        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-878bb53badbsm144330446d6.21.2025.10.07.11.30.36
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Oct 2025 11:30:36 -0700 (PDT)
-Message-ID: <97879b9b078055fb130edfd126d253320ce616a1.camel@ndufresne.ca>
-Subject: Re: [PATCH 11/16] media: rockchip: rga: add iommu restore function
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Sven =?ISO-8859-1?Q?P=FCschel?= <s.pueschel@pengutronix.de>, Jacob Chen
-	 <jacob-chen@iotwrt.com>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
- Mauro Carvalho Chehab
-	 <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Rob Herring
-	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	 <conor+dt@kernel.org>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, kernel@pengutronix.de
-Date: Tue, 07 Oct 2025 14:30:34 -0400
-In-Reply-To: <20251007-spu-rga3-v1-11-36ad85570402@pengutronix.de>
-References: <20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de>
-	 <20251007-spu-rga3-v1-11-36ad85570402@pengutronix.de>
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-XMJL5X6bcbRTnPR2VvM0"
-User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+	id 1v6CUh-00000002b3E-3Rz8;
+	Tue, 07 Oct 2025 18:33:05 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=nXZFtFTkE8xIC71M/N7hUPoMl0yiOIyLa6hKguyz/kw=; b=qof3P//dbmF0+Sf4x0+XNpMlD+
+	aqzn3EyLNptQS4jZTQexx5yJhGVp3UvvsjWMDbogW0HAuOrsn/yq36ha83A29PFp6sW87mn7YzoB0
+	mxPsp0dhFyxQyrV8WXV+fdDNAhtxmUDIrM/EyV/sy69XAJGsCr525eLcAS0g9e1V7YBY=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1v6CUP-00AO3J-AP; Tue, 07 Oct 2025 20:32:45 +0200
+Date: Tue, 7 Oct 2025 20:32:45 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: jjm2473 <jjm2473@gmail.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	heiko@sntech.de, quentin.schulz@cherry.de,
+	kever.yang@rock-chips.com, naoki@radxa.com, honyuenkwun@gmail.com,
+	inindev@gmail.com, ivan8215145640@gmail.com,
+	neil.armstrong@linaro.org, mani@kernel.org, dsimic@manjaro.org,
+	pbrobinson@gmail.com, alchark@gmail.com, didi.debian@cknow.org,
+	jbx6244@gmail.com, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v3 3/3] arm64: dts: rockchip: add LinkEase EasePi R1
+Message-ID: <a0501abe-d86d-4f3a-9d55-c842bfafc190@lunn.ch>
+References: <20250929065714.27741-1-jjm2473@gmail.com>
+ <20250929065714.27741-4-jjm2473@gmail.com>
+ <d8ad476c-d0c7-4e97-9e76-540a539ffb52@lunn.ch>
+ <CAP_9mL4ofig-X-w9wx1A5D_eVXROo6AVFBSwp4mh=kj7webpPA@mail.gmail.com>
+ <7e219aef-88a0-4184-9553-30dcbc8dbd79@lunn.ch>
+ <CAP_9mL6utQjN_2EZ4vs3K8jzcxHxvKWNTNEXZ9fAx4HuA=DNXA@mail.gmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <CAP_9mL6utQjN_2EZ4vs3K8jzcxHxvKWNTNEXZ9fAx4HuA=DNXA@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_113039_164771_298AF738 
-X-CRM114-Status: GOOD (  25.46  )
+X-CRM114-CacheID: sfid-20251007_113303_859659_98DB18FA 
+X-CRM114-Status: UNSURE (   8.68  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,153 +79,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+> I also notice that you suggest use {tx|rx}-internal-delay-ps instead
+> of  {tx|rx}_delay in
+> https://lore.kernel.org/all/e4d3127b-c879-4931-9ea0-de7449bc508c@lunn.ch/ ,
+> but I think this depends on stmmac driver.
 
---=-XMJL5X6bcbRTnPR2VvM0
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+It depends on the driver implementing those standard properties. But
+as pointed out elsewhere, tx|rx-delay are magic, nobody knows what
+they do, so it is hard to implement the standard properties to replace
+them.
 
-Hi,
-
-Le mardi 07 octobre 2025 =C3=A0 10:32 +0200, Sven P=C3=BCschel a =C3=A9crit=
-=C2=A0:
-> Add an iommu restore function in preparation for the rga3 addition.
-> This is necessary for a soft reset, as the rga3 will also reset
-> it's iommu paging table to 0 and disable paging.
->=20
-> The empty domain attach/detach to restore the iommu is copied
-> from the rkvdec driver.
-
-We did receive negative feedback after the fact on this one. We will likely
-upset further the iommu subsystem maintainers with that. Have you considere=
-d
-adding a restore function in the rkiommu driver, similar to TI mmu and Benj=
-amin
-VSI MMU proposal ?
-
-I have no precise objection, I know it works, but adding a restore function
-seems also pretty straight forward.
-
->=20
-> Signed-off-by: Sven P=C3=BCschel <s.pueschel@pengutronix.de>
-> ---
-> =C2=A0drivers/media/platform/rockchip/rga/rga.c | 24 ++++++++++++++++++++=
-++++
-> =C2=A0drivers/media/platform/rockchip/rga/rga.h |=C2=A0 7 +++++++
-> =C2=A02 files changed, 31 insertions(+)
->=20
-> diff --git a/drivers/media/platform/rockchip/rga/rga.c
-> b/drivers/media/platform/rockchip/rga/rga.c
-> index
-> cd4da01645611e5fb51ed94e09b5f1463dad72c5..0a725841b0cfa41bbc5b861b8f5ceac=
-2452f
-> c2b5 100644
-> --- a/drivers/media/platform/rockchip/rga/rga.c
-> +++ b/drivers/media/platform/rockchip/rga/rga.c
-> @@ -9,6 +9,7 @@
-> =C2=A0#include <linux/delay.h>
-> =C2=A0#include <linux/fs.h>
-> =C2=A0#include <linux/interrupt.h>
-> +#include <linux/iommu.h>
-> =C2=A0#include <linux/module.h>
-> =C2=A0#include <linux/of.h>
-> =C2=A0#include <linux/pm_runtime.h>
-> @@ -560,6 +561,19 @@ static const struct video_device rga_videodev =3D {
-> =C2=A0	.device_caps =3D V4L2_CAP_VIDEO_M2M_MPLANE | V4L2_CAP_STREAMING,
-> =C2=A0};
-> =C2=A0
-> +void rga_iommu_restore(struct rockchip_rga *rga)
-> +{
-> +	if (rga->empty_domain) {
-> +		/*
-> +		 * To rewrite mapping into the attached IOMMU core, attach a
-> new empty domain that
-> +		 * will program an empty table, then detach it to restore the
-> default domain and
-> +		 * all cached mappings.
-> +		 */
-> +		iommu_attach_device(rga->empty_domain, rga->dev);
-> +		iommu_detach_device(rga->empty_domain, rga->dev);
-> +	}
-> +}
-> +
-> =C2=A0static int rga_parse_dt(struct rockchip_rga *rga)
-> =C2=A0{
-> =C2=A0	struct reset_control *core_rst, *axi_rst, *ahb_rst;
-> @@ -657,6 +671,13 @@ static int rga_probe(struct platform_device *pdev)
-> =C2=A0		goto err_put_clk;
-> =C2=A0	}
-> =C2=A0
-> +	if (iommu_get_domain_for_dev(rga->dev)) {
-> +		rga->empty_domain =3D iommu_paging_domain_alloc(rga->dev);
-> +
-> +		if (!rga->empty_domain)
-
-Its an error pointer, see:
-
-https://gitlab.freedesktop.org/linux-media/media-committers/-/commit/6347dc=
-7fb967521a77f9ff0774d25ef0cca4c6cd
-
-> +			dev_warn(rga->dev, "cannot alloc new empty
-> domain\n");
-> +	}
-> +
-> =C2=A0	ret =3D v4l2_device_register(&pdev->dev, &rga->v4l2_dev);
-> =C2=A0	if (ret)
-> =C2=A0		goto err_put_clk;
-> @@ -741,6 +762,9 @@ static void rga_remove(struct platform_device *pdev)
-> =C2=A0	v4l2_device_unregister(&rga->v4l2_dev);
-> =C2=A0
-> =C2=A0	pm_runtime_disable(rga->dev);
-> +
-> +	if (rga->empty_domain)
-> +		iommu_domain_free(rga->empty_domain);
-> =C2=A0}
-> =C2=A0
-> =C2=A0static int __maybe_unused rga_runtime_suspend(struct device *dev)
-> diff --git a/drivers/media/platform/rockchip/rga/rga.h
-> b/drivers/media/platform/rockchip/rga/rga.h
-> index
-> fc4805ba4e8ef7fb311f780a198ba6ba4d3aff17..e19c4c82aca5ae2056f52d525138093=
-fbbb8
-> 1af8 100644
-> --- a/drivers/media/platform/rockchip/rga/rga.h
-> +++ b/drivers/media/platform/rockchip/rga/rga.h
-> @@ -75,6 +75,7 @@ struct rockchip_rga {
-> =C2=A0	void __iomem *regs;
-> =C2=A0	struct clk_bulk_data clks[3];
-> =C2=A0	struct rockchip_rga_version version;
-> +	struct iommu_domain *empty_domain;
-> =C2=A0
-> =C2=A0	/* vfd lock */
-> =C2=A0	struct mutex mutex;
-> @@ -114,6 +115,12 @@ static inline struct rga_vb_buffer *vb_to_rga(struct
-> vb2_v4l2_buffer *vb)
-> =C2=A0
-> =C2=A0struct rga_frame *rga_get_frame(struct rga_ctx *ctx, enum v4l2_buf_=
-type
-> type);
-> =C2=A0
-> +/*
-> + * This should be called in an interrupt handler to make sure no memory
-> + * is mapped through the IOMMU while the empty domain is attached.
-> + */
-> +void rga_iommu_restore(struct rockchip_rga *rga);
-> +
-> =C2=A0/* RGA Buffers Manage */
-> =C2=A0extern const struct vb2_ops rga_qops;
-> =C2=A0
-
---=-XMJL5X6bcbRTnPR2VvM0
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaOVcSgAKCRDZQZRRKWBy
-9OYnAP9DZqU3/sor4ifbznDD8fkkIm921ew6ADeaBvy0V9AxfgEAwHVV4+jp7xPf
-P3ZUAog4C977zT1IhEvYYMKGr4Gjpwg=
-=aUgZ
------END PGP SIGNATURE-----
-
---=-XMJL5X6bcbRTnPR2VvM0--
+     Andrew
 
