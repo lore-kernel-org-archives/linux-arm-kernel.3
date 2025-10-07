@@ -4,40 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D9B7CCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 08:33:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0319CCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 08:33:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pQHfX8YL5xXEZVziuA62Ay9qSJUTkht1j/yzkz0Phi8=; b=2fzH6y83g2DAuC7vC76t3k3s1Q
-	WQkV832YKeN18gyspHt18K5EAsmYiNoxMxpvfn9aD4/156KJfg1FEF30Lx0cvsKg5PZIvBxDlNGDN
-	4tNTEP5YesD6sWTIxTazjD9oa1VWby0dM9lwanQldBmpRVou1t28kbJzqgjRGz3oZ5dHaGfHojQur
-	Ui/l8rhElSgK6cx8/IgGQgHOMi/+226WEVvPE87ce5tB1RmbNEtuM2itFu2d3mplUqAE5V+WtYA4U
-	hI37ysjqTqeLdr/GitC/WHPPvvi2MIWiHfScr8bCJDyQtIxQ80RCucL6mchtnvvw72a4QvfJEV+m7
-	b9mlHrKQ==;
+	bh=DE7JrMtADkFhJjsng+q2AItE6ifiQWgMPxBSfppAp+w=; b=SxbzJ7KTJIMElJtyAj88PCKJ+D
+	n0f8wO6B+s+Wj9eyLtr2Nq0UA0vFDH+0WrDKuuaMRqshYfDtHZ8/8ogv0UH7ed8BDFZR3S0P2UpId
+	F0LdDARNYQtfcvvQLHTpu2r5ODWCCV7GkbUkrudzZDXf9k0ulNkL+NvRkS7wbc4sbdcVfXJAsBUcv
+	ucg/3RP598tGESZhMdoVKHrf9qewg5rQBcWP3iMamSRv1WsZY3JSJvatagUmtvFPuv6jUaEKk6atH
+	KnfkubUyqRkdmc5/nML8+fz/0iYcjex6HDGzeeE7S2ihi88GNQsGJ+PFKDfKy0BQI0zOxVipyiXfp
+	wkFm7PTQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v637x-00000001YQa-1jed;
-	Tue, 07 Oct 2025 08:32:57 +0000
+	id 1v637y-00000001YTL-3pHh;
+	Tue, 07 Oct 2025 08:32:58 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v637r-00000001YLE-3f79
+	id 1v637t-00000001YMk-1xgh
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 08:32:53 +0000
+	Tue, 07 Oct 2025 08:32:54 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1v637q-0002Hb-C9; Tue, 07 Oct 2025 10:32:50 +0200
+	id 1v637r-0002Hb-Ur; Tue, 07 Oct 2025 10:32:52 +0200
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Tue, 07 Oct 2025 10:31:56 +0200
-Subject: [PATCH 03/16] media: rockchip: rga: align stride to 16 bytes
+Date: Tue, 07 Oct 2025 10:31:58 +0200
+Subject: [PATCH 05/16] media: rockchip: rga: use card type to specify rga
+ type
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20251007-spu-rga3-v1-3-36ad85570402@pengutronix.de>
+Message-Id: <20251007-spu-rga3-v1-5-36ad85570402@pengutronix.de>
 References: <20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de>
 In-Reply-To: <20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
@@ -56,8 +57,8 @@ X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_013251_910703_A5AD6A20 
-X-CRM114-Status: GOOD (  14.76  )
+X-CRM114-CacheID: sfid-20251007_013253_503479_DA68ADAC 
+X-CRM114-Status: GOOD (  14.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -72,68 +73,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Align the stride to a multiple of 16 according to the RGA3 requirements
-mentioned in the datasheet. This also ensures that the stride of the RGA2
-is aligned to 4 bytes, as it needs to divide the value by 4 (one word)
-before storing it in the register.
-
-Increasing the stride for the alignment also requires to increase the
-sizeimage value. This is usually handled by v4l2_fill_pixfmt_mp, but
-it doesn't allow to set a stride alignment. Therefore use the generated
-values to calculate the total number of lines to properly update the
-sizeimage value after the bytesperline has been aligned.
+In preparation of the RGA3 support add a filed to the rga_hw struct
+to specify the desired card type value. This allows the user to
+differentiate the RGA2 and RGA3 video device nodes.
 
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 ---
- drivers/media/platform/rockchip/rga/rga.c | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
+ drivers/media/platform/rockchip/rga/rga-hw.c | 1 +
+ drivers/media/platform/rockchip/rga/rga.c    | 4 +++-
+ drivers/media/platform/rockchip/rga/rga.h    | 1 +
+ 3 files changed, 5 insertions(+), 1 deletion(-)
 
+diff --git a/drivers/media/platform/rockchip/rga/rga-hw.c b/drivers/media/platform/rockchip/rga/rga-hw.c
+index 871fe8c787c8d8dbd55c111c3fba3953d4debf02..a44befe4054d19e3b921c0827af4d36cf077e61f 100644
+--- a/drivers/media/platform/rockchip/rga/rga-hw.c
++++ b/drivers/media/platform/rockchip/rga/rga-hw.c
+@@ -619,6 +619,7 @@ static struct rga_fmt formats[] = {
+ };
+ 
+ const struct rga_hw rga2_hw = {
++	.card_type = "rga2",
+ 	.formats = formats,
+ 	.num_formats = ARRAY_SIZE(formats),
+ 	.cmdbuf_size = RGA_CMDBUF_SIZE,
 diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
-index 6438119a6c7aeff1e89e7aa95dcd5d2921fefa08..3cb7ce470c47e39d694e8176875a75fad2717f96 100644
+index 32d24cdf17e9db38541d2b1615c6337def9362c6..ce55b48ef9fa8fbb2b265455cc559a4216609d4f 100644
 --- a/drivers/media/platform/rockchip/rga/rga.c
 +++ b/drivers/media/platform/rockchip/rga/rga.c
-@@ -459,6 +459,25 @@ static int vidioc_enum_fmt(struct file *file, void *priv, struct v4l2_fmtdesc *f
- 	return 0;
- }
- 
-+static void align_pixfmt(struct v4l2_pix_format_mplane *pix_fmt)
-+{
-+	int lines;
-+	struct v4l2_plane_pix_format *fmt;
-+
-+	/*
-+	 * Align stride to 16 for the RGA3 (based on the datasheet)
-+	 * To not dismiss the v4l2_fill_pixfmt_mp helper
-+	 * (and manually write it again), we're approximating the new sizeimage
-+	 */
-+	for (fmt = pix_fmt->plane_fmt;
-+	     fmt < pix_fmt->plane_fmt + pix_fmt->num_planes;
-+	     fmt++) {
-+		lines = DIV_ROUND_UP(fmt->sizeimage, fmt->bytesperline);
-+		fmt->bytesperline = (fmt->bytesperline + 0xf) & ~0xf;
-+		fmt->sizeimage = fmt->bytesperline * lines;
-+	}
-+}
-+
- static int vidioc_g_fmt(struct file *file, void *priv, struct v4l2_format *f)
+@@ -286,8 +286,10 @@ static const struct v4l2_file_operations rga_fops = {
+ static int
+ vidioc_querycap(struct file *file, void *priv, struct v4l2_capability *cap)
  {
- 	struct v4l2_pix_format_mplane *pix_fmt = &f->fmt.pix_mp;
-@@ -474,6 +493,7 @@ static int vidioc_g_fmt(struct file *file, void *priv, struct v4l2_format *f)
- 		return PTR_ERR(frm);
- 
- 	v4l2_fill_pixfmt_mp(pix_fmt, frm->fmt->fourcc, frm->width, frm->height);
-+	align_pixfmt(pix_fmt);
- 
- 	pix_fmt->field = V4L2_FIELD_NONE;
- 	pix_fmt->colorspace = frm->colorspace;
-@@ -496,6 +516,7 @@ static int vidioc_try_fmt(struct file *file, void *priv, struct v4l2_format *f)
- 				(u32)MIN_HEIGHT, (u32)MAX_HEIGHT);
- 
- 	v4l2_fill_pixfmt_mp(pix_fmt, fmt->fourcc, pix_fmt->width, pix_fmt->height);
-+	align_pixfmt(pix_fmt);
- 	pix_fmt->field = V4L2_FIELD_NONE;
++	struct rockchip_rga *rga = video_drvdata(file);
++
+ 	strscpy(cap->driver, RGA_NAME, sizeof(cap->driver));
+-	strscpy(cap->card, "rockchip-rga", sizeof(cap->card));
++	strscpy(cap->card, rga->hw->card_type, sizeof(cap->card));
+ 	strscpy(cap->bus_info, "platform:rga", sizeof(cap->bus_info));
  
  	return 0;
+diff --git a/drivers/media/platform/rockchip/rga/rga.h b/drivers/media/platform/rockchip/rga/rga.h
+index 61a00f56ce9b31968881e22bef873612b62e21d9..257267738d5d179d9ec4fcb5c8729783c9b713de 100644
+--- a/drivers/media/platform/rockchip/rga/rga.h
++++ b/drivers/media/platform/rockchip/rga/rga.h
+@@ -151,6 +151,7 @@ static inline void rga_mod(struct rockchip_rga *rga, u32 reg, u32 val, u32 mask)
+ };
+ 
+ struct rga_hw {
++	const char *card_type;
+ 	struct rga_fmt *formats;
+ 	u32 num_formats;
+ 	size_t cmdbuf_size;
 
 -- 
 2.51.0
