@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39A15CCD185
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D9B7CCA476
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 08:33:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,33 +12,32 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GedOwBf2+fFq2MqvodeJfzNJn7bW5TxA8j4IUAdkJ/k=; b=mKhfpKWtJjSisbKi6YZSWebWvk
-	L1Fa2K/wkHeUJqNxCgF77pYPoRUgA3yMQaWGcmhEVQ9n6G6O9h3rCOWIBJM6n/adKCJlWvuJd7t3I
-	9wbjXUBOllPnBSmGiZKvS2hCR8yfCTHvLcDiKaXUEfYgJ5Ea/vOoGwDycL3frCeUB7ulNRYYQM7bx
-	OTyr9W3J3G3kqf5NY1eKvu/eqG8UQsq+lwRVKeQMOOzK5M3lD0RMgeNe/fzSN5ylDcIs04YhOoUQP
-	Rh7nrmif6H3LIzN7LAyAxaXOIp9/+0jC9a15wnxYwUHgB06Mb7hZDYAFcIolabfKrY21Pr8XYMaKM
-	qFAlIrNw==;
+	bh=pQHfX8YL5xXEZVziuA62Ay9qSJUTkht1j/yzkz0Phi8=; b=2fzH6y83g2DAuC7vC76t3k3s1Q
+	WQkV832YKeN18gyspHt18K5EAsmYiNoxMxpvfn9aD4/156KJfg1FEF30Lx0cvsKg5PZIvBxDlNGDN
+	4tNTEP5YesD6sWTIxTazjD9oa1VWby0dM9lwanQldBmpRVou1t28kbJzqgjRGz3oZ5dHaGfHojQur
+	Ui/l8rhElSgK6cx8/IgGQgHOMi/+226WEVvPE87ce5tB1RmbNEtuM2itFu2d3mplUqAE5V+WtYA4U
+	hI37ysjqTqeLdr/GitC/WHPPvvi2MIWiHfScr8bCJDyQtIxQ80RCucL6mchtnvvw72a4QvfJEV+m7
+	b9mlHrKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v637x-00000001YRO-3Sun;
+	id 1v637x-00000001YQa-1jed;
 	Tue, 07 Oct 2025 08:32:57 +0000
 Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v637s-00000001YKe-1fIE
+	id 1v637r-00000001YLE-3f79
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 07 Oct 2025 08:32:53 +0000
 Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=peter.mobile.pengutronix.de)
 	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
 	(envelope-from <s.pueschel@pengutronix.de>)
-	id 1v637p-0002Hb-J6; Tue, 07 Oct 2025 10:32:49 +0200
+	id 1v637q-0002Hb-C9; Tue, 07 Oct 2025 10:32:50 +0200
 From: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-Date: Tue, 07 Oct 2025 10:31:55 +0200
-Subject: [PATCH 02/16] media: rockchip: rga: use stride for offset
- calculation
+Date: Tue, 07 Oct 2025 10:31:56 +0200
+Subject: [PATCH 03/16] media: rockchip: rga: align stride to 16 bytes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20251007-spu-rga3-v1-2-36ad85570402@pengutronix.de>
+Message-Id: <20251007-spu-rga3-v1-3-36ad85570402@pengutronix.de>
 References: <20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de>
 In-Reply-To: <20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de>
 To: Jacob Chen <jacob-chen@iotwrt.com>, 
@@ -57,8 +56,8 @@ X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
 X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
 X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_013252_452584_B0F32918 
-X-CRM114-Status: GOOD (  14.42  )
+X-CRM114-CacheID: sfid-20251007_013251_910703_A5AD6A20 
+X-CRM114-Status: GOOD (  14.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,63 +72,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use the stride instead of the width for the offset calculation. This
-ensures that the bytesperline value doesn't need to match the width
-value of the image.
+Align the stride to a multiple of 16 according to the RGA3 requirements
+mentioned in the datasheet. This also ensures that the stride of the RGA2
+is aligned to 4 bytes, as it needs to divide the value by 4 (one word)
+before storing it in the register.
 
-Furthermore this patch removes the dependency on the uv_factor property
-and instead reuses the v4l2_format_info to determine the correct
-division factor.
+Increasing the stride for the alignment also requires to increase the
+sizeimage value. This is usually handled by v4l2_fill_pixfmt_mp, but
+it doesn't allow to set a stride alignment. Therefore use the generated
+values to calculate the total number of lines to properly update the
+sizeimage value after the bytesperline has been aligned.
 
 Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
 ---
- drivers/media/platform/rockchip/rga/rga-buf.c | 14 +++++++++-----
- 1 file changed, 9 insertions(+), 5 deletions(-)
+ drivers/media/platform/rockchip/rga/rga.c | 21 +++++++++++++++++++++
+ 1 file changed, 21 insertions(+)
 
-diff --git a/drivers/media/platform/rockchip/rga/rga-buf.c b/drivers/media/platform/rockchip/rga/rga-buf.c
-index 730bdf98565a55704cef92345ccf9f486b99b06e..b5e6b1b527ca81721c64d96d984d5e981449c237 100644
---- a/drivers/media/platform/rockchip/rga/rga-buf.c
-+++ b/drivers/media/platform/rockchip/rga/rga-buf.c
-@@ -14,7 +14,6 @@
- #include <media/videobuf2-dma-sg.h>
- #include <media/videobuf2-v4l2.h>
- 
--#include "rga-hw.h"
- #include "rga.h"
- 
- static ssize_t fill_descriptors(struct rga_dma_desc *desc, size_t max_desc,
-@@ -92,14 +91,19 @@ static int rga_buf_init(struct vb2_buffer *vb)
+diff --git a/drivers/media/platform/rockchip/rga/rga.c b/drivers/media/platform/rockchip/rga/rga.c
+index 6438119a6c7aeff1e89e7aa95dcd5d2921fefa08..3cb7ce470c47e39d694e8176875a75fad2717f96 100644
+--- a/drivers/media/platform/rockchip/rga/rga.c
++++ b/drivers/media/platform/rockchip/rga/rga.c
+@@ -459,6 +459,25 @@ static int vidioc_enum_fmt(struct file *file, void *priv, struct v4l2_fmtdesc *f
  	return 0;
  }
  
--static int get_plane_offset(struct rga_frame *f, int plane)
-+static int get_plane_offset(struct rga_frame *f,
-+			    const struct v4l2_format_info *info,
-+			    int plane)
- {
-+	u32 stride = f->pix.plane_fmt[0].bytesperline;
++static void align_pixfmt(struct v4l2_pix_format_mplane *pix_fmt)
++{
++	int lines;
++	struct v4l2_plane_pix_format *fmt;
 +
- 	if (plane == 0)
- 		return 0;
- 	if (plane == 1)
--		return f->width * f->height;
-+		return stride * f->height;
- 	if (plane == 2)
--		return f->width * f->height + (f->width * f->height / f->fmt->uv_factor);
-+		return stride * f->height +
-+		       (stride * f->height / info->hdiv / info->vdiv);
++	/*
++	 * Align stride to 16 for the RGA3 (based on the datasheet)
++	 * To not dismiss the v4l2_fill_pixfmt_mp helper
++	 * (and manually write it again), we're approximating the new sizeimage
++	 */
++	for (fmt = pix_fmt->plane_fmt;
++	     fmt < pix_fmt->plane_fmt + pix_fmt->num_planes;
++	     fmt++) {
++		lines = DIV_ROUND_UP(fmt->sizeimage, fmt->bytesperline);
++		fmt->bytesperline = (fmt->bytesperline + 0xf) & ~0xf;
++		fmt->sizeimage = fmt->bytesperline * lines;
++	}
++}
++
+ static int vidioc_g_fmt(struct file *file, void *priv, struct v4l2_format *f)
+ {
+ 	struct v4l2_pix_format_mplane *pix_fmt = &f->fmt.pix_mp;
+@@ -474,6 +493,7 @@ static int vidioc_g_fmt(struct file *file, void *priv, struct v4l2_format *f)
+ 		return PTR_ERR(frm);
  
- 	return -EINVAL;
- }
-@@ -145,7 +149,7 @@ static int rga_buf_prepare(struct vb2_buffer *vb)
- 	/* Fill the remaining planes */
- 	info = v4l2_format_info(f->fmt->fourcc);
- 	for (i = info->mem_planes; i < info->comp_planes; i++)
--		offsets[i] = get_plane_offset(f, i);
-+		offsets[i] = get_plane_offset(f, info, i);
+ 	v4l2_fill_pixfmt_mp(pix_fmt, frm->fmt->fourcc, frm->width, frm->height);
++	align_pixfmt(pix_fmt);
  
- 	rbuf->offset.y_off = offsets[0];
- 	rbuf->offset.u_off = offsets[1];
+ 	pix_fmt->field = V4L2_FIELD_NONE;
+ 	pix_fmt->colorspace = frm->colorspace;
+@@ -496,6 +516,7 @@ static int vidioc_try_fmt(struct file *file, void *priv, struct v4l2_format *f)
+ 				(u32)MIN_HEIGHT, (u32)MAX_HEIGHT);
+ 
+ 	v4l2_fill_pixfmt_mp(pix_fmt, fmt->fourcc, pix_fmt->width, pix_fmt->height);
++	align_pixfmt(pix_fmt);
+ 	pix_fmt->field = V4L2_FIELD_NONE;
+ 
+ 	return 0;
 
 -- 
 2.51.0
