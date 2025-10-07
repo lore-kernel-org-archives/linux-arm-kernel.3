@@ -4,79 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A88F7CCA472
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 11:17:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEE92CCA472
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 11:18:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U3l4kEjsdDE6a6BGdSar9SEMlVw0yVffjguWwMFXN/4=; b=S2fU9fzRSED1mKBnJKcmPjIO9t
-	lG8RmruMz6xXzCAA+9nvEBON+E3g56Sy20Unj5MyVo9flubKql+hXILuBd3omGbnriK5bkH/iAQFE
-	UoEQADKo7Vgn2jSr/FrrPvXKecyLFdasju3LgwdXPS7xwq2l9wMOd7UEqnzp6qhHA9CKXqN+2eR5s
-	FkV5R55odDdpKeU9FCHtsf9KFalt/FC1OOSH8zkYakxeTpXYR8UnCTgrGxrJf0zcIaWfEoCeNllU9
-	p+dzyFjA23Ft5bA0OH+StRpDa9ysWhXGGI9qEsEqlvNFbTOjGFJnzDuIf3PJ58seFqWcVfmxnUXUF
-	r1zfMYhA==;
+	bh=yg5EzbqpAhrvR1YouHoLR93Qim7L8FFl5LtkM7LFT7g=; b=EHbAsVnHxiHUIj8bajWgK0WlQM
+	WcpEok33dN2Jd/TyUH+F4m3Ft0bROwtxWyP1kEqjHUmoUtTFKSf8m2JG+1zofINVNVG3vhX/Ggczy
+	gUOYE7Ig+Nv/wrKQct6n0lzMkqH1AhZ9EEMSXyIHaPv51DZqBLGQJcWZGV3f94hbcIvxwVVdvdgvU
+	pr5+0IjkBgS5otiTYpryQ2BGZfA1FJ0FIVGtIxqfIK62gbQ4OpISffArQwcsOGrP9gv6Su6nS1+Dv
+	cxW7yzpEznJJTU1qfPv2bPoNzgCo7UkG/W6d02zFXhCQGcJzJBKg1NVfjfzyrPwyMccsA6F0E4+y8
+	ZI973pkA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v65hY-00000001rOI-2Fnz;
-	Tue, 07 Oct 2025 11:17:52 +0000
-Received: from mail-pg1-x531.google.com ([2607:f8b0:4864:20::531])
+	id 1v65hf-00000001rTe-3pxD;
+	Tue, 07 Oct 2025 11:17:59 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v65hW-00000001rMQ-0lTW
+	id 1v65hd-00000001rRL-2Gsl
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 11:17:51 +0000
-Received: by mail-pg1-x531.google.com with SMTP id 41be03b00d2f7-b57d93ae3b0so4148517a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 04:17:49 -0700 (PDT)
+	Tue, 07 Oct 2025 11:17:58 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-793021f348fso305408b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 04:17:57 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1759835869; x=1760440669; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1759835877; x=1760440677; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=U3l4kEjsdDE6a6BGdSar9SEMlVw0yVffjguWwMFXN/4=;
-        b=aT12caChNCYzIOXjmm2Dr8jeZFWuNQEUiONGE++/X5Is7BVKuLLnUKXnyXg301uNod
-         MCOdXcGcdkluvp7VbWuJpIAB/esnGa/F9RemfUSvhs2+mlhISQTLyW+hBpW5QKbyN147
-         iorAqXr3/g1WId+FR8PK7xCAHF8ttbY7CPbYB0+RZ5avguQKX+cn4Ws1e+K+2bcjKc3x
-         fHLEiHq7+Sf4NeburLaKk/FZJHvhcpOK0ZKW7HX8h9k4tOz91yJrY9VzSz2Z7Heg5fDf
-         SX/WCXO+sBYhoVEs5Wq0IGVyeSUzh7W0yeE36I2EfgZPZ4ECd1l8v4hS6Lbw18VNJFPk
-         HGmw==
+        bh=yg5EzbqpAhrvR1YouHoLR93Qim7L8FFl5LtkM7LFT7g=;
+        b=Rcf3JblXJy6r7gD8esNA31y3BmhkPQiH+WaA4hQMyDMDknjZ7PzS1hPuAnu03wlkK4
+         NgPrsWHWM+BjQtU+CpiO7ZFXhh2yBPKxpi597uTwUWfoCIUpd1P73Yb+SblNvQnF5LP8
+         wG3jm9SAptXqmPkDcK9QKhldfWPyKBHwvQQ5Va8gyrJq0cuQEvS0C4BRjvcn4hW8SC7L
+         iGVKFtyT2UBzJXmLcTmzI4IwEgzU/s4ohS24Ahh2mmQYaE/1EfEX6TIIUfk7Gn32jQZF
+         95stidJYdVSa2magk/2e9Yk/7HG4FSKw+JmCri1KYo7iScWXwAs0zNkM2YIjgsE3caTp
+         vMlw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759835869; x=1760440669;
+        d=1e100.net; s=20230601; t=1759835877; x=1760440677;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=U3l4kEjsdDE6a6BGdSar9SEMlVw0yVffjguWwMFXN/4=;
-        b=j1Qu77YqdzANf+R2sBPqEzaMiRu38Pj0SeYtCUyH3myK4Tn+wI+mNQtCR2S9EkZJzY
-         ElBn+nPB03ENEZVelr0NdssjbsDGpKM+5ZwnTBBcI4m9fvDHvCFOWx7wxa+eLmaQ227g
-         mAoJIjq7Wm33UXkiEn2ef6FLLvqfAy/8GrlvPDOZjwjHSIAcEft3svtXsKwZhWMDwtZz
-         i9eFnK3zr+BQcWZcWCESj5kAXsEm2vK+kD8xWnV2pnpRx5M7dTqJhi95vJThCaxRUdN1
-         FoNPqshK4b2DMff+5f4iHOFFzPe+ylvd7BlZDNgcZBA9HYq2mb4DomQ/uZxNrjU48NQm
-         8iZQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXKcoeJWjeEJ0+wgsqrHYQVKn/ejKA96TnmgpHvCYC0RxwF/VgpjEXrsCplzEccAsEIc28Qb0vt+5cBnURuK++s@lists.infradead.org
-X-Gm-Message-State: AOJu0YxeV8HLla5T53mbcKbz6HuaO0xXXkLZaeMdkdNvBFX/xnqUhc5S
-	vEyT4A0l9OJHW83S5mVromkvCPaDjSd0RWUpDNXIWvUspE1g93nrTmI8A6Fn4RV9
-X-Gm-Gg: ASbGncv8ihNRoiuS8N245xK5Q0Mc4TMWlznPRdiv/G4lVo++I9cYeWsKv8J39ItQeyA
-	r2I2OPrDri2rln2fA6WN/Y6z+14JFCbbhUvSIwsH5x2lYnGd7V5/Q5K/spfpdGXu8OsVLAqcVWz
-	2EKohF1Y8CfgWug5w7zlaUfy+GwMXEFmMBzLw3Lx5sad6N1uVq7uFTc0UYLNj8rr/oUWNNlfTZS
-	FMFK2qYOaFpmYnH87Xb7E7QwaJvVnmwqCTFtUDKchIg7Sxaqm31KU4QlLynRcr2ZmLH9n1mraWw
-	Z7Ky7YCn6NPRNMW3XPUCL7QXOvLtkCLj1jIIif+FPdhtMW4BbGxnweaXoLIcCTo29xjexTY3EGZ
-	3wXY3Dkoi3rgkJxjatQrJAKy0DpCL4qIxg3d2Gmmu6+sPjtZHhGwtfwnoj+S9xnnAUDtD7iXVEP
-	z+3ujJcx/1ufDQID5BhhJEolaMELfZ5PRKUTGjbkjLtA==
-X-Google-Smtp-Source: AGHT+IE9i3oBNg1pFLD6d8BUkWX8cKqHfuFNCfFyKAraBK4jd7pEhvOYjoDhX88W2UnS1BhGRC1x1w==
-X-Received: by 2002:a17:903:384d:b0:246:cfc4:9a30 with SMTP id d9443c01a7336-28e9a61a7c2mr170446145ad.35.1759835869301;
-        Tue, 07 Oct 2025 04:17:49 -0700 (PDT)
+        bh=yg5EzbqpAhrvR1YouHoLR93Qim7L8FFl5LtkM7LFT7g=;
+        b=Wu3nKff7bc6RdC4EAwyrAQpfjVKzHMtvHOeX8oNa/EiTSDzOdcIihc6IAWx/IuMxlj
+         racVe8JMh4QLTgkIiNMSunaL1H1M6Z4d2h/ClL9hDQbOyLX5OmdZvIyNtB+tP6GpfdPm
+         dQsEjTHY5yMWFSwlwr8a7sdyCQmuMv0+8u7yoBuo991Djgeh6mUG5FOK5sFusuCpsNes
+         8OZJkmZQq+XZBexqY3lhXTdozaRyZe+dyzqqjHYOBlpwaXrTfta4MB0qjGcBi9RNAkX+
+         EBNns6lBqE4AYOlgwAkDut8dqoFkb/Gi98maiWi1aHaZy1k/vobqnMUPd57GDzyGusRk
+         pfEg==
+X-Forwarded-Encrypted: i=1; AJvYcCVxRfBemhAhQk5Uc0O8HRwsJrsYrvKKaSd8G91rWMWVAhP/4mjpYBCRAwp7AMIycEqqR9IYceF1l/I2HmgocVVp@lists.infradead.org
+X-Gm-Message-State: AOJu0YwkOhftASiabuz0tXPguZRUtHxXNZK00+KTrPUv1mvJLNNZd+9Y
+	Lk8WbbLKhftiXhZinDyEd//Yfat4Nwr5/D9rvui7Te8Cm5G79QfesibQ
+X-Gm-Gg: ASbGncsyfAOnZnuTenMofGFiEeA+FwoNIPDlQ+vMT8tNEBH+TihgrsL7+0gUYHHkr7S
+	GtYBRDahHGP7nDO5kjskM62dCkKLUhEgcrGCp8DJ8nb8rhJ5aVxkSm+F1+n9OecUklfF1iP97LL
+	pOAiSvgvJpUs6R2hdyPxjKS9e4SkobnYJb/M0bjlYICDeHsV8w6TFd9yWEshE6b7BTft5dnUOhr
+	xgTyIhAvbiqJ+4YtDqEDdAgssX/oJyAVaBHUk7Q6jnASRP0yAEaITuEM0a8dSTWTCFiszNaPjMu
+	QPpQArViTZY5iv6IgwKuSdtstO6SKeHp3bKzp+ZGysc1+NfNavYkbbx6NtwD3bj2uey7KEPytxr
+	ZpspLfuljmIfzY1rJZNEsafb7g5cFa3M7rR+tF0X0+S7hH9LFEzptz40899CtU5JcTIn3115GEX
+	KWefBiZ+v4Qz38TVvXjeD1EF6BlbE/lwvMN4S4mR0TxA==
+X-Google-Smtp-Source: AGHT+IFRXYX/j0MXYIPWCiTWR10pwTbuC3G1F7eZBn2sHdq/jwsyEH4FFhVQSAeDU8eQ2ogOkSv1Jw==
+X-Received: by 2002:a17:903:1103:b0:262:661d:eb1d with SMTP id d9443c01a7336-28e9a5cdcf2mr198695115ad.1.1759835876672;
+        Tue, 07 Oct 2025 04:17:56 -0700 (PDT)
 Received: from [192.168.2.3] (2403-580a-80ed-0-4835-5a07-49e7-f115.ip6.aussiebb.net. [2403:580a:80ed:0:4835:5a07:49e7:f115])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-28e8d1d31bdsm162509045ad.94.2025.10.07.04.17.42
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-28e8d1d31bdsm162509045ad.94.2025.10.07.04.17.49
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Oct 2025 04:17:48 -0700 (PDT)
+        Tue, 07 Oct 2025 04:17:56 -0700 (PDT)
 From: James Calligeros <jcalligeros99@gmail.com>
-Date: Tue, 07 Oct 2025 21:16:45 +1000
-Subject: [PATCH v3 04/13] mfd: macsmc: Wire up Apple SMC RTC subdevice
+Date: Tue, 07 Oct 2025 21:16:46 +1000
+Subject: [PATCH v3 05/13] mfd: macsmc: add new __SMC_KEY macro
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251007-macsmc-subdevs-v3-4-d7d3bfd7ae02@gmail.com>
+Message-Id: <20251007-macsmc-subdevs-v3-5-d7d3bfd7ae02@gmail.com>
 References: <20251007-macsmc-subdevs-v3-0-d7d3bfd7ae02@gmail.com>
 In-Reply-To: <20251007-macsmc-subdevs-v3-0-d7d3bfd7ae02@gmail.com>
 To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
@@ -94,18 +94,18 @@ Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
  linux-rtc@vger.kernel.org, linux-hwmon@vger.kernel.org, 
  linux-input@vger.kernel.org, linux-doc@vger.kernel.org
 X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=747;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=876;
  i=jcalligeros99@gmail.com; h=from:subject:message-id;
- bh=DIjn1i6LYuHnBLhKvNWo/fynkhJW/iU4X0uf260tH6w=;
- b=owGbwMvMwCV2xczoYuD3ygTG02pJDBlPvm3dXJ9ryLp7td3nvHxlMaf7RhekWtXnO+6u1a+c5
- mTokmDRUcrCIMbFICumyLKhSchjthHbzX6Ryr0wc1iZQIYwcHEKwERSZjD8z1PXCHr/tatuyhNH
- TSNzgQlHajhkjBo4Ti3YVCZ8YAHHfEaGlXw70kPW1837I/xvyoyIUz7S/9bkft76bqvHpKeZU39
- /5gEA
+ bh=DV+93RqA20zYsiZVil2ilvoMWgypauFCp2tp4wJbtLo=;
+ b=owGbwMvMwCV2xczoYuD3ygTG02pJDBlPvm3tcZkTMG3aVOZXVXxrFpwS+56WuPRU0ayerHnnf
+ S/v287m11HKwiDGxSArpsiyoUnIY7YR281+kcq9MHNYmUCGMHBxCsBEwl0ZGf6qs+5+wnVo5xOL
+ A7YzpstdY3508FK26vvLGpci7afbLF/P8D982frPV3QKvQ49zZfh5tEvMbh03DUz4Z/8M4mWRZv
+ 2XOEFAA==
 X-Developer-Key: i=jcalligeros99@gmail.com; a=openpgp;
  fpr=B08212489B3206D98F1479BDD43632D151F77960
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_041750_228218_04B4A7C2 
-X-CRM114-Status: GOOD (  11.28  )
+X-CRM114-CacheID: sfid-20251007_041757_586892_FDCEF177 
+X-CRM114-Status: GOOD (  11.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,26 +120,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the new SMC RTC function to the mfd device
+When using the _SMC_KEY macro in switch/case statements, GCC 15.2.1 errors
+out with 'case label does not reduce to an integer constant'. Introduce
+a new __SMC_KEY macro that can be used instead.
 
-Reviewed-by: Neal Gompa <neal@gompa.dev>
 Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
 ---
- drivers/mfd/macsmc.c | 1 +
+ include/linux/mfd/macsmc.h | 1 +
  1 file changed, 1 insertion(+)
 
-diff --git a/drivers/mfd/macsmc.c b/drivers/mfd/macsmc.c
-index e6cdae221f1d..500395bb48da 100644
---- a/drivers/mfd/macsmc.c
-+++ b/drivers/mfd/macsmc.c
-@@ -47,6 +47,7 @@
- static const struct mfd_cell apple_smc_devs[] = {
- 	MFD_CELL_OF("macsmc-gpio", NULL, NULL, 0, 0, "apple,smc-gpio"),
- 	MFD_CELL_OF("macsmc-reboot", NULL, NULL, 0, 0, "apple,smc-reboot"),
-+	MFD_CELL_OF("macsmc-rtc", NULL, NULL, 0, 0, "apple,smc-rtc"),
- };
+diff --git a/include/linux/mfd/macsmc.h b/include/linux/mfd/macsmc.h
+index 6b13f01a8592..f6f80c33b5cf 100644
+--- a/include/linux/mfd/macsmc.h
++++ b/include/linux/mfd/macsmc.h
+@@ -41,6 +41,7 @@ typedef u32 smc_key;
+  */
+ #define SMC_KEY(s) (smc_key)(_SMC_KEY(#s))
+ #define _SMC_KEY(s) (((s)[0] << 24) | ((s)[1] << 16) | ((s)[2] << 8) | (s)[3])
++#define __SMC_KEY(a, b, c, d) (((u32)(a) << 24) | ((u32)(b) << 16) | ((u32)(c) << 8) | ((u32)(d)))
  
- static int apple_smc_cmd_locked(struct apple_smc *smc, u64 cmd, u64 arg,
+ #define APPLE_SMC_READABLE BIT(7)
+ #define APPLE_SMC_WRITABLE BIT(6)
 
 -- 
 2.51.0
