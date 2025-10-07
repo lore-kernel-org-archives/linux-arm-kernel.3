@@ -4,78 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04386CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 05:56:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8591CAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 05:56:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qjRZKtwToa3ZCTaZRIJrwsT2lwjjOtjHot+5hsonslw=; b=Xmx6E59XzU69LTIaLbGgTD4AbU
-	6REviUXiQx5KniuTG1XdobtJGVaDwuIp4FOgLtTtgdoPO+ImA+xD53HA+UM6u8EJrQMpbsARmXIpY
-	VvusM/ArFicOHr+XhB0gY495CMoZ7l7Q8Kx1lV208MgPlTDdLgaP0XIAntG5Qami+ZCK8PlBEtADs
-	ttSDrdzidklZg/i/PhD7ZtgggTVC5RleE6ARBvC9pH9GBSp/nX1pL6MH/d4hDJeO9ZnEED64w2IUf
-	DimUWsTyCmm5s8RwY5Z6EUQhJ1zbCT64FFdhb7BDWn8wY7+kR78j3IilPnI6nQ2vv9axSQMZkH2mK
-	C9K/GTOA==;
+	bh=Zze8JjQGVZ59f9v5sepoZK52dG/J61vT00o7vhqIkGY=; b=23LqUCfzU4QC5Ktmfu3R3XdXSq
+	Wv58M+VCjhRf95DdTUIMtsfcJcMZtJvHIbJiQTOmkO4xO7eJVgX6S1e5H+G5VFpj5wAYArm0LJ3ta
+	RCcWCijad9tbNHbspXSnYHAD07ahrcF+L+6MK95bR6bfP5plE8+PTPqGrzHMXZYp37xOBYUmIaaZ3
+	9j6bYL8iOx9bQJge1AkUGmPCa2N684QfMiVHuaXFxoaHzpMSt579sSsuve2tQrukZk/XcM+bXSdXt
+	mfkPPGbIg5ft1wZRID3i0NtoJqnPg5PUuHKofIUV3s42fap302aeqwCpq0+/18FoVhT5DLsTFGsrL
+	+svuLuNQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v60fz-00000001JXH-3tOz;
-	Tue, 07 Oct 2025 05:55:55 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v60gg-00000001Jph-1tRB;
+	Tue, 07 Oct 2025 05:56:38 +0000
+Received: from mail-pg1-x52b.google.com ([2607:f8b0:4864:20::52b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v60fu-00000001JS2-1gKE
+	id 1v60gd-00000001Jnv-1Iq6
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 05:55:52 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 4BBF046911;
-	Tue,  7 Oct 2025 05:55:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 13A97C16AAE;
-	Tue,  7 Oct 2025 05:55:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759816549;
-	bh=L6upHGNIYk6LiIUvrs8zcdks11R9wmaJquSLT/WgQMc=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=puWxnLaITyjQd2Z3HoxtPeMB6VgQCMUHhW6A7h1eSWQykKQR7uNZWIXdKWHhL4njI
-	 NaBy8rnESRaHb47vUTVzThpm1z756xnwtwN+4AqacWcwhlJCrZ9qrqNcO1fNJlNpMr
-	 Epcl68XcsXt8qu0UfKYTVKyMhDvxpTnymuHMZrOAeuOEFKdde2JhitB+nj49yPsb3g
-	 1bFDlRvTa17z9thj/86HxtSykwU6ae8saRradXlxmY/UdAeX9E5wamM3PSlAuqixew
-	 DZ+WIVjXEDqFIKcaJ7D/4rRThYV9Mme7WzPy95YxlUFt3B6vBg1cEgFTbF5SfdKFjJ
-	 1aQKqScRrmBcA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 0B93ACAC5B0;
-	Tue,  7 Oct 2025 05:55:49 +0000 (UTC)
-From: Alexandre Messier via B4 Relay <devnull+alex.me.ssier.org@kernel.org>
-Date: Tue, 07 Oct 2025 01:55:44 -0400
-Subject: [PATCH 3/4] ARM: dts: qcom: msm8974pro-htc-m8: add Bluetooth pins
+	Tue, 07 Oct 2025 05:56:36 +0000
+Received: by mail-pg1-x52b.google.com with SMTP id 41be03b00d2f7-b55640a2e33so4344147a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Oct 2025 22:56:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1759816594; x=1760421394; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=Zze8JjQGVZ59f9v5sepoZK52dG/J61vT00o7vhqIkGY=;
+        b=CFj3/naYIvMuvYA1HPda3NR9ksW5LI9QtPKxWS6QD4X7ZM1WYN8yzQlx3sLla4eiTG
+         wCcyOjpBlSh1oaZqo4BxapyPggDrr9G4wVu1EMu5XiZgVUVk/KT2v5s4TXeQhLmZdp/I
+         2YQtDHu8Wk9zcIvddX7zMNFcldDuRYMNILGcZkXxLJ2j9X8DBw2SFR9wYP6rFUPwVDMP
+         kDygZQ+DWyVllvA5Q6b1amXCb9LKS7sexDD5O7Yo+B/p96eq2O/NDlmqF+fWOOymHMEC
+         oTh1kZvdP+YEBIexynIkwWcxT3CoVc89jII7gcRpgX7xrRIMH3gDg0fG2/f84HIhg/h3
+         Id7g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759816594; x=1760421394;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Zze8JjQGVZ59f9v5sepoZK52dG/J61vT00o7vhqIkGY=;
+        b=n4HII0ZYgg8Lmp9icyAzL9ZaZHkAJCpTW+v8pzaGdstWDM/w2JkKuk/lTKK4G8cRSg
+         +F7pecWy/e0zbG3MfAOGdufJc+BlYldqa+9x1ECkNZOCziLo4/A3J/Pp5N5XMb6ZNYvf
+         3c+Xg+QF/ia4Lu+70TTmZ2K8G02BMghngGuUEWzYfCU0N1x43RtOWBSR9PVKfnUUeu4N
+         Zzt8jYS4wZolL1V0HQD3rqCJa1ZViFv/Afwik/mXKq2dJLHbt1UwZWJgd/sFWTmDmNDf
+         nn9c2MJjJrfDolJHUOJkRIpQXGg+K8x+NaT+1MLgtgUETtEcU0PPUi2Q/v7Fg/0ObzCj
+         YJBA==
+X-Forwarded-Encrypted: i=1; AJvYcCWlwR0IXZsQjGY6T5IocQ0RS01bLkFaN+rzdJbJyp2wxDoqcWlFpp0M5l7GIqYsusays+rnej/D5wtg7tXd+A19@lists.infradead.org
+X-Gm-Message-State: AOJu0YzMpDRIW25+87WQIjMb3hGOiyQgptYv2d2d+KFFpnjijcS6hxX6
+	K8xZ+juBCB0GjIP7fm0BRc3ih13d3pCRUNZylv7uzQY0E5ybDMQU8vzx
+X-Gm-Gg: ASbGncsqMzffg3DsUFnYJlCj8SSx1kv9hkRVqcocu/5FbSqYIDofIPX6G4AK31ve0Pf
+	q5piEwKlU/eun+sd5Dnfg6pQKYrj+AWMQCPcydrou0Pe5zZfZheA30hW1uq9yl4sTHet3HSDh4F
+	eYqWHwKPeXpoxb8MVO0gDyTvisUVZ6pmPYZRbUYXmIJ7PxC8Sbd77kWo+IKvrQ3vaTSwT82Nb3o
+	1zlkwEKcyRmBcVsV3egUzHIcaFnygI5OgG/O4xaPB47YLhOfJvv+TbGzBJhwfRSDlW3+ayL5uhF
+	8niDm3cB4DDFTySBTCgnyCQHhBV6r6tun5HbV4bn5f6LxLTotsIzNE/3BqE1pGzys/eoWupbTNc
+	VCIl8Iy8r6Lh9y38dkA4NavxjwiRs5FnM1Loo7xSEYZXa34FDFFUvbM2cLO4Q4hJeKBxLqG4Gdj
+	lQNLrUwC9cZa+mB4ZOSxEGrt4V
+X-Google-Smtp-Source: AGHT+IGJchkaRL43RoVbJQM3/xqF6zJKcQKtxGwtkcJ6fAH1ggss6t03FonlumhoWLdanF+7D9Tj0Q==
+X-Received: by 2002:a17:903:987:b0:267:a95d:7164 with SMTP id d9443c01a7336-28e9a6b25a2mr170679085ad.60.1759816594138;
+        Mon, 06 Oct 2025 22:56:34 -0700 (PDT)
+Received: from [192.168.68.62] (104-12-136-65.lightspeed.irvnca.sbcglobal.net. [104.12.136.65])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-28e8d1eee04sm148269865ad.130.2025.10.06.22.56.33
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 06 Oct 2025 22:56:33 -0700 (PDT)
+Message-ID: <467bd938-6fa4-46e7-9f98-d8d2a9e74eaa@gmail.com>
+Date: Mon, 6 Oct 2025 22:56:32 -0700
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 0/4] Upstreaming Pinephone Pro Patches
+To: Heiko Stuebner <heiko@sntech.de>, Dragan Simic <dsimic@manjaro.org>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Ondrej Jirman <megi@xff.cz>,
+ Martijn Braam <martijn@brixit.nl>, =?UTF-8?Q?Kamil_Trzci=C5=84ski?=
+ <ayufan@ayufan.eu>, "Leonardo G. Trombetta" <lgtrombetta@gmx.com>
+References: <20250929-ppp_light_accel_mag_vol-down-v4-0-6598f22d3451@gmail.com>
+ <49dafe9afc5962d8fec10e6135c9b84d@manjaro.org> <8606261.29KlJPOoH8@phil>
+Content-Language: en-US
+From: Rudraksha Gupta <guptarud@gmail.com>
+In-Reply-To: <8606261.29KlJPOoH8@phil>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251007-m8-dts-additions-v1-3-53d7ab3594e7@me.ssier.org>
-References: <20251007-m8-dts-additions-v1-0-53d7ab3594e7@me.ssier.org>
-In-Reply-To: <20251007-m8-dts-additions-v1-0-53d7ab3594e7@me.ssier.org>
-To: Bjorn Andersson <andersson@kernel.org>, 
- Konrad Dybcio <konradybcio@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Luca Weiss <luca@lucaweiss.eu>, linux-arm-kernel@lists.infradead.org, 
- linux-arm-msm@vger.kernel.org, ~postmarketos/upstreaming@lists.sr.ht, 
- phone-devel@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, Alexandre Messier <alex@me.ssier.org>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1759816548; l=1058;
- i=alex@me.ssier.org; s=20240603; h=from:subject:message-id;
- bh=0cC08gikvTy5BFUHETIstK9cv6Jxb/k0e5mDBRsGtzY=;
- b=5VQisWZuZSSDwAomDfZ0ayVYlEE0twKfTIhmKAuwlu0bDHKQXqPsQwv86sihrcKEsRr3BzdIt
- a9/jEQH50c2AbD0BUjmuzpYxxhOaIOxhQwH2IWswkQBZ4PJKEyk/pT0
-X-Developer-Key: i=alex@me.ssier.org; a=ed25519;
- pk=JjRqVfLd2XLHX2QTylKoROw346/1LOyZJX0q6cfnrKw=
-X-Endpoint-Received: by B4 Relay for alex@me.ssier.org/20240603 with
- auth_id=168
-X-Original-From: Alexandre Messier <alex@me.ssier.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_225550_472976_21742DB1 
-X-CRM114-Status: UNSURE (   9.30  )
+X-CRM114-CacheID: sfid-20251006_225635_347261_D363DAB7 
+X-CRM114-Status: UNSURE (   9.18  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -88,50 +104,23 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: alex@me.ssier.org
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Alexandre Messier <alex@me.ssier.org>
+Hello all,
+> for reference for Rockchip dts files, the preferred format is:
+> arm64: dts: rockchip: Do something on boardname
+>
+> aka "arm64: dts: rockchip: " and the rest is free form but should
+> mention the board.
+>
+> But I'll generally fix those up myself if needed, so right now
+> there is no need to resend just for that change.
 
-Add the required pin configuration to enable Bluetooth.
+Gotcha thanks! I'll leave this be for now while awaiting for comments on 
+the mount matrix for the accelerometer and the magnetometer.
 
-Signed-off-by: Alexandre Messier <alex@me.ssier.org>
----
- arch/arm/boot/dts/qcom/qcom-msm8974pro-htc-m8.dts | 17 +++++++++++++----
- 1 file changed, 13 insertions(+), 4 deletions(-)
 
-diff --git a/arch/arm/boot/dts/qcom/qcom-msm8974pro-htc-m8.dts b/arch/arm/boot/dts/qcom/qcom-msm8974pro-htc-m8.dts
-index 4026d6fedfbe..36eb42f0f3d9 100644
---- a/arch/arm/boot/dts/qcom/qcom-msm8974pro-htc-m8.dts
-+++ b/arch/arm/boot/dts/qcom/qcom-msm8974pro-htc-m8.dts
-@@ -359,10 +359,19 @@ cmd-data-pins {
- 	};
- 
- 	wcnss_pin_a: wcnss-pin-active-state {
--		pins = "gpio36", "gpio37", "gpio38", "gpio39", "gpio40";
--		function = "wlan";
--		drive-strength = <6>;
--		bias-pull-down;
-+		bt-pins {
-+			pins = "gpio35", "gpio43", "gpio44";
-+			function = "bt";
-+			drive-strength = <2>;
-+			bias-pull-down;
-+		};
-+
-+		wlan-pins {
-+			pins = "gpio36", "gpio37", "gpio38", "gpio39", "gpio40";
-+			function = "wlan";
-+			drive-strength = <6>;
-+			bias-pull-down;
-+		};
- 	};
- };
- 
-
--- 
-2.51.0
-
+Rudraksha
 
 
