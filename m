@@ -4,90 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D962CCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 20:53:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10E9ECCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 21:06:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/hCZP75SmDHrCZY5PWLz8NOVMBMSMd1PrqQADWHi6tM=; b=jTBYkdrLaX6pSFpt1Osw8aiQQI
-	P1AXkXGxRM7tKTatpt2p664frItfwcPOZ8gv5gXnqMn2XiRwUKT7jGpLuFVSjxpKOanVCYrgXKl80
-	XoqEtRrINbgHV63vEzfRoyTqtXUQM1KiIsHInx3Zk5lOzWJYgNnBkszuarBiB7ztzxqcD0oOiUbS7
-	kmmdsRucXOnvnsAheqxAQJQqPciHjWhMARnUGWzc8tfc030XUTHaBsIMex8RRCn2ticJ34IzcOc2e
-	kXL/IyGvVMw2Y5W05u4GkIM8G61o9+7QJ3SJk5lC97iKzy8yS6g581Jt6l5tCZmkRAiHuYA6QN6iV
-	p6ZBCw4A==;
+	bh=hDJssHW/G49N1bctBMwaYMSUbzS9ng1oTayUPFPGvKw=; b=vQEiPJtopPXeUAPIeGf72v+J5Y
+	8M7JkR1fmiJqj0M42CnCw91gCz9/yxo52/bNCeoUAAm/bblNgROQk90JGlkGMZW8UBd0YQbNLxN0h
+	ZWly3bXClEnIQ73lfy/lS18SC33FSgU7GVIw1fAmcjpu0zKWvvXhBrkvGOdN4tcOb78elFikcv+yo
+	EP7yp7AA9nWp3zbr74U/xyGw5ygzvo1vMvvOoxH1eR7fHfSpCdj2d/wwXNHF1oLKO/X4DCvjHjiCH
+	kVd7TeQ3AJyG7aN02Qn2WHvc3cOsGMZEos6Nqf8WVHvsVd+65GOO0jRA+P47goGuZsad865jqT+Fr
+	onsrJGEQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6Ege-00000002maS-3Fsr;
-	Tue, 07 Oct 2025 20:53:32 +0000
-Received: from mail-ot1-x333.google.com ([2607:f8b0:4864:20::333])
+	id 1v6Esv-00000002nAq-20dl;
+	Tue, 07 Oct 2025 21:06:13 +0000
+Received: from mail-il1-x136.google.com ([2607:f8b0:4864:20::136])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6Egc-00000002mYo-0Nos
+	id 1v6Est-00000002nAV-23BT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 20:53:31 +0000
-Received: by mail-ot1-x333.google.com with SMTP id 46e09a7af769-7bdfbc6ba5cso3106388a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 13:53:29 -0700 (PDT)
+	Tue, 07 Oct 2025 21:06:12 +0000
+Received: by mail-il1-x136.google.com with SMTP id e9e14a558f8ab-42f68a0a89aso1587545ab.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 14:06:10 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1759870409; x=1760475209; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/hCZP75SmDHrCZY5PWLz8NOVMBMSMd1PrqQADWHi6tM=;
-        b=GUhFHIRNWDjOexV+Fbx9ARmRhSi+Jrpwz956eeaT2e4wPCzZyg+TyMw4WoPEYztuTh
-         Z2zJDTYgIWVGGwT2RQQUL4WAFrRu3P8JloikFSu5aRJBsrd0GsGZaBPTn0HxCuPleRms
-         KM89IqqffB8mwyJ7NcION3az8j/+P74KqshNV1TDEmg74iCDVxEi0jGxhFIS3sIS9pfk
-         NGfnt8MCCvAzsKxeaLkBa3lfW+uStP3cN7qgs/Ji05gpWddLYcyLLJKBesqA4l6sGcA6
-         DoWH0JqHm/ujO0L7pdoB/FLdTgWxEPz1irOenYhu6h0baWhqPSCdooqitq5Dbej+eYb/
-         WBPw==
+        d=linuxfoundation.org; s=google; t=1759871170; x=1760475970; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=hDJssHW/G49N1bctBMwaYMSUbzS9ng1oTayUPFPGvKw=;
+        b=GxwSEJXruyDra13y55KYrR3zrejZNfJfgj75ep2TdadMwKtHw01KhEFKtq0q2HNzHV
+         hi/QNjwpXBIR0fJ121L2r2XrXpFC7Zg5pOpiHyfe9UMg6XNgz5d2j4Z+afSK4UGyEgMr
+         fLuiF/7KzeRyhdzAm0IIYDyxH/gysPEZ43fIE=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759870409; x=1760475209;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=/hCZP75SmDHrCZY5PWLz8NOVMBMSMd1PrqQADWHi6tM=;
-        b=GqtaCE180Oo94XNQW81vbZHAJ/r1rPNu5FQHE8epqCxlNTm9JjrywuLqK/AFseql6U
-         WfgXwjR5PTZwT+Tbmq0op/n4KzETpxarMVIB79b2ZHzWLGbt2D0pjgHFPiaL3j/JgNeW
-         Bh80CokHKIPH2kjf/1D8BVSSTto26KoDJyRWWy0PgBU3MFJOQLVHSx1V3KapTfgQ/Jbz
-         3PMLpAb+b+cCbehncJ9KTD0X5onBVHEraypRWHczTnuFtKtP1nTsEMPfucFDyFWCbKGQ
-         JSi7tPc4IqG59DewiFrjmHcZ4pWCjvLdK2sK4n8p2iw043GG230Xc8zLN1MLvm+B+QkB
-         rGRQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVkK6TSW8Y+C53CztSq0NoAT//5N32uvdt7BOdwRBDGdDn3rf1eJtmdm34p48JVCQGcrbzkP7fW1manlc18ye7o@lists.infradead.org
-X-Gm-Message-State: AOJu0YxK0M95EFI0GKviRgnje6976GrXsJFqUm0stHmMB8OaR+H7PVIw
-	46EX8xBGbRPM2/4Q5ZXWlDzS02SiTrfMws8wkJquUqZQYIXFbR9Y3ukpbc9ZlMtrr7KfCSG4Me6
-	Gkk0Sjr05NhSbUXpRAAoPKc2LMxo9ea3QpvSbiLvbYm8u3VCi1fCHEaQ=
-X-Gm-Gg: ASbGnctgt5DfNpL9gzOcxb4a++qogshA2TfTm2YwsXiaDe3B3Uj3n+2YxOW1HzLDlnX
-	fRB8mqaDkVKqFPSECnkFguIoQ9L6tdI+uwDmUeO+kQuoMPA2lkqlnVWFcMSul5TvGBTO0wYVS96
-	2hk5Jm/pknoNiJG6wXBrCys0fJBDt708VZ08wvzw+QlPkgmsOgdkapV4ItPY5M6I8f/OAbQJeaQ
-	zcZ1M8ZUjhVcLFn09eCu1EB/lJNjC31EpUDSw==
-X-Google-Smtp-Source: AGHT+IFQJZVs4LBnBVbWSGDsdN3906KKw4UjF5sMiH1fvSeD9gn0otajPAH5kYHA1+VAEseWAd1TdVpRyCmSlYYSQ1w=
-X-Received: by 2002:a05:6808:1988:b0:43f:57cb:7f83 with SMTP id
- 5614622812f47-4417b3e3209mr436998b6e.46.1759870409126; Tue, 07 Oct 2025
- 13:53:29 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1759871170; x=1760475970;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=hDJssHW/G49N1bctBMwaYMSUbzS9ng1oTayUPFPGvKw=;
+        b=KIOJ+DBpQHQvpPTlfqX85GWA+mfN1jejVh7knPSuMCFx/e06aNr3etqBCKEUN9eD4C
+         o8pygaDO3K4RwFR4qeD3MpcZsYEwRhywaG1rZ7hYTNLYt0f1lpjVWrBBca9ZyC/unIEP
+         FRf49aEy9s0YWf9OUZINscThIj4FwPBafrY0F6OXvl8U30yzmAYVPrXTSrTMKKbfZn4r
+         8zyDTzRifvsuEKKYxc/nD4Q+ZVMvx804xrMhfFgkST68bShOGVmEwMRI5bFx7J74tWQt
+         OA/jsUT247O8Xe4BI2vFGsSNxc8W6gNCmZqe/CJ+cPYlTiUbj37m8FR9zPIH9QGj9XnT
+         FyqA==
+X-Forwarded-Encrypted: i=1; AJvYcCVTmKekZrH/JiUCPA6yerf0btd8CagErTrl0P+fssSUiwIvjxnXdEdP31GmOJzNGjcZV/jl7EppQqUN+NGXvqLY@lists.infradead.org
+X-Gm-Message-State: AOJu0YxFYycVySBSTzzevE3WEqpxU6AO1IcGKX7J+tXDKHCVtv/9mFM+
+	7/6Sfn9TPEEuxwvTFux4Lq6VWl+e0sjswX5GoOuTUg7t+1sHgncVQAEYlOh0cCTdsoE=
+X-Gm-Gg: ASbGncuqJ8CuojWcD0ewzHThZRtfrfgl0pLzaT4ATNWYHD9RQTqO/iBfgVFDBTdAfb/
+	ZhTL7mqXQPGxsVo0CKAwPgURvDu6Y55Vym/fngNsWAcHBbBmaLrj4fpiPV4p6bBnrTv560BIBjB
+	OFzo1pB4zF0C6yrk/M4/QMEJl0hshQhBY1ejV+Jj4odZQCVbRsYAvHNJ/WSmOq/k+vo+Fb8aqSv
+	u/4E0xqVDV16+8ON3Rf6KEVwZd2ptOR0T1aIAnwG+KB1Z6xmn9BRaRS3DWOtm1vjB4/suNRtLnK
+	xZ7rT3sI5bbY0aM/EFDLsbwWcV9oNzTc95pmsZBJMEKLThwYgkVyp3U2LBdwAo5Akvh2GCd+WN5
+	zSFttNBC3MvtB/u0oS7TBn9vJLriCZRsgpY9kBFrwsoxQOjwH2eWEF8I9uhaXbCIZbjfBow==
+X-Google-Smtp-Source: AGHT+IHJS9tRfCPlCMJwh844fS5buPRYb19l+/WQy1lMrZF9u3+w3MuGpV9DibTiaEiM0xpOHSxg7g==
+X-Received: by 2002:a05:6e02:17cb:b0:425:8134:bcaa with SMTP id e9e14a558f8ab-42f7c2d49a8mr65232375ab.0.1759871169924;
+        Tue, 07 Oct 2025 14:06:09 -0700 (PDT)
+Received: from [192.168.1.14] ([38.175.187.108])
+        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-42e8a0bb405sm55081635ab.12.2025.10.07.14.06.08
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 07 Oct 2025 14:06:09 -0700 (PDT)
+Message-ID: <c87d45dc-d545-4359-9e2f-11e43a45859f@linuxfoundation.org>
+Date: Tue, 7 Oct 2025 15:06:08 -0600
 MIME-Version: 1.0
-References: <20251006-gs101-pd-v1-0-f0cb0c01ea7b@linaro.org> <20251006-gs101-pd-v1-3-f0cb0c01ea7b@linaro.org>
-In-Reply-To: <20251006-gs101-pd-v1-3-f0cb0c01ea7b@linaro.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Tue, 7 Oct 2025 21:53:17 +0100
-X-Gm-Features: AS18NWAUUQxOHKEKFHDJ43bMyMuc1k66q_SOXE8Wv3pAaENJrBaMTokvZjBYJtQ
-Message-ID: <CADrjBPoharrk2BwLuFaAicErLxZXre+gSSqwws6Q07E4C9f8nA@mail.gmail.com>
-Subject: Re: [PATCH 03/10] pmdomain: samsung: use to devm_kstrdup_const() to
- simplify error handling
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Will McVicker <willmcvicker@google.com>, 
-	kernel-team@android.com, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH RESEND] clk: at91: sam9x7: Use kmalloc_array() instead of
+ kmalloc()
+To: Sidharth Seela <sidharthseela@gmail.com>, mturquette@baylibre.com,
+ sboyd@kernel.org, nicolas.ferre@microchip.com,
+ alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev,
+ varshini.rajendran@microchip.com
+Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, david.hunter.linux@gmail.com,
+ Shuah Khan <skhan@linuxfoundation.org>
+References: <20250924145552.55058-1-sidharthseela@gmail.com>
+Content-Language: en-US
+From: Shuah Khan <skhan@linuxfoundation.org>
+In-Reply-To: <20250924145552.55058-1-sidharthseela@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_135330_132350_9E5E9F6A 
-X-CRM114-Status: UNSURE (   8.72  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251007_140611_548435_EF4F40B1 
+X-CRM114-Status: GOOD (  13.92  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,14 +102,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 6 Oct 2025 at 17:43, Andr=C3=A9 Draszik <andre.draszik@linaro.org> =
-wrote:
->
-> Convert to using devm_kstrdup_const() so as to simplify cleanup during
-> error handling.
->
-> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
-> ---
+On 9/24/25 08:55, Sidharth Seela wrote:
+> Replace kmalloc with kmalloc array in clk/at91/sam9x7.c. Refactor to new
+> API, for cases with dynamic size calculations inside kmalloc().
+> 
 
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+This following line doesn't belong in commit log.
+
+Can you add details on how you tested this patch and also how
+you found the problem to begin with.
+
+> Resend is to correct previously sent patches mailing address.
+
+
+> 
+> Signed-off-by: Sidharth Seela <sidharthseela@gmail.com>
+> ---
+> diff --git a/drivers/clk/at91/sam9x7.c b/drivers/clk/at91/sam9x7.c
+> index ffab32b047a0..0c0a746a183d 100644
+> --- a/drivers/clk/at91/sam9x7.c
+> +++ b/drivers/clk/at91/sam9x7.c
+> @@ -748,9 +748,9 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
+>   	if (!sam9x7_pmc)
+>   		return;
+>   
+> -	clk_mux_buffer = kmalloc(sizeof(void *) *
+> -				 (ARRAY_SIZE(sam9x7_gck)),
+> -				 GFP_KERNEL);
+> +	clk_mux_buffer = kmalloc_array(ARRAY_SIZE(sam9x7_gck),
+> +					sizeof(void *),
+> +					GFP_KERNEL);
+>   	if (!clk_mux_buffer)
+>   		goto err_free;
+>   
+
+thanks,
+-- Shuah
 
