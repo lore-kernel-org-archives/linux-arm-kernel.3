@@ -4,109 +4,179 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4019CCA472
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 11:19:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E14FCCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 11:23:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dw9cqHmtj+JTcT9542JQD/91O64sVk3+jyfqTVqzQ4Y=; b=Y2qWZRckH60f71Mn5zlmTJDis5
-	hv91T9JYCAOjO8v+oQzUjoTbAt6wve16kAK3pG4GS4ViLtnLPUalicLeqFAjh5YSMxsN1Z5qMfBvF
-	DPON+BixEbCN0RTCQcyTkE6Sxv2rJnenkGG485Y8XkfnC0gWwyXMf+wg5wrAZpDD0+zp1qg/A19Xe
-	OvdT44J+q0I1TeAblvDiaNZGbcOAPHGgxrty7Tv0NGHyGv6tVL6uZHQoX1S0cMmHzTZCd3jfP/SnT
-	/na3mZg4pWluGvSfgktslwsQh/RvNxkGvg2785EnfFNMhLWqN8budfyfLKxII+jo85zamwJWvNPYa
-	ksw/IhhQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
+	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ZVPU6A7tMXPlJAqKLyXo8dYeyqSUqvbUplxrKu4EjHM=; b=peH9tR2zozWb5ElYHcQyqJO027
+	whiFNGWVgLR+IJ1uxhmyk2FYgzopk3KQYrk03PUKQwb2NGRsIdpgN86ctXOojErR6mQtRlWcQCewZ
+	VZX6Z4FhKaJCZh+SOfsnPlPJ7MvD7hcf7gcD9HSKeXe3ujY2eOtS3RZ/AJfVZlLuGwyLt52J/hLGy
+	UY+btFJ/1SpXNhSlASsup9ykMJO7Tv6lIFgIONZV2RBIxGwKGaycsWxtpexUXVO8mY3zXNO3ve+Cy
+	xNJRmkvHgPfbTcQkQZ0iPa3j1NpvmqJSgdh1dV1xnoRW6yucVNckMrrKhjSPpVlR8hn7uiYGGB0/e
+	fDhLT91Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v65id-00000001sJo-2SZt;
-	Tue, 07 Oct 2025 11:18:59 +0000
-Received: from mail-pl1-x630.google.com ([2607:f8b0:4864:20::630])
+	id 1v65n4-00000001tRf-2HuZ;
+	Tue, 07 Oct 2025 11:23:34 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v65ib-00000001sGx-2Wc0
+	id 1v65n0-00000001tQZ-21K4
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 11:18:59 +0000
-Received: by mail-pl1-x630.google.com with SMTP id d9443c01a7336-279e2554c8fso60023115ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 04:18:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1759835937; x=1760440737; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Dw9cqHmtj+JTcT9542JQD/91O64sVk3+jyfqTVqzQ4Y=;
-        b=l0rto1LSoJ2+V3flV9Vx9WJ4HDQsLh8oy8ruhmGbdR3xdT4dOFvRJxgbQP1S58Mvjt
-         yXVBBAjajyMADEGE+fm+UNaDyNO4pOnQ28wBZryn2tJ+UNuZmoZz4qjQRvdRydHME4yD
-         Q2dbUJK99+fF+UCetp5FsPVhbl2AODUMbuMobBO+15YBcwr8XybmEdZrN3AEyyNRT6Oc
-         LhwGtUuz0crELVqYuTd8jCB0YtaYMHT9ySDXicdxRUEPuiwrt8iLpODNiDvLOq24DgNs
-         si6m2txZrvErm6p12AMdQbOtdf27J7omQjX7GSo+IDcBznZvN1qwaBJzwmmztxB7lT0Z
-         n6FQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759835937; x=1760440737;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=Dw9cqHmtj+JTcT9542JQD/91O64sVk3+jyfqTVqzQ4Y=;
-        b=Fr40p6xulBNGSPrkrOgE9IZgymktZCVvCq1gD/obcYW9mIow7T1uNBJ6g5tzyMlsA+
-         IOmZ6AgRsVn7/jyeQNGX5dRGydTD60obFmcXgzB+KzIyk2s+R23+R3UBzdzoxnsQVQW/
-         5oQckCN3JkHgAspdawaAlOGiKcjphCkV5FXGWoapwiExUvPPmmoI8U9+57NEt1uVp7xk
-         Zx6x4dZ86IjUNdt6rSknrbtgcXLliiUKn8f349a0LZ+ZC3U5zIl8tp3QB7OfOsXOwV4w
-         N/SHtqyOaaK6/LlSBixtDcdAnKCYty62+aZLr5hnJaSG4Zp7KWRwzH7UXnpita3Zscm/
-         M2YQ==
-X-Forwarded-Encrypted: i=1; AJvYcCW543+Yg7y6GIQzzb+bUyGPe3y0ZJDUhJBiCfcw1L+wmgb0qkiQoIJooWm98/rzmTBYuPP2X5rI46rJU+tlDZW1@lists.infradead.org
-X-Gm-Message-State: AOJu0YylaaVDNd6KmDvTjsGRsughHQU8cRHJgE5ipu37w78QeMuh6G/Z
-	KRaxBH9rTvXQL3FFDVbChSz+PD7viLgFyYhN96wXf+cmXfx7hTqy1gqr
-X-Gm-Gg: ASbGncu+LLtX/OgRTz9+2uwA9qXOqQckNDK3ZddiEdNGI3uwj8Zgx//BuPmwhGSSove
-	O613D9sQaLdzWYjDdUrQjXtpFk8Pj2MjwM8mI5EtycTwduPoJ/laB6bE9ADoC1g0p7/bpzCDayC
-	rL3E3WgLOtlYykke4BUyWiGPYdIO5eCzfrXRg/8DVxUK2S2x9oxymYTPf1fw6WmxWJXx6PNAR9i
-	MxZEVVmbPiCuBgmTDkGxHoGh9Np7enkutMVr/6al1e24/seMk/BH5hn4tZlukTeJqqK1wQbBE8x
-	hT2H/WJe+ouf9cGkvdXU8dImn7tVKFg6WDovcRRiaGAKC7hQGaRvn4ukwf6a9DYAVOi5Ibo6ek+
-	0KbqNa0PlvPiP7+gSj5mGeQOb/XQDOnk16+I2q16gNJfBAD9awdaHJdgNsqcMonfnVUBKHf5jt9
-	HVKfRChbne1ftN+stAViAtulGqNeyqqVYwOA5qn2Ralg==
-X-Google-Smtp-Source: AGHT+IHC2LNmC/xUFVcWeK3yLywWA7GD9fZRA7+m31c3Vn2k7x7olct3JnOgC1orGXTqxPOFEWB82w==
-X-Received: by 2002:a17:902:ccc8:b0:28e:80bc:46b4 with SMTP id d9443c01a7336-28e9a664f0dmr175025365ad.55.1759835936684;
-        Tue, 07 Oct 2025 04:18:56 -0700 (PDT)
-Received: from [192.168.2.3] (2403-580a-80ed-0-4835-5a07-49e7-f115.ip6.aussiebb.net. [2403:580a:80ed:0:4835:5a07:49e7:f115])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-28e8d1d31bdsm162509045ad.94.2025.10.07.04.18.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Oct 2025 04:18:56 -0700 (PDT)
-From: James Calligeros <jcalligeros99@gmail.com>
-Date: Tue, 07 Oct 2025 21:16:54 +1000
-Subject: [PATCH v3 13/13] arm64: dts: apple: t8103, t60xx, t8112: Add
- common hwmon nodes to devices
-MIME-Version: 1.0
+	Tue, 07 Oct 2025 11:23:32 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=RD68dA+4pG1gTbzO3pcgS1JsZ/G+4muICZnVBLTmcMc8AEpG56veQmvLH6kCuzpbP95L60WoGVlzlZx/W0U5JWwrjGls2xAXLyACI/HzgAiNwzFa3XbZnsefr/U/cYnG2q0V6phMchETOQyfCYblLB/wRDoqXsSp0yV5/E0Q1mQQ6THkWpceFNVfmzPZPgMV80O276nn3gO/A0+epqVZVLbvaty88ESlx0AXZWG3AuA7hK4L75G649nIZGNBTjYOWlD0DenKxqbRe8CcmyY88tkPH3Xc664M2NQg7CdrhynudH1wbGlQM71d4MR8X7oZhyy9isHse+QcNvet3iAOWg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=ZVPU6A7tMXPlJAqKLyXo8dYeyqSUqvbUplxrKu4EjHM=;
+ b=f5Z3EvXexuLBmyS8EkuK+s0u7D8usmwrGGnbI1q4Dj7Qd5LuMws4lq1pAXbGsymYe7I6KOFpoHP8IV/VTsxgwHcfrhY6IqXJyOn09xXO0CmI6FKBZi+b/4w/NXXDG4A1YisQP51a1zpxgDiJsi9tzrXzZuYKbndeZhNHRYdhLjIM0ds2zuwRBCshKHFkBGU6b2dRcGHrRTH89AqK4vQwPQixkQGrrfaQqUoP8k7hMjA9uZpxxpFrDRVDJ/FGaDhM9f18fPMPoH8WbjMlnJ+e8sUJn8O2jjehQ7JhrudyYZX71rDPqOUSQkALcFc6ZC2xrs0pLNqvUPqJjeMCWDQasQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=phytec.de; dmarc=pass action=none header.from=phytec.de;
+ dkim=pass header.d=phytec.de; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=ZVPU6A7tMXPlJAqKLyXo8dYeyqSUqvbUplxrKu4EjHM=;
+ b=TO08fIZkO6E3mkYPzcEqWYF5KDH9w5yHcbcH4oPtdpDmM1NIqdk8TrWgmyZnBxNx+9OwBk3FCKxTj8UTmTha245ZYrv4CDcSdd/91dDJbzSWobWja5T24s4sz6vdR46AW4gnA8eEqiqoj7FIYAwfwijzylO4q4tZeZg8htZfqkRq+W0G0/1FBwJ8V2aIlLU0yEBkc2L8cGI6RKOU3ed6H/xmdv8ZGZZ76yU2409Dfx4RMDpDGT22RA3ecD00w6t7URgypO9N0s1CO6dnWXHUCrrrnVCv6N8hi5H7LbJUfkr7MLCnG2tCJjkOHp1JSsnt/j31H9Lf708rWQgjNSCZsQ==
+Received: from VI2P195MB2491.EURP195.PROD.OUTLOOK.COM (2603:10a6:800:22f::14)
+ by AS4P195MB1647.EURP195.PROD.OUTLOOK.COM (2603:10a6:20b:507::12) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9182.20; Tue, 7 Oct
+ 2025 11:23:18 +0000
+Received: from VI2P195MB2491.EURP195.PROD.OUTLOOK.COM
+ ([fe80::4131:8d3c:f0c6:c414]) by VI2P195MB2491.EURP195.PROD.OUTLOOK.COM
+ ([fe80::4131:8d3c:f0c6:c414%6]) with mapi id 15.20.9182.017; Tue, 7 Oct 2025
+ 11:23:17 +0000
+From: Yannic Moog <Y.Moog@phytec.de>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>, Pengutronix Kernel Team
+	<kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>
+CC: "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "upstream@lists.phytec.de"
+	<upstream@lists.phytec.de>
+Subject: Re: [PATCH v4 1/4] arm64: dts: im8mp-phy{board,core}: update license
+ and copyright
+Thread-Topic: [PATCH v4 1/4] arm64: dts: im8mp-phy{board,core}: update license
+ and copyright
+Thread-Index: AQHcN2JNWhY97ESoqEe2usdZ1br5IrS2XXkAgAAtUIA=
+Date: Tue, 7 Oct 2025 11:23:17 +0000
+Message-ID: <7d18c23201dde4b6f21739ff92cac13e597deca5.camel@phytec.de>
+References: <20251007-imx8mp-pollux-display-overlays-v4-0-778c61a4495c@phytec.de>
+	 <20251007-imx8mp-pollux-display-overlays-v4-1-778c61a4495c@phytec.de>
+	 <342abe63-4062-4e37-9beb-4bfe8d55cd9b@kernel.org>
+In-Reply-To: <342abe63-4062-4e37-9beb-4bfe8d55cd9b@kernel.org>
+Accept-Language: en-GB, en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=phytec.de;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: VI2P195MB2491:EE_|AS4P195MB1647:EE_
+x-ms-office365-filtering-correlation-id: a61cd880-d9b6-489c-479a-08de0593ea0d
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|366016|1800799024|376014|7416014|38070700021;
+x-microsoft-antispam-message-info: =?utf-8?B?K0g5SXk3bW1MdXA1Tlh3ZHV4bXFOZHBzcHFpWUU0UC9SVXl1S3hMSGsvKzVu?=
+ =?utf-8?B?Qmpwc3k0WlQrY09na2E4THlVUmFxL2FEYnVHNGh4YSt4d1dkdTBVNUZ5VDZn?=
+ =?utf-8?B?KzNEMFNsSzJRajk3L0pub1p3WXNCRS96eG50bVNPaUYrVVpzWkN3c3MxTWpn?=
+ =?utf-8?B?T3JtTkpQVnlaOVB5Y3Nob1hKQXBtU2lDcXkxTFFTM3FKU0twVGg3NTlWL290?=
+ =?utf-8?B?WXdnV1pKNHNQdWUxaUZ6T3NhRktMTjN1akpYRWVTQktiTjU3NDFLMmNxTWNB?=
+ =?utf-8?B?RHFUYkJXZGFta0NPZXpNcGxwSitVYTFlR2prTlZmbFpFSTRyY2ZPOU12dnJ4?=
+ =?utf-8?B?eGNBZHpCMlgwTGxybDlqRldOVkhWVDMxamFHU3VxTVdOTUJqVWpYWEFKa1d0?=
+ =?utf-8?B?N0hhKzNNTDd2K1pVL1JYWVBPTHFGdGVrVGFQOEd3SG94QlFUN0k2dVd3TFJp?=
+ =?utf-8?B?cTNaYjV3Z3ZxZCs4ekxkeUNWQkR4eUp2Wkt2VWJXSjJkM3pVSzkzVTFvdklw?=
+ =?utf-8?B?Zmk5ckNaVHZaQ1NRei9YdUVtME9WamlyWGdSWDN0UG1yOXZEbUw5aUVoV0pz?=
+ =?utf-8?B?a2V4dzc3dUxLaWZaeXdFMkdBSGt2UHVQMy9pVkR3eXdtajZ2c3N1bjB4cVAw?=
+ =?utf-8?B?ZzRTTm5VbCsrODhHQU5kSWlXZFpYSDduTUxIRWtQOHpQWkJqR1pSMGNMOGNs?=
+ =?utf-8?B?SHBycHp1WC9vMEVVQ1hkaElneWVubU5ISk1JNTc1d2I2eFVzdlNLM2JWdHd5?=
+ =?utf-8?B?SXNvR3NiMG9PVlZXVnNYd29mZ3NUZ1MxNEhvS0F4SDNIdlQwS1dFRFpxVGRC?=
+ =?utf-8?B?TGpnbU5xbEt1Zks0cWFuODN1blFhajFhSk0zdDd1aWh2WjZmVXpFUUl4a2Jo?=
+ =?utf-8?B?dmJPbWxGd0RsampRS0VuaTVRUWhsQVNWVFhzS2g5TW9NbVJVUTFZMzJKWUNs?=
+ =?utf-8?B?eUlLWStIdm1FVFREZjFleUZzM2NYV3EveVBrUTE4aTFwZzVtV0czRXIwbDZ2?=
+ =?utf-8?B?VExma1J3bHkybG4vNUZEQkVSMEpyVC9hR1dvTTcvbGxkOEc4dVRFeWRnbytj?=
+ =?utf-8?B?K1Jlc0R2ZVpXb054cDFhNEQ2QjN0K2RCWE5DYm9scVRFNlY2Myt4MlA2cTZv?=
+ =?utf-8?B?emNwQUd6V3NjNlk2QXlZMmRPRlRsZWhOMHBYQnRtWm1VNTdnZE1CQ0dQcTR5?=
+ =?utf-8?B?V2FUMkF3M05kVnVseGRzM2NrWHAxejFMNTZEZCtjazRycWRjNGNMUkE3YU45?=
+ =?utf-8?B?NUJHNkswaDN6a3lkSlBGd05zTXRMQ1A2a3RWMEdCbEd2cUtydkhYRmdOTkhj?=
+ =?utf-8?B?WUVHeGt5cXBOb0pzekdIZXpucTVZU0ZhcExFT3VqaWZsUGxvRzdHMVJseGVk?=
+ =?utf-8?B?NnY1dTIwTWplTk5acTJ0SnZKTWpsTTJWNVgzSW5JWG83c2Z3NG1BTlhSOEVW?=
+ =?utf-8?B?NjBHNmFDQ0J4QnRiejRFODMwMTA1bXdncjBTNHZvSEVMbnFXRERBbHhmeGJC?=
+ =?utf-8?B?VVo1b0JhY21Eb2xNN0Y3cEdENGM3M3haM2lYUUtuVkpqT2hXZ1Bic1pZWUtn?=
+ =?utf-8?B?MzJaM01Ga1kxYWNxSlRLWmJIYzlGTzRPVkNxcTF2amFHRWMveVVPdUNGaDZM?=
+ =?utf-8?B?SzUyeTJOcXRyN3BtUGk1aDlsNTdqSnl0bFhVNlQvMTRSczl3UDRuOHJiNjZh?=
+ =?utf-8?B?UUUyK2hOUnlLSjdOb2JzWm9YVEFEZTNZZTBWWXdCcmlVdlgveGVwZE1ham9X?=
+ =?utf-8?B?Z09yM25iREFwTXYwY2ptMGFWRHlhdzhrNXd4cVpwMTgwdkZXNVI5VTdncFU3?=
+ =?utf-8?B?WUN2V004QkVLZ2JPZlUrRnNkb2YrdnZtSHZDR0Z3amFhdTJzLzcwTGJRK001?=
+ =?utf-8?B?dmxyRHUrSC9BOEVna0JNWEY0UWxDZ204Y1lMVFI1VmE0bzZFU3N3WUxuTmdP?=
+ =?utf-8?B?QVlvNU1qaCtraEZvZlZYcmozcVlCd0ZHQWFjWk55TVJRZmlOaVg4UDdJWUZG?=
+ =?utf-8?B?RDJwNENEcmxNYVROWTVwQ241MVRUNVdMcURzUzJ6bkg0OHdnSEFyL3BhanZM?=
+ =?utf-8?Q?8Gtfy1?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:VI2P195MB2491.EURP195.PROD.OUTLOOK.COM;PTR:;CAT:NONE;SFS:(13230040)(366016)(1800799024)(376014)(7416014)(38070700021);DIR:OUT;SFP:1102;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?utf-8?B?REVTVzVwMkZwNVB1WU5CWmp6bzVJRXlNRGJjNUxxTjVoZmF1WGZjY2Q1aDRQ?=
+ =?utf-8?B?U1oyejhzMWtzZTVjUnRiaFVXZXBMVSt0K1ZvZUxSWEhReitwSGI5Y0hlNXYx?=
+ =?utf-8?B?dW41ejcxakc5SkFEQ3dvcWpyWnZpOFl2ejU0QW5LcUtXZWdZcndZZFptc2xz?=
+ =?utf-8?B?c0hKL3BTWjlrQk1NeE5QWk93N0JIVGdHbnVxZmtTY1VUUFcyT2ViTUREYWVE?=
+ =?utf-8?B?cXQ3c2w4MFlWeDZ2YWh1SzUwY2hyeWp6N2dJSVU2eUM3UDlkUnloOGtFWDhE?=
+ =?utf-8?B?Q1pUbzZZaThZeXVlN09XNlJZZy8zd0tLS3E4SjNWNTFnQVdZTk1NY2dza3Rw?=
+ =?utf-8?B?TEtwSTBuU2VJUnQ2cllCandXTXgxUkFPTllEOWpZdjRHSmRRV3lEcGx4SU5L?=
+ =?utf-8?B?U2xNYU13bGZ1bTZ0dXZkSVhvOUdvdE5wWnd6U0ZlUmJuM2lSVGgyYlpuUjhh?=
+ =?utf-8?B?cTcrL1p3eVNRdzQ5NTM4cHRYbndxQTVnTEQ3NU1ZV0o3bDhYd3AwZ2dnRjdw?=
+ =?utf-8?B?a0kyMHhIS2ZNZnd5Wms3ZkhkWXg2M2JIMlFZK3FwWDA3TmZmbmx4aWtlTlJJ?=
+ =?utf-8?B?SlJLeGNGZTlOdXlUcTZ4dEJlVStkUXQ5VFp6WmV3dTJEWVJHQVVyNjFZRjVo?=
+ =?utf-8?B?K2Z5bGRCdktjUVVobTAzSFBEemtmaU90djdqc3RtRHlmUUJ3dW5yOFkyNGNx?=
+ =?utf-8?B?VHZpa2Ftdm8vQThrVVFpQThlM3JvOVVPaUZra1ZvSThEK0dFb0l3Nkx4YStx?=
+ =?utf-8?B?RG9Uc3JraGVndGtRYi82RDBFZTJBT1lqVjFuRFgwNkREdGdDdVdQKzcvTXMx?=
+ =?utf-8?B?ZnpNSE5SejB3SXNKZXFOdkpIZTVsSGI0ZExaVGsxOFY4RVVTb0dtZVVVRVRR?=
+ =?utf-8?B?OFlsRy90eXBOUGJIRzhHamxXWk05Wnd3cU9zVmZWUHVwWjQ1aTNraGl6aGVK?=
+ =?utf-8?B?UzNvKys2UnNlT0xWN0xlQjcyNzZjRmxjZVFsR0xhbjVDa3BORGtYTTdGNzdo?=
+ =?utf-8?B?a2hWYm82L1IyR3hiZnJpazRUUE9EMlpCVVRmQTJ3N3h3L0F0R25RaUhDYm5G?=
+ =?utf-8?B?U09rVTRZL2IzVGdDVm8rbEZNRmJ4TGx6VytJMjFJTUtkL1RUVjBCWVBialJr?=
+ =?utf-8?B?QjZDTytrN0hQeng1Y0dFMk9kRVlIUlB2N2ExUDVFbHRUYWNuMDJEeExLNmN0?=
+ =?utf-8?B?ckdtTlFxNFA4Y3A4NTVYK0dmcXdVeWd5ZyswVzB5VW84L3FiSUVxMFJJVHVG?=
+ =?utf-8?B?MjFrOVhEUTlnMm5NbGVZOG5LMTBUUktrcmpiMXhYSURsWUtTM1lPL2p1YWNz?=
+ =?utf-8?B?NDJkTXRCeVoybmVrUEJZdjhzQ1pESkpXK2tYekZ3VVE2elBPUWppT0VNVEl5?=
+ =?utf-8?B?ejB0YnpNTW1GcWs2NEdrM0lpZ2RjUXo3SWovYXo3QXNxeXc4U0JXSzcvVjY2?=
+ =?utf-8?B?ZlBNclRsZzhIcGhIVEd5dm8wUXpnR25pbC9YcWFzTlRVYmViMTcwN3dCRWRN?=
+ =?utf-8?B?SEUvNVp4clBBNTFMTWg1eGlvYzJKVjdIcWxBUHdnUFBnaWEwVnNxVzhlcGp1?=
+ =?utf-8?B?WnRkQ0tkVyt1dFhxOHRsVEMwQXpZUHRRWDF4SUwrV2hUZjJLanJmYnpKT1B0?=
+ =?utf-8?B?azdNajY2VTVzb0RCQ0ZaT0hpd1BYNCthRFFJZjU3L05PYzY2TjlNMEtOY3c3?=
+ =?utf-8?B?LzU0NEwyU2Y2MmkxNGIrWjhaRnRhdm9EempZMDJyMWZ5eDlic0hOOUhEVWpW?=
+ =?utf-8?B?VHR5SityMXFnVVRlSVFaWlJZcS9qNk9MUTlEc0R1eUNoU3RoeEpYSDZYandx?=
+ =?utf-8?B?SlFpeVRxbzhDNVplaVVuUHFucSs0VUlLc2VZdFpCQ2x6RDkrT3pDbWN1emlM?=
+ =?utf-8?B?SU1lM2V4N2xnLzc1WHNVTnlrQ3IwYkcyQndXWlVHbXM1Z1pWL0puekpnc3VB?=
+ =?utf-8?B?enJQYkhwNXFCbU1ueW1LM1A4T3VXenlka1NVSFBVV0thaGVQZkhPQzFkM1Jw?=
+ =?utf-8?B?cUhLSlB4MWVLMVAvYUh2bVlIY0paci9CemVSS3NLandObTBweG5IS2cyVnhx?=
+ =?utf-8?B?RVFqRTkwV2F2Y3ptU1pJblZwWW4wU21paVZXYnFIZTNKbjlKNUNVcTI0MDlS?=
+ =?utf-8?Q?sxQI=3D?=
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251007-macsmc-subdevs-v3-13-d7d3bfd7ae02@gmail.com>
-References: <20251007-macsmc-subdevs-v3-0-d7d3bfd7ae02@gmail.com>
-In-Reply-To: <20251007-macsmc-subdevs-v3-0-d7d3bfd7ae02@gmail.com>
-To: Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>, 
- Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
- Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Alexandre Belloni <alexandre.belloni@bootlin.com>, 
- Jean Delvare <jdelvare@suse.com>, Guenter Roeck <linux@roeck-us.net>, 
- Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
- Jonathan Corbet <corbet@lwn.net>, 
- James Calligeros <jcalligeros99@gmail.com>
-Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-rtc@vger.kernel.org, linux-hwmon@vger.kernel.org, 
- linux-input@vger.kernel.org, linux-doc@vger.kernel.org
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=openpgp-sha256; l=6022;
- i=jcalligeros99@gmail.com; h=from:subject:message-id;
- bh=dMA8ghWVekTunsVu7XOstdzBbwszG1Yq/dFfXRCf/bk=;
- b=owGbwMvMwCV2xczoYuD3ygTG02pJDBlPvm3jY15w+v9irk9rkrp+zvDZ//DCl5UBk87+iv7aZ
- ZqqumjV+Y5SFgYxLgZZMUWWDU1CHrON2G72i1TuhZnDygQyhIGLUwAmcm0Cwz+bGSzX5RgmqjHo
- y5znt+T57zzd66/K5hWSYuwTrSqWRDsyMrzjnabz55ZC+PGlEjuNczkDOffPrNJIyZ3CKOV6Kfp
- fGy8A
-X-Developer-Key: i=jcalligeros99@gmail.com; a=openpgp;
- fpr=B08212489B3206D98F1479BDD43632D151F77960
+Content-ID: <25F9997A3903B8478F020410937E98CD@EURP195.PROD.OUTLOOK.COM>
+Content-Transfer-Encoding: base64
+MIME-Version: 1.0
+X-OriginatorOrg: phytec.de
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: VI2P195MB2491.EURP195.PROD.OUTLOOK.COM
+X-MS-Exchange-CrossTenant-Network-Message-Id: a61cd880-d9b6-489c-479a-08de0593ea0d
+X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Oct 2025 11:23:17.8125
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: e609157c-80e2-446d-9be3-9c99c2399d29
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: 1ys/QYJMOM8cT3vinh2xu2CcjhOg0vUi7k7nfaqyCTl9iIajGx1PUuRI2/YNb/Vus6a4oQbfTprO6RFdRx17mg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4P195MB1647
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_041857_657504_33F32EDD 
-X-CRM114-Status: GOOD (  11.87  )
+X-CRM114-CacheID: sfid-20251007_042330_825522_2BCAEA5E 
+X-CRM114-Status: GOOD (  12.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,173 +191,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add the known, common hwmon-related SMC keys to the DTs for the devices
-they pertain to.
-
-Reviewed-by: Neal Gompa <neal@gompa.dev>
-Co-developed-by: Janne Grunau <j@jannau.net>
-Signed-off-by: Janne Grunau <j@jannau.net>
-Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
----
- .../arm64/boot/dts/apple/t6001-j375c.dts | 2 ++
- arch/arm64/boot/dts/apple/t6001.dtsi     | 2 ++
- .../arm64/boot/dts/apple/t6002-j375d.dts | 2 ++
- .../boot/dts/apple/t600x-j314-j316.dtsi  | 3 +++
- arch/arm64/boot/dts/apple/t8103-j274.dts | 2 ++
- arch/arm64/boot/dts/apple/t8103-j293.dts | 3 +++
- arch/arm64/boot/dts/apple/t8103-j313.dts | 2 ++
- arch/arm64/boot/dts/apple/t8103-j456.dts | 2 ++
- arch/arm64/boot/dts/apple/t8103-j457.dts | 2 ++
- arch/arm64/boot/dts/apple/t8103.dtsi     | 1 +
- arch/arm64/boot/dts/apple/t8112-j413.dts | 2 ++
- arch/arm64/boot/dts/apple/t8112-j473.dts | 2 ++
- arch/arm64/boot/dts/apple/t8112-j493.dts | 3 +++
- arch/arm64/boot/dts/apple/t8112.dtsi     | 1 +
- 14 files changed, 29 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/apple/t6001-j375c.dts b/arch/arm64/boot/dts/apple/t6001-j375c.dts
-index 2e7c23714d4d..08276114c1d8 100644
---- a/arch/arm64/boot/dts/apple/t6001-j375c.dts
-+++ b/arch/arm64/boot/dts/apple/t6001-j375c.dts
-@@ -24,3 +24,5 @@ &wifi0 {
- &bluetooth0 {
- 	brcm,board-type = "apple,okinawa";
- };
-+
-+#include "hwmon-fan-dual.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t6001.dtsi b/arch/arm64/boot/dts/apple/t6001.dtsi
-index ffbe823b71bc..264df90f07d8 100644
---- a/arch/arm64/boot/dts/apple/t6001.dtsi
-+++ b/arch/arm64/boot/dts/apple/t6001.dtsi
-@@ -66,3 +66,5 @@ p-core-pmu-affinity {
- &gpu {
- 	compatible = "apple,agx-g13c", "apple,agx-g13s";
- };
-+
-+#include "hwmon-common.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t6002-j375d.dts b/arch/arm64/boot/dts/apple/t6002-j375d.dts
-index 2b7f80119618..d12c0ae418f7 100644
---- a/arch/arm64/boot/dts/apple/t6002-j375d.dts
-+++ b/arch/arm64/boot/dts/apple/t6002-j375d.dts
-@@ -56,3 +56,5 @@ &bluetooth0 {
- 
- /delete-node/ &ps_disp0_cpu0_die1;
- /delete-node/ &ps_disp0_fe_die1;
-+
-+#include "hwmon-fan-dual.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi b/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
-index c0aac59a6fae..127814a9dfa4 100644
---- a/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
-+++ b/arch/arm64/boot/dts/apple/t600x-j314-j316.dtsi
-@@ -131,3 +131,6 @@ &fpwm0 {
- };
- 
- #include "spi1-nvram.dtsi"
-+
-+#include "hwmon-laptop.dtsi"
-+#include "hwmon-fan-dual.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t8103-j274.dts b/arch/arm64/boot/dts/apple/t8103-j274.dts
-index 1c3e37f86d46..f5b8cc087882 100644
---- a/arch/arm64/boot/dts/apple/t8103-j274.dts
-+++ b/arch/arm64/boot/dts/apple/t8103-j274.dts
-@@ -61,3 +61,5 @@ &pcie0_dart_2 {
- &i2c2 {
- 	status = "okay";
- };
-+
-+#include "hwmon-mac-mini.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t8103-j293.dts b/arch/arm64/boot/dts/apple/t8103-j293.dts
-index 5b3c42e9f0e6..abb88391635f 100644
---- a/arch/arm64/boot/dts/apple/t8103-j293.dts
-+++ b/arch/arm64/boot/dts/apple/t8103-j293.dts
-@@ -119,3 +119,6 @@ dfr_panel_in: endpoint {
- &displaydfr_dart {
- 	status = "okay";
- };
-+
-+#include "hwmon-laptop.dtsi"
-+#include "hwmon-fan.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t8103-j313.dts b/arch/arm64/boot/dts/apple/t8103-j313.dts
-index 97a4344d8dca..491ead016b21 100644
---- a/arch/arm64/boot/dts/apple/t8103-j313.dts
-+++ b/arch/arm64/boot/dts/apple/t8103-j313.dts
-@@ -41,3 +41,5 @@ &wifi0 {
- &fpwm1 {
- 	status = "okay";
- };
-+
-+#include "hwmon-laptop.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t8103-j456.dts b/arch/arm64/boot/dts/apple/t8103-j456.dts
-index 58c8e43789b4..c2ec6fbb633c 100644
---- a/arch/arm64/boot/dts/apple/t8103-j456.dts
-+++ b/arch/arm64/boot/dts/apple/t8103-j456.dts
-@@ -75,3 +75,5 @@ &pcie0_dart_1 {
- &pcie0_dart_2 {
- 	status = "okay";
- };
-+
-+#include "hwmon-fan-dual.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t8103-j457.dts b/arch/arm64/boot/dts/apple/t8103-j457.dts
-index 7089ccf3ce55..aeaab2482d54 100644
---- a/arch/arm64/boot/dts/apple/t8103-j457.dts
-+++ b/arch/arm64/boot/dts/apple/t8103-j457.dts
-@@ -56,3 +56,5 @@ ethernet0: ethernet@0,0 {
- &pcie0_dart_2 {
- 	status = "okay";
- };
-+
-+#include "hwmon-fan.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t8103.dtsi b/arch/arm64/boot/dts/apple/t8103.dtsi
-index 78eb931d6fb7..f1820bdc0910 100644
---- a/arch/arm64/boot/dts/apple/t8103.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8103.dtsi
-@@ -1145,3 +1145,4 @@ port02: pci@2,0 {
- };
- 
- #include "t8103-pmgr.dtsi"
-+#include "hwmon-common.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t8112-j413.dts b/arch/arm64/boot/dts/apple/t8112-j413.dts
-index 6f69658623bf..500dcdf2d4b5 100644
---- a/arch/arm64/boot/dts/apple/t8112-j413.dts
-+++ b/arch/arm64/boot/dts/apple/t8112-j413.dts
-@@ -78,3 +78,5 @@ &i2c4 {
- &fpwm1 {
- 	status = "okay";
- };
-+
-+#include "hwmon-laptop.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t8112-j473.dts b/arch/arm64/boot/dts/apple/t8112-j473.dts
-index 06fe257f08be..11db6a92493f 100644
---- a/arch/arm64/boot/dts/apple/t8112-j473.dts
-+++ b/arch/arm64/boot/dts/apple/t8112-j473.dts
-@@ -52,3 +52,5 @@ &pcie1_dart {
- &pcie2_dart {
- 	status = "okay";
- };
-+
-+#include "hwmon-mac-mini.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t8112-j493.dts b/arch/arm64/boot/dts/apple/t8112-j493.dts
-index fb8ad7d4c65a..a0da02c00f15 100644
---- a/arch/arm64/boot/dts/apple/t8112-j493.dts
-+++ b/arch/arm64/boot/dts/apple/t8112-j493.dts
-@@ -133,3 +133,6 @@ touchbar0: touchbar@0 {
- 		touchscreen-inverted-y;
- 	};
- };
-+
-+#include "hwmon-laptop.dtsi"
-+#include "hwmon-fan.dtsi"
-diff --git a/arch/arm64/boot/dts/apple/t8112.dtsi b/arch/arm64/boot/dts/apple/t8112.dtsi
-index 5a8fa6daa00a..c4d1e5ffaee9 100644
---- a/arch/arm64/boot/dts/apple/t8112.dtsi
-+++ b/arch/arm64/boot/dts/apple/t8112.dtsi
-@@ -1184,3 +1184,4 @@ port03: pci@3,0 {
- };
- 
- #include "t8112-pmgr.dtsi"
-+#include "hwmon-common.dtsi"
-
--- 
-2.51.0
-
+QW0gRGllbnN0YWcsIGRlbSAwNy4xMC4yMDI1IHVtIDE3OjQxICswOTAwIHNjaHJpZWIgS3J6eXN6
+dG9mIEtvemxvd3NraToKPiBPbiAwNy8xMC8yMDI1IDE3OjEzLCBZYW5uaWMgTW9vZyB3cm90ZToK
+PiA+IFVwZGF0ZSBDb3B5cmlnaHQgeWVhciBhbmQgY2hhbmdlIGxpY2Vuc2UgZnJvbSBHUEwtMi4w
+IHRvCj4gPiBHUEwtMi4wLW9yLWxhdGVyIE9SIE1JVC4gVXNlIHN5bnRheCBhcyBkZWZpbmVkIGlu
+IHRoZSBTUERYIHN0YW5kYXJkLgo+ID4gQWxzbyByZW1vdmUgaW5kaXZpZHVhbCBhdXRob3JzaGlw
+Lgo+IAo+IFlvdSBkaWQgbm90IGV4cGxhaW4gd2h5LiBJIHNlZSBubyByZWFzb24gKG5vIGV4cGxh
+bmF0aW9uKSB0byBjbGFpbSB0aGF0Cj4geW91IGFkZGVkIGNvcHlyaWdodGVkIG1hdGVyaWFsIGZv
+ciBlYWNoIG9mIHRoZXNlIGluZGl2aWR1YWwgZGF0ZXMuCj4gCj4gV3JpdGUgY29tcGxldGUgY2hh
+bmdlbG9ncyBleHBsYWluaW5nIHN1Y2ggZGV0YWlscy4KCkZhaXIgZW5vdWdoLiBJJ2xsIHJldmVy
+dCB0byBsZWF2ZSB0aGUgZGF0ZXMgdG8gb3JpZ2luYWwgcHVibGljYXRpb24gZm9yIG5vdyBhbmQK
+Y29uc3VsdCBpbnRlcm5hbGx5IGluIG9yZGVyIG5vdCB0byBob2xkIHRoZXNlIGNoYW5nZXMgaG9z
+dGFnZS4KCllhbm5pYwoKPiAKPiBCZXN0IHJlZ2FyZHMsCj4gS3J6eXN6dG9mCg==
 
