@@ -4,80 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 159B1CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 09:00:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B15C0CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 09:05:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=I4koABzEQoGKLzAtw8KpjOXYdJpMHOXjILBXMLZGWaA=; b=SmIQ/xSdTmCHXsgC495aPOwNfr
-	AZr5xjN7aHkCthIwG3VFNzLj51rEEW0q9pwF6s9ABZ7jedFXTJTX7LhBTcsu+x9ZTermCkrRYii01
-	QX97d0JnnuX0GHFrb9b/iJipXr07/YYudtmE56QFTT/51XgyyHLlg+wR6mx9tWGtaDmNJCbeqwCo6
-	wVWF7CJfiXCPNyzd6H/tAmJCOSD6KKF2aB5MrQwQwJuzz/UkBBOWjYPQHvqkZGxuP9RVr8/Qksu9I
-	T0sDm+lJItzZHSnDMMIEj5MVo0Qwus/rACYkejQFkAdFnQxYydDgIVEU1lJOebwoSWCr67mkj6OoD
-	Ew91R0Eg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=KoMO66q26G+B2gccNgWDr71yV2I0BZ/WZu+Mh8rY2bk=; b=DlHJulHM0XlUl+1rxAq//cvDtn
+	LzR+Rst9RaS7/dl98+oNbb+CE8tD7BdHD94v2fwClms6kBLcpdoYaBhnJj5woW2Ma0q2LXM9urvsg
+	/9dD7rXADpgQmW1y2n/2M1G3zd18YClAy7iSnttxUXdAK7rYr/wVeAYAIHw+X/XqM30LvdmLX/UUT
+	tXwgCzf+L0wEmsaidD3yCK+zCS7SRuu/59zYMutP8wQwCH4CfZelRxKhCO9WjJLIa5HRLiZgRhAZa
+	ZzGdOdsoN/fVJPVIsuj+uxS93Mt+6sIJTOVyENqOpl4/S4BC/nP2Oqh0XHdlqm6hCy4b3fAZ6uCHR
+	o1RF48Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v63Yy-00000001erH-0CcT;
-	Tue, 07 Oct 2025 09:00:52 +0000
-Received: from cp2.siel.si ([46.19.12.180])
+	id 1v63dJ-00000001fFY-0XMA;
+	Tue, 07 Oct 2025 09:05:21 +0000
+Received: from vps.xff.cz ([195.181.215.36])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v63Yv-00000001epm-1ht0
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 09:00:50 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
-	s=default; h=Content-Transfer-Encoding:MIME-Version:Message-Id:Date:Subject:
-	Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
-	List-Post:List-Owner:List-Archive;
-	bh=I4koABzEQoGKLzAtw8KpjOXYdJpMHOXjILBXMLZGWaA=; b=n7TiSlUD+1OiiL2GO9Zg04Yicn
-	+AW9x+mJuW8/d/6gEzO8FiNlc6QKmEzzY8FgVATJcGTSgvckJbwMiedxDg9rJrVDft2g/gGhNYuWO
-	YtC7ozZyWSYT0Cu4UcllSw09QpTBGbsIGM54U3cL1eQarFNjgd7Wfm33zx0o7vDqmiCcsHmrXkjxW
-	myUgBIha7g329UqhgAJI/DubMAjCZbv4wjBZC2ApPpkdzqQLh83sG1LD2ube6hUD5XVh9hTAqLYUc
-	jsTfRh3VMd9yf3Wxr2zP7Ru+A5BDtNYuZy1MuDLwYSbQ/oJMauruCS80dQLf5nzl/zSQLnS9aWF0J
-	z7NgHwDA==;
-Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:34170 helo=localhost.localdomain)
-	by cp2.siel.si with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <primoz.fiser@norik.com>)
-	id 1v63FJ-0000000BgWm-0nsq;
-	Tue, 07 Oct 2025 10:40:31 +0200
-From: Primoz Fiser <primoz.fiser@norik.com>
-To: Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>
-Cc: imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	upstream@lists.phytec.de
-Subject: [PATCH 1/2] arm64: dts: freescale: imx93-phyboard-nash: Add jtag overlay
-Date: Tue,  7 Oct 2025 10:40:27 +0200
-Message-Id: <20251007084028.1125185-1-primoz.fiser@norik.com>
-X-Mailer: git-send-email 2.34.1
+	id 1v63dF-00000001fF6-3iQV;
+	Tue, 07 Oct 2025 09:05:19 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=xff.cz; s=mail;
+	t=1759827912; bh=YCPXdnG5zQAocVXJ3TiIrBnpkKTBpqwF0eKVaj6G9aM=;
+	h=Date:From:To:Cc:Subject:X-My-GPG-KeyId:References:From;
+	b=bH3h03gJn2Olv7O538Cv+ijkF+N4ZzLrxe9yoduUJCcd0s0Y6p9ALFEaiYfj+65hL
+	 /JxpPE2biHy2FiKR8xH65AJKuZgQ92CyWpPPiO6dTW3UH3Lfyj6hMJDloe3/M3moz/
+	 fZCZ1z14I8IYXdy/dsYZNZn1X3wWAFXoAysyMr6Q=
+Date: Tue, 7 Oct 2025 11:05:11 +0200
+From: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>
+To: Rudraksha Gupta <guptarud@gmail.com>
+Cc: Dragan Simic <dsimic@manjaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	"Leonardo G. Trombetta" <lgtrombetta@gmx.com>
+Subject: Re: [PATCH v3 0/5] Upstreaming Pinephone Pro Patches
+Message-ID: <6joes3gufls2bx37gf2uoywyahlqprn73qfz6gfico5jxkua7z@irixdgkqp66p>
+Mail-Followup-To: =?utf-8?Q?Ond=C5=99ej?= Jirman <megi@xff.cz>, 
+	Rudraksha Gupta <guptarud@gmail.com>, Dragan Simic <dsimic@manjaro.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	"Leonardo G. Trombetta" <lgtrombetta@gmx.com>
+X-My-GPG-KeyId: EBFBDDE11FB918D44D1F56C1F9F0A873BE9777ED
+ <https://xff.cz/key.txt>
+References: <20250921-ppp_light_accel_mag_vol-down-v3-0-7af6651f77e4@gmail.com>
+ <53eabe34a310ea9c74315fa09a604e4a@manjaro.org>
+ <b01ed528-8b29-4a6a-bdff-88f2e3b5dd2e@gmail.com>
+ <115da845d9161e6ecfa67cf189b84aa8@manjaro.org>
+ <37f2603e-8c51-4f92-a7af-0e60cd577004@gmail.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
-X-AntiAbuse: Primary Hostname - cp2.siel.si
-X-AntiAbuse: Original Domain - lists.infradead.org
-X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
-X-AntiAbuse: Sender Address Domain - norik.com
-X-Get-Message-Sender-Via: cp2.siel.si: authenticated_id: primoz.fiser@norik.com
-X-Authenticated-Sender: cp2.siel.si: primoz.fiser@norik.com
-X-Source: 
-X-Source-Args: 
-X-Source-Dir: 
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <37f2603e-8c51-4f92-a7af-0e60cd577004@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_020049_620350_707D34D1 
-X-CRM114-Status: UNSURE (   9.23  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251007_020518_401142_7FB07F1A 
+X-CRM114-Status: GOOD (  14.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,65 +76,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add overlay to enable JTAG pins on the board's JTAG (X41) connector.
+On Sat, Oct 04, 2025 at 09:55:19PM -0700, Rudraksha Gupta wrote:
 
-Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
----
- arch/arm64/boot/dts/freescale/Makefile        |  2 ++
- .../freescale/imx93-phyboard-nash-jtag.dtso   | 26 +++++++++++++++++++
- 2 files changed, 28 insertions(+)
- create mode 100644 arch/arm64/boot/dts/freescale/imx93-phyboard-nash-jtag.dtso
+> Awesome! I was hoping that others would comment on the testing I've done
+> (especially for the accelerometer and magnetometer patches) as I can't tell
+> if userspace is wrong or if my testing/conclusion is wrong. Mobile Linux is
+> very early stages at the moment, and I suspect the Pinephone and Pinephone
+> Pro were used as reference devices with Megi's downstream kernel. Wrong
+> mount matrices in the downstream kernel might be affecting userspace. This
+> means that with the corrected mount matrices in this patch series, userspace
+> is slightly broken (eg. since I fixed the accelerometer, the screen in Phosh
+> and KDE Plasma are upside down. I suspect KDE's Kompass and Leonardo's
+> compass app might be the same if I'm changing the mount matrix for the
+> magnetometer). This is why I decided to showcase the raw values in my
+> testing. If my testing is incorrect, please feel free to let me know.
+> 
 
-diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
-index 525ef180481d..c72a6fdc5412 100644
---- a/arch/arm64/boot/dts/freescale/Makefile
-+++ b/arch/arm64/boot/dts/freescale/Makefile
-@@ -356,10 +356,12 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-kontron-bl-osm-s.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin.dtb
- 
-+imx93-phyboard-nash-jtag-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-jtag.dtbo
- imx93-phyboard-nash-peb-wlbt-07-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-peb-wlbt-07.dtbo
- imx93-phyboard-segin-peb-eval-01-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-eval-01.dtbo
- imx93-phyboard-segin-peb-wlbt-05-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-wlbt-05.dtbo
- imx93-phycore-rpmsg-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-segin.dtb imx93-phycore-rpmsg.dtbo
-+dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-jtag.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-peb-wlbt-07.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-eval-01.dtb
- dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-wlbt-05.dtb
-diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-jtag.dtso b/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-jtag.dtso
-new file mode 100644
-index 000000000000..4744eabf95f3
---- /dev/null
-+++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-jtag.dtso
-@@ -0,0 +1,26 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (C) 2025 PHYTEC Messtechnik GmbH
-+ * Author: Primoz Fiser <primoz.fiser@norik.com>
-+ */
-+
-+#include "imx93-pinfunc.h"
-+
-+/dts-v1/;
-+/plugin/;
-+
-+&gpio2 {
-+	pinctrl-names = "default";
-+	pinctrl-0 = <&pinctrl_jtag>;
-+};
-+
-+&iomuxc {
-+	pinctrl_jtag: jtaggrp {
-+		fsl,pins = <
-+			MX93_PAD_GPIO_IO24__JTAG_MUX_TDO	0x31e
-+			MX93_PAD_GPIO_IO25__JTAG_MUX_TCK	0x31e
-+			MX93_PAD_GPIO_IO26__JTAG_MUX_TDI	0x31e
-+			MX93_PAD_GPIO_IO27__JTAG_MUX_TMS	0x31e
-+		>;
-+	};
-+};
--- 
-2.34.1
+KDE Kompass uses this as an algorithm: 
 
+ https://invent.kde.org/smigaud/kompass/-/blob/master/src/compass.cpp?ref_type=heads
+
+which is largely inadequate and doesn't take mount matrix (in_mount_matrix) into
+account at all. So that's not a good reference app. Also it doesn't even
+claim to support "af8133j" sensor.
+
+Leonardo's compass app has its own mount matrices, when kernel doesn't contain
+one:
+
+https://gitlab.com/lgtrombetta/compass/-/blob/main/src/compass.py?ref_type=heads
+
+which we can also use for comaprison/confusion and is different from what your
+patches are trying to upstream. :)
+
+regards,
+	o.
 
