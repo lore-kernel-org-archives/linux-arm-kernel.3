@@ -4,61 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D175BCCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 10:26:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ADDF7CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 10:27:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=E1NCAKys4dQcFTKaVl654SWQB4KyErRvmEmcj8YMFdA=; b=gNmwbWxurfIWHTVXpQX7yMhdO6
-	luTuowJDcDxY2TNxhs+uOQSUku6KGXPC6KYqsWQQR1ECWmX4m9LM7xHMGpOPWSY0hoZkb4LoZPSt3
-	AcAAt9T4C08+525XezDGhEVVlTKmodgG+RetNrygekiCBzTsWgU1u7M83nWFzu0K82q1bAUTTckNZ
-	1NUe3tt3jenPKPgSj2ZojkXm1xAqgrjoHcubqrr03IQ8+A1ODBaYkfDorzLZwGBp0CaCe64gS29Uj
-	qnVtH5suosiH5QSfFjs9xo9IVhmiRo2q2S9tQwwWlvc99hRr5hDIRf2yXkBnkSm/oZAC/Lztw2r/T
-	CRgA4fMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Ma7XxmUzkfa2Jk15P47t5PgvIpukZD4s2/DyIVuA0k8=; b=0J4jlzACxfv1iZJwrHqCpvOczA
+	TdgM3Cqp9SIxvRwL3vDh6wWXhB5NxQQijqzTjis+X1TR1+tKHeXdp5OIxmAREStbq9ZzYCjt5YgQ9
+	RFgM30nVzDEZblsGD/cqSeBtqQMRlfEowKO3RzpczaWGapqotwuUMmTZtUu6MIMMrVg7gfrDsQ0yL
+	hOrUd6tRSKKqXbKWYUedIphD1mJu/G+2In2NT6w5DDU593BrlHZCUbK4JrVNR9gcpoxgksRCGZWFy
+	tX1UbHLA0zEZbGNf9L0b6XKPnkqVgm+AJQjk49J+onQAWfjYUqIiaVG8s8/g0gRUdRIm2mWD4YyxH
+	LLI1KNZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v64tW-00000001nNu-3kQW;
-	Tue, 07 Oct 2025 10:26:10 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v64ub-00000001nZk-34zJ;
+	Tue, 07 Oct 2025 10:27:17 +0000
+Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v64tT-00000001nNZ-3ibW
+	id 1v64uY-00000001nY6-2WDR
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 10:26:09 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id ED68045253;
-	Tue,  7 Oct 2025 10:26:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 65FD1C4CEF1;
-	Tue,  7 Oct 2025 10:26:03 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759832765;
-	bh=Bvl2ChImxgS0j7pE2mZq01mesct/mBT06Z3hhwBQYhk=;
-	h=From:To:Cc:Subject:Date:From;
-	b=AzalYBIZ46U8TQOJ/BdtoBHCDYL0IlollYqNRTKto6tmDpwW36bl6n1oDkcJHdek+
-	 ObIRDuby4KQyLzE4fouU04ViQ44OLlt4l7/Q+w3PPreAunRoNM22zBGKRuTqXF2KZo
-	 ub9XTeK9fgy/vf4CqY9BxZ/eVfwauVGXyr6B/dKpmp8pmRjCNJftAlKCdZOMDgIBYf
-	 bk3s8HRKc/Jx1t3TcHRBV6IB+RklX6bu13NiH81fK91u3bw1Exk11YBM5E8R54c4Q7
-	 bPGkkW6ukRfMmtjPMbqWnwPEtzCq0USOij0Tw10BHkgMBP17M55uceroIXPrx1cVtd
-	 QDaF7JTesmcSA==
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH v2] arm64/sysreg: Fix GIC CDEOI instruction encoding
-Date: Tue,  7 Oct 2025 12:26:00 +0200
-Message-ID: <20251007102600.879337-1-lpieralisi@kernel.org>
-X-Mailer: git-send-email 2.48.0
+	Tue, 07 Oct 2025 10:27:17 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	sang-engineering.com; h=date:from:to:cc:subject:message-id
+	:references:mime-version:content-type:in-reply-to; s=k1; bh=Ma7X
+	xmUzkfa2Jk15P47t5PgvIpukZD4s2/DyIVuA0k8=; b=JnRMLyg7ryRV4b8MAvMh
+	SRCrNvF80NdZaABB50HAeXwZ4kqrfgQVqK/NFekXlem2D/e64D5gk1W2MBFHuHER
+	eTRd7NggpUjmdY5q5I59Cekmpuu4g7rBM4rBBUEOsvm8uOP2c6+oMV+zH6SS426X
+	LNHYuRV7DI6czLcN5Lp55Hhf5mltmpmIKaEQ5IGz09ln9Nk8mGAAil9+BGhP21C6
+	yLpdCpzO1aLwqLx3Fq4u83nj+STSrQwjJOC5h0q4HKn6bFA+3GKlPa95sTVGY+v9
+	4HhEzFYbWQFE7+xVdhGS8c4Ar0R18FmquQAV0Z20q/M6/OWc+q66yM3oQEcJp7ST
+	oA==
+Received: (qmail 223477 invoked from network); 7 Oct 2025 12:27:07 +0200
+Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 7 Oct 2025 12:27:07 +0200
+X-UD-Smtp-Session: l3s3148p1@vgCEAo9AIK8ujntU
+Date: Tue, 7 Oct 2025 12:27:05 +0200
+From: Wolfram Sang <wsa+renesas@sang-engineering.com>
+To: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Magnus Damm <magnus.damm@gmail.com>, linux-renesas-soc@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH] arm64: dts: renesas: v3msk: Enable watchdog timer
+Message-ID: <aOTq-bD_9ofjo3_t@shikoro>
+References: <e30fb396d73307f2538a638cdda06ca58a1a4e60.1759830182.git.geert+renesas@glider.be>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <e30fb396d73307f2538a638cdda06ca58a1a4e60.1759830182.git.geert+renesas@glider.be>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_032607_969401_B878641B 
-X-CRM114-Status: GOOD (  14.55  )
+X-CRM114-CacheID: sfid-20251007_032715_490704_5A51784B 
+X-CRM114-Status: UNSURE (   7.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,75 +70,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The GIC CDEOI system instruction requires the Rt field to be set to 0b11111
-otherwise the instruction behaviour becomes CONSTRAINED UNPREDICTABLE.
+On Tue, Oct 07, 2025 at 11:45:16AM +0200, Geert Uytterhoeven wrote:
+> Enable the watchdog timer on the R-Car V3M Starter Kit board.
+> 
+> Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
 
-Currenly, its usage is encoded as a system register write, with a constant
-0 value:
-
-write_sysreg_s(0, GICV5_OP_GIC_CDEOI)
-
-While compiling with GCC, the 0 constant value, through these asm
-constraints and modifiers ('x' modifier and 'Z' constraint combo):
-
-asm volatile(__msr_s(r, "%x0") : : "rZ" (__val));
-
-forces the compiler to issue the XZR register for the MSR operation (ie
-that corresponds to Rt == 0b11111) issuing the right instruction encoding.
-
-Unfortunately LLVM does not yet understand that modifier/constraint
-combo so it ends up issuing a different register from XZR for the MSR
-source, which in turns means that it encodes the GIC CDEOI instruction
-wrongly and the instruction behaviour becomes CONSTRAINED UNPREDICTABLE
-that we must prevent.
-
-Add a conditional to write_sysreg_s() macro that detects whether it
-is passed a constant 0 value and issues an MSR write with XZR as source
-register - explicitly doing what the asm modifier/constraint is meant to
-achieve through constraints/modifiers, fixing the LLVM compilation issue.
-
-Fixes: 7ec80fb3f025 ("irqchip/gic-v5: Add GICv5 PPI support")
-Suggested-by: Catalin Marinas <catalin.marinas@arm.com>
-Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Acked-by: Marc Zyngier <maz@kernel.org>
-Cc: stable@vger.kernel.org
-Cc: Sascha Bischoff <sascha.bischoff@arm.com>
-Cc: Will Deacon <will@kernel.org>
-Cc: Catalin Marinas <catalin.marinas@arm.com>
-Cc: Mark Rutland <mark.rutland@arm.com>
-Cc: Marc Zyngier <maz@kernel.org>
----
-v1: https://lore.kernel.org/lkml/20251006100758.624934-1-lpieralisi@kernel.org/
-
- arch/arm64/include/asm/sysreg.h | 11 ++++++++++-
- 1 file changed, 10 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-index 6455db1b54fd..c231d2a3e515 100644
---- a/arch/arm64/include/asm/sysreg.h
-+++ b/arch/arm64/include/asm/sysreg.h
-@@ -1220,10 +1220,19 @@
- 	__val;								\
- })
- 
-+/*
-+ * The "Z" constraint combined with the "%x0" template should be enough
-+ * to force XZR generation if (v) is a constant 0 value but LLVM does not
-+ * yet understand that modifier/constraint combo so a conditional is required
-+ * to nudge the compiler into using XZR as a source for a 0 constant value.
-+ */
- #define write_sysreg_s(v, r) do {					\
- 	u64 __val = (u64)(v);						\
- 	u32 __maybe_unused __check_r = (u32)(r);			\
--	asm volatile(__msr_s(r, "%x0") : : "rZ" (__val));		\
-+	if (__builtin_constant_p(__val) && __val == 0)			\
-+		asm volatile(__msr_s(r, "xzr"));			\
-+	else								\
-+		asm volatile(__msr_s(r, "%x0") : : "r" (__val));	\
- } while (0)
- 
- /*
--- 
-2.48.0
+Reviewed-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
 
 
