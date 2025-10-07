@@ -4,61 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 64489CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 17:03:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99EF2CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 17:30:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oQpP+/DkkvpxRyAQnMh9FvDGMelKLnnkPfd9ErgObE0=; b=pNW9xGr+ViCWDQBUj9gMTmQptb
-	mJibhaRcEoAy4YkD28NkcsJ9hWkb3siBr4TcIcCJ8AzI0wr/flyLmOHEyGl7FAjYnx9/87gYh4YJG
-	TovPmwCnjRVASdp/Vlm0N4qqpFFHcfaRPvdYM6lrvubmX99uVvX2bg3wao5z6blTLvdkfedaMGfZA
-	WpDwT/ei0zz2fkmbqAfxL57BUsYUob5dLQ5LGxkPlcudqQffigdyu0nuxHsZ/BaD5oP8HU1wIq8HC
-	VHLf0oV2QwAk4cugrBGZ9Y7QYYF6MShxEfBGKoBCNWWcX1kRqlmM3/OnkDaK4UI6pbW3XgJLJdtMX
-	abmmiFdg==;
+	bh=sMAj+aiM1byyV8qUW2iRSeox1tE1lo5J3rRUTQoSTSc=; b=nh6h/Tw2PlVihTpXyWXbAS3gvF
+	DGEk0wV+EYj4JcNP/IoT9t96jedjeq3opPfYDy62R9UrRfiXtmyK32pMTIDcsGdtoHxs6nMTmWn9D
+	5yF19/AdGZsmUYII7K48VO8LorRUkjqISZqmOQJ443qB3yvV9LLyahLVWq5Tvs4pVnWL8puSOnQuj
+	gvXXP4ZH5+GIdL8ltdxRwYkuRer+QSeDLKy3NAORNHuQL3hW6sJbIB2421MMDKoW6iR+HY3WLW8Ce
+	PXNw35AMr903SZ/i+OxnVGALuy0waxATYBp8fSturJxgNPjBWDptOtft2c5o0MgPFqjvvKCTJyXsG
+	rzc/Uv9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6B5x-00000002SN1-1XG1;
-	Tue, 07 Oct 2025 17:03:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v6BVv-00000002U4R-1uF1;
+	Tue, 07 Oct 2025 17:30:15 +0000
+Received: from mail-qt1-x829.google.com ([2607:f8b0:4864:20::829])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6B5v-00000002SMn-18oS;
-	Tue, 07 Oct 2025 17:03:23 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 955F461D22;
-	Tue,  7 Oct 2025 17:03:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2C9B5C4CEF7;
-	Tue,  7 Oct 2025 17:03:19 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759856602;
-	bh=/pSQNfp/NoybqW59QlXQrWZnpCKQXoNs3vgFg+pkIaU=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=kJ0EwbfZh6hA4LkGyNhay0l2/t3gpMYISrJvJOXSwiCYtGyauST1J4a8Fh2rmVqQp
-	 wTbaUcG0VjlIphJVstEii87typHLD4ne3Jj/sMTxos/potZRu2dr6bm+jhFxNQhamm
-	 1cANhRm63DawqftB+Hz2DjK6gmvslPkzm3xawjzUxcw37tEIMFEUuG1hLW5NH+Qt8+
-	 RY8ZQUNMDpgEMJnkPi0WZcmoL50ra6rbB46E3ChCiTckzfBgYV90AzfUra1Jj3CeR8
-	 I1WAfwHvnDFvNLdqt8rGRJUEoCoQyUrZMR3UTZWH68SaDS8IosFAFJSCgemR4U/U8D
-	 DgKIlQk8gBM8w==
-From: Mark Brown <broonie@kernel.org>
-To: Jerome Brunet <jbrunet@baylibre.com>, 
- Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, 
- Takashi Iwai <tiwai@suse.com>, Neil Armstrong <neil.armstrong@linaro.org>, 
- Kevin Hilman <khilman@baylibre.com>, 
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>, 
- Valerio Setti <vsetti@baylibre.com>
-Cc: linux-sound@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-amlogic@lists.infradead.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20251007-fix-i2s-polarity-v1-1-86704d9cda10@baylibre.com>
-References: <20251007-fix-i2s-polarity-v1-1-86704d9cda10@baylibre.com>
-Subject: Re: [PATCH] ASoC: meson: aiu-encoder-i2s: fix bit clock polarity
-Message-Id: <175985659977.122025.13786700969734596641.b4-ty@kernel.org>
-Date: Tue, 07 Oct 2025 18:03:19 +0100
+	id 1v6BVs-00000002U3f-2FjW
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 07 Oct 2025 17:30:14 +0000
+Received: by mail-qt1-x829.google.com with SMTP id d75a77b69052e-4da3019b6b6so59634111cf.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 10:30:12 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1759858211; x=1760463011; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=sMAj+aiM1byyV8qUW2iRSeox1tE1lo5J3rRUTQoSTSc=;
+        b=YovAWcwo2Vbe4B+Wq7RpxuSX8vGoX0yW8UwRyUiGviaJyh74EBWqr1ci1OC2Nsg1b2
+         +fenFX/xB9NDdELBgFdDpUS6a8qzBC37XNDul/XhhW2yQ79xKDmA3qxLuxdAuN3WNer1
+         yxmsw1qv4mEYO5jBoefj5zgd23Q9K70Q9MhFvnts6JQwJO8jZ12zu89DcDT/3XWJuMYt
+         xl91dcGjgkgtZm4dYg8lzRtdwHOGmGk3LQD8aPpz/Zjw2FDAdfBISHSfPkQhev4iAHtu
+         9Bi6l1eI0Tt+ObtKwAo/7zU+8XVXxGi5fpFDpECkDPgrXjYwyB3K3wPC78n9UrUp3iU+
+         Z0IA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759858211; x=1760463011;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=sMAj+aiM1byyV8qUW2iRSeox1tE1lo5J3rRUTQoSTSc=;
+        b=Jj/vCtlwQ0822OTmoDEalVRRwPl130vEDTTvxaqqYqDIjEFFW7PsK29dD5Vws8sc04
+         sjJKL0j3yLb46gb4GseKLsn6+/7GH+jMG+PkKmtGM3JlD9uyzYk3pFtEkbseJJMeS5Ce
+         Pby/B2Qj/3BmQWMGrnnRAjdHgj4pNBIbYDs37bYu+6uLiYMrv6nSnRSWd/RivRXTaPDD
+         vLb3HQtUO76sL37lIaI81bIrCZfI4vYUD/L0bwcV0wrJIw0ZAsxSf2gjzYfZTZdyCuKE
+         W0lri8F9urMRpRmo8wdigKpRqQftk4SCl0DmrlL1H113NvQVp2wSBcAzmoDELsJcnq+r
+         EQ9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCV5F9VgY+Gtemnlc66TOeGmADYoqa0W6EQNfesA2hiGhliNgscoJUu0QpalMCo6vEaOOO+2uHTKbkRUbigLeGPf@lists.infradead.org
+X-Gm-Message-State: AOJu0YwtegAyH9+xcQ+I/OJ4ypEeH8MUgeR21agQrfCxT8K0I6yIJHLM
+	PTfWTwkED4DIIXGLANfdjPJB8Y95IX7TejlCSpe6DUF0xVSbFyqzS9bj2ZEdRTNUl00vP9U1hmW
+	PildG6IqDEwQDDuMKcvCI7vrCqKRusVY=
+X-Gm-Gg: ASbGncutJzogL+qY369vNt9dpaAy7o0GO/ZmgrXZ9+XhIJNKnhVhd7xcKdIq21g74P2
+	EXduDqD1ERgehv3mPMZTSET9MwnnN+3/fyKPgVAaae4Ctjkl+/gxPaI8i6n8W7VWZnHHOMYMHGA
+	Oj05IB9qOZyxoAcJ4KGKMkAgrchzSjzk6+nwRO27y590Brpc6zYwcZOr7nq0UX7v39AMzfdsUwb
+	5HLxUC0enR1g4fduMpjScXEMOvp48gk
+X-Google-Smtp-Source: AGHT+IGJRfUjE/oeQKG0hRpMB1UxYS7CMPbyUsEgb4VJAH4jITPPVIHBmZKNXDNSbvw+FOss5T4/jom7TqKt2zeh/lw=
+X-Received: by 2002:a05:622a:28b:b0:4df:504:ef88 with SMTP id
+ d75a77b69052e-4e6eacd88a2mr6233551cf.23.1759858210804; Tue, 07 Oct 2025
+ 10:30:10 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.15-dev-56183
+References: <20250929065714.27741-1-jjm2473@gmail.com> <20250929065714.27741-4-jjm2473@gmail.com>
+ <d8ad476c-d0c7-4e97-9e76-540a539ffb52@lunn.ch> <CAP_9mL4ofig-X-w9wx1A5D_eVXROo6AVFBSwp4mh=kj7webpPA@mail.gmail.com>
+ <7e219aef-88a0-4184-9553-30dcbc8dbd79@lunn.ch>
+In-Reply-To: <7e219aef-88a0-4184-9553-30dcbc8dbd79@lunn.ch>
+From: jjm2473 <jjm2473@gmail.com>
+Date: Wed, 8 Oct 2025 01:29:57 +0800
+X-Gm-Features: AS18NWBZUMXa0jkDLOJvcTfIew6vRsl83_rLRSuXeQfl3Nd8OcKbfEdsvkWXLgw
+Message-ID: <CAP_9mL6utQjN_2EZ4vs3K8jzcxHxvKWNTNEXZ9fAx4HuA=DNXA@mail.gmail.com>
+Subject: Re: [PATCH v3 3/3] arm64: dts: rockchip: add LinkEase EasePi R1
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, 
+	quentin.schulz@cherry.de, kever.yang@rock-chips.com, naoki@radxa.com, 
+	honyuenkwun@gmail.com, inindev@gmail.com, ivan8215145640@gmail.com, 
+	neil.armstrong@linaro.org, mani@kernel.org, dsimic@manjaro.org, 
+	pbrobinson@gmail.com, alchark@gmail.com, didi.debian@cknow.org, 
+	jbx6244@gmail.com, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251007_103012_600951_FCD4CC93 
+X-CRM114-Status: GOOD (  34.03  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,42 +103,190 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 07 Oct 2025 00:12:19 +0200, Valerio Setti wrote:
-> According to I2S specs audio data is sampled on the rising edge of the
-> clock and it can change on the falling one. When operating in normal mode
-> this SoC behaves the opposite so a clock polarity inversion is required
-> in this case.
-> 
-> This was tested on an OdroidC2 (Amlogic S905 SoC) board.
-> 
-> [...]
+Andrew Lunn <andrew@lunn.ch> =E4=BA=8E2025=E5=B9=B410=E6=9C=887=E6=97=A5=E5=
+=91=A8=E4=BA=8C 22:57=E5=86=99=E9=81=93=EF=BC=9A
+>
+> On Tue, Oct 07, 2025 at 10:32:26PM +0800, jjm2473 wrote:
+> > Andrew Lunn <andrew@lunn.ch> =E4=BA=8E2025=E5=B9=B410=E6=9C=886=E6=97=
+=A5=E5=91=A8=E4=B8=80 23:51=E5=86=99=E9=81=93=EF=BC=9A
+> > >
+> > > > +&gmac0 {
+> > > > +     phy-mode =3D "rgmii";
+> > >
+> > > Did i really miss this patch series in its earlier version, or did yo=
+u
+> > > ignore me?
+> > >
+> > > https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetre=
+e/bindings/net/ethernet-controller.yaml#L287
+> > >
+> > > > +     tx_delay =3D <0x3c>;
+> > > > +     rx_delay =3D <0x2f>;
+> > >
+> > > Please change it to rgmii-id, and smaller tx/rx_delay values. Or show
+> > > us the schematics which clearly show extra long clock lines.
+> > >
+> > > > +/* Micro SD card slot is not mounted */
+> > > > +&sdmmc0 {
+> > > > +     max-frequency =3D <150000000>;
+> > > > +     no-sdio;
+> > > > +     no-mmc;
+> > > > +     bus-width =3D <4>;
+> > > > +     cap-mmc-highspeed;
+> > > > +     cap-sd-highspeed;
+> > > > +     disable-wp;
+> > > > +     pinctrl-names =3D "default";
+> > > > +     pinctrl-0 =3D <&sdmmc0_bus4 &sdmmc0_clk &sdmmc0_cmd &sdmmc0_d=
+et>;
+> > > > +     vmmc-supply =3D <&vcc3v3_sd>;
+> > > > +     vqmmc-supply =3D <&vccio_sd>;
+> > > > +     status =3D "disabled";
+> > > > +};
+> > > > +
+> > > > +/* Wifi module is not mounted */
+> > > > +&sdmmc2 {
+> > >
+> > > What do you mean by "not mounted"?
+> > >
+> > > Often you would say "not populated", to indicate the PCB has all the
+> > > tracks in place, but the chip has simply not been soldered in place.
+> > >
+> > > Or is there a connector here, and nothing plugged into the connector?
+> > >
+> > >    Andrew
+> >
+> > Andrew:
+> >  Hello! I ran `./scripts/get_maintainer.pl
+> > patches-v4/v4-0003-arm64-dts-rockchip-add-LinkEase-EasePi-R1.patch`
+> > to get maintainer list, and got:
+> > ```
+> > Rob Herring <robh@kernel.org> (maintainer:OPEN FIRMWARE AND FLATTENED
+> > DEVICE TREE BINDINGS)
+> > Krzysztof Kozlowski <krzk+dt@kernel.org> (maintainer:OPEN FIRMWARE AND
+> > FLATTENED DEVICE TREE BINDINGS,commit_signer:3/41=3D7%)
+> > Conor Dooley <conor+dt@kernel.org> (maintainer:OPEN FIRMWARE AND
+> > FLATTENED DEVICE TREE BINDINGS)
+> > Heiko Stuebner <heiko@sntech.de> (maintainer:ARM/Rockchip SoC
+> > support,commit_signer:43/41=3D100%,authored:4/41=3D10%,added_lines:12/1=
+17=3D10%,commit_signer:5/6=3D83%)
+> > Quentin Schulz <quentin.schulz@cherry.de>
+> > (commit_signer:10/41=3D24%,authored:8/41=3D20%,added_lines:63/117=3D54%=
+)
+> > Dragan Simic <dsimic@manjaro.org> (commit_signer:5/41=3D12%,commit_sign=
+er:1/6=3D17%)
+> > FUKAUMI Naoki <naoki@radxa.com>
+> > (commit_signer:3/41=3D7%,authored:3/41=3D7%,removed_lines:1/1=3D100%)
+> > Peter Robinson <pbrobinson@gmail.com>
+> > (added_lines:9/117=3D8%,commit_signer:1/6=3D17%,authored:1/6=3D17%)
+> > Alexey Charkov <alchark@gmail.com> (added_lines:6/117=3D5%)
+> > Diederik de Haas <didi.debian@cknow.org>
+> > (commit_signer:4/6=3D67%,authored:3/6=3D50%)
+> > Liangbin Lian <jjm2473@gmail.com> (commit_signer:1/6=3D17%,authored:1/6=
+=3D17%)
+> > Johan Jonker <jbx6244@gmail.com> (authored:1/6=3D17%)
+> > devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED
+> > DEVICE TREE BINDINGS)
+> > linux-arm-kernel@lists.infradead.org (moderated list:ARM/Rockchip SoC s=
+upport)
+> > linux-rockchip@lists.infradead.org (open list:ARM/Rockchip SoC support)
+> > linux-kernel@vger.kernel.org (open list)
+> > ```
+> > your email address is not listed above.
+>
+> What i eventually found is that you posted v3 separately, and then
+> threaded v4 to v2, which makes no sense.
+>
+> Please always start a new thread for each patchset.
+>
+> > > What do you mean by "not mounted"?
+> > >
+> > > Often you would say "not populated", to indicate the PCB has all the
+> > > tracks in place, but the chip has simply not been soldered in place.
+> > >
+> > > Or is there a connector here, and nothing plugged into the connector?
+> >
+> > The chip/slot has not been soldered. So here should be "not
+> > populated", forgive my poor English.
+>
+> Thanks for the clarification. I'm not sure it is worth adding these DT
+> properties. When a new board is produced which does populate these
+> devices, you are going to need a new .dts file. So you can put the
+> properties into that new file.
+>
+> >
+> > > Please change it to rgmii-id, and smaller tx/rx_delay values. Or show
+> > > us the schematics which clearly show extra long clock lines.
+> >
+> > In fact, the RTL8211F's RXDLY and TXDLY signals are both pulled low,
+> > just like the Banana Pi BPI-R2 Pro, so the configuration is also refere=
+nced:
+> > https://elixir.bootlin.com/linux/v6.15/source/arch/arm64/boot/dts/rockc=
+hip/rk3568-bpi-r2-pro.dts#L237
+>
+> Pull low makes no difference to the 2ns RGMII delays.
+>
+> > The tx_delay and rx_delay values were obtained using Rockchip's
+> > automatic scanning tool:
+> > https://github.com/istoreos/istoreos/blob/54746dfdb5bd34d1f281cf41d1d16=
+20d0c3ee686/target/linux/rockchip/files/drivers/net/ethernet/stmicro/stmmac=
+/dwmac-rk-tool.c
+> > https://gitlab.com/firefly-linux/docs/-/blob/rk356x/firefly/Common/GMAC=
+/Rockchip_Developer_Guide_Linux_GMAC_RGMII_Delayline_EN.pdf
+> > https://github.com/axlrose/rkdocs/blob/main/Common/GMAC/Rockchip_Develo=
+per_Guide_Linux_GMAC_RGMII_Delayline_EN.pdf
+>
+> Vendors get things wrong, including this. 'rgmii' means the PCB adds
+> the 2ns delay. Nearly every Rockchip board follows Rockchip broken
+> vendor recommendations, and then i come along, point out how it is
+> wrong, and ask for it to be fixed, before being merged to Mainline.
+>
+>         Andrew
 
-Applied to
+Andrew:
+ Hello!
 
-   https://git.kernel.org/pub/scm/linux/kernel/git/broonie/sound.git for-next
+>
+> What i eventually found is that you posted v3 separately, and then
+> threaded v4 to v2, which makes no sense.
+>
 
-Thanks!
+This is v2 link
+https://lore.kernel.org/all/20250925092037.13582-1-jjm2473@gmail.com/
+.
+I don't see 'v4' in there. I have no idea why you see 'v4', can you
+please share a link?
 
-[1/1] ASoC: meson: aiu-encoder-i2s: fix bit clock polarity
-      commit: 4c4ed5e073a923fb3323022e1131cb51ad8df7a0
+This is v3 link
+https://lore.kernel.org/all/20250929065714.27741-1-jjm2473@gmail.com/
+.
+I don't see threading issue.
+I use `git send-email --to '***' --cc '***' patches-v3` to send email,
+should be OK.
+(`patches-v3` is a folder contains patches generaterated by `git
+format-patch --base=3Dmaster --cover-letter -v3 HEAD -3 -o patches-v3`).
 
-All being well this means that it will be integrated into the linux-next
-tree (usually sometime in the next 24 hours) and sent to Linus during
-the next merge window (or sooner if it is a bug fix), however if
-problems are discovered then the patch may be dropped or reverted.
+> When a new board is produced which does populate these
+> devices, you are going to need a new .dts file. So you can put the
+> properties into that new file.
 
-You may get further e-mails resulting from automated or manual testing
-and review of the tree, please engage with people reporting problems and
-send followup patches addressing any issues that are reported if needed.
+These two nodes just describe the gpio and regulator found in the schematic=
+.
+If some users solder these connectors or modules themselves,
+they only need to change the status to ok and they can use them.
+If this will cause confusion, I can delete these two nodes.
 
-If any updates are required or you are submitting further changes they
-should be sent as incremental updates against current git, existing
-patches will not be replaced.
+> Vendors get things wrong, including this. 'rgmii' means the PCB adds
+> the 2ns delay. Nearly every Rockchip board follows Rockchip broken
+> vendor recommendations, and then i come along, point out how it is
+> wrong, and ask for it to be fixed, before being merged to Mainline.
 
-Please add any relevant lists and maintainers to the CCs when replying
-to this mail.
+I will try `rgmii-id` and rescan {tx|rx}_delay, just like
+https://lore.kernel.org/all/20250925092923.2184187-3-heiko@sntech.de/
 
-Thanks,
-Mark
+I also notice that you suggest use {tx|rx}-internal-delay-ps instead
+of  {tx|rx}_delay in
+https://lore.kernel.org/all/e4d3127b-c879-4931-9ea0-de7449bc508c@lunn.ch/ ,
+but I think this depends on stmmac driver.
 
+  Liangbin Lian
 
