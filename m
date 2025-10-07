@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5D81CCA471
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 00:45:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71146CCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 00:46:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i5GSAr7yqc/fZv+asxd9f5lFFE+RnKx/xx/34J66K1M=; b=l76OY+y0zCAdV6z3S+TWhXcOjg
-	p5JrirNodYVGuxMycczueH9yR8qxyFR1I8v3ciZjL0Iww87MiQUYN67AysjzSTsOdevi1T0VqopRL
-	nv+1wXwectT0zbfmrmb+gjzJ/J9Ltn6x3Izw1bnMRKT5envX/EhTTIyqzWcOcXYjRnS0J9tq/FaVM
-	xNNTWkZdQW5evA3tjHuMDXcckI3keNTf9w953Yis5iGfDQbvGohz4kFwFE6iRhxQkLJ6I3V0i8mAW
-	ZE7uuNDkOQ9ID19ABC4OArWGoha6mKrjJt7seJiQx/jb+MOce8TLNgDueLtPz7K7Ure00N6Zo2MiM
-	QyBsyeZQ==;
+	bh=bW7emfVG5k/0hstH35U4g1F1e3FvG9nNRymLm/vG1/0=; b=oOacNpaoVAuO1rZXiRqH5pdj8j
+	StEdQOHrKk4KiemPZhVOcgWKwCC5D1rtgqnF733eXEiA852csBG5AcL95+JEaDpyGjLz76eQ+9a1J
+	o7kqIU/E41hU+HyOszk83jbLlKNaG91KW0fLRj+Jpo2F1aV32GcGWYCydu6RtTpwlDRqzsRruWxg3
+	royD7CAFU/BJvzsBzpf81PFyla725ODJQQxhgM/fNIKCmIWN9SQvSuelE9gOoW2s6p3+7Q8FhPA83
+	kt1/hp7zyjQXbcRkI65qajjGj8rdS4k0PRSfIne7rzHqRMAC6iRC+lD1rjuIEmjGVzW0M345Em9yO
+	0dY43meQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5vpg-000000014Ju-3wEx;
-	Tue, 07 Oct 2025 00:45:36 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v5vqP-000000014Qb-27jA;
+	Tue, 07 Oct 2025 00:46:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5vpf-000000014Jf-4BDN;
-	Tue, 07 Oct 2025 00:45:36 +0000
+	id 1v5vqN-000000014QP-3koD;
+	Tue, 07 Oct 2025 00:46:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 43BD1611A8;
-	Tue,  7 Oct 2025 00:45:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id ACBFCC4CEF5;
-	Tue,  7 Oct 2025 00:45:27 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 542F36118A;
+	Tue,  7 Oct 2025 00:46:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6AC4AC4CEF5;
+	Tue,  7 Oct 2025 00:46:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759797934;
-	bh=BevdJPBqnAV3hUEHEfQmo5jl85Rkrmx0vDxYo8WTNyM=;
+	s=k20201202; t=1759797979;
+	bh=J/zaUc12qRswCtMLNA9HDn+bfykmwATj9X6+LIzTD6E=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=hRq1HY3MF9bQowK5v42/l3ko8vnXOla3fuM7r8sR0RUWB3ydZKGdHFK+ERQ5w1m0L
-	 PsmhkMGDUBmo2U5NEIFsvBFf9VADfzvwyrUwCzJS/Ciez4yowuBImuPEUJYAuPNXbp
-	 ALAk/Wqfo2HuAXomzcG1ZjsVfr1zKA0Ki8AYhvYmMq0Vih+t5dV1DoUU/K2EzqukyM
-	 TwSk04xtpA1aAjlqdtv8RkUGFYE+Jc8K3Z70yWt/TJ05jpwb3jcEu8M567NIvy5N6k
-	 zPU2RLw+ohDO2hF14w69jPq1CfwLGKRmgYgscoLeOImhPev514FMuFTlZ4XrRbcf3C
-	 Dez8mQgfZO/zQ==
-Message-ID: <c9ac3ada-d527-40b6-a45a-41572ae1cc9b@kernel.org>
-Date: Tue, 7 Oct 2025 09:45:24 +0900
+	b=vKJ3jqD/p4lLzzDaCCEILVXtHTXk9GXdoP3rZt8aDXRFXgb69S4RY3b33FL5IImzn
+	 S/uSw1hVO0AgvGXRX0VHgOBOurjONtPVO36NOJPiSNwtExbpkcyU3BVQS2ektaS6EI
+	 0UxyNCcSUBCa9KRdoIcHmYYsQg4pdw3+oLU1qOEeWXj/uYS8fME3nvQbKyXjiyDto3
+	 YXMgbAPP+LjY8BdDzJXbSP1aC4wmvaJciVFYx/isPH10UXpWqB2uweL6rLnz82T1Qj
+	 +4IN76JTGFQ1j9QzBEt9eBQx5j18UvCys3eX1ycYtIHn0ynWK/fIfkeC+JORKn/lLH
+	 3FlcbhHrU89eA==
+Message-ID: <5c2c298b-b0c3-4fa5-97aa-75b44084248b@kernel.org>
+Date: Tue, 7 Oct 2025 09:46:08 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 4/4] dt-bindings: phy: google: Add Google SoC USB PHY
+Subject: Re: [PATCH v1 1/4] usb: dwc3: Add Google SoC DWC3 glue driver
 To: Roy Luo <royluo@google.com>, Vinod Koul <vkoul@kernel.org>,
  Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
@@ -60,7 +60,7 @@ Cc: Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>,
  linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
 References: <20251006232125.1833979-1-royluo@google.com>
- <20251006232125.1833979-5-royluo@google.com>
+ <20251006232125.1833979-2-royluo@google.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,7 +106,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251006232125.1833979-5-royluo@google.com>
+In-Reply-To: <20251006232125.1833979-2-royluo@google.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -124,47 +124,28 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 07/10/2025 08:21, Roy Luo wrote:
-> Document the USB PHY bindings for Google Tensor SoCs.
-> 
-> Signed-off-by: Roy Luo <royluo@google.com>
-> ---
->  .../bindings/phy/google,usb-phy.yaml          | 91 +++++++++++++++++++
->  1 file changed, 91 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/phy/google,usb-phy.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/phy/google,usb-phy.yaml b/Documentation/devicetree/bindings/phy/google,usb-phy.yaml
-> new file mode 100644
-> index 000000000000..5552696edfff
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/phy/google,usb-phy.yaml
-> @@ -0,0 +1,91 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +# Copyright (C) 2025, Google LLC
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/phy/google,usb-phy.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Google USB PHY
-> +
-> +maintainers:
-> +  - Roy Luo <royluo@google.com>
-> +
-> +description:
-> +  Describes the USB PHY block on Google Tensor SoCs.
+> This patch adds support for the DWC3 USB controller found on Google
 
-Which ones? You need to be VERY specific here.
+Please read submitting patches, how this should be written.
+
+> Tensor SoCs. The controller features dual-role functionality and
+> hibernation.
+
+
 
 > +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - enum:
-> +          - google,lga-usb-phy
-> +      - const: google,usb-phy
+> +static const struct dev_pm_ops dwc3_google_dev_pm_ops = {
+> +	SET_SYSTEM_SLEEP_PM_OPS(dwc3_google_pm_suspend, dwc3_google_pm_resume)
+> +	SET_RUNTIME_PM_OPS(dwc3_google_runtime_suspend, dwc3_google_runtime_resume,
+> +			   dwc3_google_runtime_idle)
+> +	.complete = dwc3_google_complete,
+> +	.prepare = dwc3_google_prepare,
+> +};
+> +
+> +static const struct of_device_id dwc3_google_of_match[] = {
+> +	{ .compatible = "google,snps-dwc3" },
 
-Please read carefully  bindings. You cannot have generic compatible.
-Plus you are duplicating existing Samsung bindings.
+You cannot use compatible before documenting it. Read submitting patches.
 
 Best regards,
 Krzysztof
