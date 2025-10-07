@@ -4,72 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 949C1CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 06:22:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00B46CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 06:24:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A69RYfKst6AYHDVVMInvS7LhHEZ7W61Ln2DcYwYJasc=; b=Kins4/RAldkERIGsSsP2qu2tF3
-	9LVH8m0p9VGZj8Faxm32qPkdIGEuzEELaM2F5bnBkz0g1+kEKpQooq/Ry2p0MAq4XP/87sd5ry0r/
-	kIBGeVRLNVZ7y0yR6tK3P2EtgfY7SamXdEI8GQAyn/vnmp9fzm6qMvt3OhwYSuTeaXcqDeIEvisQY
-	ecINjv/ZPxOXf0niQ75l0Vefc9XJowGL5xww8dsB+Z5e95KkKiPnO6GxdPUKF6zUtSLYWOIVeIRNU
-	izLehQFCA6YUrt4w6jMflQzfB2TUsGsX6hmBRV86n3/zq+zGM9OYSSTPe0Zxm1EqCsQ6MLKtL7gnS
-	qxviXkGA==;
+	bh=YfVGr0JXU8yVSyuuomVxaBe+8+31TQf6oeIL4FBjB4g=; b=QIMbO+TGtvqzmTphHEyQVtjuOb
+	Qj6id+3vGP//+IHzCWcUGMyo/PaYLI0DuCNfvPjpq3wMwCFTtN8aK6qCr3W/dA7x7yiwLgB62dSks
+	x5k6hcrzDEJNiPuAj2PsGJsWCjl7OB3iLiULnJHdjHMrspFXn+xReZtkL7JjUS+gr3Agt/k2xmEJu
+	5kXB9rmSv8UeHd+lPV6KGyXDsnzzgj20z9QieAdL/lU/jgiZUl7w+Yp/Sv67C6QP7SFJ2vflSdF4H
+	z4Xi9+brmUl89nBmzD28wYGySyPXVNdM9U2Khnh783OXMUuszWzy7CPSFrV3nGHplYj7WSIfguQq9
+	inxfNYww==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v615J-00000001LkK-0gPB;
-	Tue, 07 Oct 2025 06:22:05 +0000
+	id 1v6179-00000001Lzb-3vNa;
+	Tue, 07 Oct 2025 06:23:59 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v615H-00000001Ljt-3Hjp;
-	Tue, 07 Oct 2025 06:22:03 +0000
+	id 1v6178-00000001LzP-3jZF;
+	Tue, 07 Oct 2025 06:23:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 2444560539;
-	Tue,  7 Oct 2025 06:22:03 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFF23C4CEF1;
-	Tue,  7 Oct 2025 06:21:56 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 2B13661216;
+	Tue,  7 Oct 2025 06:23:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73FD0C4CEF9;
+	Tue,  7 Oct 2025 06:23:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759818122;
-	bh=m9l0GR2ClUtN+ciiYusPN4tTbjjNy3iFq1z02WpEF1I=;
+	s=k20201202; t=1759818237;
+	bh=Ja59a957iBMaRAqpZPsZafADwu4TF7aqs2SwJJevMMM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=abjo5rzDXeCd294Zg+iSQe5/I9Bq95Y6MEc5VEeFGc2NwtAlUWop/7nZpdk9mLR5p
-	 Fm1zBEQ7tw+KuITElHfBr6J6wtlXJVjiygbFgvv/5i76dsMk32xbl+qpTAFRomhNbR
-	 FUX2Lkav/a7XJNNiR6JBT8Nnk/HhKii0H/mcLnCB4AMwmzmPXe0Xe6m0qkye4UL1L9
-	 xTJmamK5ON3lgECZ3QWOTTQ4e3Ptsuj4Ek+4dewQ/e+2Ev58QZbQp7mvOiWcVscWuP
-	 +fffNhZ1qHdrACOy13QITaY02r4OhXeKwTtcGMMewoHf2bXGGJQJ1p9r5riVmC2PKU
-	 332zR9eT/zfmw==
-Message-ID: <e2511655-1907-42db-bed5-8943a8c835c2@kernel.org>
-Date: Tue, 7 Oct 2025 15:21:53 +0900
+	b=fJ1brEeQD2obBuLpaLfbrBymik23ZetXBLtGIk8z3+ltZMufR0/kM7v6z8CdSfh9d
+	 zijTTHBiv8kQbfw/Og52EE3NWbPMQUpiJRCxJqX3WWwdIBk/kHjXcbH15d6HV4LH1l
+	 PJaPN8vbUiM65wzrEhM7izL9emODRhRgDvy4P8Um1Q0G2NXX4jl+JfDCSf/a7DR/n4
+	 YcdK2yiIHzgO2d+21DUMVIc5lceaOmhU/Gcz/u7AjTPdjqftUl/ALOrEbooO2Yxul/
+	 B5fNnlJTp6nlI/AHH/0LPLN0ZVO5gFunne88I5dZdflbdqLF999mLtpe07ZtC62+RA
+	 2hXKSyxiZdHgQ==
+Message-ID: <808d166a-b615-49c6-b0f5-bf5101721381@kernel.org>
+Date: Tue, 7 Oct 2025 15:23:46 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 4/6] dt-bindings: display: mediatek: disp-tdshp: Add
- support for MT8196
-To: =?UTF-8?B?SmF5IExpdSAo5YiY5Y2aKQ==?= <Jay.Liu@mediatek.com>
-Cc: "linux-mediatek@lists.infradead.org"
- <linux-mediatek@lists.infradead.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "tzimmermann@suse.de" <tzimmermann@suse.de>,
- "simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
- <mripard@kernel.org>, "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
- "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
- "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "robh@kernel.org" <robh@kernel.org>,
- "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
- "airlied@gmail.com" <airlied@gmail.com>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
- "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-References: <20250808125512.9788-1-jay.liu@mediatek.com>
- <20250808125512.9788-5-jay.liu@mediatek.com>
- <20250811-boisterous-skinny-ammonite-a4ca7b@kuoka>
- <ee7b16097fbc7c5cc6b8c3163447d48ead0d44f5.camel@mediatek.com>
+Subject: Re: [PATCH v8 1/6] dt-bindings: phy: samsung,usb3-drd-phy: add
+ ExynosAutov920 HS phy compatible
+To: Pritam Manohar Sutar <pritam.sutar@samsung.com>, vkoul@kernel.org,
+ kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ alim.akhtar@samsung.com, andre.draszik@linaro.org, peter.griffin@linaro.org,
+ kauschluss@disroot.org, ivo.ivanov.ivanov1@gmail.com,
+ igor.belwon@mentallysanemainliners.org, m.szyprowski@samsung.com,
+ s.nawrocki@samsung.com
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
+ dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
+ selvarasu.g@samsung.com
+References: <20250903073827.3015662-1-pritam.sutar@samsung.com>
+ <CGME20250903072936epcas5p4a28d0e63c7f0792b516b0cbc68bf3a8e@epcas5p4.samsung.com>
+ <20250903073827.3015662-2-pritam.sutar@samsung.com>
+ <0df74c2b-31b9-4f29-97d3-b778c8e3eaf1@kernel.org>
+ <007801dc2893$18ed4a20$4ac7de60$@samsung.com>
+ <02ef5180-ad56-45f0-a56f-87f442bf6793@kernel.org>
+ <007f01dc2b81$84ef19b0$8ecd4d10$@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -115,9 +110,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <ee7b16097fbc7c5cc6b8c3163447d48ead0d44f5.camel@mediatek.com>
+In-Reply-To: <007f01dc2b81$84ef19b0$8ecd4d10$@samsung.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -132,36 +127,23 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 21/09/2025 13:39, Jay Liu (刘博) wrote:
->>> +
->>> +maintainers:
->>> +  - Chun-Kuang Hu <chunkuang.hu@kernel.org>
->>> +  - Philipp Zabel <p.zabel@pengutronix.de>
->>> +
->>> +description: |
->>> +  MediaTek display 2D sharpness processor, namely TDSHP, provides
->>> a
->>> +  operation used to adjust sharpness in display system.
->>> +  TDSHP device node must be siblings to the central MMSYS_CONFIG
->>> node.
->>
->> Heh? Why would this have to be a sibling? This is really odd, because
->> you cannto actually rely on that.
->>
-> hi Krzysztof,
-> disp-tdshp is one of components of display pipeline. just like OVL,
-> color, etc. MMSYS_CONFIG controls the clock of display pipeline,
-
-
-Read feedback again.
-
-Unfortunately Mediatek produces way too many poor quality patches and
-review has so many obstacles like not addressing the comments. Example
-above. You need to pay more attention and invest more time, before
-pinging or replying to maintainers.
-
+On 22/09/2025 14:26, Pritam Manohar Sutar wrote:
+> This phy needs 0.75v, 0.18v and 3.3v supplies for its internal 
+> functionally. Power Supply's names are as per phy's User Data-Book.
+> These names, (dvdd, vdd18 and vdd33), are considered  for 0.75v, 1.8v 
+> and 3.3v respectively.  
+> "
 > 
->> You just added unverifiable unusual ABI with no explanation.
+>>
+>> I still cannot find constraints for the rest of properties, though.
+> 
+> Sorry I didn't get it completely. Can you please elaborate on the same? 
+
+
+Writing bindings and introductory talks elaborate on that. You add
+properties without constraints. That's not what we want. We want
+constraints.
+
 
 Best regards,
 Krzysztof
