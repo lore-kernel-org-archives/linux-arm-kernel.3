@@ -4,96 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C2B3CCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 13:21:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AC277CCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 13:25:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=264X1qDN3aQAP8Oh7tuky79CRF6X9B+bbwWZ9c7oerg=; b=CEwFZLJyeNc4EcGeb/+kKjVNZo
-	e3Ws7h3PQdbTSdxUkqFcjCQ2vG5cJxjxJmr2fw9a121+5Lej62+oFcfQCsvlAfLhJ1Fk67BWO/taY
-	XEMCptts31YCjWYDqk6MV/8LsQqbVNWr7Htz6/1bAzybh26zaqym6MpKGi4EJiQY0gwY5Gb0Lnpq2
-	V0jCzqR5X0Ol+Pu6xsOVARo+Mf3Hvx2wWCEvAKy82oK9kY0+vgjQC3id0rfD14t8eK8ginxthfYrJ
-	iQoJ0wENUZdo5biyPLjnIwb0Iz4sFaG41W0eqfaejEkyruA/LQYviclaAt34MB1l/glT7LKDuzDSf
-	8Av3FPbw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=fG/8r6Zh74ocis4PYV5dxG4SwOJqWmE0/JuYdwpI5Bw=; b=spFowASPvAEBM2k07wSizo4DLC
+	hH2d1x2tla6V+3QgcHZwjusY8C5RFaIGTw+LUWq3jjwkZ8EsvoM3FpJ8uGTdAnBSeHoF2H4C3/mQW
+	Rk33beVYw7hDWb+tCpGggCjFOGtTNkqEte8W3GIyoeiysCXPmAd7F6VapqYzmZzzOEmz4XTEmIobr
+	AWckJiB4Nk/WFT2Ef/6oaEb7GIjocOIcJe6LU/On0Fr4TO4pOnXVKG6XLypJpqL+SR9a1/HzZaJJ3
+	J0qljjVE3uz2rRfot0wnUHYIs1O5tLeKcBVPhEzIprvCqL/a6eBm31narn/CQG6Wc5WtdzAgC9fl9
+	5lgu49OQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v67dZ-000000023bc-2ene;
-	Tue, 07 Oct 2025 13:21:53 +0000
-Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
+	id 1v67gk-000000023xV-2ZCD;
+	Tue, 07 Oct 2025 13:25:10 +0000
+Received: from mail-pl1-x631.google.com ([2607:f8b0:4864:20::631])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v67dX-000000023az-1voZ
+	id 1v67gi-000000023xB-24QV
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 13:21:52 +0000
-Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-371e4858f74so70606131fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 06:21:50 -0700 (PDT)
+	Tue, 07 Oct 2025 13:25:09 +0000
+Received: by mail-pl1-x631.google.com with SMTP id d9443c01a7336-26c209802c0so61251335ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 06:25:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1759843309; x=1760448109; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=264X1qDN3aQAP8Oh7tuky79CRF6X9B+bbwWZ9c7oerg=;
-        b=zW68hh36VVlfU5NEjNcwh2OdbX92hzYfmQ2qEqgODu76SjkKF7i+nrI7L4sGQr+kD9
-         I6M6ArtqvBqDNZ7gHmbtmpw+iV4XhJ/DX6YLNVHiY/REaSBs8SFq4Jzzds6rQFVXKABl
-         lVCwFjMcyafa24XM5Ef1D8BTyR6KP7ld9FF2MiPUn6hmd9/UW3rtX8Z2F8dqSzR2lP7G
-         cTVGhrSJBILabXG3qBmf81xKryzaoBph9RlHXSIh1KnJhZSLyPiSio5OD4Ee6Ub/KxzO
-         GJ61pI9iOXQWzlM/oKGhe7uL5fcyhsEMeAQsI9PHjUYTB4DxLsqeCvJMFrjfW9GBNLUF
-         /jDA==
+        d=gmail.com; s=20230601; t=1759843507; x=1760448307; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=fG/8r6Zh74ocis4PYV5dxG4SwOJqWmE0/JuYdwpI5Bw=;
+        b=Auj7iB1yhSCKMSWrTvCGw0VnjJZ8pCwgI4cJwslVmuVbPf+L10pXFKywag6tJlfPSs
+         l/XKMoc5y7Xd74IsxVk8BMmv8Jvx4NwVEo1KT2ZvOrG9/ccLAcnkeJzNpd7dIKLyK4w1
+         HZuXqikeJy5iPTIdzjcLUBeFlx8wLyJULMdUZrbHKqwZpCDQLbTTU8qIeO+KLyZGiCBc
+         yh0CG+CrZCoMgcISqQuGGrtHBOL5YAZsv/3ZJKQMcJQDSGKT//z1py4nh++iLO1ma2As
+         XIY8fwxqnWP7fYQwofHPue/hVl76o2mix2T8YOYrC8ivPVBTT6SNUI1ydaQDCenLZVtP
+         xhtQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759843309; x=1760448109;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=264X1qDN3aQAP8Oh7tuky79CRF6X9B+bbwWZ9c7oerg=;
-        b=u6x9gc4NKTCmOYQvZmfxsiJeC3Q219ySKLdO7WT07BRfVvnnGUNhX7oTNzwTAyOUJ7
-         uoT4QOo1B1qEvtdK5ebEtuJWATPT8SKcqr38oGSpRjoD7guGQytMLQufuqnHVRF5robO
-         5vZTQW3j+/Ttw3g9zOjfM5451HFkOKVAaal9lqkqfLQmWp7nuesr+Fu5O2gP2kdqhgdL
-         BtATyONeWbn/gP+XVIFmJqhXyhsV8z2LtO7A+TOHURKQIwMR88xrLo1i6F0zHrI8nx8Q
-         XEmFvmGxlW36oD+BtQg31nS3JNTCypa7i/afvzkiiOiukB6fi4iM1/0QQ+KjYTJGZAPG
-         gflw==
-X-Forwarded-Encrypted: i=1; AJvYcCUijWVo2KeOU0TDBZw40UXQaHULJU/kifx/+pyO3YYsSpYnRKQ5+HcosDg4heTttL1wN3Dk9wk6R7ph2vi6YJDe@lists.infradead.org
-X-Gm-Message-State: AOJu0YzBNHyIGPVl1/U2tfZaksT8QhUp7XVKywkE3FMO71Pj59DvK2Q1
-	cPywdGNiDH0DWXCxwXV+MipNV1OOg8jebpxIfdWEM9uP9w6COBAj5WJtWyXIb/B9l2NUDNatKWJ
-	wQ1pF9rlFJCe9s4JjFzyTZQ+jEuSkbQ/twNjPGcIfrA==
-X-Gm-Gg: ASbGncuE0iZdkmbpC+5PV1vLJqdpJgLdOxMpXHFsq5+FL9c7rGuxvFem0mOWR5e5+nh
-	kr3m4bIvfPDjhlDFAml8I3N8Dh9xAjrH7nthlvqo4/wtRaJxM2jWKic6mRKXIz153ApzEkCk9kT
-	9JfaufLg4u3cZfvccw2NYuTWPTtCIEnyoyNmOvFhubItCC3GMDg8g0PEpewC+O9l2HngEJMEiwj
-	8Y4TO7gx2EzYYJGqi8X+i2vPQDQsizcntIhmJ0ghvkT1yFZO2vAF4DyA0qaSIA=
-X-Google-Smtp-Source: AGHT+IE2+IZs52lFcgfooqKpv3k1qTzL2NCFC1USj9Z26FyDVKNO8SnLmrjpEF3qS87kcFqgJsuw+/Q2h1TIfSrcKYE=
-X-Received: by 2002:a05:651c:1504:b0:364:c083:2fec with SMTP id
- 38308e7fff4ca-375f516a094mr10405761fa.7.1759843309309; Tue, 07 Oct 2025
- 06:21:49 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1759843507; x=1760448307;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=fG/8r6Zh74ocis4PYV5dxG4SwOJqWmE0/JuYdwpI5Bw=;
+        b=Du/8jjNE8XaWYNy7rP5XlsADF9274JWUnUT1+hIEPYuP4R5bNZrowOdIGxHxvY61WR
+         pAF1BQVp5J17EAssaZ7ZrjPN3mJZKsBGfGWiQYmqLzhdZQc2qP6Ac1zFQgQmZRajAPif
+         9GVhCoklKR0RI9WcnWirmyScGqZ1zF+H5l0dlkf7ltL/zQu4mPX0jQbPKVYqjA8DFE3v
+         4eOJQuqOtJnNhKbsf4sUSK1P730a9CULQ/ImwvaprzcWlgJ/XU5+VGPtT35049gS9plp
+         p3+qKHuuDU9GKJjTBbuA9+p4VdINpxnocR/2AG6TdATLqLiG8J6xgKclwHDtZu6TccyL
+         6qmA==
+X-Forwarded-Encrypted: i=1; AJvYcCWtWByzpK/x83efdYQNU9lFBA+SDsteC6uZhwnKHfXihmGEncKrw6m+1XfSi1mjmWLVaQAzUeIhmQk9R8HotncO@lists.infradead.org
+X-Gm-Message-State: AOJu0YwYRkV/hYoZBc0uJQRJgYX9Ow1Xwm45wgwBrcFWqd2o/8U+7xyD
+	G0S6Vj5AaJYg+Rq/tmBIAv59dr8BZfcov0tMEJtgWD/yEXqj04/KvTzz6Ly8PNqfmA==
+X-Gm-Gg: ASbGncvbc65f5umMNbypw9+HFJ0EOfzFHH/wY1NM2g9IyHtnZsWH4aI6SjV/4lLiRE1
+	8X2j7a0x8LUNYlLgY+gAB/m8wit/9EKWTEFL31QvyIKwXMQ+Cc/MvXALRi/zVcPXYYytJy1bIGr
+	Sirl+TzJlZZLROJCPBJw3d8sG6eZaYk6H8zMchMgxGi+lBPehmC3HKCQc0DYmvxe1e+/dvmww/D
+	Zw9paRosRWj49MRSnqE2pn6MSR5AWNNfVOk5PI5P5RLEFlREdJVZrv8Y8PavQGMOs9WbHmPx2UN
+	y+xc2+WaKccVi2ummK7FADCZKhtMUfcLlYAHJUZU9u2X8I6yAat4qifjDdGzU+6d41TbticCwk5
+	Cy3/TOz3aXXR0Zz0bE1OrRv5tGv1NgvgEQt+lEX00A3J+5L+hp8hYNZHb8gplMr1Xkf3ODCpxwS
+	6phpdNIGvRg+H0t9XjwcQ=
+X-Google-Smtp-Source: AGHT+IEzTWHDadnlhRp/S58ULeXoWMCkCiR+8Dg1mH5fcmjnNA/DLN1UQw7CdyUCQ1szY5TdffBgmg==
+X-Received: by 2002:a17:903:f8b:b0:26b:5346:5857 with SMTP id d9443c01a7336-28e9a5a8788mr206165375ad.24.1759843507414;
+        Tue, 07 Oct 2025 06:25:07 -0700 (PDT)
+Received: from at-Standard-PC-Q35-ICH9-2009.. ([182.65.86.235])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-28e8d1d31bdsm166409045ad.94.2025.10.07.06.25.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 07 Oct 2025 06:25:07 -0700 (PDT)
+From: Atharva Tiwari <atharvatiwarilinuxdev@gmail.com>
+To: 
+Cc: Atharva Tiwari <atharvatiwarilinuxdev@gmail.com>,
+	Sven Peter <sven@kernel.org>,
+	Janne Grunau <j@jannau.net>,
+	Neal Gompa <neal@gompa.dev>,
+	Lee Jones <lee@kernel.org>,
+	asahi@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH RESEND] mfd/macsmc: make SMC write buffers const
+Date: Tue,  7 Oct 2025 18:35:10 +0530
+Message-ID: <20251007130510.1653-1-atharvatiwarilinuxdev@gmail.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20250924-gpio-shared-v1-0-775e7efeb1a3@linaro.org>
- <0b402bba-0399-4f93-873e-890a78570ff7@kernel.org> <CAMRc=MfwEHGV-HZQURR3JNg1HatAeWO17qbRmkWUXTSBWj5jSg@mail.gmail.com>
- <80347dcf-419b-489e-9b0e-d901fbacc71a@kernel.org> <CAMRc=McaZV=tUkzDGMYxXqkuEYw_KasKcv8QGdjw709UYZuGhg@mail.gmail.com>
- <a9a4f33f-b6c5-4c25-8321-7b08a2afb8a0@sirena.org.uk>
-In-Reply-To: <a9a4f33f-b6c5-4c25-8321-7b08a2afb8a0@sirena.org.uk>
-From: Bartosz Golaszewski <brgl@bgdev.pl>
-Date: Tue, 7 Oct 2025 15:21:37 +0200
-X-Gm-Features: AS18NWAcsMukxeTYbTWMUg8zWpW3gx9qkOJvdBd4XuNGAXfy8hVOWJV-QYlmbI0
-Message-ID: <CAMRc=Mey+iRyKY7Ou=0LM1268r6_WuQDzYmLOU5MZbVoU1yugg@mail.gmail.com>
-Subject: Re: [PATCH RFC 0/9] gpio: improve support for shared GPIOs
-To: Mark Brown <broonie@kernel.org>
-Cc: Srinivas Kandagatla <srini@kernel.org>, Kees Cook <kees@kernel.org>, 
-	Mika Westerberg <westeri@kernel.org>, Dmitry Torokhov <dmitry.torokhov@gmail.com>, 
-	Andrew Morton <akpm@linux-foundation.org>, Linus Walleij <linus.walleij@linaro.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Andy Shevchenko <andy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
-	Liam Girdwood <lgirdwood@gmail.com>, Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, 
-	linux-hardening@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-gpio@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-sound@vger.kernel.org, linux-arm-msm@vger.kernel.org, 
-	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_062151_517060_8477D77A 
-X-CRM114-Status: GOOD (  14.44  )
+X-CRM114-CacheID: sfid-20251007_062508_534841_865DA402 
+X-CRM114-Status: GOOD (  11.77  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,26 +102,80 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 7, 2025 at 3:18=E2=80=AFPM Mark Brown <broonie@kernel.org> wrot=
-e:
->
-> On Tue, Oct 07, 2025 at 03:13:29PM +0200, Bartosz Golaszewski wrote:
-> > On Mon, Oct 6, 2025 at 11:55=E2=80=AFPM Srinivas Kandagatla <srini@kern=
-el.org> wrote:
->
-> > > Yes, these codec drivers are due to be moved to use reset-gpios.
->
-> ...
->
-> > anything. And what about shared pins other than reset? 'dc-gpios' for
-> > display, other 'powerdown' instances, 'enable-gpios', all kinds of
-> > uncommon names like: `dlg,cs`, `wlf,ldo2ena`, `speaker-enable`,
-> > `maxim,enable`? It's not likely we will create a separate abstraction
->
-> Many of which, crucially, don't actually reset the device.
+Mark the write buffer arguments in apple_smc_write(), apple_smc_rw(),
+and apple_smc_write_atomic() as const. These functions do not modify
+the data provided by the caller, so the parameters should be const
+qualified.
 
-That's my point. While the function of a `reset-gpios` is quite clear,
-these are not.
+Signed-off-by: Atharva Tiwari <atharvatiwarilinuxdev@gmail.com>
+---
+ drivers/mfd/macsmc.c       | 6 +++---
+ include/linux/mfd/macsmc.h | 6 +++---
+ 2 files changed, 6 insertions(+), 6 deletions(-)
 
-Bartosz
+diff --git a/drivers/mfd/macsmc.c b/drivers/mfd/macsmc.c
+index 870c8b2028a8..0f8ed400b986 100644
+--- a/drivers/mfd/macsmc.c
++++ b/drivers/mfd/macsmc.c
+@@ -173,7 +173,7 @@ int apple_smc_read(struct apple_smc *smc, smc_key key, void *buf, size_t size)
+ }
+ EXPORT_SYMBOL(apple_smc_read);
+ 
+-int apple_smc_write(struct apple_smc *smc, smc_key key, void *buf, size_t size)
++int apple_smc_write(struct apple_smc *smc, smc_key key, const void *buf, size_t size)
+ {
+ 	guard(mutex)(&smc->mutex);
+ 
+@@ -181,7 +181,7 @@ int apple_smc_write(struct apple_smc *smc, smc_key key, void *buf, size_t size)
+ }
+ EXPORT_SYMBOL(apple_smc_write);
+ 
+-int apple_smc_rw(struct apple_smc *smc, smc_key key, void *wbuf, size_t wsize,
++int apple_smc_rw(struct apple_smc *smc, smc_key key, const void *wbuf, size_t wsize,
+ 		 void *rbuf, size_t rsize)
+ {
+ 	guard(mutex)(&smc->mutex);
+@@ -239,7 +239,7 @@ int apple_smc_enter_atomic(struct apple_smc *smc)
+ }
+ EXPORT_SYMBOL(apple_smc_enter_atomic);
+ 
+-int apple_smc_write_atomic(struct apple_smc *smc, smc_key key, void *buf, size_t size)
++int apple_smc_write_atomic(struct apple_smc *smc, smc_key key, const void *buf, size_t size)
+ {
+ 	guard(spinlock_irqsave)(&smc->lock);
+ 	u8 result;
+diff --git a/include/linux/mfd/macsmc.h b/include/linux/mfd/macsmc.h
+index 6b13f01a8592..3c5467854e28 100644
+--- a/include/linux/mfd/macsmc.h
++++ b/include/linux/mfd/macsmc.h
+@@ -149,7 +149,7 @@ int apple_smc_read(struct apple_smc *smc, smc_key key, void *buf, size_t size);
+  *
+  * Return: Zero on success, negative errno on error
+  */
+-int apple_smc_write(struct apple_smc *smc, smc_key key, void *buf, size_t size);
++int apple_smc_write(struct apple_smc *smc, smc_key key, const void *buf, size_t size);
+ 
+ /**
+  * apple_smc_enter_atomic - Enter atomic mode to be able to use apple_smc_write_atomic
+@@ -176,7 +176,7 @@ int apple_smc_enter_atomic(struct apple_smc *smc);
+  *
+  * Return: Zero on success, negative errno on error
+  */
+-int apple_smc_write_atomic(struct apple_smc *smc, smc_key key, void *buf, size_t size);
++int apple_smc_write_atomic(struct apple_smc *smc, smc_key key, const void *buf, size_t size);
+ 
+ /**
+  * apple_smc_rw - Write and then read using the given SMC key
+@@ -189,7 +189,7 @@ int apple_smc_write_atomic(struct apple_smc *smc, smc_key key, void *buf, size_t
+  *
+  * Return: Zero on success, negative errno on error
+  */
+-int apple_smc_rw(struct apple_smc *smc, smc_key key, void *wbuf, size_t wsize,
++int apple_smc_rw(struct apple_smc *smc, smc_key key, const void *wbuf, size_t wsize,
+ 		 void *rbuf, size_t rsize);
+ 
+ /**
+-- 
+2.43.0
+
 
