@@ -4,93 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F005CCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 18:19:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3045CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 18:24:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ScToGLgY21W9pR03qXloVq8Erpuen1ih1N7DUB0PhsI=; b=WAs06euYq9Ar1KsPO7HUCTmSpb
-	25/UeozczXUgTvVCpNlPSVdQomiErFrMfl4PGz17DUeJmrVqj8Xc95xGgjk7YbIlPLmAkpCKABzBL
-	TC3qAnrAmgiO8R9PGA9mOArcdTKLn92w+isoRc1YF4JOw91zx31EMMo7z/psT82egL6PcY+D6qSxF
-	3nuZLndJLztabXmlwt00IEzS6xnue49tgsszc7ezkrdenZczBrzezF9bCPymybBe1xpwjOptfx7dh
-	Sk42lIGtDgneScEpTJRsMjGH/ID0t8lagqvlBMxHpa5a/KUkgnFX41CTO4Snnv5bn6QCJEa1Pt457
-	LhIlgtaA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=v7gi3ANU7eGwAeHBm/VtX/N+PelGRzkkDBFdO15qWFo=; b=ScJaSdXsouMS5E0oDiR1bq/TJi
+	ziEQ3klbIznnKpoSghULte5PjqouRrmbHi5uVyPdJaugHm0BajReJoMatBlFhqZk67rgckCOQOuZm
+	VFmWwfHjQaGjUI+hUjZjqw4kZWCyewWHtl2w7gwLEN7d2P8Ojn39L5uboauddyQkLKbmNUGp7N+C6
+	W80uYvHTtXCiLE9k/D6hsByJxDvtvRBXqeRjSVuA1QliXiZ1/dIvpu3YRCJgPYup8RwXTbIeHrkyj
+	BoDMytSdM1a/7haPKtG9LDtt6zFOsoH16do/PcZ1qCGQ7kqcPSWmSrLH5zRFm0uJW7FdJhRYLmrug
+	tixJ6bEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6CHR-00000002Zcv-30Lg;
-	Tue, 07 Oct 2025 18:19:21 +0000
-Received: from mail-qk1-x72b.google.com ([2607:f8b0:4864:20::72b])
+	id 1v6CMA-00000002a7a-2fNe;
+	Tue, 07 Oct 2025 18:24:14 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6CHP-00000002ZbU-0CUO
+	id 1v6CM7-00000002a5d-1WDD
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 18:19:20 +0000
-Received: by mail-qk1-x72b.google.com with SMTP id af79cd13be357-863fa984ef5so802748785a.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 11:19:18 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1759861158; x=1760465958; darn=lists.infradead.org;
-        h=mime-version:user-agent:references:in-reply-to:date:cc:to:from
-         :subject:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=ScToGLgY21W9pR03qXloVq8Erpuen1ih1N7DUB0PhsI=;
-        b=NyS8u49Kt/h7Kfu9Ng6CRNV7cAsVI2QAM9r/IsvWTutmsE9BFRtw4RsUzur2LAmF6l
-         v7lBnYQsgvqOCuCfFE54pn80/oY4Fn7jtUsMUmKVVHYAYyKaUQ05lJISaj6zHTgfPszG
-         SW554SDyGayco88ObQOax2jPTmJCRnMZp3Mru9Jm3+QcxBzV/4BB3cDsRBYB72BvgZPK
-         KJ3xw79REEuM63iSokkrC/Qv5MGoZKk4Zqgy5rF+Jie9Zy4IWsdpCjyCkDZhAEj/X1B5
-         wumoVWAHoYnChCQ+lPqZlMKJH5eLyNiK9480bCiQwckuY8OyguAFaVbrN2l0dy71A3WK
-         1Q2A==
+	Tue, 07 Oct 2025 18:24:13 +0000
+Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 597ETC3T031792
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 7 Oct 2025 18:24:10 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=qcppdkim1; bh=v7gi3ANU7eGwAeHBm/VtX/N+PelGRzkkDBF
+	dO15qWFo=; b=ppVZ6P77exkgaA75jAnjZYSEF5MqFITHrr/PWEI9ACIezmyMyj2
+	zzjWpb+VMMlCzE61/Ivf19Se0guYAjqfSXdHQUqHExV4ARrYGTTycIOUb/mTXOn5
+	Le9STcQ4pBVMOswJHRWT+/lsXFFFaUawGwvVtMjK9V53Ts3auymk/8uhPTJJgceJ
+	dLY1cGAxxFi3tPeY4T42WLt5Sxb8aTVwSjzmzum1QbvBDc/LDGLRoqOzKifA39gq
+	1UBpT7jTzM7qnqf85J3yhXKpslYElC0KMqWKykH75AFE8PT556xP77pyCCWXdQ3Y
+	QMEhu3mZ27ahxtEA0OACVb6GDZc9N12eAgQ==
+Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49jtk708xa-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 18:24:09 +0000 (GMT)
+Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-27c62320f16so68599475ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 11:24:09 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759861158; x=1760465958;
-        h=mime-version:user-agent:references:in-reply-to:date:cc:to:from
-         :subject:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ScToGLgY21W9pR03qXloVq8Erpuen1ih1N7DUB0PhsI=;
-        b=CkBknmLAvpLoG8I7DFacbm3ls3aXhwEiIIdrIDHyGUvXse6G6hNHvMIRqo6YU1mWQ0
-         Ryo5914ELUFmi0I4spXqYsqHO7iarWsclCDmF8tzBVNpN6qtr9cSTuy5juWFofp0u7ba
-         3x5s/nQEz2BYqqDXruSvmkXASZIcIBAt6ox1YmPLbp5erM+TNqVZJdjXlo+J7aNfVl/R
-         41WdUxKGJiT5yDktOoYxjbUjXziKRyxsVRUaPKl4/GbXtJbGSPnlkZOebkX1Batl51uc
-         oOMTTtpSYfvI3zvR47MrXZh+s61Qx+9BfOxSgrn5FjpaiQ2ESfIGfrSIu17flZgLBCQn
-         v7Yw==
-X-Forwarded-Encrypted: i=1; AJvYcCV8KsgDrM0ydclBVmkaV1PSipu5wWf6EkCBO62GBeGr82FDtxeTCwPpvQHo8k3YuEKlO95ll4IiIFzIX0tKhJqy@lists.infradead.org
-X-Gm-Message-State: AOJu0Yykhd43656BPOG3Rw59FZjU0tHJk28BUj2vMYA5LOjsJM4rmCbk
-	8Mokgr9vSJCb6Jn2EMzwd/xPBGFIjIvKyQh0p6LNkRF110Du88OY8RJzowJKSTu+XSI=
-X-Gm-Gg: ASbGncv0TThUp6ux+DmD6x2PKS8bzxO+CqoBDz+bYmtUjoyXgzQiQ0wK7yPtWi7mNbS
-	GDlXjO50W12AAAzWaS5Y1PRjEcrUq2/XXb4LMA5tEdFbwgmXdrSdF+PlebZKtKOpNiZShjXXo7k
-	4+Sxw3uVCrQYcQrxKDdJM5WaYpku7V2bTYvw2b6keKhRL56k4JdobACOMnBWLa1bksQI0RAPpvW
-	iJ+7i8I7UEZB7JRMld4z6NoqyVZNUcPZoutE2nvolKBwVgdefa8lBueOF8DBbQjPgQtG/evneMq
-	BKFPKjRS2HHr4ybA7UL7KGmG5iDT/ScvtPtB4KjwuxS4qMOoJu1Y/05w+49Sqem8Pxy6EqG89qo
-	DtElRXchALsVQLNYF1jxKld5WKkdfVr1hK/qTKMbx0WphIG2kLyBL
-X-Google-Smtp-Source: AGHT+IHAN4pZjNRmmjniVTQYekbD8pM0Q+9DHCv4rh7qOTooNtWbQmwGL4IxpavnXlznH/zxFYUPUA==
-X-Received: by 2002:a05:620a:3909:b0:813:ccb9:509f with SMTP id af79cd13be357-88351de79cbmr108285785a.5.1759861157718;
-        Tue, 07 Oct 2025 11:19:17 -0700 (PDT)
-Received: from ?IPv6:2606:6d00:17:ebd3::c41? ([2606:6d00:17:ebd3::c41])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-87771129491sm1649508085a.2.2025.10.07.11.19.16
+        d=1e100.net; s=20230601; t=1759861448; x=1760466248;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=v7gi3ANU7eGwAeHBm/VtX/N+PelGRzkkDBFdO15qWFo=;
+        b=QGw68rlrm8OXVCxKq7XRSy/Wpb3hrBkNBZNwu46IB9V+/kAlOHP+QT/kj107dEJesU
+         wD+x5PznRZppyAe6KJNs3/dWfiBJoBfMwXw22OJARyLBl9PwDqBNC6xh29iz41iudMCu
+         kXAL1eOhQD01+J/9OP1EzKcrm6Ne8cFtncc7dUVJcUmcGrLZrlv4ZrzeahFsmENoPnMU
+         VIGcWRSbZ0f0vP6hUfp5zVGmrxDidbtYhFXi0snqHuLBG1UJ8VD1AeHuw10Pd4E8hkCd
+         0/fS0vep44cWagEVwyCLDIflDAzEJrDBcOhfwp4xkYkMkjDAADgooGgdyc7Cg3ZNfzpl
+         DGAA==
+X-Forwarded-Encrypted: i=1; AJvYcCW0pJeeAs5suyXVbhR6hQPAyE2xPbNd7bd6IRI+cLsbKNoFhsxnFyIwz+NbEcLImQpmNcdiyXYF4Y97kzeOs/Hf@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw7Ue2yrcyrTPAwNfcr4P2AuVVekfLPhEPenofneVAKZBcIZC0d
+	G4Q7wq78SgzwRrrQX2obLeYjYuiufFsFKhqak3pqeRx15ddUMo1fiIboAlw9oZH7XskX4+PsvI1
+	jgCwf/p1jfQQBe0JrNLSr8KcuaXXWRHbXaqmNY2qQKXnQ9tE4q0hsTwRTbhpV6sKW+Tb/rlX1Ql
+	/cfA==
+X-Gm-Gg: ASbGnctkXLFal7nPA25M+21HSvgko6kH98rdoKH8AgrYF3/rYW0ekNmMnU4/Z/TwX0Z
+	Z+z3rFZxGuaQbeaexYZlxuWCn0Hz9snGbaf7VEJgVkUXie/bZFwCc6Zxgz0GGhMUCXDKWWv1qqq
+	VMlLOUr4sBHEbhiosbRwyrut9jIuMRn4k7/cQ6IdAOeTULKOk2PGqk7mvUh7tIF010HdpowFwuM
+	baY29F0yhkV3r/dsG09T//RGfJJjk0k7qBcJ/nDO8UIS64ZknTOvhk8AcyrTr/rpP7sW5PQGIor
+	wg4bX3TrwDsOBwphYaxQxjHVR08RDiTSEL2aM25Eidpit7YC5PlhdtevDHalS5PYtB7gkGPk
+X-Received: by 2002:a17:903:90d:b0:27e:d7a4:cd32 with SMTP id d9443c01a7336-290272ff5a5mr8819045ad.57.1759861448177;
+        Tue, 07 Oct 2025 11:24:08 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHk+kGnyBGf3KfhdZk/5b6XJ+HDJE6ygty3ucqB0kfKr1z7QKyevL86q3VUXkPE7iIuJxra0Q==
+X-Received: by 2002:a17:903:90d:b0:27e:d7a4:cd32 with SMTP id d9443c01a7336-290272ff5a5mr8818625ad.57.1759861447505;
+        Tue, 07 Oct 2025 11:24:07 -0700 (PDT)
+Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-28e8d1ba25asm172984505ad.87.2025.10.07.11.24.04
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Oct 2025 11:19:16 -0700 (PDT)
-Message-ID: <db7030790063d0ebe6d254c7053e758184b9d7cc.camel@ndufresne.ca>
-Subject: Re: [PATCH 03/16] media: rockchip: rga: align stride to 16 bytes
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Sven =?ISO-8859-1?Q?P=FCschel?= <s.pueschel@pengutronix.de>, Jacob Chen
-	 <jacob-chen@iotwrt.com>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
- Mauro Carvalho Chehab
-	 <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Rob Herring
-	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	 <conor+dt@kernel.org>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, kernel@pengutronix.de
-Date: Tue, 07 Oct 2025 14:19:15 -0400
-In-Reply-To: <20251007-spu-rga3-v1-3-36ad85570402@pengutronix.de>
-References: <20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de>
-	 <20251007-spu-rga3-v1-3-36ad85570402@pengutronix.de>
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-xTXqAg4scDgbBruSU9ja"
-User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+        Tue, 07 Oct 2025 11:24:07 -0700 (PDT)
+From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+        suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com,
+        will@kernel.org
+Cc: alexandru.elisei@arm.com, linux-arm-kernel@lists.infradead.org,
+        kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
+        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+Subject: [PATCH] KVM: arm64: Check cpu_has_spe() before initializing PMSCR_EL1 in VHE
+Date: Tue,  7 Oct 2025 23:53:56 +0530
+Message-ID: <20251007182356.2813920-1-mukesh.ojha@oss.qualcomm.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDA0MDAxNyBTYWx0ZWRfXyIyhlM0FHLpk
+ dtjgGEFDbO+q6cpIiKTDaebjU9nikTYTur17kKeAno/8AJk4Dus5ZpxttDQbTbJAHWv9p9AfUNa
+ 6meM+4GnofN4YTkVkWP6Gip4Dub4Wv6LztB4gq1liqoLm9aOzLvocYmmdvBH10LqHZ4HO/eMWaa
+ Mfoiqiy0XCGNgej9pNcEZRx7eJT67hMk3vDDlGBSpBnVqY1lPv/jY9MZUPTvWvT+POSOEAUx95w
+ I3/vX3dNc18BBugBhQmFmqUvLD2U02k2O2hLMkK7KrR8/WswwmbSi4EbK+bhzg58YUi8u4jmJ3o
+ Ie3hrCcR0/kE+FtalmnHGLFMMfpz5ugEurIBen5M5wbdEoWJziADxN8moxnIuf410SrCF+DvrTk
+ zyBgbn6UYp7LU7l+jbQH38N/0oKzjw==
+X-Authority-Analysis: v=2.4 cv=do3Wylg4 c=1 sm=1 tr=0 ts=68e55ac9 cx=c_pps
+ a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
+ a=x6icFKpwvdMA:10 a=EUspDBNiAAAA:8 a=YElTaCpYnbo2m2hzBnMA:9
+ a=GvdueXVYPmCkWapjIL-Q:22
+X-Proofpoint-GUID: pbYAclBh8WpezqFeGpxwINYqw7Zq-feJ
+X-Proofpoint-ORIG-GUID: pbYAclBh8WpezqFeGpxwINYqw7Zq-feJ
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-07_02,2025-10-06_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ suspectscore=0 adultscore=0 lowpriorityscore=0 phishscore=0 clxscore=1015
+ malwarescore=0 spamscore=0 impostorscore=0 priorityscore=1501 bulkscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2509150000 definitions=main-2510040017
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_111919_098169_C08EBA01 
-X-CRM114-Status: GOOD (  23.41  )
+X-CRM114-CacheID: sfid-20251007_112411_517267_201C4CBA 
+X-CRM114-Status: GOOD (  16.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,113 +127,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+commit efad60e46057 ("KVM: arm64: Initialize PMSCR_EL1 when in VHE")
+initializes PMSCR_EL1 to 0 which is making the boot up stuck when KVM
+runs in VHE mode and reverting the change is fixing the issue.
 
---=-xTXqAg4scDgbBruSU9ja
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+[    2.967447] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    2.974061] PCI: CLS 0 bytes, default 64
+[    2.978171] Unpacking initramfs...
+[    2.982889] kvm [1]: nv: 568 coarse grained trap handlers
+[    2.988573] kvm [1]: IPA Size Limit: 40 bits
 
-Hi,
+Lets guard the change with cpu_has_spe() check so that it only affects
+the cpu which has SPE feature supported.
 
+Fixes: efad60e46057 ("KVM: arm64: Initialize PMSCR_EL1 when in VHE")
+Signed-off-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
+---
+ arch/arm64/kvm/debug.c | 15 +++++++++++----
+ 1 file changed, 11 insertions(+), 4 deletions(-)
 
-Le mardi 07 octobre 2025 =C3=A0 10:31 +0200, Sven P=C3=BCschel a =C3=A9crit=
-=C2=A0:
-> Align the stride to a multiple of 16 according to the RGA3 requirements
-> mentioned in the datasheet. This also ensures that the stride of the RGA2
-> is aligned to 4 bytes, as it needs to divide the value by 4 (one word)
-> before storing it in the register.
->=20
-> Increasing the stride for the alignment also requires to increase the
-> sizeimage value. This is usually handled by v4l2_fill_pixfmt_mp, but
-> it doesn't allow to set a stride alignment. Therefore use the generated
-> values to calculate the total number of lines to properly update the
-> sizeimage value after the bytesperline has been aligned.
->=20
-> Signed-off-by: Sven P=C3=BCschel <s.pueschel@pengutronix.de>
-> ---
-> =C2=A0drivers/media/platform/rockchip/rga/rga.c | 21 ++++++++++++++++++++=
+diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
+index 3515a273eaa2..d9fd45f0db9a 100644
+--- a/arch/arm64/kvm/debug.c
++++ b/arch/arm64/kvm/debug.c
+@@ -15,6 +15,14 @@
+ #include <asm/kvm_arm.h>
+ #include <asm/kvm_emulate.h>
+ 
++static int cpu_has_spe(void)
++{
++	u64 dfr0 = read_sysreg(id_aa64dfr0_el1);
 +
-> =C2=A01 file changed, 21 insertions(+)
->=20
-> diff --git a/drivers/media/platform/rockchip/rga/rga.c
-> b/drivers/media/platform/rockchip/rga/rga.c
-> index
-> 6438119a6c7aeff1e89e7aa95dcd5d2921fefa08..3cb7ce470c47e39d694e8176875a75f=
-ad271
-> 7f96 100644
-> --- a/drivers/media/platform/rockchip/rga/rga.c
-> +++ b/drivers/media/platform/rockchip/rga/rga.c
-> @@ -459,6 +459,25 @@ static int vidioc_enum_fmt(struct file *file, void *=
-priv,
-> struct v4l2_fmtdesc *f
-> =C2=A0	return 0;
-> =C2=A0}
-> =C2=A0
-> +static void align_pixfmt(struct v4l2_pix_format_mplane *pix_fmt)
-> +{
-> +	int lines;
-> +	struct v4l2_plane_pix_format *fmt;
-> +
-> +	/*
-> +	 * Align stride to 16 for the RGA3 (based on the datasheet)
-> +	 * To not dismiss the v4l2_fill_pixfmt_mp helper
-> +	 * (and manually write it again), we're approximating the new
-> sizeimage
-> +	 */
-> +	for (fmt =3D pix_fmt->plane_fmt;
-> +	=C2=A0=C2=A0=C2=A0=C2=A0 fmt < pix_fmt->plane_fmt + pix_fmt->num_planes=
-;
-> +	=C2=A0=C2=A0=C2=A0=C2=A0 fmt++) {
-> +		lines =3D DIV_ROUND_UP(fmt->sizeimage, fmt->bytesperline);
-> +		fmt->bytesperline =3D (fmt->bytesperline + 0xf) & ~0xf;
-> +		fmt->sizeimage =3D fmt->bytesperline * lines;
++	return cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_PMSVer_SHIFT) &&
++	       !(read_sysreg_s(SYS_PMBIDR_EL1) & PMBIDR_EL1_P);
++}
++
+ /**
+  * kvm_arm_setup_mdcr_el2 - configure vcpu mdcr_el2 value
+  *
+@@ -80,8 +88,7 @@ void kvm_init_host_debug_data(void)
+ 	if (has_vhe())
+ 		return;
+ 
+-	if (cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_PMSVer_SHIFT) &&
+-	    !(read_sysreg_s(SYS_PMBIDR_EL1) & PMBIDR_EL1_P))
++	if (cpu_has_spe())
+ 		host_data_set_flag(HAS_SPE);
+ 
+ 	/* Check if we have BRBE implemented and available at the host */
+@@ -101,8 +108,8 @@ void kvm_init_host_debug_data(void)
+ 
+ void kvm_debug_init_vhe(void)
+ {
+-	/* Clear PMSCR_EL1.E{0,1}SPE which reset to UNKNOWN values. */
+-	if (SYS_FIELD_GET(ID_AA64DFR0_EL1, PMSVer, read_sysreg(id_aa64dfr0_el1)))
++	if (cpu_has_spe())
++		/* Clear PMSCR_EL1.E{0,1}SPE which reset to UNKNOWN values. */
+ 		write_sysreg_el1(0, SYS_PMSCR);
+ }
+ 
+-- 
+2.50.1
 
-Instead of open coding this, describe this with struct v4l2_frmsize_stepwis=
-e and
-then use v4l2_apply_frmsize_constraints().
-
-Nicolas
-
-> +	}
-> +}
-> +
-> =C2=A0static int vidioc_g_fmt(struct file *file, void *priv, struct v4l2_=
-format *f)
-> =C2=A0{
-> =C2=A0	struct v4l2_pix_format_mplane *pix_fmt =3D &f->fmt.pix_mp;
-> @@ -474,6 +493,7 @@ static int vidioc_g_fmt(struct file *file, void *priv=
-,
-> struct v4l2_format *f)
-> =C2=A0		return PTR_ERR(frm);
-> =C2=A0
-> =C2=A0	v4l2_fill_pixfmt_mp(pix_fmt, frm->fmt->fourcc, frm->width, frm-
-> >height);
-> +	align_pixfmt(pix_fmt);
-> =C2=A0
-> =C2=A0	pix_fmt->field =3D V4L2_FIELD_NONE;
-> =C2=A0	pix_fmt->colorspace =3D frm->colorspace;
-> @@ -496,6 +516,7 @@ static int vidioc_try_fmt(struct file *file, void *pr=
-iv,
-> struct v4l2_format *f)
-> =C2=A0				(u32)MIN_HEIGHT, (u32)MAX_HEIGHT);
-> =C2=A0
-> =C2=A0	v4l2_fill_pixfmt_mp(pix_fmt, fmt->fourcc, pix_fmt->width, pix_fmt-
-> >height);
-> +	align_pixfmt(pix_fmt);
-> =C2=A0	pix_fmt->field =3D V4L2_FIELD_NONE;
-> =C2=A0
-> =C2=A0	return 0;
-
---=-xTXqAg4scDgbBruSU9ja
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaOVZowAKCRDZQZRRKWBy
-9MJZAQCpWWpCOI+8uxUCGwR39EX9OFe0+a9YuMmqqvplJUrUewEA0RMUMOwAoFpB
-7n2OM0ustpDmfHr+P0+lF6Jtxzgqcwo=
-=MSnu
------END PGP SIGNATURE-----
-
---=-xTXqAg4scDgbBruSU9ja--
 
