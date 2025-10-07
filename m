@@ -4,218 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 62BD3CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 07:02:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 00578CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 07:37:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:
-	Message-ID:Date:Subject:CC:To:From:Reply-To:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=niTM7tvKflv+37O+TYoEApPpcQFxWW4qhfOejryWs5o=; b=Dk0XJC0DjrC8C+3aK0i/RbSfW6
-	N3NENiuB4PnM/DOXcIGIF3oZJDYThWd/iGXF+gxuMIVHSlevQxBzckE51DCUV5od8H2vpfapCTe6R
-	WZKzDJ8F7qIO4kv3WcYf0gw6an/vzCbqYXvp6NEN7f3t5hUtWv3i6VM5tHy2uH2bPVhdKSyYb7psJ
-	mfixgB63jBt2dRppJ/nB2ZbSXxmoNUgiluDCOQW1psgXeuapZaCvP97MXAs2ghXoexNu0v463Ac3P
-	xEAvJQ2rRynu2IK83uh7065+iAw+h7j18RzTn1w7vUVmkstPyhxTlomfpxUTBWIfKl8E7nO9XLOvU
-	+pv3Ymkw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s6rmaC1LqNa6TUzb7F4biUeh12eC1gTeiI3HwbtXJo8=; b=BWJFEqSkqWniytrv31XNsWTzsJ
+	GCW9W55cS4HXu/7whXh/vfNF1B0oKEMoxAWkjIUXjIBrU+fnYTY6MkZKSIDjCPHJ/2HeuHdAkK9mL
+	XrorzuHSEfA8j/FW02rDYTjeYOZ0zJCQobsHkmPYRETLVmlFpxPSakEbgSWNRZJsdV3cNc/5CcYi1
+	dz4OJ9t23TJnAbdZExY7GeU6G5ujN3WeGD7huebjAEMo05PNBloaWSmJcZqV0/s4P1UEiNnIRjx3v
+	mj9SqyM90jsImPxKOUbb5rU+oz/pHFXk93rEaAclZFf+Ehjf1BIR0wb8QEmEvnZAr3aA3jG07WSbe
+	AUBjW+AQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v61iT-00000001QGt-3cus;
-	Tue, 07 Oct 2025 07:02:33 +0000
-Received: from mailgw01.mediatek.com ([216.200.240.184])
+	id 1v62Fh-00000001SDH-401r;
+	Tue, 07 Oct 2025 07:36:53 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v61iQ-00000001QF4-1vVo;
-	Tue, 07 Oct 2025 07:02:31 +0000
-X-UUID: 94198ffaa34b11f09f706fa2197c6ceb-20251007
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=mediatek.com; s=dk;
-	h=MIME-Version:Content-Transfer-Encoding:Content-ID:Content-Type:In-Reply-To:References:Message-ID:Date:Subject:CC:To:From; bh=niTM7tvKflv+37O+TYoEApPpcQFxWW4qhfOejryWs5o=;
-	b=S/HQkGlk6bFCEXBS9LHmWLEEXdsR4OjGkxTwc/pmvQlY4OFDbsrl9qE6gh/uhep5SOGiVBXzZWgWIs+Csa/8BNF/n+GwU5yEdKybp/yH6RLDDOY2qML8CGEhqx11q9l3e/LKOOVJRf4ehq8l17Rihcy2ALLN2zjl+efdHgDxw14=;
-X-CID-P-RULE: Release_Ham
-X-CID-O-INFO: VERSION:1.3.6,REQID:9ff5f27b-ee5f-4d32-b2ca-26ed874c2dfa,IP:0,UR
-	L:0,TC:0,Content:0,EDM:0,RT:0,SF:0,FILE:0,BULK:0,RULE:Release_Ham,ACTION:r
-	elease,TS:0
-X-CID-META: VersionHash:a9d874c,CLOUDID:37aa0df9-ebfe-43c9-88c9-80cb93f22ca4,B
-	ulkID:nil,BulkQuantity:0,Recheck:0,SF:80|81|82|83|102|110|111|836|888|898,
-	TC:-5,Content:0|15|50,EDM:-3,IP:nil,URL:0,File:130,RT:nil,Bulk:nil,QS:nil,
-	BEC:nil,COL:0,OSI:0,OSA:0,AV:0,LES:1,SPR:NO,DKR:0,DKP:0,BRR:0,BRE:0,ARC:0
-X-CID-BVR: 2,SSN|SDN
-X-CID-BAS: 2,SSN|SDN,0,_
-X-CID-FACTOR: TF_CID_SPAM_SNR
-X-CID-RHF: D41D8CD98F00B204E9800998ECF8427E
-X-UUID: 94198ffaa34b11f09f706fa2197c6ceb-20251007
-Received: from mtkmbs09n1.mediatek.inc [(172.21.101.35)] by mailgw01.mediatek.com
-	(envelope-from <peter.wang@mediatek.com>)
-	(musrelay.mediatek.com ESMTP with TLSv1.2 ECDHE-RSA-AES256-GCM-SHA384 256/256)
-	with ESMTP id 1605140602; Tue, 07 Oct 2025 00:02:25 -0700
-Received: from mtkmbs10n2.mediatek.inc (172.21.101.183) by
- mtkmbs13n2.mediatek.inc (172.21.101.108) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.10; Tue, 7 Oct 2025 15:02:21 +0800
-Received: from SI4PR04CU001.outbound.protection.outlook.com (172.21.101.237)
- by mtkmbs10n2.mediatek.inc (172.21.101.183) with Microsoft SMTP Server id
- 15.2.1748.10 via Frontend Transport; Tue, 7 Oct 2025 15:02:22 +0800
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=pD4xpDozVGHOsEJZX4Jb7j/Twz+tnk/jSpD8QJcADUwSYl8PtWxTFoTCN4duvb1l0U1dGlCtvHqh+a5xWN8IYBHsnRJ3BArLI1rPZt/TmtgDs67dto07MXxUKbofRDPzNOhOVOD8ScInrjnOWvkxA+yRk++tej/qK+m+ddGXVq228RLX9iGCVB8pwrLSFEeqJoNK2Zz1B86ro1twk44lZ8aKwRthnvHcRY5dILQshrl7jAzHIJ6dlzycGr6aiWSZ3gpGkpzrd8dtvOEwK9W/1XwVdwct2ZsJVuqc36K6z38SCMiWxDe6Y/Qp7u3Xr0x78qwSarNcJ0LhUOFOiijlMg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=niTM7tvKflv+37O+TYoEApPpcQFxWW4qhfOejryWs5o=;
- b=giEjtjQ8ab3D5gZ/t6b8RwHnlZ8xhJmz/n8TV6wh3+ti9Ikkpt69JSwLuO+dG9w08Hm4jjspiNBhkN0NUWLQM0vhc059GENRDMrmRL47W4CwRhI/cG5v7FgLztsgIP2eLTkdeK1GZBM4qQTyAcCf4VPj4aoKQ/UT9moHodZolQI6DOqnnwiRzAm70Mb5DbFIKB9rKCae28HgTPj+HhOOaJAAj344LqBv61kCBqEHqx0DdI9eibcLvnym3SIuirlgRkO3at9egWq+AtHq+TyhWgQFffLXK0eVpL+9lkZzxb0Pc6cxSNKCOsH0KobWThsfUjywrNbsbxoHHXleDx0ZSw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=mediatek.com; dmarc=pass action=none header.from=mediatek.com;
- dkim=pass header.d=mediatek.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
- d=mediateko365.onmicrosoft.com; s=selector2-mediateko365-onmicrosoft-com;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=niTM7tvKflv+37O+TYoEApPpcQFxWW4qhfOejryWs5o=;
- b=LrOseLHm7yOcDpI9VwKT4fsnyWIKFkC9Vf4kAtVTJbI09gLpcm4HFCFO/H7Ce53LdcNqwsKx7triffuyiJKIrV4QegE295XVmEkmY4903tQmJWeQWuubQcyKNetCiRFrTjwu0+0tDHvueMcrNvykL8o9SyG9gLJhw2zpNPVyHVU=
-Received: from PSAPR03MB5605.apcprd03.prod.outlook.com (2603:1096:301:66::6)
- by TY0PR03MB8330.apcprd03.prod.outlook.com (2603:1096:405:1a::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9182.20; Tue, 7 Oct
- 2025 07:02:18 +0000
-Received: from PSAPR03MB5605.apcprd03.prod.outlook.com
- ([fe80::3945:7dbc:62bd:c31c]) by PSAPR03MB5605.apcprd03.prod.outlook.com
- ([fe80::3945:7dbc:62bd:c31c%6]) with mapi id 15.20.9182.017; Tue, 7 Oct 2025
- 07:02:18 +0000
-From: =?utf-8?B?UGV0ZXIgV2FuZyAo546L5L+h5Y+LKQ==?= <peter.wang@mediatek.com>
-To: "avri.altman@wdc.com" <avri.altman@wdc.com>, "quic_cang@quicinc.com"
-	<quic_cang@quicinc.com>, "quic_nitirawa@quicinc.com"
-	<quic_nitirawa@quicinc.com>, "quic_nguyenb@quicinc.com"
-	<quic_nguyenb@quicinc.com>, "manivannan.sadhasivam@linaro.org"
-	<manivannan.sadhasivam@linaro.org>, "bvanassche@acm.org"
-	<bvanassche@acm.org>, "adrian.hunter@intel.com" <adrian.hunter@intel.com>,
-	"martin.petersen@oracle.com" <martin.petersen@oracle.com>
-CC: "beanhuo@micron.com" <beanhuo@micron.com>, "chu.stanley@gmail.com"
-	<chu.stanley@gmail.com>, "quic_mapa@quicinc.com" <quic_mapa@quicinc.com>,
-	"linux-scsi@vger.kernel.org" <linux-scsi@vger.kernel.org>, "AngeloGioacchino
- Del Regno" <angelogioacchino.delregno@collabora.com>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"alim.akhtar@samsung.com" <alim.akhtar@samsung.com>,
-	"linux-arm-msm@vger.kernel.org" <linux-arm-msm@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, "matthias.bgg@gmail.com"
-	<matthias.bgg@gmail.com>, "James.Bottomley@HansenPartnership.com"
-	<James.Bottomley@HansenPartnership.com>, "mani@kernel.org" <mani@kernel.org>,
-	"linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>
-Subject: Re: [PATCH v1 1/2] scsi: ufs: core: Remove
- UFS_DEVICE_QUIRK_DELAY_AFTER_LPM quirk
-Thread-Topic: [PATCH v1 1/2] scsi: ufs: core: Remove
- UFS_DEVICE_QUIRK_DELAY_AFTER_LPM quirk
-Thread-Index: AQHcMxYfOksnBxmnP02s2Q6lFEkIhrSufh+AgAC2GICAAIwFAIABLjOAgAVcBoA=
-Date: Tue, 7 Oct 2025 07:02:18 +0000
-Message-ID: <bc223eabf97d4c530a43c4831fe6ba2be7ae43b9.camel@mediatek.com>
-References: <cover.1759348507.git.quic_nguyenb@quicinc.com>
-	 <0f0a7d5518d29fc384aace558d2bf098d792e0db.1759348507.git.quic_nguyenb@quicinc.com>
-	 <450e834545af935010ffc4f9079e56e47851f197.camel@mediatek.com>
-	 <69a111a2-219e-e3d4-8b89-3400facc02e3@quicinc.com>
-	 <9706ab36ba82a2522931326e114155c027da5461.camel@mediatek.com>
-	 <4e58fa6c-ddec-a6a9-fb8b-5f4ffa12fbc3@quicinc.com>
-In-Reply-To: <4e58fa6c-ddec-a6a9-fb8b-5f4ffa12fbc3@quicinc.com>
-Accept-Language: zh-TW, en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-authentication-results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=mediatek.com;
-x-ms-publictraffictype: Email
-x-ms-traffictypediagnostic: PSAPR03MB5605:EE_|TY0PR03MB8330:EE_
-x-ms-office365-filtering-correlation-id: 4b19188e-0e5a-4425-7840-08de056f7466
-x-ld-processed: a7687ede-7a6b-4ef6-bace-642f677fbe31,ExtAddr
-x-ms-exchange-senderadcheck: 1
-x-ms-exchange-antispam-relay: 0
-x-microsoft-antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|38070700021;
-x-microsoft-antispam-message-info: =?utf-8?B?UFpPUTNtamJxMjFuZi91RVFMb1pLTFNXRWU3NTREcTh6RHlUYUFIWXphdHFj?=
- =?utf-8?B?YXpMdnBqU0NDWkp2Mnh0RUxDc0lzcCttRGJDOHVRN2VSb1JnVXovQ25QUFQx?=
- =?utf-8?B?QXJaTjZCZkYzdEJ5bXJhN2tGalhMVEFEc0xuUjVYbHI2L1VBZnprVTNqLzEw?=
- =?utf-8?B?Q0EwbURrL2R2L3VQQW9IdHRKSmNUZUZhdEUwQkZLZ0g5NW9GcHJBOXdpVmNP?=
- =?utf-8?B?Y1VsbGx4NHhnK2VsZFBwQmQ2N1hXOHhCSlN0c0hNZFFSTVdBK1RQVm9NSFR4?=
- =?utf-8?B?dytTYWRURnNrNkVRVkw1WE1ZV1hQTGxERDQzR215L3hnRCtCTGVMZ1IrRFor?=
- =?utf-8?B?RmdGSkY5bTVLR0ZYUE0rNjgxaTN2Wk5HWXFlbHBid252Tmhib0dVV2s1bXRQ?=
- =?utf-8?B?T0Vlb21ud3gxSS83VGpWUmFueVZrQnM1U2xaTzNpMHNPSzdNaDA2c0VmaURV?=
- =?utf-8?B?OFRlSlp3QlhHc2JjNk8vT1hvS3hqWUtLZ2dJUkFMTDJoY0d1SzV0VVRJRjRN?=
- =?utf-8?B?Tnp3aDQ3N0E0NDRnQjlqTXg0RS9sMGtoNDFrTCs1aFJPcktuLzNFdGZ4VGo1?=
- =?utf-8?B?SXEwcUFhb0NndnQ0TGErcjRYYmEvZFRSaDNIWkYvelNUVHVKSmpHRjVrM0Mw?=
- =?utf-8?B?NGlXTi9vZXhMSG9lem11eDQvWnhHL1R6bVZ5UDVBMTlIdGl4cnVxRzdYcWxV?=
- =?utf-8?B?RFQ3M2c0SGFCd2Iyc0hlK1N1L29tbThPWHBFV256ZGpxWmFVSWNhdWVKUllK?=
- =?utf-8?B?aHI4UjFIaGhnU2NoblhzcUgyNUV3amY4WFZONjQ2cTFEQS9DelcrOXVONFNS?=
- =?utf-8?B?WklTSm50SnJjbHBWL2Ztb2M0L2l4cUpKdGtZQVJsT2IveE54QnZWVmhLakV4?=
- =?utf-8?B?bXVLRUo1UEVRZnlaSlNmbTVPTlh4NG5zR3VZUi9jUXJHSXZMM29nODA4K0JH?=
- =?utf-8?B?L0g3OTA1c3lmcGJidHVkL0hpczJFN3RObjRLVVBXdVplS1dhS2JtSzVmdldL?=
- =?utf-8?B?QlFNaXpiNVpXQ2piUE93L0Q4eDFHelRTV09XcTNFaGIyZkRTd0hUT0JnWHht?=
- =?utf-8?B?ZXFxR3pycVlQODdSSDFvNXQ2dk9xcG9LcmZTNEd2S2FXNXJJbnByTkd3alFI?=
- =?utf-8?B?S3ZzRVlyRTBoeTQ3enEyZk5pNEUxLzltYUExL2NEZ3YzRGdpcGVCOWxqS3ZY?=
- =?utf-8?B?M0ZZR1VaK3kzY3liQ1hPak5wVzFsQnhwajJObElNWjBHY0xreVpjTitZZFFM?=
- =?utf-8?B?WThjM0JCbTZKZ0ZRbWhzY2s1TVZrUUFhUDVZSHpjU09pZW5LZ1c3WHdTNUFJ?=
- =?utf-8?B?dmNUUXJuaENwN3o2N1JtdDN6UUNPMGF0eU1COS94RXQ5Yzl5UFlPMSszMjcr?=
- =?utf-8?B?K1d4aWxVNjZUUGFBT2xZYm91T2ZzWWNPMkwrd3lyMXQ1Qk56b09GUDBRSUJW?=
- =?utf-8?B?K29iczlGSnZBV1E5cnU4UHY0eVo2M2FyQUNHeXllYy9JUGxPS1EvSWd0Ylh5?=
- =?utf-8?B?d3VvMmVUYXR2MVBQR1pFY3l5d3lwckJmYUNtS0xuNDRsQUdCMHJpVWhjekpT?=
- =?utf-8?B?OUd4aEQ4eXBRRWpJNVgvU0tJa3Rhbjh3RTg2YUxGeFBOWVIzMUhJVXJ6S2c1?=
- =?utf-8?B?RmtON2ttNnhibG1iMGo5QlF5emprVmtGbWtlem9BR3hDRVZFVkRvR2J1MUNZ?=
- =?utf-8?B?NEFsSmxNU0xRQ0FUV25MZ3BKSDVzMCtBRGd1WFJlZ1hOVHF3Rlc4cGEwQVFv?=
- =?utf-8?B?K3BCMHFNQUl1dGJHSGErc3BKZml3Qm9yNUNKQUQycjh1MHNCMGRUdmZtRnU4?=
- =?utf-8?B?L08yM0lHOFVyeXFYK0hudmZBamE5VlJDMmJ5QUZnbDlnTVZBVnY4M04vZjdU?=
- =?utf-8?B?QmJUWUM0TksxSTMyWUs0dEhGWnhWK3VxaVNRZGNIdVI5Y1crTXFocEd4QmNP?=
- =?utf-8?B?TnBFa1ArQmlTaVY0eWh5dzU3bXBna0JMQzd6NVIzdmFNZkpBY2ZiMWFXTy9i?=
- =?utf-8?B?MTQrQjl0V3l3QjN4MjhiRm1hTEFpVVNsVXBZbzdtTEsveGVwNTQ2Q1NtU0xk?=
- =?utf-8?Q?j0kTPt?=
-x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PSAPR03MB5605.apcprd03.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(38070700021);DIR:OUT;SFP:1101;
-x-ms-exchange-antispam-messagedata-chunkcount: 1
-x-ms-exchange-antispam-messagedata-0: =?utf-8?B?aUVPd2gzL3FTQVFEa3d6ZXg4UTVLTWp4NWJGcEgxMG83UWNDdlNha3VkR2w4?=
- =?utf-8?B?dUJSTzlDOXA5eUR1OW9YVTJDMzJ0WnZKekw1TUxUVEZDZjIyb01iWVVtbXZG?=
- =?utf-8?B?NlRoRzFDeCtUZWE1Ung1NXg5SHNUbHA5TkYyVDZqejFiWjlpTEl6MjcxeSt6?=
- =?utf-8?B?bFgyTmVLMWRYZGcyV0lVeTBMQTFIUURCaE5PMkU0bUlYWlNUbWlvbTdyTzE5?=
- =?utf-8?B?aUNrQzJPSFdXclNHV00vWFo2STdBQVFPZDA5TXlUakdJSmZuc0xHQWFwMlli?=
- =?utf-8?B?VmtSVmdlcGZmd2tNUmowMTBKZEh3YzZFcnZWTk5ud0tkYVVxaTA3MHJKQ0Nt?=
- =?utf-8?B?eTBNaHp2YVJRVXl3RHZRRzdVdE85QmJGOHdmd2poMGllclcvdll5L0J6ZWds?=
- =?utf-8?B?a2doaHlDcFVXRUNIWFNzK2NJYnVROGlYcXpNWGJkOEpKeUk3QlBKQjhjQmNh?=
- =?utf-8?B?ZWJ2ODZTRTk0RHYvQld1MFl4RzF4eUt2YXpzRlcwRFo2cmN5U2NuNytpOHYw?=
- =?utf-8?B?c1VkT2YyaTdMK1RvbEluTUhocEV4ZWdZLzJ3WFlIRnJHY3N0WEJ3bUZsY25X?=
- =?utf-8?B?YzFKMyt0Q2dLbEkyYi9QZm9VcDJXTHpxR3dudmNuYnBwUVFvY0kvNklnUlJ6?=
- =?utf-8?B?dElPNlhCTHJweE1uMVM3L1NCSGx1clpyblZrdC9LVTNBWHpNWmlYU093SzE3?=
- =?utf-8?B?Ym5Kbi9LdGdYZGNyVlBFcHpIWThRcGNyam10dkdWRk5GK3ZhZTJyVVlTZU0y?=
- =?utf-8?B?SXB3a1c3bzhBdmM4N2tUNUQvODlTVDJLd0RlazF2TCtuOVB1MDljLzJUcjhK?=
- =?utf-8?B?NDRibkRZcFAxWnhlMFZ0bnliSjgzUUxUWWNBRkh1WkFoaFU3dC9ZUTlFNmZF?=
- =?utf-8?B?Rkc3N2ovNHpPWFU4OGI1SmtYSE9Rdm15eWRGbGR0aGx5ZDl3cFk2WFNWT3F5?=
- =?utf-8?B?SG5TZGdBR3JMRi9OYWpkUjhxM1NqQU5uRk9hNlY0YTArRkJ2ZHczUk5iZlUz?=
- =?utf-8?B?aTFRamxmTk5oSk8xYTV3OTdyaFBOSTRzaThGTzhadkhUa3cvRERwb3BGN1FK?=
- =?utf-8?B?bTRhUy9kVEVHall6b1kwY29QaTROYmpEVVZ3akhMbGNWRFhnUllvVTNIZWdw?=
- =?utf-8?B?SEFhcDBsWUlwY0F0UndvY0NlcVlLOGMwZTd2Um91K1VoVWxiSVJEc1hzdmp4?=
- =?utf-8?B?eXJRMkt0dGhxeE9TUTUyZDBnUjVHMWo3L05yWTd0YTdFRzhtQjU3N3dxa1Jk?=
- =?utf-8?B?djJXaFZ1bTU5RDY3QWFRSFZxdlVXOHRybGlaKzM0UmhGNUNodjJwTzBZOEwy?=
- =?utf-8?B?dTdiUi9QT1JhOXRKc1NMRjdsNHl4V2lTdzRVMWttSDA4OVNpZnBXcFZWNUIr?=
- =?utf-8?B?aG41cThLdk00dWdFdkd5QUZvenY2akZ2QXl3VEhua3BGR1NjaTV2RUpLZW1o?=
- =?utf-8?B?Z3JiMmVvVUxyQkwraXppSWdYMWxadkdOVVFNamp6OFZXcUNxWlRZTW02VVNP?=
- =?utf-8?B?OVdwSEpVRFhYRGdXWWgvV3p2bXBtaUxiUzAwcXFaY0swMVloS0x6RDBiVDJG?=
- =?utf-8?B?d3RwT2VRSCtGT0Yxb3ZBSHVYeW1zcnBPVkx6TEVqNEJ1SVNab2cxS29TL0ZX?=
- =?utf-8?B?SVVsWllySklSOXVNbkhRc0pXTEs5a3puTG9xanNvUXA1UFBQUlQ2NXAzcW5z?=
- =?utf-8?B?Nm44T3RoMTVyK2dPMXgyTkUwUkV5djBzWWNwOXFjTm5qVS9UNjJycEVUMHp5?=
- =?utf-8?B?MkNNa3dWTnRYMUNxb1diRVdUa2tXSnMrS1NEUjN2NFhBYUxxWVBJT3JWRU91?=
- =?utf-8?B?Ry96ZDZVb1Z1V2VhR3Rrcll3YUx4YkJmWmwzTkJ1VUZQVWZMa05HdEY2OThK?=
- =?utf-8?B?VU9Wd0pFQXR4dXFLVWNBUnVwZldqUDhBSCt5OElLallTMFV0ZHpoWEhQOWhm?=
- =?utf-8?B?RmpnQkxVZ3lsNHYxUUx5NEwrWmxFbXVrSXowYWhGVVBiU2NWa09WWFJTdVpt?=
- =?utf-8?B?bWF6Z1Q4cFhLSjQ2Uk8zSGhYNGhNcy9UZW5yREpQaVFYZkhQcnJsVk90ZTNl?=
- =?utf-8?B?VUM5bG5lZW9RcDBpazNsWnByQ3VHV1h3dENjLzJYUVdGVnVoQTRubktDODdL?=
- =?utf-8?B?cGV4RlBsVDRVYWlIVVRZLzJJSEM3YncwcWhlNFNJbHNpZkYwSjVSbWd3ZFNE?=
- =?utf-8?B?d3c9PQ==?=
-Content-Type: text/plain; charset="utf-8"
-Content-ID: <F03430AA282B784F905AF3B8E354A7BD@apcprd03.prod.outlook.com>
-Content-Transfer-Encoding: base64
+	id 1v62Fe-00000001SCr-3ok7;
+	Tue, 07 Oct 2025 07:36:52 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1759822608;
+	bh=LTwbcNxTatK0DtSUOSCgV0jqks6Qi4GG4tijmgArRBA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=maSJV69LuPOFXUdiF44lQs299hntSCsAw/7LV6ZQZnlFXkDqcLvcxroWNKNWcosIa
+	 9XAXc1XMueNaTqRM0IKcay80bPSH59zL4USNLNvphn+fuao6d9qS5FTPvD3rzufH42
+	 q/vB+ghOkQnWoXWLYinDoQaM4Y4ckoVl/U8SwUUGZr72ukRgEH2yaC9YaPgfWSNZqk
+	 LFQ9Y3rwLHoC9HuHwzPUYT1LVtPu+cwyzQjfw8kltMTO5GKFu8X4TE5m85lqpPvh3J
+	 M1IAplgxaaA3jXzGCoyJ1U0hlciYRf10SBaFm4CdT5jhpyZbbUAYa9LB3M9PPjEl4s
+	 XuRdz3sFUEPHQ==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id BFCD917E0FDB;
+	Tue,  7 Oct 2025 09:36:47 +0200 (CEST)
+Message-ID: <fade146a-fe6a-47d3-8936-39b355e44216@collabora.com>
+Date: Tue, 7 Oct 2025 09:36:47 +0200
 MIME-Version: 1.0
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-AuthSource: PSAPR03MB5605.apcprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 4b19188e-0e5a-4425-7840-08de056f7466
-X-MS-Exchange-CrossTenant-originalarrivaltime: 07 Oct 2025 07:02:18.5286
- (UTC)
-X-MS-Exchange-CrossTenant-fromentityheader: Hosted
-X-MS-Exchange-CrossTenant-id: a7687ede-7a6b-4ef6-bace-642f677fbe31
-X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
-X-MS-Exchange-CrossTenant-userprincipalname: 7m5nvVBqRCUpWsFfGLjYvYX1vLYGvA3shJ0cVT6lS7a+LIigcR4ZS3LxqNvgTNqkz/lOi8GkGuyNr1enFkM90Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: TY0PR03MB8330
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 4/4] clk: mediatek: Add rpm clocks to clk-mt8196-mfg
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+ Guangjie Song <guangjie.song@mediatek.com>,
+ Laura Nao <laura.nao@collabora.com>,
+ =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+ Yassine Oudjana <y.oudjana@protonmail.com>
+Cc: kernel@collabora.com, Krzysztof Kozlowski
+ <krzysztof.kozlowski@linaro.org>, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+References: <20250929-mtk-pll-rpm-v1-0-49541777878d@collabora.com>
+ <748f1176-c73c-48af-a1af-0b63d088e834@collabora.com>
+ <6441788.lOV4Wx5bFT@workhorse> <2164240.KlZ2vcFHjT@workhorse>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <2164240.KlZ2vcFHjT@workhorse>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_000230_502579_81F4FC71 
-X-CRM114-Status: GOOD (  14.98  )
+X-CRM114-CacheID: sfid-20251007_003651_466517_218E8211 
+X-CRM114-Status: GOOD (  51.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -230,20 +86,372 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-T24gRnJpLCAyMDI1LTEwLTAzIGF0IDE0OjExIC0wNzAwLCBCYW8gRC4gTmd1eWVuIHdyb3RlOg0K
-PiBBcmUgeW91IHJlZmVycmluZyB0byB0aGUgYWx3YXlzX29uIGZsYWcgaW4gdGhlIHN0cnVjdCB1
-ZnNfdnJlZz8gSQ0KPiBiZWxpZXZlIGN1cnJlbnRseSB0aGUgdWZzX3ZyZWcncyBhbHdheXNfb24g
-ZmxhZyBpc24ndCB1c2VkIGluDQo+IGRldGVybWluaW5nIHdoZXRoZXIgdGhlIGRlbGF5IGlzIGFw
-cGxpZWQgb3Igbm90Lg0KPiANCg0KSGkgQmFvLA0KDQpZZXMsIEkgbWVhbiB2cmVnX2luZm8udmNj
-LT5hbHdheXNfb24gPSB0cnVlLg0KQmVmb3JlIHlvdXIgY2hhbmdlLCBNZWRpYXRlayB3b3VsZCBz
-ZXQgYWx3YXlzX29uID0gdHJ1ZSANCmFuZCByZW1vdmUgVUZTX0RFVklDRV9RVUlSS19ERUxBWV9B
-RlRFUl9MUE0gdG8gZGlzYWJsZSANCnRoaXMgZGVsYXkuDQoNCg0KPiBIb3cgYWJvdXQgd2UgYWRk
-IHRoZSBjaGVjayBmb3IgdGhlIFZjYydzIGFsd2F5c19vbiBhcyBzaG93biBiZWxvdz8NCj4gVGhl
-IE1lZGlhdGVrJ3Mgd29ya2Fyb3VuZCBjYW4gYXZvaWQgdGhlIGV4dHJhIGRlbGF5IGJ5IHNldHRp
-bmcgdGhlDQo+IGFsd2F5c19vbiBmbGFnIGFzIGl0IGFscmVhZHkgZGlkLCB3aXRob3V0IHVzaW5n
-IHRoZQ0KPiBVRlNfREVWSUNFX1FVSVJLX0RFTEFZX0FGVEVSX0xQTS4NCj4gDQo+IGlmICh2Y2Nf
-b2ZmICYmIGhiYS0+dnJlZ19pbmZvLnZjYyAmJiAhaGJhLT52cmVnX2luZm8udmNjLT5hbHdheXNf
-b24pDQo+IMKgwqDCoMKgwqDCoMKgIHVzbGVlcF9yYW5nZSg1MDAwLCA1MTAwKTsNCj4gDQo+IFRo
-YW5rcywgQmFvDQo+IA0KPiANCg0KWWVzLCBJIGJlbGlldmUgdGhpcyBpcyB0aGUgY29ycmVjdCB3
-YXkgdG8gZG8gaXQuDQoNClRoYW5rcw0KUGV0ZXINCg==
+Il 06/10/25 21:01, Nicolas Frattaroli ha scritto:
+> On Wednesday, 1 October 2025 15:17:13 Central European Summer Time Nicolas Frattaroli wrote:
+>> On Wednesday, 1 October 2025 13:49:54 Central European Summer Time AngeloGioacchino Del Regno wrote:
+>>> Il 29/09/25 14:13, Nicolas Frattaroli ha scritto:
+>>>> The mfgpll clocks on mt8196 require that the MFG's EB clock is on if
+>>>> their control registers are touched in any way at all.
+>>>
+>>> ....so, the MFGPLL clocks are children of EB?
+>>>
+>>> Why are you using such a convoluted way of adding a parent clock to the MFGPLL
+>>> instead of just
+>>> ---->   `.parent_name = "mfg_eb"`  <-----
+>>>
+>>> ???????
+>>
+>> They're not children. A child would mean that they derive their
+>> clock rate from the parent clock. This isn't the relationship here
+>> though, their clock signal is completely independent of mfg_eb,
+>> but the registers they access for clock control depend on mfg_eb to
+>> be on. This means that even if mfgpll is off, and something wants to
+>> check if they're on or not, the mfg_eb needs to be on for that
+>> register access to happen. Similarly, when reconfiguring the mfgpll
+>> rate, the clock rate of mfg_eb plays no role. It just needs to be on
+>> for the register access.
+>>
+>> mfg_eb here is a clock that drives a register, the register just
+>> happens to be part of a clock controller.
+> 
+> As a follow-up to this, I've done some experiments now, as Angelo
+> let me know that the only way we can know for sure is by observing
+> mfgpll working while mfg_eb is off.
+> 
+> With horrid hacks, I've managed to manufacture a scenario in which
+> EB was definitely off, the mfgplls were still on, the GPUEB didn't
+> try to ruin the party by fiddling with the mfgpll clock registers,
+> and what I got in return was panthor printing errors about its jobs
+> timing out, before an SError splat after several timeouts.
+> 
+> This makes me think that mfg_eb really is a parent of mfgpll, as
+> evidently mfgpll didn't seem to be ticking anymore and caused the
+> timeouts to happen before something touched unclocked registers
+> and caused an SError. Put in glmark2 terms, the horse was no longer
+> spinning around its axis, causing much grief.
+> 
+> The other possibility is, and I think this is quite likely: we are
+> modeling the mfgpll power up/down wrong anyway, and always rely on
+> the GPUEB to actually do this properly. I've diffed the mfgpll clock
+> registers with the GPUEB running and with it not running, here are
+> the results in addr u32 u32 u32 u32 format:
+> 
+> $ diff -u mfgplldump-not-running.txt mfgplldump-running.txt
+> --- mfgplldump-not-running.txt  2025-10-06 20:03:11.902125545 +0200
+> +++ mfgplldump-running.txt      2025-10-06 20:03:08.457020814 +0200
+> @@ -1,5 +1,5 @@
+> -4b810000  00000000 0001fc23  00084444 831a0000
+> -4b810010  001a0000 00000002  00000048 00000200
+> +4b810000  00000000 0001fc23  00084445 031a0000
+> +4b810010  001a0000 80000002  00000048 00000200
+>   4b810020  00000000 00000000  00000000 00000000
+>   4b810030  00000000 00000000  00000000 00000000
+>   4b810040  00018000 01ff1a00  00000000 00000000
+> @@ -62,8 +62,8 @@
+>   4b8103d0  00000000 00000000  00000000 00000000
+>   4b8103e0  00000000 00000000  00000000 00000000
+>   4b8103f0  00000000 00000000  00000000 00000000
+> -4b810400  00000000 0001fc23  00084444 831a0000
+> -4b810410  001a0000 00000002  00000048 00000200
+> +4b810400  00000000 0001fc23  00084445 031a0000
+> +4b810410  001a0000 80000002  00000048 00000200
+>   4b810420  00000000 00000000  00000000 00000000
+>   4b810430  00000000 00000000  00000000 00000000
+>   4b810440  00018000 01ff1a00  00000000 00000000
+> @@ -126,8 +126,8 @@
+>   4b8107d0  00000000 00000000  00000000 00000000
+>   4b8107e0  00000000 00000000  00000000 00000000
+>   4b8107f0  00000000 00000000  00000000 00000000
+> -4b810800  00000000 0001fc23  00084444 831a0000
+> -4b810810  001a0000 00000002  00000048 00000200
+> +4b810800  00000000 0001fc23  00084445 031a0000
+> +4b810810  001a0000 80000002  00000048 00000200
+>   4b810820  00000000 00000000  00000000 00000000
+>   4b810830  00000000 00000000  00000000 00000000
+>   4b810840  00018000 01ff1a00  00000000 00000000
+> 
+> Note how bit 31 of MFGPLL*CON3 gets flipped to 1 in the registers
+> when the GPUEB is running. Nothing in our code would model it to be
+> like this.
+> 
+> I'll rework the series to just model MFG_EB as a parent. I'll drop the
+> bindings patch, but will keep the refactor since it's still useful.
+> Then I'll drop the mfgpll RPM patch and make it a fixes patch to add
+> the EB parent instead.
+> 
+> However, I'm not happy about this, because I am quite certain that
+> the code here is not all that correct, but we do not have access to
+> the documentation to show us how it would be correct, and downstream
+> kernels are not of any help either.
+> 
+> I also can't just adjust the mfgpll stuff to fit the bit writes I
+> actually see happening from the EB, because powering off the EB so
+> it doesn't try to touch them and then setting those registers right
+> again will still leave a gap wherein the register is not correct
+> and who knows what happens. Ditto for the regulators. Similarly,
+> I can't just try disabling MFG_EB while the EB is running, because
+> it will touch the control registers of the clocks and depends on
+> MFG_EB for sure, and I can't observe whether MFGPLL is ticking in
+> any other way other than looking at whether the GPU is working. Or
+> maybe I can and there's some monitor register somewhere, but not
+> anywhere I have documentation for.
+> 
+> I've checked the remaining memory area of the mfgpll clock controllers,
+> and found no suspiciously changing values in there that could indicate
+> a monitor register that contains the actual pll frequency.
+> 
+
+It's possible that there is a specific mode for firmware-control for the PLL, which
+makes it "useless" without the EB parent being on - but then since that is not
+described in the datasheets we can't really reinvent the wheel here on hypotetical
+variations.
+
+This SoC has EB (as much as some other old ones like MT8188/92/95, but since there
+we never enabled the GPUEB, we don't really-really-really know) and from your test
+the EB is clearly a parent of the MFGPLL... so... like it or not, it is what it is.
+
+Btw, regarding the possibilty of powering on the MFGPLL in some wrong way...
+
+No.
+
+The poweron sequence is correct - as per the datasheets (and matches with other MTK
+PLL on/off strategies).
+
+Thanks for doing this crazy test, and thanks for confirming my suspect!
+
+Cheers,
+Angelo
+
+
+>>>
+>>>> Failing to ensure
+>>>> this results in a pleasant SError interrupt if the EB clock happens to
+>>>> be off.
+>>>>
+>>>> To achieve this, leverage the CCF core's runtime power management
+>>>> support. Define the necessary suspend/resume callbacks, add the
+>>>> necessary code to get RPM clocks from the DT, and make sure RPM is
+>>>> enabled before clock registration happens.
+>>>>
+>>>> For the RPM callbacks to really make much sense at all, we change the
+>>>> drvdata from clk_data to a new private struct, as is common in drivers
+>>>> across the Linux kernel.
+>>>>
+>>>> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+>>>> ---
+>>>>    drivers/clk/mediatek/clk-mt8196-mfg.c | 104 +++++++++++++++++++++++++++-------
+>>>>    drivers/clk/mediatek/clk-pll.h        |   2 +
+>>>>    2 files changed, 87 insertions(+), 19 deletions(-)
+>>>>
+>>>> diff --git a/drivers/clk/mediatek/clk-mt8196-mfg.c b/drivers/clk/mediatek/clk-mt8196-mfg.c
+>>>> index 8e09c0f7b7548f8e286671cea2dac64530b8ce47..64cc0c037f62d7eab8d0e7fc00c05d122bf4130c 100644
+>>>> --- a/drivers/clk/mediatek/clk-mt8196-mfg.c
+>>>> +++ b/drivers/clk/mediatek/clk-mt8196-mfg.c
+>>>> @@ -13,6 +13,7 @@
+>>>>    #include <linux/of_address.h>
+>>>>    #include <linux/of_device.h>
+>>>>    #include <linux/platform_device.h>
+>>>> +#include <linux/pm_runtime.h>
+>>>>    
+>>>>    #include "clk-mtk.h"
+>>>>    #include "clk-pll.h"
+>>>> @@ -38,7 +39,7 @@
+>>>>    	    _flags, _rst_bar_mask,				\
+>>>>    	    _pd_reg, _pd_shift, _tuner_reg,			\
+>>>>    	    _tuner_en_reg, _tuner_en_bit,			\
+>>>> -	    _pcw_reg, _pcw_shift, _pcwbits) {			\
+>>>> +	    _pcw_reg, _pcw_shift, _pcwbits, _rpm_clks) {	\
+>>>>    		.id = _id,					\
+>>>>    		.name = _name,					\
+>>>>    		.reg = _reg,					\
+>>>> @@ -58,26 +59,60 @@
+>>>>    		.pcw_shift = _pcw_shift,			\
+>>>>    		.pcwbits = _pcwbits,				\
+>>>>    		.pcwibits = MT8196_INTEGER_BITS,		\
+>>>> +		.rpm_clk_names = _rpm_clks,			\
+>>>> +		.num_rpm_clks = ARRAY_SIZE(_rpm_clks),		\
+>>>>    	}
+>>>>    
+>>>> +static const char * const mfgpll_rpm_clk_names[] = {
+>>>> +	NULL
+>>>> +};
+>>>> +
+>>>>    static const struct mtk_pll_data mfg_ao_plls[] = {
+>>>>    	PLL(CLK_MFG_AO_MFGPLL, "mfgpll", MFGPLL_CON0, MFGPLL_CON0, 0, 0, 0,
+>>>> -	    BIT(0), MFGPLL_CON1, 24, 0, 0, 0,
+>>>> -	    MFGPLL_CON1, 0, 22),
+>>>> +	    BIT(0), MFGPLL_CON1, 24, 0, 0, 0, MFGPLL_CON1, 0, 22,
+>>>> +	    mfgpll_rpm_clk_names),
+>>>>    };
+>>>>    
+>>>>    static const struct mtk_pll_data mfgsc0_ao_plls[] = {
+>>>>    	PLL(CLK_MFGSC0_AO_MFGPLL_SC0, "mfgpll-sc0", MFGPLL_SC0_CON0,
+>>>>    	    MFGPLL_SC0_CON0, 0, 0, 0, BIT(0), MFGPLL_SC0_CON1, 24, 0, 0, 0,
+>>>> -	    MFGPLL_SC0_CON1, 0, 22),
+>>>> +	    MFGPLL_SC0_CON1, 0, 22, mfgpll_rpm_clk_names),
+>>>>    };
+>>>>    
+>>>>    static const struct mtk_pll_data mfgsc1_ao_plls[] = {
+>>>>    	PLL(CLK_MFGSC1_AO_MFGPLL_SC1, "mfgpll-sc1", MFGPLL_SC1_CON0,
+>>>>    	    MFGPLL_SC1_CON0, 0, 0, 0, BIT(0), MFGPLL_SC1_CON1, 24, 0, 0, 0,
+>>>> -	    MFGPLL_SC1_CON1, 0, 22),
+>>>> +	    MFGPLL_SC1_CON1, 0, 22, mfgpll_rpm_clk_names),
+>>>>    };
+>>>>    
+>>>> +struct clk_mt8196_mfg {
+>>>> +	struct clk_hw_onecell_data *clk_data;
+>>>> +	struct clk_bulk_data *rpm_clks;
+>>>> +	unsigned int num_rpm_clks;
+>>>> +};
+>>>> +
+>>>> +static int __maybe_unused clk_mt8196_mfg_resume(struct device *dev)
+>>>> +{
+>>>> +	struct clk_mt8196_mfg *clk_mfg = dev_get_drvdata(dev);
+>>>> +
+>>>> +	if (!clk_mfg || !clk_mfg->rpm_clks)
+>>>> +		return 0;
+>>>> +
+>>>> +	return clk_bulk_prepare_enable(clk_mfg->num_rpm_clks, clk_mfg->rpm_clks);
+>>>> +}
+>>>> +
+>>>> +static int __maybe_unused clk_mt8196_mfg_suspend(struct device *dev)
+>>>> +{
+>>>> +	struct clk_mt8196_mfg *clk_mfg = dev_get_drvdata(dev);
+>>>> +
+>>>> +	if (!clk_mfg || !clk_mfg->rpm_clks)
+>>>> +		return 0;
+>>>> +
+>>>> +	clk_bulk_disable_unprepare(clk_mfg->num_rpm_clks, clk_mfg->rpm_clks);
+>>>> +
+>>>> +	return 0;
+>>>> +}
+>>>> +
+>>>>    static const struct of_device_id of_match_clk_mt8196_mfg[] = {
+>>>>    	{ .compatible = "mediatek,mt8196-mfgpll-pll-ctrl",
+>>>>    	  .data = &mfg_ao_plls },
+>>>> @@ -92,35 +127,60 @@ MODULE_DEVICE_TABLE(of, of_match_clk_mt8196_mfg);
+>>>>    static int clk_mt8196_mfg_probe(struct platform_device *pdev)
+>>>>    {
+>>>>    	const struct mtk_pll_data *plls;
+>>>> -	struct clk_hw_onecell_data *clk_data;
+>>>> +	struct clk_mt8196_mfg *clk_mfg;
+>>>>    	struct device_node *node = pdev->dev.of_node;
+>>>> +	struct device *dev = &pdev->dev;
+>>>>    	const int num_plls = 1;
+>>>> -	int r;
+>>>> +	int r, i;
+>>>>    
+>>>> -	plls = of_device_get_match_data(&pdev->dev);
+>>>> +	plls = of_device_get_match_data(dev);
+>>>>    	if (!plls)
+>>>>    		return -EINVAL;
+>>>>    
+>>>> -	clk_data = mtk_alloc_clk_data(num_plls);
+>>>> -	if (!clk_data)
+>>>> +	clk_mfg = devm_kzalloc(dev, sizeof(*clk_mfg), GFP_KERNEL);
+>>>> +	if (!clk_mfg)
+>>>>    		return -ENOMEM;
+>>>>    
+>>>> -	r = mtk_clk_register_plls(&pdev->dev, plls, num_plls, clk_data);
+>>>> +	clk_mfg->num_rpm_clks = plls[0].num_rpm_clks;
+>>>> +
+>>>> +	if (clk_mfg->num_rpm_clks) {
+>>>> +		clk_mfg->rpm_clks = devm_kcalloc(dev, clk_mfg->num_rpm_clks,
+>>>> +						 sizeof(*clk_mfg->rpm_clks),
+>>>> +						 GFP_KERNEL);
+>>>> +		if (!clk_mfg->rpm_clks)
+>>>> +			return -ENOMEM;
+>>>> +
+>>>> +		for (i = 0; i < clk_mfg->num_rpm_clks; i++)
+>>>> +			clk_mfg->rpm_clks->id = plls[0].rpm_clk_names[i];
+>>>> +
+>>>> +		r = devm_clk_bulk_get(dev, clk_mfg->num_rpm_clks,
+>>>> +				      clk_mfg->rpm_clks);
+>>>> +		if (r)
+>>>> +			return r;
+>>>> +	}
+>>>> +
+>>>> +	clk_mfg->clk_data = mtk_alloc_clk_data(num_plls);
+>>>> +	if (!clk_mfg->clk_data)
+>>>> +		return -ENOMEM;
+>>>> +
+>>>> +	dev_set_drvdata(dev, clk_mfg);
+>>>> +	pm_runtime_enable(dev);
+>>>> +
+>>>> +	r = mtk_clk_register_plls(dev, plls, num_plls, clk_mfg->clk_data);
+>>>>    	if (r)
+>>>>    		goto free_clk_data;
+>>>>    
+>>>> -	r = of_clk_add_hw_provider(node, of_clk_hw_onecell_get, clk_data);
+>>>> +	r = of_clk_add_hw_provider(node, of_clk_hw_onecell_get,
+>>>> +				   clk_mfg->clk_data);
+>>>>    	if (r)
+>>>>    		goto unregister_plls;
+>>>>    
+>>>> -	platform_set_drvdata(pdev, clk_data);
+>>>> -
+>>>>    	return r;
+>>>>    
+>>>>    unregister_plls:
+>>>> -	mtk_clk_unregister_plls(plls, num_plls, clk_data);
+>>>> +	mtk_clk_unregister_plls(plls, num_plls, clk_mfg->clk_data);
+>>>>    free_clk_data:
+>>>> -	mtk_free_clk_data(clk_data);
+>>>> +	mtk_free_clk_data(clk_mfg->clk_data);
+>>>>    
+>>>>    	return r;
+>>>>    }
+>>>> @@ -128,20 +188,26 @@ static int clk_mt8196_mfg_probe(struct platform_device *pdev)
+>>>>    static void clk_mt8196_mfg_remove(struct platform_device *pdev)
+>>>>    {
+>>>>    	const struct mtk_pll_data *plls = of_device_get_match_data(&pdev->dev);
+>>>> -	struct clk_hw_onecell_data *clk_data = platform_get_drvdata(pdev);
+>>>> +	struct clk_mt8196_mfg *clk_mfg = dev_get_drvdata(&pdev->dev);
+>>>>    	struct device_node *node = pdev->dev.of_node;
+>>>>    
+>>>>    	of_clk_del_provider(node);
+>>>> -	mtk_clk_unregister_plls(plls, 1, clk_data);
+>>>> -	mtk_free_clk_data(clk_data);
+>>>> +	mtk_clk_unregister_plls(plls, 1, clk_mfg->clk_data);
+>>>> +	mtk_free_clk_data(clk_mfg->clk_data);
+>>>>    }
+>>>>    
+>>>> +static DEFINE_RUNTIME_DEV_PM_OPS(clk_mt8196_mfg_pm_ops,
+>>>> +				 clk_mt8196_mfg_suspend,
+>>>> +				 clk_mt8196_mfg_resume,
+>>>> +				 NULL);
+>>>> +
+>>>>    static struct platform_driver clk_mt8196_mfg_drv = {
+>>>>    	.probe = clk_mt8196_mfg_probe,
+>>>>    	.remove = clk_mt8196_mfg_remove,
+>>>>    	.driver = {
+>>>>    		.name = "clk-mt8196-mfg",
+>>>>    		.of_match_table = of_match_clk_mt8196_mfg,
+>>>> +		.pm = pm_ptr(&clk_mt8196_mfg_pm_ops),
+>>>>    	},
+>>>>    };
+>>>>    module_platform_driver(clk_mt8196_mfg_drv);
+>>>> diff --git a/drivers/clk/mediatek/clk-pll.h b/drivers/clk/mediatek/clk-pll.h
+>>>> index 0f2a1d19eea78b7390b221af47016eb9897f3596..82b86b849a67359d8f23d828f50422081c2747e3 100644
+>>>> --- a/drivers/clk/mediatek/clk-pll.h
+>>>> +++ b/drivers/clk/mediatek/clk-pll.h
+>>>> @@ -53,6 +53,8 @@ struct mtk_pll_data {
+>>>>    	u8 pll_en_bit; /* Assume 0, indicates BIT(0) by default */
+>>>>    	u8 pcw_chg_bit;
+>>>>    	u8 fenc_sta_bit;
+>>>> +	const char * const *rpm_clk_names;
+>>>> +	unsigned int num_rpm_clks;
+>>>>    };
+>>>>    
+>>>>    /*
+>>>>
+>>>
+>>>
+>>>
+>>
+>>
+> 
+> 
+> 
+> 
 
