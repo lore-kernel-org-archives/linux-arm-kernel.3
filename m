@@ -4,71 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 69BEACAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 05:36:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7FA77CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 05:51:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vBlaBBnmx3kAAP6GWJUIbNgM0jex0g9du486VuC0F/4=; b=ixoLPoiInOkgBJo6TW9ClzP9XN
-	Kk2+GtaDeNY+983i5rfQV9NHykZmiLzyLBK7v6aXJwLhZGygb4IEjE7MrwmX9/jE7kW06LiNAaDPZ
-	hOBa3/3hFoyaBna2pFbEPO6+pMoXjkGA80QL1DkkuXNQFoE5vPkP08SOYYL5R+ljDrjlpQdCKolia
-	GogBz5I2KIJVwVgWoX2Cf+vg7K2oMaYEYnaDCu5tEZAyPcqaXrqpBvjdgWexGFKm971I6fKaGHBf3
-	Y427BqD3BvryEZgwCsYVITZSZM3Bnlytqa0B8uDrjDmn48ORInuKZxiW2FRqXSbYLIqd0clNpcIqt
-	FOsaNfog==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Bje43vOA/n+19r7S0TcLj4o3Rl7bZDJnvRI+HwsLsy0=; b=MkdnE76C+c6O155QlGRAZkYMLd
+	2FFG3m0wZ3VGNCT2Tu/z9123LKKUB5g76C1h/eJPQ2YvS4o040sWQljtUqbHcgKu2z10jNnE/4AEP
+	/+HWWhDqzGflzykjGJWdLFfewVnI/IutLZA4tWZDUXP0ch1k1x4VBOYHXe7gfuxYqQLDU+E70eIsN
+	zPNWvw2jJxHY1VoWmjZmOGr/ffSMUouHIQr2jdWbg74XZtN5YuW7bY4GjCvfINpWJLmuGKrtQi+jU
+	a3dbFu3UQErYTeTkiN79ndftHgzv6tjGTKJiD7hiXxkl6/ewvtLY7UMjKIvOLG9gS9YzuyYwr52jx
+	znNa+fOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v60N1-00000001IEz-0QjS;
-	Tue, 07 Oct 2025 05:36:19 +0000
-Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
+	id 1v60bm-00000001JBj-2ANt;
+	Tue, 07 Oct 2025 05:51:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v60Mx-00000001IEa-3JDF
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 05:36:17 +0000
-Received: from drehscheibe.grey.stw.pengutronix.de ([2a0a:edc0:0:c01:1d::a2])
-	by metis.whiteo.stw.pengutronix.de with esmtps (TLS1.3:ECDHE_RSA_AES_256_GCM_SHA384:256)
-	(Exim 4.92)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1v60Mv-0002SK-Fp; Tue, 07 Oct 2025 07:36:13 +0200
-Received: from dude05.red.stw.pengutronix.de ([2a0a:edc0:0:1101:1d::54])
-	by drehscheibe.grey.stw.pengutronix.de with esmtps  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.96)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1v60Mu-002Li7-11;
-	Tue, 07 Oct 2025 07:36:12 +0200
-Received: from localhost ([::1] helo=dude05.red.stw.pengutronix.de)
-	by dude05.red.stw.pengutronix.de with esmtp (Exim 4.98.2)
-	(envelope-from <a.fatoum@pengutronix.de>)
-	id 1v60Mu-0000000C6Jh-12wQ;
-	Tue, 07 Oct 2025 07:36:12 +0200
-From: Ahmad Fatoum <a.fatoum@pengutronix.de>
-Date: Tue, 07 Oct 2025 07:36:02 +0200
-Subject: [PATCH] ARM: dts: stm32: lxa: drop unnecessary vusb_d/a-supply
+	id 1v60bk-00000001JBY-2X4Z;
+	Tue, 07 Oct 2025 05:51:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 0E8D061215;
+	Tue,  7 Oct 2025 05:51:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 384EAC4CEF1;
+	Tue,  7 Oct 2025 05:51:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=linuxfoundation.org;
+	s=korg; t=1759816289;
+	bh=LPQQPlIwuR2+Qcdx0QIWLHqlQNGepDAbb03LkBRGWUE=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=JAJlWI1h8cZeELmkitk9Hz2GVuULYk1cHI3gCRt/ZfSKrGohI+U9rVFP8ZXwFrSa9
+	 DW/iLS9KT0KU+6L0wk+LFrZMaDdcd0RIeAbBO49gFGrHqZu2RNnBuGI2/+9phU+GhB
+	 Y9c1+pAR4MLaUzmZetibux383gBX/aA7BoudcwkM=
+Date: Tue, 7 Oct 2025 07:51:27 +0200
+From: Greg Kroah-Hartman <gregkh@linuxfoundation.org>
+To: Roy Luo <royluo@google.com>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Joy Chakraborty <joychakr@google.com>,
+	Naveen Kumar <mnkumar@google.com>, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org
+Subject: Re: [PATCH v1 3/4] usb: dwc3: Add Google SoC USB PHY driver
+Message-ID: <2025100735-gulf-error-2ce2@gregkh>
+References: <20251006232125.1833979-1-royluo@google.com>
+ <20251006232125.1833979-4-royluo@google.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251007-lxa-usb-dt-v1-1-cacde8088bb9@pengutronix.de>
-X-B4-Tracking: v=1; b=H4sIAMGm5GgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1NDAwNz3ZyKRN3S4iTdlBLd5NQkA0MLS2NLs1QzJaCGgqLUtMwKsGHRsbW
- 1AF85bcxcAAAA
-X-Change-ID: 20251007-lxa-usb-dt-ceb0189396e6
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Maxime Coquelin <mcoquelin.stm32@gmail.com>, 
- Alexandre Torgue <alexandre.torgue@foss.st.com>
-Cc: devicetree@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- kernel@pengutronix.de, Ahmad Fatoum <a.fatoum@pengutronix.de>
-X-Mailer: b4 0.14.2
-X-SA-Exim-Connect-IP: 2a0a:edc0:0:c01:1d::a2
-X-SA-Exim-Mail-From: a.fatoum@pengutronix.de
-X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
-X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_223615_884627_EFE583EE 
-X-CRM114-Status: GOOD (  12.48  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251006232125.1833979-4-royluo@google.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,65 +78,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The LXA device trees are the only STM32MP1 device tree that specify
-vusb_d/usb_a-supply and apparently not for good reason:
+On Mon, Oct 06, 2025 at 11:21:24PM +0000, Roy Luo wrote:
+> Support the USB PHY found on Google Tensor SoCs.
 
-- vusb_d-supply (vdd_usb) is the same as the phy-supply for usbphyc_port1
-- vusb_a-supply (reg18) is the same as vdda1v8-supply for usbphyc_port1
+That's great, but that's not what your subject line says (it says "usb:
+dwc3")
 
-and usbphyc_port1 is linked to the usbotg_hs node via the phys property.
+> This particular USB PHY supports both high-speed and super-speed
+> operations, and is paired with the SNPS DWC3 controller that's also
+> integrated on the SoCs.
+> This initial patch specifically adds functionality for high-speed.
+> 
+> Co-developed-by: Joy Chakraborty <joychakr@google.com>
+> Signed-off-by: Joy Chakraborty <joychakr@google.com>
+> Co-developed-by: Naveen Kumar <mnkumar@google.com>
+> Signed-off-by: Naveen Kumar <mnkumar@google.com>
+> Signed-off-by: Roy Luo <royluo@google.com>
+> ---
+>  drivers/phy/Kconfig                 |   1 +
+>  drivers/phy/Makefile                |   1 +
+>  drivers/phy/google/Kconfig          |  15 ++
+>  drivers/phy/google/Makefile         |   2 +
+>  drivers/phy/google/phy-google-usb.c | 286 ++++++++++++++++++++++++++++
 
-Specifying the regulators in the &usbotg_hs node is thus superfluous and
-has been even found to be harmful in one instance:
-Linux v6.10 was found to lock up every 50-125 or so reboots on the LXA
-TAC when the DWC2 driver probe enables the regulators in bulk, unless
-both properties were removed.
+And as others said, you don't need a whole new directory for one single
+.c file.
 
-This issue was so far not reproducible on v6.17 (> 500 reboots), but as
-these properties are unnecessary and different from other STM32MP1
-boards, remove them anyway.
+thanks,
 
-Signed-off-by: Ahmad Fatoum <a.fatoum@pengutronix.de>
----
- arch/arm/boot/dts/st/stm32mp153c-lxa-fairytux2.dtsi | 3 ---
- arch/arm/boot/dts/st/stm32mp15xc-lxa-tac.dtsi       | 3 ---
- 2 files changed, 6 deletions(-)
-
-diff --git a/arch/arm/boot/dts/st/stm32mp153c-lxa-fairytux2.dtsi b/arch/arm/boot/dts/st/stm32mp153c-lxa-fairytux2.dtsi
-index 9eeb9d6b5eb0ed35d4a83b743e8007f19422e2ed..7d3a6a3b5d09ea06689ebca11eda48785207aa31 100644
---- a/arch/arm/boot/dts/st/stm32mp153c-lxa-fairytux2.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp153c-lxa-fairytux2.dtsi
-@@ -374,9 +374,6 @@ &usbotg_hs {
- 	phys = <&usbphyc_port1 0>;
- 	phy-names = "usb2-phy";
- 
--	vusb_d-supply = <&vdd_usb>;
--	vusb_a-supply = <&reg18>;
--
- 	status = "okay";
- };
- 
-diff --git a/arch/arm/boot/dts/st/stm32mp15xc-lxa-tac.dtsi b/arch/arm/boot/dts/st/stm32mp15xc-lxa-tac.dtsi
-index be0c355d3105b89d4374d4f6972c7927970f06b1..9179075f2ead14a4deb45fcd2cefd60ab426a8d8 100644
---- a/arch/arm/boot/dts/st/stm32mp15xc-lxa-tac.dtsi
-+++ b/arch/arm/boot/dts/st/stm32mp15xc-lxa-tac.dtsi
-@@ -493,9 +493,6 @@ &usbotg_hs {
- 	phys = <&usbphyc_port1 0>;
- 	phy-names = "usb2-phy";
- 
--	vusb_d-supply = <&vdd_usb>;
--	vusb_a-supply = <&reg18>;
--
- 	g-rx-fifo-size = <512>;
- 	g-np-tx-fifo-size = <32>;
- 	g-tx-fifo-size = <128 128 64 16 16 16 16 16>;
-
----
-base-commit: 33f3d92bd1bee0e37d68124dd6e7df793a6af745
-change-id: 20251007-lxa-usb-dt-ceb0189396e6
-
-Best regards,
--- 
-Ahmad Fatoum <a.fatoum@pengutronix.de>
-
+greg k-h
 
