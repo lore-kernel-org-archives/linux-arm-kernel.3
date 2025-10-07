@@ -4,93 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D96CCCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 18:06:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 518BBCCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 18:07:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
-	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ch7TyWwa1EZJeBseqB4xaWFqVYs5eXriLyyqsfuTad8=; b=X9WBMV9rlWhfwX0cPN5ays8BQx
-	N87M/hzCfFMqdtSBz8KlVpP01geQEtjKD6qoYBUN4IrXVepn3p7pwETzyE1ircoeFO7xsHbxb17Pw
-	aWdEVxPmeBawyrO0Jns/wQS86N+lcvjZLpsyMBhEuxI3OzkVxArVt1v4nZrdU78ddaKfshpj/QSDz
-	G00sC53tvEs6lWopBNwJrjZ6t/+HIMFklNJ0ph7TWpU0/m5cOYJCp8LuuvoyQXjUwEVHloOhfN6M9
-	XKlNva0/WIJSj1WcssFHQkokcMgkNVr7sLz2Sd/YA/EWcXbq6n+twspQMbggCQQiLk06yHG2stdE+
-	9jrO8i2A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VOc/6DotKCEMW9Sbnc/xyg+5eFLjWqB7jFNv6VD59hc=; b=UsWGGpuDH+1fjxSmVDrCtDwCDN
+	QS9MKsBAAUjC6RgW0nrCA8EE2WXKxle8eQJJUpKB57SPJ+XIZzWXsz+AHzfZpfDERVsLUyF+Iri5s
+	ZR2aymzCBvT+3igrvWnFWMukJNIv4cJj7h+vZqipsGm1Ax25Oz6LwY1ubjxH6vHvsPKYaYpStfPOO
+	Z3cs0jbwrFYvs/4kmgPYZBTkPdpPYQlhSGQb6hrRuv/egFrgXbZwgmKZeyS3NILRt8+Efv2y7NeEe
+	33uPo3FfXlBh+nj70euoWzuy2ah47j4qR1wQq2gP98bH+zDoTH5k3JLu8dBbZczHofIqN5YnksT69
+	8iGXMByA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6C4m-00000002WuU-0DH8;
-	Tue, 07 Oct 2025 18:06:16 +0000
-Received: from mail-qk1-x72c.google.com ([2607:f8b0:4864:20::72c])
+	id 1v6C5z-00000002XCh-03hr;
+	Tue, 07 Oct 2025 18:07:31 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6C4h-00000002WtD-0PWZ
+	id 1v6C5w-00000002XCB-0rCc
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 18:06:15 +0000
-Received: by mail-qk1-x72c.google.com with SMTP id af79cd13be357-854fcb187b2so757995585a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 11:06:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1759860369; x=1760465169; darn=lists.infradead.org;
-        h=mime-version:user-agent:references:in-reply-to:date:cc:to:from
-         :subject:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=ch7TyWwa1EZJeBseqB4xaWFqVYs5eXriLyyqsfuTad8=;
-        b=E+9VOS3kfA02hqOAmJfeuppKm8mBII3fasDyr2o4AnbpfprfY46RqM4XWNZNfI2BHz
-         3tJSLXVM3AtlvLb9HuKjmdmTEraT6YvowXqkOo8VD9ito16ec1/ywrzyJd3yJZxzs7+q
-         Cd6CJrba51Z4TLAQely6rcOsE3Ne2YS0zT/6tW8iQnLJCXHJaeLsZu1sn8pgHH9Fvc3u
-         /Vw5z6IKYliV/UoSEgcvkxLBGO4Xll2Uf0Mi7M/7wQOATyGXa/CxZX/YNfcp7jS2+wpz
-         22kf6VTP6ghBpWBMNad8gx+U7Ddh3bw4VZ6FJyHDQPZctBuySGg2Pn8sG2c6o/OrgWoV
-         00kw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759860369; x=1760465169;
-        h=mime-version:user-agent:references:in-reply-to:date:cc:to:from
-         :subject:message-id:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=ch7TyWwa1EZJeBseqB4xaWFqVYs5eXriLyyqsfuTad8=;
-        b=ThAJwlzcFdqzJ6gXpVLY1uX0F5atW4f16Ec/7PYzKdoupcFJkR3BmkrKYegmbjLjgf
-         N1gLlalsLl7TfpvD1YvvRdC52UkbTYmYv2jS3KLvqD9PX+lHXxrTdQfVJnKZRbQbL825
-         FKV+KpDeFrcUPojGmWpemBOicE7l6nQHONcrwN37nfLeAA40SYz5WAJNgA+RAw5wdi29
-         Ig+qJFxTNBiKZnr9/COeF2hLw/mR0UhUmgnMWCbLg4/xnqEAXV/3wUhVlSRAhVux2+C4
-         nKWFgeTCf5VlMTkjzHPbMcnDVDCdbpnAD4r225UtA128MtZRvETfkSiMCfBMInGlf1+Y
-         eTZA==
-X-Forwarded-Encrypted: i=1; AJvYcCUBsrSrIxryQe3xCqgIOpa0XZb2RLfyBytVz1zN7zuxJqAichCFBuK0klbJ5JcEl+f0yTibsAcoipXjTdAHEs2d@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy9nWVt4S6PaCZ1UDNxdH+SedTrofyoYSODO9sDZ25TZqKSd2cj
-	eJ2HkuZkUp6Zfq4ecz8CQPqDmsoSGuLH8MyYd7qFK+sg1xPA5mw/Nn4J22xMPmiZXkiOrvoLOTb
-	nh4o2
-X-Gm-Gg: ASbGncsn9zY+rHgqkDi6vO00zS2BLBLjImvAofRvu+Mi3V1LS+4E+WsVmAb/uDRgqMR
-	e7F+N+nv7NyhEs/3AYnTQgHa6hALrKrx1fsovyI/THKBTI3lFhNBb0mlwiIuYJaYSML8hQCuHXm
-	hR3ToGntIr1Hq1uz+VP7vQGYbLyJdZkA7v/PD2PQ5xz3xr6bO45uWp4efqNg4Ys5B6e2dfucYg1
-	Z9muRjNJo+b76RRiPkmRHQxb+X9sU/rWrT7stqMlObUkJWtDylipvt30MpSIlmUMHIMvIqXFZ8R
-	4cN4eNLPG/SZXIrABvk8RgVfE4ZYTOHPu1wWbszf9sa3h+pjfCH44cZYKT3olh4b2QxVwaxEziK
-	lh9+gUW73ELSMKxFT3cuBUnovVkIL+iimcftgKbTfrKCqfq6907aAHOrH/fL6824=
-X-Google-Smtp-Source: AGHT+IEd8+PaBlkFCf4TWlgW17RetR7onOYSu6eacanLHMSo1S6DckxwyV/Bqe+3v64BuZQrTcO0Vg==
-X-Received: by 2002:a05:620a:4891:b0:860:a923:c114 with SMTP id af79cd13be357-8835088d4e8mr120315085a.26.1759860369140;
-        Tue, 07 Oct 2025 11:06:09 -0700 (PDT)
-Received: from ?IPv6:2606:6d00:17:ebd3::c41? ([2606:6d00:17:ebd3::c41])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-877796a1de6sm1488995285a.49.2025.10.07.11.06.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Oct 2025 11:06:08 -0700 (PDT)
-Message-ID: <3c62e3c837d534ef5bc21a95ec1dc408c38cb8a0.camel@ndufresne.ca>
-Subject: Re: [PATCH 00/16] media: platform: rga: Add RGA3 support
-From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Sven =?ISO-8859-1?Q?P=FCschel?= <s.pueschel@pengutronix.de>, Jacob Chen
-	 <jacob-chen@iotwrt.com>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
- Mauro Carvalho Chehab
-	 <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Rob Herring
-	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
-	 <conor+dt@kernel.org>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	devicetree@vger.kernel.org, kernel@pengutronix.de
-Date: Tue, 07 Oct 2025 14:06:06 -0400
-In-Reply-To: <20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de>
-References: <20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de>
-Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-IcsCjmyMK96ZjT/TchVY"
-User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
+	Tue, 07 Oct 2025 18:07:29 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 597I7NCX3810025;
+	Tue, 7 Oct 2025 13:07:23 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1759860443;
+	bh=VOc/6DotKCEMW9Sbnc/xyg+5eFLjWqB7jFNv6VD59hc=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=BuaE95XydtLi+HxoJuzf/NGrknvu7AU+C5os5kym5Lp1LwbTG2V4f0gkeKGS0BRMo
+	 YIy+Po1jr75jjVVVw53gDhkDHZd/XubDoXdDnXuJjCw9X4QfbCXK72Nvb1imsch19U
+	 0tMwb4Ni6TSJW4lvtyf8Wd8XjSZJFfxYuALWP8m8=
+Received: from DFLE203.ent.ti.com (dfle203.ent.ti.com [10.64.6.61])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 597I7Njr058437
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
+	Tue, 7 Oct 2025 13:07:23 -0500
+Received: from DFLE206.ent.ti.com (10.64.6.64) by DFLE203.ent.ti.com
+ (10.64.6.61) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 7 Oct
+ 2025 13:07:22 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE206.ent.ti.com
+ (10.64.6.64) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Tue, 7 Oct 2025 13:07:22 -0500
+Received: from [10.247.24.40] (lt5cd3040qtn.dhcp.ti.com [10.247.24.40])
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 597I7MrK1288932;
+	Tue, 7 Oct 2025 13:07:22 -0500
+Message-ID: <ff900ce3-ba9e-454b-ae79-0be06618616c@ti.com>
+Date: Tue, 7 Oct 2025 13:07:22 -0500
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/2] arm64: dts: ti: k3-am62d2-evm: Enable PMIC
+To: Paresh Bhagat <p-bhagat@ti.com>, <nm@ti.com>, <vigneshr@ti.com>,
+        <praneeth@ti.com>
+CC: <kristo@kernel.org>, <robh@kernel.org>, <krzk+dt@kernel.org>,
+        <conor+dt@kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+        <devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+        <khasim@ti.com>, <v-singh1@ti.com>, <afd@ti.com>, <bb@ti.com>
+References: <20250919032806.707926-1-p-bhagat@ti.com>
+ <20250919032806.707926-3-p-bhagat@ti.com>
+Content-Language: en-US
+From: Shree Ramamoorthy <s-ramamoorthy@ti.com>
+In-Reply-To: <20250919032806.707926-3-p-bhagat@ti.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_110611_410410_9EB6EA4E 
-X-CRM114-Status: GOOD (  29.29  )
+X-CRM114-CacheID: sfid-20251007_110728_381060_3C661084 
+X-CRM114-Status: GOOD (  14.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,194 +88,127 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
---=-IcsCjmyMK96ZjT/TchVY
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-
-Hi,
-
-Le mardi 07 octobre 2025 =C3=A0 10:31 +0200, Sven P=C3=BCschel a =C3=A9crit=
-=C2=A0:
-> This series adds support for the Raster Graphic Acceleration 3 (RGA3)
-> peripheral, which is included in the RK3588 SoC. Unlike the RGA2 it
-> can use the existing rockchip-iommu-v2 driver to handle iommu mappings.
-> Also the RK3588 contains two independent RGA3 cores.
-
-Thanks for working on this.
-
->=20
-> Only scaling and format conversions between common 8bit RGB/YUV formats
-> are implemented. Also the color space conversion is fixed to BT601F.
-> This already allows a practical usage of the RGA3.
-
-This seems quite limiting, can we expect an update on this, can't be that h=
-ard
-to fully implement.
-
->=20
-> This was tested on a Radxa Rock 5T. With the increased clock speeds in
-> the devicetree around 160 fps were measured when scaling and converting
-
-This is quite vague, I've checked the patch and you didn't extend either th=
-ere.
-Is that an overclock or was it miss-configured ? Does RK implement a devfre=
-q ?
-Should that be moved with a voltage adjustement ? Is there any thermal near=
-by we
-should monitor ?
-
-> from RGBA 480x360 to NV12 3840x2160. Without the clock speed scaling a
-> default clock division factor of 2 is used and only around 80 fps are
-> reached with one core. The v4l2-compliance tests only complain about
-> the already failing colorspace propagation:
-
-
-Did you do any more format testing to validation all supported combinations=
- ?
-This is a tool [0] you can use to test this using GStreamer and how to use =
-it
-[1].
-
-
-[0] https://gitlab.collabora.com/mediatek/aiot/lava-test-definitions/-/tree=
-/main/avvideocompare?ref_type=3Dheads
-[1] https://gitlab.collabora.com/mediatek/aiot/linux/-/blob/mediatek-next/.=
-gitlab-ci.yml?ref_type=3Dheads#L282
->=20
-> =C2=A0 v4l2-compliance 1.28.1, 64 bits, 64-bit time_t
-> =C2=A0 ...
-> =C2=A0=C2=A0		fail: v4l2-test-formats.cpp(923): fmt_cap.g_colorspace() !=
-=3D
-> col
-> =C2=A0=C2=A0	test VIDIOC_S_FMT: FAIL
-> =C2=A0 ...
-> =C2=A0 Total for rockchip-rga device /dev/video0: 47, Succeeded: 46, Fail=
-ed: 1,
-> Warnings: 0
->=20
-> =C2=A0 v4l2-compliance 1.28.1, 64 bits, 64-bit time_t
-> =C2=A0 ...
-> =C2=A0=C2=A0		fail: v4l2-test-formats.cpp(923): fmt_cap.g_colorspace() !=
-=3D
-> col
-> =C2=A0=C2=A0	test VIDIOC_S_FMT: FAIL
-> =C2=A0 ...
-> =C2=A0 Total for rockchip-rga device /dev/video1: 47, Succeeded: 46, Fail=
-ed: 1,
-> Warnings: 0
->=20
-> =C2=A0 v4l2-compliance 1.28.1, 64 bits, 64-bit time_t
-> =C2=A0 ...
-> =C2=A0=C2=A0		fail: v4l2-test-formats.cpp(923): fmt_cap.g_colorspace() !=
-=3D
-> col
-> =C2=A0=C2=A0	test VIDIOC_S_FMT: FAIL
-> =C2=A0 ...
-> =C2=A0 Total for rockchip-rga device /dev/video2: 47, Succeeded: 46, Fail=
-ed: 1,
-> Warnings: 0
->=20
-> Each RGA core is a separate /dev/video device. To distinguish the RGA2
-> core from the RGA3 cores the Card type is set accordingly. Combining all
-> cores into a single device and scheduling tasks to the best core might
-> be a future improvement, if it is desired by upstream to handle the
-> scheduling and selection in kernel space.
-
-It took me some time to understand why you spoke about multicore here. You
-forgot to say here that you add RGA3 into RGA2 driver. Some information on =
-why
-you went that path instead of a separate driver.
-
-=46rom high level view, I don't think its a good idea to multi-plex over
-heterogeneous core. They may not even produce the exact same pixels for the=
- same
-operation. They also don't share the same MMU, and at first glance, the use=
- of
-rkiommu in RGA3 means it can no longer handle CPU cache (though I don't kno=
-w if
-this is implemented/supported in upstream RGA2 driver).
-
->=20
-> Patch 1-2 are general cleanups
-> Patch 3-12 prepare the rga driver for the RGA3
-> Patch 13 documments the RGA3 compatible value
-> Patch 14 adds the RGA3 cores to the rk3588 dtsi
-> Patch 15 increases the RGA3 core clock speeds
-> Patch 16 adds RGA3 support to the rga driver
->=20
-> Signed-off-by: Sven P=C3=BCschel <s.pueschel@pengutronix.de>
+On 9/18/2025 10:28 PM, Paresh Bhagat wrote:
+> Add support for TPS65224 PMIC family on wakeup I2C0 bus. This 
+> device provides regulators (bucks and LDOs), along with GPIOs, 
+> and monitors SOC's MCU error signal.
+>
+> Signed-off-by: Paresh Bhagat <p-bhagat@ti.com>
 > ---
-> Sven P=C3=BCschel (16):
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: rockchip: rga: use clk_bulk api
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: rockchip: rga: use stride for offse=
-t calculation
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: rockchip: rga: align stride to 16 b=
-ytes
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: rockchip: rga: move hw specific par=
-ts to a dedicated struct
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: rockchip: rga: use card type to spe=
-cify rga type
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: rockchip: rga: change offset to dma=
-_addresses
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: rockchip: rga: support external iom=
-mus
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: rockchip: rga: remove size from rga=
-_frame
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: rockchip: rga: remove stride from r=
-ga_frame
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: rockchip: rga: move rga_fmt to rga-=
-hw.h
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: rockchip: rga: add iommu restore fu=
-nction
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: rockchip: rga: handle error interru=
-pt
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: dt-bindings: media: rockchip-rga: a=
-dd rockchip,rk3588-rga3
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 arm64: dts: rockchip: add rga3 dt nodes
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 arm64: dts: rockchip: increase rga3 clock =
-speed
-> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: rockchip: rga: add rga3 support
->=20
-> =C2=A0.../devicetree/bindings/media/rockchip-rga.yaml=C2=A0=C2=A0=C2=A0 |=
-=C2=A0=C2=A0 1 +
-> =C2=A0arch/arm64/boot/dts/rockchip/rk3588-base.dtsi=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0 50 +++
-> =C2=A0drivers/media/platform/rockchip/rga/Makefile=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 2 +-
-> =C2=A0drivers/media/platform/rockchip/rga/rga-buf.c=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 |=C2=A0 78 ++--
-> =C2=A0drivers/media/platform/rockchip/rga/rga-hw.c=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 | 356 ++++++++++++---
-> =C2=A0drivers/media/platform/rockchip/rga/rga-hw.h=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0 |=C2=A0 15 +-
-> =C2=A0drivers/media/platform/rockchip/rga/rga.c=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 404 ++++++-----------
-> =C2=A0drivers/media/platform/rockchip/rga/rga.h=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 74 ++--
-> =C2=A0drivers/media/platform/rockchip/rga/rga3-hw.c=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 | 490
-> +++++++++++++++++++++
-> =C2=A0drivers/media/platform/rockchip/rga/rga3-hw.h=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0 | 186 ++++++++
-> =C2=A010 files changed, 1246 insertions(+), 410 deletions(-)
-> ---
-> base-commit: afb100a5ea7a13d7e6937dcd3b36b19dc6cc9328
-> change-id: 20251001-spu-rga3-8a00e018b120
->=20
-> Best regards,
+>  arch/arm64/boot/dts/ti/k3-am62d2-evm.dts | 91 ++++++++++++++++++++++++
+>  1 file changed, 91 insertions(+)
+>
+> diff --git a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+> index 9a74df221f2a..155abd97b799 100644
+> --- a/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+> +++ b/arch/arm64/boot/dts/ti/k3-am62d2-evm.dts
+> @@ -214,6 +214,14 @@ AM62DX_MCU_IOPAD(0x0030, PIN_OUTPUT, 0) /* (C8) WKUP_UART0_RTSn */
+>  		>;
+>  		bootph-all;
+>  	};
+> +
+> +	wkup_i2c0_pins_default: wkup-i2c0-default-pins {
+> +		pinctrl-single,pins = <
+> +			AM62DX_MCU_IOPAD(0x004c, PIN_INPUT, 0) /* (D13) WKUP_I2C0_SCL */
+> +			AM62DX_MCU_IOPAD(0x0050, PIN_INPUT, 0) /* (E13) WKUP_I2C0_SDA */
+> +		>;
+> +		bootph-all;
+> +	};
+>  };
+>  
+>  /* WKUP UART0 is used for DM firmware logs */
+> @@ -464,6 +472,89 @@ &main_i2c2 {
+>  	status = "okay";
+>  };
+>  
+> +&wkup_i2c0 {
+> +	pinctrl-names = "default";
+> +	pinctrl-0 = <&wkup_i2c0_pins_default>;
+> +	clock-frequency = <400000>;
+> +	status = "okay";
+> +
+> +	tps65224: pmic@48 {
+> +		compatible = "ti,tps65224-q1";
+> +		reg = <0x48>;
+> +		pinctrl-names = "default";
+> +		pinctrl-0 = <&pmic_irq_pins_default>;
+> +		interrupt-parent = <&main_gpio1>;
+> +		interrupts = <31 IRQ_TYPE_EDGE_FALLING>;
+> +		ti,primary-pmic;
+> +
+> +		gpio-controller;
+> +		#gpio-cells = <2>;
+> +
+> +		buck12-supply = <&vcc_3v3_sys>;
+> +		buck3-supply = <&vcc_3v3_sys>;
+> +		buck4-supply = <&vcc_3v3_sys>;
+> +		ldo1-supply = <&vcc_3v3_sys>;
+> +		ldo2-supply = <&vcc_3v3_sys>;
+> +		ldo3-supply = <&vcc_3v3_sys>;
+> +
+> +		regulators {
+> +			buck12: buck12 {
+> +				regulator-name = "vdd_core";
+> +				regulator-min-microvolt = <850000>;
+> +				regulator-max-microvolt = <850000>;
+> +				regulator-boot-on;
+> +				regulator-always-on;
+> +				bootph-all;
+> +			};
+> +
+> +			buck3: buck3 {
+> +				regulator-name = "dvdd1v8";
+> +				regulator-min-microvolt = <1800000>;
+> +				regulator-max-microvolt = <1800000>;
+> +				regulator-boot-on;
+> +				regulator-always-on;
+> +				bootph-all;
+> +			};
+> +
+> +			buck4: buck4 {
+> +				regulator-name = "vdds_ddr";
+> +				regulator-min-microvolt = <1100000>;
+> +				regulator-max-microvolt = <1100000>;
+> +				regulator-boot-on;
+> +				regulator-always-on;
+> +				bootph-all;
+> +			};
+> +
+> +			ldo1: ldo1 {
+> +				regulator-name = "vdda_1v8";
+> +				regulator-min-microvolt = <1800000>;
+> +				regulator-max-microvolt = <1800000>;
+> +				regulator-boot-on;
+> +				regulator-always-on;
+> +				bootph-all;
+> +			};
+> +
+> +			ldo2: ldo2 {
+> +				regulator-name = "dvdd3v3";
+> +				regulator-min-microvolt = <3300000>;
+> +				regulator-max-microvolt = <3300000>;
+> +				regulator-boot-on;
+> +				regulator-always-on;
+> +				bootph-all;
+> +			};
+> +
+> +			ldo3: ldo3 {
+> +				regulator-name = "vddr_core";
+> +				regulator-min-microvolt = <850000>;
+> +				regulator-max-microvolt = <850000>;
+> +				regulator-boot-on;
+> +				regulator-always-on;
+> +				bootph-all;
+> +			};
+> +		};
+> +	};
+> +};
+> +
 
---=-IcsCjmyMK96ZjT/TchVY
-Content-Type: application/pgp-signature; name="signature.asc"
-Content-Description: This is a digitally signed message part
+The PMIC node looks correct based on tps6594.yaml + test log regulator summary.
+Reviewed-by: Shree Ramamoorthy <s-ramamoorthy@ti.com>
 
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaOVWjgAKCRDZQZRRKWBy
-9MYwAQDAFCIsXy2vnCz1b/y+9mKp3XI/R9oRTPcTXia35pLGywD/SLpU/azQOYuj
-Eq4VTAEBMAbKxVFBtmRPL+5Gb/F4cAg=
-=pSPZ
------END PGP SIGNATURE-----
-
---=-IcsCjmyMK96ZjT/TchVY--
+>  &sdhci0 {
+>  	/* eMMC */
+>  	non-removable;
 
