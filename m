@@ -4,90 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10E9ECCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 21:06:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66056CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 21:11:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hDJssHW/G49N1bctBMwaYMSUbzS9ng1oTayUPFPGvKw=; b=vQEiPJtopPXeUAPIeGf72v+J5Y
-	8M7JkR1fmiJqj0M42CnCw91gCz9/yxo52/bNCeoUAAm/bblNgROQk90JGlkGMZW8UBd0YQbNLxN0h
-	ZWly3bXClEnIQ73lfy/lS18SC33FSgU7GVIw1fAmcjpu0zKWvvXhBrkvGOdN4tcOb78elFikcv+yo
-	EP7yp7AA9nWp3zbr74U/xyGw5ygzvo1vMvvOoxH1eR7fHfSpCdj2d/wwXNHF1oLKO/X4DCvjHjiCH
-	kVd7TeQ3AJyG7aN02Qn2WHvc3cOsGMZEos6Nqf8WVHvsVd+65GOO0jRA+P47goGuZsad865jqT+Fr
-	onsrJGEQ==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=1Yf9bQ86CY94L4VUItHhrop26PnQXUpjnSRZHnRMXkc=; b=syjuz8t5DSGr/YvTDT7Vv9LCLj
+	kBV+7l/G51FpMEzVXhnoRu+/PQBKL0Pw9Br3fFuYrtX6GPsb6uP1hrRvqdwjwTEnLQ2+cTmgC4y4E
+	bDETTcUKOXg5pQ2CTi/+NvT8ETBxuIhZMsjgiCcbs3h79G3/TOym6PVLDjcY2d6auSGcBKSn0Mv9L
+	/cgfBY90f2QSS6z2xch+8jstuqp5/s5YNmWkn/sR0MPs7Lc+AG0ofSdLtoFzSZa3nt9N8LZKRZWEO
+	IeXKJ9Q74IbnblvG7hcB5FxfO2wIepLkxMQDU+MYUAbMg1tl9sLA7oeV/mZtCXLIkuSRbaxsQe/kL
+	4BJDU9sQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6Esv-00000002nAq-20dl;
-	Tue, 07 Oct 2025 21:06:13 +0000
-Received: from mail-il1-x136.google.com ([2607:f8b0:4864:20::136])
+	id 1v6Ext-00000002nPO-0oCQ;
+	Tue, 07 Oct 2025 21:11:21 +0000
+Received: from mail-il1-x164.google.com ([2607:f8b0:4864:20::164])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6Est-00000002nAV-23BT
+	id 1v6Exq-00000002nOk-0XCZ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 21:06:12 +0000
-Received: by mail-il1-x136.google.com with SMTP id e9e14a558f8ab-42f68a0a89aso1587545ab.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 14:06:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linuxfoundation.org; s=google; t=1759871170; x=1760475970; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=hDJssHW/G49N1bctBMwaYMSUbzS9ng1oTayUPFPGvKw=;
-        b=GxwSEJXruyDra13y55KYrR3zrejZNfJfgj75ep2TdadMwKtHw01KhEFKtq0q2HNzHV
-         hi/QNjwpXBIR0fJ121L2r2XrXpFC7Zg5pOpiHyfe9UMg6XNgz5d2j4Z+afSK4UGyEgMr
-         fLuiF/7KzeRyhdzAm0IIYDyxH/gysPEZ43fIE=
+	Tue, 07 Oct 2025 21:11:19 +0000
+Received: by mail-il1-x164.google.com with SMTP id e9e14a558f8ab-4291359714eso58869945ab.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 14:11:17 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759871170; x=1760475970;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=hDJssHW/G49N1bctBMwaYMSUbzS9ng1oTayUPFPGvKw=;
-        b=KIOJ+DBpQHQvpPTlfqX85GWA+mfN1jejVh7knPSuMCFx/e06aNr3etqBCKEUN9eD4C
-         o8pygaDO3K4RwFR4qeD3MpcZsYEwRhywaG1rZ7hYTNLYt0f1lpjVWrBBca9ZyC/unIEP
-         FRf49aEy9s0YWf9OUZINscThIj4FwPBafrY0F6OXvl8U30yzmAYVPrXTSrTMKKbfZn4r
-         8zyDTzRifvsuEKKYxc/nD4Q+ZVMvx804xrMhfFgkST68bShOGVmEwMRI5bFx7J74tWQt
-         OA/jsUT247O8Xe4BI2vFGsSNxc8W6gNCmZqe/CJ+cPYlTiUbj37m8FR9zPIH9QGj9XnT
-         FyqA==
-X-Forwarded-Encrypted: i=1; AJvYcCVTmKekZrH/JiUCPA6yerf0btd8CagErTrl0P+fssSUiwIvjxnXdEdP31GmOJzNGjcZV/jl7EppQqUN+NGXvqLY@lists.infradead.org
-X-Gm-Message-State: AOJu0YxFYycVySBSTzzevE3WEqpxU6AO1IcGKX7J+tXDKHCVtv/9mFM+
-	7/6Sfn9TPEEuxwvTFux4Lq6VWl+e0sjswX5GoOuTUg7t+1sHgncVQAEYlOh0cCTdsoE=
-X-Gm-Gg: ASbGncuqJ8CuojWcD0ewzHThZRtfrfgl0pLzaT4ATNWYHD9RQTqO/iBfgVFDBTdAfb/
-	ZhTL7mqXQPGxsVo0CKAwPgURvDu6Y55Vym/fngNsWAcHBbBmaLrj4fpiPV4p6bBnrTv560BIBjB
-	OFzo1pB4zF0C6yrk/M4/QMEJl0hshQhBY1ejV+Jj4odZQCVbRsYAvHNJ/WSmOq/k+vo+Fb8aqSv
-	u/4E0xqVDV16+8ON3Rf6KEVwZd2ptOR0T1aIAnwG+KB1Z6xmn9BRaRS3DWOtm1vjB4/suNRtLnK
-	xZ7rT3sI5bbY0aM/EFDLsbwWcV9oNzTc95pmsZBJMEKLThwYgkVyp3U2LBdwAo5Akvh2GCd+WN5
-	zSFttNBC3MvtB/u0oS7TBn9vJLriCZRsgpY9kBFrwsoxQOjwH2eWEF8I9uhaXbCIZbjfBow==
-X-Google-Smtp-Source: AGHT+IHJS9tRfCPlCMJwh844fS5buPRYb19l+/WQy1lMrZF9u3+w3MuGpV9DibTiaEiM0xpOHSxg7g==
-X-Received: by 2002:a05:6e02:17cb:b0:425:8134:bcaa with SMTP id e9e14a558f8ab-42f7c2d49a8mr65232375ab.0.1759871169924;
-        Tue, 07 Oct 2025 14:06:09 -0700 (PDT)
-Received: from [192.168.1.14] ([38.175.187.108])
-        by smtp.gmail.com with ESMTPSA id e9e14a558f8ab-42e8a0bb405sm55081635ab.12.2025.10.07.14.06.08
+        d=1e100.net; s=20230601; t=1759871477; x=1760476277;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:to:subject:user-agent:mime-version:date
+         :message-id:dkim-signature:x-gm-message-state:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=1Yf9bQ86CY94L4VUItHhrop26PnQXUpjnSRZHnRMXkc=;
+        b=cB54y8/iorymsBpWZ3Pnlam47iMaQtQbNJlbCod6YwzjG51bIAA6EO6mwXf0QkWh6u
+         PboF0t/YVxCtEfOnVkYacJy/oy/KKu9Noe9K1kzylwNqqD4z6NzBbYkelNxVH5Z0w8Fp
+         kDveUWSrNSMQhfwOYCQcKrbk5gNF4Xi1GlL4Je1KINmXafHnX9PhEzlGWc+Fxm9fuXGM
+         2IUwjXkTjMF8ep0LgErwrtIQJVJe5Ftm/mIReIKRPkz7R35e22B7IuPmeRBFVX8EOW+M
+         c3OfROkPpTgKBGtzIzdq07QsgibstNzarhbNOB1S2SJjgkgCp5Oll1w05OExe/3iXY+F
+         rzvg==
+X-Forwarded-Encrypted: i=1; AJvYcCUe9nBaxV81HzUojSkdr6gFJBYUiT/v1nxM5Sw2VJA3T2i8q8oMr8/+ur0/YZWdsllOiOFrTkNfMHeOdfQU3Go0@lists.infradead.org
+X-Gm-Message-State: AOJu0YyyDFciamZ26OV/hOzHJ1DtmmbPLgyTzMyfwjccHkpVk0MxCzmJ
+	rs6wmyIUdw1aCx6L9+oZ3IMY0nhnqjT6irmtD8USKW2oXi1P557s5Kdc1EyPCswjDzoANkSoL+c
+	rl1RsQUV0y+LaN6+bD7BGWq+OUGzP19Ny3KEJqihXc3aRJcS5+AFScn0Ljru7aH6LyO/O3MjwJT
+	AYwjzGHwKz7RTw/uHnJK5I4AL3ujAyBvtSfDk6804uFeDTn3LtxGtJm1ctdcS41kVca1WrJ64BV
+	3je2TudfvRDgJ418yRJOH6/4mlvhWMjZ4E=
+X-Gm-Gg: ASbGncuI3DAUe0y63isRA+kQ+LEycMhaBxXXyhcMXJdrAW4WvSKKmQrjbkIIKqlz+Gt
+	Ye4LRfEuwKSQN/ul3tElZVhpb3cGN8QHK1eQYUa+hsiNjUn383Tjx8w1UEAiuY+mzS6izqNJrEk
+	7lpV5E6z33IXumNvOyc3BgqA9OecnYm1kgzE7YzRB7pKNtqhRFyzAA7Wu3NMvyUjuA9eXbdQF2u
+	ZwXtEyMqn2mqblJLyrjjZtcpWDbjOUnhRTepdSRtM4LW5+mU2mnxWzzaywI6LWccQtiIHXOKxyZ
+	D3ZlBeiDbUbN8yj6AbwG9aRG7uXyHCkoddBB+Ls3xaM9tccRxEhube1uRxSr+XjkzQ3czWRPp8N
+	IpT6fZGke34SAq2UwzzZSmlQFOUNqElbE7jCM9rOpI5mEaUK59pfHtQ2zQnrRRziRIaX6I2P8lD
+	RkZ8syEFrFhX7d
+X-Google-Smtp-Source: AGHT+IHGXG7o+6iLdinyxRVeLNBe1M3k+kX1DZTurL5FIhXjCV9g8I8K7RQjjvaZhqnyTvV3l8BbFsnuPi5M
+X-Received: by 2002:a92:c24b:0:b0:42b:2a51:f50a with SMTP id e9e14a558f8ab-42f87410341mr8780625ab.31.1759871476528;
+        Tue, 07 Oct 2025 14:11:16 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-118.dlp.protect.broadcom.com. [144.49.247.118])
+        by smtp-relay.gmail.com with ESMTPS id e9e14a558f8ab-42d8b1fc07fsm13583975ab.7.2025.10.07.14.11.16
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 07 Oct 2025 14:11:16 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-pl1-f197.google.com with SMTP id d9443c01a7336-272b7bdf41fso76637745ad.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 14:11:15 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1759871475; x=1760476275; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:to:subject:user-agent:mime-version:date
+         :message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=1Yf9bQ86CY94L4VUItHhrop26PnQXUpjnSRZHnRMXkc=;
+        b=Z4EMNIA/iVV5QQmloeKJn9fn6ajL3n2Teeo6pU3GAn7L6vLPPZr6uDSmDOnr9eK9+R
+         wpXJKZOvnEsaU259nVVUPmzvaEa/ScFWKWoGKJZ+tD1YAfbenJ0xvs+Aej65zDSudn8O
+         CdIN1tPG5Q9SEM2IOCr2AIKSYwmT0Co/2bGVE=
+X-Forwarded-Encrypted: i=1; AJvYcCUxFjAWSS+ClqB9OIPgBpNftxgE4cXJXuMj8In9it6KE845feYJi4/JiJH1oYhPcW4MZ4Gmkw0/ZO5IZHYZO5Na@lists.infradead.org
+X-Received: by 2002:a17:903:3c4f:b0:25c:5bda:53a8 with SMTP id d9443c01a7336-290272b5529mr13211445ad.37.1759871475140;
+        Tue, 07 Oct 2025 14:11:15 -0700 (PDT)
+X-Received: by 2002:a17:903:3c4f:b0:25c:5bda:53a8 with SMTP id d9443c01a7336-290272b5529mr13211165ad.37.1759871474709;
+        Tue, 07 Oct 2025 14:11:14 -0700 (PDT)
+Received: from [192.168.1.3] (ip68-4-215-93.oc.oc.cox.net. [68.4.215.93])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-28e8d135d71sm175727765ad.58.2025.10.07.14.11.10
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 07 Oct 2025 14:06:09 -0700 (PDT)
-Message-ID: <c87d45dc-d545-4359-9e2f-11e43a45859f@linuxfoundation.org>
-Date: Tue, 7 Oct 2025 15:06:08 -0600
+        Tue, 07 Oct 2025 14:11:12 -0700 (PDT)
+Message-ID: <37220187-7369-4b20-8e00-0846ee0ee6fd@broadcom.com>
+Date: Tue, 7 Oct 2025 14:11:10 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RESEND] clk: at91: sam9x7: Use kmalloc_array() instead of
- kmalloc()
-To: Sidharth Seela <sidharthseela@gmail.com>, mturquette@baylibre.com,
- sboyd@kernel.org, nicolas.ferre@microchip.com,
- alexandre.belloni@bootlin.com, claudiu.beznea@tuxon.dev,
- varshini.rajendran@microchip.com
-Cc: linux-clk@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, david.hunter.linux@gmail.com,
- Shuah Khan <skhan@linuxfoundation.org>
-References: <20250924145552.55058-1-sidharthseela@gmail.com>
+Subject: Re: [PATCH] arm64: dts: broadcom: bcm2712: adjust display status
+To: Peter Robinson <pbrobinson@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Stefan Wahren <wahrenst@gmx.net>, Phil Elwell <phil@raspberrypi.com>,
+ Andrea della Porta <andrea.porta@suse.com>, devicetree@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <20250924085712.1040284-1-pbrobinson@gmail.com>
 Content-Language: en-US
-From: Shuah Khan <skhan@linuxfoundation.org>
-In-Reply-To: <20250924145552.55058-1-sidharthseela@gmail.com>
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <20250924085712.1040284-1-pbrobinson@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_140611_548435_EF4F40B1 
-X-CRM114-Status: GOOD (  13.92  )
+X-CRM114-CacheID: sfid-20251007_141118_218053_593B360B 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,40 +155,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 9/24/25 08:55, Sidharth Seela wrote:
-> Replace kmalloc with kmalloc array in clk/at91/sam9x7.c. Refactor to new
-> API, for cases with dynamic size calculations inside kmalloc().
+On 9/24/2025 1:57 AM, Peter Robinson wrote:
+> Typically non critical IP in a SoC are disabled by
+> default in the SoC .dtsi and enabled on board specific
+> configs. There are usecases, such as some CM5 carrier
+> boards, where display output may not be desired or
+> connected. So disable them on the SoC .dtsi and enable
+> them on the RPi5 board.
 > 
+> Signed-off-by: Peter Robinson <pbrobinson@gmail.com>
+> Cc: Dave Stevenson <dave.stevenson@raspberrypi.com>
+> Cc: Andrea della Porta <andrea.porta@suse.com>
+> Fixes: 25d77bdd7df2 ("arm64: dts: broadcom: Add display pipeline support to BCM2712")
 
-This following line doesn't belong in commit log.
+Applied to 
+https://github.com/Broadcom/stblinux/commits/devicetree-arm64/next, thanks!
+-- 
+Florian
 
-Can you add details on how you tested this patch and also how
-you found the problem to begin with.
-
-> Resend is to correct previously sent patches mailing address.
-
-
-> 
-> Signed-off-by: Sidharth Seela <sidharthseela@gmail.com>
-> ---
-> diff --git a/drivers/clk/at91/sam9x7.c b/drivers/clk/at91/sam9x7.c
-> index ffab32b047a0..0c0a746a183d 100644
-> --- a/drivers/clk/at91/sam9x7.c
-> +++ b/drivers/clk/at91/sam9x7.c
-> @@ -748,9 +748,9 @@ static void __init sam9x7_pmc_setup(struct device_node *np)
->   	if (!sam9x7_pmc)
->   		return;
->   
-> -	clk_mux_buffer = kmalloc(sizeof(void *) *
-> -				 (ARRAY_SIZE(sam9x7_gck)),
-> -				 GFP_KERNEL);
-> +	clk_mux_buffer = kmalloc_array(ARRAY_SIZE(sam9x7_gck),
-> +					sizeof(void *),
-> +					GFP_KERNEL);
->   	if (!clk_mux_buffer)
->   		goto err_free;
->   
-
-thanks,
--- Shuah
 
