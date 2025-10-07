@@ -4,95 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D80CCCCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 18:13:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3F005CCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 18:19:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
 	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8SHmDoHdQmKTfiI5PMccAlbyA1V46slp40pEW9LImx8=; b=bZp/ypppHCt6R4QVtASemCbDTU
-	vrpueesMcjFLRCtERcoCHkPCs0qMMFXBeulXIiqMO+uTluH0tJeKC5jOrbRYmyOQPlT5M2YUuepfa
-	+dlPu2rjDeb1k7kWGPQj+CxV0Aw6V4RxjxFrUyGN01wuGrWtVsNjhYXLlEgWL4b26CUuQr1EWvaeS
-	Mh20QJXYBt1+aj7K1Lt5HBHWVNHtwG6NBsdDRQNmvDYSxN3Fx3uhT7Nd+DluD56czqXc9t+I8QCRw
-	1C9eiAegKHTnGQHdzbOPXjRwtYBpczHDn2jwylwJy9FLbCX6P9af4jm3ajiGMPe52esaBGgKzLMyl
-	QAB9c2XQ==;
+	bh=ScToGLgY21W9pR03qXloVq8Erpuen1ih1N7DUB0PhsI=; b=WAs06euYq9Ar1KsPO7HUCTmSpb
+	25/UeozczXUgTvVCpNlPSVdQomiErFrMfl4PGz17DUeJmrVqj8Xc95xGgjk7YbIlPLmAkpCKABzBL
+	TC3qAnrAmgiO8R9PGA9mOArcdTKLn92w+isoRc1YF4JOw91zx31EMMo7z/psT82egL6PcY+D6qSxF
+	3nuZLndJLztabXmlwt00IEzS6xnue49tgsszc7ezkrdenZczBrzezF9bCPymybBe1xpwjOptfx7dh
+	Sk42lIGtDgneScEpTJRsMjGH/ID0t8lagqvlBMxHpa5a/KUkgnFX41CTO4Snnv5bn6QCJEa1Pt457
+	LhIlgtaA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6CBG-00000002YYy-2547;
-	Tue, 07 Oct 2025 18:12:58 +0000
-Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
+	id 1v6CHR-00000002Zcv-30Lg;
+	Tue, 07 Oct 2025 18:19:21 +0000
+Received: from mail-qk1-x72b.google.com ([2607:f8b0:4864:20::72b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6CBA-00000002YOX-0V9V
+	id 1v6CHP-00000002ZbU-0CUO
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 18:12:56 +0000
-Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-85c66a8a462so940969885a.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 11:12:51 -0700 (PDT)
+	Tue, 07 Oct 2025 18:19:20 +0000
+Received: by mail-qk1-x72b.google.com with SMTP id af79cd13be357-863fa984ef5so802748785a.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 11:19:18 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1759860770; x=1760465570; darn=lists.infradead.org;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1759861158; x=1760465958; darn=lists.infradead.org;
         h=mime-version:user-agent:references:in-reply-to:date:cc:to:from
          :subject:message-id:from:to:cc:subject:date:message-id:reply-to;
-        bh=8SHmDoHdQmKTfiI5PMccAlbyA1V46slp40pEW9LImx8=;
-        b=lkVfnqXHyX5PPXgSWaE3luVGYHYx/zEWR0Os2DIKritXG9ppgBPb9Rnc5M/lAClA2I
-         TjinoBni0SgwCRDcFTq7+lvrtlcWp6yoGSI11kZWCf916wUKjJ4Q3R8AyuFhPTlNT2s+
-         uF79n5HCKMy3Awfoh4y96vcmFbyAZ2bVlX8pWT+AYdOdL3dlvZzDZ3UtuvnPgmRPIFpO
-         oHQH9kjDyA8XDxxTw4kCJ62IYq+C10D2LlMk4Ye9UcUg7yp/X+gqn3kWzTyX1Z7pm5tH
-         QAJ9iEKFtK7HppIut83m/OhNCiptPz97tSZGZ0xG8dvtQyNEqQrLbJD1G923SxxynEN4
-         tccg==
+        bh=ScToGLgY21W9pR03qXloVq8Erpuen1ih1N7DUB0PhsI=;
+        b=NyS8u49Kt/h7Kfu9Ng6CRNV7cAsVI2QAM9r/IsvWTutmsE9BFRtw4RsUzur2LAmF6l
+         v7lBnYQsgvqOCuCfFE54pn80/oY4Fn7jtUsMUmKVVHYAYyKaUQ05lJISaj6zHTgfPszG
+         SW554SDyGayco88ObQOax2jPTmJCRnMZp3Mru9Jm3+QcxBzV/4BB3cDsRBYB72BvgZPK
+         KJ3xw79REEuM63iSokkrC/Qv5MGoZKk4Zqgy5rF+Jie9Zy4IWsdpCjyCkDZhAEj/X1B5
+         wumoVWAHoYnChCQ+lPqZlMKJH5eLyNiK9480bCiQwckuY8OyguAFaVbrN2l0dy71A3WK
+         1Q2A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759860770; x=1760465570;
+        d=1e100.net; s=20230601; t=1759861158; x=1760465958;
         h=mime-version:user-agent:references:in-reply-to:date:cc:to:from
          :subject:message-id:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=8SHmDoHdQmKTfiI5PMccAlbyA1V46slp40pEW9LImx8=;
-        b=FitapBWovrpGi0h8hgVpy//5B+S4R30T4rp3mIe/NpieFaEzCNNh4W2NkWmx+ukAI/
-         j/K1cp953qnKzlQoGD7CvWiNv7jyceL/6yfMHnx9YWW2LD9bIDwuLAmkQ+/2hyWIr+tt
-         0vKz/Xo8GYMJlWIjlNewZMleMsQOmFVfOMcM9NT1oockUbqY+AQNRu6Xtv1eyq2GMQ3r
-         Dd4gq+XYJJkEJ8oqZyiPD/fgwmbxIuoNTFy+lHN1oFZIDFCW8aX86YuRzNSLxBISpseD
-         CprGTZt5B6M3HKzaKFxIXKJsa14tTksZmTS+xBey6e/fCBj38XPSx1SzUNuOhaoDjaWy
-         MNsQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUBUWHHyragpEjeRu2r+bb+2m9X4CpTuUYp9sFWz4NweuNUKH+M9KLL+qw5p9+7ZZq+QBNv7DvU8bt3kwOQZGB8@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywu7Jb07K16dhf5aHIyI3cIqNqRAfZmySaPiPBAVotz8rbjPz1M
-	4Adv0a8+IS534iT7IebnmvOwfcEVK5PfUTE6nF0zEksXjQKt9iynlhI7dJ2j59PV+SA=
-X-Gm-Gg: ASbGncuf9YngxMPMBl3wd8cJ7p7mAiOrl0mhQ3e5LJC3bSUmDycH9vV6ZRudyejk6/T
-	fCgoT/0U9CRueWg6Fo4mS8bzdHN5XmuHWXw9wJDNY926RZ6NoAlT+DhK9aGUbNS/iVvKsf+c5F0
-	LPteyvrPZaHfnf04GA3GM138Fmacot+xED79WbUXFP2SuXBVvtkPtAvaS4P4Whp+tS1xya82vQC
-	S+qqTu+8AL8Zfc+CfRmwPcmOz76WWTHHSWYVbqa2vg8aUdUWTOeHGH/0VpCu2F51N2S4lWaM2io
-	TftO2Mnq2YTbEaqqGpnjPbm7+r2IxcF3vbGX1hmXKZOndJRv6eNr1SQiyrLVVEXqNhQ+h2CtJEk
-	sPcA/SaVhuwh9/S1qUTsLb/PjI2fWjYA29+C1EQmoq3hC0lB+LI0j
-X-Google-Smtp-Source: AGHT+IFJwiFyqdn6vHfsVW5AqTzfPU59JdPTe9jsCTVyjegINt2FetoGEQEhtGUGJnu4FO7lY33Vsw==
-X-Received: by 2002:a05:620a:1a8e:b0:878:671f:7395 with SMTP id af79cd13be357-8835410ff67mr108686985a.69.1759860770343;
-        Tue, 07 Oct 2025 11:12:50 -0700 (PDT)
+        bh=ScToGLgY21W9pR03qXloVq8Erpuen1ih1N7DUB0PhsI=;
+        b=CkBknmLAvpLoG8I7DFacbm3ls3aXhwEiIIdrIDHyGUvXse6G6hNHvMIRqo6YU1mWQ0
+         Ryo5914ELUFmi0I4spXqYsqHO7iarWsclCDmF8tzBVNpN6qtr9cSTuy5juWFofp0u7ba
+         3x5s/nQEz2BYqqDXruSvmkXASZIcIBAt6ox1YmPLbp5erM+TNqVZJdjXlo+J7aNfVl/R
+         41WdUxKGJiT5yDktOoYxjbUjXziKRyxsVRUaPKl4/GbXtJbGSPnlkZOebkX1Batl51uc
+         oOMTTtpSYfvI3zvR47MrXZh+s61Qx+9BfOxSgrn5FjpaiQ2ESfIGfrSIu17flZgLBCQn
+         v7Yw==
+X-Forwarded-Encrypted: i=1; AJvYcCV8KsgDrM0ydclBVmkaV1PSipu5wWf6EkCBO62GBeGr82FDtxeTCwPpvQHo8k3YuEKlO95ll4IiIFzIX0tKhJqy@lists.infradead.org
+X-Gm-Message-State: AOJu0Yykhd43656BPOG3Rw59FZjU0tHJk28BUj2vMYA5LOjsJM4rmCbk
+	8Mokgr9vSJCb6Jn2EMzwd/xPBGFIjIvKyQh0p6LNkRF110Du88OY8RJzowJKSTu+XSI=
+X-Gm-Gg: ASbGncv0TThUp6ux+DmD6x2PKS8bzxO+CqoBDz+bYmtUjoyXgzQiQ0wK7yPtWi7mNbS
+	GDlXjO50W12AAAzWaS5Y1PRjEcrUq2/XXb4LMA5tEdFbwgmXdrSdF+PlebZKtKOpNiZShjXXo7k
+	4+Sxw3uVCrQYcQrxKDdJM5WaYpku7V2bTYvw2b6keKhRL56k4JdobACOMnBWLa1bksQI0RAPpvW
+	iJ+7i8I7UEZB7JRMld4z6NoqyVZNUcPZoutE2nvolKBwVgdefa8lBueOF8DBbQjPgQtG/evneMq
+	BKFPKjRS2HHr4ybA7UL7KGmG5iDT/ScvtPtB4KjwuxS4qMOoJu1Y/05w+49Sqem8Pxy6EqG89qo
+	DtElRXchALsVQLNYF1jxKld5WKkdfVr1hK/qTKMbx0WphIG2kLyBL
+X-Google-Smtp-Source: AGHT+IHAN4pZjNRmmjniVTQYekbD8pM0Q+9DHCv4rh7qOTooNtWbQmwGL4IxpavnXlznH/zxFYUPUA==
+X-Received: by 2002:a05:620a:3909:b0:813:ccb9:509f with SMTP id af79cd13be357-88351de79cbmr108285785a.5.1759861157718;
+        Tue, 07 Oct 2025 11:19:17 -0700 (PDT)
 Received: from ?IPv6:2606:6d00:17:ebd3::c41? ([2606:6d00:17:ebd3::c41])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-877794b8c0esm1649064985a.45.2025.10.07.11.12.48
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-87771129491sm1649508085a.2.2025.10.07.11.19.16
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Oct 2025 11:12:49 -0700 (PDT)
-Message-ID: <dd5f934f222116a29ef5ec19a52a9b3ae7433de9.camel@ndufresne.ca>
-Subject: Re: [PATCH 13/16] media: dt-bindings: media: rockchip-rga: add
- rockchip,rk3588-rga3
+        Tue, 07 Oct 2025 11:19:16 -0700 (PDT)
+Message-ID: <db7030790063d0ebe6d254c7053e758184b9d7cc.camel@ndufresne.ca>
+Subject: Re: [PATCH 03/16] media: rockchip: rga: align stride to 16 bytes
 From: Nicolas Dufresne <nicolas@ndufresne.ca>
-To: Krzysztof Kozlowski <krzk@kernel.org>, Sven =?ISO-8859-1?Q?P=FCschel?=	
- <s.pueschel@pengutronix.de>, Jacob Chen <jacob-chen@iotwrt.com>, Ezequiel
- Garcia <ezequiel@vanguardiasur.com.ar>, Mauro Carvalho Chehab
- <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Rob Herring
- <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor Dooley
- <conor+dt@kernel.org>
+To: Sven =?ISO-8859-1?Q?P=FCschel?= <s.pueschel@pengutronix.de>, Jacob Chen
+	 <jacob-chen@iotwrt.com>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
+ Mauro Carvalho Chehab
+	 <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Rob Herring
+	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	 <conor+dt@kernel.org>
 Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
 	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
 	devicetree@vger.kernel.org, kernel@pengutronix.de
-Date: Tue, 07 Oct 2025 14:12:48 -0400
-In-Reply-To: <c4b0f1d0-cebd-4381-b2c0-20c177c0732c@kernel.org>
+Date: Tue, 07 Oct 2025 14:19:15 -0400
+In-Reply-To: <20251007-spu-rga3-v1-3-36ad85570402@pengutronix.de>
 References: <20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de>
-	 <20251007-spu-rga3-v1-13-36ad85570402@pengutronix.de>
-	 <c4b0f1d0-cebd-4381-b2c0-20c177c0732c@kernel.org>
+	 <20251007-spu-rga3-v1-3-36ad85570402@pengutronix.de>
 Content-Type: multipart/signed; micalg="pgp-sha512";
-	protocol="application/pgp-signature"; boundary="=-7gUIbCmFrGsfnm1LXQ2d"
+	protocol="application/pgp-signature"; boundary="=-xTXqAg4scDgbBruSU9ja"
 User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
 MIME-Version: 1.0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_111252_234487_3173BE59 
-X-CRM114-Status: GOOD (  19.59  )
+X-CRM114-CacheID: sfid-20251007_111919_098169_C08EBA01 
+X-CRM114-Status: GOOD (  23.41  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,74 +106,112 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---=-7gUIbCmFrGsfnm1LXQ2d
+--=-xTXqAg4scDgbBruSU9ja
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 
 Hi,
 
-Le mardi 07 octobre 2025 =C3=A0 17:38 +0900, Krzysztof Kozlowski a =C3=A9cr=
-it=C2=A0:
-> On 07/10/2025 17:32, Sven P=C3=BCschel wrote:
-> > Add a new compatible for the rk3588 Rockchip SoC, which features an
-> > RGA3, which is described in the TRM Part2.
 
-Please write something here. You can't explain why RK did this, but at leas=
-t
-explain what are the differences and additional feature. It should also be =
-super
-clear through your patchset everything you didn't support, since when readi=
-ng
-your set, it really have nothing extra implemented.
-
-> >=20
-> > Signed-off-by: Sven P=C3=BCschel <s.pueschel@pengutronix.de>
-> > ---
-> > =C2=A0Documentation/devicetree/bindings/media/rockchip-rga.yaml | 1 +
-> > =C2=A01 file changed, 1 insertion(+)
-> >=20
-> > diff --git a/Documentation/devicetree/bindings/media/rockchip-rga.yaml
-> > b/Documentation/devicetree/bindings/media/rockchip-rga.yaml
-> > index
-> > ac17cda65191be047fc61d0c806f806c6af07c7b..11e86333c56aab55d9358dc88e45e=
-7c1eb
-> > faae9e 100644
-> > --- a/Documentation/devicetree/bindings/media/rockchip-rga.yaml
-> > +++ b/Documentation/devicetree/bindings/media/rockchip-rga.yaml
-> > @@ -20,6 +20,7 @@ properties:
-> > =C2=A0=C2=A0=C2=A0=C2=A0 oneOf:
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: rockchip,rk3288-rga
-> > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: rockchip,rk3399-rga
-> > +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - const: rockchip,rk3588-rga3
+Le mardi 07 octobre 2025 =C3=A0 10:31 +0200, Sven P=C3=BCschel a =C3=A9crit=
+=C2=A0:
+> Align the stride to a multiple of 16 according to the RGA3 requirements
+> mentioned in the datasheet. This also ensures that the stride of the RGA2
+> is aligned to 4 bytes, as it needs to divide the value by 4 (one word)
+> before storing it in the register.
 >=20
-> There is already rk3588-rga, so please explain in commit msg
-> differences, including compatibility or lack thereof. I am confused why
-> there are two completely different 2D accelerators simultaneously on
-> that SoC.
+> Increasing the stride for the alignment also requires to increase the
+> sizeimage value. This is usually handled by v4l2_fill_pixfmt_mp, but
+> it doesn't allow to set a stride alignment. Therefore use the generated
+> values to calculate the total number of lines to properly update the
+> sizeimage value after the bytesperline has been aligned.
+>=20
+> Signed-off-by: Sven P=C3=BCschel <s.pueschel@pengutronix.de>
+> ---
+> =C2=A0drivers/media/platform/rockchip/rga/rga.c | 21 ++++++++++++++++++++=
++
+> =C2=A01 file changed, 21 insertions(+)
+>=20
+> diff --git a/drivers/media/platform/rockchip/rga/rga.c
+> b/drivers/media/platform/rockchip/rga/rga.c
+> index
+> 6438119a6c7aeff1e89e7aa95dcd5d2921fefa08..3cb7ce470c47e39d694e8176875a75f=
+ad271
+> 7f96 100644
+> --- a/drivers/media/platform/rockchip/rga/rga.c
+> +++ b/drivers/media/platform/rockchip/rga/rga.c
+> @@ -459,6 +459,25 @@ static int vidioc_enum_fmt(struct file *file, void *=
+priv,
+> struct v4l2_fmtdesc *f
+> =C2=A0	return 0;
+> =C2=A0}
+> =C2=A0
+> +static void align_pixfmt(struct v4l2_pix_format_mplane *pix_fmt)
+> +{
+> +	int lines;
+> +	struct v4l2_plane_pix_format *fmt;
+> +
+> +	/*
+> +	 * Align stride to 16 for the RGA3 (based on the datasheet)
+> +	 * To not dismiss the v4l2_fill_pixfmt_mp helper
+> +	 * (and manually write it again), we're approximating the new
+> sizeimage
+> +	 */
+> +	for (fmt =3D pix_fmt->plane_fmt;
+> +	=C2=A0=C2=A0=C2=A0=C2=A0 fmt < pix_fmt->plane_fmt + pix_fmt->num_planes=
+;
+> +	=C2=A0=C2=A0=C2=A0=C2=A0 fmt++) {
+> +		lines =3D DIV_ROUND_UP(fmt->sizeimage, fmt->bytesperline);
+> +		fmt->bytesperline =3D (fmt->bytesperline + 0xf) & ~0xf;
+> +		fmt->sizeimage =3D fmt->bytesperline * lines;
 
-It is quite strange hardware design, but this is really how the hardware is=
-. I
-personally don't expect an explanation from a third party. Its a mirror of =
-the
-VOP2 planes really.
+Instead of open coding this, describe this with struct v4l2_frmsize_stepwis=
+e and
+then use v4l2_apply_frmsize_constraints().
 
 Nicolas
 
->=20
-> Best regards,
-> Krzysztof
+> +	}
+> +}
+> +
+> =C2=A0static int vidioc_g_fmt(struct file *file, void *priv, struct v4l2_=
+format *f)
+> =C2=A0{
+> =C2=A0	struct v4l2_pix_format_mplane *pix_fmt =3D &f->fmt.pix_mp;
+> @@ -474,6 +493,7 @@ static int vidioc_g_fmt(struct file *file, void *priv=
+,
+> struct v4l2_format *f)
+> =C2=A0		return PTR_ERR(frm);
+> =C2=A0
+> =C2=A0	v4l2_fill_pixfmt_mp(pix_fmt, frm->fmt->fourcc, frm->width, frm-
+> >height);
+> +	align_pixfmt(pix_fmt);
+> =C2=A0
+> =C2=A0	pix_fmt->field =3D V4L2_FIELD_NONE;
+> =C2=A0	pix_fmt->colorspace =3D frm->colorspace;
+> @@ -496,6 +516,7 @@ static int vidioc_try_fmt(struct file *file, void *pr=
+iv,
+> struct v4l2_format *f)
+> =C2=A0				(u32)MIN_HEIGHT, (u32)MAX_HEIGHT);
+> =C2=A0
+> =C2=A0	v4l2_fill_pixfmt_mp(pix_fmt, fmt->fourcc, pix_fmt->width, pix_fmt-
+> >height);
+> +	align_pixfmt(pix_fmt);
+> =C2=A0	pix_fmt->field =3D V4L2_FIELD_NONE;
+> =C2=A0
+> =C2=A0	return 0;
 
---=-7gUIbCmFrGsfnm1LXQ2d
+--=-xTXqAg4scDgbBruSU9ja
 Content-Type: application/pgp-signature; name="signature.asc"
 Content-Description: This is a digitally signed message part
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaOVYIAAKCRDZQZRRKWBy
-9Go6AP9e4y2IiSL2I+67c8y9Mn1TNSV8ucapX8SFj5r6BqkeaAD/ebUK9jFL041m
-do23vyGkPpDC61NKSkX4f+0FGc9xDwc=
-=HOjH
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaOVZowAKCRDZQZRRKWBy
+9MJZAQCpWWpCOI+8uxUCGwR39EX9OFe0+a9YuMmqqvplJUrUewEA0RMUMOwAoFpB
+7n2OM0ustpDmfHr+P0+lF6Jtxzgqcwo=
+=MSnu
 -----END PGP SIGNATURE-----
 
---=-7gUIbCmFrGsfnm1LXQ2d--
+--=-xTXqAg4scDgbBruSU9ja--
 
