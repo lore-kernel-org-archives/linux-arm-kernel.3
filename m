@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE1E4CCA470
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BE962CCA476
 	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 22:14:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
@@ -12,61 +12,62 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=taWA6Z3KD+nH98ISDpDB0Js/qA9hrmRliA7l8Dl3Bbs=; b=fSbc+QZ1GslIxBkv4XsBtb8Zws
-	09LwOfrgqoDJwYVy0L15pdYJFsHbjyKlrO/mvzO5XgfkNmI9N7wBhI11UFhkPv8QLzVSLoCXmJbmt
-	vDiECr7/Gmg/dh/QJdaLICtW+1HNnlAUdRuvEE05OzCuYVl2rDoU0Q4hXhD5wkg1C2oPAaD1kSbAj
-	WUNbJv9bJlxyQoaGF9bo2XkTVKnkz/xciDBEixufmD4ajITvtChvBrKcufMXLP/o/Vtq74Kw50jBM
-	SuV7L9JR3RtXdnL89JR8VXBqrl3iZoZbd/1IjfPqJXBL3lpvGHJmUCqduBt60z+Ef+/dpx55W1GeU
-	wPaguSvA==;
+	bh=XeONchAeZ2W/BnYW50Y0JuCpKNk/eh0ylYTeKOoopl0=; b=Cddn/Q4U2I5lMTvnPJ6BaNYSxU
+	2vT2i5bmfxzEdn2XoOMCedQrPXuvEG5pVDoxRbFtzgtNLIgfLZehoXR+lN159bBynOV2WdxL7mmh1
+	N9vcqToA5Q9Uyg5krBNdt4Du1fv6x1dQiehmbLl5aRgDfpVUNJlvKf2EtYO8hVHIkV+aLBf0rbYd9
+	fb6opo6fQFDkTH9P1yc0HWvVyP2EY5HsuShroDYOIFXvTeztKHgHiiHPF1Tl9/3zgNur4FuxYTFE3
+	yp51bcmD5gikHnHgodim2B+9Wyk9qW88BaoMe8c44722XBfsb+wpYNzfwv2MKEHIozzVbGpuClvXn
+	Y0yuXa+A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6FxH-00000002qWM-3Mfd;
-	Tue, 07 Oct 2025 22:14:47 +0000
-Received: from mail-pl1-x649.google.com ([2607:f8b0:4864:20::649])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6FxF-00000002qTs-2ZQN
-	for linux-arm-kernel@lists.infradead.org;
+	id 1v6FxG-00000002qV6-25EN;
 	Tue, 07 Oct 2025 22:14:46 +0000
-Received: by mail-pl1-x649.google.com with SMTP id d9443c01a7336-28e8112143fso31353325ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 15:14:45 -0700 (PDT)
+Received: from mail-pj1-x1049.google.com ([2607:f8b0:4864:20::1049])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v6FxD-00000002qS6-2KxA
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 07 Oct 2025 22:14:44 +0000
+Received: by mail-pj1-x1049.google.com with SMTP id 98e67ed59e1d1-32ecab3865dso9738820a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 15:14:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1759875284; x=1760480084; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1759875282; x=1760480082; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=taWA6Z3KD+nH98ISDpDB0Js/qA9hrmRliA7l8Dl3Bbs=;
-        b=OBWWiULe/9xaN+ZaCGlyznbwdkSo1RtTfzwBz8K/Apf+I/ITAyO3V34laH/S6/3hFi
-         401bGtgqvQtl3Y09Oe06S/YGP/jhmETSW3oxqZy4LaTFM/fJ6aASWwlOd48ESwkM/3Iq
-         awXwhRoxDSxN7dsBwJfyWkGFDCcQaSCdyLfDR7uRDEh6q93URjtNR/9bsJZOxDKgA3qa
-         ZGVNHSahwxTHsNv76uBcvPcbvlaNrkcVorR0q9hnMI8liOGYq6h+KMw/vgQI3KWw5HnY
-         ddWVnWKnN4pA01mP0yUuB18KL2xUF5jmNkxh9dlMcUiDpvirCDYevVFsiihed9pAtwWv
-         J3nA==
+        bh=XeONchAeZ2W/BnYW50Y0JuCpKNk/eh0ylYTeKOoopl0=;
+        b=gLWDmyEnDo6NAcZMPMNKE2/ha6vMA1kyLY7X0WjWG4ZDenNcwwYeEqDY7ukMk1LQmK
+         MRvoc976hogPjrVxAPxL1q6496ZLv0JLEQh6LABgDqBQfFSrQX7fqfWMRM0Ei29X3Dwi
+         4/EOg69s1rIvk4N60x64nM8avrZsSPwLcrnk+YCHegzOfLIOzsen8bZgz04A2YlB0vM2
+         dBllgCKPZIyGeLcPmf7ErtM5sv8s2UCShZ9P5L4t4bWD/gSU3H7RQ0b5b751VyijkboF
+         8X3mWabaGvZHGQJNg9XeybgXtg0kB/i1eIQ0aRTeu8ZLuyt72yu80wtJkcvi+YONIQzi
+         nRXA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759875284; x=1760480084;
+        d=1e100.net; s=20230601; t=1759875282; x=1760480082;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=taWA6Z3KD+nH98ISDpDB0Js/qA9hrmRliA7l8Dl3Bbs=;
-        b=ry0MtVJAt3u8ayWBju5/KIsxGgPZDGmf34pXcwhMDLKOnmdL01xuXyYeMvDX5FM7vi
-         yq7ifKM0cvssfcV1LUmR6CUI6kHxaGEY2MVZMmKuM/4yEPGvTvVyy5xTZz/zlGb4qyc0
-         +MUOiG4XdUOrtkbJ5BWJD6cLFVWZSaVHhX+CKuQT8Ym5/osygfpmY8klEH2OLdM5AY8J
-         GC51e238w0tC2cM5lxJITy3lW80qJn1Fl3+XuhJgNUpNs+oDg1B/GfEhd/iOj9WMAcTR
-         MeCroU4dsUhlJikNPKB9QpRYfBRnd0yAunDZiJd+g/uiADiq4bdbcUY2W4s7SqSNhhAk
-         B4uw==
-X-Gm-Message-State: AOJu0YxWa9hP1N8o3/nzCdnrSzlynsGG5gc1WlPV3AiNc5FefUUxsu4H
-	PxIv95hUUK7Bunp4X0NhLoV8J7aYe1oTtGaPr8qQMU7UFgZUZxbaU/QI4ePnOtJR9GYB7j9ty7d
-	y3IJn5g==
-X-Google-Smtp-Source: AGHT+IG9oleyJb8iura9cqY09UwB/z7uMhOzD+raOSeu/vbFWL+mfa3tRg9JWsWtb4qRWng07qdUpuou8jY=
-X-Received: from pjbsx11.prod.google.com ([2002:a17:90b:2ccb:b0:32e:d644:b829])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:38cc:b0:32e:f1c:e778
- with SMTP id 98e67ed59e1d1-33b51105f5dmr1325599a91.3.1759875284309; Tue, 07
- Oct 2025 15:14:44 -0700 (PDT)
-Date: Tue,  7 Oct 2025 15:14:12 -0700
+        bh=XeONchAeZ2W/BnYW50Y0JuCpKNk/eh0ylYTeKOoopl0=;
+        b=I7dlAxAlmSDOT5HMdoWtWtBtTu8eQHXynyKi+OQ9MNiAj7ucwO06x9+5bHcBKK+QFS
+         pvZhkgpFEMYawMobMSb1WWCcMniGsuuMrEwHZycqg+EunY/XM3RZJMenK33AscnrQ0u5
+         4zw2OokE1HAPsYZ0P6MP2Md7e+lD79DFa9Je6Rsc7XnxSpZLnbWYkyaf5igC/CwgTG9C
+         R2xq7P3V2tWYa2ulIHdtdqIEvNe/SJ21/Zl6N9IUuu34gtQ4sQ6TQV2oyg+tZRDu6xhA
+         /wwKNa74nAVtq4fUmYt9XI3DhhX5KVa53LvlrgIryfly8xuCdTOX/bhj2rUO+UClgNvZ
+         XfFA==
+X-Gm-Message-State: AOJu0YzBWUJL4MO2Y/0ojpc+Um+vLyGq4XPvgBgjrhFY/cQJEmo5jDbB
+	Rk7wDoF+G74nGzBfflCm8Nu8fV7rvvlA2OCtChlZ99Z7vvE1y4GsQCUfrA9MBhFn4S+ycqkcVZE
+	rq/KMcA==
+X-Google-Smtp-Source: AGHT+IE2+221EmFwqFBWMvoQR4yGg9P25ItxnENkIb2SOi1cibrAfb57GoNKRhcdEePQSic/GlYtZWJds1k=
+X-Received: from pjwo13.prod.google.com ([2002:a17:90a:d24d:b0:32b:35fb:187f])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:3d87:b0:32e:d011:ea1c
+ with SMTP id 98e67ed59e1d1-33b51112272mr1450486a91.15.1759875282455; Tue, 07
+ Oct 2025 15:14:42 -0700 (PDT)
+Date: Tue,  7 Oct 2025 15:14:11 -0700
 In-Reply-To: <20251007221420.344669-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20251007221420.344669-1-seanjc@google.com>
 X-Mailer: git-send-email 2.51.0.710.ga91ca5db03-goog
-Message-ID: <20251007221420.344669-5-seanjc@google.com>
-Subject: [PATCH v12 04/12] KVM: guest_memfd: Add slab-allocated inode cache
+Message-ID: <20251007221420.344669-4-seanjc@google.com>
+Subject: [PATCH v12 03/12] KVM: guest_memfd: Use guest mem inodes instead of
+ anonymous inodes
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Paolo Bonzini <pbonzini@redhat.com>, Sean Christopherson <seanjc@google.com>
@@ -77,8 +78,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Ashish Kalra <ashish.kalra@amd.com>, Vlastimil Babka <vbabka@suse.cz>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_151445_657357_653CA6BE 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20251007_151443_612646_74E35FA8 
+X-CRM114-Status: GOOD (  20.64  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,139 +95,251 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Shivank Garg <shivankg@amd.com>
+From: Ackerley Tng <ackerleytng@google.com>
 
-Add a dedicated gmem_inode structure and a slab-allocateda inode cache for
-guest memory backing, similar to how shmem handles inodes.
+guest_memfd's inode represents memory the guest_memfd is
+providing. guest_memfd's file represents a struct kvm's view of that
+memory.
 
-This adds the necessary allocation/destruction functions and prepares
-for upcoming guest_memfd NUMA policy support changes.  Using a dedicated
-structure will also allow for additional cleanups, e.g. to track flags in
-gmem_inode instead of i_private.
+Using a custom inode allows customization of the inode teardown
+process via callbacks. For example, ->evict_inode() allows
+customization of the truncation process on file close, and
+->destroy_inode() and ->free_inode() allow customization of the inode
+freeing process.
 
+Customizing the truncation process allows flexibility in management of
+guest_memfd memory and customization of the inode freeing process
+allows proper cleanup of memory metadata stored on the inode.
+
+Memory metadata is more appropriately stored on the inode (as opposed
+to the file), since the metadata is for the memory and is not unique
+to a specific binding and struct kvm.
+
+Acked-by: David Hildenbrand <david@redhat.com>
+Co-developed-by: Fuad Tabba <tabba@google.com>
+Signed-off-by: Fuad Tabba <tabba@google.com>
+Signed-off-by: Ackerley Tng <ackerleytng@google.com>
 Signed-off-by: Shivank Garg <shivankg@amd.com>
 Tested-by: Ashish Kalra <ashish.kalra@amd.com>
-[sean: s/kvm_gmem_inode_info/gmem_inode, name init_once()]
+[sean: drop helpers, open code logic in __kvm_gmem_create()]
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- virt/kvm/guest_memfd.c | 77 +++++++++++++++++++++++++++++++++++++++++-
- 1 file changed, 76 insertions(+), 1 deletion(-)
+ include/uapi/linux/magic.h |  1 +
+ virt/kvm/guest_memfd.c     | 82 +++++++++++++++++++++++++++++++-------
+ virt/kvm/kvm_main.c        |  7 +++-
+ virt/kvm/kvm_mm.h          |  9 +++--
+ 4 files changed, 80 insertions(+), 19 deletions(-)
 
+diff --git a/include/uapi/linux/magic.h b/include/uapi/linux/magic.h
+index bb575f3ab45e..638ca21b7a90 100644
+--- a/include/uapi/linux/magic.h
++++ b/include/uapi/linux/magic.h
+@@ -103,5 +103,6 @@
+ #define DEVMEM_MAGIC		0x454d444d	/* "DMEM" */
+ #define SECRETMEM_MAGIC		0x5345434d	/* "SECM" */
+ #define PID_FS_MAGIC		0x50494446	/* "PIDF" */
++#define GUEST_MEMFD_MAGIC	0x474d454d	/* "GMEM" */
+ 
+ #endif /* __LINUX_MAGIC_H__ */
 diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c
-index 2a580b2bdc9d..cc3b25155726 100644
+index 9b9e239b3073..2a580b2bdc9d 100644
 --- a/virt/kvm/guest_memfd.c
 +++ b/virt/kvm/guest_memfd.c
-@@ -26,6 +26,15 @@ struct gmem_file {
- 	struct list_head entry;
+@@ -1,12 +1,16 @@
+ // SPDX-License-Identifier: GPL-2.0
++#include <linux/anon_inodes.h>
+ #include <linux/backing-dev.h>
+ #include <linux/falloc.h>
++#include <linux/fs.h>
+ #include <linux/kvm_host.h>
++#include <linux/pseudo_fs.h>
+ #include <linux/pagemap.h>
+-#include <linux/anon_inodes.h>
+ 
+ #include "kvm_mm.h"
+ 
++static struct vfsmount *kvm_gmem_mnt;
++
+ /*
+  * A guest_memfd instance can be associated multiple VMs, each with its own
+  * "view" of the underlying physical memory.
+@@ -426,11 +430,6 @@ static struct file_operations kvm_gmem_fops = {
+ 	.fallocate	= kvm_gmem_fallocate,
  };
  
-+struct gmem_inode {
-+	struct inode vfs_inode;
-+};
-+
-+static __always_inline struct gmem_inode *GMEM_I(struct inode *inode)
-+{
-+	return container_of(inode, struct gmem_inode, vfs_inode);
-+}
-+
- #define kvm_gmem_for_each_file(f, mapping) \
- 	list_for_each_entry(f, &(mapping)->i_private_list, entry)
+-void kvm_gmem_init(struct module *module)
+-{
+-	kvm_gmem_fops.owner = module;
+-}
+-
+ static int kvm_gmem_migrate_folio(struct address_space *mapping,
+ 				  struct folio *dst, struct folio *src,
+ 				  enum migrate_mode mode)
+@@ -502,7 +501,7 @@ bool __weak kvm_arch_supports_gmem_init_shared(struct kvm *kvm)
  
-@@ -833,13 +842,61 @@ long kvm_gmem_populate(struct kvm *kvm, gfn_t start_gfn, void __user *src, long
+ static int __kvm_gmem_create(struct kvm *kvm, loff_t size, u64 flags)
+ {
+-	const char *anon_name = "[kvm-gmem]";
++	static const char *name = "[kvm-gmem]";
+ 	struct gmem_file *f;
+ 	struct inode *inode;
+ 	struct file *file;
+@@ -518,16 +517,17 @@ static int __kvm_gmem_create(struct kvm *kvm, loff_t size, u64 flags)
+ 		goto err_fd;
+ 	}
+ 
+-	file = anon_inode_create_getfile(anon_name, &kvm_gmem_fops, f, O_RDWR, NULL);
+-	if (IS_ERR(file)) {
+-		err = PTR_ERR(file);
++	/* __fput() will take care of fops_put(). */
++	if (!fops_get(&kvm_gmem_fops)) {
++		err = -ENOENT;
+ 		goto err_gmem;
+ 	}
+ 
+-	file->f_flags |= O_LARGEFILE;
+-
+-	inode = file->f_inode;
+-	WARN_ON(file->f_mapping != inode->i_mapping);
++	inode = anon_inode_make_secure_inode(kvm_gmem_mnt->mnt_sb, name, NULL);
++	if (IS_ERR(inode)) {
++		err = PTR_ERR(inode);
++		goto err_fops;
++	}
+ 
+ 	inode->i_private = (void *)(unsigned long)flags;
+ 	inode->i_op = &kvm_gmem_iops;
+@@ -539,6 +539,15 @@ static int __kvm_gmem_create(struct kvm *kvm, loff_t size, u64 flags)
+ 	/* Unmovable mappings are supposed to be marked unevictable as well. */
+ 	WARN_ON_ONCE(!mapping_unevictable(inode->i_mapping));
+ 
++	file = alloc_file_pseudo(inode, kvm_gmem_mnt, name, O_RDWR, &kvm_gmem_fops);
++	if (IS_ERR(file)) {
++		err = PTR_ERR(file);
++		goto err_inode;
++	}
++
++	file->f_flags |= O_LARGEFILE;
++	file->private_data = f;
++
+ 	kvm_get_kvm(kvm);
+ 	f->kvm = kvm;
+ 	xa_init(&f->bindings);
+@@ -547,6 +556,10 @@ static int __kvm_gmem_create(struct kvm *kvm, loff_t size, u64 flags)
+ 	fd_install(fd, file);
+ 	return fd;
+ 
++err_inode:
++	iput(inode);
++err_fops:
++	fops_put(&kvm_gmem_fops);
+ err_gmem:
+ 	kfree(f);
+ err_fd:
+@@ -819,3 +832,44 @@ long kvm_gmem_populate(struct kvm *kvm, gfn_t start_gfn, void __user *src, long
+ }
  EXPORT_SYMBOL_FOR_KVM_INTERNAL(kvm_gmem_populate);
  #endif
- 
-+static struct kmem_cache *kvm_gmem_inode_cachep;
 +
-+static void kvm_gmem_init_inode_once(void *__gi)
++static int kvm_gmem_init_fs_context(struct fs_context *fc)
 +{
-+	struct gmem_inode *gi = __gi;
++	if (!init_pseudo(fc, GUEST_MEMFD_MAGIC))
++		return -ENOMEM;
 +
-+	/*
-+	 * Note!  Don't initialize the inode with anything specific to the
-+	 * guest_memfd instance, or that might be specific to how the inode is
-+	 * used (from the VFS-layer's perspective).  This hook is called only
-+	 * during the initial slab allocation, i.e. only fields/state that are
-+	 * idempotent across _all_ use of the inode _object_ can be initialized
-+	 * at this time!
-+	 */
-+	inode_init_once(&gi->vfs_inode);
++	fc->s_iflags |= SB_I_NOEXEC;
++	fc->s_iflags |= SB_I_NODEV;
++
++	return 0;
 +}
 +
-+static struct inode *kvm_gmem_alloc_inode(struct super_block *sb)
-+{
-+	struct gmem_inode *gi;
-+
-+	gi = alloc_inode_sb(sb, kvm_gmem_inode_cachep, GFP_KERNEL);
-+	if (!gi)
-+		return NULL;
-+
-+	return &gi->vfs_inode;
-+}
-+
-+static void kvm_gmem_destroy_inode(struct inode *inode)
-+{
-+}
-+
-+static void kvm_gmem_free_inode(struct inode *inode)
-+{
-+	kmem_cache_free(kvm_gmem_inode_cachep, GMEM_I(inode));
-+}
-+
-+static const struct super_operations kvm_gmem_super_operations = {
-+	.statfs		= simple_statfs,
-+	.alloc_inode	= kvm_gmem_alloc_inode,
-+	.destroy_inode	= kvm_gmem_destroy_inode,
-+	.free_inode	= kvm_gmem_free_inode,
++static struct file_system_type kvm_gmem_fs = {
++	.name		 = "guest_memfd",
++	.init_fs_context = kvm_gmem_init_fs_context,
++	.kill_sb	 = kill_anon_super,
 +};
 +
- static int kvm_gmem_init_fs_context(struct fs_context *fc)
- {
-+	struct pseudo_fs_context *ctx;
++static int kvm_gmem_init_mount(void)
++{
++	kvm_gmem_mnt = kern_mount(&kvm_gmem_fs);
 +
- 	if (!init_pseudo(fc, GUEST_MEMFD_MAGIC))
- 		return -ENOMEM;
- 
- 	fc->s_iflags |= SB_I_NOEXEC;
- 	fc->s_iflags |= SB_I_NODEV;
-+	ctx = fc->fs_private;
-+	ctx->ops = &kvm_gmem_super_operations;
- 
- 	return 0;
- }
-@@ -863,13 +920,31 @@ static int kvm_gmem_init_mount(void)
- 
- int kvm_gmem_init(struct module *module)
- {
-+	struct kmem_cache_args args = {
-+		.align = 0,
-+		.ctor = kvm_gmem_init_inode_once,
-+	};
-+	int ret;
++	if (IS_ERR(kvm_gmem_mnt))
++		return PTR_ERR(kvm_gmem_mnt);
 +
- 	kvm_gmem_fops.owner = module;
-+	kvm_gmem_inode_cachep = kmem_cache_create("kvm_gmem_inode_cache",
-+						  sizeof(struct gmem_inode),
-+						  &args, SLAB_ACCOUNT);
-+	if (!kvm_gmem_inode_cachep)
-+		return -ENOMEM;
++	kvm_gmem_mnt->mnt_flags |= MNT_NOEXEC;
++	return 0;
++}
++
++int kvm_gmem_init(struct module *module)
++{
++	kvm_gmem_fops.owner = module;
++
++	return kvm_gmem_init_mount();
++}
++
++void kvm_gmem_exit(void)
++{
++	kern_unmount(kvm_gmem_mnt);
++	kvm_gmem_mnt = NULL;
++}
+diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+index b7a0ae2a7b20..4845e5739436 100644
+--- a/virt/kvm/kvm_main.c
++++ b/virt/kvm/kvm_main.c
+@@ -6517,7 +6517,9 @@ int kvm_init(unsigned vcpu_size, unsigned vcpu_align, struct module *module)
+ 	if (WARN_ON_ONCE(r))
+ 		goto err_vfio;
  
--	return kvm_gmem_init_mount();
-+	ret = kvm_gmem_init_mount();
-+	if (ret) {
-+		kmem_cache_destroy(kvm_gmem_inode_cachep);
-+		return ret;
-+	}
+-	kvm_gmem_init(module);
++	r = kvm_gmem_init(module);
++	if (r)
++		goto err_gmem;
+ 
+ 	r = kvm_init_virtualization();
+ 	if (r)
+@@ -6538,6 +6540,8 @@ int kvm_init(unsigned vcpu_size, unsigned vcpu_align, struct module *module)
+ err_register:
+ 	kvm_uninit_virtualization();
+ err_virt:
++	kvm_gmem_exit();
++err_gmem:
+ 	kvm_vfio_ops_exit();
+ err_vfio:
+ 	kvm_async_pf_deinit();
+@@ -6569,6 +6573,7 @@ void kvm_exit(void)
+ 	for_each_possible_cpu(cpu)
+ 		free_cpumask_var(per_cpu(cpu_kick_mask, cpu));
+ 	kmem_cache_destroy(kvm_vcpu_cache);
++	kvm_gmem_exit();
+ 	kvm_vfio_ops_exit();
+ 	kvm_async_pf_deinit();
+ 	kvm_irqfd_exit();
+diff --git a/virt/kvm/kvm_mm.h b/virt/kvm/kvm_mm.h
+index 31defb08ccba..9fcc5d5b7f8d 100644
+--- a/virt/kvm/kvm_mm.h
++++ b/virt/kvm/kvm_mm.h
+@@ -68,17 +68,18 @@ static inline void gfn_to_pfn_cache_invalidate_start(struct kvm *kvm,
+ #endif /* HAVE_KVM_PFNCACHE */
+ 
+ #ifdef CONFIG_KVM_GUEST_MEMFD
+-void kvm_gmem_init(struct module *module);
++int kvm_gmem_init(struct module *module);
++void kvm_gmem_exit(void);
+ int kvm_gmem_create(struct kvm *kvm, struct kvm_create_guest_memfd *args);
+ int kvm_gmem_bind(struct kvm *kvm, struct kvm_memory_slot *slot,
+ 		  unsigned int fd, loff_t offset);
+ void kvm_gmem_unbind(struct kvm_memory_slot *slot);
+ #else
+-static inline void kvm_gmem_init(struct module *module)
++static inline int kvm_gmem_init(struct module *module)
+ {
+-
 +	return 0;
  }
- 
- void kvm_gmem_exit(void)
- {
- 	kern_unmount(kvm_gmem_mnt);
- 	kvm_gmem_mnt = NULL;
-+	rcu_barrier();
-+	kmem_cache_destroy(kvm_gmem_inode_cachep);
- }
+-
++static inline void kvm_gmem_exit(void) {};
+ static inline int kvm_gmem_bind(struct kvm *kvm,
+ 					 struct kvm_memory_slot *slot,
+ 					 unsigned int fd, loff_t offset)
 -- 
 2.51.0.710.ga91ca5db03-goog
 
