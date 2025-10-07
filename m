@@ -4,86 +4,142 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2158CCD186
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 13:57:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D5A3CCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 13:58:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=K7cWuMDzbtS1yC9wqtXZi6tdwC17BU9l7fLQRuq7gmI=; b=fuLgI/f0F/Ka8iWTLDoi/qbgMe
-	fl10pz5IZi/1Rm1fjXkPDxv/XLt6lrO4P1dkmAbOZChm6yvPEvybIEqebxMkSX2pCKoCJSSr8xRWP
-	73TyqBx/n5NRobU3GcFcvRZ+Twl86ZkAbEV37UUSCKddhh81WZJty4I5ZkpqxbTsGSeAROzazMgK4
-	LhH3te/40T2Nh9byM6M4X7BniE7FKi/+6J5RHxYsAPwq8qN/rEdWcSW3tfE10RsxRAq0V1+xp78hu
-	30QfXUZBWhdPe/4LkcolkdvvPuKdBbrFPeUCCQtkn7FYai0KNCzuThMyd8FMr2dYUAU6H7q0NKd9R
-	LDyvcGGw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=uLMi04e5+TEFEdAatnK/54aVuzLZuHOODqJcctb8PtU=; b=L8gZlitkJ5qlu8h3+MBzY4w/nO
+	2BvWiInz2ZDl22pswO2eGvwjuSg2e0q+EJvNWS2MUKurMt5qYZRekQK8sTQ490oScihTAC/2uUZa3
+	6XJejPCyvKjYpgh++ir9CD5a38Tuhv+C0qdBC1TAdj1Vrpfwgb8+1l/oQdjI1XFHUIjmwKiO81wi6
+	yypuibNZGmDbeS37URUUd8kNY3iKl/LkxurqaREUIw6de21AziVLxQ23VJPZxaMwHtuepkWS63Gqz
+	TYviwLIHIHcSTN3XMYULi8AqSgY1YphzDx605SFVxyBo6X7kmWXdGNdkojIgdH+27cK6x4PEA23ru
+	E98IPLXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v68BY-000000026oi-3dN0;
-	Tue, 07 Oct 2025 13:57:00 +0000
-Received: from mail-pf1-x430.google.com ([2607:f8b0:4864:20::430])
+	id 1v68Cg-000000026z2-108S;
+	Tue, 07 Oct 2025 13:58:10 +0000
+Received: from mail-westus3azlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c107::3] helo=PH0PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v68BW-000000026oO-22Vy
+	id 1v68Cc-000000026xY-1xUW
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 13:56:59 +0000
-Received: by mail-pf1-x430.google.com with SMTP id d2e1a72fcca58-78f3bfe3f69so2553423b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 06:56:58 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1759845417; x=1760450217; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=K7cWuMDzbtS1yC9wqtXZi6tdwC17BU9l7fLQRuq7gmI=;
-        b=TMsNwZ/IQETWyTniJHn57eUPuo6f44i4/q6zmbBk064AXTq8UCu01ESRF0tKj0kgU5
-         1E1MXtiEcsnUGD2SOLcpmXzAjtBpcEZiCJqUZvgRn7i+8uVjEdJSFIIlqcMt5iOveH5x
-         ERcBai8xxBQO6FHpC2vFe6ii6Qps3DA7BClR7O7NTICACOjvdcWe2IArNodE5V9MfuSZ
-         NAWISS6j13oaM9wd7OR4R57/AjzhQO19DhNzm3l7FnFF07LJuj7L9U76P1ADGsMCRbTg
-         XwCEBj7P5PvX+ZT/ImAjhV8zpUAAYVEvrG/z7kA6oNwleXOksthIBlKAWvtoaTPts1Tp
-         r+eg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759845417; x=1760450217;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=K7cWuMDzbtS1yC9wqtXZi6tdwC17BU9l7fLQRuq7gmI=;
-        b=J04JzAYeglMOPoDec/hlJCMqwr8yvTy7RUNkdfkvyNtEZOP9Y6wTFJgJm7vCFOKYI9
-         unVpl+q+2TZtU+DolZHsEFbojb6ICP2eOWz4r7CHHHhwJbbZSsprGHSC2KxO4NZfy7VJ
-         Dg9tnUqxEZGGKW793Fm23HSE/IqgE4FzTY5q0G+f0ZzQr08iF2Izbdy74xh+emAmVgrq
-         A9NXDhXAuXunkEMww68GlUD2pBcTfG4JQhVn3H2qtctlP7WYMFpSuG6Z39SgRKjocsit
-         xce4pa/ThrOo6srY8hUJjuLGfOT6U8hmeenE87kHvGtU5rrnwJ1YbcIG6elUveCD/Fj6
-         3Yuw==
-X-Forwarded-Encrypted: i=1; AJvYcCWxnf3Trj0i3yeNjgcQud3M421+vt+SA8eVUHgF5N0oFx9mXA/MwEYIRqfq1cULJdAZFJogA4gixLsaGsa2qv2g@lists.infradead.org
-X-Gm-Message-State: AOJu0YyEsCDqaFf5EasWbI44Hz8lXe9XA0KbuCeSy0GT7zkdSTDDceYj
-	VxyUGVt6JevMy3oA08vAP1WWSoIaB7tZKw+wcjiVM4SsZENzAJ1wpBz58vgx7IGasIPU3n1Cwjz
-	77wYO7khYb7itInJtMficq9HiKOjcvpnfdGZhi12KDQ==
-X-Gm-Gg: ASbGncu94sUETkQcUxBDrGBmrcX2kLFi2D0AdOpQ9vCCT0dw8RertPG7mYlirEF259H
-	nqliOvVJ4jJl8UflDiDfTDFTYeeVTxvxQw38V3Hwu4hoSR++oHVRSjYf/yhIHNu3U7SCILm2pNj
-	+Q+NZOF+RXbDyva4EXV2pXdxyZxlpvZK6eV7OPl7Nq/0IdB4vWJdSFCZnSkCJ6PcejK1NaJTrb5
-	ejEiPuZpaHv1r20Jmpx5vwlqd55MX3kVgQiPvQ9RaSd5L/F8xvNeVBBfWuCVfPtK8da
-X-Google-Smtp-Source: AGHT+IEsiWqnXaD1cuE3/m+LZcGWd7XHacsxrexFMtx/SJ2oYNLhRRGdKoHhf9+raCyU9FzKPCRwRq6405SwVXCIe/8=
-X-Received: by 2002:a05:6a00:988:b0:781:d163:ce41 with SMTP id
- d2e1a72fcca58-78c98d5cc70mr16919790b3a.11.1759845417396; Tue, 07 Oct 2025
- 06:56:57 -0700 (PDT)
+	Tue, 07 Oct 2025 13:58:08 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=gHNytyDFy+Q0N1ZdwdUESTovuwA1dY7dCEiTG5U51dBckFvYHGQzqlntXyrJ50JKiOQxzrl6ZONL6QeQlFEQZgPy/Yu+drPEXNHDWL+RTcA+dm9LoyvjBi5AiJgFQmcCbFY3hQxLbjQMQVx/qtfxdg6/d0rKBhkW48OL5i9qM9yavONTgAjiIfnmNwfA0KDX/elUXkLn2EgYqSUa8E49tDpODuRKa6/6s7wpVZBXI2/DZvCBZGOL6LqF17RoMvSNyULbi5HXwyx7CfUDHV4tMAuo0XqLzsJSu7LoQukYyHvS+nh4PXO6udFyB8Kc0zBtay04j/6sQthCe/zcMQXZmA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=uLMi04e5+TEFEdAatnK/54aVuzLZuHOODqJcctb8PtU=;
+ b=ckhFRpmghUPxJy0ZtvpQKK4zYm4neyQGDje6eruwl9bNDluHfhNPSGCDeWcvcL2onFeBNKQBoGWPMkczxQ/YJe/q7uhk8hCsI4TY1ZA/vNG0H053MT90xlEkLA0ypbOvcpGCUtTqXrlQoMjLjBVZMDZxzu8JR8dADaazfsQLHyh+Z6WxCfR7R/arCw3Rsa6cjxuu+T4rkTUMpBTmfQSHJwWPNKglXyXFTKk0iOc8SJJufxbWOkq45pkktJzUGGU4n6hcVYnKwGROtXMff7YwPxNcys4+kn5s1Pjn11uCpulZtRzeYdPqCzx1+tqLc5dSmBcYLn59XpoDPA45yy/H0Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.118.233) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=uLMi04e5+TEFEdAatnK/54aVuzLZuHOODqJcctb8PtU=;
+ b=ts8BZQv0IwurRp/Zh+HMbNu2ay8cH0xqaC99DwK5io0x03tUOTw9wPY9m6ONT5D9Y5XAqpZuyb4gvf30L4BgqdGlxT0rzrMHsPBqthMuYlXsPT2uLF2OC5HFa4yjqyilVpptUyHZVM557Z29DFF3Fx3E2SnqU/V36H0A6/Ic+mU3NYaHy5DqJTDGkooIyK1YjRjU0QJ622aDSHC2yg7y1yBAl1Lv+DJYlFuo8dGAXKZbsCM9ljKU/kmGFfpAmQoD41aHcONbn9C59Fltiie9tvjHEye6LRaHE7gWhQkoCBOV2oz013I0lnKLwAoGPg4ceQhzL7qOe2n7h+3mkn3a2w==
+Received: from BY5PR13CA0023.namprd13.prod.outlook.com (2603:10b6:a03:180::36)
+ by BY5PR12MB4036.namprd12.prod.outlook.com (2603:10b6:a03:210::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9182.20; Tue, 7 Oct
+ 2025 13:57:52 +0000
+Received: from SJ1PEPF0000231A.namprd03.prod.outlook.com
+ (2603:10b6:a03:180:cafe::c5) by BY5PR13CA0023.outlook.office365.com
+ (2603:10b6:a03:180::36) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9203.9 via Frontend Transport; Tue, 7
+ Oct 2025 13:57:52 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.233)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.118.233 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.118.233; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.118.233) by
+ SJ1PEPF0000231A.mail.protection.outlook.com (10.167.242.231) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9203.9 via Frontend Transport; Tue, 7 Oct 2025 13:57:52 +0000
+Received: from drhqmail202.nvidia.com (10.126.190.181) by mail.nvidia.com
+ (10.127.129.6) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Tue, 7 Oct
+ 2025 06:57:40 -0700
+Received: from drhqmail201.nvidia.com (10.126.190.180) by
+ drhqmail202.nvidia.com (10.126.190.181) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.2562.20; Tue, 7 Oct 2025 06:57:40 -0700
+Received: from build-shgarg-noble-20250919.internal (10.127.8.11) by
+ mail.nvidia.com (10.126.190.180) with Microsoft SMTP Server id 15.2.2562.20
+ via Frontend Transport; Tue, 7 Oct 2025 06:57:40 -0700
+From: Shubhi Garg <shgarg@nvidia.com>
+To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Catalin
+ Marinas" <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Alexandre
+ Belloni" <alexandre.belloni@bootlin.com>, Jonathan Hunter
+	<jonathanh@nvidia.com>
+CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-rtc@vger.kernel.org>, <linux-tegra@vger.kernel.org>, Shubhi Garg
+	<shgarg@nvidia.com>
+Subject: [PATCH v7 0/4] Add NVIDIA VRS RTC support
+Date: Tue, 7 Oct 2025 13:57:34 +0000
+Message-ID: <20251007135738.487694-1-shgarg@nvidia.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-References: <20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com>
- <20250915-arm_coresight_power_management_fix-v3-19-ea49e91124ec@arm.com>
- <CAJ9a7VgQoJMQyuGP6UP8ptg4xcoV2cbR4bwz6ooRy5O_SaiCVA@mail.gmail.com> <20251003135946.GY7985@e132581.arm.com>
-In-Reply-To: <20251003135946.GY7985@e132581.arm.com>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Tue, 7 Oct 2025 14:56:46 +0100
-X-Gm-Features: AS18NWAgCrSWwh2oCctSKgUbwseSTmmKlJPEmkCZQGmWUOFNklXbFhpzA3iiu2Q
-Message-ID: <CAJ9a7Vgg24S3ApkvEWr5ayD0OK5cYZTsmjJKpZkZzzMah72ijw@mail.gmail.com>
-Subject: Re: [PATCH v3 19/31] coresight: cti: Introduce CS_MODE_DEBUG mode
-To: Leo Yan <leo.yan@arm.com>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
-	Yeoreum Yun <yeoreum.yun@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Yabin Cui <yabinc@google.com>, 
-	Keita Morisaki <keyz@google.com>, Yuanfang Zhang <quic_yuanfang@quicinc.com>, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org
-Content-Type: text/plain; charset="UTF-8"
+X-NVConfidentiality: public
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ1PEPF0000231A:EE_|BY5PR12MB4036:EE_
+X-MS-Office365-Filtering-Correlation-Id: a7b28b77-b031-4659-750b-08de05a981f6
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|82310400026|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?mFvOfdS9HMQ9NlLGJOi35HT0ymdDFRPJvh1PiLqdY1vC15qOkxGh7R+EaUr4?=
+ =?us-ascii?Q?Tw5giAK4OE5NsyuQKjEzLjIxN1+wM8qOhIRgZommSqAgUd5jx0leZD+DgrCh?=
+ =?us-ascii?Q?zkaU+XfL68cORi8VlIqhJ2wTU6DWs/EkM4owTrCPDlE4SNhc7SKBSlMFaU0U?=
+ =?us-ascii?Q?Tv3rX91LZjAGiOsqKPmQU7oUXJDI9o/l6bwb4xQbImu28diJhOCNweERQG8U?=
+ =?us-ascii?Q?fxJLAvtg0zVL1y0KorURHfMuTgcp3a2Ow43hz/ZSf+Hsr7MciKMbwdn1eKsO?=
+ =?us-ascii?Q?rt3KSiTzTnzy+H5zgD4E5za1myFiYnpPHMH8pXOn3+fsEB029Ya1Yq4RHr9B?=
+ =?us-ascii?Q?7CvPm21cf+pNGbXdjhsaeSSormWSmXMoGNY0irTOu82qitPJbf6Fp36yMFW7?=
+ =?us-ascii?Q?gA5huwz8yw8nE3WN8cDzDhBji/B+K7RqHr5SwIZMfwqO12gLCJQDnDSObxCD?=
+ =?us-ascii?Q?2CVRgC6UVc7eYbq0+Iljko0Cde9TVbdZVKh+OGfXG5oZjTYd1PuUzd0P+qwf?=
+ =?us-ascii?Q?LRSm9BJQzl10sMhERAbMue0QzXru/RyC3DdQYBzeK21yBhbQ+yxSVdbs8ijQ?=
+ =?us-ascii?Q?O3QIs7fDQeyMCHjn+GXNoMnWqK5387Zk+B0RWCuhaqgEd0RCUmYqH95NfCoB?=
+ =?us-ascii?Q?9SalU2RI4g1xyBBk6yEiLGOY7GH3SCKCHW5k/AhabPbZG6NBvRhNCqD2tOT5?=
+ =?us-ascii?Q?xa3YmrfvCHqdkj3lDQqHuN/FJWTgRIwTv21HN15d/y65caLL92nRAIsZaIdY?=
+ =?us-ascii?Q?jZw4Z3waL1yRvdE3giGhOfyAaJ1or4sfhnvcvPgTh66URMZ1bb/kXbjlv8CW?=
+ =?us-ascii?Q?To4yLji2sTldStqCAG3d1yOzolL18seRCm4g7sTZF6Zw7FUbqbWYBU+rbp4r?=
+ =?us-ascii?Q?hC2vtuVB4QU+GthlJSbbcT+JwpyaXgLhR1Gq1tS172/ZuIxah+1qSMhWnCnQ?=
+ =?us-ascii?Q?7tw2OwkBm0utGTIAif17WgqmWdePQxOJiqp2/EHojnnSD1JCQB0X0rNeVjFV?=
+ =?us-ascii?Q?r+bRvFG2nrPGGolEnPoHaWlkkBPZLJMmb2IEpKX1rITc+76aC42w64oEzKCh?=
+ =?us-ascii?Q?PCOqGiWTUhp/Qh/eum1pFlRdq/opu7mjha+PgHxjlbos6mjzaHU+4qLVSaZA?=
+ =?us-ascii?Q?0Rr2aUVYX7a5CAcO0ycUW2at30M1l3qcP8lScuZaJaVjq1rfdgD3Ap6E1ckA?=
+ =?us-ascii?Q?1Pb3sA8Aa97JCdwq7t+NPYDtZHMu0uq5UU/3m9PN0kv7UmNXdQeAhe1bwOEt?=
+ =?us-ascii?Q?8P6G0RqLk8D5b1iGPaZ7tarsRSBWzyaJnGEVQvazwABB9tzvSU+T8zOYWIia?=
+ =?us-ascii?Q?yt3ZRWOQVyPEm8nNjian4OGO7HBS1Ex1d088rRdrSsGBLsvYSzfgePbZpTrr?=
+ =?us-ascii?Q?LsGSxGBHUQfaFzIs8l3bcgwjNJAcyKL75LwMDQJ+4K1yVo7JOD6yPsYyOTcD?=
+ =?us-ascii?Q?9MBdNNhtXuj8AzDM8kaoKOeGtT8yQ/O2j9WOVcHXrCRALlYNzMPec0Jjh2Zc?=
+ =?us-ascii?Q?HAKusw+VAI4d5DfES+CSXcA21S+rhCnRXXcP8lYYUUC8T17B+NxZjHrf0+BG?=
+ =?us-ascii?Q?35kaKQKWyj9aNDeW12g=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.118.233;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge2.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(82310400026)(376014)(7416014);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Oct 2025 13:57:52.0935
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: a7b28b77-b031-4659-750b-08de05a981f6
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.233];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: SJ1PEPF0000231A.namprd03.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: BY5PR12MB4036
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_065658_529938_E5C1586D 
-X-CRM114-Status: GOOD (  31.37  )
+X-CRM114-CacheID: sfid-20251007_065807_278067_CC7DBDA7 
+X-CRM114-Status: GOOD (  15.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,84 +154,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Leo,
+This patch series adds support for NVIDIA's Voltage Regulator Specification
+(VRS) RTC device. It provides following features:
+- read/set system time
+- 32kHz clock support with backup battery input to retain system time
+  across boot
+- alarm functionality to wake system from suspend and shutdown state
 
-On Fri, 3 Oct 2025 at 14:59, Leo Yan <leo.yan@arm.com> wrote:
->
-> On Thu, Oct 02, 2025 at 11:31:52AM +0100, Mike Leach wrote:
-> > Hi,
-> >
-> > On Mon, 15 Sept 2025 at 11:34, Leo Yan <leo.yan@arm.com> wrote:
-> > >
-> > > Introduce a new CS_MODE_DEBUG mode to indicate that a device is being
-> > > used for debugging purposes, e.g, if a system enables CTI for debugging
-> > > but not for hardware trace
-> > >
-> >
-> > How can you know why the CTI is being enabled?
->
-> Depend on which CTI enablement path is invoked.
->
-> > System CTIs are attached to key HW trace infrastucture such as input
-> > triggers for ETR/ETB that have direct effect on trace.
-> > CoreCTIs, while they have some debug triggers, can also trigger ETM events.
->
-> Seems to me, it is no matter system CTIs or Core CTIs. Here, I am trying
-> to distinguish three methods for enabling CTI:
->
->   (1) Enable CTI within a perf session.
->   (2) Enable CTI within a sysfs session.
->   (3) Enable CTI using the CTI driver's sysfs knob(s).
->
-> Currently, methods (2) and (3) are both using CS_MODE_SYSFS.
->
-> Method (2) enables a CTI device when we enable a source-to-sink path
-> via the sysfs interface; CTI acts as a helper in this case.
->
-> Since the CTI driver also provides its own sysfs knobs to enable the
-> CTI device by itself (defined in coresight-cti-sysfs.c), to
-> distinguish this from method (2), this patch introduces CS_MODE_DEBUG.
->
-> Thanks,
-> Leo
+The series includes:
+- Device tree bindings for the VRS RTC
+- VRS device tree nodes for NVIDIA platforms
+- VRS RTC device driver
+- Configuration updates to enable the driver
 
-The point here is that a user can (or at least could and should be
-able to) program and enable CTIs across the system to generate signal
-inputs to trace devices, then start trace either by sysfs or perf and
-expect those CTIs to have the desired effect.
+Changes in v7:
+- rtc driver fixes to remove mutex lock
+- moved rtc register definitions in driver
+- dt binding file name fix to keep same as compatible
 
-The "mode" for CTIs was introduced to fix a ref count issue. I am not
-sure now that this is the best solution. A "mode" is good for
-components on the direct trace path responsible for transmitting trace
-from source to sink, but perhaps less useful on the CTI/CTM system
-which is both global and has multiple uses.
+Changes in v6:
+- compatible name fixes to "nvidia,vrs-10"
+- changed dtb node name to pmic@3c
 
-We effectively have three domains for CTIs all of which can be
-programmed to affect trace capture -
-1) CPU bound - on the trace path, possibly affected by core power down
-depending on the implementation of the system and will be enabled as
-helpers as the path is enabled.
-2) Trace path  system CTIs - connected to other path devices - e.g.
-funnels, etr etc, that will also be enabled as helpers as trace path
-is enabled.
-3) Other system CTIs - not directly connected to specific trace
-devices, but can channel signals via the CTM to other trace path CTIs
+Changes in v5:
+- moved device tree bindings from mfd to rtc
+- changed dtb node name to rtc@3c
+- removed VRS MFD driver
+- moved VRS common functions to RTC driver
+- removed unused register definitions from header
+- changed driver compatible to "nvidia,vrs10-rtc"
 
-The CTI driver ref-counts CTI enables / disables, and alos has a flag
-to indicate when powered so that enables / disables are counted but
-will not be acted on unless powered.
+Changes in v4:
+- fixed device tree node name to "pmic@3c" in dtb aliases
 
-There is probably a case for ensuring that the enables/disables via
-the sysfs files are balanced - i.e. a sysfs file disable should not
-disable a helper enable, so a specific count on that route may be
-needed.
+Changes in v3:
+- fixed device tree node name to generic "pmic@3c"
+- fixed indentation in dt-bindings
+- added rate limiting to interrupt clearing debug logs
+- removed unnecessary braces in if blocks
+- changed dependency from I2C=y to I2C in mfd Kconfig
+- fixed return value in RTC driver function calls
+- fixed sizeof(*variable) inside rtc driver devm_kzalloc
+- switch to devm_device_init_wakeup() for automatic cleanup
 
-Regards
+Changes in v2:
+- fixed, copyrights, definitions and dtb node in dt-bindings
+- removed unnecessary logs from MFD and RTC driver
+- fixed RTC allocation and registration APIs
+- removed unnecessary functions in RTC driver
+- used rtc_lock/unlock in RTC irq handler
+- added alias to assign VRS RTC as RTC0
+- added driver entry in MAINTAINERS
+- few other miinor changes done in drivers
 
-Mike
+Shubhi Garg (4):
+  dt-bindings: rtc: Document NVIDIA VRS RTC
+  arm64: tegra: Add device-tree node for NVVRS RTC
+  rtc: nvvrs: add NVIDIA VRS RTC device driver
+  arm64: defconfig: enable NVIDIA VRS PSEQ RTC
+
+ .../bindings/rtc/nvidia,vrs-10.yaml           |  59 ++
+ MAINTAINERS                                   |   8 +
+ .../arm64/boot/dts/nvidia/tegra234-p3701.dtsi |  11 +
+ .../arm64/boot/dts/nvidia/tegra234-p3767.dtsi |  15 +
+ arch/arm64/configs/defconfig                  |   1 +
+ drivers/rtc/Kconfig                           |   9 +
+ drivers/rtc/Makefile                          |   1 +
+ drivers/rtc/rtc-nvidia-vrs10.c                | 542 ++++++++++++++++++
+ 8 files changed, 646 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/rtc/nvidia,vrs-10.yaml
+ create mode 100644 drivers/rtc/rtc-nvidia-vrs10.c
 
 -- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+2.43.0
+
 
