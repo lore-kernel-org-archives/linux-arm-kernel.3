@@ -4,90 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBAE9CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 09:09:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFCF2CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 09:10:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k5Gn50jfOxZiiSgXxR/gre/tjvhockNBFkRAG2DI30U=; b=dnsLafnVOe8Eb7M3cIdKt825pu
-	O7WVJdotPRrTY7+X++GHevegO3AwG48r1Y4iMk0HiBgTWq0MP8ulDjcobEoAl7azV70BS1v8T4+7C
-	I5f3Wpqz319veNP8OIMergoffTazOYIauBHZGTbtSh4vReJD3gd+a+5FE1xtGtxoXoO3SsjYd+hjc
-	A3HQ2rDAIpsiwHar6fQ9Fv81IQO/y0Jn2mKCFK43MjgCczKQr8NCE/+dtmzo/MGjVE7RK/whltnQp
-	Bf4Alc5cya0IOOPioTA1XK8msassTstB4JzM8ZrUQL7BnO9QtnE/+M/JS35/DKIuTweRfmF5X5JWU
-	L1pg2nUg==;
+	bh=aX/zzAIxKfdHs3b6O5o4Lrj7f6DfCZwLY5Z3Ozvbs3M=; b=Lbv2eVBYODZ0Xk4AtQEk0B0Os7
+	wLdXHwtgSUmM7zuaDFRz4MOo3bQxXczVaD+knU3Ms7QDq85huYmP9kAlZY3KQwn4IOqj+QrcSPGRr
+	nfaeO+dMOzB29nuMdPYkyCwzi+lt31YphjT+vPiazD3sV4fLV8S9GkiAFXptJO21F6UM/jRTPfEXu
+	5dDqx5N0WTswxDEiN2p417llm0N1YGqIfhj2HEoviBDPtuF2KSUZacTjgM2GQXFxRTtYGwMIT+aPE
+	qHsNk8kCw9rFM1Dq3r1hojzJpbdap2A2GU0d+ev90NL5gnzz+bgX2kdSxu6yudMZKawDLgmjT+3V3
+	sIlWtT9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v63hb-00000001fq9-0sNY;
-	Tue, 07 Oct 2025 09:09:47 +0000
-Received: from mail-ot1-x332.google.com ([2607:f8b0:4864:20::332])
+	id 1v63hs-00000001fwF-1D14;
+	Tue, 07 Oct 2025 09:10:04 +0000
+Received: from mail-wr1-x432.google.com ([2a00:1450:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v63hY-00000001fp9-2lbh
+	id 1v63ho-00000001ftU-3LAp
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 09:09:46 +0000
-Received: by mail-ot1-x332.google.com with SMTP id 46e09a7af769-7a4a993dea6so1911953a34.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 02:09:44 -0700 (PDT)
+	Tue, 07 Oct 2025 09:10:03 +0000
+Received: by mail-wr1-x432.google.com with SMTP id ffacd0b85a97d-3ecde0be34eso3634673f8f.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 02:10:00 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1759828183; x=1760432983; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=k5Gn50jfOxZiiSgXxR/gre/tjvhockNBFkRAG2DI30U=;
-        b=Ahbn+AC9A7qC6Jb+7SqDTXMs17YRFJHPw5+1C5Vo5YhAOvOGeYwvfQFiYq+RHiln+u
-         mea3ZcVI9VaF6OGV2A+mGw30IAGgdFHQ/mR0LAnRGSDChjqNMxQYhNIy8IzYzCwqy6Zi
-         88ykp/FtEvBFGg6gANvHwlKkKORZBkqqJNAnit9Y6of+9cfPQwb06ApcbiJEIAwGjNc8
-         xA+/FbdKaD7ofGSoeGLdNBDyLm9Mb0hw0lcxwZP+ffCjmpwAqBvpvadFNQ9OA4KGW0xj
-         yvYHHr+7VQT2nEmzNpQtqPduvPHGoyncn4Sv85Y6P4YTRC1iwyLihUQa/Ro2YUGS/+tQ
-         mBzg==
+        d=baylibre-com.20230601.gappssmtp.com; s=20230601; t=1759828199; x=1760432999; darn=lists.infradead.org;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=aX/zzAIxKfdHs3b6O5o4Lrj7f6DfCZwLY5Z3Ozvbs3M=;
+        b=Qo/78vr1+mCvxco5rVDppQweK54WGIvdkKgPtolAPcO6jovHryCqeldIdZuvaPaFy2
+         taJmBN79LOn10O4kagyvGsrepYGGZ4MA2j/uBSrUQrWpznz3z18IZwe+/6Oi/VQsOGjC
+         yjNmfctac4HZQcCvlX4FW06LW+jxEqWajyra2BrKz7nz7GkdF7RQQl4LcgS356XhLcem
+         GxwujEbl3qQT1GCeudi9E007iVWQX5Cu0MaNrQ4am5cdgmD9oAWRc/RQXTUQWJMkr+D9
+         kYDeaed+J8hemWlsNjGXe+LRCzxKOZwL0FHQBrJqSehnGCSNdaiQ0hxOLlnYVQY5Cev/
+         KyQQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759828183; x=1760432983;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=k5Gn50jfOxZiiSgXxR/gre/tjvhockNBFkRAG2DI30U=;
-        b=Xg/TAyUX/MXSS+v4Iqv1WME9EUSPQsQ2iNyHMTEDM6EN74OmeSwhhw5KskWADIvbgR
-         UaLrSa9oXFOIuYAw65ax2GHbhIZ1yIWV+4YHTrkvWEIIbIj1G8xp9ZWYSKLIT00UHuUI
-         bx4qaxUJ+XSsTMudTP7dCh+a4zNog3NNpad6nicdyiSBq7rraVpw4nO9IUkr8lRMji20
-         Tr8uZnFsRrg1Z6Zu66wVUnlB6lCRVrqfrWBita0iVVpFsI5q8VUDKwOwvDCYnPobirKU
-         3daq9xX/CGOV2Vvdlva2AK0UEY2hXIF9E46bnab5EaLT8bpMHza229eUFjfDX0tFyJMZ
-         66Fw==
-X-Forwarded-Encrypted: i=1; AJvYcCUUX4ZL1xO6+z3Woq7E0dwvYm1WG3xtTRKxdzbm4+Y1VzcdSJ5A2egtnA1229+dEb41IPRGg8O93ICQUoQxd3mf@lists.infradead.org
-X-Gm-Message-State: AOJu0YwD3XOgbX+qQuRZhTy+TITMPSpYMVKNwMjCRimEA4gGcjJwhA75
-	rCe0N2MNlpV0GboblS1a7isQNzCVAcf3wZzaXh+KsSrP4Pul6QQmR2atnq7VZWt4wtBA1/BLomW
-	MNBcEXYU0XwdqnpCGK7seGkJYwl17mhIm77jAQ/E8Gw==
-X-Gm-Gg: ASbGncuroUP8n/xZiHtJHBjnzF7HRuMnVh/ad+q+694PRrXcGPbjrqYLalKh7m13O7h
-	h8p+cS6umzVL0nF5rK3hczX871cQLt5kzVP4hG+T364LGyYmP+5h3Z92BKyIbmKj/U0zdigh7bL
-	n8aMb7pQd85f8NgH1+thvganaduCX44Gk0TAsm6baagl+38xxSJRdQNFSILKi1KRLbgmMKN16Wh
-	qIaXuQ9t04UPRFntmbxtT3eE84IhfOHwtEd3w==
-X-Google-Smtp-Source: AGHT+IFtOrLlwJK0/TEgM+f2IS4t9o4gV7fAIVv15sfMLe5yqLK9nGKna5+x4B1VTMirLjZ+oFvqM3iKI6ns6JfL4hs=
-X-Received: by 2002:a05:6808:3096:b0:438:2907:2ead with SMTP id
- 5614622812f47-43fc18a2091mr6585032b6e.50.1759828182026; Tue, 07 Oct 2025
- 02:09:42 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1759828199; x=1760432999;
+        h=mime-version:message-id:date:user-agent:references:in-reply-to
+         :subject:cc:to:from:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=aX/zzAIxKfdHs3b6O5o4Lrj7f6DfCZwLY5Z3Ozvbs3M=;
+        b=GpAjfbOpN27BHi3WmEnMHYtUKu0EZ9h+fBrXAj95TYv5iq6E5/1Kmocg4qw00JuLru
+         bCPxUOtWBdDHNAd9pd1i1YPRlzW8pVRO/drszCGKcnXv96nAFNxzspsoOxKmFGtfDiOR
+         WOb/mujK99WeGgViee05EHOwFW40G0SGGONkV7oPPZyj7/T3Gs3g8BQqB6tin8TIYyYq
+         +d2q0IUKBdcI+0IXANiLkA3ZtXZdwcjo9MqNX3gM4TL7NHljvHeFiAknb1OGnBEyh2ob
+         dE1CUK7cF3dMfjLBY9v5n/D1YYG0HiCKL0y8qe7/9U6bDDjAuSdMXPzBbZu9ulJo/V+O
+         UUdw==
+X-Forwarded-Encrypted: i=1; AJvYcCXbQpCMhGx/Ju47UAHRYgY6DfruzrV8fdFyW2CIhtn0LMOYz2Z6J2g1ze3OKy5jYfkLU6tu1mXe+BuTj1uuYyk2@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJsd9qQ+VZWOQ8o2g0kvBPvuSwF/MtjkCconGXtHDrpwVE4yHj
+	BuLQlLoHCrbkt7UL61PvvPEsCyuwspeH+9yZc0UyG/4vxe75Gc7YOJLOM6TaWZLBgug=
+X-Gm-Gg: ASbGnctW9q2PI6Ai3at5PunXRQTgaWgsYzlH5gFSN0HSjQk+6LXG5tjZsYREupe0krm
+	+sSu/iPA/KlU2GVF8eTnY12QnK94pktVNHNDb3W8VDNIw1G0FFKCH4oDGK1C/IsbVGQwHsSBINk
+	uIlJ5JYqXGGrUGJIKCcJAA+eSipQ+moh8kBz8SHQNUrICMIj1pO7rZ1+eVeN3MfQ+fPs96uDvi6
+	Wu414Dy/s/v0gKMdRTYn6YoCcY4p+JyAOYC9UYD1Z1R/ZElp5pmF2cASbCk0TA8xFhaKlbvzrHY
+	/i9mpfim+XVN4fZ756Jjo8w9qNBjHZmD96552EWMeNdGDvNAqiLiOY5w4EBbfJiJSJw4vwJie+T
+	kWvmyiD/LFkFibfA0Ar2FHI+D+StrHJmBezgVtzLkx2W3DQ==
+X-Google-Smtp-Source: AGHT+IF130TGahKPPoII82+V1/81eeS1iNZCVCSTkdS9QhSxObU5gtpJPCiviLrBgBxmw1J7M2QzJw==
+X-Received: by 2002:a05:6000:26d1:b0:3ec:db87:ff53 with SMTP id ffacd0b85a97d-425829bf154mr1925989f8f.12.1759828198634;
+        Tue, 07 Oct 2025 02:09:58 -0700 (PDT)
+Received: from localhost ([2a01:e0a:3c5:5fb1:513d:7ba9:7d81:1c37])
+        by smtp.gmail.com with UTF8SMTPSA id ffacd0b85a97d-4255d8f01absm24412592f8f.44.2025.10.07.02.09.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 07 Oct 2025 02:09:58 -0700 (PDT)
+From: Jerome Brunet <jbrunet@baylibre.com>
+To: Valerio Setti via B4 Relay <devnull+vsetti.baylibre.com@kernel.org>
+Cc: Liam Girdwood <lgirdwood@gmail.com>,  Mark Brown <broonie@kernel.org>,
+  Jaroslav Kysela <perex@perex.cz>,  Takashi Iwai <tiwai@suse.com>,  Neil
+ Armstrong <neil.armstrong@linaro.org>,  Kevin Hilman
+ <khilman@baylibre.com>,  Martin Blumenstingl
+ <martin.blumenstingl@googlemail.com>,  vsetti@baylibre.com,
+  linux-sound@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
+  linux-amlogic@lists.infradead.org,  linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] ASoC: meson: aiu-encoder-i2s: fix bit clock polarity
+In-Reply-To: <20251007-fix-i2s-polarity-v1-1-86704d9cda10@baylibre.com>
+	(Valerio Setti via's message of "Tue, 07 Oct 2025 00:12:19 +0200")
+References: <20251007-fix-i2s-polarity-v1-1-86704d9cda10@baylibre.com>
+User-Agent: mu4e 1.12.9; emacs 30.1
+Date: Tue, 07 Oct 2025 11:09:57 +0200
+Message-ID: <1jplaz3wnu.fsf@starbuckisacylon.baylibre.com>
 MIME-Version: 1.0
-References: <20251006232125.1833979-1-royluo@google.com> <20251006232125.1833979-3-royluo@google.com>
- <8ca61364-df47-41f2-b0d1-f2a8a74ec728@kernel.org>
-In-Reply-To: <8ca61364-df47-41f2-b0d1-f2a8a74ec728@kernel.org>
-From: Peter Griffin <peter.griffin@linaro.org>
-Date: Tue, 7 Oct 2025 10:09:31 +0100
-X-Gm-Features: AS18NWD7ktu7qt-H0DxecJcoZK61ZH3ap7EbdS2ccz0Z-j7ffn7elGuijfKqbpQ
-Message-ID: <CADrjBPr7Jp_ZyGv2Krv6iLG0avgFWpcWJEO-Z=cEkhwEY-+z5Q@mail.gmail.com>
-Subject: Re: [PATCH v1 2/4] dt-bindings: usb: dwc3: Add Google SoC DWC3 USB
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Roy Luo <royluo@google.com>, Vinod Koul <vkoul@kernel.org>, 
-	Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Joy Chakraborty <joychakr@google.com>, 
-	Naveen Kumar <mnkumar@google.com>, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_020944_867355_3C34203E 
-X-CRM114-Status: GOOD (  26.06  )
+X-CRM114-CacheID: sfid-20251007_021001_160862_5840CF10 
+X-CRM114-Status: GOOD (  21.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,78 +103,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Krzysztof & Roy,
+On Tue 07 Oct 2025 at 00:12, Valerio Setti via B4 Relay <devnull+vsetti.baylibre.com@kernel.org> wrote:
 
-Firstly thanks Roy for your patches, it's great to see more Tensor
-support being posted upstream!
-
-On Tue, 7 Oct 2025 at 01:44, Krzysztof Kozlowski <krzk@kernel.org> wrote:
+> From: Valerio Setti <vsetti@baylibre.com>
 >
-> On 07/10/2025 08:21, Roy Luo wrote:
-> > Document the DWC3 USB bindings for Google Tensor SoCs.
-> >
-> > Signed-off-by: Roy Luo <royluo@google.com>
-> > ---
-> >  .../bindings/usb/google,snps-dwc3.yaml        | 144 ++++++++++++++++++
-> >  1 file changed, 144 insertions(+)
-> >  create mode 100644 Documentation/devicetree/bindings/usb/google,snps-dwc3.yaml
-> >
-> > diff --git a/Documentation/devicetree/bindings/usb/google,snps-dwc3.yaml b/Documentation/devicetree/bindings/usb/google,snps-dwc3.yaml
-> > new file mode 100644
-> > index 000000000000..3e8bcc0c2cef
-> > --- /dev/null
-> > +++ b/Documentation/devicetree/bindings/usb/google,snps-dwc3.yaml
-> > @@ -0,0 +1,144 @@
-> > +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> > +# Copyright (c) 2025, Google LLC
-> > +%YAML 1.2
-> > +---
-> > +$id: http://devicetree.org/schemas/usb/google,snps-dwc3.yaml#
-> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> > +
-> > +title: Google DWC3 USB SoC Controller
-> > +
-> > +maintainers:
-> > +  - Roy Luo <royluo@google.com>
-> > +
-> > +description:
-> > +  Describes the Google DWC3 USB block, based on Synopsys DWC3 IP.
-> > +
-> > +properties:
-> > +  compatible:
-> > +    items:
-> > +      - enum:
-> > +          - google,lga-dwc3
-> > +      - const: google,snps-dwc3
+> According to I2S specs audio data is sampled on the rising edge of the
+> clock and it can change on the falling one. When operating in normal mode
+> this SoC behaves the opposite so a clock polarity inversion is required
+> in this case.
 >
+> This was tested on an OdroidC2 (Amlogic S905 SoC) board.
 >
-> There is no such soc as snps, so you grossly misuse other company name
-> as name of SoC. Neither lga. Otherwise please point me to the top-level
-> bindings describing that SoC.
+> Signed-off-by: Valerio Setti <vsetti@baylibre.com>
+
+Reviewed-by: Jerome Brunet <jbrunet@baylibre.com>
+
+Tested on the libretech cc s905x (GXL)
+
+Tested-by: Jerome Brunet <jbrunet@baylibre.com>
+
+> ---
+>  sound/soc/meson/aiu-encoder-i2s.c | 9 ++++++---
+>  1 file changed, 6 insertions(+), 3 deletions(-)
 >
-> You need to better describe the hardware here - why this is something
-> completely different than GS which. Or switch to existing bindings and
-> existing drivers. Did you align this with Peter Griffin?
+> diff --git a/sound/soc/meson/aiu-encoder-i2s.c b/sound/soc/meson/aiu-encoder-i2s.c
+> index a0dd914c8ed13616fbcbc0828e36418cfd255391..3b4061508c18047fe8d6f3f98061720f8ce238f2 100644
+> --- a/sound/soc/meson/aiu-encoder-i2s.c
+> +++ b/sound/soc/meson/aiu-encoder-i2s.c
+> @@ -236,8 +236,12 @@ static int aiu_encoder_i2s_set_fmt(struct snd_soc_dai *dai, unsigned int fmt)
+>  	    inv == SND_SOC_DAIFMT_IB_IF)
+>  		val |= AIU_CLK_CTRL_LRCLK_INVERT;
+>  
+> -	if (inv == SND_SOC_DAIFMT_IB_NF ||
+> -	    inv == SND_SOC_DAIFMT_IB_IF)
+> +	/*
+> +	 * The SoC changes data on the rising edge of the bitclock
+> +	 * so an inversion of the bitclock is required in normal mode
+> +	 */
+> +	if (inv == SND_SOC_DAIFMT_NB_NF ||
+> +	    inv == SND_SOC_DAIFMT_NB_IF)
+>  		val |= AIU_CLK_CTRL_AOCLK_INVERT;
+>  
+>  	/* Signal skew */
+> @@ -328,4 +332,3 @@ const struct snd_soc_dai_ops aiu_encoder_i2s_dai_ops = {
+>  	.startup	= aiu_encoder_i2s_startup,
+>  	.shutdown	= aiu_encoder_i2s_shutdown,
+>  };
+> -
+>
+> ---
+> base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+> change-id: 20251006-fix-i2s-polarity-d744338fa223
+>
+> Best regards,
 
-I think (from what I've seen at least) this is the first submission
-for drivers in the Tensor G5 SoC used in Pixel 10 devices (which as I
-understand it isn't based on any Samsung IP). Hence the new drivers,
-bindings etc.
-
-However the issue is that none of the other base SoC drivers on which
-this driver depends currently exist upstream (like clocks, reset
-driver, power domains, pinctrl etc). So it's very hard to reason about
-the correctness or otherwise of this submission. It is also likely
-that when those drivers are upstreamed things could change in the
-review process, to how it looks today in the downstream kernel.
-
-So in summary I think to progress with this we need to get the base
-Tensor G5 SoC drivers merged first (e.g. boot to console with pinctrl,
-basic clock support, reset driver etc). Then we can start adding in
-some of the other peripherals like i2c/spi/usb etc and build up the
-mainline support from there.
-
-Thanks,
-
-Peter.
+-- 
+Jerome
 
