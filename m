@@ -4,96 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75A65CAC5B0
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 05:59:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 949C1CAC5B0
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 06:22:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TY1Z3zjE2hmR/H8RZQ8GW2E7K5sHv4uVwuJ09oV8pME=; b=hKTb3B/L2kITCN7O6W6uUU2glN
-	x8Fvc+cDt54PkWDuHNaEXi/12EAFzvVa9HLnLAcSzKWTKR1fOncAzR0+wTSi8mGTW+T85lxEtWuaS
-	xx72H6at1ZTy9lcXbe75yE/bGqzByZ6CjuJhPBkd7OFS66cfS2bDouhS7WTetcOV0iLy/AzokNZJM
-	cJmZ8DFVTx1J1la+XAYXe1u1K/yxYITsRGzsYLbOhqX1FzV7/vVLfu25QqcZPIANbiAy0mearSJXd
-	6fASbtdOAdkWrAjqoBmvNe5RZge2QNvthb1MpVWAKywLjQjZrTI8zCcmY9/AySMfmelAM2qGYR7Rw
-	HNdik4jA==;
+	bh=A69RYfKst6AYHDVVMInvS7LhHEZ7W61Ln2DcYwYJasc=; b=Kins4/RAldkERIGsSsP2qu2tF3
+	9LVH8m0p9VGZj8Faxm32qPkdIGEuzEELaM2F5bnBkz0g1+kEKpQooq/Ry2p0MAq4XP/87sd5ry0r/
+	kIBGeVRLNVZ7y0yR6tK3P2EtgfY7SamXdEI8GQAyn/vnmp9fzm6qMvt3OhwYSuTeaXcqDeIEvisQY
+	ecINjv/ZPxOXf0niQ75l0Vefc9XJowGL5xww8dsB+Z5e95KkKiPnO6GxdPUKF6zUtSLYWOIVeIRNU
+	izLehQFCA6YUrt4w6jMflQzfB2TUsGsX6hmBRV86n3/zq+zGM9OYSSTPe0Zxm1EqCsQ6MLKtL7gnS
+	qxviXkGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v60jH-00000001KQD-1a31;
-	Tue, 07 Oct 2025 05:59:19 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1v615J-00000001LkK-0gPB;
+	Tue, 07 Oct 2025 06:22:05 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v60jE-00000001KPI-46Nd
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 05:59:18 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-27d2c35c459so42216985ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 06 Oct 2025 22:59:16 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1759816756; x=1760421556; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=TY1Z3zjE2hmR/H8RZQ8GW2E7K5sHv4uVwuJ09oV8pME=;
-        b=cDErINHYzYGhhyxwVmr95J52tjS80sr0NnRXYOJ5FYcqrOh6KxY7ERhP/KdETiA30U
-         XArGfAQBU/pv5QRzBW3t+YXAjargpRyf7lwfmOgQvLcGSewlUfwp812xrLQP+cm9B9m/
-         pwwMs+aWCccJ/WWqo8KTWGPDHVtNnTzma8XFndUma3CjJCWkBe6JMnLNAiO7RMtHarN3
-         c2hQ0pRbGbBNHRFckpo8WE2gdYpMWMii3Ehyw+XQoYSt9wcrHW9i9QA2iZCImjdK7Rzy
-         eLUCPIcMDYUDJ4MvItLdPv5YzUpXrdpdrsz222pqdJUgFq6JpD1ze1KkU+Q5xGUnuBuf
-         qfYA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759816756; x=1760421556;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=TY1Z3zjE2hmR/H8RZQ8GW2E7K5sHv4uVwuJ09oV8pME=;
-        b=IMossBCGJPcuU+l+gRfznzGoKq5Rvx1dc8m9J4kFS2hQKPuhOIqCAvINuQpduBhI/8
-         DM0SxhzFqMjLsDni7PrACgAFUY9z5c4BV3wXiIHFBdIgVMH7Hvd/sq5MdXe0/GSgpF4Z
-         F1LWUg/HvkMIY/GbH6wcmeAk0TDk/oc8Y3dOoa4eVZLhGYgN1OFGRsx/ZfoG7Gtjh0hV
-         n6QwRW0vlEceX5xOSbyauTBFhyG0sigMQukoprDIgtHTRlQelRWt1V5USIOi2dSo86j0
-         DR72qKH4ExXKdMrYgxnoM3NgkGe5BZDgiHuAgDv5+/gtLs1p+c6sH0mLyhlsT9SPRyx2
-         4y1Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVjI40Br9ti1t0fn3CO2+YuaV5JGsl4VbxvzFs7+DbjUVnHIntZBDAThLKwdO3Rs3y804pRvCvpasVzfcM9TUJu@lists.infradead.org
-X-Gm-Message-State: AOJu0YyEkFE+fkvWgGzRxaQfsv+qV9cYQELz3N4zF+XDBZt06krOhofN
-	kocsK6xNrCq0MZyadl5uEcKG99kt61LruIH+ZX7VGROK6uC0l5nMEd7H
-X-Gm-Gg: ASbGncuQIqnt8c01e+bz8F3d9VgJn32+WtnPW/SvuqtTanLG4sNGh+VLytOy4c4vi6h
-	n6+Uo+eUacwG+MA1hxT6HkVf8EoXk0B9AsfAhchdNRDf38ZUmc2LaYqPhjGb58Mcy+9aUG9SSlf
-	/TvqqNhZbcOcoqTirh6y5lasPHeFeE7zSd7wzVZSLrnwvCOZqtiQ4Z4l7m5k+V0ONCGThc5da7f
-	lQ0zcmgHoHbu38Wza8gVrQeQoTami3yptzZJMfKHZkhZ+BKQyS476tXEtYJ6Qb2a6i4Pjz0fes0
-	fTiTYZ5g1dV1eRZ2zjUTnvj4RFgozaovUmRfJzLIF5g82A0NKLyfSZ/wkvYetl4PSsre7xoyCUt
-	WCh8NHshQ3X8lwWe08NPc99FWlcedOUNYjuaUl8QFyhVbsOfh0shDwRrocdWt4HNSyWRlCmXL7U
-	FWnDuNZvohovK4G1cuIjvsAs1r
-X-Google-Smtp-Source: AGHT+IFlzsudHAIxUbF3d9k5TBWY8zUqb3RirQ/wOsrjbntDRjbfjMsD2j/0ZFEZEcTWL9AWUFx/Eg==
-X-Received: by 2002:a17:902:f708:b0:27e:ef27:1e52 with SMTP id d9443c01a7336-28e9a6aa8ddmr160679545ad.35.1759816755990;
-        Mon, 06 Oct 2025 22:59:15 -0700 (PDT)
-Received: from [192.168.68.62] (104-12-136-65.lightspeed.irvnca.sbcglobal.net. [104.12.136.65])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-28e8d135cdcsm151111185ad.59.2025.10.06.22.59.15
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 06 Oct 2025 22:59:15 -0700 (PDT)
-Message-ID: <7476a26d-c629-49a4-ab47-eaffda482782@gmail.com>
-Date: Mon, 6 Oct 2025 22:59:14 -0700
+	id 1v615H-00000001Ljt-3Hjp;
+	Tue, 07 Oct 2025 06:22:03 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 2444560539;
+	Tue,  7 Oct 2025 06:22:03 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFF23C4CEF1;
+	Tue,  7 Oct 2025 06:21:56 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759818122;
+	bh=m9l0GR2ClUtN+ciiYusPN4tTbjjNy3iFq1z02WpEF1I=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=abjo5rzDXeCd294Zg+iSQe5/I9Bq95Y6MEc5VEeFGc2NwtAlUWop/7nZpdk9mLR5p
+	 Fm1zBEQ7tw+KuITElHfBr6J6wtlXJVjiygbFgvv/5i76dsMk32xbl+qpTAFRomhNbR
+	 FUX2Lkav/a7XJNNiR6JBT8Nnk/HhKii0H/mcLnCB4AMwmzmPXe0Xe6m0qkye4UL1L9
+	 xTJmamK5ON3lgECZ3QWOTTQ4e3Ptsuj4Ek+4dewQ/e+2Ev58QZbQp7mvOiWcVscWuP
+	 +fffNhZ1qHdrACOy13QITaY02r4OhXeKwTtcGMMewoHf2bXGGJQJ1p9r5riVmC2PKU
+	 332zR9eT/zfmw==
+Message-ID: <e2511655-1907-42db-bed5-8943a8c835c2@kernel.org>
+Date: Tue, 7 Oct 2025 15:21:53 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/4] arm64: dts: rk3399-pinephone-pro: Add
- light/proximity sensor support
-To: Diederik de Haas <didi.debian@cknow.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
- Ondrej Jirman <megi@xff.cz>, Martijn Braam <martijn@brixit.nl>,
- =?UTF-8?Q?Kamil_Trzci=C5=84ski?= <ayufan@ayufan.eu>
-References: <20250929-ppp_light_accel_mag_vol-down-v4-0-6598f22d3451@gmail.com>
- <20250929-ppp_light_accel_mag_vol-down-v4-1-6598f22d3451@gmail.com>
- <DD5714TDL1NA.26WS3YF7EMZ5I@cknow.org>
+Subject: Re: [PATCH v3 4/6] dt-bindings: display: mediatek: disp-tdshp: Add
+ support for MT8196
+To: =?UTF-8?B?SmF5IExpdSAo5YiY5Y2aKQ==?= <Jay.Liu@mediatek.com>
+Cc: "linux-mediatek@lists.infradead.org"
+ <linux-mediatek@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "chunkuang.hu@kernel.org" <chunkuang.hu@kernel.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ "tzimmermann@suse.de" <tzimmermann@suse.de>,
+ "simona@ffwll.ch" <simona@ffwll.ch>, "mripard@kernel.org"
+ <mripard@kernel.org>, "p.zabel@pengutronix.de" <p.zabel@pengutronix.de>,
+ "maarten.lankhorst@linux.intel.com" <maarten.lankhorst@linux.intel.com>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
+ "robh@kernel.org" <robh@kernel.org>,
+ "dri-devel@lists.freedesktop.org" <dri-devel@lists.freedesktop.org>,
+ "airlied@gmail.com" <airlied@gmail.com>,
+ "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>,
+ "krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+References: <20250808125512.9788-1-jay.liu@mediatek.com>
+ <20250808125512.9788-5-jay.liu@mediatek.com>
+ <20250811-boisterous-skinny-ammonite-a4ca7b@kuoka>
+ <ee7b16097fbc7c5cc6b8c3163447d48ead0d44f5.camel@mediatek.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
-From: Rudraksha Gupta <guptarud@gmail.com>
-In-Reply-To: <DD5714TDL1NA.26WS3YF7EMZ5I@cknow.org>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <ee7b16097fbc7c5cc6b8c3163447d48ead0d44f5.camel@mediatek.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_225917_049484_FF5BEA39 
-X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,23 +132,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hello Diederik,
+On 21/09/2025 13:39, Jay Liu (刘博) wrote:
+>>> +
+>>> +maintainers:
+>>> +  - Chun-Kuang Hu <chunkuang.hu@kernel.org>
+>>> +  - Philipp Zabel <p.zabel@pengutronix.de>
+>>> +
+>>> +description: |
+>>> +  MediaTek display 2D sharpness processor, namely TDSHP, provides
+>>> a
+>>> +  operation used to adjust sharpness in display system.
+>>> +  TDSHP device node must be siblings to the central MMSYS_CONFIG
+>>> node.
+>>
+>> Heh? Why would this have to be a sibling? This is really odd, because
+>> you cannto actually rely on that.
+>>
+> hi Krzysztof,
+> disp-tdshp is one of components of display pipeline. just like OVL,
+> color, etc. MMSYS_CONFIG controls the clock of display pipeline,
 
->> +	stk3311 {
->> +		stk3311_int: stk3311-int {
->> +			rockchip,pins = <4 RK_PD3 RK_FUNC_GPIO &pcfg_input_pull_up>;
-> On page 11 and 17 of PPP schematic V1.0-20211127 I see LIGHT_INT_L as
-> identifier so it's best to use that identifier here, thus
-> ``light_int_l: light-int-l {``
-> and update the pinctrl-0 reference accordingly.
-Thanks! Since this is a simple change, I will wait for more comments in 
-this patch series (would like comments on the mount matrices for the 
-accelerometer and the magnetometer). I will put this change in v5 if I 
-send one.
 
+Read feedback again.
 
-Thanks,
+Unfortunately Mediatek produces way too many poor quality patches and
+review has so many obstacles like not addressing the comments. Example
+above. You need to pay more attention and invest more time, before
+pinging or replying to maintainers.
 
-Rudraksha
+> 
+>> You just added unverifiable unusual ABI with no explanation.
 
+Best regards,
+Krzysztof
 
