@@ -4,101 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 33CD4CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 13:07:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CAE9DCCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 13:13:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/XBg5ffSo2GrH186PgVqj31fJqaeqJpOT+XmNAkbPa8=; b=yryfam028jFksOf6P4Swin+ulp
-	aXO7prU/CLATgaUzobGkYGRypIo+CfOFkFQ77JKLu49dhmsFjxCTvus7sVOdzOwsGUymLeNqeFx3M
-	ngr8pmDUYIO+Oj22OR/E/jYpaz81SUBw3qVVlpQnmchmXHFnHItt5c+SbREGdqCyAnd7LAlrBgpwD
-	HZqNMCgrdqm17xuP5G/72Iff5p1joCnJh5CdXXySqlud+DPO+VVO6mxVLzzSm+j2GO9iHPyAYkdTQ
-	ZgNJVHJ2ny9OSeGyR5DwEYWt7A93TGYIiIv89iWeFn4BHZdnyU7nufsNavrmc8H9+Y5DC2k5WQ5X5
-	Z/77dhtw==;
+	bh=t0N+x/VGNAQttY2sxorx9dZNMTxHZKG1OWxQ7z8PFso=; b=UfzNCGrsm4AhhBhT4fMAkHxXMT
+	xZn4qJbVwUGjuXAgNw0OywBXXN3AqUqE92iC1gMCGxsXUuzoRcYbXiOTNTv2Gi4s9sWnk0axQG7Qb
+	wHwUJff3inPO7F+LW16YuKbSQa/scXLBaJXqbrkqXS18C2HzgmMwLgQgq5vlaAILASTxKYguRYV6G
+	t6sRpTG29BBtCn9VdClM3jTxWQok6Y/ZU4FkrtNXvNhVnfOEv3FV5O2Cc1at+s2wC2aP0ZiKcUA9w
+	1DSJ30faegaeWFE+cAUTG8pNdkvEUt9DEN2oqTtKgCpbX5wepPTIWYAiriiIjeAO1uh4mpGhFiVS7
+	K2sX5ZbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v67PY-000000021oD-3W4W;
-	Tue, 07 Oct 2025 13:07:24 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1v67Vi-000000022TX-1haL;
+	Tue, 07 Oct 2025 13:13:46 +0000
+Received: from mail-lj1-x233.google.com ([2a00:1450:4864:20::233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v67PW-000000021nA-13Lz
+	id 1v67Vg-000000022Sw-0QOb
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 13:07:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1759842439;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=/XBg5ffSo2GrH186PgVqj31fJqaeqJpOT+XmNAkbPa8=;
-	b=HtZEVkxabP8xRfG6MuLUVUazk9pLKLK9rsJaHsESIE1QMTtAAHvt41F9dRhIT+iMPv/H/r
-	8zwaPupftcawj7ONqnqpl8Y2HH3lmB9IiKjIxiYlyTcwLGsiAsrqUCo5UrxeDHDdwDoHKE
-	vj2Nm6IIYbu/Fqag7jTcuKEq7B7RlB4=
-Received: from mail-wm1-f69.google.com (mail-wm1-f69.google.com
- [209.85.128.69]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-171-IQGQE_9JPh6Z-9ioLE8czg-1; Tue, 07 Oct 2025 09:07:18 -0400
-X-MC-Unique: IQGQE_9JPh6Z-9ioLE8czg-1
-X-Mimecast-MFC-AGG-ID: IQGQE_9JPh6Z-9ioLE8czg_1759842437
-Received: by mail-wm1-f69.google.com with SMTP id 5b1f17b1804b1-46e3ed6540fso33535615e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 06:07:17 -0700 (PDT)
+	Tue, 07 Oct 2025 13:13:45 +0000
+Received: by mail-lj1-x233.google.com with SMTP id 38308e7fff4ca-33ca74c62acso54259461fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 06:13:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=bgdev-pl.20230601.gappssmtp.com; s=20230601; t=1759842822; x=1760447622; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=t0N+x/VGNAQttY2sxorx9dZNMTxHZKG1OWxQ7z8PFso=;
+        b=eyTlkfknlzKXSxJxInMax0vEtK+6o0YOgUtNiwglBHrRGIyk0MCWVa6HA8nVSOUW5l
+         5WKlp5MpNI/fjbBBJVtlvuCfnL88v8+Lkphtb9+6cyXhkGkvk5exrMtkw6Zeu/X7s09c
+         zdDhKVF50czaPflQ771mA9J8k+Vfn2ExjMldfuqfolRSI3K+H2KRyEfs65hrq5K01m2B
+         sAHkJW1o8SS8pYdbQ7G5WJetjR/vFglb8oIR2WD4GQBZQ+m9SveqxIA4Cek2I6JuP+wY
+         OspTMoMzqFcHDqdxNzJpP8N2vYO/i/Z4qQPJuHQk4NwIrvQzFLzBIl4mpNbur74AiMz+
+         +3LA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759842437; x=1760447237;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=/XBg5ffSo2GrH186PgVqj31fJqaeqJpOT+XmNAkbPa8=;
-        b=kLTG4BzeZJh/yVPOZ2eIOZ0fN/ncAIBXysaF5/b/+LnsMjb/fcEN7H0J94KXAIMBsv
-         noBX5jqC6Vy2a69hw5AoIIGGrm5NOc75YG/697I3Jb5TfyY5tvpOyfWPN2/4H8el95mK
-         4U4S7RphExQkKAO1DKBk3Witk+QpgLQuiCTgWANoe0fhubRWxh1b9InBBhRMAfzcTg8h
-         R+LRYXsZLC2N6DKVDVEsR12R9QxHO7yNtFuILLGNlA5vDowcf5V5Opc8jm7haST9Hglh
-         yFYpmQWtD3ZqcKBxHh63Gl0KKqzqEW8R0w5q6gORzvnvq9pUpzfyA/IXEFekpfW9YeYZ
-         CRRQ==
-X-Gm-Message-State: AOJu0Yy/ogYbDhTbweYEuUtiVtr/RXFXCvXR77GsbXTUM5LJoYikBb8y
-	cEN9rAKbT8yvGd0KBx+3R8TgpSW7b+haSMjQdNDmlDa4yS/8WuaDD6GpmAwMBSMdJL817MFQP96
-	zqW0FO3OAIbjKzldSE9HIXqVqtVDSNVTZUtMV8yi9nC6ZmxuSVM6IJFqJqYs9TOGs2cguVIQ2Xg
-	Ap
-X-Gm-Gg: ASbGncsQHCutHJj6LGikyN94e5uX0i5YXDj42A0ehlgAKgoT6T+6HF4m+HuRaDW3xiK
-	7Bz10DW68A7KOU8ui5pXPtmIOxAV5uUAPFbDmxW93YYkZksBj8xA1k54UxDFitVygUF543vBnTV
-	gEjiF+PVYawWPwD2I9txRUAlXLFbpC67m38UmXcb0TRMelJxwV7SEmkhnAZA0FqN9pZVGXIu/3f
-	5AQKKpQmbpYwYbC1btriP3whDgMkK3NnimaH4lo5mfMDnmXAvud2Tj5LEjtb47tAXScDitsngTP
-	2LG+Di7Iyj3SHyW1M73aQjaBSC+3H6tnLOvxKENmxykqpafnqjKpEvB/s5tMm87lsm2Qb1nCFkN
-	/ki6p5MEApH7wsYXiEw==
-X-Received: by 2002:a05:600c:6a07:b0:46e:74bb:6bd with SMTP id 5b1f17b1804b1-46fa2952c89mr17285455e9.4.1759842436888;
-        Tue, 07 Oct 2025 06:07:16 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IE2L851GpOZr+HLN+RmzEFHJmku4g/YovfWmiVjt/V8y3IuJukmtrAjm+9vQy2k3rcv11whEw==
-X-Received: by 2002:a05:600c:6a07:b0:46e:74bb:6bd with SMTP id 5b1f17b1804b1-46fa2952c89mr17285295e9.4.1759842436449;
-        Tue, 07 Oct 2025 06:07:16 -0700 (PDT)
-Received: from ?IPV6:2a0d:3344:2712:7e10:4d59:d956:544f:d65c? ([2a0d:3344:2712:7e10:4d59:d956:544f:d65c])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46e61a020a3sm307487145e9.10.2025.10.07.06.07.15
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 07 Oct 2025 06:07:15 -0700 (PDT)
-Message-ID: <7b460ea8-c340-4ab8-96d9-43568227ee07@redhat.com>
-Date: Tue, 7 Oct 2025 15:07:14 +0200
+        d=1e100.net; s=20230601; t=1759842822; x=1760447622;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=t0N+x/VGNAQttY2sxorx9dZNMTxHZKG1OWxQ7z8PFso=;
+        b=v6wwBuSkFdYKXXtui+PJ7lXgR5aOUj9nL6RiQdh7TKYP5ZwPyPp2eW6ODDBn4tNsk7
+         bfpFOj0N4LvX8Qr9eq8w7gD1sPzUbaNc7IGsE2NOYQus7U4kKwzeazUBvnmIxEgxmV8c
+         0sbZORvVoXatqngSHGe0aGFl4BueZx4/Pdbfp72gWCPdzkdHOzjUajeKdgiGOKjXs/k2
+         oexGFtIw44iS2282HVbjPmqtm35jx5dyfLVZS0/neGmUkF85Q13GvDCQ6cw7jSB5rXdJ
+         imlEoXoeEsm+b/l52l6H0aa+BN9iv7dYxUymnvMc5R+ybkPGQz9/F0/YbNEQWJ+vA9uW
+         6uUw==
+X-Forwarded-Encrypted: i=1; AJvYcCXomuaFhtQzQI4hIk7YFInDkmL3/esNE8e7eh67seuwfykMQV4P+MJYTjR0Q0LMAwIxeGOyQogGZleqjjBFMrLf@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxmdt9xQd3HvOqf7VjqSAiivt1L8RO2Jg86b+Qd0n1yWcceGfaJ
+	SBM7N2MOyqyJreCGSlDDU9mgAhkGpsB18MTIBiZvoK5sS5MwQJk7/j/cwO238HaJE4TnA/4ppY8
+	f/MPPJqFHl5051ogXFLfkPWzxyas7b/A/Rga5EVZcUQ==
+X-Gm-Gg: ASbGncvktZBIyUhdWO3deOS41057AiTROm+UHhSDbw4fyij3aL2JLWv/bbj1CH3tuc2
+	hy/pelliukOEy8CeyRZq2Jk3qSvOgify7AuBhCtEMYpBHGHN5QnICABWBzlmdYCCfEjGK9Q0K91
+	GCaOFk81FFat/mqUcZOJUBe7sbsmeJ1E0zNR5OpYrs2VJh46n6gEo6ussxVlaKkrCkYNWFtEAb4
+	H/BSIisDpx/nUqy5hPT2pF8QH56871PL4C2N1k+gZCXEieEQX4S+Mw49d9wgsY=
+X-Google-Smtp-Source: AGHT+IG7P5Lsywws5bBPOT8E7JIpupmd0eu9fkYQI1gC/FvLSNAcnVdx2QxXsM+KX1p4mn8AU407934CqwjnV4QazxU=
+X-Received: by 2002:a2e:9a14:0:b0:36e:21a0:f212 with SMTP id
+ 38308e7fff4ca-374c38477a4mr56218171fa.29.1759842821852; Tue, 07 Oct 2025
+ 06:13:41 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH net] net: airoha: Fix loopback mode configuration for GDM2
- port
-To: Lorenzo Bianconi <lorenzo@kernel.org>, Andrew Lunn
- <andrew+netdev@lunn.ch>, "David S. Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Jakub Kicinski <kuba@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
- netdev@vger.kernel.org
-References: <20251005-airoha-loopback-mode-fix-v1-1-d017f78acf76@kernel.org>
-From: Paolo Abeni <pabeni@redhat.com>
-In-Reply-To: <20251005-airoha-loopback-mode-fix-v1-1-d017f78acf76@kernel.org>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: mVXBnqEykXk-JjwGy9Kx01w9xJTSimGN2LrLDAhTNe0_1759842437
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250924-gpio-shared-v1-0-775e7efeb1a3@linaro.org>
+ <0b402bba-0399-4f93-873e-890a78570ff7@kernel.org> <CAMRc=MfwEHGV-HZQURR3JNg1HatAeWO17qbRmkWUXTSBWj5jSg@mail.gmail.com>
+ <80347dcf-419b-489e-9b0e-d901fbacc71a@kernel.org>
+In-Reply-To: <80347dcf-419b-489e-9b0e-d901fbacc71a@kernel.org>
+From: Bartosz Golaszewski <brgl@bgdev.pl>
+Date: Tue, 7 Oct 2025 15:13:29 +0200
+X-Gm-Features: AS18NWAq4ASQRRUa58ojinY89n-hm2wwAP_Re2fgpRgz7dBtx-tBmKEba_o3nR0
+Message-ID: <CAMRc=McaZV=tUkzDGMYxXqkuEYw_KasKcv8QGdjw709UYZuGhg@mail.gmail.com>
+Subject: Re: [PATCH RFC 0/9] gpio: improve support for shared GPIOs
+To: Srinivas Kandagatla <srini@kernel.org>
+Cc: Kees Cook <kees@kernel.org>, Mika Westerberg <westeri@kernel.org>, 
+	Dmitry Torokhov <dmitry.torokhov@gmail.com>, Andrew Morton <akpm@linux-foundation.org>, 
+	Linus Walleij <linus.walleij@linaro.org>, Manivannan Sadhasivam <mani@kernel.org>, 
+	Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Saravana Kannan <saravanak@google.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Andy Shevchenko <andy@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, 
+	Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+	Jaroslav Kysela <perex@perex.cz>, Takashi Iwai <tiwai@suse.com>, linux-hardening@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-gpio@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-sound@vger.kernel.org, 
+	linux-arm-msm@vger.kernel.org, 
+	Bartosz Golaszewski <bartosz.golaszewski@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_060722_365102_23ED2D09 
-X-CRM114-Status: GOOD (  14.38  )
+X-CRM114-CacheID: sfid-20251007_061344_161868_AF266A36 
+X-CRM114-Status: GOOD (  14.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,33 +107,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/5/25 4:52 PM, Lorenzo Bianconi wrote:
-> Add missing configuration for loopback mode in airhoha_set_gdm2_loopback
-> routine.
-> 
-> Fixes: 9cd451d414f6e ("net: airoha: Add loopback support for GDM2")
-> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
-> ---
->  drivers/net/ethernet/airoha/airoha_eth.c | 4 +++-
->  1 file changed, 3 insertions(+), 1 deletion(-)
-> 
-> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-> index 81ea01a652b9c545c348ad6390af8be873a4997f..abe7a23e3ab7a189a3a28007004572719307de90 100644
-> --- a/drivers/net/ethernet/airoha/airoha_eth.c
-> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
-> @@ -1710,7 +1710,9 @@ static void airhoha_set_gdm2_loopback(struct airoha_gdm_port *port)
->  	airoha_fe_wr(eth, REG_GDM_RXCHN_EN(2), 0xffff);
->  	airoha_fe_rmw(eth, REG_GDM_LPBK_CFG(2),
->  		      LPBK_CHAN_MASK | LPBK_MODE_MASK | LPBK_EN_MASK,
-> -		      FIELD_PREP(LPBK_CHAN_MASK, chan) | LPBK_EN_MASK);
-> +		      FIELD_PREP(LPBK_CHAN_MASK, chan) |
-> +		      FIELD_PREP(LPBK_MODE_MASK, 7) |
+On Mon, Oct 6, 2025 at 11:55=E2=80=AFPM Srinivas Kandagatla <srini@kernel.o=
+rg> wrote:
+>
+> >
+> > If they were called "reset-gpios" then we could (and should) use
+> > Krzysztof's reset-gpio driver here, but we have many cases where
+> > that's not the case and the names (and implied functions) are
+>
+> Yes, these codec drivers are due to be moved to use reset-gpios.
+>
 
-I suggest introducing some human readable macro to replace the above
-magic number.
+You will still need to keep support for the current "powerdown-gpios"
+property in existing device tree sources so that doesn't change
+anything. And what about shared pins other than reset? 'dc-gpios' for
+display, other 'powerdown' instances, 'enable-gpios', all kinds of
+uncommon names like: `dlg,cs`, `wlf,ldo2ena`, `speaker-enable`,
+`maxim,enable`? It's not likely we will create a separate abstraction
+for each of them. What I'm proposing is a sane, catch-all mechanism
+for shared GPIOs that right now use a rather wonky hack. Also: the
+drivers have no business knowing that they request GPIOs that can be
+shared. This is why I want to hide it inside GPIOLIB.
 
-Thanks,
-
-Paolo
-
+Bartosz
 
