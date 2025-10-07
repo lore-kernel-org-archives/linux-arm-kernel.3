@@ -4,144 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7AAE0CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 13:58:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 23CBECCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 13:58:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xw1sCcGlac4s17FP1B3PqK1MnlvMMYh2WVL1TuvDzG0=; b=EZ1fXDrbIuuGLSwFx0Cb9QsB90
-	PYN7NlxP7Iqs7LtE2f8759DYpUNbOMfJnj9hu94lIP+ushfCqXeekm7KLdant9ssZAFUVK1RIF610
-	yfMIgfhMvS5MmXk1XsmpgWEKgHGDVuvUaZZqvXXbZlveyaS65S1jG09VQlydu3W4H6KpBv6NRlcU7
-	nAkyKCFbzPRkuUQ+eANs1lzC+5CsBFhgWBj8F5kKHzKvk1zKaZ+b+90YAziDP/m8LL+2Gu3fHbvRz
-	FmlFlbWVghmoIvQ1i0qQ7QAYk6VoXQcYfaNvYJDEPrLWJCv1iZq7izgpYfeoR8TAK9FZqhhyHXCbi
-	926IL84Q==;
+	bh=4rlYUY99rqPM8GfD927WUvhieIqn1G/yd0+acs0pn14=; b=fWglCAyJ78y26qiOAFfcblF3fJ
+	BHrbojzarVapje32cWbg6lnR9tqGUyl+7Wb9kZViJaEyHcSB1yPGPaiIrT3OYeadXuE4fNl6N31E3
+	e/rolycbkgrrU0wqM+ZA4ZbzeX4DEDlKKgg+w8HaG2qYko6WXfcJTEaPQiUUedMnuHT873tPrrxVE
+	T/qtUMIbrzZLhuILChC3M08Ltp+ieOAhLyC5JUlS65Mna8YyeNoPrLj6WpUt2rBttkv6xxPhz/Xum
+	H1gJUDE4Ui9EIc85s1oj/xqDDxgwYrWWghXQKqPijAcLfAT2gAMvFu9Xbnr4+xc5961zDEG5cyfty
+	5mO5B1Ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v68Co-0000000272w-1gkH;
-	Tue, 07 Oct 2025 13:58:18 +0000
-Received: from mail-westcentralusazlp170100005.outbound.protection.outlook.com ([2a01:111:f403:c112::5] helo=CY7PR03CU001.outbound.protection.outlook.com)
+	id 1v68Cv-0000000277R-0B4P;
+	Tue, 07 Oct 2025 13:58:25 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v68Ck-000000026zm-2Ear
+	id 1v68Cr-0000000274C-1Ou1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 13:58:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=VTWifTGFbzCyEzKdYRAtIvTRHrXgZg5GU4C+P33ZDyVor4KvASEeIvYbG5VlDhuVivbUtPlepwFSrH0kjolywXl0mRQ9G9g3KW+6GEmiXt6sMrrNgWIUKWDG+crygfrGJ04a9Ri9lBAuD4aL9CANZgexW2hpbMHq/QNDanZOuVvoucWK+7FU1to1dhBxyz/dDcdMWR1v7TjmBUw7AWIb3OYp7omE3jl7AOcBu09vp8JKb4Wy0MOdUMWjO2rqQDYC3uaUcG1M5OvLQNWWdESIyrjZro/wSj6FLAxVDqZmjsILuDo0P435H7GmVtD6DvP+U43WT5gr6KVb9LvlcBaYgg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=Xw1sCcGlac4s17FP1B3PqK1MnlvMMYh2WVL1TuvDzG0=;
- b=OIW4X6p1iYn/IWzIiT+imo0KKPiVNG7/8vzztkkBJ097hr9cOxfBeNG7qUI1uTpz4o40PDcwKvPdGksGe2T7fZGa9SMlFyclkFk99Cs9n2mwgEzN1hekherxfY3Aya7AwtHTAqWdGRK3YOgyeSusJRwG4otYQAvcVpMHDrVmShGUU0a1uBkaNjR9NzjCnnufKulq2cysXeNyTqLftnBLnsxR+4ekmSDfU1nvO2L/B7v5OTMuL4g925O1/dwu4YxwYtgylBPDQ9zH6fn/HwvnfWaD9Ko6Se7gA9tCJa4NZzdHTw7ojNa0t/qyKzzl4YcYBHxbdOJyog2rCXYvkLXucA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 216.228.118.232) smtp.rcpttodomain=kernel.org smtp.mailfrom=nvidia.com;
- dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
- s=selector2;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=Xw1sCcGlac4s17FP1B3PqK1MnlvMMYh2WVL1TuvDzG0=;
- b=Mjb8dYC3Snj9QPwdn8S78kN9j1NOfnXB53VT2bZj2xslOVGh80ah+UhTuLURl++F9i9u2+eaRrWRP0No4iv8PrAhg5VzAIwVBvoNNGKvgLpYfkoBX+w8E+ZryDcMlypk8+wcaPcBCae12kOzYCcwj9cwrIodUE6W5Mq+Bq5JTtZr7UWjv/ym8GLZP9Gewg3M2cXjHPUtvnXO9SwC3BKaLQEZ4hG0mbL2plE+tFh+sf5b5xdNkA+JOBEPnjFOgKag2mCTsoyeyvnnWCnl+f+sVKqpgSa1XwpstS0wpp49cj9L0rjhb80/H3PhqJM1hjsFH7DWSSeWjNPAC1d4NONUSQ==
-Received: from BN0PR10CA0015.namprd10.prod.outlook.com (2603:10b6:408:143::33)
- by MN2PR12MB4223.namprd12.prod.outlook.com (2603:10b6:208:1d3::18) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9182.20; Tue, 7 Oct
- 2025 13:57:54 +0000
-Received: from BN2PEPF00004FBB.namprd04.prod.outlook.com
- (2603:10b6:408:143:cafe::48) by BN0PR10CA0015.outlook.office365.com
- (2603:10b6:408:143::33) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9203.9 via Frontend Transport; Tue, 7
- Oct 2025 13:57:54 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.118.232)
- smtp.mailfrom=nvidia.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=nvidia.com;
-Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
- 216.228.118.232 as permitted sender) receiver=protection.outlook.com;
- client-ip=216.228.118.232; helo=mail.nvidia.com; pr=C
-Received: from mail.nvidia.com (216.228.118.232) by
- BN2PEPF00004FBB.mail.protection.outlook.com (10.167.243.181) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9203.9 via Frontend Transport; Tue, 7 Oct 2025 13:57:54 +0000
-Received: from drhqmail203.nvidia.com (10.126.190.182) by mail.nvidia.com
- (10.127.129.5) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.14; Tue, 7 Oct
- 2025 06:57:42 -0700
-Received: from drhqmail201.nvidia.com (10.126.190.180) by
- drhqmail203.nvidia.com (10.126.190.182) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.20; Tue, 7 Oct 2025 06:57:41 -0700
-Received: from build-shgarg-noble-20250919.internal (10.127.8.11) by
- mail.nvidia.com (10.126.190.180) with Microsoft SMTP Server id 15.2.2562.20
- via Frontend Transport; Tue, 7 Oct 2025 06:57:41 -0700
-From: Shubhi Garg <shgarg@nvidia.com>
-To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
- Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, "Catalin
- Marinas" <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>, "Alexandre
- Belloni" <alexandre.belloni@bootlin.com>, Jonathan Hunter
-	<jonathanh@nvidia.com>
-CC: <devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-rtc@vger.kernel.org>, <linux-tegra@vger.kernel.org>, Shubhi Garg
-	<shgarg@nvidia.com>
-Subject: [PATCH v7 1/4] dt-bindings: rtc: Document NVIDIA VRS RTC
-Date: Tue, 7 Oct 2025 13:57:35 +0000
-Message-ID: <20251007135738.487694-2-shgarg@nvidia.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251007135738.487694-1-shgarg@nvidia.com>
-References: <20251007135738.487694-1-shgarg@nvidia.com>
-MIME-Version: 1.0
-X-NVConfidentiality: public
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-NV-OnPremToCloud: ExternallySecured
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BN2PEPF00004FBB:EE_|MN2PR12MB4223:EE_
-X-MS-Office365-Filtering-Correlation-Id: 67d8df63-fda8-434d-26d5-08de05a98368
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|7416014|36860700013|82310400026|1800799024;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OUNhFs1D4CuZHK0hhRctLNHr0msy7LtfugFgBxF8V0ZLiSBp+hbT0kv/OwEw?=
- =?us-ascii?Q?BiDUQIsI0SpULW12HVzGRxXrB4ZGLwRQmXMe6UQcv+V0yVCT2XfuhQVHVYaz?=
- =?us-ascii?Q?RSFqLeck/miaXVO8JHoh5vucwf9zT5yjxJGhF+7kWFxfgbOmtgTRw0JAfwEf?=
- =?us-ascii?Q?v4z9QgVGL277GhApqYaHgrqxSLR2I1DfLw0KsKzsC9rwq58pGvqE1QUTQ0hW?=
- =?us-ascii?Q?vB0PFRKy/MU6j1SiTLkXpS4RpI0pCiX6IYBaNJw58iiuTUQ1KHiE0DH+dNvI?=
- =?us-ascii?Q?lyTSjCW/OVBCJdcDjMb6YD7/ouRolCa4Z9B5h6P5WTOAHaAlmMgRwSQc9ViX?=
- =?us-ascii?Q?SeLm7XglfNCQY/V3mbUlWfL0fF6axAsHh1oP2ZsoMKJBuo865v99cK2TT1Sj?=
- =?us-ascii?Q?BHNUdXBff6NVvh5L3O8Z5g1lGYVggmoXTtZmKNAKTirPtJ3KvGygXN/VJfIQ?=
- =?us-ascii?Q?HJGU0lFf1iVF+AosixbXfyFsTYjQ7M7prVEV0PXLHbpMTRhXixfn4CtMEVxz?=
- =?us-ascii?Q?ERbXAemGZnDeOM16MqORp5Jof+GqU+G2pEa+8TU9zzuQb/tWG5dH95jtncly?=
- =?us-ascii?Q?lmEsTdvFrQ9vUmxX9b80CE2sOdZxijOa9AAXeST+312OzNdAJqQyiD8c3Pwd?=
- =?us-ascii?Q?sPqGZ3BqIBNtkBGzRmQn1/vlQtPnDw1X2SPTD2xsTwDISfbht4dp9BZOye2h?=
- =?us-ascii?Q?lZqbaKxi1N6pgGDuUqo24NO6HMwXRKi+jIiimPjCVpMiREdr9viDXp45h9vE?=
- =?us-ascii?Q?PDB6owqNhOebBh5LfDlGeTZ+Jf16fqlfaGZnSJUl6xfERSU2sJSL3RfD0lyw?=
- =?us-ascii?Q?K4VS22MaF0GjySEpDybCVJudBHocQ8lHIlDspBtFp1awAnShpNnqHAHjxzQp?=
- =?us-ascii?Q?NQ8BJrMf+qKcvSyJUcjpvuB4TGwFjMcfeA7/Ztxri2ezRtnIT4UKJJsL5q/C?=
- =?us-ascii?Q?Zgjw59rqaWcy9KMX5oaPU43LlkN1ASC5w5TDYJqk1FJjHFwWvciXp85Gp5mq?=
- =?us-ascii?Q?YGtIz937YtAR34eVQtGlq12yD9qJfp2MikcQytzacNM3mj2sXySfz8gia4j6?=
- =?us-ascii?Q?cJnQBJKxsYOQ45ol/myt8m60IjZKCzTgHu3IcA6XvNpsDJ392jgSaK1gUTnQ?=
- =?us-ascii?Q?ffzlDPNgY1Z7WTZyQj6zZO7a9LzHCkNfllmxI0NdmQDK7nvAAneXH+9qE4t0?=
- =?us-ascii?Q?89+9eKC5j2mkzEBeJ6azyIlNSGIxNMPmp/AuwGUsARRGutC+gldSYfYGVQWM?=
- =?us-ascii?Q?bU44z1B2PorZ/iO+7Uy5UoQWDVnQwKAXAHuWFJJ7mFRBR3U+IeLWOQbMtg4W?=
- =?us-ascii?Q?rkt/tXXLiExAc5XfL0lTWYsndPoKZoh8yahuoOo0aMQhzG2UWw/t6rm8VgxR?=
- =?us-ascii?Q?nuItn+eTp12d5GwEMuMYbto3vTSNTldty463vg+Nl7or25EGbG+ZRhm0EjL7?=
- =?us-ascii?Q?YemPWXgawuaLB0Pjrx9YLNE43Ja8o734SP7Z7YV5coF99/VMPhttQ1qknsFE?=
- =?us-ascii?Q?cMEC5HX7xJdune4bNUO7MHeLMW6osb5bY6Uy/C/1k8rExa1bh0S3xWEdXbx0?=
- =?us-ascii?Q?pBqm9PfmlwPVfKUS+KE=3D?=
-X-Forefront-Antispam-Report: CIP:216.228.118.232;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc7edge1.nvidia.com;CAT:NONE;SFS:(13230040)(376014)(7416014)(36860700013)(82310400026)(1800799024);DIR:OUT;SFP:1101;
-X-OriginatorOrg: Nvidia.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 07 Oct 2025 13:57:54.3592
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 67d8df63-fda8-434d-26d5-08de05a98368
-X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.118.232];Helo=[mail.nvidia.com]
-X-MS-Exchange-CrossTenant-AuthSource: BN2PEPF00004FBB.namprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MN2PR12MB4223
+	Tue, 07 Oct 2025 13:58:23 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-336b646768eso7695990a91.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 06:58:20 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1759845500; x=1760450300; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=4rlYUY99rqPM8GfD927WUvhieIqn1G/yd0+acs0pn14=;
+        b=O+tiPMlWj/As0ZGtJKWuPbXJXnuXbwiSQk1WMF6OI5+xlLCyS14AkXt/lSAqN/QU83
+         FWvfM+2iOr8mwFItZNtJ3SabMgKmGSx/TKPB6IkqVNKt9V7+ZUxKFONQtzuxZuXb8cNz
+         X25K+eB1VhsJbr7VpUSjx78pxpY8ohUFEnIVvQu4+wWX8wqvf/Vk2LasYiNIfbqlWekm
+         G9W3i3SMF8PQpxT/3/iCR0woRDou304AEp3GxPr5LklJtXvczZKLnKSJnOF199oC23Jj
+         qBtnn9W0wt0nkFlBxmmpWTJDd9J3xVMzlaXtCXSYm7kKX5oQBX8jtX9bwiIKnSMp2aAo
+         hG6w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759845500; x=1760450300;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=4rlYUY99rqPM8GfD927WUvhieIqn1G/yd0+acs0pn14=;
+        b=FNMaTnJzRSRWochhxh/AsOWKwYvZJWTZmhWmqE4NuXf9AvhCQt1HF4uAYF0JZHSi/z
+         jC5Tq+Ng/DJxNe58B7VxFGhr1OJ7EDx5tXGcZj/yx/DJHjl8O7LrJya3d+gFUS9YyEpP
+         gWeSFEvA4PK0x0Lrb3jUAtbWLbruFIZPRn24sFDmGXImC0oi9s29eAgL/T62l7T5vimZ
+         4HzrDXx3EE6OdvHLsdYgaP8zbnXL5VhSoxPGXkjrfGwbcsHzvaFSsUdfO2RsvkaaMXLv
+         UNm0iTemTx4B/xFYK8LJ5VMP2ybfpKrvEZPnQmRHuppKHG/zlZw8T4jeHqO8LlFPCkph
+         Y5rQ==
+X-Forwarded-Encrypted: i=1; AJvYcCW5zS8H5VxTKOD13UQcDZ0Zj6QQRRWHPawwQlMgqXbuUptV/iOEa61xd+HCqFqWkU2ufh64gYMCSdt1ilUXunSt@lists.infradead.org
+X-Gm-Message-State: AOJu0YxTLuWcUtiU8uMFUeUjVcP4HkcW4bhfJ0PIkpqiA2xdHMNAErSP
+	Pb99hxHoWeaDTZnaGNeozajvMGZvn5NMhyupyuOiKTakBJIt13Bfz2hLvb/M3mDFNg8nNv3OdzJ
+	woJMUiQ==
+X-Google-Smtp-Source: AGHT+IH44LYFtR2Z9aj26aSM38dj+lWGcrky74kzzSLe1xZuZzZCEhZOyIjquiME0rIkS/AaVEe3J4tloO4=
+X-Received: from pjbmw12.prod.google.com ([2002:a17:90b:4d0c:b0:329:b272:45a7])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:90b:1c05:b0:335:2823:3686
+ with SMTP id 98e67ed59e1d1-339c274089dmr20831446a91.2.1759845499915; Tue, 07
+ Oct 2025 06:58:19 -0700 (PDT)
+Date: Tue, 7 Oct 2025 06:58:18 -0700
+In-Reply-To: <fc0bb268-07b7-41ef-9a82-791d381f56ac@amazon.com>
+Mime-Version: 1.0
+References: <20231105163040.14904-1-pbonzini@redhat.com> <20231105163040.14904-16-pbonzini@redhat.com>
+ <fc0bb268-07b7-41ef-9a82-791d381f56ac@amazon.com>
+Message-ID: <aOUceqlAnsjQ8mo4@google.com>
+Subject: Re: [PATCH 15/34] KVM: Add KVM_CREATE_GUEST_MEMFD ioctl() for
+ guest-specific backing memory
+From: Sean Christopherson <seanjc@google.com>
+To: Nikita Kalyazin <kalyazin@amazon.com>
+Cc: Paolo Bonzini <pbonzini@redhat.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Huacai Chen <chenhuacai@kernel.org>, 
+	Michael Ellerman <mpe@ellerman.id.au>, Anup Patel <anup@brainfault.org>, 
+	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
+	Albert Ou <aou@eecs.berkeley.edu>, Alexander Viro <viro@zeniv.linux.org.uk>, 
+	Christian Brauner <brauner@kernel.org>, "Matthew Wilcox (Oracle)" <willy@infradead.org>, 
+	Andrew Morton <akpm@linux-foundation.org>, kvm@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org, 
+	kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org, 
+	linux-fsdevel@vger.kernel.org, linux-mm@kvack.org, 
+	linux-kernel@vger.kernel.org, Xiaoyao Li <xiaoyao.li@intel.com>, 
+	Xu Yilun <yilun.xu@intel.com>, Chao Peng <chao.p.peng@linux.intel.com>, 
+	Fuad Tabba <tabba@google.com>, Jarkko Sakkinen <jarkko@kernel.org>, 
+	Anish Moorthy <amoorthy@google.com>, David Matlack <dmatlack@google.com>, 
+	Yu Zhang <yu.c.zhang@linux.intel.com>, Isaku Yamahata <isaku.yamahata@intel.com>, 
+	"=?utf-8?Q?Micka=C3=ABl_Sala=C3=BCn?=" <mic@digikod.net>, Vlastimil Babka <vbabka@suse.cz>, 
+	Vishal Annapurve <vannapurve@google.com>, Ackerley Tng <ackerleytng@google.com>, 
+	Maciej Szmigiero <mail@maciej.szmigiero.name>, David Hildenbrand <david@redhat.com>, 
+	Quentin Perret <qperret@google.com>, Michael Roth <michael.roth@amd.com>, Wang <wei.w.wang@intel.com>, 
+	Liam Merwick <liam.merwick@oracle.com>, Isaku Yamahata <isaku.yamahata@gmail.com>, 
+	"Kirill A. Shutemov" <kirill.shutemov@linux.intel.com>
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_065814_583111_D4CEAF01 
-X-CRM114-Status: GOOD (  13.25  )
+X-CRM114-CacheID: sfid-20251007_065821_401118_2E4549F4 
+X-CRM114-Status: GOOD (  23.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -156,115 +110,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add device tree bindings for NVIDIA VRS (Voltage Regulator Specification)
-RTC device. NVIDIA VRS is a Power Management IC (PMIC) that implements a
-power sequencing solution with I2C interface. The device includes RTC
-which provides functionality to get/set system time, retain system
-time across boot, wake system from suspend and shutdown state.
+On Fri, Oct 03, 2025, Nikita Kalyazin wrote:
+> On 05/11/2023 16:30, Paolo Bonzini wrote:
+> > From: Sean Christopherson <seanjc@google.com>
+> > 
+> > Introduce an ioctl(), KVM_CREATE_GUEST_MEMFD, to allow creating file-based
+> > memory that is tied to a specific KVM virtual machine and whose primary
+> > purpose is to serve guest memory.
+> 
+> ...
+> > diff --git a/virt/kvm/kvm_main.c b/virt/kvm/kvm_main.c
+> > index f1a575d39b3b..8f46d757a2c5 100644
+> > --- a/virt/kvm/kvm_main.c
+> > +++ b/virt/kvm/kvm_main.c
+> 
+> ...
+> 
+> > -static int check_memory_region_flags(const struct kvm_userspace_memory_region2 *mem)
+> > +static int check_memory_region_flags(struct kvm *kvm,
+> > +				     const struct kvm_userspace_memory_region2 *mem)
+> >   {
+> >   	u32 valid_flags = KVM_MEM_LOG_DIRTY_PAGES;
+> > +	if (kvm_arch_has_private_mem(kvm))
+> > +		valid_flags |= KVM_MEM_GUEST_MEMFD;
+> > +
+> > +	/* Dirty logging private memory is not currently supported. */
+> > +	if (mem->flags & KVM_MEM_GUEST_MEMFD)
+> > +		valid_flags &= ~KVM_MEM_LOG_DIRTY_PAGES;
+> 
+> I was wondering whether this restriction is still required at this stage or
+> can be lifted in cases where the guest memory is accessible by the host.
 
-Supported platforms:
-- NVIDIA Jetson AGX Orin Developer Kit
-- NVIDIA IGX Orin Development Kit
-- NVIDIA Jetson Orin NX Developer Kit
-- NVIDIA Jetson Orin Nano Developer Kit
+Off the top of my head, I can't think of any reason why dirty logging wouldn't
+work with guest_memfd for non-CoCo VMs.  We'd likely need to explicitly enumerate
+support to userspace, and there might be some assumptions lurking in KVM, but
+fundamentally it should Just Work (TM).
 
-Signed-off-by: Shubhi Garg <shgarg@nvidia.com>
----
-
-v7:
-- dt binding file name fix to keep same as compatible
- 
-v6:
-- compatible name fixes to "nvidia,vrs-10"
-- changed dtb node name to pmic@3c
-
-v5:
-- moved device tree bindings from mfd to rtc
-- changed dtb node name to rtc@3c
-- changed compatible string to "nvidia,vrs10-rtc"
-
-v4:
-- no changes
-
-v3:
-- fixed device tree node name to generic "pmic@3c"
-- fixed indentation
-
-v2:
-- fixed copyrights
-- updated description with RTC information
-- added status node in dtb node example
-
- .../bindings/rtc/nvidia,vrs-10.yaml           | 59 +++++++++++++++++++
- 1 file changed, 59 insertions(+)
- create mode 100644 Documentation/devicetree/bindings/rtc/nvidia,vrs-10.yaml
-
-diff --git a/Documentation/devicetree/bindings/rtc/nvidia,vrs-10.yaml b/Documentation/devicetree/bindings/rtc/nvidia,vrs-10.yaml
-new file mode 100644
-index 000000000000..c7dbc8b83c00
---- /dev/null
-+++ b/Documentation/devicetree/bindings/rtc/nvidia,vrs-10.yaml
-@@ -0,0 +1,59 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/rtc/nvidia,vrs-10.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: NVIDIA Voltage Regulator Specification Real Time Clock
-+
-+maintainers:
-+  - Shubhi Garg <shgarg@nvidia.com>
-+
-+description:
-+  NVIDIA VRS-10 (Voltage Regulator Specification) is a Power Management IC
-+  (PMIC) that implements a power sequencing solution with I2C interface.
-+  The device includes a real-time clock (RTC) with 32kHz clock output and
-+  backup battery support, alarm functionality for system wake-up from
-+  suspend and shutdown states, OTP memory for power sequencing configuration,
-+  and an interrupt controller for managing VRS events.
-+
-+properties:
-+  compatible:
-+    const: nvidia,vrs-10
-+
-+  reg:
-+    maxItems: 1
-+
-+  interrupts:
-+    maxItems: 1
-+
-+  interrupt-controller: true
-+
-+  '#interrupt-cells':
-+    const: 2
-+
-+required:
-+  - compatible
-+  - reg
-+  - interrupts
-+  - interrupt-controller
-+  - '#interrupt-cells'
-+
-+additionalProperties: false
-+
-+examples:
-+  - |
-+    #include <dt-bindings/interrupt-controller/irq.h>
-+    i2c {
-+        #address-cells = <1>;
-+        #size-cells = <0>;
-+
-+        pmic@3c {
-+            compatible = "nvidia,vrs-10";
-+            reg = <0x3c>;
-+            interrupt-parent = <&pmc>;
-+            interrupts = <24 IRQ_TYPE_LEVEL_LOW>;
-+            interrupt-controller;
-+            #interrupt-cells = <2>;
-+        };
-+    };
--- 
-2.43.0
-
+> Specifically, it would be useful to support differential memory snapshots
+> based on dirty page tracking in Firecracker [1] or in live migration.  As an
+> experiment, I removed the check and was able to produce a diff snapshot and
+> restore a Firecracker VM from it.
+> 
+> [1] https://github.com/firecracker-microvm/firecracker/blob/main/docs/snapshotting/snapshot-support.md#creating-diff-snapshots
+> 
+> > +
+> >   #ifdef __KVM_HAVE_READONLY_MEM
+> >   	valid_flags |= KVM_MEM_READONLY;
+> >   #endif
+> > @@ -2018,7 +2029,7 @@ int __kvm_set_memory_region(struct kvm *kvm,
+> >   	int as_id, id;
+> >   	int r;
+> > -	r = check_memory_region_flags(mem);
+> > +	r = check_memory_region_flags(kvm, mem);
+> >   	if (r)
+> >   		return r;
 
