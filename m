@@ -4,74 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 52A79CCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 20:52:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D962CCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 20:53:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=y8/GMUldGG3w+0pZPoxpukYxq6AmGwZnw9wcgcC5hw8=; b=W/HgplyXQ2VHsxQaVhZ2Peulox
-	BOA9EeEU2Lj94SCSqQv84pn0JqTTz7m7IkxoooxJEf++TVtsc2smbeCzojLK0ob7jLLWt+2UBugSm
-	l9hAi/U2ekmnt+QbFUdBM73dG+Va6z+nJoCwaA0xytGPixLmXEvrR+SQSzFdrgxCAJ3MA/lQ519oo
-	FgISD8NQpi3ooGhj8ZuwyqG9POsDklf5AOpiqjFRe1VQx9OQbjT3CfO1NW10d0tlYrTpZYx/oQt8q
-	Edioj5ogIAGilY1YLgUTuqa/RFy9Vwldx6uRQNM69Hxmbjg+Wd8PiLNCW7iC5YTrC+c7SzjxGKfdN
-	gpssDsvA==;
+	bh=/hCZP75SmDHrCZY5PWLz8NOVMBMSMd1PrqQADWHi6tM=; b=jTBYkdrLaX6pSFpt1Osw8aiQQI
+	P1AXkXGxRM7tKTatpt2p664frItfwcPOZ8gv5gXnqMn2XiRwUKT7jGpLuFVSjxpKOanVCYrgXKl80
+	XoqEtRrINbgHV63vEzfRoyTqtXUQM1KiIsHInx3Zk5lOzWJYgNnBkszuarBiB7ztzxqcD0oOiUbS7
+	kmmdsRucXOnvnsAheqxAQJQqPciHjWhMARnUGWzc8tfc030XUTHaBsIMex8RRCn2ticJ34IzcOc2e
+	kXL/IyGvVMw2Y5W05u4GkIM8G61o9+7QJ3SJk5lC97iKzy8yS6g581Jt6l5tCZmkRAiHuYA6QN6iV
+	p6ZBCw4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6Efl-00000002mPP-1p7K;
-	Tue, 07 Oct 2025 20:52:37 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v6Ege-00000002maS-3Fsr;
+	Tue, 07 Oct 2025 20:53:32 +0000
+Received: from mail-ot1-x333.google.com ([2607:f8b0:4864:20::333])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6Efk-00000002mPJ-1YPs
+	id 1v6Egc-00000002mYo-0Nos
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 20:52:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id ACA4761E04
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Oct 2025 20:52:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4D2FBC19424
-	for <linux-arm-kernel@lists.infradead.org>; Tue,  7 Oct 2025 20:52:35 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759870355;
-	bh=y8/GMUldGG3w+0pZPoxpukYxq6AmGwZnw9wcgcC5hw8=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=CE0S4v0eb4SvIu9cYkNeO8SZpv/02gbFtSP5tQebsDHrs+6NT5zYnwT7b6iUWHLho
-	 W55kL+t1f/pqDC8H8A8ZenEzpty98DQMItE0PHI3JSswbh/m0ntC1qTchisqbwFT0j
-	 3qHSo4wbFIgWjmhN5Y038PWu6Wo9CWnfqAZqB75gcnk+V4f+QByD+1awtZjXEv35A3
-	 9B0zpylF53vJwCgtcqSfp5vhTjSk+Kk9DA6S0+wC8057ZRgSCt9fMuzpKZJ0LxBSqK
-	 Eji0VOEnXpDhwZtdGv/8Phf7pp/BW3SxxhL78lhIsMn50+ZZChgM6221ON9zmMptt9
-	 qzgm+rXyDbL1w==
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-57d8ff3944dso8340639e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 13:52:35 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVkTCsNAxP9zt47elN961Dn0IMwxRPVMD3WJ5kcgn84Ezzk6g3CBnspE+swUYhfoHhzpEW028nnFHjMCmqoNWhP@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzyddgq1Zld/2VyHk4SCAq7GoNe+KW1QTBl2l4+FCgr/S+P3nCj
-	UAgr9l/mwSynBpArQhyEW7SI1NcZTWErL3AhPUOLFMCnIBkTDGVkc3gwvXEbT23plmcQAutveXR
-	5Pw+qy7CrRFP/MAMoNARkPDrCxTcz2uM=
-X-Google-Smtp-Source: AGHT+IFWqLgtXiTrJW6mGp3mRySogk1jb7z6qNnqnVCTlvVrrsiW7mc/3XsIbu+BF3mk4txNgZWky6Zv0V7pXdHDgXU=
-X-Received: by 2002:a2e:bd16:0:b0:338:8b9:293a with SMTP id
- 38308e7fff4ca-37609d72b5emr2423171fa.13.1759870353542; Tue, 07 Oct 2025
- 13:52:33 -0700 (PDT)
+	Tue, 07 Oct 2025 20:53:31 +0000
+Received: by mail-ot1-x333.google.com with SMTP id 46e09a7af769-7bdfbc6ba5cso3106388a34.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 13:53:29 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1759870409; x=1760475209; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=/hCZP75SmDHrCZY5PWLz8NOVMBMSMd1PrqQADWHi6tM=;
+        b=GUhFHIRNWDjOexV+Fbx9ARmRhSi+Jrpwz956eeaT2e4wPCzZyg+TyMw4WoPEYztuTh
+         Z2zJDTYgIWVGGwT2RQQUL4WAFrRu3P8JloikFSu5aRJBsrd0GsGZaBPTn0HxCuPleRms
+         KM89IqqffB8mwyJ7NcION3az8j/+P74KqshNV1TDEmg74iCDVxEi0jGxhFIS3sIS9pfk
+         NGfnt8MCCvAzsKxeaLkBa3lfW+uStP3cN7qgs/Ji05gpWddLYcyLLJKBesqA4l6sGcA6
+         DoWH0JqHm/ujO0L7pdoB/FLdTgWxEPz1irOenYhu6h0baWhqPSCdooqitq5Dbej+eYb/
+         WBPw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759870409; x=1760475209;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=/hCZP75SmDHrCZY5PWLz8NOVMBMSMd1PrqQADWHi6tM=;
+        b=GqtaCE180Oo94XNQW81vbZHAJ/r1rPNu5FQHE8epqCxlNTm9JjrywuLqK/AFseql6U
+         WfgXwjR5PTZwT+Tbmq0op/n4KzETpxarMVIB79b2ZHzWLGbt2D0pjgHFPiaL3j/JgNeW
+         Bh80CokHKIPH2kjf/1D8BVSSTto26KoDJyRWWy0PgBU3MFJOQLVHSx1V3KapTfgQ/Jbz
+         3PMLpAb+b+cCbehncJ9KTD0X5onBVHEraypRWHczTnuFtKtP1nTsEMPfucFDyFWCbKGQ
+         JSi7tPc4IqG59DewiFrjmHcZ4pWCjvLdK2sK4n8p2iw043GG230Xc8zLN1MLvm+B+QkB
+         rGRQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVkK6TSW8Y+C53CztSq0NoAT//5N32uvdt7BOdwRBDGdDn3rf1eJtmdm34p48JVCQGcrbzkP7fW1manlc18ye7o@lists.infradead.org
+X-Gm-Message-State: AOJu0YxK0M95EFI0GKviRgnje6976GrXsJFqUm0stHmMB8OaR+H7PVIw
+	46EX8xBGbRPM2/4Q5ZXWlDzS02SiTrfMws8wkJquUqZQYIXFbR9Y3ukpbc9ZlMtrr7KfCSG4Me6
+	Gkk0Sjr05NhSbUXpRAAoPKc2LMxo9ea3QpvSbiLvbYm8u3VCi1fCHEaQ=
+X-Gm-Gg: ASbGnctgt5DfNpL9gzOcxb4a++qogshA2TfTm2YwsXiaDe3B3Uj3n+2YxOW1HzLDlnX
+	fRB8mqaDkVKqFPSECnkFguIoQ9L6tdI+uwDmUeO+kQuoMPA2lkqlnVWFcMSul5TvGBTO0wYVS96
+	2hk5Jm/pknoNiJG6wXBrCys0fJBDt708VZ08wvzw+QlPkgmsOgdkapV4ItPY5M6I8f/OAbQJeaQ
+	zcZ1M8ZUjhVcLFn09eCu1EB/lJNjC31EpUDSw==
+X-Google-Smtp-Source: AGHT+IFQJZVs4LBnBVbWSGDsdN3906KKw4UjF5sMiH1fvSeD9gn0otajPAH5kYHA1+VAEseWAd1TdVpRyCmSlYYSQ1w=
+X-Received: by 2002:a05:6808:1988:b0:43f:57cb:7f83 with SMTP id
+ 5614622812f47-4417b3e3209mr436998b6e.46.1759870409126; Tue, 07 Oct 2025
+ 13:53:29 -0700 (PDT)
 MIME-Version: 1.0
-References: <20251002210044.1726731-2-ardb+git@google.com> <5824c012-dcb2-4312-9b16-810656290831@amd.com>
- <CAMj1kXHUjL7=CPz0viSBvfeX=BKNYuUkrpTizn9H1ZgJecB6cQ@mail.gmail.com>
-In-Reply-To: <CAMj1kXHUjL7=CPz0viSBvfeX=BKNYuUkrpTizn9H1ZgJecB6cQ@mail.gmail.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Tue, 7 Oct 2025 13:52:22 -0700
-X-Gmail-Original-Message-ID: <CAMj1kXEzNPJOE_-gndNcFmE9CjLpsFCjfytaXbvm-1Khu62XRA@mail.gmail.com>
-X-Gm-Features: AS18NWCUcEc5v5iNbYwR-ag_-_0hSbWa3FKTC6RSEE69o8OM0SeSucBijz0KzNY
-Message-ID: <CAMj1kXEzNPJOE_-gndNcFmE9CjLpsFCjfytaXbvm-1Khu62XRA@mail.gmail.com>
-Subject: Re: [PATCH] drm/amd/display: Fix unsafe uses of kernel mode FPU
-To: =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
-Cc: Ard Biesheuvel <ardb+git@google.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, will@kernel.org, 
-	catalin.marinas@arm.com, mark.rutland@arm.com, broonie@kernel.org, 
-	Austin Zheng <austin.zheng@amd.com>, Jun Lei <jun.lei@amd.com>, 
-	Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
-	Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, 
-	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org
+References: <20251006-gs101-pd-v1-0-f0cb0c01ea7b@linaro.org> <20251006-gs101-pd-v1-3-f0cb0c01ea7b@linaro.org>
+In-Reply-To: <20251006-gs101-pd-v1-3-f0cb0c01ea7b@linaro.org>
+From: Peter Griffin <peter.griffin@linaro.org>
+Date: Tue, 7 Oct 2025 21:53:17 +0100
+X-Gm-Features: AS18NWAUUQxOHKEKFHDJ43bMyMuc1k66q_SOXE8Wv3pAaENJrBaMTokvZjBYJtQ
+Message-ID: <CADrjBPoharrk2BwLuFaAicErLxZXre+gSSqwws6Q07E4C9f8nA@mail.gmail.com>
+Subject: Re: [PATCH 03/10] pmdomain: samsung: use to devm_kstrdup_const() to
+ simplify error handling
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+	Rob Herring <robh@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Will McVicker <willmcvicker@google.com>, 
+	kernel-team@android.com, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251007_135330_132350_9E5E9F6A 
+X-CRM114-Status: UNSURE (   8.72  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,51 +102,14 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 6 Oct 2025 at 12:59, Ard Biesheuvel <ardb@kernel.org> wrote:
+On Mon, 6 Oct 2025 at 17:43, Andr=C3=A9 Draszik <andre.draszik@linaro.org> =
+wrote:
 >
-> On Mon, 6 Oct 2025 at 19:42, Christian K=C3=B6nig <christian.koenig@amd.c=
-om> wrote:
-> >
-> > On 02.10.25 23:00, Ard Biesheuvel wrote:
-> > > From: Ard Biesheuvel <ardb@kernel.org>
-> > >
-> > > The point of isolating code that uses kernel mode FPU in separate
-> > > compilation units is to ensure that even implicit uses of, e.g., SIMD
-> > > registers for spilling occur only in a context where this is permitte=
-d,
-> > > i.e., from inside a kernel_fpu_begin/end block.
-> > >
-> > > This is important on arm64, which uses -mgeneral-regs-only to build a=
-ll
-> > > kernel code, with the exception of such compilation units where FP or
-> > > SIMD registers are expected to be used. Given that the compiler may
-> > > invent uses of FP/SIMD anywhere in such a unit, none of its code may =
-be
-> > > accessible from outside a kernel_fpu_begin/end block.
-> > >
-> > > This means that all callers into such compilation units must use the
-> > > DC_FP start/end macros, which must not occur there themselves. For
-> > > robustness, all functions with external linkage that reside there sho=
-uld
-> > > call dc_assert_fp_enabled() to assert that the FPU context was set up
-> > > correctly.
-> >
-> > Thanks a lot for that, I've pointed out this restriction before as well=
-.
-> >
-> > Since we had that issue multiple times now would it be somehow possible=
- to automate rejecting new code getting this wrong?
-> >
-> > E.g. adding something to the DC_FP_START()/DC_FP_END() or kernel_fpu_be=
-gin/end macros to make sure that they fail to compile on compolation units =
-where FP use is enabled?
-> >
+> Convert to using devm_kstrdup_const() so as to simplify cleanup during
+> error handling.
 >
-> Something like the below perhaps?
->
+> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+> ---
 
-Never mind, that doesn't work. dc_fpu_begin() is an out-of-line
-function, and so it is the DC_FP_START() macro that evaluates to
-something that includes an arch-provided assert. I'll code something
-and send it out.
+Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
 
