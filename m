@@ -4,50 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECBB5CCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 09:45:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5BE66CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 10:00:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MvTDqXTt0EdcHFiuBsNVUB7Ja1nA2HkxB7PJxX5JPck=; b=fvyZzWBUVlJ5D/oJbQpqq/oElQ
-	HSrQsdD6qVOj4Lr+OHIew5ddTr+NCEV8wW2pKj0KSRkvNGMoHp6v9HsqT39x2GRnI04TwRGpB+a1/
-	Uxu0WnAVEi2RvZvY5YO79vPVJRSuIqOTVhf42Pkt/Znnnex7BA5uoP2zUYXV311KgRPJ1h8TwXcii
-	w4GkEXEuHZCpf2EsGcQY5l6QiUx9ZxEBRwhSz/BExwPHrivlYxoQYvl8TPGPD/LBtWwPRg/9niQlw
-	23wEfSO3FAJUK4+t7sDadUXg8Zp3FeLCDSd1t9nV0J8i3ada8Gg+LfF00V1aFyPrts82OorbWNUPr
-	hjlrmKEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=2Y/zdYIkMdIZSjqi1MDbEnzlo0MXBm0/u/viL/uwMQc=; b=LRkHmcxpzV7DZYqLsEYAkEiDGO
+	Sl6z7JgntuPURlE36Wn3nAEw9RKwKIj1GzvS/TB7gmg9LFBKP1KqgSL/BSp67062bnxnilBv9MHNW
+	zzmPHM/d/Ee7IDA9gieXTCMuzdje4WJj0MbyOJZ+9ar7d4RQsobsLsX1vBMc6dr9qRYYFASq8XS4N
+	V3T4vaouNkj2YccQiovdMYMdJYs2+oYMe/zPae4ogxEBS6rJ9ylJOtiJq/u/Pb9CtV4bKLjBB+BAv
+	8cOwP/M0t5qTNq3UDyfw4Ei/JDc2I1dNG58IcBFDkGxQsdVawEoVU594frKVMdCnrZeJSzzT6Syfj
+	bsCyLe/g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v64G7-00000001jFp-0cCF;
-	Tue, 07 Oct 2025 09:45:27 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v64UV-00000001l6U-3v2q;
+	Tue, 07 Oct 2025 10:00:19 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v64G3-00000001jDx-3uJA
+	id 1v64UU-00000001l6N-2lRQ
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 09:45:25 +0000
+	Tue, 07 Oct 2025 10:00:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id DCF5B40272;
-	Tue,  7 Oct 2025 09:45:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9B648C4CEF1;
-	Tue,  7 Oct 2025 09:45:21 +0000 (UTC)
-From: Geert Uytterhoeven <geert+renesas@glider.be>
-To: Magnus Damm <magnus.damm@gmail.com>,
-	Wolfram Sang <wsa+renesas@sang-engineering.com>
-Cc: linux-renesas-soc@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Geert Uytterhoeven <geert+renesas@glider.be>
-Subject: [PATCH] arm64: dts: renesas: v3msk: Enable watchdog timer
-Date: Tue,  7 Oct 2025 11:45:16 +0200
-Message-ID: <e30fb396d73307f2538a638cdda06ca58a1a4e60.1759830182.git.geert+renesas@glider.be>
-X-Mailer: git-send-email 2.43.0
+	by tor.source.kernel.org (Postfix) with ESMTP id 13577612C7;
+	Tue,  7 Oct 2025 10:00:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A9ACCC4CEF1;
+	Tue,  7 Oct 2025 10:00:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759831217;
+	bh=26b/KkPYJCt6d8MrfpnwaQ7x221GWUL75dA2hP3alhE=;
+	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
+	b=IMO+ErHEr9iZwPsXmadTwtt/i9torSmuWIEjGHKQhdOHtaPrHhgOqaT0qcQQ4jlVL
+	 RLtHucK7Q2ee+rgfs44Y73I2V+oNlX7g/t09LpQq4DJ2M5jszZIBXoYLZ5ZJauXI+1
+	 q7RYVHPYm/Xh7LQMkkGGjQfyUuGdZXy5nnMMSpJo5/V/8urMqVXR9KpJyBAX+Rkd7q
+	 /M/vO0+Te5IdIds6R/ifn4yRFez2VfN6BG/ZH8E8RH2WM9cmdX59IqEKathBX1Yudf
+	 UtMBn9+Pg++wjfWWXarrY2U4XKsuioSph5r1SlgBe3sNxFXMtOWqqRRvJsj/tIRrBn
+	 sAu4so41KIOxA==
+Received: from [10.30.226.235] (localhost [IPv6:::1])
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 33EE339EFA5B;
+	Tue,  7 Oct 2025 10:00:08 +0000 (UTC)
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_024523_988003_A2077FFA 
-X-CRM114-Status: UNSURE (   9.13  )
-X-CRM114-Notice: Please train this message.
+Subject: Re: [PATCH net] net: sparx5/lan969x: fix flooding configuration on
+ bridge join/leave
+From: patchwork-bot+netdevbpf@kernel.org
+Message-Id: <175983120701.1833525.11091874014123062686.git-patchwork-notify@kernel.org>
+Date: Tue, 07 Oct 2025 10:00:07 +0000
+References: <20251003-fix-flood-fwd-v1-1-48eb478b2904@microchip.com>
+In-Reply-To: <20251003-fix-flood-fwd-v1-1-48eb478b2904@microchip.com>
+To: Daniel Machon <daniel.machon@microchip.com>
+Cc: andrew+netdev@lunn.ch, davem@davemloft.net, edumazet@google.com,
+ kuba@kernel.org, pabeni@redhat.com, UNGLinuxDriver@microchip.com,
+ steen.hegelund@microchip.com, jacob.e.keller@intel.com,
+ netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -62,34 +75,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Enable the watchdog timer on the R-Car V3M Starter Kit board.
+Hello:
 
-Signed-off-by: Geert Uytterhoeven <geert+renesas@glider.be>
----
-Remote board reboots fine when the watchdog timer expires.
+This patch was applied to netdev/net.git (main)
+by Paolo Abeni <pabeni@redhat.com>:
 
-To be queued in renesas-devel for v6.19.
----
- arch/arm64/boot/dts/renesas/r8a77970-v3msk.dts | 5 +++++
- 1 file changed, 5 insertions(+)
+On Fri, 3 Oct 2025 14:35:59 +0200 you wrote:
+> The sparx5 driver programs UC/MC/BC flooding in sparx5_update_fwd() by
+> unconditionally applying bridge_fwd_mask to all flood PGIDs. Any bridge
+> topology change that triggers sparx5_update_fwd() (for example enslaving
+> another port) therefore reinstalls flooding in hardware for already
+> bridged ports, regardless of their per-port flood flags.
+> 
+> This results in clobbering of the flood masks, and desynchronization
+> between software and hardware: the bridge still reports “flood off” for
+> the port, but hardware has flooding enabled due to unconditional PGID
+> reprogramming.
+> 
+> [...]
 
-diff --git a/arch/arm64/boot/dts/renesas/r8a77970-v3msk.dts b/arch/arm64/boot/dts/renesas/r8a77970-v3msk.dts
-index 332eb908ca0c1859..0caa514df567d7ea 100644
---- a/arch/arm64/boot/dts/renesas/r8a77970-v3msk.dts
-+++ b/arch/arm64/boot/dts/renesas/r8a77970-v3msk.dts
-@@ -294,6 +294,11 @@ user@1bc0000 {
- 	};
- };
- 
-+&rwdt {
-+	timeout-sec = <60>;
-+	status = "okay";
-+};
-+
- &scif0 {
- 	pinctrl-0 = <&scif0_pins>;
- 	pinctrl-names = "default";
+Here is the summary with links:
+  - [net] net: sparx5/lan969x: fix flooding configuration on bridge join/leave
+    https://git.kernel.org/netdev/net/c/c9d1b0b54258
+
+You are awesome, thank you!
 -- 
-2.43.0
+Deet-doot-dot, I am a bot.
+https://korg.docs.kernel.org/patchwork/pwbot.html
+
 
 
