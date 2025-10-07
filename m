@@ -4,116 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 391AACCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 14:18:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67BF9CCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 14:32:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tWDCiXGuxkZw6kNkbno2oIqG5b3/dNmlfr3t+8HXOGM=; b=F3g5FShT7V47mh7jzFQgT6s9l8
-	b0ZLG85UCZ04eqEpTA2DNYsaK3zx2gecfCYSmks3iwvSCK2fmJwNEa8i7SHRVz5YwVgTbQo0159oO
-	Ljmk8msCxRe/wErm81cGiOk7qIhlVQpPD+1ozgsK7qf3JKuKWA934AzrAsT6wNBzXljKSDMEjEjNS
-	288J5kBgm3XCEqsZv60addqTUhWiZNPR/roBw/SQyIDeGHSkQtziesPqN+LWzie37uewWsvd9ZZLV
-	2b/z1mj2nPaltTvGhxWpjLx+IcaXWxpfrdUQvA6zPd3em37caFIFmDCK/tqKMG0CMtHTaTTkDzu72
-	yNat1uTQ==;
+	bh=K6Ko9EuByB72AmPY68qaHZeiB7esoLxBKg9O0pS8bew=; b=xmw+eXoxtzlU/5kk0+Y0AZRtHG
+	IO7BwHDnZghFXTwWzAAdwL9tZt/u2D+KgmtZ9l1jftLepBRvqMLQTx+GI4gumOqjQBQJFNwT+cQOh
+	AFRz11ET9i+Q1M50ePQJRAzNEcLahGhJrOlhBXe7VdmtMWUXw+FjHtJ324IKZO14lUyn3otKuPw0b
+	QVoYeSoskx1hqHn7RKw1oZzUqM7KKUWXRK+js5Ydzfnsbt9OGgSoaPJXgA0XmsOatXkssDuT3Seld
+	1g/XjClQ8KYL5uyB6Q4TrFvL63PELSAzZA2eMQph/tn5lUDT15OF9fqBQKaK1RHLdKBikrhjvZk0j
+	Zl7C9eNA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v68WB-000000029yY-1nL3;
-	Tue, 07 Oct 2025 14:18:19 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v68k8-00000002Bwm-14fN;
+	Tue, 07 Oct 2025 14:32:44 +0000
+Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v68W8-000000029y9-2Yum;
-	Tue, 07 Oct 2025 14:18:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 1EFE6437FF;
-	Tue,  7 Oct 2025 14:18:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7FCD1C4CEF9;
-	Tue,  7 Oct 2025 14:18:07 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759846696;
-	bh=G/NshkMJ1GZbtO3UIa9SqYi+nufWNB4mZlO3zufyam0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=VLEBgkluXeahLBiq1Q8q74aSbv9sUk8S4cduCCxdRDeAUEmAGnpgT2dd+ksDo9KZp
-	 TPcksti+HsUH8pFCU61wkEbT/aYAaPpHRA+y6NTCHqP4xPH9SG397h9kS32wIqs24s
-	 h44CpSGxzl9ePGWUWhOWW0kb3oAphuENyakg/QfeoPzuPIGh/Mzf9mUhmNsfi58zNj
-	 Be3k2bbXybJQvjBHxrSobLIrxkG3l+2U+rKsvU0OWna64yWtAl8pECHgqRcOo8fBc4
-	 MtJ1mNa8tuXV+8tIXqt8l2v/2d8Sc5OUh3ac4tc1vGBQ5kXqT4AZQ5EiAf//4c1t+e
-	 YJ8MxK/7lqJ/w==
-Message-ID: <d592eb91-84e9-4bdc-8363-1d0bfd47c17c@kernel.org>
-Date: Tue, 7 Oct 2025 23:18:04 +0900
+	id 1v68k5-00000002Bvy-12Xp
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 07 Oct 2025 14:32:43 +0000
+Received: by mail-qv1-xf33.google.com with SMTP id 6a1803df08f44-7960d69f14bso40423756d6.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 07:32:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1759847559; x=1760452359; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=K6Ko9EuByB72AmPY68qaHZeiB7esoLxBKg9O0pS8bew=;
+        b=M221NPd7Fd0E6xAWmVOAX/GBi0vapq+duY+gCwV4g2MvnksVWSxt8aLcsS9S8LBSlG
+         m2T+fhEFBIA+VDX2H0CBFnYODdtLbH5TdcrjCK830v41Y4INPiJaGdEzFcONhaYXFD4a
+         B8eW3+lCVtn8sEVCewaHN53nSevNE9VvvztK4lrURwfj++KyukxPidil3U+RNIMvuxJM
+         KvmwigWsr7xrhL0H9N1y139aChcf5YfbeSaJeaiiZFdZwENciTkNaC5Unb3t5cQriVzx
+         iLJRBBTc8yHBPsU9x5vf2rTarTFqdVgonJFkY5xpCo+cTlgh8Gk+JTzwBZc+hyAv6Yfh
+         JElA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759847559; x=1760452359;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=K6Ko9EuByB72AmPY68qaHZeiB7esoLxBKg9O0pS8bew=;
+        b=ibcE27XXffkBb4/Nzrca+is9PipSylJzdKoO7GbO6gE1O4zjAJmXgU8nQRC9sCPEuz
+         C7p/FUVCB3ROAWiV6dr22XGs/D7w+JCckmiNUXUKopemfyWs+EBj/IbUmqynGVRbGXj6
+         nGk1pvNsniK6l8F5KBWHWiYcbbYmqZs6VLdrZnXbqP2pYsaXYzEZ/JBl0IFfQdTqerpp
+         1p6ZxZxnbOYV/vQNtd8G0C+D0MfAl++knHcjildmskcOMrOvL/9vy+iFxrpkcvnAiEoy
+         HuAfaBoaP6EFiNfnwosW/msKi4NtZok9ued7VQsvYEouF8UJKgMcQKbiN08ZMF4ilfiC
+         IwXw==
+X-Forwarded-Encrypted: i=1; AJvYcCVr5d5adH6OUDBgerT8v6T7TFluIqWAoOw218VrLOk22Z4AfobASwuuuZxbuz1VUcDsojSgbWirSmO95VOScyOr@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywls75GYUwGLqd2k1WBYkbD9dYyMqZxOFh1KdA9O+8eLG8kdd8d
+	3k597UtmWYGKgNiEQFRr6lUnzifXmuxNYF0aSNTWF56A6Qui1TTOozxKF8uKXSI7irhKN94WjBh
+	vmm3Msa75R0V8HYjGLSDvaXbj/Ic7Rck=
+X-Gm-Gg: ASbGncuJG4TyUBDhaaolA65e+6IljAYtiQyAgzFWdxnyx3LK+zdgxGxf4+aAJcrFRyp
+	9NyBFYGwmpBap2jBoWYnqFdj6LnfFO+jDttAFT0HfYKvi4D9RGZvGThRYEXb2C4lk3SbOTmDa8t
+	CPajg4f2+6Z3hedDE179252eHYkyZdnIq5fKM8bIQ5UkTO/B1nan/nSn3vpsFTlDKnO7oK7VWXI
+	bHEMa42knzbPiNoZZHs/ZknBiIsgX2rfYv3062IOGc=
+X-Google-Smtp-Source: AGHT+IEyCKpYps/3BGc22BxSR5vdUK9H945UNs5mFpXR5FmYYn0yozFBPVoQCqHwhbvW2Mk1hUuA7PjHSd59EhPjCTw=
+X-Received: by 2002:a05:6214:1c4d:b0:78d:63c4:9d5c with SMTP id
+ 6a1803df08f44-879dc7abcf0mr199677706d6.5.1759847559189; Tue, 07 Oct 2025
+ 07:32:39 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 2/4] dt-bindings: usb: dwc3: Add Google SoC DWC3 USB
-To: Peter Griffin <peter.griffin@linaro.org>
-Cc: Roy Luo <royluo@google.com>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>,
- linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
-References: <20251006232125.1833979-1-royluo@google.com>
- <20251006232125.1833979-3-royluo@google.com>
- <8ca61364-df47-41f2-b0d1-f2a8a74ec728@kernel.org>
- <CADrjBPr7Jp_ZyGv2Krv6iLG0avgFWpcWJEO-Z=cEkhwEY-+z5Q@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <CADrjBPr7Jp_ZyGv2Krv6iLG0avgFWpcWJEO-Z=cEkhwEY-+z5Q@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+References: <20250929065714.27741-1-jjm2473@gmail.com> <20250929065714.27741-4-jjm2473@gmail.com>
+ <d8ad476c-d0c7-4e97-9e76-540a539ffb52@lunn.ch>
+In-Reply-To: <d8ad476c-d0c7-4e97-9e76-540a539ffb52@lunn.ch>
+From: jjm2473 <jjm2473@gmail.com>
+Date: Tue, 7 Oct 2025 22:32:26 +0800
+X-Gm-Features: AS18NWBCvYOruCThhN8XGst8DvyIOMmZ1iSy5xv_cE-cTej27zRd1fN4u0hMtEY
+Message-ID: <CAP_9mL4ofig-X-w9wx1A5D_eVXROo6AVFBSwp4mh=kj7webpPA@mail.gmail.com>
+Subject: Re: [PATCH v3 3/3] arm64: dts: rockchip: add LinkEase EasePi R1
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, 
+	quentin.schulz@cherry.de, kever.yang@rock-chips.com, naoki@radxa.com, 
+	honyuenkwun@gmail.com, inindev@gmail.com, ivan8215145640@gmail.com, 
+	neil.armstrong@linaro.org, mani@kernel.org, dsimic@manjaro.org, 
+	pbrobinson@gmail.com, alchark@gmail.com, didi.debian@cknow.org, 
+	jbx6244@gmail.com, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_071816_700266_A895087F 
-X-CRM114-Status: GOOD (  22.17  )
+X-CRM114-CacheID: sfid-20251007_073241_300144_40B0ED0C 
+X-CRM114-Status: GOOD (  17.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,87 +102,125 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/10/2025 18:09, Peter Griffin wrote:
-> Hi Krzysztof & Roy,
-> 
-> Firstly thanks Roy for your patches, it's great to see more Tensor
-> support being posted upstream!
-> 
-> On Tue, 7 Oct 2025 at 01:44, Krzysztof Kozlowski <krzk@kernel.org> wrote:
->>
->> On 07/10/2025 08:21, Roy Luo wrote:
->>> Document the DWC3 USB bindings for Google Tensor SoCs.
->>>
->>> Signed-off-by: Roy Luo <royluo@google.com>
->>> ---
->>>  .../bindings/usb/google,snps-dwc3.yaml        | 144 ++++++++++++++++++
->>>  1 file changed, 144 insertions(+)
->>>  create mode 100644 Documentation/devicetree/bindings/usb/google,snps-dwc3.yaml
->>>
->>> diff --git a/Documentation/devicetree/bindings/usb/google,snps-dwc3.yaml b/Documentation/devicetree/bindings/usb/google,snps-dwc3.yaml
->>> new file mode 100644
->>> index 000000000000..3e8bcc0c2cef
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/usb/google,snps-dwc3.yaml
->>> @@ -0,0 +1,144 @@
->>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
->>> +# Copyright (c) 2025, Google LLC
->>> +%YAML 1.2
->>> +---
->>> +$id: http://devicetree.org/schemas/usb/google,snps-dwc3.yaml#
->>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>> +
->>> +title: Google DWC3 USB SoC Controller
->>> +
->>> +maintainers:
->>> +  - Roy Luo <royluo@google.com>
->>> +
->>> +description:
->>> +  Describes the Google DWC3 USB block, based on Synopsys DWC3 IP.
->>> +
->>> +properties:
->>> +  compatible:
->>> +    items:
->>> +      - enum:
->>> +          - google,lga-dwc3
->>> +      - const: google,snps-dwc3
->>
->>
->> There is no such soc as snps, so you grossly misuse other company name
->> as name of SoC. Neither lga. Otherwise please point me to the top-level
->> bindings describing that SoC.
->>
->> You need to better describe the hardware here - why this is something
->> completely different than GS which. Or switch to existing bindings and
->> existing drivers. Did you align this with Peter Griffin?
-> 
-> I think (from what I've seen at least) this is the first submission
-> for drivers in the Tensor G5 SoC used in Pixel 10 devices (which as I
-> understand it isn't based on any Samsung IP). Hence the new drivers,
-> bindings etc.
+Andrew Lunn <andrew@lunn.ch> =E4=BA=8E2025=E5=B9=B410=E6=9C=886=E6=97=A5=E5=
+=91=A8=E4=B8=80 23:51=E5=86=99=E9=81=93=EF=BC=9A
+>
+> > +&gmac0 {
+> > +     phy-mode =3D "rgmii";
+>
+> Did i really miss this patch series in its earlier version, or did you
+> ignore me?
+>
+> https://elixir.bootlin.com/linux/v6.15/source/Documentation/devicetree/bi=
+ndings/net/ethernet-controller.yaml#L287
+>
+> > +     tx_delay =3D <0x3c>;
+> > +     rx_delay =3D <0x2f>;
+>
+> Please change it to rgmii-id, and smaller tx/rx_delay values. Or show
+> us the schematics which clearly show extra long clock lines.
+>
+> > +/* Micro SD card slot is not mounted */
+> > +&sdmmc0 {
+> > +     max-frequency =3D <150000000>;
+> > +     no-sdio;
+> > +     no-mmc;
+> > +     bus-width =3D <4>;
+> > +     cap-mmc-highspeed;
+> > +     cap-sd-highspeed;
+> > +     disable-wp;
+> > +     pinctrl-names =3D "default";
+> > +     pinctrl-0 =3D <&sdmmc0_bus4 &sdmmc0_clk &sdmmc0_cmd &sdmmc0_det>;
+> > +     vmmc-supply =3D <&vcc3v3_sd>;
+> > +     vqmmc-supply =3D <&vccio_sd>;
+> > +     status =3D "disabled";
+> > +};
+> > +
+> > +/* Wifi module is not mounted */
+> > +&sdmmc2 {
+>
+> What do you mean by "not mounted"?
+>
+> Often you would say "not populated", to indicate the PCB has all the
+> tracks in place, but the chip has simply not been soldered in place.
+>
+> Or is there a connector here, and nothing plugged into the connector?
+>
+>    Andrew
 
+Andrew:
+ Hello! I ran `./scripts/get_maintainer.pl
+patches-v4/v4-0003-arm64-dts-rockchip-add-LinkEase-EasePi-R1.patch`
+to get maintainer list, and got:
+```
+Rob Herring <robh@kernel.org> (maintainer:OPEN FIRMWARE AND FLATTENED
+DEVICE TREE BINDINGS)
+Krzysztof Kozlowski <krzk+dt@kernel.org> (maintainer:OPEN FIRMWARE AND
+FLATTENED DEVICE TREE BINDINGS,commit_signer:3/41=3D7%)
+Conor Dooley <conor+dt@kernel.org> (maintainer:OPEN FIRMWARE AND
+FLATTENED DEVICE TREE BINDINGS)
+Heiko Stuebner <heiko@sntech.de> (maintainer:ARM/Rockchip SoC
+support,commit_signer:43/41=3D100%,authored:4/41=3D10%,added_lines:12/117=
+=3D10%,commit_signer:5/6=3D83%)
+Quentin Schulz <quentin.schulz@cherry.de>
+(commit_signer:10/41=3D24%,authored:8/41=3D20%,added_lines:63/117=3D54%)
+Dragan Simic <dsimic@manjaro.org> (commit_signer:5/41=3D12%,commit_signer:1=
+/6=3D17%)
+FUKAUMI Naoki <naoki@radxa.com>
+(commit_signer:3/41=3D7%,authored:3/41=3D7%,removed_lines:1/1=3D100%)
+Peter Robinson <pbrobinson@gmail.com>
+(added_lines:9/117=3D8%,commit_signer:1/6=3D17%,authored:1/6=3D17%)
+Alexey Charkov <alchark@gmail.com> (added_lines:6/117=3D5%)
+Diederik de Haas <didi.debian@cknow.org>
+(commit_signer:4/6=3D67%,authored:3/6=3D50%)
+Liangbin Lian <jjm2473@gmail.com> (commit_signer:1/6=3D17%,authored:1/6=3D1=
+7%)
+Johan Jonker <jbx6244@gmail.com> (authored:1/6=3D17%)
+devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED
+DEVICE TREE BINDINGS)
+linux-arm-kernel@lists.infradead.org (moderated list:ARM/Rockchip SoC suppo=
+rt)
+linux-rockchip@lists.infradead.org (open list:ARM/Rockchip SoC support)
+linux-kernel@vger.kernel.org (open list)
+```
+your email address is not listed above.
+And I did not receive your comment on the previou versions.
 
-That could explain a lot. I would be happy to see background of hardware
-in the bindings commit msg and the cover letter.
+The latest v4 version is here
+https://lore.kernel.org/all/20250930055017.67610-1-jjm2473@gmail.com/
+.
 
-> 
-> However the issue is that none of the other base SoC drivers on which
-> this driver depends currently exist upstream (like clocks, reset
-> driver, power domains, pinctrl etc). So it's very hard to reason about
-> the correctness or otherwise of this submission. It is also likely
-> that when those drivers are upstreamed things could change in the
-> review process, to how it looks today in the downstream kernel.
+> What do you mean by "not mounted"?
+>
+> Often you would say "not populated", to indicate the PCB has all the
+> tracks in place, but the chip has simply not been soldered in place.
+>
+> Or is there a connector here, and nothing plugged into the connector?
 
+The chip/slot has not been soldered. So here should be "not
+populated", forgive my poor English.
 
-Bindings and drivers can be contributed without core SoC support, but
-then please describe the hardware (SoC) here. Having core support posted
-earlier is of course preferred, but I think not a requirement.
+> Please change it to rgmii-id, and smaller tx/rx_delay values. Or show
+> us the schematics which clearly show extra long clock lines.
 
-Anyway, compatibles and all commit messages in this patchset are too
-generic and need to reflect this actual SoC, not "Tensor" because we
-already have a Tensor with USB. So basically based on existing support
-all this patchset would be redundant, right? :)
+In fact, the RTL8211F's RXDLY and TXDLY signals are both pulled low,
+just like the Banana Pi BPI-R2 Pro, so the configuration is also referenced=
+:
+https://elixir.bootlin.com/linux/v6.15/source/arch/arm64/boot/dts/rockchip/=
+rk3568-bpi-r2-pro.dts#L237
 
-Best regards,
-Krzysztof
+The tx_delay and rx_delay values were obtained using Rockchip's
+automatic scanning tool:
+https://github.com/istoreos/istoreos/blob/54746dfdb5bd34d1f281cf41d1d1620d0=
+c3ee686/target/linux/rockchip/files/drivers/net/ethernet/stmicro/stmmac/dwm=
+ac-rk-tool.c
+https://gitlab.com/firefly-linux/docs/-/blob/rk356x/firefly/Common/GMAC/Roc=
+kchip_Developer_Guide_Linux_GMAC_RGMII_Delayline_EN.pdf
+https://github.com/axlrose/rkdocs/blob/main/Common/GMAC/Rockchip_Developer_=
+Guide_Linux_GMAC_RGMII_Delayline_EN.pdf
+
+I will try changing phy-mode =3D "rgmii-id" later to see if gmac
+continues to work properly.
+
+  Liangbin Lian
 
