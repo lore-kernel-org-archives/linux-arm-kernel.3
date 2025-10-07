@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AAF71CCD186
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 22:14:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6021DCCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 22:15:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:
 	From:Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZRjLOkLi9BSY1X/Dn5kuYV5Nji5pDR3uoMZxLkUFt2o=; b=XUv47ZacvjI4cH94j+HnPgFrQe
-	WfXcGECLaZxUVZKb+UtSxSqG6qu7imGpiCmKiubdr+NVCrB7EhQpWE0aQXS+FUYkx0NwG3IEfiAY4
-	mkLLrwSxX5kPxyix6bppIH90ojD3dAhttGnkFnWlsjEhZeCbwKLNaKl7lRY8y1H0XUou7afeMcsQI
-	TzWhW895qnyo5lKCr1MVhVCOS+l46GbN4vx/ZkjFEfLkFok+bs/7wTkINwGZnAC44ywh4RzvxT5Hy
-	1J3bTfjITKQ+DVMRRS5UOHknRP/iVwso/2IifutssCcqILP29H+hpNMLEUDOstnQBpcS0HbpEP4Xr
-	qiDyIg5w==;
+	bh=rE2tP6gNwSGYC+ytU0WdagFGaT6zZ0FH31dgxqOixoc=; b=MDIiMcKHe6Hr2Rg1uy9iFdEnw2
+	4vsrzb8mAeoTnEYzrYJvoSV/4ijqXcbMdPk7QNt+PYMjEM5tva/qjG2zMwslJtZ7u/PIRrFrzGDlz
+	9+VEg6V3xxXRr53EsJkOnr+pyxDP9yzRzewMKy3Q09qmCZRMrZ+IDp8rRQd/Y82y0kl5dzC5X8/7x
+	dNpatY9zIt2tsORnRcEywo+Tcdy9iHuB++g519HcVFM8AYBHifApIxu1hODynErQbKpkuoJVUFvcG
+	EAM5QJMJpaKSzlT2XqejNTFLPkmM3dOcQGRCWBaKMLLwIqOKNYY+NWKcuPufT8iXVzV0cNbC6oEEE
+	x7+VUwRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6FxN-00000002qat-1CT7;
-	Tue, 07 Oct 2025 22:14:53 +0000
-Received: from mail-pf1-x44a.google.com ([2607:f8b0:4864:20::44a])
+	id 1v6FxP-00000002qdx-2Xgy;
+	Tue, 07 Oct 2025 22:14:55 +0000
+Received: from mail-pg1-x549.google.com ([2607:f8b0:4864:20::549])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6FxL-00000002qXw-0uqF
+	id 1v6FxM-00000002qZI-2Xtv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 22:14:52 +0000
-Received: by mail-pf1-x44a.google.com with SMTP id d2e1a72fcca58-77f610f7325so5371477b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 15:14:50 -0700 (PDT)
+	Tue, 07 Oct 2025 22:14:53 +0000
+Received: by mail-pg1-x549.google.com with SMTP id 41be03b00d2f7-b59682541d5so10566154a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 15:14:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1759875290; x=1760480090; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1759875291; x=1760480091; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:from:to:cc:subject:date:message-id:reply-to;
-        bh=ZRjLOkLi9BSY1X/Dn5kuYV5Nji5pDR3uoMZxLkUFt2o=;
-        b=gaN+wIDpBAt7J1JqyZsIprKnUS0FpzfROK4wpB21ufymoHhgauGbS3/tH2n9wR8TFA
-         b5hf2xg7ZR/RaxfvpOKD/vbZVEb2ONmCZTqWOUFbH/PErwViWpfNt+yFR6F3KUXGPG85
-         1zRdQ4UKsoowH/tcy8O9h49U2jrGR5OoNm0a5VYb1NjOk9tvlv42ySLdqAxMb3kAHeSf
-         gmNQc4qUM7dcBHrihlHoOkGMDXoPz0dLEs7604RPKR86nMeM2utbZKWSJloZahNebL05
-         q9XO14H9Z9Q5oAOCoVKOZAozHDmH7AMl2JccN5fljK4m/nL4pZ146mMAgxoVO+1jlUBU
-         qS+g==
+        bh=rE2tP6gNwSGYC+ytU0WdagFGaT6zZ0FH31dgxqOixoc=;
+        b=Ab49s+LutfKh4iD2wMRIjJle+Yed8o+QMPSNO8AUAigT9puWr3ETvzf/aAmciauFH2
+         msVBG6i9M77hejROKZ0noP3WS7gTkdeajIFI33qCwQTs91YR/EtPXnjwVCoDuP3jggqh
+         FrpVgmKmHwsNYTBrC6zR25BTuRMA3J2UDMMISwVeMMagTueDJB10GrRjntfKUDl+JlAO
+         1lOiBp1ymgXHjjmujmWI5Cmc4Sjq2UmALtrMvR8R7lK9Wfc0TqmqQ+dfKgTUfRDl+J/b
+         4nYw6NEfQN0sFoSp9ifGL8a6TR2r3M7BjhAAqDMOi/LKDowEh4p4wsDNlQt9qm84wTRL
+         ugMg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759875290; x=1760480090;
+        d=1e100.net; s=20230601; t=1759875291; x=1760480091;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:reply-to:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=ZRjLOkLi9BSY1X/Dn5kuYV5Nji5pDR3uoMZxLkUFt2o=;
-        b=TJkdaj1jIX6y8FVhhFtMDe160ZsaI7mSSliVxSwplnfROCrtfKinqGOmowXumyHjWO
-         w51l3sZp8bgH7vUzZIMknJ+1Ywey441sClyW0Rm3SUPA2Yp59fILMT9OC0r9/EXOso8t
-         X7akizwVy687Ohf5U3n4XvEjH71ApaQFgwDc7ymNORR/x64Vayvn1gJdtvjlm8M3s0FJ
-         Lnz1GiNLUEVLdXPc1G6nAV+2p6104KaWajWHWs9KN18mAdMbnV3Y7z2ZrVOFyUrD6os1
-         UXZnlWqMfVmWCGgYetSXfE9cRC31yy/TMM3hk9ZQIgCR0rQNfF3ydI6kK6MbC+S7iIWx
-         qulQ==
-X-Gm-Message-State: AOJu0YwK4ejhE2I2SfnAUqIow1ERlmIDal5mD5bVHUvWlLHYwWdCvkum
-	+bCsAL46tVCnsF4dXxdlVvg0EEBkTSkJbpn6Wjip0mlJSoPhaHnBemGhOxtVWu4KolGX7woiImX
-	aUU5kig==
-X-Google-Smtp-Source: AGHT+IEms4qpmxT3+KnDpQ4qOyqPi3vhEOg4w0WfOhks0tfRQIlFpS+IHju/WYm3RYsFn35p+Bdpiaz8XEQ=
-X-Received: from pfbig5.prod.google.com ([2002:a05:6a00:8b85:b0:77f:33ea:96e9])
- (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a00:3cce:b0:77e:5c9f:f85a
- with SMTP id d2e1a72fcca58-79385ce1122mr1342534b3a.14.1759875289698; Tue, 07
- Oct 2025 15:14:49 -0700 (PDT)
-Date: Tue,  7 Oct 2025 15:14:15 -0700
+        bh=rE2tP6gNwSGYC+ytU0WdagFGaT6zZ0FH31dgxqOixoc=;
+        b=b6oLUDgEAaQAANI5sV9jzCaMZzGhnbmRJMtSx7cRRRtHMdCTBOOneQ+z3CWIs1c+ru
+         S+qP5SVrMchYTIuwM3TADOb3MV2mdFZSliBm9oH1Rqt8rT93Z8F0zE0gyIlzfRba0Qjv
+         cKAHUNu2W9MISQAvCGyQfYsXKn0OO3QKJdw6/Z0yNiL3QeSZyNTKq6cSAwfM7eEi2wDM
+         fnt9YhY/IoqD9RBX5U1Y2U10PUWsd2rezgCJ8T+bRFTCx7Wmv94i8487PvVFxfG54M9m
+         5KEidMMIC5+k/8t48uCe12pJYAjoQEAZ3gvnaRgYop+oIF63X0z2AAfrFQkpg9Qo6iHr
+         ZQRQ==
+X-Gm-Message-State: AOJu0Yzl8wqd9o4USxLkI8O30DgUCGQFXSEWUUYwItn6usDN3TWRaze5
+	l3xC/5d0yEx/C2F23qs1/zVYlGq5M3o89JFxCPIWV2nK+TR7YSaloL+DSZWn8vyi2Frfuq7FvZg
+	kr9EPmw==
+X-Google-Smtp-Source: AGHT+IHT/CfaeIxGRmxefyc3Lic0lFv3xjNb/u7y6hJFRFl3s3gaiIHFCNdvEBNOqVG5LYVtjeYwLccHX/o=
+X-Received: from pgkh14.prod.google.com ([2002:a63:e14e:0:b0:b4e:4eb5:3895])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6a20:914c:b0:32b:7220:8536
+ with SMTP id adf61e73a8af0-32da8138b18mr1530904637.16.1759875291520; Tue, 07
+ Oct 2025 15:14:51 -0700 (PDT)
+Date: Tue,  7 Oct 2025 15:14:16 -0700
 In-Reply-To: <20251007221420.344669-1-seanjc@google.com>
 Mime-Version: 1.0
 References: <20251007221420.344669-1-seanjc@google.com>
 X-Mailer: git-send-email 2.51.0.710.ga91ca5db03-goog
-Message-ID: <20251007221420.344669-8-seanjc@google.com>
-Subject: [PATCH v12 07/12] KVM: selftests: Report stacktraces SIGBUS, SIGSEGV,
- SIGILL, and SIGFPE by default
+Message-ID: <20251007221420.344669-9-seanjc@google.com>
+Subject: [PATCH v12 08/12] KVM: selftests: Add additional equivalents to
+ libnuma APIs in KVM's numaif.h
 From: Sean Christopherson <seanjc@google.com>
 To: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
 	Paolo Bonzini <pbonzini@redhat.com>, Sean Christopherson <seanjc@google.com>
@@ -78,8 +78,8 @@ Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
 	Ashish Kalra <ashish.kalra@amd.com>, Vlastimil Babka <vbabka@suse.cz>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_151451_258904_AA0843C7 
-X-CRM114-Status: GOOD (  12.55  )
+X-CRM114-CacheID: sfid-20251007_151452_653295_71093C30 
+X-CRM114-Status: GOOD (  12.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,60 +95,91 @@ Reply-To: Sean Christopherson <seanjc@google.com>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Register handlers for signals for all selftests that are likely happen due
-to test (or kernel) bugs, and explicitly fail tests on unexpected signals
-so that users get a stack trace, i.e. don't have to go spelunking to do
-basic triage.
-
-Register the handlers as early as possible, to catch as many unexpected
-signals as possible, and also so that the common code doesn't clobber a
-handler that's installed by test (or arch) code.
+Add APIs for all syscalls defined in the kernel's mm/mempolicy.c to match
+those that would be provided by linking to libnuma.  Opportunistically use
+the recently inroduced KVM_SYSCALL_DEFINE() builders to take care of the
+boilderplate, and to fix a flaw where the two existing wrappers would
+generate multiple symbols if numaif.h were to be included multiple times.
 
 Signed-off-by: Sean Christopherson <seanjc@google.com>
 ---
- tools/testing/selftests/kvm/lib/kvm_util.c | 24 ++++++++++++++++++++++
- 1 file changed, 24 insertions(+)
+ tools/testing/selftests/kvm/include/numaif.h  | 36 +++++++++++--------
+ .../selftests/kvm/x86/xapic_ipi_test.c        |  5 ++-
+ 2 files changed, 23 insertions(+), 18 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
-index 8b60b767224b..0c3a6a40d1a9 100644
---- a/tools/testing/selftests/kvm/lib/kvm_util.c
-+++ b/tools/testing/selftests/kvm/lib/kvm_util.c
-@@ -2290,11 +2290,35 @@ __weak void kvm_selftest_arch_init(void)
- {
- }
+diff --git a/tools/testing/selftests/kvm/include/numaif.h b/tools/testing/selftests/kvm/include/numaif.h
+index b020547403fd..aaa4ac174890 100644
+--- a/tools/testing/selftests/kvm/include/numaif.h
++++ b/tools/testing/selftests/kvm/include/numaif.h
+@@ -13,23 +13,29 @@
+ #ifndef SELFTEST_KVM_NUMAIF_H
+ #define SELFTEST_KVM_NUMAIF_H
  
-+static void report_unexpected_signal(int signum)
-+{
-+#define KVM_CASE_SIGNUM(sig)					\
-+	case sig: TEST_FAIL("Unexpected " #sig " (%d)\n", signum)
-+
-+	switch (signum) {
-+	KVM_CASE_SIGNUM(SIGBUS);
-+	KVM_CASE_SIGNUM(SIGSEGV);
-+	KVM_CASE_SIGNUM(SIGILL);
-+	KVM_CASE_SIGNUM(SIGFPE);
-+	default:
-+		TEST_FAIL("Unexpected signal %d\n", signum);
-+	}
-+}
-+
- void __attribute((constructor)) kvm_selftest_init(void)
- {
-+	struct sigaction sig_sa = {
-+		.sa_handler = report_unexpected_signal,
-+	};
-+
- 	/* Tell stdout not to buffer its content. */
- 	setbuf(stdout, NULL);
+-#define __NR_get_mempolicy 239
+-#define __NR_migrate_pages 256
++#include <linux/mempolicy.h>
  
-+	sigaction(SIGBUS, &sig_sa, NULL);
-+	sigaction(SIGSEGV, &sig_sa, NULL);
-+	sigaction(SIGILL, &sig_sa, NULL);
-+	sigaction(SIGFPE, &sig_sa, NULL);
-+
- 	guest_random_seed = last_guest_seed = random();
- 	pr_info("Random seed: 0x%x\n", guest_random_seed);
+-/* System calls */
+-long get_mempolicy(int *policy, const unsigned long *nmask,
+-		   unsigned long maxnode, void *addr, int flags)
+-{
+-	return syscall(__NR_get_mempolicy, policy, nmask,
+-		       maxnode, addr, flags);
+-}
++#include "kvm_syscalls.h"
  
+-long migrate_pages(int pid, unsigned long maxnode,
+-		   const unsigned long *frommask,
+-		   const unsigned long *tomask)
+-{
+-	return syscall(__NR_migrate_pages, pid, maxnode, frommask, tomask);
+-}
++KVM_SYSCALL_DEFINE(get_mempolicy, 5, int *, policy, const unsigned long *, nmask,
++		   unsigned long, maxnode, void *, addr, int, flags);
++
++KVM_SYSCALL_DEFINE(set_mempolicy, 3, int, mode, const unsigned long *, nmask,
++		   unsigned long, maxnode);
++
++KVM_SYSCALL_DEFINE(set_mempolicy_home_node, 4, unsigned long, start,
++		   unsigned long, len, unsigned long, home_node,
++		   unsigned long, flags);
++
++KVM_SYSCALL_DEFINE(migrate_pages, 4, int, pid, unsigned long, maxnode,
++		   const unsigned long *, frommask, const unsigned long *, tomask);
++
++KVM_SYSCALL_DEFINE(move_pages, 6, int, pid, unsigned long, count, void *, pages,
++		   const int *, nodes, int *, status, int, flags);
++
++KVM_SYSCALL_DEFINE(mbind, 6, void *, addr, unsigned long, size, int, mode,
++		   const unsigned long *, nodemask, unsigned long, maxnode,
++		   unsigned int, flags);
+ 
+ /* Policies */
+ #define MPOL_DEFAULT	 0
+diff --git a/tools/testing/selftests/kvm/x86/xapic_ipi_test.c b/tools/testing/selftests/kvm/x86/xapic_ipi_test.c
+index 35cb9de54a82..ae4a4b6c05ca 100644
+--- a/tools/testing/selftests/kvm/x86/xapic_ipi_test.c
++++ b/tools/testing/selftests/kvm/x86/xapic_ipi_test.c
+@@ -256,7 +256,7 @@ void do_migrations(struct test_data_page *data, int run_secs, int delay_usecs,
+ 	int nodes = 0;
+ 	time_t start_time, last_update, now;
+ 	time_t interval_secs = 1;
+-	int i, r;
++	int i;
+ 	int from, to;
+ 	unsigned long bit;
+ 	uint64_t hlt_count;
+@@ -267,9 +267,8 @@ void do_migrations(struct test_data_page *data, int run_secs, int delay_usecs,
+ 		delay_usecs);
+ 
+ 	/* Get set of first 64 numa nodes available */
+-	r = get_mempolicy(NULL, &nodemask, sizeof(nodemask) * 8,
++	kvm_get_mempolicy(NULL, &nodemask, sizeof(nodemask) * 8,
+ 			  0, MPOL_F_MEMS_ALLOWED);
+-	TEST_ASSERT(r == 0, "get_mempolicy failed errno=%d", errno);
+ 
+ 	fprintf(stderr, "Numa nodes found amongst first %lu possible nodes "
+ 		"(each 1-bit indicates node is present): %#lx\n",
 -- 
 2.51.0.710.ga91ca5db03-goog
 
