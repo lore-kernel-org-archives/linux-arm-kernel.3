@@ -4,87 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0F34CCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 20:19:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E43CACCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 20:20:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t6o7XkzKv+u7CI1UFQteRyBrmLJdqDMJ8YxEK4sFqGo=; b=3jOBs8V+Z9NqOscmWPh+/VRhmz
-	KnAktvDs9k2FiRcAuv4RJOD6bARc5owNs6lyfjhFwqk/Ea1I56Ml1ytjC0hgnuWwUobH5QHxwRdQl
-	+avFqDFjkbGrrUhTKhoj0SMVyYt0QmINKQy2nc4zXhthxYDm6UMLbIyZCGX5KdaH3GxnM7Lugf0gl
-	4QDMXjEXgzutzprX8zgyQhjy9u9Dz0637Np0Ed5jYryEw3hM2+aMSrKJKAKONxRcemA1em0N7AO8U
-	oL5H7THNrwuYAQ659mBsPHJEAD/qPFpYdoZWEbtwnOTQgQ+Tc0n05Cdl3h/z5p/XGtpP6XccNye2Z
-	5kdWWxDQ==;
+	bh=VOJGm4xHo9yLpjNqGa0Z0pDqyLUjWX3aXbAIUsOlMvA=; b=2B+6nHLAdaiLXiVwBo7L2ck9PT
+	Yafx7KOJ2mW/lfn5UCCC1IawPr+7tdTQ30j8cYS+AY9E/n6r0AXZkyCRBt3hUjMN/eJyIYd0qUC28
+	Z/iNEJ5SOxWGbixjG6kCn9ONpWsniKamlhdTkPjRrkrqH2UpQf+z9RPUfvqKJuwS6gzAsHPv/Uizj
+	uNlKZTllBfnU1cEgU5MPQop0ffsE1mfAVN+poSxVC5bMM3k/FpDoVn77WCK/R9zc2+wwfFdLxUXBz
+	z19kCC41nY7sCYYrUQnut5LlEp+3kKrVxxHupXLvLgPo6LI6cdlc4oWD7sUOX3k1YRVPwNWL+q5lE
+	8HEgf1cg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6E98-00000002jme-0Pkl;
-	Tue, 07 Oct 2025 20:18:54 +0000
-Received: from mail-oo1-xc2f.google.com ([2607:f8b0:4864:20::c2f])
+	id 1v6EAK-00000002jwx-1wzV;
+	Tue, 07 Oct 2025 20:20:08 +0000
+Received: from mail-oi1-x233.google.com ([2607:f8b0:4864:20::233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6E94-00000002jlh-0P7J
+	id 1v6EAI-00000002jwF-130x
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 20:18:52 +0000
-Received: by mail-oo1-xc2f.google.com with SMTP id 006d021491bc7-64c771980e5so2976092eaf.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 13:18:49 -0700 (PDT)
+	Tue, 07 Oct 2025 20:20:07 +0000
+Received: by mail-oi1-x233.google.com with SMTP id 5614622812f47-43f50c2765dso3666271b6e.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 13:20:05 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1759868329; x=1760473129; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1759868405; x=1760473205; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=t6o7XkzKv+u7CI1UFQteRyBrmLJdqDMJ8YxEK4sFqGo=;
-        b=Myv1u+O38KC2rNMhLzPXx2uTZRf6vN8EB4HnuXCipzahfaafue8PiV25PmUc3/8w66
-         epZ6HEIX4GcMuZJHt8yh+qPx9wuA+W06oKW2tRukP7MIFE7N2hPwbIq2KY/0N6uQDOtX
-         F4pPu8R8clOU7VClRtWmedmH4uAppBW09Lus4ze79FjsBb7dCg5pEeyAN8blTgQ3GaCs
-         tRI9+ap5OJovZYfpb53OfsXfaPrO2JjuS4H/mGVCEEbYvGhCc4f/7LsrJjqgRAEWyHV6
-         /i9HnNj6tayDe+iclzPg4IKuC5A+uZRn1juemK66o6pf/uhPk0Z+LEVmR+a+yYMGPKNU
-         GT/Q==
+        bh=VOJGm4xHo9yLpjNqGa0Z0pDqyLUjWX3aXbAIUsOlMvA=;
+        b=YZ3tOdrLKy7TWeY1yAdC3TciW+pB+smc+lfk1EyC6EZgybdqVCgDkCoEJG++oIZ9cR
+         b+w6WMc9Yy+VvjPrbj0Z436HB8uhJG/ts4PsR50xGbQbrMzoHHt9ZHCZc5QQt0jzij3L
+         3Lcaj2bxbc81PPHAXrGWBo055mUr8jARjx0xfIn0MXUn7e16f/Av1C9XTk/xZCSQsEJv
+         M1tUBRX3+wkEW8Iv7hx2UElvhJmdxsmOIGNP+pC2HXuTFx9Pa+DlojSUYC9TVPuUMPG5
+         Rf+Qxsi9jXaDlLkYaWkLFM/V1COirWztNg/b+ctMIj05jXdUyHKzPYvfZxmHFNw8IFlk
+         zIXQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759868329; x=1760473129;
+        d=1e100.net; s=20230601; t=1759868405; x=1760473205;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=t6o7XkzKv+u7CI1UFQteRyBrmLJdqDMJ8YxEK4sFqGo=;
-        b=vY0tFzgg+nIYxZwT0tLRIZgIH2Ft4bO9ChHqFv7Fn+jqa9T5iT3J+cekZS5kmgnmfJ
-         0vosdm9Mf4foKQhI3Rfkvm4Z2wYlMUGkA6kcj7W797mAraCDWcBPjNoY0C5GVw0C+TkT
-         QkDHuTVe6/uE62IYhdH5hrrw3dGEg20CMdeMwSoTxayYg0Cp9l/ofTGCrE9GiGVa4l1U
-         8dcrZ5zIqjCFLSPKqKELzMOcRvdX5lnP0SLYWP/C5icmxxin/ldfWsGsmsXFjb6F4W1i
-         hzh9uOmxvftpbc5VzrBSWXCNlb18wMBr30eq+llgp0Ips3ZDurB9tdRkaJMSf3mfC4Qe
-         SPXg==
-X-Forwarded-Encrypted: i=1; AJvYcCX3ImY/Co0rkJLRh2ykFxt4iKk2XjdEY46EqLqCdJMnLk6+kio6RJ/gqO0iN2faH55iaSKGhhRHGEPt97jyzbYQ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yzk9JUQkRr7X83852UYKTVaRNVqJGx8xM8ETTJR0WuqTNjOoi4F
-	KubSI5PJTfpnCQxzvDNxKAa5hIaalPftrScZVgQ05Pwchlweu/mFrKTeO44TAh/sm1RWdkT48x3
-	M4OpYo+qrncnKGUPlh1LNZAEqNm6b4t2XQ09rYnT+Bw==
-X-Gm-Gg: ASbGncuOnfUzglf8mke/Y067tsJ67M50WamMjaeEVhU7gH8yHGDiEva7JxxeFq1cFLD
-	BLFDoeX6LaxZpP31O2Mbqcs7eUG2gkhxf4U6+QJZ6YJfNxHQxOdyEx4pCUwbqBuhSUsaArJ2ET5
-	iEN3Co85sUDILMWO2Regx+B8YygNDQDeBOAmMqUQakZnb/+4TjJlfdYbQf1NKEkwWqbEACLPocg
-	6JPdRJQzQA6B9JwlJsdRWWpbxy9ZL5g1fwxRQ==
-X-Google-Smtp-Source: AGHT+IEL4dmypG8WFgpOU1UIUsrODE8etCKEY8zyKzUkyzhaZJQ8flhaIQqg8X0wJtfFE1WkEjdwwHsi6B9jL21hYVk=
-X-Received: by 2002:a05:6820:a10e:b0:63d:bc20:a63f with SMTP id
- 006d021491bc7-64fffe6daadmr379683eaf.3.1759868329050; Tue, 07 Oct 2025
- 13:18:49 -0700 (PDT)
+        bh=VOJGm4xHo9yLpjNqGa0Z0pDqyLUjWX3aXbAIUsOlMvA=;
+        b=WuF1IMnGU9OAudhkkMtgInROc/7rXeHkE5NvwdJWei/hbzwNYW5lTpHwaOm6co69DY
+         oRM14XtKmVMMxUrWcXZnD75F2e0NexR3KUA8WzH/30ke2VuoM4SnIjza9oOlypgtxNk+
+         H64vuEzto/9U7cwZrKYGwhKbnzJTzMEs6uUTq41lgjcL+Wku/48Gf3P/ZPRUJW+sZKnP
+         8rJ9eG/6oikH5eI8TQg9gfBXYM/3yrbCHCtx16XjP+31QFxGEupCy4kR/Etq/X6R2jyD
+         jkUCLRddU1Fcy0WqE8+LDFZ6a6A2lnhJfKoslNittWf1tp8v75oditFrU4gN3PfKsgq2
+         seGg==
+X-Forwarded-Encrypted: i=1; AJvYcCXWARQwTgtcrvYphc1Iqo0bPvvmZACnWj5S0zfcv7f65VZ9qoLyn03gP+hBRsDnEL2GAbP67NiDcCqx7yyw3TAS@lists.infradead.org
+X-Gm-Message-State: AOJu0YzcbZM3VNYc/vCghiB0J+PwCVOCR4m/3TSVtAfPorOv00vfe0S+
+	5gKdlt7xD9ITWKQnOqBdszZiU3xxcfVYF4vxvX1NR7odq5A+Y1P6DoPZfddQlcHPBPuM1fClgvV
+	bzhE30Ya3D6wDoTO+IUokdVilokri+4KKWcH3xi4Uig==
+X-Gm-Gg: ASbGncvN/+Q/qAgyibOQLLcbbwJ2gxl8zldyd7sCnJDjbXWnX+c92Cz5OWAI6BR4T4v
+	OX+zPsdGByI4NBVXa642Z49B3YPQyoGAEKlWgJ7LuhkGPvFoozwJ3+1fc9qQD1i1QKPT65lff/L
+	cNqZFYBbXxeo4UA9xg6cnuXLgAh1kH7iyZQSG3+TM2OKQC1c7NCVN2rBLJg26JdvEncwHgVcPMf
+	fukT+5ED7mcBYptl7ViJ/sZ8+kG22wFhZGw43o9wa3G71uW
+X-Google-Smtp-Source: AGHT+IEHI8U1dVlqnhrsS6fP0FmSa3idf/Em/3CBdgaLIh3/qrBErYExCYpSsQBQQgzXfSMxAukwo27BHqZsQjbeUds=
+X-Received: by 2002:a05:6808:18a7:b0:43f:5b28:f0a6 with SMTP id
+ 5614622812f47-4417b2c48f6mr450890b6e.1.1759868405185; Tue, 07 Oct 2025
+ 13:20:05 -0700 (PDT)
 MIME-Version: 1.0
-References: <20251006-gs101-usb-phy-clk-imbalance-v1-1-205b206126cf@linaro.org>
-In-Reply-To: <20251006-gs101-usb-phy-clk-imbalance-v1-1-205b206126cf@linaro.org>
+References: <20251007-power-domains-dt-bindings-usb-samsung-exynos-dwc3-v1-1-b63bacad2b42@linaro.org>
+In-Reply-To: <20251007-power-domains-dt-bindings-usb-samsung-exynos-dwc3-v1-1-b63bacad2b42@linaro.org>
 From: Peter Griffin <peter.griffin@linaro.org>
-Date: Tue, 7 Oct 2025 21:18:36 +0100
-X-Gm-Features: AS18NWAMBYtEWn2vhviwKZeJuPljrJcOS2KOQNcYCHTnuQAmZAXGTQe_GLqqgoE
-Message-ID: <CADrjBPoZpTUN5N_Gh6E0LFmndJs4_nnSpQ0t=XORQHwFn2=BNA@mail.gmail.com>
-Subject: Re: [PATCH] phy: exynos5-usbdrd: fix clock prepare imbalance
+Date: Tue, 7 Oct 2025 21:19:54 +0100
+X-Gm-Features: AS18NWB4avL22wQ3_NUeMTQbUpbAXczc7-BwaaCDEfZe2LaYa7fnIVbjvyZG6LA
+Message-ID: <CADrjBPqeucFJw5kH7YKK=PEOOYFJkQbmZ_CORu62FoFwqySsTg@mail.gmail.com>
+Subject: Re: [PATCH] dt-bindings: usb: samsung,exynos-dwc3: add power-domains
 To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, 
-	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Will McVicker <willmcvicker@google.com>, 
-	kernel-team@android.com, linux-phy@lists.infradead.org, 
+Cc: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Alim Akhtar <alim.akhtar@samsung.com>, Tudor Ambarus <tudor.ambarus@linaro.org>, 
+	Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
+	Krzysztof Kozlowski <krzk@kernel.org>, linux-usb@vger.kernel.org, devicetree@vger.kernel.org, 
 	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, stable@vger.kernel.org
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_131850_293931_0F8B9BD5 
-X-CRM114-Status: GOOD (  10.99  )
+X-CRM114-CacheID: sfid-20251007_132006_296702_35626965 
+X-CRM114-Status: GOOD (  10.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,20 +100,12 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 6 Oct 2025 at 09:07, Andr=C3=A9 Draszik <andre.draszik@linaro.org> =
+On Tue, 7 Oct 2025 at 16:55, Andr=C3=A9 Draszik <andre.draszik@linaro.org> =
 wrote:
 >
-> Commit f4fb9c4d7f94 ("phy: exynos5-usbdrd: allow DWC3 runtime suspend
-> with UDC bound (E850+)") incorrectly added clk_bulk_disable() as the
-> inverse of clk_bulk_prepare_enable() while it should have of course
-> used clk_bulk_disable_unprepare(). This means incorrect reference
-> counts to the CMU driver remain.
+> The DWC3 can be part of a power domain, so we need to allow the
+> relevant property 'power-domains'.
 >
-> Update the code accordingly.
->
-> Fixes: f4fb9c4d7f94 ("phy: exynos5-usbdrd: allow DWC3 runtime suspend wit=
-h UDC bound (E850+)")
-> CC: stable@vger.kernel.org
 > Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
 > ---
 
