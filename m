@@ -4,85 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C224ECCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 10:54:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18DB9CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 10:58:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:CC:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qRXHLbRBDsuSDZ3JRGY2OvYgbs7ujLbpdTE0+o8E2EQ=; b=5CoPp7fgVN3ko3bnognUIlS8+p
-	BOr2gIKpd3AkKTC19LM31G0Smp8pSs2B+YtCDYzu7MeH6GTS4Tr5gVipObJ/z6p0+bu6aq1VAqicN
-	AHZmBZcQM1tU3uSHwJIKT8r+6XMt2Zx5ft72erv3RFvw4w1zffqEJ3llrk6f6VZUnPj+ysOC4nUDV
-	Lx9d7Z4aRN85PvlY+HwVHC6F2YbQuA4PVi3I5dC7J3ubUGQ+wPvkurhhzAWfIZ65/kynZJlrCJYiv
-	zDTzo0ZzghBECCGnEdmpprpb6va4i71O8AgmTN8aKzZtHr7YwWdVBmyC4bC5jcXsN5aOzvrmUv0y+
-	QuCGdLEQ==;
+	bh=gAnLlpyoSkhhQNvbeLxXC34OHtMlQNWj8ecDQ3GZeEk=; b=LCd6qMcEcSVrwMxXhWsVvn1mgQ
+	F/eeM2+7shAMgbg/Ujdr1FVw9wHjCqmsQ+1N3qS1I3nG49E0iX/COCHoZYOtS4JwFmHnIR8CRpCDn
+	UB5irvIV8gAxtgs4+Yf5g4tb02ELPD6XSclB80XN2JzFRhCDVXW7T42tmt9WOzUutAC0EWuY6eolD
+	o22ICH0/YKOQT16WZQ/Q0YZbjg5rYFO1Hsg4rd7I+zEqZT5Fg3ETgzuOYj8kbDf1/LjZYV5qxHVfR
+	WoqhVSTb+8Z560lI/Jh1WAYzXbpje+6VL3CRqvX4aN6DpQxk780rn97V4NW/p2ePf2G+jjPuYbzdl
+	EKQwyi5A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v65Kv-00000001owm-2Fqf;
-	Tue, 07 Oct 2025 10:54:29 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1v65PB-00000001pGh-0tJu;
+	Tue, 07 Oct 2025 10:58:53 +0000
+Received: from mail-pf1-x429.google.com ([2607:f8b0:4864:20::429])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v65Kt-00000001owP-2Kgt
+	id 1v65P8-00000001pGG-1kjT
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 10:54:28 +0000
-Received: from lelvem-sh01.itg.ti.com ([10.180.77.71])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 597As0eU064331;
-	Tue, 7 Oct 2025 05:54:00 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1759834440;
-	bh=qRXHLbRBDsuSDZ3JRGY2OvYgbs7ujLbpdTE0+o8E2EQ=;
-	h=Date:From:To:CC:Subject:References:In-Reply-To;
-	b=JDPukr/S3NeMkpra/lCjbMz4mDcIOWzuywKysPN7YsCQ6JU30an5ju1YxNeEH45mC
-	 Fn8taa/iuxbGpNEqXUSmEQ4f57QTZspHNQcuENHNttHulSwir2Fym2WI0w0DpvbfLy
-	 7d/akc9AOvjLTpa784veuIY4izGJUiPzqaC++MiY=
-Received: from DLEE114.ent.ti.com (dlee114.ent.ti.com [157.170.170.25])
-	by lelvem-sh01.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 597As0XT2923797
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Tue, 7 Oct 2025 05:54:00 -0500
-Received: from DLEE200.ent.ti.com (157.170.170.75) by DLEE114.ent.ti.com
- (157.170.170.25) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Tue, 7
- Oct 2025 05:54:00 -0500
-Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DLEE200.ent.ti.com
- (157.170.170.75) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 7 Oct 2025 05:54:00 -0500
-Received: from localhost (lcpd911.dhcp.ti.com [172.24.233.130])
-	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 597ArwX71007621;
-	Tue, 7 Oct 2025 05:53:59 -0500
-Date: Tue, 7 Oct 2025 16:23:58 +0530
-From: Dhruva Gole <d-gole@ti.com>
-To: Ulf Hansson <ulf.hansson@linaro.org>
-CC: Saravana Kannan <saravanak@google.com>,
-        "Rafael J . Wysocki"
-	<rafael@kernel.org>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        <linux-pm@vger.kernel.org>, Geert Uytterhoeven <geert@linux-m68k.org>,
-        Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
-        Heiko Stuebner
-	<heiko@sntech.de>,
-        Sebastian Reichel <sebastian.reichel@collabora.com>,
-        Sebin
- Francis <sebin.francis@ti.com>,
-        Diederik de Haas <didi.debian@cknow.org>,
-        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
-        Jon Hunter
-	<jonathanh@nvidia.com>,
-        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2] driver core: fw_devlink: Don't warn about
- sync_state() pending
-Message-ID: <20251007105358.6jgn25jnwjxafz6r@lcpd911>
-References: <20251007094312.590819-1-ulf.hansson@linaro.org>
+	Tue, 07 Oct 2025 10:58:51 +0000
+Received: by mail-pf1-x429.google.com with SMTP id d2e1a72fcca58-7930132f59aso471671b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 03:58:49 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1759834729; x=1760439529; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=gAnLlpyoSkhhQNvbeLxXC34OHtMlQNWj8ecDQ3GZeEk=;
+        b=w8dDDjcxi15tZpCk6lZ3cIsRwQxhwxAXZpqvqgVm2Yr5sMK486lNpCF24/HXA7ukXI
+         J61KSY8nPCxjNpswUNvqL/i5gJuq6fQNBTW/UFhwYHHseC/lKuMrxolEPpHYnyab4KcG
+         vxznfylCDEd1f6ct/xx5myOooRu8gmTVF1Qe8pDPPR1E7b/Se7hI9diA1fjE0L5XmiyR
+         768OSzKNPUabrTTf/RiUSO6su0nI1T5EdNdze1jOmr3lKQLhxnJIqzexO3GOu11zsW48
+         eFaIuNgZn2/BUL0jy+iu7/QeteMo5UANQXKMukvQC57Gra/BPkVLiDZrt2LIu80bcK5a
+         QT2w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759834729; x=1760439529;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=gAnLlpyoSkhhQNvbeLxXC34OHtMlQNWj8ecDQ3GZeEk=;
+        b=YhCU02llC83Q70jmFYzKACFNv6bZvhcxrphX0pHH2yz3vMTWga7kV6zIE+EMazZwCb
+         XFmPFUtJntvbKYXQaWzp6dQdHVwEEBJlhbzOGyzZD9orbGVwiDkyLXlJrgKketAIkCvN
+         IefKTQ6fW2eXnP/Ot3jem7VDB5LpHSRmC6kk4qM7ZbAE4THvpB6TgUPMjo3QCg06XG4n
+         k8Yn6hmLINg5Inw6BvbEwB7smlvaNDJQwZvIeSRevADn9SvPKjjfoZJ44eQHdwgqjzd9
+         s6hl5TcXn7rkoWHKasWc7QKaaPkTRNssFhn5JfsFZrJJvGesem+UpogsR7Bas5RLPfy2
+         n9mA==
+X-Forwarded-Encrypted: i=1; AJvYcCXiEWYNWeBAQFDPArrOLva+PRHvZ30z8q4TAUbjhARE087Z0ZPGQ0tP9Ji7g7otJ3Rr20+w4VeA1It4CrUIx5JS@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx70n8Fh/8SDn9rumHnXshpivV/gZ21BApkZeQfzmzD6vgD+JtF
+	H3jOrPwaP7bjQeimyCnEAbkza0DfhmgZF4d2yvR8XiEnJsNtoH6T/q3bDeIfmnPbwz6Tw697iq/
+	aPoR8vLTyNs6fllmY9bLmgybx0tuCTQWCdBZfoCnVAQ==
+X-Gm-Gg: ASbGncsAt85E8A6a3tTYGZhBegzbJifyN+CrO60sMpN5lLJ6f/dRFsi45LQRLNwich/
+	jYAg1xVYuwJ0fMbKM+8doIoRStTl1oee+OVS8cOEikLJmRNm+LKhS8L9GSA8QrwNUABDwVgACAv
+	B/SuXn66fl26evtzYFlBBBSTVaXoRgdK/PrsPTH0CQHmCFgrV6VUwmysu9mfs2aNRE7LzQKCgdJ
+	ughWO7OH679vmUoOJo7mA9+zAvkkhaKUqOoGxXn1R5FoshLbPegGpIa+iOogeJmt/fY
+X-Google-Smtp-Source: AGHT+IGUa8eJRihLVNzOYGFbXUIm+N3gJO2ciJmqJHjBjPDlfoQHUwh4NF9fU46TjTNIJF7oexDTVMkXGcu7LoImngw=
+X-Received: by 2002:a05:6a21:3086:b0:2df:8271:f095 with SMTP id
+ adf61e73a8af0-32b61e57fd4mr22332424637.24.1759834729397; Tue, 07 Oct 2025
+ 03:58:49 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="us-ascii"
-Content-Disposition: inline
-In-Reply-To: <20251007094312.590819-1-ulf.hansson@linaro.org>
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+References: <20250915-arm_coresight_power_management_fix-v3-0-ea49e91124ec@arm.com>
+ <20250915-arm_coresight_power_management_fix-v3-20-ea49e91124ec@arm.com>
+ <CAJ9a7VjoW=U42SztbdHfxM=v=UaAmJn1=cdJd1EZU3rB6x+WAA@mail.gmail.com> <20251003145017.GA7985@e132581.arm.com>
+In-Reply-To: <20251003145017.GA7985@e132581.arm.com>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Tue, 7 Oct 2025 11:58:36 +0100
+X-Gm-Features: AS18NWA1eTVKugm6tPgBhUp_w-ROnrHU-pCieNlFUTBLM5SYTli5UWLKPh5z7aU
+Message-ID: <CAJ9a7VjnGigCP9Wc1tk-_pXBNspbyQO2bN_M0Ymk+UTBNZH-7w@mail.gmail.com>
+Subject: Re: [PATCH v3 20/31] coresight: cti: Register PM notifier after data initialization
+To: Leo Yan <leo.yan@arm.com>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark <james.clark@linaro.org>, 
+	Yeoreum Yun <yeoreum.yun@arm.com>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Yabin Cui <yabinc@google.com>, 
+	Keita Morisaki <keyz@google.com>, Yuanfang Zhang <quic_yuanfang@quicinc.com>, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_035427_688116_D2A3B1B3 
-X-CRM114-Status: GOOD (  25.53  )
+X-CRM114-CacheID: sfid-20251007_035850_621734_81DE8830 
+X-CRM114-Status: GOOD (  22.05  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,50 +98,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Oct 07, 2025 at 11:43:12 +0200, Ulf Hansson wrote:
-> Due to the wider deployment of the ->sync_state() support, for PM domains
-> for example, we are receiving reports about the sync_state() pending
-> message that is being logged in fw_devlink_dev_sync_state(). In particular
-> as it's printed at the warning level, which is questionable.
-> 
-> Even if it certainly is useful to know that the ->sync_state() condition
-> could not be met, there may be nothing wrong with it. For example, a driver
-> may be built as module and are still waiting to be initialized/probed. For
-> this reason let's move to the info level for now.
-> 
-> Reported-by: Geert Uytterhoeven <geert@linux-m68k.org>
-> Reported-by: Sebin Francis <sebin.francis@ti.com>
-> Reported-by: Diederik de Haas <didi.debian@cknow.org>
-> Reported-by: Jon Hunter <jonathanh@nvidia.com>
-> Reviewed-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
-> Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
-> ---
-> 
-> Changes in v2:
-> 	- Due to discussions on v1 and because the default Kconfig is to use the
-> 	FW_DEVLINK_SYNC_STATE_STRICT, I suggest that for now it may be best to
-> 	keep the warning level for the "Timed out.." print and only change the
-> 	"sync_state pending..." message.
-> 
-> ---
->  drivers/base/core.c | 2 +-
->  1 file changed, 1 insertion(+), 1 deletion(-)
-> 
-> diff --git a/drivers/base/core.c b/drivers/base/core.c
-> index d22d6b23e758..c62e428b95b0 100644
-> --- a/drivers/base/core.c
-> +++ b/drivers/base/core.c
-> @@ -1784,7 +1784,7 @@ static int fw_devlink_dev_sync_state(struct device *dev, void *data)
->  		return 0;
->  
->  	if (fw_devlink_sync_state == FW_DEVLINK_SYNC_STATE_STRICT) {
-> -		dev_warn(sup, "sync_state() pending due to %s\n",
-> +		dev_info(sup, "sync_state() pending due to %s\n",
+Hi Leo
 
-Reviewed-by: Dhruva Gole <d-gole@ti.com>
+On Fri, 3 Oct 2025 at 15:50, Leo Yan <leo.yan@arm.com> wrote:
+>
+> On Fri, Oct 03, 2025 at 10:38:24AM +0100, Mike Leach wrote:
+> > Hi Leo,
+> >
+> > The CTI PM code was initially set up before the CTI was a helper device.
+> >
+> > If the core bound CTIs, which are helpers to the core bound ETMs, are
+> > disabled as part of the path disable helpers, then I think the CTI
+> > specific PM code might be redundant.
+>
+> > If it is not, then should this not  hook into the generic PM code in
+> > coresight-core.c?
+>
+> Correct, CTI devices will be managed as a part of path in
+> coresight-core.c (See patches 26 and 31).
+>
+> However, we still need cti_pm_setup() - when a CPU bound CTI is enabled
+> via CTI's sysfs interface, in this case, no path is enabled but purely
+> CTI device is enabled.
+>
+> A side topic not related to this series, I am curious if we can remove
+> the enable/disable knobs in coresight-cti-sysfs.c, then CTI will only
+> work as helper. This can significantly simplify the CTI driver.
+>
+
+Not all CTIs are on the path, but potentially even non-path CTIs can
+introduce signal inputs to the CTM that trigger events in the trace
+path.
+
+Mike
+
+> Thanks,
+> Leo
+
+
 
 -- 
-Best regards,
-Dhruva Gole
-Texas Instruments Incorporated
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
