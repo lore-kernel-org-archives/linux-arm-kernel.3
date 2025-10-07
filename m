@@ -4,75 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D3F0CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 14:46:38 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74600CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 14:55:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x7a7yYa2BC6M94EJB0V15A3UsNpa5OhhLhNC4izb/8o=; b=givWUy+hdXoyxtgGTGhg4tA135
-	VtF8gImka7U6C8kEyuHEEoa9k+fHveYMdmg3/88najYaaL78EukW40Li5UBzAOWuBggJuY6hcLP7h
-	IiA7Tz5jSuj/aUc5K+xngw4RLcDnPo/L0eWUpQV80JIOXwIPlVSEiswuJwU53IaW4awoMEe2ukXMu
-	JiigvAl8GCaapB9CaFOizBhUXL3Hl7/TRI5MRx0kHiuxZVIe68ihYJO5ryGbZzsP5wFoQa0RN4C/u
-	byTOqIw6qM9WEn1s0nn0xlRJ91VuxjoUkFjkS+VVsmz9MRXFPCB6e2QR610lLpPtdT3b49E7iyLMr
-	CL+QhrOQ==;
+	bh=HkyPx7hvenwwKOYWFdLzbbOA8b6X1wKKeSXRsPSnnBw=; b=RinkowpcK3KVIPhIkZRKYeUdjx
+	3XIYYBLUlwh5B1fVFkMkmJ9hgx6p6v3HvgVsSmwl2kJUWMjQ7OX63M4jOfDmi6mfHp6/5ftsMYsmh
+	w1wzmXGt8h/8XtmvrFMdNjlgurwJPoEG0W5b/mtXALYLggiN76O3Bj0GU2/gIZxU+dbIL7UzKche+
+	PA8xB3tHgtcNIGlnIeCfyh8NQA1EtT56C5VgS5FeAErxxpdbPXBx0USD6eZ7SJx/Jxz4+hHv+yVVF
+	0RUHshB8qH7psN6BcKsqi6K8l01ewE/Ohv6elARg0dp+GfpeNa6OA+TY2Zj5fsJLvYq0ACXNXRgxG
+	vik8YicQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v68xM-00000002CyQ-0Zel;
-	Tue, 07 Oct 2025 14:46:24 +0000
-Received: from mail-pg1-x52c.google.com ([2607:f8b0:4864:20::52c])
+	id 1v696A-00000002DkR-047Q;
+	Tue, 07 Oct 2025 14:55:30 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v68xK-00000002Cy2-1bOE
+	id 1v6967-00000002Dk5-3tam
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 14:46:23 +0000
-Received: by mail-pg1-x52c.google.com with SMTP id 41be03b00d2f7-b551350adfaso5703437a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 07:46:21 -0700 (PDT)
+	Tue, 07 Oct 2025 14:55:29 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-77f5d497692so7003277b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 07:55:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1759848381; x=1760453181; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1759848927; x=1760453727; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:to:subject:user-agent:mime-version:date
          :message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=x7a7yYa2BC6M94EJB0V15A3UsNpa5OhhLhNC4izb/8o=;
-        b=hzZSCGaiJl/FZhHDv0GBDNXZBm0o1gaqVTkNGGjevPPhT64DKnB/d2f3lZ4IKHW0hK
-         KDpDDwd118rBnGXaviiHZB8QEDQwNjJ4vYgY7CDky3q+l0JTSwbs0hjCnkC0wQJY6Njj
-         hb0L9tMfh+Xy5FaYpI0FGuE1lo6B1hhjrg1VJ04q8Bw/OEuU+vjfXGrImsTWpPyuYCBo
-         5kDBpp//HA+KEnFPojiDZgHuK2RA6JJRrcN+bvd/V81hHBCvOgcfOKmSCyigKn75HHvb
-         iwCm1YnN+vQpVrZmBNSuMfUkT9hItfHtLcF/HzutOVZH9kXtCL0PLbwkz0KwbROTejuT
-         n/pA==
+        bh=HkyPx7hvenwwKOYWFdLzbbOA8b6X1wKKeSXRsPSnnBw=;
+        b=Lc6+IB5FNOmuB+f41ovMdJe2RC06ILqCvq6z2Vc2yksXwKWmVpkn/hEkGabAsFNOn+
+         H6x1UxhGLCTsz9x8qXRtyeCVZNLbhKSWWgQGOjJUDnjgr6s/aTBsf6r6cEzS9urZpj92
+         BhIq2ZB/AeZJublnY/yHP0d1aiCdqP7UtFjYM9ZZWM0XpPhS7FrK2I4Hwbd9LvaWLr+t
+         7A0O2cVs5pKmJ0l1muAYPyNqROHlUrKXmj5Z47a7hkPXRbXDfLQ2KDXT+WVyQCWI6DH+
+         mKCztAGDrpGf3CXUfHCLopNCRfOUzKnrP7j1y22wYzloRgfJVY2IAhvwuFIIsZJNRT/y
+         1C3A==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759848381; x=1760453181;
+        d=1e100.net; s=20230601; t=1759848927; x=1760453727;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:to:subject:user-agent:mime-version:date
          :message-id:sender:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=x7a7yYa2BC6M94EJB0V15A3UsNpa5OhhLhNC4izb/8o=;
-        b=HzAd0mz4nyNErxcvYq31fXsOIIydtSIDMp44WfSIzrxaeNdMw4N0WAD/uuofy+it+5
-         QPW9n33p3pohaXPracin/DyRGkYk/nZuiFvG1GOuINtDbOlXgMJXQRzA9yk3vzzCjO1h
-         9Q6EX1ES0VyjGT5Edy1n4I/5MwjqtF/yjkHE9duDCvhMkqREpWzb2mTpW8YeyNnhYek3
-         D2BxFWViL6l7LBTXJX19YGKB1iNc9Gx3iTGtrA3giHlE7SNb9y2yN8aYUsI49pu/2u3f
-         eDy3uFMToi0ib0JnDhdHC2a50jcWGz9tLvWe4PSRzv1aYBm/BPg6BOADB02IKzl7gM0H
-         xmGA==
-X-Forwarded-Encrypted: i=1; AJvYcCVXgVBqcOE0jG2WZoliBxID+MYTVFTsIo2ntf0B8jh3+ECxQagT0R3blryO7kvPtxbck53QycdN9dC6ZA/ShE7f@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz/EstTL1SycfOnpTolaBH/+Ojc0cl2dyLSuE+5BqMs06No9JSh
-	RcNs4R03MCjrNz2/N0d3V4kSthjbtF8cqK4f1VPXzSEfhamVK4d9Umn3
-X-Gm-Gg: ASbGnctR1XuM6K1vX8NvceD3fUTE08/Bpf+m3Ry8jaMO66VXybfjWRA85cBiv1XBd0W
-	GjjiJCvRpFpY1GyfWtBX+N9SQIX3cfLpR+HC0iAIOXC2bGfL1U6ilbJZsY7A9lkg8AGCj2yKd8x
-	eRaqCS1Drx6sRceDX/xRyFt6kfrkh8Ce1N+VYiRSNTlNB6mYYXaB22q2ItLZ6i02IZvFGs7CCBG
-	6yrTuzvIjurcaoLEcJoMPieOwxyOmMu1bljBkXqUpNjJHiZKxognLZwA7DuvNP4i6CITzzajxwU
-	9g3kt5228QGrUGoTnLIa1sEwVUGof8+uFcai06q0O84g0mCt+kO9fKyz0ufWfA24YMkMh6Q3+Mv
-	47pV41fCniVzuHxOob/OzLQ3FUQB3VtAxQtYqiblU075qe2+s1FygXMYNNkgSXu8kg46cJ7wB7E
-	E71fENGR/Tke+ebLQZvG0=
-X-Google-Smtp-Source: AGHT+IHkTsFD9LWAFhO0iOSkzrJT/uIU3911ebutolUwZI//wZBM03f90uGhttRLUzWdNvxdYPBNOw==
-X-Received: by 2002:a17:90b:180d:b0:338:26e3:ffb6 with SMTP id 98e67ed59e1d1-339c27b82c3mr23254788a91.26.1759848380860;
-        Tue, 07 Oct 2025 07:46:20 -0700 (PDT)
+        bh=HkyPx7hvenwwKOYWFdLzbbOA8b6X1wKKeSXRsPSnnBw=;
+        b=JfTWmOjGnp4cN7RtiFpoYjM0YV02KcaZr3LhqyiZOe4SooHEvSyfMMs4efdBjsmz9v
+         b5QT6i/4YQWVpAF35oOeI8Sa4Eg70/QsBqpVBsB1GtW23R+JMpMtX7kZHdy6BZ8pzxYi
+         3CHEoklcofdmO2bGc0VnUgYz9/zX4VRo5A+YOF7bNJ8QnBInYyQMuyW/oJiS8DQghUQz
+         txulTmL1dUcegrA8Ml7WkmKSfdyap9MXqUj3e+60IWeaWqsGp13lhgU7hyUTSouRiPrN
+         CZb8hAYuNgG3SU58psmS3gBA5Mup2+e0t0oNdnnl/wdWg0bcbJwvrY/b+aKjnGF6keqO
+         sFcg==
+X-Forwarded-Encrypted: i=1; AJvYcCXWdXOtEd+aoSgtQK2E1avIOsctfeEwMTfl5bW6zhwG0yLeBS6p4FBjdTXOT2Zy93p+1QP4NOExEauZZfGs4vbc@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy+5Or4ty+w53mWPpdnG2lKYj1UL1AgZrMTerftZ15z5PAXzANU
+	T1ahNg+wbiCoONVYh6DW35guM3q7oy8kepSaVDMEMYWx42KjjphYBIi8
+X-Gm-Gg: ASbGncsnPtf9y8X3Gev+zZ2R3+dfFKGUex7I2fscxjYn1FAzmjPMWaXf6tNf5lR8AJy
+	cqLur5ABrtGgj0E6qGnr8entocDWDyK1gsQ1PHM0op7N6jEI6/PrYjna3oiBgJkEIMBSeVd8FWr
+	1YkABe+X7kvzv0nOGnmjRocC2EgnQDrL2sWlgLoroDz/BCbeBMJvj781beg7csd38kFWVt1BeMj
+	RVRn3OoKcd6XHepIrpFCAexaz1eip8mQPYCQKHhMYgczk5YEdGXR8aAI5k4wu7GaOtySo2kd05a
+	+5xtLyMPcqFbjbga/zEPlw4Y6qe0mexsVlUVaczxOSjA2CL1sPF2+MhoImHAQ0zVs3ikLy4Qgfp
+	9eFNr2KHiN5ZTYt+VIq1tMHf+pfXI39A40dcH/G+GIE+SjQHAF4518xzB9jfIvabDzRYtDhXmtj
+	NaBtOEcmKrUW2l7BLHjFw=
+X-Google-Smtp-Source: AGHT+IGdyeoXpxl1XmF0tLtlO/xz3iQ1BZuV8N6S1k1HOqZoXjG87A15BN5CloCPSK/tUguPJ8dO2w==
+X-Received: by 2002:a05:6a00:14d3:b0:783:cb49:c67b with SMTP id d2e1a72fcca58-78c98cf84d3mr22847057b3a.32.1759848926898;
+        Tue, 07 Oct 2025 07:55:26 -0700 (PDT)
 Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-339a6ebdac1sm20685978a91.9.2025.10.07.07.46.19
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-78b02074663sm16035781b3a.74.2025.10.07.07.55.25
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 07 Oct 2025 07:46:20 -0700 (PDT)
-Message-ID: <97b3872b-7f4f-482a-ab89-5b345ea0ffb2@roeck-us.net>
-Date: Tue, 7 Oct 2025 07:46:10 -0700
+        Tue, 07 Oct 2025 07:55:26 -0700 (PDT)
+Message-ID: <83a90651-0b46-4c68-ab90-361422192e90@roeck-us.net>
+Date: Tue, 7 Oct 2025 07:55:23 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH 2/3] watchdog: aspeed: Support variable number of reset
@@ -134,8 +134,8 @@ In-Reply-To: <20251007083650.2155317-3-chin-ting_kuo@aspeedtech.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_074622_429037_B148088A 
-X-CRM114-Status: GOOD (  20.75  )
+X-CRM114-CacheID: sfid-20251007_075527_979884_6456DAB6 
+X-CRM114-Status: GOOD (  24.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,9 +159,6 @@ On 10/7/25 01:36, Chin-Ting Kuo wrote:
 > platform-specific logic and improves scalability for future SoCs.
 > 
 > Signed-off-by: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
-
-Reviewed-by: Guenter Roeck <linux@roeck-us.net>
-
 > ---
 >   drivers/watchdog/aspeed_wdt.c | 12 ++++++++----
 >   1 file changed, 8 insertions(+), 4 deletions(-)
@@ -183,6 +180,9 @@ Reviewed-by: Guenter Roeck <linux@roeck-us.net>
 >   		.wdt_reset_mask_shift = 1,
 >   	},
 > +	.num_reset_masks = 1,
+
+Looking at this again: Why set it on ast2400 ?
+
 >   };
 >   
 >   static const struct aspeed_wdt_config ast2500_config = {
@@ -205,6 +205,19 @@ Reviewed-by: Guenter Roeck <linux@roeck-us.net>
 > @@ -482,8 +486,9 @@ static int aspeed_wdt_probe(struct platform_device *pdev)
 >   	if ((of_device_is_compatible(np, "aspeed,ast2500-wdt")) ||
 >   		(of_device_is_compatible(np, "aspeed,ast2600-wdt"))) {
+
+... because the code here only evaluates it if this is an ast2500 or ast2600.
+
+If num_reset_masks would be set to 0 for ast2400, the value could be used here.
+
+	if (wdt->cfg->num_reset_masks) {
+		...
+	}
+
+and it would not be necessary to add of_device_is_compatible() for new chips.
+
+Guenter
+
 >   		u32 reset_mask[2];
 > -		size_t nrstmask = of_device_is_compatible(np, "aspeed,ast2600-wdt") ? 2 : 1;
 > +		size_t nrstmask = wdt->cfg->num_reset_masks;
