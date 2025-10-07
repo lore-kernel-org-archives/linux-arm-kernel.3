@@ -4,61 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 277B4CCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 08:58:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DF7FCCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 09:00:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zDd+tgEzJ8FD2/6I7c4yt842rv6yCjpqDn9OARxio8I=; b=icqZ2O1gvP0O1falXn3eyoKifu
-	25U3LbKg6yb492oLdCY6GLmOU7TJt6japAcMal7NbGlvuHMw6/eb9MytgOe54MBapI14F9giC9Gsd
-	ylENIypBkIeD7Hia7j4U3ow8v0oJnsfGP+lUM2eHnW6LbbHyHVgDnV5D8Ub3x/IYPXZwUH+U2kbG5
-	xpBwelgP5oE0qSwPaMpevx12z0LbhCfOdmCq4+dJY16RnU1uXYwVO/mMbHxIQjzWZJ5T8k+a9Q2Ae
-	Zi3vWhd0xum4I3rQsDiOz+Y1hry9cGFJCKED/cPViidv/XeXhbY8L/HqtYh4lAwvlVeWzSqxqb9hN
-	ITqZvdDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l4LfdVxxFXdlzcPG+UBJycjihHPd1Erhfbv15U4Rv3A=; b=cudk39xosfyZ7BbCle4Wri1Wsv
+	GHPkriI7qgEqvqPcIFtjU4ljjIqea7io4SIlH1zms6SQqYWfwDf+8ba4yTIHtBQFYgkIRR9fB9+bu
+	8Ctu2KzS3QGyga2JIfsJWwugNnfrnqpentw1HPljoPiKlka/zon61aLC2p01aVDDj9TnjxpnWbPXa
+	eX3s6fx4wt/zG+3Ivpn8B2zrj720pQzMzUz0Mmm3iHPNPQBM1ELkR3LABYor+gw/w1b1ku9CsJb1m
+	oMtZ+ay/x3odtflVWZmhETOm+ncheylnAavM6y7Qlr29O6YeQ90HD/R0U898JYwGVCQo+NO60yeMU
+	8nC2qPJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v63WY-00000001ePt-2Vqp;
-	Tue, 07 Oct 2025 08:58:22 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v63Yv-00000001epr-0em6;
+	Tue, 07 Oct 2025 09:00:49 +0000
+Received: from cp2.siel.si ([46.19.12.180])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v63WX-00000001ePF-0LQY
+	id 1v63Ys-00000001ejf-0Ou3
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 08:58:21 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 42DB760147;
-	Tue,  7 Oct 2025 08:58:20 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 141DBC4CEF7;
-	Tue,  7 Oct 2025 08:58:15 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759827499;
-	bh=NT6pCgWJouBWI8k6FBlAG/a1lpdejxjoaWoToJyIVEw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=qEuSauHww9lo8O3TWII4agFp4kmEaLEWD3PpAYB02hcjb8nGi0wCjFvNnb170OkD8
-	 Vku+sPfDq6l5fsr/f7qE+gpKDGZGMatJcJ/vytTcWfwKHd4swKncAklYuw3wRYCvt1
-	 08a/78vUSW01VBkL93dRyWiVFHPalVOocLIL/Sp8r6g2/TjQnsclWnSjg3EpN1S480
-	 VnqjQu/jq1PFvrW/RS3g7375W+kKKnJPW+uOTwTnFLf7Mx0GXBVsakf+vuUrSQRUsM
-	 WZ7M79T8G+avXTUl8qMkJp3lf6h6SJYSQR2hRf3NNIHLf2oYTf11OhU+lssvjAxwT9
-	 vmc47MDbr1bZQ==
-Date: Tue, 7 Oct 2025 10:58:12 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: Catalin Marinas <catalin.marinas@arm.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Will Deacon <will@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
-	Mark Rutland <mark.rutland@arm.com>, Marc Zyngier <maz@kernel.org>
-Subject: Re: [PATCH] irqchip/gic-v5: Fix GIC CDEOI instruction encoding
-Message-ID: <aOTWJBETJDY4xFUh@lpieralisi>
-References: <20251006100758.624934-1-lpieralisi@kernel.org>
- <aOPEXEx-QRv7v9A5@arm.com>
- <aOPZqM2xGIrPJH/d@lpieralisi>
- <aOPfIgrxZaqzu-7s@arm.com>
+	Tue, 07 Oct 2025 09:00:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=norik.com;
+	s=default; h=Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:
+	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
+	:Resent-Message-ID:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=l4LfdVxxFXdlzcPG+UBJycjihHPd1Erhfbv15U4Rv3A=; b=eE1Fc5zaOXQiIgvkYKA8gmexqc
+	ymleU8O/XNXcvh6bBYt6vcYOKCeMjU/+tOOaybZP7eEyASF23f8rVKIT4bxufIdrFyrHhEvOeAG+/
+	KS9h4HQ64OCoOgv6SPzB2R+exgbGOV9uVqnfyAmnytAnCduBxjIvok62hrjPAQrIIEZmq4L4K5UDK
+	JPLP4Qc+oo2qlQcWm1jsHavRdy5R3VyxtYCeDUPmbBHvM9Rqj4qFAPlQ5n6DDFoSbokM/Nc3bHGuv
+	nMw58Tk9VpyEsNyGz54DX/gFjGUJPS1F4LAnKYLKujsPHaN2pJPgL04PU05uc+6H27LMiGJbJi9zy
+	EN3Dn/WQ==;
+Received: from 89-212-21-243.static.t-2.net ([89.212.21.243]:34170 helo=localhost.localdomain)
+	by cp2.siel.si with esmtpsa  (TLS1.3) tls TLS_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <primoz.fiser@norik.com>)
+	id 1v63FJ-0000000BgWm-1Dck;
+	Tue, 07 Oct 2025 10:40:31 +0200
+From: Primoz Fiser <primoz.fiser@norik.com>
+To: Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>
+Cc: imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	upstream@lists.phytec.de
+Subject: [PATCH 2/2] arm64: dts: freescale: imx93-phyboard-nash: Add pwm-fan overlay
+Date: Tue,  7 Oct 2025 10:40:28 +0200
+Message-Id: <20251007084028.1125185-2-primoz.fiser@norik.com>
+X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20251007084028.1125185-1-primoz.fiser@norik.com>
+References: <20251007084028.1125185-1-primoz.fiser@norik.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aOPfIgrxZaqzu-7s@arm.com>
+Content-Transfer-Encoding: 8bit
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - cp2.siel.si
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - norik.com
+X-Get-Message-Sender-Via: cp2.siel.si: authenticated_id: primoz.fiser@norik.com
+X-Authenticated-Sender: cp2.siel.si: primoz.fiser@norik.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251007_020046_346513_77AEE18F 
+X-CRM114-Status: GOOD (  11.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,85 +93,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 06, 2025 at 04:24:18PM +0100, Catalin Marinas wrote:
-> On Mon, Oct 06, 2025 at 05:00:56PM +0200, Lorenzo Pieralisi wrote:
-> > On Mon, Oct 06, 2025 at 02:30:04PM +0100, Catalin Marinas wrote:
-> > > On Mon, Oct 06, 2025 at 12:07:58PM +0200, Lorenzo Pieralisi wrote:
-> > > > diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-> > > > index 6455db1b54fd..6cf8c46ddde5 100644
-> > > > --- a/arch/arm64/include/asm/sysreg.h
-> > > > +++ b/arch/arm64/include/asm/sysreg.h
-> > > > @@ -113,14 +113,14 @@
-> > > >  /* Register-based PAN access, for save/restore purposes */
-> > > >  #define SYS_PSTATE_PAN			sys_reg(3, 0, 4, 2, 3)
-> > > >  
-> > > > -#define __SYS_BARRIER_INSN(op0, op1, CRn, CRm, op2, Rt)			\
-> > > > +#define __SYS_INSN(op0, op1, CRn, CRm, op2, Rt)				\
-> > > >  	__emit_inst(0xd5000000					|	\
-> > > >  		    sys_insn((op0), (op1), (CRn), (CRm), (op2))	|	\
-> > > >  		    ((Rt) & 0x1f))
-> > > >  
-> > > > -#define SB_BARRIER_INSN			__SYS_BARRIER_INSN(0, 3, 3, 0, 7, 31)
-> > > > -#define GSB_SYS_BARRIER_INSN		__SYS_BARRIER_INSN(1, 0, 12, 0, 0, 31)
-> > > > -#define GSB_ACK_BARRIER_INSN		__SYS_BARRIER_INSN(1, 0, 12, 0, 1, 31)
-> > > > +#define SB_BARRIER_INSN			__SYS_INSN(0, 3, 3, 0, 7, 31)
-> > > > +#define GSB_SYS_BARRIER_INSN		__SYS_INSN(1, 0, 12, 0, 0, 31)
-> > > > +#define GSB_ACK_BARRIER_INSN		__SYS_INSN(1, 0, 12, 0, 1, 31)
-> > > >  
-> > > >  /* Data cache zero operations */
-> > > >  #define SYS_DC_ISW			sys_insn(1, 0, 7, 6, 2)
-> > > > @@ -1075,7 +1075,6 @@
-> > > >  #define GICV5_OP_GIC_CDDIS		sys_insn(1, 0, 12, 1, 0)
-> > > >  #define GICV5_OP_GIC_CDHM		sys_insn(1, 0, 12, 2, 1)
-> > > >  #define GICV5_OP_GIC_CDEN		sys_insn(1, 0, 12, 1, 1)
-> > > > -#define GICV5_OP_GIC_CDEOI		sys_insn(1, 0, 12, 1, 7)
-> > > >  #define GICV5_OP_GIC_CDPEND		sys_insn(1, 0, 12, 1, 4)
-> > > >  #define GICV5_OP_GIC_CDPRI		sys_insn(1, 0, 12, 1, 2)
-> > > >  #define GICV5_OP_GIC_CDRCFG		sys_insn(1, 0, 12, 1, 5)
-> > > > @@ -1129,6 +1128,17 @@
-> > > >  #define gicr_insn(insn)			read_sysreg_s(GICV5_OP_GICR_##insn)
-> > > >  #define gic_insn(v, insn)		write_sysreg_s(v, GICV5_OP_GIC_##insn)
-> > > >  
-> > > > +/*
-> > > > + * GIC CDEOI encoding requires Rt to be 0b11111.
-> > > > + * gic_insn() with an immediate value of 0 cannot be used to encode it
-> > > > + * because some compilers do not follow asm inline constraints in
-> > > > + * write_sysreg_s() to turn an immediate 0 value into an XZR as
-> > > > + * MSR source register.
-> > > > + * Use __SYS_INSN to specify its precise encoding explicitly.
-> > > > + */
-> > > > +#define GICV5_CDEOI_INSN		__SYS_INSN(1, 0, 12, 1, 7, 31)
-> > > > +#define gic_cdeoi()			asm volatile(GICV5_CDEOI_INSN)
-> > > 
-> > > Would something like this work? Completely untested (and build still
-> > > going):
-> > 
-> > I tested the GIC CDEOI code generated with GCC/LLVM and it works.
-> > 
-> > My only remark there is that even as the code in mainline stands with
-> > GCC, it is not very clear that we rely on implicit XZR generation to
-> > make sure the instruction encoding generated is correct - it looks
-> > like a bit of a stretch to reuse a sysreg write with immediate value == 0
-> > to generate a system instruction write with Rt == 0b11111, it works
-> > but it is a bit opaque or at least not straighforward to grok.
-> > 
-> > Obviously the patch below improves LLVM code generation too in the process.
-> > 
-> > I don't know what's best - I admit I am on the fence on this one.
-> 
-> My concern is other cases where we may rely on this, so we might as well
-> go with a generic approach than fixing each case individually. If that's
-> the only case, I'll leave it to you and Marc do decide whichever you
-> prefer.
+Add overlay to support PWM fan on the phyBOARD-Nash-i.MX93 board. Fan
+can be connected to the FAN (X48) connector on the board and will be
+controlled according to the following CPU temperature trips table:
 
-I will take your patch - added comments and rewrote the log for v2, with
-your Suggested-by (did not give you authorship let me know if that's OK
-please).
+ - bellow 50 degrees - fan is off (<1% duty cycle)
+ - between 50 and 58 degrees - low fan speed (~35% duty cycle)
+ - between 58 and 65 degrees - fan medium speed (~60% duty cycle)
+ - above 65 degrees - fan at full speed (>99% duty cycle)
 
-One thing to mention, I added a Fixes: tag that goes back to the initial
-GICv5 commit, I don't know whether it is fixing more than that, it does
-not look like by a quick grep through kernel code but I am not sure.
+The output frequency of PWM signal is set to 25 kHz.
 
-Thanks,
-Lorenzo
+Signed-off-by: Primoz Fiser <primoz.fiser@norik.com>
+---
+ arch/arm64/boot/dts/freescale/Makefile        |  2 +
+ .../imx93-phyboard-nash-pwm-fan.dtso          | 75 +++++++++++++++++++
+ 2 files changed, 77 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/freescale/imx93-phyboard-nash-pwm-fan.dtso
+
+diff --git a/arch/arm64/boot/dts/freescale/Makefile b/arch/arm64/boot/dts/freescale/Makefile
+index c72a6fdc5412..9807eb878916 100644
+--- a/arch/arm64/boot/dts/freescale/Makefile
++++ b/arch/arm64/boot/dts/freescale/Makefile
+@@ -358,11 +358,13 @@ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin.dtb
+ 
+ imx93-phyboard-nash-jtag-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-jtag.dtbo
+ imx93-phyboard-nash-peb-wlbt-07-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-peb-wlbt-07.dtbo
++imx93-phyboard-nash-pwm-fan-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-nash-pwm-fan.dtbo
+ imx93-phyboard-segin-peb-eval-01-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-eval-01.dtbo
+ imx93-phyboard-segin-peb-wlbt-05-dtbs += imx93-phyboard-segin.dtb imx93-phyboard-segin-peb-wlbt-05.dtbo
+ imx93-phycore-rpmsg-dtbs += imx93-phyboard-nash.dtb imx93-phyboard-segin.dtb imx93-phycore-rpmsg.dtbo
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-jtag.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-peb-wlbt-07.dtb
++dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-nash-pwm-fan.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-eval-01.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phyboard-segin-peb-wlbt-05.dtb
+ dtb-$(CONFIG_ARCH_MXC) += imx93-phycore-rpmsg.dtb
+diff --git a/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-pwm-fan.dtso b/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-pwm-fan.dtso
+new file mode 100644
+index 000000000000..d1adf04d56d9
+--- /dev/null
++++ b/arch/arm64/boot/dts/freescale/imx93-phyboard-nash-pwm-fan.dtso
+@@ -0,0 +1,75 @@
++// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
++/*
++ * Copyright (C) 2025 PHYTEC Messtechnik GmbH
++ * Author: Primoz Fiser <primoz.fiser@norik.com>
++ */
++
++#include <dt-bindings/pwm/pwm.h>
++#include "imx93-pinfunc.h"
++
++/dts-v1/;
++/plugin/;
++
++&{/} {
++	fan0: pwm-fan {
++		compatible = "pwm-fan";
++		#cooling-cells = <2>;
++		pinctrl-names = "default";
++		pinctrl-0 = <&pinctrl_fan>;
++		cooling-levels = <1 90 150 200 255>;
++		pwms = <&tpm6 1 40000 PWM_POLARITY_INVERTED>;
++	};
++
++	thermal-zones {
++		cpu-thermal {
++			trips {
++				cpu_low: cpu-low {
++					hysteresis = <3000>;
++					temperature = <50000>;
++					type = "active";
++				};
++
++				cpu_med: cpu-med {
++					hysteresis = <3000>;
++					temperature = <58000>;
++					type = "active";
++				};
++
++				cpu_high: cpu-high {
++					hysteresis = <3000>;
++					temperature = <65000>;
++					type = "active";
++				};
++			};
++
++			cooling-maps {
++				map1 {
++					cooling-device = <&fan0 1 1>;
++					trip = <&cpu_low>;
++				};
++
++				map2 {
++					cooling-device = <&fan0 2 2>;
++					trip = <&cpu_med>;
++				};
++
++				map3 {
++					cooling-device = <&fan0 4 4>;
++					trip = <&cpu_high>;
++				};
++			};
++		};
++	};
++};
++
++&tpm6 {
++	status = "okay";
++};
++
++&iomuxc {
++	pinctrl_fan: fangrp {
++		fsl,pins = <
++			MX93_PAD_GPIO_IO23__TPM6_CH1	0x31e
++		>;
++	};
++};
+-- 
+2.34.1
+
 
