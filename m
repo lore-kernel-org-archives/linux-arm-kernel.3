@@ -4,94 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BED57CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 18:50:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95F92CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 18:54:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2aNYGyYwV4vw7l+4kbvJWnzel0gTCPuhPYenonekONo=; b=ZTYLqLgf8aOl7zN8VyF6xCS1p6
-	IWAryd4uyR3ZJKgfuTnoW/N1cy3pjn1xIINqxf3+DZY22Hh3WH4so68ctu+ylBp5xMJ4vMwstmuS2
-	9PBha4Ot4iqKlT99x0EqpcFu5j5rsoEgWV3taa0bIuZMrAqv3Qc2ER7/Ur07CWVcFWnF3yAW5HtQZ
-	viQ40918zOmVYS0TPDH9QFypYcZrxPMLSw6vrjBTQT++bNebepgfZ40wmvmaSrVRE/oWI+UyHG62Q
-	NOJoPXROiu4lzTYxdrdfa4eCHB+mzzUks4us7xgsrBm95iFwfGjuIML226KJCL3OELhRU5KLCVHwk
-	uofgvSQw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=fyqYBk39edhoU3hvwcDq4RniKRvu8ih3vY+jGbKyhzg=; b=Zo88vumemVfBHO7lBGtaFb/1rF
+	xWQGZR71Cx5d7VySNu1pBxVFvQ7OBw7CrOorH9KqVN3xvJl4fWQ5kifVRniVpHVMGwTt7qi7kDMEE
+	kXkktcwO8eOJ26xtO6id3GiWDi4xfLi4GtrzWxFWucyeQET99l3t4kVApuN2YgtXrL9x9QtTcIJJG
+	CBI/dxFVMQNQmOt2LxOIn5vRT1HVMJak06WMjB7Mh0NXBIOJKHG27Qk2bHxvOUhO4uY/XrSQ+q1Ct
+	VKEN15d1PUmRJINSCWS+lVr+FQeRHUWviFTKVi4b0fBoTX1uXYehnLVGl6u/HB2rSsjKfnME5jwdW
+	yOXsoggQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6ClC-00000002ciu-2KfM;
-	Tue, 07 Oct 2025 18:50:06 +0000
-Received: from mail-qv1-xf2c.google.com ([2607:f8b0:4864:20::f2c])
+	id 1v6CpS-00000002d2o-2ANP;
+	Tue, 07 Oct 2025 18:54:30 +0000
+Received: from mail-qv1-xf33.google.com ([2607:f8b0:4864:20::f33])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6Cl9-00000002ci1-0k67
+	id 1v6CpP-00000002d26-3PQa
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 18:50:04 +0000
-Received: by mail-qv1-xf2c.google.com with SMTP id 6a1803df08f44-7ea50f94045so1764316d6.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 11:50:02 -0700 (PDT)
+	Tue, 07 Oct 2025 18:54:28 +0000
+Received: by mail-qv1-xf33.google.com with SMTP id 6a1803df08f44-7957e2f6ba8so64839726d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 11:54:27 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1759863002; x=1760467802; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=2aNYGyYwV4vw7l+4kbvJWnzel0gTCPuhPYenonekONo=;
-        b=l0JCWXaLjAoejpbc2/AQRI7ZgnfVNKl3Y7hHrHUawEftuu/y0CreV1ODxz4XyV1997
-         Ly8xFXbFJWRHMQSrNaOG+waW4QhV36HsX1HzY/cC6wfevjwrKyQQlKH1BLp7hw1muRZc
-         rat6YdS9aP9JwO6gsPtfxBhi6/0C2rVjeJgRoFwu1Z03tNJu7NhOQpzhZ+E9/GWnC0jd
-         GEWiYibf81T6DNmBRqChtkedl2SZFgLZfzVsVmS6th4D6Ttu0IMjkIDrtSWtaxHGj2ZM
-         VNQOtYQ8lyL48PePKd/9Asb6oi6fqGZKtNdeNfwKSIP0LUwfzeUPFaNb2OUNealVC1ax
-         z6fw==
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1759863266; x=1760468066; darn=lists.infradead.org;
+        h=mime-version:user-agent:references:in-reply-to:date:cc:to:from
+         :subject:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=fyqYBk39edhoU3hvwcDq4RniKRvu8ih3vY+jGbKyhzg=;
+        b=kSYs1Dnd9r0N7pVfYEk9l8YgccXb8XWaK4L7+zOJXG6pN2qCinqy7q4K47+YXcpDuW
+         gIAaWlUMFvUSkTgMn6moRN+ecGrjizGK/hH0tQ+aZYDkyVlFD5dVy8huG8zB4tbA4rQI
+         pI0+h06pZvffmnfmUO0yk/Bk68GU3aJtxsi9PakOxBGoLjJaNGr9W2PuqSRukCYVd4is
+         d4ejt/ayART3Ir3aso01O/qTp3gR3rsPGeGEfZ/annEp5Sbbla6UQrZovFy3BM4aw9WE
+         qcwR5fVhVkc6thMquaYLuAgcRZ+DXaPyOJqwLYBsB+BYsXv6+CWgCd24rYG1DRfwPo6h
+         gHeg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759863002; x=1760467802;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=2aNYGyYwV4vw7l+4kbvJWnzel0gTCPuhPYenonekONo=;
-        b=U/23zP+Fjuc6KorV9uvOHacRfNhrdqClpkSCof2YELjTVBonmVypXMYTqQVBpN84Ef
-         BOQJPrgjKR6IG2t+LFjdRli0dbSBjXrZhp1JYYSZ4TVdu3YSyVXH1fMjC3JDMOWWbvQn
-         VYxXzpvOcEFG0vcTtervxWshSYeKK9k1QWRLYw/YTHfnIosKk3qYn9TRPa2aaRiV26Rq
-         FsbRieHDvqCGq3X2CNhhfD42lvOIIOQ+mY/EXD3XnZy+ApHZuUDq3u3vKF7EILZriL8F
-         7b5JWkVlP36JHKVqwRGJkMOfxLzcdI+ZFdECvfLOQiZ2/jxpoRK8NpA89OzEnKd3vho+
-         d6Ww==
-X-Forwarded-Encrypted: i=1; AJvYcCXLFBoAmZllTWkODwMAonluoww0ADGP/d5kaO48mDeWeo3pW6Fd67rPgbNK2cWF6USa79MUUdv4a0dgOH3QAA76@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy3Y+nzCyIZrpfhs41wDLLeik4OOhdtqh5D5NVq7NtPtRKAQ2WX
-	MZJk1FEppuZjCUPXceEFWEPqvnmdh9IXD7FCxKRpkwVbV4+NkOr1x/5Ri8BdKIj13VnXK2HWW9N
-	Z1fbcGOjwpxql7aUpb5JIfEpEE4kRAvBF13Y7lGTF
-X-Gm-Gg: ASbGncvACQRkSf1kpV92+01XWKLSW4Og31gbEwJI2c98WXWeB44kzRp+ryItVSyeS6h
-	ewlmzkvOdOHYGENHc1vm0pP7ZRJ1pE+00U6nQ14u/k1OwkAW4jF9M69UuaIRprVqUprzlEupWU+
-	rzHUiIqKDoz1iMIYLTKzDlm7KzM/gd61OyWULo7h0oymhnMYG2DkJUf9Z+wNBTFCX809ssPmCL+
-	aV/wChgNBpF+b0+OyegLywqch56z32UgLoC7UVAGNewbqKMuBgNH9fWS/GnjN6k2vH4+cyxBgCS
-	WU4=
-X-Google-Smtp-Source: AGHT+IGo6iqnWrqDrtRo1an3vJuKouV5RjS5DRtWGy3IQp7nt9esDi9MQIuwsCqJ8H6093glYV4xzd90Bb/yR8LhGEE=
-X-Received: by 2002:a05:6214:1ccf:b0:86c:a297:9c97 with SMTP id
- 6a1803df08f44-87a052877b1mr67912886d6.18.1759863001273; Tue, 07 Oct 2025
- 11:50:01 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1759863266; x=1760468066;
+        h=mime-version:user-agent:references:in-reply-to:date:cc:to:from
+         :subject:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=fyqYBk39edhoU3hvwcDq4RniKRvu8ih3vY+jGbKyhzg=;
+        b=a8+FmkXy8XC+eqW5X7Cayxju9lOnN7zXUExA9exaFO4mbNq2t+Bu9jn/bMbq2TsANW
+         XJpzChTQpdUucOZaEuC0yWjk89IQHBYfIgXG8aPu/mK7TAY1GTP7zuybuSMmWCEMi4wp
+         AZjTmVeI4PZLkr3dcakwZSTLhVUAaPvilKz86C3ZRj6FmEJjzsRjCklqGiOfdWIK3tU4
+         BYeFADqWRxDofZ58TIV7GcttAIAMCLXHHVmckwxAkW4/Jvubb7gB2t+ymjniVytb0Md4
+         NJgDYznvRlGV6P8ZCXSPfW6OFtyrp1f5AsocLj03szLE9JJyciz1QxQfZwtUUmdRiy1h
+         UODA==
+X-Forwarded-Encrypted: i=1; AJvYcCVQbbKADHtuZcZ3cOIcQaHsDVLXkfvX6GXH1V3A3CMwbol/CSpEr/RteaDY7Qdh7A0kiVJFfPrIlS3CGwxSbIeQ@lists.infradead.org
+X-Gm-Message-State: AOJu0YwAogIJ1NTgctnw9jxYRObB/DShtf7b8yjL3NkrQk4lVmh8y+Pe
+	DVOQVHYMdX1k4bK9sWYM4mDmPAExTZicVyLYCKULUjTKvvyhSwOcUP82R/Y3sv1hPwU=
+X-Gm-Gg: ASbGncvMUowB7xLLdqcxAFYqAlC/aP32WqXptiGkHrxjf5RoRB2emGZiD1mbtaDu2pP
+	Qy0M4VrlvoUQq+b7u+JmKV2hcwmAPPepfHlwc+qWc3Tg10URhgTu6oSZmxA9D3bjTd0w3LYHQw+
+	FSZN64C2dXUETUCFrYaWP44TRVu93byUfhj2HlMCQQVnFNqj9csp/JZujHDqRk4FOG+zkbJTAjk
+	rYsymyjRE5nRD63WTJWMS9IdwuZQewCuV3v2cPo1woHNPoqtX5Bh/q1wkQSNp/HToFwihL1LTg+
+	wkDbS64G9b4RRq8tuzSRju+GsDt9/swynckNjXJyIN1kAoe9iOLgZvGJZq8np3LANMSs3KmFzH8
+	er94yUM1xjbzJPQArJ/BUgpms0wytomaHFZQrFvT927AEt2QB2oJJ
+X-Google-Smtp-Source: AGHT+IEixUIOgl0MCHeaJ3U9YoVpppcjNIJi8FhlBiYJXzIZViLBMX0i5qQwH5C+bK/YoahAmV9Giw==
+X-Received: by 2002:a05:6214:5012:b0:879:db53:df0 with SMTP id 6a1803df08f44-87b2efe7106mr6252686d6.46.1759863266399;
+        Tue, 07 Oct 2025 11:54:26 -0700 (PDT)
+Received: from ?IPv6:2606:6d00:17:ebd3::c41? ([2606:6d00:17:ebd3::c41])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-878be61f6bcsm146805896d6.65.2025.10.07.11.54.24
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 07 Oct 2025 11:54:25 -0700 (PDT)
+Message-ID: <46a1915e81b027d1c344eed0477683dd3a68d810.camel@ndufresne.ca>
+Subject: Re: [PATCH 16/16] media: rockchip: rga: add rga3 support
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Sven =?ISO-8859-1?Q?P=FCschel?=	
+ <s.pueschel@pengutronix.de>, Jacob Chen <jacob-chen@iotwrt.com>, Ezequiel
+ Garcia <ezequiel@vanguardiasur.com.ar>, Mauro Carvalho Chehab
+ <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Rob Herring
+ <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,  Conor Dooley
+ <conor+dt@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, kernel@pengutronix.de
+Date: Tue, 07 Oct 2025 14:54:24 -0400
+In-Reply-To: <bf989d9f-9e8e-4acc-b502-1674ce215318@kernel.org>
+References: <20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de>
+	 <20251007-spu-rga3-v1-16-36ad85570402@pengutronix.de>
+	 <bf989d9f-9e8e-4acc-b502-1674ce215318@kernel.org>
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-I9QXmLgSnsRRCh9PPEnb"
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
 MIME-Version: 1.0
-References: <20251006232125.1833979-1-royluo@google.com> <20251006232125.1833979-3-royluo@google.com>
- <8ca61364-df47-41f2-b0d1-f2a8a74ec728@kernel.org> <CADrjBPr7Jp_ZyGv2Krv6iLG0avgFWpcWJEO-Z=cEkhwEY-+z5Q@mail.gmail.com>
- <d592eb91-84e9-4bdc-8363-1d0bfd47c17c@kernel.org>
-In-Reply-To: <d592eb91-84e9-4bdc-8363-1d0bfd47c17c@kernel.org>
-From: Roy Luo <royluo@google.com>
-Date: Tue, 7 Oct 2025 11:49:24 -0700
-X-Gm-Features: AS18NWB1W-NkF9ZGaROK3BKRMdthcWV6kVzDTDNtLUYtC_DV2IHX4qZyOhy-2Gs
-Message-ID: <CA+zupgyQGpQEoqCm9rbnw2Aum4j3mu-dqvDVN=RUEVY9E7q7Hg@mail.gmail.com>
-Subject: Re: [PATCH v1 2/4] dt-bindings: usb: dwc3: Add Google SoC DWC3 USB
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Peter Griffin <peter.griffin@linaro.org>, Vinod Koul <vkoul@kernel.org>, 
-	Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
-	Philipp Zabel <p.zabel@pengutronix.de>, =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
-	Tudor Ambarus <tudor.ambarus@linaro.org>, Joy Chakraborty <joychakr@google.com>, 
-	Naveen Kumar <mnkumar@google.com>, linux-phy@lists.infradead.org, 
-	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-samsung-soc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_115003_225215_B52CE3B9 
-X-CRM114-Status: GOOD (  39.48  )
+X-CRM114-CacheID: sfid-20251007_115427_850474_3DC78DB5 
+X-CRM114-Status: GOOD (  22.32  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,115 +106,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 7, 2025 at 7:18=E2=80=AFAM Krzysztof Kozlowski <krzk@kernel.org=
-> wrote:
->
-> On 07/10/2025 18:09, Peter Griffin wrote:
-> > Hi Krzysztof & Roy,
-> >
-> > Firstly thanks Roy for your patches, it's great to see more Tensor
-> > support being posted upstream!
-> >
-> > On Tue, 7 Oct 2025 at 01:44, Krzysztof Kozlowski <krzk@kernel.org> wrot=
-e:
-> >>
-> >> On 07/10/2025 08:21, Roy Luo wrote:
-> >>> Document the DWC3 USB bindings for Google Tensor SoCs.
-> >>>
-> >>> Signed-off-by: Roy Luo <royluo@google.com>
-> >>> ---
-> >>>  .../bindings/usb/google,snps-dwc3.yaml        | 144 ++++++++++++++++=
-++
-> >>>  1 file changed, 144 insertions(+)
-> >>>  create mode 100644 Documentation/devicetree/bindings/usb/google,snps=
--dwc3.yaml
-> >>>
-> >>> diff --git a/Documentation/devicetree/bindings/usb/google,snps-dwc3.y=
-aml b/Documentation/devicetree/bindings/usb/google,snps-dwc3.yaml
-> >>> new file mode 100644
-> >>> index 000000000000..3e8bcc0c2cef
-> >>> --- /dev/null
-> >>> +++ b/Documentation/devicetree/bindings/usb/google,snps-dwc3.yaml
-> >>> @@ -0,0 +1,144 @@
-> >>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> >>> +# Copyright (c) 2025, Google LLC
-> >>> +%YAML 1.2
-> >>> +---
-> >>> +$id: http://devicetree.org/schemas/usb/google,snps-dwc3.yaml#
-> >>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> >>> +
-> >>> +title: Google DWC3 USB SoC Controller
-> >>> +
-> >>> +maintainers:
-> >>> +  - Roy Luo <royluo@google.com>
-> >>> +
-> >>> +description:
-> >>> +  Describes the Google DWC3 USB block, based on Synopsys DWC3 IP.
-> >>> +
-> >>> +properties:
-> >>> +  compatible:
-> >>> +    items:
-> >>> +      - enum:
-> >>> +          - google,lga-dwc3
-> >>> +      - const: google,snps-dwc3
-> >>
-> >>
-> >> There is no such soc as snps, so you grossly misuse other company name
-> >> as name of SoC. Neither lga. Otherwise please point me to the top-leve=
-l
-> >> bindings describing that SoC.
-> >>
-> >> You need to better describe the hardware here - why this is something
-> >> completely different than GS which. Or switch to existing bindings and
-> >> existing drivers. Did you align this with Peter Griffin?
-> >
-> > I think (from what I've seen at least) this is the first submission
-> > for drivers in the Tensor G5 SoC used in Pixel 10 devices (which as I
-> > understand it isn't based on any Samsung IP). Hence the new drivers,
-> > bindings etc.
->
->
-> That could explain a lot. I would be happy to see background of hardware
-> in the bindings commit msg and the cover letter.
->
-> >
-> > However the issue is that none of the other base SoC drivers on which
-> > this driver depends currently exist upstream (like clocks, reset
-> > driver, power domains, pinctrl etc). So it's very hard to reason about
-> > the correctness or otherwise of this submission. It is also likely
-> > that when those drivers are upstreamed things could change in the
-> > review process, to how it looks today in the downstream kernel.
->
->
-> Bindings and drivers can be contributed without core SoC support, but
-> then please describe the hardware (SoC) here. Having core support posted
-> earlier is of course preferred, but I think not a requirement.
->
-> Anyway, compatibles and all commit messages in this patchset are too
-> generic and need to reflect this actual SoC, not "Tensor" because we
-> already have a Tensor with USB. So basically based on existing support
-> all this patchset would be redundant, right? :)
->
+
+--=-I9QXmLgSnsRRCh9PPEnb
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+
+Hi Krzysztof,
+
+Le mardi 07 octobre 2025 =C3=A0 17:39 +0900, Krzysztof Kozlowski a =C3=A9cr=
+it=C2=A0:
+> On 07/10/2025 17:32, Sven P=C3=BCschel wrote:
+> > Add support for the RGA3 unit contained in the RK3588.
+> >=20
+> > Only a basic feature set consisting of scaling and color conversion is
+> > implemented. Advanced features like rotation and cropping will just be
+> > ignored. Also the BT601F color space conversion is currently hard coded=
+.
+> >=20
+> > The register address defines were copied from the
+> > vendor Rockchip kernel sources and slightly adjusted to not start at 0
+> > again for the cmd registers.
+> >=20
+> > Signed-off-by: Sven P=C3=BCschel <s.pueschel@pengutronix.de>
+> > ---
+> > =C2=A0drivers/media/platform/rockchip/rga/Makefile=C2=A0 |=C2=A0=C2=A0 =
+2 +-
+> > =C2=A0drivers/media/platform/rockchip/rga/rga.c=C2=A0=C2=A0=C2=A0=C2=A0=
+ |=C2=A0=C2=A0 4 +
+> > =C2=A0drivers/media/platform/rockchip/rga/rga.h=C2=A0=C2=A0=C2=A0=C2=A0=
+ |=C2=A0=C2=A0 2 +-
+> > =C2=A0drivers/media/platform/rockchip/rga/rga3-hw.c | 490
+> > ++++++++++++++++++++++++++
+> > =C2=A0drivers/media/platform/rockchip/rga/rga3-hw.h | 186 ++++++++++
+> > =C2=A05 files changed, 682 insertions(+), 2 deletions(-)
+>=20
+> Your order of patches is a mess. DTS cannot be in the middle. In fact,
+> DTS should not be even in this patchset, because you are targeting media.
+
+Indeed, order is broken, though I do appreciate having the DTS as part of t=
+he
+submission, this way I don't have to chase for them when testing. That bein=
+g
+said, a link or message ID in the cover later would be as good.
+
+Nicolas
+
+>=20
 > Best regards,
 > Krzysztof
 
-Hi Krzysztof and Peter,
+--=-I9QXmLgSnsRRCh9PPEnb
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
 
-My apologies for not providing the full context on the SoC supported in thi=
-s
-series. Thanks to Peter for clarifying; yes, the Tensor G5 SoC is a new
-generation of Google silicon that is significantly different from previous
-generations which are based on Samsung/Exynos IP. This necessitates
-new bindings and drivers for the G5 and future generations, and I will
-ensure this is clearly detailed in the next patch set's cover letter and
-commit message.
+-----BEGIN PGP SIGNATURE-----
 
-I acknowledge that the core SoC support (clocks, reset, etc.) for G5 is sti=
-ll
-missing from upstream. We do have plans to push this forward, but I don't
-have a firm timeline yet. Thanks for confirming that this won't be a show
-stopper for this patchset.
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaOVh4AAKCRDZQZRRKWBy
+9O1JAQCgbiRyx2yEWIDJARh2LE+kwcz/R5TwyiD48kcAsBRc3gEAj9DcD7rTLpzu
+68L0DpQYyIRrsE94HVozLhgCExOv9gk=
+=P0io
+-----END PGP SIGNATURE-----
 
-Thanks,
-Roy Luo
+--=-I9QXmLgSnsRRCh9PPEnb--
 
