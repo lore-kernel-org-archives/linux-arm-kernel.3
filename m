@@ -4,48 +4,48 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD3E3CCA471
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 00:42:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55E01CAC5B8
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 00:44:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=X1UijRw3W7lHsmC7/DDjV9QB7cJUQBZ+8Su9Jvd8v3I=; b=ns2tVunw1/YxquWkNNwB8BLr88
-	90/mcGdM53KFZJrCTb86q09qyx1Uag3wgz+eLwAQBzKuPGZE7VWF+lBgo4mMCr+4MyZG7fDiswwlS
-	NhWuc/9Nl3H2D2Dfp59iosRGTH/4tcItVlxYHjjkQRd7j1bVm+yLIeg4East5fytgxRAKnNZfsd4z
-	GfxHtRDX+uaJ11d4/oP+S1UErURIyBswjODTgwgg+JTRYQ08PRisshM6yejiZO1WRXZgqtWWaizzE
-	lQIymQdYM6Cn6T9L+HIx2K5foxK2MBgRntOT7q4No8NwgsgWooqGbDpFaw/yHHtmE3olpSGI/n3xF
-	HB8J9kWA==;
+	bh=SMS2t03Socm26ZVZ84NzO+vgxwnIGLmnXEY6gX0+C6I=; b=w8L/1Iq4WdOs4aw35i9mSS+bTy
+	pzl9qfM4gefId9GctGqMG9bmDmgb7QFFGmvNKP2ekA3HHCXnUruo4MtnnpuaTZ0F59hoWqYGX+7/r
+	u6g1J0qXmvJZLC/KMmPzLSl+VfbWqJGGXR5IXztb5Zw8NICEOjD8VaBcEo24hvovhe0wZl9xfatIv
+	WF/PlFzqhAyvGDtLd/1OzMGqbxKnXCBMxoFzBkVJZulZMtiCReN6p6HvabEIAbmt3Odo5IpKtY2CD
+	o/lh0bQ2tZqbtlbfA2+9oiNz48peKS1ZLuZkPQRd8X2eyFfjMucYEl2nVF7qVnU4rTiN+sTgzEH87
+	FScIg1TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5vmp-000000013zW-2sYH;
-	Tue, 07 Oct 2025 00:42:39 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v5voc-0000000148Y-1LeS;
+	Tue, 07 Oct 2025 00:44:30 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v5vmn-000000013z7-151V;
-	Tue, 07 Oct 2025 00:42:38 +0000
+	id 1v5voa-0000000148O-2Mib;
+	Tue, 07 Oct 2025 00:44:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3D25943E70;
-	Tue,  7 Oct 2025 00:42:36 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D75DC4CEF5;
-	Tue,  7 Oct 2025 00:42:27 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id A57ED61188;
+	Tue,  7 Oct 2025 00:44:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8E02AC4CEF5;
+	Tue,  7 Oct 2025 00:44:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759797756;
-	bh=cgRSHlts17UojDBt2OucIf1/5WK81Z1KzVQEMgdRDBs=;
+	s=k20201202; t=1759797867;
+	bh=KHCBlgagr3RbqxORdYhvsAdYEdEUNygbZD+fnnViK+A=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=eVxxxyZ7+RrUf6D0UUkCECZobgQxfzOSahdlM64oNN+vIzzldN/CUctvePN02fKe5
-	 Vj+W+ulRZu8pcsmpb3AFLB3ZhF3dU638Vb+UV7gWWB0tIg752fIw8VHCq0+BrcrrHB
-	 08jkf7R9kTKvEn+YxFTLNMaN3vzQ7ms3m1ToIu9HAYRAuNBeS4WrzFnHte+hHBtDhp
-	 EQdOTpBQvI+2DPNHiW5VfngAopxzOZxOsRtrLwU/XfHhIwRfK7FB3/oSrdI9ZsO/P5
-	 eHzxn/Oo4gwWKQnavBbqNXnjkJVx2LsgW97bsXSbyfkM/E/gJyP4BvRrEHUwH6DFHv
-	 EtjoPPWXJgGFw==
-Message-ID: <923aea1b-6a15-426f-9c32-954a1fb95d0a@kernel.org>
-Date: Tue, 7 Oct 2025 09:42:24 +0900
+	b=ZaD5igk8iyVb9yiSbBZZ0OE4pXE2wazDRy6aiXMd6gqjjMgYm1rB0Yay51Iil12Nd
+	 opnvJFQAZ/qiCRZCAEsgdkceGbvDfNPqMhcAjTF8fMM+JJwz+Q4lztdUQ7s3Ysy3Pd
+	 JA2wQxuG3mqymrQF6M7tjIDNBhQhQ1yHmC2QqaMN9CnyHxWN8QhMk4gw0Dj1QRs57M
+	 RALf2sko0341SE7BBrSKkrD5A2Wf0X7q9db23hDieLuW1b2VTnmm34dU4tR0X2gXHy
+	 2dOCk3Zvx0079qvqFUb6CIGHfAUiEAuzTJX3oSgDB4PVx1kamM5+m9Q0T3fsGi1aZi
+	 KLNkPK4U+dQiw==
+Message-ID: <8ca61364-df47-41f2-b0d1-f2a8a74ec728@kernel.org>
+Date: Tue, 7 Oct 2025 09:44:17 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v1 3/4] usb: dwc3: Add Google SoC USB PHY driver
+Subject: Re: [PATCH v1 2/4] dt-bindings: usb: dwc3: Add Google SoC DWC3 USB
 To: Roy Luo <royluo@google.com>, Vinod Koul <vkoul@kernel.org>,
  Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
@@ -60,7 +60,7 @@ Cc: Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>,
  linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org
 References: <20251006232125.1833979-1-royluo@google.com>
- <20251006232125.1833979-4-royluo@google.com>
+ <20251006232125.1833979-3-royluo@google.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,13 +106,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251006232125.1833979-4-royluo@google.com>
+In-Reply-To: <20251006232125.1833979-3-royluo@google.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251006_174237_339865_FC6AE76C 
-X-CRM114-Status: UNSURE (   8.48  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -128,27 +124,51 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 07/10/2025 08:21, Roy Luo wrote:
-> Support the USB PHY found on Google Tensor SoCs.
-> This particular USB PHY supports both high-speed and super-speed
-> operations, and is paired with the SNPS DWC3 controller that's also
-> integrated on the SoCs.
-> This initial patch specifically adds functionality for high-speed.
+> Document the DWC3 USB bindings for Google Tensor SoCs.
 > 
-> Co-developed-by: Joy Chakraborty <joychakr@google.com>
-> Signed-off-by: Joy Chakraborty <joychakr@google.com>
-> Co-developed-by: Naveen Kumar <mnkumar@google.com>
-> Signed-off-by: Naveen Kumar <mnkumar@google.com>
 > Signed-off-by: Roy Luo <royluo@google.com>
 > ---
->  drivers/phy/Kconfig                 |   1 +
->  drivers/phy/Makefile                |   1 +
->  drivers/phy/google/Kconfig          |  15 ++
->  drivers/phy/google/Makefile         |   2 +
->  drivers/phy/google/phy-google-usb.c | 286 ++++++++++++++++++++++++++++
+>  .../bindings/usb/google,snps-dwc3.yaml        | 144 ++++++++++++++++++
+>  1 file changed, 144 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/usb/google,snps-dwc3.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/usb/google,snps-dwc3.yaml b/Documentation/devicetree/bindings/usb/google,snps-dwc3.yaml
+> new file mode 100644
+> index 000000000000..3e8bcc0c2cef
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/usb/google,snps-dwc3.yaml
+> @@ -0,0 +1,144 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +# Copyright (c) 2025, Google LLC
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/usb/google,snps-dwc3.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Google DWC3 USB SoC Controller
+> +
+> +maintainers:
+> +  - Roy Luo <royluo@google.com>
+> +
+> +description:
+> +  Describes the Google DWC3 USB block, based on Synopsys DWC3 IP.
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - google,lga-dwc3
+> +      - const: google,snps-dwc3
 
 
-No, you don't get a new directory and new driver. That's a Samsung part,
-AFAIK. Re-use existing code.
+There is no such soc as snps, so you grossly misuse other company name
+as name of SoC. Neither lga. Otherwise please point me to the top-level
+bindings describing that SoC.
+
+You need to better describe the hardware here - why this is something
+completely different than GS which. Or switch to existing bindings and
+existing drivers. Did you align this with Peter Griffin?
+
 
 Best regards,
 Krzysztof
