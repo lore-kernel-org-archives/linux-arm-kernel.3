@@ -4,100 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD26BCCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 16:03:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 53B6ECCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 16:06:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=7Cm5Dko9olaR4ZjBSYSeJvT1TaV6qKnd54YvU1t3L9I=; b=rBr79NAULxLy/SAP+yPMm4uysH
-	Kfz+CacEgzfeI9eoN6q4YTSaVWE+aHZvR1pMTWI2hNvA0auC3wQYYzM//jf/Vu6R5c7oG+VyGVU39
-	ysHBIlU8iM11N9hZvV+vDqizxK5xYeNNEizuu0ALZ7XwiXcNsTLgy/8R+Ig7i2JVQyVaeT6qXXudg
-	neGjKA5yWECdJdWQulVqnq80tbXouKleRRTFWfu63gQ7031wrD0ExHm06eedGWv54pbN1zUF9FKfX
-	Soocf0z/8XaheiS2gLZXLWOb4yJ7McG/diAwYPUK3Y5za+qG3oL0ON+lKAXGNk7edfmX5EeM05aZt
-	KDmaRUZw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GtIof8SCWCroGVoENxQQQlqWlkaVwCCOeq74Vwc6uSE=; b=wHymh84NdeAr9OkwO5EnCBPvvy
+	hvQhVNOIgmeqIBDF6qv75fzFDU+KoYKYizKSqmU0EvXT9aCz1oftN/Sx+FdKo3Im/OCPcWElbfuJv
+	YQFjMQza6tqHpKYj/mAevsIJJy+v3UH8l6mGoLcC0eXuCcYpuPGk6LJcwjfrcBB984xPQcnJqQ/kO
+	IANkqRAvp6R2nqFVHR3HloXMYox0LJREs/leO72Ugj395kCbltBSZYN1TPISJBwK8P4Ijd/3KkTRZ
+	L6IKmryq04tzIJHsXf8E0rQ+pbuZk9Yvs0DI8A2tioE7ztNPASXtU14kNuXUSPJQpQ6AHAbU1sF/R
+	INFeHUmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6A9j-00000002Lfw-2JeR;
-	Tue, 07 Oct 2025 16:03:15 +0000
-Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
+	id 1v6ACd-00000002M0j-1ai3;
+	Tue, 07 Oct 2025 16:06:15 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6A9h-00000002Lf6-2KPF
+	id 1v6ACb-00000002M0C-07K1
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 16:03:14 +0000
-Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-b3e44f22f15so960246266b.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 09:03:13 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1759852992; x=1760457792; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=7Cm5Dko9olaR4ZjBSYSeJvT1TaV6qKnd54YvU1t3L9I=;
-        b=EHT5xwSSHs8OUdLQUzVpw9qw4H+9JFvovtbaZZTkSxHw7ub7Wihna5k8ZvTVPpLVhz
-         ATdhtiS304xVSOzVAb3uK36ydM8qp+NTyG/OkO0Vt08/VcFgJox1CFIJ4ONHiIoTyiec
-         mVHNsQTNVCKJXLgQZKsy6sFEgErhnAuVhjMV/fLs9/ifR9m/Xi6hk7RwMjPjwBPxNXRF
-         HHLK6FYIgzK0pqw+WjmSTgs5yTxZc26J4noFu1XxGGl8vtWy6xvnnBpAYh0lWrH/n+OU
-         C+yep5xVYCVXWZDpH4oQJxCHzxq+gGU1sThjiE2wTrOCQpXEx9BZZmJMQ+a0x4Qyyyvi
-         HGwQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759852992; x=1760457792;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=7Cm5Dko9olaR4ZjBSYSeJvT1TaV6qKnd54YvU1t3L9I=;
-        b=NkkA3zhpkiilNwZXfzpeLGOzilnA9rJtoqZqEx+9HrmwW29BYZ3vVdelRWVYYwUmP4
-         3va6CK9WYsjWqTXrwPYnRgTyet62lghkRKQp6G+NGnzwUTXvbh+NbNyGbFllA9jpQxjO
-         kM4L6Yq7Ow0KiJ81V7HYlty9tfnHv+JfF2HpiIp36hNc6AcOIGG4AikNCi/RKikzkAJW
-         HupCGgsxmA8INRELfAvx0SKvtdEPpMW1Ttu2MZimvEt2LsgrUDUk+QltXf6TNJFGvbhp
-         Lxa0y+5o7uFS8mkA2fyrUmKpsW5mZ2PTqcBr9IJJ+f698Q7zJuSMPggi4dK4wj+DeVHT
-         gpVQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXUhHzi3vbOx3zVo0WhG9j901DxUEkaBILXNZuXlBarf5xAbKlo885ZfNGyhD/QFT/Zm4F7s0vPAGhRb6XU3nt/@lists.infradead.org
-X-Gm-Message-State: AOJu0Yy8QCFcuRLUk5Eo6kEgIQEd6WBDc4GQLTQlvw4b3pafmKDzp5oc
-	B5BJ+vF4cczc3nST1oi5GjFlXk+kVs9jZTbhY6tcAbIqqiinE5Vpo+/8H5TlqILQw+c=
-X-Gm-Gg: ASbGnctdKEAkGgnxtf1zJO3h1Zah4NOGHD2hgS+1x3gR+xK4p4KG8Q4SSnC9dBtZaye
-	vCGiuC8sg9YdDspOjrpR7UR4F0hHQ17zWi+QRzAUWbuIUAg1eoq/9b+Uebe/TCi5aHkro+oSKjv
-	SuQjBsuXjHwg4wQsFVFlQyvmdhiolCzbulGMUU2JlxGzCPd6pSuq1dL1Pi9s/ul47MzzwV9wrHw
-	OjjoQ6Y/VeZC0wMFzjmGIqXVpMX+8VG1o/t86A7YaArCr99AYewZI7CHBduOa75uGQXlgfN63mF
-	6901/V9R6j8xgjxqCT6zKePmhQrzzbJrr8vDiqN0Gr0W0yY8PlM/FSkWhWsc/BpMvErCTesT0ki
-	jAjV2OJzoLksW6wSO86So7a2DBFGI509c5MdooNH4zKLW9P5U3kzCuayOYJ+NuhOwZ5IzdeODs2
-	YwiV3xiLT1oHenS5nCQEyyNTpKMKSyo4SO0Rtv94Hk
-X-Google-Smtp-Source: AGHT+IGcHy/Jl0g2LAmEkVEntCtICg9hZqb+cVzIJexCEPogdkyReymHfPrFtWwic4ednSokiuHGag==
-X-Received: by 2002:a17:907:807:b0:b41:f729:77b0 with SMTP id a640c23a62f3a-b50aa1869bfmr22271266b.21.1759852991654;
-        Tue, 07 Oct 2025 09:03:11 -0700 (PDT)
-Received: from puffmais2.c.googlers.com (224.138.204.35.bc.googleusercontent.com. [35.204.138.224])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b48652aa637sm1399772566b.12.2025.10.07.09.03.11
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Oct 2025 09:03:11 -0700 (PDT)
-From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Tue, 07 Oct 2025 17:03:10 +0100
-Subject: [PATCH] dt-bindings: clock: google,gs101-clock: add power-domains
+	Tue, 07 Oct 2025 16:06:14 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <s.pueschel@pengutronix.de>)
+	id 1v6ACJ-00072o-Qx; Tue, 07 Oct 2025 18:05:55 +0200
+Message-ID: <947409d8-9a92-46f2-a6e7-49f3aa44d74f@pengutronix.de>
+Date: Tue, 7 Oct 2025 18:05:51 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 16/16] media: rockchip: rga: add rga3 support
+To: Krzysztof Kozlowski <krzk@kernel.org>, Jacob Chen
+ <jacob-chen@iotwrt.com>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, kernel@pengutronix.de
+References: <20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de>
+ <20251007-spu-rga3-v1-16-36ad85570402@pengutronix.de>
+ <bf989d9f-9e8e-4acc-b502-1674ce215318@kernel.org>
+Content-Language: en-US
+From: =?UTF-8?Q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
+In-Reply-To: <bf989d9f-9e8e-4acc-b502-1674ce215318@kernel.org>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-Message-Id: <20251007-power-domains-clock-google-gs101-clock-v1-1-1ee73c453ba8@linaro.org>
-X-B4-Tracking: v=1; b=H4sIAL055WgC/y2NQQrCQAwAv1JyNpCsqK1fkR7qblyDdVM2oELp3
- 13E48xhZgWXquJw7lao8lJXKw1410G8TyULamoMgcKBiU642FsqJntOWhzjbPGB2SzPgtmZ+K/
- 2gforD0dKQw8ttlS56ec3uozb9gU0JNMieAAAAA==
-X-Change-ID: 20251007-power-domains-clock-google-gs101-clock-3208b1960d98
-To: Peter Griffin <peter.griffin@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>
-Cc: Peter Griffin <peter.griffin@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, 
- Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-X-Mailer: b4 0.14.2
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_090313_612964_4831BD0A 
-X-CRM114-Status: UNSURE (   9.22  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251007_090613_060526_7687A620 
+X-CRM114-Status: GOOD (  23.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,35 +73,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The CMU can be part of a power domain, so we need to allow the relevant
-property 'power-domains'.
+Hi Krzysztof,
 
-Signed-off-by: André Draszik <andre.draszik@linaro.org>
----
- Documentation/devicetree/bindings/clock/google,gs101-clock.yaml | 3 +++
- 1 file changed, 3 insertions(+)
+On 10/7/25 10:39 AM, Krzysztof Kozlowski wrote:
+> On 07/10/2025 17:32, Sven Püschel wrote:
+>> Add support for the RGA3 unit contained in the RK3588.
+>>
+>> Only a basic feature set consisting of scaling and color conversion is
+>> implemented. Advanced features like rotation and cropping will just be
+>> ignored. Also the BT601F color space conversion is currently hard coded.
+>>
+>> The register address defines were copied from the
+>> vendor Rockchip kernel sources and slightly adjusted to not start at 0
+>> again for the cmd registers.
+>>
+>> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+>> ---
+>>   drivers/media/platform/rockchip/rga/Makefile  |   2 +-
+>>   drivers/media/platform/rockchip/rga/rga.c     |   4 +
+>>   drivers/media/platform/rockchip/rga/rga.h     |   2 +-
+>>   drivers/media/platform/rockchip/rga/rga3-hw.c | 490 ++++++++++++++++++++++++++
+>>   drivers/media/platform/rockchip/rga/rga3-hw.h | 186 ++++++++++
+>>   5 files changed, 682 insertions(+), 2 deletions(-)
+> Your order of patches is a mess. DTS cannot be in the middle. In fact,
+> DTS should not be even in this patchset, because you are targeting media.
 
-diff --git a/Documentation/devicetree/bindings/clock/google,gs101-clock.yaml b/Documentation/devicetree/bindings/clock/google,gs101-clock.yaml
-index caf442ead24bda57e531420d8a7d8de8713032ae..31e106ef913dead9a038b3b6d8b43b950587f6aa 100644
---- a/Documentation/devicetree/bindings/clock/google,gs101-clock.yaml
-+++ b/Documentation/devicetree/bindings/clock/google,gs101-clock.yaml
-@@ -46,6 +46,9 @@ properties:
-   "#clock-cells":
-     const: 1
- 
-+  power-domains:
-+    maxItems: 1
-+
-   reg:
-     maxItems: 1
- 
+sorry to bother you, but could you go into a bit more detail on how it 
+should be done correctly?
 
----
-base-commit: 3b9b1f8df454caa453c7fb07689064edb2eda90a
-change-id: 20251007-power-domains-clock-google-gs101-clock-3208b1960d98
+I guess that your message refers to "7. [...] If a driver subsystem 
+maintainer prefers to apply entire set, instead of their relevant 
+portion of patchset, please split the DTS patches into separate patchset 
+with a reference in changelog or cover letter to the bindings submission 
+on the mailing list." [1]. If this is the case, is there a general rule 
+to determine if a separate patchset is necessary? (I've also noticed, 
+that I've wrongly assumed to keep the Documentation and dtsi commit 
+together and should've moved the dtsi commit to the end of the patchset)
 
-Best regards,
--- 
-André Draszik <andre.draszik@linaro.org>
+And do I understand it correctly, that the Documentation/ change is at 
+the correct position (only the dtsi commits being problematic)? Based on 
+my understanding of "5. The Documentation/ portion of the patch should 
+come in the series before the code implementing the binding" [1] this 
+should be right before the actual implementation (after all cleanup and 
+preparation commits).
 
+
+Sincerely
+     Sven
+
+
+[1] 
+https://www.kernel.org/doc/html/latest/devicetree/bindings/submitting-patches.html
+
+>
+> Best regards,
+> Krzysztof
+>
 
