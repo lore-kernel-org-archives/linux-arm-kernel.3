@@ -4,115 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3045CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 18:24:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D67D6CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Tue,  7 Oct 2025 18:26:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=v7gi3ANU7eGwAeHBm/VtX/N+PelGRzkkDBFdO15qWFo=; b=ScJaSdXsouMS5E0oDiR1bq/TJi
-	ziEQ3klbIznnKpoSghULte5PjqouRrmbHi5uVyPdJaugHm0BajReJoMatBlFhqZk67rgckCOQOuZm
-	VFmWwfHjQaGjUI+hUjZjqw4kZWCyewWHtl2w7gwLEN7d2P8Ojn39L5uboauddyQkLKbmNUGp7N+C6
-	W80uYvHTtXCiLE9k/D6hsByJxDvtvRBXqeRjSVuA1QliXiZ1/dIvpu3YRCJgPYup8RwXTbIeHrkyj
-	BoDMytSdM1a/7haPKtG9LDtt6zFOsoH16do/PcZ1qCGQ7kqcPSWmSrLH5zRFm0uJW7FdJhRYLmrug
-	tixJ6bEw==;
+	Content-Type:In-Reply-To:References:To:Subject:From:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=6g+XCuA2ZoLfUqXFlcoNx1Oae85JVvQnsRhb0x3YAZQ=; b=d14rpLckMF6wUXouiWLwM26p5G
+	rsDTxAnOcXZPsI1DRchITI7/um6JrCn3b7i+KgnlsSyW5EESkEg02/mxvcw+A0fP7ivtXG7zlT94b
+	qEmFmouQnXJefoFFbPtaphlMMsxvT4v2KmXebNsMP5bm8JJJOr6U2fGRyUGpEOM8zG26XEisiaaB4
+	l4xd7tad+ewJAyEgoiPYgNj7vXLgi3SRpY+oy1FUPl/3s2UyTjf6D4B2sHGkHXG335ZSmKW/B973n
+	Dx+X7I25uiKhWVa1TyYXqvX/EPdY/craSWlnP6iWVqMJrhVvlSJOA2uhRhh6GNhO6g8ilMYH0YSYY
+	RwEzPREA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6CMA-00000002a7a-2fNe;
-	Tue, 07 Oct 2025 18:24:14 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1v6CO4-00000002aZd-3l3v;
+	Tue, 07 Oct 2025 18:26:12 +0000
+Received: from mail-vk1-xa62.google.com ([2607:f8b0:4864:20::a62])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6CM7-00000002a5d-1WDD
+	id 1v6CO1-00000002aYd-0qaP
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 07 Oct 2025 18:24:13 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 597ETC3T031792
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 7 Oct 2025 18:24:10 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:date:from:message-id:mime-version
-	:subject:to; s=qcppdkim1; bh=v7gi3ANU7eGwAeHBm/VtX/N+PelGRzkkDBF
-	dO15qWFo=; b=ppVZ6P77exkgaA75jAnjZYSEF5MqFITHrr/PWEI9ACIezmyMyj2
-	zzjWpb+VMMlCzE61/Ivf19Se0guYAjqfSXdHQUqHExV4ARrYGTTycIOUb/mTXOn5
-	Le9STcQ4pBVMOswJHRWT+/lsXFFFaUawGwvVtMjK9V53Ts3auymk/8uhPTJJgceJ
-	dLY1cGAxxFi3tPeY4T42WLt5Sxb8aTVwSjzmzum1QbvBDc/LDGLRoqOzKifA39gq
-	1UBpT7jTzM7qnqf85J3yhXKpslYElC0KMqWKykH75AFE8PT556xP77pyCCWXdQ3Y
-	QMEhu3mZ27ahxtEA0OACVb6GDZc9N12eAgQ==
-Received: from mail-pl1-f198.google.com (mail-pl1-f198.google.com [209.85.214.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49jtk708xa-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 18:24:09 +0000 (GMT)
-Received: by mail-pl1-f198.google.com with SMTP id d9443c01a7336-27c62320f16so68599475ad.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 11:24:09 -0700 (PDT)
+	Tue, 07 Oct 2025 18:26:11 +0000
+Received: by mail-vk1-xa62.google.com with SMTP id 71dfb90a1353d-54a7bf06edfso4422785e0c.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 11:26:08 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759861448; x=1760466248;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=v7gi3ANU7eGwAeHBm/VtX/N+PelGRzkkDBFdO15qWFo=;
-        b=QGw68rlrm8OXVCxKq7XRSy/Wpb3hrBkNBZNwu46IB9V+/kAlOHP+QT/kj107dEJesU
-         wD+x5PznRZppyAe6KJNs3/dWfiBJoBfMwXw22OJARyLBl9PwDqBNC6xh29iz41iudMCu
-         kXAL1eOhQD01+J/9OP1EzKcrm6Ne8cFtncc7dUVJcUmcGrLZrlv4ZrzeahFsmENoPnMU
-         VIGcWRSbZ0f0vP6hUfp5zVGmrxDidbtYhFXi0snqHuLBG1UJ8VD1AeHuw10Pd4E8hkCd
-         0/fS0vep44cWagEVwyCLDIflDAzEJrDBcOhfwp4xkYkMkjDAADgooGgdyc7Cg3ZNfzpl
-         DGAA==
-X-Forwarded-Encrypted: i=1; AJvYcCW0pJeeAs5suyXVbhR6hQPAyE2xPbNd7bd6IRI+cLsbKNoFhsxnFyIwz+NbEcLImQpmNcdiyXYF4Y97kzeOs/Hf@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw7Ue2yrcyrTPAwNfcr4P2AuVVekfLPhEPenofneVAKZBcIZC0d
-	G4Q7wq78SgzwRrrQX2obLeYjYuiufFsFKhqak3pqeRx15ddUMo1fiIboAlw9oZH7XskX4+PsvI1
-	jgCwf/p1jfQQBe0JrNLSr8KcuaXXWRHbXaqmNY2qQKXnQ9tE4q0hsTwRTbhpV6sKW+Tb/rlX1Ql
-	/cfA==
-X-Gm-Gg: ASbGnctkXLFal7nPA25M+21HSvgko6kH98rdoKH8AgrYF3/rYW0ekNmMnU4/Z/TwX0Z
-	Z+z3rFZxGuaQbeaexYZlxuWCn0Hz9snGbaf7VEJgVkUXie/bZFwCc6Zxgz0GGhMUCXDKWWv1qqq
-	VMlLOUr4sBHEbhiosbRwyrut9jIuMRn4k7/cQ6IdAOeTULKOk2PGqk7mvUh7tIF010HdpowFwuM
-	baY29F0yhkV3r/dsG09T//RGfJJjk0k7qBcJ/nDO8UIS64ZknTOvhk8AcyrTr/rpP7sW5PQGIor
-	wg4bX3TrwDsOBwphYaxQxjHVR08RDiTSEL2aM25Eidpit7YC5PlhdtevDHalS5PYtB7gkGPk
-X-Received: by 2002:a17:903:90d:b0:27e:d7a4:cd32 with SMTP id d9443c01a7336-290272ff5a5mr8819045ad.57.1759861448177;
-        Tue, 07 Oct 2025 11:24:08 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHk+kGnyBGf3KfhdZk/5b6XJ+HDJE6ygty3ucqB0kfKr1z7QKyevL86q3VUXkPE7iIuJxra0Q==
-X-Received: by 2002:a17:903:90d:b0:27e:d7a4:cd32 with SMTP id d9443c01a7336-290272ff5a5mr8818625ad.57.1759861447505;
-        Tue, 07 Oct 2025 11:24:07 -0700 (PDT)
-Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-28e8d1ba25asm172984505ad.87.2025.10.07.11.24.04
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 07 Oct 2025 11:24:07 -0700 (PDT)
-From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-To: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
-        suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com,
-        will@kernel.org
-Cc: alexandru.elisei@arm.com, linux-arm-kernel@lists.infradead.org,
-        kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org,
-        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-Subject: [PATCH] KVM: arm64: Check cpu_has_spe() before initializing PMSCR_EL1 in VHE
-Date: Tue,  7 Oct 2025 23:53:56 +0530
-Message-ID: <20251007182356.2813920-1-mukesh.ojha@oss.qualcomm.com>
-X-Mailer: git-send-email 2.50.1
+        d=1e100.net; s=20230601; t=1759861568; x=1760466368;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :references:to:subject:from:user-agent:mime-version:date:message-id
+         :dkim-signature:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=6g+XCuA2ZoLfUqXFlcoNx1Oae85JVvQnsRhb0x3YAZQ=;
+        b=SN2qzLfVOhmKBMsJhRS3U6UIkQS4s3+GWv70tbDynm/z6nKKij6bJYcBHPiwfq+Goh
+         2PyfbZ04fyI6fI505bOId5woZVH0bavKb3F9HiBYyFrHdhUABJlb3wa35M+9xSguvqpd
+         ieKUFcFKAdPsU2YuhCwuD51siHMeCYl4zsdl5Kz7WPS2gbcEpn9cSM3qDNhgfx5GnywM
+         igpYB8jdXYiT3IauODmrmpx5koWSv7D7QunJwsn7sSVknNu0pTa8YU3c1uW7+uD+Jpcp
+         wXxGM4HZmXi9MHsvKV/e2PqFvZzPS9b0IZgGTiQLhNr6JqU5hg4o4TuDvWB5u3HKF7Jm
+         PJ9A==
+X-Forwarded-Encrypted: i=1; AJvYcCW8Cu5RzG/RPugDyngcBIwb3wVco3a8ljo9Oo7nY0xnCqutfTvrFK6ABUg6u1qOp1Kxz0LsyjxQyrpJ+V5QHDXq@lists.infradead.org
+X-Gm-Message-State: AOJu0YzTc4r8ZVFK3taUEMvU9ma4SCMeuDOiE64obaAv18U9RJCN9Swj
+	JTdlp30uCd+NuZHUcmurFyGFtLTROs9qlXm7/ODAzF0/qMMVm3FbL+KsdM78g6qg7FRpo9/sUOB
+	IBkcGQDXqtSRahkN02KRRghcJGTIe/ZadEDyUxTEThjmrKW2k8HeuPw+Tls7yE2h5/Kx6d6SNq+
+	Ob1J4IDbMqdGffZHizTqDJbhWd96YCGbY9qnK7Xf7LFAPft3gNlBb72lGCpybB2quHHJkQbPZrw
+	LjyB1rtke1pWvEMA1k6yoNK3j91uUZm2ts=
+X-Gm-Gg: ASbGncvNsnJGCtD6Ywm/qaSmXtpqmdnxRUmhgJ0X6ZodJPmvBtOt6o0T6FTahab6JAv
+	gjCMbF7Jk+dpgRoyV5LhFwhN1iisg492yPI/SXtp1uaRDyu7FqOvRUlskgviLflmKfj493lwEvI
+	kO9iU9WbcdS0R2KeyhG4PPXAOdpin9jDyYaCJgHUtireDcrsxZGqiiwjBRKbqLwvYXzr0NrApRJ
+	/ndeE6b3NB+Qkv6bd0BEA2w4Y1TPjTefBMtt+r3zSpMp+Bg/9CpR6TZd5sE2tabu1fvVmNec1op
+	gYolWgb+iGPffMThCxUk7CZdwTEB3bBw4el1JFt0rGCYKfI5sO4xRHlAmG5/M3cY6Vlz7il/Egr
+	Si8ubhEcsQ8QPsaG/VeY71d4lAhfD39i+Ye8+oH/DqHqg7WiD2fG/tkPFa/5SwxP/kaGNUaRfY3
+	oaGKH9rP4kq7Er
+X-Google-Smtp-Source: AGHT+IG1wujW7JXiq+K33BTyz+Gcuzajenj7atswmSS08jtXvaRU1237rIV8fGyi3ivz+aEdOVwv3CI52ACG
+X-Received: by 2002:a05:6122:6597:b0:54a:9fc0:40ab with SMTP id 71dfb90a1353d-554b8a82a0bmr342939e0c.2.1759861567881;
+        Tue, 07 Oct 2025 11:26:07 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-126.dlp.protect.broadcom.com. [144.49.247.126])
+        by smtp-relay.gmail.com with ESMTPS id 71dfb90a1353d-5523cf13fbesm1706495e0c.1.2025.10.07.11.26.07
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Tue, 07 Oct 2025 11:26:07 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-pl1-f200.google.com with SMTP id d9443c01a7336-26983c4d708so56935075ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 11:26:07 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1759861567; x=1760466367; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :references:to:subject:from:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=6g+XCuA2ZoLfUqXFlcoNx1Oae85JVvQnsRhb0x3YAZQ=;
+        b=KABXE4LYmAo7mggd8utITEzNaeXQVN0hAr7HtKZz5TH1yhL9hXYqkqkBvmUqH38y8U
+         SLewxYOhNmE2d4KYVBQuNE+Hnu5VkJSlZpYNWqtKFsh55drJz3ZKNp3ZV5PbSQeFRJgY
+         k93UW1h/AkOxfZjcYtkzYFfCS/vfsVFukKFbE=
+X-Forwarded-Encrypted: i=1; AJvYcCUktjQRO9dYzLHsVHqMEJxdo2xFKT/V38BgBqblV04BsVYAgIrsrQVTHMIVrbsSWm/moHQnAywiBu+pPcCjkjcS@lists.infradead.org
+X-Received: by 2002:a17:903:37c7:b0:27c:3a0f:f066 with SMTP id d9443c01a7336-290272af173mr6676845ad.22.1759861566815;
+        Tue, 07 Oct 2025 11:26:06 -0700 (PDT)
+X-Received: by 2002:a17:903:37c7:b0:27c:3a0f:f066 with SMTP id d9443c01a7336-290272af173mr6676655ad.22.1759861566388;
+        Tue, 07 Oct 2025 11:26:06 -0700 (PDT)
+Received: from [192.168.1.3] (ip68-4-215-93.oc.oc.cox.net. [68.4.215.93])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-28e8d1d564csm171830275ad.98.2025.10.07.11.26.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Tue, 07 Oct 2025 11:26:04 -0700 (PDT)
+Message-ID: <69e38689-4779-49df-9ec4-e26391493e72@broadcom.com>
+Date: Tue, 7 Oct 2025 11:26:04 -0700
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDA0MDAxNyBTYWx0ZWRfXyIyhlM0FHLpk
- dtjgGEFDbO+q6cpIiKTDaebjU9nikTYTur17kKeAno/8AJk4Dus5ZpxttDQbTbJAHWv9p9AfUNa
- 6meM+4GnofN4YTkVkWP6Gip4Dub4Wv6LztB4gq1liqoLm9aOzLvocYmmdvBH10LqHZ4HO/eMWaa
- Mfoiqiy0XCGNgej9pNcEZRx7eJT67hMk3vDDlGBSpBnVqY1lPv/jY9MZUPTvWvT+POSOEAUx95w
- I3/vX3dNc18BBugBhQmFmqUvLD2U02k2O2hLMkK7KrR8/WswwmbSi4EbK+bhzg58YUi8u4jmJ3o
- Ie3hrCcR0/kE+FtalmnHGLFMMfpz5ugEurIBen5M5wbdEoWJziADxN8moxnIuf410SrCF+DvrTk
- zyBgbn6UYp7LU7l+jbQH38N/0oKzjw==
-X-Authority-Analysis: v=2.4 cv=do3Wylg4 c=1 sm=1 tr=0 ts=68e55ac9 cx=c_pps
- a=MTSHoo12Qbhz2p7MsH1ifg==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=x6icFKpwvdMA:10 a=EUspDBNiAAAA:8 a=YElTaCpYnbo2m2hzBnMA:9
- a=GvdueXVYPmCkWapjIL-Q:22
-X-Proofpoint-GUID: pbYAclBh8WpezqFeGpxwINYqw7Zq-feJ
-X-Proofpoint-ORIG-GUID: pbYAclBh8WpezqFeGpxwINYqw7Zq-feJ
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-07_02,2025-10-06_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- suspectscore=0 adultscore=0 lowpriorityscore=0 phishscore=0 clxscore=1015
- malwarescore=0 spamscore=0 impostorscore=0 priorityscore=1501 bulkscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2509150000 definitions=main-2510040017
+User-Agent: Mozilla Thunderbird
+From: Florian Fainelli <florian.fainelli@broadcom.com>
+Subject: Re: [PATCH v2] arm64: dts: broadcom: bcm2712: Enable RNG
+To: Peter Robinson <pbrobinson@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>,
+ Broadcom internal kernel review list
+ <bcm-kernel-feedback-list@broadcom.com>,
+ Dave Stevenson <dave.stevenson@raspberrypi.com>,
+ Stefan Wahren <wahrenst@gmx.net>, Phil Elwell <phil@raspberrypi.com>,
+ Andrea della Porta <andrea.porta@suse.com>, devicetree@vger.kernel.org,
+ linux-rpi-kernel@lists.infradead.org, linux-arm-kernel@lists.infradead.org
+References: <20250927075643.716179-1-pbrobinson@gmail.com>
+Content-Language: en-US
+Autocrypt: addr=florian.fainelli@broadcom.com; keydata=
+ xsBNBFPAG8ABCAC3EO02urEwipgbUNJ1r6oI2Vr/+uE389lSEShN2PmL3MVnzhViSAtrYxeT
+ M0Txqn1tOWoIc4QUl6Ggqf5KP6FoRkCrgMMTnUAINsINYXK+3OLe7HjP10h2jDRX4Ajs4Ghs
+ JrZOBru6rH0YrgAhr6O5gG7NE1jhly+EsOa2MpwOiXO4DE/YKZGuVe6Bh87WqmILs9KvnNrQ
+ PcycQnYKTVpqE95d4M824M5cuRB6D1GrYovCsjA9uxo22kPdOoQRAu5gBBn3AdtALFyQj9DQ
+ KQuc39/i/Kt6XLZ/RsBc6qLs+p+JnEuPJngTSfWvzGjpx0nkwCMi4yBb+xk7Hki4kEslABEB
+ AAHNMEZsb3JpYW4gRmFpbmVsbGkgPGZsb3JpYW4uZmFpbmVsbGlAYnJvYWRjb20uY29tPsLB
+ IQQQAQgAywUCZWl41AUJI+Jo+hcKAAG/SMv+fS3xUQWa0NryPuoRGjsA3SAUAAAAAAAWAAFr
+ ZXktdXNhZ2UtbWFza0BwZ3AuY29tjDAUgAAAAAAgAAdwcmVmZXJyZWQtZW1haWwtZW5jb2Rp
+ bmdAcGdwLmNvbXBncG1pbWUICwkIBwMCAQoFF4AAAAAZGGxkYXA6Ly9rZXlzLmJyb2FkY29t
+ Lm5ldAUbAwAAAAMWAgEFHgEAAAAEFQgJChYhBNXZKpfnkVze1+R8aIExtcQpvGagAAoJEIEx
+ tcQpvGagWPEH/2l0DNr9QkTwJUxOoP9wgHfmVhqc0ZlDsBFv91I3BbhGKI5UATbipKNqG13Z
+ TsBrJHcrnCqnTRS+8n9/myOF0ng2A4YT0EJnayzHugXm+hrkO5O9UEPJ8a+0553VqyoFhHqA
+ zjxj8fUu1px5cbb4R9G4UAySqyeLLeqnYLCKb4+GklGSBGsLMYvLmIDNYlkhMdnnzsSUAS61
+ WJYW6jjnzMwuKJ0ZHv7xZvSHyhIsFRiYiEs44kiYjbUUMcXor/uLEuTIazGrE3MahuGdjpT2
+ IOjoMiTsbMc0yfhHp6G/2E769oDXMVxCCbMVpA+LUtVIQEA+8Zr6mX0Yk4nDS7OiBlvOwE0E
+ U8AbwQEIAKxr71oqe+0+MYCc7WafWEcpQHFUwvYLcdBoOnmJPxDwDRpvU5LhqSPvk/yJdh9k
+ 4xUDQu3rm1qIW2I9Puk5n/Jz/lZsqGw8T13DKyu8eMcvaA/irm9lX9El27DPHy/0qsxmxVmU
+ pu9y9S+BmaMb2CM9IuyxMWEl9ruWFS2jAWh/R8CrdnL6+zLk60R7XGzmSJqF09vYNlJ6Bdbs
+ MWDXkYWWP5Ub1ZJGNJQ4qT7g8IN0qXxzLQsmz6tbgLMEHYBGx80bBF8AkdThd6SLhreCN7Uh
+ IR/5NXGqotAZao2xlDpJLuOMQtoH9WVNuuxQQZHVd8if+yp6yRJ5DAmIUt5CCPcAEQEAAcLB
+ gQQYAQIBKwUCU8AbwgUbDAAAAMBdIAQZAQgABgUCU8AbwQAKCRCTYAaomC8PVQ0VCACWk3n+
+ obFABEp5Rg6Qvspi9kWXcwCcfZV41OIYWhXMoc57ssjCand5noZi8bKg0bxw4qsg+9cNgZ3P
+ N/DFWcNKcAT3Z2/4fTnJqdJS//YcEhlr8uGs+ZWFcqAPbteFCM4dGDRruo69IrHfyyQGx16s
+ CcFlrN8vD066RKevFepb/ml7eYEdN5SRALyEdQMKeCSf3mectdoECEqdF/MWpfWIYQ1hEfdm
+ C2Kztm+h3Nkt9ZQLqc3wsPJZmbD9T0c9Rphfypgw/SfTf2/CHoYVkKqwUIzI59itl5Lze+R5
+ wDByhWHx2Ud2R7SudmT9XK1e0x7W7a5z11Q6vrzuED5nQvkhAAoJEIExtcQpvGagugcIAJd5
+ EYe6KM6Y6RvI6TvHp+QgbU5dxvjqSiSvam0Ms3QrLidCtantcGT2Wz/2PlbZqkoJxMQc40rb
+ fXa4xQSvJYj0GWpadrDJUvUu3LEsunDCxdWrmbmwGRKqZraV2oG7YEddmDqOe0Xm/NxeSobc
+ MIlnaE6V0U8f5zNHB7Y46yJjjYT/Ds1TJo3pvwevDWPvv6rdBeV07D9s43frUS6xYd1uFxHC
+ 7dZYWJjZmyUf5evr1W1gCgwLXG0PEi9n3qmz1lelQ8lSocmvxBKtMbX/OKhAfuP/iIwnTsww
+ 95A2SaPiQZA51NywV8OFgsN0ITl2PlZ4Tp9hHERDe6nQCsNI/Us=
+In-Reply-To: <20250927075643.716179-1-pbrobinson@gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_112411_517267_201C4CBA 
-X-CRM114-Status: GOOD (  16.55  )
+X-CRM114-CacheID: sfid-20251007_112609_247572_4F49DB07 
+X-CRM114-Status: GOOD (  10.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,66 +155,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-commit efad60e46057 ("KVM: arm64: Initialize PMSCR_EL1 when in VHE")
-initializes PMSCR_EL1 to 0 which is making the boot up stuck when KVM
-runs in VHE mode and reverting the change is fixing the issue.
 
-[    2.967447] RPC: Registered tcp NFSv4.1 backchannel transport module.
-[    2.974061] PCI: CLS 0 bytes, default 64
-[    2.978171] Unpacking initramfs...
-[    2.982889] kvm [1]: nv: 568 coarse grained trap handlers
-[    2.988573] kvm [1]: IPA Size Limit: 40 bits
 
-Lets guard the change with cpu_has_spe() check so that it only affects
-the cpu which has SPE feature supported.
+On 9/27/2025 12:56 AM, Peter Robinson wrote:
+> The RNG is the same IP as in the bcm2711 so add the
+> device tree block to enable the device.
+> 
+> Signed-off-by: Peter Robinson <pbrobinson@gmail.com>
+> ---
 
-Fixes: efad60e46057 ("KVM: arm64: Initialize PMSCR_EL1 when in VHE")
-Signed-off-by: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
----
- arch/arm64/kvm/debug.c | 15 +++++++++++----
- 1 file changed, 11 insertions(+), 4 deletions(-)
-
-diff --git a/arch/arm64/kvm/debug.c b/arch/arm64/kvm/debug.c
-index 3515a273eaa2..d9fd45f0db9a 100644
---- a/arch/arm64/kvm/debug.c
-+++ b/arch/arm64/kvm/debug.c
-@@ -15,6 +15,14 @@
- #include <asm/kvm_arm.h>
- #include <asm/kvm_emulate.h>
- 
-+static int cpu_has_spe(void)
-+{
-+	u64 dfr0 = read_sysreg(id_aa64dfr0_el1);
-+
-+	return cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_PMSVer_SHIFT) &&
-+	       !(read_sysreg_s(SYS_PMBIDR_EL1) & PMBIDR_EL1_P);
-+}
-+
- /**
-  * kvm_arm_setup_mdcr_el2 - configure vcpu mdcr_el2 value
-  *
-@@ -80,8 +88,7 @@ void kvm_init_host_debug_data(void)
- 	if (has_vhe())
- 		return;
- 
--	if (cpuid_feature_extract_unsigned_field(dfr0, ID_AA64DFR0_EL1_PMSVer_SHIFT) &&
--	    !(read_sysreg_s(SYS_PMBIDR_EL1) & PMBIDR_EL1_P))
-+	if (cpu_has_spe())
- 		host_data_set_flag(HAS_SPE);
- 
- 	/* Check if we have BRBE implemented and available at the host */
-@@ -101,8 +108,8 @@ void kvm_init_host_debug_data(void)
- 
- void kvm_debug_init_vhe(void)
- {
--	/* Clear PMSCR_EL1.E{0,1}SPE which reset to UNKNOWN values. */
--	if (SYS_FIELD_GET(ID_AA64DFR0_EL1, PMSVer, read_sysreg(id_aa64dfr0_el1)))
-+	if (cpu_has_spe())
-+		/* Clear PMSCR_EL1.E{0,1}SPE which reset to UNKNOWN values. */
- 		write_sysreg_el1(0, SYS_PMSCR);
- }
- 
+Applied to 
+https://github.com/Broadcom/stblinux/commits/devicetree-arm64/next, thanks!
 -- 
-2.50.1
+Florian
+
 
 
