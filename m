@@ -4,95 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 316D0CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 07:56:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1010CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 08:12:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yY6/uGBggjr7DPOeg8CZY+oS1HkBeSOBG2tcETPEWsE=; b=fQdzt7tlfzEwNMnfGJw02uadZV
-	TW0saCCj63z4IcoBXTyKEO3by4kudY9Uvgr1+oO0le1KlB9rfWh59QpLmF3/4a1K62vOvcJsCEmdi
-	8hf/Ff+VOtLoWFmur4r0ulzGuXE25LCPJ/YzB0W9cvJ5a5e0OqFPD4hsX1npv5GLH+YlX7nr38lUh
-	FOsE2vRnLCnx1Qvmt09NsLCdNcj1B+QGLmT76Oi7SlcpUay/w1QPTf0q6W0Wcw8TEeZXq8KGDKa+Q
-	ttkTnCZy3kFKtQlqO21sh0D1Xy2Fpzb8A43521lH4PHiPw0tIk49C4eBWhYQVh70HW6kDedMjcJ5/
-	KuEML+xQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7PQljK8xrIGlV1/Oi6KbHBFsxdUhazL3roixtJUOajk=; b=fP3oD9zwrJaSpzUwSMmIYBVrM/
+	VIdiHgImVxqsOLZUoihzrmK6Ien7WKQAoEidhwFlDMagUPjuaHUaVOs0MwtGZIhnHXxcLWdDAXx+E
+	myvAItlRxrqe+hARBYuPQVdJTeWPHtc7BrGP3WwroTlKEowj1h/VqAE8aZBwzHg8rLUDYxAk7jg77
+	qaMp81+su0iVOHXwMFn1CoRv7fIicMvA17vHEueUZM//ZKGMevTDXeHZ6Mj0V3OYes+e2+NWVFgCD
+	Xf7eStMqI/bS98yYQS47sMDw5bGK1sYZJdq4yCS25sSeWOJ8Gyy+7Xb69RHQR6/VHMXdMDBc/0SHu
+	NoLHuAZw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6P2K-00000003OlG-2OSD;
-	Wed, 08 Oct 2025 07:56:36 +0000
-Received: from mail-ej1-x632.google.com ([2a00:1450:4864:20::632])
+	id 1v6PHU-00000003Q0h-3IIC;
+	Wed, 08 Oct 2025 08:12:16 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6P2G-00000003Okq-2Pyn
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Oct 2025 07:56:34 +0000
-Received: by mail-ej1-x632.google.com with SMTP id a640c23a62f3a-b4f323cf89bso366798466b.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Oct 2025 00:56:31 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1759910191; x=1760514991; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=yY6/uGBggjr7DPOeg8CZY+oS1HkBeSOBG2tcETPEWsE=;
-        b=d1tmhtSF12TvDxKzcYRWHe5TCIKltKlZYt+tZgCpW57hHhgyqOtjpFRhAHzdAOKWHC
-         BCpZ++nRfUdn6YvkOy1tw/FKKWX2bBXFk6eBWLkwZeO0yZsIQIhor3dmwfXKWucDIS/h
-         b/3xnGxBXjpKi15AI0MwFgU418huXVFPRqnEzw7kCpx9RnET0JIKnyZMNnZ4Sa4x3h7G
-         F+zHpuG40rDATOlksd50mG+/Vr8iGGyYSm8mLvMxHZcPHjteSzedbqehujbYsJ3ebSO2
-         cFtfovHJbWH5PuNwo7cHje6Jaz4PZ9JCFRNuUFRerr9NYxbIjoA1N/ePSMb9flrYeHhg
-         87Qg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759910191; x=1760514991;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=yY6/uGBggjr7DPOeg8CZY+oS1HkBeSOBG2tcETPEWsE=;
-        b=YOT4IO3YRnTnF8N54RnlXs8VvQvoDsIn+oZCXR25Ls7hpZon6I0burKnMBGscJPotL
-         DVfOlXaLH6fKGpTU7iIrfusU5VRdPDW93j9i7TpXORBqkOR7zyRu+wr6W6ry120WAX4f
-         7ibNpZUTgmfZfq+nAZYrRZrhwhxrkoYm8GUH3BQY4m2+ZuHiLSBGDV3/zNThB0iqCHdb
-         z+eDGvZUmddIUX/Kbrc0x5HFm6FSL88HblMtVwtraXbPkTxLGmqK6Awjbt/bfTaUVob3
-         j/gdFgGujdvjbxtdqHLyobu0NaOwhw4qKZE+blvG3bmqjD4h8+kLdzy2QUUchxqsBHHY
-         6h/w==
-X-Forwarded-Encrypted: i=1; AJvYcCXTeXJbGLtzEePLVM+tlZJp3AM7vSGDAdhKQZvLWeM92rpayn8jMI+fVgH5Fw12MPlg8nnn+4NvRJUYB7rbjDGw@lists.infradead.org
-X-Gm-Message-State: AOJu0YwaRPtJRkTiMRhNwXfQXVtZIi+mWH1KCjdfHYMZGbQomgLHtzZ0
-	d5OzAOHBY1K9Caf97hJce1bfz119YSIeD9jJJ6z5Ig73BGXhZeJQTyBH7iUgHo2QyhQ=
-X-Gm-Gg: ASbGncvXJNdf+CaS6x7ifFMTXmsWoXp3Oymuu+h7LynOP72d1j2UUNwvXEpNtcX4MAP
-	eAciORYJXs5314Yc0DdYys65RvGZm7WP2HA1QlWVJukFyMDJ3z8N2+n8unVoi6PJVa3kYbbhGGZ
-	Npz+VWLX4aMu0BnCW81IGk7LoWPKwlKpgadz33GaQ4eWJVRT0cFLiU8OSbzk0uYEtRi4VA6bz8O
-	QOPa4LFiWv4p517U3+EbleTyjZ5DueGjjPbW2CXFXEkK3qXZrkYLST2PDXy7zXHttP5vZWKDr+F
-	w7bgPNLSdn6OWHe2pYr4D+HVRDb36E2bZ4Xu6dp4jkEV+cUmP1UkZD0Hzpda923w9azWt5yg8Cc
-	Tzj22pwfrHsanRwY9++EKKLHlBmU17SfjHcZYaiG/FwYmo8FZMttDzA==
-X-Google-Smtp-Source: AGHT+IFp07FRs5tCn/Ul46jxxqRkTyRGCpgeXeTG3+gc53OiL7gYrGNYmAqkEff6f/cTzyfRxNMOiQ==
-X-Received: by 2002:a17:907:72d3:b0:b4f:4940:6a23 with SMTP id a640c23a62f3a-b50aa899e80mr258485166b.24.1759910190618;
-        Wed, 08 Oct 2025 00:56:30 -0700 (PDT)
-Received: from draszik.lan ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b4869b4d9f5sm1618847766b.66.2025.10.08.00.56.29
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Oct 2025 00:56:30 -0700 (PDT)
-Message-ID: <ff3a0b96980669f326ed02ed81b97d34c104b09d.camel@linaro.org>
-Subject: Re: [PATCH] scsi: ufs: dt-bindings: exynos: add power-domains
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: Alim Akhtar <alim.akhtar@samsung.com>, 'Avri Altman'
- <avri.altman@wdc.com>,  'Bart Van Assche'	 <bvanassche@acm.org>, 'Rob
- Herring' <robh@kernel.org>, 'Krzysztof Kozlowski'	 <krzk+dt@kernel.org>,
- 'Conor Dooley' <conor+dt@kernel.org>
-Cc: 'Peter Griffin' <peter.griffin@linaro.org>, 'Tudor Ambarus'	
- <tudor.ambarus@linaro.org>, 'Will McVicker' <willmcvicker@google.com>, 
-	kernel-team@android.com, linux-scsi@vger.kernel.org,
- devicetree@vger.kernel.org, 	linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, 	linux-kernel@vger.kernel.org
-Date: Wed, 08 Oct 2025 08:56:29 +0100
-In-Reply-To: <001501dc3815$601ec450$205c4cf0$@samsung.com>
-References: <CGME20251007155631epcas5p2cbf4c7b52bd217128c156bf6f5f1ea82@epcas5p2.samsung.com>
-		<20251007-power-domains-scsi-ufs-dt-bindings-exynos-v1-1-1acfa81a887a@linaro.org>
-	 <001501dc3815$601ec450$205c4cf0$@samsung.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-2 
+	id 1v6PHS-00000003Pzy-1ivV;
+	Wed, 08 Oct 2025 08:12:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id BDC9643C75;
+	Wed,  8 Oct 2025 08:12:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E36D2C4CEF4;
+	Wed,  8 Oct 2025 08:12:04 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759911133;
+	bh=c2GoYT8KDL1eyEVGxGi2+EGCXK+Kst3nZpOtV/b7mRI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=rGBjfUmIyYr045AoFAFtC5WxvZZSyRdgeyLM8tzfmR56rQvImMVp2pNQ3wu8GG8h0
+	 uq3fYEE9KLbDy07nlDJYm6S/B8QVeZneKLnp95OvZHDlVFUv6b7d32LkEYICetaPQY
+	 8ft1ZIjmxLeQwqauQYwFh4pjWgTe3dsIFD+QU41nt0Js8soqRN2Yluveb/bTW1nY8T
+	 2Lq0fgOoOoFu9Dk87Gyu93qDIfkbkLJ+MaZi0lkJ/lyJFWAkhDcNt/RhpcUKr16opL
+	 hRSvLxtaXcKh/berPk2u5uoUFow/IwyGWqnmMm2n1vTst8WMPZGWVjDX8tcoLbyel+
+	 w9yUlBpM6ux1w==
+Message-ID: <c33a26a8-a054-4ce6-86d9-4945014f69cf@kernel.org>
+Date: Wed, 8 Oct 2025 17:12:01 +0900
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 1/6] dt-bindings: phy: samsung,usb3-drd-phy: add
+ ExynosAutov920 HS phy compatible
+To: Pritam Manohar Sutar <pritam.sutar@samsung.com>, vkoul@kernel.org,
+ kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ alim.akhtar@samsung.com, andre.draszik@linaro.org, peter.griffin@linaro.org,
+ kauschluss@disroot.org, ivo.ivanov.ivanov1@gmail.com,
+ igor.belwon@mentallysanemainliners.org, m.szyprowski@samsung.com,
+ s.nawrocki@samsung.com
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
+ dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
+ selvarasu.g@samsung.com
+References: <20250903073827.3015662-1-pritam.sutar@samsung.com>
+ <CGME20250903072936epcas5p4a28d0e63c7f0792b516b0cbc68bf3a8e@epcas5p4.samsung.com>
+ <20250903073827.3015662-2-pritam.sutar@samsung.com>
+ <0df74c2b-31b9-4f29-97d3-b778c8e3eaf1@kernel.org>
+ <007801dc2893$18ed4a20$4ac7de60$@samsung.com>
+ <02ef5180-ad56-45f0-a56f-87f442bf6793@kernel.org>
+ <007f01dc2b81$84ef19b0$8ecd4d10$@samsung.com>
+ <808d166a-b615-49c6-b0f5-bf5101721381@kernel.org>
+ <000001dc380e$612b5680$23820380$@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <000001dc380e$612b5680$23820380$@samsung.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251008_005632_787454_2381D1F7 
-X-CRM114-Status: GOOD (  14.09  )
+X-CRM114-CacheID: sfid-20251008_011214_490725_13A73614 
+X-CRM114-Status: GOOD (  10.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,66 +132,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 2025-10-08 at 11:05 +0530, Alim Akhtar wrote:
->=20
->=20
-> > -----Original Message-----
-> > From: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
-> > Sent: Tuesday, October 7, 2025 9:26 PM
-> > To: Alim Akhtar <alim.akhtar@samsung.com>; Avri Altman
-> > <avri.altman@wdc.com>; Bart Van Assche <bvanassche@acm.org>; Rob
-> > Herring <robh@kernel.org>; Krzysztof Kozlowski <krzk+dt@kernel.org>;
-> > Conor Dooley <conor+dt@kernel.org>
-> > Cc: Peter Griffin <peter.griffin@linaro.org>; Tudor Ambarus
-> > <tudor.ambarus@linaro.org>; Will McVicker <willmcvicker@google.com>;
-> > kernel-team@android.com; linux-scsi@vger.kernel.org;
-> > devicetree@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux=
--
-> > samsung-soc@vger.kernel.org; linux-kernel@vger.kernel.org; Andr=C3=A9 D=
-raszik
-> > <andre.draszik@linaro.org>
-> > Subject: [PATCH] scsi: ufs: dt-bindings: exynos: add power-domains
-> >=20
-> > The UFS controller can be part of a power domain, so we need to allow t=
-he
-> > relevant property 'power-domains'.
-> >=20
-> In Exynos, power domains has a boundary at _block_ level. I assume in thi=
-s
-> case it is BLK_HSI, which contains, multiple IPs within block, including =
-UFS
-> controller.
+On 08/10/2025 13:45, Pritam Manohar Sutar wrote:
+> Hi Krzysztof,
+> 
+>> -----Original Message-----
+>> From: Krzysztof Kozlowski <krzk@kernel.org>
+>> Sent: 07 October 2025 11:54 AM
+>> To: Pritam Manohar Sutar <pritam.sutar@samsung.com>; vkoul@kernel.org;
+>> kishon@kernel.org; robh@kernel.org; krzk+dt@kernel.org;
+>> conor+dt@kernel.org; alim.akhtar@samsung.com; andre.draszik@linaro.org;
+>> peter.griffin@linaro.org; kauschluss@disroot.org;
+>> ivo.ivanov.ivanov1@gmail.com; igor.belwon@mentallysanemainliners.org;
+>> m.szyprowski@samsung.com; s.nawrocki@samsung.com
+>> Cc: linux-phy@lists.infradead.org; devicetree@vger.kernel.org; linux-
+>> kernel@vger.kernel.org; linux-arm-kernel@lists.infradead.org; linux-samsung-
+>> soc@vger.kernel.org; rosa.pila@samsung.com; dev.tailor@samsung.com;
+>> faraz.ata@samsung.com; muhammed.ali@samsung.com;
+>> selvarasu.g@samsung.com
+>> Subject: Re: [PATCH v8 1/6] dt-bindings: phy: samsung,usb3-drd-phy: add
+>> ExynosAutov920 HS phy compatible
+>>
+>> On 22/09/2025 14:26, Pritam Manohar Sutar wrote:
+>>> This phy needs 0.75v, 0.18v and 3.3v supplies for its internal
+>>> functionally. Power Supply's names are as per phy's User Data-Book.
+>>> These names, (dvdd, vdd18 and vdd33), are considered  for 0.75v, 1.8v
+>>> and 3.3v respectively.
+>>> "
+>>>
+>>>>
+>>>> I still cannot find constraints for the rest of properties, though.
+>>>
+>>> Sorry I didn't get it completely. Can you please elaborate on the same?
+>>
+>>
+>> Writing bindings and introductory talks elaborate on that. You add properties
+>> without constraints. That's not what we want. We want constraints.
+>>
+> 
+> Have added only supplies in this patch-set. However, was going 
+> through schema example and it says nothing is needed to define
+> in terms of supply. 
 
-On gs101, there are three hsi power domains:
-* hsi0 (USB)
-* hsi1 (PCIe)
-* hsi2 (UFS)
 
-I have not looked at hsi1 so far.
+I don't have original patchset in my inbox anymore, so not sure what was
+there, but most likely you miss constraining the presence of these
+properties per each variant. IOW, not each of devices in the bindings
+have these supplies, so I expect syntax similar as in example-schema.
 
-From what I can gather, hsi2-pd affects:
-* cmu_hsi2
-* sysreg hsi2
-* pinctrl (gpio) hsi2
-* ufs
-* ufs-phy
-(not sure if there is more)
+https://elixir.bootlin.com/linux/v5.19/source/Documentation/devicetree/bindings/example-schema.yaml#L212
 
-hsi0-pd is similar, except that there is no pinctrl (gpio) hsi0.
 
-They're all modelled as individual nodes in DT, so we need to add the
-power-domains =3D <>
-to each of them.
-
-> I hope you will be sending the corresponding DTS changes as well.=20
-
-Yes, of course :-)
-
-> Feel free to add=20
-> Reviewed-by: Alim Akhtar <alim.akhtar@samsung.com>
-
-Thanks :-)
-
-Cheers,
-Andre'
+Best regards,
+Krzysztof
 
