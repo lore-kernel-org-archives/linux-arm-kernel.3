@@ -4,71 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFABDCCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 08:15:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4A9D1CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 08:17:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A/Y2E1UgoFPuo14z4SJwSxhBGld0OIJxqnM8ZX0s/uk=; b=WfY7hMrTm0UzXP4EysaXYQf7Kl
-	bgAOOsWDZ7pJbueHDHBG7WWuJ9dwcnTk3ExO0bM/aAa/1mn+vrYddWRP+AM2jbOmXjGZfRKHQathe
-	rFZQBIB9c/4bCOnVeONplzCLHoffI18T7aFN26SkvYK7C+ibmx2/rFf45xyxwQ+0xwvxw08PDBl0b
-	6HczPiKYu7r3wyVcJJMNdL5LONKtg/s1XqVRuWgeqStTWFhMtZvYf8W/SPTiN5jCUHJVX/nRV563m
-	DmPm0Fcg53IpRMXT6nktyKIMr1s7DQvIPOZTrsBzMROxN0aKn72UCKh8PEUIWZljxtOGvxVzoE4AY
-	t2JkwMKw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Subject:To:From:Date:Message-ID:Reply-To:Cc:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=vUvp0ttX3lOxjdOrvZsKvJKNpHHNusfF6naBdS8j1E8=; b=FfxKZWAsBHltAbslTg1S1a3hcV
+	kPvC/izpyBu3MqolfEt59gL2OUktfkzKPlN7nbmZ51no5eHyXqx7ZLrjP8O2JwGfP//niNVLl2snx
+	09/Z6C+8mcwY2nBrOwpzX3onizCIlMlUj8PzVJ/VBOzWK+Ra9hsR10mkuLTy9H2+fiKBeaf/oIiy6
+	iW+rPrzw3Ma98+/XHMLyhkMs6C7DBYtvpb3G6Iw+dxJwiBauRNBSPYXdPwS9eYlcS5QMLRLTpFZS9
+	L8oJ1dSWp7h5WLC26mF5x5LHwppVNZ4pImDZ+PaZw5TDBGBmcqoB/NrGZ2CRyRQd8KueLAkbRCSiS
+	lLX1oQlg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6PKK-00000003QOQ-3jPJ;
-	Wed, 08 Oct 2025 08:15:12 +0000
-Received: from perceval.ideasonboard.com ([213.167.242.64])
+	id 1v6PMR-00000003Qhh-2LbM;
+	Wed, 08 Oct 2025 08:17:23 +0000
+Received: from mail.fundixo.pl ([57.128.173.14])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6PKI-00000003QMw-0auf;
-	Wed, 08 Oct 2025 08:15:11 +0000
-Received: from pendragon.ideasonboard.com (82-203-166-19.bb.dnainternet.fi [82.203.166.19])
-	by perceval.ideasonboard.com (Postfix) with UTF8SMTPSA id ECADF191B;
-	Wed,  8 Oct 2025 10:13:31 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
-	s=mail; t=1759911212;
-	bh=tsaypD/DbPUWMTuZH0R026MpaDXXQ9sm7bRAfALfNJg=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=jAfJD4JJX4a9In7LufZltWn8J6npzIvGlDXb8HmftJmNA76CuiIxrgz/njxp20d8K
-	 GNr2kd4pjRvwTA/siGW+bAV5KVcHpZKiTYDg7SfoG/iSj3uAws7iQp1vlhdlysevgg
-	 e2WMrb9xIBgf3L3Z6hSJW0ivjPCz6Nz17WipET/Q=
-Date: Wed, 8 Oct 2025 11:14:59 +0300
-From: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
-	devicetree@vger.kernel.org, dri-devel@lists.freedesktop.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	Alexey Charkov <alchark@gmail.com>,
-	Algea Cao <algea.cao@rock-chips.com>,
-	Andy Yan <andy.yan@rock-chips.com>,
-	Cenk Uluisik <cenk.uluisik@googlemail.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Heiko Stuebner <heiko@sntech.de>, Jimmy Hon <honyuenkwun@gmail.com>,
-	Kever Yang <kever.yang@rock-chips.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	Muhammed Efe Cetin <efectn@6tel.net>, Ondrej Jirman <megi@xff.cz>,
-	Rob Herring <robh@kernel.org>, Sandy Huang <hjc@rock-chips.com>
-Subject: Re: [PATCH v2 1/5] dt-bindings: display: rk3588-dw-hdmi-qp: Add
- tmds-enable-gpios property
-Message-ID: <20251008081459.GF16422@pendragon.ideasonboard.com>
-References: <20251005235542.1017-1-laurent.pinchart@ideasonboard.com>
- <20251005235542.1017-2-laurent.pinchart@ideasonboard.com>
- <c5kwmvu3j72evbgdmjn6qn5nqx7ywbiwpzhnpeh6hjjhbz5vwo@jpe3onblwhmy>
- <20251006162518.GJ5944@pendragon.ideasonboard.com>
- <d423560e-dcd4-45d8-a1e4-5a8b2a21ef86@collabora.com>
+	id 1v6PMO-00000003Qgy-3Yhe
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Oct 2025 08:17:22 +0000
+Received: by mail.fundixo.pl (Postfix, from userid 1002)
+	id 3EBB94C88E; Wed,  8 Oct 2025 10:06:09 +0200 (CEST)
+Received: by mail.fundixo.pl for <linux-arm-kernel@lists.infradead.org>; Wed,  8 Oct 2025 08:05:35 GMT
+Message-ID: <20251008084500-0.1.i4.4ip0n.0.b1fao1aiup@CyberCitadel.pl>
+Date: Wed,  8 Oct 2025 08:05:35 GMT
+From: "Marek Kucharski" <marek.kucharski@fundixo.pl>
+To: <linux-arm-kernel@lists.infradead.org>
+Subject: =?UTF-8?Q?Prosz=C4=99_o_kontakt?=
+X-Mailer: mail.CyberCitadel.pl
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-In-Reply-To: <d423560e-dcd4-45d8-a1e4-5a8b2a21ef86@collabora.com>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251008_011510_347960_C126E265 
-X-CRM114-Status: GOOD (  16.13  )
+X-CRM114-CacheID: sfid-20251008_011721_039701_8A810A24 
+X-CRM114-Status: UNSURE (   1.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,55 +57,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 06, 2025 at 07:42:56PM +0300, Cristian Ciocaltea wrote:
-> On 10/6/25 7:25 PM, Laurent Pinchart wrote:
-> > On Mon, Oct 06, 2025 at 02:19:24PM +0300, Dmitry Baryshkov wrote:
-> >> On Mon, Oct 06, 2025 at 02:55:37AM +0300, Laurent Pinchart wrote:
-> >>> From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> >>>
-> >>> Add an optional property to RK3588 HDMI TX Controller binding describing
-> >>> a GPIO line to be asserted when operating in HDMI 1.4/2.0 TMDS mode and
-> >>> deasserted for HDMI 2.1 FRL.
-> >>>
-> >>> This is used to control an external level shifter for HDMI data lines.
-> >>>
-> >>> Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-> >>> Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
-> >>> ---
-> >>>  .../display/rockchip/rockchip,rk3588-dw-hdmi-qp.yaml   | 10 ++++++++++
-> >>>  1 file changed, 10 insertions(+)
-> >>>
-> >>> diff --git a/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3588-dw-hdmi-qp.yaml b/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3588-dw-hdmi-qp.yaml
-> >>> index 96b4b088eebe..eec0d40c91ea 100644
-> >>> --- a/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3588-dw-hdmi-qp.yaml
-> >>> +++ b/Documentation/devicetree/bindings/display/rockchip/rockchip,rk3588-dw-hdmi-qp.yaml
-> >>> @@ -113,6 +113,13 @@ properties:
-> >>>      description:
-> >>>        Additional HDMI QP related data is accessed through VO GRF regs.
-> >>>  
-> >>> +  tmds-enable-gpios:
-> >>> +    description:
-> >>> +      Optional GPIO line to be asserted when operating in HDMI 1.4/2.0
-> >>> +      TMDS mode and deasserted for HDMI 2.1 FRL. It can be used to control
-> >>> +      an external level shifter for HDMI data lines.
-> >>> +    maxItems: 1
-> >>
-> >> Just my 2c: since TMDS is assumed to be a default mode, shouldn't this
-> >> be a frl-enable-gpios instead?
-> > 
-> > I don't mind either way. Cristian, any opinion ?
-> 
-> No strong opinion either; we could go for Dmitry's suggestion.
+Dzie=C5=84 dobry,
 
-OK, I'll flip it.
+Czy jest mo=C5=BCliwo=C5=9B=C4=87 nawi=C4=85zania wsp=C3=B3=C5=82pracy z =
+Pa=C5=84stwem?
 
-> >>> +
-> >>>  required:
-> >>>    - compatible
-> >>>    - reg
+Z ch=C4=99ci=C4=85 porozmawiam z osob=C4=85 zajmuj=C4=85c=C4=85 si=C4=99 =
+dzia=C5=82aniami zwi=C4=85zanymi ze sprzeda=C5=BC=C4=85.
 
--- 
-Regards,
+Pomagamy skutecznie pozyskiwa=C4=87 nowych klient=C3=B3w.
 
-Laurent Pinchart
+Zapraszam do kontaktu.
+
+
+Pozdrawiam
+Marek Kucharski
 
