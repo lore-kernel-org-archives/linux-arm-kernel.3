@@ -4,60 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96A53CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 02:18:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 82757CCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 02:18:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=VpO4EXCA7mxEWmLM4c/RiOB9NaCXuEh0Cp8mE4t2GWs=; b=Sm1suV4hsq4VbU+vP6rWkxBM4+
-	7DjZkdDHAXflap2n6MJ39q8TVviI2I+1WOx3HGZqJJbGlJ9utVBE+qw49M182mkAF1nNt5+URLkTS
-	Hj7h/WELdLvfkAXhbK3FGp/Afmlk1f5FsHOdvz6scvnT52oRgfN4/beeiI7XRICuS8dW5r6dO2GeG
-	ZT2BZVPrNsjPj0HnI4i/d7CfvLxTzgAIpYQT60Eti2Wv3i2idMHwZho57J94lQMCzgdkyVGpCGUmX
-	gMpu8JBYiAqi4PKW1t/fqrGBdSvDetN/jo5Sg4tldWx1yRym6749SktdZeAtp4eT4UsIRXG+SGJ8S
-	bv350D9A==;
+	bh=BXNXBXScd9rmM6eLcH7rgp3ScSdwTSWStwweuALXBm4=; b=XH1Bt7hOjKQo1VR6mA1dcswrvS
+	NaBY3w5IBBhhiD/hqeZwpha6iuP1WpU/xa5Cpa9uOR3K1sgoMnQ4FwtKakX+wGaVdpljsln0u+2Ug
+	2YW75yvllIEsy09BgJMkyCvqJmC7txyPnWDl61ED9cgi9wsyJGWcleYinqi8dihOCM4OSb65lfMDH
+	KcjsgR22elSqg8yGRBJwMRLGqHfesScbJ56DQ2MaTlCAhGYOg2HNvpdUTzMoQ3yaDduve6RY3T/iU
+	mS/YF934PpuYF9CsRZxT2cHJrQWaOfacHz9ef2X6EVJcgzNXHFypY8U2eo5SHbC54mSNtVw92GUTy
+	iKrj1bhg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6Jl7-000000034XI-0Ko5;
-	Wed, 08 Oct 2025 02:18:29 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v6JlO-000000034b3-1a7L;
+	Wed, 08 Oct 2025 02:18:46 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6Jl5-000000034Wz-1gCN
+	id 1v6JlM-000000034aZ-3QoU
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Oct 2025 02:18:28 +0000
+	Wed, 08 Oct 2025 02:18:44 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 00ABC43742;
-	Wed,  8 Oct 2025 02:18:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82BFCC4CEF1;
-	Wed,  8 Oct 2025 02:18:20 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EB3EB604DB;
+	Wed,  8 Oct 2025 02:18:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 63BE2C4CEF7;
+	Wed,  8 Oct 2025 02:18:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759889906;
-	bh=qBRDlryuuYHk5HHM3fRxvnEsr5zJwEtevKEETX9HboU=;
+	s=k20201202; t=1759889923;
+	bh=qzYdtmvXQ5VaBXqhrMuG+AP8VHh7NXN2Ax/Fkbv7SRg=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=mqXI03UR06RwZ+s2PWZlyAR7H6SDkCoV5FNj6qCC9KGqFo5QIHFtcFtIvC2k07KAg
-	 TZAnNfCin7beU4NhKcCSkx/2vyGwdYtQ4Y6DVrhYCQtBiOQTdcz77O4WGx2JPouaYF
-	 EHUEYrPhER+B6gdF3gRkfH3Z9LB+ZJwR9OiuyRzSr1aOMhH/QxYZbHFVI2pqmw3W6w
-	 akTO1PPfM9H40tNrMahUd5h9Ix0nmjKma822fQsrHgSPDv55cDL+8ei4SUeRe1fJHM
-	 edhE7QJyQgHl9/rhikKw3haIvwnAecYypqAHRDdA2034tq0qCrCUAPKJS8E2gxNfZ+
-	 XvMGbB0OqCezA==
-Message-ID: <5fc709d1-f5b8-4579-b958-2bd7c6b55a77@kernel.org>
-Date: Wed, 8 Oct 2025 11:18:17 +0900
+	b=VkqOSIDhNQAlzVE1qvyScU4EZ3lJzFNTGTiEJ7Wbj/C+MFJYjsO/n7tlpAyz50qmw
+	 xyKB1xi6szrJVo7P4QJGWhYa5s1x+4/TY1lbz2RC01Eq5KXGpAze6pgQniX9iRUdyH
+	 R1z2qA6v6OGcFS/O953/P3yhg9RG6/pe9083uQ8ayVAUr1GILco3+Es7lwTgKeAkXf
+	 RQ0KlFXkSKHSh3AtJDgsF6CjGUjgamA0Y0B/xQGBcONjzouXC4wRg/rrwG11v7/wOC
+	 H6RWun4G6Y5U1ScqXIfTvrY8HjL7HzPN1Hph6vo8lkNuXk06TI3ig2k6zwsbxPqYnT
+	 cja5VxW05XXtQ==
+Message-ID: <541e27a5-6794-4f9a-8f24-93d846900028@kernel.org>
+Date: Wed, 8 Oct 2025 11:18:34 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] scsi: ufs: dt-bindings: exynos: add power-domains
+Subject: Re: [PATCH] dt-bindings: usb: samsung,exynos-dwc3: add power-domains
 To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, Avri Altman <avri.altman@wdc.com>,
- Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
 Cc: Peter Griffin <peter.griffin@linaro.org>,
  Tudor Ambarus <tudor.ambarus@linaro.org>,
  Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
- linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-usb@vger.kernel.org, devicetree@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
  linux-kernel@vger.kernel.org
-References: <20251007-power-domains-scsi-ufs-dt-bindings-exynos-v1-1-1acfa81a887a@linaro.org>
+References: <20251007-power-domains-dt-bindings-usb-samsung-exynos-dwc3-v1-1-b63bacad2b42@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -103,13 +103,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251007-power-domains-scsi-ufs-dt-bindings-exynos-v1-1-1acfa81a887a@linaro.org>
+In-Reply-To: <20251007-power-domains-dt-bindings-usb-samsung-exynos-dwc3-v1-1-b63bacad2b42@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_191827_479640_093FB077 
-X-CRM114-Status: UNSURE (   6.09  )
-X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,14 +120,11 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/10/2025 00:56, André Draszik wrote:
-> The UFS controller can be part of a power domain, so we need to allow
-> the relevant property 'power-domains'.
+On 08/10/2025 00:55, André Draszik wrote:
+> The DWC3 can be part of a power domain, so we need to allow the
+> relevant property 'power-domains'.
 > 
 > Signed-off-by: André Draszik <andre.draszik@linaro.org>
-
-
-Indeed, confirmed on Exynos 7420.
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
