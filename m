@@ -4,77 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 92A8FCCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 00:53:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71AA1CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 01:56:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D6FweyKYmmdqK4i8JM+DNzHo424r1zBspUkYHqnYvCk=; b=Wd0FhGDiIOoQ2yXhvzXyAvjhcy
-	KNASRAT/1m21mlstMi1W4uhUy8h+GJ+0ErRvO2B0NJKelHhWqiEt6EIgdQpDIJjZGpKw42oSXT77h
-	Yamf5huTZf/3vSIxgeiLyuQGb3NrxPcq1UfgyNrK79xa121yJ04Y5jQu0MIoaTXk54E2ClgedwaRe
-	hAu5BET4U8uyAd+G2kKAZmMrjR4DbF5pWwqBC/4GAR2OPIzdkqDjWfSVOXL2cBABA9ttUJAH50Ox9
-	4uvZoxTwlSRmdEGHSqHx+5hlhxJZKuUwNifxUm/Gu+ZD5KXAADGiJYf7BWiZvRHygsM2huw53T+dH
-	m3cMVd6w==;
+	bh=5R+MMT+pRekFlDMN3JKzI3+C8oDGIujAftuT+XmSMAM=; b=FKeWd4NzRoFH2tS2chI420tDpa
+	+jI7ShhFI0hYxKUi5cz4dVQXOI+E159QZ0FCeW+Q0s0rXJ71+YlsJ7Ebh4MI49Fkue/zJ4peEUPDM
+	L84TVGrvAoFOLpc6TPK9d/RIuCOK/yorqcjP1HDg/CEqYGczMUD8ehve2wlIVcOx3rydFUafX4YFP
+	uoI9zVGHk54CmwS1df5rPvhre/RJ0JmbkC/odI0UK7v78UAQJPa5yml09I0ElfwUGGqeWpmnnzEnX
+	z81WQubLNGsoN+kb3k5yaZq4Ar+9uWLZsEVsM3jPPS62ItrqvGLCKPtbhVnM5wLL8H04tB1m9Uxsx
+	ccZbBfGg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6IQr-000000031RS-0oB5;
-	Wed, 08 Oct 2025 00:53:29 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v6JPI-000000033RK-0Oua;
+	Wed, 08 Oct 2025 01:55:56 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6IQo-000000031Q3-1V4Y
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Oct 2025 00:53:27 +0000
+	id 1v6JPF-000000033Qo-3dxT;
+	Wed, 08 Oct 2025 01:55:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 46398486D5
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  8 Oct 2025 00:53:24 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 26551C113D0
-	for <linux-arm-kernel@lists.infradead.org>; Wed,  8 Oct 2025 00:53:24 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 752BC45398;
+	Wed,  8 Oct 2025 01:55:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0537C4CEF1;
+	Wed,  8 Oct 2025 01:55:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759884804;
-	bh=D6FweyKYmmdqK4i8JM+DNzHo424r1zBspUkYHqnYvCk=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Do0npa/QgiFr2rpTxYu8fCoLwb8676EQpVlzpUYIxx452a/AiTCg6u+2SYyt4Bcil
-	 DqyE6Z/rDQVO2Y3qjE3LcIpnPBKjQD6oxmllHdx16Cce7FnNv07xhqaNRB6ePSN0NA
-	 RrjsyAcv8GAcYb1mjhlzcA3MuU5fn/1n6ziVT1FRWxFSi0SWPjcM3euTiVjR8NfLYY
-	 qf1ZiwpZdLyvhCdUB0rybmjLTk017mQ2tw0s09IQWaA/xe5dHK/zZy7EayUilkJy/m
-	 5jOZPFMOZ4/r07rjcUpCqRxj3OgFZVEUatHXUxOI/WAX85/X7bPtoKUlDMq/957tAI
-	 1bvnTo5fV3hxA==
-Received: by mail-lf1-f47.google.com with SMTP id 2adb3069b0e04-57e03279bfeso511731e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 17:53:24 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCU85sv43XKcUaeUvnPzatqX9VKeZ35+rSaWF6EL76ga4bb/b/9Utq8IKEImJzKp6D9aiXfuSqMd8ook5UR9paKA@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw5DZVc9ASiPUuAQvApo88T5E0mtL6rib1M58WvRUv6qHBGtkTR
-	Y3IKPRGkbmN0K9PtqE8kvc+vj4oSwutvJ5xl74MuiJWEw3kELD52YOXrIfa567p7O4BD8JNhQxN
-	M/PBAOCJSSDolJ4LfWJBgLEs1D2NE9KQ=
-X-Google-Smtp-Source: AGHT+IG/2mh+7aGFp6yuZ/PHAh5VmeA0UzQePRnzK9Z9+tu50SDI+hbN8RUBkkU8FkCKt3PSGQusoMls3HZeIoqjddo=
-X-Received: by 2002:a05:6512:3d26:b0:586:a95f:cac1 with SMTP id
- 2adb3069b0e04-5906f3107bbmr359245e87.12.1759884802311; Tue, 07 Oct 2025
- 17:53:22 -0700 (PDT)
+	s=k20201202; t=1759888551;
+	bh=zUFhCE55gFIo0YuR9SI3nbI7zUYaY9J9ttmKAuups78=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=WSjlpz5RmjXK8xcAe2HmxNq3T/d+qmhcJMygkYX/KOXOChRgXirnYRWFFWjrlUiGi
+	 u7E3UjgyWozkSJxNLXbyBmxavxlDwXEgtGp2d2o9oydfW4gDoKSVC8pKcjS18ufcz/
+	 ozAPILk8zMlev7+Nz10kRdduj7+eK0oDjW0I0+wLfikSxCn2YAHUzxV/3YVSPRmldO
+	 OAE2NnM9CBpPHtY6r7HBJQcjixYcyiUw1XjGMgWOkzqeJrUxKB8uyJUkO3ezvj5MFM
+	 /p7jPsxlJHeaB3zw0P+uPSg4Qfu8k5RSZpmX1KFBvTtd7OTmm2SvdZ1HMEoOkykOaI
+	 H4Vs/4eOPToug==
+Message-ID: <0ac39a3e-d1a2-40d8-a3d1-b422acc720cc@kernel.org>
+Date: Wed, 8 Oct 2025 10:55:40 +0900
 MIME-Version: 1.0
-References: <20251002210044.1726731-2-ardb+git@google.com> <5824c012-dcb2-4312-9b16-810656290831@amd.com>
- <CAMj1kXHUjL7=CPz0viSBvfeX=BKNYuUkrpTizn9H1ZgJecB6cQ@mail.gmail.com> <CAMj1kXEzNPJOE_-gndNcFmE9CjLpsFCjfytaXbvm-1Khu62XRA@mail.gmail.com>
-In-Reply-To: <CAMj1kXEzNPJOE_-gndNcFmE9CjLpsFCjfytaXbvm-1Khu62XRA@mail.gmail.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Tue, 7 Oct 2025 17:53:08 -0700
-X-Gmail-Original-Message-ID: <CAMj1kXHhQ41WCgGFeb_dPLVbp+SZG-JvG4uxV9pMTCs3bnGyog@mail.gmail.com>
-X-Gm-Features: AS18NWCbTXTjj2ZApuB9b1_e6m6Cn170sDL3ZYdCcXcNdRu-0RV8hzeUMtrgZ4g
-Message-ID: <CAMj1kXHhQ41WCgGFeb_dPLVbp+SZG-JvG4uxV9pMTCs3bnGyog@mail.gmail.com>
-Subject: Re: [PATCH] drm/amd/display: Fix unsafe uses of kernel mode FPU
-To: =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
-Cc: Ard Biesheuvel <ardb+git@google.com>, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, will@kernel.org, 
-	catalin.marinas@arm.com, mark.rutland@arm.com, broonie@kernel.org, 
-	Austin Zheng <austin.zheng@amd.com>, Jun Lei <jun.lei@amd.com>, 
-	Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>, 
-	Rodrigo Siqueira <siqueira@igalia.com>, Alex Deucher <alexander.deucher@amd.com>, 
-	amd-gfx@lists.freedesktop.org, dri-devel@lists.freedesktop.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 16/16] media: rockchip: rga: add rga3 support
+To: =?UTF-8?Q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>,
+ Jacob Chen <jacob-chen@iotwrt.com>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, kernel@pengutronix.de
+References: <20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de>
+ <20251007-spu-rga3-v1-16-36ad85570402@pengutronix.de>
+ <bf989d9f-9e8e-4acc-b502-1674ce215318@kernel.org>
+ <947409d8-9a92-46f2-a6e7-49f3aa44d74f@pengutronix.de>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <947409d8-9a92-46f2-a6e7-49f3aa44d74f@pengutronix.de>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_175326_435171_91836002 
-X-CRM114-Status: GOOD (  28.87  )
+X-CRM114-CacheID: sfid-20251007_185553_950040_4CFD0751 
+X-CRM114-Status: GOOD (  15.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,79 +124,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 7 Oct 2025 at 13:52, Ard Biesheuvel <ardb@kernel.org> wrote:
->
-> On Mon, 6 Oct 2025 at 12:59, Ard Biesheuvel <ardb@kernel.org> wrote:
-> >
-> > On Mon, 6 Oct 2025 at 19:42, Christian K=C3=B6nig <christian.koenig@amd=
-.com> wrote:
-> > >
-> > > On 02.10.25 23:00, Ard Biesheuvel wrote:
-> > > > From: Ard Biesheuvel <ardb@kernel.org>
-> > > >
-> > > > The point of isolating code that uses kernel mode FPU in separate
-> > > > compilation units is to ensure that even implicit uses of, e.g., SI=
-MD
-> > > > registers for spilling occur only in a context where this is permit=
-ted,
-> > > > i.e., from inside a kernel_fpu_begin/end block.
-> > > >
-> > > > This is important on arm64, which uses -mgeneral-regs-only to build=
- all
-> > > > kernel code, with the exception of such compilation units where FP =
-or
-> > > > SIMD registers are expected to be used. Given that the compiler may
-> > > > invent uses of FP/SIMD anywhere in such a unit, none of its code ma=
-y be
-> > > > accessible from outside a kernel_fpu_begin/end block.
-> > > >
-> > > > This means that all callers into such compilation units must use th=
-e
-> > > > DC_FP start/end macros, which must not occur there themselves. For
-> > > > robustness, all functions with external linkage that reside there s=
-hould
-> > > > call dc_assert_fp_enabled() to assert that the FPU context was set =
-up
-> > > > correctly.
-> > >
-> > > Thanks a lot for that, I've pointed out this restriction before as we=
-ll.
-> > >
-> > > Since we had that issue multiple times now would it be somehow possib=
-le to automate rejecting new code getting this wrong?
-> > >
-> > > E.g. adding something to the DC_FP_START()/DC_FP_END() or kernel_fpu_=
-begin/end macros to make sure that they fail to compile on compolation unit=
-s where FP use is enabled?
-> > >
-> >
-> > Something like the below perhaps?
-> >
->
-> Never mind, that doesn't work. dc_fpu_begin() is an out-of-line
-> function, and so it is the DC_FP_START() macro that evaluates to
-> something that includes an arch-provided assert. I'll code something
-> and send it out.
+On 08/10/2025 01:05, Sven Püschel wrote:
+> Hi Krzysztof,
+> 
+> On 10/7/25 10:39 AM, Krzysztof Kozlowski wrote:
+>> On 07/10/2025 17:32, Sven Püschel wrote:
+>>> Add support for the RGA3 unit contained in the RK3588.
+>>>
+>>> Only a basic feature set consisting of scaling and color conversion is
+>>> implemented. Advanced features like rotation and cropping will just be
+>>> ignored. Also the BT601F color space conversion is currently hard coded.
+>>>
+>>> The register address defines were copied from the
+>>> vendor Rockchip kernel sources and slightly adjusted to not start at 0
+>>> again for the cmd registers.
+>>>
+>>> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+>>> ---
+>>>   drivers/media/platform/rockchip/rga/Makefile  |   2 +-
+>>>   drivers/media/platform/rockchip/rga/rga.c     |   4 +
+>>>   drivers/media/platform/rockchip/rga/rga.h     |   2 +-
+>>>   drivers/media/platform/rockchip/rga/rga3-hw.c | 490 ++++++++++++++++++++++++++
+>>>   drivers/media/platform/rockchip/rga/rga3-hw.h | 186 ++++++++++
+>>>   5 files changed, 682 insertions(+), 2 deletions(-)
+>> Your order of patches is a mess. DTS cannot be in the middle. In fact,
+>> DTS should not be even in this patchset, because you are targeting media.
+> 
+> sorry to bother you, but could you go into a bit more detail on how it 
+> should be done correctly?
 
-OK, so as it turns out, the logic already exists to force a build time
-error in this case. However, due to the way the amdgpu driver
-constructs its own API around kernel_fpu_begin() and kernel_fpu_end(),
-the logic never fires for the users for DC_FP_START.
+DTS cannot be before drivers, because this suggests that drivers depends
+on DTS, which would be a NAK. See also maintainer soc profile. To avoid
+having such impression of fake dependency, DTS must be placed at the end
+of patchset (except the obvious part: nothing in your code can depend on
+it).
 
-It is sufficient to include linux/fpu.h:
-
-diff --git a/drivers/gpu/drm/amd/display/dc/os_types.h
-b/drivers/gpu/drm/amd/display/dc/os_types.h
-index 782316348941..6ef9b7f5e099 100644
---- a/drivers/gpu/drm/amd/display/dc/os_types.h
-+++ b/drivers/gpu/drm/amd/display/dc/os_types.h
-@@ -32,6 +32,7 @@
- #include <linux/delay.h>
- #include <linux/mm.h>
- #include <linux/vmalloc.h>
-+#include <linux/fpu.h>
-
- #include <asm/byteorder.h>
-
-Maybe this could be folded into this patch?
+Best regards,
+Krzysztof
 
