@@ -4,167 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5926CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 20:46:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF87ECCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 20:58:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=LLw7LAl3W9Gfi3zx88F0A8c2LqwMzoBMxjou/u43v1w=; b=l67roTC7S4kzkD9L+cfR3PfQYi
-	KnLDf4tbeLXy6axrb8XWRJFBZY9aHpqsRkRUolpKTNMjp9juTAS355KSSy7xMfDF4Ljayo+yfgXgj
-	E3RInfI0O4ctcOBBmDMM9bB1XAgxotC6+64h58Qb+bUwsk8gpvzPR7GOwgZX0iVwsD26WmbluyZzY
-	XEiQF+f2pVJum0Xuv9MZkxWBW51DXIEcuXhmHpY0knQh10WZnxCHNwN13SRIYmeFW+SXX4BuZMyOJ
-	vyadDhYQDH/K7EdqCKABYonWJjpiBK0vZOscgJzbT8Waf6TV/HwaJzZ/SgZRGopGw61ZUpf5qJhJB
-	uau6oO/A==;
+	bh=fl2tFRUpQM4OCmfYIfFGqaiI2ia4UJsXD4SyoInbnwQ=; b=RWBoYVlvDKQUgMql3DCWHgNDzZ
+	1/3+hx4Y65MxMeASVHiH55aVYpjqgfNmh0matir5k8Baz5o0olsJzaJRFljZhg65XxAHQVMdgUp2X
+	tBGchS5vHt5CVzeC+SjEBfUukMYCtpyU1wxRQ+3d0iOaCT27MVVxv/nJX7Ixsj7XhJ9UpysQIx+KJ
+	0Z2aXe7aho63XXaPvn9pJgdQ8GeoJZpckVm3sQgAeeylTJPZs2BTuu3z1xCCpmD4SKu3fCVWkPBzD
+	EK6doV7i6c/EMFrxeQe9woK8ZIAMFl5ZP2XXh22/jDMRutiHAOGAIbBYFrbgUeXCi+BrcLGWEFoIa
+	oXQLl/fg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6b3W-00000004f4o-1bMc;
-	Wed, 08 Oct 2025 20:46:38 +0000
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
+	id 1v6bFH-00000004fkx-3sUn;
+	Wed, 08 Oct 2025 20:58:47 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6b3S-00000004f3z-2CLP
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Oct 2025 20:46:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nHUXiVX6Hz5CN8W72Eh16HrOQbDsXPPH8D+lPAKdrF+2amDa0BLP6JsEfA0fxS16xURAdR3CBi7SW//ffnVZDfz7/j9Iap3VtHUEjmnK31jfaBcDYZLnx+ukfGxWxxBtwiG1z8O0e6t8Xo4tncpirhPbFkldVf6PeAMCfncMMovPQjsR7+JjEhOlZJXdhJ2GPU0RKaHFe+EpXLPEe3xdtFJ0228ekwHX4zmBhH9QHhGF+2XrVrt91SDbHnwdYLsHEWPlzLg9J4EmBMUC50hnkNEmXXkyFxsD4RQB1CqPXHxyWhIAMOIuwX9OsR88JZGwdhiVH3tmjtSzpd74rB44bQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=LLw7LAl3W9Gfi3zx88F0A8c2LqwMzoBMxjou/u43v1w=;
- b=tc7IHvTg17V4L1eJ8g6mPK/CAKIzC09QWck4cOVLp+dgsl/9artvTV6UfdY75rPn5cbZvysBrogAkqrlR9zi2ZXn6MpEKEOtcfwgrd71xU1ubDWVLWdi/5dEIBBCTslH1EGixqjWMbZsSIaPUKiIu3z44ZaMFmKVEzk8+RbjOf6zPUVvf9OvV0SbeWdOPv9cw2xSARJHo0tpHWq1xzAXugDt4UgqryM9IZxtmnZpW9qYfO33mQOApJgXNWh4RqOrPUof6fy47YzbCt+WRqqXDRknDHnsMMZ49Y/LZzkdX91Eh1o+WF59k3kNvzsIb2KIaouUBGC/vAAKKqevLnW+OQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=sch.bme.hu; dmarc=pass action=none header.from=sch.bme.hu;
- dkim=pass header.d=sch.bme.hu; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sch.bme.hu;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=LLw7LAl3W9Gfi3zx88F0A8c2LqwMzoBMxjou/u43v1w=;
- b=srZmrjVdo0KwjY2uLrVk1jOjrX8rVEOxkq6iYHbATP6R/N62438VA3+csPVW/1QI9tyI8O+8mO4wO3AGvXinJg7lZI9p7KrnTQuzyT9Ifv/fCoxpbLZU3Z4qx/ajNol308T5ufe0Pfjn6OR/T4AkM3JAbh8l70Xnoy+TWjh2BmY=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=sch.bme.hu;
-Received: from PAWPR04MB9806.eurprd04.prod.outlook.com (2603:10a6:102:389::22)
- by FRWPR04MB11151.eurprd04.prod.outlook.com (2603:10a6:d10:170::15) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.9; Wed, 8 Oct
- 2025 20:46:24 +0000
-Received: from PAWPR04MB9806.eurprd04.prod.outlook.com
- ([fe80::7619:14c3:6aaa:fae5]) by PAWPR04MB9806.eurprd04.prod.outlook.com
- ([fe80::7619:14c3:6aaa:fae5%6]) with mapi id 15.20.9203.007; Wed, 8 Oct 2025
- 20:46:23 +0000
-Message-ID: <ee87c8c2-eaa2-4fb2-98b6-1da0cabee056@sch.bme.hu>
-Date: Wed, 8 Oct 2025 22:46:20 +0200
-User-Agent: Mozilla Thunderbird
-Subject: Re:
-To: Kamel Bouhara <kamel.bouhara@bootlin.com>,
- Dharma Balasubiramani <dharma.b@microchip.com>, g@tpx1.home
-Cc: William Breathitt Gray <wbg@kernel.org>, =?UTF-8?B?QmVuY2UgQ3PDs2vDoXM=?=
- <bence98@sch.bme.hu>, linux-arm-kernel@lists.infradead.org,
- linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20251006-microchip-tcb-v1-1-09c19181bb4a@microchip.com>
- <ijigaljlomxtyoy6ha2czocr7gnjqfdxs6kuhg3w4jxlwj4cr5@yum4paorabnm>
-Content-Language: en-US
-From: =?UTF-8?B?QmVuY2UgQ3PDs2vDoXM=?= <bence98@sch.bme.hu>
-In-Reply-To: <ijigaljlomxtyoy6ha2czocr7gnjqfdxs6kuhg3w4jxlwj4cr5@yum4paorabnm>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: AM0PR07CA0012.eurprd07.prod.outlook.com
- (2603:10a6:208:ac::25) To PAWPR04MB9806.eurprd04.prod.outlook.com
- (2603:10a6:102:389::22)
+	id 1v6bFF-00000004fkY-1FkK;
+	Wed, 08 Oct 2025 20:58:46 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id A13D1402B9;
+	Wed,  8 Oct 2025 20:58:44 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE588C4CEE7;
+	Wed,  8 Oct 2025 20:58:40 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759957124;
+	bh=u+7t08X/+SbXaDtAVRzGtlvNbiihuB51BPXTkQ6Q1NQ=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=CYiBhD9nU7UHGrRGOhKpxtOeu42UNvpeEXnvJKO1AnKCri3uTHSCori2F/6oV6Ao/
+	 uuJokJ8HQ08GhcO0eTjQALWfr1p6RAayHNshP7rPXMZGXaJPYImHTQVl9jLOpFgYOh
+	 FA94dHDio0zVtvWA55xRllxDJKRTjgnx6lZKjicRCev47oZHY6UsXym1Tg2qO2y02R
+	 7N5TFRQk4qL72c3x0zMX3G/Nqr0xQP09nlSvOIXT8uMWF91fMJukIu0h0FIMjlPTzq
+	 hHHkTXlTOVVOOzW5mY7EOaTpZGvjM0M0+a1RftrIMGUKeTkxcSUlAyY60AejzPWlrt
+	 RbDZyraGvszpA==
+Date: Wed, 8 Oct 2025 21:58:38 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Roy Luo <royluo@google.com>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+	Philipp Zabel <p.zabel@pengutronix.de>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Joy Chakraborty <joychakr@google.com>,
+	Naveen Kumar <mnkumar@google.com>,
+	Badhri Jagan Sridharan <badhri@google.com>,
+	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org
+Subject: Re: [PATCH v2 1/4] dt-bindings: usb: dwc3: Add Google Tensor G5 DWC3
+Message-ID: <20251008-slider-uncombed-66790ea92ea0@spud>
+References: <20251008060000.3136021-1-royluo@google.com>
+ <20251008060000.3136021-2-royluo@google.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: PAWPR04MB9806:EE_|FRWPR04MB11151:EE_
-X-MS-Office365-Filtering-Correlation-Id: 0bd8b9e9-1f38-494e-e83a-08de06abbdd2
-X-LD-Processed: 79f0ae63-ef51-49f5-9f51-78a3346e1507,ExtFwd
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|10070799003|376014|366016|1800799024|41320700013|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?eXpYYjFKdDF4SkpXU1RrQzE1M0FneUhCWTZnOFdQVDNLNnJrNmpwZm1EeXhM?=
- =?utf-8?B?ODVNUjF4QmNXbVl2R3BBT1IxMHlDYlM3SVJDcnpZTVZaTUNpUCs1OVloMjVK?=
- =?utf-8?B?S05wOGFEdWdyVG9JU0MzZnpyRXRZVEJ0U2RSRFlmRjlGMUNmNjZsMlNwOUh6?=
- =?utf-8?B?OW1OSjZnYmw3bldTRFpxMHZoTlJJSHRYMFVvUU1xR3VXcW5rWkx1VVFjekdL?=
- =?utf-8?B?eEEyakMvbkdTRWI3WndNcktuYXYzSkFIOGt6OURWZFdzaXBYOGJZcjBhTE5V?=
- =?utf-8?B?TDhPUXBMSmtidG9ic1ZBUER0Q2RtZWw2cmJGenpYSU9idGJERW1wOHdzQUc0?=
- =?utf-8?B?RTdTN3NsRDBEWXhaK3JkamZJQ1RYSVN3NUhmNStXL2hXdEdKSFlKS05lWVdZ?=
- =?utf-8?B?QnBsdlpFc29ydUN4b3kyWUdIQmNtbkoveTNOUHQvclR3aVM1ZXhGVi8wSlVy?=
- =?utf-8?B?U2VPNXY4MldOcFFuUkFzZGh4MVdIbW91QTBNc2RPLzRWWGlOVUpSdDBRYnJq?=
- =?utf-8?B?YjUrQ0hoWit0ejJhT1cweEo3aTlXNzhFN3dSKzFXSEZSYzB4czFMTHJ4aEVJ?=
- =?utf-8?B?NG9kcXpkcmlQTnlMb2Z6RkJHREtRQ3RHSkh0QTlNdEVLVmdsTWZCbXpIanQ0?=
- =?utf-8?B?OHl4eEV0RjRIaTB5OFlXVVFkMEZ3blBHOWtTeWlZWWhsWDRQVDdDQnNjUzFm?=
- =?utf-8?B?V0dnRmYwN1pqUFhxVzdTUFlMSFY0b0tkRE1CbFNHT2RhblV6eHBqMGtkWU1x?=
- =?utf-8?B?UlQ1ZW9jZWNOS2hZT3ZkRUE1N1Q5SHp4ZXJYRnRjdzRVUjA1ZGlOSStOWHgw?=
- =?utf-8?B?UEN2Tnc0UWkzaVYzaVNWNWNXZzhQTW9MdFQrbzZydUtKVHd1aVRnbmtucTdD?=
- =?utf-8?B?ME1ESWx4YnVoQW91MzRMTFgvTHR3YTR3OVY0Z2QwRUpIUW5LcDY4am1YU2gy?=
- =?utf-8?B?SDFDQzRyZldzbUdCeEhvQ0N2c2lqYm5mL2plUFAyWERCVm0wOGw3Z0NpTWRP?=
- =?utf-8?B?QWdPazFSUmFMaXNpZU5UaHVwRm5EMTR6NThJOCtISElVU0FscFBJL2pZVzdo?=
- =?utf-8?B?Nk5qMkI4cXE2WTg3M2tZMmZqOEs5c3hXdTBqVWpzMTZncWphMUp5UGkzTDMx?=
- =?utf-8?B?QTh5TVZVcVNKWndKSVRtb0o2eS9zdk9sME1SZ2x2em5jRjQzdHFCNmtqNE9k?=
- =?utf-8?B?MjBCNDVoUWwvWG54QWdXbHJpZm45TDBRbUdhaG9nMExTVmlEMnp1QWp4RWNx?=
- =?utf-8?B?VGVIVDJHbTJlRUNWMmJtUjd2NmJXVWxvSXdHUDVZNjRmTkUxZnUwME5Dcng0?=
- =?utf-8?B?U3BxZ2VVQkZ6NnpWZ1p5NkFRbm1WMW1UOUtNcmhPUEZPZGdpdHJvS3R0M1Q3?=
- =?utf-8?B?WHNSMHhTV0MxODNaM2o2OFByd2E1QjJmOGE1YmFuMzYvNzA5Zm5aRThPWVRo?=
- =?utf-8?B?OXZGU3QwNG02dGRCR21vZGVGSUNRSGpGanB2UmpwZi9OcU10TkFZeHRjS1FV?=
- =?utf-8?B?dG1pVDFpL29DMm1XYnJVRlQ1SWVlMWpZaC9kZTVodG9naGNsZitKeVEwVGQ1?=
- =?utf-8?B?L244V0RaSm1rckt2TVIwL3hNT3hUV2MzZWZtUmMyNTBaWGpGSjRaVlN4MHBo?=
- =?utf-8?B?TENhdzI3RUlzdXJMZGFHcmpUQ0lnRjVwczRsd1IwL1FHRkdjWCtIQ21zbndP?=
- =?utf-8?B?SHhMamRKeTdtdGlDekdlQjAxWjdUYVBGaE8yT09FTDg4cEJmQTRqcURTRlFK?=
- =?utf-8?B?ZkNKTkx1OHNOcVZFSTZzTEMzdEt3ZGFReGw5NWhsYmdmM2RrTE1DNTMzRk9l?=
- =?utf-8?B?YjJKVmhLTmh5dDFFb1RUWCsxditlcHZnOURWM01oWFdneSt0T0o3S2U5Qjd6?=
- =?utf-8?Q?qyExixs75vraf?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAWPR04MB9806.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(10070799003)(376014)(366016)(1800799024)(41320700013)(7053199007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?anBvUnNxOE1zSHJNeWhVaUJYMTBSNTZ5cTdUOTl1cDNiQnRjNmhzK2E5VE90?=
- =?utf-8?B?WWpjU09KYzVpSytUaVh4b3ZEUzExa2lqTng0RldvWTIwT1VEWW9PSWFIR0tK?=
- =?utf-8?B?R084MGJULytQczNvUHA2dUYwL3Zrejc4U2dWOUE2SVhhcTkrQUplOWtHYzEx?=
- =?utf-8?B?N0JlaWZTS1RaMHpHMUcyclpBNGZZb1FFZnowVzBCQlBoanVoV2d1VTF3OXdO?=
- =?utf-8?B?K2dZdCtncld5aGpiWjBvZHkzdFpuSlF5eXB5bG5ZTjR2ZXJXVis3bG5hbk5q?=
- =?utf-8?B?N0JRVlUwTkhubEdqeXlITFNQSTVrZk1qQ0gzbkxWT3JrZXZ1b3ZhTzRiWXgz?=
- =?utf-8?B?Sm9CWWhMekJ1ZHB5VWRIZ2JCM3dJS2JmS3Z5Mmx0bmJEVmVGbVl5Y0dKTVA4?=
- =?utf-8?B?YzVsaHZXckp1QVRDNjJ2dmpFSVIwNnlqQncyYkFKT21kVzdXOFNtMFloYmg1?=
- =?utf-8?B?ZE56dWd1ZTFMeXFFdmdZcU9vUExYZlF0SnRpME1lczNMbVl6ZGFodHlCKzZw?=
- =?utf-8?B?YlkwRndJa1pYL2lwWnpiVDhHS0FrWFlPbzdxcTNHL3RIT2tyWktTNzl5Yklw?=
- =?utf-8?B?dVV1VGJWRkZGbmtWZW1BSWJtdnB5RHFoL1J4UEsrazI3UTZld0ZOYkpNQ1lk?=
- =?utf-8?B?ZHlDVkVlN1dWY2NMQ3B3SEZ3N1pMR2xEY2l3cFBIK0ZJOTFGVUxyYzkrR1ZC?=
- =?utf-8?B?VFlWbDdqZG81NGRyT2FmSVJIUGJINUUycG9kL2xPZGV6MzZWRUxEdXB6TXZF?=
- =?utf-8?B?S1piSmRkVitQL0EwNGwzMFVSNEk5bWt2N29xbGJZUklWZHR6ejhFV2I2OEpu?=
- =?utf-8?B?S1Y2OGVZVGJzUW5hOTdFcmhpbXZuUGVaajFPSVE5MmJ0QXNUN2xzbXB1OEFS?=
- =?utf-8?B?Yjg3SXZKVW1vWitadldXdVpDUFU0NEFteW43RHZvK1JISW53OXFHUUdVRTZi?=
- =?utf-8?B?WEk2c1p5ODcxOGEvN3hIdUFNK05IRjNnelFDNHk4OGxvVGRNeHBtU1hZd21O?=
- =?utf-8?B?bGxFb09tdjVmcCtwRlJZQnIzK1NzMlp1Y2ZncnlMQXRYZW9iTWdGU3VaREFC?=
- =?utf-8?B?UVhad1JMcTZaa1FpSFlqY09zaWFhTkpFbVVwcmpmc1BHOVF6bGYrTzlmdENH?=
- =?utf-8?B?amtZSUMwRy94enlGdEp3bmh5WEgvUUJEN24wTXlYYlVwc3MvOXVIS1JZN1FQ?=
- =?utf-8?B?bjY5WDJaVGZ4OWxGYkdzRzhIWHIzYTU2a01EWkdFNE1ucjVNeGdvb3NNZVJj?=
- =?utf-8?B?cXh5T3o1L0dJM0dDOC9lc2NNUVNvcTFMc3hnMlNhbVRFUFZrWXhaWk5UMWNn?=
- =?utf-8?B?MmhWdlpJQUNVWnk1cWQ3N015MlVkVGNHRXJxeDBpR2FhSzZaT2lpejJIM3ZG?=
- =?utf-8?B?bEVaWFlZc3g1OGUrQ1FRWEliT0g2bzFuSlBvTHdsUDN5UldBS2F5bzVlSy9J?=
- =?utf-8?B?K2hGeWFIaDlBSUtCemNydHYrUGZuWk1Gc0kxekplQmxUQnhkc1dnM2ZBTnBU?=
- =?utf-8?B?bDRjQkt6U2dZOFBFVnltSkV2bU1rbTRBR0lJbUlUY3M0SXFKUnVvbmlVT1pP?=
- =?utf-8?B?K3NpNlpEVE8vSWRKSEIySDRDaExJSkF4cnBhc0pFOTd3WERHVGFvbVI5OWRJ?=
- =?utf-8?B?OVgwRDMzdHk3WWpwWjUvSFROQW4vUzZ6SlVEeDc2TGFXODFzY204Q3MrN2Fy?=
- =?utf-8?B?NkEwZFJIenBlUUpsYjhiRVArRzNBQ0JLdHJieWtXTUNhM3dwSTA2RVp2Y0N4?=
- =?utf-8?B?OFg3VWJIeDdEOTNIcmk5YUNYWUllTjV0Ky9JRmdGa0JFQi9pR1FYU3RsYUxJ?=
- =?utf-8?B?enIxaTluMUUyZjRkeXlSQVZsS2ZNS3JFTkNtSFVDNmpRUGNDdW00WFRhcEVp?=
- =?utf-8?B?OU1kRlNRWFJCeDF6ZklpRGt2MXlLLy8wZjVBbUo4U25yaHo0S2JIRU1MR0My?=
- =?utf-8?B?SVp2S2hNREZ3K2JhaFdGRytkdnpVekRqRm1XczVJVUFJV3BDc2RWWGRKQUhV?=
- =?utf-8?B?ZStidmpPa2pyS3pKRVR0RHAyc3QzcEh1NFlYbDFVQWxRYitRaWwzNGxWODVm?=
- =?utf-8?B?cjdLd0dGbXFDRmNUbFJ2dW1MOFB4SmZlM1d5RkxCVGFQT1RmNXFjcGdYZ0Np?=
- =?utf-8?B?RDg4Q2ZQVVVmaWpocWFQaUNINExNbjBtQW9uYnJCeElpSVpwUDdxdkNKVWNn?=
- =?utf-8?Q?u9sIUQ1B/mYFsJ0ugS4KpSk0A2/3Mp7gjchELLgk6Z6+?=
-X-OriginatorOrg: sch.bme.hu
-X-MS-Exchange-CrossTenant-Network-Message-Id: 0bd8b9e9-1f38-494e-e83a-08de06abbdd2
-X-MS-Exchange-CrossTenant-AuthSource: PAWPR04MB9806.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Oct 2025 20:46:22.9747
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 79f0ae63-ef51-49f5-9f51-78a3346e1507
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Xo9g+dfK6y4QCt8TMYlL4TVrOxfgG9AELNwdjZ3qqnd8LeMU4WEBI7DP+Rn4QO873zrLgOGyztF5iT5eFtomhQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: FRWPR04MB11151
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="H4E5skbR47wtHuC7"
+Content-Disposition: inline
+In-Reply-To: <20251008060000.3136021-2-royluo@google.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251008_134634_888655_207799BF 
-X-CRM114-Status: GOOD (  14.27  )
+X-CRM114-CacheID: sfid-20251008_135845_405540_2C2869F7 
+X-CRM114-Status: GOOD (  24.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -179,61 +88,240 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
 
-> On Mon, Oct 06, 2025 at 04:21:50PM +0530, Dharma Balasubiramani wrote:
-> 
-> Hello Dharma,
-> 
->> Mark the interrupt as IRQF_SHARED to permit multiple counter channels to
->> share the same TCB IRQ line.
->>
->> Each Timer/Counter Block (TCB) instance shares a single IRQ line among its
->> three internal channels. When multiple counter channels (e.g., counter@0
->> and counter@1) within the same TCB are enabled, the second call to
->> devm_request_irq() fails because the IRQ line is already requested by the
->> first channel.
->>
->> Fixes: e5d581396821 ("counter: microchip-tcb-capture: Add IRQ handling")
->> Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
->> ---
->>   drivers/counter/microchip-tcb-capture.c | 2 +-
->>   1 file changed, 1 insertion(+), 1 deletion(-)
->>
->> diff --git a/drivers/counter/microchip-tcb-capture.c b/drivers/counter/microchip-tcb-capture.c
->> index 1a299d1f350b..19d457ae4c3b 100644
->> --- a/drivers/counter/microchip-tcb-capture.c
->> +++ b/drivers/counter/microchip-tcb-capture.c
->> @@ -451,7 +451,7 @@ static void mchp_tc_irq_remove(void *ptr)
->>   static int mchp_tc_irq_enable(struct counter_device *const counter, int irq)
->>   {
->>   	struct mchp_tc_data *const priv = counter_priv(counter);
->> -	int ret = devm_request_irq(counter->parent, irq, mchp_tc_isr, 0,
->> +	int ret = devm_request_irq(counter->parent, irq, mchp_tc_isr, IRQF_SHARED,
->>   				   dev_name(counter->parent), counter);
->>
->>   	if (ret < 0)
->>
->> ---
->> base-commit: fd94619c43360eb44d28bd3ef326a4f85c600a07
->> change-id: 20251006-microchip-tcb-edd8aeae36c4
->>
-> 
-> This change makes sense, thanks !
-> 
-> Reviewed-by: Kamel Bouhara <kamel.bouhara@bootlin.com>
-> 
->> Best regards,
->> --
->> Dharma Balasubiramani <dharma.b@microchip.com>
->>
-> 
-> --
-> Kamel Bouhara, Bootlin
-> Embedded Linux and kernel engineering
-> https://bootlin.com
+--H4E5skbR47wtHuC7
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Looks reasonable to me as well.
+On Wed, Oct 08, 2025 at 05:59:57AM +0000, Roy Luo wrote:
+> Document the device tree bindings for the DWC3 USB controller found in
+> Google Tensor SoCs, starting with the G5 generation.
+>=20
+> The Tensor G5 silicon represents a complete architectural departure from
+> previous generations (like gs101), including entirely new clock/reset
+> schemes, top-level wrapper and register interface. Consequently,
+> existing Samsung/Exynos DWC3 USB bindings and drivers are incompatible,
+> necessitating this new device tree binding.
+>=20
+> The USB controller on Tensor G5 is based on Synopsys DWC3 IP and features
+> Dual-Role Device single port with hibernation support.
+>=20
+> Signed-off-by: Roy Luo <royluo@google.com>
+> ---
+>  .../bindings/usb/google,gs-dwc3.yaml          | 145 ++++++++++++++++++
+>  1 file changed, 145 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/usb/google,gs-dwc3.=
+yaml
+>=20
+> diff --git a/Documentation/devicetree/bindings/usb/google,gs-dwc3.yaml b/=
+Documentation/devicetree/bindings/usb/google,gs-dwc3.yaml
+> new file mode 100644
+> index 000000000000..9eb0bf726e8d
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/usb/google,gs-dwc3.yaml
 
-Reviewed-by: Bence Csókás <bence98@sch.bme.hu>
+filename matching the compatible please.
+
+> @@ -0,0 +1,145 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +# Copyright (c) 2025, Google LLC
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/usb/google,gs-dwc3.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Google Tensor Series (G5+) DWC3 USB SoC Controller
+> +
+> +maintainers:
+> +  - Roy Luo <royluo@google.com>
+> +
+> +description: |
+> +  Describes the DWC3 USB controller block implemented on Google Tensor S=
+oCs,
+> +  starting with the G5 generation. Based on Synopsys DWC3 IP, the contro=
+ller
+> +  features Dual-Role Device single port with hibernation add-on.
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - google,gs5-dwc3
+
+items is redundant here.
+
+> +
+> +  reg:
+> +    minItems: 3
+> +    maxItems: 3
+> +
+> +  reg-names:
+> +    description: |
+> +      The following memory regions must present:
+> +        - dwc3_core: Core DWC3 IP registers.
+> +        - host_cfg_csr: Hibernation control registers.
+> +        - usbint_csr: Hibernation interrupt registers.
+
+Put this into reg as an items list, and you can drop the min/max items
+=66rom there.
+Same applies to interrupts and power-domains.
+
+> +    items:
+> +      - const: dwc3_core
+> +      - const: host_cfg_csr
+> +      - const: usbint_csr
+> +
+> +  interrupts:
+> +    minItems: 3
+> +    maxItems: 3
+> +
+> +  interrupt-names:
+> +    description: |
+> +      The following interrupts must present:
+> +        - dwc_usb3: Core DWC3 interrupt.
+> +        - hs_pme_irq: High speed remote wakeup interrupt for hibernation.
+> +        - ss_pme_irq: Super speed remote wakeup interrupt for hibernatio=
+n.
+> +    items:
+> +      - const: dwc_usb3
+> +      - const: hs_pme_irq
+> +      - const: ss_pme_irq
+
+s/_irq//
+
+> +
+> +  clocks:
+> +    minItems: 3
+> +    maxItems: 3
+> +
+> +  clock-names:
+> +    minItems: 3
+> +    maxItems: 3
+> +
+> +  resets:
+> +    minItems: 5
+> +    maxItems: 5
+
+For clocks and resets, please provide descriptions. For clock-names, you
+provided no names and therefore cannot use the property since anything
+is valid!
+
+> +
+> +  reset-names:
+> +    items:
+> +      - const: usbc_non_sticky
+> +      - const: usbc_sticky
+> +      - const: usb_drd_bus
+> +      - const: u2phy_apb
+> +      - const: usb_top_csr
+
+"csr" is an odd thing to have in a reset name, since it usually means
+"control and status register". Why is it here.
+
+> +
+> +  power-domains:
+> +    minItems: 2
+> +    maxItems: 2
+> +
+> +  power-domain-names:
+> +    description: |
+> +      The following power domain must present:
+> +          - usb_psw_pd: The child power domain of usb_top_pd. Turning it=
+ on puts the controller
+> +                         into full power state, turning it off puts the =
+controller into power
+> +                         gated state.
+> +          - usb_top_pd: The parent power domain of usb_psw_pd. Turning i=
+t on puts the controller
+> +                         into power gated state, turning it off complete=
+ly shuts off the
+> +                         controller.
+> +    items:
+> +      - const: usb_psw_pd
+> +      - const: usb_top_pd
+
+s/_pd// at the very least, but I would question the need to put "usb" in
+any of the names given that this is a usb device.
+
+> +
+> +  iommus:
+> +    maxItems: 1
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - reg-names
+> +  - interrupts
+> +  - interrupt-names
+> +  - clocks
+> +  - resets
+> +  - reset-names
+> +  - power-domains
+> +  - power-domain-names
+> +
+> +allOf:
+> +  - $ref: snps,dwc3-common.yaml#
+> +
+> +unevaluatedProperties: false
+
+So every property from snps,dwc3-common.yaml is valid here, with any of
+the permitted values?
+
+> +
+> +examples:
+> +  - |
+> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
+> +    #include <dt-bindings/interrupt-controller/irq.h>
+> +    soc {
+> +        #address-cells =3D <2>;
+> +        #size-cells =3D <2>;
+> +
+> +        usb@c400000 {
+> +            compatible =3D "google,gs5-dwc3";
+> +            reg =3D <0 0x0c400000  0 0xd060>, <0 0x0c450000 0 0x14>, <0 =
+0x0c450020 0 0x8>;
+> +            reg-names =3D "dwc3_core", "host_cfg_csr", "usbint_csr";
+> +            interrupts =3D <GIC_SPI 580 IRQ_TYPE_LEVEL_HIGH 0>,
+> +                         <GIC_SPI 597 IRQ_TYPE_LEVEL_HIGH 0>,
+> +                         <GIC_SPI 598 IRQ_TYPE_LEVEL_HIGH 0>;
+> +            interrupt-names =3D "dwc_usb3", "hs_pme_irq", "ss_pme_irq";
+> +            clocks =3D <&hsion_usbc_non_sticky_clk>,  <&hsion_usbc_stick=
+y_clk>,
+> +                     <&hsion_u2phy_apb_clk>;
+> +            clock-names =3D "usbc_non_sticky", "usbc_sticky", "u2phy_apb=
+";
+> +            resets =3D <&hsion_resets_usbc_non_sticky>, <&hsion_resets_u=
+sbc_sticky>,
+> +                     <&hsion_resets_usb_drd_bus>, <&hsion_resets_u2phy_a=
+pb>,
+> +                     <&hsion_resets_usb_top_csr>;
+> +            reset-names =3D "usbc_non_sticky", "usbc_sticky",
+> +                     "usb_drd_bus", "u2phy_apb",
+> +                     "usb_top_csr";
+> +            power-domains =3D <&hsio_n_usb_psw_pd>, <&hsio_n_usb_pd>;
+> +            power-domain-names =3D "usb_psw_pd", "usb_top_pd";
+> +            phys =3D <&usb_phy 0>;
+> +            phy-names =3D "usb2-phy";
+> +            snps,quirk-frame-length-adjustment =3D <0x20>;
+> +            snps,gfladj-refclk-lpm-sel-quirk;
+> +            snps,incr-burst-type-adjustment =3D <4>;
+> +        };
+> +    };
+> +...
+
+pw-bot: cr
+
+--H4E5skbR47wtHuC7
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaObQfgAKCRB4tDGHoIJi
+0oWjAP9YqWk7a/FyW8foR/yT+VNOq+XI66exHNNQBPvOdVgC9AEArKBNkcUi0g8z
+w38R4cEA+3VrU78OnQDQNAfK5wcUdg8=
+=Lg9K
+-----END PGP SIGNATURE-----
+
+--H4E5skbR47wtHuC7--
 
