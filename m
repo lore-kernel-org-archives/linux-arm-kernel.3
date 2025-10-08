@@ -4,76 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF87ECCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 20:58:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 99654CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 21:13:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fl2tFRUpQM4OCmfYIfFGqaiI2ia4UJsXD4SyoInbnwQ=; b=RWBoYVlvDKQUgMql3DCWHgNDzZ
-	1/3+hx4Y65MxMeASVHiH55aVYpjqgfNmh0matir5k8Baz5o0olsJzaJRFljZhg65XxAHQVMdgUp2X
-	tBGchS5vHt5CVzeC+SjEBfUukMYCtpyU1wxRQ+3d0iOaCT27MVVxv/nJX7Ixsj7XhJ9UpysQIx+KJ
-	0Z2aXe7aho63XXaPvn9pJgdQ8GeoJZpckVm3sQgAeeylTJPZs2BTuu3z1xCCpmD4SKu3fCVWkPBzD
-	EK6doV7i6c/EMFrxeQe9woK8ZIAMFl5ZP2XXh22/jDMRutiHAOGAIbBYFrbgUeXCi+BrcLGWEFoIa
-	oXQLl/fg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qLh4JfqdToTCSFHPlw/HO3cQZJoXYFuBoaG7iGYgs6U=; b=3LklypylFAGxpkL9fCRmnuu2By
+	A6b9Haz5kJ2bXrqokuOhw1AMrsj/W2Hl0/M47UT/mlPqQtXjgEhrzoIke9lqVr4sVYy1EdmmX79HO
+	6IIKTDw+kNYVtq140r6S7UrIApRiuDy7EWk2Ow2nEqXqecATCrTkrvPKE0nKCXMNFjdPP6Fb4bfmO
+	jehds2TnjP6FP++euBVTchCmRXEQHKr6nFSPa1UTwEBWIF5XWALkJTp45qW+4bUDq2bBttvrD7HeF
+	nemHD3xgngTrcAgyRJR6EAJLJyPPwWl2O1L8eNACqNc8DOOKLm0jdPgE1Z3iBZCugawR0MdkpdBaJ
+	Gmx3xJJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6bFH-00000004fkx-3sUn;
-	Wed, 08 Oct 2025 20:58:47 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v6bTP-00000004gkJ-2AsN;
+	Wed, 08 Oct 2025 21:13:23 +0000
+Received: from mail-pf1-f172.google.com ([209.85.210.172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6bFF-00000004fkY-1FkK;
-	Wed, 08 Oct 2025 20:58:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A13D1402B9;
-	Wed,  8 Oct 2025 20:58:44 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AE588C4CEE7;
-	Wed,  8 Oct 2025 20:58:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759957124;
-	bh=u+7t08X/+SbXaDtAVRzGtlvNbiihuB51BPXTkQ6Q1NQ=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=CYiBhD9nU7UHGrRGOhKpxtOeu42UNvpeEXnvJKO1AnKCri3uTHSCori2F/6oV6Ao/
-	 uuJokJ8HQ08GhcO0eTjQALWfr1p6RAayHNshP7rPXMZGXaJPYImHTQVl9jLOpFgYOh
-	 FA94dHDio0zVtvWA55xRllxDJKRTjgnx6lZKjicRCev47oZHY6UsXym1Tg2qO2y02R
-	 7N5TFRQk4qL72c3x0zMX3G/Nqr0xQP09nlSvOIXT8uMWF91fMJukIu0h0FIMjlPTzq
-	 hHHkTXlTOVVOOzW5mY7EOaTpZGvjM0M0+a1RftrIMGUKeTkxcSUlAyY60AejzPWlrt
-	 RbDZyraGvszpA==
-Date: Wed, 8 Oct 2025 21:58:38 +0100
-From: Conor Dooley <conor@kernel.org>
-To: Roy Luo <royluo@google.com>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Joy Chakraborty <joychakr@google.com>,
-	Naveen Kumar <mnkumar@google.com>,
-	Badhri Jagan Sridharan <badhri@google.com>,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
+	id 1v6bTM-00000004gjt-2EK2
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Oct 2025 21:13:22 +0000
+Received: by mail-pf1-f172.google.com with SMTP id d2e1a72fcca58-7810214dda9so49347b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Oct 2025 14:13:19 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759957999; x=1760562799;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=qLh4JfqdToTCSFHPlw/HO3cQZJoXYFuBoaG7iGYgs6U=;
+        b=WG7vW8E1GM3RCee8Wrwg6ziklTBw7m65O0edAN8kGOB5GgGWDDRX17F02bNZBlbQR7
+         /JUR+IbV9aMnD489Z0I5oX801YCPsPNb4ojKFthqSZoYoz86ZaXVkSD2ahIHyRRw+u/E
+         cAI+yoQruwAMyFDC/QvzhwqwifXtZCkESF7n6sgtvUue8EKAOdw//ptIgRBxKKxNCsYw
+         YRhlUnSkTfWdAPKy0gaMx26aGwYgcr07683Y64lxZyabd4q1e9K6L5C9ofk5YQqxSttB
+         rxqk+zLFe9vRkYxLfbcVSeoqqn4PA5GakRLMvOmfHBUrRFDTOYHkHGTGU7vJ9ocYi0IS
+         4NSg==
+X-Forwarded-Encrypted: i=1; AJvYcCW8NzehdtXeXmwBhJ/35//qMt8qM2B46s6JWTjhAuwn0FGwTHMf/s9Xcd3ak15m8Z6s9LA/tg822RJilLXtbwCC@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz+wNGpSyXIKp7anXGVpMq9apEHEXDyLS/hdm3CfxsS71Epnxsc
+	ZV+yuQer4SZxCIXTcphssPz8K2g8skqqmM+vZ/Ed1s2ZEh3cAiYxjIFq
+X-Gm-Gg: ASbGnct95OnTy2BhgMKg9j0GJM8VdqSmJhHjr3STggtzN0GE8NHiEPJm3P8Oo/gypzq
+	KM+FzXlsmUR9U/F10avp8SKAldsWJR+UNvmmimufuwYsTwOW7UqwdRSnWgDUGZEaVbaG2GA4x1h
+	fMXpgjwkqsJ3Qoom6P5CrEF+II6vWQ/QKf0tp1DnKyVHUp1qcuSISy8aWqNBqhlaiAL3BHs+NT3
+	tw3qguXqwwKIQ0pfGAGibtVMl2Q660wHJUbBEKt8OLXo3poPLDwr/gTHUzlywmFXbIIEltyUFnb
+	3hxu6mjcJ26WHSWFYbDErf6P8K26gEHxMbXbwyg/sOQnURWcm5nIi3ajsMBnQX1fLuBOnd2ytR1
+	3eKMG/IC/NCm3R3zJ1xNcsj+dyms9hVN9qiI3y61NvgfFcDYsEi/mPbb3uGupwfzFxbhz41WG5y
+	x8msqVKZ5cMJm+sZDD6dCHdz0=
+X-Google-Smtp-Source: AGHT+IFSVR1KgZV2nCh81HvRh5o+4N6nOInRYrHDDvVbq5J5rsHIk6/TNC0RmNewXwvlmXbU/eC8yw==
+X-Received: by 2002:a05:6a00:a589:b0:781:21db:4e06 with SMTP id d2e1a72fcca58-79382794da2mr3112777b3a.0.1759957998850;
+        Wed, 08 Oct 2025 14:13:18 -0700 (PDT)
+Received: from localhost ([218.152.98.97])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-794e33efc46sm666364b3a.74.2025.10.08.14.13.14
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 08 Oct 2025 14:13:18 -0700 (PDT)
+From: Yunseong Kim <ysk@kzalloc.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	James Morse <james.morse@arm.com>,
+	Yeoreum Yun <yeoreum.yun@arm.com>,
+	Vincenzo Frascino <vincenzo.frascino@arm.com>
+Cc: Marc Zyngier <maz@kernel.org>,
+	Mark Brown <broonie@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+	Alexander Potapenko <glider@google.com>,
+	Andrey Konovalov <andreyknvl@gmail.com>,
+	Dmitry Vyukov <dvyukov@google.com>,
 	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH v2 1/4] dt-bindings: usb: dwc3: Add Google Tensor G5 DWC3
-Message-ID: <20251008-slider-uncombed-66790ea92ea0@spud>
-References: <20251008060000.3136021-1-royluo@google.com>
- <20251008060000.3136021-2-royluo@google.com>
+	linux-kernel@vger.kernel.org,
+	kasan-dev@googlegroups.com,
+	Yunseong Kim <ysk@kzalloc.com>
+Subject: [PATCH] arm64: cpufeature: Don't cpu_enable_mte() when KASAN_GENERIC is active
+Date: Wed,  8 Oct 2025 21:04:27 +0000
+Message-ID: <20251008210425.125021-3-ysk@kzalloc.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="H4E5skbR47wtHuC7"
-Content-Disposition: inline
-In-Reply-To: <20251008060000.3136021-2-royluo@google.com>
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251008_135845_405540_2C2869F7 
-X-CRM114-Status: GOOD (  24.16  )
+X-CRM114-CacheID: sfid-20251008_141320_577527_68E579A9 
+X-CRM114-Status: GOOD (  18.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,240 +99,172 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+When a kernel built with CONFIG_KASAN_GENERIC=y is booted on MTE-capable
+hardware, a kernel panic occurs early in the boot process. The crash
+happens when the CPU feature detection logic attempts to enable the Memory
+Tagging Extension (MTE) via cpu_enable_mte().
 
---H4E5skbR47wtHuC7
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Because the kernel is instrumented by the software-only Generic KASAN,
+the code within cpu_enable_mte() itself is instrumented. This leads to
+a fatal memory access fault within KASAN's shadow memory region when
+the MTE initialization is attempted. Currently, the only workaround is
+to boot with the "arm64.nomte" kernel parameter.
 
-On Wed, Oct 08, 2025 at 05:59:57AM +0000, Roy Luo wrote:
-> Document the device tree bindings for the DWC3 USB controller found in
-> Google Tensor SoCs, starting with the G5 generation.
->=20
-> The Tensor G5 silicon represents a complete architectural departure from
-> previous generations (like gs101), including entirely new clock/reset
-> schemes, top-level wrapper and register interface. Consequently,
-> existing Samsung/Exynos DWC3 USB bindings and drivers are incompatible,
-> necessitating this new device tree binding.
->=20
-> The USB controller on Tensor G5 is based on Synopsys DWC3 IP and features
-> Dual-Role Device single port with hibernation support.
->=20
-> Signed-off-by: Roy Luo <royluo@google.com>
-> ---
->  .../bindings/usb/google,gs-dwc3.yaml          | 145 ++++++++++++++++++
->  1 file changed, 145 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/usb/google,gs-dwc3.=
-yaml
->=20
-> diff --git a/Documentation/devicetree/bindings/usb/google,gs-dwc3.yaml b/=
-Documentation/devicetree/bindings/usb/google,gs-dwc3.yaml
-> new file mode 100644
-> index 000000000000..9eb0bf726e8d
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/usb/google,gs-dwc3.yaml
+This bug was discovered during work on supporting the Debian debug kernel
+on the Arm v9.2 RADXA Orion O6 board:
 
-filename matching the compatible please.
+ https://salsa.debian.org/kernel-team/linux/-/merge_requests/1670
 
-> @@ -0,0 +1,145 @@
-> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
-> +# Copyright (c) 2025, Google LLC
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/usb/google,gs-dwc3.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Google Tensor Series (G5+) DWC3 USB SoC Controller
-> +
-> +maintainers:
-> +  - Roy Luo <royluo@google.com>
-> +
-> +description: |
-> +  Describes the DWC3 USB controller block implemented on Google Tensor S=
-oCs,
-> +  starting with the G5 generation. Based on Synopsys DWC3 IP, the contro=
-ller
-> +  features Dual-Role Device single port with hibernation add-on.
-> +
-> +properties:
-> +  compatible:
-> +    items:
-> +      - enum:
-> +          - google,gs5-dwc3
+Related kernel configs:
 
-items is redundant here.
+ CONFIG_ARM64_AS_HAS_MTE=y
+ CONFIG_ARM64_MTE=y
 
-> +
-> +  reg:
-> +    minItems: 3
-> +    maxItems: 3
-> +
-> +  reg-names:
-> +    description: |
-> +      The following memory regions must present:
-> +        - dwc3_core: Core DWC3 IP registers.
-> +        - host_cfg_csr: Hibernation control registers.
-> +        - usbint_csr: Hibernation interrupt registers.
+ CONFIG_KASAN_SHADOW_OFFSET=0xdfff800000000000
+ CONFIG_HAVE_ARCH_KASAN=y
+ CONFIG_HAVE_ARCH_KASAN_SW_TAGS=y
+ CONFIG_HAVE_ARCH_KASAN_HW_TAGS=y
+ CONFIG_HAVE_ARCH_KASAN_VMALLOC=y
+ CONFIG_CC_HAS_KASAN_GENERIC=y
+ CONFIG_CC_HAS_KASAN_SW_TAGS=y
 
-Put this into reg as an items list, and you can drop the min/max items
-=66rom there.
-Same applies to interrupts and power-domains.
+ CONFIG_KASAN=y
+ CONFIG_CC_HAS_KASAN_MEMINTRINSIC_PREFIX=y
+ CONFIG_KASAN_GENERIC=y
 
-> +    items:
-> +      - const: dwc3_core
-> +      - const: host_cfg_csr
-> +      - const: usbint_csr
-> +
-> +  interrupts:
-> +    minItems: 3
-> +    maxItems: 3
-> +
-> +  interrupt-names:
-> +    description: |
-> +      The following interrupts must present:
-> +        - dwc_usb3: Core DWC3 interrupt.
-> +        - hs_pme_irq: High speed remote wakeup interrupt for hibernation.
-> +        - ss_pme_irq: Super speed remote wakeup interrupt for hibernatio=
-n.
-> +    items:
-> +      - const: dwc_usb3
-> +      - const: hs_pme_irq
-> +      - const: ss_pme_irq
+The panic log clearly shows the conflict:
 
-s/_irq//
+[    0.000000] kasan: KernelAddressSanitizer initialized (generic)
+[    0.000000] psci: probing for conduit method from ACPI.
+[    0.000000] psci: PSCIv1.1 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: Trusted OS migration not required
+[    0.000000] psci: SMC Calling Convention v1.2
+[    0.000000] percpu: Embedded 486 pages/cpu s1950104 r8192 d32360 u1990656
+[    0.000000] pcpu-alloc: s1950104 r8192 d32360 u1990656 alloc=486*4096
+[    0.000000] pcpu-alloc: [0] 00 [0] 01 [0] 02 [0] 03 [0] 04 [0] 05 [0] 06 [0] 07
+[    0.000000] pcpu-alloc: [0] 08 [0] 09 [0] 10 [0] 11
+[    0.000000] Detected PIPT I-cache on CPU0
+[    0.000000] CPU features: detected: Address authentication (architected QARMA3 algorithm)
+[    0.000000] CPU features: detected: GICv3 CPU interface
+[    0.000000] CPU features: detected: HCRX_EL2 register
+[    0.000000] CPU features: detected: Virtualization Host Extensions
+[    0.000000] CPU features: detected: Memory Tagging Extension
+[    0.000000] CPU features: detected: Asymmetric MTE Tag Check Fault
+[    0.000000] CPU features: detected: Spectre-v4
+[    0.000000] CPU features: detected: Spectre-BHB
+[    0.000000] CPU features: detected: SSBS not fully self-synchronizing
+[    0.000000] Unable to handle kernel paging request at virtual address dfff800000000005
+[    0.000000] KASAN: null-ptr-deref in range [0x0000000000000028-0x000000000000002f]
+[    0.000000] Mem abort info:
+[    0.000000]   ESR = 0x0000000096000005
+[    0.000000]   EC = 0x25: DABT (current EL), IL = 32 bits
+[    0.000000]   SET = 0, FnV = 0
+[    0.000000]   EA = 0, S1PTW = 0
+[    0.000000]   FSC = 0x05: level 1 translation fault
+[    0.000000] Data abort info:
+[    0.000000]   ISV = 0, ISS = 0x00000005, ISS2 = 0x00000000
+[    0.000000]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+[    0.000000]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+[    0.000000] [dfff800000000005] address between user and kernel address ranges
+[    0.000000] Internal error: Oops: 0000000096000005 [#1]  SMP
+[    0.000000] Modules linked in:
+[    0.000000] CPU: 0 UID: 0 PID: 0 Comm: swapper Not tainted 6.17+unreleased-debug-arm64 #1 PREEMPTLAZY  Debian 6.17-1~exp1
+[    0.000000] pstate: 800000c9 (Nzcv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+[    0.000000] pc : cpu_enable_mte+0x104/0x440
+[    0.000000] lr : cpu_enable_mte+0xf4/0x440
+[    0.000000] sp : ffff800084f67d80
+[    0.000000] x29: ffff800084f67d80 x28: 0000000000000043 x27: 0000000000000001
+[    0.000000] x26: 0000000000000001 x25: ffff800084204008 x24: ffff800084203da8
+[    0.000000] x23: ffff800084204000 x22: ffff800084203000 x21: ffff8000865a8000
+[    0.000000] x20: fffffffffffffffe x19: fffffdffddaa6a00 x18: 0000000000000011
+[    0.000000] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+[    0.000000] x14: 0000000000000000 x13: 0000000000000001 x12: ffff700010a04829
+[    0.000000] x11: 1ffff00010a04828 x10: ffff700010a04828 x9 : dfff800000000000
+[    0.000000] x8 : ffff800085024143 x7 : 0000000000000001 x6 : ffff700010a04828
+[    0.000000] x5 : ffff800084f9d200 x4 : 0000000000000000 x3 : ffff8000800794ac
+[    0.000000] x2 : 0000000000000005 x1 : dfff800000000000 x0 : 000000000000002e
+[    0.000000] Call trace:
+[    0.000000]  cpu_enable_mte+0x104/0x440 (P)
+[    0.000000]  enable_cpu_capabilities+0x188/0x208
+[    0.000000]  setup_boot_cpu_features+0x44/0x60
+[    0.000000]  smp_prepare_boot_cpu+0x9c/0xb8
+[    0.000000]  start_kernel+0xc8/0x528
+[    0.000000]  __primary_switched+0x8c/0xa0
+[    0.000000] Code: 9100c280 d2d00001 f2fbffe1 d343fc02 (38e16841)
+[    0.000000] ---[ end trace 0000000000000000 ]---
+[    0.000000] Kernel panic - not syncing: Attempted to kill the idle task!
+[    0.000000] ---[ end Kernel panic - not syncing: Attempted to kill the idle task! ]---
 
-> +
-> +  clocks:
-> +    minItems: 3
-> +    maxItems: 3
-> +
-> +  clock-names:
-> +    minItems: 3
-> +    maxItems: 3
-> +
-> +  resets:
-> +    minItems: 5
-> +    maxItems: 5
+Signed-off-by: Yunseong Kim <ysk@kzalloc.com>
+---
+ arch/arm64/kernel/cpufeature.c | 26 ++++++++++++++++++++++----
+ 1 file changed, 22 insertions(+), 4 deletions(-)
 
-For clocks and resets, please provide descriptions. For clock-names, you
-provided no names and therefore cannot use the property since anything
-is valid!
+diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
+index 5ed401ff79e3..a0a9fa1b376d 100644
+--- a/arch/arm64/kernel/cpufeature.c
++++ b/arch/arm64/kernel/cpufeature.c
+@@ -2340,6 +2340,24 @@ static void cpu_enable_mte(struct arm64_cpu_capabilities const *cap)
+ 
+ 	kasan_init_hw_tags_cpu();
+ }
++
++static bool has_usable_mte(const struct arm64_cpu_capabilities *entry, int scope)
++{
++	if (!has_cpuid_feature(entry, scope))
++		return false;
++
++	/*
++	 * MTE and Generic KASAN are mutually exclusive. Generic KASAN is a
++	 * software-only mode that is incompatible with the MTE hardware.
++	 * Do not enable MTE if Generic KASAN is active.
++	 */
++	if (IS_ENABLED(CONFIG_KASAN_GENERIC) && kasan_enabled()) {
++		pr_warn_once("MTE capability disabled due to Generic KASAN conflict\n");
++		return false;
++	}
++
++	return true;
++}
+ #endif /* CONFIG_ARM64_MTE */
+ 
+ static void user_feature_fixup(void)
+@@ -2850,7 +2868,7 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+ 		.desc = "Memory Tagging Extension",
+ 		.capability = ARM64_MTE,
+ 		.type = ARM64_CPUCAP_STRICT_BOOT_CPU_FEATURE,
+-		.matches = has_cpuid_feature,
++		.matches = has_usable_mte,
+ 		.cpu_enable = cpu_enable_mte,
+ 		ARM64_CPUID_FIELDS(ID_AA64PFR1_EL1, MTE, MTE2)
+ 	},
+@@ -2858,21 +2876,21 @@ static const struct arm64_cpu_capabilities arm64_features[] = {
+ 		.desc = "Asymmetric MTE Tag Check Fault",
+ 		.capability = ARM64_MTE_ASYMM,
+ 		.type = ARM64_CPUCAP_BOOT_CPU_FEATURE,
+-		.matches = has_cpuid_feature,
++		.matches = has_usable_mte,
+ 		ARM64_CPUID_FIELDS(ID_AA64PFR1_EL1, MTE, MTE3)
+ 	},
+ 	{
+ 		.desc = "FAR on MTE Tag Check Fault",
+ 		.capability = ARM64_MTE_FAR,
+ 		.type = ARM64_CPUCAP_SYSTEM_FEATURE,
+-		.matches = has_cpuid_feature,
++		.matches = has_usable_mte,
+ 		ARM64_CPUID_FIELDS(ID_AA64PFR2_EL1, MTEFAR, IMP)
+ 	},
+ 	{
+ 		.desc = "Store Only MTE Tag Check",
+ 		.capability = ARM64_MTE_STORE_ONLY,
+ 		.type = ARM64_CPUCAP_BOOT_CPU_FEATURE,
+-		.matches = has_cpuid_feature,
++		.matches = has_usable_mte,
+ 		ARM64_CPUID_FIELDS(ID_AA64PFR2_EL1, MTESTOREONLY, IMP)
+ 	},
+ #endif /* CONFIG_ARM64_MTE */
+-- 
+2.51.0
 
-> +
-> +  reset-names:
-> +    items:
-> +      - const: usbc_non_sticky
-> +      - const: usbc_sticky
-> +      - const: usb_drd_bus
-> +      - const: u2phy_apb
-> +      - const: usb_top_csr
-
-"csr" is an odd thing to have in a reset name, since it usually means
-"control and status register". Why is it here.
-
-> +
-> +  power-domains:
-> +    minItems: 2
-> +    maxItems: 2
-> +
-> +  power-domain-names:
-> +    description: |
-> +      The following power domain must present:
-> +          - usb_psw_pd: The child power domain of usb_top_pd. Turning it=
- on puts the controller
-> +                         into full power state, turning it off puts the =
-controller into power
-> +                         gated state.
-> +          - usb_top_pd: The parent power domain of usb_psw_pd. Turning i=
-t on puts the controller
-> +                         into power gated state, turning it off complete=
-ly shuts off the
-> +                         controller.
-> +    items:
-> +      - const: usb_psw_pd
-> +      - const: usb_top_pd
-
-s/_pd// at the very least, but I would question the need to put "usb" in
-any of the names given that this is a usb device.
-
-> +
-> +  iommus:
-> +    maxItems: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - interrupts
-> +  - interrupt-names
-> +  - clocks
-> +  - resets
-> +  - reset-names
-> +  - power-domains
-> +  - power-domain-names
-> +
-> +allOf:
-> +  - $ref: snps,dwc3-common.yaml#
-> +
-> +unevaluatedProperties: false
-
-So every property from snps,dwc3-common.yaml is valid here, with any of
-the permitted values?
-
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/arm-gic.h>
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +    soc {
-> +        #address-cells =3D <2>;
-> +        #size-cells =3D <2>;
-> +
-> +        usb@c400000 {
-> +            compatible =3D "google,gs5-dwc3";
-> +            reg =3D <0 0x0c400000  0 0xd060>, <0 0x0c450000 0 0x14>, <0 =
-0x0c450020 0 0x8>;
-> +            reg-names =3D "dwc3_core", "host_cfg_csr", "usbint_csr";
-> +            interrupts =3D <GIC_SPI 580 IRQ_TYPE_LEVEL_HIGH 0>,
-> +                         <GIC_SPI 597 IRQ_TYPE_LEVEL_HIGH 0>,
-> +                         <GIC_SPI 598 IRQ_TYPE_LEVEL_HIGH 0>;
-> +            interrupt-names =3D "dwc_usb3", "hs_pme_irq", "ss_pme_irq";
-> +            clocks =3D <&hsion_usbc_non_sticky_clk>,  <&hsion_usbc_stick=
-y_clk>,
-> +                     <&hsion_u2phy_apb_clk>;
-> +            clock-names =3D "usbc_non_sticky", "usbc_sticky", "u2phy_apb=
-";
-> +            resets =3D <&hsion_resets_usbc_non_sticky>, <&hsion_resets_u=
-sbc_sticky>,
-> +                     <&hsion_resets_usb_drd_bus>, <&hsion_resets_u2phy_a=
-pb>,
-> +                     <&hsion_resets_usb_top_csr>;
-> +            reset-names =3D "usbc_non_sticky", "usbc_sticky",
-> +                     "usb_drd_bus", "u2phy_apb",
-> +                     "usb_top_csr";
-> +            power-domains =3D <&hsio_n_usb_psw_pd>, <&hsio_n_usb_pd>;
-> +            power-domain-names =3D "usb_psw_pd", "usb_top_pd";
-> +            phys =3D <&usb_phy 0>;
-> +            phy-names =3D "usb2-phy";
-> +            snps,quirk-frame-length-adjustment =3D <0x20>;
-> +            snps,gfladj-refclk-lpm-sel-quirk;
-> +            snps,incr-burst-type-adjustment =3D <4>;
-> +        };
-> +    };
-> +...
-
-pw-bot: cr
-
---H4E5skbR47wtHuC7
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaObQfgAKCRB4tDGHoIJi
-0oWjAP9YqWk7a/FyW8foR/yT+VNOq+XI66exHNNQBPvOdVgC9AEArKBNkcUi0g8z
-w38R4cEA+3VrU78OnQDQNAfK5wcUdg8=
-=Lg9K
------END PGP SIGNATURE-----
-
---H4E5skbR47wtHuC7--
 
