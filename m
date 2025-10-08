@@ -4,118 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0B4ECAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 20:20:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5926CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 20:46:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=vJNpPsdQklqfKtuRWABGJHNN5kI2pylvrPJggCRG4l0=; b=oh+24RXdVBZ5yLMDTY49T4u8ag
-	yqULZvQiHw0AJqty806EjISCJvB8R1rrpsAB600XyIZpTCRYe/ZtNdhVBHYIw0TbAtodFPEiYiNS3
-	FUUZnFH9Q1XWP7Mg6HMQYnbBbgTHRcUazq79zuyzSY8cTApFlIGJ2WuOkDpR8ATZQLGZDCprbuPVC
-	Izu7nNErBQaC0CzCE9OywFig+FIye0W7uJq3IKyjdPE8JW9oqFL3B5qSrYOhC98Y6V1u8ClufS8cB
-	HFali6530ig9hym/e54ZFET9qcc9a1ZhdY6JppGbxS/VAshLr/XA0BxX3ZsVa+YfPaG0+GjKNEuwd
-	sGN/kMAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LLw7LAl3W9Gfi3zx88F0A8c2LqwMzoBMxjou/u43v1w=; b=l67roTC7S4kzkD9L+cfR3PfQYi
+	KnLDf4tbeLXy6axrb8XWRJFBZY9aHpqsRkRUolpKTNMjp9juTAS355KSSy7xMfDF4Ljayo+yfgXgj
+	E3RInfI0O4ctcOBBmDMM9bB1XAgxotC6+64h58Qb+bUwsk8gpvzPR7GOwgZX0iVwsD26WmbluyZzY
+	XEiQF+f2pVJum0Xuv9MZkxWBW51DXIEcuXhmHpY0knQh10WZnxCHNwN13SRIYmeFW+SXX4BuZMyOJ
+	vyadDhYQDH/K7EdqCKABYonWJjpiBK0vZOscgJzbT8Waf6TV/HwaJzZ/SgZRGopGw61ZUpf5qJhJB
+	uau6oO/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6aeT-00000004cTW-0ny6;
-	Wed, 08 Oct 2025 20:20:45 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1v6b3W-00000004f4o-1bMc;
+	Wed, 08 Oct 2025 20:46:38 +0000
+Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6aeQ-00000004cRs-1QRU
+	id 1v6b3S-00000004f3z-2CLP
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Oct 2025 20:20:44 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-46e47cca387so2244215e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Oct 2025 13:20:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=opnsrc.net; s=google; t=1759954840; x=1760559640; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=vJNpPsdQklqfKtuRWABGJHNN5kI2pylvrPJggCRG4l0=;
-        b=dK0Ha5CI5+qAWSSam3senEHl+GKZrCy/+VByfwgafShGrLCGtbaMsCkIb57yUufxBX
-         iEJm+9/fodQXFI4QdrNkIGMfAYrxP2p5YfoJLKw1/+zUafUUIcUqNxeqbq6z+3y9i8ez
-         qqFt/9eiCYWTpUGq7IZfOmC06FHJNA+KQ0ZweLxWTk6wjOeIxfmpXz2HYIVGQqWVG/ax
-         XGF2UESv+pak+RUpCQO7I9EydompnfXxKx96bV5MJzLQ91fkwkXpibLjXx3lCgDbAH5Y
-         jfJQstO58BR9N5n5X+cZlID6DaQbrkvDuQTK/lZ46OD2flGqVz5M3ajmbFRMcyix5ih7
-         fkFg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759954840; x=1760559640;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=vJNpPsdQklqfKtuRWABGJHNN5kI2pylvrPJggCRG4l0=;
-        b=DaGDG5Q5iO0EUHKqWVfyPGU1V8yvyDkYF0SnKKWC2iQKhq9VfhgBaqCjIbqc0sCj0V
-         c1sGLyZ3qwcLIkq7tk5u54kjlApqH9EpWoRnnCsWLodYiGyZ3oWfX/Imp8ZvQ0lgI4d8
-         QRwAPWy1sWH3XhlqchkvcottO0YNo87bYkm5Z1T5G8e85UUSefs4hDTnZZ2OuoogAKRf
-         Av2ceNf99jFaWJ8T92UVbJdxXKqMwBWu77fVJForhCj11jU8vae3nZOIO0q5guUOX+R+
-         rDEV4zztoZoGzw7q5K7qUIPc3Nb42Gg62hU39DRq/SkmrxA4qMaI65NIod+YFmgoca87
-         N4yw==
-X-Forwarded-Encrypted: i=1; AJvYcCVbKTD1IphRTHYvY0fSOSSWGG8+xeZMS3s39xWYr5cppLjBHDjzZ6+dPnKHcJwnYeTAFThk4mwnSYrHKczd2Jpe@lists.infradead.org
-X-Gm-Message-State: AOJu0YyCE790dnYVYqY8rh7fSyx9lZ7i1NxfQ98xT8Ja9+ve0fYYP0BE
-	ETQu4nzyGKS/9QJ7VHFRdIqe4y9lJP9syvUoWUZ7mDuOeLvxYNGdl09it7p8mYv1OY8=
-X-Gm-Gg: ASbGncuhrS7qEfDHd2Jv4MltQjLZ+dEJd3HjexBcpvq05G2SWXWgB9UCGmK/Z7BTsjN
-	MfOyotXa5E0haScE3DjkYAyy9fO4lOJvmFWZj4oNzjJDApnSDnj7Q0ymtQapxwhM69dpX9kWL+j
-	wzHchvklPfZEDLMyQ0Fzdjv4swHvRYQ30eyw4SVnEDJ2J9srK8DCijxWBeK886ykB0wXzeyq4Zy
-	E3zE0ytPXwaAw8bukPs0xoprx+e60f+fhwbdw61QqGQO6iffT8n8V+o9tfOAPOOSWJpoGAheOBz
-	tVDDCCMy3HmnnAz2jb/yC2LRcziFjqX4jYfOARDjYe6m1aWxqx1QmrXijMJ7cqg0C6tjCnk+Psc
-	Fgd0ZpAZjGCTQBkKhN3I2/RQQk55Gst8NsOjtXCgz8Fo4vu0XWEuuRrD7tD9/ikMHCDmWxlYuCa
-	0hkfDfVreH9JLXxd2FV9c0Nh6KNU/Dv3/GaT16e8E3obc=
-X-Google-Smtp-Source: AGHT+IFM4K7XP4z2AGieVbbR2IlzDu8DLCDL4uKG4v9Kaas6lvil6rTJOq2Qsk2XBXTkAez+pnL+vQ==
-X-Received: by 2002:a05:600c:c162:b0:45f:2cb5:ecff with SMTP id 5b1f17b1804b1-46fa9b02fa3mr40867845e9.31.1759954839949;
-        Wed, 08 Oct 2025 13:20:39 -0700 (PDT)
-Received: from localhost.localdomain ([90.209.204.182])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46fab64aed8sm20124745e9.10.2025.10.08.13.20.37
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Oct 2025 13:20:39 -0700 (PDT)
-From: salil.mehta@opnsrc.net
-To: linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Cc: salil.mehta@huawei.com,
-	jonathan.cameron@huawei.com,
-	maz@kernel.org,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	mark.rutland@arm.com,
-	james.morse@arm.com,
-	sudeep.holla@arm.com,
-	lpieralisi@kernel.org,
-	jean-philippe@linaro.org,
-	tglx@linutronix.de,
-	oliver.upton@linux.dev,
-	peter.maydell@linaro.org,
-	richard.henderson@linaro.org,
-	andrew.jones@linux.dev,
-	mst@redhat.com,
-	david@redhat.com,
-	philmd@linaro.org,
-	ardb@kernel.org,
-	borntraeger@linux.ibm.com,
-	alex.bennee@linaro.org,
-	gustavo.romero@linaro.org,
-	npiggin@gmail.com,
-	linux@armlinux.org.uk,
-	karl.heubaum@oracle.com,
-	miguel.luis@oracle.com,
-	darren@os.amperecomputing.com,
-	ilkka@os.amperecomputing.com,
-	vishnu@os.amperecomputing.com,
-	gankulkarni@os.amperecomputing.com,
-	salil.mehta@opnsrc.net,
-	wangyanan55@huawei.com,
-	wangzhou1@hisilicon.com,
-	linuxarm@huawei.com
-Subject: [RFC PATCH] KVM: arm64: vgic-v3: Cache ICC_CTLR_EL1 and allow lockless read when ready
-Date: Wed,  8 Oct 2025 20:19:55 +0000
-Message-Id: <20251008201955.3919537-1-salil.mehta@opnsrc.net>
-X-Mailer: git-send-email 2.34.1
-MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
+	Wed, 08 Oct 2025 20:46:37 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=nHUXiVX6Hz5CN8W72Eh16HrOQbDsXPPH8D+lPAKdrF+2amDa0BLP6JsEfA0fxS16xURAdR3CBi7SW//ffnVZDfz7/j9Iap3VtHUEjmnK31jfaBcDYZLnx+ukfGxWxxBtwiG1z8O0e6t8Xo4tncpirhPbFkldVf6PeAMCfncMMovPQjsR7+JjEhOlZJXdhJ2GPU0RKaHFe+EpXLPEe3xdtFJ0228ekwHX4zmBhH9QHhGF+2XrVrt91SDbHnwdYLsHEWPlzLg9J4EmBMUC50hnkNEmXXkyFxsD4RQB1CqPXHxyWhIAMOIuwX9OsR88JZGwdhiVH3tmjtSzpd74rB44bQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=LLw7LAl3W9Gfi3zx88F0A8c2LqwMzoBMxjou/u43v1w=;
+ b=tc7IHvTg17V4L1eJ8g6mPK/CAKIzC09QWck4cOVLp+dgsl/9artvTV6UfdY75rPn5cbZvysBrogAkqrlR9zi2ZXn6MpEKEOtcfwgrd71xU1ubDWVLWdi/5dEIBBCTslH1EGixqjWMbZsSIaPUKiIu3z44ZaMFmKVEzk8+RbjOf6zPUVvf9OvV0SbeWdOPv9cw2xSARJHo0tpHWq1xzAXugDt4UgqryM9IZxtmnZpW9qYfO33mQOApJgXNWh4RqOrPUof6fy47YzbCt+WRqqXDRknDHnsMMZ49Y/LZzkdX91Eh1o+WF59k3kNvzsIb2KIaouUBGC/vAAKKqevLnW+OQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=sch.bme.hu; dmarc=pass action=none header.from=sch.bme.hu;
+ dkim=pass header.d=sch.bme.hu; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=sch.bme.hu;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=LLw7LAl3W9Gfi3zx88F0A8c2LqwMzoBMxjou/u43v1w=;
+ b=srZmrjVdo0KwjY2uLrVk1jOjrX8rVEOxkq6iYHbATP6R/N62438VA3+csPVW/1QI9tyI8O+8mO4wO3AGvXinJg7lZI9p7KrnTQuzyT9Ifv/fCoxpbLZU3Z4qx/ajNol308T5ufe0Pfjn6OR/T4AkM3JAbh8l70Xnoy+TWjh2BmY=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=sch.bme.hu;
+Received: from PAWPR04MB9806.eurprd04.prod.outlook.com (2603:10a6:102:389::22)
+ by FRWPR04MB11151.eurprd04.prod.outlook.com (2603:10a6:d10:170::15) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.9; Wed, 8 Oct
+ 2025 20:46:24 +0000
+Received: from PAWPR04MB9806.eurprd04.prod.outlook.com
+ ([fe80::7619:14c3:6aaa:fae5]) by PAWPR04MB9806.eurprd04.prod.outlook.com
+ ([fe80::7619:14c3:6aaa:fae5%6]) with mapi id 15.20.9203.007; Wed, 8 Oct 2025
+ 20:46:23 +0000
+Message-ID: <ee87c8c2-eaa2-4fb2-98b6-1da0cabee056@sch.bme.hu>
+Date: Wed, 8 Oct 2025 22:46:20 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re:
+To: Kamel Bouhara <kamel.bouhara@bootlin.com>,
+ Dharma Balasubiramani <dharma.b@microchip.com>, g@tpx1.home
+Cc: William Breathitt Gray <wbg@kernel.org>, =?UTF-8?B?QmVuY2UgQ3PDs2vDoXM=?=
+ <bence98@sch.bme.hu>, linux-arm-kernel@lists.infradead.org,
+ linux-iio@vger.kernel.org, linux-kernel@vger.kernel.org
+References: <20251006-microchip-tcb-v1-1-09c19181bb4a@microchip.com>
+ <ijigaljlomxtyoy6ha2czocr7gnjqfdxs6kuhg3w4jxlwj4cr5@yum4paorabnm>
+Content-Language: en-US
+From: =?UTF-8?B?QmVuY2UgQ3PDs2vDoXM=?= <bence98@sch.bme.hu>
+In-Reply-To: <ijigaljlomxtyoy6ha2czocr7gnjqfdxs6kuhg3w4jxlwj4cr5@yum4paorabnm>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: AM0PR07CA0012.eurprd07.prod.outlook.com
+ (2603:10a6:208:ac::25) To PAWPR04MB9806.eurprd04.prod.outlook.com
+ (2603:10a6:102:389::22)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAWPR04MB9806:EE_|FRWPR04MB11151:EE_
+X-MS-Office365-Filtering-Correlation-Id: 0bd8b9e9-1f38-494e-e83a-08de06abbdd2
+X-LD-Processed: 79f0ae63-ef51-49f5-9f51-78a3346e1507,ExtFwd
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|10070799003|376014|366016|1800799024|41320700013|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?eXpYYjFKdDF4SkpXU1RrQzE1M0FneUhCWTZnOFdQVDNLNnJrNmpwZm1EeXhM?=
+ =?utf-8?B?ODVNUjF4QmNXbVl2R3BBT1IxMHlDYlM3SVJDcnpZTVZaTUNpUCs1OVloMjVK?=
+ =?utf-8?B?S05wOGFEdWdyVG9JU0MzZnpyRXRZVEJ0U2RSRFlmRjlGMUNmNjZsMlNwOUh6?=
+ =?utf-8?B?OW1OSjZnYmw3bldTRFpxMHZoTlJJSHRYMFVvUU1xR3VXcW5rWkx1VVFjekdL?=
+ =?utf-8?B?eEEyakMvbkdTRWI3WndNcktuYXYzSkFIOGt6OURWZFdzaXBYOGJZcjBhTE5V?=
+ =?utf-8?B?TDhPUXBMSmtidG9ic1ZBUER0Q2RtZWw2cmJGenpYSU9idGJERW1wOHdzQUc0?=
+ =?utf-8?B?RTdTN3NsRDBEWXhaK3JkamZJQ1RYSVN3NUhmNStXL2hXdEdKSFlKS05lWVdZ?=
+ =?utf-8?B?QnBsdlpFc29ydUN4b3kyWUdIQmNtbkoveTNOUHQvclR3aVM1ZXhGVi8wSlVy?=
+ =?utf-8?B?U2VPNXY4MldOcFFuUkFzZGh4MVdIbW91QTBNc2RPLzRWWGlOVUpSdDBRYnJq?=
+ =?utf-8?B?YjUrQ0hoWit0ejJhT1cweEo3aTlXNzhFN3dSKzFXSEZSYzB4czFMTHJ4aEVJ?=
+ =?utf-8?B?NG9kcXpkcmlQTnlMb2Z6RkJHREtRQ3RHSkh0QTlNdEVLVmdsTWZCbXpIanQ0?=
+ =?utf-8?B?OHl4eEV0RjRIaTB5OFlXVVFkMEZ3blBHOWtTeWlZWWhsWDRQVDdDQnNjUzFm?=
+ =?utf-8?B?V0dnRmYwN1pqUFhxVzdTUFlMSFY0b0tkRE1CbFNHT2RhblV6eHBqMGtkWU1x?=
+ =?utf-8?B?UlQ1ZW9jZWNOS2hZT3ZkRUE1N1Q5SHp4ZXJYRnRjdzRVUjA1ZGlOSStOWHgw?=
+ =?utf-8?B?UEN2Tnc0UWkzaVYzaVNWNWNXZzhQTW9MdFQrbzZydUtKVHd1aVRnbmtucTdD?=
+ =?utf-8?B?ME1ESWx4YnVoQW91MzRMTFgvTHR3YTR3OVY0Z2QwRUpIUW5LcDY4am1YU2gy?=
+ =?utf-8?B?SDFDQzRyZldzbUdCeEhvQ0N2c2lqYm5mL2plUFAyWERCVm0wOGw3Z0NpTWRP?=
+ =?utf-8?B?QWdPazFSUmFMaXNpZU5UaHVwRm5EMTR6NThJOCtISElVU0FscFBJL2pZVzdo?=
+ =?utf-8?B?Nk5qMkI4cXE2WTg3M2tZMmZqOEs5c3hXdTBqVWpzMTZncWphMUp5UGkzTDMx?=
+ =?utf-8?B?QTh5TVZVcVNKWndKSVRtb0o2eS9zdk9sME1SZ2x2em5jRjQzdHFCNmtqNE9k?=
+ =?utf-8?B?MjBCNDVoUWwvWG54QWdXbHJpZm45TDBRbUdhaG9nMExTVmlEMnp1QWp4RWNx?=
+ =?utf-8?B?VGVIVDJHbTJlRUNWMmJtUjd2NmJXVWxvSXdHUDVZNjRmTkUxZnUwME5Dcng0?=
+ =?utf-8?B?U3BxZ2VVQkZ6NnpWZ1p5NkFRbm1WMW1UOUtNcmhPUEZPZGdpdHJvS3R0M1Q3?=
+ =?utf-8?B?WHNSMHhTV0MxODNaM2o2OFByd2E1QjJmOGE1YmFuMzYvNzA5Zm5aRThPWVRo?=
+ =?utf-8?B?OXZGU3QwNG02dGRCR21vZGVGSUNRSGpGanB2UmpwZi9OcU10TkFZeHRjS1FV?=
+ =?utf-8?B?dG1pVDFpL29DMm1XYnJVRlQ1SWVlMWpZaC9kZTVodG9naGNsZitKeVEwVGQ1?=
+ =?utf-8?B?L244V0RaSm1rckt2TVIwL3hNT3hUV2MzZWZtUmMyNTBaWGpGSjRaVlN4MHBo?=
+ =?utf-8?B?TENhdzI3RUlzdXJMZGFHcmpUQ0lnRjVwczRsd1IwL1FHRkdjWCtIQ21zbndP?=
+ =?utf-8?B?SHhMamRKeTdtdGlDekdlQjAxWjdUYVBGaE8yT09FTDg4cEJmQTRqcURTRlFK?=
+ =?utf-8?B?ZkNKTkx1OHNOcVZFSTZzTEMzdEt3ZGFReGw5NWhsYmdmM2RrTE1DNTMzRk9l?=
+ =?utf-8?B?YjJKVmhLTmh5dDFFb1RUWCsxditlcHZnOURWM01oWFdneSt0T0o3S2U5Qjd6?=
+ =?utf-8?Q?qyExixs75vraf?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAWPR04MB9806.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(10070799003)(376014)(366016)(1800799024)(41320700013)(7053199007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?anBvUnNxOE1zSHJNeWhVaUJYMTBSNTZ5cTdUOTl1cDNiQnRjNmhzK2E5VE90?=
+ =?utf-8?B?WWpjU09KYzVpSytUaVh4b3ZEUzExa2lqTng0RldvWTIwT1VEWW9PSWFIR0tK?=
+ =?utf-8?B?R084MGJULytQczNvUHA2dUYwL3Zrejc4U2dWOUE2SVhhcTkrQUplOWtHYzEx?=
+ =?utf-8?B?N0JlaWZTS1RaMHpHMUcyclpBNGZZb1FFZnowVzBCQlBoanVoV2d1VTF3OXdO?=
+ =?utf-8?B?K2dZdCtncld5aGpiWjBvZHkzdFpuSlF5eXB5bG5ZTjR2ZXJXVis3bG5hbk5q?=
+ =?utf-8?B?N0JRVlUwTkhubEdqeXlITFNQSTVrZk1qQ0gzbkxWT3JrZXZ1b3ZhTzRiWXgz?=
+ =?utf-8?B?Sm9CWWhMekJ1ZHB5VWRIZ2JCM3dJS2JmS3Z5Mmx0bmJEVmVGbVl5Y0dKTVA4?=
+ =?utf-8?B?YzVsaHZXckp1QVRDNjJ2dmpFSVIwNnlqQncyYkFKT21kVzdXOFNtMFloYmg1?=
+ =?utf-8?B?ZE56dWd1ZTFMeXFFdmdZcU9vUExYZlF0SnRpME1lczNMbVl6ZGFodHlCKzZw?=
+ =?utf-8?B?YlkwRndJa1pYL2lwWnpiVDhHS0FrWFlPbzdxcTNHL3RIT2tyWktTNzl5Yklw?=
+ =?utf-8?B?dVV1VGJWRkZGbmtWZW1BSWJtdnB5RHFoL1J4UEsrazI3UTZld0ZOYkpNQ1lk?=
+ =?utf-8?B?ZHlDVkVlN1dWY2NMQ3B3SEZ3N1pMR2xEY2l3cFBIK0ZJOTFGVUxyYzkrR1ZC?=
+ =?utf-8?B?VFlWbDdqZG81NGRyT2FmSVJIUGJINUUycG9kL2xPZGV6MzZWRUxEdXB6TXZF?=
+ =?utf-8?B?S1piSmRkVitQL0EwNGwzMFVSNEk5bWt2N29xbGJZUklWZHR6ejhFV2I2OEpu?=
+ =?utf-8?B?S1Y2OGVZVGJzUW5hOTdFcmhpbXZuUGVaajFPSVE5MmJ0QXNUN2xzbXB1OEFS?=
+ =?utf-8?B?Yjg3SXZKVW1vWitadldXdVpDUFU0NEFteW43RHZvK1JISW53OXFHUUdVRTZi?=
+ =?utf-8?B?WEk2c1p5ODcxOGEvN3hIdUFNK05IRjNnelFDNHk4OGxvVGRNeHBtU1hZd21O?=
+ =?utf-8?B?bGxFb09tdjVmcCtwRlJZQnIzK1NzMlp1Y2ZncnlMQXRYZW9iTWdGU3VaREFC?=
+ =?utf-8?B?UVhad1JMcTZaa1FpSFlqY09zaWFhTkpFbVVwcmpmc1BHOVF6bGYrTzlmdENH?=
+ =?utf-8?B?amtZSUMwRy94enlGdEp3bmh5WEgvUUJEN24wTXlYYlVwc3MvOXVIS1JZN1FQ?=
+ =?utf-8?B?bjY5WDJaVGZ4OWxGYkdzRzhIWHIzYTU2a01EWkdFNE1ucjVNeGdvb3NNZVJj?=
+ =?utf-8?B?cXh5T3o1L0dJM0dDOC9lc2NNUVNvcTFMc3hnMlNhbVRFUFZrWXhaWk5UMWNn?=
+ =?utf-8?B?MmhWdlpJQUNVWnk1cWQ3N015MlVkVGNHRXJxeDBpR2FhSzZaT2lpejJIM3ZG?=
+ =?utf-8?B?bEVaWFlZc3g1OGUrQ1FRWEliT0g2bzFuSlBvTHdsUDN5UldBS2F5bzVlSy9J?=
+ =?utf-8?B?K2hGeWFIaDlBSUtCemNydHYrUGZuWk1Gc0kxekplQmxUQnhkc1dnM2ZBTnBU?=
+ =?utf-8?B?bDRjQkt6U2dZOFBFVnltSkV2bU1rbTRBR0lJbUlUY3M0SXFKUnVvbmlVT1pP?=
+ =?utf-8?B?K3NpNlpEVE8vSWRKSEIySDRDaExJSkF4cnBhc0pFOTd3WERHVGFvbVI5OWRJ?=
+ =?utf-8?B?OVgwRDMzdHk3WWpwWjUvSFROQW4vUzZ6SlVEeDc2TGFXODFzY204Q3MrN2Fy?=
+ =?utf-8?B?NkEwZFJIenBlUUpsYjhiRVArRzNBQ0JLdHJieWtXTUNhM3dwSTA2RVp2Y0N4?=
+ =?utf-8?B?OFg3VWJIeDdEOTNIcmk5YUNYWUllTjV0Ky9JRmdGa0JFQi9pR1FYU3RsYUxJ?=
+ =?utf-8?B?enIxaTluMUUyZjRkeXlSQVZsS2ZNS3JFTkNtSFVDNmpRUGNDdW00WFRhcEVp?=
+ =?utf-8?B?OU1kRlNRWFJCeDF6ZklpRGt2MXlLLy8wZjVBbUo4U25yaHo0S2JIRU1MR0My?=
+ =?utf-8?B?SVp2S2hNREZ3K2JhaFdGRytkdnpVekRqRm1XczVJVUFJV3BDc2RWWGRKQUhV?=
+ =?utf-8?B?ZStidmpPa2pyS3pKRVR0RHAyc3QzcEh1NFlYbDFVQWxRYitRaWwzNGxWODVm?=
+ =?utf-8?B?cjdLd0dGbXFDRmNUbFJ2dW1MOFB4SmZlM1d5RkxCVGFQT1RmNXFjcGdYZ0Np?=
+ =?utf-8?B?RDg4Q2ZQVVVmaWpocWFQaUNINExNbjBtQW9uYnJCeElpSVpwUDdxdkNKVWNn?=
+ =?utf-8?Q?u9sIUQ1B/mYFsJ0ugS4KpSk0A2/3Mp7gjchELLgk6Z6+?=
+X-OriginatorOrg: sch.bme.hu
+X-MS-Exchange-CrossTenant-Network-Message-Id: 0bd8b9e9-1f38-494e-e83a-08de06abbdd2
+X-MS-Exchange-CrossTenant-AuthSource: PAWPR04MB9806.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Oct 2025 20:46:22.9747
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 79f0ae63-ef51-49f5-9f51-78a3346e1507
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Xo9g+dfK6y4QCt8TMYlL4TVrOxfgG9AELNwdjZ3qqnd8LeMU4WEBI7DP+Rn4QO873zrLgOGyztF5iT5eFtomhQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: FRWPR04MB11151
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251008_132042_522206_BA502A08 
-X-CRM114-Status: GOOD (  23.82  )
+X-CRM114-CacheID: sfid-20251008_134634_888655_207799BF 
+X-CRM114-Status: GOOD (  14.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,205 +179,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Salil Mehta <salil.mehta@huawei.com>
+Hi,
 
-[A rough illustration of the problem and the probable solution]
+> On Mon, Oct 06, 2025 at 04:21:50PM +0530, Dharma Balasubiramani wrote:
+> 
+> Hello Dharma,
+> 
+>> Mark the interrupt as IRQF_SHARED to permit multiple counter channels to
+>> share the same TCB IRQ line.
+>>
+>> Each Timer/Counter Block (TCB) instance shares a single IRQ line among its
+>> three internal channels. When multiple counter channels (e.g., counter@0
+>> and counter@1) within the same TCB are enabled, the second call to
+>> devm_request_irq() fails because the IRQ line is already requested by the
+>> first channel.
+>>
+>> Fixes: e5d581396821 ("counter: microchip-tcb-capture: Add IRQ handling")
+>> Signed-off-by: Dharma Balasubiramani <dharma.b@microchip.com>
+>> ---
+>>   drivers/counter/microchip-tcb-capture.c | 2 +-
+>>   1 file changed, 1 insertion(+), 1 deletion(-)
+>>
+>> diff --git a/drivers/counter/microchip-tcb-capture.c b/drivers/counter/microchip-tcb-capture.c
+>> index 1a299d1f350b..19d457ae4c3b 100644
+>> --- a/drivers/counter/microchip-tcb-capture.c
+>> +++ b/drivers/counter/microchip-tcb-capture.c
+>> @@ -451,7 +451,7 @@ static void mchp_tc_irq_remove(void *ptr)
+>>   static int mchp_tc_irq_enable(struct counter_device *const counter, int irq)
+>>   {
+>>   	struct mchp_tc_data *const priv = counter_priv(counter);
+>> -	int ret = devm_request_irq(counter->parent, irq, mchp_tc_isr, 0,
+>> +	int ret = devm_request_irq(counter->parent, irq, mchp_tc_isr, IRQF_SHARED,
+>>   				   dev_name(counter->parent), counter);
+>>
+>>   	if (ret < 0)
+>>
+>> ---
+>> base-commit: fd94619c43360eb44d28bd3ef326a4f85c600a07
+>> change-id: 20251006-microchip-tcb-edd8aeae36c4
+>>
+> 
+> This change makes sense, thanks !
+> 
+> Reviewed-by: Kamel Bouhara <kamel.bouhara@bootlin.com>
+> 
+>> Best regards,
+>> --
+>> Dharma Balasubiramani <dharma.b@microchip.com>
+>>
+> 
+> --
+> Kamel Bouhara, Bootlin
+> Embedded Linux and kernel engineering
+> https://bootlin.com
 
-Userspace reads of ICC_CTLR_EL1 via KVM device attributes currently takes a slow
-path that may acquire all vCPU locks. Under workloads that exercise userspace
-PSCI CPU_ON flows or frequent vCPU resets, this can cause vCPU lock contention
-in KVM and, in the worst cases, -EBUSY returns to userspace.
+Looks reasonable to me as well.
 
-When PSCI CPU_ON and CPU_OFF calls are handled entirely in KVM, these operations
-are executed under KVM vCPU locks in the host kernel (EL1) and appear atomic to
-other vCPU threads. In this context, system register accesses are serialized
-under KVM vCPU locks, ensuring atomicity with respect to other vCPUs. After
-SMCCC filtering was introduced, PSCI CPU_ON and CPU_OFF calls can now exit to
-userspace (QEMU). During the handling of PSCI CPU_ON call in userspace, a
-cpu_reset() is exerted which reads ICC_CTLR_EL1 through KVM device attribute
-IOCTLs. To avoid transient inconsistency and -EBUSY errors, QEMU is forced to
-pause all vCPUs before issuing these IOCTLs. Later operation should be avoided
-as it ends up in freezing VM till the entire KVM device IOCTL operation is
-completed (and this could happen every time when PSCI CPU_ON is requested by
-the Guest user). There are also known issues with the implementaiton of the
-{pause, resume}_all_vcpus() in the QEMU which can lead to race conditions.
-
-Introduce a per-vCPU shadow of ICC_CTLR_EL1 that allows userspace to read this
-register without taking any vCPU-wide locks once the VGIC has been initialized.
-The new helper vgic_v3_try_icc_ctlr_el1_lockless_access() attempts a fast,
-lockless read of the per-vCPU shadow and returns -EBUSY if the VGIC is not yet
-initialized, allowing the caller to fall back to the existing contended path.
-This reduces cross-vCPU contention and prevents spurious -EBUSY errors during
-userspace-driven CPU_ON sequences, without changing architectural behaviour.
-
-The shadow is updated in set_gic_ctlr(): after VMCR fields are written, we
-recompute ICC_CTLR_EL1 via get_gic_ctlr(). Writes remain unchanged and continue
-to use the existing synchronized path.
-
-Without this change, QEMU must cache ICC_CTLR_EL1 itself to avoid racy
-pause_all_vcpus() usage during cpu_reset(), as described in:
-https://lore.kernel.org/qemu-devel/20251001010127.3092631-22-salil.mehta@opnsrc.net/
-
-RFC Discussion (Architectural Considerations):
-=============================================
-
-It might have been helpful if the ARM architecture were to have clearer
-boundaries between dynamic and static (or pseudo-static) system registers(?)
-Registers such as ICC_CTLR_EL1 contain configuration fields that are effectively
-static once the VM is initialized (even the EOIMode, CBPR & PMHE are guest
-GICv3 driver configured constants), yet the architecture allows them to coexist
-with other more dynamic runtime fields of the ICH_ VMCR_EL2. If these
-configuration registers had been architecturally immutable after VM
-initialization, their accesses could have avoided expensive all-vCPU locking
-otherwise required to guarantee atomic visibility across vCPUs.
-
-ICC_CTLR_EL1 [63:0]
-
-  63                                                                       32
- +---------------------------------------------------------------------------+
- |                                   RES0                                    |
- +---------------------------------------------------------------------------+
-  31        20 19 18 17 16 15 14 13 12 11 10   9   8  7  6   5  4  3  2  1  0
- +------------+--+--+--+--+--+--+--+--+--+---+---+---+--+--+--+--+--+--+--+--+
- |    RES0    |Ex|RS|RES0 |A3|SE| IDbits |  PRIbits  |R0|PM|  RES0     |EO|CB|
- +------------+--+--+--+--+--+--+--+--+--+---+---+---+--+--+--+--+--+--+--+--+
-              |  |        |  |                       |   |             |  |
-              |  |        |  |                       |   |             |  +CBPR
-              |  |        |  |                       |   |             +EOImode
-              |  |        |  |                       |   +-PMHE
-              |  |        |  |                       +----RES0
-              |  |        |  +--SEIS
-              |  |        +-----A3V
-              |  +--------------RSS
-              +-----------------ExtRange
-
- Access: {Ex, RS, A3, SE, IDbits, PRIbits} = RO;
-         {PMHE} = RW*;
-         {EO, CB} = RW**;
-	 others = RES0.
- Notes : * impl-def (may be RO when DS=0)
-         ** CB may be RO when DS=0 (EO stays RW)
-
- Source: Arm GIC Architecture Specification (IHI 0069H.b),
-         §12.2.6 “ICC_CTLR_EL1”, pp. 12-233…12-237
-
-Signed-off-by: Salil Mehta <salil.mehta@huawei.com>
----
- arch/arm64/kvm/vgic-sys-reg-v3.c      | 14 ++++++++++++
- arch/arm64/kvm/vgic/vgic-kvm-device.c | 32 +++++++++++++++++++++++++++
- include/kvm/arm_vgic.h                |  3 +++
- 3 files changed, 49 insertions(+)
-
-diff --git a/arch/arm64/kvm/vgic-sys-reg-v3.c b/arch/arm64/kvm/vgic-sys-reg-v3.c
-index bdc2d57370b2..80d6e38b4aa7 100644
---- a/arch/arm64/kvm/vgic-sys-reg-v3.c
-+++ b/arch/arm64/kvm/vgic-sys-reg-v3.c
-@@ -10,12 +10,17 @@
- #include "vgic/vgic.h"
- #include "sys_regs.h"
- 
-+static int get_gic_ctlr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
-+			u64 *valp);
-+
- static int set_gic_ctlr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
- 			u64 val)
- {
- 	u32 host_pri_bits, host_id_bits, host_seis, host_a3v, seis, a3v;
-+	struct vgic_v3_cpu_if *cif = &vcpu->arch.vgic_cpu.vgic_v3;
- 	struct vgic_cpu *vgic_v3_cpu = &vcpu->arch.vgic_cpu;
- 	struct vgic_vmcr vmcr;
-+	u64 sysreg;
- 
- 	vgic_get_vmcr(vcpu, &vmcr);
- 
-@@ -53,6 +58,15 @@ static int set_gic_ctlr(struct kvm_vcpu *vcpu, const struct sys_reg_desc *r,
- 	vmcr.eoim = FIELD_GET(ICC_CTLR_EL1_EOImode_MASK, val);
- 	vgic_set_vmcr(vcpu, &vmcr);
- 
-+	/* update the ICC_CTLR_EL1 shadow, if required */
-+	get_gic_ctlr(vcpu, r, &sysreg);
-+
-+	/*
-+	 * Update the ICC_CTLR_EL1 shadow to allow lock free access of static
-+	 * or pesudo static register fields from KVM device IOCTLs
-+	 */
-+	cif->icc_ctlr_el1_shadow = (u32)sysreg;
-+
- 	return 0;
- }
- 
-diff --git a/arch/arm64/kvm/vgic/vgic-kvm-device.c b/arch/arm64/kvm/vgic/vgic-kvm-device.c
-index 3d1a776b716d..4a2971525c1a 100644
---- a/arch/arm64/kvm/vgic/vgic-kvm-device.c
-+++ b/arch/arm64/kvm/vgic/vgic-kvm-device.c
-@@ -522,6 +522,29 @@ static bool reg_allowed_pre_init(struct kvm_device_attr *attr)
- 	}
- }
- 
-+/*
-+ * Fast, lockless read of ICC_CTLR_EL1 for userspace ioctl. Saves calls from
-+ * -EBUSY due to inability to acquire vCPU mutexes for all the vCPUs
-+ */
-+static inline int
-+vgic_v3_try_icc_ctlr_el1_lockless_access(struct kvm_device *dev,
-+                                         const struct kvm_device_attr *attr,
-+                                         struct kvm_vcpu *vcpu)
-+{
-+	struct vgic_v3_cpu_if *vgic_cpu_if = &vcpu->arch.vgic_cpu.vgic_v3;
-+	u32 __user *uaddr;
-+	u32 shadow;
-+
-+	/* pathological check, in case we are here too early */
-+	if (!vgic_initialized(dev->kvm))
-+		return -EBUSY;
-+
-+	shadow = vgic_cpu_if->icc_ctlr_el1_shadow;
-+	uaddr = (u32 __user *)(unsigned long)attr->addr;
-+
-+	return put_user(shadow, uaddr) ? -EFAULT : 0;
-+}
-+
- /*
-  * vgic_v3_attr_regs_access - allows user space to access VGIC v3 state
-  *
-@@ -533,6 +556,7 @@ static int vgic_v3_attr_regs_access(struct kvm_device *dev,
- 				    struct kvm_device_attr *attr,
- 				    bool is_write)
- {
-+	u32 sysreg = attr->attr & ~KVM_DEV_ARM_VGIC_CPUID_MASK;
- 	struct vgic_reg_attr reg_attr;
- 	gpa_t addr;
- 	struct kvm_vcpu *vcpu;
-@@ -549,6 +573,14 @@ static int vgic_v3_attr_regs_access(struct kvm_device *dev,
- 
- 	switch (attr->group) {
- 	case KVM_DEV_ARM_VGIC_GRP_CPU_SYSREGS:
-+		/* Try lockless ICC_CTLR_EL1 read first */
-+		if (!is_write && sysreg == SYS_ICC_CTLR_EL1) {
-+			ret = vgic_v3_try_icc_ctlr_el1_lockless_access(dev,
-+				 attr, vcpu);
-+			if(!ret)
-+				return ret;
-+		}
-+
- 		/* Sysregs uaccess is performed by the sysreg handling code */
- 		uaccess = false;
- 		break;
-diff --git a/include/kvm/arm_vgic.h b/include/kvm/arm_vgic.h
-index 4000ff16f295..42c767c62291 100644
---- a/include/kvm/arm_vgic.h
-+++ b/include/kvm/arm_vgic.h
-@@ -334,6 +334,9 @@ struct vgic_v3_cpu_if {
- 	struct its_vpe	its_vpe;
- 
- 	unsigned int used_lrs;
-+
-+	/* ICC_CTLR_EL1 shadow (published to readers) */
-+	u32 icc_ctlr_el1_shadow; /* upper 32 bits of this reg are reserved */
- };
- 
- struct vgic_cpu {
--- 
-2.34.1
-
+Reviewed-by: Bence Csókás <bence98@sch.bme.hu>
 
