@@ -4,71 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 522BFCCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 15:19:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9A099CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 15:32:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=t01yTlPNJOfmYe2c2innWAMCUlLVv0wWu/2xZUnr0Zs=; b=AMXvA0P70AypdAFFW390USn1cT
-	r05aGnGE+JOgozcQSDL56aLowhd4sCGuHVuSOOXV2Vnqyf4aCizykXJhUHWDRgTyPZlIq/sGL7IB5
-	M1jqdj2nDMM/JKB8J/XT0tG8lczznSygRX0A0htNVRn6eCklRREojx2VcLrYBPSSSH1QKpN5dEm68
-	ybkvKtsFeOMAyB0vw8bu7r39roRTLNCb4IbXtqiWbbiZvZyLPhPiIkCAXOEiZhh033hInx+xRQ6ua
-	jXPm1XgVphUNlHj6BLX2BbfMbZIMHkCQD8JSDVFvn3STnprFmlEouTRn6rb41vA8wlp+esq//eslY
-	wix/kgVw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gre9UR4FONjONwKHgRUr5DGRSLcjn1EybnZAlvLbyak=; b=bwok5eLIhaTntgJXFxoI9CBHTB
+	ZUnCo+YFDzgCGAhku73EIKLFm4AEUwSrRY46HUfMPTrIZnxtV46o4J8FXw1v4wJFdk2+jMDJR49y4
+	r0jfm8lufiH6KPXv/0b2yk7iGsie/obzlGkNTt0cba5JmOvxanbPXCIjebKqtQNJ38n2wFjAVBroC
+	zIVuxNGFu2y0yvoNGBbe342In+t0BTHMy124oq5hl9thu09ZXtjF8sjD3hhayqndsYBbWWhvfgdjx
+	CVwaE7kbHgD31JgV+ZYIQjWDvSn7mvkabxIzBGeIVpF+L0Egill9HWdQd3o0FKwb3sDRqbVsTmOeG
+	4lUwr2Kw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6VxI-000000047CB-3YlS;
-	Wed, 08 Oct 2025 15:19:52 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v6W95-000000048Z0-3x4H;
+	Wed, 08 Oct 2025 15:32:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6VxI-000000047C5-0urc
+	id 1v6W93-000000048Xd-2z8g
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Oct 2025 15:19:52 +0000
+	Wed, 08 Oct 2025 15:32:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 96EE96020D;
-	Wed,  8 Oct 2025 15:19:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0554C4CEE7;
-	Wed,  8 Oct 2025 15:19:49 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 61D2248A8A;
+	Wed,  8 Oct 2025 15:32:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 08A74C4CEF9;
+	Wed,  8 Oct 2025 15:31:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759936791;
-	bh=i6VA+Bi416CqAXTghlrmyfIEfb8t56u1qvkZfUMrvRM=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=mObSjcqhJYFbTtmCVuFRAoF8fQ7OdIgKcq88IyyQJvq13OjBEotKM1kR3oL5+KKBG
-	 IrrnPf1td6SNYIOADfyG3IUgBRVUT2GTNokG6EVdSzsm+kKK8UQG1wyfyxvjIxAT1m
-	 WV0DCAr9HVd7HpflJSxgUfGIS2SrWl1WoSl1MUoVFECbpW5NybWzZqSaoOvp+hODta
-	 mvHviiSyTBdRSprB429Mx0bAyaWPiWHCsP4r81B9SQprFRBKLYsLU0XcwB6TOzsCqP
-	 1fo7/ozlSgouap+2+JqlgY24mUvJ43pnVPKttNqCWbBWQHzH8Sho5PraK+Xpjf7VRC
-	 oe2T/w/v8x5QQ==
-Date: Wed, 8 Oct 2025 08:19:48 -0700
-From: Manivannan Sadhasivam <mani@kernel.org>
-To: Arnd Bergmann <arnd@arndb.de>
-Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	Vincent Guittot <vincent.guittot@linaro.org>, Chester Lin <chester62515@gmail.com>, 
-	Matthias Brugger <mbrugger@suse.com>, Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
-	NXP S32 Linux Team <s32@nxp.com>, bhelgaas@google.com, jingoohan1@gmail.com, 
-	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, krzk+dt@kernel.org, 
-	Conor Dooley <conor+dt@kernel.org>, Ionut.Vicovan@nxp.com, Larisa Grigore <larisa.grigore@nxp.com>, 
-	Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>, ciprianmarian.costea@nxp.com, 
-	Bogdan Hamciuc <bogdan.hamciuc@nxp.com>, Frank Li <Frank.li@nxp.com>, 
-	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, imx@lists.linux.dev, Niklas Cassel <cassel@kernel.org>
-Subject: Re: [PATCH 1/3 v2] dt-bindings: PCI: s32g: Add NXP PCIe controller
-Message-ID: <2erycpxudpckmme3k2cpn6wgti4ueyvupo2tzrvmu7aqp7tm6d@itfj7pfrpzzg>
-References: <20250919155821.95334-1-vincent.guittot@linaro.org>
- <20250919155821.95334-2-vincent.guittot@linaro.org>
- <iom65w7amxqf7miopujxeulyiglhkyjszjc3nd4ivknj5npcz2@bvxej6ymkecd>
- <aOU0w5Brp6uxjZDr@lpieralisi>
- <4rghtk5qv4u7vx4nogctquu3skvxis4npxfukgtqeilbofyclr@nhkrkojv3syh>
- <eba7d968-209d-4acb-ba41-4bebf03e96ba@app.fastmail.com>
- <4143977f-1e70-4a63-b23b-78f87d9fdcde@app.fastmail.com>
+	s=k20201202; t=1759937521;
+	bh=6ZyX1kLcLJNXldMegM6HSEKEB5NDJXFXoY077up5ToU=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=Qfdm2Fz11ubxe09xhRTIaDLWoAQKB9VrPp2Bxsevay/2A4m0pDZnQKY85qtpERBKu
+	 tVZQyyz5x+w7m7zXQWs+LdbnWOddczRfDpOVmYnZQaagC4y4o+sgX3JpY6zG2AQSap
+	 12Y1nw6H8DjC55thOWJISuevZNjugtvXGiWDxtaCoZCUx4xBQY9f9Gd/bQxIDNhkla
+	 nRCYsN/MoQxBKzaLdyy2PRl9qKIkOUlRMTNI7wSQ5G0pKwLI8n8863KqCLqnUZ56tH
+	 txTcqIHZgPSuF+6fDyDcETHx/CiErx//pMUSyrsJmA5nZemOUFBZflqjgt7eoOOo5O
+	 GZ1024/WzyYjQ==
+From: Lee Jones <lee@kernel.org>
+To: Lee Jones <lee@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Alistair Francis <alistair@alistair23.me>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.li@nxp.com>, 
+ Andreas Kemnade <akemnade@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+In-Reply-To: <20250917-sy7636-rsrc-v3-1-331237d507a2@kernel.org>
+References: <20250917-sy7636-rsrc-v3-1-331237d507a2@kernel.org>
+Subject: Re: (subset) [PATCH v3 1/3] dt-bindings: mfd: sy7636a: Add missing
+ gpio pins and supply
+Message-Id: <175993751776.2584245.7441294249150226238.b4-ty@kernel.org>
+Date: Wed, 08 Oct 2025 16:31:57 +0100
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <4143977f-1e70-4a63-b23b-78f87d9fdcde@app.fastmail.com>
+X-Mailer: b4 0.15-dev-b87af
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251008_083201_773746_B2B2F552 
+X-CRM114-Status: UNSURE (   9.02  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,40 +83,20 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 08, 2025 at 10:35:34AM +0200, Arnd Bergmann wrote:
-> On Wed, Oct 8, 2025, at 10:26, Arnd Bergmann wrote:
-> > On Wed, Oct 8, 2025, at 00:28, Manivannan Sadhasivam wrote:
-> >> On Tue, Oct 07, 2025 at 05:41:55PM +0200, Lorenzo Pieralisi wrote:
-> >>> On Mon, Sep 22, 2025 at 11:51:07AM +0530, Manivannan Sadhasivam wrote:
-> > On the other hand, what looks like a bug to me is that the CPU
-> > physical address range for the PCI BAR space overlaps with the
+On Wed, 17 Sep 2025 09:14:29 +0200, Andreas Kemnade wrote:
+> To be able to fully describe how the SY7636A is connected to the system,
+> add properties for the EN and VCOM_EN pins. To squeeze out every bit
+> of unused current, in many devices it is possible to power off the
+> complete chip. Add an input regulator to allow that.
 > 
-> s/CPU physical/PCI bus/
 > 
 
-Yes, it got me confused.
+Applied, thanks!
 
-> > the physical addresses for RAM at 0x80000000 and on-chip devices
-> > at 0x40000000. This probably works fine as long as the total
-> > PCI memory space assignment stays below 0x40000000 but would
-> > fail once addresses actually start clashing.
-> 
-> I got confused here myself, but what I should have said is that
-> having the DMA address for the RAM overlap the BAR space
-> as seen from PCI is problematic as the PCI host bridge
-> cannot tell PCI P2P transfers from DMA to RAM, so one
-> of them will be broken here.
-> 
+[1/3] dt-bindings: mfd: sy7636a: Add missing gpio pins and supply
+      commit: 7d983e997cb53d4c48b61b105163c31c92a35823
 
-No. The IP just sets up the outbound mapping here for the entire 'ranges'. When
-P2P happens, it will use the inbound mapping translation.
+--
+Lee Jones [李琼斯]
 
-So your concern would be valid if the 'dma-ranges' (for which inbound
-translation happens) overlapped with the RAM/MMIO range. But that is not the
-case here.
-
-- Mani
-
--- 
-மணிவண்ணன் சதாசிவம்
 
