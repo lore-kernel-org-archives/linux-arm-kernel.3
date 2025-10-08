@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A5409CCA472
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 13:28:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95B42CCA472
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 13:32:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
 	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
 	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=M1XVEyoz0MeouRu+ZRgvng/HPZcRfKvZumD2u9GTDmI=; b=OgCzeNiOghmSeM7lqLD7CSXn1U
-	bv0W55pKP7BJfsSg4flcbqoRXOtDJp5B8mv490x7rzyPvJGRdLyDvH4lf+3flkphETEvjiIkrGX7+
-	i+M9LcF3b46YcfwWQQau1DmEhW4z1ddZQmqPMFgMc/QDJbuAS6kG6d4RCdHlOU5JxKoR9PCTIVIVI
-	8T6UcFvGXSXX1jN0Sat5jIp9uUAqmumOLEPPTwv7cpQ32ZyTy3tXftVQ6TqRQKKUhHWcCqLnaZz+o
-	ZCB+uFiQgKtAIz+mNubn/R6ILriPVxIehZv0XkmXuaAsuM07Wp07Pe8gKz8+Hxv0Tk/WuQzZDj2S6
-	L5hh5O+A==;
+	bh=NOYL0uD62hKk28WG4gpRQ/Og2WNGiOzJLp810Y1iXv0=; b=dNT6m6ys1CrnxfDamtbpIfjlMf
+	efO2Axq43GE/cO3U2GNgkkYMwcBBirwgg01jfdqVVqzmjesaUm8cJmOCNFoA8KUCURGDhjuJAuyqL
+	1aHK7gRubv45xGX4XNUmdmdF/I4YplN7btTJR/RZTAoI1dkdnmn28+IVtr5MrhLZI4bIOuoiAKU6P
+	UoUQB88062eLgRFUI5HAEFqYMzYjzEAteANUs1O/ftbpdcMg0heJK/601RcF8mETZIy/G1Y4D3g/7
+	InwsEJTg6yhoTAZjg+gkersX4HDb1gA6d+RCCmguV7ag8M5XwoXNXmhvg9BTpdAa7KM7yU453I3q7
+	nFvQof1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6UDW-00000003wBS-15Vu;
-	Wed, 08 Oct 2025 13:28:30 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v6UHA-00000003wp9-2URE;
+	Wed, 08 Oct 2025 13:32:16 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6UDT-00000003wAl-0myS
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Oct 2025 13:28:28 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 34C3B43851;
-	Wed,  8 Oct 2025 13:28:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id BAAE7C4CEF5;
-	Wed,  8 Oct 2025 13:28:22 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759930106;
-	bh=3pzYmZsg41AQcq91tl/+v0TTgt/Rx1I3erEHNiUptHw=;
-	h=From:To:Cc:Subject:Date:From;
-	b=ALqSMpbyhOP/U2/Oba7VywE4t3mM6yESXdsSrrpLY8YjKp6mKpbHvMLMh0VSTh4Gl
-	 L5jEQ/fY28WB9CD+FLEjXXVBRWbikg56myQTW8uFGRbUluX6h/87QNoF/v1GsPCd5Y
-	 dui0SpY/S+OZClkcOfz6BnXyZEX6HEy9Wx8lIfrWiQtQSPAR1BGeeaUmV/lvDweDcA
-	 XVWQoHZCk0OLh1YuJUtCnOqWi3xl21AKNElSEqU9Vj/pLe7fY4P645Z3wzp/Fjbj5K
-	 0yRIBe9yIuL2v8uqVYQBdOVaoOw08DcKGc/UQRJmHPMU/nRS6kN5nTMb5ZkkfRYC4E
-	 zjQSUr5lLbaqQ==
-From: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-To: linux-coco@lists.linux.dev,
+	id 1v6UH7-00000003woQ-3nIv;
+	Wed, 08 Oct 2025 13:32:15 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:
+	Subject:Cc:To:From:Reply-To:Content-Type:In-Reply-To:References;
+	bh=NOYL0uD62hKk28WG4gpRQ/Og2WNGiOzJLp810Y1iXv0=; b=QUlT0w9nR/T9hYkLxnW0QicOxh
+	gjEb+c/9oV8pUlTT0b6Wyf+ooTwWWZZZg32QDTbMDXNhjW88OJoZxCcaJkP2fEqNw9t5TjXNCKGnQ
+	TFBoeebPG9qGqDLWIPvpyyrt/FHAW91+Dzs3iTD1O7kIypK4p8Bvz6itB5iMpeQuZwecR8TKM9P/E
+	9gh/trrYJpJNEkKXP+e8JhDYHPa7CM0sMJyTUs/OfRvcDLSnJbG0KFSjKb4XG7SKIapNbwzSz+ICA
+	xurFyZPzPSOesXSOpCNzcVDFJj97I8GMljL0qDUeA+nA20GFimqQYSjiQq59z34ukRzmoj22WnVZj
+	JpGdSUUQ==;
+Received: from i53875a0d.versanet.de ([83.135.90.13] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1v6UGt-0002uq-S4; Wed, 08 Oct 2025 15:31:59 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: heiko@sntech.de
+Cc: mturquette@baylibre.com,
+	sboyd@kernel.org,
+	zhangqing@rock-chips.com,
+	sebastian.reichel@collabora.com,
+	linux-clk@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Steven Price <steven.price@arm.com>,
-	Gavin Shan <gshan@redhat.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Jeremy Linton <jeremy.linton@arm.com>,
-	Sami Mujawar <sami.mujawar@arm.com>,
-	"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
-Subject: [PATCH] coco: guest: arm64: Update ARM CCA guest driver
-Date: Wed,  8 Oct 2025 18:57:58 +0530
-Message-ID: <20251008132758.784275-1-aneesh.kumar@kernel.org>
-X-Mailer: git-send-email 2.43.0
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	quentin.schulz@cherry.de,
+	stable@vger.kernel.org
+Subject: [PATCH] clk: rockchip: rk3588: Don't change PLL rates when setting dclk_vop2_src
+Date: Wed,  8 Oct 2025 15:31:35 +0200
+Message-ID: <20251008133135.3745785-1-heiko@sntech.de>
+X-Mailer: git-send-email 2.47.2
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251008_062827_265137_B79B9796 
-X-CRM114-Status: GOOD (  21.55  )
+X-CRM114-CacheID: sfid-20251008_063213_962776_5F048F31 
+X-CRM114-Status: GOOD (  15.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,186 +75,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Make preparatory updates to the ARM CCA guest driver:
+dclk_vop2_src currently has CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT
+flags set, which is vastly different than dclk_vop0_src or dclk_vop1_src,
+which have none of those.
 
- - Switch from using a platform device to a faux device (based on
-   feedback in [1])
- - Rename the device from `arm-cca-dev` to `arm-rsi-dev`, so that the
-   host driver can register an equivalent `arm-rmi-dev`
+With these flags in dclk_vop2_src, actually setting the clock then results
+in a lot of other peripherals breaking, because setting the rate results
+in the PLL source getting changed:
 
-These changes are purely structural and introduce no new functionality.
-Subsequent patches will extend this driver to add guest device
-assignment support.
+[   14.898718] clk_core_set_rate_nolock: setting rate for dclk_vop2 to 152840000
+[   15.155017] clk_change_rate: setting rate for pll_gpll to 1680000000
+[ clk adjusting every gpll user ]
 
-[1] https://lore.kernel.org/all/2025073035-bulginess-rematch-b92e@gregkh
+This includes possibly the other vops, i2s, spdif and even the uarts.
+Among other possible things, this breaks the uart console on a board
+I use. Sometimes it recovers later on, but there will be a big block
+of garbled output for a while at least.
 
-Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+Shared PLLs should not be changed by individual users, so drop these
+flags from dclk_vop2_src and make the flags the same as on dclk_vop0
+and dclk_vop1.
+
+Fixes: f1c506d152ff ("clk: rockchip: add clock controller for the RK3588")
+Cc: stable@vger.kernel.org
+Signed-off-by: Heiko Stuebner <heiko@sntech.de>
 ---
-NOTE:
-This patch is sent early outside the patchseries to avoid userspace from
-depending on the presence of the newly introduced platform device.
-The platform device was added in v6.14-rc1. 
+ drivers/clk/rockchip/clk-rk3588.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
- arch/arm64/include/asm/rsi.h                  |  2 +-
- arch/arm64/kernel/rsi.c                       | 15 -----
- drivers/virt/coco/arm-cca-guest/Makefile      |  3 +
- .../{arm-cca-guest.c => arm-cca.c}            | 65 +++++++++++--------
- 4 files changed, 41 insertions(+), 44 deletions(-)
- rename drivers/virt/coco/arm-cca-guest/{arm-cca-guest.c => arm-cca.c} (85%)
-
-diff --git a/arch/arm64/include/asm/rsi.h b/arch/arm64/include/asm/rsi.h
-index b42aeac05340..26ef6143562b 100644
---- a/arch/arm64/include/asm/rsi.h
-+++ b/arch/arm64/include/asm/rsi.h
-@@ -10,7 +10,7 @@
- #include <linux/jump_label.h>
- #include <asm/rsi_cmds.h>
- 
--#define RSI_PDEV_NAME "arm-cca-dev"
-+#define RSI_DEV_NAME "arm-rsi-dev"
- 
- DECLARE_STATIC_KEY_FALSE(rsi_present);
- 
-diff --git a/arch/arm64/kernel/rsi.c b/arch/arm64/kernel/rsi.c
-index ce4778141ec7..569ef08750e5 100644
---- a/arch/arm64/kernel/rsi.c
-+++ b/arch/arm64/kernel/rsi.c
-@@ -140,18 +140,3 @@ void __init arm64_rsi_init(void)
- 
- 	static_branch_enable(&rsi_present);
- }
--
--static struct platform_device rsi_dev = {
--	.name = RSI_PDEV_NAME,
--	.id = PLATFORM_DEVID_NONE
--};
--
--static int __init arm64_create_dummy_rsi_dev(void)
--{
--	if (is_realm_world() &&
--	    platform_device_register(&rsi_dev))
--		pr_err("failed to register rsi platform device\n");
--	return 0;
--}
--
--arch_initcall(arm64_create_dummy_rsi_dev)
-diff --git a/drivers/virt/coco/arm-cca-guest/Makefile b/drivers/virt/coco/arm-cca-guest/Makefile
-index 69eeba08e98a..609462ea9438 100644
---- a/drivers/virt/coco/arm-cca-guest/Makefile
-+++ b/drivers/virt/coco/arm-cca-guest/Makefile
-@@ -1,2 +1,5 @@
- # SPDX-License-Identifier: GPL-2.0-only
-+#
- obj-$(CONFIG_ARM_CCA_GUEST) += arm-cca-guest.o
-+
-+arm-cca-guest-$(CONFIG_TSM) +=  arm-cca.o
-diff --git a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c b/drivers/virt/coco/arm-cca-guest/arm-cca.c
-similarity index 85%
-rename from drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-rename to drivers/virt/coco/arm-cca-guest/arm-cca.c
-index 0c9ea24a200c..89d9e7f8eb5d 100644
---- a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
-+++ b/drivers/virt/coco/arm-cca-guest/arm-cca.c
-@@ -1,8 +1,9 @@
- // SPDX-License-Identifier: GPL-2.0-only
- /*
-- * Copyright (C) 2023 ARM Ltd.
-+ * Copyright (C) 2025 ARM Ltd.
-  */
- 
-+#include <linux/device/faux.h>
- #include <linux/arm-smccc.h>
- #include <linux/cc_platform.h>
- #include <linux/kernel.h>
-@@ -181,52 +182,60 @@ static int arm_cca_report_new(struct tsm_report *report, void *data)
- 	return ret;
- }
- 
--static const struct tsm_report_ops arm_cca_tsm_ops = {
-+static const struct tsm_report_ops arm_cca_tsm_report_ops = {
- 	.name = KBUILD_MODNAME,
- 	.report_new = arm_cca_report_new,
- };
- 
--/**
-- * arm_cca_guest_init - Register with the Trusted Security Module (TSM)
-- * interface.
-- *
-- * Return:
-- * * %0        - Registered successfully with the TSM interface.
-- * * %-ENODEV  - The execution context is not an Arm Realm.
-- * * %-EBUSY   - Already registered.
-- */
--static int __init arm_cca_guest_init(void)
-+static void unregister_cca_tsm_report(void *data)
-+{
-+	tsm_report_unregister(&arm_cca_tsm_report_ops);
-+}
-+
-+static int cca_tsm_probe(struct faux_device *fdev)
- {
- 	int ret;
- 
- 	if (!is_realm_world())
- 		return -ENODEV;
- 
--	ret = tsm_report_register(&arm_cca_tsm_ops, NULL);
--	if (ret < 0)
-+	ret = tsm_report_register(&arm_cca_tsm_report_ops, NULL);
-+	if (ret < 0) {
- 		pr_err("Error %d registering with TSM\n", ret);
-+		return ret;
-+	}
-+
-+	ret = devm_add_action_or_reset(&fdev->dev, unregister_cca_tsm_report, NULL);
-+	if (ret < 0) {
-+		pr_err("Error %d registering devm action\n", ret);
-+		unregister_cca_tsm_report(NULL);
-+		return ret;
-+	}
- 
- 	return ret;
- }
--module_init(arm_cca_guest_init);
- 
--/**
-- * arm_cca_guest_exit - unregister with the Trusted Security Module (TSM)
-- * interface.
-- */
--static void __exit arm_cca_guest_exit(void)
-+static struct faux_device *cca_tsm;
-+
-+static const struct faux_device_ops cca_device_ops = {
-+	.probe = cca_tsm_probe,
-+};
-+
-+static int __init cca_tsm_init(void)
- {
--	tsm_report_unregister(&arm_cca_tsm_ops);
-+	cca_tsm = faux_device_create(RSI_DEV_NAME, NULL, &cca_device_ops);
-+	if (!cca_tsm)
-+		return -ENOMEM;
-+	return 0;
- }
--module_exit(arm_cca_guest_exit);
-+module_init(cca_tsm_init);
- 
--/* modalias, so userspace can autoload this module when RSI is available */
--static const struct platform_device_id arm_cca_match[] __maybe_unused = {
--	{ RSI_PDEV_NAME, 0},
--	{ }
--};
-+static void __exit cca_tsm_exit(void)
-+{
-+	faux_device_destroy(cca_tsm);
-+}
-+module_exit(cca_tsm_exit);
- 
--MODULE_DEVICE_TABLE(platform, arm_cca_match);
- MODULE_AUTHOR("Sami Mujawar <sami.mujawar@arm.com>");
- MODULE_DESCRIPTION("Arm CCA Guest TSM Driver");
- MODULE_LICENSE("GPL");
+diff --git a/drivers/clk/rockchip/clk-rk3588.c b/drivers/clk/rockchip/clk-rk3588.c
+index 1694223f4f84..cf83242d1726 100644
+--- a/drivers/clk/rockchip/clk-rk3588.c
++++ b/drivers/clk/rockchip/clk-rk3588.c
+@@ -2094,7 +2094,7 @@ static struct rockchip_clk_branch rk3588_early_clk_branches[] __initdata = {
+ 	COMPOSITE(DCLK_VOP1_SRC, "dclk_vop1_src", gpll_cpll_v0pll_aupll_p, 0,
+ 			RK3588_CLKSEL_CON(111), 14, 2, MFLAGS, 9, 5, DFLAGS,
+ 			RK3588_CLKGATE_CON(52), 11, GFLAGS),
+-	COMPOSITE(DCLK_VOP2_SRC, "dclk_vop2_src", gpll_cpll_v0pll_aupll_p, CLK_SET_RATE_PARENT | CLK_SET_RATE_NO_REPARENT,
++	COMPOSITE(DCLK_VOP2_SRC, "dclk_vop2_src", gpll_cpll_v0pll_aupll_p, 0,
+ 			RK3588_CLKSEL_CON(112), 5, 2, MFLAGS, 0, 5, DFLAGS,
+ 			RK3588_CLKGATE_CON(52), 12, GFLAGS),
+ 	COMPOSITE_NODIV(DCLK_VOP0, "dclk_vop0", dclk_vop0_p,
 -- 
-2.43.0
+2.47.2
 
 
