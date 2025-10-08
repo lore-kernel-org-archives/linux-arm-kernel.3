@@ -4,59 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B3FC9CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 23:42:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9B26CAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 23:56:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FbS8f0FO8oO/IOTdfnbXpf3TdtkpDCPb9Tr+RzGxXGU=; b=Zu8//x+6Lig7AGyWxjzmmo1Ssu
-	anXdruQPnJZD7QBf1+M03In8Bt89yM2CyEh9fK41HfzNiMM+9khCAmWpg2afGr9dYuRv/5tUDQPXb
-	ZRZOzVjKWRxONJU3gybw3swNc2rwDsEZ496fgR0Y4DqsxFmAouNglI5IoZpv1zb+i44u2QdXtVe8A
-	sbFpsutK0uEQnhqs7gtZM2/2ACG09b4LJ7eqCrrhrQgDTsYNLo5fZ5sqzZ+TzT6iz+OLAjCyCLvTE
-	8G0bp1cJ/dGxaZe1QEJNR4o3Ku8no/qy6kH2LpLljeY2GraqAbYTL+sCbBcJF2JtxD0Cn4A15icbZ
-	Gc1Y1RJw==;
+	bh=0jRMyVBlSdkWjmJbL4XtMdQXbP7Z5TJyAYlDDGPOt0o=; b=QIkE6VRQFwwoieglvm2LVF7LP/
+	vPI6ZWqAsiYDGwshODx7pkD+9OiuJFuZtUi9I0DVKIwRtVrqzbNe3xOViSetlfxHyhIzq+q7bCcYr
+	KV6+t561vk+DE8LY5OaxKWpoqhRmaeW/gB+T0X6YYzK/gAvLwiSmgxiXFGsQHGgBDrty7dJtFfU80
+	hNXjbkuapB7VpeOl9umTGKPAad3dNcDqOCWK8wcjY/JYguRUit87b8+kZrZLH60rgL97arekdP0Ts
+	XXgIogs2aO4cOBGV/4LbowgqfYpM0PE43n3xzXO8gxSlwI/fSTF9d2at5Ilsq1UOhCqfj//65RP1h
+	yovDAa3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6dnY-00000004poL-3BHk;
-	Wed, 08 Oct 2025 23:42:20 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v6e1Q-00000004qPZ-0ZRz;
+	Wed, 08 Oct 2025 23:56:40 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6dnW-00000004po2-0meW
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Oct 2025 23:42:19 +0000
+	id 1v6e1P-00000004qPQ-08dd;
+	Wed, 08 Oct 2025 23:56:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3777C41EEF;
-	Wed,  8 Oct 2025 23:42:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5A79EC4CEE7;
-	Wed,  8 Oct 2025 23:42:12 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 353D1603CF;
+	Wed,  8 Oct 2025 23:56:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6DEB9C4CEE7;
+	Wed,  8 Oct 2025 23:56:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759966937;
-	bh=Sh81BlQNbHf2Tut+VaTzcvGalFFYoQRL5dyvIXHuqCU=;
+	s=k20201202; t=1759967797;
+	bh=gfm6M2tF1gf+jvegzebAVXKYeH2HyBSskMG0yM3A/54=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=l6hkWjXWUMp0R/H3RvuMJnEeatm8vYMUo4/zBl6UNUbWKzHcxaCLdN9zEAHXC1fzj
-	 q7/4Hd1rK/6R/i/Iuwlo8/kLAICpsGp5pr4HCDjl+yYFS5KEXt6AUp0T0STo3lpQBx
-	 HI6FZfAxzg+O//0KTUsxclKwINYkkj1al7LW3sWT9Sl5XmQ82io946mNSi3s3MsODg
-	 jnKyd+1Tg02OGbuSdMh7vr13/0tgLdHR0hh5harSYQLNas4Yfguj4v6WNzRVuADMXv
-	 si+6Rm176+QSoYsiNyLQ1FtEfJcpVW68tP64k11fNISO/fMbw8J+2UDehezugDNfp/
-	 8unozSQA5W3KQ==
-Message-ID: <13426fe2-d4cc-4d87-bc4a-4a6dca955456@kernel.org>
-Date: Thu, 9 Oct 2025 08:42:07 +0900
+	b=UA4mfs1JJD6ewAp+USdjMUhIuzr4XJ23pisGajJVXqvBD7RgI8a6yu0W0jW6dKjNt
+	 YGIwi91/QPquvZs8LHga2eSZv2qjmGph+amPuaScNhraiq5qnknbYNhmm8TdHBN4Aw
+	 PANy69N4MCnUDeR5TZ2MrIh8biwgJYdg/X3IoOgoWuDw71PUspwUjqkP6hEFeFK3wB
+	 xgk40KaiaifdMW+XoMt2kwfe9Y6OrF8gntBHuLHX2abOiZgk4HACzN49Y6PNleQ17r
+	 zheb2XYra0mFw8CU1eScKVmZnYRREDvWlyU1WoY77XyJHvLpGHtPJU76ijTJaNw20J
+	 enNuPKKtKgAjw==
+Message-ID: <8966b6a9-ff70-4833-a5c7-c6d6c13c6c8b@kernel.org>
+Date: Thu, 9 Oct 2025 08:56:26 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] dt-bindings: soc: samsung: exynos-sysreg: add
- power-domains
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Peter Griffin <peter.griffin@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20251008-power-domains-dt-bindings-soc-samsung-exynos-sysreg-v1-1-ab41c517dec6@linaro.org>
+Subject: Re: [PATCH v2 1/4] dt-bindings: usb: dwc3: Add Google Tensor G5 DWC3
+To: Roy Luo <royluo@google.com>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>,
+ Badhri Jagan Sridharan <badhri@google.com>, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org
+References: <20251008060000.3136021-1-royluo@google.com>
+ <20251008060000.3136021-2-royluo@google.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -102,13 +107,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251008-power-domains-dt-bindings-soc-samsung-exynos-sysreg-v1-1-ab41c517dec6@linaro.org>
+In-Reply-To: <20251008060000.3136021-2-royluo@google.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251008_164218_262762_285CCC85 
-X-CRM114-Status: UNSURE (   7.13  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,18 +124,155 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/10/2025 23:17, André Draszik wrote:
-> Sysreg can be part of a power domain, so we need to allow the relevant
-> property 'power-domains'.
+On 08/10/2025 14:59, Roy Luo wrote:
+> Document the device tree bindings for the DWC3 USB controller found in
+> Google Tensor SoCs, starting with the G5 generation.
 > 
-> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+> The Tensor G5 silicon represents a complete architectural departure from
+
+
+G5 does not have a model number like G1-G4?
+
+> previous generations (like gs101), including entirely new clock/reset
+> schemes, top-level wrapper and register interface. Consequently,
+> existing Samsung/Exynos DWC3 USB bindings and drivers are incompatible,
+
+Do not reference drivers. Explain the hardware.
+
+> necessitating this new device tree binding.
+> 
+> The USB controller on Tensor G5 is based on Synopsys DWC3 IP and features
+> Dual-Role Device single port with hibernation support.
+> 
+> Signed-off-by: Roy Luo <royluo@google.com>
 > ---
->  .../devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml         | 3 +++
+>  .../bindings/usb/google,gs-dwc3.yaml          | 145 ++++++++++++++++++
+>  1 file changed, 145 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/usb/google,gs-dwc3.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/usb/google,gs-dwc3.yaml b/Documentation/devicetree/bindings/usb/google,gs-dwc3.yaml
+> new file mode 100644
+> index 000000000000..9eb0bf726e8d
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/usb/google,gs-dwc3.yaml
+> @@ -0,0 +1,145 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +# Copyright (c) 2025, Google LLC
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/usb/google,gs-dwc3.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Google Tensor Series (G5+) DWC3 USB SoC Controller
+> +
+> +maintainers:
+> +  - Roy Luo <royluo@google.com>
+> +
+> +description: |
 
-It is not part of power domain for any existing SoCs, at least nothing
-indicates that so this should be restricted as in example-schema to GS
-sysregs only.
 
+Do not need '|' unless you need to preserve formatting.
+
+> +  Describes the DWC3 USB controller block implemented on Google Tensor SoCs,
+> +  starting with the G5 generation. Based on Synopsys DWC3 IP, the controller
+> +  features Dual-Role Device single port with hibernation add-on.
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - google,gs5-dwc3
+> +
+> +  reg:
+> +    minItems: 3
+
+Drop
+
+> +    maxItems: 3
+> +
+> +  reg-names:
+> +    description: |
+> +      The following memory regions must present:
+> +        - dwc3_core: Core DWC3 IP registers.
+> +        - host_cfg_csr: Hibernation control registers.
+> +        - usbint_csr: Hibernation interrupt registers.
+
+Drop description or move it to items in reg. See other bindings.
+
+> +    items:
+> +      - const: dwc3_core
+> +      - const: host_cfg_csr
+> +      - const: usbint_csr
+> +
+> +  interrupts:
+> +    minItems: 3
+
+Drop
+
+> +    maxItems: 3
+> +
+> +  interrupt-names:
+> +    description: |
+> +      The following interrupts must present:
+> +        - dwc_usb3: Core DWC3 interrupt.
+> +        - hs_pme_irq: High speed remote wakeup interrupt for hibernation.
+> +        - ss_pme_irq: Super speed remote wakeup interrupt for hibernation.
+
+From where did you get this style? Don't write bindings with chat gpt or
+whatever other tool. it is a waste of our time.
+
+> +    items:
+> +      - const: dwc_usb3
+> +      - const: hs_pme_irq
+> +      - const: ss_pme_irq
+> +
+> +  clocks:
+> +    minItems: 3
+> +    maxItems: 3
+> +
+> +  clock-names:
+> +    minItems: 3
+> +    maxItems: 3
+
+From where did you get such syntax?
+
+> +
+> +  resets:
+> +    minItems: 5
+> +    maxItems: 5
+> +
+> +  reset-names:
+> +    items:
+> +      - const: usbc_non_sticky
+> +      - const: usbc_sticky
+> +      - const: usb_drd_bus
+> +      - const: u2phy_apb
+> +      - const: usb_top_csr
+> +
+> +  power-domains:
+> +    minItems: 2
+> +    maxItems: 2
+> +
+> +  power-domain-names:
+> +    description: |
+> +      The following power domain must present:
+> +          - usb_psw_pd: The child power domain of usb_top_pd. Turning it on puts the controller
+> +                         into full power state, turning it off puts the controller into power
+> +                         gated state.
+> +          - usb_top_pd: The parent power domain of usb_psw_pd. Turning it on puts the controller
+> +                         into power gated state, turning it off completely shuts off the
+> +                         controller.
+
+Same comments.
+
+
+> +    items:
+> +      - const: usb_psw_pd
+> +      - const: usb_top_pd
+> +
+> +  iommus:
+> +    maxItems: 1
+> +
 Best regards,
 Krzysztof
 
