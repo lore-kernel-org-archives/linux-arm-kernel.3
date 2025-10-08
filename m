@@ -4,85 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4239CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 23:01:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F3FA8CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 23:11:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=k5W9L+tF2EoqaA4TJvMBGBc+NCvpRbc4OONWCg5ABzk=; b=BSd7DDeqZLS7Mmzh3mS/C3dUOJ
-	7i5mkviuxG+8vGrywO30RjAZdiDwwfb1KI9GC/QmEfTNVsCpn1LnHNQgJ7vuZDCZJpQdVFxh1mLL0
-	Q2fae9bp1l3EdQrqoUpU5p26+r8qifIFcl/Lpz/cqyDAxAiehyDXmwro7sMMjxy1gLW08VVt/MBH1
-	QsjLJXyNUQT4wqu/jkocY/gdWGXQsf/TWyiA559nHcNONBoVmVQd1KiDf7fh1lJC9SE8AWOJpOyv4
-	WnbdHcnBQZ1ZU3NPlX77sOFaoCnAS+NooNCysZIrBd+r9wBNT7NjgF86ScqqojMKRUckmWlU+Iih9
-	z2v/+ypQ==;
+	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+f6ArVeWZd2reFq0nlx9DebYmTrmGwR2XKW8kYdyUtM=; b=GPi0TZxBEhKNSLkYy9KkiN21Ws
+	iCBK6Us7TAS9/D7SZjRAWXjIhvf9sUPr0aPIRordFHsw7b4L3tESzBziKtoy8HB4kDmoeUhHoKGus
+	J7jVbwPYtkPabmgm3X2Ezgb82tevFohbfHdxfjzgmsGI66a75+0fDzlwXT0vg/gkDYtjcUjWvXP3s
+	l/z3Xn0X+kKJFMYYx4SwErlHp7PYT6JjfmjugsJoIkxonQPBciuCiuWaccvQlMahpms4R4D447ZTB
+	JZZDQy6mWI3VD8EXweTW9LBeIzFapMOv7zN3rkhslFA7sMexuR5wePXZqJARXEsCQ56VWTgheOeJs
+	qLYVSAdA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6dAF-00000004mkZ-3TDl;
-	Wed, 08 Oct 2025 23:01:43 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1v6dJG-00000004n6a-3VpT;
+	Wed, 08 Oct 2025 23:11:02 +0000
+Received: from mail-pj1-f45.google.com ([209.85.216.45])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6dAD-00000004mju-2W0w
+	id 1v6dJE-00000004n6B-0TjY
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Oct 2025 23:01:43 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-269640c2d4bso459475ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Oct 2025 16:01:41 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=osandov-com.20230601.gappssmtp.com; s=20230601; t=1759964500; x=1760569300; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=k5W9L+tF2EoqaA4TJvMBGBc+NCvpRbc4OONWCg5ABzk=;
-        b=UwvX7+A9R+1VZOnqrcHDwxzMltfGOijW3pmT38JTO7V5Owo3zAK3FLYM2s3lwaUjmK
-         qtG1UDwCDnT4vkUmVZx4K6WR0ObWOe56/yGFMu2KFPbaquL35gFb1goWttZKodw9ow6w
-         Ib+CKvOQRUeBE23bEDAwnOeHhtmXL2KORgHNSXttIS49NkbIx48+gv3MQOe1tMPqkOzI
-         +WZcZW6faoqRe4UelCtGBqYw0r+1YzCUuZmEgELn/BngdgyESki6dg6YL5PnWS/X8WTQ
-         /epPASx6r5c/mBSfzWASZRYJB6oseVpgVZoJo6IKFlcynadcnrWFZzXGCw07uOgrkPVx
-         2xjg==
+	Wed, 08 Oct 2025 23:11:01 +0000
+Received: by mail-pj1-f45.google.com with SMTP id 98e67ed59e1d1-32edcc68e0fso72473a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Oct 2025 16:10:59 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759964500; x=1760569300;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1759965059; x=1760569859;
+        h=content-transfer-encoding:in-reply-to:organization:content-language
+         :references:cc:to:from:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=k5W9L+tF2EoqaA4TJvMBGBc+NCvpRbc4OONWCg5ABzk=;
-        b=T6kPEuAQmIyHpw2nYXrwRshCnsFlbM+105rfh4YXd8ZAgQfko+42OifV12vgLhNUoz
-         gB3ePu704HxkfaaBRTkrNd7MG+sKQuwhpgQBZslZFv11v4/9p+Xlmaz3HBD8wgUhYOta
-         m7OIAgZq/f7Puv3JS6qwXGtUqon7y7Uw4m90yqyGPhC42k+EI33WBxRiENiipQMu2IHW
-         TdSABX4xGb4gnURHIT7D1dEQXNL2/I3aNGOC2j5ry4+YIRoN41o3hGo6LjxiZ7VnMml7
-         w9QJB4/tRtRKPUsgrHUoX0emisOCWfwXCzYOKHwnp4Ok1H3Fpczg+J5QO7j0Cbu4QUGN
-         bj7g==
-X-Forwarded-Encrypted: i=1; AJvYcCW9UGIkOGFhKXp/7yHTqWWf6O5diJ2ieMosoW8lke3uEY+Q9oFWYS/8MLhyn5X1yULRvZaBml2Xy0zZoHpj8zkl@lists.infradead.org
-X-Gm-Message-State: AOJu0YwlbfzyDf2t0A47Kr57QSm8N0yjB4Ho2D73PrKkCCYqupzZoWvu
-	RvvECDiVanR/Sbr4/MPCwkhfHfeJTjlCyZCrfaEw8nVXSXq/kgHyTyHDARgaBd+DfdOrSRvwbNX
-	T3lNQ
-X-Gm-Gg: ASbGncsywf5HPPpQCVHBw5ViZehhbrK6ECLcsUjoR8xgYOftGsJszf4FB1CIT5acQxZ
-	RqLqh5qPhsrpm3Zxc7cr6VtDiQqfp5WJX3UP9hD41mpWpsz6xFvEk8fv7at/XRmcFz6KoQXvfZS
-	07AZFoOM/SQxsY0CzL3hNF+A6RkHNkJac0D8BvdYl80GWzG+8ZHwJCVVER9j3mRnycZGNBphMD2
-	0wuWEhPNFWmOuP/wQ8MopJwbufhvoIRqmImp04YJrEoLo65kqgMbwt1Be9hLfARgF+tw6Ni2cSU
-	usptD7vZDFCcYMId2Op/hHoZLaeqhp1DFqax3/zUsjI7JFCH/C8Tw5joqOXOnedJNCCmmkNmtU3
-	Qr7V6JmPu5xVD0X0sj1YsEJ/Krix4tcUtP5MIchVvzFpMqdiQtho=
-X-Google-Smtp-Source: AGHT+IFVVBtilcvc90xqLx+h6jSzncMmGexTkEe1GC3NSmpRBJuGJpD3gOwtWgqftuAK7NSnheQ2AA==
-X-Received: by 2002:a17:902:da87:b0:269:8407:499a with SMTP id d9443c01a7336-2902723ba15mr40415545ad.1.1759964500330;
-        Wed, 08 Oct 2025 16:01:40 -0700 (PDT)
-Received: from telecaster.thefacebook.com ([2620:10d:c090:500::4:3b5a])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29034e18557sm8361635ad.39.2025.10.08.16.01.38
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Oct 2025 16:01:39 -0700 (PDT)
-From: Omar Sandoval <osandov@osandov.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Cc: kernel-team@fb.com
-Subject: [PATCH] arm64: remove unused ARCH_PFN_OFFSET
-Date: Wed,  8 Oct 2025 16:01:30 -0700
-Message-ID: <9078f326973e9065eef9d7c3198f94ded296915c.1759964446.git.osandov@osandov.com>
-X-Mailer: git-send-email 2.51.0
+        bh=+f6ArVeWZd2reFq0nlx9DebYmTrmGwR2XKW8kYdyUtM=;
+        b=mdqlkb+t3JHzefWsxzo6pjOQllqG1cSiznZXV8ef7ZofyyBm/Ih6oWaPjXUAk1ITnu
+         eDIV30cCmaU+fvK1Y7+nnpO4xNtDmfcBNLYuEr0iZDxv/aVhA3IaC6rn1tUf4wRdZOPH
+         3QTime4GDuhBFywIStRhQuhHbwPBr7kJp/gTfcG0cydWx03gxgehp5SAh89p1zGz1XBX
+         09H8kAi06tQwDPf8nXWuMIHjlkbfbhhZJesItOQN+xt8coaZoW98d3n/wZCnEoD7wbB2
+         Ae1oUuQkHgBvD1A887hNIRKqX5/Jmvjq+FaG764mK8ZBQrKZoxGcZAMATnbK3HAwuayw
+         3dBw==
+X-Forwarded-Encrypted: i=1; AJvYcCVSM5TqEJgD8qzmrt9UudrMObU0xR4HdMvafCeRYkFaDpp4AOMO7bHbbYoT1agg1D711fT6ahmqPtQc4CG4xq6v@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywz0l/BKMjkJMMv3SgbUUvx9cUjjKucSkwhkOFjsrXusCufVGHg
+	eJbXRYoI3drKi9jFfXS3Mfo7qoFz/ySkosEhHYOjmbrElx7NILX4y6Xj
+X-Gm-Gg: ASbGncsBcESgtLsKYmc4hl1eNlcugUSBW/IzLlvvQWtqGkI9Y3loa6WqIoH4I4STfYn
+	pNB/ln+LqymkyWuQkanxmxm5RPp474PLZ5cyj0NbCuCyhiiM4zAGh6TdJYOd6deVmEHi/KgAAOn
+	Ewf8KQ20Xt4fCsG/xVSaeBQleXVeoqnYXB7+6khAIs+94VTF7KQc+MWOrgjIg06E1ULD3sx/xUS
+	o1K88FwpuqJl0apekHQz/m7amgUn25qH83pJBo2itwx+kUaz201pjLZQDDG4vnktZKOegTkEaoA
+	bEjjeRxDb6Isjwt0fA+XeZ5EMl4ToiY7LFo1ur/JCwUqC7zpS9oWk1m4gsVWknqgbImqVJpsEcP
+	SQEV3UgQLN0F51RQOebWxabM69L10Z9o+xttuTsTJf66iDK4lvFic90MAt3tDfv49/LoZlXv3ww
+	aodenOVRQNWeiUZd4DslYxjYpJvV0vNm9i76ny1M7upA==
+X-Google-Smtp-Source: AGHT+IHYx7yW+JTJ5Vs8n0h3lqIBDwvHJUxcle/Y9dCGu8zkNMcwMzSHyFZOcfaJ/LG/hQU90oGRKA==
+X-Received: by 2002:a17:90b:3889:b0:32b:dfd7:e42c with SMTP id 98e67ed59e1d1-33b5139575bmr3708891a91.5.1759965058889;
+        Wed, 08 Oct 2025 16:10:58 -0700 (PDT)
+Received: from [192.168.50.136] ([118.32.98.101])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-33b510ff99dsm4801947a91.6.2025.10.08.16.10.55
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 08 Oct 2025 16:10:58 -0700 (PDT)
+Message-ID: <2b8e3ca5-1645-489c-9d7f-dd13e5fc43ed@kzalloc.com>
+Date: Thu, 9 Oct 2025 08:10:53 +0900
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: cpufeature: Don't cpu_enable_mte() when
+ KASAN_GENERIC is active
+From: Yunseong Kim <ysk@kzalloc.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+ James Morse <james.morse@arm.com>, Will Deacon <will@kernel.org>,
+ Yeoreum Yun <yeoreum.yun@arm.com>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>
+Cc: Andrey Konovalov <andreyknvl@gmail.com>, Marc Zyngier <maz@kernel.org>,
+ Mark Brown <broonie@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Ard Biesheuvel <ardb@kernel.org>, Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Alexander Potapenko <glider@google.com>, Dmitry Vyukov <dvyukov@google.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kasan-dev@googlegroups.com
+References: <20251008210425.125021-3-ysk@kzalloc.com>
+ <CA+fCnZcknrhCOskgLLcTn_-o5jSiQsFni7ihMWuc1Qsd-Pu7gg@mail.gmail.com>
+ <d0fc7dd9-d921-4d82-9b70-bedca7056961@kzalloc.com>
+Content-Language: en-US
+Organization: kzalloc
+In-Reply-To: <d0fc7dd9-d921-4d82-9b70-bedca7056961@kzalloc.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251008_160141_876903_B1E65A4B 
-X-CRM114-Status: GOOD (  10.62  )
+X-CRM114-CacheID: sfid-20251008_161100_156616_2A1EE340 
+X-CRM114-Status: GOOD (  24.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -97,30 +101,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Omar Sandoval <osandov@fb.com>
+To summarize my situation, I thought the boot panic issue might be due
+to incompatibility between MTE and KASAN Generic, so I sent this patch.
 
-This is only relevant to the FLATMEM memory model, which isn't an option
-since commit 782276b4d0ad ("arm64: Force SPARSEMEM_VMEMMAP as the only
-memory management model").
+However, it seems that the problem is related to the call path involving
+ZERO page. Also, I am curious how it works correctly in other machine.
 
-Signed-off-by: Omar Sandoval <osandov@fb.com>
----
- arch/arm64/include/asm/memory.h | 1 -
- 1 file changed, 1 deletion(-)
+On 10/9/25 7:28 AM, Yunseong Kim wrote:
+> Hi Andrey,
+> 
+> On 10/9/25 6:36 AM, Andrey Konovalov wrote:
+>> On Wed, Oct 8, 2025 at 11:13 PM Yunseong Kim <ysk@kzalloc.com> wrote:
+>>> [...]
+>> I do not understand this. Why is Generic KASAN incompatible with MTE?
+> 
+> My board wouldn't boot on the debian debug kernel, so I enabled
+> earlycon=pl011,0x40d0000 and checked via the UART console.
+> 
+>> Running Generic KASAN in the kernel while having MTE enabled (and e.g.
+>> used in userspace) seems like a valid combination.
+> 
+> Then it must be caused by something else. Thank you for letting me know.
+> 
+> It seems to be occurring in the call path as follows:
+> 
+> cpu_enable_mte()
+>  -> try_page_mte_tagging(ZERO_PAGE(0))
+>    -> VM_WARN_ON_ONCE(folio_test_hugetlb(page_folio(page)));
+> 
+>  https://elixir.bootlin.com/linux/v6.17/source/arch/arm64/include/asm/mte.h#L83
 
-diff --git a/arch/arm64/include/asm/memory.h b/arch/arm64/include/asm/memory.h
-index f1505c4acb38..585a46a122fe 100644
---- a/arch/arm64/include/asm/memory.h
-+++ b/arch/arm64/include/asm/memory.h
-@@ -392,7 +392,6 @@ static inline unsigned long virt_to_pfn(const void *kaddr)
-  *  virt_to_page(x)	convert a _valid_ virtual address to struct page *
-  *  virt_addr_valid(x)	indicates whether a virtual address is valid
-  */
--#define ARCH_PFN_OFFSET		((unsigned long)PHYS_PFN_OFFSET)
- 
- #if defined(CONFIG_DEBUG_VIRTUAL)
- #define page_to_virt(x)	({						\
--- 
-2.51.0
+ -> page_folio(ZERO_PAGE(0))
+  -> (struct folio *)_compound_head(ZERO_PAGE(0))
+
+ https://elixir.bootlin.com/linux/v6.17/source/include/linux/page-flags.h#L307
+
+>> The crash log above looks like a NULL-ptr-deref. On which line of code
+>> does it happen?
+> 
+> Decoded stack trace here:
+> 
+> [    0.000000] Unable to handle kernel paging request at virtual address dfff800000000005
+> [    0.000000] KASAN: null-ptr-deref in range [0x0000000000000028-0x000000000000002f]
+> [    0.000000] Mem abort info:
+> [    0.000000]   ESR = 0x0000000096000005
+> [    0.000000]   EC = 0x25: DABT (current EL), IL = 32 bits
+> [    0.000000]   SET = 0, FnV = 0
+> [    0.000000]   EA = 0, S1PTW = 0
+> [    0.000000]   FSC = 0x05: level 1 translation fault
+> [    0.000000] Data abort info:
+> [    0.000000]   ISV = 0, ISS = 0x00000005, ISS2 = 0x00000000
+> [    0.000000]   CM = 0, WnR = 0, TnD = 0, TagAccess = 0
+> [    0.000000]   GCS = 0, Overlay = 0, DirtyBit = 0, Xs = 0
+> [    0.000000] [dfff800000000005] address between user and kernel address ranges
+> [    0.000000] Internal error: Oops: 0000000096000005 [#1]  SMP
+> [    0.000000] Modules linked in:
+> [    0.000000] CPU: 0 UID: 0 PID: 0 Comm: swapper Not tainted 6.17+unreleased-debug-arm64 #1 PREEMPTLAZY  Debian 6.17-1~exp1
+> [    0.000000] pstate: 800000c9 (Nzcv daIF -PAN -UAO -TCO -DIT -SSBS BTYPE=--)
+> [    0.000000] pc : cpu_enable_mte (debian/build/build_arm64_none_debug-arm64/include/linux/page-flags.h:1065 (discriminator 1) debian/build/build_arm64_none_debug-arm64/arch/arm64/include/asm/mte.h:83 (discriminator 1) debian/build/build_arm64_none_debug-arm64/arch/arm64/kernel/cpufeature.c:2419 (discriminator 1))
+> [    0.000000] lr : cpu_enable_mte (debian/build/build_arm64_none_debug-arm64/include/linux/page-flags.h:1065 (discriminator 1) debian/build/build_arm64_none_debug-arm64/arch/arm64/include/asm/mte.h:83 (discriminator 1) debian/build/build_arm64_none_debug-arm64/arch/arm64/kernel/cpufeature.c:2419 (discriminator 1))
+> [    0.000000] sp : ffff800084f67d80
+> [    0.000000] x29: ffff800084f67d80 x28: 0000000000000043 x27: 0000000000000001
+> [    0.000000] x26: 0000000000000001 x25: ffff800084204008 x24: ffff800084203da8
+> [    0.000000] x23: ffff800084204000 x22: ffff800084203000 x21: ffff8000865a8000
+> [    0.000000] x20: fffffffffffffffe x19: fffffdffddaa6a00 x18: 0000000000000011
+> [    0.000000] x17: 0000000000000000 x16: 0000000000000000 x15: 0000000000000000
+> [    0.000000] x14: 0000000000000000 x13: 0000000000000001 x12: ffff700010a04829
+> [    0.000000] x11: 1ffff00010a04828 x10: ffff700010a04828 x9 : dfff800000000000
+> [    0.000000] x8 : ffff800085024143 x7 : 0000000000000001 x6 : ffff700010a04828
+> [    0.000000] x5 : ffff800084f9d200 x4 : 0000000000000000 x3 : ffff8000800794ac
+> [    0.000000] x2 : 0000000000000005 x1 : dfff800000000000 x0 : 000000000000002e
+> [    0.000000] Call trace:
+> [    0.000000]  cpu_enable_mte (debian/build/build_arm64_none_debug-arm64/√ (discriminator 1) debian/build/build_arm64_none_debug-arm64/arch/arm64/include/asm/mte.h:83 (discriminator 1) debian/build/build_arm64_none_debug-arm64/arch/arm64/kernel/cpufeature.c:2419 (discriminator 1)) (P)
+> [    0.000000]  enable_cpu_capabilities (debian/build/build_arm64_none_debug-arm64/arch/arm64/kernel/cpufeature.c:3561 (discriminator 2))
+> [    0.000000]  setup_boot_cpu_features (debian/build/build_arm64_none_debug-arm64/arch/arm64/kernel/cpufeature.c:3888 debian/build/build_arm64_none_debug-arm64/arch/arm64/kernel/cpufeature.c:3906)
+> [    0.000000]  smp_prepare_boot_cpu (debian/build/build_arm64_none_debug-arm64/arch/arm64/kernel/smp.c:466)
+> [    0.000000]  start_kernel (debian/build/build_arm64_none_debug-arm64/init/main.c:929)
+> [    0.000000]  __primary_switched (debian/build/build_arm64_none_debug-arm64/arch/arm64/kernel/head.S:247)
+> [    0.000000] Code: 9100c280 d2d00001 f2fbffe1 d343fc02 (38e16841)
+> All code
+> ========
+>    0:	9100c280 	add	x0, x20, #0x30
+>    4:	d2d00001 	mov	x1, #0x800000000000        	// #140737488355328
+>    8:	f2fbffe1 	movk	x1, #0xdfff, lsl #48
+>    c:	d343fc02 	lsr	x2, x0, #3
+>   10:*	38e16841 	ldrsb	w1, [x2, x1]		<-- trapping instruction
+> 
+> Code starting with the faulting instruction
+> ===========================================
+>    0:	38e16841 	ldrsb	w1, [x2, x1]
+> [    0.000000] ---[ end trace 0000000000000000 ]---
+> [    0.000000] Kernel panic - not syncing: Attempted to kill the idle task!
+> [    0.000000] ---[ end Kernel panic - not syncing: Attempted to kill the idle task! ]---
+> 
+> 
+> If there are any other points you'd like me to check or directions, please
+> let me know.
+> 
+> Thank you!
+> 
+> Yunseong
+
+Best regards,
+Yunseong
 
 
