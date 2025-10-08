@@ -4,63 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA0A5CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 10:42:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B565CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 10:47:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RXincFsGPd4t/V1M7vzyJrviqv80PAJbxZi/T5A4VKI=; b=AfbXfXAhjZV9eKq6If48Kw+XMl
-	WzDfIXACyIMr7ZEQQW+6EK9N4aQIaWWm935w3SN2WMIxLf/huJzS21OEQZHqRD94AZpq2JhXzNIY6
-	aRonONxBSHS1HrzZh6rjzgddpgiguxsA6+DEJJ3c0bMg9lcFqj2y1O/rSgsgbmCKtQzDEDM0Fv9Fs
-	XNwJaaLRHcx28M6TNP75osQGmtnCwP5DtY8McdztJDmCQQDZbgCXYTSbOakT8KFB45mP4LReCxXHX
-	xMMisikzH6NXltEsCZaar08E8+8k7T8tmHKcbu13V1mXKiD5fxvWeqZYrkUzC7eBlXHKub3E213mF
-	wmrdBHPA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=MiTIWwfeeAXlVChs3G//n84uxIKj2mEqXmosLmGZOGI=; b=LaYUC2nJrZb1sNzGTISQgiDJUY
+	kGP6s249aLiursMq468zJaX4R3QYj5zTT5Geuu0y9UygN09pAJkbCHtoWzCTow6DnZVVCHbXoTOwZ
+	lwS9LY23Xx02L95ldDbZNFTUy39dJlpwBjHzSxT2mNETuYmMi6cqkUt3xq2Tw3OLzWFA/MjrkblR/
+	gZ0ikhKdTb3ARWwBhgwN7wMV3vyayo9jqMZtO9bl80f5wCvB6PQxGgKf+AwDNHryumQaqWZfHBbjl
+	u8gBu+OQv5BEK5frRT9re3wSuS8NqMQUGCI5teORDCve/WDmhAhaqEdLqLFq4tGhvUBY6xiPkiQTz
+	yLWEJ56g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6Rcm-00000003f15-3S2i;
-	Wed, 08 Oct 2025 10:42:24 +0000
+	id 1v6RhE-00000003fag-3RaY;
+	Wed, 08 Oct 2025 10:47:00 +0000
 Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6Rcl-00000003eys-0rBr;
-	Wed, 08 Oct 2025 10:42:23 +0000
+	id 1v6RhD-00000003faX-2hiR
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Oct 2025 10:46:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A180C61F53;
-	Wed,  8 Oct 2025 10:42:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 02499C113D0;
-	Wed,  8 Oct 2025 10:42:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id C59F361F4C;
+	Wed,  8 Oct 2025 10:46:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76FFCC4CEF4;
+	Wed,  8 Oct 2025 10:46:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759920142;
-	bh=rm5wdK2uJNnErMUOf4H7M2S9QIT0yFPobsLvDwKPFgM=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
-	b=WAeJ7Y5GNB4E4Y1VCg1NEphRXbA6Rs/sRnHaxI1qP0Q+mXg1gZEh0zoNDP2j88f1b
-	 7jaBLtOVa5+q5H92c8wgVH+8NTbqaPadVJE1+AJcD8ymZbzgkcb3ycagf0sK2IcDq5
-	 YjraSm+orTRtElVRLiQkCj8aNFjUvotXk51fIMrk7amhemiSx2o+6w8tcA41dhetVP
-	 XWmEhb28SKhRkoodDG/0LpUrTzhUVMGO6RQfs2sVpPTvRje/l+IbBYNpI+sbT/ZFLb
-	 NRIxS7kP56B7oPK8ngBvVFNe3wdmTjYihVk5gcZf+KAnrNfgXw7JzHlrMjk0ZKm1ex
-	 n3A6jImSzI/Tg==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Wed, 08 Oct 2025 12:41:49 +0200
-Subject: [PATCH mt76 2/2] wifi: mt76: use GFP_DMA32 for page_pool buffer
- allocation
-MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251008-wed-fixes-v1-2-8f7678583385@kernel.org>
-References: <20251008-wed-fixes-v1-0-8f7678583385@kernel.org>
-In-Reply-To: <20251008-wed-fixes-v1-0-8f7678583385@kernel.org>
-To: Felix Fietkau <nbd@nbd.name>, Ryder Lee <ryder.lee@mediatek.com>, 
- Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
- Sujuan Chen <sujuan.chen@mediatek.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-wireless@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, Peter Chiu <chui-hao.chiu@mediatek.com>, 
- Daniel Pawlik <pawlik.dan@gmail.com>, Matteo Croce <teknoraver@meta.com>
-X-Mailer: b4 0.14.2
+	s=k20201202; t=1759920418;
+	bh=0Zfd3JxG/MTE4sDHQ96evynt+Sey4zJnf0P/n9lbvOU=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=XG8n+htWjrOEkpSmgMN4IruinvuWQMwSD8FNAFO/gGncG9Rtz+UsPsWbvupvfUFal
+	 aF3pVD5rIjq8/qA0z4lH8qW/rfFxonQajk4nGiKcN1R5wYLACiqvqyJ6gUWnX6vRCg
+	 +csuqh4gLbPBpjtaEcUCYGfVrkP5ftsoIJfchdoOF8qJRBut5sDu7lT7fKduZBF2vD
+	 lC2+5rvGuSCGxHJlNsXUbRvNCA0WjThiPim3QDvmp1oXEQK09X6CV5VNN6rBfP9vE6
+	 OvBP9tOdFxpi63q45YmLS2Z2SAJ3QVIyjRokKcWYDwiEDL0gwFLuGWwi5IwMDsyS5I
+	 +SLu5GeSAxfNg==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1v6RhA-0000000CKEh-0xjF;
+	Wed, 08 Oct 2025 10:46:56 +0000
+Date: Wed, 08 Oct 2025 11:46:55 +0100
+Message-ID: <861pndzn4w.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, Oliver Upton <oliver.upton@linux.dev>
+Cc: joey.gouly@arm.com,
+	suzuki.poulose@arm.com,
+	yuzenghui@huawei.com,
+	catalin.marinas@arm.com,
+	will@kernel.org,
+	alexandru.elisei@arm.com,
+	linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH] KVM: arm64: Check cpu_has_spe() before initializing PMSCR_EL1 in VHE
+In-Reply-To: <aOVckTSJET5ORY1n@linux.dev>
+References: <20251007182356.2813920-1-mukesh.ojha@oss.qualcomm.com>
+	<aOVckTSJET5ORY1n@linux.dev>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: mukesh.ojha@oss.qualcomm.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, alexandru.elisei@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,36 +88,40 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Peter Chiu <chui-hao.chiu@mediatek.com>
+On Tue, 07 Oct 2025 19:31:45 +0100,
+Oliver Upton <oliver.upton@linux.dev> wrote:
+> 
+> Hi Mukesh,
+> 
+> I find it a bit odd to refer to cpu_has_spe() in the shortlog, which
+> doesn't exist prior to this patch.
+> 
+> On Tue, Oct 07, 2025 at 11:53:56PM +0530, Mukesh Ojha wrote:
+> > commit efad60e46057 ("KVM: arm64: Initialize PMSCR_EL1 when in VHE")
+> > initializes PMSCR_EL1 to 0 which is making the boot up stuck when KVM
+> > runs in VHE mode and reverting the change is fixing the issue.
+> > 
+> > [    2.967447] RPC: Registered tcp NFSv4.1 backchannel transport module.
+> > [    2.974061] PCI: CLS 0 bytes, default 64
+> > [    2.978171] Unpacking initramfs...
+> > [    2.982889] kvm [1]: nv: 568 coarse grained trap handlers
+> > [    2.988573] kvm [1]: IPA Size Limit: 40 bits
+> > 
+> > Lets guard the change with cpu_has_spe() check so that it only affects
+> > the cpu which has SPE feature supported.
+> 
+> This could benefit from being spelled out a bit more. In both cases we
+> check for the presence of FEAT_SPE, however I believe the issue you
+> observe is EL3 hasn't delegated ownership of the Profiling Buffer to
+> Non-secure nor does it reinject an UNDEF in response to the sysreg trap.
+> 
+> I agree that the change is correct but the rationale needs to be clear.
 
-Set GFP_DMA32 flag for page_pool buffers allocation since the hw relies
-on 32-bit DMA addresses for WED offloading.
+To me, this smells a lot more like some sort of papering over a
+firmware bug. Why isn't SPE available the first place?
 
-Tested-by: Daniel Pawlik <pawlik.dan@gmail.com>
-Tested-by: Matteo Croce <teknoraver@meta.com>
-Signed-off-by: Peter Chiu <chui-hao.chiu@mediatek.com>
-Co-developed-by: Lorenzo Bianconi <lorenzo@kernel.org>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
----
- drivers/net/wireless/mediatek/mt76/mt76.h | 3 ++-
- 1 file changed, 2 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/net/wireless/mediatek/mt76/mt76.h b/drivers/net/wireless/mediatek/mt76/mt76.h
-index 7753afa3d883d6c7104bbb68d1d61b562e828ac5..aed5dc347ab11903ed34ac33bc20dea63a9e926c 100644
---- a/drivers/net/wireless/mediatek/mt76/mt76.h
-+++ b/drivers/net/wireless/mediatek/mt76/mt76.h
-@@ -1869,7 +1869,8 @@ mt76_get_page_pool_buf(struct mt76_queue *q, u32 *offset, u32 size)
- {
- 	struct page *page;
- 
--	page = page_pool_dev_alloc_frag(q->page_pool, offset, size);
-+	page = page_pool_alloc_frag(q->page_pool, offset, size,
-+				    GFP_ATOMIC | __GFP_NOWARN | GFP_DMA32);
- 	if (!page)
- 		return NULL;
- 
+	M.
 
 -- 
-2.51.0
-
+Without deviation from the norm, progress is not possible.
 
