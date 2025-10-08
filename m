@@ -4,168 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ECD7CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 05:30:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 72E92CAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 05:35:56 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=blT+6x9UnDdLCv8CoP8bODi9u6XSZjM32OqBR8CKCII=; b=flAhWeRNNOCtGcK02QEowa4ioO
-	4YYq20fxvrP8sGlL/bEvA/U46+IRYumH1F6eKo8V7XlPUg3OfmMKnX/McB8FxisQbuaFEX1k7lLTg
-	HkZ0kecs5IRUoDVVJh2+XoW6zZOGD7SS9gBmIVLdxloaiI4nu56CFEQmRgB6/x7rQtz1wTnQXGNUm
-	GfxEQZn5wHtC180mB4pwx0kIaOcoAdoir7UMUcFTxFSr6EgIY6hG9ewZ/366RprqT72NORz8qfv1n
-	KYyGZCuPE8mTFRn0yiY5ZJE+pSBjPJ5UQUEubsGlfOLxyAVFoAZEo0iU0sBwxwIGPWxpaXQTta71x
-	tuBzJS5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:In-Reply-To:Cc
+	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=7uc0xT9UsHI99+GDI6EgnSy2itreCf2z0lQhv12bRGA=; b=pf/4esBSqR7K0pMfiUrRVp6gIm
+	W178K1Eqy/QJgDOfiVol5bfpP2QxJKWSPzTne1qwmcP8cKnbWrAgwPFdBOfjOUKu3RVXGW9eG7e+Y
+	H/xjy/gCtPpa23tGdQCOHiiOOKm0woGNdTEp60uxc4AfHCXH0jOJO8bDZXjcAsmjHZojMvaMRnS73
+	Nx8XmtE+fTXtU1EJpSVxbvFceJ+8xD/l1gLjwWl2J72LI9EHj+OhysKajxvceW2XmVaQA8TK5+oh6
+	ICldsWMpwOEIlUQJl2S/Yamm7nG5knVovCDuj8kC/hXzAVdko26B8q6Hv/3fE9rezRr9aK1eFQPBO
+	5y2956Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6MlB-00000003DuE-36UZ;
-	Wed, 08 Oct 2025 05:30:45 +0000
-Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1v6Mq3-00000003ECu-20yS;
+	Wed, 08 Oct 2025 05:35:47 +0000
+Received: from mailout4.samsung.com ([203.254.224.34])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6Ml9-00000003Dtf-2YBK
+	id 1v6Mq0-00000003ECU-0b0P
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Oct 2025 05:30:44 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=K3K9rPCyAlftWD+m0OXyjAquKeuDk+TXtZZa+Qg5hC+lXqSnOk7IwvWCEimHOp18HBqwaW1eaT7n06CVcaRnI6FaYZsifOS3hCuewWhbG7bnN21X826dGpIi89tHWKfg1R9/RR08AZnLIAyJm38RLAgD5Nee5+ZYtb8AeW6iEsh7dZBY3JdKPAFGFuG62aaeCPSbP+KatKmxEMnUa1D/Yp9StO606hprrLS/FxrVaf6jzrp/jMvCteohSxci25ICV7lS+eZVE4DXR7q2KLwtv1dO9iQJB9yVaxdtE4GPBmLar941m8E3h6JarChkWFSUXEkeIbmwBo5QVeGFaQKOsw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=blT+6x9UnDdLCv8CoP8bODi9u6XSZjM32OqBR8CKCII=;
- b=iLC/tKJ5XR1XmQ8IxhhpqVtHP1w1UnI6sDYYbWm9Tk0p6oZkoL54BzRXRTZZzZtc/QHONR7I9XSNvZD+Ao0vuMP0Y4oi5HCchjjluvTT2e+z/bxUJREddgZKtRCNBIU3r0Zd0v+CFLwWmW7sCiKjIxeQDR5V8hSAoCLd4JVnV6/wOyeztdAgDjIJoHdP61H80mrcT7sBJkJzYzeG/lk8sWQW0cQqrOVWIqv+91cQ3BqHglpoCXkBbTbb/Dot2fCbdNbakSp3xKBK037/bTUWfHwQUefgut8sUI3SjJuUmXoPGr5T058qr2GwQXF3RhcjCanMayQA5O36WDaP66/TlA==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=blT+6x9UnDdLCv8CoP8bODi9u6XSZjM32OqBR8CKCII=;
- b=Y6mWVZVYLtYZNhNEmXMYZqg+iHps4GrUk/hsfFj2Nubg3kRTuth0wgXzZSyZIH2yOaieWy+xzG9rmh7cVUCNa8ooK7JLTlKlH4fr547OPT2XeDlCQ1DEW1b6Pr8RKXOElTORAU4TtWVjK/4dIgpXYoT2B1/fJQXxbV769fL1NVU=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from IA0PR12MB8301.namprd12.prod.outlook.com (2603:10b6:208:40b::13)
- by SJ2PR12MB8740.namprd12.prod.outlook.com (2603:10b6:a03:53f::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9182.16; Wed, 8 Oct
- 2025 05:30:30 +0000
-Received: from IA0PR12MB8301.namprd12.prod.outlook.com
- ([fe80::e929:57f5:f4db:5823]) by IA0PR12MB8301.namprd12.prod.outlook.com
- ([fe80::e929:57f5:f4db:5823%4]) with mapi id 15.20.9182.017; Wed, 8 Oct 2025
- 05:30:30 +0000
-Message-ID: <dc579ed2-05d9-4794-9b05-a6b403d05eaa@amd.com>
-Date: Wed, 8 Oct 2025 11:00:21 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 02/12] KVM: guest_memfd: Add macro to iterate over
- gmem_files for a mapping/inode
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Paolo Bonzini <pbonzini@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, linux-kernel@vger.kernel.org,
- David Hildenbrand <david@redhat.com>, Fuad Tabba <tabba@google.com>,
- Ackerley Tng <ackerleytng@google.com>, Ashish Kalra <ashish.kalra@amd.com>,
- Vlastimil Babka <vbabka@suse.cz>
-References: <20251007221420.344669-1-seanjc@google.com>
- <20251007221420.344669-3-seanjc@google.com>
-Content-Language: en-US
-From: "Garg, Shivank" <shivankg@amd.com>
-In-Reply-To: <20251007221420.344669-3-seanjc@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PN4P287CA0036.INDP287.PROD.OUTLOOK.COM
- (2603:1096:c01:26f::6) To IA0PR12MB8301.namprd12.prod.outlook.com
- (2603:10b6:208:40b::13)
+	Wed, 08 Oct 2025 05:35:46 +0000
+Received: from epcas5p1.samsung.com (unknown [182.195.41.39])
+	by mailout4.samsung.com (KnoxPortal) with ESMTP id 20251008053539epoutp044a4f3f15cf4325cdfab574f364a1cd26~sbU7UrpOI3251332513epoutp04D
+	for <linux-arm-kernel@lists.infradead.org>; Wed,  8 Oct 2025 05:35:39 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout4.samsung.com 20251008053539epoutp044a4f3f15cf4325cdfab574f364a1cd26~sbU7UrpOI3251332513epoutp04D
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1759901739;
+	bh=7uc0xT9UsHI99+GDI6EgnSy2itreCf2z0lQhv12bRGA=;
+	h=From:To:Cc:In-Reply-To:Subject:Date:References:From;
+	b=LXkUvFnM6gxwF6xCnQY2mIqw6mH4op32HUKsndntILWN11pDL5KtoRAliSYp7DieJ
+	 8g+L25csZ6fF5D0niPGoejxu+cooJxCwQKKwG54NvCKKQrunh8U90VlyGy3GRC5bhk
+	 MjeeYqpFOhv/fHpv1BKmnO8z4MvAabkm43VK6/n8=
+Received: from epsnrtp01.localdomain (unknown [182.195.42.153]) by
+	epcas5p1.samsung.com (KnoxPortal) with ESMTPS id
+	20251008053539epcas5p1d95fda2e1b05c18f9d6ce3eb7772fb06~sbU68JLuP1634316343epcas5p1q;
+	Wed,  8 Oct 2025 05:35:39 +0000 (GMT)
+Received: from epcas5p2.samsung.com (unknown [182.195.38.93]) by
+	epsnrtp01.localdomain (Postfix) with ESMTP id 4chMDB1tdFz6B9m4; Wed,  8 Oct
+	2025 05:35:38 +0000 (GMT)
+Received: from epsmtip1.samsung.com (unknown [182.195.34.30]) by
+	epcas5p3.samsung.com (KnoxPortal) with ESMTPA id
+	20251008053537epcas5p375e37929f025c0d11aa4309e3d62d897~sbU5N0bIj0810108101epcas5p3b;
+	Wed,  8 Oct 2025 05:35:37 +0000 (GMT)
+Received: from INBRO002756 (unknown [107.122.3.168]) by epsmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20251008053535epsmtip1a048821efddcf4d6723bf0bedd4fa5e3~sbU3Ue-he1568815688epsmtip17;
+	Wed,  8 Oct 2025 05:35:35 +0000 (GMT)
+From: "Alim Akhtar" <alim.akhtar@samsung.com>
+To: =?utf-8?Q?'Andr=C3=A9_Draszik'?= <andre.draszik@linaro.org>, "'Avri
+ Altman'" <avri.altman@wdc.com>, "'Bart Van Assche'" <bvanassche@acm.org>,
+	"'Rob Herring'" <robh@kernel.org>, "'Krzysztof Kozlowski'"
+	<krzk+dt@kernel.org>, "'Conor Dooley'" <conor+dt@kernel.org>
+Cc: "'Peter Griffin'" <peter.griffin@linaro.org>, "'Tudor Ambarus'"
+	<tudor.ambarus@linaro.org>, "'Will McVicker'" <willmcvicker@google.com>,
+	<kernel-team@android.com>, <linux-scsi@vger.kernel.org>,
+	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-samsung-soc@vger.kernel.org>, <linux-kernel@vger.kernel.org>
+In-Reply-To: <20251007-power-domains-scsi-ufs-dt-bindings-exynos-v1-1-1acfa81a887a@linaro.org>
+Subject: RE: [PATCH] scsi: ufs: dt-bindings: exynos: add power-domains
+Date: Wed, 8 Oct 2025 11:05:34 +0530
+Message-ID: <001501dc3815$601ec450$205c4cf0$@samsung.com>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA0PR12MB8301:EE_|SJ2PR12MB8740:EE_
-X-MS-Office365-Filtering-Correlation-Id: 451ea2ab-ce61-4480-5704-08de062bcba9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?SmIzQnRuOUhlVnIvZXFiK3RENnlLSzN2ZHZtVXN2WGVvVElNUmtnR0NGWTdC?=
- =?utf-8?B?NUxVRnJRbTR1WUhYR0NaMXM3cVRpcG1lelV2TG8xSU5SdEdaN3JWU0d2eWNz?=
- =?utf-8?B?djUwK3VlK3dkem0zaEZ6amxzWGtiQ2Q3UUM2dkJvaEVGTXZMWTNhZFl5emJa?=
- =?utf-8?B?Vy9jbE5pbktiTXNEOWR6T0hVSUFJTDM0R3ZycVJlVUwxQ04xakl4WU92SnV6?=
- =?utf-8?B?OVJIeFI5Y0J3dFJpRFBCUEVwTWd4NTBQeE5IMG04SFZKdzZMaTZNblY2d21D?=
- =?utf-8?B?Tmh3M05vV2RUdVpJd3lhZEJoM0lTaFl5M25PL1RyZ3lWTE5NYS9Sb3Z0ZmxI?=
- =?utf-8?B?LzcwSkI3OGxyT2kwczRwcGxHQkFDa3p2bDdSdzYvVTl6aHIvcjBOQXMzM3pG?=
- =?utf-8?B?ZUF4c1d2cDYxZXhlaWR3UDhVclZJcERPL3RGcndLaWFOUlJOMDRkclB3V1FF?=
- =?utf-8?B?ODhGampXVlpjY1pVL2ttc3VucmQwamI3aUpjTkU2Y0ZtWm1tblh6Ni9QdU1F?=
- =?utf-8?B?VS9LWFA3QStLV2pPYzNXWk1qNTVQZFBDY09zQ3BsOVFtbFhQR2lBRWY3K2xs?=
- =?utf-8?B?eUljR0NKazhZcWdVcERybHpOb2ZmSmlwbm5lOTJJWlJ4aVJGTHN3S2NlMDFv?=
- =?utf-8?B?Z25MTkI3TXFYRlZ4MW1OQWtSTXhKT3JKRWxaSGtiQ0VYeGxXZWh6OTJaaG1K?=
- =?utf-8?B?ZWhicDhLLzlFVHBTUWh0YkoyRDJiQ2RNRmlMNHhTUWd5dTEybE1mRGMvc0xz?=
- =?utf-8?B?aEp0QXJPK2FJOUc2cG14L1c1N2pZdHVMQ2tyZFVmZUYxRTRsMmxKQTFSWnpv?=
- =?utf-8?B?cEpVdDFqMWFFTk1sZTNCcTN0NlNSdHZVeGJvT1lhcVhVZFpYLzVpT1VwSlFx?=
- =?utf-8?B?VGczRWY1WE5DbVFxbWl1Y2JVYUhDZm81dXRCWkRIaG9JQXlLeGN6QWVKdmlW?=
- =?utf-8?B?WmRBb1BjT0k2VVl6aGEwWnBEM2gxcFJDNHVsTHdXcXpQTHQ3YlN2cTVtNm45?=
- =?utf-8?B?d2o2ZXRheHBSZ3duS0ozZWdQZFFrTUFMY0ZUT05CcVFBSHMxSmtLRzRXc2lN?=
- =?utf-8?B?UURNSmsrb2VvTytzNFd3SzN5RnVyeFJoQXBXQXlvMjdXL2JkVW9tbEhSSzA2?=
- =?utf-8?B?cy8yZ1hibDRMcXpHS050enlsa1BPUmVZNllrK0UwK3owU3p6b0lQd3JRNDVT?=
- =?utf-8?B?b3NvanYzYnhDdFlreGhTaTJwMmdLMjFYZjl6RlJSVnA1YkNNSmhUNTZwRC9j?=
- =?utf-8?B?ckJ6azFiUmVGRExVeDUycEJBeWQ2TlhBNVZ1aFlVTzRqNk1WMmtTOVh1OXFN?=
- =?utf-8?B?MjVhaTEwdWxoeEJkbk9uenhKSVJOYmdxTWQvc3I5ZWpEY0Y1ZmFiM01SVUd1?=
- =?utf-8?B?UzVRTi9sZlFWc3BVdVdHSlFqSU5KZkw0TVk0N1p5T3VLaThnc1E4TTJ6ZzdL?=
- =?utf-8?B?TUxQdW9yVlVUMWpCT2FkNjY2L0I0Y09PRjVWcXJjWXg1UGdZQUpGUXczTmJw?=
- =?utf-8?B?MnB6eFY1SVIvYXcrQmR2Z296R0dNUEZBc05MaXF4MktGNHUzL1NWSXV2Nyti?=
- =?utf-8?B?YXRGRXRSYm04ZHR6VEprWTFPRDBYaXFUQkpGY3RCeWY5dG5kd2RQZ2dzZ0ox?=
- =?utf-8?B?QWJRZVd6d1VEc3E0Q1FSckhETGs1b0h2YUFLekd6a3NRZTZhd1N4U1Q4Szhz?=
- =?utf-8?B?dzB2dHQrR1RESEpmU2dqeFdWR01Xdzl6TjZsNHBGamQzZUhSSFMyMUJPbTFV?=
- =?utf-8?B?SzhlTDk5MWd0WmxqUGp3c0R2YVlSMzJQUWJwK2JIUVMwRjlHN2U3bGdPL1M5?=
- =?utf-8?B?b2VHOEdDWHZkZDRSMkdnOXVXdzdncGxsa0pSejI5Ym05bU5DOExwVG9Ub0Vp?=
- =?utf-8?B?WE94WUxiNDJ4aVpUVWtmT3Y2MU11M2JYMnVqanNnOEdmWjBjaVczUW5od0JX?=
- =?utf-8?Q?cFY1IoRRlQhcDJ7RbFwb1AMSzUu6FKbc?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA0PR12MB8301.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?TElVQk92MVl3RGRNdUpQejdSMkJtREFOdVR5empIbkRYQXJzdFhTNWdJSEh6?=
- =?utf-8?B?R3hvVHY2TWptOEhoL3lCaWI4bmdNdXlraXRZeWY1TE5xNHJnYWVvUGEwaW5u?=
- =?utf-8?B?dmpKRkU0bEdOdWk3MklCNkZiTENQb0drdjEramlSdHliZWpJNFJ3cE95UVBi?=
- =?utf-8?B?NTY1MU55VGZRbjhJOUd3ZDBLOFRoclRjRnV0UlpKenNBaEdpNVFCNDE0ejdO?=
- =?utf-8?B?ektRZVI5dmg3RFBkTnFvUTJBYm1LVk11dnl3MkdmWFFjeWpGUHlDZzdyc2pJ?=
- =?utf-8?B?YXM5bzByWXVyK3VoMVIzcVdpWE9XWHVyMElYSGc1RVlPUHkxTlRqY0ltODgv?=
- =?utf-8?B?NUFxM0k4OVlhQXFJaWlxdm1ML2QveURxdmJSSThxZFF5UURlVjJyNGdsdENP?=
- =?utf-8?B?b29hdnN1N3FDYXhUTmo4QkxHVVo5OHcvWDhrWWdyeUZyc1RqNFBudjVnSVpm?=
- =?utf-8?B?VFVYVjRCWXhQWnhaS1pCMjZtRXpRbUdCMlNiY1Z6eWZaZXRwL2I3eXpwaTFn?=
- =?utf-8?B?c25YRlRvcExySjJONG5ZbmthZVJMVktPeXFzdDNvemp1c0JTSjFXZ0tNbTFo?=
- =?utf-8?B?Z0tzYVhjVmM0SXROOFMzZUFUWklFVTNnaFlUL29VSU9BTlVmaWJZS0JjVUZP?=
- =?utf-8?B?bmdvcXJkRlJ5aW11OFYwRlRSdTVNckpFQ3N6MzJoQnpxd05YY1FEaGowUy8v?=
- =?utf-8?B?bktGSVZUWmorbnV5MDdhanVoOWhSTzRrY3dyZnhsZ2RkV05aQVREZnR6RG1i?=
- =?utf-8?B?ZzNLTmNQTmpQL3lWbWJIUWU3S3p0endFSC9mZitXZlFrb0hPbC85MW1BU0hp?=
- =?utf-8?B?aVlITzhwaE9Pa3laTWlnRXJXMlE3eDhmcGFDc2FlcUYxeUtqVjl5Um1tWG9I?=
- =?utf-8?B?ai96MlhpNDZ2T1Y1M0srMlNtalIrREhraUhhMlJRS0sySmVkQTBRclhlOWow?=
- =?utf-8?B?SnRGbzRlRXJiL0t3K2QrTjJFb2RnVGQ4aENBNGpCUmRSKzV0eDY5WlVDcEl0?=
- =?utf-8?B?QWlnOWxIcVJYeXNBWU1EMU9Ja2xUSWVtMmVHWkFIaDhpK00vb3U4SGVSUzF6?=
- =?utf-8?B?R3lPWE9pVHpCY2VMcWdVcXBwZG5WWUh4TzVHclYyWndnSmR1WWt2Wmo5c3dP?=
- =?utf-8?B?cnhMT0k4cTN3R0JNYVpaQmRNU1NlNnZHZ2RsdzFTTVR0bGdlVHBDdUVDcktX?=
- =?utf-8?B?OGZIM0p2T0gyNzhWWUFJanhqOVBvWmdhN0FVb2lLK1V6T0E2ZWlEVXVVT3Zm?=
- =?utf-8?B?aDlpV21oZyt0Nk1XNk9JVmJNT0UxNE5JY0F0NHdheFpBbXgwcVZNeithdGdu?=
- =?utf-8?B?S0ZXZzBLMElaVGJXWDJVbTRTaFp4ZDZPNnNKaEtoYTlBZDUrL3lHbndHbzUy?=
- =?utf-8?B?bEY2YW9TbWpXNFlzc1JiNXBsTEI1M1NlbmN5LzJsdkE0Y2Y1RFM4OGhUZG1s?=
- =?utf-8?B?MmdTWTRUUzdYdFd4emV4R3JNdVpMMFdRekhhNjhtZVFyL2lGbzU5dlYzS3NN?=
- =?utf-8?B?MHZLY0R3NHhXNzVBZ1ZLWWptdUc1Q3VCeThlSDhjeDJpVEFyQ2p6ZXhqQk1n?=
- =?utf-8?B?WHNrMU5haE9aMmdRN1hvem0xUWhHbDhLaUtCdlgwS2p5dU1QKzdLSVF3RGxm?=
- =?utf-8?B?ckVmZzZYcHY0RFQzem05R09SRXl2endGQkdhL0dZdTVBWHB3WUNiRjdCQ3dl?=
- =?utf-8?B?YnZQckpEc3lvOS9QNWJybFV5Ly9rKzdyVERBaUI1R09XNHFnWlJDSDk2UGVI?=
- =?utf-8?B?Q0dCVk92MVV6ZWZScDdBL2tCanplc3hmdlY5bmxDNkZnTCtOZ0RvN2NEK2hq?=
- =?utf-8?B?RndxMTJxTUxGUjdaeXB0QVhpNWpOemZ5dWpLSFA5VlpvdHFGc2Y1WXJwSlA5?=
- =?utf-8?B?dExJcnZtdzNVdDh2TldzZnVyaGJKODNuczNCMnpWa1ZQUmR1TndDODJtSHY3?=
- =?utf-8?B?UURrNGg2NTd5TzBPempZUjZkN2haaktad001dlpSbjNXb2RxaHF6ZjVNM3dF?=
- =?utf-8?B?VEhhc0llUTZLQXBVaVhRTmRGN05nZU5VdWFaVkU2SVlzVWNhTmgwc0xNUFJu?=
- =?utf-8?B?WWZLeVgwbTRkUDJaVDIvRUlIU1RXcWpNT1BXOEN0UmhBTUtBcTlha003eVNm?=
- =?utf-8?Q?X+o0T7Xm76x6PppU2ypXOO0GK?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 451ea2ab-ce61-4480-5704-08de062bcba9
-X-MS-Exchange-CrossTenant-AuthSource: IA0PR12MB8301.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 08 Oct 2025 05:30:30.5204
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: e2rmw+JVGyqcrcqhCGeS4IkAMmKDNfUvPUpN5bfTVkFJQfSvA7wXik4IlmQ2o945ZpRQJTRaYDn2mZRTwDCWqQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ2PR12MB8740
+Content-Transfer-Encoding: quoted-printable
+X-Mailer: Microsoft Outlook 16.0
+Thread-Index: AQHS0boKDTdfIj5X2r9DvSTLTl+2HwHj5ytttLtl7FA=
+Content-Language: en-us
+X-CMS-MailID: 20251008053537epcas5p375e37929f025c0d11aa4309e3d62d897
+X-Msg-Generator: CA
+Content-Type: text/plain; charset="utf-8"
+CMS-TYPE: 105P
+cpgsPolicy: CPGSC10-542,Y
+X-CFilter-Loop: Reflected
+X-CMS-RootMailID: 20251007155631epcas5p2cbf4c7b52bd217128c156bf6f5f1ea82
+References: <CGME20251007155631epcas5p2cbf4c7b52bd217128c156bf6f5f1ea82@epcas5p2.samsung.com>
+	<20251007-power-domains-scsi-ufs-dt-bindings-exynos-v1-1-1acfa81a887a@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_223043_658088_46CEFC96 
-X-CRM114-Status: GOOD (  15.23  )
+X-CRM114-CacheID: sfid-20251007_223544_818490_1C5C0E47 
+X-CRM114-Status: UNSURE (   6.81  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -182,62 +101,28 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 
 
-On 10/8/2025 3:44 AM, Sean Christopherson wrote:
-> Add a kvm_gmem_for_each_file() to make it more obvious that KVM is
-> iterating over guest_memfd _files_, not guest_memfd instances, as could
-> be assumed given the name "gmem_list".
-> 
-> No functional change intended.
-> 
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  virt/kvm/guest_memfd.c | 9 +++++----
->  1 file changed, 5 insertions(+), 4 deletions(-)
-> 
-> diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c
-> index 3c57fb42f12c..9b9e239b3073 100644
-> --- a/virt/kvm/guest_memfd.c
-> +++ b/virt/kvm/guest_memfd.c
-> @@ -22,6 +22,9 @@ struct gmem_file {
->  	struct list_head entry;
->  };
->  
-> +#define kvm_gmem_for_each_file(f, mapping) \
-> +	list_for_each_entry(f, &(mapping)->i_private_list, entry)
-> +
->  /**
->   * folio_file_pfn - like folio_file_page, but return a pfn.
->   * @folio: The folio which contains this index.
-> @@ -159,13 +162,12 @@ static void __kvm_gmem_invalidate_begin(struct gmem_file *f, pgoff_t start,
->  static void kvm_gmem_invalidate_begin(struct inode *inode, pgoff_t start,
->  				      pgoff_t end)
->  {
-> -	struct list_head *gmem_list = &inode->i_mapping->i_private_list;
->  	enum kvm_gfn_range_filter attr_filter;
->  	struct gmem_file *f;
->  
->  	attr_filter = kvm_gmem_get_invalidate_filter(inode);
->  
-> -	list_for_each_entry(f, gmem_list, entry)
-> +	kvm_gmem_for_each_file(f, inode->i_mapping)
->  		__kvm_gmem_invalidate_begin(f, start, end, attr_filter);
->  }
->  
-> @@ -184,10 +186,9 @@ static void __kvm_gmem_invalidate_end(struct gmem_file *f, pgoff_t start,
->  static void kvm_gmem_invalidate_end(struct inode *inode, pgoff_t start,
->  				    pgoff_t end)
->  {
-> -	struct list_head *gmem_list = &inode->i_mapping->i_private_list;
->  	struct gmem_file *f;
->  
-> -	list_for_each_entry(f, gmem_list, entry)
-> +	kvm_gmem_for_each_file(f, inode->i_mapping)
->  		__kvm_gmem_invalidate_end(f, start, end);
->  }
->  
-
-Reviewed-by: Shivank Garg <shivankg@amd.com>
-
-Thanks,
-Shivank
+> -----Original Message-----
+> From: Andr=C3=A9=20Draszik=20<andre.draszik=40linaro.org>=0D=0A>=20Sent:=
+=20Tuesday,=20October=207,=202025=209:26=20PM=0D=0A>=20To:=20Alim=20Akhtar=
+=20<alim.akhtar=40samsung.com>;=20Avri=20Altman=0D=0A>=20<avri.altman=40wdc=
+.com>;=20Bart=20Van=20Assche=20<bvanassche=40acm.org>;=20Rob=0D=0A>=20Herri=
+ng=20<robh=40kernel.org>;=20Krzysztof=20Kozlowski=20<krzk+dt=40kernel.org>;=
+=0D=0A>=20Conor=20Dooley=20<conor+dt=40kernel.org>=0D=0A>=20Cc:=20Peter=20G=
+riffin=20<peter.griffin=40linaro.org>;=20Tudor=20Ambarus=0D=0A>=20<tudor.am=
+barus=40linaro.org>;=20Will=20McVicker=20<willmcvicker=40google.com>;=0D=0A=
+>=20kernel-team=40android.com;=20linux-scsi=40vger.kernel.org;=0D=0A>=20dev=
+icetree=40vger.kernel.org;=20linux-arm-kernel=40lists.infradead.org;=20linu=
+x-=0D=0A>=20samsung-soc=40vger.kernel.org;=20linux-kernel=40vger.kernel.org=
+;=20Andr=C3=A9=20Draszik=0D=0A>=20<andre.draszik=40linaro.org>=0D=0A>=20Sub=
+ject:=20=5BPATCH=5D=20scsi:=20ufs:=20dt-bindings:=20exynos:=20add=20power-d=
+omains=0D=0A>=20=0D=0A>=20The=20UFS=20controller=20can=20be=20part=20of=20a=
+=20power=20domain,=20so=20we=20need=20to=20allow=20the=0D=0A>=20relevant=20=
+property=20'power-domains'.=0D=0A>=20=0D=0AIn=20Exynos,=20power=20domains=
+=20has=20a=20boundary=20at=20_block_=20level.=20I=20assume=20in=20this=0D=
+=0Acase=20it=20is=20BLK_HSI,=20which=20contains,=20multiple=20IPs=20within=
+=20block,=20including=20UFS=0D=0Acontroller.=20I=20hope=20you=20will=20be=
+=20sending=20the=20corresponding=20DTS=20changes=20as=20well.=20=0D=0A=0D=
+=0A>=20Signed-off-by:=20Andr=C3=A9=20Draszik=20<andre.draszik=40linaro.org>=
+=0D=0A>=20---=0D=0AFeel=20free=20to=20add=20=0D=0AReviewed-by:=20Alim=20Akh=
+tar=20<alim.akhtar=40samsung.com>=0D=0A=0D=0A
 
