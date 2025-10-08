@@ -4,76 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B565CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 10:47:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6A20CAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 10:48:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=MiTIWwfeeAXlVChs3G//n84uxIKj2mEqXmosLmGZOGI=; b=LaYUC2nJrZb1sNzGTISQgiDJUY
-	kGP6s249aLiursMq468zJaX4R3QYj5zTT5Geuu0y9UygN09pAJkbCHtoWzCTow6DnZVVCHbXoTOwZ
-	lwS9LY23Xx02L95ldDbZNFTUy39dJlpwBjHzSxT2mNETuYmMi6cqkUt3xq2Tw3OLzWFA/MjrkblR/
-	gZ0ikhKdTb3ARWwBhgwN7wMV3vyayo9jqMZtO9bl80f5wCvB6PQxGgKf+AwDNHryumQaqWZfHBbjl
-	u8gBu+OQv5BEK5frRT9re3wSuS8NqMQUGCI5teORDCve/WDmhAhaqEdLqLFq4tGhvUBY6xiPkiQTz
-	yLWEJ56g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5cRdwlSpnxS4LEsDA4lGj0GmLZOGgOsp4ZRnuw/8QKE=; b=UkeD6/Y2K96x+3N/x3vq3DvYWL
+	zPgQQCaLsFt+2h/JLiH4ZkmrBPDG+6mqFzVrvVvFeHMAy7jOBSRjfBt508+6SIetbdhuuBd7KAfW+
+	wLiBITxXDBhZh21OdtMnl8BSM8wxnI5Jw4b3nP3bS9STUIJyK7TLfCX6bnmzo1ZEK68bKK7/3Q4r3
+	x3wkwxScpqicfHix2iFHLxGrfTzVazbBzvgs5Yono7L4A54IW4x0ZPBMpdS3NhE/VCPEJ2NFgXhef
+	vk4lT/3Lag+4OHjBtZSRVQwy2oRwUGOo0dH2K6yUAJp1vhucjtomHNyeop3vITkFApza5FeGbZEjs
+	7b8+XaSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6RhE-00000003fag-3RaY;
-	Wed, 08 Oct 2025 10:47:00 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v6Rin-00000003foY-3NHA;
+	Wed, 08 Oct 2025 10:48:37 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6RhD-00000003faX-2hiR
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Oct 2025 10:46:59 +0000
+	id 1v6Ril-00000003foB-2ulb;
+	Wed, 08 Oct 2025 10:48:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C59F361F4C;
-	Wed,  8 Oct 2025 10:46:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 76FFCC4CEF4;
-	Wed,  8 Oct 2025 10:46:58 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5CB8F43717;
+	Wed,  8 Oct 2025 10:48:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0CA2C4CEF4;
+	Wed,  8 Oct 2025 10:48:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759920418;
-	bh=0Zfd3JxG/MTE4sDHQ96evynt+Sey4zJnf0P/n9lbvOU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=XG8n+htWjrOEkpSmgMN4IruinvuWQMwSD8FNAFO/gGncG9Rtz+UsPsWbvupvfUFal
-	 aF3pVD5rIjq8/qA0z4lH8qW/rfFxonQajk4nGiKcN1R5wYLACiqvqyJ6gUWnX6vRCg
-	 +csuqh4gLbPBpjtaEcUCYGfVrkP5ftsoIJfchdoOF8qJRBut5sDu7lT7fKduZBF2vD
-	 lC2+5rvGuSCGxHJlNsXUbRvNCA0WjThiPim3QDvmp1oXEQK09X6CV5VNN6rBfP9vE6
-	 OvBP9tOdFxpi63q45YmLS2Z2SAJ3QVIyjRokKcWYDwiEDL0gwFLuGWwi5IwMDsyS5I
-	 +SLu5GeSAxfNg==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1v6RhA-0000000CKEh-0xjF;
-	Wed, 08 Oct 2025 10:46:56 +0000
-Date: Wed, 08 Oct 2025 11:46:55 +0100
-Message-ID: <861pndzn4w.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>, Oliver Upton <oliver.upton@linux.dev>
-Cc: joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	alexandru.elisei@arm.com,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: Check cpu_has_spe() before initializing PMSCR_EL1 in VHE
-In-Reply-To: <aOVckTSJET5ORY1n@linux.dev>
-References: <20251007182356.2813920-1-mukesh.ojha@oss.qualcomm.com>
-	<aOVckTSJET5ORY1n@linux.dev>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: mukesh.ojha@oss.qualcomm.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, alexandru.elisei@arm.com, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	s=k20201202; t=1759920515;
+	bh=r8JHW7S9t8XtUom2huYwx+1JK/cKzVt5jAQ2jApdSJ4=;
+	h=From:Date:Subject:To:Cc:From;
+	b=jh27gp3rw022a1h/WWr+t1wM0U5EPs25PS24UudRsvMvW7VuFNgttsy1GgDnKTtOE
+	 fJy2IBNDNmHfBsGgVXOuQhiY/2uVhdRXyxjViLozWaO5OtoeEKYnQVCKAyogH5fWkw
+	 O4L4XaH2//EYfNKzmkmT7znzYUWq5PFSUH2X7hz7TGr0wdeHvdbfqdhH0q/0TXB6M5
+	 Px2bnP5mAsnm0130NIgU98b6Of7kZyGZ1FB0Td96nq92zEog71n0wX8Xg26Oll+B1F
+	 NzioWB/ah65ZPpHNtDTd9tUPpR1QacxVqKJXSdnZ+uFtCkDGtA83RymnbEOHYZhEIn
+	 /BZqFWAU1f/HA==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Wed, 08 Oct 2025 12:48:05 +0200
+Subject: [PATCH net] net: mtk: wed: add dma mask limitation and GFP_DMA32
+ for device with more than 4GB DRAM
+MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251008-wed-4g-ram-limitation-v1-1-16fe55e1d042@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAGRB5mgC/x3MQQrDIBBG4avIrDtgE5Ngr1KykPonGYi2qCSF4
+ N0rXb7F9y7KSIJMD3VRwiFZ3rHF/abotbm4gsW3pk53g7a95hOezcrJBd4lSHGlCR6N1Zjgre8
+ tNftJWOT7/z4potBc6w9l4YGwbAAAAA==
+X-Change-ID: 20250930-wed-4g-ram-limitation-6490e7ed9d39
+To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, Rex Lu <rex.lu@mediatek.com>, 
+ Daniel Pawlik <pawlik.dan@gmail.com>, Matteo Croce <teknoraver@meta.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>
+X-Mailer: b4 0.14.2
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251008_034835_766102_9E00116B 
+X-CRM114-Status: GOOD (  10.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,40 +81,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 07 Oct 2025 19:31:45 +0100,
-Oliver Upton <oliver.upton@linux.dev> wrote:
-> 
-> Hi Mukesh,
-> 
-> I find it a bit odd to refer to cpu_has_spe() in the shortlog, which
-> doesn't exist prior to this patch.
-> 
-> On Tue, Oct 07, 2025 at 11:53:56PM +0530, Mukesh Ojha wrote:
-> > commit efad60e46057 ("KVM: arm64: Initialize PMSCR_EL1 when in VHE")
-> > initializes PMSCR_EL1 to 0 which is making the boot up stuck when KVM
-> > runs in VHE mode and reverting the change is fixing the issue.
-> > 
-> > [    2.967447] RPC: Registered tcp NFSv4.1 backchannel transport module.
-> > [    2.974061] PCI: CLS 0 bytes, default 64
-> > [    2.978171] Unpacking initramfs...
-> > [    2.982889] kvm [1]: nv: 568 coarse grained trap handlers
-> > [    2.988573] kvm [1]: IPA Size Limit: 40 bits
-> > 
-> > Lets guard the change with cpu_has_spe() check so that it only affects
-> > the cpu which has SPE feature supported.
-> 
-> This could benefit from being spelled out a bit more. In both cases we
-> check for the presence of FEAT_SPE, however I believe the issue you
-> observe is EL3 hasn't delegated ownership of the Profiling Buffer to
-> Non-secure nor does it reinject an UNDEF in response to the sysreg trap.
-> 
-> I agree that the change is correct but the rationale needs to be clear.
+From: Rex Lu <rex.lu@mediatek.com>
 
-To me, this smells a lot more like some sort of papering over a
-firmware bug. Why isn't SPE available the first place?
+Limit tx/rx buffer address to 32-bit address space for board with more
+than 4GB DRAM.
 
-	M.
+Tested-by: Daniel Pawlik <pawlik.dan@gmail.com>
+Tested-by: Matteo Croce <teknoraver@meta.com>
+Signed-off-by: Rex Lu <rex.lu@mediatek.com>
+Co-developed-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+ drivers/net/ethernet/mediatek/mtk_wed.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
+diff --git a/drivers/net/ethernet/mediatek/mtk_wed.c b/drivers/net/ethernet/mediatek/mtk_wed.c
+index 3dbb113b792cf00fb4f89ab20f7e7fa72ecac260..cc3f3380a9980a6525921205dc7adaf321a099ae 100644
+--- a/drivers/net/ethernet/mediatek/mtk_wed.c
++++ b/drivers/net/ethernet/mediatek/mtk_wed.c
+@@ -677,7 +677,7 @@ mtk_wed_tx_buffer_alloc(struct mtk_wed_device *dev)
+ 		void *buf;
+ 		int s;
+ 
+-		page = __dev_alloc_page(GFP_KERNEL);
++		page = __dev_alloc_page(GFP_KERNEL | GFP_DMA32);
+ 		if (!page)
+ 			return -ENOMEM;
+ 
+@@ -800,7 +800,7 @@ mtk_wed_hwrro_buffer_alloc(struct mtk_wed_device *dev)
+ 		struct page *page;
+ 		int s;
+ 
+-		page = __dev_alloc_page(GFP_KERNEL);
++		page = __dev_alloc_page(GFP_KERNEL | GFP_DMA32);
+ 		if (!page)
+ 			return -ENOMEM;
+ 
+@@ -2426,6 +2426,10 @@ mtk_wed_attach(struct mtk_wed_device *dev)
+ 	dev->version = hw->version;
+ 	dev->hw->pcie_base = mtk_wed_get_pcie_base(dev);
+ 
++	ret = dma_set_mask_and_coherent(hw->dev, DMA_BIT_MASK(32));
++	if (ret)
++		return ret;
++
+ 	if (hw->eth->dma_dev == hw->eth->dev &&
+ 	    of_dma_is_coherent(hw->eth->dev->of_node))
+ 		mtk_eth_set_dma_device(hw->eth, hw->dev);
+
+---
+base-commit: 07fdad3a93756b872da7b53647715c48d0f4a2d0
+change-id: 20250930-wed-4g-ram-limitation-6490e7ed9d39
+
+Best regards,
 -- 
-Without deviation from the norm, progress is not possible.
+Lorenzo Bianconi <lorenzo@kernel.org>
+
 
