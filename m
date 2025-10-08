@@ -4,75 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5455ECCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 15:47:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CDFD7CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 15:47:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
 	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pCqfiDMNXwNp3eFCLlUtfPhbgD3LgIedHtp2uSYpz9o=; b=WuK1Qc8+hgzknuT1IPllxE7/iM
-	nANyFosjuPVpHbW/Mw7HHYXkjjMJi9ckiHvqRHasLW6dT7wiYBQqdcw7kzbtdIqD/5Qd1mWJYWNfa
-	9NWLyNuZI9JMi9jYMi1rLteFaACH4fOU0stQeRrL9hwD+dlA9PqZXqw85b6rLxYtFyV8res8/ruVt
-	s3qqo93g6lQ3x/SkAd7bc4n2wd0w/tDgHMWOxnU9i95mphKtlqT7lJOILe2yfLX69xK4hf48FKIOl
-	37MkHIHbnDK1uAGtfOKlp3ZkKzL/kQb+qVRAXr44hPIitQcOn8WZ7EBd1B4m1j0oHbmjEj9+6bQ1j
-	+bfyNrtA==;
+	bh=4d430to7F+bJwYs62ijVveUJQwYq/Bl3TbNr2srG04A=; b=evtQxigeakCaqgN59S24ZFsi0Q
+	o/ie/7siHve3SHDE0Cmef5COSl7ABJy/JulXkD1IHSoqVH5NH4hu7IGm+9JdReL94jbQG1a4Tjcgu
+	xeanq5D2cAFzzM0dnED4OpPrzdoIfKnIScCoVCkBxiCr8yuqI4Adi5tlVTBAHDZHR0a/8fLhDzd35
+	EF1t2HzFosyzVLPkoVOXLsB3Q8yvlL5GM91vlJq8LZhL+OoCfzcwJssgL72mDguqnR0ytwt7CeCcc
+	mcg44l+JYXz+DfpzfMhJDKsIvWBYTqFCfi+YFenIbf8NKLwAs/C10HTX+nRMTdnBtNw8E62Eph+49
+	s9t7euxw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6WNs-00000004Bvd-1ieC;
-	Wed, 08 Oct 2025 15:47:20 +0000
-Received: from mail-wm1-x349.google.com ([2a00:1450:4864:20::349])
+	id 1v6WNx-00000004C35-0w7h;
+	Wed, 08 Oct 2025 15:47:25 +0000
+Received: from mail-wr1-x44a.google.com ([2a00:1450:4864:20::44a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6WNg-00000004BYh-0MeN
+	id 1v6WNi-00000004BdK-08Xt
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Oct 2025 15:47:10 +0000
-Received: by mail-wm1-x349.google.com with SMTP id 5b1f17b1804b1-46e303235e8so12375e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Oct 2025 08:47:06 -0700 (PDT)
+	Wed, 08 Oct 2025 15:47:11 +0000
+Received: by mail-wr1-x44a.google.com with SMTP id ffacd0b85a97d-3efa77de998so62517f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Oct 2025 08:47:09 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1759938425; x=1760543225; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1759938428; x=1760543228; darn=lists.infradead.org;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=pCqfiDMNXwNp3eFCLlUtfPhbgD3LgIedHtp2uSYpz9o=;
-        b=Z1Go5CIZbo2KYWU/c+kxDrASGhvymgyA1uXCjkDOWCA/Q/HnF2UzqE7KyocNUEUkYd
-         YCwmJk3htgpbRyzPTzu7TPjKyi+2I4kAK9m3oazusHtosf8e7UAnqgJjSoXB9IypONwl
-         LxyKNrRD33lzJE6B6ypIXL3N9kvKeYTB7wLf5gqa31YGrcnx9KCVeEEi8svJCeM6+l7m
-         2gleFSMUO9K1GPEQy7LE9XiDgrcs7fxgBZ3ChO2FGWYpSsMoowoZFJl7pAGYBf7WIoTB
-         KnAcbbfaN1/tq/tN6zwftTNv+Od94xU9Qcz6qSA7PVJC64yAwongyumKufGvtfkyF8zQ
-         aGPw==
+        bh=4d430to7F+bJwYs62ijVveUJQwYq/Bl3TbNr2srG04A=;
+        b=aFZqQr/I8UjK1p7cCLg2R4UgkjuGY0ME5cg791fycmyWEUGZa3CqRTuuemf/rC01QW
+         2kObx8DUMUI4KaEbrMPo/YRFA/qOItFQC/W+f4xZCGPm2LQ7GmTiYb/xXvndhpaqr5Ue
+         3H9hvjRnV6n/s98zxBzg7eGEFocwkztsAvXnEyojopQ858y/4wbb3Kj+gxaapzd4DiVA
+         vXq6RGIfYK13I/r9589bLzv0quZkPHodhwqDqxIsilCPeSVtfh90RschsgSkNexH8Knj
+         ybniuxoRvv+BodcyiuDW/9BXvFx0d+5SRD8XhVPpMxsSSSJMFgx2UyAXpmSxa5azrsXO
+         2exA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759938425; x=1760543225;
+        d=1e100.net; s=20230601; t=1759938428; x=1760543228;
         h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
          :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=pCqfiDMNXwNp3eFCLlUtfPhbgD3LgIedHtp2uSYpz9o=;
-        b=XZSm8QvUKxK233b+5Al+q02j+/ZEH6GBl2I41EFU3k3VENnGdfFxHZrDVENb2FErsL
-         XFSOCp3wI3Z56GQA+/5Tdv/sXC+0i33flgYbRIlquRDdkw6ZtCXXbLMfbircwIjYWn4S
-         FJeCoDDhehVY6gJ9nitMOb10pQ8owypmP5BMk5MoDNuZAvSMaFb5K0z9ClWKTbFQZ/qN
-         1b7aB7/iVbhbYJQpXUfejQBrlsSloewRNkz/xaL5bnKEflbWFRwe/Ek+l2dIJ4j5koDQ
-         9flAFDtpDHNPW/4V+4E2vigR+IQd/d8elRibeS65KyXTdulkyVP5+dlIgdyj2kI+DJOg
-         XuCQ==
-X-Gm-Message-State: AOJu0YyH0n2pYuDud0uQhl4V7K+HJ3zSyKlxBU41CH/OXhlh189lqWub
-	R7W9Hg2MxCaB/9O8xcJDURRZ/iUfhFuZ0cCr0hGvDJsK+lLmD7I8Mrl8ZxTLaEFrrgPPuKKUwBY
-	LooAFgPVn22Q7ST5uHUTkVQkreiXyVUsOdVn1wP8JcY7qNQMS4GYfKNb4BV5QG8KTjjqhTXE3M+
-	xaPLrfYScnQY7cHblTjeRKe8yi4H6RrQxvu3zP31ES60pa
-X-Google-Smtp-Source: AGHT+IEstc5WbaKR984lcE73yhlUqY4mnQpun5Em/Dltp0yYfhzejBDQJd+oDTcw6HoRIbI7W/BkGtQg
-X-Received: from wmjf4.prod.google.com ([2002:a7b:cd04:0:b0:46e:38c2:1a34])
- (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:600c:468e:b0:46e:4b79:551
- with SMTP id 5b1f17b1804b1-46fa9b092femr34512895e9.31.1759938425183; Wed, 08
- Oct 2025 08:47:05 -0700 (PDT)
-Date: Wed,  8 Oct 2025 17:45:52 +0200
+        bh=4d430to7F+bJwYs62ijVveUJQwYq/Bl3TbNr2srG04A=;
+        b=HZyyiSt2PiBBuN02C50zDNLcb1M1oaD2sFovRGK/xWOuHxTUr9dY16RbPZWYIZalYt
+         vfhSjWMaZVZNvuSgJQf63BLPV8aftO/Yrj76uwy2LJyULcUzXJ/65CwsJd1h9luS0zbV
+         4TiOtVnQiGwNx+kS9Y83nU7Cy8M/0hx8+TQlvPVMI1S3VxIuarFNv4Zxq5cHzNe4hfAE
+         PSwJqN6ieA5Y3W9s273zBnohTbWHQbYMz6BjbU/AIBHk3uqSYh2qT6BDa3s9O2NSlsqW
+         stnetlro7XvL2uSqlRnGaCrXJ61xXTZyMXuKy0qVQ5xVEVI7/8v2PE+0hQhxR529MaAG
+         wuNg==
+X-Gm-Message-State: AOJu0YxcjrsnNoX5tMCDnmGb3tf2LO0buQraiRBABW68yt3CKNhGMDsX
+	lYQPB+EtUF5BJV4AuMijPs6BCCmT4Njhl8JKpTW9vjF0IOXtW+W5WiQAmTwMylJxDB8xqlIPHnP
+	MEh2se+W+dkS1M54XSo6qqZD3pf2IVMTz09HXuo2/ElesjafpA/Tof7yG/7K+oKPIKy3/TKKGiZ
+	H4smbpXeTc+xw5KNSxqBPBDcFkQ8jIWq1/5AMi2INHyW8i
+X-Google-Smtp-Source: AGHT+IFxuPNcvfnI61ScnGz/kEaKdHt8OBEaJHISLPH795AUUxCAL4+HW8dxd6WipTwVX9VIvhQ1077r
+X-Received: from wmlm12.prod.google.com ([2002:a7b:ca4c:0:b0:45f:29fc:83d])
+ (user=ardb job=prod-delivery.src-stubby-dispatcher) by 2002:a05:6000:2389:b0:3fd:eb15:77a
+ with SMTP id ffacd0b85a97d-42666ac2da4mr2403184f8f.6.1759938427683; Wed, 08
+ Oct 2025 08:47:07 -0700 (PDT)
+Date: Wed,  8 Oct 2025 17:45:54 +0200
 In-Reply-To: <20251008154533.3089255-23-ardb+git@google.com>
 Mime-Version: 1.0
 References: <20251008154533.3089255-23-ardb+git@google.com>
 X-Developer-Key: i=ardb@kernel.org; a=openpgp; fpr=F43D03328115A198C90016883D200E9CA6329909
-X-Developer-Signature: v=1; a=openpgp-sha256; l=2401; i=ardb@kernel.org;
- h=from:subject; bh=5nhtgxb3dS2zVbgouam5e+M4Gmu5K56lN9xZqYXBI3s=;
- b=owGbwMvMwCVmkMcZplerG8N4Wi2JIeNZe6DOTtbCqP/MvEdnNO/+dDayK/WX4sFtL+4vEJj/I
- +l81yPtjlIWBjEuBlkxRRaB2X/f7Tw9UarWeZYszBxWJpAhDFycAjCRyBUM/6z/Z+Z7rrJVsj3o
- NKFtdgfTrePKpyWn38q/ubvk6uoTq6UZGebIWslEbD0dYrpZ+BV3WHF94Ya0X7/LTFfJp3Rny69 v4AMA
+X-Developer-Signature: v=1; a=openpgp-sha256; l=1631; i=ardb@kernel.org;
+ h=from:subject; bh=jCkHQXSdf8VNipopESRILGcuCgPWNMlfZdyre0v/uHk=;
+ b=owGbwMvMwCVmkMcZplerG8N4Wi2JIeNZe1iU7eedkh0ZXVG1KaJNn85s2LNxVn6X6HFXzp2nI
+ 6vrlfg6SlkYxLgYZMUUWQRm/3238/REqVrnWbIwc1iZQIYwcHEKwERm7mVkWPDjweI7tbdrJQPY
+ eIJjdzxemCDdfydySVTtoncHsld9F2JkOOuxUuhE0XeuS1f/dqy3qu09MXn3XCM9na+rHyR9evz pOzcA
 X-Mailer: git-send-email 2.51.0.710.ga91ca5db03-goog
-Message-ID: <20251008154533.3089255-41-ardb+git@google.com>
-Subject: [PATCH v3 18/21] arm64/xorblocks:  Switch to 'ksimd' scoped guard API
+Message-ID: <20251008154533.3089255-43-ardb+git@google.com>
+Subject: [PATCH v3 20/21] arm64/fpu: Enforce task-context only for generic
+ kernel mode FPU
 From: Ard Biesheuvel <ardb+git@google.com>
 To: linux-arm-kernel@lists.infradead.org
 Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org, 
@@ -80,8 +81,8 @@ Cc: linux-kernel@vger.kernel.org, linux-crypto@vger.kernel.org,
 	Ard Biesheuvel <ardb@kernel.org>
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251008_084708_301618_22D24CEB 
-X-CRM114-Status: GOOD (  12.30  )
+X-CRM114-CacheID: sfid-20251008_084710_155196_C8CAA08C 
+X-CRM114-Status: GOOD (  13.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,79 +99,54 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Ard Biesheuvel <ardb@kernel.org>
 
-Switch to the more abstract 'scoped_ksimd()' API, which will be modified
-in a future patch to transparently allocate a kernel mode FP/SIMD state
-buffer on the stack, so that kernel mode FP/SIMD code remains
-preemptible in principe, but without the memory overhead that adds 528
-bytes to the size of struct task_struct.
+The generic kernel mode FPU API, which is used by the AMDGPU driver to
+perform floating point calculations, is modeled after the most
+restrictive architecture that supports it. This means it doesn't support
+preemption, and can only be used from task context.
 
-Reviewed-by: Eric Biggers <ebiggers@kernel.org>
+The arm64 implementation is a bit more flexible, but supporting that in
+the generic API complicates matters slightly, and for no good reason,
+given that the only user does not need it.
+
+So enforce that kernel_fpu_begin() can only be called from task context,
+and [redundantly] disable preemption. This removes the need for users of
+this API to provide a kernel mode FP/SIMD state after a future patch
+that makes that compulsory for preemptible task context.
+
 Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 ---
- arch/arm64/include/asm/xor.h | 22 ++++++++------------
- 1 file changed, 9 insertions(+), 13 deletions(-)
+ arch/arm64/include/asm/fpu.h | 16 ++++++++++++++--
+ 1 file changed, 14 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm64/include/asm/xor.h b/arch/arm64/include/asm/xor.h
-index befcd8a7abc9..c38e3d017a79 100644
---- a/arch/arm64/include/asm/xor.h
-+++ b/arch/arm64/include/asm/xor.h
-@@ -9,7 +9,7 @@
- #include <linux/hardirq.h>
- #include <asm-generic/xor.h>
- #include <asm/hwcap.h>
--#include <asm/neon.h>
-+#include <asm/simd.h>
+diff --git a/arch/arm64/include/asm/fpu.h b/arch/arm64/include/asm/fpu.h
+index 2ae50bdce59b..52a1c513bdf3 100644
+--- a/arch/arm64/include/asm/fpu.h
++++ b/arch/arm64/include/asm/fpu.h
+@@ -6,10 +6,22 @@
+ #ifndef __ASM_FPU_H
+ #define __ASM_FPU_H
  
- #ifdef CONFIG_KERNEL_MODE_NEON
++#include <linux/preempt.h>
+ #include <asm/neon.h>
  
-@@ -19,9 +19,8 @@ static void
- xor_neon_2(unsigned long bytes, unsigned long * __restrict p1,
- 	   const unsigned long * __restrict p2)
- {
--	kernel_neon_begin();
--	xor_block_inner_neon.do_2(bytes, p1, p2);
--	kernel_neon_end();
-+	scoped_ksimd()
-+		xor_block_inner_neon.do_2(bytes, p1, p2);
- }
+ #define kernel_fpu_available()	cpu_has_neon()
+-#define kernel_fpu_begin()	kernel_neon_begin()
+-#define kernel_fpu_end()	kernel_neon_end()
++
++static inline void kernel_fpu_begin(void)
++{
++	BUG_ON(!in_task());
++	preempt_disable();
++	kernel_neon_begin();
++}
++
++static inline void kernel_fpu_end(void)
++{
++	kernel_neon_end();
++	preempt_disable();
++}
  
- static void
-@@ -29,9 +28,8 @@ xor_neon_3(unsigned long bytes, unsigned long * __restrict p1,
- 	   const unsigned long * __restrict p2,
- 	   const unsigned long * __restrict p3)
- {
--	kernel_neon_begin();
--	xor_block_inner_neon.do_3(bytes, p1, p2, p3);
--	kernel_neon_end();
-+	scoped_ksimd()
-+		xor_block_inner_neon.do_3(bytes, p1, p2, p3);
- }
- 
- static void
-@@ -40,9 +38,8 @@ xor_neon_4(unsigned long bytes, unsigned long * __restrict p1,
- 	   const unsigned long * __restrict p3,
- 	   const unsigned long * __restrict p4)
- {
--	kernel_neon_begin();
--	xor_block_inner_neon.do_4(bytes, p1, p2, p3, p4);
--	kernel_neon_end();
-+	scoped_ksimd()
-+		xor_block_inner_neon.do_4(bytes, p1, p2, p3, p4);
- }
- 
- static void
-@@ -52,9 +49,8 @@ xor_neon_5(unsigned long bytes, unsigned long * __restrict p1,
- 	   const unsigned long * __restrict p4,
- 	   const unsigned long * __restrict p5)
- {
--	kernel_neon_begin();
--	xor_block_inner_neon.do_5(bytes, p1, p2, p3, p4, p5);
--	kernel_neon_end();
-+	scoped_ksimd()
-+		xor_block_inner_neon.do_5(bytes, p1, p2, p3, p4, p5);
- }
- 
- static struct xor_block_template xor_block_arm64 = {
+ #endif /* ! __ASM_FPU_H */
 -- 
 2.51.0.710.ga91ca5db03-goog
 
