@@ -4,147 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E3A61CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 04:21:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABD20CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 04:45:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9TJy9TZ0V4zU9QEOdoUBMSlfuWW6/GP48/yMW3+/H9s=; b=uvbUcCWnSk5+MWCcSg3BZ+XRP0
-	QDJzPPQb20VrZrJEVvidzVgjaUqXi88S8JqqGmLpLF3IrEi4OKQkRpX6RC8EQt6ixLWIODHTMBhp2
-	bWifkW2YGP9la1inmWydDByaqWCOGvc+zs1vDL6YzQYinUBhyHPxuKhUbJKOpFcmJWTR5gAaOp+dx
-	apiiVO8IRr/mrGo4q5E7V3Z5XAV0I1deH1FhwmaN/sKLwiKu85g1GqvCDovNiJZtKZKUBAuBfDr8D
-	lDgfN55/szvVIDfzZm1gI4Jbi+45kV10IFyL7tg0w6k+cfKasW6npiUJE+FqcL+wQVSWZKlcHHSq3
-	eJB209DA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5kr1L00wvOVr25j3yOIqLleOM/mW0MLWBZeaiqgZ8Wk=; b=FI8DM5V8hwIEiLmX32nW69QGOK
+	nqCyXx0Al1XFnQ/sJFB7xQ/W5dnEN9nuDDG+4+DwHXmZGmhG4h4I/DGN30UjwVogAIrcLlwtLqU2C
+	Y9gz9bCoo8sOwngADZa0/OqcHiKqUNoLmyeQmWJEkjlHQWMIzXs/mLRWQfKRiDO+OcmexOv0Eis0K
+	UGx+MzWg1u44+Mcww8pyfAA8H+8Tw9eQ0TjOVj4RxI/9ucdai5Lp46uTO7Bv2G/q32QcY7sG6A/p4
+	aUdQd3k/hj6PVALDXbUOC3rPtX7122h69Ebu0JY9FQTmHEx08KbpRVyOrMzB/3Ye1IHvJrFn2UGlY
+	/jfklxkQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6Lfs-000000039tC-1SnO;
-	Wed, 08 Oct 2025 04:21:12 +0000
-Received: from mail-pf1-x434.google.com ([2607:f8b0:4864:20::434])
+	id 1v6M3Z-00000003BjM-3EMP;
+	Wed, 08 Oct 2025 04:45:41 +0000
+Received: from mail-pf1-x431.google.com ([2607:f8b0:4864:20::431])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6Lfm-000000039si-2fTR
+	id 1v6M3X-00000003Bid-2TIz
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Oct 2025 04:21:11 +0000
-Received: by mail-pf1-x434.google.com with SMTP id d2e1a72fcca58-782a77b5ec7so5925613b3a.1
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 21:21:06 -0700 (PDT)
+	Wed, 08 Oct 2025 04:45:40 +0000
+Received: by mail-pf1-x431.google.com with SMTP id d2e1a72fcca58-78115430134so4313532b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 07 Oct 2025 21:45:39 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1759897266; x=1760502066; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:to:subject:user-agent:mime-version:date
-         :message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=9TJy9TZ0V4zU9QEOdoUBMSlfuWW6/GP48/yMW3+/H9s=;
-        b=Rq9t5R4xfLSk+8My/tcpiRSIqeWDI2/yexKLVoaDOnJW6k1wsRWuH6/lP+HdHMyMiJ
-         DYmsFx95WaD7/RZqCHwwzAVzcKQWlQJJ1KuIIjdSh9zXwoqOuFVQlIitG0JEaTjN32Lr
-         slhQiy0EZtjmLLAmrcsxdMRSwfIJHl7OlNbAlUmDzrZl8Vk1iAuBem484tAn30lTs79Z
-         rphazrfH29wJ8GZhv9ckND6CqIDeOUIEmOIWYbml/k9mhl7xyMUHYYF1Kj1ahOUr947F
-         edTmemKqOUnmlWDHCOchCOs5zpnoU5UcHDuk+o8iaZ0rM/+c0Obe4ixkJG/lzQli7sHG
-         PwDw==
+        d=chromium.org; s=google; t=1759898738; x=1760503538; darn=lists.infradead.org;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=5kr1L00wvOVr25j3yOIqLleOM/mW0MLWBZeaiqgZ8Wk=;
+        b=nKk4hFdx83RK1fmuayd8ifMVQq6Pk9zvCpxemtQNA89JJrqmm78KtWr8LYuTXdn0/W
+         9bddluxJLD1zx52yEUz5TGxO8l8EktCNTxC588E/UN9+DQCdq01YHk8K8uZ60/9Jzakc
+         58kpVfs1ouRqu81cPN/CoSEu24ur8PiOhefmw=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759897266; x=1760502066;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:to:subject:user-agent:mime-version:date
-         :message-id:sender:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=9TJy9TZ0V4zU9QEOdoUBMSlfuWW6/GP48/yMW3+/H9s=;
-        b=paCk/Ap4MPLR/z3ecZPHMljPaF4nwE3fLKPv5TgmB8SWb6eGJyt8yXwIWcpyHQscU+
-         8xSOhJ6Z8ig6vIfZMDCjQlE7+vkReQ4mPzxfE0mmzGZYj4AFuKusPA+pO6Xs/NAHHLdi
-         L9QCJNXmQovpszAIRZl4qEu/dhUS8uDqQD4bxJebN7y9m+i6qxs22sTG8yJ32FYGTJys
-         9DcJZYHl4g94BC0QAFOj2h9FwsdDNfVA2LF4E2V8NWJHG5MpvXph6YsiI2LUsPRCWzzZ
-         7GDNAiVeWyaapOFYjHukGr66j3lZhyiDllazACcvUn0RzMqmnlsbWORl5i1C54tljU8M
-         pcxA==
-X-Forwarded-Encrypted: i=1; AJvYcCU3Qpd8zCpxPvFxQmB2b6QcJKTT9CrtIGTyhmJvgK/heHnOfFCMhP01Hsj0SSucYbiFDkq47OPkFFH5Q2yK/LvW@lists.infradead.org
-X-Gm-Message-State: AOJu0YwVPqqznVw5CLNuIbLYr0y4RGI9/v0Tsnab5SEn//5RM9TOjuBG
-	ZWcMjVYKUvKpDFfRsBoHEIDVpI7upcK8VrJW3T3oIrjvBNvINNXwsM4L
-X-Gm-Gg: ASbGncvwASEyYb4muOBlbIJMh0bNfcraOnZb2DMxx2+RLd8goJzYOcDv1pQykaUfNBy
-	jvQ3xr0OQ2yGBgBfVbI9gFLSmPI4mOvnRue6w3Cmi5wUbn/ZUCHBYYapkS0IhXnWxNFXuxiaFaY
-	hyg173+jGHmz7F5MaHtxtEkED3PAv1ArZIJ/hPqPWyoL16aJH9WkFxNMGMOJB0E9h/cTgTDJgz1
-	Z9ryh8WZHYrhUPgvNkPH7C8VAhrW3h7tZw6bWy6YVXkERBSETC4cfQvQFnLd+IrRy+8i95Spavo
-	0+Zf+q350PV/UisrN6+I7on6c9w4Vw7aUWTS/km7+I5YQB4vkTn2wzTU/MujMO5SFHfprN2vFnP
-	hnhFZ8zJJB+Rj0hqaStrIZyyLWdU8Y7B6GUBBAgmNxh+t9VRUoeJSbs5XKL0SACQRHHyY5XobeE
-	LXmZ7oHVVriRt1kgCTgSg=
-X-Google-Smtp-Source: AGHT+IGPl/Mm/NaQsG0TYzUcRWLvYSHGWrnzPu3xN1xjq6km3zWj4znIXZRYrQL1Ybsio/8lBLjBzA==
-X-Received: by 2002:a05:6a00:391a:b0:781:220c:d2c1 with SMTP id d2e1a72fcca58-79385709914mr2694127b3a.2.1759897265572;
-        Tue, 07 Oct 2025 21:21:05 -0700 (PDT)
-Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-78b01f9cd3bsm17314227b3a.4.2025.10.07.21.21.04
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 07 Oct 2025 21:21:04 -0700 (PDT)
-Message-ID: <c5cab3a0-b17f-494b-b856-ebf2fb68db60@roeck-us.net>
-Date: Tue, 7 Oct 2025 21:21:03 -0700
+        d=1e100.net; s=20230601; t=1759898738; x=1760503538;
+        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=5kr1L00wvOVr25j3yOIqLleOM/mW0MLWBZeaiqgZ8Wk=;
+        b=FmmfHjploS0lfbIa4YPtiVPmVp/Y8LTHhU9WwSTYUbexsQcpkUF8FHK6pkFkmJ1cc5
+         bR77Lz8PBzJhR+ZjLSFK7wAHrH7ytDa74K9WvHX/q02CXVrNNjkpnG8iSL9P+DlGRRaT
+         G6eDmMV+QWpOYhgfVARJ5qEm/nDsGUjByaekBQH2BxP2cCggrbphmY3FhNB+nSfs2Szv
+         GNhwcoAFhqyTHe8GXMROpqPGGG1kIU1n2PN4JdYOU9h+/SmE3PjzTWLq6ne6GWdPwPBE
+         WEE3YUE6u4ZgAMREeq+yRM6uW7sCt9XI2QhWKcQ5COi6eNMw7VucT9k1tU+29D2iPROO
+         E/2g==
+X-Forwarded-Encrypted: i=1; AJvYcCXrMvj9T6UwwYgq0WpmeEOTfy45LhEVlOBmZ44musvrQWPTesqnEZUDLkpk2ZHgfbrUYKSTa/aqE0csvv2HdFHc@lists.infradead.org
+X-Gm-Message-State: AOJu0YzMAqZfZNrKdmYL0+M/O7sK7kWfz59/O5VNs/MWlrh61/K6qUI5
+	W1cXqYQtOyxEwpLVRlLioDRPnz2I3yZC1/BVBNR4N1mS4/mfEs1g+xxLrXXIcmrSEg==
+X-Gm-Gg: ASbGncsIeODq1QR7fgot5mu58IugTl7UFPc3QzJUgduTZdBAghTfd5LX0kMAWKjpKpI
+	qZNidX2E3uNFiStTJTIznqgghPSUk5/f4Vv5tD8rHPj299wuBqmSaujw5OqjBOF0fZABauTLeq9
+	aGp8Lp8dvxQUjgaMsHQ89XqyWQy/vRxxka/U0tv9DqdVaRCJEkQ4sBg+IGPkW87c3AeYOrTKdDv
+	GjQEbaCg3ilVliOwpwOUruEGG8HNy0J8m9eM9n1RebfoBn+TaDTLF6OHM0Tp4vM+LbM+eb0/lua
+	gzi5nssvpuJxteyBhdsZDyzOIILvShrSBv81gq0pKj0t+wxNMGutNhEdEqwLzYsQLjYQP24A94J
+	qs1JJ3dqLEZntyAMBV3tcSvgAoLFbd4pPNb6C9nFAl7+qKPq+pw==
+X-Google-Smtp-Source: AGHT+IFLUr0j2WR9Nd0qMRsWsIHFOH6znggjE7lmgxCqD3Uq946in/DRyGXhdUAnZKPPI7qOtPJMtQ==
+X-Received: by 2002:a05:6a00:2388:b0:772:3aa4:226e with SMTP id d2e1a72fcca58-79387242fa9mr2116159b3a.19.1759898738380;
+        Tue, 07 Oct 2025 21:45:38 -0700 (PDT)
+Received: from google.com ([2401:fa00:8f:203:465a:c20b:6935:23d8])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-78b02053b77sm17347590b3a.43.2025.10.07.21.45.35
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 07 Oct 2025 21:45:37 -0700 (PDT)
+Date: Wed, 8 Oct 2025 13:45:32 +0900
+From: Sergey Senozhatsky <senozhatsky@chromium.org>
+To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+	Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>, 
+	Mark Brown <broonie@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+	Tomasz Figa <tfiga@chromium.org>, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, stable@vger.kernel.org, 
+	Sergey Senozhatsky <senozhatsky@chromium.org>
+Subject: kvm: arm64: stable commit "Fix kernel BUG() due to bad backport of
+ FPSIMD/SVE/SME fix" deadlocks host kernel
+Message-ID: <hjc7jwarhmwrvcswa7nax26vgvs2wl7256pf3ba3onoaj26s5x@qubtqvi3vy6u>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 2/3] watchdog: aspeed: Support variable number of reset
- mask registers
-To: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>,
- "wim@linux-watchdog.org" <wim@linux-watchdog.org>,
- "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
- <krzk+dt@kernel.org>, "conor+dt@kernel.org" <conor+dt@kernel.org>,
- "joel@jms.id.au" <joel@jms.id.au>,
- "andrew@codeconstruct.com.au" <andrew@codeconstruct.com.au>,
- "linux-watchdog@vger.kernel.org" <linux-watchdog@vger.kernel.org>,
- "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
- "linux-arm-kernel@lists.infradead.org"
- <linux-arm-kernel@lists.infradead.org>,
- "linux-aspeed@lists.ozlabs.org" <linux-aspeed@lists.ozlabs.org>,
- "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
- BMC-SW <BMC-SW@aspeedtech.com>
-References: <20251007083650.2155317-1-chin-ting_kuo@aspeedtech.com>
- <20251007083650.2155317-3-chin-ting_kuo@aspeedtech.com>
- <83a90651-0b46-4c68-ab90-361422192e90@roeck-us.net>
- <TYZPR06MB52035407C39249441F09AA18B2E1A@TYZPR06MB5203.apcprd06.prod.outlook.com>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
-In-Reply-To: <TYZPR06MB52035407C39249441F09AA18B2E1A@TYZPR06MB5203.apcprd06.prod.outlook.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_212106_688566_26FE99D8 
-X-CRM114-Status: GOOD (  25.11  )
+X-CRM114-CacheID: sfid-20251007_214539_680801_AC693EF3 
+X-CRM114-Status: UNSURE (   9.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -159,101 +97,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/7/25 20:29, Chin-Ting Kuo wrote:
-> Hi Guenter,
-> 
-> Thanks for the quick review.
-> 
->> -----Original Message-----
->> From: Guenter Roeck <groeck7@gmail.com> On Behalf Of Guenter Roeck
->> Sent: Tuesday, October 7, 2025 10:55 PM
->> Subject: Re: [PATCH 2/3] watchdog: aspeed: Support variable number of reset
->> mask registers
->>
->> On 10/7/25 01:36, Chin-Ting Kuo wrote:
->>> Starting from the AST2600 platform, the SoC design has become more
->>> complex, with an increased number of reset mask registers.
->>> To support this, introduce a new field 'num_reset_masks' in the
->>> 'aspeed_wdt_config' structure to specify the number of reset mask
->>> registers per platform. This change removes the need for hardcoded
->>> platform-specific logic and improves scalability for future SoCs.
->>>
->>> Signed-off-by: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
->>> ---
->>>    drivers/watchdog/aspeed_wdt.c | 12 ++++++++----
->>>    1 file changed, 8 insertions(+), 4 deletions(-)
->>>
->>> diff --git a/drivers/watchdog/aspeed_wdt.c
->>> b/drivers/watchdog/aspeed_wdt.c index 837e15701c0e..e15f70c5e416
->>> 100644
->>> --- a/drivers/watchdog/aspeed_wdt.c
->>> +++ b/drivers/watchdog/aspeed_wdt.c
->>> @@ -35,6 +35,7 @@ struct aspeed_wdt_config {
->>>    	u32 irq_shift;
->>>    	u32 irq_mask;
->>>    	struct aspeed_wdt_scu scu;
->>> +	u32 num_reset_masks;
->>>    };
->>>
->>>    struct aspeed_wdt {
->>> @@ -54,6 +55,7 @@ static const struct aspeed_wdt_config ast2400_config =
->> {
->>>    		.wdt_reset_mask = 0x1,
->>>    		.wdt_reset_mask_shift = 1,
->>>    	},
->>> +	.num_reset_masks = 1,
->>
->> Looking at this again: Why set it on ast2400 ?
->>
-> 
-> This should be removed for AST2400 platform. I will update it in the next patch version.
-> 
->>>    };
->>>
->>>    static const struct aspeed_wdt_config ast2500_config = { @@ -66,6
->>> +68,7 @@ static const struct aspeed_wdt_config ast2500_config = {
->>>    		.wdt_reset_mask = 0x1,
->>>    		.wdt_reset_mask_shift = 2,
->>>    	},
->>> +	.num_reset_masks = 1,
->>>    };
->>>
->>>    static const struct aspeed_wdt_config ast2600_config = { @@ -78,6
->>> +81,7 @@ static const struct aspeed_wdt_config ast2600_config = {
->>>    		.wdt_reset_mask = 0xf,
->>>    		.wdt_reset_mask_shift = 16,
->>>    	},
->>> +	.num_reset_masks = 2,
->>>    };
->>>
->>>    static const struct of_device_id aspeed_wdt_of_table[] = { @@ -482,8
->>> +486,9 @@ static int aspeed_wdt_probe(struct platform_device *pdev)
->>>    	if ((of_device_is_compatible(np, "aspeed,ast2500-wdt")) ||
->>>    		(of_device_is_compatible(np, "aspeed,ast2600-wdt"))) {
->>
->> ... because the code here only evaluates it if this is an ast2500 or ast2600.
->>
->> If num_reset_masks would be set to 0 for ast2400, the value could be used
->> here.
->>
->> 	if (wdt->cfg->num_reset_masks) {
->> 		...
->> 	}
->>
->> and it would not be necessary to add of_device_is_compatible() for new chips.
->>
-> 
-> This "if" conditional statement includes not only reset mask configuration but also pulse polarity and driving type of reset output signal.
-> How about changing this "if" statement to the below one?
-> 	if (!of_device_is_compatible(np, "aspeed,ast2400-wdt")) {
-> 		...
-> 	}
-> It will also not need to add of_device_is_compatible() for new chips.
-> 
+Commits 8f4dc4e54eed4 (6.1.y) and 23249dade24e6 (5.15.y) (maybe other
+stable kernels as well) deadlock the host kernel (presumably a
+recursive spinlock):
 
-Ok..
+ queued_spin_lock_slowpath+0x274/0x358
+ raw_spin_rq_lock_nested+0x2c/0x48
+ _raw_spin_rq_lock_irqsave+0x30/0x4c
+ run_rebalance_domains+0x808/0x2e18
+ __do_softirq+0x104/0x550
+ irq_exit+0x88/0xe0
+ handle_domain_irq+0x7c/0xb0
+ gic_handle_irq+0x1cc/0x420
+ call_on_irq_stack+0x20/0x48
+ do_interrupt_handler+0x3c/0x50
+ el1_interrupt+0x30/0x58
+ el1h_64_irq_handler+0x18/0x24
+ el1h_64_irq+0x7c/0x80
+ kvm_arch_vcpu_ioctl_run+0x24c/0x49c
+ kvm_vcpu_ioctl+0xc4/0x614
 
-Thanks,
-Guenter
+We found out a similar report at [1], but it doesn't seem like a formal
+patch was ever posted.  Will, can you please send a formal patch so that
+stable kernels can run VMs again?
 
+[1] https://lists.linaro.org/archives/list/linux-stable-mirror@lists.linaro.org/thread/3FQHC4GVN57SM2CNST3EMVEBUXMSFOGR/#AQB4LMHLGTUO73GVCVV5QLCEJT3MRTN4
 
