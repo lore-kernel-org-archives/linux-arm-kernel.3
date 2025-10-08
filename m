@@ -4,97 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E82C0CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 23:58:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4113DCAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 23:58:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yYml2VDxH0siTYU9ImG12BR4vPhtEsV9x6dMYi9DuW8=; b=xLs47MUmD6vlEQ5Yx7bGf28WX+
-	5aWNnDb7P8jE5XRrLsq0ZaZmmYv6HU1Y0U+fX7GSZ6XrwhKvsGTmmH6Faw50/j+92pESOl2tmXdVz
-	UIYmarSLrQlY1SupaWrGeJ4aZEEn6e+xK7z13LU4InvQrh3Ay8UXGsoVg90RQO0VNLjwG8YItL/yN
-	vpzliNwpYz/3U+tw2sgdZ/2f1oj1//JB8Mm+eKVTT9PdnP6SbPWt3TMPukNIbN8vrkZijbqw4foLZ
-	flAR06ycGSpMiZQvWm0Kzv0W4LDB+wxe+wmxBseFtJjAPE4Ywt6l+q7xTZRGed6A4W+q1a0klhP3B
-	sh0TXxxQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XV9fWgCzk9VaYmT20iHFTahei2azrrEU8GnKNjeSXgE=; b=4z+3zBwjrf5FAQ7HSsUzdqnsmT
+	7QEAFZ3LoVbUSgW8ebtQZ59bGDtgDwmFmeruFAsDFG4VA07yW2n+50xRGJUKrkHO+2TUlxZqFImVj
+	ITHxKwnzgGaIBHA/L4OwoXu/zJuSbXFQXPn0sOSqtztKmExcV1iGABCftwdHgDYSxXmPt2xSaES5a
+	LuKX1HKcJolL83qActISlLo57umdIO6OVuio3gPXOAOxTGrrwypPYsyR0bjVu+0lvkLYYC+pTU/MX
+	tmFC6U+YjCareNe2Cw/3rZ0ERuGLhiOhrqga3PphCyUKE/g2HYGI0kOB3N2s02W/Nhm0obevNpmnh
+	nEmgB7RQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6e2u-00000004qak-2BIA;
-	Wed, 08 Oct 2025 23:58:12 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1v6e3L-00000004qfc-3cTU;
+	Wed, 08 Oct 2025 23:58:39 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6e2q-00000004qaN-451y
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Oct 2025 23:58:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1759967886;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=yYml2VDxH0siTYU9ImG12BR4vPhtEsV9x6dMYi9DuW8=;
-	b=bfeO5h5GlA1OTU2OTg5a8KZXJvBYCcXrFdnWRXaU4gKnxtvlGcUdwbzn42Ju/mTo7KDM3B
-	CYUKCLdWfNiM39OZ1c3CVROE6t1MjeHve/9lmfGnJCUh7WwWB9Vc+WrVVOwSo8399QDZJb
-	2dqY/t+QepgsrgZAx+cy36EmMXX8KKs=
-Received: from mail-qk1-f199.google.com (mail-qk1-f199.google.com
- [209.85.222.199]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-125-8g9BFRJDM4KqFJRPPuGpFA-1; Wed, 08 Oct 2025 19:58:05 -0400
-X-MC-Unique: 8g9BFRJDM4KqFJRPPuGpFA-1
-X-Mimecast-MFC-AGG-ID: 8g9BFRJDM4KqFJRPPuGpFA_1759967885
-Received: by mail-qk1-f199.google.com with SMTP id af79cd13be357-829080582b4so131423485a.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Oct 2025 16:58:05 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759967885; x=1760572685;
-        h=user-agent:in-reply-to:content-disposition:mime-version:references
-         :message-id:subject:cc:to:from:date:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=yYml2VDxH0siTYU9ImG12BR4vPhtEsV9x6dMYi9DuW8=;
-        b=TWzS5LcE6zkssMd0N3kaM8qZdb2MjDeUel44acu31YwVZImlDLN/1Z3hnZaOO3x6d7
-         7bLeeFkXaUzKfsY/ey6a6+Ipqm8N5+TcT8ZLo2VGeqOkuw7cOfhCsUdgIRx/fp7mTthH
-         lPyFUpOmc12Qf2txLJl2SNn9R8iKEWRVrEhG1S3ur9lDo+GxhfAKmWhUSt9JVWWOlmK9
-         XBg55HH1PAtGh5zyf9/aDSB5t9ge4WQTbV0xNXXyc/8OOzt+x1QfFTkB7T5jKbt2nNsJ
-         20mkUuom1NVwpW2PVtpzFhn4fDGh9b8mz2Yiits8BOyKsitn5CeAvwazNZteBkE84NfR
-         h6Ag==
-X-Forwarded-Encrypted: i=1; AJvYcCXj0QZUWniWDr0UyWy80tcjNlVRXxdC2IVaC5+T6gTXrGOEsQZGoUqb6eOjJs6OXXynEgHENMR/ww1D+/KWwjHT@lists.infradead.org
-X-Gm-Message-State: AOJu0YxwBZSECJdWYwTFzELehzFIy02Gxmikp27CcSXnfDnIsfLMbLay
-	yW9WbARwHVKFOVcgXA+cnMTQzg4F7XnaBbAOl0qEJNlj2QplkNN/TGoLbcpl3kQxLmrMJqibNnL
-	AMQKCv7ovzuedmGrkJRzg2x3mCuoSWsRVUSezlG/LSHLocNc0TjiuDCSHdrJGFW+rQGmXSOlK/R
-	35
-X-Gm-Gg: ASbGncsyHGb8rSXXDdqaBCXumbBnvwXL2+Yevt9oZB9SQO040xEjAMSd7MU9v61bFIM
-	p3IfucSFrQ5TX6XLGl0bTlgJOo7iClwN8Oa3SUA/1rqYq0CBYHJm0ktGGnsuBPrme0cd7cwk+6V
-	NeNftJmBQ9fbzGO7GUr0nl5TppINn1FVEAOiCaa2lEP3rGiXtBo0opMQXrLtgNWIxi/Eta0GEUt
-	enKGmm0GckVN5E2ya3tsWC+i0fXwF4FYWGweIvQ4g20w6aGI34LH/+KFmMiE79MdnS5Cqf9ydER
-	AHZN2DMAOeflgQIKsxkfa491PGmLAK2ORrgU97uXEvQn8VqN0bBVSzTsWS6U+GMNJvSA2hPLqjn
-	DHutszLMAzJxcKpUbsksn77uC/Bxs/xvWclr/
-X-Received: by 2002:a05:620a:2685:b0:864:1d18:497f with SMTP id af79cd13be357-8835088dbbdmr791584685a.20.1759967885067;
-        Wed, 08 Oct 2025 16:58:05 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IHQXcFrO7Er3Q3mBDdQBcLXHQVE93CDbRMq7AeTkxsZVEPnKqRubMgwFgmWShVeh1oXVhT4lQ==
-X-Received: by 2002:a05:620a:2685:b0:864:1d18:497f with SMTP id af79cd13be357-8835088dbbdmr791582885a.20.1759967884635;
-        Wed, 08 Oct 2025 16:58:04 -0700 (PDT)
-Received: from redhat.com (c-73-183-52-120.hsd1.pa.comcast.net. [73.183.52.120])
-        by smtp.gmail.com with ESMTPSA id af79cd13be357-884a1ca3f2esm87125585a.41.2025.10.08.16.58.01
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Oct 2025 16:58:03 -0700 (PDT)
-Date: Wed, 8 Oct 2025 19:58:00 -0400
-From: Brian Masney <bmasney@redhat.com>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] clk: tests: Add tests for clk lookup by name
-Message-ID: <aOb6iNR9T4R9Hp3R@redhat.com>
-References: <20251002092036.2504858-1-wenst@chromium.org>
+	id 1v6e3I-00000004qf0-3H3g;
+	Wed, 08 Oct 2025 23:58:38 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2F91D44BCD;
+	Wed,  8 Oct 2025 23:58:36 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id B4393C4CEF5;
+	Wed,  8 Oct 2025 23:58:27 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759967916;
+	bh=yOETAJ8eUiVZRfemtfdBWg3YPDkDwGKicuMdNzZFk3o=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=JM97szmqUfVhrnUyTFjgJfh1DPUIAa4clCKPXsmOjY5/pIkGqIiIquGdtmh3q4JRR
+	 GHsghCXyqDTrT2TV1ieAU9+/m1IIMpojrrCGaOGayZprHS9unp4D2HoPqCNpnhbYBw
+	 PW0spLDk1A2vHjOG+ri1+oRxDJPBPBXyzH5X+SYzQCDmVPvIc05kLMwk7OB69LBaEn
+	 OJSkLLHXhxJpR9JRmIVxoPvjuueKldWVH0e6Gu07EgEynDOob4fdMRNrUton7QRV0S
+	 2CzLq5c4ZVzsgQB0UmM2t4QEq5npbZhhTKl44fLCvocJxEcul9vgJxY2YxVOeDPvNi
+	 B/qHWy6iVhHXQ==
+Message-ID: <fa743412-d9f1-43fd-95e8-3b2a58cd6c25@kernel.org>
+Date: Thu, 9 Oct 2025 08:58:24 +0900
 MIME-Version: 1.0
-In-Reply-To: <20251002092036.2504858-1-wenst@chromium.org>
-User-Agent: Mutt/2.2.14 (2025-02-20)
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: kHdpdoO_5TahjwqpgWavUqzzrrGqAYmmam3dvndg9eA_1759967885
-X-Mimecast-Originator: redhat.com
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 3/4] dt-bindings: phy: google: Add Google Tensor G5 USB
+ PHY
+To: Roy Luo <royluo@google.com>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>,
+ Badhri Jagan Sridharan <badhri@google.com>, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org
+References: <20251008060000.3136021-1-royluo@google.com>
+ <20251008060000.3136021-4-royluo@google.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ xsFNBFVDQq4BEAC6KeLOfFsAvFMBsrCrJ2bCalhPv5+KQF2PS2+iwZI8BpRZoV+Bd5kWvN79
+ cFgcqTTuNHjAvxtUG8pQgGTHAObYs6xeYJtjUH0ZX6ndJ33FJYf5V3yXqqjcZ30FgHzJCFUu
+ JMp7PSyMPzpUXfU12yfcRYVEMQrmplNZssmYhiTeVicuOOypWugZKVLGNm0IweVCaZ/DJDIH
+ gNbpvVwjcKYrx85m9cBVEBUGaQP6AT7qlVCkrf50v8bofSIyVa2xmubbAwwFA1oxoOusjPIE
+ J3iadrwpFvsZjF5uHAKS+7wHLoW9hVzOnLbX6ajk5Hf8Pb1m+VH/E8bPBNNYKkfTtypTDUCj
+ NYcd27tjnXfG+SDs/EXNUAIRefCyvaRG7oRYF3Ec+2RgQDRnmmjCjoQNbFrJvJkFHlPeHaeS
+ BosGY+XWKydnmsfY7SSnjAzLUGAFhLd/XDVpb1Een2XucPpKvt9ORF+48gy12FA5GduRLhQU
+ vK4tU7ojoem/G23PcowM1CwPurC8sAVsQb9KmwTGh7rVz3ks3w/zfGBy3+WmLg++C2Wct6nM
+ Pd8/6CBVjEWqD06/RjI2AnjIq5fSEH/BIfXXfC68nMp9BZoy3So4ZsbOlBmtAPvMYX6U8VwD
+ TNeBxJu5Ex0Izf1NV9CzC3nNaFUYOY8KfN01X5SExAoVTr09ewARAQABzSVLcnp5c3p0b2Yg
+ S296bG93c2tpIDxrcnprQGtlcm5lbC5vcmc+wsGVBBMBCgA/AhsDBgsJCAcDAgYVCAIJCgsE
+ FgIDAQIeAQIXgBYhBJvQfg4MUfjVlne3VBuTQ307QWKbBQJoF1BKBQkWlnSaAAoJEBuTQ307
+ QWKbHukP/3t4tRp/bvDnxJfmNdNVn0gv9ep3L39IntPalBFwRKytqeQkzAju0whYWg+R/rwp
+ +r2I1Fzwt7+PTjsnMFlh1AZxGDmP5MFkzVsMnfX1lGiXhYSOMP97XL6R1QSXxaWOpGNCDaUl
+ ajorB0lJDcC0q3xAdwzRConxYVhlgmTrRiD8oLlSCD5baEAt5Zw17UTNDnDGmZQKR0fqLpWy
+ 786Lm5OScb7DjEgcA2PRm17st4UQ1kF0rQHokVaotxRM74PPDB8bCsunlghJl1DRK9s1aSuN
+ hL1Pv9VD8b4dFNvCo7b4hfAANPU67W40AaaGZ3UAfmw+1MYyo4QuAZGKzaP2ukbdCD/DYnqi
+ tJy88XqWtyb4UQWKNoQqGKzlYXdKsldYqrLHGoMvj1UN9XcRtXHST/IaLn72o7j7/h/Ac5EL
+ 8lSUVIG4TYn59NyxxAXa07Wi6zjVL1U11fTnFmE29ALYQEXKBI3KUO1A3p4sQWzU7uRmbuxn
+ naUmm8RbpMcOfa9JjlXCLmQ5IP7Rr5tYZUCkZz08LIfF8UMXwH7OOEX87Y++EkAB+pzKZNNd
+ hwoXulTAgjSy+OiaLtuCys9VdXLZ3Zy314azaCU3BoWgaMV0eAW/+gprWMXQM1lrlzvwlD/k
+ whyy9wGf0AEPpLssLVt9VVxNjo6BIkt6d1pMg6mHsUEVzsFNBFVDXDQBEADNkrQYSREUL4D3
+ Gws46JEoZ9HEQOKtkrwjrzlw/tCmqVzERRPvz2Xg8n7+HRCrgqnodIYoUh5WsU84N03KlLue
+ MNsWLJBvBaubYN4JuJIdRr4dS4oyF1/fQAQPHh8Thpiz0SAZFx6iWKB7Qrz3OrGCjTPcW6ei
+ OMheesVS5hxietSmlin+SilmIAPZHx7n242u6kdHOh+/SyLImKn/dh9RzatVpUKbv34eP1wA
+ GldWsRxbf3WP9pFNObSzI/Bo3kA89Xx2rO2roC+Gq4LeHvo7ptzcLcrqaHUAcZ3CgFG88CnA
+ 6z6lBZn0WyewEcPOPdcUB2Q7D/NiUY+HDiV99rAYPJztjeTrBSTnHeSBPb+qn5ZZGQwIdUW9
+ YegxWKvXXHTwB5eMzo/RB6vffwqcnHDoe0q7VgzRRZJwpi6aMIXLfeWZ5Wrwaw2zldFuO4Dt
+ 91pFzBSOIpeMtfgb/Pfe/a1WJ/GgaIRIBE+NUqckM+3zJHGmVPqJP/h2Iwv6nw8U+7Yyl6gU
+ BLHFTg2hYnLFJI4Xjg+AX1hHFVKmvl3VBHIsBv0oDcsQWXqY+NaFahT0lRPjYtrTa1v3tem/
+ JoFzZ4B0p27K+qQCF2R96hVvuEyjzBmdq2esyE6zIqftdo4MOJho8uctOiWbwNNq2U9pPWmu
+ 4vXVFBYIGmpyNPYzRm0QPwARAQABwsF8BBgBCgAmAhsMFiEEm9B+DgxR+NWWd7dUG5NDfTtB
+ YpsFAmgXUF8FCRaWWyoACgkQG5NDfTtBYptO0w//dlXJs5/42hAXKsk+PDg3wyEFb4NpyA1v
+ qmx7SfAzk9Hf6lWwU1O6AbqNMbh6PjEwadKUk1m04S7EjdQLsj/MBSgoQtCT3MDmWUUtHZd5
+ RYIPnPq3WVB47GtuO6/u375tsxhtf7vt95QSYJwCB+ZUgo4T+FV4hquZ4AsRkbgavtIzQisg
+ Dgv76tnEv3YHV8Jn9mi/Bu0FURF+5kpdMfgo1sq6RXNQ//TVf8yFgRtTUdXxW/qHjlYURrm2
+ H4kutobVEIxiyu6m05q3e9eZB/TaMMNVORx+1kM3j7f0rwtEYUFzY1ygQfpcMDPl7pRYoJjB
+ dSsm0ZuzDaCwaxg2t8hqQJBzJCezTOIkjHUsWAK+tEbU4Z4SnNpCyM3fBqsgYdJxjyC/tWVT
+ AQ18NRLtPw7tK1rdcwCl0GFQHwSwk5pDpz1NH40e6lU+NcXSeiqkDDRkHlftKPV/dV+lQXiu
+ jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
+ zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
+ XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
+In-Reply-To: <20251008060000.3136021-4-royluo@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251008_165809_105449_F106D9D7 
-X-CRM114-Status: GOOD (  22.85  )
+X-CRM114-CacheID: sfid-20251008_165836_869657_6F074D02 
+X-CRM114-Status: GOOD (  17.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,51 +128,123 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 02, 2025 at 05:20:35PM +0800, Chen-Yu Tsai wrote:
-> Clk lookup (by name) recently gained some performance improvements at
-> the expense of more complexity within the lookup code.
+On 08/10/2025 14:59, Roy Luo wrote:
+> Document the device tree bindings for the USB PHY interfaces integrated
+> with the DWC3 controller on Google Tensor SoCs, starting with G5
+> generation.
 > 
-> To make sure that this works as intended and doesn't break, add some
-> basic tests for this part of the CCF.
+> Due to a complete architectural overhaul in the Google Tensor G5, the
+> existing Samsung/Exynos USB PHY driver and binding for older generations
+> of Google silicons such as gs101 are no longer compatible.
 > 
-> A new "clk_hw_lookup()" function is added purely for running kunit
-> tests.
+> The USB PHY on Tensor G5 includes two integrated Synopsys PHY IPs: the
+> eUSB 2.0 PHY IP and the USB 3.2/DisplayPort combo PHY IP. Currently only
+> USB high-speed is described and supported.
 > 
-> Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
+> Signed-off-by: Roy Luo <royluo@google.com>
 > ---
->  drivers/clk/clk.c      | 11 +++++++
->  drivers/clk/clk.h      |  4 +++
->  drivers/clk/clk_test.c | 66 +++++++++++++++++++++++++++++++++++++++++-
->  3 files changed, 80 insertions(+), 1 deletion(-)
+>  .../bindings/phy/google,gs-usb-phy.yaml       | 96 +++++++++++++++++++
+>  1 file changed, 96 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/phy/google,gs-usb-phy.yaml
 > 
-> diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
-> index 85d2f2481acf..a17d0070d11f 100644
-> --- a/drivers/clk/clk.c
-> +++ b/drivers/clk/clk.c
-> @@ -778,6 +778,17 @@ struct clk *__clk_lookup(const char *name)
->  	return !core ? NULL : core->hw->clk;
->  }
->  
-> +#if IS_ENABLED(CONFIG_CLK_KUNIT_TEST)
-> +/* This is only provided for kunit tests to test the core lookup functions. */
-> +struct clk_hw *clk_hw_lookup(const char *name)
-> +{
-> +	struct clk_core *core = clk_core_lookup(name);
+> diff --git a/Documentation/devicetree/bindings/phy/google,gs-usb-phy.yaml b/Documentation/devicetree/bindings/phy/google,gs-usb-phy.yaml
+> new file mode 100644
+> index 000000000000..22961e2da6ef
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/phy/google,gs-usb-phy.yaml
+> @@ -0,0 +1,96 @@
+> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> +# Copyright (C) 2025, Google LLC
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/phy/google,gs-usb-phy.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
 > +
-> +	return !core ? NULL : core->hw;
-> +}
-> +EXPORT_SYMBOL_GPL(clk_hw_lookup);
-> +#endif
+> +title: Google Tensor Series (G5+) USB PHY
+> +
+> +maintainers:
+> +  - Roy Luo <royluo@google.com>
+> +
+> +description: |
+> +  Describes the USB PHY interfaces integrated with the DWC3 USB controller on
+> +  Google Tensor SoCs, starting with the G5 generation.
+> +  Two specific PHY IPs from Synopsys are integrated, including eUSB 2.0 PHY IP
+> +  and USB 3.2/DisplayPort combo PHY IP.
+> +  The first phandle argument within the PHY specifier is used to identify the
+> +  desired PHY. The currently supported value is::
 
-Use EXPORT_SYMBOL_IF_KUNIT instead for consistency with the rest of the
-kernel. In clk_test.c, you'll also need to add:
+Currently supported as hardware will change? You describe here hardware
+ONLY.
 
-MODULE_IMPORT_NS("EXPORTED_FOR_KUNIT_TESTING");
+> +    0 - USB high-speed.
+> +
+> +properties:
+> +  compatible:
+> +    items:
+> +      - enum:
+> +          - google,gs5-usb-phy
+> +
+> +  reg:
+> +    minItems: 3
+> +    maxItems: 3
+> +
+> +  reg-names:
+> +    items:
+> +      - const: usb2_cfg_csr
+> +      - const: dp_top_csr
+> +      - const: usb_top_cfg_csr
 
-Since clk_hw_lookup() is only used by kunit, why not just put this new
-function in clk-test.c, and use EXPORT_SYMBOL_IF_KUNIT on
-clk_core_lookup?
+Drop csr
 
-Brian
+> +
+> +  "#phy-cells":
+> +    const: 1
+> +
+> +  clocks:
+> +    maxItems: 1
+> +
+> +  clock-names:
+> +    items:
+> +      - const: usb2_phy_clk
 
+Drop names, pointless for one entry.
+
+> +
+> +  resets:
+> +    maxItems: 1
+> +
+> +  reset-names:
+> +    items:
+> +      - const: usb2_phy_reset
+
+Drop names, pointless for one entry.
+
+> +
+> +  power-domains:
+> +    maxItems: 1
+> +
+> +  orientation-switch:
+> +    type: boolean
+> +    description:
+> +      Indicates the PHY as a handler of USB Type-C orientation changes
+> +
+> +required:
+> +  - compatible
+> +  - reg
+> +  - reg-names
+> +  - "#phy-cells"
+> +  - clocks
+> +  - clock-names
+> +  - resets
+> +  - reset-names
+> +
+> +unevaluatedProperties: false
+> +
+
+
+additionalProps instead. Read writing schema or example schema.
+
+
+Best regards,
+Krzysztof
 
