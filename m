@@ -4,118 +4,141 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA664CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 11:54:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 83AF8CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 12:01:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7avWY48JQfGVo18dxq+IcZTmC3WfW4UmnkHNbWtjudY=; b=HpkqYKjfKpIZ/zi86pblp8IJGL
-	ZEwQYyTmO/TCzPqDRTHMu6I42VK4nS8HtSlc+T49fpDNlyx5/zN4LwtyT3wKbhcwe6O2cGg8MDMe+
-	KC8fwBF38a+8YlSoDiMDnFs2LNazuIsccNGIf3M3BDci9gc9Cox8PwzexhJVt5IpoyEcwXs1Xzy0L
-	yntojcdHh+q1eYe89tciIF23W0gbjZ/tjvunTWfOIst1ikWWG3ERlm71xG6nQx0aX8p1oiYM6NQWh
-	onR2RHCM/IqSC4DBlmY9lN5xQHiz4aVux/+7kqwC0JtSMvu4bclohJMNHJq5BAlllfvXkleNDzDjB
-	bZj50xTw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YUe30woE5xEimZOnT9raXvhiVzii7F5/lJXV/+rQmpU=; b=rm6bysKI/OveCwkcbjXHwRC03x
+	j13KhtY+n7/SUdn0Xmb50BXhTh7Xs6iaA7nK/X3jI7fcWkEE5NKKlvGBblTMH3WIxZjd2skrl++xY
+	NmytZ10T4EFaIDO3O2MApYyumx7RFfqrTIdSmq5LBCLHN7qZQXpZObuTBelQyAx7dMtuxsnDELBMZ
+	BdDIjRc+AlQ8W1QwbYrG6hbUZ0hZaf7h7qpt0It4D61uuvvZL8E34iwQTUQYDQxti377iiUTp0cAP
+	NsE0JrYndi4NjMvbATjoSS49i1cpWqPbbaNI8e1LxMZHxp1jpUKxvOpwcNft87ohPRebLdVjI7kWC
+	iQAuxLGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6Sjz-00000003la5-3gNN;
-	Wed, 08 Oct 2025 11:53:55 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1v6Sr4-00000003mAz-3LgX;
+	Wed, 08 Oct 2025 12:01:14 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6Sjx-00000003lZl-0WPI
+	id 1v6Sr2-00000003mAQ-1rOE
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Oct 2025 11:53:54 +0000
-Received: from pps.filterd (m0279862.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59890N8V026660
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 8 Oct 2025 11:53:52 GMT
+	Wed, 08 Oct 2025 12:01:14 +0000
+Received: from pps.filterd (m0279868.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59890PoP028795
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 8 Oct 2025 12:01:11 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=7avWY48JQfGVo18dxq+IcZTm
-	C3WfW4UmnkHNbWtjudY=; b=U/3wO0pmLwppCNGR0R/hKlknOd17qddFlblwFn9S
-	+QwVNYSaLQzsoRnZgaa4ZoiPW3hdajJJShwb5f+WHrXVj/NB86tCOe1+W63lDKPj
-	ME53H521nr1EyoXD0oGY0HYN8OHN0kImK3vvUtfb6X22p71wd1NpcpVBPsGsB2Rv
-	FmZrYRDh47nzj35flLLJl5nmIR+KGQ2uiW0p6V4d9VcWvvJqIhTX8bWrQhfOMh9G
-	MyYpqEOqxj1Z9VyuOU+lyvLNEzSn8uGtW5LVkFf8kOFTwnbMRu+sgw7/saRzpq0i
-	45bVINT8ZM2lo9DDWk+LUkZOJT/E2sk63z1OBAgzK3mwOA==
-Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49n89hj1xb-1
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	YUe30woE5xEimZOnT9raXvhiVzii7F5/lJXV/+rQmpU=; b=eIMRSor3s8f0HqdA
+	pkeP+CNNNqq715YMCOKDIEvIXhzK21rEAyE8AKxeGV11sFtZfcRSEWqiWYOV6l31
+	CLFJOgcKqXCKvLzgnXLH0MLaL1IiJjrT58mDzQvQZWYfiOmU1MSSdWVsnCF/0GmF
+	24SSvVe5dkZRObBoMxoeoc6XnfDZJoTq5N5OC7hOgDuV2LrGeLjqslpcpdvtsSBv
+	PaXMMVUSqf8eH7v6YNIhQ2uNOdysGj8ioXnzOt1TGs6jNoNQNQnjGVfPLyCMnGdk
+	V1EDZok9m9WVpHqCc8TtZuOo+U/kvJtxr0J1HRlQ2GVaXM6DoXflM1gj63gLWR/X
+	j5vGwg==
+Received: from mail-ua1-f70.google.com (mail-ua1-f70.google.com [209.85.222.70])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49jtwgtbaa-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Oct 2025 11:53:52 +0000 (GMT)
-Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-27eca7298d9so156428135ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Oct 2025 04:53:52 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Oct 2025 12:01:11 +0000 (GMT)
+Received: by mail-ua1-f70.google.com with SMTP id a1e0cc1a2514c-92ed79d6ea0so97588241.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Oct 2025 05:01:11 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759924432; x=1760529232;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7avWY48JQfGVo18dxq+IcZTmC3WfW4UmnkHNbWtjudY=;
-        b=YwF4IPocPeSzxRUuS2Z/WIRDBtgKYhGYh3AymVynHwmW2T2obi/yyXJa3iYYMDAjJI
-         oIt8Ily2D/l/wRXt1QFcsLZkPbRvOG6RvQGJl+btoAI+vHeJaEfSnq1u9Fi1+NnJYWBy
-         0AsG1VZQu9HKoel1MqDlYIenwc5+967UEUrW9nslN4Q9EA/nxv5WDnbKbQ86OMyINbIr
-         EFMn9AvukJYPFBaUtA447iJx9ygvQ+TThoBeSGwagrk3oI2kNSmlAoNkZH6DbKLB4XsF
-         CMuHgfgBhDQx0HwYMxJA8TZMsoRDvIeCwJ/MWCuv4BI8YIbQc6r7fOZ+K9gJdLdD4fDW
-         jljQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWb4Rk+Xo08iTbdepBDVmhCnUaUQcJASKtoZDRBwCkqLC8FHUdD+Q1Zu2ZAOECIQHKaKGc+NcyTXY2rbutbj3Jb@lists.infradead.org
-X-Gm-Message-State: AOJu0YwSBMxutfJjWRUSRXRzA3XFbGlD9j3CdszguNUvo0LVfLE0ctdT
-	JgrG5gSAIEiNKsFNDC3V27roFawrISIFEzZXd9eiJbxfVegAlPgDM0ii3nxzYQOwcy3XMBP0I2t
-	2D/wuZ7semfAbPEQRcJPxUjmKme4pXcuy4FTE3VMdSOLE1v0Oj++Q32Zjb5ny69NDgXQmZ2+bND
-	wkdA==
-X-Gm-Gg: ASbGncvpAR67sEV3hMTMe4jwVncEQB7Pa6zKPNnYvrHlVNlNaTqVa0IfceVY95s3B8+
-	+OXTUWQoT0vJRZSmv4bfkWnHDSXDZtD6++KYAnLyxK4lzKFNfXD8t52V2CVABLO5oEg3WK8o12G
-	maQpxfVIa+BdiWs1SGZndprnvZv3jIQIuLb6k3jDNUwZccy2paq85g2EvzW40OT+XxHClfHVjK2
-	Dk1HXO3BRU1N51gMeREDU0rYJIj9fIc+ZsI4Xn1c1OuF0MtOq/31eFi4JQAX0T99Yl6ewPxugAy
-	Qm8VZWFA88qVOcrEuI8ekp0uRLykpUsRGrpITdJgDP1ySmBpUO7K5ShkDYppDgNMpjBILqsS
-X-Received: by 2002:a17:902:d607:b0:269:8f2e:e38 with SMTP id d9443c01a7336-29027356528mr40730985ad.6.1759924431558;
-        Wed, 08 Oct 2025 04:53:51 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGRY9xTDImRzSnKlgoFFobuVyXDP6jP1oDDD+SqAwOBHLbzNiWdEMYhZJqx0MiBZOgzFyc4Lw==
-X-Received: by 2002:a17:902:d607:b0:269:8f2e:e38 with SMTP id d9443c01a7336-29027356528mr40730695ad.6.1759924431009;
-        Wed, 08 Oct 2025 04:53:51 -0700 (PDT)
-Received: from hu-mojha-hyd.qualcomm.com ([202.46.23.25])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-28e8d1d5680sm198422425ad.96.2025.10.08.04.53.47
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Wed, 08 Oct 2025 04:53:50 -0700 (PDT)
-Date: Wed, 8 Oct 2025 17:23:44 +0530
-From: Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com,
-        yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org,
-        alexandru.elisei@arm.com, linux-arm-kernel@lists.infradead.org,
-        kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH] KVM: arm64: Check cpu_has_spe() before initializing
- PMSCR_EL1 in VHE
-Message-ID: <20251008115344.vwt3j24es7u5f6m4@hu-mojha-hyd.qualcomm.com>
-References: <20251007182356.2813920-1-mukesh.ojha@oss.qualcomm.com>
- <aOVckTSJET5ORY1n@linux.dev>
+        d=1e100.net; s=20230601; t=1759924870; x=1760529670;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=YUe30woE5xEimZOnT9raXvhiVzii7F5/lJXV/+rQmpU=;
+        b=vHug7kgzA6B4DH4gxN5zMFPuqvpasT6BmRAXpyFofWK+GLnDvIKLgHUiQ24GU3mLOv
+         VzFgoPJAXBKP58m+sfqGWqz51SpFdXV9PieZK8L4/UHKm0eFuBQVYLmKGZjR9HJLn006
+         5rFw23r5IFjKXdHpbHgxDyge/kJwCxgJ2VDeuxvB1reQI6nReD/MkVP+uWc0Iip3SOw9
+         pWl/Zb7Ny1FX9UvHF62aBRICgP9ThBZ8lBz0YAjOWUVRqLguNYcj+TXXoYqFM1etzS/R
+         azIIjWlqrjLv1S8RfZdtosK7WEEjebhexWNmcFFcpoUY7ldfns2GhW9mCXU0L7grlVPt
+         YltQ==
+X-Forwarded-Encrypted: i=1; AJvYcCVfX14cwRqt0uLjhOAzaU69XOsJYID5k/9EZdQJnQ+NACo9WcbDyRGd2Ff9QDJ6Bfhp3cquuYOlo1MPN0xP6Paz@lists.infradead.org
+X-Gm-Message-State: AOJu0YyQ7YCh+7Br0NRlXk+fwnQoqXSjTeKuY5Jp/ADNO6wXAoh1x4ya
+	fwLJBTI4q663C7oQ7nmH+zwxrrYCppfsUYMMLs/Dp8332XonaogYu6xFKcnj5y0BCybZrDQ7huZ
+	h1I+v+WDWTErDzhic50UkHBxVj4YQS367z4yaJ4DITZ4F3ZPpF5qSi7c/eVPB2cVaCy0fLwD26C
+	MPsw==
+X-Gm-Gg: ASbGncv6LUBfRippfILi/Xrc/cjagFel7NDpKCwmLssDC5ZudzL0zMXNE0/N/i11a/T
+	3x1lmRp7cWJ0npXy4xP9is5L6wStlo32nY2SEwv77/Dfe0UgqCaT3tWqqmTjn1gq5+17Et4hyBn
+	Pcv7UWNTOR10p3p0uXdqk/eXlJdjEV0OZcYwIXcM4/VVCezbDettr+BxTpvrW0TcQ10dKy0D1oA
+	unjw1BI+GYfsKS621VNLDRzu/5+r8gT1K0eTyFKKVE7LmxJ4DprdG+aYvTUHylmxr532ICaURu+
+	vwGHj6sTJ3Gz/xU6MKbc7SO/oEzJjhL9casLcg2X3jCp564GDdFrR/MHfIDKbr9sfl3Ks2A5hNI
+	hrpfI0qtiCJRq9eS+kLtiDZeVJAc=
+X-Received: by 2002:a05:6122:6c01:b0:544:6d56:eef1 with SMTP id 71dfb90a1353d-554b8b9dafcmr382785e0c.2.1759924869680;
+        Wed, 08 Oct 2025 05:01:09 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IFT9kYombhVn9vLwV8HVqDP5rHDdMKek8m1Ph8xI5IlH4fvXAiDJcCahZY6sxIbEptqVVlYDA==
+X-Received: by 2002:a05:6122:6c01:b0:544:6d56:eef1 with SMTP id 71dfb90a1353d-554b8b9dafcmr382725e0c.2.1759924868891;
+        Wed, 08 Oct 2025 05:01:08 -0700 (PDT)
+Received: from [192.168.149.223] (078088045245.garwolin.vectranet.pl. [78.88.45.245])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b48652aa040sm1634050866b.20.2025.10.08.05.01.04
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 08 Oct 2025 05:01:08 -0700 (PDT)
+Message-ID: <f7f2189b-b182-4616-bba3-ad1a0af3e4da@oss.qualcomm.com>
+Date: Wed, 8 Oct 2025 14:01:02 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aOVckTSJET5ORY1n@linux.dev>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDA3MDE0NiBTYWx0ZWRfXwV5HbTSbDaJh
- J0TZpndgIIZ95Eprt2XqtatMh8bJjDXAAeUtRNIXCBUS1XRA6nFLV7Y01kPDgCm+3JSnCix1DPi
- 1CBgrfu4IYYbXlCAMRrt4htiQJA0a2W+iodUgz4vNQ39YgTPTyCVkhGJ6OXVPJzHkpK1RO3319M
- dZ0vtRyF+6pPXl9xXFUdDwiK1IJgkn1DbvlDuWGNoLtWij40tuMb3aU+J89ZZJmkYRoxMF2Pbxn
- w389vgZk6csEJdPeGU1SvLHnPdJlZ1aysu75uEInT0ta/YWb0CQ9wQ3lI/VwoTV8bZv7n6Ai9mW
- tJZHMIRxeo/PPhETM1NJnrxRv15dtKD1N2NuxzfV027CsL59QUXDS7bQ6R+Xar49xjoeYkgvI74
- ZkuZiptBcZrFEu7zwkIresK6bdNW2g==
-X-Proofpoint-ORIG-GUID: UxDppxCxMq7B5yoDJOuwxVmuTVC8OlsJ
-X-Proofpoint-GUID: UxDppxCxMq7B5yoDJOuwxVmuTVC8OlsJ
-X-Authority-Analysis: v=2.4 cv=cKbtc1eN c=1 sm=1 tr=0 ts=68e650d0 cx=c_pps
- a=JL+w9abYAAE89/QcEU+0QA==:117 a=ZePRamnt/+rB5gQjfz0u9A==:17
- a=kj9zAlcOel0A:10 a=x6icFKpwvdMA:10 a=61sAA7mvWUCA7UW45uQA:9
- a=CjuIK1q_8ugA:10 a=324X-CrmTo6CU4MGRt3R:22
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 12/17] drm/msm/adreno: Introduce A8x GPU Support
+To: Akhil P Oommen <akhilpo@oss.qualcomm.com>,
+        Rob Clark <robin.clark@oss.qualcomm.com>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Konrad Dybcio <konradybcio@kernel.org>, Sean Paul <sean@poorly.run>,
+        Dmitry Baryshkov <lumag@kernel.org>,
+        Abhinav Kumar
+ <abhinav.kumar@linux.dev>,
+        Jessica Zhang <jessica.zhang@oss.qualcomm.com>,
+        Marijn Suijten <marijn.suijten@somainline.org>,
+        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
+        Jonathan Marek <jonathan@marek.ca>,
+        Jordan Crouse
+ <jordan@cosmicpenguin.net>,
+        Will Deacon <will@kernel.org>, Robin Murphy <robin.murphy@arm.com>,
+        Joerg Roedel <joro@8bytes.org>, Rob Herring <robh@kernel.org>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley <conor+dt@kernel.org>,
+        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+        Maxime Ripard <mripard@kernel.org>,
+        Thomas Zimmermann <tzimmermann@suse.de>
+Cc: linux-arm-msm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        dri-devel@lists.freedesktop.org, freedreno@lists.freedesktop.org,
+        linux-arm-kernel@lists.infradead.org, iommu@lists.linux.dev,
+        devicetree@vger.kernel.org
+References: <20250930-kaana-gpu-support-v1-0-73530b0700ed@oss.qualcomm.com>
+ <20250930-kaana-gpu-support-v1-12-73530b0700ed@oss.qualcomm.com>
+Content-Language: en-US
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+In-Reply-To: <20250930-kaana-gpu-support-v1-12-73530b0700ed@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDA0MDAxOSBTYWx0ZWRfXw/uKDu1DU5Gz
+ T79vf7vZ6tQkNV0JQ8IxfCXMOSFnck/WSyfkYVsWbCYOU6bdkVoQTN37b4ndP7/wTwdVGy1kPvM
+ h2SwgZ6ejdzuFgf5SaV7zj2lNXUugfqI6xK6b5fGcVnH5srxC3ip1XGwZ97zlJvIGFhLhpTLWY1
+ 2+YaqXXtITLPoub0937U42kWWOln0G/0sEbRJIbGfRPhUaOZHUFdXFmcMK38HrHn2QftFyrWGX+
+ XhzoQkFVLdqfAAOd3mxZWpmJ6nbtyflJB2nbVVoPBdcgV4rI1ajVrYTfmHEt385x/HinrYEmaFz
+ P42K5BuX+1Ev1NhRkYGhlWfT4McRD2db+RkKy5pPa0wemfPrOcN4vTP5N61ttsMAvZ4TNetAhRw
+ etjqhYrGXy/6/I3HxR1sUgRY+j8mAA==
+X-Authority-Analysis: v=2.4 cv=B6O0EetM c=1 sm=1 tr=0 ts=68e65287 cx=c_pps
+ a=R6oCqFB+Yf/t2GF8e0/dFg==:117 a=FpWmc02/iXfjRdCD7H54yg==:17
+ a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=EUspDBNiAAAA:8 a=C_0j-PAzlxBuy3Ei6pAA:9
+ a=QEXdDO2ut3YA:10 a=TD8TdBvy0hsOASGTdmB-:22
+X-Proofpoint-GUID: kh3xtk14v0bWp5Fudm0XKpxV3nVdzBlm
+X-Proofpoint-ORIG-GUID: kh3xtk14v0bWp5Fudm0XKpxV3nVdzBlm
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-10-08_03,2025-10-06_01,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 suspectscore=0 malwarescore=0 spamscore=0 priorityscore=1501
- adultscore=0 impostorscore=0 lowpriorityscore=0 bulkscore=0 phishscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2509150000 definitions=main-2510070146
+ clxscore=1015 priorityscore=1501 lowpriorityscore=0 adultscore=0
+ impostorscore=0 spamscore=0 bulkscore=0 phishscore=0 malwarescore=0
+ suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
+ route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2509150000
+ definitions=main-2510040019
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251008_045353_186594_0ABFA347 
-X-CRM114-Status: GOOD (  24.88  )
+X-CRM114-CacheID: sfid-20251008_050112_608320_AA47D73D 
+X-CRM114-Status: GOOD (  22.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,49 +153,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 07, 2025 at 11:31:45AM -0700, Oliver Upton wrote:
-> Hi Mukesh,
+On 9/30/25 7:48 AM, Akhil P Oommen wrote:
+> A8x is the next generation of Adreno GPUs, featuring a significant
+> hardware design change. A major update to the design is the introduction
+> of Slice architecture. Slices are sort of mini-GPUs within the GPU which
+> are more independent in processing Graphics and compute workloads. Also,
+> in addition to the BV and BR pipe we saw in A7x, CP has more concurrency
+> with additional pipes.
 > 
-> I find it a bit odd to refer to cpu_has_spe() in the shortlog, which
-> doesn't exist prior to this patch.
-
-My bad !!
-will fix this
-
+> From a software interface perspective, these changes have a significant
+> impact on the KMD side. First, the GPU register space has been extensively
+> reorganized. Second, to avoid  a register space explosion caused by the
+> new slice architecture and additional pipes, many registers are now
+> virtualized, instead of duplicated as in A7x. KMD must configure an
+> aperture register with the appropriate slice and pipe ID before accessing
+> these virtualized registers.
 > 
-> On Tue, Oct 07, 2025 at 11:53:56PM +0530, Mukesh Ojha wrote:
-> > commit efad60e46057 ("KVM: arm64: Initialize PMSCR_EL1 when in VHE")
-> > initializes PMSCR_EL1 to 0 which is making the boot up stuck when KVM
-> > runs in VHE mode and reverting the change is fixing the issue.
-> > 
-> > [    2.967447] RPC: Registered tcp NFSv4.1 backchannel transport module.
-> > [    2.974061] PCI: CLS 0 bytes, default 64
-> > [    2.978171] Unpacking initramfs...
-> > [    2.982889] kvm [1]: nv: 568 coarse grained trap handlers
-> > [    2.988573] kvm [1]: IPA Size Limit: 40 bits
-> > 
-> > Lets guard the change with cpu_has_spe() check so that it only affects
-> > the cpu which has SPE feature supported.
+> This patch adds only a skeleton support for the A8x family. An A8x GPU
+> support will be added in an upcoming patch.
 > 
-> This could benefit from being spelled out a bit more. In both cases we
-> check for the presence of FEAT_SPE, however I believe the issue you
-> observe is EL3 hasn't delegated ownership of the Profiling Buffer to
-> Non-secure nor does it reinject an UNDEF in response to the sysreg trap.
+> Signed-off-by: Akhil P Oommen <akhilpo@oss.qualcomm.com>
+> ---
 
-You are right, writing to SYS_PMSCR is causing an issue.
+[...]
 
-is it not the right to check if the profiling buffer is implemented
-rather than just checking the version ?
+> +static void a8xx_aperture_slice_set(struct msm_gpu *gpu, enum adreno_pipe pipe, u32 slice)
+> +{
+> +	struct adreno_gpu *adreno_gpu = to_adreno_gpu(gpu);
+> +	struct a6xx_gpu *a6xx_gpu = to_a6xx_gpu(adreno_gpu);
+> +	u32 val;
+> +
+> +	val = A8XX_CP_APERTURE_CNTL_HOST_PIPEID(pipe) | A8XX_CP_APERTURE_CNTL_HOST_SLICEID(slice);
+> +
+> +	if (a6xx_gpu->cached_aperture == val)
+> +		return;
+> +
+> +	gpu_write(gpu, REG_A8XX_CP_APERTURE_CNTL_HOST, val);
 
-> 
-> I agree that the change is correct but the rationale needs to be clear.
+unless the effect is instantenous, this needs a readback
 
-Will correct it.
+[...]
 
-> 
-> Thanks,
-> Oliver
+> +static u32 a8xx_get_first_slice(struct a6xx_gpu *a6xx_gpu)
+> +{
+> +	return ffs(a6xx_gpu->slice_mask) - 1;
+> +}
 
--- 
--Mukesh Ojha
+#define instead?
+
+Perhaps also move it closer to the user
+
+
+> +static void a8xx_set_ubwc_config(struct msm_gpu *gpu)
+
+You modified a6xx_calc_ubwc_config() earlier in the patch
+
+is one of them unnecessary?
+
+[...]
+
+> +static int a8xx_zap_shader_init(struct msm_gpu *gpu)
+
+You can borrow this from a6xx_gpu
+
+Perhaps moving such common functions to a separate file would be
+even better, I glanced over the change and there is probably some
+potential to commonize
+
+Konrad
 
