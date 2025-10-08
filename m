@@ -4,65 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F2CBCCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 15:56:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 55714CAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 16:06:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dcnFRnwHjObsdxBkkeLOLw4qyepfECBaDSy6h5l58gw=; b=q+7xr3LsQw7lIzuVodpNYvaN8n
-	qN84q9uCS7ZPCfeT5CQPcxTye8xUNGGfteyQXMVnAJxbwKYRqAn1WRmIBGzqWqqBbVYdo7z7Jy40y
-	UWCAyzejup/A3kpe+MlAgiay9IbOPLJHMav0NWnB39TCfgyzgblNa6na8MSLjjPLnwGpgKXx6NBrr
-	KG+AFSkUkcaESuYXKqIGE3I5hTpIv5omOgyqf6jndjGlC8QHOmGBZ0sizObLH4wdJkdvJ5kumijDi
-	SQ8CL8B+YIPNvX1fGSOvumfSEEDyOXCHgehXFBai/x1GX5+6bvHWjg959JUOeWcOtnySDr2mkUc0d
-	qW4U6Npw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=UjHQYkUSghO0qzYp6RVgVcWd0WgU6nq+wKvC+3iLfOA=; b=MqVO5N+T82XMb8RyxteXHxFXpF
+	ZRL38PshDk8EWMJAB0xQa5vNgnUlhUY6oRR6pFg9XY+mBOst8T7T1Cg5ZN2dAyH0nZwZ8/7UdET8b
+	dYD0eq0exG5p2p54U4lX4QDBHDbgb7yKkpGroPy73+qs31D/hC5McIUdmRYEjpSxuNNcsJlPSgu4I
+	G3husD4wG7e/vbQNRs4GwIXvDjE8PQa9l5M4aqQ4LMeHFpdwB7GrvIRo9a52BJUxSZ8ZUab0UnytR
+	ZrSvMRgTvTKqAki4Sb+Au6ESuGdSPDYQ4bDnCL0vhiApu+3PogP+gj3wLPOU9QspzKQzfxWFOo14Z
+	a3s5gEwQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6WWy-00000004EXA-2Ust;
-	Wed, 08 Oct 2025 15:56:44 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v6WgK-00000004Fdo-36rM;
+	Wed, 08 Oct 2025 16:06:24 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6WWv-00000004EVV-1cjO
-	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Oct 2025 15:56:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id AB07240659;
-	Wed,  8 Oct 2025 15:56:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3FE07C4CEE7;
-	Wed,  8 Oct 2025 15:56:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759939000;
-	bh=OTtx94002DcN85g3AnhuB82aJANJNeLNX0xgDeQazR4=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eJty5anIU2p5TwpwV90XJuJKHmBucrx6RFXaizi9UQVrNGa1AIX1JQMotCiW7sZ6Y
-	 UQu90FEZ/AHbz+b07lehm7d8ZND0VH3Z8bgWegnwXYWCMOTbRSHhmITPHTbi0PN7H5
-	 nEFfqoQPMT2rXt0jeXw2jCmKWkU7PT8LBv9yhceoS3aky4DBYF4fHCWgvnIYrUKRfp
-	 R2I9TKZ66YOYigL89ClOibXbmsWmHMXCSGfR12TccwtJsW0ND72z3wPq914xGSA79U
-	 uYo3r45pLxSJu5SLV4sZvAflr4a+fQja2PN0Dp2EGxXPySklxdW3DQSgNJARnRvHjm
-	 +te5uxkIu/hEA==
-Date: Wed, 8 Oct 2025 10:56:39 -0500
-From: Rob Herring <robh@kernel.org>
-To: Kamal Dasu <kamal.dasu@broadcom.com>
-Cc: peng.fan@oss.nxp.com, andersson@kernel.org,
-	baolin.wang@linux.alibaba.com, krzk+dt@kernel.org,
-	conor+dt@kernel.org, florian.fainelli@broadcom.com,
-	bcm-kernel-feedback-list@broadcom.com,
-	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2 1/3] dt-bindings: hwlock:  Adding brcmstb-hwspinlock
- support
-Message-ID: <20251008155639.GA3512742-robh@kernel.org>
-References: <20251001181641.1561472-1-kamal.dasu@broadcom.com>
- <20251001181641.1561472-2-kamal.dasu@broadcom.com>
+	id 1v6WgH-00000004FcB-13RB;
+	Wed, 08 Oct 2025 16:06:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1759939557; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=NkSdHI8ANULyCBA4znvMfiLFKyiiN4bN1ATDgWcWjglxkZm1KMNCo6Bfs/lWPcgsCAvewHgJ0jmkLiccv4mZjSvfFruqlTzou6HdXeUP3xbr7f3ton5axk7pc0aWkQbpaudLVfOE+/FW5kabqgHYJKpZPglftskyZ1zVny/4OMA=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1759939557; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=UjHQYkUSghO0qzYp6RVgVcWd0WgU6nq+wKvC+3iLfOA=; 
+	b=k5KlLFEJjcPbPq+krlQm/IWzSNh1V60orw8Al11MBe24FLimI+aZSMxCtyjTQ758ZUNEqnu2YLOCryM2RHTSFnIc1kN2C9i2lRM/V+yfj9CcYZvV2mq5Iy5cbWJAKOzgLRnkxr7rTZUPrs7M2clgDms7CeNLIHjAvMLJebXBXfk=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1759939557;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
+	bh=UjHQYkUSghO0qzYp6RVgVcWd0WgU6nq+wKvC+3iLfOA=;
+	b=XOn37LMymSUh6RwNDDQ3fdXs+DLht8yRT2YprWCw6tBCPgl4NliZojUsZaLKz0dW
+	SIcTwglXi/ciq+gFlQS7mvizppEEduAZjnRPOb5Mi6VivZcliiGpSQjfzdhpW4Wp1b4
+	9SD4bYX+fcOcX9gly9NvteNAnk51xg2PeaBPCCFU=
+Received: by mx.zohomail.com with SMTPS id 1759939556382226.16509659324583;
+	Wed, 8 Oct 2025 09:05:56 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Wed, 08 Oct 2025 18:05:37 +0200
+Subject: [PATCH v2 3/5] clk: mediatek: Pass device to clk_hw_register for
+ PLLs
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251001181641.1561472-2-kamal.dasu@broadcom.com>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251008-mtk-pll-rpm-v2-3-170ed0698560@collabora.com>
+References: <20251008-mtk-pll-rpm-v2-0-170ed0698560@collabora.com>
+In-Reply-To: <20251008-mtk-pll-rpm-v2-0-170ed0698560@collabora.com>
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Dong Aisheng <aisheng.dong@nxp.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ Yassine Oudjana <y.oudjana@protonmail.com>, 
+ Laura Nao <laura.nao@collabora.com>, 
+ =?utf-8?q?N=C3=ADcolas_F=2E_R=2E_A=2E_Prado?= <nfraprado@collabora.com>, 
+ Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>
+Cc: kernel@collabora.com, linux-clk@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, Stephen Boyd <sboyd@codeaurora.org>, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251008_085641_443587_43D3496C 
-X-CRM114-Status: GOOD (  16.34  )
+X-CRM114-CacheID: sfid-20251008_090621_351592_6E6BBF46 
+X-CRM114-Status: GOOD (  15.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,70 +86,105 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 01, 2025 at 02:16:39PM -0400, Kamal Dasu wrote:
-> Adding brcmstb-hwspinlock bindings.
+Passing the struct device pointer to clk_hw_register allows for runtime
+power management to work for the registered clock controllers. However,
+the mediatek PLL clocks do not do this.
 
-That's obvious from the diff. Tell us something about the h/w and 
-convince me we don't need per SoC compatible which is standard practice.
+Change this by adding a struct device pointer argument to
+mtk_clk_register_pll, and fix up the only other user of it. Also add a
+new member to the struct mtk_clk_pll for the struct device pointer,
+which is set by mtk_clk_register_pll and is used by
+mtk_clk_register_pll_ops.
 
-> 
-> Signed-off-by: Kamal Dasu <kamal.dasu@broadcom.com>
-> ---
->  .../hwlock/brcm,brcmstb-hwspinlock.yaml       | 36 +++++++++++++++++++
->  1 file changed, 36 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml
-> 
-> diff --git a/Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml b/Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml
-> new file mode 100644
-> index 000000000000..f45399b4fe0b
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml
-> @@ -0,0 +1,36 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/hwlock/brcm,brcmstb-hwspinlock.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Broadcom settop Hardware Spinlock
-> +
-> +maintainers:
-> +  - Kamal Dasu <kamal.dasu@broadcom.com>
-> +
-> +properties:
-> +  compatible:
-> +    const: brcm,brcmstb-hwspinlock
+If mtk_clk_register_pll is called with a NULL struct device pointer,
+then everything still works as expected; the clock core will simply
+treat them as previously, i.e. without runtime power management.
 
-hwspinlock is the name of the h/w block? Use the name of the h/w, not 
-linux subsystem names.
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+---
+ drivers/clk/mediatek/clk-pll.c   | 9 ++++++---
+ drivers/clk/mediatek/clk-pll.h   | 4 +++-
+ drivers/clk/mediatek/clk-pllfh.c | 2 +-
+ 3 files changed, 10 insertions(+), 5 deletions(-)
 
-> +
-> +  "#hwlock-cells":
-> +    const: 1
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - "#hwlock-cells"
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    hwlock@8404038 {
-> +        compatible = "brcm,brcmstb-hwspinlock";
-> +        reg = <0x8404038 0x40>;
+diff --git a/drivers/clk/mediatek/clk-pll.c b/drivers/clk/mediatek/clk-pll.c
+index 5caf91ae9ddbe4f4d7052864adf0a5a70bda66bc..c4f9c06e5133dbc5902f261353c197fbde95e54d 100644
+--- a/drivers/clk/mediatek/clk-pll.c
++++ b/drivers/clk/mediatek/clk-pll.c
+@@ -366,7 +366,7 @@ struct clk_hw *mtk_clk_register_pll_ops(struct mtk_clk_pll *pll,
+ 		init.parent_names = &parent_name;
+ 	init.num_parents = 1;
+ 
+-	ret = clk_hw_register(NULL, &pll->hw);
++	ret = clk_hw_register(pll->dev, &pll->hw);
+ 
+ 	if (ret)
+ 		return ERR_PTR(ret);
+@@ -374,7 +374,8 @@ struct clk_hw *mtk_clk_register_pll_ops(struct mtk_clk_pll *pll,
+ 	return &pll->hw;
+ }
+ 
+-struct clk_hw *mtk_clk_register_pll(const struct mtk_pll_data *data,
++struct clk_hw *mtk_clk_register_pll(struct device *dev,
++				    const struct mtk_pll_data *data,
+ 				    void __iomem *base)
+ {
+ 	struct mtk_clk_pll *pll;
+@@ -385,6 +386,8 @@ struct clk_hw *mtk_clk_register_pll(const struct mtk_pll_data *data,
+ 	if (!pll)
+ 		return ERR_PTR(-ENOMEM);
+ 
++	pll->dev = dev;
++
+ 	hw = mtk_clk_register_pll_ops(pll, data, base, pll_ops);
+ 	if (IS_ERR(hw))
+ 		kfree(pll);
+@@ -428,7 +431,7 @@ int mtk_clk_register_plls(struct device *dev,
+ 			continue;
+ 		}
+ 
+-		hw = mtk_clk_register_pll(pll, base);
++		hw = mtk_clk_register_pll(dev, pll, base);
+ 
+ 		if (IS_ERR(hw)) {
+ 			pr_err("Failed to register clk %s: %pe\n", pll->name,
+diff --git a/drivers/clk/mediatek/clk-pll.h b/drivers/clk/mediatek/clk-pll.h
+index 0e2b94b9cd4b56adceee3b04e9ab24c2526471da..0f2a1d19eea78b7390b221af47016eb9897f3596 100644
+--- a/drivers/clk/mediatek/clk-pll.h
++++ b/drivers/clk/mediatek/clk-pll.h
+@@ -63,6 +63,7 @@ struct mtk_pll_data {
+  */
+ 
+ struct mtk_clk_pll {
++	struct device *dev;
+ 	struct clk_hw	hw;
+ 	void __iomem	*base_addr;
+ 	void __iomem	*pd_addr;
+@@ -110,7 +111,8 @@ struct clk_hw *mtk_clk_register_pll_ops(struct mtk_clk_pll *pll,
+ 					const struct mtk_pll_data *data,
+ 					void __iomem *base,
+ 					const struct clk_ops *pll_ops);
+-struct clk_hw *mtk_clk_register_pll(const struct mtk_pll_data *data,
++struct clk_hw *mtk_clk_register_pll(struct device *dev,
++				    const struct mtk_pll_data *data,
+ 				    void __iomem *base);
+ void mtk_clk_unregister_pll(struct clk_hw *hw);
+ 
+diff --git a/drivers/clk/mediatek/clk-pllfh.c b/drivers/clk/mediatek/clk-pllfh.c
+index 83630ee07ee976bf980c8cf2dd35ea24c1b40821..62bfe4a480f14a0a742fb094aff0e6d1a79fe0c3 100644
+--- a/drivers/clk/mediatek/clk-pllfh.c
++++ b/drivers/clk/mediatek/clk-pllfh.c
+@@ -220,7 +220,7 @@ int mtk_clk_register_pllfhs(struct device_node *node,
+ 		if (use_fhctl)
+ 			hw = mtk_clk_register_pllfh(pll, pllfh, base);
+ 		else
+-			hw = mtk_clk_register_pll(pll, base);
++			hw = mtk_clk_register_pll(NULL, pll, base);
+ 
+ 		if (IS_ERR(hw)) {
+ 			pr_err("Failed to register %s clk %s: %ld\n",
 
-h/w blocks rarely start at an offset like that. Is this part of some 
-other h/w block? If so, then just add '#hwlock-cells' to *that* node.
+-- 
+2.51.0
 
-> +        #hwlock-cells = <1>;
-> +    };
-> +
-> -- 
-> 2.34.1
-> 
 
