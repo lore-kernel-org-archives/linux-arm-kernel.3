@@ -4,70 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66605CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 14:13:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB624CAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 14:18:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rf1zxpmZxhU8kb2GUm4ig3h0L/GcsL20Cabsuz7TTEY=; b=q1ytjX5Wj0qzkIOKOzRL7l7ymp
-	EtNOMNetKDI4jbCoPunuFhmnKQR7tA0WDElOR7H9XC6D+MUJ6EzbVsk1gSml5OoNtnOcii7kAzHdV
-	E7I2em4m8FUQfDP5OnxgV9e5QEmch7upAVPAhZTLLaniz+JTK56hQxVfTuswzBWJSjWL92rIC9jT1
-	n6LOGsiB4Jkt5Q3dHwQBr8Q4fI13YvWXimOkuFR6/3cuhBVFaN21bslfd5Cz1KZmtsBPapZc15afh
-	PkEsCefaXvpbKWovaPkcRgiAfYyiSBB4haGwVEePdWj5A+HkR7DiNcS1rD3sDXK7XZ+kmk+WbuhCT
-	W2FvrweQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=l0Mgl8edq5RLxNSk2dSPCx05BkpJ5f+Ni5BOyoikFEM=; b=UoQnUAe0XSi4aDC6JlILi3y+Gs
+	h3xWF3RWb0iZJ+pJS65KSjpK/ehdvQdsmBZSZX2nBmyxqzZBWJsHx0f9WywMcJkPUGuzBUeV0ON5c
+	71cYpg4BdnVkaKceafzEIEIVptO7ic2AKqzScPzMwWCjlix7bfvk7oMp2/nBxgbaijGPdi1P/HOEc
+	i2+VSvlZFqMkphcyNfc6/ZgUIsIyarz35pF2I0+47FVd0Vxz50qEwQmbpGNc1JHCq2SowFMfMqFcY
+	wSQJ0t2gvI28zuqywamhJbftPbKl0xbphfxgJ2nfsldKn0cX6+E3DtGcb4uYMHBGg8kWEIL+CPE2/
+	wZxTVdAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6UvO-0000000413A-1xMK;
-	Wed, 08 Oct 2025 14:13:50 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1v6UzP-000000041Wh-0Mxg;
+	Wed, 08 Oct 2025 14:17:59 +0000
+Received: from mail-ej1-x62a.google.com ([2a00:1450:4864:20::62a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6UvL-0000000410z-0Mcz
+	id 1v6UzM-000000041WJ-1Jvw
 	for linux-arm-kernel@lists.infradead.org;
-	Wed, 08 Oct 2025 14:13:48 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4chZfv4gGzz6L4vx;
-	Wed,  8 Oct 2025 22:11:03 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 964541400DB;
-	Wed,  8 Oct 2025 22:13:36 +0800 (CST)
-Received: from localhost (10.122.19.247) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Wed, 8 Oct
- 2025 15:13:35 +0100
-Date: Wed, 8 Oct 2025 15:13:33 +0100
-From: Jonathan Cameron <Jonathan.Cameron@huawei.com>
-To: <dan.j.williams@intel.com>
-CC: Catalin Marinas <catalin.marinas@arm.com>, <james.morse@arm.com>,
-	<linux-cxl@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-acpi@vger.kernel.org>, <linux-arch@vger.kernel.org>,
-	<linux-mm@kvack.org>, Will Deacon <will@kernel.org>, Davidlohr Bueso
-	<dave@stgolabs.net>, "H . Peter Anvin" <hpa@zytor.com>, Peter Zijlstra
-	<peterz@infradead.org>, "Yicong Yang" <yangyicong@huawei.com>,
-	<linuxarm@huawei.com>, Yushan Wang <wangyushan12@huawei.com>, Lorenzo
- Pieralisi <lpieralisi@kernel.org>, "Mark Rutland" <mark.rutland@arm.com>,
-	Dave Hansen <dave.hansen@linux.intel.com>, Thomas Gleixner
-	<tglx@linutronix.de>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov
-	<bp@alien8.de>, <x86@kernel.org>, Andy Lutomirski <luto@kernel.org>
-Subject: Re: [PATCH v3 6/8] cache: Support cache maintenance for HiSilicon
- SoC Hydra Home Agent
-Message-ID: <20251008151333.00001b94@huawei.com>
-In-Reply-To: <68bf52fa851d9_75e3100ac@dwillia2-mobl4.notmuch>
-References: <20250820102950.175065-1-Jonathan.Cameron@huawei.com>
-	<20250820102950.175065-7-Jonathan.Cameron@huawei.com>
-	<68bf52fa851d9_75e3100ac@dwillia2-mobl4.notmuch>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
+	Wed, 08 Oct 2025 14:17:57 +0000
+Received: by mail-ej1-x62a.google.com with SMTP id a640c23a62f3a-b4539dddd99so1171335066b.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Oct 2025 07:17:55 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1759933074; x=1760537874; darn=lists.infradead.org;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=l0Mgl8edq5RLxNSk2dSPCx05BkpJ5f+Ni5BOyoikFEM=;
+        b=YEh3u54kH/sGKyQLY//Ke95WJc70jhB2cPMKncuGZBcRfEP7UBAk6Ax3N4g4nj/YDa
+         NUSPiXqyKZenajSPYn5vChkNJbt+cZLKE7pDLAcSiAMHvfC+w5f+aLw5K6pHYQ5J2JlG
+         8CDHdvi6g3u5cnO9GyCfmUQKXtWvzZimIehy/IP8KuaYl603LYla0oolMYUGhCFNaqG7
+         05Rsg9BFFOtQ5OrG+nv2JH4NxlJzlscH/2CNvAA48mzEoAoP79hd9CzfJXTblSa8n4Ew
+         9tysIA45hsvM+uRc6mr7miQCSyFFPfKDzKW5rN3RSeLD7qANYIPNIiim5c8RQejxMOgV
+         9BfQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759933074; x=1760537874;
+        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
+         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=l0Mgl8edq5RLxNSk2dSPCx05BkpJ5f+Ni5BOyoikFEM=;
+        b=gN8iBJpOS+9PTqOp8g7wNd//WKBFdQL7vbFtxV0NmtNZ44cLYzb11nbQbEs/hWwYUb
+         VkDNxJL5LJklhNDdTd9KUHIipAxZt/eHsOjHGVY0qiF+xkI0tXN2zr6gcQJdxDB5VaH/
+         xSNs2Pvu7iuQALjjumxWnHyOL5UzxbSQLaelBVVrFMGUrX167Q9Dl7jE15pR8wKoyaBC
+         stRpm4qpKc8OimeIEUy2MrIgISFd1bQctRMtmQ74qFkSX2W4MAW5Z1nKY5oreUBgsXQD
+         xDoAAVofdZy33LptAg3p3QA97624+EKEItXuTU0yemex2kMcSjmvlC3qzXxtePd1ta9O
+         Xmyw==
+X-Forwarded-Encrypted: i=1; AJvYcCU20W8rV8Syc1uaM0tXlfgS8kis5aLs54r+EVG4+hdaFppFHwlgvmKsG8XhqLkfLdTOm+/FX4GoYs6gc9wd2x5V@lists.infradead.org
+X-Gm-Message-State: AOJu0YwmdQXM6bUIdXWbul1OUi1OQmHq3wChVywFgbUnoYxXrQNrlSoC
+	ArF1GF6DgD2U4FkIEcXYZI7yJEoMMWwFpBDRji1zHN7tyzdjXUY9h56Ze9GWdIMdptw=
+X-Gm-Gg: ASbGncuEqIe/yTlKf+Zf1uWw1FsO/c1kyCj56/sRVDbdls/H3WICS+sOFs4A6PHV+Pj
+	gpKM3vxmjlt13t1xqbpBBwYX9G3Bl6OB4Xowo4iyPhW8FFbFQmy2IEMf5rm8+zya2ibL9aFXFb5
+	avZ3E8dZfWnpuKVdCWY+kPohwrdw8zXJZEB3/R1r32m8i4+7MQf3c+PnzVniPUMK0yAPYbXvt0K
+	VaovJSJwCs1n/TiCkxM5asLurbRNldO24KfSjGwvCW/sKeGnNKixUQNXZvxZHLksCHtAmpPdKo4
+	8aSQ3M0jM7CmvNmlzKz85ghgTThshj80e1yd1+xRohWHpiUEgFLTRQKckVvSufhLSA6Bzak5B1C
+	Q3iLCKVvlg0Lw36pcQBxYq3kde0nO4s6YPYDNfG0DkaZLnL3UDZRUceog9vC4zSj0tJIZaHeIkE
+	fMAhDuxa8qli8z2L8fk96JIGj+rrobG7ehGFnfU9rJ
+X-Google-Smtp-Source: AGHT+IEC+Khx6oHHPzc66dMG7HFLPgpbH+NvJ4gD7eI0FKThBdRGPlHYqDkbnKuylc90hYn877bNzQ==
+X-Received: by 2002:a17:906:794f:b0:b3a:a16e:3db8 with SMTP id a640c23a62f3a-b50aa38733cmr389753666b.20.1759933074280;
+        Wed, 08 Oct 2025 07:17:54 -0700 (PDT)
+Received: from puffmais2.c.googlers.com (224.138.204.35.bc.googleusercontent.com. [35.204.138.224])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b48652a9ea1sm1656287366b.16.2025.10.08.07.17.53
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Wed, 08 Oct 2025 07:17:53 -0700 (PDT)
+From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+Date: Wed, 08 Oct 2025 15:17:53 +0100
+Subject: [PATCH] dt-bindings: soc: samsung: exynos-sysreg: add
+ power-domains
 MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.122.19.247]
-X-ClientProxiedBy: lhrpeml100011.china.huawei.com (7.191.174.247) To
- dubpeml100005.china.huawei.com (7.214.146.113)
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+Message-Id: <20251008-power-domains-dt-bindings-soc-samsung-exynos-sysreg-v1-1-ab41c517dec6@linaro.org>
+X-B4-Tracking: v=1; b=H4sIAJBy5mgC/x2NMQ7CMAwAv1J5xlISqFD5CmJIYxM81KliCq2q/
+ p2I8W6428G4Chvcuh0qf8SkaAN/6iC9omZGocYQXOi9c1ecy5crUpmiqCG9cRQl0WxoJaHFyRb
+ NyOumpanNKmfsic6XYfBhdAlaea78lPV/vT+O4wcZQ5+DhQAAAA==
+X-Change-ID: 20251007-power-domains-dt-bindings-soc-samsung-exynos-sysreg-5dd349912b0c
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>, 
+ Tudor Ambarus <tudor.ambarus@linaro.org>, 
+ Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
+X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251008_071347_407181_E2CC419C 
-X-CRM114-Status: GOOD (  30.09  )
+X-CRM114-CacheID: sfid-20251008_071756_550368_6D04652E 
+X-CRM114-Status: UNSURE (   8.66  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,109 +108,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 8 Sep 2025 15:04:42 -0700
-dan.j.williams@intel.com wrote:
+Sysreg can be part of a power domain, so we need to allow the relevant
+property 'power-domains'.
 
-> Jonathan Cameron wrote:
-> > From: Yushan Wang <wangyushan12@huawei.com>
-> > 
-> > Hydra Home Agent is a device used to maintain cache coherency. Add support
-> > of explicit cache maintenance operations for it.
-> > 
-> > Memory resource of HHA conflicts with that of HHA PMU. A workaround is
-> > implemented here by replacing devm_ioremap_resource() to devm_ioremap() to
-> > workaround the resource conflict check.
-> > 
-> > Signed-off-by: Yicong Yang <yangyicong@hisilicon.com>
-> > Co-developed-by: Yicong Yang <yangyicong@hisilicon.com>
-> > Signed-off-by: Yushan Wang <wangyushan12@huawei.com>
-> > Signed-off-by: Jonathan Cameron <Jonathan.Cameron@huawei.com>  
-> [..]
-> > +static int hisi_soc_hha_probe(struct platform_device *pdev)
-> > +{
-> > +	struct hisi_soc_hha *soc_hha;
-> > +	struct resource *mem;
-> > +	int ret;
-> > +
-> > +	soc_hha = cache_coherency_device_alloc(&hha_ops, struct hisi_soc_hha,
-> > +					       ccd);
-> > +	if (!soc_hha)
-> > +		return -ENOMEM;
-> > +
-> > +	platform_set_drvdata(pdev, soc_hha);
-> > +
-> > +	mutex_init(&soc_hha->lock);
-> > +
-> > +	mem = platform_get_resource(pdev, IORESOURCE_MEM, 0);
-> > +	if (!mem)
-> > +		return -ENODEV;
-> > +
-> > +	/*
-> > +	 * HHA cache driver share the same register region with HHA uncore PMU
-> > +	 * driver in hardware's perspective, none of them should reserve the
-> > +	 * resource to itself only.  Here exclusive access verification is
-> > +	 * avoided by calling devm_ioremap instead of devm_ioremap_resource to
-> > +	 * allow both drivers to exist at the same time.
-> > +	 */
-> > +	soc_hha->base = ioremap(mem->start, resource_size(mem));
-> > +	if (IS_ERR_OR_NULL(soc_hha->base)) {
-> > +		ret = dev_err_probe(&pdev->dev, PTR_ERR(soc_hha->base),
-> > +				"failed to remap io memory");
-> > +		goto err_free_ccd;
-> > +	}
-> > +
-> > +	ret = cache_coherency_device_register(&soc_hha->ccd);
-> > +	if (ret)
-> > +		goto err_iounmap;
-> > +
-> > +	return 0;
-> > +
-> > +err_iounmap:
-> > +	iounmap(soc_hha->base);
-> > +err_free_ccd:
-> > +	cache_coherency_device_free(&soc_hha->ccd);  
-> 
-> I understand that this scheme works because ccd is the first member and
-> that is forced at alloc the same way fwctl does it. However, fwctl hides
-> confusing code like this behind put_device() in the free path. So I would
-> say if you want to borrow the "_alloc(ops, drv_struct, member)" approach do
-> also hide the "offsetof(drv_struct, member) == 0" in the object release
-> path and not have eye-popping code like:
-> 
->     cache_coherency_device_free(&soc_hha->ccd)
-> 
-> ...that throws away the allocation side cleverness into a cloud of reader
-> confusion. Either make this an actual "device" or otherwise have a kref.
-> 
-The device option is out because Greg KH was not keen on me using that
-infrastructure when we don't have any userspace ABI. 
+Signed-off-by: André Draszik <andre.draszik@linaro.org>
+---
+ .../devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml         | 3 +++
+ 1 file changed, 3 insertions(+)
 
-Kref seems fine but because we have to pass an explicit release to kref_put()
-we end up either with the odd looking
+diff --git a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
+index d8b302f975474a87e4886006cf0b21cf758e4479..c27d9f33d5a0501018aa3a52962a59257b723fa7 100644
+--- a/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
++++ b/Documentation/devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml
+@@ -73,6 +73,9 @@ properties:
+   clocks:
+     maxItems: 1
+ 
++  power-domains:
++    maxItems: 1
++
+ required:
+   - compatible
+   - reg
 
-kfree_put(&soc_hha->cci, cache_coherency_ops_inst_free);
+---
+base-commit: 3b9b1f8df454caa453c7fb07689064edb2eda90a
+change-id: 20251007-power-domains-dt-bindings-soc-samsung-exynos-sysreg-5dd349912b0c
 
-or wrapping it up with a helper along the lines of
-cache_coherency_ops_instance_put(&soc_hha->cci);
-
-That seems reasonable but given there is no real reference counting going on
-(the reference count == 1 from alloc to this call) using an actual kref is
-perhaps overkill because this is really the same as having no kref and
-just implementing.
-
-void cache_coherency_ops_instance_put(struct cache_coherency_ops_inst *cci)
-{
-	kfree(cci);
-}
-
-So other than a rename it is the same as current implementation. :(
-
-So for now I'm thinking have the helper and use a kref even if it's rather
-silly just because it will then behave how people (hopefully) expect it to.
-
-Jonathan
-
-
-
+Best regards,
+-- 
+André Draszik <andre.draszik@linaro.org>
 
 
