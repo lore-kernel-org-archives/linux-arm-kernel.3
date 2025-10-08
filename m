@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74903CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 16:06:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21435CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 16:06:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OiAeUNuyZp2p7NaWjEx+RPC/P0JStGF3x9tctiksf4w=; b=NmMcmpvr8qRBjPR+4SeDDXHwZY
-	JRUsb1iw1zIexB/I1Kbyiv7VRvfApXRizhu6tdPKBZm0B+Uh0IyOV0u5ZrL1aCnZ4MQ2YWlDuB44L
-	1rnV+46jJ/80a6kAL6i/uczTizWG5U3+yEJK+M4IUzHbOZAaEVwYRf++z/ac9jXrwkdZFt99OaN8i
-	VOoTuap/izQWZsqNFuus2fWNBcmJbEnwzSHN+CNm6MB+zGh4xknhIS6q2IIaOO9peqov7ZjMN2jbw
-	b9L+kwdb5WNgU5Os5vZxqa7tgYmxA+t8fp41Ccya60F/UrZWGU7kyhYEakLcbKMXm2fFB1TYTSSRO
-	xEu+PLrw==;
+	bh=xW9tH0yg3kl/vRjeet5XdJsGRavZ+3xTuWKyzK8FeHs=; b=p0YUVxp5aG6oULIaeZ9Iz+k2/A
+	VLhy0rbVxuwBnW3HGSuihr1bzF1dAPcqTne9x4gwbmhfJcsYzBkuECY+nn/x3jgdtCGrx2kF7bbmk
+	G5kXxR9dd8uif4/+w1orsu4NP5KhPHSnIh4JgVXZNrg2I+BoB7GFYjuor30kp93ayk4XbHaxUp9JQ
+	IKodMwGb7IGWtB7h3FltS5mra27D++YcPfa2t5EW9NcQMrpHQepUphm+JjecJVADbEiNerqgEBFkg
+	ZAp3wjD7XeJmoYmi495mO+OMMlyLDyAGi/KpCRxHED1MxHat8r0/SnIRD9DXMK2sAvHsR1yaPfq3K
+	kOx7eUnw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6WgM-00000004Ffb-0WVv;
-	Wed, 08 Oct 2025 16:06:26 +0000
+	id 1v6WgK-00000004Fdj-1qCm;
+	Wed, 08 Oct 2025 16:06:24 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6WgJ-00000004FdC-0Bwn;
-	Wed, 08 Oct 2025 16:06:24 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1759939553; cv=none; 
+	id 1v6WgH-00000004FcC-0ynt;
+	Wed, 08 Oct 2025 16:06:22 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1759939561; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=EPt/Ce5VXsk4rpcxgq06mzgu85QLvV/ZJhnNzHH6oVEPnlKEj5Wg0HLMpCJEO+xHls+Y6gcKAzi3W6Dtha8crfNIikaB+dhLGHmDIH9wWfbAHm4xDOpjBGwXlxAFX9I4kK2bphX5+QE2nIpRoteXdgE6qI46QMVarjy6IE1ftGA=
+	b=QgRdJAn8Jl/P3X7nwTIa8uDOmeFR9429gEB3jLoM5/7Ch6F9ZhUq0JVDZReC2cUCp3VcRWHgl0ibhDkTB6Cehe9WNS+iPyNMu128tTAnpfgJ6qSt4ZfAPo0VXk5nURldAftBqDQv+c1pqk+i9xaBrxuToQe6a8HoKQy2C+HanD0=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1759939553; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=OiAeUNuyZp2p7NaWjEx+RPC/P0JStGF3x9tctiksf4w=; 
-	b=PmAuptzig632Qc52RgFyCcmqAtUxbPnTPnk8KnAaO9xWYQKYtn4kc8YvsXZIQdpLMIDTW3X76elNY23fq7jK/HbH9btiRRD9Cf2o3PuGEnUa0pF8ONADyXhDyqOFAwkIGN58Wo8u1SgU8LYMrqF9W0XCgibkzf5TzPNeKC4fO/k=
+	t=1759939561; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=xW9tH0yg3kl/vRjeet5XdJsGRavZ+3xTuWKyzK8FeHs=; 
+	b=dD8nNkD+Xo8OE+HhP6F/JvHIFENeoHCya5nJirM96LeyJ9l6gHNwzjbUkZmjDcBjD/Iai4958vLRcpTJHKYVej6siKcuxdT0/ROaleXcFu2bWghuJJprxheBFR/CFxI0hPEzqqHVRt0ZHLpcUjjPFrV1SqOSjZKc3YCFQ8fouxc=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1759939553;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1759939561;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:References:In-Reply-To:To:To:Cc:Cc:Reply-To;
-	bh=OiAeUNuyZp2p7NaWjEx+RPC/P0JStGF3x9tctiksf4w=;
-	b=GHf7zkO82FvMq/CYIC44YSgYoSlW4D8WITNr6W0yoTywo0a3wHjja5ae/AmPF6Xp
-	dClrkTgQ1bTFMnYevxoQiwbdjodiMdnxxKyf+i0ARG10ifNYOQ9S97ltFQS8MZotQPn
-	xSTjl+qQtXdwlTLFhizPUr/SGQ2FapMa5ncrOydU=
-Received: by mx.zohomail.com with SMTPS id 1759939552706305.4315968746712;
-	Wed, 8 Oct 2025 09:05:52 -0700 (PDT)
+	bh=xW9tH0yg3kl/vRjeet5XdJsGRavZ+3xTuWKyzK8FeHs=;
+	b=hA44IJRfFA2dj/RQ3oCMnBXCtEKcHTlQWESofq/h5H5Zsdb+l8PmbJ6RMh96sfbb
+	e0C06yEexkub8/RYq+YG54wAX5OHmyBqZYx9p8lm6r78WPq3N6zOsgEBz3AN+DYVHmR
+	3gwr5DDB3iZ2F+m9pS+8OcL4dHuzNKw/fzihd17A=
+Received: by mx.zohomail.com with SMTPS id 17599395600104.658984879843274;
+	Wed, 8 Oct 2025 09:06:00 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Date: Wed, 08 Oct 2025 18:05:36 +0200
-Subject: [PATCH v2 2/5] clk: mediatek: Refactor pll registration to pass
+Date: Wed, 08 Oct 2025 18:05:38 +0200
+Subject: [PATCH v2 4/5] clk: mediatek: Refactor pllfh registration to pass
  device
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251008-mtk-pll-rpm-v2-2-170ed0698560@collabora.com>
+Message-Id: <20251008-mtk-pll-rpm-v2-4-170ed0698560@collabora.com>
 References: <20251008-mtk-pll-rpm-v2-0-170ed0698560@collabora.com>
 In-Reply-To: <20251008-mtk-pll-rpm-v2-0-170ed0698560@collabora.com>
 To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
@@ -70,8 +70,8 @@ Cc: kernel@collabora.com, linux-clk@vger.kernel.org,
  Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 X-Mailer: b4 0.14.2
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251008_090623_156931_459BEDA6 
-X-CRM114-Status: GOOD (  14.58  )
+X-CRM114-CacheID: sfid-20251008_090621_311940_39CF8141 
+X-CRM114-Status: GOOD (  16.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,355 +86,167 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-As it stands, mtk_clk_register_plls takes a struct device_node pointer
-as its first argument. This is a tragic happenstance, as it's trivial to
-get the device_node from a struct device, but the opposite not so much.
-The struct device is a much more useful thing to have passed down.
+After refactoring all of PLL to pass the device, it's now fairly easy to
+refactor pllfh and its users, as pllfh registration wraps PLL
+registration.
 
-Refactor mtk_clk_register_plls to take a struct device pointer instead
-of a struct device_node pointer, and fix up all users of this function.
+Do this refactor and move all of the pllfh users to pass the device as
+well.
 
 Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- drivers/clk/mediatek/clk-mt2701.c            | 2 +-
- drivers/clk/mediatek/clk-mt2712-apmixedsys.c | 2 +-
- drivers/clk/mediatek/clk-mt6735-apmixedsys.c | 4 ++--
- drivers/clk/mediatek/clk-mt6765.c            | 2 +-
- drivers/clk/mediatek/clk-mt6779.c            | 2 +-
- drivers/clk/mediatek/clk-mt6797.c            | 2 +-
- drivers/clk/mediatek/clk-mt7622-apmixedsys.c | 2 +-
- drivers/clk/mediatek/clk-mt7629.c            | 2 +-
- drivers/clk/mediatek/clk-mt7981-apmixed.c    | 2 +-
- drivers/clk/mediatek/clk-mt7986-apmixed.c    | 2 +-
- drivers/clk/mediatek/clk-mt7988-apmixed.c    | 2 +-
- drivers/clk/mediatek/clk-mt8135-apmixedsys.c | 3 ++-
- drivers/clk/mediatek/clk-mt8167-apmixedsys.c | 2 +-
- drivers/clk/mediatek/clk-mt8183-apmixedsys.c | 2 +-
- drivers/clk/mediatek/clk-mt8188-apmixedsys.c | 2 +-
- drivers/clk/mediatek/clk-mt8195-apusys_pll.c | 3 ++-
- drivers/clk/mediatek/clk-mt8196-apmixedsys.c | 3 ++-
- drivers/clk/mediatek/clk-mt8196-mcu.c        | 2 +-
- drivers/clk/mediatek/clk-mt8196-mfg.c        | 2 +-
- drivers/clk/mediatek/clk-mt8196-vlpckgen.c   | 2 +-
- drivers/clk/mediatek/clk-mt8365-apmixedsys.c | 2 +-
- drivers/clk/mediatek/clk-mt8516-apmixedsys.c | 2 +-
- drivers/clk/mediatek/clk-pll.c               | 7 ++++---
- drivers/clk/mediatek/clk-pll.h               | 6 +++---
- 24 files changed, 33 insertions(+), 29 deletions(-)
+ drivers/clk/mediatek/clk-mt6795-apmixedsys.c |  2 +-
+ drivers/clk/mediatek/clk-mt8173-apmixedsys.c | 14 +++++++-------
+ drivers/clk/mediatek/clk-mt8186-apmixedsys.c |  2 +-
+ drivers/clk/mediatek/clk-mt8192-apmixedsys.c |  2 +-
+ drivers/clk/mediatek/clk-mt8195-apmixedsys.c |  2 +-
+ drivers/clk/mediatek/clk-pllfh.c             | 13 ++++++++-----
+ drivers/clk/mediatek/clk-pllfh.h             |  2 +-
+ 7 files changed, 20 insertions(+), 17 deletions(-)
 
-diff --git a/drivers/clk/mediatek/clk-mt2701.c b/drivers/clk/mediatek/clk-mt2701.c
-index 1e88ad8b93f4485ad40f842e19c68117e00a2fbe..d9f40fda73d1abc56ebc97ab755bb48bd5f0991f 100644
---- a/drivers/clk/mediatek/clk-mt2701.c
-+++ b/drivers/clk/mediatek/clk-mt2701.c
-@@ -978,7 +978,7 @@ static int mtk_apmixedsys_init(struct platform_device *pdev)
- 	if (!clk_data)
+diff --git a/drivers/clk/mediatek/clk-mt6795-apmixedsys.c b/drivers/clk/mediatek/clk-mt6795-apmixedsys.c
+index 91665d7f125efde4941cc4de881c5b503a935529..123d5d7fea8554676364dc56f5c023e43325d516 100644
+--- a/drivers/clk/mediatek/clk-mt6795-apmixedsys.c
++++ b/drivers/clk/mediatek/clk-mt6795-apmixedsys.c
+@@ -152,7 +152,7 @@ static int clk_mt6795_apmixed_probe(struct platform_device *pdev)
  		return -ENOMEM;
  
--	mtk_clk_register_plls(node, apmixed_plls, ARRAY_SIZE(apmixed_plls),
-+	mtk_clk_register_plls(&pdev->dev, apmixed_plls, ARRAY_SIZE(apmixed_plls),
- 								clk_data);
- 	mtk_clk_register_factors(apmixed_fixed_divs, ARRAY_SIZE(apmixed_fixed_divs),
- 								clk_data);
-diff --git a/drivers/clk/mediatek/clk-mt2712-apmixedsys.c b/drivers/clk/mediatek/clk-mt2712-apmixedsys.c
-index a60622d251ff30fe8db2e596d87986a88f854e61..54b18e9f83f8f403460c77d8f5d4ea0737316774 100644
---- a/drivers/clk/mediatek/clk-mt2712-apmixedsys.c
-+++ b/drivers/clk/mediatek/clk-mt2712-apmixedsys.c
-@@ -119,7 +119,7 @@ static int clk_mt2712_apmixed_probe(struct platform_device *pdev)
- 	if (!clk_data)
- 		return -ENOMEM;
- 
--	r = mtk_clk_register_plls(node, plls, ARRAY_SIZE(plls), clk_data);
-+	r = mtk_clk_register_plls(&pdev->dev, plls, ARRAY_SIZE(plls), clk_data);
- 	if (r)
- 		goto free_clk_data;
- 
-diff --git a/drivers/clk/mediatek/clk-mt6735-apmixedsys.c b/drivers/clk/mediatek/clk-mt6735-apmixedsys.c
-index e0949911e8f7da7894b204012caefd0404cf8308..9e30c089a2092472bab889ede419c41890c307a0 100644
---- a/drivers/clk/mediatek/clk-mt6735-apmixedsys.c
-+++ b/drivers/clk/mediatek/clk-mt6735-apmixedsys.c
-@@ -93,8 +93,8 @@ static int clk_mt6735_apmixed_probe(struct platform_device *pdev)
- 		return -ENOMEM;
- 	platform_set_drvdata(pdev, clk_data);
- 
--	ret = mtk_clk_register_plls(pdev->dev.of_node, apmixedsys_plls,
--				   ARRAY_SIZE(apmixedsys_plls), clk_data);
-+	ret = mtk_clk_register_plls(&pdev->dev, apmixedsys_plls,
-+				    ARRAY_SIZE(apmixedsys_plls), clk_data);
- 	if (ret) {
- 		dev_err(&pdev->dev, "Failed to register PLLs: %d\n", ret);
- 		return ret;
-diff --git a/drivers/clk/mediatek/clk-mt6765.c b/drivers/clk/mediatek/clk-mt6765.c
-index d53731e7933f46d88ff180e43eb7163e52fb5b1c..60f6f9fa7dcf279631d0fa2eb30a3bcbadef3225 100644
---- a/drivers/clk/mediatek/clk-mt6765.c
-+++ b/drivers/clk/mediatek/clk-mt6765.c
-@@ -740,7 +740,7 @@ static int clk_mt6765_apmixed_probe(struct platform_device *pdev)
- 	if (!clk_data)
- 		return -ENOMEM;
- 
--	mtk_clk_register_plls(node, plls, ARRAY_SIZE(plls), clk_data);
-+	mtk_clk_register_plls(&pdev->dev, plls, ARRAY_SIZE(plls), clk_data);
- 
- 	mtk_clk_register_gates(&pdev->dev, node, apmixed_clks,
- 			       ARRAY_SIZE(apmixed_clks), clk_data);
-diff --git a/drivers/clk/mediatek/clk-mt6779.c b/drivers/clk/mediatek/clk-mt6779.c
-index 86732f5acf93407a5aa99bc2f386f0728a06bb9b..4b9dcb910b03f1078212dc7089d7171d05de7e7f 100644
---- a/drivers/clk/mediatek/clk-mt6779.c
-+++ b/drivers/clk/mediatek/clk-mt6779.c
-@@ -1220,7 +1220,7 @@ static int clk_mt6779_apmixed_probe(struct platform_device *pdev)
- 	if (!clk_data)
- 		return -ENOMEM;
- 
--	mtk_clk_register_plls(node, plls, ARRAY_SIZE(plls), clk_data);
-+	mtk_clk_register_plls(&pdev->dev, plls, ARRAY_SIZE(plls), clk_data);
- 
- 	mtk_clk_register_gates(&pdev->dev, node, apmixed_clks,
- 			       ARRAY_SIZE(apmixed_clks), clk_data);
-diff --git a/drivers/clk/mediatek/clk-mt6797.c b/drivers/clk/mediatek/clk-mt6797.c
-index fb59e71af58e32d9419e036e3dbd28cdaa61cac3..ebf850ac57f540f2317e63dfabe94a953db3ae29 100644
---- a/drivers/clk/mediatek/clk-mt6797.c
-+++ b/drivers/clk/mediatek/clk-mt6797.c
-@@ -655,7 +655,7 @@ static int mtk_apmixedsys_init(struct platform_device *pdev)
- 	if (!clk_data)
- 		return -ENOMEM;
- 
--	mtk_clk_register_plls(node, plls, ARRAY_SIZE(plls), clk_data);
-+	mtk_clk_register_plls(&pdev->dev, plls, ARRAY_SIZE(plls), clk_data);
- 
- 	return of_clk_add_hw_provider(node, of_clk_hw_onecell_get, clk_data);
- }
-diff --git a/drivers/clk/mediatek/clk-mt7622-apmixedsys.c b/drivers/clk/mediatek/clk-mt7622-apmixedsys.c
-index 2350592d9a934f3ec8efb0cd8197e4c4fee49697..8a29eaab0cfcb7a389e09f8869b572d5886e2eaf 100644
---- a/drivers/clk/mediatek/clk-mt7622-apmixedsys.c
-+++ b/drivers/clk/mediatek/clk-mt7622-apmixedsys.c
-@@ -96,7 +96,7 @@ static int clk_mt7622_apmixed_probe(struct platform_device *pdev)
- 	if (!clk_data)
- 		return -ENOMEM;
- 
--	ret = mtk_clk_register_plls(node, plls, ARRAY_SIZE(plls), clk_data);
-+	ret = mtk_clk_register_plls(dev, plls, ARRAY_SIZE(plls), clk_data);
- 	if (ret)
- 		return ret;
- 
-diff --git a/drivers/clk/mediatek/clk-mt7629.c b/drivers/clk/mediatek/clk-mt7629.c
-index baf94e7bea373c59cb6333fdb483d00240b744c7..e154771b1b8bba7378af8a797c81d0784b626e3b 100644
---- a/drivers/clk/mediatek/clk-mt7629.c
-+++ b/drivers/clk/mediatek/clk-mt7629.c
-@@ -634,7 +634,7 @@ static int mtk_apmixedsys_init(struct platform_device *pdev)
- 	if (!clk_data)
- 		return -ENOMEM;
- 
--	mtk_clk_register_plls(node, plls, ARRAY_SIZE(plls),
-+	mtk_clk_register_plls(&pdev->dev, plls, ARRAY_SIZE(plls),
- 			      clk_data);
- 
- 	mtk_clk_register_gates(&pdev->dev, node, apmixed_clks,
-diff --git a/drivers/clk/mediatek/clk-mt7981-apmixed.c b/drivers/clk/mediatek/clk-mt7981-apmixed.c
-index e8211eb4e09e1a645f7e50a1e5814d29030c1757..6606b54fb376983ec7d49b00c2c0d1690c734058 100644
---- a/drivers/clk/mediatek/clk-mt7981-apmixed.c
-+++ b/drivers/clk/mediatek/clk-mt7981-apmixed.c
-@@ -76,7 +76,7 @@ static int clk_mt7981_apmixed_probe(struct platform_device *pdev)
- 	if (!clk_data)
- 		return -ENOMEM;
- 
--	mtk_clk_register_plls(node, plls, ARRAY_SIZE(plls), clk_data);
-+	mtk_clk_register_plls(&pdev->dev, plls, ARRAY_SIZE(plls), clk_data);
- 
- 	r = of_clk_add_hw_provider(node, of_clk_hw_onecell_get, clk_data);
- 	if (r) {
-diff --git a/drivers/clk/mediatek/clk-mt7986-apmixed.c b/drivers/clk/mediatek/clk-mt7986-apmixed.c
-index 93751abe6be89784a102a0e5ac629d363ab3baaf..1c79418d08a77acf25cee914fb6573ac1707163e 100644
---- a/drivers/clk/mediatek/clk-mt7986-apmixed.c
-+++ b/drivers/clk/mediatek/clk-mt7986-apmixed.c
-@@ -74,7 +74,7 @@ static int clk_mt7986_apmixed_probe(struct platform_device *pdev)
- 	if (!clk_data)
- 		return -ENOMEM;
- 
--	mtk_clk_register_plls(node, plls, ARRAY_SIZE(plls), clk_data);
-+	mtk_clk_register_plls(&pdev->dev, plls, ARRAY_SIZE(plls), clk_data);
- 
- 	r = of_clk_add_hw_provider(node, of_clk_hw_onecell_get, clk_data);
- 	if (r) {
-diff --git a/drivers/clk/mediatek/clk-mt7988-apmixed.c b/drivers/clk/mediatek/clk-mt7988-apmixed.c
-index 63d33a78cb48805f71aa6a74f8ed6b83f3b4fe22..416a4b88d100bb47bdb07e4f72bc13208c8707a7 100644
---- a/drivers/clk/mediatek/clk-mt7988-apmixed.c
-+++ b/drivers/clk/mediatek/clk-mt7988-apmixed.c
-@@ -86,7 +86,7 @@ static int clk_mt7988_apmixed_probe(struct platform_device *pdev)
- 	if (!clk_data)
- 		return -ENOMEM;
- 
--	r = mtk_clk_register_plls(node, plls, ARRAY_SIZE(plls), clk_data);
-+	r = mtk_clk_register_plls(&pdev->dev, plls, ARRAY_SIZE(plls), clk_data);
- 	if (r)
- 		goto free_apmixed_data;
- 
-diff --git a/drivers/clk/mediatek/clk-mt8135-apmixedsys.c b/drivers/clk/mediatek/clk-mt8135-apmixedsys.c
-index bdadc35c64cbd8987061c4442b8ff2f5fe50cc32..19e4ee489ec3905e92674ed0813a9f60f9c28209 100644
---- a/drivers/clk/mediatek/clk-mt8135-apmixedsys.c
-+++ b/drivers/clk/mediatek/clk-mt8135-apmixedsys.c
-@@ -57,7 +57,8 @@ static int clk_mt8135_apmixed_probe(struct platform_device *pdev)
- 	if (!clk_data)
- 		return -ENOMEM;
- 
--	ret = mtk_clk_register_plls(node, plls, ARRAY_SIZE(plls), clk_data);
-+	ret = mtk_clk_register_plls(&pdev->dev, plls, ARRAY_SIZE(plls),
-+				    clk_data);
+ 	fhctl_parse_dt(fhctl_node, pllfhs, ARRAY_SIZE(pllfhs));
+-	ret = mtk_clk_register_pllfhs(node, plls, ARRAY_SIZE(plls),
++	ret = mtk_clk_register_pllfhs(dev, plls, ARRAY_SIZE(plls),
+ 				      pllfhs, ARRAY_SIZE(pllfhs), clk_data);
  	if (ret)
  		goto free_clk_data;
- 
-diff --git a/drivers/clk/mediatek/clk-mt8167-apmixedsys.c b/drivers/clk/mediatek/clk-mt8167-apmixedsys.c
-index adf576786696e0962dfd5147dfc8897bfaa48054..fb6c21bbeef81a383b56c8fada1799e0680676e5 100644
---- a/drivers/clk/mediatek/clk-mt8167-apmixedsys.c
-+++ b/drivers/clk/mediatek/clk-mt8167-apmixedsys.c
-@@ -105,7 +105,7 @@ static int clk_mt8167_apmixed_probe(struct platform_device *pdev)
- 	if (!clk_data)
- 		return -ENOMEM;
- 
--	ret = mtk_clk_register_plls(node, plls, ARRAY_SIZE(plls), clk_data);
-+	ret = mtk_clk_register_plls(dev, plls, ARRAY_SIZE(plls), clk_data);
- 	if (ret)
- 		return ret;
- 
-diff --git a/drivers/clk/mediatek/clk-mt8183-apmixedsys.c b/drivers/clk/mediatek/clk-mt8183-apmixedsys.c
-index 551adbfd7ac9309bbc4f9beefe4f26230514f062..6242d4f5376e79346b2219b0a35cf0c5ad755e49 100644
---- a/drivers/clk/mediatek/clk-mt8183-apmixedsys.c
-+++ b/drivers/clk/mediatek/clk-mt8183-apmixedsys.c
-@@ -155,7 +155,7 @@ static int clk_mt8183_apmixed_probe(struct platform_device *pdev)
- 	if (!clk_data)
- 		return -ENOMEM;
- 
--	ret = mtk_clk_register_plls(node, plls, ARRAY_SIZE(plls), clk_data);
-+	ret = mtk_clk_register_plls(dev, plls, ARRAY_SIZE(plls), clk_data);
- 	if (ret)
- 		return ret;
- 
-diff --git a/drivers/clk/mediatek/clk-mt8188-apmixedsys.c b/drivers/clk/mediatek/clk-mt8188-apmixedsys.c
-index 21d7a9a2ab1af64cca6962960418d44c81dc664a..a1de596bff9945ca938504391e3e33a4987d3a63 100644
---- a/drivers/clk/mediatek/clk-mt8188-apmixedsys.c
-+++ b/drivers/clk/mediatek/clk-mt8188-apmixedsys.c
-@@ -106,7 +106,7 @@ static int clk_mt8188_apmixed_probe(struct platform_device *pdev)
- 	if (!clk_data)
- 		return -ENOMEM;
- 
--	r = mtk_clk_register_plls(node, plls, ARRAY_SIZE(plls), clk_data);
-+	r = mtk_clk_register_plls(&pdev->dev, plls, ARRAY_SIZE(plls), clk_data);
- 	if (r)
- 		goto free_apmixed_data;
- 
-diff --git a/drivers/clk/mediatek/clk-mt8195-apusys_pll.c b/drivers/clk/mediatek/clk-mt8195-apusys_pll.c
-index 8b45a3fad02f18df30e4c2ce2ba5b6338eae321f..a2d98ed58e34866b3d68bd0f85bde339c258d822 100644
---- a/drivers/clk/mediatek/clk-mt8195-apusys_pll.c
-+++ b/drivers/clk/mediatek/clk-mt8195-apusys_pll.c
-@@ -66,7 +66,8 @@ static int clk_mt8195_apusys_pll_probe(struct platform_device *pdev)
- 	if (!clk_data)
- 		return -ENOMEM;
- 
--	r = mtk_clk_register_plls(node, apusys_plls, ARRAY_SIZE(apusys_plls), clk_data);
-+	r = mtk_clk_register_plls(&pdev->dev, apusys_plls,
-+				  ARRAY_SIZE(apusys_plls), clk_data);
- 	if (r)
- 		goto free_apusys_pll_data;
- 
-diff --git a/drivers/clk/mediatek/clk-mt8196-apmixedsys.c b/drivers/clk/mediatek/clk-mt8196-apmixedsys.c
-index 617f5449b88b8bcaf282e8ed8593b52413a233a8..c4ebb0170b82b979fbe7f03925f205325247d55d 100644
---- a/drivers/clk/mediatek/clk-mt8196-apmixedsys.c
-+++ b/drivers/clk/mediatek/clk-mt8196-apmixedsys.c
-@@ -152,7 +152,8 @@ static int clk_mt8196_apmixed_probe(struct platform_device *pdev)
- 	if (!clk_data)
- 		return -ENOMEM;
- 
--	r = mtk_clk_register_plls(node, mcd->clks, mcd->num_clks, clk_data);
-+	r = mtk_clk_register_plls(&pdev->dev, mcd->clks, mcd->num_clks,
-+				  clk_data);
- 	if (r)
- 		goto free_apmixed_data;
- 
-diff --git a/drivers/clk/mediatek/clk-mt8196-mcu.c b/drivers/clk/mediatek/clk-mt8196-mcu.c
-index 5cbcc411ae734c82b97bf099a645cb6aaa31d9c3..13642fc673c267a66027d1fa7073c9cfed68c682 100644
---- a/drivers/clk/mediatek/clk-mt8196-mcu.c
-+++ b/drivers/clk/mediatek/clk-mt8196-mcu.c
-@@ -122,7 +122,7 @@ static int clk_mt8196_mcu_probe(struct platform_device *pdev)
- 	if (!clk_data)
- 		return -ENOMEM;
- 
--	r = mtk_clk_register_plls(node, plls, num_plls, clk_data);
-+	r = mtk_clk_register_plls(&pdev->dev, plls, num_plls, clk_data);
- 	if (r)
- 		goto free_clk_data;
- 
-diff --git a/drivers/clk/mediatek/clk-mt8196-mfg.c b/drivers/clk/mediatek/clk-mt8196-mfg.c
-index ae1eb9de79ae2992b10a400c75e2e0324b100f66..8e09c0f7b7548f8e286671cea2dac64530b8ce47 100644
---- a/drivers/clk/mediatek/clk-mt8196-mfg.c
-+++ b/drivers/clk/mediatek/clk-mt8196-mfg.c
-@@ -105,7 +105,7 @@ static int clk_mt8196_mfg_probe(struct platform_device *pdev)
- 	if (!clk_data)
- 		return -ENOMEM;
- 
--	r = mtk_clk_register_plls(node, plls, num_plls, clk_data);
-+	r = mtk_clk_register_plls(&pdev->dev, plls, num_plls, clk_data);
- 	if (r)
- 		goto free_clk_data;
- 
-diff --git a/drivers/clk/mediatek/clk-mt8196-vlpckgen.c b/drivers/clk/mediatek/clk-mt8196-vlpckgen.c
-index d59a8a9d98550e897d18031d9bb814aa96d3cf57..7dcc164627c578ca93377425c3b21b46da4b4c28 100644
---- a/drivers/clk/mediatek/clk-mt8196-vlpckgen.c
-+++ b/drivers/clk/mediatek/clk-mt8196-vlpckgen.c
-@@ -664,7 +664,7 @@ static int clk_mt8196_vlp_probe(struct platform_device *pdev)
- 	if (r)
- 		goto unregister_factors;
- 
--	r = mtk_clk_register_plls(node, vlp_plls, ARRAY_SIZE(vlp_plls),
-+	r = mtk_clk_register_plls(dev, vlp_plls, ARRAY_SIZE(vlp_plls),
- 				  clk_data);
- 	if (r)
- 		goto unregister_muxes;
-diff --git a/drivers/clk/mediatek/clk-mt8365-apmixedsys.c b/drivers/clk/mediatek/clk-mt8365-apmixedsys.c
-index f41b991a0178af3067b19a693512ec922af48e07..e331aa28a4bd58baf48a4aae1601cc80fc5661ac 100644
---- a/drivers/clk/mediatek/clk-mt8365-apmixedsys.c
-+++ b/drivers/clk/mediatek/clk-mt8365-apmixedsys.c
-@@ -133,7 +133,7 @@ static int clk_mt8365_apmixed_probe(struct platform_device *pdev)
- 		return PTR_ERR(hw);
- 	clk_data->hws[CLK_APMIXED_USB20_EN] = hw;
- 
--	ret = mtk_clk_register_plls(node, plls, ARRAY_SIZE(plls), clk_data);
-+	ret = mtk_clk_register_plls(dev, plls, ARRAY_SIZE(plls), clk_data);
- 	if (ret)
- 		return ret;
- 
-diff --git a/drivers/clk/mediatek/clk-mt8516-apmixedsys.c b/drivers/clk/mediatek/clk-mt8516-apmixedsys.c
-index edd9174d2f2ff97a0c1198caa2a0b9c1ca40ffd2..2a6206cae2f087ff06fe60a6cf96a0fa3143e567 100644
---- a/drivers/clk/mediatek/clk-mt8516-apmixedsys.c
-+++ b/drivers/clk/mediatek/clk-mt8516-apmixedsys.c
-@@ -87,7 +87,7 @@ static int clk_mt8516_apmixed_probe(struct platform_device *pdev)
- 	if (!clk_data)
- 		return -ENOMEM;
- 
--	ret = mtk_clk_register_plls(node, plls, ARRAY_SIZE(plls), clk_data);
-+	ret = mtk_clk_register_plls(dev, plls, ARRAY_SIZE(plls), clk_data);
- 	if (ret)
- 		return ret;
- 
-diff --git a/drivers/clk/mediatek/clk-pll.c b/drivers/clk/mediatek/clk-pll.c
-index cd2b6ce551c6b0333cbe0a4f0d155ba2411f757a..5caf91ae9ddbe4f4d7052864adf0a5a70bda66bc 100644
---- a/drivers/clk/mediatek/clk-pll.c
-+++ b/drivers/clk/mediatek/clk-pll.c
-@@ -11,6 +11,7 @@
- #include <linux/io.h>
- #include <linux/module.h>
- #include <linux/of_address.h>
-+#include <linux/platform_device.h>
- #include <linux/slab.h>
- 
- #include "clk-pll.h"
-@@ -404,7 +405,7 @@ void mtk_clk_unregister_pll(struct clk_hw *hw)
- 	kfree(pll);
- }
- 
--int mtk_clk_register_plls(struct device_node *node,
-+int mtk_clk_register_plls(struct device *dev,
- 			  const struct mtk_pll_data *plls, int num_plls,
- 			  struct clk_hw_onecell_data *clk_data)
+diff --git a/drivers/clk/mediatek/clk-mt8173-apmixedsys.c b/drivers/clk/mediatek/clk-mt8173-apmixedsys.c
+index 95385bb67d5511eda3a851f81986e67eaf81e5fb..d7d416172ab35bc027ae67c163c1dc20dee857b6 100644
+--- a/drivers/clk/mediatek/clk-mt8173-apmixedsys.c
++++ b/drivers/clk/mediatek/clk-mt8173-apmixedsys.c
+@@ -140,13 +140,13 @@ MODULE_DEVICE_TABLE(of, of_match_clk_mt8173_apmixed);
+ static int clk_mt8173_apmixed_probe(struct platform_device *pdev)
  {
-@@ -412,7 +413,7 @@ int mtk_clk_register_plls(struct device_node *node,
+ 	const u8 *fhctl_node = "mediatek,mt8173-fhctl";
+-	struct device_node *node = pdev->dev.of_node;
+ 	struct clk_hw_onecell_data *clk_data;
++	struct device *dev = &pdev->dev;
+ 	void __iomem *base;
+ 	struct clk_hw *hw;
+ 	int r;
+ 
+-	base = of_iomap(node, 0);
++	base = of_iomap(dev->of_node, 0);
+ 	if (!base)
+ 		return -ENOMEM;
+ 
+@@ -157,25 +157,25 @@ static int clk_mt8173_apmixed_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	fhctl_parse_dt(fhctl_node, pllfhs, ARRAY_SIZE(pllfhs));
+-	r = mtk_clk_register_pllfhs(node, plls, ARRAY_SIZE(plls),
+-				    pllfhs, ARRAY_SIZE(pllfhs), clk_data);
++	r = mtk_clk_register_pllfhs(dev, plls, ARRAY_SIZE(plls), pllfhs,
++				    ARRAY_SIZE(pllfhs), clk_data);
+ 	if (r)
+ 		goto free_clk_data;
+ 
+ 	hw = mtk_clk_register_ref2usb_tx("ref2usb_tx", "clk26m", base + REGOFF_REF2USB);
+ 	if (IS_ERR(hw)) {
+ 		r = PTR_ERR(hw);
+-		dev_err(&pdev->dev, "Failed to register ref2usb_tx: %d\n", r);
++		dev_err(dev, "Failed to register ref2usb_tx: %d\n", r);
+ 		goto unregister_plls;
+ 	}
+ 	clk_data->hws[CLK_APMIXED_REF2USB_TX] = hw;
+ 
+-	hw = devm_clk_hw_register_divider(&pdev->dev, "hdmi_ref", "tvdpll_594m", 0,
++	hw = devm_clk_hw_register_divider(dev, "hdmi_ref", "tvdpll_594m", 0,
+ 					  base + REGOFF_HDMI_REF, 16, 3,
+ 					  CLK_DIVIDER_POWER_OF_TWO, NULL);
+ 	clk_data->hws[CLK_APMIXED_HDMI_REF] = hw;
+ 
+-	r = of_clk_add_hw_provider(node, of_clk_hw_onecell_get, clk_data);
++	r = of_clk_add_hw_provider(dev->of_node, of_clk_hw_onecell_get, clk_data);
+ 	if (r)
+ 		goto unregister_ref2usb;
+ 
+diff --git a/drivers/clk/mediatek/clk-mt8186-apmixedsys.c b/drivers/clk/mediatek/clk-mt8186-apmixedsys.c
+index 4b2b16578232d986f78deed4778c5fab7f460184..d35dd2632e43ab535b32b8b99f8d75de02d56fe2 100644
+--- a/drivers/clk/mediatek/clk-mt8186-apmixedsys.c
++++ b/drivers/clk/mediatek/clk-mt8186-apmixedsys.c
+@@ -151,7 +151,7 @@ static int clk_mt8186_apmixed_probe(struct platform_device *pdev)
+ 
+ 	fhctl_parse_dt(fhctl_node, pllfhs, ARRAY_SIZE(pllfhs));
+ 
+-	r = mtk_clk_register_pllfhs(node, plls, ARRAY_SIZE(plls),
++	r = mtk_clk_register_pllfhs(&pdev->dev, plls, ARRAY_SIZE(plls),
+ 				    pllfhs, ARRAY_SIZE(pllfhs), clk_data);
+ 	if (r)
+ 		goto free_apmixed_data;
+diff --git a/drivers/clk/mediatek/clk-mt8192-apmixedsys.c b/drivers/clk/mediatek/clk-mt8192-apmixedsys.c
+index 0b66a27e4d5ac68f09dc6a4197fd84ef82342df9..b0563a285bd666d492a7fa940733aad1ab1a0bae 100644
+--- a/drivers/clk/mediatek/clk-mt8192-apmixedsys.c
++++ b/drivers/clk/mediatek/clk-mt8192-apmixedsys.c
+@@ -162,7 +162,7 @@ static int clk_mt8192_apmixed_probe(struct platform_device *pdev)
+ 
+ 	fhctl_parse_dt(fhctl_node, pllfhs, ARRAY_SIZE(pllfhs));
+ 
+-	r = mtk_clk_register_pllfhs(node, plls, ARRAY_SIZE(plls),
++	r = mtk_clk_register_pllfhs(&pdev->dev, plls, ARRAY_SIZE(plls),
+ 				    pllfhs, ARRAY_SIZE(pllfhs), clk_data);
+ 	if (r)
+ 		goto free_clk_data;
+diff --git a/drivers/clk/mediatek/clk-mt8195-apmixedsys.c b/drivers/clk/mediatek/clk-mt8195-apmixedsys.c
+index 282a3137dc89419a6d0b574fd549cee941687900..44917ab034c56f01ef02d1957f17eb0655438d75 100644
+--- a/drivers/clk/mediatek/clk-mt8195-apmixedsys.c
++++ b/drivers/clk/mediatek/clk-mt8195-apmixedsys.c
+@@ -181,7 +181,7 @@ static int clk_mt8195_apmixed_probe(struct platform_device *pdev)
+ 
+ 	fhctl_parse_dt(fhctl_node, pllfhs, ARRAY_SIZE(pllfhs));
+ 
+-	r = mtk_clk_register_pllfhs(node, plls, ARRAY_SIZE(plls),
++	r = mtk_clk_register_pllfhs(&pdev->dev, plls, ARRAY_SIZE(plls),
+ 				    pllfhs, ARRAY_SIZE(pllfhs), clk_data);
+ 	if (r)
+ 		goto free_apmixed_data;
+diff --git a/drivers/clk/mediatek/clk-pllfh.c b/drivers/clk/mediatek/clk-pllfh.c
+index 62bfe4a480f14a0a742fb094aff0e6d1a79fe0c3..8ad11023d91127e88900bc6bcabbaeafb1e00664 100644
+--- a/drivers/clk/mediatek/clk-pllfh.c
++++ b/drivers/clk/mediatek/clk-pllfh.c
+@@ -10,6 +10,7 @@
+ #include <linux/slab.h>
+ #include <linux/clkdev.h>
+ #include <linux/delay.h>
++#include <linux/device.h>
+ 
+ #include "clk-mtk.h"
+ #include "clk-pllfh.h"
+@@ -149,7 +150,7 @@ static bool fhctl_is_supported_and_enabled(const struct mtk_pllfh_data *pllfh)
+ }
+ 
+ static struct clk_hw *
+-mtk_clk_register_pllfh(const struct mtk_pll_data *pll_data,
++mtk_clk_register_pllfh(struct device *dev, const struct mtk_pll_data *pll_data,
+ 		       struct mtk_pllfh_data *pllfh_data, void __iomem *base)
+ {
+ 	struct clk_hw *hw;
+@@ -166,6 +167,8 @@ mtk_clk_register_pllfh(const struct mtk_pll_data *pll_data,
+ 		goto out;
+ 	}
+ 
++	fh->clk_pll.dev = dev;
++
+ 	hw = mtk_clk_register_pll_ops(&fh->clk_pll, pll_data, base,
+ 				      &mtk_pllfh_ops);
+ 
+@@ -194,7 +197,7 @@ static void mtk_clk_unregister_pllfh(struct clk_hw *hw)
+ 	kfree(fh);
+ }
+ 
+-int mtk_clk_register_pllfhs(struct device_node *node,
++int mtk_clk_register_pllfhs(struct device *dev,
+ 			    const struct mtk_pll_data *plls, int num_plls,
+ 			    struct mtk_pllfh_data *pllfhs, int num_fhs,
+ 			    struct clk_hw_onecell_data *clk_data)
+@@ -203,7 +206,7 @@ int mtk_clk_register_pllfhs(struct device_node *node,
  	int i;
  	struct clk_hw *hw;
  
@@ -443,32 +255,31 @@ index cd2b6ce551c6b0333cbe0a4f0d155ba2411f757a..5caf91ae9ddbe4f4d7052864adf0a5a7
  	if (!base) {
  		pr_err("%s(): ioremap failed\n", __func__);
  		return -EINVAL;
-@@ -423,7 +424,7 @@ int mtk_clk_register_plls(struct device_node *node,
+@@ -218,9 +221,9 @@ int mtk_clk_register_pllfhs(struct device_node *node,
+ 		use_fhctl = fhctl_is_supported_and_enabled(pllfh);
  
- 		if (!IS_ERR_OR_NULL(clk_data->hws[pll->id])) {
- 			pr_warn("%pOF: Trying to register duplicate clock ID: %d\n",
--				node, pll->id);
-+				dev->of_node, pll->id);
- 			continue;
- 		}
+ 		if (use_fhctl)
+-			hw = mtk_clk_register_pllfh(pll, pllfh, base);
++			hw = mtk_clk_register_pllfh(dev, pll, pllfh, base);
+ 		else
+-			hw = mtk_clk_register_pll(NULL, pll, base);
++			hw = mtk_clk_register_pll(dev, pll, base);
  
-diff --git a/drivers/clk/mediatek/clk-pll.h b/drivers/clk/mediatek/clk-pll.h
-index d71c150ce83e4bb2fe78290c2d5570a90084246d..0e2b94b9cd4b56adceee3b04e9ab24c2526471da 100644
---- a/drivers/clk/mediatek/clk-pll.h
-+++ b/drivers/clk/mediatek/clk-pll.h
-@@ -78,9 +78,9 @@ struct mtk_clk_pll {
- 	const struct mtk_pll_data *data;
+ 		if (IS_ERR(hw)) {
+ 			pr_err("Failed to register %s clk %s: %ld\n",
+diff --git a/drivers/clk/mediatek/clk-pllfh.h b/drivers/clk/mediatek/clk-pllfh.h
+index 5f419c2ec01f988ede4e40289c6e5d5f8070ad14..a4f337acad71389f771187908882b09d0f801868 100644
+--- a/drivers/clk/mediatek/clk-pllfh.h
++++ b/drivers/clk/mediatek/clk-pllfh.h
+@@ -68,7 +68,7 @@ struct fh_operation {
+ 	int (*ssc_enable)(struct mtk_fh *fh, u32 rate);
  };
  
--int mtk_clk_register_plls(struct device_node *node,
--			  const struct mtk_pll_data *plls, int num_plls,
--			  struct clk_hw_onecell_data *clk_data);
-+int mtk_clk_register_plls(struct device *dev, const struct mtk_pll_data *plls,
-+			  int num_plls, struct clk_hw_onecell_data *clk_data);
-+
- void mtk_clk_unregister_plls(const struct mtk_pll_data *plls, int num_plls,
- 			     struct clk_hw_onecell_data *clk_data);
- 
+-int mtk_clk_register_pllfhs(struct device_node *node,
++int mtk_clk_register_pllfhs(struct device *dev,
+ 			    const struct mtk_pll_data *plls, int num_plls,
+ 			    struct mtk_pllfh_data *pllfhs, int num_pllfhs,
+ 			    struct clk_hw_onecell_data *clk_data);
 
 -- 
 2.51.0
