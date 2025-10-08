@@ -4,61 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71AA1CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 01:56:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96A53CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Wed,  8 Oct 2025 02:18:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5R+MMT+pRekFlDMN3JKzI3+C8oDGIujAftuT+XmSMAM=; b=FKeWd4NzRoFH2tS2chI420tDpa
-	+jI7ShhFI0hYxKUi5cz4dVQXOI+E159QZ0FCeW+Q0s0rXJ71+YlsJ7Ebh4MI49Fkue/zJ4peEUPDM
-	L84TVGrvAoFOLpc6TPK9d/RIuCOK/yorqcjP1HDg/CEqYGczMUD8ehve2wlIVcOx3rydFUafX4YFP
-	uoI9zVGHk54CmwS1df5rPvhre/RJ0JmbkC/odI0UK7v78UAQJPa5yml09I0ElfwUGGqeWpmnnzEnX
-	z81WQubLNGsoN+kb3k5yaZq4Ar+9uWLZsEVsM3jPPS62ItrqvGLCKPtbhVnM5wLL8H04tB1m9Uxsx
-	ccZbBfGg==;
+	bh=VpO4EXCA7mxEWmLM4c/RiOB9NaCXuEh0Cp8mE4t2GWs=; b=Sm1suV4hsq4VbU+vP6rWkxBM4+
+	7DjZkdDHAXflap2n6MJ39q8TVviI2I+1WOx3HGZqJJbGlJ9utVBE+qw49M182mkAF1nNt5+URLkTS
+	Hj7h/WELdLvfkAXhbK3FGp/Afmlk1f5FsHOdvz6scvnT52oRgfN4/beeiI7XRICuS8dW5r6dO2GeG
+	ZT2BZVPrNsjPj0HnI4i/d7CfvLxTzgAIpYQT60Eti2Wv3i2idMHwZho57J94lQMCzgdkyVGpCGUmX
+	gMpu8JBYiAqi4PKW1t/fqrGBdSvDetN/jo5Sg4tldWx1yRym6749SktdZeAtp4eT4UsIRXG+SGJ8S
+	bv350D9A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6JPI-000000033RK-0Oua;
-	Wed, 08 Oct 2025 01:55:56 +0000
+	id 1v6Jl7-000000034XI-0Ko5;
+	Wed, 08 Oct 2025 02:18:29 +0000
 Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6JPF-000000033Qo-3dxT;
-	Wed, 08 Oct 2025 01:55:54 +0000
+	id 1v6Jl5-000000034Wz-1gCN
+	for linux-arm-kernel@lists.infradead.org;
+	Wed, 08 Oct 2025 02:18:28 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 752BC45398;
-	Wed,  8 Oct 2025 01:55:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B0537C4CEF1;
-	Wed,  8 Oct 2025 01:55:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 00ABC43742;
+	Wed,  8 Oct 2025 02:18:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 82BFCC4CEF1;
+	Wed,  8 Oct 2025 02:18:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759888551;
-	bh=zUFhCE55gFIo0YuR9SI3nbI7zUYaY9J9ttmKAuups78=;
+	s=k20201202; t=1759889906;
+	bh=qBRDlryuuYHk5HHM3fRxvnEsr5zJwEtevKEETX9HboU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=WSjlpz5RmjXK8xcAe2HmxNq3T/d+qmhcJMygkYX/KOXOChRgXirnYRWFFWjrlUiGi
-	 u7E3UjgyWozkSJxNLXbyBmxavxlDwXEgtGp2d2o9oydfW4gDoKSVC8pKcjS18ufcz/
-	 ozAPILk8zMlev7+Nz10kRdduj7+eK0oDjW0I0+wLfikSxCn2YAHUzxV/3YVSPRmldO
-	 OAE2NnM9CBpPHtY6r7HBJQcjixYcyiUw1XjGMgWOkzqeJrUxKB8uyJUkO3ezvj5MFM
-	 /p7jPsxlJHeaB3zw0P+uPSg4Qfu8k5RSZpmX1KFBvTtd7OTmm2SvdZ1HMEoOkykOaI
-	 H4Vs/4eOPToug==
-Message-ID: <0ac39a3e-d1a2-40d8-a3d1-b422acc720cc@kernel.org>
-Date: Wed, 8 Oct 2025 10:55:40 +0900
+	b=mqXI03UR06RwZ+s2PWZlyAR7H6SDkCoV5FNj6qCC9KGqFo5QIHFtcFtIvC2k07KAg
+	 TZAnNfCin7beU4NhKcCSkx/2vyGwdYtQ4Y6DVrhYCQtBiOQTdcz77O4WGx2JPouaYF
+	 EHUEYrPhER+B6gdF3gRkfH3Z9LB+ZJwR9OiuyRzSr1aOMhH/QxYZbHFVI2pqmw3W6w
+	 akTO1PPfM9H40tNrMahUd5h9Ix0nmjKma822fQsrHgSPDv55cDL+8ei4SUeRe1fJHM
+	 edhE7QJyQgHl9/rhikKw3haIvwnAecYypqAHRDdA2034tq0qCrCUAPKJS8E2gxNfZ+
+	 XvMGbB0OqCezA==
+Message-ID: <5fc709d1-f5b8-4579-b958-2bd7c6b55a77@kernel.org>
+Date: Wed, 8 Oct 2025 11:18:17 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 16/16] media: rockchip: rga: add rga3 support
-To: =?UTF-8?Q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>,
- Jacob Chen <jacob-chen@iotwrt.com>,
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
- Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
- <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+Subject: Re: [PATCH] scsi: ufs: dt-bindings: exynos: add power-domains
+To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Alim Akhtar <alim.akhtar@samsung.com>, Avri Altman <avri.altman@wdc.com>,
+ Bart Van Assche <bvanassche@acm.org>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
-Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, kernel@pengutronix.de
-References: <20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de>
- <20251007-spu-rga3-v1-16-36ad85570402@pengutronix.de>
- <bf989d9f-9e8e-4acc-b502-1674ce215318@kernel.org>
- <947409d8-9a92-46f2-a6e7-49f3aa44d74f@pengutronix.de>
+Cc: Peter Griffin <peter.griffin@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>,
+ Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
+ linux-scsi@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20251007-power-domains-scsi-ufs-dt-bindings-exynos-v1-1-1acfa81a887a@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,12 +103,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <947409d8-9a92-46f2-a6e7-49f3aa44d74f@pengutronix.de>
+In-Reply-To: <20251007-power-domains-scsi-ufs-dt-bindings-exynos-v1-1-1acfa81a887a@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251007_185553_950040_4CFD0751 
-X-CRM114-Status: GOOD (  15.23  )
+X-CRM114-CacheID: sfid-20251007_191827_479640_093FB077 
+X-CRM114-Status: UNSURE (   6.09  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -124,40 +124,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 08/10/2025 01:05, Sven Püschel wrote:
-> Hi Krzysztof,
+On 08/10/2025 00:56, André Draszik wrote:
+> The UFS controller can be part of a power domain, so we need to allow
+> the relevant property 'power-domains'.
 > 
-> On 10/7/25 10:39 AM, Krzysztof Kozlowski wrote:
->> On 07/10/2025 17:32, Sven Püschel wrote:
->>> Add support for the RGA3 unit contained in the RK3588.
->>>
->>> Only a basic feature set consisting of scaling and color conversion is
->>> implemented. Advanced features like rotation and cropping will just be
->>> ignored. Also the BT601F color space conversion is currently hard coded.
->>>
->>> The register address defines were copied from the
->>> vendor Rockchip kernel sources and slightly adjusted to not start at 0
->>> again for the cmd registers.
->>>
->>> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
->>> ---
->>>   drivers/media/platform/rockchip/rga/Makefile  |   2 +-
->>>   drivers/media/platform/rockchip/rga/rga.c     |   4 +
->>>   drivers/media/platform/rockchip/rga/rga.h     |   2 +-
->>>   drivers/media/platform/rockchip/rga/rga3-hw.c | 490 ++++++++++++++++++++++++++
->>>   drivers/media/platform/rockchip/rga/rga3-hw.h | 186 ++++++++++
->>>   5 files changed, 682 insertions(+), 2 deletions(-)
->> Your order of patches is a mess. DTS cannot be in the middle. In fact,
->> DTS should not be even in this patchset, because you are targeting media.
-> 
-> sorry to bother you, but could you go into a bit more detail on how it 
-> should be done correctly?
+> Signed-off-by: André Draszik <andre.draszik@linaro.org>
 
-DTS cannot be before drivers, because this suggests that drivers depends
-on DTS, which would be a NAK. See also maintainer soc profile. To avoid
-having such impression of fake dependency, DTS must be placed at the end
-of patchset (except the obvious part: nothing in your code can depend on
-it).
+
+Indeed, confirmed on Exynos 7420.
+
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
