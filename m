@@ -4,66 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3DF62CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 17:04:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D308CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 17:05:39 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=riseqr7giCwGSs0EX2LMjuRgShugdJRoGQeLK08awR0=; b=cENybWo52cRICB+87pZyXlMxVO
-	pfvCxgzJ8N6MP4H3Ac24gcN96goB5kI/ui6DaQXfDLM2yp97Te6wsZEbXjMuoK51KYr3doD9/Thav
-	W5bintPgmU22ByA160kU8eEfYH0oH79j/jutUJrtw9RRt+5aTANgIaDZE9won63Rv/ldmdquFuuCL
-	z8Pnp8Dyf2brTILB2DZ2CG4dK5fGOJ/s9EV9XPluNkPo8VZiH0HJY+pbAs7XaCg212eEbT1kahU7F
-	aORs3P28iV9zCfd6hX7y4NpBhlxKg+HIKM9vDb9uPrvRrSyvAGy9LcbYNylg/iAoKvx9ij9USdm1M
-	QCfAdF5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=sCajNGfwlcwIfNaL38ikymrMx4Or+DW7KStlKJEtuq0=; b=NW+qvwTrtvx/wPhGstb9ATOtBm
+	eLO3tCex9Gz3rz4BDlGni+QpdI/svfOR/yt7F4hzpmCvk9b4sy/lqskH2SzEw+cp3TR9z8VrnATa5
+	P5xbCo8KslDG4dhRC35WbSiTJljg2sf0iCTFJna6aBrKOrobW+HphDree7lngONsSRur/lgeACgxZ
+	HB+spCiA65wotK5VOkwwj+b/DfXMNPF7LNrPE9F5DOTwlwo+z3fHIwH5YH/S55rS+ZdLFRtsc24Hj
+	VVyYNvJQSzChriRVKdGdikQfUDcrA2X32U7B7pI1KkDCk3S1X5qRYxXfo6LDND//GLWdaZiDcus71
+	roC+ysIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6u3i-00000006ltv-1hAA;
-	Thu, 09 Oct 2025 17:04:06 +0000
-Received: from frasgout.his.huawei.com ([185.176.79.56])
+	id 1v6u58-00000006mB1-0XfR;
+	Thu, 09 Oct 2025 17:05:34 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6u3f-00000006lsV-1UtW
+	id 1v6u57-00000006mAY-1FyL
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 17:04:04 +0000
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cjGR31Pj7z67KQK;
-	Fri, 10 Oct 2025 01:03:11 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 530081402E9;
-	Fri, 10 Oct 2025 01:03:54 +0800 (CST)
-Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
- (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 9 Oct
- 2025 18:03:53 +0100
-Date: Thu, 9 Oct 2025 18:03:51 +0100
-From: Jonathan Cameron <jonathan.cameron@huawei.com>
-To: Marc Zyngier <maz@kernel.org>
-CC: <linux-kernel@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-acpi@vger.kernel.org>, Thomas Gleixner <tglx@linutronix.de>, "Mark
- Rutland" <mark.rutland@arm.com>, Will Deacon <will@kernel.org>, "Rafael J.
- Wysocki" <rafael@kernel.org>, Rob Herring <robh@kernel.org>, "Saravana
- Kannan" <saravanak@google.com>, Greg Kroah-Hartman
-	<gregkh@linuxfoundation.org>, Sven Peter <sven@kernel.org>, Janne Grunau
-	<j@jannau.net>, Suzuki K Poulose <suzuki.poulose@arm.com>, James Clark
-	<james.clark@linaro.org>
-Subject: Re: [PATCH v3 04/26] platform: Add firmware-agnostic irq and
- affinity retrieval interface
-Message-ID: <20251009180351.00000d3d@huawei.com>
-In-Reply-To: <20250922082833.2038905-5-maz@kernel.org>
-References: <20250922082833.2038905-1-maz@kernel.org>
-	<20250922082833.2038905-5-maz@kernel.org>
-X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
-MIME-Version: 1.0
-Content-Type: text/plain; charset="US-ASCII"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.203.177.15]
-X-ClientProxiedBy: lhrpeml500010.china.huawei.com (7.191.174.240) To
- dubpeml100005.china.huawei.com (7.214.146.113)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_100403_541606_FBAC26C5 
-X-CRM114-Status: GOOD (  21.52  )
+	Thu, 09 Oct 2025 17:05:33 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 71CD861E1D;
+	Thu,  9 Oct 2025 17:05:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1FC1EC4CEE7;
+	Thu,  9 Oct 2025 17:05:01 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760029501;
+	bh=XwfqM5QHQpVM8Kdpu0a6NtJ56tZ8bqhomvImo9fS3uk=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=kEa/QA8OAig3Qw7EDRe8tDHK9DTEyg9YRFanDbVu/TifAOZdR70nR5TSrWZb0yRMC
+	 YCfwq5nRbbVc7M+8RLJfoi+QYfucS2KZWhxB9qYSBrqKKiU+MMhjzSeyOSfy3P+/oD
+	 72zaq7VQXxsvKYtTmLbcxhDoq+zMKrqXe+3sAFmgbcnynw4CBbtm4XpekMTS4ihHcT
+	 y/XUz7p/FQ65RZ0sgla5djkU85Kd7xPiZpoTfLU34LAkowIUMCQdBur6o03hs/Vwzn
+	 63AjUiee3ZdYEPlz0NGC++Bf9VGPYmMSWbbrO0ISrGJxMkyib9GUjqrwIDf2aq6FRJ
+	 8rCzo7koEks7w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1v6u4Z-0000000Chge-0GNv;
+	Thu, 09 Oct 2025 17:04:59 +0000
+Date: Thu, 09 Oct 2025 18:04:58 +0100
+Message-ID: <86o6qgxayt.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	linux-tegra@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: IRQ thread timeouts and affinity
+In-Reply-To: <loeliplxuvek4nh4plt4hup3ibqorpiv4eljiiwltgmyqa4nki@xpzymugslcvf>
+References: <j7ikmaazu6hjzsagqqk4o4nnxl5wupsmpcaruoyytsn2ogolyx@mtmhqrkm4gbv>
+	<86qzvcxi3j.wl-maz@kernel.org>
+	<loeliplxuvek4nh4plt4hup3ibqorpiv4eljiiwltgmyqa4nki@xpzymugslcvf>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: thierry.reding@gmail.com, tglx@linutronix.de, linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,62 +84,75 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 22 Sep 2025 09:28:11 +0100
-Marc Zyngier <maz@kernel.org> wrote:
-
-> Expand platform_get_irq_optional() to also return an affinity if
-> available, renaming it to platform_get_irq_affinity() in the
-> process.
+On Thu, 09 Oct 2025 17:05:15 +0100,
+Thierry Reding <thierry.reding@gmail.com> wrote:
 > 
-> platform_get_irq_optional() is preserved with its current semantics
-> by calling into the new helper with a NULL affinity pointer.
+> [1  <text/plain; us-ascii (quoted-printable)>]
+> On Thu, Oct 09, 2025 at 03:30:56PM +0100, Marc Zyngier wrote:
+> > Hi Thierry,
+> > 
+> > On Thu, 09 Oct 2025 12:38:55 +0100,
+> > Thierry Reding <thierry.reding@gmail.com> wrote:
+> > > 
+> > > Which brings me to the actual question: what is the right way to solve
+> > > this? I had, maybe naively, assumed that the default CPU affinity, which
+> > > includes all available CPUs, would be sufficient to have interrupts
+> > > balanced across all of those CPUs, but that doesn't appear to be the
+> > > case. At least not with the GIC (v3) driver which selects one CPU (CPU 0
+> > > in this particular case) from the affinity mask to set the "effective
+> > > affinity", which then dictates where IRQs are handled and where the
+> > > corresponding IRQ thread function is run.
+> > 
+> > There's a (GIC-specific) answer to that, and that's the "1 of N"
+> > distribution model. The problem is that it is a massive headache (it
+> > completely breaks with per-CPU context).
 > 
-> Signed-off-by: Marc Zyngier <maz@kernel.org>
-
-Maybe a breadcrumb of a comment for those of us who can't be bothered
-to figure out why this needs the ifndef CONFIG_SPARC?
-
-Otherwise a question on whether it's worth spinning a fwnode.h handler
-to hide away the fwnode type in get_irq_affinity.
-I think not given the complexity already there for the platform device
-irq stuff, but thought I'd mention it.
-
-Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
-
-> ---
->  drivers/base/platform.c         | 60 +++++++++++++++++++++++++++------
->  include/linux/platform_device.h |  2 ++
->  2 files changed, 52 insertions(+), 10 deletions(-)
+> Heh, that started out as a very promising first paragraph but turned
+> ugly very quickly... =)
 > 
-> diff --git a/drivers/base/platform.c b/drivers/base/platform.c
-> index 09450349cf323..3a058f63ef0d3 100644
-> --- a/drivers/base/platform.c
-> +++ b/drivers/base/platform.c
-> @@ -150,25 +150,37 @@ devm_platform_ioremap_resource_byname(struct platform_device *pdev,
->  EXPORT_SYMBOL_GPL(devm_platform_ioremap_resource_byname);
->  #endif /* CONFIG_HAS_IOMEM */
->  
-> +static const struct cpumask *get_irq_affinity(struct platform_device *dev,
-> +					      unsigned int num)
-> +{
-> +	const struct cpumask *mask = NULL;
-> +#ifndef CONFIG_SPARC
-> +	struct fwnode_handle *fwnode = dev_fwnode(&dev->dev);
-> +
-> +	if (is_of_node(fwnode))
-> +		mask = of_irq_get_affinity(to_of_node(fwnode), num);
-> +	else if (is_acpi_device_node(fwnode))
-> +		mask = acpi_irq_get_affinity(ACPI_HANDLE_FWNODE(fwnode), num);
+> > We could try and hack this in somehow, but defining a reasonable API
+> > is complicated. The set of CPUs receiving 1:N interrupts is a *global*
+> > set, which means you cannot have one interrupt targeting CPUs 0-1, and
+> > another targeting CPUs 2-3. You can only have a single set for all 1:N
+> > interrupts. How would you define such a set in a platform agnostic
+> > manner so that a random driver could use this? I definitely don't want
+> > to have a GIC-specific API.
+> 
+> I see. I've been thinking that maybe the only way to solve this is using
+> some sort of policy. A very simple policy might be: use CPU 0 as the
+> "default" interrupt (much like it is now) because like you said there
+> might be assumptions built-in that break when the interrupt is scheduled
+> elsewhere. But then let individual drivers opt into the 1:N set, which
+> would perhaps span all available CPUs but the first one. From an API PoV
+> this would just be a flag that's passed to request_irq() (or one of its
+> derivatives).
 
-Not sure how useful it will be more generally, but maybe use fwnode.h and
-appropriate callback rather than opencoding here?
+The $10k question is how do you pick the victim CPUs? I can't see how
+to do it in a reasonable way unless we decide that interrupts that
+have an affinity matching cpu_possible_mask are 1:N. And then we're
+left with wondering what to do about CPU hotplug.
 
-Mind you the extra handling in existing platform_get_irq_optional()
-for corner cases doesn't really fit with that model.
+> 
+> > Overall, there is quite a lot of work to be done in this space: the
+> > machine I'm typing this from doesn't have affinity control *at
+> > all*. Any interrupt can target any CPU,
+> 
+> Well, that actually sounds pretty nice for the use-case that we have...
+> 
+> >                                         and if Linux doesn't expect
+> > that, tough.
+> 
+> ... but yeah, it may also break things.
 
-> +#endif
-> +
-> +	return mask ?: cpu_possible_mask;
-> +}
+Yeah. With GICv3, only SPIs can be 1:N, but on this (fruity) box, even
+MSIs can be arbitrarily moved from one CPU to another. This is a
+ticking bomb.
 
+I'll see if I can squeeze out some time to look into this -- no
+promises though.
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
