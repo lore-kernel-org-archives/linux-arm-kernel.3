@@ -4,59 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58C2CCCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 21:30:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8727CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 21:39:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hklQ8tRKwaKYDErRF1YB8TiLgUmmzMXzG7ufFj2s09M=; b=ZMjHgiOvYmAticywTyFQLlT58N
-	QG/KRFEGCmTW77uifPdass4ddHpkGoofSDv6b2/9rV+r8uHGiH9dV98MmKoWd7MbBNrh8sfVbK++U
-	cL+uFaLPvCR+GZBh+vYSYeC2IS6zdcjwvGD9NSAX3SFxicbNG/3x8LakwhYsZXfoS0uoloATINeZ7
-	wQ06R5EWbkSQYdcRoWGYSJ+UAJEDhFRlHCdDnkcmJsHnDryQUeaH1n4IWrcYgHazyGHiQR6s24kdo
-	7PZkey/l+LznUi504HFa21y6CDtmITaZKaq065OjJ+fwY9eT+d/i6NkYyFWDkc8RHrgoV5EamtGPd
-	G8y0z/fQ==;
+	bh=GAMGpTBb5JIMylmtnuNcSJ5s50b2UQUcn7vzXw649qs=; b=NXfK1J+k25oNO77a5/vYM2oahS
+	iqBrbUbWUaqeN0b8ijcY86tbod5ydqcQXuwX2HSVgS7LUXJ463sIpl1LRpV7buYEw5osWr2f8+mp/
+	LgqGf0FLEpzieGm8kJMEDLkT9C19Yk4kJEjp0DSXQzJIv1P/4rrPJyfLBDRlEZqUwyuSXvMbdscXT
+	H/41ZobR+J83wWOkeHJS5nKM+8Oj1CUNUMwRw0CeSiHcLDi5muTM3wMDWZCMnS+AI3PAdYbDhX3h/
+	IlNoMqpsnVMSllt7BiT9liZ9nHxrNdweXCTo4EjVd0C4+kiVoj6pzvkqEFv2WxUJDgdUZXdTziqfB
+	QTWqLb5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6yDs-00000007A60-0Kri;
-	Thu, 09 Oct 2025 21:30:52 +0000
-Received: from out-179.mta0.migadu.com ([2001:41d0:1004:224b::b3])
+	id 1v6yLw-00000007AoF-1WRR;
+	Thu, 09 Oct 2025 21:39:12 +0000
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6yDo-00000007A5c-1Niz
+	id 1v6yLu-00000007Anv-1k94
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 21:30:50 +0000
-Date: Thu, 9 Oct 2025 14:30:34 -0700
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1760045442;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 in-reply-to:in-reply-to:references:references;
-	bh=hklQ8tRKwaKYDErRF1YB8TiLgUmmzMXzG7ufFj2s09M=;
-	b=LYBnXVhr7HKEZhFK/rpCBX05+lNJQbAeLcyG6znaqW322vOApbiJ11HbXmcSeloGn6inU+
-	UB1sdWNkpE26QkRLpsDh/SOvJmV4p+EiO5/sLHOdOeCTgGWpbLAYXLOH3hoyqFaxjMlG6T
-	9DVXB3nksCyhIe04RrgnTvECZjxrSlY=
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Oliver Upton <oliver.upton@linux.dev>
-To: Marc Zyngier <maz@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>, Jan Kotas <jank@cadence.com>
-Subject: Re: [PATCH] arm64: Revamp HCR_EL2.E2H RES1 detection
-Message-ID: <aOgpesxEKsnbKGs3@linux.dev>
-References: <20251009121239.29370-1-maz@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251009121239.29370-1-maz@kernel.org>
-X-Migadu-Flow: FLOW_OUT
+	Thu, 09 Oct 2025 21:39:11 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-b4c72281674so1754376a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 14:39:09 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1760045949; x=1760650749; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=GAMGpTBb5JIMylmtnuNcSJ5s50b2UQUcn7vzXw649qs=;
+        b=Cxzd14Ni5aq9S+B2zNavUDrhUFdAsQ8Hh7+3WuQmjrENf29v58PJdRxjy4dkc9dSsH
+         HgsDLI43Ywo+92Pv1Zsld0x/qgmKaeToKqWRxlOFiXHzQrY8MX70DcqSOJ9VJX4brpj7
+         LntrP3dVouM1QhRY1GEM9F32hkSVqCfKQ4zAdEkO7SQ4wD6TOZJiniH7OQiWrGR6G0QQ
+         AFra+krCBl+IvuEer5YMUENhZcwXS1FpiOokyI34M+tFpu3h2GiSvum6JhocCKvGzcKH
+         w9sMjlM24c2ya+eMy8In2uW6/1PCr2wPzvvh+tuZM59pKgZQxjPjSbAMLKge8bSFrExT
+         LXeg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760045949; x=1760650749;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=GAMGpTBb5JIMylmtnuNcSJ5s50b2UQUcn7vzXw649qs=;
+        b=LKW3Vw1lSfIIcMbrzTTwIDU559vyatrvLT2ou8APpVIdv/VfiZZZX8+wKdrqs16/4r
+         WAvmQQEy7ZQ3foby0yowNl4VUl/17fJW+RYTxpyuRzHpe2JBX5bt2QDcB+0UqMcXqobE
+         H9ueljhQs0Pklsr71rf7LRWV6rUK+p3acr72ap4wI4wOQ/MvNApCQjTgYoLQ5gdyEjNb
+         qrvAmwFjyASmHlEKYYhpyDM+oAPkYilgsCXsI/zYF1HeBCDPMcTWp7KyHEyos4lo7GvX
+         bD+36bJrIVY7eiiEZcqVwtkIJqvX40E/Btue9k5t+TWcBAGiUBgM7gOildmlcAJMEzoG
+         VuvA==
+X-Gm-Message-State: AOJu0YyQihs0yys61hic7f5hQ9d+S/gkzZLQ+goEXrG5KEulv++CoJdX
+	azZABZsHaQ74lsO1FYRVQ9Nu87m1WH0Yivp7gUg08K62ah49PN3vyt3HmFsswpOuiyfAB+1f8ZF
+	cn7pSeNcZuOaI2Vi0iHTXsjc8OQ==
+X-Google-Smtp-Source: AGHT+IHiLO0Tc7T4efMeJ7arhzRn2QVrxkkt3xAe4o5ah0mgwx2R8IQxbSx0reBo3eWBl5LTjIgto1JJK2FqbDLCmg==
+X-Received: from pjbne5.prod.google.com ([2002:a17:90b:3745:b0:330:8b1f:c4e7])
+ (user=ackerleytng job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:90b:1b50:b0:332:250e:eec8 with SMTP id 98e67ed59e1d1-33b51168e20mr13156235a91.15.1760045949059;
+ Thu, 09 Oct 2025 14:39:09 -0700 (PDT)
+Date: Thu, 09 Oct 2025 14:39:07 -0700
+In-Reply-To: <20251007221420.344669-5-seanjc@google.com>
+Mime-Version: 1.0
+References: <20251007221420.344669-1-seanjc@google.com> <20251007221420.344669-5-seanjc@google.com>
+Message-ID: <diqztt07hi10.fsf@google.com>
+Subject: Re: [PATCH v12 04/12] KVM: guest_memfd: Add slab-allocated inode cache
+From: Ackerley Tng <ackerleytng@google.com>
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Paolo Bonzini <pbonzini@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	David Hildenbrand <david@redhat.com>, Fuad Tabba <tabba@google.com>, Shivank Garg <shivankg@amd.com>, 
+	Ashish Kalra <ashish.kalra@amd.com>, Vlastimil Babka <vbabka@suse.cz>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_143049_100307_56482E1F 
-X-CRM114-Status: GOOD (  19.57  )
+X-CRM114-CacheID: sfid-20251009_143910_455761_BF9188CE 
+X-CRM114-Status: GOOD (  11.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,45 +90,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey,
+Sean Christopherson <seanjc@google.com> writes:
 
-On Thu, Oct 09, 2025 at 01:12:39PM +0100, Marc Zyngier wrote:
-> We currently have two ways to identify CPUs that only implement FEAT_VHE
-> and not FEAT_E2H0:
-> 
-> - either they advertise it via ID_AA64MMFR4_EL1.E2H0,
-> - or the HCR_EL2.E2H bit is RAO/WI
-> 
-> However, there is a third category of "cpus" that fall between these
-> two cases: on CPUs that do not implement FEAT_FGT, it is IMPDEF whether
-> an access to ID_AA64MMFR4_EL1 can trap to EL2 when the register value
-> is zero.
-> 
-> A consequence of this is that on systems such as Neoverse V2, a NV
-> guest cannot reliably detect that it is in a VHE-only configuration
-> (E2H is writable, and ID_AA64MMFR0_EL1 is 0), despite the hypervisor's
-> best effort to repaint the id register.
-> 
-> Replace the RAO/WI test by a sequence that makes use of the VHE
-> register remnapping between EL1 and EL2 to detect this situation,
-> and work out whether we get the VHE behaviour even after having
-> set HCR_EL2.E2H to 0.
-> 
-> This solves the NV problem, and provides a more reliable acid test
-> for CPUs that do not completely follow the letter of the architecture
-> while providing a RES1 behaviour for HCR_EL2.E2H.
-> 
-> Suggested-by: Marc Rutland <mark.rutland@arm.com>
-		^~~~
+> From: Shivank Garg <shivankg@amd.com>
+>
+> Add a dedicated gmem_inode structure and a slab-allocateda inode cache for
+> guest memory backing, similar to how shmem handles inodes.
+>
+> This adds the necessary allocation/destruction functions and prepares
+> for upcoming guest_memfd NUMA policy support changes.  Using a dedicated
+> structure will also allow for additional cleanups, e.g. to track flags in
+> gmem_inode instead of i_private.
+>
+> Signed-off-by: Shivank Garg <shivankg@amd.com>
+> Tested-by: Ashish Kalra <ashish.kalra@amd.com>
+> [sean: s/kvm_gmem_inode_info/gmem_inode, name init_once()]
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
 
-Thank you *Mark* for the suggestion here, neat trick :)
+Reviewed-by: Ackerley Tng <ackerleytng@google.com>
+Tested-by: Ackerley Tng <ackerleytng@google.com>
 
-I'd be in favor of this patch being sent to stable, happy to handle the
-backports if you don't have the time for it. VMs mysteriously dying
-isn't a very good experience on NV and I'd like to not scare folks away.
-
-Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
-
-Thanks,
-Oliver
+> ---
+>  virt/kvm/guest_memfd.c | 77 +++++++++++++++++++++++++++++++++++++++++-
+>  1 file changed, 76 insertions(+), 1 deletion(-)
+>
+> 
+> [...snip...]
+> 
 
