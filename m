@@ -4,92 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8552CCCA471
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 05:16:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 11FD0CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 05:33:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tyqb1CztMqi3UzPCCUo4PJPR7YENee+9JSUveio1sPI=; b=d3i8bkICxXVPDd+2PYIkrPdncY
-	ScvlTPI//pBs+3Qf0q4kO6H5p+81aA+mxNrbz3+Y7MUiyCoAeOhvBU6fL8zJ5ZRGDA311AhAJuxvb
-	bGIcWVDacaIVmTGgZvkzPTFAIeX2TI6EZgfSsd7w/oubCu92sRavZpGoeFY40COcRbuOlzLDkj9QU
-	qvRKcjwjmIGwgwBxwE6Bg0KgWkK+Z0F7QM/lm689F0ExEllqeFErVNmoJQylSoznqDmFi0BJZbQiq
-	625jqnJF6+nOgUqjSQPnbieLzP1wC+U8ktevbiXA81KHGQ48QTCNp8h3y5M48mB4xVQkQreqzHtUP
-	5bcNV2og==;
+	bh=ktzba1DKI99kYPMwl1srTlE2mog9+B/vdYobPJ4WgxM=; b=L6RLB9FcgVMA8yMUW8HmVSXnTe
+	tJviwLdbFH7J1iLoMKMqADBbguP24ODiO+F+bkFlOAtT7ASezto3iZ7bdgytte+U2rKuV0DrmWve0
+	g3Jx4ddw7dt4mJUOfo9ZwmcbcGvpzmrKR+HGvOkWFAzKOAq5rcVoaksZFJRQ1UHj4e0G9fBVktoBT
+	4l913mPGX5jiXe+2BTyb4Io3/3N+kCya9HU9QVICdDoX1XQYc3ulAskwXrIZlkvGy589rasAWB9oQ
+	IUfkW4G6VhF5fWl+7euoainFlMAwm8AleNzyUOA9qGccsJChOzztsVZdgWhmXIdo+O1+EFBA9Uhg7
+	IXX75e1Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6j1D-00000005CXf-3gA1;
-	Thu, 09 Oct 2025 05:16:47 +0000
-Received: from mail-qv1-xf2c.google.com ([2607:f8b0:4864:20::f2c])
+	id 1v6jGu-00000005DPR-0NqF;
+	Thu, 09 Oct 2025 05:33:00 +0000
+Received: from mail-pg1-x52d.google.com ([2607:f8b0:4864:20::52d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6j1A-00000005CWb-1SEI
+	id 1v6jGq-00000005DOe-4Asb
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 05:16:46 +0000
-Received: by mail-qv1-xf2c.google.com with SMTP id 6a1803df08f44-87bb66dd224so3767206d6.3
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Oct 2025 22:16:43 -0700 (PDT)
+	Thu, 09 Oct 2025 05:32:58 +0000
+Received: by mail-pg1-x52d.google.com with SMTP id 41be03b00d2f7-b60971c17acso454839a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Oct 2025 22:32:56 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1759987003; x=1760591803; darn=lists.infradead.org;
+        d=google.com; s=20230601; t=1759987976; x=1760592776; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=tyqb1CztMqi3UzPCCUo4PJPR7YENee+9JSUveio1sPI=;
-        b=AQGJtaQm7W1Ps4XuApeaEvalV1zLZLcpiPDicegiWd4GUHeUHp9P/nioxl6yFyrPMq
-         uI0SZOEMTFS9IMG97mkn1v1e/+/4VCrbnH8UHihoHGsYgM5QnheowRzTmYg/ejKAhTZ7
-         PpqfBwiOw51d1ktvJHIXFjcti6Q2r07drC3/iPjv0u/XGoiuEl7/2s61F5HEtoedN0qC
-         39enPxV+jI/Vyh9Hv7Jj2DhkEPzviLWJozR9QOKTD+CudnkVlWREiCgKY8K8H277ChAV
-         LEfdJJMyPzg6rX3YZBKwC4pJn4uoiE56vd3CLrb+MzQht6BmSwXc6K56dBLodVks+6go
-         uUcg==
+        bh=ktzba1DKI99kYPMwl1srTlE2mog9+B/vdYobPJ4WgxM=;
+        b=O1Pxp+WFlyZUnloyFzQShywE1HotDGiGoy9FFU3W45UAdnz/NCF8FDVth6dCsxHSMw
+         E4Eu9MTM63kEbJwrCgxYufg2vigUy8gD5y5afHNOsjyQOjw81txlTfCeM/802EqbeOiU
+         UnbULrFo1rmqMOAm2tIPFd4WSm7Po7T8YhnyMayQJi46jyrUkmidZNvs5cHDmUK5DnOl
+         YJZtGmqLNgMYIGkuvid2xAEjyf5WK6gZGvuYBQXVltPe0BcOlrATYWIQ3bhbi9nwXHS4
+         L3ruc4JzCx9fjYYCThLJe0RLqFPshMd6+hLR0V2eDRCNaU0t9H89ckhdee01QBbtbHa3
+         3SsQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759987003; x=1760591803;
+        d=1e100.net; s=20230601; t=1759987976; x=1760592776;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=tyqb1CztMqi3UzPCCUo4PJPR7YENee+9JSUveio1sPI=;
-        b=sy29MLRYnin4y4pcBLyhR6vbVxjwph+sabNi+7BNb4Rsyc4t7V6kJIqqR04c1lCh9b
-         sGwAc1dLtzuYWJ28eRyFvGn+aQomNGz7oTkeqJ56Z/uBx++Mofwblgx+u22aajuKQyHL
-         6/TfNri5tX/lDKh2ar2yWcMeS4eu7XWBD74M0oJ9m0Q7PoVugf3spbdtYA7MUES+06kH
-         S60IoVaOsFogP9tp8b8uRoCBJgOMQBp8CAaxniVz7i+/vujaBeLTtjV3X0GfSvGcKUsp
-         FLuRt191eQyFry5RFxrdFcC/7LjxPcOFvl8CcLPGshhsIjJMvYzrcpM+Dvd7/uvbpBIz
-         /r2g==
-X-Forwarded-Encrypted: i=1; AJvYcCU6EJ0tcl4Q5o4Mx8OfPhmGgju6/wKaZ/Kc6usN98QH4oyKGg03fr+w3uEUuA1IHSGcVpeOPe1oVwfWiVY5kziS@lists.infradead.org
-X-Gm-Message-State: AOJu0YyzRpHthlg9PLJ/YADOzoQkNt1omOz2WFffCOrQ4XroEBzTp5EN
-	vbJB/Pi4UCGO0DyIx8hRMkM19oH0gBl3gRCtgS4zI+AkNk2Snls/SI2b3W0BPbxMVlIu08Ar8uf
-	c7F+Rt1DwXoazVaAFSOoh2TryNlmpF68=
-X-Gm-Gg: ASbGncuVSzUjBx/YRoejllpWaO8wERPHB484xQJemiX+glBl0P1xd/ZROkPoeOcdTy3
-	n0fWg+4uFU3SU8cpM4d1pw46HOeEn48Edld6a0kT2b5lM2yygdVhU45vfC/4+mMLkgpA7aU4PCF
-	9We232WUrfKpLLSL3VsqXplWomI0pf/V1unPy8EDpnkC7+6zb2qobYDVIWM0vtD4bDBOjwSLtYz
-	R4h2JUAjRj12/Ysi9g0JE+fOsqJMpcrLIidYC9NME0=
-X-Google-Smtp-Source: AGHT+IH7cynlxmysIGXABGaRxHRjaSOMuEx+1JjoUFV9WJpw/MAcUpWK0V9ARSZ1SYD2oraMIpI9j58hrMErsazHIU0=
-X-Received: by 2002:a05:6214:2601:b0:80a:7bd3:e61d with SMTP id
- 6a1803df08f44-87b2ef6325amr77155716d6.34.1759987002596; Wed, 08 Oct 2025
- 22:16:42 -0700 (PDT)
+        bh=ktzba1DKI99kYPMwl1srTlE2mog9+B/vdYobPJ4WgxM=;
+        b=qzt8TBsmAyylvOiOfq/4pDACVkfslL76AfUEdIxG1U5GxuxCeXfh+LAILwntL/Ev6f
+         KwvIvGRww3gAcV7Kv75G8PVCPHJNLUZTjlu9gJ4IsfItiOZ9TDfaGGTckFcTqNkeAW1n
+         npAV1bVmhi3J6TpRTi6AKggLi7cXpuMkptd25NzSetLjdGns/EPgAdpy+jzsjJWnDYkG
+         rzZRO5mQSJ0v6MaoQvDK7PEvbRQn1pJo9zX/TkD1acUTTPRqAfMF0miaSygOprnPCKs7
+         ZI9MA4yv5W2vZw4qujsTVJjQQIXenay8yMkctvrEmCpIgGNng563y0rzK4/bRTCW6bNe
+         zD4g==
+X-Forwarded-Encrypted: i=1; AJvYcCVOMzTIYGUhtg6b6zqHShpNr5K+foMPE6emvIyTDNj3NtuumY6fhDRl2DyLHQ4lPuMmI67T5Lgbxf744Eo3ljNz@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy7oS3+clX7eATMwVx5pcVQxZ7Nz/NpOKmpW5Skpfz/+52ywD90
+	tFa+UoF6v/A3P0gvvwuQAUAL2iR98klyCec9NRkBgba3c6dlWgm/xtnHvSwOYZ6Yyy+n60eOri4
+	hn9WekdpxDFWyrgP2UOzbSe/lNk499q7o5WNM+y44
+X-Gm-Gg: ASbGncsrlVYn8Uo0Ws0srdmvCdIuzofvpZ+1QOyprulBHxRioDAkX/JPmoxAqqKFr8U
+	nXgxz23AWgJih5wS45+6KhnDrQqGm25j93qBl40yj85X+S21NCKqEVrZ+kGnVdA1MsTR5LPzeyV
+	qrrNyHXwVA2T2mriIQ+kX9V6q0GrGQs7VpRIHytztkUYhX3bRz4qDaRZm7jM3mkESlZHq/Xv/Jx
+	9UKObLL+/FGk8tFdEk6GhXAlz4gPNABP02sQ0e4zXGrZgBhzXQso7tcmUODJmqw94V0LhQq09HF
+	rBy9fA==
+X-Google-Smtp-Source: AGHT+IESVUNCkk4qmxVAx9LJph/+dlWojTCH2hUrbcfDKEG7HjEaHHrdoMtO6Rsw83EBp0EQAopUJwb8ZBCKUnW4eIk=
+X-Received: by 2002:a17:903:3c30:b0:270:ea84:324a with SMTP id
+ d9443c01a7336-290272c1898mr84726695ad.38.1759987975870; Wed, 08 Oct 2025
+ 22:32:55 -0700 (PDT)
 MIME-Version: 1.0
-References: <20250929065714.27741-1-jjm2473@gmail.com> <20250929065714.27741-4-jjm2473@gmail.com>
- <d8ad476c-d0c7-4e97-9e76-540a539ffb52@lunn.ch> <CAP_9mL4ofig-X-w9wx1A5D_eVXROo6AVFBSwp4mh=kj7webpPA@mail.gmail.com>
- <7e219aef-88a0-4184-9553-30dcbc8dbd79@lunn.ch> <CAP_9mL6utQjN_2EZ4vs3K8jzcxHxvKWNTNEXZ9fAx4HuA=DNXA@mail.gmail.com>
- <aOVgid5q0_AhPXFB@shell.armlinux.org.uk>
-In-Reply-To: <aOVgid5q0_AhPXFB@shell.armlinux.org.uk>
-From: jjm2473 <jjm2473@gmail.com>
-Date: Thu, 9 Oct 2025 13:16:31 +0800
-X-Gm-Features: AS18NWCLtV0rRwWtVTBZ2YLKRiIGf1OTLHzIEDkTF7un8JPPGbserUWPiMMjbPw
-Message-ID: <CAP_9mL5UbWH_hn0AHm=OGZ1_X7yY-W-XXxx3hXC7iPNzHH+q+w@mail.gmail.com>
-Subject: Re: [PATCH v3 3/3] arm64: dts: rockchip: add LinkEase EasePi R1
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: Andrew Lunn <andrew@lunn.ch>, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, heiko@sntech.de, quentin.schulz@cherry.de, 
-	kever.yang@rock-chips.com, naoki@radxa.com, honyuenkwun@gmail.com, 
-	inindev@gmail.com, ivan8215145640@gmail.com, neil.armstrong@linaro.org, 
-	mani@kernel.org, dsimic@manjaro.org, pbrobinson@gmail.com, alchark@gmail.com, 
-	didi.debian@cknow.org, jbx6244@gmail.com, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+References: <20251008060000.3136021-1-royluo@google.com> <20251008060000.3136021-4-royluo@google.com>
+ <fa743412-d9f1-43fd-95e8-3b2a58cd6c25@kernel.org>
+In-Reply-To: <fa743412-d9f1-43fd-95e8-3b2a58cd6c25@kernel.org>
+From: Roy Luo <royluo@google.com>
+Date: Wed, 8 Oct 2025 22:32:19 -0700
+X-Gm-Features: AS18NWBygRM42KHUCeYjOx9jxiQbWPiyFalWSXt9KQT6EVktBFe8TaXkrSn7-PI
+Message-ID: <CA+zupgyjkyr-zfnecvL5i572q-S2BPSz9w-ue+OmyGoj7EtW_A@mail.gmail.com>
+Subject: Re: [PATCH v2 3/4] dt-bindings: phy: google: Add Google Tensor G5 USB PHY
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Thinh Nguyen <Thinh.Nguyen@synopsys.com>, 
+	Philipp Zabel <p.zabel@pengutronix.de>, Peter Griffin <peter.griffin@linaro.org>, 
+	=?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
+	Tudor Ambarus <tudor.ambarus@linaro.org>, Joy Chakraborty <joychakr@google.com>, 
+	Naveen Kumar <mnkumar@google.com>, Badhri Jagan Sridharan <badhri@google.com>, linux-phy@lists.infradead.org, 
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251008_221644_386458_FE79B23B 
-X-CRM114-Status: GOOD (  14.52  )
+X-CRM114-CacheID: sfid-20251008_223257_038929_91CA45F8 
+X-CRM114-Status: GOOD (  29.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,33 +105,164 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Russell King (Oracle) <linux@armlinux.org.uk> =E4=BA=8E2025=E5=B9=B410=E6=
-=9C=888=E6=97=A5=E5=91=A8=E4=B8=89 02:48=E5=86=99=E9=81=93=EF=BC=9A
+On Wed, Oct 8, 2025 at 4:58=E2=80=AFPM Krzysztof Kozlowski <krzk@kernel.org=
+> wrote:
 >
-> On Wed, Oct 08, 2025 at 01:29:57AM +0800, jjm2473 wrote:
-> > > Vendors get things wrong, including this. 'rgmii' means the PCB adds
-> > > the 2ns delay. Nearly every Rockchip board follows Rockchip broken
-> > > vendor recommendations, and then i come along, point out how it is
-> > > wrong, and ask for it to be fixed, before being merged to Mainline.
+> On 08/10/2025 14:59, Roy Luo wrote:
+> > Document the device tree bindings for the USB PHY interfaces integrated
+> > with the DWC3 controller on Google Tensor SoCs, starting with G5
+> > generation.
 > >
-> > I will try `rgmii-id` and rescan {tx|rx}_delay, just like
-> > https://lore.kernel.org/all/20250925092923.2184187-3-heiko@sntech.de/
+> > Due to a complete architectural overhaul in the Google Tensor G5, the
+> > existing Samsung/Exynos USB PHY driver and binding for older generation=
+s
+> > of Google silicons such as gs101 are no longer compatible.
+> >
+> > The USB PHY on Tensor G5 includes two integrated Synopsys PHY IPs: the
+> > eUSB 2.0 PHY IP and the USB 3.2/DisplayPort combo PHY IP. Currently onl=
+y
+> > USB high-speed is described and supported.
+> >
+> > Signed-off-by: Roy Luo <royluo@google.com>
+> > ---
+> >  .../bindings/phy/google,gs-usb-phy.yaml       | 96 +++++++++++++++++++
+> >  1 file changed, 96 insertions(+)
+> >  create mode 100644 Documentation/devicetree/bindings/phy/google,gs-usb=
+-phy.yaml
+> >
+> > diff --git a/Documentation/devicetree/bindings/phy/google,gs-usb-phy.ya=
+ml b/Documentation/devicetree/bindings/phy/google,gs-usb-phy.yaml
+> > new file mode 100644
+> > index 000000000000..22961e2da6ef
+> > --- /dev/null
+> > +++ b/Documentation/devicetree/bindings/phy/google,gs-usb-phy.yaml
+> > @@ -0,0 +1,96 @@
+> > +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+> > +# Copyright (C) 2025, Google LLC
+> > +%YAML 1.2
+> > +---
+> > +$id: http://devicetree.org/schemas/phy/google,gs-usb-phy.yaml#
+> > +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> > +
+> > +title: Google Tensor Series (G5+) USB PHY
+> > +
+> > +maintainers:
+> > +  - Roy Luo <royluo@google.com>
+> > +
+> > +description: |
+> > +  Describes the USB PHY interfaces integrated with the DWC3 USB contro=
+ller on
+> > +  Google Tensor SoCs, starting with the G5 generation.
+> > +  Two specific PHY IPs from Synopsys are integrated, including eUSB 2.=
+0 PHY IP
+> > +  and USB 3.2/DisplayPort combo PHY IP.
+> > +  The first phandle argument within the PHY specifier is used to ident=
+ify the
+> > +  desired PHY. The currently supported value is::
 >
-> The current situation is...
->
-> https://lore.kernel.org/r/20240304084612.711678-2-ukleinek@debian.org
->
-> Notice that the tx_delay and rx_delay are removed - because with
-> "rgmii-id" the stmmac glue driver ignores the delay values.
->
-> --
-> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+> Currently supported as hardware will change? You describe here hardware
+> ONLY.
 
-I  change phy-mode to "rgmii-id", and remove {tx|rx}_delay, it works fine!
-Will apply that to the next version.
+I wanted to explain the PHY specifier as I saw other bindings are also doin=
+g it,
+e.g. "Documentation/devicetree/bindings/phy/samsung,usb3-drd-phy.yaml".
+Theoretically the hardware supports 3 PHY interfaces: high-speed, super-spe=
+ed
+and DP, however, the corresponding driver only supports high-speed at the
+moment.
+I can still document all the 3 PHY interfaces and assign them with
+a theoretical specifier value here as that's what the hardware is capable o=
+f,
+and then make it clear that only high-speed is currently supported on the d=
+river
+side. Does this make sense to you?
 
-Thanks!
+>
+> > +    0 - USB high-speed.
+> > +
+> > +properties:
+> > +  compatible:
+> > +    items:
+> > +      - enum:
+> > +          - google,gs5-usb-phy
+> > +
+> > +  reg:
+> > +    minItems: 3
+> > +    maxItems: 3
+> > +
+> > +  reg-names:
+> > +    items:
+> > +      - const: usb2_cfg_csr
+> > +      - const: dp_top_csr
+> > +      - const: usb_top_cfg_csr
+>
+> Drop csr
+>
 
-  Liangbin Lian
+Ack, will fix it in the next patch.
+
+> > +
+> > +  "#phy-cells":
+> > +    const: 1
+> > +
+> > +  clocks:
+> > +    maxItems: 1
+> > +
+> > +  clock-names:
+> > +    items:
+> > +      - const: usb2_phy_clk
+>
+> Drop names, pointless for one entry.
+>
+
+Ack, will fix it in the next patch.
+
+> > +
+> > +  resets:
+> > +    maxItems: 1
+> > +
+> > +  reset-names:
+> > +    items:
+> > +      - const: usb2_phy_reset
+>
+> Drop names, pointless for one entry.
+>
+
+Ack, will fix it in the next patch.
+
+> > +
+> > +  power-domains:
+> > +    maxItems: 1
+> > +
+> > +  orientation-switch:
+> > +    type: boolean
+> > +    description:
+> > +      Indicates the PHY as a handler of USB Type-C orientation changes
+> > +
+> > +required:
+> > +  - compatible
+> > +  - reg
+> > +  - reg-names
+> > +  - "#phy-cells"
+> > +  - clocks
+> > +  - clock-names
+> > +  - resets
+> > +  - reset-names
+> > +
+> > +unevaluatedProperties: false
+> > +
+>
+>
+> additionalProps instead. Read writing schema or example schema.
+>
+
+Ack, will fix this in the next patch.
+Appreciate the review!
+
+Thanks,
+Roy Luo
+
+>
+> Best regards,
+> Krzysztof
 
