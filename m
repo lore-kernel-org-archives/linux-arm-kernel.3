@@ -4,101 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44AE2CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 08:33:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04367CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 08:45:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zljMLJhTqmHi2q/FCnKIXWrWrFEkWPNiMAl0+Hq7D2o=; b=1Mr+hMYWSOzSKAYPRYaCaVQVHv
-	WzFWQiU9H8KerdF6IZjKUJV45nRCGFnse7s80+jI7Vkv221Zy27pNj5psExL6Nwm3NENJCuJkZ69E
-	UlgjnYweQ5wsJEO0TUdOU4qjGPcio+aTOVq3/HOdf8SVn9W/FvnKG/TKe6KsTPOlJHlZqCtlHoIKy
-	OJk0KLZZodbUpvnNojC+gSSbLkkFlj6fhiswcDLdcn9Vi3kFMLELj1iLW46A++GJ7xMBcoBdDvMh4
-	OT60xw+kNwW1mEsJmABxxFZwVHGr3DYFEq5Fus7EGIWSH3shjnnu7CpHeJH+q1xOxWtgxnRlGtUaf
-	7TSIus4g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=UFxKPtmjjPmsPSDnSGoXW+doirX8MuPaFEG2TG4+iXU=; b=bbRC8recj9zHZnMNHcRfsl3/bb
+	r3F8g8XelRTEN9jpB2iP1HBebyXXiAfe9VS1aGexnT69EjYpgobUzAd4Yxbf7GMKI3SZBiUgiLqiD
+	xUUYAGVGmJJ/fKGf6BqjdgyELIbk0ezGsDcK7sLMzTCk7m/9kokHf7DrFxHPHvWlE5JQR8+IIYYwB
+	JN36kCza/VgzwpMoQdpjNlr5KDAq/r0UnM11EZUynessoUZmkaK8KeGPN5vndxeG7N1wrLBIuOApY
+	gjSATOXWqkmUNKikqcI9MkFBXzE3LdK+hlIS7m+wKCbVy1JGOvhkwKPR5hxZKUzeADNtxH8xKY3AU
+	JILYHJKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6m5E-00000005X2h-46WS;
-	Thu, 09 Oct 2025 08:33:08 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v6mHW-00000005YDi-0i9k;
+	Thu, 09 Oct 2025 08:45:50 +0000
+Received: from mail-pf1-x42f.google.com ([2607:f8b0:4864:20::42f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6m5D-00000005X2B-0vYd
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 09 Oct 2025 08:33:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=zljMLJhTqmHi2q/FCnKIXWrWrFEkWPNiMAl0+Hq7D2o=; b=QoVB7ByC4zpMgt0pJSKvGMQZHR
-	ijDHQWf1N9rtiHwDlANKVj/2ODsBfoKVfeLmUJwsXKrLb2UzB2lJlMVYxPOnDtVc6MC3C3oDTEEF1
-	U9bNMtDoOaFNqWKZBjFu6PiV3f5UNQQS7l+luD5I/7gqBJ0Tf1WeU7OuBD5r1ySSg0PVWKGb+fljF
-	KTMYgDScye/YJ/gPUcnPUwHoGTV86G5Zb5vZrfGuiApUzQG9+N1fdsAfZkT3FHIcaxkaMVAmyme6n
-	JxqV2hREdSD++7TQK/D/RxjphzMl+Ml2Q5JqjGO9WqZZcc1Fg0Ln2hgDHLJGmLq2vs7MOk/+XC6pp
-	yTFvfPsg==;
-Received: from mail-lj1-x234.google.com ([2a00:1450:4864:20::234])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6m56-00000001Io6-2k5r
+	id 1v6mHS-00000005YCo-3OrK
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 08:33:05 +0000
-Received: by mail-lj1-x234.google.com with SMTP id 38308e7fff4ca-36a6a39752bso6165611fa.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 01:32:58 -0700 (PDT)
+	Thu, 09 Oct 2025 08:45:48 +0000
+Received: by mail-pf1-x42f.google.com with SMTP id d2e1a72fcca58-7930132f59aso1004823b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 01:45:46 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1759998777; x=1760603577; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=zljMLJhTqmHi2q/FCnKIXWrWrFEkWPNiMAl0+Hq7D2o=;
-        b=SdwdhZY5p25yZwhH+Z4WbALFfM6op68On569Pxe1I0+7b755yfQa0W8hbO4SWzQyKn
-         jnPhJcK3oxknTrfvDb1mepzS24nsPA+yYJFWXDI2KP66VNilJSABNJNIIl8QjxClXFdO
-         CRMa0SI33pjdKT/vWyzxuNfsUj3BXGIpuxUhE=
+        d=gmail.com; s=20230601; t=1759999546; x=1760604346; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=UFxKPtmjjPmsPSDnSGoXW+doirX8MuPaFEG2TG4+iXU=;
+        b=N5AdUMdk40J3BuA36HdIKLbBHgV9+f09JJvhAIVnJcvNa1vEN0je2vjyzMJY70qCwy
+         Jd+j7Iff6pD7qUfZp5bLcTU/5xWqaKlUia+fKLW4sCs+OOMLDGlYHMvFERRgfZHU3nNl
+         ZLtSrSrhXOdUufXN+Sf0MAgQIYRNjSPrApTNtHeFf3k2Hyr3ZcWUItAr5Hm8lwiE1CW9
+         jYIs6H/Jk45Mkf6DsLse7+Mo+pHjGXeVuXFqx8h9g6NjlQmib+TOnXi5Pppi4xkKIy4C
+         S+fH0wNi3m6iREx9QD9XkwexbAeZeKVRyd16qJrJXtFEpy3XDYuZFLrabTHuvIZe5ZsJ
+         WfGg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759998777; x=1760603577;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=zljMLJhTqmHi2q/FCnKIXWrWrFEkWPNiMAl0+Hq7D2o=;
-        b=Yt1y+IuvdLQDeHeTra5fwE1xC4WR8JkHFl7y7ixBSpEoLYtAZAleGAuk/E1LGxY1lY
-         fr8jaFB+Kor4M6Le5i9yyg5YkwiBjBCvYQIP3WD+V5v/pSarrBLP13NuxUfQedpeXpKa
-         XJaZIi90k3j1vvQEluZJF4m3mqnMLU6gqz5QXQBcQDkCdRpeut8N+anKoHAZpfJU9b2F
-         UNGVDlP/AxPSPGN9Joqjnor//4i3+u2mZXOZ65JP9O9i8USJayi0A0vMxkDpKcLDGy89
-         C8yV1nZX1PRLBjdkq8hO6nYygQ2etJpq7UBF2GTTKSexZ/Tvk740oAnIkIhdV7jpOEt1
-         QBvg==
-X-Forwarded-Encrypted: i=1; AJvYcCVkGzV5HYSDuk3kob74wTWSe6pVUZ7HK9rC1jYpn9OOqZJbQPB5Xj/qnUqYuR1RJssDEw0HebO0YwGGPpKjspxJ@lists.infradead.org
-X-Gm-Message-State: AOJu0YzVgVSvFdKi8u3KXlF2ZxcbvKjaJP4RVdZ1oVzMXM/5YUUq3rUY
-	MhhdvIX7XEzi9byMVtxVrOVY9b68TioCQr59MGHtcopJfZH+HMcNgquUyXEdIXE1mA8inLhB9F0
-	NxekuIcg3le9iCN3ei9z7WvYMGK3msrMJS1ZhmiTG
-X-Gm-Gg: ASbGncsqPkRKar1sU2NxsKYt3jJxAdpkiGC0lzJElSJOky0UC7LMiiF+Cl+XvBIX/vB
-	3++ll3y4z2SQ+1RxclQ/CvyK8sx73+Ex9QuJVhgalRd6x4ne0v+nREca6EaNCu2aEYzVekmT8dg
-	yd8DWrMQSVp2tvrBZmnXOcgXAvIhlx1BiZBkeBSmgdomxKCw3+QhgegMk36DD/dM5NZCU/uclEz
-	nSTTXzdJkxjhrDUhmvJG+3LleSJcXPIeqt/UdGgHm1qK+g40TPavq/Ng9yHEA==
-X-Google-Smtp-Source: AGHT+IGNqC+T82k2UhLGhs5Z+RJRCLCjdXUj8T+fy/dwo+JYeZAn+ZeihTGmoYgDd/1wSNYOMWZ3ybZyqQU5hYgcf5M=
-X-Received: by 2002:a2e:a99e:0:b0:36e:93a3:979d with SMTP id
- 38308e7fff4ca-37609d52442mr16172291fa.19.1759998776858; Thu, 09 Oct 2025
- 01:32:56 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1759999546; x=1760604346;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=UFxKPtmjjPmsPSDnSGoXW+doirX8MuPaFEG2TG4+iXU=;
+        b=eCu51scUx1rnF/0CFqaGxRDwM/uYh0qg/CjkpvghgBsTjwfQ4a3dPG6jvcRNVOA0ox
+         c1opF8gtiADAr/Ro43NvA36hIsvdqRB1/1SE+UGaAbiXleSj9AUAZfdEger+DGzcBkX/
+         0Kf8WE8faxWINEMvlRG4B7dnE+yS2JO9OKJGBKT6xBRhpBEVcCZyiuUCwBWx+HYzUstm
+         jV/u5RaUL8JDBdkAFKqoU0zk+PqZXy1oyeXkNYS2mKbAJ/B6msUtNktLlazURTL0pLYT
+         4mZUxVC/m5azWGplbxgFxFkzOW0p0AtYZtbr6grSHEwKQKjyx1mNEzrBNcCRo8ZAbeG1
+         JhYQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUmIHGEnCCr4toZXGq0hmcAIBUGl8XKZAK2rV2W6GzvGDuVfmJ8Rt16SuFNsRAx61R1V8byy1GlYBuJ5kicX6+9@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz8rL29uEoS9bexpsfzeu9UIzKs8wzGdBLtlho6wY3UtWAdbU9b
+	JM5Nzg7O6uGeTLpcpOvAsGixBbsXH7WDSoOUwDPs0S0bStLdng2m7h1s
+X-Gm-Gg: ASbGncsBwf7glLQ+F5ZkN1tV9SHhoMIDEaogXRe5ewx3eUpZY3F6ejEyi6OKSk68a47
+	hVlt71Lth5Cy7n1QWbZVbhRVQKAQrJHQAkv3SJCSotAyusuci18T/W+4HMZ0Pd9GJ4riIO4klAT
+	mgIDOkbxmjr5VUB4WrBphOmvfAW1FJBDs++PT/vDv+xyXhk3io9zusiirebX/uDXsvsxcJ6oLY6
+	ksZY3kCem21eI7ouV1HMK3vvhagnAC1LNWPbjMO4tKZH7qvN+sObSr0ZzBUBmNbxSdc3V81o21q
+	gvvDBM3QFXqk1JAikhkzeNwQ8Orwfq6dyR3vACyDBYd1NWoL3JIvz6lI+1wgX8w9fnS4Hjs40ye
+	4Rb+osM4qZUh4EQ3Nwnjj0DqVPlQu5K9mqtD9+E7BOXmpXC9Gsxuz8LU0vtO95jcKBg==
+X-Google-Smtp-Source: AGHT+IEVp0sgA10BvrRwBHxoUMhCzRyjJK1eNd6qK3tx+tcCEvpD74MNSsa4zglDlT5r0XodRH8KuQ==
+X-Received: by 2002:a05:6a00:2443:b0:781:4f6:a409 with SMTP id d2e1a72fcca58-793858fb715mr7279720b3a.11.1759999545797;
+        Thu, 09 Oct 2025 01:45:45 -0700 (PDT)
+Received: from localhost.localdomain ([223.74.108.47])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-794e1bf7604sm2130924b3a.55.2025.10.09.01.45.40
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Thu, 09 Oct 2025 01:45:45 -0700 (PDT)
+From: Liangbin Lian <jjm2473@gmail.com>
+To: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heiko@sntech.de,
+	quentin.schulz@cherry.de,
+	kever.yang@rock-chips.com,
+	naoki@radxa.com,
+	honyuenkwun@gmail.com,
+	inindev@gmail.com,
+	ivan8215145640@gmail.com,
+	neil.armstrong@linaro.org,
+	mani@kernel.org,
+	dsimic@manjaro.org,
+	pbrobinson@gmail.com,
+	alchark@gmail.com,
+	didi.debian@cknow.org,
+	jjm2473@gmail.com,
+	jbx6244@gmail.com,
+	andrew@lunn.ch
+Cc: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH v5 0/3] arm64: dts: rockchip: introduce LinkEase EasePi R1
+Date: Thu,  9 Oct 2025 16:44:13 +0800
+Message-ID: <20251009084416.45542-1-jjm2473@gmail.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-References: <20251008-mtk-pll-rpm-v2-0-170ed0698560@collabora.com> <20251008-mtk-pll-rpm-v2-3-170ed0698560@collabora.com>
-In-Reply-To: <20251008-mtk-pll-rpm-v2-3-170ed0698560@collabora.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Thu, 9 Oct 2025 16:32:45 +0800
-X-Gm-Features: AS18NWD6JVU3Hv0pwNvYA85CDPCr9XWrThP36lbmILYiActB6r-bT0qxLSR0NtI
-Message-ID: <CAGXv+5G8XMRGasd2=H_obsLJ-97M-cNPDo3BJCrwhx2+GHhYcA@mail.gmail.com>
-Subject: Re: [PATCH v2 3/5] clk: mediatek: Pass device to clk_hw_register for PLLs
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
-	Dong Aisheng <aisheng.dong@nxp.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
-	Yassine Oudjana <y.oudjana@protonmail.com>, Laura Nao <laura.nao@collabora.com>, 
-	=?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>, 
-	Chia-I Wu <olvaffe@gmail.com>, kernel@collabora.com, linux-clk@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-mediatek@lists.infradead.org, Stephen Boyd <sboyd@codeaurora.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_093303_900572_BF342D94 
-X-CRM114-Status: GOOD (  15.12  )
+X-CRM114-CacheID: sfid-20251009_014546_851221_CEDBD669 
+X-CRM114-Status: UNSURE (   9.73  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,24 +116,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 9, 2025 at 12:06=E2=80=AFAM Nicolas Frattaroli
-<nicolas.frattaroli@collabora.com> wrote:
->
-> Passing the struct device pointer to clk_hw_register allows for runtime
-> power management to work for the registered clock controllers. However,
-> the mediatek PLL clocks do not do this.
->
-> Change this by adding a struct device pointer argument to
-> mtk_clk_register_pll, and fix up the only other user of it. Also add a
-> new member to the struct mtk_clk_pll for the struct device pointer,
-> which is set by mtk_clk_register_pll and is used by
-> mtk_clk_register_pll_ops.
->
-> If mtk_clk_register_pll is called with a NULL struct device pointer,
-> then everything still works as expected; the clock core will simply
-> treat them as previously, i.e. without runtime power management.
->
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+LinkEase EasePi R1 [1] is a high-performance mini router.
 
-Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
+Specification:
+- Rockchip RK3568
+- 2GB/4GB LPDDR4 RAM
+- 16GB on-board eMMC
+- 1x M.2 key for 2280 NVMe (PCIe 3.0)
+- 1x USB 3.0 Type-A
+- 1x USB 2.0 Type-C (for USB flashing)
+- 2x 1000 Base-T (native, RTL8211F)
+- 2x 2500 Base-T (PCIe, RTL8125B)
+- 1x HDMI 2.0 Output
+- 12v DC Jack
+- 1x Power key connected to PMIC
+- 2x LEDs (one static power supplied, one GPIO controlled)
+
+[1] https://doc.linkease.com/zh/guide/easepi-r1/hardware.html
+
+Signed-off-by: Liangbin Lian <jjm2473@gmail.com>
+---
+
+Changes in v2:
+- Change deprecated "rockchip,system-power-controller" to "system-power-controller"
+- Link to v1: https://lore.kernel.org/r/20250925055906.83375-1-jjm2473@gmail.com/
+
+Changes in v3:
+- Fix typo ('status = "disable"' -> 'status = "disabled"') found by kernel test robot https://lore.kernel.org/all/202509261328.Grjhp029-lkp@intel.com/
+- Link to v2: https://lore.kernel.org/r/20250925092037.13582-1-jjm2473@gmail.com/
+
+Changes in v4:
+- Fix missing "Acked-by" message in patch 1/3 and 2/3
+- Link to v3: https://lore.kernel.org/r/20250929065714.27741-1-jjm2473@gmail.com/
+
+Changes in v5:
+- Change gmac phy-mode to 'rgmii-id' and remove {tx|rx}_delay as suggested by Andrew Lunn <andrew@lunn.ch>
+- Fix comments ('not mounted' -> 'not populated') for unpopulated devices as suggested by Andrew Lunn <andrew@lunn.ch>
+- Link to v4: https://lore.kernel.org/r/20250930055017.67610-1-jjm2473@gmail.com/
+
+---
+
+Liangbin Lian (3):
+  dt-bindings: vendor-prefixes: Document LinkEase
+  dt-bindings: arm: rockchip: Add LinkEase EasePi R1
+  arm64: dts: rockchip: add LinkEase EasePi R1
+
+ .../devicetree/bindings/arm/rockchip.yaml     |   5 +
+ .../devicetree/bindings/vendor-prefixes.yaml  |   2 +
+ arch/arm64/boot/dts/rockchip/Makefile         |   1 +
+ .../boot/dts/rockchip/rk3568-easepi-r1.dts    | 686 ++++++++++++++++++
+ 4 files changed, 694 insertions(+)
+ create mode 100644 arch/arm64/boot/dts/rockchip/rk3568-easepi-r1.dts
+
+
+base-commit: 30d4efb2f5a515a60fe6b0ca85362cbebea21e2f
+-- 
+2.51.0
+
 
