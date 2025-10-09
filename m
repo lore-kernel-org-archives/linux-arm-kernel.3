@@ -4,88 +4,167 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD941CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 16:05:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DBEACCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 16:20:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=re2LVHmQYfMPpDvoOEi22gcukJgsAd89KFwqYXVYUWo=; b=nUo4OHIhydvtuZy7CFzWs60ZhZ
-	dBe/ftI4E3x99xoHbJNTP/EYWBODUeBlhV8FNXQqQGWGok57akIXqNvaAHKsPygixYnt18SJub3mD
-	HTwRP+kpzCPDZBqMGZbAoEFJ2pbmzPngUAbmf1akSzFmR4HEGdM7TQ1SaDs7qwAMg4UKOj9wCYUwU
-	hiUcNdIU8//B0fVha9Jk5cJzG07CCGU1ZiR68FdsrObWkIga9kL09KNS6J6R/7ie3luqVyqPV+WtQ
-	U5zzALrB8WnapUhLlTDiKklpYbyBiT/oTghvMIZJ4lf+9jom4wcKjrhkqRUufYGRf0itPPDxFCRhN
-	ZLQfvBYw==;
+	bh=KSDMQi3grtL6XxjABEr5KBNrf2QmhudGzGLLiNzutUo=; b=1Hns373UQqVNYh45Xd4YbgfVhr
+	tdlgSmJPnAcVbDN/bpcw3aMACmtXo/6Mi8aZoHqoUYwWcXvpj9cY2AR0qedTjyn/DjbEUn4IRIrr9
+	nmjVO1r3H74bN1lNwH3iJc15Fe+k08hUE/QdDcIpXViBONoork8AZL577JV+P4oU8hTvYWAJyt/2A
+	jFOsiAgOiEomHT0q07gJ24wNTv0mSfPr3q/qU7AY5hyHZzhb7lDHk+9W0PHTogRGSNB5p7CsetW93
+	6y9cxO5zeF8RfpJciKDgJxvbCt1rh3dXnCLuvVQvOWbiPJmwHmeOBsWEZQ1FZvdK6KVSJNkKbi3mS
+	M+O/ooWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6t8w-00000006dyI-3FrL;
-	Thu, 09 Oct 2025 16:05:26 +0000
-Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
+	id 1v6tNE-00000006g1o-1lMt;
+	Thu, 09 Oct 2025 16:20:12 +0000
+Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6t8u-00000006dxm-3GO6
+	id 1v6tNB-00000006g0O-1VwU
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 16:05:25 +0000
-Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-421b93ee372so637183f8f.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 09:05:24 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760025923; x=1760630723; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=re2LVHmQYfMPpDvoOEi22gcukJgsAd89KFwqYXVYUWo=;
-        b=LiXaQmZd+2oA821h6w5Pdds4D/WIBFx6MmOPepAM8ioErMgDD3rHC0cYA7LyEC3xju
-         3Mzid20Fv6OB8u2zmSunSxdLQsKtyD5yja8O2/ttDi1rLidLBDyCWQUSLJtpYYNn1OUo
-         xnGnXR7Lr6MPf7iytw5CTUVLWHWCNt5ZM5+f2y+7RwsssYRtdJqw3J1qn7aHNmBT6Qpl
-         TfW5WIXfqb+TRwc04UkXG20vEQnte4ZkdeAlvdHItbjGLBBTTHKk2UnH8aCfVJSfaWdm
-         qYip6Bd8zQWxXKxBof0YQQGrkQdgpsWzqexrltKSvQNmQZkFd1Dug3J0gQbfRUZozWbK
-         kw1w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760025923; x=1760630723;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=re2LVHmQYfMPpDvoOEi22gcukJgsAd89KFwqYXVYUWo=;
-        b=wkmQ8b9jfneD40i1i9ZEXvYKAKtdJJ4NxsywYcDGrEsmVKCd35Jko+PblNW1hIfoja
-         jd+hcvjnYiWHc7ypUj4zGMBOeTCy+1eKaqeSdOOeCkr1T+E03Pazvyuv5wRyf5XENpzX
-         PAYsya6zPvy+qUX6yaI+xoT8q9VZg4XtNL9bVX0OktptDvdMmgox6xRH0FWpdWPktg7f
-         yIwDR/2w8HQPV0+DeqAKgKirTiO407P2mYU1Whihsis4Nn+1QDm+voIVPZMTY5i0t7z+
-         rWoZOtGc+fCXsZYsmmeigfcSvLYMbHXw6P3wGBkBQ6nsdQEXcjEAVKHPAt/N+WwoQpma
-         6hqw==
-X-Forwarded-Encrypted: i=1; AJvYcCUqiU1TZgTgMLOB1bKDONbfGQZCHDR2dUTuU6kNUHu5XQ55C9XFIlaJqkcVzLuueheUL0jvFryHt9SjLJEAuK0p@lists.infradead.org
-X-Gm-Message-State: AOJu0YyWbqXSgZia1ban7EnjZmFPHwzaXEcVOPsd+8hTJtQfaTXVNYQN
-	4XBCQ3E2ZAn3iRE/ZVpsO62rQNFwCVpJs4eysIys1TYqzksyzf1sDD+fuUhkuQ==
-X-Gm-Gg: ASbGnctxmc+CFLGwVtSYvZENgLj43rH44YR+R+mZC8FHHxuaK2pJSn9q9xnu74RAp8o
-	oxBFzYzrRYOnnFUzRi868DIiH3Ub1RBnMXY1oJAoY2AYnLF7RhHkrQyJbm6fKXUAX+1QU5jyZtP
-	KffB4Dvhfh1ha4CUsWX3Jre5yLizPdjxbFzkhO7WAEyqlTyR6ZDjveSHkhfeimwZwlhftLZavr2
-	R3kg/L9GB/pxmiRPmCFWJS3gz3spMYhf/UcPqmRymQtXAxtU9y+3FHvqyThWZmPKn8QTn5EJkgT
-	3miLGZpbJlen1WVsEFz5CcNoQ1iNGrtlU3fx7JGp0TyX95gcGxZFPot9bwPpmhqlxa2mGFuypsI
-	fpya39eEfdHod1qNL/tBWQqVf00/EegmR89e6BGsikSoIX0dGe6fkwNN/U+g/wvpbkpHHtnYL9J
-	Iyq3dc0L940PFNrUt0wd80hO+ZWrj0wlzb7w==
-X-Google-Smtp-Source: AGHT+IFOzFZCAz1bvnO194N0WES7OEH7GfUA/BRjdohTZijoPsQbpfZni9sA7IHmHQ3LMF15FxD4jA==
-X-Received: by 2002:a5d:5d03:0:b0:3d1:6d7a:ab24 with SMTP id ffacd0b85a97d-42667177c28mr5473434f8f.17.1760025922451;
-        Thu, 09 Oct 2025 09:05:22 -0700 (PDT)
-Received: from orome (p200300e41f28f500f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f28:f500:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-426cd99fd4esm30074f8f.42.2025.10.09.09.05.16
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Oct 2025 09:05:17 -0700 (PDT)
-Date: Thu, 9 Oct 2025 18:05:15 +0200
-From: Thierry Reding <thierry.reding@gmail.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>, linux-tegra@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: IRQ thread timeouts and affinity
-Message-ID: <loeliplxuvek4nh4plt4hup3ibqorpiv4eljiiwltgmyqa4nki@xpzymugslcvf>
-References: <j7ikmaazu6hjzsagqqk4o4nnxl5wupsmpcaruoyytsn2ogolyx@mtmhqrkm4gbv>
- <86qzvcxi3j.wl-maz@kernel.org>
+	Thu, 09 Oct 2025 16:20:11 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=PQxU0NyNwkbUAWlwYX9WolV0xFtajKSs/3gKNe0m3H4RwmR8qtOjabGYTJ36usDFzRbhEVKfl4kHCezAmCQBKifmAvodJotfgTmaMqaQSU6SNbe3RYaZNe+z9kUnitZ1cddvX+ZrzCx8YiMZAbmB/cpJ+Y98Er83FUUribBSMitpsVITZM6pZDHDez8ulztfZIteeya6/NATsvV2v5fjdIcM5J9OBttpmIG/yOXeLzab3wpshpNcGyNUs8jyueTzZC2FaRGlmGxduScGhg5Nsk0j+TjoQplbFRZ9PL8wzmeSOK54Npnfh+bFcZFZizpBEoCxXULhR+EAt1ZQyI/yCg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=KSDMQi3grtL6XxjABEr5KBNrf2QmhudGzGLLiNzutUo=;
+ b=elJZcrEskQHmnQSZ3CN/Pr1YWwGQFWY87qpYE/pl8GMYjXJQ/04eAVAEhYbNaUbF8aQsuhbPYGZmmmhVsvF+A626yGfrmJt4c46uD4wrB3rBB4fiLw9WUpelqbtEL7KxvF7y8X/e6Svo3QDNA6faeku103pnbwPRD/J6s1uK9JbS2PqlSIXBnALBtMWP0LoLnv2kSx64CrPa11Uu3W+o2KvKYxRfOenwnmmLSbicMExhO4YaDPmqaCEelGINg9saVXKp/qzEtPSyOCJgax50QWlpM8jD2+bGVIVDrxcnY9cAX82MUYADBlR/qsAZtX+wt9563mPtCi9PMhx/LHGU7w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
+ header.d=amd.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=KSDMQi3grtL6XxjABEr5KBNrf2QmhudGzGLLiNzutUo=;
+ b=xYW+g9psybwjyBGDAX1zdI3TBomzEHG1dxVAposP7WQvQ1XMkDiS8abieS68ZFDKoyL+NOTLPaq0dIekIvB4FJ+bgd2ltNm0fLLXKx5nru3YR0pn8qzM+2cDnFWkoeOM629lLZKk3aA76UV/8GYLJlk4ut/4Dq8zZuBN9D6iHTI=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=amd.com;
+Received: from PH7PR12MB5685.namprd12.prod.outlook.com (2603:10b6:510:13c::22)
+ by IA1PR12MB6041.namprd12.prod.outlook.com (2603:10b6:208:3d7::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9182.20; Thu, 9 Oct
+ 2025 16:19:58 +0000
+Received: from PH7PR12MB5685.namprd12.prod.outlook.com
+ ([fe80::46fb:96f2:7667:7ca5]) by PH7PR12MB5685.namprd12.prod.outlook.com
+ ([fe80::46fb:96f2:7667:7ca5%4]) with mapi id 15.20.9203.009; Thu, 9 Oct 2025
+ 16:19:57 +0000
+Message-ID: <bbc089aa-934d-4dd3-825a-53f8e98dfd3f@amd.com>
+Date: Thu, 9 Oct 2025 18:19:52 +0200
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] drm/amd: Permit DC_FP_START/END only in non-FP
+ compilation units
+To: Ard Biesheuvel <ardb+git@google.com>, linux-kernel@vger.kernel.org
+Cc: linux-arm-kernel@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>,
+ Austin Zheng <austin.zheng@amd.com>, Jun Lei <jun.lei@amd.com>,
+ Harry Wentland <harry.wentland@amd.com>, Leo Li <sunpeng.li@amd.com>,
+ Rodrigo Siqueira <siqueira@igalia.com>,
+ Alex Deucher <alexander.deucher@amd.com>, amd-gfx@lists.freedesktop.org,
+ dri-devel@lists.freedesktop.org
+References: <20251009150621.3886079-2-ardb+git@google.com>
+Content-Language: en-US
+From: =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>
+In-Reply-To: <20251009150621.3886079-2-ardb+git@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: BN8PR07CA0020.namprd07.prod.outlook.com
+ (2603:10b6:408:ac::33) To PH7PR12MB5685.namprd12.prod.outlook.com
+ (2603:10b6:510:13c::22)
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="ytjgx34t7yap2p7t"
-Content-Disposition: inline
-In-Reply-To: <86qzvcxi3j.wl-maz@kernel.org>
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PH7PR12MB5685:EE_|IA1PR12MB6041:EE_
+X-MS-Office365-Filtering-Correlation-Id: 78eaf1b3-ac8a-448e-9b0d-08de074fb038
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Vnowdm9PTFM5VWtQa2U5bFJJMzVaMUp1MTcxY1ZUUDErK0p0dGtSNGFrQnNV?=
+ =?utf-8?B?Vk51WTdtV3I0NGE4QlNqamxKQ3h3RmlrZ3RrZ3pBZjhzc2dibmNrM1ZJeC9t?=
+ =?utf-8?B?SWt5ZllTdXc0cnkrLzFrZVkzaG5DSTUxYkdCZ1VZMGV5S1NndlloM1NNdGN2?=
+ =?utf-8?B?cDMzWnZEc0cwMlRLaExCWTd4cjRvYldqV3U4Qjd1b21qQU9CM0VPdU9KZkdY?=
+ =?utf-8?B?czhDOUNETi9FTExNdVhSZVJBZUQ2U3VrSDRwM1FuTGZvNFZlbU9KeTBUVFdK?=
+ =?utf-8?B?aW9sR2tEOTQ2WDdabjFFZEZXc09Zd0hKZHdpUW1NZkFZeGdBR0daZnRMRUI3?=
+ =?utf-8?B?TGh6eXJmZG5TODhpRHlsdFQzME9MOGRDVVFhYzNFVC9CUFM5dzRYMkl2bHRC?=
+ =?utf-8?B?cm9RTjZ5Y2x1ZU9HRGJxSXNGUWllcmgzWHdkQTJta1hMRWpxVmFMc2RQOURL?=
+ =?utf-8?B?YzE4YUg5N0x3NklUcW01dFFjc2k5bysrbHNJcEZSMURlTll5Y3dIWDVaQTIx?=
+ =?utf-8?B?OGF3YnlnWFNCcWFoZHQ0cGsyWGNhaDZDMHQxZFl2Nm9jdFNvenVkYUxzSCtR?=
+ =?utf-8?B?djhHcjVNanNtWk5RT0xINjVmQ0hIdUMrbVpCOXN1b0k0amRnV1g3MGR3VmIx?=
+ =?utf-8?B?YzQxbVlneXhMWnJWRGZTc2srMjVVOVhSanRqenhkL2tOTWt1bU1UWGkySWNX?=
+ =?utf-8?B?S0ZKRnV4VzJBWEtrSTlhSHFSUndFSXJYWDFVTzN5QS8yQlFBS1lGMXZmcnNu?=
+ =?utf-8?B?NDhoOUI3ZGdoV2ZzMDBLcUxLV3FGcGVOUzA0OE96ZUlBSkREVHkvTzZPaVdt?=
+ =?utf-8?B?cCtnbVFZTmtxZ1FVWGIvZjZsMFpoRkRDK2hrMTJjVkE5Sk5Ra3BPak5FUW8r?=
+ =?utf-8?B?ZTR0bytiWTd5dERMcXZaY1lzekRUOGoySmhzK1JpUFFqcnZwV1BLeEpVQzEv?=
+ =?utf-8?B?SEJFbkdIRUE4QmpTdVRPYXAwUDRPVkdjMzV4UzY0c1dJSTJBZlFIZFYwdEpw?=
+ =?utf-8?B?eWFpWENrSWJwVFRNbU83TWRQQzN6NkFPZVVuQ0U5MjBsQ05MTkZzdXM3YTRy?=
+ =?utf-8?B?c0FIYlk2UnY5WlBLczlTZEJMNThwNzJiMnN1NDZJRjRPN1JmQkEzTlU4M0g2?=
+ =?utf-8?B?emFPU2lCT0ZBdy9NRU1tN04wNnhMNUpGbTl2NVo5cWw2Y0NxYXM0STgrbGU5?=
+ =?utf-8?B?ZGRKUWNLdTdFckIwYVZPTHFndGpTWWp2MVh0WmVXZmhzWnJxQUFjSlpFVEFF?=
+ =?utf-8?B?MWw4MDBGOW8xOG9OaVlJTDgvZkM2V29qRzhXV2tRL0g2ZjdLRHcyVnhzV3RP?=
+ =?utf-8?B?T3hqdlEvUC84UzVZZWNQWHZQczdZeG1wdjgzSkF6VkRvRWZYczN4dWdCMzFk?=
+ =?utf-8?B?TlpmNGFzMWxOZXpDaXovd0dWS2FpUGtQVUlpeVI1TDBXTXMyUWFjZXE1M2JG?=
+ =?utf-8?B?bXh1Z2dDZitQMjNyZkFNdEJNeXNSbGZ6QW5oOXA3eHFVSTVZaWh5cWJpWDBZ?=
+ =?utf-8?B?OStDNjlraGZNcVRMMUUrKzg4c2c4c3lXUWpiQ1VaT3FjbU5PNlpzb1djcmRv?=
+ =?utf-8?B?REczSzdvUVlBcEEwc3FvOEFiWGdMTExSU3FOSDhtMHlPbmZXNHVFWVJNa3Er?=
+ =?utf-8?B?MjlCaGZydnkyRjlIUHdlQTI4K2RETUdLUHJidmRzWmpyUE84dkorR0tRNjgw?=
+ =?utf-8?B?VFUvbkE4VllhMGlwN29Pdm8yVGZHNlIya00xQVF4T25EZ2czb0RUKzhVeU9v?=
+ =?utf-8?B?MTZDWE5pVitmcmg0TnZjVWxsYy96VVIybHp2dzdjMUFBUHFlZ3p3VnZuUWlD?=
+ =?utf-8?B?cWFlcVNINGRZZWdzMnVldUJjTE9XaDR1LzN5ZzM5NWVzSWZHTitRR2FDUlBk?=
+ =?utf-8?B?b2c3N25JOXdtenZsQ2c4UUVaUTR4OUo3T1NpbjNidURmNnJRZVpXaG9CVVNC?=
+ =?utf-8?Q?Trr25O6jwRnQb6OMqTQio+3JTDP9eZk9?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PH7PR12MB5685.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?YTJzeVU2cWp2RWg1cHRlYzU1RmlSUHJpT29PcFZlRlJucjMyYnFTQU1vOVhw?=
+ =?utf-8?B?a0h4QjBzOFR0ekJRVW5GcEdwNitzS0RxTVZTTWEwcjFpWmxlRXhOMzBoMnVM?=
+ =?utf-8?B?VXNSR3pJL20wcnE3Y2pib0I0YUJZV2R4WDRUc1VhSXMyRE9PQWtCSGx4eGtq?=
+ =?utf-8?B?WjkrT041eTNXbzAwc1ZZbVlvZnNjY1dJZDZETUpYQlVPZXBMeVFGV1gyNDQy?=
+ =?utf-8?B?WnVQWHJpU01EZUZTa3oxQlpzTmJ3c3oxWGo4c3R5alFwUjY2V1hsRkZTRzFh?=
+ =?utf-8?B?YWdDb2ZOWWlwV3NQalFFUGt5RWgxUlZhYXp1cFJLSGVSWVZobWw0b0Q0UTh4?=
+ =?utf-8?B?a2Y2OU9wVUM3Wm5rNXhHTGlIM2IzN3IxS0dxSE4yRG1VWHdySlMwaTh2ckZM?=
+ =?utf-8?B?NVQ3eFpaT1Z4OWZKY01LOFZTUHZvdDBhMThiZkR2S2M3QldkRmNSTjlpRnVK?=
+ =?utf-8?B?M1dBckhkOUNFbmpjY1dsWFJncU4rRERDQVJXN2hIMVpzWHF3SUN0WVc0bjNL?=
+ =?utf-8?B?WTRVMmtUdjY2Z3dacTNjVzJhcUxjMTRYUGFKcmZDQ3dtUmM0QWkvdDhlNHdj?=
+ =?utf-8?B?VWdxb3krc1JJaXViVllSVW9rL1hCaFFSTGcxSndBOWd1NE1qZGVRdnhzbzRm?=
+ =?utf-8?B?aS9vZE1rcThtaGw3amNldG1tUTlSV2x5aVFRemtLZTVPYm5KNlF2UEp5cnVp?=
+ =?utf-8?B?ZlAwVFVrQTFrdEpjZGxWTmhtQ05PZDNJeTcyZmhpS2lyNkhDTXNiTGY0Sm9p?=
+ =?utf-8?B?QkJOSkozZnpPV0htd1ZlWGIyalNWZk5Gc1dwODNhVVgyL2w5NStFcjFiZnBh?=
+ =?utf-8?B?ekNzdC9KTnl3OHB4eTVyazhmL1FRMitkdXZwc2dSL1VIcE9qdjlmaHY0d25j?=
+ =?utf-8?B?T2IzQjdEUXcwVUN5SXRXN2huWG5NbzYvYVY1eTFncWFJNGcvck9oNDhQMW9Z?=
+ =?utf-8?B?eTBkWXltNFBIMkRBTkFBZDdiMFZKcERhYncycURsQS9lSXB2VnlJWUlCQ2l2?=
+ =?utf-8?B?a1RTUVI4MEhzSUdFMVRKSGJHMm4zbFJzeXAyRnRYT2pTQVJ3UlNOMVE1QWNL?=
+ =?utf-8?B?cm9CenVXVmc0a1lyR2txTnpuQTJLSEJGQWdqeHRhbmZVbERMN2FmTFhFdzlk?=
+ =?utf-8?B?cWRCcG42Y2hHRFBOaWRsRzRReEV6cVlpNDNvQjgwZThYRStGQ2tJa1dPM0lp?=
+ =?utf-8?B?bE44NTRpTUpmWWNueXZpTmYvOVNxRzRNZ0hSenpIdGZmRldHNHhwdnJwWFhs?=
+ =?utf-8?B?blVUZnd1UTRaSVhTems0SERHT29UczQ0U05mcXRTM1ZiT2lLdzhkR040WHZB?=
+ =?utf-8?B?T3pIbEE3WTl5S1ZtZUVYTFRFUzZoVTc5dlMwM1JWbUhGUFJidWdpeTBtNHlE?=
+ =?utf-8?B?YXVWZnRqNFVyMmpaeC9DOTdaeEE0blYxbk5vOHdTU3RBeHc0N2lodHlTbFFu?=
+ =?utf-8?B?blVJenVCU3RhVDRoVk93WVdBODA1RURxYWdKblpYbUxkdUl0a1MrdnRkMUJB?=
+ =?utf-8?B?RFI2MDdJSlhYVnJtUXdicmVKdjJ4dTRINDE3SFZHRUhvampHYmRQK3pLZFRm?=
+ =?utf-8?B?Yis1QXp0NVNSY3k3Y2xPRlYxcWc0REpmNCtaeVVmY3QxSDFuWXVEejBjN2NW?=
+ =?utf-8?B?RTBuOGJETzlLZzkyWXovUlZrbldHSG9UK1h6UnNvWlYrSnNGK0FNVmdjcEVI?=
+ =?utf-8?B?YzBWbnhVU0hrZlFLMDVBaVFJWVQzWEpnZEpSR0M5US9zMzRDeEdDVldrMWhm?=
+ =?utf-8?B?SDVZRXpjY2ZkditHTHMwT010NCtYNW1kQlB2RWVwZk5RWlZwSDVzS2JTQkdv?=
+ =?utf-8?B?d2NJR2ZvcWFpM1VIN3F1YmFXVUZ1dHNidFllcTVLM2JwZ0Q4eFdNWm1kS0h4?=
+ =?utf-8?B?L0l1dHdmWnlMY3QzSGpBRklmMHlYRnp1QkxQOUMrVnRJZVR5WDFDVE9yNHRl?=
+ =?utf-8?B?MUN1eTJEYzBKYmE0ekVRYll6eVJ6UG14L1VJYTdLSkwvNTlkV2NqaXBHc0R2?=
+ =?utf-8?B?QzFNTkhPZ0MwUEY5c3piQStTK3BjcXBUdkZsbFlJUFl6Rno2bzFZVEx2eklR?=
+ =?utf-8?B?SGE1cjZ3TjZMQ1hIcW4xL2dqM1FjZURkUUxtTDFucDJLK29xMGdibFltUE9O?=
+ =?utf-8?Q?1Q95jFxDa403fWLAD4RDwlntN?=
+X-OriginatorOrg: amd.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 78eaf1b3-ac8a-448e-9b0d-08de074fb038
+X-MS-Exchange-CrossTenant-AuthSource: PH7PR12MB5685.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Oct 2025 16:19:57.6091
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: t1gDWaenoSmpmsb6F0Slcno5pq6BDMBDYTpAiFy1Q8616JyIf1GZSf/wNUidPxWa
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: IA1PR12MB6041
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_090524_844123_5327E1DD 
-X-CRM114-Status: GOOD (  44.47  )
+X-CRM114-CacheID: sfid-20251009_092009_393799_B94C5C76 
+X-CRM114-Status: GOOD (  19.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,107 +179,70 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 09.10.25 17:06, Ard Biesheuvel wrote:
+> From: Ard Biesheuvel <ardb@kernel.org>
+> 
+> Test the existing CPP macro _LINUX_FPU_COMPILATION_UNIT, which is set
+> when building source files that are permitted to use floating point,
+> in the implementation of DC_FP_START/END so that those are only usable
+> in non-FP code. This is a requirement of the generic kernel mode FPU
+> API, as some architectures (i.e., arm64) cannot safely enable FP codegen
+> in arbitrary code.
 
---ytjgx34t7yap2p7t
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: IRQ thread timeouts and affinity
-MIME-Version: 1.0
+If I'm not completely mistaken that is actually an issue on basically all architectures, at least x86 is affected as well if I'm not completely mistaken.
 
-On Thu, Oct 09, 2025 at 03:30:56PM +0100, Marc Zyngier wrote:
-> Hi Thierry,
->=20
-> On Thu, 09 Oct 2025 12:38:55 +0100,
-> Thierry Reding <thierry.reding@gmail.com> wrote:
-> >=20
-> > Which brings me to the actual question: what is the right way to solve
-> > this? I had, maybe naively, assumed that the default CPU affinity, which
-> > includes all available CPUs, would be sufficient to have interrupts
-> > balanced across all of those CPUs, but that doesn't appear to be the
-> > case. At least not with the GIC (v3) driver which selects one CPU (CPU 0
-> > in this particular case) from the affinity mask to set the "effective
-> > affinity", which then dictates where IRQs are handled and where the
-> > corresponding IRQ thread function is run.
->=20
-> There's a (GIC-specific) answer to that, and that's the "1 of N"
-> distribution model. The problem is that it is a massive headache (it
-> completely breaks with per-CPU context).
+> Cc: Austin Zheng <austin.zheng@amd.com>
+> Cc: Jun Lei <jun.lei@amd.com>
+> Cc: Harry Wentland <harry.wentland@amd.com>
+> Cc: Leo Li <sunpeng.li@amd.com>
+> Cc: Rodrigo Siqueira <siqueira@igalia.com>
+> Cc: Alex Deucher <alexander.deucher@amd.com>
+> Cc: "Christian König" <christian.koenig@amd.com>
+> Cc: amd-gfx@lists.freedesktop.org
+> Cc: dri-devel@lists.freedesktop.org
+> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
 
-Heh, that started out as a very promising first paragraph but turned
-ugly very quickly... =3D)
+Anyway, patch looks sane to me but I'm not so deep in the DC code to fully judge.
 
-> We could try and hack this in somehow, but defining a reasonable API
-> is complicated. The set of CPUs receiving 1:N interrupts is a *global*
-> set, which means you cannot have one interrupt targeting CPUs 0-1, and
-> another targeting CPUs 2-3. You can only have a single set for all 1:N
-> interrupts. How would you define such a set in a platform agnostic
-> manner so that a random driver could use this? I definitely don't want
-> to have a GIC-specific API.
+Fell free to add Acked-by: Christian König <christian.koenig@amd.com>, but Harry and Leo need to take a look.
 
-I see. I've been thinking that maybe the only way to solve this is using
-some sort of policy. A very simple policy might be: use CPU 0 as the
-"default" interrupt (much like it is now) because like you said there
-might be assumptions built-in that break when the interrupt is scheduled
-elsewhere. But then let individual drivers opt into the 1:N set, which
-would perhaps span all available CPUs but the first one. From an API PoV
-this would just be a flag that's passed to request_irq() (or one of its
-derivatives).
+Thanks,
+Christian.
 
-> Overall, there is quite a lot of work to be done in this space: the
-> machine I'm typing this from doesn't have affinity control *at
-> all*. Any interrupt can target any CPU,
+> ---
+>  drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.h | 8 ++++++++
+>  drivers/gpu/drm/amd/display/dc/os_types.h      | 2 --
+>  2 files changed, 8 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.h b/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.h
+> index b8275b397920..4e921632bc4e 100644
+> --- a/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.h
+> +++ b/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.h
+> @@ -31,4 +31,12 @@ void dc_assert_fp_enabled(void);
+>  void dc_fpu_begin(const char *function_name, const int line);
+>  void dc_fpu_end(const char *function_name, const int line);
+>  
+> +#ifndef _LINUX_FPU_COMPILATION_UNIT
+> +#define DC_FP_START()	dc_fpu_begin(__func__, __LINE__)
+> +#define DC_FP_END()	dc_fpu_end(__func__, __LINE__)
+> +#else
+> +#define DC_FP_START()	BUILD_BUG()
+> +#define DC_FP_END()	BUILD_BUG()
+> +#endif
+> +
+>  #endif /* __DC_FPU_H__ */
+> diff --git a/drivers/gpu/drm/amd/display/dc/os_types.h b/drivers/gpu/drm/amd/display/dc/os_types.h
+> index 782316348941..6af831710489 100644
+> --- a/drivers/gpu/drm/amd/display/dc/os_types.h
+> +++ b/drivers/gpu/drm/amd/display/dc/os_types.h
+> @@ -55,8 +55,6 @@
+>  
+>  #if defined(CONFIG_DRM_AMD_DC_FP)
+>  #include "amdgpu_dm/dc_fpu.h"
+> -#define DC_FP_START() dc_fpu_begin(__func__, __LINE__)
+> -#define DC_FP_END() dc_fpu_end(__func__, __LINE__)
+>  #endif /* CONFIG_DRM_AMD_DC_FP */
+>  
+>  /*
 
-Well, that actually sounds pretty nice for the use-case that we have...
-
->                                         and if Linux doesn't expect
-> that, tough.
-
-=2E.. but yeah, it may also break things.
-
->               Don't even think of managed interrupts on that sort of
-> systems...
-
-I've seen some of the hardware drivers on the Grace devices distribute
-interrupts across multiple CPUs, but they do so via managed interrupts
-and multiple queues. I was trying to think if maybe that could be used
-for cases like QSPI as well. It's similar to just using a fixed CPU
-affinity, so it's hardly a great solution. I also didn't see anything
-outside of network and PCI use this (there's one exception in SATA),
-so I don't know if it's something that just isn't a good idea outside
-of multi-queue devices or if simply nobody has considered it.
-
-irqbalance sounds like it would work to avoid the worst, and it has
-built-in support to exclude certain CPUs from the balancing set. At the
-same time this seems like something that the kernel would be much better
-equipped to handle than a userspace daemon. Has anyone ever attempted to
-create an irqbalance but within the kernel?
-
-I should probably go look at how this works on x86 or PowerPC systems. I
-keep thinking that this cannot be a new problem, so other solutions must
-already exist.
-
-Thierry
-
---ytjgx34t7yap2p7t
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmjn3TcACgkQ3SOs138+
-s6G8yRAAv041zNcMgGZ0avjjb7ZaT6br0d8spAZRKqEUblfT6ypcmLRDIdQikbIJ
-7l+LrNKGk0onNtvCoGVuMqdc5HWEpYc+ur4eu2DGX6qFcrTckGZYDNJRwgmSc8LU
-mx2xRjZL9+8p1p/ZJ5ZtCjS0o2A6SkxHPCGZmU586GHNvdOyzi5mj8W2mL5520c9
-W/GiZkPYJmNJOz7XxxdfENmx9UDbsBlw98mEWa/4WX2vNpqwjjx6DvjqEZbLd4L0
-SuN/+ptQJ6rdGEosaWnurFUoEuAJP6kwQFeYrs6eEEoG4SAheVMCoBsXtU2S0aME
-ZzRLjDOdlgjlJBcBzeEMCN5KE4u13rni8DmDfp+mvwlb7GOxaVDkMKUXty10Z1bm
-Suu9F8w0dkyMdIVHPbxYDYV5UGCLRB23fTVgeJ8XnAEgBviinkoiZiBkpAZ/mivm
-985PDzT8AB2RLsVdb9E2k6pwlD1ShsCunyssQHDj3QqfhKv16QLLyEFq5agJ8mJ0
-Au6aDjn4d2NYERVvUI3RoCeogRvfk8vVdiymMxoV+jdwxvUYzoHCmAcNHlCyzoFe
-jYeCeYyEIEAYKMg4zSofqW2+EqYvMmQ98PK0Vt5Mh0yhsFw+yoL7dwWJbfFQgvBa
-DWj6h+sChHu5/hq/rwXkBS8xiacKru+DMcjCRwz0k2iMPkAaVM0=
-=N60K
------END PGP SIGNATURE-----
-
---ytjgx34t7yap2p7t--
 
