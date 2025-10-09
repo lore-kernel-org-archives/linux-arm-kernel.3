@@ -4,73 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF82ECCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 12:43:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C59FCCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 12:45:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8qUd+8a2uW5skPY8M/IRP9GduuNHnSF2XqHzwAxT1J0=; b=uTzFVZB9WXsesWOWwT+IYFtnVm
-	aQJJjHv6BmgScbDpq7UzqiGgwdQX2Tt2CRcv/noXSPN2RZgQ/pT2pKmG8lcTIqqWJY4gQkoShA2a2
-	KflEQ0Zm1O0Ay8incKWK3HpsOtVXsipHAVusXpskL1AyPL9o5+keeRa73KhHI2RGM7rHnxOCyhaf+
-	WV7gyOwOIgtziKppeEWMlsdN1ogyF0Z5YVgyjbTFml5Madzuqu/+crq4d/WEVEZnTqmGt9c0b5rPK
-	Mj+tiyJmX4GQHL9wOAVjLKGKOJDR4sODBCbCzIV7J5w6Ec5jJocCd2xZX2iwuEdo0Kae8AwTSyv2d
-	af0AEhQA==;
+	bh=+qIn+RPmmwPv3OjgMXBX77cROFYyBV3LwSb/xEzaOA0=; b=MTS/YbuC9hOyokcIH7/GcMHxo/
+	HVKy1d8AUwEh0reDRcasnHCttBc3AUipB2MAmr946Na92bAlI3GuybfOTLEoKBDUWQxyX1w+lQFqL
+	03nztyYMYz48trtDP29glQZ7IrSH0br8saSUQjwiEQqjTBibS9a9w+Qzbxlb0JzGWkV2SbyoSvJHy
+	2jqSxfsM1jiI6WY8F2UbP2orED/lt+A6NCicSBo4X5ALfVxRJ0qdV5h9Hfpplebo8WoWJUXxR82q3
+	hB1xzcaxt42+jSYG8YEwitOLd4UughV+IMbarjHJ+omTJ0KQlorqWltmeYrNHv27jVQTZlOBzCM7S
+	X1Sd+TMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6pyw-0000000681u-45e5;
-	Thu, 09 Oct 2025 12:42:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v6q1Q-000000068P7-2EOi;
+	Thu, 09 Oct 2025 12:45:28 +0000
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6pyv-0000000681m-2PKc
+	id 1v6q1N-000000068Nv-13qE
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 12:42:53 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 087E9622CB;
-	Thu,  9 Oct 2025 12:42:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0608BC4CEE7;
-	Thu,  9 Oct 2025 12:42:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760013772;
-	bh=x7NTeLf98YsKIjLW5txYL5wOM6+bi+M1w4d21NY76zc=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=teLU8SNdu0sPz8WlsTxct4Ekg49SftyC6bjJKTyIgMjj1wdbMgzu45cicz8qWNo37
-	 9rdHU8we029VbJnznae2+sa+t2VvTGOJZ+4BJNzhj0rCjKiZgqQV7jzSlkNKNGPRnl
-	 vHGmDUR92YxbJMMXpXzECk7K2fB9WMRyx6wBFroJmYYtZ9JwldvAj7wEPuJ0YzzD5C
-	 PsaJO1VXw7GlJKRWdHgko81Vexcr7AFSA7fYl+GEHchCWEp23fNqGAsJkL3EckxE3N
-	 4xGcBLEcsozXuT4gza/6mdTQacngO6ef+jmNIr/Xoa2EPCSOwp9QsXJpAJ4sePn3MY
-	 qhQ/mklUzopFQ==
-Date: Thu, 9 Oct 2025 13:42:47 +0100
-From: Mark Brown <broonie@kernel.org>
-To: Sascha Bischoff <Sascha.Bischoff@arm.com>
-Cc: "yuzenghui@huawei.com" <yuzenghui@huawei.com>,
-	Joey Gouly <Joey.Gouly@arm.com>,
-	Suzuki Poulose <Suzuki.Poulose@arm.com>, nd <nd@arm.com>,
-	Mark Rutland <Mark.Rutland@arm.com>,
-	"lpieralisi@kernel.org" <lpieralisi@kernel.org>,
-	"kvmarm@lists.linux.dev" <kvmarm@lists.linux.dev>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"kvm@vger.kernel.org" <kvm@vger.kernel.org>,
-	Catalin Marinas <Catalin.Marinas@arm.com>,
-	"maz@kernel.org" <maz@kernel.org>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	"will@kernel.org" <will@kernel.org>
-Subject: Re: [PATCH 1/3] arm64/sysreg: Support feature-specific fields with
- 'Feat' descriptor
-Message-ID: <5ac755f3-d7e4-421a-85bd-43d7aa7fbfde@sirena.org.uk>
-References: <20251007153505.1606208-1-sascha.bischoff@arm.com>
- <20251007153505.1606208-2-sascha.bischoff@arm.com>
- <26d69b0d-3529-454f-9385-99a914bf1ebc@sirena.org.uk>
- <0a3a60082d13b27388a0893abce8be47b045c107.camel@arm.com>
+	Thu, 09 Oct 2025 12:45:26 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-62fb48315ddso1348221a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 05:45:24 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1760013923; x=1760618723; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=+qIn+RPmmwPv3OjgMXBX77cROFYyBV3LwSb/xEzaOA0=;
+        b=nKQtt/9gMFiE1sGis+10vK6p4/KpwEhnWAMbnEl9q/O0Byb/QAN6udcP61I+YtuQoH
+         585b17jrVGd4ekb5XV1tMR3oSUKOcy8I3N176M+0gJF/PRm4Uqzmnc0nGIbbaXoVg9GN
+         7lZ//8GA+P0pHiZiyUnRdzhAHlZGuVL6dNMgYRNsOaNStxhvnwJ3ArrCj/I4boCw5JHJ
+         E1icRm2B2BFBqQiwZaRZi/94XyFoFgCYsCgeX5uwnln79dPSd+f4IjyIOVJTz/CtO9Tq
+         Hwufh8f9yeAOXSWacejB4rpz3AF7HCz0H3jxoZKP0YhBDdc73g8yNw6+48GGi+Cq1r1p
+         2Oig==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760013923; x=1760618723;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=+qIn+RPmmwPv3OjgMXBX77cROFYyBV3LwSb/xEzaOA0=;
+        b=uuLrfB4TQEynGGZ4DrRPLqyt80JfSNr+VPHu5S0ejoffMh1vd/9AuIgDf8gZmx/OpK
+         vKOS9G3fymuKEqsWxs3xDQ3w1GB3qRWMdPVIc31lmZZIOY55W9w0k2hYEhLIP9ihBUpF
+         EML2Ql28UW1xi2qY2DrP4yynO7iTb1rl1AqGHQopHSgR2M0d2LRpCItJjHPypnlVE2DL
+         n0lakdPeBcvXiujm0sRZ903g/K+/YEGm+gS9WeapXdNXVI2nPcg14UFclCGitMrtALxX
+         x6tHJRF+sFFCrdqNYHrqXgmchVauvxXMI6LEqiOe4HWVI98LR2r17MYH1649nN1LTUJt
+         KIfA==
+X-Forwarded-Encrypted: i=1; AJvYcCVMYT9MeAqCUTdtWwhCrnReXCaCag8xrepQhWw0wDrL2RFBUB7c567PR9dEgWSoeNfmLJXPTiptf5ref38dXzJj@lists.infradead.org
+X-Gm-Message-State: AOJu0YzaUEU4pT8Ifdmjov/qgvW/Tvan8Z84cjY/PzhQ4189NF8XfyBv
+	HmBUCxsuOajWgaEO0YOoAh9arQKizQiemqux+DDKlvTwiqxqcNf23uAeZZfNRJS7nvA=
+X-Gm-Gg: ASbGnctJF/X6yUkFHlaelSaP9BAtw/4gFc/41zMPfqVCc0lkLlIm8YvRXAVD1T9sx8i
+	M+eIF7yjfqETRrChaanm0nCkCkOcJJ3U7v7s5xqygAhpId+z5LeW/sjnysj+Dt2KDVBCp9bwu4w
+	NACokabR2qbvh1fnNqniH0IH90CVowC2D+vVV2rPNGSH9eAnwtcgCMrN99pnrLy3KjqZAx6iEhB
+	k1XhaX6Kn2KvxSTlu9JqY4hfGcQZ5M6QMWd2TJt2h4WqBNIKw7cuwdUzc6C5abRgTqL890QeWQB
+	33dpZYNqR35t8hWR37J8ELk+sdylHe3b2/21hpJ8tkG4eRjTYJhZjeuxDS6yr7rHq0PUH+GHVf6
+	Rw+jYnZZT/urOsH24oeSzsL3VJzg88WJbTdjr77npFWFDMaGnNjTsRA==
+X-Google-Smtp-Source: AGHT+IF1kryN6ovbJfIQc/Fy4MJIAskuq3zQgUsbduVZ1K8QdtBLyuZQWhuT43c/0DSCHjf+2b58hA==
+X-Received: by 2002:a17:907:3daa:b0:b45:60ad:daf9 with SMTP id a640c23a62f3a-b50a9a6cb4fmr894498966b.3.1760013923400;
+        Thu, 09 Oct 2025 05:45:23 -0700 (PDT)
+Received: from draszik.lan ([80.111.64.44])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b4865f7420asm1880196166b.43.2025.10.09.05.45.22
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 09 Oct 2025 05:45:23 -0700 (PDT)
+Message-ID: <8e95e30e0ca9a85ee40f93e01c23edbfb4e1b3ff.camel@linaro.org>
+Subject: Re: [PATCH] dt-bindings: soc: samsung: exynos-sysreg: add
+ power-domains
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski
+	 <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Alim Akhtar
+	 <alim.akhtar@samsung.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus
+	 <tudor.ambarus@linaro.org>, Will McVicker <willmcvicker@google.com>, 
+	kernel-team@android.com, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
+	linux-kernel@vger.kernel.org
+Date: Thu, 09 Oct 2025 13:45:21 +0100
+In-Reply-To: <13426fe2-d4cc-4d87-bc4a-4a6dca955456@kernel.org>
+References: <20251008-power-domains-dt-bindings-soc-samsung-exynos-sysreg-v1-1-ab41c517dec6@linaro.org>
+	 <13426fe2-d4cc-4d87-bc4a-4a6dca955456@kernel.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-2 
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="gG3MP3AzN4q55W5n"
-Content-Disposition: inline
-In-Reply-To: <0a3a60082d13b27388a0893abce8be47b045c107.camel@arm.com>
-X-Cookie: Today is what happened to yesterday.
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251009_054525_297153_89A05C1F 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,120 +107,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 2025-10-09 at 08:42 +0900, Krzysztof Kozlowski wrote:
+> On 08/10/2025 23:17, Andr=C3=A9 Draszik wrote:
+> > Sysreg can be part of a power domain, so we need to allow the relevant
+> > property 'power-domains'.
+> >=20
+> > Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+> > ---
+> > =C2=A0.../devicetree/bindings/soc/samsung/samsung,exynos-sysreg.yaml=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 3 +++
+>=20
+> It is not part of power domain for any existing SoCs, at least nothing
+> indicates that so this should be restricted as in example-schema to GS
+> sysregs only.
 
---gG3MP3AzN4q55W5n
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
+Thanks Krzysztof, will do.
 
-On Thu, Oct 09, 2025 at 09:48:36AM +0000, Sascha Bischoff wrote:
-> On Tue, 2025-10-07 at 17:28 +0100, Mark Brown wrote:
-
-> > logic for generating the conditionals in a manner that's not tied to
-> > features with a layer on top that generates standard naming for
-> > common
-> > patterns like FEAT, but OTOH part of why that's not been done because
-> > it's got a bunch of nasty issues so perhaps just doing the simpler
-> > case
-> > is fine.
-
-> I agree that there are plenty of cases where sysreg fields change based
-> on more than just architectural features. Whilst my intent for this
-> change wasn't strictly to cover all of those cases, it could arguably
-> be used for that. Effectively, all this change is doing is to add a
-> prefix to the field definitions so it can be used however works best.
-
-Yeah, I don't know that we need to cover all the cases in the user
-visible syntax right now - my thought was more about the code.
-
-> It does feel as if Feat was potentially the wrong name to choose.
-> Something like Fieldset, Prefix, AltLayout, etc might be better. I'm
-> rather open to suggestions here - naming is hard!
-
-It is :)
-
-> > > The Feat descriptor can be used in the following way (Feat acts as
-> > > both an if and an else-if):
-
-> > > =A0=A0=A0=A0=A0=A0=A0 Sysreg=A0 EXAMPLE 0=A0=A0=A0 1=A0=A0=A0 2=A0=A0=
-=A0 3=A0=A0=A0 4
-> > > =A0=A0=A0=A0=A0=A0=A0 Feat=A0=A0=A0 FEAT_A
-> > > =A0=A0=A0=A0=A0=A0=A0 Field=A0=A0 63:0=A0=A0=A0 Foo
-> > > =A0=A0=A0=A0=A0=A0=A0 Feat=A0=A0=A0 FEAT_B
-
-> > This assumes that there will never be nesting of these conditions in
-> > the architecture.
-
-> My thinking was that for something like that one could do:
-
->         Feat    FEAT_A_B
-
-> Or similar. Yes, it means that anything that is nested needs to be
-> flattened, but it does allow one to describe that situation. In the
-> end, all this effectively does is to add a prefix, and said prefix can
-> be anything. Double so if we move away from calling it Feat, and use
-> something more generic instead.
-
-You could definitely do it that way, and for the limited implementation
-you're proposing it probably works as well.  My thinking here is about
-what happens with the syntax when someone comes along and implements
-nesting of fatures - the existing syntax would be broken since you
-couldn't distinguish between an implicit else and nested FEAT_.
-
-> > Probably worth complaining if we end a sysreg with a feature/prefix
-> > defined.
-
-> This is already be caught as we hit the EndSysreg directive while still
-> in the Feat block:
-
-> Error at 4690: unhandled statement
-> Error at 4690: Missing terminator for Feat block
-
-> I can be more specific in catching that, if you like.
-
-No, it's fine so long sa there's a warning.
-
-> > This is only going to work if the whole register is in a FEAT_ block,
-> > so
-> > you coudn't have:
-
-=2E..
-
-> > but then supporting partial registers does have entertaining
-> > consequences for handling Res0 and Res1.=A0 If we're OK with that
-> > restriction then the program should complain if someone tries to=20
-> > define a smaller FEAT block.
-
-> It was my intent to only support whole registers here. Anything else
-> gets insanely complex rather quickly, and much of the benefit gets lost
-> IMO. By only operating on whole Sysregs (or SysregFields) we are able
-> to re-use the existing logic to ensure that definitions are complete,
-> and the generator's state tracking remains simple. And, as you say, it
-> would break the ResX, Unkn side of things if we did anything else.
-
-> When I add the missing check I mentioned above, then it will complain
-> if fewer than 64 bits are in a defined block.
-
-Yes, I think it's a reasonable simplification for the implementation and
-so long as the syntax in the file can cope with someone doing the more
-complicated cases it seems fine to leave them for later.  It's not like
-it's a small bit of extra work it'd be easy to tack on, there's some
-thorny issues there.
-
---gG3MP3AzN4q55W5n
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQEzBAABCgAdFiEEreZoqmdXGLWf4p/qJNaLcl1Uh9AFAmjnrcYACgkQJNaLcl1U
-h9ATfQf/casVQpgbpHM7Ag5qGzcf07FmU19LCgtzxPcUAuVl5aE9enSeRtWZbcF0
-SBtbVWCd/N+OqWhF+DmQgxCjtQH4c6A9T4+N9zNh6BUf89ehECjit9XvvvRPzfcB
-nP10Vd/qJ9wfnNYyyyYXvTncSi6YPRSRhpmcp0Gp79/XDjDEejsx0CvQUnQttJA9
-iHiMCkxiuifOnHAlp+VuYhFaPlzfXM6hqZ+IdkGHKoAVmWlxJMzgBRZtRuJPfbq8
-XLnB39TwPWVqoVRH+6D4r+EtAe8sM91nkOxGV0/nDDlKDTwqQlLm0/k7bl9LMoj9
-I3DeIxVGcseaS2PyaUTvzswN+yYLmQ==
-=ljFO
------END PGP SIGNATURE-----
-
---gG3MP3AzN4q55W5n--
+Cheers,
+Andre'
 
