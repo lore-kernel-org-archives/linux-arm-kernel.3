@@ -4,79 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F189CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 23:08:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65C8DCCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 23:42:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rDpIaffmoR6Qy88AeMwNPxO5iOtC8dDi++B0iTvo01A=; b=0Ta/mwbw5LvRuh/bvAdbZ0uIjj
-	pWIiIlcIs+ThINe5nQJY9ydr1Vl2GXzGdWs935Zzn6CbYfxA4G/4cY7wRRndX2JprlAS061p7mhop
-	W+MvvTbW3qVj9W6CcI9AAz04iu65XEPYOCEFZYvcYxPJTUElHWq/w5UDYfYEJaZtvj0j9w4Quv/Wz
-	K2G3lkpU5eSndbQV4YeIf+JuXURUYG1Y2m7Ros+11LiIM7obd33wPjM/ZtQ/gmWn2R+qohESRWZVt
-	CECj4+1SBlBf0vH+AUWrAyt4bkmzWdIWGPMggiZUg9D8JIItgj5r3YhueJRg7xQzf6+ho59B2ERAQ
-	vjA9yToA==;
+	bh=FMd471QT/VhvjFXorUXuE2WlEYMkCwcbF7uR1pYLSH4=; b=igw/yAaH/X04NQ9gqyAXwj9qyy
+	BcS6+qH2Zb6fYfUVulR72islwogmh8d6zbqeBczG7i1GOzyK74PiAAO6Lwk1hetX0qrUGiL/OsNGq
+	yJV273hRSFJ0KiNYJU15PLMNqcaNvrK2zz/jYGbuLZizmqfa4m8Wp4cQhD2qyoF4MRTBPsax1tP+m
+	nTrWjbxFv8XTIetKr33TQgx3N3QDhIRY5eEA4EUIsgILrObE7Xo2a+Ri8GQV8dpv+CABoOrgZCwsE
+	fvhT0miQgVgNU5nJHF3743N5tyqCLPJj6xZmNOM1Qy2Qh1Y8DkAUSdkiuaI4coNt4xVB6X3s8Xuti
+	YvEOkqYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6zkf-00000007ILD-21pa;
-	Thu, 09 Oct 2025 23:08:49 +0000
-Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
+	id 1v70HR-00000007KO7-31Kt;
+	Thu, 09 Oct 2025 23:42:41 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6zkd-00000007IKq-2z6z
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 23:08:48 +0000
-Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-33428befc5bso3581142a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 16:08:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1760051326; x=1760656126; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=rDpIaffmoR6Qy88AeMwNPxO5iOtC8dDi++B0iTvo01A=;
-        b=PDxTTJ/OPJbmzKpT58LNOgI/bqJkJmFbeh0fqye3CQZTIVN9dtJ+XdWoFcZZdRqYO2
-         65LZYB9pLDIEqe4tOoK7GADv8MgCaKWtJN/6bBhFcK0VpTTKs30jvvx0KTY2EZbs19ne
-         /b5xnv3YJRBZ8gOW9GWjAtfF0ZlUz2D16qzqwQWCh2pTlzsNL/smptkBqJJskNRhQKbw
-         oPmalc93y+l6r9e88akVib++PAIS9VfGNpricQaq9/D5uKayNxa1cmoB6hwOU0fwoFU3
-         AAbm2yUgSZvR15XqCPlQ8PtyDFpfTMjZe/iJvke9szeU/vAWTjh4XUB5OGKoU4boEBWy
-         qTwg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760051326; x=1760656126;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rDpIaffmoR6Qy88AeMwNPxO5iOtC8dDi++B0iTvo01A=;
-        b=gBFUaJRrH0XL0x/GqA4ewR8CjsKN7LEFAhAvJwYR1Vuxy6PxCbHouoMXrA22+h7Kdl
-         UOEFQNpxeWyICM1aF0U6hqlay+BTo+wvlIGNVJ34B80mTT4RqkQK3FrfvnIJCT8/ebFq
-         D0rbGQ0+pndCUIic5/Z9o5srSdFD2piszVe8L/YbIALk/7/Wz8clxsPAieCgAnnieDiO
-         +x8OilQ4P7fmGoN4bIC+1k9Hm1bTtkezcSz3+1GvEDYyUmY3orx4AgTRUGsGxepMFqSB
-         tVfgr8kF54Bkv8xiBSBjvpXxNEn221AIHyGdiWaSTABXK74O2M19zcIIrBeN2jivldSA
-         IlgA==
-X-Gm-Message-State: AOJu0YykWZGkULWSeNGMAXpvssJiCW/KLYjTNKsjUy0YmrfOqS9JLYib
-	4YZbupIUUuCXEMtly5s2TE3JAq6H/KDRmrPGavzR24eLe2jG8ZS/Zz/QJprxOVXRZB28YB1JQEr
-	7JZUvx9anuNZpAHAjGSvqQiCuZQ==
-X-Google-Smtp-Source: AGHT+IEKbmOpgQyGpF8iZG/gJeSzfxpKObXTtqbwqaHzaJgPnDoFIt/+KkqyzPgCgGNzWKTNkqyAjVnIwO8aJ2WY7Q==
-X-Received: from pjca12.prod.google.com ([2002:a17:90b:5b8c:b0:32b:35fb:187f])
- (user=ackerleytng job=prod-delivery.src-stubby-dispatcher) by
- 2002:a17:90b:4d8b:b0:329:e703:d00b with SMTP id 98e67ed59e1d1-33b51386449mr12422922a91.19.1760051326203;
- Thu, 09 Oct 2025 16:08:46 -0700 (PDT)
-Date: Thu, 09 Oct 2025 16:08:44 -0700
-In-Reply-To: <20251007221420.344669-12-seanjc@google.com>
-Mime-Version: 1.0
-References: <20251007221420.344669-1-seanjc@google.com> <20251007221420.344669-12-seanjc@google.com>
-Message-ID: <diqzcy6vhdvn.fsf@google.com>
-Subject: Re: [PATCH v12 11/12] KVM: selftests: Add guest_memfd tests for mmap
- and NUMA policy support
-From: Ackerley Tng <ackerleytng@google.com>
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Paolo Bonzini <pbonzini@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	David Hildenbrand <david@redhat.com>, Fuad Tabba <tabba@google.com>, Shivank Garg <shivankg@amd.com>, 
-	Ashish Kalra <ashish.kalra@amd.com>, Vlastimil Babka <vbabka@suse.cz>
-Content-Type: text/plain; charset="UTF-8"
+	id 1v70HO-00000007KN7-2eoO;
+	Thu, 09 Oct 2025 23:42:39 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=FMd471QT/VhvjFXorUXuE2WlEYMkCwcbF7uR1pYLSH4=; b=jGreVek6OZbEDqwbPYSBdqw5Gd
+	dPlT4qbvlXaRMpjpPGrFMmjZ/5KDhssnGVQx9omVGaTsOHBx4XRzf1sxQLZN6viJD3JXd2HO9GN5m
+	+31C3251pm7/+xzqLiEBODFk7qGkDMYMo5fNVxpuDly02opd4rPo5bLDDQvlLYbsQVm7xar92d9ZT
+	jqnqJZ+6fgpoXtnFe6IsXnqC0z1doYUnXwEiC6KaMEcXZjE/81+yWN/arG3ylFilc87KF4fZGG/Px
+	2/yXDR3UzSKdo8cQFyrvaI4jvrgOfPlmVDn3ZWZo6lvXNi0AAJgGPlu1LI9XJgzV6HlloP3a/OF9B
+	1QTiG/ug==;
+Received: from i53875bdd.versanet.de ([83.135.91.221] helo=diego.localnet)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1v70Gy-00080d-IE; Fri, 10 Oct 2025 01:42:12 +0200
+From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
+To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
+Cc: damon.ding@rock-chips.com, m.szyprowski@samsung.com,
+ andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
+ linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
+ linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
+ linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH] drm/bridge: analogix_dp: Fix connector status detection for
+ bridges
+Date: Fri, 10 Oct 2025 01:42:11 +0200
+Message-ID: <3572997.QJadu78ljV@diego>
+In-Reply-To: <v6aqic6kffc3x42dkb4bika5tvoqdpmmloroqio2656g74pkws@7fe3bsfzbasn>
+References: <20251009193028.4952-1-heiko@sntech.de>
+ <v6aqic6kffc3x42dkb4bika5tvoqdpmmloroqio2656g74pkws@7fe3bsfzbasn>
+MIME-Version: 1.0
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_160847_756664_3411A419 
-X-CRM114-Status: GOOD (  26.35  )
+X-CRM114-CacheID: sfid-20251009_164238_665829_B645FD66 
+X-CRM114-Status: GOOD (  36.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,129 +74,116 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sean Christopherson <seanjc@google.com> writes:
+Hi Dmitry,
 
-> From: Shivank Garg <shivankg@amd.com>
->
-> Add tests for NUMA memory policy binding and NUMA aware allocation in
-> guest_memfd. This extends the existing selftests by adding proper
-> validation for:
->   - KVM GMEM set_policy and get_policy() vm_ops functionality using
->     mbind() and get_mempolicy()
->   - NUMA policy application before and after memory allocation
->
-> Run the NUMA mbind() test with and without INIT_SHARED, as KVM should allow
-> doing mbind(), madvise(), etc. on guest-private memory, e.g. so that
-> userspace can set NUMA policy for CoCo VMs.
->
-> Run the NUMA allocation test only for INIT_SHARED, i.e. if the host can't
-> fault-in memory (via direct access, madvise(), etc.) as move_pages()
-> returns -ENOENT if the page hasn't been faulted in (walks the host page
-> tables to find the associated folio)
->
-> Signed-off-by: Shivank Garg <shivankg@amd.com>
-> Tested-by: Ashish Kalra <ashish.kalra@amd.com>
-> [sean: don't skip entire test when running on non-NUMA system, test mbind()
->        with private memory, provide more info in assert messages]
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  .../testing/selftests/kvm/guest_memfd_test.c  | 98 +++++++++++++++++++
->  1 file changed, 98 insertions(+)
->
-> 
-> [...snip...]
-> 
-> +static void test_numa_allocation(int fd, size_t total_size)
-> +{
-> +	unsigned long node0_mask = 1;  /* Node 0 */
-> +	unsigned long node1_mask = 2;  /* Node 1 */
-> +	unsigned long maxnode = 8;
-> +	void *pages[4];
-> +	int status[4];
-> +	char *mem;
-> +	int i;
-> +
-> +	if (!is_multi_numa_node_system())
-> +		return;
-> +
-> +	mem = kvm_mmap(total_size, PROT_READ | PROT_WRITE, MAP_SHARED, fd);
-> +
-> +	for (i = 0; i < 4; i++)
-> +		pages[i] = (char *)mem + page_size * i;
-> +
-> +	/* Set NUMA policy after allocation */
-> +	memset(mem, 0xaa, page_size);
-> +	kvm_mbind(pages[0], page_size, MPOL_BIND, &node0_mask, maxnode, 0);
-> +	kvm_fallocate(fd, FALLOC_FL_PUNCH_HOLE | FALLOC_FL_KEEP_SIZE, 0, page_size);
-> +
-> +	/* Set NUMA policy before allocation */
-> +	kvm_mbind(pages[0], page_size * 2, MPOL_BIND, &node1_mask, maxnode, 0);
-> +	kvm_mbind(pages[2], page_size * 2, MPOL_BIND, &node0_mask, maxnode, 0);
-> +	memset(mem, 0xaa, total_size);
-> +
-> +	/* Validate if pages are allocated on specified NUMA nodes */
-> +	kvm_move_pages(0, 4, pages, NULL, status, 0);
-> +	TEST_ASSERT(status[0] == 1, "Expected page 0 on node 1, got it on node %d", status[0]);
-> +	TEST_ASSERT(status[1] == 1, "Expected page 1 on node 1, got it on node %d", status[1]);
-> +	TEST_ASSERT(status[2] == 0, "Expected page 2 on node 0, got it on node %d", status[2]);
-> +	TEST_ASSERT(status[3] == 0, "Expected page 3 on node 0, got it on node %d", status[3]);
-> +
-> +	/* Punch hole for all pages */
-> +	kvm_fallocate(fd, FALLOC_FL_PUNCH_HOLE | FALLOC_FL_KEEP_SIZE, 0, total_size);
-> +
-> +	/* Change NUMA policy nodes and reallocate */
-> +	kvm_mbind(pages[0], page_size * 2, MPOL_BIND, &node0_mask, maxnode, 0);
-> +	kvm_mbind(pages[2], page_size * 2, MPOL_BIND, &node1_mask, maxnode, 0);
-> +	memset(mem, 0xaa, total_size);
-> +
-> +	kvm_move_pages(0, 4, pages, NULL, status, 0);
-> +	TEST_ASSERT(status[0] == 0, "Expected page 0 on node 0, got it on node %d", status[0]);
-> +	TEST_ASSERT(status[1] == 0, "Expected page 1 on node 0, got it on node %d", status[1]);
-> +	TEST_ASSERT(status[2] == 1, "Expected page 2 on node 1, got it on node %d", status[2]);
-> +	TEST_ASSERT(status[3] == 1, "Expected page 3 on node 1, got it on node %d", status[3]);
-> +
+Am Freitag, 10. Oktober 2025, 00:30:11 Mitteleurop=C3=A4ische Sommerzeit sc=
+hrieb Dmitry Baryshkov:
+> On Thu, Oct 09, 2025 at 09:30:28PM +0200, Heiko Stuebner wrote:
+> > Right now if there is a next bridge attached to the analogix-dp control=
+ler
+> > the driver always assumes this bridge is connected to something, but th=
+is
+> > is of course not always true, as that bridge could also be a hotpluggab=
+le
+> > dp port for example.
+> >=20
+> > On the other hand, as stated in commit cb640b2ca546 ("drm/bridge: displ=
+ay-
+> > connector: don't set OP_DETECT for DisplayPorts"), "Detecting the monit=
+or
+> > for DisplayPort targets is more complicated than just reading the HPD p=
+in
+> > level" and we should be "letting the actual DP driver perform detection=
+=2E"
+> >=20
+> > So use drm_bridge_detect() to detect the next bridge's state but ignore
+> > that bridge if the analogix-dp is handling the hpd-gpio.
+> >=20
+> > Signed-off-by: Heiko Stuebner <heiko@sntech.de>
+> > ---
+> > As this patch stands, it would go on top of v6 of Damon's bridge-connec=
+tor
+> > work, but could very well be also integrated into one of the changes th=
+ere.
+> >=20
+> > I don't know yet if my ordering and/or reasoning is the correct one or =
+if
+> > a better handling could be done, but with that change I do get a nice
+> > hotplug behaviour on my rk3588-tiger-dp-carrier board, where the
+> > Analogix-DP ends in a full size DP port.
+> >=20
+> >  drivers/gpu/drm/bridge/analogix/analogix_dp_core.c | 8 ++++++--
+> >  1 file changed, 6 insertions(+), 2 deletions(-)
+> >=20
+> > diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drive=
+rs/gpu/drm/bridge/analogix/analogix_dp_core.c
+> > index c04b5829712b..cdc56e83b576 100644
+> > --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+> > +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
+> > @@ -983,8 +983,12 @@ analogix_dp_bridge_detect(struct drm_bridge *bridg=
+e, struct drm_connector *conne
+> >  	struct analogix_dp_device *dp =3D to_dp(bridge);
+> >  	enum drm_connector_status status =3D connector_status_disconnected;
+> > =20
+> > -	if (dp->plat_data->next_bridge)
+> > -		return connector_status_connected;
+> > +	/*
+> > +	 * An optional next bridge should be in charge of detection the
+> > +	 * connection status, except if we manage a actual hpd gpio.
+> > +	 */
+> > +	if (dp->plat_data->next_bridge && !dp->hpd_gpiod)
+> > +		return drm_bridge_detect(dp->plat_data->next_bridge, connector);
+>=20
+> And it's also not correct because the next bridge might be a retimer
+> with the bridge next to it being a one with the actual detection
+> capabilities. drm_bridge_connector solves that in a much better way. See
+> the series at [1]
+>=20
+> [1] https://lore.kernel.org/dri-devel/41c2a141-a72e-4780-ab32-f22f3a2e017=
+9@samsung.com/
 
-Related to my comment on patch 5: might a test for guest_memfd with
-regard to the memory spread page cache feature provided by the cpuset
-subsystem be missing?
+Hence my comment above about that possibly not being the right variant.
+Sort of asking for direction :-) .
 
-Perhaps we need tests for
+I am working on top of Damon's drm-bridge-connector series as noted above,
+but it looks like the detect function still is called at does then stuff.
 
-1. Test that the allocation matches current's mempolicy, with no
-   mempolicy defined for specific indices.
-2. Test that during allocation, current's mempolicy can be overridden with
-   a mempolicy defined for specific indices.
-3. Test that during allocation, current's mempolicy and the effect of
-   cpuset config can be overridden with a mempolicy defined for specific
-   indices.
-4. Test that during allocation, without defining a mempolicy for given
-   index, current's mempolicy is overridden by the effect of cpuset
-   config
+My board is the rk3588-tiger-displayport-carrier [0], with a dp-connector
+which is the next bridge, so _without_ any changes, the analogix-dp
+always assumes "something" is connected and I end up with
 
-I believe test 4, before patch 5, will show that guest_memfd respects
-cpuset config, but after patch 5, will show that guest_memfd no longer
-allows cpuset config to override current's mempolicy.
+[    9.869198] [drm:analogix_dp_bridge_atomic_enable] *ERROR* failed to get=
+ hpd single ret =3D -110
+[    9.980422] [drm:analogix_dp_bridge_atomic_enable] *ERROR* failed to get=
+ hpd single ret =3D -110
+[   10.091522] [drm:analogix_dp_bridge_atomic_enable] *ERROR* failed to get=
+ hpd single ret =3D -110
+[   10.202419] [drm:analogix_dp_bridge_atomic_enable] *ERROR* failed to get=
+ hpd single ret =3D -110
+[   10.313651] [drm:analogix_dp_bridge_atomic_enable] *ERROR* failed to get=
+ hpd single ret =3D -110
 
-> +	kvm_munmap(mem, total_size);
-> +}
-> +
->  static void test_fault_sigbus(int fd, size_t accessible_size, size_t map_size)
->  {
->  	const char val = 0xaa;
-> @@ -273,11 +369,13 @@ static void __test_guest_memfd(struct kvm_vm *vm, uint64_t flags)
->  		if (flags & GUEST_MEMFD_FLAG_INIT_SHARED) {
->  			gmem_test(mmap_supported, vm, flags);
->  			gmem_test(fault_overflow, vm, flags);
-> +			gmem_test(numa_allocation, vm, flags);
->  		} else {
->  			gmem_test(fault_private, vm, flags);
->  		}
->  
->  		gmem_test(mmap_cow, vm, flags);
-> +		gmem_test(mbind, vm, flags);
->  	} else {
->  		gmem_test(mmap_not_supported, vm, flags);
->  	}
-> -- 
-> 2.51.0.710.ga91ca5db03-goog
+when no display is connected.
+
+With this change I do get the expected hotplug behaviour, so something is
+missing still even with the bridge-connector series.
+
+
+Heiko
+
+
+[0] v3: https://lore.kernel.org/r/20250812083217.1064185-3-heiko@sntech.de
+    v4: https://lore.kernel.org/r/20251009225050.88192-3-heiko@sntech.de
+    (moved hpd-gpios from dp-connector back to analogix-dp per dp-connector
+    being not able to detect dp-monitors)
+>=20
+> > =20
+> >  	if (!analogix_dp_detect_hpd(dp))
+> >  		status =3D connector_status_connected;
+>=20
+>=20
+
+
+
+
 
