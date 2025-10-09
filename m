@@ -4,196 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC480CCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 10:30:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6085ECCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 10:36:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5kNnaE3wosVbbZxnmP0sVKpcafEUi286yAMPQXV2QSw=; b=eUH+mQmb2fbuJaUQLK1uFPZnGx
-	mDIo0IHRllbGfjORMpgXdA4efy7MCOYD6m5+Iu+CXPUb6R0cwKDp9vNDG1aVUKM2YdVpzdQccGGJg
-	sUFICFDN+8m57LCyR3TDtVwD8s3UFYyJ6V02CBrco5c9C1e4w7auJhsKEGDvvupPC2NBorlBKFZDi
-	5Ss4082ps70RPBtStkGwJFYKaFUiKtFUnvgVIqiFXcGfqAXkcxXhcefuvKGsckGHJu/w3HgiI1IjL
-	e1fScK02VbijEBVztOCJh+4L2Vu1zmo7slOPM3pd4Oj4Oy2pcEe8OaWI9h9gM/ZcT44y4CjcYMpkQ
-	Bko/y3oA==;
+	bh=5i0195bDU0ilvp9Zfa506MfufREMA3atUU5gCdCT6Dw=; b=OXYc8wzIMuCc2ty33YErK/Jp0X
+	Ia8+5WQC1RltyY86gXYxBhm98iTxMHoNFVXcaELpu/hbnGiznQlIgKJuuCmTh8Gb4LD7YhQSPRftL
+	OfRMe8iJa8i0FUSBCLMjqEs8CmG2GdWmBdwR896W6vS/MuD3Pg+ZfrlKCRIZXeaR3TiH0yaZcr0nq
+	BZVGfgkE3+jJUnOTRAxsayqCT7kuIz5zI4OSbPiXTbeXLH/iq1AUWZzF8kUseFVf/FopMOxXzxie0
+	2K9waA4MUHR1272/0wmYE5P+TVLrlw6Ai6eZTKRag4MBT3m/ktO5skUs6FJMzYnBBclEv9ml6dcVh
+	JRDSTS1w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6nv0-00000005ngZ-2dHe;
-	Thu, 09 Oct 2025 10:30:42 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v6o0I-00000005oNJ-1bKU;
+	Thu, 09 Oct 2025 10:36:10 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6nuz-00000005ng7-22LC
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 09 Oct 2025 10:30:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=5kNnaE3wosVbbZxnmP0sVKpcafEUi286yAMPQXV2QSw=; b=ow+b8nMKhbejZCm6yrTETnVPtd
-	2t2v+2aiYKG0TfSoQ73i2b3R19k83ED1YDU8aAEFTahZfqDBZtNpAkUcCsEGM0GvTyFnkXrkLMwCX
-	nMVtXw0jiwyS01f+faUhMoGK+9KePe+eQVBSAP9fLa6MyY4h9Xil8RYVVYi8dcD46ZzoS0D0oabyO
-	T2qAVl2UgS8WrKVW6f0HYDHVBa3C9izOJVcDZvdx/C3wNpMQHVwV9vCMuagxkXSvbc49GjHIU3chR
-	qc7Jlq7s8PMbzUdD83vqRK0NCS7+dxpF00xjD6MArD/C+1SuK/E4LpJA5MKT9NZn+X3bVj4H0ubil
-	pHjeTKJw==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6nuv-00000001NJD-3t4e
+	id 1v6o0F-00000005oMl-0o61
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 10:30:40 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1760005835;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=5kNnaE3wosVbbZxnmP0sVKpcafEUi286yAMPQXV2QSw=;
-	b=QhNlqUuEsZntvTKx/8um0mOXPrBTaocXHhJUBiXc0eBjqWRq2yTGClJBkTGOc2yp7VwzTy
-	QjsteWnmZaTPA0KvttQcbt9UdhQhB5/iu4v2IN3rowl2TpF4BlKjApsiN7jS1ukF677+wu
-	UOH+Qgx/PilnAElVViX2pOLP3CclQVw=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1760005836;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=5kNnaE3wosVbbZxnmP0sVKpcafEUi286yAMPQXV2QSw=;
-	b=U/zCUaWHpgKqa+U4To7Q1qBZWRV+scKwnDQ2ul9vQWaqnCEmLnPTnRzcOfrhSrj8SQqvjU
-	JV8AAny3in0Uuvi+8LcMP130DBtSwhn97P5cDCw6+AJNBiiScsNb6XsApW6rTS9KZDxLA1
-	fJW5DLE0nZHDm5tJoYFiM0f2yjGGuXc=
-Received: from mail-wm1-f70.google.com (mail-wm1-f70.google.com
- [209.85.128.70]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-349-9pegXbwgOvirKx17RzWJTA-1; Thu, 09 Oct 2025 06:30:34 -0400
-X-MC-Unique: 9pegXbwgOvirKx17RzWJTA-1
-X-Mimecast-MFC-AGG-ID: 9pegXbwgOvirKx17RzWJTA_1760005833
-Received: by mail-wm1-f70.google.com with SMTP id 5b1f17b1804b1-46e36f9c651so5380275e9.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 03:30:34 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760005833; x=1760610633;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=5kNnaE3wosVbbZxnmP0sVKpcafEUi286yAMPQXV2QSw=;
-        b=LgRF1tvFZBCe21nc1iTY9EkB7MrmrsNNhseUcJlLGHUXrUWK8PvXZDipRzwMrzlwl4
-         Ote7aJIlqFbtCducP4o8AJciQYchXq3wx+HG81g6sin3Lt6X00bVRgn3CTCF35/ZA2rn
-         KtjZfSR5xmi9Da08zWWI7pLCAoVQf6MY9IqsbbTPgdyLOtN0Pg9FNLeUDn0AUnZcHX5P
-         34uFBqE69UKvWpjcz9hjxQ/cD6PJrKc10V9JRm6s6SFL/CXcbSq7lVNdoWoCCBbH1Uf/
-         U5axXko2dHnfhIIlTJNb5HVGOZJzdkPXTZQDWG93iHHlL6ZNCWSXRpyekAXr/pgMR42j
-         hdFw==
-X-Forwarded-Encrypted: i=1; AJvYcCXjXcwasLvA2drQ+YtLDCr73PcQ72nK2iyCTfdoAsTwqBjWaZ7pBttqdDx7wvxS+DNbdS96tf+SVyj8Fe08MXcw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yyxufap5SOaKVBqvZq4AGHcT02G5FX9Q8pd76wBTl46QIHDBWJF
-	9/UHwbE7pTvxmng8W599hueWP5Ka4TvlAlI37coxZn/70KhzCo6VjWvbQpG3aXmjG3dp2Eib+vP
-	XsE4zooXRea7dUCNGtsGiQihOzbhoHoNa0f7DJ3N11/oddu7Ro+O5TeTY4tDEorNHdec1R+o2Qp
-	8w
-X-Gm-Gg: ASbGnctbHg9sRAl945j8Qo6SHaCHUclaN/KxbnZLXN5EwB/OJmiZsleJOpfazjAzckD
-	q3awPi9bntefx4fSZsAykmdFVZvWZxrbzT/BqeykrrCJK7596OyCCSLDNEiU9M9i1lA4JlmRYpW
-	C/yVOcEMOmruJbC+UadU8j8eNUbBfJ/wDmTXmOF7sjRg6qivP+J3G9AMjIpDO/gQ99qJQw+8Po1
-	E6C6lX4Oy5b97XIJOxA9973Oj/YuQM9rt2qJmRxCo/G3wpqlWKO0jChIyg4oDbcxkQu6uF/OAdn
-	spkQMp4y5L+f/d5N8SAQUjfAMbdoNr4INTw9dyd/9Fi2GO0zOjMkwYfHhIKlGd38dNOPWkg3EY0
-	Qtj2/P4WC
-X-Received: by 2002:a05:600c:8b22:b0:46e:4882:94c7 with SMTP id 5b1f17b1804b1-46fa9b02c6amr45782565e9.28.1760005833122;
-        Thu, 09 Oct 2025 03:30:33 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFU6FTiIKoa0UkBC9Zx589zDahv6+GU8nNOKIx+xH1kxdPK8/6eRVsJOlUDPEfHImp4fkFddw==
-X-Received: by 2002:a05:600c:8b22:b0:46e:4882:94c7 with SMTP id 5b1f17b1804b1-46fa9b02c6amr45781975e9.28.1760005832588;
-        Thu, 09 Oct 2025 03:30:32 -0700 (PDT)
-Received: from [192.168.3.141] (tmo-083-189.customers.d1-online.com. [80.187.83.189])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46fab3cc939sm34647705e9.1.2025.10.09.03.30.28
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 09 Oct 2025 03:30:32 -0700 (PDT)
-Message-ID: <7d82cf5e-f60c-4295-9566-c40f6897fce7@redhat.com>
-Date: Thu, 9 Oct 2025 12:30:27 +0200
+	Thu, 09 Oct 2025 10:36:09 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cj5nJ5c6kz6GCtF;
+	Thu,  9 Oct 2025 18:33:24 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 27D1F1400CA;
+	Thu,  9 Oct 2025 18:36:00 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 9 Oct
+ 2025 11:35:59 +0100
+Date: Thu, 9 Oct 2025 11:35:57 +0100
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: Aneesh Kumar K.V <aneesh.kumar@kernel.org>
+CC: <linux-coco@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Steven Price <steven.price@arm.com>, "Gavin
+ Shan" <gshan@redhat.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, "Jeremy
+ Linton" <jeremy.linton@arm.com>, Sami Mujawar <sami.mujawar@arm.com>
+Subject: Re: [PATCH] coco: guest: arm64: Update ARM CCA guest driver
+Message-ID: <20251009113557.000053e6@huawei.com>
+In-Reply-To: <yq5aldlka6oi.fsf@kernel.org>
+References: <20251008132758.784275-1-aneesh.kumar@kernel.org>
+	<yq5aldlka6oi.fsf@kernel.org>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH RFC 06/35] mm/page_alloc: reject unreasonable
- folio/compound page sizes in alloc_contig_range_noprof()
-To: Balbir Singh <balbirs@nvidia.com>, linux-kernel@vger.kernel.org
-Cc: Alexander Potapenko <glider@google.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
- Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
- dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
- iommu@lists.linux.dev, io-uring@vger.kernel.org,
- Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
- Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
- kasan-dev@googlegroups.com, kvm@vger.kernel.org,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
- linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
- linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-scsi@vger.kernel.org, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Marco Elver <elver@google.com>, Marek Szyprowski <m.szyprowski@samsung.com>,
- Michal Hocko <mhocko@suse.com>, Mike Rapoport <rppt@kernel.org>,
- Muchun Song <muchun.song@linux.dev>, netdev@vger.kernel.org,
- Oscar Salvador <osalvador@suse.de>, Peter Xu <peterx@redhat.com>,
- Robin Murphy <robin.murphy@arm.com>, Suren Baghdasaryan <surenb@google.com>,
- Tejun Heo <tj@kernel.org>, virtualization@lists.linux.dev,
- Vlastimil Babka <vbabka@suse.cz>, wireguard@lists.zx2c4.com, x86@kernel.org,
- Zi Yan <ziy@nvidia.com>
-References: <20250821200701.1329277-1-david@redhat.com>
- <20250821200701.1329277-7-david@redhat.com>
- <fa2e262c-d732-48e3-9c59-6ed7c684572c@nvidia.com>
- <5a5013ca-e976-4622-b881-290eb0d78b44@redhat.com>
- <a04d8499-85ad-40b4-8173-dcc81a5a71bf@nvidia.com>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- qIws/H2t
-In-Reply-To: <a04d8499-85ad-40b4-8173-dcc81a5a71bf@nvidia.com>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: nda0ub4AYulwUVKcT6H_5amnV2oTlap92_piLMhaN98_1760005833
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_113038_550343_33536CB2 
-X-CRM114-Status: GOOD (  23.13  )
+X-CRM114-CacheID: sfid-20251009_033607_378232_AA8FBD85 
+X-CRM114-Status: GOOD (  14.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -208,110 +74,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09.10.25 12:25, Balbir Singh wrote:
-> On 10/9/25 17:12, David Hildenbrand wrote:
->> On 09.10.25 06:21, Balbir Singh wrote:
->>> On 8/22/25 06:06, David Hildenbrand wrote:
->>>> Let's reject them early, which in turn makes folio_alloc_gigantic() reject
->>>> them properly.
->>>>
->>>> To avoid converting from order to nr_pages, let's just add MAX_FOLIO_ORDER
->>>> and calculate MAX_FOLIO_NR_PAGES based on that.
->>>>
->>>> Signed-off-by: David Hildenbrand <david@redhat.com>
->>>> ---
->>>>    include/linux/mm.h | 6 ++++--
->>>>    mm/page_alloc.c    | 5 ++++-
->>>>    2 files changed, 8 insertions(+), 3 deletions(-)
->>>>
->>>> diff --git a/include/linux/mm.h b/include/linux/mm.h
->>>> index 00c8a54127d37..77737cbf2216a 100644
->>>> --- a/include/linux/mm.h
->>>> +++ b/include/linux/mm.h
->>>> @@ -2055,11 +2055,13 @@ static inline long folio_nr_pages(const struct folio *folio)
->>>>      /* Only hugetlbfs can allocate folios larger than MAX_ORDER */
->>>>    #ifdef CONFIG_ARCH_HAS_GIGANTIC_PAGE
->>>> -#define MAX_FOLIO_NR_PAGES    (1UL << PUD_ORDER)
->>>> +#define MAX_FOLIO_ORDER        PUD_ORDER
->>>
->>> Do we need to check for CONTIG_ALLOC as well with CONFIG_ARCH_HAS_GIGANTIC_PAGE?
->>>
->>
->> I don't think so, can you elaborate?
->>
+On Thu, 09 Oct 2025 12:43:49 +0530
+Aneesh Kumar K.V <aneesh.kumar@kernel.org> wrote:
+
+> "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> writes:
 > 
-> The only way to allocate a gigantic page is to use CMA, IIRC, which is covered by CONTIG_ALLOC
-
-As we are discussing as part of v2 right now, there is the way to just 
-obtain them from memblock during boot.
-
+> > Make preparatory updates to the ARM CCA guest driver:
+> >
+> >  - Switch from using a platform device to a faux device (based on
+> >    feedback in [1])
+> >  - Rename the device from `arm-cca-dev` to `arm-rsi-dev`, so that the
+> >    host driver can register an equivalent `arm-rmi-dev`
+> >
+> > These changes are purely structural and introduce no new functionality.
+> > Subsequent patches will extend this driver to add guest device
+> > assignment support.
+> >
+> > [1] https://lore.kernel.org/all/2025073035-bulginess-rematch-b92e@gregkh
+> >  
 > 
->>>>    #else
->>>> -#define MAX_FOLIO_NR_PAGES    MAX_ORDER_NR_PAGES
->>>> +#define MAX_FOLIO_ORDER        MAX_PAGE_ORDER
->>>>    #endif
->>>>    +#define MAX_FOLIO_NR_PAGES    (1UL << MAX_FOLIO_ORDER)
->>>> +
->>>>    /*
->>>>     * compound_nr() returns the number of pages in this potentially compound
->>>>     * page.  compound_nr() can be called on a tail page, and is defined to
->>>> diff --git a/mm/page_alloc.c b/mm/page_alloc.c
->>>> index ca9e6b9633f79..1e6ae4c395b30 100644
->>>> --- a/mm/page_alloc.c
->>>> +++ b/mm/page_alloc.c
->>>> @@ -6833,6 +6833,7 @@ static int __alloc_contig_verify_gfp_mask(gfp_t gfp_mask, gfp_t *gfp_cc_mask)
->>>>    int alloc_contig_range_noprof(unsigned long start, unsigned long end,
->>>>                      acr_flags_t alloc_flags, gfp_t gfp_mask)
->>>>    {
->>>> +    const unsigned int order = ilog2(end - start);
->>>
->>> Do we need a VM_WARN_ON(end < start)?
->>
->> I don't think so.
->>
-> 
-> end - start being < 0, completely breaks ilog2. But we would error out because ilog2 > MAX_FOLIO_ORDER, so we should fine
+> I noticed that, this will break autoloading of the driver. 
 
-Right, and if we have code that buggy that does it, it probably 
-shouldn't be our responsibility to sanity check that :)
+Ah indeed.  You'd need to arrange for the arch code to call the init()
+directly (possibly arch_initcall() as before or maybe directly from
+arm64_rsi_init), which makes it tricky to do in a module as there
+is nothing to kick off module autoloading. You could kick that off
+explicitly but that's a bit ugly.
 
-It would have been completely buggy before this patch.
+Jonathan
 
-> 
->>>
->>>>        unsigned long outer_start, outer_end;
->>>>        int ret = 0;
->>>>    @@ -6850,6 +6851,9 @@ int alloc_contig_range_noprof(unsigned long start, unsigned long end,
->>>>                            PB_ISOLATE_MODE_CMA_ALLOC :
->>>>                            PB_ISOLATE_MODE_OTHER;
->>>>    +    if (WARN_ON_ONCE((gfp_mask & __GFP_COMP) && order > MAX_FOLIO_ORDER))
->>>> +        return -EINVAL;
->>>> +
->>>>        gfp_mask = current_gfp_context(gfp_mask);
->>>>        if (__alloc_contig_verify_gfp_mask(gfp_mask, (gfp_t *)&cc.gfp_mask))
->>>>            return -EINVAL;
->>>> @@ -6947,7 +6951,6 @@ int alloc_contig_range_noprof(unsigned long start, unsigned long end,
->>>>                free_contig_range(end, outer_end - end);
->>>>        } else if (start == outer_start && end == outer_end && is_power_of_2(end - start)) {
->>>>            struct page *head = pfn_to_page(start);
->>>> -        int order = ilog2(end - start);
->>>>              check_new_pages(head, order);
->>>>            prep_new_page(head, order, gfp_mask, 0);
->>>
->>> Acked-by: Balbir Singh <balbirs@nvidia.com>
->>
->> Thanks for the review, but note that this is already upstream.
->>
-> 
-> Sorry, this showed up in my updated mm thread and I ended up reviewing it, please ignore if it's upstream
-
-I'm happy for any review (better in reply to v2), because any bug caught 
-early is good!
-
-
--- 
-Cheers
-
-David / dhildenb
 
 
