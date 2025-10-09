@@ -4,72 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9B8DBCCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 02:01:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED58FCAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 02:20:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hZLQq1cFpDnE3WeOTXxYAWB3fTkXBtyZpLnTjz0oWFs=; b=Wtr0NQWSGOkBd0cl6HjtHaQU/I
-	UDm7Wn9bchfqXaIzlVWLo1y6WSmRMiIBYhhG23RkXl/+l8sT5OAU6MeOLPSVwmoHamLCGWZ/9r/y3
-	kVDi21KBA4ldQNL279CBPLMaRQ78lJaY8XHHDqndNGadiiT2UCjPyCvEkVcP3x3K7rRLmFift3xwZ
-	soHbYaEMUXUMC7ZGl6JERXGTcONn48sJFWdNJ13as9phdL3uX2sNxkeXrrw/7p0rN8UmdoUm7hTw5
-	g6dEhA2wu/qz5rD6fh4QoMmADL/ZJDkpmoq1dpF+dbO9JMF1sWj8+Tdr+7g5rvB1UWH+z0mPMHHEn
-	pVhAj9aQ==;
+	bh=2vkGRN8CaZrXiOYFDTBML3A03PPPCZYpHxq0X5airTA=; b=pS9oKN+dPxsilmCNpS5+J4DdLv
+	QQi1rFKiNaF7pUUlBXUHdEScBvhxF3ud0mKcJVWh5s5AJ0Eu1qWrjpmsW6lrkiHFj/GwpNBFuMwOo
+	qzx0hCEDAwp/8+d4d962Hxsjp3eKtNzbv2GA0esgTwg3f7WfI/DxfZwYq084aCoHJ9JPeMsu6ItbL
+	8fBrwXYJ64VPs6lQjsWs4tghBsDhliHtqI3NsXFtJEFTWq428dpycYynQFV8VKB9Kc5pFpGXxR/o4
+	3+xZg2F1K+JOsP3ny0Y7zD8azgQqnP7n8GkpaKgJ5/71GnBG8taJqwVuzyIDbvDTW0tvq3qgh2QP0
+	BPHuiadw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6fyV-000000051IX-1v25;
-	Thu, 09 Oct 2025 02:01:47 +0000
-Received: from mail-m32108.qiye.163.com ([220.197.32.108])
+	id 1v6gG4-000000052mQ-0VxB;
+	Thu, 09 Oct 2025 02:19:56 +0000
+Received: from mgamail.intel.com ([198.175.65.21])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6fyR-000000051HW-4BYk;
-	Thu, 09 Oct 2025 02:01:45 +0000
-Received: from [172.16.12.26] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 253de3988;
-	Thu, 9 Oct 2025 10:01:38 +0800 (GMT+08:00)
-Message-ID: <d4353b1e-53e5-4a5f-8da0-df3493d95ec3@rock-chips.com>
-Date: Thu, 9 Oct 2025 10:01:39 +0800
+	id 1v6gG0-000000052lV-2op4;
+	Thu, 09 Oct 2025 02:19:54 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1759976392; x=1791512392;
+  h=message-id:date:mime-version:subject:to:cc:references:
+   from:in-reply-to:content-transfer-encoding;
+  bh=MKwwAjIvNTVYzVSKLCj93oAfQ4vIbNdKNB8W0YNJ6Qg=;
+  b=jWnV7xEk04QWrE2+NGmlMd9EEqy73hMijmfZO+h9i8ZFPqPDN6Jc35gm
+   YB2VLHysWhmrqGkIRdvP0lvV+a2f6AsqLL3MlhWLidjPNmKEsVFXeHFen
+   0XVjA5Qaxmhk2wasazg31GUXjbFrFu1RdROp+1v2b2YBe3T+LYi0R5UDi
+   iGq8rwW7Qf9b00/RJHG6hKh9jYRmnJs9vONxiZEBV1RoqboH74a0nganv
+   5bKQBoidw2VM+U/a80YC6yXWGk85442pLXEB+efI8s8odAjsjCkveb3p2
+   ByKtzEH9vc3oSxbLZ+XMROF7yfp+3Z1FK/ljQqueOoFGfop6cGxeJTA5s
+   g==;
+X-CSE-ConnectionGUID: 0UKaID5KSwSF33iuY9kevw==
+X-CSE-MsgGUID: XoR0pU4/TD+x2BJ2AKpujQ==
+X-IronPort-AV: E=McAfee;i="6800,10657,11531"; a="62097734"
+X-IronPort-AV: E=Sophos;i="6.17,312,1747724400"; 
+   d="scan'208";a="62097734"
+Received: from fmviesa001.fm.intel.com ([10.60.135.141])
+  by orvoesa113.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Oct 2025 19:19:51 -0700
+X-CSE-ConnectionGUID: SjjAIAIGQgGwYyFr6uTBmQ==
+X-CSE-MsgGUID: dnnE1byERkONzbCEalT4rw==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,215,1754982000"; 
+   d="scan'208";a="211538774"
+Received: from dapengmi-mobl1.ccr.corp.intel.com (HELO [10.124.232.209]) ([10.124.232.209])
+  by smtpauth.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 08 Oct 2025 19:19:44 -0700
+Message-ID: <0276af52-c697-46c3-9db8-9284adb6beee@linux.intel.com>
+Date: Thu, 9 Oct 2025 10:19:41 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 07/18] drm/exynos: exynos_dp: Apply legacy bridge to
- parse the display-timings node
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
- Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
- kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
- jingoohan1@gmail.com, p.zabel@pengutronix.de, hjc@rock-chips.com,
- heiko@sntech.de, andy.yan@rock-chips.com, dianders@chromium.org,
- m.szyprowski@samsung.com, luca.ceresoli@bootlin.com, jani.nikula@intel.com,
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
-References: <20250930090920.131094-1-damon.ding@rock-chips.com>
- <20250930090920.131094-8-damon.ding@rock-chips.com>
- <73bpf77trhqdo5amfxbn4qhlwf4ta7hmouwfen7m3aslycd3bj@72artzwafbmq>
+Subject: Re: [PATCH v5 32/44] KVM: x86/pmu: Disable interception of select PMU
+ MSRs for mediated vPMUs
+To: Sean Christopherson <seanjc@google.com>, Sandipan Das <sandidas@amd.com>
+Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Tianrui Zhao <zhaotianrui@loongson.cn>, Bibo Mao <maobibo@loongson.cn>,
+ Huacai Chen <chenhuacai@kernel.org>, Anup Patel <anup@brainfault.org>,
+ Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt
+ <palmer@dabbelt.com>, Albert Ou <aou@eecs.berkeley.edu>,
+ Xin Li <xin@zytor.com>, "H. Peter Anvin" <hpa@zytor.com>,
+ Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Ingo Molnar <mingo@redhat.com>, Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Paolo Bonzini <pbonzini@redhat.com>,
+ linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
+ kvm@vger.kernel.org, loongarch@lists.linux.dev,
+ kvm-riscv@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-perf-users@vger.kernel.org,
+ Kan Liang <kan.liang@linux.intel.com>, Yongwei Ma <yongwei.ma@intel.com>,
+ Mingwei Zhang <mizhang@google.com>,
+ Xiong Zhang <xiong.y.zhang@linux.intel.com>,
+ Sandipan Das <sandipan.das@amd.com>
+References: <20250806195706.1650976-1-seanjc@google.com>
+ <20250806195706.1650976-33-seanjc@google.com>
+ <f896966e-8925-4b4f-8f0d-f1ae8aa197f7@amd.com> <aN1vfykNs8Dmv_g0@google.com>
 Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <73bpf77trhqdo5amfxbn4qhlwf4ta7hmouwfen7m3aslycd3bj@72artzwafbmq>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a99c6b3d38b03a3kunm9ba9a00aa3be80
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGRlLGFZPTh9CGUxIGUNMQklWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
-	1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=g5bSR7JcicF4l8Xg5hsi1shmjZSmPq7LMdHC3p6KV19qTLOcogrtafU3cM+wvqokGzzEZTkyzGaDS7cVjiwUCI4qOWmqVd+YzemXrDWbkfLuzNP5flW+RxlNr/fEBr7DyIgul3sJ5uvZLX97Z1l67egKD79TmgMoVQjFgU3sJ50=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=hZLQq1cFpDnE3WeOTXxYAWB3fTkXBtyZpLnTjz0oWFs=;
-	h=date:mime-version:subject:message-id:from;
+From: "Mi, Dapeng" <dapeng1.mi@linux.intel.com>
+In-Reply-To: <aN1vfykNs8Dmv_g0@google.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251008_190144_585073_EC41F3D7 
-X-CRM114-Status: GOOD (  24.49  )
+X-CRM114-CacheID: sfid-20251008_191952_781522_53669A45 
+X-CRM114-Status: GOOD (  24.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,121 +102,136 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dmitry,
 
-On 10/1/2025 4:17 AM, Dmitry Baryshkov wrote:
-> On Tue, Sep 30, 2025 at 05:09:09PM +0800, Damon Ding wrote:
->> If there is neither a panel nor a bridge, the display timing can be
->> parsed from the display-timings node under the dp node.
->>
->> In order to get rid of &analogix_dp_plat_data.get_modes() and make
->> the codes more consistent, apply DRM legacy bridge to parse display
->> timings.
->>
->> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
->>
->> ------
->>
->> Changes in v6:
->> - Apply DRM legacy bridge to parse display timings intead of
->>    implementing the same codes only for Exynos DP.
->> ---
->>   drivers/gpu/drm/exynos/Kconfig     |  1 +
->>   drivers/gpu/drm/exynos/exynos_dp.c | 71 +++++++++---------------------
->>   2 files changed, 22 insertions(+), 50 deletions(-)
->>
->> diff --git a/drivers/gpu/drm/exynos/Kconfig b/drivers/gpu/drm/exynos/Kconfig
->> index 0d13828e7d9e..66665d317848 100644
->> --- a/drivers/gpu/drm/exynos/Kconfig
->> +++ b/drivers/gpu/drm/exynos/Kconfig
->> @@ -72,6 +72,7 @@ config DRM_EXYNOS_DP
->>   	select DRM_ANALOGIX_DP
->>   	select DRM_DISPLAY_DP_HELPER
->>   	default DRM_EXYNOS
->> +	select DRM_LEGACY_BRIDGE
->>   	select DRM_PANEL
->>   	help
->>   	  This enables support for DP device.
->> diff --git a/drivers/gpu/drm/exynos/exynos_dp.c b/drivers/gpu/drm/exynos/exynos_dp.c
->> index e20513164032..507d0a98fe5b 100644
->> --- a/drivers/gpu/drm/exynos/exynos_dp.c
->> +++ b/drivers/gpu/drm/exynos/exynos_dp.c
->> @@ -19,6 +19,7 @@
->>   #include <video/videomode.h>
->>   
->>   #include <drm/bridge/analogix_dp.h>
->> +#include <drm/bridge/legacy-bridge.h>
->>   #include <drm/drm_atomic_helper.h>
->>   #include <drm/drm_bridge.h>
->>   #include <drm/drm_crtc.h>
->> @@ -38,11 +39,23 @@ struct exynos_dp_device {
->>   	struct drm_device          *drm_dev;
->>   	struct device              *dev;
->>   
->> -	struct videomode           vm;
->>   	struct analogix_dp_device *adp;
->>   	struct analogix_dp_plat_data plat_data;
->>   };
->>   
->> +static int exynos_dp_legacy_bridge_init(struct exynos_dp_device *dp,
->> +					struct drm_bridge **bridge)
->> +{
->> +	if (!bridge)
->> +		return -EINVAL;
-> 
-> Well, this can't happen, can it?
-> 
->> +
->> +	*bridge = devm_drm_legacy_bridge(dp->dev, dp->dev->of_node, DRM_MODE_CONNECTOR_eDP);
->> +	if (IS_ERR(*bridge))
->> +		return PTR_ERR(*bridge);
->> +
->> +	return 0;
->> +}
-> 
-> I'd suggest inlining the function. It doesn't make sense to have
-> one-line wrapper.
-> 
+On 10/2/2025 2:14 AM, Sean Christopherson wrote:
+> On Fri, Sep 26, 2025, Sandipan Das wrote:
+>> On 8/7/2025 1:26 AM, Sean Christopherson wrote:
+>>> From: Dapeng Mi <dapeng1.mi@linux.intel.com>
+>>>
+>>> For vCPUs with a mediated vPMU, disable interception of counter MSRs for
+>>> PMCs that are exposed to the guest, and for GLOBAL_CTRL and related MSRs
+>>> if they are fully supported according to the vCPU model, i.e. if the MSRs
+>>> and all bits supported by hardware exist from the guest's point of view.
+>>>
+>>> Do NOT passthrough event selector or fixed counter control MSRs, so that
+>>> KVM can enforce userspace-defined event filters, e.g. to prevent use of
+>>> AnyThread events (which is unfortunately a setting in the fixed counter
+>>> control MSR).
+>>>
+>>> Defer support for nested passthrough of mediated PMU MSRs to the future,
+>>> as the logic for nested MSR interception is unfortunately vendor specific.
+> ...
+>
+>>>  #define MSR_AMD64_LBR_SELECT			0xc000010e
+>>> diff --git a/arch/x86/kvm/pmu.c b/arch/x86/kvm/pmu.c
+>>> index 4246e1d2cfcc..817ef852bdf9 100644
+>>> --- a/arch/x86/kvm/pmu.c
+>>> +++ b/arch/x86/kvm/pmu.c
+>>> @@ -715,18 +715,14 @@ int kvm_pmu_rdpmc(struct kvm_vcpu *vcpu, unsigned idx, u64 *data)
+>>>  	return 0;
+>>>  }
+>>>  
+>>> -bool kvm_need_rdpmc_intercept(struct kvm_vcpu *vcpu)
+>>> +bool kvm_need_perf_global_ctrl_intercept(struct kvm_vcpu *vcpu)
+>>>  {
+>>>  	struct kvm_pmu *pmu = vcpu_to_pmu(vcpu);
+>>>  
+>>>  	if (!kvm_vcpu_has_mediated_pmu(vcpu))
+>>>  		return true;
+>>>  
+>>> -	/*
+>>> -	 * VMware allows access to these Pseduo-PMCs even when read via RDPMC
+>>> -	 * in Ring3 when CR4.PCE=0.
+>>> -	 */
+>>> -	if (enable_vmware_backdoor)
+>>> +	if (!kvm_pmu_has_perf_global_ctrl(pmu))
+>>>  		return true;
+>>>  
+>>>  	/*
+>>> @@ -735,7 +731,22 @@ bool kvm_need_rdpmc_intercept(struct kvm_vcpu *vcpu)
+>>>  	 * capabilities themselves may be a subset of hardware capabilities.
+>>>  	 */
+>>>  	return pmu->nr_arch_gp_counters != kvm_host_pmu.num_counters_gp ||
+>>> -	       pmu->nr_arch_fixed_counters != kvm_host_pmu.num_counters_fixed ||
+>>> +	       pmu->nr_arch_fixed_counters != kvm_host_pmu.num_counters_fixed;
+>>> +}
+>>> +EXPORT_SYMBOL_GPL(kvm_need_perf_global_ctrl_intercept);
+>>> +
+>>> +bool kvm_need_rdpmc_intercept(struct kvm_vcpu *vcpu)
+>>> +{
+>>> +	struct kvm_pmu *pmu = vcpu_to_pmu(vcpu);
+>>> +
+>>> +	/*
+>>> +	 * VMware allows access to these Pseduo-PMCs even when read via RDPMC
+>>> +	 * in Ring3 when CR4.PCE=0.
+>>> +	 */
+>>> +	if (enable_vmware_backdoor)
+>>> +		return true;
+>>> +
+>>> +	return kvm_need_perf_global_ctrl_intercept(vcpu) ||
+>>>  	       pmu->counter_bitmask[KVM_PMC_GP] != (BIT_ULL(kvm_host_pmu.bit_width_gp) - 1) ||
+>>>  	       pmu->counter_bitmask[KVM_PMC_FIXED] != (BIT_ULL(kvm_host_pmu.bit_width_fixed) - 1);
+>>>  }
+>> There is a case for AMD processors where the global MSRs are absent in the guest
+>> but the guest still uses the same number of counters as what is advertised by the
+>> host capabilities. So RDPMC interception is not necessary for all cases where
+>> global control is unavailable.o
+> Hmm, I think Intel would be the same?  Ah, no, because the host will have fixed
+> counters, but the guest will not.  However, that's not directly related to
+> kvm_pmu_has_perf_global_ctrl(), so I think this would be correct?
+>
+> diff --git a/arch/x86/kvm/pmu.c b/arch/x86/kvm/pmu.c
+> index 4414d070c4f9..4c5b2712ee4c 100644
+> --- a/arch/x86/kvm/pmu.c
+> +++ b/arch/x86/kvm/pmu.c
+> @@ -744,16 +744,13 @@ int kvm_pmu_rdpmc(struct kvm_vcpu *vcpu, unsigned idx, u64 *data)
+>         return 0;
+>  }
+>  
+> -bool kvm_need_perf_global_ctrl_intercept(struct kvm_vcpu *vcpu)
+> +static bool kvm_need_pmc_intercept(struct kvm_vcpu *vcpu)
 
-Will do in v7.
+The function name kvm_need_pmc_intercept() seems a little bit misleading
+and make users think this function is used to check if a certain PMC is
+intercepted. Maybe we can rename the function to kvm_need_global_intercept().
 
->> +
->>   static int exynos_dp_crtc_clock_enable(struct analogix_dp_plat_data *plat_data,
->>   				bool enable)
->>   {
-> 
-> [...]
-> 
->>   static int exynos_dp_bridge_attach(struct analogix_dp_plat_data *plat_data,
->>   				   struct drm_bridge *bridge,
->>   				   struct drm_connector *connector)
->>   {
->>   	struct exynos_dp_device *dp = to_dp(plat_data);
->> +	enum drm_bridge_attach_flags flags = 0;
->>   	int ret;
->>   
->>   	/* Pre-empt DP connector creation if there's a bridge */
->>   	if (plat_data->next_bridge) {
->> -		ret = drm_bridge_attach(&dp->encoder, plat_data->next_bridge, bridge,
->> -					0);
->> +		if (drm_bridge_is_legacy(plat_data->next_bridge))
-> 
-> I see... You are going to kill this line in one of the next patches, but
-> the API will stay. I suggest adding a flag to the exynos_dp_device and
-> then removing the flag once you migrate to drm_bridge_connector.
-> 
+Others look good to me. Thanks.
 
-Yes, using a temporary flag is a better approach.
 
->> +			flags = DRM_BRIDGE_ATTACH_NO_CONNECTOR;
->> +
->> +		ret = drm_bridge_attach(&dp->encoder, plat_data->next_bridge, bridge, flags);
->>   		if (ret)
->>   			return ret;
->>   	}
-> 
-
-Best regards,
-Damon
-
+>  {
+>         struct kvm_pmu *pmu = vcpu_to_pmu(vcpu);
+>  
+>         if (!kvm_vcpu_has_mediated_pmu(vcpu))
+>                 return true;
+>  
+> -       if (!kvm_pmu_has_perf_global_ctrl(pmu))
+> -               return true;
+> -
+>         /*
+>          * Note!  Check *host* PMU capabilities, not KVM's PMU capabilities, as
+>          * KVM's capabilities are constrained based on KVM support, i.e. KVM's
+> @@ -762,6 +759,13 @@ bool kvm_need_perf_global_ctrl_intercept(struct kvm_vcpu *vcpu)
+>         return pmu->nr_arch_gp_counters != kvm_host_pmu.num_counters_gp ||
+>                pmu->nr_arch_fixed_counters != kvm_host_pmu.num_counters_fixed;
+>  }
+> +
+> +bool kvm_need_perf_global_ctrl_intercept(struct kvm_vcpu *vcpu)
+> +{
+> +
+> +       return kvm_need_pmc_intercept(vcpu) ||
+> +              !kvm_pmu_has_perf_global_ctrl(vcpu_to_pmu(vcpu));
+> +}
+>  EXPORT_SYMBOL_GPL(kvm_need_perf_global_ctrl_intercept);
+>  
+>  bool kvm_need_rdpmc_intercept(struct kvm_vcpu *vcpu)
+> @@ -775,7 +779,7 @@ bool kvm_need_rdpmc_intercept(struct kvm_vcpu *vcpu)
+>         if (enable_vmware_backdoor)
+>                 return true;
+>  
+> -       return kvm_need_perf_global_ctrl_intercept(vcpu) ||
+> +       return kvm_need_pmc_intercept(vcpu) ||
+>                pmu->counter_bitmask[KVM_PMC_GP] != (BIT_ULL(kvm_host_pmu.bit_width_gp) - 1) ||
+>                pmu->counter_bitmask[KVM_PMC_FIXED] != (BIT_ULL(kvm_host_pmu.bit_width_fixed) - 1);
+>  }
+>
 
