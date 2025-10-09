@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35B6FCCA470
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FF00CCD185
 	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 01:07:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,63 +12,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Godd2xdELLl8pRhLIf389eS3C6nK6bE96pcvVwqQimk=; b=dQRmGkUNzZXXtT/s8hi4MmjbG6
-	Qrt7+WN6+YohtRyiZ3HVa6HkJE4XoBKGsqPlaRb3diHXYJeZy23+YIDAwRPZKAg/OZJLTEBce3tI8
-	rbAi/HRzKh5YPNcD+F+ee+11hz5qZJqKzSXIy/QNTCyDq+3074FrQUD2Od6QK6blQXxcvc0pkdFvh
-	2q4OFyX+j1PU0XqxPgORJooUuTzWU67a8vQwrEwxtC+Zqrkh7LPvpgJHFx0iFtvON012EmKY9N0AK
-	xa2NQSEbfdEbPIv+uIPtYIZPQr0PFj2YhzFuz7QQsoJsjJQ9orgNqoPIQa7bHE/hDYFMGxfskIj+0
-	vAgaugAA==;
+	bh=XgJqPRZu2Oxx8PV8Tv5wwY4dRvm1ewwNlKmjKtGu1vI=; b=YdW47Fcg70oIF/6cben/Tnw7qy
+	nzbO9sJS9TNhuas8GKY/BQ8sp+GpTuXuxvnirPBhfZooLGKj8Lm2F5jIT5tqehYa0FwoU/Z5WQQQ+
+	aQUl8u7FtdGsqaQbkIvdDiQnmxmFNdh/Y4VYfqdCN9Zqm9Tjnw4bm9mwDH4YXUfkf7zYJcglr//aP
+	WsW/gTWo3Nwz858ZVJcJMur/oRTVpteVdIz5jerzu04iZvfmClfQPLKaxhCrF2vobUHNyDqFhEUMQ
+	5cMad9flvWIW9yw1sRgI+hk1lTg0evpu4BqJgCb1gnHX++Tz8VCm3mgrfpyPQHv0zQXK/RIshMacM
+	KkJj7hwA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6f7e-00000004uSK-3IbI;
-	Thu, 09 Oct 2025 01:07:10 +0000
+	id 1v6f7f-00000004uSy-3zMY;
+	Thu, 09 Oct 2025 01:07:11 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6f7c-00000004uRJ-2hkN;
-	Thu, 09 Oct 2025 01:07:08 +0000
+	id 1v6f7d-00000004uRn-2eHx;
+	Thu, 09 Oct 2025 01:07:09 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id B3A866212F;
-	Thu,  9 Oct 2025 01:07:07 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5EE42C4CEF8;
-	Thu,  9 Oct 2025 01:07:07 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 0E03562142;
+	Thu,  9 Oct 2025 01:07:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB6FAC4CEE7;
+	Thu,  9 Oct 2025 01:07:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759972027;
-	bh=VISjCl3028ZdolLBlNDZGd4lu4o1butuKMV03AtZBlw=;
+	s=k20201202; t=1759972028;
+	bh=1CdwuT+kYcmte8eivy456G2ecK75wHvT2qHam+/7tKI=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=Z85MDq7bFHAVb7Rv7QvW4jT9Y15cPiI0WVlhCJV3Hb8KzH2ZYtKDIugmNBfAaGySd
-	 z5ewF5rNJ+Eg/0lDf4iQ7eqlYgIW0QFXYttqFueGd0EyH0q3YxGVMid01GmetPjhLw
-	 CLKH4BhiZk2QE9ZHGNcP1R+Uu7twuBVmXVU7JX+WU6Qkgezekw/tfTay9IqLn/03qv
-	 fGM0puNNPNlEwlNS8diIH3zKif6A6uWsftAXlyDWexxIsHVq/Ua4/nh1U3nC4uYics
-	 +WuF25l1nNqeg2I6RnH6RhbrrEuRMwXBeUzGy3elVssgawfAsHG1eRRK1qPPGapFZ4
-	 MDqB4RaRlBhng==
+	b=Cpsu6soKqutgxCtUfPezdkxx5CskZoUCgqzxXo1GLczYtT2CWVv8zYILvo1MH+poW
+	 8DhXILNkc/IhfRwPBJ7pkQy0hiD+DaTrCdzXG6qb0D0NXeOCimbRprobtFWuTn47ho
+	 tQbo9vk0bTVjq7sibNH0YszQlPI6Jcarcu66BF/sInizjAkBMDCmXfi46DTJc27HSW
+	 hcP8a7f9wEppJoIJVEDXf2evkRhdga2TKzVhWETk+l1nHvvhF8r7ZY2NaJEr80vbqL
+	 YSkN+7gJaSYfvUVuv4qhYaECiIXdJzyycgv5G4S97GOwlGR0oNXYlAJZEkpT9yJhuT
+	 hJ49LeKwxzDEw==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id EB00C3A41017;
-	Thu,  9 Oct 2025 01:06:56 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70F473A41017;
+	Thu,  9 Oct 2025 01:06:58 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH 00/11] vdso: Various cleanups
+Subject: Re: [PATCH v6 0/8] Add SBI v3.0 PMU enhancements
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <175997201575.3661959.11378704835584004005.git-patchwork-notify@kernel.org>
-Date: Thu, 09 Oct 2025 01:06:55 +0000
-References: <20250826-vdso-cleanups-v1-0-d9b65750e49f@linutronix.de>
-In-Reply-To: <20250826-vdso-cleanups-v1-0-d9b65750e49f@linutronix.de>
-To: =?utf-8?q?Thomas_Wei=C3=9Fschuh_=3Cthomas=2Eweissschuh=40linutronix=2Ede=3E?=@aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org
-Cc: linux-riscv@lists.infradead.org, luto@kernel.org, tglx@linutronix.de,
- vincenzo.frascino@arm.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
- aou@eecs.berkeley.edu, alex@ghiti.fr, namcao@linutronix.de,
- linux@armlinux.org.uk, mingo@redhat.com, bp@alien8.de,
- dave.hansen@linux.intel.com, x86@kernel.org, hpa@zytor.com,
- catalin.marinas@arm.com, will@kernel.org, chenhuacai@kernel.org,
- kernel@xen0n.name, tsbogend@alpha.franken.de, maddy@linux.ibm.com,
- mpe@ellerman.id.au, npiggin@gmail.com, christophe.leroy@csgroup.eu,
- hca@linux.ibm.com, gor@linux.ibm.com, agordeev@linux.ibm.com,
- borntraeger@linux.ibm.com, svens@linux.ibm.com, arnd@arndb.de,
- brauner@kernel.org, shuah@kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, loongarch@lists.linux.dev,
- linux-mips@vger.kernel.org, linuxppc-dev@lists.ozlabs.org,
- linux-s390@vger.kernel.org, linux-arch@vger.kernel.org,
- linux-kselftest@vger.kernel.org, linux@rasmusvillemoes.dk
+Message-Id: <175997201703.3661959.2204934721349838885.git-patchwork-notify@kernel.org>
+Date: Thu, 09 Oct 2025 01:06:57 +0000
+References: <20250909-pmu_event_info-v6-0-d8f80cacb884@rivosinc.com>
+In-Reply-To: <20250909-pmu_event_info-v6-0-d8f80cacb884@rivosinc.com>
+To: Atish Kumar Patra <atishp@rivosinc.com>
+Cc: linux-riscv@lists.infradead.org, anup@brainfault.org, will@kernel.org,
+ mark.rutland@arm.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
+ mchitale@ventanamicro.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
+ kvm-riscv@lists.infradead.org, seanjc@google.com
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,42 +76,36 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Hello:
 
 This series was applied to riscv/linux.git (for-next)
-by Thomas Gleixner <tglx@linutronix.de>:
+by Anup Patel <anup@brainfault.org>:
 
-On Tue, 26 Aug 2025 08:17:03 +0200 you wrote:
-> Various cleanups to the generic vDSO infrastructure and a patch for ARM
-> which was never applied.
+On Tue, 09 Sep 2025 00:03:19 -0700 you wrote:
+> SBI v3.0 specification[1] added two new improvements to the PMU chaper.
+> The SBI v3.0 specification is frozen and under public review phase as
+> per the RISC-V International guidelines.
 > 
-> This series has one trivial syntactic conflict with "dso/datastore: Allow
-> prefaulting by mlockall()" [0] and a semantic one with "sparc64: vdso:
-> Switch to generic vDSO library" [1], which still uses the removed
-> GENERIC_VDSO_DATA_STORE.
+> 1. Added an additional get_event_info function to query event availablity
+> in bulk instead of individual SBI calls for each event. This helps in
+> improving the boot time.
 > 
 > [...]
 
 Here is the summary with links:
-  - [01/11] vdso/datastore: Gate time data behind CONFIG_GENERIC_GETTIMEOFDAY
-    https://git.kernel.org/riscv/c/7c0c01a216e6
-  - [02/11] ARM: VDSO: remove cntvct_ok global variable
-    https://git.kernel.org/riscv/c/39f1ee1299c9
-  - [03/11] vdso: Move ENABLE_COMPAT_VDSO from core to arm64
-    https://git.kernel.org/riscv/c/7d298d25ce81
-  - [04/11] vdso/gettimeofday: Remove !CONFIG_TIME_NS stubs
-    https://git.kernel.org/riscv/c/f145d6bf8d59
-  - [05/11] time: Build generic update_vsyscall() only with generic time vDSO
-    https://git.kernel.org/riscv/c/ea1a1fa919a5
-  - [06/11] riscv: vdso: Untangle kconfig logic
-    https://git.kernel.org/riscv/c/eb3b66aab72c
-  - [07/11] vdso: Drop kconfig GENERIC_VDSO_32
-    https://git.kernel.org/riscv/c/278f1c933c3f
-  - [08/11] vdso: Drop kconfig GENERIC_COMPAT_VDSO
-    https://git.kernel.org/riscv/c/bb5bc7bfab06
-  - [09/11] vdso: Drop kconfig GENERIC_VDSO_DATA_STORE
-    https://git.kernel.org/riscv/c/7b338f6d4e3d
-  - [10/11] vdso: Drop kconfig GENERIC_VDSO_TIME_NS
-    https://git.kernel.org/riscv/c/bad53ae2dc42
-  - [11/11] vdso: Gate VDSO_GETRANDOM behind HAVE_GENERIC_VDSO
-    https://git.kernel.org/riscv/c/258b37c6e626
+  - [v6,1/8] drivers/perf: riscv: Add SBI v3.0 flag
+    https://git.kernel.org/riscv/c/8c8d0f002b76
+  - [v6,2/8] drivers/perf: riscv: Add raw event v2 support
+    https://git.kernel.org/riscv/c/656ef2ea30a9
+  - [v6,3/8] RISC-V: KVM: Add support for Raw event v2
+    https://git.kernel.org/riscv/c/190b74154299
+  - [v6,4/8] drivers/perf: riscv: Implement PMU event info function
+    https://git.kernel.org/riscv/c/adffbd06d003
+  - [v6,5/8] drivers/perf: riscv: Export PMU event info function
+    https://git.kernel.org/riscv/c/880fcc329e24
+  - [v6,6/8] RISC-V: KVM: No need of explicit writable slot check
+    https://git.kernel.org/riscv/c/41f4d0cc331a
+  - [v6,7/8] RISC-V: KVM: Implement get event info function
+    https://git.kernel.org/riscv/c/e309fd113b9f
+  - [v6,8/8] RISC-V: KVM: Upgrade the supported SBI version to 3.0
+    https://git.kernel.org/riscv/c/dbdadd943a27
 
 You are awesome, thank you!
 -- 
