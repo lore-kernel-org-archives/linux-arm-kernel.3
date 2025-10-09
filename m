@@ -4,64 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 170C6CCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 06:19:37 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56F99CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 06:30:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=KuO/QtV2/BcLw3o60J5CvBIJ5snkKkmAc3QBLnfz8M4=; b=0B5jsTGkYq/AIPDk6ki5kdXG6+
-	qhLjYqSWOOb3TTKifj8Bmaw3+kfkTRAEBVQpp3tfdOyh+SPsoI3qKitGr0F21Zh7ELFF3M1Vrykjz
-	3YH8rhX0fXxEDgnlSLeylDnNK3euydOVZ2k0fMSxUVB7u73Q90DYHbzOR+xz+ZfRN8PSurunsRjlA
-	La9wGj1ArTIsZeLPVuIPHwviUj8a14H98lp/NTxnujhYIXUpvFgROytckLRrS/ruyfK7u9Tfzi9I8
-	n+BGc93Wi+l71IuL4ofevND6mXp0y1BASi9PLp0LLqSSWIbdU3nZJR7Qfg9q98GjSUxsyxF4PeXCH
-	a+iFkxcg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Rj1QGauGtTeiJ6R7+rilmmnzYIboPf6nkX4vie379bI=; b=fcNmkPVIK8xy2VPAyivEXkYhlq
+	7i13jmHIqm0vDZs5JFtfegm98pMQvBPxY+uCnepbBpD3O/KLSCfobRdEO6aJDXJ+zMcXHwySh5RHI
+	eKKZqTnseAFul28t/3BcfBU19IH1AsNkhcjmGdbtE2ggOHl9sZhO7mYBuokKJ11vY2s4Ubegdqxn3
+	GjgdRLYk5eU6GxCa4iqVhIg3UY7Q2KIUBmJgqZN3YCKCrdXS47XCbUd7+awHaaeg7IpHqwdJDe3aa
+	XTWh2JNsS/NIAGQhbmeaxfh/kYmOssyyxtTOaEk0wENcCZO2br4ONZG0qt1g+9GNTepuVhxATD2jN
+	x80bAFaQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6jzt-00000005GS5-1vLy;
-	Thu, 09 Oct 2025 06:19:29 +0000
-Received: from canpmsgout04.his.huawei.com ([113.46.200.219])
+	id 1v6kAT-00000005HNY-44ff;
+	Thu, 09 Oct 2025 06:30:25 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6jzq-00000005GQ1-1pIG
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 06:19:28 +0000
-Received: from mail.maildlp.com (unknown [172.19.88.194])
-	by canpmsgout04.his.huawei.com (SkyGuard) with ESMTPS id 4cj07j4Z5hz1prKc;
-	Thu,  9 Oct 2025 14:18:57 +0800 (CST)
-Received: from kwepemr500004.china.huawei.com (unknown [7.202.195.141])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7059F1402C1;
-	Thu,  9 Oct 2025 14:19:14 +0800 (CST)
-Received: from [10.67.121.58] (10.67.121.58) by kwepemr500004.china.huawei.com
- (7.202.195.141) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 9 Oct
- 2025 14:19:13 +0800
-Message-ID: <477505bc-ce6d-409a-820d-55a46c72ab7d@hisilicon.com>
-Date: Thu, 9 Oct 2025 14:19:13 +0800
+	id 1v6kAS-00000005HNL-1x0p;
+	Thu, 09 Oct 2025 06:30:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 08414621D9;
+	Thu,  9 Oct 2025 06:30:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5798CC4CEE7;
+	Thu,  9 Oct 2025 06:30:22 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1759991422;
+	bh=iixDKVyiVVp7+8PaX5CJIKm90MRovONR4rKXMm7l76g=;
+	h=From:Date:Subject:To:Cc:From;
+	b=a0aAP3sczWi62YXdnte+kBjE8NFpslFYjYlv0AQ6YNrHz35BUmioYW00WUS7t5kB2
+	 kZM8Ag8pBWplicYBjgg47lxvsTGJ1u/V58J4OSH4UxxB47j/vh+pANO/KtEWwIQCfy
+	 +Wc0kZn3hesiGQ2A7JQBK8ANmuPYTmhE+V62Wz9P7VFVan4afD/LZ+D0eQlA8Udk9V
+	 1Dgj0X3/OnySckPMBQlBERIZ07jlCOSu8gwz6JJ7qBaxRL/2cBwhczeXJ4+3vo5OZe
+	 Z+ZRZpCrxcUNImyoqsomOITm/mHXbWXvSXGuhsrcDEYW7vQhjIDMYtZFSVMvdexjPk
+	 giDsMNFUqDtVw==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Date: Thu, 09 Oct 2025 08:29:34 +0200
+Subject: [PATCH net v2] net: mtk: wed: add dma mask limitation and
+ GFP_DMA32 for device with more than 4GB DRAM
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 0/2] cpufreq: CPPC: Rework FIE warning prints and
- cppc_scale_freq_tick()
-To: <viresh.kumar@linaro.org>, <rafael@kernel.org>, <ionela.voinescu@arm.com>,
-	<beata.michalska@arm.com>, <zhenglifeng1@huawei.com>, Prashant Malani
-	<pmalani@google.com>
-CC: <linux-pm@vger.kernel.org>, <linux-acpi@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linuxarm@huawei.com>,
-	<jonathan.cameron@huawei.com>
-References: <20250828110212.2108653-1-zhanjie9@hisilicon.com>
- <60f9cafb-2199-4c7b-ba97-7529d0ef5bf8@hisilicon.com>
-Content-Language: en-US
-From: Jie Zhan <zhanjie9@hisilicon.com>
-In-Reply-To: <60f9cafb-2199-4c7b-ba97-7529d0ef5bf8@hisilicon.com>
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.67.121.58]
-X-ClientProxiedBy: kwepems100001.china.huawei.com (7.221.188.238) To
- kwepemr500004.china.huawei.com (7.202.195.141)
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251008_231926_658245_1E9C59FC 
-X-CRM114-Status: GOOD (  16.50  )
+Message-Id: <20251009-wed-4g-ram-limitation-v2-1-c0ca75b26a29@kernel.org>
+X-B4-Tracking: v=1; b=H4sIAE1W52gC/3WNzQ6CMBCEX4Xs2TVt+dF68j0MB2IX2Ait2TaoI
+ by7lbuZ08xkvlkhkjBFuBQrCC0cOfhszKGA+9j5gZBd9mCUqZUtFb7IYTWgdDNOPHPqUl5gU1l
+ FJ3LWlRby9inU83vn3sBTgjaHI8cU5LN/LXqvflit1PkPdtGY1fRU16Sdqsz1QeJpOgYZoN227
+ QvjgTr1wAAAAA==
+X-Change-ID: 20250930-wed-4g-ram-limitation-6490e7ed9d39
+To: Felix Fietkau <nbd@nbd.name>, Sean Wang <sean.wang@mediatek.com>, 
+ Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Lorenzo Bianconi <lorenzo@kernel.org>, 
+ Sujuan Chen <sujuan.chen@mediatek.com>
+Cc: netdev@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, Rex Lu <rex.lu@mediatek.com>, 
+ Daniel Pawlik <pawlik.dan@gmail.com>, Matteo Croce <teknoraver@meta.com>
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,63 +80,67 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi All,
+From: Rex Lu <rex.lu@mediatek.com>
 
-I'm still looking forward to some feedback or tests on this series.
+Limit tx/rx buffer address to 32-bit address space for board with more
+than 4GB DRAM.
 
-Cheers,
-Jie
+Fixes: 804775dfc2885 ("net: ethernet: mtk_eth_soc: add support for Wireless Ethernet Dispatch (WED)")
+Fixes: 6757d345dd7db ("net: ethernet: mtk_wed: introduce hw_rro support for MT7988")
+Tested-by: Daniel Pawlik <pawlik.dan@gmail.com>
+Tested-by: Matteo Croce <teknoraver@meta.com>
+Signed-off-by: Rex Lu <rex.lu@mediatek.com>
+Co-developed-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+---
+Changes in v2:
+- Add missing Fixes tags
+- Avoid possible deadlock if dma_set_mask_and_coherent fails
+- Link to v1: https://lore.kernel.org/r/20251008-wed-4g-ram-limitation-v1-1-16fe55e1d042@kernel.org
+---
+ drivers/net/ethernet/mediatek/mtk_wed.c | 8 ++++++--
+ 1 file changed, 6 insertions(+), 2 deletions(-)
 
-On 9/16/2025 10:58 AM, Jie Zhan wrote:
-> A kindly ping on this.
-> Some feedback would be nice if anyone is not on holiday ;)
-> 
-> Jie
-> 
-> On 8/28/2025 7:02 PM, Jie Zhan wrote:
->> Reading performance feedback counters on offline or low-power idle CPUs may
->> return 0, which is interpreted as -EFAULT.
->>
->> This leads to two issues related to the CPPC FIE:
->>
->> 1. When booting a subset of CPUs in policy->related_cpus (some CPUs under
->> the cpufreq policy is offline), there are warnings of "failed to read perf
->> counters for cpu" during the CPPC FIE initialization.
->>
->> 2. On our platform with the CPC regs in System Memory and a power-down idle
->> state enabled, if the CPPC FIE is registered successfully, there are
->> repeated warnings of "failed to read perf counters" because
->> cppc_scale_freq_workfn() is trying to access the counters of remote CPUs
->> that enters the idle state.
->>
->> To solve the above issues:
->>
->> Patch 1 removes the warning when the CPPC FIE initialization fails to read
->> counters on offline CPUs and changes the log leve to debug.  This can be
->> applied separately.
->>
->> Patch 2 moves the update of FIE arch_freq_scale into ticks for non-PCC regs
->> and maintains the existing mechanism for PCC regs, such that reading
->> counters would be triggered on the local CPU only.  This inherently solves
->> the issue in [1].  We have tested this on Kunpeng SoCs with the CPC regs
->> both in System Memory and FFH.  More tests on other platforms are welcome
->> though.
->> [1] https://lore.kernel.org/linux-pm/20250730032312.167062-3-yubowen8@huawei.com/
->>
->> Changelog:
->>
->> v2:
->> - Update the cover letter and the commit log based on v1 discussion
->> - Update FIE arch_freq_scale in ticks for non-PCC regs
->>
->> v1:
->> https://lore.kernel.org/linux-pm/20250730032312.167062-1-yubowen8@huawei.com/
->>
->> Jie Zhan (2):
->>   cpufreq: CPPC: Don't warn if FIE init fails to read counters
->>   cpufreq: CPPC: Update FIE arch_freq_scale in ticks for non-PCC regs
->>
->>  drivers/cpufreq/cppc_cpufreq.c | 64 +++++++++++++++++++++-------------
->>  1 file changed, 39 insertions(+), 25 deletions(-)
->>
+diff --git a/drivers/net/ethernet/mediatek/mtk_wed.c b/drivers/net/ethernet/mediatek/mtk_wed.c
+index 3dbb113b792cf00fb4f89ab20f7e7fa72ecac260..1ed1f88dd7f8bc69bf4cb2803b907c8d7776ae20 100644
+--- a/drivers/net/ethernet/mediatek/mtk_wed.c
++++ b/drivers/net/ethernet/mediatek/mtk_wed.c
+@@ -677,7 +677,7 @@ mtk_wed_tx_buffer_alloc(struct mtk_wed_device *dev)
+ 		void *buf;
+ 		int s;
+ 
+-		page = __dev_alloc_page(GFP_KERNEL);
++		page = __dev_alloc_page(GFP_KERNEL | GFP_DMA32);
+ 		if (!page)
+ 			return -ENOMEM;
+ 
+@@ -800,7 +800,7 @@ mtk_wed_hwrro_buffer_alloc(struct mtk_wed_device *dev)
+ 		struct page *page;
+ 		int s;
+ 
+-		page = __dev_alloc_page(GFP_KERNEL);
++		page = __dev_alloc_page(GFP_KERNEL | GFP_DMA32);
+ 		if (!page)
+ 			return -ENOMEM;
+ 
+@@ -2426,6 +2426,10 @@ mtk_wed_attach(struct mtk_wed_device *dev)
+ 	dev->version = hw->version;
+ 	dev->hw->pcie_base = mtk_wed_get_pcie_base(dev);
+ 
++	ret = dma_set_mask_and_coherent(hw->dev, DMA_BIT_MASK(32));
++	if (ret)
++		goto out;
++
+ 	if (hw->eth->dma_dev == hw->eth->dev &&
+ 	    of_dma_is_coherent(hw->eth->dev->of_node))
+ 		mtk_eth_set_dma_device(hw->eth, hw->dev);
+
+---
+base-commit: 07fdad3a93756b872da7b53647715c48d0f4a2d0
+change-id: 20250930-wed-4g-ram-limitation-6490e7ed9d39
+
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
+
 
