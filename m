@@ -4,126 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1D020CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 21:16:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6BE8CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 21:20:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Subject:References:In-Reply-To:Message-Id:Cc:To:From:Date:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IoNTmFVBWG81Z8jPkjSyUXyeQNMXRWj30MhKaE6XHgs=; b=N+wWM7EsEGxrl/lHf+XKjsG/H5
-	HmVWtlMxUlCa0Otl1JgcM11/4y7B6bwbMmhs9BBYKBKqL2SloxqOcKGrLRRF1Oa2e4A7E6m6euED6
-	qrnFEyIPMgRRH5aLbkWlWHEmAog4TcfkkYvzqx4x6lN7DzKDta6Zz2wnrz903B6GC/s76PzKSnfCY
-	rBTEz8eQPnzcD7FYmE3ykAI6Iw1h+RicDoQj7J9aS14efW8DZbSLs1bpSUMZUtP++MmujR2YjWoOn
-	UnJWrv1l4CyH0qlHJrcE1CCpckKBqmKKyU4MRUGAQBEDIJkjf3dpusIxxYhBAPGoTDTz7irYZVynp
-	5vx6XTCg==;
+	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=PQrmK4OLtZ+IgNtZ8671Owl8Y5KLotbw1U+tAsx0fP8=; b=XKsOUeaBupE9QMwdx+SOOJX1CG
+	E/piOYwG6ae7DDj8Euxnj85A8WYD4Xd++xDVl+hPpd2FAms9lpSuJWzG4uInYpYK6RFIMbmorXSiC
+	FiTUtHqsuiLPtrOMEk63oLyMm4ni/i6CgEHWlRoPjaDoAgVSej4Mj9Oo3L4OCzMTthLuxwlAegeH3
+	42L+t0pQy/QIdrTxh4T4OiKqh2/M5H2Qoi+SXc+P5X4mLzIUIRj3Fo7t6K+HOgjl9J05Apc74TN+m
+	kkgY2YExk8p8fQqVA/FbkwNQTNF8HwgswXp4YgF83OVtePDIah28pwYlXFiQHFRIMRDNqmpGmaAfg
+	TZc7UZjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6xzw-000000078Fj-0bNO;
-	Thu, 09 Oct 2025 21:16:28 +0000
-Received: from fhigh-b4-smtp.messagingengine.com ([202.12.124.155])
+	id 1v6y3s-000000078lY-1ZwM;
+	Thu, 09 Oct 2025 21:20:32 +0000
+Received: from mail-ua1-x961.google.com ([2607:f8b0:4864:20::961])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6xzt-000000078FP-20pQ
+	id 1v6y3p-000000078l9-0VpS
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 21:16:27 +0000
-Received: from phl-compute-05.internal (phl-compute-05.internal [10.202.2.45])
-	by mailfhigh.stl.internal (Postfix) with ESMTP id 623367A0147;
-	Thu,  9 Oct 2025 17:16:23 -0400 (EDT)
-Received: from phl-imap-02 ([10.202.2.81])
-  by phl-compute-05.internal (MEProxy); Thu, 09 Oct 2025 17:16:24 -0400
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=arndb.de; h=cc
-	:cc:content-transfer-encoding:content-type:content-type:date
-	:date:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to; s=fm1; t=1760044583;
-	 x=1760130983; bh=IoNTmFVBWG81Z8jPkjSyUXyeQNMXRWj30MhKaE6XHgs=; b=
-	AbQFnV+b8ZYeLCRKItywfYNA5Dd8v+oWv3NUzKZXGytsRishs+OLhi0sA0rm2O/o
-	QLd7UDaDvd8hSVJ4vm+iknIVqJYiJSRy7aDqvjQRVL1YYEAOch212aL6JwNzYC/0
-	gxoOr7MlqPf9OndJYM+XVVd/SCEai5D8Hmd9XH0su6mw6wDTQgCI/UqePc14Y4mc
-	8l5dgwhf7fh2PEgzKEIrwnWeveHotomhZGhLcmjKox3ZfACIvUiTqGgZ1BZKZg5k
-	rH6LBuYCn4/idKHrU4eBchO+PsK0YajfUBPApSPEMbB+Or4zJlvTkXukaAV5Kd2e
-	eQhZTwql/c0TmVPZyliGyg==
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	messagingengine.com; h=cc:cc:content-transfer-encoding
-	:content-type:content-type:date:date:feedback-id:feedback-id
-	:from:from:in-reply-to:in-reply-to:message-id:mime-version
-	:references:reply-to:subject:subject:to:to:x-me-proxy
-	:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=1760044583; x=
-	1760130983; bh=IoNTmFVBWG81Z8jPkjSyUXyeQNMXRWj30MhKaE6XHgs=; b=E
-	HmpTDc5xRJ3TXz5x2hZeE2MXvOu6IUyw1eg8bbYCxTXKXiYskUZ8DWu4XanWSfTa
-	4mVZMnmsQBY8o2zfvCFBca1rM1/2eCf5q8tM3QLU86PUKr1sJDvLj2TOgM9YtXZR
-	+m8xhJOj78+h/2q1Pf+vtpReNVod1kjOlnbsN2epZt7czSjLRWu6SO5eH+x2Ek4y
-	i0boRPEZvm4rj/WSIeFCAAYmnjQZHxS8ClavA6xWC94QXiGS1AOuZIM0au2FDZbN
-	lGV1L+3qFBHljpv16lL9InzoDx1Lb/anPYtyCst08ZZ1yzv4CzC/L8UNRn1pVStm
-	YLEG5w9AvqANqTEkTL4jQ==
-X-ME-Sender: <xms:JiboaKb-MGLsTLhTj9uJL3sd49TdJmleSY92FhFOjenpgIPzMBR9Pw>
-    <xme:JiboaINkPGTacipbSrsOVyfF3NamakhSURWRSrnAtvBf-HqcCAlmziHR2w2MWYwO9
-    -vPD3gT_jPzdMKeRah0tHFy5Q2UUYPcpLccxeucBuWWyUW8X7uTJNZ1>
-X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggddutdejvdegucetufdoteggodetrf
-    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
-    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
-    gurhepofggfffhvfevkfgjfhfutgfgsehtjeertdertddtnecuhfhrohhmpedftehrnhgu
-    uceuvghrghhmrghnnhdfuceorghrnhgusegrrhhnuggsrdguvgeqnecuggftrfgrthhtvg
-    hrnhephfdthfdvtdefhedukeetgefggffhjeeggeetfefggfevudegudevledvkefhvdei
-    necuvehluhhsthgvrhfuihiivgeptdenucfrrghrrghmpehmrghilhhfrhhomheprghrnh
-    gusegrrhhnuggsrdguvgdpnhgspghrtghpthhtohepvdehpdhmohguvgepshhmthhpohhu
-    thdprhgtphhtthhopegthhgvshhtvghriedvheduheesghhmrghilhdrtghomhdprhgtph
-    htthhopehjihhnghhoohhhrghnudesghhmrghilhdrtghomhdprhgtphhtthhopegshhgv
-    lhhgrggrshesghhoohhglhgvrdgtohhmpdhrtghpthhtoheptggrshhsvghlsehkvghrnh
-    gvlhdrohhrghdprhgtphhtthhopegtohhnohhrodgutheskhgvrhhnvghlrdhorhhgpdhr
-    tghpthhtohepkhhriihkodgutheskhgvrhhnvghlrdhorhhgpdhrtghpthhtohepkhifih
-    hltgiihihnshhkiheskhgvrhhnvghlrdhorhhgpdhrtghpthhtoheplhhpihgvrhgrlhhi
-    shhisehkvghrnhgvlhdrohhrghdprhgtphhtthhopehmrghniheskhgvrhhnvghlrdhorh
-    hg
-X-ME-Proxy: <xmx:JiboaKzjsKO1_WQG04CIprEGKf71yM5hOy-8anD7RRhtZ7ftpo8Wpw>
-    <xmx:JiboaGL3T8rgFBUNlNLoEzdCZmZb9R0h6pwMlMFI1IZxisK1gm-jeg>
-    <xmx:JiboaJpnfl2MAFwPgIgtocS8kPtCyPmWKUPr_aeHeEkQm7PzoxtkMw>
-    <xmx:JiboaMsvj1UUHlfbYdzbwLI2CqHl_ls__C_Bk6sK0L4tGU7FKgSFWQ>
-    <xmx:JyboaDdp-OmcX3EnwEF9gbyqZztZszgw7zUa-4n3H4-3GDfifWvXEoVD>
-Feedback-ID: i56a14606:Fastmail
-Received: by mailuser.phl.internal (Postfix, from userid 501)
-	id 47F22700063; Thu,  9 Oct 2025 17:16:22 -0400 (EDT)
-X-Mailer: MessagingEngine.com Webmail Interface
+	Thu, 09 Oct 2025 21:20:30 +0000
+Received: by mail-ua1-x961.google.com with SMTP id a1e0cc1a2514c-8e32821b5bcso509624241.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 14:20:28 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760044827; x=1760649627;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:dkim-signature:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=PQrmK4OLtZ+IgNtZ8671Owl8Y5KLotbw1U+tAsx0fP8=;
+        b=L0MYv3DsbrcUfE5pv0VXiP9MSvyvHWJlPVgSjnLbLr4ut+ckHeMGK2OVk3eSrXoPNV
+         2cjowSyg8Ty7R6Tswwfb/epk2E3p8xXyKkY3bUsWLl+j/BLbmQ1oLtw5Ivc1gPnp4exi
+         /BzzW4jVJDA8rjqT/paCcvIgx9a+eGXNdoLZOgwcy4v7ADkVceind4iVr1Lxvp4TxsbH
+         7SvQhR/Z7fSqd6ZWtJvwRnJ5WD8P0eOv+HKF11byyQLnaTRSlWfGBBjugFgVphtpBNQM
+         wv5Mb9dS8VN3g5fgKGkMK+O7Z4FY0NZAs1Ie3A9GmgRX31AQiUtqK/myU+w+PbswAny5
+         3O0A==
+X-Forwarded-Encrypted: i=1; AJvYcCU/yUIQiQpXfmqzSxPlJeUIFzefgXBXsXQe8v4/BpCCxLQh0GyRvGCcSyF97UUrABxqZk1tc99IQbcXludFjW2h@lists.infradead.org
+X-Gm-Message-State: AOJu0YxFCeK7+LenEs8eyJH8szkvyt/guK+lSnD6iFNFCiDjml5z7n3D
+	Kl6jh+6BmodKforFEEXU/YLrbjzmYHEYXcZocfHSufAWA8BELk5BLyWNmgfysIvGSpekES7mSFJ
+	oBs2lXXFFG+BLp4VdtySpFJP6PxOBqBMB28O/9EVM9lWsZhcwjGAkAmVt3R8ZowofgY0L4sb3FH
+	DuEJc+J3WYw1ljyISe/sqT+ofh0CdDI92b97VqWKdS5Bur6zO36S3Am32wxGxbJ++Zvbty3Xrm5
+	x2+WqSUqM9KcAPn5gmn+XUdrXY=
+X-Gm-Gg: ASbGncv0dG/3hbXbV+DyiayBGtLU5yzhDuMTVVwxwF7nhCGeJevMoYYVqNKiNmcXKwJ
+	oE/sTU34QRXd14PqEHIPvypDuTVao0keqYNCm6nCiUbhCcgL5eeQDC+FbNnUVGNTiIHYGYqVCmz
+	xjDV/Tx94Lc6zUcQcYFzMupPM+TgUPeOa0tT82B6gU5sB+O/41adG9+SWXIDwS8h87cgGXMRIXI
+	nmg/0kzPQcfnkz94fbUJuHSJBsxdsPejMrjd+tBCMb0BitkY+qdAQ0ozaA0x506C3P3p+iPxPLr
+	mdk6WX1w429buzzCtSziTpQ2VnBJkWB6M6YYJ7Ea/YesFYqJTfDBUP/09OwT0gnVp4+59xt2TLH
+	oDzyppWT/o/KL1QFZRG8EfzF+g0vDyCe/4Yx1lhQd0E2dflZeN6k5/nXzVM9lz8V9ruO5EqnJd5
+	XKLw==
+X-Google-Smtp-Source: AGHT+IGXQHeIlkuwaQvDoRtAjg+NA38GrHAFf1q+6DgsW+4+pnt19PYJaEd59FXAp4otp3p6yW1cDnt63eyC
+X-Received: by 2002:a05:6102:579a:b0:555:ef1e:49bb with SMTP id ada2fe7eead31-5d5e2364222mr3894689137.21.1760044827494;
+        Thu, 09 Oct 2025 14:20:27 -0700 (PDT)
+Received: from smtp-us-east1-p01-i01-si01.dlp.protect.broadcom.com (address-144-49-247-72.dlp.protect.broadcom.com. [144.49.247.72])
+        by smtp-relay.gmail.com with ESMTPS id ada2fe7eead31-5d5fc8a7539sm84312137.3.2025.10.09.14.20.27
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_2 cipher=ECDHE-ECDSA-AES128-GCM-SHA256 bits=128/128);
+        Thu, 09 Oct 2025 14:20:27 -0700 (PDT)
+X-Relaying-Domain: broadcom.com
+X-CFilter-Loop: Reflected
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-86835654255so755663685a.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 14:20:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=broadcom.com; s=google; t=1760044827; x=1760649627; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=PQrmK4OLtZ+IgNtZ8671Owl8Y5KLotbw1U+tAsx0fP8=;
+        b=fcdz7oc65bAIPwcK5tAPXeLFtlUXD3gNNFy6SoowO8Uceory+BXKNgai3zzxDF8sVE
+         YZXh8PIodXfNlKMWcXfY0TPrS1Avfrmzi7S3nyBupL9zfCZo45PY0MTMbw1xMMcPU+PK
+         0mO9jHu3eCVCtPQD3QBcF2Tw2mkFiz8olZ2WM=
+X-Forwarded-Encrypted: i=1; AJvYcCXNU8HbmV+I3nDf1Tt1iDfmQElH+ShhspJBqOomLI2M8qQjgfS9WPVckQz6GuecgrPefdvtms11kaBvQk6lGFGO@lists.infradead.org
+X-Received: by 2002:a05:620a:4492:b0:865:cacf:e133 with SMTP id af79cd13be357-8835104c86bmr1139486385a.36.1760044826814;
+        Thu, 09 Oct 2025 14:20:26 -0700 (PDT)
+X-Received: by 2002:a05:620a:4492:b0:865:cacf:e133 with SMTP id af79cd13be357-8835104c86bmr1139483785a.36.1760044826325;
+        Thu, 09 Oct 2025 14:20:26 -0700 (PDT)
+Received: from mail.broadcom.net ([192.19.144.250])
+        by smtp.gmail.com with ESMTPSA id af79cd13be357-8849f9ae428sm274832685a.16.2025.10.09.14.20.25
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 09 Oct 2025 14:20:25 -0700 (PDT)
+From: Kamal Dasu <kamal.dasu@broadcom.com>
+To: peng.fan@oss.nxp.com,
+	andersson@kernel.org,
+	baolin.wang@linux.alibaba.com,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	florian.fainelli@broadcom.com
+Cc: bcm-kernel-feedback-list@broadcom.com,
+	linux-remoteproc@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	Kamal Dasu <kamal.dasu@broadcom.com>
+Subject: [PATCH v3 0/3] Adding brcmstb-hwspinlock support
+Date: Thu,  9 Oct 2025 17:20:00 -0400
+Message-Id: <20251009212003.2714447-1-kamal.dasu@broadcom.com>
+X-Mailer: git-send-email 2.34.1
 MIME-Version: 1.0
-X-ThreadId: AIHrVq-NOQMk
-Date: Thu, 09 Oct 2025 23:16:02 +0200
-From: "Arnd Bergmann" <arnd@arndb.de>
-To: "Manivannan Sadhasivam" <mani@kernel.org>
-Cc: "Lorenzo Pieralisi" <lpieralisi@kernel.org>,
- "Vincent Guittot" <vincent.guittot@linaro.org>,
- "Chester Lin" <chester62515@gmail.com>,
- "Matthias Brugger" <mbrugger@suse.com>,
- "Ghennadi Procopciuc" <ghennadi.procopciuc@oss.nxp.com>,
- "NXP S32 Linux Team" <s32@nxp.com>, bhelgaas@google.com,
- jingoohan1@gmail.com,
- =?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
- "Rob Herring" <robh@kernel.org>, krzk+dt@kernel.org,
- "Conor Dooley" <conor+dt@kernel.org>, Ionut.Vicovan@nxp.com,
- "Larisa Grigore" <larisa.grigore@nxp.com>,
- "Ghennadi Procopciuc" <Ghennadi.Procopciuc@nxp.com>,
- ciprianmarian.costea@nxp.com, "Bogdan Hamciuc" <bogdan.hamciuc@nxp.com>,
- "Frank Li" <Frank.li@nxp.com>, linux-arm-kernel@lists.infradead.org,
- linux-pci@vger.kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, imx@lists.linux.dev,
- "Niklas Cassel" <cassel@kernel.org>
-Message-Id: <839e3878-ae62-4c8b-a74b-ac4f6f060d98@app.fastmail.com>
-In-Reply-To: <4kvo2qg2til22hlssv7lt2ugo63emr5c4hfjur5m3vnxvpdekx@jcbhaxb2d2j2>
-References: <20250919155821.95334-1-vincent.guittot@linaro.org>
- <20250919155821.95334-2-vincent.guittot@linaro.org>
- <iom65w7amxqf7miopujxeulyiglhkyjszjc3nd4ivknj5npcz2@bvxej6ymkecd>
- <aOU0w5Brp6uxjZDr@lpieralisi>
- <4rghtk5qv4u7vx4nogctquu3skvxis4npxfukgtqeilbofyclr@nhkrkojv3syh>
- <eba7d968-209d-4acb-ba41-4bebf03e96ba@app.fastmail.com>
- <4143977f-1e70-4a63-b23b-78f87d9fdcde@app.fastmail.com>
- <2erycpxudpckmme3k2cpn6wgti4ueyvupo2tzrvmu7aqp7tm6d@itfj7pfrpzzg>
- <3d480f73-15b4-4fb8-8d2b-f9961c1736ca@app.fastmail.com>
- <4kvo2qg2til22hlssv7lt2ugo63emr5c4hfjur5m3vnxvpdekx@jcbhaxb2d2j2>
-Subject: Re: [PATCH 1/3 v2] dt-bindings: PCI: s32g: Add NXP PCIe controller
-Content-Type: text/plain
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-DetectorID-Processed: b00c1d49-9d2e-4205-b15f-d015386d3d5e
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_141626_051498_59811659 
-X-CRM114-Status: GOOD (  24.95  )
+X-CRM114-CacheID: sfid-20251009_142029_327631_C034DE19 
+X-CRM114-Status: GOOD (  13.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,56 +121,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 9, 2025, at 20:47, Manivannan Sadhasivam wrote:
-> On Wed, Oct 08, 2025 at 07:56:44PM +0200, Arnd Bergmann wrote:
->> On Wed, Oct 8, 2025, at 17:19, Manivannan Sadhasivam wrote:
->>
->> That is not my impression from reading the code: At least for
->> the case where both devices are on the same bridge and they
->> use map_type=PCI_P2PDMA_MAP_BUS_ADDR, I would expect the DMA
->> to use the plain PCI bus address, not going through the
->> dma-ranges+ranges translation that would apply when they are
->> on different host bridges.
->> 
->
-> Right, but I don't get the overlap issue still. If the P2P client triggers a
-> write to a P2P PCI address (let's assume 0x8000_0000), and if that address
-> belongs to a an endpoint in a different domain, the host bridge should still
-> forward it to the endpoint without triggering write to the RAM.
+This is a standalone patch for the hardware semaphore feature for
+all brcmstb SoCs that have the same hardware semaphore registers
+hence platform driver compatible uses:
+	  '.compatible = "brcm,brcmstb-hwspinlock"'
 
-If 0x8000_0000 is an endpoint in a different domain, I would expect the
-DMA transfer to go to the RAM at that address since the DMA has to leave
-the PCI host bridge upstream by following its inbound windows.
+The patch has been tested to work as builtin as well as a module.
 
-This is not the problem I'm talking about though, since cross-domain
-P2P is not particularly well-defined.
+v3 changes:
+Added detailed explantion in the all commit messages as per review
+comments
+ - Added  description of 'sundry' ip block that the hardware semaphore
+   belongs to
+ - Added reasoning for using '.compatible = "brcm,brcmstb-hwspinlock"
 
-> Atleast, I don't see any concern from the outbound memory translation point of
-> view.
->
-> Please let me know if there is any gap in my understanding.
+v2 changes:
+Adressed following review comments:
+ - fixed ordering of obj brcmstb_hwspinlock.o in Makefile 
+ - fixed ordering of 'config HWSPINLOCK_BRCMSTB' block in Kconfig
+ - Renamed BRCMSTB_MAX_SEMAPHORES to BRCMSTB_NUM_SEMAPHORES
+ - Removed unnecessary platfrom_set_drvdata(pdev, bank);
 
-To clarify: I don't think that programming the output translation this
-way is the problem here, but assigning memory resources to ambiguous
-addresses is. The host bridge probe uses the 'ranges' both for
-setting up the outbound window and the bus resources. 
+Also addressing duplicate PATCH 1/3 sent in error as part of v1 change.
 
-If the PCI bus scan assigns address 0x8000_0000 to the memory BAR
-of a device, and that device or any other one in the /same/
-domain tries to DMA to DRAM at address 0x8000_0000, it would likely
-reach the memory BAR instead of DRAM. If for some reason it does reach
-DRAM after all, it would be unable to do a P2P DMA into the BAR when
-it tries.
+v1 changes:
+based on fixes made to Initial patch :
+url:    https://github.com/intel-lab-lkp/linux/commits/Kamal-Dasu/dt-bindings-brcmstb-hwspinlock-support-for-hwspinlock/20250712-034624
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/robh/linux.git for-next
+patch link:    https://lore.kernel.org/r/20250711154221.928164-4-kamal.dasu%40broadcom.com
+patch subject: [PATCH 2/4] hwspinlock: brcmstb hardware semaphore support
 
-If the PCI scan already checks for overlap between the DT "ranges"
-and other resources (DRAM or MMIO) before assigning a BAR, this may
-be a non-issue, but I haven't found the code that does this.
-Looking at pci_bus_allocate_dev_resources() it seems that it would
-attempt to assign an overlapping address to a BAR but then fail
-to claim it because of the resource conflict. If that is the
-case, it would not actually have an ambiguous DMA routing
-but instead the device would fail to be probed because of the
-conflict.
+All the review comments and build warning have been fixed.
 
-    Arnd
+Kamal Dasu (3):
+  dt-bindings: hwlock:  Adding brcmstb-hwspinlock support
+  hwspinlock: brcmstb hardware semaphore support
+  MAINTAINERS: adding entry for BRCMSTB HWSPINLOCK driver
+
+ .../hwlock/brcm,brcmstb-hwspinlock.yaml       | 36 +++++++
+ MAINTAINERS                                   |  8 ++
+ drivers/hwspinlock/Kconfig                    | 11 ++-
+ drivers/hwspinlock/Makefile                   |  1 +
+ drivers/hwspinlock/brcmstb_hwspinlock.c       | 96 +++++++++++++++++++
+ 5 files changed, 151 insertions(+), 1 deletion(-)
+ create mode 100644 Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml
+ create mode 100644 drivers/hwspinlock/brcmstb_hwspinlock.c
+
+-- 
+2.34.1
+
 
