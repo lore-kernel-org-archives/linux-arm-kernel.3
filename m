@@ -4,70 +4,84 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 244CDCCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 14:42:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8742FCCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 14:43:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gOEj4/IpkenMiJt4N1/HqskQ9zMM3bzJT70kiGJjHEk=; b=AHzb9jCtF8kGqaE2LB2yBXvhsu
-	x8bJKQ+BLw4NeBia7tmUTUY3x4XwTFqMBP5jEurROlv8Yme64pnTXRGnWiHkB16a0V9f1v9zyrBs/
-	s0CBFMJ77mLMykJu+9vt+A/89DQrQBydZgNAknJ8EcV4ajiP/fefnl/HBGFpaf6DnSnLeohVEg9dI
-	R5YQ0tzoM1nA+GIxvoveVTP2yhIK8W143ZmCJeygHgvEvqieKqFAQcQ/VSUxrO1+BRzXCH3ocmOhY
-	hNXng/zv0mSEmmYA7tc12Jr/J96Ps5dY689OkTIV1EAmi24yfuGRJ4wJqsSyz4KhBQX+cZDguBlUe
-	RF/kMraA==;
+	bh=aBuYWmN845KzXqm8EouS+GqPS0z0pBmk0fzQy4dI/Ds=; b=cyyt/QUDcRZI7N/K1rlKmJdIMG
+	jPibcd4FsfIcCz6Kjn4pJI7DMpDgvhUnPWBQCyZtCe3R9bNsnVCMmrmfI1HNWzHq9yjxijWCgMMx9
+	3ZKygqG1/aodeqGMrzWcUZ6+L0EADF+g5wrhMXECaymTvMd+vrvBdzwf8pSvtXHNmTsa5HPWQIf2q
+	xludr2PAPKUj4hP3XPU+r55mOEJMl2Srs6VACh6tA6xvPqIg+dujeTKbpaNObPlBUsZzB0qaMBl5f
+	fHwCvG/JKIlz/JYIr1QARujgAfKml3c5yKIzi7/vMuyR+rU4I32cWWDzRQ17L4zm101SUf5josvpW
+	a2AC/pOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6rqT-00000006MKw-3MAX;
-	Thu, 09 Oct 2025 14:42:17 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1v6rrP-00000006MbF-24EZ;
+	Thu, 09 Oct 2025 14:43:15 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6rqR-00000006MJw-22C4;
-	Thu, 09 Oct 2025 14:42:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1760020924; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=irSQG0MDZZPSVmNszNVc4x2fdPYiC40AT9QHZ83zaj4qMPeFD6MxJi4AAWz2JZ337d4b8BWnUCjKHMAS75hMvTnfO6lpgnqOyRR3JBiVEzcmz08ZW8C5zG/Fe+gmxVxDStKoWUkDYkaJDCyrSSVJq4lSKuW3s+7SQaId6As6COE=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1760020924; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=gOEj4/IpkenMiJt4N1/HqskQ9zMM3bzJT70kiGJjHEk=; 
-	b=mTHIHyP81fqGs5jvcTVrPZLGflyxGXYfF26wZq+V+r4slLbuoVSIZ5CNsByICkXuWFlu3ZgCjXzcPruNn2OERyFUK95i36tUlSHKRV2BBvbGKJxjg9thwsSfHIMtgs4C0DYpscA5Q2dOwwoxgHIcWUOqrqa4H71hzJOAQcg1ybM=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1760020924;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=gOEj4/IpkenMiJt4N1/HqskQ9zMM3bzJT70kiGJjHEk=;
-	b=Zu7NsgKdA7XApLRezertLoTOav8hgPArFe5XUdBuQ1VJU7ZsPmCE2TSeKi//AWDx
-	uvnn1T0ptw/AV30mCKX9f9/A0jbNbml5h66LpxbAsJGvZMJch8qub3NuOPMnRL35nqB
-	GW6Wsory/O41llwSplB8R79gdae3GXsHx0OyQYdg=
-Received: by mx.zohomail.com with SMTPS id 1760020921792909.7002470660792;
-	Thu, 9 Oct 2025 07:42:01 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: linux-mediatek@lists.infradead.org
-Cc: lee@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, angelogioacchino.delregno@collabora.com,
- lgirdwood@gmail.com, broonie@kernel.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- kernel@collabora.com, wenst@chromium.org,
- igor.belwon@mentallysanemainliners.org,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Subject: Re: [PATCH v8 4/9] regulator: Add support for MediaTek MT6363 SPMI PMIC
- Regulators
-Date: Thu, 09 Oct 2025 16:41:56 +0200
-Message-ID: <5635636.31r3eYUQgx@workhorse>
-In-Reply-To: <20251003091158.26748-5-angelogioacchino.delregno@collabora.com>
-References: <20251003091158.26748-1-angelogioacchino.delregno@collabora.com>
- <20251003091158.26748-5-angelogioacchino.delregno@collabora.com>
+	id 1v6rrN-00000006Mao-37qs
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Oct 2025 14:43:15 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-781206cce18so1186658b3a.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 07:43:13 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1760020993; x=1760625793; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=aBuYWmN845KzXqm8EouS+GqPS0z0pBmk0fzQy4dI/Ds=;
+        b=goiQHeh8575U6ChU0pxsfylKmTYQMA4ZRUTsZ4uFrHoq7vPPDZI63d9JPTJzFn8ZwR
+         JnvBMMz9sk/N62VhOfmIANiYL0qMFz9wzTdmd9vyPndSAQVKbJFnO00y8fEPgYNhsxMR
+         2nlfVpFFhkjRMXmaitezcQJSJcYrkLh5Gn9Hho64A82oZ4Iz+pDlrwD7XWKQe2nagHVq
+         WANoQ/ftCjjCz/6YUrIu2zPmIXo9RAvpWj4WBZc0fmwtjaWTPXXafg2Ad8dd49BkxCSB
+         ES8NtPvU37s1Jx5RRDLQNB74yY9kmTKdUG4qOtQqlqswpXMC+BxpKtbDdXbx6pWsaV8Z
+         /P1g==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760020993; x=1760625793;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=aBuYWmN845KzXqm8EouS+GqPS0z0pBmk0fzQy4dI/Ds=;
+        b=IOy07wwyrwfe7+l3rnswoSin/KOmwDMiLuDqBcAKmHUyZj+tZxDBYBYzoGwX1JEWlp
+         t0m35zX5GA/rua4lbMAX1RBlQaHJ8hpOHiUuWcCgvdLv1+xHip76+qvTAElenvbrE197
+         UQwQNeFu5qUcHLIk5Qizel0+4+TqZ+8a/PpwdOzDQFcNUPlda4MzMVc4lKHJ8HUyWpS1
+         bFQTzDY2VGKQcJtbzwbPFmcD8E2qV8p2eWoZCR/W5ioK3udQXd72mVL7Ye1fhxOq7yXD
+         M9DkaXWmTZc2O0NkzRVd+KDre+CinrITiFlEa4Aka5G42u6eu2f1Fy7QksOTLZFLoDZp
+         RaVg==
+X-Forwarded-Encrypted: i=1; AJvYcCVFTPMXhTa/PYu19JT10TgJhqovKVysVpBidl1FW7cM9+ERFxrXb7/y569W5dHyGusLLMrJpllpM9153dOLEMDq@lists.infradead.org
+X-Gm-Message-State: AOJu0YzOZsCz84cTI4LNvH4m3A939cWkX9Sg2DNwo2BCor95OaaWABKv
+	rDSlAhogZu79q90+G/S64GHhLB3XqGWAyUiU2WymdLmQokxUxJjpFPEAJK8Ro+RAIJ3kls6WqNM
+	vz04fQclhDxslIVkWpdtPE+U8my3FRJrU6oFMBrOxTw==
+X-Gm-Gg: ASbGncsIZe5P4iFvpUgp3wDQ9D6F3a6H9xGAoP30qhDd+GMjeTeP3G5csuyTqvVaoAs
+	Kt+lqNmUMfwrTEZkC0ir3Qac3V/pgfs/ilpG9zL3eLcROTLWYt4AzE4EvDmmGJUCv3++Xxdbcqe
+	zZ/J8u/dPaGnE+voUhMu/Djglc0MUDZZqKhMPyoP9dpCX0rEMaxAWypfvVK+qi8t0vP3h4IK6md
+	A309/VWrhnnAiU8OXT2kbcuvZLcN3rLpRjK
+X-Google-Smtp-Source: AGHT+IEunQlJX63RRYRtSnbcqvA/nThaxmg3LM/Wg/qUN5XoyVXwmlx1x6HIDkeVcb27jelR7RW1NG5t3y+7VCGwa9A=
+X-Received: by 2002:a05:6a21:33a8:b0:327:957:f915 with SMTP id
+ adf61e73a8af0-32da8fcd0a3mr9718293637.24.1760020992691; Thu, 09 Oct 2025
+ 07:43:12 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 7Bit
-Content-Type: text/plain; charset="utf-8"
+References: <20251002-james-cs-syncfreq-v3-0-fe5df2bf91d1@linaro.org> <20251002-james-cs-syncfreq-v3-1-fe5df2bf91d1@linaro.org>
+In-Reply-To: <20251002-james-cs-syncfreq-v3-1-fe5df2bf91d1@linaro.org>
+From: Mike Leach <mike.leach@linaro.org>
+Date: Thu, 9 Oct 2025 15:43:00 +0100
+X-Gm-Features: AS18NWCyJUsxXav1BCEdra0zmZObN1mWhTpmYCiev-5sNXSTBfqKeCdcvl0rmhM
+Message-ID: <CAJ9a7Vjw_4ZwEBriS5836YdnxMH47e9b_6LOUWEaTxX3RkNtXQ@mail.gmail.com>
+Subject: Re: [PATCH v3 1/5] coresight: Change syncfreq to be a u8
+To: James Clark <james.clark@linaro.org>
+Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
+	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jonathan Corbet <corbet@lwn.net>, 
+	Leo Yan <leo.yan@arm.com>, coresight@lists.linaro.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-doc@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_074215_606623_8BEB39E0 
-X-CRM114-Status: GOOD (  21.37  )
+X-CRM114-CacheID: sfid-20251009_074313_787367_7DD5E30C 
+X-CRM114-Status: GOOD (  17.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,101 +96,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Friday, 3 October 2025 11:11:53 Central European Summer Time AngeloGioacchino Del Regno wrote:
-> Add a driver for the regulators found on the MT6363 PMIC, fully
-> controlled by SPMI interface.
-> This PMIC regulates voltage with an input range of 2.6-5.0V, and
-> features 10 buck converters and 26 LDOs.
-> 
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+On Thu, 2 Oct 2025 at 11:09, James Clark <james.clark@linaro.org> wrote:
+>
+> TRCSYNCPR.PERIOD is the only functional part of TRCSYNCPR and it only
+> has 5 valid bits so it can be stored in a u8.
+>
+> Signed-off-by: James Clark <james.clark@linaro.org>
 > ---
->  drivers/regulator/Kconfig                  |  10 +
->  drivers/regulator/Makefile                 |   1 +
->  drivers/regulator/mt6363-regulator.c       | 935 +++++++++++++++++++++
->  include/linux/regulator/mt6363-regulator.h | 330 ++++++++
->  4 files changed, 1276 insertions(+)
->  create mode 100644 drivers/regulator/mt6363-regulator.c
->  create mode 100644 include/linux/regulator/mt6363-regulator.h
-> 
-> [...]
-> diff --git a/drivers/regulator/mt6363-regulator.c b/drivers/regulator/mt6363-regulator.c
-> new file mode 100644
-> index 000000000000..812775072eb5
-> --- /dev/null
-> +++ b/drivers/regulator/mt6363-regulator.c
-> [...]
-> +
-> +static int mt6363_regulator_set_mode(struct regulator_dev *rdev,
-> +				     unsigned int mode)
-> +{
-> +	struct mt6363_regulator_info *info = rdev_get_drvdata(rdev);
-> +	struct regmap *regmap = rdev->regmap;
-> +	int cur_mode, ret;
-> +
-> +	if (!info->modeset_reg && mode == REGULATOR_MODE_FAST)
-> +		return -EOPNOTSUPP;
-> +
-> +	switch (mode) {
-> +	case REGULATOR_MODE_FAST:
-> +		ret = mt6363_buck_unlock(regmap, true);
-> +		if (ret)
-> +			break;
-> +
-> +		ret = regmap_set_bits(regmap, info->modeset_reg, info->modeset_mask);
-> +
-> +		mt6363_buck_unlock(regmap, false);
-> +		break;
-> +	case REGULATOR_MODE_NORMAL:
-> +		cur_mode = mt6363_regulator_get_mode(rdev);
-> +		if (cur_mode < 0) {
-> +			ret = cur_mode;
-> +			break;
-> +		}
-> +
-> +		if (cur_mode == REGULATOR_MODE_FAST) {
-> +			ret = mt6363_buck_unlock(regmap, true);
-> +			if (ret)
-> +				break;
-> +
-> +			ret = regmap_clear_bits(regmap, info->modeset_reg, info->modeset_mask);
-> +
-> +			mt6363_buck_unlock(regmap, false);
-> +			break;
-> +		} else if (cur_mode == REGULATOR_MODE_IDLE) {
-> +			ret = regmap_clear_bits(regmap, info->lp_mode_reg, info->lp_mode_mask);
-> +			if (ret == 0)
-> +				usleep_range(100, 200);
-> +		} else {
-> +			ret = 0;
+>  drivers/hwtracing/coresight/coresight-etm4x.h | 2 +-
+>  1 file changed, 1 insertion(+), 1 deletion(-)
+>
+> diff --git a/drivers/hwtracing/coresight/coresight-etm4x.h b/drivers/hwtracing/coresight/coresight-etm4x.h
+> index 13ec9ecef46f..eda3a6d2e8e2 100644
+> --- a/drivers/hwtracing/coresight/coresight-etm4x.h
+> +++ b/drivers/hwtracing/coresight/coresight-etm4x.h
+> @@ -825,7 +825,6 @@ struct etmv4_config {
+>         u32                             eventctrl1;
+>         u32                             stall_ctrl;
+>         u32                             ts_ctrl;
+> -       u32                             syncfreq;
+>         u32                             ccctlr;
+>         u32                             bb_ctrl;
+>         u32                             vinst_ctrl;
+> @@ -833,6 +832,7 @@ struct etmv4_config {
+>         u32                             vissctlr;
+>         u32                             vipcssctlr;
+>         u8                              seq_idx;
+> +       u8                              syncfreq;
+>         u32                             seq_ctrl[ETM_MAX_SEQ_STATES];
+>         u32                             seq_rst;
+>         u32                             seq_state;
+>
+> --
+> 2.34.1
+>
 
-Just initialise ret to 0 at the start of the function scope when
-you declare it. You've already missed an uninitialised use once,
-and playing these branch games is just asking for more trouble
-in the future. There's no micro-optimisation you're doing here,
-clang produces the same assembly for both zero initialised and
-the else branch version you're doing here.
+Reviewed-by: Mike Leach <mike.leach@linaro.org>
 
-> +		}
-> +		break;
-> +	case REGULATOR_MODE_IDLE:
-> +		ret = regmap_set_bits(regmap, info->lp_mode_reg, info->lp_mode_mask);
-> +		break;
-> +	default:
-> +		ret = -EINVAL;
-> +	}
-> +
-> +	if (ret) {
-> +		dev_err(&rdev->dev, "Failed to set mode %u: %d\n", mode, ret);
-> +		return ret;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> [...]
-
-Kind regards,
-Nicolas Frattaroli
-
-
+-- 
+Mike Leach
+Principal Engineer, ARM Ltd.
+Manchester Design Centre. UK
 
