@@ -4,118 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CBFC8CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 13:49:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44227CCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 14:00:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=a/cvXYV+hxWMnanGdIDZWS1tw4x4tFrqfjfsPvwnguo=; b=w3e7K6LrJivtXtgeD33wycAt0Y
-	54hP5xoeWIxfvk8rVmsw0/s3tx4elim+yiZ6aquiqfg5Ydp3MBx0i7+kcmgW5nyKiPUzRjpv9TBtW
-	n7AIq7ffOi4ol/DTKZyLG9UGDAC+L09SM8qBHD5whch5YlibMNmBImCKwrl6wDhIwLLCpzuWLtkjB
-	lxyo6Elwd9SqogaPRnWCZ9LtHFlKS5yofbqdzO+aK2Wj9sRG/txSfz36o6pSbXXpQiR3QEqdfqiEA
-	zLm0yuZmViZdaolK6RicHdVa1AbZ4d6xn0VeLzhkbBnHUjwlBrUz/AvbLKxQA/yo+CabFHXqng5dC
-	wG8K/R+Q==;
+	bh=1y5MNw5pAX4zEDE7oHbM3Qb22NF+hb8K41cpqkfKay0=; b=JkZA03JrglRnhBs78sWrRSBHGk
+	b016+TNFMhewafehjeUj0YyhY1daZ4CEbtMBIqU7fT93FsiqjGih1rU3P07diutPcVzUX64JdN74T
+	1XlAdqhkrRmt9fC2dOzUykkdaM8pyVaei2glHiJpXBV9jCrKTjQ98ZsUcDZHT50YPLcS7F2JWLDy8
+	zh3Goz/6PqSluJXeyAVtJRz66022jJn8+iz+OtJUn8Rzd3iOxopsUzO1LM8pF/jOr7QIklssoHFXg
+	IRpaQXBe43AlBrTHLQ+w7jrB6Cq5XeNYExaBIrABtto9ZEOvXxKlVuQTHcNAo+Fswc5G8JX3HrlrH
+	VqpRgo0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6r0m-00000006GUs-0mkp;
-	Thu, 09 Oct 2025 13:48:52 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v6rBs-00000006HFy-2sZA;
+	Thu, 09 Oct 2025 14:00:20 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6r0k-00000006GUe-41ci
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 09 Oct 2025 13:48:51 +0000
+	id 1v6rBq-00000006HFU-1Y5l;
+	Thu, 09 Oct 2025 14:00:20 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:MIME-Version:References:
-	In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=a/cvXYV+hxWMnanGdIDZWS1tw4x4tFrqfjfsPvwnguo=; b=OGOSpYBMIAFeK3BvUzJiR1Nvn6
-	WkBqMnZu7xe6dua0ZSf97EtQ7EQXREfUk3F2h9clN+1O1b4KoQJF0w8LkGnHqKo2ppGYiZHua/gYu
-	/Z+fTTTP9T+4BhXy1TKw/j3edbwu164C315ONu8Wqwb4zsC2oFHAjNavfAc9kuDEj72vuc/ubLO4E
-	VXXqlnbWkQr7qNcRuUfsC1wOTyZwrmm5w+Qo68XQI9FVCSpKHWSSwziyADo+uRoWf0ohwYUQdvaAP
-	ZVhXZfIXqQ/AtQyKKUhtG3vvhPeYRYAdQYwZB62NS2umCUIMFC20BxkGPst0M7DwNnMjXob0sfgaa
-	SVzdTsPA==;
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6r0h-00000001TwP-3KkA
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 13:48:49 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 8990442CC0;
-	Thu,  9 Oct 2025 13:48:43 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5F1EFC4CEE7;
-	Thu,  9 Oct 2025 13:48:43 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760017723;
-	bh=yOPE8FhFDCKAnOAaZuxzb+46ozcT2L+rNhVYaTDtEeU=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=VFhfxFsOcKAv6SuuT9uUV+W7DSKX5NHkXLEwuebXTq960Mh+d+BxtGNrg49a3GhYO
-	 nUO43NHbDniYGBAJcuxgW2VVDoWgd8VmLPIDhNmuB9KNoUe8QtnPn87MEtOOYBvRJw
-	 zZUZbd0T7oLmWSg2ITUD0JuWF5ZAWFwA+E48LEZLJt4Z1zkGggXKx91DXYqN6ppHbq
-	 /joUKuXXMHyFj/KBvSNAvTFu3p7Fw5xqHWAxsgQTpGTcWF0bImEe4DQprDD1hssyQa
-	 aHE+XCY8GjSpmxnBWvkOL/VNfc3SmM36mXerFaQtRHb+LYJ/N/6icGB/8rM5ZKfDAL
-	 adoGttQ4AJ1/g==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=1y5MNw5pAX4zEDE7oHbM3Qb22NF+hb8K41cpqkfKay0=; b=qXzi3/7EvQikSz7+v6VhkyeIyY
+	mrruz6GjdBUnEFBc00hilEBAoR7HPxjlOK7SkMaB5y/w+OB2W4DfoQ2gvvduFK7Jn5R9ZaSFLaBQi
+	5MC5Ap9quFLTVLl4/3RteQ9wz/zoRyfugx9Jc5NDnvkO2RLGWvAD9tidUw90QwmaT54OAm5ESY7yR
+	7xXE2wDGLl5PAEipZAnTw/3lYKU+VwN6cQHE6l7VmrjKPKz8KIm8b6UKwpiOGTgEZbRXoiw5wuD9H
+	SMsImcO4DcLek2T69/tnTNWnlNPZroH/GNk19tXuib12c0RyofsGVl0Sc/lskeR3ZkNEQEXRYm0wA
+	26Z98Mew==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:44504)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1v6r0a-0000000Ce22-2vNk;
-	Thu, 09 Oct 2025 13:48:40 +0000
-Date: Thu, 09 Oct 2025 14:48:40 +0100
-Message-ID: <86v7koxk1z.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: salil.mehta@opnsrc.net
-Cc: linux-kernel@vger.kernel.org,
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1v6rBP-0000000074K-2fB0;
+	Thu, 09 Oct 2025 14:59:51 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1v6rBI-000000004rQ-3dqH;
+	Thu, 09 Oct 2025 14:59:44 +0100
+Date: Thu, 9 Oct 2025 14:59:44 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Liangbin Lian <jjm2473@gmail.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	heiko@sntech.de, quentin.schulz@cherry.de,
+	kever.yang@rock-chips.com, naoki@radxa.com, honyuenkwun@gmail.com,
+	inindev@gmail.com, ivan8215145640@gmail.com,
+	neil.armstrong@linaro.org, mani@kernel.org, dsimic@manjaro.org,
+	pbrobinson@gmail.com, alchark@gmail.com, didi.debian@cknow.org,
+	jbx6244@gmail.com, andrew@lunn.ch, devicetree@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
-	salil.mehta@huawei.com,
-	jonathan.cameron@huawei.com,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	mark.rutland@arm.com,
-	james.morse@arm.com,
-	sudeep.holla@arm.com,
-	lpieralisi@kernel.org,
-	jean-philippe@linaro.org,
-	tglx@linutronix.de,
-	oliver.upton@linux.dev,
-	peter.maydell@linaro.org,
-	richard.henderson@linaro.org,
-	andrew.jones@linux.dev,
-	mst@redhat.com,
-	david@redhat.com,
-	philmd@linaro.org,
-	ardb@kernel.org,
-	borntraeger@linux.ibm.com,
-	alex.bennee@linaro.org,
-	gustavo.romero@linaro.org,
-	npiggin@gmail.com,
-	linux@armlinux.org.uk,
-	karl.heubaum@oracle.com,
-	miguel.luis@oracle.com,
-	darren@os.amperecomputing.com,
-	ilkka@os.amperecomputing.com,
-	vishnu@os.amperecomputing.com,
-	gankulkarni@os.amperecomputing.com,
-	wangyanan55@huawei.com,
-	wangzhou1@hisilicon.com,
-	linuxarm@huawei.com
-Subject: Re: [RFC PATCH] KVM: arm64: vgic-v3: Cache ICC_CTLR_EL1 and allow lockless read when ready
-In-Reply-To: <20251008201955.3919537-1-salil.mehta@opnsrc.net>
-References: <20251008201955.3919537-1-salil.mehta@opnsrc.net>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: salil.mehta@opnsrc.net, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, salil.mehta@huawei.com, jonathan.cameron@huawei.com, will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, james.morse@arm.com, sudeep.holla@arm.com, lpieralisi@kernel.org, jean-philippe@linaro.org, tglx@linutronix.de, oliver.upton@linux.dev, peter.maydell@linaro.org, richard.henderson@linaro.org, andrew.jones@linux.dev, mst@redhat.com, david@redhat.com, philmd@linaro.org, ardb@kernel.org, borntraeger@linux.ibm.com, alex.bennee@linaro.org, gustavo.romero@linaro.org, npiggin@gmail.com, linux@armlinux.org.uk, karl.heubaum@oracle.com, miguel.luis@oracle.com, darren@os.amperecomputing.com, ilkka@os.amperecomputing.com, vishnu@os.amperecomputing.com, gankulkarni@os.amperecomputing.com, wangyanan55@huawei.com, wangzhou1@hisilicon.com, linuxarm@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 3/3] arm64: dts: rockchip: add LinkEase EasePi R1
+Message-ID: <aOe_0EufouURu7R2@shell.armlinux.org.uk>
+References: <20251009084416.45542-1-jjm2473@gmail.com>
+ <20251009084416.45542-4-jjm2473@gmail.com>
+MIME-Version: 1.0
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251009084416.45542-4-jjm2473@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_144848_249338_E59B9538 
-X-CRM114-Status: GOOD (  17.76  )
+X-CRM114-CacheID: sfid-20251009_070018_704506_E200C0AC 
+X-CRM114-Status: GOOD (  16.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,40 +85,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 08 Oct 2025 21:19:55 +0100,
-salil.mehta@opnsrc.net wrote:
-> 
-> From: Salil Mehta <salil.mehta@huawei.com>
-> 
-> [A rough illustration of the problem and the probable solution]
-> 
-> Userspace reads of ICC_CTLR_EL1 via KVM device attributes currently takes a slow
-> path that may acquire all vCPU locks. Under workloads that exercise userspace
-> PSCI CPU_ON flows or frequent vCPU resets, this can cause vCPU lock contention
-> in KVM and, in the worst cases, -EBUSY returns to userspace.
-> 
-> When PSCI CPU_ON and CPU_OFF calls are handled entirely in KVM, these operations
-> are executed under KVM vCPU locks in the host kernel (EL1) and appear atomic to
-> other vCPU threads. In this context, system register accesses are serialized
-> under KVM vCPU locks, ensuring atomicity with respect to other vCPUs. After
-> SMCCC filtering was introduced, PSCI CPU_ON and CPU_OFF calls can now exit to
-> userspace (QEMU). During the handling of PSCI CPU_ON call in userspace, a
-> cpu_reset() is exerted which reads ICC_CTLR_EL1 through KVM device attribute
-> IOCTLs. To avoid transient inconsistency and -EBUSY errors, QEMU is forced to
-> pause all vCPUs before issuing these IOCTLs.
+On Thu, Oct 09, 2025 at 04:44:16PM +0800, Liangbin Lian wrote:
+> +&gmac0 {
+> +	phy-mode = "rgmii-id";
+> +	clock_in_out = "input";
+...
+> +&gmac1 {
+> +	phy-mode = "rgmii-id";
+> +	clock_in_out = "input";
 
-I'm going to repeat in public what I already said in private.
+I am fine with what is being proposed here, but I think this
+clock_in_out property needs fixing. The description for it is thus:
 
-Why does QEMU need to know this? I don't see how this is related to
-PSCI, and outside of save/restore, there is no reason why QEMU should
-poke at this. If QEMU needs fixing, please fix QEMU.
+  clock_in_out:
+    description:
+      For RGMII, it must be "input", means main clock(125MHz)
+      is not sourced from SoC's PLL, but input from PHY.
+      For RMII, "input" means PHY provides the reference clock(50MHz),
+      "output" means GMAC provides the reference clock.
+    $ref: /schemas/types.yaml#/definitions/string
+    enum: [input, output]
+    default: input
 
-Honestly, I don't see why the kernel should even care about this, and
-I have no intention of adopting anything of the sort for something
-that has all the hallmarks of a userspace bug.
+The problems that I have here are:
 
-	M.
+1) the description states that the only possible value for this when in
+   RGMII mode is "input" which is reasonable, because it's due to the
+   RGMII specification. The driver code is perfectly able to determine
+   whether RGMII has been specified, and set bsp_priv->clock_input
+   itself, relieving DT of this need.
+
+2) bsp_priv->clock_input is only used in gmac_clk_enable() when calling
+   the SoC specific set_clock_selection() method. Only RK3528, RK3576,
+   and RK3588 populate this method. Every other SoC supported by this
+   driver still requires the property:
+
+        ret = of_property_read_string(dev->of_node, "clock_in_out", &strings);
+        if (ret) {
+                dev_err(dev, "Can not read property: clock_in_out.\n");
+                bsp_priv->clock_input = true;
+        } ...
+
+  If one doesn't provide it, one gets an error print, which is not nice
+  I note that the DT binding doesn't list this property as required, so
+  the code is at odds with the binding.
+
+  (I note that your Rockchip SoC is RK3568, which doesn't implement this
+  method.)
+
+So, taking both these points together, the code should not be printing
+an error if "clock_in_out" is missing when either:
+
+a) RGMII is being used (or maybe only when RMII is being used?)
+b) the set_clock_selection() method is not present for the SoC variant.
+
+With the driver fixed as indicated above, I then think clock_in_out in
+your descriptions becomes unnecessary, and should be removed.
 
 -- 
-Without deviation from the norm, progress is not possible.
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
