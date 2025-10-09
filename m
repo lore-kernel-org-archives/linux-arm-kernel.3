@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DBE20CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 11:56:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 778EFCCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 11:56:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+JN1daK9KHKQhqhlBM6qWbsrZ0fPAiEs+TwHbV5THUI=; b=JoL5kOOnDW3dqoqtSLGXl8qEz0
-	AJiuRc+p+CWvmq0biCCwz2cf2OEVI5ThG8RHPeglP+09pvJ0RKU41/jS4FAiKBqez5Vxy9OArZsiX
-	rrA9T6+l+yNmryc8qYysWARsQtjSavmAaggMYt1f+AiV77m53hFKFbsXZWnxXp827aEhn+rXp6jpG
-	HGswMlRVNTpMpAXU+i7/ziqUXFfpNVJQmkZ+0+U+lhDHKpTQljPwP89t+PsqaTOSfqcjY369Ks9l1
-	gFRYcMJBCjYWOPgZLoFXyi4Z1VLaH9L/SMOme2uHGmWhPlduL6CVf9J6MoKziPG1vhgBqm1U8Xwel
-	1prLM1gw==;
+	bh=KH6EA01iNoWWQLdys6bhNpHe2bNXOlNbpESaQ8UscPw=; b=TljQgqPm0xzwlik9mnZUKv29W4
+	G3L3w3xDM//1+zmOvTBpjwDvXCyGMHT7sy5OA7qWpsH/zUIL5mmpX1MT90QZTaqcjfuX9eVeNuxSh
+	lfz3uADFOqAvQy+8mdmVvsPj55lWWiNsZ4VIDjKl78diHYFG+9Ixjgmg2eR3OsZxvvVnzkSTFrrvk
+	JNazMHrEePZa6yF0Cvy7Y2iAXP0YNoh+pxQ4Vfyst+LnPeLII1Dp10FDcVrYzL9uw3IA2Bqgx0mPp
+	+ufjtF//E7REPxj7n02sXea9x2bpGtFM2UAKOqBtXz332Ue40uOxgC7NS8rFIGy0xlzD1euliVlAy
+	7vJridgA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6pG1-000000062Xn-07ln;
-	Thu, 09 Oct 2025 11:56:29 +0000
+	id 1v6pGI-000000062ed-2XlW;
+	Thu, 09 Oct 2025 11:56:46 +0000
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6pFz-000000062X4-1Lli;
-	Thu, 09 Oct 2025 11:56:28 +0000
+	id 1v6pGG-000000062dH-11cs;
+	Thu, 09 Oct 2025 11:56:45 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1760010985;
-	bh=6gUz+9JoOYVGPpIwvEyu26OypnA//W1aFpeDtPUjxaQ=;
+	s=mail; t=1760011002;
+	bh=GCdo2WRMgThuwdhdaxtmNPngX0ETlYCYQ7iuLMzkZt0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=nqBTzWtIwjw7fCRFp/gWpyyfyqCXm/UzYttMnMyC/r1TKf7qGYKGgn5yqtrInqUHl
-	 Jid+rfe2P65rn6jVjolgn1z4JPa4Iofyy3x4l2K3zZBEfCwIxJIo826gYYL/OJin01
-	 mH0fV0lG135kAvX+eScECWBYLLZyS22U5sPhorLN/DPseuEWedVJTLYA3LunjwBp8q
-	 D45/YX7uTqKi+Jb/tJsQsI7pnjqpt7qc+lhKEKmnHUtFoYmPgZQmhecXl2oeedGZvB
-	 MU3RPYN33wgluOO2P9LeoepkZ2WfYOxBtpEDxnoQ0OrwjqPjoiktUY8wIIfmRBg0f5
-	 JfX8GTG6naTxQ==
+	b=CmhDm10oocxKkaF5tmsjNvE52BrCVUfY7m30lN8iDm/aVW6yLyk8S1fhLyy9JJ//o
+	 lG0OcN2d0Z2SWsBUAI3OhbZXzKXhfR1yZcmyvHpZzUL6pTFpJfFuIh4XnSaab5jd8B
+	 o0N9PVKK0WHJAcGZ/8dxQ3XfceDixM5FEzlZW05IATAEtz1pQT5b1UI9+OdKH3d35n
+	 PnWEquwvVQmvNo7qyjKcaJ/9B+VTxIAVwzLTtq7/Qsbl4/WQnklBP9buv+0imB3nYw
+	 JI9zcHMU6Gzh7EVV/ISC+9s/fRIs50+wXg36F+NQ3IxHGdjohcrHAP+Gsb4lt7x8Lb
+	 Ejw8718SW052g==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 70DDE17E0125;
-	Thu,  9 Oct 2025 13:56:24 +0200 (CEST)
-Message-ID: <9abaae2b-8e66-4e28-99c3-14cf3de13c8c@collabora.com>
-Date: Thu, 9 Oct 2025 13:56:24 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6940117E0125;
+	Thu,  9 Oct 2025 13:56:41 +0200 (CEST)
+Message-ID: <dc04ae37-7707-4d32-8b01-f4804cd0cd90@collabora.com>
+Date: Thu, 9 Oct 2025 13:56:41 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 16/20] soc: mediatek: mtk-cmdq: Remove shift_pa
- parameter from cmdq_pkt_jump()
+Subject: Re: [PATCH v7 11/20] soc: mediatek: mtk-cmdq: Add mminfra_offset
+ adjustment for DRAM addresses
 To: Jason-JH Lin <jason-jh.lin@mediatek.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>,
@@ -66,15 +66,15 @@ Cc: Matthias Brugger <matthias.bgg@gmail.com>,
  dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org
 References: <20250827114006.3310175-1-jason-jh.lin@mediatek.com>
- <20250827114006.3310175-17-jason-jh.lin@mediatek.com>
+ <20250827114006.3310175-12-jason-jh.lin@mediatek.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20250827114006.3310175-17-jason-jh.lin@mediatek.com>
+In-Reply-To: <20250827114006.3310175-12-jason-jh.lin@mediatek.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_045627_517895_69A97BC9 
-X-CRM114-Status: UNSURE (   7.32  )
+X-CRM114-CacheID: sfid-20251009_045644_446641_10B0A8B3 
+X-CRM114-Status: UNSURE (   8.40  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,19 +91,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Il 27/08/25 13:37, Jason-JH Lin ha scritto:
-> Since shift_pa will be stored in the cmdq_mbox_priv structure within
-> cmdq_pkt, all shift_pa parameters in CMDQ helper APIs can be removed.
+> Since GCE has been moved to MMINFRA in MT8196, all transactions from
+> MMINFRA to DRAM will have their addresses adjusted by subtracting a
+> mminfra_offset.
 > 
-> Remove the shift_pa parameters from cmdq_pkt_jump(), cmdq_pkt_jump_abs(),
-> and cmdq_pkt_jump_rel().
+> Therefore, the CMDQ helper driver needs to get the mminfra_offset value
+> of the SoC from cmdq_mbox_priv of cmdq_pkt and then add it to the DRAM
+> address when generating instructions to ensure GCE accesses the correct
+> DRAM address. CMDQ users can then call CMDQ helper APIs as usual.
 > 
-> Fixes: ade176534112 ("soc: mediatek: cmdq: Add parameter shift_pa to cmdq_pkt_jump()")
+> Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
 
-Drop those fixes tags, they're not pointing to any upstream commit, and then, those
-are not fixes per-se, as you are performing migration, not fixing anything.
-
-Cheers,
-Angelo
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
 
 
