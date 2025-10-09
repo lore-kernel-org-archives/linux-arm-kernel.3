@@ -4,71 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20204CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 12:12:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75029CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 12:20:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5gXwrlPLbfpHkdjWEQmdu3TApxHy2UJdYRsAXaZ8JUo=; b=IKG4z4mGOlDuOXvvDZwiCgOJ2c
-	3WU8omPdfwvC6XzDp3ciJRqPjaNQpJJj2mhX1t5/l1cWEY0Fl5zQFMfXqODTmULMUz+ssb5DCHsKr
-	PcfbQiU1bQpkRx1uMqJiGfOQovO9ybMiJsB/2EUM6yqdLClRbQ5SHbZt2pI8ZuffyBz9END1G2K8F
-	jwB/KtJfNHJj74A5/bRA6pPFm/lorW8OZDt/SaLoXfOMpHe35VqElzwu0VxnzGJzaR6QSyTbpRifv
-	mDP0MQ2tv+ehRlSpuBvg19PIBYKe88f6jBCbbqnCDu758D4x+ywSUrySeHiV2zLGJ4XKsJdZpki0r
-	wB5NpuXQ==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Mc1TIPZmtb3tKLWmvtpCO9BID0gxh7mz4dL5hPgt17w=; b=r+Oj91k4zkfSKvghCW7aZGn/p4
+	nKSP/v8b+R9fa9d452Cmw/aF5lxcBUrT5E5z2Yj2Q1aj6kdJ1gn6AbgHkshobE5mhUY94T1iLCrfp
+	UrT23k3xy4C5D9plhw8KYSMBD4xHptpiWM0PWvoF4TgUjUmcEWDIsDDsGnd4isaqXxmnV9ihtd3gw
+	JLrT/PUQV3CSIp0uKM1nloVkAIvNC+yMM83dAoEKWlkFMLlXpe3026AGkbobYC2Y33JsyCiiIg5Wm
+	XrVk5F+96/lpagkQSyGFdp4MGOBKj7+rFeqETp+wQd2ku6zy9xAzP6hvJsu+lpi0AVJF+JGfg0Yo0
+	me6Tp9rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6pVn-000000063zg-1Iew;
-	Thu, 09 Oct 2025 12:12:47 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6pVm-000000063zW-00BH
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 12:12:46 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 4DCE0622BC;
-	Thu,  9 Oct 2025 12:12:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EC516C4CEE7;
-	Thu,  9 Oct 2025 12:12:44 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760011965;
-	bh=6IKkBB3jceClisvK/miSVJ8gU+YX4OmzT5+w66k5iuA=;
-	h=From:To:Cc:Subject:Date:From;
-	b=OfOPzIR9/4pEfJkx3ibwGihYhFDVAJvhkKJ7gJ6AEY9CXSdiMXcvieCHHZUSmTDQ0
-	 ZXnUkE/9BAtShD5WOSeG84sGWBZi/j+sfzJvK+7cMVUHut49jGOdgBO0/ag7sSxxUE
-	 954cYH30yf4r0/fwiTbgtaQpfcGRjBgqufTZcTSolK1W+lMMzha4uXuxNlFowYMEI4
-	 uzKJVV/1Z/4P2COFfSCAa2kKLnu7w9hcNOQrv680ocwRh6yA75jZYJofXJjsjdMY/l
-	 9Z2IOju3VoChUV3BGa+n43TPVYEeFDaCzzc1wrXJYJc/f3YVJAF+f0tFmFcF0vQ8bu
-	 jj3swl/KwJEiQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1v6pVi-0000000CcaD-1h4w;
-	Thu, 09 Oct 2025 12:12:42 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jan Kotas <jank@cadence.com>
-Subject: [PATCH] arm64: Revamp HCR_EL2.E2H RES1 detection
-Date: Thu,  9 Oct 2025 13:12:39 +0100
-Message-ID: <20251009121239.29370-1-maz@kernel.org>
-X-Mailer: git-send-email 2.47.3
+	id 1v6pdN-000000064bJ-3Vix;
+	Thu, 09 Oct 2025 12:20:37 +0000
+Received: from pegase2.c-s.fr ([93.17.235.10])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v6pdL-000000064ar-1F4y;
+	Thu, 09 Oct 2025 12:20:36 +0000
+Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
+	by localhost (Postfix) with ESMTP id 4cj7tc3BBqz9sSy;
+	Thu,  9 Oct 2025 14:08:08 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase2.c-s.fr ([172.26.127.65])
+	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id t-GI2jPxTJia; Thu,  9 Oct 2025 14:08:08 +0200 (CEST)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4cj7tc1MWCz9sSv;
+	Thu,  9 Oct 2025 14:08:08 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 08F7B8B76C;
+	Thu,  9 Oct 2025 14:08:08 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+	with ESMTP id dX5DSkuE_w6O; Thu,  9 Oct 2025 14:08:07 +0200 (CEST)
+Received: from [192.168.235.99] (unknown [192.168.235.99])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id BC52E8B767;
+	Thu,  9 Oct 2025 14:08:05 +0200 (CEST)
+Message-ID: <4632e721-0ac8-4d72-a8ed-e6c928eee94d@csgroup.eu>
+Date: Thu, 9 Oct 2025 14:08:05 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: (bisected) [PATCH v2 08/37] mm/hugetlb: check for unreasonable
+ folio sizes when registering hstate
+To: David Hildenbrand <david@redhat.com>, linux-kernel@vger.kernel.org
+Cc: Zi Yan <ziy@nvidia.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Alexander Potapenko <glider@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
+ Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
+ dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+ iommu@lists.linux.dev, io-uring@vger.kernel.org,
+ Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
+ Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
+ kasan-dev@googlegroups.com, kvm@vger.kernel.org,
+ Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
+ linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+ linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-scsi@vger.kernel.org, Marco Elver <elver@google.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Muchun Song <muchun.song@linux.dev>,
+ netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
+ Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
+ Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
+ virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
+ wireguard@lists.zx2c4.com, x86@kernel.org,
+ "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>
+References: <20250901150359.867252-1-david@redhat.com>
+ <20250901150359.867252-9-david@redhat.com>
+ <3e043453-3f27-48ad-b987-cc39f523060a@csgroup.eu>
+ <d3fc12d4-0b59-4b1f-bb5c-13189a01e13d@redhat.com>
+ <faf62f20-8844-42a0-a7a7-846d8ead0622@csgroup.eu>
+ <9361c75a-ab37-4d7f-8680-9833430d93d4@redhat.com>
+ <03671aa8-4276-4707-9c75-83c96968cbb2@csgroup.eu>
+ <1db15a30-72d6-4045-8aa1-68bd8411b0ba@redhat.com>
+ <0c730c52-97ee-43ea-9697-ac11d2880ab7@csgroup.eu>
+ <543e9440-8ee0-4d9e-9b05-0107032d665b@redhat.com>
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+Content-Language: fr-FR
+In-Reply-To: <543e9440-8ee0-4d9e-9b05-0107032d665b@redhat.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, jank@cadence.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251009_052035_509972_A866D734 
+X-CRM114-Status: GOOD (  42.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,90 +110,236 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We currently have two ways to identify CPUs that only implement FEAT_VHE
-and not FEAT_E2H0:
 
-- either they advertise it via ID_AA64MMFR4_EL1.E2H0,
-- or the HCR_EL2.E2H bit is RAO/WI
 
-However, there is a third category of "cpus" that fall between these
-two cases: on CPUs that do not implement FEAT_FGT, it is IMPDEF whether
-an access to ID_AA64MMFR4_EL1 can trap to EL2 when the register value
-is zero.
+Le 09/10/2025 à 12:27, David Hildenbrand a écrit :
+> On 09.10.25 12:01, Christophe Leroy wrote:
+>>
+>>
+>> Le 09/10/2025 à 11:20, David Hildenbrand a écrit :
+>>> On 09.10.25 11:16, Christophe Leroy wrote:
+>>>>
+>>>>
+>>>> Le 09/10/2025 à 10:14, David Hildenbrand a écrit :
+>>>>> On 09.10.25 10:04, Christophe Leroy wrote:
+>>>>>>
+>>>>>>
+>>>>>> Le 09/10/2025 à 09:22, David Hildenbrand a écrit :
+>>>>>>> On 09.10.25 09:14, Christophe Leroy wrote:
+>>>>>>>> Hi David,
+>>>>>>>>
+>>>>>>>> Le 01/09/2025 à 17:03, David Hildenbrand a écrit :
+>>>>>>>>> diff --git a/mm/hugetlb.c b/mm/hugetlb.c
+>>>>>>>>> index 1e777cc51ad04..d3542e92a712e 100644
+>>>>>>>>> --- a/mm/hugetlb.c
+>>>>>>>>> +++ b/mm/hugetlb.c
+>>>>>>>>> @@ -4657,6 +4657,7 @@ static int __init hugetlb_init(void)
+>>>>>>>>>           BUILD_BUG_ON(sizeof_field(struct page, private) *
+>>>>>>>>> BITS_PER_BYTE <
+>>>>>>>>>                   __NR_HPAGEFLAGS);
+>>>>>>>>> +    BUILD_BUG_ON_INVALID(HUGETLB_PAGE_ORDER > MAX_FOLIO_ORDER);
+>>>>>>>>>           if (!hugepages_supported()) {
+>>>>>>>>>               if (hugetlb_max_hstate ||
+>>>>>>>>> default_hstate_max_huge_pages)
+>>>>>>>>> @@ -4740,6 +4741,7 @@ void __init hugetlb_add_hstate(unsigned int
+>>>>>>>>> order)
+>>>>>>>>>           }
+>>>>>>>>>           BUG_ON(hugetlb_max_hstate >= HUGE_MAX_HSTATE);
+>>>>>>>>>           BUG_ON(order < order_base_2(__NR_USED_SUBPAGE));
+>>>>>>>>> +    WARN_ON(order > MAX_FOLIO_ORDER);
+>>>>>>>>>           h = &hstates[hugetlb_max_hstate++];
+>>>>>>>>>           __mutex_init(&h->resize_lock, "resize mutex", &h-
+>>>>>>>>>> resize_key);
+>>>>>>>>>           h->order = order;
+>>>>>>>
+>>>>>>> We end up registering hugetlb folios that are bigger than
+>>>>>>> MAX_FOLIO_ORDER. So we have to figure out how a config can trigger
+>>>>>>> that
+>>>>>>> (and if we have to support that).
+>>>>>>>
+>>>>>>
+>>>>>> MAX_FOLIO_ORDER is defined as:
+>>>>>>
+>>>>>> #ifdef CONFIG_ARCH_HAS_GIGANTIC_PAGE
+>>>>>> #define MAX_FOLIO_ORDER        PUD_ORDER
+>>>>>> #else
+>>>>>> #define MAX_FOLIO_ORDER        MAX_PAGE_ORDER
+>>>>>> #endif
+>>>>>>
+>>>>>> MAX_PAGE_ORDER is the limit for dynamic creation of hugepages via
+>>>>>> /sys/kernel/mm/hugepages/ but bigger pages can be created at boottime
+>>>>>> with kernel boot parameters without CONFIG_ARCH_HAS_GIGANTIC_PAGE:
+>>>>>>
+>>>>>>       hugepagesz=64m hugepages=1 hugepagesz=256m hugepages=1
+>>>>>>
+>>>>>> Gives:
+>>>>>>
+>>>>>> HugeTLB: registered 1.00 GiB page size, pre-allocated 0 pages
+>>>>>> HugeTLB: 0 KiB vmemmap can be freed for a 1.00 GiB page
+>>>>>> HugeTLB: registered 64.0 MiB page size, pre-allocated 1 pages
+>>>>>> HugeTLB: 0 KiB vmemmap can be freed for a 64.0 MiB page
+>>>>>> HugeTLB: registered 256 MiB page size, pre-allocated 1 pages
+>>>>>> HugeTLB: 0 KiB vmemmap can be freed for a 256 MiB page
+>>>>>> HugeTLB: registered 4.00 MiB page size, pre-allocated 0 pages
+>>>>>> HugeTLB: 0 KiB vmemmap can be freed for a 4.00 MiB page
+>>>>>> HugeTLB: registered 16.0 MiB page size, pre-allocated 0 pages
+>>>>>> HugeTLB: 0 KiB vmemmap can be freed for a 16.0 MiB page
+>>>>>
+>>>>> I think it's a violation of CONFIG_ARCH_HAS_GIGANTIC_PAGE. The 
+>>>>> existing
+>>>>> folio_dump() code would not handle it correctly as well.
+>>>>
+>>>> I'm trying to dig into history and when looking at commit 4eb0716e868e
+>>>> ("hugetlb: allow to free gigantic pages regardless of the
+>>>> configuration") I understand that CONFIG_ARCH_HAS_GIGANTIC_PAGE is
+>>>> needed to be able to allocate gigantic pages at runtime. It is not
+>>>> needed to reserve gigantic pages at boottime.
+>>>>
+>>>> What am I missing ?
+>>>
+>>> That CONFIG_ARCH_HAS_GIGANTIC_PAGE has nothing runtime-specific in its
+>>> name.
+>>
+>> In its name for sure, but the commit I mention says:
+>>
+>>       On systems without CONTIG_ALLOC activated but that support gigantic
+>> pages,
+>>       boottime reserved gigantic pages can not be freed at all.  This 
+>> patch
+>>       simply enables the possibility to hand back those pages to memory
+>>       allocator.
+> 
+> Right, I think it was a historical artifact.
+> 
+>>
+>> And one of the hunks is:
+>>
+>> diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
+>> index 7f7fbd8bd9d5b..7a1aa53d188d3 100644
+>> --- a/arch/arm64/Kconfig
+>> +++ b/arch/arm64/Kconfig
+>> @@ -19,7 +19,7 @@ config ARM64
+>>           select ARCH_HAS_FAST_MULTIPLIER
+>>           select ARCH_HAS_FORTIFY_SOURCE
+>>           select ARCH_HAS_GCOV_PROFILE_ALL
+>> -       select ARCH_HAS_GIGANTIC_PAGE if CONTIG_ALLOC
+>> +       select ARCH_HAS_GIGANTIC_PAGE
+>>           select ARCH_HAS_KCOV
+>>           select ARCH_HAS_KEEPINITRD
+>>           select ARCH_HAS_MEMBARRIER_SYNC_CORE
+>>
+>> So I understand from the commit message that it was possible at that
+>> time to have gigantic pages without ARCH_HAS_GIGANTIC_PAGE as long as
+>> you didn't have to be able to free them during runtime.
+> 
+> Yes, I agree.
+> 
+>>
+>>>
+>>> Can't we just select CONFIG_ARCH_HAS_GIGANTIC_PAGE for the relevant
+>>> hugetlb config that allows for *gigantic pages*.
+>>>
+>>
+>> We probably can, but I'd really like to understand history and how we
+>> ended up in the situation we are now.
+>> Because blind fixes often lead to more problems.
+> 
+> Yes, let's figure out how to to it cleanly.
+> 
+>>
+>> If I follow things correctly I see a helper gigantic_page_supported()
+>> added by commit 944d9fec8d7a ("hugetlb: add support for gigantic page
+>> allocation at runtime").
+>>
+>> And then commit 461a7184320a ("mm/hugetlb: introduce
+>> ARCH_HAS_GIGANTIC_PAGE") is added to wrap gigantic_page_supported()
+>>
+>> Then commit 4eb0716e868e ("hugetlb: allow to free gigantic pages
+>> regardless of the configuration") changed gigantic_page_supported() to
+>> gigantic_page_runtime_supported()
+>>
+>> So where are we now ?
+> 
+> In
+> 
+> commit fae7d834c43ccdb9fcecaf4d0f33145d884b3e5c
+> Author: Matthew Wilcox (Oracle) <willy@infradead.org>
+> Date:   Tue Feb 27 19:23:31 2024 +0000
+> 
+>      mm: add __dump_folio()
+> 
+> 
+> We started assuming that a folio in the system (boottime, dynamic, 
+> whatever)
+> has a maximum of MAX_FOLIO_NR_PAGES.
+> 
+> Any other interpretation doesn't make any sense for MAX_FOLIO_NR_PAGES.
+> 
+> 
+> So we have two questions:
+> 
+> 1) How to teach MAX_FOLIO_NR_PAGES that hugetlb supports gigantic pages
+> 
+> 2) How do we handle CONFIG_ARCH_HAS_GIGANTIC_PAGE
+> 
+> 
+> We have the following options
+> 
+> (A) Rename existing CONFIG_ARCH_HAS_GIGANTIC_PAGE to something else that is
+> clearer and add a new CONFIG_ARCH_HAS_GIGANTIC_PAGE.
+> 
+> (B) Rename existing CONFIG_ARCH_HAS_GIGANTIC_PAGE -> to something else 
+> that is
+> clearer and derive somehow else that hugetlb in that config supports 
+> gigantic pages.
+> 
+> (c) Just use CONFIG_ARCH_HAS_GIGANTIC_PAGE if hugetlb on an architecture
+> supports gigantic pages.
+> 
+> 
+> I don't quite see why an architecture should be able to opt in into 
+> dynamically
+> allocating+freeing gigantic pages. That's just CONTIG_ALLOC magic and 
+> not some
+> arch-specific thing IIRC.
+> 
+> 
+> Note that in mm/hugetlb.c it is
+> 
+>      #ifdef CONFIG_ARCH_HAS_GIGANTIC_PAGE
+>      #ifdef CONFIG_CONTIG_ALLOC
+> 
+> Meaning that at least the allocation side is guarded by CONTIG_ALLOC.
 
-A consequence of this is that on systems such as Neoverse V2, a NV
-guest cannot reliably detect that it is in a VHE-only configuration
-(E2H is writable, and ID_AA64MMFR0_EL1 is 0), despite the hypervisor's
-best effort to repaint the id register.
+Yes but not the freeing since commit 4eb0716e868e ("hugetlb: allow to 
+free gigantic pages regardless of the configuration")
 
-Replace the RAO/WI test by a sequence that makes use of the VHE
-register remnapping between EL1 and EL2 to detect this situation,
-and work out whether we get the VHE behaviour even after having
-set HCR_EL2.E2H to 0.
+> 
+> So I think (C) is just the right thing to do.
+> 
+> diff --git a/fs/Kconfig b/fs/Kconfig
+> index 0bfdaecaa8775..12c11eb9279d3 100644
+> --- a/fs/Kconfig
+> +++ b/fs/Kconfig
+> @@ -283,6 +283,8 @@ config HUGETLB_PMD_PAGE_TABLE_SHARING
+>          def_bool HUGETLB_PAGE
+>          depends on ARCH_WANT_HUGE_PMD_SHARE && SPLIT_PMD_PTLOCKS
+> 
+> +# An architecture must select this option if there is any mechanism 
+> (esp. hugetlb)
+> +# could obtain gigantic folios.
+>   config ARCH_HAS_GIGANTIC_PAGE
+>          bool
+> 
+> 
 
-This solves the NV problem, and provides a more reliable acid test
-for CPUs that do not completely follow the letter of the architecture
-while providing a RES1 behaviour for HCR_EL2.E2H.
+I gave it a try. That's not enough, it fixes the problem for 64 Mbytes 
+pages and 256 Mbytes pages, but not for 1 Gbytes pages.
 
-Suggested-by: Marc Rutland <mark.rutland@arm.com>
-Signed-off-by: Marc Zyngier <maz@kernel.org>
-Link: https://lore.kernel.org/r/15A85F2B-1A0C-4FA7-9FE4-EEC2203CC09E@global.cadence.com
----
- arch/arm64/include/asm/el2_setup.h | 30 ++++++++++++++++++++++++------
- 1 file changed, 24 insertions(+), 6 deletions(-)
+Max folio is defined by PUD_ORDER, but PUD_SIZE is 256 Mbytes so we need 
+to make MAX_FOLIO larger. Do we change it to P4D_ORDER or is it too much 
+? P4D_SIZE is 128 Gbytes
 
-diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
-index 46033027510cc..b7640e2c20503 100644
---- a/arch/arm64/include/asm/el2_setup.h
-+++ b/arch/arm64/include/asm/el2_setup.h
-@@ -24,22 +24,40 @@
- 	 * ID_AA64MMFR4_EL1.E2H0 < 0. On such CPUs HCR_EL2.E2H is RES1, but it
- 	 * can reset into an UNKNOWN state and might not read as 1 until it has
- 	 * been initialized explicitly.
--	 *
--	 * Fruity CPUs seem to have HCR_EL2.E2H set to RAO/WI, but
--	 * don't advertise it (they predate this relaxation).
--	 *
- 	 * Initalize HCR_EL2.E2H so that later code can rely upon HCR_EL2.E2H
- 	 * indicating whether the CPU is running in E2H mode.
- 	 */
- 	mrs_s	x1, SYS_ID_AA64MMFR4_EL1
- 	sbfx	x1, x1, #ID_AA64MMFR4_EL1_E2H0_SHIFT, #ID_AA64MMFR4_EL1_E2H0_WIDTH
- 	cmp	x1, #0
--	b.ge	.LnVHE_\@
-+	b.lt	.LnE2H0_\@
- 
-+	/*
-+	 * Fruity CPUs seem to have HCR_EL2.E2H set to RAO/WI, but don't
-+	 * advertise it (they predate this relaxation). Check for an
-+	 * essential VHE property (system register remapping) to decide
-+	 * whether we're effectively VHE-only or not.
-+	 *
-+	 * This is also useful for for NV guests on CPUs that can't trap
-+	 * ID_AA64MMFR4_EL1 as they don't have FEAT_FGT.
-+	 */
-+	msr_hcr_el2 x0		// Setup HCR_EL2 as nVHE
-+	isb
-+	mov	x1, #1		// Write something to FAR_EL1
-+	msr	far_el1, x1
-+	isb
-+	mov	x1, #2		// Try to overwrite it via FAR_EL2
-+	msr	far_el2, x1
-+	isb
-+	mrs	x1, far_el1	// If we see the latest write in FAR_EL1,
-+	cmp	x1, #2		// we can safely assume we are VHE only.
-+	b.ne	.LnVHE_\@	// Otherwise, we know that nVHE works.
-+
-+.LnE2H0_\@:
- 	orr	x0, x0, #HCR_E2H
--.LnVHE_\@:
- 	msr_hcr_el2 x0
- 	isb
-+.LnVHE_\@:
- .endm
- 
- .macro __init_el2_sctlr
--- 
-2.47.3
+Christophe
 
 
