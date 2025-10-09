@@ -4,128 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E84F3CCA471
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 05:16:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8552CCCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 05:16:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dG8y3PtCn6EjaswxEEcXK/l2TGKTeVCthwnXaHq+jC4=; b=LxPkmL41VEOpxltGAK7o0LnIob
-	cJt0YOzKS+Wor31MALQFEcJtxOf5cOTzmB/oVvNLsOmcsCcLV5XlCtuRnHlt4VzadOsD16BsjOS+Q
-	BdEKyExE2hMmTjXmu1hWDIV1K1QKiTTIFscgR7upNY6sLBYj2ID+ZpTvjZqnhBhHbcRStQw3hGzY4
-	4ZOKSyHtkOrrKHXlArihW56q7509/2oAOA5p0mvR8Dnv+h4zSdhRkxBGkHYSomlA2LU6sHcYgfxbk
-	OHHZOmlBer4yKUrTBz/15aW5t3ug28P7NLorZJdTIGgr0fMDenE37z0+xUPUgI9Iyn67es0bwUdbu
-	C1iRanmw==;
+	bh=tyqb1CztMqi3UzPCCUo4PJPR7YENee+9JSUveio1sPI=; b=d3i8bkICxXVPDd+2PYIkrPdncY
+	ScvlTPI//pBs+3Qf0q4kO6H5p+81aA+mxNrbz3+Y7MUiyCoAeOhvBU6fL8zJ5ZRGDA311AhAJuxvb
+	bGIcWVDacaIVmTGgZvkzPTFAIeX2TI6EZgfSsd7w/oubCu92sRavZpGoeFY40COcRbuOlzLDkj9QU
+	qvRKcjwjmIGwgwBxwE6Bg0KgWkK+Z0F7QM/lm689F0ExEllqeFErVNmoJQylSoznqDmFi0BJZbQiq
+	625jqnJF6+nOgUqjSQPnbieLzP1wC+U8ktevbiXA81KHGQ48QTCNp8h3y5M48mB4xVQkQreqzHtUP
+	5bcNV2og==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6j0Y-00000005CQ2-1FNI;
-	Thu, 09 Oct 2025 05:16:06 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1v6j1D-00000005CXf-3gA1;
+	Thu, 09 Oct 2025 05:16:47 +0000
+Received: from mail-qv1-xf2c.google.com ([2607:f8b0:4864:20::f2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6j0T-00000005CPe-3Wvq
+	id 1v6j1A-00000005CWb-1SEI
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 05:16:05 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 598I5P1M029339;
-	Thu, 9 Oct 2025 05:15:53 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	dG8y3PtCn6EjaswxEEcXK/l2TGKTeVCthwnXaHq+jC4=; b=M6XcSuB45Nw5nM81
-	1hMYWrfeijmDMd3L9eESuu6HC2Eie/MH9Py5dr2lyQDnS3iNzw9u4/SctFXqjTTM
-	pH+RMGGdfZaWWh1XuVtadQBIcFjXmYJLSkNN8sbIXPtfUstRbc2b9ghNrz0a7FJR
-	Dla+GXkL6vhzEP1ab0+JAFPo9Hubn2R5kzGnev/a5GWMekd6+5mEWpqjEdMZOHBT
-	L6JQMJVS8FuSK5yhvXzaWM5NyBS6kjKt0Q5nWm2bG8TsxZ+cJ6nVPC9KDh9kLwlg
-	vhCEuSJxudpn6ArICDr+0ND1HJ+UItjeROTZz8xHkd5jqSxFFjkuyYEAiYId0DWN
-	ubL54Q==
-Received: from nasanppmta03.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49nv4shh70-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 09 Oct 2025 05:15:53 +0000 (GMT)
-Received: from nasanex01b.na.qualcomm.com (nasanex01b.na.qualcomm.com [10.46.141.250])
-	by NASANPPMTA03.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 5995Fq8V004079
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 9 Oct 2025 05:15:52 GMT
-Received: from [10.235.9.75] (10.80.80.8) by nasanex01b.na.qualcomm.com
- (10.46.141.250) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.24; Wed, 8 Oct
- 2025 22:15:46 -0700
-Message-ID: <66ff1502-6e77-474e-ae99-fb0aa7f7f618@quicinc.com>
-Date: Thu, 9 Oct 2025 13:15:00 +0800
+	Thu, 09 Oct 2025 05:16:46 +0000
+Received: by mail-qv1-xf2c.google.com with SMTP id 6a1803df08f44-87bb66dd224so3767206d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Oct 2025 22:16:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1759987003; x=1760591803; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=tyqb1CztMqi3UzPCCUo4PJPR7YENee+9JSUveio1sPI=;
+        b=AQGJtaQm7W1Ps4XuApeaEvalV1zLZLcpiPDicegiWd4GUHeUHp9P/nioxl6yFyrPMq
+         uI0SZOEMTFS9IMG97mkn1v1e/+/4VCrbnH8UHihoHGsYgM5QnheowRzTmYg/ejKAhTZ7
+         PpqfBwiOw51d1ktvJHIXFjcti6Q2r07drC3/iPjv0u/XGoiuEl7/2s61F5HEtoedN0qC
+         39enPxV+jI/Vyh9Hv7Jj2DhkEPzviLWJozR9QOKTD+CudnkVlWREiCgKY8K8H277ChAV
+         LEfdJJMyPzg6rX3YZBKwC4pJn4uoiE56vd3CLrb+MzQht6BmSwXc6K56dBLodVks+6go
+         uUcg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759987003; x=1760591803;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=tyqb1CztMqi3UzPCCUo4PJPR7YENee+9JSUveio1sPI=;
+        b=sy29MLRYnin4y4pcBLyhR6vbVxjwph+sabNi+7BNb4Rsyc4t7V6kJIqqR04c1lCh9b
+         sGwAc1dLtzuYWJ28eRyFvGn+aQomNGz7oTkeqJ56Z/uBx++Mofwblgx+u22aajuKQyHL
+         6/TfNri5tX/lDKh2ar2yWcMeS4eu7XWBD74M0oJ9m0Q7PoVugf3spbdtYA7MUES+06kH
+         S60IoVaOsFogP9tp8b8uRoCBJgOMQBp8CAaxniVz7i+/vujaBeLTtjV3X0GfSvGcKUsp
+         FLuRt191eQyFry5RFxrdFcC/7LjxPcOFvl8CcLPGshhsIjJMvYzrcpM+Dvd7/uvbpBIz
+         /r2g==
+X-Forwarded-Encrypted: i=1; AJvYcCU6EJ0tcl4Q5o4Mx8OfPhmGgju6/wKaZ/Kc6usN98QH4oyKGg03fr+w3uEUuA1IHSGcVpeOPe1oVwfWiVY5kziS@lists.infradead.org
+X-Gm-Message-State: AOJu0YyzRpHthlg9PLJ/YADOzoQkNt1omOz2WFffCOrQ4XroEBzTp5EN
+	vbJB/Pi4UCGO0DyIx8hRMkM19oH0gBl3gRCtgS4zI+AkNk2Snls/SI2b3W0BPbxMVlIu08Ar8uf
+	c7F+Rt1DwXoazVaAFSOoh2TryNlmpF68=
+X-Gm-Gg: ASbGncuVSzUjBx/YRoejllpWaO8wERPHB484xQJemiX+glBl0P1xd/ZROkPoeOcdTy3
+	n0fWg+4uFU3SU8cpM4d1pw46HOeEn48Edld6a0kT2b5lM2yygdVhU45vfC/4+mMLkgpA7aU4PCF
+	9We232WUrfKpLLSL3VsqXplWomI0pf/V1unPy8EDpnkC7+6zb2qobYDVIWM0vtD4bDBOjwSLtYz
+	R4h2JUAjRj12/Ysi9g0JE+fOsqJMpcrLIidYC9NME0=
+X-Google-Smtp-Source: AGHT+IH7cynlxmysIGXABGaRxHRjaSOMuEx+1JjoUFV9WJpw/MAcUpWK0V9ARSZ1SYD2oraMIpI9j58hrMErsazHIU0=
+X-Received: by 2002:a05:6214:2601:b0:80a:7bd3:e61d with SMTP id
+ 6a1803df08f44-87b2ef6325amr77155716d6.34.1759987002596; Wed, 08 Oct 2025
+ 22:16:42 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 02/10] dt-bindings: clock: Add "interconnect-cells"
- property in IPQ9574 example
-To: Rob Herring <robh@kernel.org>
-CC: Bjorn Andersson <andersson@kernel.org>,
-        Michael Turquette
-	<mturquette@baylibre.com>,
-        Stephen Boyd <sboyd@kernel.org>,
-        "Varadarajan
- Narayanan" <quic_varada@quicinc.com>,
-        Georgi Djakov <djakov@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Anusha Rao <quic_anusha@quicinc.com>,
-        Manikanta Mylavarapu
-	<quic_mmanikan@quicinc.com>,
-        Devi Priya <quic_devipriy@quicinc.com>,
-        "Philipp
- Zabel" <p.zabel@pengutronix.de>,
-        Richard Cochran <richardcochran@gmail.com>,
-        Konrad Dybcio <konradybcio@kernel.org>,
-        Catalin Marinas
-	<catalin.marinas@arm.com>,
-        Will Deacon <will@kernel.org>, <linux-arm-msm@vger.kernel.org>,
-        <linux-clk@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
-        <linux-pm@vger.kernel.org>, <devicetree@vger.kernel.org>,
-        Krzysztof Kozlowski
-	<krzysztof.kozlowski@linaro.org>,
-        <netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-        <quic_kkumarcs@quicinc.com>, <quic_linchen@quicinc.com>,
-        <quic_leiwei@quicinc.com>, <quic_pavir@quicinc.com>,
-        <quic_suruchia@quicinc.com>
-References: <20250925-qcom_ipq5424_nsscc-v6-0-7fad69b14358@quicinc.com>
- <20250925-qcom_ipq5424_nsscc-v6-2-7fad69b14358@quicinc.com>
- <20251002011536.GA2828951-robh@kernel.org>
-Content-Language: en-US
-From: Luo Jie <quic_luoj@quicinc.com>
-In-Reply-To: <20251002011536.GA2828951-robh@kernel.org>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01a.na.qualcomm.com (10.52.223.231) To
- nasanex01b.na.qualcomm.com (10.46.141.250)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-GUID: Jiox-IIK5I-5TWOjqU0GNN8oZZM__i2e
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDA4MDEyMSBTYWx0ZWRfX05BRtH/0xDJv
- QQzT7WoNswJw7NYuDPM6kjiZT3SgJooJYw/vh8mHAF4WCt8MwA2unV78BmdWaxISnn7jN1xtq/R
- 3Syql7FaEZfXClpi14UBA2/F3YfyxVzHEMtYSNqBxurAxVkpGc0gh5QQZX9v958LaTzBGPT/vwh
- 7jIujLfJVqOOnpAGDYY+lEXwQYfQYr3Zic/kDLRzxXDGhfjfdFIl2pa9ayaM5gYnKqj61/eL0UA
- gl4ROmMKwQe4hf6ogBJASMKCgc+HVyQbwDZkDBXt5ROhdNaK4Jt71Ru7B3lW8a8vM8YTpQfB0Xr
- uAVD83SauAkCXug8JOAssG8/qwapY83+ktLuKiQy/7rRVrutemLPueXVD45FQTDd0uRJ0C0/S20
- Tk5mXqAhQ3o+N6FHHROlpJX8C3PfjQ==
-X-Authority-Analysis: v=2.4 cv=SfL6t/Ru c=1 sm=1 tr=0 ts=68e74509 cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=COk6AnOGAAAA:8
- a=VwQbUJbxAAAA:8 a=Q-zjNaZJJLQrxVh-NlMA:9 a=QEXdDO2ut3YA:10
- a=TjNXssC_j7lpFel5tvFf:22 a=nl4s5V0KI7Kw-pW0DWrs:22 a=pHzHmUro8NiASowvMSCR:22
- a=xoEH_sTeL_Rfw54TyV31:22
-X-Proofpoint-ORIG-GUID: Jiox-IIK5I-5TWOjqU0GNN8oZZM__i2e
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-09_01,2025-10-06_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 clxscore=1015 malwarescore=0 bulkscore=0 priorityscore=1501
- suspectscore=0 impostorscore=0 lowpriorityscore=0 phishscore=0 spamscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2510020000 definitions=main-2510080121
+References: <20250929065714.27741-1-jjm2473@gmail.com> <20250929065714.27741-4-jjm2473@gmail.com>
+ <d8ad476c-d0c7-4e97-9e76-540a539ffb52@lunn.ch> <CAP_9mL4ofig-X-w9wx1A5D_eVXROo6AVFBSwp4mh=kj7webpPA@mail.gmail.com>
+ <7e219aef-88a0-4184-9553-30dcbc8dbd79@lunn.ch> <CAP_9mL6utQjN_2EZ4vs3K8jzcxHxvKWNTNEXZ9fAx4HuA=DNXA@mail.gmail.com>
+ <aOVgid5q0_AhPXFB@shell.armlinux.org.uk>
+In-Reply-To: <aOVgid5q0_AhPXFB@shell.armlinux.org.uk>
+From: jjm2473 <jjm2473@gmail.com>
+Date: Thu, 9 Oct 2025 13:16:31 +0800
+X-Gm-Features: AS18NWCLtV0rRwWtVTBZ2YLKRiIGf1OTLHzIEDkTF7un8JPPGbserUWPiMMjbPw
+Message-ID: <CAP_9mL5UbWH_hn0AHm=OGZ1_X7yY-W-XXxx3hXC7iPNzHH+q+w@mail.gmail.com>
+Subject: Re: [PATCH v3 3/3] arm64: dts: rockchip: add LinkEase EasePi R1
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: Andrew Lunn <andrew@lunn.ch>, robh@kernel.org, krzk+dt@kernel.org, 
+	conor+dt@kernel.org, heiko@sntech.de, quentin.schulz@cherry.de, 
+	kever.yang@rock-chips.com, naoki@radxa.com, honyuenkwun@gmail.com, 
+	inindev@gmail.com, ivan8215145640@gmail.com, neil.armstrong@linaro.org, 
+	mani@kernel.org, dsimic@manjaro.org, pbrobinson@gmail.com, alchark@gmail.com, 
+	didi.debian@cknow.org, jbx6244@gmail.com, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251008_221602_033393_706F417E 
-X-CRM114-Status: GOOD (  14.28  )
+X-CRM114-CacheID: sfid-20251008_221644_386458_FE79B23B 
+X-CRM114-Status: GOOD (  14.52  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -140,32 +104,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Russell King (Oracle) <linux@armlinux.org.uk> =E4=BA=8E2025=E5=B9=B410=E6=
+=9C=888=E6=97=A5=E5=91=A8=E4=B8=89 02:48=E5=86=99=E9=81=93=EF=BC=9A
+>
+> On Wed, Oct 08, 2025 at 01:29:57AM +0800, jjm2473 wrote:
+> > > Vendors get things wrong, including this. 'rgmii' means the PCB adds
+> > > the 2ns delay. Nearly every Rockchip board follows Rockchip broken
+> > > vendor recommendations, and then i come along, point out how it is
+> > > wrong, and ask for it to be fixed, before being merged to Mainline.
+> >
+> > I will try `rgmii-id` and rescan {tx|rx}_delay, just like
+> > https://lore.kernel.org/all/20250925092923.2184187-3-heiko@sntech.de/
+>
+> The current situation is...
+>
+> https://lore.kernel.org/r/20240304084612.711678-2-ukleinek@debian.org
+>
+> Notice that the tx_delay and rx_delay are removed - because with
+> "rgmii-id" the stmmac glue driver ignores the delay values.
+>
+> --
+> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
+I  change phy-mode to "rgmii-id", and remove {tx|rx}_delay, it works fine!
+Will apply that to the next version.
 
-On 10/2/2025 9:15 AM, Rob Herring wrote:
-> On Thu, Sep 25, 2025 at 10:05:36PM +0800, Luo Jie wrote:
->> The Networking Subsystem (NSS) clock controller acts as both a clock
->> provider and an interconnect provider. The #interconnect-cells property
->> is needed in the Device Tree Source (DTS) to ensure that client drivers
->> such as the PPE driver can correctly acquire ICC clocks from the NSS ICC
->> provider.
->>
->> Add the #interconnect-cells property to the IPQ9574 Device Tree binding
->> example to complete it.
-> 
-> The subject is wrong as it #interconnect-cells, not interconnect-cells.
+Thanks!
 
-OK. I will update the subject to use #interconnect-cells as recommended.
-Appreciate your review.
-
-> 
->>
->> Fixes: 28300ecedce4 ("dt-bindings: clock: Add ipq9574 NSSCC clock and reset definitions")
->> Signed-off-by: Luo Jie <quic_luoj@quicinc.com>
->> ---
->>   Documentation/devicetree/bindings/clock/qcom,ipq9574-nsscc.yaml | 1 +
->>   1 file changed, 1 insertion(+)
-> 
-> Acked-by: Rob Herring (Arm) <robh@kernel.org>
-
+  Liangbin Lian
 
