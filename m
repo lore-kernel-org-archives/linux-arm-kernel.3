@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4384CCD18C
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 17:49:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A1C94CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 18:04:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=NpcUlGnJ9MJJn2bH2KIjiYghvYVdholoJBCO5p5vf1w=; b=mpaQKi+gRefh+kmIqNe6CDsflZ
-	jA2xryCGqddkO2aJgNswcvlgUPq7+itmWNUDbJrnS1+lRplJM6QuocG5MUdzvS+6G5RLLBoFMooRv
-	Sb8goBIoeVEFpDd/yMqrbTs3PLGQiHqFV3AYu0RsNcZI+LYH53smn/CjTNEtklE2y3dE9kW0kXgtJ
-	3TYJUOOmaGwt8/mZ1tzfIEl82nQX19rWl0/XPpZyNnlaoedV1tv58cZMpZ4h7/B9e238RQLaJQdMX
-	2+MGWoZWZd6tpHK2oIAokaJQ9/QFFQ3WfwItYgffv57CTPmPmABexrkXySR8C+bFrzpcu7wKa9m4G
-	tDszZNNA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=BhCgwgYoP5nG+eUGg9pcsQuCDZDgiBr7kJ4KDHN0k90=; b=06xRoVZbMaeocnjopREID11a6v
+	KfI3qcUxxEHgvnVTKkCzl/tvETqSi6Blei4G+K6URk5sMmzh4kPEge5TVR0xNtSJIvKprvVIKb67M
+	wtupuIAL9kPRzm63tNRDtO1bJ4J9IjsbaoGfMkIFATB6Ma4zeaROjePBNh2HVSq0dKXuMWJ5QQyW+
+	4RzKfjfi2j3v58cnLWfET1suq2xKNSMXTPC6hvi9g8NDz8krukk4W9OUpF0qt9b6Ypr3p3mA5hiQq
+	cVz+ykXs/0l6gnqN8bfIeDgH+T/TltFrKGqK+Ish5gJbXGDJyDY3yhAOTWz7S7mt3bKkSOhB74xrd
+	0NegGKJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6ulP-00000006qGw-10Wx;
-	Thu, 09 Oct 2025 17:49:15 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6ulM-00000006qF9-1qyA
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 17:49:13 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4A1342641;
-	Thu,  9 Oct 2025 10:49:02 -0700 (PDT)
-Received: from [10.1.197.69] (eglon.cambridge.arm.com [10.1.197.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2EF543F66E;
-	Thu,  9 Oct 2025 10:49:05 -0700 (PDT)
-Message-ID: <d009edc0-651e-4815-89de-19c419ba0183@arm.com>
-Date: Thu, 9 Oct 2025 18:48:56 +0100
+	id 1v6v02-00000006sEa-1BKk;
+	Thu, 09 Oct 2025 18:04:22 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v6v00-00000006sDZ-0zED;
+	Thu, 09 Oct 2025 18:04:21 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 641C740170;
+	Thu,  9 Oct 2025 18:04:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E2540C4CEE7;
+	Thu,  9 Oct 2025 18:04:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760033059;
+	bh=K+hPseUknflSy4hygWFCRuB5yq+mdBnazdt9i44bmg8=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=owltrz/GJxZu1UAvwCW/COWHnZAzwxKes5ADduozJqQwtIWbQfzeUUSGQNBY9PTvv
+	 D3t23hfmu6nKLeOFLzmiJ1ep4DmWqsT0wAKZk7BwCGttUtZ9RVy8cUvORNrDzbUQAQ
+	 kbu0IEyrSU2iaf8cvC41vbL1sJt2zYesbuG+qN4Ye7few39gDSPE98XjjliI7Lt6Gp
+	 CSlAZpLhBa1P89chi91jqDURIv8fOpIyOgELRoKRlVNjB0jCC2P/FPSsJVaiX5DK/t
+	 0gPtRS4FxCMopn472srDZBzg4vQaf1nMMAQpZe1wP80U8vHhchM5WxKMXaeCsQL4an
+	 wbfCcpPQD4yTw==
+Date: Thu, 9 Oct 2025 13:04:17 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Chuan Liu <chuan.liu@amlogic.com>
+Cc: Kevin Hilman <khilman@baylibre.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
+	Stephen Boyd <sboyd@kernel.org>, linux-amlogic@lists.infradead.org,
+	Jerome Brunet <jbrunet@baylibre.com>, linux-clk@vger.kernel.org,
+	Conor Dooley <conor+dt@kernel.org>,
+	Xianwei Zhao <xianwei.zhao@amlogic.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	devicetree@vger.kernel.org
+Subject: Re: [PATCH 03/19] dt-bindings: clock: Add Amlogic A4 peripherals
+ clock controller
+Message-ID: <176003305705.2941216.8177451888000768294.robh@kernel.org>
+References: <20250930-a4_a5_add_clock_driver-v1-0-a9acf7951589@amlogic.com>
+ <20250930-a4_a5_add_clock_driver-v1-3-a9acf7951589@amlogic.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 24/29] arm_mpam: Track bandwidth counter state for
- overflow and power management
-To: Jonathan Cameron <jonathan.cameron@huawei.com>
-Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-acpi@vger.kernel.org,
- D Scott Phillips OS <scott@os.amperecomputing.com>,
- carl@os.amperecomputing.com, lcherian@marvell.com,
- bobo.shaobowang@huawei.com, tan.shaopeng@fujitsu.com,
- baolin.wang@linux.alibaba.com, Jamie Iles <quic_jiles@quicinc.com>,
- Xin Hao <xhao@linux.alibaba.com>, peternewman@google.com,
- dfustini@baylibre.com, amitsinght@marvell.com,
- David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
- Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- fenghuay@nvidia.com, baisheng.gao@unisoc.com, Rob Herring <robh@kernel.org>,
- Rohit Mathew <rohit.mathew@arm.com>, Rafael Wysocki <rafael@kernel.org>,
- Len Brown <lenb@kernel.org>, Lorenzo Pieralisi <lpieralisi@kernel.org>,
- Hanjun Guo <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Danilo Krummrich <dakr@kernel.org>
-References: <20250910204309.20751-1-james.morse@arm.com>
- <20250910204309.20751-25-james.morse@arm.com>
- <20250912142419.00006c6d@huawei.com>
-Content-Language: en-GB
-From: James Morse <james.morse@arm.com>
-In-Reply-To: <20250912142419.00006c6d@huawei.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250930-a4_a5_add_clock_driver-v1-3-a9acf7951589@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_104912_529385_5E16FF3A 
-X-CRM114-Status: GOOD (  14.48  )
+X-CRM114-CacheID: sfid-20251009_110420_292796_A200FC7F 
+X-CRM114-Status: UNSURE (   8.00  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,48 +82,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jonathan,
 
-On 12/09/2025 14:24, Jonathan Cameron wrote:
-> On Wed, 10 Sep 2025 20:43:04 +0000
-> James Morse <james.morse@arm.com> wrote:
+On Tue, 30 Sep 2025 17:37:16 +0800, Chuan Liu wrote:
+> Add the peripherals clock controller dt-bindings for the Amlogic A4
+> SoC family.
 > 
->> Bandwidth counters need to run continuously to correctly reflect the
->> bandwidth.
->>
->> The value read may be lower than the previous value read in the case
->> of overflow and when the hardware is reset due to CPU hotplug.
->>
->> Add struct mbwu_state to track the bandwidth counter to allow overflow
->> and power management to be handled.
->>
->> Signed-off-by: James Morse <james.morse@arm.com>
-
-> Trivial comment inline.  I haven't spent enough time thinking about this
-> to give a proper review so no tags yet.
-
->> diff --git a/drivers/resctrl/mpam_devices.c b/drivers/resctrl/mpam_devices.c
->> index 1543c33c5d6a..eeb62ed94520 100644
->> --- a/drivers/resctrl/mpam_devices.c
->> +++ b/drivers/resctrl/mpam_devices.c
->> @@ -918,6 +918,7 @@ static void gen_msmon_ctl_flt_vals(struct mon_read *m, u32 *ctl_val,
->>  	*ctl_val |= MSMON_CFG_x_CTL_MATCH_PARTID;
->>  
->>  	*flt_val = FIELD_PREP(MSMON_CFG_x_FLT_PARTID, ctx->partid);
->> +
-
-> Unrelated change.  If it makes sense figure out where to push it back to.
-
-Done. This is may favourite mistake to make with a merge conflict!
-
-
-Thanks,
-
-James
-
-
->>  	if (m->ctx->match_pmg) {
->>  		*ctl_val |= MSMON_CFG_x_CTL_MATCH_PMG;
->>  		*flt_val |= FIELD_PREP(MSMON_CFG_x_FLT_PMG, ctx->pmg);
+> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
+> ---
+>  .../clock/amlogic,a4-peripherals-clkc.yaml         | 122 +++++++++++++++++++
+>  .../clock/amlogic,a4-peripherals-clkc.h            | 129 +++++++++++++++++++++
+>  2 files changed, 251 insertions(+)
 > 
+
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+
 
