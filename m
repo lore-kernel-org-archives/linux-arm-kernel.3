@@ -4,79 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C12C6CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 22:34:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 71C52CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 22:51:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+k+gk6VQNvvMox+c8DfhOTxAsmkufNVxeH8bt4I1AGw=; b=fQ+03BcaBepqqlj/aR48rZ+QzY
-	cG2zQBWkC/fQusFdt93gJhvfWG6/6iuGB9owwefNjqSta2bPNCe06/MdwE9eBh38jvKRDeV7SI3dh
-	GtzGT0S3lsjbxau5dhSiv17C6wf/zmLDEwaNrQ8yyWRhdwLGEKcZnyqwRsd0ebjmiUHDRngjLHx2D
-	THSxj/mwjGZrFDDLon2Ex/da3klm3EehvHxDOf0jg4905H662kcxxIm/snQJAPOJI+9Of73syx5Tz
-	Vh/GJpapdaPtx57hk9MxHTfqVSYaahaGM26OxTj+mifL/izHoZ7Cbndr9qqwaS9v9oJEIxdD20Bya
-	NCLMH+vg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=xHcjTGHeFUn5M5ubUmRoUJaXj26i1Xu+TfXfxhkwXnk=; b=V58MYUpi0ST03FTBMDWyWf/9d7
+	1J06BpRdhUIN9bhhx9OPHp3X/qMImNcTwPiznwyHvRMevS4kZ9KsfNgnV34R0vYu9fETDne3KxlKb
+	76kQ1zy3Tnf+jeUHqJZhhGlcixTA1hnK5tpiSsx5T7yZL2M6ap5LegDntcOBe0H+1hdk1071QGF1L
+	N3GKLn2UAOc+ifZ63d12VCBf9lUfHuKAju7v1xpfG+k9Cy+DLwYaCxOeLeJqkTuFxIBPBmBa0MAw2
+	p9YI27Fm7EK7gha5Rn+Pgx0zlOZdQTQpYpyI3wIbKGNyG57Jy6hf+G2oMEkHcMePvT8uq7jRKq0NY
+	4KXq4AWw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6zDm-00000007Fdw-2UhJ;
-	Thu, 09 Oct 2025 22:34:50 +0000
-Received: from mail-pf1-x449.google.com ([2607:f8b0:4864:20::449])
+	id 1v6zTc-00000007Gov-0IE8;
+	Thu, 09 Oct 2025 22:51:12 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6zDj-00000007FdY-0spD
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 22:34:49 +0000
-Received: by mail-pf1-x449.google.com with SMTP id d2e1a72fcca58-76e2ea9366aso1954454b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 15:34:46 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1760049285; x=1760654085; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=+k+gk6VQNvvMox+c8DfhOTxAsmkufNVxeH8bt4I1AGw=;
-        b=D5AM+/jymbQ+ttpQe6jY7QBPeuKahupz3rsNZVzOVDoAkg0oSHf7eZ5/PhAVrmGGJk
-         Uzf9dQygI8zHi9589eP62QV3xsemABeXuyEZGYE16Kyv97avEe4AZqqtO19aFH2itM9D
-         1B8H9ytBwV4dntcU3872gtaWcGD80Ka4q2d2XwcquzGqdiESohBiuU8c1acDJLtho9LR
-         33s7jR+Z08JNEtD/LvZ6z2IJQwiFRuXlRAIfoh8WI2X8mLbhcs5A7JbSS/q6/eWQZ1x1
-         9ooItKB6GQC9Rpjy513z0W244ozXORzrQ8qztJhsr2koo5CnG2lcIfDEuvD8ozXPlZ/b
-         VE0w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760049285; x=1760654085;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+k+gk6VQNvvMox+c8DfhOTxAsmkufNVxeH8bt4I1AGw=;
-        b=SfWNFedDsBLy2m58jKsvDGjgw0MUhlCNbvGJXIC1TGcW5Z5ullREekYdVrkQsgiAf8
-         +iCR/K0LAS4Xcm1L8I/6K3lE3wWW2tShSgdpREcN9WIe7qTzVXIUCCdkUviY5AKYF2Dc
-         AzcpmqlPxH0/IC/a+0gzF0kJHeAm5rW2/SBPBBmv7Hg4PwGLTux2oL4rY/bGxHjgEn6J
-         w5sthvS848Dp2htzvO165FcLX3FQBMvBOmYyNrZjngYjugtUluRSuQxGKKZKNbHIg9gT
-         oDH4mWAv+2VMiWL8eFSxtMFCPpGTKhM8jfO9JJu1D9sbkhM+DS7buWydSvJ0nioX0W2E
-         8iOA==
-X-Gm-Message-State: AOJu0YxzIPidAmFg6JJ3uC6pkr0OHe5ErAnOmjeYUco8IOfecqPCvf/p
-	JgR2e5dcmgufvvygtuFzNvIiWcdzF4aeIrZF56os1y5J/Epc4Ith50U5cfUW/1mtM5R48Ggrvt+
-	wioUZ0HTD1oKw8RDg2k6O89KcqQ==
-X-Google-Smtp-Source: AGHT+IFT3+ACqwDT2lCoDe9XM9NV6pIpsUJnUvsrRoGgkm257Ov/Ea7I3q36/zx0MsZeeBCKYpcs1LHgia7b4IPfmg==
-X-Received: from pfbgu11.prod.google.com ([2002:a05:6a00:4e4b:b0:77f:3d60:9807])
- (user=ackerleytng job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a00:391a:b0:77e:8130:fda with SMTP id d2e1a72fcca58-79385ddc9f9mr11632278b3a.13.1760049285570;
- Thu, 09 Oct 2025 15:34:45 -0700 (PDT)
-Date: Thu, 09 Oct 2025 15:34:44 -0700
-In-Reply-To: <20251007221420.344669-9-seanjc@google.com>
-Mime-Version: 1.0
-References: <20251007221420.344669-1-seanjc@google.com> <20251007221420.344669-9-seanjc@google.com>
-Message-ID: <diqzfrbrhfgb.fsf@google.com>
-Subject: Re: [PATCH v12 08/12] KVM: selftests: Add additional equivalents to
- libnuma APIs in KVM's numaif.h
-From: Ackerley Tng <ackerleytng@google.com>
-To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
-	Oliver Upton <oliver.upton@linux.dev>, Paolo Bonzini <pbonzini@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
-	kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	David Hildenbrand <david@redhat.com>, Fuad Tabba <tabba@google.com>, Shivank Garg <shivankg@amd.com>, 
-	Ashish Kalra <ashish.kalra@amd.com>, Vlastimil Babka <vbabka@suse.cz>
-Content-Type: text/plain; charset="UTF-8"
+	id 1v6zTV-00000007Gnu-484k;
+	Thu, 09 Oct 2025 22:51:10 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
+	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type;
+	bh=xHcjTGHeFUn5M5ubUmRoUJaXj26i1Xu+TfXfxhkwXnk=; b=y25mSncAFQ/Y19TkctDzvC8gPr
+	IbNA76rL9qiWYwjTh+AxgcV1Cdhy85aRcroC6UrTd+an1qix7JgFB+1BukTBc8kNG34NaiKj3Pd3m
+	Emtz8ddtU5PAHq4UtfNkcKlsKK4LUMx/pxru1S/HV/R2Pd1A0gndf7IiPzi8y13HJIXpx+VaMpWY/
+	rHFY1nV9Nck/JjY7nsxQ/ajFcrLluoQbTRyjcDn3FG6cGqsPnNU2Ps7LtjZep+dpm0cG97nmfdcpf
+	kcFm9CymjspFAJwIBPgfLW6xzS1TAt/d1jESE/QeLrm5dRyccR5XFImbtdQNyVEgOfmJ9HPNY9+vV
+	/C6Loo7A==;
+Received: from i53875bdd.versanet.de ([83.135.91.221] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1v6zTS-0007iZ-Ko; Fri, 10 Oct 2025 00:51:02 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: heiko@sntech.de
+Cc: robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	quentin.schulz@cherry.de,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	damon.ding@rock-chips.com,
+	Heiko Stuebner <heiko.stuebner@cherry.de>
+Subject: [PATCH v4 1/2] dt-bindings: arm: rockchip: add RK3588 DP carrier from Theobroma Systems
+Date: Fri, 10 Oct 2025 00:50:49 +0200
+Message-ID: <20251009225050.88192-2-heiko@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20251009225050.88192-1-heiko@sntech.de>
+References: <20251009225050.88192-1-heiko@sntech.de>
+MIME-Version: 1.0
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_153447_249347_AAE016A6 
-X-CRM114-Status: GOOD (  10.23  )
+X-CRM114-CacheID: sfid-20251009_155106_038560_B37F8285 
+X-CRM114-Status: GOOD (  11.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,27 +77,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sean Christopherson <seanjc@google.com> writes:
+From: Heiko Stuebner <heiko.stuebner@cherry.de>
 
-> Add APIs for all syscalls defined in the kernel's mm/mempolicy.c to match
-> those that would be provided by linking to libnuma.  Opportunistically use
-> the recently inroduced KVM_SYSCALL_DEFINE() builders to take care of the
-> boilderplate, and to fix a flaw where the two existing wrappers would
+The DisplayPort carrier is a very simple baseboard only providing serial,
+ethernet and a displayport output.
 
-Typo in boilderplate!
+But its main functionality is that it routes the Analogix eDP controller
+to this DisplayPort output, which allows to test that controller simply
+by hooking it up to a suitable monitor.
 
-Reviewed-by: Ackerley Tng <ackerleytng@google.com>
-Tested-by: Ackerley Tng <ackerleytng@google.com>
+Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
+Acked-by: "Rob Herring (Arm)" <robh@kernel.org>
+Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
+Link: https://lore.kernel.org/r/20250723190904.37792-2-heiko@sntech.de
+---
+ Documentation/devicetree/bindings/arm/rockchip.yaml | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
 
-> generate multiple symbols if numaif.h were to be included multiple times.
->
-> Signed-off-by: Sean Christopherson <seanjc@google.com>
-> ---
->  tools/testing/selftests/kvm/include/numaif.h  | 36 +++++++++++--------
->  .../selftests/kvm/x86/xapic_ipi_test.c        |  5 ++-
->  2 files changed, 23 insertions(+), 18 deletions(-)
->
-> 
-> [...snip...]
-> 
+diff --git a/Documentation/devicetree/bindings/arm/rockchip.yaml b/Documentation/devicetree/bindings/arm/rockchip.yaml
+index 6aceaa8acbb2..1bf459890c64 100644
+--- a/Documentation/devicetree/bindings/arm/rockchip.yaml
++++ b/Documentation/devicetree/bindings/arm/rockchip.yaml
+@@ -1221,9 +1221,11 @@ properties:
+           - const: tsd,rk3588-jaguar
+           - const: rockchip,rk3588
+ 
+-      - description: Theobroma Systems RK3588-Q7 with Haikou baseboard
++      - description: Theobroma Systems RK3588-Q7 with baseboards
+         items:
+-          - const: tsd,rk3588-tiger-haikou
++          - enum:
++              - tsd,rk3588-tiger-displayport-carrier
++              - tsd,rk3588-tiger-haikou
+           - const: tsd,rk3588-tiger
+           - const: rockchip,rk3588
+ 
+-- 
+2.47.2
+
 
