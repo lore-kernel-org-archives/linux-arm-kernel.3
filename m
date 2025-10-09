@@ -4,75 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7575ECCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 17:13:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8988CCCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 17:37:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+9F+abKdXqvtyi7ggqZNh+zEYgVpxpQqC88ymBoYrTU=; b=QzmsVhRveeCb+LkAQBmRKyEQjI
-	u9QpXdRdGMdE+W0G0Simqd5nbZjGvL5tC70fF1zJ4/m22nkE4ktiwK9cJ1v4BxfbEVxkQPI4hhzdP
-	alPB7G8hrnV/TS7XWuigvX4sM79NrgjkyEsIfYHmzfRG067tp4E+Lwthh/1kHivQw5NaoSy2Z7W/L
-	ly6uPy1V33a64rT6VKJHJPQo77iSCZCuzzZl0F8j0OBEXoNDvNRs7cA1TAsAgrx1ERg4XiBdWOIap
-	zjJ5As2Ned3wjQ0UpKYGO7aYpEevpqmwpARkEygoS8fg8OY9K/pcTnAZUp+Vv28HIV25r54rXjfPc
-	VHn4T+Lw==;
+	bh=qrBtMIiLUbFS2cjVHn6x9Vuq5BhshX2sEuhI2pSaqJA=; b=jPCWbWFGcgPyBA2IQinH/BWAoL
+	8mGjVagoibl4w+1T7orplk9rMc6eu7kan6GunfM+rPxOPk6fah3WexC8V58E1HsZB2vctEScuA3RH
+	a8GT1JifrMnn9QXnknRUmajYmIoVz+i/JjflXJb4xOmHo8uA3DikP3ne1ojAxSB0un4JCIqjmyAms
+	pj4Z20pSs592ld9VwJcMSeQtZXG1X4TgKLgcYJyrFjvx4ZrBz5mNhsMeTEgrPtchqTzdpsxHT6HBO
+	LNqMJaAf/W8q5zMZ7Hi8vTbOxeD9qmFI3B7om8AF2Ptc6GCx0uKPjvlHR+wAGyS6S2Q6eY4yz6cZm
+	sbYAXiHw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6uD2-00000006nUB-3EyU;
-	Thu, 09 Oct 2025 17:13:44 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v6uZV-00000006pMF-2dgK;
+	Thu, 09 Oct 2025 17:36:57 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6uD1-00000006nTy-0ha9;
-	Thu, 09 Oct 2025 17:13:43 +0000
+	id 1v6uZT-00000006pLQ-1FLE
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Oct 2025 17:36:56 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 875CA623C8;
-	Thu,  9 Oct 2025 17:13:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6127AC4CEE7;
-	Thu,  9 Oct 2025 17:13:38 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id D386640BFE;
+	Thu,  9 Oct 2025 17:36:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3D98CC4CEE7;
+	Thu,  9 Oct 2025 17:36:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760030022;
-	bh=4m/b40Q8HlHAkCFpCXHLrFt6Ce02CTpjazD5P0VykkE=;
+	s=k20201202; t=1760031414;
+	bh=Vk2FGx8DFJC0TIwUVWudyuX6Y8oPGcqejnBs9stEogs=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=sQ3mn/VDly7N6oRo4YHgs3kB4pz8mCUs06Vf6MTzzHsGNRnR0UrMzRMakSX0IlDsO
-	 IDxfG4ti/zNQx92aK8O4FkV8izUQ88X1aD3M1R6rccbNrgaqDOqVUmw+wKTHXmvXyZ
-	 9gd7gPJF59QtGz5Gd++meMjtLhkcbufX0B2FzNwP1FJti+ONeTDDUvY5usngDNLJkM
-	 qzqMhuAFuIU8gNzmjiEWgHMP2w8VIIFi99yzpAR5rR09uEEQLHTUhbUAd2ZNqTCFkY
-	 1H/WAapbKklLusROb8CPfopsy7NKxeDDGtgzpxKWwV6PJtV1Gmv/+VXRK6gduHYyZS
-	 pJ9R2ZuMWH5vw==
-Date: Thu, 9 Oct 2025 18:13:36 +0100
+	b=uJYeohidLe+0OxtLpJXE2zBWRw80XWKrpjRHK6LsD55mqkSkvE/d8IVpJ6m7W9GwB
+	 ivk/lI+gBNxUDyXI05IJyFnW0WeOpm2uENHOz/pOnYgDQVeCmD5u54H4wfKVISSrsd
+	 fGcUwcZZeff8P1Cx7iPUeTkc2uKMo49Wu4AvciWeeorroNuJNHNKrqdvWPE44pt47U
+	 RP+bQMHAHqtBN2xGou6PuqxkXpbBmXiI6b63iQchPf4Ygrc7xKHkeO7kf7685IQ0ro
+	 B8zHnAfB2ag0W8LiWGsJqCdJmFfOofgC9dO4TvshpOlZuDxFiqFUcWFS6j20BeO5eQ
+	 OkN1Z8847U2Fg==
+Date: Thu, 9 Oct 2025 18:36:50 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Roy Luo <royluo@google.com>
-Cc: Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>,
-	Joy Chakraborty <joychakr@google.com>,
-	Naveen Kumar <mnkumar@google.com>,
-	Badhri Jagan Sridharan <badhri@google.com>,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH v2 1/4] dt-bindings: usb: dwc3: Add Google Tensor G5 DWC3
-Message-ID: <20251009-lizard-slapstick-4de7dfe2322d@spud>
-References: <20251008060000.3136021-1-royluo@google.com>
- <20251008060000.3136021-2-royluo@google.com>
- <20251008-slider-uncombed-66790ea92ea0@spud>
- <CA+zupgxnBK_k2X0_KKX9pUMMTwY4VhsyTEEVz6v+__u=2xR8Ow@mail.gmail.com>
+To: Jun Guo <Jun.Guo@cixtech.com>
+Cc: Peter Chen <peter.chen@cixtech.com>,
+	Fugang Duan <fugang.duan@cixtech.com>,
+	"robh@kernel.org" <robh@kernel.org>,
+	"krzk+dt@kernel.org" <krzk+dt@kernel.org>,
+	"conor+dt@kernel.org" <conor+dt@kernel.org>,
+	"broonie@kernel.org" <broonie@kernel.org>,
+	"linux-spi@vger.kernel.org" <linux-spi@vger.kernel.org>,
+	"michal.simek@amd.com" <michal.simek@amd.com>,
+	cix-kernel-upstream <cix-kernel-upstream@cixtech.com>,
+	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
+	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>
+Subject: Re: =?utf-8?B?5Zue5aSNOiDlm57lpI06IFtQQVRD?=
+ =?utf-8?Q?H_1=2F3=5D_dt-bindings?= =?utf-8?Q?=3A?= spi: spi-cadence:
+ document optional fifo-width DT property
+Message-ID: <20251009-backstage-tubby-82f903864ba0@spud>
+References: <20250930075644.1665970-1-jun.guo@cixtech.com>
+ <20250930075644.1665970-2-jun.guo@cixtech.com>
+ <20250930-vocally-closable-136829bc9fed@spud>
+ <SI6PR06MB7104F6012ADAFDBC7D553F9AFFE6A@SI6PR06MB7104.apcprd06.prod.outlook.com>
+ <SI6PR06MB7104AE0345763471E67CD3C0FFE6A@SI6PR06MB7104.apcprd06.prod.outlook.com>
+ <20251001-simple-conclude-d9cd153cee3c@spud>
+ <SI6PR06MB710489F8394133B846744D4BFFE4A@SI6PR06MB7104.apcprd06.prod.outlook.com>
+ <SI6PR06MB710493482465F426F62637F9FFEEA@SI6PR06MB7104.apcprd06.prod.outlook.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="V8Kj8DQ2DFM161Td"
+	protocol="application/pgp-signature"; boundary="4/ubkzyLMsxqPB6p"
 Content-Disposition: inline
-In-Reply-To: <CA+zupgxnBK_k2X0_KKX9pUMMTwY4VhsyTEEVz6v+__u=2xR8Ow@mail.gmail.com>
+In-Reply-To: <SI6PR06MB710493482465F426F62637F9FFEEA@SI6PR06MB7104.apcprd06.prod.outlook.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251009_103655_379650_FFFD8E43 
+X-CRM114-Status: GOOD (  50.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,57 +92,139 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---V8Kj8DQ2DFM161Td
-Content-Type: text/plain; charset=utf-8
+--4/ubkzyLMsxqPB6p
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
 
-On Wed, Oct 08, 2025 at 09:40:57PM -0700, Roy Luo wrote:
-> On Wed, Oct 8, 2025 at 1:58=E2=80=AFPM Conor Dooley <conor@kernel.org> wr=
-ote:
+On Thu, Oct 09, 2025 at 09:51:08AM +0000, Jun Guo wrote:
+> On 03/10/25 22:58, Jun Guo wrote:
+> > On Tue, Oct 02, 2025 at 02:04:00AM +0000, Conor Dooley wrote:
+> >> On Wed, Oct 01, 2025 at 02:36:44PM +0000, Jun Guo wrote:
+> >>> On Tue, Oct 01, 2025 at 02:52:00AM +0800, Conor Dooley wrote:
+> >>>> On Tue, Sep 30, 2025 at 03:56:42PM +0800, Jun Guo wrote:
+> >>>>> Add documentation for the optional 'fifo-width' device tree property
+> >>>>> for the Cadence SPI controller.
+> >>>>>
+> >>>>> Signed-off-by: Jun Guo <jun.guo@cixtech.com>
+> >>>>> ---
+> >>>>>   .../devicetree/bindings/spi/spi-cadence.yaml          | 11 +++++++++++
+> >>>>>   1 file changed, 11 insertions(+)
+> >>>>>
+> >>>>> diff --git a/Documentation/devicetree/bindings/spi/spi-cadence.yaml b/Documentation/devicetree/bindings/spi/spi-cadence.yaml
+> >>>>> index 8de96abe9da1..b2e3f217473b 100644
+> >>>>> --- a/Documentation/devicetree/bindings/spi/spi-cadence.yaml
+> >>>>> +++ b/Documentation/devicetree/bindings/spi/spi-cadence.yaml
+> >>>>> @@ -62,6 +62,17 @@ properties:
+> >>>>>       items:
+> >>>>>         - const: spi
+> >>>>>
+> >>>>> +  fifo-width:
+> >>>>> +    description: |
+> >>>>> +      This property specifies the FIFO data width (in bits) of the hardware.
+> >>>>> +      It must be configured according to the actual FIFO width set during
+> >>>>> +      the IP design. For instance, if the hardware FIFO is 32 bits wide,
+> >>>>> +      this property should be set to 32.
+> >>>>> +    $ref: /schemas/types.yaml#/definitions/uint32
+> >>>>> +    minimum: 8
+> >>>>> +    maximum: 32
+> >>>>> +    default: 8
+> >>>>
+> >>>> I assume this differs from fifo-depth because this is the actual width
+> >>>> of the registers rather than the number of elements of that width the
+> >>>> FIFO can contain?
+> >>>
+> >>> Thank you for your review. You are absolutely correct. The `fifo-width`
+> >>> indeed refers to the physical width of the FIFO data registers (e.g., 8,
+> >>> 16, or 32 bits), whereas `fifo-depth` describes how many elements of
+> >>>   that width the FIFO can store.
+> >>>
+> >>>> However, this isn't something defined as common in spi-controller.yaml
+> >>>> so you'll need a vendor prefix for the property if the property stays.
+> >>>> This does, however, seem like something that can just be determined by
+> >>>> the compatible and that your omission of a soc-specific one is what's
+> >>>> lead you to introduce this property. Why not just use a sky1-specific
+> >>>> compatible here?
+> >>>
+> >>> You raise an excellent point, and I initially had the same thought. However,
+> >>> after further consideration, I realized that the IP of Cadence SPI actually
+> >>> supports configurable FIFO width as a feature. The choice of using 8-bit,
+> >>> 16-bit, or 32-bit FIFO width can be made by the SoC integrator based on
+> >>> their specific requirements. This is therefore a feature of the Cadence IP
+> >>> itself, rather than a chip vendor-specific design constraint.
+> >>>
+> >>> For this reason, I believe defining a common `fifo-width` property for
+> >>> Cadence SPI controllers is more appropriate, as it allows any SoC using
+> >>> this IP with different FIFO width configurations to utilize this property,
+> >>> without needing to create a specific compatible string for each SoC variant.
 > >
-> > On Wed, Oct 08, 2025 at 05:59:57AM +0000, Roy Luo wrote:
-
-> > > +allOf:
-> > > +  - $ref: snps,dwc3-common.yaml#
-> > > +
-> > > +unevaluatedProperties: false
+> >> Except, you do need to create a soc-specific compatible string for every
+> >> device, the fact that you didn't add one for your sky1 SoC was a mistake
+> >> that you should fix. SoC-specific compatibles are a requirement.
+> >> The "cnds,spi-r1p6" compatible seems to be used on Xilinx platforms,
+> >> including a zynq platform that should probably be using the zynq
+> >> soc-specific compatible. r1p6 sounds like some sort of version info, is
+> >> that the version you are even using?
 > >
-> > So every property from snps,dwc3-common.yaml is valid here, with any of
-> > the permitted values?
->=20
-> Conor,
->=20
-> Appreciate the review.
-> Ack to all the comments, will fix them in the next patch.
-> And yes, every property from snps,dwc3-common.yaml is valid here.
-> You can find more context here [1], essentially the dwc3 glue would be
-> operating on the same platform device as the dwc3 core, hence all
-> properties are allowed.
->=20
-> [1] https://lore.kernel.org/all/20250414-dwc3-refactor-v7-0-f015b358722d@=
-oss.qualcomm.com/
+> >> Once you have added a compatible for the sky1, this property is not
+> >> needed, since the depth can be determined from that. Any other user that
+> >> wants to use non-default depths can also use their soc-specific
+> >> compatibles for that purpose.
+> >
+> > After further consideration and reviewing how similar cases were resolved
+> > for other IPs, I now believe your approach is correct, We should indeed add
+> > a cix,sky1-xxx compatible string to this YAML file to indicate that our SoC
+> > supports this IP. However, the "fifo-width" is indeed a configurable property
+> > of the IP itself. By using the DTSI and the binding document, one can understand
+> > which "fifo-width" the SoC platform supports without needing to delve into the
 
-I find it exceedingly hard to believe that every property from that
-file, with every permitted value, is possible. AFAIU, the tensor g5 is a
-phone chip that's only used in pixel devices, not something that people
-can just buy and integrate into whatever device they feel like. There
-should be a vanishingly small number of possible configurations,
-possibly exactly one configuration. There are dozens of properties in
-the dwc3 common binding, of which at least 10 are for "quirks" or other
-sorts of hardware errata that are not going to be variable from one
-phone to another.
+Who actually is going to read the devicetree to figure out what the
+fifo-wdith for the platform is? I don't see how it is relevant outside
+of the specific driver implementation, as it just controls how many
+bits the loop in cdns_spi_process_fifo() deals with per iteration.
 
---V8Kj8DQ2DFM161Td
+Devicetree is not about publishing information to the world about your
+device, it doesn't contain the complete programming model information
+etc. It is there to communicate non-discoverable information about the
+device to the operating system. The fifo-width can be determined from
+the compatible and is therefore not needed to be put in the devicetree
+explicitly.
+
+> > code. This implementation is similar to existing binding documentation examples
+> > like reg-io-width
+> > (Documentation/devicetree/bindings/serial/pl011.yaml)
+> > and
+> > snps,incr-burst-type-adjustment
+> > (Documentation/devicetree/bindings/usb/snps,dwc3-common.yaml).
+
+To be honest, a bunch of what is in this dwc3 binding is crap and should
+not have been accepted. There's dozens of properties in that file, and
+lots of them should have been inferred from a device-specific compatible.
+
+For pl011, I don't really know why the property is there, the provided
+explanations are pretty lacking. Maybe a compatible didn't work because
+Xilinx needed it for FPGA fabric implementations where the io width was
+not set in stone? If I were reviewing that patch today, I would question
+their need for it too.
+
+> Hi Conor. Just a gentle ping. Would you mind sharing your further thoughts on
+> this idea when you have a moment? Looking forward to your feedback so we can
+> move this patch forward.
+
+I didn't reply to the last mail because I had nothing new to say.
+
+Thanks,
+Conor.
+
+--4/ubkzyLMsxqPB6p
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaOftPwAKCRB4tDGHoIJi
-0orZAQDVQounnZp8XW0MZDnLxiorx4hG4jOujXdg9qHFe7k1qgD/eJp5UpO9UKjh
-jvA+gND8RxLGnuG3C6H3uJAs4WuugQw=
-=JWpo
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaOfysgAKCRB4tDGHoIJi
+0iZeAP41SeEoo+9QkGcNZX8o/HIQBJU+pxbnmTstieCJB/hBPAEAhS/bBpdG3aza
+syvHeSiBFISj581LqFUoX177TU/k7wU=
+=q9tV
 -----END PGP SIGNATURE-----
 
---V8Kj8DQ2DFM161Td--
+--4/ubkzyLMsxqPB6p--
 
