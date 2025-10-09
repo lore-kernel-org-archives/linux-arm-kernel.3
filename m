@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78E5DCCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 15:55:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0DF7CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 15:56:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fjXzCKkc9E0Mj0EQ+SFntyn+oA0UyS6dkYnBIIttEM0=; b=RKcr/Ucpb9z6t8VFvxW86fikzX
-	9+O69BFx/6XMU6NfckjyYlK5kchFCbDnaj4qL5sr1Aj1XeXVu4hU+JAmBJPFYx7QlwYlP7YYj6LaI
-	ng//J/q7eaBXkeFpZbkendkJpJcBp9hDPZWvPE/RW1JbXEOkqENdf1NkH8CoirMwYUOXiDQoZ3u35
-	9rSNK3xd510NkP8n9e9jr7QXzJPaJuVhT4nMXE820yNH5cO68jC9eu3p6OG0QeMt/qzbqP0crEE+b
-	WeSBLCF0GveTtBRTLxrXu7URPGCpOFRx1wZrNJMpsqVgagF9f5HZx7KEnZVFb6Q02lK43+PkETwtE
-	h3nhnwvg==;
+	bh=rCD4rPUvnkCebMeaEapJBrU0tinuybIbsQmhBGOZhOw=; b=tqi470EMjjV/J8FGaYf+bgtEle
+	dnmepKkQ1lzK08OKfVHmZ1JRxxxQoU2pkJmijuJsu+7qm+tc7sABqlJ7cgpkaac31kQWtMtWNWV81
+	ztKAPvfS/R4ltMaaig/X/5Y54yRliR8nmi8JO4S286G9RF6jmPFn4VHPSC3YX96hunP5jyQ2dsYOZ
+	q2yFnL66nRNTxuD3LUTkDJ3e83CP3a3gogx30FuAhgnQ/WPN5Wsj9PCC76fCn32luE/CIC4nVV3hJ
+	RAJoAaAFZ4ZKuNOQu/lqMOgcOeJE2V5NvNRCyXeHeFw+yiW/6IvfOTwGejUuM+TKLhh9yebbMTq7t
+	oVNcg3ng==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6szh-00000006Zkl-0T4Z;
-	Thu, 09 Oct 2025 15:55:53 +0000
+	id 1v6szj-00000006ZnB-191R;
+	Thu, 09 Oct 2025 15:55:55 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6szd-00000006ZhY-41FG
+	id 1v6szf-00000006ZhY-15o9
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 15:55:51 +0000
+	Thu, 09 Oct 2025 15:55:52 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1760025350; x=1791561350;
+  t=1760025351; x=1791561351;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=186aunkFZ+DaR7NwbVBgBmpyszUiuZDCagnLEubuYVI=;
-  b=tceG3tzJj96pEpB8EmvtnbZMozJx61OCL4l9FtRHmwRu1uyvuAytPC0o
-   kiNHPtUtGAl2netaaqwVj6ntc5VSYEyh3zM1LMsogg+7wNN65PtM8GbbZ
-   Gm7JayAsPPtpCNuCeFxMnfyD3Iz2hBtneJKhpt8sybfNEfWTy3igfsGGv
-   FmvylRnNk4mB6fh97Qz8VBmlMhKoE72/4iMN8NVXZvIbb3oinMDzY+8Bb
-   v5leIJzW8AmK1zOT9XLpXdpbqhU5ezcvKfmuS/dvHHi7kqyALsAx36YwN
-   p21vs1elR4mlAufQ8YLU3ze939kr9XW5XVvWbdStFckI45IvSA5w+aQUS
-   A==;
+  bh=NmHYnwZO3k1u6RXbCftGuTbVjS2S07lpsShuIUYK9b0=;
+  b=MklNDhUiAXlDWkg1U5EDOfYbHPQxYJCkC2Dfpk5CZHi8zoXIDPw74Won
+   W+XQAhKKLVuGEB0FkXLxChJ5K57+45fQo9ToiCIrS2LjNcn4R78OlgEXu
+   4+vQ4dWA5BhXNTJjwWV8ykYuHHyDxWbK3s3Q03FZuvJ7JqMwwNSZi7r73
+   WIQYIzi4nQ6y1RJck2emoxi50CzxdVmnx8vBEhywtI6ZtwkUu7WpBvo6H
+   S+aWByE9WhX11IRxV5XcMHQPmA4dOC1U6t/L0ClQYe2j5YxE3vHZ0zj3n
+   lr/4XBMEEmgkStiIqFrDROAAB+4pEjDW2SoDZitk5Fe+O7OPMnAELrwfe
+   w==;
 X-CSE-ConnectionGUID: BY5Dt4iOTF6lw0TCi1Tv9Q==
-X-CSE-MsgGUID: gRBAh4qzTtiU7k10zAP/nw==
+X-CSE-MsgGUID: /RvSuAcuQFKg0QDO0OH5Pg==
 X-IronPort-AV: E=Sophos;i="6.19,216,1754982000"; 
-   d="scan'208";a="48057947"
+   d="scan'208";a="48057949"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 09 Oct 2025 08:55:48 -0700
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 09 Oct 2025 08:55:49 -0700
 Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Thu, 9 Oct 2025 08:55:22 -0700
+ 15.1.2507.58; Thu, 9 Oct 2025 08:55:31 -0700
 Received: from che-lt-i64410lx.microchip.com (10.10.85.11) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Thu, 9 Oct 2025 08:55:14 -0700
+ 15.1.2507.58 via Frontend Transport; Thu, 9 Oct 2025 08:55:22 -0700
 From: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
 To: Mauro Carvalho Chehab <mchehab@kernel.org>
 CC: Eugen Hristev <eugen.hristev@linaro.org>, Chas Williams
@@ -67,10 +67,11 @@ CC: Eugen Hristev <eugen.hristev@linaro.org>, Chas Williams
 	<dan.scally+renesas@ideasonboard.com>, Tomi Valkeinen
 	<tomi.valkeinen@ideasonboard.com>, <linux-kernel@vger.kernel.org>,
 	<linux-media@vger.kernel.org>, <linux-atm-general@lists.sourceforge.net>,
-	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH 15/18] media: microchip-isc: decouple histogram cycling from AWB mode
-Date: Thu, 9 Oct 2025 21:22:48 +0530
-Message-ID: <20251009155251.102472-16-balamanikandan.gunasundar@microchip.com>
+	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
+Subject: [PATCH 16/18] media: microchip-isc: enable userspace histogram statistics export
+Date: Thu, 9 Oct 2025 21:22:49 +0530
+Message-ID: <20251009155251.102472-17-balamanikandan.gunasundar@microchip.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20251009155251.102472-1-balamanikandan.gunasundar@microchip.com>
 References: <20251009155251.102472-1-balamanikandan.gunasundar@microchip.com>
@@ -78,8 +79,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_085550_060354_BAD55D4B 
-X-CRM114-Status: GOOD (  11.73  )
+X-CRM114-CacheID: sfid-20251009_085551_363539_8B0ADCCA 
+X-CRM114-Status: GOOD (  12.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,28 +97,45 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Balakrishnan Sambath <balakrishnan.s@microchip.com>
 
-Fix histogram cycling stopping after first channel when AWB is disabled.
-Now the histogram cycling will continue even when AWB is disabled,
-enabling hardware histogram data export to userspace.
+Export raw histogram data to userspace only when all 4 Bayer channels
+are ready and userspace has active listeners. Also continue AWB work as
+long as userspace listeners are active.
 
 Signed-off-by: Balakrishnan Sambath <balakrishnan.s@microchip.com>
+Signed-off-by: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
 ---
- drivers/media/platform/microchip/microchip-isc-base.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/media/platform/microchip/microchip-isc-base.c | 11 ++++++++++-
+ 1 file changed, 10 insertions(+), 1 deletion(-)
 
 diff --git a/drivers/media/platform/microchip/microchip-isc-base.c b/drivers/media/platform/microchip/microchip-isc-base.c
-index e9f14de7ae32..cafd05244db2 100644
+index cafd05244db2..6c937a20fce0 100644
 --- a/drivers/media/platform/microchip/microchip-isc-base.c
 +++ b/drivers/media/platform/microchip/microchip-isc-base.c
-@@ -1509,7 +1509,7 @@ static void isc_awb_work(struct work_struct *w)
- 	mutex_unlock(&isc->awb_mutex);
+@@ -1450,6 +1450,15 @@ static void isc_awb_work(struct work_struct *w)
+ 	if (hist_id != ISC_HIS_CFG_MODE_B) {
+ 		hist_id++;
+ 	} else {
++		/* All 4 channels processed - notify userspace */
++		if (isc_stats_active(&isc->stats))
++			isc_stats_isr(&isc->stats);
++		else
++			dev_info(isc->dev, "No active userspace listeners\n");
++	}
++
++	/* Continue with AWB processing only if AWB is enabled */
++	if (ctrls->awb != ISC_WB_NONE) {
+ 		isc_wb_update(ctrls);
+ 		hist_id = ISC_HIS_CFG_MODE_GR;
+ 	}
+@@ -1499,7 +1508,7 @@ static void isc_awb_work(struct work_struct *w)
+ 	mutex_lock(&isc->awb_mutex);
  
- 	/* if awb has been disabled, we don't need to start another histogram */
--	if (ctrls->awb)
-+	if (ctrls->hist_stat == HIST_ENABLED)
- 		regmap_write(regmap, ISC_CTRLEN, ISC_CTRL_HISREQ);
- 
- 	pm_runtime_put_sync(isc->dev);
+ 	/* streaming is not active anymore */
+-	if (isc->stop) {
++	if (isc->stop && !isc_stats_active(&isc->stats)) {
+ 		mutex_unlock(&isc->awb_mutex);
+ 		return;
+ 	}
 -- 
 2.34.1
 
