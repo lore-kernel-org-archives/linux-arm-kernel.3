@@ -4,58 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4B392CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 15:58:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0316ACCD18E
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 15:58:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I1bpS66zXqMjCvjMy8X0FIER0kFYzXNwb9kSeklPGvo=; b=WrHuJPovsZR9lX4fKKNzqCn4f0
-	ggsLhbieihKxMLw9SKpTGs2UjnET3ZeRd3xwbCIgRMEknby3P2i+z+i6RpPJ31n3wCmDNfIfWcSqn
-	NlGdmriPfSB7BOzL6U51z1QK+z0OtakcaNCxTRsWEzpnACKcCnWEv8XwG5nnPRqm3FB835SPeOvU3
-	orc2do89/bJFURKvI4XjoVHVKKYQQ9MAGndVwejA3LRQ8d/rYO47eHCEDdKJWhwYCC57z3UEtomYB
-	GNmuRTPTYCA53lx6ja6EyJkGBfkzU7IJfFZ0E+7W8Stac3abq362I4S6CfQLYnEGIiy6yAsvkskcu
-	1bHG01aQ==;
+	bh=ZR8MlnYcvCMtJMseI3jK/OgU34GXS2/kRPD0HOKmZGY=; b=K3CDIbS3b3jJVzJOxp5LuR7bxq
+	Y9Rg6Irp44QctnkkGKumISy7GbuxePlSlhVVdmawaaeOsyDH+dj5uzNBFkDmNowKwCOjc8hBYc4td
+	kqcpW59E+LdUxDf5VDDls90Onkj4tvoiZTo5pkaZOaR+eC/HGNAVzY2Bzly8R0TNaK4OhIi4Ccw+4
+	L4nYanQcggApx6udskRYAK76kDZzqO7DUv3WHNl5OrU8vjo0nOCzB1ytMKM2RIUVbzOSg6bO7KMA+
+	qCXGUMkGfTsqq+jnIpDifnIl5OwoCXlDky8TyscYI+frfy3RLyZlptztrWEshnO5L+tBm8nzefM77
+	jOyJNvFA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6t1y-00000006ac4-1Emh;
-	Thu, 09 Oct 2025 15:58:14 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v6t22-00000006aeD-3slH;
+	Thu, 09 Oct 2025 15:58:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6t1x-00000006aas-28VW
+	id 1v6t20-00000006ad0-2G39
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 15:58:13 +0000
+	Thu, 09 Oct 2025 15:58:17 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 778FF6235F;
-	Thu,  9 Oct 2025 15:58:10 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 16DF7C4CEF7;
-	Thu,  9 Oct 2025 15:58:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 3D4BC48A7A;
+	Thu,  9 Oct 2025 15:58:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 48B40C4CEE7;
+	Thu,  9 Oct 2025 15:58:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760025490;
-	bh=tSSV244K44gGhYWNTV5sFSwu4KHHSRoMFaHQVd5v9Xc=;
+	s=k20201202; t=1760025496;
+	bh=VD+sWsMuMn62f0HpwunRDsLeC6U8QhG72Z4lydKbBNc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=LTS2NcsO1WnVmo4yijgvLuZuKCJCv03G4JhnK/ZJebi74hv56Q9JVXrb46iLTz11w
-	 MpuVDkCbuyyRdOI8Zykg5Yod/j+pSsisaqheRcC4D/wCjBBORi0m9eNi8YaJep+cAm
-	 ux3ktnH2F1TFg7m8yqndjhlnUZFhcEa+1/hmdKhFU9Y9BXKoPdVU9taxuJjt24kbB6
-	 CbdPe7bVgKhxPFlK9bkZIlBV0y8pWwuLwWSWL7J1J37/CQqOmtWIhHMBTQW9xEGt3Y
-	 vY7MEeYb4vVfODaMLgc0chJsBhgZwVufssOnty7lsG/9SSWsqBbPECvEPs3qKUtmwI
-	 N7LyYUvlWOlTA==
+	b=XOPbP10kQH+8QtCycIPXPNTmww63F9Bhd5RCvcyxDtixTCQZPwFeJMKon4EAWGuzn
+	 77jX4AZfQ1mELkLV4DhGac2JaFDc5VO3Q4sFadcbUV3mwBaOL9/Bwfx0Hi94jHWws8
+	 cPwWI4sDWaZhKSHT1YuKQxRyIlxM0RTZHkDPlpXMYJbzfoQKQtz9zXHS6fUJo4B7PK
+	 kjuBoylbDD/TI4PIC3imG8bSVZ9Dplin2KnioO/7J03L8E463/FUXjzlO5OePq77mX
+	 gAuqCjPNIb3aqeiAClCPXDWsa6cAQ49Z6JYnpQMnqgHxXFE/n/bAsSQPGVaKjceLdf
+	 xmAkFyNA7uhsw==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Chi Zhang <chizhang@asrmicro.com>,
-	Linus Walleij <linus.walleij@linaro.org>,
+Cc: Bryan Brattlof <bb@ti.com>,
+	Nishanth Menon <nm@ti.com>,
 	Sasha Levin <sashal@kernel.org>,
-	tony@atomide.com,
-	haojian.zhuang@linaro.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-omap@vger.kernel.org,
-	linux-gpio@vger.kernel.org
-Subject: [PATCH AUTOSEL 6.17-5.10] pinctrl: single: fix bias pull up/down handling in pin_config_set
-Date: Thu,  9 Oct 2025 11:54:38 -0400
-Message-ID: <20251009155752.773732-12-sashal@kernel.org>
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.17-6.16] soc: ti: k3-socinfo: Add information for AM62L SR1.1
+Date: Thu,  9 Oct 2025 11:54:42 -0400
+Message-ID: <20251009155752.773732-16-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251009155752.773732-1-sashal@kernel.org>
 References: <20251009155752.773732-1-sashal@kernel.org>
@@ -65,6 +62,9 @@ X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.17.1
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251009_085816_620439_F9AA21EA 
+X-CRM114-Status: GOOD (  12.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,203 +79,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Chi Zhang <chizhang@asrmicro.com>
+From: Bryan Brattlof <bb@ti.com>
 
-[ Upstream commit 236152dd9b1675a35eee912e79e6c57ca6b6732f ]
+[ Upstream commit 037e496038f6e4cfb3642a0ffc2db19838d564dd ]
 
-In the pin_config_set function, when handling PIN_CONFIG_BIAS_PULL_DOWN or
-PIN_CONFIG_BIAS_PULL_UP, the function calls pcs_pinconf_clear_bias()
-which writes the register. However, the subsequent operations continue
-using the stale 'data' value from before the register write, effectively
-causing the bias clear operation to be overwritten and not take effect.
+The second silicon revision for the AM62L was mainly a ROM revision
+and therefore this silicon revision is labeled SR1.1
 
-Fix this by reading the 'data' value from the register after calling
-pcs_pinconf_clear_bias().
+Add a new decode array to properly identify this revision as SR1.1
 
-This bug seems to have existed when this code was first merged in commit
-9dddb4df90d1 ("pinctrl: single: support generic pinconf").
-
-Signed-off-by: Chi Zhang <chizhang@asrmicro.com>
-Link: https://lore.kernel.org/20250807062038.13610-1-chizhang@asrmicro.com
-Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+Signed-off-by: Bryan Brattlof <bb@ti.com>
+Link: https://patch.msgid.link/20250908-62l-chipid-v1-1-9c7194148140@ti.com
+Signed-off-by: Nishanth Menon <nm@ti.com>
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-## **Backport Status: YES**
+YES
+- The patch teaches `k3_chipinfo_variant_to_sr()` how to decode AM62Lx
+  silicon variant 0/1 into the correct revision strings by adding
+  `am62lx_rev_string_map[] = {"1.0","1.1"}` and a dedicated `case
+  JTAG_ID_PARTNO_AM62LX` (drivers/soc/ti/k3-socinfo.c:65,
+  drivers/soc/ti/k3-socinfo.c:92). Without it, the existing default
+  branch (drivers/soc/ti/k3-socinfo.c:98) blindly prints `SR<x>.0`, so
+  the new SR1.1 silicon shows up as “SR2.0”—a clear mis-identification
+  bug.
+- That revision string is what gets registered in
+  `/sys/devices/soc0/revision` and is what subsystem code keys on via
+  `soc_device_match()`. We already rely on that mechanism for other K3
+  parts (e.g. the AM62Px SR1.1 quirk in
+  drivers/mmc/host/sdhci_am654.c:896), so shipping incorrect data
+  prevents present and future AM62Lx-specific fixes or workarounds from
+  triggering and can mislead userspace diagnostics.
+- The change is tightly scoped to string decoding, has no architectural
+  side effects, and mirrors the precedent set for J721E SR2.0 support
+  (drivers/soc/ti/k3-socinfo.c:65-103 history). Risk is minimal while
+  correcting real user-visible behaviour for existing hardware.
+- Ensure the earlier ID-enabling commit (`soc: ti: k3-socinfo: Add JTAG
+  ID for AM62LX`, c62bc66d53de) is in the target stable branch; with
+  that prerequisite met, this bug-fix-style decode update is safe to
+  pick up.
 
-This commit is an **excellent candidate for backporting** to stable
-kernel trees.
+ drivers/soc/ti/k3-socinfo.c | 10 ++++++++++
+ 1 file changed, 10 insertions(+)
 
----
-
-### **DETAILED ANALYSIS**
-
-#### **1. Bug Description and Code Analysis**
-
-The bug is in `drivers/pinctrl/pinctrl-single.c` at **lines 590-594**
-(before the fix):
-
-```c
-case PIN_CONFIG_BIAS_PULL_DOWN:
-case PIN_CONFIG_BIAS_PULL_UP:
-    if (arg)
-        pcs_pinconf_clear_bias(pctldev, pin);  // <-- Writes to register
-    fallthrough;
-case PIN_CONFIG_INPUT_SCHMITT_ENABLE:
-    data &= ~func->conf[i].mask;               // <-- Uses stale 'data'
-value!
-    if (arg)
-        data |= func->conf[i].enable;
-    else
-        data |= func->conf[i].disable;
-    break;
-```
-
-**The critical issue:** At line 576, `data = pcs->read(pcs->base +
-offset)` reads the register value. When `pcs_pinconf_clear_bias()` is
-called (line 593), it **writes to the same register** by recursively
-calling `pcs_pinconf_set()`. However, after returning, the code
-continues using the **stale `data` variable** from line 576, effectively
-**overwriting the bias clear operation** when it writes at line 605.
-
-**The fix** (lines 592-595 after patch):
-```c
-if (arg) {
-    pcs_pinconf_clear_bias(pctldev, pin);
-    data = pcs->read(pcs->base + offset);  // <-- Re-read register!
-}
-```
-
-This ensures the subsequent operations use the **updated register
-value** after the bias clear.
-
----
-
-#### **2. Bug History and Scope**
-
-- **Introduced:** commit 9dddb4df90d1 ("pinctrl: single: support generic
-  pinconf") - **February 17, 2013**
-- **First appeared in:** Linux **v3.10** (released June 2013)
-- **Duration:** **12+ years** of existence across all kernel versions
-- **Scope:** Affects **all stable kernels** from v3.10 onwards
-
----
-
-#### **3. Real-World Impact**
-
-**Widely-used driver:**
-- Found **3,261 references** in device tree files across the kernel
-- Used on multiple major platforms:
-  - **TI OMAP/AM335x** (BeagleBone, PocketBeagle)
-  - **HiSilicon** (HiKey, HiKey960, HiKey970, Poplar)
-  - **Intel/Marvell PXA** platforms
-  - **Broadcom Stingray**
-  - **Altera/Intel SoCFPGA Stratix10**
-  - **Mobileye EyeQ6H**
-
-**Documented, supported feature:**
-The bias pull up/down functionality is **explicitly documented** in
-`Documentation/devicetree/bindings/pinctrl/pinctrl-single.yaml` (lines
-125-141) with `pinctrl-single,bias-pullup` and `pinctrl-single,bias-
-pulldown` properties.
-
-**Confirmed real-world usage:**
-- `arch/arm/boot/dts/ti/omap/am335x-pocketbeagle.dts`: Multiple
-  instances of bias pull configurations
-- `arch/arm64/boot/dts/hisilicon/*.dtsi`: HiKey boards using bias
-  configurations
-- `arch/arm/boot/dts/intel/pxa/*.dts`: PXA platforms using bias
-  configurations
-
-**User-facing symptoms:**
-When users configure pull-up or pull-down resistors on pins, the
-configuration **silently fails** - the register is written but
-immediately overwritten with incorrect values. This can cause:
-- Floating inputs leading to unstable signal readings
-- Incorrect electrical characteristics on I/O pins
-- Boot failures or device malfunction if critical pins are misconfigured
-
----
-
-#### **4. Backport Suitability Assessment**
-
-✅ **Fixes important bug:** Yes - bias pull configurations completely
-broken
-✅ **Small and contained:** Yes - only **3 lines changed** (2 additions +
-braces)
-✅ **Minimal regression risk:** Extremely low - just re-reads a register
-value
-✅ **No architectural changes:** None
-✅ **No new features:** Pure bug fix
-✅ **Confined to subsystem:** Yes - only affects `pinctrl-single` driver
-✅ **Clear side effects:** No side effects - fix is obvious and correct
-
-**Related fixes in same area:**
-- commit b5fe46efc1475 (March 2024): Fixed PIN_CONFIG_BIAS_DISABLE
-  handling in the same function, demonstrating active maintenance and
-  that bias configuration bugs are being addressed
-
----
-
-#### **5. Stable Tree Criteria Compliance**
-
-According to stable kernel rules, this commit:
-- ✅ Fixes a **real bug** affecting users
-- ✅ Is **obviously correct** - the logic error is clear
-- ✅ Has **minimal risk** - just reading what was just written
-- ✅ Can be **easily backported** - clean apply expected
-- ✅ Is **important** - affects documented, supported functionality on
-  multiple platforms
-
----
-
-#### **6. Notable Observations**
-
-1. **No Fixes: tag:** The original commit lacks a `Fixes:` tag pointing
-   to 9dddb4df90d1, but the commit message explicitly states the origin
-2. **No Cc: stable tag:** Not marked for stable, but clearly suitable
-3. **Already being backported:** Evidence shows commit 4062b166ae281 is
-   a backport to stable trees (includes "Signed-off-by: Sasha Levin")
-4. **Mailing list discussion:** The patch at
-   https://lore.kernel.org/20250807062038.13610-1-chizhang@asrmicro.com
-   had no objections
-
----
-
-### **CONCLUSION**
-
-**This commit MUST be backported to all applicable stable kernel trees**
-(v3.10 onwards where the bug exists). It fixes a **12-year-old bug** in
-a **widely-used, documented feature** with an **obvious, minimal-risk
-fix**. The bug affects **real hardware platforms** in production use,
-and users relying on bias pull configurations will experience **silent
-failures** without this fix.
-
-**Recommended stable versions for backport:** All active stable kernels
-(currently maintained LTS versions: 6.6.x, 6.1.x, 5.15.x, 5.10.x, 5.4.x,
-4.19.x).
-
- drivers/pinctrl/pinctrl-single.c | 4 +++-
- 1 file changed, 3 insertions(+), 1 deletion(-)
-
-diff --git a/drivers/pinctrl/pinctrl-single.c b/drivers/pinctrl/pinctrl-single.c
-index 5cda6201b60f5..8aedee2720bcb 100644
---- a/drivers/pinctrl/pinctrl-single.c
-+++ b/drivers/pinctrl/pinctrl-single.c
-@@ -589,8 +589,10 @@ static int pcs_pinconf_set(struct pinctrl_dev *pctldev,
- 			/* 4 parameters */
- 			case PIN_CONFIG_BIAS_PULL_DOWN:
- 			case PIN_CONFIG_BIAS_PULL_UP:
--				if (arg)
-+				if (arg) {
- 					pcs_pinconf_clear_bias(pctldev, pin);
-+					data = pcs->read(pcs->base + offset);
-+				}
- 				fallthrough;
- 			case PIN_CONFIG_INPUT_SCHMITT_ENABLE:
- 				data &= ~func->conf[i].mask;
+diff --git a/drivers/soc/ti/k3-socinfo.c b/drivers/soc/ti/k3-socinfo.c
+index d716be113c84f..50c170a995f90 100644
+--- a/drivers/soc/ti/k3-socinfo.c
++++ b/drivers/soc/ti/k3-socinfo.c
+@@ -66,6 +66,10 @@ static const char * const j721e_rev_string_map[] = {
+ 	"1.0", "1.1", "2.0",
+ };
+ 
++static const char * const am62lx_rev_string_map[] = {
++	"1.0", "1.1",
++};
++
+ static int
+ k3_chipinfo_partno_to_names(unsigned int partno,
+ 			    struct soc_device_attribute *soc_dev_attr)
+@@ -92,6 +96,12 @@ k3_chipinfo_variant_to_sr(unsigned int partno, unsigned int variant,
+ 		soc_dev_attr->revision = kasprintf(GFP_KERNEL, "SR%s",
+ 						   j721e_rev_string_map[variant]);
+ 		break;
++	case JTAG_ID_PARTNO_AM62LX:
++		if (variant >= ARRAY_SIZE(am62lx_rev_string_map))
++			goto err_unknown_variant;
++		soc_dev_attr->revision = kasprintf(GFP_KERNEL, "SR%s",
++						   am62lx_rev_string_map[variant]);
++		break;
+ 	default:
+ 		variant++;
+ 		soc_dev_attr->revision = kasprintf(GFP_KERNEL, "SR%x.0",
 -- 
 2.51.0
 
