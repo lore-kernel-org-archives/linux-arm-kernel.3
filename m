@@ -4,80 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5EF85CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 03:24:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0306CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 03:29:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AsJEEsv3A5O4v+d0q0gbe7mKpNJ5lsVKHfbN1hMU8aU=; b=JepEQxFsnl3hCV0F9LGVd4R+bz
-	JfWEO6foDCca7hE++exUBNKX3qc10hQ9zllV7Z3MW9xkUGtSem69yNX2JzbOHWqTvA25IZun/IgEl
-	QcJyEELaihR3UPXq/EdLtwt0suNxTtx/TvdQsJLdEdhy1Xx/tnyXvFUR6H3nCpyF3ZQbnE8tPRFeG
-	lf7Ixmdiq7Q4Ar7iRit2F6ZUpsJuExgwoS2ksRDX+KV/qV3fK6AcXQ5tJdJ79xp11rFvgYeJ6umKy
-	DrOnihl6D6jLciYgk3U+LlCJSqiMwnJ9DlZ5blv7G9yy6g+SL1Vn69g9KNDJIg1h9wkfF1sGxZZgw
-	nQ/t/Svg==;
+	MIME-Version:Message-Id:Date:Subject:To:From:Reply-To:Cc:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=JpBrYi8OaSK64ZsI47g3j0U1q75t5NwItcJ4jghSQ6k=; b=ojzShkHCeGo7e5mbLgox+/QJux
+	YmlsP5OzCk0vjYv5gNhJYVP/O1RVpENEXMcxxrXlI9e9GT1BqGF8G5+T5HnrLqGZZY81OJIwemoCA
+	HKqVTk3TlaGURUn/CoAU8JuTiEXCKjIlH0/eFxE6fSDmhOFOVBGeIJCkpHEoJF9lbpto8WZKbhlZW
+	zTA58NUwweqBcNn+P+fnqR96Hq+zU572hiiI7G7K+X8GIn+IuG6ncbnlz+FXXtjN10tWItYvnPCZQ
+	BW9i7yZRy1NYt4Y0FX6pTq5097GrgE4HXsUWD31owpFSKc547N/sEPE6TT3ldelzEVdPVn//nvERy
+	R9SLXT7w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6hGg-000000055jo-2hOF;
-	Thu, 09 Oct 2025 03:24:38 +0000
-Received: from mail-lj1-x22c.google.com ([2a00:1450:4864:20::22c])
+	id 1v6hLM-0000000560v-3ZQH;
+	Thu, 09 Oct 2025 03:29:28 +0000
+Received: from mail-pf1-x42a.google.com ([2607:f8b0:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6hGe-000000055jD-0akH
+	id 1v6hLK-00000005602-3umQ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 03:24:37 +0000
-Received: by mail-lj1-x22c.google.com with SMTP id 38308e7fff4ca-37612b15a53so5110991fa.1
-        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Oct 2025 20:24:35 -0700 (PDT)
+	Thu, 09 Oct 2025 03:29:28 +0000
+Received: by mail-pf1-x42a.google.com with SMTP id d2e1a72fcca58-793021f348fso419956b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Oct 2025 20:29:23 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1759980274; x=1760585074; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=AsJEEsv3A5O4v+d0q0gbe7mKpNJ5lsVKHfbN1hMU8aU=;
-        b=PbLI9hu2trd0ko77FpOAmMwNdJu7zEBkgcs9ApmyEyUA2QMmv11tJcvSY+jZ5ht+Bt
-         7OuTKn96o0uFl1/Z3e0owFUjJzSRVzjsJHQiCsE1Ms/F4VRrXbcT19BZG+Uej7nutGfW
-         7r0tsRij6zZzRMGX/aI1sW+JJTYI2/B+2iwLU=
+        d=bytedance.com; s=google; t=1759980563; x=1760585363; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:from:to:cc:subject:date:message-id:reply-to;
+        bh=JpBrYi8OaSK64ZsI47g3j0U1q75t5NwItcJ4jghSQ6k=;
+        b=f/sjDDhbbajUMNtd54vKX1hM0Wxzx0xJNA4GiHB9/U+1LbdWYPRw+YTr7SyUu1rpsC
+         muH4Qdx7XKOshNqt3Q8bVfXfcgd0QDjuAoFDiBi94Yvt07ITgNqVTVThhU556I9UI+bY
+         L+yOi6QuWJ555WlvzOLUz5baedQKcF5bYR2M6qdQWIUeMRlEgnlSSLHjcgpMAsA/t7uN
+         /i1NrTqvnllCSwZFBmHm+DF4AA4nnoBfEIIKBT9UHpChvAU5fzLu7eQzg2bN5bevOwKP
+         QUyc8b0/chSpeSsggDV9xDGH/iX/cvbZDvHObihL/EVM6EbUYrGlflNKtXO4/XBp9e+2
+         l1TQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759980274; x=1760585074;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=AsJEEsv3A5O4v+d0q0gbe7mKpNJ5lsVKHfbN1hMU8aU=;
-        b=g03K7K5ZAh/+WyLno2P+0JQVPLcpPDRw9/QdjaL/vXX3Mdnthy407jeS647Tj7O8Zc
-         ax7tu5aJe2tKqP2jlBIJSQ0jqxnYDARowghB4MPn4FzDnk7PUBtZcAYjiaJtnZkN7p0h
-         aPdw4yvQLNqWfjkJGDXKSs9/Xpa1FHl8dFqmilK9sUgxxfwSuXavty0DH7fyE4ApNJo3
-         5bkWo69BPfqosmhQTkXmAvJtSNE361Az4VsNvrR1X+q8Aa3SqU9wYENRN8EiERSPvmld
-         YLO/SYTcX9DSVw3oaXi3KfM0GdxEX7aJJ/ac6wT0e79anb3UR2FeuQAy0rZndEA2ZxKt
-         wkBQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUhFkt9NZB3FsyFy2lCbmodiprTd4IwUm6cD8IuXkw5xTzP706Cw0WlpVBpNmwMw2jz33xZK16Boe5i77mVRbFg@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQ5wAFcKi82gYu/eiuPMp5W2WCt6Csq8aI0ciAl5bEOJWgv3DL
-	auzLkOathDRNi7ecBnHWRRC+h0mbM7sy5v6cHhXkhv/WTbhdLRvftr6x944Bw+XIjb3faC8jY94
-	7LneVYOSl0iZC7IbI9IuvUUW7UHuuhvMN9zd5exzR
-X-Gm-Gg: ASbGncu6+Big3p2y6LkhHwh5FIktko8Q+ExbPz9Emn9DZR0s9rCsBg+O6LqA57hb6Au
-	WdLLkNSWAMDHPjMzKr+lRQa7MF+Jv1NbvMc4W6jCAjmHo5OANLCaY092bRUwkkO34NVnwL2Lqot
-	oYFDlBS3aqQzIc0BXfsx+hxoW+HMvrvC/Wpyp59uuePczVVG0q7Tp1viGFLSNIy+qFFKRF4WQ14
-	VPUGywkbyBJLurV4YIdeznEH14vEq+NUcgnDQ9Zw+9f7sTD3GAo1+tLV2GcBQ==
-X-Google-Smtp-Source: AGHT+IG+QPrYaBQEcc1m0DbO6LG5DEjR0TPM5uYoLtJqrCmn8hGuxLighHMEr0XBvn54MH/J/Jg3LC3BrvSJqr9grVc=
-X-Received: by 2002:a05:651c:2125:b0:36a:925e:cf3c with SMTP id
- 38308e7fff4ca-37609e92df7mr13074921fa.31.1759980273543; Wed, 08 Oct 2025
- 20:24:33 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1759980563; x=1760585363;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=JpBrYi8OaSK64ZsI47g3j0U1q75t5NwItcJ4jghSQ6k=;
+        b=gyeF3ApI6bdSxYuakklj8L1yDMa+UxfQcgU/UgvgO2wDxCnft2ljmcumAKTWu5nAOz
+         Rhmy/A77nRWUZxlpFNOk+SStyKQOlPbmuP3eyRNigcR0B+CsgvW5jeq2ZYekhetkVD6m
+         5a+xQtPVvOKBtKVHhgxtlNLT0+4tpzXBf3nJywKDjw3WYxzfmexMrLd9tb0LBOb/t4sg
+         WNHow1gF5E2yTCEb+GSSScp0ddhKlp89WS/GuwY09ZzszvVGRejXqOt9ikpWPJlL5kI0
+         sHNsW21ptPIcp1y2eKKKJlLPKao2Xtr7oHojBTslCgWC3H+Gu40K8XOOsHAKNjZDoGka
+         ovmQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUX3laUkMWVLUKQo1U4xcJnCpau1immtrFzgbiAg3Y7vA0bJckgvVavV5X2r7/1dlvA1oTczIF7j7OEMAzJ9/4s@lists.infradead.org
+X-Gm-Message-State: AOJu0YxVjS2+81tARws5A+zttvPYSrp4bscPBUoRP+F7EP+NZ5DQGWDL
+	qX25s9Whp5qJA28wijjAny4jbaNi8CjK4PWAyjmpq8O+v3TmKtaDe3RJK2q73t2pw9U=
+X-Gm-Gg: ASbGncvDB+miVxqMmIEViHSK/YnDODwXlgNOPwDbm5T6wUCqX8io0YWvyM8N9V2324h
+	IqK4SFGdrq+Q9jwIMdqBj9GLxCA8M2ZL5WGsne16qbWDt1SnQCi70CxT8ba6Ttqa0BKdGSGp/3J
+	Nqx7zoW6a/LqgtBfIHl1X/7me+ZGPoKUneunkMNuvnnCurSPUXxMq1Fom3OK8ZX5KVZJYjgQx7B
+	wkOgR3c11LCJ071a22IdX+sr1TAHuA9EzJWSIGvRuvw9nQTzlQX0JE4hlOveF5NeZC7XAvu4h8h
+	94R1OHDEmA5yFeL3P6MNUTkA54OQgFOmEppW/IciJ6hfHMXKXTaIwal5AMysI/Rgpae/JpM+mUx
+	XT+SYjQunsPASCqiVY2pIVmfuw9SSTBQ8KRTkm/VjLQ7gAh2Z/kE+zZg2MWBv2rPXPgkucnaXVX
+	IeU8kYB8l5F9ox+fCVCa2ntw==
+X-Google-Smtp-Source: AGHT+IFRlFMSgpyV+I+rT5AczJyjaNpsL4H8TkyxvKqiDHtqjU3VLps9m9B9k3wusNgIZV/khJ/OsA==
+X-Received: by 2002:aa7:88c8:0:b0:77f:143d:eff2 with SMTP id d2e1a72fcca58-79387c191fcmr6789523b3a.28.1759980562388;
+        Wed, 08 Oct 2025 20:29:22 -0700 (PDT)
+Received: from L6YN4KR4K9.bytedance.net ([139.177.225.226])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-794d4b39400sm1271306b3a.15.2025.10.08.20.29.13
+        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
+        Wed, 08 Oct 2025 20:29:22 -0700 (PDT)
+From: Yunhui Cui <cuiyunhui@bytedance.com>
+To: akpm@linux-foundation.org,
+	alex@ghiti.fr,
+	anup@brainfault.org,
+	aou@eecs.berkeley.edu,
+	atish.patra@linux.dev,
+	catalin.marinas@arm.com,
+	cuiyunhui@bytedance.com,
+	dianders@chromium.org,
+	johannes@sipsolutions.net,
+	lihuafei1@huawei.com,
+	mark.rutland@arm.com,
+	masahiroy@kernel.org,
+	maz@kernel.org,
+	mingo@kernel.org,
+	nicolas.schier@linux.dev,
+	palmer@dabbelt.com,
+	paul.walmsley@sifive.com,
+	suzuki.poulose@arm.com,
+	thorsten.blum@linux.dev,
+	wangjinchao600@gmail.com,
+	will@kernel.org,
+	yangyicong@hisilicon.com,
+	zhanjie9@hisilicon.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org,
+	linux-perf-users@vger.kernel.org,
+	linux-riscv@lists.infradead.org
+Subject: [PATCH v3 0/2] Add HARDLOCKUP_DETECTOR_PERF support for RISC-V
+Date: Thu,  9 Oct 2025 11:28:36 +0800
+Message-Id: <20251009032838.63060-1-cuiyunhui@bytedance.com>
+X-Mailer: git-send-email 2.39.2 (Apple Git-143)
 MIME-Version: 1.0
-References: <20251002092036.2504858-1-wenst@chromium.org> <aOb6iNR9T4R9Hp3R@redhat.com>
-In-Reply-To: <aOb6iNR9T4R9Hp3R@redhat.com>
-From: Chen-Yu Tsai <wenst@chromium.org>
-Date: Thu, 9 Oct 2025 11:24:22 +0800
-X-Gm-Features: AS18NWATwDeEXLQ-tcqHs03KqOOqKmAvfXttBG9nKH4eO_votAHmlfrLRfdR9ao
-Message-ID: <CAGXv+5HPjEnYh+zUi67+Y=nmFfdRFw0xd=rT7L_-GNxouga4Ow@mail.gmail.com>
-Subject: Re: [PATCH] clk: tests: Add tests for clk lookup by name
-To: Brian Masney <bmasney@redhat.com>
-Cc: Stephen Boyd <sboyd@kernel.org>, linux-clk@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251008_202436_243373_DC87A0BB 
-X-CRM114-Status: GOOD (  25.67  )
+X-CRM114-CacheID: sfid-20251008_202926_998734_5C948DA2 
+X-CRM114-Status: GOOD (  11.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,61 +119,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 9, 2025 at 7:58=E2=80=AFAM Brian Masney <bmasney@redhat.com> wr=
-ote:
->
-> On Thu, Oct 02, 2025 at 05:20:35PM +0800, Chen-Yu Tsai wrote:
-> > Clk lookup (by name) recently gained some performance improvements at
-> > the expense of more complexity within the lookup code.
-> >
-> > To make sure that this works as intended and doesn't break, add some
-> > basic tests for this part of the CCF.
-> >
-> > A new "clk_hw_lookup()" function is added purely for running kunit
-> > tests.
-> >
-> > Signed-off-by: Chen-Yu Tsai <wenst@chromium.org>
-> > ---
-> >  drivers/clk/clk.c      | 11 +++++++
-> >  drivers/clk/clk.h      |  4 +++
-> >  drivers/clk/clk_test.c | 66 +++++++++++++++++++++++++++++++++++++++++-
-> >  3 files changed, 80 insertions(+), 1 deletion(-)
-> >
-> > diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
-> > index 85d2f2481acf..a17d0070d11f 100644
-> > --- a/drivers/clk/clk.c
-> > +++ b/drivers/clk/clk.c
-> > @@ -778,6 +778,17 @@ struct clk *__clk_lookup(const char *name)
-> >       return !core ? NULL : core->hw->clk;
-> >  }
-> >
-> > +#if IS_ENABLED(CONFIG_CLK_KUNIT_TEST)
-> > +/* This is only provided for kunit tests to test the core lookup funct=
-ions. */
-> > +struct clk_hw *clk_hw_lookup(const char *name)
-> > +{
-> > +     struct clk_core *core =3D clk_core_lookup(name);
-> > +
-> > +     return !core ? NULL : core->hw;
-> > +}
-> > +EXPORT_SYMBOL_GPL(clk_hw_lookup);
-> > +#endif
->
-> Use EXPORT_SYMBOL_IF_KUNIT instead for consistency with the rest of the
-> kernel. In clk_test.c, you'll also need to add:
->
-> MODULE_IMPORT_NS("EXPORTED_FOR_KUNIT_TESTING");
+After discussion [1],[2], hardlockup_perf cannot be completely replaced by
+the hardlockup_buddy approach, so this patch is still being submitted.
 
-Didn't know about this one. Thanks!
-
-> Since clk_hw_lookup() is only used by kunit, why not just put this new
-> function in clk-test.c, and use EXPORT_SYMBOL_IF_KUNIT on
-> clk_core_lookup?
-
-Then we end up sort of exposing clk_core_lookup as well?
-
-I believe Stephen wants to keep things contained as much as possible.
+v1->v2:
+The contents of arch/arm64/watchdog_hld.c are directly consolidated into
+kernel/watchdog_perf.c.
 
 
-ChenYu
+v2->v3:
+Add CONFIG_WATCHDOG_PERF_ADJUST_PERIOD to enclose the period update logic,
+select it by default on arm64 and riscv, without affecting other arches
+like x86 and PPC.
+
+Link: https://lore.kernel.org/all/CAD=FV=UEhVCD6JehQi1wor2sSmtTLDyf=37xfo-DOTK1=u1xzA@mail.gmail.com/ [1]
+Link: https://lore.kernel.org/all/20250916145122.416128-1-wangjinchao600@gmail.com/ [2]
+
+Yunhui Cui (2):
+  watchdog: move arm64 watchdog_hld into common code
+  riscv: add HARDLOCKUP_DETECTOR_PERF support
+
+ arch/arm64/Kconfig               |  2 +
+ arch/arm64/kernel/Makefile       |  1 -
+ arch/arm64/kernel/watchdog_hld.c | 94 --------------------------------
+ arch/riscv/Kconfig               |  4 ++
+ drivers/perf/arm_pmu.c           | 10 +++-
+ drivers/perf/riscv_pmu_sbi.c     | 10 ++++
+ include/linux/perf/arm_pmu.h     |  2 -
+ kernel/watchdog_perf.c           | 83 ++++++++++++++++++++++++++++
+ lib/Kconfig.debug                |  8 +++
+ 9 files changed, 116 insertions(+), 98 deletions(-)
+ delete mode 100644 arch/arm64/kernel/watchdog_hld.c
+
+-- 
+2.39.5
+
 
