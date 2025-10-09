@@ -4,173 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 034FECCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 08:14:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B678CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 08:19:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=z/B31lhY4bVYeZNnk+dMlfOVrRbTYtHHzwgcdMMaTVE=; b=3xa/oxZDfFKcfVnMJZngVnBG50
-	dkNG5IKW50jZ7L+yxh1+xwaQImOHaelero+O42koEC3W5L41QApkzxN/T2LjBWLa2FDD5jUlJIlin
-	IpcRNfMCtf8GY6z3aq8JL4gaBpLhxkFsMnKRC5kbp8z9cMqfFMeoCQQHrVQFqiUdfPm+KeWEVBOpJ
-	TXY87Q3RdCTStLf7KNXjtTD4eiBYTSqNVcehmMn9lTUPqOC0+7a/4dlOx50cKgMimlL5Kvbe+KWeQ
-	1hY/aed5hMzUSbvgp0HAtlTxQZvmmnB0NuHq9Dt4OxgtLI0E3OnHUBlfIYeQmekGOGnEGsr0au4pk
-	KXVbl1TQ==;
+	bh=faVDqKCdKWIn3NWkm8sNO3VSI1X3h4Cs5MtO9NYvbBo=; b=cxYab0cyqYgh2/4+/6CtREau9v
+	0yBnsjxEDBgg8CiHNM/Mk9g9ZqJ5nSmQxLu7QHiMLrsOnfX2TXoS6ymj13+Jrh4LQL3+OGf7ZNAbB
+	6A9RseEZ961CB+p0rARrZ5U9/wnIRc/gxM0jewiuLtWi9nnxq+d8iKwmkSkly+6ayf7ACRRE85uND
+	UWu2hWAuVZgT1O9yH2jJlM55DtUQhz23gh9wvVD1LLhhJBBq6RnbEV8J1uTySwzDRpFwjNQrlAI1h
+	69fZ+wKv8LiBD51NAyuNyIcfl8oFotO/aZ+R918n3enSnPnN9JPTtu+FtvAWX119AMfFTLQB+TJ7W
+	GGmWfMVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6lmv-00000005U0J-2wkC;
-	Thu, 09 Oct 2025 08:14:13 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1v6lrb-00000005Umh-41mf;
+	Thu, 09 Oct 2025 08:19:03 +0000
+Received: from mail-pg1-x529.google.com ([2607:f8b0:4864:20::529])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6lmt-00000005Tym-1mXk
+	id 1v6lrZ-00000005Ult-4BDr
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 08:14:12 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1759997650;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=z/B31lhY4bVYeZNnk+dMlfOVrRbTYtHHzwgcdMMaTVE=;
-	b=eklmgPlVwxUbD5RGKNTMAISiecA9nE5fWKvBUBlE1Eaa5aW9+2nYOpVnuT0ItCXsQ2jK3l
-	ceI+GP+B/aJdI56cbRLWcJg6OveIIRtDiv/L1fXBz0TXjWhPVqP8FttRgfzbAPME09OqRg
-	6nC3+3g8hGxfyzITX7ZUeHxupzqIIOg=
-Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
- [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-43-ybDHVZblMHOfeYDmjwwJAw-1; Thu, 09 Oct 2025 04:14:09 -0400
-X-MC-Unique: ybDHVZblMHOfeYDmjwwJAw-1
-X-Mimecast-MFC-AGG-ID: ybDHVZblMHOfeYDmjwwJAw_1759997648
-Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-46e3d9bf9e1so3724805e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 01:14:09 -0700 (PDT)
+	Thu, 09 Oct 2025 08:19:03 +0000
+Received: by mail-pg1-x529.google.com with SMTP id 41be03b00d2f7-b6329b6e3b0so1326793a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 01:19:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1759997941; x=1760602741; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=faVDqKCdKWIn3NWkm8sNO3VSI1X3h4Cs5MtO9NYvbBo=;
+        b=T6+5cFokQ5i2eJqRgirWDHLVJICiV8kh2zKskkmT6bSriRET2dxVjZppvxxA4tqiev
+         fYv0nOwXj92mWJQLs4Ivt2x2eNgB7AC79JyWfTRZI8YFVWoEBuJ9RWLu91rSuRkJYaG+
+         n2MfAmDubCOVZTPVwrl0K61R7Ip1NoHDwCxGo=
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1759997648; x=1760602448;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=z/B31lhY4bVYeZNnk+dMlfOVrRbTYtHHzwgcdMMaTVE=;
-        b=mSiXHtZgL3U2W48V62utX9M3tLZPu7u0V+afQsGQ7I8v5X1mAbNVaHPs1lCxh/JkBX
-         AqWZS0VV1Q/7ZcndCG/D6hpp62rhLWEYVULvj88Co4vqfkz5znOXHnex476S7BN2Kl1B
-         WfWXxIIkF4yOYUsClowqJjjMm1suNF7YqGbosiLFb/nwhsWOfx4rpdmzDc1wxLST4xBn
-         oY5cA6rmbYCrxf6Oj0Ut1YSXoF0EW4ILYo2g3w1aOmiYnQlXjuMu6wrdkVm4wPF2NcVN
-         tCFNwX6pbjOVPEILDcUS1L+o9QkNEjfVzk6pqbxp/nzHQNMQ+DUE58AlzxKUFlVVnDG9
-         OGNw==
-X-Forwarded-Encrypted: i=1; AJvYcCViqkRtIeSE6W1nrN1ET3SDUki7jqYWkqUwKYbUXUyLVLyOMXkv6ig4BjGijrnQ7/l4nv+aNlSpp1GL1lbB46F5@lists.infradead.org
-X-Gm-Message-State: AOJu0YwM/WvAUWou9DsnIcNNvbtht2CI68NO0ozjXWjGJQj8iQWEvm/+
-	p0YBJb0075sxdpKVkYBmP3Qgxy6TtntnkYRJC0u2xkGCIO03anvtgKqgWvRvpQdQcOgWsyvyOay
-	rPRn7l+2QEMB54I2aCkamS/rF5UB+e6bN65GN0u1YjnxMi3qiuuaBgGu1MaGeczD8OPwXt49bBc
-	0X
-X-Gm-Gg: ASbGnctJXKJ6458HJidxyVSDVuuZvaY4OYG2w65S7vgRwxnsAb0Tea1OXUFO7AAeFum
-	kp2QWJe9a1KqrLMOSjHI86GrCxXhR3VMGvwXknG23PxWCmLYPbWSS5xTVZA5PGF167VSPcHKPWx
-	DukjwzyIfJcbsJhmaORJpotWXeZitjlfa137HH8SCmO/QQnoqG9GNPgQiJKdymoMCa4LXRWCZC8
-	L+92b0yU0rlzAPnQu0HkyQhzrvCEhUmIskk7hbt+DYyfQNnTyGwEsVAcP3kuQ1P/3KdwjMkcShn
-	Gyi4HEatpR9uuR5JkGdFvtT7uZdMgaI9orpkcruROY3+VDOZtKiqYyTmoCHekTRocB59afF7lyi
-	F72McgHUU
-X-Received: by 2002:a05:600c:4750:b0:45f:28d2:bd38 with SMTP id 5b1f17b1804b1-46fa9af3095mr47092545e9.18.1759997648077;
-        Thu, 09 Oct 2025 01:14:08 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGo93r/upxlN0XWroa/gVbVuSE1HI9H4cBHGhOGnkYv+FuHkp7MlpzQ4ByJt+h+2JF6rzGBiQ==
-X-Received: by 2002:a05:600c:4750:b0:45f:28d2:bd38 with SMTP id 5b1f17b1804b1-46fa9af3095mr47092215e9.18.1759997647608;
-        Thu, 09 Oct 2025 01:14:07 -0700 (PDT)
-Received: from [192.168.3.141] (tmo-083-189.customers.d1-online.com. [80.187.83.189])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46fa9d6fb41sm71628175e9.17.2025.10.09.01.14.03
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 09 Oct 2025 01:14:07 -0700 (PDT)
-Message-ID: <9361c75a-ab37-4d7f-8680-9833430d93d4@redhat.com>
-Date: Thu, 9 Oct 2025 10:14:02 +0200
+        d=1e100.net; s=20230601; t=1759997941; x=1760602741;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=faVDqKCdKWIn3NWkm8sNO3VSI1X3h4Cs5MtO9NYvbBo=;
+        b=jNndnS5CLZvNEMAazBV/1JcvvMCSOK6SvysDwVdurAoGlufykcuUTXixFf4/adt+R8
+         MURSBw6/kS66E647lJ8vizFOdQGDT9EHnaGn5DhVgWHR4Cofc5MZxLucoqc5/uJXyBt3
+         7hrvYpzwUBB0xEAPg2xTC+EW65uVyktlt7/hT9jynCCCLL/+AXc9e5wlOB/gY9j66c5n
+         7QxOwgLKWhPXxkOASNmDj+pfSQ9XKjcWC2M/Z+tpjVk+w+fEI3H04+pcTTDfAQIL3HMP
+         oId6S04ofv9jcEFolKzkhZCYUi1hY8iFFQdey1SJHTnHvGCxvGI0wSU4BBGQxTajAi4b
+         gcgA==
+X-Forwarded-Encrypted: i=1; AJvYcCW1VKuDwZ0ghQ9mdOgs4B6+X3uknJcREK0m2rGDjGhrGQE0FtEFLzZJuA3uGH/xRxzzr0hUKzmxAdBZ4puauc08@lists.infradead.org
+X-Gm-Message-State: AOJu0YwAEJK+M4XMBNCZNjyrTGWA1A1dxd5mhIZTJI8wamkbFH1Bxrt5
+	FiF5siJPPk3ezTvxv0ChXIT8AFKaJ8rW8l1I/AuzcgGd3da1SSYFFVMtv8YCfkXiSnP4jAliORO
+	bYNlR2NB4vdFRjVkO1tUEsoP2xvemcr83n/9YAbn7
+X-Gm-Gg: ASbGncu67/5Cx3XhBk+hF5BZMUhunlGr9zFn/cmJFaw9S2roTtEITJyNkT55DVNuevc
+	Pqqxa+zv2J4ez6ZLrye59SG6vkCVGkEcghcczEyQc//tS+rctU226vYaNdZXJkMmOxSha+11i+i
+	CKrEL6ruWbkRAFn7yEK5r6hxZ8IfIDDa9ApFF+jDWO1MUp0XQHgpsowpY89/2BwH4LwHJBelK6s
+	2U+6J/PVlEcw7iY/E0qT4fJqCFqnSXhryzBNAqyEI7v//o8zghYe7C/uf0s3g==
+X-Google-Smtp-Source: AGHT+IG8hUHTkL+0dXNTRX/4yTjjacHxUhJpfIwq4JvXFm1KYIbTsH15Oh51ajo74tr7nKhGrgMAEZfz3BlrBGqWW9I=
+X-Received: by 2002:a17:903:28c:b0:267:8b4f:df36 with SMTP id
+ d9443c01a7336-28ec9cd714amr123635935ad.29.1759997941215; Thu, 09 Oct 2025
+ 01:19:01 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: (bisected) [PATCH v2 08/37] mm/hugetlb: check for unreasonable
- folio sizes when registering hstate
-To: Christophe Leroy <christophe.leroy@csgroup.eu>,
- linux-kernel@vger.kernel.org
-Cc: Zi Yan <ziy@nvidia.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Alexander Potapenko <glider@google.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
- Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
- dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
- iommu@lists.linux.dev, io-uring@vger.kernel.org,
- Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
- Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
- kasan-dev@googlegroups.com, kvm@vger.kernel.org,
- Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
- linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
- linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-scsi@vger.kernel.org, Marco Elver <elver@google.com>,
- Marek Szyprowski <m.szyprowski@samsung.com>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Muchun Song <muchun.song@linux.dev>,
- netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
- Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
- Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
- virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
- wireguard@lists.zx2c4.com, x86@kernel.org,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>
-References: <20250901150359.867252-1-david@redhat.com>
- <20250901150359.867252-9-david@redhat.com>
- <3e043453-3f27-48ad-b987-cc39f523060a@csgroup.eu>
- <d3fc12d4-0b59-4b1f-bb5c-13189a01e13d@redhat.com>
- <faf62f20-8844-42a0-a7a7-846d8ead0622@csgroup.eu>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- qIws/H2t
-In-Reply-To: <faf62f20-8844-42a0-a7a7-846d8ead0622@csgroup.eu>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: T8d2ozuVtjrXPc5EH74E21qgOcRunDKoAHReVDWLH6k_1759997648
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+References: <20251008-mtk-pll-rpm-v2-0-170ed0698560@collabora.com>
+ <20251008-mtk-pll-rpm-v2-2-170ed0698560@collabora.com> <2477df4e-c89e-408f-bb2a-d5af51f78ef8@collabora.com>
+In-Reply-To: <2477df4e-c89e-408f-bb2a-d5af51f78ef8@collabora.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Thu, 9 Oct 2025 16:18:42 +0800
+X-Gm-Features: AS18NWCTXFo8_XU732GoC_EADGZOvbHUHoSmyBMCpLqt3ZP7mbYJfRNT_Vg0jY8
+Message-ID: <CAGXv+5FTg3VXpbav5c2Gx2vRgaC=jYURRp0b5tQGw+ScACRSew@mail.gmail.com>
+Subject: Re: [PATCH v2 2/5] clk: mediatek: Refactor pll registration to pass device
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Dong Aisheng <aisheng.dong@nxp.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	Yassine Oudjana <y.oudjana@protonmail.com>, Laura Nao <laura.nao@collabora.com>, 
+	=?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>, 
+	Chia-I Wu <olvaffe@gmail.com>, kernel@collabora.com, linux-clk@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, Stephen Boyd <sboyd@codeaurora.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_011411_608425_14BFFA8C 
-X-CRM114-Status: GOOD (  15.55  )
+X-CRM114-CacheID: sfid-20251009_011902_090877_E2205736 
+X-CRM114-Status: GOOD (  23.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -185,73 +99,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09.10.25 10:04, Christophe Leroy wrote:
-> 
-> 
-> Le 09/10/2025 à 09:22, David Hildenbrand a écrit :
->> On 09.10.25 09:14, Christophe Leroy wrote:
->>> Hi David,
->>>
->>> Le 01/09/2025 à 17:03, David Hildenbrand a écrit :
->>>> diff --git a/mm/hugetlb.c b/mm/hugetlb.c
->>>> index 1e777cc51ad04..d3542e92a712e 100644
->>>> --- a/mm/hugetlb.c
->>>> +++ b/mm/hugetlb.c
->>>> @@ -4657,6 +4657,7 @@ static int __init hugetlb_init(void)
->>>>         BUILD_BUG_ON(sizeof_field(struct page, private) * BITS_PER_BYTE <
->>>>                 __NR_HPAGEFLAGS);
->>>> +    BUILD_BUG_ON_INVALID(HUGETLB_PAGE_ORDER > MAX_FOLIO_ORDER);
->>>>         if (!hugepages_supported()) {
->>>>             if (hugetlb_max_hstate || default_hstate_max_huge_pages)
->>>> @@ -4740,6 +4741,7 @@ void __init hugetlb_add_hstate(unsigned int order)
->>>>         }
->>>>         BUG_ON(hugetlb_max_hstate >= HUGE_MAX_HSTATE);
->>>>         BUG_ON(order < order_base_2(__NR_USED_SUBPAGE));
->>>> +    WARN_ON(order > MAX_FOLIO_ORDER);
->>>>         h = &hstates[hugetlb_max_hstate++];
->>>>         __mutex_init(&h->resize_lock, "resize mutex", &h->resize_key);
->>>>         h->order = order;
->>
->> We end up registering hugetlb folios that are bigger than
->> MAX_FOLIO_ORDER. So we have to figure out how a config can trigger that
->> (and if we have to support that).
->>
-> 
-> MAX_FOLIO_ORDER is defined as:
-> 
-> #ifdef CONFIG_ARCH_HAS_GIGANTIC_PAGE
-> #define MAX_FOLIO_ORDER		PUD_ORDER
-> #else
-> #define MAX_FOLIO_ORDER		MAX_PAGE_ORDER
-> #endif
-> 
-> MAX_PAGE_ORDER is the limit for dynamic creation of hugepages via
-> /sys/kernel/mm/hugepages/ but bigger pages can be created at boottime
-> with kernel boot parameters without CONFIG_ARCH_HAS_GIGANTIC_PAGE:
-> 
->     hugepagesz=64m hugepages=1 hugepagesz=256m hugepages=1
-> 
-> Gives:
-> 
-> HugeTLB: registered 1.00 GiB page size, pre-allocated 0 pages
-> HugeTLB: 0 KiB vmemmap can be freed for a 1.00 GiB page
-> HugeTLB: registered 64.0 MiB page size, pre-allocated 1 pages
-> HugeTLB: 0 KiB vmemmap can be freed for a 64.0 MiB page
-> HugeTLB: registered 256 MiB page size, pre-allocated 1 pages
-> HugeTLB: 0 KiB vmemmap can be freed for a 256 MiB page
-> HugeTLB: registered 4.00 MiB page size, pre-allocated 0 pages
-> HugeTLB: 0 KiB vmemmap can be freed for a 4.00 MiB page
-> HugeTLB: registered 16.0 MiB page size, pre-allocated 0 pages
-> HugeTLB: 0 KiB vmemmap can be freed for a 16.0 MiB page
+On Thu, Oct 9, 2025 at 4:09=E2=80=AFPM AngeloGioacchino Del Regno
+<angelogioacchino.delregno@collabora.com> wrote:
+>
+> Il 08/10/25 18:05, Nicolas Frattaroli ha scritto:
+> > As it stands, mtk_clk_register_plls takes a struct device_node pointer
+> > as its first argument. This is a tragic happenstance, as it's trivial t=
+o
+> > get the device_node from a struct device, but the opposite not so much.
+> > The struct device is a much more useful thing to have passed down.
+> >
+> > Refactor mtk_clk_register_plls to take a struct device pointer instead
+> > of a struct device_node pointer, and fix up all users of this function.
+> >
+> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > ---
+> >   drivers/clk/mediatek/clk-mt2701.c            | 2 +-
+> >   drivers/clk/mediatek/clk-mt2712-apmixedsys.c | 2 +-
+> >   drivers/clk/mediatek/clk-mt6735-apmixedsys.c | 4 ++--
+> >   drivers/clk/mediatek/clk-mt6765.c            | 2 +-
+> >   drivers/clk/mediatek/clk-mt6779.c            | 2 +-
+> >   drivers/clk/mediatek/clk-mt6797.c            | 2 +-
+> >   drivers/clk/mediatek/clk-mt7622-apmixedsys.c | 2 +-
+> >   drivers/clk/mediatek/clk-mt7629.c            | 2 +-
+> >   drivers/clk/mediatek/clk-mt7981-apmixed.c    | 2 +-
+> >   drivers/clk/mediatek/clk-mt7986-apmixed.c    | 2 +-
+> >   drivers/clk/mediatek/clk-mt7988-apmixed.c    | 2 +-
+> >   drivers/clk/mediatek/clk-mt8135-apmixedsys.c | 3 ++-
+> >   drivers/clk/mediatek/clk-mt8167-apmixedsys.c | 2 +-
+> >   drivers/clk/mediatek/clk-mt8183-apmixedsys.c | 2 +-
+> >   drivers/clk/mediatek/clk-mt8188-apmixedsys.c | 2 +-
+> >   drivers/clk/mediatek/clk-mt8195-apusys_pll.c | 3 ++-
+> >   drivers/clk/mediatek/clk-mt8196-apmixedsys.c | 3 ++-
+> >   drivers/clk/mediatek/clk-mt8196-mcu.c        | 2 +-
+> >   drivers/clk/mediatek/clk-mt8196-mfg.c        | 2 +-
+> >   drivers/clk/mediatek/clk-mt8196-vlpckgen.c   | 2 +-
+> >   drivers/clk/mediatek/clk-mt8365-apmixedsys.c | 2 +-
+> >   drivers/clk/mediatek/clk-mt8516-apmixedsys.c | 2 +-
+> >   drivers/clk/mediatek/clk-pll.c               | 7 ++++---
+> >   drivers/clk/mediatek/clk-pll.h               | 6 +++---
+> >   24 files changed, 33 insertions(+), 29 deletions(-)
+> >
+>
+> ..snip..
+>
+> > diff --git a/drivers/clk/mediatek/clk-pll.h b/drivers/clk/mediatek/clk-=
+pll.h
+> > index d71c150ce83e4bb2fe78290c2d5570a90084246d..0e2b94b9cd4b56adceee3b0=
+4e9ab24c2526471da 100644
+> > --- a/drivers/clk/mediatek/clk-pll.h
+> > +++ b/drivers/clk/mediatek/clk-pll.h
+> > @@ -78,9 +78,9 @@ struct mtk_clk_pll {
+> >       const struct mtk_pll_data *data;
+> >   };
+> >
+>
+> There's a forward declaration of struct device_node in this header: with =
+this
+> change, that becomes unused.
+>
+> Please change that to a forward declaration of struct device instead.
+>
+> While at it, I'd appreciate if you could either:
+>   A. Remove the forward declaration for `struct clk_hw_onecell_data` and =
+for
+>      `struct clk_ops` (as both come from clk-provider.h - which this alre=
+ady
+>       includes);
+>     ...or...
+>   B. Remove the inclusion of clk-provider.h and keep the forward declarat=
+ions.
 
-I think it's a violation of CONFIG_ARCH_HAS_GIGANTIC_PAGE. The existing 
-folio_dump() code would not handle it correctly as well.
+Prefer (B) since no APIs from clk-provider.h are referenced in the header.
+It is up to the implementation to directly include any and all headers it
+needs.
 
-See how snapshot_page() uses MAX_FOLIO_NR_PAGES.
+ChenYu
 
--- 
-Cheers
-
-David / dhildenb
-
+> After which:
+>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collab=
+ora.com>
+>
+> > -int mtk_clk_register_plls(struct device_node *node,
+> > -                       const struct mtk_pll_data *plls, int num_plls,
+> > -                       struct clk_hw_onecell_data *clk_data);
+> > +int mtk_clk_register_plls(struct device *dev, const struct mtk_pll_dat=
+a *plls,
+> > +                       int num_plls, struct clk_hw_onecell_data *clk_d=
+ata);
+> > +
+> >   void mtk_clk_unregister_plls(const struct mtk_pll_data *plls, int num=
+_plls,
+> >                            struct clk_hw_onecell_data *clk_data);
+> >
+> >
+>
+>
 
