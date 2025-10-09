@@ -4,66 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E74FCCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 19:24:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2F260CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 19:25:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dEaVgbgPd6pdNdkhsTHVM6319crKWjoBgMSrCZLttnw=; b=PwzwEyfS0P3FUvfx4dvGCoprc9
-	TwLEq5tVn6yVswsb1m+w1KLJ2oBYvGuQMyrYsUYh3x0fZEUV+QK96rZ1Y1fLoZqFGpjZXEApfIW+H
-	wXhQzgMuqbM/GhhoA7r/Cmvt5aos6QVvPJ2meH5+qwQgBvdF5MfWNZN6HkwCPgbURHZzUSqguWtyu
-	r7mwlxnT1G+3k34xMDbyf63EvlnsyYqkHhQJ/W0lX6Dig80RdzT5lpXfYlsQEsG4ni5MH7ZdDKRNX
-	A8y4PT+/8WVo/fA67IYNZu0B+wRI+2+JD/3atuX04jZy8A7QbugPtPhmpBgXIcuKD3sGGxjKjrKJG
-	drvyf2LQ==;
+	bh=dCubkgD1fN8e/Xm2IYVJwTVp2B0TpWZTmd8E0QeA+KQ=; b=rD/NI6BkyQky4VTHpfTPBtqddv
+	NEZ4+U4tUJQMNWxHbLHsF7Q2aY2g9DrdQHwsh2cjKuJvf+c/vVtgWESbi3ENQyA8aYGTWDFToVBVL
+	YfccVqchnzycMEDccSdr6IdpEFZLv0hWD3mJs4UorSaIw42wmHzLFle+pfWhnjbPh8hHKV0V0smUa
+	uREwzUFKpr1ch3Qzsw7k2V8Xur6CIoH91tjcJsukA540S9O+QaEeN7D38EA4Brr6Kl/mkqeXd0V3u
+	acaDcMcWkoXS9Oxwq3XtSL7qV43cSyOMxW9ZhXdKi0RpRJT7ziwgDL3M784aqA2svri+UfDf6SglC
+	gDVH1Vyw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6wFj-0000000704E-3Ku7;
-	Thu, 09 Oct 2025 19:24:39 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v6wGj-000000070Ei-1s8r;
+	Thu, 09 Oct 2025 19:25:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6wFh-0000000703Z-3DLq;
-	Thu, 09 Oct 2025 19:24:39 +0000
+	id 1v6wGg-000000070Du-1QQw;
+	Thu, 09 Oct 2025 19:25:39 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 26ED448D41;
-	Thu,  9 Oct 2025 19:24:37 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CDE64C4CEE7;
-	Thu,  9 Oct 2025 19:24:36 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A61AC44D51;
+	Thu,  9 Oct 2025 19:25:37 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 405B5C4CEE7;
+	Thu,  9 Oct 2025 19:25:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760037877;
-	bh=U/k071RZERcM5Px1aM2dRrdqdukKiKlQVt6cFVVyxFw=;
+	s=k20201202; t=1760037937;
+	bh=ZleYVLbg1TqX6cXrbg8yQvDdGj6LBQ3wULzm7dwdO6g=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=Z3gSE+wC7q/UPX+C26S+saeRy+b/cA7oBBo8gJbHrlCqWc/8zKCSPNAnHfwUY+jx8
-	 HaFWEyCIvW/YHi/ZWlCzWs0b6sGbCL0bsHF4zcCeeEmtZuUMh5iy+OzE7YwljW2nwX
-	 4LDWhdhzQr14IUvJ64H0mr3By9JA9mRyM5wmpKut/vjqgJbiYF+ks8G2b7FfmXzJbX
-	 jnPPq0OuqpNr/eMvCwbqJC8cNFNpPuhnw0IW7Y+1tCWiZFB8hJH4HrR41iBsxP824d
-	 RWtbjGTm1sssRS8J3HfZzW2oS5IoeFpY/RhdaWC5Jyj5WPFyV2416ytWJbxsMILVkK
-	 vTfrBe6IS6FWw==
-Date: Thu, 9 Oct 2025 14:24:35 -0500
-From: Rob Herring <robh@kernel.org>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Cc: linux-mediatek@lists.infradead.org, lee@kernel.org, krzk+dt@kernel.org,
-	conor+dt@kernel.org, matthias.bgg@gmail.com, lgirdwood@gmail.com,
-	broonie@kernel.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	kernel@collabora.com, wenst@chromium.org,
-	igor.belwon@mentallysanemainliners.org,
-	=?iso-8859-1?Q?N=EDcolas_F=2E_R=2E_A=2E?= Prado <nfraprado@collabora.com>
-Subject: Re: [PATCH v8 8/9] dt-bindings: mfd: Add binding for MediaTek MT6363
- series SPMI PMIC
-Message-ID: <20251009192435.GA3128253-robh@kernel.org>
-References: <20251003091158.26748-1-angelogioacchino.delregno@collabora.com>
- <20251003091158.26748-9-angelogioacchino.delregno@collabora.com>
+	b=N5UXUgWM7C5XGdo1qWqAPTsCK9nnFVgTTrpj8r6TNc2SibypxPp2RmL6ltpQew+Xz
+	 FAUVZDAysSwbBqBx3NAJWldPACkKw13KYYfuEXDmLX0betBRXRQ6RU5L0Qx3IsVEHv
+	 dqxyIiAlIXTXaBwGWDSjo1yvX7MncGZF9UWqG5RP32s2xstqvNk34xxc+6V+qgyEtf
+	 bLE0O4SK5XtWy3XOoEW8MOp+/C1JJcmQVf2+M+HogTO/Ws9iEvTMCPh5lXdpNODYi8
+	 TihPh6SrK1+80/r4vD3XWG0bnp/MvyrUC0eFGl6lKt8Wq2L/s4eIQTihQmLN1s3gC5
+	 DIXYyXlb9tMoQ==
+Date: Thu, 9 Oct 2025 14:25:36 -0500
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	David Airlie <airlied@gmail.com>,
+	"Gustavo A. R. Silva" <gustavoars@kernel.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	linux-arm-kernel@lists.infradead.org,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	Simona Vetter <simona@ffwll.ch>, Kees Cook <kees@kernel.org>,
+	Chia-I Wu <olvaffe@gmail.com>, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, Jassi Brar <jassisinghbrar@gmail.com>,
+	linux-pm@vger.kernel.org, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Liviu Dudau <liviu.dudau@arm.com>, dri-devel@lists.freedesktop.org,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	linux-hardening@vger.kernel.org, kernel@collabora.com,
+	Chen-Yu Tsai <wenst@chromium.org>,
+	linux-mediatek@lists.infradead.org,
+	Boris Brezillon <boris.brezillon@collabora.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Steven Price <steven.price@arm.com>
+Subject: Re: [PATCH v6 1/7] dt-bindings: gpu: mali-valhall-csf: add
+ mediatek,mt8196-mali variant
+Message-ID: <176003793576.3141336.11200895939203051819.robh@kernel.org>
+References: <20251003-mt8196-gpufreq-v6-0-76498ad61d9e@collabora.com>
+ <20251003-mt8196-gpufreq-v6-1-76498ad61d9e@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <20251003091158.26748-9-angelogioacchino.delregno@collabora.com>
+In-Reply-To: <20251003-mt8196-gpufreq-v6-1-76498ad61d9e@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_122437_870242_68B6B669 
-X-CRM114-Status: GOOD (  18.72  )
+X-CRM114-CacheID: sfid-20251009_122538_400649_C35334ED 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -78,152 +90,24 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 03, 2025 at 11:11:57AM +0200, AngeloGioacchino Del Regno wrote:
-> Add a binding for the MediaTek MT6363/6373 (and similar) multi
-> function PMICs connected over SPMI.
+
+On Fri, 03 Oct 2025 22:15:03 +0200, Nicolas Frattaroli wrote:
+> The Mali-based GPU on the MediaTek MT8196 SoC uses a separate MCU to
+> control the power and frequency of the GPU. This is modelled as a power
+> domain and clock provider.
 > 
-> These PMICs are found on board designs using newer MediaTek SoCs,
-> such as the Dimensity 9400 Smartphone chip, or the Chromebook
-> MT8196 chip.
+> It lets us omit the OPP tables from the device tree, as those can now be
+> enumerated at runtime from the MCU.
 > 
-> Reviewed-by: Nícolas F. R. A. Prado <nfraprado@collabora.com>
-> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+> Add the necessary schema logic to handle what this SoC expects in terms
+> of clocks and power-domains.
+> 
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 > ---
->  .../bindings/mfd/mediatek,mt6363.yaml         | 116 ++++++++++++++++++
->  1 file changed, 116 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/mfd/mediatek,mt6363.yaml
+>  .../bindings/gpu/arm,mali-valhall-csf.yaml         | 40 ++++++++++++++++++++--
+>  1 file changed, 38 insertions(+), 2 deletions(-)
 > 
-> diff --git a/Documentation/devicetree/bindings/mfd/mediatek,mt6363.yaml b/Documentation/devicetree/bindings/mfd/mediatek,mt6363.yaml
-> new file mode 100644
-> index 000000000000..8cfb2e9a9389
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/mfd/mediatek,mt6363.yaml
-> @@ -0,0 +1,116 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/mfd/mediatek,mt6363.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: MediaTek MT6363 series SPMI PMICs multi-function device
-> +
-> +maintainers:
-> +  - AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> +
-> +description: |
-> +  Some MediaTek Power Management ICs (PMICs) found in board designs with
-> +  the Helio, Dimensity and/or Kompanio series of SoCs are interfaced to
-> +  the chip via the System Power Management Interface (SPMI) bus.
-> +
-> +  These PMICs are multi-function devices with various sub modules.
-> +  For example, those may include one, or more of the following:
-> +  - Auxiliary ADC Controller
-> +  - Clock Controller
-> +  - eFuses
-> +  - GPIO Controller
-> +  - Interrupt Controller
-> +  - Keys
-> +  - LEDs Controller
-> +  - Regulators
-> +  - RTC
-> +
-> +properties:
-> +  compatible:
-> +    enum:
-> +      - mediatek,mt6363
-> +      - mediatek,mt6373
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  '#address-cells':
-> +    const: 1
-> +
-> +  '#size-cells':
-> +    const: 0
-> +
-> +  interrupts:
-> +    maxItems: 1
-> +
-> +  interrupt-controller: true
-> +
-> +  "#interrupt-cells":
-> +    const: 3
-> +
-> +patternProperties:
-> +  "^adc@[0-9a-f]+$":
-> +    type: object
-> +    $ref: /schemas/iio/adc/mediatek,mt6359-auxadc.yaml#
-> +
-> +  "^regulators@[0-9a-f]+$":
-> +    type: object
-> +    properties:
-> +      compatible:
-> +        contains:
-> +          enum:
-> +            - mediatek,mt6363-regulator
-> +            - mediatek,mt6373-regulator
 
-You can drop properties here. 'compatible' will be covered by the 
-referenced schemas.
+Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
 
-> +    oneOf:
-> +      - $ref: /schemas/regulator/mediatek,mt6363-regulator.yaml#
-> +      - $ref: /schemas/regulator/mediatek,mt6373-regulator.yaml#
-> +    additionalProperties: true
-
-And this can be dropped.
-
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - '#address-cells'
-> +  - '#size-cells'
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    #include <dt-bindings/interrupt-controller/irq.h>
-> +    #include <dt-bindings/spmi/spmi.h>
-> +
-> +    spmi {
-> +      #address-cells = <2>;
-> +      #size-cells = <0>;
-> +
-> +      pmic@4 {
-> +        compatible = "mediatek,mt6363";
-> +        reg = <0x4 SPMI_USID>;
-> +        interrupts = <4 64 IRQ_TYPE_LEVEL_HIGH>;
-> +        interrupt-controller;
-> +        #address-cells = <1>;
-> +        #interrupt-cells = <3>;
-> +        #size-cells = <0>;
-> +
-> +        regulators@30 {
-> +          compatible = "mediatek,mt6363-regulator";
-> +          reg = <0x30>;
-> +
-> +          vio18 {
-> +            regulator-name = "pp1800-vio18-s3";
-> +            regulator-min-microvolt = <1800000>;
-> +            regulator-max-microvolt = <1800000>;
-> +            regulator-allowed-modes = <0 2>;
-> +            regulator-allow-set-load;
-> +            regulator-over-current-protection;
-> +          };
-> +        };
-> +
-> +        adc@1000 {
-> +          compatible = "mediatek,mt6363-auxadc";
-> +          reg = <0x1000>;
-> +          #io-channel-cells = <1>;
-> +        };
-> +      };
-> +    };
-> -- 
-> 2.51.0
-> 
 
