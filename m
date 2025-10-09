@@ -4,168 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 85EF0CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 20:41:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3EE87CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 20:58:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=DS2AIEpBCEUDvJ7kSLW295+0ZETXLynzaBqGnd8ZeJY=; b=0Ar7zGEVMDTrrMQwhGULJEjZy9
-	yU/jNK+bcmEWk+++uhxw5vNwHKFyc65bU+KamAyHkrg1mCwBbOYPrbRqIDp7ZQFWP/l7kbuXkiGVs
-	TPG+NLsU0gmR6X3F7XbrdkoWgPdShOWyWrcoy39pUKBIjK3e445KEavrNoXbV67Exacmh3pESzvPV
-	cLU4zyUiFbPn1RNoheryStz//oaiAd2CGNjGnYDEMT8bA71FYeYntP6ocLa8Q85memA/gXrY/OXwA
-	S4UNAc/KhU3ZVw4R3DMHWxiot280j5jHi5BSWfg11x48QXHeY45dLPhkT3TPE5lwLvNaqmhw6zNLy
-	jr7Y2mcw==;
+	bh=6Svmg4fC9qEdNkkbW7Zw7TQK03ok0QyEpUIGM0MaKbU=; b=n9iN96Ui+t4Cwi4xy7nVT6wIbt
+	Ey2p/plvaN9ItpWuOoSs8LtE9ydklGYtiwCI3kkQoRGLtlzTYGe+ya1ah8s9l8+qAMhu4afV3mQmx
+	43opJT1tM4J5fQ/9BNYrwWvq0ZYsOPIDWUIduhDEz/MqsnHOVHbAPP2x0Il7lf3LCQg688D+B4aj8
+	N0SQzgBhEWGkqWwt98lmnNBxixZr68W/417K1fCq/FTD35kH2tlrTX8HmYS46DtD0Qwbz2nRE2ExY
+	pbzi7zlOfx+UFvz9esqPd/QmXNpynDkCHWTeh3QV5gezqNRNlM8HvCl6DLVVHTmQd3VQi6WCPjCRT
+	0QdFVl2w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6xRr-000000075hc-16RU;
-	Thu, 09 Oct 2025 20:41:15 +0000
-Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
+	id 1v6xil-000000077Dg-3kVB;
+	Thu, 09 Oct 2025 20:58:43 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6xRn-000000075gL-3pDt
+	id 1v6xij-000000077D3-3sdZ
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 20:41:13 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=Y2b+bWouZHZtdhSKphb0SshJaIGGig9RXlJxUaDMbzxXYqanQ5Xy7XmDFvh06o39AYDhxEOzH+x5UxOON1243f2fGTnVdzBzpAOKrnYj2veKnrn0HkyvLfOdP1L4WMgkwhqfq9IkEDbiYUjM+Fs5fJkEXKL9vrJ6kc3zXqNFheZ+MQAIOntBOF/3XsmtqdWVo6SEWpVX11WCjzOZqXMyRZKxaMBnJdv1tjK1MYMJFeFqKutWNZPQAskuZ32hKq9NmNGZoRLB5Kdw6/CIjxapN3MGCLmElO2WktqAVHMxE5Ip8VN3wt/5zUKwJE+1FDsI7WyQy1F0beUJr2gbjhnQ5w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=DS2AIEpBCEUDvJ7kSLW295+0ZETXLynzaBqGnd8ZeJY=;
- b=D5ajOufl8KP/Ny5MK3M4mwwgRNxC9pYZxZpihv4D6RTfSYtjsEBQiaihWxxzj2GqyE+bPMq+AU/fHkNRPCCx/myWp/N9ZClFMiNBT5SPnKnxiQ1C52PQnMU8i5SjtxEwMpHdIrhokuoPQykaguPaBuG3Avp/U2kkzOg7W3Ri2UL0FxcoXB/OQVrzXdRCAUATJSAJJgWujv4HF7vGi7Q9zVCXnnj64oe10VzIVRgXOOh5TS9R3VkRoapmgG1nzVZWfNPs5Nt8Tfdo6tV5B1KT9fRkVuSmE17Zw39lYrZKw2VzYF+3JnMXnTkFtKsycCARKjesbqT2JoZAU85VrS9DfQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=DS2AIEpBCEUDvJ7kSLW295+0ZETXLynzaBqGnd8ZeJY=;
- b=NneJnwWodAt2ec50Sgr40PnPZgxl8b4J8kQuZAJW1sZMWJbum3+nQFzdEEyDGcG/+k0Q4XCCjJLM6KscIqrh0kmHN6gYyat/1DfXvPXt+81zTOoovEzZ5YVOL+8AOZJi9QFTHtveSkxECFuXUOQTD830ZONiDE0ZFVhGjPp+4jI=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from CO6PR12MB5427.namprd12.prod.outlook.com (2603:10b6:5:358::13)
- by PH0PR12MB8127.namprd12.prod.outlook.com (2603:10b6:510:292::6) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.9; Thu, 9 Oct
- 2025 20:40:51 +0000
-Received: from CO6PR12MB5427.namprd12.prod.outlook.com
- ([fe80::9e93:67dd:49ac:bc14]) by CO6PR12MB5427.namprd12.prod.outlook.com
- ([fe80::9e93:67dd:49ac:bc14%6]) with mapi id 15.20.9182.017; Thu, 9 Oct 2025
- 20:40:51 +0000
-Message-ID: <15d5b9dc-8452-411c-9957-ba759d307223@amd.com>
-Date: Thu, 9 Oct 2025 16:40:43 -0400
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/amd: Permit DC_FP_START/END only in non-FP
- compilation units
-To: =?UTF-8?Q?Christian_K=C3=B6nig?= <christian.koenig@amd.com>,
- Ard Biesheuvel <ardb+git@google.com>, linux-kernel@vger.kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, Ard Biesheuvel <ardb@kernel.org>,
- Austin Zheng <austin.zheng@amd.com>, Jun Lei <jun.lei@amd.com>,
- Leo Li <sunpeng.li@amd.com>, Rodrigo Siqueira <siqueira@igalia.com>,
- Alex Deucher <alexander.deucher@amd.com>, amd-gfx@lists.freedesktop.org,
- dri-devel@lists.freedesktop.org
-References: <20251009150621.3886079-2-ardb+git@google.com>
- <bbc089aa-934d-4dd3-825a-53f8e98dfd3f@amd.com>
-Content-Language: en-US
-From: Harry Wentland <harry.wentland@amd.com>
-In-Reply-To: <bbc089aa-934d-4dd3-825a-53f8e98dfd3f@amd.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-ClientProxiedBy: MN0PR04CA0019.namprd04.prod.outlook.com
- (2603:10b6:208:52d::33) To CO6PR12MB5427.namprd12.prod.outlook.com
- (2603:10b6:5:358::13)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: CO6PR12MB5427:EE_|PH0PR12MB8127:EE_
-X-MS-Office365-Filtering-Correlation-Id: 489f3e47-984c-4de6-2cf4-08de07742284
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|366016|1800799024;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?ZDRvaDR4Q1grelN4K1dEcVE0MVBHV2c2emlZKzRhUWxUQWtBWXpmcHpTR2RZ?=
- =?utf-8?B?UWtHUGFSSHVhaGtlREU2T2dVcGlHWnFZRmI5WUg1QnE0RzZmMDBaWWVNWTFX?=
- =?utf-8?B?Q3J5T0pVc0t1bTlMUFpXUWo3ZmFSMWRNKzNiQUJGTHZLYUV0OXh6ZjhRWE5K?=
- =?utf-8?B?cVdiZnZWRGRKQ0tXclNycW9JREh5N3hMQ2NEbEV4L1FqQW9KWmpjTTU5c0lY?=
- =?utf-8?B?Q1RDN3IvbXBicG1yVGJ3SldyK0wxVFZFQTlUK3hsZEdHSzVhdHYzbk42bUZI?=
- =?utf-8?B?dnQvNE4wQVJpRXNtQnpOZDlXTTNyNlJxSkFIS2NFQ0taT2puUmFQYjNObGFT?=
- =?utf-8?B?elkvTXJQODdOWGluekdNRUJiZjVxRWhvSk9yTWVkck1GWDJUZ01LUEJCY2NQ?=
- =?utf-8?B?QllvSFlHaEVUeHQyNXZPbkpBbmdrbVFJUldCYzRteGRQMjFWUkM4eE9wY0Nq?=
- =?utf-8?B?V0ZzcXZOeVFqSHJoaXZGdlZjMTdhUmhtaHMzZExOSXpZYzZCSkE4dnN1bEMx?=
- =?utf-8?B?ZHNsMG12ZmhYVFRUWXpYZ0orQ1BMNWswUzA3OVZLajI1cTZXZEt5WjNyVDJK?=
- =?utf-8?B?Smw1aFJWYTAzKzRmWnpCMzg3aXA2eHFsZXFtZDBYS0Z4Rk5qSE1mSHZ2RUJE?=
- =?utf-8?B?Y1lBQkVNNGRsajZxK0k0K1NFUk9oVFNLVk9TV0xDNnB5bGgvVDNaUnAwdzFW?=
- =?utf-8?B?cm5ZNlQ4dEdyYXI1WDlSU24yZDZFSStxRFZaMUgyaFk3MklURDZBQTEybjQr?=
- =?utf-8?B?MEJIT0hZaWlHSmNYZkQwREJFL3E2V1RISVdGZk0zbEYwUm50bFRmL2F0MU52?=
- =?utf-8?B?TktDc2ZrQ2ZNWEFIR1ViM0c5VzlCVXovM0prK1ZjSDQwaVVJcDdFSW1ITDdY?=
- =?utf-8?B?bThiZEd5RDlsVktFd3FmU2lSSHBDVnNjZXl5NmxBcG1RVWhZdXBlZ28rS01Y?=
- =?utf-8?B?b1F1K1Q0QThNbU9VVWZFc0IvcjZ3RmpBUXNua3JtaHU0UW1BVXlEVVpGNDQx?=
- =?utf-8?B?VWd6ckp2UGtyd1BiZjJBdDNSanpac0l6QzZseU5WMmVSVzdXbDNSbFFQUmJU?=
- =?utf-8?B?a1o1YlZhWERrODhyK2x4VDVKRzRZOTNvWXRWYUVsUk5GRmNnOVg1U2N5eXBS?=
- =?utf-8?B?RUkvTHZVeDcxM2ROdHd6cXBiWngvSXZrMEwxZXd0a0U1amN3dHk4aWlBM3BE?=
- =?utf-8?B?emdFLzZZaG5xcHZwQUtwLzBpVkVlVUhWUkdXSkR4bzBKY0EzNkllUVJUKzdD?=
- =?utf-8?B?TCtleGlxWHRwLy80Y29kU0RWNHdacXltUzNSMTRNbUpMdll5RVdwRkZhVlNJ?=
- =?utf-8?B?YStFUHJlM0NsOUttODFjUXVVZ2VYSkcyNzM3TTZSanZORW9wK1NWdXdhZ3JE?=
- =?utf-8?B?OFNRVEJ0b1dvMmwzUXI2cE9mQm9GcVVsaGI0SVp2L3NtU1o0RjMxczdRQzA0?=
- =?utf-8?B?NU1sU0hhc25NVTNCa01ZZGJONk5YazliYTdWQkc1SS9oMWFvOGcwdFpXOUxl?=
- =?utf-8?B?OS9KcmxLeUIwSEl0Y3d0VDk4OFU5K24zSm9qY0JRY2JySzUxdEl3QWQ1K1N4?=
- =?utf-8?B?TWVQSHg5ank1QW9kMXdwaDhVUDFvbkhUUnRYVEhxb2g4K0o2RGhteTFmeFQx?=
- =?utf-8?B?UGM4TWQrZEtHL0tIcEdqSGtWK0hYY0pjWjZ6WW51UlJxY1U0L0dORGV5QUNK?=
- =?utf-8?B?Q2FaSE9ranlMM0ZFdlJCVFVBcmw1N0R4V0lzZlNFcmZrY2NvVlIrOFZhRGRS?=
- =?utf-8?B?Y01wUVZGMktCSHp5bU8wK08xY3lzMkdCUFMvcVB0Q3JWUm9SRFlVMWwxWXFG?=
- =?utf-8?B?MWRGOFVsWlRWelEwd3k3VGNoSFZXcUhoU1ducnJkeVdab1JNbUxmb0x1bTB3?=
- =?utf-8?B?K052SXhGZU5DWGtkN05FRmU4Q3ZBcmJUS041VFVSdFR5ckh2YW16SDNzc2pB?=
- =?utf-8?Q?VbpR+T9ncj5SCGJMC7R2z/zrsOHbuE4m?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CO6PR12MB5427.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?b0NueDQ2Wm84bkpyc2d0QUpmZEJYNkxocm1vZG4ySkhoTU5CdWJCTjEvSEpv?=
- =?utf-8?B?dzc4bXd2bzZhRUxOeGt6OW1jZC9MZXZ1ZnJGYSs1Ujhtd1ZDSDl3YWR4d3F3?=
- =?utf-8?B?cFJoSDFyZzd3clhkeTNOdnhtNkJrck1zcVJzVi9mLzU5MWRHUlQxSGpKWDJp?=
- =?utf-8?B?b0VEYmJITXlqRUR0RmRVTGdISFlQQzJWZHJOYkh2Z0UwUWxuTXhRcVB5K3Fw?=
- =?utf-8?B?bDFXQ3RyMTF4U2pXbTBubkwzL05tTnR6QTFvRXVJbkw5c3R4amd2RjdGWEZ0?=
- =?utf-8?B?TmdEWUsvVm5SMGJabWRKdUsxRjBBd1ZOQmM0bUord1ZPVGdrUk9hdnYwajg1?=
- =?utf-8?B?S3VMVUwvSU82elQ4YnJ2N05ESjBaWFVwN1dzWlVMNTNkMFFmUEFKbEI5aWxD?=
- =?utf-8?B?ZnhtUVVaNDFxVXg5MUI2cHl0V1JDMTdweW9KdUFkblZNMjQ1emJTQnVVb0cw?=
- =?utf-8?B?aWtybjlrcUIyMmIzRU9FOGdZT0ZCVHZkN0w3UGpoSVg0MFhPRktIdCtpUCsv?=
- =?utf-8?B?T2tPSWhIVnFxNUdtdzAyd1d2MEdKNWR3MlVwRCtIdDlCa1dIUVVpQzAwcUdZ?=
- =?utf-8?B?YWJlSW5Lc0kzZHNoN3JtR1Q5a1pOM2t2cGdnM3M5VlZNYlg4Y2QyK0tsT3Ji?=
- =?utf-8?B?NTNVN1JBNFJWN2J0SzRjVVdGV3R4U0NVL2x0NVZLOHU4OXpLOU8zaHIyYlhl?=
- =?utf-8?B?ZHZDVU1JUjUyRzl3WktGMnl3MlluMzVzb2diYVdIOC9NL2xMbWtsa0hWZml4?=
- =?utf-8?B?bUZuMjJ4bWdiVGxSeGthazFlUWdHQ0wvSDJBREowK2NmTW5VNEg1Zk9kKy9X?=
- =?utf-8?B?WUVuaHJuUy9hQW9aTmFUaDVhMFFCQ21YVXNheTZOSVU4MzZkQ3FUeGFrRFFv?=
- =?utf-8?B?dlFKb0RNME5DV1VISVVSUkkvRXVCc1NkMlJQRG5udzI1di95MzVVRmNBSDhB?=
- =?utf-8?B?OTlKN0IxTGMzQW9MRmhRL1h3Q3hOKzVNQTRwU2dNY3I2MWFWeHB1WjV1Rmxq?=
- =?utf-8?B?VnRWR0prWEVaUFNNdzhPWnNEcm5Ob3RtQ2E3NEkxcWxoby9QaUl4alFCMWtY?=
- =?utf-8?B?MkVQb1d0YTM3a1ZwNUZ1NzN4NjJZMlJmOWh6MUhMVnJ2cUNOMXFRcVd2Zm43?=
- =?utf-8?B?bXFMTkI5NjV1Mm15K2xEejlwV2w1SVJCQzBsMTBKT1g2V2RIZ2wvZkFnbldP?=
- =?utf-8?B?VjZENzVaZGVBOG9ncFh3WGN2dDZ4UkF5M1JHRzdQa1ZpT2gwaVhpSzM0Nm54?=
- =?utf-8?B?bEpjaXZxODZ6RmtLZUZGMXpFYU9mOVcrTGV5YWtaV29xWktKVG9YYWVkMkJ3?=
- =?utf-8?B?QnRCczVrZWVFNTdlb0dsZHRDbmpkRk5UQVRKN0I5QXpvNTRLSnZpcmJ2eWlt?=
- =?utf-8?B?QWJjZGRINXlqenRLOVFBeHdWTmNpU0FNdEFNU01NdUx4bkxuUnN1SGhUL2pt?=
- =?utf-8?B?bFlVamVteDUvRWpVM1Y5MVhYalNObUY2T0ZqSHFYSys3amhYN1ZjSVZIRlp1?=
- =?utf-8?B?QlJwazdUVkNnMEZocjlvMWRQdDBvSlRaYVdta20wNm1RQ1VsUGtMQzN6MWlN?=
- =?utf-8?B?UXo2bWE0cjM2MDFRQzRqcFI5Ly9lVXBHb1dKUDYxNnlxWXpRRmtBMEw0RWZq?=
- =?utf-8?B?bkZ1WFF5VTNGWmljS1ozVDZBOGVid0xyL3ZTeUcvNzR5ZEZqNWN0SVNVT0Z2?=
- =?utf-8?B?QnA2TXkrR1FYamU1KzllMGZIK0JlR0lETVJ0Y2J0UTlSUFlFeUkvemV6MEhZ?=
- =?utf-8?B?WnJzSXdqVDRSNDdTNXQ5eFMrbEI1a2RJR2lCM21FejA1RzJNOC8zNWZSUVZy?=
- =?utf-8?B?Tm5GSjYxL3d2VzdidUhWVTczUmJsSGRlbTNqand3Tk5SKzRWVFUyN2NqSVo1?=
- =?utf-8?B?Znplc3RnTWs0aHdscitGalJUbTFObXo5L2FBaGl6cVIxRGllS1NqaSs1c29X?=
- =?utf-8?B?Z0lDeTlxYVk2SXBIMUUwRGdoZWxxNVVQOXBRclQyNjR1QitleEZpaXJkeFRE?=
- =?utf-8?B?dWZ5Rmk5WWhrbUM0MkJUYnBFVGI5cENISlJDSGpIOHNDbjRYelc3RXEra3B3?=
- =?utf-8?B?VlhzMUFlVDl5dGhEY1JwTHhHdWVBR1BDYUZBK1NtU2ZPbmpPZURPRVdWRVZD?=
- =?utf-8?Q?zofaQYbGJgnnnbAhSCIEhnC8L?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 489f3e47-984c-4de6-2cf4-08de07742284
-X-MS-Exchange-CrossTenant-AuthSource: CO6PR12MB5427.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Oct 2025 20:40:51.2580
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: LFUaPfsJ2ZrRL8za0lTAyme1SaAvW4UXFb1cbxfF7k2G2LQURqdte6MzuNpQ8pbXuY1d0zph6arXwFFQrcAyuw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH0PR12MB8127
+	Thu, 09 Oct 2025 20:58:43 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-3307af9b55eso2588447a91.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 13:58:40 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1760043520; x=1760648320; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=6Svmg4fC9qEdNkkbW7Zw7TQK03ok0QyEpUIGM0MaKbU=;
+        b=CSv20pENu4CCHy4OSv3T0sggYN+D/XhfEUbRZ2lLWLHdKVHeyzj4s1yXitqiwn88ET
+         Xtl4Msmf0L8ONahvwYORE45EnhXZmBRPKDI5wkweSHmry1hJ/GgdA1H1y2UuDK5IKn+/
+         feoX3PZtrug9SLpaYIWAMreoDzoOiaMELGHVERWmsJ5/ZO6iEsVo1sWmxdMOJw2cIlFY
+         FhP3LhDQ5uQN+N1pBFkqM0TzPet0Xoda8g4W8Q1eixOkbg5HZ1UYN+V2xrC7acFpV2el
+         i2OtdIJkHGyM1hBEh7Nr0z0K8kHgqcPe+wzK3+zScu7MA/TeGdkBSAj5t3NIRdd7Ep9X
+         mH7w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760043520; x=1760648320;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=6Svmg4fC9qEdNkkbW7Zw7TQK03ok0QyEpUIGM0MaKbU=;
+        b=Rkj/cMM0f8meTNxenUQxfLdkjo3G0hHotl2xN7qRodIk3IYMRRujf7IijzLbcvHzmE
+         fIBbYq6sbRmolNRJDnK+GRnycVwYNSVcRafCe9+FbPwvvSoL0HM/eWLfSozwIjZGREHv
+         Jct1D8EH/t6VwOtrW037vu6EzAXfywnH4RvPs9ZLShp2nvGjwKyCBgL69q7SHrcghe88
+         KFqWRdwNe6anHBgWGbnyNkfyJgbL3OnZVw3rHavumPODCLFn1BFsWVILqvz+fd6e+mq/
+         48MCYGqy+FDUqxhW4eenYszoqipTEsFmmfFop6Y3aU08yqenRd1Ma5RQM8zUX/2bhsDd
+         6n1Q==
+X-Gm-Message-State: AOJu0YxNaHOeXmZhi0gNhz2Abo8U518WWdWXRz7SIB532PjHC6yH8jva
+	0fgND+xEGtQeIgHV0GjEbOlO7KG1dDBrbM2Qvbeek0ooNRuBCMyJQShrb+sEpHpy2PwGYlg9VvO
+	OH4YDM/EVM7oAPfdtnOMulShjXg==
+X-Google-Smtp-Source: AGHT+IF2ixNEPysZXr3u0xayZWztnMtb0Ewpjd6TyH2GT7xRzPzkdMEBQLXdOtzl9AkJxD9WHYyAbFyQ74Srl6hOyQ==
+X-Received: from pjtv5.prod.google.com ([2002:a17:90a:c905:b0:332:7fae:e138])
+ (user=ackerleytng job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:90b:52cc:b0:30a:4874:5397 with SMTP id 98e67ed59e1d1-33b511185e2mr11670768a91.9.1760043520294;
+ Thu, 09 Oct 2025 13:58:40 -0700 (PDT)
+Date: Thu, 09 Oct 2025 13:58:24 -0700
+In-Reply-To: <20251007221420.344669-1-seanjc@google.com>
+Mime-Version: 1.0
+References: <20251007221420.344669-1-seanjc@google.com>
+Message-ID: <diqz5xcniyhb.fsf@google.com>
+Subject: Re: [PATCH v12 00/12] KVM: guest_memfd: Add NUMA mempolicy support
+From: Ackerley Tng <ackerleytng@google.com>
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Paolo Bonzini <pbonzini@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	David Hildenbrand <david@redhat.com>, Fuad Tabba <tabba@google.com>, Shivank Garg <shivankg@amd.com>, 
+	Ashish Kalra <ashish.kalra@amd.com>, Vlastimil Babka <vbabka@suse.cz>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_134111_947401_B7020F78 
-X-CRM114-Status: GOOD (  19.15  )
+X-CRM114-CacheID: sfid-20251009_135841_985585_4D645ACE 
+X-CRM114-Status: GOOD (  25.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,82 +90,110 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Sean Christopherson <seanjc@google.com> writes:
 
+> Shivank's series to add support for NUMA-aware memory placement in
+> guest_memfd.  This is based on:
+>
+>   https://github.com/kvm-x86/linux.git gmem
+>
+> which is an unstable topic branch that contains the guest_memfd MMAP fixes
+> destined for 6.18 (to avoid conflicts), and three non-KVM changes related to
+> mempolicy that were in previous versions of this series
 
-On 2025-10-09 12:19, Christian König wrote:
-> On 09.10.25 17:06, Ard Biesheuvel wrote:
->> From: Ard Biesheuvel <ardb@kernel.org>
->>
->> Test the existing CPP macro _LINUX_FPU_COMPILATION_UNIT, which is set
->> when building source files that are permitted to use floating point,
->> in the implementation of DC_FP_START/END so that those are only usable
->> in non-FP code. This is a requirement of the generic kernel mode FPU
->> API, as some architectures (i.e., arm64) cannot safely enable FP codegen
->> in arbitrary code.
-> 
-> If I'm not completely mistaken that is actually an issue on basically all architectures, at least x86 is affected as well if I'm not completely mistaken.
-> 
->> Cc: Austin Zheng <austin.zheng@amd.com>
->> Cc: Jun Lei <jun.lei@amd.com>
->> Cc: Harry Wentland <harry.wentland@amd.com>
->> Cc: Leo Li <sunpeng.li@amd.com>
->> Cc: Rodrigo Siqueira <siqueira@igalia.com>
->> Cc: Alex Deucher <alexander.deucher@amd.com>
->> Cc: "Christian König" <christian.koenig@amd.com>
->> Cc: amd-gfx@lists.freedesktop.org
->> Cc: dri-devel@lists.freedesktop.org
->> Signed-off-by: Ard Biesheuvel <ardb@kernel.org>
-> 
-> Anyway, patch looks sane to me but I'm not so deep in the DC code to fully judge.
-> 
-> Fell free to add Acked-by: Christian König <christian.koenig@amd.com>, but Harry and Leo need to take a look.
-> 
+For future reference, these are the three specific patches:
 
-Thanks. Good safe-guard. Flags a bunch of issues in the
-current code. Let me fix them before merging it.
+[1] https://lore.kernel.org/all/20250827175247.83322-4-shivankg@amd.com/
+[2] https://lore.kernel.org/all/20250827175247.83322-5-shivankg@amd.com/
+[3] https://lore.kernel.org/all/20250827175247.83322-6-shivankg@amd.com/
 
-Reviewed-by: Harry Wentland <harry.wentland@amd.com>
+Might have missed this, did we discuss how these 3 would get merged? I
+noticed this patch was withdrawn, not sure what that means: [4]
 
-Harry
+[4] https://lore.kernel.org/all/20250625000155.62D08C4CEE3@smtp.kernel.org/
 
-> Thanks,
-> Christian.
-> 
->> ---
->>  drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.h | 8 ++++++++
->>  drivers/gpu/drm/amd/display/dc/os_types.h      | 2 --
->>  2 files changed, 8 insertions(+), 2 deletions(-)
->>
->> diff --git a/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.h b/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.h
->> index b8275b397920..4e921632bc4e 100644
->> --- a/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.h
->> +++ b/drivers/gpu/drm/amd/display/amdgpu_dm/dc_fpu.h
->> @@ -31,4 +31,12 @@ void dc_assert_fp_enabled(void);
->>  void dc_fpu_begin(const char *function_name, const int line);
->>  void dc_fpu_end(const char *function_name, const int line);
->>  
->> +#ifndef _LINUX_FPU_COMPILATION_UNIT
->> +#define DC_FP_START()	dc_fpu_begin(__func__, __LINE__)
->> +#define DC_FP_END()	dc_fpu_end(__func__, __LINE__)
->> +#else
->> +#define DC_FP_START()	BUILD_BUG()
->> +#define DC_FP_END()	BUILD_BUG()
->> +#endif
->> +
->>  #endif /* __DC_FPU_H__ */
->> diff --git a/drivers/gpu/drm/amd/display/dc/os_types.h b/drivers/gpu/drm/amd/display/dc/os_types.h
->> index 782316348941..6af831710489 100644
->> --- a/drivers/gpu/drm/amd/display/dc/os_types.h
->> +++ b/drivers/gpu/drm/amd/display/dc/os_types.h
->> @@ -55,8 +55,6 @@
->>  
->>  #if defined(CONFIG_DRM_AMD_DC_FP)
->>  #include "amdgpu_dm/dc_fpu.h"
->> -#define DC_FP_START() dc_fpu_begin(__func__, __LINE__)
->> -#define DC_FP_END() dc_fpu_end(__func__, __LINE__)
->>  #endif /* CONFIG_DRM_AMD_DC_FP */
->>  
->>  /*
-> 
-
+> (I want to keep this
+> version KVM focused, and AFAICT there is nothing left to discuss in the prep
+> paches).
+>
+> Once 6.18-rc1 is cut I'll turn "gmem" into a proper topic branch, rebase it,
+> and freeze the hashes.
+>
+> v12:
+>  - Add missing functionality to KVM selftests' existing numaif.h instead of
+>    linking to libnuma (which appears to have caveats with -static).
+>  - Add KVM_SYSCALL_DEFINE() infrastructure to reduce the boilerplate needed
+>    to wrap syscalls and/or to assert that a syscall succeeds.
+>  - Rename kvm_gmem to gmem_file, and use gmem_inode for the inode structure.
+>  - Track flags in a gmem_inode field instead of using i_private.
+>  - Add comments to call out subtleties in the mempolicy code (e.g. that
+>    returning NULL for vm_operations_struct.get_policy() is important for ABI
+>    reasons).
+>  - Improve debugability of guest_memfd_test (I kept generating SIGBUS when
+>    tweaking the tests).
+>  - Test mbind() with private memory (sadly, verifying placement with
+>    move_pages() doesn't work due to the dependency on valid page tables).
+>
+> - V11: Rebase on kvm-next, remove RFC tag, use Ackerley's latest patch
+>        and fix a rcu race bug during kvm module unload.
+> - V10: Rebase on top of Fuad's V17. Use latest guest_memfd inode patch
+>        from Ackerley (with David's review comments). Use newer kmem_cache_create()
+>        API variant with arg parameter (Vlastimil)
+> - v9: Rebase on top of Fuad's V13 and incorporate review comments
+> - v8: Rebase on top of Fuad's V12: Host mmaping for guest_memfd memory.
+> - v7: Use inodes to store NUMA policy instead of file [0].
+> - v4-v6: Current approach using shared_policy support and vm_ops (based on
+>          suggestions from David [1] and guest_memfd bi-weekly upstream
+>          call discussion [2]).
+> - v3: Introduced fbind() syscall for VMM memory-placement configuration.
+> - v1,v2: Extended the KVM_CREATE_GUEST_MEMFD IOCTL to pass mempolicy.
+>
+> [0] https://lore.kernel.org/all/diqzbjumm167.fsf@ackerleytng-ctop.c.googlers.com
+> [1] https://lore.kernel.org/all/6fbef654-36e2-4be5-906e-2a648a845278@redhat.com
+> [2] https://lore.kernel.org/all/2b77e055-98ac-43a1-a7ad-9f9065d7f38f@amd.com
+>
+> Ackerley Tng (1):
+>   KVM: guest_memfd: Use guest mem inodes instead of anonymous inodes
+>
+> Sean Christopherson (7):
+>   KVM: guest_memfd: Rename "struct kvm_gmem" to "struct gmem_file"
+>   KVM: guest_memfd: Add macro to iterate over gmem_files for a
+>     mapping/inode
+>   KVM: selftests: Define wrappers for common syscalls to assert success
+>   KVM: selftests: Report stacktraces SIGBUS, SIGSEGV, SIGILL, and SIGFPE
+>     by default
+>   KVM: selftests: Add additional equivalents to libnuma APIs in KVM's
+>     numaif.h
+>   KVM: selftests: Use proper uAPI headers to pick up mempolicy.h
+>     definitions
+>   KVM: guest_memfd: Add gmem_inode.flags field instead of using
+>     i_private
+>
+> Shivank Garg (4):
+>   KVM: guest_memfd: Add slab-allocated inode cache
+>   KVM: guest_memfd: Enforce NUMA mempolicy using shared policy
+>   KVM: selftests: Add helpers to probe for NUMA support, and multi-node
+>     systems
+>   KVM: selftests: Add guest_memfd tests for mmap and NUMA policy support
+>
+>  include/uapi/linux/magic.h                    |   1 +
+>  tools/testing/selftests/kvm/arm64/vgic_irq.c  |   2 +-
+>  .../testing/selftests/kvm/guest_memfd_test.c  |  98 +++++
+>  .../selftests/kvm/include/kvm_syscalls.h      |  81 +++++
+>  .../testing/selftests/kvm/include/kvm_util.h  |  29 +-
+>  tools/testing/selftests/kvm/include/numaif.h  | 110 +++---
+>  .../selftests/kvm/kvm_binary_stats_test.c     |   4 +-
+>  tools/testing/selftests/kvm/lib/kvm_util.c    |  55 +--
+>  .../kvm/x86/private_mem_conversions_test.c    |   9 +-
+>  .../selftests/kvm/x86/xapic_ipi_test.c        |   5 +-
+>  virt/kvm/guest_memfd.c                        | 344 ++++++++++++++----
+>  virt/kvm/kvm_main.c                           |   7 +-
+>  virt/kvm/kvm_mm.h                             |   9 +-
+>  13 files changed, 576 insertions(+), 178 deletions(-)
+>  create mode 100644 tools/testing/selftests/kvm/include/kvm_syscalls.h
+>
+>
+> base-commit: 67033eaa5ea2cb67b6cdaa91d7f5c42bfafb36f7
+> -- 
+> 2.51.0.710.ga91ca5db03-goog
 
