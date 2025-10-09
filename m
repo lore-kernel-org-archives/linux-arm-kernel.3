@@ -4,73 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4905FCCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 15:48:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9427CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 15:51:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
 	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XGAnFwEnHBldyC19wfHUDKGZkjsePFCHd7Iuxyaa00k=; b=2T4ctlFXYhSekKGeCS1OvwGrrb
-	OGHn3h0KPEU4WGwJpqsLTszv9XyX74aXzc5rCuUhO2YJIc1AcB0+2HXBtUTKwGHqVWS7usMWns8a5
-	KdxHZWmLV/zgcBq1DjH7/UmZ0s7hmEOZz/Yb3FG3C4ZQH0MWtT1zVzeJ2G4Mx0rQVqj3b8SgymeAx
-	DBD6I8q+2IMuIWUA53WaGAlGv3AyoAQEV1Qj0iN/bnj2WkwCV0DT4lE9H0cOPoX5E9+iXyFu8MdBP
-	RtWNKE1maWmWdUM3xY0OIWWuFVEsUqFeVDY4VwDYJReh2oLJTjo3BSfNMZ1XjyMfa/pZZ6k5yWsyC
-	/eiq2Skw==;
+	bh=4JPE0e2708pzpCr6xr7Gt0qmLVgRP/T1aZDZzZ8dnpI=; b=qQoRbQFlX00WvXYTNFd4yakzOx
+	t4KWtm2sI92LZMAa5m15MToBc4UEoSXSlRU8cq52GUoNbXqop6g/aq0PWRBr2u1oVCPUQDr6zAAQM
+	S4j7iZ2+fY8QbOqscESvw5GEjW5eIk4jrJmFYrr4QlEIUaWYg2NxFGXoR73hPCy1BlbI56MBXbNtN
+	F+w/PIdFxq95c4LT6tsPhWXWAIm8SF4aDO8GSSQOUzjrHV16EHMOBBw4vo8yHlv5lLSEkGAvcA9Sb
+	ZbfgyOD1hMGBPuLaLfQPk28BHzXOxbEITZmNLCcvemXgxGpe+7QVVNCoZyDqHN61iMBJAgoWTkwCr
+	7qLruWzw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6ss8-00000006XcV-12BV;
-	Thu, 09 Oct 2025 15:48:04 +0000
-Received: from mail-pf1-x42d.google.com ([2607:f8b0:4864:20::42d])
+	id 1v6sut-00000006Y5X-1Elh;
+	Thu, 09 Oct 2025 15:50:55 +0000
+Received: from mail-pf1-x432.google.com ([2607:f8b0:4864:20::432])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6ss5-00000006XbD-1S9o
+	id 1v6suq-00000006Y4j-2FqV
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 15:48:02 +0000
-Received: by mail-pf1-x42d.google.com with SMTP id d2e1a72fcca58-781010ff051so821820b3a.0
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 08:48:00 -0700 (PDT)
+	Thu, 09 Oct 2025 15:50:53 +0000
+Received: by mail-pf1-x432.google.com with SMTP id d2e1a72fcca58-781001e3846so1086228b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 08:50:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760024880; x=1760629680; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1760025052; x=1760629852; darn=lists.infradead.org;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=XGAnFwEnHBldyC19wfHUDKGZkjsePFCHd7Iuxyaa00k=;
-        b=oTXuU5nw0sEpwPNw3FZvczxtpsKydVFM0wPOiag0az+7qE7kcal3tc/QjN8qituhZ/
-         NTB4vABaEcO9xH60YEUUWBHW6aUrRCyfl6HtW/P6CWAlr8Er4y0hRz/8VRLHLVY7kH+l
-         jeBD1x6LuVWnXXqnjVNEfM0WGSw0xFJ9mnT0B5AAMkKCmt5Z+BH+M0TQeLQsgFW5F6d6
-         Y9YDk5mV5HYhj4oBZfdeaPGKDOpREmkFCOxblm+8OAmHnOgsQ2gQUyf75kHOnxsUlSbK
-         7yserxgCKnj5FgyVv/k0Jk0CaAV2jatvZHYaQG5TaAReTrYzcVglneEnAFcIWjLh6H0j
-         oINw==
+        bh=4JPE0e2708pzpCr6xr7Gt0qmLVgRP/T1aZDZzZ8dnpI=;
+        b=MaTwbuCdckDV1d4bXt7bUVzgAlZbq3mF6kMT+6ZduPKksehKSMXiV5yKBPTf1YTzi4
+         Ppz8wcDZE5OjoK4lxAfyhi7yefMgrZzdUkJbx3e1juibn3+I9WtHu0pte1cBfLSc8sp1
+         QbuB1uE0AejmarsmCYd0YCd4ABrKfC/PutdV7OKg191GJ1via/lKwbbfJBIbWn+DlQZc
+         loWXXpsZRa8wXS7QfrklloEMXDFjqi5XKAD0j+RMxuJHVp4BboOIL6xWYnAGKjconsPR
+         YQVKClt7PQfm4eIoJJ/b4RdlEGdwfkG95SsitcjTbve98OQPE94xWisF1mNCcSDk54I1
+         Xfng==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760024880; x=1760629680;
+        d=1e100.net; s=20230601; t=1760025052; x=1760629852;
         h=cc:to:subject:message-id:date:from:in-reply-to:references
          :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=XGAnFwEnHBldyC19wfHUDKGZkjsePFCHd7Iuxyaa00k=;
-        b=BTILY4CwJwANhc7NfbVV2RUtVVoswcU8IIgGaeCe3XdzMRXY6UZbMq13QaIzb0056P
-         Eo1W+DSCBa7DaKjf1D1CrE+Fje4kmUf4JneNF59TPAte/ZJGdHHnWAmLWbelJmFpZWSu
-         qbcQTolpO5khaFto518YHT5VfhSEXDG0RpDfNlNluOk++SWTprDmkM9bQGRWP/DWWeO5
-         G38l7svaMeJH5GH0cr1CWeNlaJYWzQ/Kaev372S1Y2weGFJ4h75Vhrn3iKZt5wfdgrzB
-         TILQxbXZuAfNnzuvt0nEcSM1/IzghmidN9JtvM1/qwWY5OfFkk77DlqZB2/2EJAxdf2J
-         fPfA==
-X-Forwarded-Encrypted: i=1; AJvYcCU+DKQfdIHEOFLI6RU3JNE7xdfgeiclkQEyjCfsE8xROoscjDIiVn3eMo/UbMivohuZhNO8xSH+/tfVfi1zPMzF@lists.infradead.org
-X-Gm-Message-State: AOJu0YzGIU1uZ2bFxqJIIDK3YNj4bx2HNXj/2a5CRaf7j+bsGHVtcsmp
-	RtRSQ21Iq6r+VuSNkjM8xmf5n+ZsBbL+FBdlkhsyGsfIqEmlJELkj1DyVCWa3VJD0g87jIb8Vec
-	phRTU0BM3OYNTN8oUad/3ABYyt9s2HBs3STo5vThcCQ==
-X-Gm-Gg: ASbGncsN97lFb7B97Uy8Hc995/tPaUhraXWEJNpAwXtyHVZdLFPnzXE1G01EPQ+T2KV
-	CX+yIDFUPNdrASVbo9o8J0us/zY1UM9zA749nNhbwV8M/+LjHQL9L2Ht8pQV4rHDeG/zuTu+DUZ
-	SQzjnOfwSZqDG6u5yLKbh+GPuR2YVuAP3sOBHOIMo4IEwM2l23ICiic9r5Enq4I2Ze7crAVIxqX
-	hF/tiViR25FPCtI2aG3oyV4/h6qe+LMxN9e
-X-Google-Smtp-Source: AGHT+IF6lNhbzZO84mSJkdUy7VjpvOVO74iscs8MhONQ8FrkcE27gvqJ+bzvDUmuhGFY3PpfCCeaHDOpOi7Q63g9uok=
-X-Received: by 2002:a05:6a00:987:b0:77e:7302:dbe7 with SMTP id
- d2e1a72fcca58-7938792ac35mr8571610b3a.27.1760024880220; Thu, 09 Oct 2025
- 08:48:00 -0700 (PDT)
+        bh=4JPE0e2708pzpCr6xr7Gt0qmLVgRP/T1aZDZzZ8dnpI=;
+        b=jWWaS94v5BWjCV0olQnEM6ajVPVFcVQROPSk01hPRzFPeDa3KJZVq971gqK+brPSmm
+         Xt3nkUK//o+RNMDoRQLPTasKXuSd2CD7UdYJA6smld5UD5Ys/ka8+FBTB9b3OY5cpOGv
+         oyAwXVivrpKKweGsBh9nvnDWSS9xzMvbFgSJe9Bkza88HtmSTl7A4BHiFLj/YSKgdA5N
+         8RdOlnsr+lN1nn+G0PhyjIlSixwCZqgoUHDTw53iCMqTN+mc3AQdoc2FKyA06zOswq44
+         QL5F7mEVMuSDBdOfxUPKLyXSX5lRiNkGuGvyQxd12fvoIZ2KKNrPaU/NRvqoOTUQzmTG
+         GGxA==
+X-Forwarded-Encrypted: i=1; AJvYcCVek1HnPXwWTsXBataZuCwUFtc/DRVLbcPgysxzspnkO3D4b9+PqG2/nGt5dgz7TyWukcKn+7hCD2kcWPlM0Qnn@lists.infradead.org
+X-Gm-Message-State: AOJu0YwaoM4rvQEsXJApwjNFvpMHssuj36vGC72sB70GQsf4d4Uj8xJg
+	qcINh8NMM8K7rERdqnh5M5Z5fmvXjarhZE/rnD6XbKa9pZICHagmSXgdlBLjw3SkuRipV3wlA9V
+	15bE0wAYwcDTEkQf5c/8F79AFMCIVDWSm/aXGTGJ5MQ==
+X-Gm-Gg: ASbGncuWfhTIAYXCQHuzVDdN5vpeiYg+2QPkKeWubG2dFahe7un5X5T7IgnFPA3t/ma
+	aqHrDbIzTdrnVC46CmRQX4N7RU4Kxq52CyR5Xfh2hyTLCFv0Z97yVdWn8OrDsdeb/5lsQe5qf87
+	DAmKWdmCxMdTbx8As9aShpm0Ya+QTOHPu2jmJ6I0rZiZrsNQNr41ef31jKtnQmuiTUfd0I9rKHJ
+	Shv0Z+2Bm6vRq7KG5CDuyRl4GQpa/dz71ekUn30o/yEpcQ=
+X-Google-Smtp-Source: AGHT+IHq2aF8fMGi+ONKT8XSLI0BKZXB2/+I0Sfw04mXALcG67VwBeW8aAPyxSwLKOBRdoTxch3nDK7mD9208RiV66U=
+X-Received: by 2002:a05:6a00:1895:b0:781:1f28:eae9 with SMTP id
+ d2e1a72fcca58-79384f48925mr9316911b3a.3.1760025051506; Thu, 09 Oct 2025
+ 08:50:51 -0700 (PDT)
 MIME-Version: 1.0
 References: <20251002-james-cs-syncfreq-v3-0-fe5df2bf91d1@linaro.org> <20251002-james-cs-syncfreq-v3-4-fe5df2bf91d1@linaro.org>
 In-Reply-To: <20251002-james-cs-syncfreq-v3-4-fe5df2bf91d1@linaro.org>
 From: Mike Leach <mike.leach@linaro.org>
-Date: Thu, 9 Oct 2025 16:47:48 +0100
-X-Gm-Features: AS18NWB8g7ZmaX0Xqd_icgqiHaagJoUhKP2NaShs4bRrD5R5X7h97DTqGwlgzNw
-Message-ID: <CAJ9a7VjGfiZ2VsnyB05YVv4zZ7FC03uBueKH4M4NUys+=eCaQQ@mail.gmail.com>
+Date: Thu, 9 Oct 2025 16:50:39 +0100
+X-Gm-Features: AS18NWAFM9oP5HaX_9emGZH_eQM76b5_YsTX7-DatASksMSnptAg6shCNo_ZgDw
+Message-ID: <CAJ9a7Vj1NnikoJyabXnad+=3SDULKCyqoZiNb_S66SkG+HD+dw@mail.gmail.com>
 Subject: Re: [PATCH v3 4/5] coresight: Add format attribute for setting the
  timestamp interval
 To: James Clark <james.clark@linaro.org>
@@ -81,8 +81,8 @@ Cc: Suzuki K Poulose <suzuki.poulose@arm.com>,
 	linux-doc@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_084801_415276_3BEBEA01 
-X-CRM114-Status: GOOD (  34.75  )
+X-CRM114-CacheID: sfid-20251009_085052_741357_83E3A9B7 
+X-CRM114-Status: GOOD (  34.87  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -233,6 +233,9 @@ On Thu, 2 Oct 2025 at 11:10, James Clark <james.clark@linaro.org> wrote:
 > +       if (ts_level == FIELD_GET(ATTR_CFG_FLD_ts_level_MASK, UINT_MAX))
 > +               return 0;
 >
+
+Returning 0 from this function _enables_ the timestamps
+
 >         /* No point in trying if we don't have at least one counter */
 >         if (!drvdata->nr_cntr)
 > @@ -667,12 +674,8 @@ static int etm4_config_timestamp_event(struct etmv4_drvdata *drvdata)
@@ -264,8 +267,12 @@ On Thu, 2 Oct 2025 at 11:10, James Clark <james.clark@linaro.org> wrote:
 > 2.34.1
 >
 
+Regards
 
--- 
+
+Mike
+
+--
 Mike Leach
 Principal Engineer, ARM Ltd.
 Manchester Design Centre. UK
