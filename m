@@ -4,50 +4,50 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 915F5CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 10:49:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F81ACCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 10:49:55 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GYkf9p7s8ofX95g0q3ztiOUilVkIVgMB5JKJHeeF8+E=; b=RZSlC/VFa2fB5qPH27WQZI3QYR
-	upgJxCNgvOv15241kL9MRLmxbiJoTKzON3AhmUMDI3K+44o09moJoeBdkae++TNivKUjnMZolYbWJ
-	QCU+lM70QFW3HqvSneLUM0l5KZ3I39KtmWSq3pebIzvsRaIQMhdb6oDbIr89Prk6ms95RjeoZepDW
-	QB91cpE7grmMFfNqdcv/mjl58sEo2pUkytGKxivOgDsOavkGACFyXSn4TdGZieb53FjUswCXSp63j
-	Lx4eGTQ4ybRlVN4Pv0BJCCU98g28A9H05Z+4pmUGAocPRE6qAX8TCkSKpf8qeBb2IWdIxBRXcoEyg
-	EwWRwxBQ==;
+	bh=N+iUbFLRUK9QiB1yV2gtHurlZxPMiBd4Ce70fhThEOg=; b=Ih5mar5IDRWTZTa/pHm2Xs13Am
+	/kBykdBn0ZiKbrrghGigjmlFSIp+/vBTgfWnNXtgpwJuczsxLC36o9t67Renp0TWhy9EffOk8KSOq
+	HeHNELxQaHWu9kRMePhFxnsv2XPwzaEy/8qUrXgfIhLEabAEbHWXLsyRpfwmQxfFjrMxK6v86rQlA
+	NZqHcE8f1fsJhAxA/Dk9KIHX0tt0+nepj8eHgki+rmbJYOUKbkB6PiYJGEhMN53lrIr7V4xzNLEVn
+	W9E4lBJmdJbvyxCw3lA/r/oUXqxrkOJ/Sg+Frkp0Q/h4/fJf521LAV/yU3rzOAHZRZ3YcsevQw+iE
+	iUL6Sg6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6oCj-00000005pQs-41WU;
-	Thu, 09 Oct 2025 10:49:01 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v6oDV-00000005pcq-3Jly;
+	Thu, 09 Oct 2025 10:49:49 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6oCh-00000005pQU-1EUw
+	id 1v6oDT-00000005pby-0Dgi
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 10:49:00 +0000
+	Thu, 09 Oct 2025 10:49:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 45087417C5;
-	Thu,  9 Oct 2025 10:48:57 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3E5E1C4CEE7;
-	Thu,  9 Oct 2025 10:48:44 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B88B54064B;
+	Thu,  9 Oct 2025 10:49:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E7FE0C4CEE7;
+	Thu,  9 Oct 2025 10:49:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760006937;
-	bh=GTjixdu7ePBauENBb+e/bL/cURiVsnusHjIi9xV2Sbw=;
+	s=k20201202; t=1760006986;
+	bh=3VZrqPhhrNXEy/mRlhhDhNRBMVFExI8o2W9EJEEHd6E=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=o6XVKd3FInHGGs+BTgwBkMh5zLoyY9Yo639JuTkPZb3r6pSxmV36AHxyfc4N/q9//
-	 wG89uWjuVE0rga057D8cUg4PM4qhFcbWbqgH1VDcunjFkkOtQOkpLd8tChSc1SABGe
-	 ceR8oTv88v3HaenVPBnzteZ34f67VHMFZHmDwLSqSJUiVt+7iygM0UDV4ZwcGsnLOn
-	 xRw/6FY5sy/ZRw1m5+dXTYRjlsWHzE7PY/lkDN3W3LTSAXGWBMAoWj0WA8S6XOBRhD
-	 ObOmZdKYK1Z0ezF6wXXNdY8SLFeuYvXF1BX5oHCdZNli+zMNHZf8qIkVMwAqUdBiRu
-	 FnY5ZVzPch9oA==
-Message-ID: <5a7ffa2d-6eee-4a97-acd5-1c54acfd82ba@kernel.org>
-Date: Thu, 9 Oct 2025 19:48:41 +0900
+	b=M197fa8RRsw263fxtDR0T4Dhoal4cN9+7A2grnCGtAF+MV0GdTvANntezKTJlXldM
+	 ov5fui9nz4IJ1CNdK2DVR5l0rM9+htwGDSbS8zxNdNq062oQZyKtT+OhXGMxkfjEf1
+	 N9PVCJH8+FEHj7tVfGcRJyAbwgEJQWtFWwkhLESe28IHHD9EMgw/uWz4bZEuYJ6eAV
+	 CV1TMT96WDGhGdewd/+OGGycye6dWiCi6MimXErAdDkKicQLKsQrJnxx5NSOr0m8BL
+	 42GhOxv5Xmzwencch/oCOHvLgv1BUK8CE5gOfbGkKltKpNRhOiMHfGQQFrTfsQZi3s
+	 TcI5czSlC7JEQ==
+Message-ID: <23cf6dad-1162-429d-8cdc-5fc6aa7757a8@kernel.org>
+Date: Thu, 9 Oct 2025 19:49:36 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/9] dt-bindings: clock: qcom: document Kaanapali DISPCC
- clock controller
+Subject: Re: [PATCH 4/9] dt-bindings: clock: qcom: Add Kaanapali video clock
+ controller
 To: Jingyi Wang <jingyi.wang@oss.qualcomm.com>,
  Bjorn Andersson <andersson@kernel.org>,
  Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
@@ -70,7 +70,7 @@ Cc: linux-arm-msm@vger.kernel.org, linux-clk@vger.kernel.org,
  tingwei.zhang@oss.qualcomm.com, trilok.soni@oss.qualcomm.com,
  yijie.yang@oss.qualcomm.com
 References: <20250924-knp-mmclk-v1-0-d7ea96b4784a@oss.qualcomm.com>
- <20250924-knp-mmclk-v1-1-d7ea96b4784a@oss.qualcomm.com>
+ <20250924-knp-mmclk-v1-4-d7ea96b4784a@oss.qualcomm.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -116,12 +116,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250924-knp-mmclk-v1-1-d7ea96b4784a@oss.qualcomm.com>
+In-Reply-To: <20250924-knp-mmclk-v1-4-d7ea96b4784a@oss.qualcomm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_034859_397919_556C9125 
-X-CRM114-Status: UNSURE (   5.51  )
+X-CRM114-CacheID: sfid-20251009_034947_139958_A9D8DEE7 
+X-CRM114-Status: UNSURE (   5.65  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -140,13 +140,12 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 On 25/09/2025 08:56, Jingyi Wang wrote:
 > From: Taniya Das <taniya.das@oss.qualcomm.com>
 > 
-> Document device tree bindings for display clock controller for
-> Qualcomm Kaanapali SoC.
+> Add device tree bindings for the video clock controller on Qualcomm
+> Kaanapali SoC.
 > 
 > Signed-off-by: Taniya Das <taniya.das@oss.qualcomm.com>
 > Signed-off-by: Jingyi Wang <jingyi.wang@oss.qualcomm.com>
-
-
+> ---
 
 Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
