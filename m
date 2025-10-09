@@ -4,61 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4FF00CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 01:07:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 70FA5CCD18A
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 01:07:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Date:Message-Id:From:Subject:Content-Transfer-Encoding:MIME-Version:
 	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XgJqPRZu2Oxx8PV8Tv5wwY4dRvm1ewwNlKmjKtGu1vI=; b=YdW47Fcg70oIF/6cben/Tnw7qy
-	nzbO9sJS9TNhuas8GKY/BQ8sp+GpTuXuxvnirPBhfZooLGKj8Lm2F5jIT5tqehYa0FwoU/Z5WQQQ+
-	aQUl8u7FtdGsqaQbkIvdDiQnmxmFNdh/Y4VYfqdCN9Zqm9Tjnw4bm9mwDH4YXUfkf7zYJcglr//aP
-	WsW/gTWo3Nwz858ZVJcJMur/oRTVpteVdIz5jerzu04iZvfmClfQPLKaxhCrF2vobUHNyDqFhEUMQ
-	5cMad9flvWIW9yw1sRgI+hk1lTg0evpu4BqJgCb1gnHX++Tz8VCm3mgrfpyPQHv0zQXK/RIshMacM
-	KkJj7hwA==;
+	bh=1QmteHczt4IB2OaGgMcuo7lCBy1YKUcT8nLt2LHCF7g=; b=s+6/6H1qFv19Bkbhr64XWyqrd/
+	w2zzLYc5mwjYcNz2ptNFT/oFhpcnP40bbXXU3tT05j3V1RkBpgS6l0FJ/SdpLlqAHwEZGaNWevwDa
+	CRRPDtPm3bi/vD3ui8kdOlJ0r+dwLdB2XGkOXzAXjnkUMwP9JbiMUVHqpfZ0NMnlwKI12dIq3qwF7
+	TttaN0wIAgBgEIVCmrYV4eWYCajDY1vY2uM3S/4SEVWKU0bc7v/bObGD+Pf+1TFut9NOQWeJvV6Yb
+	kPnC4UaTLx54fbzfd2Gxcs9Rg+4+fDszox2ep9ds5ZALWHN8lST4mqnf2uoG9xkPLTgMj1iKYSZo4
+	7pkzVcvg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6f7f-00000004uSy-3zMY;
-	Thu, 09 Oct 2025 01:07:11 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v6f7o-00000004uaP-3bxd;
+	Thu, 09 Oct 2025 01:07:20 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6f7d-00000004uRn-2eHx;
-	Thu, 09 Oct 2025 01:07:09 +0000
+	id 1v6f7m-00000004uY6-2IDW;
+	Thu, 09 Oct 2025 01:07:20 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 0E03562142;
-	Thu,  9 Oct 2025 01:07:09 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CB6FAC4CEE7;
-	Thu,  9 Oct 2025 01:07:08 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 32835450E2;
+	Thu,  9 Oct 2025 01:07:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1021AC4CEE7;
+	Thu,  9 Oct 2025 01:07:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759972028;
-	bh=1CdwuT+kYcmte8eivy456G2ecK75wHvT2qHam+/7tKI=;
+	s=k20201202; t=1759972038;
+	bh=0pQ9vc0S7+W0X1K4N+Om/UUij1yWdKMoXEP+Dp45E6A=;
 	h=Subject:From:Date:References:In-Reply-To:To:Cc:From;
-	b=Cpsu6soKqutgxCtUfPezdkxx5CskZoUCgqzxXo1GLczYtT2CWVv8zYILvo1MH+poW
-	 8DhXILNkc/IhfRwPBJ7pkQy0hiD+DaTrCdzXG6qb0D0NXeOCimbRprobtFWuTn47ho
-	 tQbo9vk0bTVjq7sibNH0YszQlPI6Jcarcu66BF/sInizjAkBMDCmXfi46DTJc27HSW
-	 hcP8a7f9wEppJoIJVEDXf2evkRhdga2TKzVhWETk+l1nHvvhF8r7ZY2NaJEr80vbqL
-	 YSkN+7gJaSYfvUVuv4qhYaECiIXdJzyycgv5G4S97GOwlGR0oNXYlAJZEkpT9yJhuT
-	 hJ49LeKwxzDEw==
+	b=mgLCEG1psTMeWNX86G6Tj93NFOr9A6HPWBooqhDsK/peZJiDr0z/lTt34SW/uV2wG
+	 K2KA79ATbUyDb+QTtCiIb37Rmvl0ZB6h8EYOw6lZaU8PA4YEraSK96r4wnFJg5DgK6
+	 px0wfbyKDtcXRuIuG3T18Ewh+okDNXN4RBEutXF8zlOxKiOztQ3FRVjOkE20nlpwGX
+	 YhuXK6buub3FK7cN2EWSYIN6r/pZvCaQavyztMciWzkDa46lDOV/dfEDrzjJFL6sad
+	 0NMFuRS+cJkrvvNwdswXaYRikNalB+yZpqvN9LdbCi0fl6LsirGqURxRennMUrvEHk
+	 ipzxebesp0GnQ==
 Received: from [10.30.226.235] (localhost [IPv6:::1])
-	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id 70F473A41017;
-	Thu,  9 Oct 2025 01:06:58 +0000 (UTC)
+	by aws-us-west-2-korg-oddjob-rhel9-1.codeaurora.org (Postfix) with ESMTP id ADF8C3A41017;
+	Thu,  9 Oct 2025 01:07:07 +0000 (UTC)
 Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-Subject: Re: [PATCH v6 0/8] Add SBI v3.0 PMU enhancements
+Subject: Re: [PATCH v6 0/2] kasan: unify kasan_enabled() and remove
+ arch-specific
+ implementations
 From: patchwork-bot+linux-riscv@kernel.org
-Message-Id: <175997201703.3661959.2204934721349838885.git-patchwork-notify@kernel.org>
-Date: Thu, 09 Oct 2025 01:06:57 +0000
-References: <20250909-pmu_event_info-v6-0-d8f80cacb884@rivosinc.com>
-In-Reply-To: <20250909-pmu_event_info-v6-0-d8f80cacb884@rivosinc.com>
-To: Atish Kumar Patra <atishp@rivosinc.com>
-Cc: linux-riscv@lists.infradead.org, anup@brainfault.org, will@kernel.org,
- mark.rutland@arm.com, paul.walmsley@sifive.com, palmer@dabbelt.com,
- mchitale@ventanamicro.com, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, kvm@vger.kernel.org,
- kvm-riscv@lists.infradead.org, seanjc@google.com
+Message-Id: <175997202628.3661959.104646439887808862.git-patchwork-notify@kernel.org>
+Date: Thu, 09 Oct 2025 01:07:06 +0000
+References: <20250810125746.1105476-1-snovitoll@gmail.com>
+In-Reply-To: <20250810125746.1105476-1-snovitoll@gmail.com>
+To: Sabyrzhan Tasbolatov <snovitoll@gmail.com>
+Cc: linux-riscv@lists.infradead.org, ryabinin.a.a@gmail.com,
+ christophe.leroy@csgroup.eu, bhe@redhat.com, hca@linux.ibm.com,
+ andreyknvl@gmail.com, akpm@linux-foundation.org, zhangqing@loongson.cn,
+ chenhuacai@loongson.cn, davidgow@google.com, glider@google.com,
+ dvyukov@google.com, alexghiti@rivosinc.com, alex@ghiti.fr,
+ agordeev@linux.ibm.com, vincenzo.frascino@arm.com, elver@google.com,
+ kasan-dev@googlegroups.com, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, loongarch@lists.linux.dev,
+ linuxppc-dev@lists.ozlabs.org, linux-s390@vger.kernel.org,
+ linux-um@lists.infradead.org, linux-mm@kvack.org
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251008_180718_603668_D1A56981 
+X-CRM114-Status: UNSURE (   9.92  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,36 +87,28 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 Hello:
 
 This series was applied to riscv/linux.git (for-next)
-by Anup Patel <anup@brainfault.org>:
+by Andrew Morton <akpm@linux-foundation.org>:
 
-On Tue, 09 Sep 2025 00:03:19 -0700 you wrote:
-> SBI v3.0 specification[1] added two new improvements to the PMU chaper.
-> The SBI v3.0 specification is frozen and under public review phase as
-> per the RISC-V International guidelines.
+On Sun, 10 Aug 2025 17:57:44 +0500 you wrote:
+> This patch series addresses the fragmentation in KASAN initialization
+> across architectures by introducing a unified approach that eliminates
+> duplicate static keys and arch-specific kasan_arch_is_ready()
+> implementations.
 > 
-> 1. Added an additional get_event_info function to query event availablity
-> in bulk instead of individual SBI calls for each event. This helps in
-> improving the boot time.
+> The core issue is that different architectures have inconsistent approaches
+> to KASAN readiness tracking:
+> - PowerPC, LoongArch, and UML arch, each implement own kasan_arch_is_ready()
+> - Only HW_TAGS mode had a unified static key (kasan_flag_enabled)
+> - Generic and SW_TAGS modes relied on arch-specific solutions
+>   or always-on behavior
 > 
 > [...]
 
 Here is the summary with links:
-  - [v6,1/8] drivers/perf: riscv: Add SBI v3.0 flag
-    https://git.kernel.org/riscv/c/8c8d0f002b76
-  - [v6,2/8] drivers/perf: riscv: Add raw event v2 support
-    https://git.kernel.org/riscv/c/656ef2ea30a9
-  - [v6,3/8] RISC-V: KVM: Add support for Raw event v2
-    https://git.kernel.org/riscv/c/190b74154299
-  - [v6,4/8] drivers/perf: riscv: Implement PMU event info function
-    https://git.kernel.org/riscv/c/adffbd06d003
-  - [v6,5/8] drivers/perf: riscv: Export PMU event info function
-    https://git.kernel.org/riscv/c/880fcc329e24
-  - [v6,6/8] RISC-V: KVM: No need of explicit writable slot check
-    https://git.kernel.org/riscv/c/41f4d0cc331a
-  - [v6,7/8] RISC-V: KVM: Implement get event info function
-    https://git.kernel.org/riscv/c/e309fd113b9f
-  - [v6,8/8] RISC-V: KVM: Upgrade the supported SBI version to 3.0
-    https://git.kernel.org/riscv/c/dbdadd943a27
+  - [v6,1/2] kasan: introduce ARCH_DEFER_KASAN and unify static key across modes
+    https://git.kernel.org/riscv/c/1e338f4d99e6
+  - [v6,2/2] kasan: call kasan_init_generic in kasan_init
+    https://git.kernel.org/riscv/c/e45085f2673b
 
 You are awesome, thank you!
 -- 
