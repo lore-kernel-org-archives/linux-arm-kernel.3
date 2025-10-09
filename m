@@ -4,84 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49B26CCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 11:39:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D1A00CCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 11:41:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Subject:Cc:To:From:Date:Reply-To:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=rP1JaiC+dKbCUaMXThGQDLqJez01N94aR5wIs4E+XU4=; b=asBKc7LgHHjhSeUfJP6YxivoCN
-	uJGJhMgvS2pBwM3X8/4rscPeEF+EF/5tz+g8lr2CmFpMYWF0Xyio4FX5/88fBf68kkC/zRMpyAbGd
-	ABB0UnkZvWiftXxtp6812lJ7D0+HVpbEaX08avcFJFQ0zRAAMig9r7O59nh5kLX/dQ4+gFxuC3ZRY
-	FkwZBaYjJM8ajNVOF+gIxjVUqO3jprG1R/Tarx7JczXGNxUVuR2Dwx2w02+Bek4+hIuMBZGVeST6s
-	+JrRh52hcbsgnwE56zTSbFA21Pf5PYGlcm15dPOZa9YxgwdRt6pu+RSxbG9cYWcgO+Wr+YYnKYiiJ
-	o4yviHCQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=EAvKbkD/SVmCg3W0qls8xZdyspkVNIgNQEMq0eojYIU=; b=A0rU8vy3gZeWnzBIygj6c4MS1x
+	OBnER985bg6i8sFXWnpE9WP1BCoCCazB5/YU7T3wObsQYh4G3x8ZB/XsBbvynvw/IzFfpVY03sPSd
+	nd1t494oLPhZMufiXG+YmngwfXeZ/d9UWWR3kEYp4oM8YcJtkRhu79Gw7crJ31JsKAqc57vKTFQYD
+	fjRy7ECAGuDAROH65p0ybJNqJw44pWT64lv4HltFxJQol/Y/pgH8Mx0pfrAdqEp7nq3zeIp6c0Tj/
+	ok9vWtPSjMxiQGV6gpBvy6TSkC9D7dGQh4L1y5f3nipUvUSGG4kWduXLQkloATB6j4731McgJ9gcH
+	jPGEBTZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6oz9-000000060Cb-0QfL;
-	Thu, 09 Oct 2025 11:39:03 +0000
-Received: from mail-wr1-x430.google.com ([2a00:1450:4864:20::430])
+	id 1v6p1a-000000060lO-2pg4;
+	Thu, 09 Oct 2025 11:41:34 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6oz6-000000060Bt-1IUc
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 11:39:01 +0000
-Received: by mail-wr1-x430.google.com with SMTP id ffacd0b85a97d-4256866958bso511356f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 04:38:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760009938; x=1760614738; darn=lists.infradead.org;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=rP1JaiC+dKbCUaMXThGQDLqJez01N94aR5wIs4E+XU4=;
-        b=cUYmpgmUt856k2o3bY07zgWN0cgjFowglEy9ZGMr+gyVH00EiJSPzL2uxayxtOtgHD
-         9ySvetLq4YBkOUWk2sFzm3Thh+D3Yvd/GmiNCLIpYkZZ5Tt5JdzdUdu3erjbm73Wy4DW
-         QPhpaV39zBmpQWflXbSiEaeV5+2xdJ9GEZqDKH8AdJj4MOnaAPttDJOwuIG22y0pRC36
-         UH0uNOtOYhbUB5beKT03/I/1tetHCwd/uk/ab5nUjQ1Yl/25f5B8EYHre3lThRUrqfy8
-         U5qB74FGPwEv5w1vkAJMKh3NDuJHSxK9Tx+8Y6PHNwddOWLiQOLjHVF37DpMn5tTUZcR
-         Ck5g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760009938; x=1760614738;
-        h=content-disposition:mime-version:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=rP1JaiC+dKbCUaMXThGQDLqJez01N94aR5wIs4E+XU4=;
-        b=QiUQlDrzp/IH3qWyTzQ1NOjEGmPb+uQjjx+hb3+23AH2EUsr4962ifwAAFUctFlq23
-         YQDdlybWhD9b+2C6KmkncVxJyZkhzq5miYe3m2k/R//U40reS9iCRc5rJQx9nVvxSHsr
-         YWGAOULlapf6H0QNWUvgOzBubnDuUp8OVTalldbMBosxTyTsUNIdnHMcLzD6l5RV1iNN
-         RB4+9Y7b3nvbw+95IgOBgI3IjYoPwl1w9NNVeaX30PQ1mSW2BP7mSIFsPkf8xglIpfgq
-         VhtacBOb/tvgumGaS3IOMj0t8R0mjOS6qGEYE13qIwn2ISQ4uGp6LJUy+M0DqTJVdnJh
-         wuCA==
-X-Forwarded-Encrypted: i=1; AJvYcCUXwyvVVuhl4M2DrZ/1ti0IAgJ+FYtUCkPrA4p/aBCePeTLdlqdeWmm3sH5vsiUc6KbSA30LC/o3TOQmM72Ih5K@lists.infradead.org
-X-Gm-Message-State: AOJu0YzCR3ikoVjuAz7nwL7s5rx2J9FXMvN2PIRtXeNgFatplOCip4a2
-	cg1NznMDqJhWnjyDTP4U+G/bwtbGChHq5hqSLO87ajrHbuPavX/z/TNiqAGLQA==
-X-Gm-Gg: ASbGncs7NIaPJNPdD7CnU5hmKjb1fUXnSc5GyfSve0c68plvh94mpDJiUrX7RtnVjXJ
-	qCx2oZDDD+X5RgAry+z1FPnYIrqkCCbjLLooKPJ89re+T2rHB+ndpF83S4V0OAh+IGvayk/LxJM
-	xfKrNj5U4Z5QZvAtxhKSoZhxr+e+nLgHOIEHDO/n3gx0yh8pPPeqEFQl/km93RrwiKNn9LdmS6J
-	AkcFSVecdcjC8eLEQgiSMyrEcTtFTE1Ht9jU+21PFa5Eh8KPZXStTwejyHVbEDF4X+3oPvOyRyh
-	MbIkYu/xeUZTxsYNJ3AMAp3y+XwRbu+quJJBYjBOTR+SNBvmGilyqr9B0YVjSEMdGrdFsHot1UT
-	tQETRGNMtmKpv1MHuxWho/CuYrloCfdldQ8+0o/ZnzrjxZh597IsixgTnsM2ZEhC6C3a581so7C
-	oRv7YmEetZCI2SExrKJbnZTmCgqzFtuENbmw==
-X-Google-Smtp-Source: AGHT+IHAcQEEBgMcQz7wMA2qmx6+wpQkTPjE+CkCEvZDPinipAZ9tUIugghSyFPe5tRLrgYjHfifyw==
-X-Received: by 2002:a5d:5d08:0:b0:425:7ce6:fd50 with SMTP id ffacd0b85a97d-4266e8db473mr4788177f8f.53.1760009937964;
-        Thu, 09 Oct 2025 04:38:57 -0700 (PDT)
-Received: from orome (p200300e41f28f500f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f28:f500:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-4255d8e970esm34383994f8f.35.2025.10.09.04.38.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Thu, 09 Oct 2025 04:38:56 -0700 (PDT)
-Date: Thu, 9 Oct 2025 13:38:55 +0200
-From: Thierry Reding <thierry.reding@gmail.com>
-To: Thomas Gleixner <tglx@linutronix.de>, Marc Zyngier <maz@kernel.org>
-Cc: linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: IRQ thread timeouts and affinity
-Message-ID: <j7ikmaazu6hjzsagqqk4o4nnxl5wupsmpcaruoyytsn2ogolyx@mtmhqrkm4gbv>
+	id 1v6p1X-000000060jF-2aRb;
+	Thu, 09 Oct 2025 11:41:32 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1760010089;
+	bh=J6gOtlXNGiadx1WV9Jrsfa9A9Mo7GEanyAvz8BWuZfg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=UhcDCo/VFw8EUeX1askLaZJwGhGmzayOECoCTQAA+mbSvRoMXXroPrLvNH5qJpgwP
+	 kLbBG5Az1XLGWkRh7gGcB/KsOgRB03/Yd70YwobnJPGeqXyifcNWQYfsswsyqjIkg5
+	 92e95GjlMMqLWysVaZEsYYKeaoZjw6CH9mmcwAnlpdQ34+i8e+6fl2AgAa5agnNO4M
+	 k7PbDB5JqdcRyNjr9HzCvLLahDKAQoz6ryFPZvjGy4+IVhmmIakoRrPY0xR887d07v
+	 Xv3DSx/v+FyQdOolGjE4C+ItL6S6GZx44Q6+/EsZeNRynx9hp8cF8+u+5qsGwzn4CR
+	 YCth/5VZ/s6Iw==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 94FBB17E0A30;
+	Thu,  9 Oct 2025 13:41:28 +0200 (CEST)
+Message-ID: <6f1f74b3-ac2e-4ea6-abce-14ef12ea10dd@collabora.com>
+Date: Thu, 9 Oct 2025 13:41:28 +0200
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="h7tzznfw5eznq6ir"
-Content-Disposition: inline
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 12/20] soc: mediatek: Add programming flow for
+ unsupported subsys ID hardware
+To: Jason-JH Lin <jason-jh.lin@mediatek.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>,
+ Chun-Kuang Hu <chunkuang.hu@kernel.org>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>
+Cc: Matthias Brugger <matthias.bgg@gmail.com>,
+ Nicolas Dufresne <nicolas@ndufresne.ca>, Nancy Lin <nancy.lin@mediatek.com>,
+ Singo Chang <singo.chang@mediatek.com>,
+ Paul-PL Chen <paul-pl.chen@mediatek.com>, Moudy Ho <moudy.ho@mediatek.com>,
+ Xiandong Wang <xiandong.wang@mediatek.com>,
+ Sirius Wang <sirius.wang@mediatek.com>, Fei Shao <fshao@chromium.org>,
+ Chen-yu Tsai <wenst@chromium.org>,
+ Project_Global_Chrome_Upstream_Group@mediatek.com,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org
+References: <20250827114006.3310175-1-jason-jh.lin@mediatek.com>
+ <20250827114006.3310175-13-jason-jh.lin@mediatek.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <20250827114006.3310175-13-jason-jh.lin@mediatek.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_043900_398339_C360269A 
-X-CRM114-Status: GOOD (  25.06  )
+X-CRM114-CacheID: sfid-20251009_044131_837834_267BBF69 
+X-CRM114-Status: GOOD (  20.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,103 +89,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Il 27/08/25 13:37, Jason-JH Lin ha scritto:
+> To support hardware without subsys IDs on new SoCs, add a programming
+> flow that checks whether the subsys ID is valid.
+> 
+> If the subsys ID is valid, the flow will call cmdq_pkt_write_subsys()
+> and cmdq_pkt_write_mask_subsys() instead of the original
+> cmdq_pkt_write() and cmdq_pkt_write_mask().
+> 
+> If the subsys ID is invalid, the flow will call cmdq_pkt_write_pa() and
+> cmdq_pkt_write_mask_pa() to achieve the same functionality.
+> 
+> Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
+> ---
+>   drivers/soc/mediatek/mtk-mmsys.c | 12 +++++++++---
+>   drivers/soc/mediatek/mtk-mutex.c |  8 ++++++--
+>   2 files changed, 15 insertions(+), 5 deletions(-)
+> 
+> diff --git a/drivers/soc/mediatek/mtk-mmsys.c b/drivers/soc/mediatek/mtk-mmsys.c
+> index bb4639ca0b8c..0c324846e334 100644
+> --- a/drivers/soc/mediatek/mtk-mmsys.c
+> +++ b/drivers/soc/mediatek/mtk-mmsys.c
+> @@ -167,9 +167,15 @@ static void mtk_mmsys_update_bits(struct mtk_mmsys *mmsys, u32 offset, u32 mask,
+>   	u32 tmp;
+>   
+>   	if (mmsys->cmdq_base.size && cmdq_pkt) {
+> -		ret = cmdq_pkt_write_mask(cmdq_pkt, mmsys->cmdq_base.subsys,
+> -					  mmsys->cmdq_base.offset + offset, val,
+> -					  mask);
+> +		offset += mmsys->cmdq_base.offset;
+> +		if (mmsys->cmdq_base.subsys != CMDQ_SUBSYS_INVALID)
+> +			ret = cmdq_pkt_write_mask_subsys(cmdq_pkt, mmsys->cmdq_base.subsys,
+> +							 mmsys->cmdq_base.pa_base, offset,
+> +							 val, mask);
+> +		else /* only MMIO access, no need to check mminfro_offset */
 
---h7tzznfw5eznq6ir
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Subject: IRQ thread timeouts and affinity
-MIME-Version: 1.0
+nit: fix typo -> mminfra_offset
 
-Hi Thomas, Marc, all,
+and also it would be nice if you could also say in a comment that all GCEs support
+write_mask_pa() without subsys, but it is less performant - so for the platforms
+that do support it, we prefer using it.
 
-Apologies up front for the length of this. There are a lot of details
-that I want to share in order to, hopefully, make this as clear as
-possible.
+Of course that has to be properly reworded, but that's the idea anyway :-)
 
-We've been running into an issue on some systems (NVIDIA Grace chips)
-where either during boot or at runtime, CPU 0 can be under very high
-load and cause some IRQ thread functions to be delayed to a point where
-we encounter the timeout in the work submission parts of the driver.
+after which
 
-Specifically this happens for the Tegra QSPI controller driver found
-in drivers/spi/spi-tegra210-quad.c. This driver uses an IRQ thread to
-wait for and process "transfer ready" interrupts (which need to run
-DMA transfers or copy from the hardware FIFOs using PIO to get the
-SPI transfer data). Under heavy load, we've seen the IRQ thread run
-with up to multiple seconds of delay.
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 
-One solution that we've tried is to move parts of the IRQ handler into
-the hard IRQ portion, and we observed that that interrupt is always seen
-within the expected period of time. However, the IRQ thread still runs
-very late in those cases.
+> +			ret = cmdq_pkt_write_mask_pa(cmdq_pkt, mmsys->cmdq_base.subsys,
+> +						     mmsys->cmdq_base.pa_base, offset, val, mask);
+> +
+>   		if (ret)
+>   			pr_debug("CMDQ unavailable: using CPU write\n");
+>   		else
+> diff --git a/drivers/soc/mediatek/mtk-mutex.c b/drivers/soc/mediatek/mtk-mutex.c
+> index 38179e8cd98f..9b22d7e09d99 100644
+> --- a/drivers/soc/mediatek/mtk-mutex.c
+> +++ b/drivers/soc/mediatek/mtk-mutex.c
+> @@ -990,6 +990,7 @@ int mtk_mutex_enable_by_cmdq(struct mtk_mutex *mutex, void *pkt)
+>   	struct mtk_mutex_ctx *mtx = container_of(mutex, struct mtk_mutex_ctx,
+>   						 mutex[mutex->id]);
+>   	struct cmdq_pkt *cmdq_pkt = (struct cmdq_pkt *)pkt;
+> +	dma_addr_t en_addr = mtx->addr + DISP_REG_MUTEX_EN(mutex->id);
+>   
+>   	WARN_ON(&mtx->mutex[mutex->id] != mutex);
+>   
+> @@ -998,8 +999,11 @@ int mtk_mutex_enable_by_cmdq(struct mtk_mutex *mutex, void *pkt)
+>   		return -ENODEV;
+>   	}
+>   
+> -	cmdq_pkt_write(cmdq_pkt, mtx->cmdq_reg.subsys,
+> -		       mtx->addr + DISP_REG_MUTEX_EN(mutex->id), 1);
+> +	if (mtx->cmdq_reg.subsys != CMDQ_SUBSYS_INVALID)
+> +		cmdq_pkt_write_subsys(cmdq_pkt, mtx->cmdq_reg.subsys, en_addr, en_addr, 1);
+> +	else /* only MMIO access, no need to check mminfro_offset */
+> +		cmdq_pkt_write_pa(cmdq_pkt, mtx->cmdq_reg.subsys, en_addr, en_addr, 1);
+> +
+>   	return 0;
+>   }
+>   EXPORT_SYMBOL_GPL(mtk_mutex_enable_by_cmdq);
 
-To mitigate this, we're currently trying to gracefully recover on time-
-out by checking the hardware state and processing as if no timeout
-happened. This needs special care because eventually the IRQ thread will
-run and try to process a SPI transfer that's already been processed. It
-also isn't optimal because of, well, the timeout.
 
-These devices have a *lot* of CPUs and usually only CPU 0 tends to be
-clogged (during boot) and fio-based stress tests at runtime can also
-trigger this case if they happen to run on CPU 0.
-
-One workaround that has proven to work is to change the affinity of the
-QSPI interrupt to whatever the current CPU is at probe time. That only
-only works as long as that CPU doesn't happen to be CPU 0, obviously.
-It also doesn't work if we end up stress-testing the selected CPU at
-runtime, so it's ultimately just a way of reducing the likelihood, but
-not avoiding the problems entirely.
-
-Which brings me to the actual question: what is the right way to solve
-this? I had, maybe naively, assumed that the default CPU affinity, which
-includes all available CPUs, would be sufficient to have interrupts
-balanced across all of those CPUs, but that doesn't appear to be the
-case. At least not with the GIC (v3) driver which selects one CPU (CPU 0
-in this particular case) from the affinity mask to set the "effective
-affinity", which then dictates where IRQs are handled and where the
-corresponding IRQ thread function is run.
-
-One potential solution I see is to avoid threaded IRQs for this because
-they will cause all of the interrupts to be processed on CPU 0 by
-default. A viable alternative would be to use work queues, which, to my
-understanding, can (will?) be scheduled more flexibly.
-
-Alternatively, would it be possible (and make sense) to make the IRQ
-core code schedule threads across more CPUs? Is there a particular
-reason that the IRQ thread runs on the same CPU that services the IRQ?
-
-Maybe another way would be to "reserve" CPU 0 for the type of core OS
-driver like QSPI (the TPM is connected to this controller) and make sure
-all CPU intensive tasks do not run on that CPU?
-
-I know that things like irqbalance and taskset exist to solve some of
-these problems, but they do not work when we hit these cases at boot
-time.
-
-Any other solutions that I haven't thought of?
-
-Thanks,
-Thierry
-
---h7tzznfw5eznq6ir
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmjnnssACgkQ3SOs138+
-s6H/fw//XHBacGZ1WIaZWFeKGgC7KIa0ThRdPdvwPt/7Pnvs0RGF5E7+IX61zdQe
-luQOS5rfrygOf05XxWortvQJnhMppVJN6N//i33eXrk+wU3uhymEFZBLguQPyIB8
-LeCO2Y5G8/ppNbd+F/LOXF8JiRF1/tMGyCxtfTnqtxPjbPO2XNTKActv6XsYWed+
-tYUuknya5lX8j5Lp+y1tc1NkCJvwgCfnhfxmpS1njZX5OMzidveWIP3HVDy9iCTR
-ogq6Rk/rzyxlYxa/Ii1AtZUS80D6idaMyvr8gbB6jwYI9LwVQqEHg9WQPUQ4l1vf
-/DBdZ5i7yvHwKAn3JYMnKSHJurp0avbqky/8Ou9m3rNSaZACkhrUhjqYqdIG1rIx
-+U1NcIzpRyg38JahYdiI3ZzW83FD978KHQQ7Ctt1DSdpujEoNdslv5cXmWfTXYTt
-C7o17uBicCt9imXAUaGPlK0509JmiwC45FrI88hAYsGK3yb/Gj9MGa44pwD6fUbC
-tG0VLoHmxWHjAKZLgcxLLiu8v8Rqmu0/DB0qJ1B/B8kBR54tfTTeLIdSMYeAspwB
-Yix5k3QDJAW6UmdvAwVAumGUGH4bfSxlDkViv5V5zBnLIFKJuSkTNaHfvdY+0+GA
-p3jCFr54MCEhAS4rUCrf9ZZt/N5gXiGs7PxPZ4AIlNvrJAsaKW8=
-=867x
------END PGP SIGNATURE-----
-
---h7tzznfw5eznq6ir--
 
