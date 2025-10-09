@@ -4,73 +4,97 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44227CCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 14:00:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63A0BCCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 14:00:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1y5MNw5pAX4zEDE7oHbM3Qb22NF+hb8K41cpqkfKay0=; b=JkZA03JrglRnhBs78sWrRSBHGk
-	b016+TNFMhewafehjeUj0YyhY1daZ4CEbtMBIqU7fT93FsiqjGih1rU3P07diutPcVzUX64JdN74T
-	1XlAdqhkrRmt9fC2dOzUykkdaM8pyVaei2glHiJpXBV9jCrKTjQ98ZsUcDZHT50YPLcS7F2JWLDy8
-	zh3Goz/6PqSluJXeyAVtJRz66022jJn8+iz+OtJUn8Rzd3iOxopsUzO1LM8pF/jOr7QIklssoHFXg
-	IRpaQXBe43AlBrTHLQ+w7jrB6Cq5XeNYExaBIrABtto9ZEOvXxKlVuQTHcNAo+Fswc5G8JX3HrlrH
-	VqpRgo0w==;
+	bh=515o7326gcQ3D6uHqGhrkvo5xmocInFa3UoZMccGVHE=; b=yIvLwslb6BYlbbk8iRS3/33WDH
+	WRl0IncnomrrKQbtYsbFYSw28gYma/3MVvK11rm9E+Qc56oY6Q25ZkOl6o8TuGVD118RbMGhh63A5
+	aStcNAfdS3dIqbvgr8zYAcC7McwE7223DtjhLhm0N5bw1A+WL2FU1hnjqObgvQzuqc/ItJ5B6hvhO
+	GjFKGwNGdeutH6IRQyEr2Q+T8Esse/kJJjE3XhuonT71ncHicOB0Nc2m4caqcGtAyF99FE+hLQ7dd
+	nNujFR1A6R9r7KW7hTt+0pQjzcdTlKczV2Qigdl44WqcOmmcTZgsw1mdbEdEwn5lJw9Por1Iickf4
+	cMjHeOGA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6rBs-00000006HFy-2sZA;
-	Thu, 09 Oct 2025 14:00:20 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1v6rCB-00000006HKs-1Ltr;
+	Thu, 09 Oct 2025 14:00:39 +0000
+Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6rBq-00000006HFU-1Y5l;
-	Thu, 09 Oct 2025 14:00:20 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=1y5MNw5pAX4zEDE7oHbM3Qb22NF+hb8K41cpqkfKay0=; b=qXzi3/7EvQikSz7+v6VhkyeIyY
-	mrruz6GjdBUnEFBc00hilEBAoR7HPxjlOK7SkMaB5y/w+OB2W4DfoQ2gvvduFK7Jn5R9ZaSFLaBQi
-	5MC5Ap9quFLTVLl4/3RteQ9wz/zoRyfugx9Jc5NDnvkO2RLGWvAD9tidUw90QwmaT54OAm5ESY7yR
-	7xXE2wDGLl5PAEipZAnTw/3lYKU+VwN6cQHE6l7VmrjKPKz8KIm8b6UKwpiOGTgEZbRXoiw5wuD9H
-	SMsImcO4DcLek2T69/tnTNWnlNPZroH/GNk19tXuib12c0RyofsGVl0Sc/lskeR3ZkNEQEXRYm0wA
-	26Z98Mew==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:44504)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1v6rBP-0000000074K-2fB0;
-	Thu, 09 Oct 2025 14:59:51 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1v6rBI-000000004rQ-3dqH;
-	Thu, 09 Oct 2025 14:59:44 +0100
-Date: Thu, 9 Oct 2025 14:59:44 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Liangbin Lian <jjm2473@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	heiko@sntech.de, quentin.schulz@cherry.de,
-	kever.yang@rock-chips.com, naoki@radxa.com, honyuenkwun@gmail.com,
-	inindev@gmail.com, ivan8215145640@gmail.com,
-	neil.armstrong@linaro.org, mani@kernel.org, dsimic@manjaro.org,
-	pbrobinson@gmail.com, alchark@gmail.com, didi.debian@cknow.org,
-	jbx6244@gmail.com, andrew@lunn.ch, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 3/3] arm64: dts: rockchip: add LinkEase EasePi R1
-Message-ID: <aOe_0EufouURu7R2@shell.armlinux.org.uk>
-References: <20251009084416.45542-1-jjm2473@gmail.com>
- <20251009084416.45542-4-jjm2473@gmail.com>
+	id 1v6rC8-00000006HJg-3i5w
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Oct 2025 14:00:38 +0000
+Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-b54f55a290cso86206566b.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 07:00:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1760018435; x=1760623235; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=515o7326gcQ3D6uHqGhrkvo5xmocInFa3UoZMccGVHE=;
+        b=N+Hu6poq4UnszfclAY5SpJk82CmbusWzUNJ2KdaKGYOagkwrhcFMMzXjHlkone4Gxp
+         UC48xnRalJKK+BZhR6pz3dfszdh5e/X+WDhiGS2YkHUvR+5PJt2giddN+qk3LDXKmh+J
+         9inRJcJa58cBTcyfBoFjoCunt0Xv6MrbKer7WnzUOH5dHdtcre9269xYUIEb6XgRYlBe
+         C7Hl5hPDgdCOf9joHcat3GH+5ZZTtiFOKWjskbf9Es43bRVYc1mVq/NPvl7nZ79fplaK
+         1xNuQQyh9vgulN4s4CRSBOQw/zGKDeC+93CdCWDGopQWRM59G7ZpiZxMVkuA/gZm+ibu
+         NThQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760018435; x=1760623235;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=515o7326gcQ3D6uHqGhrkvo5xmocInFa3UoZMccGVHE=;
+        b=Rs1qi7WXVZ5GehtIsVyoY4YconeyxgG0MlXOVwcXyx8vB3A242lqnwbsDeWUESbF2V
+         y14ihazEMpdWzd06SQzGdl5nM59tUzDXHl6VPXOoi/FuzwTl5mtnk2MatYhHmOBHbihM
+         YUwX04NE4WzW6/znMljrChKG8StWf6WthiA7Q8Op2WylExSOFgicv2qch+NvxQLGT3dj
+         Sm1PXUANUchTEW/KqAOasMqHM0R2qN8D9Z8hRHYq1vKxIs0sMehqmBfBN9KwBzMZpHro
+         iBZ6YaeNrwRCANFRbaCGF0yTblfWoiUpR8mJ3W6JS8BAgWw+eFNzc3foBWAGE21mcRgE
+         WEQA==
+X-Forwarded-Encrypted: i=1; AJvYcCX6/TOUBeOLd8wxgYT0cJ+lyOl0agw7U3b7J22M/KMsJkjzvYLDtfrON0zI3z0TJrBue20gAvYKVAn2HYBt/RnJ@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywv4IQu0Hi4e2Dnx/qqLo0K6mbRTx76GtjMyeSM0SP6lsySCvpe
+	aYbbKoGkeX0CaN4/kIogSLCu+y88+7Nea20S6Lj/9bcDcbIlY8mlmFifZsdBKklgx7w=
+X-Gm-Gg: ASbGncu/3z8BAm9eFXVJCWFz8B6Vcmn3hCIPBENOlrBBaJp41HTR7c42ZyNwZ8IieXv
+	m6zYTNWNxhueweAHVB7hIyh1v1SKfl91YybbRPpgiVm0JWs8I++m8s5SvottA72KFMY0vPOLL58
+	4l8ljtSoWpeRx7OBXBJvGq5nKqoJqwKzaUUaxGC3OJhj+L+pB3bIYJTRcuiuVPDJWHlTDSTup/5
+	FrxIZpwDKUwh2Cptxls9qlp2wn4pyF4n3QAO56li3V/2oVrbJm3Sf6IvIzCZUElGN1DV37Jy9IS
+	H6b+/FAY8A/om8s1MvxtJmyVUwTxAmRK35lykF+mQ24P+2D4fMqZhyL7QKfM9lPijn8uX9E/gV2
+	mJQZokYtElGdbNliPvFdC5EsQiKe50+qYlUhpGPfK5LacM+VO6eya+A==
+X-Google-Smtp-Source: AGHT+IEgmsVd+NJKivv9Nf15rZIeHvCLH7dQTFIvwmRIDeiyvpI4bVIdaRiBfWbq7EmQkO2KbsnQcQ==
+X-Received: by 2002:a17:907:c27:b0:b3e:256:8332 with SMTP id a640c23a62f3a-b50ac6d378amr903062366b.54.1760018435004;
+        Thu, 09 Oct 2025 07:00:35 -0700 (PDT)
+Received: from draszik.lan ([80.111.64.44])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b48652aa62csm1860412666b.19.2025.10.09.07.00.33
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 09 Oct 2025 07:00:34 -0700 (PDT)
+Message-ID: <63fb3ccc10267add00b579d4a05497cbeeadc65e.camel@linaro.org>
+Subject: Re: [PATCH 03/10] pmdomain: samsung: use to devm_kstrdup_const() to
+ simplify error handling
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar
+ <alim.akhtar@samsung.com>,  Rob Herring <robh@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,  Ulf
+ Hansson <ulf.hansson@linaro.org>
+Cc: Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus
+	 <tudor.ambarus@linaro.org>, Will McVicker <willmcvicker@google.com>, 
+	kernel-team@android.com, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
+Date: Thu, 09 Oct 2025 15:00:33 +0100
+In-Reply-To: <9d4ccadf76ccfff1a8b5f572b8aa190e2dc40c29.camel@linaro.org>
+References: <20251006-gs101-pd-v1-0-f0cb0c01ea7b@linaro.org>
+		 <20251006-gs101-pd-v1-3-f0cb0c01ea7b@linaro.org>
+		 <5df18f42-b567-4d27-9e12-29723af40d6e@kernel.org>
+	 <9d4ccadf76ccfff1a8b5f572b8aa190e2dc40c29.camel@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-2 
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251009084416.45542-4-jjm2473@gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_070018_704506_E200C0AC 
-X-CRM114-Status: GOOD (  16.69  )
+X-CRM114-CacheID: sfid-20251009_070036_940373_DE6BF711 
+X-CRM114-Status: GOOD (  18.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,64 +109,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 09, 2025 at 04:44:16PM +0800, Liangbin Lian wrote:
-> +&gmac0 {
-> +	phy-mode = "rgmii-id";
-> +	clock_in_out = "input";
-...
-> +&gmac1 {
-> +	phy-mode = "rgmii-id";
-> +	clock_in_out = "input";
+On Thu, 2025-10-09 at 14:31 +0100, Andr=C3=A9 Draszik wrote:
+> On Thu, 2025-10-09 at 09:13 +0900, Krzysztof Kozlowski wrote:
+> > On 07/10/2025 01:43, Andr=C3=A9 Draszik wrote:
+> > > Convert to using devm_kstrdup_const() so as to simplify cleanup durin=
+g
+> > > error handling.
+> >=20
+> >=20
+> > This is either a fix (then describe the fixed issue and add Fixed tag)
+> > or you change the logic, not only simplify.
+> >=20
+> > Previously on of_genpd_add_provider_simple() the memory was not
+> > kfree_const. Now it will be.
+>=20
+> Indeed it's a fix after all - While the driver doesn't allow unbind,
 
-I am fine with what is being proposed here, but I think this
-clock_in_out property needs fixing. The description for it is thus:
+Thinking more about it - at this stage, this patch is not a fix. The driver
+can not unbind, hence there is no leak to be plugged, hence no fix.
 
-  clock_in_out:
-    description:
-      For RGMII, it must be "input", means main clock(125MHz)
-      is not sourced from SoC's PLL, but input from PHY.
-      For RMII, "input" means PHY provides the reference clock(50MHz),
-      "output" means GMAC provides the reference clock.
-    $ref: /schemas/types.yaml#/definitions/string
-    enum: [input, output]
-    default: input
+> I added this patch due to the followup patches that add potential error
+> returns during probe,
 
-The problems that I have here are:
+since it makes the error paths in those follow-up patches simpler
 
-1) the description states that the only possible value for this when in
-   RGMII mode is "input" which is reasonable, because it's due to the
-   RGMII specification. The driver code is perfectly able to determine
-   whether RGMII has been specified, and set bsp_priv->clock_input
-   itself, relieving DT of this need.
+>  but somehow missed an already-existing error
+> return after this call.
 
-2) bsp_priv->clock_input is only used in gmac_clk_enable() when calling
-   the SoC specific set_clock_selection() method. Only RK3528, RK3576,
-   and RK3588 populate this method. Every other SoC supported by this
-   driver still requires the property:
+Ignore this last part. I forgot that I simplified this error path in this
+patch myself :-)
 
-        ret = of_property_read_string(dev->of_node, "clock_in_out", &strings);
-        if (ret) {
-                dev_err(dev, "Can not read property: clock_in_out.\n");
-                bsp_priv->clock_input = true;
-        } ...
+So, I'm not sure how to rephrase, tbh.
 
-  If one doesn't provide it, one gets an error print, which is not nice
-  I note that the DT binding doesn't list this property as required, so
-  the code is at odds with the binding.
 
-  (I note that your Rockchip SoC is RK3568, which doesn't implement this
-  method.)
-
-So, taking both these points together, the code should not be printing
-an error if "clock_in_out" is missing when either:
-
-a) RGMII is being used (or maybe only when RMII is being used?)
-b) the set_clock_selection() method is not present for the SoC variant.
-
-With the driver fixed as indicated above, I then think clock_in_out in
-your descriptions becomes unnecessary, and should be removed.
-
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+Cheers,
+A
 
