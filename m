@@ -4,56 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 63937CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 15:59:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 754C2CCD18D
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 16:00:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=opTBmc8DxcAiFY2hUm8rASvsxYOj3+0ZLKUYdtp8UIc=; b=vi8H9giJHL/R2MkBxcxtnCqfS7
-	dsRlVYuwWtGBL6BCa8b8LUUDc2QrW4PiN2mH65wRduFh3k5ujfvc2ATgCOdzcatF/MPvJSnepAzzO
-	HF3UYhuE4+kTbOH1cxWW1tkiX2xPbKu6UcIfqJgOpc16rLJ/MwKBmoMLBO4mCjiYhVpcX3HcmvQSb
-	sAhw00ga7OFz3Cv4CkgwwRSwPG4eGDlgJYzllp+Kzax05v66s+3inwZOt28ayXECR+KBMZ4XphvJ0
-	7LHUr88lgblSOdKxFBFeoGg9ReQ4yJqhHPy3RLvBMOlE4CEfPVQPsSGu/WsAnzUUqqgm+RyStP3q5
-	7HDwbBdQ==;
+	bh=2WdjgSxAGpFjajFOy+pEexvGJIbi5PeDC1r/oBgNqic=; b=D0eu5Vv46lJF5n9M0dsUYRMN6d
+	VUs7AZayRGyiGf4qf4WrzL184buq6SVVYhRgJ/wjEeacKzD5NKfJaPiLG7JQDJAQ2s1NHgdo8XQDi
+	diG/G+ukK65kIyhwVlUnjCR5u0QAHH8e7e4AwNecVM79oPvgqCfE3sBqVyc4mm4bOtpyQ877A31tb
+	hWIgekyCoIpO4RKRzNEh2v055kiyycKNjb8hE1yjvdoKFAS1al5yaYReOJrhVbHzoJBqjq8ItvYDC
+	7UcuW7SgzpBOOAbsQ0gPxkQcvZ1hrTErRQcrjOF/DQ/VQBpwPbTswdxsxiJv2UBQ0t3DrMN2HVl/D
+	nfa5Qdmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6t3W-00000006bU8-2BH4;
-	Thu, 09 Oct 2025 15:59:50 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v6t3c-00000006bZs-16dl;
+	Thu, 09 Oct 2025 15:59:56 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6t3U-00000006bRY-0IqY
+	id 1v6t3a-00000006bXe-2Pz5
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 15:59:49 +0000
+	Thu, 09 Oct 2025 15:59:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 88330432E6;
-	Thu,  9 Oct 2025 15:59:47 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7AE83C4CEE7;
-	Thu,  9 Oct 2025 15:59:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 05D0F6236A;
+	Thu,  9 Oct 2025 15:59:54 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01171C4CEE7;
+	Thu,  9 Oct 2025 15:59:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760025587;
-	bh=MEC3UST187b5+bx6IM6CncKqE62YTc9pxgQ1X+WYYaM=;
+	s=k20201202; t=1760025593;
+	bh=cFghnHm6DMl6Pt9AEUG5rzDt7SAd9usE0hg1RbT6xsc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=BSvwlzE3oVvHFXA5p/h0ZvwoPSwqfBfOZguphR3GERcoW3WL4/25PEVrKVa8nyx4k
-	 Gi/zaaIBbTwLeS77gmYYwiw7ZZtdpDdIqqWsJeHjUn5fLfUHR/zbVs3mkb96dYO+QO
-	 EfHxwbvDcYhjQRqo+I9NeU5KuyY1aon5qiop6focwqLFmkJaZelNicmn84rjPEpM5S
-	 axULNVW15hYqzW/TvLa3KxshUe4pUQJ5r19anmMS1xu2pd96VNFB1b0X70ZhfATe/r
-	 mMdqUNr44B1mb6NEcYiBq6gbrd+kLAZD84bcUd1JX0+7hpvC/YUL2B6gGr1Mkpocp1
-	 QHQHtyk1tqfUQ==
+	b=bgTLqmg92rhSvMwukpAle3dvfpyxp7x6x1BAZXxo5TO2PMrm1w+k7Ycn3m3i3/fH3
+	 EyEwoqzXCXt1JHSI9WdhgJIcn7v2MnjUgm3gbASCfozb2SnowohWCoP9mnXQ2KPZVg
+	 7bqUPg+Q01mjXjK24lT9aCV0+jrxfEl1g7scWwZoivlb1jFIjSMcMPRz38pd8zdTAd
+	 S163rJIua8xk7VvAwc7q3csbHfR1KAO/BacT4Rge0W4ZqmRhKRD1bsJIU/KYy7p2mI
+	 NMBwbcih2U0y0Yf8LglzFN5YKBJ065SYNRk2ZZPHK8k0bax8PcqRqjaUH0w7XFUBE7
+	 er28DpYTk7sfw==
 From: Sasha Levin <sashal@kernel.org>
 To: patches@lists.linux.dev,
 	stable@vger.kernel.org
-Cc: Ryan Chen <ryan_chen@aspeedtech.com>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
+Cc: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>,
+	Michal Simek <michal.simek@amd.com>,
 	Sasha Levin <sashal@kernel.org>,
-	joel@jms.id.au,
-	linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org
-Subject: [PATCH AUTOSEL 6.17-5.15] soc: aspeed: socinfo: Add AST27xx silicon IDs
-Date: Thu,  9 Oct 2025 11:55:25 -0400
-Message-ID: <20251009155752.773732-59-sashal@kernel.org>
+	linux-arm-kernel@lists.infradead.org
+Subject: [PATCH AUTOSEL 6.17-6.6] arm64: zynqmp: Revert usb node drive strength and slew rate for zcu106
+Date: Thu,  9 Oct 2025 11:55:29 -0400
+Message-ID: <20251009155752.773732-63-sashal@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251009155752.773732-1-sashal@kernel.org>
 References: <20251009155752.773732-1-sashal@kernel.org>
@@ -61,10 +59,8 @@ MIME-Version: 1.0
 X-stable: review
 X-Patchwork-Hint: Ignore
 X-stable-base: Linux 6.17.1
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_085948_167983_932A24DA 
-X-CRM114-Status: GOOD (  14.72  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,151 +75,69 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Ryan Chen <ryan_chen@aspeedtech.com>
+From: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
 
-[ Upstream commit c30dcfd4b5a0f0e3fe7138bf287f6de6b1b00278 ]
+[ Upstream commit 767ecf9da7b31e5c0c22c273001cb2784705fe8c ]
 
-Extend the ASPEED SoC info driver to support AST27XX silicon IDs.
+On a few zcu106 boards USB devices (Dell MS116 USB Optical Mouse, Dell USB
+Entry Keyboard) are not enumerated on linux boot due to commit
+'b8745e7eb488 ("arm64: zynqmp: Fix usb node drive strength and slew
+rate")'.
 
-Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
-Link: https://patch.msgid.link/20250807005208.3517283-1-ryan_chen@aspeedtech.com
-Signed-off-by: Andrew Jeffery <andrew@codeconstruct.com.au>
+To fix it as a workaround revert to working version and then investigate
+at board level why drive strength from 12mA to 4mA and slew from fast to
+slow is not working.
+
+Signed-off-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Signed-off-by: Michal Simek <michal.simek@amd.com>
+Link: https://lore.kernel.org/r/85a70cb014ec1f07972fccb60b875596eeaa6b5c.1756799774.git.michal.simek@amd.com
 Signed-off-by: Sasha Levin <sashal@kernel.org>
 ---
 
 LLM Generated explanations, may be completely bogus:
 
-## Backport Analysis: soc: aspeed: socinfo: Add AST27xx silicon IDs
+YES – this revert should go to stable because it undoes a regression
+that breaks USB enumeration on real hardware.
 
-**Backport Status: YES**
+- Regression context: the offending change (`arm64: zynqmp: Fix usb node
+  drive strength and slew rate`, commit f8673fd570025) landed in v6.6
+  and later; it forces the USB0 TX pins on zcu106 to `drive-strength =
+  <4>`/`slew-rate = <SLEW_RATE_SLOW>`, and several boards stop
+  enumerating basic USB HID devices as a result (confirmed in the linked
+  report).
+- Fix details: the new commit restores the TX pin mux entry to the
+  previous working values (`drive-strength = <12>`, `slew-rate =
+  <SLEW_RATE_FAST>` in `arch/arm64/boot/dts/xilinx/zynqmp-
+  zcu106-revA.dts:811`), while leaving the RX pins unchanged, which
+  matches the configuration that shipped (and worked) before
+  f8673fd570025.
+- Scope and risk: the patch is a board-specific device-tree tweak; no
+  drivers or shared subsystems are touched, so the blast radius is
+  contained to zcu106 USB0, making the change low risk and
+  straightforward to backport.
+- Stable criteria: it fixes a user-visible regression (USB devices fail
+  to enumerate) without introducing new features or architectural
+  changes, so it fits the stable rules and should be applied to all
+  branches that picked up the offending commit (v6.6+).
 
-### Executive Summary
-This commit **should be backported** to stable kernel trees and has
-**already been selected** for backporting by the AUTOSEL process (commit
-ae11b34ee41dc). The change is explicitly permitted by stable kernel
-rules and follows established precedent.
+ arch/arm64/boot/dts/xilinx/zynqmp-zcu106-revA.dts | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
 
-### Detailed Analysis
-
-#### 1. **Compliance with Stable Kernel Rules**
-The stable kernel documentation (Documentation/process/stable-kernel-
-rules.rst:15) explicitly states:
-> "It must either fix a real bug that bothers people **or just add a
-device ID**."
-
-This commit adds silicon IDs (which are device IDs) for the AST2700
-series SoCs. **This type of change is explicitly permitted by stable
-kernel policy.**
-
-#### 2. **Code Change Analysis**
-The change in drivers/soc/aspeed/aspeed-socinfo.c:27-30 adds only 4
-lines to a static lookup table:
-```c
-+       /* AST2700 */
-+       { "AST2750", 0x06000003 },
-+       { "AST2700", 0x06000103 },
-+       { "AST2720", 0x06000203 },
-```
-
-**Risk Assessment:**
-- **Size**: 4 lines (well under 100-line limit)
-- **Complexity**: Pure data addition, no logic changes
-- **Dependencies**: None
-- **Regression risk**: Zero - only affects AST2700 hardware
-  identification
-- **Side effects**: None - if these IDs don't match, lookup returns
-  "Unknown" as before
-
-#### 3. **Silicon ID Pattern Validation**
-The IDs follow ASPEED's established pattern:
-- **0x06** = Generation 6 (AST2700 series)
-- **0x00** = Model family
-- **0x00/01/02** = Variant differentiation (2750/2700/2720)
-- **0x03** = Revision A3
-
-This is consistent with all previous ASPEED silicon IDs
-(AST2400-AST2625).
-
-#### 4. **Historical Precedent**
-**Commit d0e72be77e799** (2021) added AST2605 support with a `Fixes:`
-tag and was backported to stable 5.11.x by Sasha Levin. This establishes
-clear precedent that adding missing silicon IDs is considered a fix, not
-a new feature.
-
-**Commit 8812dff6459dd** (2021) added AST2625 variant without stable
-tags but was included in mainline 5.15-rc1.
-
-#### 5. **Current Status**
-- **Original commit**: c30dcfd4b5a0f (merged in aspeed-6.18-drivers-0
-  tag)
-- **AUTOSEL backport**: ae11b34ee41dc (signed by Sasha Levin)
-- **Status**: Already selected for stable backporting
-- **Fixes/Reverts**: None found since merge
-
-#### 6. **AST2700 Context in v6.17**
-Device tree bindings for AST2700 already exist in v6.17:
-- `Documentation/devicetree/bindings/interrupt-
-  controller/aspeed,ast2700-intc.yaml`
-- `Documentation/devicetree/bindings/mailbox/aspeed,ast2700-
-  mailbox.yaml`
-- `Documentation/devicetree/bindings/mfd/aspeed,ast2x00-scu.yaml`
-  (mentions AST2700)
-
-This means v6.17 has partial AST2700 support. Adding silicon IDs enables
-proper SoC identification for users with AST2700 hardware.
-
-#### 7. **User Impact**
-**Without this patch:** Users running stable kernels on AST2700 hardware
-see:
-```
-ASPEED Unknown rev ?? (06000003)
-```
-
-**With this patch:** Users see proper identification:
-```
-ASPEED AST2750 rev A3 (06000003)
-```
-
-This matters for:
-- Hardware identification and inventory
-- Debugging and support
-- Kernel boot logs and diagnostics
-- System management tools
-
-#### 8. **Why Backport Despite No "Fixes:" Tag?**
-While the original commit lacks explicit stable tags, it qualifies
-because:
-1. **Stable rules explicitly permit device ID additions** (no Fixes tag
-   required)
-2. **AUTOSEL process selected it** (automated stable selection)
-3. **Zero regression risk** with clear user benefit
-4. **Completes existing AST2700 support** already present in v6.17
-
-### Conclusion
-**YES - This commit should be backported.** It meets all stable kernel
-criteria, has already been selected by AUTOSEL, carries zero regression
-risk, and provides tangible value to users with AST2700 hardware on
-stable kernels. The stable kernel rules explicitly permit device ID
-additions, making this an appropriate and safe backport candidate.
-
- drivers/soc/aspeed/aspeed-socinfo.c | 4 ++++
- 1 file changed, 4 insertions(+)
-
-diff --git a/drivers/soc/aspeed/aspeed-socinfo.c b/drivers/soc/aspeed/aspeed-socinfo.c
-index 3f759121dc00a..67e9ac3d08ecc 100644
---- a/drivers/soc/aspeed/aspeed-socinfo.c
-+++ b/drivers/soc/aspeed/aspeed-socinfo.c
-@@ -27,6 +27,10 @@ static struct {
- 	{ "AST2620", 0x05010203 },
- 	{ "AST2605", 0x05030103 },
- 	{ "AST2625", 0x05030403 },
-+	/* AST2700 */
-+	{ "AST2750", 0x06000003 },
-+	{ "AST2700", 0x06000103 },
-+	{ "AST2720", 0x06000203 },
- };
+diff --git a/arch/arm64/boot/dts/xilinx/zynqmp-zcu106-revA.dts b/arch/arm64/boot/dts/xilinx/zynqmp-zcu106-revA.dts
+index 7beedd730f940..9dd63cc384e6e 100644
+--- a/arch/arm64/boot/dts/xilinx/zynqmp-zcu106-revA.dts
++++ b/arch/arm64/boot/dts/xilinx/zynqmp-zcu106-revA.dts
+@@ -808,8 +808,8 @@ conf-tx {
+ 			pins = "MIO54", "MIO56", "MIO57", "MIO58", "MIO59",
+ 			       "MIO60", "MIO61", "MIO62", "MIO63";
+ 			bias-disable;
+-			drive-strength = <4>;
+-			slew-rate = <SLEW_RATE_SLOW>;
++			drive-strength = <12>;
++			slew-rate = <SLEW_RATE_FAST>;
+ 		};
+ 	};
  
- static const char *siliconid_to_name(u32 siliconid)
 -- 
 2.51.0
 
