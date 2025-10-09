@@ -4,113 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29ED5CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 20:11:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B81AFCCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 20:15:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CA+i/6Qb3/gQyWyzsa6UvjgPbY8h3JvsLFGQrqpNEy0=; b=VssK6pemePFQtA0hSPE14AjW4T
-	EKwIRR6WmYtLdoFhHFG6BsHy1uM/zgOYsZNg5gakJrejJlc1zBKHTM7I4Q/Zov569KiJq31o+FpGR
-	JKi54UQ2yRZ8WqHRr/dNb7LxCGOWBDuDexx3+vxdCXU8WmuX3Bf06SdMXvmF/9W5cZMgoMFW2opc2
-	qJSD7Z/BPxw9PHtljAq0zXgiKbsxXjhwrHUPbsM7tgBcnoYxdZ4YB+WP7GRFfH0/jcCCqGpb7yD4a
-	QYeLlH78RXkUm2iOgG7FG+umCZ2RrDNSbjmFPvTWM9CSseiX0/NXR/nsk2ucGAsukOW7wQwoSqFtr
-	AJOex7IA==;
+	bh=m8IQGlvE0B/h1nhDsu/zo01pRlwkuXubZg9MqyCi1WQ=; b=biLH0lBrt595AksxiTAF/DlnjO
+	Mu9eOZjoqoAeLgp/mYdZCQW0czgGA6v+bm2DZZZ3CSGBS0QoGXpvaC9ZTnj8++IEmefepI2GCDrj9
+	F0iPfhaR3xmlq1N7pYWJU76jB2laJbDDeWuszYeqNgrpQJrhs5yDim2+72KXcOjk0AUDpnU8vMbqE
+	rGD/cjYSyJCA2uFkiqzi1wLMRelzeQXz/lAJEq82Gy/i6zoo2hvWbd1FyEvK0rYMxp7Z8q6pD7Nft
+	9f5tSFxrbiBYLaL0bjzbSekqi+0CO6hISsAeLLMWrY28GruiQfgKdEisqakSXqbZ3Ksm8YlY+kcNI
+	c5pgoy/A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6wz3-000000073Gj-0TE4;
-	Thu, 09 Oct 2025 20:11:29 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1v6x2v-000000073rB-3viw;
+	Thu, 09 Oct 2025 20:15:29 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6wz0-000000073EX-1Ef1;
-	Thu, 09 Oct 2025 20:11:27 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 599EfqWt029314;
-	Thu, 9 Oct 2025 20:11:16 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=CA+i/6Qb3/gQyWyzsa6UvjgP
-	bY8h3JvsLFGQrqpNEy0=; b=oAj/l8XgYn7BYezYVXUG5Iuoxjjgd5TOnmMeWy9w
-	K0q5CUS0zaOX0FdG7N97k+orqgux3CxybpClSZy6yOuQCjIeHHcD1b1fbKxFlaCd
-	oF6LP3kTgadpajGBgoJhjh+pflD9ivdbwyzZoUZe/RZdqzapoJtQT1yPkVNT/WbI
-	ZjWScZvEAhnC/daCNy0D8SIZKEHXJt7uwtQ6NiZ3lI9n1WUfly4bKvf1F9v48tJs
-	5KdFE4YemkvEcmgNqsTrlYQhC3bRtTY0PQ0XHoS7OPQx8TBHhbr6/tBjl5kt8eYc
-	7MdAtJmE44Iy5RbQ3M1HWzEnW3CYl1WS/+LPxSe018nDgQ==
-Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49nv4nm6g7-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 09 Oct 2025 20:11:16 +0000 (GMT)
-Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
-	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 599KBEaq004992
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
-	Thu, 9 Oct 2025 20:11:14 GMT
-Received: from stor-berry.qualcomm.com (10.80.80.8) by
- nasanex01a.na.qualcomm.com (10.52.223.231) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1748.24; Thu, 9 Oct 2025 13:11:14 -0700
-From: "Bao D. Nguyen" <quic_nguyenb@quicinc.com>
-To: <quic_cang@quicinc.com>, <quic_nitirawa@quicinc.com>, <bvanassche@acm.org>,
-        <avri.altman@wdc.com>, <peter.wang@mediatek.com>,
-        <adrian.hunter@intel.com>, <martin.petersen@oracle.com>
-CC: <linux-scsi@vger.kernel.org>, "Bao D. Nguyen" <quic_nguyenb@quicinc.com>,
-        Alim Akhtar <alim.akhtar@samsung.com>,
-        "James E.J. Bottomley"
-	<James.Bottomley@HansenPartnership.com>,
-        Stanley Jhu <chu.stanley@gmail.com>,
-        Manivannan Sadhasivam <mani@kernel.org>,
-        Matthias Brugger
-	<matthias.bgg@gmail.com>,
-        AngeloGioacchino Del Regno
-	<angelogioacchino.delregno@collabora.com>,
-        Bean Huo <beanhuo@micron.com>, Manish Pandey <quic_mapa@quicinc.com>,
-        open list
-	<linux-kernel@vger.kernel.org>,
-        "moderated list:UNIVERSAL FLASH STORAGE HOST
- CONTROLLER DRIVER..." <linux-mediatek@lists.infradead.org>,
-        "open
- list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER..."
-	<linux-arm-msm@vger.kernel.org>,
-        "moderated list:ARM/Mediatek SoC
- support:Keyword:mediatek" <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH v2 1/2] scsi: ufs: core: Remove UFS_DEVICE_QUIRK_DELAY_AFTER_LPM quirk
-Date: Thu, 9 Oct 2025 13:10:58 -0700
-Message-ID: <3abb389ac7ca807e82263ab344e755db8498de81.1760039554.git.quic_nguyenb@quicinc.com>
-X-Mailer: git-send-email 2.7.4
-In-Reply-To: <cover.1760039554.git.quic_nguyenb@quicinc.com>
-References: <cover.1760039554.git.quic_nguyenb@quicinc.com>
+	id 1v6x2t-000000073qQ-0VcK;
+	Thu, 09 Oct 2025 20:15:28 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1760040913; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=bUWbL/cbdYkJTVmJ/Ol4gXBFFOtUjIChX1rQYBVzQ+ybQSn5FjVpe8WwDFV4wxBirRm1AtyCwkzfvhrbWgbOU4avyQKHwewc2gG8u9Kye2OurxHN0SSnjZS5UEY4YgdPXoevlcBuPkcI88rZXqWm3mBQHlMyMsJy/cgBy1jJ/7E=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1760040913; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=m8IQGlvE0B/h1nhDsu/zo01pRlwkuXubZg9MqyCi1WQ=; 
+	b=VPsvC9byf0knFT2/3fkR6VQ8fMPDHOk6/yh6BX3L/1cJSJnMqinRCDTsO8CPHIB4RCKpA8rxnQa0+DQxg1Aciq1V1vflLwn2MA7iA/zTgHddanaFYwqOJak93C/js48S/wilM7uT3Tai51OBO6wYCj1/PikTRZHHjaZ5ql0pW7g=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1760040912;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
+	bh=m8IQGlvE0B/h1nhDsu/zo01pRlwkuXubZg9MqyCi1WQ=;
+	b=IREbUvkASyuJRRlJKCxFgy+8vM2XJYSaxRGe0c2fcHRLn26ofrTkacnwB+/DOp7c
+	ia+TEJ7nCIV1WbnZducwJLlm+IzPXTwxLsBumFm1c8gnJXxM8djjaJXQms5dHWaqWUG
+	RUnFlCta3Pkxp/zjK8t8/+86UeIy24pB4Imwc7PQ=
+Received: by mx.zohomail.com with SMTPS id 1760040910661484.0419438507935;
+	Thu, 9 Oct 2025 13:15:10 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+To: linux-mediatek@lists.infradead.org,
+ angelogioacchino.delregno@collabora.com
+Cc: lee@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ matthias.bgg@gmail.com, lgirdwood@gmail.com, broonie@kernel.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
+ wenst@chromium.org, igor.belwon@mentallysanemainliners.org,
+ =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Subject: Re: [PATCH v8 9/9] drivers: mfd: Add support for MediaTek SPMI PMICs and
+ MT6363/73
+Date: Thu, 09 Oct 2025 22:15:01 +0200
+Message-ID: <14451186.uLZWGnKmhe@workhorse>
+In-Reply-To: <20251003091158.26748-10-angelogioacchino.delregno@collabora.com>
+References: <20251003091158.26748-1-angelogioacchino.delregno@collabora.com>
+ <20251003091158.26748-10-angelogioacchino.delregno@collabora.com>
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Originating-IP: [10.80.80.8]
-X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
- nasanex01a.na.qualcomm.com (10.52.223.231)
-X-QCInternal: smtphost
-X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDA4MDEyMSBTYWx0ZWRfXxmOTFxm7GArJ
- epIhmj0pwbh7en1ntUeKew5InN+LzXTrbx/IXK02fqZdEKDpVk7N3dF8PLNlZbAFg99gdeQ9hiC
- M7ak0czd3Y5L3nghyrg2Ux57yGVJs4fwKzhlUAkiTlE9aezmURFwrg36oZmBau1X45FkcRZgSTZ
- qigiIa0fq5zFYCMA2f+B0lh5LMtA7Pv0K69cJfCLdrm05ufC9qUlZMmPwQfPiG29nNWSaQm8KiY
- fnt7QGTeFRp1h/e3EyNFRlOVn70YcJJo5UDvksD7kVA1jRQ8yLEkdGCXuXY63hZk64s4panEnO8
- V1w8shVVF73bfzP5lJhulosdL+SOTFkTno92pPq4cOAjcAxfXuYEPyVKFs6qXGToPNd6g/x+Qz0
- HO1eY2PNQaSwX/9wGmYk4lTJgYE2qQ==
-X-Proofpoint-ORIG-GUID: 7gCCAehqAhvUlzxiXBfiFTh1v9Kr4oLP
-X-Proofpoint-GUID: 7gCCAehqAhvUlzxiXBfiFTh1v9Kr4oLP
-X-Authority-Analysis: v=2.4 cv=VK3QXtPX c=1 sm=1 tr=0 ts=68e816e4 cx=c_pps
- a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
- a=GEpy-HfZoHoA:10 a=x6icFKpwvdMA:10 a=COk6AnOGAAAA:8 a=SKyd_0MEfDjhs0-DTAYA:9
- a=TjNXssC_j7lpFel5tvFf:22 a=cPQSjfK2_nFv0Q5t_7PE:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-09_07,2025-10-06_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- adultscore=0 priorityscore=1501 phishscore=0 clxscore=1015 impostorscore=0
- bulkscore=0 spamscore=0 malwarescore=0 suspectscore=0 lowpriorityscore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2510020000 definitions=main-2510080121
+Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_131126_460333_959B0620 
-X-CRM114-Status: GOOD (  17.39  )
+X-CRM114-CacheID: sfid-20251009_131527_411092_D588E72F 
+X-CRM114-Status: GOOD (  30.28  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,107 +83,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-After the ufs device vcc is turned off, all the ufs device
-manufacturers require a period of power-off time before the
-vcc can be turned on again. This requirement has been confirmed
-with all the ufs device manufacturer's datasheets.
+On Friday, 3 October 2025 11:11:58 Central European Summer Time AngeloGioac=
+chino Del Regno wrote:
+> This driver adds support for the MediaTek SPMI PMICs and their
+> interrupt controller (which is present in 95% of the cases).
+>=20
+> Other than probing all of the sub-devices of a SPMI PMIC, this
+> sets up a regmap from the relevant SPMI bus and initializes an
+> interrupt controller with its irq domain and irqchip to handle
+> chained interrupts, with the SPMI bus itself being its parent
+> irq controller, and the PMIC being the outmost device.
+>=20
+> This driver hence holds all of the information about a specific
+> PMIC's interrupts and will properly handle them, calling the
+> ISR for any subdevice that requested an interrupt.
+>=20
+> As for the interrupt spec, this driver wants 3 interrupt cells,
+> but ignores the first one: this is because of how this first
+> revision of the MediaTek SPMI 2.0 Controller works, which does
+> not hold irq number information in its register, but delegates
+> that to the SPMI device - it's possible that this will change
+> in the future with a newer revision of the controller IP, and
+> this is the main reason for that.
+>=20
+> To make use of this implementation, this driver also adds the
+> required bits to support MediaTek MT6363 and MT6373 SPMI PMICs.
+>=20
+> Reviewed-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
+> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
+abora.com>
+> ---
+>  drivers/mfd/Kconfig         |  17 ++
+>  drivers/mfd/Makefile        |   1 +
+>  drivers/mfd/mtk-spmi-pmic.c | 410 ++++++++++++++++++++++++++++++++++++
+>  include/linux/mfd/mt6363.h  |  26 +++
+>  include/linux/mfd/mt6373.h  |  21 ++
+>  5 files changed, 475 insertions(+)
+>  create mode 100644 drivers/mfd/mtk-spmi-pmic.c
+>  create mode 100644 include/linux/mfd/mt6363.h
+>  create mode 100644 include/linux/mfd/mt6373.h
 
-Remove the UFS_DEVICE_QUIRK_DELAY_AFTER_LPM quirk in the ufs
-core driver and implement a universal delay that is required by
-all the ufs device manufacturers. In addition, remove the
-support for this quirk in the platform drivers.
+Hi Angelo, came across something suspicious here while debugging why
+I ran into IRQ parsing from DT issues here.
 
-Signed-off-by: Bao D. Nguyen <quic_nguyenb@quicinc.com>
----
- drivers/ufs/core/ufshcd.c       |  5 ++---
- drivers/ufs/host/ufs-mediatek.c | 11 ++++-------
- drivers/ufs/host/ufs-qcom.c     |  3 ---
- include/ufs/ufs_quirks.h        |  7 -------
- 4 files changed, 6 insertions(+), 20 deletions(-)
+>
+> [...]
+> diff --git a/drivers/mfd/mtk-spmi-pmic.c b/drivers/mfd/mtk-spmi-pmic.c
+> new file mode 100644
+> index 000000000000..512b53bdb0d1
+> --- /dev/null
+> +++ b/drivers/mfd/mtk-spmi-pmic.c
+> [...]
+> +
+> +static int mtk_spmi_pmic_irq_xlate(struct irq_domain *d, struct device_n=
+ode *ctrlr,
+> +				  const u32 *intspec, unsigned int intsize,
+> +				  unsigned long *out_hwirq, unsigned int *out_type)
+> +{
+> +	struct mtk_spmi_pmic *pmic =3D d->host_data;
+> +	struct device *dev =3D pmic->dev;
+> +	struct irq_fwspec fwspec;
+> +
+> +	of_phandle_args_to_fwspec(ctrlr, intspec, intsize, &fwspec);
+> +	if (WARN_ON(fwspec.param_count < 3))
+> +		return -EINVAL;
 
-diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
-index 2e1fa8c..e8842dc 100644
---- a/drivers/ufs/core/ufshcd.c
-+++ b/drivers/ufs/core/ufshcd.c
-@@ -9738,10 +9738,9 @@ static void ufshcd_vreg_set_lpm(struct ufs_hba *hba)
- 	}
- 
- 	/*
--	 * Some UFS devices require delay after VCC power rail is turned-off.
-+	 * All UFS devices require delay after VCC power rail is turned-off.
- 	 */
--	if (vcc_off && hba->vreg_info.vcc &&
--		hba->dev_quirks & UFS_DEVICE_QUIRK_DELAY_AFTER_LPM)
-+	if (vcc_off && hba->vreg_info.vcc && !hba->vreg_info.vcc->always_on)
- 		usleep_range(5000, 5100);
- }
- 
-diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
-index f902ce0..5c204d1 100644
---- a/drivers/ufs/host/ufs-mediatek.c
-+++ b/drivers/ufs/host/ufs-mediatek.c
-@@ -40,8 +40,7 @@ static int  ufs_mtk_config_mcq(struct ufs_hba *hba, bool irq);
- static const struct ufs_dev_quirk ufs_mtk_dev_fixups[] = {
- 	{ .wmanufacturerid = UFS_ANY_VENDOR,
- 	  .model = UFS_ANY_MODEL,
--	  .quirk = UFS_DEVICE_QUIRK_DELAY_AFTER_LPM |
--		UFS_DEVICE_QUIRK_DELAY_BEFORE_LPM },
-+	  .quirk = UFS_DEVICE_QUIRK_DELAY_BEFORE_LPM },
- 	{ .wmanufacturerid = UFS_VENDOR_SKHYNIX,
- 	  .model = "H9HQ21AFAMZDAR",
- 	  .quirk = UFS_DEVICE_QUIRK_SUPPORT_EXTENDED_FEATURES },
-@@ -1713,15 +1712,13 @@ static void ufs_mtk_fixup_dev_quirks(struct ufs_hba *hba)
- {
- 	ufshcd_fixup_dev_quirks(hba, ufs_mtk_dev_fixups);
- 
--	if (ufs_mtk_is_broken_vcc(hba) && hba->vreg_info.vcc &&
--	    (hba->dev_quirks & UFS_DEVICE_QUIRK_DELAY_AFTER_LPM)) {
-+	if (ufs_mtk_is_broken_vcc(hba) && hba->vreg_info.vcc) {
- 		hba->vreg_info.vcc->always_on = true;
- 		/*
- 		 * VCC will be kept always-on thus we don't
--		 * need any delay during regulator operations
-+		 * need any delay before putting device's VCC in LPM mode.
- 		 */
--		hba->dev_quirks &= ~(UFS_DEVICE_QUIRK_DELAY_BEFORE_LPM |
--			UFS_DEVICE_QUIRK_DELAY_AFTER_LPM);
-+		hba->dev_quirks &= ~UFS_DEVICE_QUIRK_DELAY_BEFORE_LPM;
- 	}
- 
- 	ufs_mtk_vreg_fix_vcc(hba);
-diff --git a/drivers/ufs/host/ufs-qcom.c b/drivers/ufs/host/ufs-qcom.c
-index d15f1a1..15a9ffc8 100644
---- a/drivers/ufs/host/ufs-qcom.c
-+++ b/drivers/ufs/host/ufs-qcom.c
-@@ -1025,9 +1025,6 @@ static struct ufs_dev_quirk ufs_qcom_dev_fixups[] = {
- 	{ .wmanufacturerid = UFS_VENDOR_SKHYNIX,
- 	  .model = UFS_ANY_MODEL,
- 	  .quirk = UFS_DEVICE_QUIRK_DELAY_BEFORE_LPM },
--	{ .wmanufacturerid = UFS_VENDOR_TOSHIBA,
--	  .model = UFS_ANY_MODEL,
--	  .quirk = UFS_DEVICE_QUIRK_DELAY_AFTER_LPM },
- 	{ .wmanufacturerid = UFS_VENDOR_WDC,
- 	  .model = UFS_ANY_MODEL,
- 	  .quirk = UFS_DEVICE_QUIRK_HOST_PA_TACTIVATE },
-diff --git a/include/ufs/ufs_quirks.h b/include/ufs/ufs_quirks.h
-index f52de5e..1b26932 100644
---- a/include/ufs/ufs_quirks.h
-+++ b/include/ufs/ufs_quirks.h
-@@ -101,13 +101,6 @@ struct ufs_dev_quirk {
- #define UFS_DEVICE_QUIRK_SUPPORT_EXTENDED_FEATURES (1 << 10)
- 
- /*
-- * Some UFS devices require delay after VCC power rail is turned-off.
-- * Enable this quirk to introduce 5ms delays after VCC power-off during
-- * suspend flow.
-- */
--#define UFS_DEVICE_QUIRK_DELAY_AFTER_LPM        (1 << 11)
--
--/*
-  * Some ufs devices may need more time to be in hibern8 before exiting.
-  * Enable this quirk to give it an additional 100us.
-  */
--- 
-2.7.4
+What's the point of fwspec here? The caller in
+irqdomain.c::irq_domain_translate has an fwspec, converts it to an
+of_node with the intsize/intspec args, then passes it to this function,
+which builds it back into an fwspec just to check fwspec.param_count,
+which is equal intsize.
+
+fwspec is then never used again.
+
+Just check intsize instead, it's precisely that value.
+
+spmi-mtk-pmif.c::mtk_spmi_rcs_irq_xlate does the same thing, which also
+seems pointless.
+
+> +
+> +	/*
+> +	 * The IRQ number in intspec[0] is ignored on purpose here!
+> +	 *
+> +	 * This is because of how at least the first revision of the SPMI 2.0
+> +	 * controller works in MediaTek SoCs: the controller will raise an
+> +	 * interrupt for each SID (but doesn't know the details!), and the
+> +	 * specific IRQ number that got raised must be read from the PMIC or
+> +	 * its sub-device driver.
+> +	 * It's possible that this will change in the future with a newer
+> +	 * revision of the SPMI controller, and this is why the devicetree
+> +	 * holds the full intspec.
+> +	 */
+> +	*out_hwirq =3D intspec[1];
+> +	*out_type =3D intspec[2] & IRQ_TYPE_SENSE_MASK;
+> +
+> +	dev_dbg(dev, "Found device IRQ %u chained from SPMI IRQ %x (map: 0x%lx)=
+\n",
+> +		intspec[1], intspec[0], *out_hwirq);
+> +
+> +	return 0;
+> +}
+> +
+> +static const struct irq_domain_ops mtk_spmi_pmic_irq_domain_ops =3D {
+> +	.map =3D mtk_spmi_pmic_irq_domain_map,
+> +	.xlate =3D mtk_spmi_pmic_irq_xlate,
+> +};
+> +
+> [...]
+
+Kind regards,
+Nicolas Frattaroli
+
+
+
 
 
