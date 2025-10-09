@@ -4,64 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3D012CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 18:38:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 90616CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 18:47:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=WLoRyTdOAzdrgDQu6Y9H3IPEVEhQZSzdy1Zv7I7aZiQ=; b=pZ5ejujL7kCGqKmrlzfc/9Z1AT
-	CkUZhqJOuxDWSYkYU+77egJeag01ndKhRpambdJtgTR+00Q3cw8wUi3fOB1mvwyNegH6LzkHYi6xn
-	WFMtmJ4doWzdlSycgk47zZi9UpGrO58/EAQkzTnADuUG2/+VHxYyjIfoGSqUDmRXvAe2+Xp3j0+LB
-	BNy1opxUcMAv6fLN5Rq1aQWsF7RWAV3XKTUmGT2nTa7H0sK/d+R2+hHvOvGpYVCTVywzykI9SGJMF
-	dBc1Rxkxr0wL+4penVeEAZtukT4tFX/JO4PGa6/f+EBVIVwBbsvPGer1f81XBN9Odbbm2frNiNLz1
-	f+PnJc5w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=aURx7YzFLbTZqrSbDDMCtmVKwVlLZS1qp6m4gHZGZJg=; b=noJ1QjarRUVaD3DvcXW9kL5/O7
+	XTvNr08rk44Q8xkt1QGsWdNvMU9OMNC2z/yUchyXf1Pdhnc1yGjQRipG/XroXaMTHNHMaotRH70+A
+	M+Ek7Q+hAcoFdUZZzf6sWZqtOgShijY++i2rnTps9imPMVb9kYIkjU8f0C5zaIsoiHLsIeIAgiX89
+	ZHKPk7LPB2/Asqrphbh+5Etts0/6EOhRAn/RpFIHm5rcHYxhM6grnFABYfjRDR3Ab+zsznTTUnfeX
+	QOrwiE3c3Hy8wdsubDLbhdE4YemZZRejO5JmlVR25Gk7+1A3+dBFlJ33Le684WLEg0RsPnkcP0qKp
+	rb1s7LJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6vXI-00000006vWU-010B;
-	Thu, 09 Oct 2025 18:38:44 +0000
-Received: from zeus03.de ([194.117.254.33] helo=mail.zeus03.de)
+	id 1v6vfa-00000006wHP-3ioJ;
+	Thu, 09 Oct 2025 18:47:18 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6vXE-00000006vVC-2tAU
+	id 1v6vfY-00000006wGz-1WWl
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 18:38:42 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
-	sang-engineering.com; h=from:to:cc:subject:date:message-id
-	:mime-version:content-transfer-encoding; s=k1; bh=WLoRyTdOAzdrgD
-	Qu6Y9H3IPEVEhQZSzdy1Zv7I7aZiQ=; b=DWu2wiyNjhwAWbbOJBef4xB/CnSshK
-	zMoP+yRSokij6/qzgL72FYMtsV3S7W8uQnH/GN2s9iOnj+jXwX5wNQi1/AkA7zhK
-	S5zopw7SMn5p9xia4w2aj/d/1+4VjIpPEEDfiXMZL4Xqg4cLqBcPnqiR+mxvs6nT
-	z1k280dSnqPwUtH00Oo5QnW0ltETgaAnX1Q3/bg9xLdTytTLzixQaMWjBRFUmUof
-	dxA71hZORo4qFRpRe+eFntYtnlx+cPm5/+Jtjpg9hwBFRQD1LYxW10crIHU5YTsR
-	Gyj1pOvLy04iBSFUrmLlg8C8Pq865jUs097buDMWpTVhlJ0xLw2OTkWw==
-Received: (qmail 1186477 invoked from network); 9 Oct 2025 20:38:38 +0200
-Received: by mail.zeus03.de with UTF8SMTPSA (TLS_AES_256_GCM_SHA384 encrypted, authenticated); 9 Oct 2025 20:38:38 +0200
-X-UD-Smtp-Session: l3s3148p1@iiAIHL5ATJ4ujnv2
-From: Wolfram Sang <wsa+renesas@sang-engineering.com>
-To: linux-renesas-soc@vger.kernel.org
-Cc: Wolfram Sang <wsa+renesas@sang-engineering.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>,
-	Maxime Ripard <mripard@kernel.org>,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev
-Subject: [PATCH v2] dt-bindings: bus: allwinner,sun50i-a64-de2: don't check node names
-Date: Thu,  9 Oct 2025 20:37:43 +0200
-Message-ID: <20251009183835.5533-2-wsa+renesas@sang-engineering.com>
-X-Mailer: git-send-email 2.47.2
+	Thu, 09 Oct 2025 18:47:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 1C3D84325F;
+	Thu,  9 Oct 2025 18:47:13 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D8CF6C4CEE7;
+	Thu,  9 Oct 2025 18:47:11 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760035633;
+	bh=ivEfJjQfgHVzt9APPBEebTAqsUUoYx7xt2ip5PmKFLU=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=rp8AjoJg86r6iBIoiXsIAaAiHDGnJ0sI0dBT+DjtNnbE8hXpjulRkeuxuYpe3hT0v
+	 JfKAh7Q7pLW15CAG9L6KbuUQF9M+TKg2Z/JaL6OzJoQQ06i9f+/mpFlE/o+u0Hsfre
+	 SnrxeK9AzcMtsRkzkLjAXrZU8LGWuw55Qry6lPLDlSEcGITrWg8ZBaOb3kgDNfiwsy
+	 DAQuilVdgBk2viPy7J/bU3upb0m2+k8YrZbB0q6wdHHr52o1Pl/JUkaVCqNZDtaOso
+	 yUwyf9rncO0hG+TV4SKztW3LYBjXwGFYvSKOpLolfBdAzt7LQeBdq9xJxYFN8fc5OP
+	 8yUOd7amoOrEA==
+Date: Thu, 9 Oct 2025 11:47:09 -0700
+From: Manivannan Sadhasivam <mani@kernel.org>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: Lorenzo Pieralisi <lpieralisi@kernel.org>, 
+	Vincent Guittot <vincent.guittot@linaro.org>, Chester Lin <chester62515@gmail.com>, 
+	Matthias Brugger <mbrugger@suse.com>, Ghennadi Procopciuc <ghennadi.procopciuc@oss.nxp.com>, 
+	NXP S32 Linux Team <s32@nxp.com>, bhelgaas@google.com, jingoohan1@gmail.com, 
+	Krzysztof =?utf-8?Q?Wilczy=C5=84ski?= <kwilczynski@kernel.org>, Rob Herring <robh@kernel.org>, krzk+dt@kernel.org, 
+	Conor Dooley <conor+dt@kernel.org>, Ionut.Vicovan@nxp.com, Larisa Grigore <larisa.grigore@nxp.com>, 
+	Ghennadi Procopciuc <Ghennadi.Procopciuc@nxp.com>, ciprianmarian.costea@nxp.com, 
+	Bogdan Hamciuc <bogdan.hamciuc@nxp.com>, Frank Li <Frank.li@nxp.com>, 
+	linux-arm-kernel@lists.infradead.org, linux-pci@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, imx@lists.linux.dev, Niklas Cassel <cassel@kernel.org>
+Subject: Re: [PATCH 1/3 v2] dt-bindings: PCI: s32g: Add NXP PCIe controller
+Message-ID: <4kvo2qg2til22hlssv7lt2ugo63emr5c4hfjur5m3vnxvpdekx@jcbhaxb2d2j2>
+References: <20250919155821.95334-1-vincent.guittot@linaro.org>
+ <20250919155821.95334-2-vincent.guittot@linaro.org>
+ <iom65w7amxqf7miopujxeulyiglhkyjszjc3nd4ivknj5npcz2@bvxej6ymkecd>
+ <aOU0w5Brp6uxjZDr@lpieralisi>
+ <4rghtk5qv4u7vx4nogctquu3skvxis4npxfukgtqeilbofyclr@nhkrkojv3syh>
+ <eba7d968-209d-4acb-ba41-4bebf03e96ba@app.fastmail.com>
+ <4143977f-1e70-4a63-b23b-78f87d9fdcde@app.fastmail.com>
+ <2erycpxudpckmme3k2cpn6wgti4ueyvupo2tzrvmu7aqp7tm6d@itfj7pfrpzzg>
+ <3d480f73-15b4-4fb8-8d2b-f9961c1736ca@app.fastmail.com>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
+In-Reply-To: <3d480f73-15b4-4fb8-8d2b-f9961c1736ca@app.fastmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_113841_008343_608B1C89 
-X-CRM114-Status: UNSURE (   9.56  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251009_114716_445275_F32FD892 
+X-CRM114-Status: GOOD (  23.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,31 +88,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Node names are already and properly checked by the core schema. No need
-to do it again.
+On Wed, Oct 08, 2025 at 07:56:44PM +0200, Arnd Bergmann wrote:
+> On Wed, Oct 8, 2025, at 17:19, Manivannan Sadhasivam wrote:
+> > On Wed, Oct 08, 2025 at 10:35:34AM +0200, Arnd Bergmann wrote:
+> >> On Wed, Oct 8, 2025, at 10:26, Arnd Bergmann wrote:
+> >> > the physical addresses for RAM at 0x80000000 and on-chip devices
+> >> > at 0x40000000. This probably works fine as long as the total
+> >> > PCI memory space assignment stays below 0x40000000 but would
+> >> > fail once addresses actually start clashing.
+> >> 
+> >> I got confused here myself, but what I should have said is that
+> >> having the DMA address for the RAM overlap the BAR space
+> >> as seen from PCI is problematic as the PCI host bridge
+> >> cannot tell PCI P2P transfers from DMA to RAM, so one
+> >> of them will be broken here.
+> >> 
+> >
+> > No. The IP just sets up the outbound mapping here for the entire 'ranges'. When
+> > P2P happens, it will use the inbound mapping translation.
+> 
+> That is not my impression from reading the code: At least for
+> the case where both devices are on the same bridge and they
+> use map_type=PCI_P2PDMA_MAP_BUS_ADDR, I would expect the DMA
+> to use the plain PCI bus address, not going through the
+> dma-ranges+ranges translation that would apply when they are
+> on different host bridges.
+> 
 
-Signed-off-by: Wolfram Sang <wsa+renesas@sang-engineering.com>
----
-Changes since v1:
-* dropped superfluous '^.*' from the regex
+Right, but I don't get the overlap issue still. If the P2P client triggers a
+write to a P2P PCI address (let's assume 0x8000_0000), and if that address
+belongs to a an endpoint in a different domain, the host bridge should still
+forward it to the endpoint without triggering write to the RAM.
 
- .../devicetree/bindings/bus/allwinner,sun50i-a64-de2.yaml       | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Atleast, I don't see any concern from the outbound memory translation point of
+view.
 
-diff --git a/Documentation/devicetree/bindings/bus/allwinner,sun50i-a64-de2.yaml b/Documentation/devicetree/bindings/bus/allwinner,sun50i-a64-de2.yaml
-index 9845a187bdf6..ff8dbc684bbc 100644
---- a/Documentation/devicetree/bindings/bus/allwinner,sun50i-a64-de2.yaml
-+++ b/Documentation/devicetree/bindings/bus/allwinner,sun50i-a64-de2.yaml
-@@ -44,7 +44,7 @@ properties:
- 
- patternProperties:
-   # All other properties should be child nodes with unit-address and 'reg'
--  "^[a-zA-Z][a-zA-Z0-9,+\\-._]{0,63}@[0-9a-fA-F]+$":
-+  "@[0-9a-fA-F]+$":
-     type: object
-     additionalProperties: true
-     properties:
+Please let me know if there is any gap in my understanding.
+
+- Mani
+
 -- 
-2.47.2
-
+மணிவண்ணன் சதாசிவம்
 
