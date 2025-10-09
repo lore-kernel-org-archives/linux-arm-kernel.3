@@ -4,71 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B81AFCCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 20:15:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75CC4CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 20:27:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m8IQGlvE0B/h1nhDsu/zo01pRlwkuXubZg9MqyCi1WQ=; b=biLH0lBrt595AksxiTAF/DlnjO
-	Mu9eOZjoqoAeLgp/mYdZCQW0czgGA6v+bm2DZZZ3CSGBS0QoGXpvaC9ZTnj8++IEmefepI2GCDrj9
-	F0iPfhaR3xmlq1N7pYWJU76jB2laJbDDeWuszYeqNgrpQJrhs5yDim2+72KXcOjk0AUDpnU8vMbqE
-	rGD/cjYSyJCA2uFkiqzi1wLMRelzeQXz/lAJEq82Gy/i6zoo2hvWbd1FyEvK0rYMxp7Z8q6pD7Nft
-	9f5tSFxrbiBYLaL0bjzbSekqi+0CO6hISsAeLLMWrY28GruiQfgKdEisqakSXqbZ3Ksm8YlY+kcNI
-	c5pgoy/A==;
+	bh=znM+yI2K75ED8uygkE3XR60bhcolzgE77OUBIYPG6GU=; b=Yt6LEqlzFhMyfBRl8MLOX2Uqbd
+	8RPRFc+N6SfxfxaQMYs8/NnRuhV1ldnzA/aKrLserGDM6tn4kCQCR8MS/fxK2H1/VXazOm2H/76fz
+	c9oSGfzXrV40dRfQdht1SjAO8coMHMf/MjMEXl2eu89EOZh6OQiQfYFZU+02MAHNiZ8PMflYYumwv
+	k44yakehkYBgPdRs6geeK8os4LK5rXMn0kdbWuzjBGsfvLUPyv+4+WvGWYVqkLtnFR/ynjrHrQVai
+	zjxGpcqRQphpbrWSLFZztbhU2b7VlQgauuLKI52w8kET6i8Iu1cDMe4uTkvhGmcvC0kRwucAoiOob
+	9mMASEPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6x2v-000000073rB-3viw;
-	Thu, 09 Oct 2025 20:15:29 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1v6xE1-000000074yW-1sE3;
+	Thu, 09 Oct 2025 20:26:57 +0000
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6x2t-000000073qQ-0VcK;
-	Thu, 09 Oct 2025 20:15:28 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1760040913; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=bUWbL/cbdYkJTVmJ/Ol4gXBFFOtUjIChX1rQYBVzQ+ybQSn5FjVpe8WwDFV4wxBirRm1AtyCwkzfvhrbWgbOU4avyQKHwewc2gG8u9Kye2OurxHN0SSnjZS5UEY4YgdPXoevlcBuPkcI88rZXqWm3mBQHlMyMsJy/cgBy1jJ/7E=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1760040913; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=m8IQGlvE0B/h1nhDsu/zo01pRlwkuXubZg9MqyCi1WQ=; 
-	b=VPsvC9byf0knFT2/3fkR6VQ8fMPDHOk6/yh6BX3L/1cJSJnMqinRCDTsO8CPHIB4RCKpA8rxnQa0+DQxg1Aciq1V1vflLwn2MA7iA/zTgHddanaFYwqOJak93C/js48S/wilM7uT3Tai51OBO6wYCj1/PikTRZHHjaZ5ql0pW7g=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
-	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1760040912;
-	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
-	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=m8IQGlvE0B/h1nhDsu/zo01pRlwkuXubZg9MqyCi1WQ=;
-	b=IREbUvkASyuJRRlJKCxFgy+8vM2XJYSaxRGe0c2fcHRLn26ofrTkacnwB+/DOp7c
-	ia+TEJ7nCIV1WbnZducwJLlm+IzPXTwxLsBumFm1c8gnJXxM8djjaJXQms5dHWaqWUG
-	RUnFlCta3Pkxp/zjK8t8/+86UeIy24pB4Imwc7PQ=
-Received: by mx.zohomail.com with SMTPS id 1760040910661484.0419438507935;
-	Thu, 9 Oct 2025 13:15:10 -0700 (PDT)
-From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: linux-mediatek@lists.infradead.org,
- angelogioacchino.delregno@collabora.com
-Cc: lee@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- matthias.bgg@gmail.com, lgirdwood@gmail.com, broonie@kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, kernel@collabora.com,
- wenst@chromium.org, igor.belwon@mentallysanemainliners.org,
- =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4=?= Prado <nfraprado@collabora.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Subject: Re: [PATCH v8 9/9] drivers: mfd: Add support for MediaTek SPMI PMICs and
- MT6363/73
-Date: Thu, 09 Oct 2025 22:15:01 +0200
-Message-ID: <14451186.uLZWGnKmhe@workhorse>
-In-Reply-To: <20251003091158.26748-10-angelogioacchino.delregno@collabora.com>
-References: <20251003091158.26748-1-angelogioacchino.delregno@collabora.com>
- <20251003091158.26748-10-angelogioacchino.delregno@collabora.com>
+	id 1v6xDy-000000074ws-15e1
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Oct 2025 20:26:55 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=bDowGMfuAFB1gDjEctaw+f0DwsQMvdU+BBKP6xAaZgdUS/Xx7JIbTpXm/ysSNPpbNUqqGKCwS8qZsHz541pbYI5N7EOAtt9U3/X536vb5xsCD5hHtGz+g0fUUQqZye7LArwNT8TPI25aGxSyimWQqB21rF+3m5TFSdjjnHTXGmSzeCgGRDgoEQvghyjg22BTStJy0A6/nKlRduHl5egsHPP93NLrBhZwhWRTxaGVGet5BVfAvFYEBwTmpqZFLgqUAZeSPTvNiQo9uf3hNZdbQxDSDbYJu2dBy+Wb7e9j+OD3D3ZK4AkVi3HbsJcK3tpZH7r5lQLriSe8HA98NirplA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=znM+yI2K75ED8uygkE3XR60bhcolzgE77OUBIYPG6GU=;
+ b=e3lXEY9qSONRNdiXTxMB+v+VFTXcz43Jmf3Nge1055IjiVHxKN4uissSBUVwuVLp0lX53Ey7wCf9rbE5jKrlabYv5Q0TCU+oU6T71eyUcOfi4hfu/rdhnPfoPHA6/XaiWV5ryTncvdVLXt9DzkjhSoO5V4ugWsG3JiKcIV3qnAcTRTykGe0Lx7WG205qG5lbEWzqbK84+mbco6Du1SFRyq0bDEzSaLi/9V4I7UwKaK+WJp9+/GeuacfQs5FMDwLR0X3XG6wo+a9LadoZfU5p5NIgQIzxceYmjdiBrlXRyRKoCok6K5dDYpaIf7JAOpCKFzeo89yR77OZv6aNw/92Sw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=znM+yI2K75ED8uygkE3XR60bhcolzgE77OUBIYPG6GU=;
+ b=C91gBTCOV+yM+wKtXAO1zpeDvMx3b+xLVb0YqDG2YHaZF8OjJbadgdGHC91uYkOjBA666AjXaL61uQX92yUlJ2+6M+RvAWdPLg1yTEZP0BbyIqL2klIv20OrEPZqoCjrDGkIDCj+fevdIW2cxKh6mbHoz0DNh3gvMkbiFyx9Xo8=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from CH0PR01MB6873.prod.exchangelabs.com (2603:10b6:610:112::22) by
+ CY1PR01MB9222.prod.exchangelabs.com (2603:10b6:930:fe::19) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9203.10; Thu, 9 Oct 2025 20:26:32 +0000
+Received: from CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460]) by CH0PR01MB6873.prod.exchangelabs.com
+ ([fe80::3850:9112:f3bf:6460%3]) with mapi id 15.20.9203.007; Thu, 9 Oct 2025
+ 20:26:32 +0000
+Message-ID: <831e9e0c-a61b-40d8-a8d2-747b760ba6b3@os.amperecomputing.com>
+Date: Thu, 9 Oct 2025 13:26:28 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: pageattr: Explicitly bail out when changing
+ permissions for vmalloc_huge mappings
+To: Dev Jain <dev.jain@arm.com>, catalin.marinas@arm.com, will@kernel.org
+Cc: gshan@redhat.com, rppt@kernel.org, steven.price@arm.com,
+ suzuki.poulose@arm.com, tianyaxiong@kylinos.cn, ardb@kernel.org,
+ david@redhat.com, ryan.roberts@arm.com, urezki@gmail.com,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+References: <20250328062103.79462-1-dev.jain@arm.com>
+Content-Language: en-US
+From: Yang Shi <yang@os.amperecomputing.com>
+In-Reply-To: <20250328062103.79462-1-dev.jain@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-ClientProxiedBy: CY5PR15CA0256.namprd15.prod.outlook.com
+ (2603:10b6:930:66::27) To CH0PR01MB6873.prod.exchangelabs.com
+ (2603:10b6:610:112::22)
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: CH0PR01MB6873:EE_|CY1PR01MB9222:EE_
+X-MS-Office365-Filtering-Correlation-Id: b09976cf-948b-48c9-c5c3-08de0772227b
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|7053199007;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?TFZQQXFlb2ZjNU1UYWhFVjc3LzMzUUlzNGdvbnN5T2lvcm1mZk1ET3VwK0FY?=
+ =?utf-8?B?YTRrcEhDM29lQzBxUVhpakVnb3FrK3AweVIvZXh2aVg4VWxPbmtUZmhYYTZu?=
+ =?utf-8?B?aWFLY1hHV3BaZk54OE9TU24wUTkxb3gvOEMxek1CNmQ0OGRPcFg0d2lNVE9l?=
+ =?utf-8?B?RTR1VWwycXd4aW5EYmxGWTVoY1V1NkxCT2o0Y01ybVlTdUVJMmtBLzc5djNw?=
+ =?utf-8?B?RHlUalBnaFlaK1Y3dW9aZWpPMVhvWmJSWnhqN3ZhY0dpT1k3TXVLcWpGSnpw?=
+ =?utf-8?B?TDRWd2l0L1RiNGY4S0JiNERUUUVoVkxCejhWTG9mc0ExUmJnTEFxOVlxcjVB?=
+ =?utf-8?B?K0VvNDBMUm5YTVIrNENWdHhVV1oreEhIL3IxZ0NmYzZXOHBLU091Z0RWNTd1?=
+ =?utf-8?B?NXBwbzlvU0pxb05xWmU4c1hqN0djWjV3MThpRjFMaGxXayt4SmxPcHpBRHEv?=
+ =?utf-8?B?K25hQ0FreVRXeWV1YXd1K3Z0M29pcE5HZlZyTDZQRFMwOXJQM3d4RHRQajFv?=
+ =?utf-8?B?RURTeFF5MG1Xdnp5ZzhiRDhOQklHRlczRTFrcVFUS3p2VG1oaytBaEw0RzUz?=
+ =?utf-8?B?c2tVQ2tBdjdYRWt3TVVXTTl0UE9mTFc5NnpSWFhWdnFJaFpBK2NXZ05FWlNS?=
+ =?utf-8?B?SFNCQk0yK1YzdlppZE9Kc09abkNCWHQwb2VkZzRpZmJ0Ry92ZjNFb1ZINzBk?=
+ =?utf-8?B?d052U2gyc2tESWFVQWpCamtSdU04NUtwZzVoemFHeGZ5Vjdya0VQYnUzUXo0?=
+ =?utf-8?B?ckh0dEQwOFI5U3ppOXQ1UnU1OGJ2bnBrRnF6UExiZDhwWERWWFVLS29ZZDJj?=
+ =?utf-8?B?bnpMWUZhNFM5UHU4QVNUdXZpVTllbW1ZMzA3K1BLaU9FUzY5aTBYWno5SHVp?=
+ =?utf-8?B?ZjRsMVJUZGU1VG82dWdWemk2VFpBaHJQc2NKaTJMemE3cnA1M1VOclBuQjJn?=
+ =?utf-8?B?SEg1RDF2NkZaSlJnNTZ1bWRtT3hNcmJYaDZacVpwTWV1UjBETHdjNDNmdW16?=
+ =?utf-8?B?WFdzbFJKcjd2ZXQ3RzFxSlZUbDlLeGV5c040RG03TTZzMGNhZFBKQTBZR0Fy?=
+ =?utf-8?B?VEcxZE0wZDg0cE90WXdOSmhyUFQxMnZGSnE0K2J2aGZTQTVDTHlCSzF4Sy9Z?=
+ =?utf-8?B?M2Z4eDRZVzAyMHcyWmZ6WmgyQXFOWTUyK3VKOFF1UU11MUdtU052NmZGdFRm?=
+ =?utf-8?B?d0t5V3hQZjByVlJBMEtlZUh1bzVGYnRhODdldlBNUTBFM01uaEFjREhWb1B0?=
+ =?utf-8?B?ZDhpQjgySnlZUC95RUNDa3JaRjIyejRSY0M4a092R0R6R21BNEh3QzY3Y3RO?=
+ =?utf-8?B?bzhiMXRWS0pSSGpmZTdjK2tIa1hPaDFWR2pNUWQ3NVpTSWVNN1hWVGEvYkdq?=
+ =?utf-8?B?N2hIY01jRXBXU3YvMFY2WlVPQWZabDdMSk84bFlUQ0xDVTlJRkhzODcrL01V?=
+ =?utf-8?B?THpWdDRnVXd4eDBBcnViWW5xTkJUb0VxakJQSGxaQ2xOUVl0N2I2cEJIMk9i?=
+ =?utf-8?B?dE8rYlVvMWtXM25IVmFjTndFdFlheDdjQVpveWEvWHdHcXVXWVFLdkg4T3lV?=
+ =?utf-8?B?MFgyQVZ2L0ZIWDdvUURGbjdEaWZCNlpRMmloVzdVcmNRcE92dEwrU2VMOEhV?=
+ =?utf-8?B?SXNqNWF6SzVvNUFXNXpGbUhGNEVzaGRvKzV3cmZxVmRidit2RVN3MlAwVlVs?=
+ =?utf-8?B?Rm1kZWRTNDdCTWJ0aHJJKzl3TklHMHFkSzJGOFJXUXRjbXRiRlp2YVFHY0pE?=
+ =?utf-8?B?Y05Gb1Fxdy82NDZoaEdLeTlWRUNiWGlDSWxnb2RaYnRhNXJyNm0zWE9xS0pJ?=
+ =?utf-8?B?MnVrY2Z4SDhsdjl0SGFLekhQdFhGZzVMSVA4K3d4MitJdElxZ2NGRml2M1BH?=
+ =?utf-8?B?NzV4U1JrYzlnSXlYb0ZYYm9RTGdEbWVUV3cvY2dFbEV2Z0tLRWdLY2M3Y1px?=
+ =?utf-8?Q?bmw+/j2X5NZxpIY8bW2Fnii8KH1NDjV8?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:CH0PR01MB6873.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(7053199007);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?cXlueUlNMFQvdVpLL2pFU251SmJNOTJsRjBJajk5RHNwWHVyelZzZm0xODV4?=
+ =?utf-8?B?dnZPeElGNnRvU05XR2FtRlZFSC9VdWFFeHZCcVdINk85TlVyRDRSWFNMVFp2?=
+ =?utf-8?B?bXBkYkFCQU9yaTJvWkc5bm53dWxzQkNRWUpWUElTdnA5VWR2TXJ4YmNFZXFp?=
+ =?utf-8?B?eWd4RXppMkJkTXUyYkM0UUUrc1ZTblQ5S3ZhQjJmcGFIc1p3c25obHNvdzlP?=
+ =?utf-8?B?OWxtUm1pRHVNbFdHdHRBYkJyMVByTDIyNzdyZTFqWUxneVMwaDZpcTl6RHFn?=
+ =?utf-8?B?U2FKaUhpOXlpWGlGODJCK1Exa2Rvdno1Tm5iaFI2V3BSVFVkdE8zN2xGblZI?=
+ =?utf-8?B?dmsxSmFmR3VNSDhvUnI2bjlUVTRmOHEzZ1JIYmFkZXh4Z29NL1craVg5d2pP?=
+ =?utf-8?B?YVpEVm9xOXk2MEdaZWZNYXlkNXRMRmU3eDE5UXk0MmpjMXdnbk5YenFxVWo1?=
+ =?utf-8?B?am9HV3dJOUk5RHNnTHE0ZHgyR3lRK3puQ1VPd2R2ejhPU3pLZFp3ZUl1QW1Z?=
+ =?utf-8?B?NlgwUkd1M05pUzFUUFZhcS95WTNPZUdmaHJnZlFJanlRRWRMSUZjT240cWpu?=
+ =?utf-8?B?SjFab3ByS3BPYmNhbTdDN1VwODNMc3RkTDBtVlMxN1BRYzA5NHdXTk9oSE5l?=
+ =?utf-8?B?U0NNa0hNeHF1SUxIa3BaSzlTazFzTmRiVkJHQ3FMQU4yMm43dVN3SUk5YXFN?=
+ =?utf-8?B?ZDdHZ0p3VS90ejhlbTFWTG5GV0lwdmg5R1lkalBOaFRpTUpMZVl0YjBYVDU5?=
+ =?utf-8?B?dEdEdStCK0xBWEg0TlJvckpyc2NNNU9OeCs2OHlnb3R3elluQlFZOHhHWFQ2?=
+ =?utf-8?B?bGNqZXFhakFjQlRBSnhMN1B2Q3pKMFFDd1B6VEQ2WWtET3hmbWFjNXVoWi81?=
+ =?utf-8?B?VzlmK1E1Qk4wdG8yOW5NOGZ5c0tNTWJPU0NoWEhrcGdIU3gzMC84bGJSbFd6?=
+ =?utf-8?B?Q1oxWkYrUGZaVVZlMHZCSEwraXZnZDBxYTZlN3g4UlRiSmFXK0JFT0NtOU9B?=
+ =?utf-8?B?UWF2M2xPdDUwVzNuTmNacFpjTnVKdWZQdkxucXd0Q01xNGloSC91VWQwSjEv?=
+ =?utf-8?B?ck8rdWxYZ2ZMeGJ0d3RhUG5scGtkZVpNL1RQQk5HM0d0L05abmM0dlk2d2g0?=
+ =?utf-8?B?SWhCdGQrYU8xMjhlbTVDTGlUVlBMejkvNC83ZUhLQVZpb2M2SGNMTlg4eFhV?=
+ =?utf-8?B?L0JzR2IwdEZOZFlIQjc2OThGTUY5eFQ2T0FHQkhsUElyUnZxSFpKbmk1dlBL?=
+ =?utf-8?B?cVNxU1pmVHlwNUIrWkR3c0pXV0RuK3BUeDN3R2lOOGdEME9jMGppckc1a0Vv?=
+ =?utf-8?B?K2huenVaWEpUbEtoRXV0OElHdWpac2xvdGlRd0JnQklCa1p1azF5aExDQVlW?=
+ =?utf-8?B?YmpZcFlHN3VoeEtTS2NEa1ROeG4rbGdWcFR4SlFFOW03SUQ1VjNHMnEzakVh?=
+ =?utf-8?B?TlZFM0RhempWcnRuUFo3cVo3by9xbDA5UzBIdE9rTjhKQ0dBaWZDNUlDbHM5?=
+ =?utf-8?B?WElhTkp4a2FzUXR2Y1lyaE52UnBwZ2NuZmd0aVV6RlhKaFhhQjZUdThOTUMx?=
+ =?utf-8?B?MFJHZ0RXeDB2SGFJekxBdXBQUC9HcGsra0VLVWgxSkpFN2lRRmpHVXNCTVRh?=
+ =?utf-8?B?THdRRFk1Qi9EMm9wbjJVWXJCT3BxRUxLWHZNVzV2cnBicXpieGpoai9NWXJ6?=
+ =?utf-8?B?UVVEUjJNRUkxYko4dk11eldjTW1aYWJiSU54M2g0bXc0Qy9Zbk9TU0V6aXhj?=
+ =?utf-8?B?L0dhaXN0WVlIdDJXaGZCOVZ1OXB2UFNIQUhOMkFJbmFmYU9Ccm1wRW85bXZN?=
+ =?utf-8?B?dUw4bUdJL0VoMHliYkVLTWVoOStNY2oxNkowV0Q4WjhHMUU2a1J4ejJlRnVK?=
+ =?utf-8?B?TkhKem5ZdEJEcXR6OXE2WHhtdWhKTjdvc29tanRYNFF6VUJGbHRHSFQzSzRI?=
+ =?utf-8?B?NWJKZXFLMWhodEIyNWc4bS9LbThnWEhQeStjUjRMTnFuS2dNTW9BVWVMT3Vn?=
+ =?utf-8?B?ZGZtenJUUVNmL0FVMFZTVjNscTRPaTBiUjFWWitvSGFYY3plOExHV1R0bm9V?=
+ =?utf-8?B?NitORkFkdnhCa2pnSFdFQzVORExObC8rdWI1YTl0T2pEMWdYd0lQa05JcG1N?=
+ =?utf-8?B?OVVRVjI5ZDRZRmdZM0Z0VFdLU2xpZHoxN292UnZXNGoydHlPRW1adytvT0NN?=
+ =?utf-8?Q?OT7sZUStgSkMMVgQWjD724E=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: b09976cf-948b-48c9-c5c3-08de0772227b
+X-MS-Exchange-CrossTenant-AuthSource: CH0PR01MB6873.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Oct 2025 20:26:32.1536
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: Ksaa4ZC4HJg0oaKwRl3232NWunJZlCbMSAbcEtt4CtY1wqwurThPJqJBGsNE51D5QyUPCrdaSVN/9R5mKhTRHoaa8yAP4P/U2DUeKaaPT/M=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: CY1PR01MB9222
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_131527_411092_D588E72F 
-X-CRM114-Status: GOOD (  30.28  )
+X-CRM114-CacheID: sfid-20251009_132654_293729_DBF5BF32 
+X-CRM114-Status: GOOD (  23.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,118 +180,79 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Friday, 3 October 2025 11:11:58 Central European Summer Time AngeloGioac=
-chino Del Regno wrote:
-> This driver adds support for the MediaTek SPMI PMICs and their
-> interrupt controller (which is present in 95% of the cases).
->=20
-> Other than probing all of the sub-devices of a SPMI PMIC, this
-> sets up a regmap from the relevant SPMI bus and initializes an
-> interrupt controller with its irq domain and irqchip to handle
-> chained interrupts, with the SPMI bus itself being its parent
-> irq controller, and the PMIC being the outmost device.
->=20
-> This driver hence holds all of the information about a specific
-> PMIC's interrupts and will properly handle them, calling the
-> ISR for any subdevice that requested an interrupt.
->=20
-> As for the interrupt spec, this driver wants 3 interrupt cells,
-> but ignores the first one: this is because of how this first
-> revision of the MediaTek SPMI 2.0 Controller works, which does
-> not hold irq number information in its register, but delegates
-> that to the SPMI device - it's possible that this will change
-> in the future with a newer revision of the controller IP, and
-> this is the main reason for that.
->=20
-> To make use of this implementation, this driver also adds the
-> required bits to support MediaTek MT6363 and MT6373 SPMI PMICs.
->=20
-> Reviewed-by: N=C3=ADcolas F. R. A. Prado <nfraprado@collabora.com>
-> Signed-off-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
-abora.com>
-> ---
->  drivers/mfd/Kconfig         |  17 ++
->  drivers/mfd/Makefile        |   1 +
->  drivers/mfd/mtk-spmi-pmic.c | 410 ++++++++++++++++++++++++++++++++++++
->  include/linux/mfd/mt6363.h  |  26 +++
->  include/linux/mfd/mt6373.h  |  21 ++
->  5 files changed, 475 insertions(+)
->  create mode 100644 drivers/mfd/mtk-spmi-pmic.c
->  create mode 100644 include/linux/mfd/mt6363.h
->  create mode 100644 include/linux/mfd/mt6373.h
 
-Hi Angelo, came across something suspicious here while debugging why
-I ran into IRQ parsing from DT issues here.
 
+On 3/27/25 11:21 PM, Dev Jain wrote:
+> arm64 uses apply_to_page_range to change permissions for kernel VA mappings,
+> which does not support changing permissions for leaf mappings. This function
+> will change permissions until it encounters a leaf mapping, and will bail
+> out. To avoid this partial change, explicitly disallow changing permissions
+> for VM_ALLOW_HUGE_VMAP mappings.
 >
-> [...]
-> diff --git a/drivers/mfd/mtk-spmi-pmic.c b/drivers/mfd/mtk-spmi-pmic.c
-> new file mode 100644
-> index 000000000000..512b53bdb0d1
-> --- /dev/null
-> +++ b/drivers/mfd/mtk-spmi-pmic.c
-> [...]
-> +
-> +static int mtk_spmi_pmic_irq_xlate(struct irq_domain *d, struct device_n=
-ode *ctrlr,
-> +				  const u32 *intspec, unsigned int intsize,
-> +				  unsigned long *out_hwirq, unsigned int *out_type)
-> +{
-> +	struct mtk_spmi_pmic *pmic =3D d->host_data;
-> +	struct device *dev =3D pmic->dev;
-> +	struct irq_fwspec fwspec;
-> +
-> +	of_phandle_args_to_fwspec(ctrlr, intspec, intsize, &fwspec);
-> +	if (WARN_ON(fwspec.param_count < 3))
-> +		return -EINVAL;
+> Signed-off-by: Dev Jain <dev.jain@arm.com>
+> ---
+>   arch/arm64/mm/pageattr.c | 4 ++--
+>   1 file changed, 2 insertions(+), 2 deletions(-)
+>
+> diff --git a/arch/arm64/mm/pageattr.c b/arch/arm64/mm/pageattr.c
+> index 39fd1f7ff02a..8337c88eec69 100644
+> --- a/arch/arm64/mm/pageattr.c
+> +++ b/arch/arm64/mm/pageattr.c
+> @@ -96,7 +96,7 @@ static int change_memory_common(unsigned long addr, int numpages,
+>   	 * we are operating on does not result in such splitting.
+>   	 *
+>   	 * Let's restrict ourselves to mappings created by vmalloc (or vmap).
+> -	 * Those are guaranteed to consist entirely of page mappings, and
+> +	 * Disallow VM_ALLOW_HUGE_VMAP vmalloc mappings so that
+>   	 * splitting is never needed.
+>   	 *
+>   	 * So check whether the [addr, addr + size) interval is entirely
+> @@ -105,7 +105,7 @@ static int change_memory_common(unsigned long addr, int numpages,
+>   	area = find_vm_area((void *)addr);
+>   	if (!area ||
+>   	    end > (unsigned long)kasan_reset_tag(area->addr) + area->size ||
+> -	    !(area->flags & VM_ALLOC))
+> +	    ((area->flags & (VM_ALLOC | VM_ALLOW_HUGE_VMAP)) != VM_ALLOC))
+>   		return -EINVAL;
 
-What's the point of fwspec here? The caller in
-irqdomain.c::irq_domain_translate has an fwspec, converts it to an
-of_node with the intsize/intspec args, then passes it to this function,
-which builds it back into an fwspec just to check fwspec.param_count,
-which is equal intsize.
+I happened to find this patch when I was looking into fixing "splitting 
+is never needed" comment to reflect the latest change with BBML2_NOABORT 
+and tried to relax this restriction. I agree with the justification for 
+this patch to make the code more robust for permission update on partial 
+range. But the following linear mapping permission update code seems 
+still assume partial range update never happens:
 
-fwspec is then never used again.
+for (i = 0; i < area->nr_pages; i++) {
 
-Just check intsize instead, it's precisely that value.
+It iterates all pages for this vm area from the first page then update 
+their permissions. So I think we should do the below to make it more 
+robust to partial range update like this patch did:
 
-spmi-mtk-pmif.c::mtk_spmi_rcs_irq_xlate does the same thing, which also
-seems pointless.
+--- a/arch/arm64/mm/pageattr.c
++++ b/arch/arm64/mm/pageattr.c
+@@ -185,8 +185,9 @@ static int change_memory_common(unsigned long addr, 
+int numpages,
+          */
+         if (rodata_full && (pgprot_val(set_mask) == PTE_RDONLY ||
+                             pgprot_val(clear_mask) == PTE_RDONLY)) {
+-               for (i = 0; i < area->nr_pages; i++) {
+-  __change_memory_common((u64)page_address(area->pages[i]),
++               unsigned long idx = (start - (unsigned long)area->addr) 
+ >> PAGE_SHIFT;
++               for (i = 0; i < numpages; i++) {
++  __change_memory_common((u64)page_address(area->pages[idx++]),
+                                                PAGE_SIZE, set_mask, 
+clear_mask);
+                 }
+         }
 
-> +
-> +	/*
-> +	 * The IRQ number in intspec[0] is ignored on purpose here!
-> +	 *
-> +	 * This is because of how at least the first revision of the SPMI 2.0
-> +	 * controller works in MediaTek SoCs: the controller will raise an
-> +	 * interrupt for each SID (but doesn't know the details!), and the
-> +	 * specific IRQ number that got raised must be read from the PMIC or
-> +	 * its sub-device driver.
-> +	 * It's possible that this will change in the future with a newer
-> +	 * revision of the SPMI controller, and this is why the devicetree
-> +	 * holds the full intspec.
-> +	 */
-> +	*out_hwirq =3D intspec[1];
-> +	*out_type =3D intspec[2] & IRQ_TYPE_SENSE_MASK;
-> +
-> +	dev_dbg(dev, "Found device IRQ %u chained from SPMI IRQ %x (map: 0x%lx)=
-\n",
-> +		intspec[1], intspec[0], *out_hwirq);
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct irq_domain_ops mtk_spmi_pmic_irq_domain_ops =3D {
-> +	.map =3D mtk_spmi_pmic_irq_domain_map,
-> +	.xlate =3D mtk_spmi_pmic_irq_xlate,
-> +};
-> +
-> [...]
+Just build tested. Does it look reasonable?
 
-Kind regards,
-Nicolas Frattaroli
+Thanks,
+Yang
 
 
-
+>   
+>   	if (!numpages)
 
 
