@@ -4,62 +4,119 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 13886CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 13:15:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id ECD9FCCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 13:23:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=kK41qbPw1q3UMz4pwunY5z+aeQyJVyFxmh5g1nvkj0c=; b=tA4qOspREqsFXf6A+a5uUrwzWS
-	WxeQWyOi4zvx9evl/bptQ3LG9CsGKXcW4IUFBig/C4pcpPQyq+/6Lvd15nOWvFtSC9sx/lTs0qEJ2
-	hvpFhU3A5Lvd0A+KJdjEsHrTyr68UhygU1GhSJezeMUok19Pw4AZu/pnJBWWtldanlN+X8XmGexvi
-	ICur8S6Aa+pSVpKgFz6b4xGqYWzlQgryNITUZVxFXg5Ps4rpdH498eW3ChbsWLdWSd7WlteY2f8fv
-	L0tptq5G6xrVVbv2exxfZfQlASMRSfPursyIsgnQsSVwuYV2TWZchGeWYfANt+WJxSkQxlH/iyh1P
-	4qgTr4Gg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nxbzPBH17ar9K23CahzAe5b30MTmOO7lOdw/AEZcP0U=; b=VCeUs764Tvy4RfIMEfZvNwXSbs
+	YJOv5uBWCZhJQHRG2i8Z6IrE7okLE7GO+oXYvHN5y9Ys9KPpa4DRPKSiq2RutCgL2hfXe0rCjUR/I
+	WNnuAnka+hFjsRz8To+7M3XPrXWr9bE++uqnix9Mgb1/xt+xneFBDzh8cMFHw/hqykl+9SLhQh8T5
+	faNA7ovn++TQ2MGT9QzRUEG/XIJmk5JsMUcOfF7lyqWJVcDwRtXN8qxkHmWQRw3G7fARybI8rSsNh
+	NVVKzaVsLLKj7oy6m9JV5ODvzi0R29Bc0qey/60SMzuZ1vRWWXVrOvY11ksYGU0ALMZoFLtC24ftE
+	nJ7OWBTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6qU2-00000006CBs-1me7;
-	Thu, 09 Oct 2025 13:15:02 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1v6qbk-00000006DN5-1qMG;
+	Thu, 09 Oct 2025 13:23:00 +0000
+Received: from smtp-out2.suse.de ([195.135.223.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6qU0-00000006CAL-024f;
-	Thu, 09 Oct 2025 13:15:01 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=kK41qbPw1q3UMz4pwunY5z+aeQyJVyFxmh5g1nvkj0c=; b=wqUZCOdC1v8OPCKVMTg4GIzsbf
-	Vnk4mJs8ipdjSXaq4zvP67kMxSm5Ifcq19yYYlJqn1ojevJk3jA1Fcg22Fzf8aNo4/MjMMCf0B9PG
-	qvXeUYq7oJvAUOqwN5my82VqbZ/BQkIWxQ/1nvWTcYiXB09rDVOsZ8mgp5chxFcoq3OE=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1v6qTn-00AWyE-Eh; Thu, 09 Oct 2025 15:14:47 +0200
-Date: Thu, 9 Oct 2025 15:14:47 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Liangbin Lian <jjm2473@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	heiko@sntech.de, quentin.schulz@cherry.de,
-	kever.yang@rock-chips.com, naoki@radxa.com, honyuenkwun@gmail.com,
-	inindev@gmail.com, ivan8215145640@gmail.com,
-	neil.armstrong@linaro.org, mani@kernel.org, dsimic@manjaro.org,
-	pbrobinson@gmail.com, alchark@gmail.com, didi.debian@cknow.org,
-	jbx6244@gmail.com, devicetree@vger.kernel.org,
+	id 1v6qbh-00000006DLi-4BFD
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Oct 2025 13:22:59 +0000
+Received: from imap1.dmz-prg2.suse.org (unknown [10.150.64.97])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by smtp-out2.suse.de (Postfix) with ESMTPS id AAC411F74A;
+	Thu,  9 Oct 2025 13:22:54 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1760016174; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=nxbzPBH17ar9K23CahzAe5b30MTmOO7lOdw/AEZcP0U=;
+	b=awaNgI7/B8kYXqIFwTWq0bTxrrbbQgWzmYQL40a/KGIHLfrwsJezjNSwwQ5oBaRko8yH3L
+	zJnopVUZRPGe8w1zUAsf23kKmnS2KVtb0P/nZd+/paWDRlBXL6/LUOufHd7EJ3p5of4rMm
+	knVtAwJkGpGdK5RPUY0VgX03PRAagL8=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1760016174;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=nxbzPBH17ar9K23CahzAe5b30MTmOO7lOdw/AEZcP0U=;
+	b=cwrjkfKRUzslGnFAMfnZN+BbuuRHgp8fiGPsw7EQNL51euzvgDiBbRojNyLdDUzWltIC1j
+	NbG6hac4zQvJojCg==
+Authentication-Results: smtp-out2.suse.de;
+	none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=suse.de; s=susede2_rsa;
+	t=1760016174; h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=nxbzPBH17ar9K23CahzAe5b30MTmOO7lOdw/AEZcP0U=;
+	b=awaNgI7/B8kYXqIFwTWq0bTxrrbbQgWzmYQL40a/KGIHLfrwsJezjNSwwQ5oBaRko8yH3L
+	zJnopVUZRPGe8w1zUAsf23kKmnS2KVtb0P/nZd+/paWDRlBXL6/LUOufHd7EJ3p5of4rMm
+	knVtAwJkGpGdK5RPUY0VgX03PRAagL8=
+DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=suse.de;
+	s=susede2_ed25519; t=1760016174;
+	h=from:from:reply-to:date:date:message-id:message-id:to:to:cc:cc:
+	 mime-version:mime-version:  content-transfer-encoding:content-transfer-encoding;
+	bh=nxbzPBH17ar9K23CahzAe5b30MTmOO7lOdw/AEZcP0U=;
+	b=cwrjkfKRUzslGnFAMfnZN+BbuuRHgp8fiGPsw7EQNL51euzvgDiBbRojNyLdDUzWltIC1j
+	NbG6hac4zQvJojCg==
+Received: from imap1.dmz-prg2.suse.org (localhost [127.0.0.1])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by imap1.dmz-prg2.suse.org (Postfix) with ESMTPS id 5308A13A61;
+	Thu,  9 Oct 2025 13:22:54 +0000 (UTC)
+Received: from dovecot-director2.suse.de ([2a07:de40:b281:106:10:150:64:167])
+	by imap1.dmz-prg2.suse.org with ESMTPSA
+	id 0EDeEi6352iECAAAD6G6ig
+	(envelope-from <tzimmermann@suse.de>); Thu, 09 Oct 2025 13:22:54 +0000
+From: Thomas Zimmermann <tzimmermann@suse.de>
+To: jfalempe@redhat.com,
+	javierm@redhat.com,
+	mripard@kernel.org,
+	maarten.lankhorst@linux.intel.com
+Cc: dri-devel@lists.freedesktop.org,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 3/3] arm64: dts: rockchip: add LinkEase EasePi R1
-Message-ID: <ceb6ab82-95a7-4f65-854f-9b04dfa1ff34@lunn.ch>
-References: <20251009084416.45542-1-jjm2473@gmail.com>
- <20251009084416.45542-4-jjm2473@gmail.com>
+	linux-samsung-soc@vger.kernel.org,
+	intel-gfx@lists.freedesktop.org,
+	intel-xe@lists.freedesktop.org,
+	linux-arm-msm@vger.kernel.org,
+	freedreno@lists.freedesktop.org,
+	amd-gfx@lists.freedesktop.org,
+	linux-tegra@vger.kernel.org,
+	Thomas Zimmermann <tzimmermann@suse.de>
+Subject: [PATCH 0/4] drm/client: Implement free callback for fbdev and log
+Date: Thu,  9 Oct 2025 15:16:27 +0200
+Message-ID: <20251009132006.45834-1-tzimmermann@suse.de>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251009084416.45542-4-jjm2473@gmail.com>
+Content-Transfer-Encoding: 8bit
+X-Spamd-Result: default: False [-2.80 / 50.00];
+	BAYES_HAM(-3.00)[100.00%];
+	NEURAL_HAM_LONG(-1.00)[-1.000];
+	MID_CONTAINS_FROM(1.00)[];
+	R_MISSING_CHARSET(0.50)[];
+	NEURAL_HAM_SHORT(-0.20)[-1.000];
+	MIME_GOOD(-0.10)[text/plain];
+	TO_MATCH_ENVRCPT_ALL(0.00)[];
+	FROM_HAS_DN(0.00)[];
+	ARC_NA(0.00)[];
+	MIME_TRACE(0.00)[0:+];
+	RCPT_COUNT_TWELVE(0.00)[14];
+	DBL_BLOCKED_OPENRESOLVER(0.00)[suse.de:mid,imap1.dmz-prg2.suse.org:helo];
+	RCVD_VIA_SMTP_AUTH(0.00)[];
+	FROM_EQ_ENVFROM(0.00)[];
+	RCVD_COUNT_TWO(0.00)[2];
+	FUZZY_RATELIMITED(0.00)[rspamd.com];
+	DKIM_SIGNED(0.00)[suse.de:s=susede2_rsa,suse.de:s=susede2_ed25519];
+	TO_DN_SOME(0.00)[];
+	RCVD_TLS_ALL(0.00)[]
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_061500_051837_A717B6F8 
-X-CRM114-Status: UNSURE (   6.25  )
+X-CRM114-CacheID: sfid-20251009_062258_172052_3A6EAD80 
+X-CRM114-Status: UNSURE (   8.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -75,69 +132,38 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> +&gmac0 {
-> +	phy-mode = "rgmii-id";
-> +	clock_in_out = "input";
-> +
-> +	assigned-clocks = <&cru SCLK_GMAC0_RX_TX>, <&cru SCLK_GMAC0>;
-> +	assigned-clock-parents = <&cru SCLK_GMAC0_RGMII_SPEED>;
-> +	assigned-clock-rates = <0>, <125000000>;
-> +	phy-handle = <&rgmii_phy0>;
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&gmac0_miim
-> +		     &gmac0_tx_bus2
-> +		     &gmac0_rx_bus2
-> +		     &gmac0_rgmii_clk
-> +		     &gmac0_rgmii_bus>;
-> +
-> +	status = "okay";
-> +};
-> +
-> +&gmac1 {
-> +	phy-mode = "rgmii-id";
-> +	clock_in_out = "input";
-> +
-> +	assigned-clocks = <&cru SCLK_GMAC1_RX_TX>, <&cru SCLK_GMAC1>;
-> +	assigned-clock-parents = <&cru SCLK_GMAC1_RGMII_SPEED>;
-> +	assigned-clock-rates = <0>, <125000000>;
-> +	phy-handle = <&rgmii_phy1>;
-> +	pinctrl-names = "default";
-> +	pinctrl-0 = <&gmac1m1_miim
-> +		     &gmac1m1_tx_bus2
-> +		     &gmac1m1_rx_bus2
-> +		     &gmac1m1_rgmii_clk
-> +		     &gmac1m1_rgmii_bus>;
-> +
-> +	status = "okay";
-> +};
-> +
-> +&mdio0 {
-> +	rgmii_phy0: ethernet-phy@1 {
-> +		compatible = "ethernet-phy-ieee802.3-c22";
-> +		reg = <0x1>;
-> +		pinctrl-0 = <&eth_phy0_reset_pin>;
-> +		pinctrl-names = "default";
-> +		reset-assert-us = <20000>;
-> +		reset-deassert-us = <100000>;
-> +		reset-gpios = <&gpio2 RK_PD3 GPIO_ACTIVE_LOW>;
-> +	};
-> +};
-> +
-> +&mdio1 {
-> +	rgmii_phy1: ethernet-phy@1 {
-> +		compatible = "ethernet-phy-ieee802.3-c22";
-> +		reg = <0x1>;
-> +		pinctrl-0 = <&eth_phy1_reset_pin>;
-> +		pinctrl-names = "default";
-> +		reset-assert-us = <20000>;
-> +		reset-deassert-us = <100000>;
-> +		reset-gpios = <&gpio2 RK_PD1 GPIO_ACTIVE_LOW>;
-> +	};
-> +};
+Add struct drm_client_funcs.free and release the memory fbdev and
+log clients from its implementations. Also fix the locking in the
+log's unregister code.
 
-For these nodes only:
+Resolves several corner cases in the current clients and avoids
+duplicated code.
 
-Reviewed-by: Andrew Lunn <andrew@lunn.ch>
+Thomas Zimmermann (4):
+  drm/client: Add client free callback to unprepare fb_helper
+  drm/log: Do not hold lock across drm_client_release()
+  drm/log: Add free callback
+  drm/client: Do not free client memory by default
 
-    Andrew
+ drivers/gpu/drm/armada/armada_fbdev.c      |  2 --
+ drivers/gpu/drm/clients/drm_fbdev_client.c | 17 +++++++++++++++--
+ drivers/gpu/drm/clients/drm_log.c          | 16 ++++++++++++----
+ drivers/gpu/drm/drm_client.c               |  4 ++++
+ drivers/gpu/drm/drm_client_event.c         |  9 +++++----
+ drivers/gpu/drm/drm_fbdev_dma.c            |  4 ----
+ drivers/gpu/drm/drm_fbdev_shmem.c          |  2 --
+ drivers/gpu/drm/drm_fbdev_ttm.c            |  2 --
+ drivers/gpu/drm/exynos/exynos_drm_fbdev.c  |  2 --
+ drivers/gpu/drm/gma500/fbdev.c             |  3 ---
+ drivers/gpu/drm/i915/display/intel_fbdev.c |  2 --
+ drivers/gpu/drm/msm/msm_fbdev.c            |  2 --
+ drivers/gpu/drm/omapdrm/omap_fbdev.c       |  2 --
+ drivers/gpu/drm/radeon/radeon_fbdev.c      |  2 --
+ drivers/gpu/drm/tegra/fbdev.c              |  2 --
+ include/drm/drm_client.h                   | 10 ++++++++++
+ 16 files changed, 46 insertions(+), 35 deletions(-)
+
+-- 
+2.51.0
+
 
