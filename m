@@ -4,60 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 48D43CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 15:55:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B88A2CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 15:55:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BCIpLyzNsd1I00FwKGMVaGgVrkAUH2FzF39SGyYf8uk=; b=eo0Jz4u6bkGvoUV/FpmUz8abCM
-	8jBtWHjds24QekN/8f9jgIpsBYzX2UMQIPciGD4P9z5tENy+JrRGey9Gmn7iuyMPzAiFgwgbu7RRY
-	LyoTs2LEZWzNJTWr5Zp9NMOZBXBXxZ52DCe/1jlLwFdA7Rd/HV7suleoium8uetN+KOlUZzYKPcZ8
-	DhnXydTeKFW3PLN0zM7+XxdNmUgi0vrcNXkvTY2DJTGXjq+N5EnJMnKAP1+Inw/7cBV7lVgmClWfw
-	En4NekHboTmNEqdzWFJlASPxjxcx7wud1sLLnpJvfASnUhUl4SReJbKl6RhlhnocOeGRLXs7OhaSO
-	5zwWABBg==;
+	bh=+a9iYqJpqXVwIHWraOT5j0C97VuoW2Ie5dr4EbbPbxg=; b=htxeCNGRuL9ITSPqKsQQthkhAz
+	/op2Qe4m/nbZLnLdsLGO13ST2cqGqr1oclN766asRP7D0lrmH3O9Yfo10I2vYmO1TGSTLWTj8EJd2
+	M659guHDBMV70vsJWeyUiov19/ykaHukprZXzUF4J4oF72r/+4hPMAO413w3H6aJJ7DOJaMvQXUze
+	+yECnTNTqGGQTiVwiwSrsFOLjHgGj5tdz6PPWfPx2yMpc8MZymypgfeN0Y8mHoDY4eufrb3nP4d5d
+	252ZV9U49zDB/wwqCjwMZzYbOuq4W6KFoW9w67PBJFEx2LC8N8QUQ7ErVWBSp0ajWwA4Y+CHqVGQ4
+	o9GNkkKg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6szD-00000006ZSt-1PxJ;
-	Thu, 09 Oct 2025 15:55:23 +0000
-Received: from esa.microchip.iphmx.com ([68.232.154.123])
+	id 1v6szM-00000006ZZy-2wdb;
+	Thu, 09 Oct 2025 15:55:32 +0000
+Received: from esa.microchip.iphmx.com ([68.232.153.233])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6szA-00000006ZQv-3zOT
+	id 1v6szJ-00000006ZXz-0s1w
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 15:55:22 +0000
+	Thu, 09 Oct 2025 15:55:31 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1760025320; x=1791561320;
+  t=1760025329; x=1791561329;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=2Se7zj33Lgo/YtUKTOpJ2DSK5Pf7p9rJmkBLoSnWiHc=;
-  b=vvDU8MsFjxF2RVj4Nz1cwOKn8ZIjRoLYixcXxSb6kU5gLaPbKGPovR4R
-   Is3My+e+DMr+jD4Xp2rlPB+BkfzMHxFp4KKnYmfaN0WdgFWKWI2soV/H2
-   6wkjYzZQXx2enK3SfmKZHrHqOETIKSYxSlRm358Y8peXa2tWpI7uTek7+
-   QU56H3TVvL3O5YuubCf5UAzBAUwx5GV80MPxTqOHfUkRR8Oz3ZJWszyNj
-   7qL1jsIzyxGNbVaSMFOm1hykzNkehsOmprosKF636YSFuMjiO02I4OkHr
-   eYb+gqf8cJ++Q7x/L8IBD1FkKVsbLTIDk3NgraOrpZXed9oxkVWuhHkzR
+  bh=Ldr0J4d8oLQ9xg/bEwW76/C7Vo+NvP/FYftwus6rV+g=;
+  b=GMZCxAM86NXwwRcdRD9q3qL3c+mpCCqTRkBapgWl5pvJamk7PkBxqyrX
+   5wCNFGdcNCH9RTnLw4WRwPb2CR8uf4HNe3wBteLC4oxNRzIC0TQ9z4+0h
+   aOoAQU3AfCZDhSlVouqe/PCfBkj2xRzYe4/qI771C94Ew3iLEzSQ2RtaK
+   yfc9nQaWYNcsl++ydGjA4SjmebTFW8jZqt44wLi5AZ/1EhKEOnnAnrBap
+   42cV3KaWLPIBgezgW1Y8hxBjQTafqT0bYvI9kn/Heyi00yxp7pLkhrt7K
+   mCfncbtH2NFZUXuDho/KKgiZwW+/AoyQbxu1QbvZFbJuJi+rUNp7S5/iP
    g==;
-X-CSE-ConnectionGUID: zFf2VAeJSDmWhPAONYY24w==
-X-CSE-MsgGUID: 7xgqSkgPTC+yiXsQ9TcNyg==
+X-CSE-ConnectionGUID: oiXu0ae6SEGA7hK0w89rgw==
+X-CSE-MsgGUID: QSddFo6vQrKs2L3VXBkHtQ==
 X-IronPort-AV: E=Sophos;i="6.19,216,1754982000"; 
-   d="scan'208";a="214905374"
+   d="scan'208";a="278928772"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 09 Oct 2025 08:55:19 -0700
-Received: from chn-vm-ex1.mchp-main.com (10.10.87.30) by
- chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
+  by esa5.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 09 Oct 2025 08:55:29 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
+ chn-vm-ex02.mchp-main.com (10.10.85.144) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Thu, 9 Oct 2025 08:55:14 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.87.71) by
- chn-vm-ex1.mchp-main.com (10.10.87.30) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.2562.20; Thu, 9 Oct 2025 08:55:13 -0700
+ 15.1.2507.58; Thu, 9 Oct 2025 08:55:05 -0700
 Received: from che-lt-i64410lx.microchip.com (10.10.85.11) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Thu, 9 Oct 2025 08:55:05 -0700
+ 15.1.2507.58 via Frontend Transport; Thu, 9 Oct 2025 08:54:57 -0700
 From: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
 To: Mauro Carvalho Chehab <mchehab@kernel.org>
 CC: Eugen Hristev <eugen.hristev@linaro.org>, Chas Williams
@@ -71,10 +67,11 @@ CC: Eugen Hristev <eugen.hristev@linaro.org>, Chas Williams
 	<dan.scally+renesas@ideasonboard.com>, Tomi Valkeinen
 	<tomi.valkeinen@ideasonboard.com>, <linux-kernel@vger.kernel.org>,
 	<linux-media@vger.kernel.org>, <linux-atm-general@lists.sourceforge.net>,
-	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH 14/18] media: microchip-isc: fix histogram state initialization order
-Date: Thu, 9 Oct 2025 21:22:47 +0530
-Message-ID: <20251009155251.102472-15-balamanikandan.gunasundar@microchip.com>
+	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
+Subject: [PATCH 13/18] media: microchip-isc: Store histogram data of all channels
+Date: Thu, 9 Oct 2025 21:22:46 +0530
+Message-ID: <20251009155251.102472-14-balamanikandan.gunasundar@microchip.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20251009155251.102472-1-balamanikandan.gunasundar@microchip.com>
 References: <20251009155251.102472-1-balamanikandan.gunasundar@microchip.com>
@@ -82,8 +79,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_085521_056642_1448C4B3 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20251009_085529_266066_8ECA1893 
+X-CRM114-Status: GOOD (  13.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,33 +95,57 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Balakrishnan Sambath <balakrishnan.s@microchip.com>
+Store the histogram data for all 4 channels(R, B, GR, GB). The data of each
+channel is available on one interrupt. We need 4 interrupt cycles to get
+all four channels. Store all the channels in a 2D array. This data is later
+passed to the application buffer when it requests for a dequeue.
 
-Move hist_stat assignment before profile update to ensure histogram state
-is properly set when update_profile triggers register writes. This prevents
-race conditions during histogram initialization.
-
-Signed-off-by: Balakrishnan Sambath <balakrishnan.s@microchip.com>
+Signed-off-by: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
 ---
- drivers/media/platform/microchip/microchip-isc-base.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ drivers/media/platform/microchip/microchip-isc-base.c  | 2 +-
+ drivers/media/platform/microchip/microchip-isc-stats.c | 2 +-
+ drivers/media/platform/microchip/microchip-isc.h       | 2 +-
+ 3 files changed, 3 insertions(+), 3 deletions(-)
 
 diff --git a/drivers/media/platform/microchip/microchip-isc-base.c b/drivers/media/platform/microchip/microchip-isc-base.c
-index 6651be6fcb57..e9f14de7ae32 100644
+index e9bd191f042b..6651be6fcb57 100644
 --- a/drivers/media/platform/microchip/microchip-isc-base.c
 +++ b/drivers/media/platform/microchip/microchip-isc-base.c
-@@ -275,10 +275,10 @@ static void isc_set_histogram(struct isc_device *isc, bool enable)
- 			     ISC_HIS_CTRL_EN);
- 		regmap_write(regmap, ISC_INTEN, ISC_INT_HISDONE);
- 		ctrls->hist_id = ISC_HIS_CFG_MODE_GR;
-+		ctrls->hist_stat = HIST_ENABLED;
- 		isc_update_profile(isc);
- 		regmap_write(regmap, ISC_CTRLEN, ISC_CTRL_HISREQ);
+@@ -1225,7 +1225,7 @@ static void isc_hist_count(struct isc_device *isc, u32 *min, u32 *max)
+ 	struct regmap *regmap = isc->regmap;
+ 	struct isc_ctrls *ctrls = &isc->ctrls;
+ 	u32 *hist_count = &ctrls->hist_count[ctrls->hist_id];
+-	u32 *hist_entry = &ctrls->hist_entry[0];
++	u32 *hist_entry = &ctrls->hist_entry[ctrls->hist_id][0];
+ 	u32 i;
  
--		ctrls->hist_stat = HIST_ENABLED;
- 	} else {
- 		regmap_write(regmap, ISC_INTDIS, ISC_INT_HISDONE);
- 		regmap_write(regmap, ISC_HIS_CTRL + isc->offsets.his,
+ 	*min = 0;
+diff --git a/drivers/media/platform/microchip/microchip-isc-stats.c b/drivers/media/platform/microchip/microchip-isc-stats.c
+index d7813c9d95ac..1f3d1ea75005 100644
+--- a/drivers/media/platform/microchip/microchip-isc-stats.c
++++ b/drivers/media/platform/microchip/microchip-isc-stats.c
+@@ -298,7 +298,7 @@ static void isc_stats_fill_data(struct isc_stats *stats,
+ 
+ 	/* Copy existing histogram data from AWB work function */
+ 	for (c = 0; c < HIST_BAYER; c++) {
+-		memcpy(pbuf->hist[c].hist_bins, isc->full_hist_data[c],
++		memcpy(pbuf->hist[c].hist_bins, &isc->ctrls.hist_entry[0][c],
+ 		       sizeof(pbuf->hist[c].hist_bins));
+ 
+ 		pbuf->hist[c].hist_min = ctrls->hist_minmax[c][HIST_MIN_INDEX];
+diff --git a/drivers/media/platform/microchip/microchip-isc.h b/drivers/media/platform/microchip/microchip-isc.h
+index 35dfd2501ea2..fcb20669ef69 100644
+--- a/drivers/media/platform/microchip/microchip-isc.h
++++ b/drivers/media/platform/microchip/microchip-isc.h
+@@ -151,7 +151,7 @@ struct isc_ctrls {
+ 	u32 gain[HIST_BAYER];
+ 	s32 offset[HIST_BAYER];
+ 
+-	u32 hist_entry[HIST_ENTRIES];
++	u32 hist_entry[HIST_BAYER][HIST_ENTRIES];
+ 	u32 hist_count[HIST_BAYER];
+ 	u8 hist_id;
+ 	u8 hist_stat;
 -- 
 2.34.1
 
