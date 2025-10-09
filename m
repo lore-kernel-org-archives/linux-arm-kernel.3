@@ -4,61 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EB60CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 00:19:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2D443CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 00:40:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XHf61CRnpyW46wbKg77uwE6ASKkEne//0T58UgZWkhM=; b=u8DPoba1STi7iRVJEjXCkSfXQS
-	2VzPk3HH+XsO+aOB0/G12gdIIu43tc86vua/CxROp3wnAEwUXbcCDz64muyYMDRQgP+EZS90FosVn
-	RhqGDOMCDOWFyQoUCfUXCMiylTl4ecqVU8UPRdo8/5/35kL8nPD/NxYi9A3XxXPBaW31HZMlzJ9P6
-	wV/72K0jzHiMPm12iyQ2ySo1RPGp9n8GzwxUG9kfWl5XAhJUqdTr9kskcRh/lo1WUfv8dpCr365Pd
-	f99PEE0DzAIbykOC2dTgR4BKo27qlJcGTTUOAUHUBeJJJmvMACRlyuuFraC/evAoyk1T8kBLICV4v
-	+pp9B5Ag==;
+	bh=cYoONqciRgx8r1RJyxGo+4nmo2QI4eR79SzuUPNVYGA=; b=tHwW0NG8bEq0Ay1K16B0sKH2NP
+	7BmRdmXR2E87SYNQfIcrCMlDNCBJWLarMbFGxrETKR2dq12F/225n2rrIzhJOYaXBb0bdLEMiq39W
+	1PuXObHAybbcOHrksol9NhM1v4j6mpL1HRiJJ7X2+PDdUrCsVjKKz8UswlkmdNLZZspXavcPx53Pc
+	qSnLwMjNJGWXwmLTeleZrUdF6t4NnM/NlxQRY2fvD1o3qo++E56pB9ULf8Kh3cXm/klSiUyQCieD2
+	W/Ocvtgjz4EG7ryvszQKQODbrW/e87/lrUN/ZEgNklcMjmOtG+u7zRjo7dylB3379IfSUVYz2+kh0
+	Ckz6G4bQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6eNN-00000004s0o-39nd;
-	Thu, 09 Oct 2025 00:19:21 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v6ehd-00000004sxy-14jL;
+	Thu, 09 Oct 2025 00:40:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6eNM-00000004s0Q-01ha
+	id 1v6ehb-00000004sxo-3PwR
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 00:19:21 +0000
+	Thu, 09 Oct 2025 00:40:15 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 72F9044766;
-	Thu,  9 Oct 2025 00:19:19 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E8F53C4CEE7;
-	Thu,  9 Oct 2025 00:19:13 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E536360285;
+	Thu,  9 Oct 2025 00:40:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 62CB7C4CEE7;
+	Thu,  9 Oct 2025 00:40:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759969159;
-	bh=GwjdxUbfBUhHmftZSXBRRI8sEDlbtqj2/Z75wxjiN/s=;
+	s=k20201202; t=1759970414;
+	bh=BUieWR7YgWCZmo+OcFRsBFoahIeCm6Rg3uaCyVd5vOU=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Fkmt58iVDNHFG1lzVgabDfP6mRIPcdKs+UB7OEzDmk/s4eFqvHMY/QbOWt7XyJufn
-	 02xbgqRumsezdpAIzbqQLjc3QwdN4YDHBRLI6giFXfly5KJmtieV/T96WAJtqGRIap
-	 mbhu+8Psx38VowTtN++WpU+rjy6nAcpfFLHQM89mNeUeRU2p1uOIWy4BmIEj4TFP+w
-	 dj6q5/txcO3h9feof2SHDvTwyvZ46LKIFwgzl+S3kbhx9PKFZ/Yovc4XKo7txSnHRy
-	 5hg5mv8vvCQYEXpNvhawSASbRjxfRZis5bJHwl6V6OWPUXTMSe3A1Ij9XZ1DCDcwQc
-	 RrgTSTyuTUXkQ==
-Message-ID: <f9fa7101-1e92-42a9-8236-20c59df97976@kernel.org>
-Date: Thu, 9 Oct 2025 09:19:11 +0900
+	b=OgwCZfbZnSmIrDwMb8nX7Z4bZ5UVgNrKdHKGCF0qgbJnuoHNfvkUgRv/4PK8WEPKC
+	 0DM97v2ZbcmvEqqw9pD/dAJfN56X7SvNxmq6AofaEvoJXpLwZ/YI6rSXYtYwmf3qSU
+	 c6LRJ91DY4LrHuKpFDXZP+N2xlE6tHhTbbjVoG0Fgmx+65GI8YFYaJRuoHYEg45WP3
+	 h//xPcElu63lJW1dCodylAMcY1FN/fQRMU/z/RRoiKRcSge3GvRSboRNkDlsTvXMFm
+	 DOIprJI9tjXhTzV5Mi3m5GJzgMKa64OlNZ//KkD3APOE0kJ0zhkBDN0DkubyzbNHaK
+	 +PHJK9PVpXMUw==
+Message-ID: <248d0898-2eca-4ba8-9669-cd3d1cd8ad1b@kernel.org>
+Date: Thu, 9 Oct 2025 09:40:06 +0900
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 10/10] pmdomain: samsung: add support for google,gs101-pd
-To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>
-Cc: Peter Griffin <peter.griffin@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pm@vger.kernel.org
-References: <20251006-gs101-pd-v1-0-f0cb0c01ea7b@linaro.org>
- <20251006-gs101-pd-v1-10-f0cb0c01ea7b@linaro.org>
+Subject: Re: [PATCH v2 1/3] dt-bindings: hwlock: Adding brcmstb-hwspinlock
+ support
+To: Florian Fainelli <florian.fainelli@broadcom.com>,
+ Rob Herring <robh@kernel.org>, Kamal Dasu <kamal.dasu@broadcom.com>
+Cc: peng.fan@oss.nxp.com, andersson@kernel.org,
+ baolin.wang@linux.alibaba.com, krzk+dt@kernel.org, conor+dt@kernel.org,
+ bcm-kernel-feedback-list@broadcom.com, linux-remoteproc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20251001181641.1561472-1-kamal.dasu@broadcom.com>
+ <20251001181641.1561472-2-kamal.dasu@broadcom.com>
+ <20251008155639.GA3512742-robh@kernel.org>
+ <7d96e604-e485-47c8-a0fe-64201f30eaa1@broadcom.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -104,13 +104,9 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251006-gs101-pd-v1-10-f0cb0c01ea7b@linaro.org>
+In-Reply-To: <7d96e604-e485-47c8-a0fe-64201f30eaa1@broadcom.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251008_171920_084090_1A68ACAF 
-X-CRM114-Status: UNSURE (   7.03  )
-X-CRM114-Notice: Please train this message.
+Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,16 +121,81 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/10/2025 01:43, André Draszik wrote:
-> Compared to other previous designs supported by this driver, the status
-> is just one bit. There is nothing unusual here.
+On 09/10/2025 01:39, Florian Fainelli wrote:
 > 
-> Signed-off-by: André Draszik <andre.draszik@linaro.org>
-> ---
->  drivers/pmdomain/samsung/exynos-pm-domains.c | 7 +++++++
+> 
+> On 10/8/2025 8:56 AM, Rob Herring wrote:
+>> On Wed, Oct 01, 2025 at 02:16:39PM -0400, Kamal Dasu wrote:
+>>> Adding brcmstb-hwspinlock bindings.
+>>
+>> That's obvious from the diff. Tell us something about the h/w and
+>> convince me we don't need per SoC compatible which is standard practice.
+>>
+>>>
+>>> Signed-off-by: Kamal Dasu <kamal.dasu@broadcom.com>
+>>> ---
+>>>   .../hwlock/brcm,brcmstb-hwspinlock.yaml       | 36 +++++++++++++++++++
+>>>   1 file changed, 36 insertions(+)
+>>>   create mode 100644 Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml
+>>>
+>>> diff --git a/Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml b/Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml
+>>> new file mode 100644
+>>> index 000000000000..f45399b4fe0b
+>>> --- /dev/null
+>>> +++ b/Documentation/devicetree/bindings/hwlock/brcm,brcmstb-hwspinlock.yaml
+>>> @@ -0,0 +1,36 @@
+>>> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
+>>> +%YAML 1.2
+>>> +---
+>>> +$id: http://devicetree.org/schemas/hwlock/brcm,brcmstb-hwspinlock.yaml#
+>>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+>>> +
+>>> +title: Broadcom settop Hardware Spinlock
+>>> +
+>>> +maintainers:
+>>> +  - Kamal Dasu <kamal.dasu@broadcom.com>
+>>> +
+>>> +properties:
+>>> +  compatible:
+>>> +    const: brcm,brcmstb-hwspinlock
+>>
+>> hwspinlock is the name of the h/w block? Use the name of the h/w, not
+>> linux subsystem names.
+>>
+>>> +
+>>> +  "#hwlock-cells":
+>>> +    const: 1
+>>> +
+>>> +  reg:
+>>> +    maxItems: 1
+>>> +
+>>> +required:
+>>> +  - compatible
+>>> +  - reg
+>>> +  - "#hwlock-cells"
+>>> +
+>>> +additionalProperties: false
+>>> +
+>>> +examples:
+>>> +  - |
+>>> +    hwlock@8404038 {
+>>> +        compatible = "brcm,brcmstb-hwspinlock";
+>>> +        reg = <0x8404038 0x40>;
+>>
+>> h/w blocks rarely start at an offset like that. Is this part of some
+>> other h/w block? If so, then just add '#hwlock-cells' to *that* node.
+> 
+> We've answered that in the previous review:
+> 
+> The block is part of a "sundry" IP which has lots of controls that did 
+> not belong anywhere else, for better or for worse (pin/mux controls, SoC 
+> identification, drive strength, reset controls, and other misc bits).
 
-This should be squashed with patch #8. There is no point to handle
-syscon parent regmap outside of GS.
+
+And every time above explanation will not reach description or commit
+msg we will ask the same.
+
+
 
 Best regards,
 Krzysztof
