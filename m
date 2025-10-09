@@ -4,91 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D59E8CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 07:28:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B6DECCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 07:33:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2YPTo7AnLHbrxYYZdYypT1D1p3QgIUdm8aDUv+sN6iA=; b=wGWLuyczEY5CHsURH+lgzwLVTv
-	qElo8dxqaK93c1pckhnUBk4/oVtMdj9G01hqUXKFT24IIiht8gnYZtgEKzfKoz2N3yi60zUyE4zPH
-	UHb5vz6PXcn15l7HliVJTRhTu/HRw5BfSea29eYoKvNQ+dZmTdhEvxN9O/zFgve5D7brzVeb4aYyV
-	uG6kzP6j5HzedhrJHsFAX69vO/ZBtLt4dF2Zm4PYB8Y52Uoj32IK+Ij+1I2/fBuD6BwvL9/od0rCa
-	T0p8NEB1agZJ3oWqc2jqWKtEPeBs5XFVHXkbTjHZZRDEL0244edeLJs6SN3wHXYpIadEkc3v1j9wd
-	QszcfCDQ==;
+	bh=NATA04lG9cqYNuKN4V/mGz7RayXhel8O3qk+QILIDN0=; b=MVjzsKXoOGoPpcPUqEpLPwaoED
+	Mcmv0CK1kq06SfpZOXmsTLZazCsX5P06GopSxw2eeZqlwWSIsf4axCr4703+NIhpdS1vZzTgxF6bM
+	E+zRthS8jB++9XDv6uIQHHmGdzvvd7VSHpd/6iu9FBX66zR0BjaeN8yFgwPi9x2/DrKk0IAUj2tIa
+	sb26+C4roUyR2TauvQkMBvBJsIJVIGYv0JILp1BwIk0KpdcOEhuHherX6vNvQWgVfgBnAWXUfyAiy
+	LgUZ/uhdmTWnYx4JcnFTK8+vujhNlBkk62FoL5B617iHtHpnV1FXm+vsYYQOVnuTSZo8GPmzvlMLn
+	qG4fZZsQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6l4Q-00000005N8t-2kc2;
-	Thu, 09 Oct 2025 07:28:14 +0000
-Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
+	id 1v6l9e-00000005NtO-0HBO;
+	Thu, 09 Oct 2025 07:33:38 +0000
+Received: from mail-lf1-x12f.google.com ([2a00:1450:4864:20::12f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6l4O-00000005N81-4Bw9;
-	Thu, 09 Oct 2025 07:28:13 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
-	In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender
-	:Reply-To:Content-ID:Content-Description;
-	bh=2YPTo7AnLHbrxYYZdYypT1D1p3QgIUdm8aDUv+sN6iA=; b=IBh20hbX0k+dwxVeB73l9U+OD+
-	ylRy6mrB9wHLHHc1FU8s36Dgw/l2BIepSyUEKcgpIHC7m1dr0fWzO7nLBwemnQDRK/8rQWt3iQLhd
-	9K/fxZdUAyo9OOOewydYqZFZP4FMFDDvfivyLj2I1f3iDu601ak5CfNuwtpKobJXEIVmOzMFM43P3
-	vt9EceOIR7mo5weF/YREX2+PkOBZdqkPjo/3AYb/tEPTj537fq/gZQVuCQIQyYGJZZRhZiZJGGnQD
-	2KmnXCUbS+Rz765bU7McOuLh1CdORTV4ulFAB6ljnDS1UuJr31VUOMetLlLFpyE9IuWJWxTAkDTVe
-	aZXQEGWg==;
-Received: from mail.loongson.cn ([114.242.206.163])
-	by casper.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6l4I-00000003JxW-43cZ;
-	Thu, 09 Oct 2025 07:28:11 +0000
-Received: from loongson.cn (unknown [113.200.148.30])
-	by gateway (Coremail) with SMTP id _____8DxvdLzY+doGTAUAA--.42724S3;
-	Thu, 09 Oct 2025 15:27:47 +0800 (CST)
-Received: from [10.130.10.66] (unknown [113.200.148.30])
-	by front1 (Coremail) with SMTP id qMiowJCxocLrY+doN1fWAA--.11175S3;
-	Thu, 09 Oct 2025 15:27:39 +0800 (CST)
-Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
-To: Ard Biesheuvel <ardb@kernel.org>, Huacai Chen <chenhuacai@kernel.org>
-Cc: Josh Poimboeuf <jpoimboe@kernel.org>, loongarch@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
- linux-efi@vger.kernel.org, linux-kbuild@vger.kernel.org,
- linux-kernel@vger.kernel.org
-References: <20250928085506.4471-1-yangtiezhu@loongson.cn>
- <CAMj1kXG8Wi+THa2SeLxiDT=+t_TKx0AL4H-azZO4DNJvyyv96g@mail.gmail.com>
- <CAAhV-H7xOf8DEwOrNh+GQGHktOT4Ljp+7SqutGvvDZp6GLXJrA@mail.gmail.com>
- <CAMj1kXG=EFkRAMkvKMSjPixoGqU-tZXVoRkJJ6Wcnzs3x52X6Q@mail.gmail.com>
- <CAMj1kXHWe2uGY3S1NJ6mckqD4n116rPmaOzw3_Qbvxyjh7ECMw@mail.gmail.com>
-From: Tiezhu Yang <yangtiezhu@loongson.cn>
-Message-ID: <fec0c03d-9d8c-89a3-886a-1adc22e59b66@loongson.cn>
-Date: Thu, 9 Oct 2025 15:27:39 +0800
-User-Agent: Mozilla/5.0 (X11; Linux loongarch64; rv:68.0) Gecko/20100101
- Thunderbird/68.7.0
+	id 1v6l9b-00000005NsB-0vfd
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Oct 2025 07:33:36 +0000
+Received: by mail-lf1-x12f.google.com with SMTP id 2adb3069b0e04-5797c8612b4so902407e87.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 00:33:34 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1759995213; x=1760600013; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=NATA04lG9cqYNuKN4V/mGz7RayXhel8O3qk+QILIDN0=;
+        b=Rwpv8qQ0b82PYO/SDc8w2uowKbVjKZQt4uhCVcN5oj9/coilsEuBKEY2qlol+ub+2E
+         QIxwA6Gc5E6Xy5vHTL1bzx5TP+zIgMopu7cdJhhnpicL1Vhkkry2NuJUvWH5k/UvlDWM
+         yVfuSVekBjd7nj2K4NkLPyr5KBAehXQVfHvKY=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759995213; x=1760600013;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=NATA04lG9cqYNuKN4V/mGz7RayXhel8O3qk+QILIDN0=;
+        b=qDYKYtU8uYz4poA++XA3JKJ5hIlAWsprCwDhMokJnvzuWKVs7OORNewQS0PXr3svSP
+         KEMOreNZf+uaRT3e7LJMTFbGM5GL8/N2ucJ83og/ZVInwAWjSmTwox0D5EIgfmfwmSj2
+         EJgtcv7+z/vRbliGB/qhg57HTTQZ0GPBjQQl6fuGI8gaMhudkE+l4WL4JyBvNBQ59xOf
+         zTLJcx1vP6Yn7h2AtdomWfyl82dQwNvL73iqffTSI4hplxHSvhg8macUrWTjuVRLucZs
+         CrZLTaR6R7zy/6BhOsf+n3KH7uJoboSCXaC+tXiooroC4e7DM5esXiBpSUVmd+zmyfuI
+         1TIw==
+X-Forwarded-Encrypted: i=1; AJvYcCXR+GMQRlcvTCjS/LJ9DsYJYYzDeGxEQlo/usHC2sDIKSMdlXnn244m4a3y1r2hw58Etn2orzYrT+Lh/7mMZQHN@lists.infradead.org
+X-Gm-Message-State: AOJu0YwQ2yCQ31pdLf6pXSp26SdnYqpHbjGJBjWtZSt88EzKwy0eAsXp
+	WVNFP9HSDYQUtDKp8pNx6rVckO2ll9Vx72kh2shEPBy6yilqfyAw+QuqO7Kg03FX5DwWTnh9vq3
+	Yl05PnlD5Wu0lnI7D10nV4JK8QqViKEgF4k6KOQSp
+X-Gm-Gg: ASbGncu6yzoFDstTsgpF5bXwy82w/+9L+FK2dL7dA9+LIrkq8i3ozqODoO1wPP2hH1A
+	9F0RL5FZh+ETBKYzSD8Rc9y2FEIpvx58bERcK73CKgRf2tK+aVUL+xUinbruYhEedOXvJYkhm2h
+	mMzNmPPz8R/94RbCiKOdrxnzpjhGtnVEG1RrwcoIgz+XxmZmFg26wdMCF4q9kS7O5UMuTR/KYaz
+	RMlIyv4hhKrXFbzDbiYFRjDAprz/6r40aC9xWn9EY+e4hAgG6NHuAqjtrxEbw==
+X-Google-Smtp-Source: AGHT+IF6m8ACDaU9hzMk8xdqL2Q2Hbks2uUt6Iy3PDX+KKlJyzdC/zfk13eIYMHbsDIcLqn07l/Zwc+Zn356g2up4Tk=
+X-Received: by 2002:a2e:be9a:0:b0:337:f1d7:d500 with SMTP id
+ 38308e7fff4ca-37609d953b8mr16127351fa.18.1759995213025; Thu, 09 Oct 2025
+ 00:33:33 -0700 (PDT)
 MIME-Version: 1.0
-In-Reply-To: <CAMj1kXHWe2uGY3S1NJ6mckqD4n116rPmaOzw3_Qbvxyjh7ECMw@mail.gmail.com>
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Language: en-US
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qMiowJCxocLrY+doN1fWAA--.11175S3
-X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
-X-Coremail-Antispam: 1Uk129KBj93XoWxuFyDZr45uF48uFyxuF4DAwc_yoWxWw1kpa
-	yjkFWjyr4kJr4kXas7t3yY9r1YqanIqrWaga4DuryrZa1qqr40vrWUZr4DuF9rXw4DC3WI
-	qF1fJr9Ik3WUJ3gCm3ZEXasCq-sJn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUUvjb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_
-	GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqjxCEc2xF0cIa020Ex4CE44I27wAqx4
-	xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v2
-	6r4j6F4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwCYjI0SjxkI62AI1cAE67
-	vIY487MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAF
-	wI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc4
-	0Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AK
-	xVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr
-	1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuYvjxUzpBTUUUU
-	U
+References: <20251008-mtk-pll-rpm-v2-0-170ed0698560@collabora.com> <20251008-mtk-pll-rpm-v2-4-170ed0698560@collabora.com>
+In-Reply-To: <20251008-mtk-pll-rpm-v2-4-170ed0698560@collabora.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Thu, 9 Oct 2025 15:33:22 +0800
+X-Gm-Features: AS18NWDCKGPR4MxJLy6Y5o4fyCGycMwSUzGQZN0AhucPrjjtAqoX3WiLmZowTiU
+Message-ID: <CAGXv+5Hpndq09cbudofSvkNE6w+tHb85VCqDb3P920S8vwonHQ@mail.gmail.com>
+Subject: Re: [PATCH v2 4/5] clk: mediatek: Refactor pllfh registration to pass device
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Dong Aisheng <aisheng.dong@nxp.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	Yassine Oudjana <y.oudjana@protonmail.com>, Laura Nao <laura.nao@collabora.com>, 
+	=?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>, 
+	Chia-I Wu <olvaffe@gmail.com>, kernel@collabora.com, linux-clk@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, Stephen Boyd <sboyd@codeaurora.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_082808_833724_9D8783AC 
-X-CRM114-Status: GOOD (  18.11  )
+X-CRM114-CacheID: sfid-20251009_003335_323129_451982CC 
+X-CRM114-Status: GOOD (  19.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,186 +98,177 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/9/28 下午10:41, Ard Biesheuvel wrote:
-> On Sun, 28 Sept 2025 at 16:39, Ard Biesheuvel <ardb@kernel.org> wrote:
->>
->> On Sun, 28 Sept 2025 at 15:52, Huacai Chen <chenhuacai@kernel.org> wrote:
->>>
->>> Hi, Ard,
->>>
->>> On Sun, Sep 28, 2025 at 9:42 PM Ard Biesheuvel <ardb@kernel.org> wrote:
->>>>
->>>> On Sun, 28 Sept 2025 at 10:55, Tiezhu Yang <yangtiezhu@loongson.cn> wrote:
->>>>>
->>>>> When compiling with LLVM and CONFIG_LTO_CLANG is set, there exists
->>>>> the following objtool warning on LoongArch:
->>>>>
->>>>>    vmlinux.o: warning: objtool: __efistub_efi_boot_kernel()
->>>>>    falls through to next function __efistub_exit_boot_func()
->>>>>
->>>>> This is because efi_boot_kernel() doesn't end with a return instruction
->>>>> or an unconditional jump, then objtool has determined that the function
->>>>> can fall through into the next function.
->>>>>
->>>>> At the beginning, try to do something to make efi_boot_kernel() ends with
->>>>> an unconditional jump instruction, but this modification seems not proper.
->>>>>
->>>>> Since the efistub functions are useless for stack unwinder, they can be
->>>>> ignored by objtool. After many discussions, no need to link libstub to
->>>>> the vmlinux.o, only link libstub to the final vmlinux.
->>>>>
->>>>
->>>> Please try keeping these changes confined to arch/loongarch. This
->>>> problem does not exist on other architectures, and changing the way
->>>> vmlinux is constructed might create other issues down the road.
+On Thu, Oct 9, 2025 at 12:06=E2=80=AFAM Nicolas Frattaroli
+<nicolas.frattaroli@collabora.com> wrote:
+>
+> After refactoring all of PLL to pass the device, it's now fairly easy to
+> refactor pllfh and its users, as pllfh registration wraps PLL
+> registration.
+>
+> Do this refactor and move all of the pllfh users to pass the device as
+> well.
+>
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> ---
+>  drivers/clk/mediatek/clk-mt6795-apmixedsys.c |  2 +-
+>  drivers/clk/mediatek/clk-mt8173-apmixedsys.c | 14 +++++++-------
+>  drivers/clk/mediatek/clk-mt8186-apmixedsys.c |  2 +-
+>  drivers/clk/mediatek/clk-mt8192-apmixedsys.c |  2 +-
+>  drivers/clk/mediatek/clk-mt8195-apmixedsys.c |  2 +-
+>  drivers/clk/mediatek/clk-pllfh.c             | 13 ++++++++-----
+>  drivers/clk/mediatek/clk-pllfh.h             |  2 +-
+>  7 files changed, 20 insertions(+), 17 deletions(-)
+>
+> diff --git a/drivers/clk/mediatek/clk-mt6795-apmixedsys.c b/drivers/clk/m=
+ediatek/clk-mt6795-apmixedsys.c
+> index 91665d7f125efde4941cc4de881c5b503a935529..123d5d7fea8554676364dc56f=
+5c023e43325d516 100644
+> --- a/drivers/clk/mediatek/clk-mt6795-apmixedsys.c
+> +++ b/drivers/clk/mediatek/clk-mt6795-apmixedsys.c
+> @@ -152,7 +152,7 @@ static int clk_mt6795_apmixed_probe(struct platform_d=
+evice *pdev)
+>                 return -ENOMEM;
+>
+>         fhctl_parse_dt(fhctl_node, pllfhs, ARRAY_SIZE(pllfhs));
+> -       ret =3D mtk_clk_register_pllfhs(node, plls, ARRAY_SIZE(plls),
+> +       ret =3D mtk_clk_register_pllfhs(dev, plls, ARRAY_SIZE(plls),
+>                                       pllfhs, ARRAY_SIZE(pllfhs), clk_dat=
+a);
+>         if (ret)
+>                 goto free_clk_data;
+> diff --git a/drivers/clk/mediatek/clk-mt8173-apmixedsys.c b/drivers/clk/m=
+ediatek/clk-mt8173-apmixedsys.c
+> index 95385bb67d5511eda3a851f81986e67eaf81e5fb..d7d416172ab35bc027ae67c16=
+3c1dc20dee857b6 100644
+> --- a/drivers/clk/mediatek/clk-mt8173-apmixedsys.c
+> +++ b/drivers/clk/mediatek/clk-mt8173-apmixedsys.c
+> @@ -140,13 +140,13 @@ MODULE_DEVICE_TABLE(of, of_match_clk_mt8173_apmixed=
+);
+>  static int clk_mt8173_apmixed_probe(struct platform_device *pdev)
+>  {
+>         const u8 *fhctl_node =3D "mediatek,mt8173-fhctl";
+> -       struct device_node *node =3D pdev->dev.of_node;
+>         struct clk_hw_onecell_data *clk_data;
+> +       struct device *dev =3D &pdev->dev;
+>         void __iomem *base;
+>         struct clk_hw *hw;
+>         int r;
+>
+> -       base =3D of_iomap(node, 0);
+> +       base =3D of_iomap(dev->of_node, 0);
+>         if (!base)
+>                 return -ENOMEM;
+>
+> @@ -157,25 +157,25 @@ static int clk_mt8173_apmixed_probe(struct platform=
+_device *pdev)
+>         }
+>
+>         fhctl_parse_dt(fhctl_node, pllfhs, ARRAY_SIZE(pllfhs));
+> -       r =3D mtk_clk_register_pllfhs(node, plls, ARRAY_SIZE(plls),
+> -                                   pllfhs, ARRAY_SIZE(pllfhs), clk_data)=
+;
+> +       r =3D mtk_clk_register_pllfhs(dev, plls, ARRAY_SIZE(plls), pllfhs=
+,
+> +                                   ARRAY_SIZE(pllfhs), clk_data);
+>         if (r)
+>                 goto free_clk_data;
+>
+>         hw =3D mtk_clk_register_ref2usb_tx("ref2usb_tx", "clk26m", base +=
+ REGOFF_REF2USB);
+>         if (IS_ERR(hw)) {
+>                 r =3D PTR_ERR(hw);
+> -               dev_err(&pdev->dev, "Failed to register ref2usb_tx: %d\n"=
+, r);
+> +               dev_err(dev, "Failed to register ref2usb_tx: %d\n", r);
+>                 goto unregister_plls;
+>         }
+>         clk_data->hws[CLK_APMIXED_REF2USB_TX] =3D hw;
+>
+> -       hw =3D devm_clk_hw_register_divider(&pdev->dev, "hdmi_ref", "tvdp=
+ll_594m", 0,
+> +       hw =3D devm_clk_hw_register_divider(dev, "hdmi_ref", "tvdpll_594m=
+", 0,
+>                                           base + REGOFF_HDMI_REF, 16, 3,
+>                                           CLK_DIVIDER_POWER_OF_TWO, NULL)=
+;
+>         clk_data->hws[CLK_APMIXED_HDMI_REF] =3D hw;
+>
+> -       r =3D of_clk_add_hw_provider(node, of_clk_hw_onecell_get, clk_dat=
+a);
+> +       r =3D of_clk_add_hw_provider(dev->of_node, of_clk_hw_onecell_get,=
+ clk_data);
+>         if (r)
+>                 goto unregister_ref2usb;
+>
+> diff --git a/drivers/clk/mediatek/clk-mt8186-apmixedsys.c b/drivers/clk/m=
+ediatek/clk-mt8186-apmixedsys.c
+> index 4b2b16578232d986f78deed4778c5fab7f460184..d35dd2632e43ab535b32b8b99=
+f8d75de02d56fe2 100644
+> --- a/drivers/clk/mediatek/clk-mt8186-apmixedsys.c
+> +++ b/drivers/clk/mediatek/clk-mt8186-apmixedsys.c
+> @@ -151,7 +151,7 @@ static int clk_mt8186_apmixed_probe(struct platform_d=
+evice *pdev)
+>
+>         fhctl_parse_dt(fhctl_node, pllfhs, ARRAY_SIZE(pllfhs));
+>
+> -       r =3D mtk_clk_register_pllfhs(node, plls, ARRAY_SIZE(plls),
+> +       r =3D mtk_clk_register_pllfhs(&pdev->dev, plls, ARRAY_SIZE(plls),
+>                                     pllfhs, ARRAY_SIZE(pllfhs), clk_data)=
+;
+>         if (r)
+>                 goto free_apmixed_data;
+> diff --git a/drivers/clk/mediatek/clk-mt8192-apmixedsys.c b/drivers/clk/m=
+ediatek/clk-mt8192-apmixedsys.c
+> index 0b66a27e4d5ac68f09dc6a4197fd84ef82342df9..b0563a285bd666d492a7fa940=
+733aad1ab1a0bae 100644
+> --- a/drivers/clk/mediatek/clk-mt8192-apmixedsys.c
+> +++ b/drivers/clk/mediatek/clk-mt8192-apmixedsys.c
+> @@ -162,7 +162,7 @@ static int clk_mt8192_apmixed_probe(struct platform_d=
+evice *pdev)
+>
+>         fhctl_parse_dt(fhctl_node, pllfhs, ARRAY_SIZE(pllfhs));
+>
+> -       r =3D mtk_clk_register_pllfhs(node, plls, ARRAY_SIZE(plls),
+> +       r =3D mtk_clk_register_pllfhs(&pdev->dev, plls, ARRAY_SIZE(plls),
+>                                     pllfhs, ARRAY_SIZE(pllfhs), clk_data)=
+;
+>         if (r)
+>                 goto free_clk_data;
+> diff --git a/drivers/clk/mediatek/clk-mt8195-apmixedsys.c b/drivers/clk/m=
+ediatek/clk-mt8195-apmixedsys.c
+> index 282a3137dc89419a6d0b574fd549cee941687900..44917ab034c56f01ef02d1957=
+f17eb0655438d75 100644
+> --- a/drivers/clk/mediatek/clk-mt8195-apmixedsys.c
+> +++ b/drivers/clk/mediatek/clk-mt8195-apmixedsys.c
+> @@ -181,7 +181,7 @@ static int clk_mt8195_apmixed_probe(struct platform_d=
+evice *pdev)
+>
+>         fhctl_parse_dt(fhctl_node, pllfhs, ARRAY_SIZE(pllfhs));
+>
+> -       r =3D mtk_clk_register_pllfhs(node, plls, ARRAY_SIZE(plls),
+> +       r =3D mtk_clk_register_pllfhs(&pdev->dev, plls, ARRAY_SIZE(plls),
+>                                     pllfhs, ARRAY_SIZE(pllfhs), clk_data)=
+;
+>         if (r)
+>                 goto free_apmixed_data;
+> diff --git a/drivers/clk/mediatek/clk-pllfh.c b/drivers/clk/mediatek/clk-=
+pllfh.c
+> index 62bfe4a480f14a0a742fb094aff0e6d1a79fe0c3..8ad11023d91127e88900bc6bc=
+abbaeafb1e00664 100644
+> --- a/drivers/clk/mediatek/clk-pllfh.c
+> +++ b/drivers/clk/mediatek/clk-pllfh.c
+> @@ -10,6 +10,7 @@
+>  #include <linux/slab.h>
+>  #include <linux/clkdev.h>
+>  #include <linux/delay.h>
+> +#include <linux/device.h>
 
-This was discussed and tested in the v3 patch, it only touches the code
-of LoongArch and works well like this:
+This shouldn't be needed, as you aren't using any of the APIs.
 
-diff --git a/arch/loongarch/Makefile b/arch/loongarch/Makefile
-index dc5bd3f1b8d2..f34b416f5ca2 100644
---- a/arch/loongarch/Makefile
-+++ b/arch/loongarch/Makefile
-@@ -169,7 +169,6 @@ CHECKFLAGS += $(shell $(CC) $(KBUILD_CPPFLAGS) 
-$(KBUILD_CFLAGS) -dM -E -x c /dev
-  endif
+A forward declaration of |struct device| in the header should suffice.
+It should be added anyway, since the header defines data structures that
+have a |struct device *| field.
 
-  libs-y += arch/loongarch/lib/
--libs-$(CONFIG_EFI_STUB) += $(objtree)/drivers/firmware/efi/libstub/lib.a
 
-  drivers-y              += arch/loongarch/crypto/
-
-diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
-index 433849ff7529..ed94871c3606 100755
---- a/scripts/link-vmlinux.sh
-+++ b/scripts/link-vmlinux.sh
-@@ -69,6 +69,12 @@ vmlinux_link()
-                 libs="${KBUILD_VMLINUX_LIBS}"
-         fi
-
-+       if [ "${SRCARCH}" = "loongarch" ]; then
-+               if is_enabled CONFIG_EFI_STUB; then
-+                       libs="${libs} drivers/firmware/efi/libstub/lib.a"
-+               fi
-+       fi
-+
-         if is_enabled CONFIG_GENERIC_BUILTIN_DTB; then
-                 objs="${objs} .builtin-dtbs.o"
-         fi
-
-https://lore.kernel.org/loongarch/pq4h7jgndnt6p45lj4kgubxjd5gidfetugcuf5rcxzxxanzetd@6rrlpjnjsmuy/
-
->>> ARM, RISC-V and LoongArch do things exactly in the same way. Now
->>> LoongArch is the first of the three to enable objtool, so we meet the
->>> problem first.
->>>
->>> But yes, I also don't want to change the way of constructing vmlinux.
->>> So I prefer the earliest way to fix this problem.
->>> https://lore.kernel.org/loongarch/CAAhV-H7fRHGFVKV8HitRgmuoDPt5ODt--iSuV0EmeeUb9d5FNw@mail.gmail.com/T/#meef7411abd14f4c28c85e686614aa9211fccdca0
->>>
->>
->> Can we just drop the __noreturn annotation from kernel_entry_t, and
->> return EFI_SUCCESS from efi_boot_kernel()?
-
-This was done in the early RFC patch, it works well like this:
-
-diff --git a/drivers/firmware/efi/libstub/loongarch.c 
-b/drivers/firmware/efi/libstub/loongarch.c
-index 3782d0a187d1..e309fd78fca7 100644
---- a/drivers/firmware/efi/libstub/loongarch.c
-+++ b/drivers/firmware/efi/libstub/loongarch.c
-@@ -10,7 +10,7 @@
-  #include "efistub.h"
-  #include "loongarch-stub.h"
-
--typedef void __noreturn (*kernel_entry_t)(bool efi, unsigned long cmdline,
-+typedef void (*kernel_entry_t)(bool efi, unsigned long cmdline,
-  					  unsigned long systab);
-
-  efi_status_t check_platform_features(void)
-@@ -81,4 +81,7 @@ efi_status_t efi_boot_kernel(void *handle, 
-efi_loaded_image_t *image,
-
-  	real_kernel_entry(true, (unsigned long)cmdline_ptr,
-  			  (unsigned long)efi_system_table);
-+
-+	/* We should never get here */
-+	while (1);
-  }
-
-https://lore.kernel.org/loongarch/20250826064631.9617-2-yangtiezhu@loongson.cn/
-
-> ... or add efi_boot_kernel() to ./tools/objtool/noreturns.h?
-
-It can not fix the objtool warning.
-
-Are you OK with the following changes?
-
-(1) libstub doesn't link to vmlinux.o, only link libstub with vmlinux.o 
-during the final vmlinux link, keep the changes confined to LoongArch, 
-no need to be something more generic.
-
-diff --git a/arch/loongarch/Makefile b/arch/loongarch/Makefile
-index dc5bd3f1b8d2..f34b416f5ca2 100644
---- a/arch/loongarch/Makefile
-+++ b/arch/loongarch/Makefile
-@@ -169,7 +169,6 @@ CHECKFLAGS += $(shell $(CC) $(KBUILD_CPPFLAGS) 
-$(KBUILD_CFLAGS) -dM -E -x c /dev
-  endif
-
-  libs-y += arch/loongarch/lib/
--libs-$(CONFIG_EFI_STUB) += $(objtree)/drivers/firmware/efi/libstub/lib.a
-
-  drivers-y              += arch/loongarch/crypto/
-
-diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
-index 433849ff7529..ed94871c3606 100755
---- a/scripts/link-vmlinux.sh
-+++ b/scripts/link-vmlinux.sh
-@@ -69,6 +69,12 @@ vmlinux_link()
-                 libs="${KBUILD_VMLINUX_LIBS}"
-         fi
-
-+       if [ "${SRCARCH}" = "loongarch" ]; then
-+               if is_enabled CONFIG_EFI_STUB; then
-+                       libs="${libs} drivers/firmware/efi/libstub/lib.a"
-+               fi
-+       fi
-+
-         if is_enabled CONFIG_GENERIC_BUILTIN_DTB; then
-                 objs="${objs} .builtin-dtbs.o"
-         fi
-
-(2) remove the attribute __noreturn for real_kernel_entry() and add
-"while (1);" at the end of efi_boot_kernel().
-
-diff --git a/drivers/firmware/efi/libstub/loongarch.c 
-b/drivers/firmware/efi/libstub/loongarch.c
-index 3782d0a187d1..e309fd78fca7 100644
---- a/drivers/firmware/efi/libstub/loongarch.c
-+++ b/drivers/firmware/efi/libstub/loongarch.c
-@@ -10,7 +10,7 @@
-  #include "efistub.h"
-  #include "loongarch-stub.h"
-
--typedef void __noreturn (*kernel_entry_t)(bool efi, unsigned long cmdline,
-+typedef void (*kernel_entry_t)(bool efi, unsigned long cmdline,
-  					  unsigned long systab);
-
-  efi_status_t check_platform_features(void)
-@@ -81,4 +81,7 @@ efi_status_t efi_boot_kernel(void *handle, 
-efi_loaded_image_t *image,
-
-  	real_kernel_entry(true, (unsigned long)cmdline_ptr,
-  			  (unsigned long)efi_system_table);
-+
-+	/* We should never get here */
-+	while (1);
-  }
-
-Taking all of the considerations in balance, what should to do?
-
-Thanks,
-Tiezhu
-
+ChenYu
 
