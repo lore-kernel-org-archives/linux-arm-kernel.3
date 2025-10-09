@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0DF7CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 15:56:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BAAB3CCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 15:56:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rCD4rPUvnkCebMeaEapJBrU0tinuybIbsQmhBGOZhOw=; b=tqi470EMjjV/J8FGaYf+bgtEle
-	dnmepKkQ1lzK08OKfVHmZ1JRxxxQoU2pkJmijuJsu+7qm+tc7sABqlJ7cgpkaac31kQWtMtWNWV81
-	ztKAPvfS/R4ltMaaig/X/5Y54yRliR8nmi8JO4S286G9RF6jmPFn4VHPSC3YX96hunP5jyQ2dsYOZ
-	q2yFnL66nRNTxuD3LUTkDJ3e83CP3a3gogx30FuAhgnQ/WPN5Wsj9PCC76fCn32luE/CIC4nVV3hJ
-	RAJoAaAFZ4ZKuNOQu/lqMOgcOeJE2V5NvNRCyXeHeFw+yiW/6IvfOTwGejUuM+TKLhh9yebbMTq7t
-	oVNcg3ng==;
+	bh=IZf1JrF4nEvDEI1JhH9EyP6jzDnTQUK3K/thSdvXHMY=; b=vIYdu9Gc6MBgQqd9uDaiJoQGL8
+	7U5q4RYIToUKLWzH/8B72JuEofklldwYEiW+/UkSL96V+60hNR3JUWvZinXij8+whQ7sOskAe3rui
+	D5u4sjQ6atwzvJ+LQxYNu3jifyIcDWUKrZl1gozBlutHJEJv/WTf0VA1gAk+bGI/P+qc9XtjZbvfK
+	ccGNOSxvry390ZX3UGi0qmM+wh1QMQYAPM1kBAISPCq2jU1KRqdyIvO9L+rXqgMj4mUZ88YjdIUoB
+	qXbrUWAUkjW6LijbglO7mWDLwg0mOYc0NHd3OXiseF6ZdjtmJqV1RiZT7VoA2NBeeL7EDYnT9G5sR
+	6KA+NnKQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6szj-00000006ZnB-191R;
+	id 1v6szj-00000006Znm-3aBe;
 	Thu, 09 Oct 2025 15:55:55 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6szf-00000006ZhY-15o9
+	id 1v6szf-00000006ZiK-1c7b
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 15:55:52 +0000
+	Thu, 09 Oct 2025 15:55:53 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
   t=1760025351; x=1791561351;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=NmHYnwZO3k1u6RXbCftGuTbVjS2S07lpsShuIUYK9b0=;
-  b=MklNDhUiAXlDWkg1U5EDOfYbHPQxYJCkC2Dfpk5CZHi8zoXIDPw74Won
-   W+XQAhKKLVuGEB0FkXLxChJ5K57+45fQo9ToiCIrS2LjNcn4R78OlgEXu
-   4+vQ4dWA5BhXNTJjwWV8ykYuHHyDxWbK3s3Q03FZuvJ7JqMwwNSZi7r73
-   WIQYIzi4nQ6y1RJck2emoxi50CzxdVmnx8vBEhywtI6ZtwkUu7WpBvo6H
-   S+aWByE9WhX11IRxV5XcMHQPmA4dOC1U6t/L0ClQYe2j5YxE3vHZ0zj3n
-   lr/4XBMEEmgkStiIqFrDROAAB+4pEjDW2SoDZitk5Fe+O7OPMnAELrwfe
-   w==;
+  bh=gEsdwK0m2kA3C6dQH8WJCbm+g8019XTzo1jqoCAXjPE=;
+  b=Bj+YV2mvQG9jaHrOPYrWJzoA8V5m6YoDSOS/StuvxW//y+l7A+KPZnYI
+   /NaWrS/sxT3pryzljehKZTjrxb/67JSd2451MlconCi3+oNEV4/41QxV1
+   FzhpZoNTUqlEZRnJFFdgKUng/DaVKWmZqCQsk24p8VLaFvq4fWKcLO42e
+   4u8qUTejIoQEMF66pwbN5faDucszwZnHGzMq3g7cvkdvzrweloJC3pTMU
+   Tj5xi/klb2jsTwB65qJ8yqfJud8rj2e2S2DAHExyo5vyRBHySzINR3Vtb
+   0U3yv50QaRHNnc2oZ9Gfnzl2aq4AJXtMXSzK2/Q868hsRANomKT80oDVJ
+   g==;
 X-CSE-ConnectionGUID: BY5Dt4iOTF6lw0TCi1Tv9Q==
-X-CSE-MsgGUID: /RvSuAcuQFKg0QDO0OH5Pg==
+X-CSE-MsgGUID: o2p5G75YS8ucjPccvfHITQ==
 X-IronPort-AV: E=Sophos;i="6.19,216,1754982000"; 
-   d="scan'208";a="48057949"
+   d="scan'208";a="48057950"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 09 Oct 2025 08:55:49 -0700
+  by esa2.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 09 Oct 2025 08:55:50 -0700
 Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
  chn-vm-ex03.mchp-main.com (10.10.85.151) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Thu, 9 Oct 2025 08:55:31 -0700
+ 15.1.2507.58; Thu, 9 Oct 2025 08:55:39 -0700
 Received: from che-lt-i64410lx.microchip.com (10.10.85.11) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Thu, 9 Oct 2025 08:55:22 -0700
+ 15.1.2507.58 via Frontend Transport; Thu, 9 Oct 2025 08:55:31 -0700
 From: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
 To: Mauro Carvalho Chehab <mchehab@kernel.org>
 CC: Eugen Hristev <eugen.hristev@linaro.org>, Chas Williams
@@ -69,9 +69,9 @@ CC: Eugen Hristev <eugen.hristev@linaro.org>, Chas Williams
 	<linux-media@vger.kernel.org>, <linux-atm-general@lists.sourceforge.net>,
 	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
-Subject: [PATCH 16/18] media: microchip-isc: enable userspace histogram statistics export
-Date: Thu, 9 Oct 2025 21:22:49 +0530
-Message-ID: <20251009155251.102472-17-balamanikandan.gunasundar@microchip.com>
+Subject: [PATCH 17/18] media: videodev2.h, v4l2-ioctl: Add microchip statistics format
+Date: Thu, 9 Oct 2025 21:22:50 +0530
+Message-ID: <20251009155251.102472-18-balamanikandan.gunasundar@microchip.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20251009155251.102472-1-balamanikandan.gunasundar@microchip.com>
 References: <20251009155251.102472-1-balamanikandan.gunasundar@microchip.com>
@@ -79,8 +79,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_085551_363539_8B0ADCCA 
-X-CRM114-Status: GOOD (  12.43  )
+X-CRM114-CacheID: sfid-20251009_085551_489917_4370C8E8 
+X-CRM114-Status: GOOD (  11.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -95,47 +95,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Balakrishnan Sambath <balakrishnan.s@microchip.com>
+Add microchip ISC specific statistics meta data format. This data consists
+of raw histogram statistics that is exported to userspace for further
+processing. This fixes the kernel warning "Unknown pixelformat"
 
-Export raw histogram data to userspace only when all 4 Bayer channels
-are ready and userspace has active listeners. Also continue AWB work as
-long as userspace listeners are active.
-
-Signed-off-by: Balakrishnan Sambath <balakrishnan.s@microchip.com>
 Signed-off-by: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
 ---
- drivers/media/platform/microchip/microchip-isc-base.c | 11 ++++++++++-
- 1 file changed, 10 insertions(+), 1 deletion(-)
+ drivers/media/v4l2-core/v4l2-ioctl.c | 1 +
+ include/uapi/linux/videodev2.h       | 3 +++
+ 2 files changed, 4 insertions(+)
 
-diff --git a/drivers/media/platform/microchip/microchip-isc-base.c b/drivers/media/platform/microchip/microchip-isc-base.c
-index cafd05244db2..6c937a20fce0 100644
---- a/drivers/media/platform/microchip/microchip-isc-base.c
-+++ b/drivers/media/platform/microchip/microchip-isc-base.c
-@@ -1450,6 +1450,15 @@ static void isc_awb_work(struct work_struct *w)
- 	if (hist_id != ISC_HIS_CFG_MODE_B) {
- 		hist_id++;
- 	} else {
-+		/* All 4 channels processed - notify userspace */
-+		if (isc_stats_active(&isc->stats))
-+			isc_stats_isr(&isc->stats);
-+		else
-+			dev_info(isc->dev, "No active userspace listeners\n");
-+	}
-+
-+	/* Continue with AWB processing only if AWB is enabled */
-+	if (ctrls->awb != ISC_WB_NONE) {
- 		isc_wb_update(ctrls);
- 		hist_id = ISC_HIS_CFG_MODE_GR;
- 	}
-@@ -1499,7 +1508,7 @@ static void isc_awb_work(struct work_struct *w)
- 	mutex_lock(&isc->awb_mutex);
+diff --git a/drivers/media/v4l2-core/v4l2-ioctl.c b/drivers/media/v4l2-core/v4l2-ioctl.c
+index 01cf52c3ea33..a03e8f3ab610 100644
+--- a/drivers/media/v4l2-core/v4l2-ioctl.c
++++ b/drivers/media/v4l2-core/v4l2-ioctl.c
+@@ -1467,6 +1467,7 @@ static void v4l_fill_fmtdesc(struct v4l2_fmtdesc *fmt)
+ 	case V4L2_META_FMT_RK_ISP1_PARAMS:	descr = "Rockchip ISP1 3A Parameters"; break;
+ 	case V4L2_META_FMT_RK_ISP1_STAT_3A:	descr = "Rockchip ISP1 3A Statistics"; break;
+ 	case V4L2_META_FMT_RK_ISP1_EXT_PARAMS:	descr = "Rockchip ISP1 Ext 3A Params"; break;
++	case V4L2_META_FMT_ISC_STAT_3A: descr = "Microchip ISP statistics"; break;
+ 	case V4L2_META_FMT_C3ISP_PARAMS:	descr = "Amlogic C3 ISP Parameters"; break;
+ 	case V4L2_META_FMT_C3ISP_STATS:		descr = "Amlogic C3 ISP Statistics"; break;
+ 	case V4L2_PIX_FMT_NV12_8L128:	descr = "NV12 (8x128 Linear)"; break;
+diff --git a/include/uapi/linux/videodev2.h b/include/uapi/linux/videodev2.h
+index becd08fdbddb..ba628f9bb89f 100644
+--- a/include/uapi/linux/videodev2.h
++++ b/include/uapi/linux/videodev2.h
+@@ -875,6 +875,9 @@ struct v4l2_pix_format {
+ #define V4L2_META_FMT_RK_ISP1_STAT_3A	v4l2_fourcc('R', 'K', '1', 'S') /* Rockchip ISP1 3A Statistics */
+ #define V4L2_META_FMT_RK_ISP1_EXT_PARAMS	v4l2_fourcc('R', 'K', '1', 'E') /* Rockchip ISP1 3a Extensible Parameters */
  
- 	/* streaming is not active anymore */
--	if (isc->stop) {
-+	if (isc->stop && !isc_stats_active(&isc->stats)) {
- 		mutex_unlock(&isc->awb_mutex);
- 		return;
- 	}
++/* Vendor specific - used for Microchip camera sub-system */
++#define V4L2_META_FMT_ISC_STAT_3A      v4l2_fourcc('I', 'S', 'C', 'S')
++
+ /* Vendor specific - used for C3_ISP */
+ #define V4L2_META_FMT_C3ISP_PARAMS	v4l2_fourcc('C', '3', 'P', 'M') /* Amlogic C3 ISP Parameters */
+ #define V4L2_META_FMT_C3ISP_STATS	v4l2_fourcc('C', '3', 'S', 'T') /* Amlogic C3 ISP Statistics */
 -- 
 2.34.1
 
