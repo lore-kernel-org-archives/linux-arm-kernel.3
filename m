@@ -4,73 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 567F6CCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 08:12:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93051CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 08:12:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=oUUSNoULWEjWWqYr00clq36xtQTBfKE3t3CTBlrz17E=; b=xxJca/kLYwoUQCzrxvT4ZWMJx4
-	V7u7w6Y7gZPT1jyMkY/MztCJ/RswjlJJvfpMNjGnLxiyzD0nb1gQ/dtuv5WXC/15M3mordvEws3CG
-	FpjyLYQ4yxi00mCW38PE7nzl5FAMeCRkTyvd8UNMo6jAS6S/YJf1MglkInBsv/u2ONT8ZV4XA11ka
-	LaFaqmNCiNTAVlXQqa/n12hJ5PHZrWXRmvtGsC2GwssyQydEg53FLezGFEWeqaKo6dzJwzaZxRvNE
-	znJPJqmgOn4GFpSFVMxloSSA0OCIhYpDrlKR6xr2QG57qt5Lw5+JJQShyHGgfxYf1z5OhQ1qZCmIn
-	PCxr4dQA==;
+	bh=h+js+P0Ye4BdT5VIhCxdEayvfzWoe+v2tZC4WwRKU3g=; b=DZFFtPJZdoVhi8HUblTbtAmzo3
+	626RWay+oG/oSnlSEu+CxZBHXTbapsyLCc7nvR/cCXuPEKlwOIutYwCR6cyDPCcchg+p4SE+MnwgA
+	Ry2TVP2Bvijyuvax9k3a9d37xUe84DuxpjqYtZTtToyzm0OlypdxDfYkH74nYwj/+UH/wLqoFrvSv
+	mxGXT0OznotqwzFSbqwy4fddROdfDVDcXNp2CMkFFMM4EiN3QWgFkDCErEWOOCk4Ppk5ufqCAvptv
+	6o1QXocR/Xgsoe1rUieqVeeIzuKE1GFyz5k1++DL5Fxjtc5JbCpKGQKy7jDRit7fuVl423mEZPJ1w
+	1/L3PuyA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6lkr-00000005T6X-1xSN;
-	Thu, 09 Oct 2025 08:12:05 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1v6ll1-00000005TEo-2DvR;
+	Thu, 09 Oct 2025 08:12:15 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6lkp-00000005T5J-2oJH;
-	Thu, 09 Oct 2025 08:12:04 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1759997521;
-	bh=HDPv9WiPLw0BP2sEHt65AvFtVCCKpnVMmx2R3TRokFw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=qMMCtFVP1sWWOUk+5CeBOOzafGdA4qTnk/fQMWxbXynXkpNO0nL5BubfKIMdNpxVc
-	 KAArGrfvHAsJEl61czGEM3tTZl6UHqhGjUJjJ6WZ8ODhk68RXoOT7B7ozTVjLS/r77
-	 mg0+MEPk+Rz+5mzJnVQYAJISKgcxs6R+ASXRAw33F5qBvl67a392L0vwxS3hKLkhxc
-	 tSp0zcrouIM7qOdeoLAU7/zs6oNAAQtq/axnmzLzKZwH21CsQSWwxHhguX7+TQLlEA
-	 FLAv03tjp7s3hzD8dhfbe+HC7kgpk3mUtLYxGav6K6x/r2tIrCS7m0MBx/dx8srLtL
-	 ugefbML1wkDPQ==
-Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	id 1v6lkx-00000005TAW-1VW8
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Oct 2025 08:12:14 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1759997530;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=h+js+P0Ye4BdT5VIhCxdEayvfzWoe+v2tZC4WwRKU3g=;
+	b=Ls/QhiQWQ9cK0usKkHH7bPB1+keTuO/Ua1BBmhvR0vkVREyfL/0c2/oE+1cvBdZF7D3UDW
+	BRPLL+nhw1JruIqEB3VW7VdYxnTU9vESPASDt+yI0lV0UkKP35DbFooNdm0n68c6vkcdkA
+	G5bi4+bTd+IGQiPQ9DTZ/UCATaTmMok=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-173-CmHYUfIZPxeXijOR8Qt1jA-1; Thu,
+ 09 Oct 2025 04:12:05 -0400
+X-MC-Unique: CmHYUfIZPxeXijOR8Qt1jA-1
+X-Mimecast-MFC-AGG-ID: CmHYUfIZPxeXijOR8Qt1jA_1759997522
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id AF68117E04DA;
-	Thu,  9 Oct 2025 10:12:00 +0200 (CEST)
-Message-ID: <482eda01-e170-4f31-8d56-4f5b0b896dd9@collabora.com>
-Date: Thu, 9 Oct 2025 10:12:00 +0200
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id C5C7B195609D;
+	Thu,  9 Oct 2025 08:12:01 +0000 (UTC)
+Received: from thuth-p1g4.redhat.com (unknown [10.44.33.54])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id B64421954128;
+	Thu,  9 Oct 2025 08:11:50 +0000 (UTC)
+From: Thomas Huth <thuth@redhat.com>
+To: Russell King <linux@armlinux.org.uk>,
+	linux-arm-kernel@lists.infradead.org
+Cc: Marc Zyngier <maz@kernel.org>,
+	Florian Fainelli <florian.fainelli@broadcom.com>,
+	Nicolas Ferre <nicolas.ferre@microchip.com>,
+	Alexandre Belloni <alexandre.belloni@bootlin.com>,
+	Claudiu Beznea <claudiu.beznea@tuxon.dev>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Aaro Koskinen <aaro.koskinen@iki.fi>,
+	Andreas Kemnade <andreas@kemnade.info>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Roger Quadros <rogerq@kernel.org>,
+	Tony Lindgren <tony@atomide.com>,
+	Daniel Mack <daniel@zonque.org>,
+	Haojian Zhuang <haojian.zhuang@gmail.com>,
+	Robert Jarzmik <robert.jarzmik@free.fr>,
+	Thierry Reding <thierry.reding@gmail.com>,
+	Jonathan Hunter <jonathanh@nvidia.com>,
+	Santosh Shilimkar <ssantosh@kernel.org>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	linux-kernel@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-omap@vger.kernel.org,
+	linux-tegra@vger.kernel.org
+Subject: [PATCH v3 1/2] arm: Replace __ASSEMBLY__ with __ASSEMBLER__ in uapi headers
+Date: Thu,  9 Oct 2025 10:11:36 +0200
+Message-ID: <20251009081137.117411-2-thuth@redhat.com>
+In-Reply-To: <20251009081137.117411-1-thuth@redhat.com>
+References: <20251009081137.117411-1-thuth@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 4/5] clk: mediatek: Refactor pllfh registration to pass
- device
-To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Dong Aisheng <aisheng.dong@nxp.com>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- Yassine Oudjana <y.oudjana@protonmail.com>,
- Laura Nao <laura.nao@collabora.com>,
- =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
- Chia-I Wu <olvaffe@gmail.com>, Chen-Yu Tsai <wenst@chromium.org>
-Cc: kernel@collabora.com, linux-clk@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, Stephen Boyd <sboyd@codeaurora.org>
-References: <20251008-mtk-pll-rpm-v2-0-170ed0698560@collabora.com>
- <20251008-mtk-pll-rpm-v2-4-170ed0698560@collabora.com>
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-Content-Language: en-US
-In-Reply-To: <20251008-mtk-pll-rpm-v2-4-170ed0698560@collabora.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_011203_890118_7BA81CBF 
-X-CRM114-Status: UNSURE (   7.04  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251009_011211_477341_64C2A3BE 
+X-CRM114-Status: GOOD (  15.65  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,17 +107,42 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 08/10/25 18:05, Nicolas Frattaroli ha scritto:
-> After refactoring all of PLL to pass the device, it's now fairly easy to
-> refactor pllfh and its users, as pllfh registration wraps PLL
-> registration.
-> 
-> Do this refactor and move all of the pllfh users to pass the device as
-> well.
-> 
-> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+From: Thomas Huth <thuth@redhat.com>
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+__ASSEMBLY__ is only defined by the Makefile of the kernel, so
+this is not really useful for uapi headers (unless the userspace
+Makefile defines it, too). Let's switch to __ASSEMBLER__ which
+gets set automatically by the compiler when compiling assembly
+code.
 
+Cc: Russell King <linux@armlinux.org.uk>
+Signed-off-by: Thomas Huth <thuth@redhat.com>
+---
+ arch/arm/include/uapi/asm/ptrace.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm/include/uapi/asm/ptrace.h b/arch/arm/include/uapi/asm/ptrace.h
+index 8896c23ccba78..fb829c96dc2ae 100644
+--- a/arch/arm/include/uapi/asm/ptrace.h
++++ b/arch/arm/include/uapi/asm/ptrace.h
+@@ -119,7 +119,7 @@
+ #define PT_DATA_ADDR		0x10004
+ #define PT_TEXT_END_ADDR	0x10008
+ 
+-#ifndef __ASSEMBLY__
++#ifndef __ASSEMBLER__
+ 
+ /*
+  * This struct defines the way the registers are stored on the
+@@ -158,6 +158,6 @@ struct pt_regs {
+ #define ARM_VFPREGS_SIZE ( 32 * 8 /*fpregs*/ + 4 /*fpscr*/ )
+ 
+ 
+-#endif /* __ASSEMBLY__ */
++#endif /* __ASSEMBLER__ */
+ 
+ #endif /* _UAPI__ASM_ARM_PTRACE_H */
+-- 
+2.51.0
 
 
