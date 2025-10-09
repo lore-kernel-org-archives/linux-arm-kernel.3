@@ -4,206 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4178CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 09:02:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 220A7CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 09:04:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:CC:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FnEzR4yBOlYaPPP7CW3EyAucN6liPpKKNOwpJw76noU=; b=4Cvv+LLZtAPD7NapclcwIpWdhf
-	vhJT+4BfTTCDHxmg9/d6p9Xr2nMBxX6BR3TFTfmAUv+KrduSmjfuVE1cfw4ToF5RlrmI9tjXD6ZFq
-	z0VTfh7d0kgsFK1KdrH90kF04akEbHpymiVQIk3R36s5kpxNUh/MKVeexsDEOeukN7AiLth8oDwoN
-	Oc3lQaCSa7TtUpB0Gn+Xvw5Td8VNZrCkzx0XTp7y6gz8En+IHwBSw/EpOSafpJ9UawziRa5obnpd7
-	NBwk6mC/Qp+nGyem7MwJDKHiHnLm/dWIUHAIj/OM2bJDn64jY4vLd4InyzF251hCmgLpG/Q9k/L2e
-	eFANK1MQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=OclG1+kzl/iGxxR7lC3nMmz/XW+nbQzJ3yd10e73GM8=; b=0dPrTkmYH/nhuquNMEecVWup9i
+	IrwcJOa4Osf/6eB9UaGOliGVXOZPHWOhNE5G34qZp6motW8Hm0OCQNRcDAOtrNCftrS7C9J3rFSsP
+	Ac+EAQJK/CqUTN28Na6j2oD5tHNjiLwyN/Wrjf8lU89RmDklNJJg2+Rcd+7cwtHW9jrYYYNFGugHP
+	qshbBE+5qTQ0NRK+zh2Je5cupopLdFzpZl6uAgGTYs6CiXRolFFbojxUvuxNb35Y4E+zo19Sn0Tvm
+	yS9kNErZVSXZ1zbYBojtxvJrDJgmF2kBHiJaV7Gu7dDMiDtbi1VaVAMNC8tNJeepmLAABEpza042V
+	q3O2DG8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6mXm-00000005aoO-2WjN;
-	Thu, 09 Oct 2025 09:02:38 +0000
-Received: from mgamail.intel.com ([192.198.163.7])
+	id 1v6mZp-00000005b1c-0DTs;
+	Thu, 09 Oct 2025 09:04:45 +0000
+Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6mXj-00000005any-1k0A
+	id 1v6mZn-00000005b1H-0hxp
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 09:02:36 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1760000555; x=1791536555;
-  h=message-id:date:subject:to:cc:references:from:
-   in-reply-to:content-transfer-encoding:mime-version;
-  bh=cRnoeq2xZlAlkNwZ8zjboScSPQGUVwN4cMGBfStt6mo=;
-  b=KzYkQfm1X3CyZMsi9LXhL5z4JxptAtCDWXyyXSSc/Ns7laoHF9L8/3Ks
-   l0g1J3ht/F8Kirr941kGvlY900Mc8zzuo/KnyczRPZ8e6DFNksqBD7wZS
-   l4uQDXkG6oT9rh0UqJRUaJEHFNp4H1BQgHYBp4/USvBeZDOnA/KpaPa90
-   o3KE+NTo5th63AEmjSjbBnRjSbQWlk426EKjEfAZoXr1mlBUOs54cJAPK
-   7M/Z+zdKw8ay6OX7TBudV/nm0syLwcmgIutl3BRu6Lnxy0GOLufnoZ2Ir
-   9rmCYnu7Mv+pMy3ZHY0Is9D6PH1liOmZyVPZCgc5qpl3IoY+laW61cDz7
-   w==;
-X-CSE-ConnectionGUID: IsCeF13tTkqZuiS8/XLG2g==
-X-CSE-MsgGUID: MzLArg8xRA2oF//jnLp+Aw==
-X-IronPort-AV: E=McAfee;i="6800,10657,11576"; a="87664816"
-X-IronPort-AV: E=Sophos;i="6.19,215,1754982000"; 
-   d="scan'208";a="87664816"
-Received: from orviesa003.jf.intel.com ([10.64.159.143])
-  by fmvoesa101.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Oct 2025 02:02:35 -0700
-X-CSE-ConnectionGUID: 93fnPyUyQsK1LT11zLx+Jw==
-X-CSE-MsgGUID: L4VMh7a8SBemJo+Yu5YMgw==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,215,1754982000"; 
-   d="scan'208";a="184694485"
-Received: from fmsmsx901.amr.corp.intel.com ([10.18.126.90])
-  by orviesa003.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Oct 2025 02:02:34 -0700
-Received: from FMSMSX902.amr.corp.intel.com (10.18.126.91) by
- fmsmsx901.amr.corp.intel.com (10.18.126.90) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27; Thu, 9 Oct 2025 02:02:33 -0700
-Received: from fmsedg902.ED.cps.intel.com (10.1.192.144) by
- FMSMSX902.amr.corp.intel.com (10.18.126.91) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27 via Frontend Transport; Thu, 9 Oct 2025 02:02:33 -0700
-Received: from SN4PR0501CU005.outbound.protection.outlook.com (40.93.194.54)
- by edgegateway.intel.com (192.55.55.82) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.2562.27; Thu, 9 Oct 2025 02:02:31 -0700
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=yav1OvSDedHD/MINIIxdmaIyqIz8kPk4p0NQYlDoodbdnnhsOpufbECdgy5IFoteV/tsUXCizj6550di55dxVEEpcxgRtTnqkLUP5X7idSR24P0ZLF1p0m657zoP8NR3C1wEXIBiBRJTWkFJ9FUdKA/6QSDTDMgiFwYkSe3VjBBrrhD9pkqXRLJrcYfXmafZM/3p3/bu2v6QWNPz3LM7SUtWUzeTDN5yP+PKInytn2VDNKe3p8vqz33UFA5Rj9CuBdMqz6dzaaN/XGl6rOXfs+N4iZcyybuR7CFs6Ff0dI9SXkG4GjuFNqzl4lH5u9z1IjM7gf8KFDvGqz4dJJF9ww==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=FnEzR4yBOlYaPPP7CW3EyAucN6liPpKKNOwpJw76noU=;
- b=XQT4lKGjNiw4VVU+8cxYn8OxHRX1JTgbUvHkAYU/qOo9QpCuJoZdwEFo/mvNQjOiG7uo/H5KqHSUnkEoZXW1BXRl03xJ4YA55x0RNrEY6rUwiRTLzyfhxUmzZKzFU7V9ZyWEO1GTaPpUdpwir0o5fQPBqIIBhilTUFWlaUrvVr9jFCHhEvesmZHo59Tn1w5o4mTp/5/OToXskcf0+9PWkMnRsXdKjGOCHWxca5eBCO1nANSV2bqbckR+AAmoaVvFPPqwewc+jOhpBDsGWPRJNkgB86Qe3MCv/+2g5+Ez/0UfCMd35tCsBITCB/xZkN2Ll+VVh34V9uBJjiCnpoHjeg==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=intel.com; dmarc=pass action=none header.from=intel.com;
- dkim=pass header.d=intel.com; arc=none
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=intel.com;
-Received: from DS0PR11MB7215.namprd11.prod.outlook.com (2603:10b6:8:13a::13)
- by PH8PR11MB7965.namprd11.prod.outlook.com (2603:10b6:510:25c::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9182.20; Thu, 9 Oct
- 2025 09:02:27 +0000
-Received: from DS0PR11MB7215.namprd11.prod.outlook.com
- ([fe80::9201:63e9:3175:5392]) by DS0PR11MB7215.namprd11.prod.outlook.com
- ([fe80::9201:63e9:3175:5392%5]) with mapi id 15.20.9203.007; Thu, 9 Oct 2025
- 09:02:27 +0000
-Message-ID: <c8b554f3-7d55-4449-8f75-2dc2ef1de978@intel.com>
-Date: Thu, 9 Oct 2025 12:02:22 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 5/5] mmc: sdhci-brcmstb: save and restore registers
- during PM
-To: Kamal Dasu <kamal.dasu@broadcom.com>, <andersson@kernel.org>,
-	<robh@kernel.org>, <krzk+dt@kernel.org>, <conor+dt@kernel.org>,
-	<florian.fainelli@broadcom.com>, <ulf.hansson@linaro.org>
-CC: <bcm-kernel-feedback-list@broadcom.com>, <devicetree@vger.kernel.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>,
-	<linux-mmc@vger.kernel.org>
-References: <20251007140434.606051-1-kamal.dasu@broadcom.com>
- <20251007140434.606051-7-kamal.dasu@broadcom.com>
-Content-Language: en-US
-From: Adrian Hunter <adrian.hunter@intel.com>
-Organization: Intel Finland Oy, Registered Address: c/o Alberga Business Park,
- 6 krs, Bertel Jungin Aukio 5, 02600 Espoo, Business Identity Code: 0357606 -
- 4, Domiciled in Helsinki
-In-Reply-To: <20251007140434.606051-7-kamal.dasu@broadcom.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: DB8P191CA0005.EURP191.PROD.OUTLOOK.COM
- (2603:10a6:10:130::15) To IA1PR11MB7198.namprd11.prod.outlook.com
- (2603:10b6:208:419::15)
+	Thu, 09 Oct 2025 09:04:44 +0000
+Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-46e61ebddd6so7390965e9.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 02:04:42 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1760000680; x=1760605480; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=OclG1+kzl/iGxxR7lC3nMmz/XW+nbQzJ3yd10e73GM8=;
+        b=cXKTphsvqn5DHEtqkcoxcDnp3JeMYScEwx0t8Whd7NkANIAyviteYrUtXIGYGicOtx
+         ZG6kx0jeI5lECi0hvc/732Cd/pISdICzc+b/agt/S/BRfM1ILDWrTydK9LEQoncTzpUr
+         r6R0NeQKg64OxXlewiVDSnq8qT2CZOUYF4/i2iNLg/zrME8enOxKVbEj/7fPevVASYmJ
+         /UWsAbJHemSuGadmzTHRZ2+V5vPmyVpfNUMjvP+pM1XNTIwPBm46kp5ck5MvYBu67yvy
+         sJBV8XwtS5DB1F6tXwrIcTOQe/tcbJl3SbOrSXFP4ILLQIpxx0XS9ub4YVzy1gR8dEXU
+         g5Xw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760000680; x=1760605480;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=OclG1+kzl/iGxxR7lC3nMmz/XW+nbQzJ3yd10e73GM8=;
+        b=K5HeOqa0i4mJeB6PTgOYut6tDI8GhkqGjT+6/HamSjV6d/THeymlEwDIUSHjzaPTZf
+         k9AeMNpYjEWo7tBhB9Fo7kSzRG5iTWSAIeXJmdYi0rbOAZjcn5FZG+F0/Ybhg2RtGu9l
+         bY/i5E1xMj0ZvY0Tu5bGwlDvHaIWep194xp7Cz9RfWICaXe5eVsliMs7kqGlJ3D9nUYw
+         IDWwhLxhjraFOY1X0vbHlSUeTjRcOE4V8cVpu+Ug19kUWvIRAMxnTw7AtjhclrLjUdkS
+         uw07GR4eFwYQjdL58o1DrW02xsGRjXkd5dgVv6+az15mDsvPWhwpNlSIzkVJcK29kaiU
+         KC5g==
+X-Forwarded-Encrypted: i=1; AJvYcCUyYuaidv0HNpyCxm0xnrn8VITIc4YsMsu4J5STs52sjI4QzVDDHLSdMQuId7mOozCHYNMNqrPmoWxSiOOjNSGj@lists.infradead.org
+X-Gm-Message-State: AOJu0YyBHtsnrPyJAiSSWjWiMXMAI8iyd7qJySMBAHSoT7w03VGhJsFN
+	In0yw21Jd9x2HNBJHZNkyBbkI3Rq1HbjUSm/FtR5ue9qbHVJ64TzihHhpbaiIUnhhCc=
+X-Gm-Gg: ASbGncuxkZWFGUnxC0CINj9MYVcatRSrUBqFp8EhAOpTkzn2+EHr/3u5utr88n9oie7
+	YZ4ATAZgNuqdV1gscmpxz/K2YUsFpGzWbqM8FpL8p2Gdz2DUHiJoyg14pEss6SukCn+OeX6dN7q
+	tcd4gNDEtKt2COS6t7jhFm5CJpFXLJ51bnoBoiWB+zfsQnNwRUYDaRwFRgudXKExVeLP96MZMN3
+	K0NevupZDKaV0sfl1dAyYDa0DBOrePFISlwJLAZjbdJLFW6MrbE2CwL8mPfbUwJacQAGpSB3RSS
+	FPYXDaRtKhTqScDqmyE1otBmmgHLOx2mTVLAT6y7hBQxAbwVYfL9HCE8hi1GhkSdf30+dAOmJEe
+	SGEvvnau92P11gg8Xe8iZTQYDpZigSPB/bSfFHDeTXt+uu7tY5qa0uBjpOwWLPDnQG20=
+X-Google-Smtp-Source: AGHT+IHuZPJvj5chfdbrdzBcDVd4tdia78dqN9AumnIHt0HsTrI5NBoiI28owPGskp0+wYu7G+MfVA==
+X-Received: by 2002:a05:600c:4fd1:b0:46e:4abd:6515 with SMTP id 5b1f17b1804b1-46fa9af8ebcmr49616235e9.21.1760000680262;
+        Thu, 09 Oct 2025 02:04:40 -0700 (PDT)
+Received: from [192.168.1.3] ([185.48.76.109])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46fa9d4c8c5sm73350045e9.11.2025.10.09.02.04.39
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 09 Oct 2025 02:04:39 -0700 (PDT)
+Message-ID: <897c28a8-599f-44b3-8939-8279d2639f2c@linaro.org>
+Date: Thu, 9 Oct 2025 10:04:38 +0100
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DS0PR11MB7215:EE_|PH8PR11MB7965:EE_
-X-MS-Office365-Filtering-Correlation-Id: f6b60162-348f-470f-bce2-08de071291a9
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|366016|376014|7416014|1800799024|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?RTQyRDV4Q204TVZ5RThlcmJqRndnMkRBc2toc1VLVVA3TTF4Ti9hWkFueUpQ?=
- =?utf-8?B?akNLSXkwcHVIc2J5QVRoMk9Tdy85RXFqZWdvOG1HYmtvRnNjbkd2ZzVaYzRI?=
- =?utf-8?B?QWg5UmJGRW94NnNvMVd6NEZycGxlZWhlTzc1em9rOVdmZS81Ym5lSWhGc0Ra?=
- =?utf-8?B?US9tSG5HdnF3ZXpPdGZaWlRaZHdPVzUxVStrd0VXcis4eGYvWDg1UGFldGhy?=
- =?utf-8?B?dHBRNTJtNjlEWFc5OXQ1RVZ1aTZpQTZqWGdLMW9DU0toVkpwaDZNQXhhbitB?=
- =?utf-8?B?eGlOUkxuRVR3aTVVRVRoYjdtWVh2ZUlibHpZNUpFSVUwTm96cnFkV0VIbTly?=
- =?utf-8?B?bXdDWGpMQkdoT3dacTQxdE1UemQ5RXA1TFkxRWJhVWhMa3haWGFQV0NnSGZ0?=
- =?utf-8?B?QTFwU1MyaTNUdU5LQnVqdkF5MWg5UlJieHdRL20wRU5BT25idjZqWFROV09U?=
- =?utf-8?B?U0padFMzTS9EekdTWktLM3NkZ1hhcTJETjB2RHpCVXFWTHFDeDRUcnhnMUlv?=
- =?utf-8?B?WWtHWDgzMkVYS0hsZTFCNElEZlNpYVdJLzZodVRwbjFLc3R3MnRnNXIrTE1u?=
- =?utf-8?B?SkJCNDJmcXZSYzR5WnhnaXNuOVlsNUNSM2tGSjNYcGQ0cFF6MlpNdWk3aGpI?=
- =?utf-8?B?TFlhb2g1ZWJCUWs4eG96UFVIRXFCSUllNmoyZlpJbm95dEttemdPdzJFeitn?=
- =?utf-8?B?ekZ1Q3Y4dnl6WFFiRHptNDZ5dVc0WGNYZlpQTkdoSGN3eDZKdU5jOGdFdFlx?=
- =?utf-8?B?Qm1ta3hBQWtMbXh5K216RWRNRFFhMmVlTzd4RkNVMzN4YnNHVDNjVGRrRU4x?=
- =?utf-8?B?cDhLSEhnWmEwMlBEeUFSZCtrZTl3TDJNQ2d0K2Q1aVRvdzVFbjhBL1p4aUx2?=
- =?utf-8?B?TjRId3UxSHE1UmNjKzRkRzc0dWltT1lTVTluMlFuVkJUNDhTTzRVNnlMdi8y?=
- =?utf-8?B?emUxZWlIWlFCYm5WelF2bkpTVXRFZTc3ZjNKYlVOZHlyS1FPS0E5aDBLRTE5?=
- =?utf-8?B?U09RMFZuckIyY0t4K0xqWTA2aVZFMFBwaW04SUhRVjFNNUV1T0ZUdkt1RlhC?=
- =?utf-8?B?aW5rZTdqWlYvV2ZoVXMvOWR5VTRsVXl6ZHBhQk4vV3Axc0ZFVGpCSUp4cTBU?=
- =?utf-8?B?c2UyREtaUzMrZ3lsa1NwSks1aHhjdnlWZm4xSDJNb0h5c1pncEpWUWkyenNs?=
- =?utf-8?B?QnA5TTBZNTJ6RndtOVR5SDlCTUdaRHFnWnhOWDhONHIvS01rUWd0aDFIaU9t?=
- =?utf-8?B?YjR2cTFBQ0dkY0Nwbng0L2pvMDBOUzh3WUNNMElrWFlMbzIvYzQxRmJQb0Vq?=
- =?utf-8?B?SDdGOWJYVnB3aEEyR3Zud0dWWFRxZDlYR1FCY0EwWm1nMjVBK0crSDdVN3FD?=
- =?utf-8?B?a3c3WlFtS3lrT0ZsWUlPS2xqKy93OFlVckxkVVNPTTRna3ZnSEE5TXhZTzg3?=
- =?utf-8?B?b3pLQ2dpbk1lR1FTYktjc1Z1eDF1M2JKK28wNlpCMDJpZHBKVHBXOVVWUjFh?=
- =?utf-8?B?SGgxTGROTi9aWWJYakdOd01jeFdwWGFISWxlMXRabmpXM1hxK1M3Y1lCbHN6?=
- =?utf-8?B?WC9DS0JaaWU4RXI5UlRMc3ZRQm5RU3JjNHJVdzVQWVZnUmVCUzBaVm5YRWg4?=
- =?utf-8?B?YTBod1BMT2JsZkVKMlV4dCtJRDB0QUJRbHZiVVpLRThYNHoyOVJYYlZVNzEw?=
- =?utf-8?B?cWVDeEo3bHI2QlM1NUFvMjhHdjBDSjNCUDBHTXRESDc0K3BZV3Y4NVlKZ3Jz?=
- =?utf-8?B?WStwTFRxdG1iZ0xaajRzQUJuVGcwbTlCOW13VHlmb3N4OHRaWFR3b3MzRGhp?=
- =?utf-8?B?dkdpZXkxL3U5Q0VKZVl2VTZNNnAvcGxXYXdsa24rbVEyRFNRaUtYaWVOVk4z?=
- =?utf-8?B?NFovUTc3Vk1vd1ZGdnBFOVpZWUVkNUFkT0g2Z1cwZG9rQ0RPTVRiUURGMjBE?=
- =?utf-8?Q?80iYhrBY5yYf5k4vra0iBCe+S+bfjtWu?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR11MB7215.namprd11.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(366016)(376014)(7416014)(1800799024)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?M1l3TmlscE1lNXpubnlSekpaWUc1a2JLUlZNUjZiclFRSFJsbktVVWF1NFNS?=
- =?utf-8?B?TWE5MHhDaGcwUUFOQTRxenU1MnlPK3BCWXBBWVE3aGpxb1NHcVV6NzRrMURa?=
- =?utf-8?B?aExSeERwWUNJUnhxeFRvNjdQMG43NDBnZ2wwUWM1ZEx4VWJReStMcHd4LzJN?=
- =?utf-8?B?OHRoczV3UndoWWphM2dQODc3UUQ1Zy84OU40ZWNhQ04yQUhRc2J0S3pUeHlJ?=
- =?utf-8?B?U3lxYTNZTWVsNkdxamdSK2oxR2NmQXdReXYrcDRqMHNPc1kzTUdhUTNGajB2?=
- =?utf-8?B?aGttU01naDVxcEljdkVIRWpNQ2diVG9CeXNKZ0szVGUvSlFhc09NMHlkTUps?=
- =?utf-8?B?akVzZVp1bXVtay9LWWVWM1c1Q0tsUVU3WDNYTjdEOXJSZmx0T1VBNHU0Y3Rp?=
- =?utf-8?B?NEFlNUJXNDFLTkFHRGczMGg2anVxVTVTNXFrb1R3WTBxSEhsc3UrT055cnJX?=
- =?utf-8?B?NDdqbGlhc1NPQUFGaUl0L0U0TGY3dnc2VVZTc0FyZExiTWVQbnVQcjR1UVdS?=
- =?utf-8?B?R3JMOGtKdkQ3bnIwL1U0TTVyWS9raGpKSnh0eGt2bHViUXBkUzJWTWFEbnZZ?=
- =?utf-8?B?K0tobGwwYjhTbDE4UVc5Ylk3cy8wOHRZWjdKWi9OVldlb0tzSXA0Yzd0RTNa?=
- =?utf-8?B?YnZaTmkycTVHdlVmL2NiNStvdk1BRDhvWTVudW5na3JSRWkyWGZ5U25VeFdR?=
- =?utf-8?B?U3lGSHRiMDJpYk55dGFqZkN3YmN3ZDhCb09KblBLbDVJdEZEUUQxMmp0NE5H?=
- =?utf-8?B?VXpzcDNLckRLVVBhNXRvN0JrbE5wSUtRWHVwK3hTQ0VWb1UzU3RtcWxLa1Fa?=
- =?utf-8?B?V0RHazVCUDhxMEdPMjVWMnoxaWIwdXlHZk05ZUEwRG11M09nc1YxclNKS0lw?=
- =?utf-8?B?UjkybGtWdk94NWJLMjNJLy9XNnM3eGExU1dXa3FEWGVURE1wc0JzRzZ0R2FR?=
- =?utf-8?B?c0piR2hLUTBrM2I3VnZWTjBqRmdGTU9hbjZ3RDVrbG9rTFhiSkhLcmNxUU8r?=
- =?utf-8?B?TTdWUW1zYWZoVDZ6c1FWWS91MWFTVjVVV0kyelk3RTJLUis5K2lFN1Q0WHQv?=
- =?utf-8?B?c3pVRFlhQ09ySG9zaVNIVm82UjQ1djRyWUZPRURjWm9VUXIxZVdGb1UrcGlz?=
- =?utf-8?B?QS9xLytsZkZMYVh1Q0RTbHZiT3pVUEpLRWxCZlpNcHZ1NnZmdXkvNkNnd2tJ?=
- =?utf-8?B?dzl0dncxTEZmcmJqZUpkYWRsaWFMUXFiVGs2L0hka0ZzUzNDVkd1Ykhvd2pn?=
- =?utf-8?B?OXo3Q244NkZ4dmM4Z2MybzJXNkpWejZKSHBYM3JJM1FVNmxaSFB4K2t3YkNj?=
- =?utf-8?B?UlZaQkJKai9rR041cXJMV3pRd2hUWlg3MWxsWnArQzBXSGs1WVpNaTNiZHQz?=
- =?utf-8?B?VlU1N2RBRzFMVUxEZmJSOHovQjRFOGkxdUtyRE4zYVo4V213WFlCYWtFS0Jx?=
- =?utf-8?B?dlpwK0hIeHI0VWtUUysxMi9LMUpLeTdDQVQ3VlJPZ1RseHhHS0FoN1lJN3FU?=
- =?utf-8?B?L0Nzay9GZTluNUJ4bWlVZDFsbUNqcG1iN25MdnhnZFRCVVlzcEMyQmp4U3ZF?=
- =?utf-8?B?VmFTTU0yNXgvTXlKZEdzY0tYaHR4SXprRXJLTklBYy8ydElUYzNKM21hMk5J?=
- =?utf-8?B?TlNCbG5CZGJyQTBqbjhZRmNjalZkL0xQY0Q0MlVuSnJXTnMyemNFbWtQeEt6?=
- =?utf-8?B?NU1DR1NOYUtNWDJTenhkbGd3M2lGTFEzNXlSWERnRzhUUWVuSEFmTUxMUlhZ?=
- =?utf-8?B?eUREZ0JuaXErSEordGorcU1KU3ZKWmF6MjFpUmM1UmRzUTlVN0syT1ZtM3lW?=
- =?utf-8?B?Vi96aGtDSllLUjJpb1Npbmp0YXRaUmQ1Nzl0S2hCekxieTVZNEZBbWNaVm50?=
- =?utf-8?B?SlFCNWVxMUVkTTlWdEdiTG5aWHp2dnd4Z3dkVzZzUlpNUm1QUWs1ZHlUNjNS?=
- =?utf-8?B?V1FsOXNNZkQxNGxnU0tRaS9RSkNqNEJCeTU4bDBKYWYxVEJrelgzU01LVFp2?=
- =?utf-8?B?SmJOQkZhTUZ1ZC9PUDNVaDBkR0ZjczRyckNpSUlBd3BOUmhKRkw4T2U2YkVG?=
- =?utf-8?B?OEFtNEZEdUZxNmlYT002c1BQeFlab3VsemZFR3I5bTU5NXB6dHE0c0dLVFZM?=
- =?utf-8?B?aWFCT2RTbnhNdEp3c2E4Ky9aTEZnY09sdnhhREJYKzI3QUh0djg3RGpSbG5K?=
- =?utf-8?B?VXc9PQ==?=
-X-MS-Exchange-CrossTenant-Network-Message-Id: f6b60162-348f-470f-bce2-08de071291a9
-X-MS-Exchange-CrossTenant-AuthSource: IA1PR11MB7198.namprd11.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Oct 2025 09:02:27.5601
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 46c98d88-e344-4ed4-8496-4ed7712e255d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: DAUQtbmsRjI6uj4j4JEcvi+FH8WrQGvjpympkA1SptUbJuAZQsHHZZ6Bu/C4NXW14DZpaVCr+rPIFYK1+ypMPQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: PH8PR11MB7965
-X-OriginatorOrg: intel.com
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 05/25] perf arm_spe: Decode ASE and FP fields in other
+ operation
+To: Leo Yan <leo.yan@arm.com>
+Cc: Arnaldo Carvalho de Melo <acme@redhat.com>,
+ linux-perf-users@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ Arnaldo Carvalho de Melo <acme@kernel.org>,
+ Namhyung Kim <namhyung@kernel.org>, Jiri Olsa <jolsa@kernel.org>,
+ Ian Rogers <irogers@google.com>, Adrian Hunter <adrian.hunter@intel.com>
+References: <20250929-perf_support_arm_spev1-3-v1-0-1150b3c83857@arm.com>
+ <20250929-perf_support_arm_spev1-3-v1-5-1150b3c83857@arm.com>
+Content-Language: en-US
+From: James Clark <james.clark@linaro.org>
+In-Reply-To: <20250929-perf_support_arm_spev1-3-v1-5-1150b3c83857@arm.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_020235_482194_1EC47BDB 
-X-CRM114-Status: GOOD (  16.95  )
+X-CRM114-CacheID: sfid-20251009_020443_412050_4E9E3236 
+X-CRM114-Status: GOOD (  16.58  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -218,217 +105,64 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 07/10/2025 17:04, Kamal Dasu wrote:
-> Added support to save and restore registers that are critical
-> during PM.
+
+
+On 29/09/2025 5:37 pm, Leo Yan wrote:
+> Add a check for other operation, which prevents any incorrectly
+> classifying. Parse the ASE and FP fields.
 > 
-> Signed-off-by: Kamal Dasu <kamal.dasu@broadcom.com>
-
-Acked-by: Adrian Hunter <adrian.hunter@intel.com>
-
+> After:
+> 
+>    .  0000002f:  48 06                                           OTHER ASE FP INSN-OTHER
+>    .  00000031:  b2 08 80 48 01 08 00 ff ff                      VA 0xffff000801488008
+>    .  0000003a:  9a 00 00                                        LAT 0 XLAT
+>    .  0000003d:  42 16                                           EV RETIRED L1D-ACCESS TLB-ACCESS
+> 
+> Signed-off-by: Leo Yan <leo.yan@arm.com>
 > ---
->  drivers/mmc/host/sdhci-brcmstb.c | 112 +++++++++++++++++++++++++++++--
->  1 file changed, 107 insertions(+), 5 deletions(-)
+>   tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c | 6 +++++-
+>   tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h | 4 ++++
+>   2 files changed, 9 insertions(+), 1 deletion(-)
 > 
-> diff --git a/drivers/mmc/host/sdhci-brcmstb.c b/drivers/mmc/host/sdhci-brcmstb.c
-> index 42709ca8111d..7de395c86f2f 100644
-> --- a/drivers/mmc/host/sdhci-brcmstb.c
-> +++ b/drivers/mmc/host/sdhci-brcmstb.c
-> @@ -38,28 +38,109 @@
->  #define SDIO_CFG_OP_DLY_DEFAULT			0x80000003
->  #define SDIO_CFG_CQ_CAPABILITY			0x4c
->  #define SDIO_CFG_CQ_CAPABILITY_FMUL		GENMASK(13, 12)
-> +#define SDIO_CFG_SD_PIN_SEL			0x44
-> +#define SDIO_CFG_V1_SD_PIN_SEL			0x54
-> +#define SDIO_CFG_PHY_SW_MODE_0_RX_CTRL		0x7C
->  #define SDIO_CFG_MAX_50MHZ_MODE			0x1ac
->  #define SDIO_CFG_MAX_50MHZ_MODE_STRAP_OVERRIDE	BIT(31)
->  #define SDIO_CFG_MAX_50MHZ_MODE_ENABLE		BIT(0)
->  
-> +#define SDIO_BOOT_MAIN_CTL			0x0
+> diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
+> index 533920b738cbcb39136d1ba3d88e99f9d8009e74..21b65a9b40f481b6cb25aaf01ab627ade046ff72 100644
+> --- a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
+> +++ b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.c
+> @@ -351,8 +351,12 @@ static int arm_spe_pkt_desc_op_type(const struct arm_spe_pkt *packet,
+>   				arm_spe_pkt_out_string(&err, &buf, &buf_len, " FP");
+>   			if (payload & SPE_OP_PKT_SVE_PRED)
+>   				arm_spe_pkt_out_string(&err, &buf, &buf_len, " PRED");
+> -		} else {
+> +		} else if (SPE_OP_PKT_OTHER_SUBCLASS_OTHER(payload)) {
+>   			arm_spe_pkt_out_string(&err, &buf, &buf_len, "OTHER");
+> +			if (payload & SPE_OP_PKT_OTHER_ASE)
+> +				arm_spe_pkt_out_string(&err, &buf, &buf_len, " ASE");
+> +			if (payload & SPE_OP_PKT_OTHER_FP)
+> +				arm_spe_pkt_out_string(&err, &buf, &buf_len, " FP");
+>   			arm_spe_pkt_out_string(&err, &buf, &buf_len, " %s",
+>   					       payload & SPE_OP_PKT_COND ?
+>   					       "COND-SELECT" : "INSN-OTHER");
+
+A warning for unknown packet type would be useful here now that there is 
+no final else catch-all.
+
+> diff --git a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
+> index 48bd9e9ef132b11b79ffe2e2fbc7cfe4c340ff92..704601c6dbe30e93f83a82670d0d60344a22222a 100644
+> --- a/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
+> +++ b/tools/perf/util/arm-spe-decoder/arm-spe-pkt-decoder.h
+> @@ -123,8 +123,12 @@ enum arm_spe_events {
+>   #define SPE_OP_PKT_HDR_CLASS_LD_ST_ATOMIC	0x1
+>   #define SPE_OP_PKT_HDR_CLASS_BR_ERET		0x2
+>   
+> +#define SPE_OP_PKT_OTHER_SUBCLASS_OTHER(v)	(((v) & GENMASK_ULL(7, 3)) == 0x0)
+>   #define SPE_OP_PKT_OTHER_SUBCLASS_SVE(v)	(((v) & (BIT(7) | BIT(3) | BIT(0))) == 0x8)
+>   
+> +#define SPE_OP_PKT_OTHER_ASE			BIT(2)
+> +#define SPE_OP_PKT_OTHER_FP			BIT(1)
 > +
->  #define MMC_CAP_HSE_MASK	(MMC_CAP2_HSX00_1_2V | MMC_CAP2_HSX00_1_8V)
->  /* Select all SD UHS type I SDR speed above 50MB/s */
->  #define MMC_CAP_UHS_I_SDR_MASK	(MMC_CAP_UHS_SDR50 | MMC_CAP_UHS_SDR104)
->  
-> -struct sdhci_brcmstb_priv {
-> -	void __iomem *cfg_regs;
-> -	unsigned int flags;
-> -	struct clk *base_clk;
-> -	u32 base_freq_hz;
-> +enum cfg_core_ver {
-> +	SDIO_CFG_CORE_V1 = 1,
-> +	SDIO_CFG_CORE_V2,
-> +};
-> +
-> +struct sdhci_brcmstb_saved_regs {
-> +	u32 sd_pin_sel;
-> +	u32 phy_sw_mode0_rxctrl;
-> +	u32 max_50mhz_mode;
-> +	u32 boot_main_ctl;
->  };
->  
->  struct brcmstb_match_priv {
->  	void (*cfginit)(struct sdhci_host *host);
->  	void (*hs400es)(struct mmc_host *mmc, struct mmc_ios *ios);
-> +	void (*save_restore_regs)(struct mmc_host *mmc, int save);
->  	struct sdhci_ops *ops;
->  	const unsigned int flags;
->  };
->  
-> +struct sdhci_brcmstb_priv {
-> +	void __iomem *cfg_regs;
-> +	void __iomem *boot_regs;
-> +	struct sdhci_brcmstb_saved_regs saved_regs;
-> +	unsigned int flags;
-> +	struct clk *base_clk;
-> +	u32 base_freq_hz;
-> +	const struct brcmstb_match_priv *match_priv;
-> +};
-> +
-> +static void sdhci_brcmstb_save_regs(struct mmc_host *mmc, enum cfg_core_ver ver)
-> +{
-> +	struct sdhci_host *host = mmc_priv(mmc);
-> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> +	struct sdhci_brcmstb_priv *priv = sdhci_pltfm_priv(pltfm_host);
-> +	struct sdhci_brcmstb_saved_regs *sr = &priv->saved_regs;
-> +	void __iomem *cr = priv->cfg_regs;
-> +	bool is_emmc = mmc->caps & MMC_CAP_NONREMOVABLE;
-> +
-> +	if (is_emmc && priv->boot_regs)
-> +		sr->boot_main_ctl = readl(priv->boot_regs + SDIO_BOOT_MAIN_CTL);
-> +
-> +	if (ver == SDIO_CFG_CORE_V1) {
-> +		sr->sd_pin_sel = readl(cr + SDIO_CFG_V1_SD_PIN_SEL);
-> +		return;
-> +	}
-> +
-> +	sr->sd_pin_sel = readl(cr + SDIO_CFG_SD_PIN_SEL);
-> +	sr->phy_sw_mode0_rxctrl = readl(cr + SDIO_CFG_PHY_SW_MODE_0_RX_CTRL);
-> +	sr->max_50mhz_mode = readl(cr + SDIO_CFG_MAX_50MHZ_MODE);
-> +}
-> +
-> +static void sdhci_brcmstb_restore_regs(struct mmc_host *mmc, enum cfg_core_ver ver)
-> +{
-> +	struct sdhci_host *host = mmc_priv(mmc);
-> +	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> +	struct sdhci_brcmstb_priv *priv = sdhci_pltfm_priv(pltfm_host);
-> +	struct sdhci_brcmstb_saved_regs *sr = &priv->saved_regs;
-> +	void __iomem *cr = priv->cfg_regs;
-> +	bool is_emmc = mmc->caps & MMC_CAP_NONREMOVABLE;
-> +
-> +	if (is_emmc && priv->boot_regs)
-> +		writel(sr->boot_main_ctl, priv->boot_regs + SDIO_BOOT_MAIN_CTL);
-> +
-> +	if (ver == SDIO_CFG_CORE_V1) {
-> +		writel(sr->sd_pin_sel, cr + SDIO_CFG_SD_PIN_SEL);
-> +		return;
-> +	}
-> +
-> +	writel(sr->sd_pin_sel, cr + SDIO_CFG_SD_PIN_SEL);
-> +	writel(sr->phy_sw_mode0_rxctrl, cr + SDIO_CFG_PHY_SW_MODE_0_RX_CTRL);
-> +	writel(sr->max_50mhz_mode, cr + SDIO_CFG_MAX_50MHZ_MODE);
-> +}
-> +
-> +static void sdhci_brcmstb_save_restore_regs_v1(struct mmc_host *mmc, int save)
-> +{
-> +	if (save)
-> +		sdhci_brcmstb_save_regs(mmc, SDIO_CFG_CORE_V1);
-> +	else
-> +		sdhci_brcmstb_restore_regs(mmc, SDIO_CFG_CORE_V1);
-> +}
-> +
-> +static void sdhci_brcmstb_save_restore_regs_v2(struct mmc_host *mmc, int save)
-> +{
-> +	if (save)
-> +		sdhci_brcmstb_save_regs(mmc, SDIO_CFG_CORE_V2);
-> +	else
-> +		sdhci_brcmstb_restore_regs(mmc, SDIO_CFG_CORE_V2);
-> +}
-> +
->  static inline void enable_clock_gating(struct sdhci_host *host)
->  {
->  	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
-> @@ -306,22 +387,26 @@ static struct brcmstb_match_priv match_priv_74371 = {
->  
->  static struct brcmstb_match_priv match_priv_7445 = {
->  	.flags = BRCMSTB_MATCH_FLAGS_BROKEN_TIMEOUT,
-> +	.save_restore_regs = sdhci_brcmstb_save_restore_regs_v1,
->  	.ops = &sdhci_brcmstb_ops,
->  };
->  
->  static struct brcmstb_match_priv match_priv_72116 = {
->  	.flags = BRCMSTB_MATCH_FLAGS_BROKEN_TIMEOUT,
-> +	.save_restore_regs = sdhci_brcmstb_save_restore_regs_v1,
->  	.ops = &sdhci_brcmstb_ops_72116,
->  };
->  
->  static const struct brcmstb_match_priv match_priv_7216 = {
->  	.flags = BRCMSTB_MATCH_FLAGS_HAS_CLOCK_GATE,
-> +	.save_restore_regs = sdhci_brcmstb_save_restore_regs_v2,
->  	.hs400es = sdhci_brcmstb_hs400es,
->  	.ops = &sdhci_brcmstb_ops_7216,
->  };
->  
->  static struct brcmstb_match_priv match_priv_74165b0 = {
->  	.flags = BRCMSTB_MATCH_FLAGS_HAS_CLOCK_GATE,
-> +	.save_restore_regs = sdhci_brcmstb_save_restore_regs_v2,
->  	.hs400es = sdhci_brcmstb_hs400es,
->  	.ops = &sdhci_brcmstb_ops_74165b0,
->  };
-> @@ -429,6 +514,7 @@ static int sdhci_brcmstb_probe(struct platform_device *pdev)
->  
->  	pltfm_host = sdhci_priv(host);
->  	priv = sdhci_pltfm_priv(pltfm_host);
-> +	priv->match_priv = match->data;
->  	if (device_property_read_bool(&pdev->dev, "supports-cqe")) {
->  		priv->flags |= BRCMSTB_PRIV_FLAGS_HAS_CQE;
->  		match_priv->ops->irq = sdhci_brcmstb_cqhci_irq;
-> @@ -446,6 +532,13 @@ static int sdhci_brcmstb_probe(struct platform_device *pdev)
->  	if (res)
->  		goto err;
->  
-> +	/* map non-standard BOOT registers if present */
-> +	if (host->mmc->caps & MMC_CAP_NONREMOVABLE) {
-> +		priv->boot_regs = devm_platform_get_and_ioremap_resource(pdev, 2, NULL);
-> +		if (IS_ERR(priv->boot_regs))
-> +			priv->boot_regs = NULL;
-> +	}
-> +
->  	/*
->  	 * Automatic clock gating does not work for SD cards that may
->  	 * voltage switch so only enable it for non-removable devices.
-> @@ -536,8 +629,13 @@ static int sdhci_brcmstb_suspend(struct device *dev)
->  	struct sdhci_host *host = dev_get_drvdata(dev);
->  	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
->  	struct sdhci_brcmstb_priv *priv = sdhci_pltfm_priv(pltfm_host);
-> +	const struct brcmstb_match_priv *match_priv = priv->match_priv;
-> +
->  	int ret;
->  
-> +	if (match_priv->save_restore_regs)
-> +		match_priv->save_restore_regs(host->mmc, 1);
-> +
->  	clk_disable_unprepare(priv->base_clk);
->  	if (host->mmc->caps2 & MMC_CAP2_CQE) {
->  		ret = cqhci_suspend(host->mmc);
-> @@ -553,6 +651,7 @@ static int sdhci_brcmstb_resume(struct device *dev)
->  	struct sdhci_host *host = dev_get_drvdata(dev);
->  	struct sdhci_pltfm_host *pltfm_host = sdhci_priv(host);
->  	struct sdhci_brcmstb_priv *priv = sdhci_pltfm_priv(pltfm_host);
-> +	const struct brcmstb_match_priv *match_priv = priv->match_priv;
->  	int ret;
->  
->  	ret = sdhci_pltfm_resume(dev);
-> @@ -569,6 +668,9 @@ static int sdhci_brcmstb_resume(struct device *dev)
->  			ret = clk_set_rate(priv->base_clk, priv->base_freq_hz);
->  	}
->  
-> +	if (match_priv->save_restore_regs)
-> +		match_priv->save_restore_regs(host->mmc, 0);
-> +
->  	if (host->mmc->caps2 & MMC_CAP2_CQE)
->  		ret = cqhci_resume(host->mmc);
->  
+>   #define SPE_OP_PKT_LDST_SUBCLASS_GP_REG(v)	(((v) & GENMASK_ULL(7, 1)) == 0x0)
+>   #define SPE_OP_PKT_LDST_SUBCLASS_SIMD_FP(v)	(((v) & GENMASK_ULL(7, 1)) == 0x4)
+>   #define SPE_OP_PKT_LDST_SUBCLASS_UNSPEC_REG(v)	(((v) & GENMASK_ULL(7, 1)) == 0x10)
+> 
 
 
