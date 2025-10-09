@@ -4,65 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9A3BCCD18A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 22:51:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E453CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 22:58:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mz4zW/8ybo2FVuF3EvnWzYzX2g9pikplV9oTmQ+OqzI=; b=JVwLWYsFYaXX3IOQ6ec4SYtgsQ
-	iDHyOFHV4HE8qB/X61Ql2L2deJF6kBheARMBBLToXrjNFP34y/JCxTljklyzAabL6jyQLSiS51tXi
-	S7VHVfzhacMmnbVMBNXzMtZCFuZyp9AHdrTbJJQTxwrDU0JKS8WXL5FxQaxmwnXKsts8cvIpMse0J
-	m5fVeImnbIQ3ELJd26iQLPBLkGCcpuFPLuo6bHmsv74GxfvaIDQn2ZqyvJ+tp6h9DHvJ3Po9YnVGc
-	fhFZNboyd/TuvPq1sUMUI0JCs3XK24uBAsL0950NmN/MJhO01POA2/dYdAp7puIpHjLiKojS8WOuV
-	cuK68CzQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YZgk97je7BvnBwtTZvJvAprknS458qImb1v2YAT0hgU=; b=W/WvYIn2wOOgAAgoKMGoZhFUSB
+	PdRyFcPsQbYtCC5aTGDwZEsXaV2+FfBKEaVh5/0GFPRi8U/TBEo8IXOm3f4zHxa+Vsm344YVlEnBf
+	FU4ytCQfxPTearpkiRFno4nPmFmziws6+dySvV7FjlbTcYTeyKTSTS9x59oBxgaGGUuNFUZPK7ygq
+	fN8Vo8cTbDhFCi+f8rtVAKHzSdFTkZRJ6WDFOODw/LBhZAn1CuTv/1c+1GLmy9g/w74HHzPw63mCy
+	DKDtNGvcr48MQSIjzJ2J0xPZ18EqFUKakMolO34tRlkTPwoGp/XroCPPaw+9gQierSM2PoklTxvnT
+	spq/JQ7A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6zTc-00000007GpN-2cG1;
-	Thu, 09 Oct 2025 22:51:12 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1v6zaz-00000007Hwh-0Yzd;
+	Thu, 09 Oct 2025 22:58:49 +0000
+Received: from vps0.lunn.ch ([156.67.10.101])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6zTV-00000007Gnt-46MF;
-	Thu, 09 Oct 2025 22:51:11 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:MIME-Version:References:
-	In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type;
-	bh=Mz4zW/8ybo2FVuF3EvnWzYzX2g9pikplV9oTmQ+OqzI=; b=wbVu8QlhXoKKI/AWKJVvhQ5bRf
-	yd7Bb9B0qyEUjyBj4N4QNkgUAkbsZeeaaV+rD45tbd9pDvehoGUuPMpQSBAJLuQ/O7tNIhzfOjpwj
-	iojH1TcJwBlHsG2Ecae5PIwyBAc4QbuLRAd0PVoFkjC+2NV2zPl+gJLUobjZE9t8Yh/WvuN0wBkNe
-	SMJtAI06HQglZsJn3r3gXjJnTVQ5St0FJAk1eyDUZksHC0WAxRlEGPAnxAt+fudhkEg/Nc8dzQ0xD
-	9t+mStmY/FejRRzslAoiKR9srTohjg6NGxV399a1LhYc8fbuEfZeVAOM0HV2aY7VpFY2XmdPwhfdi
-	iTVkQmGw==;
-Received: from i53875bdd.versanet.de ([83.135.91.221] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1v6zTT-0007iZ-54; Fri, 10 Oct 2025 00:51:03 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: heiko@sntech.de
-Cc: robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	quentin.schulz@cherry.de,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	damon.ding@rock-chips.com,
-	Heiko Stuebner <heiko.stuebner@cherry.de>
-Subject: [PATCH v4 2/2] arm64: dts: rockchip: add RK3588 DP carrier from Theobroma Systems
-Date: Fri, 10 Oct 2025 00:50:50 +0200
-Message-ID: <20251009225050.88192-3-heiko@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20251009225050.88192-1-heiko@sntech.de>
-References: <20251009225050.88192-1-heiko@sntech.de>
+	id 1v6zaw-00000007Hvr-3n1T
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Oct 2025 22:58:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
+	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
+	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
+	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
+	bh=YZgk97je7BvnBwtTZvJvAprknS458qImb1v2YAT0hgU=; b=a8ct4zO2EH1bTh8uSTZ0eRMk29
+	ClMuYBzuXEm/xC2ak0GE5naZl7uE8puV28N6Ru0JgmNQRpmNN8N3t49LKKCYEyF+oPoVHlVIVQVAR
+	dNFG2Hr4SzTKZpsLQwCpyBmpcZqDsA/5gpTOM9O50vqjzaa70fIiSDxNXXYf2oc29c6s=;
+Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
+	(envelope-from <andrew@lunn.ch>)
+	id 1v6zao-00AYxZ-PI; Fri, 10 Oct 2025 00:58:38 +0200
+Date: Fri, 10 Oct 2025 00:58:38 +0200
+From: Andrew Lunn <andrew@lunn.ch>
+To: Shenwei Wang <shenwei.wang@nxp.com>
+Cc: Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-imx@nxp.com
+Subject: Re: [PATCH v3 3/4] gpio: imx-rpmsg: add imx-rpmsg GPIO driver
+Message-ID: <eb99d9a8-eb96-445d-899a-6e1d9b6f6c69@lunn.ch>
+References: <20251009222716.394806-1-shenwei.wang@nxp.com>
+ <20251009222716.394806-4-shenwei.wang@nxp.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251009222716.394806-4-shenwei.wang@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_155106_038952_71D1D31A 
-X-CRM114-Status: GOOD (  18.11  )
+X-CRM114-CacheID: sfid-20251009_155846_939548_A0D20CC9 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,165 +79,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Heiko Stuebner <heiko.stuebner@cherry.de>
+On Thu, Oct 09, 2025 at 05:27:15PM -0500, Shenwei Wang wrote:
+> On i.MX SoCs, the system may include two processors:
+> 	- An MCU running an RTOS
+> 	- An MPU running Linux
+> 
+> These processors communicate via the RPMSG protocol.
+> The driver implements the standard GPIO interface, allowing
+> the Linux side to control GPIO controllers which reside in
+> the remote processor via RPMSG protocol.
 
-The DisplayPort carrier is a very simple baseboard only providing serial,
-ethernet and a displayport output.
+I've not seen the discussion on earlier versions of this patchset, so
+i might be asking something already asked and answered. Sorry if i am.
 
-But its main functionality is that it routes the Analogix eDP controller
-to this DisplayPort output, which allows to test that controller simply
-by hooking it up to a suitable monitor.
+Is there anything IMX specific in here? This appears to be the first
+RPMSG GPIO driver. Do we have the opportunity here to define a
+protocol for all future RPMSG GPIO drivers, which any/all vendors
+should follow, so we don't have lots of different implementations of
+basically they same thing? So this would become gpio-rpmsg.c and a
+Document somewhere describing the protocol?
 
-The Analogix-DP controller supports eDP 1.3 and DP 1.2, so can drive
-both eDP displays as well as full DP monitors. It does not support DP+
-so passive DP-to-HDMI adapters won't work.
-
-Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
-Link: https://lore.kernel.org/r/20250723190904.37792-3-heiko@sntech.de
----
- arch/arm64/boot/dts/rockchip/Makefile         |   1 +
- .../rk3588-tiger-displayport-carrier.dts      | 119 ++++++++++++++++++
- 2 files changed, 120 insertions(+)
- create mode 100644 arch/arm64/boot/dts/rockchip/rk3588-tiger-displayport-carrier.dts
-
-diff --git a/arch/arm64/boot/dts/rockchip/Makefile b/arch/arm64/boot/dts/rockchip/Makefile
-index ad684e3831bc..3a1739b8f167 100644
---- a/arch/arm64/boot/dts/rockchip/Makefile
-+++ b/arch/arm64/boot/dts/rockchip/Makefile
-@@ -188,6 +188,7 @@ dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-ep.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-pcie-srns.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5b-plus.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-rock-5t.dtb
-+dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-displayport-carrier.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou.dtb
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-tiger-haikou-video-demo.dtbo
- dtb-$(CONFIG_ARCH_ROCKCHIP) += rk3588-toybrick-x0.dtb
-diff --git a/arch/arm64/boot/dts/rockchip/rk3588-tiger-displayport-carrier.dts b/arch/arm64/boot/dts/rockchip/rk3588-tiger-displayport-carrier.dts
-new file mode 100644
-index 000000000000..c14718bc4fda
---- /dev/null
-+++ b/arch/arm64/boot/dts/rockchip/rk3588-tiger-displayport-carrier.dts
-@@ -0,0 +1,119 @@
-+// SPDX-License-Identifier: (GPL-2.0+ OR MIT)
-+/*
-+ * Copyright (c) 2024 Cherry Embedded Solutions GmbH
-+ */
-+
-+/dts-v1/;
-+#include <dt-bindings/soc/rockchip,vop2.h>
-+#include "rk3588-tiger.dtsi"
-+
-+/ {
-+	model = "Theobroma Systems RK3588-Q7 SoM on Tiger Displayport Carrier v1";
-+	compatible = "tsd,rk3588-tiger-displayport-carrier", "tsd,rk3588-tiger", "rockchip,rk3588";
-+
-+	aliases {
-+		ethernet0 = &gmac0;
-+	};
-+
-+	chosen {
-+		stdout-path = "serial2:115200n8";
-+	};
-+
-+	dp-connector {
-+		compatible = "dp-connector";
-+		dp-pwr-supply = <&vcc3v3_baseboard>;
-+		label = "dp0";
-+		type = "full-size";
-+
-+		port {
-+			dp_con_in: endpoint {
-+				remote-endpoint = <&edp0_out_con>;
-+			};
-+		};
-+	};
-+
-+	vcc3v3_baseboard: regulator-vcc3v3-baseboard {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc3v3_baseboard";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <3300000>;
-+		regulator-max-microvolt = <3300000>;
-+		vin-supply = <&vcc5v0_baseboard>;
-+	};
-+
-+	vcc5v0_baseboard: regulator-vcc5v0-baseboard {
-+		compatible = "regulator-fixed";
-+		regulator-name = "vcc5v0_baseboard";
-+		regulator-always-on;
-+		regulator-boot-on;
-+		regulator-min-microvolt = <5000000>;
-+		regulator-max-microvolt = <5000000>;
-+	};
-+};
-+
-+&edp0 {
-+	/*
-+	 * Q7_DP_HPD# but Q7_HDMI_HPD# could be used too
-+	 *
-+	 * HPD handling in the Analogix-DP not in dp-connector, because
-+	 * "Detecting the monitor for DisplayPort targets is more
-+	 *  complicated than just reading the HPD pin level" so the
-+	 * "actual DP driver (should) perform detection".
-+	 * For reference see commit cb640b2ca546 ("drm/bridge:
-+	 * display-connector: don't set OP_DETECT for DisplayPorts")
-+	 * in the Linux-kernel.
-+	 */
-+	hpd-gpios = <&gpio4 RK_PB5 GPIO_ACTIVE_LOW>;
-+	pinctrl-0 = <&edp0_hpd_l>;
-+	pinctrl-names = "default";
-+	status = "okay";
-+};
-+
-+&edp0_in {
-+	edp0_in_vp2: endpoint {
-+		remote-endpoint = <&vp2_out_edp0>;
-+	};
-+};
-+
-+&edp0_out {
-+	edp0_out_con: endpoint {
-+		remote-endpoint = <&dp_con_in>;
-+	};
-+};
-+
-+&gmac0 {
-+	status = "okay";
-+};
-+
-+&hdptxphy0 {
-+	status = "okay";
-+};
-+
-+&pinctrl {
-+	edp0 {
-+		edp0_hpd_l: edp0-hpd-l-pin {
-+			rockchip,pins = <4 RK_PB5 RK_FUNC_GPIO &pcfg_pull_up>;
-+		};
-+	};
-+};
-+
-+&uart2 {
-+	pinctrl-0 = <&uart2m2_xfer>;
-+	status = "okay";
-+};
-+
-+&vop {
-+	status = "okay";
-+};
-+
-+&vop_mmu {
-+	status = "okay";
-+};
-+
-+&vp2 {
-+	vp2_out_edp0: endpoint@ROCKCHIP_VOP2_EP_EDP0 {
-+		reg = <ROCKCHIP_VOP2_EP_EDP0>;
-+		remote-endpoint = <&edp0_in_vp2>;
-+	};
-+};
--- 
-2.47.2
-
+	Andrew
 
