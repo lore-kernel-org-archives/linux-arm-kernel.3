@@ -4,57 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2E40FCCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 08:13:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 034FECCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 08:14:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UKlCwnC1o/EsQJXgTVKErzcwCWplYEn9J1JE2wClLKo=; b=O6ebV0RjzgOvYS8kRoMeXQX83b
-	yO60IahhxkelDBXmfuIKqurcfpIEeTtn9pn7qfCn2DbL3sZ9c51cEY4fFK9qOtIndctjFdbTS2VGq
-	hrhnAFX1UbfocFyHMzAko7en+3mtkTMCltvelsoIrV8UOrcRXeZTGzQm9B3cuuQH2H3T22AE7W+xv
-	BXm9Y8SVZALYK2YSxFx8tuL6pIrRlC1sMcXNSKivgg8fOznufsxKzG2p1yTjlWXyQ+T6QRKeaZrsl
-	V/A32Mbu49BjWnq9H18n9HvExsr7sw58b8doTbqY5zQqtL04DWyd+ugH9CFXyY9lZ9nRqwTX+jrRP
-	JoCZQT0A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=z/B31lhY4bVYeZNnk+dMlfOVrRbTYtHHzwgcdMMaTVE=; b=3xa/oxZDfFKcfVnMJZngVnBG50
+	dkNG5IKW50jZ7L+yxh1+xwaQImOHaelero+O42koEC3W5L41QApkzxN/T2LjBWLa2FDD5jUlJIlin
+	IpcRNfMCtf8GY6z3aq8JL4gaBpLhxkFsMnKRC5kbp8z9cMqfFMeoCQQHrVQFqiUdfPm+KeWEVBOpJ
+	TXY87Q3RdCTStLf7KNXjtTD4eiBYTSqNVcehmMn9lTUPqOC0+7a/4dlOx50cKgMimlL5Kvbe+KWeQ
+	1hY/aed5hMzUSbvgp0HAtlTxQZvmmnB0NuHq9Dt4OxgtLI0E3OnHUBlfIYeQmekGOGnEGsr0au4pk
+	KXVbl1TQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6lmJ-00000005TlE-1DC9;
-	Thu, 09 Oct 2025 08:13:35 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6lmG-00000005Tk0-0ysI
+	id 1v6lmv-00000005U0J-2wkC;
+	Thu, 09 Oct 2025 08:14:13 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v6lmt-00000005Tym-1mXk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 08:13:33 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 282BA176A;
-	Thu,  9 Oct 2025 01:13:23 -0700 (PDT)
-Received: from bogus (e133711.arm.com [10.1.196.55])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id C3F8D3F738;
-	Thu,  9 Oct 2025 01:13:28 -0700 (PDT)
-Date: Thu, 9 Oct 2025 09:13:25 +0100
-From: Sudeep Holla <sudeep.holla@arm.com>
-To: Vedashree Vidwans <vvidwans@nvidia.com>
-Cc: <salman.nabi@arm.com>, <lpieralisi@kernel.org>, <mark.rutland@arm.com>,
-	Sudeep Holla <sudeep.holla@arm.com>, <andre.przywara@arm.com>,
-	<ardb@kernel.org>, <chao.gao@intel.com>,
-	<linux-arm-kernel@lists.infradead.org>,
-	<linux-coco@lists.linux.dev>, <linux-kernel@vger.kernel.org>,
-	<sdonthineni@nvidia.com>, <vsethi@nvidia.com>,
-	<vwadekar@nvidia.com>
-Subject: Re: [RFC PATCH 2/3] firmware: smccc: LFA: refactor, add device node
- support
-Message-ID: <20251009-calculating-glorious-oriole-ceccf6@sudeepholla>
-References: <20251008190907.181412-1-vvidwans@nvidia.com>
- <20251008190907.181412-3-vvidwans@nvidia.com>
+	Thu, 09 Oct 2025 08:14:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1759997650;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
+	bh=z/B31lhY4bVYeZNnk+dMlfOVrRbTYtHHzwgcdMMaTVE=;
+	b=eklmgPlVwxUbD5RGKNTMAISiecA9nE5fWKvBUBlE1Eaa5aW9+2nYOpVnuT0ItCXsQ2jK3l
+	ceI+GP+B/aJdI56cbRLWcJg6OveIIRtDiv/L1fXBz0TXjWhPVqP8FttRgfzbAPME09OqRg
+	6nC3+3g8hGxfyzITX7ZUeHxupzqIIOg=
+Received: from mail-wm1-f71.google.com (mail-wm1-f71.google.com
+ [209.85.128.71]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-43-ybDHVZblMHOfeYDmjwwJAw-1; Thu, 09 Oct 2025 04:14:09 -0400
+X-MC-Unique: ybDHVZblMHOfeYDmjwwJAw-1
+X-Mimecast-MFC-AGG-ID: ybDHVZblMHOfeYDmjwwJAw_1759997648
+Received: by mail-wm1-f71.google.com with SMTP id 5b1f17b1804b1-46e3d9bf9e1so3724805e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 01:14:09 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759997648; x=1760602448;
+        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
+         :from:references:cc:to:subject:user-agent:mime-version:date
+         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=z/B31lhY4bVYeZNnk+dMlfOVrRbTYtHHzwgcdMMaTVE=;
+        b=mSiXHtZgL3U2W48V62utX9M3tLZPu7u0V+afQsGQ7I8v5X1mAbNVaHPs1lCxh/JkBX
+         AqWZS0VV1Q/7ZcndCG/D6hpp62rhLWEYVULvj88Co4vqfkz5znOXHnex476S7BN2Kl1B
+         WfWXxIIkF4yOYUsClowqJjjMm1suNF7YqGbosiLFb/nwhsWOfx4rpdmzDc1wxLST4xBn
+         oY5cA6rmbYCrxf6Oj0Ut1YSXoF0EW4ILYo2g3w1aOmiYnQlXjuMu6wrdkVm4wPF2NcVN
+         tCFNwX6pbjOVPEILDcUS1L+o9QkNEjfVzk6pqbxp/nzHQNMQ+DUE58AlzxKUFlVVnDG9
+         OGNw==
+X-Forwarded-Encrypted: i=1; AJvYcCViqkRtIeSE6W1nrN1ET3SDUki7jqYWkqUwKYbUXUyLVLyOMXkv6ig4BjGijrnQ7/l4nv+aNlSpp1GL1lbB46F5@lists.infradead.org
+X-Gm-Message-State: AOJu0YwM/WvAUWou9DsnIcNNvbtht2CI68NO0ozjXWjGJQj8iQWEvm/+
+	p0YBJb0075sxdpKVkYBmP3Qgxy6TtntnkYRJC0u2xkGCIO03anvtgKqgWvRvpQdQcOgWsyvyOay
+	rPRn7l+2QEMB54I2aCkamS/rF5UB+e6bN65GN0u1YjnxMi3qiuuaBgGu1MaGeczD8OPwXt49bBc
+	0X
+X-Gm-Gg: ASbGnctJXKJ6458HJidxyVSDVuuZvaY4OYG2w65S7vgRwxnsAb0Tea1OXUFO7AAeFum
+	kp2QWJe9a1KqrLMOSjHI86GrCxXhR3VMGvwXknG23PxWCmLYPbWSS5xTVZA5PGF167VSPcHKPWx
+	DukjwzyIfJcbsJhmaORJpotWXeZitjlfa137HH8SCmO/QQnoqG9GNPgQiJKdymoMCa4LXRWCZC8
+	L+92b0yU0rlzAPnQu0HkyQhzrvCEhUmIskk7hbt+DYyfQNnTyGwEsVAcP3kuQ1P/3KdwjMkcShn
+	Gyi4HEatpR9uuR5JkGdFvtT7uZdMgaI9orpkcruROY3+VDOZtKiqYyTmoCHekTRocB59afF7lyi
+	F72McgHUU
+X-Received: by 2002:a05:600c:4750:b0:45f:28d2:bd38 with SMTP id 5b1f17b1804b1-46fa9af3095mr47092545e9.18.1759997648077;
+        Thu, 09 Oct 2025 01:14:08 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGo93r/upxlN0XWroa/gVbVuSE1HI9H4cBHGhOGnkYv+FuHkp7MlpzQ4ByJt+h+2JF6rzGBiQ==
+X-Received: by 2002:a05:600c:4750:b0:45f:28d2:bd38 with SMTP id 5b1f17b1804b1-46fa9af3095mr47092215e9.18.1759997647608;
+        Thu, 09 Oct 2025 01:14:07 -0700 (PDT)
+Received: from [192.168.3.141] (tmo-083-189.customers.d1-online.com. [80.187.83.189])
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46fa9d6fb41sm71628175e9.17.2025.10.09.01.14.03
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Thu, 09 Oct 2025 01:14:07 -0700 (PDT)
+Message-ID: <9361c75a-ab37-4d7f-8680-9833430d93d4@redhat.com>
+Date: Thu, 9 Oct 2025 10:14:02 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251008190907.181412-3-vvidwans@nvidia.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: (bisected) [PATCH v2 08/37] mm/hugetlb: check for unreasonable
+ folio sizes when registering hstate
+To: Christophe Leroy <christophe.leroy@csgroup.eu>,
+ linux-kernel@vger.kernel.org
+Cc: Zi Yan <ziy@nvidia.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ "Liam R. Howlett" <Liam.Howlett@oracle.com>,
+ Alexander Potapenko <glider@google.com>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
+ Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
+ dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
+ iommu@lists.linux.dev, io-uring@vger.kernel.org,
+ Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
+ Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
+ kasan-dev@googlegroups.com, kvm@vger.kernel.org,
+ Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
+ linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
+ linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
+ linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
+ linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
+ linux-scsi@vger.kernel.org, Marco Elver <elver@google.com>,
+ Marek Szyprowski <m.szyprowski@samsung.com>, Michal Hocko <mhocko@suse.com>,
+ Mike Rapoport <rppt@kernel.org>, Muchun Song <muchun.song@linux.dev>,
+ netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
+ Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
+ Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
+ virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
+ wireguard@lists.zx2c4.com, x86@kernel.org,
+ "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>
+References: <20250901150359.867252-1-david@redhat.com>
+ <20250901150359.867252-9-david@redhat.com>
+ <3e043453-3f27-48ad-b987-cc39f523060a@csgroup.eu>
+ <d3fc12d4-0b59-4b1f-bb5c-13189a01e13d@redhat.com>
+ <faf62f20-8844-42a0-a7a7-846d8ead0622@csgroup.eu>
+From: David Hildenbrand <david@redhat.com>
+Autocrypt: addr=david@redhat.com; keydata=
+ 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
+ qIws/H2t
+In-Reply-To: <faf62f20-8844-42a0-a7a7-846d8ead0622@csgroup.eu>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: T8d2ozuVtjrXPc5EH74E21qgOcRunDKoAHReVDWLH6k_1759997648
+X-Mimecast-Originator: redhat.com
+Content-Language: en-US
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_011332_313591_CF736909 
-X-CRM114-Status: GOOD (  11.06  )
+X-CRM114-CacheID: sfid-20251009_011411_608425_14BFFA8C 
+X-CRM114-Status: GOOD (  15.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,27 +185,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, Oct 08, 2025 at 07:09:06PM +0000, Vedashree Vidwans wrote:
-> - Add support for LFA device node in the kernel driver. Implement
-> probe() to register LFA interrupt and threaded interrupt service
-> function.
-> - CPUs will be rendezvoused during activation.
-> - On IRQ, driver will query FW components then triggers activation of
-> capable and pending components.
-> - Mutex synchronization is implemented to avoid concurrent LFA updates
-> through interrupt and sysfs interfaces.
-> - Refactor LFA CANCEL logic into independent lfa_cancel() function.
-> - Enhance PRIME/ACTIVATION functions to touch watchdog and implement
-> timeouts.
+On 09.10.25 10:04, Christophe Leroy wrote:
 > 
-> Signed-off-by: Vedashree Vidwans <vvidwans@nvidia.com>
-> ---
->  drivers/firmware/smccc/lfa_fw.c | 299 ++++++++++++++++++++++++++++----
+> 
+> Le 09/10/2025 à 09:22, David Hildenbrand a écrit :
+>> On 09.10.25 09:14, Christophe Leroy wrote:
+>>> Hi David,
+>>>
+>>> Le 01/09/2025 à 17:03, David Hildenbrand a écrit :
+>>>> diff --git a/mm/hugetlb.c b/mm/hugetlb.c
+>>>> index 1e777cc51ad04..d3542e92a712e 100644
+>>>> --- a/mm/hugetlb.c
+>>>> +++ b/mm/hugetlb.c
+>>>> @@ -4657,6 +4657,7 @@ static int __init hugetlb_init(void)
+>>>>         BUILD_BUG_ON(sizeof_field(struct page, private) * BITS_PER_BYTE <
+>>>>                 __NR_HPAGEFLAGS);
+>>>> +    BUILD_BUG_ON_INVALID(HUGETLB_PAGE_ORDER > MAX_FOLIO_ORDER);
+>>>>         if (!hugepages_supported()) {
+>>>>             if (hugetlb_max_hstate || default_hstate_max_huge_pages)
+>>>> @@ -4740,6 +4741,7 @@ void __init hugetlb_add_hstate(unsigned int order)
+>>>>         }
+>>>>         BUG_ON(hugetlb_max_hstate >= HUGE_MAX_HSTATE);
+>>>>         BUG_ON(order < order_base_2(__NR_USED_SUBPAGE));
+>>>> +    WARN_ON(order > MAX_FOLIO_ORDER);
+>>>>         h = &hstates[hugetlb_max_hstate++];
+>>>>         __mutex_init(&h->resize_lock, "resize mutex", &h->resize_key);
+>>>>         h->order = order;
+>>
+>> We end up registering hugetlb folios that are bigger than
+>> MAX_FOLIO_ORDER. So we have to figure out how a config can trigger that
+>> (and if we have to support that).
+>>
+> 
+> MAX_FOLIO_ORDER is defined as:
+> 
+> #ifdef CONFIG_ARCH_HAS_GIGANTIC_PAGE
+> #define MAX_FOLIO_ORDER		PUD_ORDER
+> #else
+> #define MAX_FOLIO_ORDER		MAX_PAGE_ORDER
+> #endif
+> 
+> MAX_PAGE_ORDER is the limit for dynamic creation of hugepages via
+> /sys/kernel/mm/hugepages/ but bigger pages can be created at boottime
+> with kernel boot parameters without CONFIG_ARCH_HAS_GIGANTIC_PAGE:
+> 
+>     hugepagesz=64m hugepages=1 hugepagesz=256m hugepages=1
+> 
+> Gives:
+> 
+> HugeTLB: registered 1.00 GiB page size, pre-allocated 0 pages
+> HugeTLB: 0 KiB vmemmap can be freed for a 1.00 GiB page
+> HugeTLB: registered 64.0 MiB page size, pre-allocated 1 pages
+> HugeTLB: 0 KiB vmemmap can be freed for a 64.0 MiB page
+> HugeTLB: registered 256 MiB page size, pre-allocated 1 pages
+> HugeTLB: 0 KiB vmemmap can be freed for a 256 MiB page
+> HugeTLB: registered 4.00 MiB page size, pre-allocated 0 pages
+> HugeTLB: 0 KiB vmemmap can be freed for a 4.00 MiB page
+> HugeTLB: registered 16.0 MiB page size, pre-allocated 0 pages
+> HugeTLB: 0 KiB vmemmap can be freed for a 16.0 MiB page
 
-I was expecting to the devicetree binding based on $subject but no.
-So this patch can't be reviewed without one.
+I think it's a violation of CONFIG_ARCH_HAS_GIGANTIC_PAGE. The existing 
+folio_dump() code would not handle it correctly as well.
+
+See how snapshot_page() uses MAX_FOLIO_NR_PAGES.
 
 -- 
-Regards,
-Sudeep
+Cheers
+
+David / dhildenb
+
 
