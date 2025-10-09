@@ -4,60 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1FF7FCCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 15:54:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1E0C3CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 15:54:51 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jmpE8+kYqw0KUlZcDwP9gvVfVdbZMVRD+EPwoGEvH/w=; b=ppZOdXOVbHSxQn1endd35qRvrR
-	8tAsMPpYJTgp5HPe9u0exuK7Uu0xhIgZI2rTKIoFi7v6LKr5Oy805Bf3U5A2WysppiQYb1/bCn3mz
-	K6Pmsfj8FJPoiYs9HuR1hVTBtKuJUiqgI6fbDQc8Nz0BZxTeOeCDLIlylm6XnrDg0whYcLxugPLNz
-	h4LQCFWxSeJNurGs/ZGdGoRw2HwTI86FHP8k9ZC+Fg/eta2w+ZdjrSYm87Vr2jg/gjk5gxASjCn9u
-	Ziu0q52+RmR5gmiDebOKx1yy6mq8IeTCvoB11+zXagFq/ToACLZ2ItkQ7ZZpPffVZBPaCk/WFpJS9
-	8Ik/zO+A==;
+	bh=An6OHRKoKTzSmfqnOA8TZaamHLuEfKCpdiKeqCtDM70=; b=rfnixeI9AxnhYAukijXAcm0OpM
+	JSrw5BEh9XZgVgrzABXORmKJq8jDiK0/4bB29e+DZ2eXwMvdIYFcamCfMysN+WHCZrHVhXLrT5/IO
+	XJ7ZKGsLJhdTh0iF4RV3DklxGe3b5utp9/OaJl1gMJ7ZRFNhrLua5bu9upT1kpXSMJz5xUC0doL75
+	0cLoejiAfO9SuCsMMhYDLDwCzWhMe9UDn45cQbFTlv/xiMs199Z/c+B6QWOijrsOG8OOJPjsPXQUq
+	Z7MB6N2jZTMAy5qdbLkYnD04s+SeXXf3dhI7ha6ivx52j+5xE3fbXA0tpHDi1dsloINpHruNBkVMF
+	P4X3E/iA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6sya-00000006Yu7-0RMg;
-	Thu, 09 Oct 2025 15:54:44 +0000
+	id 1v6syc-00000006YwG-04EG;
+	Thu, 09 Oct 2025 15:54:46 +0000
 Received: from esa.microchip.iphmx.com ([68.232.154.123])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6syX-00000006YrS-3kYk
+	id 1v6syZ-00000006YrS-0UVq
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 15:54:43 +0000
+	Thu, 09 Oct 2025 15:54:44 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
   d=microchip.com; i=@microchip.com; q=dns/txt; s=mchp;
-  t=1760025281; x=1791561281;
+  t=1760025283; x=1791561283;
   h=from:to:cc:subject:date:message-id:in-reply-to:
    references:mime-version:content-transfer-encoding;
-  bh=eJf4UTMPqJkln5EdhKh/6cOT12g2cjSMKWCXo8sdgV8=;
-  b=d6TsC7vculwGrapEDelwALzt/1/KTLaxwKCjg4AW5M1n6qoZL536yM7W
-   vJ80g77ndCkm8qm/4oMKpxPw/eAJ9mJvSu6wtZauAt01+RPA74jT+sKkm
-   WXW4cYYF+NOCVntmPYYOK8EW88tOCfod0wfcNvbT2Z/P5WxQQJ+/wFdUY
-   2IIleapyOuw/smKyjW1xFIZa7ba+LHeYn3f97kdIDlrF5oFq3Vwzny/LQ
-   Ye3zbg4Nr3thrY8+hjXOgIXEQIbIIV+ubpAYtMTtX8weXMKwevkBvvEz7
-   RWNZm1P9xOVghTS4WbNMd0eeh0a6sLBCRb3cIGs8d713gsRtYd6Gdizlq
-   w==;
+  bh=NJfyzXUCb89JY0Dq3kP4I1bs+19KM85e+cCytqGep4U=;
+  b=0Ar3FxXvBe9ZxZaCZmbBWr1qCK7CrM+3OfqShTHIVXgxxaGipXRZQbr6
+   mNiuG8pvZnD8jB+8iqttvV1xH4zYl9SnkMhor036wg6dqZMiPFaw/vRss
+   4R0TsDtTOHmcA0JteSXFh9BPqXAFSW6ZPH0mRyCRgr08YKgo0Um4RvYwX
+   E/WCE+zQaerFWv6cBN5lyUHi1t/NTtiE522Y5juI5iLbccfD4miQqSGMC
+   YhqQ9Lxl9CMucWZF6IM3aVH1xe8PpeXCiqX7EgD0PEkxlAb+9VuAAPZNi
+   JNQV6v6NAJAmiaVqmjUXLptvN7J3QKic47cQ2yjDKmzF3buaKCkJNr934
+   g==;
 X-CSE-ConnectionGUID: /X4p8s51R2m1uwZxUki7lw==
-X-CSE-MsgGUID: qBNcf2BOSxaZUSryRrMOiQ==
+X-CSE-MsgGUID: q6g5q7N2RvO0M8yPNYjtAw==
 X-IronPort-AV: E=Sophos;i="6.19,216,1754982000"; 
-   d="scan'208";a="214905334"
+   d="scan'208";a="214905337"
 X-Amp-Result: SKIPPED(no attachment in message)
 Received: from unknown (HELO email.microchip.com) ([170.129.1.10])
-  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 09 Oct 2025 08:54:38 -0700
-Received: from chn-vm-ex3.mchp-main.com (10.10.87.32) by
+  by esa6.microchip.iphmx.com with ESMTP/TLS/ECDHE-RSA-AES128-GCM-SHA256; 09 Oct 2025 08:54:39 -0700
+Received: from chn-vm-ex01.mchp-main.com (10.10.85.143) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server
  (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.1.2507.58; Thu, 9 Oct 2025 08:54:06 -0700
-Received: from chn-vm-ex01.mchp-main.com (10.10.87.71) by
- chn-vm-ex3.mchp-main.com (10.10.87.32) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.2.1748.10; Thu, 9 Oct 2025 08:54:06 -0700
+ 15.1.2507.58; Thu, 9 Oct 2025 08:54:14 -0700
 Received: from che-lt-i64410lx.microchip.com (10.10.85.11) by
  chn-vm-ex01.mchp-main.com (10.10.85.143) with Microsoft SMTP Server id
- 15.1.2507.58 via Frontend Transport; Thu, 9 Oct 2025 08:53:58 -0700
+ 15.1.2507.58 via Frontend Transport; Thu, 9 Oct 2025 08:54:06 -0700
 From: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
 To: Mauro Carvalho Chehab <mchehab@kernel.org>
 CC: Eugen Hristev <eugen.hristev@linaro.org>, Chas Williams
@@ -71,10 +67,11 @@ CC: Eugen Hristev <eugen.hristev@linaro.org>, Chas Williams
 	<dan.scally+renesas@ideasonboard.com>, Tomi Valkeinen
 	<tomi.valkeinen@ideasonboard.com>, <linux-kernel@vger.kernel.org>,
 	<linux-media@vger.kernel.org>, <linux-atm-general@lists.sourceforge.net>,
-	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>
-Subject: [PATCH 06/18] media: microchip-isc: Add range based black level correction
-Date: Thu, 9 Oct 2025 21:22:39 +0530
-Message-ID: <20251009155251.102472-7-balamanikandan.gunasundar@microchip.com>
+	<netdev@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
+	Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
+Subject: [PATCH 07/18] media: platform: microchip: Extend gamma table and control range
+Date: Thu, 9 Oct 2025 21:22:40 +0530
+Message-ID: <20251009155251.102472-8-balamanikandan.gunasundar@microchip.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20251009155251.102472-1-balamanikandan.gunasundar@microchip.com>
 References: <20251009155251.102472-1-balamanikandan.gunasundar@microchip.com>
@@ -82,8 +79,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_085441_991669_095AB9D7 
-X-CRM114-Status: GOOD (  15.07  )
+X-CRM114-CacheID: sfid-20251009_085443_225431_45D0E3E6 
+X-CRM114-Status: GOOD (  13.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,49 +97,105 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Balakrishnan Sambath <balakrishnan.s@microchip.com>
 
-Add adaptive black level offset based on histogram minimum and pixel
-statistics. Apply conservative correction for high black levels and
-gentle correction for low levels to prevent overcorrection and improve
-dynamic range.
+Add support for multiple levels of gamma correction options (1/2.4,
+1/2.2, 1/1.8) which can be modified through V4L2 controls(with range
+0-2), with a default of 1/2.2(index 1).
 
 Signed-off-by: Balakrishnan Sambath <balakrishnan.s@microchip.com>
+Signed-off-by: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
 ---
- .../platform/microchip/microchip-isc-base.c   | 22 ++++++++++++++++++-
- 1 file changed, 21 insertions(+), 1 deletion(-)
+ .../platform/microchip/microchip-isc-base.c   |  3 +-
+ .../microchip/microchip-sama7g5-isc.c         | 54 ++++++++++++++-----
+ 2 files changed, 41 insertions(+), 16 deletions(-)
 
 diff --git a/drivers/media/platform/microchip/microchip-isc-base.c b/drivers/media/platform/microchip/microchip-isc-base.c
-index bb2dd69a83f0..2706a27a2506 100644
+index 2706a27a2506..cd379f95fc1c 100644
 --- a/drivers/media/platform/microchip/microchip-isc-base.c
 +++ b/drivers/media/platform/microchip/microchip-isc-base.c
-@@ -1349,7 +1349,27 @@ static void isc_wb_update(struct isc_ctrls *ctrls)
- 		 * we stretch this color to the full range by substracting
- 		 * this value from the color component.
- 		 */
--		offset[c] = ctrls->hist_minmax[c][HIST_MIN_INDEX];
-+		if (hist_min > 5 && hist_min < 60 && total_pixels > 1000) {
-+			/*
-+			 * Basic adaptive black level offset correction
-+			 * (Simplified version for kernel fallback)
-+			 */
-+			if (hist_min > 20)
-+				/* Conservative for high levels */
-+				offset[c] = hist_min - 4;
-+			else if (hist_min > 10)
-+				/* Moderate correction */
-+				offset[c] = hist_min - 2;
-+			else
-+				/* Gentle correction */
-+				offset[c] = hist_min - 1;
-+
-+			offset[c] = max(1U, offset[c]);  /* Ensure minimum of 1 */
-+		} else {
-+			/* Use default behavior for edge cases */
-+			offset[c] = hist_min;
-+		}
-+
- 		/*
- 		 * The offset is always at least 1. If the offset is 1, we do
- 		 * not need to adjust it, so our result must be zero.
+@@ -1715,8 +1715,7 @@ static int isc_ctrl_init(struct isc_device *isc)
+ 	ctrls->brightness = 0;
+ 
+ 	v4l2_ctrl_new_std(hdl, ops, V4L2_CID_BRIGHTNESS, -1024, 1023, 1, 0);
+-	v4l2_ctrl_new_std(hdl, ops, V4L2_CID_GAMMA, 0, isc->gamma_max, 1,
+-			  isc->gamma_max);
++	v4l2_ctrl_new_std(hdl, ops, V4L2_CID_GAMMA, 0, isc->gamma_max, 1, 1);
+ 	isc->awb_ctrl = v4l2_ctrl_new_std(hdl, &isc_awb_ops,
+ 					  V4L2_CID_AUTO_WHITE_BALANCE,
+ 					  0, 1, 1, 1);
+diff --git a/drivers/media/platform/microchip/microchip-sama7g5-isc.c b/drivers/media/platform/microchip/microchip-sama7g5-isc.c
+index 03f7a46acd47..d3ed9cfe6686 100644
+--- a/drivers/media/platform/microchip/microchip-sama7g5-isc.c
++++ b/drivers/media/platform/microchip/microchip-sama7g5-isc.c
+@@ -320,21 +320,47 @@ static void isc_sama7g5_adapt_pipeline(struct isc_device *isc)
+ 	isc->try_config.bits_pipeline &= ISC_SAMA7G5_PIPELINE;
+ }
+ 
+-/* Gamma table with gamma 1/2.2 */
++/* Gamma tables with gamma values 0.42, 0.45(Default), 0.56 */
+ static const u32 isc_sama7g5_gamma_table[][GAMMA_ENTRIES] = {
+-	/* index 0 --> gamma bipartite */
++	/* index 0 --> gamma bipartite 1/2.4(=0.42) */
+ 	{
+-	      0x980,  0x4c0320,  0x650260,  0x7801e0,  0x8701a0,  0x940180,
+-	   0xa00160,  0xab0120,  0xb40120,  0xbd0120,  0xc60100,  0xce0100,
+-	   0xd600e0,  0xdd00e0,  0xe400e0,  0xeb00c0,  0xf100c0,  0xf700c0,
+-	   0xfd00c0, 0x10300a0, 0x10800c0, 0x10e00a0, 0x11300a0, 0x11800a0,
+-	  0x11d00a0, 0x12200a0, 0x12700a0, 0x12c0080, 0x13000a0, 0x1350080,
+-	  0x13900a0, 0x13e0080, 0x1420076, 0x17d0062, 0x1ae0054, 0x1d8004a,
+-	  0x1fd0044, 0x21f003e, 0x23e003a, 0x25b0036, 0x2760032, 0x28f0030,
+-	  0x2a7002e, 0x2be002c, 0x2d4002c, 0x2ea0028, 0x2fe0028, 0x3120026,
+-	  0x3250024, 0x3370024, 0x3490022, 0x35a0022, 0x36b0020, 0x37b0020,
+-	  0x38b0020, 0x39b001e, 0x3aa001e, 0x3b9001c, 0x3c7001c, 0x3d5001c,
+-	  0x3e3001c, 0x3f1001c, 0x3ff001a, 0x40c001a },
++	      0x940,  0x4b0310,  0x630250,  0x7601d0,  0x840190,  0x910170,
++	   0x9d0150,  0xa80110,  0xb10110,  0xba0110,  0xc300f0,  0xcb00f0,
++	   0xd300e0,  0xda00e0,  0xe100c0,  0xe800c0,  0xee00c0,  0xf400c0,
++	   0xfa00a0, 0x10000a0, 0x10500a0, 0x10b00a0, 0x11000a0, 0x11500a0,
++	  0x11a0080, 0x11f0080, 0x1240080, 0x1290080, 0x12e0080, 0x1330070,
++	  0x1380070, 0x13c0070, 0x1410070, 0x17a0060, 0x1aa0052, 0x1d40046,
++	  0x1f90042, 0x21b003c, 0x23a0038, 0x2570034, 0x2720030, 0x28b002e,
++	  0x2a3002c, 0x2ba002a, 0x2d0002a, 0x2e60028, 0x2fa0026, 0x30e0026,
++	  0x3210024, 0x3330022, 0x3450022, 0x3560020, 0x3670020, 0x3770020,
++	  0x387001e, 0x396001e, 0x3a5001c, 0x3b3001c, 0x3c1001c, 0x3cf001a,
++	  0x3dd001a, 0x3eb0018, 0x3f90018 },
++	/* index 1 --> gamma bipartite 1/2.2(=0.45) */
++	{
++	     0x980,  0x4c0320,  0x650260,  0x7801e0,  0x8701a0,  0x940180,
++	  0xa00160,  0xab0120,  0xb40120,  0xbd0120,  0xc60100,  0xce0100,
++	  0xd600e0,  0xdd00e0,  0xe400e0,  0xeb00c0,  0xf100c0,  0xf700c0,
++	  0xfd00c0, 0x10300a0, 0x10800c0, 0x10e00a0, 0x11300a0, 0x11800a0,
++	 0x11d00a0, 0x12200a0, 0x12700a0, 0x12c0080, 0x13000a0, 0x1350080,
++	 0x13900a0, 0x13e0080, 0x1420076, 0x17d0062, 0x1ae0054, 0x1d8004a,
++	 0x1fd0044, 0x21f003e, 0x23e003a, 0x25b0036, 0x2760032, 0x28f0030,
++	 0x2a7002e, 0x2be002c, 0x2d4002c, 0x2ea0028, 0x2fe0028, 0x3120026,
++	 0x3250024, 0x3370024, 0x3490022, 0x35a0022, 0x36b0020, 0x37b0020,
++	 0x38b0020, 0x39b001e, 0x3aa001e, 0x3b9001c, 0x3c7001c, 0x3d5001c,
++	 0x3e3001c, 0x3f1001c, 0x3ff001a, 0x40c001a },
++	/* index 2 --> gamma bipartite 1/1.8(=0.56) */
++	{
++	      0xa62,  0x4f0350,  0x680280,  0x7e0200,  0x8d01c0,  0x9a01a0,
++	   0xa50180,  0xb00140,  0xb90140,  0xc20120,  0xcb0120,  0xd30100,
++	   0xdb0100,  0xe300e0,  0xea00e0,  0xf100e0,  0xf700c0,  0xfd00c0,
++	  0x10300c0, 0x10900a0, 0x10e00a0, 0x11400a0, 0x11900a0, 0x11e00a0,
++	  0x12300a0, 0x12800a0, 0x12d0080, 0x1320080, 0x1370080, 0x13c0080,
++	  0x1410080, 0x1460080, 0x14a0070, 0x1830060, 0x1b40052, 0x1df0048,
++	  0x2040042, 0x2250040, 0x2440038, 0x2600036, 0x27b0032, 0x2940030,
++	  0x2ac002e, 0x2c4002c, 0x2da002a, 0x2f0002a, 0x3050028, 0x3190026,
++	  0x32c0026, 0x33e0024, 0x3500024, 0x3610022, 0x3720020, 0x3820020,
++	  0x3920020, 0x3a2001e, 0x3b1001e, 0x3c0001c, 0x3ce001c, 0x3dc001c,
++	  0x3ea001a, 0x3f8001a, 0x4060018, 0x4130018 },
+ };
+ 
+ static int xisc_parse_dt(struct device *dev, struct isc_device *isc)
+@@ -434,7 +460,7 @@ static int microchip_xisc_probe(struct platform_device *pdev)
+ 	}
+ 
+ 	isc->gamma_table = isc_sama7g5_gamma_table;
+-	isc->gamma_max = 0;
++	isc->gamma_max = 2;
+ 
+ 	if ((of_machine_is_compatible("microchip,sam9x7"))) {
+ 		isc->max_width = ISC_SAM9X7_MAX_SUPPORT_WIDTH;
 -- 
 2.34.1
 
