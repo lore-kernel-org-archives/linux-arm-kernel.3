@@ -4,62 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65C8DCCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 23:42:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 67DFDCCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 23:48:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FMd471QT/VhvjFXorUXuE2WlEYMkCwcbF7uR1pYLSH4=; b=igw/yAaH/X04NQ9gqyAXwj9qyy
-	BcS6+qH2Zb6fYfUVulR72islwogmh8d6zbqeBczG7i1GOzyK74PiAAO6Lwk1hetX0qrUGiL/OsNGq
-	yJV273hRSFJ0KiNYJU15PLMNqcaNvrK2zz/jYGbuLZizmqfa4m8Wp4cQhD2qyoF4MRTBPsax1tP+m
-	nTrWjbxFv8XTIetKr33TQgx3N3QDhIRY5eEA4EUIsgILrObE7Xo2a+Ri8GQV8dpv+CABoOrgZCwsE
-	fvhT0miQgVgNU5nJHF3743N5tyqCLPJj6xZmNOM1Qy2Qh1Y8DkAUSdkiuaI4coNt4xVB6X3s8Xuti
-	YvEOkqYw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=oxfajYkjaS+Ibs+NMMEZQpyUOHEqmm6x72DS9hVTPg4=; b=reQKlQbKBXd3enBd+Yb8s8kd9Y
+	He1dMDz4CwcCx2bhYkVob7QXeI9X7INinv6K98cybglfY+VABdUhQX2dZ/l3S6gOg8Wf3gBkMHdnQ
+	UKROvrWmo1piycB+9lzEC7lgDumSh19kO0nLR+sHGkLhuaYamB7IpH4bTAqS+qhX3HDRtvHZVX2xT
+	svvvedtBYAoJp1Ajy2Der6zTtA6yEXe9SGgBeo/pjlEenXK7mU/MmV8ba8qA6EHwUWAFyXOZQsJmi
+	+4YW8b3bfEGgcNTPlnr+VkAopyfmJSMrkkoGL9/932Wj0KJfCM0pCqJpuZf6EMl+hTpSNbl2c60rz
+	0VXf5F5Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v70HR-00000007KO7-31Kt;
-	Thu, 09 Oct 2025 23:42:41 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1v70Mn-00000007Kf3-38J4;
+	Thu, 09 Oct 2025 23:48:13 +0000
+Received: from mgamail.intel.com ([198.175.65.16])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v70HO-00000007KN7-2eoO;
-	Thu, 09 Oct 2025 23:42:39 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Type:Content-Transfer-Encoding:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=FMd471QT/VhvjFXorUXuE2WlEYMkCwcbF7uR1pYLSH4=; b=jGreVek6OZbEDqwbPYSBdqw5Gd
-	dPlT4qbvlXaRMpjpPGrFMmjZ/5KDhssnGVQx9omVGaTsOHBx4XRzf1sxQLZN6viJD3JXd2HO9GN5m
-	+31C3251pm7/+xzqLiEBODFk7qGkDMYMo5fNVxpuDly02opd4rPo5bLDDQvlLYbsQVm7xar92d9ZT
-	jqnqJZ+6fgpoXtnFe6IsXnqC0z1doYUnXwEiC6KaMEcXZjE/81+yWN/arG3ylFilc87KF4fZGG/Px
-	2/yXDR3UzSKdo8cQFyrvaI4jvrgOfPlmVDn3ZWZo6lvXNi0AAJgGPlu1LI9XJgzV6HlloP3a/OF9B
-	1QTiG/ug==;
-Received: from i53875bdd.versanet.de ([83.135.91.221] helo=diego.localnet)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1v70Gy-00080d-IE; Fri, 10 Oct 2025 01:42:12 +0200
-From: Heiko =?UTF-8?B?U3TDvGJuZXI=?= <heiko@sntech.de>
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: damon.ding@rock-chips.com, m.szyprowski@samsung.com,
- andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
- linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH] drm/bridge: analogix_dp: Fix connector status detection for
- bridges
-Date: Fri, 10 Oct 2025 01:42:11 +0200
-Message-ID: <3572997.QJadu78ljV@diego>
-In-Reply-To: <v6aqic6kffc3x42dkb4bika5tvoqdpmmloroqio2656g74pkws@7fe3bsfzbasn>
-References: <20251009193028.4952-1-heiko@sntech.de>
- <v6aqic6kffc3x42dkb4bika5tvoqdpmmloroqio2656g74pkws@7fe3bsfzbasn>
-MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
+	id 1v70Mk-00000007Kej-31Zs
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Oct 2025 23:48:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1760053691; x=1791589691;
+  h=date:from:to:cc:subject:message-id;
+  bh=UT0i8lMiej0tzoj9zF1HlZCupAhvPuh4+WTRp3axmxo=;
+  b=cqKhmPBfjXyntCdt5Av7gnTQKQH9GDBJJ0zC7b0KshnB9xUcT8vHZhZk
+   Sdr7rR8oWn/IdYzEYB6ja/sVX3GNwdNVFFHOjPkxCTF4txuk3V7HjPcm5
+   1IXHMjgl/QPfbyRigQ4nWXEkUCZ+lBuB4Ozr4fkJoBfvxjU5FOVbmJ6Z3
+   tgS9dQtlMzRYoSnbVBpJfnW4B7xPPZs8qoAcU8Jqx2o0kI9Ko74JQS1V/
+   Gqxf0BvupKAihdZ3rBHyeFzrOO9DQm0v90TcmvTEWYXMLrhaixijh2Z8x
+   w9VPpTcJsvcpyr+mCfGR/jHrlAIumLHsgmDtSxVAFzDqznJVdadgiEDGd
+   g==;
+X-CSE-ConnectionGUID: IH1s6bXYQ9mq3EYLDSEOGg==
+X-CSE-MsgGUID: PV0/ARUcQ+GT//apxnMAFg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11577"; a="62431376"
+X-IronPort-AV: E=Sophos;i="6.19,217,1754982000"; 
+   d="scan'208";a="62431376"
+Received: from orviesa003.jf.intel.com ([10.64.159.143])
+  by orvoesa108.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Oct 2025 16:48:10 -0700
+X-CSE-ConnectionGUID: c2I1HXxeQwSARrUe8bYu4g==
+X-CSE-MsgGUID: k49oRGRCRa+e6eVPnfBTIQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,217,1754982000"; 
+   d="scan'208";a="184867094"
+Received: from lkp-server01.sh.intel.com (HELO 6a630e8620ab) ([10.239.97.150])
+  by orviesa003.jf.intel.com with ESMTP; 09 Oct 2025 16:48:09 -0700
+Received: from kbuild by 6a630e8620ab with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1v70Mg-0001d5-07;
+	Thu, 09 Oct 2025 23:48:06 +0000
+Date: Fri, 10 Oct 2025 07:47:38 +0800
+From: kernel test robot <lkp@intel.com>
+To: Arnd Bergmann <arnd@arndb.de>
+Cc: linux-arm-kernel@lists.infradead.org, arm@kernel.org
+Subject: [soc:arm/fixes] BUILD SUCCESS
+ 58e368daf2d380105c0a25eb5feadf4ea7ba229d
+Message-ID: <202510100732.AZ4daPRE-lkp@intel.com>
+User-Agent: s-nail v14.9.25
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_164238_665829_B645FD66 
-X-CRM114-Status: GOOD (  36.69  )
+X-CRM114-CacheID: sfid-20251009_164810_859665_1E389D56 
+X-CRM114-Status: UNSURE (   5.63  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,116 +83,273 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dmitry,
+tree/branch: https://git.kernel.org/pub/scm/linux/kernel/git/soc/soc.git arm/fixes
+branch HEAD: 58e368daf2d380105c0a25eb5feadf4ea7ba229d  Merge tag 'zynqmp-soc-for-6.18' of https://github.com/Xilinx/linux-xlnx into arm/fixes
 
-Am Freitag, 10. Oktober 2025, 00:30:11 Mitteleurop=C3=A4ische Sommerzeit sc=
-hrieb Dmitry Baryshkov:
-> On Thu, Oct 09, 2025 at 09:30:28PM +0200, Heiko Stuebner wrote:
-> > Right now if there is a next bridge attached to the analogix-dp control=
-ler
-> > the driver always assumes this bridge is connected to something, but th=
-is
-> > is of course not always true, as that bridge could also be a hotpluggab=
-le
-> > dp port for example.
-> >=20
-> > On the other hand, as stated in commit cb640b2ca546 ("drm/bridge: displ=
-ay-
-> > connector: don't set OP_DETECT for DisplayPorts"), "Detecting the monit=
-or
-> > for DisplayPort targets is more complicated than just reading the HPD p=
-in
-> > level" and we should be "letting the actual DP driver perform detection=
-=2E"
-> >=20
-> > So use drm_bridge_detect() to detect the next bridge's state but ignore
-> > that bridge if the analogix-dp is handling the hpd-gpio.
-> >=20
-> > Signed-off-by: Heiko Stuebner <heiko@sntech.de>
-> > ---
-> > As this patch stands, it would go on top of v6 of Damon's bridge-connec=
-tor
-> > work, but could very well be also integrated into one of the changes th=
-ere.
-> >=20
-> > I don't know yet if my ordering and/or reasoning is the correct one or =
-if
-> > a better handling could be done, but with that change I do get a nice
-> > hotplug behaviour on my rk3588-tiger-dp-carrier board, where the
-> > Analogix-DP ends in a full size DP port.
-> >=20
-> >  drivers/gpu/drm/bridge/analogix/analogix_dp_core.c | 8 ++++++--
-> >  1 file changed, 6 insertions(+), 2 deletions(-)
-> >=20
-> > diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drive=
-rs/gpu/drm/bridge/analogix/analogix_dp_core.c
-> > index c04b5829712b..cdc56e83b576 100644
-> > --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-> > +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
-> > @@ -983,8 +983,12 @@ analogix_dp_bridge_detect(struct drm_bridge *bridg=
-e, struct drm_connector *conne
-> >  	struct analogix_dp_device *dp =3D to_dp(bridge);
-> >  	enum drm_connector_status status =3D connector_status_disconnected;
-> > =20
-> > -	if (dp->plat_data->next_bridge)
-> > -		return connector_status_connected;
-> > +	/*
-> > +	 * An optional next bridge should be in charge of detection the
-> > +	 * connection status, except if we manage a actual hpd gpio.
-> > +	 */
-> > +	if (dp->plat_data->next_bridge && !dp->hpd_gpiod)
-> > +		return drm_bridge_detect(dp->plat_data->next_bridge, connector);
->=20
-> And it's also not correct because the next bridge might be a retimer
-> with the bridge next to it being a one with the actual detection
-> capabilities. drm_bridge_connector solves that in a much better way. See
-> the series at [1]
->=20
-> [1] https://lore.kernel.org/dri-devel/41c2a141-a72e-4780-ab32-f22f3a2e017=
-9@samsung.com/
+elapsed time: 1021m
 
-Hence my comment above about that possibly not being the right variant.
-Sort of asking for direction :-) .
+configs tested: 253
+configs skipped: 6
 
-I am working on top of Damon's drm-bridge-connector series as noted above,
-but it looks like the detect function still is called at does then stuff.
+The following configs have been built successfully.
+More configs may be tested in the coming days.
 
-My board is the rk3588-tiger-displayport-carrier [0], with a dp-connector
-which is the next bridge, so _without_ any changes, the analogix-dp
-always assumes "something" is connected and I end up with
+tested configs:
+alpha                             allnoconfig    clang-22
+alpha                            allyesconfig    clang-19
+alpha                            allyesconfig    gcc-15.1.0
+alpha                               defconfig    clang-19
+arc                              allmodconfig    clang-19
+arc                               allnoconfig    clang-22
+arc                              allyesconfig    clang-19
+arc                          axs101_defconfig    gcc-15.1.0
+arc                                 defconfig    clang-19
+arc                   randconfig-001-20251010    gcc-8.5.0
+arc                   randconfig-002-20251010    gcc-8.5.0
+arm                              allmodconfig    clang-19
+arm                               allnoconfig    clang-22
+arm                              allyesconfig    clang-19
+arm                                 defconfig    clang-19
+arm                       imx_v4_v5_defconfig    gcc-15.1.0
+arm                   randconfig-001-20251010    gcc-8.5.0
+arm                   randconfig-002-20251010    gcc-8.5.0
+arm                   randconfig-003-20251010    gcc-8.5.0
+arm                   randconfig-004-20251010    gcc-8.5.0
+arm64                            allmodconfig    clang-19
+arm64                             allnoconfig    clang-22
+arm64                               defconfig    clang-19
+arm64                 randconfig-001-20251010    gcc-8.5.0
+arm64                 randconfig-002-20251010    gcc-8.5.0
+arm64                 randconfig-003-20251010    gcc-8.5.0
+arm64                 randconfig-004-20251010    gcc-8.5.0
+csky                              allnoconfig    clang-22
+csky                                defconfig    clang-19
+csky                  randconfig-001-20251009    clang-16
+csky                  randconfig-001-20251009    gcc-13.4.0
+csky                  randconfig-001-20251010    gcc-14.3.0
+csky                  randconfig-002-20251009    clang-16
+csky                  randconfig-002-20251009    gcc-15.1.0
+csky                  randconfig-002-20251010    gcc-14.3.0
+hexagon                          alldefconfig    clang-22
+hexagon                          allmodconfig    clang-17
+hexagon                          allmodconfig    clang-19
+hexagon                           allnoconfig    clang-22
+hexagon                          allyesconfig    clang-19
+hexagon                          allyesconfig    clang-22
+hexagon                             defconfig    clang-19
+hexagon               randconfig-001-20251009    clang-16
+hexagon               randconfig-001-20251010    gcc-14.3.0
+hexagon               randconfig-002-20251009    clang-16
+hexagon               randconfig-002-20251009    clang-19
+hexagon               randconfig-002-20251010    gcc-14.3.0
+i386                             allmodconfig    clang-20
+i386                              allnoconfig    clang-20
+i386                             allyesconfig    clang-20
+i386        buildonly-randconfig-001-20251009    gcc-14
+i386        buildonly-randconfig-001-20251010    gcc-14
+i386        buildonly-randconfig-002-20251009    gcc-14
+i386        buildonly-randconfig-002-20251010    gcc-14
+i386        buildonly-randconfig-003-20251009    gcc-14
+i386        buildonly-randconfig-003-20251010    gcc-14
+i386        buildonly-randconfig-004-20251009    gcc-14
+i386        buildonly-randconfig-004-20251010    gcc-14
+i386        buildonly-randconfig-005-20251009    gcc-14
+i386        buildonly-randconfig-005-20251010    gcc-14
+i386        buildonly-randconfig-006-20251009    gcc-14
+i386        buildonly-randconfig-006-20251010    gcc-14
+i386                                defconfig    clang-20
+i386                  randconfig-001-20251010    clang-20
+i386                  randconfig-002-20251010    clang-20
+i386                  randconfig-003-20251010    clang-20
+i386                  randconfig-004-20251010    clang-20
+i386                  randconfig-005-20251010    clang-20
+i386                  randconfig-006-20251010    clang-20
+i386                  randconfig-007-20251010    clang-20
+i386                  randconfig-011-20251009    clang-20
+i386                  randconfig-011-20251010    gcc-14
+i386                  randconfig-012-20251009    clang-20
+i386                  randconfig-012-20251010    gcc-14
+i386                  randconfig-013-20251009    clang-20
+i386                  randconfig-013-20251010    gcc-14
+i386                  randconfig-014-20251009    clang-20
+i386                  randconfig-014-20251010    gcc-14
+i386                  randconfig-015-20251009    clang-20
+i386                  randconfig-015-20251010    gcc-14
+i386                  randconfig-016-20251009    clang-20
+i386                  randconfig-016-20251010    gcc-14
+i386                  randconfig-017-20251009    clang-20
+i386                  randconfig-017-20251010    gcc-14
+loongarch                        allmodconfig    clang-19
+loongarch                         allnoconfig    clang-22
+loongarch                           defconfig    clang-19
+loongarch             randconfig-001-20251009    clang-16
+loongarch             randconfig-001-20251009    gcc-15.1.0
+loongarch             randconfig-001-20251010    gcc-14.3.0
+loongarch             randconfig-002-20251009    clang-16
+loongarch             randconfig-002-20251009    gcc-15.1.0
+loongarch             randconfig-002-20251010    gcc-14.3.0
+m68k                             allmodconfig    clang-19
+m68k                             allmodconfig    gcc-15.1.0
+m68k                              allnoconfig    gcc-15.1.0
+m68k                             allyesconfig    clang-19
+m68k                             allyesconfig    gcc-15.1.0
+m68k                                defconfig    clang-19
+m68k                          hp300_defconfig    gcc-15.1.0
+m68k                        m5272c3_defconfig    gcc-15.1.0
+microblaze                       allmodconfig    clang-19
+microblaze                       allmodconfig    gcc-15.1.0
+microblaze                        allnoconfig    gcc-15.1.0
+microblaze                       allyesconfig    clang-19
+microblaze                       allyesconfig    gcc-15.1.0
+microblaze                          defconfig    gcc-15.1.0
+mips                              allnoconfig    gcc-15.1.0
+mips                          eyeq5_defconfig    clang-22
+mips                           ip22_defconfig    clang-22
+nios2                             allnoconfig    gcc-15.1.0
+nios2                               defconfig    gcc-15.1.0
+nios2                 randconfig-001-20251009    clang-16
+nios2                 randconfig-001-20251009    gcc-8.5.0
+nios2                 randconfig-001-20251010    gcc-14.3.0
+nios2                 randconfig-002-20251009    clang-16
+nios2                 randconfig-002-20251009    gcc-11.5.0
+nios2                 randconfig-002-20251010    gcc-14.3.0
+openrisc                          allnoconfig    clang-22
+openrisc                         allyesconfig    gcc-15.1.0
+openrisc                  or1klitex_defconfig    clang-22
+parisc                           allmodconfig    gcc-15.1.0
+parisc                            allnoconfig    clang-22
+parisc                           allyesconfig    gcc-15.1.0
+parisc                              defconfig    gcc-15.1.0
+parisc                randconfig-001-20251009    clang-16
+parisc                randconfig-001-20251009    gcc-8.5.0
+parisc                randconfig-001-20251010    gcc-14.3.0
+parisc                randconfig-002-20251009    clang-16
+parisc                randconfig-002-20251009    gcc-9.5.0
+parisc                randconfig-002-20251010    gcc-14.3.0
+parisc64                            defconfig    gcc-15.1.0
+powerpc                          allmodconfig    gcc-15.1.0
+powerpc                           allnoconfig    clang-22
+powerpc                          allyesconfig    clang-22
+powerpc                          allyesconfig    gcc-15.1.0
+powerpc                        icon_defconfig    gcc-15.1.0
+powerpc                      mgcoge_defconfig    clang-22
+powerpc                      pasemi_defconfig    clang-22
+powerpc               randconfig-001-20251009    clang-16
+powerpc               randconfig-001-20251009    gcc-8.5.0
+powerpc               randconfig-001-20251010    gcc-14.3.0
+powerpc               randconfig-002-20251009    clang-16
+powerpc               randconfig-002-20251009    gcc-11.5.0
+powerpc               randconfig-002-20251010    gcc-14.3.0
+powerpc               randconfig-003-20251009    clang-16
+powerpc               randconfig-003-20251009    gcc-8.5.0
+powerpc               randconfig-003-20251010    gcc-14.3.0
+powerpc64             randconfig-001-20251010    gcc-14.3.0
+powerpc64             randconfig-002-20251009    clang-16
+powerpc64             randconfig-002-20251009    clang-22
+powerpc64             randconfig-002-20251010    gcc-14.3.0
+powerpc64             randconfig-003-20251009    clang-16
+powerpc64             randconfig-003-20251009    clang-22
+powerpc64             randconfig-003-20251010    gcc-14.3.0
+riscv                            allmodconfig    clang-22
+riscv                            allmodconfig    gcc-15.1.0
+riscv                             allnoconfig    clang-22
+riscv                            allyesconfig    clang-16
+riscv                            allyesconfig    gcc-15.1.0
+riscv                 randconfig-001-20251009    clang-22
+riscv                 randconfig-001-20251010    gcc-9.5.0
+riscv                 randconfig-002-20251009    clang-22
+riscv                 randconfig-002-20251010    gcc-9.5.0
+s390                             alldefconfig    gcc-15.1.0
+s390                             allmodconfig    clang-18
+s390                             allmodconfig    gcc-15.1.0
+s390                              allnoconfig    clang-22
+s390                             allyesconfig    gcc-15.1.0
+s390                  randconfig-001-20251009    clang-22
+s390                  randconfig-001-20251010    gcc-9.5.0
+s390                  randconfig-002-20251009    clang-22
+s390                  randconfig-002-20251010    gcc-9.5.0
+sh                               allmodconfig    gcc-15.1.0
+sh                                allnoconfig    gcc-15.1.0
+sh                               allyesconfig    gcc-15.1.0
+sh                         ecovec24_defconfig    gcc-15.1.0
+sh                    randconfig-001-20251009    clang-22
+sh                    randconfig-001-20251010    gcc-9.5.0
+sh                    randconfig-002-20251009    clang-22
+sh                    randconfig-002-20251010    gcc-9.5.0
+sh                           se7721_defconfig    clang-22
+sparc                            allmodconfig    gcc-15.1.0
+sparc                             allnoconfig    gcc-15.1.0
+sparc                               defconfig    gcc-15.1.0
+sparc                 randconfig-001-20251009    clang-22
+sparc                 randconfig-001-20251010    gcc-9.5.0
+sparc                 randconfig-002-20251009    clang-22
+sparc                 randconfig-002-20251010    gcc-9.5.0
+sparc64               randconfig-001-20251009    clang-22
+sparc64               randconfig-001-20251010    gcc-9.5.0
+sparc64               randconfig-002-20251009    clang-22
+sparc64               randconfig-002-20251010    gcc-9.5.0
+um                               allmodconfig    clang-19
+um                                allnoconfig    clang-22
+um                               allyesconfig    clang-19
+um                               allyesconfig    gcc-14
+um                    randconfig-001-20251009    clang-22
+um                    randconfig-001-20251010    gcc-9.5.0
+um                    randconfig-002-20251009    clang-22
+um                    randconfig-002-20251010    gcc-9.5.0
+x86_64                            allnoconfig    clang-20
+x86_64                           allyesconfig    clang-20
+x86_64      buildonly-randconfig-001-20251009    clang-20
+x86_64      buildonly-randconfig-001-20251010    gcc-14
+x86_64      buildonly-randconfig-002-20251009    clang-20
+x86_64      buildonly-randconfig-002-20251010    gcc-14
+x86_64      buildonly-randconfig-003-20251009    clang-20
+x86_64      buildonly-randconfig-003-20251010    gcc-14
+x86_64      buildonly-randconfig-004-20251009    clang-20
+x86_64      buildonly-randconfig-004-20251010    gcc-14
+x86_64      buildonly-randconfig-005-20251009    clang-20
+x86_64      buildonly-randconfig-005-20251010    gcc-14
+x86_64      buildonly-randconfig-006-20251009    clang-20
+x86_64      buildonly-randconfig-006-20251010    gcc-14
+x86_64                              defconfig    clang-20
+x86_64                                  kexec    clang-20
+x86_64                randconfig-001-20251010    clang-20
+x86_64                randconfig-002-20251010    clang-20
+x86_64                randconfig-003-20251010    clang-20
+x86_64                randconfig-004-20251010    clang-20
+x86_64                randconfig-005-20251010    clang-20
+x86_64                randconfig-006-20251010    clang-20
+x86_64                randconfig-007-20251010    clang-20
+x86_64                randconfig-008-20251010    clang-20
+x86_64                randconfig-071-20251009    gcc-14
+x86_64                randconfig-071-20251010    clang-20
+x86_64                randconfig-072-20251009    gcc-14
+x86_64                randconfig-072-20251010    clang-20
+x86_64                randconfig-073-20251009    gcc-14
+x86_64                randconfig-073-20251010    clang-20
+x86_64                randconfig-074-20251009    gcc-14
+x86_64                randconfig-074-20251010    clang-20
+x86_64                randconfig-075-20251009    gcc-14
+x86_64                randconfig-075-20251010    clang-20
+x86_64                randconfig-076-20251009    gcc-14
+x86_64                randconfig-076-20251010    clang-20
+x86_64                randconfig-077-20251009    gcc-14
+x86_64                randconfig-077-20251010    clang-20
+x86_64                randconfig-078-20251009    gcc-14
+x86_64                randconfig-078-20251010    clang-20
+x86_64                               rhel-9.4    clang-20
+x86_64                           rhel-9.4-bpf    gcc-14
+x86_64                          rhel-9.4-func    clang-20
+x86_64                    rhel-9.4-kselftests    clang-20
+x86_64                         rhel-9.4-kunit    gcc-14
+x86_64                           rhel-9.4-ltp    gcc-14
+x86_64                          rhel-9.4-rust    clang-20
+xtensa                            allnoconfig    gcc-15.1.0
+xtensa                randconfig-001-20251009    clang-22
+xtensa                randconfig-001-20251010    gcc-9.5.0
+xtensa                randconfig-002-20251009    clang-22
+xtensa                randconfig-002-20251010    gcc-9.5.0
 
-[    9.869198] [drm:analogix_dp_bridge_atomic_enable] *ERROR* failed to get=
- hpd single ret =3D -110
-[    9.980422] [drm:analogix_dp_bridge_atomic_enable] *ERROR* failed to get=
- hpd single ret =3D -110
-[   10.091522] [drm:analogix_dp_bridge_atomic_enable] *ERROR* failed to get=
- hpd single ret =3D -110
-[   10.202419] [drm:analogix_dp_bridge_atomic_enable] *ERROR* failed to get=
- hpd single ret =3D -110
-[   10.313651] [drm:analogix_dp_bridge_atomic_enable] *ERROR* failed to get=
- hpd single ret =3D -110
-
-when no display is connected.
-
-With this change I do get the expected hotplug behaviour, so something is
-missing still even with the bridge-connector series.
-
-
-Heiko
-
-
-[0] v3: https://lore.kernel.org/r/20250812083217.1064185-3-heiko@sntech.de
-    v4: https://lore.kernel.org/r/20251009225050.88192-3-heiko@sntech.de
-    (moved hpd-gpios from dp-connector back to analogix-dp per dp-connector
-    being not able to detect dp-monitors)
->=20
-> > =20
-> >  	if (!analogix_dp_detect_hpd(dp))
-> >  		status =3D connector_status_connected;
->=20
->=20
-
-
-
-
+--
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
