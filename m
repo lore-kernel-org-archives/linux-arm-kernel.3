@@ -4,73 +4,149 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F68CCCA471
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 04:11:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 81E49CCA471
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 04:15:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qQ2zeMeYDfoWTQYJ4xG+nhpK+0ZJUttKUUEWrzWjUSw=; b=lGA03lSEdgASPzVkQ8YF+zFxiC
-	bxBf6tFt1B1R2zU9nkji4qzdHmJ+ssmtUWxnnCkrkxhdqsSWxapRkfZ7R3JmTyAC2SM8L8HtM9R2x
-	6XHRCVYij0zUlgyY56FQjtqXWa4V5WCrgbeYVDP4zhxVgCmJwLFk5S9OciBwMUX6O1IHSlYNEvDAm
-	k/MuGjQgMUJZXfwfZg7BxtQsSm/BtnscABV+Mr7muxiE94+z9/QPU6EJ69gEHDytxkUwizx1esCSr
-	g5zltr5K5QcxyKsPtO23c8W002oX1QK70oBfnjr8Pwuj2BYdm01hVscfouW2PJQTjPqxFzPSULxxy
-	ooH7W5jw==;
+	bh=/js+3taDhrejgB7UpAvscxRkqjCCg2tof4BrdDtD+8U=; b=I3fZIA0LtmWF5kBvhi+HaQ6TyP
+	ASEeQl5bfJyb6bzhLpttQJFIiofbcG1985Mwqo+qHomXNd/KMNdYkPMwcW0t4nBOZp0O0qP+xsTK4
+	cIE8PvDic37L9I9VXJsRV3Mm9O8i54F3q6gN3mSswWqv8jIHpSysxJA2n7/1BNj6vO2zSXyejGnGY
+	jJj8AjTncSASIdDoD64tIau/+pZbu0cK61jzeSNG+N+H5qdZbD0p4HbhaWCPTZ+UV/3xuoRkDHCnY
+	nWvUTzqIilMddSleMqN731vUtKgAjhRk0JyE7b0SIOq7oQ8VQ+JAh5N3V2qwvCBcZdNd6y6PDQxVR
+	YUcDuQ8A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6hzQ-000000058wa-1WhQ;
-	Thu, 09 Oct 2025 04:10:52 +0000
-Received: from mail-m19731115.qiye.163.com ([220.197.31.115])
+	id 1v6i3T-000000059H3-0zym;
+	Thu, 09 Oct 2025 04:15:03 +0000
+Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6hzM-000000058va-0sJ8;
-	Thu, 09 Oct 2025 04:10:50 +0000
-Received: from [172.16.12.26] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 2543142d9;
-	Thu, 9 Oct 2025 12:10:40 +0800 (GMT+08:00)
-Message-ID: <a42ebdca-1cbc-498c-b859-336557823f26@rock-chips.com>
-Date: Thu, 9 Oct 2025 12:10:42 +0800
+	id 1v6i3Q-000000059GO-2oIN
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Oct 2025 04:15:02 +0000
+Received: from pps.filterd (m0279863.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 598I5KTs002704
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 9 Oct 2025 04:14:59 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
+	cc:content-transfer-encoding:content-type:date:from:in-reply-to
+	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
+	/js+3taDhrejgB7UpAvscxRkqjCCg2tof4BrdDtD+8U=; b=kWW3pZxibhYsonos
+	xFC0Upj6XzEn7h5r4ubL8lgzYXy+Q0HtPkjbzsqXRM18PRMGM9cyKHwjDEX5qYPF
+	ZY/Wk1YVir1y0qjNR0J8silgm524wvvCaPrdA7oPaZakeKmDjFwD1z8tcfEDnThV
+	5QznhUwAmIjzmOZX+M+Nxokx/dnz/dFtADSLWaq26b8eJWvs0LlxjFrqchiU34G3
+	ItF5lxyUg9dRPsSDfRq3XEKOPUIg4qGP+O8Cqz0nRPK1CV//hcjxz/ObvGFose9E
+	p9Vk6gT5CEWB81YKxm00drPgcowOoU0hrMVX0jKOiToYs9PRLDp5MrUpQBJAJQ1I
+	D4TI7g==
+Received: from mail-pl1-f199.google.com (mail-pl1-f199.google.com [209.85.214.199])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49nv4m1ej1-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
+	for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 04:14:59 +0000 (GMT)
+Received: by mail-pl1-f199.google.com with SMTP id d9443c01a7336-2698ede62c2so1608775ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Oct 2025 21:14:59 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759983298; x=1760588098;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=/js+3taDhrejgB7UpAvscxRkqjCCg2tof4BrdDtD+8U=;
+        b=ksD8vSa3CSIKROjb+PmBHKdXRjfFMB/jPvMCYQSNlfWc5L05H0k1K0NMLAKyasz/Wi
+         6xT4+zniM/Mb1jcc7yoshhHPTxRWRn2vYWPaW+jG2z2WW9zVUrTRUrXKO2+qG5WTbXpw
+         ICbi/BMrRCInXGCrFeu3Q82PrjigPefsSDIm9JjqjBJLl3AXAESA1sZ8sL2K4O7KFB0J
+         XTXmOTO0lsYp0CAOlGqEdZBnjueRTtVPaEcibJRBHplYmOX6yIXI5aZjObl0ssvmb3Nc
+         yzVcY7ezkYm6TpW2zb+FkSElvRHt1c2pJaTXpH9Xy+V20EsfGWi3MaKpz0TAVyrWJUEk
+         N12Q==
+X-Forwarded-Encrypted: i=1; AJvYcCU+JJ7sHcK5ByYkqoyx+DpYrX9GkWPSOommmlFWpSQH0yZ4sjsbMMPie7WS0qbphNu6MUmRmRPm4hg6Zj4vde0p@lists.infradead.org
+X-Gm-Message-State: AOJu0YynE9U842EKlM0B/IcTyMs+KhfuSchYS5oHeV6DeLUhD9qQq2XO
+	b49ftETWbEcg3o9FNc++rnJIGPIucCasm+qO3zb6IvQfPoKc9we357YEORdyVPxcgvXVpM69Odi
+	7aCmwC44t27RjHCn8Eok2WWQ4zrbLMBNfngjW6GKWNpPcHcREwr/71dxGthRE+2GNNt1KILhZO6
+	6TFg==
+X-Gm-Gg: ASbGncuZWmclyCpC1WXNl77JABx3cQSxpvGbASwWMmhv3uDjgQbJMhwxVzNRQB/Ktcy
+	oGmkNa71rz5/Sw0drmGzq0C9DqL9jhP2Rr+LlwLkRx/6WO3mvDakSRTzb3zu9ezsN5LcCKK8Ayx
+	kDvwPybf6OdvTyUJHQT8iy+mhzhOx17YrkXXF2GlFG2haLbytzi258DB3fU0MOZE5ExujjOgTT4
+	dyrcykj0ig/mu76VwrAsuPq8OZerUZsR4z+Zrmm9ZFcePfpCD/TvmubiO5whbylbbx687CiosXO
+	YiToxXO4X4hZJBPLXhxmsNyUvxbQvtQxMJQ6KTdkWt04X4DMw6fpCBkJfvp1kGsfEBJQ1pEWjN+
+	mZfjoroN0SfdR/Ydw4RsSExdxarXkFv3SqIML2zL/Qw==
+X-Received: by 2002:a17:902:d491:b0:253:a668:b638 with SMTP id d9443c01a7336-290273c598bmr46026575ad.2.1759983298277;
+        Wed, 08 Oct 2025 21:14:58 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHUYcLZvr1TDduUWf5IW+YzwXsZMsBV8TnFvLqPUsLDWvggUY7/sMA/hO5Cu4Ze/JJFPYsNLA==
+X-Received: by 2002:a17:902:d491:b0:253:a668:b638 with SMTP id d9443c01a7336-290273c598bmr46026265ad.2.1759983297782;
+        Wed, 08 Oct 2025 21:14:57 -0700 (PDT)
+Received: from [10.240.201.55] (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29034e20f8csm13510955ad.49.2025.10.08.21.14.52
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 08 Oct 2025 21:14:57 -0700 (PDT)
+Message-ID: <9ba7562f-bf6a-4759-b4a3-aaa80c45e247@oss.qualcomm.com>
+Date: Thu, 9 Oct 2025 09:44:51 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 11/18] drm/display: bridge_connector: Ensure last
- bridge determines EDID/modes detection capabilities
-To: Luca Ceresoli <luca.ceresoli@bootlin.com>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
- Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
- kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
- jingoohan1@gmail.com, p.zabel@pengutronix.de, hjc@rock-chips.com,
- heiko@sntech.de, andy.yan@rock-chips.com, dianders@chromium.org,
- m.szyprowski@samsung.com, jani.nikula@intel.com,
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
-References: <20250930090920.131094-1-damon.ding@rock-chips.com>
- <20250930090920.131094-12-damon.ding@rock-chips.com>
- <20251001180922.6bbe42ac@booty>
+Subject: Re: [PATCH v15 07/14] firmware: psci: Implement vendor-specific
+ resets as reboot-mode
+To: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>,
+        Bartosz Golaszewski <bartosz.golaszewski@linaro.org>,
+        Bjorn Andersson <andersson@kernel.org>,
+        Sebastian Reichel <sre@kernel.org>, Rob Herring <robh@kernel.org>,
+        Sudeep Holla <sudeep.holla@arm.com>,
+        Souvik Chakravarty <Souvik.Chakravarty@arm.com>,
+        Krzysztof Kozlowski <krzk+dt@kernel.org>,
+        Conor Dooley
+ <conor+dt@kernel.org>,
+        Andy Yan <andy.yan@rock-chips.com>,
+        Mark Rutland <mark.rutland@arm.com>,
+        Lorenzo Pieralisi <lpieralisi@kernel.org>,
+        Arnd Bergmann <arnd@arndb.de>, Konrad Dybcio <konradybcio@kernel.org>,
+        cros-qcom-dts-watchers@chromium.org, Vinod Koul <vkoul@kernel.org>,
+        Catalin Marinas <catalin.marinas@arm.com>,
+        Will Deacon <will@kernel.org>,
+        Florian Fainelli <florian.fainelli@broadcom.com>,
+        Moritz Fischer <moritz.fischer@ettus.com>,
+        John Stultz <john.stultz@linaro.org>,
+        Matthias Brugger <matthias.bgg@gmail.com>,
+        Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
+        Mukesh Ojha <mukesh.ojha@oss.qualcomm.com>,
+        Stephen Boyd <swboyd@chromium.org>,
+        Andre Draszik
+ <andre.draszik@linaro.org>,
+        Kathiravan Thirumoorthy <kathiravan.thirumoorthy@oss.qualcomm.com>,
+        linux-pm@vger.kernel.org, linux-kernel@vger.kernel.org,
+        devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+        linux-arm-msm@vger.kernel.org,
+        Elliot Berman <quic_eberman@quicinc.com>,
+        Srinivas Kandagatla <srini@kernel.org>
+References: <20250922-arm-psci-system_reset2-vendor-reboots-v15-0-7ce3a08878f1@oss.qualcomm.com>
+ <20250922-arm-psci-system_reset2-vendor-reboots-v15-7-7ce3a08878f1@oss.qualcomm.com>
 Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <20251001180922.6bbe42ac@booty>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a99c729f83903a3kunm16370414a6fa98
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGRhISlZKSRgYQkhITx4fSEtWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
-	1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=CRpZqVpXED0SBtQWsNn3unDFg6hHUsSbzj0hQuFlxkwW+RHOgdqWJ+gRlo060O6EvTD8QiK/bJkRJC7jl8p3TKWpa+RYxJFZxheUO49caZ0+LEO/SzLEqHTLZz4OpdNo5ABc75WLQf70YZcuBwLuXIDCpICPiK4KZ7G+gX4C7Gg=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=qQ2zeMeYDfoWTQYJ4xG+nhpK+0ZJUttKUUEWrzWjUSw=;
-	h=date:mime-version:subject:message-id:from;
+From: Umang Chheda <umang.chheda@oss.qualcomm.com>
+In-Reply-To: <20250922-arm-psci-system_reset2-vendor-reboots-v15-7-7ce3a08878f1@oss.qualcomm.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDA4MDEyMSBTYWx0ZWRfX43xz8VoLmu/+
+ kwdN2M6thZFfkub+TuFRxhC7s8Pw451vZgbiBvp9XQWbbLw+YTWQEG944ndXkMFcMAeh5Sh4oEh
+ EvtnkrNgQFbk3zjnCap8thOWCgHlZPMqz7RMmPHXSNXSUF+vYhfwhpLR1qImRlgrlDqFNeeyOyH
+ gXDMbAvTKDcqPG3jdz6UnjDGLFrBF3baStTiFHEuUk6WGP1egHjVS/hIb1WeP0gBAAtOrjAw9h3
+ +l5hJyqnIJABhhTqOohDrx3SFEyGy+gWrO/51Z3fpt73tc8BQOjZG/Qu+l9yYoV6lko7HEtavnK
+ 5XDvaI7u8mzIrkRfpL5OxrMrYyE5yF59JfI7/DuLxcR/3TzV/iIMp/JYgXUATl0RvDP/UiBr9wH
+ UqKBllUsteX6pVeLcD+166OvStIdOw==
+X-Authority-Analysis: v=2.4 cv=B6G0EetM c=1 sm=1 tr=0 ts=68e736c3 cx=c_pps
+ a=JL+w9abYAAE89/QcEU+0QA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
+ a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=EUspDBNiAAAA:8 a=yVxwAGkkkSKiqd9de7UA:9
+ a=3ZKOabzyN94A:10 a=QEXdDO2ut3YA:10 a=324X-CrmTo6CU4MGRt3R:22
+X-Proofpoint-GUID: T5JK5LykjzSfim-eQZYH0vj4ZksjqUou
+X-Proofpoint-ORIG-GUID: T5JK5LykjzSfim-eQZYH0vj4ZksjqUou
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-09_01,2025-10-06_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ spamscore=0 lowpriorityscore=0 bulkscore=0 clxscore=1011 suspectscore=0
+ malwarescore=0 adultscore=0 priorityscore=1501 phishscore=0 impostorscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2510020000 definitions=main-2510080121
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251008_211048_778446_58CB818C 
-X-CRM114-Status: GOOD (  31.57  )
+X-CRM114-CacheID: sfid-20251008_211500_721746_95858E9B 
+X-CRM114-Status: GOOD (  25.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,169 +161,52 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Luca,
 
-On 10/2/2025 12:09 AM, Luca Ceresoli wrote:
-> Hello Damon,
+On 9/22/2025 7:10 PM, Shivendra Pratap wrote:
+> SoC vendors have different types of resets which are controlled
+> through various hardware registers. For instance, Qualcomm SoC
+> may have a requirement that reboot with “bootloader” command
+> should reboot the device to bootloader flashing mode and reboot
+> with “edl” should reboot the device into Emergency flashing mode.
+> Setting up such reboots on Qualcomm devices can be inconsistent
+> across SoC platforms and may require setting different HW
+> registers, where some of these registers may not be accessible to
+> HLOS. These knobs evolve over product generations and require
+> more drivers. PSCI spec defines, SYSTEM_RESET2, vendor-specific
+> reset which can help align this requirement. Add support for PSCI
+> SYSTEM_RESET2, vendor-specific resets and align the implementation
+> to allow user-space initiated reboots to trigger these resets.
 > 
-> On Tue, 30 Sep 2025 17:09:13 +0800
-> Damon Ding <damon.ding@rock-chips.com> wrote:
+> Implement the PSCI vendor-specific resets by registering to the
+> reboot-mode framework. As psci init is done at early kernel init,
+> reboot-mode registration cannot be done at the time of psci init.
+> This is because reboot-mode creates a “reboot-mode” class for
+> exposing sysfs, which can fail at early kernel init. To overcome
+> this, introduce a late_initcall to register PSCI vendor-specific
+> resets as reboot modes. Implement a reboot-mode write function
+> that sets reset_type and cookie values during the reboot notifier
+> callback.  Introduce a firmware-based call for SYSTEM_RESET2
+> vendor-specific reset in the psci_sys_reset path, using
+> reset_type and cookie if supported by secure firmware. Register a
+> panic notifier and clear vendor_reset valid status during panic.
+> This is needed for any kernel panic that occurs post
+> reboot_notifiers.
 > 
->> When multiple bridges are present, EDID detection capability
->> (DRM_BRIDGE_OP_EDID) takes precedence over modes detection
->> (DRM_BRIDGE_OP_MODES). To ensure the above two capabilities are
->> determined by the last bridge in the chain, we handle three cases:
->>
->> Case 1: The later bridge declares only DRM_BRIDGE_OP_MODES
->>   - If the previous bridge declares DRM_BRIDGE_OP_EDID, set
->>     &drm_bridge_connector.bridge_edid to NULL and set
->>     &drm_bridge_connector.bridge_modes to the later bridge.
->>   - Ensure modes detection capability of the later bridge will not
->>     be ignored.
->>
->> Case 2: The later bridge declares only DRM_BRIDGE_OP_EDID
->>   - If the previous bridge declares DRM_BRIDGE_OP_MODES, set
->>     &drm_bridge_connector.bridge_modes to NULL and set
->>     &drm_bridge_connector.bridge_edid to the later bridge.
->>   - Although EDID detection capability has higher priority, this
->>     operation is for balance and makes sense.
->>
->> Case 3: the later bridge declares both of them
->>   - Assign later bridge as &drm_bridge_connector.bridge_edid and
->>     and &drm_bridge_connector.bridge_modes to this bridge.
->>   - Just leave transfer of these two capabilities as before.
+> By using the above implementation, userspace will be able to issue
+> such resets using the reboot() system call with the "*arg"
+> parameter as a string based command. The commands can be defined
+> in PSCI device tree node under “reboot-mode” and are based on the
+> reboot-mode based commands.
 > 
-> I think the whole explanation can be more concisely rewritten as:
-> 
-> If the later bridge declares OP_EDID, OP_MODES or both, then both
-> .bridge_modes and .bridge_edid should be set to NULL (if any was set
-> from a previous bridge), and then .bridge_modes and/or .bridge_edid be
-> set to the later bridge as is done already.
-> 
-> Does this look correct (i.e. does it convey the same meaning)?
-> 
->> --- a/drivers/gpu/drm/display/drm_bridge_connector.c
->> +++ b/drivers/gpu/drm/display/drm_bridge_connector.c
->> @@ -640,6 +640,7 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
->>   	struct drm_connector *connector;
->>   	struct i2c_adapter *ddc = NULL;
->>   	struct drm_bridge *bridge, *panel_bridge = NULL;
->> +	struct drm_bridge *pre_bridge_edid, *pre_bridge_modes;
->>   	unsigned int supported_formats = BIT(HDMI_COLORSPACE_RGB);
->>   	unsigned int max_bpc = 8;
->>   	bool support_hdcp = false;
->> @@ -668,6 +669,9 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
->>   	 */
->>   	connector_type = DRM_MODE_CONNECTOR_Unknown;
->>   	drm_for_each_bridge_in_chain(encoder, bridge) {
->> +		pre_bridge_edid = bridge_connector->bridge_edid;
->> +		pre_bridge_modes = bridge_connector->bridge_modes;
->> +
->>   		if (!bridge->interlace_allowed)
->>   			connector->interlace_allowed = false;
->>   		if (!bridge->ycbcr_420_allowed)
->> @@ -681,6 +685,44 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
->>   			bridge_connector->bridge_detect = bridge;
->>   		if (bridge->ops & DRM_BRIDGE_OP_MODES)
->>   			bridge_connector->bridge_modes = bridge;
->> +
->> +		/*
->> +		 * When multiple bridges are present, EDID detection capability
->> +		 * (DRM_BRIDGE_OP_EDID) takes precedence over modes detection
->> +		 * (DRM_BRIDGE_OP_MODES). To ensure the above two capabilities
->> +		 * are determined by the last bridge in the chain, we handle
->> +		 * three cases:
->> +		 *
->> +		 * Case 1: The later bridge declares only DRM_BRIDGE_OP_MODES
->> +		 *  - If the previous bridge declares DRM_BRIDGE_OP_EDID, set
->> +		 *    &drm_bridge_connector.bridge_edid to NULL and set
->> +		 *    &drm_bridge_connector.bridge_modes to the later bridge.
->> +		 *  - Ensure modes detection capability of the later bridge
->> +		 *    will not be ignored.
->> +		 *
->> +		 * Case 2: The later bridge declares only DRM_BRIDGE_OP_EDID
->> +		 *  - If the previous bridge declares DRM_BRIDGE_OP_MODES, set
->> +		 *    &drm_bridge_connector.bridge_modes to NULL and set
->> +		 *    &drm_bridge_connector.bridge_edid to the later bridge.
->> +		 *  - Although EDID detection capability has higher priority,
->> +		 *    this operation is for balance and makes sense.
->> +		 *
->> +		 * Case 3: the later bridge declares both of them
->> +		 *  - Assign later bridge as &drm_bridge_connector.bridge_edid
->> +		 *    and &drm_bridge_connector.bridge_modes to this bridge.
->> +		 *  - Just leave transfer of these two capabilities as before.
->> +		 */
->> +		if (bridge->ops & DRM_BRIDGE_OP_EDID &&
->> +		    !(bridge->ops & DRM_BRIDGE_OP_MODES)) {
->> +			if (pre_bridge_modes)
->> +				bridge_connector->bridge_modes = NULL;
->> +		}
->> +		if (bridge->ops & DRM_BRIDGE_OP_MODES &&
->> +		    !(bridge->ops & DRM_BRIDGE_OP_EDID)) {
->> +			if (pre_bridge_edid)
->> +				bridge_connector->bridge_edid = NULL;
->> +		}
->> +
-> 
-> If the above rewrite is correct, then I think this patch can be
-> rewritten in a simple way (build tested only):
-> 
-> diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
-> index a5bdd6c10643..bd5dbafe88bc 100644
-> --- a/drivers/gpu/drm/display/drm_bridge_connector.c
-> +++ b/drivers/gpu/drm/display/drm_bridge_connector.c
-> @@ -672,14 +672,18 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
->                  if (!bridge->ycbcr_420_allowed)
->                          connector->ycbcr_420_allowed = false;
->   
-> -               if (bridge->ops & DRM_BRIDGE_OP_EDID)
-> -                       bridge_connector->bridge_edid = bridge;
-> +               if (bridge->ops & DRM_BRIDGE_OP_EDID || bridge->ops & DRM_BRIDGE_OP_MODES) {
-> +                       bridge_connector->bridge_edid = NULL;
-> +                       bridge_connector->bridge_modes = NULL;
-> +                       if (bridge->ops & DRM_BRIDGE_OP_EDID)
-> +                               bridge_connector->bridge_edid = bridge;
-> +                       if (bridge->ops & DRM_BRIDGE_OP_MODES)
-> +                               bridge_connector->bridge_modes = bridge;
-> +               }
->                  if (bridge->ops & DRM_BRIDGE_OP_HPD)
->                          bridge_connector->bridge_hpd = bridge;
->                  if (bridge->ops & DRM_BRIDGE_OP_DETECT)
->                          bridge_connector->bridge_detect = bridge;
-> -               if (bridge->ops & DRM_BRIDGE_OP_MODES)
-> -                       bridge_connector->bridge_modes = bridge;
->                  if (bridge->ops & DRM_BRIDGE_OP_HDMI) {
->                          if (bridge_connector->bridge_hdmi)
->                                  return ERR_PTR(-EBUSY);
+> Signed-off-by: Shivendra Pratap <shivendra.pratap@oss.qualcomm.com>
+> ---
+>  drivers/firmware/psci/Kconfig |  2 +
+>  drivers/firmware/psci/psci.c  | 89 ++++++++++++++++++++++++++++++++++++++++++-
+>  2 files changed, 90 insertions(+), 1 deletion(-)
 > 
 
-Yes, this is correct and maintains functional equivalence with the 
-previous implementation.
+Reviewed-by: Umang Chheda <umang.chheda@oss.qualcomm.com>
 
-I previously attempted to implement this feature by modifying the logic 
-in this section. However, that approach would obscure the explicit 
-propagation semantics of the bridge chain flags 
-(OP_EDID/OP_HPD/OP_DETECT/OP_MODES). Therefore, I finally decided to 
-implemented it as a specific check after this code block.
-
-Dmitry, what's your take on this?
-
-> Another thing to note is that this patch conflicts with [0], which I
-> plan to apply in the next few days. The two patches are orthogonal but
-> they insist on the same lines (those assigning
-> bridge_connector->bridge_* = bridge). Not a big deal, whichever patch
-> comes later will be easily adapted. Just wanted to ensure you are aware.
-> 
-> [0] https://lore.kernel.org/all/20250926-drm-bridge-alloc-getput-bridge-connector-v2-1-138b4bb70576@bootlin.com/
-> 
-
-This is indeed a clever approach to the managing bridge resource cleanup 
-in drm_bridge_connector. Thanks a lot for the heads-up! I'll resolve 
-this conflict and rebase the patch series.
-
-Apologies for the delayed reply as I was on vacation. ;-)
-
-Best regards,
-Damon
-
+Thanks,
+Umang
 
