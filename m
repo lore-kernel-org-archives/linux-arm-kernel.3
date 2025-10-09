@@ -4,171 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E1C0CCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 08:52:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB662CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 08:52:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/ZCakZ64AErXswneiygzdVfbFt3gP+jU5le+UAWQMgY=; b=PGfgig8qwjc5pmD44v0WsUgjt9
-	unRy5efuYmcYCO17pH8WsJWiM15eDUxjGZEC1vvJOiN++juCaqAtBfdjB9mUFbHoAe7durCSmbSHy
-	b6Cyvo9vLjAlE602qsDkzWPM3pvlHBacgDbADzxwADZFzpoF0Wm3bS6W8RnInQMn0eQrTiwJ6h1lA
-	FPY/w94+BwDJiGIDqRmh5YGREwA4+queVdML6Sw8vhZGnbD+p7GoO0W7Utvz5qIZOIiixPKQCfrin
-	piKVis+9gXxPy5E07UINSLjdDPk1Uh/aaeGFPVt8hCGo+FfmhtcQxhdVQiSRN6s6Cg4rXpR6CIZq9
-	QK+1Lbmw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=LX+oMa+jHbP0Hp1JweGeU/vRyr5J+0eXnw+uKsbEDeg=; b=nBoS0a6JKYduYxhtF1xbqNtuUI
+	4Wo4X/wDlsi6zsQWmcLKNzsP6fn4gmnBYDHIrIHsf3vyHV5xa6NGvhBsAX/0dWwyq16nP6ybVR5XT
+	4KW3uc3/qWcCd/03W/S0pJJ69+SzlEUb6wcdGk2tFtdj01DKwcC9vxVmhCzmOunpET91Hk13lTV/k
+	TzOyGn/F8op9HwBD7rdo7btjqhYJIaaC/0w/uulq7x6W3YMTpXS+kVCGAVJnl8kxsZJvll7xVejIN
+	DcaEb1UudOql/CDfNA/F89mRbZ7EEUKzJEqVPR0TnWkdaUHAVjHyBIQKygGmswfDr/GLqabKf1WQZ
+	0x3ALu+g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6mNM-00000005ZHA-0Kcx;
-	Thu, 09 Oct 2025 08:51:52 +0000
-Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
+	id 1v6mOB-00000005ZPo-1kS7;
+	Thu, 09 Oct 2025 08:52:43 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6mNJ-00000005ZGf-3kfQ
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 08:51:51 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=TgKBeHIMnMVJfhh6HiBKykfOSeXOi5slTLgbwTZZmWZEZmTYhWjwdmhypZ4oxdmYMI+TjOOdBVYg0P+1wxBYCaZAHbSfwHA3TAfZoHaiRc9QJU+++P31y3qxKfaDKPGkKqtkzKPU8QLbB7oa7n7kTofIdUCuNsDisX7Hv2Pmb45s48WevZYTgnpaMHl63MIwB9+cij0bo8s5TKJyzHgO/3M78rkYt9RbsFDdPibRa9QVhxEV2BjPBj+h8tDcal8Wexjf3gLmSsTjmJ+KlrMotamuMv74/HkHBwMjBHeccIcabe7Db1MznvWrYKKJ7gsF4E8Dt9SgWTVKYIvc2v+lfw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=/ZCakZ64AErXswneiygzdVfbFt3gP+jU5le+UAWQMgY=;
- b=ddn0W/lnfEbz9rASk5H62sfizYvVWSdpE6Oujb06G9FWAvVyAX5q6vegUVK8Ty+rwSdcJvPHnNIXY70b7a4/INyCXPcshBrXD2QR+qfZAiv5pzIVXU3bXPx+jRWr7/kpxFRvhl503GC13OhmkvPSKjXuioRd+WpitJK8wP3yxGRJCocESAfnYOc5laET6plZRB/VufeTk8QH+nBn1tQ9A/JjiUxhY9XLEk/qjh/c0zhFhxInxTANgQJDSQ6gnZrvsuw2jOSbRRKlfOFJHBRvstEq5dUlmN+2us+0Y39BmcSzemQmstb3Op+ojB9bsRa3iETUDQdkNeaO0iMh1C4mnw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
- dkim=pass header.d=iopsys.eu; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
- s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=/ZCakZ64AErXswneiygzdVfbFt3gP+jU5le+UAWQMgY=;
- b=UeDk6Y6c4l//XUie83VTEDyV3WKSlTw+Xt2lU+ucxZj838lv5NodS577UrsRlFA0UdTOgM39DBfdOceiOkvUqxEHKE7f8zMZ6s93UZreoUaiXr2Urwnm7q9ueVXlsu4abr4lfCAvLyLzA6NdgXo77lWkkMlWKPKs5ov4dzKnGg7LE3/Bi4KxWsM5xYCFqcQb2E4qZS1Io7k2U0Jj+P0sDM19vzxgaoGNJ+uKhjvBjnhCiiHMqMBvTHfw2S0AbGwzBxSBvoB4VYRfFqZo9y2gJ0XZvPvAnyMn5XmFEP+EaQaP4MnVtB2BRwTVtwvezDFGhN2mSsEMS0Bifwa15y90vQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=iopsys.eu;
-Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
- by DB9PR08MB8434.eurprd08.prod.outlook.com (2603:10a6:10:3d6::5) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.9; Thu, 9 Oct
- 2025 08:51:37 +0000
-Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
- ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
- ([fe80::4cd3:da80:2532:daa0%3]) with mapi id 15.20.9203.009; Thu, 9 Oct 2025
- 08:51:37 +0000
-Message-ID: <cca2729e-dec7-402a-9102-4038f73f68fa@iopsys.eu>
-Date: Thu, 9 Oct 2025 11:51:34 +0300
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 13/13] spi: airoha: buffer must be 0xff-ed before
- writing
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Lorenzo Bianconi <lorenzo@kernel.org>, Ray Liu <ray.liu@airoha.com>,
- Mark Brown <broonie@kernel.org>, Andy Shevchenko <andy@kernel.org>,
- linux-arm-kernel@lists.infradead.org, linux-spi@vger.kernel.org,
- linux-kernel@vger.kernel.org
-Cc: Andreas Gnau <andreas.gnau@iopsys.eu>
-References: <20251001222347.3386506-1-mikhail.kshevetskiy@iopsys.eu>
- <20251001222347.3386506-14-mikhail.kshevetskiy@iopsys.eu>
- <bcfb637a-79bb-42d8-a2b9-508a2fab6025@collabora.com>
-From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
-Content-Language: en-US, ru-RU
-In-Reply-To: <bcfb637a-79bb-42d8-a2b9-508a2fab6025@collabora.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: FR4P281CA0236.DEUP281.PROD.OUTLOOK.COM
- (2603:10a6:d10:e9::10) To GV2PR08MB8121.eurprd08.prod.outlook.com
- (2603:10a6:150:7d::22)
+	id 1v6mOA-00000005ZPD-0BXL;
+	Thu, 09 Oct 2025 08:52:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=LX+oMa+jHbP0Hp1JweGeU/vRyr5J+0eXnw+uKsbEDeg=; b=j06+/3mg42tqu7JbMt6L0CWofx
+	9FZVgHx/AI4LnmClu8wCF9PGMVy6u9TQFUsbKPx7UFC899oK5+KN5S3YY60nJTMQjNgn1UMxiqojD
+	8CrX4PObFPC+HitxOPACnHHBPjHwMGksNMpbvmPtZ9aubKXYynXdhPpMAk89XZlz52vDIoww3Wh06
+	k1mTYk3EG+VrBWF3edX95z7ylLhHVUvzwjKIU7b17TgCoVEhUoK97jC8D/KKtaGoAqUqd6Befo23P
+	7N6CpkHgxM3OH/Vk6WshxPP+6dtwiEftLhzxef1qDVNwHFrOfRqGvD01VSaXIo7Ga4GPNwYqdsaA2
+	m/H/P5GQ==;
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v6mO6-00000001JtD-1zf4;
+	Thu, 09 Oct 2025 08:52:40 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1759999951;
+	bh=OhNNkTtBr/D0etqH3D/6q1k1s4C6V2iYC7cl0FYmwQc=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=da3wSNsSLCyPM4QkYgbbRZPHDm40+Cl9QKJMzSMTuk/2M+bWbHnic86mkZ8n3ZO37
+	 u5AIEm51O/ImGRvo18U9fGjRSEExt11oLpFeNIGwNrQRZi8vjfPtxvIVlKkmr29eBf
+	 p0X+XooO7gBBm1rhNVj68q9NjzB84+IS/QXlXGmVJFwMaxjtuBZp+cuAaeEnS9tAYa
+	 vKrx3MZnWudNyzjKKHzHmjF/nNAmbwM8eD9OWIVTd+zLlmuYXSBngAkf8QWqrqCqyd
+	 TfPVv+DTB3Je9njP+MLTjOp3ssRfRtKJMP2fo560oAnB73En/tTy9ikPPJOKvxhPYy
+	 AfZrfEi/mESyg==
+Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 48B7217E038B;
+	Thu,  9 Oct 2025 10:52:31 +0200 (CEST)
+Message-ID: <ad744447-a871-43b8-aac1-128d4cfb8c47@collabora.com>
+Date: Thu, 9 Oct 2025 10:52:30 +0200
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|DB9PR08MB8434:EE_
-X-MS-Office365-Filtering-Correlation-Id: f2632b2f-d6aa-4768-52c2-08de07110e12
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|1800799024|366016|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?T2RjcGs3Y1NvRU1YWjczd1ZNbW5pK21ZNnpIdlJZdGlnRW5ZbEtWZUlMM3NC?=
- =?utf-8?B?NkN4RHYyUlQwc0pQWkFLbGVZZnhIRTduNkpuWW13L3lYUXdFVjgzSFpYZ0F4?=
- =?utf-8?B?ZWtOMkc0VzVsb1RxajltUGpiQVdoSW9aQnAyb3FOVGR3NXNnOGR6VStVRXgv?=
- =?utf-8?B?S0dVOVNQV1FvejNRK1R6WUoxVUh6bzVPZ2VtVFpmYWxrVHR0SGl4WTBWS3Q2?=
- =?utf-8?B?VUVlY0dqSmRDdnRaS04xMDlTZTQxLzJVZ1pzUFZMY3RQNmE5TEhrSk9xMW5h?=
- =?utf-8?B?c0toOTFqd216ZGJxeVVvc2xDbXg3bmIrOXg1MVBRNVNlUjRoMWhLTmErRDQv?=
- =?utf-8?B?RE1ZYWRDbmxXcjhLcTNZaHJzUThQYmxsblFWS3AvWEFzb3VVVk1CeVFtd0ZU?=
- =?utf-8?B?QTNaQ1lkNnpiN0VYOVVWbFVRWkVTeGRoMzFvUlFtbExDb0JEU1UzSWg3UFMv?=
- =?utf-8?B?Uys4MXBhRGowNFViMTgxcEhlcTc3QUR5UHAwb083YzdvMjQ2OFkzY29yVDBN?=
- =?utf-8?B?bGFGaTBiODBMcjV0Y2lraTJLL01KMDVTTjE0bzQ3eEdicHgzSk5DenY4aGFG?=
- =?utf-8?B?bXp2MTQ3OFhTb0d0aEtaTHFaUXlWUFBydkZSTlcvUHZlNDdmMkN5L3hsalY1?=
- =?utf-8?B?NlFHY2ZkZVV6YTcyLzZ6MEZJNmdLRkVIcys0N3Rxc3ZNYmx6SlRKczcyRG9G?=
- =?utf-8?B?NTBJTWtSSWp5T0NEeGtVSzFoYUxCWUlSOVdDN25Pa2hxenhySHN2STcvRTdk?=
- =?utf-8?B?V0hwV2s3S3h6bk9Md1FXaTFsc1hSemVUM09PcnZLc1Z1WisvOGVkc3dTQ29i?=
- =?utf-8?B?b0Z0aWNxdWFPSUpza0FJVXNQcDB4c2huS3kycjcvajdSZmJDVGNPR3BZWkc3?=
- =?utf-8?B?blpJUVc2elFWZFJMMm9OTm13QkY3dlArOEY1MXNNRzdBbEM3SE90aXlBdXRX?=
- =?utf-8?B?eDhnYTFHYXpUS3hqcHdybjBmb0dTWmQzSjhZQ0Yzek5lZHFxOERIRjgzMUMw?=
- =?utf-8?B?UmZmVlZVbldaYlMySmNNOTlqQm5JU1M0OFBvZnhBNjV0ZVU2a092Z2JYL21m?=
- =?utf-8?B?eVNoMkgwWmY5c1pnazNoWHhjQ0dJVHJxU3dBUjRkSHUyOXpKS0F1K1huTlNt?=
- =?utf-8?B?aGg0bEFkYVpiSEdGTHJXd3NpekpuV2VMaEdkSVZUVTdOS2hHTmFFUnB6SVpx?=
- =?utf-8?B?ek9lL0J3Qjg1U2JRK0RWZ3VaZzEwUVRRVGxNYnpra2JNaHkrTHFQRytpSW9s?=
- =?utf-8?B?REtCNnBkWUROdlR6Z1U3enJmMzQzTUFrdGZ0OFM3ckxDOHgwanJYVkZCQ3l4?=
- =?utf-8?B?OW03NTRjUXE5VXpOYzJWbWRRbHdibFZvQU9QN0xOOC9wbjdMWXlORU9Td0Qv?=
- =?utf-8?B?VWc3SURKOXdSVVN0ZmwzTnVXOFkvbEF2VU45dlBjZDVHdzV6S1VRMjViSGRH?=
- =?utf-8?B?Q2N2REhKMWRMb1F0L0ZTbFNlanh2NEttTkoyWTlFOTZQMDVyL2dteG0yTjhJ?=
- =?utf-8?B?YWQ1T3IwSXhzZ1ZxVTQxZjM3MHdjTUhwamg3QXV1MFpRKzdqUFd2VU1rMFNm?=
- =?utf-8?B?WXhicFVEdmNFaVpXWFBldU5PSVVYdmdwVXJFcUVYd0tkL0YxbHBBVVloQ0Zu?=
- =?utf-8?B?RGZhbjM3V2tRQlhDWStiZ0JBaGNaSS94L3ZiaGtidFlobUxQRFF4N0kwSTB4?=
- =?utf-8?B?dEtHMEtiMEd2V0ZLSjk0YVFLVk8wVlFWNkp4YzJscTBWSUppSzNXajliU2g2?=
- =?utf-8?B?S2hwZEV1amx2MlQ1SnRoQXE4QTJIYlV3ZlhlSWY4NkFOaHoreTNEVDIyTzhM?=
- =?utf-8?B?NFYxdDdheHRtdllXbFM3NW9JdjlLbEFBR0w0QkwwZzQyVVhsbWJNV0VqTitw?=
- =?utf-8?B?L0NKUWxLVFpHYnBnV0RCM3BpaHZRWEJ5VUZLRVhkNEtKcTd3Um5ydFFDejZG?=
- =?utf-8?Q?bBNz+FtQkIBKE2HeuoMFZtgg9xRBICjB?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(1800799024)(366016)(7053199007);DIR:OUT;SFP:1102;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?QSsrY0pTU3hUR2p5NkZoMmN2Ukk1ZXRIZUZtcVdHaktlWi9oUDlIMmFTR2pB?=
- =?utf-8?B?b0dLWDYxTlZVamFqOGpDSHhLaFEza3RvNGRwakF5NFNOakZGUEJxSFpZSW5k?=
- =?utf-8?B?UFRTOW02VGpxaXpSSnFNbHRBdGwva1dweE1mNGxlaGRaNzBxM1pyVVR0d2I2?=
- =?utf-8?B?eWFaUk5jbk8xWk9MYlNBbmdwZmJYbDJBbExhWHhNVG5RZTZIMFlJa2Y0Tm4x?=
- =?utf-8?B?VGFRVHE2MHBHUGY4SDA4SjBFQnNWdkZibXZ4eC9FTWlBWEpOQ2VocnVCMXpN?=
- =?utf-8?B?Vjg3NE1WOTVOdUZadFpmcm9uYk9uaHB1eXpISmJwTm5hVXN4cTgrOFVZbFpz?=
- =?utf-8?B?TzZCR0FvaXQ4d285bE83Ykphc1NadVdDWHhpWHhyYWczSVdFSmI2NW8rQUpN?=
- =?utf-8?B?bS9KRlM2WUExeUo2azFDM0JrcFovM1pqNlViYnI4aVE1akw4Y1ZIbmt3Tit2?=
- =?utf-8?B?SzdpRnRqaE9TZTJEc0czTEZSb2x6aUNheGdadTJtZzZyV3JKaEloaHA0ZDA2?=
- =?utf-8?B?aE5LYXlNS2VIMXNqem8vR25xTmw0Ly91YWRRODNmRDdGVy9wZGg2UTk3SFdE?=
- =?utf-8?B?RFhEb3psSVA1MjZ2anpwSFN6WTc2R1Exa2RoN04vaWp3TXpTYzE1TWUvVkRi?=
- =?utf-8?B?YWg2Kzd6UXRVQXhjTHRMZVdjU254STNYQ3Y4aGFNaWZzb0FXVGNoNFhCVmxI?=
- =?utf-8?B?Ri9MTWdnekl4bmQ3REhLWFJhRGltQXNSalphZER5KytTOEp3UHBvNEtWcmo4?=
- =?utf-8?B?T2tnWjJkbkZiVThxcldyeFUxV0RCMGJiS2hwMm5lRWZUcTUzS0tteFBsWUdq?=
- =?utf-8?B?RXpONEh0ZHBSMWJlbGNWdExpVm5vejZDRllXWjRRQytrcGg1dTFiNWxqMUsy?=
- =?utf-8?B?dlJjQ3VBcXNTNEltb09oV2J4UWg0eG4ycGg4Q2ZQRERQOVZvL21sR291QkJO?=
- =?utf-8?B?VGNuVko5NFJNbmtUbDdXNU96MmlkSGcrVjlRU1M4L0t0VmVqRXdwV0hqTW9M?=
- =?utf-8?B?bXF5S25RdTBHNnpJQnZUOFV3YTJTb1BqbzN4T0x5RnU3d3hJRmlYSmRtb2sx?=
- =?utf-8?B?SFFsWFBjSFYwUlNNQXFMNkNyS3Y0RDlLWUhtaW9WSWJQa2RqdkJhWTQ2WU1M?=
- =?utf-8?B?empKNElTQ29oc2Fycm1YempycXR5WCt5aWhOV09WaUlDdUVGQkdaZlhMY0M3?=
- =?utf-8?B?VVl3ZWhOaGZ0Z3dVejFJN0Z5bU9UNEpTL3kzL3dyUXFHVjI1MzFHaW1FRTc1?=
- =?utf-8?B?U0NuRVhvd2s4L3pJTVdNWEs3Umx5S0h1TFNRYStUU1VoWkNMcWt6b1k4L09R?=
- =?utf-8?B?VGVTLzc3L2lZZG1EMS8zUjFzN0dJL0tlait1OGkrZkZibzlxUnBmMmFHVlAw?=
- =?utf-8?B?aWxUaFlySlVSV2p0aEkrOUVXMVJhZzVpWWpaOFh2TmExMDVmRkZqb0xJQmpp?=
- =?utf-8?B?c0tMa2FOQWU3bmlpR3R1VzFDSWt4b0p6QUVMS2dKZDZMVEZKUXdETXZQMkRJ?=
- =?utf-8?B?R0piN0Q1VjFjbGpjL1pMWkJGUDJHR2xNUTJGbVRmNEQ4WFpxMExVU0tVb3BM?=
- =?utf-8?B?T2hJUm00T2hWU3JSVWFiL2VKWDhNb0s2cDNLR0c4M2FqcS9nYlJYMU1UQ28w?=
- =?utf-8?B?R0U3Y01sUlVISFdyTDdBWnBic2NYdzEzWloxK1JJOElRNG9mRW1ZT3RQSnZ0?=
- =?utf-8?B?NEt2R3BMdzY2d0JwZnl0UnM5cWhFdGdxMFRrSG1Ed1lEUTg0YkFXeU95UDgv?=
- =?utf-8?B?ck5JbFEyK2FKWjhVUXRyOFRpT3BkTHRQUUwzNWxCVTA0U3I3cUMyM2FNbFpz?=
- =?utf-8?B?SkhLbkEwaFRtUHdGL3FPZGNicXVpK2VYcXlzQkNzVWd0QzVCYi96UXJzcjl2?=
- =?utf-8?B?ZThjYWRaWVV0UkhHYjQ2UXBkUjV0M0ZwaUtHOHR3bklSWi95UDBDWUl4RGJn?=
- =?utf-8?B?TUxPMzFWRFF2NllnWFdmVXhyQ3RONzhvMVhGRENQaGd6SG9GcVpWandyZ2Yx?=
- =?utf-8?B?WEtlRUtWS1Eza28xVFVDQ1RZeEpkUVRmQXNUbFZ5Q2dUekx2Ny96KzM2Mmxn?=
- =?utf-8?B?R3R3d09rTjNSaTIrakRHay9TQzM5cjBtUFhQUjVZWVllS0NvbEdYQlVLUDZ1?=
- =?utf-8?B?QWRlMmdJQXlVQjVybEdXTU03bmtwUGhrRm11ZlRBdEFPRjhxQnkycmpCNHRB?=
- =?utf-8?Q?9qu/SkvK2RHchMPqPqyuMzs=3D?=
-X-OriginatorOrg: iopsys.eu
-X-MS-Exchange-CrossTenant-Network-Message-Id: f2632b2f-d6aa-4768-52c2-08de07110e12
-X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 09 Oct 2025 08:51:37.1817
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: Litu4/6yt40Hk7qj1aK9pQ1X3e3FeQuUfG8gD6C5ARAZkfD4LmW3xZlB7EDwFikD5xmDU/9eQA2YhcwsASjE0jcGGp1lyV6cg/1xN/GSZNM=
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB8434
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/5] clk: mediatek: Refactor pll registration to pass
+ device
+To: Chen-Yu Tsai <wenst@chromium.org>
+Cc: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Dong Aisheng <aisheng.dong@nxp.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ Yassine Oudjana <y.oudjana@protonmail.com>,
+ Laura Nao <laura.nao@collabora.com>,
+ =?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>,
+ Chia-I Wu <olvaffe@gmail.com>, kernel@collabora.com,
+ linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org,
+ Stephen Boyd <sboyd@codeaurora.org>
+References: <20251008-mtk-pll-rpm-v2-0-170ed0698560@collabora.com>
+ <20251008-mtk-pll-rpm-v2-2-170ed0698560@collabora.com>
+ <2477df4e-c89e-408f-bb2a-d5af51f78ef8@collabora.com>
+ <CAGXv+5FTg3VXpbav5c2Gx2vRgaC=jYURRp0b5tQGw+ScACRSew@mail.gmail.com>
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+Content-Language: en-US
+In-Reply-To: <CAGXv+5FTg3VXpbav5c2Gx2vRgaC=jYURRp0b5tQGw+ScACRSew@mail.gmail.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_015150_537471_D4B78B61 
-X-CRM114-Status: UNSURE (   7.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251009_095238_877964_9D3BD232 
+X-CRM114-Status: GOOD (  19.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -183,22 +101,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Is there any chances get it merged to linux-6.18?
-
-Regards,
-Mikhail Kshevetskiy
-
-On 02.10.2025 10:44, AngeloGioacchino Del Regno wrote:
-> Il 02/10/25 00:23, Mikhail Kshevetskiy ha scritto:
->> During writing, the entire flash page (including OOB) will be updated
->> with the values from the temporary buffer, so we need to fill the
->> untouched areas of the buffer with 0xff value to prevent accidental
->> data overwriting.
+Il 09/10/25 10:18, Chen-Yu Tsai ha scritto:
+> On Thu, Oct 9, 2025 at 4:09 PM AngeloGioacchino Del Regno
+> <angelogioacchino.delregno@collabora.com> wrote:
 >>
->> Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
->
-> Reviewed-by: AngeloGioacchino Del Regno
-> <angelogioacchino.delregno@collabora.com>
->
->
+>> Il 08/10/25 18:05, Nicolas Frattaroli ha scritto:
+>>> As it stands, mtk_clk_register_plls takes a struct device_node pointer
+>>> as its first argument. This is a tragic happenstance, as it's trivial to
+>>> get the device_node from a struct device, but the opposite not so much.
+>>> The struct device is a much more useful thing to have passed down.
+>>>
+>>> Refactor mtk_clk_register_plls to take a struct device pointer instead
+>>> of a struct device_node pointer, and fix up all users of this function.
+>>>
+>>> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+>>> ---
+>>>    drivers/clk/mediatek/clk-mt2701.c            | 2 +-
+>>>    drivers/clk/mediatek/clk-mt2712-apmixedsys.c | 2 +-
+>>>    drivers/clk/mediatek/clk-mt6735-apmixedsys.c | 4 ++--
+>>>    drivers/clk/mediatek/clk-mt6765.c            | 2 +-
+>>>    drivers/clk/mediatek/clk-mt6779.c            | 2 +-
+>>>    drivers/clk/mediatek/clk-mt6797.c            | 2 +-
+>>>    drivers/clk/mediatek/clk-mt7622-apmixedsys.c | 2 +-
+>>>    drivers/clk/mediatek/clk-mt7629.c            | 2 +-
+>>>    drivers/clk/mediatek/clk-mt7981-apmixed.c    | 2 +-
+>>>    drivers/clk/mediatek/clk-mt7986-apmixed.c    | 2 +-
+>>>    drivers/clk/mediatek/clk-mt7988-apmixed.c    | 2 +-
+>>>    drivers/clk/mediatek/clk-mt8135-apmixedsys.c | 3 ++-
+>>>    drivers/clk/mediatek/clk-mt8167-apmixedsys.c | 2 +-
+>>>    drivers/clk/mediatek/clk-mt8183-apmixedsys.c | 2 +-
+>>>    drivers/clk/mediatek/clk-mt8188-apmixedsys.c | 2 +-
+>>>    drivers/clk/mediatek/clk-mt8195-apusys_pll.c | 3 ++-
+>>>    drivers/clk/mediatek/clk-mt8196-apmixedsys.c | 3 ++-
+>>>    drivers/clk/mediatek/clk-mt8196-mcu.c        | 2 +-
+>>>    drivers/clk/mediatek/clk-mt8196-mfg.c        | 2 +-
+>>>    drivers/clk/mediatek/clk-mt8196-vlpckgen.c   | 2 +-
+>>>    drivers/clk/mediatek/clk-mt8365-apmixedsys.c | 2 +-
+>>>    drivers/clk/mediatek/clk-mt8516-apmixedsys.c | 2 +-
+>>>    drivers/clk/mediatek/clk-pll.c               | 7 ++++---
+>>>    drivers/clk/mediatek/clk-pll.h               | 6 +++---
+>>>    24 files changed, 33 insertions(+), 29 deletions(-)
+>>>
+>>
+>> ..snip..
+>>
+>>> diff --git a/drivers/clk/mediatek/clk-pll.h b/drivers/clk/mediatek/clk-pll.h
+>>> index d71c150ce83e4bb2fe78290c2d5570a90084246d..0e2b94b9cd4b56adceee3b04e9ab24c2526471da 100644
+>>> --- a/drivers/clk/mediatek/clk-pll.h
+>>> +++ b/drivers/clk/mediatek/clk-pll.h
+>>> @@ -78,9 +78,9 @@ struct mtk_clk_pll {
+>>>        const struct mtk_pll_data *data;
+>>>    };
+>>>
+>>
+>> There's a forward declaration of struct device_node in this header: with this
+>> change, that becomes unused.
+>>
+>> Please change that to a forward declaration of struct device instead.
+>>
+>> While at it, I'd appreciate if you could either:
+>>    A. Remove the forward declaration for `struct clk_hw_onecell_data` and for
+>>       `struct clk_ops` (as both come from clk-provider.h - which this already
+>>        includes);
+>>      ...or...
+>>    B. Remove the inclusion of clk-provider.h and keep the forward declarations.
+> 
+> Prefer (B) since no APIs from clk-provider.h are referenced in the header.
+> It is up to the implementation to directly include any and all headers it
+> needs.
+> 
+
+Me too. Also because other drivers are doing that.
+I didn't have strong opinions about this anyway, so I didn't want to influence the
+decision too much - but at this point I just said it so I could've said it before
+anyway :-P
+
+Angelo
+
+> ChenYu
+> 
+>> After which:
+>>
+>> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+>>
+>>> -int mtk_clk_register_plls(struct device_node *node,
+>>> -                       const struct mtk_pll_data *plls, int num_plls,
+>>> -                       struct clk_hw_onecell_data *clk_data);
+>>> +int mtk_clk_register_plls(struct device *dev, const struct mtk_pll_data *plls,
+>>> +                       int num_plls, struct clk_hw_onecell_data *clk_data);
+>>> +
+>>>    void mtk_clk_unregister_plls(const struct mtk_pll_data *plls, int num_plls,
+>>>                             struct clk_hw_onecell_data *clk_data);
+>>>
+>>>
+>>
+>>
+
+
+-- 
+AngeloGioacchino Del Regno
+Senior Software Engineer
+
+Collabora Ltd.
+Platinum Building, St John's Innovation Park, Cambridge CB4 0DS, UK
+Registered in England & Wales, no. 5513718
 
