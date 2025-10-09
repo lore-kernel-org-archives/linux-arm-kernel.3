@@ -4,101 +4,113 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1381ACCD18A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 20:11:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 29ED5CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 20:11:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I0bxSC9qVdAO+PHu6prllXc1vwxGvmh0YPQ8osQBxSA=; b=YbyVyNwfVzCnBt+3OtC8sBxOTM
-	ULAyddHsQRckk4Epe7Xj53dGTtFR/rmpzVTHdLZcB0fJ9i/0JYHiei/D00J5RMthm0XNQcBfPchuw
-	MhUMNRVVpH/mthLDWTRGH0QwNcPKHesFJ+8q5pyLv0hecxQGVsUCN2H773k+FetXhq2Xhc3oCptQn
-	xW2X+5fMaIRlRyq39CabTH95xd+AD9qbpixNRCU1Cv2kUUyCaoEvzay94EfTDCvV3jQG/BnZGI/tg
-	2qnBzWipUisAjWKJU0nc8ihhDvQeXv5kp+ExGak3UD9Kn2lXZLsE3WQef8HuKvd5ve2OcMzUQuD7l
-	tzzRPL+Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:CC:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CA+i/6Qb3/gQyWyzsa6UvjgPbY8h3JvsLFGQrqpNEy0=; b=VssK6pemePFQtA0hSPE14AjW4T
+	EKwIRR6WmYtLdoFhHFG6BsHy1uM/zgOYsZNg5gakJrejJlc1zBKHTM7I4Q/Zov569KiJq31o+FpGR
+	JKi54UQ2yRZ8WqHRr/dNb7LxCGOWBDuDexx3+vxdCXU8WmuX3Bf06SdMXvmF/9W5cZMgoMFW2opc2
+	qJSD7Z/BPxw9PHtljAq0zXgiKbsxXjhwrHUPbsM7tgBcnoYxdZ4YB+WP7GRFfH0/jcCCqGpb7yD4a
+	QYeLlH78RXkUm2iOgG7FG+umCZ2RrDNSbjmFPvTWM9CSseiX0/NXR/nsk2ucGAsukOW7wQwoSqFtr
+	AJOex7IA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6wz0-000000073Ec-0FRT;
-	Thu, 09 Oct 2025 20:11:26 +0000
-Received: from mail-wr1-x435.google.com ([2a00:1450:4864:20::435])
+	id 1v6wz3-000000073Gj-0TE4;
+	Thu, 09 Oct 2025 20:11:29 +0000
+Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6wyv-000000073Cz-3hTf
-	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 20:11:23 +0000
-Received: by mail-wr1-x435.google.com with SMTP id ffacd0b85a97d-3fa528f127fso1016615f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 13:11:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760040680; x=1760645480; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=I0bxSC9qVdAO+PHu6prllXc1vwxGvmh0YPQ8osQBxSA=;
-        b=LOCTqWDrTC1qEfX6frXwIeB/QRiTSd66J/9J4yFfh3qQlw51v7yjUgqm9Yt4AN8ukJ
-         EIWWSXDH8cpSAyC8659XZ7mUo/kdUNxuTrRqVFbj/vot5SEHzLy7XR3jz1eJp4uVKgyh
-         UYMvb4gFr5sJN326BMJbslaMxzj93no/OKu7bfD/m1Fi2IwZpMEhIpcESA8Fx96gP6VV
-         wvp1wH8asoJXbR++FZy8s9bv7zE2fjemN2rF5IXSAh+d7qcxEqHQJwMgbW8Vvnhqb9jj
-         f8uc+7hDKDZArEZCJ01bSXXr3h1gXEDOD3pga/MppGN+8cIrTR19BT/fPnyq+E/gbZZ5
-         WwFA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760040680; x=1760645480;
-        h=content-transfer-encoding:in-reply-to:content-language:from
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=I0bxSC9qVdAO+PHu6prllXc1vwxGvmh0YPQ8osQBxSA=;
-        b=gcV7/ZaMQJ3VfdZIHvK69N0gyku3s4+pIzQUZfpv7OrZdWDZ9T+7bb9MTYzEgBboEj
-         NvUqwGzdkD7pw4gBELyLMY8EojB3E2a+KAcoPJscGHZ2CK9/qB9SMYyY+FOAHy2ODMWX
-         WdZjHEqkqDs5o2bszNbF2O5gUxZOLXzCQDqWei9jbbvVZN8c1exps0pIzCi0X9CVqIB1
-         nmTduIEIU341vzVdACNPAnTq2Bm+WakSR5/To8xwYhTHTFFZ64jq32BCkxErGddnX+wo
-         hrtC0+jwQZrRUVB6/6Ln2OuWvZtq7T7QFuGLLpLyEhu784MkGd8jXFiO1CddtYJFn0dx
-         8o8A==
-X-Forwarded-Encrypted: i=1; AJvYcCWI0+utyu8DPG0Q2HAxHDClLKxNgPymUzKxavnHN9S2T3GjpjMPBWqzyB038qihVzS03X3iCW7ecS6EHIotUL0P@lists.infradead.org
-X-Gm-Message-State: AOJu0YzsgDIDopf1BrXMD0n6+eNz/rkWZWUu3lc0iWdiP6VG/TqZWhvn
-	XofLTSROobC5Gv/XT/4VHWmyU5fsleypyvHe+FlQ+fYIshOoRhwp4W3iEoKnm4gAbl0=
-X-Gm-Gg: ASbGncs+qbsBfgX2qTTZoErsvW8QbVGHsNT8+993ElaGqhn3/WnkSw9V6+MEIFPStU6
-	TaXStdGfCzDWKIJgzDOQn3+O1Cyu03LS3Uizo+qNN1Ad1lReEPtIPkc5LFSQv675lshJJDPhUPC
-	HFfeQbxiG+tDB9TAIx4iG6PkWTtl8ggjmFPkBdIU02xqYOSHWS1lmkJmpewHz9x0Cm8P9I2RqMC
-	WV1xZ1bBPOU44D+6Nc7OJaenbm2Xw0A4nzTZ0hTI4kZli8kOBzKlRfi6awVY4lPQFOfEdYZPtFm
-	ECOTVdzZ6O5FwTwQ0HpJyLqq/U4b30nWqIxYs3E01cHnSKTSn4MS8izUoiI5IAXskcI7O/ZuTZw
-	MEIvpY5dNvJBM2NF1W1bIgUNvU/yKHsFwFVCUYBlTguj/QA5OUl894XI3Nw==
-X-Google-Smtp-Source: AGHT+IFuLsi4wmsunBeslCI8cKWeFy4ZUEWU/gsK5+phruyOaGgG2/phEeGUm4ke9yIArdmP/BdHLA==
-X-Received: by 2002:a5d:5f96:0:b0:3ec:42f9:952b with SMTP id ffacd0b85a97d-42666a9e191mr6428067f8f.4.1760040679687;
-        Thu, 09 Oct 2025 13:11:19 -0700 (PDT)
-Received: from [192.168.0.36] ([82.76.24.202])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-426ce5cf70fsm563238f8f.27.2025.10.09.13.11.18
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Thu, 09 Oct 2025 13:11:19 -0700 (PDT)
-Message-ID: <7b861236-8317-4435-8582-bd97f545e322@linaro.org>
-Date: Thu, 9 Oct 2025 23:11:17 +0300
+	id 1v6wz0-000000073EX-1Ef1;
+	Thu, 09 Oct 2025 20:11:27 +0000
+Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 599EfqWt029314;
+	Thu, 9 Oct 2025 20:11:16 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=quicinc.com; h=
+	cc:content-type:date:from:in-reply-to:message-id:mime-version
+	:references:subject:to; s=qcppdkim1; bh=CA+i/6Qb3/gQyWyzsa6UvjgP
+	bY8h3JvsLFGQrqpNEy0=; b=oAj/l8XgYn7BYezYVXUG5Iuoxjjgd5TOnmMeWy9w
+	K0q5CUS0zaOX0FdG7N97k+orqgux3CxybpClSZy6yOuQCjIeHHcD1b1fbKxFlaCd
+	oF6LP3kTgadpajGBgoJhjh+pflD9ivdbwyzZoUZe/RZdqzapoJtQT1yPkVNT/WbI
+	ZjWScZvEAhnC/daCNy0D8SIZKEHXJt7uwtQ6NiZ3lI9n1WUfly4bKvf1F9v48tJs
+	5KdFE4YemkvEcmgNqsTrlYQhC3bRtTY0PQ0XHoS7OPQx8TBHhbr6/tBjl5kt8eYc
+	7MdAtJmE44Iy5RbQ3M1HWzEnW3CYl1WS/+LPxSe018nDgQ==
+Received: from nasanppmta05.qualcomm.com (i-global254.qualcomm.com [199.106.103.254])
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49nv4nm6g7-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 09 Oct 2025 20:11:16 +0000 (GMT)
+Received: from nasanex01a.na.qualcomm.com (nasanex01a.na.qualcomm.com [10.52.223.231])
+	by NASANPPMTA05.qualcomm.com (8.18.1.2/8.18.1.2) with ESMTPS id 599KBEaq004992
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=NOT);
+	Thu, 9 Oct 2025 20:11:14 GMT
+Received: from stor-berry.qualcomm.com (10.80.80.8) by
+ nasanex01a.na.qualcomm.com (10.52.223.231) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1748.24; Thu, 9 Oct 2025 13:11:14 -0700
+From: "Bao D. Nguyen" <quic_nguyenb@quicinc.com>
+To: <quic_cang@quicinc.com>, <quic_nitirawa@quicinc.com>, <bvanassche@acm.org>,
+        <avri.altman@wdc.com>, <peter.wang@mediatek.com>,
+        <adrian.hunter@intel.com>, <martin.petersen@oracle.com>
+CC: <linux-scsi@vger.kernel.org>, "Bao D. Nguyen" <quic_nguyenb@quicinc.com>,
+        Alim Akhtar <alim.akhtar@samsung.com>,
+        "James E.J. Bottomley"
+	<James.Bottomley@HansenPartnership.com>,
+        Stanley Jhu <chu.stanley@gmail.com>,
+        Manivannan Sadhasivam <mani@kernel.org>,
+        Matthias Brugger
+	<matthias.bgg@gmail.com>,
+        AngeloGioacchino Del Regno
+	<angelogioacchino.delregno@collabora.com>,
+        Bean Huo <beanhuo@micron.com>, Manish Pandey <quic_mapa@quicinc.com>,
+        open list
+	<linux-kernel@vger.kernel.org>,
+        "moderated list:UNIVERSAL FLASH STORAGE HOST
+ CONTROLLER DRIVER..." <linux-mediatek@lists.infradead.org>,
+        "open
+ list:UNIVERSAL FLASH STORAGE HOST CONTROLLER DRIVER..."
+	<linux-arm-msm@vger.kernel.org>,
+        "moderated list:ARM/Mediatek SoC
+ support:Keyword:mediatek" <linux-arm-kernel@lists.infradead.org>
+Subject: [PATCH v2 1/2] scsi: ufs: core: Remove UFS_DEVICE_QUIRK_DELAY_AFTER_LPM quirk
+Date: Thu, 9 Oct 2025 13:10:58 -0700
+Message-ID: <3abb389ac7ca807e82263ab344e755db8498de81.1760039554.git.quic_nguyenb@quicinc.com>
+X-Mailer: git-send-email 2.7.4
+In-Reply-To: <cover.1760039554.git.quic_nguyenb@quicinc.com>
+References: <cover.1760039554.git.quic_nguyenb@quicinc.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/18] media: microchip-isc: Color correction and
- histogram stats
-To: Balamanikandan Gunasundar <balamanikandan.gunasundar@microchip.com>
-Cc: Chas Williams <3chas3@gmail.com>,
- Nicolas Ferre <nicolas.ferre@microchip.com>,
- Alexandre Belloni <alexandre.belloni@bootlin.com>,
- Claudiu Beznea <claudiu.beznea@tuxon.dev>,
- Balakrishnan Sambath <balakrishnan.s@microchip.com>,
- Hans Verkuil <hverkuil@kernel.org>, Ricardo Ribalda <ribalda@chromium.org>,
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>,
- Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
- Daniel Scally <dan.scally+renesas@ideasonboard.com>,
- Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
- linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- linux-atm-general@lists.sourceforge.net, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org,
- Mauro Carvalho Chehab <mchehab@kernel.org>
-References: <20251009155251.102472-1-balamanikandan.gunasundar@microchip.com>
-From: Eugen Hristev <eugen.hristev@linaro.org>
-Content-Language: en-US
-In-Reply-To: <20251009155251.102472-1-balamanikandan.gunasundar@microchip.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain
+X-Originating-IP: [10.80.80.8]
+X-ClientProxiedBy: nasanex01b.na.qualcomm.com (10.46.141.250) To
+ nasanex01a.na.qualcomm.com (10.52.223.231)
+X-QCInternal: smtphost
+X-Proofpoint-Virus-Version: vendor=nai engine=6200 definitions=5800 signatures=585085
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDA4MDEyMSBTYWx0ZWRfXxmOTFxm7GArJ
+ epIhmj0pwbh7en1ntUeKew5InN+LzXTrbx/IXK02fqZdEKDpVk7N3dF8PLNlZbAFg99gdeQ9hiC
+ M7ak0czd3Y5L3nghyrg2Ux57yGVJs4fwKzhlUAkiTlE9aezmURFwrg36oZmBau1X45FkcRZgSTZ
+ qigiIa0fq5zFYCMA2f+B0lh5LMtA7Pv0K69cJfCLdrm05ufC9qUlZMmPwQfPiG29nNWSaQm8KiY
+ fnt7QGTeFRp1h/e3EyNFRlOVn70YcJJo5UDvksD7kVA1jRQ8yLEkdGCXuXY63hZk64s4panEnO8
+ V1w8shVVF73bfzP5lJhulosdL+SOTFkTno92pPq4cOAjcAxfXuYEPyVKFs6qXGToPNd6g/x+Qz0
+ HO1eY2PNQaSwX/9wGmYk4lTJgYE2qQ==
+X-Proofpoint-ORIG-GUID: 7gCCAehqAhvUlzxiXBfiFTh1v9Kr4oLP
+X-Proofpoint-GUID: 7gCCAehqAhvUlzxiXBfiFTh1v9Kr4oLP
+X-Authority-Analysis: v=2.4 cv=VK3QXtPX c=1 sm=1 tr=0 ts=68e816e4 cx=c_pps
+ a=JYp8KDb2vCoCEuGobkYCKw==:117 a=JYp8KDb2vCoCEuGobkYCKw==:17
+ a=GEpy-HfZoHoA:10 a=x6icFKpwvdMA:10 a=COk6AnOGAAAA:8 a=SKyd_0MEfDjhs0-DTAYA:9
+ a=TjNXssC_j7lpFel5tvFf:22 a=cPQSjfK2_nFv0Q5t_7PE:22
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-09_07,2025-10-06_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
+ adultscore=0 priorityscore=1501 phishscore=0 clxscore=1015 impostorscore=0
+ bulkscore=0 spamscore=0 malwarescore=0 suspectscore=0 lowpriorityscore=0
+ classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
+ reason=mlx scancount=1 engine=8.19.0-2510020000 definitions=main-2510080121
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_131121_947488_83D52E5F 
-X-CRM114-Status: GOOD (  16.05  )
+X-CRM114-CacheID: sfid-20251009_131126_460333_959B0620 
+X-CRM114-Status: GOOD (  17.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,64 +125,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Bala,
+After the ufs device vcc is turned off, all the ufs device
+manufacturers require a period of power-off time before the
+vcc can be turned on again. This requirement has been confirmed
+with all the ufs device manufacturer's datasheets.
 
-On 10/9/25 18:52, Balamanikandan Gunasundar wrote:
-> Hi,
-> 
-> This patch series has a set of enhancements to the Microchip Image Sensor
-> Controller driver. The objective is to expand its image processing
-> capabilities and to improve the colors.
-> 
-> This series also introduces a new stats driver that exposes the histogram
-> data to userspace via v4l2 controls. This allows applications such as
-> libcamera to access real time image statistics for advanced image
-> processing like automatic exposure, white balance adjustments etc.
-> 
-> Balakrishnan Sambath (11):
->   media: microchip-isc: Enable GDC and CBC module flags for RGB formats
->   media: microchip-isc: Improve histogram calculation with outlier
->     rejection
->   media: microchip-isc: Use channel averages for Grey World AWB
->   media: microchip-isc: Add range based black level correction
->   media: platform: microchip: Extend gamma table and control range
->   media: platform: microchip: Add new histogram submodule
->   media: microchip-isc: Register and unregister statistics device
->   media: microchip-isc: Always enable histogram for all RAW formats
->   media: microchip-isc: fix histogram state initialization order
->   media: microchip-isc: decouple histogram cycling from AWB mode
->   media: microchip-isc: enable userspace histogram statistics export
-> 
-> Balamanikandan Gunasundar (7):
->   media: platform: microchip: set maximum resolution for sam9x7
->   media: platform: microchip: Include DPC modules flags in pipeline
->   media: microchip-isc: expose hue and saturation as v4l2 controls
->   media: microchip-isc: Rename CBC to CBHS
->   media: microchip-isc: Store histogram data of all channels
->   media: videodev2.h, v4l2-ioctl: Add microchip statistics format
->   media: microchip-isc: expose color correction registers as v4l2
->     controls
-> 
->  drivers/media/platform/microchip/Kconfig      |   2 +
->  drivers/media/platform/microchip/Makefile     |   2 +-
->  .../platform/microchip/microchip-isc-base.c   | 373 ++++++++++--
->  .../platform/microchip/microchip-isc-regs.h   |   3 +
->  .../platform/microchip/microchip-isc-stats.c  | 549 ++++++++++++++++++
->  .../media/platform/microchip/microchip-isc.h  |  44 +-
->  .../microchip/microchip-sama5d2-isc.c         |   2 +-
->  .../microchip/microchip-sama7g5-isc.c         |  73 ++-
->  drivers/media/v4l2-core/v4l2-ioctl.c          |   1 +
->  include/linux/atmel-isc-media.h               |  13 +
->  include/uapi/linux/videodev2.h                |   3 +
->  11 files changed, 1001 insertions(+), 64 deletions(-)
->  create mode 100644 drivers/media/platform/microchip/microchip-isc-stats.c
-> 
+Remove the UFS_DEVICE_QUIRK_DELAY_AFTER_LPM quirk in the ufs
+core driver and implement a universal delay that is required by
+all the ufs device manufacturers. In addition, remove the
+support for this quirk in the platform drivers.
 
-This looks interesting.
-I would like to see the compliance tool output for more platforms
-(sama7g5, sama5d2, and the new sam9x7), also the media-ctl -p , to see
-the topology with your new driver.
+Signed-off-by: Bao D. Nguyen <quic_nguyenb@quicinc.com>
+---
+ drivers/ufs/core/ufshcd.c       |  5 ++---
+ drivers/ufs/host/ufs-mediatek.c | 11 ++++-------
+ drivers/ufs/host/ufs-qcom.c     |  3 ---
+ include/ufs/ufs_quirks.h        |  7 -------
+ 4 files changed, 6 insertions(+), 20 deletions(-)
 
-Thanks,
-Eugen
+diff --git a/drivers/ufs/core/ufshcd.c b/drivers/ufs/core/ufshcd.c
+index 2e1fa8c..e8842dc 100644
+--- a/drivers/ufs/core/ufshcd.c
++++ b/drivers/ufs/core/ufshcd.c
+@@ -9738,10 +9738,9 @@ static void ufshcd_vreg_set_lpm(struct ufs_hba *hba)
+ 	}
+ 
+ 	/*
+-	 * Some UFS devices require delay after VCC power rail is turned-off.
++	 * All UFS devices require delay after VCC power rail is turned-off.
+ 	 */
+-	if (vcc_off && hba->vreg_info.vcc &&
+-		hba->dev_quirks & UFS_DEVICE_QUIRK_DELAY_AFTER_LPM)
++	if (vcc_off && hba->vreg_info.vcc && !hba->vreg_info.vcc->always_on)
+ 		usleep_range(5000, 5100);
+ }
+ 
+diff --git a/drivers/ufs/host/ufs-mediatek.c b/drivers/ufs/host/ufs-mediatek.c
+index f902ce0..5c204d1 100644
+--- a/drivers/ufs/host/ufs-mediatek.c
++++ b/drivers/ufs/host/ufs-mediatek.c
+@@ -40,8 +40,7 @@ static int  ufs_mtk_config_mcq(struct ufs_hba *hba, bool irq);
+ static const struct ufs_dev_quirk ufs_mtk_dev_fixups[] = {
+ 	{ .wmanufacturerid = UFS_ANY_VENDOR,
+ 	  .model = UFS_ANY_MODEL,
+-	  .quirk = UFS_DEVICE_QUIRK_DELAY_AFTER_LPM |
+-		UFS_DEVICE_QUIRK_DELAY_BEFORE_LPM },
++	  .quirk = UFS_DEVICE_QUIRK_DELAY_BEFORE_LPM },
+ 	{ .wmanufacturerid = UFS_VENDOR_SKHYNIX,
+ 	  .model = "H9HQ21AFAMZDAR",
+ 	  .quirk = UFS_DEVICE_QUIRK_SUPPORT_EXTENDED_FEATURES },
+@@ -1713,15 +1712,13 @@ static void ufs_mtk_fixup_dev_quirks(struct ufs_hba *hba)
+ {
+ 	ufshcd_fixup_dev_quirks(hba, ufs_mtk_dev_fixups);
+ 
+-	if (ufs_mtk_is_broken_vcc(hba) && hba->vreg_info.vcc &&
+-	    (hba->dev_quirks & UFS_DEVICE_QUIRK_DELAY_AFTER_LPM)) {
++	if (ufs_mtk_is_broken_vcc(hba) && hba->vreg_info.vcc) {
+ 		hba->vreg_info.vcc->always_on = true;
+ 		/*
+ 		 * VCC will be kept always-on thus we don't
+-		 * need any delay during regulator operations
++		 * need any delay before putting device's VCC in LPM mode.
+ 		 */
+-		hba->dev_quirks &= ~(UFS_DEVICE_QUIRK_DELAY_BEFORE_LPM |
+-			UFS_DEVICE_QUIRK_DELAY_AFTER_LPM);
++		hba->dev_quirks &= ~UFS_DEVICE_QUIRK_DELAY_BEFORE_LPM;
+ 	}
+ 
+ 	ufs_mtk_vreg_fix_vcc(hba);
+diff --git a/drivers/ufs/host/ufs-qcom.c b/drivers/ufs/host/ufs-qcom.c
+index d15f1a1..15a9ffc8 100644
+--- a/drivers/ufs/host/ufs-qcom.c
++++ b/drivers/ufs/host/ufs-qcom.c
+@@ -1025,9 +1025,6 @@ static struct ufs_dev_quirk ufs_qcom_dev_fixups[] = {
+ 	{ .wmanufacturerid = UFS_VENDOR_SKHYNIX,
+ 	  .model = UFS_ANY_MODEL,
+ 	  .quirk = UFS_DEVICE_QUIRK_DELAY_BEFORE_LPM },
+-	{ .wmanufacturerid = UFS_VENDOR_TOSHIBA,
+-	  .model = UFS_ANY_MODEL,
+-	  .quirk = UFS_DEVICE_QUIRK_DELAY_AFTER_LPM },
+ 	{ .wmanufacturerid = UFS_VENDOR_WDC,
+ 	  .model = UFS_ANY_MODEL,
+ 	  .quirk = UFS_DEVICE_QUIRK_HOST_PA_TACTIVATE },
+diff --git a/include/ufs/ufs_quirks.h b/include/ufs/ufs_quirks.h
+index f52de5e..1b26932 100644
+--- a/include/ufs/ufs_quirks.h
++++ b/include/ufs/ufs_quirks.h
+@@ -101,13 +101,6 @@ struct ufs_dev_quirk {
+ #define UFS_DEVICE_QUIRK_SUPPORT_EXTENDED_FEATURES (1 << 10)
+ 
+ /*
+- * Some UFS devices require delay after VCC power rail is turned-off.
+- * Enable this quirk to introduce 5ms delays after VCC power-off during
+- * suspend flow.
+- */
+-#define UFS_DEVICE_QUIRK_DELAY_AFTER_LPM        (1 << 11)
+-
+-/*
+  * Some ufs devices may need more time to be in hibern8 before exiting.
+  * Enable this quirk to give it an additional 100us.
+  */
+-- 
+2.7.4
+
 
