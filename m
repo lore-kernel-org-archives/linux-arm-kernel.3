@@ -4,96 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 32C45CCD18A
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 10:20:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C0ACCCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 10:25:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:CC:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Mviit9av+xJ2i1UCKCKoymOIpaOEjjA1p687Sppc3JU=; b=kZTF61IAQsVQeNqi/hPYf8VVWU
-	Hk5d2UH22QRALkQBMFYzWg6b7Pe+fcGjzklGldhQ7/95vZCs3kODlx45DVzelk0GXPOgl4C3V7c5J
-	3fPJRsTkhPcRc7RBKD7xrv2V4o6LHtyge8Cig+BB9QxysVifXoEj3I1SrtgucWJP9hFqu9ETYCkuP
-	GSH+hIf55Y9JbbzwJgYBb8gYW9jPitN8j32ngaEeOE3b2TX8W/7b/6Z76xPgT9+yHwgUN9UF/r6yN
-	PQ3jEW82aEZt70N004TBy7JUAEEIsHKIr1aZM2XEUfbuyFy7xqO1UUb3zqVkzxCCFIvIN3+As00M4
-	a+4mSqSQ==;
+	bh=VfSXR8cVtMDbFA1OoFTfYfL9yYo6wdjOPfF1Osx1+2I=; b=IAD4NaAuzRMaSh439u+15ejimV
+	WVgnXT6tzeY6MpeRlAx/540xyNqlu/TFa0AkXdv05TETRkH/uIT+LkGK3226sMQh0OLkUD6j3ITWj
+	sOvZlmrVsRtVh6/Muenik8QiGg6aFFrRpjPdqHFE3iTl7wQ1QyF5gm5RU924il3zIwNMoNqS9EGNn
+	B7qAGyzAMC2cM6tugPD5UsUgNuu6mz2Pb5w7P03xBjOHJ3e2IZAajBFdbS4w358rweGHUcTlrAUJo
+	MNbcFVZmAB7QXqnwO3ll3TCM5WJxqA2/F75bPTBR+B2l2RaTzY7KYSzSED30qKHlXhfguEpt2iLnm
+	BmSnqeJQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6nlJ-00000005m3J-1Cvk;
-	Thu, 09 Oct 2025 10:20:41 +0000
-Received: from pegase2.c-s.fr ([93.17.235.10])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6nlG-00000005m2L-2jay;
-	Thu, 09 Oct 2025 10:20:40 +0000
-Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
-	by localhost (Postfix) with ESMTP id 4cj548110xz9sSL;
-	Thu,  9 Oct 2025 12:01:12 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from pegase2.c-s.fr ([172.26.127.65])
-	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
-	with ESMTP id qOLNCcqM6pFr; Thu,  9 Oct 2025 12:01:12 +0200 (CEST)
-Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
-	by pegase2.c-s.fr (Postfix) with ESMTP id 4cj5476tjqz9sSC;
-	Thu,  9 Oct 2025 12:01:11 +0200 (CEST)
-Received: from localhost (localhost [127.0.0.1])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id D06108B76C;
-	Thu,  9 Oct 2025 12:01:11 +0200 (CEST)
-X-Virus-Scanned: amavisd-new at c-s.fr
-Received: from messagerie.si.c-s.fr ([127.0.0.1])
-	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
-	with ESMTP id MfDghYtIuYkA; Thu,  9 Oct 2025 12:01:11 +0200 (CEST)
-Received: from [192.168.235.99] (unknown [192.168.235.99])
-	by messagerie.si.c-s.fr (Postfix) with ESMTP id 776CE8B767;
-	Thu,  9 Oct 2025 12:01:09 +0200 (CEST)
-Message-ID: <0c730c52-97ee-43ea-9697-ac11d2880ab7@csgroup.eu>
-Date: Thu, 9 Oct 2025 12:01:08 +0200
+	id 1v6nqF-00000005miO-1KOL;
+	Thu, 09 Oct 2025 10:25:47 +0000
+Received: from frasgout.his.huawei.com ([185.176.79.56])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v6nqB-00000005mh6-2r7D
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Oct 2025 10:25:45 +0000
+Received: from mail.maildlp.com (unknown [172.18.186.216])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cj5bQ1ZCgz6FGkL;
+	Thu,  9 Oct 2025 18:24:50 +0800 (CST)
+Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
+	by mail.maildlp.com (Postfix) with ESMTPS id 6FABA1400CA;
+	Thu,  9 Oct 2025 18:25:32 +0800 (CST)
+Received: from localhost (10.203.177.15) by dubpeml100005.china.huawei.com
+ (7.214.146.113) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Thu, 9 Oct
+ 2025 11:25:31 +0100
+Date: Thu, 9 Oct 2025 11:25:29 +0100
+From: Jonathan Cameron <jonathan.cameron@huawei.com>
+To: "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org>
+CC: <linux-coco@lists.linux.dev>, <linux-arm-kernel@lists.infradead.org>,
+	<linux-kernel@vger.kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>, Steven Price <steven.price@arm.com>, "Gavin
+ Shan" <gshan@redhat.com>, Suzuki K Poulose <suzuki.poulose@arm.com>, "Jeremy
+ Linton" <jeremy.linton@arm.com>, Sami Mujawar <sami.mujawar@arm.com>
+Subject: Re: [PATCH] coco: guest: arm64: Update ARM CCA guest driver
+Message-ID: <20251009112529.00001b41@huawei.com>
+In-Reply-To: <20251008132758.784275-1-aneesh.kumar@kernel.org>
+References: <20251008132758.784275-1-aneesh.kumar@kernel.org>
+X-Mailer: Claws Mail 4.3.0 (GTK 3.24.42; x86_64-w64-mingw32)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: (bisected) [PATCH v2 08/37] mm/hugetlb: check for unreasonable
- folio sizes when registering hstate
-To: David Hildenbrand <david@redhat.com>, linux-kernel@vger.kernel.org
-Cc: Zi Yan <ziy@nvidia.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- "Liam R. Howlett" <Liam.Howlett@oracle.com>,
- Alexander Potapenko <glider@google.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Brendan Jackman <jackmanb@google.com>, Christoph Lameter <cl@gentwo.org>,
- Dennis Zhou <dennis@kernel.org>, Dmitry Vyukov <dvyukov@google.com>,
- dri-devel@lists.freedesktop.org, intel-gfx@lists.freedesktop.org,
- iommu@lists.linux.dev, io-uring@vger.kernel.org,
- Jason Gunthorpe <jgg@nvidia.com>, Jens Axboe <axboe@kernel.dk>,
- Johannes Weiner <hannes@cmpxchg.org>, John Hubbard <jhubbard@nvidia.com>,
- kasan-dev@googlegroups.com, kvm@vger.kernel.org,
- Linus Torvalds <torvalds@linux-foundation.org>, linux-arm-kernel@axis.com,
- linux-arm-kernel@lists.infradead.org, linux-crypto@vger.kernel.org,
- linux-ide@vger.kernel.org, linux-kselftest@vger.kernel.org,
- linux-mips@vger.kernel.org, linux-mmc@vger.kernel.org, linux-mm@kvack.org,
- linux-riscv@lists.infradead.org, linux-s390@vger.kernel.org,
- linux-scsi@vger.kernel.org, Marco Elver <elver@google.com>,
- Marek Szyprowski <m.szyprowski@samsung.com>, Michal Hocko <mhocko@suse.com>,
- Mike Rapoport <rppt@kernel.org>, Muchun Song <muchun.song@linux.dev>,
- netdev@vger.kernel.org, Oscar Salvador <osalvador@suse.de>,
- Peter Xu <peterx@redhat.com>, Robin Murphy <robin.murphy@arm.com>,
- Suren Baghdasaryan <surenb@google.com>, Tejun Heo <tj@kernel.org>,
- virtualization@lists.linux.dev, Vlastimil Babka <vbabka@suse.cz>,
- wireguard@lists.zx2c4.com, x86@kernel.org,
- "linuxppc-dev@lists.ozlabs.org" <linuxppc-dev@lists.ozlabs.org>
-References: <20250901150359.867252-1-david@redhat.com>
- <20250901150359.867252-9-david@redhat.com>
- <3e043453-3f27-48ad-b987-cc39f523060a@csgroup.eu>
- <d3fc12d4-0b59-4b1f-bb5c-13189a01e13d@redhat.com>
- <faf62f20-8844-42a0-a7a7-846d8ead0622@csgroup.eu>
- <9361c75a-ab37-4d7f-8680-9833430d93d4@redhat.com>
- <03671aa8-4276-4707-9c75-83c96968cbb2@csgroup.eu>
- <1db15a30-72d6-4045-8aa1-68bd8411b0ba@redhat.com>
-From: Christophe Leroy <christophe.leroy@csgroup.eu>
-Content-Language: fr-FR
-In-Reply-To: <1db15a30-72d6-4045-8aa1-68bd8411b0ba@redhat.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="US-ASCII"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [10.203.177.15]
+X-ClientProxiedBy: lhrpeml500011.china.huawei.com (7.191.174.215) To
+ dubpeml100005.china.huawei.com (7.214.146.113)
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_032038_854274_4ADBD3DD 
-X-CRM114-Status: GOOD (  19.44  )
+X-CRM114-CacheID: sfid-20251009_032544_048824_4FF4B737 
+X-CRM114-Status: GOOD (  21.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,140 +73,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Wed,  8 Oct 2025 18:57:58 +0530
+"Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> wrote:
 
-
-Le 09/10/2025 à 11:20, David Hildenbrand a écrit :
-> On 09.10.25 11:16, Christophe Leroy wrote:
->>
->>
->> Le 09/10/2025 à 10:14, David Hildenbrand a écrit :
->>> On 09.10.25 10:04, Christophe Leroy wrote:
->>>>
->>>>
->>>> Le 09/10/2025 à 09:22, David Hildenbrand a écrit :
->>>>> On 09.10.25 09:14, Christophe Leroy wrote:
->>>>>> Hi David,
->>>>>>
->>>>>> Le 01/09/2025 à 17:03, David Hildenbrand a écrit :
->>>>>>> diff --git a/mm/hugetlb.c b/mm/hugetlb.c
->>>>>>> index 1e777cc51ad04..d3542e92a712e 100644
->>>>>>> --- a/mm/hugetlb.c
->>>>>>> +++ b/mm/hugetlb.c
->>>>>>> @@ -4657,6 +4657,7 @@ static int __init hugetlb_init(void)
->>>>>>>          BUILD_BUG_ON(sizeof_field(struct page, private) *
->>>>>>> BITS_PER_BYTE <
->>>>>>>                  __NR_HPAGEFLAGS);
->>>>>>> +    BUILD_BUG_ON_INVALID(HUGETLB_PAGE_ORDER > MAX_FOLIO_ORDER);
->>>>>>>          if (!hugepages_supported()) {
->>>>>>>              if (hugetlb_max_hstate || 
->>>>>>> default_hstate_max_huge_pages)
->>>>>>> @@ -4740,6 +4741,7 @@ void __init hugetlb_add_hstate(unsigned int
->>>>>>> order)
->>>>>>>          }
->>>>>>>          BUG_ON(hugetlb_max_hstate >= HUGE_MAX_HSTATE);
->>>>>>>          BUG_ON(order < order_base_2(__NR_USED_SUBPAGE));
->>>>>>> +    WARN_ON(order > MAX_FOLIO_ORDER);
->>>>>>>          h = &hstates[hugetlb_max_hstate++];
->>>>>>>          __mutex_init(&h->resize_lock, "resize mutex", &h- 
->>>>>>> >resize_key);
->>>>>>>          h->order = order;
->>>>>
->>>>> We end up registering hugetlb folios that are bigger than
->>>>> MAX_FOLIO_ORDER. So we have to figure out how a config can trigger 
->>>>> that
->>>>> (and if we have to support that).
->>>>>
->>>>
->>>> MAX_FOLIO_ORDER is defined as:
->>>>
->>>> #ifdef CONFIG_ARCH_HAS_GIGANTIC_PAGE
->>>> #define MAX_FOLIO_ORDER        PUD_ORDER
->>>> #else
->>>> #define MAX_FOLIO_ORDER        MAX_PAGE_ORDER
->>>> #endif
->>>>
->>>> MAX_PAGE_ORDER is the limit for dynamic creation of hugepages via
->>>> /sys/kernel/mm/hugepages/ but bigger pages can be created at boottime
->>>> with kernel boot parameters without CONFIG_ARCH_HAS_GIGANTIC_PAGE:
->>>>
->>>>      hugepagesz=64m hugepages=1 hugepagesz=256m hugepages=1
->>>>
->>>> Gives:
->>>>
->>>> HugeTLB: registered 1.00 GiB page size, pre-allocated 0 pages
->>>> HugeTLB: 0 KiB vmemmap can be freed for a 1.00 GiB page
->>>> HugeTLB: registered 64.0 MiB page size, pre-allocated 1 pages
->>>> HugeTLB: 0 KiB vmemmap can be freed for a 64.0 MiB page
->>>> HugeTLB: registered 256 MiB page size, pre-allocated 1 pages
->>>> HugeTLB: 0 KiB vmemmap can be freed for a 256 MiB page
->>>> HugeTLB: registered 4.00 MiB page size, pre-allocated 0 pages
->>>> HugeTLB: 0 KiB vmemmap can be freed for a 4.00 MiB page
->>>> HugeTLB: registered 16.0 MiB page size, pre-allocated 0 pages
->>>> HugeTLB: 0 KiB vmemmap can be freed for a 16.0 MiB page
->>>
->>> I think it's a violation of CONFIG_ARCH_HAS_GIGANTIC_PAGE. The existing
->>> folio_dump() code would not handle it correctly as well.
->>
->> I'm trying to dig into history and when looking at commit 4eb0716e868e
->> ("hugetlb: allow to free gigantic pages regardless of the
->> configuration") I understand that CONFIG_ARCH_HAS_GIGANTIC_PAGE is
->> needed to be able to allocate gigantic pages at runtime. It is not
->> needed to reserve gigantic pages at boottime.
->>
->> What am I missing ?
+> Make preparatory updates to the ARM CCA guest driver:
 > 
-> That CONFIG_ARCH_HAS_GIGANTIC_PAGE has nothing runtime-specific in its 
-> name.
-
-In its name for sure, but the commit I mention says:
-
-     On systems without CONTIG_ALLOC activated but that support gigantic 
-pages,
-     boottime reserved gigantic pages can not be freed at all.  This patch
-     simply enables the possibility to hand back those pages to memory
-     allocator.
-
-And one of the hunks is:
-
-diff --git a/arch/arm64/Kconfig b/arch/arm64/Kconfig
-index 7f7fbd8bd9d5b..7a1aa53d188d3 100644
---- a/arch/arm64/Kconfig
-+++ b/arch/arm64/Kconfig
-@@ -19,7 +19,7 @@ config ARM64
-         select ARCH_HAS_FAST_MULTIPLIER
-         select ARCH_HAS_FORTIFY_SOURCE
-         select ARCH_HAS_GCOV_PROFILE_ALL
--       select ARCH_HAS_GIGANTIC_PAGE if CONTIG_ALLOC
-+       select ARCH_HAS_GIGANTIC_PAGE
-         select ARCH_HAS_KCOV
-         select ARCH_HAS_KEEPINITRD
-         select ARCH_HAS_MEMBARRIER_SYNC_CORE
-
-So I understand from the commit message that it was possible at that 
-time to have gigantic pages without ARCH_HAS_GIGANTIC_PAGE as long as 
-you didn't have to be able to free them during runtime.
-
+>  - Switch from using a platform device to a faux device (based on
+>    feedback in [1])
+>  - Rename the device from `arm-cca-dev` to `arm-rsi-dev`, so that the
+>    host driver can register an equivalent `arm-rmi-dev`
 > 
-> Can't we just select CONFIG_ARCH_HAS_GIGANTIC_PAGE for the relevant 
-> hugetlb config that allows for *gigantic pages*.
+> These changes are purely structural and introduce no new functionality.
+> Subsequent patches will extend this driver to add guest device
+> assignment support.
+> 
+> [1] https://lore.kernel.org/all/2025073035-bulginess-rematch-b92e@gregkh
 > 
 
-We probably can, but I'd really like to understand history and how we 
-ended up in the situation we are now.
-Because blind fixes often lead to more problems.
+Slight preference for:
+Link: https://lore.kernel.org/all/2025073035-bulginess-rematch-b92e@gregkh #1
+> Signed-off-by: Aneesh Kumar K.V (Arm) <aneesh.kumar@kernel.org>
+> ---
+> NOTE:
+> This patch is sent early outside the patchseries to avoid userspace from
+> depending on the presence of the newly introduced platform device.
+> The platform device was added in v6.14-rc1. 
+> 
 
-If I follow things correctly I see a helper gigantic_page_supported() 
-added by commit 944d9fec8d7a ("hugetlb: add support for gigantic page 
-allocation at runtime").
+A few trivial things inline. With those in mind.
+Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
 
-And then commit 461a7184320a ("mm/hugetlb: introduce 
-ARCH_HAS_GIGANTIC_PAGE") is added to wrap gigantic_page_supported()
+> diff --git a/drivers/virt/coco/arm-cca-guest/Makefile b/drivers/virt/coco/arm-cca-guest/Makefile
+> index 69eeba08e98a..609462ea9438 100644
+> --- a/drivers/virt/coco/arm-cca-guest/Makefile
+> +++ b/drivers/virt/coco/arm-cca-guest/Makefile
+> @@ -1,2 +1,5 @@
+>  # SPDX-License-Identifier: GPL-2.0-only
+> +#
 
-Then commit 4eb0716e868e ("hugetlb: allow to free gigantic pages 
-regardless of the configuration") changed gigantic_page_supported() to 
-gigantic_page_runtime_supported()
+Unrelated change. I'd drop it.
 
-So where are we now ?
+>  obj-$(CONFIG_ARM_CCA_GUEST) += arm-cca-guest.o
+> +
+> +arm-cca-guest-$(CONFIG_TSM) +=  arm-cca.o
 
-Christophe
+extra space after = seems a bit odd.
+
+> diff --git a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c b/drivers/virt/coco/arm-cca-guest/arm-cca.c
+> similarity index 85%
+> rename from drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+> rename to drivers/virt/coco/arm-cca-guest/arm-cca.c
+> index 0c9ea24a200c..89d9e7f8eb5d 100644
+> --- a/drivers/virt/coco/arm-cca-guest/arm-cca-guest.c
+> +++ b/drivers/virt/coco/arm-cca-guest/arm-cca.c
+> @@ -1,8 +1,9 @@
+>  // SPDX-License-Identifier: GPL-2.0-only
+>  /*
+> - * Copyright (C) 2023 ARM Ltd.
+> + * Copyright (C) 2025 ARM Ltd.
+
+I'd expect a date range rather than updating copyright for whole file
+like this. The untouched bit will still be 2023 era code.
+
+>   */
+
+> +static int cca_tsm_probe(struct faux_device *fdev)
+>  {
+>  	int ret;
+>  
+>  	if (!is_realm_world())
+>  		return -ENODEV;
+>  
+> -	ret = tsm_report_register(&arm_cca_tsm_ops, NULL);
+> -	if (ret < 0)
+> +	ret = tsm_report_register(&arm_cca_tsm_report_ops, NULL);
+> +	if (ret < 0) {
+>  		pr_err("Error %d registering with TSM\n", ret);
+> +		return ret;
+> +	}
+> +
+> +	ret = devm_add_action_or_reset(&fdev->dev, unregister_cca_tsm_report, NULL);
+> +	if (ret < 0) {
+> +		pr_err("Error %d registering devm action\n", ret);
+
+I believe (not checked today) that devm_add_action_or_reset() can only fail
+with -ENOMEM due to an allocation failure and we generally don't print
+extra error messages if that happens.
+So I would drop this pr_err.
+
+> +		unregister_cca_tsm_report(NULL);
+> +		return ret;
+> +	}
+>  
+>  	return ret;
+>  }
+
+
 
