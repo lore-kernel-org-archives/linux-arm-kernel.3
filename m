@@ -4,115 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D34E1CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 07:26:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D59E8CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 07:28:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
+	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YuxOUXeYN4A2Ts3Y/21HEt+dbo/FhNxdRvhGxbbaR4A=; b=c0+XJPAzXhEnFwyb5Fws8Fw45A
-	8xm15/x8wRtKnjNDgeAlDezVxThvlEmMzcVwT+yaHnxlp0pW/+XlZrSodvSY23wuB0E9M5wwIojp4
-	XMwwo3eFIe9yAvNY7iXgzfTD7+7aRcDL3vlAQjxB4SkTISJSCeC9Uxdo4Vy529Z/M7nLUXBDCvi7L
-	cdzD9Cf8w0udcL6x9/4Bhvv/JhXMgLPB6Q+EjgkVc30kg52A+deHGg9d50YoDSGoqs+Kx7Bk16Qmv
-	v6YcXMhN5F9zguEI305BuwS0eLnfV7ExQAMIoOXrvEo/R2g+faMU95kDC7JZH6PK4SJd5xO9iDUbJ
-	dbUuq9Lw==;
+	bh=2YPTo7AnLHbrxYYZdYypT1D1p3QgIUdm8aDUv+sN6iA=; b=wGWLuyczEY5CHsURH+lgzwLVTv
+	qElo8dxqaK93c1pckhnUBk4/oVtMdj9G01hqUXKFT24IIiht8gnYZtgEKzfKoz2N3yi60zUyE4zPH
+	UHb5vz6PXcn15l7HliVJTRhTu/HRw5BfSea29eYoKvNQ+dZmTdhEvxN9O/zFgve5D7brzVeb4aYyV
+	uG6kzP6j5HzedhrJHsFAX69vO/ZBtLt4dF2Zm4PYB8Y52Uoj32IK+Ij+1I2/fBuD6BwvL9/od0rCa
+	T0p8NEB1agZJ3oWqc2jqWKtEPeBs5XFVHXkbTjHZZRDEL0244edeLJs6SN3wHXYpIadEkc3v1j9wd
+	QszcfCDQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6l2e-00000005MsF-1dxp;
-	Thu, 09 Oct 2025 07:26:24 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v6l4Q-00000005N8t-2kc2;
+	Thu, 09 Oct 2025 07:28:14 +0000
+Received: from casper.infradead.org ([2001:8b0:10b:1236::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6l2c-00000005Ms5-2oQd;
-	Thu, 09 Oct 2025 07:26:22 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C9163621E4;
-	Thu,  9 Oct 2025 07:26:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F072C4CEE7;
-	Thu,  9 Oct 2025 07:26:11 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759994781;
-	bh=aUZwCKZriS2mx9oDnUC1YNntsIyiN+ubGEGIPBl8MwA=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=En7eMwMeJGkepvaJ8q2srUeiz31pgUGFFzkOIzFoManANQwcx6mbKGZs+E2G7b58P
-	 uZJjFFiIWFCKTpHTzKGIGNNsYl8lBBzUWfpLKaoZOTvSywrOLh9EMAF+2P1msiWk1j
-	 f4qZavZzm/ghXKSO4E4w3GSDLjAhtXbjlpAQYV0xyZTFZwlDa1Zac09X2UkPkd9A3s
-	 w/3kITa3qYybgFGNJ3JBpHGYHjTwF8Sx7RUD+L2f0+MepcjlTfSkRtI46gBSUR3//A
-	 ht2Up9KKwspeIpZCwqN7VC0V9TpD4gEHaULy3BBKSSwOsJxFW3gyj4G+H+VUkpD/W9
-	 9u2X+9Q3z94Og==
-Message-ID: <9ee299c1-edf4-4738-8b5e-6a684f683fbd@kernel.org>
-Date: Thu, 9 Oct 2025 16:26:08 +0900
+	id 1v6l4O-00000005N81-4Bw9;
+	Thu, 09 Oct 2025 07:28:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=casper.20170209; h=Content-Transfer-Encoding:Content-Type:
+	In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:Sender
+	:Reply-To:Content-ID:Content-Description;
+	bh=2YPTo7AnLHbrxYYZdYypT1D1p3QgIUdm8aDUv+sN6iA=; b=IBh20hbX0k+dwxVeB73l9U+OD+
+	ylRy6mrB9wHLHHc1FU8s36Dgw/l2BIepSyUEKcgpIHC7m1dr0fWzO7nLBwemnQDRK/8rQWt3iQLhd
+	9K/fxZdUAyo9OOOewydYqZFZP4FMFDDvfivyLj2I1f3iDu601ak5CfNuwtpKobJXEIVmOzMFM43P3
+	vt9EceOIR7mo5weF/YREX2+PkOBZdqkPjo/3AYb/tEPTj537fq/gZQVuCQIQyYGJZZRhZiZJGGnQD
+	2KmnXCUbS+Rz765bU7McOuLh1CdORTV4ulFAB6ljnDS1UuJr31VUOMetLlLFpyE9IuWJWxTAkDTVe
+	aZXQEGWg==;
+Received: from mail.loongson.cn ([114.242.206.163])
+	by casper.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v6l4I-00000003JxW-43cZ;
+	Thu, 09 Oct 2025 07:28:11 +0000
+Received: from loongson.cn (unknown [113.200.148.30])
+	by gateway (Coremail) with SMTP id _____8DxvdLzY+doGTAUAA--.42724S3;
+	Thu, 09 Oct 2025 15:27:47 +0800 (CST)
+Received: from [10.130.10.66] (unknown [113.200.148.30])
+	by front1 (Coremail) with SMTP id qMiowJCxocLrY+doN1fWAA--.11175S3;
+	Thu, 09 Oct 2025 15:27:39 +0800 (CST)
+Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
+To: Ard Biesheuvel <ardb@kernel.org>, Huacai Chen <chenhuacai@kernel.org>
+Cc: Josh Poimboeuf <jpoimboe@kernel.org>, loongarch@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org,
+ linux-efi@vger.kernel.org, linux-kbuild@vger.kernel.org,
+ linux-kernel@vger.kernel.org
+References: <20250928085506.4471-1-yangtiezhu@loongson.cn>
+ <CAMj1kXG8Wi+THa2SeLxiDT=+t_TKx0AL4H-azZO4DNJvyyv96g@mail.gmail.com>
+ <CAAhV-H7xOf8DEwOrNh+GQGHktOT4Ljp+7SqutGvvDZp6GLXJrA@mail.gmail.com>
+ <CAMj1kXG=EFkRAMkvKMSjPixoGqU-tZXVoRkJJ6Wcnzs3x52X6Q@mail.gmail.com>
+ <CAMj1kXHWe2uGY3S1NJ6mckqD4n116rPmaOzw3_Qbvxyjh7ECMw@mail.gmail.com>
+From: Tiezhu Yang <yangtiezhu@loongson.cn>
+Message-ID: <fec0c03d-9d8c-89a3-886a-1adc22e59b66@loongson.cn>
+Date: Thu, 9 Oct 2025 15:27:39 +0800
+User-Agent: Mozilla/5.0 (X11; Linux loongarch64; rv:68.0) Gecko/20100101
+ Thunderbird/68.7.0
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/4] dt-bindings: usb: dwc3: Add Google Tensor G5 DWC3
-To: Roy Luo <royluo@google.com>
-Cc: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I
- <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>,
- Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>,
- Badhri Jagan Sridharan <badhri@google.com>, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org
-References: <20251008060000.3136021-1-royluo@google.com>
- <20251008060000.3136021-2-royluo@google.com>
- <8966b6a9-ff70-4833-a5c7-c6d6c13c6c8b@kernel.org>
- <CA+zupgwLu-y26X9eiENyC28i9ZxCkuhb0X8X9H6HBpqkqJ7O3w@mail.gmail.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
+In-Reply-To: <CAMj1kXHWe2uGY3S1NJ6mckqD4n116rPmaOzw3_Qbvxyjh7ECMw@mail.gmail.com>
+Content-Type: text/plain; charset=utf-8; format=flowed
 Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <CA+zupgwLu-y26X9eiENyC28i9ZxCkuhb0X8X9H6HBpqkqJ7O3w@mail.gmail.com>
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CM-TRANSID: qMiowJCxocLrY+doN1fWAA--.11175S3
+X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
+X-Coremail-Antispam: 1Uk129KBj93XoWxuFyDZr45uF48uFyxuF4DAwc_yoWxWw1kpa
+	yjkFWjyr4kJr4kXas7t3yY9r1YqanIqrWaga4DuryrZa1qqr40vrWUZr4DuF9rXw4DC3WI
+	qF1fJr9Ik3WUJ3gCm3ZEXasCq-sJn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7KY7ZEXa
+	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
+	0xBIdaVrnRJUUUvjb4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
+	IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
+	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Xr0_Ar1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
+	0_Gr0_Cr1l84ACjcxK6I8E87Iv67AKxVW0oVCq3wA2z4x0Y4vEx4A2jsIEc7CjxVAFwI0_
+	GcCE3s1le2I262IYc4CY6c8Ij28IcVAaY2xG8wAqjxCEc2xF0cIa020Ex4CE44I27wAqx4
+	xG64xvF2IEw4CE5I8CrVC2j2WlYx0E2Ix0cI8IcVAFwI0_JrI_JrylYx0Ex4A2jsIE14v2
+	6r4j6F4UMcvjeVCFs4IE7xkEbVWUJVW8JwACjcxG0xvEwIxGrwCYjI0SjxkI62AI1cAE67
+	vIY487MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I8CrVAF
+	wI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWUtVW8ZwCIc4
+	0Y0x0EwIxGrwCI42IY6xIIjxv20xvE14v26r1j6r1xMIIF0xvE2Ix0cI8IcVCY1x0267AK
+	xVWUJVW8JwCI42IY6xAIw20EY4v20xvaj40_Jr0_JF4lIxAIcVC2z280aVAFwI0_Jr0_Gr
+	1lIxAIcVC2z280aVCY1x0267AKxVWUJVW8JbIYCTnIWIevJa73UjIFyTuYvjxUzpBTUUUU
+	U
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251009_082808_833724_9D8783AC 
+X-CRM114-Status: GOOD (  18.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -127,138 +103,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/10/2025 14:12, Roy Luo wrote:
-> On Wed, Oct 8, 2025 at 4:56 PM Krzysztof Kozlowski <krzk@kernel.org> wrote:
+On 2025/9/28 下午10:41, Ard Biesheuvel wrote:
+> On Sun, 28 Sept 2025 at 16:39, Ard Biesheuvel <ardb@kernel.org> wrote:
 >>
->> On 08/10/2025 14:59, Roy Luo wrote:
->>> Document the device tree bindings for the DWC3 USB controller found in
->>> Google Tensor SoCs, starting with the G5 generation.
+>> On Sun, 28 Sept 2025 at 15:52, Huacai Chen <chenhuacai@kernel.org> wrote:
 >>>
->>> The Tensor G5 silicon represents a complete architectural departure from
->>
->>
->> G5 does not have a model number like G1-G4?
-> 
-> There's no model number for G5, I'm sticking to the existing "gs" prefix
-> as they're still in the same SoC family.  Please let me know if you have any
-> concerns.
-> 
->>
->>> previous generations (like gs101), including entirely new clock/reset
->>> schemes, top-level wrapper and register interface. Consequently,
->>> existing Samsung/Exynos DWC3 USB bindings and drivers are incompatible,
->>
->> Do not reference drivers. Explain the hardware.
-> 
-> Ack, all mentions of "driver" will be removed in the next patch.
-> 
->>
->>> necessitating this new device tree binding.
+>>> Hi, Ard,
 >>>
->>> The USB controller on Tensor G5 is based on Synopsys DWC3 IP and features
->>> Dual-Role Device single port with hibernation support.
->>>
->>> Signed-off-by: Roy Luo <royluo@google.com>
->>> ---
->>>  .../bindings/usb/google,gs-dwc3.yaml          | 145 ++++++++++++++++++
->>>  1 file changed, 145 insertions(+)
->>>  create mode 100644 Documentation/devicetree/bindings/usb/google,gs-dwc3.yaml
->>>
->>> diff --git a/Documentation/devicetree/bindings/usb/google,gs-dwc3.yaml b/Documentation/devicetree/bindings/usb/google,gs-dwc3.yaml
->>> new file mode 100644
->>> index 000000000000..9eb0bf726e8d
->>> --- /dev/null
->>> +++ b/Documentation/devicetree/bindings/usb/google,gs-dwc3.yaml
->>> @@ -0,0 +1,145 @@
->>> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
->>> +# Copyright (c) 2025, Google LLC
->>> +%YAML 1.2
->>> +---
->>> +$id: http://devicetree.org/schemas/usb/google,gs-dwc3.yaml#
->>> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->>> +
->>> +title: Google Tensor Series (G5+) DWC3 USB SoC Controller
->>> +
->>> +maintainers:
->>> +  - Roy Luo <royluo@google.com>
->>> +
->>> +description: |
->>
->>
->> Do not need '|' unless you need to preserve formatting.
-> 
-> Ack, will fix this in the next patch.
-> 
->>
->>> +  Describes the DWC3 USB controller block implemented on Google Tensor SoCs,
->>> +  starting with the G5 generation. Based on Synopsys DWC3 IP, the controller
->>> +  features Dual-Role Device single port with hibernation add-on.
->>> +
->>> +properties:
->>> +  compatible:
->>> +    items:
->>> +      - enum:
->>> +          - google,gs5-dwc3
->>> +
->>> +  reg:
->>> +    minItems: 3
->>
->> Drop
->>
->>> +    maxItems: 3
->>> +
->>> +  reg-names:
->>> +    description: |
->>> +      The following memory regions must present:
->>> +        - dwc3_core: Core DWC3 IP registers.
->>> +        - host_cfg_csr: Hibernation control registers.
->>> +        - usbint_csr: Hibernation interrupt registers.
->>
->> Drop description or move it to items in reg. See other bindings.
-> 
-> Ack, will use an item list in reg instead.
-> 
->>
->>> +    items:
->>> +      - const: dwc3_core
->>> +      - const: host_cfg_csr
->>> +      - const: usbint_csr
->>> +
->>> +  interrupts:
->>> +    minItems: 3
->>
->> Drop
-> 
-> Ack, will use an item list instead.
-> 
->>
->>> +    maxItems: 3
->>> +
->>> +  interrupt-names:
->>> +    description: |
->>> +      The following interrupts must present:
->>> +        - dwc_usb3: Core DWC3 interrupt.
->>> +        - hs_pme_irq: High speed remote wakeup interrupt for hibernation.
->>> +        - ss_pme_irq: Super speed remote wakeup interrupt for hibernation.
->>
->> From where did you get this style? Don't write bindings with chat gpt or
->> whatever other tool. it is a waste of our time.
-> 
-> I referenced the style from a recent dt binding change [1] that adds
-> "Documentation/devicetree/bindings/usb/qcom,snps-dwc3.yaml".
-> I thought it would be a good reference because it's relatively new
-> and is also a binding for SNPS dwc3 glue logic. Perhaps that style
-> doesn't apply here because qcom,snps-dwc3.yaml supports
-> multiple compatible and here we have only one?
-> 
-> Just to clarify, I'm a Gemini user and this patch is 100% organic,
-> hand-crafted by a living human brain :)
-> 
-> [1] https://lore.kernel.org/all/20250414-dwc3-refactor-v7-2-f015b358722d@oss.qualcomm.com/
+>>> On Sun, Sep 28, 2025 at 9:42 PM Ard Biesheuvel <ardb@kernel.org> wrote:
+>>>>
+>>>> On Sun, 28 Sept 2025 at 10:55, Tiezhu Yang <yangtiezhu@loongson.cn> wrote:
+>>>>>
+>>>>> When compiling with LLVM and CONFIG_LTO_CLANG is set, there exists
+>>>>> the following objtool warning on LoongArch:
+>>>>>
+>>>>>    vmlinux.o: warning: objtool: __efistub_efi_boot_kernel()
+>>>>>    falls through to next function __efistub_exit_boot_func()
+>>>>>
+>>>>> This is because efi_boot_kernel() doesn't end with a return instruction
+>>>>> or an unconditional jump, then objtool has determined that the function
+>>>>> can fall through into the next function.
+>>>>>
+>>>>> At the beginning, try to do something to make efi_boot_kernel() ends with
+>>>>> an unconditional jump instruction, but this modification seems not proper.
+>>>>>
+>>>>> Since the efistub functions are useless for stack unwinder, they can be
+>>>>> ignored by objtool. After many discussions, no need to link libstub to
+>>>>> the vmlinux.o, only link libstub to the final vmlinux.
+>>>>>
+>>>>
+>>>> Please try keeping these changes confined to arch/loongarch. This
+>>>> problem does not exist on other architectures, and changing the way
+>>>> vmlinux is constructed might create other issues down the road.
 
-Your code is not at all like above, you do not have any variants here,
-so you cannot use that syntax - is not correct here.
+This was discussed and tested in the v3 patch, it only touches the code
+of LoongArch and works well like this:
 
-Best regards,
-Krzysztof
+diff --git a/arch/loongarch/Makefile b/arch/loongarch/Makefile
+index dc5bd3f1b8d2..f34b416f5ca2 100644
+--- a/arch/loongarch/Makefile
++++ b/arch/loongarch/Makefile
+@@ -169,7 +169,6 @@ CHECKFLAGS += $(shell $(CC) $(KBUILD_CPPFLAGS) 
+$(KBUILD_CFLAGS) -dM -E -x c /dev
+  endif
+
+  libs-y += arch/loongarch/lib/
+-libs-$(CONFIG_EFI_STUB) += $(objtree)/drivers/firmware/efi/libstub/lib.a
+
+  drivers-y              += arch/loongarch/crypto/
+
+diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
+index 433849ff7529..ed94871c3606 100755
+--- a/scripts/link-vmlinux.sh
++++ b/scripts/link-vmlinux.sh
+@@ -69,6 +69,12 @@ vmlinux_link()
+                 libs="${KBUILD_VMLINUX_LIBS}"
+         fi
+
++       if [ "${SRCARCH}" = "loongarch" ]; then
++               if is_enabled CONFIG_EFI_STUB; then
++                       libs="${libs} drivers/firmware/efi/libstub/lib.a"
++               fi
++       fi
++
+         if is_enabled CONFIG_GENERIC_BUILTIN_DTB; then
+                 objs="${objs} .builtin-dtbs.o"
+         fi
+
+https://lore.kernel.org/loongarch/pq4h7jgndnt6p45lj4kgubxjd5gidfetugcuf5rcxzxxanzetd@6rrlpjnjsmuy/
+
+>>> ARM, RISC-V and LoongArch do things exactly in the same way. Now
+>>> LoongArch is the first of the three to enable objtool, so we meet the
+>>> problem first.
+>>>
+>>> But yes, I also don't want to change the way of constructing vmlinux.
+>>> So I prefer the earliest way to fix this problem.
+>>> https://lore.kernel.org/loongarch/CAAhV-H7fRHGFVKV8HitRgmuoDPt5ODt--iSuV0EmeeUb9d5FNw@mail.gmail.com/T/#meef7411abd14f4c28c85e686614aa9211fccdca0
+>>>
+>>
+>> Can we just drop the __noreturn annotation from kernel_entry_t, and
+>> return EFI_SUCCESS from efi_boot_kernel()?
+
+This was done in the early RFC patch, it works well like this:
+
+diff --git a/drivers/firmware/efi/libstub/loongarch.c 
+b/drivers/firmware/efi/libstub/loongarch.c
+index 3782d0a187d1..e309fd78fca7 100644
+--- a/drivers/firmware/efi/libstub/loongarch.c
++++ b/drivers/firmware/efi/libstub/loongarch.c
+@@ -10,7 +10,7 @@
+  #include "efistub.h"
+  #include "loongarch-stub.h"
+
+-typedef void __noreturn (*kernel_entry_t)(bool efi, unsigned long cmdline,
++typedef void (*kernel_entry_t)(bool efi, unsigned long cmdline,
+  					  unsigned long systab);
+
+  efi_status_t check_platform_features(void)
+@@ -81,4 +81,7 @@ efi_status_t efi_boot_kernel(void *handle, 
+efi_loaded_image_t *image,
+
+  	real_kernel_entry(true, (unsigned long)cmdline_ptr,
+  			  (unsigned long)efi_system_table);
++
++	/* We should never get here */
++	while (1);
+  }
+
+https://lore.kernel.org/loongarch/20250826064631.9617-2-yangtiezhu@loongson.cn/
+
+> ... or add efi_boot_kernel() to ./tools/objtool/noreturns.h?
+
+It can not fix the objtool warning.
+
+Are you OK with the following changes?
+
+(1) libstub doesn't link to vmlinux.o, only link libstub with vmlinux.o 
+during the final vmlinux link, keep the changes confined to LoongArch, 
+no need to be something more generic.
+
+diff --git a/arch/loongarch/Makefile b/arch/loongarch/Makefile
+index dc5bd3f1b8d2..f34b416f5ca2 100644
+--- a/arch/loongarch/Makefile
++++ b/arch/loongarch/Makefile
+@@ -169,7 +169,6 @@ CHECKFLAGS += $(shell $(CC) $(KBUILD_CPPFLAGS) 
+$(KBUILD_CFLAGS) -dM -E -x c /dev
+  endif
+
+  libs-y += arch/loongarch/lib/
+-libs-$(CONFIG_EFI_STUB) += $(objtree)/drivers/firmware/efi/libstub/lib.a
+
+  drivers-y              += arch/loongarch/crypto/
+
+diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
+index 433849ff7529..ed94871c3606 100755
+--- a/scripts/link-vmlinux.sh
++++ b/scripts/link-vmlinux.sh
+@@ -69,6 +69,12 @@ vmlinux_link()
+                 libs="${KBUILD_VMLINUX_LIBS}"
+         fi
+
++       if [ "${SRCARCH}" = "loongarch" ]; then
++               if is_enabled CONFIG_EFI_STUB; then
++                       libs="${libs} drivers/firmware/efi/libstub/lib.a"
++               fi
++       fi
++
+         if is_enabled CONFIG_GENERIC_BUILTIN_DTB; then
+                 objs="${objs} .builtin-dtbs.o"
+         fi
+
+(2) remove the attribute __noreturn for real_kernel_entry() and add
+"while (1);" at the end of efi_boot_kernel().
+
+diff --git a/drivers/firmware/efi/libstub/loongarch.c 
+b/drivers/firmware/efi/libstub/loongarch.c
+index 3782d0a187d1..e309fd78fca7 100644
+--- a/drivers/firmware/efi/libstub/loongarch.c
++++ b/drivers/firmware/efi/libstub/loongarch.c
+@@ -10,7 +10,7 @@
+  #include "efistub.h"
+  #include "loongarch-stub.h"
+
+-typedef void __noreturn (*kernel_entry_t)(bool efi, unsigned long cmdline,
++typedef void (*kernel_entry_t)(bool efi, unsigned long cmdline,
+  					  unsigned long systab);
+
+  efi_status_t check_platform_features(void)
+@@ -81,4 +81,7 @@ efi_status_t efi_boot_kernel(void *handle, 
+efi_loaded_image_t *image,
+
+  	real_kernel_entry(true, (unsigned long)cmdline_ptr,
+  			  (unsigned long)efi_system_table);
++
++	/* We should never get here */
++	while (1);
+  }
+
+Taking all of the considerations in balance, what should to do?
+
+Thanks,
+Tiezhu
+
 
