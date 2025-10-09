@@ -4,65 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF2B5CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 18:08:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BFC2DCCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 18:11:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qT0XFDocX6IgDdh021QvgauQ5w1b0uGPxHrbBofkMBw=; b=4eqg1v+aCIluhqOd2RYnK/oRmi
-	eW8VONJkGMNDh5JaoyKnkH/zgxFG6w/hI1ZZ/e+XXRFMhQ4NO/B0Tpc5OHuD/a5AGVVH25VInjO01
-	tib72IITnMTLzJC3jyGJgH9nVFbprSknXYlTRweCnJvjv0COiih5TKxfVonkoXrh8HD4d9SEYMRC7
-	1kXXYMH48NLjJwja34R53BSLLMRxehpuq4foBDuLQtGJIZsMHVNSJ3DIYG/uqYDkeiWziqHNiVNHU
-	aDFkHPrtSAQ1R9mEqwJqpFu8qRBl6fNWnNN/7YeV/kx4EHbkWpjUKeVqJ3l72sGyIx26sQsJPpMnf
-	YM8lv5oA==;
+	bh=fpqnNi802rKlVFJraoesAhwZRyFXjcgbXDHw48IfVQU=; b=j28ya7vhXSm2+xDtu1S8tkwNxE
+	vH5J/VG4e7nZYVuvtP2q4oCXqDwK7aOURpsyFqkAEpr/gpoWNCiaunm28LQWpK/S03mijEFnapxr0
+	2rsugZhpAQE7SZlQDTreyIkOvh6K1pd5evKs3TchRhZm7UCZVQi7G3flF/Kl+C7rVPVdNCg+PHyr+
+	kUIn8ZD6aiAGUf0mdLf2MC7c+0mEDDuAJvxlH7NJFioTgodJF3e/cl/NBi6v0yKTTi4VJSQIlj+px
+	sMDPb+P9BgtExLwFWP8Nvg4BTHbn3HTjoYZjWBrWOB2YrAVSxU/eBZL0myvFzj5e1cbkUngbLUyBo
+	tpu95wGw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6v3w-00000006tAJ-0Bxy;
-	Thu, 09 Oct 2025 18:08:24 +0000
+	id 1v6v6s-00000006tUd-3nQ0;
+	Thu, 09 Oct 2025 18:11:26 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6v3u-00000006t9j-2hnz;
-	Thu, 09 Oct 2025 18:08:23 +0000
+	id 1v6v6q-00000006tUD-1onQ
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Oct 2025 18:11:25 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 48F3744AFB;
-	Thu,  9 Oct 2025 18:08:22 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6953C4CEF8;
-	Thu,  9 Oct 2025 18:08:21 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6B88D43D8F;
+	Thu,  9 Oct 2025 18:11:23 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4AC76C4CEE7;
+	Thu,  9 Oct 2025 18:11:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760033302;
-	bh=gFSHtsrqHS0nB/eq5mW+h7jeWQpgprps5uurLkFEa9o=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=G7cLrXOSSPv9MR5A/ylYV0/Z+zpdfDGiEkMnPvlAxx9Ss8U4TqvcmeCei37DqCZCN
-	 sNXIjhS0l8rGmzuAegxsmG1gHFC0X5QNR1HstQwsCsFJzRONN2kIqIu7RiBnZbZ8MT
-	 aW89CaU7aR60rmnELGIBk5rT07iD+S92PJtpGCrDEMXlfTqEUc6aCPf+rl34ouMI0Z
-	 HAg8raaFtDAtTx9xRXg51u41Bf8/8Xgcd/U9mSuhDrduE9uUjip1Q/RN+PZj7Yypvw
-	 jvlU3uNMgbnhT+TsQfuCd0Gft1ezc5fGn2L3W3KgqqRmJCOTZdmTm1ncaWLA1JLrxT
-	 7giywDkL22yvQ==
-Date: Thu, 9 Oct 2025 13:08:20 -0500
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-Cc: andrew-ct.chen@mediatek.com, houlong.wei@mediatek.com,
-	minghsiu.tsai@mediatek.com, linux-arm-kernel@lists.infradead.org,
-	conor+dt@kernel.org, kernel@collabora.com, mchehab@kernel.org,
-	linux-media@vger.kernel.org, matthias.bgg@gmail.com,
-	devicetree@vger.kernel.org, krzk+dt@kernel.org,
-	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
-	angelogioacchino.delregno@collabora.com
-Subject: Re: [PATCH v3] dt-bindings: media: Convert MediaTek mt8173-mdp
- bindings to DT schema
-Message-ID: <176003330002.2945848.1684483628516504811.robh@kernel.org>
-References: <20251001183115.83111-1-ariel.dalessandro@collabora.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251001183115.83111-1-ariel.dalessandro@collabora.com>
+	s=k20201202; t=1760033483;
+	bh=hlUxCD4J4wKrqMfCK2tZHP+94pKQeHhn01rtwfEVA+0=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=P7rsMnYQIe2oxKy9AoZCEcsQJz+QcTE39ckDM9EGf6ocvyQDR/Us96ky4Zy3AuVq3
+	 bGf3s2TAnLmoIrzvgjIEEtb8L01oTAngNSpBhZ/Lhy4WXxx7q64NOZxAFYTZS6jVoB
+	 vWil0zY8SiZo/FBxDM620JzGHVPMOplVLV0hVZdhNafUz0YaeJsDvSTfGWiTeLnFy8
+	 nreQgyJtYUFRF/DnzxRyiUl/NLuR3ZaaOrVFkLcNdInJdFhyGs4A77WIC8/Ti+lBD5
+	 RmWJlJ0UVSQttoQHBlvsGN+IZXR1CUk/eUNkSFE1nACKjZN+pM77ClPD3DEEDfySSw
+	 sBxRZWkE0+M+A==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1v6v6n-0000000CibQ-0EaZ;
+	Thu, 09 Oct 2025 18:11:21 +0000
+Date: Thu, 09 Oct 2025 19:11:20 +0100
+Message-ID: <86ms60x7w7.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	linux-tegra@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: IRQ thread timeouts and affinity
+In-Reply-To: <86o6qgxayt.wl-maz@kernel.org>
+References: <j7ikmaazu6hjzsagqqk4o4nnxl5wupsmpcaruoyytsn2ogolyx@mtmhqrkm4gbv>
+	<86qzvcxi3j.wl-maz@kernel.org>
+	<loeliplxuvek4nh4plt4hup3ibqorpiv4eljiiwltgmyqa4nki@xpzymugslcvf>
+	<86o6qgxayt.wl-maz@kernel.org>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: thierry.reding@gmail.com, tglx@linutronix.de, linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_110822_696487_1F065D9F 
-X-CRM114-Status: UNSURE (   8.82  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251009_111124_540042_F2D24905 
+X-CRM114-Status: GOOD (  45.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -77,21 +88,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Wed, 01 Oct 2025 15:31:15 -0300, Ariel D'Alessandro wrote:
-> Convert the existing text-based DT bindings for MediaTek MT8173 Media Data
-> Path to a DT schema.
+On Thu, 09 Oct 2025 18:04:58 +0100,
+Marc Zyngier <maz@kernel.org> wrote:
 > 
-> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
-> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-> ---
->  .../bindings/media/mediatek,mt8173-mdp.yaml   | 169 ++++++++++++++++++
->  .../bindings/media/mediatek-mdp.txt           |  96 ----------
->  2 files changed, 169 insertions(+), 96 deletions(-)
->  create mode 100644 Documentation/devicetree/bindings/media/mediatek,mt8173-mdp.yaml
->  delete mode 100644 Documentation/devicetree/bindings/media/mediatek-mdp.txt
+> On Thu, 09 Oct 2025 17:05:15 +0100,
+> Thierry Reding <thierry.reding@gmail.com> wrote:
+> > 
+> > [1  <text/plain; us-ascii (quoted-printable)>]
+> > On Thu, Oct 09, 2025 at 03:30:56PM +0100, Marc Zyngier wrote:
+> > > Hi Thierry,
+> > > 
+> > > On Thu, 09 Oct 2025 12:38:55 +0100,
+> > > Thierry Reding <thierry.reding@gmail.com> wrote:
+> > > > 
+> > > > Which brings me to the actual question: what is the right way to solve
+> > > > this? I had, maybe naively, assumed that the default CPU affinity, which
+> > > > includes all available CPUs, would be sufficient to have interrupts
+> > > > balanced across all of those CPUs, but that doesn't appear to be the
+> > > > case. At least not with the GIC (v3) driver which selects one CPU (CPU 0
+> > > > in this particular case) from the affinity mask to set the "effective
+> > > > affinity", which then dictates where IRQs are handled and where the
+> > > > corresponding IRQ thread function is run.
+> > > 
+> > > There's a (GIC-specific) answer to that, and that's the "1 of N"
+> > > distribution model. The problem is that it is a massive headache (it
+> > > completely breaks with per-CPU context).
+> > 
+> > Heh, that started out as a very promising first paragraph but turned
+> > ugly very quickly... =)
+> > 
+> > > We could try and hack this in somehow, but defining a reasonable API
+> > > is complicated. The set of CPUs receiving 1:N interrupts is a *global*
+> > > set, which means you cannot have one interrupt targeting CPUs 0-1, and
+> > > another targeting CPUs 2-3. You can only have a single set for all 1:N
+> > > interrupts. How would you define such a set in a platform agnostic
+> > > manner so that a random driver could use this? I definitely don't want
+> > > to have a GIC-specific API.
+> > 
+> > I see. I've been thinking that maybe the only way to solve this is using
+> > some sort of policy. A very simple policy might be: use CPU 0 as the
+> > "default" interrupt (much like it is now) because like you said there
+> > might be assumptions built-in that break when the interrupt is scheduled
+> > elsewhere. But then let individual drivers opt into the 1:N set, which
+> > would perhaps span all available CPUs but the first one. From an API PoV
+> > this would just be a flag that's passed to request_irq() (or one of its
+> > derivatives).
 > 
+> The $10k question is how do you pick the victim CPUs? I can't see how
+> to do it in a reasonable way unless we decide that interrupts that
+> have an affinity matching cpu_possible_mask are 1:N. And then we're
+> left with wondering what to do about CPU hotplug.
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+For fun and giggles, here's the result of a 5 minute hack. It enables
+1:N distribution on SPIs that have an "all cpus" affinity. It works on
+one machine, doesn't on another -- no idea why yet. YMMV.
 
+This is of course conditioned on your favourite HW supporting the 1:N
+feature, and it is likely that things will catch fire quickly. It will
+probably make your overall interrupt latency *worse*, but maybe less
+variable. Let me know.
+
+	M.
+
+diff --git a/drivers/irqchip/irq-gic-v3.c b/drivers/irqchip/irq-gic-v3.c
+index dbeb85677b08c..ab32339b32719 100644
+--- a/drivers/irqchip/irq-gic-v3.c
++++ b/drivers/irqchip/irq-gic-v3.c
+@@ -67,6 +67,7 @@ struct gic_chip_data {
+ 	u32			nr_redist_regions;
+ 	u64			flags;
+ 	bool			has_rss;
++	bool			has_oon;
+ 	unsigned int		ppi_nr;
+ 	struct partition_desc	**ppi_descs;
+ };
+@@ -1173,9 +1174,10 @@ static void gic_update_rdist_properties(void)
+ 	gic_iterate_rdists(__gic_update_rdist_properties);
+ 	if (WARN_ON(gic_data.ppi_nr == UINT_MAX))
+ 		gic_data.ppi_nr = 0;
+-	pr_info("GICv3 features: %d PPIs%s%s\n",
++	pr_info("GICv3 features: %d PPIs%s%s%s\n",
+ 		gic_data.ppi_nr,
+ 		gic_data.has_rss ? ", RSS" : "",
++		gic_data.has_oon ? ", 1:N" : "",
+ 		gic_data.rdists.has_direct_lpi ? ", DirectLPI" : "");
+ 
+ 	if (gic_data.rdists.has_vlpis)
+@@ -1481,6 +1483,7 @@ static int gic_set_affinity(struct irq_data *d, const struct cpumask *mask_val,
+ 	u32 offset, index;
+ 	void __iomem *reg;
+ 	int enabled;
++	bool oon;
+ 	u64 val;
+ 
+ 	if (force)
+@@ -1488,6 +1491,8 @@ static int gic_set_affinity(struct irq_data *d, const struct cpumask *mask_val,
+ 	else
+ 		cpu = cpumask_any_and(mask_val, cpu_online_mask);
+ 
++	oon = gic_data.has_oon && cpumask_equal(mask_val, cpu_possible_mask);
++
+ 	if (cpu >= nr_cpu_ids)
+ 		return -EINVAL;
+ 
+@@ -1501,7 +1506,7 @@ static int gic_set_affinity(struct irq_data *d, const struct cpumask *mask_val,
+ 
+ 	offset = convert_offset_index(d, GICD_IROUTER, &index);
+ 	reg = gic_dist_base(d) + offset + (index * 8);
+-	val = gic_cpu_to_affinity(cpu);
++	val = oon ? GICD_IROUTER_SPI_MODE_ANY : gic_cpu_to_affinity(cpu);
+ 
+ 	gic_write_irouter(val, reg);
+ 
+@@ -1512,7 +1517,7 @@ static int gic_set_affinity(struct irq_data *d, const struct cpumask *mask_val,
+ 	if (enabled)
+ 		gic_unmask_irq(d);
+ 
+-	irq_data_update_effective_affinity(d, cpumask_of(cpu));
++	irq_data_update_effective_affinity(d, oon ? cpu_possible_mask : cpumask_of(cpu));
+ 
+ 	return IRQ_SET_MASK_OK_DONE;
+ }
+@@ -2114,6 +2119,7 @@ static int __init gic_init_bases(phys_addr_t dist_phys_base,
+ 	irq_domain_update_bus_token(gic_data.domain, DOMAIN_BUS_WIRED);
+ 
+ 	gic_data.has_rss = !!(typer & GICD_TYPER_RSS);
++	gic_data.has_oon = !(typer & GICD_TYPER_No1N);
+ 
+ 	if (typer & GICD_TYPER_MBIS) {
+ 		err = mbi_init(handle, gic_data.domain);
+diff --git a/include/linux/irqchip/arm-gic-v3.h b/include/linux/irqchip/arm-gic-v3.h
+index 70c0948f978eb..ffbfc1c8d1934 100644
+--- a/include/linux/irqchip/arm-gic-v3.h
++++ b/include/linux/irqchip/arm-gic-v3.h
+@@ -80,6 +80,7 @@
+ #define GICD_CTLR_ENABLE_SS_G0		(1U << 0)
+ 
+ #define GICD_TYPER_RSS			(1U << 26)
++#define GICD_TYPER_No1N			(1U << 25)
+ #define GICD_TYPER_LPIS			(1U << 17)
+ #define GICD_TYPER_MBIS			(1U << 16)
+ #define GICD_TYPER_ESPI			(1U << 8)
+
+-- 
+Without deviation from the norm, progress is not possible.
 
