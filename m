@@ -4,69 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C9363CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 18:07:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF2B5CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 18:08:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JJKiHQMyh+K+l7pIsNMdaDMt3/xvcJcHMc0Me8aBI3A=; b=qgxCzeJuh7Y9IGnMtmpp0Fa07a
-	NBHcMD8S1FdxBqzcHLGaqS8jU/khL3S2bhLjoFRcxFfT5L2L3HM1qRFq7/ovHdGyDlNY4GqQzZOM7
-	OdG1MKlTxQfkRYQ3IJ4YScyhhweRswkgyujXfLZ1HkVKwQRW1IbqhxZ5jD1jOsSbYSN8Z/GhRZAqm
-	3gkS1fHQ2g5wm11uwuxguCoYMLuiGKgoCU6TCcVdXWOXpWXDQMGWScPgQ78Iz8/y2SMjP+TBW6QOB
-	itsc+QsgfIhofvH7VzNsXg0tz+smWDLGMsswyj84iwQxZE5ejVLQ0/C9597dz1FCeolNr5/IgAkoG
-	Pm5+L/FQ==;
+	bh=qT0XFDocX6IgDdh021QvgauQ5w1b0uGPxHrbBofkMBw=; b=4eqg1v+aCIluhqOd2RYnK/oRmi
+	eW8VONJkGMNDh5JaoyKnkH/zgxFG6w/hI1ZZ/e+XXRFMhQ4NO/B0Tpc5OHuD/a5AGVVH25VInjO01
+	tib72IITnMTLzJC3jyGJgH9nVFbprSknXYlTRweCnJvjv0COiih5TKxfVonkoXrh8HD4d9SEYMRC7
+	1kXXYMH48NLjJwja34R53BSLLMRxehpuq4foBDuLQtGJIZsMHVNSJ3DIYG/uqYDkeiWziqHNiVNHU
+	aDFkHPrtSAQ1R9mEqwJqpFu8qRBl6fNWnNN/7YeV/kx4EHbkWpjUKeVqJ3l72sGyIx26sQsJPpMnf
+	YM8lv5oA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6v2i-00000006su4-2kK6;
-	Thu, 09 Oct 2025 18:07:08 +0000
+	id 1v6v3w-00000006tAJ-0Bxy;
+	Thu, 09 Oct 2025 18:08:24 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6v2g-00000006ssZ-0YDr;
-	Thu, 09 Oct 2025 18:07:07 +0000
+	id 1v6v3u-00000006t9j-2hnz;
+	Thu, 09 Oct 2025 18:08:23 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id C1D064057B;
-	Thu,  9 Oct 2025 18:07:05 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 60CBBC4CEE7;
-	Thu,  9 Oct 2025 18:07:05 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 48F3744AFB;
+	Thu,  9 Oct 2025 18:08:22 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C6953C4CEF8;
+	Thu,  9 Oct 2025 18:08:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760033225;
-	bh=5NkPRLVl9HXuFsHMbdyDfRgNelN4F/MsHO6v49XOt8s=;
+	s=k20201202; t=1760033302;
+	bh=gFSHtsrqHS0nB/eq5mW+h7jeWQpgprps5uurLkFEa9o=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=drtpIj6X0q8pLe3CIfr6wdcGlSPou8q2gcPpvd1SHEfKYSU+AAkddIHUJjTrIv807
-	 TGHGoPlv9WrWb25e7c3UUTfQghQmdmhQp3ceZeRiG8fqwhNRnWaNFqZ8rqq2ChzmIE
-	 fA5v3m2PYEKJ8h9pN4CW9BYrXNPiFBAkOGflzu20sV5aRN0j6Zilt3Qu0x7Ahc/f4r
-	 LmNWWZphaZS1/lmXgLQcDfvfyz1hPeuAx/rW0Uk0m24tueCmPB+oQOxBqDjWFftZLw
-	 gzwFrSQEnfBoiAkkWTS9s+ElXAJRb2u1klQQ9iRaQolP261L5O7JVlA85DeWRoOGmV
-	 VsVzDtsR76a9w==
-Date: Thu, 9 Oct 2025 13:07:04 -0500
+	b=G7cLrXOSSPv9MR5A/ylYV0/Z+zpdfDGiEkMnPvlAxx9Ss8U4TqvcmeCei37DqCZCN
+	 sNXIjhS0l8rGmzuAegxsmG1gHFC0X5QNR1HstQwsCsFJzRONN2kIqIu7RiBnZbZ8MT
+	 aW89CaU7aR60rmnELGIBk5rT07iD+S92PJtpGCrDEMXlfTqEUc6aCPf+rl34ouMI0Z
+	 HAg8raaFtDAtTx9xRXg51u41Bf8/8Xgcd/U9mSuhDrduE9uUjip1Q/RN+PZj7Yypvw
+	 jvlU3uNMgbnhT+TsQfuCd0Gft1ezc5fGn2L3W3KgqqRmJCOTZdmTm1ncaWLA1JLrxT
+	 7giywDkL22yvQ==
+Date: Thu, 9 Oct 2025 13:08:20 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Chuan Liu <chuan.liu@amlogic.com>
-Cc: linux-clk@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	Xianwei Zhao <xianwei.zhao@amlogic.com>,
-	Neil Armstrong <neil.armstrong@linaro.org>,
-	Kevin Hilman <khilman@baylibre.com>,
-	Stephen Boyd <sboyd@kernel.org>, linux-amlogic@lists.infradead.org,
-	Jerome Brunet <jbrunet@baylibre.com>,
-	Michael Turquette <mturquette@baylibre.com>,
-	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
-Subject: Re: [PATCH 01/19] dt-bindings: clock: Add Amlogic A4 SCMI clock
- controller
-Message-ID: <176003322350.2944342.8960430626570483433.robh@kernel.org>
-References: <20250930-a4_a5_add_clock_driver-v1-0-a9acf7951589@amlogic.com>
- <20250930-a4_a5_add_clock_driver-v1-1-a9acf7951589@amlogic.com>
+To: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+Cc: andrew-ct.chen@mediatek.com, houlong.wei@mediatek.com,
+	minghsiu.tsai@mediatek.com, linux-arm-kernel@lists.infradead.org,
+	conor+dt@kernel.org, kernel@collabora.com, mchehab@kernel.org,
+	linux-media@vger.kernel.org, matthias.bgg@gmail.com,
+	devicetree@vger.kernel.org, krzk+dt@kernel.org,
+	linux-kernel@vger.kernel.org, linux-mediatek@lists.infradead.org,
+	angelogioacchino.delregno@collabora.com
+Subject: Re: [PATCH v3] dt-bindings: media: Convert MediaTek mt8173-mdp
+ bindings to DT schema
+Message-ID: <176003330002.2945848.1684483628516504811.robh@kernel.org>
+References: <20251001183115.83111-1-ariel.dalessandro@collabora.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20250930-a4_a5_add_clock_driver-v1-1-a9acf7951589@amlogic.com>
+In-Reply-To: <20251001183115.83111-1-ariel.dalessandro@collabora.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_110706_187236_1BB94270 
-X-CRM114-Status: UNSURE (   7.94  )
+X-CRM114-CacheID: sfid-20251009_110822_696487_1F065D9F 
+X-CRM114-Status: UNSURE (   8.82  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -83,13 +78,18 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 30 Sep 2025 17:37:14 +0800, Chuan Liu wrote:
-> Add the SCMI clock controller dt-bindings for Amlogic A4 SoC family.
+On Wed, 01 Oct 2025 15:31:15 -0300, Ariel D'Alessandro wrote:
+> Convert the existing text-based DT bindings for MediaTek MT8173 Media Data
+> Path to a DT schema.
 > 
-> Signed-off-by: Chuan Liu <chuan.liu@amlogic.com>
+> Signed-off-by: Ariel D'Alessandro <ariel.dalessandro@collabora.com>
+> Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 > ---
->  include/dt-bindings/clock/amlogic,a4-scmi-clkc.h | 42 ++++++++++++++++++++++++
->  1 file changed, 42 insertions(+)
+>  .../bindings/media/mediatek,mt8173-mdp.yaml   | 169 ++++++++++++++++++
+>  .../bindings/media/mediatek-mdp.txt           |  96 ----------
+>  2 files changed, 169 insertions(+), 96 deletions(-)
+>  create mode 100644 Documentation/devicetree/bindings/media/mediatek,mt8173-mdp.yaml
+>  delete mode 100644 Documentation/devicetree/bindings/media/mediatek-mdp.txt
 > 
 
 Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
