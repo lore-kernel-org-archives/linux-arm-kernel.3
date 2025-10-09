@@ -4,84 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4645CCD188
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 06:48:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB00FCCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 07:08:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
-	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
-	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=TuTjdChSAHO6oe4uqOf9tyC7XoFGDDGmNp7dKDJulmA=; b=SQ5s+GLI3Zj0doY+sEEEU4uL+O
-	0fSlD6zSktPTNF7+KrQPNRL60zSBsfLV423g7MFe7xdvQcaEz8Uirzt42CiqpvFxQA6o2oJ3xks8f
-	Ffrv/CtlZimbOx+6rni5XDZXh7csJtldV7bCFuKDksER1FBYUzrPrR69/XboQtNr8a95FZrW5u2H7
-	tQd1838RPWai5vWmw9YBUqDY2XgUgToIYr7pWs3k+RzU/m2mG4xbFG5fmrKW7zu1HBFrRIYfK87jC
-	v8f8Z3owzfffHPfCEoPRoOArQn6/7S52cuedDUnDk83740YU6SgtiBBuR8ELIpzwdOsOUDMC2cEwP
-	bPEagtiA==;
+	bh=VrEMSIgPZk1KeuuGhcj52P085Zkq+6alNWoGna9Zc/w=; b=W2K1zaFIjAbmFAphZm4XjvBN2u
+	fPAvLCBcinKVOK31PzUk4ycaq8bR9DlRYvtlwhNjgDJq1waPJSc0S/9JmiWolQb0XzregyGt/k+8y
+	ol8YAVlPHK4+wryI1oWsutdVMwHvKpX3gCaO5vrftYUaZkKqZMRTE083+x0nwsSgxrl3mSA/bkSVT
+	sOw6p5oQqJIX/Sp2qCfuEi2sFCAprYDuZyukYLGUXIwWYhYNpFZzbFKVTn6ni7KQJB6rM3k6Ce85J
+	XhXucBrYaf2mIBuyiqBhnl7hbepxYuUYl/SPJSmSv0bhb+hgiSBOr6ZJ7TUGWtY2RdyyvcNVhpMWg
+	bzNxK6uA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6kS2-00000005IVY-0h0c;
-	Thu, 09 Oct 2025 06:48:34 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v6kl2-00000005K6z-49Tb;
+	Thu, 09 Oct 2025 07:08:12 +0000
+Received: from mail-lj1-x22e.google.com ([2a00:1450:4864:20::22e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6kRx-00000005IRB-1MYT
+	id 1v6kky-00000005K4e-44Xk
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 06:48:31 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 782E448AAB;
-	Thu,  9 Oct 2025 06:48:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 22F54C19422;
-	Thu,  9 Oct 2025 06:48:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1759992508;
-	bh=4XdM9wcnYNU2LkGINpDAAZjGYWWB2K+VEu9ljuY48hg=;
-	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=t5sxhCFGq8b5VeeXou6XoRRkX07P0L4X3ewWchOXZ3YMk914cwNj3CIEmm7AZ96Dd
-	 k5hIAn0/tToXGFHWwC2KSrFvuQui2WgERwkrfXdUD1dqq+58qtZPX4kAEMWz2zrIX8
-	 Z/Dg4htbyiNw4Rgi++o/2n0oBgVw+OPyQHK2c2D4RF2uZkv9lOYEcQbqf+Ma2aV2Ef
-	 zJNffkmDiEYna2O56rYp+bCWNtRN70dPt48/TFdpyK0440vsxRAZ3jHdz1oVZVV91S
-	 b4dxStQWhzSiTy0PXumg/h6JcyGQIMOcUmlnGvIjvfotQYb7aVqSPZM4OFHBzLqqnc
-	 vnRzMNSiyxRJA==
-Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 18572CCD18A;
-	Thu,  9 Oct 2025 06:48:28 +0000 (UTC)
-From: Maud Spierings via B4 Relay <devnull+maudspierings.gocontroll.com@kernel.org>
-Date: Thu, 09 Oct 2025 08:48:28 +0200
-Subject: [PATCH v4 4/4] arm64: dts: freescale:
- moduline-display-av123z7m-n17: add backlight
+	Thu, 09 Oct 2025 07:08:11 +0000
+Received: by mail-lj1-x22e.google.com with SMTP id 38308e7fff4ca-373a1ab2081so4869361fa.3
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 00:08:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1759993687; x=1760598487; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=VrEMSIgPZk1KeuuGhcj52P085Zkq+6alNWoGna9Zc/w=;
+        b=U70uHxyG1UUN7UQV4JYgm7dTbCC7xi2GH42zIghgQAfS/7YY0qPBg9JWD9MRrwF2Nv
+         SWu+xHPA0ktqMIvukjSg8T7JJ4OO3bzWwaKYxq+0TpmvbPH3kXMK+9r4L0wEThHDYPf1
+         EE2URCNONzcRq3EUnGMWxvwLHU6zyjTdZzrfs=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759993687; x=1760598487;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=VrEMSIgPZk1KeuuGhcj52P085Zkq+6alNWoGna9Zc/w=;
+        b=S4upJPTHoUMsvWeSN9L5xabXCc9tYIkWrjx67xrz2BAtpadYU4gMNgwZuxiSVjV9Rt
+         I0/SS/uzGJ/3H/9J0pRXixVbW7GIUH6woMjipcmJ1EqaymJTs804NSYTSASIviJPg40r
+         7vURGUIipmS5ID15O6R+NEWg5S60FDsmeiurTYMwy3mRbIQyymykGtRT8+YK499LmEoe
+         rmXC1eyrztA9YJXA6QsYJ1QXmtTQiae0ARfryjKk09UjUDNvKrjYtJF3DXTI90Y12Pmo
+         8oqgjnhoDNLdca+uPIJ5cUAodwRRi8sRlX6gt1YGEVilGVz3V8DKeR2aJ97ZIv2tJnOJ
+         tQfQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUMWBBCOJoZ/iu+jlQZZKrkZo+JzWqNsyLsyXEcHmp3okaotqN9xbZTEJq4lgyD/fjTmk+Bbbbv98M/XSOLSj4U@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx3x0BgJIYCEhqg9GiPFpFDqiqPSfdKKz6hQ//JvP6uWbrqribY
+	tCRFeqLspY9py2aHrWKt8Xhr0ytvZfdFlLiu1gqpa63soGDeOrOntxLbkYV+UIcvI3LfS74YYy7
+	aXUB2oTfCW5AHe+AFkUJUEmWE+12b9BzhfrdyB6W4
+X-Gm-Gg: ASbGnctxg0ESe7Wtb2iMQCdFjgzxeteRYVT1mMnWl0c5jrcHXLNhx1uWeOP4M+a0whO
+	Uk0Hc1yMQWfB1cfG2aEazdnwhwpazcYYspCl66r0iagu5biUp9Vx/o40ghZoUJllke8a4Z1Iwnt
+	GDfvmZLwZq0nHzwkwVuMg4kv3n7YwW1bxlSK27g/WJcmyvcp2xQCsZhv1pSZH09EVGBZbA2hXxV
+	9APGzHyzlD7xjiF4F5IfiBBHfGwNhnx4TtmowxSz7OcUwwQOMGgr0E+PhXNeQ==
+X-Google-Smtp-Source: AGHT+IHRoD8fUFYarUIhK/FMKZGr2CwU3Gj3Lvi6h5d/Em4hrbue6QlrL7H+4NXmnHM+zo7hkW3w3oPsj8Dawmy7Yjk=
+X-Received: by 2002:a2e:be26:0:b0:365:6b40:8687 with SMTP id
+ 38308e7fff4ca-37609e0ea58mr13923031fa.22.1759993686781; Thu, 09 Oct 2025
+ 00:08:06 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251009-max25014-v4-4-6adb2a0aa35f@gocontroll.com>
-References: <20251009-max25014-v4-0-6adb2a0aa35f@gocontroll.com>
-In-Reply-To: <20251009-max25014-v4-0-6adb2a0aa35f@gocontroll.com>
-To: Lee Jones <lee@kernel.org>, Daniel Thompson <danielt@kernel.org>, 
- Jingoo Han <jingoohan1@gmail.com>, Pavel Machek <pavel@kernel.org>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Helge Deller <deller@gmx.de>, 
- Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Liam Girdwood <lgirdwood@gmail.com>, 
- Mark Brown <broonie@kernel.org>
-Cc: dri-devel@lists.freedesktop.org, linux-leds@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- linux-fbdev@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, 
- Maud Spierings <maudspierings@gocontroll.com>
-X-Mailer: b4 0.14.3
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1759992506; l=1639;
- i=maudspierings@gocontroll.com; s=20250214; h=from:subject:message-id;
- bh=pWeAK4Rn7wjoYLcVlDOrdhK/tMcB60QeJTaIHG+EMUw=;
- b=M1+ka83/gjtFmtqPnLvMWm+kXFyj+0T+dYJTiIImhhAqPMKlwgthVMhg/haaB6ZkpiwXQMoQE
- R/U68uJ0KQUBSRMKPSpeeKyR+gkZXexQBuiIbfUL3OxNmbGA6yOxHX8
-X-Developer-Key: i=maudspierings@gocontroll.com; a=ed25519;
- pk=7chUb8XpaTQDvWhzTdHC0YPMkTDloELEC7q94tOUyPg=
-X-Endpoint-Received: by B4 Relay for maudspierings@gocontroll.com/20250214
- with auth_id=341
-X-Original-From: Maud Spierings <maudspierings@gocontroll.com>
+References: <20251008-mtk-pll-rpm-v2-0-170ed0698560@collabora.com> <20251008-mtk-pll-rpm-v2-1-170ed0698560@collabora.com>
+In-Reply-To: <20251008-mtk-pll-rpm-v2-1-170ed0698560@collabora.com>
+From: Chen-Yu Tsai <wenst@chromium.org>
+Date: Thu, 9 Oct 2025 15:07:55 +0800
+X-Gm-Features: AS18NWBxQ-yW1drBobxZE5-xVOr4CwQCIc293oxeKqSrQOU5dPVPYMgKJ9ACvWg
+Message-ID: <CAGXv+5F_xeC_sGNB9Aev4CQbC_8Vo4YA1u7K60oKu8PseL=Qhw@mail.gmail.com>
+Subject: Re: [PATCH v2 1/5] clk: Respect CLK_OPS_PARENT_ENABLE during recalc
+To: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	Dong Aisheng <aisheng.dong@nxp.com>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	Yassine Oudjana <y.oudjana@protonmail.com>, Laura Nao <laura.nao@collabora.com>, 
+	=?UTF-8?B?TsOtY29sYXMgRi4gUi4gQS4gUHJhZG8=?= <nfraprado@collabora.com>, 
+	Chia-I Wu <olvaffe@gmail.com>, kernel@collabora.com, linux-clk@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	linux-mediatek@lists.infradead.org, Stephen Boyd <sboyd@codeaurora.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251008_234829_405926_6FB40F13 
-X-CRM114-Status: GOOD (  11.47  )
+X-CRM114-CacheID: sfid-20251009_000809_070065_906304EB 
+X-CRM114-Status: GOOD (  20.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,70 +95,78 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Reply-To: maudspierings@gocontroll.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Maud Spierings <maudspierings@gocontroll.com>
+On Thu, Oct 9, 2025 at 12:07=E2=80=AFAM Nicolas Frattaroli
+<nicolas.frattaroli@collabora.com> wrote:
+>
+> When CLK_OPS_PARENT_ENABLE was introduced, it guarded various clock
+> operations, such as setting the rate or switching parents. However,
+> another operation that can and often does touch actual hardware state is
+> recalc_rate, which may also be affected by such a dependency.
+>
+> Add parent enables/disables where the recalc_rate op is called directly.
+>
+> Fixes: fc8726a2c021 ("clk: core: support clocks which requires parents en=
+able (part 2)")
+> Fixes: a4b3518d146f ("clk: core: support clocks which requires parents en=
+able (part 1)")
+> Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
-Add the missing backlight.
+Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
 
-Signed-off-by: Maud Spierings <maudspierings@gocontroll.com>
----
- ...x8p-ml81-moduline-display-106-av123z7m-n17.dtso | 27 +++++++++++++++++++++-
- 1 file changed, 26 insertions(+), 1 deletion(-)
-
-diff --git a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av123z7m-n17.dtso b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av123z7m-n17.dtso
-index 3eb665ce9d5d2..c320e0f563af9 100644
---- a/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av123z7m-n17.dtso
-+++ b/arch/arm64/boot/dts/freescale/imx8mp-tx8p-ml81-moduline-display-106-av123z7m-n17.dtso
-@@ -16,6 +16,7 @@
- 
- 	panel {
- 		compatible = "boe,av123z7m-n17";
-+		backlight = <&backlight>;
- 		enable-gpios = <&gpio1 7 GPIO_ACTIVE_HIGH>;
- 		pinctrl-0 = <&pinctrl_panel>;
- 		pinctrl-names = "default";
-@@ -91,10 +92,34 @@ lvds1_out: endpoint {
- 		};
- 	};
- 
--	/* max25014 @ 0x6f */
-+	backlight: backlight@6f {
-+		compatible = "maxim,max25014";
-+		reg = <0x6f>;
-+		default-brightness = <50>;
-+		enable-gpios = <&gpio1 4 GPIO_ACTIVE_HIGH>;
-+		pinctrl-names = "default";
-+		pinctrl-0 = <&pinctrl_backlight>;
-+		maxim,iset = <7>;
-+
-+		#address-cells = <1>;
-+		#size-cells = <0>;
-+
-+		led@0 {
-+			reg = <0>;
-+			led-sources = <0 1 2 3>;
-+			default-brightness = <50>;
-+		};
-+	};
- };
- 
- &iomuxc {
-+	pinctrl_backlight: backlightgrp {
-+		fsl,pins = <
-+			MX8MP_IOMUXC_GPIO1_IO04__GPIO1_IO04
-+				(MX8MP_PULL_UP | MX8MP_PULL_ENABLE)
-+		>;
-+	};
-+
- 	pinctrl_lvds_bridge: lvdsbridgegrp {
- 		fsl,pins = <
- 			MX8MP_IOMUXC_SAI1_TXD2__GPIO4_IO14
-
--- 
-2.51.0
-
-
+> ---
+>  drivers/clk/clk.c | 13 +++++++++++++
+>  1 file changed, 13 insertions(+)
+>
+> diff --git a/drivers/clk/clk.c b/drivers/clk/clk.c
+> index 85d2f2481acf360f0618a4a382fb51250e9c2fc4..1b0f9d567f48e003497afc98d=
+f0c0d2ad244eb90 100644
+> --- a/drivers/clk/clk.c
+> +++ b/drivers/clk/clk.c
+> @@ -1921,7 +1921,14 @@ static unsigned long clk_recalc(struct clk_core *c=
+ore,
+>         unsigned long rate =3D parent_rate;
+>
+>         if (core->ops->recalc_rate && !clk_pm_runtime_get(core)) {
+> +               if (core->flags & CLK_OPS_PARENT_ENABLE)
+> +                       clk_core_prepare_enable(core->parent);
+> +
+>                 rate =3D core->ops->recalc_rate(core->hw, parent_rate);
+> +
+> +               if (core->flags & CLK_OPS_PARENT_ENABLE)
+> +                       clk_core_disable_unprepare(core->parent);
+> +
+>                 clk_pm_runtime_put(core);
+>         }
+>         return rate;
+> @@ -4031,6 +4038,9 @@ static int __clk_core_init(struct clk_core *core)
+>          */
+>         clk_core_update_duty_cycle_nolock(core);
+>
+> +       if (core->flags & CLK_OPS_PARENT_ENABLE)
+> +               clk_core_prepare_enable(core->parent);
+> +
+>         /*
+>          * Set clk's rate.  The preferred method is to use .recalc_rate. =
+ For
+>          * simple clocks and lazy developers the default fallback is to u=
+se the
+> @@ -4046,6 +4056,9 @@ static int __clk_core_init(struct clk_core *core)
+>                 rate =3D 0;
+>         core->rate =3D core->req_rate =3D rate;
+>
+> +       if (core->flags & CLK_OPS_PARENT_ENABLE)
+> +               clk_core_disable_unprepare(core->parent);
+> +
+>         /*
+>          * Enable CLK_IS_CRITICAL clocks so newly added critical clocks
+>          * don't get accidentally disabled when walking the orphan tree a=
+nd
+>
+> --
+> 2.51.0
+>
+>
 
