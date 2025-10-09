@@ -4,61 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 49922CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 22:03:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C3D4DCCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 22:15:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ihMryd5kU+hSP4c1IGNaNQs+A/BdgCOjlIXXpyGKFsE=; b=Xc5EDbYggE1Ge3toiLXQYrjVSO
-	x7ZGQaqtnHgYtvIzQhdbAwTcfr7vorzEg3pfv7m0tmjc/7AUe1vlzelV+nj42Tgt3Map1dSWnvQIb
-	CB1XvC+cBJ9byRODS5kahQ+VmyMrgrJXxuJVdIhaVCpDGNmQBye2eRedi/9ZUjBulU6m+QInVJxiK
-	jp6UwSSoySZpM4td+7+zgjswRZ2euxI4ixHQ9CglyvLi4TphVihv/FYZi6cxx1Z8WaK7rIBzfLFNn
-	3Ys8PZJ/9Fjo2t41DoHBfEby6QRy92DYcvd7xD02Yu0UU1Ajg7YvhOlexLuI7sYu0pBY8dItSG+Jj
-	JxI4t1Vg==;
+	bh=Oll1MPE7hkNDT7M/Q1/FAEUqkNVEA+iYvJPlZMv+EKE=; b=XIcnfIRe/klm1PCQO2xoVxWaW+
+	QKI1d01RQxjhkjaOZAVuE0k3RyhmlBUjVJ7MTtmsvuECMC0R8RhquEMjRQCPy+aPN9SjbcOCuhn4+
+	1fB+5lhZIBhZuLH/DlwEImwNcsfs4x1n0PPuvaTVE54+eH/vZbVMca5xB54wxzKggn+PKw6xfgANX
+	w6EdNRV9FaY2nU7ISY45z4PeWj0hzR0DD5n0194a/kg2YLJtlXBLEpmnMUnKR7NeZNdz2B/9fNbjL
+	lQFlQLs98nYyN4+7MyLG8JizkjRBLfUSYorZunBYBihWscvmLF2HZUctOPmnLAooD2N3idjGghOPz
+	F93Xa+1A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6yjg-00000007CR9-47rV;
-	Thu, 09 Oct 2025 22:03:44 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v6yvD-00000007DOZ-1iTZ;
+	Thu, 09 Oct 2025 22:15:39 +0000
+Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6yjf-00000007CQx-1ojK;
-	Thu, 09 Oct 2025 22:03:43 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 552A562434;
-	Thu,  9 Oct 2025 22:03:42 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 94DC8C4CEE7;
-	Thu,  9 Oct 2025 22:03:41 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760047422;
-	bh=y4UL6GRsCxQz/H0uGl4KUjPdCZu7wASRZNP78GKHHHs=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=XLjK+PTcVv3hQtnJotI2Z6/bsrbX+V1IAeSYRncgSwFnW4/wRjZ0JNOqnyWAjo9Mw
-	 LmUZJvjm87KT4BKjT/Kakb47eAM0zSUwJyjZ1dB7/jk9MYtDRd1jIgf5VeG4CMvSAK
-	 BsXm9S6KEWd2R8ykMXVxO9CH0a/UlwDmlYqgGevH4vykCr10cFuFGFgdcBL9QsrSq/
-	 ZRwx0w1Z+4TnuGahz3kDdn+qjoOhNoOQxb70QHWxILiNtQdaJEmBkScX5VQxQVXRO1
-	 jGPyoOeb4wg3fEFrS6tjXoRRtcZmRM+aOj3PrfZnBbt2yiIO7ZTegrU0ldvY/lSbVw
-	 q/xv88I6bSj+A==
-Date: Thu, 09 Oct 2025 17:03:40 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: kernel@pengutronix.de, linux-kernel@vger.kernel.org, 
- linux-rockchip@lists.infradead.org, Heiko Stuebner <heiko@sntech.de>, 
- Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
- linux-media@vger.kernel.org, Jacob Chen <jacob-chen@iotwrt.com>, 
- Mauro Carvalho Chehab <mchehab@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>
-To: =?utf-8?q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
-In-Reply-To: <20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de>
-References: <20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de>
-Message-Id: <176004726732.3398669.5458198816928209107.robh@kernel.org>
-Subject: Re: [PATCH 00/16] media: platform: rga: Add RGA3 support
+	id 1v6yvB-00000007DOE-2PK0
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Oct 2025 22:15:38 +0000
+Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-b5533921eb2so1903706a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 15:15:36 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1760048136; x=1760652936; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=Oll1MPE7hkNDT7M/Q1/FAEUqkNVEA+iYvJPlZMv+EKE=;
+        b=zjC9ndRNqLGVdIS0kAZiohnAGnqKts9tujDu1goLqK5HzpslKNQHXpi6tzjAI+YFz3
+         ixwn5JBRGVYhby9cq6xMbZV5INS/T/s92G8QK2ddZHai22IkVZBZKlvwlvj0JqSPj8Mx
+         K3BAy5e1/bZ+KM3+1l7A5zGWBaF86xPDiFgAaLmJwoDA3c/p9LktZwppZ85y6tJyY6XQ
+         ID06YiMgAkxiAoz7YNuRh7ol1dN142dyOxQ69CEGLWjRtuwZm7QQfsinZm0y4P1eln0y
+         OCroXri2WL38fOxAtBF/ixhbzlD3nlK4B7yrjxpP6nMVP75q0M7iI5oSoHDbzvhuIl2s
+         0fcA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760048136; x=1760652936;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=Oll1MPE7hkNDT7M/Q1/FAEUqkNVEA+iYvJPlZMv+EKE=;
+        b=ueoc9ZMrbdXQRa0MMZsVj/19RoSbE4/8QM0U7ZGHBtz5CPYhsJ8+dcWPiAvsT1T8B5
+         plwuoJ3LNfqAICXFHIY7QS4YWxuBxDFYStt+7+5WbElnFHpPduu4QG4583bg+e+dVaq7
+         H2KNYswaot08wWqK77ECxSq9cr2Yk19rl/uFrSZTSKSScVzvSLMI1CTswH2jO+N7RiNg
+         mIFwS+xb8qVCynAb5lJ8p3X8k6eORXZXMNosASsUxut58o1bmZlG26iudBz95fQFVyFH
+         5U2GUzNqo3+z/MtYEKjbwDONWagk4zHC2sFLEe1mC57I/uFj7wdk2QuKjSCCiRORogCx
+         IsZg==
+X-Gm-Message-State: AOJu0YyTCbHhnYvx1nCs6QQQT8mg/hkAk0xhkWd17V3p4ZDnEnNDIorx
+	WmKBzwekttZiF6X+nQIQt1MtvRBNbScZQxj0xdM74PBwyAq8NiJYyZrTpLml1eRIg4gvErEYasz
+	HLKbb6xl7LwmvuY1qm3W7YdMrmA==
+X-Google-Smtp-Source: AGHT+IHgB0xcVfauc1u1HW+fOsPb84FTf4YqLuG37YUk27FkO9AUKT3em4wnlAFSqHZKd0l5szDhiTWCqndJLqsXJA==
+X-Received: from pjad22.prod.google.com ([2002:a17:90a:1116:b0:33b:51fe:1a77])
+ (user=ackerleytng job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:90b:38ce:b0:32e:5646:d448 with SMTP id 98e67ed59e1d1-33b513b2ab9mr11170579a91.21.1760048135969;
+ Thu, 09 Oct 2025 15:15:35 -0700 (PDT)
+Date: Thu, 09 Oct 2025 15:15:34 -0700
+In-Reply-To: <20251007221420.344669-6-seanjc@google.com>
+Mime-Version: 1.0
+References: <20251007221420.344669-1-seanjc@google.com> <20251007221420.344669-6-seanjc@google.com>
+Message-ID: <diqzo6qfhgc9.fsf@google.com>
+Subject: Re: [PATCH v12 05/12] KVM: guest_memfd: Enforce NUMA mempolicy using
+ shared policy
+From: Ackerley Tng <ackerleytng@google.com>
+To: Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Paolo Bonzini <pbonzini@redhat.com>
+Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	David Hildenbrand <david@redhat.com>, Fuad Tabba <tabba@google.com>, Shivank Garg <shivankg@amd.com>, 
+	Ashish Kalra <ashish.kalra@amd.com>, Vlastimil Babka <vbabka@suse.cz>
+Content-Type: text/plain; charset="UTF-8"
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251009_151537_637877_C000D3AA 
+X-CRM114-Status: GOOD (  35.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,372 +91,192 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Sean Christopherson <seanjc@google.com> writes:
 
-On Tue, 07 Oct 2025 10:31:53 +0200, Sven Püschel wrote:
-> This series adds support for the Raster Graphic Acceleration 3 (RGA3)
-> peripheral, which is included in the RK3588 SoC. Unlike the RGA2 it
-> can use the existing rockchip-iommu-v2 driver to handle iommu mappings.
-> Also the RK3588 contains two independent RGA3 cores.
-> 
-> Only scaling and format conversions between common 8bit RGB/YUV formats
-> are implemented. Also the color space conversion is fixed to BT601F.
-> This already allows a practical usage of the RGA3.
-> 
-> This was tested on a Radxa Rock 5T. With the increased clock speeds in
-> the devicetree around 160 fps were measured when scaling and converting
-> from RGBA 480x360 to NV12 3840x2160. Without the clock speed scaling a
-> default clock division factor of 2 is used and only around 80 fps are
-> reached with one core. The v4l2-compliance tests only complain about
-> the already failing colorspace propagation:
-> 
->   v4l2-compliance 1.28.1, 64 bits, 64-bit time_t
->   ...
->   		fail: v4l2-test-formats.cpp(923): fmt_cap.g_colorspace() != col
->   	test VIDIOC_S_FMT: FAIL
->   ...
->   Total for rockchip-rga device /dev/video0: 47, Succeeded: 46, Failed: 1, Warnings: 0
-> 
->   v4l2-compliance 1.28.1, 64 bits, 64-bit time_t
->   ...
->   		fail: v4l2-test-formats.cpp(923): fmt_cap.g_colorspace() != col
->   	test VIDIOC_S_FMT: FAIL
->   ...
->   Total for rockchip-rga device /dev/video1: 47, Succeeded: 46, Failed: 1, Warnings: 0
-> 
->   v4l2-compliance 1.28.1, 64 bits, 64-bit time_t
->   ...
->   		fail: v4l2-test-formats.cpp(923): fmt_cap.g_colorspace() != col
->   	test VIDIOC_S_FMT: FAIL
->   ...
->   Total for rockchip-rga device /dev/video2: 47, Succeeded: 46, Failed: 1, Warnings: 0
-> 
-> Each RGA core is a separate /dev/video device. To distinguish the RGA2
-> core from the RGA3 cores the Card type is set accordingly. Combining all
-> cores into a single device and scheduling tasks to the best core might
-> be a future improvement, if it is desired by upstream to handle the
-> scheduling and selection in kernel space.
-> 
-> Patch 1-2 are general cleanups
-> Patch 3-12 prepare the rga driver for the RGA3
-> Patch 13 documments the RGA3 compatible value
-> Patch 14 adds the RGA3 cores to the rk3588 dtsi
-> Patch 15 increases the RGA3 core clock speeds
-> Patch 16 adds RGA3 support to the rga driver
-> 
-> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+> From: Shivank Garg <shivankg@amd.com>
+>
+> Previously, guest-memfd allocations followed local NUMA node id in absence
+> of process mempolicy, resulting in arbitrary memory allocation.
+> Moreover, mbind() couldn't be used  by the VMM as guest memory wasn't
+> mapped into userspace when allocation occurred.
+>
+> Enable NUMA policy support by implementing vm_ops for guest-memfd mmap
+> operation. This allows the VMM to map the memory and use mbind() to set the
+> desired NUMA policy. The policy is stored in the inode structure via
+> kvm_gmem_inode_info, as memory policy is a property of the memory (struct
+> inode) itself. The policy is then retrieved via mpol_shared_policy_lookup()
+> and passed to filemap_grab_folio_mpol() to ensure that allocations follow
+> the specified memory policy.
+>
+> This enables the VMM to control guest memory NUMA placement by calling
+> mbind() on the mapped memory regions, providing fine-grained control over
+> guest memory allocation across NUMA nodes.
+>
+> The policy change only affect future allocations and does not migrate
+> existing memory. This matches mbind(2)'s default behavior which affects
+> only new allocations unless overridden with MPOL_MF_MOVE/MPOL_MF_MOVE_ALL
+> flags, which are not supported for guest_memfd as it is unmovable.
+>
+> Suggested-by: David Hildenbrand <david@redhat.com>
+> Acked-by: David Hildenbrand <david@redhat.com>
+> Acked-by: Vlastimil Babka <vbabka@suse.cz>
+> Signed-off-by: Shivank Garg <shivankg@amd.com>
+> Tested-by: Ashish Kalra <ashish.kalra@amd.com>
+> [sean: document the ABI impact of the ->get_policy() hook]
+> Signed-off-by: Sean Christopherson <seanjc@google.com>
 > ---
-> Sven Püschel (16):
->       media: rockchip: rga: use clk_bulk api
->       media: rockchip: rga: use stride for offset calculation
->       media: rockchip: rga: align stride to 16 bytes
->       media: rockchip: rga: move hw specific parts to a dedicated struct
->       media: rockchip: rga: use card type to specify rga type
->       media: rockchip: rga: change offset to dma_addresses
->       media: rockchip: rga: support external iommus
->       media: rockchip: rga: remove size from rga_frame
->       media: rockchip: rga: remove stride from rga_frame
->       media: rockchip: rga: move rga_fmt to rga-hw.h
->       media: rockchip: rga: add iommu restore function
->       media: rockchip: rga: handle error interrupt
->       media: dt-bindings: media: rockchip-rga: add rockchip,rk3588-rga3
->       arm64: dts: rockchip: add rga3 dt nodes
->       arm64: dts: rockchip: increase rga3 clock speed
->       media: rockchip: rga: add rga3 support
-> 
->  .../devicetree/bindings/media/rockchip-rga.yaml    |   1 +
->  arch/arm64/boot/dts/rockchip/rk3588-base.dtsi      |  50 +++
->  drivers/media/platform/rockchip/rga/Makefile       |   2 +-
->  drivers/media/platform/rockchip/rga/rga-buf.c      |  78 ++--
->  drivers/media/platform/rockchip/rga/rga-hw.c       | 356 ++++++++++++---
->  drivers/media/platform/rockchip/rga/rga-hw.h       |  15 +-
->  drivers/media/platform/rockchip/rga/rga.c          | 404 ++++++-----------
->  drivers/media/platform/rockchip/rga/rga.h          |  74 ++--
->  drivers/media/platform/rockchip/rga/rga3-hw.c      | 490 +++++++++++++++++++++
->  drivers/media/platform/rockchip/rga/rga3-hw.h      | 186 ++++++++
->  10 files changed, 1246 insertions(+), 410 deletions(-)
-> ---
-> base-commit: afb100a5ea7a13d7e6937dcd3b36b19dc6cc9328
-> change-id: 20251001-spu-rga3-8a00e018b120
-> 
-> Best regards,
-> --
-> Sven Püschel <s.pueschel@pengutronix.de>
-> 
-> 
-> 
+>  virt/kvm/guest_memfd.c | 69 ++++++++++++++++++++++++++++++++++++++++--
+>  1 file changed, 67 insertions(+), 2 deletions(-)
+>
+> diff --git a/virt/kvm/guest_memfd.c b/virt/kvm/guest_memfd.c
+> index cc3b25155726..95267c92983b 100644
+> --- a/virt/kvm/guest_memfd.c
+> +++ b/virt/kvm/guest_memfd.c
+> @@ -4,6 +4,7 @@
+>  #include <linux/falloc.h>
+>  #include <linux/fs.h>
+>  #include <linux/kvm_host.h>
+> +#include <linux/mempolicy.h>
+>  #include <linux/pseudo_fs.h>
+>  #include <linux/pagemap.h>
+>  
+> @@ -27,6 +28,7 @@ struct gmem_file {
+>  };
+>  
+>  struct gmem_inode {
+> +	struct shared_policy policy;
+>  	struct inode vfs_inode;
+>  };
+>  
+> @@ -112,6 +114,19 @@ static int kvm_gmem_prepare_folio(struct kvm *kvm, struct kvm_memory_slot *slot,
+>  	return r;
+>  }
+>  
+> +static struct mempolicy *kvm_gmem_get_folio_policy(struct gmem_inode *gi,
+> +						   pgoff_t index)
 
+How about kvm_gmem_get_index_policy() instead, since the policy is keyed
+by index?
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+> +{
+> +#ifdef CONFIG_NUMA
+> +	struct mempolicy *mpol;
+> +
+> +	mpol = mpol_shared_policy_lookup(&gi->policy, index);
+> +	return mpol ? mpol : get_task_policy(current);
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+Should we be returning NULL if no shared policy was defined?
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
+By returning NULL, __filemap_get_folio_mpol() can handle the case where
+cpuset_do_page_mem_spread().
 
-  pip3 install dtschema --upgrade
+If we always return current's task policy, what if the user wants to use
+cpuset_do_page_mem_spread()?
 
+> +#else
+> +	return NULL;
 
-This patch series was applied (using b4) to base:
- Base: afb100a5ea7a13d7e6937dcd3b36b19dc6cc9328 (use --merge-base to override)
+Returning current's task policy in the CONFIG_NUMA case seems to
+conflict with returning NULL here.
 
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
+> +#endif
+> +}
+> +
+>  /*
+>   * Returns a locked folio on success.  The caller is responsible for
+>   * setting the up-to-date flag before the memory is mapped into the guest.
+> @@ -124,7 +139,25 @@ static int kvm_gmem_prepare_folio(struct kvm *kvm, struct kvm_memory_slot *slot,
+>  static struct folio *kvm_gmem_get_folio(struct inode *inode, pgoff_t index)
+>  {
+>  	/* TODO: Support huge pages. */
+> -	return filemap_grab_folio(inode->i_mapping, index);
+> +	struct mempolicy *policy;
+> +	struct folio *folio;
+> +
+> +	/*
+> +	 * Fast-path: See if folio is already present in mapping to avoid
+> +	 * policy_lookup.
+> +	 */
+> +	folio = __filemap_get_folio(inode->i_mapping, index,
+> +				    FGP_LOCK | FGP_ACCESSED, 0);
+> +	if (!IS_ERR(folio))
+> +		return folio;
+> +
+> +	policy = kvm_gmem_get_folio_policy(GMEM_I(inode), index);
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/rockchip/' for 20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de:
+If we're going to return NULL if no shared policy is defined, then I
+believe we can directly call mpol_shared_policy_lookup() here.
 
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588s-odroid-m2.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-genbook.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-genbook.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5b.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5b.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-h96-max-v58.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-h96-max-v58.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-armsom-w3.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-armsom-w3.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-ultra.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-ultra.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-jaguar.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-jaguar.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-ok3588-c.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-ok3588-c.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6b-io.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6b-io.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588s-gameforce-ace.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588s-gameforce-ace.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588s-orangepi-5.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-tiger-haikou.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3582-radxa-e52c.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-rock-5b-plus.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588s-coolpi-4b.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-toybrick-x0.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-toybrick-x0.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588s-khadas-edge2.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-rock-5t.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-friendlyelec-cm3588-nas.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6a-io.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-edgeble-neu6a-io.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-rock-5-itx.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588s-rock-5a.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588s-evb1-v10.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-rock-5b.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-quartzpro64.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-quartzpro64.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-turing-rk1.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-mnt-reform2.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-mnt-reform2.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-lts.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6-lts.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-armsom-sige7.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6c.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6c.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-plus.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-nanopc-t6.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-orangepi-5-max.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6s.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588s-nanopi-r6s.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588s-rock-5c.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-firefly-itx-3588j.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-firefly-itx-3588j.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-evb1-v10.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588s-roc-pc.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588s-roc-pc.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb60f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-base.dtsi:2255.3-26: Warning (interrupts_property): /iommu@fdb70f00:#interrupt-cells: size is (12), expected multiple of 16
-arch/arm64/boot/dts/rockchip/rk3588-evb2-v10.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-evb2-v10.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588-coolpi-cm5-evb.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dtb: rga@fdb60000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
-arch/arm64/boot/dts/rockchip/rk3588s-indiedroid-nova.dtb: rga@fdb70000 (rockchip,rk3588-rga3): 'interrupt-names', 'iommus' do not match any of the regexes: '^pinctrl-[0-9]+$'
-	from schema $id: http://devicetree.org/schemas/media/rockchip-rga.yaml#
+> +	folio = __filemap_get_folio_mpol(inode->i_mapping, index,
+> +					 FGP_LOCK | FGP_ACCESSED | FGP_CREAT,
+> +					 mapping_gfp_mask(inode->i_mapping), policy);
+> +	mpol_cond_put(policy);
+> +
+> +	return folio;
+>  }
+>  
+>  static enum kvm_gfn_range_filter kvm_gmem_get_invalidate_filter(struct inode *inode)
+> @@ -413,8 +446,38 @@ static vm_fault_t kvm_gmem_fault_user_mapping(struct vm_fault *vmf)
+>  	return ret;
+>  }
+>  
+> +#ifdef CONFIG_NUMA
+> +static int kvm_gmem_set_policy(struct vm_area_struct *vma, struct mempolicy *mpol)
+> +{
+> +	struct inode *inode = file_inode(vma->vm_file);
+> +
+> +	return mpol_set_shared_policy(&GMEM_I(inode)->policy, vma, mpol);
+> +}
+> +
+> +static struct mempolicy *kvm_gmem_get_policy(struct vm_area_struct *vma,
+> +					     unsigned long addr, pgoff_t *pgoff)
+> +{
+> +	struct inode *inode = file_inode(vma->vm_file);
+> +
+> +	*pgoff = vma->vm_pgoff + ((addr - vma->vm_start) >> PAGE_SHIFT);
+> +
+> +	/*
+> +	 * Note!  Directly return whatever the lookup returns, do NOT return
+> +	 * the current task's policy as is done when looking up the policy for
+> +	 * a specific folio.  Kernel ABI for get_mempolicy() is to return
+> +	 * MPOL_DEFAULT when there is no defined policy, not whatever the
+> +	 * default policy resolves to.
 
+To be more accurate, I think this sentence should be:
 
+Kernel ABI for .get_policy is to return NULL if no policy is specified
+at this index. The caller can then replace NULL with the default memory
+policy instead of current's memory policy.
 
-
-
+> +	 */
+> +	return mpol_shared_policy_lookup(&GMEM_I(inode)->policy, *pgoff);
+> +}
+> +#endif /* CONFIG_NUMA */
+> +
+>  static const struct vm_operations_struct kvm_gmem_vm_ops = {
+> -	.fault = kvm_gmem_fault_user_mapping,
+> +	.fault		= kvm_gmem_fault_user_mapping,
+> +#ifdef CONFIG_NUMA
+> +	.get_policy	= kvm_gmem_get_policy,
+> +	.set_policy	= kvm_gmem_set_policy,
+> +#endif
+>  };
+>  
+>  static int kvm_gmem_mmap(struct file *file, struct vm_area_struct *vma)
+> @@ -867,11 +930,13 @@ static struct inode *kvm_gmem_alloc_inode(struct super_block *sb)
+>  	if (!gi)
+>  		return NULL;
+>  
+> +	mpol_shared_policy_init(&gi->policy, NULL);
+>  	return &gi->vfs_inode;
+>  }
+>  
+>  static void kvm_gmem_destroy_inode(struct inode *inode)
+>  {
+> +	mpol_free_shared_policy(&GMEM_I(inode)->policy);
+>  }
+>  
+>  static void kvm_gmem_free_inode(struct inode *inode)
+> -- 
+> 2.51.0.710.ga91ca5db03-goog
 
