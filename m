@@ -4,51 +4,51 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A39B4CCD18F
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 11:27:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5879CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 11:27:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xPd0ZjeboARFnV14EUx/4trsex2WcBOkc8rNb5ltniA=; b=l0lRU+EkeSPKexBaw1MIwXFyDN
-	o/zImUSibPOrnLwNqRHUare6Z775+OpctITHDMx0sOoz4hTAYjGmPd9cR+7c0XwPf3fKEzNqg40er
-	YegTdBjgXsRNi4qeMYSGs9010Tkns2VbdqiYEFwiZ1YQVFl4zr3rQOv8r2uT0tIvr4n1NoYwWSIqo
-	4Mpl6oiMQ2VUZ3AKiu6TKHvIaSOC9J4ETVnloC9i6zbw4LLJYjuC9dw38nZ+nSQ7eI8xZfDjiNB1f
-	Plhe09wEKqbLm0hv22//7YCsmE5oDLO25vG8fpF9YsOYlVl+1WKPE23SZQzlrz4KU4RleQlAp4cOX
-	ppu04OkA==;
+	bh=Xg8e20bFJTPFm4CfS78CF9jiJiS9NEIRmxnDRWL5VQM=; b=WkSJbZ7Ts2LrwebbQKEALbjKn6
+	u1yoVfBgNDQ1h95Y5d4SW8OGgu84ewwt9l7unGq9kMRmCaPtQiOYL0SXl6n2GR0yUqKE3wOxQ7mV/
+	6x1FpylVWQWaBLnXlFQ0UoiClKjYLRc+nNEuZW1u8Ar/Tn4VkX9i9RX/GeBQKT3uUpAPCi0zcbpeL
+	Ncwb2sMOP0Hdw/4yuoylK4moxHgCQfxPSFnz4FxTUr+eTm/u309NLKLTC0kVEuQegVC0QI0DjdWaN
+	IQjMJnlpfvilXkvt7cjzj09xSkYRELJSZ1u0+534uuHb61tzNgTbIoAlLrMNtNNAgYLwS88/Gn+L8
+	ohCD62Vw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6onn-00000005y7r-2ocV;
-	Thu, 09 Oct 2025 11:27:19 +0000
+	id 1v6ont-00000005yFF-0R6h;
+	Thu, 09 Oct 2025 11:27:25 +0000
 Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6onk-00000005y4J-20FJ;
-	Thu, 09 Oct 2025 11:27:17 +0000
+	id 1v6onp-00000005y9C-456x;
+	Thu, 09 Oct 2025 11:27:23 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1760009234;
-	bh=Ci7fJTXqo4Z20C2XhPVrLu17OYCK7HuDTL8uZuZ4OA8=;
+	s=mail; t=1760009239;
+	bh=enMp2lp+mdz3ReIJxikmUnpTeAbVNfhoqdA9uVU9ApM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=VRa6RD7Z4Ol1Fi6WqTpUb4G5Kwx/WEEJvoDj3O7XI7UtRxwsZWqDvZi7rz+8Yi2U1
-	 74l8i5c1HmW7+/oIF2wwuVu/QkUH9oXcRxE/Sl4YTESoHst3p6/6x+QKOvCzENZkM9
-	 vaEI06KKa9cZkQ5utMuvB6whcGIWEHeF494dGEtt/Qz4kp37JTpsU0a8eiqIiMr0n+
-	 E0QV7nmS4cYw3HbxyzuCVpYqC3+h0YNKCD7MxCbCvevMfWnWDZgNr03vFG9PPrsuwr
-	 J+XsyfNE2DEqTZYSlQF8/UPho0EX4DH4N/l4YtafPp3fEtorvPw0gR00MPOvndUMlU
-	 9h+U96Rz4XV5g==
+	b=oP2xDZoqFL5PLhQhyHBnhUABh6PaI43Ll58/kbmiLHe5BfHoBttFgvcylWiyoJu+K
+	 KotHSxHgkvR+TaKKAkmT3ZT4HqSyNppSW8M6ZHL0He+f+UUW1KaPJ9pKlicdreP+G3
+	 upGWaP6T5L4i1c46zRBJIesNnqvIM1FrnDIm9CoW2wKJnDXL30DwTuas9mERkKWVqf
+	 FDvMroWVu80WqJTdv88/z5WikGiIUsct+cm9iw5LTdflKpetsKRnihjtlluu9uhme/
+	 juX0MFUhAvVn11QxKTl1Uc8lIwP0RISxtF5/+MEL+TX8iA8jdIxYj+Le+08GTaRew4
+	 Pk2fj78IMAiLQ==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 4C15F17E0579;
-	Thu,  9 Oct 2025 13:27:13 +0200 (CEST)
-Message-ID: <044f8f98-7ae2-45ef-9b9e-a112d7013e5d@collabora.com>
-Date: Thu, 9 Oct 2025 13:27:12 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C466617E01F5;
+	Thu,  9 Oct 2025 13:27:18 +0200 (CEST)
+Message-ID: <291edc0a-a892-428f-a2da-29e192f5a2e8@collabora.com>
+Date: Thu, 9 Oct 2025 13:27:18 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 06/20] mailbox: mtk-cmdq: Add GCE hardware
- virtualization configuration
+Subject: Re: [PATCH v7 05/20] soc: mediatek: mtk-cmdq: Add
+ cmdq_pkt_jump_rel_temp() for removing shift_pa
 To: Jason-JH Lin <jason-jh.lin@mediatek.com>, Rob Herring <robh@kernel.org>,
  Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
  <conor+dt@kernel.org>, Jassi Brar <jassisinghbrar@gmail.com>,
@@ -66,15 +66,15 @@ Cc: Matthias Brugger <matthias.bgg@gmail.com>,
  dri-devel@lists.freedesktop.org, linux-mediatek@lists.infradead.org,
  linux-arm-kernel@lists.infradead.org, linux-media@vger.kernel.org
 References: <20250827114006.3310175-1-jason-jh.lin@mediatek.com>
- <20250827114006.3310175-7-jason-jh.lin@mediatek.com>
+ <20250827114006.3310175-6-jason-jh.lin@mediatek.com>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20250827114006.3310175-7-jason-jh.lin@mediatek.com>
+In-Reply-To: <20250827114006.3310175-6-jason-jh.lin@mediatek.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_042716_691301_71AE32EB 
-X-CRM114-Status: GOOD (  12.84  )
+X-CRM114-CacheID: sfid-20251009_042722_221148_37C055C0 
+X-CRM114-Status: GOOD (  19.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,35 +90,83 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 Il 27/08/25 13:37, Jason-JH Lin ha scritto:
-> The GCE hardware virtualization configuration supports the isolation of
-> GCE hardware resources across different OS environments. Each OS is
-> treated as a virtual machine (VM) for GCE purposes.
-> There are 6 VMs and 1 host VM. The host VM has main control over the
-> GCE virtualization settings for all VMs.
+> Since shift_pa will be stored into the cmdq_mobx_priv of cmdq_pkt, all
+> the shif_pa parameters in CMDQ helper APIs can be removed.
 > 
-> To properly access the GCE thread registers, it is necessary to
-> configure access permissions for specific GCE threads assigned to
-> different VMs.
-> Currently, since only the host VM is being used, it is required to
-> enable access permissions for all GCE threads for the host VM.
+> Add cmdq_pkt_jump_rel_temp() for the current users of cmdq_pkt_jump_rel(),
+> and then remove shift_pa after all users have migrated to the new APIs.
 > 
-> There are 2 VM configurations:
-> 1. VM_ID_MAP
-> There are 4 registers to allocate 32 GCE threads across different VMs:
-> VM_ID_MAP0 for threads 0-9, VM_ID_MAP1 for threads 10-19,
-> VM_ID_MAP2 for threads 20-29, and VM_ID_MAP3 for threads 30-31.
-> Each thread has a 3-bit configuration, where setting all bits to 1
-> configures the thread for the host VM.
-> 
-> 2. VM_CPR_GSIZE
-> It is used to allocate the CPR SRAM size to each VM. Each VM has 4-bit
-> configuration, where setting bit 0-3 to configures the size of host VM.
-> This setting must be configured before the VM configuration to prevent
-> resource leakage.
-> 
+> Fixes: ade176534112 ("soc: mediatek: cmdq: Add parameter shift_pa to cmdq_pkt_jump()")
 > Signed-off-by: Jason-JH Lin <jason-jh.lin@mediatek.com>
+> ---
+>   drivers/soc/mediatek/mtk-cmdq-helper.c | 6 ++++++
+>   include/linux/soc/mediatek/mtk-cmdq.h  | 9 +++++++++
+>   2 files changed, 15 insertions(+)
+> 
+> diff --git a/drivers/soc/mediatek/mtk-cmdq-helper.c b/drivers/soc/mediatek/mtk-cmdq-helper.c
+> index 8feeaa320359..4b1591e5b1ae 100644
+> --- a/drivers/soc/mediatek/mtk-cmdq-helper.c
+> +++ b/drivers/soc/mediatek/mtk-cmdq-helper.c
+> @@ -515,6 +515,12 @@ int cmdq_pkt_jump_rel(struct cmdq_pkt *pkt, s32 offset, u8 shift_pa)
+>   }
+>   EXPORT_SYMBOL(cmdq_pkt_jump_rel);
+>   
+> +int cmdq_pkt_jump_rel_temp(struct cmdq_pkt *pkt, s32 offset, u8 shift_pa)
+> +{
+> +	return cmdq_pkt_jump_rel(pkt, offset, shift_pa);
+> +}
+> +EXPORT_SYMBOL(cmdq_pkt_jump_rel_temp);
+> +
+>   int cmdq_pkt_eoc(struct cmdq_pkt *pkt)
+>   {
+>   	struct cmdq_instruction inst = {
+> diff --git a/include/linux/soc/mediatek/mtk-cmdq.h b/include/linux/soc/mediatek/mtk-cmdq.h
+> index 0c3906e8ad19..5e3a0e807980 100644
+> --- a/include/linux/soc/mediatek/mtk-cmdq.h
+> +++ b/include/linux/soc/mediatek/mtk-cmdq.h
+> @@ -377,6 +377,9 @@ static inline int cmdq_pkt_jump(struct cmdq_pkt *pkt, dma_addr_t addr, u8 shift_
+>    */
+>   int cmdq_pkt_jump_rel(struct cmdq_pkt *pkt, s32 offset, u8 shift_pa);
+>   
+> +/* This wrapper has to be removed after all users migrated to jump_rel */
+> +int cmdq_pkt_jump_rel_temp(struct cmdq_pkt *pkt, s32 offset, u8 shift_pa);
 
-Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+/**
+  * cmdq_pkt_jump_rel_v0() - Temporary wrapper for new CMDQ helper API
+  * @pkt:   xyz (copy the descriptions from cmdq_pkt_jump_rel() here)
+  * @offset: whatever
+  * @shift_pa: [DEPRECATED] abc
+  *
+  * This function is a temporary wrapper that was introduced only for ease of
+  * migration of the many users of the CMDQ API located in multiple kernel
+  * subsystems.
+  *
+  * This has to be removed after all users are migrated to the newer CMDQ API.
+  */
+static inline int cmdq_pkt_jump_rel_v0(struct cmdq_pkt *pkt, s32 offset, u8 shift_pa)
+{
+	return cmdq_pkt_jump_rel(pkt, offset, shift_pa);
+}
+
+...so you don't even need to add it in mtk-cmdq-helper.c: less files to care about.
+
+> +
+>   /**
+>    * cmdq_pkt_eoc() - Append EOC and ask GCE to generate an IRQ at end of execution
+>    * @pkt:	The CMDQ packet
+> @@ -506,6 +509,12 @@ static inline int cmdq_pkt_jump_rel(struct cmdq_pkt *pkt, s32 offset, u8 shift_p
+>   	return -EINVAL;
+>   }
+>   
+> +/* This wrapper has to be removed after all users migrated to jump_rel */
+> +static inline int cmdq_pkt_jump_rel_temp(struct cmdq_pkt *pkt, s32 offset, u8 shift_pa)
+> +{
+> +	return -EIMVAL;
+> +}
+> +
+>   static inline int cmdq_pkt_eoc(struct cmdq_pkt *pkt)
+>   {
+>   	return -EINVAL;
 
 
 
