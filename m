@@ -4,99 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BD82CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 16:04:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DD941CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 16:05:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Zj8LfnqLwL+Gx5l1gM/bvFwx6FdJuno6EYMDHRGmO08=; b=1tLbYyqIVXT3VKGgYOJYzaPMWO
-	UkXxu+TUr7BItp5J1+PV0wQX7BmG2VQ6SeWYfIY4i9xk4WyuFBpVLmm3hTGxKbezm6xdOX6rkqSuN
-	UlIFERH6R0kMqExzyEFeJFlF1dSoufNVZUWOMSalSN3I4ajVhjFBE283fkxWAqMAszv0+9kGyb0e1
-	7FNc9UzpZnP30KgQUgl1fIak2bWVhApPzd0oqRaBI46mdUfPEAQ7rc2X1slevuQ9zoXnlOfOXB+mo
-	jPpJry3zUr505k3mEjHs9CtyrOmkYnqHJhNlQDANuDSfb6H6rMhB1RT6RxpjMIERztdsh5+qsA4ba
-	CB5JcRlQ==;
+	bh=re2LVHmQYfMPpDvoOEi22gcukJgsAd89KFwqYXVYUWo=; b=nUo4OHIhydvtuZy7CFzWs60ZhZ
+	dBe/ftI4E3x99xoHbJNTP/EYWBODUeBlhV8FNXQqQGWGok57akIXqNvaAHKsPygixYnt18SJub3mD
+	HTwRP+kpzCPDZBqMGZbAoEFJ2pbmzPngUAbmf1akSzFmR4HEGdM7TQ1SaDs7qwAMg4UKOj9wCYUwU
+	hiUcNdIU8//B0fVha9Jk5cJzG07CCGU1ZiR68FdsrObWkIga9kL09KNS6J6R/7ie3luqVyqPV+WtQ
+	U5zzALrB8WnapUhLlTDiKklpYbyBiT/oTghvMIZJ4lf+9jom4wcKjrhkqRUufYGRf0itPPDxFCRhN
+	ZLQfvBYw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6t7S-00000006dfv-3PfS;
-	Thu, 09 Oct 2025 16:03:54 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v6t8w-00000006dyI-3FrL;
+	Thu, 09 Oct 2025 16:05:26 +0000
+Received: from mail-wr1-x42b.google.com ([2a00:1450:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6t7R-00000006dfO-1ELJ
-	for linux-arm-kernel@bombadil.infradead.org;
-	Thu, 09 Oct 2025 16:03:53 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Type:Cc:To:Subject:Message-ID:
-	Date:From:In-Reply-To:References:MIME-Version:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=Zj8LfnqLwL+Gx5l1gM/bvFwx6FdJuno6EYMDHRGmO08=; b=lWasHItFiufp70iV8qVmEOgwbe
-	2OZdB7XvxCqNS8dDAHqxteUw5s7IFCBSyuZdU9VNvfz+idfMajC/Db3J8DjC5alWbdqdpn4jz+8tZ
-	yQ7C4gWUIrdexqduuCyqoASGt5sU8wPKlSZjEvd1m+VhJ1Ic9zBvG3s4HryBwZNCki3ZwHCpnLYQg
-	MeNUx8tOpOSmvhm9c9NlPzU9p0/1eHwfh48QMLgjk8GVPNHkfRSvwoZmPOgJDQt9LArnhn15wfKxk
-	HXS4rG4yhSkn1K/eWqGLyBPBnTFwqhP/4hctZZ+pH3zJ3ucIm2YlfmPor8MMv1yEKk0XOaVCp39On
-	HAQtmoTg==;
-Received: from mail-pj1-x1036.google.com ([2607:f8b0:4864:20::1036])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6t7N-00000001Y3g-15lg
+	id 1v6t8u-00000006dxm-3GO6
 	for linux-arm-kernel@lists.infradead.org;
-	Thu, 09 Oct 2025 16:03:51 +0000
-Received: by mail-pj1-x1036.google.com with SMTP id 98e67ed59e1d1-3304a57d842so1051514a91.3
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 09:03:47 -0700 (PDT)
+	Thu, 09 Oct 2025 16:05:25 +0000
+Received: by mail-wr1-x42b.google.com with SMTP id ffacd0b85a97d-421b93ee372so637183f8f.2
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 09:05:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760025825; x=1760630625; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=Zj8LfnqLwL+Gx5l1gM/bvFwx6FdJuno6EYMDHRGmO08=;
-        b=VzqBbfs49kReIEuYxYHJMKYa3knfihFN/QOxz5l44AVZluQDTRHu3GHQtPEs1XGe2s
-         x3DMCNKMsgWY1a+RThm7r7TjucDo44HU7Yd3GLxyJCeEZQCHdy4s4HWH8XJXtMQ7ee20
-         dYjSTFRyXAFEZBO6lbaCPdTEO0KY/STHHLlfi9Lk3q6WgPzzT77Tg7/ittbeRGavYUaJ
-         RRF23t853WY9OlPBjXt9Ztcl9tGNykFNIC/KUqYckTDrAW2Q830u7o2j6JXleu7b03i+
-         dkOaGIfQt3Ww9LcK0f7ubSM08ZKw+RlQ/0Gv6gaCnNrnOsMtZsW5fh05FDElHeznWHjQ
-         Hr6g==
+        d=gmail.com; s=20230601; t=1760025923; x=1760630723; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=re2LVHmQYfMPpDvoOEi22gcukJgsAd89KFwqYXVYUWo=;
+        b=LiXaQmZd+2oA821h6w5Pdds4D/WIBFx6MmOPepAM8ioErMgDD3rHC0cYA7LyEC3xju
+         3Mzid20Fv6OB8u2zmSunSxdLQsKtyD5yja8O2/ttDi1rLidLBDyCWQUSLJtpYYNn1OUo
+         xnGnXR7Lr6MPf7iytw5CTUVLWHWCNt5ZM5+f2y+7RwsssYRtdJqw3J1qn7aHNmBT6Qpl
+         TfW5WIXfqb+TRwc04UkXG20vEQnte4ZkdeAlvdHItbjGLBBTTHKk2UnH8aCfVJSfaWdm
+         qYip6Bd8zQWxXKxBof0YQQGrkQdgpsWzqexrltKSvQNmQZkFd1Dug3J0gQbfRUZozWbK
+         kw1w==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760025825; x=1760630625;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=Zj8LfnqLwL+Gx5l1gM/bvFwx6FdJuno6EYMDHRGmO08=;
-        b=l9TZXs5FzykzE/wrEI4PANamp5VmM0L0/CLds4anRG2dFbFlbgi837Dr6MflTbeWqp
-         y5sP3D3R4baAA1QSWNXdZWHqTtvKE1p/byph2s9I7WfUv8VGFeSr/cdw8JiNyVWZHLzA
-         cgPHt+VorzZSaXlraf9hALziZJ3J9JLM0TY980hhCMhdRg0p33ktEvmxxFB1+gSkp7+n
-         b1uRZ007MO3LUEs83XJs0/nrYRhwRLptp0dixPS2/cd6pC3DMAkj8MQPM0BLSNSwZ2Ww
-         4aUhrl4kHkTQY+eVY6UE4orWdiZLGaQP5Ao5oPiUVc7wfa0ZGBMxxw6iF4P9opATTYaj
-         mg4A==
-X-Forwarded-Encrypted: i=1; AJvYcCWWv99Udea3GwCX/KgT8KlVJpFIyrxZ12KC8Gw34i6/KRty4wh1EA/0eCFVtFDyYKOXHVh1MezfpDY88hiN+rHD@lists.infradead.org
-X-Gm-Message-State: AOJu0YzDYQ8XzimcNtnF0KnyNlAG3VliT0J+ZvLgmtx3/LdWGOf5IDmC
-	g2ijg+r46xl5vTQax+uk2qpevNl59lo0uI2a0jDEg7t8XZ6kYIcHyXscBgY8mtQFylrgZ4Qm37R
-	yrFG9kA7sa6gbRjvRkDQ1j66Rf1aZIEJHO3qvH6Ue+w==
-X-Gm-Gg: ASbGncu5CvQOpD4vBmKTOZtG4A4edcXU0eLwa9b3P/NvF4je8ryY7WRctkRLvZbxG2o
-	KmXfaqA6hdJ1HHd9wbdNIDwXcqHEzJqa3xc1WqHFC6poVhgWKIo4GV5QpbjPipwjqJez/qODMMV
-	6zXYFEq32gTDjIrsxYbG1pkOAn+Xtz2Opw1mA+AzdP5C64RCWGbMMXuQ/cqtcdebsUa/J3vkjjZ
-	08C52L0ge6PZJw7g6LnVvloT9l2GiVssaqP
-X-Google-Smtp-Source: AGHT+IFWZP1sOUCVxhD5rut22TgyJiSvAxe/PqeY6yT6cbXfcUKECeTUVY2YIzCllx+tjT2TLCT77aX1c7tYXB/6Wdw=
-X-Received: by 2002:a17:90b:1b50:b0:332:250e:eec8 with SMTP id
- 98e67ed59e1d1-33b51168e20mr11597847a91.15.1760025825128; Thu, 09 Oct 2025
- 09:03:45 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1760025923; x=1760630723;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=re2LVHmQYfMPpDvoOEi22gcukJgsAd89KFwqYXVYUWo=;
+        b=wkmQ8b9jfneD40i1i9ZEXvYKAKtdJJ4NxsywYcDGrEsmVKCd35Jko+PblNW1hIfoja
+         jd+hcvjnYiWHc7ypUj4zGMBOeTCy+1eKaqeSdOOeCkr1T+E03Pazvyuv5wRyf5XENpzX
+         PAYsya6zPvy+qUX6yaI+xoT8q9VZg4XtNL9bVX0OktptDvdMmgox6xRH0FWpdWPktg7f
+         yIwDR/2w8HQPV0+DeqAKgKirTiO407P2mYU1Whihsis4Nn+1QDm+voIVPZMTY5i0t7z+
+         rWoZOtGc+fCXsZYsmmeigfcSvLYMbHXw6P3wGBkBQ6nsdQEXcjEAVKHPAt/N+WwoQpma
+         6hqw==
+X-Forwarded-Encrypted: i=1; AJvYcCUqiU1TZgTgMLOB1bKDONbfGQZCHDR2dUTuU6kNUHu5XQ55C9XFIlaJqkcVzLuueheUL0jvFryHt9SjLJEAuK0p@lists.infradead.org
+X-Gm-Message-State: AOJu0YyWbqXSgZia1ban7EnjZmFPHwzaXEcVOPsd+8hTJtQfaTXVNYQN
+	4XBCQ3E2ZAn3iRE/ZVpsO62rQNFwCVpJs4eysIys1TYqzksyzf1sDD+fuUhkuQ==
+X-Gm-Gg: ASbGnctxmc+CFLGwVtSYvZENgLj43rH44YR+R+mZC8FHHxuaK2pJSn9q9xnu74RAp8o
+	oxBFzYzrRYOnnFUzRi868DIiH3Ub1RBnMXY1oJAoY2AYnLF7RhHkrQyJbm6fKXUAX+1QU5jyZtP
+	KffB4Dvhfh1ha4CUsWX3Jre5yLizPdjxbFzkhO7WAEyqlTyR6ZDjveSHkhfeimwZwlhftLZavr2
+	R3kg/L9GB/pxmiRPmCFWJS3gz3spMYhf/UcPqmRymQtXAxtU9y+3FHvqyThWZmPKn8QTn5EJkgT
+	3miLGZpbJlen1WVsEFz5CcNoQ1iNGrtlU3fx7JGp0TyX95gcGxZFPot9bwPpmhqlxa2mGFuypsI
+	fpya39eEfdHod1qNL/tBWQqVf00/EegmR89e6BGsikSoIX0dGe6fkwNN/U+g/wvpbkpHHtnYL9J
+	Iyq3dc0L940PFNrUt0wd80hO+ZWrj0wlzb7w==
+X-Google-Smtp-Source: AGHT+IFOzFZCAz1bvnO194N0WES7OEH7GfUA/BRjdohTZijoPsQbpfZni9sA7IHmHQ3LMF15FxD4jA==
+X-Received: by 2002:a5d:5d03:0:b0:3d1:6d7a:ab24 with SMTP id ffacd0b85a97d-42667177c28mr5473434f8f.17.1760025922451;
+        Thu, 09 Oct 2025 09:05:22 -0700 (PDT)
+Received: from orome (p200300e41f28f500f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f28:f500:f22f:74ff:fe1f:3a53])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-426cd99fd4esm30074f8f.42.2025.10.09.09.05.16
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 09 Oct 2025 09:05:17 -0700 (PDT)
+Date: Thu, 9 Oct 2025 18:05:15 +0200
+From: Thierry Reding <thierry.reding@gmail.com>
+To: Marc Zyngier <maz@kernel.org>
+Cc: Thomas Gleixner <tglx@linutronix.de>, linux-tegra@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: IRQ thread timeouts and affinity
+Message-ID: <loeliplxuvek4nh4plt4hup3ibqorpiv4eljiiwltgmyqa4nki@xpzymugslcvf>
+References: <j7ikmaazu6hjzsagqqk4o4nnxl5wupsmpcaruoyytsn2ogolyx@mtmhqrkm4gbv>
+ <86qzvcxi3j.wl-maz@kernel.org>
 MIME-Version: 1.0
-References: <20251002-james-cs-syncfreq-v3-0-fe5df2bf91d1@linaro.org> <20251002-james-cs-syncfreq-v3-5-fe5df2bf91d1@linaro.org>
-In-Reply-To: <20251002-james-cs-syncfreq-v3-5-fe5df2bf91d1@linaro.org>
-From: Mike Leach <mike.leach@linaro.org>
-Date: Thu, 9 Oct 2025 17:03:34 +0100
-X-Gm-Features: AS18NWBRPxicWlO6Xkw2qzlt4rKgSo68ZX2bh5k8tmBbwfyeBqn1yur95FngjNs
-Message-ID: <CAJ9a7VhZwXdGQDDqQ=o3D=yVOjZ5xdqHKvXRdM-Auu6pum6JuQ@mail.gmail.com>
-Subject: Re: [PATCH v3 5/5] coresight: docs: Document etm4x ts_interval
-To: James Clark <james.clark@linaro.org>
-Cc: Suzuki K Poulose <suzuki.poulose@arm.com>, 
-	Alexander Shishkin <alexander.shishkin@linux.intel.com>, Jonathan Corbet <corbet@lwn.net>, 
-	Leo Yan <leo.yan@arm.com>, coresight@lists.linaro.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-doc@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="ytjgx34t7yap2p7t"
+Content-Disposition: inline
+In-Reply-To: <86qzvcxi3j.wl-maz@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_170349_375208_D1CFEC2D 
-X-CRM114-Status: GOOD (  23.23  )
+X-CRM114-CacheID: sfid-20251009_090524_844123_5327E1DD 
+X-CRM114-Status: GOOD (  44.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -111,50 +100,107 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 2 Oct 2025 at 11:10, James Clark <james.clark@linaro.org> wrote:
->
-> Document how the new field is used, maximum value and the interaction
-> with SYNC timestamps.
->
-> Signed-off-by: James Clark <james.clark@linaro.org>
-> ---
->  Documentation/trace/coresight/coresight.rst | 14 ++++++++++++++
->  1 file changed, 14 insertions(+)
->
-> diff --git a/Documentation/trace/coresight/coresight.rst b/Documentation/trace/coresight/coresight.rst
-> index 806699871b80..0cd83119b83f 100644
-> --- a/Documentation/trace/coresight/coresight.rst
-> +++ b/Documentation/trace/coresight/coresight.rst
-> @@ -619,6 +619,20 @@ They are also listed in the folder /sys/bus/event_source/devices/cs_etm/format/
->       - Cycle count threshold value. If nothing is provided here or the provided value is 0, then the
->         default value i.e 0x100 will be used. If provided value is less than minimum cycles threshold
->         value, as indicated via TRCIDR3.CCITMIN, then the minimum value will be used instead.
-> +   * - ts_level
-> +     - Controls frequency of timestamps. The reload value of the
-> +       timestamp counter is 2 raised to the power of this value. If the value is
-> +       0 then the reload value is 1, if the value is 10 then the reload value is
-> +       1024. Maximum allowed value is 15, and setting the maximum disables
-> +       generation of timestamps via the counter, freeing the counter resources.
-> +       Timestamps will be generated after 2 ^ ts_level cycles.
-> +
-> +       Separately to this value, timestamps will also be emitted when a SYNC
-> +       packet is generated, although this is only for every 4096 bytes of trace.
-> +       Therefore it's not possible to generate timestamps less frequently than
-> +       that and ts_level timestamps are always in addition to SYNC timestamps.
-> +       Timestamps must be enabled for this to have effect.
-> +
->
->  How to use the STM module
->  -------------------------
->
-> --
-> 2.34.1
->
 
-Reviewed-by: Mike Leach <mike.leach@linaro.org>
+--ytjgx34t7yap2p7t
+Content-Type: text/plain; protected-headers=v1; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
+Subject: Re: IRQ thread timeouts and affinity
+MIME-Version: 1.0
 
--- 
-Mike Leach
-Principal Engineer, ARM Ltd.
-Manchester Design Centre. UK
+On Thu, Oct 09, 2025 at 03:30:56PM +0100, Marc Zyngier wrote:
+> Hi Thierry,
+>=20
+> On Thu, 09 Oct 2025 12:38:55 +0100,
+> Thierry Reding <thierry.reding@gmail.com> wrote:
+> >=20
+> > Which brings me to the actual question: what is the right way to solve
+> > this? I had, maybe naively, assumed that the default CPU affinity, which
+> > includes all available CPUs, would be sufficient to have interrupts
+> > balanced across all of those CPUs, but that doesn't appear to be the
+> > case. At least not with the GIC (v3) driver which selects one CPU (CPU 0
+> > in this particular case) from the affinity mask to set the "effective
+> > affinity", which then dictates where IRQs are handled and where the
+> > corresponding IRQ thread function is run.
+>=20
+> There's a (GIC-specific) answer to that, and that's the "1 of N"
+> distribution model. The problem is that it is a massive headache (it
+> completely breaks with per-CPU context).
+
+Heh, that started out as a very promising first paragraph but turned
+ugly very quickly... =3D)
+
+> We could try and hack this in somehow, but defining a reasonable API
+> is complicated. The set of CPUs receiving 1:N interrupts is a *global*
+> set, which means you cannot have one interrupt targeting CPUs 0-1, and
+> another targeting CPUs 2-3. You can only have a single set for all 1:N
+> interrupts. How would you define such a set in a platform agnostic
+> manner so that a random driver could use this? I definitely don't want
+> to have a GIC-specific API.
+
+I see. I've been thinking that maybe the only way to solve this is using
+some sort of policy. A very simple policy might be: use CPU 0 as the
+"default" interrupt (much like it is now) because like you said there
+might be assumptions built-in that break when the interrupt is scheduled
+elsewhere. But then let individual drivers opt into the 1:N set, which
+would perhaps span all available CPUs but the first one. From an API PoV
+this would just be a flag that's passed to request_irq() (or one of its
+derivatives).
+
+> Overall, there is quite a lot of work to be done in this space: the
+> machine I'm typing this from doesn't have affinity control *at
+> all*. Any interrupt can target any CPU,
+
+Well, that actually sounds pretty nice for the use-case that we have...
+
+>                                         and if Linux doesn't expect
+> that, tough.
+
+=2E.. but yeah, it may also break things.
+
+>               Don't even think of managed interrupts on that sort of
+> systems...
+
+I've seen some of the hardware drivers on the Grace devices distribute
+interrupts across multiple CPUs, but they do so via managed interrupts
+and multiple queues. I was trying to think if maybe that could be used
+for cases like QSPI as well. It's similar to just using a fixed CPU
+affinity, so it's hardly a great solution. I also didn't see anything
+outside of network and PCI use this (there's one exception in SATA),
+so I don't know if it's something that just isn't a good idea outside
+of multi-queue devices or if simply nobody has considered it.
+
+irqbalance sounds like it would work to avoid the worst, and it has
+built-in support to exclude certain CPUs from the balancing set. At the
+same time this seems like something that the kernel would be much better
+equipped to handle than a userspace daemon. Has anyone ever attempted to
+create an irqbalance but within the kernel?
+
+I should probably go look at how this works on x86 or PowerPC systems. I
+keep thinking that this cannot be a new problem, so other solutions must
+already exist.
+
+Thierry
+
+--ytjgx34t7yap2p7t
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmjn3TcACgkQ3SOs138+
+s6G8yRAAv041zNcMgGZ0avjjb7ZaT6br0d8spAZRKqEUblfT6ypcmLRDIdQikbIJ
+7l+LrNKGk0onNtvCoGVuMqdc5HWEpYc+ur4eu2DGX6qFcrTckGZYDNJRwgmSc8LU
+mx2xRjZL9+8p1p/ZJ5ZtCjS0o2A6SkxHPCGZmU586GHNvdOyzi5mj8W2mL5520c9
+W/GiZkPYJmNJOz7XxxdfENmx9UDbsBlw98mEWa/4WX2vNpqwjjx6DvjqEZbLd4L0
+SuN/+ptQJ6rdGEosaWnurFUoEuAJP6kwQFeYrs6eEEoG4SAheVMCoBsXtU2S0aME
+ZzRLjDOdlgjlJBcBzeEMCN5KE4u13rni8DmDfp+mvwlb7GOxaVDkMKUXty10Z1bm
+Suu9F8w0dkyMdIVHPbxYDYV5UGCLRB23fTVgeJ8XnAEgBviinkoiZiBkpAZ/mivm
+985PDzT8AB2RLsVdb9E2k6pwlD1ShsCunyssQHDj3QqfhKv16QLLyEFq5agJ8mJ0
+Au6aDjn4d2NYERVvUI3RoCeogRvfk8vVdiymMxoV+jdwxvUYzoHCmAcNHlCyzoFe
+jYeCeYyEIEAYKMg4zSofqW2+EqYvMmQ98PK0Vt5Mh0yhsFw+yoL7dwWJbfFQgvBa
+DWj6h+sChHu5/hq/rwXkBS8xiacKru+DMcjCRwz0k2iMPkAaVM0=
+=N60K
+-----END PGP SIGNATURE-----
+
+--ytjgx34t7yap2p7t--
 
