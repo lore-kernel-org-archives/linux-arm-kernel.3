@@ -4,72 +4,143 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C95BCCA470
-	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 01:46:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C0F98CCA470
+	for <linux-arm-kernel@archiver.kernel.org>; Thu,  9 Oct 2025 01:58:44 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=U8Lyg1iODEcriIg8AQsHGCBrZHwVaWgFuk2yxIxhxAI=; b=dy9ZOuV6z3uYFvirrO1mEES9KE
-	Dkm/VnoGP13DkeZKI4VXwDnWI/kKQo80vXNfL/khHl5EpfSWPPqJRf0r9C83NDEaM6pysLsn+C0lX
-	Xm8xS3qbzGUZMPDQoZtYBmveBWKnsHibo6nRl66L4Zztf416b46ixCqW1P1hEmtksSvdQf2a62mWu
-	QqkrY23mDjx4qFtQDa2kB6doSakXloyw8MR0Ou+8InXQQqquInPHTdJQLzdjl2pxsxBR83pEEUG+x
-	4xPSVEsB23QWiY/RW03TJBjyJfnPqsedvHnc1XGcgfvWXAEuQylTLiudf3bv8iWQQnU7tP+2SEiYs
-	ym2kELEw==;
+	bh=2aGfciQxVmbM+4l+bNDs3L4I0WH01Ha6lKiSJ74aDco=; b=pobZbLqiO5QGoDbR8Xa1iANl6k
+	SafY9Dp1fxn3UvSblKADRToNys7nsIJyRM1YYuXmloLThbQr7XPMCc2XjtIAErBS5o0zpsB//0wXJ
+	fbWv+TMCY1xCUbA8/Sk2wvnnm3mpt5JSXsDAp28XrZh2piAxClvZa7RPjsbyrQhJ44p695ouuuOfz
+	IKmr8yCBlkf1I+gSjtsQt9C0Kf2Va3qIoPToWCUz+aw8yB3q519mSK/YmPEmoAZ0yQPKylVIoiILp
+	8f5DicDy1dUCAAbkAacOy8huFzrhfwfwJbc0n7hN9X8SBUofE3XaRKEiY4i2JgNEu5cKwPYYsat3R
+	pFLwWglQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6fjO-00000004yXv-1RT8;
-	Thu, 09 Oct 2025 01:46:10 +0000
-Received: from mail-m3276.qiye.163.com ([220.197.32.76])
+	id 1v6fvR-00000004z2a-3GzE;
+	Thu, 09 Oct 2025 01:58:37 +0000
+Received: from mail-pg1-x52a.google.com ([2607:f8b0:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v6fjI-00000004yXP-3eo0;
-	Thu, 09 Oct 2025 01:46:09 +0000
-Received: from [172.16.12.26] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 253d44f19;
-	Thu, 9 Oct 2025 09:45:58 +0800 (GMT+08:00)
-Message-ID: <ac2b6c11-b3c2-4ecd-a0b3-fafc584425bc@rock-chips.com>
-Date: Thu, 9 Oct 2025 09:46:00 +0800
+	id 1v6fvP-00000004z2F-2lkK
+	for linux-arm-kernel@lists.infradead.org;
+	Thu, 09 Oct 2025 01:58:36 +0000
+Received: by mail-pg1-x52a.google.com with SMTP id 41be03b00d2f7-b550eff972eso249615a12.3
+        for <linux-arm-kernel@lists.infradead.org>; Wed, 08 Oct 2025 18:58:35 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1759975114; x=1760579914; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:from:to:cc:subject:date:message-id:reply-to;
+        bh=2aGfciQxVmbM+4l+bNDs3L4I0WH01Ha6lKiSJ74aDco=;
+        b=hz4E1vSsXPC3yPOgsw/J7a7SmGRh4y4kcswo65eSMNeIdLtMFAZ0ynuBtp1kbU/+XG
+         RwLktuNUN+2ZnyklQhLaA12p7qTa21Ui2d8xf2R/L1ZvdGN3Sw4MlxlfLS6hA2AtBF4D
+         QkrjKJeOPGiPXrFPLMWWN6vEhnj8jtPAmN21b5zzIAg+asIyyWOzY6iNF7qo1gHVnxcC
+         RaH5PbYSyv3EsRKziTILYjRlvleKBvejg5Vg+WvRwWgSyudId4glCMsFQccyouPdJLQx
+         zy20A5iJL83vzeiCS6O6PhAHli2pu6mGfNr4PtOhsmf3TTULEoM+G7lAvs/bb1UuLr3w
+         fugA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1759975114; x=1760579914;
+        h=content-transfer-encoding:in-reply-to:autocrypt:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:sender:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=2aGfciQxVmbM+4l+bNDs3L4I0WH01Ha6lKiSJ74aDco=;
+        b=I4Ka2MJbAdeSMF3A49lrDUAOfrMF5C6NPS/xtcTUWhOLhWmqI6ApKIAd7q4AqwywoM
+         8wwSS04uoEYzifouaLW+RX5cHxdVRzaFxuveH3lmieBj8EnVOQyCzlDsozZWzACMDa7K
+         QlI78HZlTkrOWIIC6MKN7FZw8I54feeFEE5Tz+UbZGK3uA5KlMvT5MHu7l93wRgvE5z4
+         fX7JHKqjgHl+165TxKy1mbZa72JHFRbavwMFOkgbIGxJRXK/JgWqRri64CVgxCdULuTM
+         srvSACPEOTX0UmP/CEWnICfT8tmTythLx8kgR4TYrEhuD+rGpUYVtVWOfGA2DpB/IjgJ
+         tvXA==
+X-Forwarded-Encrypted: i=1; AJvYcCWNyPRk5FcNoWHdAA69dftp6HJP9QMQIRZqN4Eu6lYY5PyR/ulC8IgOfV6DXSGyYhphMOQ8L4GjRdI35YkrQ6x4@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz5+exoDufkni1kkNr8SIiAHrgQ1KrEKcO/mQl1G9r7NNGATpMg
+	xJEq8M37SCy2ckxFA03Ro6kug0DchEAp/C4Z7sfTbUF+nZqydF1AKA+3
+X-Gm-Gg: ASbGncsq38XOSg5CrHmcfWKLgdwPJXwvSTd6et0P9h7VYTxC8zhApkhH4kMcd3DK0vM
+	suRv6aJd+nBRGFbwXyOFSdX+1rSQ/uc9gxncaTU8TWJiBRdmL7nw1klb1vpvTwvB9ZnQ6Z2AOeB
+	6OLqoy5tCs0nA+OBgJUSYuSRK6OdXkaouVr6+f3FCdFnp+SwknCf2yQQbaNFEDW3gmWd02glk38
+	+PlOQLHgJqO5j5cfulywq6BMFG1C6zmZ3eRy3znWSB5YZKJwqM0KEVVtBcfhvzbzdWxdPRt8aiT
+	5L4uJiLryK/UMeBQKg9wBQFh7FIXb0kAZAQ+rV4fO8JtQeZhUkKsonmHDeMD8jIHKPE0F7p9pcZ
+	qn40Y3VMAp2Ukqg/zwajryEwOoEOeGqnRCG2HP5fwEH2iql5+B5FNrwjUsoXOJ8GRmOXT8ALpGJ
+	DewEOsbMmf7FfSE8+FAwEBzOs5c5SJkg==
+X-Google-Smtp-Source: AGHT+IFRnXDNLeO6K/K3wthKcVdDZ0k79jHMKp0eRtg+qp5MtCtdWauMOoFNlF0VJLS/II4OcfTVwg==
+X-Received: by 2002:a05:6a20:3956:b0:303:8207:eb56 with SMTP id adf61e73a8af0-32da8190b86mr7638215637.5.1759975114450;
+        Wed, 08 Oct 2025 18:58:34 -0700 (PDT)
+Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
+        by smtp.gmail.com with ESMTPSA id 98e67ed59e1d1-33b51102259sm4986725a91.7.2025.10.08.18.58.32
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 08 Oct 2025 18:58:33 -0700 (PDT)
+Message-ID: <c7d01ff6-0e09-4ea1-8c5d-59be5e3fff16@roeck-us.net>
+Date: Wed, 8 Oct 2025 18:58:31 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 04/18] drm/bridge: Move legacy bridge driver out of imx
- directory for multi-platform use
-To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: andrzej.hajda@intel.com, neil.armstrong@linaro.org, rfoss@kernel.org,
- Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
- jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
- mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com, simona@ffwll.ch,
- shawnguo@kernel.org, s.hauer@pengutronix.de, kernel@pengutronix.de,
- festevam@gmail.com, inki.dae@samsung.com, sw0312.kim@samsung.com,
- kyungmin.park@samsung.com, krzk@kernel.org, alim.akhtar@samsung.com,
- jingoohan1@gmail.com, p.zabel@pengutronix.de, hjc@rock-chips.com,
- heiko@sntech.de, andy.yan@rock-chips.com, dianders@chromium.org,
- m.szyprowski@samsung.com, luca.ceresoli@bootlin.com, jani.nikula@intel.com,
- linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
- imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
-References: <20250930090920.131094-1-damon.ding@rock-chips.com>
- <20250930090920.131094-5-damon.ding@rock-chips.com>
- <x2fpm4rb7ermb2tyjefdwwbvwvzt6uosd45ad7ku3tp3yqkmqc@bayzgz3jsqkp>
+Subject: Re: [PATCH v3 06/13] hwmon: Add Apple Silicon SMC hwmon driver
+To: James Calligeros <jcalligeros99@gmail.com>, Sven Peter <sven@kernel.org>,
+ Janne Grunau <j@jannau.net>, Alyssa Rosenzweig <alyssa@rosenzweig.io>,
+ Neal Gompa <neal@gompa.dev>, Lee Jones <lee@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>,
+ Alexandre Belloni <alexandre.belloni@bootlin.com>,
+ Jean Delvare <jdelvare@suse.com>, Dmitry Torokhov
+ <dmitry.torokhov@gmail.com>, Jonathan Corbet <corbet@lwn.net>
+Cc: asahi@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-rtc@vger.kernel.org, linux-hwmon@vger.kernel.org,
+ linux-input@vger.kernel.org, linux-doc@vger.kernel.org
+References: <20251007-macsmc-subdevs-v3-0-d7d3bfd7ae02@gmail.com>
+ <20251007-macsmc-subdevs-v3-6-d7d3bfd7ae02@gmail.com>
 Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <x2fpm4rb7ermb2tyjefdwwbvwvzt6uosd45ad7ku3tp3yqkmqc@bayzgz3jsqkp>
+From: Guenter Roeck <linux@roeck-us.net>
+Autocrypt: addr=linux@roeck-us.net; keydata=
+ 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
+ np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
+In-Reply-To: <20251007-macsmc-subdevs-v3-6-d7d3bfd7ae02@gmail.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a99c6a57e3103a3kunmfad084a5a34e64
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGkkZGlZNHUxNTBlKSBlJH09WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpKQk
-	1VSktLVUpCWQY+
-DKIM-Signature: a=rsa-sha256;
-	b=WNdbsaZbbltnfB98jhkb8/mQbmF1sAaoVzHqeW9JnKbGUruIhACGVxkCCl91k3GBm68p9ZqogDvjX5tMx77yXn/LSwAAWRdhdh2Af+R1vTKiL8aRbalbQV2uWiC25vNrgQ5aMK8cVPAUcZHFWBzKDp71wr7tro+sAejfj7pfigA=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=U8Lyg1iODEcriIg8AQsHGCBrZHwVaWgFuk2yxIxhxAI=;
-	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251008_184605_400227_03F2CE7C 
-X-CRM114-Status: GOOD (  15.28  )
+X-CRM114-CacheID: sfid-20251008_185835_707232_93ABC9CD 
+X-CRM114-Status: GOOD (  14.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,55 +155,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Dmitry,
-
-On 10/1/2025 4:10 AM, Dmitry Baryshkov wrote:
-> On Tue, Sep 30, 2025 at 05:09:06PM +0800, Damon Ding wrote:
->> As suggested by Dmitry, the DRM legacy bridge driver can be pulled
->> out of imx/ subdir for multi-platform use. The driver is also renamed
->> to make it more generic and suitable for platforms other than i.MX.
->>
->> Additionally, a new API drm_bridge_is_legacy() is added to identify
->> the legacy bridge, allowing specialized handling for such cases.
+On 10/7/25 04:16, James Calligeros wrote:
+> The System Management Controller on Apple Silicon devices is responsible
+> for integrating and exposing the data reported by the vast array of
+> hardware monitoring sensors present on these devices. It is also
+> responsible for fan control, and allows users to manually set fan
+> speeds if they so desire. Add a hwmon driver to expose current,
+> power, temperature, and voltage monitoring sensors, as well as
+> fan speed monitoring and control via the SMC on Apple Silicon devices.
 > 
-> Why do you need special handling for it?
+> The SMC firmware has no consistency between devices, even when they
+> share an SoC. The FourCC keys used to access sensors are almost
+> random. An M1 Mac mini will have different FourCCs for its CPU core
+> temperature sensors to an M1 MacBook Pro, for example. For this
+> reason, the valid sensors for a given device are specified in a
+> child of the SMC Devicetree node. The driver uses this information
+> to determine which sensors to make available at runtime.
 > 
+> Reviewed-by: Neal Gompa <neal@gompa.dev>
+> Co-developed-by: Janne Grunau <j@jannau.net>
+> Signed-off-by: Janne Grunau <j@jannau.net>
+> Signed-off-by: James Calligeros <jcalligeros99@gmail.com>
 
-As you suggested, I will remove this API and add a temporary flag to the 
-Exynos side.
-
->>
->> Signed-off-by: Damon Ding <damon.ding@rock-chips.com>
->> Suggested-by: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
->> ---
->>   drivers/gpu/drm/bridge/Kconfig                | 10 ++
->>   drivers/gpu/drm/bridge/Makefile               |  1 +
->>   drivers/gpu/drm/bridge/imx/Kconfig            | 10 --
->>   drivers/gpu/drm/bridge/imx/Makefile           |  1 -
->>   .../gpu/drm/bridge/imx/imx-legacy-bridge.c    | 91 -----------------
->>   drivers/gpu/drm/bridge/legacy-bridge.c        | 99 +++++++++++++++++++
->>   drivers/gpu/drm/imx/ipuv3/Kconfig             |  4 +-
->>   drivers/gpu/drm/imx/ipuv3/imx-ldb.c           |  6 +-
->>   drivers/gpu/drm/imx/ipuv3/parallel-display.c  |  4 +-
->>   include/drm/bridge/imx.h                      | 17 ----
->>   include/drm/bridge/legacy-bridge.h            | 18 ++++
->>   11 files changed, 135 insertions(+), 126 deletions(-)
->>   delete mode 100644 drivers/gpu/drm/bridge/imx/imx-legacy-bridge.c
->>   create mode 100644 drivers/gpu/drm/bridge/legacy-bridge.c
->>   delete mode 100644 include/drm/bridge/imx.h
->>   create mode 100644 include/drm/bridge/legacy-bridge.h
-> 
-> I'm slightly concerned with the name of 'legacy drm bridge', It was fine
-> for 'i.MX legacy', but now it might be a bit of overkill. Maybe
-> something like drm_display_mode or drm_of_display_mode bridge?
-> 
-
-The 'drm_of_display_mode_bridge' is more descriptive. Compared to that, 
-the 'legacy-bridge' is somewhat ambiguous.
-
-Apologies for the delayed reply as I was on vacation. ;-)
-
-Best regards,
-Damon
-
+Acked-by: Guenter Roeck <linux@roeck-us.net>
 
