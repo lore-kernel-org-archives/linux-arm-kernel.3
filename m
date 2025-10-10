@@ -4,106 +4,109 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2337DCCD18F
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 12:47:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A05FCCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 12:47:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6iPGUbK9frPbiRIF66lkOW8PKDoG2AW/288srP+02V0=; b=vLeLhrdYKMi7rUURllBeg/gMqP
-	g8NYE3hWonCmNIJni+7DbmgfIbSQ2CheBPgTZGSPWJ2h68dwtR9YCXrTuE7r8ZFW77zkyKWKaOPvu
-	GpLNQJTaBZltlNSSKSD7KXe5OYKkD1joOGelq+f9b8OrBi3iEz81ZIU2t/qvTmVY8J6jS6sd2gcZ9
-	JaO3zMGZbYhLGJUUSzOxJzyDNup0p1TJ0rPrCT9RFzIe3vov6cqg1G1aqynFpgoketLFh9LoQIneN
-	5n0sHNiiQIb94pqlHhGmLTZHMuFlNJbjDwpJYW8PBs74S/uZJB4CYCIJVcCrqSK98BSlIfr4PPhNt
-	OJejexkg==;
+	bh=Dj1sQ4sH5wuUoMdCX/75Xj2zO3SxYKKQH0HxVt+wxHo=; b=KYuOlff2D9ZaAtswqqnNBG9BvU
+	jc5JTMKsvm81uR4Q8giz9w/ojLLZd+tlmcs3P6O+iyAj/Xi7bIN7qKTeYgA8ySwWL38HO9yCwxOvM
+	2j5RKkfI8d0px4t9yFgAb0H1+Vz1Gt562cNTapAhAu4i0GTegUoliHYxikzDU9dRrbQt3kaj6+AgV
+	hu9NouJL5jvfljz7jBu6G9CbldGA1uHcEC16XioUJfZ5iid58379yJTnj/dkZlbMHxzc2/VvCFQgC
+	KxtH9hZVjXiWbKiYR+sTad+s9cG8L4GSKKHruLKexyWTZA8+fEn+zOqkPNqCcRAAOzKVXEz5+Lxr6
+	pdEvHRZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7CWK-00000008TyD-3HrK;
-	Fri, 10 Oct 2025 12:46:52 +0000
-Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
+	id 1v7CWS-00000008U60-1mxp;
+	Fri, 10 Oct 2025 12:47:00 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7CWG-00000008Tsh-2KaR
+	id 1v7CWM-00000008U0D-1FyP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 12:46:49 +0000
-Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3f2ae6fadb4so2364494f8f.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Oct 2025 05:46:48 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760100407; x=1760705207; darn=lists.infradead.org;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=6iPGUbK9frPbiRIF66lkOW8PKDoG2AW/288srP+02V0=;
-        b=LmoJ+aIIYz9tJpY5TyNGt4HSShXHR5wB4f5+xNCGvT/Ku9BmceEYN5fssMIqXHln1Q
-         QLZZckXSRaIb+PWyaOWGDNMYQjtSsmhWJLEY9j/D+o8jQLxoRwufNFnMI8H4HTryRi4k
-         E8p0n2WNeJWKpOTk02BCwGWxVwFTHcX/K7nHgTe0/Ol4jy3oIECxCA1R+RLPUQybIOvN
-         S/Ze1IBTSzxtUK/Xbu4ED8UgOIMt0XkqqriEL7c8ZVNUcYjWrmac6oXtvdo1G6KfwdnR
-         qUwv/8gXgGSC/r6yo8RsXMaAKqZakP5Kz8Zx/4X0tkFuWSKgjnkqRhReO3iJH6Vpx1Ij
-         2aPg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760100407; x=1760705207;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=6iPGUbK9frPbiRIF66lkOW8PKDoG2AW/288srP+02V0=;
-        b=ZnEM+x+wEaNH0LTUeGWjuOg84QB9i5HjhgRIFE0M3Mwg3KbJh5PBZ1S8F70npDzkp7
-         3MtIUVjKXzZDfdehUHbfIs1SgR0t8B6nzfag5uv6+A56oJFZLd1tVzBkm4yKfl3jgAcQ
-         PAvklPqSU7+hJs75MeNtLGvun0KrdfdjioPTyB/dbGrvTnn/lFxO8cfidFD22C4i7gB2
-         7QNZcB3hLPfDFfqYP7ZD+NZgIDYprpGeFERCSXrxXGAj1D26vGaN0diwmBnSpGZDnPct
-         Zwgv3AqfaGYrL/+jsyKOGzDMSQIwB8IuF07Zkhj9u38QbdjMHlXyFrphoCPOhtpNHh4v
-         Zgww==
-X-Forwarded-Encrypted: i=1; AJvYcCUgjUgerMv89lzjW2UFqnlamthci80OVCQruqRrMlJPcPnkpg3/vboT+6uRT3SX63phl7GTC9WKKCCqaeOn7WFG@lists.infradead.org
-X-Gm-Message-State: AOJu0YzzW20ZXXXqDQw9nvycp50xI2zajMCp+QMESt0LHjhlHLw5LWgY
-	o8unUIMu9LdI/f1rPSQZXxOXzvg7CGcwRYGjJZgMS+YWgCL3VoGeaoqe2C7GxPu2aEY=
-X-Gm-Gg: ASbGncsT7eRzBZCOMLoxdFgo2eU1wRxjdtuRBm3GLUAAQKST6Cqe5VZKgcSvZWKJhf8
-	8EQL3AYgWtp68dtH4JN1g2+bb3NScPjq0Ojdg/rahGTfVCpy+yCQv3uJVtStMrJPvxGwvFNNz0q
-	y2kOkhAUHerN2h0ILTMuDkT7dNa350nkZP2puqZmVOt6zzsE8b4+chrpLnwZJkhy0foL/MKfy94
-	UU8BP8OYjI4pytmPTjUWMCWrsFI3biHqPqCXLck+wFHKSxdl+BtXp9a9XvFG6Qu8kby3FNWV7+t
-	rvIwcCYhHiA83VsVTaSOleJ14Psa4Wpn7tI4IwRHPlNGkv3dwmSaag8y6PXP7I17ktsnel3uR/B
-	dSR5hf3zIDLaGGbcFYb1uiZ7PImatKry+xPV3RTz8Sk+1k2EfRjgOUbloWiR4UzbXnGLF8/2hLO
-	LfiqrHlLB1RgFBgak5ufe0gg==
-X-Google-Smtp-Source: AGHT+IGDLF3Dn6ww4MqMyl8hynsTWVMXq6aUH6TJOkzwSsp0EMXTDsmcy1Rr53t1iniI2RiP834aMQ==
-X-Received: by 2002:a05:6000:288c:b0:3e4:d981:e312 with SMTP id ffacd0b85a97d-4266e8e51f2mr6813063f8f.62.1760100406667;
-        Fri, 10 Oct 2025 05:46:46 -0700 (PDT)
-Received: from ta2.c.googlers.com (213.53.77.34.bc.googleusercontent.com. [34.77.53.213])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46fb484d056sm46376895e9.9.2025.10.10.05.46.46
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Oct 2025 05:46:46 -0700 (PDT)
-From: Tudor Ambarus <tudor.ambarus@linaro.org>
-Date: Fri, 10 Oct 2025 12:46:33 +0000
-Subject: [PATCH v6 3/6] firmware: exynos-acpm: register ACPM clocks pdev
+	Fri, 10 Oct 2025 12:46:54 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id AF2ED625DE;
+	Fri, 10 Oct 2025 12:46:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FEB8C2BCB0;
+	Fri, 10 Oct 2025 12:46:49 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760100413;
+	bh=6J3MxmSorNdJ2bTS7zVr1jS464eqASj5QKaZksVmtBY=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Wa2vD8swBO4bBks0FDuToy3ZwqHP8CeNOFpmciMCxs5rG/ptimIf64TKaTyBvrAi0
+	 p5hVtzYXGjE1av+KSbUxrk6WF24Nhc5zuXzLRg9oq6ArvKLGgmkpvELz+rG5kwMVeh
+	 X6H/OI3vqR6RptKAd4txYWOkrNZU4vogrZDTTfCuzjTu34yAI+BoM0A098CsDykIXX
+	 c8U+e61VvWgw3NiG08OLPsB2oeInxgWCEVXHLqwmMBtCBoWY9VbCBw0zDYK9dGaDkr
+	 n9h7EIInlXBWOw6nePMq8+9Fj8Kb/PjKR6Iqh57cakyZLY+HcUDRLevFLswmXZr4hT
+	 wwsnZrlamHitg==
+Message-ID: <9b1c2228-03c4-4eeb-8e8a-84b7756e8371@kernel.org>
+Date: Fri, 10 Oct 2025 14:46:47 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 1/3] dt-bindings: clock: exynosautov920: add mfc clock
+ definitions
+To: Raghav Sharma <raghav.s@samsung.com>, s.nawrocki@samsung.com,
+ cw00.choi@samsung.com, alim.akhtar@samsung.com, mturquette@baylibre.com,
+ sboyd@kernel.org, robh@kernel.org, conor+dt@kernel.org,
+ sunyeal.hong@samsung.com, shin.son@samsung.com
+Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, chandan.vn@samsung.com,
+ dev.tailor@samsung.com, karthik.sun@samsung.com
+References: <20250925130457.3476803-1-raghav.s@samsung.com>
+ <CGME20250925125616epcas5p37346312c6a788a5398212f671d8a369d@epcas5p3.samsung.com>
+ <20250925130457.3476803-2-raghav.s@samsung.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250925130457.3476803-2-raghav.s@samsung.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251010-acpm-clk-v6-3-321ee8826fd4@linaro.org>
-References: <20251010-acpm-clk-v6-0-321ee8826fd4@linaro.org>
-In-Reply-To: <20251010-acpm-clk-v6-0-321ee8826fd4@linaro.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Peter Griffin <peter.griffin@linaro.org>, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>, 
- Michael Turquette <mturquette@baylibre.com>, 
- Stephen Boyd <sboyd@kernel.org>, Krzysztof Kozlowski <krzk@kernel.org>, 
- Alim Akhtar <alim.akhtar@samsung.com>, 
- Sylwester Nawrocki <s.nawrocki@samsung.com>, 
- Chanwoo Choi <cw00.choi@samsung.com>, 
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>
-Cc: linux-kernel@vger.kernel.org, linux-samsung-soc@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-clk@vger.kernel.org, willmcvicker@google.com, kernel-team@android.com, 
- Tudor Ambarus <tudor.ambarus@linaro.org>
-X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1760100401; l=2732;
- i=tudor.ambarus@linaro.org; s=20241212; h=from:subject:message-id;
- bh=t1lPRTLbJh3Ia3iHDBwP0Q/txEDKq77Cj8s7vCWLHB4=;
- b=qk3U65kSz815bNfHe5stxRu4BJ0qvWZNQmQfMvtFvJGNAjNj9MvxWPW5Jp4sLvaf2hRaK3Jlg
- J1pvueABQIEBkgK0U/NX3fwYmXMxSALpy5zS1E7Te84RmsjTueCqo4C
-X-Developer-Key: i=tudor.ambarus@linaro.org; a=ed25519;
- pk=uQzE0NXo3dIjeowMTOPCpIiPHEz12IA/MbyzrZVh9WI=
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_054648_624381_9A7C4D2F 
-X-CRM114-Status: GOOD (  17.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,81 +121,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Register by hand a platform device for the ACPM clocks.
-The ACPM clocks are not modeled as a DT child of ACPM because:
-1/ they don't have their own resources.
-2/ they are not a block that can be reused. The clock identifying
-   data is reduced (clock ID, clock name and mailbox channel ID)
-   and may differ from a SoC to another.
+On 25/09/2025 15:04, Raghav Sharma wrote:
+> Add device tree clock binding definitions for CMU_MFC
+> 
+> Signed-off-by: Raghav Sharma <raghav.s@samsung.com>
 
-Signed-off-by: Tudor Ambarus <tudor.ambarus@linaro.org>
-Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
-Tested-by: Peter Griffin <peter.griffin@linaro.org> # on gs101-oriole
----
- drivers/firmware/samsung/exynos-acpm.c | 21 +++++++++++++++++++++
- 1 file changed, 21 insertions(+)
+Wearing DT hat:
 
-diff --git a/drivers/firmware/samsung/exynos-acpm.c b/drivers/firmware/samsung/exynos-acpm.c
-index 9fa0335ccf5db32892fdf09e8d4b0a885a8f8fb5..0cb269c7046015d4c5fe5731ba0d61d48dcaeee1 100644
---- a/drivers/firmware/samsung/exynos-acpm.c
-+++ b/drivers/firmware/samsung/exynos-acpm.c
-@@ -177,9 +177,11 @@ struct acpm_info {
- /**
-  * struct acpm_match_data - of_device_id data.
-  * @initdata_base:	offset in SRAM where the channels configuration resides.
-+ * @acpm_clk_dev_name:	base name for the ACPM clocks device that we're registering.
-  */
- struct acpm_match_data {
- 	loff_t initdata_base;
-+	const char *acpm_clk_dev_name;
- };
- 
- #define client_to_acpm_chan(c) container_of(c, struct acpm_chan, cl)
-@@ -604,9 +606,15 @@ static void acpm_setup_ops(struct acpm_info *acpm)
- 	pmic_ops->update_reg = acpm_pmic_update_reg;
- }
- 
-+static void acpm_clk_pdev_unregister(void *data)
-+{
-+	platform_device_unregister(data);
-+}
-+
- static int acpm_probe(struct platform_device *pdev)
- {
- 	const struct acpm_match_data *match_data;
-+	struct platform_device *acpm_clk_pdev;
- 	struct device *dev = &pdev->dev;
- 	struct device_node *shmem;
- 	struct acpm_info *acpm;
-@@ -647,6 +655,18 @@ static int acpm_probe(struct platform_device *pdev)
- 
- 	platform_set_drvdata(pdev, acpm);
- 
-+	acpm_clk_pdev = platform_device_register_data(dev,
-+						match_data->acpm_clk_dev_name,
-+						PLATFORM_DEVID_NONE, NULL, 0);
-+	if (IS_ERR(acpm_clk_pdev))
-+		return dev_err_probe(dev, PTR_ERR(acpm_clk_pdev),
-+				     "Failed to register ACPM clocks device.\n");
-+
-+	ret = devm_add_action_or_reset(dev, acpm_clk_pdev_unregister,
-+				       acpm_clk_pdev);
-+	if (ret)
-+		return dev_err_probe(dev, ret, "Failed to add devm action.\n");
-+
- 	return devm_of_platform_populate(dev);
- }
- 
-@@ -746,6 +766,7 @@ EXPORT_SYMBOL_GPL(devm_acpm_get_by_node);
- 
- static const struct acpm_match_data acpm_gs101 = {
- 	.initdata_base = ACPM_GS101_INITDATA_BASE,
-+	.acpm_clk_dev_name = "gs101-acpm-clk",
- };
- 
- static const struct of_device_id acpm_match[] = {
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
--- 
-2.51.0.740.g6adb054d12-goog
-
+Best regards,
+Krzysztof
 
