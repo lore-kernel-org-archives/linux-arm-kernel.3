@@ -4,55 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 06B08CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 15:47:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BA41BCCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 15:48:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tZSxQNDyqaqLbPz4fQtAMe+wkuer6c/+cc0bKB75WPM=; b=bK0Bc+QQFkSFp1yqFYNsdMq366
-	5f+EFhMqcUjdq5FW5sYisbP0l7qGe7xzGkcdn5VxuN1WCbWRGgqexY8o4Huv+20R4dtrfjAF+URXO
-	pcilLxoLdHzRaQpncwDUWqfJLiCH1sRcKHgrJFqqBrw2LTDzbC9uIaCPPIAhsiSBieZM3U0M5BNXC
-	9c8d/mHZeVtWgTJwRNZYEY7W5UU2AmWs5Vtf83sWIA19+7JK+dFcWTqttkoWzM1xgpU+xoLYf8GN3
-	NhI7X5vNGMc7pjzNheXs7P4gkfc7k6x5A8Joqb0np8Mi0IaExXSQPOZJ6Sr0ne5OFiUNjTW2IOsmQ
-	GuBA2zug==;
+	bh=/lrJSvBCTikD7TRV03gO07iD7OhDeDgSrJU4nyWpmM8=; b=YCmHGd3UzoedJ9XLVFTxnSeKcS
+	c6+PEmmBYAHP/804C1/WxxHn3grqBtNzGl9zDSrD8rJbx97K3CO43oQEd0YxrsLDtv0Nxh4YknlbF
+	KVJSYCfTVA3S7uUzxJt29PDEHjEYWzszsZbqyZ0N2qd8Eu5Kj1JapGFOCDsh+ZY28p/4/5tQx3UB6
+	wBHMuOMynj5jHRe4brU+TYvPKjcDpsMgiKPWdPPPgAMmWAu5HpGj+o5sPCYogjH50DYEUjY7jhSog
+	+ChuPuXzak+fBnGbAo1dBKJEO+Xjeq3Xql/BZnlQdt4VLIwQivl6JycayG8C6WlW+7/lQzK4cPVUl
+	0Jg1NGVQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7FLJ-00000008uMO-3KPb;
-	Fri, 10 Oct 2025 15:47:41 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1v7FLd-00000008uca-37gx;
+	Fri, 10 Oct 2025 15:48:01 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7FLH-00000008uIX-0hqJ
+	id 1v7FLc-00000008ub1-1qXM
+	for linux-arm-kernel@bombadil.infradead.org;
+	Fri, 10 Oct 2025 15:48:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
+	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
+	Content-Type:Content-ID:Content-Description;
+	bh=/lrJSvBCTikD7TRV03gO07iD7OhDeDgSrJU4nyWpmM8=; b=O0F4Ea8Yji1WKf6+cvy7JoEbHC
+	6c3LfLumRTVK0yKUfDm3lCexAPBPDL4CcA9VDnxQ4KfU2A+SEB3XjvL8Vosm4Ch6ikP53Rp3tqSFX
+	tdjSGkJ0grjCehneF5ZbWSBbB73KQ+oZpDl6JJDtvBuY0oQEkZWHeYj5D34l9KF9WUQSFP8GjK2Wo
+	Guq0bfNWYNq7HCSzBassEyFfatEYg/H8c2Vj0TL9hliV8Dk7QbwDwlEbrQVvEI5Q4yaY56gYsXVyg
+	xlcB+JQbc5A/remjwVT7d+i7xPK+uYXtyPqUfY40vVyR1fEiP7QxllxvR6OeS9bUSwg/aA6eSIqCK
+	ewTvnATQ==;
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v7FLY-00000002Fu8-26HZ
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 15:47:40 +0000
+	Fri, 10 Oct 2025 15:47:59 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1760111258;
+	s=mimecast20190719; t=1760111275;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=tZSxQNDyqaqLbPz4fQtAMe+wkuer6c/+cc0bKB75WPM=;
-	b=QwaLgr/hvQX1ABeWK0m/ZRAQXS09j5HK8tRmdjBQGJ3NftTIPe7Zd78QCy4h2b8v6m7PxE
-	GRNZg/Ys1VKlNk5BlNsRgxarEbB9wqjFCeSB6uTYBbr1QrWNd5JXQgqnDpBqtRoWpudxoo
-	6wNuQZWwk2pS55Ybq0rXIH/aMIhZqdw=
-Received: from mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com
+	bh=/lrJSvBCTikD7TRV03gO07iD7OhDeDgSrJU4nyWpmM8=;
+	b=H/je3qujaQ4miIBptJu/ktlSMnHdh0J2n3sh38C6hjuJjCN/7Z1PTWHXbxqLRvc6wnwC8I
+	eSyMKRMhoRxE1QhqvdKMjlJkZwPzyoE0KyimoslTZ1UQzBGcq9Yovs5L4oPtIXClKcQfzs
+	W/h/34KFiz5lqF0PvT8XJ0rSJZsL4QY=
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1760111275;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=/lrJSvBCTikD7TRV03gO07iD7OhDeDgSrJU4nyWpmM8=;
+	b=H/je3qujaQ4miIBptJu/ktlSMnHdh0J2n3sh38C6hjuJjCN/7Z1PTWHXbxqLRvc6wnwC8I
+	eSyMKRMhoRxE1QhqvdKMjlJkZwPzyoE0KyimoslTZ1UQzBGcq9Yovs5L4oPtIXClKcQfzs
+	W/h/34KFiz5lqF0PvT8XJ0rSJZsL4QY=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-384-gHsLeaZYN2q0fujOe0R-ug-1; Fri,
- 10 Oct 2025 11:47:35 -0400
-X-MC-Unique: gHsLeaZYN2q0fujOe0R-ug-1
-X-Mimecast-MFC-AGG-ID: gHsLeaZYN2q0fujOe0R-ug_1760111251
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-659-LjpbKfoTP3momteVKJ_GvA-1; Fri,
+ 10 Oct 2025 11:47:52 -0400
+X-MC-Unique: LjpbKfoTP3momteVKJ_GvA-1
+X-Mimecast-MFC-AGG-ID: LjpbKfoTP3momteVKJ_GvA_1760111266
 Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-02.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id F0A791956096;
-	Fri, 10 Oct 2025 15:47:30 +0000 (UTC)
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 0A5A719560B4;
+	Fri, 10 Oct 2025 15:47:46 +0000 (UTC)
 Received: from vschneid-thinkpadt14sgen2i.remote.csb (unknown [10.45.224.29])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id EDAAF180035E;
-	Fri, 10 Oct 2025 15:47:15 +0000 (UTC)
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 7BA791800576;
+	Fri, 10 Oct 2025 15:47:31 +0000 (UTC)
 From: Valentin Schneider <vschneid@redhat.com>
 To: linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org,
@@ -101,17 +126,17 @@ Cc: Thomas Gleixner <tglx@linutronix.de>,
 	Marcelo Tosatti <mtosatti@redhat.com>,
 	Daniel Wagner <dwagner@suse.de>,
 	Petr Tesarik <ptesarik@suse.com>
-Subject: [RFC PATCH v6 26/29] x86/mm/pti: Introduce a kernel/user CR3 software signal
-Date: Fri, 10 Oct 2025 17:38:36 +0200
-Message-ID: <20251010153839.151763-27-vschneid@redhat.com>
+Subject: [RFC PATCH v6 27/29] x86/mm/pti: Implement a TLB flush immediately after a switch to kernel CR3
+Date: Fri, 10 Oct 2025 17:38:37 +0200
+Message-ID: <20251010153839.151763-28-vschneid@redhat.com>
 In-Reply-To: <20251010153839.151763-1-vschneid@redhat.com>
 References: <20251010153839.151763-1-vschneid@redhat.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_084739_280461_46CE845B 
-X-CRM114-Status: GOOD (  17.15  )
+X-CRM114-CacheID: sfid-20251010_164756_727556_0D7F9FB6 
+X-CRM114-Status: GOOD (  19.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,110 +151,95 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Later commits will rely on this information to defer kernel TLB flush
-IPIs. Update it when switching to and from the kernel CR3.
+Deferring kernel range TLB flushes requires the guarantee that upon
+entering the kernel, no stale entry may be accessed. The simplest way to
+provide such a guarantee is to issue an unconditional flush upon switching
+to the kernel CR3, as this is the pivoting point where such stale entries
+may be accessed.
 
-This will only be really useful for NOHZ_FULL CPUs, but it should be
-cheaper to unconditionally update a never-used per-CPU variable living in
-its own cacheline than to check a shared cpumask such as
-  housekeeping_cpumask(HK_TYPE_KERNEL_NOISE)
-at every entry.
+As this is only relevant to NOHZ_FULL, restrict the mechanism to NOHZ_FULL
+CPUs.
 
 Note that the COALESCE_TLBI config option is introduced in a later commit,
 when the whole feature is implemented.
 
 Signed-off-by: Valentin Schneider <vschneid@redhat.com>
 ---
-Per the cover letter, I really hate this, but couldn't come up with
-anything better.
----
- arch/x86/entry/calling.h        | 16 ++++++++++++++++
- arch/x86/entry/syscall_64.c     |  4 ++++
- arch/x86/include/asm/tlbflush.h |  3 +++
- 3 files changed, 23 insertions(+)
+ arch/x86/entry/calling.h      | 26 +++++++++++++++++++++++---
+ arch/x86/kernel/asm-offsets.c |  1 +
+ 2 files changed, 24 insertions(+), 3 deletions(-)
 
 diff --git a/arch/x86/entry/calling.h b/arch/x86/entry/calling.h
-index 94519688b0071..813451b1ddecc 100644
+index 813451b1ddecc..19fb6de276eac 100644
 --- a/arch/x86/entry/calling.h
 +++ b/arch/x86/entry/calling.h
-@@ -171,11 +171,24 @@ For 32-bit we have the following conventions - kernel is built with
+@@ -9,6 +9,7 @@
+ #include <asm/ptrace-abi.h>
+ #include <asm/msr.h>
+ #include <asm/nospec-branch.h>
++#include <asm/invpcid.h>
+
+ /*
+
+@@ -171,8 +172,27 @@ For 32-bit we have the following conventions - kernel is built with
 	andq    $(~PTI_USER_PGTABLE_AND_PCID_MASK), \reg
  .endm
 
-+.macro COALESCE_TLBI
-+#ifdef CONFIG_COALESCE_TLBI
-+	movl     $1, PER_CPU_VAR(kernel_cr3_loaded)
-+#endif // CONFIG_COALESCE_TLBI
-+.endm
+-.macro COALESCE_TLBI
++.macro COALESCE_TLBI scratch_reg:req
+ #ifdef CONFIG_COALESCE_TLBI
++	/* No point in doing this for housekeeping CPUs */
++	movslq  PER_CPU_VAR(cpu_number), \scratch_reg
++	bt	\scratch_reg, tick_nohz_full_mask(%rip)
++	jnc	.Lend_tlbi_\@
 +
-+.macro NOTE_SWITCH_TO_USER_CR3
-+#ifdef CONFIG_COALESCE_TLBI
-+	movl     $0, PER_CPU_VAR(kernel_cr3_loaded)
-+#endif // CONFIG_COALESCE_TLBI
-+.endm
++	ALTERNATIVE "jmp .Lcr4_\@", "", X86_FEATURE_INVPCID
++	movq $(INVPCID_TYPE_ALL_INCL_GLOBAL), \scratch_reg
++	/* descriptor is all zeroes, point at the zero page */
++	invpcid empty_zero_page(%rip), \scratch_reg
++	jmp .Lend_tlbi_\@
++.Lcr4_\@:
++	/* Note: this gives CR4 pinning the finger */
++	movq PER_CPU_VAR(cpu_tlbstate + TLB_STATE_cr4), \scratch_reg
++	xorq $(X86_CR4_PGE), \scratch_reg
++	movq \scratch_reg, %cr4
++	xorq $(X86_CR4_PGE), \scratch_reg
++	movq \scratch_reg, %cr4
 +
- .macro SWITCH_TO_KERNEL_CR3 scratch_reg:req
-	ALTERNATIVE "jmp .Lend_\@", "", X86_FEATURE_PTI
++.Lend_tlbi_\@:
+	movl     $1, PER_CPU_VAR(kernel_cr3_loaded)
+ #endif // CONFIG_COALESCE_TLBI
+ .endm
+@@ -188,7 +208,7 @@ For 32-bit we have the following conventions - kernel is built with
 	mov	%cr3, \scratch_reg
 	ADJUST_KERNEL_CR3 \scratch_reg
 	mov	\scratch_reg, %cr3
-+	COALESCE_TLBI
+-	COALESCE_TLBI
++	COALESCE_TLBI \scratch_reg
  .Lend_\@:
  .endm
 
-@@ -183,6 +196,7 @@ For 32-bit we have the following conventions - kernel is built with
-	PER_CPU_VAR(cpu_tlbstate + TLB_STATE_user_pcid_flush_mask)
-
- .macro SWITCH_TO_USER_CR3 scratch_reg:req scratch_reg2:req
-+	NOTE_SWITCH_TO_USER_CR3
-	mov	%cr3, \scratch_reg
-
-	ALTERNATIVE "jmp .Lwrcr3_\@", "", X86_FEATURE_PCID
-@@ -242,6 +256,7 @@ For 32-bit we have the following conventions - kernel is built with
+@@ -256,7 +276,7 @@ For 32-bit we have the following conventions - kernel is built with
 
 	ADJUST_KERNEL_CR3 \scratch_reg
 	movq	\scratch_reg, %cr3
-+	COALESCE_TLBI
+-	COALESCE_TLBI
++	COALESCE_TLBI \scratch_reg
 
  .Ldone_\@:
  .endm
-@@ -258,6 +273,7 @@ For 32-bit we have the following conventions - kernel is built with
-	bt	$PTI_USER_PGTABLE_BIT, \save_reg
-	jnc	.Lend_\@
+diff --git a/arch/x86/kernel/asm-offsets.c b/arch/x86/kernel/asm-offsets.c
+index 6259b474073bc..f5abdcbb150d9 100644
+--- a/arch/x86/kernel/asm-offsets.c
++++ b/arch/x86/kernel/asm-offsets.c
+@@ -105,6 +105,7 @@ static void __used common(void)
 
-+	NOTE_SWITCH_TO_USER_CR3
-	ALTERNATIVE "jmp .Lwrcr3_\@", "", X86_FEATURE_PCID
+	/* TLB state for the entry code */
+	OFFSET(TLB_STATE_user_pcid_flush_mask, tlb_state, user_pcid_flush_mask);
++	OFFSET(TLB_STATE_cr4, tlb_state, cr4);
 
-	/*
-diff --git a/arch/x86/entry/syscall_64.c b/arch/x86/entry/syscall_64.c
-index b6e68ea98b839..2589d232e0ba1 100644
---- a/arch/x86/entry/syscall_64.c
-+++ b/arch/x86/entry/syscall_64.c
-@@ -83,6 +83,10 @@ static __always_inline bool do_syscall_x32(struct pt_regs *regs, int nr)
-	return false;
- }
-
-+#ifdef CONFIG_COALESCE_TLBI
-+DEFINE_PER_CPU(bool, kernel_cr3_loaded) = true;
-+#endif
-+
- /* Returns true to return using SYSRET, or false to use IRET */
- __visible noinstr bool do_syscall_64(struct pt_regs *regs, int nr)
- {
-diff --git a/arch/x86/include/asm/tlbflush.h b/arch/x86/include/asm/tlbflush.h
-index 00daedfefc1b0..e39ae95b85072 100644
---- a/arch/x86/include/asm/tlbflush.h
-+++ b/arch/x86/include/asm/tlbflush.h
-@@ -17,6 +17,9 @@
- #include <asm/pgtable.h>
-
- DECLARE_PER_CPU(u64, tlbstate_untag_mask);
-+#ifdef CONFIG_COALESCE_TLBI
-+DECLARE_PER_CPU(bool, kernel_cr3_loaded);
-+#endif
-
- void __flush_tlb_all(void);
-
+	/* Layout info for cpu_entry_area */
+	OFFSET(CPU_ENTRY_AREA_entry_stack, cpu_entry_area, entry_stack_page);
 --
 2.51.0
 
