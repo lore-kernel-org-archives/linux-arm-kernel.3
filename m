@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB80ACCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 15:42:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E82CCCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 15:42:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1HcZccm+EFWDfH2vO39s4AfZQgOMomacAD6OZP6p42M=; b=k8HkbCY80uP22P4f5o3+Vg2bxy
-	MsYKBPeE0h0ou8Xz8nExEvGM4w0VcEULmcs0wKCFA9WDHi8UNLy0IMuv1w+48mNsfcccwgLmjqEI/
-	TBVJ0LDxB5aBJeNqq7iZmIiRPnLDS8+SVMn4PrktRoemunRzX8iOKBsrAjQyqoyDJdHt2tnO7fRaY
-	JL7wiopTh7FUnJHLWLd7srRlKFcqPg0FLizZJxlmauu+a8JidRu9dhEDfkktY9KEvumTGnsOj+U05
-	2X5MeoW35bWk6awi0M/u9qCnOPcLsIt7voT5si/lSZLtlTMYsLWi7UwDHM3UvwIi1TIrqtldm3rWM
-	/DW5tiWg==;
+	bh=ypuA88VHIrtZCycTQvLRbp4fTjYOiPnVr/lgVBnkLI0=; b=h4R9sJz/pE5krUOxVEr7cc+sNL
+	lw8yjU1ahRAIXA6a378n8Jiy6NQhXc4doXUrdXIpxpk9vZErGJY7d+4RMeBjvBJPNoWb3nO8VnvR6
+	4RAx1kNXZEBVw1ctoaX30VTFedkBR5Xf79ypOGHIkCRmO6rtYfwGTXZ2funUzJouUHNWNuClPcGs3
+	M0xztrm/bVoQaGBkgg6jTrDsXkiWCyoi5huIE66pKQfI90izzz6wwdXKodHWPPVVj+8vMVBhqja3Y
+	Xuk47q4FEUSiEwfCAZTis4L1deK8UVpqhs+Cy94O9HsApb25Tm23bHGQfjzzwk7fwMD8/3c9DmHY0
+	uBsrpFPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7FG2-00000008qeU-1Qfh;
-	Fri, 10 Oct 2025 15:42:14 +0000
+	id 1v7FG5-00000008qhq-1Xp5;
+	Fri, 10 Oct 2025 15:42:17 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7FG0-00000008qc3-0BxL
+	id 1v7FG2-00000008qeT-4BRF
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 15:42:13 +0000
+	Fri, 10 Oct 2025 15:42:16 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1760110931;
+	s=mimecast20190719; t=1760110934;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=1HcZccm+EFWDfH2vO39s4AfZQgOMomacAD6OZP6p42M=;
-	b=SjE+4gpa+vR0z/dnDS1U72HPWD13K/oJcm7vIUKkxseAz0SN2MSa4PilOZo0LnpuOCBn6x
-	ME+fLDO562k1+7cVDuDqXdkpvlu/d4NLFu0cK/pwy/Z86q6KTayCc44nZDZP+IREJ5Hnum
-	aSew9f638asg96C8X6YeR4b6XuzRnBQ=
-Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+	bh=ypuA88VHIrtZCycTQvLRbp4fTjYOiPnVr/lgVBnkLI0=;
+	b=Z76DB5RAPbg5rvxKWUGJXUcpGlQAUMFN8c9MPiNNGKro7L34g+Sm2TqMFc+4KgBnCLsgMe
+	fRSRTRU2VYfAEKdQf6DuR20/PEZubF9To9BdCGiQYJeq9MC5C0rH7ULhkRXyRBf1oVtq4y
+	Fe9hIIZ39h7clgOHg9xbsEvqCqIdc+c=
+Received: from mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com
  (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-583-zXwbd8ArM3KVjfpSaoTGFw-1; Fri,
- 10 Oct 2025 11:41:36 -0400
-X-MC-Unique: zXwbd8ArM3KVjfpSaoTGFw-1
-X-Mimecast-MFC-AGG-ID: zXwbd8ArM3KVjfpSaoTGFw_1760110892
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-691-7bEM6FEUOcOziUsCCagKng-1; Fri,
+ 10 Oct 2025 11:42:10 -0400
+X-MC-Unique: 7bEM6FEUOcOziUsCCagKng-1
+X-Mimecast-MFC-AGG-ID: 7bEM6FEUOcOziUsCCagKng_1760110923
 Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B3CB21944F11;
-	Fri, 10 Oct 2025 15:41:31 +0000 (UTC)
+	by mx-prod-mc-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 5A5C2195609D;
+	Fri, 10 Oct 2025 15:42:03 +0000 (UTC)
 Received: from vschneid-thinkpadt14sgen2i.remote.csb (unknown [10.45.224.29])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D5F991800576;
-	Fri, 10 Oct 2025 15:41:16 +0000 (UTC)
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 9EFB11800576;
+	Fri, 10 Oct 2025 15:41:47 +0000 (UTC)
 From: Valentin Schneider <vschneid@redhat.com>
 To: linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org,
@@ -63,8 +63,7 @@ To: linux-kernel@vger.kernel.org,
 	linux-riscv@lists.infradead.org,
 	linux-arch@vger.kernel.org,
 	linux-trace-kernel@vger.kernel.org
-Cc: "Paul E. McKenney" <paulmck@kernel.org>,
-	Frederic Weisbecker <frederic@kernel.org>,
+Cc: Josh Poimboeuf <jpoimboe@kernel.org>,
 	Thomas Gleixner <tglx@linutronix.de>,
 	Ingo Molnar <mingo@redhat.com>,
 	Borislav Petkov <bp@alien8.de>,
@@ -73,9 +72,10 @@ Cc: "Paul E. McKenney" <paulmck@kernel.org>,
 	Andy Lutomirski <luto@kernel.org>,
 	Peter Zijlstra <peterz@infradead.org>,
 	Arnaldo Carvalho de Melo <acme@kernel.org>,
-	Josh Poimboeuf <jpoimboe@kernel.org>,
 	Paolo Bonzini <pbonzini@redhat.com>,
 	Arnd Bergmann <arnd@arndb.de>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
 	Jason Baron <jbaron@akamai.com>,
 	Steven Rostedt <rostedt@goodmis.org>,
 	Ard Biesheuvel <ardb@kernel.org>,
@@ -101,17 +101,17 @@ Cc: "Paul E. McKenney" <paulmck@kernel.org>,
 	Marcelo Tosatti <mtosatti@redhat.com>,
 	Daniel Wagner <dwagner@suse.de>,
 	Petr Tesarik <ptesarik@suse.com>
-Subject: [PATCH v6 03/29] rcu: Add a small-width RCU watching counter debug option
-Date: Fri, 10 Oct 2025 17:38:13 +0200
-Message-ID: <20251010153839.151763-4-vschneid@redhat.com>
+Subject: [PATCH v6 05/29] jump_label: Add annotations for validating noinstr usage
+Date: Fri, 10 Oct 2025 17:38:15 +0200
+Message-ID: <20251010153839.151763-6-vschneid@redhat.com>
 In-Reply-To: <20251010153839.151763-1-vschneid@redhat.com>
 References: <20251010153839.151763-1-vschneid@redhat.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_084212_158589_10A51593 
-X-CRM114-Status: GOOD (  19.44  )
+X-CRM114-CacheID: sfid-20251010_084215_109289_F4D152CA 
+X-CRM114-Status: GOOD (  17.11  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,112 +126,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-A later commit will reduce the size of the RCU watching counter to free up
-some bits for another purpose. Paul suggested adding a config option to
-test the extreme case where the counter is reduced to its minimum usable
-width for rcutorture to poke at, so do that.
+From: Josh Poimboeuf <jpoimboe@kernel.org>
 
-Make it only configurable under RCU_EXPERT. While at it, add a comment to
-explain the layout of context_tracking->state.
+Deferring a code patching IPI is unsafe if the patched code is in a
+noinstr region.  In that case the text poke code must trigger an
+immediate IPI to all CPUs, which can rudely interrupt an isolated NO_HZ
+CPU running in userspace.
 
-Link: http://lore.kernel.org/r/4c2cb573-168f-4806-b1d9-164e8276e66a@paulmck-laptop
-Suggested-by: Paul E. McKenney <paulmck@kernel.org>
-Signed-off-by: Valentin Schneider <vschneid@redhat.com>
-Reviewed-by: Paul E. McKenney <paulmck@kernel.org>
-Reviewed-by: Frederic Weisbecker <frederic@kernel.org>
+Some noinstr static branches may really need to be patched at runtime,
+despite the resulting disruption.  Add DEFINE_STATIC_KEY_*_NOINSTR()
+variants for those.  They don't do anything special yet; that will come
+later.
+
+Signed-off-by: Josh Poimboeuf <jpoimboe@kernel.org>
 ---
- include/linux/context_tracking_state.h | 44 ++++++++++++++++++++++----
- kernel/rcu/Kconfig.debug               | 15 +++++++++
- 2 files changed, 52 insertions(+), 7 deletions(-)
+ include/linux/jump_label.h | 17 +++++++++++++++++
+ 1 file changed, 17 insertions(+)
 
-diff --git a/include/linux/context_tracking_state.h b/include/linux/context_tracking_state.h
-index 7b8433d5a8efe..0b81248aa03e2 100644
---- a/include/linux/context_tracking_state.h
-+++ b/include/linux/context_tracking_state.h
-@@ -18,12 +18,6 @@ enum ctx_state {
- 	CT_STATE_MAX		= 4,
- };
- 
--/* Odd value for watching, else even. */
--#define CT_RCU_WATCHING CT_STATE_MAX
--
--#define CT_STATE_MASK (CT_STATE_MAX - 1)
--#define CT_RCU_WATCHING_MASK (~CT_STATE_MASK)
--
- struct context_tracking {
- #ifdef CONFIG_CONTEXT_TRACKING_USER
- 	/*
-@@ -44,9 +38,45 @@ struct context_tracking {
- #endif
- };
+diff --git a/include/linux/jump_label.h b/include/linux/jump_label.h
+index fdb79dd1ebd8c..c4f6240ff4d95 100644
+--- a/include/linux/jump_label.h
++++ b/include/linux/jump_label.h
+@@ -388,6 +388,23 @@ struct static_key_false {
+ #define DEFINE_STATIC_KEY_FALSE_RO(name)	\
+ 	struct static_key_false name __ro_after_init = STATIC_KEY_FALSE_INIT
  
 +/*
-+ * We cram two different things within the same atomic variable:
++ * The _NOINSTR variants are used to tell objtool the static key is allowed to
++ * be used in noinstr code.
 + *
-+ *                     CT_RCU_WATCHING_START  CT_STATE_START
-+ *                                |                |
-+ *                                v                v
-+ *     MSB [ RCU watching counter ][ context_state ] LSB
-+ *         ^                       ^
-+ *         |                       |
-+ * CT_RCU_WATCHING_END        CT_STATE_END
++ * They should almost never be used, as they prevent code patching IPIs from
++ * being deferred, which can be problematic for isolated NOHZ_FULL CPUs running
++ * in pure userspace.
 + *
-+ * Bits are used from the LSB upwards, so unused bits (if any) will always be in
-+ * upper bits of the variable.
++ * If using one of these _NOINSTR variants, please add a comment above the
++ * definition with the rationale.
 + */
- #ifdef CONFIG_CONTEXT_TRACKING
-+#define CT_SIZE (sizeof(((struct context_tracking *)0)->state) * BITS_PER_BYTE)
++#define DEFINE_STATIC_KEY_TRUE_NOINSTR(name)					\
++	DEFINE_STATIC_KEY_TRUE(name)
 +
-+#define CT_STATE_WIDTH bits_per(CT_STATE_MAX - 1)
-+#define CT_STATE_START 0
-+#define CT_STATE_END   (CT_STATE_START + CT_STATE_WIDTH - 1)
++#define DEFINE_STATIC_KEY_FALSE_NOINSTR(name)					\
++	DEFINE_STATIC_KEY_FALSE(name)
 +
-+#define CT_RCU_WATCHING_MAX_WIDTH (CT_SIZE - CT_STATE_WIDTH)
-+#define CT_RCU_WATCHING_WIDTH     (IS_ENABLED(CONFIG_RCU_DYNTICKS_TORTURE) ? 2 : CT_RCU_WATCHING_MAX_WIDTH)
-+#define CT_RCU_WATCHING_START     (CT_STATE_END + 1)
-+#define CT_RCU_WATCHING_END       (CT_RCU_WATCHING_START + CT_RCU_WATCHING_WIDTH - 1)
-+#define CT_RCU_WATCHING           BIT(CT_RCU_WATCHING_START)
-+
-+#define CT_STATE_MASK        GENMASK(CT_STATE_END,        CT_STATE_START)
-+#define CT_RCU_WATCHING_MASK GENMASK(CT_RCU_WATCHING_END, CT_RCU_WATCHING_START)
-+
-+#define CT_UNUSED_WIDTH (CT_RCU_WATCHING_MAX_WIDTH - CT_RCU_WATCHING_WIDTH)
-+
-+static_assert(CT_STATE_WIDTH        +
-+	      CT_RCU_WATCHING_WIDTH +
-+	      CT_UNUSED_WIDTH       ==
-+	      CT_SIZE);
-+
- DECLARE_PER_CPU(struct context_tracking, context_tracking);
--#endif
-+#endif	/* CONFIG_CONTEXT_TRACKING */
+ #define DECLARE_STATIC_KEY_FALSE(name)	\
+ 	extern struct static_key_false name
  
- #ifdef CONFIG_CONTEXT_TRACKING_USER
- static __always_inline int __ct_state(void)
-diff --git a/kernel/rcu/Kconfig.debug b/kernel/rcu/Kconfig.debug
-index 12e4c64ebae15..625d75392647b 100644
---- a/kernel/rcu/Kconfig.debug
-+++ b/kernel/rcu/Kconfig.debug
-@@ -213,4 +213,19 @@ config RCU_STRICT_GRACE_PERIOD
- 	  when looking for certain types of RCU usage bugs, for example,
- 	  too-short RCU read-side critical sections.
- 
-+
-+config RCU_DYNTICKS_TORTURE
-+	bool "Minimize RCU dynticks counter size"
-+	depends on RCU_EXPERT && !COMPILE_TEST
-+	default n
-+	help
-+	  This option sets the width of the dynticks counter to its
-+	  minimum usable value.  This minimum width greatly increases
-+	  the probability of flushing out bugs involving counter wrap,
-+	  but it also increases the probability of extending grace period
-+	  durations.  This Kconfig option should therefore be avoided in
-+	  production due to the consequent increased probability of OOMs.
-+
-+	  This has no value for production and is only for testing.
-+
- endmenu # "RCU Debugging"
 -- 
 2.51.0
 
