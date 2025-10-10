@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 95905CCA476
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B4E3FCCD18C
 	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 18:51:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,52 +12,53 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	In-Reply-To:References:Message-Id:Content-Transfer-Encoding:Content-Type:
 	Subject:Date:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bQw6yH5Z9L7B+fgrcbS65Cks5ky2LLS7ty0gZ1n3rTg=; b=vXouaNjNmovhkv9Kd3TpQZUfB6
-	EZwyChuDYH4mLFwHOCaJOkKB3D3MgboJfaHWapjqur7tjVJBjmQ9qgi8I5QP0ZW44eizXJt4LiOOj
-	BgKgdTvHL0jg443EyIL0FFYpy+JSyyPDkRvOj7i5YxgOGuWe6Jp4VhA96DL4++auoUXNFI7PyGADD
-	vjIupTiR4Gov9manxOrfidQCgbFOOoKc3sXvPRKHGOtW1gQOCav/xuot7zVZbbDKbmGcvGRAa52oj
-	+GP6pZrRhm3Cy0K5k5lHmTuLTthM56Cge7exo8Aep2iIPax4/eqo+SEmIbd1JuKpM44sohqdLpPDZ
-	ukELlsMA==;
+	bh=iJQkrpXtfVjG0poutPQt+MWcjWL0TX2b1t0W2NZhvwY=; b=zbadR8PHH9CqgwMKSxHP/WDYCQ
+	ZwpZsNRrYwz6sJOdIYzRHEbTd9+O9Ys4NP79z/ZAqPCXxuV3e43Q7ovA1Me7o0CysB3V195w0YTxM
+	a8Fp6UmNp8yiYT4u4wd9YYIft1UxnN66vsDPlCQcEPtfxNHqr3ndi3N2eIdXNaz6qrOlHRXbYJiSd
+	T8PlGrbM4aqReqML0bNfQIY8ZL2AkNaJz8Wx7+z0xkuobpE/S+98W9X6bF5YhDRSzFgtHjWc3b3Af
+	deoZiFPz1h2Q76bsHtIKdmpFtatWCNW6C0ar7bPzIN0EO61/7Rq9B7W1tSAiLpjjjDqc37UTbtr/2
+	/3u6kreA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7ICj-00000009AYf-0ul8;
-	Fri, 10 Oct 2025 18:51:01 +0000
+	id 1v7ICg-00000009AVS-04iI;
+	Fri, 10 Oct 2025 18:50:58 +0000
 Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7ICf-00000009AS7-1OBO
+	id 1v7ICb-00000009AS7-3m0r
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 18:50:58 +0000
+	Fri, 10 Oct 2025 18:50:55 +0000
 ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=CdXHX90l0SPWjXXGGBNAFdadmxybj/aczMFe7MzExwln6I6gkylFOLwZ5vmROYyuE+dMRGZqKcXx6Kuuu8LbUjqDrDDUg4bXmZ20XqdopvuO5AR5Nx/ykjIADzfdd0O9jv3EIewXzyRq+C+CEiECCOuduGtzH/jSrjucU6I+kxIgmbKukSr2SwFj2vO7zycze/z1i51JzM8bmycl8IADN2g5JmSgd0am+ioYwWWfwujVr6vSmF+h+uvsPlDzMDXxruD/yy1J6vP+FtVmvVzgEWMxl2oC4bbIyYosHexcGaT412Dg4iN2n3QuvkNyxl7MJwWu8V13RlIOJR63uYADCg==
+ b=SsHT9gE8Udx8H+aENtTY2htktesFdWGmz8ZJyjlVtjxYMjOlV5nVIXtyE2gTgQ9tfF4z9M6qmOxGjY0XyNgzcZFdlwXWwdtSOoNx6M44uD3debzZpcZp4CN6BG4gXgdCwmwW3gVSmPpgTpxqRxDPhTlB3mIxX/+WWWbcZGbSw5q4nSiy8pArsP4KqzNxQLx7tDqt4cl+Mm2OH53tAK9j89pL9iUCj0NqJNdKrmTO4dtlYoL2Vz+o6ldMe1rRb8tORmGsqm9puJGUMugcwSFCHDZb/IhKLKI4uS7X9TA4mUAqJiSbik0egPd6luF3fp2YztCpJFR8MDPH+CNbPMyyiA==
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
  s=arcselector10001;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=bQw6yH5Z9L7B+fgrcbS65Cks5ky2LLS7ty0gZ1n3rTg=;
- b=O1Xphm6e2uieP113n5/QdhUonHjq9EhEzZ9MdOEZjcojBIWtfLea/OFdqvzhB20OlU8tDu9QHqkQJIlhk742Y+EwCRq8w76xldJyh1foJr3Y7iT0rcfUJeHplIy5HFl4qh3I2LFlBYI6NAsyMeOxozzJb/ZUv0jmdhGYp/+b+0tPvuPd5ulpwAv6zXNFbzOtsjK+P3zyRzw8LMyuTMortHco+5WFnE9vSB/wFbufB0B5L8TIVPlgF4vurN7RbV0NYVKdPP7+4Mvo766lcSlldLkvg2k78Fce2WwwTIjrtrMl8xrD54Um9t+4eYM9enAHNnZP4037NgHE0BsdnE2NTA==
+ bh=iJQkrpXtfVjG0poutPQt+MWcjWL0TX2b1t0W2NZhvwY=;
+ b=YOXMPNVMmZppo6YqWWK1xZd0taV20mM9Rdilbf9+rNj8Hn1dHf0ppZIyW+IoBqWSKMsi/NLY/Psdm2o2ruw3Z3QQMZm8l1bKqedEbKDAZJ7hQDqU2PDkNuraR8TKX2rqB9gWESjCIBYhooy2WTEQj4MV1zbTVAqGD+1HLvJsrfdH/JWDhUeRKt6T0l3c6rdfOtloA5NpNaAwGMWuKUQkBVqSvx5B8+AmeUiG5SzMhROhFTCYY9RR54POZb8BHSTVI7s0Sfs5k0HTZ0zkaEkNLDuby2eABeaNdPMfPVGnnT1obwYjR/Pw2eIfYBKBIQbFjR8MTV4pGmuxcjQUqZDYYw==
 ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
  smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
  header.d=nxp.com; arc=none
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
  h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=bQw6yH5Z9L7B+fgrcbS65Cks5ky2LLS7ty0gZ1n3rTg=;
- b=aFJilxbYjacbew6lbW90fWReNNsLOBwHPykTzuMXAm7IrUMTVCOR4gMY1vOUYh6+nLPNnHfrm6hQJTcyCzrLDgZm+7d53umpfJUIQcIqYTwNEveS9mxOYqpa2DmkvkT17A/xmD/rf9cekU8fyyMO+ZVTX8rFsFyONv30QbX9lWs5Wo7nGGna2SS4lh7uVyAytSEA2G02MAAzDohtGRvjgQc6i75asaOdC0zRW4ktbpAOugqBcWBRfxGtuj+SFJGMOtR43/w1/g6hJT6rpde92nIJKZvRcyJH3cj9VGMjQJhKPuAutcxkYiEYJWIi8YnovNrlOTqxsRXcqGmi0w3/KQ==
+ bh=iJQkrpXtfVjG0poutPQt+MWcjWL0TX2b1t0W2NZhvwY=;
+ b=lCesOIdM09eIJvHCyjkjELaOQ0tCW76uDmL701gryGU2ioIZFSgzbRLkJL3KsxW3GYMnENX/t0FXYLutKpkAQG1sndXBMXFlektUiGSWur0znYf70YC/1dsrnry6xzT3OJkkdV1A8d1zkSqFjvPDXN3ZaUaHvdU3csrDSE7s8/qPtS9zvkoPrOm9Po0aZ/xv0KHmTvi8sgrbrbYeQIUMAwEc4ZCaJQiifajAoQzyYAIqPoVIaDR7b5mjhGYW78b00vFrnxK+ANj5b9Lnh71KTmmTXHNzzW1UcuGY9vQ2r45V/A8aZwlt7BbRz1Pmdjs2W/HNPlHWC8cuQM89LywZMg==
 Authentication-Results: dkim=none (message not signed)
  header.d=none;dmarc=none action=none header.from=nxp.com;
 Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
  by DU0PR04MB9659.eurprd04.prod.outlook.com (2603:10a6:10:320::14) with
  Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.10; Fri, 10 Oct
- 2025 18:50:50 +0000
+ 2025 18:50:42 +0000
 Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
  ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
  ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9203.007; Fri, 10 Oct 2025
- 18:50:50 +0000
+ 18:50:42 +0000
 From: Frank Li <Frank.Li@nxp.com>
-Date: Fri, 10 Oct 2025 14:50:26 -0400
-Subject: [PATCH 3/3] i2c: lpi2c: Use auto cleanup for dma_map_single()
+Date: Fri, 10 Oct 2025 14:50:24 -0400
+Subject: [PATCH 1/3] cleanup: Add DEFINE_GUARD_ARGS_CLASS macro for
+ resource alloc/free functions with multiple arguments
 Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251010-dmamap_cleanup-v1-3-ec5bc14e82c4@nxp.com>
+Content-Transfer-Encoding: 8bit
+Message-Id: <20251010-dmamap_cleanup-v1-1-ec5bc14e82c4@nxp.com>
 References: <20251010-dmamap_cleanup-v1-0-ec5bc14e82c4@nxp.com>
 In-Reply-To: <20251010-dmamap_cleanup-v1-0-ec5bc14e82c4@nxp.com>
 To: Marek Szyprowski <m.szyprowski@samsung.com>, 
@@ -70,11 +71,11 @@ Cc: linux-kernel@vger.kernel.org, iommu@lists.linux.dev,
  linux-i2c@vger.kernel.org, imx@lists.linux.dev, 
  linux-arm-kernel@lists.infradead.org, Frank Li <Frank.Li@nxp.com>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1760122235; l=1781;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1760122235; l=6023;
  i=Frank.Li@nxp.com; s=20240130; h=from:subject:message-id;
- bh=aqvECgYHadrJpFYtfOSsLxaFaplUyXoxr6bd5wsHOXY=;
- b=cNHjs/qQAREU2O8pb6iG2KPjHbHEB9y0WVehHpS3bG7zdaSM4dlWA8QDxWTtqcNaanwwOwWJL
- ORttjxQz8KyDAO+bVCQ1YZy84zSh14I6lwlzNnNLy0vZKSg04FCL7d1
+ bh=97TROAI4+Q7A2no3aS2wVU7R2oSLT+1nRPdUfyndVD0=;
+ b=4kT17/sXf8GjrA+RUGgjXxzcnmjMILY2lRiJoZBQc0PJmzlwx+DVmRf9s/lH8Ky6PpS9VhH7J
+ VYmDppBS6WkDb+ljt+Kjp0bUo/Es990GQSXaCQu6WzZN8Uo0LQJo3i9
 X-Developer-Key: i=Frank.Li@nxp.com; a=ed25519;
  pk=I0L1sDUfPxpAkRvPKy7MdauTuSENRq+DnA+G4qcS94Q=
 X-ClientProxiedBy: SJ0PR03CA0212.namprd03.prod.outlook.com
@@ -83,97 +84,97 @@ X-ClientProxiedBy: SJ0PR03CA0212.namprd03.prod.outlook.com
 MIME-Version: 1.0
 X-MS-PublicTrafficType: Email
 X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|DU0PR04MB9659:EE_
-X-MS-Office365-Filtering-Correlation-Id: dbfe068f-f00c-47da-7ee4-08de082dee4d
+X-MS-Office365-Filtering-Correlation-Id: e948ef39-a518-4eee-be22-08de082dea02
 X-MS-Exchange-SenderADCheck: 1
 X-MS-Exchange-AntiSpam-Relay: 0
 X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016|52116014|19092799006|38350700014;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?YXNpRUlzTm5wSDlhN0J5VGpKYmd6S1dLOHMrQWlXRG9zb2w1SytoRXh6eVhZ?=
- =?utf-8?B?SHltQkNMNnIvMWkvVmtKSlRrRlhzS1Y4djRJVHJVd09zT1BETkd0dCtHYXhF?=
- =?utf-8?B?eTk2REw4NHNhekNpN2VxdkoyYXcyczVBZFVnc09Cb1FkMy9pTzZ1R2QwMVZl?=
- =?utf-8?B?QWF2TTNnb3JLSVIyUUdwNlgvU1BDMGFsUDVhdUw3YjY1eEZNb3pDQmpuSkk1?=
- =?utf-8?B?azRkN3hMeC9leDhUc0VtS01zSEtJcWtCN0JKYmtYYVMwMU5CaStyUk82Q0li?=
- =?utf-8?B?R1R1d05uWUJVU1FxWXJPT0lRMzRGNzJTYUxDRGc3TmJ6bjFvQjlrOHFpL2M1?=
- =?utf-8?B?R2tiaSt6V3pSSUUxakViNEgrYW1yQXNZcTd3UGVmTE1YZ2tqL1BCZmwvUGlT?=
- =?utf-8?B?bEw1Nk9mTUlOTUl0Z1hLNWFYTGFqVU5CVEl3QStsQWlYYWhKR1lXOExHa2o2?=
- =?utf-8?B?emxVOWlUMXRibk56VkVxRk9senZPdTF3T1pQNWM4b3hEejBSVStIekcyTzhw?=
- =?utf-8?B?bm43WXUxeUd0NVhYa0JURldkaU9rT2Q4bHBBL1pyU1daTkpFanV2WU9UT1li?=
- =?utf-8?B?YTJ1bEVBTXEyalIzaVB6S3B1SUJiLzdETyt0Q0cyQlVad3VOWkdOL29wanZk?=
- =?utf-8?B?K09lUlh3Y1ZtcTFQQXZ5d0dXbnZicXhCdDRCMkZuVUtqbHdNeDlHQU1HeG1G?=
- =?utf-8?B?dk94SHZWb1I4Nmc0WnlBSW8wSkd1WC9ZZHhicGgwaDUvVCttK3FTTXBSN3NV?=
- =?utf-8?B?a0JOVHNtUUttZGFVWmdGeEdCUjd0dHgvNmhrTU9PcndOdXhQVk9oOGs4SjFo?=
- =?utf-8?B?Y09UcDl4VGN1WWhCUy85clhZNEpCNHZCUDZpbnZ2Vk9wSlVzWDN5YXZzSDR3?=
- =?utf-8?B?NUo0T2pIcUdUMnpDRHE0YS9jcjBqUkh2MmZmTkgvQjhRN3hLOGhRMHdtZGRy?=
- =?utf-8?B?V0UzVThtd3d5aVpLVVBmazd3NzJJNEdFVVpBVno3WW1hV1VTTjNVUEQyUlNI?=
- =?utf-8?B?d1lEeThMTzcvMGgzTjRZSm9zeWpvWEI1RHJuSjVOSllVaGM5OUFUS1lMaEFQ?=
- =?utf-8?B?Ny9WdjJ3dS9qZGRQMzU1Q0hRZnhoUEtmbEhuanpLNFF2bHBVTU9kZGxqWXUx?=
- =?utf-8?B?Y2ZxYUpYKzYrNWx6WEp1ZGg2T2NvSmNEUkNLQlpkOFFpL1IraE9IUE9HWWx0?=
- =?utf-8?B?dEdna1puN1J6aGw1ZEN1NmFGbW9IanVqKy9nMVFZTGNXd3QvWE91WHJUWE0r?=
- =?utf-8?B?QUlFaWM5bXp1V1JiOVBXZU1tOWt6V2RQaTg3YVFwTUYrZWNZeEVzUXI2WkM3?=
- =?utf-8?B?ZDV3ZnFJOVhqdjVZY0E2QXNVRzlUejlxUnBMNkNZNGhvNWFweGVuQ21uRmJX?=
- =?utf-8?B?R200TE55R01yWSs4VTM0cWx2SUtWc3ZRODc5ZDBlS1N3WWFvY09ENWpxTWtO?=
- =?utf-8?B?dWpZZEJQZm8wS1hZTWhjSVlXa0pzL3c2cTFJRkkrV28wN0sxNVVaWktNQ0FY?=
- =?utf-8?B?Q2h2d2ZCemdNZVQ2YWNaaUVLTVBMNnpzNkJ0Sk02UE1aSXg3cFRMWmloRzNV?=
- =?utf-8?B?cXNVK3I5VFUyTFNDaFNLbkRmS09tcElWdXFsSXdoeEs3bnNjNUVFWjRCMnBn?=
- =?utf-8?B?NHhCWlZkb1k5dUNJZXlQalVJUWNzU01Mc0tjUGxFcWI5K0U3Y0hERW1XSmRK?=
- =?utf-8?B?Z29qalNCMUlHSURtNHVDUjRkN3ZhQXNQRGRiNmhxYlJQa3hUQ1VWMzhMRzJo?=
- =?utf-8?B?cDlBV0ZyTGtyZEtIU1c2a0dFYmhuM2o4bzRLTzZ1YkcvRC8xU2IvL3VqTlF4?=
- =?utf-8?B?VDdhRlk5V292bVRCWkVqcWtQNGVucnJldzVTREhlbGxnajE2amhJSHg3bzR4?=
- =?utf-8?B?dU5CZnRJeUI4WVprUmdveUxqVzFXZUpOa21VdnRHRmV4OG81MDFmTTJ6ajZl?=
- =?utf-8?B?aHYrRXByaUM3SlhHaDlkRXlGd0F1WXEvVk9TNnpDWmZtOW1nWWN4RW1OOEhX?=
- =?utf-8?B?cUlvUlAyWUNFSnFpdTFqL1d4T3k0Z3NyanU1ODNyNjI5Mlpva3NhK1QyaFZn?=
- =?utf-8?Q?pYGvlA?=
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?Ti9wQmZEZ0hZeGxMQjhhNUJYUCtGVDdYc0grenB2Q2pPN21pSGZNeVFkTHdt?=
+ =?utf-8?B?alExZ2RFeDRZZmVldjBvVnFRd3RzT1B4VlRsY0JIRitnOWdFYkl2WnhQWXZY?=
+ =?utf-8?B?L2MvN0pVRnJjK0diZGF4RXp6cXBlWGE4ZUxwNjlHVHFUNTM0dTAwWVg2S0lm?=
+ =?utf-8?B?eXBKK3lOM1M0TjBuR1BaL01OMXFoSThoc1lmb1o2ZzNVa25KT1FVQVVGOGtv?=
+ =?utf-8?B?c3Z0Z3pIa29TUnZUMGlEKzlhYm9JQWUwRmF4MlRPZUJITVZDc2NWWUFUeEdy?=
+ =?utf-8?B?QkgyUzVjZWI4MTNNNGlFUmdEVFlhYldZa1dXTi92MEJUV3FXRHMwcmVzVGh5?=
+ =?utf-8?B?NlNTM21GUS95OE4rSXR1V1ZuWmlpNWZXZC8yMXhHWlpxYXFoaUZYcXFRcyti?=
+ =?utf-8?B?RUJZRzQrcVoyUUd6K05XUVhLOG80U3ZIOVpmaTVzY2tZS0xESTdGdWM3WnNE?=
+ =?utf-8?B?SlljaG5NWDlocWwyTWdZNnJFRVBzL1RHVW1zaHJGd2hhMFNQLzllYVhaV1ha?=
+ =?utf-8?B?L2N0UENJYzN6bVoxdU9IN1Nrc1lIZ01DZUxzMWxPMUVjem1leUVycDQ4N1Y5?=
+ =?utf-8?B?QldNeXdETnVCOUc5ZG9BcTNKZnVObEZDOGZjM2tWTFNCcTBGSTNWYzRXeTht?=
+ =?utf-8?B?eERpNlpFVzNBZHpCNDVadEVOMS9PUmRuaVdpWTlGdW4vVnZxdmdvVXVITzJU?=
+ =?utf-8?B?bGpvK2RFQWV3ZnRBbDI0WC9iL3JNNDIxeUhIMkRSekFBQzl3M29ITm9zSWFC?=
+ =?utf-8?B?NTRveGN2eEs1LzFYZnNzRW1pYnk1SDRZWDJyS2Q0ZEFwWjg0cEVqS1JoMUdQ?=
+ =?utf-8?B?REsxaXF0TnFJRVgzTG04Wit0TVNIWmZ6MHBzeTVGM1ovdW54ckFZYzQ3R00v?=
+ =?utf-8?B?NVQ4NHdPZnZLcnl0bStBL2RQMEJGeU1KcVhCcEYwTGdIR0l6VVdRdjJ1YjVT?=
+ =?utf-8?B?dUNzYTFNeXdrQzdIRndyUlA4enBSWDF2QnB1b0s5ZTMyK1JOU0ZGdEQ3Qm85?=
+ =?utf-8?B?d0pYSk1vSVd4YTN5TTdDYVNqc3g4TUpPN0RtT0pwNW0zNjlMTkpQNStYdkRM?=
+ =?utf-8?B?ckh3Y090QjlUSUwyMW1NYWZ5LyttUmV4TWduVlJtOExRdUJtWWRMWlBoUUJ6?=
+ =?utf-8?B?MXd2bUczcEt3QjBpckQzNDdScjc4Ty9QOTAwSjVqU2dEV2VoWEoyelpRQ1Vr?=
+ =?utf-8?B?TGJ6SkkvT0R2bHFqRE5FM1VzcENyL3M0c3ppZm1naXNGdUdsaXBRU21qQko2?=
+ =?utf-8?B?VUNIK2wveFhuQ0h1MTM0RytCNkxnYlpsakhqVGx1bXVKdXpyZkkrQW80L1hs?=
+ =?utf-8?B?blZaN3htdjJVYmRaaVVGVGxQTFZuVjJkR3FVNUh2RW5HMzlpWUNzV0I5L0ZR?=
+ =?utf-8?B?S0pEWXc2YnkrU1c5M0NkSUxnRzY4ZWFwaVhPazRmQUFLOG5qaGx1TWhvTVNp?=
+ =?utf-8?B?SGdhQlgycXBKZ0h3K0ZmVnlka2dDVWU5V3d3aUJNZU9SN3hMdG9MR2FScHlJ?=
+ =?utf-8?B?WXp2S014YjBqcHFseklyd29WUCs0cW9YVGxrVFZ2b3FtdXRhMUhPVkxVbjJj?=
+ =?utf-8?B?VEtDOWVyYk1ranZGRk9CdVdFKzBDL3RMRmJMMXpERFpPSTRsNGRWSlcwR2E0?=
+ =?utf-8?B?OGpCNzhVY3lKTHgrdWVCSlpHMmlGYVp2UVJvSDhienQ2ZGo5SEFIUzQvdDdI?=
+ =?utf-8?B?dTlraDYwOTJsV05lNmhQdmMwRndOR2QvRGhSWnpEK1pyditFdXc3dlNzc093?=
+ =?utf-8?B?MmgrS0RGQ245eThnWWx6aFFkVE5aUFg3VEVIVkFkTnRnOGJBcUZ3dlFZYkgr?=
+ =?utf-8?B?Y2Y5Y2ZZY1FKOFJrWFdFdTYvZGd2QmkvZHlFbExNS2lZNVJ1NkpRL0hyYm5v?=
+ =?utf-8?B?Qy9nTFV5QXF5U2taSkRMVGwvMjJmbnpodEd1UjZweTY4eG94WE55QkFiYldW?=
+ =?utf-8?B?WGNsdWRRNVlHREVhQWVDR2U1MDBUdllyNlgvZVZpZWtReGlmS1MvK0YvV25C?=
+ =?utf-8?B?OFNrallUTUwrekRIK0xVYmJMQktiOWkrUWdQWmxyUnJTbG0vUmFxRXVKYVI3?=
+ =?utf-8?Q?n+UDW8?=
 X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016)(52116014)(19092799006)(38350700014);DIR:OUT;SFP:1101;
 X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?NHJIaGVVdldHYmlhMGV4Y1h1QnR5YkNYWW9nR0N5ZDJLNW5qMlBQRGNzNngx?=
- =?utf-8?B?VUUrUlp0TVppQU1UTDVjVjI1VXlrWEtkTWhXU0FzUVdxUTdKNS9NZXNqNXE1?=
- =?utf-8?B?MU0wdTJISzMwb2NkTEJETkM2d1Zud2w0aThYVmRDUUpkZjhqYjF1K29EL0Nh?=
- =?utf-8?B?Q3dPV2pGS1Eydnpsdk14Y0xHYmhKSEcwVnNUM01SRDNucTUwcXhReWtGKzBJ?=
- =?utf-8?B?bHlLVkFwbkRBY0ptTWFRMVhRWFc4S2I3MGdBaU12N3I2eWVqU2xVSENNV3gr?=
- =?utf-8?B?N0JSWitxMTJIbDlEaEk4REdqRU1CUnZkOElFa004MFVJWXdieWl6a0FvZjN0?=
- =?utf-8?B?UFp6TGo2TUhFQWxHRmlBUnFwRDdhUHRxcTZuamZkYzI3NzdGaG9hRkRwQXVE?=
- =?utf-8?B?QktZQXJqWkJVVXhVQnRscVBqR0JyRklLU0xnNXliTTlBR1BqamduL09iK3JR?=
- =?utf-8?B?bFdVNlFWYTcxcnBZYXB1VFYxSXhmY2RPeHdlWG9PQVRoeGViZCt1Z3I5dElE?=
- =?utf-8?B?R0ExcG1wMXpyaUxsMFJrTjRtU29zWk5DenR5YXBBNlh1LzF0YzZjYk9TY0Jn?=
- =?utf-8?B?d1pjS29xdXpnbDI1bTFwNHNTOHpXYUFkOWIyTGkxNHlOU2lhU01sQVQ0Tng3?=
- =?utf-8?B?MHdpZ0sySVJvWnV3Y0c5dVJlL2orV1M1RmwyTG9mOUxEdHlmcjRwUm5MYzdQ?=
- =?utf-8?B?Z0N3RHEveVVQMjdQR2FEWmZKN2JTZTBHZS8yMy9qaE9aQkJmUVI3WFdtdkVl?=
- =?utf-8?B?S2lTZHNvYkpHNldMNHhWS1B2VHhocFIxUGZQTGlWbnIwTGZGTGNVTnN6NW9l?=
- =?utf-8?B?MDZ3cVk0bnFFR2pBZ0JxUUl2TW9UbjRFdEtmYlhROVBJUlZnZUIvVWxFbkNS?=
- =?utf-8?B?RHVyMVFmdWdHTTBtbC9hSDlEdERuNjJ5S0FCLzRjam9CU2lWM201cHlPeC9o?=
- =?utf-8?B?WVhqd0NWN0pCSTVNZ1EzUFNHSU1tdG51QU52SnlmbEhxV3AxUThGZUhpNjYv?=
- =?utf-8?B?NDNqaUVTYWVNZHVDREYwY292YkhPVG9Gd1N2bGdtSC9LeUg1cU5uakJPb0ta?=
- =?utf-8?B?YkhHQyt0NmFNWFpQN01IMHcvSUc5a0JGSTJUNUo0aU9pYzBnanIrQy9hSmNh?=
- =?utf-8?B?NS9UdGRaRzYwYk9VK2lZcTBqZVdWWUp1MDVITnhrMXR1SWtJNHdVaVNNdDEy?=
- =?utf-8?B?cXhwSThQSHBGdUdvMU04a0NsUi8zUGM1M0dUN0tyUjlCNFg2aEVNbnNqMnUx?=
- =?utf-8?B?ZlJNYVEwSVAyMFJxaHZZTHJiK0g4bDFQSklwN1ZpMGJ5M0tFTlNlNEYyUW93?=
- =?utf-8?B?OGJkR2JiakY4eUVveWR2K2RJNTh0WUExdms5ZXdMRDdrVG1HUXpYVkpKNHd5?=
- =?utf-8?B?WW9nV1hLZGRFSytwc3NPSHVrUDE5bHhMVkhlL2M5U292eDkxZDV5L1N6cmIz?=
- =?utf-8?B?QWZBTWFRVDhaYldmNG4vNElrWFV6djVCakVCbVY3YVIrRGdSTWtJbWY0RDYy?=
- =?utf-8?B?cHVMNHdUWVV5Q1Q0V2FKck1BRk80N2ZaemF3eFNEc1BLY0l5eGNKc0t5Y0tE?=
- =?utf-8?B?T1hMOFY2SHdpYXJreVBLcm4zZGZzbkY3STBpWVRBMjhhQnhuQ2FKS2wvWEd1?=
- =?utf-8?B?UEZ1VGZxU1ZoOVNGTlMvVVpLK1ZEMEViWC9UUFdzSXhHVUE3bGJxdkVBRmYw?=
- =?utf-8?B?TTFLVS91MnVPd3M5K1BLSTRoK0JSMGJiNDJ4OVdHODdQUHRKWC8vSG52Wm50?=
- =?utf-8?B?d2d2eVh2UkVMcTV1UFY4QkttR0lSQVBtSSs3SXk4czQ1QUNmWGRJZlZrOVdB?=
- =?utf-8?B?amlSUkt2dEY4RnhuMzVMRDJvYnVIS0thcDlLdXBnZytvRTdNSVVWREE0RGJF?=
- =?utf-8?B?b0dZbTlCKzVZWTRHbjBJNkpEdVJNdFZ4WDF0MjBKKzRaMGVNeXZlK0cyejZn?=
- =?utf-8?B?TS9vUFA0TWQ4YkIvQXRDVUNhM3VPT0x4MFAyemRHNS9TL24xTllHUVRIcE52?=
- =?utf-8?B?YU1iYTVBbHFsemZUNzdWSFZGRnJodXNRUlUyV0xKcWZaVWNXb20vb3RWOWZS?=
- =?utf-8?B?OTJweTJuNUlVaURyZEduUVIzVkxzNFFkWVExcDRhK1BmT3JOSTRmMGdsN2po?=
- =?utf-8?Q?vmDxcMbyNIkieOTvpO82QsdMS?=
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?dmxmdkZwbHB4Q0Erd2RqK1JZRzlUYnJoMXZ5bDluRWMvSTNSaEJzOUVDVUNw?=
+ =?utf-8?B?SGlTZzR5ODZmZHVEblRkTGxzNmduYzQ3ZXppSkYxUWttQU1jYnhEeitOUng4?=
+ =?utf-8?B?RGhqQVFJeEcrcytpNHZRNFJ1UnFnQWJtYmJkNVltTTVJU29DWCtRK0s0ejUw?=
+ =?utf-8?B?S2c0TzBPc3VFK0prWHdGWWhWZ3pHT210RlN5MWNVaWRKVUY2bnB6aFdWZGRY?=
+ =?utf-8?B?czMwOXlJMEo3RHczVFN1bW5MWllJNVpZZWRNRDFobXFCR0pZdWV3YnQ1d0c1?=
+ =?utf-8?B?dzlqOUhwS2hER0t0UUxtU1dnR213RHFnaDJiNWEyNHRVQ0E3TnJSc3djQm5D?=
+ =?utf-8?B?RlNRUXFxbFhaUnpuTC9aeVNyUHpwMURHYjIvdFpQWjdqMEtpRGhxZzY5RTlJ?=
+ =?utf-8?B?R2JWRmQvd0QxYk44bERpalRhSEMrR3JWZVZiMGJjZGJ2dUp1VDFJaTlFYmh4?=
+ =?utf-8?B?cDBXQmp0VWp2VzVWWDZqdkdlT2RGTTVYanE5SXVOMzhWZ2phMTdDSmlVMWZM?=
+ =?utf-8?B?WHRocHYzS1R2NlBsL0VZQUJ1eU9aNWovbWt1Z2FhS2l6L1JvLzVrUzlvVzQz?=
+ =?utf-8?B?UHhQV09mZ3ZsbzUxWWVMZVc2c3BmNUFIRWZQeVJuQ1I4ZXJjeVJ5RTZUR0Zy?=
+ =?utf-8?B?ZkNNOEJGYzQrTlpGVU9tWGd1dGZra0xCcGQxTW9BaldEVUFwdUpwYmc1Sm5l?=
+ =?utf-8?B?Q0hncG1zdjhSSE45RWNxcEdaVXV0WXcyUzZrSkZJRXkza0hQODBxWkprN1Ur?=
+ =?utf-8?B?OUFNcnM0Z3hERlFtTENrdHB5b2ZnT3FRWURIQktkMURaQTJqUFpRc2tXS3VL?=
+ =?utf-8?B?MEhvbFArTVo3amlFeUtoVG5pUzRjYjEzaDZRNEN2cEFvbUlVdTBXSGg4akRN?=
+ =?utf-8?B?YkRMZDRNTVpNUmRCR0hXR2J4YjFXOFJGTDVQZkFlV3d4TGZKUDVHK1FwUERk?=
+ =?utf-8?B?Z1VDb2dMWVdtUTVPcEhYQlZFS2ZINS9oVTFJQlpkSVVOelpucTFHbzlha3B4?=
+ =?utf-8?B?WUlONXRsMEhQWUNLR05xYmFsSWRuU01YZUNjS3VGY1JGYlZISmVuaVgwcyth?=
+ =?utf-8?B?TlJaKy9qbU5zNm8ySDdmZ1VLL1lRd3hvajdJODJER05Ec2dvcmZsTE5UWUtv?=
+ =?utf-8?B?TGMxS2VsZnRHMkgyVVkzUzFDTEsvYVIwNVA0TXYvNktyaWRDMVV1blZaRzU0?=
+ =?utf-8?B?YWYyNzhmS0NvcWFTN2hLMXdWa3VKZXZrMndPUlpyVCtUL05aMkxWVHI2QW4w?=
+ =?utf-8?B?Y2tFdkpZK05VQWw3Qy9aeDN6bThUMXBWeUFERkVPOExnVlBhcnYwcTNlVTNl?=
+ =?utf-8?B?SjJlWUw1NlhlNTZYc2lrSXMyYjA3MEFRUUVZWjg0UjduWjRFdUEvVGdjTkw4?=
+ =?utf-8?B?NElWUHhqNVdMeVg2a1RpUFZEN0Zxa0tCaG9MMFhCQUNUc2J0UWlmS3UvMTVt?=
+ =?utf-8?B?VTBFd3BvKzJPZW5ONkdiOE5pZGNGZXphaDI0M1VEQUtYYm1Vcncyci9tdjdh?=
+ =?utf-8?B?d1VYT0RtVzhQbXl0bS9vVHNXbFJlZ2YvT3ZxUENYbEFodTArWDZYMi9wSFg1?=
+ =?utf-8?B?Y2dxZDd3TW5PYVZWNloySncwUlJPcnBvd2FCdzJDa3haaFkrSjNDbzFQbW9V?=
+ =?utf-8?B?MHF5Y0E4dkd3Wm1MYUFSUXp5UTdYdDlSbUJVNERuRmlEenJMMGNRNUFRbFZa?=
+ =?utf-8?B?UHNoY3BucEZ2MHlmaU4rYlIzblBrTG9VY3NXN04yVjhkRHUxNUxuV1N2ZDlW?=
+ =?utf-8?B?TjhhOTcvNEp4cE14ZGl1YXlQMFVMRy9WL2VJckdoOGhsb2ZQNkQwSXByMW1o?=
+ =?utf-8?B?Z2VweTcvbGZ4YzVSU1Fhd001QWFiNllndFJyZXN0cFhOVjMyTW9GdXhYTEZX?=
+ =?utf-8?B?MThpb0lnUlR0OTkzejNhaG0zSk5ERnZwNDdoMlpjM1Q1ZmtIelZvU1R5b2g3?=
+ =?utf-8?B?a1V4NG5idEhWU0RVdGJid0xhZ1p5N1V2cDlhU3ZwTExaTmlzb1VxcUY2NEV2?=
+ =?utf-8?B?WTdGOFo0SmIxUTF2aGNJMU5ZZS9vNlJhYnJ4ZjdQR3BJd2dzUzNBQTczSjNY?=
+ =?utf-8?B?dGJSUTdpNVJDczNuaUI3SUg3eTNlaVBrc3BFMndzZXJINHBuc3ViUHNvV2V5?=
+ =?utf-8?Q?T/fwIwxvclD1nM8khwlkrKt5Z?=
 X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: dbfe068f-f00c-47da-7ee4-08de082dee4d
+X-MS-Exchange-CrossTenant-Network-Message-Id: e948ef39-a518-4eee-be22-08de082dea02
 X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
 X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Oct 2025 18:50:49.9114
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Oct 2025 18:50:42.7291
  (UTC)
 X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
 X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
 X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: OqIf2gggw0aEpYdOR346vEv8E4GxXceU1da5tYtxP32rV3G6sm3PsmtWbdBWSbf0GOBs+OUu2kETDmiTdt36Vg==
+X-MS-Exchange-CrossTenant-UserPrincipalName: Gv2quZz6xUyghA+lL9Nw8cgoATiWZO+7/PQ4XSBI+217/0pHecdNLtohrqd5Q9YhpDdqFvZeuPMiMKYwwy8nkQ==
 X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU0PR04MB9659
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_115057_394336_9A96C686 
-X-CRM114-Status: GOOD (  10.60  )
+X-CRM114-CacheID: sfid-20251010_115054_096218_F2D8700C 
+X-CRM114-Status: GOOD (  12.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -188,55 +189,158 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Use auto cleanup for dma_map_single() to simple code.
+Some resource alloc/free functions require passing more than one argument,
+such as dma_map_single() and dma_unmap_single(). Add
+DEFINE_GUARD_ARGS_CLASS() to support these cases by introducing a helper
+structure to store all arguments for the resource cleanup function.
+
+DEFINE_GUARD_ARGS_CLASS(..., _list_class_fields, _list_func_args, _list_args)
+
+ @_list_class_fields: argument list with types, separated by ';'
+        e.g. (struct device *dev; void *ptr; size_t size; enum dma_data_direction dir; int attr)
+ @_list_func_args: argument list with types, separated by ','
+        e.g. (struct device *dev, void *ptr, size_t size, enum dma_data_direction dir, int attr)
+ @_list_args: argument list without types, separated by ','
+        e.g. (dev, ptr, size, dir, attr)
+
+Three lists are needed because C syntax differs between struct fields (';'),
+function parameters (','), and variable arguments (no types).
+
+Example usage for dma_map_single():
+
+DEFINE_GUARD_ARGS_CLASS(dma_map_single, dma_addr_t,
+                        dma_mapping_error(_T.args.dev, _T.dma_addr),
+                        dma_unmap_single(_T->args.dev, _T->ret,
+                                         _T->args.size, _T->args.dir),
+                        dma_map_single,
+                        (struct device *dev; void *ptr; size_t size; enum dma_data_direction dir),
+                        (struct device *dev, void *ptr, size_t size, enum dma_data_direction dir),
+                        (dev, ptr, size, dir))
+
+Example:
+
+    fun()
+    {
+        CLASS(dma_map_single, dma)(dev, ...);
+        ...
+        if (error)
+                return -EIO; // dma_unmap_single() will be auto-called
+    }
+
+Add retain_and_empty() to keep resource when functions.
+
+Example:
+    fun()
+    {
+        CLASS(dma_map_single, dma)(dev, ...);
+        ...
+        if (error)
+                return -EIO; // dma_unmap_single() will be auto-called
+
+	retain_and_empty(dma); // dma_umap_single() will NOT called.
+
+	return 0;
+    }
 
 Signed-off-by: Frank Li <Frank.Li@nxp.com>
 ---
-Demostrate to how to use auto cleanup for dma map functiongs. It will
-simple more if need map multi buffers at a functions.
----
- drivers/i2c/busses/i2c-imx-lpi2c.c | 13 ++++++-------
- 1 file changed, 6 insertions(+), 7 deletions(-)
+There are some checkpatch.pl error, but these is correct and better
+readablity.
 
-diff --git a/drivers/i2c/busses/i2c-imx-lpi2c.c b/drivers/i2c/busses/i2c-imx-lpi2c.c
-index 03b5a7e8c361abe1d75fb4d31f9614bbc6387d93..2c89d441ab1b3e607b8a2b0a6589e5909fa39ef4 100644
---- a/drivers/i2c/busses/i2c-imx-lpi2c.c
-+++ b/drivers/i2c/busses/i2c-imx-lpi2c.c
-@@ -727,9 +727,11 @@ static int lpi2c_dma_rx_cmd_submit(struct lpi2c_imx_struct *lpi2c_imx)
- 	struct dma_chan *txchan = dma->chan_tx;
- 	dma_cookie_t cookie;
+ERROR: Macros with complex values should be enclosed in parentheses
++#define DEFINE_GUARD_ARGS_CLASS(_name, _return_type, _is_err, _exit, _init, _list_class_fields, _list_func_args, _list_args) \
++__DEFINE_GUARD_ARGS_CLASS(_name, _return_type, _list_class_fields)                   \
++__DEFINE_GUARD_ARGS_ENTRY(_name, _is_err, _init, _list_func_args, _list_args)        \
++__DEFINE_GUARD_ARGS_EXIT(_name, _exit)
+
+ERROR: Macros with complex values should be enclosed in parentheses
++#define __REMOVE_PAREN(x) __REMOVE_PAREN_HELP x
+---
+ include/linux/cleanup.h | 73 +++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 73 insertions(+)
+
+diff --git a/include/linux/cleanup.h b/include/linux/cleanup.h
+index 2573585b7f068abe992af1ac05f478fef7b34306..84b27dd374f2200382b6dc1c450320b79406fd87 100644
+--- a/include/linux/cleanup.h
++++ b/include/linux/cleanup.h
+@@ -518,4 +518,77 @@ __DEFINE_LOCK_GUARD_0(_name, _lock)
  
--	dma->dma_tx_addr = dma_map_single(txchan->device->dev,
--					  dma->rx_cmd_buf, dma->rx_cmd_buf_len,
--					  DMA_TO_DEVICE);
-+	CLASS(dma_map_single, dma_addr)(txchan->device->dev,
-+					dma->rx_cmd_buf, dma->rx_cmd_buf_len,
-+					DMA_TO_DEVICE);
-+	dma->dma_tx_addr = dma_addr.ret;
+ #define DEFINE_LOCK_GUARD_1_COND(X...) CONCATENATE(DEFINE_LOCK_GUARD_1_COND_, COUNT_ARGS(X))(X)
+ 
++/*
++ * Many resource allocation/free function pairs require passing multiple
++ * arguments — for example, dma_map_single() and dma_unmap_single()
++ *
++ * DEFINE_GUARD_ARGS_CLASS(dma_map_single, dma_addr_t,
++ *			   dma_mapping_error(_T.args.dev, _T.ret),
++ *			   dma_unmap_single(_T->args.dev, _T->ret, _T->args.size, _T->args.dir),
++ *			   dma_map_single,
++ *			   (struct device *dev; void *ptr; size_t size; enum dma_data_direction dir),
++ *			   (struct device *dev, void *ptr, size_t size, enum dma_data_direction dir),
++ *			   (dev, ptr, size, dir))
++ * Example usage:
++ *
++ * int fun() {
++ *	CLASS(dma_map_single, dma)(dev, ptr, size, dir);
++ *	if (!dma.okay)
++ *		return -EIO
++ *	...
++ *	if (condition)
++ *		return -EIO // cleanup will auto unmap
++ *
++ *	req->dma_addr = retain_and_empty(dma); //keep mapping
++ *	return 0;
++ * }
++ */
++#define __REMOVE_PAREN_HELP(...) __VA_ARGS__
++#define __REMOVE_PAREN(x) __REMOVE_PAREN_HELP x
 +
- 	if (dma_mapping_error(txchan->device->dev, dma->dma_tx_addr)) {
- 		dev_err(&lpi2c_imx->adapter.dev, "DMA map failed, use pio\n");
- 		return -EINVAL;
-@@ -749,18 +751,15 @@ static int lpi2c_dma_rx_cmd_submit(struct lpi2c_imx_struct *lpi2c_imx)
- 		goto submit_err_exit;
- 	}
- 
-+	retain_and_empty(dma_addr);
- 	dma_async_issue_pending(txchan);
- 
- 	return 0;
- 
- desc_prepare_err_exit:
--	dma_unmap_single(txchan->device->dev, dma->dma_tx_addr,
--			 dma->rx_cmd_buf_len, DMA_TO_DEVICE);
- 	return -EINVAL;
- 
- submit_err_exit:
--	dma_unmap_single(txchan->device->dev, dma->dma_tx_addr,
--			 dma->rx_cmd_buf_len, DMA_TO_DEVICE);
- 	dmaengine_desc_free(rx_cmd_desc);
- 	return -EINVAL;
- }
++#define __DEFINE_GUARD_ARGS_CLASS(_name, _return_type, _list_class_fields)	\
++typedef struct {								\
++	_return_type ret;							\
++	bool okay;								\
++	struct {								\
++		__REMOVE_PAREN(_list_class_fields);				\
++	} args;									\
++} class_##_name##_t;
++
++#define __DEFINE_GUARD_ARGS_EXIT(_name, _exit)					\
++static inline void class_##_name##_destructor(class_##_name##_t *_T)		\
++{       if (_T->okay) {  _exit; } }
++
++#define __DEFINE_GUARD_ARGS_ENTRY(_name, _is_err, _init, _list_func_args, _list__args)	\
++static inline class_##_name##_t class_##_name##_constructor(__REMOVE_PAREN(_list_func_args))	\
++{											\
++	class_##_name##_t _T = { .args = { __REMOVE_PAREN(_list__args) } };		\
++	_T.ret = _init _list__args;							\
++	_T.okay = !(_is_err);								\
++	return _T;									\
++}
++
++/**
++ * @_name: class name
++ * @_return_type: return data type
++ * @_is_err: macro to check init function return value
++ * @_exit: macro to do resource clean up
++ * @_init: macro/func name to alloc resource
++ * @_list_class_fields: (args list with type, use ; as split)
++ * @_list_func_args: (args list with type, use , as split)
++ * @_list_args: (args list without type, use , as split)
++ */
++#define DEFINE_GUARD_ARGS_CLASS(_name, _return_type, _is_err, _exit, _init, _list_class_fields, _list_func_args, _list_args) \
++__DEFINE_GUARD_ARGS_CLASS(_name, _return_type, _list_class_fields)                   \
++__DEFINE_GUARD_ARGS_ENTRY(_name, _is_err, _init, _list_func_args, _list_args)        \
++__DEFINE_GUARD_ARGS_EXIT(_name, _exit)
++
++#define retain_and_empty(t)							\
++	({									\
++		__auto_type __ptr = &(t); typeof(t) empty = {};			\
++		__auto_type __val = *__ptr;					\
++		*__ptr = empty;							\
++		__val.ret;							\
++	})
++
+ #endif /* _LINUX_CLEANUP_H */
 
 -- 
 2.34.1
