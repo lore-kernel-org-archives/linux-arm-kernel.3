@@ -4,93 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB2F5CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 08:42:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA03ECCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 08:45:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=I9asITmUOZ5rSvaHSwS++hdYnOCMyfUki72OWs2uuxU=; b=3Q10sk5Ml3Ha+xBvfSN/yeiEzv
-	hy1yZL8ZvBVyQV2fgHIYt2TPne4iuzkbjzOoTOeVeThDpi33d1NeK1lDGQJhdvEhlWNg1Hd+A1opI
-	+k2b0jxXa6Yb2F5/B3uZ8oxnP5S3CELY84Gpiwr9Md+NI5yhAgaObWcn6qf/5zdUiA+tnXpQs+Mq8
-	OSXG9y1tKKB6VICPROrTdVj+6SFbRfCERYpIlo/0aw1COtcs6CMQuJXYWL/vW4vMZTExs16r5q45k
-	HFIvVT9xA1+Sl1kI0spxB33LGSRxsPvZho7+XpHbfxuu9CX4as7KBF1fAEk2dGiLwf+SbxGqQVQy/
-	to7H/rtg==;
+	bh=4wJ6fM461GuUVWJE0wPtIm49SjkCTBDb1nzHMw41KBI=; b=CLZVmSeNwU8fP9TmnF7LmxUu2N
+	jgLUBefXiJGJfww3YVfCKz+xm84D1kUzny0ziI2tNshE4BzZRlxgRl8DbwMFyFdffFhFL5YNRhlDE
+	guQjzVLcl0Nase3KHc05H+cW1XQyhBlzaxb9KDlnvPaEDMcwHm3DXe6YZROroEKKklLahLsaxPnEf
+	H7kpza7hX8qUy+iyiH7mTPYAO0v01MEzEreZH94V0fKfj7NEgkcYiBNMszNqhpXBwZobld1NF88aw
+	EVxektOGcHXqxctbIGgvSapCJwSVPYJAkv1yWY2GJNGL6ni6HQJHqUc2ePxySoALLqG4Smk24OHZe
+	igVfbUiA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v78hx-000000082pb-2oZx;
-	Fri, 10 Oct 2025 08:42:37 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v78kb-000000084MK-3jwX;
+	Fri, 10 Oct 2025 08:45:21 +0000
+Received: from metis.whiteo.stw.pengutronix.de ([2a0a:edc0:2:b01:1d::104])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v78hd-000000082JR-0p7K
-	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 10 Oct 2025 08:42:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:MIME-Version
-	:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Sender:Reply-To:
-	Content-Type:Content-ID:Content-Description;
-	bh=I9asITmUOZ5rSvaHSwS++hdYnOCMyfUki72OWs2uuxU=; b=kil7H+xheoDhvZbchyUFoRrBsj
-	Opl+3ilcMCVZb7kvq2RXUZVNnRp1blnAZOyoyorwzb+/9bNe22LBAVRYnOuqiMTvBOTbJhPORqvSO
-	D2hHiOLrX6fJAOYtZtPKZYLGN20zqThQZqR6BdTj7sodDqau8x03+3p8/q6i1gvMup0MjIzzCOpN9
-	fWuiYkTXHME3D083Zf8KKd8pyovucavrF8ON3qY8EH/pdPxj1vicxDmuz5rn9zbgqNm6tjLeg1Js1
-	sTU4lbjJPHVLhweqsJGmxhTgCECHyMhnQoMWrG/tGhqGlUiQDw9b19XZEX6qJDBbbVlBJBWM+1jm2
-	+uo3pLug==;
-Received: from smtpout-03.galae.net ([185.246.85.4])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v78hR-000000021lm-24Dv
+	id 1v78kZ-000000084Kj-0MYt
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 08:42:09 +0000
-Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-03.galae.net (Postfix) with ESMTPS id 7F0374E40FCC;
-	Fri, 10 Oct 2025 08:41:57 +0000 (UTC)
-Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id 5542260667;
-	Fri, 10 Oct 2025 08:41:57 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 1346E102F2204;
-	Fri, 10 Oct 2025 10:41:54 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1760085716; h=from:subject:date:message-id:to:cc:mime-version:
-	 content-transfer-encoding:in-reply-to:references;
-	bh=I9asITmUOZ5rSvaHSwS++hdYnOCMyfUki72OWs2uuxU=;
-	b=E9WoEmn9MXmzhWLZzQfccCwt/WwmCi0naX97hCmNROjx0q6sxnbea6DiuetNEWORseU8ke
-	VOItsmqFaJMLyQvov05heajsEuHM8h1DXTFPxTqE07dG9T1O6Q0XU97hww8XbSRHucKAOG
-	ciHgjQ7fS6Y0oug0Fd4418oNy4jIH9qXByGRf6d9BS0O2sR2Ya/d0xaWcVil3Ofl/3+Muf
-	nmbYmeQAMvUNftA4FbXi4a0QNsdwbopFZfZYb8jrOWG0quVNCYf+h+qvgjqCLDSCnzKRTb
-	J5zB0H8CfW2gupB2wygQiUfnlKKDomYfwSoqvFL14hiiE7rUHb6LqJEZrR3t9Q==
-From: Richard Genoud <richard.genoud@bootlin.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>,
-	Richard Weinberger <richard@nod.at>,
-	Vignesh Raghavendra <vigneshr@ti.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Chen-Yu Tsai <wens@csie.org>,
-	Jernej Skrabec <jernej.skrabec@gmail.com>,
-	Samuel Holland <samuel@sholland.org>
-Cc: Wentao Liang <vulab@iscas.ac.cn>,
-	=?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
-	Maxime Ripard <mripard@kernel.org>,
-	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
-	linux-mtd@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-sunxi@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	Richard Genoud <richard.genoud@bootlin.com>
-Subject: [PATCH 11/15] mtd: nand: sunxi: introduce reg_pat_id in sunxi_nfc_caps
-Date: Fri, 10 Oct 2025 10:40:38 +0200
-Message-ID: <20251010084042.341224-12-richard.genoud@bootlin.com>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251010084042.341224-1-richard.genoud@bootlin.com>
-References: <20251010084042.341224-1-richard.genoud@bootlin.com>
+	Fri, 10 Oct 2025 08:45:20 +0000
+Received: from ptz.office.stw.pengutronix.de ([2a0a:edc0:0:900:1d::77] helo=[127.0.0.1])
+	by metis.whiteo.stw.pengutronix.de with esmtp (Exim 4.92)
+	(envelope-from <s.pueschel@pengutronix.de>)
+	id 1v78kK-0003BM-Eg; Fri, 10 Oct 2025 10:45:04 +0200
+Message-ID: <bdebed9c-2980-4d5d-9eb3-1cb5e5e8e226@pengutronix.de>
+Date: Fri, 10 Oct 2025 10:45:01 +0200
 MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 11/16] media: rockchip: rga: add iommu restore function
+To: Nicolas Dufresne <nicolas@ndufresne.ca>,
+ Jacob Chen <jacob-chen@iotwrt.com>,
+ Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Heiko Stuebner
+ <heiko@sntech.de>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ devicetree@vger.kernel.org, kernel@pengutronix.de
+References: <20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de>
+ <20251007-spu-rga3-v1-11-36ad85570402@pengutronix.de>
+ <97879b9b078055fb130edfd126d253320ce616a1.camel@ndufresne.ca>
+Content-Language: en-US
+From: =?UTF-8?Q?Sven_P=C3=BCschel?= <s.pueschel@pengutronix.de>
+In-Reply-To: <97879b9b078055fb130edfd126d253320ce616a1.camel@ndufresne.ca>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 8bit
-X-Last-TLS-Session-Version: TLSv1.3
+X-SA-Exim-Connect-IP: 2a0a:edc0:0:900:1d::77
+X-SA-Exim-Mail-From: s.pueschel@pengutronix.de
+X-SA-Exim-Scanned: No (on metis.whiteo.stw.pengutronix.de); SAEximRunCond expanded to false
+X-PTX-Original-Recipient: linux-arm-kernel@lists.infradead.org
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_094206_715737_01EB44C3 
-X-CRM114-Status: GOOD (  12.74  )
+X-CRM114-CacheID: sfid-20251010_014519_122958_848428B3 
+X-CRM114-Status: GOOD (  24.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,72 +74,131 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The H6/H616 pattern ID register is not at the same offset as the
-A10/A23 one, so move its offset into sunxi_nfc_caps.
 
-No functional change.
+On 10/7/25 20:30, Nicolas Dufresne wrote:
+> Hi,
+>
+> Le mardi 07 octobre 2025 à 10:32 +0200, Sven Püschel a écrit :
+>> Add an iommu restore function in preparation for the rga3 addition.
+>> This is necessary for a soft reset, as the rga3 will also reset
+>> it's iommu paging table to 0 and disable paging.
+>>
+>> The empty domain attach/detach to restore the iommu is copied
+>> from the rkvdec driver.
+> We did receive negative feedback after the fact on this one. We will likely
+> upset further the iommu subsystem maintainers with that. Have you considered
+> adding a restore function in the rkiommu driver, similar to TI mmu and Benjamin
+> VSI MMU proposal ?
+>
+> I have no precise objection, I know it works, but adding a restore function
+> seems also pretty straight forward.
 
-Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
----
- drivers/mtd/nand/raw/sunxi_nand.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+I haven't considered adding an restore function. I've implemented this 
+to handle potential command stream failures like scaling beyond the 
+supported 8x factor. I'll probably drop this for now to keep it simple 
+and instead correctly announce the constraints to avoid creating invalid 
+commands in the first place.
 
-diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sunxi_nand.c
-index 5161dfff46ed..8921e66e0c6d 100644
---- a/drivers/mtd/nand/raw/sunxi_nand.c
-+++ b/drivers/mtd/nand/raw/sunxi_nand.c
-@@ -55,7 +55,8 @@
- #define NFC_REG_A10_USER_DATA	0x0050
- #define NFC_REG_USER_DATA(nfc, x)	(nfc->caps->reg_user_data + ((x) * 4))
- #define NFC_REG_SPARE_AREA	0x00A0
--#define NFC_REG_PAT_ID		0x00A4
-+#define NFC_REG_PAT_ID(nfc) (nfc->caps->reg_pat_id)
-+#define NFC_REG_A10_PAT_ID	0x00A4
- #define NFC_REG_MDMA_ADDR	0x00C0
- #define NFC_REG_MDMA_CNT	0x00C4
- #define NFC_RAM0_BASE		0x0400
-@@ -227,6 +228,7 @@ static inline struct sunxi_nand_chip *to_sunxi_nand(struct nand_chip *nand)
-  * @reg_io_data:	I/O data register
-  * @reg_ecc_err_cnt:	ECC error counter register
-  * @reg_user_data:	User data register
-+ * @reg_pat_id:		Pattern ID Register
-  * @reg_pat_found:	Data Pattern Status Register
-  * @random_en_mask:	RANDOM_EN mask in NFC_ECC_CTL register
-  * @random_dir_mask:	RANDOM_DIRECTION mask in NFC_ECC_CTL register
-@@ -242,6 +244,7 @@ struct sunxi_nfc_caps {
- 	unsigned int reg_io_data;
- 	unsigned int reg_ecc_err_cnt;
- 	unsigned int reg_user_data;
-+	unsigned int reg_pat_id;
- 	unsigned int reg_pat_found;
- 	unsigned int random_en_mask;
- 	unsigned int random_dir_mask;
-@@ -803,7 +806,7 @@ static int sunxi_nfc_hw_ecc_correct(struct nand_chip *nand, u8 *data, u8 *oob,
- 	if (pattern_found & BIT(step)) {
- 		u8 pattern;
- 
--		if (unlikely(!(readl(nfc->regs + NFC_REG_PAT_ID) & 0x1))) {
-+		if (unlikely(!(readl(nfc->regs + NFC_REG_PAT_ID(nfc)) & 0x1))) {
- 			pattern = 0x0;
- 		} else {
- 			pattern = 0xff;
-@@ -2223,6 +2226,7 @@ static const struct sunxi_nfc_caps sunxi_nfc_a10_caps = {
- 	.reg_io_data = NFC_REG_A10_IO_DATA,
- 	.reg_ecc_err_cnt = NFC_REG_A10_ECC_ERR_CNT,
- 	.reg_user_data = NFC_REG_A10_USER_DATA,
-+	.reg_pat_id = NFC_REG_A10_PAT_ID,
- 	.reg_pat_found = NFC_REG_ECC_ST,
- 	.random_en_mask = BIT(9),
- 	.random_dir_mask = BIT(10),
-@@ -2239,6 +2243,7 @@ static const struct sunxi_nfc_caps sunxi_nfc_a23_caps = {
- 	.reg_io_data = NFC_REG_A23_IO_DATA,
- 	.reg_ecc_err_cnt = NFC_REG_A10_ECC_ERR_CNT,
- 	.reg_user_data = NFC_REG_A10_USER_DATA,
-+	.reg_pat_id = NFC_REG_A10_PAT_ID,
- 	.reg_pat_found = NFC_REG_ECC_ST,
- 	.random_en_mask = BIT(9),
- 	.random_dir_mask = BIT(10),
--- 
-2.47.3
-
+>> Signed-off-by: Sven Püschel <s.pueschel@pengutronix.de>
+>> ---
+>>   drivers/media/platform/rockchip/rga/rga.c | 24 ++++++++++++++++++++++++
+>>   drivers/media/platform/rockchip/rga/rga.h |  7 +++++++
+>>   2 files changed, 31 insertions(+)
+>>
+>> diff --git a/drivers/media/platform/rockchip/rga/rga.c
+>> b/drivers/media/platform/rockchip/rga/rga.c
+>> index
+>> cd4da01645611e5fb51ed94e09b5f1463dad72c5..0a725841b0cfa41bbc5b861b8f5ceac2452f
+>> c2b5 100644
+>> --- a/drivers/media/platform/rockchip/rga/rga.c
+>> +++ b/drivers/media/platform/rockchip/rga/rga.c
+>> @@ -9,6 +9,7 @@
+>>   #include <linux/delay.h>
+>>   #include <linux/fs.h>
+>>   #include <linux/interrupt.h>
+>> +#include <linux/iommu.h>
+>>   #include <linux/module.h>
+>>   #include <linux/of.h>
+>>   #include <linux/pm_runtime.h>
+>> @@ -560,6 +561,19 @@ static const struct video_device rga_videodev = {
+>>   	.device_caps = V4L2_CAP_VIDEO_M2M_MPLANE | V4L2_CAP_STREAMING,
+>>   };
+>>   
+>> +void rga_iommu_restore(struct rockchip_rga *rga)
+>> +{
+>> +	if (rga->empty_domain) {
+>> +		/*
+>> +		 * To rewrite mapping into the attached IOMMU core, attach a
+>> new empty domain that
+>> +		 * will program an empty table, then detach it to restore the
+>> default domain and
+>> +		 * all cached mappings.
+>> +		 */
+>> +		iommu_attach_device(rga->empty_domain, rga->dev);
+>> +		iommu_detach_device(rga->empty_domain, rga->dev);
+>> +	}
+>> +}
+>> +
+>>   static int rga_parse_dt(struct rockchip_rga *rga)
+>>   {
+>>   	struct reset_control *core_rst, *axi_rst, *ahb_rst;
+>> @@ -657,6 +671,13 @@ static int rga_probe(struct platform_device *pdev)
+>>   		goto err_put_clk;
+>>   	}
+>>   
+>> +	if (iommu_get_domain_for_dev(rga->dev)) {
+>> +		rga->empty_domain = iommu_paging_domain_alloc(rga->dev);
+>> +
+>> +		if (!rga->empty_domain)
+> Its an error pointer, see:
+>
+> https://gitlab.freedesktop.org/linux-media/media-committers/-/commit/6347dc7fb967521a77f9ff0774d25ef0cca4c6cd
+>
+>> +			dev_warn(rga->dev, "cannot alloc new empty
+>> domain\n");
+>> +	}
+>> +
+>>   	ret = v4l2_device_register(&pdev->dev, &rga->v4l2_dev);
+>>   	if (ret)
+>>   		goto err_put_clk;
+>> @@ -741,6 +762,9 @@ static void rga_remove(struct platform_device *pdev)
+>>   	v4l2_device_unregister(&rga->v4l2_dev);
+>>   
+>>   	pm_runtime_disable(rga->dev);
+>> +
+>> +	if (rga->empty_domain)
+>> +		iommu_domain_free(rga->empty_domain);
+>>   }
+>>   
+>>   static int __maybe_unused rga_runtime_suspend(struct device *dev)
+>> diff --git a/drivers/media/platform/rockchip/rga/rga.h
+>> b/drivers/media/platform/rockchip/rga/rga.h
+>> index
+>> fc4805ba4e8ef7fb311f780a198ba6ba4d3aff17..e19c4c82aca5ae2056f52d525138093fbbb8
+>> 1af8 100644
+>> --- a/drivers/media/platform/rockchip/rga/rga.h
+>> +++ b/drivers/media/platform/rockchip/rga/rga.h
+>> @@ -75,6 +75,7 @@ struct rockchip_rga {
+>>   	void __iomem *regs;
+>>   	struct clk_bulk_data clks[3];
+>>   	struct rockchip_rga_version version;
+>> +	struct iommu_domain *empty_domain;
+>>   
+>>   	/* vfd lock */
+>>   	struct mutex mutex;
+>> @@ -114,6 +115,12 @@ static inline struct rga_vb_buffer *vb_to_rga(struct
+>> vb2_v4l2_buffer *vb)
+>>   
+>>   struct rga_frame *rga_get_frame(struct rga_ctx *ctx, enum v4l2_buf_type
+>> type);
+>>   
+>> +/*
+>> + * This should be called in an interrupt handler to make sure no memory
+>> + * is mapped through the IOMMU while the empty domain is attached.
+>> + */
+>> +void rga_iommu_restore(struct rockchip_rga *rga);
+>> +
+>>   /* RGA Buffers Manage */
+>>   extern const struct vb2_ops rga_qops;
+>>   
 
