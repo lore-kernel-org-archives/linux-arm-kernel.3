@@ -4,79 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FBF0CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 09:22:30 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 523F3CCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 09:29:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Subject:Cc:To:From:
+	Message-ID:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=i3lUYzUrMIvLxGNDo6hRVWzno1kaYTri2Z3ZkDXZ1D4=; b=nzF5GQkKWI8xDjhfnN2qclkf0Q
-	xswketU5vDK50Mh/7XtU8zVC51UcE6X3QgryFOrTkiJMFe1x5ufM0R/hkRRlOany2Nk8a+DDNBAuo
-	+UGlfNMouGNjf1SFkYYAlOXCtlpqqNLR3ioNJjAxgXj3OZnOdn3g2BdmGzXlEwHMd2oJ0hpPaCgAD
-	rVzFk7jYkcO0TNufpE2UqmjZrHLlFjCwfJ/VpEByD9q/rT7OX3wQuyy6S26S0t0LtToz8881gEhH+
-	1Dbcjblbrh4G8nRNLz1kf6zzA8b/Ubqm2+Inm9WZ41sg+OJrLKfhL+f3nDWPginDisUR3CYFbsRK4
-	eBYOjnOQ==;
+	bh=VuQRe1cc/7+FNCnbhnw1dE+P+rSJ2U05UAEwO7GIQLc=; b=fjBEjBKIG1TJ9OajfO0HA9C84O
+	Od6rqefftt9t192twgQMyYpieU+1uolDU7h6ulu7FsV8TfBRecoO+fz8FicQiUZkVTF1xz6B73685
+	fdLNy+uOGvFjYPYjXhSjZ/4KwbH42uXFYQBKgU7ERNf3BiasExstiSdqsfnO31hm5BogMXzH6Y03J
+	/P271+R+095x7MPL0oKRIagO0xJbStntwLSCFpjbapalTOjIj7/nFxtRNtKFfjBbGXr+f1/IXXEeq
+	IekDTW8NJXJAXgrBr3RkzHkTq4AfnI0aACtZ1XHB9U0qL3M0WzX1LTD64nv0pyDBlwdY8o6NCQ82i
+	8NWww39A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v79KS-0000000896q-4ByC;
-	Fri, 10 Oct 2025 09:22:25 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v79Qr-000000089r0-1QP1;
+	Fri, 10 Oct 2025 09:29:01 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v79KP-00000008966-4576
+	id 1v79Qp-000000089qs-3O0y
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 09:22:23 +0000
+	Fri, 10 Oct 2025 09:28:59 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id ACC8845B4C;
-	Fri, 10 Oct 2025 09:22:21 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8C559C4CEF1;
-	Fri, 10 Oct 2025 09:22:21 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id D984F62565;
+	Fri, 10 Oct 2025 09:28:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80EF2C4CEF1;
+	Fri, 10 Oct 2025 09:28:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760088141;
-	bh=GnUz7C2zbtjR0soOdMoHNTAX8aSovVUPvkVFgOsxrd0=;
+	s=k20201202; t=1760088538;
+	bh=O/7sfg5UlTpCPHWBq3fIuuXqIzy1Z6yLN/gVrlq+5r0=;
 	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=RNllekUPLupnQUjBWe7O1Tv6b7WAgSgbKekXIW/ibqKFivdEtRnyJOf/bZNq/4HUo
-	 6NklNZJhrU3+QHJH2wGuk1iM4DI3awD0G6Igr63O/+ZUZx++bGBsnIeVZr5h84kbsw
-	 py7AcTs8WQJx0t3im7mtVwUAaSLGx0VRduRC+ZVig0z/ZuXWsoUMvS/b76VYl+B52s
-	 ltc2FyAeAOPMYDqeChz2ya/K42qehFcJU6I63Fgh1p/OfHM8dlUOm1mo0AhtV56j2S
-	 dTEYT3YGMSJLSyShkT4T7/fu+958JwDnGDihlpwreJYZLABfVWFRTl5BKFgjsMj+yr
-	 kUd5wxqFZNaVw==
+	b=cVRuDebtQUJBaZ5FXiJhla9PcgDFAm0WLnnYt9+gIJoYcuPfMLJupid2WzCQKAQgO
+	 UZ4vnzYVM8pPkohSamwjB0PcctsUumFMjJh8E2nljNQNO/ggnjCpx1vfpdZ4JATQ6U
+	 67MkqBl9R+Yi2pkPyoAUygmWExJ0QDIsvK/EtIsmnFB0sRdMNvEPx3I/VhRcezsFBQ
+	 jhIlpaawcZgPH8hzgb4VHJCZmuD9g607VOUwQkM1TzwSL/C+oRMMJOWF+bIiudVh1G
+	 O5qom+6NCA8kA3Bl+Zir7CalC0ETRFSSV6TFy1ozBJ0VKSHCdG8bI+bj3RQcJ9gb7d
+	 vtnbpt7h5uv4Q==
 Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
 	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
 	(Exim 4.98.2)
 	(envelope-from <maz@kernel.org>)
-	id 1v79KM-0000000CruH-3pns;
-	Fri, 10 Oct 2025 09:22:19 +0000
-Date: Fri, 10 Oct 2025 10:22:18 +0100
-Message-ID: <86ldljxgad.wl-maz@kernel.org>
+	id 1v79Qm-0000000CryE-0DGH;
+	Fri, 10 Oct 2025 09:28:56 +0000
+Date: Fri, 10 Oct 2025 10:28:55 +0100
+Message-ID: <86jz13xfzc.wl-maz@kernel.org>
 From: Marc Zyngier <maz@kernel.org>
-To: Oliver Upton <oliver.upton@linux.dev>
-Cc: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
+To: Jinjie Ruan <ruanjinjie@huawei.com>
+Cc: <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>,
+	<linux-acpi@vger.kernel.org>,
+	Thomas Gleixner <tglx@linutronix.de>,
 	Mark Rutland <mark.rutland@arm.com>,
-	Jan Kotas <jank@cadence.com>
-Subject: Re: [PATCH] arm64: Revamp HCR_EL2.E2H RES1 detection
-In-Reply-To: <aOgpesxEKsnbKGs3@linux.dev>
-References: <20251009121239.29370-1-maz@kernel.org>
-	<aOgpesxEKsnbKGs3@linux.dev>
+	Will Deacon <will@kernel.org>,
+	"Rafael J. Wysocki" <rafael@kernel.org>,
+	Rob
+ Herring <robh@kernel.org>,
+	Saravana Kannan <saravanak@google.com>,
+	Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Sven Peter <sven@kernel.org>,
+	Janne Grunau <j@jannau.net>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	James
+ Clark <james.clark@linaro.org>,
+	Jonathan Cameron
+	<jonathan.cameron@huawei.com>
+Subject: Re: [PATCH v3 13/26] genirq: Factor-in percpu irqaction creation
+In-Reply-To: <46d6bf56-3e7a-92d9-218f-4135d8850be9@huawei.com>
+References: <20250922082833.2038905-1-maz@kernel.org>
+	<20250922082833.2038905-14-maz@kernel.org>
+	<46d6bf56-3e7a-92d9-218f-4135d8850be9@huawei.com>
 User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
  FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
  (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
 MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
 X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: oliver.upton@linux.dev, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, jank@cadence.com
+X-SA-Exim-Rcpt-To: ruanjinjie@huawei.com, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org, tglx@linutronix.de, mark.rutland@arm.com, will@kernel.org, rafael@kernel.org, robh@kernel.org, saravanak@google.com, gregkh@linuxfoundation.org, sven@kernel.org, j@jannau.net, suzuki.poulose@arm.com, james.clark@linaro.org, jonathan.cameron@huawei.com
 X-SA-Exim-Mail-From: maz@kernel.org
 X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_022222_049510_8E1B4093 
-X-CRM114-Status: GOOD (  30.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,57 +100,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 09 Oct 2025 22:30:34 +0100,
-Oliver Upton <oliver.upton@linux.dev> wrote:
-> 
-> Hey,
-> 
-> On Thu, Oct 09, 2025 at 01:12:39PM +0100, Marc Zyngier wrote:
-> > We currently have two ways to identify CPUs that only implement FEAT_VHE
-> > and not FEAT_E2H0:
-> > 
-> > - either they advertise it via ID_AA64MMFR4_EL1.E2H0,
-> > - or the HCR_EL2.E2H bit is RAO/WI
-> > 
-> > However, there is a third category of "cpus" that fall between these
-> > two cases: on CPUs that do not implement FEAT_FGT, it is IMPDEF whether
-> > an access to ID_AA64MMFR4_EL1 can trap to EL2 when the register value
-> > is zero.
-> > 
-> > A consequence of this is that on systems such as Neoverse V2, a NV
-> > guest cannot reliably detect that it is in a VHE-only configuration
-> > (E2H is writable, and ID_AA64MMFR0_EL1 is 0), despite the hypervisor's
-> > best effort to repaint the id register.
-> > 
-> > Replace the RAO/WI test by a sequence that makes use of the VHE
-> > register remnapping between EL1 and EL2 to detect this situation,
-> > and work out whether we get the VHE behaviour even after having
-> > set HCR_EL2.E2H to 0.
-> > 
-> > This solves the NV problem, and provides a more reliable acid test
-> > for CPUs that do not completely follow the letter of the architecture
-> > while providing a RES1 behaviour for HCR_EL2.E2H.
-> > 
-> > Suggested-by: Marc Rutland <mark.rutland@arm.com>
-> 		^~~~
-> 
-> Thank you *Mark* for the suggestion here, neat trick :)
+On Fri, 10 Oct 2025 04:59:59 +0100,
+Jinjie Ruan <ruanjinjie@huawei.com> wrote:
+>=20
+>=20
+>=20
+> On 2025/9/22 16:28, Marc Zyngier wrote:
+> > Move the code creating a per-cpu irqaction into its own helper, so that
+> > future changes to this code can be kept localised.
+> >=20
+> > At the same time, fix the documentation which appears to say the wrong
+> > thing when it comes to interrupts being automatically enabled
+> > (percpu_devid interrupts never are).
+> >=20
+> > Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
+> > Signed-off-by: Marc Zyngier <maz@kernel.org>
+> > ---
+> >  kernel/irq/manage.c | 40 ++++++++++++++++++++++++----------------
+> >  1 file changed, 24 insertions(+), 16 deletions(-)
+> >=20
+> > diff --git a/kernel/irq/manage.c b/kernel/irq/manage.c
+> > index c94837382037e..d9ddc30678b5d 100644
+> > --- a/kernel/irq/manage.c
+> > +++ b/kernel/irq/manage.c
+> > @@ -2442,6 +2442,24 @@ int setup_percpu_irq(unsigned int irq, struct ir=
+qaction *act)
+> >  	return retval;
+> >  }
+> > =20
+> > +static
+> > +struct irqaction *create_percpu_irqaction(irq_handler_t handler, unsig=
+ned long flags,
+> > +					  const char *devname, void __percpu *dev_id)
+> > +{
+> > +	struct irqaction *action;
+> > +
+> > +	action =3D kzalloc(sizeof(struct irqaction), GFP_KERNEL);
+> > +	if (!action)
+> > +		return NULL;
+> > +
+> > +	action->handler =3D handler;
+> > +	action->flags =3D flags | IRQF_PERCPU | IRQF_NO_SUSPEND;
+> > +	action->name =3D devname;
+> > +	action->percpu_dev_id =3D dev_id;
+> > +
+> > +	return action;
+> > +}
+>=20
+> This helper could be more universal by consider by distinguishing dev_id
+> and percpu_dev_id=EF=BC=8C so we can use it in request_nmi() and
+> request_threaded_irq() .
 
-Too many Mar[ck]s. I'm struggling! ;-)
+This would mean either adding extra parameters to this function (ugly)
+or having type confusion by dropping the __percpu attribute (nasty).
 
-> I'd be in favor of this patch being sent to stable, happy to handle the
-> backports if you don't have the time for it. VMs mysteriously dying
-> isn't a very good experience on NV and I'd like to not scare folks away.
+I'd rather you add a separate helper that deals with non-percpu
+interrupts, and not mess with something that is definitely meant for
+percpu interrupts.
 
-I think Mark (yes, him!) had a plan to backport some of the !FEAT_E2H0
-patches back to earlier kernels. I'll let him comment on that.
-
-> Reviewed-by: Oliver Upton <oliver.upton@linux.dev>
-
-Thanks!
+Thanks,
 
 	M.
 
--- 
+--=20
 Without deviation from the norm, progress is not possible.
 
