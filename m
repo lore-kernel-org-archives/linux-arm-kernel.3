@@ -4,56 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18D15CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 16:56:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08BC6CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 16:56:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cm9pr8lYyBgkPitQZZBVrQVrJZhWIxw6v/HvWsE08mg=; b=Z8bpq3JInsM7vkmvPMvV6HZcV2
-	vPns9jSlUbhDn2/dQ/846uAGaefLNJMazFnCtch5nFwXV/7Gl89UDyi9ie+6nix7IS32hCGFKG+NO
-	/GNiFTXQY6uXB58MPzYrum5DE2YXxkuniL2cazZt42vIpf8PYApFVTxUt3YQ6rLEcCMXOfyX1l9l6
-	FW5eiYBxPyvVBJu/CUXCU8ZH2SBfZCyUZlfrI9anYqUs+rgY+hdWaQ/orzv8NWhRLPSjLb8gMLOOp
-	9nsOlRPypIjIWoTsjvQCSYfJj84WtQ8/W+qz5uCbHCE75tY/Mf0bqnpYq27kS9eZNvyWg/LT3x2ID
-	WiqBJBzg==;
+	bh=RofIudv5YXMEEthWbgRH6JEHQjcGmNomXmHjIUiRjlY=; b=YSAsTjZXDIMaWNASCUJ7tS3HRe
+	Wbcfd79oQ9U/Zp4c/iKqlDnqwEHtloL7jw6MQwCiadgaBOK9lOSRZhuukCyUjqBeUwmYKCorEXz/A
+	ZO/IctqngeD7xMs22h6U/4qmbhj+I8a5DHOL4t0tgQddpBl07a8H3qT8wnxe1kZsq6i7eKr5TGC0U
+	X1nNysr5qgI2NzmJ5arwLGHz5y5HryfRjUncBmCJospWkUoaTp5kN2RN4FICzyXG02lgaHUSYZHyk
+	ZRdbiJ+yGPi+rPWcQLE1bRWw5JFp4a+d5Cz7xCfAr4tBHNWCNdNgfqv+ydOQ60bJyLFyRbuhHWyrE
+	fPrrFlPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7GPZ-000000091BJ-1CpC;
-	Fri, 10 Oct 2025 16:56:09 +0000
+	id 1v7GPe-000000091Ex-2R0o;
+	Fri, 10 Oct 2025 16:56:14 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7GPW-00000009196-1b73
+	id 1v7GPc-000000091DU-3zrZ
 	for linux-arm-kernel@bombadil.infradead.org;
-	Fri, 10 Oct 2025 16:56:06 +0000
+	Fri, 10 Oct 2025 16:56:12 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
 	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=cm9pr8lYyBgkPitQZZBVrQVrJZhWIxw6v/HvWsE08mg=; b=ed5lsIrlcRDdFKRzEVVl3V+B+e
-	Il+1wmgZ3zNYoPra58DtexOHlNUAKOz7D7WJEvtofyiJ5jP81b2vm/Swb/T1hO3g3Gz640IZwodIJ
-	5aHJA1ZEjzwpWG9R3ddkM2t55Y0BHuNDmlxbqFOhLxsjeSYHA5dY6I7WFZfhDvEHiUn1dS4pKVkl5
-	FxuwPkVKhGQrhLIfJeaV+ATyheP9Wv08BEGavC71HmLAzTa5JTm3LdD0meAc1iHS8CzzIoP1mgn3S
-	FDtkmSa/xQ4I7IxFwKi/1aTp/tWVRK732CJaKdmVEHXReCEnD+HHMCZY4JghYESwlIxcmTr7LESUD
-	31OnSUvg==;
+	bh=RofIudv5YXMEEthWbgRH6JEHQjcGmNomXmHjIUiRjlY=; b=Ydat7GGOW1OISNwq+fl8ZtIO3h
+	FeYtz2gaOUsxYInvmB+ssVnNOmm2Ean0QNAA7FCmezjWMN6U6apFQ63vLNuMey/d75J8xpG3YjAeO
+	gtPPlfyUPyzKqw0JfvCcwPGVrRlnOT4fi9YyP/rupxTjyqfgZJz3XhomkoFNvbiOrnNYkhksB3Mt9
+	GtKEXKQQvuyZlcWziuQizzDlVmBWa7OmSjBidx4zwQU5thMpv/HQWMwOw+23+YW2/V586OoD65tPB
+	OU72hZBsHCzuDvWmA0WqhhDYgtXU5Stike+96NNOPpzrcl+JS2k4QyGu4lSRjLzjnqMKkmvLPJSG6
+	aU9FQZEA==;
 Received: from foss.arm.com ([217.140.110.172])
 	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7GPT-00000002JOn-24Uf
+	id 1v7GPZ-00000002JQ6-43ii
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 16:56:05 +0000
+	Fri, 10 Oct 2025 16:56:11 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B2FA81596;
-	Fri, 10 Oct 2025 09:55:54 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 373D0153B;
+	Fri, 10 Oct 2025 09:56:01 -0700 (PDT)
 Received: from [10.1.197.69] (eglon.cambridge.arm.com [10.1.197.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 557333F66E;
-	Fri, 10 Oct 2025 09:55:57 -0700 (PDT)
-Message-ID: <5d2b762c-f189-48fc-8ec8-c8bbc316122a@arm.com>
-Date: Fri, 10 Oct 2025 17:55:54 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 10FE13F66E;
+	Fri, 10 Oct 2025 09:56:02 -0700 (PDT)
+Message-ID: <ae1f55e4-d7b0-48cb-9cf9-da272cc934ac@arm.com>
+Date: Fri, 10 Oct 2025 17:55:59 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v2 05/29] arm64: kconfig: Add Kconfig entry for MPAM
-To: Fenghua Yu <fenghuay@nvidia.com>, linux-kernel@vger.kernel.org,
+To: Gavin Shan <gshan@redhat.com>, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
 Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
  carl@os.amperecomputing.com, lcherian@marvell.com,
@@ -63,8 +63,9 @@ Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
  dfustini@baylibre.com, amitsinght@marvell.com,
  David Hildenbrand <david@redhat.com>, Dave Martin <dave.martin@arm.com>,
  Koba Ko <kobak@nvidia.com>, Shanker Donthineni <sdonthineni@nvidia.com>,
- baisheng.gao@unisoc.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
- Rob Herring <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
+ fenghuay@nvidia.com, baisheng.gao@unisoc.com,
+ Jonathan Cameron <jonathan.cameron@huawei.com>, Rob Herring
+ <robh@kernel.org>, Rohit Mathew <rohit.mathew@arm.com>,
  Rafael Wysocki <rafael@kernel.org>, Len Brown <lenb@kernel.org>,
  Lorenzo Pieralisi <lpieralisi@kernel.org>, Hanjun Guo
  <guohanjun@huawei.com>, Sudeep Holla <sudeep.holla@arm.com>,
@@ -73,15 +74,15 @@ Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
  Danilo Krummrich <dakr@kernel.org>
 References: <20250910204309.20751-1-james.morse@arm.com>
  <20250910204309.20751-6-james.morse@arm.com>
- <378ae328-089d-4f81-b48b-b5edac7515ed@nvidia.com>
+ <ef45ce3a-7a78-45c8-8196-75923af7c6ab@redhat.com>
 Content-Language: en-GB
 From: James Morse <james.morse@arm.com>
-In-Reply-To: <378ae328-089d-4f81-b48b-b5edac7515ed@nvidia.com>
+In-Reply-To: <ef45ce3a-7a78-45c8-8196-75923af7c6ab@redhat.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_175603_776036_60A6ADAF 
-X-CRM114-Status: GOOD (  11.10  )
+X-CRM114-CacheID: sfid-20251010_175610_349793_7B9E4883 
+X-CRM114-Status: GOOD (  10.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,10 +97,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Fenghua,
+Hi Gavin,
 
-On 02/10/2025 06:06, Fenghua Yu wrote:
-> On 9/10/25 13:42, James Morse wrote:
+On 03/10/2025 01:32, Gavin Shan wrote:
+> On 9/11/25 6:42 AM, James Morse wrote:
 >> The bulk of the MPAM driver lives outside the arch code because it
 >> largely manages MMIO devices that generate interrupts. The driver
 >> needs a Kconfig symbol to enable it. As MPAM is only found on arm64
@@ -109,12 +110,8 @@ On 02/10/2025 06:06, Fenghua Yu wrote:
 >> This Kconfig option will later be used by the arch code to enable
 >> or disable the MPAM context-switch code, and to register properties
 >> of CPUs with the MPAM driver.
->>
->> Signed-off-by: James Morse <james.morse@arm.com>
->> Reviewed-by: Jonathan Cameron <jonathan.cameron@huawei.com>
->> CC: Dave Martin <dave.martin@arm.com>
-> 
-> Reviewed-by: Fenghua Yu <fenghuay@nvidia.com>
+
+> Reviewed-by: Gavin Shan <gshan@redhat.com>
 
 Thanks!
 
