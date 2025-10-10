@@ -4,29 +4,29 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98287CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 07:25:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7D023CCD190
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 07:26:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=IQx+mwF16Ws2c3BMSABJS0KO6FKXd3VLzeSfwnur18Y=; b=39u0DAzL50liYAE0Tv3nJWGJ3Y
-	7BfGjlwSI4nHegNrzLzpHULZw9lwC+I+UXrNhfvOBW8Ao1b1UdEHx1vZ6ZJY4oLVSfOWiN1D8Spz2
-	SdH37hW0xtCyb9QmWLcRF6ScuhHQ40Bzd1HKhZ+oPKJKLB6m6pKuIyExWuVg9xcC/O8nhwWCuJUtb
-	lvbv5Y0cQAh31Lyb7Vm9NmiQQ52W5mGL+FuqDphT4G8VniHGyRa7idVw9Cb3mFOk4JECbK0N+PGHo
-	DR2Qg6VngmSycLGkIFNZ+VmcTZEj6/KQhj4i2gBK/feW4WWcuJaqBYKuTK5z5QZIiRsXm1vZGiJlM
-	6RtjNkjA==;
+	bh=n0hyq1V8RjMDSuSevIuGbPrhpwwkluzK5TyXyn6Jo3M=; b=JrQKwY3dHuHpGassr/giRVf4VZ
+	TiuUpJNePw+bJCez+mTaNu4jFSs131UuqeksCkfQP7DswhEGA2i9PuIz+inroopBZR4VvOUHLiEx0
+	pZMftsEHWmOtUfbF9WsR+9i2Itg1Ox8Zt3KUq9PxmDdP0XBS+9ny8f6TWXlIDVAOjP74w7lLMYdBw
+	IfGSgcD7Ukk6EY3jtbAmr7pgXOynGCu2J6gs9DGYZ01heYe/AO7nSP/lQJQwBZ+jA9s9bhOQn1oPX
+	wK0Otv4Z4c5+BPt00IR8/2p0at9I1P3IzoffIULATo+G+WmUJIpyqJZ4Va9dEEMMIvctkWnDcb0TD
+	R/8gq5Gg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v77Vi-00000007rD5-24bN;
-	Fri, 10 Oct 2025 07:25:54 +0000
+	id 1v77Vj-00000007rEC-3Qrn;
+	Fri, 10 Oct 2025 07:25:55 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v77Vf-00000007rBP-3diB
+	id 1v77Vh-00000007rBP-1v9I
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 07:25:52 +0000
+	Fri, 10 Oct 2025 07:25:54 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 10 Oct
@@ -47,10 +47,9 @@ To: ryan_chen <ryan_chen@aspeedtech.com>, Brian Masney <bmasney@redhat.com>,
  Kennington <wak@google.com>, "Yuxiao Zhang" <yuxiaozhang@google.com>,
 	<wthai@nvidia.com>, <leohu@nvidia.com>, <dkodihalli@nvidia.com>,
 	<spuranik@nvidia.com>
-CC: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-Subject: [PATCH v15 1/3] dt-bindings: clock: ast2700: modify soc0/1 clock define
-Date: Fri, 10 Oct 2025 15:25:38 +0800
-Message-ID: <20251010072540.666673-2-ryan_chen@aspeedtech.com>
+Subject: [PATCH v15 2/3] reset: aspeed: register AST2700 reset auxiliary bus device
+Date: Fri, 10 Oct 2025 15:25:39 +0800
+Message-ID: <20251010072540.666673-3-ryan_chen@aspeedtech.com>
 X-Mailer: git-send-email 2.34.1
 In-Reply-To: <20251010072540.666673-1-ryan_chen@aspeedtech.com>
 References: <20251010072540.666673-1-ryan_chen@aspeedtech.com>
@@ -58,9 +57,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_002551_906147_8E3718D6 
-X-CRM114-Status: UNSURE (   7.73  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251010_002553_503107_EA13B8BA 
+X-CRM114-Status: GOOD (  18.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -75,44 +73,307 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
--add SOC0_CLK_AHBMUX:
-add SOC0_CLK_AHBMUX for ahb clock source divide.
-mpll->
-      ahb_mux -> div_table -> clk_ahb
-hpll->
-
--new add clock:
- SOC0_CLK_MPHYSRC: UFS MPHY clock source.
- SOC0_CLK_U2PHY_REFCLKSRC: USB2.0 phy clock reference source.
- SOC1_CLK_I3C: I3C clock source.
+The AST2700 reset driver is registered as an auxiliary device
+due to reset and clock controller share the same register region.
 
 Signed-off-by: Ryan Chen <ryan_chen@aspeedtech.com>
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Reviewed-by: Philipp Zabel <p.zabel@pengutronix.de>
 ---
- include/dt-bindings/clock/aspeed,ast2700-scu.h | 4 ++++
- 1 file changed, 4 insertions(+)
+ drivers/reset/Kconfig        |   7 +
+ drivers/reset/Makefile       |   1 +
+ drivers/reset/reset-aspeed.c | 253 +++++++++++++++++++++++++++++++++++
+ 3 files changed, 261 insertions(+)
+ create mode 100644 drivers/reset/reset-aspeed.c
 
-diff --git a/include/dt-bindings/clock/aspeed,ast2700-scu.h b/include/dt-bindings/clock/aspeed,ast2700-scu.h
-index 63021af3caf5..bacf712e8e04 100644
---- a/include/dt-bindings/clock/aspeed,ast2700-scu.h
-+++ b/include/dt-bindings/clock/aspeed,ast2700-scu.h
-@@ -68,6 +68,9 @@
- #define SCU0_CLK_GATE_UFSCLK	53
- #define SCU0_CLK_GATE_EMMCCLK	54
- #define SCU0_CLK_GATE_RVAS1CLK	55
-+#define SCU0_CLK_U2PHY_REFCLKSRC 56
-+#define SCU0_CLK_AHBMUX			57
-+#define SCU0_CLK_MPHYSRC		58
+diff --git a/drivers/reset/Kconfig b/drivers/reset/Kconfig
+index 635eef469ab7..78b7078478d4 100644
+--- a/drivers/reset/Kconfig
++++ b/drivers/reset/Kconfig
+@@ -22,6 +22,13 @@ config RESET_A10SR
+ 	  This option enables support for the external reset functions for
+ 	  peripheral PHYs on the Altera Arria10 System Resource Chip.
  
- /* SOC1 clk */
- #define SCU1_CLKIN		0
-@@ -159,5 +162,6 @@
- #define SCU1_CLK_GATE_PORTCUSB2CLK	84
- #define SCU1_CLK_GATE_PORTDUSB2CLK	85
- #define SCU1_CLK_GATE_LTPI1TXCLK	86
-+#define SCU1_CLK_I3C				87
- 
- #endif
++config RESET_ASPEED
++	tristate "ASPEED Reset Driver"
++	depends on ARCH_ASPEED || COMPILE_TEST
++	select AUXILIARY_BUS
++	help
++	  This enables the reset controller driver for AST2700.
++
+ config RESET_ATH79
+ 	bool "AR71xx Reset Driver" if COMPILE_TEST
+ 	default ATH79
+diff --git a/drivers/reset/Makefile b/drivers/reset/Makefile
+index a917d2522e8d..f7934f9fb90b 100644
+--- a/drivers/reset/Makefile
++++ b/drivers/reset/Makefile
+@@ -6,6 +6,7 @@ obj-y += starfive/
+ obj-y += sti/
+ obj-y += tegra/
+ obj-$(CONFIG_RESET_A10SR) += reset-a10sr.o
++obj-$(CONFIG_RESET_ASPEED) += reset-aspeed.o
+ obj-$(CONFIG_RESET_ATH79) += reset-ath79.o
+ obj-$(CONFIG_RESET_AXS10X) += reset-axs10x.o
+ obj-$(CONFIG_RESET_BCM6345) += reset-bcm6345.o
+diff --git a/drivers/reset/reset-aspeed.c b/drivers/reset/reset-aspeed.c
+new file mode 100644
+index 000000000000..dd2f860a69d7
+--- /dev/null
++++ b/drivers/reset/reset-aspeed.c
+@@ -0,0 +1,253 @@
++// SPDX-License-Identifier: GPL-2.0-or-later
++/*
++ * Copyright (c) 2024 ASPEED Technology Inc.
++ */
++
++#include <linux/auxiliary_bus.h>
++#include <linux/cleanup.h>
++#include <linux/device.h>
++#include <linux/io.h>
++#include <linux/module.h>
++#include <linux/reset-controller.h>
++#include <linux/slab.h>
++
++#include <dt-bindings/reset/aspeed,ast2700-scu.h>
++
++#define SCU0_RESET_CTRL1 0x200
++#define SCU0_RESET_CTRL2 0x220
++#define SCU1_RESET_CTRL1 0x200
++#define SCU1_RESET_CTRL2 0x220
++#define SCU1_PCIE3_CTRL 0x908
++
++struct ast2700_reset_signal {
++	bool dedicated_clr; /* dedicated reset clr offset */
++	u32 offset, bit;
++};
++
++struct aspeed_reset_info {
++	unsigned int nr_resets;
++	const struct ast2700_reset_signal *signal;
++};
++
++struct aspeed_reset {
++	struct reset_controller_dev rcdev;
++	struct aspeed_reset_info *info;
++	spinlock_t lock; /* Protect read-modify-write cycle */
++	void __iomem *base;
++};
++
++static const struct ast2700_reset_signal ast2700_reset0_signals[] = {
++	[SCU0_RESET_SDRAM] = { true, SCU0_RESET_CTRL1, BIT(0) },
++	[SCU0_RESET_DDRPHY] = { true, SCU0_RESET_CTRL1, BIT(1) },
++	[SCU0_RESET_RSA] = { true, SCU0_RESET_CTRL1, BIT(2) },
++	[SCU0_RESET_SHA3] = { true, SCU0_RESET_CTRL1, BIT(3) },
++	[SCU0_RESET_HACE] = { true, SCU0_RESET_CTRL1, BIT(4) },
++	[SCU0_RESET_SOC] = { true, SCU0_RESET_CTRL1, BIT(5) },
++	[SCU0_RESET_VIDEO] = { true, SCU0_RESET_CTRL1, BIT(6) },
++	[SCU0_RESET_2D] = { true, SCU0_RESET_CTRL1, BIT(7) },
++	[SCU0_RESET_PCIS] = { true, SCU0_RESET_CTRL1, BIT(8) },
++	[SCU0_RESET_RVAS0] = { true, SCU0_RESET_CTRL1, BIT(9) },
++	[SCU0_RESET_RVAS1] = { true, SCU0_RESET_CTRL1, BIT(10) },
++	[SCU0_RESET_SM3] = { true, SCU0_RESET_CTRL1, BIT(11) },
++	[SCU0_RESET_SM4] = { true, SCU0_RESET_CTRL1, BIT(12) },
++	[SCU0_RESET_CRT0] = { true, SCU0_RESET_CTRL1, BIT(13) },
++	[SCU0_RESET_ECC] = { true, SCU0_RESET_CTRL1, BIT(14) },
++	[SCU0_RESET_DP_PCI] = { true, SCU0_RESET_CTRL1, BIT(15) },
++	[SCU0_RESET_UFS] = { true, SCU0_RESET_CTRL1, BIT(16) },
++	[SCU0_RESET_EMMC] = { true, SCU0_RESET_CTRL1, BIT(17) },
++	[SCU0_RESET_PCIE1RST] = { true, SCU0_RESET_CTRL1, BIT(18) },
++	[SCU0_RESET_PCIE1RSTOE] = { true, SCU0_RESET_CTRL1, BIT(19) },
++	[SCU0_RESET_PCIE0RST] = { true, SCU0_RESET_CTRL1, BIT(20) },
++	[SCU0_RESET_PCIE0RSTOE] = { true, SCU0_RESET_CTRL1, BIT(21) },
++	[SCU0_RESET_JTAG] = { true, SCU0_RESET_CTRL1, BIT(22) },
++	[SCU0_RESET_MCTP0] = { true, SCU0_RESET_CTRL1, BIT(23) },
++	[SCU0_RESET_MCTP1] = { true, SCU0_RESET_CTRL1, BIT(24) },
++	[SCU0_RESET_XDMA0] = { true, SCU0_RESET_CTRL1, BIT(25) },
++	[SCU0_RESET_XDMA1] = { true, SCU0_RESET_CTRL1, BIT(26) },
++	[SCU0_RESET_H2X1] = { true, SCU0_RESET_CTRL1, BIT(27) },
++	[SCU0_RESET_DP] = { true, SCU0_RESET_CTRL1, BIT(28) },
++	[SCU0_RESET_DP_MCU] = { true, SCU0_RESET_CTRL1, BIT(29) },
++	[SCU0_RESET_SSP] = { true, SCU0_RESET_CTRL1, BIT(30) },
++	[SCU0_RESET_H2X0] = { true, SCU0_RESET_CTRL1, BIT(31) },
++	[SCU0_RESET_PORTA_VHUB] = { true, SCU0_RESET_CTRL2, BIT(0) },
++	[SCU0_RESET_PORTA_PHY3] = { true, SCU0_RESET_CTRL2, BIT(1) },
++	[SCU0_RESET_PORTA_XHCI] = { true, SCU0_RESET_CTRL2, BIT(2) },
++	[SCU0_RESET_PORTB_VHUB] = { true, SCU0_RESET_CTRL2, BIT(3) },
++	[SCU0_RESET_PORTB_PHY3] = { true, SCU0_RESET_CTRL2, BIT(4) },
++	[SCU0_RESET_PORTB_XHCI] = { true, SCU0_RESET_CTRL2, BIT(5) },
++	[SCU0_RESET_PORTA_VHUB_EHCI] = { true, SCU0_RESET_CTRL2, BIT(6) },
++	[SCU0_RESET_PORTB_VHUB_EHCI] = { true, SCU0_RESET_CTRL2, BIT(7) },
++	[SCU0_RESET_UHCI] = { true, SCU0_RESET_CTRL2, BIT(8) },
++	[SCU0_RESET_TSP] = { true, SCU0_RESET_CTRL2, BIT(9) },
++	[SCU0_RESET_E2M0] = { true, SCU0_RESET_CTRL2, BIT(10) },
++	[SCU0_RESET_E2M1] = { true, SCU0_RESET_CTRL2, BIT(11) },
++	[SCU0_RESET_VLINK] = { true, SCU0_RESET_CTRL2, BIT(12) },
++};
++
++static const struct ast2700_reset_signal ast2700_reset1_signals[] = {
++	[SCU1_RESET_LPC0] = { true, SCU1_RESET_CTRL1, BIT(0) },
++	[SCU1_RESET_LPC1] = { true, SCU1_RESET_CTRL1, BIT(1) },
++	[SCU1_RESET_MII] = { true, SCU1_RESET_CTRL1, BIT(2) },
++	[SCU1_RESET_PECI] = { true, SCU1_RESET_CTRL1, BIT(3) },
++	[SCU1_RESET_PWM] = { true, SCU1_RESET_CTRL1, BIT(4) },
++	[SCU1_RESET_MAC0] = { true, SCU1_RESET_CTRL1, BIT(5) },
++	[SCU1_RESET_MAC1] = { true, SCU1_RESET_CTRL1, BIT(6) },
++	[SCU1_RESET_MAC2] = { true, SCU1_RESET_CTRL1, BIT(7) },
++	[SCU1_RESET_ADC] = { true, SCU1_RESET_CTRL1, BIT(8) },
++	[SCU1_RESET_SD] = { true, SCU1_RESET_CTRL1, BIT(9) },
++	[SCU1_RESET_ESPI0] = { true, SCU1_RESET_CTRL1, BIT(10) },
++	[SCU1_RESET_ESPI1] = { true, SCU1_RESET_CTRL1, BIT(11) },
++	[SCU1_RESET_JTAG1] = { true, SCU1_RESET_CTRL1, BIT(12) },
++	[SCU1_RESET_SPI0] = { true, SCU1_RESET_CTRL1, BIT(13) },
++	[SCU1_RESET_SPI1] = { true, SCU1_RESET_CTRL1, BIT(14) },
++	[SCU1_RESET_SPI2] = { true, SCU1_RESET_CTRL1, BIT(15) },
++	[SCU1_RESET_I3C0] = { true, SCU1_RESET_CTRL1, BIT(16) },
++	[SCU1_RESET_I3C1] = { true, SCU1_RESET_CTRL1, BIT(17) },
++	[SCU1_RESET_I3C2] = { true, SCU1_RESET_CTRL1, BIT(18) },
++	[SCU1_RESET_I3C3] = { true, SCU1_RESET_CTRL1, BIT(19) },
++	[SCU1_RESET_I3C4] = { true, SCU1_RESET_CTRL1, BIT(20) },
++	[SCU1_RESET_I3C5] = { true, SCU1_RESET_CTRL1, BIT(21) },
++	[SCU1_RESET_I3C6] = { true, SCU1_RESET_CTRL1, BIT(22) },
++	[SCU1_RESET_I3C7] = { true, SCU1_RESET_CTRL1, BIT(23) },
++	[SCU1_RESET_I3C8] = { true, SCU1_RESET_CTRL1, BIT(24) },
++	[SCU1_RESET_I3C9] = { true, SCU1_RESET_CTRL1, BIT(25) },
++	[SCU1_RESET_I3C10] = { true, SCU1_RESET_CTRL1, BIT(26) },
++	[SCU1_RESET_I3C11] = { true, SCU1_RESET_CTRL1, BIT(27) },
++	[SCU1_RESET_I3C12] = { true, SCU1_RESET_CTRL1, BIT(28) },
++	[SCU1_RESET_I3C13] = { true, SCU1_RESET_CTRL1, BIT(29) },
++	[SCU1_RESET_I3C14] = { true, SCU1_RESET_CTRL1, BIT(30) },
++	[SCU1_RESET_I3C15] = { true, SCU1_RESET_CTRL1, BIT(31) },
++	[SCU1_RESET_MCU0] = { true, SCU1_RESET_CTRL2, BIT(0) },
++	[SCU1_RESET_MCU1] = { true, SCU1_RESET_CTRL2, BIT(1) },
++	[SCU1_RESET_H2A_SPI1] = { true, SCU1_RESET_CTRL2, BIT(2) },
++	[SCU1_RESET_H2A_SPI2] = { true, SCU1_RESET_CTRL2, BIT(3) },
++	[SCU1_RESET_UART0] = { true, SCU1_RESET_CTRL2, BIT(4) },
++	[SCU1_RESET_UART1] = { true, SCU1_RESET_CTRL2, BIT(5) },
++	[SCU1_RESET_UART2] = { true, SCU1_RESET_CTRL2, BIT(6) },
++	[SCU1_RESET_UART3] = { true, SCU1_RESET_CTRL2, BIT(7) },
++	[SCU1_RESET_I2C_FILTER] = { true, SCU1_RESET_CTRL2, BIT(8) },
++	[SCU1_RESET_CALIPTRA] = { true, SCU1_RESET_CTRL2, BIT(9) },
++	[SCU1_RESET_XDMA] = { true, SCU1_RESET_CTRL2, BIT(10) },
++	[SCU1_RESET_FSI] = { true, SCU1_RESET_CTRL2, BIT(12) },
++	[SCU1_RESET_CAN] = { true, SCU1_RESET_CTRL2, BIT(13) },
++	[SCU1_RESET_MCTP] = { true, SCU1_RESET_CTRL2, BIT(14) },
++	[SCU1_RESET_I2C] = { true, SCU1_RESET_CTRL2, BIT(15) },
++	[SCU1_RESET_UART6] = { true, SCU1_RESET_CTRL2, BIT(16) },
++	[SCU1_RESET_UART7] = { true, SCU1_RESET_CTRL2, BIT(17) },
++	[SCU1_RESET_UART8] = { true, SCU1_RESET_CTRL2, BIT(18) },
++	[SCU1_RESET_UART9] = { true, SCU1_RESET_CTRL2, BIT(19) },
++	[SCU1_RESET_LTPI0] = { true, SCU1_RESET_CTRL2, BIT(20) },
++	[SCU1_RESET_VGAL] = { true, SCU1_RESET_CTRL2, BIT(21) },
++	[SCU1_RESET_LTPI1] = { true, SCU1_RESET_CTRL2, BIT(22) },
++	[SCU1_RESET_ACE] = { true, SCU1_RESET_CTRL2, BIT(23) },
++	[SCU1_RESET_E2M] = { true, SCU1_RESET_CTRL2, BIT(24) },
++	[SCU1_RESET_UHCI] = { true, SCU1_RESET_CTRL2, BIT(25) },
++	[SCU1_RESET_PORTC_USB2UART] = { true, SCU1_RESET_CTRL2, BIT(26) },
++	[SCU1_RESET_PORTC_VHUB_EHCI] = { true, SCU1_RESET_CTRL2, BIT(27) },
++	[SCU1_RESET_PORTD_USB2UART] = { true, SCU1_RESET_CTRL2, BIT(28) },
++	[SCU1_RESET_PORTD_VHUB_EHCI] = { true, SCU1_RESET_CTRL2, BIT(29) },
++	[SCU1_RESET_H2X] = { true, SCU1_RESET_CTRL2, BIT(30) },
++	[SCU1_RESET_I3CDMA] = { true, SCU1_RESET_CTRL2, BIT(31) },
++	[SCU1_RESET_PCIE2RST] = { false, SCU1_PCIE3_CTRL, BIT(0) },
++};
++
++static inline struct aspeed_reset *to_aspeed_reset(struct reset_controller_dev *rcdev)
++{
++	return container_of(rcdev, struct aspeed_reset, rcdev);
++}
++
++static int aspeed_reset_assert(struct reset_controller_dev *rcdev, unsigned long id)
++{
++	struct aspeed_reset *rc = to_aspeed_reset(rcdev);
++	void __iomem *reg_offset = rc->base + rc->info->signal[id].offset;
++
++	if (rc->info->signal[id].dedicated_clr) {
++		writel(rc->info->signal[id].bit, reg_offset);
++	} else {
++		guard(spinlock_irqsave)(&rc->lock);
++		writel(readl(reg_offset) & ~rc->info->signal[id].bit, reg_offset);
++	}
++
++	return 0;
++}
++
++static int aspeed_reset_deassert(struct reset_controller_dev *rcdev, unsigned long id)
++{
++	struct aspeed_reset *rc = to_aspeed_reset(rcdev);
++	void __iomem *reg_offset = rc->base + rc->info->signal[id].offset;
++
++	if (rc->info->signal[id].dedicated_clr) {
++		writel(rc->info->signal[id].bit, reg_offset + 0x04);
++	} else {
++		guard(spinlock_irqsave)(&rc->lock);
++		writel(readl(reg_offset) | rc->info->signal[id].bit, reg_offset);
++	}
++
++	return 0;
++}
++
++static int aspeed_reset_status(struct reset_controller_dev *rcdev, unsigned long id)
++{
++	struct aspeed_reset *rc = to_aspeed_reset(rcdev);
++	void __iomem *reg_offset = rc->base + rc->info->signal[id].offset;
++
++	return (readl(reg_offset) & rc->info->signal[id].bit) ? 1 : 0;
++}
++
++static const struct reset_control_ops aspeed_reset_ops = {
++	.assert = aspeed_reset_assert,
++	.deassert = aspeed_reset_deassert,
++	.status = aspeed_reset_status,
++};
++
++static int aspeed_reset_probe(struct auxiliary_device *adev,
++			      const struct auxiliary_device_id *id)
++{
++	struct aspeed_reset *reset;
++	struct device *dev = &adev->dev;
++
++	reset = devm_kzalloc(dev, sizeof(*reset), GFP_KERNEL);
++	if (!reset)
++		return -ENOMEM;
++
++	spin_lock_init(&reset->lock);
++
++	reset->info = (struct aspeed_reset_info *)id->driver_data;
++	reset->rcdev.owner = THIS_MODULE;
++	reset->rcdev.nr_resets = reset->info->nr_resets;
++	reset->rcdev.ops = &aspeed_reset_ops;
++	reset->rcdev.of_node = dev->parent->of_node;
++	reset->rcdev.dev = dev;
++	reset->rcdev.of_reset_n_cells = 1;
++	reset->base = (void __iomem *)adev->dev.platform_data;
++
++	return devm_reset_controller_register(dev, &reset->rcdev);
++}
++
++static const struct aspeed_reset_info ast2700_reset0_info = {
++	.nr_resets = ARRAY_SIZE(ast2700_reset0_signals),
++	.signal = ast2700_reset0_signals,
++};
++
++static const struct aspeed_reset_info ast2700_reset1_info = {
++	.nr_resets = ARRAY_SIZE(ast2700_reset1_signals),
++	.signal = ast2700_reset1_signals,
++};
++
++static const struct auxiliary_device_id aspeed_reset_ids[] = {
++	{ .name = "clk_ast2700.reset0", .driver_data = (kernel_ulong_t)&ast2700_reset0_info },
++	{ .name = "clk_ast2700.reset1", .driver_data = (kernel_ulong_t)&ast2700_reset1_info },
++	{ }
++};
++MODULE_DEVICE_TABLE(auxiliary, aspeed_reset_ids);
++
++static struct auxiliary_driver aspeed_reset_driver = {
++	.probe		= aspeed_reset_probe,
++	.id_table	= aspeed_reset_ids,
++};
++
++module_auxiliary_driver(aspeed_reset_driver);
++
++MODULE_AUTHOR("Ryan Chen <ryan_chen@aspeedtech.com>");
++MODULE_DESCRIPTION("ASPEED SoC Reset Controller Driver");
++MODULE_LICENSE("GPL");
 -- 
 2.34.1
 
