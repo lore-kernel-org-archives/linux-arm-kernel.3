@@ -4,79 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7A77CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 10:49:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 180D6CCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 10:49:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
 	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=x2LiN8aGSeEz5/QEAPT2ZIDR5uamXQ8YXQ1ZPBqL/90=; b=pAb14mDNVxM9Y9ks3tdm1s1BDq
-	QDrEQWJi1fitYScf2oRjMNw9KbTXpgcmLCIIlHldvXfRWShvwr3HSIcalWl59PGOIHCQdQ1bGI5wQ
-	vFDweAT3FyMQL5qcCKCbonmbwLTqwdYqL+/ZEIbuM4Q38u1Edy9PykJRyo635uwgv5pZkWYxPn+5S
-	chh76jJN/dWn2i7Ycw4wzpOZmYIs5VJsvHs4/gjISqlvrTV7jVm48ANkodIqbN0bqooLU3U4swMIH
-	tgYa+YbCgjSU8drurGvtA6QUnRenwfUW0+CEdITqaPus8Uv3n1PpCvk10lYeYuvpIV8dPhatkAWF5
-	JYPaMZ8A==;
+	bh=QzPIUE0kq7RazblEJidW9b7e/wLqz9BuPeB8RaG4tE4=; b=fUDQaorFXSoaQkFR67VKX4S3te
+	79MImZJ7VyzXQ6DGQb/RFEcRPTQ/KjRTzArnoINw3srDdnn3DYKhLFGf4B0l3oCpEllEGRlbhD0lg
+	AUIkrIAbhd4HSTRFWkIS8Q+l/sZyF38IjcSlc+vjVSmrClqqKxjSwToG+HVhwiK95zC5DfvhF4pDG
+	ZiYTysDJx4E9cx2G/f40x5quS3tUliPqCJ3bchZKU/CjLjlLbU8wOoj55TflR1nfknM+JP+UKmWDE
+	feItisUHeUsx0MtLa7mzU5eDLUjsViMQAPMC12f/Geplwwojfo0fIpub1rjdSYLWM69tWgZS2aWxK
+	eOxJaolA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7AgC-00000008IXB-353n;
-	Fri, 10 Oct 2025 10:48:56 +0000
-Received: from mail-pl1-x636.google.com ([2607:f8b0:4864:20::636])
+	id 1v7Age-00000008IbJ-0BJt;
+	Fri, 10 Oct 2025 10:49:24 +0000
+Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7AgA-00000008IWs-3ZO2
+	id 1v7Agb-00000008Ias-35PD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 10:48:56 +0000
-Received: by mail-pl1-x636.google.com with SMTP id d9443c01a7336-27eceb38eb1so21013135ad.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Oct 2025 03:48:54 -0700 (PDT)
+	Fri, 10 Oct 2025 10:49:22 +0000
+Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-77f1f29a551so2605891b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Oct 2025 03:49:21 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760093334; x=1760698134; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1760093361; x=1760698161; darn=lists.infradead.org;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:to:subject:user-agent:mime-version:date
          :message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=x2LiN8aGSeEz5/QEAPT2ZIDR5uamXQ8YXQ1ZPBqL/90=;
-        b=j9tvfZLug31A2HkMY2rRXVoyLCcPgBfN0NqTC5SVH+1Y1ilibiyKIg7yAfanwo8TFB
-         ziR2eSalyZKwqC1nqLyHRIddUJqBVVY6Oh4bKGVZPbaDpk0Ga+o1rJf03NOHL5s7vc8/
-         g4lQUlgMqBn8ntw6KmLJpL7IS4bcDRHIaxI6YRvm7AZi/yJ8vZm9YeW0hzv9jJbYhuPQ
-         v2FIMAgvZIQxHUKyMFb6ksjawPimBqG77KPlDaXhFksWNxfopFPRxymJRWyWcMGc5+J8
-         MPUgUhsjOaihyr89JU+iVZApsHfsBFr1q7lovCqqXcp4ZA9tTP3VQiTauQ08r2eQYv+S
-         IEuQ==
+        bh=QzPIUE0kq7RazblEJidW9b7e/wLqz9BuPeB8RaG4tE4=;
+        b=BIHAlUjd3IOzXXVaQOPK9tFORMDTyutzjcryblPQYhpzPn/yi8i7GTE1MZdxixSW4S
+         6iaj/t5OUc7LGYWq9rra071+gZ+/oKwVSeFlJU7qtKA4ESeoWwEj2k87/XwsSdWwMcgN
+         yrwNJYDUItS4ETyx8DXDo/H9kwncWTYu61xEpLoQfUngbzFUQ24tOSRs/G3d8ahtPRwe
+         AUmbnfc7UOcHPhXvz2BkdDqQMCDpE1vTSlpXrofl+IwXdIMQlUGZDkmqNMv/dI8esVjX
+         DAboaS4H14a74gmeIVy6u+Ufnue3i0kGoGAyC7Aqax0G4Xg6ZPpGKKAqS8dW8jSVY0BJ
+         qMjQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760093334; x=1760698134;
+        d=1e100.net; s=20230601; t=1760093361; x=1760698161;
         h=content-transfer-encoding:in-reply-to:autocrypt:from
          :content-language:references:to:subject:user-agent:mime-version:date
          :message-id:sender:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=x2LiN8aGSeEz5/QEAPT2ZIDR5uamXQ8YXQ1ZPBqL/90=;
-        b=k2OCxZvVHH1tk8wwW7bcp1PikoqB8YvuIu01/O6VebugvPNLT3X+ZOwVr0XnDMneQA
-         veJ/Di/MriZUmA0jW+EDrm9nsCEwmDuMFtOjhPiPFAxzFVBRvwx5g9Wl9dPJu3i7WJA1
-         fyutkBedQzoqHeWnFHskw7ZE1otszrwVKmlNuWbdYAJP/cvv5OvPqopDqZT8kom+xxhW
-         NDg+fCfNtdmgLsc2rlnBpPVlmTBiBzI5HnnjS5udbm/9Fy4Xvrd3gjkVTRUhuZK+FBWb
-         Fs6+mWF1XYl55SxSAodVA+X59XRtMA+6cdvg+VT2wFrEXriAf4FaxvHvsqr1YN5NsG4e
-         hRow==
-X-Forwarded-Encrypted: i=1; AJvYcCWp8XmHXCZFD0ac+OuGqIScmRTw1SB43JO/rVtEN1jvVBSLdi1ZNchRcu+lkN1VfErlxsoClVejg2ig4nFyiIKc@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxqq+sH0RrqAbJigKi+BqtFodBWXqqO8XChT+u6WEBmFGJmCgLb
-	zi4cs/+B8nzsDAzXYz6Kumf4qwjqgfsOLxPEaOyvEo7lrVWXCXDX9A59
-X-Gm-Gg: ASbGncu4N+R7/MKIe/y5MfK0gwjR05OmHsIS0i52ag5S8p+aC1pJdLRIE1851K3cMoT
-	lh41RPtkZUssq/TOm2ddYwlIfjBGpiTjFYOg5A1GGFumAx/aIuRJsqYfjfOS022HlUBDjko4mzW
-	hPqhsPuFvMg4GhjIUNg5WrR1DIQA7/zkHzD2rH1+PaCjLHSrUBmY1kqEk6phi6cQtQdB9LiUd9v
-	VotBU+4k364X6AKAkbyChjKGIAXQslcdQSpsnxhS1b8WNLctWeUDZIZiBElOiVBZl3nbbVoabIz
-	6qVyeyfkpAGb07K5w2HbiOsPx6TggYgHU5Pdlud14KluWDrtY5zyW8DUuqcFJ//E9PrImZm0S3h
-	aW/ZIb998r+/bS3SM+Bjz/GrciqZBD7OaVjEpn/qyfmaSYX8vko+yz5r9/4SDqt4CupJLh0zZ4r
-	g7BF7ud7hTccJ21w==
-X-Google-Smtp-Source: AGHT+IEwedOJdX2C4dcT7YtHIB9g10cEcA1KXeKDB3iN+o2qBogEjJkFDAFvSZ4Lz3eibMEDLOuYqg==
-X-Received: by 2002:a17:902:ccc8:b0:28d:18d3:46ce with SMTP id d9443c01a7336-290273ed885mr134399495ad.31.1760093333627;
-        Fri, 10 Oct 2025 03:48:53 -0700 (PDT)
+        bh=QzPIUE0kq7RazblEJidW9b7e/wLqz9BuPeB8RaG4tE4=;
+        b=jCo16qJlflUFoJRCq7WOPjvnL8/R8pzDZ3esw05KlUsgnxlhQX1Iqe7I0mhC224pLh
+         HsnxfgAv2pRAX+nF93qvP2scPuXXw+zvvsDZCBhmC7WQXGvTY+0fPiLFO1MpxHxCvKQF
+         SyejpuEJ1RZy/oVARvI8mF+MPspamSDgQx816KPUMtYXRrRkof/rPWGBqG3ryLV5q3cj
+         apdpuVXIJMd8R9WXqv//D6bvMXq4x4Tq59nzfsUWIGpJU1n1UYs8GPcEqF2F7R4yDGcS
+         K5jTJKwH2fFK3RNlJnDXdqNeadd1jsfNCZAv1WHnxNQd3aq5I3P5RXO+OrDaFOE0+X5R
+         hntw==
+X-Forwarded-Encrypted: i=1; AJvYcCXkw47yAS8qDz7Qdj9aIwZ14gWTmbBdwE9oSFL5NYmQQN1oLxZuCJVKLbjVFGHYe++mhfCbvBjZEeua/SvrH6yp@lists.infradead.org
+X-Gm-Message-State: AOJu0YzOAVTmSnqruR82ZdAKc9SyO2p5kl2sMGUMv2+Yts0Zhat8DJnn
+	7JeHy4NDV3CqcGWLm+17RIuSTjMebUTcCcPpTKV9e7c9YFMdnbIgqO8j
+X-Gm-Gg: ASbGnctw0ZoiHZ7lw1G3EwOSebOG3Gqf64RVIZNQDIuv290izO70a32t3gN/XilRPZq
+	+/OrLHIrOMfaG7I7thyVlKrvdRtc7Qs67kyDezVm1mwsYh1hGXiDPjA1mR7IPMeViqSsp7mt/H2
+	BYjbrAzXeusMpVcj1hfqM+I9tbAtMBOrK1wgPnmmMCJ/KPioe6jiK4pDIh1lieeg+9oogz13Duz
+	bsXPhWKvJSOowX3437I9nKkAbEzZ9LFMX+5DbAEYR4Kx5wHuyPIhFQVWs5KHnp4oedRklFHdoU6
+	Zi8fp/MWrYhKVAuha5qi6jRaYdEyJpL8xBa2qeYp6YdTHVUdyqARZXk9YRu22tjvJb68YeZa6Lm
+	AOpJPaoardQmuQm7ONdBTwRp0A4GMDEKQ7kxrRvATyvGTmfhRNU0rs+CycN8VdKq/gF/4Sht+IA
+	EG//twNNHKSqwfYA==
+X-Google-Smtp-Source: AGHT+IFBvTAbJQG+MxhyANCbjpJn05Ip49+Cj9nha4KjK9n7ztA6cSQ8VpgOYMJmhMkKmcyk9pdApg==
+X-Received: by 2002:a05:6a00:80c:b0:782:5ca1:e1c with SMTP id d2e1a72fcca58-7938723daa6mr13371334b3a.21.1760093360826;
+        Fri, 10 Oct 2025 03:49:20 -0700 (PDT)
 Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29034f070basm53936325ad.77.2025.10.10.03.48.52
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7992d2d2e42sm2508787b3a.62.2025.10.10.03.49.19
         (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 10 Oct 2025 03:48:53 -0700 (PDT)
-Message-ID: <9e179850-56ff-48bf-8cea-ab5895b6f935@roeck-us.net>
-Date: Fri, 10 Oct 2025 03:48:51 -0700
+        Fri, 10 Oct 2025 03:49:20 -0700 (PDT)
+Message-ID: <8424b26a-e267-4481-b027-b372700ccd0e@roeck-us.net>
+Date: Fri, 10 Oct 2025 03:49:19 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/3] watchdog: aspeed: Support variable number of reset
- mask registers
+Subject: Re: [PATCH v2 3/3] watchdog: aspeed: Add support for AST2700 platform
 To: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>, wim@linux-watchdog.org,
  robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
  andrew@codeconstruct.com.au, linux-watchdog@vger.kernel.org,
@@ -84,7 +83,7 @@ To: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>, wim@linux-watchdog.org,
  linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
  BMC-SW@aspeedtech.com
 References: <20251010080315.816628-1-chin-ting_kuo@aspeedtech.com>
- <20251010080315.816628-3-chin-ting_kuo@aspeedtech.com>
+ <20251010080315.816628-4-chin-ting_kuo@aspeedtech.com>
 Content-Language: en-US
 From: Guenter Roeck <linux@roeck-us.net>
 Autocrypt: addr=linux@roeck-us.net; keydata=
@@ -130,12 +129,12 @@ Autocrypt: addr=linux@roeck-us.net; keydata=
  F0WaMvQMNrk9UAUziVcUkLU52NS9SXqpVg8vgrO0JKx97IXFPcNh0DWsSj/0Y8HO/RDkGXYn
  FDMj7fZSPKyPQPmEHg+W/KzxSSfdgWIHF2QaQ0b2q1wOSec4Rti52ohmNSY+KNIW/zODhugJ
  np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
-In-Reply-To: <20251010080315.816628-3-chin-ting_kuo@aspeedtech.com>
+In-Reply-To: <20251010080315.816628-4-chin-ting_kuo@aspeedtech.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_034854_898844_34C9E9AE 
-X-CRM114-Status: UNSURE (   8.45  )
+X-CRM114-CacheID: sfid-20251010_034921_780756_36341107 
+X-CRM114-Status: UNSURE (   8.68  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -152,12 +151,9 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 10/10/25 01:03, Chin-Ting Kuo wrote:
-> Starting from the AST2600 platform, the SoC design has become more
-> complex, with an increased number of reset mask registers.
-> To support this, introduce a new field 'num_reset_masks' in the
-> 'aspeed_wdt_config' structure to specify the number of reset mask
-> registers per platform. This change removes the need for hardcoded
-> platform-specific logic and improves scalability for future SoCs.
+> Add AST2700 platform support to the ASPEED watchdog driver. This includes
+> a new per-platform configuration with SCU reset status register at
+> SCU1_070 and support for 5 reset mask registers.
 > 
 > Signed-off-by: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
 
