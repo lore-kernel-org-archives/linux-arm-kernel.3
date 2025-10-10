@@ -4,73 +4,98 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C14ECCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 16:26:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24686CCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 16:31:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tk4D6lann4Qv6C/cl8XrXlumbr5Ja0zvSdhyNNQBE60=; b=YmOhxtfnXegEXvzDvV9qNQyE17
-	OhWIEbkB7jophrK/VNWCh4fmqHrUYsviHhtrUKsjKbVcg3/uxJiNJhGNQ3mxZWq4Tx+aGvASSjNkH
-	zq76rDqYmdS57RnaEByaloJfEVGrWk5cs+cCn4Lff2Fe/tqc8gpD5SPjULsZCRertag2+VEOxn8+7
-	RhSCohgU8Uc7qDpaUNbZUbdE1w+SioVY/pA5+A0uf7JRoqLsUSh3g1J1o32HKz0+INNuwipjlh8A+
-	EVrwAgKTaV2BPYivq5R9GoJuivrt33rThEVLp3dwefAz+mK1ir9jHTq6niitldTwuan7pS7MYHPGv
-	0abauN0Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+PErgUidAcsRKwUXeMVve1SYZIwtC3TkFLkv19Pikhc=; b=vSU4wKiX/csEJ+Ky2yEM3VmC3Q
+	1rfOnLNxlg13uYAcAZ0Jaw8+d0ReP1+NtrzO36BucyB34HlM726kcqxL33WvmPgivuKM8eER68fwu
+	6yy7ZPPuuxqc66mlrTBbB0+VtFB1UCuADLZxCRRi52mmrbjONe37iFMsfi7s42Kdc6lECm2U714Ys
+	UjIzvT5q7c2CM90NhXg+y6L40XjFT2jH6069CsnEmMi1bRj3J4tcGu0bolEfNXNfJny86t8uO5Nq5
+	rsTK47fdg61BUSQn87aFpShyKFB/LWBxT68GhQFltfge5nvr7DnUzCAu/G67tJiHG3N6c+Trnrto1
+	ABGjs65g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7Fwa-00000008yLJ-3VlG;
-	Fri, 10 Oct 2025 16:26:12 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v7G1S-00000008yln-3dHP;
+	Fri, 10 Oct 2025 16:31:15 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7Fwa-00000008yLC-0p0x
+	id 1v7G1P-00000008ylI-3pxY
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 16:26:12 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 54752626DF
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Oct 2025 16:26:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF97FC116C6
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Oct 2025 16:26:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760113571;
-	bh=utKCZjeHw3iqnFfYB1ZfxGnO3UrPmvILiol4TqfBHR4=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ifr5gpgl7oLwDoSrjSSuI0zeIwM1nRb3uRa3RBa2jbNUt9PPmOxDzZDFqVyPvhGcX
-	 WyliYCSu7CXX1pxMu3PHD6Y1aAhblPEpsIsqPgEvAL6ftY3BseA4gtaP7J6dgKXrUJ
-	 8DqCPlqniOPsbHKH89OgQ7vCcIRVbfOJ0kVt6nTbCMNsEBgsSyrN6GWYCYawGUGD6A
-	 +umYAlXJOfreHakJgESAB+O3A8WDuPOatIMec9lkR9Nmdpz/jpJ4g6dOykHpKd9MAv
-	 k7p2T1cdrCgYJmGUOZC3oUoLelrCCD3OMRtFXqFy99x4AH1QGdHi0K1umgzIh0I75B
-	 4qjAMzB4frdNQ==
-Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-57d8ff3944dso2513567e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Oct 2025 09:26:10 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXR5gDadsUXptNcZPQWmnAu6XIZ6IaS6qsb7v+0WS/VUfj+lC3HGIMbR3fPnbQuhaOfl/19xO7AbbcjitJ9A2j+@lists.infradead.org
-X-Gm-Message-State: AOJu0YwJMKU+qdPYEnmQHjFyWHLTqrxNtkwM2a3n7BWTY+oC7PM+kEco
-	KN6LKwCJe4bNakgTQNAUQmOrjFHtcXzOdMK6p8kWEgxe54ZBFYrTP7E2qZ+Bwz2LsFgcPhweyo1
-	/7mBZPqN1E99CUHTBX54zMnur6Alb+uY=
-X-Google-Smtp-Source: AGHT+IFlrMsUvrC/ZHyp7C1tmfy80lEWySBj/07SSrfUI6v7Q7I01eOrR8aE8CO2xnNLYI6LpFea10RRzC+bIaZdgH8=
-X-Received: by 2002:a05:6512:1152:b0:57b:5794:ccd9 with SMTP id
- 2adb3069b0e04-5906d77e26bmr3537150e87.9.1760113569266; Fri, 10 Oct 2025
- 09:26:09 -0700 (PDT)
+	Fri, 10 Oct 2025 16:31:13 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-3322e63602eso3151971a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Oct 2025 09:31:11 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1760113870; x=1760718670; darn=lists.infradead.org;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
+        bh=+PErgUidAcsRKwUXeMVve1SYZIwtC3TkFLkv19Pikhc=;
+        b=FgDaQ26gsqVoqsa2I5nOd5kkgV8dwb5eMB4RyOP6UqULY0XHK2WAOyLw6vVUnTOtOK
+         dO9hzxROt9yIU70yDl22xxM+m08XvlmwK4At4r44SNzIPyhGJm4UMZQbxuiHAyHiXM44
+         m4eOUftwegxcAHRdpkPLSmaJc7i0eiAmdml1plGNj4H8f4H8DfmHcp+T2zSvc2mVJVC2
+         qXYUEWMQmG7KbtqeT8FpKKCUqJ6AnUnRRT7UweREl/Xux/BakxTbVtK3+Ach4p/h1Y8H
+         eb7fDzPuLK5S2GvIxjjAch3iJWkcMRkfK3wOwTFJASOejSl9+4tB2Xik7FTmi8YdJ1ly
+         y/rw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760113870; x=1760718670;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=+PErgUidAcsRKwUXeMVve1SYZIwtC3TkFLkv19Pikhc=;
+        b=hJx1NC4Yva1gy9DtBdV+Aseiv/JZMcWtz3XCsbEteSNyslfEGJ3bxvCjb4gl3o9XxO
+         J+NM2cBfveZrkcZna/EakB1/uXi1bje1Z52I66/BkmZt7nx5pX9DATubxDzsM82bIu0a
+         18mFHZUkq9xDDGbgf6o/295+6pkZnx00TK8zleqPB/1+I3W6UfHGqFGV/Py1T8fCcqHH
+         HpWI+wLM+27whDfTAyFCAtl1BPeuNLHwvaXAgNte8R/kMzY+DHldYR72t8Qkkgxvgwtg
+         iXN40m8SUVxcsDf0HLB7L3n3Nuf05dspqrXghUp2tcvJw80fqN0V3jvsp3kOUDiMk7Fb
+         vMCA==
+X-Forwarded-Encrypted: i=1; AJvYcCUI7AjqMmUKp1JKTVVTEOhQ5L833Vu2tqe4wIu7mgdeH0S+1kuAWdUupXkey4goW6od7yPJ9T+pZrQuMsg3hVs5@lists.infradead.org
+X-Gm-Message-State: AOJu0YxzruJcApzY3lIVYqJpCX+rf8aQz6YiqZnkwy7GMzIsruFqGORH
+	7EO3SzUW/m2zj2kp5CULS7isCZuPsN2uWULzNudG/xOGHvbNRfEmYx8zmlEWyIzYkmQ=
+X-Gm-Gg: ASbGncvMAO7VR1WsViry0Rilt+p4U1qEsiYfbfwUkXrkVi9xIsFcbTg0FPelydp5tuF
+	/u0nf3iXWB37QieQyhmxS3uOcguzJQxYbTq8hPoHRoxqagYjKPUbKw79ByBXqJhOJdo2obMgnNs
+	Lem8inolipNZdX/rbc9L603waMQc3TBv/Tn24J9MUVGtp+Cnj/xR5FbzxGS5UgQUoGKW++4MAFE
+	oEOGWedOvWRtWZLvR+FLF7FreeZHam2L84vEYsESyE35nnZOvAmqPGo7FsTK8CkPKx7muSSzyn4
+	qSz+9Jpv0scuk37FFq+aYKnlAcvm4MXafZQRpTXbTWq+SRC8jUwJoOyQ9ghxlZ+NQ4QFoqO/58i
+	QlYL4us2Cus9bkGgvC/KPsbBrkWrNNpLPvSKkg/cbtPbhnh4=
+X-Google-Smtp-Source: AGHT+IEy8L6TDg54FExTrOyXceAe8pz/QOf459ho/0ZYB36VftdLiczXdkNEiG5CFEJM6POervy4bQ==
+X-Received: by 2002:a17:902:fc46:b0:27e:ef12:6e94 with SMTP id d9443c01a7336-29027418f97mr152883735ad.55.1760113870428;
+        Fri, 10 Oct 2025 09:31:10 -0700 (PDT)
+Received: from p14s ([2604:3d09:148c:c800:ad30:d3d9:45c5:4a3])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29034f8f9bbsm61182205ad.121.2025.10.10.09.31.08
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 10 Oct 2025 09:31:09 -0700 (PDT)
+Date: Fri, 10 Oct 2025 10:31:07 -0600
+From: Mathieu Poirier <mathieu.poirier@linaro.org>
+To: Andrew Lunn <andrew@lunn.ch>
+Cc: Shenwei Wang <shenwei.wang@nxp.com>,
+	Bjorn Andersson <andersson@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Linus Walleij <linus.walleij@linaro.org>,
+	Bartosz Golaszewski <brgl@bgdev.pl>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
+	linux-remoteproc@vger.kernel.org, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, linux-imx@nxp.com
+Subject: Re: [PATCH v3 3/4] gpio: imx-rpmsg: add imx-rpmsg GPIO driver
+Message-ID: <aOk0y8xTi9hoGvyX@p14s>
+References: <20251009222716.394806-1-shenwei.wang@nxp.com>
+ <20251009222716.394806-4-shenwei.wang@nxp.com>
+ <eb99d9a8-eb96-445d-899a-6e1d9b6f6c69@lunn.ch>
 MIME-Version: 1.0
-References: <20250928085506.4471-1-yangtiezhu@loongson.cn> <CAMj1kXG8Wi+THa2SeLxiDT=+t_TKx0AL4H-azZO4DNJvyyv96g@mail.gmail.com>
- <CAAhV-H7xOf8DEwOrNh+GQGHktOT4Ljp+7SqutGvvDZp6GLXJrA@mail.gmail.com>
- <CAMj1kXG=EFkRAMkvKMSjPixoGqU-tZXVoRkJJ6Wcnzs3x52X6Q@mail.gmail.com>
- <CAMj1kXHWe2uGY3S1NJ6mckqD4n116rPmaOzw3_Qbvxyjh7ECMw@mail.gmail.com> <fec0c03d-9d8c-89a3-886a-1adc22e59b66@loongson.cn>
-In-Reply-To: <fec0c03d-9d8c-89a3-886a-1adc22e59b66@loongson.cn>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 10 Oct 2025 09:25:57 -0700
-X-Gmail-Original-Message-ID: <CAMj1kXFLyBbRL+pAAQ6be6dxqFPiyw_Ug8qNQWaicZQ235HE=A@mail.gmail.com>
-X-Gm-Features: AS18NWAp30BvVY9ZXh0_0XY6OhGFXDo-CTjUdGdhBNHw2LQ_EFhIlBfBfuAUJuI
-Message-ID: <CAMj1kXFLyBbRL+pAAQ6be6dxqFPiyw_Ug8qNQWaicZQ235HE=A@mail.gmail.com>
-Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
-To: Tiezhu Yang <yangtiezhu@loongson.cn>
-Cc: Huacai Chen <chenhuacai@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <eb99d9a8-eb96-445d-899a-6e1d9b6f6c69@lunn.ch>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251010_093112_116185_76739C32 
+X-CRM114-Status: GOOD (  18.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,114 +110,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 9 Oct 2025 at 00:27, Tiezhu Yang <yangtiezhu@loongson.cn> wrote:
->
-> On 2025/9/28 =E4=B8=8B=E5=8D=8810:41, Ard Biesheuvel wrote:
-> > On Sun, 28 Sept 2025 at 16:39, Ard Biesheuvel <ardb@kernel.org> wrote:
-> >>
-> >> On Sun, 28 Sept 2025 at 15:52, Huacai Chen <chenhuacai@kernel.org> wro=
-te:
-> >>>
-> >>> Hi, Ard,
-> >>>
-> >>> On Sun, Sep 28, 2025 at 9:42=E2=80=AFPM Ard Biesheuvel <ardb@kernel.o=
-rg> wrote:
-> >>>>
-> >>>> On Sun, 28 Sept 2025 at 10:55, Tiezhu Yang <yangtiezhu@loongson.cn> =
-wrote:
-> >>>>>
-> >>>>> When compiling with LLVM and CONFIG_LTO_CLANG is set, there exists
-> >>>>> the following objtool warning on LoongArch:
-> >>>>>
-> >>>>>    vmlinux.o: warning: objtool: __efistub_efi_boot_kernel()
-> >>>>>    falls through to next function __efistub_exit_boot_func()
-> >>>>>
-> >>>>> This is because efi_boot_kernel() doesn't end with a return instruc=
-tion
-> >>>>> or an unconditional jump, then objtool has determined that the func=
-tion
-> >>>>> can fall through into the next function.
-> >>>>>
-> >>>>> At the beginning, try to do something to make efi_boot_kernel() end=
-s with
-> >>>>> an unconditional jump instruction, but this modification seems not =
-proper.
-> >>>>>
-> >>>>> Since the efistub functions are useless for stack unwinder, they ca=
-n be
-> >>>>> ignored by objtool. After many discussions, no need to link libstub=
- to
-> >>>>> the vmlinux.o, only link libstub to the final vmlinux.
-> >>>>>
-> >>>>
-...
-> Are you OK with the following changes?
->
-> (1) libstub doesn't link to vmlinux.o, only link libstub with vmlinux.o
-> during the final vmlinux link, keep the changes confined to LoongArch,
-> no need to be something more generic.
->
-> diff --git a/arch/loongarch/Makefile b/arch/loongarch/Makefile
-> index dc5bd3f1b8d2..f34b416f5ca2 100644
-> --- a/arch/loongarch/Makefile
-> +++ b/arch/loongarch/Makefile
-> @@ -169,7 +169,6 @@ CHECKFLAGS +=3D $(shell $(CC) $(KBUILD_CPPFLAGS)
-> $(KBUILD_CFLAGS) -dM -E -x c /dev
->   endif
->
->   libs-y +=3D arch/loongarch/lib/
-> -libs-$(CONFIG_EFI_STUB) +=3D $(objtree)/drivers/firmware/efi/libstub/lib=
-.a
->
->   drivers-y              +=3D arch/loongarch/crypto/
->
-> diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
-> index 433849ff7529..ed94871c3606 100755
-> --- a/scripts/link-vmlinux.sh
-> +++ b/scripts/link-vmlinux.sh
-> @@ -69,6 +69,12 @@ vmlinux_link()
->                  libs=3D"${KBUILD_VMLINUX_LIBS}"
->          fi
->
-> +       if [ "${SRCARCH}" =3D "loongarch" ]; then
-> +               if is_enabled CONFIG_EFI_STUB; then
-> +                       libs=3D"${libs} drivers/firmware/efi/libstub/lib.=
-a"
-> +               fi
-> +       fi
-> +
->          if is_enabled CONFIG_GENERIC_BUILTIN_DTB; then
->                  objs=3D"${objs} .builtin-dtbs.o"
->          fi
->
-> (2) remove the attribute __noreturn for real_kernel_entry() and add
-> "while (1);" at the end of efi_boot_kernel().
->
-> diff --git a/drivers/firmware/efi/libstub/loongarch.c
-> b/drivers/firmware/efi/libstub/loongarch.c
-> index 3782d0a187d1..e309fd78fca7 100644
-> --- a/drivers/firmware/efi/libstub/loongarch.c
-> +++ b/drivers/firmware/efi/libstub/loongarch.c
-> @@ -10,7 +10,7 @@
->   #include "efistub.h"
->   #include "loongarch-stub.h"
->
-> -typedef void __noreturn (*kernel_entry_t)(bool efi, unsigned long cmdlin=
-e,
-> +typedef void (*kernel_entry_t)(bool efi, unsigned long cmdline,
->                                           unsigned long systab);
->
->   efi_status_t check_platform_features(void)
-> @@ -81,4 +81,7 @@ efi_status_t efi_boot_kernel(void *handle,
-> efi_loaded_image_t *image,
->
->         real_kernel_entry(true, (unsigned long)cmdline_ptr,
->                           (unsigned long)efi_system_table);
-> +
-> +       /* We should never get here */
-> +       while (1);
->   }
+On Fri, Oct 10, 2025 at 12:58:38AM +0200, Andrew Lunn wrote:
+> On Thu, Oct 09, 2025 at 05:27:15PM -0500, Shenwei Wang wrote:
+> > On i.MX SoCs, the system may include two processors:
+> > 	- An MCU running an RTOS
+> > 	- An MPU running Linux
+> > 
+> > These processors communicate via the RPMSG protocol.
+> > The driver implements the standard GPIO interface, allowing
+> > the Linux side to control GPIO controllers which reside in
+> > the remote processor via RPMSG protocol.
+> 
+> I've not seen the discussion on earlier versions of this patchset, so
+> i might be asking something already asked and answered. Sorry if i am.
+> 
+> Is there anything IMX specific in here? This appears to be the first
+> RPMSG GPIO driver. Do we have the opportunity here to define a
+> protocol for all future RPMSG GPIO drivers, which any/all vendors
+> should follow, so we don't have lots of different implementations of
+> basically they same thing? So this would become gpio-rpmsg.c and a
+> Document somewhere describing the protocol?
 >
 
-Why do we need both (1) and (2)?
+I haven't looked at this patchset yet but I think Andrew's proposal has merit.
+ 
+> 	Andrew
 
