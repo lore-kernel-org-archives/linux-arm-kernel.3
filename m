@@ -4,65 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5D16FCCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 00:35:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D0DD3CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 00:36:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ZRR92UiI3NdSXUcg5a0Cn96DttpaP3ownKt+sDmNeAY=; b=A4SMfx14pSo4v/BiwQL/B7aT2A
-	PC2NVAAFXXXccCaqBpH2MwSl6MFyQnt6juXcSB28V8ALsSV7+/UEQ+RKBCuokE3/p8Gt9m6Bci/WZ
-	Eyn8ALu7p81mUcrTyy82Wx9cYn+tgyrzfTSJyaShkIwbDXeznjoyc3/nVaht4vhcS0LA/ZYr3gkUy
-	8Fn7jPpa3PfjDHWh3m6KLi9qMy5WuohxaQ5dTzfRT86Xex0+HWtaSDfETVpK1CT1Ys+8sykt64VcL
-	ckdmTaGcksuQT8OxofgSUZnhg6vwKm/jgjN/a9/bmRRqCTeJMxxfOmkxuhGoZKK/HjFxzIGpZMe+h
-	2Ig94i4w==;
+	bh=Lwz4Dq7YvSkLzGC2hltlCsz6mUB0azONoxCJI/fv130=; b=BDoxczQcKAkLjAheN3XArGxlNM
+	ZNOwTEQ1GuplFgiRzGWk1WomWNGGx13l8gHo8+0oWIhNFIAgx9y+wp/EuchGONRtOZroWa/z0v85s
+	DVeCvJPC/cc3Gf7a5RL4fb2UcOy4slXS5DIcfXj+MSQKiuKTOBfS8H3uqV0MJu/ccWfBsyvy1+Iy/
+	e6N5dD2A9QAGcdDUEmZFKfZvwH18Bcf5N0FKI9N7EvzNyDm4hnmD6+WROAiwKjD4NyT6G1bH6ptaf
+	JKI9HmB+tMHGYWhrvjywZEQN9B4DBK6MtXIKgZrhxYTT3x7VaVgJmlTeHlwkjVDYvr2X12JJsKff2
+	x9doS8Sw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v716H-00000007NjR-0lGf;
-	Fri, 10 Oct 2025 00:35:13 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v7171-00000007NpF-2H01;
+	Fri, 10 Oct 2025 00:35:59 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v716E-00000007Nj1-0ISD
+	id 1v716z-00000007Nos-19Ve
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 00:35:11 +0000
+	Fri, 10 Oct 2025 00:35:58 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 16DB241A2F;
-	Fri, 10 Oct 2025 00:35:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 4F7F2C4CEE7;
-	Fri, 10 Oct 2025 00:35:01 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id B1B7B44DFD;
+	Fri, 10 Oct 2025 00:35:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7BAF8C4CEE7;
+	Fri, 10 Oct 2025 00:35:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760056507;
-	bh=KNqW2jOUrMCS+KkCDoTBffjC5mjUpkFZ+BlmvxcluDI=;
+	s=k20201202; t=1760056556;
+	bh=UJBKelWNaxJp1ghN/z8oNZD/T3CC150AKCBq79bvbuM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=C2c9rPlLjv+MWWhyxOo09u9ji6boWNLkNOaZpyOX/L6SLQO7dH6+VHsRzJkWfgYxr
-	 5JAFOpJpLUZGRKihHHX4iy5occofk90XkCLrZkQlLqwbAhg1QrRG0VBnueWE6bEByR
-	 uHejfjVR8ZPSlqY284hJORPcY2uhHdRt5h8yWyaZ+26zDluzzVusE7yZyvc00xRom6
-	 XVW0zgEPV+EGYc6YZMzBZDNQ4LEeSHQ+qHb/usxz+onw6qrNP0t3+L20tFyJyzNHo6
-	 SFRvizSJOzzAjoW4eDVUWiiHGeORw/ZsgDp4qfd9vd00MkZSEQSpzlog3W4BcU0Hx8
-	 9EmR4t0hnbcQA==
-Message-ID: <ee66dca6-3cd6-41d3-82f9-d2673da00287@kernel.org>
-Date: Fri, 10 Oct 2025 02:35:00 +0200
+	b=Hd3AG4UrLs963sNA4gkrVp3KiLSzE8qrhXx8i3yhcqy64tqT/aNljv5Yhcvn8Zy4n
+	 EnayE0Mhr/hz6mEWn4mdwA0fGioKdhQnmQlm+dfFgWZXSt9AWsaytfj12yZycTduQT
+	 zl1L+RYx8LD8jYOuSUvP8+4pluuENV42Xmxry9WE9JzRR77I7DEplULoCpeQhuwpW1
+	 GbZ+d/cMfoWD2TnbLVnhXSt2/MnjjD5mKOEzhxsCwG+5UBxmsINHNt2wgGQVFTGh/3
+	 dyAvV9ZyKdgwSkQc9X/7ovvsuhmR/mEJ+266oUTsb2vm6IHvr+nIL3VhO63ggvuJhX
+	 QQRyFeo+tCUVA==
+Message-ID: <df12e818-5341-4964-9192-71c66d664454@kernel.org>
+Date: Fri, 10 Oct 2025 02:35:48 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 03/10] pmdomain: samsung: use to devm_kstrdup_const() to
- simplify error handling
+Subject: Re: [PATCH v2 04/10] pmdomain: samsung: plug potential memleak during
+ probe
 To: =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
  Alim Akhtar <alim.akhtar@samsung.com>, Rob Herring <robh@kernel.org>,
  Conor Dooley <conor+dt@kernel.org>, Krzysztof Kozlowski
- <krzk+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>
+ <krzk+dt@kernel.org>, Ulf Hansson <ulf.hansson@linaro.org>,
+ Marek Szyprowski <m.szyprowski@samsung.com>
 Cc: Peter Griffin <peter.griffin@linaro.org>,
  Tudor Ambarus <tudor.ambarus@linaro.org>,
  Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
  linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org,
  devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-pm@vger.kernel.org
-References: <20251006-gs101-pd-v1-0-f0cb0c01ea7b@linaro.org>
- <20251006-gs101-pd-v1-3-f0cb0c01ea7b@linaro.org>
- <5df18f42-b567-4d27-9e12-29723af40d6e@kernel.org>
- <9d4ccadf76ccfff1a8b5f572b8aa190e2dc40c29.camel@linaro.org>
- <63fb3ccc10267add00b579d4a05497cbeeadc65e.camel@linaro.org>
+ linux-pm@vger.kernel.org, stable@vger.kernel.org
+References: <20251009-gs101-pd-v2-0-3f4a6db2af39@linaro.org>
+ <20251009-gs101-pd-v2-4-3f4a6db2af39@linaro.org>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,12 +106,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <63fb3ccc10267add00b579d4a05497cbeeadc65e.camel@linaro.org>
+In-Reply-To: <20251009-gs101-pd-v2-4-3f4a6db2af39@linaro.org>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_173510_160449_2C4C225E 
-X-CRM114-Status: UNSURE (   9.94  )
+X-CRM114-CacheID: sfid-20251009_173557_356150_05DC1103 
+X-CRM114-Status: UNSURE (   7.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -129,26 +127,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/10/2025 23:00, André Draszik wrote:
-> On Thu, 2025-10-09 at 14:31 +0100, André Draszik wrote:
->> On Thu, 2025-10-09 at 09:13 +0900, Krzysztof Kozlowski wrote:
->>> On 07/10/2025 01:43, André Draszik wrote:
->>>> Convert to using devm_kstrdup_const() so as to simplify cleanup during
->>>> error handling.
->>>
->>>
->>> This is either a fix (then describe the fixed issue and add Fixed tag)
->>> or you change the logic, not only simplify.
->>>
->>> Previously on of_genpd_add_provider_simple() the memory was not
->>> kfree_const. Now it will be.
->>
->> Indeed it's a fix after all - While the driver doesn't allow unbind,
+On 09/10/2025 00:25, André Draszik wrote:
+> of_genpd_add_provider_simple() could fail, in which case this code
+> leaks the domain name, pd->pd.name.
 > 
-> Thinking more about it - at this stage, this patch is not a fix. The driver
-> can not unbind, hence there is no leak to be plugged, hence no fix.
+> Use devm_kstrdup_const() to plug this leak. As a side-effect, we can
+> simplify existing error handling.
+> 
+> Fixes: c09a3e6c97f0 ("soc: samsung: pm_domains: Convert to regular platform driver")
+> Cc: stable@vger.kernel.org
+> Reviewed-by: Peter Griffin <peter.griffin@linaro.org>
+> Signed-off-by: André Draszik <andre.draszik@linaro.org>
 
-It is about error paths. Driver can fail binding.
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
