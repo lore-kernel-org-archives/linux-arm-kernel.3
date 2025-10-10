@@ -4,81 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 288A8CCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 21:57:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6594CCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 23:36:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
-	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+CjJmSa/xDKPrpCplLdbCAjMTmIn7FLY2jt9GfKsc0c=; b=LFVTuhZ3cAFZpSGxRyMOZ4vPtA
-	s0vH1d3oJ1ldJQRtToh6J9klt01BoVhOSQQ3D0NzWpjkqCt0dVPAASSXti1/aU5p0tFA9HufxJpfw
-	pItuctREpJnrUpJvaQycdv+c+yf+YD21LHvmK14if75VW0Pqh4MQ9BTHF0EVUHZwPee2hJk0Q9dTH
-	oFNz5r+qQsz+BiOc6Kk56mPKAgR12OGwh43on/wzWHL+MqAXuOXMasv85n5gVYr3XN6eDsYvkjhoc
-	oDCGIlFZBqgPbm5w2AC1qV1CBjv6Lj/LOgg2JbEDmRTgNgkiT/B85v7Ggi70BIkGN/cMpPmVFfmn+
-	A0d5LzUw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=FCJaYzdpPKn3/Q4kFR5n7iLUko8Bms1sTsjbX4WG72c=; b=avm5MnnzLICGkhwt8nYTmWfdSq
+	nydCLCLXWddkbvEq+tRGmKviyUKTqWJUGB+MYv56ju7qE6wpuCaH0brC+8SrbfzRz8ip/DQ7oSsK4
+	pkc2WIl9PFRpHTwVWqc92V9mz0icZK3+NhdWM/itmyzyo+/WpDrOvbWPyqheSmkAxmwYn+t64Km3B
+	8AVG7YxEU6gABFjzBdsB2Mb83XswABBOvogXNgH5MN/t4EbwmJv/OerdPDYtnbKtxWp8ko3B/3df1
+	Ps2hdUnvQXWzGyVrZ6mDc/GX9TzcQAp+ByuYUpnVrB4DbZUZ4L9uD5+ERgziU6wpEHR1m4pM2Rv1y
+	wGQV4kPw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7L76-00000009RTg-3PMF;
-	Fri, 10 Oct 2025 21:57:24 +0000
-Received: from mail-pg1-x54a.google.com ([2607:f8b0:4864:20::54a])
+	id 1v7Mf3-00000009WrF-2IJ8;
+	Fri, 10 Oct 2025 23:36:33 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7L74-00000009RSz-1IPJ
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 21:57:23 +0000
-Received: by mail-pg1-x54a.google.com with SMTP id 41be03b00d2f7-b5edecdf94eso8325724a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Oct 2025 14:57:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=google.com; s=20230601; t=1760133441; x=1760738241; darn=lists.infradead.org;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:from:to:cc:subject:date:message-id:reply-to;
-        bh=+CjJmSa/xDKPrpCplLdbCAjMTmIn7FLY2jt9GfKsc0c=;
-        b=noQVOPaRv8Bcp96BnnuBQyMAfP1CaFMK/LBqbfqWiN6ih4AIC3AgACZJwNi4INSiXm
-         8pm2s2mfiSGhztJqT//wch0jDvBnCxrHVQuLPITqb/g4DvxiJq2Ktik+c6IPaIvIjYPw
-         mzRgad0JQ9tqw72GYH+GI/IDKEz4qHxSjbHW8gN88kAkwhQQ5GBgduyQVTkWM76CZz3c
-         SiBBAiNEcWlfXKf16+gf3f3XOmXz+jzxRvR9gWV685j5vtNstg1Tlbg8GhLvV+zZA27G
-         AJB1ykKIo+wENXeOc9y08W8MQ+s/IU47xDEc3AKZAtJCThlm9YpiM6AG7snKJM0P8pCe
-         z7Zg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760133441; x=1760738241;
-        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
-         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=+CjJmSa/xDKPrpCplLdbCAjMTmIn7FLY2jt9GfKsc0c=;
-        b=ZcVo76qzgNAkaKVd+193F6Q+M956udYpVdYkJuUuL+D0YT2q7ios3/cZsZW/ir4sii
-         p4mgIYTljQ/MkVPIA4QP+R88ZnzA+fw84faJB/QyMTQwZkmsRZoM1LoQdhlr3ip2WWnD
-         xQYqdd+/emtCVWrvxWbx8NNnaF+T5EG+2iuJlNnp5a5Bbua3tLztBJALMN0f6rChpjMM
-         iHx+sjLHuQ9P6NDAX8oUH05wp4tOI7+Dzokm0Y/2IovcWOOekuoAMfHnXe+/VODBbash
-         Rf7DCRMoNA4mQzDNqWOy0ZLd7tnq+bqcYp8ydln2Ywy1+S1pKeRjOmuCuti7sAVum6Ap
-         vr+w==
-X-Forwarded-Encrypted: i=1; AJvYcCXO5tWR9TujAJIl9jNVJ0K+4DX/8leUs9Zv2igtXy600S7TrcQ/2rHtM1Re4vprDyCxfyTFpjSRy3/WOevcczno@lists.infradead.org
-X-Gm-Message-State: AOJu0YwmFZjC2p+zwDDRAKnrqwoG/HqekdeAFzEthShitIXUZAuVHxYa
-	HscT1CnUVN3rt5FXFo0Qp7qFeTH7bdxX+91+/3pephHJH3H3A7KJLc6ocaJ9bgbRm2jUpI22Ljh
-	8E+qvw5B/hVq1DPijn6tB/FFpDA==
-X-Google-Smtp-Source: AGHT+IGYgyBc6HexQmAe6kTYgJMM1MjLeDik4f5tZp5udMaitkKnqtOlleS/fc4L8ze18sw7c/5OQ0YI+1OxGD54kg==
-X-Received: from pjbfs19.prod.google.com ([2002:a17:90a:f293:b0:330:9af8:3e1d])
- (user=ackerleytng job=prod-delivery.src-stubby-dispatcher) by
- 2002:a05:6a20:244b:b0:325:b6b:9f80 with SMTP id adf61e73a8af0-32da845fdffmr19296952637.43.1760133441208;
- Fri, 10 Oct 2025 14:57:21 -0700 (PDT)
-Date: Fri, 10 Oct 2025 14:57:19 -0700
-In-Reply-To: <aOltikRvKzCy1DXN@google.com>
-Mime-Version: 1.0
-References: <20251007221420.344669-1-seanjc@google.com> <20251007221420.344669-6-seanjc@google.com>
- <diqzo6qfhgc9.fsf@google.com> <e9bd02ba-ff0e-47a3-a12e-9a53717dde9b@amd.com> <aOltikRvKzCy1DXN@google.com>
-Message-ID: <diqzv7kmfmio.fsf@google.com>
-Subject: Re: [PATCH v12 05/12] KVM: guest_memfd: Enforce NUMA mempolicy using
- shared policy
-From: Ackerley Tng <ackerleytng@google.com>
-To: Sean Christopherson <seanjc@google.com>, Shivank Garg <shivankg@amd.com>
-Cc: Marc Zyngier <maz@kernel.org>, Oliver Upton <oliver.upton@linux.dev>, 
-	Paolo Bonzini <pbonzini@redhat.com>, linux-arm-kernel@lists.infradead.org, 
-	kvmarm@lists.linux.dev, kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
-	David Hildenbrand <david@redhat.com>, Fuad Tabba <tabba@google.com>, Ashish Kalra <ashish.kalra@amd.com>, 
-	Vlastimil Babka <vbabka@suse.cz>
-Content-Type: text/plain; charset="UTF-8"
+	id 1v7Mf1-00000009Wq7-13JD;
+	Fri, 10 Oct 2025 23:36:32 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 7568D44FA4;
+	Fri, 10 Oct 2025 23:36:30 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 3938DC4CEF1;
+	Fri, 10 Oct 2025 23:36:23 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760139390;
+	bh=ohAw33xHL0/75mMJMzs2FmNdsANeJBZluGZyx2FUnEI=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=Enoj0WiNHpX06TnUY8t2TKsLnPpvfq1KNv8noESLxJkZzKaQtjPlhpGraosFJE1Ae
+	 gxdW5wr2Kagvbhg4yCSxisTS7GA2eLasm00CkbQIVEkm/hDcHwdxplvjx2+qW1jPGq
+	 RxIGe8CQH1ohNdVXb2KvHeG9jxoiKkVQkG+uybZ8JzN4Wb0ZwjOpKkRXIskJHbJw/S
+	 H2wLr3W5F1nO7qIwp+73Z15H5j8cGuEkJb8ukL7pwKkmnHAi0Mt6iZW/bEboBS0kZ/
+	 HYCqtX3Fqsyyrhc1kMXtSo91BHla99IPsMpk6Zs8y9LLgxED9reysdfwELa8vShuNG
+	 dGDNFbzoEnsjA==
+Message-ID: <e56f3314-c5f4-44bb-b914-8d8e56a5c67a@kernel.org>
+Date: Sat, 11 Oct 2025 01:36:20 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v8 00/15] spi: airoha: driver fixes & improvements
+To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>,
+ Ray Liu <ray.liu@airoha.com>, Mark Brown <broonie@kernel.org>,
+ Andy Shevchenko <andy@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org
+Cc: Andreas Gnau <andreas.gnau@iopsys.eu>
+References: <20251010185940.GA715991-robh@kernel.org>
+ <20251010192038.1592889-1-mikhail.kshevetskiy@iopsys.eu>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251010192038.1592889-1-mikhail.kshevetskiy@iopsys.eu>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_145722_350273_4FB9D92F 
-X-CRM114-Status: GOOD (  30.06  )
+X-CRM114-CacheID: sfid-20251010_163631_336368_E9F55A5F 
+X-CRM114-Status: UNSURE (   8.08  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -93,89 +124,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Sean Christopherson <seanjc@google.com> writes:
+On 10/10/2025 21:20, Mikhail Kshevetskiy wrote:
+> Changes v5:
+>  * reorder patches a bit
+>  * improve description of some patches
+>  * minor fixes & improvements
+> 
+> Changes v6:
+>  * do not fill with 0xff the whole write buffer, only areas not covered
+>    by user provided data are filled now.
+> 
+> Changes v7:
+>  * add EN7523 SoC support
+>  * add en7523 specific hack to avoid flash data damaging if UART_TX pin
+>    was short to ground during boot
+>  * add SNAND node to en7523.dtsi
+>  * update dt-bindings
+> 
+> Changes v8:
+>  * remove dt-bindings changes
 
-> On Fri, Oct 10, 2025, Shivank Garg wrote:
->> >> @@ -112,6 +114,19 @@ static int kvm_gmem_prepare_folio(struct kvm *kvm, struct kvm_memory_slot *slot,
->> >>  	return r;
->> >>  }
->> >>  
->> >> +static struct mempolicy *kvm_gmem_get_folio_policy(struct gmem_inode *gi,
->> >> +						   pgoff_t index)
->> > 
->> > How about kvm_gmem_get_index_policy() instead, since the policy is keyed
->> > by index?
->
-> But isn't the policy tied to the folio?  I assume/hope that something will split
-> folios if they have different policies for their indices when a folio contains
-> more than one page.  In other words, how will this work when hugepage support
-> comes along?
->
-> So yeah, I agree that the lookup is keyed on the index, but conceptually aren't
-> we getting the policy for the folio?  The index is a means to an end.
->
+Why? Nothing indicated that in discussion. No one suggested that.
 
-I think the policy is tied to the index.
-
-When we mmap(), there may not be a folio at this index yet, so any folio
-that gets allocated for this index then is taken from the right NUMA
-node based on the policy.
-
-If the folio is later truncated, the folio just goes back to the NUMA
-node, but the memory policy remains for the next folio to be allocated
-at this index.
-
->> >> +{
->> >> +#ifdef CONFIG_NUMA
->> >> +	struct mempolicy *mpol;
->> >> +
->> >> +	mpol = mpol_shared_policy_lookup(&gi->policy, index);
->> >> +	return mpol ? mpol : get_task_policy(current);
->> > 
->> > Should we be returning NULL if no shared policy was defined?
->> > 
->> > By returning NULL, __filemap_get_folio_mpol() can handle the case where
->> > cpuset_do_page_mem_spread().
->> > 
->> > If we always return current's task policy, what if the user wants to use
->> > cpuset_do_page_mem_spread()?
->> > 
->> 
->> I initially followed shmem's approach here.
->> I agree that returning NULL maintains consistency with the current default
->> behavior of cpuset_do_page_mem_spread(), regardless of CONFIG_NUMA.
->> 
->> I'm curious what could be the practical implications of cpuset_do_page_mem_spread()
->> v/s get_task_policy() as the fallback?
->
-> Userspace could enable page spreading on the task that triggers guest_memfd
-> allocation.  I can't conjure up a reason to do that, but I've been surprised
-> more than once by KVM setups.
->
->> Which is more appropriate for guest_memfd when no policy is explicitly set
->> via mbind()?
->
-> I don't think we need to answer that question?  Userspace _has_ set a policy,
-> just through cpuset, not via mbind().  So while I can't imagine there's a sane
-> use case for cpuset_do_page_mem_spread() with guest_memfd, I also don't see a
-> reason why KVM should effectively disallow it.
->
-> And unless I'm missing something, allocation will eventually fallback to
-> get_task_policy() (in alloc_frozen_pages_noprof()), so by explicitly getting the
-> task policy in guest_memfd, KVM is doing _more_ work than necessary _and_ is
-> unnecessarily restricting usersepace.
->
-> Add in that returning NULL would align this code with the ->get_policy hook (and
-> could be shared again, I assume), and my vote is definitely to return NULL and
-> not get in the way.
-
-... although if we are going to return NULL then we can directly use
-mpol_shared_policy_lookup(), so the first discussion is moot.
+Do not attach (thread) your patchsets to some other threads (unrelated
+or older versions). This buries them deep in the mailbox and might
+interfere with applying entire sets. See also:
+https://elixir.bootlin.com/linux/v6.16-rc2/source/Documentation/process/submitting-patches.rst#L830
 
 
-Though looking slightly into the future, shareability (aka memory
-attributes or shared/private state within guest_memfd inodes) are also
-keyed by index, and is a property of the index and not the folio (since
-shared/private state is defined even before folios are allocated for a
-given index.
+Best regards,
+Krzysztof
 
