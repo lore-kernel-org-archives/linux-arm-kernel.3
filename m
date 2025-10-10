@@ -4,91 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AAAFCCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 13:51:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C6A31CCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 14:10:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jZ1++ekTPtzW028TaYNKl4rUChmdflgkEaStZQX+AL4=; b=Ye7cx8YZjmJZCPcOltJENILCx4
-	A76UDqTn6a521v8LcNUmpIf0QEROaWqxizPkVosmbHa3U6I2A+TAihE6pOO65BS15LOYM1K9iGHtc
-	RE5hgiuQo95y0Toheml3XDGFsVL8LWDO9+0IdImWvk/KK73vaWCPlhPKXCqL1hCjKU78h3iuC2u6J
-	xWYrukT233RAOa4K94dp1ENJQ5SXSewCqYU3ynU/FTd5IlWjfiuX9ifPu00KCOySpCeOx5zEiiLi2
-	VztTcuKiOpow84MS9uGDZpMcDDN2YsALIzviB96HquSy8VCNrdwZQcRNHW+8tWHHDoeYRo7GX7/ko
-	mwrn1LgA==;
+	bh=oxe5BSccCwYqwYXYtSp/pqL90fAgWYLtdO456JDofP8=; b=4ugKjL0FSSPxwu8h7DImjbD+t2
+	fqtpw/D5FXugg7JYc4PO4p4Sd3XiMeotEU8P5fDC2Fg4z2h5zQf53jAXOqkt9g65LfKwTUaH97uZY
+	d2AHtB9B7lP1XCUCZqKiXln4i6WSAK6CtEstc2vJ0/PDVZ9W388ZFhSDHXoJGGv5S+OKsYTs9iOzL
+	2Oe8XR49hfQYRmcaYPChvs0SiOXCJiHMzaDO9hFdAlNzC2ml9frAChl/330Zs1WhcDZIQNw18bZtN
+	PVp1l/brHrLJe1b5zvsXH4U3EAPjwhXl9LNdMMT8HvWoilbbO0+XL2H9PS8zCZ4KSQ6uds4A/LxM0
+	EMwoIDZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7DWW-00000008bNC-1Dqi;
-	Fri, 10 Oct 2025 13:51:08 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1v7Dom-00000008cvr-3YKj;
+	Fri, 10 Oct 2025 14:10:00 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7DWQ-00000008bMP-1MCe
+	id 1v7Dok-00000008cvM-07dE
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 13:51:06 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-46e542196c7so17365395e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Oct 2025 06:51:01 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760104260; x=1760709060; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=jZ1++ekTPtzW028TaYNKl4rUChmdflgkEaStZQX+AL4=;
-        b=HtylNBz6PBCdENKkQz5BpXDI9utg1SGgAwSq3Qtu28hVkOUGidwCJf9jFfSW0IKqlD
-         8WTBOzBycCDGwciQsBqGUqGGaZ0L68UycyQ07ZrjBc0DdRxknqbxjdKA1m33noDFv5Nv
-         oexyoKW7lGbtKWcYP2Ysopdc2MBnOxsli0zptLa+UwXqx5CD93FZjcmkE1SPgJczAEhB
-         FtscuEIA6MX+82csU2HqRgcL0odub/23zhxNMOtO2B/ornqTdcLyTK6YRJoaJWBXjpR5
-         KPgHB7MHNo9BoBoMDqlLfzyBgxjcqV32Woev7ssbYnIel1x4REnt4VdG77YI2x3kY6Iu
-         TNbA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760104260; x=1760709060;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=jZ1++ekTPtzW028TaYNKl4rUChmdflgkEaStZQX+AL4=;
-        b=LEBwEqA6syOXDis2VmZSMtBpWrW1jxe0UEdRbaoDJ6Rz1evUnLz81IuKvil4RM/P6Z
-         5MA+WbV7XplcrBmjg2C4SjXiGS8/954YzKQlcGn3hHpstx1O5DHGRn2v01YHm6M2j/PZ
-         OyeNM4/3gah4BgmWfVGPCgPHvUYmfaGQYLVU4/k4VeVQ8c3AbvTE7iy3/dkxIw0sL2K0
-         vP8Tvq2byKyLJlsRxE6V8n5W2Jq7c06+o1v07edV8GgGF+sPKhxKicGRZc5BeobDxKQ7
-         jUyZKbgdvMWXUJlIOytvX802djBxX4j38HHD+KmbimLagNS68k/OL5ApYjm3V3ddG75b
-         p5/g==
-X-Forwarded-Encrypted: i=1; AJvYcCXQfdauyQ8EjsxR4UEUYpxAQiv5LRfcpbU87ghpIGxmda4J712Ce9q39oa8WmmHsOViDf45T/20DvND5tz93ycu@lists.infradead.org
-X-Gm-Message-State: AOJu0YwwOhLb9hHZVfOiqM0BH0wXxfCXb0c5c9pDgnO/+lByHyT8qpCa
-	Y2K4HOkUykvFV3524qbvCcCfwP9F+4xfe/Xjw5DOt9KTfSd9lVLq1eE4
-X-Gm-Gg: ASbGncv7PQr3V9U9QCHpKCl4aPjs2kmUiLHDHZ0OIdg58v1vnhmutxa2KXRhOqgo9iD
-	zPfA24iy/jYvCun/IFOyVCY0LHum1rxDrUJbydxamY9qnhmBCB/X7NM2Nmd0hNCEdkw2AP7lXpH
-	D6D9N/MLvnNGvqYqaRko6UGDiGq7/Fw5Etz8zRzsSw58y/aCXDz7gQhPIiD+XRZCs0MkGqIElgf
-	9UWYkFfGqgiv6lyVdk1/Ytv3BPE5w8lVrG4twxBFvrlLsUR03EgR8QpSP11BJM9LikNpfFJTRgI
-	NZRpWdd9aE7VNhSB7D0sNdji5cgfz7bl/MMHjmGzvgINSNqBjUq2qiQlFqWh4228rBfWNUqepd/
-	1VevsEPu028X2CzMMArP6pSNJH+RAVIBg7Gpo7l6gQpvp4zZlrCpu/3VBJA6Kx067zgQsyOw/6M
-	Skm9CqHlMpDaGT25FQfzVEJcyhveb0e9+3NZy1Wog=
-X-Google-Smtp-Source: AGHT+IEshn5BeHxphWH/iqJ/hWVLW9YiJEVo7JGmJqFmzIvH5+RSg739jHkexUzzwZyAmWc+E2cqig==
-X-Received: by 2002:a05:600c:83c6:b0:45d:dc10:a5ee with SMTP id 5b1f17b1804b1-46fa9ec7727mr82513905e9.15.1760104260021;
-        Fri, 10 Oct 2025 06:51:00 -0700 (PDT)
-Received: from orome (p200300e41f28f500f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f28:f500:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46fb482ba41sm49385365e9.4.2025.10.10.06.50.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Oct 2025 06:50:58 -0700 (PDT)
-Date: Fri, 10 Oct 2025 15:50:57 +0200
-From: Thierry Reding <thierry.reding@gmail.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>, linux-tegra@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: IRQ thread timeouts and affinity
-Message-ID: <us2hfdn7jpfepdmwk2p62w64p7xagaeoemg3hdt2vm54emtwlv@m6fkuti7hvfa>
-References: <j7ikmaazu6hjzsagqqk4o4nnxl5wupsmpcaruoyytsn2ogolyx@mtmhqrkm4gbv>
- <86qzvcxi3j.wl-maz@kernel.org>
- <loeliplxuvek4nh4plt4hup3ibqorpiv4eljiiwltgmyqa4nki@xpzymugslcvf>
- <86o6qgxayt.wl-maz@kernel.org>
- <86ms60x7w7.wl-maz@kernel.org>
+	Fri, 10 Oct 2025 14:09:59 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 514CE403AD;
+	Fri, 10 Oct 2025 14:09:56 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF2C7C4CEF1;
+	Fri, 10 Oct 2025 14:09:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760105396;
+	bh=MJ/XTs/xRIZjpCaFnEFWN9AdmuOs8luescrHAQRcVDo=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=sddgdCJy4ffkyEWBzieZwW2GSxvSjAqL21K+ylmSi/0/m2z4bWsByIOxWJbzK+Yvs
+	 O2X+j3QazvxML/91MmrnmJNv8MunlEe4RWdPhR+6OFRD3+eeMK9uKn6andO/nQaV7q
+	 cd59zEqSpiYGKlSJRSKRQS1EiymgyJj4TGZeYh1ikMu6PA+Y6kUM6VVGacdz8boqT1
+	 67D2nHhmomdC3AvW19VTfbXzpE9lGSsYURyWHd6JCji7nyxwyjx8dQP7fo+r6/qTlj
+	 F96KcrVoOxjg0iCpqMz9HKMC1vvg2W5SOwGb/V67PHfGfW5v8bBMSBuYl3w+r3zgix
+	 b2J+USz9rbGSw==
+Date: Fri, 10 Oct 2025 09:09:54 -0500
+From: Rob Herring <robh@kernel.org>
+To: =?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+Cc: Krzysztof Kozlowski <krzk@kernel.org>,
+	Alim Akhtar <alim.akhtar@samsung.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Ulf Hansson <ulf.hansson@linaro.org>,
+	Marek Szyprowski <m.szyprowski@samsung.com>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	Will McVicker <willmcvicker@google.com>, kernel-team@android.com,
+	linux-arm-kernel@lists.infradead.org,
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
+Subject: Re: [PATCH v2 02/10] dt-bindings: soc: samsung: exynos-pmu: move
+ gs101-pmu into separate binding
+Message-ID: <20251010140954.GA217599-robh@kernel.org>
+References: <20251009-gs101-pd-v2-0-3f4a6db2af39@linaro.org>
+ <20251009-gs101-pd-v2-2-3f4a6db2af39@linaro.org>
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="672rw65c6imvnytk"
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <86ms60x7w7.wl-maz@kernel.org>
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251009-gs101-pd-v2-2-3f4a6db2af39@linaro.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_065102_408088_C4D54F39 
-X-CRM114-Status: GOOD (  48.07  )
+X-CRM114-CacheID: sfid-20251010_070958_089971_60F6AFCA 
+X-CRM114-Status: GOOD (  15.30  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,145 +84,45 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, Oct 09, 2025 at 04:25:04PM +0100, André Draszik wrote:
+> The gs101-pmu binding is going to acquire various additional (pattern)
+> properties that don't apply to other PMUs supported by this binding.
+> 
+> To enable this, move google,gs101-pmu into a separate binding.
+> 
+> Signed-off-by: André Draszik <andre.draszik@linaro.org>
+> ---
+>  .../bindings/soc/google/google,gs101-pmu.yaml      | 67 ++++++++++++++++++++++
+>  .../bindings/soc/samsung/exynos-pmu.yaml           | 20 -------
+>  MAINTAINERS                                        |  1 +
+>  3 files changed, 68 insertions(+), 20 deletions(-)
+> 
+> diff --git a/Documentation/devicetree/bindings/soc/google/google,gs101-pmu.yaml b/Documentation/devicetree/bindings/soc/google/google,gs101-pmu.yaml
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..209ee2f80d449c3eec568188898b3c6f7ae0ddd4
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/soc/google/google,gs101-pmu.yaml
+> @@ -0,0 +1,67 @@
+> +# SPDX-License-Identifier: GPL-2.0-only OR BSD-2-Clause
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/soc/samsung/google,gs101-pmu.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Google GS101 Power Management Unit (PMU)
+> +
+> +maintainers:
+> +  - André Draszik <andre.draszik@linaro.org>
+> +
+> +# Custom select to avoid matching all nodes with 'syscon'
 
---672rw65c6imvnytk
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: IRQ thread timeouts and affinity
-MIME-Version: 1.0
+That's not necessary.
 
-On Thu, Oct 09, 2025 at 07:11:20PM +0100, Marc Zyngier wrote:
-> On Thu, 09 Oct 2025 18:04:58 +0100,
-> Marc Zyngier <maz@kernel.org> wrote:
-> >=20
-> > On Thu, 09 Oct 2025 17:05:15 +0100,
-> > Thierry Reding <thierry.reding@gmail.com> wrote:
-> > >=20
-> > > [1  <text/plain; us-ascii (quoted-printable)>]
-> > > On Thu, Oct 09, 2025 at 03:30:56PM +0100, Marc Zyngier wrote:
-> > > > Hi Thierry,
-> > > >=20
-> > > > On Thu, 09 Oct 2025 12:38:55 +0100,
-> > > > Thierry Reding <thierry.reding@gmail.com> wrote:
-> > > > >=20
-> > > > > Which brings me to the actual question: what is the right way to =
-solve
-> > > > > this? I had, maybe naively, assumed that the default CPU affinity=
-, which
-> > > > > includes all available CPUs, would be sufficient to have interrup=
-ts
-> > > > > balanced across all of those CPUs, but that doesn't appear to be =
-the
-> > > > > case. At least not with the GIC (v3) driver which selects one CPU=
- (CPU 0
-> > > > > in this particular case) from the affinity mask to set the "effec=
-tive
-> > > > > affinity", which then dictates where IRQs are handled and where t=
-he
-> > > > > corresponding IRQ thread function is run.
-> > > >=20
-> > > > There's a (GIC-specific) answer to that, and that's the "1 of N"
-> > > > distribution model. The problem is that it is a massive headache (it
-> > > > completely breaks with per-CPU context).
-> > >=20
-> > > Heh, that started out as a very promising first paragraph but turned
-> > > ugly very quickly... =3D)
-> > >=20
-> > > > We could try and hack this in somehow, but defining a reasonable API
-> > > > is complicated. The set of CPUs receiving 1:N interrupts is a *glob=
-al*
-> > > > set, which means you cannot have one interrupt targeting CPUs 0-1, =
-and
-> > > > another targeting CPUs 2-3. You can only have a single set for all =
-1:N
-> > > > interrupts. How would you define such a set in a platform agnostic
-> > > > manner so that a random driver could use this? I definitely don't w=
-ant
-> > > > to have a GIC-specific API.
-> > >=20
-> > > I see. I've been thinking that maybe the only way to solve this is us=
-ing
-> > > some sort of policy. A very simple policy might be: use CPU 0 as the
-> > > "default" interrupt (much like it is now) because like you said there
-> > > might be assumptions built-in that break when the interrupt is schedu=
-led
-> > > elsewhere. But then let individual drivers opt into the 1:N set, which
-> > > would perhaps span all available CPUs but the first one. From an API =
-PoV
-> > > this would just be a flag that's passed to request_irq() (or one of i=
-ts
-> > > derivatives).
-> >=20
-> > The $10k question is how do you pick the victim CPUs? I can't see how
-> > to do it in a reasonable way unless we decide that interrupts that
-> > have an affinity matching cpu_possible_mask are 1:N. And then we're
-> > left with wondering what to do about CPU hotplug.
->=20
-> For fun and giggles, here's the result of a 5 minute hack. It enables
-> 1:N distribution on SPIs that have an "all cpus" affinity. It works on
-> one machine, doesn't on another -- no idea why yet. YMMV.
->=20
-> This is of course conditioned on your favourite HW supporting the 1:N
-> feature, and it is likely that things will catch fire quickly. It will
-> probably make your overall interrupt latency *worse*, but maybe less
-> variable. Let me know.
-
-You might be onto something here. Mind you, I've only done very limited
-testing, but the system does boot and the QSPI related timeouts are gone
-completely.
-
-Here's some snippets from the boot log that might be interesting:
-
-[    0.000000] GICv3: GIC: Using split EOI/Deactivate mode
-[    0.000000] GIC: enabling workaround for GICv3: NVIDIA erratum T241-FABR=
-IC-4
-[    0.000000] GIC: enabling workaround for GICv3: ARM64 erratum 2941627
-[    0.000000] GICv3: 960 SPIs implemented
-[    0.000000] GICv3: 320 Extended SPIs implemented
-[    0.000000] Root IRQ handler: gic_handle_irq
-[    0.000000] GICv3: GICv3 features: 16 PPIs, 1:N
-[    0.000000] GICv3: CPU0: found redistributor 20000 region 0:0x0000000022=
-100000
-[...]
-[    0.000000] GICv3: using LPI property table @0x0000000101500000
-[    0.000000] GICv3: CPU0: using allocated LPI pending table @0x0000000101=
-540000
-[...]
-
-There's a bunch of ITS info that I dropped, as well as the same
-redistributor and LPI property table block for each of the 288 CPUs.
-
-/proc/interrupts is much too big to paste here, but it looks like the
-QSPI interrupts now end up evenly distributed across the first 72 CPUs
-in this system. Not sure why 72, but possibly because this is a 4 NUMA
-node system with 72 CPUs each, so the CPU mask might've been restricted
-to just the first node.
-
-On the face of it this looks quite promising. Where do we go from here?
-Any areas that we need to test more exhaustively to see if this breaks?
-
-Thierry
-
---672rw65c6imvnytk
-Content-Type: application/pgp-signature; name="signature.asc"
-
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmjpDz0ACgkQ3SOs138+
-s6FCdg/+LsBNRHyYhyktvtT7AXV0J0dQ7HHiuJ3QqP0h/8/55fq+sj47mXE8oeHe
-oa8Or4UHyaXbKs/h+FyXynELeYObTsrXlu6Bt2tmAzxT+DGOJ2uVw6J7fVpKasN0
-3QSh9o4eTbt8h/bHd4SwvHF3Hc82VMz9KUJyrImVThTil1NI0FEy2OHHzXhc/3ER
-dg5vA+yh6koult84wixmq3C4Fb+3DfgM/zOzB0wTc5Mfe2TwZ48b5++k6Tvj7/hF
-1ThnZq8mxZK6s71ZSVerVXCwAfyF6ehg/jaBCX8fvnWzDIcb3uc9fA1+F5rJ3aTv
-ltPSdj3DykrMHEr3vLvWnQp2qkp+zh7Fp8rv3tg+PaeuDsrfFbxMfTLtBms39QOn
-GBt4I33m7jF3ttit7D8R/oXY1aB/ZWhkigGPvw2MA9hICi16MhUXGV8191e9chtm
-pEaSBKmWEK9vTf/Gf6OvhBjhuuILizuDGTpOuidGmk8wKxTmr0WB/xL5idn/NJbl
-uzw1oz2iL5koIPgMcVjYv8rxKITW/QZxehQ3rUFaTYyeoUoykECb9rJiAmgDL1vo
-4MK3cKMeFZOCgbD4M9kOgZJE1zNRKHKp3G7OTL3NFlgYjZl3wI+Y45+hCWV3v2FJ
-Nv99rdvczPzi9SyLdE3sr81gQP0qYyW9c5UofSEdoQO7oFN7Sdw=
-=b/dB
------END PGP SIGNATURE-----
-
---672rw65c6imvnytk--
+> +select:
+> +  properties:
+> +    compatible:
+> +      contains:
+> +        const: google,gs101-pmu
+> +  required:
+> +    - compatible
 
