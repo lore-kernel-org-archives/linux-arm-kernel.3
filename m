@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8420CCCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 23:38:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E30A5CCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 23:41:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OaE7hsLxueFmG3RxFwLN2gONEgPUa3+jfqZxLDT+fsI=; b=aYShwQYbaG8clqh/pxXV0KtumP
-	xD/Fc4ACpBmgPAUBGDPT4YzHsovt4oXWkz8w8NDzR12V3vkRVnIFZFhlBYCOLdN1uwlGSrFkBe2lo
-	Me6BKVZITk8DaHj7KoBoYiAye9NsyZuaTIlA6MW4jR6MXfBCJXMPZ2HUQRYbn+UGVytWdiyHyZuBf
-	hbrFhPwlJbece4YyX9rVM9hOqiNlkDSks1oaGo1CI2D9+OpSV9O1GzUTKK7ln4Q3U6kRjmHxu5Xxx
-	NxEQxlYGkHx6FUu4tp090mQUb9t4/pjD8OuAjQZuHj0dxY7bXrv4k5G7hKn7BSsMKe8u0+soUlmAd
-	gyOmPqVg==;
+	bh=jqWqAscHsEMPeSRQw83UAiwQ8s1fHYaW+UmZ9zQ7scQ=; b=PkLnVJPCpazBS1CT7n0BKZ8wX9
+	7DpRHkbEUpxGcFLNDPmVouI08BkaR+kCGeCYc0YMUDR2Qk/jegizqrGuNPqIpd3+Xa5xjmzpbae2p
+	ASgbsJ7NsCvLr3zfwk66rKnGPAOQjtZ4Y6xmDVl7dWb4TdFC0KATWx9mWj5R2DGxpbBp1i2LX46R+
+	lCc8jRuQ7WU5UsPpLFQtxx4Yt2u1Fm9bbV4eP0bkI8n0MKuvErb4wB1Fidq0F+XzxA2daB4H6Si/F
+	cqYxxZ0suqaVA1+E0p9WqqGzUoDPLlzwy7sKP/96qIFfdz9UfpfSSraOSvLVMoxhRNQtt/7Lk/bsI
+	YzVodydw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7MgQ-00000009XU3-0nBm;
-	Fri, 10 Oct 2025 23:37:58 +0000
+	id 1v7Mji-00000009Xso-30Zq;
+	Fri, 10 Oct 2025 23:41:22 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7MgP-00000009XTj-1Ma2;
-	Fri, 10 Oct 2025 23:37:57 +0000
+	id 1v7Mjh-00000009Xsa-0VRh;
+	Fri, 10 Oct 2025 23:41:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 71B2A6033B;
-	Fri, 10 Oct 2025 23:37:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AB558C4CEF1;
-	Fri, 10 Oct 2025 23:37:17 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 7F17F60347;
+	Fri, 10 Oct 2025 23:41:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 253DEC4CEF1;
+	Fri, 10 Oct 2025 23:41:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760139445;
-	bh=aRAsn/MpERGoUcj13I38zsatKSoC+JpQVqoh3CQNia8=;
+	s=k20201202; t=1760139678;
+	bh=Z1SFGMYBG5iiGF5wh3L1mIVKHEfIhBlqbCwyIysAJfM=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=DsCDSbYHqTTii5QTwTCRy4V4i0Yjfkpm+jWpl1v8e+/08DfdflQZjw5WmmLrOEQfF
-	 PvG5xLamzV0sJk9DVuXGKIfIzfUzy3T4JwHtBxtZGplgVJ2fSZxjCSR2X5u71EZ2p2
-	 IUIe5JjwKBg5bsXY2vVM14Rna/5z/bQuBO0IzIn4VEU7bpyZaFikEVgv6vOohAw26z
-	 YdkDhggb1a8EeImUZ2JjK5M7dh+Kwbh4Ason6Ak8T5ZoFb+ofy7p7JtBzSBr+w3/Vf
-	 7WzoXyP9mTKDWP1mt28EGYA78VxTs9HcqapWqk5O+D2etnKwBklJVl7hNCSJpJkuTC
-	 wyYe5b1klY5Kg==
-Message-ID: <8dfb35fe-4ca8-4933-aa50-30cc5d7e5045@kernel.org>
-Date: Sat, 11 Oct 2025 01:37:14 +0200
+	b=CAzrW+m6eLFBsOK2H+yPbQkBCFjjACBJ7MUTF0WKBYuaL4rH3COjAH9qiq07JXI9N
+	 tNEahb3niNxwFeeiECmfvyPGkqiqBCnpabqBHQyKU2X2pqP7Jhuli54kbtX8rv+hCM
+	 LCN5uUGi5/lBSaYc6Tkzb79gDzJjwa0xtP+Wxk0J0NSB5vC0nS9Xs8v6Fre5h5wA+Z
+	 xGtpeqaP9ZhZdFrVJGDij+DpQt6pTNnf+H7GXK/M8w9cm/tfLkkYNreR0skA7S55K8
+	 xRixwcxRQB4d4Pk/iQDMH16BbEeTDGuYSNAhOCSFDxpV6n7LZciNwFbcVOQZeFfysR
+	 BqHW7/tfQUafQ==
+Message-ID: <25ebd850-ca13-4274-af6d-fc68ba089935@kernel.org>
+Date: Sat, 11 Oct 2025 01:41:10 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
 Subject: Re: [PATCH v8 15/15] arm: dts: airoha: en7523: add SNAND node
@@ -139,36 +139,10 @@ On 10/10/2025 21:20, Mikhail Kshevetskiy wrote:
 >  	};
 > +
 > +	spi_ctrl: spi_controller@1fa10000 {
-> +		compatible = "airoha,en7581-snand";
 
-Wrong compatible, this is 7523. You already got comment to make them
-compatible. Look at writing bindings, or example schema or my last talk
-for beginners from OSSEU.
-
-
-> +		reg = <0x1fa10000 0x140>,
-> +		      <0x1fa11000 0x160>;
-> +
-> +		clocks = <&scu EN7523_CLK_SPI>;
-> +		clock-names = "spi";
-> +
-> +		#address-cells = <1>;
-> +		#size-cells = <0>;
-> +
-> +		nand: nand@0 {
-> +			compatible = "spi-nand";
-> +			reg = <0>;
-> +			spi-max-frequency = <50000000>;
-> +			spi-tx-bus-width = <1>;
-> +			spi-rx-bus-width = <2>;
-> +		};
-> +	};
-> +
-
-Don't add stray blank lines.
-
->  };
-
+You got warning here. Allow people to actually test your code before
+posting next version. Especially such large posting SHOULD NOT happen
+during merge window, immediately the same day!
 
 Best regards,
 Krzysztof
