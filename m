@@ -4,36 +4,36 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CE687CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 08:03:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4AFB0CCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 08:03:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
-	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
-	List-Owner; bh=JMk9hcJAy3ZVMhG6YSM/xH04IxQZbcaAsPWvqEY86e0=; b=eeijN20oeKrjbu
-	W9ldcCj5M9PMWIr26EjkFgl166NBAMI6jwOkcbK9p+NBTIRl8KDiCR0HDjlZtDlo9lcWpmc894/NY
-	nYNPfYwlUky3L5O7mfx4cGfgiIJCPIIMjsESNHtUbCKG0futIgFlocupBCYOdpFoykyASuI9WFSaT
-	tvSYcDpFaAxEGeUf0JbpF2cjytBLPmKhdwBXcqPyxrbiWSecm7sRNUbpg+K9Wn68K0dHy2zjp2oKM
-	9/k/OrC9HGzGLCD9lYVo9mak5m2pUcWVIknKs0i8wifEbj+XlgTBx2Cy0Jm1i3KhlVFK06IocJALq
-	YFxEfira67r6hGw7iUww==;
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:To:From:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lKuC1nMohDpFkB4CjC9A9DV5ddl9xx1ziWy3pYSldxY=; b=taqymL968LCGZdm1xpE/v/Lb4h
+	+DQ/SCJO+unr94wpoK412t+2bUG+xrXkNAZUPc+nFFKXHj6t/k2XCaVCWB33awUg9v49II9hI7D8P
+	VKfoGbB9LFSYZrqZ4pJh5p9n29JmgV1oOSM/CsALo+E2nK6GCLCREmLDvVdViDAekUb7Z82xNQrNC
+	bIESzmDiP0BJ/mrNyO3TBCy0nnQCDnU29nupwx7f7qCB7s3gypHhd4azpS3WJ4dDr1S1ouoWtIPT5
+	LgWMSfT+QDX+V2s+4Pn+vtejxcJasNuhz5XV4ax7GDbCjIWnGJIb53KCfCH0EjupLJSQips9QGq9c
+	FlYTJLlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v785y-00000007vwV-3M67;
-	Fri, 10 Oct 2025 08:03:22 +0000
+	id 1v7863-00000007vyE-0LYy;
+	Fri, 10 Oct 2025 08:03:27 +0000
 Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v785w-00000007vuB-2F03
+	id 1v785y-00000007vuB-0NUG
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 08:03:21 +0000
+	Fri, 10 Oct 2025 08:03:23 +0000
 Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 10 Oct
- 2025 16:03:15 +0800
+ 2025 16:03:16 +0800
 Received: from aspeedtech.com (192.168.10.13) by TWMBX01.aspeed.com
  (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
- Transport; Fri, 10 Oct 2025 16:03:15 +0800
+ Transport; Fri, 10 Oct 2025 16:03:16 +0800
 From: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
 To: <wim@linux-watchdog.org>, <linux@roeck-us.net>, <robh@kernel.org>,
 	<krzk+dt@kernel.org>, <conor+dt@kernel.org>, <joel@jms.id.au>,
@@ -41,17 +41,18 @@ To: <wim@linux-watchdog.org>, <linux@roeck-us.net>, <robh@kernel.org>,
 	<devicetree@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
 	<linux-aspeed@lists.ozlabs.org>, <linux-kernel@vger.kernel.org>,
 	<BMC-SW@aspeedtech.com>
-Subject: [PATCH v2 0/3] watchdog: aspeed: Add AST2700 support
-Date: Fri, 10 Oct 2025 16:03:12 +0800
-Message-ID: <20251010080315.816628-1-chin-ting_kuo@aspeedtech.com>
+Subject: [PATCH v2 1/3] dt-bindings: watchdog: aspeed,ast2400-wdt: Add support for AST2700
+Date: Fri, 10 Oct 2025 16:03:13 +0800
+Message-ID: <20251010080315.816628-2-chin-ting_kuo@aspeedtech.com>
 X-Mailer: git-send-email 2.34.1
+In-Reply-To: <20251010080315.816628-1-chin-ting_kuo@aspeedtech.com>
+References: <20251010080315.816628-1-chin-ting_kuo@aspeedtech.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_010320_570137_70A4379F 
-X-CRM114-Status: UNSURE (   7.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251010_010322_124846_C3AB0400 
+X-CRM114-Status: GOOD (  10.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,25 +67,205 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch series improves the ASPEED watchdog driver to support newer
-AST2700 SoC. It enhances reset mask handling to accommodate platforms
-with multiple registers, adds AST2700-specific configuration, and
-updates the device tree bindings accordingly.
+Add support for the AST2700 SoC in the ASPEED watchdog device tree
+bindings. This includes:
 
-Changes in v2:
-  - Removed 'num_reset_masks' field from AST2400 platform configuration.
-  - Simplify 'if' contional statement for platforms after AST2400.
+- Adding "aspeed,ast2700-wdt" to the compatible string list.
+- Extending the "aspeed,reset-mask" property description for AST2700.
+- Defining AST2700-specific reset mask bits in aspeed-wdt.h,
+  covering RESET1 to RESET5.
 
-Chin-Ting Kuo (3):
-  dt-bindings: watchdog: aspeed,ast2400-wdt: Add support for AST2700
-  watchdog: aspeed: Support variable number of reset mask registers
-  watchdog: aspeed: Add support for AST2700 platform
-
+Signed-off-by: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
+---
  .../bindings/watchdog/aspeed,ast2400-wdt.yaml |   8 +-
- drivers/watchdog/aspeed_wdt.c                 |  30 +++-
  include/dt-bindings/watchdog/aspeed-wdt.h     | 138 ++++++++++++++++++
- 3 files changed, 167 insertions(+), 9 deletions(-)
+ 2 files changed, 144 insertions(+), 2 deletions(-)
 
+diff --git a/Documentation/devicetree/bindings/watchdog/aspeed,ast2400-wdt.yaml b/Documentation/devicetree/bindings/watchdog/aspeed,ast2400-wdt.yaml
+index be78a9865584..9322cb5b462a 100644
+--- a/Documentation/devicetree/bindings/watchdog/aspeed,ast2400-wdt.yaml
++++ b/Documentation/devicetree/bindings/watchdog/aspeed,ast2400-wdt.yaml
+@@ -15,6 +15,7 @@ properties:
+       - aspeed,ast2400-wdt
+       - aspeed,ast2500-wdt
+       - aspeed,ast2600-wdt
++      - aspeed,ast2700-wdt
+ 
+   reg:
+     maxItems: 1
+@@ -87,13 +88,15 @@ properties:
+   aspeed,reset-mask:
+     $ref: /schemas/types.yaml#/definitions/uint32-array
+     minItems: 1
+-    maxItems: 2
++    maxItems: 5
+     description: >
+       A bitmask indicating which peripherals will be reset if the watchdog
+       timer expires. On AST2500 SoCs this should be a single word defined using
+       the AST2500_WDT_RESET_* macros; on AST2600 SoCs this should be a two-word
+       array with the first word defined using the AST2600_WDT_RESET1_* macros,
+-      and the second word defined using the AST2600_WDT_RESET2_* macros.
++      and the second word defined using the AST2600_WDT_RESET2_* macros; on
++      AST2700 SoCs, this should be five-word array from AST2700_WDT_RESET1_*
++      macros to AST2700_WDT_RESET5_* macros.
+ 
+ required:
+   - compatible
+@@ -114,6 +117,7 @@ allOf:
+           enum:
+             - aspeed,ast2500-wdt
+             - aspeed,ast2600-wdt
++            - aspeed,ast2700-wdt
+   - if:
+       required:
+         - aspeed,ext-active-high
+diff --git a/include/dt-bindings/watchdog/aspeed-wdt.h b/include/dt-bindings/watchdog/aspeed-wdt.h
+index 7ae6d84b2bd9..89fa31ffce2d 100644
+--- a/include/dt-bindings/watchdog/aspeed-wdt.h
++++ b/include/dt-bindings/watchdog/aspeed-wdt.h
+@@ -89,4 +89,142 @@
+ 
+ #define AST2600_WDT_RESET2_DEFAULT 0x03fffff1
+ 
++#define AST2700_WDT_RESET1_CPU		(1 << 0)
++#define AST2700_WDT_RESET1_DRAM		(1 << 1)
++#define AST2700_WDT_RESET1_SLI0		(1 << 2)
++#define AST2700_WDT_RESET1_EHCI		(1 << 3)
++#define AST2700_WDT_RESET1_HACE		(1 << 4)
++#define AST2700_WDT_RESET1_SOC_MISC0	(1 << 5)
++#define AST2700_WDT_RESET1_VIDEO	(1 << 6)
++#define AST2700_WDT_RESET1_2D_GRAPHIC	(1 << 7)
++#define AST2700_WDT_RESET1_RAVS0	(1 << 8)
++#define AST2700_WDT_RESET1_RAVS1	(1 << 9)
++#define AST2700_WDT_RESET1_GPIO0	(1 << 10)
++#define AST2700_WDT_RESET1_SSP		(1 << 11)
++#define AST2700_WDT_RESET1_TSP		(1 << 12)
++#define AST2700_WDT_RESET1_CRT		(1 << 13)
++#define AST2700_WDT_RESET1_USB20_HOST	(1 << 14)
++#define AST2700_WDT_RESET1_USB11_HOST	(1 << 15)
++#define AST2700_WDT_RESET1_UFS		(1 << 16)
++#define AST2700_WDT_RESET1_EMMC		(1 << 17)
++#define AST2700_WDT_RESET1_AHB_TO_PCIE1	(1 << 18)
++#define AST2700_WDT_RESET1_XDMA0	(1 << 22)
++#define AST2700_WDT_RESET1_MCTP1	(1 << 23)
++#define AST2700_WDT_RESET1_MCTP0	(1 << 24)
++#define AST2700_WDT_RESET1_JTAG0	(1 << 25)
++#define AST2700_WDT_RESET1_ECC		(1 << 26)
++#define AST2700_WDT_RESET1_XDMA1	(1 << 27)
++#define AST2700_WDT_RESET1_DP		(1 << 28)
++#define AST2700_WDT_RESET1_DP_MCU	(1 << 29)
++#define AST2700_WDT_RESET1_AHB_TO_PCIE0	(1 << 31)
++
++#define AST2700_WDT_RESET1_DEFAULT 0x8207ff71
++
++#define AST2700_WDT_RESET2_USB3_A_HOST	(1 << 0)
++#define AST2700_WDT_RESET2_USB3_A_VHUB3	(1 << 1)
++#define AST2700_WDT_RESET2_USB3_A_VHUB2	(1 << 2)
++#define AST2700_WDT_RESET2_USB3_B_HOST	(1 << 3)
++#define AST2700_WDT_RESET2_USB3_B_VHUB3	(1 << 4)
++#define AST2700_WDT_RESET2_USB3_B_VHUB2	(1 << 5)
++#define AST2700_WDT_RESET2_SM3		(1 << 6)
++#define AST2700_WDT_RESET2_SM4		(1 << 7)
++#define AST2700_WDT_RESET2_SHA3		(1 << 8)
++#define AST2700_WDT_RESET2_RSA		(1 << 9)
++
++#define AST2700_WDT_RESET2_DEFAULT 0x000003f6
++
++#define AST2700_WDT_RESET3_LPC0		(1 << 0)
++#define AST2700_WDT_RESET3_LPC1		(1 << 1)
++#define AST2700_WDT_RESET3_MDIO		(1 << 2)
++#define AST2700_WDT_RESET3_PECI		(1 << 3)
++#define AST2700_WDT_RESET3_PWM		(1 << 4)
++#define AST2700_WDT_RESET3_MAC0		(1 << 5)
++#define AST2700_WDT_RESET3_MAC1		(1 << 6)
++#define AST2700_WDT_RESET3_MAC2		(1 << 7)
++#define AST2700_WDT_RESET3_ADC		(1 << 8)
++#define AST2700_WDT_RESET3_SDC		(1 << 9)
++#define AST2700_WDT_RESET3_ESPI0	(1 << 10)
++#define AST2700_WDT_RESET3_ESPI1	(1 << 11)
++#define AST2700_WDT_RESET3_JTAG1	(1 << 12)
++#define AST2700_WDT_RESET3_SPI0		(1 << 13)
++#define AST2700_WDT_RESET3_SPI1		(1 << 14)
++#define AST2700_WDT_RESET3_SPI2		(1 << 15)
++#define AST2700_WDT_RESET3_I3C0		(1 << 16)
++#define AST2700_WDT_RESET3_I3C1		(1 << 17)
++#define AST2700_WDT_RESET3_I3C2		(1 << 18)
++#define AST2700_WDT_RESET3_I3C3		(1 << 19)
++#define AST2700_WDT_RESET3_I3C4		(1 << 20)
++#define AST2700_WDT_RESET3_I3C5		(1 << 21)
++#define AST2700_WDT_RESET3_I3C6		(1 << 22)
++#define AST2700_WDT_RESET3_I3C7		(1 << 23)
++#define AST2700_WDT_RESET3_I3C8		(1 << 24)
++#define AST2700_WDT_RESET3_I3C9		(1 << 25)
++#define AST2700_WDT_RESET3_I3C10	(1 << 26)
++#define AST2700_WDT_RESET3_I3C11	(1 << 27)
++#define AST2700_WDT_RESET3_I3C12	(1 << 28)
++#define AST2700_WDT_RESET3_I3C13	(1 << 29)
++#define AST2700_WDT_RESET3_I3C14	(1 << 30)
++#define AST2700_WDT_RESET3_I3C15	(1 << 31)
++
++#define AST2700_WDT_RESET3_DEFAULT 0x000093ec
++
++#define AST2700_WDT_RESET4_FMC		(1 << 0)
++#define AST2700_WDT_RESET4_SOC_MISC1	(1 << 1)
++#define AST2700_WDT_RESET4_AHB		(1 << 2)
++#define AST2700_WDT_RESET4_SLI1		(1 << 3)
++#define AST2700_WDT_RESET4_UART0	(1 << 4)
++#define AST2700_WDT_RESET4_UART1	(1 << 5)
++#define AST2700_WDT_RESET4_UART2	(1 << 6)
++#define AST2700_WDT_RESET4_UART3	(1 << 7)
++#define AST2700_WDT_RESET4_I2C_MONITOR	(1 << 8)
++#define AST2700_WDT_RESET4_HOST_TO_SPI1	(1 << 9)
++#define AST2700_WDT_RESET4_HOST_TO_SPI2	(1 << 10)
++#define AST2700_WDT_RESET4_GPIO1	(1 << 11)
++#define AST2700_WDT_RESET4_FSI		(1 << 12)
++#define AST2700_WDT_RESET4_CANBUS	(1 << 13)
++#define AST2700_WDT_RESET4_MCTP		(1 << 14)
++#define AST2700_WDT_RESET4_XDMA		(1 << 15)
++#define AST2700_WDT_RESET4_UART5	(1 << 16)
++#define AST2700_WDT_RESET4_UART6	(1 << 17)
++#define AST2700_WDT_RESET4_UART7	(1 << 18)
++#define AST2700_WDT_RESET4_UART8	(1 << 19)
++#define AST2700_WDT_RESET4_BOOT_MCU	(1 << 20)
++#define AST2700_WDT_RESET4_IO_MCU	(1 << 21)
++#define AST2700_WDT_RESET4_LTPI0	(1 << 22)
++#define AST2700_WDT_RESET4_VGA_LINK	(1 << 23)
++#define AST2700_WDT_RESET4_LTPI1	(1 << 24)
++#define AST2700_WDT_RESET4_LTPI_PHY	(1 << 25)
++#define AST2700_WDT_RESET4_ACE		(1 << 26)
++#define AST2700_WDT_RESET4_LTPI_GPIO0	(1 << 28)
++#define AST2700_WDT_RESET4_LTPI_GPIO1	(1 << 29)
++#define AST2700_WDT_RESET4_AHB_TO_PCIE1	(1 << 30)
++#define AST2700_WDT_RESET4_I3C_DMA	(1 << 31)
++
++#define AST2700_WDT_RESET4_DEFAULT 0x40303803
++
++#define AST2700_WDT_RESET5_I2C_GLOBAL	(1 << 0)
++#define AST2700_WDT_RESET5_I2C0		(1 << 1)
++#define AST2700_WDT_RESET5_I2C1		(1 << 2)
++#define AST2700_WDT_RESET5_I2C2		(1 << 3)
++#define AST2700_WDT_RESET5_I2C3		(1 << 4)
++#define AST2700_WDT_RESET5_I2C4		(1 << 5)
++#define AST2700_WDT_RESET5_I2C5		(1 << 6)
++#define AST2700_WDT_RESET5_I2C6		(1 << 7)
++#define AST2700_WDT_RESET5_I2C7		(1 << 8)
++#define AST2700_WDT_RESET5_I2C8		(1 << 9)
++#define AST2700_WDT_RESET5_I2C9		(1 << 10)
++#define AST2700_WDT_RESET5_I2C10	(1 << 11)
++#define AST2700_WDT_RESET5_I2C11	(1 << 12)
++#define AST2700_WDT_RESET5_I2C12	(1 << 13)
++#define AST2700_WDT_RESET5_I2C13	(1 << 14)
++#define AST2700_WDT_RESET5_I2C14	(1 << 15)
++#define AST2700_WDT_RESET5_I2C15	(1 << 16)
++#define AST2700_WDT_RESET5_UHCI		(1 << 17)
++#define AST2700_WDT_RESET5_USB2_C_UART	(1 << 18)
++#define AST2700_WDT_RESET5_USB2_C	(1 << 19)
++#define AST2700_WDT_RESET5_USB2_D_UART	(1 << 20)
++#define AST2700_WDT_RESET5_USB2_D	(1 << 21)
++
++#define AST2700_WDT_RESET5_DEFAULT 0x00320000
++
+ #endif
 -- 
 2.34.1
 
