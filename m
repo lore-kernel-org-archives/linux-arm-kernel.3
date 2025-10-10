@@ -4,57 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C63CCCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 01:52:02 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DC51CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 02:00:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JIgzumu4afvoKVX9tm047vmVz0LPva9OfBKsKXhz71U=; b=aNUWaF6Mf4YRYJCrdmPa8DE08V
-	FB39+ZkMrNtbfAbE4udIdCPcqULlEfqbsrN+LGJnCaBPvuR/Ncu4Jv1/e8I+sOC4/Xg5rWvBsRx8R
-	SQkhz4o1iBNhtKK0l0hqux3XL3ZF17FiUpmq5IIjSohef8GAmotE2ijIgPe+b0a0qGArV8/e7WbAp
-	Z/Cyq9lPqLSN8Dozn3DTHOtT4QGrN0gLELE6LKosnmBv2q2Lgryo/+iiCDejqK7u74oC5Lrg9XJAM
-	pWP9Ov0u/6576JeTxo8I+YFGlmf7pEQfgZrdJ3ypN9pBxFyNGFu6EuwiuCAXJSnK8n5mfK/AsRpai
-	+lEVT1xQ==;
+	bh=bKb2+LWn+9bFo0JvyMz+IuBawvd4IewFiapgoPwhJDY=; b=Pt6CokPOn6xoEzSjXh9DYLEFmh
+	ZLSt9xDM1VDt9WZxOYJVxO/vtqp4pKsEn3a3SNvICUkKLpvARIK5QhzpHD/dUpoKZHAmwjOPoW9UQ
+	/nQY/SfYUKR9rqWaBpv9iCxuKqbkF/cuUO7DxCsp4+VA85xxCy8n9v+iMeyu+rR1L9HkAGZ7xXyu4
+	FlG1PtCsEo+a0teGdJW9ujpYAglCmD+j3rXh4uDpkPOiqw/6rliQdkaEODYIN2rQbaSbvXRYk+AmC
+	Cau4dE2MjvdIRQRGQnvYj2HPp9Su0LtCf+SwSp0XJfFThmX8HUtiOW6zEZCE/swB9jbZjmohMpNsO
+	iZ32uWKA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v72IV-00000007STg-195v;
-	Fri, 10 Oct 2025 01:51:55 +0000
+	id 1v72Qe-00000007TXW-2QyA;
+	Fri, 10 Oct 2025 02:00:20 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v72IT-00000007STD-0WI0;
-	Fri, 10 Oct 2025 01:51:53 +0000
+	id 1v72Qc-00000007TXD-3OwU
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 10 Oct 2025 02:00:18 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 3A3C762480;
-	Fri, 10 Oct 2025 01:51:52 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CF028C4CEE7;
-	Fri, 10 Oct 2025 01:51:46 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E1C8D6248A;
+	Fri, 10 Oct 2025 02:00:17 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E8B2C4CEE7;
+	Fri, 10 Oct 2025 02:00:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760061111;
-	bh=dkB6fdpTFBXzre8Ol8wQB91/KFyloPbHgVKGDiUe7z0=;
+	s=k20201202; t=1760061617;
+	bh=bKb2+LWn+9bFo0JvyMz+IuBawvd4IewFiapgoPwhJDY=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CnDV+2hHyceKibppma+7u3LrE9ZbYtlsG80QNSrC+OjDpdM78j/s9VxTdL/X9hKxd
-	 g7DkRZUBa9PpgCFF4uN5LXzbGeRjZdOulA48njYTde51znjlIwcOe+p6kUzYjTbMHa
-	 WPg3vfTsrjjSH0IS5oQGdwZijqOp7RhStDczUjMA+YXE2rV8Tbj5k6+IEBm3dZHKy9
-	 BDay/a4TKa1qxE71J/IESbEYB498E4JU/JX2LvgDxOHjzTv3HHjax0NYPVeJLyhj+5
-	 HnO5X4AZCYH+/EwC3JYQbJSn4tSO8aVQxnD/SBENJADTjOUAaAcWcDB0MNkzmY8C4k
-	 mwesfnm7mCPcQ==
-Message-ID: <030bf0c8-c710-4b4e-a1fe-9754eaa0d335@kernel.org>
-Date: Fri, 10 Oct 2025 03:51:43 +0200
+	b=EZ5uhXEoFwIigR89ZDxpuiMJjV9tImylj7s191qm0WMCHwWJEDHZhfwPLEnCSN3QH
+	 FZ0SJJAnIg+OWIdX/eILZaJoD7pLii01fGS49y6IFAwmkjeYjfINwMQVc602rdpWuc
+	 iHVzGw0Yn/yidtKyTbS60g10UkVGEuB4JcGMEzXsN9DdqtrHHljHHetaKWH/6+Y2nq
+	 r7lk1HZoX3yr+9v7/OLDJBG+KRLb0Dru5HkuZiRFYALrjGkPUhNWQx9ONI5G08aVCo
+	 VVbxE02hyMT1h708EIfzLjzHEBXuT38aGZ7Ujk4hjRGj/Xdz2ElziLwTUHHWHNhV6U
+	 CdDWfA6WYsTgg==
+Message-ID: <3791aa93-c1c0-4fc9-9706-91f3f62743a3@kernel.org>
+Date: Fri, 10 Oct 2025 04:00:06 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v4 1/2] dt-bindings: arm: rockchip: add RK3588 DP carrier
- from Theobroma Systems
-To: Heiko Stuebner <heiko@sntech.de>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
- quentin.schulz@cherry.de, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org,
- linux-kernel@vger.kernel.org, damon.ding@rock-chips.com,
- Heiko Stuebner <heiko.stuebner@cherry.de>
-References: <20251009225050.88192-1-heiko@sntech.de>
- <20251009225050.88192-2-heiko@sntech.de>
+Subject: Re: [PATCH v3 1/3] dt-bindings: hwlock: Adding brcmstb-hwspinlock
+ support
+To: Kamal Dasu <kamal.dasu@broadcom.com>, peng.fan@oss.nxp.com,
+ andersson@kernel.org, baolin.wang@linux.alibaba.com, robh@kernel.org,
+ krzk+dt@kernel.org, conor+dt@kernel.org, florian.fainelli@broadcom.com
+Cc: bcm-kernel-feedback-list@broadcom.com, linux-remoteproc@vger.kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org
+References: <20251009212003.2714447-1-kamal.dasu@broadcom.com>
+ <20251009212003.2714447-2-kamal.dasu@broadcom.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -100,7 +101,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251009225050.88192-2-heiko@sntech.de>
+In-Reply-To: <20251009212003.2714447-2-kamal.dasu@broadcom.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -117,30 +118,15 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/10/2025 00:50, Heiko Stuebner wrote:
-> From: Heiko Stuebner <heiko.stuebner@cherry.de>
-> 
-> The DisplayPort carrier is a very simple baseboard only providing serial,
-> ethernet and a displayport output.
-> 
-> But its main functionality is that it routes the Analogix eDP controller
-> to this DisplayPort output, which allows to test that controller simply
-> by hooking it up to a suitable monitor.
-> 
-> Reviewed-by: Quentin Schulz <quentin.schulz@cherry.de>
-> Acked-by: "Rob Herring (Arm)" <robh@kernel.org>
+On 09/10/2025 23:20, Kamal Dasu wrote:
+> The broadcom settop SoCs have hardware semaphores as part of "sundry"
+> IP block which has other controls that do not belong anywhere else.
+> e.g. pin/mux controls, SoC identification, drive strength, reset controls,
+> and other misc bits are part of this block.
 
-Please update your b4. Quotes are not needed. Weird that you had to add
-them somehow, because they were not in previous version.
+This does not explain why this has to be a separate block. Rob comment
+stays valid - this belongs to parent node.
 
-> Signed-off-by: Heiko Stuebner <heiko.stuebner@cherry.de>
-> Link: https://lore.kernel.org/r/20250723190904.37792-2-heiko@sntech.de
-
-That is not really useful Link. Points to the same patch.
-
-> ---
->  Documentation/devicetree/bindings/arm/rockchip.yaml | 6 ++++--
->  1 file changed, 4 insertions(+), 2 deletions(-)
 Best regards,
 Krzysztof
 
