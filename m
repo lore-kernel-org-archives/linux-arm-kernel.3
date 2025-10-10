@@ -4,57 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D000CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 09:36:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AED9ACCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 09:48:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=2bkptGa4qzGPSXKpQfmyXqfdcs/FqgmfOarl0awZkiY=; b=GaxNDAWXGu+GWaLHJVc4Eak3hl
-	tm8SNTZCTtNKTINXrAa09EZD0M1gjozw5otHVlL73Dxir31dsIkbqVfK6CtcMF+KGXpz/09Z9p20d
-	0T7hlYBXfqNaacsGzoqg+taA6OODxamkxf7kjJbY8APU5nhYAJNNcRamfyDaHkU921qX/3+jA/8oh
-	vzp0gTVenuxmeNBDObuZcKKWHy3ZA9tlDJgOBNNkb0vbwojjzAKF4Cvw2L2vHADTmmOYDGnmFtIMg
-	lYoNF4IrI6AXK1xm2NEmK84Gk5NWrdS+hAoLzJhm0prqHkbUKczFgKuoKGiST2CguiXjdZX1LO0st
-	f5MxEB1w==;
+	bh=5NYaVa61SKhz7bzd4//IpCqQve0TDyhAQOjuQtu7/oA=; b=5GUg2J8yGkKvi7HxcnMiQ1cCeY
+	rQJhD1omAFGFGaMNDCIwkHgLHv5x5cd/m396j+uPAPbldoXJ9JTQSDoiNcKoV+9sum+GC2UnZzL1T
+	8xZ9LxRINe6o+uKLYIyCxVuVvKJ11r+hn4T2hXOUDrTYn2bWMsZV+UcLswN4tSx5qMy0gvp/dFPzR
+	M6gm850YznjVQCSHtyJIOR6irXA15DvKZBDyzVIiWxtMDtXZX8r5oGfljw4NqQ0M7D6XIFoIiA0EI
+	Q7Balj1mCexCySKwK5SzZjcT8i7FgBWOItErbfa5cYC6vdFpCsOr94U//nDwOfyliZQmKMMVJAGn4
+	ZTnuCetA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v79Xs-00000008AzJ-0R0Y;
-	Fri, 10 Oct 2025 09:36:16 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v79Xo-00000008Aye-20vI
+	id 1v79jY-00000008CKC-329L;
+	Fri, 10 Oct 2025 09:48:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v79jW-00000008CK5-3coP
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 09:36:14 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id CAB241595;
-	Fri, 10 Oct 2025 02:36:02 -0700 (PDT)
-Received: from J2N7QTR9R3 (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id E03CE3F738;
-	Fri, 10 Oct 2025 02:36:08 -0700 (PDT)
-Date: Fri, 10 Oct 2025 10:36:03 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Marc Zyngier <maz@kernel.org>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
-	Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>, Will Deacon <will@kernel.org>,
+	Fri, 10 Oct 2025 09:48:18 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 3BDBC6257A;
+	Fri, 10 Oct 2025 09:48:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id DBDA5C4CEF1;
+	Fri, 10 Oct 2025 09:48:17 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760089697;
+	bh=JrWrN+FQZRgzUNzMiSaZNnbC3MC4bk658YLS+9m48g8=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=dvslxa6yxvt2X8m9j5W8vxa0CEpmn58MZW4GD8Bm90QDt4Li+sTdT51zb8UE0qeLb
+	 azDAoKjznhK8NsVXZ0yiVFtmkDfO4v3OP0darB8cUgpIS4xYA7XGtz9twXoN2m/2Iv
+	 Zgla+K3E0rJ87QbBw4pf2zqk4qvl+l8MiFs2THHroDkH9Duy8Rpn560n26a4X/x8mc
+	 y1cAca8VS22y3cTaYlvNauRTOqGmc6n5JZY5PyxnsPIL5DzzvT7zot84hDCxmeS4b2
+	 Qz7IcfT+5G/3MKmXcCqcN4AOS7vciwONESBmCNrU278J4u6ZJDH3uR36EV0+E9bpF5
+	 sYKnC7q9v6t1w==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1v79jT-0000000CsJY-3fzQ;
+	Fri, 10 Oct 2025 09:48:16 +0000
+Date: Fri, 10 Oct 2025 10:48:15 +0100
+Message-ID: <86h5w7xf34.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Ulf Hansson <ulf.hansson@linaro.org>
+Cc: "Rafael J . Wysocki" <rafael@kernel.org>,
 	Catalin Marinas <catalin.marinas@arm.com>,
-	Jan Kotas <jank@cadence.com>
-Subject: Re: [PATCH] arm64: Revamp HCR_EL2.E2H RES1 detection
-Message-ID: <aOjTg3he873VqEgY@J2N7QTR9R3>
-References: <20251009121239.29370-1-maz@kernel.org>
- <aOgpesxEKsnbKGs3@linux.dev>
- <86ldljxgad.wl-maz@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <86ldljxgad.wl-maz@kernel.org>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_023612_560574_6C40FB7F 
-X-CRM114-Status: GOOD (  31.52  )
+	Will Deacon <will@kernel.org>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Maulik Shah <quic_mkshah@quicinc.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Daniel Lezcano <daniel.lezcano@linaro.org>,
+	Vincent Guittot <vincent.guittot@linaro.org>,
+	linux-pm@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH 2/3] arm64: smp: Implement cpus_has_pending_ipi()
+In-Reply-To: <CAPDyKFq4RgL0=hPhB0cwTQF-A+mXH8dxsZAYTB1CFuLxxxTujg@mail.gmail.com>
+References: <20251003150251.520624-1-ulf.hansson@linaro.org>
+	<20251003150251.520624-3-ulf.hansson@linaro.org>
+	<865xcsyqgs.wl-maz@kernel.org>
+	<CAPDyKFq4RgL0=hPhB0cwTQF-A+mXH8dxsZAYTB1CFuLxxxTujg@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: ulf.hansson@linaro.org, rafael@kernel.org, catalin.marinas@arm.com, will@kernel.org, mark.rutland@arm.com, tglx@linutronix.de, quic_mkshah@quicinc.com, sudeep.holla@arm.com, daniel.lezcano@linaro.org, vincent.guittot@linaro.org, linux-pm@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,66 +93,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 10, 2025 at 10:22:18AM +0100, Marc Zyngier wrote:
-> On Thu, 09 Oct 2025 22:30:34 +0100,
-> Oliver Upton <oliver.upton@linux.dev> wrote:
-> > 
-> > Hey,
-> > 
-> > On Thu, Oct 09, 2025 at 01:12:39PM +0100, Marc Zyngier wrote:
-> > > We currently have two ways to identify CPUs that only implement FEAT_VHE
-> > > and not FEAT_E2H0:
-> > > 
-> > > - either they advertise it via ID_AA64MMFR4_EL1.E2H0,
-> > > - or the HCR_EL2.E2H bit is RAO/WI
-> > > 
-> > > However, there is a third category of "cpus" that fall between these
-> > > two cases: on CPUs that do not implement FEAT_FGT, it is IMPDEF whether
-> > > an access to ID_AA64MMFR4_EL1 can trap to EL2 when the register value
-> > > is zero.
-> > > 
-> > > A consequence of this is that on systems such as Neoverse V2, a NV
-> > > guest cannot reliably detect that it is in a VHE-only configuration
-> > > (E2H is writable, and ID_AA64MMFR0_EL1 is 0), despite the hypervisor's
-> > > best effort to repaint the id register.
-> > > 
-> > > Replace the RAO/WI test by a sequence that makes use of the VHE
-> > > register remnapping between EL1 and EL2 to detect this situation,
-> > > and work out whether we get the VHE behaviour even after having
-> > > set HCR_EL2.E2H to 0.
-> > > 
-> > > This solves the NV problem, and provides a more reliable acid test
-> > > for CPUs that do not completely follow the letter of the architecture
-> > > while providing a RES1 behaviour for HCR_EL2.E2H.
-> > > 
-> > > Suggested-by: Marc Rutland <mark.rutland@arm.com>
-> > 		^~~~
-> > 
-> > Thank you *Mark* for the suggestion here, neat trick :)
+On Fri, 10 Oct 2025 09:30:11 +0100,
+Ulf Hansson <ulf.hansson@linaro.org> wrote:
 > 
-> Too many Mar[ck]s. I'm struggling! ;-)
-
-Time to file a deed poll. ;)
-
-> > I'd be in favor of this patch being sent to stable, happy to handle the
-> > backports if you don't have the time for it. VMs mysteriously dying
-> > isn't a very good experience on NV and I'd like to not scare folks away.
+> On Mon, 6 Oct 2025 at 17:55, Marc Zyngier <maz@kernel.org> wrote:
+> >
+> > On Fri, 03 Oct 2025 16:02:44 +0100,
+> > Ulf Hansson <ulf.hansson@linaro.org> wrote:
+> > >
+> > > To add support for keeping track of whether there may be a pending IPI
+> > > scheduled for a CPU or a group of CPUs, let's implement
+> > > cpus_has_pending_ipi() for arm64.
+> > >
+> > > Note, the implementation is intentionally lightweight and doesn't use any
+> > > additional lock. This is good enough for cpuidle based decisions.
+> > >
+> > > Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
+> > > ---
+> > >  arch/arm64/kernel/smp.c | 20 ++++++++++++++++++++
+> > >  1 file changed, 20 insertions(+)
+> > >
+> > > diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
+> > > index 68cea3a4a35c..dd1acfa91d44 100644
+> > > --- a/arch/arm64/kernel/smp.c
+> > > +++ b/arch/arm64/kernel/smp.c
+> > > @@ -55,6 +55,8 @@
+> > >
+> > >  #include <trace/events/ipi.h>
+> > >
+> > > +static DEFINE_PER_CPU(bool, pending_ipi);
+> > > +
+> > >  /*
+> > >   * as from 2.5, kernels no longer have an init_tasks structure
+> > >   * so we need some other way of telling a new secondary core
+> > > @@ -1012,6 +1014,8 @@ static void do_handle_IPI(int ipinr)
+> > >
+> > >       if ((unsigned)ipinr < NR_IPI)
+> > >               trace_ipi_exit(ipi_types[ipinr]);
+> > > +
+> > > +     per_cpu(pending_ipi, cpu) = false;
+> > >  }
+> > >
+> > >  static irqreturn_t ipi_handler(int irq, void *data)
+> > > @@ -1024,10 +1028,26 @@ static irqreturn_t ipi_handler(int irq, void *data)
+> > >
+> > >  static void smp_cross_call(const struct cpumask *target, unsigned int ipinr)
+> > >  {
+> > > +     unsigned int cpu;
+> > > +
+> > > +     for_each_cpu(cpu, target)
+> > > +             per_cpu(pending_ipi, cpu) = true;
+> > > +
+> >
+> > Why isn't all of this part of the core IRQ management? We already
+> > track things like timers, I assume for similar reasons. If IPIs have
+> > to be singled out, I'd rather this is done in common code, and not on
+> > a per architecture basis.
 > 
-> I think Mark (yes, him!) had a plan to backport some of the !FEAT_E2H0
-> patches back to earlier kernels. I'll let him comment on that.
+> The idea was to start simple, avoid running code for architectures
+> that don't seem to need it, by using this opt-in and lightweight
+> approach.
 
-Yep; I had a (delayed) plan to backport:
+If this stuff is remotely useful, then it is useful to everyone, and I
+don't see the point in littering the arch code with it. We have plenty
+of buy-in features that can be selected by an architecture and ignored
+by others if they see fit.
 
-  https://lore.kernel.org/linux-arm-kernel/20250227180526.1204723-1-mark.rutland@arm.com/ 
+> 
+> I guess we could do this in generic IRQ code too. Perhaps making it
+> conditional behind a Kconfig, if required.
+> 
+> >
+> > >       trace_ipi_raise(target, ipi_types[ipinr]);
+> > >       arm64_send_ipi(target, ipinr);
+> > >  }
+> > >
+> > > +bool cpus_has_pending_ipi(const struct cpumask *mask)
+> > > +{
+> > > +     unsigned int cpu;
+> > > +
+> > > +     for_each_cpu(cpu, mask) {
+> > > +             if (per_cpu(pending_ipi, cpu))
+> > > +                     return true;
+> > > +     }
+> > > +     return false;
+> > > +}
+> > > +
+> >
+> > The lack of memory barriers makes me wonder how reliable this is.
+> > Maybe this is relying on the IPIs themselves acting as such, but
+> > that's extremely racy no matter how you look at it.
+> 
+> It's deliberately lightweight. I am worried about introducing
+> locking/barriers, as those could be costly and introduce latencies in
+> these paths.
 
-... to v6.12, as folk are trying to run stable/android v6.12 kernels on
-models and HW with the RES1 behaviour, and IIRC we didn't try to handle
-this at all back in v6.6 (so no need to backport that far). I was
-expecting to backport this patch at the same time.
+"I've made this car 10% faster by removing the brakes. It's great! Try
+it!"
 
-If someone else has the time to do the backport, I'm more than happy to
-leave it to them! Otherwise, I was planning to wait for this patch to
-land in mainline before starting that.
+> Still this is good enough to significantly improve cpuidle based
+> decisions in this regard. Please have a look at the commit message of
+> patch3.
 
-Mark.
+If I can't see how this thing is *correct*, I really don't care how
+fast it is. You might as well remove most locks and barriers from the
+kernel -- it will be even faster!
+
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
