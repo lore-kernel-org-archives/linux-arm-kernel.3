@@ -4,95 +4,73 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0331BCCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 15:56:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3C14ECCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 16:26:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=5ZoRFa4EgNbo9YHpT/rgkVAy6RF2nhrPvBGmNOSTvII=; b=NpdbrMSg4v0U20+nsF7IDqYaiB
-	aEaL7t1+d5exu6tfnDZ7kQewJeMyoFj2HarNVQNcNS6+87IgXKSKtWMYbchu8pgW14povRzkwpSVj
-	jFbxW7mBVJMT0ygR+jouU4Urz8IHnZTrV1onTg/YzQxVDLJzug3JI0FxQDF6+SVQD+nn0gk/obOlo
-	Eb0jsAVAwiUTuj+6rxGmMXBmRRfFPPBAW1Z3OCCri2rUgjP3shPfQQdZsh51+W4WyWdmVktYIDtdw
-	/Q0W8fWeEYOOYW6ciFVLhRgwuRKFVJAI+smXlnc7KOKlTqcxaaQSGXZBVboo52NPJCUdHVjj9riDY
-	2XvGkpCw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=tk4D6lann4Qv6C/cl8XrXlumbr5Ja0zvSdhyNNQBE60=; b=YmOhxtfnXegEXvzDvV9qNQyE17
+	OhWIEbkB7jophrK/VNWCh4fmqHrUYsviHhtrUKsjKbVcg3/uxJiNJhGNQ3mxZWq4Tx+aGvASSjNkH
+	zq76rDqYmdS57RnaEByaloJfEVGrWk5cs+cCn4Lff2Fe/tqc8gpD5SPjULsZCRertag2+VEOxn8+7
+	RhSCohgU8Uc7qDpaUNbZUbdE1w+SioVY/pA5+A0uf7JRoqLsUSh3g1J1o32HKz0+INNuwipjlh8A+
+	EVrwAgKTaV2BPYivq5R9GoJuivrt33rThEVLp3dwefAz+mK1ir9jHTq6niitldTwuan7pS7MYHPGv
+	0abauN0Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7FTt-00000008wXZ-1aDd;
-	Fri, 10 Oct 2025 15:56:33 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1v7Fwa-00000008yLJ-3VlG;
+	Fri, 10 Oct 2025 16:26:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7FTq-00000008wWl-2x4Q
+	id 1v7Fwa-00000008yLC-0p0x
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 15:56:31 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-639fe77bb29so3249948a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Oct 2025 08:56:30 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760111789; x=1760716589; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=5ZoRFa4EgNbo9YHpT/rgkVAy6RF2nhrPvBGmNOSTvII=;
-        b=dypI44+TOQbSL6WYyyEaVpF9J2Y08aUiotEnesVl1PFAyZxmp4kfT0pC/5Mqg7KkqX
-         to4uP2x4zi5MftEy+3dM3TZAJ3nNW+20rx4pPETO7i+GyiFlZWzbLEGNGcoxqQS+u0Ra
-         dqTkn+gwpCYiJBKGBavQn5YGJlC6e44vLXDZZWKccht+45+pa6OIniYvHjwgrF6/2dk/
-         bqKUWRk642E3Az2MuK3jOeaklNhnbIj2RRvtGyc/Kgu2XibI8gUYFlDIvt/qDxxUH7U9
-         qVBbbye3KxAPvC05UXW6D4eOUGbwWPeu8+ER37HJNmQMTYuacABdJjUEx+XfXAsuEMP1
-         Vr8w==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760111789; x=1760716589;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=5ZoRFa4EgNbo9YHpT/rgkVAy6RF2nhrPvBGmNOSTvII=;
-        b=s503fxRvTfvC5/QptYbjn5g+GphTt9m0EyHmDKkp2BrMnqFO+NCQTCtglV91WuT6Rs
-         nNypXJ2lMjCt08jDws0B8OtdmyLdwYr/0r5FiWNTQzvB5rWCIGJxnKxP5Gw6BXKpFffi
-         CSqUjBWYg+w+/GDNL2Uv172o4wdQbfkar/DfJJfb9LyPyZsFwWxceV1FCmqpZfjBu0xk
-         Tnd850500hK8kT+hGR518P5f0Rd6M+P3XjjtNloXWMbeY2MCLBfAZNRNBPdRE2afk67I
-         qdUJPRcgHtSzQBalp3quQ/6Dwv+KJGtecSZqfnwEDkh4itfdPutloe1flnha0t/4FaLc
-         3oww==
-X-Forwarded-Encrypted: i=1; AJvYcCXt5YNmSAiDmzExc2e1fVORU3SGYvPA5jx7fCuaIJYuOi4GDGfsQsiKkB6JcasD0hqiu5DoTtC7UkqpgQ/4uWoD@lists.infradead.org
-X-Gm-Message-State: AOJu0YwSLMNtWpeIQZKVGFbjsa25kr5KvpaJ5NsvBPV37dDYTctzfY8e
-	rr9XPS96L38DcHSO7EbEQqCzPE29uh8QrHWwl6yhE4AA6Iu80aMc4ZHd2n12O454Kws=
-X-Gm-Gg: ASbGncv4vYMoSys5kgvABceNSMYi1xA6XpJWhJR/9bywcIn3+ZtxJG9hEjHnjdaFD46
-	a9IUMuh+RbiymH8uG57TYVINp25M/bi+jhLVO5pTMrggMHXAxxfZb4QY98yVG/rxRJgnr5bU6zN
-	LijnMPWTjFT6XjK0sutLyN+AXhmUqa8eJYIa8dlh7Hqe+VNjHVAuWQFeJzsw7h1VTgHnStY1lT+
-	PYdahsMpHbrspFriehyliM0xE6HsVjl4t/23Kh2kjYZHvuCtHZH7noEHz4odCls1ZfsiGyuQLN4
-	fubJuFZ/p8c+1gNcWAbhVq2ozuzvZob390f7Ikr7i25lPSXcqERygX0Uemvjv9UU/hnK+WbtM0h
-	ZRMPyotjd2cTDo45blnOue3MvesJSjXONwTaQvloa9l5M/k4vJuGw1vVci/n6YFDsSKLVrPT5fH
-	txxTwnBjM+tnjs1Tl4F2lHOpyKwYTZG++NOJA=
-X-Google-Smtp-Source: AGHT+IFPrLD0cpURVx9vlEq9MIRSEh4Uvrp2QcOigo0VAcKE9vYjUK34xwAVj5/gi01gKaUb5M2abg==
-X-Received: by 2002:a17:906:4789:b0:b41:c892:2c67 with SMTP id a640c23a62f3a-b50abfc861amr1291709266b.45.1760111788585;
-        Fri, 10 Oct 2025 08:56:28 -0700 (PDT)
-Received: from puffmais2.c.googlers.com (224.138.204.35.bc.googleusercontent.com. [35.204.138.224])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b55d5cacba7sm261285866b.5.2025.10.10.08.56.28
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Oct 2025 08:56:28 -0700 (PDT)
-From: =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-Date: Fri, 10 Oct 2025 16:56:26 +0100
-Subject: [PATCH] arm64: dts: exynos: gs101-pixel-common: add node for
- s2mpg10 / clock
+	Fri, 10 Oct 2025 16:26:12 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 54752626DF
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Oct 2025 16:26:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EF97FC116C6
+	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Oct 2025 16:26:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760113571;
+	bh=utKCZjeHw3iqnFfYB1ZfxGnO3UrPmvILiol4TqfBHR4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=ifr5gpgl7oLwDoSrjSSuI0zeIwM1nRb3uRa3RBa2jbNUt9PPmOxDzZDFqVyPvhGcX
+	 WyliYCSu7CXX1pxMu3PHD6Y1aAhblPEpsIsqPgEvAL6ftY3BseA4gtaP7J6dgKXrUJ
+	 8DqCPlqniOPsbHKH89OgQ7vCcIRVbfOJ0kVt6nTbCMNsEBgsSyrN6GWYCYawGUGD6A
+	 +umYAlXJOfreHakJgESAB+O3A8WDuPOatIMec9lkR9Nmdpz/jpJ4g6dOykHpKd9MAv
+	 k7p2T1cdrCgYJmGUOZC3oUoLelrCCD3OMRtFXqFy99x4AH1QGdHi0K1umgzIh0I75B
+	 4qjAMzB4frdNQ==
+Received: by mail-lf1-f45.google.com with SMTP id 2adb3069b0e04-57d8ff3944dso2513567e87.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Oct 2025 09:26:10 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXR5gDadsUXptNcZPQWmnAu6XIZ6IaS6qsb7v+0WS/VUfj+lC3HGIMbR3fPnbQuhaOfl/19xO7AbbcjitJ9A2j+@lists.infradead.org
+X-Gm-Message-State: AOJu0YwJMKU+qdPYEnmQHjFyWHLTqrxNtkwM2a3n7BWTY+oC7PM+kEco
+	KN6LKwCJe4bNakgTQNAUQmOrjFHtcXzOdMK6p8kWEgxe54ZBFYrTP7E2qZ+Bwz2LsFgcPhweyo1
+	/7mBZPqN1E99CUHTBX54zMnur6Alb+uY=
+X-Google-Smtp-Source: AGHT+IFlrMsUvrC/ZHyp7C1tmfy80lEWySBj/07SSrfUI6v7Q7I01eOrR8aE8CO2xnNLYI6LpFea10RRzC+bIaZdgH8=
+X-Received: by 2002:a05:6512:1152:b0:57b:5794:ccd9 with SMTP id
+ 2adb3069b0e04-5906d77e26bmr3537150e87.9.1760113569266; Fri, 10 Oct 2025
+ 09:26:09 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20251010-s2mpg10-clk-v1-1-dafb5d179395@linaro.org>
-X-B4-Tracking: v=1; b=H4sIAKks6WgC/6tWKk4tykwtVrJSqFYqSi3LLM7MzwNyDHUUlJIzE
- vPSU3UzU4B8JSMDI1NDA0MD3WKj3IJ0IJ2ck62bnJRkkZxkYGaQbGimBNRRUJSallkBNi06trY
- WAJcH5UZdAAAA
-X-Change-ID: 20251010-s2mpg10-clk-cbb8cb060c16
-To: Peter Griffin <peter.griffin@linaro.org>, 
- Tudor Ambarus <tudor.ambarus@linaro.org>, Rob Herring <robh@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-Cc: Will McVicker <willmcvicker@google.com>, kernel-team@android.com, 
- linux-arm-kernel@lists.infradead.org, linux-samsung-soc@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org, 
- =?utf-8?q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>
-X-Mailer: b4 0.14.2
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_085630_761796_6BC858E2 
-X-CRM114-Status: GOOD (  11.77  )
+References: <20250928085506.4471-1-yangtiezhu@loongson.cn> <CAMj1kXG8Wi+THa2SeLxiDT=+t_TKx0AL4H-azZO4DNJvyyv96g@mail.gmail.com>
+ <CAAhV-H7xOf8DEwOrNh+GQGHktOT4Ljp+7SqutGvvDZp6GLXJrA@mail.gmail.com>
+ <CAMj1kXG=EFkRAMkvKMSjPixoGqU-tZXVoRkJJ6Wcnzs3x52X6Q@mail.gmail.com>
+ <CAMj1kXHWe2uGY3S1NJ6mckqD4n116rPmaOzw3_Qbvxyjh7ECMw@mail.gmail.com> <fec0c03d-9d8c-89a3-886a-1adc22e59b66@loongson.cn>
+In-Reply-To: <fec0c03d-9d8c-89a3-886a-1adc22e59b66@loongson.cn>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Fri, 10 Oct 2025 09:25:57 -0700
+X-Gmail-Original-Message-ID: <CAMj1kXFLyBbRL+pAAQ6be6dxqFPiyw_Ug8qNQWaicZQ235HE=A@mail.gmail.com>
+X-Gm-Features: AS18NWAp30BvVY9ZXh0_0XY6OhGFXDo-CTjUdGdhBNHw2LQ_EFhIlBfBfuAUJuI
+Message-ID: <CAMj1kXFLyBbRL+pAAQ6be6dxqFPiyw_Ug8qNQWaicZQ235HE=A@mail.gmail.com>
+Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
+To: Tiezhu Yang <yangtiezhu@loongson.cn>
+Cc: Huacai Chen <chenhuacai@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, 
+	loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,55 +85,114 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Pixel 6 (and Pro), a Samsung S2MPG10 is used as main PMIC, which
-contains the following functional blocks:
-    * common / speedy interface
-    * regulators
-    * 3 clock outputs
-    * RTC
-    * power meters
+On Thu, 9 Oct 2025 at 00:27, Tiezhu Yang <yangtiezhu@loongson.cn> wrote:
+>
+> On 2025/9/28 =E4=B8=8B=E5=8D=8810:41, Ard Biesheuvel wrote:
+> > On Sun, 28 Sept 2025 at 16:39, Ard Biesheuvel <ardb@kernel.org> wrote:
+> >>
+> >> On Sun, 28 Sept 2025 at 15:52, Huacai Chen <chenhuacai@kernel.org> wro=
+te:
+> >>>
+> >>> Hi, Ard,
+> >>>
+> >>> On Sun, Sep 28, 2025 at 9:42=E2=80=AFPM Ard Biesheuvel <ardb@kernel.o=
+rg> wrote:
+> >>>>
+> >>>> On Sun, 28 Sept 2025 at 10:55, Tiezhu Yang <yangtiezhu@loongson.cn> =
+wrote:
+> >>>>>
+> >>>>> When compiling with LLVM and CONFIG_LTO_CLANG is set, there exists
+> >>>>> the following objtool warning on LoongArch:
+> >>>>>
+> >>>>>    vmlinux.o: warning: objtool: __efistub_efi_boot_kernel()
+> >>>>>    falls through to next function __efistub_exit_boot_func()
+> >>>>>
+> >>>>> This is because efi_boot_kernel() doesn't end with a return instruc=
+tion
+> >>>>> or an unconditional jump, then objtool has determined that the func=
+tion
+> >>>>> can fall through into the next function.
+> >>>>>
+> >>>>> At the beginning, try to do something to make efi_boot_kernel() end=
+s with
+> >>>>> an unconditional jump instruction, but this modification seems not =
+proper.
+> >>>>>
+> >>>>> Since the efistub functions are useless for stack unwinder, they ca=
+n be
+> >>>>> ignored by objtool. After many discussions, no need to link libstub=
+ to
+> >>>>> the vmlinux.o, only link libstub to the final vmlinux.
+> >>>>>
+> >>>>
+...
+> Are you OK with the following changes?
+>
+> (1) libstub doesn't link to vmlinux.o, only link libstub with vmlinux.o
+> during the final vmlinux link, keep the changes confined to LoongArch,
+> no need to be something more generic.
+>
+> diff --git a/arch/loongarch/Makefile b/arch/loongarch/Makefile
+> index dc5bd3f1b8d2..f34b416f5ca2 100644
+> --- a/arch/loongarch/Makefile
+> +++ b/arch/loongarch/Makefile
+> @@ -169,7 +169,6 @@ CHECKFLAGS +=3D $(shell $(CC) $(KBUILD_CPPFLAGS)
+> $(KBUILD_CFLAGS) -dM -E -x c /dev
+>   endif
+>
+>   libs-y +=3D arch/loongarch/lib/
+> -libs-$(CONFIG_EFI_STUB) +=3D $(objtree)/drivers/firmware/efi/libstub/lib=
+.a
+>
+>   drivers-y              +=3D arch/loongarch/crypto/
+>
+> diff --git a/scripts/link-vmlinux.sh b/scripts/link-vmlinux.sh
+> index 433849ff7529..ed94871c3606 100755
+> --- a/scripts/link-vmlinux.sh
+> +++ b/scripts/link-vmlinux.sh
+> @@ -69,6 +69,12 @@ vmlinux_link()
+>                  libs=3D"${KBUILD_VMLINUX_LIBS}"
+>          fi
+>
+> +       if [ "${SRCARCH}" =3D "loongarch" ]; then
+> +               if is_enabled CONFIG_EFI_STUB; then
+> +                       libs=3D"${libs} drivers/firmware/efi/libstub/lib.=
+a"
+> +               fi
+> +       fi
+> +
+>          if is_enabled CONFIG_GENERIC_BUILTIN_DTB; then
+>                  objs=3D"${objs} .builtin-dtbs.o"
+>          fi
+>
+> (2) remove the attribute __noreturn for real_kernel_entry() and add
+> "while (1);" at the end of efi_boot_kernel().
+>
+> diff --git a/drivers/firmware/efi/libstub/loongarch.c
+> b/drivers/firmware/efi/libstub/loongarch.c
+> index 3782d0a187d1..e309fd78fca7 100644
+> --- a/drivers/firmware/efi/libstub/loongarch.c
+> +++ b/drivers/firmware/efi/libstub/loongarch.c
+> @@ -10,7 +10,7 @@
+>   #include "efistub.h"
+>   #include "loongarch-stub.h"
+>
+> -typedef void __noreturn (*kernel_entry_t)(bool efi, unsigned long cmdlin=
+e,
+> +typedef void (*kernel_entry_t)(bool efi, unsigned long cmdline,
+>                                           unsigned long systab);
+>
+>   efi_status_t check_platform_features(void)
+> @@ -81,4 +81,7 @@ efi_status_t efi_boot_kernel(void *handle,
+> efi_loaded_image_t *image,
+>
+>         real_kernel_entry(true, (unsigned long)cmdline_ptr,
+>                           (unsigned long)efi_system_table);
+> +
+> +       /* We should never get here */
+> +       while (1);
+>   }
+>
 
-This change adds a node for the clock outputs which are used as inputs
-as follows:
-* RTC clock for AP
-* GNSS receiver, WLAN, Bluetooth
-* vibrator, modem
-
-The names have been chosen to match the schematic.
-
-Signed-off-by: André Draszik <andre.draszik@linaro.org>
----
-Note: This depends on the samsung,s2mpg10-clk binding which was
-only recently merged into Linus' tree via the clock tree.
----
- arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi | 7 +++++++
- 1 file changed, 7 insertions(+)
-
-diff --git a/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi b/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
-index 84ff3e047d3b31b5f96d4d6c78ec933bb05f3e6b..93892adaa679439bd87b0630cf9416b05c9d4536 100644
---- a/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
-+++ b/arch/arm64/boot/dts/exynos/google/gs101-pixel-common.dtsi
-@@ -109,6 +109,13 @@ pmic {
- 		system-power-controller;
- 		wakeup-source;
- 
-+		clocks {
-+			compatible = "samsung,s2mpg10-clk";
-+			#clock-cells = <1>;
-+			clock-output-names = "rtc32k_ap", "peri32k1",
-+					     "peri32k2";
-+		};
-+
- 		regulators {
- 		};
- 	};
-
----
-base-commit: 2b763d4652393c90eaa771a5164502ec9dd965ae
-change-id: 20251010-s2mpg10-clk-cbb8cb060c16
-
-Best regards,
--- 
-André Draszik <andre.draszik@linaro.org>
-
+Why do we need both (1) and (2)?
 
