@@ -4,95 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08F73CCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 14:55:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 19E99CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 14:56:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fSzNGvN8Odca+vaIJOa7B+9E5YxraxYKgj1v2RlgWfo=; b=A0YO68cpKRQ7iR+8Ts7ol0fuoX
-	fLFAE76HQ/nb2O+FKD42yqsQGyAlwoQWTYuJto8+uy7bFhhcWYuDTNOGpHEbE0weaJ4Q3i0261J1O
-	90UYdtyLT+Oj61EGPh7JzzrGoOW9JNIdFGtl6icDS6sTzFzmBc93Q2bx6ZbHvELvGVc1LK6FvbBQp
-	59iPD1ljY4Y2R5h+DLH1vzuhre0+rzTzs/KMaW7/3nhrJQ8GByWlOoNlN4jW0+Zm0WyafA1XvA8Bw
-	8NVnj4rYl+cqLFPBQ5Rx7zdcUV0XoRCYLOiwwJeC0hPwlfw8sUva0mQ9/b2Os8dNq3TrrgWZHyy9+
-	JtrBJnAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=u14/N400ai00fHVt2vd3J2VDGyko/X+Jvfxoof1W8ko=; b=4S9kj8Bap0iY/gJCE+KFueWGfO
+	pdfLrgM8aIIHnfsVaLFANLHyvITgC1gMdXr9nA7PKdan4ipqCjR5C62b1rwD1soSo4fvdFKNhlEqK
+	My06Dp8izN5oCAGPf+Fn0hs8vO5IZlbQ+BKusMHm8aGSmGsrQJsOqaSSshOOSi9oMZBmebS9W+FSn
+	lMWAcibSY6J1i68Af65hof0RCgdd+Cr7CHAJgHMMVc8D31mEtlZ14cSAbry9QOh0+IB7fId0b9Cmi
+	xAe5I+ts6XA0+IpXEGyXh6ISqPPmhAuolX68g4MgVVVVEcs78VGUWUdtFneYaCeofmWlY3RFCKXaw
+	nf7fVdEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7EWF-00000008juC-3ON1;
-	Fri, 10 Oct 2025 14:54:55 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1v7EY2-00000008kTl-3Wcc;
+	Fri, 10 Oct 2025 14:56:46 +0000
+Received: from mail-pf1-f177.google.com ([209.85.210.177])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7EWC-00000008jsV-3pQt
+	id 1v7EXy-00000008kSG-33RN
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 14:54:54 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-46e2e363118so18162205e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Oct 2025 07:54:52 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760108091; x=1760712891; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:from:to:cc:subject:date:message-id:reply-to;
-        bh=fSzNGvN8Odca+vaIJOa7B+9E5YxraxYKgj1v2RlgWfo=;
-        b=C0eJf1SjpsPPXSOnPWwEZ3RvYpTfUE6Dxv25+ynLVe0xub5sVlGhYdZfKocKSzUxM4
-         ZLmnMU/m0PyOjPUv3DKUqD1cMR9wbWtQXwv9l5StUUJOyvhe8OYEu6HrdfLnMYCx0zr9
-         txqUr61l/ThCqYXZa/sF71o8ErZuXa+6QC9VFEZOG3ejCAzRi0FrcqbtTDszwvHR3QTJ
-         inV9ZV5tz1+hqxrjzeDHHtHJiS7yOoOLYMVvEIjVPGZk3z7YpT0DQ15zhzPm3JOU3FjU
-         8V0OQw4dBvzoVPASVRK3bbZMD6F6mdZc0broEBlRUPr9IdjfHIq7AMT3OF3ZDtRoJZsT
-         TctQ==
+	Fri, 10 Oct 2025 14:56:45 +0000
+Received: by mail-pf1-f177.google.com with SMTP id d2e1a72fcca58-77615d93276so169298b3a.2
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Oct 2025 07:56:42 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760108091; x=1760712891;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+        d=1e100.net; s=20230601; t=1760108201; x=1760713001;
+        h=content-transfer-encoding:in-reply-to:organization:from
+         :content-language:references:cc:to:subject:user-agent:mime-version
+         :date:message-id:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=fSzNGvN8Odca+vaIJOa7B+9E5YxraxYKgj1v2RlgWfo=;
-        b=PGKLzOf/hn0pf4I+O3QxBP8bghDSq8VOwHTXAh/3ZB37tQ+wGyzHGv49AVj8Vh4Vf7
-         V0vUhKIOW7sV+mql/nKXq2+a+wRxMCVOY2HAjwt06xo//hfbrbMaHPHw537sHwBEI66Y
-         vm1/TgUh1UHvHwtEtxLvnvD0KS/VMoKb7S9IAxVOTwlKPZk23IhjebTA0w1+dn9ABQIA
-         8r2E1I+NnAPJp+GlrGc0A0nN3Zn7O/dwXydP4anGbRawxkvyRTPc9Pc8TDPei5Is+IX8
-         xjUXNfhQ1k9IBTt0O7wgFiYypHQUFD7molu2MniYi6otIfuIbYSXG8wiEklAoHoiO49K
-         imBw==
-X-Forwarded-Encrypted: i=1; AJvYcCU1epI0DKA0SVAeB36aUlCW94P4Pc8YhmqV45m2ZN9lg1M9G6HsexKU8UPM1bEzzkhVB2e9oArN2EVV/XfV7+Hz@lists.infradead.org
-X-Gm-Message-State: AOJu0YyCcQyOMnnXgOKBsjjJEhEXJBKfEtjTfaguCGhUTaEz4d/lZqqE
-	vHhYlBwnfcJvx5ilPg8qwFJKapP7nT3E25eqd64FhnuZPaiyBd6NSPT5
-X-Gm-Gg: ASbGncvo8pU6UpuOkGXdZJVh82dph+SYpNrZqllAz0kd6rwQWQhckk7l3a4JhASO/nW
-	VNVkcKvdfVpMlhUfwXHutXbEHtB6qQMqyhIXRlBAJ9S/4tbiBPYY5Q23+sun2CUHtxGedSk42Lk
-	PS9iMTW9GhwUgYpSpH1NBcj5qJFA6FrsQgkB7qdKzRCJ55/T3yhnHCO3Pew2l2ggSIxCddwcpNL
-	Jsbw/UJ8WE+BAc29rM/NwRKkTefOSNPpp3oR6baZmd8HuADsTb3qXIp5gkFtZWI3KEd06lCpRqL
-	+Vmkdj+8mSXlrpN44yst0zimUazxyNxD1oXlcf41Ld84oZJmCULsfW48JP+3AD/Ao4EhaNMbOoB
-	9F9ytygbInMK3BCl4uV0kX/0RV2QVgC7JfOygehsd6T5KiHd/KmdxdZsOKpW5nfjz3sNxYKz2hC
-	gLMHBGoF/qgM9HouC4/LDw3bkISUX7
-X-Google-Smtp-Source: AGHT+IEXkrDyUy97suKtDlq7eFA2ZJryfwfSk6MT1wtjJwB/9DlAxb8oq4wEf+SbzWkvD8LgIsrrzQ==
-X-Received: by 2002:a05:600c:3b0c:b0:46f:b42e:e391 with SMTP id 5b1f17b1804b1-46fb42ee4admr31215605e9.38.1760108090951;
-        Fri, 10 Oct 2025 07:54:50 -0700 (PDT)
-Received: from orome (p200300e41f28f500f22f74fffe1f3a53.dip0.t-ipconnect.de. [2003:e4:1f28:f500:f22f:74ff:fe1f:3a53])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46fb482b99fsm52826395e9.3.2025.10.10.07.54.49
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Oct 2025 07:54:49 -0700 (PDT)
-Date: Fri, 10 Oct 2025 16:54:48 +0200
-From: Thierry Reding <thierry.reding@gmail.com>
-To: Jon Hunter <jonathanh@nvidia.com>
-Cc: Marc Zyngier <maz@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
-	linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: IRQ thread timeouts and affinity
-Message-ID: <q2g5abyqniku2uxbjsndiwcidx5cqxbqaixcvdhkurupdnhu7q@pyhpxylwrtrs>
-References: <j7ikmaazu6hjzsagqqk4o4nnxl5wupsmpcaruoyytsn2ogolyx@mtmhqrkm4gbv>
- <86qzvcxi3j.wl-maz@kernel.org>
- <loeliplxuvek4nh4plt4hup3ibqorpiv4eljiiwltgmyqa4nki@xpzymugslcvf>
- <86o6qgxayt.wl-maz@kernel.org>
- <86ms60x7w7.wl-maz@kernel.org>
- <us2hfdn7jpfepdmwk2p62w64p7xagaeoemg3hdt2vm54emtwlv@m6fkuti7hvfa>
- <86bjmeyh5m.wl-maz@kernel.org>
- <c7bb79c1-c760-4b44-97c3-86e1c34fff40@nvidia.com>
+        bh=u14/N400ai00fHVt2vd3J2VDGyko/X+Jvfxoof1W8ko=;
+        b=bj5G7uxlCEigfUmjN5y+UHOS/hLoIfnTcct//Pxo6pV+4jDNRQV9hqtK4zxl779puo
+         H++NOzHDoYSEz4T+logWgnmmrO1AO4U+NT4+Kq2H39J4ouGP4gJhCh/w8Yz8Y7y+OSlc
+         GtQ3LGQ9XclcPIMa3U9h/aC226DCyAbD7FBAQo47UYR6QjF1eDOskm9Yrop2clCE+oWr
+         SlL/L/Q/fj7Qs157sIEWBn69Mp9nfNKatNrQj/4ayFcZw+5pQ2aMcqTbE0tM5/Tdkswk
+         spgr6JWPWnjKR8LyFoonmdAzpxUa1AUpXvlaDtwUngi83ax2Gm1g6B+zL9LORC/f9s8s
+         kWJQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXFvqFiL5D7cY3sE/HUnWk9cxi97kIp9YNKdgoK45Mr7+6q6YV3By78FAPPGXJGZvW16/tIGbpixQN6POtEes66@lists.infradead.org
+X-Gm-Message-State: AOJu0Ywzb9M+G6WpAnsvXv+CWWVjDlzgAdM9BJVC78+Ewc3RkGfyH5RT
+	VkDVsftKoWNj2e8SbmhgwwuuiYvqtOnWBl0NOHklVZvKIndJm49dGbhW
+X-Gm-Gg: ASbGncstqRPBv+grABzrIje85ciM9/hI80QpmJ2wnCXLpx8XotBvwx18SwXQnrXwadz
+	A1cPnUH7HM/+FIHR+7MeYBex69jmIV00cwBaRydsBjCcueOwJKSl6VlAsnDhv+WomunGVajtoWw
+	0HHW1ON14JZVsRcnWjrXV6KAm8nBJYAxdeytnm1NIXG9hUWJzSgx1bC8ZTAD+qa7kqJTkhzp6T6
+	dLF0uXVQvdxwJ0hfyU09spmvRRcWJ7phXeuxfDCXpozeaaOTUTx+evk1rksIhjwRrLT4U3Lbt/i
+	rZreQfOCtBn+jG7ApUgNz4ECZTWKnFoPdiQpyrmFiAVv00fRuMygSjucumvZqGw2TMb5tx7D/rd
+	TfxRKBIMydnJWNICI01TEjrXaLDUkvL8jpj9HN1gh0M9aNppVuZC/x+Kdm1JvW0dx9vVc8XP8TQ
+	Ts1DLef2Ya6FUo9qvJ7scCuSO2rFHUxOiktWEgZj448y1htA==
+X-Google-Smtp-Source: AGHT+IGKWpnWR6YqBmKsSfIMcNBcVWPGcNUFMQXbOJpvBadgaHtn89wm2K6tlg04cMPFDt3oWIIQGA==
+X-Received: by 2002:a05:6a00:1250:b0:781:1bf7:8c66 with SMTP id d2e1a72fcca58-79387c1ae19mr7895962b3a.7.1760108201302;
+        Fri, 10 Oct 2025 07:56:41 -0700 (PDT)
+Received: from [192.168.1.57] ([27.173.241.182])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7992b252f23sm3232472b3a.6.2025.10.10.07.56.36
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 10 Oct 2025 07:56:40 -0700 (PDT)
+Message-ID: <5b5d6f02-3161-4490-9652-e6d23e320a57@kzalloc.com>
+Date: Fri, 10 Oct 2025 23:56:34 +0900
 MIME-Version: 1.0
-Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="lamoghzxow5fsofh"
-Content-Disposition: inline
-In-Reply-To: <c7bb79c1-c760-4b44-97c3-86e1c34fff40@nvidia.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] arm64: cpufeature: Don't cpu_enable_mte() when
+ KASAN_GENERIC is active
+To: Will Deacon <will@kernel.org>
+Cc: Catalin Marinas <catalin.marinas@arm.com>,
+ James Morse <james.morse@arm.com>, Yeoreum Yun <yeoreum.yun@arm.com>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>,
+ Andrey Konovalov <andreyknvl@gmail.com>, Marc Zyngier <maz@kernel.org>,
+ Mark Brown <broonie@kernel.org>, Oliver Upton <oliver.upton@linux.dev>,
+ Ard Biesheuvel <ardb@kernel.org>, Andrey Ryabinin <ryabinin.a.a@gmail.com>,
+ Alexander Potapenko <glider@google.com>, Dmitry Vyukov <dvyukov@google.com>,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ kasan-dev@googlegroups.com
+References: <20251008210425.125021-3-ysk@kzalloc.com>
+ <CA+fCnZcknrhCOskgLLcTn_-o5jSiQsFni7ihMWuc1Qsd-Pu7gg@mail.gmail.com>
+ <d0fc7dd9-d921-4d82-9b70-bedca7056961@kzalloc.com>
+ <2b8e3ca5-1645-489c-9d7f-dd13e5fc43ed@kzalloc.com>
+ <aOj8KsntbVPRNBKL@willie-the-truck>
+Content-Language: en-US
+From: Yunseong Kim <ysk@kzalloc.com>
+Organization: kzalloc
+In-Reply-To: <aOj8KsntbVPRNBKL@willie-the-truck>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_075452_969117_B8B2E786 
-X-CRM114-Status: GOOD (  19.39  )
+X-CRM114-CacheID: sfid-20251010_075642_766204_563CA399 
+X-CRM114-Status: GOOD (  18.39  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,59 +103,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+Hi Will,
 
---lamoghzxow5fsofh
-Content-Type: text/plain; protected-headers=v1; charset=us-ascii
-Content-Disposition: inline
-Content-Transfer-Encoding: quoted-printable
-Subject: Re: IRQ thread timeouts and affinity
-MIME-Version: 1.0
+On 10/10/25 9:29 PM, Will Deacon wrote:
+> On Thu, Oct 09, 2025 at 08:10:53AM +0900, Yunseong Kim wrote:
+>> To summarize my situation, I thought the boot panic issue might be due
+>> to incompatibility between MTE and KASAN Generic, so I sent this patch.
+>>
+>> However, it seems that the problem is related to the call path involving
+>> ZERO page. Also, I am curious how it works correctly in other machine.
+>>
+>> On 10/9/25 7:28 AM, Yunseong Kim wrote:
+>>> Hi Andrey,
+>>>
+>>> On 10/9/25 6:36 AM, Andrey Konovalov wrote:
+>>>> On Wed, Oct 8, 2025 at 11:13 PM Yunseong Kim <ysk@kzalloc.com> wrote:
+>>>>> [...]
+>>>> I do not understand this. Why is Generic KASAN incompatible with MTE?
+>>>
+>>> My board wouldn't boot on the debian debug kernel, so I enabled
+>>> earlycon=pl011,0x40d0000 and checked via the UART console.
+>>>
+>>>> Running Generic KASAN in the kernel while having MTE enabled (and e.g.
+>>>> used in userspace) seems like a valid combination.
+>>>
+>>> Then it must be caused by something else. Thank you for letting me know.
+>>>
+>>> It seems to be occurring in the call path as follows:
+>>>
+>>> cpu_enable_mte()
+>>>  -> try_page_mte_tagging(ZERO_PAGE(0))
+>>>    -> VM_WARN_ON_ONCE(folio_test_hugetlb(page_folio(page)));
+>>>
+>>>  https://elixir.bootlin.com/linux/v6.17/source/arch/arm64/include/asm/mte.h#L83
+>>
+>>  -> page_folio(ZERO_PAGE(0))
+>>   -> (struct folio *)_compound_head(ZERO_PAGE(0))
+>>
+>>  https://elixir.bootlin.com/linux/v6.17/source/include/linux/page-flags.h#L307
+> 
+> Do you have:
+> 
+> https://git.kernel.org/pub/scm/linux/kernel/git/arm64/linux.git/commit/?id=f620d66af3165838bfa845dcf9f5f9b4089bf508
+> 
+> ?
+> 
+> Will
 
-On Fri, Oct 10, 2025 at 03:38:59PM +0100, Jon Hunter wrote:
->=20
-> On 10/10/2025 15:18, Marc Zyngier wrote:
->=20
-> ...
->=20
-> > CPU hotplug is the main area of concern, and I'm pretty sure it breaks
-> > this distribution mechanism (or the other way around). Another thing
-> > is that if firmware isn't aware that 1:N interrupts can (or should)
-> > wake-up a CPU from sleep, bad things will happen. Given that nobody
-> > uses 1:N, you can bet that any bit of privileged SW (TF-A,
-> > hypervisors) is likely to be buggy (I've already spotted bugs in KVM
-> > around this).
->=20
-> Thierry, do we ever hotplug CPUs on this device? If not, I am wondering if
-> something like this, for now, could only be enabled for devices that don't
-> hotplug CPUs. Maybe tied to the kernel config (ie. CONFIG_HOTPLUG_CPU)? J=
-ust
-> a thought ...
+Oh, There was a recent patch! Thanks a lot for letting me know, Will.
 
-I've only had limited exposure to this, so I don't know all of the use-
-cases. People can buy these devices and do anything they want with it,
-so I think we have to account for the general case.
+The current Debian kernel is based on v6.17, so this patch isn’t applied yet.
+I should also let the Debian kernel team people know in advance.
 
-Thierry
+I’ll apply and test it, Thanks again, Will!
 
---lamoghzxow5fsofh
-Content-Type: application/pgp-signature; name="signature.asc"
+Best regards,
+Yunseong
 
------BEGIN PGP SIGNATURE-----
-
-iQIzBAABCgAdFiEEiOrDCAFJzPfAjcif3SOs138+s6EFAmjpHjQACgkQ3SOs138+
-s6GxLBAAopBt0WNEut1yocnXx82oxmvWddArsqmrMJnBQ6mqe9JJGWc4O6e2pNR6
-+732iu5IcFLfZFG4+XkkUD844lfy+hlvz60KQX+2/0jTZ76TS5S7bZAhD6Zu2lWp
-wBoZnJdoWG9nfElAiVcXC6P7HKlxt9zlYDqFfJSi2+PV6cGTNnTu+OtQCzsO05Z6
-ywktFlU5r2DFr8NWqaxcfPWOkvx2yAJhDAuJ2FbiSsmknSN/Ot4A3uw5jRMsWoZ9
-VuPjsJGVo0FQTJxFkMaP2Cm+vNSciLe0UM9Bfe5yxV6epJz+NjgLuRxCRL/6Tr9S
-SP5BUtsXwfHt1eIQjuiHD+q8rXOmrRZ7K+yQ58BicIATTTV6kQZkTFT2mWpp/5tN
-ksNlZ4ylBuKM5hks00q8TtoHeazb+QHuAoq9SMuGC59fsYOgn0V93TN17PSQY2rP
-tWuDZ9Ok+viij4T8PyNeAEZU4xK0Cff/maiIRtdtwtI//QLjl/gJN7Yw4JU4UuxB
-4/8UG0usLACCbHGyq15eNa31zvUUbxLcHpJXIoHTqYTRuzKeVZ/+aeO23YBUNogz
-SBwhWJijs3OpKnwsK31CfX+dHnJeI1RxvNpQXjpF2zDcHafaCdzrZAgpfOug6q5F
-gWX/MeIEbRhEPD5iojBNQYYmLj9ey4BwZG4GlVTlMhJC7VTNz7A=
-=EfpF
------END PGP SIGNATURE-----
-
---lamoghzxow5fsofh--
 
