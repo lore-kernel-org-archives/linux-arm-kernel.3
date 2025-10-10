@@ -4,89 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6C6E8CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 20:26:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7921BCCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 20:33:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:References:Mime-Version:In-Reply-To:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pPKjmK8IL0hIKWSuz78Dkqskm1BmzhLo3RxKx9xEcm8=; b=gRlNc1sfl1akuzSC7ZpTk6VnsB
-	9b37sjc2C8+gaQwzlai/W/dgWsUXxtGptLnxpZGciS82+mDzljB36zS4IJjR5v3DC/iBG7lVAWZAq
-	ZLkRzppB+EOWvYMRfj0DL4L6FykLVHux2Z2NWQBK6vbHuH+Y5xLIFlxXdMffjGZqQv5E2ceqz0xzd
-	NWze04fRhUe1Ab5/2cVh8eBglyGOG7zj2HAztH//KPidkEQLnd7cmeTmHb3MSKPYlzlDYo9nkYdsS
-	sm9Yk4cceHsbp5YHmwYTEBCAH8vX3U3UT+9nOsZ6ZmhOnMTnGoMz8j2Hp2pZvKmCRsMrfqs1W0MWu
-	pBnhvUOA==;
+	bh=L4WKjl2E9WbuIFhs5JLmpEcHpxZyN+nyEAJYdJG5kGQ=; b=uZK76kfEhm93uFJrpQ3j6Ou6uC
+	fCjD2m65vhtNzUMsTN9kmneLGiT3N6H0S63lXZfyjx+K57KfTGqG7CQ3kTBicYkfM787ovuHjf+D5
+	giKtsECuBRoZwuLeFPHq0auDU/jZ/HSsWZkBRkPuJRWi0gUU8bhqoFU6umHZ7w1omtwxduo+9ASOQ
+	tb8+7c15isRawoyFlQCsCFoj2ge/OgUUl4xwFX3TGdsNpCZp0satP5CRLESd5vm6sNU5rpgYruNgW
+	M4EobZmAyK3v/NkkZHu77WSQ288rhN9fvJBVkEuAOIQcNNtEiC5rmnIvVKfFJG1mgfzjuTQC7vIf5
+	vzv5Lubw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7Jh7-00000009JZh-3b82;
-	Fri, 10 Oct 2025 20:26:29 +0000
-Received: from mgamail.intel.com ([192.198.163.13])
+	id 1v7Jnj-00000009Jz1-3Jp3;
+	Fri, 10 Oct 2025 20:33:19 +0000
+Received: from mail-pl1-x64a.google.com ([2607:f8b0:4864:20::64a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7Jh5-00000009JZK-09TN
+	id 1v7Jnh-00000009Jyf-1F2V
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 20:26:28 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1760127987; x=1791663987;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=AscKgj05BtJh9IDBr3hGSKSH55FRqss4Bu8m5A4Qt98=;
-  b=W5m/ACAIQ4ncsE5THaX4vwN3w8NwhqKl8cTxoV6K/WU1wDUWF07p1bgS
-   HEZSvylzwp9Balhl6U3kgjlHFeJOH3wZ5sdl0SzJq3K3eFYfp3V5DdGJ8
-   WcXgjdjx1Fy9FsvpKT3fKS0I74q5KtuPGV8px7BNYDnIvXkFvroH7A1Qd
-   GGAD2ovM6q25EJfB8uZWwPfwXPnXqAd0V4jwkxnFOqkuIGtr9+LNpos9s
-   ase7EYOBXUoxaaLkVQ3Ij/6g6wYNzDd/c6BSd6RQUzcs3GcQydpainuR2
-   ylxYTzqvmYrRhYWUqbTriQHBnvCNgcq8iv0aDmCd4SZPByTFeH2WYBlfG
-   Q==;
-X-CSE-ConnectionGUID: 8rgG//ArQ9aPVMSgkKoZ+g==
-X-CSE-MsgGUID: JE0DLTZQTsmVmg1WDB1hkA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11578"; a="64974408"
-X-IronPort-AV: E=Sophos;i="6.19,220,1754982000"; 
-   d="scan'208";a="64974408"
-Received: from fmviesa006.fm.intel.com ([10.60.135.146])
-  by fmvoesa107.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Oct 2025 13:26:26 -0700
-X-CSE-ConnectionGUID: Fhe87ZQLTb6TwXu4exd1Hg==
-X-CSE-MsgGUID: kEAcKQVcRpKmqg4V6RHnnQ==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,220,1754982000"; 
-   d="scan'208";a="181010994"
-Received: from lkp-server01.sh.intel.com (HELO 6a630e8620ab) ([10.239.97.150])
-  by fmviesa006.fm.intel.com with ESMTP; 10 Oct 2025 13:26:21 -0700
-Received: from kbuild by 6a630e8620ab with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1v7Jgx-000391-0y;
-	Fri, 10 Oct 2025 20:26:19 +0000
-Date: Sat, 11 Oct 2025 04:25:35 +0800
-From: kernel test robot <lkp@intel.com>
-To: James Calligeros <jcalligeros99@gmail.com>,
-	Sven Peter <sven@kernel.org>, Janne Grunau <j@jannau.net>,
-	Alyssa Rosenzweig <alyssa@rosenzweig.io>,
-	Neal Gompa <neal@gompa.dev>, Lee Jones <lee@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>,
-	Jean Delvare <jdelvare@suse.com>,
-	Guenter Roeck <linux@roeck-us.net>,
-	Dmitry Torokhov <dmitry.torokhov@gmail.com>,
-	Jonathan Corbet <corbet@lwn.net>
-Cc: oe-kbuild-all@lists.linux.dev, asahi@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-rtc@vger.kernel.org,
-	linux-hwmon@vger.kernel.org, linux-input@vger.kernel.org,
-	linux-doc@vger.kernel.org
-Subject: Re: [PATCH v3 06/13] hwmon: Add Apple Silicon SMC hwmon driver
-Message-ID: <202510110421.ZnJdu1ds-lkp@intel.com>
-References: <20251007-macsmc-subdevs-v3-6-d7d3bfd7ae02@gmail.com>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251007-macsmc-subdevs-v3-6-d7d3bfd7ae02@gmail.com>
+	Fri, 10 Oct 2025 20:33:18 +0000
+Received: by mail-pl1-x64a.google.com with SMTP id d9443c01a7336-269939bfccbso56374995ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Oct 2025 13:33:16 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1760128396; x=1760733196; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:from:to:cc:subject:date:message-id:reply-to;
+        bh=L4WKjl2E9WbuIFhs5JLmpEcHpxZyN+nyEAJYdJG5kGQ=;
+        b=JdSZEGVcNNOVU1UZog8qgPMd2WwS5OjsineZXHya24ClvCPZRwWNxFkZwTeRRjPdoN
+         LwX7z18jol2nQdVVkU1AzaJGTd0ziPao15hhbXduxTjwiI2aRTPqhmyrGqXK7uxy2xsm
+         rmgZ40NrG1WO6rfuLFxD9Tgn+88aUcduSBSw95jaKDmE3d+hkO4aaBbYgWZbRmlGiTmy
+         jR07oqM4kQZuU0tfv1A84BwFcAhM5o7zjfODy7dFeO+pQSiw26MyrQFZEcAKnwGNU5Yr
+         VWTU8Hquk1Xf3Q+SYzmn1aIps0ZYk4AKcbtzGLmkBS9DleSHinxXZxV7RZW+mSJmGn0k
+         y83Q==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760128396; x=1760733196;
+        h=cc:to:from:subject:message-id:references:mime-version:in-reply-to
+         :date:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=L4WKjl2E9WbuIFhs5JLmpEcHpxZyN+nyEAJYdJG5kGQ=;
+        b=KxI+Sg82UsCMmAO21ya7rXBNZzcSbmJ3XuU261ISyDZzCdv0spPOIEv4yvTA5m7YPb
+         eUzGaQauPB0KgFJtJ3qMN21737p3qEN66xlWmMohZdcClun/7EW55kmgSNhaljO12OP5
+         ZPn7RGhhP6SffUOCyaveEn2jBlWFlbabBrvaWRK7rY2PLFNJ9GFAkjTwUeN0te+6Xzz6
+         7JbYL9q7oZH9EDc2ymhPQTtoWFfKA3EJNfLEjaQoqAoprYAu9JevG7Xn09tGc5K7nyp2
+         Z2cbxUC5gsNETUt/eivOwZIwiPtr+kRXks0520cV8dvFrh1/7eQLkdr98XQAzNcKhvcx
+         jN6Q==
+X-Forwarded-Encrypted: i=1; AJvYcCWmg26qA95KwfLALJ/pTG+b9j3Gx9Tc4n3rRT+wzeG9lWI4NMBsDbXlpzEcCFxI/y95f5w3gcG+bWlLJgsgXAVc@lists.infradead.org
+X-Gm-Message-State: AOJu0Yy4YTIoSwK/k0jaJ43qtiq/dHKUgYH90D6s69y3Q894uaDZ8uyv
+	MNDeYRpFbaOH8iKLNdi0U5KT9Nsnr5awNf63/i/Vu7/gjAEsbYbE8SXGqCBZfXtcf0h8aIEj9Am
+	Pu20FNQ==
+X-Google-Smtp-Source: AGHT+IHFcGHBjt5WD8SXsC1G25bD9P3AfNkPCXsvq/nAV+y/iv/KTrwq4V0pmquBSd24rCSDN6ZBdmCxlM8=
+X-Received: from plpo9.prod.google.com ([2002:a17:903:3e09:b0:27e:ed03:b5a5])
+ (user=seanjc job=prod-delivery.src-stubby-dispatcher) by 2002:a17:903:3bc7:b0:269:8404:9a6b
+ with SMTP id d9443c01a7336-2902741e466mr159655195ad.57.1760128395608; Fri, 10
+ Oct 2025 13:33:15 -0700 (PDT)
+Date: Fri, 10 Oct 2025 13:33:14 -0700
+In-Reply-To: <e9bd02ba-ff0e-47a3-a12e-9a53717dde9b@amd.com>
+Mime-Version: 1.0
+References: <20251007221420.344669-1-seanjc@google.com> <20251007221420.344669-6-seanjc@google.com>
+ <diqzo6qfhgc9.fsf@google.com> <e9bd02ba-ff0e-47a3-a12e-9a53717dde9b@amd.com>
+Message-ID: <aOltikRvKzCy1DXN@google.com>
+Subject: Re: [PATCH v12 05/12] KVM: guest_memfd: Enforce NUMA mempolicy using
+ shared policy
+From: Sean Christopherson <seanjc@google.com>
+To: Shivank Garg <shivankg@amd.com>
+Cc: Ackerley Tng <ackerleytng@google.com>, Marc Zyngier <maz@kernel.org>, 
+	Oliver Upton <oliver.upton@linux.dev>, Paolo Bonzini <pbonzini@redhat.com>, 
+	linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, 
+	kvm@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	David Hildenbrand <david@redhat.com>, Fuad Tabba <tabba@google.com>, Ashish Kalra <ashish.kalra@amd.com>, 
+	Vlastimil Babka <vbabka@suse.cz>
+Content-Type: text/plain; charset="us-ascii"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_132627_141406_DE5EA7FD 
-X-CRM114-Status: GOOD (  12.42  )
+X-CRM114-CacheID: sfid-20251010_133317_340135_C0C99DF1 
+X-CRM114-Status: GOOD (  21.18  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,66 +94,66 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi James,
+On Fri, Oct 10, 2025, Shivank Garg wrote:
+> >> @@ -112,6 +114,19 @@ static int kvm_gmem_prepare_folio(struct kvm *kvm, struct kvm_memory_slot *slot,
+> >>  	return r;
+> >>  }
+> >>  
+> >> +static struct mempolicy *kvm_gmem_get_folio_policy(struct gmem_inode *gi,
+> >> +						   pgoff_t index)
+> > 
+> > How about kvm_gmem_get_index_policy() instead, since the policy is keyed
+> > by index?
 
-kernel test robot noticed the following build errors:
+But isn't the policy tied to the folio?  I assume/hope that something will split
+folios if they have different policies for their indices when a folio contains
+more than one page.  In other words, how will this work when hugepage support
+comes along?
 
-[auto build test ERROR on c746c3b5169831d7fb032a1051d8b45592ae8d78]
+So yeah, I agree that the lookup is keyed on the index, but conceptually aren't
+we getting the policy for the folio?  The index is a means to an end.
 
-url:    https://github.com/intel-lab-lkp/linux/commits/James-Calligeros/dt-bindings-rtc-Add-Apple-SMC-RTC/20251010-092141
-base:   c746c3b5169831d7fb032a1051d8b45592ae8d78
-patch link:    https://lore.kernel.org/r/20251007-macsmc-subdevs-v3-6-d7d3bfd7ae02%40gmail.com
-patch subject: [PATCH v3 06/13] hwmon: Add Apple Silicon SMC hwmon driver
-config: sparc-allmodconfig (https://download.01.org/0day-ci/archive/20251011/202510110421.ZnJdu1ds-lkp@intel.com/config)
-compiler: sparc64-linux-gcc (GCC) 15.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251011/202510110421.ZnJdu1ds-lkp@intel.com/reproduce)
+> >> +{
+> >> +#ifdef CONFIG_NUMA
+> >> +	struct mempolicy *mpol;
+> >> +
+> >> +	mpol = mpol_shared_policy_lookup(&gi->policy, index);
+> >> +	return mpol ? mpol : get_task_policy(current);
+> > 
+> > Should we be returning NULL if no shared policy was defined?
+> > 
+> > By returning NULL, __filemap_get_folio_mpol() can handle the case where
+> > cpuset_do_page_mem_spread().
+> > 
+> > If we always return current's task policy, what if the user wants to use
+> > cpuset_do_page_mem_spread()?
+> > 
+> 
+> I initially followed shmem's approach here.
+> I agree that returning NULL maintains consistency with the current default
+> behavior of cpuset_do_page_mem_spread(), regardless of CONFIG_NUMA.
+> 
+> I'm curious what could be the practical implications of cpuset_do_page_mem_spread()
+> v/s get_task_policy() as the fallback?
 
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202510110421.ZnJdu1ds-lkp@intel.com/
+Userspace could enable page spreading on the task that triggers guest_memfd
+allocation.  I can't conjure up a reason to do that, but I've been surprised
+more than once by KVM setups.
 
-All errors (new ones prefixed by >>):
+> Which is more appropriate for guest_memfd when no policy is explicitly set
+> via mbind()?
 
-   drivers/hwmon/macsmc-hwmon.c: In function 'macsmc_hwmon_write_f32':
->> drivers/hwmon/macsmc-hwmon.c:246:24: error: implicit declaration of function 'FIELD_PREP' [-Wimplicit-function-declaration]
-     246 |                 fval = FIELD_PREP(FLT_SIGN_MASK, neg) |
-         |                        ^~~~~~~~~~
+I don't think we need to answer that question?  Userspace _has_ set a policy,
+just through cpuset, not via mbind().  So while I can't imagine there's a sane
+use case for cpuset_do_page_mem_spread() with guest_memfd, I also don't see a
+reason why KVM should effectively disallow it.
 
+And unless I'm missing something, allocation will eventually fallback to
+get_task_policy() (in alloc_frozen_pages_noprof()), so by explicitly getting the
+task policy in guest_memfd, KVM is doing _more_ work than necessary _and_ is
+unnecessarily restricting usersepace.
 
-vim +/FIELD_PREP +246 drivers/hwmon/macsmc-hwmon.c
-
-   225	
-   226	static int macsmc_hwmon_write_f32(struct apple_smc *smc, smc_key key, int value)
-   227	{
-   228		u64 val;
-   229		u32 fval = 0;
-   230		int exp = 0, neg;
-   231	
-   232		val = abs(value);
-   233		neg = val != value;
-   234	
-   235		if (val) {
-   236			int msb = __fls(val) - exp;
-   237	
-   238			if (msb > 23) {
-   239				val >>= msb - FLT_MANT_BIAS;
-   240				exp -= msb - FLT_MANT_BIAS;
-   241			} else if (msb < 23) {
-   242				val <<= FLT_MANT_BIAS - msb;
-   243				exp += msb;
-   244			}
-   245	
- > 246			fval = FIELD_PREP(FLT_SIGN_MASK, neg) |
-   247			       FIELD_PREP(FLT_EXP_MASK, exp + FLT_EXP_BIAS) |
-   248			       FIELD_PREP(FLT_MANT_MASK, val);
-   249		}
-   250	
-   251		return apple_smc_write_u32(smc, key, fval);
-   252	}
-   253	
-
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+Add in that returning NULL would align this code with the ->get_policy hook (and
+could be shared again, I assume), and my vote is definitely to return NULL and
+not get in the way.
 
