@@ -4,50 +4,49 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 60FC9CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 12:44:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 78F95CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 12:46:01 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WRDhvxlklDUFfymaKLkP8xWkL9eHvnFoYDMtCTb8BLs=; b=CVrCX2Zy+ZlYdD9BtDR+K6cUdB
-	/9zY2jO0WAbPiez/O5HQRgtyVurheozQQ7xq9D6bxMCA+VwLvhXQP2955Ll8U/7lGUtl24biMewhk
-	Bq1nDF8c0afRVU0uALJIfpDtkj3oWTe7+tL1o/jhDvCycCWbihkbXdDFApIRI7Rk5/cfbcl8G8CSA
-	wDHeDKhHLKWCxXXxyaDAin82ebWyKFV8ggd1Gr5vg60aCItWB81RzuBYpN6mvwJ00KNiFYDqX+BrS
-	hM1oUS6pHz0hDkSMUehKqhjU2o0JsGHn05jaycyY1VNaasLWVHEAcHTIHvgNTXJKcu9ELcN4wJjAd
-	LrBM1pMg==;
+	bh=0H+28dzb8tb6hO10/0o+vOcLK4yWz5y3ACLHae9INxk=; b=mbzGt6bMhbNiech0N6w3PuUWDo
+	8L+IyUWLyOUFh+jffy3OxhBjKiCIqDFGc4hKkEmwwujJ/dlwmxFbQpODNLxWhkcCgCke7OctO+TIZ
+	LYjIyq/UAnnIEyMW1FXFkcEoGi14+VAeNhAK+iNlENOE35B9Ir8yH6Ily7EzSmLOfG2KgcsS8+d5r
+	+Oqge4cwIJzKStm1H682ecwCeWBkSX+TPDkV1H/C+cekXHVVlYK9zQjoNyngJXhm8Osz0SRMNsya0
+	DJiu7izeON060Nxbdpfo0s4jxLcIQ+cILD4cvgxWjqSxtm5sMk7bd8BFunbB1p7R7VJcskT8B/WjO
+	2flpzPfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7CTh-00000008TRf-2HPj;
-	Fri, 10 Oct 2025 12:44:09 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v7CVP-00000008TgU-231t;
+	Fri, 10 Oct 2025 12:45:55 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7CTf-00000008TRT-2fGx
+	id 1v7CVO-00000008TgM-1ODi
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 12:44:07 +0000
+	Fri, 10 Oct 2025 12:45:54 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C8DD260139;
-	Fri, 10 Oct 2025 12:44:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0B1BAC4CEF1;
-	Fri, 10 Oct 2025 12:44:00 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BB1ED60139;
+	Fri, 10 Oct 2025 12:45:53 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 2E909C4CEF9;
+	Fri, 10 Oct 2025 12:45:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760100246;
-	bh=z2CL8cErF6RjRybkPU3ycPqkynLp0+MowYCPJIFtBmQ=;
+	s=k20201202; t=1760100353;
+	bh=6iO2HOO+p8AuKfTDEjhESQvdQrqHK4X+aOwnAUvg0lE=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=PotMFbUvN4s0rfa+VOVFapAiP5CNN/McqucE7q+rhsH6MX/c6QPkt9uaJHH7Bb74E
-	 PAq9qG5j+rtxYZoKNNNtSr2zPbpYiJj5G8+V3d5vW5S4AfSQspt997PKTCRPauVv3k
-	 Q07iLgFEH2hYOAMw9zjELJDIh60fZoOXAuw3m/eoCm4qwMuztQ4lPJ3qXg3fhWfOd8
-	 HBli4dnplxAILMh4jod2E76n0/dEUylTixIPI68fSx1Q3ZfLGK1ubUDSivH5ziMC/Y
-	 q7zhM4Lm6XgH+AHu2eU5xSWl0IFnq8B1qTlMM8WfGC4YUHcR+t4SrpUIC3tJLlH5P0
-	 hP2pMdkrLNw8Q==
-Message-ID: <5747ce14-2963-4c5f-b43b-5437807cfb11@kernel.org>
-Date: Fri, 10 Oct 2025 14:43:59 +0200
+	b=N/5prysjhDbZuE7GsXDqNwkLhm6ptSBp1/lDPkW9mdmH78tctCdwzPp8S+Iok7Ykq
+	 EgGXMMGuwUmbGakfJb2PKLa7T//ilQMZ1Rxd/8zJPQySWtmMi3FpK4v7DxNAFvdbp9
+	 h3jj5GmbBaT6muG+0nGM/fuuVhlZ3qr9+EYi6C+OT3650ob3NHk7kVwZzi2hkBkcJK
+	 KjqItfY2idORIjrsGFcAUoensbXteL7Lh/adBCVbIdUYX0fiqTHuGamm7RvK7r1hBl
+	 CYnV/o0h0O9E31MSAAeicdAGd4jpi7HoovxrooKklBaJmLu4t7Hi2CpzMfljqaYgTj
+	 yl2Y8Lo24jLIQ==
+Message-ID: <65380fa1-7d49-48eb-bab4-3e15cc4ea434@kernel.org>
+Date: Fri, 10 Oct 2025 14:45:47 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v6 1/3] dt-bindings: thermal: samsung: Adjust
- '#thermal-sensor-cells' to 1
+Subject: Re: [PATCH v6 3/3] arm64: dts: exynosautov920: Add multiple sensors
 To: Shin Son <shin.son@samsung.com>,
  Bartlomiej Zolnierkiewicz <bzolnier@gmail.com>,
  "Rafael J . Wysocki" <rafael@kernel.org>,
@@ -59,8 +58,8 @@ Cc: linux-pm@vger.kernel.org, linux-samsung-soc@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
  linux-kernel@vger.kernel.org
 References: <20250930005139.1424963-1-shin.son@samsung.com>
- <CGME20250930005147epcas2p2622ff5fdbffc045bbd625e3e60db8118@epcas2p2.samsung.com>
- <20250930005139.1424963-2-shin.son@samsung.com>
+ <CGME20250930005148epcas2p19ffbb0ceaacac4d92e7d43936884dc70@epcas2p1.samsung.com>
+ <20250930005139.1424963-4-shin.son@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -106,7 +105,7 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20250930005139.1424963-2-shin.son@samsung.com>
+In-Reply-To: <20250930005139.1424963-4-shin.son@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-BeenThere: linux-arm-kernel@lists.infradead.org
@@ -124,43 +123,19 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 30/09/2025 02:51, Shin Son wrote:
->          reg:
->            minItems: 1
->            maxItems: 1
-> +        '#thermal-sensor-cells':
-> +          const: 0
-> +
-> +  - if:
-> +      properties:
-> +        compatible:
-> +          contains:
-> +            const: samsung,exynosautov920-tmu
-> +    then:
-> +      properties:
-> +        clocks:
-> +          minItems: 1
-
-You can drop minItems. Existing binding has it unnecessarily.
-
-> +          maxItems: 1
-
-You also need clock-names restriction, just like clocks or just ": false".
-
-> +        reg:
-> +          minItems: 1
-
-This also drop.
-
-> +          maxItems: 1
-> +        '#thermal-sensor-cells':
-> +          const: 1
+> diff --git a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
+> index 0fdf2062930a..fba403e48aed 100644
+> --- a/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
+> +++ b/arch/arm64/boot/dts/exynos/exynosautov920.dtsi
+> @@ -330,6 +330,36 @@ watchdog_cl1: watchdog@10070000 {
+>  			samsung,cluster-index = <1>;
+>  		};
 >  
+> +		tmu_top: tmu@100a0000 {
+> +			compatible = "samsung,exynosautov920-tmu";
+> +			reg = <0x100A0000 0x1000>;
 
-
-Rest looks fine, so with changes above:
-
-
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+I guess there will be new version, so nitpick: please use lowercase hex.
 
 
 Best regards,
