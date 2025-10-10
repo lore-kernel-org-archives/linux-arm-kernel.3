@@ -4,86 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6CC86CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 07:01:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42696CCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 07:25:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:In-Reply-To:Message-Id:Date:Subject:Cc
-	:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=R/eGbN5Fg/eXJwLtWY69+DHZ7EdmZPibZT4zZP/qJG8=; b=ZJHmsVKqayTzupl/DOOstwyljs
-	I5ZoABsQEMy7fldePy5eXi0MY4+PEjKZlwoyJd4pD/63L1TNYmmhZP/0kjFInhfy/JHcXXyvLRNUW
-	43GxuwHzl09F/VlaPx4VCVVpznPWH97OcSHia55hzms+FqNXvBZwhhobHtU4iU6p4q69A9m4Vfvf8
-	OB28eHz1sqRKK8hw8lW7sHkzdGFw0sjQqGURYzvoNzY0XhZ3xb/JXhKSDIZ35qp8MlfvyOhEYf+sz
-	3ttrTSgqF4Qw8D6P9p05EZ3WsU8D/VWaG8yZf+gnEK2OJj/d4SrgTmWN0cpkZwp3xlCM1Y+iC1ylW
-	AV3XWhEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:To:From:
+	Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=kZSdqxwXZFanATvPiLhH6l9a+7fShJ8YgGta7Fu8GJY=; b=yqOOAV3ndquFv4
+	owLKD7jGA7NAuJv0km8Xo6ofTj/NmGJmBb5InZAVeTi7G2533UGLVQsXr9LxN1DE7lY9HyGx5BQgF
+	CNRrWQFgC4wNfCaJPAPHWsP/ka/ayhSHIcBA5+QOuh4HkjwrK0DbPlmhBaLCVYxHMLo1f/5bd/Xtc
+	RvS5AddoZa5Qp4vbvbqbqypywzEiplZY5AI8Ejgsgxl5T44RYyofSqczbnBS55WbQnQav9VVXUh24
+	2NHX4WVFUqJej3PPUTmhs5UAfcGZZpN1jc8egUD84EAdyVNQ/oCjWtowQS4RCKv9efDGYpuxPFj/k
+	scrGp08kypJFdW2p/aIg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v777r-00000007oGc-1KxS;
-	Fri, 10 Oct 2025 07:01:15 +0000
-Received: from mailout1.samsung.com ([203.254.224.24])
+	id 1v77Vg-00000007rCI-0neZ;
+	Fri, 10 Oct 2025 07:25:52 +0000
+Received: from mail.aspeedtech.com ([211.20.114.72] helo=TWMBX01.aspeed.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v777n-00000007oCA-3CIF
+	id 1v77Vd-00000007rBP-3ORM
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 07:01:14 +0000
-Received: from epcas5p2.samsung.com (unknown [182.195.41.40])
-	by mailout1.samsung.com (KnoxPortal) with ESMTP id 20251010070109epoutp01ae5f9c0de2ed7440a3f6ba0826d099d3~tDyJSJoSw2433324333epoutp01K
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Oct 2025 07:01:09 +0000 (GMT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.samsung.com 20251010070109epoutp01ae5f9c0de2ed7440a3f6ba0826d099d3~tDyJSJoSw2433324333epoutp01K
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
-	s=mail20170921; t=1760079669;
-	bh=R/eGbN5Fg/eXJwLtWY69+DHZ7EdmZPibZT4zZP/qJG8=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=cCvKy9hl9uJ4ptabLw7crqdrbJlYdhD+Okya6Jk6SDKdhsClrj7HLopHReEtpIdld
-	 UOmRJIgIjs16hJEtfB8RmEQuN4Gon7j4kQqAg2bgZbd9n8ddqWlcPXWI/pun8EuYtj
-	 a8pSl6JKecvETpq56YsNY32thrYvvzIJFa726ttg=
-Received: from epsnrtp04.localdomain (unknown [182.195.42.156]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPS id
-	20251010070108epcas5p2b29ccfabb1607e728a77840b46fb45c3~tDyIhfS9v1385313853epcas5p2z;
-	Fri, 10 Oct 2025 07:01:08 +0000 (GMT)
-Received: from epcas5p3.samsung.com (unknown [182.195.38.93]) by
-	epsnrtp04.localdomain (Postfix) with ESMTP id 4cjd1v4Yf7z6B9mC; Fri, 10 Oct
-	2025 07:01:07 +0000 (GMT)
-Received: from epsmtip2.samsung.com (unknown [182.195.34.31]) by
-	epcas5p2.samsung.com (KnoxPortal) with ESMTPA id
-	20251010070106epcas5p2a7e051ce5edc0768e5a5d3b3c267f984~tDyG5MP8o1386613866epcas5p2f;
-	Fri, 10 Oct 2025 07:01:06 +0000 (GMT)
-Received: from bose.samsungds.net (unknown [107.108.83.9]) by
-	epsmtip2.samsung.com (KnoxPortal) with ESMTPA id
-	20251010070102epsmtip25b0ff5aaea0cdbb6ca0b5894a2f8d5f4~tDyCtK3vG0785207852epsmtip2u;
-	Fri, 10 Oct 2025 07:01:02 +0000 (GMT)
-From: Pritam Manohar Sutar <pritam.sutar@samsung.com>
-To: vkoul@kernel.org, kishon@kernel.org, robh@kernel.org,
-	krzk+dt@kernel.org, conor+dt@kernel.org, alim.akhtar@samsung.com,
-	andre.draszik@linaro.org, peter.griffin@linaro.org, kauschluss@disroot.org,
-	johan@kernel.org, ivo.ivanov.ivanov1@gmail.com, m.szyprowski@samsung.com,
-	s.nawrocki@samsung.com, pritam.sutar@samsung.com
-Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
-	dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
-	selvarasu.g@samsung.com
-Subject: [PATCH v9 6/6] phy: exynos5-usbdrd: support SS combo phy for
- ExynosAutov920
-Date: Fri, 10 Oct 2025 12:39:12 +0530
-Message-Id: <20251010070912.3758334-7-pritam.sutar@samsung.com>
+	Fri, 10 Oct 2025 07:25:51 +0000
+Received: from TWMBX01.aspeed.com (192.168.0.62) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1748.10; Fri, 10 Oct
+ 2025 15:25:40 +0800
+Received: from twmbx02.aspeed.com (192.168.10.13) by TWMBX01.aspeed.com
+ (192.168.0.62) with Microsoft SMTP Server id 15.2.1748.10 via Frontend
+ Transport; Fri, 10 Oct 2025 15:25:40 +0800
+From: Ryan Chen <ryan_chen@aspeedtech.com>
+To: ryan_chen <ryan_chen@aspeedtech.com>, Brian Masney <bmasney@redhat.com>,
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+	Philipp Zabel <p.zabel@pengutronix.de>, Joel Stanley <joel@jms.id.au>,
+	"Andrew Jeffery" <andrew@codeconstruct.com.au>, Rob Herring
+	<robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	<conor+dt@kernel.org>, <linux-clk@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-aspeed@lists.ozlabs.org>,
+	<devicetree@vger.kernel.org>, <linux-kernel@vger.kernel.org>, Mo Elbadry
+	<elbadrym@google.com>, "Rom Lemarchand" <romlem@google.com>, William
+ Kennington <wak@google.com>, "Yuxiao Zhang" <yuxiaozhang@google.com>,
+	<wthai@nvidia.com>, <leohu@nvidia.com>, <dkodihalli@nvidia.com>,
+	<spuranik@nvidia.com>
+Subject: [PATCH v15 0/3] Add support for AST2700 clk driver
+Date: Fri, 10 Oct 2025 15:25:37 +0800
+Message-ID: <20251010072540.666673-1-ryan_chen@aspeedtech.com>
 X-Mailer: git-send-email 2.34.1
-In-Reply-To: <20251010070912.3758334-1-pritam.sutar@samsung.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-CMS-MailID: 20251010070106epcas5p2a7e051ce5edc0768e5a5d3b3c267f984
-X-Msg-Generator: CA
-Content-Type: text/plain; charset="utf-8"
-CMS-TYPE: 105P
-cpgsPolicy: CPGSC10-542,Y
-X-CFilter-Loop: Reflected
-X-CMS-RootMailID: 20251010070106epcas5p2a7e051ce5edc0768e5a5d3b3c267f984
-References: <20251010070912.3758334-1-pritam.sutar@samsung.com>
-	<CGME20251010070106epcas5p2a7e051ce5edc0768e5a5d3b3c267f984@epcas5p2.samsung.com>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_000112_120310_9A1C0792 
-X-CRM114-Status: GOOD (  27.35  )
+X-CRM114-CacheID: sfid-20251010_002549_848674_E189ADBF 
+X-CRM114-Status: GOOD (  13.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -98,402 +71,154 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add required change in phy driver to support combo SS phy for this SoC.
+This patch series is add clk driver for AST2700.
 
-Reviewed-by: Alim Akhtar <alim.akhtar@samsung.com>
-Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
----
- drivers/phy/samsung/phy-exynos5-usbdrd.c    | 325 +++++++++++++++++++-
- include/linux/soc/samsung/exynos-regs-pmu.h |   1 +
- 2 files changed, 322 insertions(+), 4 deletions(-)
+AST2700 is the 8th generation of Integrated Remote Management Processor
+introduced by ASPEED Technology Inc. Which is Board Management controller
+(BMC) SoC family. AST2700 have two SoC connected, one is SoC0, another
+is SoC1, it has it's own scu, this driver inlcude SCU0 and SCU1 driver.
 
-diff --git a/drivers/phy/samsung/phy-exynos5-usbdrd.c b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-index c52b0e25a423..53a5b72ff249 100644
---- a/drivers/phy/samsung/phy-exynos5-usbdrd.c
-+++ b/drivers/phy/samsung/phy-exynos5-usbdrd.c
-@@ -273,6 +273,36 @@
- #define EXYNOSAUTOV920_DRD_HSPPLLTUNE		0x110
- #define HSPPLLTUNE_FSEL				GENMASK(18, 16)
- 
-+/* ExynosAutov920 phy usb31drd port reg */
-+#define EXYNOSAUTOV920_USB31DRD_PHY_RST_CTRL	0x000
-+#define PHY_RST_CTRL_PIPE_LANE0_RESET_N_OVRD_EN	BIT(5)
-+#define PHY_RST_CTRL_PIPE_LANE0_RESET_N		BIT(4)
-+#define PHY_RST_CTRL_PHY_RESET_OVRD_EN		BIT(1)
-+#define PHY_RST_CTRL_PHY_RESET			BIT(0)
-+
-+#define EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0	0x0004
-+#define PHY_CR_PARA_CON0_PHY0_CR_PARA_ADDR		GENMASK(31, 16)
-+#define PHY_CR_PARA_CON0_PHY0_CR_PARA_CLK		BIT(8)
-+#define PHY_CR_PARA_CON0_PHY0_CR_PARA_ACK		BIT(4)
-+#define PHY_CR_PARA_CON0_PHY0_CR_PARA_SEL		BIT(0)
-+
-+#define EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON1	0x0008
-+
-+#define EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON2	0x000c
-+#define PHY_CR_PARA_CON2_PHY0_CR_PARA_WR_EN		BIT(0)
-+#define PHY_CR_PARA_CON2_PHY0_CR_PARA_WR_DATA		GENMASK(31, 16)
-+
-+#define EXYNOSAUTOV920_USB31DRD_PHY_CONFIG0	0x100
-+#define PHY_CONFIG0_PHY0_PMA_PWR_STABLE		BIT(14)
-+#define PHY_CONFIG0_PHY0_PCS_PWR_STABLE		BIT(13)
-+#define PHY_CONFIG0_PHY0_ANA_PWR_EN		BIT(1)
-+
-+#define EXYNOSAUTOV920_USB31DRD_PHY_CONFIG7	0x11c
-+#define PHY_CONFIG7_PHY_TEST_POWERDOWN		BIT(24)
-+
-+#define EXYNOSAUTOV920_USB31DRD_PHY_CONFIG4	0x110
-+#define PHY_CONFIG4_PIPE_RX0_SRIS_MODE_EN	BIT(2)
-+
- /* Exynos9 - GS101 */
- #define EXYNOS850_DRD_SECPMACTL			0x48
- #define SECPMACTL_PMA_ROPLL_REF_CLK_SEL		GENMASK(13, 12)
-@@ -2077,6 +2107,251 @@ static const struct exynos5_usbdrd_phy_drvdata exynos990_usbdrd_phy = {
- 	.n_regulators		= ARRAY_SIZE(exynos5_regulator_names),
- };
- 
-+static void
-+exynosautov920_usb31drd_cr_clk(struct exynos5_usbdrd_phy *phy_drd, bool high)
-+{
-+	void __iomem *reg_phy = phy_drd->reg_phy;
-+	u32 reg;
-+
-+	reg = readl(reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
-+	if (high)
-+		reg |= PHY_CR_PARA_CON0_PHY0_CR_PARA_CLK;
-+	else
-+		reg &= ~PHY_CR_PARA_CON0_PHY0_CR_PARA_CLK;
-+
-+	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
-+	fsleep(1);
-+}
-+
-+static void
-+exynosautov920_usb31drd_port_phy_ready(struct exynos5_usbdrd_phy *phy_drd)
-+{
-+	struct device *dev = phy_drd->dev;
-+	void __iomem *reg_phy = phy_drd->reg_phy;
-+	static const unsigned int timeout_us = 20000;
-+	static const unsigned int sleep_us = 40;
-+	u32 reg;
-+	int err;
-+
-+	/* Clear cr_para_con */
-+	reg = readl(reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
-+	reg &= ~(PHY_CR_PARA_CON0_PHY0_CR_PARA_CLK |
-+			PHY_CR_PARA_CON0_PHY0_CR_PARA_ADDR);
-+	reg |= PHY_CR_PARA_CON0_PHY0_CR_PARA_SEL;
-+	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
-+	writel(0x0, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON1);
-+	writel(0x0, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON2);
-+
-+	exynosautov920_usb31drd_cr_clk(phy_drd, true);
-+	exynosautov920_usb31drd_cr_clk(phy_drd, false);
-+
-+	/*
-+	 * The maximum time from phy reset de-assertion to de-assertion of
-+	 * tx/rx_ack can be as high as 5ms in fast simulation mode.
-+	 * Time to phy ready is < 20ms
-+	 */
-+	err = readl_poll_timeout(reg_phy +
-+				EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0,
-+			reg, !(reg & PHY_CR_PARA_CON0_PHY0_CR_PARA_ACK),
-+			sleep_us, timeout_us);
-+	if (err)
-+		dev_err(dev, "timed out waiting for rx/tx_ack: %#.8x\n", reg);
-+
-+	reg &= ~PHY_CR_PARA_CON0_PHY0_CR_PARA_CLK;
-+	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
-+}
-+
-+static void
-+exynosautov920_usb31drd_cr_write(struct exynos5_usbdrd_phy *phy_drd,
-+				 u16 addr, u16 data)
-+{
-+	void __iomem *reg_phy = phy_drd->reg_phy;
-+	u32 cnt = 0;
-+	u32 reg;
-+
-+	/* Pre Clocking */
-+	reg = readl(reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
-+	reg |= PHY_CR_PARA_CON0_PHY0_CR_PARA_SEL;
-+	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
-+
-+	/*
-+	 * tx clks must be available prior to assertion of tx req.
-+	 * tx pstate p2 to p0 transition directly is not permitted.
-+	 * tx clk ready must be asserted synchronously on tx clk prior
-+	 * to internal transmit clk alignment sequence in the phy
-+	 * when entering from p2 to p1 to p0.
-+	 */
-+	do {
-+		exynosautov920_usb31drd_cr_clk(phy_drd, true);
-+		exynosautov920_usb31drd_cr_clk(phy_drd, false);
-+		cnt++;
-+	} while (cnt < 15);
-+
-+	reg &= ~PHY_CR_PARA_CON0_PHY0_CR_PARA_SEL;
-+	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
-+
-+	/*
-+	 * tx data path is active when tx lane is in p0 state
-+	 * and tx data en asserted. enable cr_para_wr_en.
-+	 */
-+	reg = readl(reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON2);
-+	reg &= ~PHY_CR_PARA_CON2_PHY0_CR_PARA_WR_DATA;
-+	reg |= FIELD_PREP(PHY_CR_PARA_CON2_PHY0_CR_PARA_WR_DATA, data) |
-+		PHY_CR_PARA_CON2_PHY0_CR_PARA_WR_EN;
-+	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON2);
-+
-+	/* write addr */
-+	reg = readl(reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
-+	reg &= ~PHY_CR_PARA_CON0_PHY0_CR_PARA_ADDR;
-+	reg |= FIELD_PREP(PHY_CR_PARA_CON0_PHY0_CR_PARA_ADDR, addr) |
-+		PHY_CR_PARA_CON0_PHY0_CR_PARA_CLK |
-+		PHY_CR_PARA_CON0_PHY0_CR_PARA_SEL;
-+	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
-+
-+	/* check cr_para_ack*/
-+	cnt = 0;
-+	do {
-+		/*
-+		 * data symbols are captured by phy on rising edge of the
-+		 * tx_clk when tx data enabled.
-+		 * completion of the write cycle is acknowledged by assertion
-+		 * of the cr_para_ack.
-+		 */
-+		exynosautov920_usb31drd_cr_clk(phy_drd, true);
-+		reg = readl(reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CR_PARA_CON0);
-+		if ((reg & PHY_CR_PARA_CON0_PHY0_CR_PARA_ACK))
-+			break;
-+
-+		exynosautov920_usb31drd_cr_clk(phy_drd, false);
-+
-+		/*
-+		 * wait for minimum of 10 cr_para_clk cycles after phy reset
-+		 * is negated, before accessing control regs to allow for
-+		 * internal resets.
-+		 */
-+		cnt++;
-+	} while (cnt < 10);
-+
-+	if (cnt < 10)
-+		exynosautov920_usb31drd_cr_clk(phy_drd, false);
-+}
-+
-+static void
-+exynosautov920_usb31drd_phy_reset(struct exynos5_usbdrd_phy *phy_drd, int val)
-+{
-+	void __iomem *reg_phy = phy_drd->reg_phy;
-+	u32 reg;
-+
-+	reg = readl(reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_RST_CTRL);
-+	reg &= ~PHY_RST_CTRL_PHY_RESET_OVRD_EN;
-+	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_RST_CTRL);
-+
-+	reg = readl(reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_RST_CTRL);
-+	if (val)
-+		reg |= PHY_RST_CTRL_PHY_RESET;
-+	else
-+		reg &= ~PHY_RST_CTRL_PHY_RESET;
-+
-+	reg |= PHY_RST_CTRL_PHY_RESET_OVRD_EN;
-+	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_RST_CTRL);
-+}
-+
-+static void
-+exynosautov920_usb31drd_lane0_reset(struct exynos5_usbdrd_phy *phy_drd, int val)
-+{
-+	void __iomem *reg_phy = phy_drd->reg_phy;
-+	u32 reg;
-+
-+	reg = readl(reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_RST_CTRL);
-+	reg |= PHY_RST_CTRL_PIPE_LANE0_RESET_N_OVRD_EN;
-+	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_RST_CTRL);
-+
-+	reg = readl(reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_RST_CTRL);
-+	if (val)
-+		reg &= ~PHY_RST_CTRL_PIPE_LANE0_RESET_N;
-+	else
-+		reg |= PHY_RST_CTRL_PIPE_LANE0_RESET_N;
-+
-+	reg &= ~PHY_RST_CTRL_PIPE_LANE0_RESET_N_OVRD_EN;
-+	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_RST_CTRL);
-+}
-+
-+static void
-+exynosautov920_usb31drd_pipe3_init(struct exynos5_usbdrd_phy *phy_drd)
-+{
-+	void __iomem *reg_phy = phy_drd->reg_phy;
-+	u32 reg;
-+
-+	/*
-+	 * Phy and Pipe Lane reset assert.
-+	 * assert reset (phy_reset = 1).
-+	 * The lane-ack outputs are asserted during reset (tx_ack = rx_ack = 1)
-+	 */
-+	exynosautov920_usb31drd_phy_reset(phy_drd, 1);
-+	exynosautov920_usb31drd_lane0_reset(phy_drd, 1);
-+
-+	/*
-+	 * ANA Power En, PCS & PMA PWR Stable Set
-+	 * ramp-up power suppiles
-+	 */
-+	reg = readl(reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CONFIG0);
-+	reg |= PHY_CONFIG0_PHY0_ANA_PWR_EN | PHY_CONFIG0_PHY0_PCS_PWR_STABLE |
-+		PHY_CONFIG0_PHY0_PMA_PWR_STABLE;
-+	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CONFIG0);
-+
-+	fsleep(10);
-+
-+	/*
-+	 * phy is not functional in test_powerdown mode, test_powerdown to be
-+	 * de-asserted for normal operation
-+	 */
-+	reg = readl(reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CONFIG7);
-+	reg &= ~PHY_CONFIG7_PHY_TEST_POWERDOWN;
-+	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CONFIG7);
-+
-+	/*
-+	 * phy reset signal be asserted for minimum 10us after power
-+	 * supplies are ramped-up
-+	 */
-+	fsleep(10);
-+
-+	/*
-+	 * Phy and Pipe Lane reset assert de-assert
-+	 */
-+	exynosautov920_usb31drd_phy_reset(phy_drd, 0);
-+	exynosautov920_usb31drd_lane0_reset(phy_drd, 0);
-+
-+	/* Pipe_rx0_sris_mode_en  = 1 */
-+	reg = readl(reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CONFIG4);
-+	reg |= PHY_CONFIG4_PIPE_RX0_SRIS_MODE_EN;
-+	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CONFIG4);
-+
-+	/*
-+	 * wait for lane ack outputs to de-assert (tx_ack = rx_ack = 0)
-+	 * Exit from the reset state is indicated by de-assertion of *_ack
-+	 */
-+	exynosautov920_usb31drd_port_phy_ready(phy_drd);
-+
-+	/* override values for level settings */
-+	exynosautov920_usb31drd_cr_write(phy_drd, 0x22, 0x00F5);
-+}
-+
-+static void
-+exynosautov920_usb31drd_ssphy_disable(struct exynos5_usbdrd_phy *phy_drd)
-+{
-+	void __iomem *reg_phy = phy_drd->reg_phy;
-+	u32 reg;
-+
-+	/* 1. Assert reset (phy_reset = 1) */
-+	exynosautov920_usb31drd_lane0_reset(phy_drd, 1);
-+	exynosautov920_usb31drd_phy_reset(phy_drd, 1);
-+
-+	/* phy test power down */
-+	reg = readl(reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CONFIG7);
-+	reg |= PHY_CONFIG7_PHY_TEST_POWERDOWN;
-+	writel(reg, reg_phy + EXYNOSAUTOV920_USB31DRD_PHY_CONFIG7);
-+}
-+
- static void
- exynosautov920_usbdrd_utmi_init(struct exynos5_usbdrd_phy *phy_drd)
- {
-@@ -2172,12 +2447,15 @@ exynosautov920_usbdrd_utmi_init(struct exynos5_usbdrd_phy *phy_drd)
- 	/* after POR low and delay 75us, PHYCLOCK is guaranteed. */
- 	fsleep(75);
- 
--	/* force pipe3 signal for link */
-+	/* Disable forcing pipe interface */
- 	reg = readl(reg_phy + EXYNOS850_DRD_LINKCTRL);
--	reg |= LINKCTRL_FORCE_PIPE_EN;
--	reg &= ~LINKCTRL_FORCE_PHYSTATUS;
--	reg |= LINKCTRL_FORCE_RXELECIDLE;
-+	reg &= ~LINKCTRL_FORCE_PIPE_EN;
- 	writel(reg, reg_phy + EXYNOS850_DRD_LINKCTRL);
-+
-+	/* Pclk to pipe_clk */
-+	reg = readl(reg_phy + EXYNOS2200_DRD_CLKRST);
-+	reg |= EXYNOS2200_CLKRST_LINK_PCLK_SEL;
-+	writel(reg, reg_phy + EXYNOS2200_DRD_CLKRST);
- }
- 
- static void
-@@ -2264,6 +2542,8 @@ static int exynosautov920_usbdrd_combo_phy_exit(struct phy *phy)
- 
- 	if (inst->phy_cfg->id == EXYNOS5_DRDPHY_UTMI)
- 		exynosautov920_usbdrd_hsphy_disable(phy_drd);
-+	else if (inst->phy_cfg->id == EXYNOS5_DRDPHY_PIPE3)
-+		exynosautov920_usb31drd_ssphy_disable(phy_drd);
- 
- 	/* enable PHY isol */
- 	inst->phy_cfg->phy_isol(inst, true);
-@@ -2320,10 +2600,44 @@ static int exynosautov920_usbdrd_phy_power_off(struct phy *phy)
- 	return 0;
- }
- 
-+static const char * const exynosautov920_usb30_regulators[] = {
-+	"dvdd", "vdd18",
-+};
-+
- static const char * const exynosautov920_usb20_regulators[] = {
- 	"dvdd", "vdd18", "vdd33",
- };
- 
-+static const struct
-+exynos5_usbdrd_phy_config usb31drd_phy_cfg_exynosautov920[] = {
-+	{
-+		.id		= EXYNOS5_DRDPHY_PIPE3,
-+		.phy_isol	= exynos5_usbdrd_phy_isol,
-+		.phy_init	= exynosautov920_usb31drd_pipe3_init,
-+	},
-+};
-+
-+static const struct phy_ops exynosautov920_usb31drd_combo_ssphy_ops = {
-+	.init		= exynosautov920_usbdrd_phy_init,
-+	.exit		= exynosautov920_usbdrd_combo_phy_exit,
-+	.power_on	= exynosautov920_usbdrd_phy_power_on,
-+	.power_off	= exynosautov920_usbdrd_phy_power_off,
-+	.owner		= THIS_MODULE,
-+};
-+
-+static const
-+struct exynos5_usbdrd_phy_drvdata exynosautov920_usb31drd_combo_ssphy = {
-+	.phy_cfg		= usb31drd_phy_cfg_exynosautov920,
-+	.phy_ops		= &exynosautov920_usb31drd_combo_ssphy_ops,
-+	.pmu_offset_usbdrd0_phy	= EXYNOSAUTOV920_PHY_CTRL_USB31,
-+	.clk_names		= exynos5_clk_names,
-+	.n_clks			= ARRAY_SIZE(exynos5_clk_names),
-+	.core_clk_names		= exynos5_core_clk_names,
-+	.n_core_clks		= ARRAY_SIZE(exynos5_core_clk_names),
-+	.regulator_names	= exynosautov920_usb30_regulators,
-+	.n_regulators		= ARRAY_SIZE(exynosautov920_usb30_regulators),
-+};
-+
- static const struct phy_ops exynosautov920_usbdrd_combo_hsphy_ops = {
- 	.init		= exynosautov920_usbdrd_phy_init,
- 	.exit		= exynosautov920_usbdrd_combo_phy_exit,
-@@ -2588,6 +2902,9 @@ static const struct of_device_id exynos5_usbdrd_phy_of_match[] = {
- 	}, {
- 		.compatible = "samsung,exynos990-usbdrd-phy",
- 		.data = &exynos990_usbdrd_phy
-+	}, {
-+		.compatible = "samsung,exynosautov920-usb31drd-combo-ssphy",
-+		.data = &exynosautov920_usb31drd_combo_ssphy
- 	}, {
- 		.compatible = "samsung,exynosautov920-usbdrd-combo-hsphy",
- 		.data = &exynosautov920_usbdrd_combo_hsphy
-diff --git a/include/linux/soc/samsung/exynos-regs-pmu.h b/include/linux/soc/samsung/exynos-regs-pmu.h
-index 4923f9be3d1f..f96c773b85c9 100644
---- a/include/linux/soc/samsung/exynos-regs-pmu.h
-+++ b/include/linux/soc/samsung/exynos-regs-pmu.h
-@@ -690,4 +690,5 @@
- 
- /* exynosautov920 */
- #define EXYNOSAUTOV920_PHY_CTRL_USB20				(0x0710)
-+#define EXYNOSAUTOV920_PHY_CTRL_USB31				(0x0714)
- #endif /* __LINUX_SOC_EXYNOS_REGS_PMU_H */
+v15:
+- clk-ast2700.c
+ - remove #include <linux/of_platform.h>.
+ - use inline 12MHZ, 24MHZ, 25MHZ, 192MHZ define.
+ - use clk_hw pointers, index member instead of .fw_name and .name members.
+ - use module_platform_driver().
+
+v14:
+- patch (3/3) : remove duplcate Signed-off-by.
+
+v13:
+- clk-ast2700.c
+ - remove unnecessary ().
+ - refine ast2700_soc1_configure_i3c_clk to be easy readable.
+
+v12:
+-fix mistakes commit message Acked-by:Krzysztof Kozlowski
+<krzysztof.kozloski@linaro.org> to Acked-by: Krzysztof Kozlowski
+<krzysztof.kozlowski@linaro.org>
+
+v11:
+-update patch(1/3) commit message subject prefix dt-binding: to dt-bindings:
+
+v10:
+-aspeed,ast2700-scu.h:
+-add SOC0_CLK_AHBMUX, SOC0_CLK_MPHYSRC, SOC0_CLK_U2PHY_REFCLKSRC,
+ SOC1_CLK_I3C.
+-clk-ast2700.c
+-add #include <linux/auxiliary_bus.h>
+-remove #include <soc/aspeed/reset-aspeed.h>
+-use devm_auxiliary_device_create replace aspeed_reset_controller_register
+-reset-aspeed.c:
+-remove aspeed_reset_unregister_adev, aspeed_reset_adev_release,
+ aspeed_reset_controller_register.
+-compatible name change reset_aspeed.reset0/1 -> clk_ast2700.reset0/1
+-remove reset-aspeed.h
+
+v9:
+-aspeed,ast2700-scu.h: no change.
+add more clear commit description.
+-clk-ast2700.c:
+add inlcude bitfield.h
+remove redundant clk_parent_data soc0_mpll_div8/soc0_ahb/uart13clk/
+uart14clk/uart15clk/uart16clk/soc1_ahb/d_clk_sels
+
+v8:
+-aspeed,ast2700-scu.h: remove no use soc0 clock, add new clock
+-clk-ast2700.c: remove include <linux/auxiliary_bus.h>,
+include <linux/clk-provider.h>, include <linux/of_address.h>
+-clk-ast2700.c: add include <linux/mod_devicetable.h>
+-clk-ast2700.c: modify include <soc/aspeed/reset-aspeed.h> order before
+dt-bindings
+-clk-ast2700.c: modify define to be tabbed out space
+-clk-ast2700.c: add union struct for each clk type
+	union {
+		struct ast2700_clk_fixed_factor_data factor;
+		struct ast2700_clk_fixed_rate_data rate;
+		struct ast2700_clk_gate_data gate;
+		struct ast2700_clk_div_data div;
+		struct ast2700_clk_pll_data pll;
+		struct ast2700_clk_mux_data mux;
+	} data;
+-clk-ast2700.c: modify clk_data = device_get_match_data(dev);
+-clk-ast2700.c: modify builtin_platform_driver_probe to 
+arch_initcall(clk_ast2700_init)
+-clk-ast2700.c: ast2700_clk_hw_register_hpll explain: scu010[4:2],
+scu010[4:2] = 010, hpll force 1.8Ghz
+scu010[4:2] = 011, hpll force 1.7Ghz
+scu010[4:2] = 110, hpll force 1.2Ghz
+scu010[4:2] = 111, hpll force 800Mhz
+others depend on hpll parameter register setting.
+
+v7:
+-reset-aspeed.h: fix declare static inline aspeed_reset_controller_register
+if the function is not used.
+
+v6:
+-patch-2: add reset-aspeed.h
+-reset-aspeed: add include cleanup.h for guard()
+-reset-aspeed: change ids name clk_aspeed to reset_aspeed
+-reset-aspeed: move aspeed_reset_controller_register,
+aspeed_reset_adev_release, aspeed_reset_unregister_adev from clk-ast2700.c
+-reset-aspeed: drop base check, since it check in clk-ast2700.c
+-clk-ast2700: sync each gate name from *clk to *clk-gate name.
+-clk-ast2700: add CLK_GATE_ASPEED to diff clk_hw_register_gate and
+ast2700_clk_hw_register_gate.
+
+v5:
+-patch-2 Kconfig: add select AUXILIARY_BUS
+-reset-aspeed: #define to_aspeed_reset(p) turn into static inline function.
+-reset-aspeed: modify spin_lock_irqsave to guard(spinlock_irqsave)
+-reset-aspeed: remove unnecessary parentheses.
+-clk-ast2700: use <linux/units.h> and refrain from define clk
+
+v4:
+-yaml: keep size-cells=<1>.
+-merge clk,reset dt binding header with yaml the same patch.
+-rename clk,reset dt binding header to aspeed,ast2700-scu.h
+-reset-aspeed: update tables tabs sapces to consistent spaces.
+-reset-aspeed: remove no use dev_set_drvdata.
+-clk-ast2700: modify reset_name to const int scu in struct clk_data.
+-clk-ast2700: use scu number in clk_data generate reset_name for reset
+ driver register.
+-clk-ast2700: fix pll number mix up scu0,scu1.
+-clk-ast2700: update dt-binding clock include file.
+
+v3:
+-yaml: v2 missing send yaml patch, v3 add.
+-yaml: drop 64bits address example.
+-yaml: add discription about soc0 and soc1
+-dt-bindings: remove (), *_NUMS, reserved.
+-dt-bindings: remove dulipated define number.
+-dt-bindings: merge clk and reset to be one patch.
+-reset-aspeed: add auxiliary device for reset driver.
+-clk-ast2700: modify reset to be auxiliary add.
+-clk-ast2700: modify to be platform driver.
+-clk-ast2700: modify each clk to const clk array.
+
+v2:
+-yaml: drop 64bits address example.
+-yaml: add discription about soc0 and soc1
+-dt-bindings: remove (), *_NUMS, reserved.
+-dt-bindings: remove dulipated define number
+-clk-ast2700: drop WARN_ON, weird comment.
+
+Ryan Chen (3):
+  dt-bindings: clock: ast2700: modify soc0/1 clock define
+  reset: aspeed: register AST2700 reset auxiliary bus device
+  clk: aspeed: add AST2700 clock driver
+
+ drivers/clk/Kconfig                           |    8 +
+ drivers/clk/Makefile                          |    1 +
+ drivers/clk/clk-ast2700.c                     | 1055 +++++++++++++++++
+ drivers/reset/Kconfig                         |    7 +
+ drivers/reset/Makefile                        |    1 +
+ drivers/reset/reset-aspeed.c                  |  253 ++++
+ .../dt-bindings/clock/aspeed,ast2700-scu.h    |    4 +
+ 7 files changed, 1329 insertions(+)
+ create mode 100644 drivers/clk/clk-ast2700.c
+ create mode 100644 drivers/reset/reset-aspeed.c
+
 -- 
 2.34.1
 
