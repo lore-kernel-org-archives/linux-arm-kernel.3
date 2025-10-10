@@ -4,113 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1A130CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 02:42:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A897FCCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 03:10:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nWsQan+PKEJ3Pl4sWu481oF0s7nShOWNu6188o8EQpk=; b=abStr17HpR5VOPlUiCTaHLHLOa
-	iDwFBTjCzBMsyBME0BNkhsc6Jwi6sqV3hjRPQaUdrHlZrH3kjOmliEd6t9eE91xT1rnd5dZUm+MuJ
-	J9zvUyHrR8ugRilPkIdY6s06ee+xbwbLDZVx8LPW2jY3JCIQ8SYw8ALoN2F4o6dLxlubPp+Cuy6gF
-	zsxmPUyxa6UdRwXcsFOQkU97RUfvN9iVjBs3PTXoA/AoWD/bLAegmW+2zseYzldZVMTvbEuo/Uvrg
-	KL16itW9wujLbUiUZFCfZMVWotSiA4KnmU7AXC/NAM16nzVTZvVlN7c8wYegd7c7KUjU+DQ52nFlO
-	svKJQdwg==;
+	bh=JfBVY1jC5OL4Yfzob3d0houbqInXLSFHJbfki1TjZA8=; b=dKaSj7VkFRx1hsFX+6d6AIaoiZ
+	ZCHuVbfiIFDfRyD42i0Sww2W2vyHFzDMwG1L6e1ZYBLKUI7VzVRveT1d96PIV/fzLtSPhbPt8AAL9
+	VVnlxW2vA4Gd1whLhftwZSIQfAKsJg0ZHb46MNILgOV6YVr8vJHHCXl5Y/V2GmHteXIXeccVeAcDT
+	h4upkb7PRzkbxeNk2JJIZS0EzywJy5aYJk5DUp8cO6fcmKar+03+Hd6/9GuFxdptNBCjJg0ihzRDl
+	8p6407z77nwCwvI0cRrcPOVIrN7Z25flPrHy8wZmAck4M7590gdKFI0/er2wG/SU/dAJqONrbf8Zj
+	o1SUDVHA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v735a-00000007WHL-3Mtt;
-	Fri, 10 Oct 2025 02:42:38 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v73WX-00000007Xk1-2AKJ;
+	Fri, 10 Oct 2025 03:10:29 +0000
+Received: from mail-qt1-x82b.google.com ([2607:f8b0:4864:20::82b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v735Y-00000007WH6-2sU6;
-	Fri, 10 Oct 2025 02:42:36 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id A8C7162498;
-	Fri, 10 Oct 2025 02:42:35 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 464C1C4CEE7;
-	Fri, 10 Oct 2025 02:42:28 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760064155;
-	bh=0wm0KHF9ewXsPwhBbWq2CnyYTZ+mgDISTWGUDT6ojY0=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=r4FBnVgKkgxIvp+3UKylZeHx1UEEnribaqEly+dXtZnTBKzw18KEr62GNAtDlhOZX
-	 StTF4Ka2DjH/dHbK8PmYDFTuYibX/LB9RB9FxlihVU25+wwy3BxODzDrj0mGqB7p2c
-	 GfW6UwxFqkjGjHlS6yYGHvjTv4nHMmZmEGM6HKVdCjsbg8OReQuuOxX6p/T7sVKfQ8
-	 EIll9hTSZN64BSaSSEMeC7zIZkXP8C087SOQ5iRoU7ibKu5/GDghA6CFcgi3gpVAGd
-	 eg93aHxY/8U7sz8c0OINuj/oNkFABw3ETl1dS4+mMH0meub2FEfkPNBsY4w5sgihh/
-	 g/5h8ExfkC4Kw==
-Message-ID: <c922430f-3efb-4c2a-8b10-b2f150db827f@kernel.org>
-Date: Fri, 10 Oct 2025 04:42:25 +0200
+	id 1v73WU-00000007Xiw-3Pni
+	for linux-arm-kernel@lists.infradead.org;
+	Fri, 10 Oct 2025 03:10:28 +0000
+Received: by mail-qt1-x82b.google.com with SMTP id d75a77b69052e-4dffec0f15aso16500301cf.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 20:10:26 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1760065825; x=1760670625; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=JfBVY1jC5OL4Yfzob3d0houbqInXLSFHJbfki1TjZA8=;
+        b=MkDiE1fiDBOe4X4TifpvYkHOrrWdMZlVWMQ27pB6WQRP2OUL1YqNhWH5QKZ/5K6+hn
+         2t+gzqIByNyctmvHBNlEGKKiEDGzzaxIsxxtcrgVC1sIaF4RZHQqfMq/GX9av+RyBwr2
+         ZEgkdbpovYAHQL8TLJ2ke9ZxyYJSflEWXgu6U4pZFyX2Mio316OhwPbkjJ3GEiNs9L2b
+         tB1n4pMaRS37WDaXXgdoS9EcCxTeXvJr+kFSU7yU1PVlXwRPW83BdtN9FUpbpS+ktWdT
+         JMCRbxYX2LZEOna/ROIIAmuhN4Z5XPP97HCrxG2ogQkKDOYKn5+Rk1zYJ2VQSXy4oNS3
+         lmhA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760065825; x=1760670625;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=JfBVY1jC5OL4Yfzob3d0houbqInXLSFHJbfki1TjZA8=;
+        b=q/Dj2cE3J/M+zqP75D56gTHccwQZOjEGL5OPlgnzhRsk3btkBgGKuzHsDmjINK54E5
+         33m+plyFciysiyDWJkJ1BCnqNA61FipH9kU9DaMImSfgZi9qyTAtJiN/Vc1eeQUjXn7s
+         TO3gt5ofZduRjqGnUh/1nrQoOoxwUWqZ5LMeW844nF8dG2FcOCfhckF3iienC4zyg3vh
+         ETHYHaTHVWt69axeQX522xpSBGUIOII5AeG5mkdapMu/KLlsGLHv6XPRZTFHMPE1HccC
+         ooS32+GhwqvMjx6C0eRPMtYwgKCSlBAbGhFoBS9+noxBdgTkOU+Vtc6buySRMPPESQIH
+         dPkw==
+X-Forwarded-Encrypted: i=1; AJvYcCX4JJ4Msjsbenhg0gw8G7GRs39Ij+2E/LCDYNXrmbatZu/OrUrI7wQ/AzKXfNn5rYUJMPcZlFZ/JIJbp+P7+Tuq@lists.infradead.org
+X-Gm-Message-State: AOJu0YzrcbExZdGDbD/KC4yLUihJ3rsIYFh69YgykZPGEt/kpPNNWlAW
+	P2Z6Vx9mg+5jYvYhagEwotRaZRC52hsiqJFexeEDAkW/Fin2yciOqKYIE3fuIGGDv+rldNQqw2M
+	OhCumGH8F9rkNh/o3LC6HNZWiGV4iWj8=
+X-Gm-Gg: ASbGncvre74ilcxQYvK3HabNC4mwasI6JHjQLDCVtwTpcFeASWU7CfFJniCw2czJJbK
+	VsK0hZm89+N6hpg8uU2sHH85f6ttWDa083aKhE6CPUZ5wHBPOznT6R+AsywsYPp2rmQkJLdJoSN
+	tfp6P1aNosR6BWLUkOGvksU019klAA2/PmdofkLjOUlj8LGFbI/cMKtdbhbDo3pQM0mgDBkiUrc
+	/WqX/B5tb04tl9NgiqHER9pVTA=
+X-Google-Smtp-Source: AGHT+IFluk1MSNac3TCPhPVi9qi50zuTrK2jUh6H0rLnaJa6VffG1JzsGBd2YJ7unkitxA1fB1mu0nrqMsKlTJNit7Y=
+X-Received: by 2002:a05:622a:4291:b0:4b7:9171:7b10 with SMTP id
+ d75a77b69052e-4e6ead65002mr133384621cf.64.1760065825344; Thu, 09 Oct 2025
+ 20:10:25 -0700 (PDT)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 00/19] clk: amlogic: Add PLLs and peripheral clocks for A4
- and A5 SoCs
-To: Chuan Liu <chuan.liu@amlogic.com>, Jerome Brunet <jbrunet@baylibre.com>
-Cc: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Neil Armstrong <neil.armstrong@linaro.org>,
- Kevin Hilman <khilman@baylibre.com>,
- Martin Blumenstingl <martin.blumenstingl@googlemail.com>,
- linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org,
- linux-arm-kernel@lists.infradead.org, Xianwei Zhao <xianwei.zhao@amlogic.com>
-References: <20250930-a4_a5_add_clock_driver-v1-0-a9acf7951589@amlogic.com>
- <1jv7kz3w1p.fsf@starbuckisacylon.baylibre.com>
- <b8105d25-112c-4406-9f3a-8fbbd0754b26@amlogic.com>
- <1jh5w84iat.fsf@starbuckisacylon.baylibre.com>
- <7a5d3f57-4c0e-483c-9d6f-9556583180a7@amlogic.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <7a5d3f57-4c0e-483c-9d6f-9556583180a7@amlogic.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20251009084416.45542-1-jjm2473@gmail.com> <20251009084416.45542-4-jjm2473@gmail.com>
+ <aOe_0EufouURu7R2@shell.armlinux.org.uk>
+In-Reply-To: <aOe_0EufouURu7R2@shell.armlinux.org.uk>
+From: Liangbin Lian <jjm2473@gmail.com>
+Date: Fri, 10 Oct 2025 11:10:14 +0800
+X-Gm-Features: AS18NWDTnRTIksFcQ9CLnbgJn8_5OiC5-7_R77k4csy5P5t4wcfC3lX9jt0dZps
+Message-ID: <CAP_9mL4PRcYr1o7Vand+wws34GxGBzaVvY2p29Lyrzc13kKvMQ@mail.gmail.com>
+Subject: Re: [PATCH v5 3/3] arm64: dts: rockchip: add LinkEase EasePi R1
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, 
+	quentin.schulz@cherry.de, kever.yang@rock-chips.com, naoki@radxa.com, 
+	honyuenkwun@gmail.com, inindev@gmail.com, ivan8215145640@gmail.com, 
+	neil.armstrong@linaro.org, mani@kernel.org, dsimic@manjaro.org, 
+	pbrobinson@gmail.com, alchark@gmail.com, didi.debian@cknow.org, 
+	jbx6244@gmail.com, andrew@lunn.ch, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251009_201026_901941_C71DDA62 
+X-CRM114-Status: GOOD (  28.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,112 +102,72 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/10/2025 04:38, Chuan Liu wrote:
-> Hi Jerome,
-> 
-> 
-> On 10/9/2025 3:59 PM, Jerome Brunet wrote:
->> [ EXTERNAL EMAIL ]
->>
->> On Thu 09 Oct 2025 at 11:09, Chuan Liu <chuan.liu@amlogic.com> wrote:
->>
->>> Hi Jerome,
->>>
->>>      Thanks for your review, because the national day holidays did not
->>> timely feedback.
->>>
->>>
->>> On 10/1/2025 3:45 PM, Jerome Brunet wrote:
->>>> [ EXTERNAL EMAIL ]
->>>>
->>>> On Tue 30 Sep 2025 at 17:37, Chuan Liu via B4 Relay
->>>> <devnull+chuan.liu.amlogic.com@kernel.org> wrote:
->>>>
->>>>> This patch series includes changes related to the PLL and peripheral
->>>>> clocks for both the A4 and A5 SoCs.
->>>>>
->>>>> The patches for A5 were previously submitted up to V3 by Xianwei.
->>>>> https://lore.kernel.org/all/20250103-a5-clk-v3-0-a207ce83b9e9@amlogic.com/
->>>>> After friendly coordination, I’ve taken over and continued the
->>>>> submission as part of this series. The dt-bindings patch retains Rob's
->>>>> original "Reviewed-by" tag, and I hope this hasn’t caused any
->>>>> additional confusion.
->>>> ... and yet you restart the versioning of the series making it harder
->>>> for people to follow that
->>>
->>> Sorry for the inconvenience caused. The main changes compared to the
->>> previous version by Xianwei are in the driver part.
->>>
->>> The dt-bindings part only has minor modifications in [PATCH 14/19].
->>>
->>> The driver part has relatively larger changes because it needs to be
->>> based on the code base you previously submitted.
->> I'm not seeing a justification for the mess introduced and I'm not
->> looking for one to be honest
-> 
-> 
-> Previously, I provided a basic version of the A5 clock driver to
-> Xianwei, and he helped improve it before submitting it.
-> 
-> Xianwei has been responsible for upstreaming many of our modules.
-> Since clock drivers require significant effort, I’m sharing the
-> workload by submitting some of the clock-related patches.
-> 
-> The three versions previously submitted by Xianwei mainly focused on
-> improving the dt-bindings based on Rob’s feedback. The driver part
-> remained unchanged.
-> 
-> The driver part in my current patch series has undergone relatively
-> large modifications to adapt to the latest code base, so comparing it
-> to the previous versions may not be very meaningful.
-> 
-> If it's more appropriate for the A5 clock-related patches to continue
-> evolving based on Xianwei's earlier v3 series, please feel free to
-> point it out. I will continue to assist Xianwei in completing the
-> submission of the remaining A5 clock patches.
-> 
-> 
->>>>> Both A4 and A5 belong to the Audio series. Judging by their names, one
->>>>> might assume that A5 is an upgrade to A4, but in fact, A5 was released
->>>>> a year earlier than A4.
->>>>>
->>>>> Since there are differences in the PLLs and peripheral clocks between
->>>>> the A4 and A5 SoCs (especially the PLL), and taking into account factors
->>>>> such as memory footprint and maintainability, this series does not
->>>>> attempt to merge the two into a shared driver as was done for
->>>>> G12A/G12B/SM1.
->>>> ... and we end up with 19 patches series while it could be splitted into
->>>> manageable series, for each controller of each SoC
->>>
->>> I'm not sure if I understood you correctly.
->>>
->>> Do you mean that I should split this series of 19 patches into multiple
->>> patch series and send them separately? For example:
->>> serie 1: A4 SCMI clock controller (dt-bindings)
->>> serie 2: A4 PLL clock controller (dt-bindings, driver, dts)
->>> serie 3: A4 peripherals clock controller (dt-bindings, driver, dts)
->>> ... A5 similarly?
->> Things that do not actually depends on each other or which are not
->> merged through the same tree should not be sent together. There is
->> nothing new here. Same basic reminders on each submission.
-> 
-> 
-> Sorry, but I'm still not quite sure if I understood you correctly.
-> 
-> This series of 19 patches mainly falls into three major categories:
-> * Optimize PLL driver
-> * PLLs and peripherals for A4
-> * PLLs and peripherals for A5
-> 
-> Are you suggesting that the PLL driver part should be sent as a
-> separate patch series, while the A4 and A5 parts should still follow
-> the previous A5/C3-style submission?
-> 
+Russell King (Oracle) <linux@armlinux.org.uk> =E4=BA=8E2025=E5=B9=B410=E6=
+=9C=889=E6=97=A5=E5=91=A8=E5=9B=9B 21:59=E5=86=99=E9=81=93=EF=BC=9A
+>
+> On Thu, Oct 09, 2025 at 04:44:16PM +0800, Liangbin Lian wrote:
+> > +&gmac0 {
+> > +     phy-mode =3D "rgmii-id";
+> > +     clock_in_out =3D "input";
+> ...
+> > +&gmac1 {
+> > +     phy-mode =3D "rgmii-id";
+> > +     clock_in_out =3D "input";
+>
+> I am fine with what is being proposed here, but I think this
+> clock_in_out property needs fixing. The description for it is thus:
+>
+>   clock_in_out:
+>     description:
+>       For RGMII, it must be "input", means main clock(125MHz)
+>       is not sourced from SoC's PLL, but input from PHY.
+>       For RMII, "input" means PHY provides the reference clock(50MHz),
+>       "output" means GMAC provides the reference clock.
+>     $ref: /schemas/types.yaml#/definitions/string
+>     enum: [input, output]
+>     default: input
+>
+> The problems that I have here are:
+>
+> 1) the description states that the only possible value for this when in
+>    RGMII mode is "input" which is reasonable, because it's due to the
+>    RGMII specification. The driver code is perfectly able to determine
+>    whether RGMII has been specified, and set bsp_priv->clock_input
+>    itself, relieving DT of this need.
+>
+> 2) bsp_priv->clock_input is only used in gmac_clk_enable() when calling
+>    the SoC specific set_clock_selection() method. Only RK3528, RK3576,
+>    and RK3588 populate this method. Every other SoC supported by this
+>    driver still requires the property:
+>
+>         ret =3D of_property_read_string(dev->of_node, "clock_in_out", &st=
+rings);
+>         if (ret) {
+>                 dev_err(dev, "Can not read property: clock_in_out.\n");
+>                 bsp_priv->clock_input =3D true;
+>         } ...
+>
+>   If one doesn't provide it, one gets an error print, which is not nice
+>   I note that the DT binding doesn't list this property as required, so
+>   the code is at odds with the binding.
+>
+>   (I note that your Rockchip SoC is RK3568, which doesn't implement this
+>   method.)
+>
+> So, taking both these points together, the code should not be printing
+> an error if "clock_in_out" is missing when either:
+>
+> a) RGMII is being used (or maybe only when RMII is being used?)
+> b) the set_clock_selection() method is not present for the SoC variant.
+>
+> With the driver fixed as indicated above, I then think clock_in_out in
+> your descriptions becomes unnecessary, and should be removed.
+>
+> --
+> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
-Please read submitting patches, soc maintainer profile and DT submitting
-patches documents. You ask us to repeat same knowledge multiple times.
-It's waste of our time, so we have documented it for your convenience.
-
-Best regards,
-Krzysztof
+In fact, deleting {tx|rx}_delay also prints errors,
+but it does not affect the function.
+I agree that these prints on the driver should be fixed.
 
