@@ -4,53 +4,53 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9EB93CCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 20:08:03 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 56D5ECCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 20:11:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
 	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
 	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bDSQ9VvVld/VLomgjuC14NZl74tMino0lN1j5l3p66M=; b=HWaNq5ccKsRsM9qUXsBt6kxXkC
-	yFroHMyUMx0riugrZtl/gloZ/d5xyP8bJ8R5RJea8iSXDEKfLnqZfNqR4+zvDjtzfZASGSoLPpWxc
-	OqQWF6IWwJPsQT1GHfuQhQ1Buncc1SdZU+oVdRF6S+dZfcnb+YVcykmUWQdNYfM2eE8hFzIWIKPTB
-	kMwGSYj9g2mVDwwLbSddZt4DMIZYGtU3fsZFNoSFkQHhoLJOKMbhg02NFDtQJ8BUBgVWnOLddb8D/
-	JJMBEkvoa7C/ePpxq4PbvRfV5MPA+x/uZ9nElkem0y3zf+u5f9l6ZuEejp1Twi7dMX0VmDG8o5yWN
-	nr5h4PAg==;
+	bh=x+uMFd00/VwF8oeUIUOAUFn81GsHq1DT13skkBivkHM=; b=0MTlL5IDW0PJhKITjOnFn2UC9L
+	SeTpbCFXA4B2ouSOPxRJQVcPbr3oH7Q2oEKIRe1dicIBXlXtGObguilcRYcgFxkVgkDxazxTw9M8f
+	ru4a3YegTqz9ADIE/13YWSFZt4UTD9nHm7ZqMw5+/fNADSAxL8fmcP4sfN5Ynw7SHgHemqC3AAR/W
+	X5RaEdvXG0StjMXM3s5k071plvWJEwKIvUdcJSKA4sj6ATSgT8NQMeMjx2IPM9XXuf7EUciTXKPJX
+	8EB+4v541DuYyPcRc+8672HpELbDdUFnWrjG/z18HU7cOdbYLJ0aQWudpn5xWsPaLc4WbZEsGpeME
+	FU78P6Fw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7JPA-00000009Hgw-1Ef6;
-	Fri, 10 Oct 2025 20:07:56 +0000
+	id 1v7JSq-00000009Hzq-2gtD;
+	Fri, 10 Oct 2025 20:11:44 +0000
 Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7JP8-00000009HgW-2OvW;
-	Fri, 10 Oct 2025 20:07:55 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1760126800; cv=none; 
+	id 1v7JSo-00000009HzP-20tK;
+	Fri, 10 Oct 2025 20:11:43 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1760127089; cv=none; 
 	d=zohomail.com; s=zohoarc; 
-	b=SpABhvblEL9SdXRaLVtJzpg/g+mDC82aoNkraQ7Z+Y8LQsyZrQAYPV6LVqzhRAQxzSuQU9XkLjTrSWn5usoMp92v+6tPwUK4i+4lFNsHuz5FTw5ZbBkZLOZAQpKNZ86FuI9IT6x9ymu01IDrfTTNTWSQJU7Zs6nvdCCjJmqZhnw=
+	b=EI2xlznajdS4gA6yfY0iLVHeGnucED1Wgn8TpST2u3yDoShxRMMoH9VJrSrDBe9w5NfMH0oaNi/V83fAP/O8QYOYEaMTMWeEOQeY1GIuZ05CZ4kjbTw8KjArHrccF1ZJiv0gxo6oqoeoIoHGoSRPJ/j+RSpvrWIxxrQoH+dahYw=
 ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1760126800; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=bDSQ9VvVld/VLomgjuC14NZl74tMino0lN1j5l3p66M=; 
-	b=KrhKsxCzb19qNPbEgxGzv1cUlRuxv4jPP6fUkcy96k3U/H1ty/c77w9O4D7jB/P4zairottDMEXlAtWZtjlPZq9ptDPSB5s6ESJhuEgxpBUCw5sowTWF7AQcKdobyqcc9toow11qHViZIf9iiVbO61YsiUmHFBe0Ume0MxfsB08=
+	t=1760127089; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=x+uMFd00/VwF8oeUIUOAUFn81GsHq1DT13skkBivkHM=; 
+	b=O11ybemPA8l7ORp/8KtHX+NNOtDS5DuujWGHIXNtJceJfWCgvv/KAFBwJXuJGUgWuLJwRKsm+hah6bwntkdSLJmultv2PNAa8pwlll6rPNu8vK2lUHNCjPcBGioYy0TQJTnq9pUIGMr6Dxo6U4Btq6Ze8Jwy34CgOJ/2LCmI7IM=
 ARC-Authentication-Results: i=1; mx.zohomail.com;
 	dkim=pass  header.i=collabora.com;
 	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
 	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1760126800;
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1760127089;
 	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
 	h=From:From:To:To:Cc:Cc:Subject:Subject:Date:Date:Message-ID:In-Reply-To:References:MIME-Version:Content-Transfer-Encoding:Content-Type:Message-Id:Reply-To;
-	bh=bDSQ9VvVld/VLomgjuC14NZl74tMino0lN1j5l3p66M=;
-	b=Sf6HS2NBxwKoKc+RN5h7N7IJ5YqNKtmEoDvDMRNmynmx/q0MB5bPx1Yp68OhFTQo
-	UBlkzKzanMpTy+uGvHucs47paIfrqKbwEgrV56wi7ok4IeHZDWT15Y06bF/DD4xy9uO
-	Mr5KpHB2pGGqJ4SC12w3EcUAdmir6ClP3UecLRWg=
-Received: by mx.zohomail.com with SMTPS id 1760126798226932.2245475821575;
-	Fri, 10 Oct 2025 13:06:38 -0700 (PDT)
+	bh=x+uMFd00/VwF8oeUIUOAUFn81GsHq1DT13skkBivkHM=;
+	b=H2YgkM+1i+b6xb991wApukruxQ+W9Guu9g3V2wDUCgHg2vZJyIxEIi4nw7y8IqY/
+	Q+Y5IzE+dHXMgvpxYooxEHn+Qf39+j0yoi+9/e6gN/C+IY7awMPMWkqn08sdLchNxw6
+	sjsrStUMJ9fNJx227Ad3PEIxA5z0V2FXh6hSAXyU=
+Received: by mx.zohomail.com with SMTPS id 176012708724740.640376685993374;
+	Fri, 10 Oct 2025 13:11:27 -0700 (PDT)
 From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-To: Chen-Yu Tsai <wenst@chromium.org>
-Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
- Dong Aisheng <aisheng.dong@nxp.com>,
+To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Chen-Yu Tsai <wenst@chromium.org>
+Cc: Michael Turquette <mturquette@baylibre.com>,
+ Stephen Boyd <sboyd@kernel.org>, Dong Aisheng <aisheng.dong@nxp.com>,
  Matthias Brugger <matthias.bgg@gmail.com>,
  Yassine Oudjana <y.oudjana@protonmail.com>,
  Laura Nao <laura.nao@collabora.com>,
@@ -58,19 +58,19 @@ Cc: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
  Chia-I Wu <olvaffe@gmail.com>, kernel@collabora.com,
  linux-clk@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-Subject: Re: [PATCH v2 4/5] clk: mediatek: Refactor pllfh registration to pass device
-Date: Fri, 10 Oct 2025 22:06:31 +0200
-Message-ID: <13720474.O9o76ZdvQC@workhorse>
-In-Reply-To: <CAGXv+5Hpndq09cbudofSvkNE6w+tHb85VCqDb3P920S8vwonHQ@mail.gmail.com>
+Subject: Re: [PATCH v2 2/5] clk: mediatek: Refactor pll registration to pass device
+Date: Fri, 10 Oct 2025 22:11:20 +0200
+Message-ID: <6009277.31r3eYUQgx@workhorse>
+In-Reply-To: <CAGXv+5FTg3VXpbav5c2Gx2vRgaC=jYURRp0b5tQGw+ScACRSew@mail.gmail.com>
 References: <20251008-mtk-pll-rpm-v2-0-170ed0698560@collabora.com>
- <20251008-mtk-pll-rpm-v2-4-170ed0698560@collabora.com>
- <CAGXv+5Hpndq09cbudofSvkNE6w+tHb85VCqDb3P920S8vwonHQ@mail.gmail.com>
+ <2477df4e-c89e-408f-bb2a-d5af51f78ef8@collabora.com>
+ <CAGXv+5FTg3VXpbav5c2Gx2vRgaC=jYURRp0b5tQGw+ScACRSew@mail.gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: quoted-printable
 Content-Type: text/plain; charset="utf-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_130754_678948_FF776CB9 
-X-CRM114-Status: GOOD (  22.37  )
+X-CRM114-CacheID: sfid-20251010_131142_580644_C4140CE8 
+X-CRM114-Status: GOOD (  26.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -85,197 +85,129 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thursday, 9 October 2025 09:33:22 Central European Summer Time Chen-Yu T=
+On Thursday, 9 October 2025 10:18:42 Central European Summer Time Chen-Yu T=
 sai wrote:
-> On Thu, Oct 9, 2025 at 12:06=E2=80=AFAM Nicolas Frattaroli
-> <nicolas.frattaroli@collabora.com> wrote:
+> On Thu, Oct 9, 2025 at 4:09=E2=80=AFPM AngeloGioacchino Del Regno
+> <angelogioacchino.delregno@collabora.com> wrote:
 > >
-> > After refactoring all of PLL to pass the device, it's now fairly easy to
-> > refactor pllfh and its users, as pllfh registration wraps PLL
-> > registration.
+> > Il 08/10/25 18:05, Nicolas Frattaroli ha scritto:
+> > > As it stands, mtk_clk_register_plls takes a struct device_node pointer
+> > > as its first argument. This is a tragic happenstance, as it's trivial=
+ to
+> > > get the device_node from a struct device, but the opposite not so muc=
+h.
+> > > The struct device is a much more useful thing to have passed down.
+> > >
+> > > Refactor mtk_clk_register_plls to take a struct device pointer instead
+> > > of a struct device_node pointer, and fix up all users of this functio=
+n.
+> > >
+> > > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+> > > ---
+> > >   drivers/clk/mediatek/clk-mt2701.c            | 2 +-
+> > >   drivers/clk/mediatek/clk-mt2712-apmixedsys.c | 2 +-
+> > >   drivers/clk/mediatek/clk-mt6735-apmixedsys.c | 4 ++--
+> > >   drivers/clk/mediatek/clk-mt6765.c            | 2 +-
+> > >   drivers/clk/mediatek/clk-mt6779.c            | 2 +-
+> > >   drivers/clk/mediatek/clk-mt6797.c            | 2 +-
+> > >   drivers/clk/mediatek/clk-mt7622-apmixedsys.c | 2 +-
+> > >   drivers/clk/mediatek/clk-mt7629.c            | 2 +-
+> > >   drivers/clk/mediatek/clk-mt7981-apmixed.c    | 2 +-
+> > >   drivers/clk/mediatek/clk-mt7986-apmixed.c    | 2 +-
+> > >   drivers/clk/mediatek/clk-mt7988-apmixed.c    | 2 +-
+> > >   drivers/clk/mediatek/clk-mt8135-apmixedsys.c | 3 ++-
+> > >   drivers/clk/mediatek/clk-mt8167-apmixedsys.c | 2 +-
+> > >   drivers/clk/mediatek/clk-mt8183-apmixedsys.c | 2 +-
+> > >   drivers/clk/mediatek/clk-mt8188-apmixedsys.c | 2 +-
+> > >   drivers/clk/mediatek/clk-mt8195-apusys_pll.c | 3 ++-
+> > >   drivers/clk/mediatek/clk-mt8196-apmixedsys.c | 3 ++-
+> > >   drivers/clk/mediatek/clk-mt8196-mcu.c        | 2 +-
+> > >   drivers/clk/mediatek/clk-mt8196-mfg.c        | 2 +-
+> > >   drivers/clk/mediatek/clk-mt8196-vlpckgen.c   | 2 +-
+> > >   drivers/clk/mediatek/clk-mt8365-apmixedsys.c | 2 +-
+> > >   drivers/clk/mediatek/clk-mt8516-apmixedsys.c | 2 +-
+> > >   drivers/clk/mediatek/clk-pll.c               | 7 ++++---
+> > >   drivers/clk/mediatek/clk-pll.h               | 6 +++---
+> > >   24 files changed, 33 insertions(+), 29 deletions(-)
+> > >
 > >
-> > Do this refactor and move all of the pllfh users to pass the device as
-> > well.
+> > ..snip..
 > >
-> > Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
-> > ---
-> >  drivers/clk/mediatek/clk-mt6795-apmixedsys.c |  2 +-
-> >  drivers/clk/mediatek/clk-mt8173-apmixedsys.c | 14 +++++++-------
-> >  drivers/clk/mediatek/clk-mt8186-apmixedsys.c |  2 +-
-> >  drivers/clk/mediatek/clk-mt8192-apmixedsys.c |  2 +-
-> >  drivers/clk/mediatek/clk-mt8195-apmixedsys.c |  2 +-
-> >  drivers/clk/mediatek/clk-pllfh.c             | 13 ++++++++-----
-> >  drivers/clk/mediatek/clk-pllfh.h             |  2 +-
-> >  7 files changed, 20 insertions(+), 17 deletions(-)
+> > > diff --git a/drivers/clk/mediatek/clk-pll.h b/drivers/clk/mediatek/cl=
+k-pll.h
+> > > index d71c150ce83e4bb2fe78290c2d5570a90084246d..0e2b94b9cd4b56adceee3=
+b04e9ab24c2526471da 100644
+> > > --- a/drivers/clk/mediatek/clk-pll.h
+> > > +++ b/drivers/clk/mediatek/clk-pll.h
+> > > @@ -78,9 +78,9 @@ struct mtk_clk_pll {
+> > >       const struct mtk_pll_data *data;
+> > >   };
+> > >
 > >
-> > diff --git a/drivers/clk/mediatek/clk-mt6795-apmixedsys.c b/drivers/clk=
-/mediatek/clk-mt6795-apmixedsys.c
-> > index 91665d7f125efde4941cc4de881c5b503a935529..123d5d7fea8554676364dc5=
-6f5c023e43325d516 100644
-> > --- a/drivers/clk/mediatek/clk-mt6795-apmixedsys.c
-> > +++ b/drivers/clk/mediatek/clk-mt6795-apmixedsys.c
-> > @@ -152,7 +152,7 @@ static int clk_mt6795_apmixed_probe(struct platform=
-_device *pdev)
-> >                 return -ENOMEM;
+> > There's a forward declaration of struct device_node in this header: wit=
+h this
+> > change, that becomes unused.
 > >
-> >         fhctl_parse_dt(fhctl_node, pllfhs, ARRAY_SIZE(pllfhs));
-> > -       ret =3D mtk_clk_register_pllfhs(node, plls, ARRAY_SIZE(plls),
-> > +       ret =3D mtk_clk_register_pllfhs(dev, plls, ARRAY_SIZE(plls),
-> >                                       pllfhs, ARRAY_SIZE(pllfhs), clk_d=
-ata);
-> >         if (ret)
-> >                 goto free_clk_data;
-> > diff --git a/drivers/clk/mediatek/clk-mt8173-apmixedsys.c b/drivers/clk=
-/mediatek/clk-mt8173-apmixedsys.c
-> > index 95385bb67d5511eda3a851f81986e67eaf81e5fb..d7d416172ab35bc027ae67c=
-163c1dc20dee857b6 100644
-> > --- a/drivers/clk/mediatek/clk-mt8173-apmixedsys.c
-> > +++ b/drivers/clk/mediatek/clk-mt8173-apmixedsys.c
-> > @@ -140,13 +140,13 @@ MODULE_DEVICE_TABLE(of, of_match_clk_mt8173_apmix=
-ed);
-> >  static int clk_mt8173_apmixed_probe(struct platform_device *pdev)
-> >  {
-> >         const u8 *fhctl_node =3D "mediatek,mt8173-fhctl";
-> > -       struct device_node *node =3D pdev->dev.of_node;
-> >         struct clk_hw_onecell_data *clk_data;
-> > +       struct device *dev =3D &pdev->dev;
-> >         void __iomem *base;
-> >         struct clk_hw *hw;
-> >         int r;
+> > Please change that to a forward declaration of struct device instead.
 > >
-> > -       base =3D of_iomap(node, 0);
-> > +       base =3D of_iomap(dev->of_node, 0);
-> >         if (!base)
-> >                 return -ENOMEM;
-> >
-> > @@ -157,25 +157,25 @@ static int clk_mt8173_apmixed_probe(struct platfo=
-rm_device *pdev)
-> >         }
-> >
-> >         fhctl_parse_dt(fhctl_node, pllfhs, ARRAY_SIZE(pllfhs));
-> > -       r =3D mtk_clk_register_pllfhs(node, plls, ARRAY_SIZE(plls),
-> > -                                   pllfhs, ARRAY_SIZE(pllfhs), clk_dat=
-a);
-> > +       r =3D mtk_clk_register_pllfhs(dev, plls, ARRAY_SIZE(plls), pllf=
-hs,
-> > +                                   ARRAY_SIZE(pllfhs), clk_data);
-> >         if (r)
-> >                 goto free_clk_data;
-> >
-> >         hw =3D mtk_clk_register_ref2usb_tx("ref2usb_tx", "clk26m", base=
- + REGOFF_REF2USB);
-> >         if (IS_ERR(hw)) {
-> >                 r =3D PTR_ERR(hw);
-> > -               dev_err(&pdev->dev, "Failed to register ref2usb_tx: %d\=
-n", r);
-> > +               dev_err(dev, "Failed to register ref2usb_tx: %d\n", r);
-> >                 goto unregister_plls;
-> >         }
-> >         clk_data->hws[CLK_APMIXED_REF2USB_TX] =3D hw;
-> >
-> > -       hw =3D devm_clk_hw_register_divider(&pdev->dev, "hdmi_ref", "tv=
-dpll_594m", 0,
-> > +       hw =3D devm_clk_hw_register_divider(dev, "hdmi_ref", "tvdpll_59=
-4m", 0,
-> >                                           base + REGOFF_HDMI_REF, 16, 3,
-> >                                           CLK_DIVIDER_POWER_OF_TWO, NUL=
-L);
-> >         clk_data->hws[CLK_APMIXED_HDMI_REF] =3D hw;
-> >
-> > -       r =3D of_clk_add_hw_provider(node, of_clk_hw_onecell_get, clk_d=
-ata);
-> > +       r =3D of_clk_add_hw_provider(dev->of_node, of_clk_hw_onecell_ge=
-t, clk_data);
-> >         if (r)
-> >                 goto unregister_ref2usb;
-> >
-> > diff --git a/drivers/clk/mediatek/clk-mt8186-apmixedsys.c b/drivers/clk=
-/mediatek/clk-mt8186-apmixedsys.c
-> > index 4b2b16578232d986f78deed4778c5fab7f460184..d35dd2632e43ab535b32b8b=
-99f8d75de02d56fe2 100644
-> > --- a/drivers/clk/mediatek/clk-mt8186-apmixedsys.c
-> > +++ b/drivers/clk/mediatek/clk-mt8186-apmixedsys.c
-> > @@ -151,7 +151,7 @@ static int clk_mt8186_apmixed_probe(struct platform=
-_device *pdev)
-> >
-> >         fhctl_parse_dt(fhctl_node, pllfhs, ARRAY_SIZE(pllfhs));
-> >
-> > -       r =3D mtk_clk_register_pllfhs(node, plls, ARRAY_SIZE(plls),
-> > +       r =3D mtk_clk_register_pllfhs(&pdev->dev, plls, ARRAY_SIZE(plls=
-),
-> >                                     pllfhs, ARRAY_SIZE(pllfhs), clk_dat=
-a);
-> >         if (r)
-> >                 goto free_apmixed_data;
-> > diff --git a/drivers/clk/mediatek/clk-mt8192-apmixedsys.c b/drivers/clk=
-/mediatek/clk-mt8192-apmixedsys.c
-> > index 0b66a27e4d5ac68f09dc6a4197fd84ef82342df9..b0563a285bd666d492a7fa9=
-40733aad1ab1a0bae 100644
-> > --- a/drivers/clk/mediatek/clk-mt8192-apmixedsys.c
-> > +++ b/drivers/clk/mediatek/clk-mt8192-apmixedsys.c
-> > @@ -162,7 +162,7 @@ static int clk_mt8192_apmixed_probe(struct platform=
-_device *pdev)
-> >
-> >         fhctl_parse_dt(fhctl_node, pllfhs, ARRAY_SIZE(pllfhs));
-> >
-> > -       r =3D mtk_clk_register_pllfhs(node, plls, ARRAY_SIZE(plls),
-> > +       r =3D mtk_clk_register_pllfhs(&pdev->dev, plls, ARRAY_SIZE(plls=
-),
-> >                                     pllfhs, ARRAY_SIZE(pllfhs), clk_dat=
-a);
-> >         if (r)
-> >                 goto free_clk_data;
-> > diff --git a/drivers/clk/mediatek/clk-mt8195-apmixedsys.c b/drivers/clk=
-/mediatek/clk-mt8195-apmixedsys.c
-> > index 282a3137dc89419a6d0b574fd549cee941687900..44917ab034c56f01ef02d19=
-57f17eb0655438d75 100644
-> > --- a/drivers/clk/mediatek/clk-mt8195-apmixedsys.c
-> > +++ b/drivers/clk/mediatek/clk-mt8195-apmixedsys.c
-> > @@ -181,7 +181,7 @@ static int clk_mt8195_apmixed_probe(struct platform=
-_device *pdev)
-> >
-> >         fhctl_parse_dt(fhctl_node, pllfhs, ARRAY_SIZE(pllfhs));
-> >
-> > -       r =3D mtk_clk_register_pllfhs(node, plls, ARRAY_SIZE(plls),
-> > +       r =3D mtk_clk_register_pllfhs(&pdev->dev, plls, ARRAY_SIZE(plls=
-),
-> >                                     pllfhs, ARRAY_SIZE(pllfhs), clk_dat=
-a);
-> >         if (r)
-> >                 goto free_apmixed_data;
-> > diff --git a/drivers/clk/mediatek/clk-pllfh.c b/drivers/clk/mediatek/cl=
-k-pllfh.c
-> > index 62bfe4a480f14a0a742fb094aff0e6d1a79fe0c3..8ad11023d91127e88900bc6=
-bcabbaeafb1e00664 100644
-> > --- a/drivers/clk/mediatek/clk-pllfh.c
-> > +++ b/drivers/clk/mediatek/clk-pllfh.c
-> > @@ -10,6 +10,7 @@
-> >  #include <linux/slab.h>
-> >  #include <linux/clkdev.h>
-> >  #include <linux/delay.h>
-> > +#include <linux/device.h>
+> > While at it, I'd appreciate if you could either:
+> >   A. Remove the forward declaration for `struct clk_hw_onecell_data` an=
+d for
+> >      `struct clk_ops` (as both come from clk-provider.h - which this al=
+ready
+> >       includes);
+> >     ...or...
+> >   B. Remove the inclusion of clk-provider.h and keep the forward declar=
+ations.
 >=20
-> This shouldn't be needed, as you aren't using any of the APIs.
->=20
-> A forward declaration of |struct device| in the header should suffice.
-> It should be added anyway, since the header defines data structures that
-> have a |struct device *| field.
->=20
->=20
-> ChenYu
->=20
+> Prefer (B) since no APIs from clk-provider.h are referenced in the header.
+> It is up to the implementation to directly include any and all headers it
+> needs.
 
+  drivers/clk/mediatek/clk-pll.h:67:16: error: field has incomplete type 's=
+truct clk_hw'
+     67 |         struct clk_hw   hw;
+        |                         ^
+  drivers/clk/mediatek/clk-pll.h:67:9: note: forward declaration of 'struct=
+ clk_hw'
+     67 |         struct clk_hw   hw;
+        |                ^
 
-  drivers/clk/mediatek/clk-pllfh.c:208:21: error: incomplete definition of =
-type 'struct device'
-    208 |         base =3D of_iomap(dev->of_node, 0);
-        |                         ~~~^
+The compiler needs to know the complete type here, as it's not a
+pointer but a member proper, which is needed for the container_of
+macro to work.
 
-Alas, it is needed, otherwise we can't get the of_node. dev_of_node
-is also defined in device.h, so it works out to the same difference.
+In other words, clk-provider.h is needed.
 
 Kind regards,
 Nicolas Frattaroli
+
+>=20
+> ChenYu
+>=20
+> > After which:
+> >
+> > Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@coll=
+abora.com>
+> >
+> > > -int mtk_clk_register_plls(struct device_node *node,
+> > > -                       const struct mtk_pll_data *plls, int num_plls,
+> > > -                       struct clk_hw_onecell_data *clk_data);
+> > > +int mtk_clk_register_plls(struct device *dev, const struct mtk_pll_d=
+ata *plls,
+> > > +                       int num_plls, struct clk_hw_onecell_data *clk=
+_data);
+> > > +
+> > >   void mtk_clk_unregister_plls(const struct mtk_pll_data *plls, int n=
+um_plls,
+> > >                            struct clk_hw_onecell_data *clk_data);
+> > >
+> > >
+> >
+> >
+>=20
+
+
 
 
 
