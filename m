@@ -4,45 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E84A6CCD18D
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 08:41:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2D7DCCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 08:41:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=SMfQgmaA+NDyDK7Ueg4chV0xd3SWz/9HItTT1xnJps0=; b=1OgV5ZH1kn1+NVM7fe17sAv0Ns
-	xVYHdiy8vwOoo8oZ9rSqqJaAsmDtHaTeSAuoHCBb5l9oq1vMjIwePuym91TF1nZTh17DMaGzW5i/H
-	wEa1ECmaj+o8zg6VNTIfyT8qWwh4Q1GZccELCnpkqP5aWmAD3RKsDU01g34gFkhieQ/Du6z3dkzSg
-	hYQX7wh+wFfpqBtUpmECpWhUId6Gw7ELWm3JmanTKrYUgdw0l3HwahNWss71lRXhv2KseAJb8Fh3C
-	pYx2ooW8dUyVVG8bD07awU3XU8gqUa9ZGaBdRpenXSBJAO+FMs+1hK1OALpStzm9R0tRD8/pJ09gV
-	oofrbGwA==;
+	bh=QLUI3DAeOf8Gf/4795RSqwfpn1jrg6BWZGq810jHUE4=; b=RANaT7+O8UhHFcY+FkYu0hq7bR
+	n0/mf3NnqXLyQrefl1MbfhO0BPZQe0Qi86ExU6jm6lGEAZVGIx+yw7VHjlMGyTQvYMS7v6WfaJNL2
+	06cQ++h7FxMHzY+HZW6zpBJhft2NbnJQx+ANdkB5yFJVR4aOVrRO41hsdDQIAfJ7fTr8W+ULHYULO
+	qv21KD8IYNf0DbS0r3fLUJR3eQ9ydB2ilBFgX6tCDwnVyrdy5Z1LLT6YGlpmnltklKNLtmhN6JQr7
+	RsWkOL+LzbJWZlzRQjX3dY3bQL6rjMqnS6QlSMxAC8jXCU2l7if5eyjxtkapGdH9UWJrp5ZY9o5Hb
+	v2OVhgjw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v78h2-000000081O2-2W9n;
-	Fri, 10 Oct 2025 08:41:40 +0000
+	id 1v78h5-000000081RB-10v6;
+	Fri, 10 Oct 2025 08:41:43 +0000
 Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v78gx-000000081KZ-21b3;
-	Fri, 10 Oct 2025 08:41:38 +0000
+	id 1v78h1-000000081Lm-0SuO;
+	Fri, 10 Oct 2025 08:41:40 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-02.galae.net (Postfix) with ESMTPS id F26301A127C;
-	Fri, 10 Oct 2025 08:41:33 +0000 (UTC)
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 96B621A127D;
+	Fri, 10 Oct 2025 08:41:37 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id C75BF60667;
-	Fri, 10 Oct 2025 08:41:33 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 9A0E1102F21F6;
-	Fri, 10 Oct 2025 10:41:29 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 6BAFB60667;
+	Fri, 10 Oct 2025 08:41:37 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 63206102F2204;
+	Fri, 10 Oct 2025 10:41:33 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1760085692; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1760085696; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=SMfQgmaA+NDyDK7Ueg4chV0xd3SWz/9HItTT1xnJps0=;
-	b=Eu+WCS4l5FJHzORvSabLRwRjqt5rE+kCTzrjWvEoazmBb6vd0C+muL/EvqJHX07680Mhiw
-	YBT6JH0YZUN/K+/uW4jtWdDu/Q3t3AJQlnX1MmKWH86xYLL2zSBEGL6EWaK5Hp7QVTpZxA
-	E/HY8ljBCG4YQn3oxdeR+OfH51zM0Ucgc2Ha3pgVeJdL32+d9pQqYjdSEmDu9yg/PWlpOB
-	H9jTgX4q+NKq+/JWXKDgNYYuLUTyNhJSBeLnahyskGbsU1GsP+3ErGnVgLDA7QDOCGOjKz
-	9Yns8KZFkbH1NkU74YPbPHiLU+Qf9id8zFMD8BIlpV7F6JLDxl3S1G4PA/IeKA==
+	bh=QLUI3DAeOf8Gf/4795RSqwfpn1jrg6BWZGq810jHUE4=;
+	b=y8phVoq8g2wcSrJsqn8y2JdqJUR8dFEW9/j4t3nDpBDLbY5CvPoiRl9A7HYeMR2wPcv1zn
+	ibcYf67gZJs5b8/51Mk0vtTcg4ueao9J1qgGBTN+ZKTycbF4nnisRmVZki3vdgtyQhUw1v
+	uT613Xta3u40dAgd+sOgVMF/305o227he+bWqA9EU6Sn14sy2PXkWqhp6OPvcSvdAmGYuN
+	OT5zDHb93cFUxVkLC0zLof/koSW6ujqGy1LBiy9wZ1NpANCLzt/ODzCpnzIuRdBLFbpmDS
+	nCGwsAUxWBzajNNXlJ4J21hYkp7MQFFRbVnKoO21aLKeQHODOThkXM1UhBRRxw==
 From: Richard Genoud <richard.genoud@bootlin.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>,
 	Richard Weinberger <richard@nod.at>,
@@ -63,9 +63,9 @@ Cc: Wentao Liang <vulab@iscas.ac.cn>,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Richard Genoud <richard.genoud@bootlin.com>
-Subject: [PATCH 02/15] dt-bindings: mtd: sunxi: Add new compatible
-Date: Fri, 10 Oct 2025 10:40:29 +0200
-Message-ID: <20251010084042.341224-3-richard.genoud@bootlin.com>
+Subject: [PATCH 03/15] arm64: dts: allwinner: h616: add NAND controller
+Date: Fri, 10 Oct 2025 10:40:30 +0200
+Message-ID: <20251010084042.341224-4-richard.genoud@bootlin.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251010084042.341224-1-richard.genoud@bootlin.com>
 References: <20251010084042.341224-1-richard.genoud@bootlin.com>
@@ -73,8 +73,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_014135_649300_10073482 
-X-CRM114-Status: UNSURE (   7.67  )
+X-CRM114-CacheID: sfid-20251010_014139_319657_6187D3C6 
+X-CRM114-Status: UNSURE (   8.51  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -90,99 +90,85 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The H616 NAND controller is quite different from the A10 and A23 ones,
-some registers offset changed, and some new one are introduced.
-Also, the DMA handling is different (it uses chained descriptors)
+The H616 has a NAND controller quite similar to the A10/A23 ones, but
+with some register differences, more clocks (for ECC and MBUS), more ECC
+strengths, so this requires a new compatible string.
 
-So, introduce a new compatible to represent this version of the IP.
+This patch adds the NAND controller node and pins in the device tree.
 
 Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
 ---
- .../mtd/allwinner,sun4i-a10-nand.yaml         | 56 ++++++++++++++-----
- 1 file changed, 43 insertions(+), 13 deletions(-)
+ .../arm64/boot/dts/allwinner/sun50i-h616.dtsi | 50 +++++++++++++++++++
+ 1 file changed, 50 insertions(+)
 
-diff --git a/Documentation/devicetree/bindings/mtd/allwinner,sun4i-a10-nand.yaml b/Documentation/devicetree/bindings/mtd/allwinner,sun4i-a10-nand.yaml
-index 054b6b8bf9b9..cc63091fe936 100644
---- a/Documentation/devicetree/bindings/mtd/allwinner,sun4i-a10-nand.yaml
-+++ b/Documentation/devicetree/bindings/mtd/allwinner,sun4i-a10-nand.yaml
-@@ -6,34 +6,64 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
+diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
+index ceedae9e399b..60626eba7f7c 100644
+--- a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
++++ b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
+@@ -278,6 +278,37 @@ ir_rx_pin: ir-rx-pin {
+ 				function = "ir_rx";
+ 			};
  
- title: Allwinner A10 NAND Controller
- 
--allOf:
--  - $ref: nand-controller.yaml
--
- maintainers:
-   - Chen-Yu Tsai <wens@csie.org>
-   - Maxime Ripard <mripard@kernel.org>
- 
-+allOf:
-+  - $ref: nand-controller.yaml
++			nand_pins: nand-pins {
++				pins = "PC0", "PC1", "PC2", "PC5", "PC8", "PC9",
++				       "PC10", "PC11", "PC12", "PC13", "PC14",
++				       "PC15", "PC16";
++				function = "nand0";
++			};
 +
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - allwinner,sun4i-a10-nand
-+              - allwinner,sun8i-a23-nand-controller
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: Bus Clock
-+            - description: Module Clock
-+        clock-names:
-+          items:
-+            - const: ahb
-+            - const: mod
++			nand_cs0_pin: nand-cs0-pin {
++				pins = "PC4";
++				function = "nand0";
++				bias-pull-up;
++			};
 +
-+  - if:
-+      properties:
-+        compatible:
-+          contains:
-+            enum:
-+              - allwinner,sun50i-h616-nand-controller
-+    then:
-+      properties:
-+        clocks:
-+          items:
-+            - description: Bus Clock
-+            - description: Module Clock
-+            - description: ECC Clock
-+            - description: MBus Clock
-+        clock-names:
-+          items:
-+            - const: ahb
-+            - const: mod
-+            - const: ecc
-+            - const: mbus
++			nand_cs1_pin: nand-cs1-pin {
++				pins = "PC3";
++				function = "nand0";
++				bias-pull-up;
++			};
 +
- properties:
-   compatible:
-     enum:
-       - allwinner,sun4i-a10-nand
-       - allwinner,sun8i-a23-nand-controller
-+      - allwinner,sun50i-h616-nand-controller
-   reg:
-     maxItems: 1
++			nand_rb0_pin: nand-rb0-pin {
++				pins = "PC6";
++				function = "nand0";
++				bias-pull-up;
++			};
++
++			nand_rb1_pin: nand-rb1-pin {
++				pins = "PC7";
++				function = "nand0";
++				bias-pull-up;
++			};
++
+ 			mmc0_pins: mmc0-pins {
+ 				pins = "PF0", "PF1", "PF2", "PF3",
+ 				       "PF4", "PF5";
+@@ -440,6 +471,25 @@ mmc2: mmc@4022000 {
+ 			#size-cells = <0>;
+ 		};
  
-   interrupts:
-     maxItems: 1
- 
--  clocks:
--    items:
--      - description: Bus Clock
--      - description: Module Clock
--
--  clock-names:
--    items:
--      - const: ahb
--      - const: mod
--
-   resets:
-     maxItems: 1
- 
++		nfc: nand-controller@4011000 {
++			compatible = "allwinner,sun50i-h616-nand-controller";
++			reg = <0x04011000 0x1000>;
++			interrupts = <GIC_SPI 34 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&ccu CLK_BUS_NAND>, <&ccu CLK_NAND0>,
++				<&ccu CLK_NAND1>, <&ccu CLK_MBUS_NAND>;
++			clock-names = "ahb", "mod", "ecc", "mbus";
++			resets = <&ccu RST_BUS_NAND>;
++			reset-names = "ahb";
++			dmas = <&dma 10>;
++			dma-names = "rxtx";
++			pinctrl-names = "default";
++			pinctrl-0 = <&nand_pins>, <&nand_cs0_pin>,
++				<&nand_cs1_pin>, <&nand_rb0_pin>,
++				<&nand_rb1_pin>;
++			#address-cells = <1>;
++			#size-cells = <0>;
++		};
++
+ 		uart0: serial@5000000 {
+ 			compatible = "snps,dw-apb-uart";
+ 			reg = <0x05000000 0x400>;
 -- 
 2.47.3
 
