@@ -4,58 +4,61 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0DC51CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 02:00:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0136FCCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 02:02:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bKb2+LWn+9bFo0JvyMz+IuBawvd4IewFiapgoPwhJDY=; b=Pt6CokPOn6xoEzSjXh9DYLEFmh
-	ZLSt9xDM1VDt9WZxOYJVxO/vtqp4pKsEn3a3SNvICUkKLpvARIK5QhzpHD/dUpoKZHAmwjOPoW9UQ
-	/nQY/SfYUKR9rqWaBpv9iCxuKqbkF/cuUO7DxCsp4+VA85xxCy8n9v+iMeyu+rR1L9HkAGZ7xXyu4
-	FlG1PtCsEo+a0teGdJW9ujpYAglCmD+j3rXh4uDpkPOiqw/6rliQdkaEODYIN2rQbaSbvXRYk+AmC
-	Cau4dE2MjvdIRQRGQnvYj2HPp9Su0LtCf+SwSp0XJfFThmX8HUtiOW6zEZCE/swB9jbZjmohMpNsO
-	iZ32uWKA==;
+	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
+	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=VAc9TFyHFO7s43ucEv9N3nmfz2hKQDeRIdtxPGcDlbs=; b=arvt6SOgLlC4J9iBcBwOOIiVm1
+	PVBcvc/MA3hwdHcDg45EDKJNkpr8FW8jQ7NfbSUrcm9qkv62QjNdLRM4nasJZH/mPw+RdixoWUdIR
+	HGHz/YJ7d2zXjc7whb46BwKFc8sL+puMdtmj2EtmCYOMU2NtcWsDqegMcpPEddFDaO+aJvTcx0gSn
+	By+4PdTKxiO7gLJdU25rtH0bHDBt9LGWzfUJZ5ZCInrP3Yh2vHVkdlNWtQOIqYwrJGm3iLEmoJ6l6
+	1rINBgd9t/BCDKk1HEA10hz7NN+z3btg4LhUNQ1vu9x1jyBWISfRDTvI1HmJMGvq17PAhKABfRXwB
+	yPpNy9Iw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v72Qe-00000007TXW-2QyA;
-	Fri, 10 Oct 2025 02:00:20 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v72Ss-00000007TmD-026x;
+	Fri, 10 Oct 2025 02:02:38 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v72Qc-00000007TXD-3OwU
+	id 1v72Sp-00000007Tls-3Kfz
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 02:00:18 +0000
+	Fri, 10 Oct 2025 02:02:36 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E1C8D6248A;
-	Fri, 10 Oct 2025 02:00:17 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1E8B2C4CEE7;
-	Fri, 10 Oct 2025 02:00:09 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 204DC45268;
+	Fri, 10 Oct 2025 02:02:35 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 699A1C4CEE7;
+	Fri, 10 Oct 2025 02:02:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760061617;
-	bh=bKb2+LWn+9bFo0JvyMz+IuBawvd4IewFiapgoPwhJDY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=EZ5uhXEoFwIigR89ZDxpuiMJjV9tImylj7s191qm0WMCHwWJEDHZhfwPLEnCSN3QH
-	 FZ0SJJAnIg+OWIdX/eILZaJoD7pLii01fGS49y6IFAwmkjeYjfINwMQVc602rdpWuc
-	 iHVzGw0Yn/yidtKyTbS60g10UkVGEuB4JcGMEzXsN9DdqtrHHljHHetaKWH/6+Y2nq
-	 r7lk1HZoX3yr+9v7/OLDJBG+KRLb0Dru5HkuZiRFYALrjGkPUhNWQx9ONI5G08aVCo
-	 VVbxE02hyMT1h708EIfzLjzHEBXuT38aGZ7Ujk4hjRGj/Xdz2ElziLwTUHHWHNhV6U
-	 CdDWfA6WYsTgg==
-Message-ID: <3791aa93-c1c0-4fc9-9706-91f3f62743a3@kernel.org>
-Date: Fri, 10 Oct 2025 04:00:06 +0200
+	s=k20201202; t=1760061755;
+	bh=/FJH5Vpkh52wcPrzkMVwtmP0OwkiIrTThiVP10A1rog=;
+	h=Date:Subject:To:References:From:In-Reply-To:From;
+	b=jHC7gvou25hLkuFkaYMvrSDcsTsOOuX2swQ0g+a61BPmUTAcrgSfElEtfNqjdmfMY
+	 y4gpfwakVAU7B/sVavKKAOMdUrp7UK82S2xwfp2wcs3LO5MqL4Cz+KthkT2/iNQNVz
+	 Am0ltYCrwDrAbFQy+YnZoNwwwtlHPRqI+yeSlx1Xobhcmp4MqSskfe4Y5xBxWfonyo
+	 f5aDkIX3//GuEg4MUDmQ2gdE2E2fYOr5FXiwtpU9STt5Sca4n1wEItvYNlq+N/lSFV
+	 zitKHfCrASOOprtFjenQwd9QTTlaJKtCqm2IZ+Rr5trfiOZMDKv6ZFD5TUIBnbUjuO
+	 RcaeHY/9urQbQ==
+Message-ID: <3a960143-ad3e-4c3a-88a7-48e69576caed@kernel.org>
+Date: Fri, 10 Oct 2025 04:02:27 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 1/3] dt-bindings: hwlock: Adding brcmstb-hwspinlock
- support
-To: Kamal Dasu <kamal.dasu@broadcom.com>, peng.fan@oss.nxp.com,
- andersson@kernel.org, baolin.wang@linux.alibaba.com, robh@kernel.org,
- krzk+dt@kernel.org, conor+dt@kernel.org, florian.fainelli@broadcom.com
-Cc: bcm-kernel-feedback-list@broadcom.com, linux-remoteproc@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org
-References: <20251009212003.2714447-1-kamal.dasu@broadcom.com>
- <20251009212003.2714447-2-kamal.dasu@broadcom.com>
+Subject: Re: [PATCH v1] clk: samsung: exynos5420: Add support for power
+ control registers
+To: Anand Moon <linux.amoon@gmail.com>,
+ Sylwester Nawrocki <s.nawrocki@samsung.com>,
+ Chanwoo Choi <cw00.choi@samsung.com>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>,
+ "open list:SAMSUNG SOC CLOCK DRIVERS" <linux-samsung-soc@vger.kernel.org>,
+ "open list:COMMON CLK FRAMEWORK" <linux-clk@vger.kernel.org>,
+ "moderated list:ARM/SAMSUNG S3C, S5P AND EXYNOS ARM ARCHITECTURES"
+ <linux-arm-kernel@lists.infradead.org>,
+ open list <linux-kernel@vger.kernel.org>
+References: <20250909180652.7130-1-linux.amoon@gmail.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -101,9 +104,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251009212003.2714447-2-kamal.dasu@broadcom.com>
+In-Reply-To: <20250909180652.7130-1-linux.amoon@gmail.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251009_190235_875581_58AF8646 
+X-CRM114-Status: UNSURE (   9.23  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,14 +125,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 09/10/2025 23:20, Kamal Dasu wrote:
-> The broadcom settop SoCs have hardware semaphores as part of "sundry"
-> IP block which has other controls that do not belong anywhere else.
-> e.g. pin/mux controls, SoC identification, drive strength, reset controls,
-> and other misc bits are part of this block.
+On 09/09/2025 20:06, Anand Moon wrote:
+> As per the Exynos5422 user manual, settings for the PWR_CTRL, PWR_CTRL2,
+> PWR_CTRL_KFC, and PWR_CNTL_KFC registers manage ARM clock down and up
+> configurations for idle and standby states.
+> 
+> The Exynos5422's dynamic clock frequency down feature enables automatic
+> clock down when all CPU cores are in Wait For Event (WFE) or
+> Wait For Interrupt (WFI) states, utilizing this feature in standby
+> configurations.
+> 
+> These modifications enhance the power management capabilities of the
+> Exynos542x by providing finer control over the ARM clock behavior in
+> various states.
 
-This does not explain why this has to be a separate block. Rob comment
-stays valid - this belongs to parent node.
+This seems reasonable, but I need more detailed tests and Tested-by.
 
 Best regards,
 Krzysztof
