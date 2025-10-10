@@ -4,138 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 180D6CCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 10:49:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 65684CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 11:00:24 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Cc:Content-ID:Content-Description:Resent-Date:Resent-From
-	:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=QzPIUE0kq7RazblEJidW9b7e/wLqz9BuPeB8RaG4tE4=; b=fUDQaorFXSoaQkFR67VKX4S3te
-	79MImZJ7VyzXQ6DGQb/RFEcRPTQ/KjRTzArnoINw3srDdnn3DYKhLFGf4B0l3oCpEllEGRlbhD0lg
-	AUIkrIAbhd4HSTRFWkIS8Q+l/sZyF38IjcSlc+vjVSmrClqqKxjSwToG+HVhwiK95zC5DfvhF4pDG
-	ZiYTysDJx4E9cx2G/f40x5quS3tUliPqCJ3bchZKU/CjLjlLbU8wOoj55TflR1nfknM+JP+UKmWDE
-	feItisUHeUsx0MtLa7mzU5eDLUjsViMQAPMC12f/Geplwwojfo0fIpub1rjdSYLWM69tWgZS2aWxK
-	eOxJaolA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:Content-Type:
+	MIME-Version:Message-ID:In-Reply-To:Date:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ir3x0swwBGd6XitlxOubmabNH2rY0f45K2OexaHZmP4=; b=BZUQ4BOgK8T8j3v4/N1wRHRznj
+	dIVM9uyiGL0Iph7/CxOTF5meg0MFvM0r6kZFE9aFBen+Ser/ktoZYpUtJDHr7/o+cH1aOlmULYcds
+	Yr7g6pDPRLs9MSdfRka0ERNUPQCeVFpttN3cNX5a6T8n9LglHO1gNUG8IjcgACjiKn5cx1H3F4z19
+	tCP6GzMoj0cPGi8QNP4fHVfp/b/gI5EtTmXdrlxdA1t556RIAI4xE68oBuoQdgHrHawOaxBIkT8EQ
+	QeuHeDyOXa/IwHT8xRoIgNCLjzXcHD6orEH+9JZlJYYqx7OBibpYCxnetMK69eSv1FnKN+WFvpCLN
+	aP/CQnbQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7Age-00000008IbJ-0BJt;
-	Fri, 10 Oct 2025 10:49:24 +0000
-Received: from mail-pf1-x435.google.com ([2607:f8b0:4864:20::435])
+	id 1v7ArB-00000008JNN-0aI7;
+	Fri, 10 Oct 2025 11:00:17 +0000
+Received: from mailout1.w1.samsung.com ([210.118.77.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7Agb-00000008Ias-35PD
+	id 1v7Ar6-00000008JMq-4BhD
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 10:49:22 +0000
-Received: by mail-pf1-x435.google.com with SMTP id d2e1a72fcca58-77f1f29a551so2605891b3a.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Oct 2025 03:49:21 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760093361; x=1760698161; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:to:subject:user-agent:mime-version:date
-         :message-id:sender:from:to:cc:subject:date:message-id:reply-to;
-        bh=QzPIUE0kq7RazblEJidW9b7e/wLqz9BuPeB8RaG4tE4=;
-        b=BIHAlUjd3IOzXXVaQOPK9tFORMDTyutzjcryblPQYhpzPn/yi8i7GTE1MZdxixSW4S
-         6iaj/t5OUc7LGYWq9rra071+gZ+/oKwVSeFlJU7qtKA4ESeoWwEj2k87/XwsSdWwMcgN
-         yrwNJYDUItS4ETyx8DXDo/H9kwncWTYu61xEpLoQfUngbzFUQ24tOSRs/G3d8ahtPRwe
-         AUmbnfc7UOcHPhXvz2BkdDqQMCDpE1vTSlpXrofl+IwXdIMQlUGZDkmqNMv/dI8esVjX
-         DAboaS4H14a74gmeIVy6u+Ufnue3i0kGoGAyC7Aqax0G4Xg6ZPpGKKAqS8dW8jSVY0BJ
-         qMjQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760093361; x=1760698161;
-        h=content-transfer-encoding:in-reply-to:autocrypt:from
-         :content-language:references:to:subject:user-agent:mime-version:date
-         :message-id:sender:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=QzPIUE0kq7RazblEJidW9b7e/wLqz9BuPeB8RaG4tE4=;
-        b=jCo16qJlflUFoJRCq7WOPjvnL8/R8pzDZ3esw05KlUsgnxlhQX1Iqe7I0mhC224pLh
-         HsnxfgAv2pRAX+nF93qvP2scPuXXw+zvvsDZCBhmC7WQXGvTY+0fPiLFO1MpxHxCvKQF
-         SyejpuEJ1RZy/oVARvI8mF+MPspamSDgQx816KPUMtYXRrRkof/rPWGBqG3ryLV5q3cj
-         apdpuVXIJMd8R9WXqv//D6bvMXq4x4Tq59nzfsUWIGpJU1n1UYs8GPcEqF2F7R4yDGcS
-         K5jTJKwH2fFK3RNlJnDXdqNeadd1jsfNCZAv1WHnxNQd3aq5I3P5RXO+OrDaFOE0+X5R
-         hntw==
-X-Forwarded-Encrypted: i=1; AJvYcCXkw47yAS8qDz7Qdj9aIwZ14gWTmbBdwE9oSFL5NYmQQN1oLxZuCJVKLbjVFGHYe++mhfCbvBjZEeua/SvrH6yp@lists.infradead.org
-X-Gm-Message-State: AOJu0YzOAVTmSnqruR82ZdAKc9SyO2p5kl2sMGUMv2+Yts0Zhat8DJnn
-	7JeHy4NDV3CqcGWLm+17RIuSTjMebUTcCcPpTKV9e7c9YFMdnbIgqO8j
-X-Gm-Gg: ASbGnctw0ZoiHZ7lw1G3EwOSebOG3Gqf64RVIZNQDIuv290izO70a32t3gN/XilRPZq
-	+/OrLHIrOMfaG7I7thyVlKrvdRtc7Qs67kyDezVm1mwsYh1hGXiDPjA1mR7IPMeViqSsp7mt/H2
-	BYjbrAzXeusMpVcj1hfqM+I9tbAtMBOrK1wgPnmmMCJ/KPioe6jiK4pDIh1lieeg+9oogz13Duz
-	bsXPhWKvJSOowX3437I9nKkAbEzZ9LFMX+5DbAEYR4Kx5wHuyPIhFQVWs5KHnp4oedRklFHdoU6
-	Zi8fp/MWrYhKVAuha5qi6jRaYdEyJpL8xBa2qeYp6YdTHVUdyqARZXk9YRu22tjvJb68YeZa6Lm
-	AOpJPaoardQmuQm7ONdBTwRp0A4GMDEKQ7kxrRvATyvGTmfhRNU0rs+CycN8VdKq/gF/4Sht+IA
-	EG//twNNHKSqwfYA==
-X-Google-Smtp-Source: AGHT+IFBvTAbJQG+MxhyANCbjpJn05Ip49+Cj9nha4KjK9n7ztA6cSQ8VpgOYMJmhMkKmcyk9pdApg==
-X-Received: by 2002:a05:6a00:80c:b0:782:5ca1:e1c with SMTP id d2e1a72fcca58-7938723daa6mr13371334b3a.21.1760093360826;
-        Fri, 10 Oct 2025 03:49:20 -0700 (PDT)
-Received: from ?IPV6:2600:1700:e321:62f0:da43:aeff:fecc:bfd5? ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7992d2d2e42sm2508787b3a.62.2025.10.10.03.49.19
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Fri, 10 Oct 2025 03:49:20 -0700 (PDT)
-Message-ID: <8424b26a-e267-4481-b027-b372700ccd0e@roeck-us.net>
-Date: Fri, 10 Oct 2025 03:49:19 -0700
+	Fri, 10 Oct 2025 11:00:15 +0000
+Received: from eucas1p2.samsung.com (unknown [182.198.249.207])
+	by mailout1.w1.samsung.com (KnoxPortal) with ESMTP id 20251010110007euoutp0198334a56c1e281aced139f1d9abc40ab~tHCy5C9b_1521215212euoutp01Q;
+	Fri, 10 Oct 2025 11:00:07 +0000 (GMT)
+DKIM-Filter: OpenDKIM Filter v2.11.0 mailout1.w1.samsung.com 20251010110007euoutp0198334a56c1e281aced139f1d9abc40ab~tHCy5C9b_1521215212euoutp01Q
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=samsung.com;
+	s=mail20170921; t=1760094007;
+	bh=ir3x0swwBGd6XitlxOubmabNH2rY0f45K2OexaHZmP4=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=ekbdCyXOMZGugMSo0+tQQkBAc4fpEMjXKT1yNIc0F5+IB8agcCFy04xR3j4PlkbDR
+	 s1KWGiNrQkm392seMJ+rvt46MMf2su6qOst3b7Q/eSQXO2Fo5cfr8dJvPCoRiQ+w9k
+	 TJ5SqyCJY5iFJFdZ32P1G+IqCfuQR9lKYvHa0Sag=
+Received: from eusmtip1.samsung.com (unknown [203.254.199.221]) by
+	eucas1p1.samsung.com (KnoxPortal) with ESMTPA id
+	20251010110007eucas1p1e2052e63b1b36046298c3c2c4ad303b0~tHCyiyju42872228722eucas1p1Y;
+	Fri, 10 Oct 2025 11:00:07 +0000 (GMT)
+Received: from localhost (unknown [106.120.51.111]) by eusmtip1.samsung.com
+	(KnoxPortal) with ESMTPA id
+	20251010110007eusmtip14117cd889c992a54b4345025b25e4516~tHCyfZrY43244032440eusmtip1g;
+	Fri, 10 Oct 2025 11:00:07 +0000 (GMT)
+From: Lukasz Stelmach <l.stelmach@samsung.com>
+To: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+Cc: linux-media@vger.kernel.org,  linux-arm-kernel@lists.infradead.org,
+	Nicolas Dufresne <nicolas.dufresne@collabora.com>, Marek Szyprowski
+	<m.szyprowski@samsung.com> 
+Subject: Re: [PATCH 20/25] media: samsung: s5p-g2d: Drop unneeded
+ v4l2_m2m_get_vq() NULL check
+Date: Fri, 10 Oct 2025 13:00:01 +0200
+In-Reply-To: <20251008175052.19925-21-laurent.pinchart@ideasonboard.com>
+	(Laurent Pinchart's message of "Wed, 8 Oct 2025 20:50:47 +0300")
+Message-ID: <oypijd4is7m37y.fsf%l.stelmach@samsung.com>
+User-Agent: Gnus/5.13 (Gnus v5.13) Emacs/28.2 (gnu/linux)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 3/3] watchdog: aspeed: Add support for AST2700 platform
-To: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>, wim@linux-watchdog.org,
- robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, joel@jms.id.au,
- andrew@codeconstruct.com.au, linux-watchdog@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
- BMC-SW@aspeedtech.com
-References: <20251010080315.816628-1-chin-ting_kuo@aspeedtech.com>
- <20251010080315.816628-4-chin-ting_kuo@aspeedtech.com>
-Content-Language: en-US
-From: Guenter Roeck <linux@roeck-us.net>
-Autocrypt: addr=linux@roeck-us.net; keydata=
- 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
- np3900V20aS7eD9K8GTU0TGC1pyz6IVJwIE=
-In-Reply-To: <20251010080315.816628-4-chin-ting_kuo@aspeedtech.com>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
+Content-Type: multipart/signed; boundary="=-=-="; micalg="pgp-sha256";
+	protocol="application/pgp-signature"
+X-CMS-MailID: 20251010110007eucas1p1e2052e63b1b36046298c3c2c4ad303b0
+X-Msg-Generator: CA
+X-RootMTR: 20251008175139eucas1p225b8b48b4152566f6a6eca0207961c1b
+X-EPHeader: CA
+X-CMS-RootMailID: 20251008175139eucas1p225b8b48b4152566f6a6eca0207961c1b
+References: <20251008175052.19925-1-laurent.pinchart@ideasonboard.com>
+	<CGME20251008175139eucas1p225b8b48b4152566f6a6eca0207961c1b@eucas1p2.samsung.com>
+	<20251008175052.19925-21-laurent.pinchart@ideasonboard.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_034921_780756_36341107 
-X-CRM114-Status: UNSURE (   8.68  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251010_040013_618798_E8023FDE 
+X-CRM114-Status: GOOD (  20.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -150,13 +86,65 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/10/25 01:03, Chin-Ting Kuo wrote:
-> Add AST2700 platform support to the ASPEED watchdog driver. This includes
-> a new per-platform configuration with SCU reset status register at
-> SCU1_070 and support for 5 reset mask registers.
-> 
-> Signed-off-by: Chin-Ting Kuo <chin-ting_kuo@aspeedtech.com>
+--=-=-=
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
 
-Reviewed-by: Guenter Roeck <linux@roeck-us.net>
+It was <2025-10-08 =C5=9Bro 20:50>, when Laurent Pinchart wrote:
+> The v4l2_m2m_get_vq() function never returns NULL. The check was
+> probably intended to catch invalid format types, but that's not needed
+> as the V4L2 core picks the appropriate VIDIOC_G_FMT ioctl handler based
+> on the format type, so the type can't be incorrect. Drop the unneeded
+> return value check and, as the return value is not used for other
+> purposes and the function has no side effect, the function call as well.
+>
+> Signed-off-by: Laurent Pinchart <laurent.pinchart@ideasonboard.com>
+> ---
+>  drivers/media/platform/samsung/s5p-g2d/g2d.c | 4 ----
+>  1 file changed, 4 deletions(-)
+>
 
+Reviewed-by: =C5=81ukasz Stelmach <l.stelmach@samsung.com>
+
+> diff --git a/drivers/media/platform/samsung/s5p-g2d/g2d.c b/drivers/media=
+/platform/samsung/s5p-g2d/g2d.c
+> index ffed16a34493..7b0481c7f953 100644
+> --- a/drivers/media/platform/samsung/s5p-g2d/g2d.c
+> +++ b/drivers/media/platform/samsung/s5p-g2d/g2d.c
+> @@ -306,12 +306,8 @@ static int vidioc_enum_fmt(struct file *file, void *=
+prv, struct v4l2_fmtdesc *f)
+>  static int vidioc_g_fmt(struct file *file, void *prv, struct v4l2_format=
+ *f)
+>  {
+>  	struct g2d_ctx *ctx =3D prv;
+> -	struct vb2_queue *vq;
+>  	struct g2d_frame *frm;
+>=20=20
+> -	vq =3D v4l2_m2m_get_vq(ctx->fh.m2m_ctx, f->type);
+> -	if (!vq)
+> -		return -EINVAL;
+>  	frm =3D get_frame(ctx, f->type);
+>  	if (IS_ERR(frm))
+>  		return PTR_ERR(frm);
+
+=2D-=20
+=C5=81ukasz Stelmach
+Samsung R&D Institute Poland
+Samsung Electronics
+
+--=-=-=
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iQEzBAEBCAAdFiEEXpuyqjq9kGEVr9UQsK4enJilgBAFAmjo5zEACgkQsK4enJil
+gBCLEQf6AmaPcjoiunRnBc4iXTZhWRTMZQAaCNCSv1NeNza95+/aF18AwBnYq9q7
+AzLWKhAVaj5w1W7bCQFkcEmoPRKR4hB/QwnnCQZJ322bqzRgqhb8bMMw5myRFsiY
+3NQKCiZf4teMiE7FIG26t7JSDMX3UjGb/1Fn7gxy10LfSlS435Dixzq4w0G4SXI7
+TFJ+XfkDB9RvFHrK9ih7OpSkdZRlgGVnOD4qWVa0KH9i9u1c0q0ZSzFMkKPbJlmy
+kC8Z56LpjZpZzJk76yV/BdJ/qFBrPuWMGnDD14UWIAd/gKLTNv7MGtmUMkrOHzcr
+3u507zuMqpgOm039YYzWu5ZbMC47Sw==
+=rSgm
+-----END PGP SIGNATURE-----
+--=-=-=--
 
