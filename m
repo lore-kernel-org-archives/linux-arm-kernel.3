@@ -4,74 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AA9A4CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 13:01:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6918CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 13:06:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=M1gvCIcEq8VC5SpotzWbLSXdVVJG006i/zae5C+RMuI=; b=Q+EBbRCDP87X4wo8P/G9edHNeY
-	Mq91IMcjiyG4wOtrLb+nfQhpVR7FL64junEgtJ6k2yYVCjqAXkcE/NsZsj+9zEfW1YyfdUFUrvJTF
-	6gdMdUwi0y7JZLtVK69Gw49qj/QDqkycbX2IHLYgzgslyHtExyZUprrNBcvUTjFa6/ERk89aa9gVG
-	D5vYxFur6WXxotDkdoEBzk2VZgn2CYhSNolh1bKhRWQwRYUr5mDxJvn+PYHRJZ63CHMoPQOLVXoif
-	6CiH44yEp7sgtxuCUDz1zlgXK6htQ8KwU72lUs6CU2PZETeaNAyNJB/TnOQkwbwv2UAOlJp5ZRCJM
-	Tt7FL9hQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	References:In-Reply-To:Date:Cc:To:From:Subject:Message-ID:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=L0+BpS6t2Yv2H52sIT/8sevjMsANiLM0BQhq3pAOHw4=; b=21412oj/KnhUBA/hVSUm9biz2C
+	E+/GA0PTgihHy6hxgqyeuD39vPCODIe1DSYKWZYeMtX//qQC0tYdl2T18h1n3JtWxq46Fg/ljSQr4
+	sy4+urXqpF3PUr6l0CBI4JdjwlEPdtrdktMslu6W2nDTlD7V4TXjS5o4x7H6NfQmgu1k8fS+Gm0SP
+	QowMlHrzOWHV2nqfO/Ag3VfCK1bWUijY99HTrx4YSD0U74b8UNu8dmRrZRftXnNDOhMWo1TJfwyKq
+	edOowlNjw/N+oubYnuU1SX3pJt59FMIqFzH7pmlxZYriO8IxWmWa4XcoI1wlguqdUXl2+/XUTK7Wd
+	UeyuJJqg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7Ckb-00000008Vad-3Ziw;
-	Fri, 10 Oct 2025 13:01:37 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
+	id 1v7Cox-00000008WMl-07nR;
+	Fri, 10 Oct 2025 13:06:07 +0000
+Received: from mail-qv1-xf2c.google.com ([2607:f8b0:4864:20::f2c])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7CkY-00000008VXy-3DX0
+	id 1v7Cos-00000008WL8-0ORc
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 13:01:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1760101294;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=M1gvCIcEq8VC5SpotzWbLSXdVVJG006i/zae5C+RMuI=;
-	b=BIdqlJHUm2oMAGYUcRfLABKOAZJBKQWEDklHKVWR56E49aFn6mg93npQkH/3B+L78cvhVa
-	i9C28vBnqyP8AFFOlXwWsGk9tWCiBtsjbWlq17sbi1UXEqoxMttBB+bcInIf37pqQ4Za/V
-	VV/DNLMlSP+a7UNR0mCn5lwFevRYw6w=
-Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-488-48y6eHKWOMKfuun5lt8URQ-1; Fri,
- 10 Oct 2025 09:01:29 -0400
-X-MC-Unique: 48y6eHKWOMKfuun5lt8URQ-1
-X-Mimecast-MFC-AGG-ID: 48y6eHKWOMKfuun5lt8URQ_1760101288
-Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 8ACAA19560AE;
-	Fri, 10 Oct 2025 13:01:28 +0000 (UTC)
-Received: from thuth-p1g4.redhat.com (unknown [10.45.224.128])
-	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 3B2481954128;
-	Fri, 10 Oct 2025 13:01:24 +0000 (UTC)
-From: Thomas Huth <thuth@redhat.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	linux-arm-kernel@lists.infradead.org
-Cc: Marc Zyngier <maz@kernel.org>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	linux-kernel@vger.kernel.org,
-	kvmarm@lists.linux.dev
-Subject: [PATCH v2 2/2] arm64: Replace __ASSEMBLY__ with __ASSEMBLER__ in non-uapi headers
-Date: Fri, 10 Oct 2025 15:01:16 +0200
-Message-ID: <20251010130116.828465-3-thuth@redhat.com>
-In-Reply-To: <20251010130116.828465-1-thuth@redhat.com>
-References: <20251010130116.828465-1-thuth@redhat.com>
+	Fri, 10 Oct 2025 13:06:06 +0000
+Received: by mail-qv1-xf2c.google.com with SMTP id 6a1803df08f44-799572d92b0so19558026d6.3
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Oct 2025 06:06:01 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=ndufresne-ca.20230601.gappssmtp.com; s=20230601; t=1760101560; x=1760706360; darn=lists.infradead.org;
+        h=mime-version:user-agent:references:in-reply-to:date:cc:to:from
+         :subject:message-id:from:to:cc:subject:date:message-id:reply-to;
+        bh=L0+BpS6t2Yv2H52sIT/8sevjMsANiLM0BQhq3pAOHw4=;
+        b=HFAB8RqRPEvL+/rGIYC1C39b1T28mXbtpN7lOpO4Ehq3F76ixV6u0MsHhACm2KY1S4
+         izVna1hPP1UkHXyFXUc8NAagaF9xHYtyUrydZFicV9ZIV2vzRaULozn1TEq2sBMHVxLw
+         xJmsUeRrJb8j0oRcaFIfpdH+N127RdxHmbENc7wOJwB2gIBbpjwa+2qT3slwOGFRN4ij
+         3Im147gbmDjjwFUachrhjIRYfC1MnMFYqQ3FW3mTjR5LamdKE5i2UJ0ZG2qmJ9aj0Bnf
+         Bgsy1dlrchynP8455pcLWMpVqKyK2p6b9YjxxVmJ7NlL7iaaL5I9bCdgmhLT9V92kwIl
+         SGAg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760101560; x=1760706360;
+        h=mime-version:user-agent:references:in-reply-to:date:cc:to:from
+         :subject:message-id:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=L0+BpS6t2Yv2H52sIT/8sevjMsANiLM0BQhq3pAOHw4=;
+        b=DLtzQKpSaPuK9a7FuzlJ5+nEr5jKqSbYrrUgnxYvFoDH8O5CiP1nE1wBcILCBXSpU7
+         wt6DzQJXJOfndqa3G3LgL+JNM9jxPn0enDLrvQZvpNmdNAzXeo9A6O9cV5oyYgtjpvDA
+         q+05trYkpHznA0lS1+aj29M3YNxCykqUqPFNGQkapj0NoshUhYRAeMcj9LMtCg3rYI3Q
+         ZjhUa/EqN2OxeOlBnyGG/qrWS0dG7pBx4iAQfH+CCZqB4+FGV3IsCehdP2JH+OkFty/Z
+         F7NQA0VQ1g5gyZCeV24cZbetC31/2OpLe+1NXzRVH7wU3x4fR6na2FKy90B9OGRxsdNH
+         j/fA==
+X-Forwarded-Encrypted: i=1; AJvYcCX8tUu+toscic+Sh/90rMHrn1hSCsQdXni9PTjxQWgCpANqrPk3CpYjftanKY6XMfydqnibmGt5EcMAedFILYFa@lists.infradead.org
+X-Gm-Message-State: AOJu0YxoTjvL9l+mLgL1anTvt2uYd017RCob84/Dat9/MGSbwok31ICB
+	XbFtoxC3IK6x9CXhikigvNIGd54cgNL4k8LGCS6t8VTKNUkoR8CFzXRvmNrbT4V/QYZfimvccOD
+	4+OV3
+X-Gm-Gg: ASbGncs/Wjv7NSje+P3kZB/MLeoqLk+DY86gToeEONMF1dgzg0l72yvN7WIQmzcfxsw
+	8o4pgb8FsawoQsXUirpIFckl+cvjW8X1YPxUkh/IOTh/v4Qm1Go/TT/D997vwRgaxXUJVwq1Urc
+	4h1/W0d5UWqGFIeG6OeHFJ/QESFwNExcDzT+h1Yp9uqTwYwny60p0K+U4NGI8st6nU3xG/0XXV8
+	/yZG+QLQTKf87ky5zk1jQkkegrFjERbIc++7dczwkg52cGiINVbyqNqm9yfDxDDr8VhJHsQ4rlc
+	fCalXnRmjJmQyWJhFTbRTsp3FaQtbhoP0LcZQ1XN9LrTxr/w+w3GuZ0suDrNjasI2kyT9pEbmhy
+	/8sIRNZORkXk+VfW/xc7Dj8hRWWXXFOA9zIZOR4amhyqxGVM=
+X-Google-Smtp-Source: AGHT+IF2lHtElB4A7ycj70A6xTBBy/InZDxVEBhTGcnc7yiABS5UujGmiFlUfbSui2CokaCbt23X+A==
+X-Received: by 2002:a05:6214:4012:b0:879:b99b:993c with SMTP id 6a1803df08f44-87b21065d5dmr179590206d6.18.1760101559663;
+        Fri, 10 Oct 2025 06:05:59 -0700 (PDT)
+Received: from ?IPv6:2606:6d00:17:ebd3::c41? ([2606:6d00:17:ebd3::c41])
+        by smtp.gmail.com with ESMTPSA id 6a1803df08f44-87bc347969fsm15890436d6.18.2025.10.10.06.05.57
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Fri, 10 Oct 2025 06:05:58 -0700 (PDT)
+Message-ID: <c6f273d57b01c199a6b8e1439d44de20f1e12dd1.camel@ndufresne.ca>
+Subject: Re: [PATCH 00/16] media: platform: rga: Add RGA3 support
+From: Nicolas Dufresne <nicolas@ndufresne.ca>
+To: Sven =?ISO-8859-1?Q?P=FCschel?= <s.pueschel@pengutronix.de>, Jacob Chen
+	 <jacob-chen@iotwrt.com>, Ezequiel Garcia <ezequiel@vanguardiasur.com.ar>, 
+ Mauro Carvalho Chehab
+	 <mchehab@kernel.org>, Heiko Stuebner <heiko@sntech.de>, Rob Herring
+	 <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+	 <conor+dt@kernel.org>
+Cc: linux-media@vger.kernel.org, linux-rockchip@lists.infradead.org, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	devicetree@vger.kernel.org, kernel@pengutronix.de
+Date: Fri, 10 Oct 2025 09:05:56 -0400
+In-Reply-To: <a97780fa-5261-44ed-b54d-fd699d3cbb82@pengutronix.de>
+References: <20251007-spu-rga3-v1-0-36ad85570402@pengutronix.de>
+	 <3c62e3c837d534ef5bc21a95ec1dc408c38cb8a0.camel@ndufresne.ca>
+	 <a97780fa-5261-44ed-b54d-fd699d3cbb82@pengutronix.de>
+Content-Type: multipart/signed; micalg="pgp-sha512";
+	protocol="application/pgp-signature"; boundary="=-WQ8w5DEroCRU/pMH4BKw"
+User-Agent: Evolution 3.56.2 (3.56.2-2.fc42) 
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_060135_050294_00A2F54A 
-X-CRM114-Status: GOOD (  18.19  )
+X-CRM114-CacheID: sfid-20251010_060602_441040_2567404C 
+X-CRM114-Status: GOOD (  58.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,1495 +107,336 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Thomas Huth <thuth@redhat.com>
 
-While the GCC and Clang compilers already define __ASSEMBLER__
-automatically when compiling assembly code, __ASSEMBLY__ is a
-macro that only gets defined by the Makefiles in the kernel.
-This can be very confusing when switching between userspace
-and kernelspace coding, or when dealing with uapi headers that
-rather should use __ASSEMBLER__ instead. So let's standardize now
-on the __ASSEMBLER__ macro that is provided by the compilers.
+--=-WQ8w5DEroCRU/pMH4BKw
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 
-This is a mostly mechanical patch (done with a simple "sed -i"
-statement), except for the following files where comments with
-mis-spelled macros were tweaked manually:
+Hi Sven,
 
- arch/arm64/include/asm/stacktrace/frame.h
- arch/arm64/include/asm/kvm_ptrauth.h
- arch/arm64/include/asm/debug-monitors.h
- arch/arm64/include/asm/esr.h
- arch/arm64/include/asm/scs.h
- arch/arm64/include/asm/memory.h
+Le vendredi 10 octobre 2025 =C3=A0 10:33 +0200, Sven P=C3=BCschel a =C3=A9c=
+rit=C2=A0:
+> Hi Nicolas,
+>=20
+> On 10/7/25 8:06 PM, Nicolas Dufresne wrote:
+> > Hi,
+> >=20
+> > Le mardi 07 octobre 2025 =C3=A0 10:31 +0200, Sven P=C3=BCschel a =C3=A9=
+crit=C2=A0:
+> > > This series adds support for the Raster Graphic Acceleration 3 (RGA3)
+> > > peripheral, which is included in the RK3588 SoC. Unlike the RGA2 it
+> > > can use the existing rockchip-iommu-v2 driver to handle iommu mapping=
+s.
+> > > Also the RK3588 contains two independent RGA3 cores.
+> > Thanks for working on this.
+> >=20
+> > > Only scaling and format conversions between common 8bit RGB/YUV forma=
+ts
+> > > are implemented. Also the color space conversion is fixed to BT601F.
+> > > This already allows a practical usage of the RGA3.
+> > This seems quite limiting, can we expect an update on this, can't be th=
+at hard
+> > to fully implement.
+>=20
+> Sorry, but currently there is no need to have a fully featured=20
+> implementation from our side. As the datasheet mentions that the RGA3=20
+> should do 4 or 2 pixel/cycle depending on the operation
 
-Signed-off-by: Thomas Huth <thuth@redhat.com>
----
- arch/arm64/include/asm/alternative-macros.h       |  8 ++++----
- arch/arm64/include/asm/alternative.h              |  4 ++--
- arch/arm64/include/asm/arch_gicv3.h               |  4 ++--
- arch/arm64/include/asm/asm-extable.h              |  6 +++---
- arch/arm64/include/asm/assembler.h                |  2 +-
- arch/arm64/include/asm/barrier.h                  |  4 ++--
- arch/arm64/include/asm/cache.h                    |  4 ++--
- arch/arm64/include/asm/cpucaps.h                  |  4 ++--
- arch/arm64/include/asm/cpufeature.h               |  4 ++--
- arch/arm64/include/asm/cputype.h                  |  4 ++--
- arch/arm64/include/asm/current.h                  |  4 ++--
- arch/arm64/include/asm/debug-monitors.h           |  4 ++--
- arch/arm64/include/asm/el2_setup.h                |  2 +-
- arch/arm64/include/asm/elf.h                      |  4 ++--
- arch/arm64/include/asm/esr.h                      |  4 ++--
- arch/arm64/include/asm/fixmap.h                   |  4 ++--
- arch/arm64/include/asm/fpsimd.h                   |  2 +-
- arch/arm64/include/asm/ftrace.h                   |  6 +++---
- arch/arm64/include/asm/gpr-num.h                  |  6 +++---
- arch/arm64/include/asm/hwcap.h                    |  2 +-
- arch/arm64/include/asm/image.h                    |  4 ++--
- arch/arm64/include/asm/insn.h                     |  4 ++--
- arch/arm64/include/asm/jump_label.h               |  4 ++--
- arch/arm64/include/asm/kasan.h                    |  2 +-
- arch/arm64/include/asm/kexec.h                    |  4 ++--
- arch/arm64/include/asm/kgdb.h                     |  4 ++--
- arch/arm64/include/asm/kvm_asm.h                  |  4 ++--
- arch/arm64/include/asm/kvm_mmu.h                  |  4 ++--
- arch/arm64/include/asm/kvm_mte.h                  |  4 ++--
- arch/arm64/include/asm/kvm_ptrauth.h              |  6 +++---
- arch/arm64/include/asm/linkage.h                  |  2 +-
- arch/arm64/include/asm/memory.h                   |  4 ++--
- arch/arm64/include/asm/mmu.h                      |  4 ++--
- arch/arm64/include/asm/mmu_context.h              |  4 ++--
- arch/arm64/include/asm/mte-kasan.h                |  4 ++--
- arch/arm64/include/asm/mte.h                      |  4 ++--
- arch/arm64/include/asm/page.h                     |  4 ++--
- arch/arm64/include/asm/pgtable-prot.h             |  4 ++--
- arch/arm64/include/asm/pgtable.h                  |  4 ++--
- arch/arm64/include/asm/proc-fns.h                 |  4 ++--
- arch/arm64/include/asm/processor.h                |  4 ++--
- arch/arm64/include/asm/ptrace.h                   |  4 ++--
- arch/arm64/include/asm/rsi_smc.h                  |  4 ++--
- arch/arm64/include/asm/rwonce.h                   |  4 ++--
- arch/arm64/include/asm/scs.h                      |  4 ++--
- arch/arm64/include/asm/sdei.h                     |  4 ++--
- arch/arm64/include/asm/smp.h                      |  4 ++--
- arch/arm64/include/asm/spectre.h                  |  4 ++--
- arch/arm64/include/asm/stacktrace/frame.h         |  4 ++--
- arch/arm64/include/asm/sysreg.h                   | 10 +++++-----
- arch/arm64/include/asm/system_misc.h              |  4 ++--
- arch/arm64/include/asm/thread_info.h              |  2 +-
- arch/arm64/include/asm/tlbflush.h                 |  2 +-
- arch/arm64/include/asm/vdso.h                     |  4 ++--
- arch/arm64/include/asm/vdso/compat_barrier.h      |  4 ++--
- arch/arm64/include/asm/vdso/compat_gettimeofday.h |  4 ++--
- arch/arm64/include/asm/vdso/getrandom.h           |  4 ++--
- arch/arm64/include/asm/vdso/gettimeofday.h        |  4 ++--
- arch/arm64/include/asm/vdso/processor.h           |  4 ++--
- arch/arm64/include/asm/vdso/vsyscall.h            |  4 ++--
- arch/arm64/include/asm/virt.h                     |  4 ++--
- tools/arch/arm64/include/asm/cputype.h            |  4 ++--
- tools/arch/arm64/include/asm/esr.h                |  4 ++--
- tools/arch/arm64/include/asm/gpr-num.h            |  6 +++---
- tools/arch/arm64/include/asm/sysreg.h             | 10 +++++-----
- tools/arch/arm64/include/uapi/asm/kvm.h           |  2 +-
- 66 files changed, 136 insertions(+), 136 deletions(-)
+Upon first light review, its only the colorspace (and sub-paramters) aspect=
+ that
+I believe should be done properly before merging. Proper SELECTION
+implementation is on the edge, I'm more on the side of this should be cover=
+ed
+then not to be usable in the wild.
 
-diff --git a/arch/arm64/include/asm/alternative-macros.h b/arch/arm64/include/asm/alternative-macros.h
-index c8c77f9e36d60..8624166248528 100644
---- a/arch/arm64/include/asm/alternative-macros.h
-+++ b/arch/arm64/include/asm/alternative-macros.h
-@@ -19,7 +19,7 @@
- #error "cpucaps have overflown ARM64_CB_BIT"
- #endif
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/stringify.h>
- 
-@@ -207,7 +207,7 @@ alternative_endif
- #define _ALTERNATIVE_CFG(insn1, insn2, cap, cfg, ...)	\
- 	alternative_insn insn1, insn2, cap, IS_ENABLED(cfg)
- 
--#endif  /*  __ASSEMBLY__  */
-+#endif  /*  __ASSEMBLER__  */
- 
- /*
-  * Usage: asm(ALTERNATIVE(oldinstr, newinstr, cpucap));
-@@ -219,7 +219,7 @@ alternative_endif
- #define ALTERNATIVE(oldinstr, newinstr, ...)   \
- 	_ALTERNATIVE_CFG(oldinstr, newinstr, __VA_ARGS__, 1)
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/types.h>
- 
-@@ -263,6 +263,6 @@ alternative_has_cap_unlikely(const unsigned long cpucap)
- 	return true;
- }
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* __ASM_ALTERNATIVE_MACROS_H */
-diff --git a/arch/arm64/include/asm/alternative.h b/arch/arm64/include/asm/alternative.h
-index 00d97b8a757f4..607a21e7dd9ce 100644
---- a/arch/arm64/include/asm/alternative.h
-+++ b/arch/arm64/include/asm/alternative.h
-@@ -4,7 +4,7 @@
- 
- #include <asm/alternative-macros.h>
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/init.h>
- #include <linux/types.h>
-@@ -34,5 +34,5 @@ static inline void apply_alternatives_module(void *start, size_t length) { }
- void alt_cb_patch_nops(struct alt_instr *alt, __le32 *origptr,
- 		       __le32 *updptr, int nr_inst);
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- #endif /* __ASM_ALTERNATIVE_H */
-diff --git a/arch/arm64/include/asm/arch_gicv3.h b/arch/arm64/include/asm/arch_gicv3.h
-index 9e96f024b2f19..d20b03931a8d1 100644
---- a/arch/arm64/include/asm/arch_gicv3.h
-+++ b/arch/arm64/include/asm/arch_gicv3.h
-@@ -9,7 +9,7 @@
- 
- #include <asm/sysreg.h>
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/irqchip/arm-gic-common.h>
- #include <linux/stringify.h>
-@@ -188,5 +188,5 @@ static inline bool gic_has_relaxed_pmr_sync(void)
- 	return cpus_have_cap(ARM64_HAS_GIC_PRIO_RELAXED_SYNC);
- }
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- #endif /* __ASM_ARCH_GICV3_H */
-diff --git a/arch/arm64/include/asm/asm-extable.h b/arch/arm64/include/asm/asm-extable.h
-index 292f2687a12e5..d67e2fdd1aee5 100644
---- a/arch/arm64/include/asm/asm-extable.h
-+++ b/arch/arm64/include/asm/asm-extable.h
-@@ -27,7 +27,7 @@
- /* Data fields for EX_TYPE_UACCESS_CPY */
- #define EX_DATA_UACCESS_WRITE	BIT(0)
- 
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- 
- #define __ASM_EXTABLE_RAW(insn, fixup, type, data)	\
- 	.pushsection	__ex_table, "a";		\
-@@ -77,7 +77,7 @@
- 	__ASM_EXTABLE_RAW(\insn, \fixup, EX_TYPE_UACCESS_CPY, \uaccess_is_write)
- 	.endm
- 
--#else /* __ASSEMBLY__ */
-+#else /* __ASSEMBLER__ */
- 
- #include <linux/stringify.h>
- 
-@@ -132,6 +132,6 @@
- 			    EX_DATA_REG(ADDR, addr)				\
- 			  ")")
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* __ASM_ASM_EXTABLE_H */
-diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
-index 23be85d933485..b2d633081709f 100644
---- a/arch/arm64/include/asm/assembler.h
-+++ b/arch/arm64/include/asm/assembler.h
-@@ -5,7 +5,7 @@
-  * Copyright (C) 1996-2000 Russell King
-  * Copyright (C) 2012 ARM Ltd.
-  */
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #error "Only include this from assembly code"
- #endif
- 
-diff --git a/arch/arm64/include/asm/barrier.h b/arch/arm64/include/asm/barrier.h
-index f5801b0ba9e9e..9495c4441a46b 100644
---- a/arch/arm64/include/asm/barrier.h
-+++ b/arch/arm64/include/asm/barrier.h
-@@ -7,7 +7,7 @@
- #ifndef __ASM_BARRIER_H
- #define __ASM_BARRIER_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/kasan-checks.h>
- 
-@@ -221,6 +221,6 @@ do {									\
- 
- #include <asm-generic/barrier.h>
- 
--#endif	/* __ASSEMBLY__ */
-+#endif	/* __ASSEMBLER__ */
- 
- #endif	/* __ASM_BARRIER_H */
-diff --git a/arch/arm64/include/asm/cache.h b/arch/arm64/include/asm/cache.h
-index 09963004ceea9..dd2c8586a725e 100644
---- a/arch/arm64/include/asm/cache.h
-+++ b/arch/arm64/include/asm/cache.h
-@@ -35,7 +35,7 @@
- #define ARCH_DMA_MINALIGN	(128)
- #define ARCH_KMALLOC_MINALIGN	(8)
- 
--#if !defined(__ASSEMBLY__) && !defined(BUILD_VDSO)
-+#if !defined(__ASSEMBLER__) && !defined(BUILD_VDSO)
- 
- #include <linux/bitops.h>
- #include <linux/kasan-enabled.h>
-@@ -135,6 +135,6 @@ static inline u32 __attribute_const__ read_cpuid_effective_cachetype(void)
- 	return ctr;
- }
- 
--#endif /* !defined(__ASSEMBLY__) && !defined(BUILD_VDSO) */
-+#endif /* !defined(__ASSEMBLER__) && !defined(BUILD_VDSO) */
- 
- #endif
-diff --git a/arch/arm64/include/asm/cpucaps.h b/arch/arm64/include/asm/cpucaps.h
-index 9d769291a3067..2c8029472ad45 100644
---- a/arch/arm64/include/asm/cpucaps.h
-+++ b/arch/arm64/include/asm/cpucaps.h
-@@ -5,7 +5,7 @@
- 
- #include <asm/cpucap-defs.h>
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #include <linux/types.h>
- /*
-  * Check whether a cpucap is possible at compiletime.
-@@ -77,6 +77,6 @@ cpucap_is_possible(const unsigned int cap)
- 
- 	return true;
- }
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* __ASM_CPUCAPS_H */
-diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-index e223cbf350e49..88f3d618605e0 100644
---- a/arch/arm64/include/asm/cpufeature.h
-+++ b/arch/arm64/include/asm/cpufeature.h
-@@ -19,7 +19,7 @@
- #define ARM64_SW_FEATURE_OVERRIDE_HVHE		4
- #define ARM64_SW_FEATURE_OVERRIDE_RODATA_OFF	8
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/bug.h>
- #include <linux/jump_label.h>
-@@ -1078,6 +1078,6 @@ static inline bool cpu_has_lpa2(void)
- #endif
- }
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif
-diff --git a/arch/arm64/include/asm/cputype.h b/arch/arm64/include/asm/cputype.h
-index 9b00b75acbf29..024b4fa976a85 100644
---- a/arch/arm64/include/asm/cputype.h
-+++ b/arch/arm64/include/asm/cputype.h
-@@ -249,7 +249,7 @@
- #define MIDR_FUJITSU_ERRATUM_010001_MASK	(~MIDR_CPU_VAR_REV(1, 0))
- #define TCR_CLEAR_FUJITSU_ERRATUM_010001	(TCR_NFD1 | TCR_NFD0)
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <asm/sysreg.h>
- 
-@@ -328,6 +328,6 @@ static inline u32 __attribute_const__ read_cpuid_cachetype(void)
- {
- 	return read_cpuid(CTR_EL0);
- }
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif
-diff --git a/arch/arm64/include/asm/current.h b/arch/arm64/include/asm/current.h
-index 54ceae0874c7e..c92912eaf1868 100644
---- a/arch/arm64/include/asm/current.h
-+++ b/arch/arm64/include/asm/current.h
-@@ -4,7 +4,7 @@
- 
- #include <linux/compiler.h>
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- struct task_struct;
- 
-@@ -23,7 +23,7 @@ static __always_inline struct task_struct *get_current(void)
- 
- #define current get_current()
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* __ASM_CURRENT_H */
- 
-diff --git a/arch/arm64/include/asm/debug-monitors.h b/arch/arm64/include/asm/debug-monitors.h
-index f5e3ed2420ced..8d5f92418838d 100644
---- a/arch/arm64/include/asm/debug-monitors.h
-+++ b/arch/arm64/include/asm/debug-monitors.h
-@@ -48,7 +48,7 @@
- #define AARCH32_BREAK_THUMB2_LO	0xf7f0
- #define AARCH32_BREAK_THUMB2_HI	0xa000
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- struct task_struct;
- 
- #define DBG_ARCH_ID_RESERVED	0	/* In case of ptrace ABI updates. */
-@@ -88,5 +88,5 @@ static inline bool try_step_suspended_breakpoints(struct pt_regs *regs)
- 
- bool try_handle_aarch32_break(struct pt_regs *regs);
- 
--#endif	/* __ASSEMBLY */
-+#endif	/* __ASSEMBLER__ */
- #endif	/* __ASM_DEBUG_MONITORS_H */
-diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
-index b37da3ee85296..892761d3db45f 100644
---- a/arch/arm64/include/asm/el2_setup.h
-+++ b/arch/arm64/include/asm/el2_setup.h
-@@ -7,7 +7,7 @@
- #ifndef __ARM_KVM_INIT_H__
- #define __ARM_KVM_INIT_H__
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #error Assembly-only header
- #endif
- 
-diff --git a/arch/arm64/include/asm/elf.h b/arch/arm64/include/asm/elf.h
-index 3f93f4eef9530..d2779d604c7be 100644
---- a/arch/arm64/include/asm/elf.h
-+++ b/arch/arm64/include/asm/elf.h
-@@ -133,7 +133,7 @@
- #define ELF_ET_DYN_BASE		(2 * DEFAULT_MAP_WINDOW_64 / 3)
- #endif /* CONFIG_ARM64_FORCE_52BIT */
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <uapi/linux/elf.h>
- #include <linux/bug.h>
-@@ -293,6 +293,6 @@ static inline int arch_check_elf(void *ehdr, bool has_interp,
- 	return 0;
- }
- 
--#endif /* !__ASSEMBLY__ */
-+#endif /* !__ASSEMBLER__ */
- 
- #endif
-diff --git a/arch/arm64/include/asm/esr.h b/arch/arm64/include/asm/esr.h
-index e1deed8244645..4975a92cbd17c 100644
---- a/arch/arm64/include/asm/esr.h
-+++ b/arch/arm64/include/asm/esr.h
-@@ -431,7 +431,7 @@
- #define ESR_ELx_IT_GCSPOPCX		6
- #define ESR_ELx_IT_GCSPOPX		7
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #include <asm/types.h>
- 
- static inline unsigned long esr_brk_comment(unsigned long esr)
-@@ -534,6 +534,6 @@ static inline bool esr_iss_is_eretab(unsigned long esr)
- }
- 
- const char *esr_get_class_string(unsigned long esr);
--#endif /* __ASSEMBLY */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* __ASM_ESR_H */
-diff --git a/arch/arm64/include/asm/fixmap.h b/arch/arm64/include/asm/fixmap.h
-index 635a43c4ec85b..65555284446e7 100644
---- a/arch/arm64/include/asm/fixmap.h
-+++ b/arch/arm64/include/asm/fixmap.h
-@@ -15,7 +15,7 @@
- #ifndef _ASM_ARM64_FIXMAP_H
- #define _ASM_ARM64_FIXMAP_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #include <linux/kernel.h>
- #include <linux/math.h>
- #include <linux/sizes.h>
-@@ -117,5 +117,5 @@ extern void __set_fixmap(enum fixed_addresses idx, phys_addr_t phys, pgprot_t pr
- 
- #include <asm-generic/fixmap.h>
- 
--#endif /* !__ASSEMBLY__ */
-+#endif /* !__ASSEMBLER__ */
- #endif /* _ASM_ARM64_FIXMAP_H */
-diff --git a/arch/arm64/include/asm/fpsimd.h b/arch/arm64/include/asm/fpsimd.h
-index b8cf0ea43cc05..1d2e33559bd52 100644
---- a/arch/arm64/include/asm/fpsimd.h
-+++ b/arch/arm64/include/asm/fpsimd.h
-@@ -12,7 +12,7 @@
- #include <asm/sigcontext.h>
- #include <asm/sysreg.h>
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/bitmap.h>
- #include <linux/build_bug.h>
-diff --git a/arch/arm64/include/asm/ftrace.h b/arch/arm64/include/asm/ftrace.h
-index ba7cf7fec5e97..1621c84f44b32 100644
---- a/arch/arm64/include/asm/ftrace.h
-+++ b/arch/arm64/include/asm/ftrace.h
-@@ -37,7 +37,7 @@
-  */
- #define ARCH_FTRACE_SHIFT_STACK_TRACER 1
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #include <linux/compat.h>
- 
- extern void _mcount(unsigned long);
-@@ -217,9 +217,9 @@ static inline bool arch_syscall_match_sym_name(const char *sym,
- 	 */
- 	return !strcmp(sym + 8, name);
- }
--#endif /* ifndef __ASSEMBLY__ */
-+#endif /* ifndef __ASSEMBLER__ */
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #ifdef CONFIG_FUNCTION_GRAPH_TRACER
- 
- void prepare_ftrace_return(unsigned long self_addr, unsigned long *parent,
-diff --git a/arch/arm64/include/asm/gpr-num.h b/arch/arm64/include/asm/gpr-num.h
-index 05da4a7c5788f..a114e4f8209b0 100644
---- a/arch/arm64/include/asm/gpr-num.h
-+++ b/arch/arm64/include/asm/gpr-num.h
-@@ -2,7 +2,7 @@
- #ifndef __ASM_GPR_NUM_H
- #define __ASM_GPR_NUM_H
- 
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- 
- 	.irp	num,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30
- 	.equ	.L__gpr_num_x\num, \num
-@@ -11,7 +11,7 @@
- 	.equ	.L__gpr_num_xzr, 31
- 	.equ	.L__gpr_num_wzr, 31
- 
--#else /* __ASSEMBLY__ */
-+#else /* __ASSEMBLER__ */
- 
- #define __DEFINE_ASM_GPR_NUMS					\
- "	.irp	num,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30\n" \
-@@ -21,6 +21,6 @@
- "	.equ	.L__gpr_num_xzr, 31\n"				\
- "	.equ	.L__gpr_num_wzr, 31\n"
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* __ASM_GPR_NUM_H */
-diff --git a/arch/arm64/include/asm/hwcap.h b/arch/arm64/include/asm/hwcap.h
-index 6d567265467cc..1f63814ae6c4e 100644
---- a/arch/arm64/include/asm/hwcap.h
-+++ b/arch/arm64/include/asm/hwcap.h
-@@ -46,7 +46,7 @@
- #define COMPAT_HWCAP2_SB	(1 << 5)
- #define COMPAT_HWCAP2_SSBS	(1 << 6)
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #include <linux/log2.h>
- 
- /*
-diff --git a/arch/arm64/include/asm/image.h b/arch/arm64/include/asm/image.h
-index c09cf942dc92e..9ba85173f8576 100644
---- a/arch/arm64/include/asm/image.h
-+++ b/arch/arm64/include/asm/image.h
-@@ -20,7 +20,7 @@
- #define ARM64_IMAGE_FLAG_PAGE_SIZE_64K		3
- #define ARM64_IMAGE_FLAG_PHYS_BASE		1
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #define arm64_image_flag_field(flags, field) \
- 				(((flags) >> field##_SHIFT) & field##_MASK)
-@@ -54,6 +54,6 @@ struct arm64_image_header {
- 	__le32 res5;
- };
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* __ASM_IMAGE_H */
-diff --git a/arch/arm64/include/asm/insn.h b/arch/arm64/include/asm/insn.h
-index 18c7811774d30..e1d30ba99d016 100644
---- a/arch/arm64/include/asm/insn.h
-+++ b/arch/arm64/include/asm/insn.h
-@@ -12,7 +12,7 @@
- 
- #include <asm/insn-def.h>
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- enum aarch64_insn_hint_cr_op {
- 	AARCH64_INSN_HINT_NOP	= 0x0 << 5,
-@@ -730,6 +730,6 @@ u32 aarch32_insn_mcr_extract_crm(u32 insn);
- typedef bool (pstate_check_t)(unsigned long);
- extern pstate_check_t * const aarch32_opcode_cond_checks[16];
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif	/* __ASM_INSN_H */
-diff --git a/arch/arm64/include/asm/jump_label.h b/arch/arm64/include/asm/jump_label.h
-index 424ed421cd979..0cb211d3607d3 100644
---- a/arch/arm64/include/asm/jump_label.h
-+++ b/arch/arm64/include/asm/jump_label.h
-@@ -8,7 +8,7 @@
- #ifndef __ASM_JUMP_LABEL_H
- #define __ASM_JUMP_LABEL_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/types.h>
- #include <asm/insn.h>
-@@ -58,5 +58,5 @@ static __always_inline bool arch_static_branch_jump(struct static_key * const ke
- 	return true;
- }
- 
--#endif  /* __ASSEMBLY__ */
-+#endif  /* __ASSEMBLER__ */
- #endif	/* __ASM_JUMP_LABEL_H */
-diff --git a/arch/arm64/include/asm/kasan.h b/arch/arm64/include/asm/kasan.h
-index e1b57c13f8a41..b167e9d3da910 100644
---- a/arch/arm64/include/asm/kasan.h
-+++ b/arch/arm64/include/asm/kasan.h
-@@ -2,7 +2,7 @@
- #ifndef __ASM_KASAN_H
- #define __ASM_KASAN_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/linkage.h>
- #include <asm/memory.h>
-diff --git a/arch/arm64/include/asm/kexec.h b/arch/arm64/include/asm/kexec.h
-index 4d9cc7a76d9ca..892e5bebda957 100644
---- a/arch/arm64/include/asm/kexec.h
-+++ b/arch/arm64/include/asm/kexec.h
-@@ -25,7 +25,7 @@
- 
- #define KEXEC_ARCH KEXEC_ARCH_AARCH64
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- /**
-  * crash_setup_regs() - save registers for the panic kernel
-@@ -130,6 +130,6 @@ extern int load_other_segments(struct kimage *image,
- 		char *cmdline);
- #endif
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif
-diff --git a/arch/arm64/include/asm/kgdb.h b/arch/arm64/include/asm/kgdb.h
-index 3184f5d1e3ae4..67ef1c5532ae8 100644
---- a/arch/arm64/include/asm/kgdb.h
-+++ b/arch/arm64/include/asm/kgdb.h
-@@ -14,7 +14,7 @@
- #include <linux/ptrace.h>
- #include <asm/debug-monitors.h>
- 
--#ifndef	__ASSEMBLY__
-+#ifndef	__ASSEMBLER__
- 
- static inline void arch_kgdb_breakpoint(void)
- {
-@@ -36,7 +36,7 @@ static inline int kgdb_single_step_handler(struct pt_regs *regs,
- }
- #endif
- 
--#endif /* !__ASSEMBLY__ */
-+#endif /* !__ASSEMBLER__ */
- 
- /*
-  * gdb remote procotol (well most versions of it) expects the following
-diff --git a/arch/arm64/include/asm/kvm_asm.h b/arch/arm64/include/asm/kvm_asm.h
-index 9da54d4ee49ee..4b34f7b7ed2fc 100644
---- a/arch/arm64/include/asm/kvm_asm.h
-+++ b/arch/arm64/include/asm/kvm_asm.h
-@@ -46,7 +46,7 @@
- 
- #define __KVM_HOST_SMCCC_FUNC___kvm_hyp_init			0
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/mm.h>
- 
-@@ -303,7 +303,7 @@ void kvm_compute_final_ctr_el0(struct alt_instr *alt,
- void __noreturn __cold nvhe_hyp_panic_handler(u64 esr, u64 spsr, u64 elr_virt,
- 	u64 elr_phys, u64 par, uintptr_t vcpu, u64 far, u64 hpfar);
- 
--#else /* __ASSEMBLY__ */
-+#else /* __ASSEMBLER__ */
- 
- .macro get_host_ctxt reg, tmp
- 	adr_this_cpu \reg, kvm_host_data, \tmp
-diff --git a/arch/arm64/include/asm/kvm_mmu.h b/arch/arm64/include/asm/kvm_mmu.h
-index e4069f2ce6423..2dc5e6e742bb0 100644
---- a/arch/arm64/include/asm/kvm_mmu.h
-+++ b/arch/arm64/include/asm/kvm_mmu.h
-@@ -49,7 +49,7 @@
-  * mappings, and none of this applies in that case.
-  */
- 
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- 
- #include <asm/alternative.h>
- 
-@@ -396,5 +396,5 @@ void kvm_s2_ptdump_create_debugfs(struct kvm *kvm);
- static inline void kvm_s2_ptdump_create_debugfs(struct kvm *kvm) {}
- #endif /* CONFIG_PTDUMP_STAGE2_DEBUGFS */
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- #endif /* __ARM64_KVM_MMU_H__ */
-diff --git a/arch/arm64/include/asm/kvm_mte.h b/arch/arm64/include/asm/kvm_mte.h
-index de002636eb1fb..3171963ad25ce 100644
---- a/arch/arm64/include/asm/kvm_mte.h
-+++ b/arch/arm64/include/asm/kvm_mte.h
-@@ -5,7 +5,7 @@
- #ifndef __ASM_KVM_MTE_H
- #define __ASM_KVM_MTE_H
- 
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- 
- #include <asm/sysreg.h>
- 
-@@ -62,5 +62,5 @@ alternative_else_nop_endif
- .endm
- 
- #endif /* CONFIG_ARM64_MTE */
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- #endif /* __ASM_KVM_MTE_H */
-diff --git a/arch/arm64/include/asm/kvm_ptrauth.h b/arch/arm64/include/asm/kvm_ptrauth.h
-index 6199c9f7ec6ed..e50987b32483b 100644
---- a/arch/arm64/include/asm/kvm_ptrauth.h
-+++ b/arch/arm64/include/asm/kvm_ptrauth.h
-@@ -8,7 +8,7 @@
- #ifndef __ASM_KVM_PTRAUTH_H
- #define __ASM_KVM_PTRAUTH_H
- 
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- 
- #include <asm/sysreg.h>
- 
-@@ -100,7 +100,7 @@ alternative_else_nop_endif
- .endm
- #endif /* CONFIG_ARM64_PTR_AUTH */
- 
--#else  /* !__ASSEMBLY */
-+#else  /* !__ASSEMBLER__ */
- 
- #define __ptrauth_save_key(ctxt, key)					\
- 	do {								\
-@@ -120,5 +120,5 @@ alternative_else_nop_endif
- 		__ptrauth_save_key(ctxt, APGA);				\
- 	} while(0)
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- #endif /* __ASM_KVM_PTRAUTH_H */
-diff --git a/arch/arm64/include/asm/linkage.h b/arch/arm64/include/asm/linkage.h
-index d3acd9c875091..40bd17add5397 100644
---- a/arch/arm64/include/asm/linkage.h
-+++ b/arch/arm64/include/asm/linkage.h
-@@ -1,7 +1,7 @@
- #ifndef __ASM_LINKAGE_H
- #define __ASM_LINKAGE_H
- 
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- #include <asm/assembler.h>
- #endif
- 
-diff --git a/arch/arm64/include/asm/memory.h b/arch/arm64/include/asm/memory.h
-index f1505c4acb389..433513f590a3b 100644
---- a/arch/arm64/include/asm/memory.h
-+++ b/arch/arm64/include/asm/memory.h
-@@ -207,7 +207,7 @@
-  */
- #define TRAMP_SWAPPER_OFFSET	(2 * PAGE_SIZE)
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/bitops.h>
- #include <linux/compiler.h>
-@@ -422,7 +422,7 @@ static inline unsigned long virt_to_pfn(const void *kaddr)
- })
- 
- void dump_mem_limit(void);
--#endif /* !ASSEMBLY */
-+#endif /* !__ASSEMBLER__ */
- 
- /*
-  * Given that the GIC architecture permits ITS implementations that can only be
-diff --git a/arch/arm64/include/asm/mmu.h b/arch/arm64/include/asm/mmu.h
-index 78a4dbf75e602..137a173df1ff8 100644
---- a/arch/arm64/include/asm/mmu.h
-+++ b/arch/arm64/include/asm/mmu.h
-@@ -12,7 +12,7 @@
- #define USER_ASID_FLAG	(UL(1) << USER_ASID_BIT)
- #define TTBR_ASID_MASK	(UL(0xffff) << 48)
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/refcount.h>
- #include <asm/cpufeature.h>
-@@ -112,5 +112,5 @@ void kpti_install_ng_mappings(void);
- static inline void kpti_install_ng_mappings(void) {}
- #endif
- 
--#endif	/* !__ASSEMBLY__ */
-+#endif	/* !__ASSEMBLER__ */
- #endif
-diff --git a/arch/arm64/include/asm/mmu_context.h b/arch/arm64/include/asm/mmu_context.h
-index 0dbe3b29049b7..b4b361a4ec62c 100644
---- a/arch/arm64/include/asm/mmu_context.h
-+++ b/arch/arm64/include/asm/mmu_context.h
-@@ -8,7 +8,7 @@
- #ifndef __ASM_MMU_CONTEXT_H
- #define __ASM_MMU_CONTEXT_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/compiler.h>
- #include <linux/sched.h>
-@@ -330,6 +330,6 @@ static inline void deactivate_mm(struct task_struct *tsk,
- 
- #include <asm-generic/mmu_context.h>
- 
--#endif /* !__ASSEMBLY__ */
-+#endif /* !__ASSEMBLER__ */
- 
- #endif /* !__ASM_MMU_CONTEXT_H */
-diff --git a/arch/arm64/include/asm/mte-kasan.h b/arch/arm64/include/asm/mte-kasan.h
-index 0f9b08e8fb8db..3521392719189 100644
---- a/arch/arm64/include/asm/mte-kasan.h
-+++ b/arch/arm64/include/asm/mte-kasan.h
-@@ -9,7 +9,7 @@
- #include <asm/cputype.h>
- #include <asm/mte-def.h>
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/types.h>
- 
-@@ -259,6 +259,6 @@ static inline int mte_enable_kernel_store_only(void)
- 
- #endif /* CONFIG_ARM64_MTE */
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* __ASM_MTE_KASAN_H  */
-diff --git a/arch/arm64/include/asm/mte.h b/arch/arm64/include/asm/mte.h
-index 3b5069f4683d8..6d4a78b9dc3e6 100644
---- a/arch/arm64/include/asm/mte.h
-+++ b/arch/arm64/include/asm/mte.h
-@@ -8,7 +8,7 @@
- #include <asm/compiler.h>
- #include <asm/mte-def.h>
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/bitfield.h>
- #include <linux/kasan-enabled.h>
-@@ -282,5 +282,5 @@ static inline void mte_check_tfsr_exit(void)
- }
- #endif /* CONFIG_KASAN_HW_TAGS */
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- #endif /* __ASM_MTE_H  */
-diff --git a/arch/arm64/include/asm/page.h b/arch/arm64/include/asm/page.h
-index 2312e6ee595fd..0370a1534abc0 100644
---- a/arch/arm64/include/asm/page.h
-+++ b/arch/arm64/include/asm/page.h
-@@ -10,7 +10,7 @@
- 
- #include <asm/page-def.h>
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/personality.h> /* for READ_IMPLIES_EXEC */
- #include <linux/types.h> /* for gfp_t */
-@@ -45,7 +45,7 @@ int pfn_is_map_memory(unsigned long pfn);
- 
- #include <asm/memory.h>
- 
--#endif /* !__ASSEMBLY__ */
-+#endif /* !__ASSEMBLER__ */
- 
- #define VM_DATA_DEFAULT_FLAGS	(VM_DATA_FLAGS_TSK_EXEC | VM_MTE_ALLOWED)
- 
-diff --git a/arch/arm64/include/asm/pgtable-prot.h b/arch/arm64/include/asm/pgtable-prot.h
-index 85dceb1c66f45..28460c826298b 100644
---- a/arch/arm64/include/asm/pgtable-prot.h
-+++ b/arch/arm64/include/asm/pgtable-prot.h
-@@ -62,7 +62,7 @@
- #define _PAGE_READONLY_EXEC	(_PAGE_DEFAULT | PTE_USER | PTE_RDONLY | PTE_NG | PTE_PXN)
- #define _PAGE_EXECONLY		(_PAGE_DEFAULT | PTE_RDONLY | PTE_NG | PTE_PXN)
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <asm/cpufeature.h>
- #include <asm/pgtable-types.h>
-@@ -127,7 +127,7 @@ static inline bool __pure lpa2_is_enabled(void)
- #define PAGE_READONLY_EXEC	__pgprot(_PAGE_READONLY_EXEC)
- #define PAGE_EXECONLY		__pgprot(_PAGE_EXECONLY)
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #define pte_pi_index(pte) ( \
- 	((pte & BIT(PTE_PI_IDX_3)) >> (PTE_PI_IDX_3 - 3)) | \
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index aa89c2e67ebc8..26bb1421e63f2 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -30,7 +30,7 @@
- 
- #define vmemmap			((struct page *)VMEMMAP_START - (memstart_addr >> PAGE_SHIFT))
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <asm/cmpxchg.h>
- #include <asm/fixmap.h>
-@@ -1948,6 +1948,6 @@ static inline void clear_young_dirty_ptes(struct vm_area_struct *vma,
- 
- #endif /* CONFIG_ARM64_CONTPTE */
- 
--#endif /* !__ASSEMBLY__ */
-+#endif /* !__ASSEMBLER__ */
- 
- #endif /* __ASM_PGTABLE_H */
-diff --git a/arch/arm64/include/asm/proc-fns.h b/arch/arm64/include/asm/proc-fns.h
-index 0d5d1f0525eb3..ab78a78821a2d 100644
---- a/arch/arm64/include/asm/proc-fns.h
-+++ b/arch/arm64/include/asm/proc-fns.h
-@@ -9,7 +9,7 @@
- #ifndef __ASM_PROCFNS_H
- #define __ASM_PROCFNS_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <asm/page.h>
- 
-@@ -21,5 +21,5 @@ extern u64 cpu_do_resume(phys_addr_t ptr, u64 idmap_ttbr);
- 
- #include <asm/memory.h>
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- #endif /* __ASM_PROCFNS_H */
-diff --git a/arch/arm64/include/asm/processor.h b/arch/arm64/include/asm/processor.h
-index 61d62bfd5a7bf..5acce7962228e 100644
---- a/arch/arm64/include/asm/processor.h
-+++ b/arch/arm64/include/asm/processor.h
-@@ -25,7 +25,7 @@
- 
- #define MTE_CTRL_STORE_ONLY		(1UL << 19)
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/build_bug.h>
- #include <linux/cache.h>
-@@ -437,5 +437,5 @@ int set_tsc_mode(unsigned int val);
- #define GET_TSC_CTL(adr)        get_tsc_mode((adr))
- #define SET_TSC_CTL(val)        set_tsc_mode((val))
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- #endif /* __ASM_PROCESSOR_H */
-diff --git a/arch/arm64/include/asm/ptrace.h b/arch/arm64/include/asm/ptrace.h
-index 65b053a24d824..39582511ad72f 100644
---- a/arch/arm64/include/asm/ptrace.h
-+++ b/arch/arm64/include/asm/ptrace.h
-@@ -94,7 +94,7 @@
-  */
- #define NO_SYSCALL (-1)
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #include <linux/bug.h>
- #include <linux/types.h>
- 
-@@ -361,5 +361,5 @@ static inline void procedure_link_pointer_set(struct pt_regs *regs,
- 
- extern unsigned long profile_pc(struct pt_regs *regs);
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- #endif
-diff --git a/arch/arm64/include/asm/rsi_smc.h b/arch/arm64/include/asm/rsi_smc.h
-index 6cb070eca9e9b..e19253f96c940 100644
---- a/arch/arm64/include/asm/rsi_smc.h
-+++ b/arch/arm64/include/asm/rsi_smc.h
-@@ -122,7 +122,7 @@
-  */
- #define SMC_RSI_ATTESTATION_TOKEN_CONTINUE	SMC_RSI_FID(0x195)
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- struct realm_config {
- 	union {
-@@ -142,7 +142,7 @@ struct realm_config {
- 	 */
- } __aligned(0x1000);
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- /*
-  * Read configuration for the current Realm.
-diff --git a/arch/arm64/include/asm/rwonce.h b/arch/arm64/include/asm/rwonce.h
-index 97d9256d33c97..78beceec10cda 100644
---- a/arch/arm64/include/asm/rwonce.h
-+++ b/arch/arm64/include/asm/rwonce.h
-@@ -5,7 +5,7 @@
- #ifndef __ASM_RWONCE_H
- #define __ASM_RWONCE_H
- 
--#if defined(CONFIG_LTO) && !defined(__ASSEMBLY__)
-+#if defined(CONFIG_LTO) && !defined(__ASSEMBLER__)
- 
- #include <linux/compiler_types.h>
- #include <asm/alternative-macros.h>
-@@ -62,7 +62,7 @@
- })
- 
- #endif	/* !BUILD_VDSO */
--#endif	/* CONFIG_LTO && !__ASSEMBLY__ */
-+#endif	/* CONFIG_LTO && !__ASSEMBLER__ */
- 
- #include <asm-generic/rwonce.h>
- 
-diff --git a/arch/arm64/include/asm/scs.h b/arch/arm64/include/asm/scs.h
-index a76f9b387a269..d31b128f683f6 100644
---- a/arch/arm64/include/asm/scs.h
-+++ b/arch/arm64/include/asm/scs.h
-@@ -2,7 +2,7 @@
- #ifndef _ASM_SCS_H
- #define _ASM_SCS_H
- 
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- 
- #include <asm/asm-offsets.h>
- #include <asm/sysreg.h>
-@@ -55,6 +55,6 @@ enum {
- 
- int __pi_scs_patch(const u8 eh_frame[], int size);
- 
--#endif /* __ASSEMBLY __ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* _ASM_SCS_H */
-diff --git a/arch/arm64/include/asm/sdei.h b/arch/arm64/include/asm/sdei.h
-index 484cb6972e99a..b2248bd3cb58f 100644
---- a/arch/arm64/include/asm/sdei.h
-+++ b/arch/arm64/include/asm/sdei.h
-@@ -9,7 +9,7 @@
- 
- #define SDEI_STACK_SIZE		IRQ_STACK_SIZE
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/linkage.h>
- #include <linux/preempt.h>
-@@ -49,5 +49,5 @@ unsigned long do_sdei_event(struct pt_regs *regs,
- unsigned long sdei_arch_get_entry_point(int conduit);
- #define sdei_arch_get_entry_point(x)	sdei_arch_get_entry_point(x)
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- #endif	/* __ASM_SDEI_H */
-diff --git a/arch/arm64/include/asm/smp.h b/arch/arm64/include/asm/smp.h
-index d48ef6d5abcc7..10ea4f5430690 100644
---- a/arch/arm64/include/asm/smp.h
-+++ b/arch/arm64/include/asm/smp.h
-@@ -23,7 +23,7 @@
- #define CPU_STUCK_REASON_52_BIT_VA	(UL(1) << CPU_STUCK_REASON_SHIFT)
- #define CPU_STUCK_REASON_NO_GRAN	(UL(2) << CPU_STUCK_REASON_SHIFT)
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/threads.h>
- #include <linux/cpumask.h>
-@@ -155,6 +155,6 @@ bool cpus_are_stuck_in_kernel(void);
- extern void crash_smp_send_stop(void);
- extern bool smp_crash_stop_failed(void);
- 
--#endif /* ifndef __ASSEMBLY__ */
-+#endif /* ifndef __ASSEMBLER__ */
- 
- #endif /* ifndef __ASM_SMP_H */
-diff --git a/arch/arm64/include/asm/spectre.h b/arch/arm64/include/asm/spectre.h
-index 8fef126260901..0527c53b0ec56 100644
---- a/arch/arm64/include/asm/spectre.h
-+++ b/arch/arm64/include/asm/spectre.h
-@@ -12,7 +12,7 @@
- #define BP_HARDEN_EL2_SLOTS 4
- #define __BP_HARDEN_HYP_VECS_SZ	((BP_HARDEN_EL2_SLOTS - 1) * SZ_2K)
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #include <linux/smp.h>
- #include <asm/percpu.h>
- 
-@@ -118,5 +118,5 @@ void spectre_bhb_patch_wa3(struct alt_instr *alt,
- void spectre_bhb_patch_clearbhb(struct alt_instr *alt,
- 				__le32 *origptr, __le32 *updptr, int nr_inst);
- 
--#endif	/* __ASSEMBLY__ */
-+#endif	/* __ASSEMBLER__ */
- #endif	/* __ASM_SPECTRE_H */
-diff --git a/arch/arm64/include/asm/stacktrace/frame.h b/arch/arm64/include/asm/stacktrace/frame.h
-index 0ee0f6ba0fd86..796797b8db7e5 100644
---- a/arch/arm64/include/asm/stacktrace/frame.h
-+++ b/arch/arm64/include/asm/stacktrace/frame.h
-@@ -25,7 +25,7 @@
- #define FRAME_META_TYPE_FINAL		1
- #define FRAME_META_TYPE_PT_REGS		2
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- /* 
-  * A standard AAPCS64 frame record.
-  */
-@@ -43,6 +43,6 @@ struct frame_record_meta {
- 	struct frame_record record;
- 	u64 type;
- };
--#endif /* __ASSEMBLY */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* __ASM_STACKTRACE_FRAME_H */
-diff --git a/arch/arm64/include/asm/sysreg.h b/arch/arm64/include/asm/sysreg.h
-index 6455db1b54fd2..9c9a96643412d 100644
---- a/arch/arm64/include/asm/sysreg.h
-+++ b/arch/arm64/include/asm/sysreg.h
-@@ -52,7 +52,7 @@
- 
- #ifndef CONFIG_BROKEN_GAS_INST
- 
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- // The space separator is omitted so that __emit_inst(x) can be parsed as
- // either an assembler directive or an assembler macro argument.
- #define __emit_inst(x)			.inst(x)
-@@ -71,11 +71,11 @@
- 					 (((x) >> 24) & 0x000000ff))
- #endif	/* CONFIG_CPU_BIG_ENDIAN */
- 
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- #define __emit_inst(x)			.long __INSTR_BSWAP(x)
--#else  /* __ASSEMBLY__ */
-+#else  /* __ASSEMBLER__ */
- #define __emit_inst(x)			".long " __stringify(__INSTR_BSWAP(x)) "\n\t"
--#endif	/* __ASSEMBLY__ */
-+#endif	/* __ASSEMBLER__ */
- 
- #endif	/* CONFIG_BROKEN_GAS_INST */
- 
-@@ -1131,7 +1131,7 @@
- 
- #define ARM64_FEATURE_FIELD_BITS	4
- 
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- 
- 	.macro	mrs_s, rt, sreg
- 	 __emit_inst(0xd5200000|(\sreg)|(.L__gpr_num_\rt))
-diff --git a/arch/arm64/include/asm/system_misc.h b/arch/arm64/include/asm/system_misc.h
-index 344b1c1a4bbb6..d316a804eb388 100644
---- a/arch/arm64/include/asm/system_misc.h
-+++ b/arch/arm64/include/asm/system_misc.h
-@@ -7,7 +7,7 @@
- #ifndef __ASM_SYSTEM_MISC_H
- #define __ASM_SYSTEM_MISC_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/compiler.h>
- #include <linux/linkage.h>
-@@ -28,6 +28,6 @@ void arm64_notify_die(const char *str, struct pt_regs *regs,
- struct mm_struct;
- extern void __show_regs(struct pt_regs *);
- 
--#endif	/* __ASSEMBLY__ */
-+#endif	/* __ASSEMBLER__ */
- 
- #endif	/* __ASM_SYSTEM_MISC_H */
-diff --git a/arch/arm64/include/asm/thread_info.h b/arch/arm64/include/asm/thread_info.h
-index f241b8601ebd9..a803b887b0b47 100644
---- a/arch/arm64/include/asm/thread_info.h
-+++ b/arch/arm64/include/asm/thread_info.h
-@@ -10,7 +10,7 @@
- 
- #include <linux/compiler.h>
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- struct task_struct;
- 
-diff --git a/arch/arm64/include/asm/tlbflush.h b/arch/arm64/include/asm/tlbflush.h
-index 18a5dc0c9a540..ef61b68df3476 100644
---- a/arch/arm64/include/asm/tlbflush.h
-+++ b/arch/arm64/include/asm/tlbflush.h
-@@ -8,7 +8,7 @@
- #ifndef __ASM_TLBFLUSH_H
- #define __ASM_TLBFLUSH_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <linux/bitfield.h>
- #include <linux/mm_types.h>
-diff --git a/arch/arm64/include/asm/vdso.h b/arch/arm64/include/asm/vdso.h
-index 61679070f595c..232b469690882 100644
---- a/arch/arm64/include/asm/vdso.h
-+++ b/arch/arm64/include/asm/vdso.h
-@@ -7,7 +7,7 @@
- 
- #define __VDSO_PAGES    4
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <generated/vdso-offsets.h>
- 
-@@ -19,6 +19,6 @@
- extern char vdso_start[], vdso_end[];
- extern char vdso32_start[], vdso32_end[];
- 
--#endif /* !__ASSEMBLY__ */
-+#endif /* !__ASSEMBLER__ */
- 
- #endif /* __ASM_VDSO_H */
-diff --git a/arch/arm64/include/asm/vdso/compat_barrier.h b/arch/arm64/include/asm/vdso/compat_barrier.h
-index 6d75e03d38274..d7ebe7ceefa00 100644
---- a/arch/arm64/include/asm/vdso/compat_barrier.h
-+++ b/arch/arm64/include/asm/vdso/compat_barrier.h
-@@ -5,7 +5,7 @@
- #ifndef __COMPAT_BARRIER_H
- #define __COMPAT_BARRIER_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- /*
-  * Warning: This code is meant to be used from the compat vDSO only.
-  */
-@@ -31,6 +31,6 @@
- #define smp_rmb()	aarch32_smp_rmb()
- #define smp_wmb()	aarch32_smp_wmb()
- 
--#endif /* !__ASSEMBLY__ */
-+#endif /* !__ASSEMBLER__ */
- 
- #endif /* __COMPAT_BARRIER_H */
-diff --git a/arch/arm64/include/asm/vdso/compat_gettimeofday.h b/arch/arm64/include/asm/vdso/compat_gettimeofday.h
-index 7d1a116549b1b..0d513f924321f 100644
---- a/arch/arm64/include/asm/vdso/compat_gettimeofday.h
-+++ b/arch/arm64/include/asm/vdso/compat_gettimeofday.h
-@@ -5,7 +5,7 @@
- #ifndef __ASM_VDSO_COMPAT_GETTIMEOFDAY_H
- #define __ASM_VDSO_COMPAT_GETTIMEOFDAY_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <asm/barrier.h>
- #include <asm/unistd_compat_32.h>
-@@ -161,6 +161,6 @@ static inline bool vdso_clocksource_ok(const struct vdso_clock *vc)
- }
- #define vdso_clocksource_ok	vdso_clocksource_ok
- 
--#endif /* !__ASSEMBLY__ */
-+#endif /* !__ASSEMBLER__ */
- 
- #endif /* __ASM_VDSO_COMPAT_GETTIMEOFDAY_H */
-diff --git a/arch/arm64/include/asm/vdso/getrandom.h b/arch/arm64/include/asm/vdso/getrandom.h
-index a2197da1951b0..da1d58bbfabe8 100644
---- a/arch/arm64/include/asm/vdso/getrandom.h
-+++ b/arch/arm64/include/asm/vdso/getrandom.h
-@@ -3,7 +3,7 @@
- #ifndef __ASM_VDSO_GETRANDOM_H
- #define __ASM_VDSO_GETRANDOM_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <asm/unistd.h>
- #include <asm/vdso/vsyscall.h>
-@@ -33,6 +33,6 @@ static __always_inline ssize_t getrandom_syscall(void *_buffer, size_t _len, uns
- 	return ret;
- }
- 
--#endif /* !__ASSEMBLY__ */
-+#endif /* !__ASSEMBLER__ */
- 
- #endif /* __ASM_VDSO_GETRANDOM_H */
-diff --git a/arch/arm64/include/asm/vdso/gettimeofday.h b/arch/arm64/include/asm/vdso/gettimeofday.h
-index c59e84105b43c..3658a757e255d 100644
---- a/arch/arm64/include/asm/vdso/gettimeofday.h
-+++ b/arch/arm64/include/asm/vdso/gettimeofday.h
-@@ -7,7 +7,7 @@
- 
- #ifdef __aarch64__
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <asm/alternative.h>
- #include <asm/arch_timer.h>
-@@ -96,7 +96,7 @@ static __always_inline const struct vdso_time_data *__arch_get_vdso_u_time_data(
- #define __arch_get_vdso_u_time_data __arch_get_vdso_u_time_data
- #endif /* IS_ENABLED(CONFIG_CC_IS_GCC) && IS_ENABLED(CONFIG_PAGE_SIZE_64KB) */
- 
--#endif /* !__ASSEMBLY__ */
-+#endif /* !__ASSEMBLER__ */
- 
- #else /* !__aarch64__ */
- 
-diff --git a/arch/arm64/include/asm/vdso/processor.h b/arch/arm64/include/asm/vdso/processor.h
-index ff830b766ad2d..7abb0cc81cd6e 100644
---- a/arch/arm64/include/asm/vdso/processor.h
-+++ b/arch/arm64/include/asm/vdso/processor.h
-@@ -5,13 +5,13 @@
- #ifndef __ASM_VDSO_PROCESSOR_H
- #define __ASM_VDSO_PROCESSOR_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- static inline void cpu_relax(void)
- {
- 	asm volatile("yield" ::: "memory");
- }
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* __ASM_VDSO_PROCESSOR_H */
-diff --git a/arch/arm64/include/asm/vdso/vsyscall.h b/arch/arm64/include/asm/vdso/vsyscall.h
-index 417aae5763a86..3f3c8eb74e2e3 100644
---- a/arch/arm64/include/asm/vdso/vsyscall.h
-+++ b/arch/arm64/include/asm/vdso/vsyscall.h
-@@ -2,7 +2,7 @@
- #ifndef __ASM_VDSO_VSYSCALL_H
- #define __ASM_VDSO_VSYSCALL_H
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <vdso/datapage.h>
- 
-@@ -22,6 +22,6 @@ void __arch_update_vdso_clock(struct vdso_clock *vc)
- /* The asm-generic header needs to be included after the definitions above */
- #include <asm-generic/vdso/vsyscall.h>
- 
--#endif /* !__ASSEMBLY__ */
-+#endif /* !__ASSEMBLER__ */
- 
- #endif /* __ASM_VDSO_VSYSCALL_H */
-diff --git a/arch/arm64/include/asm/virt.h b/arch/arm64/include/asm/virt.h
-index aa280f356b96a..530af9620fdba 100644
---- a/arch/arm64/include/asm/virt.h
-+++ b/arch/arm64/include/asm/virt.h
-@@ -56,7 +56,7 @@
-  */
- #define BOOT_CPU_FLAG_E2H	BIT_ULL(32)
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <asm/ptrace.h>
- #include <asm/sections.h>
-@@ -161,6 +161,6 @@ static inline bool is_hyp_nvhe(void)
- 	return is_hyp_mode_available() && !is_kernel_in_hyp_mode();
- }
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* ! __ASM__VIRT_H */
-diff --git a/tools/arch/arm64/include/asm/cputype.h b/tools/arch/arm64/include/asm/cputype.h
-index 139d5e87dc959..b35d954d50c3f 100644
---- a/tools/arch/arm64/include/asm/cputype.h
-+++ b/tools/arch/arm64/include/asm/cputype.h
-@@ -245,7 +245,7 @@
- #define MIDR_FUJITSU_ERRATUM_010001_MASK	(~MIDR_CPU_VAR_REV(1, 0))
- #define TCR_CLEAR_FUJITSU_ERRATUM_010001	(TCR_NFD1 | TCR_NFD0)
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- 
- #include <asm/sysreg.h>
- 
-@@ -338,6 +338,6 @@ static inline u32 __attribute_const__ read_cpuid_cachetype(void)
- {
- 	return read_cpuid(CTR_EL0);
- }
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif
-diff --git a/tools/arch/arm64/include/asm/esr.h b/tools/arch/arm64/include/asm/esr.h
-index bd592ca815711..bbfbd1497a2f8 100644
---- a/tools/arch/arm64/include/asm/esr.h
-+++ b/tools/arch/arm64/include/asm/esr.h
-@@ -385,7 +385,7 @@
- #define ESR_ELx_MOPS_ISS_SRCREG(esr)	(((esr) & (UL(0x1f) << 5)) >> 5)
- #define ESR_ELx_MOPS_ISS_SIZEREG(esr)	(((esr) & (UL(0x1f) << 0)) >> 0)
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #include <asm/types.h>
- 
- static inline unsigned long esr_brk_comment(unsigned long esr)
-@@ -450,6 +450,6 @@ static inline bool esr_iss_is_eretab(unsigned long esr)
- }
- 
- const char *esr_get_class_string(unsigned long esr);
--#endif /* __ASSEMBLY */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* __ASM_ESR_H */
-diff --git a/tools/arch/arm64/include/asm/gpr-num.h b/tools/arch/arm64/include/asm/gpr-num.h
-index 05da4a7c5788f..a114e4f8209b0 100644
---- a/tools/arch/arm64/include/asm/gpr-num.h
-+++ b/tools/arch/arm64/include/asm/gpr-num.h
-@@ -2,7 +2,7 @@
- #ifndef __ASM_GPR_NUM_H
- #define __ASM_GPR_NUM_H
- 
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- 
- 	.irp	num,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30
- 	.equ	.L__gpr_num_x\num, \num
-@@ -11,7 +11,7 @@
- 	.equ	.L__gpr_num_xzr, 31
- 	.equ	.L__gpr_num_wzr, 31
- 
--#else /* __ASSEMBLY__ */
-+#else /* __ASSEMBLER__ */
- 
- #define __DEFINE_ASM_GPR_NUMS					\
- "	.irp	num,0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30\n" \
-@@ -21,6 +21,6 @@
- "	.equ	.L__gpr_num_xzr, 31\n"				\
- "	.equ	.L__gpr_num_wzr, 31\n"
- 
--#endif /* __ASSEMBLY__ */
-+#endif /* __ASSEMBLER__ */
- 
- #endif /* __ASM_GPR_NUM_H */
-diff --git a/tools/arch/arm64/include/asm/sysreg.h b/tools/arch/arm64/include/asm/sysreg.h
-index 65f2759ea27a3..10c457d468e82 100644
---- a/tools/arch/arm64/include/asm/sysreg.h
-+++ b/tools/arch/arm64/include/asm/sysreg.h
-@@ -51,7 +51,7 @@
- 
- #ifndef CONFIG_BROKEN_GAS_INST
- 
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- // The space separator is omitted so that __emit_inst(x) can be parsed as
- // either an assembler directive or an assembler macro argument.
- #define __emit_inst(x)			.inst(x)
-@@ -70,11 +70,11 @@
- 					 (((x) >> 24) & 0x000000ff))
- #endif	/* CONFIG_CPU_BIG_ENDIAN */
- 
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- #define __emit_inst(x)			.long __INSTR_BSWAP(x)
--#else  /* __ASSEMBLY__ */
-+#else  /* __ASSEMBLER__ */
- #define __emit_inst(x)			".long " __stringify(__INSTR_BSWAP(x)) "\n\t"
--#endif	/* __ASSEMBLY__ */
-+#endif	/* __ASSEMBLER__ */
- 
- #endif	/* CONFIG_BROKEN_GAS_INST */
- 
-@@ -1080,7 +1080,7 @@
- 
- #define ARM64_FEATURE_FIELD_BITS	4
- 
--#ifdef __ASSEMBLY__
-+#ifdef __ASSEMBLER__
- 
- 	.macro	mrs_s, rt, sreg
- 	 __emit_inst(0xd5200000|(\sreg)|(.L__gpr_num_\rt))
-diff --git a/tools/arch/arm64/include/uapi/asm/kvm.h b/tools/arch/arm64/include/uapi/asm/kvm.h
-index ed5f3892674c7..a792a599b9d68 100644
---- a/tools/arch/arm64/include/uapi/asm/kvm.h
-+++ b/tools/arch/arm64/include/uapi/asm/kvm.h
-@@ -31,7 +31,7 @@
- #define KVM_SPSR_FIQ	4
- #define KVM_NR_SPSR	5
- 
--#ifndef __ASSEMBLY__
-+#ifndef __ASSEMBLER__
- #include <linux/psci.h>
- #include <linux/types.h>
- #include <asm/ptrace.h>
--- 
-2.51.0
+Overall, this is the sad part of adding drivers that don't have a correspon=
+ding
+spec to define the rules.
 
+>=20
+> > > This was tested on a Radxa Rock 5T. With the increased clock speeds i=
+n
+> > > the devicetree around 160 fps were measured when scaling and converti=
+ng
+> > This is quite vague, I've checked the patch and you didn't extend eithe=
+r there.
+> > Is that an overclock or was it miss-configured ? Does RK implement a de=
+vfreq ?
+> > Should that be moved with a voltage adjustement ? Is there any thermal =
+nearby we
+> > should monitor ?
+>=20
+> This is mainly the result of a very low performance in the initial=20
+> testing. We were quite disappointed looking at 30 fps output. The=20
+> datasheet mentions the core should do 2 or 4 pixel/cycle, so we looked=
+=20
+> if the clock speed could be increased. The TRM Part1 mentions that the=
+=20
+> RGA3 clock uses a default divider of 2, so I've tweaked the dtsi to=20
+> avoid the clock divider and run it on the fastest clock.
+>=20
+> But this tweaking only increased the frame rate to around 36fps. After=
+=20
+> some brainstorming and testing we found the culprit being the=20
+> RGA3_WR_SW_OUTSTANDING_MAX value in the command. With this value maxed=
+=20
+> out and without the clock tweaks I've got around 80fps. As the clock=20
+> increase resulted in the expected doubling of the fps and my few tests=
+=20
+> worked, I've included it in the patch set.
+>=20
+> I haven't done any stress testing and don't mind to remove the clock=20
+> speed adjustments from the dtsi.
+
+Thanks for the input, so yes, in V2 you should stay with the clock rate use=
+d by
+Rockchip in their BSP, as a safe measure. If there is useful gain needed la=
+ter
+for anyone use case, we can work on the clocking in isolation and find the =
+best
+approach without risking wearing out the HW faster then needed.
+
+>=20
+> > > from RGBA 480x360 to NV12 3840x2160. Without the clock speed scaling =
+a
+> > > default clock division factor of 2 is used and only around 80 fps are
+> > > reached with one core. The v4l2-compliance tests only complain about
+> > > the already failing colorspace propagation:
+> > Did you do any more format testing to validation all supported combinat=
+ions ?
+> > This is a tool [0] you can use to test this using GStreamer and how to =
+use it
+> > [1].
+>=20
+> Thanks for the link!
+>=20
+> I've did some simple format conversion tests with a static test pattern.
+>=20
+> The tests mainly converts any combination of RGB/YUV formats (hope I=20
+> didn't miss anything) to each other. Then I convert it back to rgba with=
+=20
+> gstreamer and compare it's hash.
+>=20
+> For scaling I've just tested one upscale, downscale and scale to a non=
+=20
+> aligned width/height.
+
+Thanks for the feedback.
+
+>=20
+> > [0]https://gitlab.collabora.com/mediatek/aiot/lava-test-definitions/-/t=
+ree/main/avvideocompare?ref_type=3Dheads
+> > [1]https://gitlab.collabora.com/mediatek/aiot/linux/-/blob/mediatek-nex=
+t/.gitlab-ci.yml?ref_type=3Dheads#L282
+> > > =C2=A0=C2=A0 v4l2-compliance 1.28.1, 64 bits, 64-bit time_t
+> > > =C2=A0=C2=A0 ...
+> > > =C2=A0=C2=A0=C2=A0		fail: v4l2-test-formats.cpp(923): fmt_cap.g_color=
+space() !=3D
+> > > col
+> > > =C2=A0=C2=A0=C2=A0	test VIDIOC_S_FMT: FAIL
+> > > =C2=A0=C2=A0 ...
+> > > =C2=A0=C2=A0 Total for rockchip-rga device /dev/video0: 47, Succeeded=
+: 46, Failed: 1,
+> > > Warnings: 0
+> > >=20
+> > > =C2=A0=C2=A0 v4l2-compliance 1.28.1, 64 bits, 64-bit time_t
+> > > =C2=A0=C2=A0 ...
+> > > =C2=A0=C2=A0=C2=A0		fail: v4l2-test-formats.cpp(923): fmt_cap.g_color=
+space() !=3D
+> > > col
+> > > =C2=A0=C2=A0=C2=A0	test VIDIOC_S_FMT: FAIL
+> > > =C2=A0=C2=A0 ...
+> > > =C2=A0=C2=A0 Total for rockchip-rga device /dev/video1: 47, Succeeded=
+: 46, Failed: 1,
+> > > Warnings: 0
+> > >=20
+> > > =C2=A0=C2=A0 v4l2-compliance 1.28.1, 64 bits, 64-bit time_t
+> > > =C2=A0=C2=A0 ...
+> > > =C2=A0=C2=A0=C2=A0		fail: v4l2-test-formats.cpp(923): fmt_cap.g_color=
+space() !=3D
+> > > col
+> > > =C2=A0=C2=A0=C2=A0	test VIDIOC_S_FMT: FAIL
+> > > =C2=A0=C2=A0 ...
+> > > =C2=A0=C2=A0 Total for rockchip-rga device /dev/video2: 47, Succeeded=
+: 46, Failed: 1,
+> > > Warnings: 0
+> > >=20
+> > > Each RGA core is a separate /dev/video device. To distinguish the RGA=
+2
+> > > core from the RGA3 cores the Card type is set accordingly. Combining =
+all
+> > > cores into a single device and scheduling tasks to the best core migh=
+t
+> > > be a future improvement, if it is desired by upstream to handle the
+> > > scheduling and selection in kernel space.
+> > It took me some time to understand why you spoke about multicore here. =
+You
+> > forgot to say here that you add RGA3 into RGA2 driver. Some information=
+ on why
+> > you went that path instead of a separate driver.
+>=20
+> Mostly as I've started by using the rga driver as a basis and just=20
+> adjusted the command stream and register values to the RGA3. I was=20
+> unsure, if I should create a separate driver.
+> As it didn't seem unfeasible to have the existing driver handle both=20
+> units, I've decided to add it to the existing driver to avoid code=20
+> duplication.
+>=20
+> But looking at your comments about the wrong announcement of e.g. color=
+=20
+> space conversion, I now think that a new driver is probably better to=20
+> avoid adding too much of the differences to the struct.
+
+I've discussed this with other devs, there is clearly no single opinion abo=
+ut
+it. But some good argument came in in favour of your approach. Code duplica=
+tion
+is one (in fact, there is a lot of boiler plate code in all V4L2 drivers), =
+but
+the main thing is that it brings some maintenance to this close to abandone=
+d
+driver.
+
+Though it means in v2, you have to push a little bit harder so the format, =
+frame
+size, try_format is properly adapted per hardware variants. We try and keep=
+ this
+information as static as possible, using constant C structure to describe i=
+t.
+
+>=20
+> > =C2=A0From high level view, I don't think its a good idea to multi-plex=
+ over
+> > heterogeneous core. They may not even produce the exact same pixels for=
+ the same
+> > operation. They also don't share the same MMU, and at first glance, the=
+ use of
+> > rkiommu in RGA3 means it can no longer handle CPU cache (though I don't=
+ know if
+> > this is implemented/supported in upstream RGA2 driver).
+>=20
+> Thanks for the insight. This gives me another reason to create a=20
+> separate driver. I'll probably also look into multiplexing the 2 RGA3=20
+> cores to only expose one RGA3 video device to userspace (the current=20
+> implementation exposes both cores individually to the userspace)
+
+So no, you might want to keep it like this. I didn't understood when I read=
+ this
+cover later that there it wasn't just about the RGA2 and the RGA3 core, but=
+ that
+there is truly 2 RGA3 cores. For now, for the two RGA3 cores, you should mi=
+mic
+what Sebastian did for the multiple Hantro G1 cores [0]. If you expose each
+cores as its own device, removing it later will possibly break existing dri=
+vers
+and will prevent implementing an in-kernel fair scheduling later.
+
+Detlev is already prototyping scheduling of the two rockchip decoder cores,=
+ and
+hopefully that should come with helper in v4l2-m2m to register cores so you=
+ can
+easily schedule them. Note that both have similar challenges around the iom=
+mu,
+since the dma integration does not seem (someone correct me if I'm wrong) t=
+o
+already support a device driver with two or more iommus. We also have to de=
+cide
+if we want the cores in complete isolation per operation or just map everyt=
+hing
+in all iommus.
+
+[0] https://www.spinics.net/lists//devicetree/msg708135.html
+
+cheers,
+Nicolas
+
+>=20
+> Sincerely
+>=20
+> =C2=A0=C2=A0 =C2=A0 Sven
+>=20
+> > > Patch 1-2 are general cleanups
+> > > Patch 3-12 prepare the rga driver for the RGA3
+> > > Patch 13 documments the RGA3 compatible value
+> > > Patch 14 adds the RGA3 cores to the rk3588 dtsi
+> > > Patch 15 increases the RGA3 core clock speeds
+> > > Patch 16 adds RGA3 support to the rga driver
+> > >=20
+> > > Signed-off-by: Sven P=C3=BCschel<s.pueschel@pengutronix.de>
+> > > ---
+> > > Sven P=C3=BCschel (16):
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: rockchip: rga: use clk_bu=
+lk api
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: rockchip: rga: use stride=
+ for offset calculation
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: rockchip: rga: align stri=
+de to 16 bytes
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: rockchip: rga: move hw sp=
+ecific parts to a dedicated struct
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: rockchip: rga: use card t=
+ype to specify rga type
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: rockchip: rga: change off=
+set to dma_addresses
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: rockchip: rga: support ex=
+ternal iommus
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: rockchip: rga: remove siz=
+e from rga_frame
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: rockchip: rga: remove str=
+ide from rga_frame
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: rockchip: rga: move rga_f=
+mt to rga-hw.h
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: rockchip: rga: add iommu =
+restore function
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: rockchip: rga: handle err=
+or interrupt
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: dt-bindings: media: rockc=
+hip-rga: add rockchip,rk3588-rga3
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 arm64: dts: rockchip: add rga3 d=
+t nodes
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 arm64: dts: rockchip: increase r=
+ga3 clock speed
+> > > =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 media: rockchip: rga: add rga3 s=
+upport
+> > >=20
+> > > =C2=A0=C2=A0.../devicetree/bindings/media/rockchip-rga.yaml=C2=A0=C2=
+=A0=C2=A0 |=C2=A0=C2=A0 1 +
+> > > =C2=A0=C2=A0arch/arm64/boot/dts/rockchip/rk3588-base.dtsi=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 |=C2=A0 50 +++
+> > > =C2=A0=C2=A0drivers/media/platform/rockchip/rga/Makefile=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0=C2=A0 2 +-
+> > > =C2=A0=C2=A0drivers/media/platform/rockchip/rga/rga-buf.c=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 |=C2=A0 78 ++--
+> > > =C2=A0=C2=A0drivers/media/platform/rockchip/rga/rga-hw.c=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0 | 356 ++++++++++++---
+> > > =C2=A0=C2=A0drivers/media/platform/rockchip/rga/rga-hw.h=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 15 +-
+> > > =C2=A0=C2=A0drivers/media/platform/rockchip/rga/rga.c=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 404 ++++++-----------
+> > > =C2=A0=C2=A0drivers/media/platform/rockchip/rga/rga.h=C2=A0=C2=A0=C2=
+=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 74 ++--
+> > > =C2=A0=C2=A0drivers/media/platform/rockchip/rga/rga3-hw.c=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 | 490
+> > > +++++++++++++++++++++
+> > > =C2=A0=C2=A0drivers/media/platform/rockchip/rga/rga3-hw.h=C2=A0=C2=A0=
+=C2=A0=C2=A0=C2=A0 | 186 ++++++++
+> > > =C2=A0=C2=A010 files changed, 1246 insertions(+), 410 deletions(-)
+> > > ---
+> > > base-commit: afb100a5ea7a13d7e6937dcd3b36b19dc6cc9328
+> > > change-id: 20251001-spu-rga3-8a00e018b120
+> > >=20
+> > > Best regards,
+
+--=-WQ8w5DEroCRU/pMH4BKw
+Content-Type: application/pgp-signature; name="signature.asc"
+Content-Description: This is a digitally signed message part
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQTvDVKBFcTDwhoEbxLZQZRRKWBy9AUCaOkEtAAKCRDZQZRRKWBy
+9DsdAQC+3PU8SGB7DHNotcnIhqVdUJwRCi8TYtn3JG4pK4zxbgEAwYNJYlKVnr2p
++GUqbXys42tcIcmmZ/59Av85u82U/wQ=
+=wvxU
+-----END PGP SIGNATURE-----
+
+--=-WQ8w5DEroCRU/pMH4BKw--
 
