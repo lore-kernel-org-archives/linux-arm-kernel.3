@@ -4,132 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A75D6CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 14:10:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EE976CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 14:11:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7wkzrxKudGSviXsY/mtwV95ApO2/F8bqxrMw6rKRUQs=; b=R09LoNEOI3kt7mPV4j/LVddZV5
-	23+WdxzG0weVYW4jbdkW/CYVZansmk+xkZDKX1nxmj1bFI9vwhTrh2iz+GFxqis+EV9xWBakrBGfL
-	Y38VE+FJmHzzbEZTpECWCaSRbMppkOZao4vpyboolVl42XnEO5y2f4HZpF+XVNDDe0OPUOzrf6kEI
-	e5YrUQZWOzC1HwIHt+iFyKbqqmi8+KPx6rXQ1wG8M7zuvmDMi1sGmq+43GmA2wM0y2YBFlLkHNS39
-	iiB7kt1WBK3huq85R+UMh+U8wMYOTkC2Q8oYXJggSj605VbEYGSt5xb6GwE3Di/b6j8TWXXg36CrI
-	fjxvFLBA==;
+	bh=UF8g8BgypRT4kO/uQTmYO1qxZNQILjkyhUutjT28ZwE=; b=FcyLgmopCKqpjWLGdWWXZB/4+i
+	rlLfR2E8/y64F0+vobpFTVzWZB5agwQ17PZibotH91TlxFOeKzm+tA+Iuy74jwg3UeR7E1TWsp5mU
+	Qp+XQ+kxBki724YP0PaVe0ej+pji5a56aGx5/2tR0XW5HJs74WEOLzxRJJCZqObqUI0TTLxDi6IA3
+	tfLkZPw+Vu9Nj4QQe/2C9d1YQBpXoo8sMT67UPPM18fheNFfIcct5Xp+Sa/7O+CXt0ZvfyyaEtsMd
+	0OeaadSWUI0AukchaY+rAisosdzSqTepYgl6m9SCbixGX9pHzPEHl8x0BBOphJAhUFo0jsp1SxRx5
+	VhvFOgVA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7Doq-00000008cxS-0otA;
-	Fri, 10 Oct 2025 14:10:04 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1v7Dq9-00000008dKK-3mYh;
+	Fri, 10 Oct 2025 14:11:25 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7Don-00000008cvn-0Zke
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 14:10:02 +0000
-Received: from pps.filterd (m0279866.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59A6Wn1a008198
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Oct 2025 14:09:59 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=7wkzrxKudGSviXsY/mtwV95A
-	pO2/F8bqxrMw6rKRUQs=; b=YtCKZR/MKHgtOZi6vcOxpQ3qKxJqn0UgdFTNCXsI
-	sJVqDaRakSag7bU65LgFJK+ZEtLghWpshoZQpGdcZbfU69ysSXSVY6nMYoup7qmn
-	/S69nHAvpHOe+A8qTrFDRHds8Q2JVhmmPdI4LK7R7iLVuFXUhxD0dtlC2opfsn6f
-	CiCfBvQ5lcF+SNXOiycOUAV0cDzWQGeUdCd1qpJ6PjWBMQVSLtJ1NZBmDu+ihbeB
-	2JvToGRINChtwlpNekLtlqubx4oYd1oDeBN5FvHJ02rIK8AadmMX7M1YJz9aigBp
-	U9tuzgu13YAiJua6n3sRGlt4YTW02NVsgH9Hf0qjdcTaJg==
-Received: from mail-il1-f200.google.com (mail-il1-f200.google.com [209.85.166.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49nv4kpn0s-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Oct 2025 14:09:59 +0000 (GMT)
-Received: by mail-il1-f200.google.com with SMTP id e9e14a558f8ab-42f8824b65fso115899475ab.2
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Oct 2025 07:09:58 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760105398; x=1760710198;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=7wkzrxKudGSviXsY/mtwV95ApO2/F8bqxrMw6rKRUQs=;
-        b=am6Tok+7ewSdPMvT9LPP9iLGGfu2KOhjLvCMznPiD571QbVulDCxOkF36OzpXuvkxq
-         9dzQTAwbCyHf0RGDW/jXU0m4DE+n/tA4DxAgUUAPIR8tgyiLjedq4yMNmyDI4OJ5+BRm
-         RZZr3eLlVoD39nr5IWudCL08ePV0yV15MA4Kz3CmLu+C9Y0lOrmfvnTpkk4Q+HfHA/CH
-         vp+kYYxD0NB+t4nKmsM7kgoOVwijEpCqTVYWoD/177cxu8G+FMz2rXl6NF4zgjBF77ZQ
-         lwcvEm11W6hpBR3B0Gkb9ZjTEMx33Xhi3nCk7BjdKx6GnaqDxVOD1hJiYfwatbEW6dXz
-         DKmw==
-X-Forwarded-Encrypted: i=1; AJvYcCWETGzXQZVaEmIv0qaEoOUkLwwU0zuZhPiJWz4KP5Wqi8JVwudlym3fjCu2DDJgtdKOI4sYvmIpPMYFldJ0YEXf@lists.infradead.org
-X-Gm-Message-State: AOJu0YygDiSWbWodwvo3mYijo5bx7xuqvxwWMZSnlBDTDfehIBfTNyF8
-	ldsIakiqzpXZttEpIDHCSnyR2woESo08FkQR7iRT2Hzwo8SoML1M2ym+GalcN+h0yoJ5QQEpOKS
-	4RXu9SJ8QlSnLkDWw5aFbfaRYAWDOAsQ1KWJ9ESZjmt5Q03noKPzAccJbviOLl5qnRGkONYTv18
-	/8uA2MdM+nRA==
-X-Gm-Gg: ASbGncvsakYgIVji9ghVVn4YOiTzwgnsSDRGj5Mrvt0XGQ3MduiZpk7sm21D/fS5VhC
-	l2UUPkp8Tv4LvegRK8LAM2+oY+Sv+UPliTi3njxvkCjY+rhxV6IZ0cwjH/V+xyU7Yk7hA7jPGJr
-	8XLD08JwyeZvn3+iM0IepVc6yNvNP5SIftWBxYpvlHx1pyzexaL60E75nhNYEsBKMTwtq6rl5av
-	5+mF7QBQyuARscmZZaj7WxywA31+ESAFqA9mRnzIcIZ6AQ5QQ9r6ClyiGzjansFvrB4DbAc9Ykl
-	szKhAeNRHENfd1g2ahRHozQ7rYGIP7994lSYODIQfNN23dL+yXyYPYT/pQ9dxSX6KSDM+EMZelX
-	lqGcGWLq+NXaGTI2HfSYJKssdhm92KIloNn5vAE9VmBVBN7w8GoAP
-X-Received: by 2002:a05:6a20:12cc:b0:2ff:3752:8375 with SMTP id adf61e73a8af0-32da845f843mr16839540637.45.1760104966473;
-        Fri, 10 Oct 2025 07:02:46 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGx6lmwhdGB5tiz/Bc58mePgSBZ2wqdgFCoifjtltdKT0RsIy6in4D98ACg4FIrT0oC09J4cw==
-X-Received: by 2002:a05:6a20:12cc:b0:2ff:3752:8375 with SMTP id adf61e73a8af0-32da845f843mr16839190637.45.1760104964177;
-        Fri, 10 Oct 2025 07:02:44 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-590881e4de3sm909304e87.1.2025.10.10.07.02.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Oct 2025 07:02:41 -0700 (PDT)
-Date: Fri, 10 Oct 2025 17:02:39 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Damon Ding <damon.ding@rock-chips.com>
-Cc: Luca Ceresoli <luca.ceresoli@bootlin.com>, andrzej.hajda@intel.com,
-        neil.armstrong@linaro.org, rfoss@kernel.org,
-        Laurent.pinchart@ideasonboard.com, jonas@kwiboo.se,
-        jernej.skrabec@gmail.com, maarten.lankhorst@linux.intel.com,
-        mripard@kernel.org, tzimmermann@suse.de, airlied@gmail.com,
-        simona@ffwll.ch, shawnguo@kernel.org, s.hauer@pengutronix.de,
-        kernel@pengutronix.de, festevam@gmail.com, inki.dae@samsung.com,
-        sw0312.kim@samsung.com, kyungmin.park@samsung.com, krzk@kernel.org,
-        alim.akhtar@samsung.com, jingoohan1@gmail.com, p.zabel@pengutronix.de,
-        hjc@rock-chips.com, heiko@sntech.de, andy.yan@rock-chips.com,
-        dianders@chromium.org, m.szyprowski@samsung.com, jani.nikula@intel.com,
-        linux-kernel@vger.kernel.org, dri-devel@lists.freedesktop.org,
-        imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-        linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v6 11/18] drm/display: bridge_connector: Ensure last
- bridge determines EDID/modes detection capabilities
-Message-ID: <dkblceiweall37j4anpgkumizxc5zni3axnxb5hyokv2jlsta5@immpjaczktnh>
-References: <20250930090920.131094-1-damon.ding@rock-chips.com>
- <20250930090920.131094-12-damon.ding@rock-chips.com>
- <20251001180922.6bbe42ac@booty>
- <a42ebdca-1cbc-498c-b859-336557823f26@rock-chips.com>
-MIME-Version: 1.0
+	id 1v7Dq6-00000008dIG-3Cea;
+	Fri, 10 Oct 2025 14:11:24 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=qJzhMRY2ZHBugfvdrVPaRl88Sxa2eF4O0SvB47Fo3QXwkr13tF6ErB8ulgk/7jwVuzhLgFkGU861rBYEYbMPvin92vDdyhd6QIqCsbsAQ2NudtkE/BjVznjxOjVutau3QpxjK234V/E7HyDnhggoI5VY9IASXxni6Qo8yOM1cVGVvZk5+rYaX7KtpQaOwPm/X20H3sN/A/pv87l1nO6OJAaogcoWV64SGroEpYKwcuIL5ebkeMpJMOf0PjebhpaIaLLsMDA3V7RhMlRgAPaR6dX072gL4+BuG06zKkEtAi9Xr1Sd2x6snluG85pW87qaNjG1E0qpICAe62m0SoxVKg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=UF8g8BgypRT4kO/uQTmYO1qxZNQILjkyhUutjT28ZwE=;
+ b=KWBp7LexsEmATT9d9TkTrQqfBryqbcUK0g3u8uRZpc+7GVzJhmlzQcbniP999D8KCiSin8QGhrnp7qVTOCc3pyvOxzRSpG+6xSH8WydKCyu/Z+RCdNw0wcfJ8feZv/fy9IrEMLE+JBWwqg+jLUJTZCZQlMiHXK19JqkZLEZMT6nRMC/YNI1dGcrF1Gj7JDpLlC6/igzEWDq1ioLzEc3nyUafd94SpeV6eWqSnrIhmJKSc1a8btdjkuRtO+5VBltkxYo4Tb4huUU893alv8VS0lEFIrn6qi1FctAIu4nx1eJ2DHq2XPBGRjlSfPSU52Xdpd+kbapSU8lRMXBEhqf8Vw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=UF8g8BgypRT4kO/uQTmYO1qxZNQILjkyhUutjT28ZwE=;
+ b=PlPJApLgr6PVl5Eh4i64r5RJXRl8REdzuZ6j9mdZ9rtC31zNoLNIqD3XcVbO/M7097nT3VLG+3ATguRJOicy8SaT44kewSGsz9u4bXdc4tZWX18075aGEish4ffgZz/lFM8CORfH8wCaInleMHdZjRwdGtffHuMh/VbnVw1n9Gc4j4G1ZJhwItZpaWbnMbIBYxbPsU/g49AyBDOjy+cUvhWdFP0KJdVPFrkZv4uLJDQpWIuDE5ioziDPJzjX9G6Nq8aRTEW4bVvSTBLZSAgw1bwhYmHbezqguLYZwBJlzGX68lbPL8PUZUnGW0WyBiLUMqu7C/cYcn10InDi1VzE5Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by AS8PR04MB7671.eurprd04.prod.outlook.com (2603:10a6:20b:299::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.10; Fri, 10 Oct
+ 2025 14:11:13 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9203.007; Fri, 10 Oct 2025
+ 14:11:13 +0000
+Date: Fri, 10 Oct 2025 10:11:02 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Xu Yang <xu.yang_2@nxp.com>
+Cc: Vinod Koul <vkoul@kernel.org>,
+	Kishon Vijay Abraham I <kishon@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>, Li Jun <jun.li@nxp.com>,
+	Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, linux-phy@lists.infradead.org,
+	devicetree@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	linux-clk@vger.kernel.org
+Subject: Re: [PATCH v2 1/4] dt-bindings: phy: imx8mq-usb: add alternate
+ reference clock
+Message-ID: <aOkT9kisv054Tbuh@lizhi-Precision-Tower-5810>
+References: <20251010-usb-phy-alt-clk-support-v2-0-af4b78bb4ae8@nxp.com>
+ <20251010-usb-phy-alt-clk-support-v2-1-af4b78bb4ae8@nxp.com>
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <a42ebdca-1cbc-498c-b859-336557823f26@rock-chips.com>
-X-Authority-Analysis: v=2.4 cv=dojWylg4 c=1 sm=1 tr=0 ts=68e913b7 cx=c_pps
- a=i7ujPs/ZFudY1OxzqguLDw==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=x6icFKpwvdMA:10 a=VwQbUJbxAAAA:8 a=P-IC7800AAAA:8 a=s8YR1HE3AAAA:8
- a=Y6CNJq9B8L7KKZcxe68A:9 a=CjuIK1q_8ugA:10 a=Ti5FldxQo0BAkOmdeC3H:22
- a=d3PnA9EDa4IxuAV0gXij:22 a=jGH_LyMDp9YhSvY-UuyI:22
-X-Proofpoint-GUID: WmLrujlZzXYwb7adLEauszqXsPrBBVE-
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDA4MDEyMSBTYWx0ZWRfX+UhOzFEgq1xx
- RckCChfNd2irQle7FQqYdEgQgsa5UaPjjZyIxuMene4948Es2RnGKQ919ylBAuB75+JyV+tRxGa
- owLKJcU4GbNF6IoF4ibGeJ23vDZ297rAF3LfqEEWXpw1Jcm7a8XyNzlTfWoc0cHInsPNSn7SuoU
- SSRBbwZBLyIcipluheWd5T8YaBzAotDuITWaPKhs7OPCXnBQjDdrChsjmrVeW8jq3beL1q6/LwC
- 1YMaJKIZ6kCI7YmOND0uKZwxKEVpdxWyWJo5j0FeMM/1NzLxd8mOa7UDrmrobfkFGWoz7PseUU1
- QiCyFjuuWedT6bXFpQ6QwtgL1nQr+cKjmxJgwOy7CrA9dUVcBcegKdALlvaneUTuHFaeqjYaQnB
- BKHrwvb/EwFjF2BVyjUWgOHYk/midQ==
-X-Proofpoint-ORIG-GUID: WmLrujlZzXYwb7adLEauszqXsPrBBVE-
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-10_03,2025-10-06_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- clxscore=1015 impostorscore=0 suspectscore=0 lowpriorityscore=0 adultscore=0
- bulkscore=0 spamscore=0 priorityscore=1501 phishscore=0 malwarescore=0
- classifier=typeunknown authscore=0 authtc= authcc= route=outbound adjust=0
- reason=mlx scancount=1 engine=8.19.0-2510020000 definitions=main-2510080121
+In-Reply-To: <20251010-usb-phy-alt-clk-support-v2-1-af4b78bb4ae8@nxp.com>
+X-ClientProxiedBy: PH7PR10CA0005.namprd10.prod.outlook.com
+ (2603:10b6:510:23d::11) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|AS8PR04MB7671:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9555db7b-9c90-4c3c-a7d1-08de0806de88
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|366016|376014|7416014|52116014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?0ngRMA4HhDqiwxGc8Q1okjtrKlw4Bgs7Rr5lQje8b9iH74HZjTWPjvasl7zn?=
+ =?us-ascii?Q?uTmowKyw/altyuDvr4QQ9S+SYp7aR3zIWssfKFj2ME7ep+fRKDg06BVmasfn?=
+ =?us-ascii?Q?KLiAdsUKm+QTzHM8Sk6rqd+3dM1Mn2zrweV3RMUmDA8RFI7HKnbmtK91DmiA?=
+ =?us-ascii?Q?1/MoKGjAiQJTnDt68T/5qTfRZbsZ4fIsU0kBHvlRYOM4rdUBebXfqZsUQL3N?=
+ =?us-ascii?Q?veNC6rc4Dc05w222iQ6Dl2dT7e/CHOEd7u9LhFcesu3z1JCVNTjs/1kPD1Fb?=
+ =?us-ascii?Q?fx5MKosfW7d1OST1xZwdi0ZAzk10WRLNdgYVwStH/2LcW7RQCcHztebp0kWJ?=
+ =?us-ascii?Q?eW10STDfVSrhzft+l7mvQJVWGeHKZw7iLmGyQA2Sj7ETcPzq7rUujTEhqpLc?=
+ =?us-ascii?Q?6gz4llddeTkCggBFbfWxPYmT8rDDieKm3PsTgGOBTqENHoSi0bwV7JyjVCXu?=
+ =?us-ascii?Q?eJ2w6RfsQNTW30LaE6IQPbGRUpooO61I0uzS4pkR1BlDd9ldFuFv1ZKkdkvY?=
+ =?us-ascii?Q?xzwjqsdKltA4y0gfvVRzy25tNAKG6fs3l9vQoqIiicBO6uZ1ASypHsxUwzef?=
+ =?us-ascii?Q?pfcek3+D4d/oM2B7783OYSUFm7/qxAeRJ2ElkdYrSSW71hrX8IPbK0QoEnKA?=
+ =?us-ascii?Q?nsiAMKjqaWZ4bPbJ/6apXRbZ9hGXFRMc6Z+x7L69EfwNzrzVf5I1aSkqrmbu?=
+ =?us-ascii?Q?y+MfrRXztZlQIIAbcjqu6EX+5tX0DJbYGLpBGoJxUMCI1EhEKpu5UUoLvoqj?=
+ =?us-ascii?Q?naL4fQgGCgkgmJZTlIQUbOfTkz4qwi8ugUGwsKQvqQqlDP07/e5WMcu2wvHJ?=
+ =?us-ascii?Q?OWZ6Vd5OIWKjQxnqT2g/UJGqiHsMyRTrNtp/sn8WVlHQ/lk2IyqofzDzCROq?=
+ =?us-ascii?Q?juVC+FeuofmgWRQmomBTHChebV/Cvv/K6tJWAbe6yOjYD/C5jfFmlgmpZ9Ss?=
+ =?us-ascii?Q?4kBk1isWAXSTzx/eZ8VIRoCR8K2jcrlbyIkYkVvESpYBQJnVwDCv2pIlDtk4?=
+ =?us-ascii?Q?7mdXv1RkzpQwru/c7IV8LWJXMIYkXLm6CpwA/laLMgJFQ1+aDIe7mqhSFG9q?=
+ =?us-ascii?Q?uikzL1s4kP+54Bu5OqxGvEP1bRSzeH84+6QSPkTTM/HPuVH2LCrnV7sySiHu?=
+ =?us-ascii?Q?Fw+z8I1YVgDPNaAS7NafXDFqB8pOLfmFnsijS18xe1ah3EAeeaEujFVfcWQf?=
+ =?us-ascii?Q?ksqR/ZHIIiDyJdoHkcNd7sgrLE1irqlf78JrkPNT51G/ryIrEoJjLWp55g3+?=
+ =?us-ascii?Q?vTGQDNMJvpH1/fGqCva5SblHLtcEOFgLRkpQEC68BkbDFX4MBt4aESRGuNMR?=
+ =?us-ascii?Q?d7FBm9bMog0v7ocGOaywxudBS+Yvs9ARCi7tcJ6H556hJ/Mlxsv/hVMlb/U9?=
+ =?us-ascii?Q?34CVKrE0V5z0eEwF+in3AokAUDFYuGsWYMffCCCRsqYqTvoYsS0pceT1qGvV?=
+ =?us-ascii?Q?TyoNhi4b6d42CDtjk9rDR/rdMeDU1xVu/eHTJVjWPieOS1dwjgpYhAJhLppc?=
+ =?us-ascii?Q?6FrE9udYrlbQB/bDFzAYjCWTznvEKFYPWdkq?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(366016)(376014)(7416014)(52116014)(1800799024)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?phGpCB5aeRVrb81K4Dgf+TAo2fF5jnGS5YFMLaKhFiT3Zleow/wCEF8YOyAQ?=
+ =?us-ascii?Q?FHZldXsZNcj7LzhZz6sd+mJdx6R4RaexCfLL5R/iCWR2TLs5KxVyXkpqojGg?=
+ =?us-ascii?Q?0UGfg4WFuipmgetUsrbAUrp6DInqVKynV/oyjtB3tFPekFLIoUpoz73T6lcV?=
+ =?us-ascii?Q?Rw2YKbjasevk1Gy10ZyH/HnUEG7Usf14hh9pauV1ylFL14bPNX3lEo7BOJGd?=
+ =?us-ascii?Q?PCJB6epoO8wqWaxkj44ZU1OxXR+RqqGxMwP4d7zkkILddOcw6MKTadCHukSc?=
+ =?us-ascii?Q?48hSJuSkXM6PLL/XhgVmCAD/i7ZLIB2skqiVbBOtFc4KeRJbAzNnycQ2v0n7?=
+ =?us-ascii?Q?i9mcV/Z5x9cchbOmr7Laex6l58Q4sjMoH1OAoe+zJtMCQ1jwyz5BTmLGMjTL?=
+ =?us-ascii?Q?9VxT6e6CJqGWCHjXzNEt1ZBsInJbB3cNtxmUkNdjY/GNrXESlGQ1MAgjwly/?=
+ =?us-ascii?Q?Jp/JaoBwJ8JMwp0N8vVl7wu8xQhzHJsDPivA4zUHoPpfOeY/xViRmnXFAljY?=
+ =?us-ascii?Q?ip880a94ez54wiPM3FsI4JLdTb0Px0kK4S6auuDqNlh0m3WS/R2dRag/xY78?=
+ =?us-ascii?Q?qlKCir0YWa2jLadXy7axJmNwgWr4aVXTjichnfg9xho6RNLQiyfAnGe/rVVm?=
+ =?us-ascii?Q?aYMaD4lm6bnWTNNhsBGmeeZ9Y1vXjszfsA/0RFDtUvYqMuaGtprF828gIfat?=
+ =?us-ascii?Q?sG70E99Ha2LFoYfNvhVyKZ1lfhXA15Uv1ZYWYY6NLAq7VAUA/OvMqT2Bd/6q?=
+ =?us-ascii?Q?gN6QH0rRCzHBHISjXb8D/vMm+LokeZGAPdNWPhcBg29l9Xd/j33EGhW4A0BU?=
+ =?us-ascii?Q?Nie5hr/Q7NI7TfzXgKH0RA/j4tcb9S9zqAVuyc9cqHVS+zbDJbxRQsh0CpiU?=
+ =?us-ascii?Q?1emrvSvaWIuvMAlEdqOQc18EAkIJsjkWRPWUgcq2HieRHFgpzUEUINBmioG0?=
+ =?us-ascii?Q?c8xI/0Ov2wXGWVlTyScGrC5oWixt4ICKX6p5995GNMwD0ya5weuY6gp5ddFl?=
+ =?us-ascii?Q?YVXn4JuYTl0jLuFysD4NcVIRfngiKPZVKu6LmqL/wkhui4dbrzwa+6LAbHPb?=
+ =?us-ascii?Q?iY85bL1zNTyArVUwVWD+NGY+3jfVJeUR9JZ/9HMm1TirRLyoCveUi7EBmbcL?=
+ =?us-ascii?Q?kDMbxX3c0oIqwU48h+gDYpbuqcbvNtvEZurfzl9OUQvPUbszOvfEbHqrUlqS?=
+ =?us-ascii?Q?T85UGTL1WOm6Aqy1WyLvtMAYWgZ0hiZM4auuEGaFTHFx8BxG13MCKXdLq4Qc?=
+ =?us-ascii?Q?nT7mZKkekw79O/sMrkEu1pGxSSwzHSMDks+RCavSi5BECcymJmQZ2L1/RzMA?=
+ =?us-ascii?Q?OWj09yY7NP7zZI1TosTHzgTsa7JO7M45yyaXaiajxQTgZBHKVy+E3IHd/qoE?=
+ =?us-ascii?Q?Tz20cpF0Hk1LA3C1phNN2x6ac19n8VhUuHbsQviCV4zmUXgsa9dzhPPF9VWa?=
+ =?us-ascii?Q?27Ebd8AKKysGEVClDoIVbcbnRofnX+pWc4o5gbttB2Y+O/f6fwXeW/CiO4+6?=
+ =?us-ascii?Q?iQvlJCaF5Du8t1o5q/FIuUoRCOH2/E5qsKUZa9togi+AapvC9Y6ypIconbH2?=
+ =?us-ascii?Q?jzDKqaZWJ5vEYfQXKRI=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9555db7b-9c90-4c3c-a7d1-08de0806de88
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Oct 2025 14:11:13.1144
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 9v3wJi8+svpBMJFInBWIutRH+ngJ3+TxOKrRJ8LoxMhsQ6Rt2RxgZ9lvTukpiMNzoS8uYNRtVx1cliwHUcCVQw==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS8PR04MB7671
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_071001_194964_DD5E3071 
-X-CRM114-Status: GOOD (  45.85  )
+X-CRM114-CacheID: sfid-20251010_071122_806604_76BF8462 
+X-CRM114-Status: GOOD (  15.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -144,178 +169,46 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, Oct 09, 2025 at 12:10:42PM +0800, Damon Ding wrote:
-> Hi Luca,
-> 
-> On 10/2/2025 12:09 AM, Luca Ceresoli wrote:
-> > Hello Damon,
-> > 
-> > On Tue, 30 Sep 2025 17:09:13 +0800
-> > Damon Ding <damon.ding@rock-chips.com> wrote:
-> > 
-> > > When multiple bridges are present, EDID detection capability
-> > > (DRM_BRIDGE_OP_EDID) takes precedence over modes detection
-> > > (DRM_BRIDGE_OP_MODES). To ensure the above two capabilities are
-> > > determined by the last bridge in the chain, we handle three cases:
-> > > 
-> > > Case 1: The later bridge declares only DRM_BRIDGE_OP_MODES
-> > >   - If the previous bridge declares DRM_BRIDGE_OP_EDID, set
-> > >     &drm_bridge_connector.bridge_edid to NULL and set
-> > >     &drm_bridge_connector.bridge_modes to the later bridge.
-> > >   - Ensure modes detection capability of the later bridge will not
-> > >     be ignored.
-> > > 
-> > > Case 2: The later bridge declares only DRM_BRIDGE_OP_EDID
-> > >   - If the previous bridge declares DRM_BRIDGE_OP_MODES, set
-> > >     &drm_bridge_connector.bridge_modes to NULL and set
-> > >     &drm_bridge_connector.bridge_edid to the later bridge.
-> > >   - Although EDID detection capability has higher priority, this
-> > >     operation is for balance and makes sense.
-> > > 
-> > > Case 3: the later bridge declares both of them
-> > >   - Assign later bridge as &drm_bridge_connector.bridge_edid and
-> > >     and &drm_bridge_connector.bridge_modes to this bridge.
-> > >   - Just leave transfer of these two capabilities as before.
-> > 
-> > I think the whole explanation can be more concisely rewritten as:
-> > 
-> > If the later bridge declares OP_EDID, OP_MODES or both, then both
-> > .bridge_modes and .bridge_edid should be set to NULL (if any was set
-> > from a previous bridge), and then .bridge_modes and/or .bridge_edid be
-> > set to the later bridge as is done already.
-> > 
-> > Does this look correct (i.e. does it convey the same meaning)?
-> > 
-> > > --- a/drivers/gpu/drm/display/drm_bridge_connector.c
-> > > +++ b/drivers/gpu/drm/display/drm_bridge_connector.c
-> > > @@ -640,6 +640,7 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
-> > >   	struct drm_connector *connector;
-> > >   	struct i2c_adapter *ddc = NULL;
-> > >   	struct drm_bridge *bridge, *panel_bridge = NULL;
-> > > +	struct drm_bridge *pre_bridge_edid, *pre_bridge_modes;
-> > >   	unsigned int supported_formats = BIT(HDMI_COLORSPACE_RGB);
-> > >   	unsigned int max_bpc = 8;
-> > >   	bool support_hdcp = false;
-> > > @@ -668,6 +669,9 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
-> > >   	 */
-> > >   	connector_type = DRM_MODE_CONNECTOR_Unknown;
-> > >   	drm_for_each_bridge_in_chain(encoder, bridge) {
-> > > +		pre_bridge_edid = bridge_connector->bridge_edid;
-> > > +		pre_bridge_modes = bridge_connector->bridge_modes;
-> > > +
-> > >   		if (!bridge->interlace_allowed)
-> > >   			connector->interlace_allowed = false;
-> > >   		if (!bridge->ycbcr_420_allowed)
-> > > @@ -681,6 +685,44 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
-> > >   			bridge_connector->bridge_detect = bridge;
-> > >   		if (bridge->ops & DRM_BRIDGE_OP_MODES)
-> > >   			bridge_connector->bridge_modes = bridge;
-> > > +
-> > > +		/*
-> > > +		 * When multiple bridges are present, EDID detection capability
-> > > +		 * (DRM_BRIDGE_OP_EDID) takes precedence over modes detection
-> > > +		 * (DRM_BRIDGE_OP_MODES). To ensure the above two capabilities
-> > > +		 * are determined by the last bridge in the chain, we handle
-> > > +		 * three cases:
-> > > +		 *
-> > > +		 * Case 1: The later bridge declares only DRM_BRIDGE_OP_MODES
-> > > +		 *  - If the previous bridge declares DRM_BRIDGE_OP_EDID, set
-> > > +		 *    &drm_bridge_connector.bridge_edid to NULL and set
-> > > +		 *    &drm_bridge_connector.bridge_modes to the later bridge.
-> > > +		 *  - Ensure modes detection capability of the later bridge
-> > > +		 *    will not be ignored.
-> > > +		 *
-> > > +		 * Case 2: The later bridge declares only DRM_BRIDGE_OP_EDID
-> > > +		 *  - If the previous bridge declares DRM_BRIDGE_OP_MODES, set
-> > > +		 *    &drm_bridge_connector.bridge_modes to NULL and set
-> > > +		 *    &drm_bridge_connector.bridge_edid to the later bridge.
-> > > +		 *  - Although EDID detection capability has higher priority,
-> > > +		 *    this operation is for balance and makes sense.
-> > > +		 *
-> > > +		 * Case 3: the later bridge declares both of them
-> > > +		 *  - Assign later bridge as &drm_bridge_connector.bridge_edid
-> > > +		 *    and &drm_bridge_connector.bridge_modes to this bridge.
-> > > +		 *  - Just leave transfer of these two capabilities as before.
-> > > +		 */
-> > > +		if (bridge->ops & DRM_BRIDGE_OP_EDID &&
-> > > +		    !(bridge->ops & DRM_BRIDGE_OP_MODES)) {
-> > > +			if (pre_bridge_modes)
-> > > +				bridge_connector->bridge_modes = NULL;
-> > > +		}
-> > > +		if (bridge->ops & DRM_BRIDGE_OP_MODES &&
-> > > +		    !(bridge->ops & DRM_BRIDGE_OP_EDID)) {
-> > > +			if (pre_bridge_edid)
-> > > +				bridge_connector->bridge_edid = NULL;
-> > > +		}
-> > > +
-> > 
-> > If the above rewrite is correct, then I think this patch can be
-> > rewritten in a simple way (build tested only):
-> > 
-> > diff --git a/drivers/gpu/drm/display/drm_bridge_connector.c b/drivers/gpu/drm/display/drm_bridge_connector.c
-> > index a5bdd6c10643..bd5dbafe88bc 100644
-> > --- a/drivers/gpu/drm/display/drm_bridge_connector.c
-> > +++ b/drivers/gpu/drm/display/drm_bridge_connector.c
-> > @@ -672,14 +672,18 @@ struct drm_connector *drm_bridge_connector_init(struct drm_device *drm,
-> >                  if (!bridge->ycbcr_420_allowed)
-> >                          connector->ycbcr_420_allowed = false;
-> > -               if (bridge->ops & DRM_BRIDGE_OP_EDID)
-> > -                       bridge_connector->bridge_edid = bridge;
-> > +               if (bridge->ops & DRM_BRIDGE_OP_EDID || bridge->ops & DRM_BRIDGE_OP_MODES) {
-> > +                       bridge_connector->bridge_edid = NULL;
-> > +                       bridge_connector->bridge_modes = NULL;
-> > +                       if (bridge->ops & DRM_BRIDGE_OP_EDID)
-> > +                               bridge_connector->bridge_edid = bridge;
-> > +                       if (bridge->ops & DRM_BRIDGE_OP_MODES)
-> > +                               bridge_connector->bridge_modes = bridge;
-> > +               }
-> >                  if (bridge->ops & DRM_BRIDGE_OP_HPD)
-> >                          bridge_connector->bridge_hpd = bridge;
-> >                  if (bridge->ops & DRM_BRIDGE_OP_DETECT)
-> >                          bridge_connector->bridge_detect = bridge;
-> > -               if (bridge->ops & DRM_BRIDGE_OP_MODES)
-> > -                       bridge_connector->bridge_modes = bridge;
-> >                  if (bridge->ops & DRM_BRIDGE_OP_HDMI) {
-> >                          if (bridge_connector->bridge_hdmi)
-> >                                  return ERR_PTR(-EBUSY);
-> > 
-> 
-> Yes, this is correct and maintains functional equivalence with the previous
-> implementation.
-> 
-> I previously attempted to implement this feature by modifying the logic in
-> this section. However, that approach would obscure the explicit propagation
-> semantics of the bridge chain flags (OP_EDID/OP_HPD/OP_DETECT/OP_MODES).
-> Therefore, I finally decided to implemented it as a specific check after
-> this code block.
-> 
-> Dmitry, what's your take on this?
+On Fri, Oct 10, 2025 at 07:01:10PM +0800, Xu Yang wrote:
+> Beside default 24MHz clock input, there is an optional additional 100Mhz
+> clock input 'alt' for USB PHY reference clock.
+>
+> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
 
-I think I prefer Luca's code, it is simpler and easier to understand. It
-doesn't need a huge comment, something like "leave the last bridge which
-provides either OP_EDID or OP_MODES" should be enough.
+Reviewed-by: Frank Li <Frank.Li@nxp.com>
 
-> 
-> > Another thing to note is that this patch conflicts with [0], which I
-> > plan to apply in the next few days. The two patches are orthogonal but
-> > they insist on the same lines (those assigning
-> > bridge_connector->bridge_* = bridge). Not a big deal, whichever patch
-> > comes later will be easily adapted. Just wanted to ensure you are aware.
-> > 
-> > [0] https://lore.kernel.org/all/20250926-drm-bridge-alloc-getput-bridge-connector-v2-1-138b4bb70576@bootlin.com/
-> > 
-> 
-> This is indeed a clever approach to the managing bridge resource cleanup in
-> drm_bridge_connector. Thanks a lot for the heads-up! I'll resolve this
-> conflict and rebase the patch series.
-> 
-> Apologies for the delayed reply as I was on vacation. ;-)
-> 
-> Best regards,
-> Damon
-> 
-
--- 
-With best wishes
-Dmitry
+>
+> ---
+> Changes in v2:
+>  - improve commit message
+> ---
+>  Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml | 7 ++++++-
+>  1 file changed, 6 insertions(+), 1 deletion(-)
+>
+> diff --git a/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml b/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
+> index 6a47e08e0e97b286538798190225ca2966a7ab34..081deb502e21308970a9495528bd745b9085f2f0 100644
+> --- a/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
+> +++ b/Documentation/devicetree/bindings/phy/fsl,imx8mq-usb-phy.yaml
+> @@ -27,11 +27,16 @@ properties:
+>      const: 0
+>
+>    clocks:
+> -    maxItems: 1
+> +    minItems: 1
+> +    items:
+> +      - description: PHY configuration clock
+> +      - description: Alternate PHY reference clock
+>
+>    clock-names:
+> +    minItems: 1
+>      items:
+>        - const: phy
+> +      - const: alt
+>
+>    power-domains:
+>      maxItems: 1
+>
+> --
+> 2.34.1
+>
 
