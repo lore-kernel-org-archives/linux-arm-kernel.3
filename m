@@ -4,55 +4,55 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D4FFACCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 15:42:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB80ACCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 15:42:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=W0yyCaz4IBzCuynoK7eJFq8qb8jjHV9aZwpbdt5Xpuk=; b=bzJWPcx/MFPmonH9h5sXNz+ESd
-	SGkPMAcEMLvJCAhtL56CBsYjrwGdgGSPPILXNtbl/SkEVcBehhO7j9uN5dOWBTMwstY2XleJni2PT
-	Zl2v1cvLCAJXDtwUq9GscCjn3PSacVyDxq33YRbBRusJ54qvn882s/EXVCxq+iyArXvH1naxpQUnY
-	er+6dRrOHEi3OShSVEqkzqNghX/Lo20v89a4xUNuLnUUZprwsnggeYys8BWWtMVJrzTmrmZk9LP4F
-	szQfgHNPgXmkNxyGub9LBNNmWMJdboM6BWmjb07hMls3/yAz3Ppq+O+Z8IxyPaIOiHDo6MT5K5t/1
-	DRoLX4ZQ==;
+	bh=1HcZccm+EFWDfH2vO39s4AfZQgOMomacAD6OZP6p42M=; b=k8HkbCY80uP22P4f5o3+Vg2bxy
+	MsYKBPeE0h0ou8Xz8nExEvGM4w0VcEULmcs0wKCFA9WDHi8UNLy0IMuv1w+48mNsfcccwgLmjqEI/
+	TBVJ0LDxB5aBJeNqq7iZmIiRPnLDS8+SVMn4PrktRoemunRzX8iOKBsrAjQyqoyDJdHt2tnO7fRaY
+	JL7wiopTh7FUnJHLWLd7srRlKFcqPg0FLizZJxlmauu+a8JidRu9dhEDfkktY9KEvumTGnsOj+U05
+	2X5MeoW35bWk6awi0M/u9qCnOPcLsIt7voT5si/lSZLtlTMYsLWi7UwDHM3UvwIi1TIrqtldm3rWM
+	/DW5tiWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7FFo-00000008qUF-3sMx;
-	Fri, 10 Oct 2025 15:42:00 +0000
+	id 1v7FG2-00000008qeU-1Qfh;
+	Fri, 10 Oct 2025 15:42:14 +0000
 Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7FFm-00000008qRI-0Wks
+	id 1v7FG0-00000008qc3-0BxL
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 15:41:59 +0000
+	Fri, 10 Oct 2025 15:42:13 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1760110917;
+	s=mimecast20190719; t=1760110931;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=W0yyCaz4IBzCuynoK7eJFq8qb8jjHV9aZwpbdt5Xpuk=;
-	b=B60I1TI1M9AXmp0jXvKOFHAdCldPobJPo5BC1gBQI3Tylb/r+ECc0ZlSGt7+p5xOal7tf1
-	PkcUGMhXCCE+b8EAS7y4J9/S5xZxJ3MT8Fm64rDoRJw/pk6/sCj1b7wzKYlPDCx0Cs7iOZ
-	fkUjunXxWo9ms9cN29IdtvslsI0+uRc=
-Received: from mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+	bh=1HcZccm+EFWDfH2vO39s4AfZQgOMomacAD6OZP6p42M=;
+	b=SjE+4gpa+vR0z/dnDS1U72HPWD13K/oJcm7vIUKkxseAz0SN2MSa4PilOZo0LnpuOCBn6x
+	ME+fLDO562k1+7cVDuDqXdkpvlu/d4NLFu0cK/pwy/Z86q6KTayCc44nZDZP+IREJ5Hnum
+	aSew9f638asg96C8X6YeR4b6XuzRnBQ=
+Received: from mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
  relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-553-qfwoRNR_OtK0oq5rP7Bzjg-1; Fri,
- 10 Oct 2025 11:41:52 -0400
-X-MC-Unique: qfwoRNR_OtK0oq5rP7Bzjg-1
-X-Mimecast-MFC-AGG-ID: qfwoRNR_OtK0oq5rP7Bzjg_1760110907
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-583-zXwbd8ArM3KVjfpSaoTGFw-1; Fri,
+ 10 Oct 2025 11:41:36 -0400
+X-MC-Unique: zXwbd8ArM3KVjfpSaoTGFw-1
+X-Mimecast-MFC-AGG-ID: zXwbd8ArM3KVjfpSaoTGFw_1760110892
 Received: from mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.111])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mx-prod-mc-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 12AFE18002CF;
-	Fri, 10 Oct 2025 15:41:47 +0000 (UTC)
-Received: from vschneid-thinkpadt14sgen2i.remote.csb (unknown [10.45.224.29])
-	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id 4B87518004D8;
+	by mx-prod-mc-03.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id B3CB21944F11;
 	Fri, 10 Oct 2025 15:41:31 +0000 (UTC)
+Received: from vschneid-thinkpadt14sgen2i.remote.csb (unknown [10.45.224.29])
+	by mx-prod-int-08.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D5F991800576;
+	Fri, 10 Oct 2025 15:41:16 +0000 (UTC)
 From: Valentin Schneider <vschneid@redhat.com>
 To: linux-kernel@vger.kernel.org,
 	linux-mm@kvack.org,
@@ -101,17 +101,17 @@ Cc: "Paul E. McKenney" <paulmck@kernel.org>,
 	Marcelo Tosatti <mtosatti@redhat.com>,
 	Daniel Wagner <dwagner@suse.de>,
 	Petr Tesarik <ptesarik@suse.com>
-Subject: [PATCH v6 04/29] rcutorture: Make TREE04 use CONFIG_RCU_DYNTICKS_TORTURE
-Date: Fri, 10 Oct 2025 17:38:14 +0200
-Message-ID: <20251010153839.151763-5-vschneid@redhat.com>
+Subject: [PATCH v6 03/29] rcu: Add a small-width RCU watching counter debug option
+Date: Fri, 10 Oct 2025 17:38:13 +0200
+Message-ID: <20251010153839.151763-4-vschneid@redhat.com>
 In-Reply-To: <20251010153839.151763-1-vschneid@redhat.com>
 References: <20251010153839.151763-1-vschneid@redhat.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.111
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_084158_232902_E05D14FA 
-X-CRM114-Status: GOOD (  11.95  )
+X-CRM114-CacheID: sfid-20251010_084212_158589_10A51593 
+X-CRM114-Status: GOOD (  19.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -126,11 +126,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We now have an RCU_EXPERT config for testing small-sized RCU dynticks
-counter:  CONFIG_RCU_DYNTICKS_TORTURE.
+A later commit will reduce the size of the RCU watching counter to free up
+some bits for another purpose. Paul suggested adding a config option to
+test the extreme case where the counter is reduced to its minimum usable
+width for rcutorture to poke at, so do that.
 
-Modify scenario TREE04 to exercise to use this config in order to test a
-ridiculously small counter (2 bits).
+Make it only configurable under RCU_EXPERT. While at it, add a comment to
+explain the layout of context_tracking->state.
 
 Link: http://lore.kernel.org/r/4c2cb573-168f-4806-b1d9-164e8276e66a@paulmck-laptop
 Suggested-by: Paul E. McKenney <paulmck@kernel.org>
@@ -138,18 +140,98 @@ Signed-off-by: Valentin Schneider <vschneid@redhat.com>
 Reviewed-by: Paul E. McKenney <paulmck@kernel.org>
 Reviewed-by: Frederic Weisbecker <frederic@kernel.org>
 ---
- tools/testing/selftests/rcutorture/configs/rcu/TREE04 | 1 +
- 1 file changed, 1 insertion(+)
+ include/linux/context_tracking_state.h | 44 ++++++++++++++++++++++----
+ kernel/rcu/Kconfig.debug               | 15 +++++++++
+ 2 files changed, 52 insertions(+), 7 deletions(-)
 
-diff --git a/tools/testing/selftests/rcutorture/configs/rcu/TREE04 b/tools/testing/selftests/rcutorture/configs/rcu/TREE04
-index dc4985064b3ad..67caf4276bb01 100644
---- a/tools/testing/selftests/rcutorture/configs/rcu/TREE04
-+++ b/tools/testing/selftests/rcutorture/configs/rcu/TREE04
-@@ -16,3 +16,4 @@ CONFIG_DEBUG_OBJECTS_RCU_HEAD=n
- CONFIG_RCU_EXPERT=y
- CONFIG_RCU_EQS_DEBUG=y
- CONFIG_RCU_LAZY=y
-+CONFIG_RCU_DYNTICKS_TORTURE=y
+diff --git a/include/linux/context_tracking_state.h b/include/linux/context_tracking_state.h
+index 7b8433d5a8efe..0b81248aa03e2 100644
+--- a/include/linux/context_tracking_state.h
++++ b/include/linux/context_tracking_state.h
+@@ -18,12 +18,6 @@ enum ctx_state {
+ 	CT_STATE_MAX		= 4,
+ };
+ 
+-/* Odd value for watching, else even. */
+-#define CT_RCU_WATCHING CT_STATE_MAX
+-
+-#define CT_STATE_MASK (CT_STATE_MAX - 1)
+-#define CT_RCU_WATCHING_MASK (~CT_STATE_MASK)
+-
+ struct context_tracking {
+ #ifdef CONFIG_CONTEXT_TRACKING_USER
+ 	/*
+@@ -44,9 +38,45 @@ struct context_tracking {
+ #endif
+ };
+ 
++/*
++ * We cram two different things within the same atomic variable:
++ *
++ *                     CT_RCU_WATCHING_START  CT_STATE_START
++ *                                |                |
++ *                                v                v
++ *     MSB [ RCU watching counter ][ context_state ] LSB
++ *         ^                       ^
++ *         |                       |
++ * CT_RCU_WATCHING_END        CT_STATE_END
++ *
++ * Bits are used from the LSB upwards, so unused bits (if any) will always be in
++ * upper bits of the variable.
++ */
+ #ifdef CONFIG_CONTEXT_TRACKING
++#define CT_SIZE (sizeof(((struct context_tracking *)0)->state) * BITS_PER_BYTE)
++
++#define CT_STATE_WIDTH bits_per(CT_STATE_MAX - 1)
++#define CT_STATE_START 0
++#define CT_STATE_END   (CT_STATE_START + CT_STATE_WIDTH - 1)
++
++#define CT_RCU_WATCHING_MAX_WIDTH (CT_SIZE - CT_STATE_WIDTH)
++#define CT_RCU_WATCHING_WIDTH     (IS_ENABLED(CONFIG_RCU_DYNTICKS_TORTURE) ? 2 : CT_RCU_WATCHING_MAX_WIDTH)
++#define CT_RCU_WATCHING_START     (CT_STATE_END + 1)
++#define CT_RCU_WATCHING_END       (CT_RCU_WATCHING_START + CT_RCU_WATCHING_WIDTH - 1)
++#define CT_RCU_WATCHING           BIT(CT_RCU_WATCHING_START)
++
++#define CT_STATE_MASK        GENMASK(CT_STATE_END,        CT_STATE_START)
++#define CT_RCU_WATCHING_MASK GENMASK(CT_RCU_WATCHING_END, CT_RCU_WATCHING_START)
++
++#define CT_UNUSED_WIDTH (CT_RCU_WATCHING_MAX_WIDTH - CT_RCU_WATCHING_WIDTH)
++
++static_assert(CT_STATE_WIDTH        +
++	      CT_RCU_WATCHING_WIDTH +
++	      CT_UNUSED_WIDTH       ==
++	      CT_SIZE);
++
+ DECLARE_PER_CPU(struct context_tracking, context_tracking);
+-#endif
++#endif	/* CONFIG_CONTEXT_TRACKING */
+ 
+ #ifdef CONFIG_CONTEXT_TRACKING_USER
+ static __always_inline int __ct_state(void)
+diff --git a/kernel/rcu/Kconfig.debug b/kernel/rcu/Kconfig.debug
+index 12e4c64ebae15..625d75392647b 100644
+--- a/kernel/rcu/Kconfig.debug
++++ b/kernel/rcu/Kconfig.debug
+@@ -213,4 +213,19 @@ config RCU_STRICT_GRACE_PERIOD
+ 	  when looking for certain types of RCU usage bugs, for example,
+ 	  too-short RCU read-side critical sections.
+ 
++
++config RCU_DYNTICKS_TORTURE
++	bool "Minimize RCU dynticks counter size"
++	depends on RCU_EXPERT && !COMPILE_TEST
++	default n
++	help
++	  This option sets the width of the dynticks counter to its
++	  minimum usable value.  This minimum width greatly increases
++	  the probability of flushing out bugs involving counter wrap,
++	  but it also increases the probability of extending grace period
++	  durations.  This Kconfig option should therefore be avoided in
++	  production due to the consequent increased probability of OOMs.
++
++	  This has no value for production and is only for testing.
++
+ endmenu # "RCU Debugging"
 -- 
 2.51.0
 
