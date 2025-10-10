@@ -4,168 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5FBECCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 05:00:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6771ACCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 05:26:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
-	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
+	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+Eg1L90pZXLhs8SnrZL2egwrCNJKgZMHf6i+C/xsqwo=; b=urhHG79kuJukvqOz9YVewP3HWu
-	XuMFNF1NKg3SY40EFrn0kUooRPHvaNtb7VZilV8BxxP+oXANzr3IoBTxvdCNUANrpPedHd7B98Huy
-	K+e1qFuo+Juc8pbrkZNX1dlqXE9KKFA6kNab6KlmUX8ewzyRVgF3BdG0X4u1I3/xm5xB4SRjiTXHW
-	0QJrexQRICNQ5s/gcUKA0YhITn/2LSbd3FFP27AxraDmPv0URCH0cOM4XV03KeFIZw46VicrOY3Do
-	TV+0gHHO4glpu3J99GGawP1TekhQlhWr0TqGo8i+rrmqOPkYEsmf//KGrW2+xiUD4aLXc3/W0t3zp
-	NvmkGJ9A==;
+	bh=6ZQGF56icH764Mt7J7YN4sDhWdEqrpnUJtm3mz3jgl4=; b=HNBfQyv3ygEJUhHxuqeBsR5lrP
+	Ss+QoUNAaM/vmcwyTKMuqU3elEJy7MJ1uY3mYorngRBts9yc502Vpw8h8GfqfUAAntZmT83a4Wmxv
+	2lMW5bYeN2NT1wtJgUZbTd+6HVOTOJdT7lbSzflUaFkeO8fbLitJRAcoMruMkKtJNuE96geMeW6+H
+	whu8VGl1JXUWupugtBwHV+LFJ8DyJtbU70WTFfsiCzApV8vFcrveqTQ936V/a0P8kr9czVF3Nsnry
+	92HV1nFisL3mTx9oCDZf6RFxRyDxFXnu/f+czICqPPRs2xZK3d4GdBhVi+vkazE25nO4NB59l7qEZ
+	McRMKzQw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v75Ex-00000007ghl-18Dh;
-	Fri, 10 Oct 2025 05:00:27 +0000
-Received: from mail-northcentralusazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c105::1] helo=CH1PR05CU001.outbound.protection.outlook.com)
+	id 1v75eP-00000007hxD-2ub4;
+	Fri, 10 Oct 2025 05:26:45 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v75Eu-00000007gg6-1JLV
+	id 1v75eM-00000007hwj-1cp1
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 05:00:26 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=SoOShbbun1V7Pek2qoUFmCPTq2t4liQgEC/3xQ/GCgn7YmjGZSEMXoNeSjQSwiQVYr2cqlXmgocuGGrMOJwwPJpqulGvXAfYEZ9OxRPGKESQWSOebp/mFtOg0FXccdb+pZbgPDuOqVTMK4QnWvD6Tw+fkYVbKQKQoRwUXTlTYHo5XxHRDdqb1/NYV90zR2Pw3hlA/sMtklB9idiNx8ZQAxr7G1v1D19Ht9b4dXG4rnbZHqhcfzctEW2Ydj4pQHcbhfOMdbcqDnITN9uR5gRUVidqOOC1nTYy13HH/qgTmENe5cQFPUFkpEndTEEUoP+hMLRNrm4xjt9dVEvxoPYrkg==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=+Eg1L90pZXLhs8SnrZL2egwrCNJKgZMHf6i+C/xsqwo=;
- b=OA9kTnCE0dWzfD93Qb22F+9P0wPhTwhfBKt4hlo7QzSMmvsw6UmM4eppB/HsXLHtggOVZCiEb4qEdMz38ZTl8r6+4/rxPOMaQSShOB3oxpnOKrXaF8S5xmXvnNebRWRfbGEmMh4yhXaViR1zoe0j51ReSBB1EpzLiDjzCj0xP4DNbbs2brTKkMh5sZ9fVl8NJIcGjZkI8VmBoTplFKeBT0tZBRqRPmJPPPtbfP0uvuNq3WoS7ipod2qf1r9Qa3rwE0Q8J+ywz+MxT28JGvmpLUFEdvoj8oHT/uQGh0a6hqHm4C6Mh03DMxi7B69Rv+2kF7McEme70NY2t8ZAfHp3mw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=amd.com; dmarc=pass action=none header.from=amd.com; dkim=pass
- header.d=amd.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=+Eg1L90pZXLhs8SnrZL2egwrCNJKgZMHf6i+C/xsqwo=;
- b=vtrYY8B6GGah9KKhWNIvPki17W/bRrGtXrbWxkZPoySQT9Spdn6sGv8Ipnv7DTRphKiFV/r0euj7WPBWs7zQX+2ZsKS7E1213rjFq3nHdfsaGGPgoOa3qfw36YSqLTuNezUvys024OBfCKRX2l2PXnKH+Oj5xecRv5UtfKz+Kcc=
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=amd.com;
-Received: from IA0PR12MB8301.namprd12.prod.outlook.com (2603:10b6:208:40b::13)
- by MW4PR12MB7467.namprd12.prod.outlook.com (2603:10b6:303:212::10) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.9; Fri, 10 Oct
- 2025 05:00:06 +0000
-Received: from IA0PR12MB8301.namprd12.prod.outlook.com
- ([fe80::e929:57f5:f4db:5823]) by IA0PR12MB8301.namprd12.prod.outlook.com
- ([fe80::e929:57f5:f4db:5823%4]) with mapi id 15.20.9203.009; Fri, 10 Oct 2025
- 05:00:06 +0000
-Message-ID: <46f31ad5-be3b-4945-87d1-c280f76fba76@amd.com>
-Date: Fri, 10 Oct 2025 10:29:56 +0530
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v12 00/12] KVM: guest_memfd: Add NUMA mempolicy support
-To: Ackerley Tng <ackerleytng@google.com>,
- Sean Christopherson <seanjc@google.com>, Marc Zyngier <maz@kernel.org>,
- Oliver Upton <oliver.upton@linux.dev>, Paolo Bonzini <pbonzini@redhat.com>
-Cc: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev,
- kvm@vger.kernel.org, linux-kernel@vger.kernel.org,
- David Hildenbrand <david@redhat.com>, Fuad Tabba <tabba@google.com>,
- Ashish Kalra <ashish.kalra@amd.com>, Vlastimil Babka <vbabka@suse.cz>,
- akpm@linux-foundation.org
-References: <20251007221420.344669-1-seanjc@google.com>
- <diqz5xcniyhb.fsf@google.com>
-Content-Language: en-US
-From: "Garg, Shivank" <shivankg@amd.com>
-In-Reply-To: <diqz5xcniyhb.fsf@google.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-ClientProxiedBy: PN4PR01CA0089.INDPRD01.PROD.OUTLOOK.COM
- (2603:1096:c01:2ae::7) To IA0PR12MB8301.namprd12.prod.outlook.com
- (2603:10b6:208:40b::13)
+	Fri, 10 Oct 2025 05:26:43 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-b4736e043f9so241369066b.0
+        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 22:26:41 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1760074000; x=1760678800; darn=lists.infradead.org;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=6ZQGF56icH764Mt7J7YN4sDhWdEqrpnUJtm3mz3jgl4=;
+        b=qpUK/QYuHGSYaFg966LicFMqHlezMWFUClrLJdh77SS1UZvjS1bzWL8EL0mUhNGhne
+         pqeGGiZzoJAZ03XBkiXaVGKgNfL1jtlvdH3XLgLlBn0sfWyRnv0UmoYpELRxN+/qXcv5
+         SNN76uk+31CPgQItpk8EGKGGOCMVWJrWwYG3JTSi+w6mN6/OSlns7PKCmDZt8MMLn9aP
+         kfk7FwYLXZtpZTu0CyfMXy6kOO93OksI0o1tj/V4rPavC6TbXzyBtoH0TF3pISak0HHO
+         9qbxCElb+UfYVvj3g/Z74bE6en6lvcs6Vl2u32TVNr/ITZ7Zw9TTVC+mfrXnSfKVhq/N
+         cUFg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760074000; x=1760678800;
+        h=mime-version:user-agent:content-transfer-encoding:references
+         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=6ZQGF56icH764Mt7J7YN4sDhWdEqrpnUJtm3mz3jgl4=;
+        b=WKcyaz1/u+wIkbrr7gSsorE4NKGdbu5S6WnNSq52619VnlAtFX3W7ceiBh+cjDNZJx
+         zABa4tXzRMF84CSfZJxsDF5ku5Kh6fjNEwOAWrRtqfFV40WRMkiW3jjj085h+seyOExG
+         aseMHCBHnhp2XDNxUzyL7hnx/kp+f40IcyDZHB/fy9GzmYoOx4q1kVJzWVpi2qqu9bCV
+         Q3Wwi6yvqDYH1gbID5df5tiBI/4JPa0X6oEOUhi6IpmYickDdyGEubV/Wu4488EbleDh
+         gP2T1YU76MPEHIdjcUvfJMHuhx7m0PG2j79spfHV7iNf0S3iYNDySqGcEGhoHpvQeMtH
+         A7gw==
+X-Forwarded-Encrypted: i=1; AJvYcCUF1+Y4xz3DHW/S6J3l9iFjXD7qq/q+fUvmuVDOks2k6/GgVzpY5AOUS3P8bK5bN0HxRGWFnnA1PRfPbQuePBY3@lists.infradead.org
+X-Gm-Message-State: AOJu0YxngELREIIr5LeWozoeb8BK1cS/OOIq4/j8EvN3YZjlZPTN/tvn
+	doJyz/hFHdpd4DtAQM/hio0+QC7VsNzekMz1rdkiggYPTYmBi3aPJCk6muR1kKF1h68=
+X-Gm-Gg: ASbGncv973EB9vusIdikNERG2ryV6M8wLTA1XWjXHJb/lFLGVF704+vyJGC6J2DKsRB
+	/EbjxvJsFFkYy2I4YnuILNIF7lJEMdZh+UGJln90D3TW+UGJEkLvEdIxZrmpjYyuxK0QdZffj5+
+	xS4A2u5NUSi6OHUQn+PjXY7EnhfqwpaDpOb52la0W0Ry6ZmDKPcqy7+RZIP+F01W8AKz7M9uYyC
+	KWYPu05/kmUFaJI/DYky5dNIdUJgNU2VD9VfGE0f16AY1nuMxJwMMebgVTg3jJREmJJpyUHE4kw
+	4OylZpNhynzJKg7tilfK2O+ka9NPY/rndFQo6oQpxkvv3TdlpBEhHqU5bDHm8LC6PMmSpP48An6
+	TB8kSF9kkGaVUOJUtWB3+hKy9SQYnrSP5cAgQDpmacoRWUn/h
+X-Google-Smtp-Source: AGHT+IEF98Rap0U5ucjnQVUtn0KSvNbP6eAmxW5/uObKfUgC9D3KfjVTiQLvrdfy3ldcft7mxBgDmQ==
+X-Received: by 2002:a17:907:fd89:b0:b40:cfe9:ed41 with SMTP id a640c23a62f3a-b50ac0cb1cemr924261166b.34.1760074000382;
+        Thu, 09 Oct 2025 22:26:40 -0700 (PDT)
+Received: from draszik.lan ([80.111.64.44])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b55d900cc52sm140260566b.60.2025.10.09.22.26.39
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Thu, 09 Oct 2025 22:26:39 -0700 (PDT)
+Message-ID: <4ab0d483175c17b476d2d51923b38b272802f60e.camel@linaro.org>
+Subject: Re: [PATCH v2 03/10] dt-bindings: soc: samsung: gs101-pmu: allow
+ power domains as children
+From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+To: Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar
+ <alim.akhtar@samsung.com>,  Rob Herring <robh@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,  Ulf
+ Hansson <ulf.hansson@linaro.org>, Marek Szyprowski
+ <m.szyprowski@samsung.com>
+Cc: Peter Griffin <peter.griffin@linaro.org>, Tudor Ambarus
+	 <tudor.ambarus@linaro.org>, Will McVicker <willmcvicker@google.com>, 
+	kernel-team@android.com, linux-arm-kernel@lists.infradead.org, 
+	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-pm@vger.kernel.org
+Date: Fri, 10 Oct 2025 06:26:38 +0100
+In-Reply-To: <20251009-gs101-pd-v2-3-3f4a6db2af39@linaro.org>
+References: <20251009-gs101-pd-v2-0-3f4a6db2af39@linaro.org>
+	 <20251009-gs101-pd-v2-3-3f4a6db2af39@linaro.org>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
+User-Agent: Evolution 3.56.2-2 
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: IA0PR12MB8301:EE_|MW4PR12MB7467:EE_
-X-MS-Office365-Filtering-Correlation-Id: 506f92d8-2eca-4b09-72c5-08de07b9e15b
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|366016;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?dmh3RTF6N21wb1Rtck1ySnlrK0JucWpRM1F4WWpNcUdoUlNIY3hRNkpqeDlI?=
- =?utf-8?B?TGdJTU5DOURGWCtDcnVvUnlpb2cyR2xyUG9abWRKWmptanhiMlFkL3ZiWmJR?=
- =?utf-8?B?ZVlUV29lYWwrUDQrTzJaYjdsKy9NYnV1UWx5UjBpYnVBTmhXMjdNMHhUTi9R?=
- =?utf-8?B?bmp4QWRpdXhMVjVPa0tOc0l1Ui8yK09IWWtVbEFYdFRya2pJUlgwRDVUSC9T?=
- =?utf-8?B?R3hBVkJLRDRUN3dxVDdiczJpd2JOZUV0dUVKMm9sb3NmN1ZSQUZzakZBMXBO?=
- =?utf-8?B?NnFkbUx1T1V0V1l0VFYvM1JvMWdFenlYa2RyNzdEWkpEWW80OG5PaldBVVZa?=
- =?utf-8?B?b3RqRGxhM1p0QkZmYlRwa25haG4yWU9PLzdRK2s0NHFxbkhWS0doWCtNTURl?=
- =?utf-8?B?NDFwbGZ4MWN3ZVZveFhUWHZaYXN5ZjduTGlhZWxZek0vMmVrYlBaaTVwYzZO?=
- =?utf-8?B?YVp0Z0ppTWNEdm9EYWFRc2NkY2N4OTkrSEVJWWRoY2ZJeWhtSkU0V0dFTGtv?=
- =?utf-8?B?SmlRaCtCQ0s5c2F5dnhJK2RDUkcvYzhEMVZ3RElyeDA5ZXlwVUd3Q3FmSnJH?=
- =?utf-8?B?bG92NFlvZW9PbXYrd2QvaTNXcUs5OVpIQ3FlLzlWMnp0aVdQMDY3WWJKOHND?=
- =?utf-8?B?anVpeEloYml1N0o3cHFtTUROejEyQTZ1SXJEaElUYmNIVCtHZTlDSTFadzcy?=
- =?utf-8?B?L0hnOGg3aERRRkt5MWtmaG1EMFFmUURjd2NreXFpeWhzMWZ6dUMzQmlQbDJL?=
- =?utf-8?B?NmcyOTI1U3Fub2NBM25zQmFwNFV6eVNISGFvTFF0Q2lXTm0vaGlQRVJMWVQz?=
- =?utf-8?B?NkFWbEdndmkyTkdUMmxpcmlqWXZVNWR2TVd5VEpUTUlGSkpnVEFySFU0SWVo?=
- =?utf-8?B?YVRnL29WcW9QaEl5Qnk3N3Ayc0pEOGZGY3pNR3FQYTRQVnBHN29FT2ZVNE5B?=
- =?utf-8?B?VTFGMXYrSkZDWGFSTS96ay9qK3ZJTTZSWFZLNVBqSnkvNG5xcEJORWN1K0lZ?=
- =?utf-8?B?WjE3UXFvOTZyY01nRzR0YkVmTzlQU1htTGhXVEtoU2V6aFFJZU1BTlpsNGlj?=
- =?utf-8?B?UVhGdUphMWlNY2ZVQnpVWHBaanF2Z3RsZnlGWWkxd3BGMm5CSEtySzgxbmJh?=
- =?utf-8?B?OCt6VEE2T0xqbkVPZmwrNXQzVXdPNlZTMmVvWHFxSE1qZXgxWk5tTHh0Q0Zm?=
- =?utf-8?B?YjJFb0x2bHV6UVFQRng3dlBwNmZGRGk0NnljZ3krMDA3dTFtOWJxditmMGtz?=
- =?utf-8?B?cDMvdjVBL1JvZm5vK2NIemJjNWdwQ0FkRWM0VStUNExNbU1HcVBqblByWnlt?=
- =?utf-8?B?OVJtblhmQ3hwQ0hDTTM4citaZ3dlTnltZld1RVZJRVBrdmNHQmRwYm84TGxZ?=
- =?utf-8?B?RUtyQ1hweDBzemJXTS9wSEFqdWNhczF5M2VGVXBBY29YbDVMeFNKc2t2QkVN?=
- =?utf-8?B?bXpXQUpOQWgxSlh1Vnp0eFRFb05UdTc4M2pYME9WMzhNYmNOMWE2S3dlNzVq?=
- =?utf-8?B?Nmt6Tjd6OTNLd3hiSHhsWER5TnNxSEdoRkVGSXNmNWUrTytHa21jTTRZc3Zo?=
- =?utf-8?B?MDZQdnhzaGxCTWo2M2UrVDJmV3VFMFNTbGV0UjR1cW1nVEx0YnppbnYyRVQ0?=
- =?utf-8?B?Qi9tRjVHQ3ltdDBuRzdkZll3aEdtZDRCQzVObGhkNTNxNysvamJSdm1Zb253?=
- =?utf-8?B?aVB5ejIrMjRsMVJRMVlOd1RrZ1RVVndDWVB4bnp0TXczN1FTTmhZUkttd1Ft?=
- =?utf-8?B?M0ZiV0ZJeE1nWndud01JZjc5QmE4bnpWZTd4cU9iRDN0VytLMWNkbm92SUtm?=
- =?utf-8?B?WWZPak9MaWxZbm51YTAvNUlwNzgrR0ZFTlQ1ZXl3M2ZpWkdkcjVpeHRBYWZT?=
- =?utf-8?B?WVJzSk9HUE1tbC9UMzV2NWdYa25BVWhHekZMblYyWmMwMEE9PQ==?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:IA0PR12MB8301.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(366016);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?UXR6L0h1SEJEK0I3bTJFbEl6M1VqOUhlQTdRcXd4cWcrOHorRW0wK3Q0L2pV?=
- =?utf-8?B?cnI1VlgwWWEvaXQ5QzlHMGdTMzBrOW90YkhvakswTlBDOFZ3N21XRW1hZUFz?=
- =?utf-8?B?QWljN3hHUmtscjVXWFhrMjlVdGMrTUZheWtvdzN3VWdSQ1dNR29FSUNVY0ZG?=
- =?utf-8?B?aTZkSnc0Ym1Pdlo4VDFBRDhnZ1lqQ3ZTL1JWZlQ4WW5GdEhJUlhqTGgwcWJl?=
- =?utf-8?B?UXdxWHJ6M3J5UHFLbzRabmVoZkI0dDV0bGpTWC9JM2JUQ1RFUzVuaTUwYzhv?=
- =?utf-8?B?NzBISXN3OTM2bkxTbDFSVG9zamkrclBPK09aejhYVHlkZHdOM1VaZFBZWU9v?=
- =?utf-8?B?R2NwNFlhM0dqTXpZNzFWWmFJbVU0T2tyR3ZsUERNckh4dm5MZVdmeE9yaDhK?=
- =?utf-8?B?Z0U5blhMYmVmRUUyaHJ4OFhLRU94YzVzMzFlZFk0Nll2Wk5HOTFTekRrVGsw?=
- =?utf-8?B?UGNJTUg5cnJLTGZ6U2dROHk5cWRzdmxQR2tPNS9vd1dxSnVjWkdudGZPNjAz?=
- =?utf-8?B?d29OVk5JL1FjL1VNV0ljWXp1TXViMm96U0psajk2L2k3STNDZXR2dmFQbU9Z?=
- =?utf-8?B?TlV2cmpaRzJGNlBJLzAzWVVSZ2xJMnprdzhRWm55Q0p1eDJ3N0lXOXR5MmxR?=
- =?utf-8?B?ZGJZWnlVblFDakZoYk5hbWx3OG9jLzZETnhRTHJoeXhuRkNmOXdqTUZVa3E1?=
- =?utf-8?B?c3pYZU5WcGV2QXFDcnNHSlRoU0dTRzNydEVkVVJuclFFbmtyNEN2ZnlDYU02?=
- =?utf-8?B?Qit0SXZjdktyb2VQOEhWWlNGSXlhN2Z0VThJOGJROWhwd1hTck1YUzk0STVh?=
- =?utf-8?B?Z3FEdlY2Tm00ejBoVVAwS0hYZG53alk4N0pvVkJ5WngxSVl6Uy81WEJzbUdw?=
- =?utf-8?B?ampzMU5DUHY3eU1ENEtBTXJra3ZRT3I4QTdNRDdsay9kQ3hTN0tIdGZuQTVN?=
- =?utf-8?B?bGdSTVpGSzdXOFZVc2x1cWJCK2Jod0ZiZlRTeVV1ckRKQVZpRXpXbWExOWIy?=
- =?utf-8?B?V2pCMGY2Z2RmOWFoUTU2UlpYdFdzcW8xNlViNHFwaXRkSFJsZ1FodGJwNkhP?=
- =?utf-8?B?dUNJU0IzeWl6R3Z4QWF5N3Y1Z3ZhSk1PN2JCTnVOWllVekpsaWI5dUZJT2Vt?=
- =?utf-8?B?b1FaZ0JHeDg4MjZ3TGlNbER0UlBTUDljMHh4bVlwTEVoM1RsM1htTWdTZnE1?=
- =?utf-8?B?cExlZ25VekJTYUdrRmJMdzNMazJUdHlxR2VXWXN1S3JFd0tFNk9QNHJlT0hU?=
- =?utf-8?B?M1phYnR0UHQ5NC81VjF2dm1qelpDd0VFemhXdlZkSjlNLzliZE9BZEtad3li?=
- =?utf-8?B?Y1g2VkxFZlhHeGRIa0p1QVJ4YWNiSTRseVkzZ3NaZUk2R3ppKy8xaUszZ3VJ?=
- =?utf-8?B?TXB0SW9VZUVER1ZIZ3NEVXNtczEzZlJlZDFiNnFraUp5clRWZVRaNUE1anE4?=
- =?utf-8?B?aE5ERjJpdzZickdEN2VFT0d4SUZBZWd2Q3RnRVdLSzdqV0dsVmFKbFl6OGtZ?=
- =?utf-8?B?MjZpZ3lOUFhMSnJqS3RnK00zM1I5TXdoNWNQZ2ZKai9CMFBiWlBCamhGQjFW?=
- =?utf-8?B?V2ptSGQwVXB1Mlk0aDBZeFZOM0FJRG5hUGtHQ2xpNE5SR1VqSlpMWW12RnNT?=
- =?utf-8?B?N3c3cndxMllqdW1kNVBlbXpkaUtibEpOQnV1ajhuNjNFOURudmJSalg5b2E4?=
- =?utf-8?B?eGtHcHNSb3R4dDQ2NFl4SmRtbU9ma3ZoWmhDUFppaDVOczM4V01iYS9XYkVk?=
- =?utf-8?B?OVVlNEFEeGNJcWFNSlJCbXJqdGdpYjRzTmEreCtHQjJnREJoUmRxZk1QQ2FJ?=
- =?utf-8?B?amdlT1JOQU1naEs3RFFUa1RJdXY2ajhFVFhaRWVaVzVVZVBhTHpTT0JwYTVW?=
- =?utf-8?B?RUdEMTlaUjM5ckFLZEZlWHFKZWEwa1g1aTdIY3NqSmNmK2ZvbmtsS3lReE1s?=
- =?utf-8?B?c29HMGRLSnZraEdUejBweE12RjFPaSsrdFFqVG1MWHRDVHU2YmZubEl6K2Zm?=
- =?utf-8?B?NTRBZTQwRmV1bWMyNnBsLy9jMitZZWtyZ0t6UHplRlVSTW5qZ3VSelZYVHg2?=
- =?utf-8?B?dEg2bVNCZ3hIUXYyc0UrN3RxOHdYNGozRitxUXo5eUlNckFzK2FaL05hSC9G?=
- =?utf-8?Q?XfrUY+rQwboZqpQi42UNUC4pC?=
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 506f92d8-2eca-4b09-72c5-08de07b9e15b
-X-MS-Exchange-CrossTenant-AuthSource: IA0PR12MB8301.namprd12.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Oct 2025 05:00:06.6440
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: oMty39xgzp5titbn2g5j6m4slTrRzRKZb2N9NXBYVimV94/O9vA6pmVJ1xU29oAOanKkbPD7P6bN0JZWQFxedw==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: MW4PR12MB7467
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_220024_346445_ED739E9D 
-X-CRM114-Status: UNSURE (   8.06  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251009_222642_445907_F8A40946 
+X-CRM114-Status: GOOD (  20.89  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -180,25 +108,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Thu, 2025-10-09 at 16:25 +0100, Andr=C3=A9 Draszik wrote:
+> The power domains are a property of / implemented in the PMU. As such,
+> they should be modelled as child nodes of the PMU.
+>=20
+> Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
+>=20
+> ---
+> Note: Ideally, the newly added properties (ranges, etc.) should only be
+> 'required' if "^power-domain@[0-9a-f]+$" exists as a patternProperty,
+> as they're needed only in that case. As-is, this patch now causes
+> warnings for existing DTs as they don't specify the new properties (and
+> they shouldn't need to). Only if DTs are updated to include
+> power-domains, such an update should also add the new properties.
+>=20
+> I've not been able to come up with the correct schema syntax to achieve
+> that. dependencies, dependentRequired, and dependentSchemas don't seem
+> to support patterns. Similarly,
+> =C2=A0 - if:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 required:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ...
+> =C2=A0=C2=A0=C2=A0 then:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 required:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 - ...
+>=20
+> doesn't allow patterns in the 'if' block (or I didn't get the syntax
+> right).
+> ---
+> =C2=A0.../bindings/soc/google/google,gs101-pmu.yaml=C2=A0=C2=A0=C2=A0=C2=
+=A0=C2=A0 | 42 +++++++++++++++++++++-
+> =C2=A01 file changed, 41 insertions(+), 1 deletion(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/soc/google/google,gs101-pm=
+u.yaml
+> b/Documentation/devicetree/bindings/soc/google/google,gs101-pmu.yaml
+> index 209ee2f80d449c3eec568188898b3c6f7ae0ddd4..d18a351b649c0736662e67bb6=
+4de46afa01e399a 100644
+> --- a/Documentation/devicetree/bindings/soc/google/google,gs101-pmu.yaml
+> +++ b/Documentation/devicetree/bindings/soc/google/google,gs101-pmu.yaml
+> @@ -27,6 +27,14 @@ properties:
+> =C2=A0=C2=A0 reg:
+> =C2=A0=C2=A0=C2=A0=C2=A0 maxItems: 1
+> =C2=A0
+> +=C2=A0 '#address-cells':
+> +=C2=A0=C2=A0=C2=A0 const: 1
+> +
+> +=C2=A0 '#size-cells':
+> +=C2=A0=C2=A0=C2=A0 const: 1
+> +
+> +=C2=A0 ranges: true
+> +
+> =C2=A0=C2=A0 reboot-mode:
+> =C2=A0=C2=A0=C2=A0=C2=A0 $ref: /schemas/power/reset/syscon-reboot-mode.ya=
+ml
+> =C2=A0=C2=A0=C2=A0=C2=A0 type: object
+> @@ -50,18 +58,50 @@ properties:
+> =C2=A0=C2=A0=C2=A0=C2=A0 description:
+> =C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 Phandle to PMU interrupt generation =
+interface.
+> =C2=A0
+> +patternProperties:
+> +=C2=A0 "^power-domain@[0-9a-f]+$":
+> +=C2=A0=C2=A0=C2=A0 type: object
+> +=C2=A0=C2=A0=C2=A0 description: Child node describing one power domain w=
+ithin the PMU
+> +
+> +=C2=A0=C2=A0=C2=A0 additionalProperties: true
+> +
+> +=C2=A0=C2=A0=C2=A0 properties:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 compatible:
+> +=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 const: google,gs101-pd
+> +
+> =C2=A0required:
+> =C2=A0=C2=A0 - compatible
+> =C2=A0=C2=A0 - reg
+> +=C2=A0 - '#address-cells'
+> +=C2=A0 - '#size-cells'
+> +=C2=A0 - ranges
+> =C2=A0=C2=A0 - google,pmu-intr-gen-syscon
+> =C2=A0
+> -unevaluatedProperties: false
+> +additionalProperties: false
 
+Ooops, this line should have been part of patch 02 in the first place. Will
+fix in next version.
 
-On 10/10/2025 2:28 AM, Ackerley Tng wrote:
-> For future reference, these are the three specific patches:
-> 
-> [1] https://lore.kernel.org/all/20250827175247.83322-4-shivankg@amd.com/
-> [2] https://lore.kernel.org/all/20250827175247.83322-5-shivankg@amd.com/
-> [3] https://lore.kernel.org/all/20250827175247.83322-6-shivankg@amd.com/
-> 
-> Might have missed this, did we discuss how these 3 would get merged? I
-> noticed this patch was withdrawn, not sure what that means: [4]
-> 
-
-Andrew confirmed he's fine with these MM changes going through the KVM tree.
-
-> [4] https://lore.kernel.org/all/20250625000155.62D08C4CEE3@smtp.kernel.org/
-
-Regarding [4]:
-https://lore.kernel.org/linux-mm/aFlHIjLBwn3LQFMC@casper.infradead.org/
-
+Cheers,
+Andre'
 
 
