@@ -4,79 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 58FCDCCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 17:22:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0543BCCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 17:32:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=JOBVDpQhcALaIzkC77Wo3szremCm3YfuK4sl2yMWQVE=; b=3XjLnk7Egbm2g7EHzbA3Mxrmde
-	+Tx2qZ/bCtOj1mBzOil7vSGTJNPE5HyBgEytcEIMAcWNd5Z/2/2iTOw1HK4XqapcetqD9/cG5o3+C
-	yz7IvoJPWvzCTMHyAajaqxVuVX7goqINqisM0N2ew4tx2B5b62htB0vSsysKnUWQs7dn9mmuGaxiV
-	ZKe5iSpFadK6h2e2cnhIzmJ3t5LiIFichG12+QvDmWp2BV0gIdZcF9BYuwHG1n+x5F8BgA0wJVW7r
-	tWZXb32ts3uos76zeJfx+PMllXuY3j9o1kHUj6kl0r4/dNxCcVGXGgvIwdrMEPu/tz8ltR8k6rhaO
-	HyLk52wQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=pvqj9d+nmeXKOy0CEZnhLNS80ooNKN6MuIq0IKC5Ikg=; b=IpB7WdwhSseBA8FKqDdXbM5RCK
+	xu8ic3s4G9qoeHeP/48gtFy/fuTJ8CuGGXHNkvF7NjbLsU6oa0NjkRNHMD8a7ULyxKqL6wBHK/iA/
+	YtCLA3cs+P7ck+w37G9z/HsNsET0zpcOU9pYm8TqghmVA4sJTBokOIPE02haT7dzNYyOHlXaFXwCp
+	Iyd69XNdCzAvNuSboIb4SYNG2OUJW+Te4kprTL1uCGTEwXfiFeMHhT85sR2Mg3LocrL/oqKnA7//H
+	R599rPinSnH6ssfhOfdBY8q4uGh263RzbPdSSS/HdiO+pG6Aj6LYLZx+Hs5jWy0cwPzqPp1LWi58u
+	eQtqZ+xg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7Goi-0000000947T-3zPI;
-	Fri, 10 Oct 2025 17:22:08 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v7GyF-000000094v5-11p8;
+	Fri, 10 Oct 2025 17:31:59 +0000
+Received: from mx0b-00069f02.pphosted.com ([205.220.177.32])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7Goh-0000000946d-2uvV;
-	Fri, 10 Oct 2025 17:22:07 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
-	Reply-To:Content-ID:Content-Description:In-Reply-To:References;
-	bh=JOBVDpQhcALaIzkC77Wo3szremCm3YfuK4sl2yMWQVE=; b=gcEYe2chk4WcNBuNVsfNSf6vrD
-	KlY+YkS9kM4QUDtm49MRAIEIWir3HqrKkRNkoP9UjCvmZ6KND4h9mY87zTy6++nILjlMtWOBvxVQj
-	DQO7wei6+DDniE9x1WVvAO4KDBXT49Q48pm7jmfWj6pNcaCOAV4gIiFBBE1xW6g+nCRqT6IKi3QkQ
-	/kKhYe2r9ntO5iiRJ8OQaJrL+lsq3gkYFi5ZLzVLslkZBbssTMXr9gza223kLdUFkoFLXMZqf8Lhl
-	9vHjLo+trtBS+JyZItXbxhofpex6omaL/cr9YzLOjTQsZOS5xwo0M4JaLyfkhSyj3HbDjGgSiiwk9
-	A4v4jsbA==;
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7Goe-00000002KlC-2eFl;
-	Fri, 10 Oct 2025 17:22:06 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B52C745168;
-	Fri, 10 Oct 2025 17:22:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 12CD9C4CEF1;
-	Fri, 10 Oct 2025 17:21:59 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760116920;
-	bh=OdBoAtR499cMXnZcUh2ZuDSK7qu4WgMS/ZlAlocCV9M=;
-	h=From:Date:Subject:To:Cc:From;
-	b=KNXM0Tqj/WkRTA3AroCpsxgUjpqtpfh416eJ3+YwL4J8LbJsCdDe8heXIDVMJpukH
-	 lOqnXRhhuyZ0Jc4fY+sPbDmzc06CbKqJuSibwPFb+gY5sXyl2aV40SwhWe3cv6pUrI
-	 7+I3KVWlifs27uJeIMevpHAB8EkNAO7+bRoRMpy7aEJI0Thif/RhW/jAZaUPbCAHHr
-	 Y3/MYMe40cSuqEv8s4P20TBjH8I2N62P1Ief4gmajt6P3YZJzkOTKvdfbE4XDDU9Aj
-	 F+bO4i1F8tx1ZnRiXt2F6ddMagVPgAd/8APm+eEaSXgX0Cn6EpLNk/PbGEj0juW1I/
-	 PpdcPgkRbMHqg==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Fri, 10 Oct 2025 19:21:43 +0200
-Subject: [PATCH net] net: airoha: Take into account out-of-order tx
- completions in airoha_dev_xmit()
+	id 1v7GyB-000000094uU-30X8;
+	Fri, 10 Oct 2025 17:31:57 +0000
+Received: from pps.filterd (m0246632.ppops.net [127.0.0.1])
+	by mx0b-00069f02.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59AFtuHH024282;
+	Fri, 10 Oct 2025 17:31:47 GMT
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=oracle.com; h=cc
+	:content-transfer-encoding:date:from:message-id:mime-version
+	:subject:to; s=corp-2025-04-25; bh=pvqj9d+nmeXKOy0CEZnhLNS80ooNK
+	N6MuIq0IKC5Ikg=; b=ReTpBktOBu4s826Dr0WZ3h/pSlsod2VqzOluFcc5osMLj
+	vZkNEjNg3gZ8BAL7aGlDrkDpJTpGPnVwT0ubx0Qrdz9UvdFH5yTlcdivakqUyW10
+	zcGIvRamJpcCp4iDRdyBowEjvOiqSUgpKFZCrKp2hwPr6lWnilnsgSFBNXkzdXGh
+	tTzKviBwoLLBYpJp/CkJNARwqYrmB8k2ng78rgiqoZb44eUgpFDK88rW81HOAvmd
+	Gth96SrdifQIvlfywDj3ermkBLmbrQriGGZY5m6htrc3DsccNSL2GeNQXLoXbriF
+	GyOc2XCB8VrcTMiaZLRfAhQACi4in/sPo/6p+FrRA==
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.appoci.oracle.com [147.154.18.20])
+	by mx0b-00069f02.pphosted.com (PPS) with ESMTPS id 49nv6dv51x-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 10 Oct 2025 17:31:47 +0000 (GMT)
+Received: from pps.filterd (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (8.18.1.2/8.18.1.2) with ESMTP id 59AGj6SC037020;
+	Fri, 10 Oct 2025 17:31:46 GMT
+Received: from pps.reinject (localhost [127.0.0.1])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTPS id 49nv65hg6j-1
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=OK);
+	Fri, 10 Oct 2025 17:31:46 +0000
+Received: from iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com [127.0.0.1])
+	by pps.reinject (8.17.1.5/8.17.1.5) with ESMTP id 59AHRHoQ026524;
+	Fri, 10 Oct 2025 17:31:46 GMT
+Received: from ca-dev112.us.oracle.com (ca-dev112.us.oracle.com [10.129.136.47])
+	by iadpaimrmta02.imrmtpd1.prodappiadaev1.oraclevcn.com (PPS) with ESMTP id 49nv65hg5t-1;
+	Fri, 10 Oct 2025 17:31:45 +0000
+From: Alok Tiwari <alok.a.tiwari@oracle.com>
+To: dri-devel@lists.freedesktop.org, simona@ffwll.ch, airlied@gmail.com,
+        tzimmermann@suse.de, mripard@kernel.org, hjc@rock-chips.com,
+        heiko@sntech.de, andy.yan@rock-chips.com,
+        maarten.lankhorst@linux.intel.com
+Cc: alok.a.tiwari@oracle.com, linux-arm-kernel@lists.infradead.org,
+        linux-rockchip@lists.infradead.org
+Subject: [PATCH] drm/rockchip: dw_hdmi: use correct SCLIN mask for RK3228
+Date: Fri, 10 Oct 2025 10:31:41 -0700
+Message-ID: <20251010173143.72733-1-alok.a.tiwari@oracle.com>
+X-Mailer: git-send-email 2.50.1
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251010-airoha-tx-busy-queue-v1-1-9e1af5d06104@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAKZA6WgC/x3MQQqDMBBG4avIrDuQUQriVYqLmPw2s0lqYooi3
- r2hy2/x3kUFWVFo6i7K+GrRFBvk0ZELNr7B6pupN/1TjBi2mlOwvB+81HLyVlHBi19FHNw4wFN
- LPxmrHv/tiyJ2mu/7BwJujplrAAAA
-X-Change-ID: 20251010-airoha-tx-busy-queue-bdf11cec83ed
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
+X-Proofpoint-Virus-Version: vendor=baseguard
+ engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
+ definitions=2025-10-10_04,2025-10-06_01,2025-03-28_01
+X-Proofpoint-Spam-Details: rule=notspam policy=default score=0 mlxscore=0 bulkscore=0 mlxlogscore=999
+ phishscore=0 spamscore=0 adultscore=0 suspectscore=0 malwarescore=0
+ classifier=spam adjust=0 reason=mlx scancount=1 engine=8.12.0-2510020000
+ definitions=main-2510100100
+X-Proofpoint-ORIG-GUID: 1kCLmOmOeBvPerFi8ZXjR7rqpdlvd2mZ
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDA4MDEyMSBTYWx0ZWRfX9ZT5rePrLrmb
+ h8ZSgos+obPgt5kO5JNF2Wnh80tZXf+eYOEdbgI05FkHWwn9jBNTjnEgl0ENucH7d1fdT0gMcRf
+ Fci+nkyQbiftHvvV34Dm9/8AYBMxVBcO56xMqvt4ij0T4FoQ6WZsNWmyjMnOHNqX5wS2RhHdqJ1
+ 7ssOtY/CJoxH0WheIfoCtPguCmOK+25IqjE4XLBh3tCpMcesdIzBXDAwy43XL5qKNCo57Ke4/U9
+ tBHHr4/2H8GlooaS1cAUh/yJ4difs7BSG/LKkxjUqJI8M0vQaQVgtCj3Z4cQV/sb0jaNbpc582b
+ c4ESVXLZvDzDks192Pw706231jxklDds3DmNxW8qX5sNst/MGYbED4yMkExVnjpbF3+XxcEfgFt
+ MMPkaUvfmSL1dkqIehvZjyPqXxQLMH66arieYULxyK1ZJ039ML0=
+X-Authority-Analysis: v=2.4 cv=etHSD4pX c=1 sm=1 tr=0 ts=68e94303 b=1 cx=c_pps
+ a=e1sVV491RgrpLwSTMOnk8w==:117 a=e1sVV491RgrpLwSTMOnk8w==:17
+ a=x6icFKpwvdMA:10 a=yPCof4ZbAAAA:8 a=_APh9P-1HUCL8KmDz24A:9 cc=ntf
+ awl=host:13624
+X-Proofpoint-GUID: 1kCLmOmOeBvPerFi8ZXjR7rqpdlvd2mZ
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_182204_999512_1C707374 
-X-CRM114-Status: GOOD (  12.17  )
+X-CRM114-CacheID: sfid-20251010_103155_891163_4270A917 
+X-CRM114-Status: GOOD (  12.07  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,58 +105,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Completion napi can free out-of-order tx descriptors if hw QoS is
-enabled and packets with different priority are queued to same DMA ring.
-Take into account possible out-of-order reports checking if the tx queue
-is full using circular buffer head/tail pointer instead of the number of
-queued packets.
+In dw_hdmi_rk3228_setup_hpd(), the SCLIN mask incorrectly references
+the RK3328 variant. This change updates it to the RK3228-specific mask
+RK3228_HDMI_SCLIN_MSK using FIELD_PREP_WM16, ensuring proper HPD and
+I2C pin configuration for RK3228.
 
-Fixes: 23020f0493270 ("net: airoha: Introduce ethernet support for EN7581 SoC")
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Change: RK3328_HDMI_SCLIN_MSK -> RK3228_HDMI_SCLIN_MSK
+
+Fixes: 63df37f3fc71 ("drm/rockchip: dw_hdmi: switch to FIELD_PREP_WM16* macros")
+Signed-off-by: Alok Tiwari <alok.a.tiwari@oracle.com>
 ---
- drivers/net/ethernet/airoha/airoha_eth.c | 15 ++++++++++++++-
- 1 file changed, 14 insertions(+), 1 deletion(-)
+ drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 833dd911980b3f698bd7e5f9fd9e2ce131dd5222..5e2ff52dba03a7323141fe9860fba52806279bd0 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -1873,6 +1873,19 @@ static u32 airoha_get_dsa_tag(struct sk_buff *skb, struct net_device *dev)
- #endif
+diff --git a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+index 7b613997bb50..727cdf768161 100644
+--- a/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
++++ b/drivers/gpu/drm/rockchip/dw_hdmi-rockchip.c
+@@ -361,7 +361,7 @@ static void dw_hdmi_rk3228_setup_hpd(struct dw_hdmi *dw_hdmi, void *data)
+ 
+ 	regmap_write(hdmi->regmap, RK3228_GRF_SOC_CON2,
+ 		     FIELD_PREP_WM16(RK3228_HDMI_SDAIN_MSK, 1) |
+-		     FIELD_PREP_WM16(RK3328_HDMI_SCLIN_MSK, 1));
++		     FIELD_PREP_WM16(RK3228_HDMI_SCLIN_MSK, 1));
  }
  
-+static bool airoha_dev_is_tx_busy(struct airoha_queue *q, u32 nr_frags)
-+{
-+	u16 index = (q->head + nr_frags) % q->ndesc;
-+
-+	/* completion napi can free out-of-order tx descriptors if hw QoS is
-+	 * enabled and packets with different priorities are queued to the same
-+	 * DMA ring. Take into account possible out-of-order reports checking
-+	 * if the tx queue is full using circular buffer head/tail pointers
-+	 * instead of the number of queued packets.
-+	 */
-+	return index >= q->tail && (q->head < q->tail || q->head > index);
-+}
-+
- static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 				   struct net_device *dev)
- {
-@@ -1926,7 +1939,7 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 	txq = netdev_get_tx_queue(dev, qid);
- 	nr_frags = 1 + skb_shinfo(skb)->nr_frags;
- 
--	if (q->queued + nr_frags > q->ndesc) {
-+	if (airoha_dev_is_tx_busy(q, nr_frags)) {
- 		/* not enough space in the queue */
- 		netif_tx_stop_queue(txq);
- 		spin_unlock_bh(&q->lock);
-
----
-base-commit: 18a7e218cfcdca6666e1f7356533e4c988780b57
-change-id: 20251010-airoha-tx-busy-queue-bdf11cec83ed
-
-Best regards,
+ static enum drm_connector_status
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.50.1
 
 
