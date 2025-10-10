@@ -4,58 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20629CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 11:48:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BF46ACCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 12:02:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vn7fGKBprbwCzdhxVXbEyU62KnHh662FY5kO6++aHBI=; b=OfrHC5QzTC98avCl6rAMv1f29W
-	W+JdFD/StRWCTVynroV0KFiQ53DfBvSdoAR8Ia1m90/8yEFXZbPoua8yyb+R4voPZTUKV2hKKqLDx
-	rxAL16PRQxWoKfgXV7dfpNKiLDV/2hQ2HnzFFW8xGkSAyXcH6EYwXwp4jv4qZfGEHrBd+YdOcyZND
-	Chn9wtX57niAcP9w4pBZ0ZRDqstwABJZTvQ0+wuGV8G/tWDlSyUuOSYQGgaqnmge17flx2oIa2/jy
-	Ab2/GK2e5acEZa59I24qXkOze4JVIZjyjxigEqdPDIVZAYWrQ4zBcLb2CoHE3ZkVouG41vjTZRHa7
-	DPI16OKw==;
+	bh=s90KB/NTrY2uO7MTlr/2on1AH8hzlT2J0wqk/Ex7Qg0=; b=um9KOw+siRQ/h3YRlR2LcTLcVh
+	pv6QdjRvrzsod4+EYv2ALRYqO5EQK4Frn95rKejMBZSrnjSl8EG905EBPNe6Ks8YqM6+6iH8YwfBC
+	JS/pDEUMZZuDhH3EnYxhJk/u1sT1ZM266aNdr+/Dxn+TLzSk3rNoNJ1eDHYZKQnkrqO7UBWwemh+A
+	PoXvFifkkQeVnjTJq0h+Hgo6/8PY3GPwRNylYarR0JEPOqNZi7Ic8U+6bijMIKCwwilmZ31QUBQnw
+	Wa5fZcOSnwuueAFhdMLnXo1O3/4hhRmvAEjiotXWtXhYuIjx+gK8JcSWfEgzC6peGOg/VZwrkDHoQ
+	AKL1o8rw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7Bbz-00000008Mzh-3WBr;
-	Fri, 10 Oct 2025 11:48:39 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7Bbw-00000008MzH-3K1j
+	id 1v7Bow-00000008OOb-0SwW;
+	Fri, 10 Oct 2025 12:02:02 +0000
+Received: from mail-ej1-x62e.google.com ([2a00:1450:4864:20::62e])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v7Bot-00000008ONU-2Y1u
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 11:48:38 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 266AE1596;
-	Fri, 10 Oct 2025 04:48:26 -0700 (PDT)
-Received: from [192.168.20.16] (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6CF2C3F738;
-	Fri, 10 Oct 2025 04:48:33 -0700 (PDT)
-Message-ID: <ed3d71a3-b454-4e9b-97bb-7eb4d0b770ec@arm.com>
-Date: Fri, 10 Oct 2025 06:48:32 -0500
+	Fri, 10 Oct 2025 12:02:00 +0000
+Received: by mail-ej1-x62e.google.com with SMTP id a640c23a62f3a-b4736e043f9so290388766b.0
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Oct 2025 05:01:58 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1760097717; x=1760702517; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=s90KB/NTrY2uO7MTlr/2on1AH8hzlT2J0wqk/Ex7Qg0=;
+        b=lmSXbKmrLUKy4jTp7T9S6c9l6JTD4vCsUVvZobnExJD2BMRdiE59Mc7TVYkG1vvrw6
+         IsVT2ZaPHAaSang/ZRPaA2VkManx0gHwbUGFZNIq4H10xcZqn3IGq8exXwFGXRkzLlu0
+         ApcEYE9F6zeAt/Nf3zLbCHpwW7GDXPFzM7uQNsrG8QuBg3AkXmANdTnUVc5nprOYK9f3
+         OZu+cJda7qyYTKAuem5opzbHam1/M3N4aWj3jhZ8Xwcg3SynIAwn1kLswMfgWJo3geI8
+         zoQGCN3iuIt4pW3RpbTewaMjBkP4r4GgWjOvQl/HHxo1MzH0h5xILX2i/QGhibeq1Wpg
+         9MiQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760097717; x=1760702517;
+        h=content-transfer-encoding:in-reply-to:content-language:from
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=s90KB/NTrY2uO7MTlr/2on1AH8hzlT2J0wqk/Ex7Qg0=;
+        b=n3CITw4NYWYv/noIhkQs80P+hb0iS1HRHPxQtFvsSR+lInKySKn62YFgWddAGgJWph
+         iK+SLzOvrovbrxn7NswYMRJhPGlqO1YZQ9Tjd8/iHaIuXtrv9rIoUxq54O0BPZalxAjb
+         1+PFn4KsG2jJIZl20MpHXR1H3uraBjSB2cakZ7E0aA/d7Dfn3eTeDHc8Eb9qE1RqcEIQ
+         xMlv/uPn9b7gDoQcPraqZQr0ct3dM33eQ5+Ab9LlUHKFt13KUeZYPgVFmMKQlVP/MpUx
+         ss/lG/PQEibVsLJnkUESQzKDB3owAxXaeeTACkyzZf1simFTTy5bwmmlkgWhBNuJe74r
+         W+dQ==
+X-Forwarded-Encrypted: i=1; AJvYcCWFqR+/rcnfXDCiMX641ffuZ3oIuimO45oD75FdwTdzC05OsLkVCYRX0rFqjW0ZgmGw+yGvfZG6uYWCBjdMOF8x@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyay3BNGgRpnKea+GctwS9XGfKglQBvLmqwELL/+Wm8CUf++8C0
+	+BYrE9v1XLcS6IleMn9Fkyx1k9b03ywBJimy5ghzIlV05DnR6J1IN5jyPeElFM/iDD8=
+X-Gm-Gg: ASbGncvTso+7+SLj8FLmf3cDF6HeoB3yfxiw6fRawmU4Ld9dpu0nlrTwFTck9BaEMV8
+	z8h0t3ROdgjevqC8Eyko/HJd52dmqLGl4vnyny10G9CB0BFzZeJ7yjnaP/gvx95IikOz+Qnkmij
+	kyL9tb+1+C6ZHRrCIWUnQjDHGeYUwlqE+8OCwasd2hXOgurtn4aX3/paqezUWqUa2rBFvYvvtBU
+	t0t4B6gfJFUaIPcraNiGSTkCWxyzEIqljlz3SgHj0yMAArlMVwloI3QVwdtsX8J8+IMI5i1MEQG
+	ufd3sMYGnoMswNgLBjt5332E1m00pFcV39RObJ16vxqubSonH13BoI3XRy6HqMijpEtB3/vmvD9
+	RS++aXvND45+FO44Y7D9I+bEv535XrlsuK9lgoV/zXEjEA7BkKTYI1JnQv3N5ykwuFWTBO6f4QM
+	Rl6Ye/vVvTBJU=
+X-Google-Smtp-Source: AGHT+IHFEbOgc0ODAF0VuKf0ziv5aS2t3f+mpFW0dy7lOT4Bfjw96VQjQByGIVRZZDYAlQhb3Y/lvg==
+X-Received: by 2002:a17:907:7f0b:b0:b3f:f207:b755 with SMTP id a640c23a62f3a-b50aa48d873mr1107494166b.6.1760097717302;
+        Fri, 10 Oct 2025 05:01:57 -0700 (PDT)
+Received: from [192.168.0.19] (188-141-3-146.dynamic.upc.ie. [188.141.3.146])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b55d5cada4fsm229334066b.6.2025.10.10.05.01.55
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Fri, 10 Oct 2025 05:01:56 -0700 (PDT)
+Message-ID: <f71052d2-8969-436d-9109-d5abe70b81a4@linaro.org>
+Date: Fri, 10 Oct 2025 13:01:54 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] coco: guest: arm64: Update ARM CCA guest driver
-To: dan.j.williams@intel.com, Jonathan Cameron <jonathan.cameron@huawei.com>,
- "Aneesh Kumar K.V" <aneesh.kumar@kernel.org>
-Cc: linux-coco@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, Catalin Marinas <catalin.marinas@arm.com>,
- Will Deacon <will@kernel.org>, Steven Price <steven.price@arm.com>,
- Gavin Shan <gshan@redhat.com>, Suzuki K Poulose <suzuki.poulose@arm.com>,
- Sami Mujawar <sami.mujawar@arm.com>
-References: <20251008132758.784275-1-aneesh.kumar@kernel.org>
- <yq5aldlka6oi.fsf@kernel.org> <20251009113557.000053e6@huawei.com>
- <68e86e45599bc_199281005d@dwillia2-mobl4.notmuch>
+Subject: Re: [PATCH v11 06/17] media: rockchip: add driver for the rockchip
+ mipi csi-2 receiver
+To: michael.riesch@collabora.com, Mehdi Djait <mehdi.djait@linux.intel.com>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Gerald Loacker <gerald.loacker@wolfvision.net>,
+ Markus Elfring <Markus.Elfring@web.de>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
+ <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Kever Yang <kever.yang@rock-chips.com>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Collabora Kernel Team <kernel@collabora.com>,
+ Paul Kocialkowski <paulk@sys-base.io>,
+ Alexander Shiyan <eagle.alexander923@gmail.com>,
+ Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org
+References: <20240220-rk3568-vicap-v11-0-af0eada54e5d@collabora.com>
+ <20240220-rk3568-vicap-v11-6-af0eada54e5d@collabora.com>
+From: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
 Content-Language: en-US
-From: Jeremy Linton <jeremy.linton@arm.com>
-In-Reply-To: <68e86e45599bc_199281005d@dwillia2-mobl4.notmuch>
+In-Reply-To: <20240220-rk3568-vicap-v11-6-af0eada54e5d@collabora.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_044836_892969_D145B144 
-X-CRM114-Status: GOOD (  12.62  )
+X-CRM114-CacheID: sfid-20251010_050159_665234_F4C20483 
+X-CRM114-Status: GOOD (  11.61  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -70,43 +122,19 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
-
-Hi,
-
-On 10/9/25 9:24 PM, dan.j.williams@intel.com wrote:
-> Jonathan Cameron wrote:
->> On Thu, 09 Oct 2025 12:43:49 +0530
->> Aneesh Kumar K.V <aneesh.kumar@kernel.org> wrote:
->>
->>> "Aneesh Kumar K.V (Arm)" <aneesh.kumar@kernel.org> writes:
->>>
->>>> Make preparatory updates to the ARM CCA guest driver:
->>>>
->>>>   - Switch from using a platform device to a faux device (based on
->>>>     feedback in [1])
->>>>   - Rename the device from `arm-cca-dev` to `arm-rsi-dev`, so that the
->>>>     host driver can register an equivalent `arm-rmi-dev`
->>>>
->>>> These changes are purely structural and introduce no new functionality.
->>>> Subsequent patches will extend this driver to add guest device
->>>> assignment support.
->>>>
->>>> [1] https://lore.kernel.org/all/2025073035-bulginess-rematch-b92e@gregkh
->>>>   
->>>
->>> I noticed that, this will break autoloading of the driver.
->>
->> Ah indeed.  You'd need to arrange for the arch code to call the init()
->> directly (possibly arch_initcall() as before or maybe directly from
->> arm64_rsi_init), which makes it tricky to do in a module as there
->> is nothing to kick off module autoloading. You could kick that off
->> explicitly but that's a bit ugly.
+On 17/09/2025 16:38, Michael Riesch via B4 Relay wrote:
+> From: Michael Riesch <michael.riesch@collabora.com>
 > 
-> Does ARM64 not have the equivalent of MODULE_DEVICE_TABLE(x86cpu, ...)?
+> The Rockchip RK3568 MIPI CSI-2 Receiver is a CSI-2 bridge with one
+> input port and one output port. It receives the data with the help
+> of an external MIPI PHY (C-PHY or D-PHY) and passes it to the
+> Rockchip RK3568 Video Capture (VICAP) block.
+> 
+> Add a V4L2 subdevice driver for this unit.
+> 
+> Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
+> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+I've been stealing ideas from this patch series for some time now.
 
-No, it doesn't. There is a hwcap based method, but that requires 
-allocating a hwcap.
-
-
+Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
 
