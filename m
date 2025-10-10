@@ -4,96 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1F404CCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 14:17:08 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 247D2CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 14:18:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9ETTSmzMEMLXYvaO7iiXW2H9dZ8Hr5VPzXraeMoXOYA=; b=fJppcM7EIEJk5k8Ng7epoEl0AV
-	ZdJvmWaJzkoyPAH80ziIZJZ0zNygq+/PAeyR+jp/1L7C+8OwN24qaSFv8EaW9RvB7/IbK42ZnKF0g
-	4L9flOEacjqVztEBo47jZL5IhgUltPfx9gdObX/PjfflNXs+WkKzbmE7OlX8jE+nngoipzAhNM6T5
-	GMpSk+/tSKE3D6yiql72H22hf0KZLJvl/QfUiwmVB31RDzlPivjgHW8JDnHkZbU4YIW+RJe3LR0kH
-	Eb0o61Z4i9Cm5fE+6DA1tqPgFL4TrdZTVh7S/91O/TXXpkPqhmy5UApbpD/moEvGtqYSH8ChUs/jw
-	ZLbos4ag==;
+	bh=syltQvW+rR7E2Z3Gc43DGKEzaijaDLyfLvi1cxl0gUw=; b=IPxAGXvUTtFloruoTl+SsvHkOs
+	A4aB1ddv65wmcLLesrJ0QNn/oDe6OGu42eROKy7i8GydQdNoGvn3V45Sil66dlZm/YaZtwCnyc3M4
+	lcULjZ1uxWMb9m1W0O7UhJK6mina69dMWuU53fCleUtHWI+k6Y2jp4ielN6Dvxg9eegiH6d6Pxc0m
+	cTkDWR8G3O4D9D7YYkl3gFvDvVGX7HKTNXdxHsCdunY3kf/Wlf2CLY/Ki2UIJu+FL5xj4/27xT4o3
+	7SKcG5sY5w1smPDtgr7us6g/+2samcUqPIs7Y8Bdq6VJSyxT3tUUe8jCLzOLVXwtVPm9ZtfzFGNG/
+	KBlFAm2g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7DvY-00000008ecL-3sB5;
-	Fri, 10 Oct 2025 14:17:01 +0000
-Received: from mail-ej1-x629.google.com ([2a00:1450:4864:20::629])
+	id 1v7Dwo-00000008f0Z-2ZLo;
+	Fri, 10 Oct 2025 14:18:18 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7DvW-00000008ebP-0iiP
+	id 1v7Dwn-00000008f0Q-0J4Z
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 14:16:59 +0000
-Received: by mail-ej1-x629.google.com with SMTP id a640c23a62f3a-b3d196b7eeeso347213366b.0
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Oct 2025 07:16:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760105816; x=1760710616; darn=lists.infradead.org;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:from:to:cc:subject
-         :date:message-id:reply-to;
-        bh=9ETTSmzMEMLXYvaO7iiXW2H9dZ8Hr5VPzXraeMoXOYA=;
-        b=sbMjaDZPYo/mbMJ8mf2Ws3gyj8TpEqHxz5pFs6wWZDIXdmelYdeXxdEqfY0xXdZ4kb
-         FZnxtdfY97sIsYo77Rgy5OtHxbsJNtA/0ctF3wPJS0C8ywIZPTI04jeKNp+SmV0z/+Vv
-         mPUuTF90dsC+dlmhaYSD4wjAg+p0qSPGuRsJzlNL8vvUvLwSb29gIk99iaMVH6nOGy+u
-         IQ210QUXsOoPAdHYeV+cEdJoj9//coNEhfGbqAWbEPnMPPTsbLu0iiDS+p9Tfdb1N4Xu
-         dF7myuvxG1d5NIArqzGnxDGH96U2W1ypIJkSKJkzzaOFWoz1s93cKu/xJPoMhQsNMBwh
-         e5/g==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760105816; x=1760710616;
-        h=mime-version:user-agent:content-transfer-encoding:references
-         :in-reply-to:date:cc:to:from:subject:message-id:x-gm-message-state
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=9ETTSmzMEMLXYvaO7iiXW2H9dZ8Hr5VPzXraeMoXOYA=;
-        b=nJX5vjrym9o0XEDgD2mKHgq1gQ+jG8fkDdjh/HHawxr8/48eLBUbmR/gdqOw61Qvs6
-         pRJ2ewNMoKTqhXm3/lh3CeyM08IISc9ZmH/ZkwDyP/bHgChKti5xHR4S4+9teiVFV/dc
-         rYYZEFjxGhl4+plZTCGq2xNEXLLNXAr4d65Nz4KECYJ1Qp54bWKh9SdEHhgfTcOqPoEw
-         OKGew2X3sVJutugulOjX8qGN/91SO2QGPBeeYjsT8j8MdepNnVryQVJYpa83AJSzmYGd
-         6n37fBU1gdUf3fsKNJ3ryVcnCGXblZl08pQxWB2WqJpiw0TM1JOkZD+LVnzLXjA7PdLz
-         XKQA==
-X-Forwarded-Encrypted: i=1; AJvYcCUfDWYyIl6u6pDBb3w/59e8zW4NSz8hXJYt1QxwGBJbbCkgrcybmlAshCDCPgRyKVc8o6T+q/f+otWnjPj1b/Vz@lists.infradead.org
-X-Gm-Message-State: AOJu0YxLVwPa9SCbMIAfx90hTUGMPJwDPeBRgJvz47NoLrbAPO0xcONT
-	CMjIlA8Qnuf204DHG4KislGfLvO0fr/mGrQkYOklL1r1SoNlv/yIhwG4RSWidzVsjcs=
-X-Gm-Gg: ASbGncsXVBGT/h2OMrMNkZ1yF9obq+4OUigHZRkZPcIaciZ0GG3sGRZ7SjCpC7koRUh
-	cNpvXNk3emJjy/MpP/7Tg7+TLlYhgUHKquMkbWnQLVl7im56GN4+8pFBMDl70zHvxrAKZ7jwnzg
-	h2P4AwBIHa24rTLzMGWIkR7SHTNyiEdQbr1SG+QsjkNiztSzDqdn7NM9DmVvZLFbuXijP4CAXL3
-	4J708QmalmOJwmfgYzzH3ejHjFMLqwfgmwKeZzwOC+AG5eK7kJFamd7DWbJbI+CyvBcc4/4v+zz
-	qq1vrQ8PtI0svZAvt1WehFO45v1Dwy9zHIodvTAXlXzWCmkY3gA3hLfrC2HGp3S5FW6JDIXoMOI
-	kzqHrrE1Rqfse+h87p8OQlNfLEiOLapB/rDXYfE1w4pkUmyWp
-X-Google-Smtp-Source: AGHT+IHEAsH6ZcFu+OEyw3ew5Qe/YQEPpYcPrHdEy87KxK9nyj76/ZCLGpnuNV/60Jx9Jzca5xe2iQ==
-X-Received: by 2002:a17:906:4795:b0:b41:1657:2b1d with SMTP id a640c23a62f3a-b50abfcc8dbmr1274289566b.50.1760105815884;
-        Fri, 10 Oct 2025 07:16:55 -0700 (PDT)
-Received: from draszik.lan ([80.111.64.44])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b55d66cc4b8sm247352066b.30.2025.10.10.07.16.54
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Fri, 10 Oct 2025 07:16:55 -0700 (PDT)
-Message-ID: <ccd3c985a202f3fdbead41fcb3f0ba45950f74f6.camel@linaro.org>
-Subject: Re: [PATCH v2 02/10] dt-bindings: soc: samsung: exynos-pmu: move
- gs101-pmu into separate binding
-From: =?ISO-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
-To: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: Peter Griffin <peter.griffin@linaro.org>, Ulf Hansson	
- <ulf.hansson@linaro.org>, kernel-team@android.com, 
-	linux-samsung-soc@vger.kernel.org, devicetree@vger.kernel.org, Krzysztof
- Kozlowski <krzk@kernel.org>, linux-arm-kernel@lists.infradead.org, Marek
- Szyprowski	 <m.szyprowski@samsung.com>, linux-kernel@vger.kernel.org, Conor
- Dooley	 <conor+dt@kernel.org>, linux-pm@vger.kernel.org, Tudor Ambarus	
- <tudor.ambarus@linaro.org>, Will McVicker <willmcvicker@google.com>, Alim
- Akhtar <alim.akhtar@samsung.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>
-Date: Fri, 10 Oct 2025 15:16:54 +0100
-In-Reply-To: <176009895995.7689.883182155048414797.robh@kernel.org>
-References: <20251009-gs101-pd-v2-0-3f4a6db2af39@linaro.org>
-	 <20251009-gs101-pd-v2-2-3f4a6db2af39@linaro.org>
-	 <176009895995.7689.883182155048414797.robh@kernel.org>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-2 
-MIME-Version: 1.0
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_071658_228829_13BD47DE 
-X-CRM114-Status: GOOD (  12.88  )
+	Fri, 10 Oct 2025 14:18:17 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 5F5DC6265B;
+	Fri, 10 Oct 2025 14:18:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 0ED6AC4CEF1;
+	Fri, 10 Oct 2025 14:18:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760105896;
+	bh=3ARafmQRI0GMcbrcB2iifed5RXaPErJXlcnER0DyQII=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=tP+VRCSbapoir5+1KGU3y8cf7FatK84pRMLQSk13vmYs9t6zvAfwP96rxVLBgEA18
+	 k9paf4DOVm7WcwkVWYajEYB+jrzYk1OWjRVhgIFvTaTB8lwNL3DyseGDu0G0wYH6Ko
+	 +9Ee0W+GyIgpFF89rBa7m6ZTbzoegb+o76a0g+FJwk3WDkzfTvRoDXOouhcjv/PeDV
+	 K/oV/Qzd2AVj+ABYP0zEQ3NbaHAOwDC7mX1rhl/ro4imA4xyl7eUUdCD/OTG4zTXfv
+	 3m3yNdcyGfpcneikJN+vZiViWC10uv/O+Y99Q8fZYAhKWmFayz9cgMRgf4yv+gF5qC
+	 PyD++8FaezQsw==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1v7Dwj-0000000CwIs-2xM4;
+	Fri, 10 Oct 2025 14:18:13 +0000
+Date: Fri, 10 Oct 2025 15:18:13 +0100
+Message-ID: <86bjmeyh5m.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	linux-tegra@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: IRQ thread timeouts and affinity
+In-Reply-To: <us2hfdn7jpfepdmwk2p62w64p7xagaeoemg3hdt2vm54emtwlv@m6fkuti7hvfa>
+References: <j7ikmaazu6hjzsagqqk4o4nnxl5wupsmpcaruoyytsn2ogolyx@mtmhqrkm4gbv>
+	<86qzvcxi3j.wl-maz@kernel.org>
+	<loeliplxuvek4nh4plt4hup3ibqorpiv4eljiiwltgmyqa4nki@xpzymugslcvf>
+	<86o6qgxayt.wl-maz@kernel.org>
+	<86ms60x7w7.wl-maz@kernel.org>
+	<us2hfdn7jpfepdmwk2p62w64p7xagaeoemg3hdt2vm54emtwlv@m6fkuti7hvfa>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: thierry.reding@gmail.com, tglx@linutronix.de, linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,44 +87,132 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 2025-10-10 at 07:23 -0500, Rob Herring (Arm) wrote:
->=20
-> On Thu, 09 Oct 2025 16:25:04 +0100, Andr=C3=A9 Draszik wrote:
-> > The gs101-pmu binding is going to acquire various additional (pattern)
-> > properties that don't apply to other PMUs supported by this binding.
-> >=20
-> > To enable this, move google,gs101-pmu into a separate binding.
-> >=20
-> > Signed-off-by: Andr=C3=A9 Draszik <andre.draszik@linaro.org>
-> > ---
-> > =C2=A0.../bindings/soc/google/google,gs101-pmu.yaml=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0 | 67 ++++++++++++++++++++++
-> > =C2=A0.../bindings/soc/samsung/exynos-pmu.yaml=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 | 20 -------
-> > =C2=A0MAINTAINERS=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=
-=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0=
-=C2=A0=C2=A0=C2=A0=C2=A0=C2=A0 |=C2=A0 1 +
-> > =C2=A03 files changed, 68 insertions(+), 20 deletions(-)
-> >=20
->=20
-> My bot found errors running 'make dt_binding_check' on your patch:
->=20
-> yamllint warnings/errors:
->=20
-> dtschema/dtc warnings/errors:
-> /builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/s=
-oc/google/google,gs101-pmu.yaml: $id: Cannot determine base
-> path from $id, relative path/filename doesn't match actual path or filena=
-me
-> =C2=A0	 $id: http://devicetree.org/schemas/soc/samsung/google,gs101-pmu.y=
-aml
-> =C2=A0	file: /builds/robherring/dt-review-ci/linux/Documentation/devicetr=
-ee/bindings/soc/google/google,gs101-pmu.yaml
+On Fri, 10 Oct 2025 14:50:57 +0100,
+Thierry Reding <thierry.reding@gmail.com> wrote:
+> 
+> On Thu, Oct 09, 2025 at 07:11:20PM +0100, Marc Zyngier wrote:
+> > On Thu, 09 Oct 2025 18:04:58 +0100,
+> > Marc Zyngier <maz@kernel.org> wrote:
+> > > 
+> > > On Thu, 09 Oct 2025 17:05:15 +0100,
+> > > Thierry Reding <thierry.reding@gmail.com> wrote:
+> > > > 
+> > > > [1  <text/plain; us-ascii (quoted-printable)>]
+> > > > On Thu, Oct 09, 2025 at 03:30:56PM +0100, Marc Zyngier wrote:
+> > > > > Hi Thierry,
+> > > > > 
+> > > > > On Thu, 09 Oct 2025 12:38:55 +0100,
+> > > > > Thierry Reding <thierry.reding@gmail.com> wrote:
+> > > > > > 
+> > > > > > Which brings me to the actual question: what is the right way to solve
+> > > > > > this? I had, maybe naively, assumed that the default CPU affinity, which
+> > > > > > includes all available CPUs, would be sufficient to have interrupts
+> > > > > > balanced across all of those CPUs, but that doesn't appear to be the
+> > > > > > case. At least not with the GIC (v3) driver which selects one CPU (CPU 0
+> > > > > > in this particular case) from the affinity mask to set the "effective
+> > > > > > affinity", which then dictates where IRQs are handled and where the
+> > > > > > corresponding IRQ thread function is run.
+> > > > > 
+> > > > > There's a (GIC-specific) answer to that, and that's the "1 of N"
+> > > > > distribution model. The problem is that it is a massive headache (it
+> > > > > completely breaks with per-CPU context).
+> > > > 
+> > > > Heh, that started out as a very promising first paragraph but turned
+> > > > ugly very quickly... =)
+> > > > 
+> > > > > We could try and hack this in somehow, but defining a reasonable API
+> > > > > is complicated. The set of CPUs receiving 1:N interrupts is a *global*
+> > > > > set, which means you cannot have one interrupt targeting CPUs 0-1, and
+> > > > > another targeting CPUs 2-3. You can only have a single set for all 1:N
+> > > > > interrupts. How would you define such a set in a platform agnostic
+> > > > > manner so that a random driver could use this? I definitely don't want
+> > > > > to have a GIC-specific API.
+> > > > 
+> > > > I see. I've been thinking that maybe the only way to solve this is using
+> > > > some sort of policy. A very simple policy might be: use CPU 0 as the
+> > > > "default" interrupt (much like it is now) because like you said there
+> > > > might be assumptions built-in that break when the interrupt is scheduled
+> > > > elsewhere. But then let individual drivers opt into the 1:N set, which
+> > > > would perhaps span all available CPUs but the first one. From an API PoV
+> > > > this would just be a flag that's passed to request_irq() (or one of its
+> > > > derivatives).
+> > > 
+> > > The $10k question is how do you pick the victim CPUs? I can't see how
+> > > to do it in a reasonable way unless we decide that interrupts that
+> > > have an affinity matching cpu_possible_mask are 1:N. And then we're
+> > > left with wondering what to do about CPU hotplug.
+> > 
+> > For fun and giggles, here's the result of a 5 minute hack. It enables
+> > 1:N distribution on SPIs that have an "all cpus" affinity. It works on
+> > one machine, doesn't on another -- no idea why yet. YMMV.
+> > 
+> > This is of course conditioned on your favourite HW supporting the 1:N
+> > feature, and it is likely that things will catch fire quickly. It will
+> > probably make your overall interrupt latency *worse*, but maybe less
+> > variable. Let me know.
+> 
+> You might be onto something here. Mind you, I've only done very limited
+> testing, but the system does boot and the QSPI related timeouts are gone
+> completely.
 
-I moved the file ultimately but had restricted to samsung using DT_SCHEMA_F=
-ILES=3D
-during my binding check run :-(
+Hey, progress.
 
-A.
+> Here's some snippets from the boot log that might be interesting:
+> 
+> [    0.000000] GICv3: GIC: Using split EOI/Deactivate mode
+> [    0.000000] GIC: enabling workaround for GICv3: NVIDIA erratum T241-FABRIC-4
+> [    0.000000] GIC: enabling workaround for GICv3: ARM64 erratum 2941627
+> [    0.000000] GICv3: 960 SPIs implemented
+> [    0.000000] GICv3: 320 Extended SPIs implemented
+> [    0.000000] Root IRQ handler: gic_handle_irq
+> [    0.000000] GICv3: GICv3 features: 16 PPIs, 1:N
+> [    0.000000] GICv3: CPU0: found redistributor 20000 region 0:0x0000000022100000
+> [...]
+> [    0.000000] GICv3: using LPI property table @0x0000000101500000
+> [    0.000000] GICv3: CPU0: using allocated LPI pending table @0x0000000101540000
+> [...]
+> 
+> There's a bunch of ITS info that I dropped, as well as the same
+> redistributor and LPI property table block for each of the 288 CPUs.
+> 
+> /proc/interrupts is much too big to paste here, but it looks like the
+> QSPI interrupts now end up evenly distributed across the first 72 CPUs
+> in this system. Not sure why 72, but possibly because this is a 4 NUMA
+> node system with 72 CPUs each, so the CPU mask might've been restricted
+> to just the first node.
+
+It could well be that your firmware sets GICR_CTLR.DPG1NS on the 3
+other nodes, and the patch I gave you doesn't try to change that.
+Check with [1], which does the right thing on that front (it fixed a
+similar problem on my slightly more modest 12 CPU machine).
+
+> On the face of it this looks quite promising. Where do we go from here?
+
+For a start, you really should consider sending me one of these
+machines. I have plans for it ;-)
+
+> Any areas that we need to test more exhaustively to see if this breaks?
+
+CPU hotplug is the main area of concern, and I'm pretty sure it breaks
+this distribution mechanism (or the other way around). Another thing
+is that if firmware isn't aware that 1:N interrupts can (or should)
+wake-up a CPU from sleep, bad things will happen. Given that nobody
+uses 1:N, you can bet that any bit of privileged SW (TF-A,
+hypervisors) is likely to be buggy (I've already spotted bugs in KVM
+around this).
+
+The other concern is the shape of the API we would expose to drivers,
+because I'm not sure we want this sort of "scatter-gun" approach for
+all SPIs, and I don't know how that translates to other architectures.
+
+Thomas should probably weight in here.
+
+Thanks,
+
+	M.
+
+[1] https://git.kernel.org/pub/scm/linux/kernel/git/maz/arm-platforms.git/commit/?h=irq/gicv3-1ofN&id=5856e2eb479fc41ea60e76440f768079a1a21a36
+
+-- 
+Without deviation from the norm, progress is not possible.
 
