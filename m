@@ -4,42 +4,41 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 91762CCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 16:54:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 384A0CCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 16:54:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1NjotFNrLBVpEkqG0+JhI7+0eyANRi86p9aT12SGJfI=; b=kwyU/ZuL1wqE4myqJvo2IFDouE
-	p7+X8HvDezu8s2ugGdJnVhPsYPdrVVt1USVwIFpjrMshgDOHB1+yeWb2jIY+p+QmDX83BLkA5ZbkZ
-	biX8W7e7ec/B4taZnP0ijsuI2z+FwFyo2z+ADnjvU6c/S/LaAwYLJLL6MoUvvOA1Pe9h5OfbgRohQ
-	HMIwh8oLEMvZcecQmtqQGkZj3afsx+SyJd1kvy6t4WLjiKboYk/gaQR1yndQqWT59BacL8gtNQdXG
-	ZYfdM/7OuZrN+KAK/jswGnse61ktMxqhs7jaNqOllefFCt5I3gYHOizbgJjCSkJ/s/YRmRpvUTGks
-	Wj9diYxw==;
+	bh=HmAxgL0dGy3jrMkGflVyD22w2uiWDtOAtpDFoRWp8V8=; b=H7yefIZi8vOexpUSTE+7eJh75u
+	+nxmeUZislWLlw1XOI5KCNMVT6Yn4ibobFChRgY/mWyW7K0FdwehEGHIUA7UPV3AZqA7Mq5I8OBxz
+	AkZ7eKpROu7FJ0pBsyqe5/H2+H1wAsxfB7hvyXSS3DRwo8VJbakryUQv4aIUm4H1mf7aZtYCAmzI3
+	75o14zRr6UKYrmL59pduOd9J46t/5HVTw1WgS60nMPxzZk7+GopMlakO035zHnP8cVVQBnha8+FNQ
+	wh7Y1sfPb0CR0NMubIDyaoyhmG6pExhor5XkeJRl1I3MWs1NQvruS0ftPno8PaHCbGa5KT0StaBsi
+	9dJIWQZA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7GO5-000000090Rs-32rs;
-	Fri, 10 Oct 2025 16:54:37 +0000
+	id 1v7GOD-000000090Vt-0Bhk;
+	Fri, 10 Oct 2025 16:54:45 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7GO4-000000090Qn-03PH
+	id 1v7GOB-000000090Ui-1C0F
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 16:54:37 +0000
+	Fri, 10 Oct 2025 16:54:44 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 3AEDA153B;
-	Fri, 10 Oct 2025 09:54:27 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D20B31596;
+	Fri, 10 Oct 2025 09:54:34 -0700 (PDT)
 Received: from [10.1.197.69] (eglon.cambridge.arm.com [10.1.197.69])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2D77B3F66E;
-	Fri, 10 Oct 2025 09:54:22 -0700 (PDT)
-Message-ID: <219dff63-11ad-4eb4-8499-2c5085181339@arm.com>
-Date: Fri, 10 Oct 2025 17:54:19 +0100
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D3C033F66E;
+	Fri, 10 Oct 2025 09:54:35 -0700 (PDT)
+Message-ID: <ddf9b382-f760-4a9b-9f88-f215ef4b7930@arm.com>
+Date: Fri, 10 Oct 2025 17:54:05 +0100
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 01/29] ACPI / PPTT: Add a helper to fill a cpumask from
- a processor container
-To: Stanimir Varbanov <svarbanov@suse.de>, linux-kernel@vger.kernel.org,
+Subject: Re: [PATCH v2 29/29] arm_mpam: Add kunit tests for props_mismatch()
+To: Ben Horgan <ben.horgan@arm.com>, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-acpi@vger.kernel.org
 Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
  carl@os.amperecomputing.com, lcherian@marvell.com,
@@ -59,16 +58,17 @@ Cc: D Scott Phillips OS <scott@os.amperecomputing.com>,
  Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
  Danilo Krummrich <dakr@kernel.org>
 References: <20250910204309.20751-1-james.morse@arm.com>
- <20250910204309.20751-2-james.morse@arm.com>
- <3d2252ef-92a2-4717-a472-3e5b275419ce@suse.de>
+ <20250910204309.20751-30-james.morse@arm.com>
+ <2ed1be84-5097-488d-b8ce-7abebf5b9a7e@arm.com>
 Content-Language: en-GB
 From: James Morse <james.morse@arm.com>
-In-Reply-To: <3d2252ef-92a2-4717-a472-3e5b275419ce@suse.de>
+In-Reply-To: <2ed1be84-5097-488d-b8ce-7abebf5b9a7e@arm.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_095436_095759_EB1E33AF 
-X-CRM114-Status: GOOD (  13.65  )
+X-CRM114-CacheID: sfid-20251010_095443_366350_CF7D65DB 
+X-CRM114-Status: UNSURE (   9.46  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,42 +83,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Stan,
+Hi Ben,
 
-On 25/09/2025 10:32, Stanimir Varbanov wrote:
-> On 9/10/25 11:42 PM, James Morse wrote:
->> The ACPI MPAM table uses the UID of a processor container specified in
->> the PPTT to indicate the subset of CPUs and cache topology that can
->> access each MPAM System Component (MSC).
+On 12/09/2025 17:01, Ben Horgan wrote:
+> On 9/10/25 21:43, James Morse wrote:
+>> When features are mismatched between MSC the way features are combined
+>> to the class determines whether resctrl can support this SoC.
 >>
->> This information is not directly useful to the kernel. The equivalent
->> cpumask is needed instead.
->>
->> Add a helper to find the processor container by its id, then walk
->> the possible CPUs to fill a cpumask with the CPUs that have this
->> processor container as a parent.
+>> Add some tests to illustrate the sort of thing that is expected to
+>> work, and those that must be removed.
 
->> +
->> +/**
->> + * acpi_pptt_get_cpus_from_container() - Populate a cpumask with all CPUs in a
->> + *                                       processor container
->> + * @acpi_cpu_id:	The UID of the processor container.
->> + * @cpus:		The resulting CPU mask.
->> + *
->> + * Find the specified Processor Container, and fill @cpus with all the cpus
->> + * below it.
->> + *
->> + * Not all 'Processor' entries in the PPTT are either a CPU or a Processor
->> + * Container, they may exist purely to describe a Private resource. CPUs
->> + * have to be leaves, so a Processor Container is a non-leaf that has the
->> + * 'ACPI Processor ID valid' flag set.
->> + *
->> + * Return: 0 for a complete walk, or an error if the mask is incomplete.
+
+> Looks good to me, I checked the tests for v1. I agree with Jonathan that
+> you could make RESET_FAKE_HIEARCHY() a function now that you've changed
+> to use globals.
 > 
-> Leftover, drop this.
+> Reviewed-by: Ben Horgan <ben.horgan@arm.com>
 
-Good spot - thanks,
 
+Thanks!
 
 James
 
