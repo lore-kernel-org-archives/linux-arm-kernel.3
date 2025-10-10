@@ -4,109 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A05FCCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 12:47:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 908B4CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 13:01:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Dj1sQ4sH5wuUoMdCX/75Xj2zO3SxYKKQH0HxVt+wxHo=; b=KYuOlff2D9ZaAtswqqnNBG9BvU
-	jc5JTMKsvm81uR4Q8giz9w/ojLLZd+tlmcs3P6O+iyAj/Xi7bIN7qKTeYgA8ySwWL38HO9yCwxOvM
-	2j5RKkfI8d0px4t9yFgAb0H1+Vz1Gt562cNTapAhAu4i0GTegUoliHYxikzDU9dRrbQt3kaj6+AgV
-	hu9NouJL5jvfljz7jBu6G9CbldGA1uHcEC16XioUJfZ5iid58379yJTnj/dkZlbMHxzc2/VvCFQgC
-	KxtH9hZVjXiWbKiYR+sTad+s9cG8L4GSKKHruLKexyWTZA8+fEn+zOqkPNqCcRAAOzKVXEz5+Lxr6
-	pdEvHRZg==;
+	bh=YwHD8YNFYL0oE0NGAUXqtpuAglHzZS7fKr8Z8h16h7A=; b=HYEZZV2n9wDIHZWHKGwaM+wk6P
+	4l/qTnEkkvf2Non8OdGNpyIISISOL6m9fBBEwcxDzz89zvu6JUNHF6UBD88Xc6WQL7wrA5ouGIFIK
+	7Kg09mErtzRgtoTqTikmx019SIZgYAXdDIOJyUQpC7KW1goELAMESTodgFx2M3cIbSbPqyA/k3L2f
+	XKl2dKfh5atg7ylsKAXKjg05m3rheIDoPyK66mLoxdi0LrgNYkNQ+jaeIFHXsS5GpUOdSAanCQ2JE
+	cXeuaeV2jpp6z1/L+sVybdUHLn4CJhfM21wS0v2Siip0uitKtSmQzK5dVY1OWNURshXBbTNpezPkU
+	1g8irj2A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7CWS-00000008U60-1mxp;
-	Fri, 10 Oct 2025 12:47:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v7CkY-00000008VYV-41yG;
+	Fri, 10 Oct 2025 13:01:34 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7CWM-00000008U0D-1FyP
+	id 1v7CkX-00000008VWl-0Sgj
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 12:46:54 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AF2ED625DE;
-	Fri, 10 Oct 2025 12:46:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 8FEB8C2BCB0;
-	Fri, 10 Oct 2025 12:46:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760100413;
-	bh=6J3MxmSorNdJ2bTS7zVr1jS464eqASj5QKaZksVmtBY=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=Wa2vD8swBO4bBks0FDuToy3ZwqHP8CeNOFpmciMCxs5rG/ptimIf64TKaTyBvrAi0
-	 p5hVtzYXGjE1av+KSbUxrk6WF24Nhc5zuXzLRg9oq6ArvKLGgmkpvELz+rG5kwMVeh
-	 X6H/OI3vqR6RptKAd4txYWOkrNZU4vogrZDTTfCuzjTu34yAI+BoM0A098CsDykIXX
-	 c8U+e61VvWgw3NiG08OLPsB2oeInxgWCEVXHLqwmMBtCBoWY9VbCBw0zDYK9dGaDkr
-	 n9h7EIInlXBWOw6nePMq8+9Fj8Kb/PjKR6Iqh57cakyZLY+HcUDRLevFLswmXZr4hT
-	 wwsnZrlamHitg==
-Message-ID: <9b1c2228-03c4-4eeb-8e8a-84b7756e8371@kernel.org>
-Date: Fri, 10 Oct 2025 14:46:47 +0200
+	Fri, 10 Oct 2025 13:01:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1760101292;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=YwHD8YNFYL0oE0NGAUXqtpuAglHzZS7fKr8Z8h16h7A=;
+	b=dh7ZJML6Bvjvp8dMVSnZH2ySczjeaDj+/xDwK6Nt6SP99dol3gHk0d1U35UV+GQsyL+zh9
+	1OUDknFPsEcCf7k19yp8DsznygmtHruzCA8ojWX2QJawgiRMtw2I92PyjS9nRaLw3TUbPK
+	30+qI3rXfEMEj7rF/uM7aVAqqhZ6kNg=
+Received: from mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com
+ (ec2-35-165-154-97.us-west-2.compute.amazonaws.com [35.165.154.97]) by
+ relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
+ cipher=TLS_AES_256_GCM_SHA384) id us-mta-77-HeHpHRlCMmqbNBrlJpazNg-1; Fri,
+ 10 Oct 2025 09:01:27 -0400
+X-MC-Unique: HeHpHRlCMmqbNBrlJpazNg-1
+X-Mimecast-MFC-AGG-ID: HeHpHRlCMmqbNBrlJpazNg_1760101285
+Received: from mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.17])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mx-prod-mc-06.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id AEFFF1800365;
+	Fri, 10 Oct 2025 13:01:24 +0000 (UTC)
+Received: from thuth-p1g4.redhat.com (unknown [10.45.224.128])
+	by mx-prod-int-05.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id E8AFA1954128;
+	Fri, 10 Oct 2025 13:01:21 +0000 (UTC)
+From: Thomas Huth <thuth@redhat.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	linux-arm-kernel@lists.infradead.org
+Cc: Marc Zyngier <maz@kernel.org>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	linux-kernel@vger.kernel.org,
+	kvmarm@lists.linux.dev
+Subject: [PATCH v2 1/2] arm64: Replace __ASSEMBLY__ with __ASSEMBLER__ in uapi headers
+Date: Fri, 10 Oct 2025 15:01:15 +0200
+Message-ID: <20251010130116.828465-2-thuth@redhat.com>
+In-Reply-To: <20251010130116.828465-1-thuth@redhat.com>
+References: <20251010130116.828465-1-thuth@redhat.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: clock: exynosautov920: add mfc clock
- definitions
-To: Raghav Sharma <raghav.s@samsung.com>, s.nawrocki@samsung.com,
- cw00.choi@samsung.com, alim.akhtar@samsung.com, mturquette@baylibre.com,
- sboyd@kernel.org, robh@kernel.org, conor+dt@kernel.org,
- sunyeal.hong@samsung.com, shin.son@samsung.com
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-kernel@vger.kernel.org, chandan.vn@samsung.com,
- dev.tailor@samsung.com, karthik.sun@samsung.com
-References: <20250925130457.3476803-1-raghav.s@samsung.com>
- <CGME20250925125616epcas5p37346312c6a788a5398212f671d8a369d@epcas5p3.samsung.com>
- <20250925130457.3476803-2-raghav.s@samsung.com>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20250925130457.3476803-2-raghav.s@samsung.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
+X-Scanned-By: MIMEDefang 3.0 on 10.30.177.17
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251010_060133_219599_8AD919CF 
+X-CRM114-Status: GOOD (  13.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -121,15 +86,78 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 25/09/2025 15:04, Raghav Sharma wrote:
-> Add device tree clock binding definitions for CMU_MFC
-> 
-> Signed-off-by: Raghav Sharma <raghav.s@samsung.com>
+From: Thomas Huth <thuth@redhat.com>
 
-Wearing DT hat:
+__ASSEMBLY__ is only defined by the Makefile of the kernel, so
+this is not really useful for uapi headers (unless the userspace
+Makefile defines it, too). Let's switch to __ASSEMBLER__ which
+gets set automatically by the compiler when compiling assembly
+code.
 
-Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+Signed-off-by: Thomas Huth <thuth@redhat.com>
+---
+ arch/arm64/include/uapi/asm/kvm.h        | 2 +-
+ arch/arm64/include/uapi/asm/ptrace.h     | 4 ++--
+ arch/arm64/include/uapi/asm/sigcontext.h | 4 ++--
+ 3 files changed, 5 insertions(+), 5 deletions(-)
 
-Best regards,
-Krzysztof
+diff --git a/arch/arm64/include/uapi/asm/kvm.h b/arch/arm64/include/uapi/asm/kvm.h
+index ed5f3892674c7..a792a599b9d68 100644
+--- a/arch/arm64/include/uapi/asm/kvm.h
++++ b/arch/arm64/include/uapi/asm/kvm.h
+@@ -31,7 +31,7 @@
+ #define KVM_SPSR_FIQ	4
+ #define KVM_NR_SPSR	5
+ 
+-#ifndef __ASSEMBLY__
++#ifndef __ASSEMBLER__
+ #include <linux/psci.h>
+ #include <linux/types.h>
+ #include <asm/ptrace.h>
+diff --git a/arch/arm64/include/uapi/asm/ptrace.h b/arch/arm64/include/uapi/asm/ptrace.h
+index 0f39ba4f3efd4..6fed93fb2536f 100644
+--- a/arch/arm64/include/uapi/asm/ptrace.h
++++ b/arch/arm64/include/uapi/asm/ptrace.h
+@@ -80,7 +80,7 @@
+ #define PTRACE_PEEKMTETAGS	  33
+ #define PTRACE_POKEMTETAGS	  34
+ 
+-#ifndef __ASSEMBLY__
++#ifndef __ASSEMBLER__
+ 
+ /*
+  * User structures for general purpose, floating point and debug registers.
+@@ -332,6 +332,6 @@ struct user_gcs {
+ 	__u64 gcspr_el0;
+ };
+ 
+-#endif /* __ASSEMBLY__ */
++#endif /* __ASSEMBLER__ */
+ 
+ #endif /* _UAPI__ASM_PTRACE_H */
+diff --git a/arch/arm64/include/uapi/asm/sigcontext.h b/arch/arm64/include/uapi/asm/sigcontext.h
+index d42f7a92238b9..e29bf3e2d0ccd 100644
+--- a/arch/arm64/include/uapi/asm/sigcontext.h
++++ b/arch/arm64/include/uapi/asm/sigcontext.h
+@@ -17,7 +17,7 @@
+ #ifndef _UAPI__ASM_SIGCONTEXT_H
+ #define _UAPI__ASM_SIGCONTEXT_H
+ 
+-#ifndef __ASSEMBLY__
++#ifndef __ASSEMBLER__
+ 
+ #include <linux/types.h>
+ 
+@@ -192,7 +192,7 @@ struct gcs_context {
+ 	__u64 reserved;
+ };
+ 
+-#endif /* !__ASSEMBLY__ */
++#endif /* !__ASSEMBLER__ */
+ 
+ #include <asm/sve_context.h>
+ 
+-- 
+2.51.0
+
 
