@@ -4,64 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37D14CAC5BB
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 04:03:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35E4FCAC5BB
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 04:22:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GjdmS7xtW1HFPjDkBq2hnFUV3l8gzHZMY6mZgqnMerE=; b=DJGCWl+VVS9oDhF4mizYt38sMH
-	fTyqZ85w1vafAYdyrpepIfQggh3cJjv6pCnQImv0zPbR0g2mrhnM+joBLG8MZoPXs9IMwpg9qm2js
-	3jqfbnZXDI8XbPKita7zSZFX5XdCOELynPbBl/liVH8RP3jwmg8UJhO1eEN6IYEUo+aVKHymm764q
-	cOfjQrsJRXccNceEuNMhicNvqXx7wDJnmKN04Zkj5z4FTvv7f37p2JK7cr+kVb2a990MyR7n96zXT
-	B0fIMhA7K8wmZnKVEiMRnUJ1DiMB/eHE4kMc5WdA3EECI/E8mCefaacMuhHqSJXCIi8O5kO6kRFs5
-	3Whan0ow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=QTBLRGUnkRZyk/CE2NkZcFXGgkEZASpU/prI+WBvaPY=; b=2zw2xNi5Yj3sZcnFDH7KY1GIlp
+	U2gWQzdHpaOtNm3R2EEtglLOhVA/mXn2HgwRKfbWvGZZ0TTZJwk2MSoE3yEfOfGW85soJoKk5kPfi
+	qx6Es8kpgYGsKYeXl9bLOVjFZ4eDaMHBNdD4lSxMyIoP8/S2CgtWhuhm9ilKiFS0V357SKuIHeB+Q
+	gXnwQa6H7aFWzbhxmqmOyvTfQzOHJj2nizifyRhlZDDlElRk9ylU/jJD396xKCEbQkYNtAO3g/hBB
+	O+7kKa0ZPV0+dkODI+KLOFvWcXKbU7upRsEH/MS3ld4tPjZ10DLS5fqOcuGtWbmpaHGT62B6rWzO2
+	gKJGzPbA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v74LJ-00000007dA4-2Ouq;
-	Fri, 10 Oct 2025 04:02:57 +0000
-Received: from mail-m49216.qiye.163.com ([45.254.49.216])
+	id 1v74do-00000007eWL-0YON;
+	Fri, 10 Oct 2025 04:22:04 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v74LF-00000007d99-2QJh;
-	Fri, 10 Oct 2025 04:02:55 +0000
-Received: from [172.16.12.26] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 256613dc5;
-	Fri, 10 Oct 2025 12:02:44 +0800 (GMT+08:00)
-Message-ID: <b47c5579-511e-4831-b86e-48ad4cefaa6c@rock-chips.com>
-Date: Fri, 10 Oct 2025 12:02:43 +0800
+	id 1v74dk-00000007eVq-11eh;
+	Fri, 10 Oct 2025 04:22:01 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1760070120; x=1791606120;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=V8lVhg40i6i3dzj7FEuSEzfEDeikzBVx4RlBJVsKO+g=;
+  b=DyAy+Jo4mSgYOR5KmbPibrOkd2rPrfTgo324XWTlKgGM39bhTU1t9Xgf
+   wDAGaFJzzQ8/0ew4Dl5T72D7Gk2vDneAJylkNYu4Tp6uiHm8PrQLP1e0l
+   +c1O8zZSpAqoBaFC0nkSv7Z42XG9xcyyHBHaNKpslXaffL43/CtzaXz3m
+   /5jtg+Aaysg8YJF7HDnG13dxbKDQtygcSE35yG42/9mlDxNePnp6K1YzC
+   YXxLBlrIbFxzMHGg/3NbOwZQ+Wrf6DGJO0QLIwMf0jGBDj6H3O1cC58G0
+   3rPrH5oyvJZR+C70ms06LqCEy6tWrJlW99sHqvGln30AAMvlKhEnAYez3
+   w==;
+X-CSE-ConnectionGUID: yrt+Ktq+Qs+bVgtHA2JNPg==
+X-CSE-MsgGUID: +jsXbuhESxGjIOaGvcJXXg==
+X-IronPort-AV: E=McAfee;i="6800,10657,11577"; a="79931638"
+X-IronPort-AV: E=Sophos;i="6.19,218,1754982000"; 
+   d="scan'208";a="79931638"
+Received: from fmviesa007.fm.intel.com ([10.60.135.147])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 09 Oct 2025 21:22:00 -0700
+X-CSE-ConnectionGUID: 7bOHdkV+SSOVseicgkDGvw==
+X-CSE-MsgGUID: Ilpw6yfLTLq+oUU9z57IIA==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,218,1754982000"; 
+   d="scan'208";a="180572606"
+Received: from lkp-server01.sh.intel.com (HELO 6a630e8620ab) ([10.239.97.150])
+  by fmviesa007.fm.intel.com with ESMTP; 09 Oct 2025 21:21:56 -0700
+Received: from kbuild by 6a630e8620ab with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1v74dd-00028h-2m;
+	Fri, 10 Oct 2025 04:21:53 +0000
+Date: Fri, 10 Oct 2025 12:21:07 +0800
+From: kernel test robot <lkp@intel.com>
+To: Chuan Liu via B4 Relay <devnull+chuan.liu.amlogic.com@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Neil Armstrong <neil.armstrong@linaro.org>,
+	Jerome Brunet <jbrunet@baylibre.com>,
+	Kevin Hilman <khilman@baylibre.com>,
+	Martin Blumenstingl <martin.blumenstingl@googlemail.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-amlogic@lists.infradead.org,
+	linux-arm-kernel@lists.infradead.org,
+	Xianwei Zhao <xianwei.zhao@amlogic.com>,
+	Chuan Liu <chuan.liu@amlogic.com>
+Subject: Re: [PATCH 11/19] arm64: dts: amlogic: A4: Add peripherals clock
+ controller node
+Message-ID: <202510101124.3xwn3STp-lkp@intel.com>
+References: <20250930-a4_a5_add_clock_driver-v1-11-a9acf7951589@amlogic.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] drm/bridge: analogix_dp: Fix connector status detection
- for bridges
-To: =?UTF-8?Q?Heiko_St=C3=BCbner?= <heiko@sntech.de>,
- Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-Cc: m.szyprowski@samsung.com, andrzej.hajda@intel.com,
- neil.armstrong@linaro.org, rfoss@kernel.org, linux-kernel@vger.kernel.org,
- dri-devel@lists.freedesktop.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org, linux-rockchip@lists.infradead.org
-References: <20251009193028.4952-1-heiko@sntech.de>
- <v6aqic6kffc3x42dkb4bika5tvoqdpmmloroqio2656g74pkws@7fe3bsfzbasn>
- <3572997.QJadu78ljV@diego>
-Content-Language: en-US
-From: Damon Ding <damon.ding@rock-chips.com>
-In-Reply-To: <3572997.QJadu78ljV@diego>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a99cc49106703a3kunm83717e1fa8459
-X-HM-MType: 1
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGklOSlZPGUgZTkNMGh1DHU1WFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
-	hVSktLVUpCS0tZBg++
-DKIM-Signature: a=rsa-sha256;
-	b=VCOjjjWIpm8zpF9NqD0SP/ze5+hbIMIcSXoNvqOQfkmwmjkR5AcJwvXZDcLpheH0NZr8ZoT5Dlq8tfuxsW5qN4Y9ZRDF7m5Z1/TSpFCfjLJeqrJjzs7+YC0W2vMw+JhU2Ij7RyJydf4czuEd03Tx/NsyfP+Kir+EymCgdAoNXqk=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
-	bh=GjdmS7xtW1HFPjDkBq2hnFUV3l8gzHZMY6mZgqnMerE=;
-	h=date:mime-version:subject:message-id:from;
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20250930-a4_a5_add_clock_driver-v1-11-a9acf7951589@amlogic.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_210254_135517_34F9F685 
-X-CRM114-Status: GOOD (  31.34  )
+X-CRM114-CacheID: sfid-20251009_212200_293899_0BB707E0 
+X-CRM114-Status: UNSURE (   9.33  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,167 +100,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Hi Chuan,
 
-On 10/10/2025 7:42 AM, Heiko Stübner wrote:
-> Hi Dmitry,
-> 
-> Am Freitag, 10. Oktober 2025, 00:30:11 Mitteleuropäische Sommerzeit schrieb Dmitry Baryshkov:
->> On Thu, Oct 09, 2025 at 09:30:28PM +0200, Heiko Stuebner wrote:
->>> Right now if there is a next bridge attached to the analogix-dp controller
->>> the driver always assumes this bridge is connected to something, but this
->>> is of course not always true, as that bridge could also be a hotpluggable
->>> dp port for example.
->>>
->>> On the other hand, as stated in commit cb640b2ca546 ("drm/bridge: display-
->>> connector: don't set OP_DETECT for DisplayPorts"), "Detecting the monitor
->>> for DisplayPort targets is more complicated than just reading the HPD pin
->>> level" and we should be "letting the actual DP driver perform detection."
->>>
->>> So use drm_bridge_detect() to detect the next bridge's state but ignore
->>> that bridge if the analogix-dp is handling the hpd-gpio.
->>>
->>> Signed-off-by: Heiko Stuebner <heiko@sntech.de>
->>> ---
->>> As this patch stands, it would go on top of v6 of Damon's bridge-connector
->>> work, but could very well be also integrated into one of the changes there.
->>>
->>> I don't know yet if my ordering and/or reasoning is the correct one or if
->>> a better handling could be done, but with that change I do get a nice
->>> hotplug behaviour on my rk3588-tiger-dp-carrier board, where the
->>> Analogix-DP ends in a full size DP port.
->>>
->>>   drivers/gpu/drm/bridge/analogix/analogix_dp_core.c | 8 ++++++--
->>>   1 file changed, 6 insertions(+), 2 deletions(-)
->>>
->>> diff --git a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
->>> index c04b5829712b..cdc56e83b576 100644
->>> --- a/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
->>> +++ b/drivers/gpu/drm/bridge/analogix/analogix_dp_core.c
->>> @@ -983,8 +983,12 @@ analogix_dp_bridge_detect(struct drm_bridge *bridge, struct drm_connector *conne
->>>   	struct analogix_dp_device *dp = to_dp(bridge);
->>>   	enum drm_connector_status status = connector_status_disconnected;
->>>   
->>> -	if (dp->plat_data->next_bridge)
->>> -		return connector_status_connected;
->>> +	/*
->>> +	 * An optional next bridge should be in charge of detection the
->>> +	 * connection status, except if we manage a actual hpd gpio.
->>> +	 */
->>> +	if (dp->plat_data->next_bridge && !dp->hpd_gpiod)
->>> +		return drm_bridge_detect(dp->plat_data->next_bridge, connector);
+kernel test robot noticed the following build errors:
 
-I have tried to use the drm_bridge_detect() API to do this as 
-simple-bridge driver, but it does not work well for bridges that do not 
-declare OP_DETECT.
+[auto build test ERROR on 01f3a6d1d59b8e25a6de243b0d73075cf0415eaf]
 
-Take nxp-ptn3460 as an example, the connected status will be treated as 
-connector_status_unknown via the following call stack:
+url:    https://github.com/intel-lab-lkp/linux/commits/Chuan-Liu-via-B4-Relay/dt-bindings-clock-Add-Amlogic-A4-SCMI-clock-controller/20250930-174011
+base:   01f3a6d1d59b8e25a6de243b0d73075cf0415eaf
+patch link:    https://lore.kernel.org/r/20250930-a4_a5_add_clock_driver-v1-11-a9acf7951589%40amlogic.com
+patch subject: [PATCH 11/19] arm64: dts: amlogic: A4: Add peripherals clock controller node
+config: arm64-allmodconfig (https://download.01.org/0day-ci/archive/20251010/202510101124.3xwn3STp-lkp@intel.com/config)
+compiler: clang version 19.1.7 (https://github.com/llvm/llvm-project cd708029e0b2869e80abe31ddb175f7c35361f90)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251010/202510101124.3xwn3STp-lkp@intel.com/reproduce)
 
-drm_helper_probe_single_connector_modes()
-   -> drm_helper_probe_detect()
-      -> drm_bridge_connector_detect()
-         -> analogix_dp_bridge_detect()
-            -> drm_bridge_detect()
-               -> return connector_status_unknown due to !OP_DETECT
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202510101124.3xwn3STp-lkp@intel.com/
 
-However, the connected status will be connector_status_connected as 
-expected if Analogix DP does not declare OP_DETECT[0]:
+All errors (new ones prefixed by >>):
 
-drm_helper_probe_single_connector_modes()
-   -> drm_helper_probe_detect()
-      -> drm_bridge_connector_detect()
-         -> return connector_status_connected due to CONNECTOR_LVDS
+   Error: arch/arm64/boot/dts/amlogic/amlogic-a4.dtsi:119.19-20 syntax error
+>> FATAL ERROR: Unable to parse input tree
 
-Base on Andy's commit 5d156a9c3d5e ("drm/bridge: Pass down connector to 
-drm bridge detect hook"), the drm_connector becomes available in 
-drm_bridge_detect().
-
-It may be better to unify the logic of drm_bridge_detect() and 
-drm_bridge_connector_detect(), which sets the connected status according 
-to the connector_type. Then the codes will be more reasonable and become 
-similar to the simple-bridge demo via 
-'drm_bridge_detect(dp->plat_data->next_bridge, connector)'.
-
-But we still need a specific check for DP-connector to resolve this 
-issue. The '!dp->hpd_gpiod' may not be well-considered. Perhaps we could 
-introduce a new API, similar to drm_bridge_is_panel(), called 
-drm_bridge_is_display_connector()?
-
->>
->> And it's also not correct because the next bridge might be a retimer
->> with the bridge next to it being a one with the actual detection
->> capabilities. drm_bridge_connector solves that in a much better way. See
->> the series at [1]
->>
->> [1] https://lore.kernel.org/dri-devel/41c2a141-a72e-4780-ab32-f22f3a2e0179@samsung.com/
-> 
-> Hence my comment above about that possibly not being the right variant.
-> Sort of asking for direction :-) .
-> 
-> I am working on top of Damon's drm-bridge-connector series as noted above,
-> but it looks like the detect function still is called at does then stuff.
-> 
-> My board is the rk3588-tiger-displayport-carrier [0], with a dp-connector
-> which is the next bridge, so _without_ any changes, the analogix-dp
-> always assumes "something" is connected and I end up with
-> 
-> [    9.869198] [drm:analogix_dp_bridge_atomic_enable] *ERROR* failed to get hpd single ret = -110
-> [    9.980422] [drm:analogix_dp_bridge_atomic_enable] *ERROR* failed to get hpd single ret = -110
-> [   10.091522] [drm:analogix_dp_bridge_atomic_enable] *ERROR* failed to get hpd single ret = -110
-> [   10.202419] [drm:analogix_dp_bridge_atomic_enable] *ERROR* failed to get hpd single ret = -110
-> [   10.313651] [drm:analogix_dp_bridge_atomic_enable] *ERROR* failed to get hpd single ret = -110
-> 
-> when no display is connected.
-> 
-> With this change I do get the expected hotplug behaviour, so something is
-> missing still even with the bridge-connector series.
-> 
-> 
-> Heiko
-> 
-> 
-> [0] v3: https://lore.kernel.org/r/20250812083217.1064185-3-heiko@sntech.de
->      v4: https://lore.kernel.org/r/20251009225050.88192-3-heiko@sntech.de
->      (moved hpd-gpios from dp-connector back to analogix-dp per dp-connector
->      being not able to detect dp-monitors)
->>
->>>   
->>>   	if (!analogix_dp_detect_hpd(dp))
->>>   		status = connector_status_connected;
->>
->>
-> 
-> 
-
-I see... There is also a way to leave the connected status check in 
-Analogix DP bridge:
-
-1.If the later bridge does not support HPD function, the 'force-hpd' 
-property must be set under the DP DT node. The DT modifications may be
-large by this way.
-2.If the later bridge do support HPD function like the DP-connector, the
-connected status detection method is GPIO HPD or functional pin HPD.
-
-With the DT modifications for above 1, the analogix_dp_bridge_detect() 
-can be simplified to:
-
-static enum drm_connector_status
-analogix_dp_bridge_detect(struct drm_bridge *bridge, struct 
-drm_connector *connector)
-{
-	struct analogix_dp_device *dp = to_dp(bridge);
-	enum drm_connector_status status = connector_status_disconnected;
-
-	if (!analogix_dp_detect_hpd(dp))
-		status = connector_status_connected;
-
-	return status;
-}
-
-Best regards,
-Damon
-
-[0]https://lore.kernel.org/all/22a5119c-01da-4a7a-bafb-f657b1552a56@rock-chips.com/
-
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
