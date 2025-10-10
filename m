@@ -4,90 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7C2B3CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 03:20:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DCD4CCD18C
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 03:32:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=nmWw5+Dj1mFyUNTa6/5YxEtv7JkoN4Y3GT6P1fyCsMU=; b=kElVRvYudG5s7OZNeNkWocIyLT
-	omD+BXGTgdiFujX6NJqiNb3Z25MMX5svVJrxAT+trAQcnv/GQ7kuXPD6K2i/qlgd2OOIzsESbS2ke
-	YPhcchuBIKVwt4KcE67MUvmcfehPqiP3IcoJTwxG+YbjBI4NeBPlT1CB94I2ecCt8RX2vwJULq+nh
-	YQDkWWdU9Pbt7Zf/AQxD8/n2SOQW6HHcPAVClFKeNEul3Zny9jEyW961Yzt2yugXKI3Kz3B5qbdj9
-	hgzThchxO7E2MiOOYJ++UA2YpN1kp/VzPggJXW6+bTyup2XQGwvSL8knJe0GVWdV0GTyq9nBNYn+3
-	Ua2trguQ==;
+	bh=18eqlHdcSvn8mzWmPDAf/8pve1cI5mVsrNxED55XZZ8=; b=ADAVmL6bX+7qdHsCRtque3r+J2
+	/cGDPXxm5KpSMkRVaxe2N6u6nVWf16PD+1oatdXe6Y3posghHSKzuNVlMgRG3wtr9g+PWMAwLQ3eF
+	U+F+2jJzcGXWWQCrI09xseLR9tlIwrfyWDEaSux3ikr62UzmU/BsI7p7nsyyeefOIU/5Dep1jYhyX
+	8XScLmLg12+WJ+SERF8Cnt7WErr1bHrue5qYMe48IhL/ll2Ic5xAxGzKq1W3fU01cZ7LoRtUGjFJJ
+	hvD5H2fhqwwAjbfxDR9KKV1zImc+8gb9+lGBXwkw9l2X4MlhWudTDjkzU7kLF+IAoqenhCVe110b6
+	gMsgunqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v73g7-00000007YRu-1ZWr;
-	Fri, 10 Oct 2025 03:20:23 +0000
-Received: from mail-qt1-x82f.google.com ([2607:f8b0:4864:20::82f])
+	id 1v73rM-00000007ZGs-1Paj;
+	Fri, 10 Oct 2025 03:32:00 +0000
+Received: from mail-westeuropeazlp170130006.outbound.protection.outlook.com ([2a01:111:f403:c201::6] helo=AM0PR02CU008.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v73g5-00000007YQw-1IlB
-	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 03:20:22 +0000
-Received: by mail-qt1-x82f.google.com with SMTP id d75a77b69052e-4ddf60466d4so18492511cf.2
-        for <linux-arm-kernel@lists.infradead.org>; Thu, 09 Oct 2025 20:20:20 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760066420; x=1760671220; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=nmWw5+Dj1mFyUNTa6/5YxEtv7JkoN4Y3GT6P1fyCsMU=;
-        b=PHe8qFyFQDl4RU7ILvRrkr+1TWkXL7VlM7w7CHYp1vwfHQHre0RHte/5T/O0OFi3FR
-         nlKJ47/vyoA+DBYxKvFlwUC40xfIFkt2gDTZk8L/mMO+/krS6GvMQYbktYEw3ucnuZ7t
-         N2WIVFwwc8Vu8DAVezCRzYAn/zFoxKP+D4E7viLI83Z05ib0keS/Lt9t1cFZ499VEHKq
-         h02bGTom8+7THOJ7ScTB1g8b8C8nv0RpNysXXoDEwMs8DZ7t3p7QSsq4Z/Df97eUdAzd
-         O9zu9Ft8/sE4k5fLjUZWpP+dVAPdK2liN8Yxzibq7Ql6uKZMQBrPLKo9X8tRCYOeFZK7
-         2+rw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760066420; x=1760671220;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=nmWw5+Dj1mFyUNTa6/5YxEtv7JkoN4Y3GT6P1fyCsMU=;
-        b=wj776D/B7HYeqypNSKKFtpnGUgaTnIuNQ7fVtoy+X20207iQHSCRaYPckui42SGi4f
-         DMmjHKTgMk50w6HC/pPRvIhLq1HPVX76gXzDMZDS8WnSP8xior8seQQtCiAtI1zUdblN
-         H1pSRwIe+YJhQaVgcMcDysswLid4l/bd64c9DzAVboWchOsej317z3TH6UjY39zThQz3
-         2R2SDxCF5sAfM4nC9XQt8nKk8up9IefenHi0ZYq/oPH8C1me+KfsmAaClDCqanc8rUwo
-         X01HhqEwdPtSppgduB9dqoUWA0FMBX2bDXlTwpvrN0ebVzCWb0tdaD04CbYMhRnEW+m/
-         Pp8w==
-X-Forwarded-Encrypted: i=1; AJvYcCX68Hwh7MRdaJtcZ4AeCJzpGqQoTf6bmekA1iME6hlzfdcTw3y3zXJgeSk5sDQvDi8GcDmCMpyOvnlcySGonZdL@lists.infradead.org
-X-Gm-Message-State: AOJu0YzA29NFFeUvW5tPjt8DwTQeYShd65RLS6NZCePpNkZz4t4qu3O3
-	EEJEfPfEms+X394Gn8Jwy75ZLYaKWlx3Ai7b5/hiknzxPkSwBEtuW9IB1Sz0JZVgnrqFkwmo7pj
-	qF0qQggrQku5GxCkXAc5Co/q1ssKh2AQ=
-X-Gm-Gg: ASbGncuMJr7fs86V5+yXUN/8qJ/8cAaJ4Rqfilj49lGO4Sd5ggF8vjenbxqZ/WAkGeY
-	jNA6qBARcZLO2jrWqyH93qYtruYIJteAp8UouZBoDzoXxORAr+f6BPyCkvTT8quk7JPok11RD+W
-	MSCTj2G9aM7nqLSgnjD6HjhZbdsN+bnKWVTqgCx6zaGvC6frBkYzooASIkMj89DgqfXeulbKuO8
-	02TwtWiUR8YR2vhZkuEZBvs4Z5nT5UZO+sgxA==
-X-Google-Smtp-Source: AGHT+IG/f2JLTSStGduS6XZjeZ+es0r1EhO6WUkmy1NWRrK48A440J2He6YHChg8tiyLaptae0m7b+ub/wDnL1a78ak=
-X-Received: by 2002:a05:6214:19cc:b0:795:67ac:ca5d with SMTP id
- 6a1803df08f44-87b2109283cmr151808406d6.30.1760066420103; Thu, 09 Oct 2025
- 20:20:20 -0700 (PDT)
+	id 1v73rI-00000007ZE4-3P1M;
+	Fri, 10 Oct 2025 03:31:57 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=p/ve/aodSYigB4SYaoQiwAZfCGxivfhJDr8NvKDguCyALEUcbyI4irAaVhKD3gLtnj4a7hlVnCytjx7L0PKvzzNMA6nvFoQ+rEmJH/PNqv/tLhK/BnbIabdj8gNiKv23EyJnXzW1dszreqYH5Zv1d56tRNXDDONw4dgZg4abEbuhWDTUzkYKLXNtj5c5Gl7jIz2tw5gGveZAiOTHIMe8dI7LGaOMaf+C6Q5kDwsSgKnOCQ3f/PoXoba7hq+6UMKNisfyYu75m6ooRlsfZYk2CfIP/dDMCC1hd2qvBXNdD6UNk07MHiHORaYQI46lPdIRfuoSXnWIqjmKcS1djMlnGw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=18eqlHdcSvn8mzWmPDAf/8pve1cI5mVsrNxED55XZZ8=;
+ b=QxObpDnpogyPKyrsDXqRioMff1pKheth7oHWvA/oO0AHg3VA/ohGzcE3viGEFllCywTPMzcvLoPbHAyPdziFG/q2KFzq6g9kEpn4abXxLcB6D2Vv1gdWTafHv9kqmwlMLsjaYLk4ZNliJnp8WBVT+6do8g/SD+7SxIfnVy0LBNgXqvjUg8oacLJSbavV4HFYMJq1v/SENK0JLGkLjN4AcPVWgJOQG4e6WgJ1eWay5K6aZB6YJ2mr54GUqRIgwbWKUkQxxmAq2rUd17WznmwNIeH5wDtvFxuB+U0LowCy4vpmpuqczTOeYFTrpB9pK54lq9GlpgDh6DwOYuf7ZwvqfA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
+ dkim=pass header.d=iopsys.eu; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=18eqlHdcSvn8mzWmPDAf/8pve1cI5mVsrNxED55XZZ8=;
+ b=AQyPeTzSyAhNDt1idk22CnLWM2+jV+Wi7Hm62LLSmB19muf0ws6YOC8ojuQCM+riUExU4Bn6ygfLsI8IF97mUjFG5l/qAxOtgT4BmzuxDl5Q6nlH2TaX7vq2TZ0Bdiq1WgKLFNXMySK/3IshPZ42KYvrknP/l3XquDhCEJLkDJdATUMuuQk3iIKAQaNHD1AZTa+Ik/TDZhThXGKq9J/PbGhXMLizbW4T7lMd0bexamaNu2OJfqF0Q85lkfnARLoPvJ+2mTVoTzQUHpX/BDjDyB26Iupw/cSTHmxVpfOvum143FD6IEOP8OWwvUL4orYJ0xs9jU77PEplECPv67L7zw==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=iopsys.eu;
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
+ by DB9PR08MB8359.eurprd08.prod.outlook.com (2603:10a6:10:3d9::7) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.9; Fri, 10 Oct
+ 2025 03:31:48 +0000
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0%3]) with mapi id 15.20.9203.009; Fri, 10 Oct 2025
+ 03:31:48 +0000
+From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+To: Lorenzo Bianconi <lorenzo@kernel.org>,
+	Ray Liu <ray.liu@airoha.com>,
+	Mark Brown <broonie@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	Andy Shevchenko <andy@kernel.org>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-spi@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org,
+	linux-mediatek@lists.infradead.org
+Cc: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
+	Andreas Gnau <andreas.gnau@iopsys.eu>
+Subject: [PATCH v7 02/17] spi: airoha: remove unnecessary restriction length
+Date: Fri, 10 Oct 2025 06:31:21 +0300
+Message-ID: <20251010033136.1475673-3-mikhail.kshevetskiy@iopsys.eu>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251010033136.1475673-1-mikhail.kshevetskiy@iopsys.eu>
+References: <20251010033136.1475673-1-mikhail.kshevetskiy@iopsys.eu>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-ClientProxiedBy: GVYP280CA0035.SWEP280.PROD.OUTLOOK.COM
+ (2603:10a6:150:f9::28) To GV2PR08MB8121.eurprd08.prod.outlook.com
+ (2603:10a6:150:7d::22)
 MIME-Version: 1.0
-References: <20251009084416.45542-1-jjm2473@gmail.com> <20251009084416.45542-4-jjm2473@gmail.com>
- <aOe_0EufouURu7R2@shell.armlinux.org.uk>
-In-Reply-To: <aOe_0EufouURu7R2@shell.armlinux.org.uk>
-From: Liangbin Lian <jjm2473@gmail.com>
-Date: Fri, 10 Oct 2025 11:20:08 +0800
-X-Gm-Features: AS18NWCmhVw11nXPu-jU8ygXHImQqmaDaGRECyqzHvDtAZ_V_270USq7PdCB0EY
-Message-ID: <CAP_9mL4MfzagxiMD1VdOu=jBuN_XsOrvPQT=XTVgu2+G=+nD9A@mail.gmail.com>
-Subject: Re: [PATCH v5 3/3] arm64: dts: rockchip: add LinkEase EasePi R1
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, 
-	quentin.schulz@cherry.de, kever.yang@rock-chips.com, naoki@radxa.com, 
-	honyuenkwun@gmail.com, inindev@gmail.com, ivan8215145640@gmail.com, 
-	neil.armstrong@linaro.org, mani@kernel.org, dsimic@manjaro.org, 
-	pbrobinson@gmail.com, alchark@gmail.com, didi.debian@cknow.org, 
-	jbx6244@gmail.com, andrew@lunn.ch, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|DB9PR08MB8359:EE_
+X-MS-Office365-Filtering-Correlation-Id: 9a3059d7-8bf3-46f4-e142-08de07ad8b75
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|52116014|1800799024|366016|921020|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?XPq28jxFn1rdJmolX61e9V2mdimTOPyQRR9iAfyRoKPkQaVPcVghYauHdEe4?=
+ =?us-ascii?Q?Uc3KbRxydl1Mv6UiCzwyZ2qj00GacC0mot6cZvG01BHYhoJ0Kgq0ORe2lSpv?=
+ =?us-ascii?Q?pcT73WyE4uZNA6CwCYLtJzydETANJsH4TpczgLR3DBv697GFdnimfqK9k8Ir?=
+ =?us-ascii?Q?icFBmL2skyblJvGufCrp4jGdHzeONJuLaFToFdkJStGzWJUHbRKe76arJtn2?=
+ =?us-ascii?Q?dZlksI17hGeSQmWUn2e+0klMx6vzgcQexChLbvz/xOk7PzG7SRtW13+kus6X?=
+ =?us-ascii?Q?PP9IArT4Ldtt201/gTm6AKuOgGiTABZDRd79tv12IUrXSuLlkl9jkFk+IA0t?=
+ =?us-ascii?Q?T3TOgubmwT5+7CPFX1nBSR8gDjYhmToC+31C486nTKQlnfgXRU+gGvxcyUuI?=
+ =?us-ascii?Q?iP4zTvUAkUhorKpvoPJUINQD4tFDoyDmZXoNBkLkpxUetgwpgQisd3yUK8bz?=
+ =?us-ascii?Q?5a0ETKpVWX1IMcal+T1GRxLn+hkldJhonY4lsBh9yHVpX7o7OUk/AD/pUnJf?=
+ =?us-ascii?Q?/GpSRa8BqWz08CzV8szQlqv12ZjtYZefjKcYCxdmPzq6c0ZMjVEstwFbc4vr?=
+ =?us-ascii?Q?8Ztghg9Mz/a0nQiPjtKtBQdbtqxAoxhhYoYth6JFM0V73AJ+9CCxX+U4Nth+?=
+ =?us-ascii?Q?tTUQ9puSY+4xeSSjv4WQew1hNANF0EAr6YvZ1uCA+kCK64BfZ/QkBgS1odv7?=
+ =?us-ascii?Q?xjXsUp6zuIBEZko5plwuwCginq5kIEvrMiSzMkhRHnV7vdSwgYN6dC+VYwRx?=
+ =?us-ascii?Q?lVKUtPEs/ml3VKfmqgJPT2n+/ngaz29FxOHbgQJqyMSaXtlR6/lYUG5a04Mo?=
+ =?us-ascii?Q?Lcfc3GpWF+raGPIrn4G4/cMimIa831j+wwWCSkoIXCLaqfzOPWXH5dXcT1a5?=
+ =?us-ascii?Q?PjmI/42vLddbIr8nSffUuwmrKOLOPGYrDNWPQfGltfu3NZwYWdpSBz3Ykvos?=
+ =?us-ascii?Q?G7ez5jpTcOZZ47O9fr/3W4yzL5MiAZCOSPI9hRq25Xr1erMaqkRPdUIS3kPQ?=
+ =?us-ascii?Q?+7FKTVmTZlegW6FG5Vf18XxCFRtVSDuw6aXIy/6cxLMOTrYz6xFi6p2/3Scw?=
+ =?us-ascii?Q?Gcysn8yPzVlwH8kB/fZqld9cMDuh0NOioGaflZX5yoHe8fTZuDwteWHUCTsO?=
+ =?us-ascii?Q?haFr8ViTRCobtrHTizw+7BzR9x+4igqKu1PqcsqJVXLl/PWDii6uMvIhaMHb?=
+ =?us-ascii?Q?kI+CYEHuCb3QxYT1MYvS/ujpn5DYpd8eVEUvEAb16RhxG01LfnCFQItrxb/S?=
+ =?us-ascii?Q?1W/Spwm1tXlDqopGnSS33uA99RY3lPPhs0SgP9P+l0bzsXCE+UwmW5EHohkV?=
+ =?us-ascii?Q?8F5N7ODhwhBsKkweLtgnTnDHWPcgC84+EF6HDntUCeHOq8W7g566GPLQ62jN?=
+ =?us-ascii?Q?wkuGaWaT5l5KXL2I2Bm4mVP+nHvvWv8BWTw/X+9hRm6zNEXHmJDnn5gvb5CR?=
+ =?us-ascii?Q?EITIsE4Xloinz2umXD/guU/rZwh8DSURI/BdbCNYbRvDSDhr1AQQvHIC4ZN8?=
+ =?us-ascii?Q?x/T6Z+EbXaitT9H85oCH3QW6BuBjnryrl2cR2XeSC8nFsP2jPTBK2d8bcQ?=
+ =?us-ascii?Q?=3D=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(52116014)(1800799024)(366016)(921020)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?oDc2quUnSkDvjHqPRN2b/woTuw/2ezk6+f1rv9XBqTduDgsws39+/PxPp/CP?=
+ =?us-ascii?Q?1wGE80ZhmrDn9KGhd37yQHs3ZznzjOgBENJoRCmkYAw5TJkTNP5QP2SgItd1?=
+ =?us-ascii?Q?uLkAEcNZFU5Yp57nbU2UlumtDH0GBUe+roGqvN+kYM0wSIHYYibXaomb5j40?=
+ =?us-ascii?Q?XbgJ57ER1NaZ2g30VDT+uUd1myCd8vpSK1TIBAkBywn+ZojhhAJGnOBpU2ua?=
+ =?us-ascii?Q?4+7Edi8tKrCFelASKi518qrZWYa+Rn0INDHvuMKrCrrhj9TJw3lcqm3kioGN?=
+ =?us-ascii?Q?Qhdpr+/bqAMWTZWHnTHDR2SCHu7WG59oKnxC4ZFa6BM3yJ1YOcRN6oA4hXH9?=
+ =?us-ascii?Q?pD50YA6uELK5APdcL3kaI/6ZM+avNW6L4B40I1RvytHO6Rsozd+c31RFHULc?=
+ =?us-ascii?Q?SoKcSYVYq23ETYKhCyDKdU2oXeCoUFWlpYMzVd52dDnAh84PHbsSnKIjUtp4?=
+ =?us-ascii?Q?rQEV26q0gPd4eD+xGDf7GiZKXWHLXbSqHH5DE/18hhMvn/uxSs4Dup7J1RMG?=
+ =?us-ascii?Q?9vc2WJqL1wl9jjASA3pG/44XyvM6YfLPOaYl1tO+PGyg28rs8l/VcS7GQv+o?=
+ =?us-ascii?Q?9DWF5Acdkfc6jsDZvEmR0+Dv6e0Qi6CGVsB75c75K5OzXeI9Kx6I5GkYqie6?=
+ =?us-ascii?Q?eVBxNnlx7Y87a3LwRcxv98WkdyxhmKjb+T7y7spljz04QhogcosmAJ4P3+xC?=
+ =?us-ascii?Q?5+Ucco6mKPcED2JDJHVwRsFlTgpBDTo6LJregRT+PbZNY/vSxSiBovmT5GBN?=
+ =?us-ascii?Q?AuAdEY4Mv86PdIObfDce2ogNJIxHS6WwHwI6EcYh9cCz7dHtDCNTdb3pnKvd?=
+ =?us-ascii?Q?tSnuAcKIe8AuwmxzUvsuefy4s7CaHNAFT/GUxLe9NlaaYLXu8wxCVCybOx3Z?=
+ =?us-ascii?Q?ITVnmzF2ADakWjHVNgTXW6JMY1y/oYHRkUcETu8vFmP9+AuXhACZeYVViGJ2?=
+ =?us-ascii?Q?dATyK45VLNPu8D4vO9w8D6HTAdqpN9e31STU1lscUA+5rD+zXjKW4pKOXLtS?=
+ =?us-ascii?Q?foWqWzNpM2wUjD+TfAv5YexE7EZ4hxpxuYvi+aiBhGzzi+jJnAu+FtIlHn2a?=
+ =?us-ascii?Q?9qPLeh7g5Qxg7oQomfwwmBA44DdqT6XCIpfXyWqOjHS1uwxuOq/wAOBJ/W6O?=
+ =?us-ascii?Q?vTkUz4NjrzJcrEfuvxjpoD/wEeh61i1Ez/TwhhUFyBBMmfyEHWq4FJ15fd1S?=
+ =?us-ascii?Q?j3NvqQuEAWFtxeEA3c1iCMM3SxOc49vfupgFn2lySsFHzfbQ8jQZNMzJa5P3?=
+ =?us-ascii?Q?cTtVluLOPFGQ37hIEAde7Zd57pPv21ffqH3nUxs7mMikxIoFeZPgYim1ov9b?=
+ =?us-ascii?Q?7IBFGcZgF8s77gWE9MBzcEpFBPPMq4cDafaXSuES7NB7/1rewb6hdbTOrdDA?=
+ =?us-ascii?Q?GP6rAzxNDK5wQIa027P98PInlYvv3Kt+tTrsKrrwQDdbiPHUMluqCUSm0TzE?=
+ =?us-ascii?Q?GcOXDxoJW1slRVz/dsIcLLUTMYiL/MtUgk7DHPIROEd4Nry8A3eQXLAzS73O?=
+ =?us-ascii?Q?ghFmYx5+NI6AZALTK8K9xD0YR4Q6KrSnjBXuWO8+uwIxfxbAdcn4hTqpF8FV?=
+ =?us-ascii?Q?nNpw8alop71EgkgJIDRMg7n26tTu4d/59CMQT0tTwPmI5x3UELCh0aU/0VUG?=
+ =?us-ascii?Q?jzSc3fkw/sxhtsyd6oMe5yc=3D?=
+X-OriginatorOrg: iopsys.eu
+X-MS-Exchange-CrossTenant-Network-Message-Id: 9a3059d7-8bf3-46f4-e142-08de07ad8b75
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Oct 2025 03:31:48.7068
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: uC7nPaN/soQMX+RZ/sk2zhkja645Bv0Nn4BbhoatXQkbCn6mm8Nop20u7a61DRCKEDtD7+9/4g3LyCcAd1zhZynzrknm6Huf2Ep2js4VACk=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR08MB8359
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251009_202021_378067_2533D1AF 
-X-CRM114-Status: GOOD (  27.87  )
+X-CRM114-CacheID: sfid-20251009_203156_849431_FC62D779 
+X-CRM114-Status: UNSURE (   9.12  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,84 +173,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Russell King (Oracle) <linux@armlinux.org.uk> =E4=BA=8E2025=E5=B9=B410=E6=
-=9C=889=E6=97=A5=E5=91=A8=E5=9B=9B 21:59=E5=86=99=E9=81=93=EF=BC=9A
->
-> On Thu, Oct 09, 2025 at 04:44:16PM +0800, Liangbin Lian wrote:
-> > +&gmac0 {
-> > +     phy-mode =3D "rgmii-id";
-> > +     clock_in_out =3D "input";
-> ...
-> > +&gmac1 {
-> > +     phy-mode =3D "rgmii-id";
-> > +     clock_in_out =3D "input";
->
-> I am fine with what is being proposed here, but I think this
-> clock_in_out property needs fixing. The description for it is thus:
->
->   clock_in_out:
->     description:
->       For RGMII, it must be "input", means main clock(125MHz)
->       is not sourced from SoC's PLL, but input from PHY.
->       For RMII, "input" means PHY provides the reference clock(50MHz),
->       "output" means GMAC provides the reference clock.
->     $ref: /schemas/types.yaml#/definitions/string
->     enum: [input, output]
->     default: input
->
-> The problems that I have here are:
->
-> 1) the description states that the only possible value for this when in
->    RGMII mode is "input" which is reasonable, because it's due to the
->    RGMII specification. The driver code is perfectly able to determine
->    whether RGMII has been specified, and set bsp_priv->clock_input
->    itself, relieving DT of this need.
->
-> 2) bsp_priv->clock_input is only used in gmac_clk_enable() when calling
->    the SoC specific set_clock_selection() method. Only RK3528, RK3576,
->    and RK3588 populate this method. Every other SoC supported by this
->    driver still requires the property:
->
->         ret =3D of_property_read_string(dev->of_node, "clock_in_out", &st=
-rings);
->         if (ret) {
->                 dev_err(dev, "Can not read property: clock_in_out.\n");
->                 bsp_priv->clock_input =3D true;
->         } ...
->
->   If one doesn't provide it, one gets an error print, which is not nice
->   I note that the DT binding doesn't list this property as required, so
->   the code is at odds with the binding.
->
->   (I note that your Rockchip SoC is RK3568, which doesn't implement this
->   method.)
->
-> So, taking both these points together, the code should not be printing
-> an error if "clock_in_out" is missing when either:
->
-> a) RGMII is being used (or maybe only when RMII is being used?)
-> b) the set_clock_selection() method is not present for the SoC variant.
->
-> With the driver fixed as indicated above, I then think clock_in_out in
-> your descriptions becomes unnecessary, and should be removed.
->
-> --
-> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+The "length < 160" restriction is not needed because airoha_snand_write_data()
+and airoha_snand_read_data() will properly handle data transfers above
+SPI_MAX_TRANSFER_SIZE.
 
+Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+---
+ drivers/spi/spi-airoha-snfi.c | 7 -------
+ 1 file changed, 7 deletions(-)
 
->   clock_in_out:
->     description:
->       For RGMII, it must be "input"
+diff --git a/drivers/spi/spi-airoha-snfi.c b/drivers/spi/spi-airoha-snfi.c
+index 043a03cd90a1..bcc464ec9c61 100644
+--- a/drivers/spi/spi-airoha-snfi.c
++++ b/drivers/spi/spi-airoha-snfi.c
+@@ -579,13 +579,6 @@ static int airoha_snand_adjust_op_size(struct spi_mem *mem,
+ 
+ 		if (op->data.nbytes > max_len)
+ 			op->data.nbytes = max_len;
+-	} else {
+-		max_len = 1 + op->addr.nbytes + op->dummy.nbytes;
+-		if (max_len >= 160)
+-			return -EOPNOTSUPP;
+-
+-		if (op->data.nbytes > 160 - max_len)
+-			op->data.nbytes = 160 - max_len;
+ 	}
+ 
+ 	return 0;
+-- 
+2.51.0
 
-This description does not match the actual situation,
-there are many dts using 'output':
-https://elixir.bootlin.com/linux/v6.17/source/arch/arm64/boot/dts/rockchip/=
-rk3568-bpi-r2-pro.dts#L235
-https://elixir.bootlin.com/linux/v6.17/source/arch/arm64/boot/dts/rockchip/=
-rk3568-evb1-v10.dts#L241
-https://elixir.bootlin.com/linux/v6.17/source/arch/arm64/boot/dts/rockchip/=
-rk3568-fastrhino-r68s.dts#L33
-https://elixir.bootlin.com/linux/v6.17/source/arch/arm64/boot/dts/rockchip/=
-rk3568-nanopi-r5s.dts#L78
 
