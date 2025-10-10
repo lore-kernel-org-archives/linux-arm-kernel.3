@@ -4,135 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 20091CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 13:39:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0ACD5CCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 13:46:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:CC:To:From:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OM/Z/Db4w2vZA4wn/pSiwNdowgqblpIpBYy9aTQN5jU=; b=epfy0ib/HMOvqdNzyUY1t4Wz6j
-	1oYWY9R+WkPq5a4AEnE4mBMf31X0HvS+FTFlP03woYpSkHV3FvY6Gopd+fOCqw33gODvjN/QpWN2W
-	KCKVBZDaErV6OaHfgp6+wyqBosKdMATfdHo71hXlVO7CV/8THST6loE+A3qs1cI7MiFiX6cOXU2Ip
-	xwWmtK2+8DosF2oQL907dZiJTBr+OtTs9LPo33n9XybLe9wOQ1QWkllwL15Lss2VLqrHcoUD/vII/
-	1i9sPkofDAQ5na6weZQF53SZDrDrAwylQ9so80M4c8uPckxVJBMbU+WrFBTEMI4MnCG7e1UDGlBB4
-	7dqnafzw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=GnKzCwUVh/Raf+TNrxRQ6zRfh+XWAQ3WLV1fli1/n1o=; b=z1oum/No1tMNFc+RArAPuaVV5+
+	IkmiOOtyLUMlO+L7ki9gluDsVwhfMIviiHGAoQKCE/CmMD+IpGJkP8YfRId1wk2lXqTTlqlFYxyvn
+	zTslpHOkMVViWA1mmM5pwMorzgXYo7i0Uzmfob7BiSZtJH0vz602enwOST6tbOAx0z6jRE4phHI3V
+	XN3HnL4iWyCEKJ7U9zqJmjEqJhxWdq/M0F55r3USLXm8X3ZzF1j+SdaWEKfhWzvTp2p2y42J13cIf
+	jnAWVuQcT/dHJtqEbZ7IGjXQP9NDpeHBEoKNSlVXhYLHZ2oNkzrfaANPmns87khZxhG+BvmeJh0rA
+	aslhRR3A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7DLP-00000008aI9-07Af;
-	Fri, 10 Oct 2025 13:39:39 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1v7DSK-00000008apU-1cao;
+	Fri, 10 Oct 2025 13:46:48 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7DLL-00000008aHg-3dHH;
-	Fri, 10 Oct 2025 13:39:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=MopOl4Zm5EAmSH2Y95YlF13RjLFncPFtRj380UBUPIBqeCBL0PPV168Sakciy4JZzL4emONOoyC6aStUgvTL5I5SzimxpRvuhG1ABt50ZXeDaR8l25sD2VwJPDVhhPOoLUyUrjVDeJ4N9rsKc1pLkm1pOD0pAHjRzyP229y3yk/1LgUgC4mxOSibpES/E4DwKSny5zBJlIiooCfVaSWvM6zPWtqb0Mhko2BcJUzgYefMTpu+vvHCuK71zC5DjATftdJ2R5Dfo4AKsZIiXHW63u2C6O5G3AX5krUIF2PMETuO94IowyCiS01cp7vEt61Y3raPvSLoivCHISXoBj2SFw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=OM/Z/Db4w2vZA4wn/pSiwNdowgqblpIpBYy9aTQN5jU=;
- b=A85AUyo3B1faar7EFBTpjZ9fzO7acXEqVggSNfJm/GX9DgXX15Ac9qDIU700u2tbjMXBiQcUV6D9aC2HLXfW4b7oANQMdcbu6mRfsMnhjJbPDgN2czvUMPJ/65oZJAH/pnEjt+mjaWXe+Y5EoK9lA9guKXJqPR3Da2EevQJKl7AvvJLppNILaRF9b9oH3fPFPTnSR5WLj2ZDGE5rpSc4QcZRe759dekhofk5Bsc31wnz+u9jt+ISwMmASEcz9maH2OWe06AokxE1upbFINyHyQm6tgS6mw6TAK0ityJrRtr9Mkumts4CPuJ84Z8iIzPxyATDHNO8bsbw1r5Qobbx/g==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 195.60.68.100) smtp.rcpttodomain=vger.kernel.org smtp.mailfrom=axis.com;
- dmarc=pass (p=none sp=none pct=100) action=none header.from=axis.com;
- dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=axis.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=OM/Z/Db4w2vZA4wn/pSiwNdowgqblpIpBYy9aTQN5jU=;
- b=SepOnIEeM+0M1HH6p3v6xyrDN60mEnyGtLOXfjSwsQV99/sES/M1G7xlMiYLeZ3gXreavAkPzeb4Pr2QRNZvv6AI+r47sxwzopsnQ4y+ByqrCSi0OZo4ToI1DKANk3Z7IBG2jmyMrhzocfQs26rpPMesx/hSxMN8ebIluv8U0z0=
-Received: from DB7PR05CA0023.eurprd05.prod.outlook.com (2603:10a6:10:36::36)
- by GVXPR02MB11133.eurprd02.prod.outlook.com (2603:10a6:150:1f7::21) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.10; Fri, 10 Oct
- 2025 13:39:22 +0000
-Received: from DU6PEPF0000B61C.eurprd02.prod.outlook.com
- (2603:10a6:10:36:cafe::c9) by DB7PR05CA0023.outlook.office365.com
- (2603:10a6:10:36::36) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9203.10 via Frontend Transport; Fri,
- 10 Oct 2025 13:39:22 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 195.60.68.100)
- smtp.mailfrom=axis.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=axis.com;
-Received-SPF: Pass (protection.outlook.com: domain of axis.com designates
- 195.60.68.100 as permitted sender) receiver=protection.outlook.com;
- client-ip=195.60.68.100; helo=mail.axis.com; pr=C
-Received: from mail.axis.com (195.60.68.100) by
- DU6PEPF0000B61C.mail.protection.outlook.com (10.167.8.135) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id
- 15.20.9203.9 via Frontend Transport; Fri, 10 Oct 2025 13:39:22 +0000
-Received: from pc52311-2249 (10.4.0.13) by se-mail01w.axis.com (10.20.40.7)
- with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256) id 15.1.2507.58; Fri, 10 Oct
- 2025 15:39:21 +0200
-From: Waqar Hameed <waqar.hameed@axis.com>
-To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>
-CC: <kernel@axis.com>, <linux-phy@lists.infradead.org>,
-	<linux-arm-kernel@lists.infradead.org>, <linux-samsung-soc@vger.kernel.org>,
-	<linux-kernel@vger.kernel.org>
-Subject: Re: [PATCH v2] phy: exynos5-usbdrd: Remove error print for
- devm_add_action_or_reset()
-In-Reply-To: <pnd34a6m7tc.a.out@axis.com> (Waqar Hameed's message of "Tue, 5
-	Aug 2025 11:33:35 +0200")
-References: <pnd34a6m7tc.a.out@axis.com>
-User-Agent: a.out
-Date: Fri, 10 Oct 2025 15:39:21 +0200
-Message-ID: <pnd7bx2j2pi.a.out@axis.com>
+	id 1v7DSH-00000008aoq-25kE;
+	Fri, 10 Oct 2025 13:46:47 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1760103999;
+	bh=j+7Q50v1WcbolonU2FwjWi93Z0/pQgPtjDDj72dphGs=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=nlVtMYQSaBTbBqEzskyVDW3uqVSg0BCrNtKS6VAG5QXDRwNiNzeITlsWwvFtu4i3P
+	 1WRK4yb5kYm82Yr9g+ZWRTiMYKA1C2CFvEQExtAob4eMz7/oxBRsVGvVig9gHxGKMv
+	 cJSGz3ReDwM9SWWa8y+iywpSRmJai4H3rrgzGKXFCus8YGZpxDf9uFdiL+/4cb5E5b
+	 6hIufXoENtW3maZaVUrwwSUfRJF5THUFM2+GEB48Z+bumAxZYvvx0LffQJ0FIApPkP
+	 eomBRxbnJvZwqdTuQ7/SGm8xuhJzx2yjDb9rj2VAeCU02C1h2PcEySLiBEYWVBK6uV
+	 OS+TrbwZCsFLg==
+Received: from [10.40.0.100] (185-67-175-126.lampert.tv [185.67.175.126])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: mriesch)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id C8D8017E01F5;
+	Fri, 10 Oct 2025 15:46:38 +0200 (CEST)
+Message-ID: <de1a1dce-f60e-48a1-9945-d2c91b328df5@collabora.com>
+Date: Fri, 10 Oct 2025 15:46:38 +0200
 MIME-Version: 1.0
-Content-Type: text/plain
-X-Originating-IP: [10.4.0.13]
-X-ClientProxiedBy: se-mail02w.axis.com (10.20.40.8) To se-mail01w.axis.com
- (10.20.40.7)
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: DU6PEPF0000B61C:EE_|GVXPR02MB11133:EE_
-X-MS-Office365-Filtering-Correlation-Id: 7a48c1fa-e92d-42fb-ad9a-08de08026bee
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|82310400026|1800799024|36860700013;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?5g/58upOCZQxAZSgXlg4IcdSa3eTbnjf8fgeUgLBKOy1KT5qfL/uVYa8Ab7d?=
- =?us-ascii?Q?J9fAq/7QphZC/SKToJxkeIFG90LR2x4BaxyH1CxCDzJKtlMAmiVmgS15+Vat?=
- =?us-ascii?Q?s6c93uSesDngDYfdr5wIR/PY2Ji3V3cRZMu8eEK5c0WLBa/ma4sWaiftLAa7?=
- =?us-ascii?Q?7JvMZavkpddq5H5M5KxNBt86Lbw6eoffTRWoYT05Gho4PtZBJN7zBEJbJ3R3?=
- =?us-ascii?Q?VvK2Zuc/ideVdQTkf+5SrlM+SEabbc8lE5iRzBX4I0wRxLm+/SnKAj1jD9Mc?=
- =?us-ascii?Q?+L0meOZq+jKAe5cIkvm1z2ryPMWYcldDQM8VID5F+Kr3HVuaUez9Rzgiqpjc?=
- =?us-ascii?Q?uFqnCLxsEDDZ9ZTONUiu1Sct25oNZvWQCLsMhAnraYQRDDgGrDlulpZT0y9O?=
- =?us-ascii?Q?GqV25DGa9zozLjRmvyDvnOHSY1bTHcsrGHpP7UTpH0BSiJNPy1/UJD2ZW0Pa?=
- =?us-ascii?Q?gBrsuuConI2Li6BOtdE35iQPVhjqnRk6AEy82ncvG4YWnfryb7XtIiIezEmn?=
- =?us-ascii?Q?BGNrBnoZJY9ndqMgJs0JshGsjJpg2rExetshR5OA2pNHvT19RH0vZM7Rd1ys?=
- =?us-ascii?Q?9i6OcCDDw0M9mbbx8/UW8GSfTNC19JSAkAn4OLpzxOV5tD47lFWFZ2cGkf3f?=
- =?us-ascii?Q?+a6AqDpxteW0QkRqpNZWzz0tCkrhXRx44bwazawoq+5mDTICtCv1TvAXrQ2I?=
- =?us-ascii?Q?n3eZvU+Q2OlK3uk5eiKmf3YInkYQrUe4970veX/PvtgXoMY0Yg+HRyTfDtNM?=
- =?us-ascii?Q?EYoe32JhDc4Y26mmwfF5cGsRJjVgOcCHxcIQf9cSFaW12W6sAgMZQWmbxSZF?=
- =?us-ascii?Q?IaDaUxybLqsq84196aK32I3hdnIeMlugEJLE+Elo/CKrdxNX/0rWnmBj5hum?=
- =?us-ascii?Q?3/2kSrIR/xknWZQsX7gOvkQoYQUYR+TMkpL+ZLgIYa9+IxCBAtYfqKYkZTCl?=
- =?us-ascii?Q?fau3z0X3LzUWQx6ngQgiNqhQVXnm3M92bvYQnRdrHIY/gR4TMfZIBFddoleZ?=
- =?us-ascii?Q?py0MkVbHAM4nNVndbB/+snfZI3uXeLeK5dexiRA7BGaB9XUCnVJMlUT4q0NS?=
- =?us-ascii?Q?5Ev92sOghmYTx/8CAN0BFVlGtvwi9f6nExiTH+VvonE+HMctvBJpQAwItmuX?=
- =?us-ascii?Q?pLU5rMaVA6hVjefaSXhp3rek8lXs11xPX7Q9H7xMWlwesYnqRGvBou7I9PzA?=
- =?us-ascii?Q?2JHpmlo4NqB0WUi/tQeNCNnhRV2upQPZZ1/F9dhPWZzpgIvfrzABv2ZeT8TX?=
- =?us-ascii?Q?VtRdznXcRUcIrTnjL6AeW5v9Z31Dgeaw367OVbSn+hlZK3YEYuc2c6roqdNi?=
- =?us-ascii?Q?XeBr8u2t9qH/sIdc8q3yqwoXN9U62nJmnaxNwGDF72/ZNNtyi5C8QCZ8OB4o?=
- =?us-ascii?Q?2rYsdQLnM9Yb2ROwGrbtar8wWqjBgXZHb5sMQkhfLL5fV+0ZD5tDBx2yjhlZ?=
- =?us-ascii?Q?gN89ABq0PVfJEBUUKQo2+bL+3htDC/Jjo3uizp0HAzDhDBjeCDXGfxnV+tRW?=
- =?us-ascii?Q?01gr1VZ/IDKqgyU6cvqYinSNw6zC+DdZV6QKdnb6nHlEmoL1TV6WslO/TV3c?=
- =?us-ascii?Q?KzyLR6ZSDur4r/tVTIs=3D?=
-X-Forefront-Antispam-Report: CIP:195.60.68.100;CTRY:SE;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.axis.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(376014)(82310400026)(1800799024)(36860700013);DIR:OUT;SFP:1101;
-X-OriginatorOrg: axis.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 10 Oct 2025 13:39:22.6440
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 7a48c1fa-e92d-42fb-ad9a-08de08026bee
-X-MS-Exchange-CrossTenant-Id: 78703d3c-b907-432f-b066-88f7af9ca3af
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=78703d3c-b907-432f-b066-88f7af9ca3af;Ip=[195.60.68.100];Helo=[mail.axis.com]
-X-MS-Exchange-CrossTenant-AuthSource: DU6PEPF0000B61C.eurprd02.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR02MB11133
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v11 00/17] media: rockchip: add a driver for the rockchip
+ camera interface
+To: Bryan O'Donoghue <bod@kernel.org>,
+ Mehdi Djait <mehdi.djait@linux.intel.com>,
+ Maxime Chevallier <maxime.chevallier@bootlin.com>,
+ =?UTF-8?Q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ Gerald Loacker <gerald.loacker@wolfvision.net>,
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>,
+ Markus Elfring <Markus.Elfring@web.de>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring
+ <robh+dt@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Heiko Stuebner <heiko@sntech.de>,
+ Kever Yang <kever.yang@rock-chips.com>,
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>,
+ Sebastian Reichel <sebastian.reichel@collabora.com>,
+ Collabora Kernel Team <kernel@collabora.com>,
+ Paul Kocialkowski <paulk@sys-base.io>,
+ Alexander Shiyan <eagle.alexander923@gmail.com>,
+ Val Packett <val@packett.cool>, Rob Herring <robh@kernel.org>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>
+Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, Mehdi Djait <mehdi.djait@bootlin.com>,
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+References: <HSTnNzc6MTLHGWih5qjlI2nvVECP8FVdcQVeBON4KlWYLtEaWIlNmEpKTU_vlqitbIIHMpabKnvnmpEQFqHYxQ==@protonmail.internalid>
+ <20240220-rk3568-vicap-v11-0-af0eada54e5d@collabora.com>
+ <88b1dcda-be2d-4c57-b042-c1809ef1dc97@kernel.org>
+Content-Language: en-US
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <88b1dcda-be2d-4c57-b042-c1809ef1dc97@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_063935_903647_6D707511 
-X-CRM114-Status: UNSURE (   8.75  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251010_064645_711862_388E27B8 
+X-CRM114-Status: GOOD (  24.09  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -147,13 +99,111 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Aug 05, 2025 at 11:33 +0200 Waqar Hameed <waqar.hameed@axis.com> wrote:
+Hi Bryan,
 
-> When `devm_add_action_or_reset()` fails, it is due to a failed memory
-> allocation and will thus return `-ENOMEM`. `dev_err_probe()` doesn't do
-> anything when error is `-ENOMEM`. Therefore, remove the useless call to
-> `dev_err_probe()` when `devm_add_action_or_reset()` fails, and just
-> return the value instead.
+On 10/10/25 14:15, Bryan O'Donoghue wrote:
+> On 17/09/2025 16:38, Michael Riesch via B4 Relay wrote:
+>> Habidere,
+>>
+>> This series introduces support for the Rockchip Camera Interface (CIF),
+>> which is featured in many Rockchip SoCs in different variations.
+>> For example, the PX30 Video Input Processor (VIP) is able to receive
+>> video data via the Digital Video Port (DVP, a parallel data interface)
+>> and transfer it into system memory using a double-buffering mechanism
+>> called ping-pong mode.
+>> The RK3568 Video Capture (VICAP) unit, on the other hand, features a
+>> DVP and a MIPI CSI-2 receiver that can receive video data independently
+>> (both using the ping-pong scheme).
+>> The different variants may have additional features, such as scaling
+>> and/or cropping.
+>> Finally, the RK3588 VICAP unit constitutes an essential piece of the
+>> camera interface with one DVP, six MIPI CSI-2 receivers, scale/crop
+>> units, and a data path multiplexer (to scaler units, to ISP, ...).
+>>
+>> The v11 of the series adds a media controller centric V4L2 device driver
+>> for the Rockchip CIF with
+>>   - support for the PX30 VIP (not tested, though, due to the lack of HW)
+>>   - support for the RK3568 VICAP, including
+>>      - capturing frames from the DVP
+>>      - capturing frames from the MIPI CSI-2 receiver
+>>   - abstraction for the ping-pong scheme to allow for future extensions
+>>   - abstraction for the INTERFACE and CROP parts to allow for future
+>>     extensions
+>>   - initial support for different virtual channels (not tested, though,
+>>     due to the lack of HW)
+>> and a V4L2 subdevice driver for the Rockchip MIPI CSI-2 Receiver.
+>>
+>> The driver can be readily extended to provide support for the RK3588
+>> VICAP variant. In order to keep things simple, however, this extension
+>> shall be submitted separately.
+>>
+>> Looking forward to your comments!
+>>
+>> To: Mehdi Djait<mehdi.djait@linux.intel.com>
+>> To: Maxime Chevallier<maxime.chevallier@bootlin.com>
+>> To: Théo Lebrun<theo.lebrun@bootlin.com>
+>> To: Thomas Petazzoni<thomas.petazzoni@bootlin.com>
+>> To: Gerald Loacker<gerald.loacker@wolfvision.net>
+>> To: Bryan O'Donoghue<bryan.odonoghue@linaro.org>
+>> To: Markus Elfring<Markus.Elfring@web.de>
+>> To: Sakari Ailus<sakari.ailus@iki.fi>
+>> To: Laurent Pinchart<laurent.pinchart@ideasonboard.com>
+>> To: Mauro Carvalho Chehab<mchehab@kernel.org>
+>> To: Rob Herring<robh+dt@kernel.org>
+>> To: Krzysztof Kozlowski<krzk+dt@kernel.org>
+>> To: Conor Dooley<conor+dt@kernel.org>
+>> To: Heiko Stuebner<heiko@sntech.de>
+>> To: Kever Yang<kever.yang@rock-chips.com>
+>> To: Nicolas Dufresne<nicolas.dufresne@collabora.com>
+>> To: Sebastian Reichel<sebastian.reichel@collabora.com>
+>> To: Collabora Kernel Team<kernel@collabora.com>
+>> To: Paul Kocialkowski<paulk@sys-base.io>
+>> To: Alexander Shiyan<eagle.alexander923@gmail.com>
+>> To: Val Packett<val@packett.cool>
+>> To: Rob Herring<robh@kernel.org>
+>> To: Philipp Zabel<p.zabel@pengutronix.de>
+>> Cc:linux-media@vger.kernel.org
+>> Cc:devicetree@vger.kernel.org
+>> Cc:linux-kernel@vger.kernel.org
+>> Cc:linux-arm-kernel@lists.infradead.org
+>> Cc:linux-rockchip@lists.infradead.org
+>> Signed-off-by: Michael Riesch<michael.riesch@wolfvision.net>
+>> Signed-off-by: Michael Riesch<michael.riesch@collabora.com>
+>>
+>> Changes in v11:
+>> - rkcif: split large driver patch (6/13 of v10) into smaller
+>>    patches (6-11/17 of v11) (Bryan)
+>> - rkcsi: replaced devm_reset_control_array_get_exclusive with
+>>    devm_reset_control_get_exclusive (Philipp)
+>> - Link to v10:https://lore.kernel.org/r/20240220-rk3568-vicap-
+>> v10-0-62d8a7b209b4@collabora.com
+> 
+> I believe it is the case and please feel free to correct me if I'm wrong
+> that you've dropped a long list of sob/co-develop-by, I think we
+> discussed that too, because of the level of change, it seems reasonable
+> too.
 
-Friendly ping incoming!
+Correct. The tag list used to be quite complicated [0] due to the
+complicated history of this driver. Maxime worked on the driver up to
+v5, Mehdi up to v14, I added RK3568 support on top of Mehdi's v14 (with
+some valuable contributions from Gerald) and submitted that as v1. v2 of
+my work incorporated Mehdi's v14, and here we are, after several rounds
+of feedback, at soon-to-be v12 (or, in fact, v25).
+
+> On question on that, are these people aware of the change and cc'd on
+> the list of recipients/contactable/agreeable to the change ?
+
+I announced this plan as a response to your comment to v10 [1] with
+Maxime, Mehdi and Gerald on Cc: and did not hear any objections.
+
+Hope that this is still OK for everybody!
+
+Best regards,
+Michael
+
+[0]
+https://lore.kernel.org/linux-media/20240220-rk3568-vicap-v10-6-62d8a7b209b4@collabora.com/
+[1]
+https://lore.kernel.org/linux-media/23ccc744-745d-4a31-a79c-2d64bf1ed43d@collabora.com/
+
 
