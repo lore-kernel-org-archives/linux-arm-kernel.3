@@ -4,66 +4,66 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0E5E9CCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 14:33:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7F906CCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 14:33:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=e9daZsmkCHyLMqWnxfPdS+fBOe38v3SYe3uP4fnwIYU=; b=VtZxePf+dENFqGxjn+60KCdtaw
-	DxsvCPH5ARym1ISnAon2qIbQQ/ZPkrDX/qN+luK5dQSUPYvJ7Kn8O8+vy+OzYBds952pRml8GSjPa
-	dLFsiitKmV3sKc8oVYuLOKw9umkP8P2wJzhgt8TuWMCYiwuIwq6p/jzfsr5sspi7Z4OLNLBxEFRyP
-	jVkr4dIkIfh4FhS53X8XpfMrr/atLy02v7Q1MyXkfEMjLaGpBkSEhCFYLZ7jH490PoEWIqV/SQHGb
-	PIayvE/ngNInDpLKrfUBirVAXdtnmqXFzFKsm8KYzfacsEDY87p4BnuQscKWJlNKBgICKK2D5RWj5
-	qC+qwg8A==;
+	bh=7mw/1v6DWO84Q6VsyDvADbQ56UxrWJ3wcu/V91X+tWk=; b=ZRrmVBR4VB1Psm3oQwoYUKbdCv
+	df+zQEolJmh34dKe90S8Y7bwLtYrTR2JE3LWOSTG+eIC4xUpIiSwkgfAKvKG4MD6ZX2XSAv1v96me
+	ON79nN4oi8lNppFor28YAjuhbCCN+TaUOVO0tue/0jQ4rOHXW2G9GWJW7VRcjcclRgrTNhQcIAHEW
+	UDg/9mT9Dxv+IEGw69hwwNAYwnp7z2pZ5dbuEYMJsNvyrLBslxS7TkiJi1J2l5e//Y9cUPjNFLIEh
+	C45xrn2f+MmOsYLFHcWqy+TuDxsaNa2NpS4fxUrz34O+i+EkRA4Xa+UoumkuD5GbiAlP+obfMUI6v
+	RGCUSYdQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7EB1-00000008hEU-1NTV;
-	Fri, 10 Oct 2025 14:32:59 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v7EBJ-00000008hIC-2goJ;
+	Fri, 10 Oct 2025 14:33:17 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7EAy-00000008hE5-1oEk
+	id 1v7EBI-00000008hHu-3g6V
 	for linux-arm-kernel@lists.infradead.org;
-	Fri, 10 Oct 2025 14:32:57 +0000
+	Fri, 10 Oct 2025 14:33:16 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 0117344744;
-	Fri, 10 Oct 2025 14:32:56 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AED75C4CEF1;
-	Fri, 10 Oct 2025 14:32:55 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id 489BD6266E;
+	Fri, 10 Oct 2025 14:33:16 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C0E5AC4CEF1;
+	Fri, 10 Oct 2025 14:33:15 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760106775;
-	bh=T+LRS+QiugIh4I2/N14G4GgJQJfwQzir1ldoMUFkfQo=;
+	s=k20201202; t=1760106796;
+	bh=m2PXNXrLebhFa6++1XBL2y98d/eheP7r5cvfGNR8yVA=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=ae0M31rdci3aj6qUaCrf/DOdMKMknXBkNkP5tIQEF0xiq05gWmp8FEoP7XxXQlK7G
-	 bO5nmWAj6TwciNjW006Q2Ai8Es2lNlQfhzME0fwVnjkqAACxqRAovNT8pedYIw5W1z
-	 Dyl3ZDKmzfJTFbBzKpC4M1cBxDBkD3avOlWm/BbMNndVRpha8+iC/kvC5VP5+vjlTC
-	 9UlBnZycnqYcwbGZMuy6qghXRPAVFtdj0erNhMCISRQptl+FzTPCNuCKRLK5FSUPl+
-	 a9s3650zvUXziCPlY29NvhTMb5jbqGc6dc/7CTIg1yKXol3HvYYdAmF+r5NAHveqlZ
-	 Gxv8r5jB1uVKQ==
-Date: Fri, 10 Oct 2025 09:32:54 -0500
+	b=rudQa4CwjZPlcEyIjZSD/meAC8K/kcQSLFWXk+zb4u95bUz0GkUzdYbVvZxn0i3bP
+	 JsHQPldNp8xjCqCXHwe4gn+Yig8oSdETZUtZjXjnS1BykzpxNxjZdrPiI7pbSxeJdD
+	 b9kUcTCTcofCNkeoNMS+rFsRqfP83/CvcX+IIbqqFjk6awPJ2d8u0Y8OaqlG/BVfFx
+	 wy8TTmZsckSy+RkniV4NZzLz8MP+vXJL5tX5a/u2dihQaIT5VBCMyBlw5h4UgA3Esh
+	 wdnWpHqe7EMBbdR9kfTWOE+5HrAB/JjxULpRjeyjwks44VNfm1Hv+MarEzwhPx7NN2
+	 exDyON92tAnCw==
+Date: Fri, 10 Oct 2025 09:33:14 -0500
 From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Shubhi Garg <shgarg@nvidia.com>
-Cc: devicetree@vger.kernel.org, linux-tegra@vger.kernel.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+To: =?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>
+Cc: linux-kernel@vger.kernel.org, devicetree@vger.kernel.org,
+	Peter Griffin <peter.griffin@linaro.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org, linux-rtc@vger.kernel.org,
-	Jonathan Hunter <jonathanh@nvidia.com>, Lee Jones <lee@kernel.org>,
-	Alexandre Belloni <alexandre.belloni@bootlin.com>
-Subject: Re: [PATCH v7 1/4] dt-bindings: rtc: Document NVIDIA VRS RTC
-Message-ID: <176010677341.249054.11003330189373181817.robh@kernel.org>
-References: <20251007135738.487694-1-shgarg@nvidia.com>
- <20251007135738.487694-2-shgarg@nvidia.com>
+	linux-samsung-soc@vger.kernel.org,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, kernel-team@android.com,
+	Tudor Ambarus <tudor.ambarus@linaro.org>,
+	linux-arm-kernel@lists.infradead.org,
+	Will McVicker <willmcvicker@google.com>,
+	Stephen Boyd <sboyd@kernel.org>,
+	Michael Turquette <mturquette@baylibre.com>,
+	linux-clk@vger.kernel.org
+Subject: Re: [PATCH] dt-bindings: clock: google,gs101-clock: add power-domains
+Message-ID: <176010679359.249518.14445454979945020127.robh@kernel.org>
+References: <20251007-power-domains-clock-google-gs101-clock-v1-1-1ee73c453ba8@linaro.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=iso-8859-1
 Content-Disposition: inline
-In-Reply-To: <20251007135738.487694-2-shgarg@nvidia.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_073256_738474_404AC41F 
-X-CRM114-Status: GOOD (  13.61  )
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <20251007-power-domains-clock-google-gs101-clock-v1-1-1ee73c453ba8@linaro.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,51 +79,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Tue, 07 Oct 2025 13:57:35 +0000, Shubhi Garg wrote:
-> Add device tree bindings for NVIDIA VRS (Voltage Regulator Specification)
-> RTC device. NVIDIA VRS is a Power Management IC (PMIC) that implements a
-> power sequencing solution with I2C interface. The device includes RTC
-> which provides functionality to get/set system time, retain system
-> time across boot, wake system from suspend and shutdown state.
+On Tue, 07 Oct 2025 17:03:10 +0100, André Draszik wrote:
+> The CMU can be part of a power domain, so we need to allow the relevant
+> property 'power-domains'.
 > 
-> Supported platforms:
-> - NVIDIA Jetson AGX Orin Developer Kit
-> - NVIDIA IGX Orin Development Kit
-> - NVIDIA Jetson Orin NX Developer Kit
-> - NVIDIA Jetson Orin Nano Developer Kit
-> 
-> Signed-off-by: Shubhi Garg <shgarg@nvidia.com>
+> Signed-off-by: André Draszik <andre.draszik@linaro.org>
 > ---
-> 
-> v7:
-> - dt binding file name fix to keep same as compatible
-> 
-> v6:
-> - compatible name fixes to "nvidia,vrs-10"
-> - changed dtb node name to pmic@3c
-> 
-> v5:
-> - moved device tree bindings from mfd to rtc
-> - changed dtb node name to rtc@3c
-> - changed compatible string to "nvidia,vrs10-rtc"
-> 
-> v4:
-> - no changes
-> 
-> v3:
-> - fixed device tree node name to generic "pmic@3c"
-> - fixed indentation
-> 
-> v2:
-> - fixed copyrights
-> - updated description with RTC information
-> - added status node in dtb node example
-> 
->  .../bindings/rtc/nvidia,vrs-10.yaml           | 59 +++++++++++++++++++
->  1 file changed, 59 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/rtc/nvidia,vrs-10.yaml
+>  Documentation/devicetree/bindings/clock/google,gs101-clock.yaml | 3 +++
+>  1 file changed, 3 insertions(+)
 > 
 
-Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+Acked-by: Rob Herring (Arm) <robh@kernel.org>
 
 
