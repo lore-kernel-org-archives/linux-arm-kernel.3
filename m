@@ -4,137 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FDEFCCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 16:57:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E1751CCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 17:03:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Xy1TDfM9Hn+Ss3qcAnJ0/lo59/hSSLBS4fspMrOt/L4=; b=nrpdwnuGXBYncw9P/MldSHC9rF
-	05Yd/095hEYw6uGUFQTxxaFIkP7ZmAqhBnGmwa4aU+Z4ypTZey3XuSygimPM1RcU2r+ohYWKsv0fG
-	snQoZkuqXhqFfYHiFCIwwOu2xip8k19yfA1FzfA8mGu+KMh2W9KxCO5Fy7oeT68AXdsElb9kwIOXT
-	yjA2+M4/k6/2Qj1hG1yb+wEy0fJIBuS8CR6VZ1jQXCHRoyCeCQzW44WOmSpgotJpKIBIqK5WfdYjd
-	Z30mNDOmL0BskGG5yLMfQ2irhWTw1ViD229u7o7Ag+4/rxqxZ3/F8gk5Sx8PwjigjUUlzlTUXqkHW
-	Etgenm5g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YeJ3480foHs4P/4QH2kuvmYbUusLrT5/lA1r++dUvvU=; b=A2LbG05LcBcKpwzpn8AQtOkYW7
+	PPIQ7mR05S5xzyB/dNzLgyp85g5d8xNji4HVkfzuuALwoJht268+4DU0sNIjtgdI+jni7m8OFWAv4
+	qTbnQkLpTd0UpKVRgDsYkzg+tqxHoNGvmL0FxYFfYl1Vwtgn9Y2dW2JaT13OJIgqj5+SAUsEt3pho
+	2/sfTMACzGtMKtWdi4eaoCs/MSL1EY6HC0eZbDTfIQxdFj3Yc8dX+sfm1Ybq4piGlrIf/In2yFXDJ
+	Wf2ds58eBa4o3nrwFx+haickkJgXMb9KkJBvJJXlUccjuUOKU2pjaImc+Juu6PIr9KJIwyBY1hmg2
+	yAUIkYqw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7cuA-0000000AME9-48n1;
-	Sat, 11 Oct 2025 16:57:14 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1v7czm-0000000AMiS-3Xf9;
+	Sat, 11 Oct 2025 17:03:02 +0000
+Received: from mout-p-102.mailbox.org ([80.241.56.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7cu8-0000000AMD9-0wNb
+	id 1v7czj-0000000AMgh-3a9Q
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Oct 2025 16:57:13 +0000
-Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59B3Uuac018896
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Oct 2025 16:57:11 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=Xy1TDfM9Hn+Ss3qcAnJ0/lo5
-	9/hSSLBS4fspMrOt/L4=; b=CFtwP9UfiZHiCGMUOw1deU4fP4xpIF+oTXGJDPPE
-	tIL89PvjLtTf/YbkszSYepRnEDxvkn3PVliVw4u4TAkGO3LUgC/Q9jdUNZLTdGwo
-	gmqHB9xnY0fbHRymvvggtm+gwEPtfxmvem0N1+J5zGWuk/yAZ8j913d3wv9kfqCu
-	znuNTU5DIfxEgKNV/JyFbG1dm0iQ8kEDixgK4WteCdzXVvJp/OSPlJHWMT3v+R9/
-	ROSpe+5KfOguZ+K4VVqtIUghzCUQklTR8lLvDJ5jbRIERbz+7G+oGIRc8RvjdGJl
-	wqvtgyUzuJ6JXTrmQZv4RdlrXbiRL+GtUJw8xbEOEC6jEA==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49qfd8rx6m-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Oct 2025 16:57:11 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-85a0492b5feso2696559085a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Oct 2025 09:57:11 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760201830; x=1760806630;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=Xy1TDfM9Hn+Ss3qcAnJ0/lo59/hSSLBS4fspMrOt/L4=;
-        b=vGPd0XTyKtx9GgAN8sQArpPSeuF0CTbKaDOXzVJlo05iClVTpTuns03/BMOWXuIGvo
-         SfPbXuzXOsmVt7p5D0qY9XXTDwzdUqJnrsaNd8Hw97EUzYWmZEiV1ZNajprQNwNn3EFL
-         ospa389hO4nM7cVp/M3esy2B9TeBW5eqRvaBvD7k48g11eGkwu6M12Tp+kwO7MdziIE7
-         7YJP01U8cmvSfQ0r0oyYuUMtv6SV0/A590a548E8XKpmpn7/sw/VQjV0zcIpZC2EPGwU
-         ISFDceIFfcETnOwRPU2e7+bGbfJW5Kwx55q5/ybvYmZOea0tbHJYQVOBkzheaMcVYo+Q
-         coyQ==
-X-Forwarded-Encrypted: i=1; AJvYcCXElpPDb6DnXV+Kmg6qvulhaZ4RHfKybTSnyAlR/Dfk6fZpxnRvs6JuG9VAowc4wZd79rGzeV4wWgsfer5M+kEd@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw3lZC57AukBpDPqQ9Vs9yR6Bj2Z27GW9AfSmtdVof/HPbc0QAS
-	ENNfJjFbdaC0gBFDyUfnw5nheFaDJXGVHmCxYXkiUp9gS8tUTNxP87UrlOyyKT04QHowoI70Jqk
-	0AGeIJidae4N6qvwbwDUpsFfWg88MPA6cR9SRjX8b9jGHBcia9QkKyOJmMzdjPu64y6D9IOa658
-	ajeg==
-X-Gm-Gg: ASbGncsGobCXRSXvJI+sCwAOPiEOa45EAgNOSsvbPaWZAGhHMXl3JVdZ7uimXxeAW2k
-	+dlu8PXgnwP/0odUAO1nX5yinY7dv2dw7ihZGfMCf60sL0D9rRk8mBchKsU83MZ8X5gH17Q3/d6
-	TG7q8dzYmdEXufY9HOYL5qVmLanIuVVPamLygJcrpaPT6S7SeHJl0p1I3AuLanuFmf6JCExCsDt
-	JJgEpJcidaaERiIidFuXTBWVUBxbM0dw5f4mRaOkp65/HnFKc5/U/Yg6k3QkNGzq7PByuOTWD63
-	tfQIyh+fyJqtnbkPXKKCdKhI/O3Ln4zR04z24PyNRIES9TjZneM1Dj+0HwNx+T8v8C/iskSxEqI
-	YvLgM0JOFVINP8nydec/UIHxMHb46CuIW5/SADfZ8uLDeW/tmAPNs
-X-Received: by 2002:a05:620a:7116:b0:85f:82c1:c8b1 with SMTP id af79cd13be357-883525c06e8mr1943889185a.46.1760201830216;
-        Sat, 11 Oct 2025 09:57:10 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IGkyWtOfdJ+0TNDoUMTrOlJySqi8eotm+EQmXbUDmQfKpz1vM/MTeAx4339cLuXyfh1vmmWVQ==
-X-Received: by 2002:a05:620a:7116:b0:85f:82c1:c8b1 with SMTP id af79cd13be357-883525c06e8mr1943885685a.46.1760201829687;
-        Sat, 11 Oct 2025 09:57:09 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59088577f2csm2081972e87.107.2025.10.11.09.57.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 11 Oct 2025 09:57:08 -0700 (PDT)
-Date: Sat, 11 Oct 2025 19:57:06 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Chaoyi Chen <kernel@airkyi.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-        Kishon Vijay Abraham I <kishon@kernel.org>,
-        Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Yubing Zhang <yubing.zhang@rock-chips.com>,
-        Frank Wang <frank.wang@rock-chips.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Amit Sunil Dhamne <amitsd@google.com>,
-        Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-        Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
-        Diederik de Haas <didi.debian@cknow.org>,
-        Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH v5 3/8] phy: rockchip: phy-rockchip-typec: Add
- typec_mux/typec_switch support
-Message-ID: <xbblw4jfte7re2pyroanvzqv4ddwhxbgcui5ubpnw7rwuo4s4d@gkph7jqzf33o>
-References: <20251011033233.97-1-kernel@airkyi.com>
- <20251011033233.97-4-kernel@airkyi.com>
+	Sat, 11 Oct 2025 17:03:01 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4ckVKs6YN1z9tX0;
+	Sat, 11 Oct 2025 19:02:57 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1760202177;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=YeJ3480foHs4P/4QH2kuvmYbUusLrT5/lA1r++dUvvU=;
+	b=XT+fK0jV5U0dn2TRnz3k/jWoqUoNfUnJ0nGRVgqqYK3uE2VeUjM7SuvRKxQlBvO/jCUFr8
+	yAc/1FU+TmSVbGPqEK950D73TNrOEJ0x7y5M4Nb5W5s3vGveKAd4kIKDg2jxCc1xT0m73B
+	54A1X9Q+MAhtWAxYAaxGlUI9w5GHkMb4lt/GnMlQ5XpscBHmCSQQPsNrBpIsy4PNVh2nWe
+	llC0ziT4dx5yglFqdvyDEv0XvPtJKPVXqVVtpZAAHs8Bf2NGAy5e/hoSnXmnIAgcOesvbE
+	KFcVm7DOijgsVz0MSvZh8Q+DHO6tr+o8dxTHz1lyiSdeKqLWq0iHyMq/TxaECQ==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=EPBZMZkf;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut@mailbox.org designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=marek.vasut@mailbox.org
+From: Marek Vasut <marek.vasut@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1760202175;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=YeJ3480foHs4P/4QH2kuvmYbUusLrT5/lA1r++dUvvU=;
+	b=EPBZMZkfGdt137DgmB9SHudd4z4syxJEmkRFWMYZhqRHYSqXRpIRz7+daVy+ChG6HCeKZa
+	nYafZ+e9C8gm82wOvf94eojMgx/CkGifw3w+3p8PWejEwofBkL6QvdNKzRfrnBBz4n5vC6
+	Wii0eeWk/V5R6ZzOFP+ttWBDGnfCQrwFzmoUU5cpn/r9bOJ8HUhvXyuvB9byp6PERuG68w
+	XEyxk2JWDnaslAkjIFkgF7pWOm3sn6XG5oJ6WGCL2PAASKcCo25/GXbZxpFW1NJj1TWF4b
+	jTAcN0lgzcZRragpfzB4B/EzAcFKTvLoXtDTes/FZMVWlmZWjKZWIdPAzM0/Gw==
+To: dri-devel@lists.freedesktop.org
+Cc: Marek Vasut <marek.vasut@mailbox.org>,
+	Abel Vesa <abelvesa@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Liu Ying <victor.liu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Peng Fan <peng.fan@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org
+Subject: [PATCH 02/39] drm/imx: Add i.MX95 Display Controller DomainBlend
+Date: Sat, 11 Oct 2025 18:51:17 +0200
+Message-ID: <20251011170213.128907-3-marek.vasut@mailbox.org>
+In-Reply-To: <20251011170213.128907-1-marek.vasut@mailbox.org>
+References: <20251011170213.128907-1-marek.vasut@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251011033233.97-4-kernel@airkyi.com>
-X-Proofpoint-ORIG-GUID: E1l2aJHKaANWw6SkS5cH07NdIHeNWuVA
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDExMDAxOCBTYWx0ZWRfX+vmHw0TSVvSU
- bk7uSejSvY+YV1qjVSAHmOCNaqp0ZxO9aPjXLn1qtEF6GyOtRbiWtjfacYoRv9gxnEV+8lW76NS
- 9AGtHgb9ijpSLxhfK7o3zLcEIHHrGOL2H/dpRz44okVNe6CFg56x6aBuDQ/mIYyVieZhkTIcs/p
- kzrjSkC5GE+CQfb4CjtDL7hZikCkT5cZPMPLLCbzsDd9kaKmwHq2Fj6bMwxr+d7hcPTfNWyKlMz
- umSKkc3Hjl03rM0Fo+BdTThMUXnG1jFFAhLlHTpI46DG+If0uqcXmGn9g3ey2cbWxMZG4uvPZAQ
- ymcX/PZPm0HZAgG/ZLO+p6jQ3MS+INljAbmXmsbqtZ8uwMELaPKKgyQG/hsdGLVI6kepJZdhH3m
- 2/QXNonW0QG9ttXY7HUU1nvH1ST1wg==
-X-Proofpoint-GUID: E1l2aJHKaANWw6SkS5cH07NdIHeNWuVA
-X-Authority-Analysis: v=2.4 cv=PdTyRyhd c=1 sm=1 tr=0 ts=68ea8c67 cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=x6icFKpwvdMA:10 a=s8YR1HE3AAAA:8 a=MMthkAsgp7NQWkXk_3cA:9 a=CjuIK1q_8ugA:10
- a=NFOGd7dJGGMPyQGDc5-O:22 a=jGH_LyMDp9YhSvY-UuyI:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-11_03,2025-10-06_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- malwarescore=0 phishscore=0 bulkscore=0 clxscore=1015 adultscore=0
- lowpriorityscore=0 impostorscore=0 priorityscore=1501 spamscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2510020000
- definitions=main-2510110018
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-META: fuzqd5nfnkzf88phuhdfdrktxttszs3z
+X-MBO-RS-ID: 4c2a417960d5f920dbd
+X-Rspamd-Queue-Id: 4ckVKs6YN1z9tX0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251011_095712_300263_6EECD96B 
-X-CRM114-Status: GOOD (  28.80  )
+X-CRM114-CacheID: sfid-20251011_100300_172760_E24F1CE0 
+X-CRM114-Status: GOOD (  24.25  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,121 +106,418 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 11, 2025 at 11:32:28AM +0800, Chaoyi Chen wrote:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> 
-> This patch add support for Type-C Port Controller Manager. Each PHY
-> will register typec_mux and typec_switch when external Type-C
-> controller is present. Type-C events are handled by TCPM without
-> extcon.
-> 
-> The extcon device should still be supported.
-> 
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> ---
-> 
-> (no changes since v5)
-> 
-> Changes in v4:
-> - Remove notify DP HPD state by USB/DP PHY.
-> 
-> (no changes since v3)
-> 
-> Changes in v2:
-> - Fix compile error when CONFIG_TYPEC is not enabled.
-> - Notify DP HPD state by USB/DP PHY.
-> 
->  drivers/phy/rockchip/phy-rockchip-typec.c | 365 +++++++++++++++++++++-
->  1 file changed, 349 insertions(+), 16 deletions(-)
-> 
-> @@ -850,6 +998,72 @@ static int tcphy_get_mode(struct rockchip_typec_phy *tcphy)
->  	return mode;
->  }
->  
-> +#if IS_ENABLED(CONFIG_TYPEC)
-> +static int tcphy_orien_sw_set(struct typec_switch_dev *sw,
-> +			      enum typec_orientation orien)
-> +{
-> +	struct rockchip_typec_phy *tcphy = typec_switch_get_drvdata(sw);
-> +
-> +	mutex_lock(&tcphy->lock);
-> +
-> +	if (orien == TYPEC_ORIENTATION_NONE) {
-> +		tcphy->new_mode = MODE_DISCONNECT;
-> +		goto unlock_ret;
-> +	}
-> +
-> +	tcphy->flip = (orien == TYPEC_ORIENTATION_REVERSE) ? true : false;
-> +	tcphy->new_mode = MODE_DFP_USB;
+i.MX95 Display Controller display engine consists of all processing
+units that operate in a display clock domain. Add DomainBlend driver
+which is specific to i.MX95 and required to get any display output on
+that SoC.
 
-Carrying over unanswered(!) comment from the previous series:
+Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
+---
+Cc: Abel Vesa <abelvesa@kernel.org>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Fabio Estevam <festevam@gmail.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
+Cc: Liu Ying <victor.liu@nxp.com>
+Cc: Lucas Stach <l.stach@pengutronix.de>
+Cc: Peng Fan <peng.fan@nxp.com>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Shawn Guo <shawnguo@kernel.org>
+Cc: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: devicetree@vger.kernel.org
+Cc: dri-devel@lists.freedesktop.org
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-clk@vger.kernel.org
+---
+ drivers/gpu/drm/imx/dc/Makefile  |   2 +-
+ drivers/gpu/drm/imx/dc/dc-crtc.c |   2 +
+ drivers/gpu/drm/imx/dc/dc-db.c   | 226 +++++++++++++++++++++++++++++++
+ drivers/gpu/drm/imx/dc/dc-de.c   |   2 +
+ drivers/gpu/drm/imx/dc/dc-de.h   |  11 ++
+ drivers/gpu/drm/imx/dc/dc-drv.c  |   1 +
+ drivers/gpu/drm/imx/dc/dc-drv.h  |   3 +
+ drivers/gpu/drm/imx/dc/dc-kms.h  |   4 +
+ 8 files changed, 250 insertions(+), 1 deletion(-)
+ create mode 100644 drivers/gpu/drm/imx/dc/dc-db.c
 
-I don't think it is correct. Orientation defines only the cable (plug)
-orientation. You should be getting the mux events for the mode
-selection.
-
-> +
-> +unlock_ret:
-> +	mutex_unlock(&tcphy->lock);
-> +	return 0;
-> +}
-> +
-> +static void udphy_orien_switch_unregister(void *data)
-> +{
-> +	struct rockchip_typec_phy *tcphy = data;
-> +
-> +	typec_switch_unregister(tcphy->sw);
-> +}
-> +
-
-> @@ -1037,6 +1251,89 @@ static const struct phy_ops rockchip_dp_phy_ops = {
->  	.owner		= THIS_MODULE,
->  };
->  
-> +#if IS_ENABLED(CONFIG_TYPEC)
-> +static int tcphy_typec_mux_set(struct typec_mux_dev *mux, struct typec_mux_state *state)
-> +{
-> +	struct rockchip_typec_phy *tcphy = typec_mux_get_drvdata(mux);
-> +	struct typec_displayport_data *data;
-> +	int hpd = 0;
-> +
-> +	mutex_lock(&tcphy->lock);
-> +
-> +	switch (state->mode) {
-> +	case TYPEC_STATE_SAFE:
-> +		fallthrough;
-> +	case TYPEC_STATE_USB:
-> +		tcphy->new_mode = MODE_DFP_USB;
-> +		phy_set_bus_width(tcphy->phys[TYPEC_PHY_DP], 0);
-> +		break;
-> +	case TYPEC_DP_STATE_C:
-> +	case TYPEC_DP_STATE_E:
-
-You need to check that altmode->svid is DP before checking for these
-modes.
-
-> +		tcphy->new_mode = MODE_DFP_DP;
-> +		data = state->data;
-> +		hpd = !!(data->status & DP_STATUS_HPD_STATE);
-> +		phy_set_bus_width(tcphy->phys[TYPEC_PHY_DP], hpd ? 4 : 0);
-> +		break;
-> +	case TYPEC_DP_STATE_D:
-> +		tcphy->new_mode = MODE_DFP_DP | MODE_DFP_USB;
-> +		data = state->data;
-> +		hpd = !!(data->status & DP_STATUS_HPD_STATE);
-> +		phy_set_bus_width(tcphy->phys[TYPEC_PHY_DP], hpd ? 2 : 0);
-> +		break;
-> +	default:
-> +		break;
-> +	}
-> +
-> +	mutex_unlock(&tcphy->lock);
-> +
-> +	return 0;
-> +}
-> +
-
+diff --git a/drivers/gpu/drm/imx/dc/Makefile b/drivers/gpu/drm/imx/dc/Makefile
+index b9d33c074984a..20386e4082e56 100644
+--- a/drivers/gpu/drm/imx/dc/Makefile
++++ b/drivers/gpu/drm/imx/dc/Makefile
+@@ -1,6 +1,6 @@
+ # SPDX-License-Identifier: GPL-2.0
+ 
+-imx8-dc-drm-objs := dc-cf.o dc-crtc.o dc-de.o dc-drv.o dc-ed.o dc-fg.o dc-fl.o \
++imx8-dc-drm-objs := dc-cf.o dc-crtc.o dc-db.o dc-de.o dc-drv.o dc-ed.o dc-fg.o dc-fl.o \
+ 		    dc-fu.o dc-fw.o dc-ic.o dc-kms.o dc-lb.o dc-pe.o \
+ 		    dc-plane.o dc-tc.o
+ 
+diff --git a/drivers/gpu/drm/imx/dc/dc-crtc.c b/drivers/gpu/drm/imx/dc/dc-crtc.c
+index 31d3a982deaf7..56991cb033945 100644
+--- a/drivers/gpu/drm/imx/dc/dc-crtc.c
++++ b/drivers/gpu/drm/imx/dc/dc-crtc.c
+@@ -272,6 +272,7 @@ dc_crtc_atomic_enable(struct drm_crtc *crtc, struct drm_atomic_state *state)
+ 	dc_fg_enable_clock(dc_crtc->fg);
+ 	dc_ed_pec_sync_trigger(dc_crtc->ed_cont);
+ 	dc_ed_pec_sync_trigger(dc_crtc->ed_safe);
++	dc_db_shdtokgen(dc_crtc->db);
+ 	dc_fg_shdtokgen(dc_crtc->fg);
+ 	dc_fg_enable(dc_crtc->fg);
+ 
+@@ -521,6 +522,7 @@ int dc_crtc_init(struct dc_drm_device *dc_drm, int crtc_index)
+ 	dc_crtc->ed_cont = pe->ed_cont[crtc_index];
+ 	dc_crtc->ed_safe = pe->ed_safe[crtc_index];
+ 	dc_crtc->fg = de->fg;
++	dc_crtc->db = de->db;
+ 
+ 	dc_crtc->irq_dec_framecomplete = de->irq_framecomplete;
+ 	dc_crtc->irq_dec_seqcomplete = de->irq_seqcomplete;
+diff --git a/drivers/gpu/drm/imx/dc/dc-db.c b/drivers/gpu/drm/imx/dc/dc-db.c
+new file mode 100644
+index 0000000000000..789942d1c446d
+--- /dev/null
++++ b/drivers/gpu/drm/imx/dc/dc-db.c
+@@ -0,0 +1,226 @@
++// SPDX-License-Identifier: GPL-2.0+
++/*
++ * Copyright 2025 Marek Vasut <marek.vasut@mailbox.org>
++ */
++
++#include <linux/bitfield.h>
++#include <linux/bits.h>
++#include <linux/component.h>
++#include <linux/mod_devicetable.h>
++#include <linux/module.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
++
++#include <drm/drm_blend.h>
++
++#include "dc-drv.h"
++#include "dc-pe.h"
++
++#define PIXENGCFG_DYNAMIC			0x8
++#define  PIXENGCFG_DYNAMIC_PRIM_SEL_MASK	GENMASK(5, 0)
++#define  PIXENGCFG_DYNAMIC_PRIM_SEL(x)		\
++		FIELD_PREP(PIXENGCFG_DYNAMIC_PRIM_SEL_MASK, (x))
++#define  PIXENGCFG_DYNAMIC_SEC_SEL_MASK		GENMASK(13, 8)
++#define  PIXENGCFG_DYNAMIC_SEC_SEL(x)		\
++		FIELD_PREP(PIXENGCFG_DYNAMIC_SEC_SEL_MASK, (x))
++
++#define STATICCONTROL				0x8
++#define  SHDTOKSEL_MASK				GENMASK(6, 4)
++#define  SHDTOKSEL(x)				FIELD_PREP(SHDTOKSEL_MASK, (x))
++#define  SHDLDSEL_MASK				GENMASK(3, 1)
++#define  SHDLDSEL(x)				FIELD_PREP(SHDLDSEL_MASK, (x))
++
++#define CONTROL					0xc
++#define  SHDTOKGEN				BIT(0)
++
++#define MODECONTROL				0x10
++
++#define ALPHACONTROL				0x14
++#define  ALPHAMASKENABLE			BIT(0)
++
++#define BLENDCONTROL				0x18
++#define  ALPHA_MASK				GENMASK(23, 16)
++#define  ALPHA(x)				FIELD_PREP(ALPHA_MASK, (x))
++#define  PRIM_C_BLD_FUNC_MASK			GENMASK(2, 0)
++#define  PRIM_C_BLD_FUNC(x)			\
++		FIELD_PREP(PRIM_C_BLD_FUNC_MASK, (x))
++#define  SEC_C_BLD_FUNC_MASK			GENMASK(6, 4)
++#define  SEC_C_BLD_FUNC(x)			\
++		FIELD_PREP(SEC_C_BLD_FUNC_MASK, (x))
++#define  PRIM_A_BLD_FUNC_MASK			GENMASK(10, 8)
++#define  PRIM_A_BLD_FUNC(x)			\
++		FIELD_PREP(PRIM_A_BLD_FUNC_MASK, (x))
++#define  SEC_A_BLD_FUNC_MASK			GENMASK(14, 12)
++#define  SEC_A_BLD_FUNC(x)			\
++		FIELD_PREP(SEC_A_BLD_FUNC_MASK, (x))
++
++enum dc_db_blend_func {
++	DC_DOMAINBLEND_BLEND_ZERO,
++	DC_DOMAINBLEND_BLEND_ONE,
++	DC_DOMAINBLEND_BLEND_PRIM_ALPHA,
++	DC_DOMAINBLEND_BLEND_ONE_MINUS_PRIM_ALPHA,
++	DC_DOMAINBLEND_BLEND_SEC_ALPHA,
++	DC_DOMAINBLEND_BLEND_ONE_MINUS_SEC_ALPHA,
++	DC_DOMAINBLEND_BLEND_CONST_ALPHA,
++	DC_DOMAINBLEND_BLEND_ONE_MINUS_CONST_ALPHA,
++};
++
++enum dc_db_shadow_sel {
++	SW = 0x4,
++	SW_PRIM = 0x5,
++	SW_SEC = 0x6,
++};
++
++static const struct dc_subdev_info dc_db_info[] = {
++	{ .reg_start = 0x4b6a0000, .id = 0, },
++	{ .reg_start = 0x4b720000, .id = 1, },
++};
++
++static const struct regmap_range dc_db_regmap_ranges[] = {
++	regmap_reg_range(STATICCONTROL, BLENDCONTROL),
++};
++
++static const struct regmap_access_table dc_db_regmap_access_table = {
++	.yes_ranges = dc_db_regmap_ranges,
++	.n_yes_ranges = ARRAY_SIZE(dc_db_regmap_ranges),
++};
++
++static const struct regmap_config dc_db_cfg_regmap_config = {
++	.name = "cfg",
++	.reg_bits = 32,
++	.reg_stride = 4,
++	.val_bits = 32,
++	.fast_io = true,
++	.wr_table = &dc_db_regmap_access_table,
++	.rd_table = &dc_db_regmap_access_table,
++	.max_register = BLENDCONTROL,
++};
++
++enum dc_db_mode {
++	DB_PRIMARY,
++	DB_SECONDARY,
++	DB_BLEND,
++	DB_SIDEBYSIDE,
++};
++
++static inline void dc_db_enable_shden(struct dc_db *db)
++{
++	regmap_write_bits(db->reg_cfg, STATICCONTROL, SHDEN, SHDEN);
++}
++
++static inline void dc_db_shdtoksel(struct dc_db *db, enum dc_db_shadow_sel sel)
++{
++	regmap_write_bits(db->reg_cfg, STATICCONTROL, SHDTOKSEL_MASK,
++			  SHDTOKSEL(sel));
++}
++
++static inline void dc_db_shdldsel(struct dc_db *db, enum dc_db_shadow_sel sel)
++{
++	regmap_write_bits(db->reg_cfg, STATICCONTROL, SHDLDSEL_MASK,
++			  SHDLDSEL(sel));
++}
++
++void dc_db_shdtokgen(struct dc_db *db)
++{
++	regmap_write(db->reg_cfg, CONTROL, SHDTOKGEN);
++}
++
++static void dc_db_mode(struct dc_db *db, enum dc_db_mode mode)
++{
++	regmap_write(db->reg_cfg, MODECONTROL, mode);
++}
++
++static inline void dc_db_alphamaskmode_disable(struct dc_db *db)
++{
++	regmap_write_bits(db->reg_cfg, ALPHACONTROL, ALPHAMASKENABLE, 0);
++}
++
++static inline void dc_db_blendcontrol(struct dc_db *db)
++{
++	u32 val = PRIM_A_BLD_FUNC(DC_DOMAINBLEND_BLEND_ZERO) |
++		  SEC_A_BLD_FUNC(DC_DOMAINBLEND_BLEND_ZERO) |
++		  PRIM_C_BLD_FUNC(DC_DOMAINBLEND_BLEND_ZERO) |
++		  SEC_C_BLD_FUNC(DC_DOMAINBLEND_BLEND_ONE);
++
++	regmap_write(db->reg_cfg, BLENDCONTROL, val);
++}
++
++void dc_db_init(struct dc_db *db)
++{
++	dc_db_enable_shden(db);
++	dc_db_shdtoksel(db, SW);
++	dc_db_shdldsel(db, SW);
++	dc_db_mode(db, DB_PRIMARY);
++	dc_db_alphamaskmode_disable(db);
++	dc_db_blendcontrol(db);
++}
++
++static int dc_db_bind(struct device *dev, struct device *master, void *data)
++{
++	struct platform_device *pdev = to_platform_device(dev);
++	struct dc_drm_device *dc_drm = data;
++	struct resource *res_cfg;
++	void __iomem *base_cfg;
++	struct dc_db *db;
++
++	db = devm_kzalloc(dev, sizeof(*db), GFP_KERNEL);
++	if (!db)
++		return -ENOMEM;
++
++	base_cfg = devm_platform_get_and_ioremap_resource(pdev, 0, &res_cfg);
++	if (IS_ERR(base_cfg))
++		return PTR_ERR(base_cfg);
++
++	db->reg_cfg = devm_regmap_init_mmio(dev, base_cfg,
++					    &dc_db_cfg_regmap_config);
++	if (IS_ERR(db->reg_cfg))
++		return PTR_ERR(db->reg_cfg);
++
++	db->id = dc_subdev_get_id(dc_db_info, ARRAY_SIZE(dc_db_info), res_cfg);
++	if (db->id < 0) {
++		dev_err(dev, "failed to get instance number: %d\n", db->id);
++		return db->id;
++	}
++
++	db->dev = dev;
++	dc_drm->db[db->id] = db;
++
++	return 0;
++}
++
++static const struct component_ops dc_db_ops = {
++	.bind = dc_db_bind,
++};
++
++static int dc_db_probe(struct platform_device *pdev)
++{
++	int ret;
++
++	ret = component_add(&pdev->dev, &dc_db_ops);
++	if (ret)
++		return dev_err_probe(&pdev->dev, ret,
++				     "failed to add component\n");
++
++	return 0;
++}
++
++static void dc_db_remove(struct platform_device *pdev)
++{
++	component_del(&pdev->dev, &dc_db_ops);
++}
++
++static const struct of_device_id dc_db_dt_ids[] = {
++	{ .compatible = "fsl,imx95-dc-domainblend" },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, dc_db_dt_ids);
++
++struct platform_driver dc_db_driver = {
++	.probe = dc_db_probe,
++	.remove = dc_db_remove,
++	.driver = {
++		.name = "imx95-dc-domainblend",
++		.suppress_bind_attrs = true,
++		.of_match_table = dc_db_dt_ids,
++	},
++};
+diff --git a/drivers/gpu/drm/imx/dc/dc-de.c b/drivers/gpu/drm/imx/dc/dc-de.c
+index 5a3125596fdf4..23b0cea68d325 100644
+--- a/drivers/gpu/drm/imx/dc/dc-de.c
++++ b/drivers/gpu/drm/imx/dc/dc-de.c
+@@ -114,6 +114,7 @@ void dc_de_post_bind(struct dc_drm_device *dc_drm)
+ 
+ 	for (i = 0; i < DC_DISPLAYS; i++) {
+ 		de = dc_drm->de[i];
++		de->db = dc_drm->db[i];
+ 		de->fg = dc_drm->fg[i];
+ 		de->tc = dc_drm->tc[i];
+ 	}
+@@ -149,6 +150,7 @@ static int dc_de_runtime_resume(struct device *dev)
+ 	struct dc_de *de = dev_get_drvdata(dev);
+ 
+ 	dc_dec_init(de);
++	dc_db_init(de->db);
+ 	dc_fg_init(de->fg);
+ 	dc_tc_init(de->tc);
+ 
+diff --git a/drivers/gpu/drm/imx/dc/dc-de.h b/drivers/gpu/drm/imx/dc/dc-de.h
+index 211f3fcc1a9ad..1ac70b4f6276f 100644
+--- a/drivers/gpu/drm/imx/dc/dc-de.h
++++ b/drivers/gpu/drm/imx/dc/dc-de.h
+@@ -16,6 +16,12 @@
+ #define DC_FRAMEGEN_MAX_FRAME_INDEX	0x3ffff
+ #define DC_FRAMEGEN_MAX_CLOCK_KHZ	300000
+ 
++struct dc_db {
++	struct device *dev;
++	struct regmap *reg_cfg;
++	int id;
++};
++
+ struct dc_fg {
+ 	struct device *dev;
+ 	struct regmap *reg;
+@@ -30,6 +36,7 @@ struct dc_tc {
+ struct dc_de {
+ 	struct device *dev;
+ 	struct regmap *reg_top;
++	struct dc_db *db;
+ 	struct dc_fg *fg;
+ 	struct dc_tc *tc;
+ 	int irq_shdload;
+@@ -37,6 +44,10 @@ struct dc_de {
+ 	int irq_seqcomplete;
+ };
+ 
++/* Domain Blend Unit */
++void dc_db_init(struct dc_db *db);
++void dc_db_shdtokgen(struct dc_db *db);
++
+ /* Frame Generator Unit */
+ void dc_fg_cfg_videomode(struct dc_fg *fg, struct drm_display_mode *m);
+ void dc_fg_enable(struct dc_fg *fg);
+diff --git a/drivers/gpu/drm/imx/dc/dc-drv.c b/drivers/gpu/drm/imx/dc/dc-drv.c
+index 04f021d2d6cfc..f108964bf89f4 100644
+--- a/drivers/gpu/drm/imx/dc/dc-drv.c
++++ b/drivers/gpu/drm/imx/dc/dc-drv.c
+@@ -263,6 +263,7 @@ static struct platform_driver dc_driver = {
+ 
+ static struct platform_driver * const dc_drivers[] = {
+ 	&dc_cf_driver,
++	&dc_db_driver,
+ 	&dc_de_driver,
+ 	&dc_ed_driver,
+ 	&dc_fg_driver,
+diff --git a/drivers/gpu/drm/imx/dc/dc-drv.h b/drivers/gpu/drm/imx/dc/dc-drv.h
+index eb61b8c762693..17ce2d748262b 100644
+--- a/drivers/gpu/drm/imx/dc/dc-drv.h
++++ b/drivers/gpu/drm/imx/dc/dc-drv.h
+@@ -40,6 +40,8 @@ struct dc_drm_device {
+ 	struct dc_ed *ed_safe[DC_DISPLAYS];
+ 	/** @ed_cont: extdst list(content stream) */
+ 	struct dc_ed *ed_cont[DC_DISPLAYS];
++	/** @lb: domainblend list */
++	struct dc_db *db[DC_DISPLAYS];
+ 	/** @fg: framegen list */
+ 	struct dc_fg *fg[DC_DISPLAYS];
+ 	/** @fu_disp: fetchunit list(used by display engine) */
+@@ -71,6 +73,7 @@ void dc_kms_uninit(struct dc_drm_device *dc_drm);
+ int dc_plane_init(struct dc_drm_device *dc_drm, struct dc_plane *dc_plane);
+ 
+ extern struct platform_driver dc_cf_driver;
++extern struct platform_driver dc_db_driver;
+ extern struct platform_driver dc_de_driver;
+ extern struct platform_driver dc_ed_driver;
+ extern struct platform_driver dc_fg_driver;
+diff --git a/drivers/gpu/drm/imx/dc/dc-kms.h b/drivers/gpu/drm/imx/dc/dc-kms.h
+index cd7860eff986a..3e61dbb87afe7 100644
+--- a/drivers/gpu/drm/imx/dc/dc-kms.h
++++ b/drivers/gpu/drm/imx/dc/dc-kms.h
+@@ -48,6 +48,8 @@ struct dc_crtc {
+ 	struct dc_ed *ed_cont;
+ 	/** @ed_safe: safety stream extdst */
+ 	struct dc_ed *ed_safe;
++	/** @db: domain blend */
++	struct dc_db *db;
+ 	/** @fg: framegen */
+ 	struct dc_fg *fg;
+ 	/**
+@@ -122,6 +124,8 @@ struct dc_plane {
+ 	struct dc_fu *fu;
+ 	/** @cf: content stream constframe */
+ 	struct dc_cf *cf;
++	/** @db: domainblend */
++	struct dc_db *db;
+ 	/** @lb: layerblend */
+ 	struct dc_lb *lb;
+ 	/** @ed: content stream extdst */
 -- 
-With best wishes
-Dmitry
+2.51.0
+
 
