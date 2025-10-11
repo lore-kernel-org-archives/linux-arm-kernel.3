@@ -4,84 +4,77 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A594ECCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 14:40:50 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A602CCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 14:48:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-Id:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=gl+ae1b3aiy4YJ4vxFhTeoZVmvj8iAgFv13VRfipKes=; b=wSrpRa1PONRWNRoBNO0l8LRsrB
-	mWXfWE598BesfU8gqHK0QJIceFFaRKTbkjH4ikeUGgQrOP7qDmT7SjSwSgkRNtH2xIdkk1mlHrb7z
-	TmFxkoSxhC6iVzH4PabkL4c55FtS8pGCA+IjUNSHY94fUjKaIM58O8EEDKzB0yoGoq65Sg9ONWbSv
-	2232Mrjlf0pGXt/8m4axQPZIMniQYAhNRL05IDioSFmETC62UfRuRIVxKLzMIzYMYpwairRUaB9RI
-	3tYbdvvdp7cWZa+5wX/jbTN9v9O5OUuYBGTpoEP7c7xp660H9yf4OPyY/K4Nn0TDBa1iQwzzNut38
-	UUGrelBQ==;
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=J+ikcrGGW2Y1LniPTSaBwEnaVLitaJpovTEmzS7J2TY=; b=LqAdW+xMs/aLSlgrnoCnOYZi0D
+	CnMjD0JETgSyo7jVamHGdaZV47kg6c+6BvNGPrpXYOVSWvpp2KSXQYddeF39YlNtyXTNtpwjjYD0T
+	q+7jEZOyBlvqGH9jQyjTaMv8n4CMQ0S4gFBfrzKTpvu9yu47DCEO5WxSlxfeLfR8baYaO44DNB74B
+	OMHhvZA8w1U+pcQI+UK1hU6AceHC9grc/QingFjkfUAQkW32csRr/kWDwGo8rwRpm9uHn55+tGewx
+	LHeuEqsXkfh9WV3c3nHCYVTEtibuiCByrDuHwgAYz3O4VfC4o7lyJqSLoFRyYDMJqkn7vWkO6I3aK
+	AyK2ScGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7am0-0000000AFrR-2eTp;
-	Sat, 11 Oct 2025 14:40:40 +0000
-Received: from mail-pl1-x62b.google.com ([2607:f8b0:4864:20::62b])
+	id 1v7atR-0000000AGEx-1QbE;
+	Sat, 11 Oct 2025 14:48:21 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7aly-0000000AFr3-0hPH
+	id 1v7atQ-0000000AGEh-1NPO
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Oct 2025 14:40:39 +0000
-Received: by mail-pl1-x62b.google.com with SMTP id d9443c01a7336-28e7cd34047so23415595ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Oct 2025 07:40:37 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760193637; x=1760798437; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=gl+ae1b3aiy4YJ4vxFhTeoZVmvj8iAgFv13VRfipKes=;
-        b=IqGYsYOv9mw8ZKmwQ5O/EE82iN4Lbs/UT7tY72ZvoH8zIyJ6UZOR6JV06ggvvkgpR2
-         wrvcuM48MwerXutM2fMkUK91VZ+wWRgbE0o/hT794SggSsV7Qesl7HTX/WwZ+NecYKlm
-         TnP0EASqjTyf9CIV/ukl6iPCG2pTYt/J9u1UZTV8cyd6WoC3+07xY1NJc7cIAKdiavdl
-         39/VRCRPDQ4xELA+SU8oPndwATXDV3xSsvu4Ts37INOus95RXzXM/pYQG7RZRAfPrXoN
-         BIPU9ejOGF/rRaWGVm8quRo5oegtei7EnCsC76cLNIxA2jxIIITDpTCv4UU0WTjNwDzJ
-         J9Tw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760193637; x=1760798437;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=gl+ae1b3aiy4YJ4vxFhTeoZVmvj8iAgFv13VRfipKes=;
-        b=bpZ9I+FP7Nd6AvV0o976FGQ+d+6vGr3pXPz+JRpIKAJlZjjfoFLh9tTP1T9m0LN8KL
-         gU4/Kt8Knb3lzWn/Ea+X9NdmiBK2lxg6st/vepr6489F3+8cMmcGKriLkt56CHqk+sx/
-         rJrsNqJds8mhQWDgF2OfkTvbENzOQG/2q8hV6BlWv3de+XhKE4/T3/9xIATyx1W9/ZRj
-         XUMi7gOZE9kU5F3ddqS4k4FgwepJHULKA5Wxkb4flodvjajCP82e4BLj8gIsouaGU/d/
-         c5j8ao/WEYZKtqgDy4IxSE/cpxExh0kJCikPR4c/NgUcTyHygJT0z2Vxb84Og2+1zMjB
-         MtYw==
-X-Gm-Message-State: AOJu0YzK+vzGcB4ew9GIseQs9YuW6WXbgSHV3eNkr9GIFQW+8+2trPBr
-	Y/iscbm8XDumaGAyH8ByKcmUlpSFkPq2MGRbCH+hde5KHcgELI2uN6wysWbloV22Ybo=
-X-Gm-Gg: ASbGncvjkO9CjsJz7OySvEakklqT8YIFQPHE8AYu6XJHTMIRwLeltVQ8ORY7X9iX2Q3
-	/bH5cUZZb1oRWMz3KlMXA+9qfgyaUoFzXILtvXYeTy8cqi6bQgUza0OpHVE1du39wux7s1x3VzH
-	og6v/79h7WXIEix1bMnHDhZsrwjcJz4C84TBmO3Qb1YA+0nlxUY0RME0fdob/pG0XJK16wNC4qn
-	xXpxeSGnWnXHGP/qTrrYABOj6Ai9LmXXVK/RzbiIs7XvH3vytoxoPdxdOEvEZCSAsM560M4ClaH
-	FaQJ0MHlrxHv6UmDXzPUbXMyZ8pC81RguOfetORUMsqsgVcHQWexUexQe+8zmPTzUJ4cVc27Mgt
-	ygT8Mq7z5Uw1DGHQAsKWT0qK15VXoYa/yu+HNCZh8zYG+6twZuFg=
-X-Google-Smtp-Source: AGHT+IGzzau/mcdSdFO8lAk2rHCjKfAo88tRGKmQOZgSFMkk8lLXKA/0TUsBf/w56T4nxl6liJ70Lg==
-X-Received: by 2002:a17:903:8cc:b0:267:e3af:ae67 with SMTP id d9443c01a7336-29027238ef6mr187745315ad.14.1760193636698;
-        Sat, 11 Oct 2025 07:40:36 -0700 (PDT)
-Received: from n.. ([2401:4900:1c0e:53b:a256:f673:325:bb08])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29034f08e2dsm85442275ad.74.2025.10.11.07.40.34
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 11 Oct 2025 07:40:36 -0700 (PDT)
-From: mrigendrachaubey <mrigendra.chaubey@gmail.com>
-To: catalin.marinas@arm.com,
-	will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	mrigendrachaubey <mrigendra.chaubey@gmail.com>
-Subject: [PATCH] arm64: Fix typos and spelling errors in comments
-Date: Sat, 11 Oct 2025 20:10:04 +0530
-Message-Id: <20251011144004.14946-1-mrigendra.chaubey@gmail.com>
-X-Mailer: git-send-email 2.34.1
+	Sat, 11 Oct 2025 14:48:20 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id C90E9601A5
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Oct 2025 14:48:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 7E1C2C4CEF4
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Oct 2025 14:48:18 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760194098;
+	bh=wXStBs+UvcT5ZrTpS1/1ckIwHRUEME48TSqbgkHwb+4=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=oLlMKRHb9j5zca9gdcHz3nPcO7CWeuLIPHjl65qT2ulkC1tRQIFninovONVjG/+pi
+	 xlJPV9b35BmCBiYDnvjtYkvfsgCKLcTv7aU+UCPAwJCFH7e1YRwQTWuw6+AFLPJbp7
+	 6oId1EXpdBUig96uubNo6+DPOd34dH5Ho3jy47trzx19Tz9FKDIdc08BH5215KlMAO
+	 zHfV8cUJzMgeAaEn4t0CPuAh9YsvD1QkbTWrBBFig6M94acAuabpGdlZl+HL27+pn2
+	 3aabXazeHX5eCCzxiN1jZeB7tQKIrXZGDduFarAG2uocTIPF/JGfdVEBLr14vZyNOc
+	 veOWX/dRp43Pw==
+Received: by mail-lj1-f182.google.com with SMTP id 38308e7fff4ca-371e4858f74so34839321fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Oct 2025 07:48:18 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCV2zjmG/QzJeA88Y6D2hRT1fWRXgR+bcZvLv8p57BJPVFKxYEBi8C/hBpu6FPs0+2RfofIukDUqEoRMHipUc/+m@lists.infradead.org
+X-Gm-Message-State: AOJu0YwFSVC8QKtXwPpIqlr7Lf4NhGHnveGoYwLWcTlyRjaCkRtwQfKi
+	qZWMPRXfoh6Ji6LQLvjdeIa3yZ0x0ATeSYVPmuiFJdpCoHK/6MDWnur0VVh/7UyjXxIyHWGRlrS
+	0CAxsEIRGYM06um2tjHXUEZgz2hfouOg=
+X-Google-Smtp-Source: AGHT+IHYOhl0vOE2LTdwiTtFP0Fr+VU2h59AG96E/Zqsb1S5Qep9A2cRFtxP03lVo9G+6+RIphfLphc9aa7av4+nnEQ=
+X-Received: by 2002:a2e:b8c1:0:b0:372:8d09:d53f with SMTP id
+ 38308e7fff4ca-375f52a306emr52589131fa.20.1760194096892; Sat, 11 Oct 2025
+ 07:48:16 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251011_074038_240947_1FD7D471 
-X-CRM114-Status: GOOD (  34.86  )
+References: <20250928085506.4471-1-yangtiezhu@loongson.cn> <CAMj1kXG8Wi+THa2SeLxiDT=+t_TKx0AL4H-azZO4DNJvyyv96g@mail.gmail.com>
+ <CAAhV-H7xOf8DEwOrNh+GQGHktOT4Ljp+7SqutGvvDZp6GLXJrA@mail.gmail.com>
+ <CAMj1kXG=EFkRAMkvKMSjPixoGqU-tZXVoRkJJ6Wcnzs3x52X6Q@mail.gmail.com>
+ <CAMj1kXHWe2uGY3S1NJ6mckqD4n116rPmaOzw3_Qbvxyjh7ECMw@mail.gmail.com>
+ <fec0c03d-9d8c-89a3-886a-1adc22e59b66@loongson.cn> <CAMj1kXFLyBbRL+pAAQ6be6dxqFPiyw_Ug8qNQWaicZQ235HE=A@mail.gmail.com>
+ <8091e8fa-3483-af39-2f7a-e4eb62b0944f@loongson.cn> <CAAhV-H4+UGLSkbjHbq9MerWfxnq0a13x+uzNfTsCoe1UxjbWsg@mail.gmail.com>
+ <CAMj1kXH-rK0bRyHXdJ-crAyMyvJHApH0WR7_8Qd8vrSPBLK+yg@mail.gmail.com>
+ <0c9b8e6a-96a6-91d4-946f-2109f48a529b@loongson.cn> <CAAhV-H41m96fvEWG5NqAE=tykPjyzt=50CseJDeCqdG-c_WMrQ@mail.gmail.com>
+In-Reply-To: <CAAhV-H41m96fvEWG5NqAE=tykPjyzt=50CseJDeCqdG-c_WMrQ@mail.gmail.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Sat, 11 Oct 2025 07:48:04 -0700
+X-Gmail-Original-Message-ID: <CAMj1kXEs5=VRi_rJwgHUrQWos-27PBbr3c4fYnmkV8Ahi8HZgw@mail.gmail.com>
+X-Gm-Features: AS18NWBtlErlqiroFax4UVMcNYMWDvSx1dti0RxYcAZ5hVrwUXFzJJzynSJJpSU
+Message-ID: <CAMj1kXEs5=VRi_rJwgHUrQWos-27PBbr3c4fYnmkV8Ahi8HZgw@mail.gmail.com>
+Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
+To: Huacai Chen <chenhuacai@kernel.org>
+Cc: Tiezhu Yang <yangtiezhu@loongson.cn>, Josh Poimboeuf <jpoimboe@kernel.org>, 
+	loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,304 +89,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-This patch corrects several minor typographical and spelling errors
-in comments across multiple arm64 source files.
+On Sat, 11 Oct 2025 at 00:43, Huacai Chen <chenhuacai@kernel.org> wrote:
+>
+> On Sat, Oct 11, 2025 at 3:29=E2=80=AFPM Tiezhu Yang <yangtiezhu@loongson.=
+cn> wrote:
+> >
+> > On 2025/10/11 =E4=B8=8A=E5=8D=8811:40, Ard Biesheuvel wrote:
+> > > On Fri, 10 Oct 2025 at 19:54, Huacai Chen <chenhuacai@kernel.org> wro=
+te:
+> > >>
+> > >> On Sat, Oct 11, 2025 at 9:13=E2=80=AFAM Tiezhu Yang <yangtiezhu@loon=
+gson.cn> wrote:
+> > >>>
+> > >>> On 2025/10/11 =E4=B8=8A=E5=8D=8812:25, Ard Biesheuvel wrote:
+> > >>> ...
+> > >>>> Why do we need both (1) and (2)?
+> > >>>
+> > >>> Not both, either (1) or (2).
+> > >>> Which one do you prefer? Or any other suggestions?
+> > >>>
+> > >>> Taking all of the considerations in balance, we should decide
+> > >>> what is the proper way.
+> > >> As a summary, there are three methods:
+> > >> (1) Only link libstub with vmlinux.o during the final vmlinux link.
+> > >> (2) Remove the attribute __noreturn for real_kernel_entry() and add =
+while (1).
+> > >> (3) Ignore "__efistub_" prefix in objtool.
+> > >>
+> > >> Josh prefers method (1), I prefer method (3) but also accept method
+> > >> (1) if it is not only specific to loongarch.
+> > >>
+> > >
+> > > This is a false positive warning in objtool, which complains about a
+> > > function that falls through, even though that can never happen in
+> > > reality.
+> > >
+> > > To me, it is not acceptable to modify how vmlinux.o is constructed
+> > > also for other architectures, in order to hide some of its constituen=
+t
+> > > parts from objtool, which do not use objtool to begin with.
+> > >
+> > >
+> > > If you are not willing to fix objtool, I suggest fixing the loongarch
+> > > code like this:
+> >
+> > Thank you.
+> >
+> > > --- a/drivers/firmware/efi/libstub/loongarch.c
+> > > +++ b/drivers/firmware/efi/libstub/loongarch.c
+> > > @@ -10,7 +10,7 @@
+> > >   #include "efistub.h"
+> > >   #include "loongarch-stub.h"
+> > >
+> > > -typedef void __noreturn (*kernel_entry_t)(bool efi, unsigned long cm=
+dline,
+> > > +typedef void (*kernel_entry_t)(bool efi, unsigned long cmdline,
+> > >                                            unsigned long systab);
+> > >
+> > >   efi_status_t check_platform_features(void)
+> > > @@ -81,4 +81,6 @@
+> > >
+> > >          real_kernel_entry(true, (unsigned long)cmdline_ptr,
+> > >                            (unsigned long)efi_system_table);
+> > > +
+> > > +       return EFI_LOAD_ERROR;
+> > >   }
+> >
+> > I tested the above changes, the falls through objtool warning can
+> > be fixed because efi_boot_kernel() ends with a return instruction,
+> > I think this is reasonable.
+> >
+> > efi_boot_kernel() has a return value, there are "return status" in
+> > other parts of efi_boot_kernel(), it should also return at the end
+> > of efi_boot_kernel() in theory, although we should never get here.
+> >
+> > If there are more comments, please let me know.
+> I still don't want LoongArch to be a special case, which means
+> efi_boot_kernel() in fdt.c, jump_kernel_func in riscv.c and
+> enter_kernel in arm64.c should also be modified.
+>
 
-No functional changes.
+You have made LoongArch a special case by adding objtool support,
+which  arm64 and RISC-V do not have.
 
-Signed-off-by: mrigendrachaubey <mrigendra.chaubey@gmail.com>
----
- arch/arm64/include/asm/assembler.h  | 4 ++--
- arch/arm64/include/asm/cpufeature.h | 4 ++--
- arch/arm64/include/asm/el2_setup.h  | 2 +-
- arch/arm64/include/asm/pgtable.h    | 4 ++--
- arch/arm64/include/asm/suspend.h    | 2 +-
- arch/arm64/kernel/acpi.c            | 2 +-
- arch/arm64/kernel/cpufeature.c      | 2 +-
- arch/arm64/kernel/ftrace.c          | 2 +-
- arch/arm64/kernel/machine_kexec.c   | 2 +-
- arch/arm64/kernel/probes/uprobes.c  | 2 +-
- arch/arm64/kernel/sdei.c            | 2 +-
- arch/arm64/kernel/smp.c             | 4 ++--
- arch/arm64/kernel/traps.c           | 2 +-
- arch/arm64/kvm/arch_timer.c         | 2 +-
- arch/arm64/kvm/hyp/nvhe/ffa.c       | 2 +-
- arch/arm64/kvm/mmu.c                | 2 +-
- arch/arm64/kvm/nested.c             | 2 +-
- arch/arm64/net/bpf_jit_comp.c       | 2 +-
- 18 files changed, 22 insertions(+), 22 deletions(-)
-
-diff --git a/arch/arm64/include/asm/assembler.h b/arch/arm64/include/asm/assembler.h
-index 23be85d93348..b8b1229e05e5 100644
---- a/arch/arm64/include/asm/assembler.h
-+++ b/arch/arm64/include/asm/assembler.h
-@@ -371,7 +371,7 @@ alternative_endif
-  * [start, end) with dcache line size explicitly provided.
-  *
-  * 	op:		operation passed to dc instruction
-- * 	domain:		domain used in dsb instruciton
-+ * 	domain:		domain used in dsb instruction
-  * 	start:          starting virtual address of the region
-  * 	end:            end virtual address of the region
-  *	linesz:		dcache line size
-@@ -412,7 +412,7 @@ alternative_endif
-  * [start, end)
-  *
-  * 	op:		operation passed to dc instruction
-- * 	domain:		domain used in dsb instruciton
-+ * 	domain:		domain used in dsb instruction
-  * 	start:          starting virtual address of the region
-  * 	end:            end virtual address of the region
-  * 	fixup:		optional label to branch to on user fault
-diff --git a/arch/arm64/include/asm/cpufeature.h b/arch/arm64/include/asm/cpufeature.h
-index e223cbf350e4..71ba4a47ab18 100644
---- a/arch/arm64/include/asm/cpufeature.h
-+++ b/arch/arm64/include/asm/cpufeature.h
-@@ -199,7 +199,7 @@ extern struct arm64_ftr_reg arm64_ftr_reg_ctrel0;
-  *    registers (e.g, SCTLR, TCR etc.) or patching the kernel via
-  *    alternatives. The kernel patching is batched and performed at later
-  *    point. The actions are always initiated only after the capability
-- *    is finalised. This is usally denoted by "enabling" the capability.
-+ *    is finalised. This is usually denoted by "enabling" the capability.
-  *    The actions are initiated as follows :
-  *	a) Action is triggered on all online CPUs, after the capability is
-  *	finalised, invoked within the stop_machine() context from
-@@ -251,7 +251,7 @@ extern struct arm64_ftr_reg arm64_ftr_reg_ctrel0;
- #define ARM64_CPUCAP_SCOPE_LOCAL_CPU		((u16)BIT(0))
- #define ARM64_CPUCAP_SCOPE_SYSTEM		((u16)BIT(1))
- /*
-- * The capabilitiy is detected on the Boot CPU and is used by kernel
-+ * The capability is detected on the Boot CPU and is used by kernel
-  * during early boot. i.e, the capability should be "detected" and
-  * "enabled" as early as possibly on all booting CPUs.
-  */
-diff --git a/arch/arm64/include/asm/el2_setup.h b/arch/arm64/include/asm/el2_setup.h
-index b37da3ee8529..f593ce79fe15 100644
---- a/arch/arm64/include/asm/el2_setup.h
-+++ b/arch/arm64/include/asm/el2_setup.h
-@@ -28,7 +28,7 @@
- 	 * Fruity CPUs seem to have HCR_EL2.E2H set to RAO/WI, but
- 	 * don't advertise it (they predate this relaxation).
- 	 *
--	 * Initalize HCR_EL2.E2H so that later code can rely upon HCR_EL2.E2H
-+	 * Initialize HCR_EL2.E2H so that later code can rely upon HCR_EL2.E2H
- 	 * indicating whether the CPU is running in E2H mode.
- 	 */
- 	mrs_s	x1, SYS_ID_AA64MMFR4_EL1
-diff --git a/arch/arm64/include/asm/pgtable.h b/arch/arm64/include/asm/pgtable.h
-index aa89c2e67ebc..36bf4655bc3d 100644
---- a/arch/arm64/include/asm/pgtable.h
-+++ b/arch/arm64/include/asm/pgtable.h
-@@ -432,7 +432,7 @@ bool pgattr_change_is_safe(pteval_t old, pteval_t new);
-  *   1      0      |   1           0          1
-  *   1      1      |   0           1          x
-  *
-- * When hardware DBM is not present, the sofware PTE_DIRTY bit is updated via
-+ * When hardware DBM is not present, the software PTE_DIRTY bit is updated via
-  * the page fault mechanism. Checking the dirty status of a pte becomes:
-  *
-  *   PTE_DIRTY || (PTE_WRITE && !PTE_RDONLY)
-@@ -598,7 +598,7 @@ static inline int pte_protnone(pte_t pte)
- 	/*
- 	 * pte_present_invalid() tells us that the pte is invalid from HW
- 	 * perspective but present from SW perspective, so the fields are to be
--	 * interpretted as per the HW layout. The second 2 checks are the unique
-+	 * interpreted as per the HW layout. The second 2 checks are the unique
- 	 * encoding that we use for PROT_NONE. It is insufficient to only use
- 	 * the first check because we share the same encoding scheme with pmds
- 	 * which support pmd_mkinvalid(), so can be present-invalid without
-diff --git a/arch/arm64/include/asm/suspend.h b/arch/arm64/include/asm/suspend.h
-index 0cde2f473971..e65f33edf9d6 100644
---- a/arch/arm64/include/asm/suspend.h
-+++ b/arch/arm64/include/asm/suspend.h
-@@ -23,7 +23,7 @@ struct cpu_suspend_ctx {
-  * __cpu_suspend_enter()'s caller, and populated by __cpu_suspend_enter().
-  * This data must survive until cpu_resume() is called.
-  *
-- * This struct desribes the size and the layout of the saved cpu state.
-+ * This struct describes the size and the layout of the saved cpu state.
-  * The layout of the callee_saved_regs is defined by the implementation
-  * of __cpu_suspend_enter(), and cpu_resume(). This struct must be passed
-  * in by the caller as __cpu_suspend_enter()'s stack-frame is gone once it
-diff --git a/arch/arm64/kernel/acpi.c b/arch/arm64/kernel/acpi.c
-index 7aca29e1d30b..d1ac0e58651c 100644
---- a/arch/arm64/kernel/acpi.c
-+++ b/arch/arm64/kernel/acpi.c
-@@ -133,7 +133,7 @@ static int __init acpi_fadt_sanity_check(void)
- 
- 	/*
- 	 * FADT is required on arm64; retrieve it to check its presence
--	 * and carry out revision and ACPI HW reduced compliancy tests
-+	 * and carry out revision and ACPI HW reduced compliance tests
- 	 */
- 	status = acpi_get_table(ACPI_SIG_FADT, 0, &table);
- 	if (ACPI_FAILURE(status)) {
-diff --git a/arch/arm64/kernel/cpufeature.c b/arch/arm64/kernel/cpufeature.c
-index 5ed401ff79e3..5c673778e28f 100644
---- a/arch/arm64/kernel/cpufeature.c
-+++ b/arch/arm64/kernel/cpufeature.c
-@@ -1002,7 +1002,7 @@ static void __init sort_ftr_regs(void)
- 
- /*
-  * Initialise the CPU feature register from Boot CPU values.
-- * Also initiliases the strict_mask for the register.
-+ * Also initialises, the strict_mask for the register.
-  * Any bits that are not covered by an arm64_ftr_bits entry are considered
-  * RES0 for the system-wide value, and must strictly match.
-  */
-diff --git a/arch/arm64/kernel/ftrace.c b/arch/arm64/kernel/ftrace.c
-index 5adad37ab4fa..5a1554a44162 100644
---- a/arch/arm64/kernel/ftrace.c
-+++ b/arch/arm64/kernel/ftrace.c
-@@ -492,7 +492,7 @@ int ftrace_make_nop(struct module *mod, struct dyn_ftrace *rec,
- 		return ret;
- 
- 	/*
--	 * When using mcount, callsites in modules may have been initalized to
-+	 * When using mcount, callsites in modules may have been initialized to
- 	 * call an arbitrary module PLT (which redirects to the _mcount stub)
- 	 * rather than the ftrace PLT we'll use at runtime (which redirects to
- 	 * the ftrace trampoline). We can ignore the old PLT when initializing
-diff --git a/arch/arm64/kernel/machine_kexec.c b/arch/arm64/kernel/machine_kexec.c
-index 6f121a0164a4..239c16e3d02f 100644
---- a/arch/arm64/kernel/machine_kexec.c
-+++ b/arch/arm64/kernel/machine_kexec.c
-@@ -251,7 +251,7 @@ void crash_post_resume(void)
-  * marked as Reserved as memory was allocated via memblock_reserve().
-  *
-  * In hibernation, the pages which are Reserved and yet "nosave" are excluded
-- * from the hibernation iamge. crash_is_nosave() does thich check for crash
-+ * from the hibernation image. crash_is_nosave() does thich check for crash
-  * dump kernel and will reduce the total size of hibernation image.
-  */
- 
-diff --git a/arch/arm64/kernel/probes/uprobes.c b/arch/arm64/kernel/probes/uprobes.c
-index 2799bdb2fb82..941668800aea 100644
---- a/arch/arm64/kernel/probes/uprobes.c
-+++ b/arch/arm64/kernel/probes/uprobes.c
-@@ -131,7 +131,7 @@ void arch_uprobe_abort_xol(struct arch_uprobe *auprobe, struct pt_regs *regs)
- 	struct uprobe_task *utask = current->utask;
- 
- 	/*
--	 * Task has received a fatal signal, so reset back to probbed
-+	 * Task has received a fatal signal, so reset back to probed
- 	 * address.
- 	 */
- 	instruction_pointer_set(regs, utask->vaddr);
-diff --git a/arch/arm64/kernel/sdei.c b/arch/arm64/kernel/sdei.c
-index 95169f7b6531..965b03fedfb8 100644
---- a/arch/arm64/kernel/sdei.c
-+++ b/arch/arm64/kernel/sdei.c
-@@ -202,7 +202,7 @@ unsigned long sdei_arch_get_entry_point(int conduit)
- /*
-  * do_sdei_event() returns one of:
-  *  SDEI_EV_HANDLED -  success, return to the interrupted context.
-- *  SDEI_EV_FAILED  -  failure, return this error code to firmare.
-+ *  SDEI_EV_FAILED  -  failure, return this error code to firmware.
-  *  virtual-address -  success, return to this address.
-  */
- unsigned long __kprobes do_sdei_event(struct pt_regs *regs,
-diff --git a/arch/arm64/kernel/smp.c b/arch/arm64/kernel/smp.c
-index 68cea3a4a35c..a0bfe624f899 100644
---- a/arch/arm64/kernel/smp.c
-+++ b/arch/arm64/kernel/smp.c
-@@ -350,7 +350,7 @@ void arch_cpuhp_cleanup_dead_cpu(unsigned int cpu)
- 
- 	/*
- 	 * Now that the dying CPU is beyond the point of no return w.r.t.
--	 * in-kernel synchronisation, try to get the firwmare to help us to
-+	 * in-kernel synchronisation, try to get the firmware to help us to
- 	 * verify that it has really left the kernel before we consider
- 	 * clobbering anything it might still be using.
- 	 */
-@@ -523,7 +523,7 @@ int arch_register_cpu(int cpu)
- 
- 	/*
- 	 * Availability of the acpi handle is sufficient to establish
--	 * that _STA has aleady been checked. No need to recheck here.
-+	 * that _STA has already been checked. No need to recheck here.
- 	 */
- 	c->hotpluggable = arch_cpu_is_hotpluggable(cpu);
- 
-diff --git a/arch/arm64/kernel/traps.c b/arch/arm64/kernel/traps.c
-index 681939ef5d16..914282016069 100644
---- a/arch/arm64/kernel/traps.c
-+++ b/arch/arm64/kernel/traps.c
-@@ -922,7 +922,7 @@ void __noreturn panic_bad_stack(struct pt_regs *regs, unsigned long esr, unsigne
- 	__show_regs(regs);
- 
- 	/*
--	 * We use nmi_panic to limit the potential for recusive overflows, and
-+	 * We use nmi_panic to limit the potential for recursive overflows, and
- 	 * to get a better stack trace.
- 	 */
- 	nmi_panic(NULL, "kernel stack overflow");
-diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-index dbd74e4885e2..ebcb7f1a55ee 100644
---- a/arch/arm64/kvm/arch_timer.c
-+++ b/arch/arm64/kvm/arch_timer.c
-@@ -815,7 +815,7 @@ static void timer_set_traps(struct kvm_vcpu *vcpu, struct timer_map *map)
- 		tpt = tpc = true;
- 
- 	/*
--	 * For the poor sods that could not correctly substract one value
-+	 * For the poor sods that could not correctly subtract one value
- 	 * from another, trap the full virtual timer and counter.
- 	 */
- 	if (has_broken_cntvoff() && timer_get_offset(map->direct_vtimer))
-diff --git a/arch/arm64/kvm/hyp/nvhe/ffa.c b/arch/arm64/kvm/hyp/nvhe/ffa.c
-index 4e16f9b96f63..0ee7ebb2485e 100644
---- a/arch/arm64/kvm/hyp/nvhe/ffa.c
-+++ b/arch/arm64/kvm/hyp/nvhe/ffa.c
-@@ -115,7 +115,7 @@ static void ffa_set_retval(struct kvm_cpu_context *ctxt,
- 	 *
- 	 * FFA-1.3 introduces 64-bit variants of the CPU cycle management
- 	 * interfaces. Moreover, FF-A 1.3 clarifies that SMC32 direct requests
--	 * complete with SMC32 direct reponses which *should* allow us use the
-+	 * complete with SMC32 direct responses which *should* allow us use the
- 	 * function ID sent by the caller to determine whether to return x8-x17.
- 	 *
- 	 * Note that we also cannot rely on function IDs in the response.
-diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
-index 7cc964af8d30..9a6a80c3fbe5 100644
---- a/arch/arm64/kvm/mmu.c
-+++ b/arch/arm64/kvm/mmu.c
-@@ -1755,7 +1755,7 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
- 
- 	/*
- 	 * Check if this is non-struct page memory PFN, and cannot support
--	 * CMOs. It could potentially be unsafe to access as cachable.
-+	 * CMOs. It could potentially be unsafe to access as cacheable.
- 	 */
- 	if (vm_flags & (VM_PFNMAP | VM_MIXEDMAP) && !pfn_is_map_memory(pfn)) {
- 		if (is_vma_cacheable) {
-diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
-index 7a045cad6bdf..4c16dbbd6e90 100644
---- a/arch/arm64/kvm/nested.c
-+++ b/arch/arm64/kvm/nested.c
-@@ -85,7 +85,7 @@ int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu)
- 	/*
- 	 * Let's treat memory allocation failures as benign: If we fail to
- 	 * allocate anything, return an error and keep the allocated array
--	 * alive. Userspace may try to recover by intializing the vcpu
-+	 * alive. Userspace may try to recover by initializing the vcpu
- 	 * again, and there is no reason to affect the whole VM for this.
- 	 */
- 	num_mmus = atomic_read(&kvm->online_vcpus) * S2_MMU_PER_VCPU;
-diff --git a/arch/arm64/net/bpf_jit_comp.c b/arch/arm64/net/bpf_jit_comp.c
-index ab83089c3d8f..3cfdb77fb47c 100644
---- a/arch/arm64/net/bpf_jit_comp.c
-+++ b/arch/arm64/net/bpf_jit_comp.c
-@@ -3053,7 +3053,7 @@ bool bpf_jit_supports_exceptions(void)
- 	/* We unwind through both kernel frames starting from within bpf_throw
- 	 * call and BPF frames. Therefore we require FP unwinder to be enabled
- 	 * to walk kernel frames and reach BPF frames in the stack trace.
--	 * ARM64 kernel is aways compiled with CONFIG_FRAME_POINTER=y
-+	 * ARM64 kernel is always, compiled with CONFIG_FRAME_POINTER=y
- 	 */
- 	return true;
- }
--- 
-2.34.1
-
+So NAK to changing arm64 and RISC-V as well.
 
