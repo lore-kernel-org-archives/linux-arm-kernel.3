@@ -4,78 +4,83 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44BD5CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 22:50:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EAAFCCCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 22:52:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hbeHfoPPK5NQlk0LXiNKJwNH3FUrkY8q7zbe6XVPDZQ=; b=isNUHGwoIdb6MKyYzzyCLf7e0X
-	pEvf4oi7FzAyeCldTnJHKXV1ydW2YeCbXKCuGIKB4mDM8lbS5U0vBf5qNzmH9FveA/q8Np/fY8r1I
-	i78NyhTq+bgy9WUXoZeE+i1mD4oG+HkmFEqrwO5nS0yaTYoWXN4yUN1YkfCWV0tgf5EIGUSaxgZvM
-	gMRx0fl/B4Y48k8mEtX1+MGcgzYwniAa33/jMu4WdE65xPvHGDgEBVjYD8dBJ555t5LP9/FkrXIRH
-	2CAPOJ6YaR3IQJ3pboNZhNtqPRx/VRkYb3aHj3GNXHYgstzu3TTE23mMmIQ9pD9cAIeZIBdvppZen
-	NGBxG6fQ==;
+	bh=0nHLKXQqv4xz0J0kuaY8JRE9WZ/zUW409TFegAHOiMc=; b=pfcy/pGRj3k581Ut25OsWj9S2d
+	L+APlbDY90foIUujZJYhRJ18e78Bn4A3orfD87c8w8QmayfamUpEUD1onBF9CqJYFRhiT+QSh8/Ap
+	H6rS/F5ZiBJR7gvEboXqmaOnoulZbSXl4N7Yt5PFpBKU9ISg5R2Qzuw3US3eifTJ7V+YUqGwkxqj7
+	xb0g2YBIAtwl6XYauoxoaPHug3ysgPl92ORDvrrKa8p201tids9fCsy4B1YB4CR35+gqmHq8wtWWh
+	3J/drZEoX5ElMiODruzUaR4ftmj0OwdVeRSoZ64c+445vByYn8g+spP7pXuovL4qMYQkwveh1RguK
+	dOv+wF4g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7iPo-0000000At8C-29SV;
-	Sat, 11 Oct 2025 22:50:16 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v7iSL-0000000AtKI-04LP;
+	Sat, 11 Oct 2025 22:52:53 +0000
+Received: from mgamail.intel.com ([192.198.163.8])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7iPm-0000000At75-0ASg
+	id 1v7iSI-0000000AtJA-18Ed
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Oct 2025 22:50:15 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 2D596406BB;
-	Sat, 11 Oct 2025 22:50:11 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09B02C113D0;
-	Sat, 11 Oct 2025 22:50:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760223011;
-	bh=8rlqFhD7ZDNHiDK9F+hmopZq5lvaCROu4QqhzxSLJCw=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=uKlBcofKUKRjo2BHu/CHNzYm8Kw0YmmQ/Cb4sj2HgU71lnMVq3900L679BCX7Nkqc
-	 ALjHDzaQu5rpjG05IMMlR28jpT6bmR5RxXHuCDvM3XMsJSpzhkX2+4XiK7PeZvtYiO
-	 DPIy4qqpCFWCvBctjA6l48xnooOhDmc/tXLPc2+b8QJbLme1RGW1npb9mjX5F5WQTd
-	 /jXTBsgPz9DtvVoxU9I5Vywis7TlKL+jf7XP0sw93FRGvXo9as20NaUU8N4b+uXIk0
-	 z5RpHKbabOEEleJIe7b+iL/Em/tyNDyiOe4bfkTgpLbNZp9T79VmMq/7NjyOrBxrzn
-	 o5Cz87/N+JGFg==
-Date: Sun, 12 Oct 2025 04:19:48 +0530
-From: Sumit Garg <sumit.garg@kernel.org>
-To: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
-Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	op-tee@lists.trustedfirmware.org,
-	Bjorn Andersson <andersson@kernel.org>,
-	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
-	linux-stm32@st-md-mailman.stormreply.com,
-	Rob Herring <robh+dt@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Jens Wiklander <jens.wiklander@linaro.org>,
-	linux-arm-kernel@lists.infradead.org
-Subject: Re: [Linux-stm32] [PATCH v19 4/6] dt-bindings: remoteproc: Add
- compatibility for TEE support
-Message-ID: <aOrfDH1HnPSILtFE@sumit-X1>
-References: <20250625094028.758016-5-arnaud.pouliquen@foss.st.com>
- <aMkqifHSdlCs4VjA@sumit-X1>
- <62bdb238-7440-451b-84ef-79f846b10ba0@foss.st.com>
- <aMqIhFdIqp5auH22@sumit-X1>
- <8d385f2e-6470-4d66-be0b-a2a448a81fa4@foss.st.com>
- <aMz8XuHzIomNhmra@sumit-X1>
- <0e5a44df-f60a-4523-a791-6318b3c81425@foss.st.com>
- <f5b0e106-a731-461b-b401-1aa1f9892465@foss.st.com>
- <aOidN1N3GIOcsXd1@sumit-X1>
- <929ce1f6-818f-4bb9-abf9-24d511bd2bf3@foss.st.com>
+	Sat, 11 Oct 2025 22:52:51 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1760223170; x=1791759170;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=GVmOG10TROUdeXmJov1L7XMMndm0Uh+AWCht1noS0Ts=;
+  b=VJx6p7o8usroJdhyBRzBQcuVHCmDDspvAvlyYP9liXpCXu5RYquLBtgi
+   ft5+4CQ+zn88Gw16mx+1Uhtl/rdkwGv54/mj5P4TxVGAiJuwHlUh4WUXE
+   NxVPBcTIjQP48JYoAeKFpEgH8k3llNEjHuqTYU7quXX1qXgrcjLp0fCAZ
+   PTy5uBEBGJQX+fEVnUs2N4jWUSRLnddAWkhKy946e7T2F+fkchU2P/Esw
+   ob3GHI62iWqRBnWQbf8UvCIwwuwDgFnJE54iw3ty4WnDehZAAHtbFhTE4
+   cL73q2DUqlkkpLo5/qwj9Se68uaYh3jGxkX2+oxTT/XKFREXtlvRHyT+h
+   g==;
+X-CSE-ConnectionGUID: oce6r8NySAmzXm5IL4uaLA==
+X-CSE-MsgGUID: jO4n6e2yT2G56Du7CcUQ3Q==
+X-IronPort-AV: E=McAfee;i="6800,10657,11579"; a="80045087"
+X-IronPort-AV: E=Sophos;i="6.19,221,1754982000"; 
+   d="scan'208";a="80045087"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by fmvoesa102.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Oct 2025 15:52:44 -0700
+X-CSE-ConnectionGUID: nQuqMc/sT76CwsSU/yNfug==
+X-CSE-MsgGUID: 6LVI2JFbRTmGaB+sfAiRJQ==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,221,1754982000"; 
+   d="scan'208";a="186548731"
+Received: from lkp-server01.sh.intel.com (HELO 6a630e8620ab) ([10.239.97.150])
+  by fmviesa004.fm.intel.com with ESMTP; 11 Oct 2025 15:52:41 -0700
+Received: from kbuild by 6a630e8620ab with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1v7iS7-000427-1M;
+	Sat, 11 Oct 2025 22:52:39 +0000
+Date: Sun, 12 Oct 2025 06:52:31 +0800
+From: kernel test robot <lkp@intel.com>
+To: Peng Fan <peng.fan@nxp.com>, Sudeep Holla <sudeep.holla@arm.com>,
+	Cristian Marussi <cristian.marussi@arm.com>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Fabio Estevam <festevam@gmail.com>
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	Dan Carpenter <error27@gmail.com>, Frank Li <frank.li@nxp.com>,
+	arm-scmi@vger.kernel.org, imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+	Peng Fan <peng.fan@nxp.com>
+Subject: Re: [PATCH v2 2/2] firmware: imx: sm-misc: Dump syslog info
+Message-ID: <202510120607.1JmlmOTI-lkp@intel.com>
+References: <20251011-sm-syslog-v2-1-v2-2-f43a3f6b32e4@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
+Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <929ce1f6-818f-4bb9-abf9-24d511bd2bf3@foss.st.com>
+In-Reply-To: <20251011-sm-syslog-v2-1-v2-2-f43a3f6b32e4@nxp.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251011_155014_160034_F9431A6B 
-X-CRM114-Status: GOOD (  74.85  )
+X-CRM114-CacheID: sfid-20251011_155250_356879_ACBF111B 
+X-CRM114-Status: GOOD (  11.33  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,393 +95,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 10, 2025 at 12:04:40PM +0200, Arnaud POULIQUEN wrote:
-> Hi Sumit,
-> 
-> On 10/10/25 07:44, Sumit Garg wrote:
-> > Hi Arnaud,
-> > 
-> > It's been some holidays followed by business travel leading to delay in
-> > my response here.
-> > 
-> > On Tue, Oct 07, 2025 at 03:50:32PM +0200, Arnaud POULIQUEN wrote:
-> > > Hello Bjorn, Mathieu, Sumit,
-> > > 
-> > > On 9/22/25 10:57, Arnaud POULIQUEN wrote:
-> > > > 
-> > > > 
-> > > > On 9/19/25 08:46, Sumit Garg wrote:
-> > > > > On Wed, Sep 17, 2025 at 03:47:40PM +0200, Arnaud POULIQUEN wrote:
-> > > > > > 
-> > > > > > On 9/17/25 12:08, Sumit Garg wrote:
-> > > > > > > On Tue, Sep 16, 2025 at 03:26:47PM +0200, Arnaud POULIQUEN wrote:
-> > > > > > > > Hello Sumit,
-> > > > > > > > 
-> > > > > > > > On 9/16/25 11:14, Sumit Garg wrote:
-> > > > > > > > > Hi Arnaud,
-> > > > > > > > > 
-> > > > > > > > > First of all apologies for such a late review comment as previously I
-> > > > > > > > > wasn't CCed or involved in the review of this
-> > > > > > > > > patch-set. In case any of
-> > > > > > > > > my following comments have been discussed in the
-> > > > > > > > > past then feel free to
-> > > > > > > > > point me at relevant discussions.
-> > > > > > > > No worries, there are too many versions of this series
-> > > > > > > > to follow all the
-> > > > > > > > past discussions. I sometimes have difficulty remembering all the
-> > > > > > > > discussions myself :)
-> > > > > > > > 
-> > > > > > > > > On Wed, Jun 25, 2025 at 11:40:26AM +0200, Arnaud Pouliquen wrote:
-> > > > > > > > > > The "st,stm32mp1-m4-tee" compatible is utilized
-> > > > > > > > > > in a system configuration
-> > > > > > > > > > where the Cortex-M4 firmware is loaded by the
-> > > > > > > > > > Trusted Execution Environment
-> > > > > > > > > > (TEE).
-> > > > > > > > > Having a DT based compatible for a TEE service to me
-> > > > > > > > > just feels like it
-> > > > > > > > > is redundant here. I can see you have also used a
-> > > > > > > > > TEE bus based device
-> > > > > > > > > too but that is not being properly used. I know subsystems like
-> > > > > > > > > remoteproc, SCMI and others heavily rely on DT to
-> > > > > > > > > hardcode properties of
-> > > > > > > > > system firmware which are rather better to be discovered dynamically.
-> > > > > > > > > 
-> > > > > > > > > So I have an open question for you and the remoteproc subsystem
-> > > > > > > > > maintainers being:
-> > > > > > > > > 
-> > > > > > > > > Is it feasible to rather leverage the benefits of a
-> > > > > > > > > fully discoverable
-> > > > > > > > > TEE bus rather than relying on platform bus/ DT to hardcode firmware
-> > > > > > > > > properties?
-> > > > > > > > The discoverable TEE bus does not works if the remoteproc is probed
-> > > > > > > > before the OP-TEE bus, in such case  no possibility to know if the TEE
-> > > > > > > > TA is not yet available or not available at all.
-> > > > > > > > This point is mentioned in a comment in rproc_tee_register().
-> > > > > > For the discussion, it’s probably better if I provide more
-> > > > > > details on the
-> > > > > > current OP-TEE implementation and the stm32mp processors.
-> > > > > > 
-> > > > > > 1) STM32MP topology:
-> > > > > >     - STM32MP1: only a Cortex-M4 remote processor
-> > > > > >     -  STM32MP2x: a Cortex-M33 and a Cortex-M0 remote processors
-> > > > > >     At this stage, only the STM32MP15 is upstreamed; the
-> > > > > > STM32MP25 is waiting
-> > > > > >     for this series to be merged.
-> > > > > > 
-> > > > > > 2) OP-TEE architecture:
-> > > > > > - A platform-agnostic Trusted Application (TA) handles the bus
-> > > > > > service.[1]
-> > > > > >     This TA supports managing multiple remote processors. It can
-> > > > > > be embedded
-> > > > > >     regardless of the number of remote processors managed in OP-TEE.
-> > > > > >     The decision to embed this service is made at build time based on the
-> > > > > >     presence of the remoteproc driver, so it is not device tree
-> > > > > > dependent.
-> > > > > >     - STM32MP15: TA activated only if the remoteproc OP-TEE
-> > > > > > driver is probed
-> > > > > >     - STM32MP2x: TA always activated as the OP-TEE remoteproc
-> > > > > > driver is always
-> > > > > > probed
-> > > > > > 
-> > > > > > - A pseudo Trusted Application implements the platform porting[2],
-> > > > > >     relying on registered remoteproc platform drivers.
-> > > > > > 
-> > > > > > - Platform driver(s) manage the remote processors.[3][4]
-> > > > > >     - If remoteproc is managed by OP-TEE: manages the remoteproc
-> > > > > > lifecycle
-> > > > > >     - If remoteproc is managed by Linux: provides access rights
-> > > > > > to Linux to
-> > > > > > manage
-> > > > > >       the remoteproc
-> > > > > > 
-> > > > > >     - STM32MP15: driver probed only if the remoteproc is managed
-> > > > > > in OP-TEE
-> > > > > >     - STM32MP2x: driver probed in both cases for the Cortex-M33
-> > > > > >       For the STM32MP25, the TA is always present and queries the
-> > > > > > driver to
-> > > > > > check
-> > > > > >       if it supports secure loading.
-> > > > > > 
-> > > > > > 
-> > > > > > [1] https://elixir.bootlin.com/op-tee/4.7.0/source/ta/remoteproc
-> > > > > > [2]
-> > > > > > https://elixir.bootlin.com/op-tee/4.7.0/source/core/pta/stm32mp/
-> > > > > > remoteproc_pta.c
-> > > > > > [3]https://elixir.bootlin.com/op-tee/4.7.0/source/core/drivers/
-> > > > > > remoteproc/stm32_remoteproc.c
-> > > > > > [4]https://github.com/STMicroelectronics/optee_os/blob/4.0.0-stm32mp/
-> > > > > > core/drivers/remoteproc/stm32_remoteproc.c
-> > > > > Thanks for the background here.
-> > > > > 
-> > > > > > > The reason here is that you are mixing platform and TEE bus
-> > > > > > > for remoteproc
-> > > > > > > driver. For probe, you rely on platform bus and then try to migrate to
-> > > > > > > TEE bus via rproc_tee_register() is the problem here.
-> > > > > > > Instead you should
-> > > > > > > rather probe remoteproc device on TEE bus from the beginning.
-> > > > > > The approach is interesting, but how can we rely on Device Tree (DT) for
-> > > > > > hardware configuration in this case?
-> > > > > > At a minimum, I need to define memory regions and mailboxes.
-> > > > > The hardware configuration in DT should be consumed by OP-TEE and the
-> > > > > kernel probes remoteproc properties from OP-TEE since it's an OP-TEE
-> > > > > mediated remoteproc service you are adding here.
-> > > > > >   From my perspective, I would still need a driver probed by DT
-> > > > > > that registers
-> > > > > > a driver on the TEE bus. Therefore, I still need a mechanism to decide
-> > > > > > whether the remote firmware is managed by the secure or
-> > > > > > non-secure context.
-> > > > > As I mentioned below, this should be achievable using the secure-status
-> > > > > property without introducing the new compatible:
-> > > > > 
-> > > > > Kernel managed remoteproc:
-> > > > >      status = "okay"; secure-status = "disabled";     /* NS-only */
-> > > > > 
-> > > > > OP-TEE managed remoteproc:
-> > > > >      status = "disabled"; secure-status = "okay";     /* S-only */
-> > > > > 
-> > > > > > Another issue would be to be able to share the remoteproc TEE service
-> > > > > > between
-> > > > > > several platform remoteproc drivers, in case of multi remote processor
-> > > > > > support.
-> > > > > Making the TEE based remoteproc service independent of DT will surely
-> > > > > make it more scalable to other platforms too. Have a look at how OP-TEE
-> > > > > based HWRNG service scales across platforms.
-> > > > 
-> > > > Another important service is SCMI, which drivers use to manage clocks
-> > > > and resets.
-> > > > These clocks and resets are declared in the Device Tree (DT). It seems
-> > > > to me that
-> > > > in this case, we are closer to SCMI than to the RNG service.
-> > > > 
-> > > > I propose we discuss this based on a concrete example with the STM32MP25.
-> > > > Although not yet upstreamed, our plan is to manage signed firmware for the
-> > > > Cortex-M33 and Cortex-M0.
-> > > > 
-> > > > Please find below my view of the DT resources to address.
-> > > > 
-> > > > STM32MP25  Cortex-M33 and Cortex-M0 nodes:
-> > > > 
-> > > > m33_rproc {
-> > > >     /* M33 watchdog interrupt */
-> > > >     interrupt-parent = <&intc>;
-> > > >     interrupts = <GIC_SPI 4 IRQ_TYPE_LEVEL_HIGH>;
-> > > >     /* power domain management */
-> > > >     power-domains = <&cluster_pd>, <&ret_pd>;
-> > > >     power-domain-names = "default", "sleep";
-> > > >     /* RPMsg mailboxes + M33 graceful shutdown request */
-> > > >     mboxes = <&ipcc1 0x0>, <&ipcc1 0x1>, <&ipcc1 2>;
-> > > >     mbox-names = "vq0", "vq1", "shutdown";
-> > > >     memory-region = <&vdev0vring0>, <&vdev0vring1>, <&vdev0buffer>;
-> > > >     status = "okay";
-> > > > };
-> > > > 
-> > > > m0_rproc {
-> > > >     /* mailbox for graceful shutdown */
-> > > >     mboxes = <&ipcc2 2>;
-> > > >     mbox-names = "shutdown";
-> > > >     /* M0 watchdog */
-> > > >    interrupt-parent = <&intc>;
-> > > >    interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
-> > > >    /* M0 peripheral clocking (not accessible by the M0) */
-> > > >    clocks = <&scmi_clk CK_SCMI_GPIOZ_AM>,
-> > > >    <&scmi_clk CK_SCMI_GPIOZ>,
-> > > >    <&scmi_clk CK_SCMI_IPCC2>,
-> > > >    <&scmi_clk CK_SCMI_IPCC2_AM>,
-> > > >    <&rcc CK_LPTIM3_AM>,
-> > > >    <&rcc CK_LPUART1_AM>,
-> > > >    <&rcc CK_CPU3_AM>,
-> > > >    <&rcc CK_CPU3>,
-> > > >    <&rcc CK_LPUART1_C3>,
-> > > >    <&rcc CK_GPIOZ_C3>,
-> > > >    <&rcc CK_LPTIM3_C3>,
-> > > >    <&rcc CK_KER_LPUART1>,
-> > > >    <&rcc CK_KER_LPTIM3>,
-> > > >    <&scmi_clk CK_SCMI_GPIOZ>,
-> > > >    <&scmi_clk CK_SCMI_IPCC2>;
-> > > >    status = "okay";
-> > > > };
-> > > > 
-> > > > If we want to remove the DT, we need to consider:
-> > > > 
-> > > > - Mechanism to differentiate Cortex-M33 and Cortex-M0:
-> > > >     Similar to SCMI, the remoteproc OP-TEE service should support
-> > > >    multiprocessor setups without instantiating multiple services.
-> > > > 
-> > > > - Mailboxes:
-> > > > 
-> > > >     A phandle is needed because the mailbox driver is managed by the
-> > > >     Linux mailbox driver. STM32MP2 has two mailboxes.
-> > > >     Moving towards your proposal would imply creating a mailbox service
-> > > >     in TEE to manage non-secure mailboxes for non-secure IPC. This might
-> > > >     not be efficient for inter-processor communication. Hardware-wise, it
-> > > >     would require the IRQ to be handled by the secure context.
-> > > > 
-> > > > - Memory regions:
-> > > >    - Hardware limitation: OP-TEE is limited in the number of memory regions
-> > > >      it can declare due to Firewall configuration. Moving IPC memory regions
-> > > >      reaches this limit. Currently, OP-TEE defines a single region with
-> > > > shareable
-> > > >      access rights, which Linux splits into at least three memory regions
-> > > > for RPMsg.
-> > > >    - Memory mapping: Memory regions still need to be declared in Linux to
-> > > > prevent
-> > > >      Linux from using them.
-> > > >    - Virtio/RPMsg: Memory region names are fixed (e.g., dev<X>vring<Y>),
-> > > > so OP-TEE
-> > > >     must declare memory regions in its DT according to Linux naming
-> > > > conventions.
-> > > > 
-> > > > - Clock and reset:
-> > > >      Some clocks and resets are managed via SCMI, others are not. This
-> > > > would require
-> > > >     managing all clocks and resets through SCMI, with possible side
-> > > > effect on the
-> > > >     "unused" clock mechanism in Linux ( to be confirmed)
-> > > > 
-> > > > - Power domain:
-> > > >     Information is needed at the Linux level to determine the low power
-> > > > mode.
-> > > > 
-> > > > - Watchdog interrupt:
-> > > >     Should be managed by OP-TEE, which requires the hardware to have an
-> > > > associated
-> > > >     secure IRQ.
-> > > > 
-> > > > - Miscellaneous vendor DT properties:
-> > > >      How to be sure that these can be addressed through TEE services?
-> > > > 
-> > > > Regarding the existing DT needs, it seems to me that removing the DT
-> > > > would require
-> > > > moving all node resource management into TEE ( if really possible). This
-> > > > would
-> > > > increase TEE complexity and footprint, reduce system efficiency, and
-> > > > make supporting
-> > > > other platforms less scalable.
-> > 
-> > I can see your arguments regarding some DT properties which are hard to
-> > discover via OP-TEE service and I have been trying to think of how to
-> > handle it in a proper manner for a device on discoverable TEE bus. One
-> > of my fellow kernel maintainers pointed out that other discoverable
-> > buses in the kernel like PCI etc. already solved this DT dependencies
-> > via having device specific bindings. You can have a look at a one
-> > particular example of PCI device binding here [1]. In case of OP-TEE,
-> > you can have a similar device binding with UUID under the OP-TEE
-> > firmware DT node.
-> > 
-> > The current approach you are taking via probing device on platform bus
-> > and then trying to move onto TEE bus isn't at all the compatible with
-> > the driver model, it simply sets a bad example for the driver model.
-> > 
-> > [1] Documentation/devicetree/bindings/net/wireless/qcom,ath11k-pci.yaml
-> > 
-> 
-> Thank you for your feedback. I am not very familiar with PCIe, so I need to
-> take a deeper look at the implementation.
+Hi Peng,
 
-I would suggest you take a look at how device specific DT bindings are
-used for other discoverable buses like PCIe etc. We need to do the same
-for the device/service discoverable on TEE bus.
+kernel test robot noticed the following build warnings:
 
-> 
-> To help me better understand your expectations, could you please confirm if
-> your proposal is close to what I have described below?
->
+[auto build test WARNING on 2b763d4652393c90eaa771a5164502ec9dd965ae]
 
-No, what you describe below still rely on probing over platform bus
-(unique compatible). Here you really need to probe remoteproc driver on
-TEE bus and then discover DT properties using device specific DT
-bindings something like below:
+url:    https://github.com/intel-lab-lkp/linux/commits/Peng-Fan/firmware-arm_scmi-imx-Support-getting-syslog-of-MISC-protocol/20251011-193459
+base:   2b763d4652393c90eaa771a5164502ec9dd965ae
+patch link:    https://lore.kernel.org/r/20251011-sm-syslog-v2-1-v2-2-f43a3f6b32e4%40nxp.com
+patch subject: [PATCH v2 2/2] firmware: imx: sm-misc: Dump syslog info
+config: i386-buildonly-randconfig-001-20251012 (https://download.01.org/0day-ci/archive/20251012/202510120607.1JmlmOTI-lkp@intel.com/config)
+compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251012/202510120607.1JmlmOTI-lkp@intel.com/reproduce)
 
-firmware  {
-    optee  {
-        compatible = "linaro,optee-tz";
-        method = "smc";
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202510120607.1JmlmOTI-lkp@intel.com/
 
-        rproc-service@0 {
-	    compatible = "<rproc-service-UUID>";
+All warnings (new ones prefixed by >>):
 
-            m0_rproc {
-	        ...
-	    };
+>> drivers/firmware/imx/sm-misc.c:55:17: warning: unused variable 'dev' [-Wunused-variable]
+      55 |         struct device *dev = file->private;
+         |                        ^~~
+   1 warning generated.
 
-            m33_rproc {
-	        ...
-	    };
-	};
-    };
-};
 
-Note here that you only describe those DT properties which can't be
-discovered from rproc OP-TEE service.
+vim +/dev +55 drivers/firmware/imx/sm-misc.c
 
--Sumit
+    50	
+    51	static int syslog_show(struct seq_file *file, void *priv)
+    52	{
+    53		/* 4KB is large enough for syslog */
+    54		void *syslog __free(kfree) = kmalloc(SZ_4K, GFP_KERNEL);
+  > 55		struct device *dev = file->private;
+    56		/* syslog API use num words, not num bytes */
+    57		u16 size = SZ_4K / 4;
+    58		int ret;
+    59	
+    60		if (!ph)
+    61			return -ENODEV;
+    62	
+    63		ret = imx_misc_ctrl_ops->misc_syslog(ph, &size, syslog);
+    64		if (ret)
+    65			return ret;
+    66	
+    67		seq_hex_dump(file, " ", DUMP_PREFIX_NONE, 16, sizeof(u32), syslog, size * 4, false);
+    68		seq_putc(file, '\n');
+    69	
+    70		return 0;
+    71	}
+    72	DEFINE_SHOW_ATTRIBUTE(syslog);
+    73	
 
-> 
-> 1) Device tree:
-> Notice that an intermediate ahb bus is used on ST platform for address
-> conversion between remote processor address and local physical address
-> I will probably need to find a solution for that.
-> 
-> 
-> firmware {
->    remoteproc_tee {
-> 	compatible = "remoteproc-tee";
-> 	mlahb: ahb {
-> 	    compatible = "st,mlahb", "simple-bus";
-> 	    #address-cells = <1>;
-> 	    #size-cells = <1>;
-> 	    ranges;
-> 	    dma-ranges = <>;
-> 	    m33_rproc@0 {
->       		compatible = "st,stm32mp1-m33";
->      		/* M33 watchdog interrupt */
->      		interrupt-parent = <&intc>;
-> 		interrupts = <GIC_SPI 4 IRQ_TYPE_LEVEL_HIGH>;
-> 		/* power domain management */
-> 		power-domains = <&cluster_pd>, <&ret_pd>;
-> 		power-domain-names = "default", "sleep";
-> 		/* RPMsg mailboxes + M33 graceful shutdown request */
-> 		mboxes = <&ipcc1 0x0>, <&ipcc1 0x1>, <&ipcc1 2>;
-> 		mbox-names = "vq0", "vq1", "shutdown";
-> 		memory-region = <&vdev0vring0>, <&vdev0vring1>,
-> 				<&vdev0buffer>;
-> 		status = "okay";
-> 	    };
->         };
-> 
-> 	ahbsr: ahb@2 {
-> 	   compatible = "st,mlahb", "simple-bus";
-> 	   #address-cells = <1>;
-> 	   #size-cells = <1>;
-> 	   ranges = <>;
-> 	   dma-ranges = <>;
-> 	   m0_rproc@1 {
->       		compatible = "st,stm32mp1-m0";
-> 		mboxes = <&ipcc2 2>;
-> 		mbox-names = "shutdown";
-> 		interrupt-parent = <&intc>;
-> 		interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
-> 		/* M0 peripheral clocking (not accessible by the M0) */
-> 		clocks = <>, <>;
->     		status = "okay";
-> 	   };
->        };
->     };
-> };
-> 
-> 2) remoteproc_driver:
->   - platform driver that registers a TEE driver with specified UUID
->   - on TEE driver probing it parses sub device (reg property replacing
->     st, proc_id property)
->   - tries to open associated TEE session and in case of success
->     probes associated rproc driver.
-> 
-> 3) st,remoteproc drivers
->   -  unique DT compatible, no secure-status use (legacy compatibility)
->   -  need to add a mechanism to detect probing
->      by the TEE bus, or directly probed by the ahb bus.
-> 
-> 
-> Thanks,
-> Arnaud
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
