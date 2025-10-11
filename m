@@ -4,60 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B40D7CCD190
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 634A5CCA476
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 17:03:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YGvU67Ll+AN2vD11o68DZRCZ7+qYUemEkQi2VibUdjc=; b=N9HUV25FsY1/lrv3zKtspXsCFd
-	t29VbPrbh5TTaH8uvTd7HiZ0nWwDhDeQ/+DWprtnLTYWL7zLYtnRPGrIKgIqm58QWkQImBMfDKCmO
-	r3Em+NO4ASanFU+Joo5xk1CJZ5dT43n642ZqDsYOFV0WYL4Fx0Nz2GIngQSx5KiTVU6vdg2GCg1+9
-	YLbqlxSBrBFVDF6stXUE6meHoupRNDCliY/rW+DMQLA6CIqyrPIMTIOZZxtlz2Qi2YN6Z+b30HSH8
-	JXMpDV6uZJMJqJnoeiZ6UvMksN38oiiDo8BatSBGB/28lvbsF97NeQveCKDHSfR5kR00T7cq33So3
-	EAtE0TYw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=mL1+Jl7MA/4qoWAJdJa7Mwpah/QL/KBofTWVwpT9vcQ=; b=AB42oX6BiuWhZy1nEKgo9pezgU
+	PxLc5OvAZfKGwn76feOzpwhwMUjMvdlOPSzBULK+zi+ar4zxlNe6fGAQD5NT6iWDQribD0Kj1Zh42
+	4jkrLBcYD1szdDk9eyLS9MICQhV7OjQCwE6R9DrW9USWhV7lnm3cEhiOUb/1MdvBMRpewYtcKgfyy
+	fKovjRUyp9UZ2oj274F+jHBNMnZqCm9+RqFoJMgX3lAJ5IbDjTePJLv8/FL1kogunanUN1KGDc0Yr
+	M3JASRWduLu16DPFMZF6iMGfOizPa/orpX5/vLOyIBDrpwUUDfXYJeGQ+6tttt7VkHNz4JahUk1h8
+	Q6rvXyYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7czx-0000000AMrz-2c9P;
-	Sat, 11 Oct 2025 17:03:13 +0000
-Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
+	id 1v7czm-0000000AMiO-2LYa;
+	Sat, 11 Oct 2025 17:03:02 +0000
+Received: from mout-p-101.mailbox.org ([80.241.56.151])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7czv-0000000AMnm-2sSt
+	id 1v7czj-0000000AMgR-2vpt
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Oct 2025 17:03:13 +0000
+	Sat, 11 Oct 2025 17:03:01 +0000
 Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4ckVL53z2Gz9skV;
-	Sat, 11 Oct 2025 19:03:09 +0200 (CEST)
+	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4ckVKm1Lvnz9t8r;
+	Sat, 11 Oct 2025 19:02:52 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1760202189;
+	t=1760202172;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YGvU67Ll+AN2vD11o68DZRCZ7+qYUemEkQi2VibUdjc=;
-	b=aDaGSG2KR1Mkw0pPkqy0fVzhBYzcBBFSvnGYPXXtsF5uJVxbhJSOrAl52bWNQCyn7lUwav
-	jwVxDZy9MH8/QNGQaRnrzNjz65dZsZcTej2T9BlJJUAqo8KKqkzTVbpLIQaONFmoGA09y9
-	1gwHFPZw2i7FhXc2UX1S/eKDuHWUqIm9fVcvmRIrJHomN+HultzEn+voeiH1+sXSnZifZH
-	VqCjNYb/PJrHU+DQ6Jy+pR8D0WOBfe19cvDfrswIbsAc7gHX5fE4nwirQ6mytyi1Vy1wKJ
-	ohjfuL4O1lWMzDXfw9EXx17ay66ESL4HhbQUnnMyX26s4PAJYPE285ocYrF+aw==
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=mL1+Jl7MA/4qoWAJdJa7Mwpah/QL/KBofTWVwpT9vcQ=;
+	b=v17tz+tJ4Qd2MFf5nMyiML7pzfojjVnwMlVGf8YZXLnmCNdiV6kKloKsx/Cy3k1xpDbJlO
+	2kAMjXrPo02ZKS65uG+KuIMey6tCA20VVnbSlE/su/6H1fbq2ReJ9lvhwhmgBNlVN5Aov2
+	fE762fqdNpdt0xbjaz1qFqFA2DpdIigssugTTtE31oqZeiRu1NUeoVgxWNxHPUXVKqcAAD
+	WfUk2vebvtAMOejZ11+tREEcXN9LZjz5DNT5Ze9hi80ueP6iZ+tYZTrqeeP4rwnyi9XKdG
+	CttMdmpYKRkTJUFx+FHa7kN61mrqrc8R1BkpviVISC9mavHy14mnHNndiWmnVw==
 From: Marek Vasut <marek.vasut@mailbox.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1760202187;
+	t=1760202170;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=YGvU67Ll+AN2vD11o68DZRCZ7+qYUemEkQi2VibUdjc=;
-	b=ur7YpcrFHThhMFHM3VbpMXBWIiWhPWJk4+4UlI0gLrOGnCHyWeDX8c40FZVidPIa8nf9LC
-	4VKUq+xNVRp16rHWGGEPRFZHxOrclnPgYNsPYzAompmK3IJlI3oaRsnGkDjL4CBMAeB9Ln
-	cCMxVnUOTv60YKHiGRn/UyoqEhcdy4dLYxA9iKUFhUTh+a3vnEkonz19uYrT28792fg40B
-	BUcUz+xJ06z68eW9a8pFlXOpWLiFSaX6z1SuHb7ICID0H3UQLpD0iryGYE+1DeQyht0EpN
-	OcITyTw/zhU5Ld+M6vIJ/prEQoXNgeiU7a/VKnZ2TurGOXr1XNViNQQjtCalTQ==
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=mL1+Jl7MA/4qoWAJdJa7Mwpah/QL/KBofTWVwpT9vcQ=;
+	b=fOf3IvO2feDe+e8hnSxNLxlH3hILMtTs5FU4j9NwAOvSzaD5bmd/zkR7MkHSicKr1CASif
+	v9kJwCIxGljdV0I/HpqKoYNzIGpOluun+FOmmIAarOyRXQEv3VSNaCLW6TEUhTw/5sJQ30
+	1LsCwmnjVk50O6gp4Oyogd+gjT96SrGKmlkN7070/Zs0iQf7vIsC+GHvD3fxpEVXrb/5F7
+	vNUN7bsQVKNT/iPawQdzUWBxHG475I7k0IcwpUP+uleVATOk+xs8f3+idJHY+AEzMKny/k
+	ziCzErMXp/BfSGjDh4g/X64PTrfH8PyRP3OrGw/qDIe9TwUyFNJ/6xlfBWxRiA==
 To: dri-devel@lists.freedesktop.org
 Cc: Marek Vasut <marek.vasut@mailbox.org>,
 	Abel Vesa <abelvesa@kernel.org>,
@@ -76,18 +74,16 @@ Cc: Marek Vasut <marek.vasut@mailbox.org>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-clk@vger.kernel.org
-Subject: [PATCH 06/39] drm/imx: dc: Rename i.MX8QXP specific Link IDs
-Date: Sat, 11 Oct 2025 18:51:21 +0200
-Message-ID: <20251011170213.128907-7-marek.vasut@mailbox.org>
-In-Reply-To: <20251011170213.128907-1-marek.vasut@mailbox.org>
-References: <20251011170213.128907-1-marek.vasut@mailbox.org>
+Subject: [PATCH 00/39] Add i.MX95 DPU/DSI/LVDS support
+Date: Sat, 11 Oct 2025 18:51:15 +0200
+Message-ID: <20251011170213.128907-1-marek.vasut@mailbox.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: c7k86a8hngo4pgurui9ibo7yd3r8x4r8
-X-MBO-RS-ID: 6efeeb6dac92bdf874d
+X-MBO-RS-META: x47qkkhta4xd3ewnu1awe5y7riujfwoj
+X-MBO-RS-ID: 238e2e9e1fd66030e55
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251011_100311_869152_B7E4B895 
-X-CRM114-Status: GOOD (  12.18  )
+X-CRM114-CacheID: sfid-20251011_100300_009173_2DD92C2E 
+X-CRM114-Status: GOOD (  15.14  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,10 +98,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add _IMX8QXP suffix to Link IDs which are specific to the i.MX8QXP SoC.
-This is an i.MX95 support preparatory patch. No functional change.
+This large series adds support for the i.MX95 display pipeline, including
+DPU, DSI and LVDS support. Most of the components extend existin drivers,
+DPU is added into DC driver, DSI into iMX93 DSI driver, LVDS into iMX8MP
+LDB. Pixel link and pixel interleaver drivers are reworked to work as two
+independent channels, since there seems to be no dependency between their
+two channels. The i.MX95 DTSI changes are also included.
 
-Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
+Since the DPU chapter is missing from the i.MX95 RM, this is based on the
+NXP downstream kernel fork code and there might be issues.
+
+Majority of this series are DPU patches on top of the DC driver, I tried
+to keep them separate and easy to review. Later part adds LVDS and DSI
+support, this can be split into separate series.
+
+Both DSI-to-HDMI path using LT8912 bridge and LVDS single-lane with Logic
+Techno LT170410-2WHC panel were tested on Toradex i.MX95 Verdin EVK v1.2 .
+
+Liu Ying (2):
+  drm/bridge: imx: Add NXP i.MX95 pixel interleaver support
+  drm/bridge: imx: Add NXP i.MX95 pixel link support
+
+Marek Vasut (36):
+  dt-bindings: display: imx: Document i.MX95 Display Controller
+    DomainBlend
+  drm/imx: Add i.MX95 Display Controller DomainBlend
+  dt-bindings: display: imx: Document i.MX95 Display Controller
+    processing units
+  drm/imx: dc: Use bulk clock
+  drm/imx: dc: Rework dc_subdev_get_id() to drop ARRAY_SIZE() use
+  drm/imx: dc: Rename i.MX8QXP specific Link IDs
+  drm/imx: dc: cf: Pass struct dc_subdev_info via OF match data
+  drm/imx: dc: de: Pass struct dc_de_subdev_match_data via OF match data
+  drm/imx: dc: ed: Rework dc_ed_pec_src_sel() to drop ARRAY_SIZE() use
+  drm/imx: dc: ed: Pass struct dc_ed_subdev_match_data via OF match data
+  drm/imx: dc: fg: Parametrize register access
+  drm/imx: dc: ed: Pass struct dc_fg_subdev_match_data via OF match data
+  drm/imx: dc: fu: Describe remaining register offsets
+  drm/imx: dc: fu: Inline FRAC_OFFSET into FetchLayer and FetchWrap
+  drm/imx: dc: fu: Pass struct dc_fu_subdev_match_data via OF match data
+  drm/imx: dc: lb: Pass struct dc_lb_subdev_match_data via OF match data
+  drm/imx: dc: tc: Pass struct dc_tc_subdev_match_data via OF match data
+  drm/imx: dc: ic: Pass struct dc_ic_subdev_match_data via OF match data
+  drm/imx: dc: ic: Use DT node as interrupt controller name
+  drm/imx: dc: Configure display CSR clock feed select
+  drm/imx: dc: crtc: Do not check disabled CRTCs
+  drm/imx: dc: Keep FU unit running on i.MX95
+  drm/imx: dc: Add OF match data for i.MX95
+  drm/imx: Add more RGB swizzling options
+  dt-bindings: display: bridge: Document NXP i.MX95 pixel interleaver
+    support
+  dt-bindings: display: bridge: Document NXP i.MX95 pixel link support
+  dt-bindings: display: bridge: Document Freescale i.MX95 MIPI DSI
+  drm/bridge: imx93-mipi-dsi: Add i.MX95 PLL initialization
+  dt-bindings: clock: Split support for i.MX95 LVDS CSR
+  dt-bindings: display: bridge: Document i.MX95 LVDS display bridge
+    binding
+  dt-bindings: display: bridge: ldb: Add an i.MX95 entry
+  drm/bridge: fsl-ldb: Parse register offsets from DT
+  drm/bridge: fsl-ldb: Add i.MX95 support
+  dt-bindings: interrupt-controller: fsl,irqsteer: Add i.MX95 support
+  dt-bindings: clock: support i.MX95 Display Stream CSR module
+  arm64: dts: imx95: Describe display pipeline
+
+Sandor Yu (1):
+  drm: bridge: imx: Add i.MX95 LVDS Display Bridge (LDB) driver
+
+ .../bindings/clock/nxp,imx95-blk-ctl.yaml     |   1 -
+ .../clock/nxp,imx95-lvds-blk-ctl.yaml         |  80 ++
+ .../display/bridge/fsl,imx93-mipi-dsi.yaml    |  48 +-
+ .../display/bridge/fsl,imx95-lvds.yaml        | 140 ++++
+ .../bridge/fsl,imx95-pixel-interleaver.yaml   |  85 +++
+ .../display/bridge/fsl,imx95-pixel-link.yaml  | 101 +++
+ .../bindings/display/bridge/fsl,ldb.yaml      |   2 +
+ .../imx/fsl,imx8qxp-dc-constframe.yaml        |   4 +-
+ .../imx/fsl,imx8qxp-dc-display-engine.yaml    |  45 +-
+ .../display/imx/fsl,imx8qxp-dc-extdst.yaml    |   4 +-
+ .../display/imx/fsl,imx8qxp-dc-fetchunit.yaml |   1 +
+ .../display/imx/fsl,imx8qxp-dc-framegen.yaml  |  13 +-
+ .../imx/fsl,imx8qxp-dc-layerblend.yaml        |   4 +-
+ .../imx/fsl,imx8qxp-dc-pixel-engine.yaml      |  52 +-
+ .../display/imx/fsl,imx8qxp-dc-tcon.yaml      |   5 +-
+ .../bindings/display/imx/fsl,imx8qxp-dc.yaml  |  53 +-
+ .../display/imx/fsl,imx95-dc-domainblend.yaml |  32 +
+ .../imx/nxp,imx95-display-stream-csr.yaml     |  41 +
+ .../interrupt-controller/fsl,irqsteer.yaml    |   2 +
+ arch/arm64/boot/dts/freescale/imx95.dtsi      | 710 ++++++++++++++++++
+ drivers/gpu/drm/bridge/fsl-ldb.c              |  65 +-
+ drivers/gpu/drm/bridge/imx/Kconfig            |  28 +
+ drivers/gpu/drm/bridge/imx/Makefile           |   3 +
+ drivers/gpu/drm/bridge/imx/imx-ldb-helper.h   |   2 +
+ drivers/gpu/drm/bridge/imx/imx93-mipi-dsi.c   | 612 ++++++++++++++-
+ drivers/gpu/drm/bridge/imx/imx95-ldb.c        | 470 ++++++++++++
+ .../drm/bridge/imx/imx95-pixel-interleaver.c  | 217 ++++++
+ drivers/gpu/drm/bridge/imx/imx95-pixel-link.c | 184 +++++
+ drivers/gpu/drm/imx/dc/Kconfig                |   4 +-
+ drivers/gpu/drm/imx/dc/Makefile               |   2 +-
+ drivers/gpu/drm/imx/dc/dc-cf.c                |  41 +-
+ drivers/gpu/drm/imx/dc/dc-crtc.c              |   6 +
+ drivers/gpu/drm/imx/dc/dc-db.c                | 227 ++++++
+ drivers/gpu/drm/imx/dc/dc-de.c                |  83 +-
+ drivers/gpu/drm/imx/dc/dc-de.h                |  14 +
+ drivers/gpu/drm/imx/dc/dc-drv.c               |  45 +-
+ drivers/gpu/drm/imx/dc/dc-drv.h               |  11 +-
+ drivers/gpu/drm/imx/dc/dc-ed.c                |  67 +-
+ drivers/gpu/drm/imx/dc/dc-fg.c                | 157 ++--
+ drivers/gpu/drm/imx/dc/dc-fl.c                | 145 +++-
+ drivers/gpu/drm/imx/dc/dc-fu.c                |  46 +-
+ drivers/gpu/drm/imx/dc/dc-fu.h                |   7 +-
+ drivers/gpu/drm/imx/dc/dc-fw.c                |  54 +-
+ drivers/gpu/drm/imx/dc/dc-ic.c                | 192 +++--
+ drivers/gpu/drm/imx/dc/dc-kms.h               |   6 +
+ drivers/gpu/drm/imx/dc/dc-lb.c                | 109 ++-
+ drivers/gpu/drm/imx/dc/dc-pe.c                |  12 +-
+ drivers/gpu/drm/imx/dc/dc-pe.h                |  41 +-
+ drivers/gpu/drm/imx/dc/dc-plane.c             |  18 +-
+ drivers/gpu/drm/imx/dc/dc-tc.c                |  55 +-
+ 50 files changed, 4000 insertions(+), 346 deletions(-)
+ create mode 100644 Documentation/devicetree/bindings/clock/nxp,imx95-lvds-blk-ctl.yaml
+ create mode 100644 Documentation/devicetree/bindings/display/bridge/fsl,imx95-lvds.yaml
+ create mode 100644 Documentation/devicetree/bindings/display/bridge/fsl,imx95-pixel-interleaver.yaml
+ create mode 100644 Documentation/devicetree/bindings/display/bridge/fsl,imx95-pixel-link.yaml
+ create mode 100644 Documentation/devicetree/bindings/display/imx/fsl,imx95-dc-domainblend.yaml
+ create mode 100644 Documentation/devicetree/bindings/display/imx/nxp,imx95-display-stream-csr.yaml
+ create mode 100644 drivers/gpu/drm/bridge/imx/imx95-ldb.c
+ create mode 100644 drivers/gpu/drm/bridge/imx/imx95-pixel-interleaver.c
+ create mode 100644 drivers/gpu/drm/bridge/imx/imx95-pixel-link.c
+ create mode 100644 drivers/gpu/drm/imx/dc/dc-db.c
+
 ---
 Cc: Abel Vesa <abelvesa@kernel.org>
 Cc: Conor Dooley <conor+dt@kernel.org>
@@ -124,126 +244,7 @@ Cc: dri-devel@lists.freedesktop.org
 Cc: imx@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org
 Cc: linux-clk@vger.kernel.org
----
- drivers/gpu/drm/imx/dc/dc-cf.c |  4 ++--
- drivers/gpu/drm/imx/dc/dc-ed.c | 12 ++++++------
- drivers/gpu/drm/imx/dc/dc-lb.c | 14 +++++++-------
- drivers/gpu/drm/imx/dc/dc-pe.h | 22 +++++++++++-----------
- 4 files changed, 26 insertions(+), 26 deletions(-)
 
-diff --git a/drivers/gpu/drm/imx/dc/dc-cf.c b/drivers/gpu/drm/imx/dc/dc-cf.c
-index 846705534546a..6cb83182a3668 100644
---- a/drivers/gpu/drm/imx/dc/dc-cf.c
-+++ b/drivers/gpu/drm/imx/dc/dc-cf.c
-@@ -123,11 +123,11 @@ static int dc_cf_bind(struct device *dev, struct device *master, void *data)
- 		dc_drm->cf_cont[1] = cf;
- 		break;
- 	case 4:
--		cf->link = LINK_ID_CONSTFRAME4;
-+		cf->link = LINK_ID_CONSTFRAME4_MX8QXP;
- 		dc_drm->cf_safe[0] = cf;
- 		break;
- 	case 5:
--		cf->link = LINK_ID_CONSTFRAME5;
-+		cf->link = LINK_ID_CONSTFRAME5_MX8QXP;
- 		dc_drm->cf_safe[1] = cf;
- 		break;
- 	}
-diff --git a/drivers/gpu/drm/imx/dc/dc-ed.c b/drivers/gpu/drm/imx/dc/dc-ed.c
-index a63c387a4c023..9a141c6aa0812 100644
---- a/drivers/gpu/drm/imx/dc/dc-ed.c
-+++ b/drivers/gpu/drm/imx/dc/dc-ed.c
-@@ -110,12 +110,12 @@ static const enum dc_link_id src_sels[] = {
- 	LINK_ID_NONE,
- 	LINK_ID_CONSTFRAME0,
- 	LINK_ID_CONSTFRAME1,
--	LINK_ID_CONSTFRAME4,
--	LINK_ID_CONSTFRAME5,
--	LINK_ID_LAYERBLEND3,
--	LINK_ID_LAYERBLEND2,
--	LINK_ID_LAYERBLEND1,
--	LINK_ID_LAYERBLEND0,
-+	LINK_ID_CONSTFRAME4_MX8QXP,
-+	LINK_ID_CONSTFRAME5_MX8QXP,
-+	LINK_ID_LAYERBLEND3_MX8QXP,
-+	LINK_ID_LAYERBLEND2_MX8QXP,
-+	LINK_ID_LAYERBLEND1_MX8QXP,
-+	LINK_ID_LAYERBLEND0_MX8QXP,
- };
- 
- static inline void dc_ed_pec_enable_shden(struct dc_ed *ed)
-diff --git a/drivers/gpu/drm/imx/dc/dc-lb.c b/drivers/gpu/drm/imx/dc/dc-lb.c
-index 34ea61c2de87d..619353456743c 100644
---- a/drivers/gpu/drm/imx/dc/dc-lb.c
-+++ b/drivers/gpu/drm/imx/dc/dc-lb.c
-@@ -124,8 +124,8 @@ static const enum dc_link_id prim_sels[] = {
- 	LINK_ID_NONE,
- 	LINK_ID_CONSTFRAME0,
- 	LINK_ID_CONSTFRAME1,
--	LINK_ID_CONSTFRAME4,
--	LINK_ID_CONSTFRAME5,
-+	LINK_ID_CONSTFRAME4_MX8QXP,
-+	LINK_ID_CONSTFRAME5_MX8QXP,
- 	/*
- 	 * special options:
- 	 * layerblend(n) has n special options,
-@@ -133,10 +133,10 @@ static const enum dc_link_id prim_sels[] = {
- 	 * layerblend3 has 3 special options -
- 	 * layerblend0/1/2.
- 	 */
--	LINK_ID_LAYERBLEND0,
--	LINK_ID_LAYERBLEND1,
--	LINK_ID_LAYERBLEND2,
--	LINK_ID_LAYERBLEND3,
-+	LINK_ID_LAYERBLEND0_MX8QXP,
-+	LINK_ID_LAYERBLEND1_MX8QXP,
-+	LINK_ID_LAYERBLEND2_MX8QXP,
-+	LINK_ID_LAYERBLEND3_MX8QXP,
- };
- 
- static const enum dc_link_id sec_sels[] = {
-@@ -281,7 +281,7 @@ static int dc_lb_bind(struct device *dev, struct device *master, void *data)
- 	}
- 
- 	lb->dev = dev;
--	lb->link = LINK_ID_LAYERBLEND0 + lb->id;
-+	lb->link = LINK_ID_LAYERBLEND0_MX8QXP + lb->id;
- 
- 	dc_drm->lb[lb->id] = lb;
- 
-diff --git a/drivers/gpu/drm/imx/dc/dc-pe.h b/drivers/gpu/drm/imx/dc/dc-pe.h
-index ffeb1c7af1c9f..866859403a79d 100644
---- a/drivers/gpu/drm/imx/dc/dc-pe.h
-+++ b/drivers/gpu/drm/imx/dc/dc-pe.h
-@@ -22,17 +22,17 @@
- #define DC_LB_CNT		4
- 
- enum dc_link_id {
--	LINK_ID_NONE		= 0x00,
--	LINK_ID_CONSTFRAME0	= 0x0c,
--	LINK_ID_CONSTFRAME4	= 0x0e,
--	LINK_ID_CONSTFRAME1	= 0x10,
--	LINK_ID_CONSTFRAME5	= 0x12,
--	LINK_ID_FETCHWARP2	= 0x14,
--	LINK_ID_FETCHLAYER0	= 0x1a,
--	LINK_ID_LAYERBLEND0	= 0x21,
--	LINK_ID_LAYERBLEND1	= 0x22,
--	LINK_ID_LAYERBLEND2	= 0x23,
--	LINK_ID_LAYERBLEND3	= 0x24,
-+	LINK_ID_NONE			= 0x00,
-+	LINK_ID_CONSTFRAME0		= 0x0c,
-+	LINK_ID_CONSTFRAME4_MX8QXP	= 0x0e,
-+	LINK_ID_CONSTFRAME1		= 0x10,
-+	LINK_ID_CONSTFRAME5_MX8QXP	= 0x12,
-+	LINK_ID_FETCHWARP2		= 0x14,
-+	LINK_ID_FETCHLAYER0		= 0x1a,
-+	LINK_ID_LAYERBLEND0_MX8QXP	= 0x21,
-+	LINK_ID_LAYERBLEND1_MX8QXP	= 0x22,
-+	LINK_ID_LAYERBLEND2_MX8QXP	= 0x23,
-+	LINK_ID_LAYERBLEND3_MX8QXP	= 0x24,
- };
- 
- enum dc_lb_mode {
 -- 
 2.51.0
 
