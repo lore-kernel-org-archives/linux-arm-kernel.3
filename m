@@ -4,137 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 422C2CCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 18:52:24 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 44BD5CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 22:50:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=/+pzSiIjVBnWxA/hQntIwuWVdEB2AAtnUsGXY13DWPI=; b=UIw1OZcfBibMwMcGgQRjg/ds9l
-	Ve2wugUiLmTVzSRC9kptjSfT16QB81Vyc+D17yXzfrJdIyAYy7KV4t5seqrQw2knz7NkV7XkUtfDE
-	8WM8ySPeRqWst3NvXcSTzOYpeyJuusPlPoKNgzFZQVWxblsZibYfkh7DaHuaTWv8/tsLjq/DMxMcF
-	lr0wEopSZhEF+FWqzQzKyVX9grzoX9B3FZXW/A8I4hN0GV2j7DGqkCMKCwbmD15KVHbUoyaL4MaS6
-	vyVdu1uE8c7Q1Mk+bIgyu8ts4+dbmdt2qJzscRvzUbRlYE/WbHEnKhViylUZoOkOZxXnQbYI7Ympc
-	HJ4Jp7TA==;
+	bh=hbeHfoPPK5NQlk0LXiNKJwNH3FUrkY8q7zbe6XVPDZQ=; b=isNUHGwoIdb6MKyYzzyCLf7e0X
+	pEvf4oi7FzAyeCldTnJHKXV1ydW2YeCbXKCuGIKB4mDM8lbS5U0vBf5qNzmH9FveA/q8Np/fY8r1I
+	i78NyhTq+bgy9WUXoZeE+i1mD4oG+HkmFEqrwO5nS0yaTYoWXN4yUN1YkfCWV0tgf5EIGUSaxgZvM
+	gMRx0fl/B4Y48k8mEtX1+MGcgzYwniAa33/jMu4WdE65xPvHGDgEBVjYD8dBJ555t5LP9/FkrXIRH
+	2CAPOJ6YaR3IQJ3pboNZhNtqPRx/VRkYb3aHj3GNXHYgstzu3TTE23mMmIQ9pD9cAIeZIBdvppZen
+	NGBxG6fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7ehS-0000000AWx7-3bUJ;
-	Sat, 11 Oct 2025 18:52:14 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1v7iPo-0000000At8C-29SV;
+	Sat, 11 Oct 2025 22:50:16 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7ehP-0000000AWvT-34cR
+	id 1v7iPm-0000000At75-0ASg
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Oct 2025 18:52:13 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59BHfXFp000476
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Oct 2025 18:52:11 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=/+pzSiIjVBnWxA/hQntIwuWV
-	dEB2AAtnUsGXY13DWPI=; b=SVdsgXu+Dv9XNolVHUB2L3Cuv0aSMuggEYDMC+i9
-	6k5APB5vDU1bJiw9zKOgXB+sCZqw8MNDqdi1wl+bbjsaYb1xX5y99eqorLOmFN9/
-	En7o9HnNswuxn7OzMK5UmryBhtbd/WZZPtur3trLWlPfz2a6rPezyR0VRrn7yTM8
-	ZoZzBoI7ojkheJ/5uAaGE3yTASujDDp4UPtmiCMEcfXAtzyk3SZC34Udr6jJhuJ8
-	2mCaEtTfuVKF/zpdBVIx7rCX1A9TAz82niaGoknye/d/Npl0auFXVvlaAJ/qQHH7
-	KI3wuOvexIohrqY0k2X7OHrD5HoBqN2ByGjcNNG/jIPAwA==
-Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49qgdfry3y-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Oct 2025 18:52:11 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-871614ad3efso1647859685a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Oct 2025 11:52:11 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760208730; x=1760813530;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=/+pzSiIjVBnWxA/hQntIwuWVdEB2AAtnUsGXY13DWPI=;
-        b=w2/SGIvUY/3pFrwUP2Di6Ys4AjRoU+ivyvTZ+cCYokqjUHwOuRwON6i26spG0XVJTj
-         6T/RUte4E0ZJ+ndyDmFSJJSncNwKkTEeXc8/pJ29zmrPRPuTEUgc9gz8TKTtVMRR651G
-         exRITEqOZ6i2pXDhhmAfhPC+9rndS432s3eAcyJ9JeyV7L2dnw09ya5HtOag0494QZA2
-         PHYPnFGgOZsXYZKtyTWqhEGtmd1Cq9nf7HKPmiFrb8+CQG6lQCCHQ/Hr1rq25/bfv2Sz
-         6XcPkOhX+PKt2uOlCJQ5455Cz/EQUXRH1PraNTVwHp9PpyYrT3GszgIXsyvkBds4iwUb
-         kLUw==
-X-Forwarded-Encrypted: i=1; AJvYcCUVfKwe481uqiTv5DOXOE4E8O6irwPJvmm+51N5lEaQ6887toomotjnhmb9VOd9yJ62vG8ffUv/7e8Ku8Pon23f@lists.infradead.org
-X-Gm-Message-State: AOJu0YyUrcXRWRNnc/zSHWcoBW+bCzEwOqIwLeww3VvkY7VhfBCH1gsM
-	mqpGWdSe074prwzj73iJ3NepTw47QhUcfArBmfRvyJuIjSUAARgvDQvxpEjjRhRDk/IQqBQgst7
-	Z35krP21KuivX1c0GfbCuhPmbuWD6IkvyGMfjCMaHN5FHGpgQSQ6s1JxVWYpm8FLH881jRhrbbt
-	kXWQ==
-X-Gm-Gg: ASbGncsaLv3by714N27aBiQZ4KdPPOzLqZGuTvQ5RQGR0mKkxIgssWgz2qZiIlUd+Hv
-	jyt9SpbQLebefhzsL0wtIIDhqpXqow35B1zgnBQDYNF//90SYyXoW2c5GQNB3rylaRwK6J7m/Mi
-	yknxCxhLtFnTNttkDs1cYY0uJe6jWENhIopRd5rWmKpUZxcvw3lkJ6v/wb0lfq0vF+BEZ8UnyC8
-	dmO0VUJdGIMSNeCgP0UrRk41/lDMikquuuShpLTqkDwpwBaeAuDH2wQtBA210SLkv/imoiQcOG1
-	S+TooII5bD90UU6rmK1jqGXe6d5SS/nrz4edZ8RS8GIMeo8GbxmpEBfVuvTrc6Ay1Qyt30f6CKq
-	l7QN9IH/IqBC7KCtpUUlgtYGaabiEZor0aPzXCKcRm79gQw0liV6v
-X-Received: by 2002:a05:620a:400f:b0:85b:a906:127c with SMTP id af79cd13be357-88353558d25mr2318571885a.54.1760208729768;
-        Sat, 11 Oct 2025 11:52:09 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IF/k0JIMwDDe8wKbfoitr+GmGj4WmEClMNGgNYD1vA6WxUaESVw6RtRzEdEu71iz8UzlrWicA==
-X-Received: by 2002:a05:620a:400f:b0:85b:a906:127c with SMTP id af79cd13be357-88353558d25mr2318568685a.54.1760208729193;
-        Sat, 11 Oct 2025 11:52:09 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-590881f88ddsm2167029e87.31.2025.10.11.11.52.07
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 11 Oct 2025 11:52:08 -0700 (PDT)
-Date: Sat, 11 Oct 2025 21:52:06 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Chaoyi Chen <kernel@airkyi.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-        Kishon Vijay Abraham I <kishon@kernel.org>,
-        Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Yubing Zhang <yubing.zhang@rock-chips.com>,
-        Frank Wang <frank.wang@rock-chips.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Amit Sunil Dhamne <amitsd@google.com>,
-        Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-        Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
-        Diederik de Haas <didi.debian@cknow.org>,
-        Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH v5 6/8] drm/rockchip: cdn-dp: Add multiple bridges to
- support PHY port selection
-Message-ID: <qzcdulyj2enho7l6vyvad7ln46zk2u4z7rnsjv2nv4tbw5j6jf@6oenbixoh3sp>
-References: <20251011033233.97-1-kernel@airkyi.com>
- <20251011033233.97-7-kernel@airkyi.com>
+	Sat, 11 Oct 2025 22:50:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2D596406BB;
+	Sat, 11 Oct 2025 22:50:11 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09B02C113D0;
+	Sat, 11 Oct 2025 22:50:00 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760223011;
+	bh=8rlqFhD7ZDNHiDK9F+hmopZq5lvaCROu4QqhzxSLJCw=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=uKlBcofKUKRjo2BHu/CHNzYm8Kw0YmmQ/Cb4sj2HgU71lnMVq3900L679BCX7Nkqc
+	 ALjHDzaQu5rpjG05IMMlR28jpT6bmR5RxXHuCDvM3XMsJSpzhkX2+4XiK7PeZvtYiO
+	 DPIy4qqpCFWCvBctjA6l48xnooOhDmc/tXLPc2+b8QJbLme1RGW1npb9mjX5F5WQTd
+	 /jXTBsgPz9DtvVoxU9I5Vywis7TlKL+jf7XP0sw93FRGvXo9as20NaUU8N4b+uXIk0
+	 z5RpHKbabOEEleJIe7b+iL/Em/tyNDyiOe4bfkTgpLbNZp9T79VmMq/7NjyOrBxrzn
+	 o5Cz87/N+JGFg==
+Date: Sun, 12 Oct 2025 04:19:48 +0530
+From: Sumit Garg <sumit.garg@kernel.org>
+To: Arnaud POULIQUEN <arnaud.pouliquen@foss.st.com>
+Cc: devicetree@vger.kernel.org, Conor Dooley <conor+dt@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	op-tee@lists.trustedfirmware.org,
+	Bjorn Andersson <andersson@kernel.org>,
+	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	Rob Herring <robh+dt@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Jens Wiklander <jens.wiklander@linaro.org>,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [Linux-stm32] [PATCH v19 4/6] dt-bindings: remoteproc: Add
+ compatibility for TEE support
+Message-ID: <aOrfDH1HnPSILtFE@sumit-X1>
+References: <20250625094028.758016-5-arnaud.pouliquen@foss.st.com>
+ <aMkqifHSdlCs4VjA@sumit-X1>
+ <62bdb238-7440-451b-84ef-79f846b10ba0@foss.st.com>
+ <aMqIhFdIqp5auH22@sumit-X1>
+ <8d385f2e-6470-4d66-be0b-a2a448a81fa4@foss.st.com>
+ <aMz8XuHzIomNhmra@sumit-X1>
+ <0e5a44df-f60a-4523-a791-6318b3c81425@foss.st.com>
+ <f5b0e106-a731-461b-b401-1aa1f9892465@foss.st.com>
+ <aOidN1N3GIOcsXd1@sumit-X1>
+ <929ce1f6-818f-4bb9-abf9-24d511bd2bf3@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
+Content-Type: text/plain; charset=utf-8
 Content-Disposition: inline
-In-Reply-To: <20251011033233.97-7-kernel@airkyi.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDExMDAyNSBTYWx0ZWRfX6tdzspN6v/E8
- twFC2Zggc81Nu8j4a7Rdk4JvIWwoSTSnfUxER4QHHj35LOjF05XwA6BhGnRU4E6cuTN4gChOM+p
- kssjm1l2uI/OiGMMlQfgYIO48J5dUtuche6p10a5c5lhiiBQ4HxR+KMlbF88/YKJcrsL023oPhY
- 9lCqiyo8LIOPmmWHGo2F3SwSWX6ejiU769DMiuut8fftfqlFqgrjKT72S2Eg3j18DUPICra/uqq
- WJ/6DTCbDYn4qAxp4VmNVhGNowMRL6/naSKruJFUZEX1RoPQq+kBOzezR5L9Hz4BUr5LZQO3dNb
- eaD97rNLcnOthliPcoKRbr2jp3w14NlorZSNJ4t7HKsJd8Ld+8JgVXQ8u0VHaXkHrZS2yKhJRTL
- Q09uNVJU+rzmgqnI7IbbfxpPW3K/BQ==
-X-Proofpoint-GUID: rnVOqRvb_QGZvyrY1Qtl6wTGMNvEVy0i
-X-Proofpoint-ORIG-GUID: rnVOqRvb_QGZvyrY1Qtl6wTGMNvEVy0i
-X-Authority-Analysis: v=2.4 cv=J4ynLQnS c=1 sm=1 tr=0 ts=68eaa75b cx=c_pps
- a=qKBjSQ1v91RyAK45QCPf5w==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=x6icFKpwvdMA:10 a=s8YR1HE3AAAA:8 a=Vq1njTOzTen_YWzSrCwA:9 a=CjuIK1q_8ugA:10
- a=NFOGd7dJGGMPyQGDc5-O:22 a=jGH_LyMDp9YhSvY-UuyI:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-11_03,2025-10-06_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 lowpriorityscore=0 priorityscore=1501 adultscore=0
- bulkscore=0 suspectscore=0 clxscore=1015 phishscore=0 spamscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2510020000
- definitions=main-2510110025
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <929ce1f6-818f-4bb9-abf9-24d511bd2bf3@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251011_115211_780721_D5265F5B 
-X-CRM114-Status: GOOD (  47.30  )
+X-CRM114-CacheID: sfid-20251011_155014_160034_F9431A6B 
+X-CRM114-Status: GOOD (  74.85  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,186 +90,393 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 11, 2025 at 11:32:31AM +0800, Chaoyi Chen wrote:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
+On Fri, Oct 10, 2025 at 12:04:40PM +0200, Arnaud POULIQUEN wrote:
+> Hi Sumit,
 > 
-> The RK3399 has two USB/DP combo PHY and one CDN-DP controller. And
-> the CDN-DP can be switched to output to one of the PHYs. If both ports
-> are plugged into DP, DP will select the first port for output.
+> On 10/10/25 07:44, Sumit Garg wrote:
+> > Hi Arnaud,
+> > 
+> > It's been some holidays followed by business travel leading to delay in
+> > my response here.
+> > 
+> > On Tue, Oct 07, 2025 at 03:50:32PM +0200, Arnaud POULIQUEN wrote:
+> > > Hello Bjorn, Mathieu, Sumit,
+> > > 
+> > > On 9/22/25 10:57, Arnaud POULIQUEN wrote:
+> > > > 
+> > > > 
+> > > > On 9/19/25 08:46, Sumit Garg wrote:
+> > > > > On Wed, Sep 17, 2025 at 03:47:40PM +0200, Arnaud POULIQUEN wrote:
+> > > > > > 
+> > > > > > On 9/17/25 12:08, Sumit Garg wrote:
+> > > > > > > On Tue, Sep 16, 2025 at 03:26:47PM +0200, Arnaud POULIQUEN wrote:
+> > > > > > > > Hello Sumit,
+> > > > > > > > 
+> > > > > > > > On 9/16/25 11:14, Sumit Garg wrote:
+> > > > > > > > > Hi Arnaud,
+> > > > > > > > > 
+> > > > > > > > > First of all apologies for such a late review comment as previously I
+> > > > > > > > > wasn't CCed or involved in the review of this
+> > > > > > > > > patch-set. In case any of
+> > > > > > > > > my following comments have been discussed in the
+> > > > > > > > > past then feel free to
+> > > > > > > > > point me at relevant discussions.
+> > > > > > > > No worries, there are too many versions of this series
+> > > > > > > > to follow all the
+> > > > > > > > past discussions. I sometimes have difficulty remembering all the
+> > > > > > > > discussions myself :)
+> > > > > > > > 
+> > > > > > > > > On Wed, Jun 25, 2025 at 11:40:26AM +0200, Arnaud Pouliquen wrote:
+> > > > > > > > > > The "st,stm32mp1-m4-tee" compatible is utilized
+> > > > > > > > > > in a system configuration
+> > > > > > > > > > where the Cortex-M4 firmware is loaded by the
+> > > > > > > > > > Trusted Execution Environment
+> > > > > > > > > > (TEE).
+> > > > > > > > > Having a DT based compatible for a TEE service to me
+> > > > > > > > > just feels like it
+> > > > > > > > > is redundant here. I can see you have also used a
+> > > > > > > > > TEE bus based device
+> > > > > > > > > too but that is not being properly used. I know subsystems like
+> > > > > > > > > remoteproc, SCMI and others heavily rely on DT to
+> > > > > > > > > hardcode properties of
+> > > > > > > > > system firmware which are rather better to be discovered dynamically.
+> > > > > > > > > 
+> > > > > > > > > So I have an open question for you and the remoteproc subsystem
+> > > > > > > > > maintainers being:
+> > > > > > > > > 
+> > > > > > > > > Is it feasible to rather leverage the benefits of a
+> > > > > > > > > fully discoverable
+> > > > > > > > > TEE bus rather than relying on platform bus/ DT to hardcode firmware
+> > > > > > > > > properties?
+> > > > > > > > The discoverable TEE bus does not works if the remoteproc is probed
+> > > > > > > > before the OP-TEE bus, in such case  no possibility to know if the TEE
+> > > > > > > > TA is not yet available or not available at all.
+> > > > > > > > This point is mentioned in a comment in rproc_tee_register().
+> > > > > > For the discussion, it’s probably better if I provide more
+> > > > > > details on the
+> > > > > > current OP-TEE implementation and the stm32mp processors.
+> > > > > > 
+> > > > > > 1) STM32MP topology:
+> > > > > >     - STM32MP1: only a Cortex-M4 remote processor
+> > > > > >     -  STM32MP2x: a Cortex-M33 and a Cortex-M0 remote processors
+> > > > > >     At this stage, only the STM32MP15 is upstreamed; the
+> > > > > > STM32MP25 is waiting
+> > > > > >     for this series to be merged.
+> > > > > > 
+> > > > > > 2) OP-TEE architecture:
+> > > > > > - A platform-agnostic Trusted Application (TA) handles the bus
+> > > > > > service.[1]
+> > > > > >     This TA supports managing multiple remote processors. It can
+> > > > > > be embedded
+> > > > > >     regardless of the number of remote processors managed in OP-TEE.
+> > > > > >     The decision to embed this service is made at build time based on the
+> > > > > >     presence of the remoteproc driver, so it is not device tree
+> > > > > > dependent.
+> > > > > >     - STM32MP15: TA activated only if the remoteproc OP-TEE
+> > > > > > driver is probed
+> > > > > >     - STM32MP2x: TA always activated as the OP-TEE remoteproc
+> > > > > > driver is always
+> > > > > > probed
+> > > > > > 
+> > > > > > - A pseudo Trusted Application implements the platform porting[2],
+> > > > > >     relying on registered remoteproc platform drivers.
+> > > > > > 
+> > > > > > - Platform driver(s) manage the remote processors.[3][4]
+> > > > > >     - If remoteproc is managed by OP-TEE: manages the remoteproc
+> > > > > > lifecycle
+> > > > > >     - If remoteproc is managed by Linux: provides access rights
+> > > > > > to Linux to
+> > > > > > manage
+> > > > > >       the remoteproc
+> > > > > > 
+> > > > > >     - STM32MP15: driver probed only if the remoteproc is managed
+> > > > > > in OP-TEE
+> > > > > >     - STM32MP2x: driver probed in both cases for the Cortex-M33
+> > > > > >       For the STM32MP25, the TA is always present and queries the
+> > > > > > driver to
+> > > > > > check
+> > > > > >       if it supports secure loading.
+> > > > > > 
+> > > > > > 
+> > > > > > [1] https://elixir.bootlin.com/op-tee/4.7.0/source/ta/remoteproc
+> > > > > > [2]
+> > > > > > https://elixir.bootlin.com/op-tee/4.7.0/source/core/pta/stm32mp/
+> > > > > > remoteproc_pta.c
+> > > > > > [3]https://elixir.bootlin.com/op-tee/4.7.0/source/core/drivers/
+> > > > > > remoteproc/stm32_remoteproc.c
+> > > > > > [4]https://github.com/STMicroelectronics/optee_os/blob/4.0.0-stm32mp/
+> > > > > > core/drivers/remoteproc/stm32_remoteproc.c
+> > > > > Thanks for the background here.
+> > > > > 
+> > > > > > > The reason here is that you are mixing platform and TEE bus
+> > > > > > > for remoteproc
+> > > > > > > driver. For probe, you rely on platform bus and then try to migrate to
+> > > > > > > TEE bus via rproc_tee_register() is the problem here.
+> > > > > > > Instead you should
+> > > > > > > rather probe remoteproc device on TEE bus from the beginning.
+> > > > > > The approach is interesting, but how can we rely on Device Tree (DT) for
+> > > > > > hardware configuration in this case?
+> > > > > > At a minimum, I need to define memory regions and mailboxes.
+> > > > > The hardware configuration in DT should be consumed by OP-TEE and the
+> > > > > kernel probes remoteproc properties from OP-TEE since it's an OP-TEE
+> > > > > mediated remoteproc service you are adding here.
+> > > > > >   From my perspective, I would still need a driver probed by DT
+> > > > > > that registers
+> > > > > > a driver on the TEE bus. Therefore, I still need a mechanism to decide
+> > > > > > whether the remote firmware is managed by the secure or
+> > > > > > non-secure context.
+> > > > > As I mentioned below, this should be achievable using the secure-status
+> > > > > property without introducing the new compatible:
+> > > > > 
+> > > > > Kernel managed remoteproc:
+> > > > >      status = "okay"; secure-status = "disabled";     /* NS-only */
+> > > > > 
+> > > > > OP-TEE managed remoteproc:
+> > > > >      status = "disabled"; secure-status = "okay";     /* S-only */
+> > > > > 
+> > > > > > Another issue would be to be able to share the remoteproc TEE service
+> > > > > > between
+> > > > > > several platform remoteproc drivers, in case of multi remote processor
+> > > > > > support.
+> > > > > Making the TEE based remoteproc service independent of DT will surely
+> > > > > make it more scalable to other platforms too. Have a look at how OP-TEE
+> > > > > based HWRNG service scales across platforms.
+> > > > 
+> > > > Another important service is SCMI, which drivers use to manage clocks
+> > > > and resets.
+> > > > These clocks and resets are declared in the Device Tree (DT). It seems
+> > > > to me that
+> > > > in this case, we are closer to SCMI than to the RNG service.
+> > > > 
+> > > > I propose we discuss this based on a concrete example with the STM32MP25.
+> > > > Although not yet upstreamed, our plan is to manage signed firmware for the
+> > > > Cortex-M33 and Cortex-M0.
+> > > > 
+> > > > Please find below my view of the DT resources to address.
+> > > > 
+> > > > STM32MP25  Cortex-M33 and Cortex-M0 nodes:
+> > > > 
+> > > > m33_rproc {
+> > > >     /* M33 watchdog interrupt */
+> > > >     interrupt-parent = <&intc>;
+> > > >     interrupts = <GIC_SPI 4 IRQ_TYPE_LEVEL_HIGH>;
+> > > >     /* power domain management */
+> > > >     power-domains = <&cluster_pd>, <&ret_pd>;
+> > > >     power-domain-names = "default", "sleep";
+> > > >     /* RPMsg mailboxes + M33 graceful shutdown request */
+> > > >     mboxes = <&ipcc1 0x0>, <&ipcc1 0x1>, <&ipcc1 2>;
+> > > >     mbox-names = "vq0", "vq1", "shutdown";
+> > > >     memory-region = <&vdev0vring0>, <&vdev0vring1>, <&vdev0buffer>;
+> > > >     status = "okay";
+> > > > };
+> > > > 
+> > > > m0_rproc {
+> > > >     /* mailbox for graceful shutdown */
+> > > >     mboxes = <&ipcc2 2>;
+> > > >     mbox-names = "shutdown";
+> > > >     /* M0 watchdog */
+> > > >    interrupt-parent = <&intc>;
+> > > >    interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
+> > > >    /* M0 peripheral clocking (not accessible by the M0) */
+> > > >    clocks = <&scmi_clk CK_SCMI_GPIOZ_AM>,
+> > > >    <&scmi_clk CK_SCMI_GPIOZ>,
+> > > >    <&scmi_clk CK_SCMI_IPCC2>,
+> > > >    <&scmi_clk CK_SCMI_IPCC2_AM>,
+> > > >    <&rcc CK_LPTIM3_AM>,
+> > > >    <&rcc CK_LPUART1_AM>,
+> > > >    <&rcc CK_CPU3_AM>,
+> > > >    <&rcc CK_CPU3>,
+> > > >    <&rcc CK_LPUART1_C3>,
+> > > >    <&rcc CK_GPIOZ_C3>,
+> > > >    <&rcc CK_LPTIM3_C3>,
+> > > >    <&rcc CK_KER_LPUART1>,
+> > > >    <&rcc CK_KER_LPTIM3>,
+> > > >    <&scmi_clk CK_SCMI_GPIOZ>,
+> > > >    <&scmi_clk CK_SCMI_IPCC2>;
+> > > >    status = "okay";
+> > > > };
+> > > > 
+> > > > If we want to remove the DT, we need to consider:
+> > > > 
+> > > > - Mechanism to differentiate Cortex-M33 and Cortex-M0:
+> > > >     Similar to SCMI, the remoteproc OP-TEE service should support
+> > > >    multiprocessor setups without instantiating multiple services.
+> > > > 
+> > > > - Mailboxes:
+> > > > 
+> > > >     A phandle is needed because the mailbox driver is managed by the
+> > > >     Linux mailbox driver. STM32MP2 has two mailboxes.
+> > > >     Moving towards your proposal would imply creating a mailbox service
+> > > >     in TEE to manage non-secure mailboxes for non-secure IPC. This might
+> > > >     not be efficient for inter-processor communication. Hardware-wise, it
+> > > >     would require the IRQ to be handled by the secure context.
+> > > > 
+> > > > - Memory regions:
+> > > >    - Hardware limitation: OP-TEE is limited in the number of memory regions
+> > > >      it can declare due to Firewall configuration. Moving IPC memory regions
+> > > >      reaches this limit. Currently, OP-TEE defines a single region with
+> > > > shareable
+> > > >      access rights, which Linux splits into at least three memory regions
+> > > > for RPMsg.
+> > > >    - Memory mapping: Memory regions still need to be declared in Linux to
+> > > > prevent
+> > > >      Linux from using them.
+> > > >    - Virtio/RPMsg: Memory region names are fixed (e.g., dev<X>vring<Y>),
+> > > > so OP-TEE
+> > > >     must declare memory regions in its DT according to Linux naming
+> > > > conventions.
+> > > > 
+> > > > - Clock and reset:
+> > > >      Some clocks and resets are managed via SCMI, others are not. This
+> > > > would require
+> > > >     managing all clocks and resets through SCMI, with possible side
+> > > > effect on the
+> > > >     "unused" clock mechanism in Linux ( to be confirmed)
+> > > > 
+> > > > - Power domain:
+> > > >     Information is needed at the Linux level to determine the low power
+> > > > mode.
+> > > > 
+> > > > - Watchdog interrupt:
+> > > >     Should be managed by OP-TEE, which requires the hardware to have an
+> > > > associated
+> > > >     secure IRQ.
+> > > > 
+> > > > - Miscellaneous vendor DT properties:
+> > > >      How to be sure that these can be addressed through TEE services?
+> > > > 
+> > > > Regarding the existing DT needs, it seems to me that removing the DT
+> > > > would require
+> > > > moving all node resource management into TEE ( if really possible). This
+> > > > would
+> > > > increase TEE complexity and footprint, reduce system efficiency, and
+> > > > make supporting
+> > > > other platforms less scalable.
+> > 
+> > I can see your arguments regarding some DT properties which are hard to
+> > discover via OP-TEE service and I have been trying to think of how to
+> > handle it in a proper manner for a device on discoverable TEE bus. One
+> > of my fellow kernel maintainers pointed out that other discoverable
+> > buses in the kernel like PCI etc. already solved this DT dependencies
+> > via having device specific bindings. You can have a look at a one
+> > particular example of PCI device binding here [1]. In case of OP-TEE,
+> > you can have a similar device binding with UUID under the OP-TEE
+> > firmware DT node.
+> > 
+> > The current approach you are taking via probing device on platform bus
+> > and then trying to move onto TEE bus isn't at all the compatible with
+> > the driver model, it simply sets a bad example for the driver model.
+> > 
+> > [1] Documentation/devicetree/bindings/net/wireless/qcom,ath11k-pci.yaml
+> > 
 > 
-> This patch adds support for multiple bridges, enabling users to flexibly
-> select the output port. For each PHY port, a separate encoder and bridge
-> are registered.
-> 
-> The change is based on the DRM AUX HPD bridge, rather than the
-> extcon approach. This requires the DT to correctly describe the
-> connections between the first bridge in bridge chain and DP
-> controller. For example, the bridge chain may be like this:
-> 
-> PHY aux birdge -> fsa4480 analog audio switch bridge ->
-> onnn,nb7vpq904m USB reminder bridge -> USB-C controller AUX HPD bridge
-> 
-> In this case, the connection relationships among the PHY aux bridge
-> and the DP contorller need to be described in DT.
-> 
-> In addition, the cdn_dp_parse_hpd_bridge_dt() will parses it and
-> determines whether to register one or two bridges.
-> 
-> Since there is only one DP controller, only one of the PHY ports can
-> output at a time. The key is how to switch between different PHYs,
-> which is handled by cdn_dp_switch_port() and cdn_dp_enable().
-> 
-> There are two cases:
-> 
-> 1. Neither bridge is enabled. In this case, both bridges can
-> independently read the EDID, and the PHY port may switch before
-> reading the EDID.
-> 
-> 2. One bridge is already enabled. In this case, other bridges are not
-> allowed to read the EDID. So we will try to return the cached EDID.
-> 
-> Since the scenario of two ports plug in at the same time is rare,
-> I don't have a board which support two TypeC connector to test this.
-> Therefore, I tested forced switching on a single PHY port, as well as
-> output using a fake PHY port alongside a real PHY port.
-> 
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> ---
-> 
-> Changes in v5:
-> - By parsing the HPD bridge chain, set the connector's of_node to the
-> of_node corresponding to the USB-C connector.
-> - Return EDID cache when other port is already enabled.
-> 
->  drivers/gpu/drm/rockchip/Kconfig       |   2 +
->  drivers/gpu/drm/rockchip/cdn-dp-core.c | 355 +++++++++++++++++++++----
->  drivers/gpu/drm/rockchip/cdn-dp-core.h |  24 +-
->  3 files changed, 324 insertions(+), 57 deletions(-)
-> 
-> diff --git a/drivers/gpu/drm/rockchip/Kconfig b/drivers/gpu/drm/rockchip/Kconfig
-> index faf50d872be3..7472ec923cfd 100644
-> --- a/drivers/gpu/drm/rockchip/Kconfig
-> +++ b/drivers/gpu/drm/rockchip/Kconfig
-> @@ -55,6 +55,8 @@ config ROCKCHIP_CDN_DP
->  	select DRM_DISPLAY_HELPER
->  	select DRM_BRIDGE_CONNECTOR
->  	select DRM_DISPLAY_DP_HELPER
-> +	select DRM_AUX_BRIDGE
-> +	select DRM_AUX_HPD_BRIDGE
+> Thank you for your feedback. I am not very familiar with PCIe, so I need to
+> take a deeper look at the implementation.
 
-You are not using them in this driver, so this is not correct. Please
-declare Kconfig dependencies for the drivers that actually call the API,
-otherwise the LKP or somebody else can get compile errors because this
-driver wasn't selected.
+I would suggest you take a look at how device specific DT bindings are
+used for other discoverable buses like PCIe etc. We need to do the same
+for the device/service discoverable on TEE bus.
 
->  	help
->  	  This selects support for Rockchip SoC specific extensions
->  	  for the cdn DP driver. If you want to enable Dp on
+> 
+> To help me better understand your expectations, could you please confirm if
+> your proposal is close to what I have described below?
+>
 
-[...]
+No, what you describe below still rely on probing over platform bus
+(unique compatible). Here you really need to probe remoteproc driver on
+TEE bus and then discover DT properties using device specific DT
+bindings something like below:
 
-> +
-> +	/*
-> +	 *
-> +	 * &dp_out {
-> +	 *	dp_controller_output0: endpoint@0 {
-> +	 * 		remote-endpoint = <&dp_phy0_in>
-> +	 * 	};
-> +	 *
-> +	 * 	dp_controller_output1: endpoint@1 {
-> +	 * 		remote-endpoint = <&dp_phy1_in>
-> +	 * 	};
-> +	 * };
-> +	 *
-> +	 * &tcphy0_dp {
-> +	 * 	port {
-> +	 * 		tcphy0_typec_dp: endpoint@0 {
-> +	 * 			reg = <0>;
-> +	 * 			remote-endpoint = <&usbc0_dp>;
-> +	 * 		};
-> +	 *
-> +	 * 		dp_phy0_in: endpoint@1 {
-> +	 * 			reg = <1>;
-> +	 * 			remote-endpoint = <&dp_controller_output0>;
-> +	 * 		};
-> +	 * 	};
-> +	 * };
-> +	 *
-> +	 * &tcphy1_dp {
-> +	 * 	...
-> +	 * };
-> +	 *
-> +	 */
-> +
-> +	/* One endpoint may correspond to one HPD bridge. */
-> +	for_each_of_graph_port_endpoint(port, dp_ep) {
-> +		struct device_node *phy_bridge_node __free(device_node) =
-> +			of_graph_get_remote_port_parent(dp_ep);
-> +
-> +		bridge = of_drm_find_bridge(phy_bridge_node);
-> +		if (!bridge) {
-> +			ret = -EPROBE_DEFER;
-> +			goto out;
-> +		}
-> +
-> +		dp->hpd_bridge_valid = true;
-> +		dp->hpd_bridge_list[count].bridge = bridge;
-> +		dp->hpd_bridge_list[count].parent = dp;
-> +		dp->hpd_bridge_list[count].id = count;
+firmware  {
+    optee  {
+        compatible = "linaro,optee-tz";
+        method = "smc";
 
-This looks misnamed. They are not necessarily HPD bridges. There can be
-a random chain between your controller and the actual output / connector
-/etc.
+        rproc-service@0 {
+	    compatible = "<rproc-service-UUID>";
 
-> +		count++;
-> +	}
-> +
-> +out:
-> +	dp->bridge_count = count ? count : 1;
-> +	return ret;
-> +}
-> +
-> +static int cdn_dp_bind(struct device *dev, struct device *master, void *data)
-> +{
-> +	struct cdn_dp_device *dp = dev_get_drvdata(dev);
-> +	struct drm_bridge *bridge, *hpd_bridge;
-> +	struct drm_encoder *encoder;
-> +	struct cdn_dp_port *port;
-> +	struct drm_device *drm_dev = data;
-> +	struct cdn_dp_bridge *bridge_list;
+            m0_rproc {
+	        ...
+	    };
 
-Why is it bridge_list?
+            m33_rproc {
+	        ...
+	    };
+	};
+    };
+};
 
-> +	int ret, i;
-> +
-> +	ret = cdn_dp_parse_dt(dp);
-> +	if (ret < 0)
-> +		return ret;
-> +
-> +	ret = cdn_dp_parse_hpd_bridge_dt(dp);
-> +	if (ret)
-> +		return ret;
-> +
-> +	dp->drm_dev = drm_dev;
-> +	dp->connected = false;
-> +	dp->active = false;
-> +	dp->active_port = -1;
-> +	dp->fw_loaded = false;
-> +
-> +	for (i = 0; i < dp->bridge_count; i++) {
-> +		bridge_list = devm_drm_bridge_alloc(dev, struct cdn_dp_bridge, bridge,
-> +						    &cdn_dp_bridge_funcs);
-> +		if (IS_ERR(bridge_list))
-> +			return PTR_ERR(bridge_list);
-> +		bridge_list->id = i;
-> +		bridge_list->parent = dp;
-> +		if (!dp->hpd_bridge_valid)
-> +			bridge_list->connected = true;
-> +		dp->bridge_list[i] = bridge_list;
-> +	}
-> +
+Note here that you only describe those DT properties which can't be
+discovered from rproc OP-TEE service.
 
--- 
-With best wishes
-Dmitry
+-Sumit
+
+> 
+> 1) Device tree:
+> Notice that an intermediate ahb bus is used on ST platform for address
+> conversion between remote processor address and local physical address
+> I will probably need to find a solution for that.
+> 
+> 
+> firmware {
+>    remoteproc_tee {
+> 	compatible = "remoteproc-tee";
+> 	mlahb: ahb {
+> 	    compatible = "st,mlahb", "simple-bus";
+> 	    #address-cells = <1>;
+> 	    #size-cells = <1>;
+> 	    ranges;
+> 	    dma-ranges = <>;
+> 	    m33_rproc@0 {
+>       		compatible = "st,stm32mp1-m33";
+>      		/* M33 watchdog interrupt */
+>      		interrupt-parent = <&intc>;
+> 		interrupts = <GIC_SPI 4 IRQ_TYPE_LEVEL_HIGH>;
+> 		/* power domain management */
+> 		power-domains = <&cluster_pd>, <&ret_pd>;
+> 		power-domain-names = "default", "sleep";
+> 		/* RPMsg mailboxes + M33 graceful shutdown request */
+> 		mboxes = <&ipcc1 0x0>, <&ipcc1 0x1>, <&ipcc1 2>;
+> 		mbox-names = "vq0", "vq1", "shutdown";
+> 		memory-region = <&vdev0vring0>, <&vdev0vring1>,
+> 				<&vdev0buffer>;
+> 		status = "okay";
+> 	    };
+>         };
+> 
+> 	ahbsr: ahb@2 {
+> 	   compatible = "st,mlahb", "simple-bus";
+> 	   #address-cells = <1>;
+> 	   #size-cells = <1>;
+> 	   ranges = <>;
+> 	   dma-ranges = <>;
+> 	   m0_rproc@1 {
+>       		compatible = "st,stm32mp1-m0";
+> 		mboxes = <&ipcc2 2>;
+> 		mbox-names = "shutdown";
+> 		interrupt-parent = <&intc>;
+> 		interrupts = <GIC_SPI 7 IRQ_TYPE_LEVEL_HIGH>;
+> 		/* M0 peripheral clocking (not accessible by the M0) */
+> 		clocks = <>, <>;
+>     		status = "okay";
+> 	   };
+>        };
+>     };
+> };
+> 
+> 2) remoteproc_driver:
+>   - platform driver that registers a TEE driver with specified UUID
+>   - on TEE driver probing it parses sub device (reg property replacing
+>     st, proc_id property)
+>   - tries to open associated TEE session and in case of success
+>     probes associated rproc driver.
+> 
+> 3) st,remoteproc drivers
+>   -  unique DT compatible, no secure-status use (legacy compatibility)
+>   -  need to add a mechanism to detect probing
+>      by the TEE bus, or directly probed by the ahb bus.
+> 
+> 
+> Thanks,
+> Arnaud
 
