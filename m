@@ -4,60 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0B17DCCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 17:04:00 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7A876CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 17:04:04 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=fM37c4YVfvfjOC99xroIH5MTCuIyqrZFkGkR6ghzqLc=; b=g18kppGoTYrugD3e5y6OndPS7c
-	RnXaihree/IZTOMsepW2JW3+2/L6zJm/cbTJl+yK1f/qWa6wEh1wkUA94fKA6jkLyzBiTqFazTndv
-	47xMnT+6eAP7S7uhoijHALZwzbX1ZuJokGhFr/C4+aWtRIPWslaHZV/SrOF21b79GbcVYxspzO4lZ
-	Xo2B+ZRA5Fq9gDrKX1XxRReCFneLQbc78CerFI1l7Ejb2/ag3gOzii+kaZYKIci60fFGZjOYsjfzg
-	sLEik95rQvuAI/6my6a0gaiAZquSPcA7eiJSl5V0CazCft8jRc3wz/eSGVDSADq70GnGutHN3PH52
-	8zYUJheg==;
+	bh=1rU2uW428ktg/uxsgiMNm1NL8lLaVYtjPeqSyv7MQiE=; b=q1kEHmyE38kc9GUf5ZW7xhdowV
+	bi+DKoKczEtlF6+t0IJr3R/Ycp2x98e8l/9rrkyDqhspwAR3Peqb2GJCJFhqomoClmnPXipkOvECs
+	2fEbPDZ1q+hMyKcE3kQ+etGWblfUMYzoDuDKhtDQ/7BwDnwypbCzlg0CCT3Wdit7+Jkj0cy5ntSXB
+	bvfqtslSbRcwscpz7DzYgchzXIvPEL88EyxSv8NogXTzRcu2KvufA7B+0mHoxyqnNOGU+zEYluO4q
+	9ol1KJvHiE/YThLm4lJ/4F3oe8y1anyGtDYTThaUeP5HaV+e8vqVYtXjoTTXpbf7267qDx0DwDEw+
+	x3Ek3RZg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7d0b-0000000ANm8-0buc;
-	Sat, 11 Oct 2025 17:03:53 +0000
-Received: from mout-p-102.mailbox.org ([80.241.56.152])
+	id 1v7d0e-0000000ANsv-45PL;
+	Sat, 11 Oct 2025 17:03:56 +0000
+Received: from mout-p-103.mailbox.org ([80.241.56.161])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7d0U-0000000ANa1-153D
+	id 1v7d0Z-0000000ANiE-39t6
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Oct 2025 17:03:49 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
+	Sat, 11 Oct 2025 17:03:54 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4ckVLm3kY4z9tX0;
-	Sat, 11 Oct 2025 19:03:44 +0200 (CEST)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4ckVLt0Nlbz9shj;
+	Sat, 11 Oct 2025 19:03:50 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1760202224;
+	t=1760202230;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=fM37c4YVfvfjOC99xroIH5MTCuIyqrZFkGkR6ghzqLc=;
-	b=sg0Kc94DVjLScX2WyYoSsEruAtnQCcvyUBO+7g0TiqUsSPSnNl7abvWlRLBXXXTasWS9hE
-	6KaoFnf1e3vf8YcnrTTdGST+eueJ2dLpLW5gLqU2azKE9goqoc/9LQFyCtWb6En86eIW2Y
-	XJdiC0bbjB6pwI82x/DlgV2kGmZ7KiViyTbPwfR186mGNso7fI8jduK1sXTYMmNCKzXL1m
-	gljAEYhGd4o6vSHnE68FUcXJh3IAAeRZYlzP8SreFDNpGWbNJeFHbZAXtOZeGzssWJ8GlY
-	m/m1pipItrr7uytQgQXlymMrBdd8sardGQfqwAWWm+58ljfg+gGzbLJuyplgMg==
+	bh=1rU2uW428ktg/uxsgiMNm1NL8lLaVYtjPeqSyv7MQiE=;
+	b=C/8zFjj05BpbotuwML1zjgnFQOx9AkrTIlEAocFvOizE/MwvYbr82jfyLiycql1Y6d0RUt
+	bOHqXJ9EGjv4sR/IKIqOvUTkggYjiKDGEOdOpJrD0LFFVYpX6QhmVwgvpbBr1yNGcFZB7o
+	NwSycCSyWwKf2/rDiD/23c9yq1GBGMZM6cDQr7mpi//DkdjdIjKaAEPRlp753LvHUnlKNl
+	7T7ejTM1nPuEYcUAvhmlpOAiLhYvR/WnNz1H7egbsvkB8rDs/fKGUxpJfab4ld/tDIHlKk
+	HmxyAzFQGEaLOIpo/JH+NWUuwhyeZE4V1tY/FmF7KY3X/kdbAJwwlBHsfEGfMg==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=Rirzo6Jk;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut@mailbox.org designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=marek.vasut@mailbox.org
 From: Marek Vasut <marek.vasut@mailbox.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1760202222;
+	t=1760202228;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=fM37c4YVfvfjOC99xroIH5MTCuIyqrZFkGkR6ghzqLc=;
-	b=CFLgHpYIjdkGy8MPNZs1Ng1fR247eI4HMhDDHXtBJIX/LRHChf9VY7MEeO/HAfMBkip7af
-	5mSibD5IxTthGClYAWEMobr6D6LeFdAQxOTKIuWFX6HB160LMuNEJGtjA4mUgXcTjtb3WB
-	3m1+N1f3NuwERe3jh/xZrgbTfbQ2INLzUKY5C81gSwEk2D5Xg3GHqS90Y6TkCPv5PRzayv
-	29o1fqxEEuA7NTmZbXixk/TPr4qjBL7eu5sAM8hWHHCXa3BrNvasvFTEFqc2Qjoj2pGWel
-	CMvcsZhjoFxHchcjIT3xtERJ9751KFAXZdcZ/6Al8lC1QhTOtUkLIaeUCPTvmg==
+	bh=1rU2uW428ktg/uxsgiMNm1NL8lLaVYtjPeqSyv7MQiE=;
+	b=Rirzo6JkXei6eUVVxdZkoz8wvLiS90hNJP6Nsn8pVR0M8eR+CRQ6FpnwItkcoQO/dg6jiT
+	8ert0iRpFvSKFSlQcn/vve9mIzlw+Ua3QyVIiFtsgtZa1oF4c7q2A3M0ZkhigscJUQeeSo
+	KKQuuElaSxtFqfVoKmJUrm2+bBQvVHdvM8XYXdPgIVwqlPuFfsb9HStntZ6vdzJsbTKaaU
+	Cu4BZH2XSejHIZ8zJAjIWC1K1SVxfKFFtbKO0RAYKBIEoOP42oQiB1s4wez8D74yHn9j5/
+	/NCzJZ5MbB6w3GEdxeGKXhLqS4fLNEpbCNB2RZzBBMA3GLLtZ8VxObba8RetJw==
 To: dri-devel@lists.freedesktop.org
 Cc: Marek Vasut <marek.vasut@mailbox.org>,
 	Abel Vesa <abelvesa@kernel.org>,
@@ -76,18 +79,19 @@ Cc: Marek Vasut <marek.vasut@mailbox.org>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-clk@vger.kernel.org
-Subject: [PATCH 18/39] drm/imx: dc: ic: Pass struct dc_ic_subdev_match_data via OF match data
-Date: Sat, 11 Oct 2025 18:51:33 +0200
-Message-ID: <20251011170213.128907-19-marek.vasut@mailbox.org>
+Subject: [PATCH 20/39] drm/imx: dc: Configure display CSR clock feed select
+Date: Sat, 11 Oct 2025 18:51:35 +0200
+Message-ID: <20251011170213.128907-21-marek.vasut@mailbox.org>
 In-Reply-To: <20251011170213.128907-1-marek.vasut@mailbox.org>
 References: <20251011170213.128907-1-marek.vasut@mailbox.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: d0baf2e493dfbaf76dd
-X-MBO-RS-META: 4w5rhhqn5zfkuzp1t96msounapegtezo
+X-MBO-RS-META: p5ockmyrs7gnzi5p6cb89izymgsh9ses
+X-MBO-RS-ID: 14437a3bb9e69744023
+X-Rspamd-Queue-Id: 4ckVLt0Nlbz9shj
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251011_100346_529266_D5FCF99A 
-X-CRM114-Status: GOOD (  19.68  )
+X-CRM114-CacheID: sfid-20251011_100352_041074_9B1294AC 
+X-CRM114-Status: GOOD (  12.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,11 +106,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Introduce struct dc_ic_subdev_match_data which describes the differences
-between i.MX8QXP and i.MX95, which in this case is register map difference
-and presence of user registers, and pass it as OF match data into the driver,
-so the driver can use the match data to correctly set up the IRQ controller.
-This is a preparatory patch for i.MX95 addition. No functional change.
+Configure DISPLAY_CSR clock feed selector on i.MX95 accordingly
+for either DSI and LVDS serializers. This is especially important
+to make LVDS displays operational, the default selector setting
+of 0 only works for DSI serializer.
 
 Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
 ---
@@ -128,266 +131,76 @@ Cc: imx@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org
 Cc: linux-clk@vger.kernel.org
 ---
- drivers/gpu/drm/imx/dc/dc-ic.c | 118 +++++++++++++++++++++------------
- 1 file changed, 76 insertions(+), 42 deletions(-)
+ drivers/gpu/drm/imx/dc/dc-drv.c | 26 ++++++++++++++++++++++++++
+ 1 file changed, 26 insertions(+)
 
-diff --git a/drivers/gpu/drm/imx/dc/dc-ic.c b/drivers/gpu/drm/imx/dc/dc-ic.c
-index 67441b349a7d2..f327ef0918766 100644
---- a/drivers/gpu/drm/imx/dc/dc-ic.c
-+++ b/drivers/gpu/drm/imx/dc/dc-ic.c
-@@ -24,16 +24,17 @@
- #define USERINTERRUPTCLEAR(n)	(0x50 + 4 * (n))
- #define USERINTERRUPTSTATUS(n)	(0x58 + 4 * (n))
+diff --git a/drivers/gpu/drm/imx/dc/dc-drv.c b/drivers/gpu/drm/imx/dc/dc-drv.c
+index 2717c92aba6c5..dec8ad19bad42 100644
+--- a/drivers/gpu/drm/imx/dc/dc-drv.c
++++ b/drivers/gpu/drm/imx/dc/dc-drv.c
+@@ -7,6 +7,7 @@
+ #include <linux/component.h>
+ #include <linux/device.h>
+ #include <linux/dma-mapping.h>
++#include <linux/mfd/syscon.h>
+ #include <linux/mod_devicetable.h>
+ #include <linux/module.h>
+ #include <linux/of.h>
+@@ -29,8 +30,15 @@
+ #include "dc-drv.h"
+ #include "dc-pe.h"
  
--#define IRQ_COUNT	49
--#define IRQ_RESERVED	35
--#define REG_NUM		2
-+#define IRQ_COUNT_MAX	49
-+#define REG_NUM_MAX	2
- 
- struct dc_ic_data {
- 	struct regmap		*regs;
- 	struct clk_bulk_data	*clk_axi;
- 	int			clk_axi_count;
--	int			irq[IRQ_COUNT];
-+	int			irq[IRQ_COUNT_MAX];
- 	struct irq_domain	*domain;
-+	unsigned int		reg_enable;
-+	unsigned int		reg_status;
- };
- 
- struct dc_ic_entry {
-@@ -41,60 +42,85 @@ struct dc_ic_entry {
- 	int irq;
- };
- 
--static const struct regmap_range dc_ic_regmap_write_ranges[] = {
-+struct dc_ic_subdev_match_data {
-+	const struct regmap_config	*regmap_config;
-+	unsigned int			reg_enable;
-+	unsigned int			reg_clear;
-+	unsigned int			reg_status;
-+	unsigned int			reg_count;
-+	unsigned int			irq_count;
-+	unsigned long			unused_irq[REG_NUM_MAX];
-+	int				reserved_irq;
-+	bool				user_irq;
-+};
++#define DISPLAY_ENGINES_CLOCK_CONTROL	0x00
++#define  DISP_CLK1_SEL			GENMASK(3, 2)
++#define  DISP_CLK0_SEL			GENMASK(1, 0)
++#define  DISP_CLK_SEL_CCM		0
++#define  DISP_CLK_SEL_LVDS		2
 +
-+static const struct regmap_range dc_ic_regmap_write_ranges_imx8qxp[] = {
- 	regmap_reg_range(USERINTERRUPTMASK(0), INTERRUPTCLEAR(1)),
- 	regmap_reg_range(USERINTERRUPTENABLE(0), USERINTERRUPTCLEAR(1)),
+ struct dc_priv {
+ 	struct drm_device *drm;
++	struct regmap *regmap;
+ 	struct clk_bulk_data *clk_cfg;
+ 	int clk_cfg_count;
  };
- 
--static const struct regmap_access_table dc_ic_regmap_write_table = {
--	.yes_ranges = dc_ic_regmap_write_ranges,
--	.n_yes_ranges = ARRAY_SIZE(dc_ic_regmap_write_ranges),
-+static const struct regmap_access_table dc_ic_regmap_write_table_imx8qxp = {
-+	.yes_ranges = dc_ic_regmap_write_ranges_imx8qxp,
-+	.n_yes_ranges = ARRAY_SIZE(dc_ic_regmap_write_ranges_imx8qxp),
- };
- 
--static const struct regmap_range dc_ic_regmap_read_ranges[] = {
-+static const struct regmap_range dc_ic_regmap_read_ranges_imx8qxp[] = {
- 	regmap_reg_range(USERINTERRUPTMASK(0), INTERRUPTENABLE(1)),
- 	regmap_reg_range(INTERRUPTSTATUS(0), INTERRUPTSTATUS(1)),
- 	regmap_reg_range(USERINTERRUPTENABLE(0), USERINTERRUPTENABLE(1)),
- 	regmap_reg_range(USERINTERRUPTSTATUS(0), USERINTERRUPTSTATUS(1)),
- };
- 
--static const struct regmap_access_table dc_ic_regmap_read_table = {
--	.yes_ranges = dc_ic_regmap_read_ranges,
--	.n_yes_ranges = ARRAY_SIZE(dc_ic_regmap_read_ranges),
-+static const struct regmap_access_table dc_ic_regmap_read_table_imx8qxp = {
-+	.yes_ranges = dc_ic_regmap_read_ranges_imx8qxp,
-+	.n_yes_ranges = ARRAY_SIZE(dc_ic_regmap_read_ranges_imx8qxp),
- };
- 
--static const struct regmap_range dc_ic_regmap_volatile_ranges[] = {
-+static const struct regmap_range dc_ic_regmap_volatile_ranges_imx8qxp[] = {
- 	regmap_reg_range(INTERRUPTPRESET(0), INTERRUPTCLEAR(1)),
- 	regmap_reg_range(USERINTERRUPTPRESET(0), USERINTERRUPTCLEAR(1)),
- };
- 
--static const struct regmap_access_table dc_ic_regmap_volatile_table = {
--	.yes_ranges = dc_ic_regmap_volatile_ranges,
--	.n_yes_ranges = ARRAY_SIZE(dc_ic_regmap_volatile_ranges),
-+static const struct regmap_access_table dc_ic_regmap_volatile_table_imx8qxp = {
-+	.yes_ranges = dc_ic_regmap_volatile_ranges_imx8qxp,
-+	.n_yes_ranges = ARRAY_SIZE(dc_ic_regmap_volatile_ranges_imx8qxp),
- };
- 
--static const struct regmap_config dc_ic_regmap_config = {
-+static const struct regmap_config dc_ic_regmap_config_imx8qxp = {
- 	.reg_bits = 32,
- 	.reg_stride = 4,
- 	.val_bits = 32,
- 	.fast_io = true,
--	.wr_table = &dc_ic_regmap_write_table,
--	.rd_table = &dc_ic_regmap_read_table,
--	.volatile_table = &dc_ic_regmap_volatile_table,
-+	.wr_table = &dc_ic_regmap_write_table_imx8qxp,
-+	.rd_table = &dc_ic_regmap_read_table_imx8qxp,
-+	.volatile_table = &dc_ic_regmap_volatile_table_imx8qxp,
- 	.max_register = USERINTERRUPTSTATUS(1),
- };
- 
-+static const struct dc_ic_subdev_match_data dc_ic_match_data_imx8qxp = {
-+	.regmap_config = &dc_ic_regmap_config_imx8qxp,
-+	.reg_enable = USERINTERRUPTENABLE(0),
-+	.reg_clear = USERINTERRUPTCLEAR(0),
-+	.reg_status = USERINTERRUPTSTATUS(0),
-+	.reg_count = 2,
-+	.irq_count = 49,
-+	.user_irq = true,
-+	.unused_irq = { 0x00000000, 0xfffe0008 },
-+	.reserved_irq = 35,
-+};
-+
- static void dc_ic_irq_handler(struct irq_desc *desc)
- {
- 	struct dc_ic_entry *entry = irq_desc_get_handler_data(desc);
- 	struct dc_ic_data *data = entry->data;
--	unsigned int status, enable;
-+	unsigned int status, enable, offset;
- 	unsigned int virq;
- 
- 	chained_irq_enter(irq_desc_get_chip(desc), desc);
- 
--	regmap_read(data->regs, USERINTERRUPTSTATUS(entry->irq / 32), &status);
--	regmap_read(data->regs, USERINTERRUPTENABLE(entry->irq / 32), &enable);
-+	offset = entry->irq / 32;
-+	regmap_read(data->regs, data->reg_status + 4 * offset, &status);
-+	regmap_read(data->regs, data->reg_enable + 4 * offset, &enable);
- 
- 	status &= enable;
- 
-@@ -107,11 +133,10 @@ static void dc_ic_irq_handler(struct irq_desc *desc)
- 	chained_irq_exit(irq_desc_get_chip(desc), desc);
- }
- 
--static const unsigned long unused_irq[REG_NUM] = {0x00000000, 0xfffe0008};
--
- static int dc_ic_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-+	const struct dc_ic_subdev_match_data *dc_ic_match_data = device_get_match_data(dev);
- 	struct irq_chip_generic *gc;
- 	struct dc_ic_entry *entry;
- 	struct irq_chip_type *ct;
-@@ -123,7 +148,7 @@ static int dc_ic_probe(struct platform_device *pdev)
- 	if (!data)
- 		return -ENOMEM;
- 
--	entry = devm_kcalloc(dev, IRQ_COUNT, sizeof(*entry), GFP_KERNEL);
-+	entry = devm_kcalloc(dev, dc_ic_match_data->irq_count, sizeof(*entry), GFP_KERNEL);
- 	if (!entry)
- 		return -ENOMEM;
- 
-@@ -133,7 +158,7 @@ static int dc_ic_probe(struct platform_device *pdev)
- 		return PTR_ERR(base);
- 	}
- 
--	data->regs = devm_regmap_init_mmio(dev, base, &dc_ic_regmap_config);
-+	data->regs = devm_regmap_init_mmio(dev, base, dc_ic_match_data->regmap_config);
- 	if (IS_ERR(data->regs))
- 		return PTR_ERR(data->regs);
- 
-@@ -143,9 +168,12 @@ static int dc_ic_probe(struct platform_device *pdev)
- 				     "failed to get AXI clock\n");
- 	data->clk_axi_count = ret;
- 
--	for (i = 0; i < IRQ_COUNT; i++) {
-+	data->reg_enable = dc_ic_match_data->reg_enable;
-+	data->reg_status = dc_ic_match_data->reg_status;
-+
-+	for (i = 0; i < dc_ic_match_data->irq_count; i++) {
- 		/* skip the reserved IRQ */
--		if (i == IRQ_RESERVED)
-+		if (i == dc_ic_match_data->reserved_irq)
- 			continue;
- 
- 		ret = platform_get_irq(pdev, i);
-@@ -165,18 +193,22 @@ static int dc_ic_probe(struct platform_device *pdev)
+@@ -119,6 +127,17 @@ static int dc_drm_bind(struct device *dev)
+ 	if (ret)
  		return ret;
- 	}
  
--	for (i = 0; i < REG_NUM; i++) {
-+	for (i = 0; i < dc_ic_match_data->reg_count; i++) {
- 		/* mask and clear all interrupts */
-+		regmap_write(data->regs, dc_ic_match_data->reg_enable + (4 * i), 0x0);
-+		regmap_write(data->regs, dc_ic_match_data->reg_clear + (4 * i), 0xffffffff);
++	if (priv->regmap) {
++		regmap_write_bits(priv->regmap, DISPLAY_ENGINES_CLOCK_CONTROL,
++				  DISP_CLK0_SEL | DISP_CLK1_SEL,
++				  FIELD_PREP(DISP_CLK0_SEL,
++				             ((dc_drm->encoder[0].encoder_type == DRM_MODE_ENCODER_DSI) ?
++					     DISP_CLK_SEL_CCM : DISP_CLK_SEL_LVDS)) |
++				  FIELD_PREP(DISP_CLK1_SEL,
++				             ((dc_drm->encoder[1].encoder_type == DRM_MODE_ENCODER_DSI) ?
++					     DISP_CLK_SEL_CCM : DISP_CLK_SEL_LVDS)));
++	}
 +
-+		if (!dc_ic_match_data->user_irq)
-+			continue;
-+
- 		regmap_write(data->regs, USERINTERRUPTENABLE(i), 0x0);
--		regmap_write(data->regs, INTERRUPTENABLE(i), 0x0);
- 		regmap_write(data->regs, USERINTERRUPTCLEAR(i), 0xffffffff);
--		regmap_write(data->regs, INTERRUPTCLEAR(i), 0xffffffff);
- 
- 		/* set all interrupts to user mode */
- 		regmap_write(data->regs, USERINTERRUPTMASK(i), 0xffffffff);
- 	}
- 
--	data->domain = irq_domain_add_linear(dev->of_node, IRQ_COUNT,
-+	data->domain = irq_domain_add_linear(dev->of_node, dc_ic_match_data->irq_count,
- 					     &irq_generic_chip_ops, data);
- 	if (!data->domain) {
- 		dev_err(dev, "failed to create IRQ domain\n");
-@@ -194,21 +226,21 @@ static int dc_ic_probe(struct platform_device *pdev)
- 		return ret;
- 	}
- 
--	for (i = 0; i < IRQ_COUNT; i += 32) {
-+	for (i = 0; i < dc_ic_match_data->irq_count; i += 32) {
- 		gc = irq_get_domain_generic_chip(data->domain, i);
- 		gc->reg_base = base;
--		gc->unused = unused_irq[i / 32];
-+		gc->unused = dc_ic_match_data->unused_irq[i / 32];
- 		ct = gc->chip_types;
- 		ct->chip.irq_ack = irq_gc_ack_set_bit;
- 		ct->chip.irq_mask = irq_gc_mask_clr_bit;
- 		ct->chip.irq_unmask = irq_gc_mask_set_bit;
--		ct->regs.ack = USERINTERRUPTCLEAR(i / 32);
--		ct->regs.mask = USERINTERRUPTENABLE(i / 32);
-+		ct->regs.ack = dc_ic_match_data->reg_clear + (i / 8);
-+		ct->regs.mask = dc_ic_match_data->reg_enable + (i / 8);
- 	}
- 
--	for (i = 0; i < IRQ_COUNT; i++) {
-+	for (i = 0; i < dc_ic_match_data->irq_count; i++) {
- 		/* skip the reserved IRQ */
--		if (i == IRQ_RESERVED)
-+		if (i == dc_ic_match_data->reserved_irq)
- 			continue;
- 
- 		data->irq[i] = irq_of_parse_and_map(dev->of_node, i);
-@@ -225,11 +257,13 @@ static int dc_ic_probe(struct platform_device *pdev)
- 
- static void dc_ic_remove(struct platform_device *pdev)
+ 	ret = drm_dev_register(drm, 0);
+ 	if (ret) {
+ 		dev_err(dev, "failed to register drm device: %d\n", ret);
+@@ -157,6 +176,7 @@ static const struct component_master_ops dc_drm_ops = {
+ static int dc_probe(struct platform_device *pdev)
  {
-+	struct device *dev = &pdev->dev;
-+	const struct dc_ic_subdev_match_data *dc_ic_match_data = device_get_match_data(dev);
- 	struct dc_ic_data *data = dev_get_drvdata(&pdev->dev);
- 	int i;
+ 	struct component_match *match = NULL;
++	struct device_node *np = pdev->dev.of_node;
+ 	struct dc_priv *priv;
+ 	int ret;
  
--	for (i = 0; i < IRQ_COUNT; i++) {
--		if (i == IRQ_RESERVED)
-+	for (i = 0; i < dc_ic_match_data->irq_count; i++) {
-+		if (i == dc_ic_match_data->reserved_irq)
- 			continue;
+@@ -170,6 +190,12 @@ static int dc_probe(struct platform_device *pdev)
+ 				     "failed to get cfg clock\n");
+ 	priv->clk_cfg_count = ret;
  
- 		irq_set_chained_handler_and_data(data->irq[i], NULL, NULL);
-@@ -268,7 +302,7 @@ static const struct dev_pm_ops dc_ic_pm_ops = {
- };
++	if (of_device_is_compatible(np, "fsl,imx95-dc")) {
++		priv->regmap = syscon_regmap_lookup_by_phandle(np, "fsl,syscon");
++		if (IS_ERR(priv->regmap))
++			return dev_err_probe(&pdev->dev, PTR_ERR(priv->regmap), "failed to get regmap\n");
++	}
++
+ 	dev_set_drvdata(&pdev->dev, priv);
  
- static const struct of_device_id dc_ic_dt_ids[] = {
--	{ .compatible = "fsl,imx8qxp-dc-intc", },
-+	{ .compatible = "fsl,imx8qxp-dc-intc", .data = &dc_ic_match_data_imx8qxp },
- 	{ /* sentinel */ }
- };
- 
+ 	ret = dma_set_mask_and_coherent(&pdev->dev, DMA_BIT_MASK(32));
 -- 
 2.51.0
 
