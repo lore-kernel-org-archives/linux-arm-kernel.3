@@ -4,7 +4,7 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7B5BCCD184
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB9C0CCD18C
 	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 17:15:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
@@ -12,63 +12,60 @@ DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=akAwwF92F0bL8qDhbAfkRRIHkYWWhZlXcSimxJHfzsM=; b=NuyTlBF5cJbaaeiykGdEYG7eaO
-	7BS6H52ciBR/MasuYzK5M+8uegBb/iroW3KCSOEZw1ZZF0c3X6Ssk+K3TWWAeLuPrg+/BdNdwN2Cu
-	Mdok+dgKYfzOxEaXxI4QQa7FoTT2QgF3GkOKQdlzF09Kj4lPd05ankGoVZIN7N/tCJLLthijFqSqC
-	CLLMM2jOkjjYr8Po9+beMPYnJfkS/q6vyFluYtJsgmX0fs68lTRkofK50dI2LI9d9XjRAi5scxp8B
-	oWVjvzLlnhDW0RYPpHu1/zoHrvdOJMbjffzdQXNaUwTUmnvQJ4LyfXaYApAKz65CE1ArpPU+4MDF5
-	nJWTNvSg==;
+	bh=xfcFwjoG6BlDGRf7oUu6mSTne7e5YxtYHuPn0+MvuVs=; b=hnPbL6GajJQgjMs3Bc7Wic4clC
+	q+PmqgOvjigv0aP+ecy9NISwNUu47ehbIq2OE1weD8qZyFTNHR6tfqhArCn5pKyundBwQFkeAdf3f
+	g4hP0Z0MRBrG5EHEGxKvv3TBuSKbnGbC0Md6qGfEG4bWUHS6uXqZKO+p1DiYC31neChkCSkhDY9W9
+	2BZSfX1T8EXIb5nOOR88ps9XoHHzZhmSKlI1uaAgp9x9dncJVDSRToQLfuulvxsoR/lguGhXL8fcP
+	yjmTvk3YvsZv0Nxp6WVYaUGqgXq1GepCKYOKkZ6bP7nR+qY2rgYUPt/EPRoHMZdLcD3sJ/I+KxueG
+	NcnS1B5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7dBZ-0000000AQTy-3FPW;
+	id 1v7dBZ-0000000AQTg-1tGN;
 	Sat, 11 Oct 2025 17:15:13 +0000
 Received: from mout-p-102.mailbox.org ([80.241.56.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7dBX-0000000AQSO-0vTz
+	id 1v7dBX-0000000AQSN-0vL7
 	for linux-arm-kernel@lists.infradead.org;
 	Sat, 11 Oct 2025 17:15:12 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4ckVMB1Fvfz9tX0;
-	Sat, 11 Oct 2025 19:04:06 +0200 (CEST)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4ckVMw3gCZz9srT;
+	Sat, 11 Oct 2025 19:04:44 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1760202246;
+	t=1760202284;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=akAwwF92F0bL8qDhbAfkRRIHkYWWhZlXcSimxJHfzsM=;
-	b=V/NBhwkugsuOQZHJ1WnG6sfmaUaEYWmE43903UXrcIaimAp1lACUfAv+QHqUsP/w7vUhuY
-	L6iwrosCLBzvSQdXZALC8BDxbwNBNwnnwKqIiX1hnCIBuj+060MbKzueVNt+L3KS2+T1W7
-	KwBdxborO+TPNHJmzdyu/m6fgXuz3qyr6mWHgJe9/DQGb8omuN/zdicpPPX47PvYjpB3bM
-	d/Y+qbbnocp+5JmccX3O2rGX7cNjVL/ZZaM8pnZqlfYgSHMumOZCEVhqaPBrThEwRAtBay
-	DeIMxqIothatZBi8ykMjVT3HWUz4eXx66KKeiKBp35gvgnc3ivKoBz+UQQ96Uw==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=flYZoeLq;
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut@mailbox.org designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=marek.vasut@mailbox.org
+	bh=xfcFwjoG6BlDGRf7oUu6mSTne7e5YxtYHuPn0+MvuVs=;
+	b=exWqMVikCY9XlQIux8PkH3ZBXRzlfDQE/qPsNpZnxWpwo0mp+Q9MbjTZ518L0BvpLbzPh7
+	lEPzE9QnkbtbAcUyizOyyT0AY2Yg8AjUnt6uYKPgpMYK71Rsi2ub3T7ObesuB9f9zNUViN
+	UbZTvNSgYmEiOUsggDsv3+T1sdLWT5PNhV81bDqIO7hdfvjeQ0GCNd7IbP6CTBheaCH26u
+	JY8IA3QMj9p8Wf2qDeG3xElUHykvQStrpuboEb9RCYKqjXczl4sPG40oDiWTeFuW1+VqqM
+	xZPXBqhXtRw3CjBFhf9dM5/FqSEHdUTGz8zjfvrSoA2I74++ZHG+j+WspB8Xag==
 From: Marek Vasut <marek.vasut@mailbox.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1760202244;
+	t=1760202282;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=akAwwF92F0bL8qDhbAfkRRIHkYWWhZlXcSimxJHfzsM=;
-	b=flYZoeLqo+zdn3oj7YA7Bzek7fwaZpbslGk5hYteXOnbFNz5iRN/5EvniLpbxNBgieZNNU
-	/uO9c27hGibSh/VBbXUoArr04UZOKjIVQsNNsApDEKexVa+4xRZdK+d5ZEwomm/M+xxuto
-	tlqwzFTNImW8d2YYUO1g/xAze0bvEBfG5lndmvdz/8CpLo/tMqRoCyanPAiXpVoly2icKK
-	VbsbXJvdQLRJ+AmtpzQbG8XDkQBQp6ibZlSY7Jm6jgH8qcb1EeGc1+PaJ3BnOlNs1zvdcF
-	qt6WZK+nd2ZZu6fGDIp8a0u4Q+QjmXe1Efs7l97CgYiNLW4RVT9g+KT8VKW9NQ==
+	bh=xfcFwjoG6BlDGRf7oUu6mSTne7e5YxtYHuPn0+MvuVs=;
+	b=lz5GUTVlTZbQrih4d5BDMjgct+mEMDZxb3DDkv+BZAw4QwiW220OISi83tffQ9uhZArUQM
+	r8N+raYnY0ZX5m3LtPGsI+VhZ6aBrb28EJUDGN9CHztB3VuQT2NbRf5jEt6ajQr60QyhoO
+	evFg5uit0SGogRlfBW4fGivCAPqN01zPyPkcuO26Whm8ZPiMupscopLEwHU1H5H0cTxe+a
+	c7qx+nWrGn/jCR8aEroYhBsjQI25cC1Rh8uY5dXYs5mPyjmNq2KV1N8vQVGJzojMBpHrj2
+	yLsUYaPTLXCPrKQXElYkj0UYMlWenGC/m1PNw15QjvsjupMx7g7vpJ05Dkpxkg==
 To: dri-devel@lists.freedesktop.org
-Cc: Liu Ying <victor.liu@nxp.com>,
-	Marek Vasut <marek.vasut@mailbox.org>,
+Cc: Marek Vasut <marek.vasut@mailbox.org>,
 	Abel Vesa <abelvesa@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Fabio Estevam <festevam@gmail.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Liu Ying <victor.liu@nxp.com>,
 	Lucas Stach <l.stach@pengutronix.de>,
 	Peng Fan <peng.fan@nxp.com>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
@@ -79,19 +76,19 @@ Cc: Liu Ying <victor.liu@nxp.com>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-clk@vger.kernel.org
-Subject: [PATCH 26/39] drm/bridge: imx: Add NXP i.MX95 pixel interleaver support
-Date: Sat, 11 Oct 2025 18:51:41 +0200
-Message-ID: <20251011170213.128907-27-marek.vasut@mailbox.org>
+Subject: [PATCH 39/39] arm64: dts: imx95: Describe display pipeline
+Date: Sat, 11 Oct 2025 18:51:54 +0200
+Message-ID: <20251011170213.128907-40-marek.vasut@mailbox.org>
 In-Reply-To: <20251011170213.128907-1-marek.vasut@mailbox.org>
 References: <20251011170213.128907-1-marek.vasut@mailbox.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: 421cb1fb8e538102114
-X-MBO-RS-META: r9yqd9xepapd5wwiy4b87ttwgzstkoqx
-X-Rspamd-Queue-Id: 4ckVMB1Fvfz9tX0
+X-MBO-RS-META: tng4uiytdk18z5x9jco34aff7x5omh3a
+X-MBO-RS-ID: 07fd043ce955215318a
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251011_101511_543844_8D2AD35D 
-X-CRM114-Status: GOOD (  19.47  )
+X-CRM114-CacheID: sfid-20251011_101511_544176_5C58FFF8 
+X-CRM114-Status: UNSURE (   8.18  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,11 +103,10 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Liu Ying <victor.liu@nxp.com>
+Describe the entire i.MX95 display pipeline, which includes the DPU or DC
+display controller, MIPI DSI serializer, LVDS serializer and the bridges
+between those components.
 
-Add NXP i.MX95 pixel interleaver support.
-
-Signed-off-by: Liu Ying <victor.liu@nxp.com>
 Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
 ---
 Cc: Abel Vesa <abelvesa@kernel.org>
@@ -131,262 +127,737 @@ Cc: imx@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org
 Cc: linux-clk@vger.kernel.org
 ---
- drivers/gpu/drm/bridge/imx/Kconfig            |   9 +
- drivers/gpu/drm/bridge/imx/Makefile           |   1 +
- .../drm/bridge/imx/imx95-pixel-interleaver.c  | 217 ++++++++++++++++++
- 3 files changed, 227 insertions(+)
- create mode 100644 drivers/gpu/drm/bridge/imx/imx95-pixel-interleaver.c
+ arch/arm64/boot/dts/freescale/imx95.dtsi | 710 +++++++++++++++++++++++
+ 1 file changed, 710 insertions(+)
 
-diff --git a/drivers/gpu/drm/bridge/imx/Kconfig b/drivers/gpu/drm/bridge/imx/Kconfig
-index 9a480c6abb856..3e1b1d825d7bf 100644
---- a/drivers/gpu/drm/bridge/imx/Kconfig
-+++ b/drivers/gpu/drm/bridge/imx/Kconfig
-@@ -88,4 +88,13 @@ config DRM_IMX93_MIPI_DSI
- 	  Choose this to enable MIPI DSI controller found in Freescale i.MX93
- 	  processor.
+diff --git a/arch/arm64/boot/dts/freescale/imx95.dtsi b/arch/arm64/boot/dts/freescale/imx95.dtsi
+index ad47b7f0d173a..e26942ab0b28b 100644
+--- a/arch/arm64/boot/dts/freescale/imx95.dtsi
++++ b/arch/arm64/boot/dts/freescale/imx95.dtsi
+@@ -19,6 +19,87 @@ / {
+ 	#address-cells = <2>;
+ 	#size-cells = <2>;
  
-+config DRM_IMX95_PIXEL_INTERLEAVER
-+	tristate "NXP i.MX95 pixel interleaver"
-+	depends on OF && MFD_SYSCON && COMMON_CLK
-+	select DRM_KMS_HELPER
-+	select REGMAP_MMIO
-+	help
-+	  Choose this to enable pixel interleaver found in NXP i.MX95
-+	  processors.
++	ldb_pll_pixel: ldb_pll_div7 {
++		#clock-cells = <0>;
++		compatible = "fixed-factor-clock";
++		clocks = <&scmi_clk IMX95_CLK_LDBPLL>;
++		clock-div = <7>;
++		clock-mult = <1>;
++		clock-output-names = "ldb_pll_div7";
++	};
 +
- endif # ARCH_MXC || COMPILE_TEST
-diff --git a/drivers/gpu/drm/bridge/imx/Makefile b/drivers/gpu/drm/bridge/imx/Makefile
-index dd5d485848066..583054c70f002 100644
---- a/drivers/gpu/drm/bridge/imx/Makefile
-+++ b/drivers/gpu/drm/bridge/imx/Makefile
-@@ -8,3 +8,4 @@ obj-$(CONFIG_DRM_IMX8QXP_PIXEL_COMBINER) += imx8qxp-pixel-combiner.o
- obj-$(CONFIG_DRM_IMX8QXP_PIXEL_LINK) += imx8qxp-pixel-link.o
- obj-$(CONFIG_DRM_IMX8QXP_PIXEL_LINK_TO_DPI) += imx8qxp-pxl2dpi.o
- obj-$(CONFIG_DRM_IMX93_MIPI_DSI) += imx93-mipi-dsi.o
-+obj-$(CONFIG_DRM_IMX95_PIXEL_INTERLEAVER) += imx95-pixel-interleaver.o
-diff --git a/drivers/gpu/drm/bridge/imx/imx95-pixel-interleaver.c b/drivers/gpu/drm/bridge/imx/imx95-pixel-interleaver.c
-new file mode 100644
-index 0000000000000..e6d96e68db895
---- /dev/null
-+++ b/drivers/gpu/drm/bridge/imx/imx95-pixel-interleaver.c
-@@ -0,0 +1,217 @@
-+// SPDX-License-Identifier: GPL-2.0+
++	display_pixel_link_0: pixel-link-0 {
++		compatible = "fsl,imx95-dc-pixel-link";
++		fsl,dc-stream-id = /bits/ 8 <0>;
++		fsl,syscon = <&dispmix_csr>;
++		status = "disabled";
 +
-+/*
-+ * Copyright 2023 NXP
-+ */
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
 +
-+#include <linux/bitfield.h>
-+#include <linux/bits.h>
-+#include <linux/clk.h>
-+#include <linux/delay.h>
-+#include <linux/interrupt.h>
-+#include <linux/media-bus-format.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_graph.h>
-+#include <linux/platform_device.h>
-+#include <linux/regmap.h>
++			port@0 {
++				reg = <0>;
 +
-+#include <drm/drm_atomic_state_helper.h>
-+#include <drm/drm_bridge.h>
++				display_pixel_link0_to_pixel_interleaver_disp0: endpoint {
++					remote-endpoint = <&pixel_interleaver_disp0_to_display_pixel_link0>;
++				};
++			};
 +
-+#define PIXEL_INTERLEAVER_CTRL	0x4
-+#define  DISP_IN_SEL		BIT(1)
-+#define  MODE			BIT(0)
++			port@1 {
++				#address-cells = <1>;
++				#size-cells = <0>;
++				reg = <1>;
 +
-+#define CTRL			0x0
-+#define  VSYNC_POLARITY		BIT(10)
-+#define  HSYNC_POLARITY		BIT(9)
++				display_pixel_link0_to_mipi_dsi: endpoint@0 {
++					reg = <0>;
++					remote-endpoint = <&mipi_dsi_to_display_pixel_link0>;
++				};
 +
-+#define SWRST			0x20
-+#define  SW_RST			BIT(1)
++				display_pixel_link0_to_lvds_ch0: endpoint@1 {
++					reg = <1>;
++					remote-endpoint = <&lvds_ch0_to_display_pixel_link0>;
++				};
++			};
++		};
++	};
 +
-+#define IE			0x30
++	display_pixel_link_1: pixel-link-1 {
++		compatible = "fsl,imx95-dc-pixel-link";
++		fsl,dc-stream-id = /bits/ 8 <1>;
++		fsl,syscon = <&dispmix_csr>;
++		status = "disabled";
 +
-+#define DRIVER_NAME		"imx95-pixel-interleaver"
++		ports {
++			#address-cells = <1>;
++			#size-cells = <0>;
 +
-+struct imx95_pixel_interleaver_bridge {
-+	struct drm_bridge bridge;
-+	struct drm_bridge *next_bridge;
-+	struct device *dev;
-+	void __iomem *regs;
-+	struct regmap *regmap;
-+	struct clk *clk_bus;
-+};
++			port@0 {
++				reg = <0>;
 +
-+static void
-+imx95_pixel_interleaver_bridge_sw_reset(struct imx95_pixel_interleaver_bridge *pi)
-+{
-+	clk_prepare_enable(pi->clk_bus);
++				display_pixel_link1_to_pixel_interleaver_disp1: endpoint {
++					remote-endpoint = <&pixel_interleaver_disp1_to_display_pixel_link1>;
++				};
++			};
 +
-+	writel(SW_RST, pi->regs + SWRST);
-+	usleep_range(10, 20);
-+	writel(0, pi->regs + SWRST);
++			port@1 {
++				#address-cells = <1>;
++				#size-cells = <0>;
++				reg = <1>;
 +
-+	clk_disable_unprepare(pi->clk_bus);
-+}
++				display_pixel_link1_to_mipi_dsi: endpoint@0 {
++					reg = <0>;
++					remote-endpoint = <&mipi_dsi_to_display_pixel_link1>;
++				};
 +
-+static int
-+imx95_pixel_interleaver_bridge_attach(struct drm_bridge *bridge,
-+					     struct drm_encoder *encoder,
-+					     enum drm_bridge_attach_flags flags)
-+{
-+	struct imx95_pixel_interleaver_bridge *pi = bridge->driver_private;
++				display_pixel_link1_to_lvds_ch1: endpoint@1 {
++					reg = <1>;
++					remote-endpoint = <&lvds_ch1_to_display_pixel_link1>;
++				};
++			};
++		};
++	};
 +
-+	if (!(flags & DRM_BRIDGE_ATTACH_NO_CONNECTOR)) {
-+		dev_err(pi->dev, "do not support creating a drm_connector\n");
-+		return -EINVAL;
-+	}
+ 	cpus {
+ 		#address-cells = <1>;
+ 		#size-cells = <0>;
+@@ -1772,6 +1853,635 @@ smmu: iommu@490d0000 {
+ 			};
+ 		};
+ 
++		mipi_dsi: dsi@4acf0000 {
++			compatible = "fsl,imx95-mipi-dsi";
++			reg = <0x0 0x4acf0000 0x0 0x10000>;
++			interrupt-parent = <&displaymix_irqsteer>;
++			interrupts = <48>;
++			clocks = <&scmi_clk IMX95_CLK_CAMAPB>,
++				 <&scmi_clk IMX95_CLK_DISP1PIX>,
++				 <&scmi_clk IMX95_CLK_MIPIPHYCFG>,
++				 <&scmi_clk IMX95_CLK_MIPIPHYPLLREF>;
++			clock-names = "pclk", "pix", "phy_cfg", "phy_ref";
++			assigned-clocks = <&scmi_clk IMX95_CLK_MIPIPHYCFG>,
++					  <&scmi_clk IMX95_CLK_MIPIPHYPLLBYPASS>,
++					  <&scmi_clk IMX95_CLK_MIPIPHYPLLREF>;
++			assigned-clock-parents = <&scmi_clk IMX95_CLK_24M>,
++						 <&scmi_clk IMX95_CLK_VIDEOPLL1>,
++						 <&scmi_clk IMX95_CLK_24M>;
++			power-domains = <&scmi_devpd IMX95_PD_CAMERA>;
++			fsl,disp-master-csr = <&display_master_csr>;
++			fsl,disp-stream-csr = <&display_stream_csr>;
++			fsl,mipi-combo-phy-csr = <&mipi_tx_phy_csr>;
++			status = "disabled";
 +
-+	return drm_bridge_attach(encoder, pi->next_bridge, bridge,
-+				 DRM_BRIDGE_ATTACH_NO_CONNECTOR);
-+}
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
 +
-+static void
-+imx95_pixel_interleaver_bridge_mode_set(struct drm_bridge *bridge,
-+					       const struct drm_display_mode *mode,
-+					       const struct drm_display_mode *adjusted_mode)
-+{
-+	struct imx95_pixel_interleaver_bridge *pi = bridge->driver_private;
++				port@0 {
++					#address-cells = <1>;
++					#size-cells = <0>;
++					reg = <0>;
 +
-+	imx95_pixel_interleaver_bridge_sw_reset(pi);
++					mipi_dsi_to_display_pixel_link0: endpoint@0 {
++						reg = <0>;
++						remote-endpoint = <&display_pixel_link0_to_mipi_dsi>;
++					};
 +
-+	clk_prepare_enable(pi->clk_bus);
++					mipi_dsi_to_display_pixel_link1: endpoint@1 {
++						reg = <1>;
++						remote-endpoint = <&display_pixel_link1_to_mipi_dsi>;
++					};
++				};
 +
-+	/* HSYNC and VSYNC are active low. Data Enable is active high */
-+	writel(HSYNC_POLARITY | VSYNC_POLARITY, pi->regs + CTRL);
++				port@1 {
++					reg = <1>;
++				};
++			};
++		};
 +
-+	/* Disable interrupts */
-+	writel(0, pi->regs + IE);
++		display_stream_csr: syscon@4ad00000 {
++			compatible = "nxp,imx95-display-stream-csr", "syscon";
++			reg = <0x0 0x4ad00000 0x0 0x10000>;
++			clocks = <&scmi_clk IMX95_CLK_CAMAPB>;
++		};
 +
-+	clk_disable_unprepare(pi->clk_bus);
-+}
++		display_master_csr: syscon@4ad10000 {
++			compatible = "nxp,imx95-master-stream-csr", "syscon";
++			reg = <0x0 0x4ad10000 0x0 0x10000>;
++			clocks = <&scmi_clk IMX95_CLK_CAMAPB>;
++		};
 +
-+static void
-+imx95_pixel_interleaver_bridge_enable(struct drm_bridge *bridge)
-+{
-+	struct imx95_pixel_interleaver_bridge *pi = bridge->driver_private;
++		mipi_tx_phy_csr: syscon@4ad20100 {
++			compatible = "nxp,imx95-mipi-tx-phy-csr", "syscon";
++			reg = <0x0 0x4ad20100 0x0 0x14>;
++			clocks = <&scmi_clk IMX95_CLK_CAMAPB>;
++		};
 +
-+	regmap_write(pi->regmap, PIXEL_INTERLEAVER_CTRL, 0);
-+}
++		dispmix_csr: syscon@4b010000 {
++			compatible = "nxp,imx95-display-csr", "syscon";
++			reg = <0x0 0x4b010000 0x0 0x10000>;
++			#clock-cells = <1>;
++			clocks = <&scmi_clk IMX95_CLK_DISPAPB>;
++			power-domains = <&scmi_devpd IMX95_PD_DISPLAY>;
++		};
 +
-+static u32 *
-+imx95_pixel_interleaver_bridge_atomic_get_input_bus_fmts(struct drm_bridge *bridge,
-+							 struct drm_bridge_state *bridge_state,
-+							 struct drm_crtc_state *crtc_state,
-+							 struct drm_connector_state *conn_state,
-+							 u32 output_fmt,
-+							 unsigned int *num_input_fmts)
-+{
-+	u32 *input_fmts;
++		displaymix_irqsteer: interrupt-controller@4b0b0000 {
++			compatible = "fsl,imx95-irqsteer", "fsl,imx-irqsteer";
++			reg = <0x0 0x4b0b0000 0x0 0x1000>;
++			interrupts = <GIC_SPI 214 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 215 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 216 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 217 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 218 IRQ_TYPE_LEVEL_HIGH>,
++				     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH>,	/* reserved */
++				     <GIC_SPI 303 IRQ_TYPE_LEVEL_HIGH>,	/* reserved */
++				     <GIC_SPI 219 IRQ_TYPE_LEVEL_HIGH>;
++			power-domains = <&scmi_devpd IMX95_PD_DISPLAY>;
++			clocks = <&scmi_clk IMX95_CLK_DISPAPB>;
++			clock-names = "ipg";
++			fsl,channel = <0>;
++			fsl,num-irqs = <512>;
++			interrupt-controller;
++			#interrupt-cells = <1>;
++			status = "disabled";
++		};
 +
-+	if (output_fmt != MEDIA_BUS_FMT_RGB888_1X24)
-+		return NULL;
++		lvds_csr: syscon@4b0c0000 {
++			compatible = "nxp,imx95-lvds-csr", "syscon";
++			#address-cells = <1>;
++			#size-cells = <1>;
++			reg = <0x0 0x4b0c0000 0x0 0x10000>;
++			#clock-cells = <1>;
++			clocks = <&scmi_clk IMX95_CLK_DISPAPB>;
++			power-domains = <&scmi_devpd IMX95_PD_DISPLAY>;
 +
-+	*num_input_fmts = 1;
++			lvds: lvds@4 {
++				compatible = "fsl,imx95-lvds";
++				#address-cells = <1>;
++				#size-cells = <0>;
++				reg = <0x4 0x4>;
++				clocks = <&lvds_csr IMX95_CLK_DISPMIX_PIX_DI0_GATE>,
++					 <&lvds_csr IMX95_CLK_DISPMIX_PIX_DI1_GATE>,
++					 <&lvds_csr IMX95_CLK_DISPMIX_LVDS_CH0_GATE>,
++					 <&lvds_csr IMX95_CLK_DISPMIX_LVDS_CH1_GATE>;
++				clock-names = "ldb_di0", "ldb_di1", "ldb_ch0", "ldb_ch1";
++				status = "disabled";
 +
-+	input_fmts = kmalloc(sizeof(*input_fmts), GFP_KERNEL);
-+	if (!input_fmts)
-+		return NULL;
++				lvds_ch0: channel@0 {
++					#address-cells = <1>;
++					#size-cells = <0>;
++					reg = <0>;
++					status = "disabled";
 +
-+	input_fmts[0] = MEDIA_BUS_FMT_RGB888_1X24;
++					port@0 {
++						reg = <0>;
 +
-+	return input_fmts;
-+}
++						lvds_ch0_to_display_pixel_link0: endpoint {
++							remote-endpoint = <&display_pixel_link0_to_lvds_ch0>;
++						};
++					};
 +
-+static const struct drm_bridge_funcs imx95_pixel_interleaver_bridge_funcs = {
-+	.atomic_duplicate_state	= drm_atomic_helper_bridge_duplicate_state,
-+	.atomic_destroy_state	= drm_atomic_helper_bridge_destroy_state,
-+	.atomic_reset		= drm_atomic_helper_bridge_reset,
-+	.attach			= imx95_pixel_interleaver_bridge_attach,
-+	.mode_set		= imx95_pixel_interleaver_bridge_mode_set,
-+	.enable			= imx95_pixel_interleaver_bridge_enable,
-+	.atomic_get_input_bus_fmts =
-+				imx95_pixel_interleaver_bridge_atomic_get_input_bus_fmts,
-+};
++					port@1 {
++						reg = <1>;
 +
-+static int imx95_pixel_interleaver_bridge_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct device_node *remote, *remote_port, *np = dev->of_node;
-+	struct imx95_pixel_interleaver_bridge *pi;
++						lvds_ch0_to_ldb0: endpoint {
++							remote-endpoint = <&ldb0_to_lvds_ch0>;
++						};
++					};
++				};
 +
-+	pi = devm_drm_bridge_alloc(dev, struct imx95_pixel_interleaver_bridge, bridge,
-+				   &imx95_pixel_interleaver_bridge_funcs);
-+	if (IS_ERR(pi))
-+		return PTR_ERR(pi);
++				lvds_ch1: channel@1 {
++					#address-cells = <1>;
++					#size-cells = <0>;
++					reg = <1>;
++					status = "disabled";
 +
-+	pi->dev = dev;
-+	platform_set_drvdata(pdev, pi);
++					port@0 {
++						reg = <0>;
 +
-+	pi->regs = devm_platform_ioremap_resource(pdev, 0);
-+	if (IS_ERR(pi->regs))
-+		return PTR_ERR(pi->regs);
++						lvds_ch1_to_display_pixel_link1: endpoint {
++							remote-endpoint = <&display_pixel_link1_to_lvds_ch1>;
++						};
++					};
 +
-+	pi->regmap = syscon_regmap_lookup_by_phandle(np, "fsl,syscon");
-+	if (IS_ERR(pi->regmap))
-+		return dev_err_probe(dev, PTR_ERR(pi->regmap), "failed to get regmap\n");
++					port@1 {
++						reg = <1>;
 +
-+	pi->clk_bus = devm_clk_get(dev, NULL);
-+	if (IS_ERR(pi->clk_bus))
-+		return dev_err_probe(dev, PTR_ERR(pi->clk_bus), "failed to get clock\n");
++						lvds_ch1_to_ldb1: endpoint {
++							remote-endpoint = <&ldb1_to_lvds_ch1>;
++						};
++					};
++				};
++			};
 +
-+	pi->bridge.driver_private = pi;
-+	pi->bridge.of_node = np;
++			ldb0: phy@8 {
++				compatible = "fsl,imx95-ldb";
++				reg = <0x8 0x4>, <0x8 0x4>;
++				reg-names = "ldb", "lvds";
++				clocks = <&scmi_clk IMX95_CLK_DISPAPB>;
++				clock-names = "ldb";
++				status = "disabled";
 +
-+	remote = of_graph_get_remote_node(np, 1, 0);
-+	if (!remote)
-+		return dev_err_probe(dev, -EINVAL, "no remote node for port@1 endpoint\n");
++				ports {
++					#address-cells = <1>;
++					#size-cells = <0>;
 +
-+	remote_port = of_graph_get_port_by_id(remote, 0);
-+	of_node_put(remote);
-+	if (!remote_port)
-+		return dev_err_probe(dev, -EINVAL, "no remote port\n");
++					port@0 {
++						reg = <0>;
 +
-+	pi->next_bridge = of_drm_find_bridge(remote_port);
-+	of_node_put(remote_port);
-+	if (!pi->next_bridge) {
-+		dev_err(dev, "failed to find next bridge for port@1 endpoint\n");
-+		return -EPROBE_DEFER;
-+	}
++						ldb0_to_lvds_ch0: endpoint {
++							remote-endpoint = <&lvds_ch0_to_ldb0>;
++						};
++					};
 +
-+	imx95_pixel_interleaver_bridge_sw_reset(pi);
++					ldb0_port1: port@1 {
++						reg = <1>;
++					};
++				};
++			};
 +
-+	drm_bridge_add(&pi->bridge);
++			ldb1: phy@c {
++				compatible = "fsl,imx95-ldb";
++				reg = <0xc 0x4>, <0xc 0x4>;
++				reg-names = "ldb", "lvds";
++				clocks = <&scmi_clk IMX95_CLK_DISPAPB>;
++				clock-names = "ldb";
++				status = "disabled";
 +
-+	return 0;
-+}
++				ports {
++					#address-cells = <1>;
++					#size-cells = <0>;
 +
-+static void imx95_pixel_interleaver_bridge_remove(struct platform_device *pdev)
-+{
-+	struct imx95_pixel_interleaver_bridge *pi = platform_get_drvdata(pdev);
++					port@0 {
++						reg = <0>;
 +
-+	drm_bridge_remove(&pi->bridge);
-+}
++						ldb1_to_lvds_ch1: endpoint {
++							remote-endpoint = <&lvds_ch1_to_ldb1>;
++						};
++					};
 +
-+static const struct of_device_id imx95_pixel_interleaver_bridge_dt_ids[] = {
-+	{ .compatible = "fsl,imx95-pixel-interleaver", },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, imx95_pixel_interleaver_bridge_dt_ids);
++					ldb1_port1: port@1 {
++						reg = <1>;
++					};
++				};
++			};
++		};
 +
-+static struct platform_driver imx95_pixel_interleaver_bridge_driver = {
-+	.probe	= imx95_pixel_interleaver_bridge_probe,
-+	.remove	= imx95_pixel_interleaver_bridge_remove,
-+	.driver	= {
-+		.of_match_table = imx95_pixel_interleaver_bridge_dt_ids,
-+		.name = DRIVER_NAME,
-+	},
-+};
++		pixel_interleaver_0: bridge@4b0d0000 {
++			compatible = "fsl,imx95-pixel-interleaver";
++			reg = <0x0 0x4b0d0000 0x0 0x50>;
++			clocks = <&scmi_clk IMX95_CLK_DISPAPB>;
++			fsl,syscon = <&dispmix_csr>;
++			status = "disabled";
 +
-+module_platform_driver(imx95_pixel_interleaver_bridge_driver);
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
 +
-+MODULE_DESCRIPTION("i.MX95 display pixel interleaver bridge driver");
-+MODULE_AUTHOR("NXP Semiconductor");
-+MODULE_LICENSE("GPL v2");
-+MODULE_ALIAS("platform:" DRIVER_NAME);
++				port@0 {
++					reg = <0>;
++
++					pixel_interleaver_disp0_to_dpu_disp0: endpoint {
++						remote-endpoint = <&dpu_disp0_to_pixel_interleaver_disp0>;
++					};
++				};
++
++				port@1 {
++					reg = <1>;
++
++					pixel_interleaver_disp0_to_display_pixel_link0: endpoint {
++						remote-endpoint = <&display_pixel_link0_to_pixel_interleaver_disp0>;
++					};
++				};
++			};
++		};
++
++		pixel_interleaver_1: bridge@4b0e0000 {
++			compatible = "fsl,imx95-pixel-interleaver";
++			reg = <0x0 0x4b0e0000 0x0 0x50>;
++			clocks = <&scmi_clk IMX95_CLK_DISPAPB>;
++			fsl,syscon = <&dispmix_csr>;
++			status = "disabled";
++
++			ports {
++				#address-cells = <1>;
++				#size-cells = <0>;
++
++				port@0 {
++					reg = <0>;
++
++					pixel_interleaver_disp1_to_dpu_disp1: endpoint {
++						remote-endpoint = <&dpu_disp1_to_pixel_interleaver_disp1>;
++					};
++				};
++
++				port@1 {
++					reg = <1>;
++
++					pixel_interleaver_disp1_to_display_pixel_link1: endpoint {
++						remote-endpoint = <&display_pixel_link1_to_pixel_interleaver_disp1>;
++					};
++				};
++			};
++		};
++
++		dpu: display-controller@4b400000 {
++			compatible = "fsl,imx95-dc";
++			reg = <0 0x4b400000 0 0x400000>;
++			clocks = <&scmi_clk IMX95_CLK_DISP1PIX>,
++				 <&scmi_clk IMX95_CLK_DISPAPB>,
++				 <&scmi_clk IMX95_CLK_DISPAXI>,
++				 <&scmi_clk IMX95_CLK_DISPOCRAM>,
++				 <&ldb_pll_pixel>,
++				 <&scmi_clk IMX95_CLK_LDBPLL_VCO>;
++			clock-names = "pix", "apb", "axi", "ocram", "ldb", "ldb_vco";
++			fsl,syscon = <&dispmix_csr>;
++			power-domains = <&scmi_devpd IMX95_PD_DISPLAY>;
++			assigned-clocks = <&scmi_clk IMX95_CLK_DISPAXI>,
++					  <&scmi_clk IMX95_CLK_DISPOCRAM>,
++					  <&scmi_clk IMX95_CLK_DISPAPB>;
++			assigned-clock-parents = <&scmi_clk IMX95_CLK_SYSPLL1_PFD1>,
++						 <&scmi_clk IMX95_CLK_SYSPLL1_PFD1>,
++						 <&scmi_clk IMX95_CLK_SYSPLL1_PFD1_DIV2>;
++			assigned-clock-rates = <400000000>, <400000000>, <133333333>;
++			#address-cells = <2>;
++			#size-cells = <2>;
++			ranges;
++
++			dc1_intc: interrupt-controller@4b781000 {
++				compatible = "fsl,imx95-dc-intc";
++				reg = <0 0x4b781000 0 0x60>;
++				clocks = <&scmi_clk IMX95_CLK_DISPAPB>,
++					 <&scmi_clk IMX95_CLK_DISPAXI>;
++				clock-names = "apb", "axi";
++				power-domains = <&scmi_devpd IMX95_PD_DISPLAY>;
++				interrupt-controller;
++				#interrupt-cells = <1>;
++				interrupt-parent = <&displaymix_irqsteer>;
++				interrupts = <448>, <449>, <450>,  <64>,
++					      <65>,  <66>,  <67>,  <68>,
++					      <69>, <192>, <193>, <194>,
++					     <195>, <196>, <197>,  <70>,
++					      <71>,  <72>,  <73>,  <74>,
++					      <75>,  <76>,  <77>,  <78>,
++					      <79>,  <80>,  <81>,  <82>,
++					      <83>,  <84>,  <85>,  <86>,
++					      <87>,  <88>,  <89>,  <90>,
++					      <91>,  <92>, <198>, <199>,
++					     <200>, <201>, <202>, <203>,
++					     <204>, <205>, <206>, <207>,
++					     <208>, <209>, <210>, <211>,
++					     <212>, <451>,   <1>,   <2>,
++					       <3>,   <4>,  <93>,  <94>,
++					      <95>,  <96>,  <97>,  <98>,
++					      <99>, <100>, <101>, <102>,
++					     <103>, <104>, <105>, <106>,
++					     <213>, <214>, <215>, <216>,
++					     <217>, <218>, <219>, <220>,
++					     <221>, <222>, <223>, <224>,
++					     <225>, <226>;
++				interrupt-names = "store9_shdload",
++						  "store9_framecomplete",
++						  "store9_seqcomplete",
++						  "extdst0_shdload",
++						  "extdst0_framecomplete",
++						  "extdst0_seqcomplete",
++						  "extdst4_shdload",
++						  "extdst4_framecomplete",
++						  "extdst4_seqcomplete",
++						  "extdst1_shdload",
++						  "extdst1_framecomplete",
++						  "extdst1_seqcomplete",
++						  "extdst5_shdload",
++						  "extdst5_framecomplete",
++						  "extdst5_seqcomplete",
++						  "domainblend0_shdload",
++						  "domainblend0_framecomplete",
++						  "domainblend0_seqcomplete",
++						  "disengcfg_shdload0",
++						  "disengcfg_framecomplete0",
++						  "disengcfg_seqcomplete0",
++						  "framegen0_int0",
++						  "framegen0_int1",
++						  "framegen0_int2",
++						  "framegen0_int3",
++						  "sig0_shdload",
++						  "sig0_valid",
++						  "sig0_error",
++						  "sig0_cluster_error",
++						  "sig0_cluster_match",
++						  "sig2_shdload",
++						  "sig2_valid",
++						  "sig2_error",
++						  "sig2_cluster_error",
++						  "sig2_cluster_match",
++						  "idhash0_shdload",
++						  "idhash0_valid",
++						  "idhash0_window_error",
++						  "domainblend1_shdload",
++						  "domainblend1_framecomplete",
++						  "domainblend1_seqcomplete",
++						  "disengcfg_shdload1",
++						  "disengcfg_framecomplete1",
++						  "disengcfg_seqcomplete1",
++						  "framegen1_int0",
++						  "framegen1_int1",
++						  "framegen1_int2",
++						  "framegen1_int3",
++						  "sig1_shdload",
++						  "sig1_valid",
++						  "sig1_error",
++						  "sig1_cluster_error",
++						  "sig1_cluster_match",
++						  "cmdseq_error",
++						  "comctrl_sw0",
++						  "comctrl_sw1",
++						  "comctrl_sw2",
++						  "comctrl_sw3",
++						  "framegen0_primsync_on",
++						  "framegen0_primsync_off",
++						  "framegen0_overflow0_on",
++						  "framegen0_overflow0_off",
++						  "framegen0_underrun0_on",
++						  "framegen0_underrun0_off",
++						  "framegen0_threshold0_rise",
++						  "framegen0_threshold0_fail",
++						  "framegen0_overflow1_on",
++						  "framegen0_overflow1_off",
++						  "framegen0_underrun1_on",
++						  "framegen0_underrun1_off",
++						  "framegen0_threshold1_rise",
++						  "framegen0_threshold1_fail",
++						  "framegen1_primsync_on",
++						  "framegen1_primsync_off",
++						  "framegen1_overflow0_on",
++						  "framegen1_overflow0_off",
++						  "framegen1_underrun0_on",
++						  "framegen1_underrun0_off",
++						  "framegen1_threshold0_rise",
++						  "framegen1_threshold0_fail",
++						  "framegen1_overflow1_on",
++						  "framegen1_overflow1_off",
++						  "framegen1_underrun1_on",
++						  "framegen1_underrun1_off",
++						  "framegen1_threshold1_rise",
++						  "framegen1_threshold1_fail";
++			};
++
++			pixel-engine@4b4f0000 {
++				compatible = "fsl,imx95-dc-pixel-engine", "fsl,imx8qxp-dc-pixel-engine";
++				reg = <0 0x4b4f0000 0 0x1d0000>;
++				clocks = <&scmi_clk IMX95_CLK_DISPAPB>,
++					 <&scmi_clk IMX95_CLK_DISPAXI>;
++				clock-names = "apb", "axi";
++				#address-cells = <2>;
++				#size-cells = <2>;
++				ranges;
++
++				constframe@4b4f0000 {
++					compatible = "fsl,imx95-dc-constframe";
++					reg = <0 0x4b4f1000 0 0xc>, <0 0x4b4f0000 0 0x20>;
++					reg-names = "pec", "cfg";
++				};
++
++				extdst@4b510000 {
++					compatible = "fsl,imx95-dc-extdst";
++					reg = <0 0x4b511000 0 0x1c>, <0 0x4b510000 0 0x28>;
++					reg-names = "pec", "cfg";
++					interrupt-parent = <&dc1_intc>;
++					interrupts = <3>, <4>, <5>;
++					interrupt-names = "shdload", "framecomplete", "seqcomplete";
++				};
++
++				constframe@4b500000 {
++					compatible = "fsl,imx95-dc-constframe";
++					reg = <0 0x4b501000 0 0xc>, <0 0x4b500000 0 0x20>;
++					reg-names = "pec", "cfg";
++				};
++
++				extdst@4b520000 {
++					compatible = "fsl,imx95-dc-extdst";
++					reg = <0 0x4b521000 0 0x1c>, <0 0x4b520000 0 0x28>;
++					reg-names = "pec", "cfg";
++					interrupt-parent = <&dc1_intc>;
++					interrupts = <9>, <10>, <11>;
++					interrupt-names = "shdload", "framecomplete", "seqcomplete";
++				};
++
++				constframe@4b530000 {
++					compatible = "fsl,imx95-dc-constframe";
++					reg = <0 0x4b531000 0 0xc>, <0 0x4b530000 0 0x20>;
++					reg-names = "pec", "cfg";
++				};
++
++				extdst@4b550000 {
++					compatible = "fsl,imx95-dc-extdst";
++					reg = <0 0x4b551000 0 0x1c>, <0 0x4b550000 0 0x28>;
++					reg-names = "pec", "cfg";
++					interrupt-parent = <&dc1_intc>;
++					interrupts = <6>, <7>, <8>;
++					interrupt-names = "shdload", "framecomplete", "seqcomplete";
++				};
++
++				constframe@4b540000 {
++					compatible = "fsl,imx95-dc-constframe";
++					reg = <0 0x4b541000 0 0xc>, <0 0x4b540000 0 0x20>;
++					reg-names = "pec", "cfg";
++				};
++
++				extdst@4b560000 {
++					compatible = "fsl,imx95-dc-extdst";
++					reg = <0 0x4b561000 0 0x1c>, <0 0x4b560000 0 0x28>;
++					reg-names = "pec", "cfg";
++					interrupt-parent = <&dc1_intc>;
++					interrupts = <12>, <13>, <14>;
++					interrupt-names = "shdload", "framecomplete", "seqcomplete";
++				};
++
++				fetchlayer@4b5d0000 {
++					compatible = "fsl,imx95-dc-fetchlayer";
++					reg = <0 0x4b5d1000 0 0xc>, <0 0x4b5d0000 0 0x404>;
++					reg-names = "pec", "cfg";
++				};
++
++				fetchlayer@4b5e0000 {
++					compatible = "fsl,imx95-dc-fetchlayer";
++					reg = <0 0x4b5e1000 0 0xc>, <0 0x4b5e0000 0 0x404>;
++					reg-names = "pec", "cfg";
++				};
++
++				layerblend@4b570000 {
++					compatible = "fsl,imx95-dc-layerblend";
++					reg = <0 0x4b571000 0 0x10>, <0 0x4b570000 0 0x20>;
++					reg-names = "pec", "cfg";
++				};
++
++				layerblend@4b580000 {
++					compatible = "fsl,imx95-dc-layerblend";
++					reg = <0 0x4b581000 0 0x10>, <0 0x4b580000 0 0x20>;
++					reg-names = "pec", "cfg";
++				};
++
++				layerblend@4b590000 {
++					compatible = "fsl,imx95-dc-layerblend";
++					reg = <0 0x4b591000 0 0x10>, <0 0x4b590000 0 0x20>;
++					reg-names = "pec", "cfg";
++				};
++
++				layerblend@4b5a0000 {
++					compatible = "fsl,imx95-dc-layerblend";
++					reg = <0 0x4b5a1000 0 0x10>, <0 0x4b5a0000 0 0x20>;
++					reg-names = "pec", "cfg";
++				};
++
++				layerblend@4b5b0000 {
++					compatible = "fsl,imx95-dc-layerblend";
++					reg = <0 0x4b5b1000 0 0x10>, <0 0x4b5b0000 0 0x20>;
++					reg-names = "pec", "cfg";
++				};
++
++				layerblend@4b5c0000 {
++					compatible = "fsl,imx95-dc-layerblend";
++					reg = <0 0x4b5c1000 0 0x10>, <0 0x4b5c0000 0 0x20>;
++					reg-names = "pec", "cfg";
++				};
++			};
++
++			display-engine@4b600000 {
++				compatible = "fsl,imx95-dc-display-engine";
++				reg = <0 0x4b711000 0 0x14>, <0 0x4b710000 0 0x1c00>;
++				reg-names = "top", "cfg";
++				interrupt-parent = <&dc1_intc>;
++				interrupts = <18>, <19>, <20>;
++				interrupt-names = "shdload", "framecomplete", "seqcomplete";
++				power-domains = <&scmi_devpd IMX95_PD_DISPLAY>;
++				#address-cells = <2>;
++				#size-cells = <2>;
++				ranges;
++
++				domainblend@4b6a0000 {
++					compatible = "fsl,imx95-dc-domainblend";
++					reg = <0 0x4b6a0000 0 0x20>;
++				};
++
++				framegen@4b6b0000 {
++					compatible = "fsl,imx95-dc-framegen";
++					reg = <0 0x4b6b0000 0 0x98>;
++
++					clocks = <&scmi_clk IMX95_CLK_DISP1PIX>,
++						 <&scmi_clk IMX95_CLK_DISPAPB>,
++						 <&scmi_clk IMX95_CLK_DISPAXI>,
++						 <&scmi_clk IMX95_CLK_DISPOCRAM>,
++						 <&ldb_pll_pixel>,
++						 <&scmi_clk IMX95_CLK_LDBPLL_VCO>;
++					clock-names = "pix", "apb", "axi", "ocram", "ldb", "ldb_vco";
++
++					interrupt-parent = <&dc1_intc>;
++					interrupts = <21>, <22>, <23>, <24>, <58>, <59>;
++					interrupt-names = "int0", "int1", "int2", "int3",
++							   "primsync_on", "primsync_off";
++				};
++
++				tcon {
++					compatible = "fsl,imx95-dc-tcon";
++
++					port {
++						dpu_disp0_to_pixel_interleaver_disp0: endpoint {
++							remote-endpoint = <&pixel_interleaver_disp0_to_dpu_disp0>;
++						};
++					};
++				};
++			};
++
++			display-engine@4b700000 {
++				compatible = "fsl,imx95-dc-display-engine";
++				reg = <0 0x4b771000 0 0x14>, <0 0x4b770000 0 0x1c00>;
++				reg-names = "top", "cfg";
++				interrupt-parent = <&dc1_intc>;
++				interrupts = <41>, <42>, <43>;
++				interrupt-names = "shdload", "framecomplete", "seqcomplete";
++				power-domains = <&scmi_devpd IMX95_PD_DISPLAY>;
++				#address-cells = <2>;
++				#size-cells = <2>;
++				ranges;
++
++				domainblend@4b720000 {
++					compatible = "fsl,imx95-dc-domainblend";
++					reg = <0 0x4b720000 0 0x20>;
++				};
++
++				framegen@4b730000 {
++					compatible = "fsl,imx95-dc-framegen";
++					reg = <0 0x4b730000 0 0x98>;
++
++					clocks = <&scmi_clk IMX95_CLK_DISP1PIX>,
++						 <&scmi_clk IMX95_CLK_DISPAPB>,
++						 <&scmi_clk IMX95_CLK_DISPAXI>,
++						 <&scmi_clk IMX95_CLK_DISPOCRAM>,
++						 <&ldb_pll_pixel>,
++						 <&scmi_clk IMX95_CLK_LDBPLL_VCO>;
++					clock-names = "pix", "apb", "axi", "ocram", "ldb", "ldb_vco";
++
++					interrupt-parent = <&dc1_intc>;
++					interrupts = <34>, <35>, <36>, <37>, <72>, <73>;
++					interrupt-names = "int0", "int1", "int2", "int3",
++							  "primsync_on", "primsync_off";
++				};
++
++				tcon {
++					compatible = "fsl,imx95-dc-tcon";
++
++					port {
++						dpu_disp1_to_pixel_interleaver_disp1: endpoint {
++							remote-endpoint = <&pixel_interleaver_disp1_to_dpu_disp1>;
++						};
++					};
++				};
++			};
++		};
++
+ 		usb3: usb@4c010010 {
+ 			compatible = "fsl,imx95-dwc3", "fsl,imx8mp-dwc3";
+ 			reg = <0x0 0x4c010010 0x0 0x04>,
 -- 
 2.51.0
 
