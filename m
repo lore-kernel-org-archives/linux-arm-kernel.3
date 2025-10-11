@@ -4,72 +4,115 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F746CCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 00:04:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36437CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 00:09:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
-	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Fx0CQgxfFMPs9OZ8Tf56VHU8beC2dBQuTHqcmx5bRDI=; b=biYvdllAX9eO+jfOkVXmv+KPHJ
-	Ro0VOpaS38sUbbuRR7NZe7j33Pcaoq4mHqsZGp009R8C2GiAzgzbx/IqUbijd8yTFKvc6fB4BLm6a
-	O7xIDGh/IB0b26opiPGVyPQHg0BaaKW7pxqiUw/1+KuxPJnoC92dcBMF4eu7wMGis2je9Yy+hGdaG
-	VEjsSXI5hzVG1v4A4DoQCtRVK6ieI7ZmyLDcEYTU8O4+8KVCNfrvyuhpsPbwFaya68PXpZPnX2xd/
-	kKx0fUpZt3hJHTL3Nutii6ESDw1EGwV0Pueu1X9iYL1kmYslPBU41BlpjMmSh53VaPo8m6Sp0M5gH
-	Z/m3gHZw==;
+	bh=+R4cFZv51FbwmsvmkIinpGdXBeZpuWjt531ogxKM/QA=; b=GGva0zZVQ8j/dhHeJRmJ6aiIUD
+	aw9NdRNkoIoLUVl1IRozSy129Gige2qP7KznaYtQEVFprimbq/6oYVJuPem/5N/MvDedcyOK7JgeF
+	esiK2aAYxMkcZ+HFDLkRoOk6pG3qytngASfnxhg93onVNbSl53VX/tHM7Sj+je4X89tgKEtZNWIn0
+	9Wcvzj1qbt78T/IOd/ojtnKCb0WA8HFMEUuMyeeZa9BnKzlNdswizXOXtjT6qcvFIYiLUO6g/JmfE
+	62lETthjrxWq4rj/+Y53r+ojTzXbBVoJeENcelhRGm+WsEb+Ie6VL3dJdTPoNdXs9MTGoaaBF2Y5x
+	d+A8wn4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7N61-00000009Yvl-35d8;
-	Sat, 11 Oct 2025 00:04:25 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v7NAU-00000009ZAM-2NXx;
+	Sat, 11 Oct 2025 00:09:02 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7N60-00000009YvD-0xXe
-	for linux-arm-kernel@bombadil.infradead.org;
-	Sat, 11 Oct 2025 00:04:24 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:From:Date:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=Fx0CQgxfFMPs9OZ8Tf56VHU8beC2dBQuTHqcmx5bRDI=; b=Mu7x75mwjub+yvxzdUwteWsnC1
-	trbxTSsxF02EfMmOAQhVx7XKGx1wrkfo18RAMDvShCF5cF3lsDXk2irY2GFLSlbkjKGuDG4DKbk9H
-	9cU8Ug+P0rq1NZMn3sq9VnN0yLe9RhojQKz0HnfhphOOgSMmVdVnwupIn2jPryr3qcNI9GQbo1W5T
-	kpbGxHcut+VSNv5PZBLamhWI+LwtP4kLcvY/mBMo3BXJrXiR2h92lje330I/Uql9oWlQnd4om29We
-	x7Mc0LFoqhocl1e7h6L2wiZhaC/mJbBDOhMx4YAK1Jy+Trkk5p9Ok8H01A6K1E1WC805MJByPBnHo
-	z3sHHd7Q==;
-Received: from foss.arm.com ([217.140.110.172])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7N5s-00000002Xwq-284O
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Oct 2025 00:04:22 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C86FC1595;
-	Fri, 10 Oct 2025 17:04:05 -0700 (PDT)
-Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EAAE23F59E;
-	Fri, 10 Oct 2025 17:04:11 -0700 (PDT)
-Date: Sat, 11 Oct 2025 01:03:48 +0100
-From: Andre Przywara <andre.przywara@arm.com>
-To: Vedashree Vidwans <vvidwans@nvidia.com>
-Cc: <salman.nabi@arm.com>, <lpieralisi@kernel.org>, <mark.rutland@arm.com>,
- <sudeep.holla@arm.com>, <ardb@kernel.org>, <chao.gao@intel.com>,
- <linux-arm-kernel@lists.infradead.org>, <linux-coco@lists.linux.dev>,
- <linux-kernel@vger.kernel.org>, <sdonthineni@nvidia.com>,
- <vsethi@nvidia.com>, <vwadekar@nvidia.com>
-Subject: Re: [RFC PATCH 2/3] firmware: smccc: LFA: refactor, add device node
- support
-Message-ID: <20251011010348.67ca808c@minigeek.lan>
-In-Reply-To: <20251008190907.181412-3-vvidwans@nvidia.com>
-References: <20251008190907.181412-1-vvidwans@nvidia.com>
- <20251008190907.181412-3-vvidwans@nvidia.com>
-Organization: Arm Ltd.
-X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
+	id 1v7NAS-00000009Z9v-1iFB;
+	Sat, 11 Oct 2025 00:09:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 9AFF845315;
+	Sat, 11 Oct 2025 00:08:59 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9E01FC4CEF1;
+	Sat, 11 Oct 2025 00:08:52 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760141339;
+	bh=vVjv/jkicIgDmt3y7lRnnSSaepw4Ybyi1G9k7ei9veA=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=G3up2+qx9y2G3wkWHB1NdGx1RVFwoeM8rBaVOD+ERCM94xt9KZkJo4zsqvAUcrhu/
+	 z2jAG5PrSDjQKMW0Fat8WDvUZ/AFXzHSUrxOlK3zHswrlSk12pY1+vcz+mUgc0hxY/
+	 Vfnwhug2ar83M+h+j5byUex/Y7676kzze0Z0m+UaWl4JtUCIvaQFiE9A9CxaMTLT3W
+	 I/ZB4GvG5qPDfrUkreGnCAN4B/YtdsYnejogva+04eYSux8k5RnLgSiq01C9xA4XMM
+	 KAM12MZlrEHqhUSHyFOzUm1+jNEVhld48VB5I9cGvBOEBXaOiRzqG46c/KDHyNbTVH
+	 kPqD2gjcYNgCA==
+Message-ID: <066a9598-ad30-4327-be68-87299bba6fda@kernel.org>
+Date: Sat, 11 Oct 2025 02:08:49 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset=US-ASCII
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 1/4] dt-bindings: usb: dwc3: Add Google Tensor G5 DWC3
+To: Roy Luo <royluo@google.com>, Vinod Koul <vkoul@kernel.org>,
+ Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
+ Philipp Zabel <p.zabel@pengutronix.de>,
+ Peter Griffin <peter.griffin@linaro.org>,
+ =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
+ Tudor Ambarus <tudor.ambarus@linaro.org>
+Cc: Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>,
+ Badhri Jagan Sridharan <badhri@google.com>, linux-phy@lists.infradead.org,
+ devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org
+References: <20251010201607.1190967-1-royluo@google.com>
+ <20251010201607.1190967-2-royluo@google.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20251010201607.1190967-2-royluo@google.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251011_010417_534122_1D90BAA6 
-X-CRM114-Status: GOOD (  49.71  )
+X-CRM114-CacheID: sfid-20251010_170900_517337_8C0BDBD1 
+X-CRM114-Status: GOOD (  18.13  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,476 +127,124 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Wed, 8 Oct 2025 19:09:06 +0000
-Vedashree Vidwans <vvidwans@nvidia.com> wrote:
-
-Hi Vedashree,
-
-thanks for sharing this code, that's much appreciated! I wonder whether
-it's possible to split this patch up, as it's doing multiple things at
-once, and it's harder to follow, review and comment on.
-The bullet points below basically give away how to split this: first do
-the refactors and fixes, then add each feature, in a separate patch.
-
-Just one general comment for now ...
-
-> - Add support for LFA device node in the kernel driver. Implement
-
-That "device node" put me off a bit, do you mean you register a platform
-device, to connect this to that ACPI node?
-I wonder if we can use this new faux device instead of a platform
-device, since it's not a real device? Or maybe even query the ACPI or
-DT nodes without a device at all, like using of_find_compatible_node()
-or something?
-
-Cheers,
-Andre
-
-> probe() to register LFA interrupt and threaded interrupt service
-> function.
-> - CPUs will be rendezvoused during activation.
-> - On IRQ, driver will query FW components then triggers activation of
-> capable and pending components.
-> - Mutex synchronization is implemented to avoid concurrent LFA updates
-> through interrupt and sysfs interfaces.
-> - Refactor LFA CANCEL logic into independent lfa_cancel() function.
-> - Enhance PRIME/ACTIVATION functions to touch watchdog and implement
-> timeouts.
->
-> Signed-off-by: Vedashree Vidwans <vvidwans@nvidia.com>
-> ---
->  drivers/firmware/smccc/lfa_fw.c | 299 ++++++++++++++++++++++++++++----
->  1 file changed, 262 insertions(+), 37 deletions(-)
+On 10/10/2025 22:16, Roy Luo wrote:
+> Document the device tree bindings for the DWC3 USB controller found in
+> Google Tensor SoCs, starting with the G5 generation.
 > 
-> diff --git a/drivers/firmware/smccc/lfa_fw.c b/drivers/firmware/smccc/lfa_fw.c
-> index 49f7feb6a211b..b36b8d7457c30 100644
-> --- a/drivers/firmware/smccc/lfa_fw.c
-> +++ b/drivers/firmware/smccc/lfa_fw.c
-> @@ -16,7 +16,15 @@
->  #include <linux/uuid.h>
->  #include <linux/array_size.h>
->  #include <linux/list.h>
-> -
-> +#include <linux/interrupt.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/acpi.h>
-> +#include <linux/nmi.h>
-> +#include <linux/ktime.h>
-> +#include <linux/delay.h>
-> +#include <linux/mutex.h>
-> +
-> +#define DRIVER_NAME	"ARM_LFA"
->  #define LFA_ERROR_STRING(name) \
->  	[name] = #name
->  #undef pr_fmt
-> @@ -34,6 +42,18 @@
->  #define LFA_1_0_FN_ACTIVATE		LFA_1_0_FN(5)
->  #define LFA_1_0_FN_CANCEL		LFA_1_0_FN(6)
->  
-> +/* CALL_AGAIN flags (returned in res.a1[0]) */
-> +#define LFA_PRIME_CALL_AGAIN		BIT(0)
-> +#define LFA_ACTIVATE_CALL_AGAIN		BIT(0)
-> +
-> +/* Prime loop limits, TODO: tune after testing */
-> +#define LFA_PRIME_BUDGET_US		30000000 /* 30s cap */
-> +#define LFA_PRIME_POLL_DELAY_US		10       /* 10us between polls */
-> +
-> +/* Activation loop limits, TODO: tune after testing */
-> +#define LFA_ACTIVATE_BUDGET_US		20000000 /* 20s cap */
-> +#define LFA_ACTIVATE_POLL_DELAY_US	10       /* 10us between polls */
-> +
->  /* LFA return values */
->  #define LFA_SUCCESS			0
->  #define LFA_NOT_SUPPORTED		1
-> @@ -114,8 +134,9 @@ static const struct fw_image_uuid {
->  };
->  
->  static struct kobject *lfa_dir;
-> +static DEFINE_MUTEX(lfa_lock);
->  
-> -static int get_nr_lfa_components(void)
-> +static unsigned long get_nr_lfa_components(void)
->  {
->  	struct arm_smccc_1_2_regs args = { 0 };
->  	struct arm_smccc_1_2_regs res = { 0 };
-> @@ -130,11 +151,40 @@ static int get_nr_lfa_components(void)
->  	return res.a1;
->  }
->  
-> +static int lfa_cancel(void *data)
-> +{
-> +	struct image_props *attrs = data;
-> +	struct arm_smccc_1_2_regs args = { 0 };
-> +	struct arm_smccc_1_2_regs res = { 0 };
-> +
-> +	args.a0 = LFA_1_0_FN_CANCEL;
-> +	args.a1 = attrs->fw_seq_id;
-> +	arm_smccc_1_2_invoke(&args, &res);
-> +
-> +	/*
-> +	 * When firmware activation is called with "skip_cpu_rendezvous=1",
-> +	 * LFA_CANCEL can fail with LFA_BUSY if the activation could not be
-> +	 * cancelled.
-> +	 */
-> +	if (res.a0 == LFA_SUCCESS) {
-> +		pr_info("Activation cancelled for image %s",
-> +			attrs->image_name);
-> +	} else {
-> +		pr_err("Firmware activation could not be cancelled: %ld",
-> +		       (long)res.a0);
-> +		return -EIO;
-> +	}
-> +
-> +	return res.a0;
-> +}
-> +
->  static int call_lfa_activate(void *data)
->  {
->  	struct image_props *attrs = data;
->  	struct arm_smccc_1_2_regs args = { 0 };
->  	struct arm_smccc_1_2_regs res = { 0 };
-> +	ktime_t end = ktime_add_us(ktime_get(), LFA_ACTIVATE_BUDGET_US);
-> +	int ret;
->  
->  	args.a0 = LFA_1_0_FN_ACTIVATE;
->  	args.a1 = attrs->fw_seq_id; /* fw_seq_id under consideration */
-> @@ -148,9 +198,32 @@ static int call_lfa_activate(void *data)
->  	 */
->  	args.a2 = !(attrs->cpu_rendezvous_forced || attrs->cpu_rendezvous);
->  
-> -	do {
-> +	for (;;) {
-> +		/* Touch watchdog, ACTIVATE shouldn't take longer than watchdog_thresh */
-> +		touch_nmi_watchdog();
->  		arm_smccc_1_2_invoke(&args, &res);
-> -	} while (res.a0 == 0 && res.a1 == 1);
-> +
-> +		if ((long)res.a0 < 0) {
-> +			pr_err("ACTIVATE for image %s failed: %s",
-> +				attrs->image_name, lfa_error_strings[-res.a0]);
-> +			return res.a0;
-> +		}
-> +		if (!(res.a1 & LFA_ACTIVATE_CALL_AGAIN))
-> +			break; /* ACTIVATE successful */
-> +
-> +		/* SMC returned with call_again flag set */
-> +		if (ktime_before(ktime_get(), end)) {
-> +			udelay(LFA_ACTIVATE_POLL_DELAY_US);
-> +			continue;
-> +		}
-> +
-> +		pr_err("ACTIVATE timed out for image %s", attrs->image_name);
-> +		ret = lfa_cancel(attrs);
-> +		if (ret == 0)
-> +			return -ETIMEDOUT;
-> +		else
-> +			return ret;
-> +	}
->  
->  	return res.a0;
->  }
-> @@ -159,8 +232,24 @@ static int activate_fw_image(struct image_props *attrs)
->  {
->  	struct arm_smccc_1_2_regs args = { 0 };
->  	struct arm_smccc_1_2_regs res = { 0 };
-> +	ktime_t end = ktime_add_us(ktime_get(), LFA_PRIME_BUDGET_US);
->  	int ret;
->  
-> +	if (attrs->may_reset_cpu) {
-> +		pr_err("Firmware component requires unsupported CPU reset");
-> +		return -EINVAL;
-> +	}
-> +
-> +	/*
-> +	 * We want to force CPU rendezvous if either cpu_rendezvous or
-> +	 * cpu_rendezvous_forced is set. The flag value is flipped as
-> +	 * it is called skip_cpu_rendezvous in the spec.
-> +	 */
-> +	if (!(attrs->cpu_rendezvous_forced || attrs->cpu_rendezvous)) {
-> +		pr_warn("CPU rendezvous is expected to be selected.");
-> +		return -EAGAIN;
-> +	}
-> +
->  	/*
->  	 * LFA_PRIME/ACTIVATE will return 1 in res.a1 if the firmware
->  	 * priming/activation is still in progress. In that case
-> @@ -169,20 +258,36 @@ static int activate_fw_image(struct image_props *attrs)
->  	 */
->  	args.a0 = LFA_1_0_FN_PRIME;
->  	args.a1 = attrs->fw_seq_id; /* fw_seq_id under consideration */
-> -	do {
-> +	for (;;) {
-> +		/* Touch watchdog, PRIME shouldn't take longer than watchdog_thresh */
-> +		touch_nmi_watchdog();
->  		arm_smccc_1_2_invoke(&args, &res);
-> -		if (res.a0 != LFA_SUCCESS) {
-> -			pr_err("LFA_PRIME failed: %s\n",
-> -				lfa_error_strings[-res.a0]);
->  
-> +		if ((long)res.a0 < 0) {
-> +			pr_err("LFA_PRIME for image %s failed: %s\n",
-> +				attrs->image_name, lfa_error_strings[-res.a0]);
->  			return res.a0;
->  		}
-> -	} while (res.a1 == 1);
-> +		if (!(res.a1 & LFA_PRIME_CALL_AGAIN))
-> +			break; /* PRIME successful */
->  
-> -	if (attrs->cpu_rendezvous_forced || attrs->cpu_rendezvous)
-> -		ret = stop_machine(call_lfa_activate, attrs, cpu_online_mask);
-> -	else
-> -		ret = call_lfa_activate(attrs);
-> +		/* SMC returned with call_again flag set */
-> +		if (ktime_before(ktime_get(), end)) {
-> +			udelay(LFA_PRIME_POLL_DELAY_US);
-> +			continue;
-> +		}
-> +
-> +		pr_err("PRIME timed out for image %s", attrs->image_name);
-> +		ret = lfa_cancel(attrs);
-> +		if (ret == 0)
-> +			return -ETIMEDOUT;
-> +		else
-> +			return ret;
-> +	}
-> +
-> +	ret = stop_machine(call_lfa_activate, attrs, cpu_online_mask);
-> +	if (ret != 0)
-> +		return lfa_cancel(attrs);
->  
->  	return ret;
->  }
-> @@ -286,23 +391,23 @@ static ssize_t activate_store(struct kobject *kobj, struct kobj_attribute *attr,
->  					 image_attrs[LFA_ATTR_ACTIVATE]);
->  	int ret;
->  
-> -	if (attrs->may_reset_cpu) {
-> -		pr_err("Firmware component requires unsupported CPU reset\n");
-> -
-> -		return -EINVAL;
-> +	if (!mutex_trylock(&lfa_lock)) {
-> +		pr_err("Mutex locked, try again");
-> +		return -EAGAIN;
->  	}
->  
->  	ret = activate_fw_image(attrs);
->  	if (ret) {
->  		pr_err("Firmware activation failed: %s\n",
->  			lfa_error_strings[-ret]);
-> -
-> +		mutex_unlock(&lfa_lock);
->  		return -ECANCELED;
->  	}
->  
->  	pr_info("Firmware activation succeeded\n");
->  
->  	/* TODO: refresh image flags here*/
-> +	mutex_unlock(&lfa_lock);
->  	return count;
->  }
->  
-> @@ -311,26 +416,11 @@ static ssize_t cancel_store(struct kobject *kobj, struct kobj_attribute *attr,
->  {
->  	struct image_props *attrs = container_of(attr, struct image_props,
->  						 image_attrs[LFA_ATTR_CANCEL]);
-> -	struct arm_smccc_1_2_regs args = { 0 };
-> -	struct arm_smccc_1_2_regs res = { 0 };
-> -
-> -	args.a0 = LFA_1_0_FN_CANCEL;
-> -	args.a1 = attrs->fw_seq_id;
-> -	arm_smccc_1_2_invoke(&args, &res);
-> +	int ret;
->  
-> -	/*
-> -	 * When firmware activation is called with "skip_cpu_rendezvous=1",
-> -	 * LFA_CANCEL can fail with LFA_BUSY if the activation could not be
-> -	 * cancelled.
-> -	 */
-> -	if (res.a0 == LFA_SUCCESS) {
-> -		pr_info("Activation cancelled for image %s\n",
-> -			attrs->image_name);
-> -	} else {
-> -		pr_err("Firmware activation could not be cancelled: %s\n",
-> -		       lfa_error_strings[-res.a0]);
-> -		return -EINVAL;
-> -	}
-> +	ret = lfa_cancel(attrs);
-> +	if (ret != 0)
-> +		return ret;
->  
->  	return count;
->  }
-> @@ -418,6 +508,11 @@ static int create_fw_images_tree(void)
->  	int ret, num_of_components;
->  
->  	num_of_components = get_nr_lfa_components();
-> +	if (num_of_components <= 0) {
-> +		pr_err("Error getting number of LFA components");
-> +		return -ENODEV;
-> +	}
-> +
->  	args.a0 = LFA_1_0_FN_GET_INVENTORY;
->  	for (int i = 0; i < num_of_components; i++) {
->  		args.a1 = i; /* fw_seq_id under consideration */
-> @@ -437,6 +532,125 @@ static int create_fw_images_tree(void)
->  	return 0;
->  }
->  
-> +static int refresh_fw_images_tree(void)
-> +{
-> +	int ret;
-> +	/*
-> +	 * Ideally, this function should invoke the GET_INVENTORY SMC
-> +	 * for each firmware image and update the corresponding details
-> +	 * in the firmware image tree node.
-> +	 * There are several edge cases to consider:
-> +	 *    - The number of firmware components may change.
-> +	 *    - The mapping between firmware sequence IDs and
-> +	 *      firmware image UUIDs may be modified.
-> +	 * As a result, it is possible that the firmware image tree nodes
-> +	 * will require updates. Additionally, GET_INVENTORY SMC provides
-> +	 * all current and revised information. Therefore, retaining the
-> +	 * existing fw_images_tree data is not justified. Reconstructing
-> +	 * the firmware images tree will simplify the code and keep data
-> +	 * up-to-date.
-> +	 */
-> +	// Clean current inventory details
-> +	clean_fw_images_tree();
-> +
-> +	// Update new inventory details
-> +	ret = create_fw_images_tree();
-> +	if (ret != 0)
-> +		kobject_put(lfa_dir);
-> +
-> +	return ret;
-> +}
-> +
-> +static irqreturn_t lfa_irq_thread(int irq, void *data)
-> +{
-> +	struct image_props *attrs = NULL;
-> +	int ret;
-> +
-> +	mutex_lock(&lfa_lock);
-> +
-> +	// Update new inventory details
-> +	ret = refresh_fw_images_tree();
-> +	if (ret != 0)
-> +		goto exit_unlock;
-> +
-> +	/*
-> +	 * Execute PRIME and ACTIVATE for each FW component
-> +	 * Start from first FW component
-> +	 */
-> +	list_for_each_entry(attrs, &lfa_fw_images, image_node) {
-> +		if ((!attrs->activation_capable) || (!attrs->activation_pending)) {
-> +			/* LFA not applicable for this FW component, continue to next component */
-> +			continue;
-> +		}
-> +
-> +		ret = activate_fw_image(attrs);
-> +		if (ret) {
-> +			pr_err("Firmware %s activation failed: %s\n",
-> +				attrs->image_name, lfa_error_strings[-ret]);
-> +			goto exit_unlock;
-> +		}
-> +
-> +		pr_info("Firmware %s activation succeeded", attrs->image_name);
-> +	}
-> +
-> +	// Update new inventory details
-> +	ret = refresh_fw_images_tree();
-> +	if (ret != 0)
-> +		goto exit_unlock;
-> +
-> +exit_unlock:
-> +	mutex_unlock(&lfa_lock);
-> +	return IRQ_HANDLED;
-> +}
-> +
-> +static int __init lfa_probe(struct platform_device *pdev)
-> +{
-> +	int err;
-> +	unsigned int irq;
-> +
-> +	err = platform_get_irq_byname_optional(pdev, "fw-store-updated-interrupt");
-> +	if (err < 0)
-> +		err = platform_get_irq(pdev, 0);
-> +	if (err < 0) {
-> +		pr_err("Interrupt not found, functionality will be unavailable.");
-> +
-> +		/* Bail out without failing the driver. */
-> +		return 0;
-> +	}
-> +	irq = err;
-> +
-> +	err = request_threaded_irq(irq, NULL, lfa_irq_thread, IRQF_ONESHOT, DRIVER_NAME, NULL);
-> +	if (err != 0) {
-> +		pr_err("Interrupt setup failed, functionality will be unavailable.");
-> +
-> +		/* Bail out without failing the driver. */
-> +		return 0;
-> +	}
-> +
-> +	return 0;
-> +}
-> +
-> +static const struct of_device_id lfa_of_ids[] = {
-> +	{ .compatible = "arm,armhf000", },
-> +	{ },
-> +};
-> +MODULE_DEVICE_TABLE(of, lfa_of_ids);
-> +
-> +static const struct acpi_device_id lfa_acpi_ids[] = {
-> +	{"ARMHF000"},
-> +	{},
-> +};
-> +MODULE_DEVICE_TABLE(acpi, lfa_acpi_ids);
-> +
-> +static struct platform_driver lfa_driver = {
-> +	.probe = lfa_probe,
-> +	.driver = {
-> +		.name = DRIVER_NAME,
-> +		.of_match_table = lfa_of_ids,
-> +		.acpi_match_table = ACPI_PTR(lfa_acpi_ids),
-> +	},
-> +};
-> +
->  static int __init lfa_init(void)
->  {
->  	struct arm_smccc_1_2_regs args = { 0 };
-> @@ -464,22 +678,33 @@ static int __init lfa_init(void)
->  	pr_info("Arm Live Firmware Activation (LFA): detected v%ld.%ld\n",
->  		res.a0 >> 16, res.a0 & 0xffff);
->  
-> +	err = platform_driver_register(&lfa_driver);
-> +	if (err < 0)
-> +		pr_err("Platform driver register failed");
-> +
-> +
->  	lfa_dir = kobject_create_and_add("lfa", firmware_kobj);
->  	if (!lfa_dir)
->  		return -ENOMEM;
->  
-> +	mutex_lock(&lfa_lock);
->  	err = create_fw_images_tree();
->  	if (err != 0)
->  		kobject_put(lfa_dir);
->  
-> +	mutex_unlock(&lfa_lock);
->  	return err;
->  }
->  module_init(lfa_init);
->  
->  static void __exit lfa_exit(void)
->  {
-> +	mutex_lock(&lfa_lock);
->  	clean_fw_images_tree();
-> +	mutex_unlock(&lfa_lock);
-> +
->  	kobject_put(lfa_dir);
-> +	platform_driver_unregister(&lfa_driver);
->  }
->  module_exit(lfa_exit);
->  
+> The Tensor G5 silicon represents a complete architectural departure from
+> previous generations (like gs101), including entirely new clock/reset
+> schemes, top-level wrapper and register interface. Consequently,
+> existing Samsung/Exynos DWC3 USB bindings are incompatible, necessitating
+> this new device tree binding.
+> 
+> The USB controller on Tensor G5 is based on Synopsys DWC3 IP and features
+> Dual-Role Device single port with hibernation support.
 
+You still mix, completely unnecessarily, subsystems. For Greg this is
+actually even undesired, but regardless don't do this for any cases
+because it just makes everything slower or more difficult to apply.
+
+Really, think how maintainers should deal with your patches.
+
+> 
+> Signed-off-by: Roy Luo <royluo@google.com>
+> ---
+>  .../bindings/usb/google,gs5-dwc3.yaml         | 141 ++++++++++++++++++
+>  1 file changed, 141 insertions(+)
+>  create mode 100644 Documentation/devicetree/bindings/usb/google,gs5-dwc3.yaml
+> 
+> diff --git a/Documentation/devicetree/bindings/usb/google,gs5-dwc3.yaml b/Documentation/devicetree/bindings/usb/google,gs5-dwc3.yaml
+> new file mode 100644
+> index 000000000000..6fadea7f41e8
+> --- /dev/null
+> +++ b/Documentation/devicetree/bindings/usb/google,gs5-dwc3.yaml
+> @@ -0,0 +1,141 @@
+> +# SPDX-License-Identifier: (GPL-2.0 OR BSD-2-Clause)
+> +# Copyright (c) 2025, Google LLC
+> +%YAML 1.2
+> +---
+> +$id: http://devicetree.org/schemas/usb/google,gs5-dwc3.yaml#
+> +$schema: http://devicetree.org/meta-schemas/core.yaml#
+> +
+> +title: Google Tensor Series (G5+) DWC3 USB SoC Controller
+> +
+> +maintainers:
+> +  - Roy Luo <royluo@google.com>
+> +
+> +description:
+> +  Describes the DWC3 USB controller block implemented on Google Tensor SoCs,
+> +  starting with the G5 generation. Based on Synopsys DWC3 IP, the controller
+> +  features Dual-Role Device single port with hibernation add-on.
+> +
+> +properties:
+> +  compatible:
+> +    const: google,gs5-dwc3
+> +
+> +  reg:
+> +    items:
+> +      - description: Core DWC3 IP registers.
+> +      - description: USB host controller configuration registers.
+> +      - description: USB custom interrrupts control registers.
+> +
+> +  reg-names:
+> +    items:
+> +      - const: dwc3_core
+> +      - const: host_cfg
+> +      - const: usbint_cfg
+> +
+> +  interrupts:
+> +    items:
+> +      - description: Core DWC3 interrupt.
+> +      - description: High speed power management event for remote wakeup from hibernation.
+> +      - description: Super speed power management event for remote wakeup from hibernation.
+
+Wrap at 80 (see coding style) or just shorten these.
+
+> +
+> +  interrupt-names:
+> +    items:
+> +      - const: dwc_usb3
+
+So just "core"?
+
+> +      - const: hs_pme
+> +      - const: ss_pme
+> +
+> +  clocks:
+> +    items:
+> +      - description: Non-sticky module clock.
+> +      - description: Sticky module clock.
+> +      - description: USB2 PHY APB clock.
+
+This looks wrong. This is not the USB2 phy, so how can it consume APB clock?
+
+> +
+> +  clock-names:
+> +    items:
+> +      - const: non_sticky
+> +      - const: sticky
+> +      - const: u2phy_apb
+> +
+> +  resets:
+> +    items:
+> +      - description: Non-sticky module reset.
+> +      - description: Sticky module reset.
+> +      - description: USB2 PHY APB reset.
+
+This as well.
+
+> +      - description: DRD bus reset.
+> +      - description: Top-level reset.
+> +
+> +  reset-names:
+> +    items:
+> +      - const: non_sticky
+> +      - const: sticky
+> +      - const: u2phy_apb
+> +      - const: drd_bus
+> +      - const: top
+
+
+Best regards,
+Krzysztof
 
