@@ -4,63 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B6A84CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 17:04:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE0BECCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 17:04:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lk3Rjyeus3C9NAKENHUJ5fCfgM5p+pUPtcQUUdf0M2s=; b=VuuTc+Jc0HdOCIS2l6Sl14BNBs
-	+1eM2v/qo3i1WzvsV/P2gMW/ypsNEE2g40SiV+laPr7n94QonBGi84hr6wdyUCBQEjZzsCN4cER9j
-	nsR39n7QYxD4SYAXitxMaXEkqvqsczfOeR8P0gVZ1RX75cMIm2a063l1OO2tI0Ca+LmGREsltevCO
-	d/24XntYIhVCNaS76PfhFDZvkeYfIuOiavtonuQjrAQWGr5lh9MXKvybR3Wjukney7v2G/PbxNXE8
-	kQ0o40DYlpWKc1GEBpURW29KThUhAYrqma7sFb6V+ERXMnn1J+q29kEpWacQT+yHhI2ZVndscBKce
-	sKB0PV4w==;
+	bh=5LjHuRvAlrfCTpQDqtJrxybp4IoylwmrNNBs7s/aRME=; b=4jMqvdBD/liCDYjY8DaRDSLT2u
+	qA+nvHTQZBON2OQugKkr2NQcvk+18qmhQrB4F+Axx1ypih/M14jMmmmZjqrlX+JeRQfxTlzXpwznm
+	ulPxV6z7FXu9Sae9MZIBx1udqq0mqM2eWdgEzwqQrWZfcWle1UxEINoPWX9syhM/C2hMhpLkcJOzV
+	bDz6hR3gdrf6tGTWqDwjz8hDT2uI1BWNqcIy9kDehCHwSKJw4Lb4wXWkMMXMPA6q4XTMyHtc3ZP7k
+	7J2nlg2eqg11RaMe7UA0ePvFhcGbgVUdwuLAmD+egak3lZNUvF5gkdvEYqPKIUu4+mSfys5X4c6QC
+	FP0A44fQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7d1S-0000000AP4R-41CU;
-	Sat, 11 Oct 2025 17:04:47 +0000
-Received: from mout-p-101.mailbox.org ([2001:67c:2050:0:465::101])
+	id 1v7d1Z-0000000APCr-1pYH;
+	Sat, 11 Oct 2025 17:04:53 +0000
+Received: from mout-p-202.mailbox.org ([80.241.56.172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7d1K-0000000AOqL-1CRK
+	id 1v7d1P-0000000AOyQ-3NQH
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Oct 2025 17:04:45 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	Sat, 11 Oct 2025 17:04:52 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-101.mailbox.org (Postfix) with ESMTPS id 4ckVMm38Lbz9tDZ;
-	Sat, 11 Oct 2025 19:04:36 +0200 (CEST)
+	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4ckVMt0wx4z9smD;
+	Sat, 11 Oct 2025 19:04:42 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1760202276;
+	t=1760202282;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Lk3Rjyeus3C9NAKENHUJ5fCfgM5p+pUPtcQUUdf0M2s=;
-	b=PNf/bEi5UmwSIw7LftOEG6yTn05zV8q7Di1J+9KdT6NAbfthBasd+PbByWcw5g96hEJiGf
-	4/jE5BUeLnTIIrVpezHP+HxlBkcIGehYwHUXYSz9lA7EZEyTQ9lMjUaGgrXhk+Gk7mU/eQ
-	Fp0v2UvgdbKYy6uBvkT8t1vB1aQ9xjpXIPU+gZQMjO7HJkQqoPeEswxLHgTrXm+opbLsY0
-	iPmEJNkbZ5hnvYd9WKHulHl/7Ha6/KQJdoyvmjVfym0gtJlif/5K46/bLtNI88uzygetaO
-	EUO98Y45867+ifLihhqYIwyf8DAIwLDCvCNGTgfHWCd3hstg2GY4dbbc73so0A==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=Vn59NB66;
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut@mailbox.org designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=marek.vasut@mailbox.org
+	bh=5LjHuRvAlrfCTpQDqtJrxybp4IoylwmrNNBs7s/aRME=;
+	b=tqjlmaHY1CGDfdfoJiakvgTc2fopzFqf6q/gsCflhFR4rHqU7L2EEsms4bzwKYHXYz4b3o
+	V4g3hvuaXo0bCu32JJofDqANm16PwIHAoIdMxp8k3XYBbb1aUiV89Cfwkiuh5FNeDj4yG7
+	hZREnFB1IqgP33ytoWRKCIeNMlY0UFL39PEVLLkgWGc7Dr6eQE0y2fIkIrrJdPxXnUGR75
+	GFi5jlbVW+STjYsMTgEa8bW66No4Si3qYAQIfKYhSY3/r+VQTe/2uA14Duw8s/Z0QgQh09
+	HcwGhM9Itesjg3icn3UyLkYdVflVpDhJsiR1bSWFPgjr58F2pvp2xZkLc3bziQ==
 From: Marek Vasut <marek.vasut@mailbox.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1760202274;
+	t=1760202280;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=Lk3Rjyeus3C9NAKENHUJ5fCfgM5p+pUPtcQUUdf0M2s=;
-	b=Vn59NB66csKLpwuqIH9fKkZu7byxv//rOSaMAsG9UdmjDfizMtjoTzd0sToLFjCi8bq24w
-	01FyCdOBvQ6YsV1+/CAM+0CVeVk93++kCK/LEX3Zgh5QfF3SsBgTsGXpG3j4noZ4ptRS1x
-	07WbC2DyPKu+sCE///L/A3uswipRqVJ2irRjzN59ccKZOFVF+v5xV+sBdOHwC/W4kpIS28
-	01cj5Gqpi71OkpKqqg84/Tn2sC9goGwmoH5/xL4V6n6s3BurcxVGvL6iK+ga8CpqBEnngc
-	Antni4rHRENzhc+EnAKQKg0LWBslbE4IIzC1pvmccqfTb/L4JKpzJSEiyVr+SQ==
+	bh=5LjHuRvAlrfCTpQDqtJrxybp4IoylwmrNNBs7s/aRME=;
+	b=f++N/k58Ot2ykVd+EAPD/3jivNMZ2j25H2ZOquPo6g9OT0UyYX8s1RAcZUpBhHcLHz3SO7
+	4aDJ3l5xEysB1uf9Is7mT1ZPiZYweub6nq7FdwUyYhmy8bGpRx3MykW/4PIZt146zL/3UW
+	x5c6nPQJN6Vo0pjn9sFuBKu+e9TXEr/7eFrscX4GZd5NlMDG3qO6hSw3N+Ip1nobyiYDRi
+	Jk0WiuNIDJvOu0NbI7PkIliODsQZ0Qbix4FP1S+SVRnBDYMxtRXRLowvYkm5FsmTZ8PAMp
+	vXv6EG10as4nBcYQJfP3Xx7oliOur4qUXxNQA9HWIpRTsCM7TRwX5Y2G7Fmufw==
 To: dri-devel@lists.freedesktop.org
 Cc: Marek Vasut <marek.vasut@mailbox.org>,
 	Abel Vesa <abelvesa@kernel.org>,
@@ -79,19 +76,18 @@ Cc: Marek Vasut <marek.vasut@mailbox.org>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-clk@vger.kernel.org
-Subject: [PATCH 36/39] drm/bridge: fsl-ldb: Add i.MX95 support
-Date: Sat, 11 Oct 2025 18:51:51 +0200
-Message-ID: <20251011170213.128907-37-marek.vasut@mailbox.org>
+Subject: [PATCH 38/39] dt-bindings: clock: support i.MX95 Display Stream CSR module
+Date: Sat, 11 Oct 2025 18:51:53 +0200
+Message-ID: <20251011170213.128907-39-marek.vasut@mailbox.org>
 In-Reply-To: <20251011170213.128907-1-marek.vasut@mailbox.org>
 References: <20251011170213.128907-1-marek.vasut@mailbox.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: df8c5370bfe38e02228
-X-MBO-RS-META: 7857bnidkfoow6m87bmkwenfakofii1p
-X-Rspamd-Queue-Id: 4ckVMm38Lbz9tDZ
+X-MBO-RS-META: xry4amm6fd4yjhbdnui4z36buro1w5ge
+X-MBO-RS-ID: 7d7d6d1d1f9255c8d3d
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251011_100438_509678_01055F8B 
-X-CRM114-Status: GOOD (  12.92  )
+X-CRM114-CacheID: sfid-20251011_100444_056420_C2202C87 
+X-CRM114-Status: GOOD (  10.37  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,12 +102,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add support for i.MX95 SoC variant of the LDB. This variant supports
-single channel and all configuration is done via single register,
-but there are two instances of this IP preceded by another bridge,
-which handles the dual-lane configuration instead. This is also the
-reason for special-case handling of input format, where the preceding
-bridge needs the format details as well.
+i.MX95 DISPLAY STREAM_CSR includes registers to control DSI PHY settings.
+Add dt-schema for it.
 
 Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
 ---
@@ -133,79 +125,57 @@ Cc: imx@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org
 Cc: linux-clk@vger.kernel.org
 ---
- drivers/gpu/drm/bridge/fsl-ldb.c | 23 +++++++++++++++++++----
- 1 file changed, 19 insertions(+), 4 deletions(-)
+ .../imx/nxp,imx95-display-stream-csr.yaml     | 41 +++++++++++++++++++
+ 1 file changed, 41 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/display/imx/nxp,imx95-display-stream-csr.yaml
 
-diff --git a/drivers/gpu/drm/bridge/fsl-ldb.c b/drivers/gpu/drm/bridge/fsl-ldb.c
-index c54caea0b63fc..1560438e4cb10 100644
---- a/drivers/gpu/drm/bridge/fsl-ldb.c
-+++ b/drivers/gpu/drm/bridge/fsl-ldb.c
-@@ -58,6 +58,7 @@ enum fsl_ldb_devtype {
- 	IMX6SX_LDB,
- 	IMX8MP_LDB,
- 	IMX93_LDB,
-+	IMX95_LDB,
- };
- 
- struct fsl_ldb_devdata {
-@@ -73,6 +74,9 @@ static const struct fsl_ldb_devdata fsl_ldb_devdata[] = {
- 	[IMX93_LDB] = {
- 		.lvds_en_bit = true,
- 	},
-+	[IMX95_LDB] = {
-+		.lvds_en_bit = true,
-+	},
- };
- 
- struct fsl_ldb {
-@@ -235,7 +239,7 @@ static void fsl_ldb_atomic_disable(struct drm_bridge *bridge,
- 	clk_disable_unprepare(fsl_ldb->clk);
- }
- 
--#define MAX_INPUT_SEL_FORMATS 1
-+#define MAX_INPUT_SEL_FORMATS 4
- static u32 *
- fsl_ldb_atomic_get_input_bus_fmts(struct drm_bridge *bridge,
- 				  struct drm_bridge_state *bridge_state,
-@@ -244,17 +248,26 @@ fsl_ldb_atomic_get_input_bus_fmts(struct drm_bridge *bridge,
- 				  u32 output_fmt,
- 				  unsigned int *num_input_fmts)
- {
-+	struct fsl_ldb *fsl_ldb = to_fsl_ldb(bridge);
- 	u32 *input_fmts;
- 
- 	*num_input_fmts = 0;
- 
--	input_fmts = kcalloc(MAX_INPUT_SEL_FORMATS, sizeof(*input_fmts),
-+	input_fmts = kcalloc(MAX_INPUT_SEL_FORMATS, MAX_INPUT_SEL_FORMATS * sizeof(*input_fmts),
- 			     GFP_KERNEL);
- 	if (!input_fmts)
- 		return NULL;
- 
--	input_fmts[0] = MEDIA_BUS_FMT_RGB888_1X24;
--	*num_input_fmts = MAX_INPUT_SEL_FORMATS;
-+	if (of_device_is_compatible(fsl_ldb->dev->of_node, "fsl,imx95-ldb")) {
-+		input_fmts[0] = MEDIA_BUS_FMT_RGB666_1X7X3_SPWG;
-+		input_fmts[1] = MEDIA_BUS_FMT_RGB888_1X7X4_SPWG;
-+		input_fmts[2] = MEDIA_BUS_FMT_RGB888_1X7X4_JEIDA;
-+		input_fmts[3] = MEDIA_BUS_FMT_FIXED;
-+		*num_input_fmts = 4;
-+	} else {
-+		input_fmts[0] = MEDIA_BUS_FMT_RGB888_1X24;
-+		*num_input_fmts = 1;
-+	}
- 
- 	return input_fmts;
- }
-@@ -396,6 +409,8 @@ static const struct of_device_id fsl_ldb_match[] = {
- 	  .data = &fsl_ldb_devdata[IMX8MP_LDB], },
- 	{ .compatible = "fsl,imx93-ldb",
- 	  .data = &fsl_ldb_devdata[IMX93_LDB], },
-+	{ .compatible = "fsl,imx95-ldb",
-+	  .data = &fsl_ldb_devdata[IMX95_LDB], },
- 	{ /* sentinel */ },
- };
- MODULE_DEVICE_TABLE(of, fsl_ldb_match);
+diff --git a/Documentation/devicetree/bindings/display/imx/nxp,imx95-display-stream-csr.yaml b/Documentation/devicetree/bindings/display/imx/nxp,imx95-display-stream-csr.yaml
+new file mode 100644
+index 0000000000000..61153120c9378
+--- /dev/null
++++ b/Documentation/devicetree/bindings/display/imx/nxp,imx95-display-stream-csr.yaml
+@@ -0,0 +1,41 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/display/imx/nxp,imx95-display-stream-csr.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: NXP i.MX95 Display Stream Block Control
++
++maintainers:
++  - Marek Vasut <marek.vasut@mailbox.org>
++
++properties:
++  compatible:
++    items:
++      - enum:
++          - nxp,imx95-display-stream-csr
++          - nxp,imx95-master-stream-csr
++          - nxp,imx95-mipi-tx-phy-csr
++      - const: syscon
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++required:
++  - compatible
++  - reg
++  - clocks
++
++additionalProperties: false
++
++examples:
++  - |
++    syscon@4ad00000 {
++      compatible = "nxp,imx95-display-stream-csr", "syscon";
++      reg = <0x4ad00000 0x10000>;
++      clocks = <&scmi_clk 62>;
++    };
++...
 -- 
 2.51.0
 
