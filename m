@@ -4,97 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BEB94CCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 10:42:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21B30CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 10:43:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=OqyDNC67ubeb2tHQvs3zOoppHPgwgyf6ppd+sV61gUM=; b=Yh/3dUQojBmUD5FU+fyxKIIOrg
-	ZaeZf0uk8VezGbtX2r2LmRYCHLOVAuSTXTUblbykw8uTWokQ+GtcsnRORtbcWwf7QQjqxO4MMnkQH
-	yuPB8qi02BVbINkoO/8tcztDMuJOSdhWECihjn2M/vDSKirr9udMbZoDGnukxLMX/vhJD6LPsl5by
-	8TyFeQQm4L8OlMq9ubA2M3nyJHUg2g7SLb+zyCaMe0pKQoRk4F2JWDKSQVSHbJYgaISu5RbrEcuSy
-	cXfOccPyZ2EnreUaDsgorSXY8tSit3Qc7UbWwnrfQB+LQNkqHua1/piMlb2BhZLulnhEQo5F4wfq1
-	vrOai6gA==;
+	bh=lLggc6D5Y1k/S3Gu+2V3OtePga4cxDlEo3qo1/u86xI=; b=QBGp42ExHDgRSAHlpummZSBrND
+	8sPMyH0EEUULbRW/AW1pjgZkZwNN4IDFlrOtgB9r03pROq42pUP4X2g8RMiyRIcvFdSKJK+WSBTlA
+	yY78LLcP8i5wsHBbvkOSaqdrJ8HgeaumxIkOqjMtPtk8kdk6REaq7XSCQPCKHvrdEZxBGJ9/JdR7u
+	TfoetbLF31ckwLdGNgPmP7hCZTO0bJgJj7fjg2BdhtKif+57Znh3c8hFCdIYdVLlJqqrtTn8RlZLM
+	TrYN+66AtYjpDGzV7Yj3BGtTvBnixEpinRXLQ4SFzJY91dQhK61R6WrOmQO9+tjz4ypxkXPcb/GPD
+	NLWAKfrw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7X35-0000000A31g-3lhE;
-	Sat, 11 Oct 2025 10:42:03 +0000
-Received: from mail-ed1-x536.google.com ([2a00:1450:4864:20::536])
+	id 1v7X4K-0000000A3C2-15gK;
+	Sat, 11 Oct 2025 10:43:20 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7X33-0000000A30t-0gEH
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Oct 2025 10:42:02 +0000
-Received: by mail-ed1-x536.google.com with SMTP id 4fb4d7f45d1cf-6394938e0ecso4583548a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Oct 2025 03:42:00 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760179319; x=1760784119; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=OqyDNC67ubeb2tHQvs3zOoppHPgwgyf6ppd+sV61gUM=;
-        b=lVo53pO00co/CuMIjaulH/CrkaF2jGCE9a8YN6PjOjmOzkWLSiThzXfy/Azke+Gfeb
-         rlRUJEWGdoe9QLDk7exn8ODiFSS8eSFWZomkKX4/L0yplUIbEXXCEQoN96Tb13uHeyuo
-         xyixldb6Gy8YBsPr7DM7nvA+TuT80Qc9EOqfS1SrKafsORkzhpTRUKdRK+aPCGKEnvLl
-         9iFumU4VcCvAsXE6do6p20B5Ws8zDkjK96cxJST98sZ6G+mtYkJLCWA3ukSeuaxDDjMW
-         ixFjOXqyVgqsm5TjMeU0uXTrOBejw4CM6zwAAmo5Jq6oyBBdDwmehDFevk3Qa2O08AYc
-         neUQ==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760179319; x=1760784119;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=OqyDNC67ubeb2tHQvs3zOoppHPgwgyf6ppd+sV61gUM=;
-        b=c0xYeuyrmQaJ1tg+3G/WulXTkd6M654tdIB02rE2p7ZVLug8BZYUHHhUpbmWx3UOzL
-         7sJczOXt73kDC4cjhL5RdnR0UiPDsJUFl6ymsVfjwiLzOpdaxtcdF9ib6gDkxiWESEOe
-         uMVljzMWW9Wh8SqDTEFifC+IR3jqsrQtswDLG36O8fEvwCbwuaTGNYupU6SF/y0JfdUS
-         AWjCrZWETaRxXb+ksP0R3D2+jbKVIxF/kG9SZkWWrveYQ8bLJECtBtIv5oBEdIS9SyKT
-         ytmyZrEDRozPXqdnBsiQByFNWv7aZHrySlfxOoXYwFbypqj5MFz4A0md3+6aNeoD5kK+
-         nqpQ==
-X-Forwarded-Encrypted: i=1; AJvYcCWgA+sgGIXsousoaa+HmlSmJpPv2e8Al7cASABS+xRX/QRfLpetfjshbE6DAZVYVF9uFNiGN3y4yk6wnH1c1Dnd@lists.infradead.org
-X-Gm-Message-State: AOJu0Ywg5w3jpYo8KTnnS9swIegCG1NsDHTZlnrlUuM4NPEr4H8MJLNX
-	9Bu3GUYLN+SQpQyjSH9qK+DNf7qAJfUDWqc4v5JjDKoq6Px7EIUZkAPw
-X-Gm-Gg: ASbGncvFBEiL5icpL/hEtNaBuRdy1BHQ6MH2YcAOQDW6Z/Dbar4H2QFHKb27xMI41ST
-	YibHGxo9qBS+/o2Lpt87oyR2ZTDHnPR+oGsARfQpjDmjDzcUz9TGU7vFXX7yqNqSLJc2pgXrkYG
-	O85Drxo6+C+BWFBmYPXsGgGeCvgYb9ADxK5MPNSJodBObe/cTOQmxvUI0+G1fUG658CVVHNI1Ts
-	ksAfQeZ3UqOcsiq3MYT3FdXe25lCPxGZqIO1wR9QchFx+C1m29OgEknIV8zhliASTpH8+daMb7f
-	XGWJSW9VENrk/I9ytG+hQP/kdiVFLq2ReqKRAE8JP7EADarcxf4FWB79nGzxSynN7wYyLmZXYoy
-	+vPNgqOQgrrVTWkke1QSV7VI4ro6Q3ut5N1Uoui/5g7mUggEwssi+/n0J8JvvhE8=
-X-Google-Smtp-Source: AGHT+IFniI0WsDXjo4z3UaAWm2jZN00980pqXioaMnWWaQ/4U3UhS7uWYQBxdSYInHj9x0mV1hCBAA==
-X-Received: by 2002:a05:6402:5106:b0:634:544b:a756 with SMTP id 4fb4d7f45d1cf-639d5c59407mr12973844a12.32.1760179319203;
-        Sat, 11 Oct 2025 03:41:59 -0700 (PDT)
-Received: from jernej-laptop.localnet ([188.159.248.16])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-63a52b10072sm4482832a12.16.2025.10.11.03.41.56
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 11 Oct 2025 03:41:58 -0700 (PDT)
-From: Jernej =?UTF-8?B?xaBrcmFiZWM=?= <jernej.skrabec@gmail.com>
-To: Miquel Raynal <miquel.raynal@bootlin.com>,
- Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
- Samuel Holland <samuel@sholland.org>,
- Richard Genoud <richard.genoud@bootlin.com>
-Cc: Wentao Liang <vulab@iscas.ac.cn>,
- Uwe =?UTF-8?B?S2xlaW5lLUvDtm5pZw==?= <u.kleine-koenig@baylibre.com>,
- Maxime Ripard <mripard@kernel.org>,
- Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
- linux-mtd@lists.infradead.org, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
- linux-kernel@vger.kernel.org, Richard Genoud <richard.genoud@bootlin.com>
-Subject: Re: [PATCH 04/15] mtd: nand: sunxi: move ecc strenghts in sunxi_nfc_caps
-Date: Sat, 11 Oct 2025 12:41:56 +0200
-Message-ID: <13861163.uLZWGnKmhe@jernej-laptop>
-In-Reply-To: <20251010084042.341224-5-richard.genoud@bootlin.com>
-References: <20251010084042.341224-1-richard.genoud@bootlin.com>
- <20251010084042.341224-5-richard.genoud@bootlin.com>
+	id 1v7X4J-0000000A3Bt-2GrV;
+	Sat, 11 Oct 2025 10:43:19 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 92372603DD;
+	Sat, 11 Oct 2025 10:43:18 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 737BCC4CEF4;
+	Sat, 11 Oct 2025 10:43:16 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760179398;
+	bh=nvw6W22YNUcuYDkHM+/YmRNu7p7dmP/S/3RcNhOY36U=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=Z7YRL+XvPTvkgZK8XFE7+R7vW0qu3Q9vz9NeH6kX1WYopPqSBVEDm/tpicH10elOm
+	 mtxO8+nClsaSliE7N9vg0ra4GVLP34we1YWBfftqCtl8W8C1+9kLBhXC9fOZfMI//6
+	 x2BNtd3E8Z05g9V7prCiRug5HF950H2QOuKWorVId+dSXVEmSQZf5hnp4A1Kv/s8ey
+	 nsAOW+PvetWJife73IN+NqWpjUS1y8+bujPHItr8wjrcn81inYRccNvV0ls7/Rrcxj
+	 2W/qz3tcMo/BwmmA2o4VA4i3A8LQerqjX5DWx6kGVfQQwHvCNv2Xuz9/4y675ycEol
+	 OMFiEChbBUG/g==
+Date: Sat, 11 Oct 2025 11:43:14 +0100
+From: Simon Horman <horms@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net] net: airoha: Take into account out-of-order tx
+ completions in airoha_dev_xmit()
+Message-ID: <aOo0woPiMxjABFv2@horms.kernel.org>
+References: <20251010-airoha-tx-busy-queue-v1-1-9e1af5d06104@kernel.org>
 MIME-Version: 1.0
-Content-Transfer-Encoding: quoted-printable
-Content-Type: text/plain; charset="utf-8"
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251011_034201_248960_B5CC3B9B 
-X-CRM114-Status: GOOD (  20.12  )
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251010-airoha-tx-busy-queue-v1-1-9e1af5d06104@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -109,121 +72,76 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi!
-
-Dne petek, 10. oktober 2025 ob 10:40:31 Srednjeevropski poletni =C4=8Das je=
- Richard Genoud napisal(a):
-> H6/H616 has more ecc strenghts.
-> This commit prepares the change.
-> No functional change.
-
-=46ormat looks weird. Reword message to something like moving ecc to caps w=
-hich
-will allow expand support for newer cores.
-
-Also, there should be empty line before "No functional change."
-
-Best regards,
-Jernej
-
->=20
-> Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
+On Fri, Oct 10, 2025 at 07:21:43PM +0200, Lorenzo Bianconi wrote:
+> Completion napi can free out-of-order tx descriptors if hw QoS is
+> enabled and packets with different priority are queued to same DMA ring.
+> Take into account possible out-of-order reports checking if the tx queue
+> is full using circular buffer head/tail pointer instead of the number of
+> queued packets.
+> 
+> Fixes: 23020f0493270 ("net: airoha: Introduce ethernet support for EN7581 SoC")
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
 > ---
->  drivers/mtd/nand/raw/sunxi_nand.c | 20 ++++++++++++++++----
->  1 file changed, 16 insertions(+), 4 deletions(-)
->=20
-> diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sun=
-xi_nand.c
-> index 10a48e0d361f..198dd40f9220 100644
-> --- a/drivers/mtd/nand/raw/sunxi_nand.c
-> +++ b/drivers/mtd/nand/raw/sunxi_nand.c
-> @@ -213,11 +213,15 @@ static inline struct sunxi_nand_chip *to_sunxi_nand=
-(struct nand_chip *nand)
->   *			through MBUS on A23/A33 needs extra configuration.
->   * @reg_io_data:	I/O data register
->   * @dma_maxburst:	DMA maxburst
-> + * @ecc_strengths:	Available ECC strengths array
-> + * @nstrengths:		Size of @ecc_strengths
->   */
->  struct sunxi_nfc_caps {
->  	bool has_mdma;
->  	unsigned int reg_io_data;
->  	unsigned int dma_maxburst;
-> +	const u8 *ecc_strengths;
-> +	unsigned int nstrengths;
->  };
-> =20
->  /**
-> @@ -1619,9 +1623,9 @@ static int sunxi_nand_hw_ecc_ctrl_init(struct nand_=
-chip *nand,
->  				       struct nand_ecc_ctrl *ecc,
->  				       struct device_node *np)
->  {
-> -	static const u8 strengths[] =3D { 16, 24, 28, 32, 40, 48, 56, 60, 64 };
->  	struct sunxi_nand_chip *sunxi_nand =3D to_sunxi_nand(nand);
->  	struct sunxi_nfc *nfc =3D to_sunxi_nfc(nand->controller);
-> +	const u8 *strengths =3D nfc->caps->ecc_strengths;
->  	struct mtd_info *mtd =3D nand_to_mtd(nand);
->  	struct nand_device *nanddev =3D mtd_to_nanddev(mtd);
->  	int nsectors;
-> @@ -1645,7 +1649,7 @@ static int sunxi_nand_hw_ecc_ctrl_init(struct nand_=
-chip *nand,
-> =20
->  		ecc->strength =3D bytes * 8 / fls(8 * ecc->size);
-> =20
-> -		for (i =3D 0; i < ARRAY_SIZE(strengths); i++) {
-> +		for (i =3D 0; i < nfc->caps->nstrengths; i++) {
->  			if (strengths[i] > ecc->strength)
->  				break;
->  		}
-> @@ -1666,7 +1670,7 @@ static int sunxi_nand_hw_ecc_ctrl_init(struct nand_=
-chip *nand,
->  	}
-> =20
->  	/* Add ECC info retrieval from DT */
-> -	for (i =3D 0; i < ARRAY_SIZE(strengths); i++) {
-> +	for (i =3D 0; i < nfc->caps->nstrengths; i++) {
->  		if (ecc->strength <=3D strengths[i]) {
->  			/*
->  			 * Update ecc->strength value with the actual strength
-> @@ -1677,7 +1681,7 @@ static int sunxi_nand_hw_ecc_ctrl_init(struct nand_=
-chip *nand,
->  		}
->  	}
-> =20
-> -	if (i >=3D ARRAY_SIZE(strengths)) {
-> +	if (i >=3D nfc->caps->nstrengths) {
->  		dev_err(nfc->dev, "unsupported strength\n");
->  		return -ENOTSUPP;
->  	}
-> @@ -2167,15 +2171,23 @@ static void sunxi_nfc_remove(struct platform_devi=
-ce *pdev)
->  		dma_release_channel(nfc->dmac);
+>  drivers/net/ethernet/airoha/airoha_eth.c | 15 ++++++++++++++-
+>  1 file changed, 14 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
+> index 833dd911980b3f698bd7e5f9fd9e2ce131dd5222..5e2ff52dba03a7323141fe9860fba52806279bd0 100644
+> --- a/drivers/net/ethernet/airoha/airoha_eth.c
+> +++ b/drivers/net/ethernet/airoha/airoha_eth.c
+> @@ -1873,6 +1873,19 @@ static u32 airoha_get_dsa_tag(struct sk_buff *skb, struct net_device *dev)
+>  #endif
 >  }
-> =20
-> +static const u8 sunxi_ecc_strengths_a10[] =3D {
-> +	16, 24, 28, 32, 40, 48, 56, 60, 64
-> +};
+>  
+> +static bool airoha_dev_is_tx_busy(struct airoha_queue *q, u32 nr_frags)
+> +{
+> +	u16 index = (q->head + nr_frags) % q->ndesc;
 > +
->  static const struct sunxi_nfc_caps sunxi_nfc_a10_caps =3D {
->  	.reg_io_data =3D NFC_REG_A10_IO_DATA,
->  	.dma_maxburst =3D 4,
-> +	.ecc_strengths =3D sunxi_ecc_strengths_a10,
-> +	.nstrengths =3D ARRAY_SIZE(sunxi_ecc_strengths_a10),
->  };
-> =20
->  static const struct sunxi_nfc_caps sunxi_nfc_a23_caps =3D {
->  	.has_mdma =3D true,
->  	.reg_io_data =3D NFC_REG_A23_IO_DATA,
->  	.dma_maxburst =3D 8,
-> +	.ecc_strengths =3D sunxi_ecc_strengths_a10,
-> +	.nstrengths =3D ARRAY_SIZE(sunxi_ecc_strengths_a10),
->  };
-> =20
->  static const struct of_device_id sunxi_nfc_ids[] =3D {
->=20
+> +	/* completion napi can free out-of-order tx descriptors if hw QoS is
+> +	 * enabled and packets with different priorities are queued to the same
+> +	 * DMA ring. Take into account possible out-of-order reports checking
+> +	 * if the tx queue is full using circular buffer head/tail pointers
+> +	 * instead of the number of queued packets.
+> +	 */
+> +	return index >= q->tail && (q->head < q->tail || q->head > index);
 
+Hi Lorenzo,
 
+I think there is a corner case here.
+Perhaps they can't occur, but here goes.
 
+Let us suppose that head is 1.
+And the ring is completely full, so tail is 2.
 
+Now, suppose nr_frags is ndesc - 1.
+In this case the function above will return false. But the ring is full.
+
+Ok, ndesc is actually 1024 and nfrags should never be close to that.
+But the problem is general. And a perhaps more realistic example is:
+
+  ndesc is 1024
+  head is 1008
+  The ring is full so tail is 1009
+  (Or head is any other value that leaves less than 16 slots free)
+  nr_frags is 16
+
+airoha_dev_is_tx_busy() returns false, even though the ring is full.
+
+Probably this has it's own problems. But if my reasoning above is correct
+(is it?) then the following seems to address it by flattening and extending
+the ring. Because what we are about is the relative value of head, index
+and tail. Not the slots they occupy in the ring.
+
+N.B: I tetsed the algorirthm with a quick implementation in user-space.
+The following is, however, completely untested.
+
+static bool airoha_dev_is_tx_busy(struct airoha_queue *q, u32 nr_frags)
+{
+	unsigned int tail = q->tail < q->head ? q->tail + q->ndesc : q->tail;
+	unsigned int index = q->head + nr_frags;
+
+	return index >= tail;
+}
+
+...
 
