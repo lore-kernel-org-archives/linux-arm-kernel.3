@@ -4,65 +4,62 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BD510CCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 00:11:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 21745CCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 00:19:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GhEx+GQzLd61wlJ+zW2d/EbwhVd3MFKVpAJa2529QtY=; b=dAIiuDcZESsRhBaHd3svpFSRWo
-	M7Oqzx4xH3kXOp2i528ZN8glrILiD6ZfDu6aaiOs4w2zsDoRZ6mUaGpvtle+KsbSSDiUj0qo2bEYj
-	GG4ONHTX8PM1bnAq+/xFfKWrPETousK4sngOejD8BkQtGawAMdxJw63lZtnATupYH3SGAtkepBG3Z
-	2X86DmV2YyMeX2ILoU5F+RHl/ixQ7X8TVL3TyxZOgWgshRORfenx9FZGIF+rmAu5KpNcAz6p3h9Yk
-	9fEj3zyMzH0BodaQwkzDoVrbPtsqUY2U7BBZWCJDwN9cOmaT+MPgndiA0u8OU24iTe6lGB+sEOL8B
-	knhCU6Ng==;
+	bh=AjC7KZ908XrfJrsOPrROd2goZcTHVbuFW7g3509mkWs=; b=AxCvwRZDd+rVTsOK1RyGApQT7P
+	P5ToESTDIY6OtFIOpOFYYGTsMD5yczZcVQd7TSrPEb0qgaFjyxjeXvcStnvFKJ6yRWKZtI7B39oHf
+	FtwZ8vLJTGwnhoHMBVL/Hgm/eOxIL2pFg2jiVMCLkmbEthTfNkATp6fiGu7ypPv7un/sek9yeYHP5
+	q4hXgGJ0lA1GnHU3ptQKXaYFiLDCrOE3KP1FaPZhLCDWoB7jn5nEUGi1H5jsQVFNcnIi9YMSSCXGi
+	6ftj4Bs++4s+TLJIAxTykK2q/D6Yy7Yygd0TADauyypHj6i2GX+ZmgW0QMbAApb2ZNU571pmUTrN4
+	q+wVOfJA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7NCZ-00000009ZPm-2vON;
-	Sat, 11 Oct 2025 00:11:11 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v7NKs-00000009ZsP-0ZXA;
+	Sat, 11 Oct 2025 00:19:46 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7NCW-00000009ZPO-2BKK;
-	Sat, 11 Oct 2025 00:11:09 +0000
+	id 1v7NKq-00000009Zs4-03WS;
+	Sat, 11 Oct 2025 00:19:45 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3268D48FDF;
-	Sat, 11 Oct 2025 00:11:08 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E3FF8C4CEF1;
-	Sat, 11 Oct 2025 00:11:00 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 5F861433D7;
+	Sat, 11 Oct 2025 00:19:43 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id EE6A5C4CEF1;
+	Sat, 11 Oct 2025 00:19:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760141468;
-	bh=PTZ7z5rFBEl2/QXVABRVVG+x/hnQk/3BWqNmlYNQWU0=;
+	s=k20201202; t=1760141983;
+	bh=OpLhmXy9ETBYlkFfaP2AkWUxtrwDNjuuRfMcM0Wl5M0=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=CxfNSz1Mwm/dDZDOCfVVLjauOb3Kpa+ysqqhFneuLCIs6lx5Ysi9Z0+J5Yt/vuY/V
-	 r8ZRdwOrYEHn1vv5tbyVIepu8G2WVtr/3qjgxq5Ftl6nip1elpALDf/91Wzsz+tIUt
-	 xul5p6wiPpPH93mBd5sy8Ni817ogzglw4/iP0NUZt+XB8ZhwPkupo0Vinn73p7QE8f
-	 3TkCAhuCwWRMfdqYUyC5XTzVrwn2jAIELx4OV4x+Z6tSxObbj6FwQ7sUGKTK9N3Vsd
-	 mRtWtwuGvfJPO3WJGJLStnlRw3Myo+3o+e3INWD2gEcwnWQEkSHGvhGSSn1OV0Ue19
-	 UQut4jnbu8KGw==
-Message-ID: <75756635-b374-4441-8526-175210e01163@kernel.org>
-Date: Sat, 11 Oct 2025 02:10:58 +0200
+	b=ndy49n1fTS5dtLS6EQkGfiWA0cKIoAxNnLQuyZKXxd6/zrblB2ErzzpjGenCvpOmJ
+	 DPZPzkGcPeaBA8rmhN1ZEjXeO43rL6B6g4NQnr4FI+MmegC/uBM9Nd70ttRolF01c6
+	 NiFyo/DBD4rkygjx8fCia1w36/oB6HIuDjvRdCXC9cLMGJk7v7cjdgYTBTybBeowVp
+	 Ub32rx77O5S4H04IsKsYlp1R2LPO22SF1VihXUtjZ+jNaaCgLfiNS/+09PsPukchUO
+	 V7vpvIfH955isAx6Bzm3EVpsMMIkb9Sv4Y8P1SG32Z3JIVBsXFH3HZ9ruumSGvTT6D
+	 z1ZwDA5jqOtKA==
+Message-ID: <d99d7b54-88af-4649-84c2-02027b4d9655@kernel.org>
+Date: Sat, 11 Oct 2025 02:19:30 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v3 3/4] dt-bindings: phy: google: Add Google Tensor G5 USB
- PHY
-To: Roy Luo <royluo@google.com>, Vinod Koul <vkoul@kernel.org>,
- Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
- Philipp Zabel <p.zabel@pengutronix.de>,
- Peter Griffin <peter.griffin@linaro.org>,
- =?UTF-8?Q?Andr=C3=A9_Draszik?= <andre.draszik@linaro.org>,
- Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: Joy Chakraborty <joychakr@google.com>, Naveen Kumar <mnkumar@google.com>,
- Badhri Jagan Sridharan <badhri@google.com>, linux-phy@lists.infradead.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
- linux-usb@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
- linux-samsung-soc@vger.kernel.org
-References: <20251010201607.1190967-1-royluo@google.com>
- <20251010201607.1190967-4-royluo@google.com>
+Subject: Re: [PATCH v9 5/6] dt-bindings: phy: samsung,usb3-drd-phy: add
+ ExynosAutov920 combo ssphy
+To: Pritam Manohar Sutar <pritam.sutar@samsung.com>, vkoul@kernel.org,
+ kishon@kernel.org, robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ alim.akhtar@samsung.com, andre.draszik@linaro.org, peter.griffin@linaro.org,
+ kauschluss@disroot.org, johan@kernel.org, ivo.ivanov.ivanov1@gmail.com,
+ m.szyprowski@samsung.com, s.nawrocki@samsung.com
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, rosa.pila@samsung.com,
+ dev.tailor@samsung.com, faraz.ata@samsung.com, muhammed.ali@samsung.com,
+ selvarasu.g@samsung.com
+References: <20251010070912.3758334-1-pritam.sutar@samsung.com>
+ <CGME20251010070101epcas5p1be06087e5511f4a3fc387b232e0353b5@epcas5p1.samsung.com>
+ <20251010070912.3758334-6-pritam.sutar@samsung.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -108,12 +105,12 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <20251010201607.1190967-4-royluo@google.com>
+In-Reply-To: <20251010070912.3758334-6-pritam.sutar@samsung.com>
 Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_171108_633636_F4CF6907 
-X-CRM114-Status: UNSURE (   7.15  )
+X-CRM114-CacheID: sfid-20251010_171944_115860_1D295C4A 
+X-CRM114-Status: UNSURE (   4.90  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -129,76 +126,16 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/10/2025 22:16, Roy Luo wrote:
-> +  reg:
-> +    items:
-> +      - description: USB2 PHY configuration registers.
-> +      - description: DisplayPort top-level registers.
-> +      - description: USB top-level configuration registers.
-> +
-> +  reg-names:
-> +    items:
-> +      - const: u2phy_cfg
-> +      - const: dp_top
-> +      - const: usb_top_cfg
-> +
-> +  "#phy-cells":
-> +    const: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  resets:
-> +    maxItems: 1
-> +
-> +  power-domains:
-> +    maxItems: 1
-> +
-> +  orientation-switch:
-> +    type: boolean
-> +    description:
-> +      Indicates the PHY as a handler of USB Type-C orientation changes
-> +
-> +required:
-> +  - compatible
-> +  - reg
-> +  - reg-names
-> +  - "#phy-cells"
-> +  - clocks
-> +  - resets
-> +  - power-domains
-> +  - orientation-switch
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    soc {
-> +        #address-cells = <2>;
-> +        #size-cells = <2>;
-> +
-> +        usb_phy: usb_phy@c410000 {
-> +            compatible = "google,gs5-usb-phy";
-> +            reg = <0 0x0c450014 0 0xc>,
-> +                  <0 0x0c637000 0 0xa0>,
+On 10/10/2025 09:09, Pritam Manohar Sutar wrote:
+> The USBDRD31 5nm controller consists of Synopsys USB20 femptoPhy and
+> USB31 SSP+ combophy. Document support for the USB31 SSP+ phy found on
+> combophy of the ExynosAutov920 SoC.
+> 
+> Reviewed-by: Alim Akhtar <alim.akhtar@samsung.com>
+> Signed-off-by: Pritam Manohar Sutar <pritam.sutar@samsung.com>
+> ---
 
-You probably miss DP support and this does not belong here.
-
-> +                  <0 0x0c45002c 0 0x4>;
-
-That's not a separate address space. I really, really doubt that
-hardware engineers came with address spaces of one word long.
-
-> +            reg-names = "u2phy_cfg", "dp_top", "usb_top_cfg";
-> +            #phy-cells = <1>;
-> +            clocks = <&hsion_usb2_phy_reset_clk>;
-> +            resets = <&hsion_resets_usb2_phy>;
-> +            power-domains = <&hsio_n_usb_pd>;
-> +            orientation-switch;
-> +        };
-> +    };
-> +...
-
+Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 
 Best regards,
 Krzysztof
