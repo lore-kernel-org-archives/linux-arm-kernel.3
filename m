@@ -4,75 +4,173 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6E12CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 03:40:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DA672CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 05:02:28 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4rZ5OY9YNy1tyQbF8ZBq3xrEXPSjfrKt/aDNx5G/Re8=; b=wJN0HMVoLJn9IA3qJxrdxeiCJt
-	C6g8QM1RB6FF9+Z93s2MLC1umI8BGT5uO36EXPYs0S1BoPA7uz/lPBFIWHDZhQWRt55FwumuBr3uM
-	Os7FKuMwYXmI/uIQpdniNIK+ewE4hrul7fhmKzqHJ07OffXavURyZKzqOTDaxnUpLYo3abwpAt+VP
-	fJ/MXJFRWqDdtWAtvWWagmXJY4XLi/363FrzjJ/17OXeoTiCTQGzdLjEkOmSM6WKgo9AKTz4rkQnT
-	XyU1TxRvM38yZPXfc+vlKoLPzaepigRAe8pojyz5wuhD8LYFuw7tQS9/p8/VLIGix4jsPzyoXfc1e
-	zwbySvLw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=jkCtL2/ykNLPMBgPFqbyjhwBGVMME8MyEkFkBuDfJkY=; b=aKKj8XXsFxyUO/3BgMyr+tOQIA
+	b8IeS8YonZed1UDQEXuFvEQ5ejdW5r+iZYik2M74ipLc3FnY+E63OAuV0fdhwB5KrS+QOOdre92e9
+	0FJjhJZbRnwzddz4EWX/CPcwuiNZqzRHvokBdskQQN7GOXbvIqnF+WyajaUUXzk4SoDC/h4DtMGMJ
+	b8atolma0eSw/tQIlDFTL1ln0RiMjBkfPDJODACJpj3xxQ88o1cXmqBoOEQ84dnhaMV02rHxdhut9
+	SxZhzfMyyDPX4xPc/9MYi80kI3+jYRAkjn8WF4Oqpv2+q4An5ingX3S9t9OjUUVbjCFi2CjuerfbW
+	KvY3RzXQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7QTJ-00000009lWg-2Xwo;
-	Sat, 11 Oct 2025 03:40:41 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v7RkF-00000009oC8-2jhY;
+	Sat, 11 Oct 2025 05:02:15 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7QTI-00000009lVr-2swe
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Oct 2025 03:40:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 24587622E6
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Oct 2025 03:40:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id C879DC4CEF5
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Oct 2025 03:40:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760154039;
-	bh=d8gS8wOiKMr+l/ZJJK/wQClNzHRVZjbJoYCPz75pBA0=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=DzNmc2htDKTHCp3aozZ6E5kEpQ/T9k9BWOy4+jwgGV0SIndwfInOWiuXfSFiC5/5t
-	 QL0ZrMiCOK0FsZeNjSXSIG3/Br58Maj0goLA9/Q6msU1Q15XtRG+/XCdCPfCh/moCu
-	 3wN9SmB4nk5eeZ2n9d7wmFfMO1QGUzW5I1c3d7STbqXTYzS+mpV20pHVAmWvmSxSj4
-	 RkOfn0MoXV6y5yHYuCfrLF8mrUT/cWs/nH/BhFqc8TDo0dG4dA+boCphnqx3GOExuE
-	 QOttymeUokIXpaUETbAytEn+TzSZ/z6oVLixTt5MXuB/USBSphsTqedUHobjukDNnT
-	 j/m2eilL1toDw==
-Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-59052926cf9so2847914e87.1
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Oct 2025 20:40:39 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXJQFJUIyzYc9VQCOq9Axbh68HFMt406CCO8Yfwfo9pz5bB2aRDOdiSvYbFaIfXane6rABnj2dTKoVXakNDEpz8@lists.infradead.org
-X-Gm-Message-State: AOJu0YzbEoFF93HZeSdlpcAu2gGLl9cPsGV6FQEaGos1nmRcWBI0LArC
-	mLAUavK6wm0uHKvY1ZLyeKl7iQvnPzDP744M9GTbsP+ptuGVRtGyb4LRZlOkUCWA5DziLkUKt8r
-	QF9SrYIggl63t9HvGAykjHTJKimQnJKU=
-X-Google-Smtp-Source: AGHT+IFLXMYQ5g+Z7hYaE+htkOTZgcAsNtsCxDgeGT8tN/INhUQhJ+SJe8urgMafAAQJ9Ld+ELNhgSE8e7XFB5+/m9g=
-X-Received: by 2002:a05:6512:b10:b0:577:9ee:7d57 with SMTP id
- 2adb3069b0e04-5906de88ee4mr3575140e87.46.1760154038165; Fri, 10 Oct 2025
- 20:40:38 -0700 (PDT)
+	id 1v7RkB-00000009oBb-3m4f;
+	Sat, 11 Oct 2025 05:02:14 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TbDaW5tb+Xl+EFzvIAFbqGssmh5O5GoZFXtF27DGim6K1mwALSDknghE7BsmrsJf82T7O2DktUqZRFIezHNTp7R05z+dAcOhUfrqxVmfeFDHCngYD7Tg/TGUHwWXZ3hB6Nr6xUdwG+N/I3IueAeMmvYi6GfkYMlTn7v0h0LNknsPwDxUaCHqGgcrbH4LK2tm3KIZjcgVeKYqEJGMVZpEE3g+cCIqOinOlk/PXEu5dHco/v4NPdIbC47WeC0YLNntoZb9BPVS8fXFKeKhinkHjmTRtOTP2l5HRUMblak6UKXVvjAg5mq5PZr6Ab2oeKYLnQUXbURNsFZa4ZMAEk7N6A==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=jkCtL2/ykNLPMBgPFqbyjhwBGVMME8MyEkFkBuDfJkY=;
+ b=dvI2XQXs32cSIFXAguqXtaZFwFV3kBYtw1ULWnAU4hNERoG2/oCOpYJN/w9fPGAwXwd7gPaXYzYf9n7PaUdfGWALWpz9wkTXek8DgAGVtEsquPNKy+PV9/H13wgEc2K9jT97rQZ+75FOmvnGg+LFlPYcG5b7EG15wm1piEBla0Y47G/b5LGJMmf6XGvWxqdUv0D+3v1DbEwMMxx6lFLkPa+yWffcRwzEfbCuuXEE2nYds1CuHvi+EVlioo+Lllb0+99KeyXI9A2Dzt4JWEjCv2e0QyGHndBSPdrSsDYTk5tD7GvLDC9uIdKK1QfS+ljg7oYR3dSOMEqTY6ptOmjgaQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=genexis.eu; dmarc=pass action=none header.from=iopsys.eu;
+ dkim=pass header.d=iopsys.eu; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=iopsys.eu;
+ s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=jkCtL2/ykNLPMBgPFqbyjhwBGVMME8MyEkFkBuDfJkY=;
+ b=gykA6Z45dKRGliP7mbMEQ5qMJuvBvJJdM1jPyVy5NY0Tn/if7NY7ESpY9+VTlLUuDanb48y/BVw1fCGRnqT2zmyOSaxeKQSnMP3/EYa+X5HkWHZFgUyMP++I7554boiyXCDc2EUDxghZf23mD6eTDQGMj0zmSmR8O+b7PTl85fhsF1krpmIBXdXQXg9UNBgr3eSSsgylOneoTJQ8WTuFCbAiZsYdAh3h92i5R9IlPhdfsXFWYYAq+e2Oc7ozEPWT+kBD60uGO+5Vn+v+leW+BJZ5ubMtqYeh0HSPzmHOeOD+CGxQZYQOuqoJs+ZUINF7G1lauk/8w5snbJ03dR82ng==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=iopsys.eu;
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com (2603:10a6:150:7d::22)
+ by VE1PR08MB5854.eurprd08.prod.outlook.com (2603:10a6:800:1b0::6) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.10; Sat, 11 Oct
+ 2025 05:02:02 +0000
+Received: from GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0]) by GV2PR08MB8121.eurprd08.prod.outlook.com
+ ([fe80::4cd3:da80:2532:daa0%3]) with mapi id 15.20.9203.009; Sat, 11 Oct 2025
+ 05:02:02 +0000
+Message-ID: <10802039-ca65-41c0-88fa-51db6d86aabd@iopsys.eu>
+Date: Sat, 11 Oct 2025 08:01:59 +0300
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v9 15/15] arm: dts: airoha: en7523: add SNAND node
+To: Krzysztof Kozlowski <krzk@kernel.org>,
+ Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>,
+ Ray Liu <ray.liu@airoha.com>, Mark Brown <broonie@kernel.org>,
+ Andy Shevchenko <andy@kernel.org>, linux-arm-kernel@lists.infradead.org,
+ linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org
+Cc: Andreas Gnau <andreas.gnau@iopsys.eu>
+References: <20251010204500.1625215-1-mikhail.kshevetskiy@iopsys.eu>
+ <20251010204500.1625215-16-mikhail.kshevetskiy@iopsys.eu>
+ <34899379-9788-4ac8-8b62-e9f47b4d49d9@kernel.org>
+From: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+Content-Language: en-US, ru-RU
+In-Reply-To: <34899379-9788-4ac8-8b62-e9f47b4d49d9@kernel.org>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: GV3P280CA0112.SWEP280.PROD.OUTLOOK.COM
+ (2603:10a6:150:8::23) To GV2PR08MB8121.eurprd08.prod.outlook.com
+ (2603:10a6:150:7d::22)
 MIME-Version: 1.0
-References: <20250928085506.4471-1-yangtiezhu@loongson.cn> <CAMj1kXG8Wi+THa2SeLxiDT=+t_TKx0AL4H-azZO4DNJvyyv96g@mail.gmail.com>
- <CAAhV-H7xOf8DEwOrNh+GQGHktOT4Ljp+7SqutGvvDZp6GLXJrA@mail.gmail.com>
- <CAMj1kXG=EFkRAMkvKMSjPixoGqU-tZXVoRkJJ6Wcnzs3x52X6Q@mail.gmail.com>
- <CAMj1kXHWe2uGY3S1NJ6mckqD4n116rPmaOzw3_Qbvxyjh7ECMw@mail.gmail.com>
- <fec0c03d-9d8c-89a3-886a-1adc22e59b66@loongson.cn> <CAMj1kXFLyBbRL+pAAQ6be6dxqFPiyw_Ug8qNQWaicZQ235HE=A@mail.gmail.com>
- <8091e8fa-3483-af39-2f7a-e4eb62b0944f@loongson.cn> <CAAhV-H4+UGLSkbjHbq9MerWfxnq0a13x+uzNfTsCoe1UxjbWsg@mail.gmail.com>
-In-Reply-To: <CAAhV-H4+UGLSkbjHbq9MerWfxnq0a13x+uzNfTsCoe1UxjbWsg@mail.gmail.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Fri, 10 Oct 2025 20:40:26 -0700
-X-Gmail-Original-Message-ID: <CAMj1kXH-rK0bRyHXdJ-crAyMyvJHApH0WR7_8Qd8vrSPBLK+yg@mail.gmail.com>
-X-Gm-Features: AS18NWCSTMnmP5OepZJr1Y4u3ZHVFaMO9Ik-XYJVsvY5QDAPT-bP-GHnlwwanEk
-Message-ID: <CAMj1kXH-rK0bRyHXdJ-crAyMyvJHApH0WR7_8Qd8vrSPBLK+yg@mail.gmail.com>
-Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
-To: Huacai Chen <chenhuacai@kernel.org>
-Cc: Tiezhu Yang <yangtiezhu@loongson.cn>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: GV2PR08MB8121:EE_|VE1PR08MB5854:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2aec58ec-e1be-4869-5ff9-08de08835086
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|376014|366016|1800799024|921020;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?RlJ6aDNBbW5oZmQ1NE9aMk9zcndDdWtrSjk4ZVNTLzJNSHROa3BOSjZ6cWYr?=
+ =?utf-8?B?THl2cTFneUpHMmxKZ3U3YVpZR3c4WnpBVzN2V0gyR09DRnptV0I5NFVPNlJq?=
+ =?utf-8?B?Y0pzRVI0aFFKMlR5cG45RGFiVWNjYnoyNmdSYTIvWXR0UTdHaXluMjg1QzlW?=
+ =?utf-8?B?VkVWOUdrL3ZtMjNYaG5PYXdCdWE3L2M1SERQL0NHUUY5UEczRmxiSkF2L0lm?=
+ =?utf-8?B?TFljUGJ4VFF6blFReXRCTUxzUVgvUlRXeUJDQXVBSXBONjFoUkdUOGg1Z1Iy?=
+ =?utf-8?B?enF3MWNCQ1dLeWlDbUtpNkh4NjVsUnUweWx0QTBZaUcrbXRnU29RbXhVZ0FN?=
+ =?utf-8?B?UlgzUW9lN0labzg5cUZkMGZiVEg3enIvNXdvQXlKcmtTZU53T3BDblRHNUZr?=
+ =?utf-8?B?eW1DaDBHNForaU1VSytFWkpyWVBadmE1VkJJTW9ZcEFlVnl4ejd0KzJLT0xG?=
+ =?utf-8?B?Y1E4MElrTjFxZ1N3aklmUGw1WTFzS0R6MXlsMDF5TmY1dDZ5QU5LNStTYjls?=
+ =?utf-8?B?dHlwVTJ1N25QbTdvM1RRbU5haWtCQUFCQ095a1REOTdsditaVXN2YTFFQWJH?=
+ =?utf-8?B?N2tWN1Yybmtna1ZkQU9RN1lSaElzckVRa3hvVGpqVDZuL1hpOFErNy9IamFn?=
+ =?utf-8?B?ektMZEFRWk9naFhiTEdYb3lKMUJocTZpR1ZOVk56ZXdhOWtJaE5ZZFJOT3Bu?=
+ =?utf-8?B?ZnRCZkR4WG5wQzY5bFNlc3BYS0tYbUJNcWZ4YTdvVHFuNjVTVDQrUFJTOXJV?=
+ =?utf-8?B?dXJkOHYvYnZhbXhRa0FWNWJKNGthbEFtVmNFeFkwL1VoU3o3QUdyUy9xdzlW?=
+ =?utf-8?B?TUFqNndyeDREcnh1Y3NkOHFyNGJQVjU0NGZFUHpzeEZEaUNpaE52clJuaksx?=
+ =?utf-8?B?VXdHQWtobEdDbnY4NFAyK010ekxTQjRhTnlsSU5qN3NnZGk1aU5EeWVRMTVR?=
+ =?utf-8?B?U1NqLzducDBaVkZpUEwwU3pNdzR2Y2J3SFZpQUpmYi9BS2pKV3BsdUxCdFhD?=
+ =?utf-8?B?Ujlock5FbVN2YVhVNENQRnEvN0dPMU45L3FWY1F0NHdJT01VSXdiMTZSbXIz?=
+ =?utf-8?B?dEtxTytsYjBzaWxZWGw1ZUo4cDNKaHMxZ2RpeTRzb0YyVnBZekFYeUt6NExS?=
+ =?utf-8?B?OHlTbHBndnloUkltUUNPVFJ0QnArU1ZBY1RlK1lMTDkxQm1hMG0xMXhueW5m?=
+ =?utf-8?B?cExVb3JIdVVSZkVKWk85eU1XMWtsQmpSTi8rNE5FR1FiWkhxUTZqakZsTE1s?=
+ =?utf-8?B?R1FUOXA4eWtQZTFra2JjSGFRTjNwR1VuUk1nMmZLeG9hais5cmdrc1RHclA0?=
+ =?utf-8?B?a0tUWEkra2RpbDhrVU13bytSL3l0QmVyKzl1YzZWbkJxc1dybzVUZ0x5cGpR?=
+ =?utf-8?B?b1lBT1dNeFM4TEZTV1FIc0xmVGxqWUFTTlBjOXdXR0V0ekpBN2l6dUJYVnFn?=
+ =?utf-8?B?SkRDWVBvcEJJQmgyU0R1YU9HeVNTYWJ4TkxLNXJxdlFwTWhZZ3RCTDBJWFlS?=
+ =?utf-8?B?aCtiSVNRMnR6RGErMWVoa3hoUVRtYnlyd3NuT3c0Tjh0MXFQdm9lZDRpQktU?=
+ =?utf-8?B?dGpyOW5PaXBnZks0M0c1TU9rcGpFK2VxclJJZnVmR1d3UThzd2p4QmdsQkxB?=
+ =?utf-8?B?UUZ4SnVCdS9EZ015NFNSd2JsME4rdEorRXE1ek1hUzNlci85SEVqeG92Yk5y?=
+ =?utf-8?B?RWMxU3FRVG9od2xtS0VSUE9LbDlzUDhXSVlxcmVndk5oYlBub2lmZVozZWhE?=
+ =?utf-8?B?M2xLMlJtRTlVbTNDUEU5TUZuMmdOVDRMUmJiYWp1SnZEcldkRnRKYVJWRTRs?=
+ =?utf-8?B?Mkl2NnpIWWRIMTRXSnphOENvaEZUTVBvazEzSFNPclo3Zm1zYUFJYXJwTG5G?=
+ =?utf-8?B?S0d5UXMzb2FuZDVkdW1ZU2lROEQ4OE9ya2o1UGlUZXUzNWNXbWFhTXBxQWVX?=
+ =?utf-8?B?ekJmU2lZbCtmajRtV2ZkZWMvSkpGNVdwVDhiMzBLQTJNTVd4eWhMbWxBWEdh?=
+ =?utf-8?Q?7jjFtD5n81ufXTalIRI3v2jXBOizgU=3D?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:GV2PR08MB8121.eurprd08.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(376014)(366016)(1800799024)(921020);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?RUdjbW9QRWtFT2puN2pVdlZJYThxdnRHcHA0Qjk1dWNwMTJOay9BVU0zSkc2?=
+ =?utf-8?B?WHRZdE45MmwvSXhDTHMxZzRDOHNGNHl5Ymx2dU5JMk40VEF2UnZ4TnlrM2FO?=
+ =?utf-8?B?TWp2OG9IUVd4NlE4ODEzQm9JazhrNm9zeWpmZlVDOWdnaURpenljUnVHVlNF?=
+ =?utf-8?B?ZTZyOXJ2TzQwVDliU09ydFdSVmxmRHhzZXZBaEFWSkhVSmVYS1luQld4U2xk?=
+ =?utf-8?B?S3d2YzFiRTVROXdNU1hRU3FZMEVSaTNGeWtDT2ZZVDRTV3MwSENDUTVtdmZ6?=
+ =?utf-8?B?VWxDMFRJRCtpOXlKSmtGeEk2SHZTekVXcFFEdTlLeHZseDRRTzhkRW82eTgv?=
+ =?utf-8?B?Ti9Vb0QvUGorVFJlRzJBSnhVRzBwUmo1RXdUNkhrTW5OY3NzNmIzNXVzUk1s?=
+ =?utf-8?B?R2hxYXFsbFloU0oyZCtSeUYrYVJGVlhMVU15QWRPbU1jTjBuRnVGZTFTNVJI?=
+ =?utf-8?B?UjdIV0VmTVM4OU1zSmRmZFU1WWwvdEtWYTZRc2NiSWwva0g1SUs4SDFFVkVC?=
+ =?utf-8?B?Nm5tUk9RRzcwVnVGUkM0VGVnZGVpcEtUQjJHRXFjL2JqM1QvNCtsUE9lMlZX?=
+ =?utf-8?B?MjROL3NjdnlWQ2dwdCtKV3ZZZWF6eENETENkeFl4V3VCeVIvRjVEQUwzNXBp?=
+ =?utf-8?B?dlVDZWlOR3ZxQ3R1Unk5Y25FMm8wUUtyNVQrRmtWVXQ2K09ZTXF2QUg4QWMy?=
+ =?utf-8?B?TkhPcWREZU9iZlpDb3JhU0JjNmRoa3UzS21nVDFXMkoxdm12T3hqeVc0OHVn?=
+ =?utf-8?B?a0lOZ3JyUDFuWlpsTWJwdm1NL0UxeFh3cC9Ic3FLazczZVgybXpPYmdZeFhP?=
+ =?utf-8?B?eFAzbGU2QnYwODFaTVc0QkhwRDFaRFl1ZmZUMnZGTTMveUd1d2tBVGpUaG9r?=
+ =?utf-8?B?VkRnR2p1dHkrVWlMakNXSThuYW8wYi9yeXFESEtYV0pqWTA2UGl2UlVmWHdY?=
+ =?utf-8?B?Q1dBRFZMV3BMYmZMSjhVdzM3L0tUclQweW13bWRlYzN3QitGbXR2MWVXeHJp?=
+ =?utf-8?B?c2V6QlZQWGFab1U2UEV2a2NvSW5sU2szc05VTmd5ZnMzTmFHeWNEWURPNzNv?=
+ =?utf-8?B?R29jaTBPQWQ1U2gra2hySTJPeFpHUXcrRjVDbXN3QkgvNEFHVG9VYzFXRlhZ?=
+ =?utf-8?B?QUh5TUg4RFF4SFE0a2xHWGVObS9tSERLSWl5OE9HcGcxVEcrYzhSbnc0Mk1R?=
+ =?utf-8?B?QmtKMnlYQkZwM29hb3hDcUZKNUt2QWNKOXgwY1NTSndEVWlhTGs4N1pCRHp6?=
+ =?utf-8?B?YVg2cnJkNDY2M1A3Z09xTjFwVjR4eEF0STVLTVVGbko5dXNmTG40bGYrYkdx?=
+ =?utf-8?B?SnVRMEJTUm9sb1dhRXFoTFVVVDd0VE85aWxPRTlYd2NIV2hiOFE1TkYxWCtY?=
+ =?utf-8?B?Z09Tc2FxeGo5cGM0eFBBKzB1S29hQlVET2k0eXB2bnlnK1EzTnYwSHRuNGNt?=
+ =?utf-8?B?TmpJTGFzSy9KMU1jKys5VzNqeDJ6SzZ1Y0ZON0ZxOWJ4OG9NZkR1bjQrNnVH?=
+ =?utf-8?B?VkxEMUkvRnJOeTVRY0MwUkFWcGgzVkxXWjNlVGN2N21pdDZVV1Y2S2tPL2FI?=
+ =?utf-8?B?OEVHcGUzYno2TUJFZTJJdjcxbGVEcitYOU9FeXh2QWhYYTVLNFVxVlBiV2ZP?=
+ =?utf-8?B?MWlCVStydXJRc3B6Uk1MSCs3dStPN3hERlg0YVc2V1hja25KUk1yVjlqKzBj?=
+ =?utf-8?B?dkdFdGJmZFltWGlTV0tzMTVjK2N2NVB2RE5SdldFdGU5OERBTWllZUdMZ2U5?=
+ =?utf-8?B?bkpLdWdPdnJtL2ltaVp4dkVVNVUvNm9WeHk2b3IybWFyaDZqR0p2djJGK1RE?=
+ =?utf-8?B?aUVsOFZmd0ZUOXdwQUh1YTRzSitnUjdvQWhNd2M5OW5VWEFtNUlQOFhyenJk?=
+ =?utf-8?B?NG5HQlZETEIrUTJ5WHFlc0NpeERKVkZtakdQY0thUEFvMVFkQlpsQkxaVWxx?=
+ =?utf-8?B?bmo1WUsxcDk5SDhLVXY1MUlLVjEwcThSdTFZM3drNVpNbHZiQldtcFFMQlg1?=
+ =?utf-8?B?QjIyRjB3TEgzZ3M1Vk9rWW5UODNqRFNPTEU1Si9Ld3dzYUtpRUxsRGhMUTdI?=
+ =?utf-8?B?S1EvWkoyN09nbldxWTVscXB5bWNqVVVCUjFNcFVrdmd0a215RlBEdFBrcGJq?=
+ =?utf-8?B?STdvZk02eDQrZE85R2JaM25ZVHhyZmJ2Qnhjc1pDbjJNb2dpMDR4dUI2Rjhh?=
+ =?utf-8?Q?o/yRupKJG4U4l/vrMUFt0OQ=3D?=
+X-OriginatorOrg: iopsys.eu
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2aec58ec-e1be-4869-5ff9-08de08835086
+X-MS-Exchange-CrossTenant-AuthSource: GV2PR08MB8121.eurprd08.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 11 Oct 2025 05:02:02.0485
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 8d891be1-7bce-4216-9a99-bee9de02ba58
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: CR58JbACKgDzA3o+t/vXUlnVY1YyQEG7ksoeP+fsrcZvGrsTqVKNgGMVjao/DQdLR9yOkALdAPCaR1eDdsNr4j0Zz9jukWLS4hgaqcYpCnA=
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: VE1PR08MB5854
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251010_220212_830715_E8F471BC 
+X-CRM114-Status: GOOD (  15.20  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,58 +185,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, 10 Oct 2025 at 19:54, Huacai Chen <chenhuacai@kernel.org> wrote:
+On 11.10.2025 02:42, Krzysztof Kozlowski wrote:
+> On 10/10/2025 22:45, Mikhail Kshevetskiy wrote:
+>> Add SNAND node to enable support of attached SPI-NAND on the EN7523 SoC.
+>>
+>> Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+>> ---
+>>  arch/arm/boot/dts/airoha/en7523.dtsi | 21 +++++++++++++++++++++
+>>  1 file changed, 21 insertions(+)
+>>
+>> diff --git a/arch/arm/boot/dts/airoha/en7523.dtsi b/arch/arm/boot/dts/airoha/en7523.dtsi
+>> index b523a868c4ad..78e351eb787a 100644
+>> --- a/arch/arm/boot/dts/airoha/en7523.dtsi
+>> +++ b/arch/arm/boot/dts/airoha/en7523.dtsi
+>> @@ -203,4 +203,25 @@ pcie_intc1: interrupt-controller {
+>>  			#interrupt-cells = <1>;
+>>  		};
+>>  	};
+>> +
+>> +	spi_ctrl: spi@1fa10000 {
+>> +		compatible = "airoha,en7581-snand";
+> NAK, now I found this... Respond to comments instead of ignoring them.
 >
-> On Sat, Oct 11, 2025 at 9:13=E2=80=AFAM Tiezhu Yang <yangtiezhu@loongson.=
-cn> wrote:
-> >
-> > On 2025/10/11 =E4=B8=8A=E5=8D=8812:25, Ard Biesheuvel wrote:
-> > ...
-> > > Why do we need both (1) and (2)?
-> >
-> > Not both, either (1) or (2).
-> > Which one do you prefer? Or any other suggestions?
-> >
-> > Taking all of the considerations in balance, we should decide
-> > what is the proper way.
-> As a summary, there are three methods:
-> (1) Only link libstub with vmlinux.o during the final vmlinux link.
-> (2) Remove the attribute __noreturn for real_kernel_entry() and add while=
- (1).
-> (3) Ignore "__efistub_" prefix in objtool.
+> Three versions within few hours, that's not acceptable. Outside of the
+> merge window the expectation is minimum 24h difference. Within merge
+> window this is just spamming.
+
+
+I already lost any hope to merge this to linux-3.18, so no problem.
+
+Could you and Rob explain me this compatible issue? I got a feeling that
+Rob telling me to keep "airoha,en7581-snand" compatible while you are
+telling the opposite. As for me the use of "airoha,en7523-snand" or
+maybe "airoha,en75xx-snand" for both en7523 & en7581 chips is the best.
+
+Is there any policy? Could you provide a link?
+
+Regards,
+Mikhail Kshevetskiy
+
+
 >
-> Josh prefers method (1), I prefer method (3) but also accept method
-> (1) if it is not only specific to loongarch.
->
-
-This is a false positive warning in objtool, which complains about a
-function that falls through, even though that can never happen in
-reality.
-
-To me, it is not acceptable to modify how vmlinux.o is constructed
-also for other architectures, in order to hide some of its constituent
-parts from objtool, which do not use objtool to begin with.
-
-
-If you are not willing to fix objtool, I suggest fixing the loongarch
-code like this:
-
---- a/drivers/firmware/efi/libstub/loongarch.c
-+++ b/drivers/firmware/efi/libstub/loongarch.c
-@@ -10,7 +10,7 @@
- #include "efistub.h"
- #include "loongarch-stub.h"
-
--typedef void __noreturn (*kernel_entry_t)(bool efi, unsigned long cmdline,
-+typedef void (*kernel_entry_t)(bool efi, unsigned long cmdline,
-                                          unsigned long systab);
-
- efi_status_t check_platform_features(void)
-@@ -81,4 +81,6 @@
-
-        real_kernel_entry(true, (unsigned long)cmdline_ptr,
-                          (unsigned long)efi_system_table);
-+
-+       return EFI_LOAD_ERROR;
- }
+> Best regards,
+> Krzysztof
 
