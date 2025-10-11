@@ -4,88 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 676D1CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 03:40:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6E12CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 03:40:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=7jDVuHMgHwQp4m5cd9mOgd8iCeqeSIO4Vb9udCzHEu0=; b=Trk0TWfXhwW2HaCEuYNjLWXCm0
-	4tDWn7PYFwpGXVIHTeUyHffTCUADv2+QSi2FG9NmzZzoDXjdQ0clNEbruC0W1p3Lp//rRO4g83+2j
-	QDR53PD5MgbThD7TZkChPOweg9LCJWkWI90WROvK62QSeQ4O1TC931ipgh+Zn2/jLefYVoR06F1Yl
-	LphKwFQXV66DB9cXagJfDCXBa7CiWzXTInDs9I9H74mx7ggMnjLEH+qvHkBioeL8iaVpTZ/3/msCz
-	iR7zNwGJPk0OqNhVVksZbeQSYB2VTqvJX7ObtU9kfo4/BTBmLCRi0ZX9sUGosuWGBwlEKaWHG2MIh
-	1jmd1mRg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4rZ5OY9YNy1tyQbF8ZBq3xrEXPSjfrKt/aDNx5G/Re8=; b=wJN0HMVoLJn9IA3qJxrdxeiCJt
+	C6g8QM1RB6FF9+Z93s2MLC1umI8BGT5uO36EXPYs0S1BoPA7uz/lPBFIWHDZhQWRt55FwumuBr3uM
+	Os7FKuMwYXmI/uIQpdniNIK+ewE4hrul7fhmKzqHJ07OffXavURyZKzqOTDaxnUpLYo3abwpAt+VP
+	fJ/MXJFRWqDdtWAtvWWagmXJY4XLi/363FrzjJ/17OXeoTiCTQGzdLjEkOmSM6WKgo9AKTz4rkQnT
+	XyU1TxRvM38yZPXfc+vlKoLPzaepigRAe8pojyz5wuhD8LYFuw7tQS9/p8/VLIGix4jsPzyoXfc1e
+	zwbySvLw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7QSx-00000009lPO-2Mxj;
-	Sat, 11 Oct 2025 03:40:19 +0000
-Received: from mgamail.intel.com ([198.175.65.13])
+	id 1v7QTJ-00000009lWg-2Xwo;
+	Sat, 11 Oct 2025 03:40:41 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7QSt-00000009lOn-3aJc;
-	Sat, 11 Oct 2025 03:40:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
-  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
-  t=1760154016; x=1791690016;
-  h=date:from:to:cc:subject:message-id:references:
-   mime-version:in-reply-to;
-  bh=p/Sw6hsNG/Asjp0JRAo06u1WUs6i3eDXjAUi4btbFE4=;
-  b=HkajbDfxrtAaJ9qvqevOoKTK0yoKuHrVAK1HPXUQZhhcNhpAum002J8v
-   BKfDFsu4Zn1K6Lkg5ZSg3H5f8wDx2NcTTGwczI1WFdQX34lkGASRBaIe5
-   V9jn0oC2J8R0aHBBRNBTtMiLE9gmBHfUUxs6dlADV6bBQE6OJ/n5veEEd
-   jaCoo4mtj0c9wUV6qY/7hxjpTkFiC196/GjJiqQl2LzMHcV7wDKD2TJTa
-   N89Ti6QsMm7qhwITDPNSnkM+PEja05Tbpfeq5RuB6guRL4dhqcwIADtTM
-   T9rHeWApjiRhrAtlN1bR8EeMCzpMClWUn3n6CCxG4CTOjg/9NnVXU83TS
-   g==;
-X-CSE-ConnectionGUID: tV9wv4qjTJ2Kf2Sxk4ySCg==
-X-CSE-MsgGUID: WYqsvdT9RZWnLg12d864LA==
-X-IronPort-AV: E=McAfee;i="6800,10657,11578"; a="73476879"
-X-IronPort-AV: E=Sophos;i="6.19,220,1754982000"; 
-   d="scan'208";a="73476879"
-Received: from orviesa006.jf.intel.com ([10.64.159.146])
-  by orvoesa105.jf.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 10 Oct 2025 20:40:11 -0700
-X-CSE-ConnectionGUID: SsZEgcbATqSz7rgWvti7/A==
-X-CSE-MsgGUID: oc8A357CSaCUSoyqDnPI5A==
-X-ExtLoop1: 1
-X-IronPort-AV: E=Sophos;i="6.19,220,1754982000"; 
-   d="scan'208";a="180236749"
-Received: from lkp-server01.sh.intel.com (HELO 6a630e8620ab) ([10.239.97.150])
-  by orviesa006.jf.intel.com with ESMTP; 10 Oct 2025 20:40:06 -0700
-Received: from kbuild by 6a630e8620ab with local (Exim 4.96)
-	(envelope-from <lkp@intel.com>)
-	id 1v7QSh-0003UX-1s;
-	Sat, 11 Oct 2025 03:40:03 +0000
-Date: Sat, 11 Oct 2025 11:39:41 +0800
-From: kernel test robot <lkp@intel.com>
-To: Roy Luo <royluo@google.com>, Vinod Koul <vkoul@kernel.org>,
-	Kishon Vijay Abraham I <kishon@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-	Thinh Nguyen <Thinh.Nguyen@synopsys.com>,
-	Philipp Zabel <p.zabel@pengutronix.de>,
-	Peter Griffin <peter.griffin@linaro.org>,
-	=?iso-8859-1?Q?Andr=E9?= Draszik <andre.draszik@linaro.org>,
-	Tudor Ambarus <tudor.ambarus@linaro.org>
-Cc: oe-kbuild-all@lists.linux.dev, Joy Chakraborty <joychakr@google.com>,
-	Naveen Kumar <mnkumar@google.com>, Roy Luo <royluo@google.com>,
-	linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org, linux-usb@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-samsung-soc@vger.kernel.org
-Subject: Re: [PATCH v1 1/4] usb: dwc3: Add Google SoC DWC3 glue driver
-Message-ID: <202510111335.oyOAs9MB-lkp@intel.com>
-References: <20251006232125.1833979-2-royluo@google.com>
+	id 1v7QTI-00000009lVr-2swe
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 11 Oct 2025 03:40:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 24587622E6
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Oct 2025 03:40:40 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id C879DC4CEF5
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Oct 2025 03:40:39 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760154039;
+	bh=d8gS8wOiKMr+l/ZJJK/wQClNzHRVZjbJoYCPz75pBA0=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=DzNmc2htDKTHCp3aozZ6E5kEpQ/T9k9BWOy4+jwgGV0SIndwfInOWiuXfSFiC5/5t
+	 QL0ZrMiCOK0FsZeNjSXSIG3/Br58Maj0goLA9/Q6msU1Q15XtRG+/XCdCPfCh/moCu
+	 3wN9SmB4nk5eeZ2n9d7wmFfMO1QGUzW5I1c3d7STbqXTYzS+mpV20pHVAmWvmSxSj4
+	 RkOfn0MoXV6y5yHYuCfrLF8mrUT/cWs/nH/BhFqc8TDo0dG4dA+boCphnqx3GOExuE
+	 QOttymeUokIXpaUETbAytEn+TzSZ/z6oVLixTt5MXuB/USBSphsTqedUHobjukDNnT
+	 j/m2eilL1toDw==
+Received: by mail-lf1-f49.google.com with SMTP id 2adb3069b0e04-59052926cf9so2847914e87.1
+        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Oct 2025 20:40:39 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXJQFJUIyzYc9VQCOq9Axbh68HFMt406CCO8Yfwfo9pz5bB2aRDOdiSvYbFaIfXane6rABnj2dTKoVXakNDEpz8@lists.infradead.org
+X-Gm-Message-State: AOJu0YzbEoFF93HZeSdlpcAu2gGLl9cPsGV6FQEaGos1nmRcWBI0LArC
+	mLAUavK6wm0uHKvY1ZLyeKl7iQvnPzDP744M9GTbsP+ptuGVRtGyb4LRZlOkUCWA5DziLkUKt8r
+	QF9SrYIggl63t9HvGAykjHTJKimQnJKU=
+X-Google-Smtp-Source: AGHT+IFLXMYQ5g+Z7hYaE+htkOTZgcAsNtsCxDgeGT8tN/INhUQhJ+SJe8urgMafAAQJ9Ld+ELNhgSE8e7XFB5+/m9g=
+X-Received: by 2002:a05:6512:b10:b0:577:9ee:7d57 with SMTP id
+ 2adb3069b0e04-5906de88ee4mr3575140e87.46.1760154038165; Fri, 10 Oct 2025
+ 20:40:38 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251006232125.1833979-2-royluo@google.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_204015_971583_22DEFCAA 
-X-CRM114-Status: GOOD (  11.01  )
+References: <20250928085506.4471-1-yangtiezhu@loongson.cn> <CAMj1kXG8Wi+THa2SeLxiDT=+t_TKx0AL4H-azZO4DNJvyyv96g@mail.gmail.com>
+ <CAAhV-H7xOf8DEwOrNh+GQGHktOT4Ljp+7SqutGvvDZp6GLXJrA@mail.gmail.com>
+ <CAMj1kXG=EFkRAMkvKMSjPixoGqU-tZXVoRkJJ6Wcnzs3x52X6Q@mail.gmail.com>
+ <CAMj1kXHWe2uGY3S1NJ6mckqD4n116rPmaOzw3_Qbvxyjh7ECMw@mail.gmail.com>
+ <fec0c03d-9d8c-89a3-886a-1adc22e59b66@loongson.cn> <CAMj1kXFLyBbRL+pAAQ6be6dxqFPiyw_Ug8qNQWaicZQ235HE=A@mail.gmail.com>
+ <8091e8fa-3483-af39-2f7a-e4eb62b0944f@loongson.cn> <CAAhV-H4+UGLSkbjHbq9MerWfxnq0a13x+uzNfTsCoe1UxjbWsg@mail.gmail.com>
+In-Reply-To: <CAAhV-H4+UGLSkbjHbq9MerWfxnq0a13x+uzNfTsCoe1UxjbWsg@mail.gmail.com>
+From: Ard Biesheuvel <ardb@kernel.org>
+Date: Fri, 10 Oct 2025 20:40:26 -0700
+X-Gmail-Original-Message-ID: <CAMj1kXH-rK0bRyHXdJ-crAyMyvJHApH0WR7_8Qd8vrSPBLK+yg@mail.gmail.com>
+X-Gm-Features: AS18NWCSTMnmP5OepZJr1Y4u3ZHVFaMO9Ik-XYJVsvY5QDAPT-bP-GHnlwwanEk
+Message-ID: <CAMj1kXH-rK0bRyHXdJ-crAyMyvJHApH0WR7_8Qd8vrSPBLK+yg@mail.gmail.com>
+Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
+To: Huacai Chen <chenhuacai@kernel.org>
+Cc: Tiezhu Yang <yangtiezhu@loongson.cn>, Josh Poimboeuf <jpoimboe@kernel.org>, 
+	loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,92 +87,58 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Roy,
+On Fri, 10 Oct 2025 at 19:54, Huacai Chen <chenhuacai@kernel.org> wrote:
+>
+> On Sat, Oct 11, 2025 at 9:13=E2=80=AFAM Tiezhu Yang <yangtiezhu@loongson.=
+cn> wrote:
+> >
+> > On 2025/10/11 =E4=B8=8A=E5=8D=8812:25, Ard Biesheuvel wrote:
+> > ...
+> > > Why do we need both (1) and (2)?
+> >
+> > Not both, either (1) or (2).
+> > Which one do you prefer? Or any other suggestions?
+> >
+> > Taking all of the considerations in balance, we should decide
+> > what is the proper way.
+> As a summary, there are three methods:
+> (1) Only link libstub with vmlinux.o during the final vmlinux link.
+> (2) Remove the attribute __noreturn for real_kernel_entry() and add while=
+ (1).
+> (3) Ignore "__efistub_" prefix in objtool.
+>
+> Josh prefers method (1), I prefer method (3) but also accept method
+> (1) if it is not only specific to loongarch.
+>
 
-kernel test robot noticed the following build warnings:
+This is a false positive warning in objtool, which complains about a
+function that falls through, even though that can never happen in
+reality.
 
-[auto build test WARNING on e5f0a698b34ed76002dc5cff3804a61c80233a7a]
-
-url:    https://github.com/intel-lab-lkp/linux/commits/Roy-Luo/usb-dwc3-Add-Google-SoC-DWC3-glue-driver/20251010-092651
-base:   e5f0a698b34ed76002dc5cff3804a61c80233a7a
-patch link:    https://lore.kernel.org/r/20251006232125.1833979-2-royluo%40google.com
-patch subject: [PATCH v1 1/4] usb: dwc3: Add Google SoC DWC3 glue driver
-config: s390-randconfig-002-20251011 (https://download.01.org/0day-ci/archive/20251011/202510111335.oyOAs9MB-lkp@intel.com/config)
-compiler: s390-linux-gcc (GCC) 15.1.0
-reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251011/202510111335.oyOAs9MB-lkp@intel.com/reproduce)
-
-If you fix the issue in a separate patch/commit (i.e. not just a new version of
-the same patch/commit), kindly add following tags
-| Reported-by: kernel test robot <lkp@intel.com>
-| Closes: https://lore.kernel.org/oe-kbuild-all/202510111335.oyOAs9MB-lkp@intel.com/
-
-All warnings (new ones prefixed by >>):
-
->> drivers/usb/dwc3/dwc3-google.c:467:12: warning: 'dwc3_google_resume' defined but not used [-Wunused-function]
-     467 | static int dwc3_google_resume(struct dwc3_google *google, pm_message_t msg)
-         |            ^~~~~~~~~~~~~~~~~~
->> drivers/usb/dwc3/dwc3-google.c:441:12: warning: 'dwc3_google_suspend' defined but not used [-Wunused-function]
-     441 | static int dwc3_google_suspend(struct dwc3_google *google, pm_message_t msg)
-         |            ^~~~~~~~~~~~~~~~~~~
+To me, it is not acceptable to modify how vmlinux.o is constructed
+also for other architectures, in order to hide some of its constituent
+parts from objtool, which do not use objtool to begin with.
 
 
-vim +/dwc3_google_resume +467 drivers/usb/dwc3/dwc3-google.c
+If you are not willing to fix objtool, I suggest fixing the loongarch
+code like this:
 
-   440	
- > 441	static int dwc3_google_suspend(struct dwc3_google *google, pm_message_t msg)
-   442	{
-   443		if (pm_runtime_suspended(google->dev))
-   444			return 0;
-   445	
-   446		if (google->dwc.current_dr_role == DWC3_GCTL_PRTCAP_HOST) {
-   447			/*
-   448			 * Follow dwc3_suspend_common() guidelines for deciding between
-   449			 * a full teardown and hibernation.
-   450			 */
-   451			if (PMSG_IS_AUTO(msg) || device_may_wakeup(google->dev)) {
-   452				dev_dbg(google->dev, "enter hibernation");
-   453				pm_runtime_get_sync(google->usb_top_pd);
-   454				device_wakeup_enable(google->usb_top_pd);
-   455				dwc3_google_enable_pme_irq(google);
-   456				google->is_hibernation = true;
-   457				return 0;
-   458			}
-   459		}
-   460	
-   461		reset_control_bulk_assert(google->num_rsts, google->rsts);
-   462		clk_bulk_disable_unprepare(google->num_clks, google->clks);
-   463	
-   464		return 0;
-   465	}
-   466	
- > 467	static int dwc3_google_resume(struct dwc3_google *google, pm_message_t msg)
-   468	{
-   469		int ret;
-   470	
-   471		if (google->is_hibernation) {
-   472			dev_dbg(google->dev, "exit hibernation");
-   473			dwc3_google_disable_pme_irq(google);
-   474			device_wakeup_disable(google->usb_top_pd);
-   475			pm_runtime_put_sync(google->usb_top_pd);
-   476			google->is_hibernation = false;
-   477			return 0;
-   478		}
-   479	
-   480		ret = clk_bulk_prepare_enable(google->num_clks, google->clks);
-   481		if (ret)
-   482			return ret;
-   483	
-   484		ret = reset_control_bulk_deassert(google->num_rsts, google->rsts);
-   485		if (ret) {
-   486			clk_bulk_disable_unprepare(google->num_clks, google->clks);
-   487			return ret;
-   488		}
-   489	
-   490		return 0;
-   491	}
-   492	
+--- a/drivers/firmware/efi/libstub/loongarch.c
++++ b/drivers/firmware/efi/libstub/loongarch.c
+@@ -10,7 +10,7 @@
+ #include "efistub.h"
+ #include "loongarch-stub.h"
 
--- 
-0-DAY CI Kernel Test Service
-https://github.com/intel/lkp-tests/wiki
+-typedef void __noreturn (*kernel_entry_t)(bool efi, unsigned long cmdline,
++typedef void (*kernel_entry_t)(bool efi, unsigned long cmdline,
+                                          unsigned long systab);
+
+ efi_status_t check_platform_features(void)
+@@ -81,4 +81,6 @@
+
+        real_kernel_entry(true, (unsigned long)cmdline_ptr,
+                          (unsigned long)efi_system_table);
++
++       return EFI_LOAD_ERROR;
+ }
 
