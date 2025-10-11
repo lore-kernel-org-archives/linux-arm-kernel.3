@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB708CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 16:51:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2FDEFCCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 16:57:21 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xDql/hmPHmbhLyPjNWGht0IrlePqDSoVlgpyDaLxB/g=; b=Ty6wNu7C9S3XxtPp5BZtP+ipUy
-	68X5iNoh5GVClqus2RumH0moLUAnH6zB+MvcyTHb6C4flQE9TpYl2I3Ss49+u6O4P2IKxjLS3ej67
-	Fbg05X59tlI1QwPu5G8RvOgcWMvgk6GG51Ro5NUPkLLkPfo/H5VILyfTTRti+5wsrkah/5AmZXeUc
-	2gErU+NhJI08up5VYrxxqihKwZ9vcJX+4JLfA4uEAs2CiEIB0HGOYvDCOSjcHrMC+7zXzcNbNnfdV
-	WJKal55nhrBYujH5LVFTxSvnWoIr3j9L9QaIFirfWY6K/V9P4LcCAGpvWLCFYLCVQiaykuw6YIzGc
-	cqMy4XbQ==;
+	bh=Xy1TDfM9Hn+Ss3qcAnJ0/lo59/hSSLBS4fspMrOt/L4=; b=nrpdwnuGXBYncw9P/MldSHC9rF
+	05Yd/095hEYw6uGUFQTxxaFIkP7ZmAqhBnGmwa4aU+Z4ypTZey3XuSygimPM1RcU2r+ohYWKsv0fG
+	snQoZkuqXhqFfYHiFCIwwOu2xip8k19yfA1FzfA8mGu+KMh2W9KxCO5Fy7oeT68AXdsElb9kwIOXT
+	yjA2+M4/k6/2Qj1hG1yb+wEy0fJIBuS8CR6VZ1jQXCHRoyCeCQzW44WOmSpgotJpKIBIqK5WfdYjd
+	Z30mNDOmL0BskGG5yLMfQ2irhWTw1ViD229u7o7Ag+4/rxqxZ3/F8gk5Sx8PwjigjUUlzlTUXqkHW
+	Etgenm5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7cox-0000000ALms-453c;
-	Sat, 11 Oct 2025 16:51:51 +0000
+	id 1v7cuA-0000000AME9-48n1;
+	Sat, 11 Oct 2025 16:57:14 +0000
 Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7cov-0000000ALlg-1YAX
+	id 1v7cu8-0000000AMD9-0wNb
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Oct 2025 16:51:50 +0000
-Received: from pps.filterd (m0279865.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59B3SDs5003602
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Oct 2025 16:51:48 GMT
+	Sat, 11 Oct 2025 16:57:13 +0000
+Received: from pps.filterd (m0279867.ppops.net [127.0.0.1])
+	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59B3Uuac018896
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Oct 2025 16:57:11 GMT
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
 	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=xDql/hmPHmbhLyPjNWGht0Ir
-	lePqDSoVlgpyDaLxB/g=; b=EvAdmvm6JMiBwFtspv0DVRebMaZ0aXzHvBjDTmh6
-	Pl60vwPGKB0cy3LVeUlVVjqCfimlC7XL7NnbIhmMZ5worXFZG91+Siul6cbVZs0L
-	/tYDYwhfev7fPrgJq8VIpAhQ7xY1tndC7UIOZzQNtAtgIOpFU9lLhrlSlZ/tMh00
-	G4rXeTkQIwVKyC9ovm5cMzFOzx94tfTYYTPcIji09/iwL63WTS2Gd45X9PBAW6MA
-	YYde0awJMTCsglI/bbJwhzW00Y2bz+0MQmivyjvX1rPJD0xqfMcU8RutgBgNGbY1
-	HiCWWxsnlZUDXyE/g5bcjD72dU2gQvJZLDvITIxdLDojUg==
+	:references:subject:to; s=qcppdkim1; bh=Xy1TDfM9Hn+Ss3qcAnJ0/lo5
+	9/hSSLBS4fspMrOt/L4=; b=CFtwP9UfiZHiCGMUOw1deU4fP4xpIF+oTXGJDPPE
+	tIL89PvjLtTf/YbkszSYepRnEDxvkn3PVliVw4u4TAkGO3LUgC/Q9jdUNZLTdGwo
+	gmqHB9xnY0fbHRymvvggtm+gwEPtfxmvem0N1+J5zGWuk/yAZ8j913d3wv9kfqCu
+	znuNTU5DIfxEgKNV/JyFbG1dm0iQ8kEDixgK4WteCdzXVvJp/OSPlJHWMT3v+R9/
+	ROSpe+5KfOguZ+K4VVqtIUghzCUQklTR8lLvDJ5jbRIERbz+7G+oGIRc8RvjdGJl
+	wqvtgyUzuJ6JXTrmQZv4RdlrXbiRL+GtUJw8xbEOEC6jEA==
 Received: from mail-qk1-f198.google.com (mail-qk1-f198.google.com [209.85.222.198])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49qfbs0x9j-1
+	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49qfd8rx6m-1
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Oct 2025 16:51:47 +0000 (GMT)
-Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-856c1aa079bso1725567785a.0
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Oct 2025 09:51:47 -0700 (PDT)
+	for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Oct 2025 16:57:11 +0000 (GMT)
+Received: by mail-qk1-f198.google.com with SMTP id af79cd13be357-85a0492b5feso2696559085a.0
+        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Oct 2025 09:57:11 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760201506; x=1760806306;
+        d=1e100.net; s=20230601; t=1760201830; x=1760806630;
         h=in-reply-to:content-disposition:mime-version:references:message-id
          :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=xDql/hmPHmbhLyPjNWGht0IrlePqDSoVlgpyDaLxB/g=;
-        b=AaA866IXYDDYcZbRQSTpCPDORR9Imx+NrpGJDArHvdDEhtxQr4G96fXNUmS8muv2sZ
-         p90vg+d8K7kqUhv2wzxogVne/wcV5r4auP2h8rhiDaOyrnhekqQbf3n57djsc5TqPz05
-         UzfwZTsGYQ19j4mqOcRj06LvvMQzZpYxB6EJbf8JrEoh0wKfQSEPH7eX8jzIbmv9YvLR
-         KbSeK6EltLnFG5IyT9j7lbq559EFCLLI3aC1QpjyDI3nIPYo1gPeHGUewTLzblJTjPgq
-         majuKnUJnl1UsUpFqia5LxaBZYm+l7vhhtoTvKnyzUYBVwBJRgBuSrgy6OdMlvwZKYXU
-         YB4g==
-X-Forwarded-Encrypted: i=1; AJvYcCV6FVaCsjVFSp/qGs2ATy/ST5tZxCKC3d76mTajgEo89znXRtM71pH7idBbDxfTSq3fubgRbxtUC4H4nru0A37F@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx65CSMhWazyADEoQ5TyIxmFD01djh5c3o8aYE0wgs068VJNLR+
-	FW638PTilLtWHWK3I4x+zHYV2rLhfknTXclyBcFI5m2RSsb3PjRT6kKrcXZMrvTQRamFi+juTrB
-	9Dc/O39dTVPkwhauJ0fUrnzJu7Fuz2wkSsw9RioPBpRcqm/tA29UBMEwgcy5ALlDmFfaotvtqzk
-	7n6w==
-X-Gm-Gg: ASbGncuWughcjDizjatjQGCUjaJg/One0g85TEM2ZWzvyROAqFslwXYRLwnypnpL6Jj
-	Va2oh99GbG/bUbmZxJu1mwbrI26GvKYu1g6P1CsRf3AbPHCGd8Tep5AxPVo2KCmw6H9EHhfNV+N
-	02vPGv0DlF3bG1F02+CVAqbiHJpE1xuKGz28VyF2RxB8GBesSSYWfJ/RJ05L4F+47hyUV/ow+LO
-	0hlQkpvnoawXGXSz22BYbKRZsofxOsuX4K0XdaN+g6Gdlr9ugenQelteIkqo3rIu87zzCx9UutO
-	ZW3RgapxZKdL1UOX6eG0xE1d54ZlJbIFDdv91IMTOvXz5QWTmPJQAFRa+8BGj2HDkedzyVldqys
-	DTvA4gIwrzdZz9zfePj6DrepvTV69J3tUtbEmyqlZw7AY89QSK5bP
-X-Received: by 2002:a05:620a:690f:b0:878:7b3e:7bc4 with SMTP id af79cd13be357-8820b47d5cemr2727435785a.11.1760201506224;
-        Sat, 11 Oct 2025 09:51:46 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IG1knLg1ejAD4VBlbVpVAYhUPHuhDgVtfBnPSvgk3VxA9bjqCPn8ECh/NUyGL80y7radiIDxw==
-X-Received: by 2002:a05:620a:690f:b0:878:7b3e:7bc4 with SMTP id af79cd13be357-8820b47d5cemr2727433485a.11.1760201505751;
-        Sat, 11 Oct 2025 09:51:45 -0700 (PDT)
+        bh=Xy1TDfM9Hn+Ss3qcAnJ0/lo59/hSSLBS4fspMrOt/L4=;
+        b=vGPd0XTyKtx9GgAN8sQArpPSeuF0CTbKaDOXzVJlo05iClVTpTuns03/BMOWXuIGvo
+         SfPbXuzXOsmVt7p5D0qY9XXTDwzdUqJnrsaNd8Hw97EUzYWmZEiV1ZNajprQNwNn3EFL
+         ospa389hO4nM7cVp/M3esy2B9TeBW5eqRvaBvD7k48g11eGkwu6M12Tp+kwO7MdziIE7
+         7YJP01U8cmvSfQ0r0oyYuUMtv6SV0/A590a548E8XKpmpn7/sw/VQjV0zcIpZC2EPGwU
+         ISFDceIFfcETnOwRPU2e7+bGbfJW5Kwx55q5/ybvYmZOea0tbHJYQVOBkzheaMcVYo+Q
+         coyQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXElpPDb6DnXV+Kmg6qvulhaZ4RHfKybTSnyAlR/Dfk6fZpxnRvs6JuG9VAowc4wZd79rGzeV4wWgsfer5M+kEd@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw3lZC57AukBpDPqQ9Vs9yR6Bj2Z27GW9AfSmtdVof/HPbc0QAS
+	ENNfJjFbdaC0gBFDyUfnw5nheFaDJXGVHmCxYXkiUp9gS8tUTNxP87UrlOyyKT04QHowoI70Jqk
+	0AGeIJidae4N6qvwbwDUpsFfWg88MPA6cR9SRjX8b9jGHBcia9QkKyOJmMzdjPu64y6D9IOa658
+	ajeg==
+X-Gm-Gg: ASbGncsGobCXRSXvJI+sCwAOPiEOa45EAgNOSsvbPaWZAGhHMXl3JVdZ7uimXxeAW2k
+	+dlu8PXgnwP/0odUAO1nX5yinY7dv2dw7ihZGfMCf60sL0D9rRk8mBchKsU83MZ8X5gH17Q3/d6
+	TG7q8dzYmdEXufY9HOYL5qVmLanIuVVPamLygJcrpaPT6S7SeHJl0p1I3AuLanuFmf6JCExCsDt
+	JJgEpJcidaaERiIidFuXTBWVUBxbM0dw5f4mRaOkp65/HnFKc5/U/Yg6k3QkNGzq7PByuOTWD63
+	tfQIyh+fyJqtnbkPXKKCdKhI/O3Ln4zR04z24PyNRIES9TjZneM1Dj+0HwNx+T8v8C/iskSxEqI
+	YvLgM0JOFVINP8nydec/UIHxMHb46CuIW5/SADfZ8uLDeW/tmAPNs
+X-Received: by 2002:a05:620a:7116:b0:85f:82c1:c8b1 with SMTP id af79cd13be357-883525c06e8mr1943889185a.46.1760201830216;
+        Sat, 11 Oct 2025 09:57:10 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGkyWtOfdJ+0TNDoUMTrOlJySqi8eotm+EQmXbUDmQfKpz1vM/MTeAx4339cLuXyfh1vmmWVQ==
+X-Received: by 2002:a05:620a:7116:b0:85f:82c1:c8b1 with SMTP id af79cd13be357-883525c06e8mr1943885685a.46.1760201829687;
+        Sat, 11 Oct 2025 09:57:09 -0700 (PDT)
 Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-5908856394bsm2060654e87.66.2025.10.11.09.51.44
+        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59088577f2csm2081972e87.107.2025.10.11.09.57.08
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 11 Oct 2025 09:51:44 -0700 (PDT)
-Date: Sat, 11 Oct 2025 19:51:43 +0300
+        Sat, 11 Oct 2025 09:57:08 -0700 (PDT)
+Date: Sat, 11 Oct 2025 19:57:06 +0300
 From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
 To: Chaoyi Chen <kernel@airkyi.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -101,40 +101,40 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
         devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
         linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
         linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH v5 1/8] usb: typec: Add default HPD device when register
- DisplayPort altmode
-Message-ID: <4eizpzejw43gqt5jauvkeij65rracols2voa2osflwyjrwbvun@sovgqfuhg6mc>
+Subject: Re: [PATCH v5 3/8] phy: rockchip: phy-rockchip-typec: Add
+ typec_mux/typec_switch support
+Message-ID: <xbblw4jfte7re2pyroanvzqv4ddwhxbgcui5ubpnw7rwuo4s4d@gkph7jqzf33o>
 References: <20251011033233.97-1-kernel@airkyi.com>
- <20251011033233.97-2-kernel@airkyi.com>
+ <20251011033233.97-4-kernel@airkyi.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
-In-Reply-To: <20251011033233.97-2-kernel@airkyi.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDExMDAxOCBTYWx0ZWRfX3VSMpWamS2Y8
- LFT/5Ehfrcm2nmeoIWWHIe213uIEuK6lAomeiasTo4a7slM24kvIE0A6k7EbpPocEZpD9kY4P+U
- uK9swyvwtUubei3FeMrWmDi0DmJWItqUT+ap1drOuUGmN5ALSVuhR0A/hyzoQtgcQ4FaaPVtDBt
- 4ZCBb3zvQbcAaha/HtcXixN5+PY86vhAs2r/+iILpwpaFMBQsBYL+2akW5KUtRiIYxaJs8S5Zro
- ogzNiyxjDgBlX0l4obg96GdOrsulALJEbSIDpqCH6LE6f0tpiMDY7wrKysxqmKGZsK8O/yj/lQD
- zmrcOPjlF9rUzgFO4CCRDd8cPFi+QxCQ0ayN8vqbxrKtwgo8kCxVFXpUBKgkcwHK0kYase1L+Un
- 5Xj81LxuEczO4en5g1PHvS4JAsFE6w==
-X-Proofpoint-ORIG-GUID: ZHGCe6tMsAHXXB1Rd4PYYgrtW9Hwetd9
-X-Proofpoint-GUID: ZHGCe6tMsAHXXB1Rd4PYYgrtW9Hwetd9
-X-Authority-Analysis: v=2.4 cv=U7SfzOru c=1 sm=1 tr=0 ts=68ea8b23 cx=c_pps
+In-Reply-To: <20251011033233.97-4-kernel@airkyi.com>
+X-Proofpoint-ORIG-GUID: E1l2aJHKaANWw6SkS5cH07NdIHeNWuVA
+X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDExMDAxOCBTYWx0ZWRfX+vmHw0TSVvSU
+ bk7uSejSvY+YV1qjVSAHmOCNaqp0ZxO9aPjXLn1qtEF6GyOtRbiWtjfacYoRv9gxnEV+8lW76NS
+ 9AGtHgb9ijpSLxhfK7o3zLcEIHHrGOL2H/dpRz44okVNe6CFg56x6aBuDQ/mIYyVieZhkTIcs/p
+ kzrjSkC5GE+CQfb4CjtDL7hZikCkT5cZPMPLLCbzsDd9kaKmwHq2Fj6bMwxr+d7hcPTfNWyKlMz
+ umSKkc3Hjl03rM0Fo+BdTThMUXnG1jFFAhLlHTpI46DG+If0uqcXmGn9g3ey2cbWxMZG4uvPZAQ
+ ymcX/PZPm0HZAgG/ZLO+p6jQ3MS+INljAbmXmsbqtZ8uwMELaPKKgyQG/hsdGLVI6kepJZdhH3m
+ 2/QXNonW0QG9ttXY7HUU1nvH1ST1wg==
+X-Proofpoint-GUID: E1l2aJHKaANWw6SkS5cH07NdIHeNWuVA
+X-Authority-Analysis: v=2.4 cv=PdTyRyhd c=1 sm=1 tr=0 ts=68ea8c67 cx=c_pps
  a=qKBjSQ1v91RyAK45QCPf5w==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=x6icFKpwvdMA:10 a=s8YR1HE3AAAA:8 a=RXhTPAuaP42idGtAG2cA:9 a=CjuIK1q_8ugA:10
+ a=x6icFKpwvdMA:10 a=s8YR1HE3AAAA:8 a=MMthkAsgp7NQWkXk_3cA:9 a=CjuIK1q_8ugA:10
  a=NFOGd7dJGGMPyQGDc5-O:22 a=jGH_LyMDp9YhSvY-UuyI:22
 X-Proofpoint-Virus-Version: vendor=baseguard
  engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
  definitions=2025-10-11_03,2025-10-06_01,2025-03-28_01
 X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- phishscore=0 lowpriorityscore=0 priorityscore=1501 impostorscore=0
- spamscore=0 malwarescore=0 bulkscore=0 clxscore=1015 adultscore=0
+ malwarescore=0 phishscore=0 bulkscore=0 clxscore=1015 adultscore=0
+ lowpriorityscore=0 impostorscore=0 priorityscore=1501 spamscore=0
  suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
  route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2510020000
  definitions=main-2510110018
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251011_095149_403319_F3C81862 
-X-CRM114-Status: GOOD (  20.27  )
+X-CRM114-CacheID: sfid-20251011_095712_300263_6EECD96B 
+X-CRM114-Status: GOOD (  28.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,50 +149,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 11, 2025 at 11:32:26AM +0800, Chaoyi Chen wrote:
+On Sat, Oct 11, 2025 at 11:32:28AM +0800, Chaoyi Chen wrote:
 > From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 > 
-> Add default DRM AUX HPD bridge device when register DisplayPort
-> altmode. That makes it redundant for each Type-C driver to implement
-> a similar registration process in embedded scenarios.
+> This patch add support for Type-C Port Controller Manager. Each PHY
+> will register typec_mux and typec_switch when external Type-C
+> controller is present. Type-C events are handled by TCPM without
+> extcon.
+> 
+> The extcon device should still be supported.
 > 
 > Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 > ---
 > 
-> Changes in v5:
-> - Remove the calls related to `drm_aux_hpd_bridge_notify()`.
-> - Place the helper functions in the same compilation unit.
-> - Add more comments about parent device.
+> (no changes since v5)
 > 
->  drivers/usb/typec/class.c         | 26 ++++++++++++++++++++++++++
->  include/linux/usb/typec_altmode.h |  2 ++
->  2 files changed, 28 insertions(+)
+> Changes in v4:
+> - Remove notify DP HPD state by USB/DP PHY.
 > 
+> (no changes since v3)
+> 
+> Changes in v2:
+> - Fix compile error when CONFIG_TYPEC is not enabled.
+> - Notify DP HPD state by USB/DP PHY.
+> 
+>  drivers/phy/rockchip/phy-rockchip-typec.c | 365 +++++++++++++++++++++-
+>  1 file changed, 349 insertions(+), 16 deletions(-)
+> 
+> @@ -850,6 +998,72 @@ static int tcphy_get_mode(struct rockchip_typec_phy *tcphy)
+>  	return mode;
+>  }
 >  
-> +static void dp_altmode_hpd_device_register(struct typec_altmode *alt)
+> +#if IS_ENABLED(CONFIG_TYPEC)
+> +static int tcphy_orien_sw_set(struct typec_switch_dev *sw,
+> +			      enum typec_orientation orien)
 > +{
-> +	if (alt->svid != USB_TYPEC_DP_SID)
-> +		return;
+> +	struct rockchip_typec_phy *tcphy = typec_switch_get_drvdata(sw);
 > +
-> +	/*
-> +	 * alt->dev.parent->parent : USB-C controller device
-> +	 * alt->dev.parent         : USB-C connector device
-> +	 */
-> +	alt->hpd_dev = drm_dp_hpd_bridge_register(alt->dev.parent->parent,
-> +						  to_of_node(alt->dev.parent->fwnode));
+> +	mutex_lock(&tcphy->lock);
+> +
+> +	if (orien == TYPEC_ORIENTATION_NONE) {
+> +		tcphy->new_mode = MODE_DISCONNECT;
+> +		goto unlock_ret;
+> +	}
+> +
+> +	tcphy->flip = (orien == TYPEC_ORIENTATION_REVERSE) ? true : false;
+> +	tcphy->new_mode = MODE_DFP_USB;
 
-You can not do this, unless you make TYPEC core:
+Carrying over unanswered(!) comment from the previous series:
 
-depends on DRM || DRM=n
-select DRM_AUX_HPD_BRIDGE if DRM_BRIDGE && OF
+I don't think it is correct. Orientation defines only the cable (plug)
+orientation. You should be getting the mux events for the mode
+selection.
 
-> +	if (IS_ERR(alt->hpd_dev))
-> +		alt->hpd_dev = NULL;
+> +
+> +unlock_ret:
+> +	mutex_unlock(&tcphy->lock);
+> +	return 0;
 > +}
 > +
->  static struct typec_altmode *
->  typec_register_altmode(struct device *parent,
->  		       const struct typec_altmode_desc *desc)
+> +static void udphy_orien_switch_unregister(void *data)
+> +{
+> +	struct rockchip_typec_phy *tcphy = data;
+> +
+> +	typec_switch_unregister(tcphy->sw);
+> +}
+> +
+
+> @@ -1037,6 +1251,89 @@ static const struct phy_ops rockchip_dp_phy_ops = {
+>  	.owner		= THIS_MODULE,
+>  };
+>  
+> +#if IS_ENABLED(CONFIG_TYPEC)
+> +static int tcphy_typec_mux_set(struct typec_mux_dev *mux, struct typec_mux_state *state)
+> +{
+> +	struct rockchip_typec_phy *tcphy = typec_mux_get_drvdata(mux);
+> +	struct typec_displayport_data *data;
+> +	int hpd = 0;
+> +
+> +	mutex_lock(&tcphy->lock);
+> +
+> +	switch (state->mode) {
+> +	case TYPEC_STATE_SAFE:
+> +		fallthrough;
+> +	case TYPEC_STATE_USB:
+> +		tcphy->new_mode = MODE_DFP_USB;
+> +		phy_set_bus_width(tcphy->phys[TYPEC_PHY_DP], 0);
+> +		break;
+> +	case TYPEC_DP_STATE_C:
+> +	case TYPEC_DP_STATE_E:
+
+You need to check that altmode->svid is DP before checking for these
+modes.
+
+> +		tcphy->new_mode = MODE_DFP_DP;
+> +		data = state->data;
+> +		hpd = !!(data->status & DP_STATUS_HPD_STATE);
+> +		phy_set_bus_width(tcphy->phys[TYPEC_PHY_DP], hpd ? 4 : 0);
+> +		break;
+> +	case TYPEC_DP_STATE_D:
+> +		tcphy->new_mode = MODE_DFP_DP | MODE_DFP_USB;
+> +		data = state->data;
+> +		hpd = !!(data->status & DP_STATUS_HPD_STATE);
+> +		phy_set_bus_width(tcphy->phys[TYPEC_PHY_DP], hpd ? 2 : 0);
+> +		break;
+> +	default:
+> +		break;
+> +	}
+> +
+> +	mutex_unlock(&tcphy->lock);
+> +
+> +	return 0;
+> +}
+> +
 
 -- 
 With best wishes
