@@ -4,68 +4,69 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 18179CCD18C
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 17:04:19 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 74488CCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 17:04:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hVx3mwwnJIO6SzjRhUyxbZWuKMLQde5Y09nmaR8DbhU=; b=YQTjJoCc47qiayZXPLXI6km3He
-	U1xo3llp2/PKINSS3oLcUk3Be4TmC3t+7fUFniNIa9bYrha+9LPCwGKQpvFiAOSkGBkZc3P6WfLd3
-	hboQQBi8pk6FvDLNuuK9J4erUlDWW/n8OrHqVlnQKDG1AgucjjM/f+rb0EXQjUrriExCMRueG5kId
-	vgvZ5dGJSgDVe7rjCVSFWjKn6IgqsHkLe7su+nEsGsM8No33/oJa7XvdS5xv5OpeZh4yq6or2KYk3
-	Wy4UKEHP9ONtzb/EB9b2x4/9WL1uSMbFTnNs07LakHtJC2kNqz6TzKabwIaaaQkEK9M0FZKRKrMCv
-	XsZbuKdw==;
+	bh=wH5Oywl+53G65dp8ULRyl1Gb1Vx4oyWZL4/EGnhp3CA=; b=iVozwv5zuBF1X5L+6nt13r4aku
+	1RKXaIwG+Q1T7nJzxrNbCt+8FKA0elo69hYpKZ9qNA8HsKnK+D9fmMu64SjeE8Fm1uV+Tbyf/8vUW
+	hXFfyNrj7hjD1W6j/Yqx7hAMQynkGROEP7DLPf8caupjeoF7xLGCjbRw/KZ5xzoJkgFHb6fAype9k
+	YVfVICOkDddU7qhQV7ILvVNeeuZYYBFalR7EAwP3Gd/pFqmDiR8T5ZGkYGSafHm41IUdrLheftlAT
+	lalGcQK8kXbkjbeHPCeSRila05zjxMWnq9hk/5gvyzxFfJz4OwuNjBZBZXc9lOlgX0bnryCXzrhTl
+	4kdCwhmg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7d0t-0000000AOEL-0an5;
-	Sat, 11 Oct 2025 17:04:11 +0000
-Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
+	id 1v7d15-0000000AOWY-1jDP;
+	Sat, 11 Oct 2025 17:04:23 +0000
+Received: from mout-p-201.mailbox.org ([80.241.56.171])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7d0k-0000000ANzQ-2F5R
+	id 1v7d0w-0000000AOGv-1rlj
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Oct 2025 17:04:07 +0000
+	Sat, 11 Oct 2025 17:04:21 +0000
 Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4ckVM44Q8Lz9smD;
-	Sat, 11 Oct 2025 19:04:00 +0200 (CEST)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4ckVMH6spdz9srG;
+	Sat, 11 Oct 2025 19:04:11 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1760202240;
+	t=1760202252;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=hVx3mwwnJIO6SzjRhUyxbZWuKMLQde5Y09nmaR8DbhU=;
-	b=Ll3qNdrTFDoP8y9rSyFqbdl2jPaH7/aDEvnxbh+B3TEjYh/hCwBLqJw2JlSbI2Md/c12BB
-	VdovUtp78/NvSqomgbmLaNjOhwUirG6Ro9szvc5hG5xFZMqqUyUwyYRmWTke8TP6FAc1f0
-	22cc+9Pm1ZvtkjBbwvZqxbq9O4H/ANyIUMNbTcUMG7gDxGU6ujoqzpSPs/2yKg4xhUoF2l
-	ADX62w3rDWramWL9QK1n+C7ACSuVuPEvw9mEW6Qm4ibJbrjaUpsLegc5/ro9cbeaaikqmN
-	Z0RryjqiMGZBn0SoZfRrJuQrowJK01DEvEiTUtYzSsWhhlXeh3929R/0FvLkmA==
+	bh=wH5Oywl+53G65dp8ULRyl1Gb1Vx4oyWZL4/EGnhp3CA=;
+	b=s9ByYmY/V3UCNoI3qv2JObgbp7q6z0s5hCoYuyd5BcMULVt+H2DveSEX1lMYn6CaLX4cjK
+	gNFzeKHCRCBMsiC8gnvupfvmsLSTj53T+gnFo4yWwbnJ5DsOi50nQTzIQ+xLf4yD4uB7qs
+	G1pYA5jqMOKwDPCGP8tvs8Dc5hN7MamPlOjCG+XGCsBBWCDI4BEunMeyt3jpByXyOxHsjs
+	rYUrluXzHw5s9GvZQhMLGXB/xJCNkO9429AeN+KEIlT84znxmIzozToE6dYMAz4QKgbKn2
+	qQ/22QeKJIJ86DavcG6uEzSxYblH6VHJzUOW39YRSQWrSbMnoi7vGeCkLlhX2Q==
 From: Marek Vasut <marek.vasut@mailbox.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1760202238;
+	t=1760202250;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=hVx3mwwnJIO6SzjRhUyxbZWuKMLQde5Y09nmaR8DbhU=;
-	b=s1Oi/TGEiweSi/qVqGZssj0i4u6NZh5grYW/2eW5wwcgdmn2ODVwDt1dHsU19Spxrszrh4
-	WiPXKz7i6d/7LyNxWL3dHzpyQ0xv0C+pUrXTiiwFCOKYhL1LQ4ZSRQZ2tlH6XR5yB/Sc4R
-	7rCEq60PFJv6LDLpkAfG2D148bM/xAMyAtCjgWtEh+476CiRUbMQqnKrl36QpJYXqp6baa
-	i/Xx3FEUjqTTw5t0QmMte8Zeryc8HURR/Cfgsxn1JWyjhhbhGF94xPStzR/Ts+yRi3fEEX
-	q9tyYL5B2mrvZr77do6EppNvPJrFzJD1OK1ObZbHZioaVSIpdTiZA0GNBmDhBg==
+	bh=wH5Oywl+53G65dp8ULRyl1Gb1Vx4oyWZL4/EGnhp3CA=;
+	b=JEjGKGlJQQiz71zkDIx8/sSTS5HUm8PdKqy1NJoYUhja4OZ+gNeRjGarL+Zs4CQNn5gs6x
+	iIsYJcw5Z92cl9KIJ781UMGNOKoYk5MGYDTHUfp4//MP9xpOAeuhX0U/c4ov4Hb/B9oOF7
+	GeprK87JQSGAP6fEnjwjjnLoF84xTS1bvebMlJ1iScoIPThrUs5rrlw3ee0PAjM83GsMku
+	yESlCT5cQrU+9dclNX+UFV4mE/BTwLFTJkT9BW8joMNpE+NInV8lBg0Ioja4JU6qCR6YSg
+	+nsaPTwcw9Jsz7t7OJxYo72sQoQujz135IcAb/+d44KbZBjdVU8dGd8LQMCnlQ==
 To: dri-devel@lists.freedesktop.org
-Cc: Marek Vasut <marek.vasut@mailbox.org>,
+Cc: Liu Ying <victor.liu@nxp.com>,
+	Marek Vasut <marek.vasut@mailbox.org>,
+	Sandor Yu <Sandor.yu@nxp.com>,
 	Abel Vesa <abelvesa@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Fabio Estevam <festevam@gmail.com>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Liu Ying <victor.liu@nxp.com>,
 	Lucas Stach <l.stach@pengutronix.de>,
 	Peng Fan <peng.fan@nxp.com>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
@@ -76,19 +77,18 @@ Cc: Marek Vasut <marek.vasut@mailbox.org>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-clk@vger.kernel.org
-Subject: [PATCH 24/39] drm/imx: Add more RGB swizzling options
-Date: Sat, 11 Oct 2025 18:51:39 +0200
-Message-ID: <20251011170213.128907-25-marek.vasut@mailbox.org>
+Subject: [PATCH 28/39] drm/bridge: imx: Add NXP i.MX95 pixel link support
+Date: Sat, 11 Oct 2025 18:51:43 +0200
+Message-ID: <20251011170213.128907-29-marek.vasut@mailbox.org>
 In-Reply-To: <20251011170213.128907-1-marek.vasut@mailbox.org>
 References: <20251011170213.128907-1-marek.vasut@mailbox.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: 9bba8d061e45bcd3bf3
-X-MBO-RS-META: cb1sr4stpa5mrzc5s1w6pqip7jsx6q47
+X-MBO-RS-ID: 6bb21575346cb44c0a1
+X-MBO-RS-META: d9x9ksg3dmityi96ijfr5ex4tsykdr9t
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251011_100402_831096_0EF1462B 
-X-CRM114-Status: UNSURE (   8.49  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251011_100415_163091_E18D5A5E 
+X-CRM114-Status: GOOD (  20.26  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,10 +103,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add additional buffer format swizzling options beyond XR24, the
-hardware is capable of sampling other formats, fill them in.
+From: Liu Ying <victor.liu@nxp.com>
+
+Add NXP i.MX95 pixel link bridge support.
 
 Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
+Signed-off-by: Liu Ying <victor.liu@nxp.com>
+Reviewed-by: Sandor Yu <Sandor.yu@nxp.com>
 ---
 Cc: Abel Vesa <abelvesa@kernel.org>
 Cc: Conor Dooley <conor+dt@kernel.org>
@@ -126,80 +129,229 @@ Cc: imx@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org
 Cc: linux-clk@vger.kernel.org
 ---
- drivers/gpu/drm/imx/dc/dc-fu.c    | 40 +++++++++++++++++++++++++++++++
- drivers/gpu/drm/imx/dc/dc-plane.c |  8 +++++++
- 2 files changed, 48 insertions(+)
+ drivers/gpu/drm/bridge/imx/Kconfig            |   9 +
+ drivers/gpu/drm/bridge/imx/Makefile           |   1 +
+ drivers/gpu/drm/bridge/imx/imx95-pixel-link.c | 184 ++++++++++++++++++
+ 3 files changed, 194 insertions(+)
+ create mode 100644 drivers/gpu/drm/bridge/imx/imx95-pixel-link.c
 
-diff --git a/drivers/gpu/drm/imx/dc/dc-fu.c b/drivers/gpu/drm/imx/dc/dc-fu.c
-index cc8b0d05891fd..dd4a3d20fdbf4 100644
---- a/drivers/gpu/drm/imx/dc/dc-fu.c
-+++ b/drivers/gpu/drm/imx/dc/dc-fu.c
-@@ -65,6 +65,46 @@ static const struct dc_fu_pixel_format pixel_formats[] = {
- 		DRM_FORMAT_XRGB8888,
- 		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(0),
- 		R_SHIFT(16) | G_SHIFT(8)  | B_SHIFT(0)  | A_SHIFT(0),
-+	}, {
-+		DRM_FORMAT_ARGB8888,
-+		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(8),
-+		R_SHIFT(16) | G_SHIFT(8)  | B_SHIFT(0)  | A_SHIFT(24),
-+	}, {
-+		DRM_FORMAT_ABGR8888,
-+		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(8),
-+		R_SHIFT(0)  | G_SHIFT(8)  | B_SHIFT(16) | A_SHIFT(24),
-+	}, {
-+		DRM_FORMAT_XBGR8888,
-+		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(0),
-+		R_SHIFT(0)  | G_SHIFT(8)  | B_SHIFT(16) | A_SHIFT(0),
-+	}, {
-+		DRM_FORMAT_RGBA8888,
-+		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(8),
-+		R_SHIFT(24) | G_SHIFT(16) | B_SHIFT(8)  | A_SHIFT(0),
-+	}, {
-+		DRM_FORMAT_RGBX8888,
-+		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(0),
-+		R_SHIFT(24) | G_SHIFT(16) | B_SHIFT(8)  | A_SHIFT(0),
-+	}, {
-+		DRM_FORMAT_BGRA8888,
-+		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(8),
-+		R_SHIFT(8)  | G_SHIFT(16) | B_SHIFT(24) | A_SHIFT(0),
-+	}, {
-+		DRM_FORMAT_BGRX8888,
-+		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(0),
-+		R_SHIFT(8)  | G_SHIFT(16) | B_SHIFT(24) | A_SHIFT(0),
-+	}, {
-+		DRM_FORMAT_RGB888,
-+		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(0),
-+		R_SHIFT(16) | G_SHIFT(8)  | B_SHIFT(0)  | A_SHIFT(0),
-+	}, {
-+		DRM_FORMAT_BGR888,
-+		R_BITS(8)   | G_BITS(8)   | B_BITS(8)   | A_BITS(0),
-+		R_SHIFT(0)  | G_SHIFT(8)  | B_SHIFT(16) | A_SHIFT(0),
-+	}, {
-+		DRM_FORMAT_RGB565,
-+		R_BITS(5)   | G_BITS(6)   | B_BITS(5)   | A_BITS(0),
-+		R_SHIFT(11) | G_SHIFT(5)  | B_SHIFT(0)  | A_SHIFT(0),
- 	},
- };
+diff --git a/drivers/gpu/drm/bridge/imx/Kconfig b/drivers/gpu/drm/bridge/imx/Kconfig
+index 3e1b1d825d7bf..8baa335deac49 100644
+--- a/drivers/gpu/drm/bridge/imx/Kconfig
++++ b/drivers/gpu/drm/bridge/imx/Kconfig
+@@ -97,4 +97,13 @@ config DRM_IMX95_PIXEL_INTERLEAVER
+ 	  Choose this to enable pixel interleaver found in NXP i.MX95
+ 	  processors.
  
-diff --git a/drivers/gpu/drm/imx/dc/dc-plane.c b/drivers/gpu/drm/imx/dc/dc-plane.c
-index 18010c2b0bd78..182dff15af679 100644
---- a/drivers/gpu/drm/imx/dc/dc-plane.c
-+++ b/drivers/gpu/drm/imx/dc/dc-plane.c
-@@ -34,6 +34,14 @@ do {									\
- 
- static const uint32_t dc_plane_formats[] = {
- 	DRM_FORMAT_XRGB8888,
-+	DRM_FORMAT_ARGB8888,
-+	DRM_FORMAT_ABGR8888,
-+	DRM_FORMAT_XBGR8888,
-+	DRM_FORMAT_RGBA8888,
-+	DRM_FORMAT_RGBX8888,
-+	DRM_FORMAT_BGRA8888,
-+	DRM_FORMAT_BGRX8888,
-+	DRM_FORMAT_RGB565,
- };
- 
- static const struct drm_plane_funcs dc_plane_funcs = {
++config DRM_IMX95_PIXEL_LINK
++	tristate "NXP i.MX95 display pixel link"
++	depends on OF && MFD_SYSCON
++	select DRM_KMS_HELPER
++	select REGMAP_MMIO
++	help
++	  Choose this to enable display pixel link found in NXP i.MX95
++	  processors.
++
+ endif # ARCH_MXC || COMPILE_TEST
+diff --git a/drivers/gpu/drm/bridge/imx/Makefile b/drivers/gpu/drm/bridge/imx/Makefile
+index 583054c70f002..b6b2e1bc8d4bd 100644
+--- a/drivers/gpu/drm/bridge/imx/Makefile
++++ b/drivers/gpu/drm/bridge/imx/Makefile
+@@ -9,3 +9,4 @@ obj-$(CONFIG_DRM_IMX8QXP_PIXEL_LINK) += imx8qxp-pixel-link.o
+ obj-$(CONFIG_DRM_IMX8QXP_PIXEL_LINK_TO_DPI) += imx8qxp-pxl2dpi.o
+ obj-$(CONFIG_DRM_IMX93_MIPI_DSI) += imx93-mipi-dsi.o
+ obj-$(CONFIG_DRM_IMX95_PIXEL_INTERLEAVER) += imx95-pixel-interleaver.o
++obj-$(CONFIG_DRM_IMX95_PIXEL_LINK) += imx95-pixel-link.o
+diff --git a/drivers/gpu/drm/bridge/imx/imx95-pixel-link.c b/drivers/gpu/drm/bridge/imx/imx95-pixel-link.c
+new file mode 100644
+index 0000000000000..747d2d77b59ef
+--- /dev/null
++++ b/drivers/gpu/drm/bridge/imx/imx95-pixel-link.c
+@@ -0,0 +1,184 @@
++// SPDX-License-Identifier: GPL-2.0+
++
++/*
++ * Copyright 2023 NXP
++ */
++
++#include <linux/bits.h>
++#include <linux/media-bus-format.h>
++#include <linux/mfd/syscon.h>
++#include <linux/module.h>
++#include <linux/of.h>
++#include <linux/of_graph.h>
++#include <linux/platform_device.h>
++#include <linux/regmap.h>
++
++#include <drm/drm_atomic_state_helper.h>
++#include <drm/drm_bridge.h>
++
++#define CTRL		0x8
++#define  PL_VALID(n)	BIT(1 + 4 * (n))
++#define  PL_ENABLE(n)	BIT(4 * (n))
++
++#define OUT_ENDPOINTS	2
++
++#define DRIVER_NAME	"imx95-pixel-link"
++
++struct imx95_pixel_link_bridge {
++	struct drm_bridge bridge;
++	struct drm_bridge *next_bridge;
++	struct device *dev;
++	struct regmap *regmap;
++	u8 stream_id;
++};
++
++static int imx95_pixel_link_bridge_attach(struct drm_bridge *bridge,
++					  struct drm_encoder *encoder,
++					  enum drm_bridge_attach_flags flags)
++{
++	struct imx95_pixel_link_bridge *pl = bridge->driver_private;
++
++	if (!(flags & DRM_BRIDGE_ATTACH_NO_CONNECTOR)) {
++		dev_err(pl->dev, "do not support creating a drm_connector\n");
++		return -EINVAL;
++	}
++
++	return drm_bridge_attach(encoder, pl->next_bridge, bridge,
++				 DRM_BRIDGE_ATTACH_NO_CONNECTOR);
++}
++
++static void imx95_pixel_link_bridge_disable(struct drm_bridge *bridge)
++{
++	struct imx95_pixel_link_bridge *pl = bridge->driver_private;
++	unsigned int id = pl->stream_id;
++
++	regmap_update_bits(pl->regmap, CTRL, PL_ENABLE(id), 0);
++	regmap_update_bits(pl->regmap, CTRL, PL_VALID(id), 0);
++}
++
++static void imx95_pixel_link_bridge_enable(struct drm_bridge *bridge)
++{
++	struct imx95_pixel_link_bridge *pl = bridge->driver_private;
++	unsigned int id = pl->stream_id;
++
++	regmap_update_bits(pl->regmap, CTRL, PL_VALID(id), PL_VALID(id));
++	regmap_update_bits(pl->regmap, CTRL, PL_ENABLE(id), PL_ENABLE(id));
++}
++
++static u32 *
++imx95_pixel_link_bridge_atomic_get_input_bus_fmts(struct drm_bridge *bridge,
++						  struct drm_bridge_state *bridge_state,
++						  struct drm_crtc_state *crtc_state,
++						  struct drm_connector_state *conn_state,
++						  u32 output_fmt,
++						  unsigned int *num_input_fmts)
++{
++	u32 *input_fmts;
++
++	if (output_fmt != MEDIA_BUS_FMT_RGB888_1X36_CPADLO &&
++	    output_fmt != MEDIA_BUS_FMT_FIXED)
++		return NULL;
++
++	*num_input_fmts = 1;
++
++	input_fmts = kmalloc(sizeof(*input_fmts), GFP_KERNEL);
++	if (!input_fmts)
++		return NULL;
++
++	input_fmts[0] = MEDIA_BUS_FMT_RGB888_1X24;
++
++	return input_fmts;
++}
++
++static const struct drm_bridge_funcs imx95_pixel_link_bridge_funcs = {
++	.atomic_duplicate_state	= drm_atomic_helper_bridge_duplicate_state,
++	.atomic_destroy_state	= drm_atomic_helper_bridge_destroy_state,
++	.atomic_reset		= drm_atomic_helper_bridge_reset,
++	.attach			= imx95_pixel_link_bridge_attach,
++	.disable		= imx95_pixel_link_bridge_disable,
++	.enable			= imx95_pixel_link_bridge_enable,
++	.atomic_get_input_bus_fmts =
++				imx95_pixel_link_bridge_atomic_get_input_bus_fmts,
++};
++
++static int imx95_pixel_link_bridge_probe(struct platform_device *pdev)
++{
++	struct device *dev = &pdev->dev;
++	struct device_node *remote, *np = dev->of_node;
++	struct imx95_pixel_link_bridge *pl;
++	int i, ret;
++
++	pl = devm_drm_bridge_alloc(dev, struct imx95_pixel_link_bridge, bridge,
++				   &imx95_pixel_link_bridge_funcs);
++	if (IS_ERR(pl))
++		return PTR_ERR(pl);
++
++	pl->dev = dev;
++	platform_set_drvdata(pdev, pl);
++
++	pl->regmap = syscon_regmap_lookup_by_phandle(np, "fsl,syscon");
++	if (IS_ERR(pl->regmap))
++		return dev_err_probe(dev, PTR_ERR(pl->regmap), "failed to get regmap\n");
++
++	ret = of_property_read_u8(np, "fsl,dc-stream-id", &pl->stream_id);
++	if (ret)
++		return dev_err_probe(dev, ret, "failed to get stream index\n");
++
++	pl->bridge.driver_private = pl;
++	pl->bridge.of_node = of_graph_get_port_by_id(np, 0);
++	if (!pl->bridge.of_node)
++		return dev_err_probe(dev, -ENODEV, "failed to get port@0\n");
++	of_node_put(pl->bridge.of_node);
++
++	for (i = 0; i < OUT_ENDPOINTS; i++) {
++		remote = of_graph_get_remote_node(np, 1, i);
++		if (!remote) {
++			dev_dbg(dev, "no remote node for port@1 ep%u\n", i);
++			continue;
++		}
++
++		pl->next_bridge = of_drm_find_bridge(remote);
++		if (!pl->next_bridge) {
++			dev_dbg(dev, "failed to find next bridge for port@1 ep%u\n", i);
++			of_node_put(remote);
++			return -EPROBE_DEFER;
++		}
++
++		of_node_put(remote);
++
++		drm_bridge_add(&pl->bridge);
++
++		return 0;
++	}
++
++	return -EINVAL;
++}
++
++static void imx95_pixel_link_bridge_remove(struct platform_device *pdev)
++{
++	struct imx95_pixel_link_bridge *pl = platform_get_drvdata(pdev);
++
++	drm_bridge_remove(&pl->bridge);
++}
++
++static const struct of_device_id imx95_pixel_link_bridge_dt_ids[] = {
++	{ .compatible = "fsl,imx95-dc-pixel-link", },
++	{ /* sentinel */ }
++};
++MODULE_DEVICE_TABLE(of, imx95_pixel_link_bridge_dt_ids);
++
++static struct platform_driver imx95_pixel_link_bridge_driver = {
++	.probe	= imx95_pixel_link_bridge_probe,
++	.remove	= imx95_pixel_link_bridge_remove,
++	.driver	= {
++		.of_match_table = imx95_pixel_link_bridge_dt_ids,
++		.name = DRIVER_NAME,
++	},
++};
++
++module_platform_driver(imx95_pixel_link_bridge_driver);
++
++MODULE_DESCRIPTION("i.MX95 display pixel link bridge driver");
++MODULE_AUTHOR("NXP Semiconductor");
++MODULE_LICENSE("GPL v2");
++MODULE_ALIAS("platform:" DRIVER_NAME);
 -- 
 2.51.0
 
