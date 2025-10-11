@@ -4,50 +4,65 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id F18FDCCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 17:14:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10C3BCCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 17:14:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tjDP8qd2L4y3p6WGuF5y1nQF2MX4DaSUaUT3cZf6lDc=; b=1udsJsaauvuGOAna3VkLDLM3xU
-	tudfCk31iAZFd8mwlL0CLVnkQSOcmZ+aqzyJ6+1JEJY93CnR6MVpBOMcxv+vRjUmCVPFKPkzXBrz2
-	vcrFjzCnEQRs8QQHdwmj3YIEDbyrf+tdkoFMopjMfoRmfsFtQKi8Km4tUvBdY/2rBV5nIIAmoAkdj
-	8eTjUb73KT7R4o0px6vW+U47keY3o3bXHvIrUJJxF4g1eT7GqJ5gQV8bnVoB3Wk1tLsPLm8DDLQUg
-	y7fE8oERHo3QmOBWz7bIdcYvucWtZpvjOws20Ixkf2tFgvEl5uxYpN2HGFoECeFSh2gHNxjfwkP/o
-	a4LUTWKA==;
+	bh=Rxo7qyJjIMTsU/zyVaLPBmGiXTVYD1zzMv1jDaG3HZQ=; b=EIoBSQ3Uk/4RT6HRHz9X1u5OY4
+	kHvISz6Ju0BwSCQOKW3MvQVL30zZslkCQzlhlw0gMGupCILvMGcm+zeHm9JlWpiYHNOrTpsOxfAG4
+	5NtCKAr1e+LM0K7bwx0DwHCYa+qyN4GYWtFjaYEFvvzO5qFFnUntbmtggS76NjrPydB41c1jNJWLI
+	DCDjlvxUFts5ZY73JxhIute7seJ9ZdV/0UGh5HlRSCuLROqABl3oC6dEEqXBl0verJSULWmdwSLwP
+	xzllcjQobAHhuKlMxQjzb3qGv24b5bRnk/YKx9FM48jKpMux0VGDOhHTZinbV9ciPWE8I4rFSjaNQ
+	g+PaPLDA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7dAz-0000000AQL1-0x0f;
-	Sat, 11 Oct 2025 17:14:37 +0000
+	id 1v7dB2-0000000AQLo-0BMo;
+	Sat, 11 Oct 2025 17:14:40 +0000
 Received: from mout-p-201.mailbox.org ([2001:67c:2050:0:465::201])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7dAx-0000000AQKP-2GRL
+	id 1v7dAx-0000000AQKQ-2GmS
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Oct 2025 17:14:36 +0000
+	Sat, 11 Oct 2025 17:14:37 +0000
 Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4ckVMZ2Lw1z9srG;
-	Sat, 11 Oct 2025 19:04:26 +0200 (CEST)
+	by mout-p-201.mailbox.org (Postfix) with ESMTPS id 4ckVMF2VNpz9stk;
+	Sat, 11 Oct 2025 19:04:09 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1760202266;
+	t=1760202249;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=tjDP8qd2L4y3p6WGuF5y1nQF2MX4DaSUaUT3cZf6lDc=;
-	b=PW7Y9U7nQ975964ql1hZgWW2gGjLkliwcjLDu6l3l98DlPcPSHNKzaRxSIdKM/PZlDXxTX
-	yN6f0VfZyp9bcCOonGelvmxHrbRjdi74D8zyNygFsF31jGl1PuJOP0YkONCxsYnE/wCnFG
-	FLHpoBSi5hXPtwTyfYUqk8oKLC2gLuf8mvCzBfuE44YceelJHmNDYk0cDLV5tA/Nel1+YA
-	Rya4ZO7fR07MyzF4/hawEiuEpOw5aV0YT4uiJw6mWA5dejjvQLKdTjwJwmYOaKbwo5rZ9e
-	RKtVQoWr9H6TufP2tIh0XzpjoRce67YM/289jE1RgCXPtrWXTQU6XO0xwB7ldA==
+	bh=Rxo7qyJjIMTsU/zyVaLPBmGiXTVYD1zzMv1jDaG3HZQ=;
+	b=VIKBhS9bEiBjHnhQxwRf8TRdjqW2lMxFfJ2R69vj7xhyrtad+4x4rkNiCjlVn4HXWbfgxi
+	JNwD6gS5okMoY3coqfqHnEcNTQsS/nPiOGML9vaAn8TBJ5sM/IcCn4CcWRLCi0u39VCxU0
+	dgzloH5f0e4QcNTMm2R0f+PvFmDU1134MbGbZ4Y6KPV49rycJ2PuW8Meu2MnwHgeef8nV9
+	k2KIVwI0dEd9WNks3iTiCTGmHWboWtEIJudU0Z6CurOps8PVJKGzFhnCpsHInRCOuabt+H
+	R3ggjUUX9DutDrf+m0K+zziAaVgvJ3QkDjxpBiC3IWBxO/GGj6yDQ4YC8rvk6A==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=xaWL2zvr;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut@mailbox.org designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=marek.vasut@mailbox.org
 From: Marek Vasut <marek.vasut@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1760202247;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=Rxo7qyJjIMTsU/zyVaLPBmGiXTVYD1zzMv1jDaG3HZQ=;
+	b=xaWL2zvr/dMcOzeva3JAPRU9oyXVuiscZJqtWfl1q8bYqzIf8vCUDJINW/ylcmg4lKZSQk
+	9r4J3wuCV5f6VGcAITfBUlreE0bmtb/bftrZnMfp9tyh9ucyEaUMVHsVblvbgOO98px8Iv
+	z7q+BxIRSc5MFSGvWAM3WdSVdKeOTAmjiMYF7ngmsZPlqtIs4Ku0cEGeiP4eHWPVOmnctl
+	Ur8iEL0JOe9lTEk7jWuHeFToEyc6CK3DiyJJ3XhMOAIwQ0dB9Sb05OFzab2AiSxSd2AM57
+	zo8WQ854ZBaD9lO/Nk8wVYluXCEtEGdbO/NDGbqWfw3ZaHHMall/q0Us2uRK7A==
 To: dri-devel@lists.freedesktop.org
-Cc: Sandor Yu <Sandor.yu@nxp.com>,
+Cc: Marek Vasut <marek.vasut@mailbox.org>,
 	Abel Vesa <abelvesa@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
 	Fabio Estevam <festevam@gmail.com>,
@@ -64,18 +79,19 @@ Cc: Sandor Yu <Sandor.yu@nxp.com>,
 	imx@lists.linux.dev,
 	linux-arm-kernel@lists.infradead.org,
 	linux-clk@vger.kernel.org
-Subject: [PATCH 33/39] drm: bridge: imx: Add i.MX95 LVDS Display Bridge (LDB) driver
-Date: Sat, 11 Oct 2025 18:51:48 +0200
-Message-ID: <20251011170213.128907-34-marek.vasut@mailbox.org>
+Subject: [PATCH 27/39] dt-bindings: display: bridge: Document NXP i.MX95 pixel link support
+Date: Sat, 11 Oct 2025 18:51:42 +0200
+Message-ID: <20251011170213.128907-28-marek.vasut@mailbox.org>
 In-Reply-To: <20251011170213.128907-1-marek.vasut@mailbox.org>
 References: <20251011170213.128907-1-marek.vasut@mailbox.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: f00d902fcdef00ec43e
-X-MBO-RS-META: bnmj4saab33yngubwpdimdhit8tk3q83
+X-MBO-RS-META: e1iik1smz9zfisk8yowoonbfo69cicwa
+X-MBO-RS-ID: cecf55de22ea7313ca3
+X-Rspamd-Queue-Id: 4ckVMF2VNpz9stk
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251011_101435_858611_7D6EB353 
-X-CRM114-Status: GOOD (  21.33  )
+X-CRM114-CacheID: sfid-20251011_101435_715632_F2AAC6AD 
+X-CRM114-Status: GOOD (  11.79  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -90,11 +106,9 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Sandor Yu <Sandor.yu@nxp.com>
+Document NXP i.MX95 pixel link bridge support.
 
-Add i.MX95 LVDS Display Bridge (LDB) driver.
-
-Signed-off-by: Sandor Yu <Sandor.yu@nxp.com>
+Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
 ---
 Cc: Abel Vesa <abelvesa@kernel.org>
 Cc: Conor Dooley <conor+dt@kernel.org>
@@ -114,534 +128,117 @@ Cc: imx@lists.linux.dev
 Cc: linux-arm-kernel@lists.infradead.org
 Cc: linux-clk@vger.kernel.org
 ---
- drivers/gpu/drm/bridge/imx/Kconfig          |  10 +
- drivers/gpu/drm/bridge/imx/Makefile         |   1 +
- drivers/gpu/drm/bridge/imx/imx-ldb-helper.h |   2 +
- drivers/gpu/drm/bridge/imx/imx95-ldb.c      | 470 ++++++++++++++++++++
- 4 files changed, 483 insertions(+)
- create mode 100644 drivers/gpu/drm/bridge/imx/imx95-ldb.c
+ .../display/bridge/fsl,imx95-pixel-link.yaml  | 101 ++++++++++++++++++
+ 1 file changed, 101 insertions(+)
+ create mode 100644 Documentation/devicetree/bindings/display/bridge/fsl,imx95-pixel-link.yaml
 
-diff --git a/drivers/gpu/drm/bridge/imx/Kconfig b/drivers/gpu/drm/bridge/imx/Kconfig
-index 8baa335deac49..350432f77801c 100644
---- a/drivers/gpu/drm/bridge/imx/Kconfig
-+++ b/drivers/gpu/drm/bridge/imx/Kconfig
-@@ -88,6 +88,16 @@ config DRM_IMX93_MIPI_DSI
- 	  Choose this to enable MIPI DSI controller found in Freescale i.MX93
- 	  processor.
- 
-+config DRM_IMX95_LDB
-+	tristate "Freescale i.MX95 LVDS display bridge"
-+	depends on OF
-+	depends on COMMON_CLK
-+	select DRM_IMX_LDB_HELPER
-+	select DRM_KMS_HELPER
-+	help
-+	  Choose this to enable the internal LVDS Display Bridge(LDB) found in
-+	  Freescale i.MX95 processor.
-+
- config DRM_IMX95_PIXEL_INTERLEAVER
- 	tristate "NXP i.MX95 pixel interleaver"
- 	depends on OF && MFD_SYSCON && COMMON_CLK
-diff --git a/drivers/gpu/drm/bridge/imx/Makefile b/drivers/gpu/drm/bridge/imx/Makefile
-index b6b2e1bc8d4bd..1c78cfba16cad 100644
---- a/drivers/gpu/drm/bridge/imx/Makefile
-+++ b/drivers/gpu/drm/bridge/imx/Makefile
-@@ -8,5 +8,6 @@ obj-$(CONFIG_DRM_IMX8QXP_PIXEL_COMBINER) += imx8qxp-pixel-combiner.o
- obj-$(CONFIG_DRM_IMX8QXP_PIXEL_LINK) += imx8qxp-pixel-link.o
- obj-$(CONFIG_DRM_IMX8QXP_PIXEL_LINK_TO_DPI) += imx8qxp-pxl2dpi.o
- obj-$(CONFIG_DRM_IMX93_MIPI_DSI) += imx93-mipi-dsi.o
-+obj-$(CONFIG_DRM_IMX95_LDB) += imx95-ldb.o
- obj-$(CONFIG_DRM_IMX95_PIXEL_INTERLEAVER) += imx95-pixel-interleaver.o
- obj-$(CONFIG_DRM_IMX95_PIXEL_LINK) += imx95-pixel-link.o
-diff --git a/drivers/gpu/drm/bridge/imx/imx-ldb-helper.h b/drivers/gpu/drm/bridge/imx/imx-ldb-helper.h
-index de187e3269996..55fad97c65d2f 100644
---- a/drivers/gpu/drm/bridge/imx/imx-ldb-helper.h
-+++ b/drivers/gpu/drm/bridge/imx/imx-ldb-helper.h
-@@ -31,6 +31,8 @@
- #define LDB_BIT_MAP_CH1_JEIDA		BIT(8)
- #define LDB_DI0_VS_POL_ACT_LOW		BIT(9)
- #define LDB_DI1_VS_POL_ACT_LOW		BIT(10)
-+#define LDB_DI0_HS_POL_ACT_LOW		BIT(13)
-+#define LDB_DI1_HS_POL_ACT_LOW		BIT(14)
- 
- #define MAX_LDB_CHAN_NUM		2
- 
-diff --git a/drivers/gpu/drm/bridge/imx/imx95-ldb.c b/drivers/gpu/drm/bridge/imx/imx95-ldb.c
+diff --git a/Documentation/devicetree/bindings/display/bridge/fsl,imx95-pixel-link.yaml b/Documentation/devicetree/bindings/display/bridge/fsl,imx95-pixel-link.yaml
 new file mode 100644
-index 0000000000000..19e2d71b9c0c7
+index 0000000000000..b37888adfa45e
 --- /dev/null
-+++ b/drivers/gpu/drm/bridge/imx/imx95-ldb.c
-@@ -0,0 +1,470 @@
-+// SPDX-License-Identifier: GPL-2.0+
-+
-+/*
-+ * Copyright 2023 NXP
-+ */
-+
-+#include <linux/clk.h>
-+#include <linux/media-bus-format.h>
-+#include <linux/mfd/syscon.h>
-+#include <linux/module.h>
-+#include <linux/of.h>
-+#include <linux/of_graph.h>
-+#include <linux/platform_device.h>
-+#include <linux/pm_runtime.h>
-+#include <linux/regmap.h>
-+
-+#include <drm/drm_atomic_state_helper.h>
-+#include <drm/drm_bridge.h>
-+#include <drm/drm_connector.h>
-+#include <drm/drm_fourcc.h>
-+#include <drm/drm_of.h>
-+#include <drm/drm_print.h>
-+
-+#include "imx-ldb-helper.h"
-+
-+#define LVDS_PHY_CLK_CTRL		0x00
-+#define  LVDS_PHY_DIV2			BIT(0)
-+
-+#define LDB_DI0_HS_POL_ACT_LOW		BIT(13)
-+#define LDB_DI1_HS_POL_ACT_LOW		BIT(14)
-+#define LDB_VSYNC_ADJ_EN		BIT(19)
-+
-+#define DRIVER_NAME			"imx95-ldb"
-+
-+struct imx95_ldb_channel {
-+	struct ldb_channel base;
-+};
-+
-+struct imx95_ldb {
-+	struct ldb base;
-+	struct device *dev;
-+	struct imx95_ldb_channel *channel[MAX_LDB_CHAN_NUM];
-+	struct clk *clk_ch[MAX_LDB_CHAN_NUM];
-+	struct clk *clk_di[MAX_LDB_CHAN_NUM];
-+	int active_chno;
-+};
-+
-+static inline struct imx95_ldb_channel *
-+base_to_imx95_ldb_channel(struct ldb_channel *base)
-+{
-+	return container_of(base, struct imx95_ldb_channel, base);
-+}
-+
-+static inline struct imx95_ldb *base_to_imx95_ldb(struct ldb *base)
-+{
-+	return container_of(base, struct imx95_ldb, base);
-+}
-+
-+static int imx95_ldb_bridge_atomic_check(struct drm_bridge *bridge,
-+					 struct drm_bridge_state *bridge_state,
-+					 struct drm_crtc_state *crtc_state,
-+					 struct drm_connector_state *conn_state)
-+{
-+	return ldb_bridge_atomic_check_helper(bridge, bridge_state,
-+					     crtc_state, conn_state);
-+}
-+
-+static void
-+imx95_ldb_bridge_mode_set(struct drm_bridge *bridge,
-+			  const struct drm_display_mode *mode,
-+			  const struct drm_display_mode *adjusted_mode)
-+{
-+	struct ldb_channel *ldb_ch = bridge->driver_private;
-+	struct ldb *ldb = ldb_ch->ldb;
-+	struct imx95_ldb *imx95_ldb = base_to_imx95_ldb(ldb);
-+	struct device *dev = imx95_ldb->dev;
-+	unsigned long di_clk = adjusted_mode->clock * 1000;
-+	bool is_split = ldb_channel_is_split_link(ldb_ch);
-+	int ret;
-+
-+	ret = pm_runtime_resume_and_get(dev);
-+	if (ret < 0)
-+		dev_err(dev, "failed to get runtime PM sync: %d\n", ret);
-+
-+	/* set lvds di clock rate */
-+	clk_set_rate(imx95_ldb->clk_di[ldb_ch->chno], di_clk);
-+
-+	ldb->ldb_ctrl |= LDB_VSYNC_ADJ_EN;
-+
-+	if (ldb_ch->chno == 0 || is_split) {
-+		if (adjusted_mode->flags & DRM_MODE_FLAG_NVSYNC)
-+			ldb->ldb_ctrl |= LDB_DI0_VS_POL_ACT_LOW;
-+		else if (adjusted_mode->flags & DRM_MODE_FLAG_PVSYNC)
-+			ldb->ldb_ctrl &= ~LDB_DI0_VS_POL_ACT_LOW;
-+
-+		if (adjusted_mode->flags & DRM_MODE_FLAG_NHSYNC)
-+			ldb->ldb_ctrl |= LDB_DI0_HS_POL_ACT_LOW;
-+		else if (adjusted_mode->flags & DRM_MODE_FLAG_PHSYNC)
-+			ldb->ldb_ctrl &= ~LDB_DI0_HS_POL_ACT_LOW;
-+	}
-+	if (ldb_ch->chno == 1 || is_split) {
-+		if (adjusted_mode->flags & DRM_MODE_FLAG_NVSYNC)
-+			ldb->ldb_ctrl |= LDB_DI1_VS_POL_ACT_LOW;
-+		else if (adjusted_mode->flags & DRM_MODE_FLAG_PVSYNC)
-+			ldb->ldb_ctrl &= ~LDB_DI1_VS_POL_ACT_LOW;
-+
-+		if (adjusted_mode->flags & DRM_MODE_FLAG_NHSYNC)
-+			ldb->ldb_ctrl |= LDB_DI1_HS_POL_ACT_LOW;
-+		else if (adjusted_mode->flags & DRM_MODE_FLAG_PHSYNC)
-+			ldb->ldb_ctrl &= ~LDB_DI1_HS_POL_ACT_LOW;
-+	}
-+
-+	ldb_bridge_mode_set_helper(bridge, mode, adjusted_mode);
-+}
-+
-+static void
-+imx95_ldb_bridge_atomic_enable(struct drm_bridge *bridge,
-+			       struct drm_atomic_state *state)
-+{
-+	struct ldb_channel *ldb_ch = bridge->driver_private;
-+	struct ldb *ldb = ldb_ch->ldb;
-+	struct imx95_ldb *imx95_ldb = base_to_imx95_ldb(ldb);
-+	bool is_split = ldb_channel_is_split_link(ldb_ch);
-+
-+	clk_prepare_enable(imx95_ldb->clk_ch[ldb_ch->chno]);
-+	clk_prepare_enable(imx95_ldb->clk_di[ldb_ch->chno]);
-+	if (is_split) {
-+		clk_prepare_enable(imx95_ldb->clk_ch[ldb_ch->chno ^ 1]);
-+		clk_prepare_enable(imx95_ldb->clk_di[ldb_ch->chno ^ 1]);
-+	}
-+
-+	if (ldb_ch->chno == 0 || is_split) {
-+		ldb->ldb_ctrl &= ~LDB_CH0_MODE_EN_MASK;
-+		ldb->ldb_ctrl |= LDB_CH0_MODE_EN_TO_DI0;
-+	}
-+	if (ldb_ch->chno == 1 || is_split) {
-+		ldb->ldb_ctrl &= ~LDB_CH1_MODE_EN_MASK;
-+		ldb->ldb_ctrl |= is_split ?
-+			       LDB_CH1_MODE_EN_TO_DI0 : LDB_CH1_MODE_EN_TO_DI1;
-+	}
-+
-+	if (is_split) {
-+		/* PHY clock divider 2 */
-+		regmap_update_bits(ldb->regmap, LVDS_PHY_CLK_CTRL,
-+				   LVDS_PHY_DIV2, LVDS_PHY_DIV2);
-+	}
-+
-+	ldb_bridge_enable_helper(bridge);
-+}
-+
-+static void
-+imx95_ldb_bridge_atomic_disable(struct drm_bridge *bridge,
-+				struct drm_atomic_state *state)
-+{
-+	struct ldb_channel *ldb_ch = bridge->driver_private;
-+	struct ldb *ldb = ldb_ch->ldb;
-+	struct imx95_ldb *imx95_ldb = base_to_imx95_ldb(ldb);
-+	struct device *dev = imx95_ldb->dev;
-+	bool is_split = ldb_channel_is_split_link(ldb_ch);
-+	int ret;
-+
-+	ldb_bridge_disable_helper(bridge);
-+
-+	if (is_split) {
-+		/* clean PHY clock divider 2 */
-+		regmap_update_bits(ldb->regmap, LVDS_PHY_CLK_CTRL, LVDS_PHY_DIV2, 0);
-+	}
-+
-+	if (is_split) {
-+		clk_disable_unprepare(imx95_ldb->clk_di[ldb_ch->chno ^ 1]);
-+		clk_disable_unprepare(imx95_ldb->clk_ch[ldb_ch->chno ^ 1]);
-+	}
-+	clk_disable_unprepare(imx95_ldb->clk_di[ldb_ch->chno]);
-+	clk_disable_unprepare(imx95_ldb->clk_ch[ldb_ch->chno]);
-+
-+	ret = pm_runtime_put(dev);
-+	if (ret < 0)
-+		dev_err(dev, "failed to put runtime PM: %d\n", ret);
-+}
-+
-+static const u32 imx95_ldb_bus_output_fmts[] = {
-+	MEDIA_BUS_FMT_RGB666_1X7X3_SPWG,
-+	MEDIA_BUS_FMT_RGB888_1X7X4_SPWG,
-+	MEDIA_BUS_FMT_RGB888_1X7X4_JEIDA,
-+	MEDIA_BUS_FMT_FIXED,
-+};
-+
-+static bool imx95_ldb_bus_output_fmt_supported(u32 fmt)
-+{
-+	int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(imx95_ldb_bus_output_fmts); i++) {
-+		if (imx95_ldb_bus_output_fmts[i] == fmt)
-+			return true;
-+	}
-+
-+	return false;
-+}
-+
-+static u32 *
-+imx95_ldb_bridge_atomic_get_input_bus_fmts(struct drm_bridge *bridge,
-+					   struct drm_bridge_state *bridge_state,
-+					   struct drm_crtc_state *crtc_state,
-+					   struct drm_connector_state *conn_state,
-+					   u32 output_fmt,
-+					   unsigned int *num_input_fmts)
-+{
-+	struct drm_display_info *di;
-+	const struct drm_format_info *finfo;
-+	u32 *input_fmts;
-+
-+	if (!imx95_ldb_bus_output_fmt_supported(output_fmt))
-+		return NULL;
-+
-+	*num_input_fmts = 1;
-+
-+	input_fmts = kmalloc(sizeof(*input_fmts), GFP_KERNEL);
-+	if (!input_fmts)
-+		return NULL;
-+
-+	switch (output_fmt) {
-+	case MEDIA_BUS_FMT_FIXED:
-+		di = &conn_state->connector->display_info;
-+
-+		/*
-+		 * Look at the first bus format to determine input format.
-+		 * Default to MEDIA_BUS_FMT_RGB888_1X36_CPADLO, if no match.
-+		 */
-+		if (di->num_bus_formats) {
-+			finfo = drm_format_info(di->bus_formats[0]);
-+
-+			input_fmts[0] = finfo->depth == 18 ?
-+					MEDIA_BUS_FMT_RGB666_1X36_CPADLO :
-+					MEDIA_BUS_FMT_RGB888_1X36_CPADLO;
-+		} else {
-+			input_fmts[0] = MEDIA_BUS_FMT_RGB888_1X36_CPADLO;
-+		}
-+		break;
-+	case MEDIA_BUS_FMT_RGB666_1X7X3_SPWG:
-+		input_fmts[0] = MEDIA_BUS_FMT_RGB666_1X36_CPADLO;
-+		break;
-+	case MEDIA_BUS_FMT_RGB888_1X7X4_SPWG:
-+	case MEDIA_BUS_FMT_RGB888_1X7X4_JEIDA:
-+		input_fmts[0] = MEDIA_BUS_FMT_RGB888_1X36_CPADLO;
-+		break;
-+	default:
-+		kfree(input_fmts);
-+		input_fmts = NULL;
-+		break;
-+	}
-+
-+	return input_fmts;
-+}
-+
-+static u32 *
-+imx95_ldb_bridge_atomic_get_output_bus_fmts(struct drm_bridge *bridge,
-+					    struct drm_bridge_state *bridge_state,
-+					    struct drm_crtc_state *crtc_state,
-+					    struct drm_connector_state *conn_state,
-+					    unsigned int *num_output_fmts)
-+{
-+	*num_output_fmts = ARRAY_SIZE(imx95_ldb_bus_output_fmts);
-+	return kmemdup(imx95_ldb_bus_output_fmts,
-+			sizeof(imx95_ldb_bus_output_fmts), GFP_KERNEL);
-+}
-+
-+static enum drm_mode_status
-+imx95_ldb_bridge_mode_valid(struct drm_bridge *bridge,
-+			    const struct drm_display_info *info,
-+			    const struct drm_display_mode *mode)
-+{
-+	struct ldb_channel *ldb_ch = bridge->driver_private;
-+	struct ldb *ldb = ldb_ch->ldb;
-+	struct imx95_ldb *imx95_ldb = base_to_imx95_ldb(ldb);
-+	bool is_single = ldb_channel_is_single_link(ldb_ch);
-+	struct drm_bridge *next_bridge = bridge;
-+	unsigned long pixel_clock_rate;
-+	unsigned long rounded_rate;
-+
-+	if (mode->clock > 330000)
-+		return MODE_CLOCK_HIGH;
-+
-+	if (mode->clock > 165000 && is_single)
-+		return MODE_CLOCK_HIGH;
-+
-+	while (drm_bridge_get_next_bridge(next_bridge))
-+		next_bridge = drm_bridge_get_next_bridge(next_bridge);
-+
-+	if ((next_bridge->ops & DRM_BRIDGE_OP_DETECT) &&
-+	    (next_bridge->ops & DRM_BRIDGE_OP_EDID)) {
-+		if (imx95_ldb->clk_di[ldb_ch->chno]) {
-+			pixel_clock_rate = mode->clock * 1000;
-+			rounded_rate = clk_round_rate(imx95_ldb->clk_di[ldb_ch->chno],
-+						      pixel_clock_rate);
-+			if (rounded_rate != pixel_clock_rate)
-+				return MODE_CLOCK_RANGE;
-+		}
-+	}
-+
-+	return MODE_OK;
-+}
-+
-+static const struct drm_bridge_funcs imx95_ldb_bridge_funcs = {
-+	.atomic_duplicate_state	= drm_atomic_helper_bridge_duplicate_state,
-+	.atomic_destroy_state	= drm_atomic_helper_bridge_destroy_state,
-+	.atomic_reset		= drm_atomic_helper_bridge_reset,
-+	.mode_valid		= imx95_ldb_bridge_mode_valid,
-+	.attach			= ldb_bridge_attach_helper,
-+	.atomic_check		= imx95_ldb_bridge_atomic_check,
-+	.mode_set		= imx95_ldb_bridge_mode_set,
-+	.atomic_enable		= imx95_ldb_bridge_atomic_enable,
-+	.atomic_disable		= imx95_ldb_bridge_atomic_disable,
-+	.atomic_get_input_bus_fmts =
-+			imx95_ldb_bridge_atomic_get_input_bus_fmts,
-+	.atomic_get_output_bus_fmts =
-+			imx95_ldb_bridge_atomic_get_output_bus_fmts,
-+};
-+
-+static int imx95_ldb_probe(struct platform_device *pdev)
-+{
-+	struct device *dev = &pdev->dev;
-+	struct imx95_ldb *imx95_ldb;
-+	struct imx95_ldb_channel *imx95_ldb_ch;
-+	struct ldb *ldb;
-+	struct ldb_channel *ldb_ch;
-+	struct device_node *port1, *port2;
-+	int pixel_order;
-+	int ret, i;
-+
-+	imx95_ldb = devm_kzalloc(dev, sizeof(*imx95_ldb), GFP_KERNEL);
-+	if (!imx95_ldb)
-+		return -ENOMEM;
-+
-+	for (i = 0; i < MAX_LDB_CHAN_NUM; i++) {
-+		char clk_name_ldb_ch[8], clk_name_ldb_di[8];
-+
-+		snprintf(clk_name_ldb_ch, sizeof(clk_name_ldb_ch), "ldb_ch%d", i);
-+		snprintf(clk_name_ldb_di, sizeof(clk_name_ldb_di), "ldb_di%d", i);
-+
-+		imx95_ldb->clk_ch[i] = devm_clk_get(dev, clk_name_ldb_ch);
-+		if (IS_ERR(imx95_ldb->clk_ch[i]))
-+			return dev_err_probe(dev, PTR_ERR(imx95_ldb->clk_ch[i]),
-+					     "failed to get ldb ch%d clock\n", i);
-+
-+		imx95_ldb->clk_di[i] = devm_clk_get(dev, clk_name_ldb_di);
-+		if (IS_ERR(imx95_ldb->clk_di[i]))
-+			return dev_err_probe(dev, PTR_ERR(imx95_ldb->clk_di[i]),
-+					     "failed to get ldb di%d clock\n", i);
-+	}
-+
-+	imx95_ldb->dev = dev;
-+
-+	ldb = &imx95_ldb->base;
-+	ldb->dev = dev;
-+	ldb->ctrl_reg = 0x4;
-+	ldb->ldb_ctrl = 0;
-+
-+	for (i = 0; i < MAX_LDB_CHAN_NUM; i++) {
-+		imx95_ldb->channel[i] =
-+			devm_drm_bridge_alloc(dev, struct imx95_ldb_channel,
-+					      base.bridge, &imx95_ldb_bridge_funcs);
-+		if (IS_ERR(imx95_ldb->channel[i]))
-+			return PTR_ERR(imx95_ldb->channel[i]);
-+	}
-+
-+	for (i = 0; i < MAX_LDB_CHAN_NUM; i++)
-+		ldb->channel[i] = &imx95_ldb->channel[i]->base;
-+
-+	ret = ldb_init_helper(ldb);
-+	if (ret)
-+		return ret;
-+
-+	if (ldb->available_ch_cnt == 0) {
-+		dev_dbg(dev, "no available channel\n");
-+		return 0;
-+	}
-+
-+	if (ldb->available_ch_cnt == 2) {
-+		port1 = of_graph_get_port_by_id(ldb->channel[0]->np, 1);
-+		port2 = of_graph_get_port_by_id(ldb->channel[1]->np, 1);
-+		pixel_order =
-+			drm_of_lvds_get_dual_link_pixel_order(port1, port2);
-+		of_node_put(port1);
-+		of_node_put(port2);
-+
-+		if (pixel_order == DRM_LVDS_DUAL_LINK_EVEN_ODD_PIXELS) {
-+			dev_err(dev, "invalid dual link pixel order: %d\n", pixel_order);
-+			return -EINVAL;
-+		}
-+
-+		imx95_ldb->active_chno = 0;
-+		imx95_ldb_ch = imx95_ldb->channel[0];
-+		ldb_ch = &imx95_ldb_ch->base;
-+		ldb_ch->link_type = pixel_order;
-+	} else {
-+		for (i = 0; i < MAX_LDB_CHAN_NUM; i++) {
-+			imx95_ldb_ch = imx95_ldb->channel[i];
-+			ldb_ch = &imx95_ldb_ch->base;
-+
-+			if (ldb_ch->is_available) {
-+				imx95_ldb->active_chno = ldb_ch->chno;
-+				break;
-+			}
-+		}
-+		ldb_ch->link_type = LDB_CH_SINGLE_LINK;
-+	}
-+
-+	ret = ldb_find_next_bridge_helper(ldb);
-+	if (ret)
-+		return ret;
-+
-+	platform_set_drvdata(pdev, imx95_ldb);
-+	pm_runtime_enable(dev);
-+
-+	ldb_add_bridge_helper(ldb);
-+
-+	return ret;
-+}
-+
-+static void imx95_ldb_remove(struct platform_device *pdev)
-+{
-+	struct imx95_ldb *imx95_ldb = platform_get_drvdata(pdev);
-+	struct ldb *ldb = &imx95_ldb->base;
-+
-+	ldb_remove_bridge_helper(ldb);
-+
-+	pm_runtime_disable(&pdev->dev);
-+}
-+
-+static int __maybe_unused imx95_ldb_runtime_suspend(struct device *dev)
-+{
-+	return 0;
-+}
-+
-+static int __maybe_unused imx95_ldb_runtime_resume(struct device *dev)
-+{
-+	struct imx95_ldb *imx95_ldb = dev_get_drvdata(dev);
-+	struct ldb *ldb = &imx95_ldb->base;
-+
-+	/* disable LDB by resetting the control register to POR default */
-+	regmap_write(ldb->regmap, ldb->ctrl_reg, 0);
-+
-+	return 0;
-+}
-+
-+static const struct dev_pm_ops imx95_ldb_pm_ops = {
-+	SET_RUNTIME_PM_OPS(imx95_ldb_runtime_suspend,
-+			   imx95_ldb_runtime_resume, NULL)
-+};
-+
-+static const struct of_device_id imx95_ldb_dt_ids[] = {
-+	{ .compatible = "fsl,imx95-lvds" },
-+	{ /* sentinel */ }
-+};
-+MODULE_DEVICE_TABLE(of, imx95_ldb_dt_ids);
-+
-+static struct platform_driver imx95_ldb_driver = {
-+	.probe	= imx95_ldb_probe,
-+	.remove = imx95_ldb_remove,
-+	.driver	= {
-+		.pm = &imx95_ldb_pm_ops,
-+		.name = DRIVER_NAME,
-+		.of_match_table = imx95_ldb_dt_ids,
-+	},
-+};
-+module_platform_driver(imx95_ldb_driver);
-+
-+MODULE_DESCRIPTION("i.MX95 LVDS Display Bridge(LDB) bridge driver");
-+MODULE_AUTHOR("Sandor Yu <Sandor.yu@nxp.com>");
-+MODULE_LICENSE("GPL");
++++ b/Documentation/devicetree/bindings/display/bridge/fsl,imx95-pixel-link.yaml
+@@ -0,0 +1,101 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/display/bridge/fsl,imx95-pixel-link.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Freescale i.MX95 Display Pixel Link
++
++maintainers:
++  - Liu Ying <victor.liu@nxp.com>
++  - Marek Vasut <marek.vasut@mailbox.org>
++
++description: |
++  The Freescale i.MX95 Display Pixel Link (DPL) forms a standard
++  asynchronous linkage between pixel sources (display controller
++  or camera module) and pixel consumers(imaging or displays).
++  It consists of two distinct functions, a pixel transfer function
++  and a control interface. Multiple pixel channels can exist per one
++  control channel. This binding documentation is only for pixel links
++  whose pixel sources are display controllers.
++
++  The i.MX95 Display Pixel Link is accessed via syscon.
++
++properties:
++  compatible:
++    const: fsl,imx95-dc-pixel-link
++
++  fsl,dc-stream-id:
++    $ref: /schemas/types.yaml#/definitions/uint8
++    description: |
++      u8 value representing the display controller stream index that the pixel
++      link connects to.
++    enum: [0, 1]
++
++  fsl,syscon:
++    $ref: /schemas/types.yaml#/definitions/phandle
++    description: |
++      A phandle which points to Control and Status Registers (CSR) module.
++
++  ports:
++    $ref: /schemas/graph.yaml#/properties/ports
++
++    properties:
++      port@0:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: The pixel link input port node from upstream video source.
++
++      port@1:
++        $ref: /schemas/graph.yaml#/properties/port
++        description: The pixel link output port node to downstream bridge.
++
++    required:
++      - port@0
++      - port@1
++
++required:
++  - compatible
++  - fsl,dc-stream-id
++  - fsl,syscon
++  - ports
++
++additionalProperties: false
++
++examples:
++  - |
++    dc0-pixel-link0 {
++        compatible = "fsl,imx95-dc-pixel-link";
++        fsl,dc-stream-id = /bits/ 8 <0>;
++        fsl,syscon = <&dispmix_csr>;
++
++        ports {
++            #address-cells = <1>;
++            #size-cells = <0>;
++
++            /* from DC 0 pixel interleaver channel0 */
++            port@0 {
++                reg = <0>;
++
++                dc0_pixel_link0_dc0_pixel_interleaver_ch0: endpoint {
++                    remote-endpoint = <&dc0_pixel_interleaver_ch0_dc0_pixel_link0>;
++                };
++            };
++
++            /* to MIPI/LVDS combo subsystems */
++            port@1 {
++                #address-cells = <1>;
++                #size-cells = <0>;
++                reg = <1>;
++
++                dc0_pixel_link0_mipi_lvds_0_pxl2dpi: endpoint@0 {
++                    reg = <0>;
++                    remote-endpoint = <&mipi_lvds_0_pxl2dpi_dc0_pixel_link0>;
++                };
++
++                dc0_pixel_link0_mipi_lvds_1_pxl2dpi: endpoint@1 {
++                    reg = <1>;
++                    remote-endpoint = <&mipi_lvds_1_pxl2dpi_dc0_pixel_link0>;
++                };
++            };
++        };
++    };
 -- 
 2.51.0
 
