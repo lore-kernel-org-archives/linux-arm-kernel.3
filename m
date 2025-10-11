@@ -4,98 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 773A7CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 08:13:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C706CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 10:00:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:
-	Subject:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=qTU6FSh6KsSOMsllrvA4f9dcD7yfRUi7CkOyAQD322k=; b=02V/sAKMQ7rBj3W8NtWC0KIMtL
-	cgvHzVzJrFw8ScPMgn4fYBnd6X3D1aByHm0gkiQzF2KNHmr0G33Kiz6S5ifhdFVSEJZabAzIMdjk1
-	hAwP3pprbms/gGsEIhE5/p5LzU8BfJ1Y/gUIukggC9zPgJl4SOOueCQC9Y95TGORTRcaPGat5+hP/
-	9N2vreO2vGCOpwcG+LrmZ2K9DqQ8wnT9dGi0QY4Pmm5BWdkYRxWvGbo3GRDxreLAwP7sa/WkCPSjm
-	T0jstVSEEIUOkcL+nmLTaJAJL38rcQ6yuJiUg9IhpzzBLJlwjWXU4ny31w5/TQoZfTFwGIZuVNA+a
-	3qcrv8qg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=l2eLi8frdwozdfyxrSZqTzMLcwYzrWeLEkcMY9pUrw4=; b=BomdFzWkJQcs9d+X/+1vEGLbdN
+	8WODQsDihbFDE6mJvx+T4R3vBsppou4M5DTb59I8pU0AqvYmeHaCQLqQ68rF+6N8lJ6xTpIw340GF
+	gTpGMma74MHZ9zXGuGXmsMTxD4dQ6tw+gW1g1QJD+gs4g4dYPtaASvBMQnPrK9xrqvZkXCBBqB9pK
+	EMYqKv5dsRrWQZECFWiU+DpjKhipxLwiu2ztsZRUo5fa/Gj+XZrLPlI4Kpa5K54gjQ7Lgy4JjJrd2
+	MbUuPBA/FKErmTvKv8nDxkRO7Tt7VTHdNJbFZaxedl87cRmuViqhEyZ9ni/hjzMt9YYB/CPf2jemK
+	yM19SOOw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7Ujc-00000009wVi-29yz;
-	Sat, 11 Oct 2025 08:13:48 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v7WOp-0000000A16C-1rnk;
+	Sat, 11 Oct 2025 10:00:27 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7Ujb-00000009wUs-045c;
-	Sat, 11 Oct 2025 08:13:47 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:MIME-Version:Date:Message-ID:From:References:Cc:To:Subject:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=qTU6FSh6KsSOMsllrvA4f9dcD7yfRUi7CkOyAQD322k=; b=C+O19skeu0FTPcZBUadirjReoK
-	fzoORioT02anPu8/svgKmMmVoAUbflJHiN7bov0VbXEC6hyLChnjDwsYGKePspAvH/MDe2SZSnN+9
-	8WGfYZpeWqDDLw6W4VDZD9fypSuKxoDde0VPC69dN8zyQT9JT6Ue3hyUcpEFseIP/2hPaN8YV+iDG
-	cbnZxTgdgSn5Xj/l7gcYuLwlgc0Iko5vPtHE4PkWTstKrFay0yPX+2HUFWNlG0eVDwqeTMDOJ3z7w
-	woSIo2RA2IqNe0eLfVP0I5CP4VE3Z2crZmrkxmJjwIqGXLedDXC0rlIy7nXqmsr4KiCJtTwV9SKIr
-	aSvfUS1A==;
-Received: from mail.loongson.cn ([114.242.206.163])
-	by desiato.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7UjU-00000002m55-2R43;
-	Sat, 11 Oct 2025 08:13:45 +0000
-Received: from loongson.cn (unknown [113.200.148.30])
-	by gateway (Coremail) with SMTP id _____8Bx2tGuEeponPwUAA--.45473S3;
-	Sat, 11 Oct 2025 16:13:34 +0800 (CST)
-Received: from [10.130.10.66] (unknown [113.200.148.30])
-	by front1 (Coremail) with SMTP id qMiowJCx2sCsEepo8vfZAA--.1249S3;
-	Sat, 11 Oct 2025 16:13:33 +0800 (CST)
-Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
-To: Huacai Chen <chenhuacai@kernel.org>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>,
- loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
- linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org,
- linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
-References: <20250928085506.4471-1-yangtiezhu@loongson.cn>
- <CAMj1kXG8Wi+THa2SeLxiDT=+t_TKx0AL4H-azZO4DNJvyyv96g@mail.gmail.com>
- <CAAhV-H7xOf8DEwOrNh+GQGHktOT4Ljp+7SqutGvvDZp6GLXJrA@mail.gmail.com>
- <CAMj1kXG=EFkRAMkvKMSjPixoGqU-tZXVoRkJJ6Wcnzs3x52X6Q@mail.gmail.com>
- <CAMj1kXHWe2uGY3S1NJ6mckqD4n116rPmaOzw3_Qbvxyjh7ECMw@mail.gmail.com>
- <fec0c03d-9d8c-89a3-886a-1adc22e59b66@loongson.cn>
- <CAMj1kXFLyBbRL+pAAQ6be6dxqFPiyw_Ug8qNQWaicZQ235HE=A@mail.gmail.com>
- <8091e8fa-3483-af39-2f7a-e4eb62b0944f@loongson.cn>
- <CAAhV-H4+UGLSkbjHbq9MerWfxnq0a13x+uzNfTsCoe1UxjbWsg@mail.gmail.com>
- <CAMj1kXH-rK0bRyHXdJ-crAyMyvJHApH0WR7_8Qd8vrSPBLK+yg@mail.gmail.com>
- <0c9b8e6a-96a6-91d4-946f-2109f48a529b@loongson.cn>
- <CAAhV-H41m96fvEWG5NqAE=tykPjyzt=50CseJDeCqdG-c_WMrQ@mail.gmail.com>
-From: Tiezhu Yang <yangtiezhu@loongson.cn>
-Message-ID: <9508dbf5-6432-f459-f273-8b327d51a055@loongson.cn>
-Date: Sat, 11 Oct 2025 16:13:31 +0800
-User-Agent: Mozilla/5.0 (X11; Linux loongarch64; rv:68.0) Gecko/20100101
- Thunderbird/68.7.0
-MIME-Version: 1.0
-In-Reply-To: <CAAhV-H41m96fvEWG5NqAE=tykPjyzt=50CseJDeCqdG-c_WMrQ@mail.gmail.com>
-Content-Type: text/plain; charset=utf-8; format=flowed
-Content-Language: en-US
-Content-Transfer-Encoding: 8bit
-X-CM-TRANSID: qMiowJCx2sCsEepo8vfZAA--.1249S3
-X-CM-SenderInfo: p1dqw3xlh2x3gn0dqz5rrqw2lrqou0/
-X-Coremail-Antispam: 1Uk129KBj93XoWxuw4DGFWrJFWDKFy3XF4xGrX_yoWxCrW3pa
-	15GFWYyr4fJw48Jas2y3y5uFyYqwnIgr9FgasFv34rZ3WqvF13XryUWryj9F4DAryvg3Wa
-	yay3tr9aka1DJwcCm3ZEXasCq-sJn29KB7ZKAUJUUUU8529EdanIXcx71UUUUU7KY7ZEXa
-	sCq-sGcSsGvfJ3Ic02F40EFcxC0VAKzVAqx4xG6I80ebIjqfuFe4nvWSU5nxnvy29KBjDU
-	0xBIdaVrnRJUUU9Ib4IE77IF4wAFF20E14v26r1j6r4UM7CY07I20VC2zVCF04k26cxKx2
-	IYs7xG6rWj6s0DM7CIcVAFz4kK6r106r15M28lY4IEw2IIxxk0rwA2F7IY1VAKz4vEj48v
-	e4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_JFI_Gr1l84ACjcxK6xIIjxv20xvEc7CjxVAFwI
-	0_Jr0_Gr1l84ACjcxK6I8E87Iv67AKxVWxJr0_GcWl84ACjcxK6I8E87Iv6xkF7I0E14v2
-	6F4UJVW0owAS0I0E0xvYzxvE52x082IY62kv0487Mc804VCY07AIYIkI8VC2zVCFFI0UMc
-	02F40EFcxC0VAKzVAqx4xG6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAF
-	wI0_Gr0_Cr1lOx8S6xCaFVCjc4AY6r1j6r4UM4x0Y48IcVAKI48JMxk0xIA0c2IEe2xFo4
-	CEbIxvr21l42xK82IYc2Ij64vIr41l4I8I3I0E4IkC6x0Yz7v_Jr0_Gr1l4IxYO2xFxVAF
-	wI0_Jw0_GFylx2IqxVAqx4xG67AKxVWUJVWUGwC20s026x8GjcxK67AKxVWUGVWUWwC2zV
-	AF1VAY17CE14v26r1q6r43MIIYrxkI7VAKI48JMIIF0xvE2Ix0cI8IcVAFwI0_Jr0_JF4l
-	IxAIcVC0I7IYx2IY6xkF7I0E14v26r1j6r4UMIIF0xvE42xK8VAvwI8IcIk0rVWUJVWUCw
-	CI42IY6I8E87Iv67AKxVWUJVW8JwCI42IY6I8E87Iv6xkF7I0E14v26r4j6r4UJbIYCTnI
-	WIevJa73UjIFyTuYvjxUcyxRUUUUU
+	id 1v7WOk-0000000A15g-3pOQ
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 11 Oct 2025 10:00:24 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 2C7B143912;
+	Sat, 11 Oct 2025 10:00:21 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 07757C4CEF4;
+	Sat, 11 Oct 2025 10:00:21 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760176821;
+	bh=7yk3MyybYlBVgFNRCla3ShEZ9hQTXp85epGyYGmllnE=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=ipWja8p6NiPSUbYJhlW2Sa3QetWXS8an+AnAX6jaIAiL6o8yPrCeARTxCT73z7Ill
+	 8FBYVVlvvp3/1ja1SR1A1BmoeevXImnndsTQie6tS15RU3qgGrYt9Bm7qqrtBKw2Mo
+	 DAZxK3NbpaLI/zdDVmatyexWWCozkr/ZzzHaE4lhflhkkeulsLgVfOjRnQN5I1mXvF
+	 SptpvrMb1YvBj56OxmBKxXjMZd00DX1/8l44TqwmCpGPvF9ltz32/LB1jfnXDIQfJD
+	 geopXXVCzxhBd6BWlfknTWZlqnUfC5DJ/6sTybJcSOruLlbdaqnOsKD5pUyXAgEUud
+	 hu7d1704Oby6g==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=wait-a-minute.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1v7WOg-0000000D7RR-38KY;
+	Sat, 11 Oct 2025 10:00:18 +0000
+Date: Sat, 11 Oct 2025 11:00:11 +0100
+Message-ID: <87sefpoj10.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Thierry Reding <thierry.reding@gmail.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>,
+	linux-tegra@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: IRQ thread timeouts and affinity
+In-Reply-To: <graeplkpsgbolpnnq2pndpdb7fymyy7zvm37osbdtre347tns2@mjbgzwterefv>
+References: <j7ikmaazu6hjzsagqqk4o4nnxl5wupsmpcaruoyytsn2ogolyx@mtmhqrkm4gbv>
+	<86qzvcxi3j.wl-maz@kernel.org>
+	<loeliplxuvek4nh4plt4hup3ibqorpiv4eljiiwltgmyqa4nki@xpzymugslcvf>
+	<86o6qgxayt.wl-maz@kernel.org>
+	<86ms60x7w7.wl-maz@kernel.org>
+	<us2hfdn7jpfepdmwk2p62w64p7xagaeoemg3hdt2vm54emtwlv@m6fkuti7hvfa>
+	<86bjmeyh5m.wl-maz@kernel.org>
+	<graeplkpsgbolpnnq2pndpdb7fymyy7zvm37osbdtre347tns2@mjbgzwterefv>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (x86_64-pc-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: thierry.reding@gmail.com, tglx@linutronix.de, linux-tegra@vger.kernel.org, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251011_091342_098745_7D3E6F51 
-X-CRM114-Status: GOOD (  20.74  )
+X-CRM114-CacheID: sfid-20251011_030022_973746_D0D0E174 
+X-CRM114-Status: GOOD (  19.17  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,196 +92,31 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 2025/10/11 下午3:42, Huacai Chen wrote:
-> On Sat, Oct 11, 2025 at 3:29 PM Tiezhu Yang <yangtiezhu@loongson.cn> wrote:
->>
->> On 2025/10/11 上午11:40, Ard Biesheuvel wrote:
->>> On Fri, 10 Oct 2025 at 19:54, Huacai Chen <chenhuacai@kernel.org> wrote:
->>>>
->>>> On Sat, Oct 11, 2025 at 9:13 AM Tiezhu Yang <yangtiezhu@loongson.cn> wrote:
->>>>>
->>>>> On 2025/10/11 上午12:25, Ard Biesheuvel wrote:
->>>>> ...
->>>>>> Why do we need both (1) and (2)?
->>>>>
->>>>> Not both, either (1) or (2).
->>>>> Which one do you prefer? Or any other suggestions?
->>>>>
->>>>> Taking all of the considerations in balance, we should decide
->>>>> what is the proper way.
->>>> As a summary, there are three methods:
->>>> (1) Only link libstub with vmlinux.o during the final vmlinux link.
->>>> (2) Remove the attribute __noreturn for real_kernel_entry() and add while (1).
->>>> (3) Ignore "__efistub_" prefix in objtool.
->>>>
->>>> Josh prefers method (1), I prefer method (3) but also accept method
->>>> (1) if it is not only specific to loongarch.
->>>>
->>>
->>> This is a false positive warning in objtool, which complains about a
->>> function that falls through, even though that can never happen in
->>> reality.
->>>
->>> To me, it is not acceptable to modify how vmlinux.o is constructed
->>> also for other architectures, in order to hide some of its constituent
->>> parts from objtool, which do not use objtool to begin with.
->>>
->>>
->>> If you are not willing to fix objtool, I suggest fixing the loongarch
->>> code like this:
->>
->> Thank you.
->>
->>> --- a/drivers/firmware/efi/libstub/loongarch.c
->>> +++ b/drivers/firmware/efi/libstub/loongarch.c
->>> @@ -10,7 +10,7 @@
->>>    #include "efistub.h"
->>>    #include "loongarch-stub.h"
->>>
->>> -typedef void __noreturn (*kernel_entry_t)(bool efi, unsigned long cmdline,
->>> +typedef void (*kernel_entry_t)(bool efi, unsigned long cmdline,
->>>                                             unsigned long systab);
->>>
->>>    efi_status_t check_platform_features(void)
->>> @@ -81,4 +81,6 @@
->>>
->>>           real_kernel_entry(true, (unsigned long)cmdline_ptr,
->>>                             (unsigned long)efi_system_table);
->>> +
->>> +       return EFI_LOAD_ERROR;
->>>    }
->>
->> I tested the above changes, the falls through objtool warning can
->> be fixed because efi_boot_kernel() ends with a return instruction,
->> I think this is reasonable.
->>
->> efi_boot_kernel() has a return value, there are "return status" in
->> other parts of efi_boot_kernel(), it should also return at the end
->> of efi_boot_kernel() in theory, although we should never get here.
->>
->> If there are more comments, please let me know.
-> I still don't want LoongArch to be a special case, which means
-> efi_boot_kernel() in fdt.c, jump_kernel_func in riscv.c and
-> enter_kernel in arm64.c should also be modified.
+On Fri, 10 Oct 2025 16:03:01 +0100,
+Thierry Reding <thierry.reding@gmail.com> wrote:
+> 
+> On Fri, Oct 10, 2025 at 03:18:13PM +0100, Marc Zyngier wrote:
+> > 
+> > CPU hotplug is the main area of concern, and I'm pretty sure it breaks
+> > this distribution mechanism (or the other way around). Another thing
+> > is that if firmware isn't aware that 1:N interrupts can (or should)
+> > wake-up a CPU from sleep, bad things will happen. Given that nobody
+> > uses 1:N, you can bet that any bit of privileged SW (TF-A,
+> > hypervisors) is likely to be buggy (I've already spotted bugs in KVM
+> > around this).
+> 
+> Okay, I can find out if CPU hotplug is a common use-case on these
+> devices, or if we can run some tests with that.
 
-Here is the diff:
+It's not so much whether CPU hotplug is of any use to your particular
+box, but whether this has any detrimental impact on *any* machine
+doing CPU hotplug.
 
------ 8< -----
-diff --git a/drivers/firmware/efi/libstub/arm64.c 
-b/drivers/firmware/efi/libstub/arm64.c
-index e57cd3de0a00..f3a1bb86bf8d 100644
---- a/drivers/firmware/efi/libstub/arm64.c
-+++ b/drivers/firmware/efi/libstub/arm64.c
-@@ -128,11 +128,11 @@ unsigned long __weak primary_entry_offset(void)
-         return 0;
-  }
+To be clear, this stuff doesn't go in if something breaks, no matter
+how small.
 
--void __noreturn efi_enter_kernel(unsigned long entrypoint,
--                                unsigned long fdt_addr,
--                                unsigned long fdt_size)
-+void efi_enter_kernel(unsigned long entrypoint,
-+                     unsigned long fdt_addr,
-+                     unsigned long fdt_size)
-  {
--       void (* __noreturn enter_kernel)(u64, u64, u64, u64);
-+       void (*enter_kernel)(u64, u64, u64, u64);
+	M.
 
-         enter_kernel = (void *)entrypoint + primary_entry_offset();
-         enter_kernel(fdt_addr, 0, 0, 0);
-diff --git a/drivers/firmware/efi/libstub/efistub.h 
-b/drivers/firmware/efi/libstub/efistub.h
-index f5ba032863a9..b4c716df4d47 100644
---- a/drivers/firmware/efi/libstub/efistub.h
-+++ b/drivers/firmware/efi/libstub/efistub.h
-@@ -1129,9 +1129,9 @@ efi_status_t efi_stub_common(efi_handle_t handle,
-
-  efi_status_t efi_handle_cmdline(efi_loaded_image_t *image, char 
-**cmdline_ptr);
-
--asmlinkage void __noreturn efi_enter_kernel(unsigned long entrypoint,
--                                           unsigned long fdt_addr,
--                                           unsigned long fdt_size);
-+asmlinkage void efi_enter_kernel(unsigned long entrypoint,
-+                                unsigned long fdt_addr,
-+                                unsigned long fdt_size);
-
-  void efi_handle_post_ebs_state(void);
-
-diff --git a/drivers/firmware/efi/libstub/fdt.c 
-b/drivers/firmware/efi/libstub/fdt.c
-index 6a337f1f8787..7ece39ed70f6 100644
---- a/drivers/firmware/efi/libstub/fdt.c
-+++ b/drivers/firmware/efi/libstub/fdt.c
-@@ -358,7 +358,9 @@ efi_status_t efi_boot_kernel(void *handle, 
-efi_loaded_image_t *image,
-                 efi_handle_post_ebs_state();
-
-         efi_enter_kernel(kernel_addr, fdt_addr, fdt_totalsize((void 
-*)fdt_addr));
-+
-         /* not reached */
-+       return EFI_LOAD_ERROR;
-  }
-
-  void *get_fdt(unsigned long *fdt_size)
-diff --git a/drivers/firmware/efi/libstub/loongarch.c 
-b/drivers/firmware/efi/libstub/loongarch.c
-index 3782d0a187d1..88c500aeed86 100644
---- a/drivers/firmware/efi/libstub/loongarch.c
-+++ b/drivers/firmware/efi/libstub/loongarch.c
-@@ -10,8 +10,8 @@
-  #include "efistub.h"
-  #include "loongarch-stub.h"
-
--typedef void __noreturn (*kernel_entry_t)(bool efi, unsigned long cmdline,
--                                         unsigned long systab);
-+typedef void (*kernel_entry_t)(bool efi, unsigned long cmdline,
-+                              unsigned long systab);
-
-  efi_status_t check_platform_features(void)
-  {
-@@ -81,4 +81,7 @@ efi_status_t efi_boot_kernel(void *handle, 
-efi_loaded_image_t *image,
-
-         real_kernel_entry(true, (unsigned long)cmdline_ptr,
-                           (unsigned long)efi_system_table);
-+
-+       /* not reached */
-+       return EFI_LOAD_ERROR;
-  }
-diff --git a/drivers/firmware/efi/libstub/riscv.c 
-b/drivers/firmware/efi/libstub/riscv.c
-index f66f33ceb99e..6589e8f5cf1a 100644
---- a/drivers/firmware/efi/libstub/riscv.c
-+++ b/drivers/firmware/efi/libstub/riscv.c
-@@ -11,7 +11,7 @@
-
-  #include "efistub.h"
-
--typedef void __noreturn (*jump_kernel_func)(unsigned long, unsigned long);
-+typedef void (*jump_kernel_func)(unsigned long, unsigned long);
-
-  static unsigned long hartid;
-
-@@ -81,7 +81,7 @@ unsigned long __weak stext_offset(void)
-         return 0;
-  }
-
--void __noreturn efi_enter_kernel(unsigned long entrypoint, unsigned 
-long fdt,
-+void efi_enter_kernel(unsigned long entrypoint, unsigned long fdt,
-                                  unsigned long fdt_size)
-  {
-         unsigned long kernel_entry = entrypoint + stext_offset();
-
-Do the above changes in a single patch?
-Or in two patches?
-One is to modify drivers/firmware/efi/libstub/loongarch.c,
-the other one is to modify the arm64 and riscv.
-
-Let us wait for more review comments.
-
-Thanks,
-Tiezhu
-
+-- 
+Without deviation from the norm, progress is not possible.
 
