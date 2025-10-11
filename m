@@ -4,137 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8527DCCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 17:07:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25F4FCCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 17:12:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mFycPb6v8NKaDe6FYB2/8x+ovkGxvomJsSjcJN9pEKw=; b=tX5C6+iObfUIhxSV39cfiSIHLZ
-	U/Z1yVNJcX2ope+J/fUzs25hZ2089vO0KPq5vYixAt8wkD38hUCZ3ZSvDL14z/sSitdVIf5GZRNjx
-	Cx0JxC9m/HfoDqQiVd7z0O8f9ifEVaxqL5AOe8UUMdA6jhfyQQwYR1/etEt2Yiv1WjmfIA6fKGVrg
-	aQKJw2kThOJR9jvzUs/W4nhPKqVWtA0X2VfY3t+iS3ODDzZly6IA8ulrS/w51t5x8x96n1R/jrUCb
-	K0zEcwUl4hh1iYJOT/IYaLJkcppd8Q5QSbXgR/qNRrLDiY3bWGgjOdFuHIx8RtZmPYcYU40+L5cDy
-	Z1UN31Ug==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=0w+B/tCledBrlOq6HIpAHqdVg2SY76LtseeOT2jub/4=; b=IkXox8LS+6i45jpTlNq1dd+DMp
+	8SwJEkFKS25OI3Dtm5Am3uFDdNCfnFE7ybP16bxhTMydzWjsn2eL0Nke4UQr4aItnjvyYd2qgKalY
+	Lkg9KufMMxkhmzaedETc5MbtjUasPIIUa+j2S0gQAUCIBO7LlElrxzQqr0/8ioaIUvj848t/su2gE
+	6AHVPNlZQt92PfXkFYBn9FCHjSO0+ZpUAZcoQn8I7EeC3kwIy35wbj39HraObho25HbyaE6aBp9Ct
+	+YBw4P7HrxSgSZZbCzXk/O/fnzqE+QXQqsab30EyXfapGu6ZxLObNun0jmzRPygRB+UzHM5LhLaKL
+	CMhMomCg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7d3o-0000000APlp-47hC;
-	Sat, 11 Oct 2025 17:07:13 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1v7d8s-0000000AQAs-3AEH;
+	Sat, 11 Oct 2025 17:12:26 +0000
+Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7d3l-0000000APkE-3GI6
+	id 1v7d8p-0000000AQA5-3cJg
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Oct 2025 17:07:11 +0000
-Received: from pps.filterd (m0279873.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59BFHpFj030288
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Oct 2025 17:07:08 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=mFycPb6v8NKaDe6FYB2/8x+o
-	vkGxvomJsSjcJN9pEKw=; b=pn0h0OcIRdlCvpvf8AjJVH6nVCXg8NEJeCQW75q2
-	dsToMtpqSi+FaPkkcRIipiaBow3F8Mt0xdph6Ty33wqPLR2jpF+MAGyHWJFRDBVc
-	2g6SrzzItdXMZJs4RIo5yF3mVzUscJ5f/jt/1v16S4qXdikK6xk/2yBSH6l5Grxa
-	AQvyG2gx0K+oz9bWCm3Wd2g2wskZ6FpJ08hr+IkKiXAJKtNQQ2ZENVco/RnbZkqP
-	0ycpTVwbCwXLwDB2OXc/DxiGSnhT3vqtijHOw7tdwBYTXNeYQdUS2/J9Fih49Fi9
-	a/UE+LUVGdC+a4YIb1jekPmVYnHt4wT42DujL4yWW+rGPA==
-Received: from mail-qk1-f197.google.com (mail-qk1-f197.google.com [209.85.222.197])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49qfby0ydv-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Oct 2025 17:07:08 +0000 (GMT)
-Received: by mail-qk1-f197.google.com with SMTP id af79cd13be357-854bec86266so933163985a.1
-        for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Oct 2025 10:07:08 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760202428; x=1760807228;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mFycPb6v8NKaDe6FYB2/8x+ovkGxvomJsSjcJN9pEKw=;
-        b=QAtS1ZaE5RijGOkG+vgOG8BP0EGoYp1ETput8LHkLUiOkjHSB5o5B26sFx/NPkM58y
-         DoQ+eT3Kv7W10N6Oo4Zkfotex8tXy3PZU4+2t58FBIA049SR5YlczHLoJo6yPzjZblok
-         10khtwHTacauNkLgtpJAzTmI0qYXs+/wnLZokO5ecKfXGlVO1VGJnBUI9c8+eAAoswU5
-         ThWhBwklzaZ1YCooleO87jXnGRu9tjjKKhJgNUPhzUfyjZ+JGDfBJtfJhdGjQvKQtKBg
-         qRElEYcY+ftl4ONMvpy5oaJV5zRdsrDFRn+A+bKtWTCjsvTc3o4kKcRiOF7kp/QLXHaJ
-         V7Uw==
-X-Forwarded-Encrypted: i=1; AJvYcCXqVEC605kpRzUSmyZN8VxFzLAY3VWnqifQQxYSSG+woVYAAXSrR51ESuHxOaMKDgQpfzeiQU/8TLh3KatNVEXZ@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxs5XTszL4vmJMSn6c2AKKcS4Q2fBAH19XXRfntlP1ipvYiXQRk
-	PKR6wCDt3MN31y8Rlu2HuOGUkXxheP+BJnKUrQHoSWTu2kLMtRN+XSnNhipoaSzkHUyRONvIlJ/
-	1v+G57KTdbihSR94oQEpqlLfhogMBHTqZWzXgc+KGUz1H7Pbxf1baVgFRCo18Vtg2AC/e1QybGS
-	bWTA==
-X-Gm-Gg: ASbGncsxZJSllx1PeLWLnjcDo3DtPHzM9RuZ/9hoELjspwRy6etrSroW6lx9qbeaK0U
-	9M4DnbpM6RhdQCLz8meNiqG+NIgpiI2dBEDj5NEbITSi2vNER3nIuGPt5Tmf59Txu1UwBIAxFIE
-	ikHkAzaupu/1UBfMv/mf96cULSEEwV647UmdrHDxPNEk6N/vLyi54V7Inrawp7bZiJ6iFpCp9SS
-	/z2duEBV8eRx4FDlGLLh/1hZN8/L4JGRkmTSjLn8SyQ+1qJw8k7lQUK/AuOisSp8Aktvt0xEU3c
-	to1eH4v42mntV9OF8ZZy4Sl4Tj5kpZ9VPKl1kklffcpmZ8WxIfbojBH27CEQRbAd4RJ3tVVRxqY
-	QkmHpRjdLVbuQXpuvfn0u96lN1YRt9LEvKKwjLhMqry0V6+UkgOWv
-X-Received: by 2002:a05:622a:4a8a:b0:4cb:102c:56b2 with SMTP id d75a77b69052e-4e6eabf437fmr231238571cf.0.1760202427572;
-        Sat, 11 Oct 2025 10:07:07 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IFGnG/nUOQfuTmf4P38ClaQ0pqxIsVT4KwQ6QvBre1kD+zoeTzKlRbXjaxIWC6ayUXFmCULHg==
-X-Received: by 2002:a05:622a:4a8a:b0:4cb:102c:56b2 with SMTP id d75a77b69052e-4e6eabf437fmr231238041cf.0.1760202427149;
-        Sat, 11 Oct 2025 10:07:07 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-59092ed98d9sm1244485e87.24.2025.10.11.10.07.05
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sat, 11 Oct 2025 10:07:06 -0700 (PDT)
-Date: Sat, 11 Oct 2025 20:07:04 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Chaoyi Chen <kernel@airkyi.com>
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>, Vinod Koul <vkoul@kernel.org>,
-        Kishon Vijay Abraham I <kishon@kernel.org>,
-        Heiko Stuebner <heiko@sntech.de>, Sandy Huang <hjc@rock-chips.com>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Yubing Zhang <yubing.zhang@rock-chips.com>,
-        Frank Wang <frank.wang@rock-chips.com>,
-        Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Amit Sunil Dhamne <amitsd@google.com>,
-        Heikki Krogerus <heikki.krogerus@linux.intel.com>,
-        Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
-        Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-        Dragan Simic <dsimic@manjaro.org>, Johan Jonker <jbx6244@gmail.com>,
-        Diederik de Haas <didi.debian@cknow.org>,
-        Peter Robinson <pbrobinson@gmail.com>, linux-usb@vger.kernel.org,
-        devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
-        linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
-Subject: Re: [PATCH v5 4/8] phy: rockchip: phy-rockchip-typec: Add DRM AUX
- bridge
-Message-ID: <jcmn6n4nbyjsmpvg4q47wxulgddizhiwax4dcb4dokrvj23eur@g3nvwkssg2li>
-References: <20251011033233.97-1-kernel@airkyi.com>
- <20251011033233.97-5-kernel@airkyi.com>
+	Sat, 11 Oct 2025 17:12:25 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4ckVMj5NPpz9tCk;
+	Sat, 11 Oct 2025 19:04:33 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1760202273;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0w+B/tCledBrlOq6HIpAHqdVg2SY76LtseeOT2jub/4=;
+	b=RVIAzvfQHpCMffZm841KON3A5nvmrP8XNbIn5GMdR19rO/ZO1vQOEPTbNuFqM9CNg/ZnLQ
+	DPHB2Dcn0GoUjW8sW0KxsK6JIq+nAO5RcHv+XE57jD+UxMqUmyDlfUTFEUysT320qvG5ve
+	t92iVj4w2fa03FUII4WNySbovgSqTnV6m+vZ5N2rXa0SxnUpZLrQ4p6BtaVKtqmQJKMKjw
+	ekGQoID+YFVqEr0s8qQN1zbs+KOFfJObzIGJnB4+I5kNRhdPByF1swJVjnjgEjFZp/QLtb
+	RTK+vLtOAsBX2VVPlWmrtjUTfrUsq7IwCq5cCsQiKkapICICgW3teDZTqw/ywQ==
+From: Marek Vasut <marek.vasut@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1760202271;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=0w+B/tCledBrlOq6HIpAHqdVg2SY76LtseeOT2jub/4=;
+	b=mUixiEpwpW3c3V4Ub2e7psSTx6UmwmLgemrJ9G9/0NCMPJSFCpExucMvy+As8H1VglndLL
+	q69EBWzx/vlHHpQf3d8pOBOVu6q8NGRZ7ZLKJzuFNynjCoHqueMaBeQNIsC0OD+AZXUcjX
+	pHkgU+t77KsVL3QnSSo97HRjxpi6mhX1ZLLT1cd/xgpQ5VKGtHtO5rhQ37oE8oAPofUrQT
+	jwe9VWf0dGPm5qZfPm/9Yi1nhCKgcQjOY2q3eodUD8TT0ZzT1sdyvAncbSpn2OxIoD247E
+	z6BQYvxQumaWj6OOxlHntzSl429kgVhZcdEoDBNDB16lmFHTHNvh8wJqvBif+g==
+To: dri-devel@lists.freedesktop.org
+Cc: Marek Vasut <marek.vasut@mailbox.org>,
+	Abel Vesa <abelvesa@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Liu Ying <victor.liu@nxp.com>,
+	Lucas Stach <l.stach@pengutronix.de>,
+	Peng Fan <peng.fan@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>,
+	Shawn Guo <shawnguo@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	devicetree@vger.kernel.org,
+	imx@lists.linux.dev,
+	linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org
+Subject: [PATCH 35/39] drm/bridge: fsl-ldb: Parse register offsets from DT
+Date: Sat, 11 Oct 2025 18:51:50 +0200
+Message-ID: <20251011170213.128907-36-marek.vasut@mailbox.org>
+In-Reply-To: <20251011170213.128907-1-marek.vasut@mailbox.org>
+References: <20251011170213.128907-1-marek.vasut@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251011033233.97-5-kernel@airkyi.com>
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDExMDAxOCBTYWx0ZWRfX8BokhoZXq0aA
- i0x6QMfBkFK3p2eVkV17aRnapAjBxg/QSMqdgGc5mc9gqAVnVufX+SCTHybHcTdxvN25NoJcAty
- SmdIy4dIG8AfNqoTT6upzoRCM9nJqrdG5PoSFeAtIW4rfV0PGM9MFnDN1G0L6/e5Ef/wX4S5fMa
- Xr59/u7RKQhyQEbE+m2HINMFFxgqwfGHuq0vN2eeLTpByG1KwGBGSnx8NmSQnFEjK0gWDMzb9a5
- rcWYx/lEz8fbVOdILtbif9vvYjwhLgmEFGOKEuoB//L0IVC49WoabOiAOkhEOZhFcuHInw2jNaM
- OMP54DCaIFmzkH3qFsWIZMW/nNkojyyK4QbWMNaT9m0EF/LDS3jU0dg1CzEw0otFIUEBelVB9Mu
- SiY+gXjEMWz16DzsmrNcIk/VMaCRQQ==
-X-Proofpoint-GUID: riwmoFwcTeVsjRfM-6KnbgopMh-OIch_
-X-Proofpoint-ORIG-GUID: riwmoFwcTeVsjRfM-6KnbgopMh-OIch_
-X-Authority-Analysis: v=2.4 cv=A+Bh/qWG c=1 sm=1 tr=0 ts=68ea8ebc cx=c_pps
- a=50t2pK5VMbmlHzFWWp8p/g==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=x6icFKpwvdMA:10 a=s8YR1HE3AAAA:8 a=-wB9imSA1xWJEod_rSAA:9 a=CjuIK1q_8ugA:10
- a=IoWCM6iH3mJn3m4BftBB:22 a=jGH_LyMDp9YhSvY-UuyI:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-11_03,2025-10-06_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 suspectscore=0 spamscore=0 clxscore=1015 bulkscore=0
- malwarescore=0 adultscore=0 lowpriorityscore=0 priorityscore=1501
- phishscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2510020000
- definitions=main-2510110018
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: ea661708900ef395549
+X-MBO-RS-META: kd9wg3mdhk94dhn81apjjnztjthnmakq
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251011_100709_951591_9506999F 
-X-CRM114-Status: GOOD (  14.39  )
+X-CRM114-CacheID: sfid-20251011_101224_040039_11872CA0 
+X-CRM114-Status: GOOD (  14.78  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -149,23 +102,148 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 11, 2025 at 11:32:29AM +0800, Chaoyi Chen wrote:
-> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> 
-> Using the DRM_AUX_BRIDGE helper to create the transparent DRM bridge
-> device.
-> 
-> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-> ---
->  drivers/phy/rockchip/phy-rockchip-typec.c | 52 +++++++++++++++++++++++
->  1 file changed, 52 insertions(+)
-> 
+The DT binding for this bridge describe register offsets for the LDB,
+parse the register offsets from DT instead of hard-coding them in the
+driver. No functional change.
 
-        depends on DRM || DRM=n
-        select DRM_AUX_BRIDGE if DRM_BRIDGE
+Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
+---
+Cc: Abel Vesa <abelvesa@kernel.org>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: Fabio Estevam <festevam@gmail.com>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
+Cc: Liu Ying <victor.liu@nxp.com>
+Cc: Lucas Stach <l.stach@pengutronix.de>
+Cc: Peng Fan <peng.fan@nxp.com>
+Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Shawn Guo <shawnguo@kernel.org>
+Cc: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: devicetree@vger.kernel.org
+Cc: dri-devel@lists.freedesktop.org
+Cc: imx@lists.linux.dev
+Cc: linux-arm-kernel@lists.infradead.org
+Cc: linux-clk@vger.kernel.org
+---
+ drivers/gpu/drm/bridge/fsl-ldb.c | 42 ++++++++++++++++++++------------
+ 1 file changed, 26 insertions(+), 16 deletions(-)
 
-
+diff --git a/drivers/gpu/drm/bridge/fsl-ldb.c b/drivers/gpu/drm/bridge/fsl-ldb.c
+index 5c3cf37200bce..c54caea0b63fc 100644
+--- a/drivers/gpu/drm/bridge/fsl-ldb.c
++++ b/drivers/gpu/drm/bridge/fsl-ldb.c
+@@ -61,24 +61,16 @@ enum fsl_ldb_devtype {
+ };
+ 
+ struct fsl_ldb_devdata {
+-	u32 ldb_ctrl;
+-	u32 lvds_ctrl;
+ 	bool lvds_en_bit;
+ 	bool single_ctrl_reg;
+ };
+ 
+ static const struct fsl_ldb_devdata fsl_ldb_devdata[] = {
+ 	[IMX6SX_LDB] = {
+-		.ldb_ctrl = 0x18,
+ 		.single_ctrl_reg = true,
+ 	},
+-	[IMX8MP_LDB] = {
+-		.ldb_ctrl = 0x5c,
+-		.lvds_ctrl = 0x128,
+-	},
++	[IMX8MP_LDB] = { },
+ 	[IMX93_LDB] = {
+-		.ldb_ctrl = 0x20,
+-		.lvds_ctrl = 0x24,
+ 		.lvds_en_bit = true,
+ 	},
+ };
+@@ -90,6 +82,8 @@ struct fsl_ldb {
+ 	struct clk *clk;
+ 	struct regmap *regmap;
+ 	const struct fsl_ldb_devdata *devdata;
++	u32 ldb_ctrl;
++	u32 lvds_ctrl;
+ 	bool ch0_enabled;
+ 	bool ch1_enabled;
+ };
+@@ -204,7 +198,7 @@ static void fsl_ldb_atomic_enable(struct drm_bridge *bridge,
+ 		reg |=	(fsl_ldb->ch0_enabled ? LDB_CTRL_DI0_VSYNC_POLARITY : 0) |
+ 			(fsl_ldb->ch1_enabled ? LDB_CTRL_DI1_VSYNC_POLARITY : 0);
+ 
+-	regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->ldb_ctrl, reg);
++	regmap_write(fsl_ldb->regmap, fsl_ldb->ldb_ctrl, reg);
+ 
+ 	if (fsl_ldb->devdata->single_ctrl_reg)
+ 		return;
+@@ -212,7 +206,7 @@ static void fsl_ldb_atomic_enable(struct drm_bridge *bridge,
+ 	/* Program LVDS_CTRL */
+ 	reg = LVDS_CTRL_CC_ADJ(2) | LVDS_CTRL_PRE_EMPH_EN |
+ 	      LVDS_CTRL_PRE_EMPH_ADJ(3) | LVDS_CTRL_VBG_EN;
+-	regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->lvds_ctrl, reg);
++	regmap_write(fsl_ldb->regmap, fsl_ldb->lvds_ctrl, reg);
+ 
+ 	/* Wait for VBG to stabilize. */
+ 	usleep_range(15, 20);
+@@ -220,7 +214,7 @@ static void fsl_ldb_atomic_enable(struct drm_bridge *bridge,
+ 	reg |=	(fsl_ldb->ch0_enabled ? LVDS_CTRL_CH0_EN : 0) |
+ 		(fsl_ldb->ch1_enabled ? LVDS_CTRL_CH1_EN : 0);
+ 
+-	regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->lvds_ctrl, reg);
++	regmap_write(fsl_ldb->regmap, fsl_ldb->lvds_ctrl, reg);
+ }
+ 
+ static void fsl_ldb_atomic_disable(struct drm_bridge *bridge,
+@@ -231,12 +225,12 @@ static void fsl_ldb_atomic_disable(struct drm_bridge *bridge,
+ 	/* Stop channel(s). */
+ 	if (fsl_ldb->devdata->lvds_en_bit)
+ 		/* Set LVDS_CTRL_LVDS_EN bit to disable. */
+-		regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->lvds_ctrl,
++		regmap_write(fsl_ldb->regmap, fsl_ldb->lvds_ctrl,
+ 			     LVDS_CTRL_LVDS_EN);
+ 	else
+ 		if (!fsl_ldb->devdata->single_ctrl_reg)
+-			regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->lvds_ctrl, 0);
+-	regmap_write(fsl_ldb->regmap, fsl_ldb->devdata->ldb_ctrl, 0);
++			regmap_write(fsl_ldb->regmap, fsl_ldb->lvds_ctrl, 0);
++	regmap_write(fsl_ldb->regmap, fsl_ldb->ldb_ctrl, 0);
+ 
+ 	clk_disable_unprepare(fsl_ldb->clk);
+ }
+@@ -296,7 +290,7 @@ static int fsl_ldb_probe(struct platform_device *pdev)
+ 	struct device_node *remote1, *remote2;
+ 	struct drm_panel *panel;
+ 	struct fsl_ldb *fsl_ldb;
+-	int dual_link;
++	int dual_link, idx, ret;
+ 
+ 	fsl_ldb = devm_drm_bridge_alloc(dev, struct fsl_ldb, bridge, &funcs);
+ 	if (IS_ERR(fsl_ldb))
+@@ -309,6 +303,22 @@ static int fsl_ldb_probe(struct platform_device *pdev)
+ 	fsl_ldb->dev = &pdev->dev;
+ 	fsl_ldb->bridge.of_node = dev->of_node;
+ 
++	idx = of_property_match_string(dev->of_node, "reg-names", "ldb");
++	if (idx < 0)
++		return idx;
++
++	ret = of_property_read_u32_index(dev->of_node, "reg", 2 * idx, &fsl_ldb->ldb_ctrl);
++	if (ret)
++		return ret;
++
++	idx = of_property_match_string(dev->of_node, "reg-names", "lvds");
++	if (idx < 0)
++		return idx;
++
++	ret = of_property_read_u32_index(dev->of_node, "reg", 2 * idx, &fsl_ldb->lvds_ctrl);
++	if (ret)
++		return ret;
++
+ 	fsl_ldb->clk = devm_clk_get(dev, "ldb");
+ 	if (IS_ERR(fsl_ldb->clk))
+ 		return PTR_ERR(fsl_ldb->clk);
 -- 
-With best wishes
-Dmitry
+2.51.0
+
 
