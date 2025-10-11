@@ -4,43 +4,43 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ED0E7CCD18F
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 03:34:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 35F85CCD18E
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 03:34:12 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-Id:Date:Subject:Cc:
-	To:From:Reply-To:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=1ifJLk8873eX1hlHsp6hKpNT8S+IOtOqXiAmk6qv8rw=; b=QCup0q1NWvI1hL6KcvuQtOZR1C
-	pCwwxQDTG9pofusptfKdaUouhc1Iof6/dHTJrEKi70U/YshJMOjYP41oGH8wSzXyQKNXEr5BAGlGk
-	/S9LVre7ZSreuyzX8PrjwDZSfsLybHHu/mtysq070wu0O3adU/NehlN0oB78/OhjTS38PuaPS928t
-	MVUGluti6s0ciOl4IwDcf1O073EHykRriUHfgl5aRmmzZUyDc0zglzfHbsNGK/lcNQpmaFTsTm8Ip
-	axy+1sgdjeFfdEXaLPsVXitHb/0v6BlG6aFWAErXmFgAxqsYLehaA/OdykOSfmenas9Fielux+bmc
-	RUAhCveQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:References:In-Reply-To:
+	Message-Id:Date:Subject:Cc:To:From:Reply-To:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YHT4Mxhe+zSodIVHd2qzlGnysBWHBxMufel41tGudBs=; b=Ct7xg3a/n6BpYnjmWKouPmLwa9
+	/16Ync1Qp4EsOsKYx6gkzI5mROaNRueGRT3PUt2vitdUvBp4FgRcCaOtdUUwhbMMXG+OkUM7TrH1f
+	FId4QaPLv6CTX3hJ+P9u8S0bHXyoLl1KzgkkduHavNjyvxCoDVOvqfQV7JGaEemjTxh2/6ApIUR3k
+	NhiXw3J+yuWaN7Y1BJB8OSYDMalqbhQu+rqAIMBLQRP8nd//KXndrUz5CBJpRajpNXtkOahYWvY5g
+	A0aSBqX7uuRB9XlfHX6+QGf5aA+AhG8QiuBa9zoMYZQGL62QRSPSVVNg10NFFbr7zphxq3EgUT1L3
+	4fBmOFrg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7QMu-00000009k36-3Apb;
-	Sat, 11 Oct 2025 03:34:04 +0000
-Received: from smtpbg154.qq.com ([15.184.224.54])
+	id 1v7QMw-00000009k5E-0hgm;
+	Sat, 11 Oct 2025 03:34:06 +0000
+Received: from smtpbg150.qq.com ([18.132.163.193])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7QMo-00000009jo9-3qFl;
-	Sat, 11 Oct 2025 03:34:00 +0000
+	id 1v7QMp-00000009jon-0vDq;
+	Sat, 11 Oct 2025 03:34:01 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=airkyi.com;
-	s=altu2504; t=1760153566;
-	bh=1ifJLk8873eX1hlHsp6hKpNT8S+IOtOqXiAmk6qv8rw=;
+	s=altu2504; t=1760153572;
+	bh=YHT4Mxhe+zSodIVHd2qzlGnysBWHBxMufel41tGudBs=;
 	h=From:To:Subject:Date:Message-Id;
-	b=qlu57r/4kkb9HdKEBFndccNBvtZn2+um/TEpE77K+vDZzOXEbEy3qCHUhz3ILboEQ
-	 lmgm0uut1txQIOfiCKgCJ1ky6Nc5mOq34q0vnuU7dsbsOumkoyE6nCkoC1ZELxrvqR
-	 g0iVJ2TPzPWpuZlm4KkTnEMT9PTk2XOmdiaNmRoM=
-X-QQ-mid: zesmtpgz4t1760153563t46dff691
-X-QQ-Originating-IP: vSCtcccqW2noE7PwTMsxNxd6jA273YQLY2Nnsk4ppuI=
+	b=eAZdjRzq8dkC8MjRwwfEFHoqMzsD6rEzVUjLRaDrh3WTlcfu5gRaKXW/J4/VPsbxY
+	 s+EbWmjXhHJXvLwe3y3UGmV8l7IjobooxXsjH6s5AjPXTVTf3o4u6CVJjDW4XfSHdF
+	 xMIwWQgusXouVhDejSIW1Yxg/fYO1t1rHU62baOw=
+X-QQ-mid: zesmtpgz4t1760153570tb665ba7a
+X-QQ-Originating-IP: N1HyOBHa563KXTPq0mhcMxR81EsdSSnrp/MTia0/DuE=
 Received: from DESKTOP-8BT1A2O.localdomain ( [58.22.7.114])
 	by bizesmtp.qq.com (ESMTP) with 
-	id ; Sat, 11 Oct 2025 11:32:40 +0800 (CST)
+	id ; Sat, 11 Oct 2025 11:32:48 +0800 (CST)
 X-QQ-SSF: 0000000000000000000000000000000
 X-QQ-GoodBg: 0
-X-BIZMAIL-ID: 11891270749055428238
+X-BIZMAIL-ID: 4803160291737759115
 From: Chaoyi Chen <kernel@airkyi.com>
 To: Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -73,33 +73,35 @@ Cc: linux-usb@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
 	linux-rockchip@lists.infradead.org,
 	dri-devel@lists.freedesktop.org
-Subject: [PATCH v5 0/8] Add Type-C DP support for RK3399 EVB IND board
-Date: Sat, 11 Oct 2025 11:32:25 +0800
-Message-Id: <20251011033233.97-1-kernel@airkyi.com>
+Subject: [PATCH v5 2/8] dt-bindings: phy: rockchip: rk3399-typec-phy: Support mode-switch
+Date: Sat, 11 Oct 2025 11:32:27 +0800
+Message-Id: <20251011033233.97-3-kernel@airkyi.com>
 X-Mailer: git-send-email 2.17.1
+In-Reply-To: <20251011033233.97-1-kernel@airkyi.com>
+References: <20251011033233.97-1-kernel@airkyi.com>
 X-QQ-SENDSIZE: 520
 Feedback-ID: zesmtpgz:airkyi.com:qybglogicsvrsz:qybglogicsvrsz4a-0
-X-QQ-XMAILINFO: MhFAoh6gmjppNgUGjKgw7K86FI28KNCryc0STrR/oTgVkI2AfYL2mBZ0
-	t9Nrc9ZVK948mafusknaQtdBm5EXqF1mnMU7ax2RhKDot1H4BWoLT6QexAk3QoeSNSY6MDn
-	RMV4Y6lfxJLAcajY6ow9B6gDBcH9YZXrX15vN82GyaUTGs+ztsypr3ur8hiUx15NgPF9kro
-	XbIPEfDcaz/VP2LcWeIsClDvpQfTTT+ub+gpmcQw/MsQd1o4fHCGiBt+XPJn1/Z5pKl3eP+
-	3ikhGtjYnVCFc9LE6Wsqk0FTcehYRXuTMFcDWUj1ptYPmopOYivB6P9weSws5sDR9i7Egmp
-	AXHhEQG4WVumECyaUh6uhBz22diZE94g3pplVmwQjW9012UBgUNFtO6pdJxqXSXm1srCS6g
-	XcYBy5rbOHYY3JFllCjhAyC0K45FxfvQI6wEkIE1Soxl4TCEcPjRVmtaQ93AH52IuS7m//s
-	7cqy+3CzEQLqO8NMnoUx0LFrYR/pVfYzbLgNFNNPnhWXAWkB07UjniXbVp58oxKzSHxfM3b
-	Wq4g87WnM3ajXFHfPN8GPTaRLfj/3OoFvUciDNxWx6VorGUCAQmAEgRTUhdZrUXn0USse1C
-	E/fpsLr69U3u0wxRwr+Zx9ZQBWUL+oqEPJcagn/zgvKc/Ex6zfFKLkrZ8mhs7Hss/HUDz10
-	zsc2oK7l+wnYleW+xw/KlKUyhc9tCsIVxepalh8lR5wEE8ll89GggKeCxpazY305FZPqW5B
-	UcJQsH93I12lg2t6RVfx4IGy7wBnjLDt58NP5is++8esd5NyzxgTotY4QvLU2QXDPh4yBpn
-	c+R8PrK3OWP47OEbnvZ3OpR4hvvdePYXpcJcp1SrVASqZ18ZAJbEB2zTGgss9cg55q1K1Me
-	1nLQhzL1uHyVVZ+9V7InnO3jxMzcA8fnjegfl8gj2iR9KEr9dTKOmOLGYX/g8WkQnQLE2In
-	l2YUdwPMv8awzvrNxGf+p1uDjbRRWnubKvpyMI/KNlC/raW6PywX+YZw8051e42EicjEK5I
-	jgokr0sg==
-X-QQ-XMRINFO: M/715EihBoGSf6IYSX1iLFg=
+X-QQ-XMAILINFO: OYfszGn+r8XCpqqN+w2GgGEF2CAPiXq0PPGf0j0em/A4iVQKmhSxMR0O
+	kWVLDKBoQC6BB1KyCszaOX3n5yvKvegMJNJ7zFGdn+tdpp2OCW7ZiQF+e4rjH66Ty1dBF2a
+	JZEvM+BrVLt/5ZpFDAnfbhWb+DRVk9thoLGJ5yQn9ZilY3hRCkHryFL3aoivIthCajF4cUh
+	C+7B0gqdvm5MzmXdAGc+1As1FXTs3qFT1tGB2sWAmAquTst/5VFfZLZM8warECUPI7wk41D
+	QXPQ+WDP3/jkk6d7F4sRPJDinUk7FZfRc3eRb3N+gsXv27Zt5zuYKx35+EGUggKtuU7wAig
+	XNfUOXWXoMlOO2KffH9h9O75Ufr5as1an2ZX3B4l4O/qF6ic+oB4gSeFZYXK1kx0d7InEY/
+	d/75VkTgaBzNOjJDZ1ttErMwHT4ULNhJyWbAWQTnxF7JoOQcUSZZz0AG2VQKEKaPJazza/Q
+	1uTVQBVT7paIQXURFA9wZuSCSZiHw+3YPqzDVdHDmZvnNSzf/JzVWE6TDTsOCr48qV28Jzq
+	BVBrul5Kwd/IEfF0qm7Wkm9tWYixUaFHKVu1nggTWYRC4hvho4Q2ianOCYNxCJ70qQxsnwZ
+	Eop/nepfVkrpO5s/1YyzfwjoEmM4TFr/6qP5ioFngrW6iAI5IP60hzOgnD46RSzr7Qkxj7o
+	PjIlp+JNXo8bc8ke7L/VEUE8VTx4H7Co6a+g4IZUis6eKzM3qYYUvKNlQ8M/gsriEa5WEAo
+	JX2h3y3Dr1CwRWWbDGBZvmGgfJ88uTxGf6JSVhUyORUAmtSt0B4MFpSnzvL+CWK0ps9NM1Y
+	flDIdyXv33l8Aw3EyH2UuvRhrFjKykthzSxc21KvMAO2Jrp3LTJf2IIoTxW6lmzrvwIDU0C
+	oYWul9zlAcFQjDGRnCm3e9EbGLDpZ242feY1dzFRQNWOwENapbR0EXOEvQZEMwG8PRcyAXh
+	GxUSPviSacJ7Jiq049+CICZ+Bjnp/8erZZn6zlpKgherQ7TZIqQY/2Q5qR/br+XnXUEQ=
+X-QQ-XMRINFO: NI4Ajvh11aEj8Xl/2s1/T8w=
 X-QQ-RECHKSPAM: 0
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_203359_579930_108E9E11 
-X-CRM114-Status: GOOD (  18.97  )
+X-CRM114-CacheID: sfid-20251010_203359_779209_58239743 
+X-CRM114-Status: UNSURE (   9.29  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -116,132 +118,59 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-This series focuses on adding Type-C DP support for USBDP PHY and DP
-driver. The USBDP PHY and DP will perceive the changes in cable status
-based on the USB PD and Type-C state machines provided by TCPM. Before
-this, the USBDP PHY and DP controller of RK3399 sensed cable state
-changes through extcon, and devices such as the RK3399 Gru-Chromebook
-rely on them. This series should not break them.
+The RK3399 SoC integrates two USB/DP combo PHYs, each of which
+supports software-configurable pin mapping and DisplayPort lane
+assignment. These capabilities enable the PHY itself to handle both
+mode switching and orientation switching, based on the Type-C plug
+orientation and USB PD negotiation results.
 
-====
-1. DisplayPort HPD status notify
+While an external Type-C controller is still required to detect cable
+attachment and report USB PD events, the actual mode and orientation
+switching is performed internally by the PHY through software
+configuration. This allows the PHY to act as a Type-C multiplexer for
+both data role and DP altmode configuration.
 
-Before v4, I implemented a variety of DP HPD status notify. However,
-they all had various problems and it was difficult to become a common
-solution.
+To reflect this hardware design, this patch introduces a new
+"mode-switch" property for the dp-port node in the device tree bindings.
+This property indicates that the connected PHY is capable of handling
+Type-C mode switching itself.
 
-Under Dmitry's guidance, I try to add default DRM AUX HPD device when
-register DisplayPort altmode in patch 1. That makes it redundant for
-each Type-C chip driver to implement a similar registration process
-in embedded scenarios.
+Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 
-====
-2. Altmode switching and orientation switching for USBDP PHY
+Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+---
 
-For USB Type-C interfaces, an external Type-C controller chip assists
-by detecting cable attachment, determining plug orientation, and
-reporting USB PD message. The USB/DP combo PHY supports software
-configurable pin mapping and DisplayPort lane assignment. Based on
-these message, the combo PHY can perform both altmode switching and
-orientation switching via software.
-
-The RK3399 EVB IND board has a Type-C interface DisplayPort. It use
-fusb302 chip as Type-C controller. The connection diagram is shown below:
-
-fusb302 chip +---> USB2.0 PHY ----> DWC3 USB controller
-             |
-             +---> USB/DP PHY0 +--> CDN-DP controller
-                               |
-                               +--> DWC3 USB controller
-
-====
-3. Multiple bridge model for RK3399 CDN-DP
-
-The RK3399 has two USB/DP combo PHY and one CDN-DP controller. And
-the CDN-DP can be switched to output to one of the PHYs.
-
-USB/DP PHY0 ---+
-               | <----> CDN-DP controller
-USB/DP PHY1 ---+
-
-In previous versions, if both PHY ports were connected to DP,
-the CDN-DP driver would select the first PHY port for output.
-
-On Dmitry's suggestion, we introduced a multi-bridge model to support
-flexible selection of the output PHY port. For each PHY port, a
-separate encoder and bridge are registered.
-
-The change is based on the DRM AUX HPD bridge, rather than the
-extcon approach. This requires the DT to correctly describe the
-connections between the first bridge in bridge chain and DP
-controller. And Once the first bridge is obtained, we can get the
-last bridge corresponding to the USB-C connector, and then set the
-DRM connector's fwnode to the corresponding one to enable HPD
-notification.
-
-====
-Patch1 add default HPD device when register Displayport altmode.
-Patch2 add new Type-C mode switch for RK3399 USBDP phy binding.
-Patch3 add typec_mux and typec_switch for RK3399 USBDP PHY.
-Patch4 add DRM AUX bridge support for RK3399 USBDP PHY.
-Patch5 drops CDN-DP's extcon dependency when Type-C is present.
-Patch6 add multiple bridges to support PHY port selection. 
-Patch7 add missing dp_out port for RK3399 CDN-DP.
-Patch8 add Type-C DP support for RK3399 EVB IND board.
-
-Changes in v5:
-- Link to V4: https://lore.kernel.org/all/20250922012039.323-1-kernel@airkyi.com/
-- Remove the calls related to `drm_aux_hpd_bridge_notify()`.
-- Place the helper functions in the same compilation unit.
-- Add more comments about parent device.
-- Add DRM AUX bridge support for RK3399 USBDP PHY
-- By parsing the HPD bridge chain, set the connector's of_node to the
-of_node corresponding to the USB-C connector.
-- Return EDID cache when other port is already enabled. 
+(no changes since v5)
 
 Changes in v4:
-- Link to V3: https://lore.kernel.org/all/20250729090032.97-1-kernel@airkyi.com/
-- Add default HPD device for DisplayPort altmode.
-- Introduce multiple bridges for CDN-DP.
-- ...
+- Remove "|" in description.
 
 Changes in v3:
-- Link to V2: https://lore.kernel.org/all/20250718062619.99-1-kernel@airkyi.com/
 - Add more descriptions to clarify the role of the PHY in switching.
-- Fix wrong vdo value.
-- Fix port node in usb-c-connector.
 
 Changes in v2:
-- Link to V1: https://lore.kernel.org/all/20250715112456.101-1-kernel@airkyi.com/
 - Reuse dp-port/usb3-port in rk3399-typec-phy binding.
-- Fix compile error when CONFIG_TYPEC is not enabled.
-- Notify DP HPD state by USB/DP PHY.
-- Ignore duplicate HPD events.
-- Add endpoint to link DP PHY and DP controller.
-- Fix devicetree coding style.
 
-Chaoyi Chen (8):
-  usb: typec: Add default HPD device when register DisplayPort altmode
-  dt-bindings: phy: rockchip: rk3399-typec-phy: Support mode-switch
-  phy: rockchip: phy-rockchip-typec: Add typec_mux/typec_switch support
-  phy: rockchip: phy-rockchip-typec: Add DRM AUX bridge
-  drm/rockchip: cdn-dp: Support handle lane info without extcon
-  drm/rockchip: cdn-dp: Add multiple bridges to support PHY port
-    selection
-  arm64: dts: rockchip: Add missing dp_out port for RK3399 CDN-DP
-  arm64: dts: rockchip: rk3399-evb-ind: Add support for DisplayPort
+ .../devicetree/bindings/phy/rockchip,rk3399-typec-phy.yaml  | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
- .../phy/rockchip,rk3399-typec-phy.yaml        |   6 +
- arch/arm64/boot/dts/rockchip/rk3399-base.dtsi |  10 +-
- .../boot/dts/rockchip/rk3399-evb-ind.dts      | 146 ++++++
- drivers/gpu/drm/rockchip/Kconfig              |   2 +
- drivers/gpu/drm/rockchip/cdn-dp-core.c        | 380 +++++++++++++---
- drivers/gpu/drm/rockchip/cdn-dp-core.h        |  24 +-
- drivers/phy/rockchip/phy-rockchip-typec.c     | 417 +++++++++++++++++-
- drivers/usb/typec/class.c                     |  26 ++
- include/linux/usb/typec_altmode.h             |   2 +
- 9 files changed, 931 insertions(+), 82 deletions(-)
-
+diff --git a/Documentation/devicetree/bindings/phy/rockchip,rk3399-typec-phy.yaml b/Documentation/devicetree/bindings/phy/rockchip,rk3399-typec-phy.yaml
+index 91c011f68cd0..83ebcde096ea 100644
+--- a/Documentation/devicetree/bindings/phy/rockchip,rk3399-typec-phy.yaml
++++ b/Documentation/devicetree/bindings/phy/rockchip,rk3399-typec-phy.yaml
+@@ -51,6 +51,12 @@ properties:
+       '#phy-cells':
+         const: 0
+ 
++      mode-switch:
++        description:
++          Indicates the PHY can handle altmode switching. In this case,
++          requires an external USB Type-C controller to report USB PD message.
++        type: boolean
++
+       port:
+         $ref: /schemas/graph.yaml#/properties/port
+         description: Connection to USB Type-C connector
 -- 
 2.49.0
 
