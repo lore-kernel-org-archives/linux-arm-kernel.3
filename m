@@ -4,60 +4,59 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 305F6CCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 00:22:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEB21CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 00:23:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eKb9jUwwbVlUbudwbqKG+Yy11LCDL3Kf+uy2j4nmRg8=; b=xL8SkG0PXne0ceI/1ia0mYDIPw
-	s0wfzGGAK+GN1OrqN/ks56pXSwx+aGF10COhXTgMdIWoZkcmXtVlUycLrVpZ3Y8PePsJo9apdB7aG
-	L75PGWCEFLc+WVdAD9ov9ADP7aCBFFvYqJy9z3zuYzErIG8Fw6GPysxSwGo6Q/dDSscxHvza5f3RT
-	OHAGSgjnpV7/wb4njN91dRnVsRJoxRUjxQYfbSDRf/KS8D5D0YOYzCWwhXhAH3nh6KeNrl1JXXsIH
-	Mfa8mhZlGISboZ9C77iC+X6eHAOR9eJ3dQEQQfaDJzSJPppmatKnCSHjLV3EMV99PF4pveR/j26NV
-	HWpKhtfA==;
+	bh=Gs6qK5+p3+mYOcv7SCRNDUh2R8gzPWwIwpg7xpxkKsw=; b=zcgvv3CAeUsREWHyeP0zPsqIGO
+	hM8Ga6YrdimHs+K9GDLJeJ0dvfSaHX8YUQBczgSds/J/um2pcW/qUoHDL74cDjqc3V8j0GfSdTgrD
+	6Q2g2AzE1Pn+v4iEOPfkR4Uoyht5WQr5NsIRXA9sPKp0v5s2a/3ZAbmyXYLbqBWgJrEMFyJqVwA0m
+	qNdeZhgrNRa+5Fb/3w2V1KAEkDSV06Ww3swQq12aDsq2IWJvYJVNh914Dec2m91W9i7c8hsGJDvmu
+	X8K0faQsMhwalmFYwumB0HF4FCBxgzYdU4rpVhUcqfWptWiIn3zygR5mBo+ybqh+wpxPT7j4qyDYT
+	F9t11PqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7NNT-00000009a1q-3jvE;
-	Sat, 11 Oct 2025 00:22:27 +0000
-Received: from lelvem-ot01.ext.ti.com ([198.47.23.234])
+	id 1v7NOL-00000009a83-38JB;
+	Sat, 11 Oct 2025 00:23:21 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7NNR-00000009a1V-3IS7
+	id 1v7NOI-00000009a7a-26fw
 	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Oct 2025 00:22:27 +0000
-Received: from lelvem-sh02.itg.ti.com ([10.180.78.226])
-	by lelvem-ot01.ext.ti.com (8.15.2/8.15.2) with ESMTP id 59B0MFRB424348;
-	Fri, 10 Oct 2025 19:22:15 -0500
+	Sat, 11 Oct 2025 00:23:19 +0000
+Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 59B0N9ov352732;
+	Fri, 10 Oct 2025 19:23:09 -0500
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1760142135;
-	bh=eKb9jUwwbVlUbudwbqKG+Yy11LCDL3Kf+uy2j4nmRg8=;
+	s=ti-com-17Q1; t=1760142189;
+	bh=Gs6qK5+p3+mYOcv7SCRNDUh2R8gzPWwIwpg7xpxkKsw=;
 	h=Date:Subject:To:CC:References:From:In-Reply-To;
-	b=Prfsbbn1eKgqMa1qzk0SRZswF7vxW3iXYPk6YV+XjWjzIEVx9WZKdVoX+V5BRBiUX
-	 xRC7GjSDv8/EZGFmpxUqMe8UzfPbIlHY83R1TxW0gRvm+ZYxqhfdgDZX+CoNQ7XHZO
-	 1PZYT//uru6IQTTexfY/HW5AZuUsATQVry2zbrTU=
-Received: from DFLE100.ent.ti.com (dfle100.ent.ti.com [10.64.6.21])
-	by lelvem-sh02.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 59B0MFro2042203
+	b=UDS8fZlBxEsB2jli/iOgJW0q030CbdVsCa1gWQME6bX/V/vP6qf/N7Vy8XnQp1ZzP
+	 3DCQVT/smPzCUP9GcJ3CcVxO5M7BfQqNA5nFkIr3PDA7pKVCsiHg9UOQSdFW4t1s1+
+	 1fkiCOjPTZxA6C7MK0ILvQy7taThXe/tyzKatgl8=
+Received: from DFLE112.ent.ti.com (dfle112.ent.ti.com [10.64.6.33])
+	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 59B0N8if2574113
 	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
-	Fri, 10 Oct 2025 19:22:15 -0500
-Received: from DFLE204.ent.ti.com (10.64.6.62) by DFLE100.ent.ti.com
- (10.64.6.21) with Microsoft SMTP Server (version=TLS1_2,
+	Fri, 10 Oct 2025 19:23:09 -0500
+Received: from DFLE209.ent.ti.com (10.64.6.67) by DFLE112.ent.ti.com
+ (10.64.6.33) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Fri, 10
- Oct 2025 19:22:15 -0500
-Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE204.ent.ti.com
- (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
+ Oct 2025 19:23:08 -0500
+Received: from lelvem-mr06.itg.ti.com (10.180.75.8) by DFLE209.ent.ti.com
+ (10.64.6.67) with Microsoft SMTP Server (version=TLS1_2,
  cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Fri, 10 Oct 2025 19:22:15 -0500
+ Transport; Fri, 10 Oct 2025 19:23:08 -0500
 Received: from [10.249.42.149] ([10.249.42.149])
-	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59B0MFVE2428990;
-	Fri, 10 Oct 2025 19:22:15 -0500
-Message-ID: <d02fb70a-205a-48c8-a972-0d8a43b61d64@ti.com>
-Date: Fri, 10 Oct 2025 19:22:14 -0500
+	by lelvem-mr06.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59B0N85I2429934;
+	Fri, 10 Oct 2025 19:23:08 -0500
+Message-ID: <0ebb5709-2588-491e-b05c-63aa8609d67c@ti.com>
+Date: Fri, 10 Oct 2025 19:23:08 -0500
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/7] remoteproc: core: Drop redundant initialization of
- 'ret' in rproc_shutdown()
+Subject: Re: [PATCH v2 2/7] remoteproc: core: Sort header includes
 To: Peng Fan <peng.fan@nxp.com>, Bjorn Andersson <andersson@kernel.org>,
         Mathieu Poirier <mathieu.poirier@linaro.org>,
         Arnaud Pouliquen
@@ -71,16 +70,16 @@ CC: <linux-remoteproc@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
         <linux-stm32@st-md-mailman.stormreply.com>,
         <linux-arm-kernel@lists.infradead.org>
 References: <20251010-remoteproc-cleanup-v2-0-7cecf1bfd81c@nxp.com>
- <20251010-remoteproc-cleanup-v2-1-7cecf1bfd81c@nxp.com>
+ <20251010-remoteproc-cleanup-v2-2-7cecf1bfd81c@nxp.com>
 Content-Language: en-US
 From: Andrew Davis <afd@ti.com>
-In-Reply-To: <20251010-remoteproc-cleanup-v2-1-7cecf1bfd81c@nxp.com>
+In-Reply-To: <20251010-remoteproc-cleanup-v2-2-7cecf1bfd81c@nxp.com>
 Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
 X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_172225_967667_6352B924 
-X-CRM114-Status: GOOD (  14.56  )
+X-CRM114-CacheID: sfid-20251010_172318_633494_70472956 
+X-CRM114-Status: GOOD (  10.04  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,9 +95,8 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 On 10/10/25 7:24 AM, Peng Fan wrote:
-> The variable ret is immediately assigned the return value of
-> mutex_lock_interruptible(), making its prior initialization to zero
-> unnecessary. Remove the redundant assignment
+> Reordered the header includes in drivers/remoteproc/remoteproc_core.c
+> to follow alphabetical order to simplify future maintenance.
 > 
 > No functional changes.
 > 
@@ -107,22 +105,57 @@ On 10/10/25 7:24 AM, Peng Fan wrote:
 
 Acked-by: Andrew Davis <afd@ti.com>
 
->   drivers/remoteproc/remoteproc_core.c | 2 +-
->   1 file changed, 1 insertion(+), 1 deletion(-)
+>   drivers/remoteproc/remoteproc_core.c | 28 ++++++++++++++--------------
+>   1 file changed, 14 insertions(+), 14 deletions(-)
 > 
 > diff --git a/drivers/remoteproc/remoteproc_core.c b/drivers/remoteproc/remoteproc_core.c
-> index 82567210052893a501e7591204af1feb07befb22..29bbaa349e340eedd122fb553004f7e6a5c46e55 100644
+> index 29bbaa349e340eedd122fb553004f7e6a5c46e55..f7d21e99d171667d925de769db003c4e13fe8fe8 100644
 > --- a/drivers/remoteproc/remoteproc_core.c
 > +++ b/drivers/remoteproc/remoteproc_core.c
-> @@ -1989,7 +1989,7 @@ EXPORT_SYMBOL(rproc_boot);
->   int rproc_shutdown(struct rproc *rproc)
->   {
->   	struct device *dev = &rproc->dev;
-> -	int ret = 0;
-> +	int ret;
+> @@ -16,29 +16,29 @@
 >   
->   	ret = mutex_lock_interruptible(&rproc->lock);
->   	if (ret) {
+>   #define pr_fmt(fmt)    "%s: " fmt, __func__
+>   
+> +#include <asm/byteorder.h>
+> +#include <linux/crc32.h>
+> +#include <linux/debugfs.h>
+>   #include <linux/delay.h>
+> -#include <linux/kernel.h>
+> -#include <linux/module.h>
+>   #include <linux/device.h>
+> -#include <linux/panic_notifier.h>
+> -#include <linux/slab.h>
+> -#include <linux/mutex.h>
+>   #include <linux/dma-mapping.h>
+> +#include <linux/elf.h>
+>   #include <linux/firmware.h>
+> -#include <linux/string.h>
+> -#include <linux/debugfs.h>
+> -#include <linux/rculist.h>
+> -#include <linux/remoteproc.h>
+> -#include <linux/iommu.h>
+>   #include <linux/idr.h>
+> -#include <linux/elf.h>
+> -#include <linux/crc32.h>
+> +#include <linux/iommu.h>
+> +#include <linux/kernel.h>
+> +#include <linux/module.h>
+> +#include <linux/mutex.h>
+>   #include <linux/of_platform.h>
+>   #include <linux/of_reserved_mem.h>
+> +#include <linux/panic_notifier.h>
+> +#include <linux/platform_device.h>
+> +#include <linux/rculist.h>
+> +#include <linux/remoteproc.h>
+> +#include <linux/slab.h>
+> +#include <linux/string.h>
+>   #include <linux/virtio_ids.h>
+>   #include <linux/virtio_ring.h>
+> -#include <asm/byteorder.h>
+> -#include <linux/platform_device.h>
+>   
+>   #include "remoteproc_internal.h"
+>   
 > 
 
 
