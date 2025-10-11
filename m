@@ -4,75 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A235ECCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 02:54:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 86B4FCCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 03:05:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0BsgeZrUj1KXKp6RgSEwCit69Zxybcd5U5cra+JDpqs=; b=jaeUz9GxfETdyXlBHWE0Hmlg5+
-	Op9VoPqLc/eoxtJM4hClwtNRnszuQATlMYSyPaKXbK/dxNGfmw35IBaXbqHh4zsX0o75yv504Vwzh
-	xsy/vGjDAfxicjJnJZiJW70Z2G+6S0/2wmZAU/6n6vJVoQF5CSSDPO47Z7lCCA0qujxec15oFEqbO
-	N3Qzku2f9R3BYT4DUxgFl47WmpHg4GqsE9VLQUGOf4MQTsOgk1c7ApejRRNH7EJ9FqFgSfwdeSTjk
-	NnkrQmPhoM7D6dEiyl9YAGH7uHxal31awxQDV6VouPD4p+9K1whsJbpzlh7WpIA0asny24W6oiM5A
-	G02kXC1A==;
+	bh=JciJ+fW3A6ZS6ImbDuDBfmOW2HRfOeNCg82yAvl2wII=; b=N4XIXc9KEJNgXDNg5irL+BrxKd
+	wIqPg3AyZNtlJOICGsfQieJ6EpeTAFSdyt5BTaM6iLJ6YGXuOcK5+36f5ZAlS6QCf4pAg/82x7BD+
+	GQUgOWteI1pAhsll39rldWs5+Si/yLftzDbK9vU5ql8Ew0QzAQ7E1rm+aFwYGub2J2y9LjrlyHKLe
+	1i3/0r2/Vfo2XWe5dPtbXtIalKJz7UhY0KuwAq6zitxkzcX9NWzOpT0oD93Up+4fdKMP8SkmpsPpY
+	HcfQAEXO82c1ppW7BlKr0hYNNTkibPzVvxIOEUFTtV/gayQ965YjCIbUfkj0VdbPhr3nRrJ4U5p56
+	B8CWnTqA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7Pko-00000009iEQ-1inI;
-	Sat, 11 Oct 2025 02:54:42 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v7Pv7-00000009ikC-2vq9;
+	Sat, 11 Oct 2025 03:05:21 +0000
+Received: from mail-m32105.qiye.163.com ([220.197.32.105])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7Pkn-00000009iEH-2CPM
-	for linux-arm-kernel@lists.infradead.org;
-	Sat, 11 Oct 2025 02:54:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 9D0706025B
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Oct 2025 02:54:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 44B5FC4CEF1
-	for <linux-arm-kernel@lists.infradead.org>; Sat, 11 Oct 2025 02:54:40 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760151280;
-	bh=0BsgeZrUj1KXKp6RgSEwCit69Zxybcd5U5cra+JDpqs=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=AopT685ZVyiq/B13YoWAdE/uU7ZByQOi8O//wNShEHRW/aN7M8he3IudB6pmzAhLk
-	 rsxTX5qL0jtNz/l3oj+f0O5j2/bPe9ffDzsjX66OgRuL2Ef2BCCOPyXULb404xZmDn
-	 Use3yrTlDNkLxKts4HbYNtXaA526ofA0016/swVhUnIeUhOcJO6mbBXnQQeEMNDn5h
-	 0yOE5FNaknEXbNoOUgIJA0IFog+fl1XOO3BpHi0Ei43RiQPLtNTYovB67pjNJnb+u2
-	 lwD76XIrCBkRfaDb0581OJe0haU56lUwPm8Iw0GPLpOK0EuuP3BSEIjapKAIXp9XUN
-	 1kVyCSEUYol3g==
-Received: by mail-ed1-f54.google.com with SMTP id 4fb4d7f45d1cf-62fca01f0d9so5292967a12.3
-        for <linux-arm-kernel@lists.infradead.org>; Fri, 10 Oct 2025 19:54:40 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWD4ekiDj+TL6M93CYw5GmJ0Kcfjl2KB08+ZQ3N58y77RF/2kQ4KkmnBOieGNrsjH/YEbq7Yk+UQXKjXUdm0U9x@lists.infradead.org
-X-Gm-Message-State: AOJu0Yxg97xoJL5OqcGkPIgXoemgPQ1yEf/kmhPFvBJpLQMyQLAdtXZm
-	n+jodhs3qc1hd4EUbtmYqHv1pYrrHLqYge3s78VIW0IQ2jMv9ALuTM5IPcz7SE8xiOMj61IlvQ7
-	qcR0if4zAv+MduafH1ZpGSLra4Aeb8CM=
-X-Google-Smtp-Source: AGHT+IF9JxI+9VeTgFvdqyJbZPk/80hHvb+lokzIbLfoZR2oxQr/1YSDD9mWyNinLrGKRqjQU4ppDgkuAk1ji6g4P9g=
-X-Received: by 2002:a05:6402:194:b0:62f:2f9f:88bf with SMTP id
- 4fb4d7f45d1cf-639d5c76af0mr9286969a12.38.1760151278841; Fri, 10 Oct 2025
- 19:54:38 -0700 (PDT)
+	id 1v7Pv4-00000009ijk-148R;
+	Sat, 11 Oct 2025 03:05:20 +0000
+Received: from [172.16.12.26] (unknown [58.22.7.114])
+	by smtp.qiye.163.com (Hmail) with ESMTP id 258448df5;
+	Sat, 11 Oct 2025 11:05:09 +0800 (GMT+08:00)
+Message-ID: <7a0e519b-40ac-4b43-8b9d-f553f12149ab@rock-chips.com>
+Date: Sat, 11 Oct 2025 11:05:09 +0800
 MIME-Version: 1.0
-References: <20250928085506.4471-1-yangtiezhu@loongson.cn> <CAMj1kXG8Wi+THa2SeLxiDT=+t_TKx0AL4H-azZO4DNJvyyv96g@mail.gmail.com>
- <CAAhV-H7xOf8DEwOrNh+GQGHktOT4Ljp+7SqutGvvDZp6GLXJrA@mail.gmail.com>
- <CAMj1kXG=EFkRAMkvKMSjPixoGqU-tZXVoRkJJ6Wcnzs3x52X6Q@mail.gmail.com>
- <CAMj1kXHWe2uGY3S1NJ6mckqD4n116rPmaOzw3_Qbvxyjh7ECMw@mail.gmail.com>
- <fec0c03d-9d8c-89a3-886a-1adc22e59b66@loongson.cn> <CAMj1kXFLyBbRL+pAAQ6be6dxqFPiyw_Ug8qNQWaicZQ235HE=A@mail.gmail.com>
- <8091e8fa-3483-af39-2f7a-e4eb62b0944f@loongson.cn>
-In-Reply-To: <8091e8fa-3483-af39-2f7a-e4eb62b0944f@loongson.cn>
-From: Huacai Chen <chenhuacai@kernel.org>
-Date: Sat, 11 Oct 2025 10:54:29 +0800
-X-Gmail-Original-Message-ID: <CAAhV-H4+UGLSkbjHbq9MerWfxnq0a13x+uzNfTsCoe1UxjbWsg@mail.gmail.com>
-X-Gm-Features: AS18NWBWal44DW5X5_JBBkD_g1Z13iGjEk6ARiGEjcxdbyEFQrUdwFzObW-aflA
-Message-ID: <CAAhV-H4+UGLSkbjHbq9MerWfxnq0a13x+uzNfTsCoe1UxjbWsg@mail.gmail.com>
-Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
-To: Tiezhu Yang <yangtiezhu@loongson.cn>
-Cc: Ard Biesheuvel <ardb@kernel.org>, Josh Poimboeuf <jpoimboe@kernel.org>, loongarch@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-riscv@lists.infradead.org, 
-	linux-efi@vger.kernel.org, linux-kbuild@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 2/2] arm64: dts: rockchip: add RK3588 DP carrier from
+ Theobroma Systems
+To: Quentin Schulz <quentin.schulz@cherry.de>,
+ Heiko Stuebner <heiko@sntech.de>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+ devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Heiko Stuebner <heiko.stuebner@cherry.de>
+References: <20250723190904.37792-1-heiko@sntech.de>
+ <20250723190904.37792-3-heiko@sntech.de>
+ <0582b7bc-e5b2-4b5e-821e-8d2c4301579f@cherry.de>
+Content-Language: en-US
+From: Damon Ding <damon.ding@rock-chips.com>
+In-Reply-To: <0582b7bc-e5b2-4b5e-821e-8d2c4301579f@cherry.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-HM-Tid: 0a99d13ab5e803a3kunmd5ed0f611cf2f8
+X-HM-MType: 1
+X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGRgdTVZDGR9ISxgdS05MTRhWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSU9PT0
+	hVSktLVUpCS0tZBg++
+DKIM-Signature: a=rsa-sha256;
+	b=BcG4JDpHNH8v0B4VgRuWcBKp5Y0HoHiVdkW0aQ0sem1Laa/IbTNu7NbRpVErCbTBGKlINOF02NVd6bq8nOwYlmjqwfWzrHCawRddnNsSe71Ib8WxSaWhAw33Q+c7CHL3++68jO1O071FK4IIyiTo1yYhitwDBGsB9j0f6LtEpso=; c=relaxed/relaxed; s=default; d=rock-chips.com; v=1;
+	bh=JciJ+fW3A6ZS6ImbDuDBfmOW2HRfOeNCg82yAvl2wII=;
+	h=date:mime-version:subject:message-id:from;
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251010_200518_828276_ED941B37 
+X-CRM114-Status: GOOD (  21.68  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,32 +76,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 11, 2025 at 9:13=E2=80=AFAM Tiezhu Yang <yangtiezhu@loongson.cn=
-> wrote:
->
-> On 2025/10/11 =E4=B8=8A=E5=8D=8812:25, Ard Biesheuvel wrote:
-> ...
-> > Why do we need both (1) and (2)?
->
-> Not both, either (1) or (2).
-> Which one do you prefer? Or any other suggestions?
->
-> Taking all of the considerations in balance, we should decide
-> what is the proper way.
-As a summary, there are three methods:
-(1) Only link libstub with vmlinux.o during the final vmlinux link.
-(2) Remove the attribute __noreturn for real_kernel_entry() and add while (=
-1).
-(3) Ignore "__efistub_" prefix in objtool.
+Hi Quentin,
 
-Josh prefers method (1), I prefer method (3) but also accept method
-(1) if it is not only specific to loongarch.
+On 7/25/2025 8:29 PM, Quentin Schulz wrote:
+> Hi Heiko,
+> 
+> On 7/23/25 9:09 PM, Heiko Stuebner wrote:
+>> From: Heiko Stuebner <heiko.stuebner@cherry.de>
+>>
+>> The DisplayPort carrier is a very simple baseboard only providing serial,
+>> ethernet and a displayport output.
+>>
+>> But its main functionality is that it routes the Analogix eDP controller
+>> to this DisplayPort output, which allows to test that controller simply
+>> by hooking it up to a suitable monitor.
+>>
+>> The Analogix-DP controller supports eDP 1.3 and DP 1.2, so can drive
+>> both eDP displays as well as full DP monitors. It does not support DP+
+>> so passive DP-to-HDMI adapters won't work.
+>>
+> 
+> I tested this on master (2942242dde896) + v2 of the eDP driver as listed 
+> in the cover letter, or with v3 of the eDP driver + 
+> 48f05c3b4b701ae7687fd44d462c88b7ac67e952 and in both cases I have weird 
+> behaviors.
+> 
+> First, `reboot` is stuck for a very long time before actually rebooting. 
+> I think you have a stacktrace when you tried yourself, I don't so cannot 
+> send one.
+> 
+> Also, I tested on two different DP displays, one has a green tint, the 
+> other one purple. When trying out other resolutions with modetest, the 
+> kernel would often crash (no trace, just nothing on console, SSH dead). 
+> Note that the same HW setup with downstream kernel from https:// 
+> git.theobroma-systems.com/tiger-linux.git/log/?h=linux-6.1-stan-rkr3.2- 
+> tiger works just fine. I would assume this has nothing to do with this 
+> Device Tree patch here but rather the eDP patches missing some bits maybe?
+> 
+> @Damon do you have some idea?
+> 
 
-Huacai
+Apologies for the delayed reply. :-)
 
->
-> Thanks,
-> Tiezhu
->
->
+Since the patch series has been updated to v6, could you please rebase 
+these patches? I will then conduct further investigation into this issue.
+
+> The display with green tint is a Iiyama ProLite XU2294HSU and the one 
+> with the purple tint is a Dell P2319H if that helps.
+> 
+> modetest output: https://paste.debian.net/1387797/.
+> modetest output with downstream kernel: https://paste.debian.net/1387798/
+> 
+> The Device Tree looks good to me otherwise.
+> 
+
+Best regards,
+Damon
+
 
