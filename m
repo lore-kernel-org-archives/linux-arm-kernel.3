@@ -4,111 +4,56 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6DD86CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Fri, 10 Oct 2025 23:42:57 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09D4CCCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Sat, 11 Oct 2025 00:03:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Subject:Cc:To:
+	From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xShItMu7xd0NWKYqMnem9nsbUSHEy2/7MUzXVgGSOLQ=; b=vUCcW4ekknsabTXxsRqPNrZWwN
-	fpFezJ/SurM3oj/BQSDEVUMsszSmopTPNbRwSmjYou67Zn5BB2lIlKRvT5j8UsRJIMyexCBo/ClX1
-	1WaU+yuSA7QCy1b2xTLqDtZgtTWLpojorARW/5yMYI5ql1RIlv/XOjSWcUrO/5eNT/zECELWd4Jfb
-	FbnULqp58bkH4UtyW4zi5kqUPS7Y/5MIjgYk6d/jTlwLIXc4O3oz7cWv17+00ieCxvDfyT2s7fHtI
-	5dIqJVP0Krgmr6y8FwSD34cfB22TPd6ezKjR3bCom/9iZqKIkF+N32nco3j2UBtzaQag90CXxS9dL
-	BdMTIJDQ==;
+	bh=lQZO2SJ8vBK2gfT15V0wBgbwbzZtnCPRdiAcTkZnuSk=; b=i6YefPkWZNtERmsITg14+Z3vWT
+	8XqG9zDkizGjLJ+cJ4CXBAnFgObVjt5vRICfO29n9J1BJzreghCeV0MeQYDt1SWRtBS/8WbIeR+Ra
+	tAJBgdOJZvR/V7q6D9Cj97J+IunUKXE7RVVt4S24KMbSqRXFHBxP4fpUaWM6/XXUWwmJoHAuSRFQm
+	ZaDa0ZTW3tCEG+qaxY6dgatxdgHvhWXZptvy703TCty4Numdh7+c7oi+1WLBmXWtnJgGElZt2jVC8
+	WHiFWBm6N1LlvVYPNqlKoZxbWP3xlKV4KQ6dJJWt3/ip6ieqQWOwCBZnZStGrJQnpn4J3aPX1bY+r
+	NT0zHKtQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7Ml9-00000009Y1j-1mGi;
-	Fri, 10 Oct 2025 23:42:51 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7Ml7-00000009Y1I-45QC;
-	Fri, 10 Oct 2025 23:42:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 95D0B40793;
-	Fri, 10 Oct 2025 23:42:49 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9BD68C4CEF1;
-	Fri, 10 Oct 2025 23:42:42 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760139769;
-	bh=Gt1x3imbV6jcLgkZzBXfLwvbQ/cseYt83qP67KAvdlc=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=LPmDZKwKtvXIT40FxesW7WQRB+PpSPN8IqiDwf52In2Iv1qWe8sizc6mEaclalFu2
-	 3qY9e1FxHswLfRDePXYP08Gfd3ZsFewukKeesm7qhyjOd+Ofd9VJuFvJEQgKQqvRto
-	 oRU0DZP/l2E0StN/nmmwjH3LaazgGdyn/JqdMuedtMlfbbqdthdcEku6qppSleKxLA
-	 3cilyImEnjEH++rkaFuwP1drOgeEVs6Zm8Lt/NXehiquIBeV4MK730+iv5HjTwV4LF
-	 AK/muE4T+9vglHwNJ+sPsW1xhd24uk9p3LudcwXfrtbOW8Av2P9kIVcQi8M3YFHBNv
-	 KIgoWN4ZGi9vw==
-Message-ID: <34899379-9788-4ac8-8b62-e9f47b4d49d9@kernel.org>
-Date: Sat, 11 Oct 2025 01:42:39 +0200
+	id 1v7N51-00000009Yp5-1dJ4;
+	Sat, 11 Oct 2025 00:03:23 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v7N4y-00000009Yoj-0tOL
+	for linux-arm-kernel@lists.infradead.org;
+	Sat, 11 Oct 2025 00:03:22 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 399C11595;
+	Fri, 10 Oct 2025 17:03:09 -0700 (PDT)
+Received: from minigeek.lan (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 35FA03F59E;
+	Fri, 10 Oct 2025 17:03:15 -0700 (PDT)
+Date: Sat, 11 Oct 2025 01:02:51 +0100
+From: Andre Przywara <andre.przywara@arm.com>
+To: Vedashree Vidwans <vvidwans@nvidia.com>
+Cc: <salman.nabi@arm.com>, <lpieralisi@kernel.org>, <mark.rutland@arm.com>,
+ <sudeep.holla@arm.com>, <ardb@kernel.org>, <chao.gao@intel.com>,
+ <linux-arm-kernel@lists.infradead.org>, <linux-coco@lists.linux.dev>,
+ <linux-kernel@vger.kernel.org>, <sdonthineni@nvidia.com>,
+ <vsethi@nvidia.com>, <vwadekar@nvidia.com>
+Subject: Re: [RFC PATCH 1/3] firmware: smccc: LFA: use smcc 1.2
+Message-ID: <20251011010251.50c8be14@minigeek.lan>
+In-Reply-To: <20251008190907.181412-2-vvidwans@nvidia.com>
+References: <20251008190907.181412-1-vvidwans@nvidia.com>
+ <20251008190907.181412-2-vvidwans@nvidia.com>
+Organization: Arm Ltd.
+X-Mailer: Claws Mail 4.2.0 (GTK 3.24.31; x86_64-slackware-linux-gnu)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 15/15] arm: dts: airoha: en7523: add SNAND node
-To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
- Matthias Brugger <matthias.bgg@gmail.com>,
- AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>,
- Ray Liu <ray.liu@airoha.com>, Mark Brown <broonie@kernel.org>,
- Andy Shevchenko <andy@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org
-Cc: Andreas Gnau <andreas.gnau@iopsys.eu>
-References: <20251010204500.1625215-1-mikhail.kshevetskiy@iopsys.eu>
- <20251010204500.1625215-16-mikhail.kshevetskiy@iopsys.eu>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251010204500.1625215-16-mikhail.kshevetskiy@iopsys.eu>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset=US-ASCII
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251010_164250_077322_27E5518E 
-X-CRM114-Status: GOOD (  12.24  )
+X-CRM114-CacheID: sfid-20251010_170320_371654_2743E006 
+X-CRM114-Status: GOOD (  29.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -123,32 +68,191 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/10/2025 22:45, Mikhail Kshevetskiy wrote:
-> Add SNAND node to enable support of attached SPI-NAND on the EN7523 SoC.
-> 
-> Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
+On Wed, 8 Oct 2025 19:09:05 +0000
+Vedashree Vidwans <vvidwans@nvidia.com> wrote:
+
+Hi Vedashree,
+
+> Update driver to use SMCCC 1.2+ version as mentioned in the LFA spec.
+
+ah, right, good catch, one call is using x4, so this must be the v1.2
+calling convention.
+
+Just one small thing below...
+
+> Signed-off-by: Vedashree Vidwans <vvidwans@nvidia.com>
 > ---
->  arch/arm/boot/dts/airoha/en7523.dtsi | 21 +++++++++++++++++++++
->  1 file changed, 21 insertions(+)
+>  drivers/firmware/smccc/lfa_fw.c | 80 +++++++++++++++++++++++----------
+>  1 file changed, 56 insertions(+), 24 deletions(-)
 > 
-> diff --git a/arch/arm/boot/dts/airoha/en7523.dtsi b/arch/arm/boot/dts/airoha/en7523.dtsi
-> index b523a868c4ad..78e351eb787a 100644
-> --- a/arch/arm/boot/dts/airoha/en7523.dtsi
-> +++ b/arch/arm/boot/dts/airoha/en7523.dtsi
-> @@ -203,4 +203,25 @@ pcie_intc1: interrupt-controller {
->  			#interrupt-cells = <1>;
->  		};
->  	};
+> diff --git a/drivers/firmware/smccc/lfa_fw.c b/drivers/firmware/smccc/lfa_fw.c
+> index 1f333237271d8..49f7feb6a211b 100644
+> --- a/drivers/firmware/smccc/lfa_fw.c
+> +++ b/drivers/firmware/smccc/lfa_fw.c
+> @@ -117,9 +117,13 @@ static struct kobject *lfa_dir;
+>  
+>  static int get_nr_lfa_components(void)
+>  {
+> -	struct arm_smccc_res res = { 0 };
+> +	struct arm_smccc_1_2_regs args = { 0 };
+> +	struct arm_smccc_1_2_regs res = { 0 };
+
+>  
+> -	arm_smccc_1_1_invoke(LFA_1_0_FN_GET_INFO, 0x0, &res);
+> +	args.a0 = LFA_1_0_FN_GET_INFO;
+> +	args.a1 = 0; /* lfa_info_selector = 0 */
 > +
-> +	spi_ctrl: spi@1fa10000 {
-> +		compatible = "airoha,en7581-snand";
+> +	arm_smccc_1_2_invoke(&args, &res);
 
-NAK, now I found this... Respond to comments instead of ignoring them.
+I wonder if we can share the same struct for both request and reply?
+	arm_smccc_1_2_invoke(&args, &args);
 
-Three versions within few hours, that's not acceptable. Outside of the
-merge window the expectation is minimum 24h difference. Within merge
-window this is just spamming.
+Looks like a lot of stack space used for just a few registers.
+Same for the other occasions where we just do the smc once.
 
-Best regards,
-Krzysztof
+Cheers,
+Andre.
+
+>  	if (res.a0 != LFA_SUCCESS)
+>  		return res.a0;
+>  
+> @@ -129,20 +133,23 @@ static int get_nr_lfa_components(void)
+>  static int call_lfa_activate(void *data)
+>  {
+>  	struct image_props *attrs = data;
+> -	struct arm_smccc_res res = { 0 };
+> +	struct arm_smccc_1_2_regs args = { 0 };
+> +	struct arm_smccc_1_2_regs res = { 0 };
+> +
+> +	args.a0 = LFA_1_0_FN_ACTIVATE;
+> +	args.a1 = attrs->fw_seq_id; /* fw_seq_id under consideration */
+> +	/*
+> +	 * As we do not support updates requiring a CPU reset (yet),
+> +	 * we pass 0 in args.a3 and args.a4, holding the entry point and context
+> +	 * ID respectively.
+> +	 * We want to force CPU rendezvous if either cpu_rendezvous or
+> +	 * cpu_rendezvous_forced is set. The flag value is flipped as
+> +	 * it is called skip_cpu_rendezvous in the spec.
+> +	 */
+> +	args.a2 = !(attrs->cpu_rendezvous_forced || attrs->cpu_rendezvous);
+>  
+>  	do {
+> -		/*
+> -		 * As we do not support updates requiring a CPU reset (yet),
+> -		 * we pass 0 in x3 and x4, holding the entry point and context
+> -		 * ID respectively.
+> -		 * We want to force CPU rendezvous if either cpu_rendezvous or
+> -		 * cpu_rendezvous_forced is set. The flag value is flipped as
+> -		 * it is called skip_cpu_rendezvous in the spec.
+> -		 */
+> -		arm_smccc_1_1_invoke(LFA_1_0_FN_ACTIVATE, attrs->fw_seq_id,
+> -			!(attrs->cpu_rendezvous_forced || attrs->cpu_rendezvous),
+> -			0, 0, &res);
+> +		arm_smccc_1_2_invoke(&args, &res);
+>  	} while (res.a0 == 0 && res.a1 == 1);
+>  
+>  	return res.a0;
+> @@ -150,7 +157,8 @@ static int call_lfa_activate(void *data)
+>  
+>  static int activate_fw_image(struct image_props *attrs)
+>  {
+> -	struct arm_smccc_res res = { 0 };
+> +	struct arm_smccc_1_2_regs args = { 0 };
+> +	struct arm_smccc_1_2_regs res = { 0 };
+>  	int ret;
+>  
+>  	/*
+> @@ -159,8 +167,10 @@ static int activate_fw_image(struct image_props *attrs)
+>  	 * LFA_PRIME/ACTIVATE will need to be called again.
+>  	 * res.a1 will become 0 once the prime/activate process completes.
+>  	 */
+> +	args.a0 = LFA_1_0_FN_PRIME;
+> +	args.a1 = attrs->fw_seq_id; /* fw_seq_id under consideration */
+>  	do {
+> -		arm_smccc_1_1_invoke(LFA_1_0_FN_PRIME, attrs->fw_seq_id, &res);
+> +		arm_smccc_1_2_invoke(&args, &res);
+>  		if (res.a0 != LFA_SUCCESS) {
+>  			pr_err("LFA_PRIME failed: %s\n",
+>  				lfa_error_strings[-res.a0]);
+> @@ -211,13 +221,16 @@ static ssize_t activation_pending_show(struct kobject *kobj,
+>  {
+>  	struct image_props *attrs = container_of(attr, struct image_props,
+>  					 image_attrs[LFA_ATTR_ACT_PENDING]);
+> -	struct arm_smccc_res res = { 0 };
+> +	struct arm_smccc_1_2_regs args = { 0 };
+> +	struct arm_smccc_1_2_regs res = { 0 };
+>  
+>  	/*
+>  	 * Activation pending status can change anytime thus we need to update
+>  	 * and return its current value
+>  	 */
+> -	arm_smccc_1_1_invoke(LFA_1_0_FN_GET_INVENTORY, attrs->fw_seq_id, &res);
+> +	args.a0 = LFA_1_0_FN_GET_INVENTORY;
+> +	args.a1 = attrs->fw_seq_id;
+> +	arm_smccc_1_2_invoke(&args, &res);
+>  	if (res.a0 == LFA_SUCCESS)
+>  		attrs->activation_pending = !!(res.a3 & BIT(1));
+>  
+> @@ -298,9 +311,12 @@ static ssize_t cancel_store(struct kobject *kobj, struct kobj_attribute *attr,
+>  {
+>  	struct image_props *attrs = container_of(attr, struct image_props,
+>  						 image_attrs[LFA_ATTR_CANCEL]);
+> -	struct arm_smccc_res res = { 0 };
+> +	struct arm_smccc_1_2_regs args = { 0 };
+> +	struct arm_smccc_1_2_regs res = { 0 };
+>  
+> -	arm_smccc_1_1_invoke(LFA_1_0_FN_CANCEL, attrs->fw_seq_id, &res);
+> +	args.a0 = LFA_1_0_FN_CANCEL;
+> +	args.a1 = attrs->fw_seq_id;
+> +	arm_smccc_1_2_invoke(&args, &res);
+>  
+>  	/*
+>  	 * When firmware activation is called with "skip_cpu_rendezvous=1",
+> @@ -395,14 +411,17 @@ static int create_fw_inventory(char *fw_uuid, int seq_id, u32 image_flags)
+>  
+>  static int create_fw_images_tree(void)
+>  {
+> -	struct arm_smccc_res res = { 0 };
+> +	struct arm_smccc_1_2_regs args = { 0 };
+> +	struct arm_smccc_1_2_regs res = { 0 };
+>  	struct uuid_regs image_uuid;
+>  	char image_id_str[40];
+>  	int ret, num_of_components;
+>  
+>  	num_of_components = get_nr_lfa_components();
+> +	args.a0 = LFA_1_0_FN_GET_INVENTORY;
+>  	for (int i = 0; i < num_of_components; i++) {
+> -		arm_smccc_1_1_invoke(LFA_1_0_FN_GET_INVENTORY, i, &res);
+> +		args.a1 = i; /* fw_seq_id under consideration */
+> +		arm_smccc_1_2_invoke(&args, &res);
+>  		if (res.a0 == LFA_SUCCESS) {
+>  			image_uuid.uuid_lo = res.a1;
+>  			image_uuid.uuid_hi = res.a2;
+> @@ -420,10 +439,23 @@ static int create_fw_images_tree(void)
+>  
+>  static int __init lfa_init(void)
+>  {
+> -	struct arm_smccc_res res = { 0 };
+> +	struct arm_smccc_1_2_regs args = { 0 };
+> +	struct arm_smccc_1_2_regs res = { 0 };
+>  	int err;
+>  
+> -	arm_smccc_1_1_invoke(LFA_1_0_FN_GET_VERSION, &res);
+> +	/* LFA requires SMCCC version >= 1.2 */
+> +	if (arm_smccc_get_version() < ARM_SMCCC_VERSION_1_2) {
+> +		pr_err("Not supported with SMCCC version %u", arm_smccc_get_version());
+> +		return -ENODEV;
+> +	}
+> +
+> +	if (arm_smccc_1_1_get_conduit() == SMCCC_CONDUIT_NONE) {
+> +		pr_err("Invalid SMCCC conduit");
+> +		return -ENODEV;
+> +	}
+> +
+> +	args.a0 = LFA_1_0_FN_GET_VERSION;
+> +	arm_smccc_1_2_invoke(&args, &res);
+>  	if (res.a0 == -LFA_NOT_SUPPORTED) {
+>  		pr_err("Arm Live Firmware activation(LFA): no firmware agent found\n");
+>  		return -ENODEV;
+
 
