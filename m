@@ -4,110 +4,81 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2ABFBCCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Oct 2025 03:04:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D2A72CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Oct 2025 03:13:22 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=liSLP5hB0Nk08OOBO/eMacrJETAzug4Xf9obFYhVZzQ=; b=fQkXLYLR1zDCSktY/9c7Su7IwJ
-	vOJHXzmd4peGnLBdHDc5fZNufRpHvBVPhqjvicHSDrf89FUYDgmFliTd+vimXAyuyWoGgNbIK6bVc
-	JgCunBUffcyEqOg97mEmUHT+8ZejVtyO6Fe1y56cmWGx0xIjP0ELq4jQaOpU9EoG7MeiFhjPFAe1O
-	zeMEciGeLocFbbZ4xsXOc5ajtEqgzaJCBAhUNXedJ0mT938oB9xtNCWREBL6BB8BkM45pJmXbqU2d
-	n31Khvg1KlfaVpt6wOrJNIvfRaPImyhfFpLdlCBaZ3x2RoGdNnXlZRq5Fpgm/ugr9SECRmYY60PRH
-	+kOVoS/A==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=256r13TCdCgvqFNzf0g84twPKR75TD5EUO6rNRBp/gY=; b=UzkPhth7sUtbytT5vEe1NpGZYQ
+	TvOXNCwel8dKaHvaOwQU/6mT+r2OWCG+ZKX0qHIrzQRVyP8jp6YzGJbawEj3nETfbF/V+UfCOdaoh
+	hwJS0U0Tb8ynodfu78WSKG2KL9b/MY5ZCblm40GL6YZPvOTQ6k0KjN39NqRH39TtFeBMydbDczA7n
+	Zt5tc8sn7Fq7AqVno+8aJCqQjSD+CQa93zMHPu3atQ1k7qlhVXHJjINGfPWItuNbuqfV5syzM/Mg8
+	DV4Vks1mtBMIao2Kx5cvUXTv0lo9T22BW2zsdt8Bs0b7fEImBn+ez2ubp5su96A6ylHvsKqz3dynC
+	ClGOE7yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7mNK-0000000B1sx-0y98;
-	Sun, 12 Oct 2025 03:03:58 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v7mWJ-0000000B2TX-2rJw;
+	Sun, 12 Oct 2025 03:13:15 +0000
+Received: from mgamail.intel.com ([192.198.163.15])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7mNI-0000000B1sb-01rO
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Oct 2025 03:03:57 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A830243CD2;
-	Sun, 12 Oct 2025 03:03:55 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 22026C4CEF9;
-	Sun, 12 Oct 2025 03:03:49 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760238235;
-	bh=SZVkkewNXdYOKTm/xJ4ImkuY+McMUm1jxAPnOzBZZOs=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=cBGDoE6K7+pLJY2Idn+3bX5kcsyaodK4WE3iiHK7cwHtF34W3qvGbg4S+BtYG/lmi
-	 Sb1S+DRrXZbF930wpiRUhBWSlmyo3JDQ+q2nRhzktGW6pVKTXEohJfzj71tRJ8pIOU
-	 tAgFRAqOEJPCJWT/pf2Oi49BYFLnMDPyTSnCdxFxu1ks58wmTeDqUWQQT+shZ7vIF/
-	 xUgJ088hwBQResz0HwFqW7u+t7JS8xjIGQ6mbJ9SLlSu5v63KR/0/ADxf/BrQ1K+BP
-	 zfqT6WJYK3NGzk8hD0TMTzb2HWHimNM4Z2inF8OnSz95fKNYp7LtkyvZYwNbrlql/p
-	 Ivtb73oCMGH5A==
-Message-ID: <32553bb9-c5cd-431b-80fb-45f7e35d66db@kernel.org>
-Date: Sun, 12 Oct 2025 05:03:46 +0200
+	id 1v7mWG-0000000B2So-0ySc;
+	Sun, 12 Oct 2025 03:13:13 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple;
+  d=intel.com; i=@intel.com; q=dns/txt; s=Intel;
+  t=1760238792; x=1791774792;
+  h=date:from:to:cc:subject:message-id:references:
+   mime-version:in-reply-to;
+  bh=LgCBazIKENUMWDtTVXVJ1949c/UQTOe/HuPTUIj7gzU=;
+  b=XtinH/6xvJMopCAPbf1nxuSqsU8n9o9XQWFRhXPMrCH2ipvIiciRxSkL
+   Zb2cyAEdrMkiw219lAHDF7LvIKml2uxrNNPydR9j6m0892FJjpJeX2Jwv
+   ni3NflNCy6LCMvN+wfPJaaoRZyFoMulZCssBb8+5OrScFe/7BeiFldJ4D
+   vqcCLxq/N0jDNnPjVEjFDXZPFDtmgOtUjo5OGm7MPbLA83MT5YPcXo1IX
+   AYv7d6N8bficlzN60gkya64Bnj4JdU9xBS0GfIycVsSY+hDB2PIh4WpIT
+   RqnCzQ9744/b0sZ9ZGuOfsqxPQd1iOmrrRDrUQd+rsx7B+m6wdSGt+O8i
+   g==;
+X-CSE-ConnectionGUID: s2S250s2SqOfEor0rtdR4w==
+X-CSE-MsgGUID: pFrEeBeXTp+oMCgAWylF2w==
+X-IronPort-AV: E=McAfee;i="6800,10657,11579"; a="62510338"
+X-IronPort-AV: E=Sophos;i="6.19,222,1754982000"; 
+   d="scan'208";a="62510338"
+Received: from fmviesa004.fm.intel.com ([10.60.135.144])
+  by fmvoesa109.fm.intel.com with ESMTP/TLS/ECDHE-RSA-AES256-GCM-SHA384; 11 Oct 2025 20:13:07 -0700
+X-CSE-ConnectionGUID: QdHrMtJ9SPmASB0zARVHzA==
+X-CSE-MsgGUID: mgmTFntXSbm6mXD79aJaQg==
+X-ExtLoop1: 1
+X-IronPort-AV: E=Sophos;i="6.19,222,1754982000"; 
+   d="scan'208";a="186583057"
+Received: from lkp-server01.sh.intel.com (HELO 6a630e8620ab) ([10.239.97.150])
+  by fmviesa004.fm.intel.com with ESMTP; 11 Oct 2025 20:13:03 -0700
+Received: from kbuild by 6a630e8620ab with local (Exim 4.96)
+	(envelope-from <lkp@intel.com>)
+	id 1v7mW5-0004AR-0j;
+	Sun, 12 Oct 2025 03:13:01 +0000
+Date: Sun, 12 Oct 2025 11:12:23 +0800
+From: kernel test robot <lkp@intel.com>
+To: Alok Tiwari <alok.a.tiwari@oracle.com>, michael.riesch@wolfvision.net,
+	robh@kernel.org, s.hauer@pengutronix.de,
+	dri-devel@lists.freedesktop.org, simona@ffwll.ch, airlied@gmail.com,
+	tzimmermann@suse.de, mripard@kernel.org, hjc@rock-chips.com,
+	heiko@sntech.de, andy.yan@rock-chips.com,
+	maarten.lankhorst@linux.intel.com
+Cc: llvm@lists.linux.dev, oe-kbuild-all@lists.linux.dev,
+	alok.a.tiwari@oracle.com, linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH] drm/rockchip: vop2: use correct destination rectangle
+ height check
+Message-ID: <202510121013.tqU2DAEC-lkp@intel.com>
+References: <20251011130450.123444-1-alok.a.tiwari@oracle.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 1/2] dt-bindings: arm: aspeed: add ASRock X470D4U BMC
-To: Tan Siewert <tan@siewert.io>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
- Andrew Jeffery <andrew@codeconstruct.com.au>
-Cc: Zev Weiss <zev@bewilderbeest.net>, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- linux-kernel@vger.kernel.org
-References: <20251011112124.17588-1-tan@siewert.io>
- <20251011112124.17588-2-tan@siewert.io>
-From: Krzysztof Kozlowski <krzk@kernel.org>
-Content-Language: en-US
-Autocrypt: addr=krzk@kernel.org; keydata=
- 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 a/A=
-In-Reply-To: <20251011112124.17588-2-tan@siewert.io>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251011130450.123444-1-alok.a.tiwari@oracle.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251011_200356_089886_5DE9A633 
-X-CRM114-Status: UNSURE (   9.45  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251011_201312_339880_53AD25E4 
+X-CRM114-Status: GOOD (  13.57  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -122,35 +93,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/10/2025 13:21, Tan Siewert wrote:
-> Document ASRock's X470D4U BMC board compatible.
-> 
-> Signed-off-by: Tan Siewert <tan@siewert.io>
-> ---
-> v2: No changes
+Hi Alok,
+
+kernel test robot noticed the following build errors:
+
+[auto build test ERROR on rockchip/for-next]
+[also build test ERROR on linus/master v6.17 next-20251010]
+[If your patch is applied to the wrong git tree, kindly drop us a note.
+And when submitting patch, we suggest to use '--base' as documented in
+https://git-scm.com/docs/git-format-patch#_base_tree_information]
+
+url:    https://github.com/intel-lab-lkp/linux/commits/Alok-Tiwari/drm-rockchip-vop2-use-correct-destination-rectangle-height-check/20251011-210653
+base:   https://git.kernel.org/pub/scm/linux/kernel/git/mmind/linux-rockchip.git for-next
+patch link:    https://lore.kernel.org/r/20251011130450.123444-1-alok.a.tiwari%40oracle.com
+patch subject: [PATCH] drm/rockchip: vop2: use correct destination rectangle height check
+config: sparc64-randconfig-001-20251012 (https://download.01.org/0day-ci/archive/20251012/202510121013.tqU2DAEC-lkp@intel.com/config)
+compiler: clang version 20.1.8 (https://github.com/llvm/llvm-project 87f0227cb60147a26a1eeb4fb06e3b505e9c7261)
+reproduce (this is a W=1 build): (https://download.01.org/0day-ci/archive/20251012/202510121013.tqU2DAEC-lkp@intel.com/reproduce)
+
+If you fix the issue in a separate patch/commit (i.e. not just a new version of
+the same patch/commit), kindly add following tags
+| Reported-by: kernel test robot <lkp@intel.com>
+| Closes: https://lore.kernel.org/oe-kbuild-all/202510121013.tqU2DAEC-lkp@intel.com/
+
+All errors (new ones prefixed by >>):
+
+>> drivers/gpu/drm/rockchip/rockchip_drm_vop2.c:1034:34: error: call to undeclared function 'drm_rect_heigh'; ISO C99 and later do not support implicit function declarations [-Wimplicit-function-declaration]
+    1034 |             drm_rect_width(dest) < 4 || drm_rect_heigh(dest) < 4) {
+         |                                         ^
+   drivers/gpu/drm/rockchip/rockchip_drm_vop2.c:1034:34: note: did you mean 'drm_rect_height'?
+   include/drm/drm_rect.h:196:19: note: 'drm_rect_height' declared here
+     196 | static inline int drm_rect_height(const struct drm_rect *r)
+         |                   ^
+   1 error generated.
 
 
-Acked-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+vim +/drm_rect_heigh +1034 drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
 
-<form letter>
-This is an automated instruction, just in case, because many review tags
-are being ignored. If you know the process, just skip it entirely
-(please do not feel offended by me posting it here - no bad intentions
-intended, no patronizing, I just want to avoid wasted efforts). If you
-do not know the process, here is a short explanation:
+   991	
+   992	static int vop2_plane_atomic_check(struct drm_plane *plane,
+   993					   struct drm_atomic_state *astate)
+   994	{
+   995		struct drm_plane_state *pstate = drm_atomic_get_new_plane_state(astate, plane);
+   996		struct drm_framebuffer *fb = pstate->fb;
+   997		struct drm_crtc *crtc = pstate->crtc;
+   998		struct drm_crtc_state *cstate;
+   999		struct vop2_video_port *vp;
+  1000		struct vop2 *vop2;
+  1001		const struct vop2_data *vop2_data;
+  1002		struct drm_rect *dest = &pstate->dst;
+  1003		struct drm_rect *src = &pstate->src;
+  1004		int min_scale = FRAC_16_16(1, 8);
+  1005		int max_scale = FRAC_16_16(8, 1);
+  1006		int format;
+  1007		int ret;
+  1008	
+  1009		if (!crtc)
+  1010			return 0;
+  1011	
+  1012		vp = to_vop2_video_port(crtc);
+  1013		vop2 = vp->vop2;
+  1014		vop2_data = vop2->data;
+  1015	
+  1016		cstate = drm_atomic_get_existing_crtc_state(pstate->state, crtc);
+  1017		if (WARN_ON(!cstate))
+  1018			return -EINVAL;
+  1019	
+  1020		ret = drm_atomic_helper_check_plane_state(pstate, cstate,
+  1021							  min_scale, max_scale,
+  1022							  true, true);
+  1023		if (ret)
+  1024			return ret;
+  1025	
+  1026		if (!pstate->visible)
+  1027			return 0;
+  1028	
+  1029		format = vop2_convert_format(fb->format->format);
+  1030		if (format < 0)
+  1031			return format;
+  1032	
+  1033		if (drm_rect_width(src) >> 16 < 4 || drm_rect_height(src) >> 16 < 4 ||
+> 1034		    drm_rect_width(dest) < 4 || drm_rect_heigh(dest) < 4) {
+  1035			drm_err(vop2->drm, "Invalid size: %dx%d->%dx%d, min size is 4x4\n",
+  1036				drm_rect_width(src) >> 16, drm_rect_height(src) >> 16,
+  1037				drm_rect_width(dest), drm_rect_height(dest));
+  1038			pstate->visible = false;
+  1039			return 0;
+  1040		}
+  1041	
+  1042		if (drm_rect_width(src) >> 16 > vop2_data->max_input.width ||
+  1043		    drm_rect_height(src) >> 16 > vop2_data->max_input.height) {
+  1044			drm_err(vop2->drm, "Invalid source: %dx%d. max input: %dx%d\n",
+  1045				drm_rect_width(src) >> 16,
+  1046				drm_rect_height(src) >> 16,
+  1047				vop2_data->max_input.width,
+  1048				vop2_data->max_input.height);
+  1049			return -EINVAL;
+  1050		}
+  1051	
+  1052		/*
+  1053		 * Src.x1 can be odd when do clip, but yuv plane start point
+  1054		 * need align with 2 pixel.
+  1055		 */
+  1056		if (fb->format->is_yuv && ((pstate->src.x1 >> 16) % 2)) {
+  1057			drm_err(vop2->drm, "Invalid Source: Yuv format not support odd xpos\n");
+  1058			return -EINVAL;
+  1059		}
+  1060	
+  1061		return 0;
+  1062	}
+  1063	
 
-Please add Acked-by/Reviewed-by/Tested-by tags when posting new versions
-of patchset, under or above your Signed-off-by tag, unless patch changed
-significantly (e.g. new properties added to the DT bindings). Tag is
-"received", when provided in a message replied to you on the mailing
-list. Tools like b4 can help here ('b4 trailers -u ...'). However,
-there's no need to repost patches *only* to add the tags. The upstream
-maintainer will do that for tags received on the version they apply.
-
-Full context and explanation:
-https://elixir.bootlin.com/linux/v6.15/source/Documentation/process/submitting-patches.rst#L591
-</form letter>
-
-Best regards,
-Krzysztof
+-- 
+0-DAY CI Kernel Test Service
+https://github.com/intel/lkp-tests/wiki
 
