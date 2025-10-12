@@ -4,67 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D9728CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Oct 2025 09:20:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4C09BCCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Oct 2025 09:32:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=kN5/ilIo+JZwjBvr6gw3dBoY4gM4GAFP0osH7FpQv5Y=; b=SXfyCR58mE4dTHMuw9jX2P/wuz
-	e514RwGv6mc/xQ/F177cZmh5/7DhlDH13JpOIU1ZwRR+nVzlUnth6/8aKK1LsMK2pmcEGrvV3umxO
-	x//J4yPS44hi1vElz1or9flj9SmSFzqzh/8tMf06aXp37bS+kTWZ9iSIqYri2Ami7AxjV6GI2aWka
-	rBrmH7hAY4GXopX4b62HVh1XrJyflUcW0AZV0AGE6pHsIu2sYmbefozCiHjktHAqUBXc7AoyGrVPT
-	GLlcMho6DGa9rPyA7pEDaSYEXQ+jPMMpQEhg4YoJLm1KWH55+LP1T3Wx9gJ12BwywRk3NwveQNRaE
-	gazJPRFQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=2mWiXoQDcNyCG/Y7xyEyX/kKrmiQYrpx8gb/fQ9TCTQ=; b=QVbaNS/lUNS/gc8DmkmMFacfeO
+	bSRivrBknAyX+fVUxBagP6IJarKfpKijYX6+LqVONJyiKzNYNjdEjnnkX7q4//FelaTFYmL4m2OIy
+	pV6nflRjX7Sz07QmTr4mmGmTIgn2RSJRABfu5GomII8VnA59bTA982S0sZGinsg109LABd2lZUnyH
+	lekPvALHU2fsuT9nx6pAg9J0RurZutSDQZ1B97qibAW3IBVSy3UMODFdhJAN6zNBigO87WUncglZY
+	zrhDY481FTaeyUoHvcV3FR9mg/E2P8bHCwxBDZZ8hFF5m7TU0W8dSahnfv+HuG0BmjUoiMoUV2w4V
+	ergBMj7Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7sFj-0000000BD9O-2Ee9;
-	Sun, 12 Oct 2025 09:20:31 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v7sR1-0000000BDYN-3w5N;
+	Sun, 12 Oct 2025 09:32:11 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7sFg-0000000BD8y-3rbo;
-	Sun, 12 Oct 2025 09:20:30 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id BF78642D6B;
-	Sun, 12 Oct 2025 09:20:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1370EC4CEE7;
-	Sun, 12 Oct 2025 09:20:25 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760260826;
-	bh=3DV/u5wjSCtg1WSPlQteng/aS2VViRpDHJXCVKKehVo=;
-	h=From:Date:Subject:To:Cc:From;
-	b=lIoQ0XBnPfDb39ejCm9t7Ft7oUm2id6K2uOyaSxfR0R/YIHmbv+gz/S4E+TNeiCZC
-	 nmVo7/0XGlSQKliLIyrkKNh1byogSLS2jIZKFPdnnJynMHTDChYCFQpscK2HvfHI6Y
-	 5YSSM4geEyhrwZQbOEAvvSSTIEyfqP6yHGVRX4PgXF6qMVAAXcFgyW4Upwy3YnGcI4
-	 6xHImMKb9V2ERh0lqnaH3EvUfNok9CFF5jZCSL7/KgC3Vvl6xdadEvIYva9VoQ2I4z
-	 d7ufZ7hVAK8O6z7VUvzqnWzMfWs3wDRlzb3RVLzUP9ppQIGszhLi3eV0q1xRhXHytg
-	 uQN/AGn+koO6Q==
-From: Lorenzo Bianconi <lorenzo@kernel.org>
-Date: Sun, 12 Oct 2025 11:19:44 +0200
-Subject: [PATCH net v2] net: airoha: Take into account out-of-order tx
- completions in airoha_dev_xmit()
+	id 1v7sQz-0000000BDXg-0mv5
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 12 Oct 2025 09:32:10 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-6364eb29e74so5882636a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Oct 2025 02:32:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1760261527; x=1760866327; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=2mWiXoQDcNyCG/Y7xyEyX/kKrmiQYrpx8gb/fQ9TCTQ=;
+        b=lezAkIR3gnMr4e+tf44kp/e2txAtRhrNq//N0lDolfEc+bXWuH6mUaoY9+2EVrcg45
+         wBGCsY7EyEt4qowTUZ0jhhTDR7uZEwuArOEI6wwZnVOhllG2f97TDUilSJGH6IjAcpFD
+         WHpy8IpVBRKWCz231Rm6T5DkYwLVh/yz6NV+63FHNI6CjjuoOjA43pkbfeqkrQKJDQS5
+         NHinVrOoXdQ06rv7tFkeAUczXZLeahaGBw1KJBbgM0VNbW06MOOQFh08xOSyd9PE11Z1
+         aLaqBqQPmlPcTNzHYVT8VG7ImL4TrrhZ2FyxLCPul/eSPH6uawGWdyyahJXIHxT2ZoA5
+         H9vQ==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760261527; x=1760866327;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=2mWiXoQDcNyCG/Y7xyEyX/kKrmiQYrpx8gb/fQ9TCTQ=;
+        b=vUYkgfFzQuRfvZ4awqlu7idOkXiqB7jLKLHp326DIDfh00jCEZEKx+Jvpw0JN7oPqy
+         mrlENZCN3/DP00IC7rdNCLHMj0cNO1z7PmmUM0kKHEHtvbOfzutxr3IREEH1qv0+dHCX
+         xWa4qUo0puEQTYCw+wRMwL2mleVQD/1d4Wx8VduY62tUtMVPWbDrPoV5mg4aLCu62TEr
+         ciJkGhGHf0HnR2nngt7UrEHL6OdZrQzLr7HYrB3R4YLpr9XZcnhE3c3X/xUOiHwzRuFC
+         pgoiCr8NqUGnxgxloM+rUoBO4/NA4mV020iJA0AoQf0qjeZUF77n7iIeGBZRHsecA8J+
+         Fvww==
+X-Forwarded-Encrypted: i=1; AJvYcCWutdZtelPY/7ILf2TGgt4Z3wZsM/6aEnsXSeRgPw2ZClnGE5IBiPeSaa1o6m/PCyWcFOMKnb4cCmnU5opJaYW/@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxs+F82v5WU85kiwUZNCFX44JEK4Yb93rhcH3tI5fPfz6UlHLws
+	3u5yQm60pBX98MwZZPXe3/G/qpY4G4HVGJcI4DD4VSLXHwlrx4ZfeOvC
+X-Gm-Gg: ASbGncu95pje4hkiQ3nMd0si4p0vaK/u+PJHI1Kqi5tylOfXWWqukakCBmcaDFIuAjx
+	1G0zHaA2YKY97+cQVQnDTK601tSVPnuwb6rJrfjrAey7OObCSzgodHzYqwSqr7zZyF/d6tC55xx
+	ueo7L8El4vfwY2Oqnt0hBmqqu0GBgdO7i10x9vZrOXy0lNMGT5zbtxum1afK5MgbL3bSIvCHJaJ
+	RsaTyFma9A7QaFNDDne6xJQmIHu34yvbATvm+kLanmjzR66gxnsyegreNQPpGDZgMuHuyV8vFcW
+	JNnNC+d6jwynkEEF8uJideLfGI6wAh0aIcpIeuvrqrqlDPuxV/P/gINrNSkYIbIk6xcV1YqJs3R
+	CufIJ/TfBIIwOXlRpqPk5ou9Y7bLTPqoFEhwVYOWcZvbww1ZuaEgChgcAtcYizoaBuerandLddk
+	aD
+X-Google-Smtp-Source: AGHT+IHAMPc4GhHxYPiu7DN/dGgE3XL8AkmpYnNc4zzqqyTd0Vqq0XFfmmQ8/O+jhhO8SpuritDGUg==
+X-Received: by 2002:a05:6402:27cd:b0:63a:35c:6ec4 with SMTP id 4fb4d7f45d1cf-63a035c73cemr10344738a12.21.1760261526877;
+        Sun, 12 Oct 2025 02:32:06 -0700 (PDT)
+Received: from HomePC (89-67-214-154.dynamic.play.pl. [89.67.214.154])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-63a5c323423sm6331597a12.42.2025.10.12.02.32.04
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 12 Oct 2025 02:32:06 -0700 (PDT)
+From: Andrey Leonchikov <andreil499@gmail.com>
+To: devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Cc: Andrey Leonchikov <andreil499@gmail.com>,
+	robh@kernel.org,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	heiko@sntech.de
+Subject: [PATCH] dt-bindings: arm: rockchip: Fix PCIe power enable pin for BTT CB2 and Pi2
+Date: Sun, 12 Oct 2025 11:31:26 +0200
+Message-ID: <20251012093135.80395-1-andreil499@gmail.com>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251012-airoha-tx-busy-queue-v2-1-a600b08bab2d@kernel.org>
-X-B4-Tracking: v=1; b=H4sIAK9y62gC/32NQQ6CMBBFr0Jm7ZhOFaOuvIdhUegAE02rUyAQw
- t1tOIDL93/++yskVuEE92IF5UmSxJDBHgpoehc6RvGZwRpbkiGDTjT2DocZ6zEt+B15ZKx9S9R
- wcz2xhzz9KLcy79onBB6gymEvaYi67FcT7dV/60RIeGNybenNhcz58WIN/D5G7aDatu0HAPDQD
- b4AAAA=
-X-Change-ID: 20251010-airoha-tx-busy-queue-bdf11cec83ed
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Lorenzo Bianconi <lorenzo@kernel.org>
-Cc: linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, netdev@vger.kernel.org, 
- Simon Horman <horms@kernel.org>
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251012_022029_032765_273AEA5F 
-X-CRM114-Status: GOOD (  12.69  )
+X-CRM114-CacheID: sfid-20251012_023209_236300_EEB62AC2 
+X-CRM114-Status: GOOD (  10.22  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,64 +101,29 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Completion napi can free out-of-order tx descriptors if hw QoS is
-enabled and packets with different priority are queued to same DMA ring.
-Take into account possible out-of-order reports checking if the tx queue
-is full using circular buffer head/tail pointer instead of the number of
-queued packets.
+Fix typo into regulator GPIO definition. With current
+definition - PCIe don't up. Valid definition have on
+"pinctrl" section, "pcie_drv" (gpio4, RK_PB1).
 
-Fixes: 23020f0493270 ("net: airoha: Introduce ethernet support for EN7581 SoC")
-Suggested-by: Simon Horman <horms@kernel.org>
-Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+Signed-off-by: Andrey Leonchikov <andreil499@gmail.com>
 ---
-Changes in v2:
-- Fix corner case when the queue is full
-- Link to v1: https://lore.kernel.org/r/20251010-airoha-tx-busy-queue-v1-1-9e1af5d06104@kernel.org
----
- drivers/net/ethernet/airoha/airoha_eth.c | 16 +++++++++++++++-
- 1 file changed, 15 insertions(+), 1 deletion(-)
+ arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/drivers/net/ethernet/airoha/airoha_eth.c b/drivers/net/ethernet/airoha/airoha_eth.c
-index 833dd911980b3f698bd7e5f9fd9e2ce131dd5222..433a646e9831773bf63600e7c3d3b2176c4d133e 100644
---- a/drivers/net/ethernet/airoha/airoha_eth.c
-+++ b/drivers/net/ethernet/airoha/airoha_eth.c
-@@ -1873,6 +1873,20 @@ static u32 airoha_get_dsa_tag(struct sk_buff *skb, struct net_device *dev)
- #endif
- }
- 
-+static bool airoha_dev_tx_queue_busy(struct airoha_queue *q, u32 nr_frags)
-+{
-+	u32 tail = q->tail <= q->head ? q->tail + q->ndesc : q->tail;
-+	u32 index = q->head + nr_frags;
-+
-+	/* completion napi can free out-of-order tx descriptors if hw QoS is
-+	 * enabled and packets with different priorities are queued to the same
-+	 * DMA ring. Take into account possible out-of-order reports checking
-+	 * if the tx queue is full using circular buffer head/tail pointers
-+	 * instead of the number of queued packets.
-+	 */
-+	return index >= tail;
-+}
-+
- static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 				   struct net_device *dev)
- {
-@@ -1926,7 +1940,7 @@ static netdev_tx_t airoha_dev_xmit(struct sk_buff *skb,
- 	txq = netdev_get_tx_queue(dev, qid);
- 	nr_frags = 1 + skb_shinfo(skb)->nr_frags;
- 
--	if (q->queued + nr_frags > q->ndesc) {
-+	if (airoha_dev_tx_queue_busy(q, nr_frags)) {
- 		/* not enough space in the queue */
- 		netif_tx_stop_queue(txq);
- 		spin_unlock_bh(&q->lock);
-
----
-base-commit: 18a7e218cfcdca6666e1f7356533e4c988780b57
-change-id: 20251010-airoha-tx-busy-queue-bdf11cec83ed
-
-Best regards,
+diff --git a/arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi b/arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi
+index 7f578c50b4ad..f74590af7e33 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi
++++ b/arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi
+@@ -120,7 +120,7 @@ vcc3v3_pcie: regulator-vcc3v3-pcie {
+ 		compatible = "regulator-fixed";
+ 		regulator-name = "vcc3v3_pcie";
+ 		enable-active-high;
+-		gpios = <&gpio0 RK_PB1 GPIO_ACTIVE_HIGH>;
++		gpios = <&gpio4 RK_PB1 GPIO_ACTIVE_HIGH>;
+ 		pinctrl-names = "default";
+ 		pinctrl-0 = <&pcie_drv>;
+ 		regulator-always-on;
 -- 
-Lorenzo Bianconi <lorenzo@kernel.org>
+2.51.0
 
 
