@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1CA80CCD18A
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Oct 2025 19:24:09 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EDFAECCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Oct 2025 19:24:11 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=4j2gKZWvQ3G/p6x29ljxN7hGavAjse3Wea8WQURA1i4=; b=Ij4NFA8WI7+SGpi5Kq1tniOaIT
-	obD3WPa//qkSPVgQR2OD3dnej9maDwgMPCqWZ2WNZPQzzL62VjZITxxdk9XF+7DN/0iot3Ny95zQK
-	S8gLAESsMswzvV6ESXmblhyKAh+K7OBTMKLVKNDcLTxguzB2EJtoStrprpDUq8OvmuUIAi2Itwk14
-	xzNUyMWeX3TUc9zgnaLuAdhCO+R6zREnbRW92FRSWii//Nyg1zkoo9xS5QgmVAk6KHXFFBi1aAobj
-	Cz9SDkktZkxL010JMiJ1Ir40ofLJPtiYxRHd2r5TE6pu/1rsgdm9QZUD+YxJsMeb6edwsy3i+B6kR
-	ULmxoBFg==;
+	bh=ljTiHpH/7wCq4Sb80OipRX+gpuymv7x8m1cTbrMD8nQ=; b=tpPJiFkg3Jspdeug7dlcTWuqhr
+	N+q+VK//6vIUad/iRW+oAtCOO83e9TrRKM4e0qXkh2lY6wL/9uYxMsjhGum64WpUrBBJLYSZfri5T
+	lfM3VzqlPGY6dvaYNBYdlvNjZyGrTftOfluvWEP3USN9sFBMS3Tt+MkoUbjQ+ozTsL862IQgXZ4Vs
+	ULggKDvPmC6OrJUZrBvifzJcdEuCVe1xwtVyZ+M86eDBzg9zdtd2tfHAZukG+VSXv3BJjguv+x1oT
+	bJvMzVPlIsaJ/EaFr7Lp3AGVeTEY5vhIg62/i/WrjLwrEXZAtHcFHbVAVRHj878Bm5o9GduZYurf0
+	nDHoK3GQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v81fl-0000000Bfol-0Bgz;
-	Sun, 12 Oct 2025 19:24:01 +0000
-Received: from mail-ej1-x634.google.com ([2a00:1450:4864:20::634])
+	id 1v81fn-0000000Bfts-2gDc;
+	Sun, 12 Oct 2025 19:24:03 +0000
+Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v81fc-0000000BfcJ-2znw
+	id 1v81ff-0000000Bffj-1cTX
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Oct 2025 19:23:54 +0000
-Received: by mail-ej1-x634.google.com with SMTP id a640c23a62f3a-b4c89df6145so588338166b.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Oct 2025 12:23:52 -0700 (PDT)
+	Sun, 12 Oct 2025 19:23:56 +0000
+Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-b3e44f22f15so514469466b.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Oct 2025 12:23:54 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760297031; x=1760901831; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1760297034; x=1760901834; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=4j2gKZWvQ3G/p6x29ljxN7hGavAjse3Wea8WQURA1i4=;
-        b=T4+bke4v5lsH2YwRkNaoTQqWdUdikjvms2p09t6ShRn9URKu1dTA5ngBIDNEqtiTeo
-         lUN8/2Qa5scH26GfR3oQUhF0Tq/bpDg0+L+WIzBpqP9vyDos1yPJdK//87qE+H5eK0At
-         4XGeftKmMYhhIPstPHKaoaXm/udRNB6qP2aNpnGeANeGcgaRoqLuLKvDf5wdtUrIIiPG
-         6K9KihDavojktZqkSB2yW51dxfotZSceUPQhYkF3Y6Klt0M5HR3oV1jQjabLsZylw7Bn
-         lOYyayTxtNq1ydvcf2m226+HT6DYcB5PF39TLGBg0fxWpiTEblsijbbAx8oIn5vZB/k3
-         MPWw==
+        bh=ljTiHpH/7wCq4Sb80OipRX+gpuymv7x8m1cTbrMD8nQ=;
+        b=cs4v1Qm7bAOBPQ7pLPKb80FBBB4u+yezegSpgSgx4Qc/wPxCDDhnHG8YK+niDjHNR7
+         XpKRjYdU08H9iYL76B7nPJc0++gnGX/ewIyyocImoQXMskSD3WRP0qOKpDY8231aZ4C/
+         NAzOq7EZyJSNyc5OkCw7kzXbJBVsqNzFztQ6AvJqpdOc55HKlOZp9boLtFo+xiGQqI8/
+         4f6Gk1rnckaDlb/VAjxyG7kQINsYVK1eUN/5TGMST+7x9u0gQOM4YR+Bz4fEdMZkqOjy
+         dW0punPl+9AMuNB7j4yHYX4qT1/3+6zI8wbTuGOg5ysgkvseVqJVWWcC+sOM064lSwE6
+         M0ZA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760297031; x=1760901831;
+        d=1e100.net; s=20230601; t=1760297034; x=1760901834;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=4j2gKZWvQ3G/p6x29ljxN7hGavAjse3Wea8WQURA1i4=;
-        b=TzbVs/6keahH0sewDaG/nwPryos72XHSY4WUiurmAMNeRvtn4CRJmVXyIg3JRmQtDm
-         DuVHn68ij2fpSWoARRUpz8hCnmdf/wZXZCAnOUFB/ztZlGcHhXOVODeSubWW9g+vlehZ
-         qm0nXvvbMWGjjZeJ+0kNyUsyf0lEH6G1tqa7DataVp3coEDO872SW3dAxrSCW9ZxW8hR
-         ZwmLgfedvJK9ssK4UVInVpl8nCNfBwqOL5Ng3HQKIoVRT/Xr8XiNPJTaBEqU41nNqIws
-         57x2H2RF5cA1eknekSR8mauSQVbVF/lwrmq4bDYYSVvpp44NBD0SRJkD3xRIdWGwD7oY
-         1x2A==
-X-Forwarded-Encrypted: i=1; AJvYcCUoqp7o2Qo5yZoDHtXy+JgyGNcJOS89FPt8nSTKZ7oCxJk2+rKY4NqzucqiMBqWMS3M49OLPp+T5KA7UZUxvgqU@lists.infradead.org
-X-Gm-Message-State: AOJu0YwHEyMcChbyBoqhnhTQ4wyqqAVCYZIwMPkiLbWFIGyy0NnzWW+p
-	ep0qTzFS7NkGVrcFIgc73RBNexWTGWG0H7MmYAO/jxy0ELOtvpL8QU5o
-X-Gm-Gg: ASbGncsFp+7cYeverlLVYz6+XUm+lP2+O0+vNu/4wZh5GRZZiABwuvJYvZdcP1IOLN4
-	PBv2ZwhKpL6m/Of4zvdPSeEVRohVBnVjzhCy/O9994RH9XfiShz7u9WbRXwhtMuhUqIqUwBf8Cn
-	FYaqMLGDIosmRnKXhAvHiQ9e3pi1NjeMSLRf2ow+s4Del80qAWUmgA4+hKvcsAuhjZEREafNqqK
-	4udF9/erbSFLkN81kJV+3CGNcv4VI91nU6R1l3LP0Zcex3S4SCziCSq5UFwmnf5Ipsl79ZMr7Iz
-	BhLCcar0CRQauCjRyDxlGdRoy+1ayA7KkhylTkEghwJLlVkZpVC3otAa7fLctYP886fJOo0McnP
-	XnCcQZJ2jhb542xDYygzkVggx0dEHKisZqXt1fuvQNfbgyD8aBR1xbpFujWHozQiZfSZDXPR/tA
-	W7tMhzDXCQRSxQEwlgjedFic9wzQTwxE/ut0e5T9unZA==
-X-Google-Smtp-Source: AGHT+IEs/WFctDa89+D/WqWhY5uZ3WvAavRVXRQFM/TxuoPg9kA4sKepU26nxFXJKsHh5KgVUQFpfg==
-X-Received: by 2002:a17:907:724a:b0:b04:5b0a:5850 with SMTP id a640c23a62f3a-b50ac1c3f18mr2033310866b.40.1760297030814;
-        Sun, 12 Oct 2025 12:23:50 -0700 (PDT)
+        bh=ljTiHpH/7wCq4Sb80OipRX+gpuymv7x8m1cTbrMD8nQ=;
+        b=P8olcBx30UW6vR7lpuInMBDN5pGdO41xD6jOxZmc60jjF7OEvadGG7ciXosCRfHbjs
+         Iah33QBOOYaQ1HCmyLYn25Om4qkkpFj5inBseTpxTlZtcT6+HzZwpXEd7hSaQML7I2Hg
+         ETPWCBYzggL6jRa6ulocAIsGOkHLmf65N/Dn6QblmZYNoQpZ6fg7MedAoiCP+lhNziN9
+         AcqPYzJwVCAxf7hNeRxuTt67yLRi6F53ktsDSmjDz0eWtoStFHKhXVOCBzL0v9uwXGgr
+         JbzXD51KtoBVHHHW8+rnsB2SvuV3yhB3miQA/OacS/GXr1PFIvfJJcDJ/LC85LNcYsUT
+         r4qw==
+X-Forwarded-Encrypted: i=1; AJvYcCWMy94zGXzovofNQ9r13c+LGN2tDFCpbihbskml8GuQsQ/SkRY1XGvIDONU9jsrD7jw1iOEs8CSn7t1ceY/eKC5@lists.infradead.org
+X-Gm-Message-State: AOJu0YyZo5X/XESYwodAiMssG0ta3rBHmQytJRtcxRV270mxsEj7lpqE
+	gfh0CZkVHEEHWbErGE9E2BuMZvq7Ajngla3Lb3yCFfYSJvhjn/O+sWeE
+X-Gm-Gg: ASbGncsDsyijUJLYraxnG8bBY7o9RB5G7+IHgjPyeWzvMP4K1cWrTWkCQH+AwDL2V02
+	8pRnC2CWiKcLNcxy1x8mIO2C5wvcsKKOlr5QfINhsGHjdAkhipSTEmNvEaEwp/C014RGpaP/bs5
+	D4JC6vGwQ2X7Q0O4kQwkobd0ILwTPAxdDeAS9mfXXCbiVmomGPPhpIbJ7+V0Re2bJd9W2YA046W
+	A/oR0ZiBYt966jX9RtI1BFCimXkLwyucQ0b2VXY9wwAF0OE9HTj1Z9NHoxC76hQz3Sb3dEItZvo
+	heDcsUXSmDaH8cordsa9wc2KXDhidBoocDLSI5Qk2Bx/Y2734VvKCjP7jWtOyy0r88ZOkuF7z2J
+	9bMwtILvAn2anbI/Dcp3Ld5VCQo8YzScm7J3enExQwAEUUsip5fmoJO0wdcp2QXDK9HPnpp51y9
+	gY9V6hrl0oInIilKhqPuuu
+X-Google-Smtp-Source: AGHT+IH2UBZhZnnANHj8S5Ub3yMR8kafMnVt2A0h1CRlogccMK2B7fLAfojkqBw32F0r0liwzWP3zA==
+X-Received: by 2002:a17:907:da1:b0:b3a:e4b3:eeb9 with SMTP id a640c23a62f3a-b50abfcd075mr2031796166b.55.1760297033577;
+        Sun, 12 Oct 2025 12:23:53 -0700 (PDT)
 Received: from jernej-laptop (178-79-73-218.dynamic.telemach.net. [178.79.73.218])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b55d67d8283sm760176466b.38.2025.10.12.12.23.49
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b55d67d8283sm760176466b.38.2025.10.12.12.23.52
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Oct 2025 12:23:50 -0700 (PDT)
+        Sun, 12 Oct 2025 12:23:53 -0700 (PDT)
 From: Jernej Skrabec <jernej.skrabec@gmail.com>
 To: mripard@kernel.org,
 	wens@csie.org
@@ -83,17 +83,17 @@ Cc: maarten.lankhorst@linux.intel.com,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Jernej Skrabec <jernej.skrabec@gmail.com>
-Subject: [PATCH 09/30] drm/sun4i: vi layer: Write attributes in one go
-Date: Sun, 12 Oct 2025 21:23:09 +0200
-Message-ID: <20251012192330.6903-10-jernej.skrabec@gmail.com>
+Subject: [PATCH 11/30] drm/sun4i: de2/de3: Simplify CSC config interface
+Date: Sun, 12 Oct 2025 21:23:11 +0200
+Message-ID: <20251012192330.6903-12-jernej.skrabec@gmail.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251012192330.6903-1-jernej.skrabec@gmail.com>
 References: <20251012192330.6903-1-jernej.skrabec@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251012_122352_785018_92AEB4FD 
-X-CRM114-Status: GOOD (  13.94  )
+X-CRM114-CacheID: sfid-20251012_122355_556333_F788184D 
+X-CRM114-Status: GOOD (  13.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,137 +108,217 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-It turns out that none of the VI channel registers were meant to be
-read. Mostly it works fine but sometimes it returns incorrect values.
-
-Rework VI layer code to write all registers in one go to avoid reads.
-
-This rework will also allow proper code separation.
+Merging both function into one lets this one decide on it's own if CSC
+should be enabled or not. Currently heuristics for that is pretty simple
+- enable it for YUV formats and disable for RGB. DE3 and newer allows
+YUV pipeline, which will be easier to implement these way.
 
 Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 ---
- drivers/gpu/drm/sun4i/sun8i_vi_layer.c | 71 ++++++++++----------------
- 1 file changed, 27 insertions(+), 44 deletions(-)
+ drivers/gpu/drm/sun4i/sun8i_csc.c      | 89 ++++++++++----------------
+ drivers/gpu/drm/sun4i/sun8i_csc.h      |  9 ++-
+ drivers/gpu/drm/sun4i/sun8i_vi_layer.c | 11 +---
+ 3 files changed, 40 insertions(+), 69 deletions(-)
 
-diff --git a/drivers/gpu/drm/sun4i/sun8i_vi_layer.c b/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
-index 1f4fa63ef153..dcc4429368d6 100644
---- a/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
-+++ b/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
-@@ -18,34 +18,35 @@
- #include "sun8i_vi_layer.h"
- #include "sun8i_vi_scaler.h"
+diff --git a/drivers/gpu/drm/sun4i/sun8i_csc.c b/drivers/gpu/drm/sun4i/sun8i_csc.c
+index c100d29b1a89..cf0c5121661b 100644
+--- a/drivers/gpu/drm/sun4i/sun8i_csc.c
++++ b/drivers/gpu/drm/sun4i/sun8i_csc.c
+@@ -107,23 +107,28 @@ static const u32 yuv2rgb_de3[2][3][12] = {
+ 	},
+ };
  
--static void sun8i_vi_layer_update_alpha(struct sun8i_mixer *mixer, int channel,
--					int overlay, struct drm_plane *plane)
-+static void sun8i_vi_layer_update_attributes(struct sun8i_mixer *mixer,
-+					     int channel, int overlay,
-+					     struct drm_plane *plane)
+-static void sun8i_csc_set_coefficients(struct regmap *map, u32 base,
+-				       enum sun8i_csc_mode mode,
+-				       enum drm_color_encoding encoding,
+-				       enum drm_color_range range)
++static void sun8i_csc_setup(struct regmap *map, u32 base,
++			    enum sun8i_csc_mode mode,
++			    enum drm_color_encoding encoding,
++			    enum drm_color_range range)
  {
--	u32 mask, val, ch_base;
-+	struct drm_plane_state *state = plane->state;
-+	const struct drm_format_info *fmt;
-+	u32 val, ch_base, hw_fmt;
++	u32 base_reg, val;
+ 	const u32 *table;
+-	u32 base_reg;
+ 	int i;
  
- 	ch_base = sun8i_channel_base(mixer, channel);
-+	fmt = state->fb->format;
-+	sun8i_mixer_drm_format_to_hw(fmt->format, &hw_fmt);
+ 	table = yuv2rgb[range][encoding];
  
-+	val = hw_fmt << SUN8I_MIXER_CHAN_VI_LAYER_ATTR_FBFMT_OFFSET;
-+	if (!fmt->is_yuv)
-+		val |= SUN8I_MIXER_CHAN_VI_LAYER_ATTR_RGB_MODE;
-+	val |= SUN8I_MIXER_CHAN_VI_LAYER_ATTR_EN;
- 	if (mixer->cfg->de_type >= SUN8I_MIXER_DE3) {
--		mask = SUN50I_MIXER_CHAN_VI_LAYER_ATTR_ALPHA_MASK |
--		       SUN50I_MIXER_CHAN_VI_LAYER_ATTR_ALPHA_MODE_MASK;
--		val = SUN50I_MIXER_CHAN_VI_LAYER_ATTR_ALPHA
--			(plane->state->alpha >> 8);
--
--		val |= (plane->state->alpha == DRM_BLEND_ALPHA_OPAQUE) ?
-+		val |= SUN50I_MIXER_CHAN_VI_LAYER_ATTR_ALPHA(state->alpha >> 8);
-+		val |= (state->alpha == DRM_BLEND_ALPHA_OPAQUE) ?
- 			SUN50I_MIXER_CHAN_VI_LAYER_ATTR_ALPHA_MODE_PIXEL :
- 			SUN50I_MIXER_CHAN_VI_LAYER_ATTR_ALPHA_MODE_COMBINED;
--
--		regmap_update_bits(mixer->engine.regs,
--				   SUN8I_MIXER_CHAN_VI_LAYER_ATTR(ch_base,
--								  overlay),
--				   mask, val);
- 	} else if (mixer->cfg->vi_num == 1) {
--		regmap_update_bits(mixer->engine.regs,
--				   SUN8I_MIXER_FCC_GLOBAL_ALPHA_REG,
--				   SUN8I_MIXER_FCC_GLOBAL_ALPHA_MASK,
--				   SUN8I_MIXER_FCC_GLOBAL_ALPHA
--					(plane->state->alpha >> 8));
-+		regmap_write(mixer->engine.regs,
-+			     SUN8I_MIXER_FCC_GLOBAL_ALPHA_REG,
-+			     SUN8I_MIXER_FCC_GLOBAL_ALPHA(state->alpha >> 8));
+ 	switch (mode) {
++	case SUN8I_CSC_MODE_OFF:
++		val = 0;
++		break;
+ 	case SUN8I_CSC_MODE_YUV2RGB:
++		val = SUN8I_CSC_CTRL_EN;
+ 		base_reg = SUN8I_CSC_COEFF(base, 0);
+ 		regmap_bulk_write(map, base_reg, table, 12);
+ 		break;
+ 	case SUN8I_CSC_MODE_YVU2RGB:
++		val = SUN8I_CSC_CTRL_EN;
+ 		for (i = 0; i < 12; i++) {
+ 			if ((i & 3) == 1)
+ 				base_reg = SUN8I_CSC_COEFF(base, i + 1);
+@@ -135,28 +140,37 @@ static void sun8i_csc_set_coefficients(struct regmap *map, u32 base,
+ 		}
+ 		break;
+ 	default:
++		val = 0;
+ 		DRM_WARN("Wrong CSC mode specified.\n");
+ 		return;
  	}
 +
-+	regmap_write(mixer->engine.regs,
-+		     SUN8I_MIXER_CHAN_VI_LAYER_ATTR(ch_base, overlay), val);
++	regmap_write(map, SUN8I_CSC_CTRL(base), val);
  }
  
- static void sun8i_vi_layer_update_coord(struct sun8i_mixer *mixer, int channel,
-@@ -194,23 +195,14 @@ static u32 sun8i_vi_layer_get_csc_mode(const struct drm_format_info *format)
- 	}
- }
- 
--static void sun8i_vi_layer_update_formats(struct sun8i_mixer *mixer, int channel,
--					  int overlay, struct drm_plane *plane)
-+static void sun8i_vi_layer_update_colors(struct sun8i_mixer *mixer, int channel,
-+					 int overlay, struct drm_plane *plane)
+-static void sun8i_de3_ccsc_set_coefficients(struct regmap *map, int layer,
+-					    enum sun8i_csc_mode mode,
+-					    enum drm_color_encoding encoding,
+-					    enum drm_color_range range)
++static void sun8i_de3_ccsc_setup(struct regmap *map, int layer,
++				 enum sun8i_csc_mode mode,
++				 enum drm_color_encoding encoding,
++				 enum drm_color_range range)
  {
- 	struct drm_plane_state *state = plane->state;
--	u32 val, ch_base, csc_mode, hw_fmt;
- 	const struct drm_format_info *fmt;
--
--	ch_base = sun8i_channel_base(mixer, channel);
-+	u32 csc_mode;
++	u32 addr, val, mask;
+ 	const u32 *table;
+-	u32 addr;
+ 	int i;
  
- 	fmt = state->fb->format;
--	sun8i_mixer_drm_format_to_hw(fmt->format, &hw_fmt);
--
--	val = hw_fmt << SUN8I_MIXER_CHAN_VI_LAYER_ATTR_FBFMT_OFFSET;
--	regmap_update_bits(mixer->engine.regs,
--			   SUN8I_MIXER_CHAN_VI_LAYER_ATTR(ch_base, overlay),
--			   SUN8I_MIXER_CHAN_VI_LAYER_ATTR_FBFMT_MASK, val);
--
- 	csc_mode = sun8i_vi_layer_get_csc_mode(fmt);
- 	if (csc_mode != SUN8I_CSC_MODE_OFF) {
- 		sun8i_csc_set_ccsc_coefficients(mixer, channel, csc_mode,
-@@ -220,15 +212,6 @@ static void sun8i_vi_layer_update_formats(struct sun8i_mixer *mixer, int channel
- 	} else {
- 		sun8i_csc_enable_ccsc(mixer, channel, false);
++	mask = SUN50I_MIXER_BLEND_CSC_CTL_EN(layer);
+ 	table = yuv2rgb_de3[range][encoding];
+ 
+ 	switch (mode) {
++	case SUN8I_CSC_MODE_OFF:
++		val = 0;
++		break;
+ 	case SUN8I_CSC_MODE_YUV2RGB:
++		val = mask;
+ 		addr = SUN50I_MIXER_BLEND_CSC_COEFF(DE3_BLD_BASE, layer, 0);
+ 		regmap_bulk_write(map, addr, table, 12);
+ 		break;
+ 	case SUN8I_CSC_MODE_YVU2RGB:
++		val = mask;
+ 		for (i = 0; i < 12; i++) {
+ 			if ((i & 3) == 1)
+ 				addr = SUN50I_MIXER_BLEND_CSC_COEFF(DE3_BLD_BASE,
+@@ -173,67 +187,30 @@ static void sun8i_de3_ccsc_set_coefficients(struct regmap *map, int layer,
+ 		}
+ 		break;
+ 	default:
++		val = 0;
+ 		DRM_WARN("Wrong CSC mode specified.\n");
+ 		return;
  	}
+-}
 -
--	if (!fmt->is_yuv)
--		val = SUN8I_MIXER_CHAN_VI_LAYER_ATTR_RGB_MODE;
+-static void sun8i_csc_enable(struct regmap *map, u32 base, bool enable)
+-{
+-	u32 val;
+-
+-	if (enable)
+-		val = SUN8I_CSC_CTRL_EN;
 -	else
 -		val = 0;
 -
--	regmap_update_bits(mixer->engine.regs,
--			   SUN8I_MIXER_CHAN_VI_LAYER_ATTR(ch_base, overlay),
--			   SUN8I_MIXER_CHAN_VI_LAYER_ATTR_RGB_MODE, val);
+-	regmap_update_bits(map, SUN8I_CSC_CTRL(base), SUN8I_CSC_CTRL_EN, val);
+-}
+-
+-static void sun8i_de3_ccsc_enable(struct regmap *map, int layer, bool enable)
+-{
+-	u32 val, mask;
+-
+-	mask = SUN50I_MIXER_BLEND_CSC_CTL_EN(layer);
+-
+-	if (enable)
+-		val = mask;
+-	else
+-		val = 0;
+ 
+ 	regmap_update_bits(map, SUN50I_MIXER_BLEND_CSC_CTL(DE3_BLD_BASE),
+ 			   mask, val);
+ }
+ 
+-void sun8i_csc_set_ccsc_coefficients(struct sun8i_mixer *mixer, int layer,
+-				     enum sun8i_csc_mode mode,
+-				     enum drm_color_encoding encoding,
+-				     enum drm_color_range range)
++void sun8i_csc_config(struct sun8i_mixer *mixer, int layer,
++		      enum sun8i_csc_mode mode,
++		      enum drm_color_encoding encoding,
++		      enum drm_color_range range)
+ {
+ 	u32 base;
+ 
+ 	if (mixer->cfg->de_type == SUN8I_MIXER_DE3) {
+-		sun8i_de3_ccsc_set_coefficients(mixer->engine.regs, layer,
+-						mode, encoding, range);
++		sun8i_de3_ccsc_setup(mixer->engine.regs, layer,
++				     mode, encoding, range);
+ 		return;
+ 	}
+ 
+ 	base = ccsc_base[mixer->cfg->ccsc][layer];
+ 
+-	sun8i_csc_set_coefficients(mixer->engine.regs, base,
+-				   mode, encoding, range);
+-}
+-
+-void sun8i_csc_enable_ccsc(struct sun8i_mixer *mixer, int layer, bool enable)
+-{
+-	u32 base;
+-
+-	if (mixer->cfg->de_type == SUN8I_MIXER_DE3) {
+-		sun8i_de3_ccsc_enable(mixer->engine.regs, layer, enable);
+-		return;
+-	}
+-
+-	base = ccsc_base[mixer->cfg->ccsc][layer];
+-
+-	sun8i_csc_enable(mixer->engine.regs, base, enable);
++	sun8i_csc_setup(mixer->engine.regs, base,
++			mode, encoding, range);
+ }
+diff --git a/drivers/gpu/drm/sun4i/sun8i_csc.h b/drivers/gpu/drm/sun4i/sun8i_csc.h
+index 828b86fd0cab..27b6807fc786 100644
+--- a/drivers/gpu/drm/sun4i/sun8i_csc.h
++++ b/drivers/gpu/drm/sun4i/sun8i_csc.h
+@@ -28,10 +28,9 @@ enum sun8i_csc_mode {
+ 	SUN8I_CSC_MODE_YVU2RGB,
+ };
+ 
+-void sun8i_csc_set_ccsc_coefficients(struct sun8i_mixer *mixer, int layer,
+-				     enum sun8i_csc_mode mode,
+-				     enum drm_color_encoding encoding,
+-				     enum drm_color_range range);
+-void sun8i_csc_enable_ccsc(struct sun8i_mixer *mixer, int layer, bool enable);
++void sun8i_csc_config(struct sun8i_mixer *mixer, int layer,
++		      enum sun8i_csc_mode mode,
++		      enum drm_color_encoding encoding,
++		      enum drm_color_range range);
+ 
+ #endif
+diff --git a/drivers/gpu/drm/sun4i/sun8i_vi_layer.c b/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
+index 727117658c6c..adcd05acba1b 100644
+--- a/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
++++ b/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
+@@ -213,14 +213,9 @@ static void sun8i_vi_layer_update_colors(struct sun8i_mixer *mixer, int channel,
+ 
+ 	fmt = state->fb->format;
+ 	csc_mode = sun8i_vi_layer_get_csc_mode(fmt);
+-	if (csc_mode != SUN8I_CSC_MODE_OFF) {
+-		sun8i_csc_set_ccsc_coefficients(mixer, channel, csc_mode,
+-						state->color_encoding,
+-						state->color_range);
+-		sun8i_csc_enable_ccsc(mixer, channel, true);
+-	} else {
+-		sun8i_csc_enable_ccsc(mixer, channel, false);
+-	}
++	sun8i_csc_config(mixer, channel, csc_mode,
++			 state->color_encoding,
++			 state->color_range);
  }
  
  static void sun8i_vi_layer_update_buffer(struct sun8i_mixer *mixer, int channel,
-@@ -340,12 +323,12 @@ static void sun8i_vi_layer_atomic_update(struct drm_plane *plane,
- 	if (!new_state->crtc || !new_state->visible)
- 		return;
- 
-+	sun8i_vi_layer_update_attributes(mixer, layer->channel,
-+					 layer->overlay, plane);
- 	sun8i_vi_layer_update_coord(mixer, layer->channel,
- 				    layer->overlay, plane);
--	sun8i_vi_layer_update_alpha(mixer, layer->channel,
--				    layer->overlay, plane);
--	sun8i_vi_layer_update_formats(mixer, layer->channel,
--				      layer->overlay, plane);
-+	sun8i_vi_layer_update_colors(mixer, layer->channel,
-+				     layer->overlay, plane);
- 	sun8i_vi_layer_update_buffer(mixer, layer->channel,
- 				     layer->overlay, plane);
- }
 -- 
 2.51.0
 
