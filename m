@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 51F00CCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Oct 2025 19:24:17 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DDBABCCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Oct 2025 19:24:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UQIOjRIdDsBl/wnqSd50NloWouLj/f2wu4NfISu0ViQ=; b=KioXQCry6pQTpNZq/PCPv3MELR
-	0WBJ0yGmfLh1Fye6IT0HJtETKm87naphUzWnCuSDWanwzMgDkCnDqVpg4dIzJVAEF1nAOZyR6kdAu
-	lVpg4ZXXueXLUWC4H8fkwsNxJq8YeAJS1akac8c00M/69O3DTnohOUl3iaPjxO6OXZF/9bL65dXK1
-	jXUxtinDZhK3Z8w7sc6aW9KwEZsInN45Y0ahMv6uQNeR7dMV6mjD1PFNjoQuOsAIIF4rAyCYbICOu
-	neVIe3v7O6R52dyL5PSt8YT8JC133s9i79sYrrrp/XTvxD+B2okNYa+httTToD8hLlLd48luLt8+F
-	/h52H9Og==;
+	bh=4rXnVYjWRna1Dp2XBUdGu2XgFBNqeWg8iiIcPP8l+VE=; b=zDWvM5CY8JUnigxFhD+sepnEim
+	Si3RaPm4UQuHdsDOCl/kumhqyo+Zn4XysBjEL1C8VjofJi5BK2mxqbm+almCwk/9YypFGkdQ30Hh4
+	RMnYSS7a1womT0PEkzMh3PskfLhW0mHHIp8T6A4ZaWMFKeoNLBcIJKN4LZ8SGkEQz69XseUmHHz4/
+	p8FPuPwmIbDz3QdZbp07IOmGwFFGqtE+qKfxLK/s/+p7oPwpFVoFMHYVokmJiDQEWBqebyxV3piY6
+	rMl+9A9UhQZ9OFIrCDbVcQLVHKT5PFUDjWmSM1i2Se9BaAH/jAwXMFDQTYxon/9kWyAluztyn5bYR
+	bZT/tEpg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v81fs-0000000Bg25-3zu3;
-	Sun, 12 Oct 2025 19:24:08 +0000
-Received: from mail-ej1-x633.google.com ([2a00:1450:4864:20::633])
+	id 1v81fx-0000000BgAJ-4C4g;
+	Sun, 12 Oct 2025 19:24:14 +0000
+Received: from mail-ed1-x532.google.com ([2a00:1450:4864:20::532])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v81fh-0000000BfiW-2a0A
+	id 1v81fi-0000000Bfjh-3tX3
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Oct 2025 19:23:59 +0000
-Received: by mail-ej1-x633.google.com with SMTP id a640c23a62f3a-b4539dddd99so728703566b.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Oct 2025 12:23:57 -0700 (PDT)
+	Sun, 12 Oct 2025 19:24:00 +0000
+Received: by mail-ed1-x532.google.com with SMTP id 4fb4d7f45d1cf-62fa062a1abso6536663a12.2
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Oct 2025 12:23:58 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760297036; x=1760901836; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1760297037; x=1760901837; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=UQIOjRIdDsBl/wnqSd50NloWouLj/f2wu4NfISu0ViQ=;
-        b=kV2XPBV3s5idCRg9iCzbvy75egjtMV8dEiVOTq9oyTcZ6A2I3EIlYOiRQuoaXPMddE
-         SVVHScpTiPoMr6hx0+e0ijZzGGW25qgQzvyyVJxkQFxezhr1+CL5GNcJgKMr3XQkOfuT
-         8IOoDXUjrdA5V6m8kMTSVQceFlIxHsreAwiUeNApUySZsAnQnlXMcGOOAq7I/KRD033p
-         nj82gwEHLwokOYgvu4D98VddqE9g0faT1Lm/yGGwoIXlv0RDgCu+kMRLSX+FDdgf5GTr
-         HBO/BXNMkLnO/fhjAxqCA5moPbF9AxKhY6NTj5d2B1uF1q9iPRGPpL44T1CZcExiqphq
-         h3hQ==
+        bh=4rXnVYjWRna1Dp2XBUdGu2XgFBNqeWg8iiIcPP8l+VE=;
+        b=iPP26f/cz7wzhqIqwwpEGXwWdwAsv5+/H/+i+I71hK3S/IgnTBiehjF/OmknUKa+tk
+         +m9ReGAIez6ThKsWcW/Zq4/7l0kULNrFYwtZiyth6sa1bVXH4xh6ZXUAdu/pgK+utGhp
+         vrphEQqrZ4qf7QVCg8e8QaevxadSGiPQlMjrojkGYEJHuA3acAzWI9aUAtrtAAHhV4kB
+         HlOUgfDkSX/JxlJjdEHzP1tui8zoZH1yCjpFdvWZMHFOaVm0TUD0llU6RVLKziUufnz0
+         bcGcIDmFd1sO8vmiIQRnZUVHiLOvSkVqS3MlrusS6myJ6TmhdjF3R1RU6Ro3DL27ysnt
+         PPNw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760297036; x=1760901836;
+        d=1e100.net; s=20230601; t=1760297037; x=1760901837;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=UQIOjRIdDsBl/wnqSd50NloWouLj/f2wu4NfISu0ViQ=;
-        b=ekI1FLaFtz6NLRaciyylCUsiaN8RkEfAUCSUL89MQ+q/DzgNeJZZhATOa6A0VHEXsY
-         FgTEFOwwPnvGdj0ZAOsQ3YLjMYFXc/V/Ze/BVVHeL2CaCYF9oe808BuvVQEa5qtVRUvJ
-         CMxqJTc8ax9UxMQQwToYTGt6wr3o+jQOux9e04rjrdi4OmT5b6mKRxturMQ4V9kPenv0
-         lJetcgUmzVe0gtN05P7TcndPWXj9eJjTRnkblkH7Be60do8kSj+WDqyepr581UFCxvGg
-         /EiV/EQ7TCcFDD6DuoUSQTSlSCElpwu1mDS9zLPC210HI83tw5SZFhFOYbnqzgIXFiOa
-         H6kQ==
-X-Forwarded-Encrypted: i=1; AJvYcCVid3kTPOxuT9cdILG2T3MRf/lrZtvH3+YW2pPWcpzygMkXk/PH5+s3NN5NBREAJXrKPVQvbDkG+QSAnh3TlA56@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz3WLuXDO/Wfrf64KLnjRkpeTNYAyknmy3Ymozl5fFCHLV2fsdg
-	bQb3dJ6h3CyIpmZwIChObgGKcraFA2YkatIIWeyNCbGcHWtdj7tNy7x7QC+Bu8zb
-X-Gm-Gg: ASbGncuY2cHy5S6SZu67SiyxxX5v8k4MSVWVssRh0a2eFLTYhtBUvxMUU/EA/kzyOdL
-	MYL0lYCnGjNRHrUAW/lZksqUdXKx7+bzB7B1YM1mNJJX/Sojvosm77cas8DTJJngY9v7whgZV9D
-	585iBMBCM0ZVJiNPqRNGk2YUZ8vuXe54lv1Ai3Qq/nRYdonluiaYVqeipsgz+sOwEAqmRYQlGWz
-	WzcM3UXc5nPsvjewc53AdU8Fa34144WwD1JqVdzl/fhRRVdmESA+pO49KBqls28zitRT2l0CyWJ
-	Zs9aihJXqXo9RVna7glzmDpXmQ1qWx0Gvv7ULl6wevHNSo9sZNtIOuykybYOwrqMMGkBvd0UKZj
-	qrPctKja66Y3RHIMJrF5NTzFIaYEcsd85hgQMQWjaNWBCh7+aFY0MgvuBpIT5qX0OBHhOWjORVc
-	/8aPz1LPlu1hOXNOiAK5xLriKtI5CWJ8w=
-X-Google-Smtp-Source: AGHT+IEo0mmA5QLs7FFLs9zM7BuOIhHX0fkAtfXbVZQzrSvZ8WwfBQOC4GT4ec3HCn2JTDhgwgWT7g==
-X-Received: by 2002:a17:906:f589:b0:b41:abc9:6154 with SMTP id a640c23a62f3a-b50abaa45a1mr2062111266b.30.1760297035817;
-        Sun, 12 Oct 2025 12:23:55 -0700 (PDT)
+        bh=4rXnVYjWRna1Dp2XBUdGu2XgFBNqeWg8iiIcPP8l+VE=;
+        b=j678VJjCZdGZ86E+WC3I3L2TGx50ype5hw2MWG7uGpfc3x9HvIbCVkth5IqGmg3DIX
+         qEOcCh3+8qJPQzRzrJHr4M4u0Abd+e+mDAWRX/GIQTP6lBcPhPFSgdDHCFDZlf6KgDY4
+         vpIAE0zRriAt+OL93XG6Pg/nL80TR0lEz2294Bl4U/3dTMpGpCJMW4VtZHglTtrnOSGS
+         FgVI3lEYOxCye8FXIufKtFfF88peX0FZtZ+vwiKcGoHll5v4w79oNYS7dVgtoVWxEmQM
+         SDvK3jOC5dlLXUL1S9awHqobkyF0s6Zm/aVGzjmaqbhPgzLjHto2v2mboeprmRZ9+BcJ
+         tnzQ==
+X-Forwarded-Encrypted: i=1; AJvYcCUAALfIoxOvdRrUR57bCpLoFh5E92xBQurTXaxVqb+TqwIxAQB3ypJaviTsDZGus/8I/yBbWMyQo9aEy1qZ0WTR@lists.infradead.org
+X-Gm-Message-State: AOJu0YwVZaIk0v3ie1H4k39T/eelMLtXlDaCc2elM+Nb2Eboa2ozyNhH
+	tW7WawgFrwI3GyHgQP2E80T5f+eY9bnQRZ65+Uu5x+7mveYZzkSKBKKR
+X-Gm-Gg: ASbGnctmBKbO/j8M8d7wwoviMWZ+H8+D0yT0afXBPW96DtgkERZWRIHhaRJ51cloTit
+	y7VI3QE6zb8Lq8pU6FgEYLA3didH80gs87bAz65cttOFE2tskh1yn7vQzCo1StXn1OmxZU/qySr
+	6e9b5QJqP5PvTC5AS2/0yvmScWDwDP5qxJNt3jI7F366Wjia797aV4wedobkf9Uv4Oz19zq4ln3
+	p6yArdHwPIJqhpTwTOTM5PqbLp4PpwSmrLzLRTgvNOvfgUNzK6TxxV16uudAQdHunSLhGAaPd4I
+	aZ3zVU+d1kDY81dd76VmSD1E3+tpa7+a0ALAPPYqoBNqGsqYJjbpIW8LeQjcKCDkhNg0rbHYjAE
+	e/cIUZYDQ191VHcLpf0lEevTTJ4IcW6pmy/SaJ3KWT2DxiQit4uSNZmGCj1TkqKl1bRQcW61qgu
+	wwsKkNCOkPoD0YpFZsj3M6
+X-Google-Smtp-Source: AGHT+IG0I+CtyMQ9AS5dyUihgRwKpeygER1fugmzO1P668vrEqp3088Kprh13QnASf90ghU3NNQmHg==
+X-Received: by 2002:a17:907:2d07:b0:b04:708e:7348 with SMTP id a640c23a62f3a-b50ac2cf4cfmr2032278666b.30.1760297037018;
+        Sun, 12 Oct 2025 12:23:57 -0700 (PDT)
 Received: from jernej-laptop (178-79-73-218.dynamic.telemach.net. [178.79.73.218])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b55d67d8283sm760176466b.38.2025.10.12.12.23.54
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b55d67d8283sm760176466b.38.2025.10.12.12.23.56
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Oct 2025 12:23:55 -0700 (PDT)
+        Sun, 12 Oct 2025 12:23:56 -0700 (PDT)
 From: Jernej Skrabec <jernej.skrabec@gmail.com>
 To: mripard@kernel.org,
 	wens@csie.org
@@ -83,17 +83,17 @@ Cc: maarten.lankhorst@linux.intel.com,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Jernej Skrabec <jernej.skrabec@gmail.com>
-Subject: [PATCH 13/30] drm/sun4i: de2/de3: Move plane type determination to mixer
-Date: Sun, 12 Oct 2025 21:23:13 +0200
-Message-ID: <20251012192330.6903-14-jernej.skrabec@gmail.com>
+Subject: [PATCH 14/30] drm/sun4i: ui_layer: Change index meaning
+Date: Sun, 12 Oct 2025 21:23:14 +0200
+Message-ID: <20251012192330.6903-15-jernej.skrabec@gmail.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251012192330.6903-1-jernej.skrabec@gmail.com>
 References: <20251012192330.6903-1-jernej.skrabec@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251012_122357_691725_F214848C 
-X-CRM114-Status: GOOD (  16.71  )
+X-CRM114-CacheID: sfid-20251012_122359_003707_004F9A71 
+X-CRM114-Status: GOOD (  13.23  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,133 +108,77 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Plane type determination logic inside layer init functions doesn't allow
-index register to be repurposed to plane sequence, which it almost is.
-
-So move out the logic to mixer, which allows furter rework for DE33
-support.
+In the pursuit of making UI/VI layer code independent of DE version,
+change meaning of UI index to index of the plane within mixer. DE33 can
+split amount of VI and UI planes between multiple mixer in whatever way
+it deems acceptable, so simple calculation VI num + UI index won't be
+meaningful anymore.
 
 Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 ---
- drivers/gpu/drm/sun4i/sun8i_mixer.c    | 15 +++++++++++++--
- drivers/gpu/drm/sun4i/sun8i_ui_layer.c |  5 +----
- drivers/gpu/drm/sun4i/sun8i_ui_layer.h |  1 +
- drivers/gpu/drm/sun4i/sun8i_vi_layer.c |  5 +----
- drivers/gpu/drm/sun4i/sun8i_vi_layer.h |  1 +
- 5 files changed, 17 insertions(+), 10 deletions(-)
+ drivers/gpu/drm/sun4i/sun8i_mixer.c    | 5 +++--
+ drivers/gpu/drm/sun4i/sun8i_ui_layer.c | 5 ++---
+ 2 files changed, 5 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/gpu/drm/sun4i/sun8i_mixer.c b/drivers/gpu/drm/sun4i/sun8i_mixer.c
-index 1fca05a760b8..e7a66d9b622a 100644
+index e7a66d9b622a..17c0ab5860b5 100644
 --- a/drivers/gpu/drm/sun4i/sun8i_mixer.c
 +++ b/drivers/gpu/drm/sun4i/sun8i_mixer.c
-@@ -315,6 +315,7 @@ static struct drm_plane **sun8i_layers_init(struct drm_device *drm,
- {
- 	struct drm_plane **planes;
- 	struct sun8i_mixer *mixer = engine_to_sun8i_mixer(engine);
-+	enum drm_plane_type type;
- 	int i;
+@@ -343,6 +343,7 @@ static struct drm_plane **sun8i_layers_init(struct drm_device *drm,
+ 	}
  
- 	planes = devm_kcalloc(drm->dev,
-@@ -326,7 +327,12 @@ static struct drm_plane **sun8i_layers_init(struct drm_device *drm,
- 	for (i = 0; i < mixer->cfg->vi_num; i++) {
- 		struct sun8i_layer *layer;
- 
--		layer = sun8i_vi_layer_init_one(drm, mixer, i);
-+		if (i == 0 && !mixer->cfg->ui_num)
-+			type = DRM_PLANE_TYPE_PRIMARY;
-+		else
-+			type = DRM_PLANE_TYPE_OVERLAY;
-+
-+		layer = sun8i_vi_layer_init_one(drm, mixer, type, i);
- 		if (IS_ERR(layer)) {
- 			dev_err(drm->dev,
- 				"Couldn't initialize overlay plane\n");
-@@ -339,7 +345,12 @@ static struct drm_plane **sun8i_layers_init(struct drm_device *drm,
  	for (i = 0; i < mixer->cfg->ui_num; i++) {
++		unsigned int index = mixer->cfg->vi_num + i;
  		struct sun8i_layer *layer;
  
--		layer = sun8i_ui_layer_init_one(drm, mixer, i);
-+		if (i == 0)
-+			type = DRM_PLANE_TYPE_PRIMARY;
-+		else
-+			type = DRM_PLANE_TYPE_OVERLAY;
-+
-+		layer = sun8i_ui_layer_init_one(drm, mixer, type, i);
+ 		if (i == 0)
+@@ -350,14 +351,14 @@ static struct drm_plane **sun8i_layers_init(struct drm_device *drm,
+ 		else
+ 			type = DRM_PLANE_TYPE_OVERLAY;
+ 
+-		layer = sun8i_ui_layer_init_one(drm, mixer, type, i);
++		layer = sun8i_ui_layer_init_one(drm, mixer, type, index);
  		if (IS_ERR(layer)) {
  			dev_err(drm->dev, "Couldn't initialize %s plane\n",
  				i ? "overlay" : "primary");
-diff --git a/drivers/gpu/drm/sun4i/sun8i_ui_layer.c b/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
-index 9d5d5e0b7e63..8d74eddaa294 100644
---- a/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
-+++ b/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
-@@ -267,9 +267,9 @@ static const uint64_t sun8i_layer_modifiers[] = {
+ 			return ERR_CAST(layer);
+ 		}
  
- struct sun8i_layer *sun8i_ui_layer_init_one(struct drm_device *drm,
- 					    struct sun8i_mixer *mixer,
-+					    enum drm_plane_type type,
- 					    int index)
- {
--	enum drm_plane_type type = DRM_PLANE_TYPE_OVERLAY;
- 	int channel = mixer->cfg->vi_num + index;
- 	struct sun8i_layer *layer;
- 	unsigned int plane_cnt;
-@@ -284,9 +284,6 @@ struct sun8i_layer *sun8i_ui_layer_init_one(struct drm_device *drm,
- 	layer->channel = channel;
- 	layer->overlay = 0;
- 
--	if (index == 0)
--		type = DRM_PLANE_TYPE_PRIMARY;
--
- 	/* possible crtcs are set later */
- 	ret = drm_universal_plane_init(drm, &layer->plane, 0,
- 				       &sun8i_ui_layer_funcs,
-diff --git a/drivers/gpu/drm/sun4i/sun8i_ui_layer.h b/drivers/gpu/drm/sun4i/sun8i_ui_layer.h
-index 83892f6ff211..7745aec32d76 100644
---- a/drivers/gpu/drm/sun4i/sun8i_ui_layer.h
-+++ b/drivers/gpu/drm/sun4i/sun8i_ui_layer.h
-@@ -51,5 +51,6 @@ struct sun8i_layer;
- 
- struct sun8i_layer *sun8i_ui_layer_init_one(struct drm_device *drm,
- 					    struct sun8i_mixer *mixer,
-+					    enum drm_plane_type type,
- 					    int index);
- #endif /* _SUN8I_UI_LAYER_H_ */
-diff --git a/drivers/gpu/drm/sun4i/sun8i_vi_layer.c b/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
-index cf83f7ce6c78..1192b17726d1 100644
---- a/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
-+++ b/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
-@@ -412,9 +412,9 @@ static const uint64_t sun8i_layer_modifiers[] = {
- 
- struct sun8i_layer *sun8i_vi_layer_init_one(struct drm_device *drm,
- 					    struct sun8i_mixer *mixer,
-+					    enum drm_plane_type type,
- 					    int index)
- {
--	enum drm_plane_type type = DRM_PLANE_TYPE_OVERLAY;
- 	u32 supported_encodings, supported_ranges;
- 	unsigned int plane_cnt, format_count;
- 	struct sun8i_layer *layer;
-@@ -438,9 +438,6 @@ struct sun8i_layer *sun8i_vi_layer_init_one(struct drm_device *drm,
- 		format_count = ARRAY_SIZE(sun8i_vi_layer_formats);
+-		planes[mixer->cfg->vi_num + i] = &layer->plane;
++		planes[index] = &layer->plane;
  	}
  
--	if (!mixer->cfg->ui_num && index == 0)
--		type = DRM_PLANE_TYPE_PRIMARY;
--
- 	/* possible crtcs are set later */
- 	ret = drm_universal_plane_init(drm, &layer->plane, 0,
- 				       &sun8i_vi_layer_funcs,
-diff --git a/drivers/gpu/drm/sun4i/sun8i_vi_layer.h b/drivers/gpu/drm/sun4i/sun8i_vi_layer.h
-index 655440cdc78f..fc22b9a6bd8d 100644
---- a/drivers/gpu/drm/sun4i/sun8i_vi_layer.h
-+++ b/drivers/gpu/drm/sun4i/sun8i_vi_layer.h
-@@ -56,5 +56,6 @@ struct sun8i_layer;
+ 	return planes;
+diff --git a/drivers/gpu/drm/sun4i/sun8i_ui_layer.c b/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
+index 8d74eddaa294..4f6c8b0acba6 100644
+--- a/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
++++ b/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
+@@ -270,7 +270,6 @@ struct sun8i_layer *sun8i_ui_layer_init_one(struct drm_device *drm,
+ 					    enum drm_plane_type type,
+ 					    int index)
+ {
+-	int channel = mixer->cfg->vi_num + index;
+ 	struct sun8i_layer *layer;
+ 	unsigned int plane_cnt;
+ 	int ret;
+@@ -281,7 +280,7 @@ struct sun8i_layer *sun8i_ui_layer_init_one(struct drm_device *drm,
  
- struct sun8i_layer *sun8i_vi_layer_init_one(struct drm_device *drm,
- 					    struct sun8i_mixer *mixer,
-+					    enum drm_plane_type type,
- 					    int index);
- #endif /* _SUN8I_VI_LAYER_H_ */
+ 	layer->mixer = mixer;
+ 	layer->type = SUN8I_LAYER_TYPE_UI;
+-	layer->channel = channel;
++	layer->channel = index;
+ 	layer->overlay = 0;
+ 
+ 	/* possible crtcs are set later */
+@@ -303,7 +302,7 @@ struct sun8i_layer *sun8i_ui_layer_init_one(struct drm_device *drm,
+ 		return ERR_PTR(ret);
+ 	}
+ 
+-	ret = drm_plane_create_zpos_property(&layer->plane, channel,
++	ret = drm_plane_create_zpos_property(&layer->plane, index,
+ 					     0, plane_cnt - 1);
+ 	if (ret) {
+ 		dev_err(drm->dev, "Couldn't add zpos property\n");
 -- 
 2.51.0
 
