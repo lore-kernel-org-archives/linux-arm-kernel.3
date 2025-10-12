@@ -4,92 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DEF99CCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Oct 2025 17:57:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 409C0CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Oct 2025 19:23:54 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:CC:To:Subject:From:MIME-Version:Date:Message-ID:Reply-To:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=GE/OOyddqfB9+apRuZ9tIFWH5R6rLuvFiusbbMILXgU=; b=EfB77N5/Ex02Xypj+yhZwX3uGk
-	ofeM7xDTJSUttfh/WNwWhrQFuEioXmNVXVNzwY8stXamZVzqwIfeuVSHfTc+XyGCUxEOOsE1ed9pW
-	CGjo8/6sgCyGhbumhCFHxOrSO/bk/+kZLTWXMmM6BgA3YH7C6yJicTKYuGgpLjFKWoMly0IC0Qjng
-	oVTrcgxL/oy01SjDbh8HM5eVkTBrkhSq5qtBvKHYfLM2himFSUv6J4SuGRDZImNMPHx4zt+EwPcD2
-	BG/VDv5eODu3OrhFzJWIeB0qMbUiA69Ftpn8wry38Xph9TmLgEHKC70oo3LGs1+VLNM2xV9BVdiDq
-	aJaa3Whg==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=O9pllFFRdLbfJa3CzMw9MDenjUagmZAUwkBtCn+ZhPI=; b=OM4vZRQTQ21DxUe4qtw5M4JlVX
+	+bBBfpzpH/5L2XRiOWotl3EscC4kS7TNIEjycecRVSqNiMwk0XcKr2egNzWBzv2TLaP9gmovgOW/C
+	U/7v2sUBysWCTxW0LI4lFmkVUwGlB6V6PTmLHxJs9hJNYw+I+3AJzi2yr1SdyJgKlut3Xm+o6cIKR
+	oS9iCvOzI6wuvz6PkFcnq1zhqeAOom5LeDjWEJTVusnUsb6muHeEihf+IkCpvyNecm8apkK843An4
+	gSgJ4LfjnxsvZebiY1Y7OderewVQHWv1Y/ikyvUH9+DUslJLy5RfoDJU+Kn+yJLbFfv7g6bfMttBi
+	RyfXOnTw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v80Jv-0000000BbEM-0Yvb;
-	Sun, 12 Oct 2025 17:57:23 +0000
-Received: from mx01.omp.ru ([90.154.21.10])
+	id 1v81fX-0000000BfY9-3w79;
+	Sun, 12 Oct 2025 19:23:47 +0000
+Received: from mail-ej1-x630.google.com ([2a00:1450:4864:20::630])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v80Js-0000000BbD5-12KI;
-	Sun, 12 Oct 2025 17:57:21 +0000
-Received: from [192.168.2.104] (213.87.133.64) by msexch01.omp.ru
- (10.188.4.12) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id 15.2.1258.12; Sun, 12 Oct
- 2025 20:56:59 +0300
-Message-ID: <3eb40848-3bec-42ca-845b-c66d4b53cedc@omp.ru>
-Date: Sun, 12 Oct 2025 20:56:58 +0300
+	id 1v81fT-0000000BfVb-30m9
+	for linux-arm-kernel@lists.infradead.org;
+	Sun, 12 Oct 2025 19:23:44 +0000
+Received: by mail-ej1-x630.google.com with SMTP id a640c23a62f3a-b3d80891c6cso703896766b.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Oct 2025 12:23:43 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1760297022; x=1760901822; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=O9pllFFRdLbfJa3CzMw9MDenjUagmZAUwkBtCn+ZhPI=;
+        b=kjfr/pX7wQQIPskNEnIyZQ/Q8WxgEVW4nCr9MupZ1/EaxQ23i0TB9MaV6HRRY1s0i4
+         XYnwBFHL1T8hHCuW0uU4sXuWYNrnBeWHxLrQQaCxPd5awG7Z/EIgYFRANiiBnvNhjJ5P
+         8pCgPTK6WaNjdapkDwVUkEIFL/cBxIlr3lbDs156ye6hIye8HAi0MsRmWw5dHDeOIC1m
+         9eVYaROjMcDZnO7im2yxZjCuHJ4SpjJk71Vq3wRZ4G7CHTUuzkevnzvib+ngVY27+A8b
+         BD5Lg4ZkxMbU8sS4J8vriJiqiBeky++irX+eZ5tZTNqMiaY9vdaqL72FVT+65VV4NVs1
+         TumA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760297022; x=1760901822;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=O9pllFFRdLbfJa3CzMw9MDenjUagmZAUwkBtCn+ZhPI=;
+        b=jgXLD4RlFToP097YTosjPDgO7I/mIm8lCYjt5zioPsduNAagl0GCmh1Cwl8boQ3N8w
+         ldmVPv0zAdrv6eExrpQWxhe8QDTlMnmSUm6ztFl6KqsqmawyEaa5KOtFfnVT6Wsw83hY
+         btF+7xt01Sls5X9BjPQG49z/aZKMZjpn0vPZqoAfEctRoxeOfy9zD0w6lTzkTZVEOfnO
+         6KuBfbPhi7gXrPfWveiRFvP3wYjCQUqOkXIvS3YPWbpW1CX1RKbF2gejGdiAwFTuc4pL
+         tjm7fBGBOQXzS+Y4oh0Wumpze2DrFsE2qlIpHMcI8YNr6/tNLCI/Gs7Nqrx//1DYRlNG
+         XXHQ==
+X-Forwarded-Encrypted: i=1; AJvYcCXiQ0h9DFcTK3cSsTAo2xGloyRb2zG0mO8A7FD3FTKCJhQfWbmRzDW1la/NFPzDJnhP3SvLZ3O8P483Z8JqpT4u@lists.infradead.org
+X-Gm-Message-State: AOJu0Yxek4PMK7ZT3SQXwaCU9MN7qxAQYRLxfigkTA59Z97mOOVpLT/2
+	ZhkRKkbhzofxcHm2ys0z63Jx2yiYFCfA3H/Xz6H+wYxOSHEgyb0Uf8xL
+X-Gm-Gg: ASbGnctSXQ1QbBE/i+aWNviNqkH9IanSbgjQ5KZ9jlwdtkMd7xWqfpxtjtx1QrPneFs
+	JzLGMv00lEHvjpCDZMALz/Wos1vUEffW9rtoLM98uvn1DZnyiYE9NCEFbXRyfDuk77jMQ7y850Z
+	tXIwi9DnN+8wHYCtpur2PPrQRj2lZ/8IFm9HcfBWUYEkb881iT8bGd7MqEoEe3zWzcGmk679c5E
+	wZ3nSq58BRWR4fbZZkzhvLUTo5OBZKE6DDQ6+qL6o9bCYg/C+h+lNw2iOcZv6Vz+cWku0uBzYs6
+	yRGt8oF7mzRkY4HG2RlKH89JVxbsjAvrI88ylFUvkyI9WPCA5TEK+ZouvbPdZLcQFKMOos1sc/d
+	nUg+yh0uawexy/ESxIHws+cBaiw3LXtLDskqfvAxxX1vnuLeFQfiBd1yN4xAvpOn4mR5dcMDbZV
+	HNJICH6cFEyEuDYztInP+l
+X-Google-Smtp-Source: AGHT+IHSovbe/H5UYTgSA1JPDJbOFUPVXMxcZWI/chJwYDsAxjOuahQb+OA171YuZ238MSsvaekD/g==
+X-Received: by 2002:a17:906:6a16:b0:b23:20e7:b480 with SMTP id a640c23a62f3a-b50bedbf4f1mr2357634066b.18.1760297021975;
+        Sun, 12 Oct 2025 12:23:41 -0700 (PDT)
+Received: from jernej-laptop (178-79-73-218.dynamic.telemach.net. [178.79.73.218])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b55d67d8283sm760176466b.38.2025.10.12.12.23.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Sun, 12 Oct 2025 12:23:41 -0700 (PDT)
+From: Jernej Skrabec <jernej.skrabec@gmail.com>
+To: mripard@kernel.org,
+	wens@csie.org
+Cc: maarten.lankhorst@linux.intel.com,
+	tzimmermann@suse.de,
+	airlied@gmail.com,
+	simona@ffwll.ch,
+	samuel@sholland.org,
+	dri-devel@lists.freedesktop.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org,
+	Jernej Skrabec <jernej.skrabec@gmail.com>
+Subject: [PATCH 02/30] drm/sun4i: mixer: Remove ccsc cfg for >= DE3
+Date: Sun, 12 Oct 2025 21:23:02 +0200
+Message-ID: <20251012192330.6903-3-jernej.skrabec@gmail.com>
+X-Mailer: git-send-email 2.51.0
+In-Reply-To: <20251012192330.6903-1-jernej.skrabec@gmail.com>
+References: <20251012192330.6903-1-jernej.skrabec@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-From: Sergey Shtylyov <s.shtylyov@omp.ru>
-Subject: [PATCH v2] serial: 8250_mtk: correct max baud rate in set_termios()
- method
-To: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby
-	<jirislaby@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
-	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
-	<linux-serial@vger.kernel.org>, <linux-kernel@vger.kernel.org>
-CC: <linux-arm-kernel@lists.infradead.org>,
-	<linux-mediatek@lists.infradead.org>, <lvc-project@linuxtesting.org>, Fedor
- Pchelkin <pchelkin@ispras.ru>
-Content-Language: en-US
-Organization: Open Mobile Platform
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: 7bit
-X-Originating-IP: [213.87.133.64]
-X-ClientProxiedBy: msexch01.omp.ru (10.188.4.12) To msexch01.omp.ru
- (10.188.4.12)
-X-KSE-ServerInfo: msexch01.omp.ru, 9
-X-KSE-AntiSpam-Interceptor-Info: scan successful
-X-KSE-AntiSpam-Version: 6.1.1, Database issued on: 10/12/2025 17:43:35
-X-KSE-AntiSpam-Status: KAS_STATUS_NOT_DETECTED
-X-KSE-AntiSpam-Method: none
-X-KSE-AntiSpam-Rate: 19
-X-KSE-AntiSpam-Info: Lua profiles 197008 [Oct 12 2025]
-X-KSE-AntiSpam-Info: Version: 6.1.1.11
-X-KSE-AntiSpam-Info: Envelope from: s.shtylyov@omp.ru
-X-KSE-AntiSpam-Info: LuaCore: 71 0.3.71
- ee78c3da48e828d2b9b16d6d0b31328b8b240a3c
-X-KSE-AntiSpam-Info: {rep_avail}
-X-KSE-AntiSpam-Info: {Tracking_uf_ne_domains}
-X-KSE-AntiSpam-Info: {Tracking_from_domain_doesnt_match_to}
-X-KSE-AntiSpam-Info: {SMTP from is not routable}
-X-KSE-AntiSpam-Info: {Found in DNSBL: 213.87.133.64 in (user)
- b.barracudacentral.org}
-X-KSE-AntiSpam-Info: omp.ru:7.1.1;127.0.0.199:7.1.2;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1
-X-KSE-AntiSpam-Info: {Tracking_ip_hunter}
-X-KSE-AntiSpam-Info: FromAlignment: s
-X-KSE-AntiSpam-Info: ApMailHostAddress: 213.87.133.64
-X-KSE-AntiSpam-Info: {DNS response errors}
-X-KSE-AntiSpam-Info: Rate: 19
-X-KSE-AntiSpam-Info: Status: not_detected
-X-KSE-AntiSpam-Info: Method: none
-X-KSE-AntiSpam-Info: Auth:dmarc=temperror header.from=omp.ru;spf=temperror
- smtp.mailfrom=omp.ru;dkim=none
-X-KSE-Antiphishing-Info: Clean
-X-KSE-Antiphishing-ScanningType: Heuristic
-X-KSE-Antiphishing-Method: None
-X-KSE-Antiphishing-Bases: 10/12/2025 17:46:00
-X-KSE-Antivirus-Interceptor-Info: scan successful
-X-KSE-Antivirus-Info: Clean, bases: 10/12/2025 3:34:00 PM
-X-KSE-Attachment-Filter-Triggered-Rules: Clean
-X-KSE-Attachment-Filter-Triggered-Filters: Clean
-X-KSE-BulkMessagesFiltering-Scan-Result: InTheLimit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251012_105720_297987_DB6E681E 
-X-CRM114-Status: UNSURE (   8.80  )
+X-CRM114-CacheID: sfid-20251012_122343_761447_ABF84171 
+X-CRM114-Status: UNSURE (   9.82  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -105,45 +109,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Mediatek MT798x datasheets (that I was able to get my hands on) claim
-the maximum supported baud rate to be 3 Mbps, while commit 81bb549fdf14
-("serial: 8250_mtk: support big baud rate.") claimed it to be 4 Mbps --
-however, it then passed undivided port->uartclk to uart_get_baud_rate()
-for the maximum baud rate, while the datasheets do mention up to 52 MHz
-as the baud clock's frequency.  This means that an integer overflow will
-happen (when multiplying the baud variable by 256) if a baud rate higher
-than 16777215 bps is passed via termios->c_ospeed. Pass the correct max
-baud rate of 3 Mbps or port->uartclk, whichever happens to be less...
+Those engine versions don't need ccsc argument, since CSC units are
+located on different position and for each layer.
 
-Found by Linux Verification Center (linuxtesting.org) with the Svace static
-analysis tool.
-
-Fixes: 81bb549fdf14 ("serial: 8250_mtk: support big baud rate.")
-Signed-off-by: Sergey Shtylyov <s.shtylyov@omp.ru>
-
+Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 ---
-The patch is against the master branch of Linus Torvalds' linux.git repo
-(I'm unable to use the other repos on git.kernel.org and I have to update
-Linus' repo from GitHub).
+ drivers/gpu/drm/sun4i/sun8i_mixer.c | 2 --
+ 1 file changed, 2 deletions(-)
 
-Changes in version 2:
-- changed the approach to the problem (and hence rewrote the description);
-- removed "the" article from the subject for brevity.
-
- drivers/tty/serial/8250/8250_mtk.c |    2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
-
-Index: linux/drivers/tty/serial/8250/8250_mtk.c
-===================================================================
---- linux.orig/drivers/tty/serial/8250/8250_mtk.c
-+++ linux/drivers/tty/serial/8250/8250_mtk.c
-@@ -358,7 +358,7 @@ mtk8250_set_termios(struct uart_port *po
- 	 */
- 	baud = uart_get_baud_rate(port, termios, old,
- 				  port->uartclk / 16 / UART_DIV_MAX,
--				  port->uartclk);
-+				  min(3000000U, port->uartclk));
+diff --git a/drivers/gpu/drm/sun4i/sun8i_mixer.c b/drivers/gpu/drm/sun4i/sun8i_mixer.c
+index 31a8409b98f4..f7f210a925f8 100644
+--- a/drivers/gpu/drm/sun4i/sun8i_mixer.c
++++ b/drivers/gpu/drm/sun4i/sun8i_mixer.c
+@@ -790,7 +790,6 @@ static const struct sun8i_mixer_cfg sun50i_a64_mixer1_cfg = {
+ };
  
- 	if (baud < 115200) {
- 		serial_port_out(port, MTK_UART_HIGHS, 0x0);
+ static const struct sun8i_mixer_cfg sun50i_h6_mixer0_cfg = {
+-	.ccsc		= CCSC_MIXER0_LAYOUT,
+ 	.de_type	= SUN8I_MIXER_DE3,
+ 	.mod_rate	= 600000000,
+ 	.scaler_mask	= 0xf,
+@@ -800,7 +799,6 @@ static const struct sun8i_mixer_cfg sun50i_h6_mixer0_cfg = {
+ };
+ 
+ static const struct sun8i_mixer_cfg sun50i_h616_mixer0_cfg = {
+-	.ccsc		= CCSC_MIXER0_LAYOUT,
+ 	.de_type	= SUN8I_MIXER_DE33,
+ 	.mod_rate	= 600000000,
+ 	.scaler_mask	= 0xf,
+-- 
+2.51.0
+
 
