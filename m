@@ -4,88 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF926CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Oct 2025 13:27:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C4C6DCCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Oct 2025 13:33:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yVG8ADOPDzqUmkywmgv9dc2B90UlYkCVvSg1ciAYIFg=; b=qx6mY80CKEYSQsI04cP4h4Hih2
-	VskL+7zwMP7bvyhM/ELmyvjvn85vN8hTe04oLWG1VgjTRyt60lAVKjl9tCJKpA5dYPn1Pgxvn8fI7
-	nyvIenoTA2ToW07qIyFA+yZMN8/o4wuYCB3evWeiwdwrGB4Z+TBDFcllwH/WwlZSxE+qFHQB/rJBD
-	9u++wMR9fLeJAaaBFRq9/nn934QN6OIBwkTqqzzxwVvvB98nlCC8KV3WsBpMxAbFTo3SWsXhdYofl
-	4SLNzSkLiRYmQGcxLacw5fTXHQlxr0KCXhal2BfkHvfqyHNYdTuRN42vWe1z5tq8eO2yBFxLyalSB
-	u0xotiJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=WLOCDyMr2hFKeVuMRVe8+2z9soTconDeuvbennxCXRY=; b=c4hXuUPP9KoD+9C1P1HNCGnd0t
+	AR9l9ZYsk5qe2fxdveyqL49FDAAPbHbPxXEXXcDn41intU0ByKWu8Lh8ABayBQLeuIzC9+WeRnWCc
+	zh1D4NB8xoyzfPteDdKuRj0uY6m8vumnnFLhNScSb+EUP7E6ed81NBLZMjKahvONfM2ErO7EuVdxs
+	PRs5stjQ5DG7mYUpS/Fyw5HOcmqoHz0ZfUTbTruSIWbLX3Q1MIMJI5kfd3bMECHjVRiWBTUwLzujE
+	bI9qKVRTj6klyW3Ck9KFAw2ARKtiX3+nKrvK4iZir3337pCExi3MOJJPVkui7FmvbZDwiJzWhjhag
+	2+/2PbFw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7w6s-0000000BN69-2btF;
-	Sun, 12 Oct 2025 13:27:38 +0000
-Received: from mout.web.de ([212.227.17.11])
+	id 1v7wCq-0000000BNPg-44Jk;
+	Sun, 12 Oct 2025 13:33:48 +0000
+Received: from fhigh-b3-smtp.messagingengine.com ([202.12.124.154])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7w6q-0000000BN5G-1fHH
+	id 1v7wCn-0000000BNPK-1y1f
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Oct 2025 13:27:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
-	s=s29768273; t=1760275594; x=1760880394; i=markus.elfring@web.de;
-	bh=yVG8ADOPDzqUmkywmgv9dc2B90UlYkCVvSg1ciAYIFg=;
-	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
-	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
-	 cc:content-transfer-encoding:content-type:date:from:message-id:
-	 mime-version:reply-to:subject:to;
-	b=uVgynvdxLKobuK46q24Dep5yA0kbVnCiMyB0iFSBftMOhXlZZbPa+Q7Q8SL+1DXL
-	 KoNvsuYS+4wpVBAeO6GNn9kKyCFOeoM39REJ/7QtDFCB1UaxddjMyyxxmMlW13e80
-	 cyBigF+AvQNY3ht+KYW+4el19RVKdgKk8jcw5LWcqvcfvceHW5DTmrgbmSJPybqV+
-	 sXuDHcSFqbtVkOPv4l7n7as1s97dV5KbvVRh3ntC6DZJHRLK3v15fzw8X5uQf2eN7
-	 1DUfLs5SDBO9p1V6DwEZ0ZC2Y/ALuWVJWBrKuIqB+4lwCh0sBgmK3tgVQ0fv8/Qr2
-	 +S2+XDv5pabcZinjxg==
-X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
-Received: from [192.168.178.29] ([94.31.69.235]) by smtp.web.de (mrweb106
- [213.165.67.124]) with ESMTPSA (Nemesis) id 1MNfU1-1urnDm441j-00VjQA; Sun, 12
- Oct 2025 15:26:34 +0200
-Message-ID: <0aea408f-f6d7-4e2d-8cee-1801ad7f3139@web.de>
-Date: Sun, 12 Oct 2025 15:26:20 +0200
+	Sun, 12 Oct 2025 13:33:47 +0000
+Received: from phl-compute-09.internal (phl-compute-09.internal [10.202.2.49])
+	by mailfhigh.stl.internal (Postfix) with ESMTP id B1C4D7A00D4;
+	Sun, 12 Oct 2025 09:33:41 -0400 (EDT)
+Received: from phl-mailfrontend-01 ([10.202.2.162])
+  by phl-compute-09.internal (MEProxy); Sun, 12 Oct 2025 09:33:42 -0400
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=jannau.net; h=cc
+	:cc:content-type:content-type:date:date:from:from:in-reply-to
+	:in-reply-to:message-id:mime-version:references:reply-to:subject
+	:subject:to:to; s=fm1; t=1760276021; x=1760362421; bh=WLOCDyMr2h
+	FKeVuMRVe8+2z9soTconDeuvbennxCXRY=; b=GYdvTvuIgaxhdKELz3DLpQST4q
+	dl7J2zysVb8n9tJ/BdViBKLPSG7wwEs/+0ijfEG8gtgZ4bGg5jsOMX/csm9IraC/
+	4/ze8SBN+4tWT0UVuEA2qoVvYPMAjWfCZ7uLGefuMw3QMb7Q3nWJOPGp+QxNkrxE
+	6Fb6iq3PdafzYOaJ9xkFYFEaCeGPHkwoVAwCJOW6a3rZD6g9iLaKMsbU1ZVLgyMe
+	CpTG6wDzPEOereV+NmqO8g6syfR036Ph5FqbO0xndAMznUWJPjMQame1gPTuwUp8
+	zQUk7lrYOTIBGMAqp4gNJYanipw3Xs+g2mfF+VwjJbIHMiY4KLVSWr4HLzmg==
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=
+	messagingengine.com; h=cc:cc:content-type:content-type:date:date
+	:feedback-id:feedback-id:from:from:in-reply-to:in-reply-to
+	:message-id:mime-version:references:reply-to:subject:subject:to
+	:to:x-me-proxy:x-me-sender:x-me-sender:x-sasl-enc; s=fm2; t=
+	1760276021; x=1760362421; bh=WLOCDyMr2hFKeVuMRVe8+2z9soTconDeuvb
+	ennxCXRY=; b=JZk6iemaf2Igw4rURPW39zUigWKIQw/wKkrXNTRmMW/0qeVEPC9
+	xjzSLKFVNEvspRoHJw7VXW4XFZtiH2KWrZLYbZkFqLqJt29t5hMMDSKrJgR9e9I2
+	AsgddeaUUjhjtF8iMXUN1fsddYkLygYc7i2cxfznOEpVhwKbuN/QzdT/RuTz/njS
+	orCmyK8qSAszXvjuDAo9zuE4T6SsWCyp5325KarRVZ3rUicCNHErKDNJrS9AM89f
+	8rS1HyiBTmZrsNpCI06hXQKxFydTLzhv+GJ6v2s3N7uacMPTieWM5QorWFt1AAqD
+	3TcxbPTYI8spoU3OKE2F5yR0BLXc81j32FA==
+X-ME-Sender: <xms:M67raO_H7_9CxSIkVVjYIxr5kajMi6G-8lH1-noCcymbZ8EKKy6gRQ>
+    <xme:M67raNMYk9gK6iDYrGCamdv-_s9UTnfQBnP-8N-KFWm6nX1PlsJd2XHUAxZe5nV5q
+    KPIzTK_SzTKsgvTQHV0N8Ftn4zb_ystIt1SagiJzyo0RiVNq6vRRzc>
+X-ME-Received: <xmr:M67raK0_b7Haee385PeeWdbZlETWnAGqUlkl8JY55C-fJtnVmqTPx5TYyZYdgW1ln2Ldct-peo_VwfiRSlrQv9FlfwDmzmSLULw>
+X-ME-Proxy-Cause: gggruggvucftvghtrhhoucdtuddrgeeffedrtdeggdduudegledtucetufdoteggodetrf
+    dotffvucfrrhhofhhilhgvmecuhfgrshhtofgrihhlpdfurfetoffkrfgpnffqhgenuceu
+    rghilhhouhhtmecufedttdenucesvcftvggtihhpihgvnhhtshculddquddttddmnecujf
+    gurhepfffhvfevuffkfhggtggujgesthdtredttddtjeenucfhrhhomheplfgrnhhnvgcu
+    ifhruhhnrghuuceojhesjhgrnhhnrghurdhnvghtqeenucggtffrrghtthgvrhhnpefgud
+    euffelfeekgeeukedtheekjeettdfftddujefhvdehtefgiefgledtueefjeenucffohhm
+    rghinhepkhgvrhhnvghlrdhorhhgnecuvehluhhsthgvrhfuihiivgeptdenucfrrghrrg
+    hmpehmrghilhhfrhhomhepjhesjhgrnhhnrghurdhnvghtpdhnsggprhgtphhtthhopedu
+    iedpmhhouggvpehsmhhtphhouhhtpdhrtghpthhtoheprhhosghhsehkvghrnhgvlhdroh
+    hrghdprhgtphhtthhopehhvghrvhgvrdgtohguihhnrgessghoohhtlhhinhdrtghomhdp
+    rhgtphhtthhopehlvggvsehkvghrnhgvlhdrohhrghdprhgtphhtthhopegrrhhnugesrg
+    hrnhgusgdruggvpdhrtghpthhtohepphgrnhhkrghjrdguuhgsvgihsehsrghmshhunhhg
+    rdgtohhmpdhrtghpthhtohephhgvihhkohesshhnthgvtghhrdguvgdprhgtphhtthhope
+    hlihhvihhurdguuhgurghusegrrhhmrdgtohhmpdhrtghpthhtohepshhuuggvvghprdhh
+    ohhllhgrsegrrhhmrdgtohhmpdhrtghpthhtoheplhhpihgvrhgrlhhishhisehkvghrnh
+    gvlhdrohhrgh
+X-ME-Proxy: <xmx:M67raGfWdQpDopDNEBK-DmDT32-jqH8nVHiR2BC8iobSZ8G_GtmA_w>
+    <xmx:M67raLYRwBswDOBl2WOvODzP5eD4CuKRh9iXRhUwRcxibtqBxnHffQ>
+    <xmx:M67raLWMscTU9YJoqhxDorc6TvXXphYdVeE1pf3-njdcbfLbP50ZEg>
+    <xmx:M67raOSMjM-qP-9YPYqVjks970XbOLLDbrIl-Kir-OnNxMJPQJqMUQ>
+    <xmx:Na7raHdNm4Mu4-irwylHsP2TIRk89KD3IJnT_RasnQdAzYfvks86i-im>
+Feedback-ID: i47b949f6:Fastmail
+Received: by mail.messagingengine.com (Postfix) with ESMTPA; Sun,
+ 12 Oct 2025 09:33:38 -0400 (EDT)
+Date: Sun, 12 Oct 2025 15:33:37 +0200
+From: Janne Grunau <j@jannau.net>
+To: "Rob Herring (Arm)" <robh@kernel.org>,
+	Herve Codina <herve.codina@bootlin.com>
+Cc: Lee Jones <lee@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
+	Pankaj Dubey <pankaj.dubey@samsung.com>,
+	Heiko Stuebner <heiko@sntech.de>, Liviu Dudau <liviu.dudau@arm.com>,
+	Sudeep Holla <sudeep.holla@arm.com>,
+	Lorenzo Pieralisi <lpieralisi@kernel.org>,
+	Peter Griffin <peter.griffin@linaro.org>,
+	Will McVicker <willmcvicker@google.com>,
+	John Madieu <john.madieu.xa@bp.renesas.com>,
+	Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>,
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+	asahi@lists.linux.dev
+Subject: Re: [PATCH v2 2/3] mfd: syscon: Remove the platform driver support
+Message-ID: <20251012133337.GA897177@robin.jannau.net>
+References: <20241217-syscon-fixes-v2-0-4f56d750541d@kernel.org>
+ <20241217-syscon-fixes-v2-2-4f56d750541d@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-To: Li RongQing <lirongqing@baidu.com>, linux-doc@vger.kernel.org,
- linux-kselftest@vger.kernel.org, netdev@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
- wireguard@lists.zx2c4.com, Andrew Jeffery <andrew@codeconstruct.com.au>,
- Andrew Morton <akpm@linux-foundation.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>, Arnd Bergmann
- <arnd@arndb.de>, David Hildenbrand <david@redhat.com>,
- Feng Tang <feng.tang@linux.alibaba.com>, Florian Westphal <fw@strlen.de>,
- Jakub Kicinski <kuba@kernel.org>, "Jason A . Donenfeld" <Jason@zx2c4.com>,
- Joel Granados <joel.granados@kernel.org>, Joel Stanley <joel@jms.id.au>,
- Jonathan Corbet <corbet@lwn.net>, Kees Cook <kees@kernel.org>,
- Lance Yang <lance.yang@linux.dev>, "Liam R . Howlett"
- <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Masami Hiramatsu <mhiramat@kernel.org>,
- "Paul E . McKenney" <paulmck@kernel.org>,
- Pawan Gupta <pawan.kumar.gupta@linux.intel.com>,
- Petr Mladek <pmladek@suse.com>, Phil Auld <pauld@redhat.com>,
- Randy Dunlap <rdunlap@infradead.org>, Russell King <linux@armlinux.org.uk>,
- Shuah Khan <shuah@kernel.org>, Simon Horman <horms@kernel.org>,
- Stanislav Fomichev <sdf@fomichev.me>, Steven Rostedt <rostedt@goodmis.org>
-Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org
-References: <20251012115035.2169-1-lirongqing@baidu.com>
-Subject: Re: [PATCH v3] hung_task: Panic after fixed number of hung tasks
-Content-Language: en-GB, de-DE
-From: Markus Elfring <Markus.Elfring@web.de>
-In-Reply-To: <20251012115035.2169-1-lirongqing@baidu.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: quoted-printable
-X-Provags-ID: V03:K1:WAgp8h3DyF6g11AayvlQAbFiTVzjoFCtdKXHQo068coehoUT01P
- bW6tgArZAVON6B1QS/KDDP2llblnKalEayJyP8SUrAkR49Edq95sn6phJexJn8o27fA/S0y
- 1cIqFOnqVLrsmWwTO+jLfK/uCP4ll9phmEtknMatXpyd6vM5267T2cBLBfCQ7rQmSBpkzAc
- Y/rAKFr/N7Lq0QmKzb1Xw==
-UI-OutboundReport: notjunk:1;M01:P0:4M4KDQe0V1M=;DELwcmNw3ZKCxN2ao5uzkogf/bG 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 RXGoA==
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+In-Reply-To: <20241217-syscon-fixes-v2-2-4f56d750541d@kernel.org>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251012_062736_726437_2A8C7938 
-X-CRM114-Status: UNSURE (   8.55  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251012_063346_050034_2633CAD2 
+X-CRM114-Status: GOOD (  20.43  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,35 +122,98 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-=E2=80=A6
-> This patch extends the =E2=80=A6
+On Tue, Dec 17, 2024 at 12:11:41PM -0600, Rob Herring (Arm) wrote:
+> The platform driver is dead code. It is not used by DT platforms since
+> commit bdb0066df96e ("mfd: syscon: Decouple syscon interface from
+> platform devices") which said:
+> 
+>     For non-DT based platforms, this patch keeps syscon platform driver
+>     structure so that syscon can be probed and such non-DT based drivers
+>     can use syscon_regmap_lookup_by_pdev API and access regmap handles.
+>     Once all users of "syscon_regmap_lookup_by_pdev" migrated to DT based,
+>     we can completely remove platform driver of syscon, and keep only helper
+>     functions to get regmap handles.
+> 
+> The last user of syscon_regmap_lookup_by_pdevname() was removed in 2018.
+> syscon_regmap_lookup_by_pdevname() was then removed in 2019, but that
+> commit failed to remove the rest of the platform driver.
 
-Will another imperative wording approach become more helpful for an improv=
-ed
-change description?
-https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Do=
-cumentation/process/submitting-patches.rst?h=3Dv6.17#n94
+This removed the only driver claiming pmgr nodes on Apple silicon
+platforms. The nodes use compatible strings of the form
 
+compatible = "apple,t8103-pmgr", "apple,pmgr", "syscon", "simple-mfd";
 
-=E2=80=A6
-> +++ b/kernel/hung_task.c
-=E2=80=A6
-@@ -229,9 +232,11 @@ static void check_hung_task(struct task_struct *t, un=
-signed long timeout)
-=E2=80=A6
->  	trace_sched_process_hang(t);
-> =20
-> -	if (sysctl_hung_task_panic) {
-> +	if (sysctl_hung_task_panic &&
-> +			(total_hung_task >=3D sysctl_hung_task_panic)) {
-=E2=80=A6
+The description still holds as the removal of the driver did not result
+in functional changes and went unnoticed. The missing driver became 
+apparent with pmdomain's sync_state() support in 6.17 which prints
+following messages on a M1 mac mini
 
-I suggest to use the following source code variant instead.
+| [   11.789419] apple-pmgr-pwrstate 23b700000.power-management:power-controller@420: sync_state() pending due to 23d280000.power-management
+| [   11.792414] apple-pmgr-pwrstate 23b700000.power-management:power-controller@448: sync_state() pending due to 23d280000.power-management
 
-	if (sysctl_hung_task_panic && total_hung_task >=3D sysctl_hung_task_panic=
-) {
+None of the other compatible are claimed by any driver. There is no
+driver for "apple,t8103-pmgr" or "apple,pmgr" and simple-pm-bus.c binds
+"simple-mfd" only if it is the first compatible string.
 
+The easiest solution would be to probe via simple-pm-bus.c if the device
+is compatible with "apple,pmgr". The generic compatible is justified by
+not having any device specific code. The other option would by to add
+the growing list of SoC specific "apple,*-pmgr" compatibles to the match
+table.
+The alternative of writing an Apple pmgr driver which does nothing
+except successfully probing devices does not look appealing.
 
-Regards,
-Markus
+There is second problem though. The device link between
+23b700000.power-management:power-controller@420 and
+23d280000.power-management should not exist in the first place. See
+following excerpt from arch/arm64/boot/dts/apple/{t8103,t8103-pmgr}.dtsi
+omitting only unrelated child nodes.
+
+/ {
+	pmgr: power-management@23b700000 {
+		compatible = "apple,t8103-pmgr", "apple,pmgr", "syscon", "simple-mfd";
+		#address-cells = <1>;
+		#size-cells = <1>;
+		reg = <0x2 0x3b700000 0 0x14000>;
+
+		ps_atc0_common: power-controller@420 {
+			compatible = "apple,t8103-pmgr-pwrstate", "apple,pmgr-pwrstate";
+			reg = <0x420 4>;
+			#power-domain-cells = <0>;
+			#reset-cells = <0>;
+			label = "atc0_common";
+		};
+	};
+
+	pmgr_mini: power-management@23d280000 {
+		compatible = "apple,t8103-pmgr", "apple,pmgr", "syscon", "simple-mfd";
+		#address-cells = <1>;
+		#size-cells = <1>;
+		reg = <0x2 0x3d280000 0 0x4000>;
+
+		ps_atc0_usb: power-controller@98 {
+			compatible = "apple,t8103-pmgr-pwrstate", "apple,pmgr-pwrstate";
+			reg = <0x98 4>;
+			#power-domain-cells = <0>;
+			#reset-cells = <0>;
+			label = "atc0_usb";
+			power-domains = <&ps_atc0_usb_aon>, <&ps_atc0_common>;
+		};
+	};
+}
+
+To my understanding the fw_devlinks should only exists between
+&ps_atc0_common and &ps_atc0_usb. Herve Codina reports and posts a patch
+for what sounds to be the same issue in [1] for simple-pm-bus. I can't
+reproduce the report though. As soon as simple-pm-bus successfully
+probes the pmgr devices the spurious devlinks are gone.
+
+So I think this needs to be fixed in either of/platform.c for all
+devices handled in of_platform_default_populate() or in
+driver-core/devlink considering the issue appears without driver for the
+bus device.
+
+Janne
+
+[1]: https://lore.kernel.org/lkml/20250613134817.681832-6-herve.codina@bootlin.com/
 
