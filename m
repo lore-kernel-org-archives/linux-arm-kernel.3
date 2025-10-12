@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E846DCCD18E
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Oct 2025 19:23:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B37C8CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Oct 2025 19:24:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=hnlOJ2n+kaG3xIG2KBBQJX6KsaJhFDRkiLuLt3jD0qw=; b=nBeQslwhlOXl04QVf4YSFiCVSi
-	/I6C1ZPaqexdputH7KRpgqKKqGXpGBOtVEn7zYIj9oXk+bp8PR8wBJi5mOnPU5Xb/CUhuw2jKoYQy
-	IKuWhg604gZOCY3ESTQ6BGsQcDUPmu7lcYYfbBbwUpmX1XIc6ZX2lPys7h+bJRo2uDfl2r5SNh97/
-	5WpuV8TP6kABycMHcf5bRS6OqxHYpII2dxZhwQfQAszGyM//pOQKrVUfQewCvGRGOyJiZcZKAo0oN
-	hb/Mx8oS5VvamoG6bsz6KTmS33/omF+aT7+sJf+PnIIPA3lqsBYlolJmYG7EyIa/VuekSz5Yop0bN
-	P8zzXK1Q==;
+	bh=QhSOMeyyVEb/JHhqKdNE9M8XBPkXN/GvjKAdeA1KvOU=; b=RLhsQ0EShNoxEVC3vVwN2z2KzL
+	oiwlQFm5sURtoCp+GwX2ttPfgXGfL3n/d1h9rgY5Y3RFXw70oVRzQeKU4kMBTuYzMixmv6U1douGP
+	VGyGowZM9JpcVQrWYoIqVyFG0mGkz2NBGOnbHBpeTAlsxO9pDvJE52IpNqjFDllyBinG/JTSljV+3
+	7R8gxb7NKzSBl+zXyyQE4X2I2mjpLA2TLHBsCPCuN1HC9l6b0S2L1RrBDqaDv6X5pcEsTztmaGu0S
+	8zYdTwHNumCeqUC9rFMDhFHFBwrbhmKfbs2vJTQLPkDC8xQKH8kZveNgTkSEB7sh/tTgbAIVT5AX4
+	hivKSASA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v81fd-0000000BfeA-0Y4A;
+	id 1v81fd-0000000BfeZ-27VH;
 	Sun, 12 Oct 2025 19:23:53 +0000
-Received: from mail-ej1-x636.google.com ([2a00:1450:4864:20::636])
+Received: from mail-ed1-x535.google.com ([2a00:1450:4864:20::535])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v81fX-0000000BfWw-0XJF
+	id 1v81fY-0000000BfXX-2C4h
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Oct 2025 19:23:48 +0000
-Received: by mail-ej1-x636.google.com with SMTP id a640c23a62f3a-afcb7ae31caso728476466b.3
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Oct 2025 12:23:46 -0700 (PDT)
+	Sun, 12 Oct 2025 19:23:49 +0000
+Received: by mail-ed1-x535.google.com with SMTP id 4fb4d7f45d1cf-6394938e0ecso5716980a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Oct 2025 12:23:48 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760297025; x=1760901825; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1760297027; x=1760901827; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=hnlOJ2n+kaG3xIG2KBBQJX6KsaJhFDRkiLuLt3jD0qw=;
-        b=SEwMgf09PBaU4cfh8LfvEGglpQ4M5iyegGjHtvNBClPck311xwuEW4BM3p07ib4qsR
-         OQrVwia/sEiMCDuC++OF5Pv67HN+Gdw7rSnhqsheCYEe0j9z17sF/wMU4OPzKtECpUNY
-         q5LXAoX0W0SLTyz4zqcF/6Hksh1zhzJwMheucJahrD8wGbL2zIfj97ExnS2Dyp4P3iBr
-         5WMl5d/kNdkqNbk76exwiiNWhkEBzLJkcHg8MrBTUU6df4m1vQ8hzM/or5pQHFyHiYVi
-         olhNEU1EWfm9B8YWNLuMs7H0pAFrQ50++QTgyZsqtrqDQLOopc2C6u3A7I2mrMRJxlvj
-         /D6w==
+        bh=QhSOMeyyVEb/JHhqKdNE9M8XBPkXN/GvjKAdeA1KvOU=;
+        b=jreYULguxAq7dVMJiPkgExYk45AXEPHPYoZG01Z6Z4FeKJi4WsEYPQXla9m5LdKQy3
+         HiSlwoqqnUndV49odxf575C41ojRsdhbf6QYtSUdaaZFq4ulTHVpdTQaLA6VyCCllN71
+         4nCzKJ1hEhqamSH+x4N4fEgxQ4WVc+bC7GddQtJtSCyey6dznZYn2R4KvxsMGEhQgiUc
+         ZMbXX5IznQeEbzDBwW0RodaCmusNqZ7JnE3NORdyUbQOKa/whJURR0cZLmgKIfxMM44S
+         r/bXRGDoDpDKwbbn/fDH9dRY8G90/Ptq9JPuVGJzf+ZanN7S4kRElAT9YXXlXOTaH8oy
+         3Q3g==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760297025; x=1760901825;
+        d=1e100.net; s=20230601; t=1760297027; x=1760901827;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=hnlOJ2n+kaG3xIG2KBBQJX6KsaJhFDRkiLuLt3jD0qw=;
-        b=tQNTMAS7rmOeBORTrAVWUDBge4kHXO8TKcJafozI/PtraVT3DbNrNqlwm35Pb0PmzB
-         +t+PpQXwnmzO/KvK0ZeNW10ozBGckdDe5k+7v/+Wi4R+T1g59nCmPZnYF/poy0jcVAmj
-         rATY0nHUHziDtU0opTyOwPzPll9fnekusfDqJht1GMbFsjvOnHORJJc16QdEp11k6KlM
-         rPh082ajAHrf83EbRba6yWvI0EROjbgpGMrvQHojbboFtHXG5yL6uyqzzvbaF/I8k8w5
-         8dJ18U3X+H4nqntN0Xbyy9V/b13SaaOuXqfol2KNxzCY1KfeFUWnw6nZz+6xekVBpKs3
-         UXcA==
-X-Forwarded-Encrypted: i=1; AJvYcCU+awcX89BXB01GdeER4cwmdKiicCq4CrJyismQXK2lFv/FKvL6vkD6zk860sgF56T38hc+RTPKpIwmsFbGBGaU@lists.infradead.org
-X-Gm-Message-State: AOJu0YzQY1Jay4TUokA5yt0GtLEg632iZld6kT6yf4Qbbmt+zE6ATsft
-	BvwgbKYc/9lTqU7lOVdhGwWRCZ3rjISrWaJG10X7omtfEXFV+sVs7Izh
-X-Gm-Gg: ASbGncsmPGFI2IB3Ye0ZxpMI0RQ2k1gwK4B6dQi3Q/ht+plvLuqj1eQb+6iyc3G+Ya6
-	Vrf8YyL8Njl7oK20QyUVAaoWSmB0SSLatBIWM3wh9NogG7l+O3KhKfwngu6XW90YV2JpNEcfAPx
-	nRPFTPRxfdALa3U+trxAcxjDKrr+kOKyWBumdYIY+uX8h0umTDnq/vUbcCWB1TW5UY8/Y3LRJu3
-	nRFDCSeKvZ+7hAdOjU/bXJFbr7DnabsqNMROrNrS+rp+mPclJq53SdZ57yI0ffA3E3qrQucdsqN
-	GjejN3lunGwzFbZE4Nl1je0B0vwE3A8GTnxsUvOp2JTVW+Zawm0E96T5ElP5phcoO/li1VXqm31
-	OkjW8oMFqkMjWpmFbDS9gHBTNzRHb3XdZyrDxhjF1b8JHUoZywU1cjgtOQrgCstcVps7e0F5n3J
-	dIKrpUXNSpdLg+yuTebLYE
-X-Google-Smtp-Source: AGHT+IFJXFSppj2HoIPfT0DNF82Abv4mtxDvrxkAHw6b76kGPg7cFa3ESgHvRApJqFhlZJceziWZkw==
-X-Received: by 2002:a17:906:c149:b0:b45:60ad:daf1 with SMTP id a640c23a62f3a-b50aa8a92e3mr1797895266b.22.1760297025416;
-        Sun, 12 Oct 2025 12:23:45 -0700 (PDT)
+        bh=QhSOMeyyVEb/JHhqKdNE9M8XBPkXN/GvjKAdeA1KvOU=;
+        b=f3mCdU0mW4gom4ReJ8P8I3ObmBDhDEu9md57K9tH6uumnwivfGUIVuIRS/O9FGMLEw
+         8UVaoDQZZcRtOr05sfCjegglaRohHHAVJ7/YIQeohtP1RTYAD4ErFzXKg90jFUo+5ncw
+         pQv0cnjbF+zlwPTjQKQC0uNB0u16Y7ajBCnbmxaLDJcXoJIyH161hzH4tz0LYCEOENLG
+         oPQtryyJra0JBdzTmekWeiddHxh3SIcQeT9PDL6fjQ1V78jHuFgfuqmOe/0xrJXyBtaE
+         3/QElZoQswkQmL0hSWFGjt+po6H9JgsizGhoxR/gyoaFup7jgyxNUJyuU1TcCZuW/fvW
+         +YSA==
+X-Forwarded-Encrypted: i=1; AJvYcCV9iNevFsBuSfrbiAu+nCv6a7PX1+ZZ9HLKJMVSMswQZa5ni1wEviNI8E0YguRL0WKZ8fGpYfjsBL1QgrPRn8f9@lists.infradead.org
+X-Gm-Message-State: AOJu0YzTSvlsKjcsNAdkyQqqYP4V+mtsBsM95/8u+S3BGsaJigdDTRkO
+	GNXq/MuDsWbxO7pyBMKwE5PQXxWXybS5UbDMATWTKKIV/qKS2Kt92nmI
+X-Gm-Gg: ASbGncuEvdQZXAORY3xl1xtIUaoZ9d81SJoUKREKD7FBrE+RvuhRlIK8a2Vq2gchdAz
+	6QyQG40BHgj5dzhVp6A6wOYVXpieirsyFIZCNJo2myNWubJou5O8mOrS0P5exx0bNqVhfGoCNYY
+	Rgn8QP0ZCUmTaEGqJvTbJ0gcnFxXfvjTbFN4vffKLhRrG5cL9gm8KVBHvni7sDysR8+PyA+nLyy
+	0YMR/EDnjN4CMcHcCiW6IY4hkiiuuKfNlTjfZszmqSo40gv+a+QO9GcDIXdqJfZxfteuwzMiUWx
+	AK0JHKwNoE9AiMTKfkiI5gGJlxTYxeV58NbZASiG/smKBCwkzSElsuf+E5EVzNfY2oSe+4cJlKX
+	2fqb6kWmsCd30q8CWa9QjgC856FLDGrp5SRzKZrwsQKkNhbD4D5ao5mjRs5QpKtM5kf6qHliQ1p
+	dvYepceNY82n1krtEoKNi8
+X-Google-Smtp-Source: AGHT+IFUbJ+FjAjKKsg6YJWZVxyDF8HU9W9iTbhFx8UICuTNacj1eC7uib49tuv2zK9lGVgNU785TQ==
+X-Received: by 2002:a17:907:72cf:b0:b04:61aa:6adc with SMTP id a640c23a62f3a-b50aa69e311mr1981823466b.7.1760297026601;
+        Sun, 12 Oct 2025 12:23:46 -0700 (PDT)
 Received: from jernej-laptop (178-79-73-218.dynamic.telemach.net. [178.79.73.218])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b55d67d8283sm760176466b.38.2025.10.12.12.23.44
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b55d67d8283sm760176466b.38.2025.10.12.12.23.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Oct 2025 12:23:45 -0700 (PDT)
+        Sun, 12 Oct 2025 12:23:46 -0700 (PDT)
 From: Jernej Skrabec <jernej.skrabec@gmail.com>
 To: mripard@kernel.org,
 	wens@csie.org
@@ -83,17 +83,17 @@ Cc: maarten.lankhorst@linux.intel.com,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Jernej Skrabec <jernej.skrabec@gmail.com>
-Subject: [PATCH 05/30] drm/sun4i: vi_layer: Move check from update to check callback
-Date: Sun, 12 Oct 2025 21:23:05 +0200
-Message-ID: <20251012192330.6903-6-jernej.skrabec@gmail.com>
+Subject: [PATCH 06/30] drm/sun4i: layers: Make atomic commit functions void
+Date: Sun, 12 Oct 2025 21:23:06 +0200
+Message-ID: <20251012192330.6903-7-jernej.skrabec@gmail.com>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251012192330.6903-1-jernej.skrabec@gmail.com>
 References: <20251012192330.6903-1-jernej.skrabec@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251012_122347_315953_E0F2988B 
-X-CRM114-Status: GOOD (  12.42  )
+X-CRM114-CacheID: sfid-20251012_122348_619821_44CB38D0 
+X-CRM114-Status: GOOD (  11.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,61 +108,134 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-DRM requires that all check are done in atomic_check callback. Move
-one check from atomic_commit to atomic_update callback.
+Functions called by atomic_commit callback should not fail. None of them
+actually returns error, so make them void.
+
+No functional change.
 
 Signed-off-by: Jernej Skrabec <jernej.skrabec@gmail.com>
 ---
- drivers/gpu/drm/sun4i/sun8i_vi_layer.c | 18 +++++++++++-------
- 1 file changed, 11 insertions(+), 7 deletions(-)
+ drivers/gpu/drm/sun4i/sun8i_ui_layer.c | 20 +++++++-------------
+ drivers/gpu/drm/sun4i/sun8i_vi_layer.c | 20 +++++++-------------
+ 2 files changed, 14 insertions(+), 26 deletions(-)
 
+diff --git a/drivers/gpu/drm/sun4i/sun8i_ui_layer.c b/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
+index fce7b265c5d8..8baa1d0b53bd 100644
+--- a/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
++++ b/drivers/gpu/drm/sun4i/sun8i_ui_layer.c
+@@ -46,9 +46,9 @@ static void sun8i_ui_layer_update_alpha(struct sun8i_mixer *mixer, int channel,
+ 			   mask, val);
+ }
+ 
+-static int sun8i_ui_layer_update_coord(struct sun8i_mixer *mixer, int channel,
+-				       int overlay, struct drm_plane *plane,
+-				       unsigned int zpos)
++static void sun8i_ui_layer_update_coord(struct sun8i_mixer *mixer, int channel,
++					int overlay, struct drm_plane *plane,
++					unsigned int zpos)
+ {
+ 	struct drm_plane_state *state = plane->state;
+ 	u32 src_w, src_h, dst_w, dst_h;
+@@ -124,12 +124,10 @@ static int sun8i_ui_layer_update_coord(struct sun8i_mixer *mixer, int channel,
+ 	regmap_write(bld_regs,
+ 		     SUN8I_MIXER_BLEND_ATTR_INSIZE(bld_base, zpos),
+ 		     outsize);
+-
+-	return 0;
+ }
+ 
+-static int sun8i_ui_layer_update_formats(struct sun8i_mixer *mixer, int channel,
+-					 int overlay, struct drm_plane *plane)
++static void sun8i_ui_layer_update_formats(struct sun8i_mixer *mixer, int channel,
++					  int overlay, struct drm_plane *plane)
+ {
+ 	struct drm_plane_state *state = plane->state;
+ 	const struct drm_format_info *fmt;
+@@ -144,12 +142,10 @@ static int sun8i_ui_layer_update_formats(struct sun8i_mixer *mixer, int channel,
+ 	regmap_update_bits(mixer->engine.regs,
+ 			   SUN8I_MIXER_CHAN_UI_LAYER_ATTR(ch_base, overlay),
+ 			   SUN8I_MIXER_CHAN_UI_LAYER_ATTR_FBFMT_MASK, val);
+-
+-	return 0;
+ }
+ 
+-static int sun8i_ui_layer_update_buffer(struct sun8i_mixer *mixer, int channel,
+-					int overlay, struct drm_plane *plane)
++static void sun8i_ui_layer_update_buffer(struct sun8i_mixer *mixer, int channel,
++					 int overlay, struct drm_plane *plane)
+ {
+ 	struct drm_plane_state *state = plane->state;
+ 	struct drm_framebuffer *fb = state->fb;
+@@ -184,8 +180,6 @@ static int sun8i_ui_layer_update_buffer(struct sun8i_mixer *mixer, int channel,
+ 	regmap_write(mixer->engine.regs,
+ 		     SUN8I_MIXER_CHAN_UI_LAYER_TOP_LADDR(ch_base, overlay),
+ 		     lower_32_bits(dma_addr));
+-
+-	return 0;
+ }
+ 
+ static int sun8i_ui_layer_atomic_check(struct drm_plane *plane,
 diff --git a/drivers/gpu/drm/sun4i/sun8i_vi_layer.c b/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
-index bd6c7915bbc4..c80bdece5ffc 100644
+index c80bdece5ffc..dae6f83cea6e 100644
 --- a/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
 +++ b/drivers/gpu/drm/sun4i/sun8i_vi_layer.c
-@@ -217,16 +217,11 @@ static int sun8i_vi_layer_update_formats(struct sun8i_mixer *mixer, int channel,
+@@ -48,9 +48,9 @@ static void sun8i_vi_layer_update_alpha(struct sun8i_mixer *mixer, int channel,
+ 	}
+ }
+ 
+-static int sun8i_vi_layer_update_coord(struct sun8i_mixer *mixer, int channel,
+-				       int overlay, struct drm_plane *plane,
+-				       unsigned int zpos)
++static void sun8i_vi_layer_update_coord(struct sun8i_mixer *mixer, int channel,
++					int overlay, struct drm_plane *plane,
++					unsigned int zpos)
+ {
+ 	struct drm_plane_state *state = plane->state;
+ 	const struct drm_format_info *format = state->fb->format;
+@@ -191,8 +191,6 @@ static int sun8i_vi_layer_update_coord(struct sun8i_mixer *mixer, int channel,
+ 	regmap_write(bld_regs,
+ 		     SUN8I_MIXER_BLEND_ATTR_INSIZE(bld_base, zpos),
+ 		     outsize);
+-
+-	return 0;
+ }
+ 
+ static u32 sun8i_vi_layer_get_csc_mode(const struct drm_format_info *format)
+@@ -211,8 +209,8 @@ static u32 sun8i_vi_layer_get_csc_mode(const struct drm_format_info *format)
+ 	}
+ }
+ 
+-static int sun8i_vi_layer_update_formats(struct sun8i_mixer *mixer, int channel,
+-					 int overlay, struct drm_plane *plane)
++static void sun8i_vi_layer_update_formats(struct sun8i_mixer *mixer, int channel,
++					  int overlay, struct drm_plane *plane)
+ {
  	struct drm_plane_state *state = plane->state;
  	u32 val, ch_base, csc_mode, hw_fmt;
- 	const struct drm_format_info *fmt;
--	int ret;
- 
- 	ch_base = sun8i_channel_base(mixer, channel);
- 
- 	fmt = state->fb->format;
--	ret = sun8i_mixer_drm_format_to_hw(fmt->format, &hw_fmt);
--	if (ret) {
--		DRM_DEBUG_DRIVER("Invalid format\n");
--		return ret;
--	}
-+	sun8i_mixer_drm_format_to_hw(fmt->format, &hw_fmt);
- 
- 	val = hw_fmt << SUN8I_MIXER_CHAN_VI_LAYER_ATTR_FBFMT_OFFSET;
+@@ -246,12 +244,10 @@ static int sun8i_vi_layer_update_formats(struct sun8i_mixer *mixer, int channel,
  	regmap_update_bits(mixer->engine.regs,
-@@ -322,7 +317,9 @@ static int sun8i_vi_layer_atomic_check(struct drm_plane *plane,
- 	struct sun8i_layer *layer = plane_to_sun8i_layer(plane);
- 	struct drm_crtc *crtc = new_plane_state->crtc;
- 	struct drm_crtc_state *crtc_state;
--	int min_scale, max_scale;
-+	const struct drm_format_info *fmt;
-+	int min_scale, max_scale, ret;
-+	u32 hw_fmt;
+ 			   SUN8I_MIXER_CHAN_VI_LAYER_ATTR(ch_base, overlay),
+ 			   SUN8I_MIXER_CHAN_VI_LAYER_ATTR_RGB_MODE, val);
+-
+-	return 0;
+ }
  
- 	if (!crtc)
- 		return 0;
-@@ -332,6 +329,13 @@ static int sun8i_vi_layer_atomic_check(struct drm_plane *plane,
- 	if (WARN_ON(!crtc_state))
- 		return -EINVAL;
+-static int sun8i_vi_layer_update_buffer(struct sun8i_mixer *mixer, int channel,
+-					int overlay, struct drm_plane *plane)
++static void sun8i_vi_layer_update_buffer(struct sun8i_mixer *mixer, int channel,
++					 int overlay, struct drm_plane *plane)
+ {
+ 	struct drm_plane_state *state = plane->state;
+ 	struct drm_framebuffer *fb = state->fb;
+@@ -305,8 +301,6 @@ static int sun8i_vi_layer_update_buffer(struct sun8i_mixer *mixer, int channel,
+ 								 overlay, i),
+ 			     lower_32_bits(dma_addr));
+ 	}
+-
+-	return 0;
+ }
  
-+	fmt = new_plane_state->fb->format;
-+	ret = sun8i_mixer_drm_format_to_hw(fmt->format, &hw_fmt);
-+	if (ret) {
-+		DRM_DEBUG_DRIVER("Invalid plane format\n");
-+		return ret;
-+	}
-+
- 	min_scale = DRM_PLANE_NO_SCALING;
- 	max_scale = DRM_PLANE_NO_SCALING;
- 
+ static int sun8i_vi_layer_atomic_check(struct drm_plane *plane,
 -- 
 2.51.0
 
