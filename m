@@ -4,88 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 975DECCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Oct 2025 23:52:27 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1BB9BCCD18A
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Oct 2025 23:58:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=MA/CbTkvaa4YBWZa6ClbOJLv6rpKecbHiMNcj6ecb0w=; b=D8hey/YzB01RYYSfuJgGl+t3Te
-	Z0bKsIgW6tE+Tz8vK73vGWeifmjKCktbLw6tVI2K4kV+RYfahmk6Q4mPJHfQpvOEK4zz2g8iOdrB5
-	0Kee9ZksXCjPfFS73aPX+D6ggxKJONnAhKf9XTLIIwnbbIXPxSF3OgzhchepyXe0KgOdXUAawiCEv
-	yxMt1r8eBh9P/RRR/KqqTdkGqo7DI+C13PG96yMy5Uw1XZILe0jo8qLASSNndtAoak8BMiR84hM4V
-	H54yaKVtxLLVygW2NYMl6RPYE6HVefEDEqOJQfre8VJxUvjTIaE2unRQHmc2CbH8F4/Eh0dY+LKnw
-	ELsIYA1Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=iQbKQPGHHteriTFPWtmN0+oYPeNAZs7WnUqBuOXCIo4=; b=EcRQdBjDIqZLMpKumkpJM10ZbU
+	L6edYlH/sVcXUamaWnJkG++USfkrEKeU8lZqRqdsHhfO0NsMpRk5xEpY9AGH6t6Hr4FfmL1oCtZve
+	nBZ7pt0eG01UcQfUUuqWZAMaix4Ooq0xp1KaYyD+J2D3VK6eDCLJ8E7d+PDTqkVPSZATTjGALoVOj
+	W3l1/FhiTBOHI0hLTRCQfOLD1KlBxOvGDZdW5ptE2rr867TC0LDNgPDtM9vtjUBaaJnn+7KFQxZrx
+	XHR1IcEuF9NY+qN4StLJjRw8D5Dr+cLhaEZZsyoWa21AKzuvbisLSqM/Y8xeZPpj1s+rYwN4LHY4O
+	nlAP7vWg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v85rN-0000000Bqco-2Ayw;
-	Sun, 12 Oct 2025 23:52:17 +0000
-Received: from mail-pl1-x629.google.com ([2607:f8b0:4864:20::629])
+	id 1v85x3-0000000Br8J-23tI;
+	Sun, 12 Oct 2025 23:58:09 +0000
+Received: from mail-westusazlp170120002.outbound.protection.outlook.com ([2a01:111:f403:c001::2] helo=SJ2PR03CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v85rI-0000000Bqbf-1pMK
-	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Oct 2025 23:52:15 +0000
-Received: by mail-pl1-x629.google.com with SMTP id d9443c01a7336-271d1305ad7so60811555ad.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Oct 2025 16:52:11 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760313131; x=1760917931; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=MA/CbTkvaa4YBWZa6ClbOJLv6rpKecbHiMNcj6ecb0w=;
-        b=QrXm5h8y9Y6zjWVZk0KU1VaNxZVG6o4gpfYORDIkz+49s8fF/QykqKj0gIK4Nzh3f1
-         EcDdpKe2aOZWhpLWUvbbWoNdQXbAXoMhoxTiMi3E8N8PqLGFI4zAJB8gwCfJNi9FKhmR
-         xfM2d5Iz/FHnwmeKU/FtQhPOC9B2xgEGUJAk3VF4hfeSYfaVHZYnZfEvkY0m0kuWyscV
-         0KcnVxTi/tzQNj/kOETK12y+8jyjIn2AAQwSYs001xNVufoaIfeXNbSXIRCksNlUGejw
-         it/kn/1VFQ70Ziw5aoR7MNQwD2zxAGQdKKdKZVX/a/FMBg8u1LEXwv8bSVIzEMo+4VaO
-         NKOw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760313131; x=1760917931;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=MA/CbTkvaa4YBWZa6ClbOJLv6rpKecbHiMNcj6ecb0w=;
-        b=rgxIj74c05S26dhLl0r8IM8ypYlXxQUPPQikpNajNX7VvadhwL0TTMgJgAWCkITKFE
-         TnT/FwxWVI0R8n+JxonwG0CMpioZ5edy1F+9tnI/ZC52gWafUT4vM1TB+YqhfB9+juho
-         romrb7pshoqrT8iPnOvC9zJWWhBGd7dKBSP2xz555B2tPqBWMLwlbqi/pf1rvV2Ec7WD
-         W1AZi5U2xYoqu5u+wZQGAkNqub+03sDeOqzIxmZs/Xc0joLuwP+FoFQBQjsDdkSmbkVX
-         HuJlmYCIHzghq0Xqq8en2rqr2U1lCt+FvrMi9wLjkKsCEBpjRGmJL27nTt6PVUrnPHxg
-         k0sg==
-X-Forwarded-Encrypted: i=1; AJvYcCVlL63EKt+RkebNh+6/kjfRTaYlewqye0CYbw+McrEuOeszq0r8Cg77/98FjkE16gXpFbJeTprHqwiHl6SOUZSn@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw99dl8VrSuSzVD9y/Zj+kyADMgPeht0wLVdTPyDpaXf8M7I7KO
-	6cwcjbm1IM6t+qn3lTTTz0CGMlYxRMJR8tAl0RnJ05l9HcmHgFCz713i
-X-Gm-Gg: ASbGnctyrSzzO2dp3qbKZ1q96NaFFxnxQJPKt0i57C5RcQjL0dy+c7F7+cBAIDNlwiH
-	w1GLwa6pPaTML7hdB5/5tgle5EYpWd39LrtG0sJ3vdWkZEEr5AiaWql/gjr2GJhyrrdV7CMncKJ
-	1RY9w09M+eIDBaoP1NLUKSZrJ0rV49nnjxmJ17ErM9hXemqzXz8euT49vfyYFGgc2brf+gFtHbH
-	uqs+QsHflm/Xfl2lnhdHNQUa/H/PgYwglRSaJkoCN7kHlo/XoxEFGvmMJqG/GpD6nk9DwRe6qX9
-	crVu7VcHvr7cMuzU2nXB5oMDxyxmN4T1wlQAZW2rwVTHYdgt474SddmR9tDJanrpxhtQgB8oQ8d
-	QSVJGeCRjxFdWLLiFEIO3JGzXKh/yYoLbDJ1wX/JYT9q+V3dWOKaG
-X-Google-Smtp-Source: AGHT+IHV3IN7oxo5m4JFeu31RH0eXwkx56/6n6hqO9lCyu5p7QOagyZjRIlPKlg22PYDzOg2LNf42Q==
-X-Received: by 2002:a17:902:b18f:b0:269:6052:3536 with SMTP id d9443c01a7336-290273ffc80mr169583425ad.45.1760313131089;
-        Sun, 12 Oct 2025 16:52:11 -0700 (PDT)
-Received: from fedora ([172.59.161.218])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29034dea083sm116576985ad.24.2025.10.12.16.52.09
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Oct 2025 16:52:10 -0700 (PDT)
-From: Alex Tran <alex.t.tran@gmail.com>
-To: alex@digriz.org.uk
-Cc: andrew@lunn.ch,
-	sebastian.hesselbarth@gmail.com,
-	gregory.clement@bootlin.com,
-	linux@armlinux.org.uk,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	Alex Tran <alex.t.tran@gmail.com>
-Subject: [PATCH v1] arm: mach-orion5x: ts78xx: simplify support configuration with table
-Date: Sun, 12 Oct 2025 16:51:47 -0700
-Message-ID: <20251012235147.325532-1-alex.t.tran@gmail.com>
-X-Mailer: git-send-email 2.51.0
+	id 1v85wy-0000000Br5k-2p1U;
+	Sun, 12 Oct 2025 23:58:06 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=UYr+8Us3FYN8faq5vLcTrCg9LLeb0n2dJ3qek5dxVaMiCns8sdHkYJbdM9BDlzhaeWTCBDYSe5aNAGEFd18C8rnVYjMMMcS+CKXB5/q28JCJXDHi7yoFTRoLcw7PL4+GIzIWNJKpBBfpkWOxPhTjo65tk6Iea9bcet+W3nagh2FGfZop/WPD/Bq8hdftNA2iSlb1OWLQi+YoE39kryRqeiwPLCYvckKxvORDNjWNAoS2ysKiauv1I2b4St6YjHa2uPXKRmVmcS9DpSp5+ar5EfOslA/D2mex+p5z+rhG8RbQ6q0ok0WbDtVErCLLRRg51y3gBGCbanBOSz/kAE3IiQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=iQbKQPGHHteriTFPWtmN0+oYPeNAZs7WnUqBuOXCIo4=;
+ b=cJ8p7EZFlhjvpF6O8gRHNcup+XmGt7glgbHHCNRaIftYArP30QGm0pmgya6IIPfAmCYo1Zw+KdhLwE4K1SvuWoXDaKPiVpChgkJyDqx1YZ6EqUl8GgvZ//Pn5vwlkj7lq8yOPiK4WR/U7hifrpngyKI3dShR3xHwtKimSkq1o+TQO7AdaWsdNDIj/lJPO7cHZv8XkNLVx2uayD+f9nQjJuxNFn2e+BwKThfwz5SUo3AI+CnAdaBNYFp+/7tSJgEQ5GbmpZB0mD4Nc53li1HqqvTfADLMWcyyM7j3r1vHvNKmquCoxKjzX29w1YSR/ZO8LkzJRU8D7MCb/MhxQBlz2w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
+ 216.228.117.160) smtp.rcpttodomain=8bytes.org smtp.mailfrom=nvidia.com;
+ dmarc=pass (p=reject sp=reject pct=100) action=none header.from=nvidia.com;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=iQbKQPGHHteriTFPWtmN0+oYPeNAZs7WnUqBuOXCIo4=;
+ b=VMR/QVBBI4JmpTXcHjUJ+WvwCWm3Zhr+GST6IkTv9StMjV5cwh/4QqjsLRDk5A2x7nL22TvNM9HQ6QUMogfnqQTZcfQJel4XeQL9f5P/jaHUqbRSuVRUCtW2h8uwsB0hQn/A0wKhnHXADtJSFB6Ru8L7TxW5kvWm7mb0gaJDD54mteHBYwvV6vJMwSX/0PJx2isrDgoGqYAkUlqX5h1nXqqIFYZfjcZTuapLod5cfhQn1BDaW4f/YFbn25O+9DSKXGOJRWGZgkYkDx/tC+akectPQFFrIfyeeCUPgBfyUPdJdvyY8hjn8IpGBZFaa2MU0FxYQo33cAfLb6E2B5Rd5A==
+Received: from BN0PR04CA0035.namprd04.prod.outlook.com (2603:10b6:408:e8::10)
+ by SJ1PR12MB6219.namprd12.prod.outlook.com (2603:10b6:a03:456::19) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.10; Sun, 12 Oct
+ 2025 23:57:57 +0000
+Received: from MN1PEPF0000F0E1.namprd04.prod.outlook.com
+ (2603:10b6:408:e8:cafe::a4) by BN0PR04CA0035.outlook.office365.com
+ (2603:10b6:408:e8::10) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9203.12 via Frontend Transport; Sun,
+ 12 Oct 2025 23:57:47 +0000
+X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 216.228.117.160)
+ smtp.mailfrom=nvidia.com; dkim=none (message not signed)
+ header.d=none;dmarc=pass action=none header.from=nvidia.com;
+Received-SPF: Pass (protection.outlook.com: domain of nvidia.com designates
+ 216.228.117.160 as permitted sender) receiver=protection.outlook.com;
+ client-ip=216.228.117.160; helo=mail.nvidia.com; pr=C
+Received: from mail.nvidia.com (216.228.117.160) by
+ MN1PEPF0000F0E1.mail.protection.outlook.com (10.167.242.39) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9228.7 via Frontend Transport; Sun, 12 Oct 2025 23:57:57 +0000
+Received: from rnnvmail202.nvidia.com (10.129.68.7) by mail.nvidia.com
+ (10.129.200.66) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.34; Sun, 12 Oct
+ 2025 16:57:51 -0700
+Received: from rnnvmail204.nvidia.com (10.129.68.6) by rnnvmail202.nvidia.com
+ (10.129.68.7) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Sun, 12 Oct
+ 2025 16:57:51 -0700
+Received: from Asurada-Nvidia.nvidia.com (10.127.8.12) by mail.nvidia.com
+ (10.129.68.6) with Microsoft SMTP Server id 15.2.2562.20 via Frontend
+ Transport; Sun, 12 Oct 2025 16:57:48 -0700
+From: Nicolin Chen <nicolinc@nvidia.com>
+To: <joro@8bytes.org>, <jgg@nvidia.com>, <kevin.tian@intel.com>
+CC: <suravee.suthikulpanit@amd.com>, <will@kernel.org>,
+	<robin.murphy@arm.com>, <sven@kernel.org>, <j@jannau.net>,
+	<robin.clark@oss.qualcomm.com>, <m.szyprowski@samsung.com>,
+	<krzk@kernel.org>, <dwmw2@infradead.org>, <baolu.lu@linux.intel.com>,
+	<yong.wu@mediatek.com>, <matthias.bgg@gmail.com>,
+	<angelogioacchino.delregno@collabora.com>, <tjeznach@rivosinc.com>,
+	<pjw@kernel.org>, <palmer@dabbelt.com>, <aou@eecs.berkeley.edu>,
+	<heiko@sntech.de>, <schnelle@linux.ibm.com>, <mjrosato@linux.ibm.com>,
+	<orsonzhai@gmail.com>, <baolin.wang@linux.alibaba.com>, <wens@csie.org>,
+	<jernej.skrabec@gmail.com>, <samuel@sholland.org>,
+	<thierry.reding@gmail.com>, <jonathanh@nvidia.com>,
+	<jean-philippe@linaro.org>, <iommu@lists.linux.dev>,
+	<linux-kernel@vger.kernel.org>, <asahi@lists.linux.dev>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-arm-msm@vger.kernel.org>,
+	<linux-samsung-soc@vger.kernel.org>, <linux-mediatek@lists.infradead.org>,
+	<linux-riscv@lists.infradead.org>, <linux-rockchip@lists.infradead.org>,
+	<linux-s390@vger.kernel.org>, <linux-sunxi@lists.linux.dev>,
+	<linux-tegra@vger.kernel.org>, <virtualization@lists.linux.dev>,
+	<patches@lists.linux.dev>
+Subject: [PATCH v1 1/6] iommu: Generic support for RMRs during device release
+Date: Sun, 12 Oct 2025 16:57:37 -0700
+Message-ID: <631ef0483b8d1981d037131d0f342c6970ffc155.1760312540.git.nicolinc@nvidia.com>
+X-Mailer: git-send-email 2.43.0
+In-Reply-To: <cover.1760312540.git.nicolinc@nvidia.com>
+References: <cover.1760312540.git.nicolinc@nvidia.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-NV-OnPremToCloud: ExternallySecured
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: MN1PEPF0000F0E1:EE_|SJ1PR12MB6219:EE_
+X-MS-Office365-Filtering-Correlation-Id: 949994c1-c008-4e19-bea1-08de09eb2b00
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|36860700013|1800799024|7416014|376014|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?OVndwf61hCayzo9konwB9wH1Vw2u6HWwBOgvsd0u+kLr2G/AwVBhdd2gZsrU?=
+ =?us-ascii?Q?rBhk0kIn4Iaw3y+pQHGOKLTaMqb9BpHS1hXfCHBMz//N5Cgk360UAQZmkX2D?=
+ =?us-ascii?Q?CpyAaG49Fjam/pRa3AsdJ49RNVjmqQrKSihRsnzPknqxQr/hymgx7KsawcFC?=
+ =?us-ascii?Q?xbrUTZRGenAqPwyCtEiCxnEuX8ZZQWC1nYgUtAGEbcQrgzKbZ/rTEe+sxJ+A?=
+ =?us-ascii?Q?AanARun6DAci9qGoXvciuZ7kyiuTp5s51XPizqfDZuOVvs2kuc5GBnB4KvsF?=
+ =?us-ascii?Q?pVU8DbOkNHVrKHJ3hli9ksR7E1hHZCEAjqN5uc/+adZUVEJM+yGERYB2j9VS?=
+ =?us-ascii?Q?Xj9JzXPF5d0NIqpwEo0swEz5j+XUm2VUsVP0UZmBZaTVQSyojuEYTY2/Lxp8?=
+ =?us-ascii?Q?ruztFFEkOtlu4+HR4KMyps89r9SeAJ5ZvDnSAtumA7jDFRqD3I27LsbmLqOA?=
+ =?us-ascii?Q?Q07xYWh0ZVjP0CNS6RkKz1i9PchqlaEPFHk7kroFfHiRhdt5I1SPsEQXJu/I?=
+ =?us-ascii?Q?U6KYW/Wl6Sg9wkMxAClD3uopVA4KIY8uk5HsF21H9KaFEXXxrdf491Co4KWR?=
+ =?us-ascii?Q?VCIvdqQKPi8dJ1hhzDhiLBd2x8M4BcnTZQAdl0iNBLWFk1ceMD8+ODcNJriF?=
+ =?us-ascii?Q?6Cmrr946MhXng7GM+RxNeQUJGWSRWSppvLWUr5DXGkjFs+zDzSdVOaRR5Eb8?=
+ =?us-ascii?Q?ubCYfPJfTV+x4gDVMej/r0wjSZEnHlv5MDOSQJYVVPer2VkCEN7RTM95EsN6?=
+ =?us-ascii?Q?3hvuYt84x3Qy9FZWqULqOuphPAEalIj3T4Rc6ITOI2Jm6I5AzDzSX68V1C2U?=
+ =?us-ascii?Q?RNYESnwB8Cyk7KruW1vNad6Tj2KfB/cWns2CuS8CAAi1kUaxITR8bSQMkMA4?=
+ =?us-ascii?Q?unlHo7BYrPTcKVUpmkdOs8qWSYOSiMTMU1atnvh/m0tmfzl8cAdSc6JRwN0Q?=
+ =?us-ascii?Q?l4/effomLjYj98sy7Yv50tV7yjhZ9j/oM4O9RwKyvPjxNARZ35sgopRa6lS9?=
+ =?us-ascii?Q?gtombJAXllvnf5/1nZvBDPyTwP8HT1Kw2V0Fmp2AYiJ+zpeRsOJ0TfNzntp/?=
+ =?us-ascii?Q?yMbGPIGCu+KdkS6ZvbU1t8dSKMTEXqlBVB7XtZAELNfQOXT4tt+DKCgT7cNt?=
+ =?us-ascii?Q?kR9gseQctbyBm3D5vNhSO6sQfM1tgpYpel9CGi9xfMYQSGOlPDGPanctZhaT?=
+ =?us-ascii?Q?BAx6zD8Rio8GXJtLbl4/xn1v4X2mdJvd8GRJr9pQ0+AwOWptW+fd5tYGxyOp?=
+ =?us-ascii?Q?Z9raF/NmcMLVtKOipJK+k8bzammfPdODQwhzHLxFOhAPPl+Oa3dRi/KQ48CC?=
+ =?us-ascii?Q?x6mRLvOy+BFNKsHgYEySTX5B9A9o0RMkReCFCFW4Hp/r2HrKxU65QVbg138R?=
+ =?us-ascii?Q?x7fGapS9r64PnVWixn+Yk6KlYPDh8DHVtgZRtr5UpkS/HWsTF0iipQfkrAGB?=
+ =?us-ascii?Q?T4qKkTNIrA3D9JLGtDV8nwwA9JLgDmHxLbVFQJgQo41JpCLpZWK1ARsXC0Cf?=
+ =?us-ascii?Q?z3L3/XLgmtg6OYCbYFA52uMKsLxiLmYboTTPeBn9oOwMZaiLCgtQvA4nmHYT?=
+ =?us-ascii?Q?ncebb/BvnYPa+BESmtU=3D?=
+X-Forefront-Antispam-Report: CIP:216.228.117.160;CTRY:US;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:mail.nvidia.com;PTR:dc6edge1.nvidia.com;CAT:NONE;SFS:(13230040)(36860700013)(1800799024)(7416014)(376014)(82310400026);DIR:OUT;SFP:1101;
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 12 Oct 2025 23:57:57.5266
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 949994c1-c008-4e19-bea1-08de09eb2b00
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=43083d15-7273-40c1-b7db-39efd9ccc17a;Ip=[216.228.117.160];Helo=[mail.nvidia.com]
+X-MS-Exchange-CrossTenant-AuthSource: MN1PEPF0000F0E1.namprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SJ1PR12MB6219
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251012_165212_553835_E3F8D58C 
-X-CRM114-Status: GOOD (  18.11  )
+X-CRM114-CacheID: sfid-20251012_165805_046134_9E8C0B3C 
+X-CRM114-Status: GOOD (  17.76  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,113 +166,60 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Replace switch statement based configuration with a lookup table approach.
-The table is iterated through matching the correct configuration instead of
-setting the configuration on a case by case basis.
+From: Jason Gunthorpe <jgg@nvidia.com>
 
-Signed-off-by: Alex Tran <alex.t.tran@gmail.com>
+Generally an IOMMU driver should leave the translation as BLOCKED until the
+translation entry is probed onto a struct device. When the struct device is
+removed, the translation should be put back to BLOCKED.
+
+Drivers that are able to work like this can set their release_domain to the
+blocking domain, and the core code handles this work.
+
+The exception is when the device has an IOMMU_RESV_DIRECT region, in which
+case the OS should continuously allow translations for the given range. And
+the core code generally prevents using a BLOCKED domain with this device.
+
+Continue this logic for the device release and hoist some open coding from
+drivers. If the device has dev->iommu->require_direct and the driver uses a
+BLOCKED release_domain, override it to IDENTITY to preserve the semantics.
+
+The only remaining required driver code for IOMMU_RESV_DIRECT should preset
+an IDENTITY translation during early IOMMU startup for those devices.
+
+Signed-off-by: Jason Gunthorpe <jgg@nvidia.com>
+Signed-off-by: Nicolin Chen <nicolinc@nvidia.com>
 ---
- arch/arm/mach-orion5x/ts78xx-fpga.h  |  7 ++++
- arch/arm/mach-orion5x/ts78xx-setup.c | 60 +++++++++++++++-------------
- 2 files changed, 40 insertions(+), 27 deletions(-)
+ drivers/iommu/iommu.c | 16 ++++++++++++++--
+ 1 file changed, 14 insertions(+), 2 deletions(-)
 
-diff --git a/arch/arm/mach-orion5x/ts78xx-fpga.h b/arch/arm/mach-orion5x/ts78xx-fpga.h
-index 2f4fe3ca5c1a..e35c63382b4c 100644
---- a/arch/arm/mach-orion5x/ts78xx-fpga.h
-+++ b/arch/arm/mach-orion5x/ts78xx-fpga.h
-@@ -40,3 +40,10 @@ struct ts78xx_fpga_data {
- 
- 	struct fpga_devices	supports;
- };
+diff --git a/drivers/iommu/iommu.c b/drivers/iommu/iommu.c
+index 59244c744eabd..adef1a37f9311 100644
+--- a/drivers/iommu/iommu.c
++++ b/drivers/iommu/iommu.c
+@@ -542,8 +542,20 @@ static void iommu_deinit_device(struct device *dev)
+ 	 * Regardless, if a delayed attach never occurred, then the release
+ 	 * should still avoid touching any hardware configuration either.
+ 	 */
+-	if (!dev->iommu->attach_deferred && ops->release_domain)
+-		ops->release_domain->ops->attach_dev(ops->release_domain, dev);
++	if (!dev->iommu->attach_deferred && ops->release_domain) {
++		struct iommu_domain *release_domain = ops->release_domain;
 +
-+struct ts78xx_fpga_support_config {
-+	u32 id;
-+	bool rtc_present;
-+	bool nand_present;
-+	bool rng_present;
-+};
-diff --git a/arch/arm/mach-orion5x/ts78xx-setup.c b/arch/arm/mach-orion5x/ts78xx-setup.c
-index af810e7ccd79..cd8e15cf6a13 100644
---- a/arch/arm/mach-orion5x/ts78xx-setup.c
-+++ b/arch/arm/mach-orion5x/ts78xx-setup.c
-@@ -325,6 +325,18 @@ static void ts78xx_ts_rng_unload(void)
- /*****************************************************************************
-  * FPGA 'hotplug' support code
-  ****************************************************************************/
-+static const struct ts78xx_fpga_support_config ts78xx_fpga_support_table[] = {
-+	{ TS7800_REV_1, 1, 1, 1 },
-+	{ TS7800_REV_2, 1, 1, 1 },
-+	{ TS7800_REV_3, 1, 1, 1 },
-+	{ TS7800_REV_4, 1, 1, 1 },
-+	{ TS7800_REV_5, 1, 1, 1 },
-+	{ TS7800_REV_6, 1, 1, 1 },
-+	{ TS7800_REV_7, 1, 1, 1 },
-+	{ TS7800_REV_8, 1, 1, 1 },
-+	{ TS7800_REV_9, 1, 1, 1 },
-+};
++		/*
++		 * If the device requires direct mappings then it should not
++		 * be parked on a BLOCKED domain during release as that would
++		 * break the direct mappings.
++		 */
++		if (dev->iommu->require_direct && ops->identity_domain &&
++		    release_domain == ops->blocked_domain)
++			release_domain = ops->identity_domain;
 +
- static void ts78xx_fpga_devices_zero_init(void)
- {
- 	ts78xx_fpga.supports.ts_rtc.init = 0;
-@@ -334,36 +346,30 @@ static void ts78xx_fpga_devices_zero_init(void)
- 
- static void ts78xx_fpga_supports(void)
- {
--	/* TODO: put this 'table' into ts78xx-fpga.h */
--	switch (ts78xx_fpga.id) {
--	case TS7800_REV_1:
--	case TS7800_REV_2:
--	case TS7800_REV_3:
--	case TS7800_REV_4:
--	case TS7800_REV_5:
--	case TS7800_REV_6:
--	case TS7800_REV_7:
--	case TS7800_REV_8:
--	case TS7800_REV_9:
-+	const struct ts78xx_fpga_support_config *cfg = NULL;
-+	unsigned int i;
-+
-+	for (i = 0; i < ARRAY_SIZE(ts78xx_fpga_support_table); i++) {
-+		if (ts78xx_fpga_support_table[i].id == ts78xx_fpga.id) {
-+			cfg = &ts78xx_fpga_support_table[i];
-+			break;
-+		}
++		release_domain->ops->attach_dev(release_domain, dev);
 +	}
-+
-+	if (cfg) {
-+		ts78xx_fpga.supports.ts_rtc.present = cfg->rtc_present;
-+		ts78xx_fpga.supports.ts_nand.present = cfg->nand_present;
-+		ts78xx_fpga.supports.ts_rng.present = cfg->rng_present;
-+	} else if (((ts78xx_fpga.id >> 8) & 0xffffff) == TS7800_FPGA_MAGIC) {
-+		pr_warn("unrecognised FPGA revision 0x%.2x\n",
-+			ts78xx_fpga.id & 0xff);
- 		ts78xx_fpga.supports.ts_rtc.present = 1;
- 		ts78xx_fpga.supports.ts_nand.present = 1;
- 		ts78xx_fpga.supports.ts_rng.present = 1;
--		break;
--	default:
--		/* enable devices if magic matches */
--		switch ((ts78xx_fpga.id >> 8) & 0xffffff) {
--		case TS7800_FPGA_MAGIC:
--			pr_warn("unrecognised FPGA revision 0x%.2x\n",
--				ts78xx_fpga.id & 0xff);
--			ts78xx_fpga.supports.ts_rtc.present = 1;
--			ts78xx_fpga.supports.ts_nand.present = 1;
--			ts78xx_fpga.supports.ts_rng.present = 1;
--			break;
--		default:
--			ts78xx_fpga.supports.ts_rtc.present = 0;
--			ts78xx_fpga.supports.ts_nand.present = 0;
--			ts78xx_fpga.supports.ts_rng.present = 0;
--		}
-+	} else {
-+		ts78xx_fpga.supports.ts_rtc.present = 0;
-+		ts78xx_fpga.supports.ts_nand.present = 0;
-+		ts78xx_fpga.supports.ts_rng.present = 0;
- 	}
- }
  
+ 	if (ops->release_device)
+ 		ops->release_device(dev);
 -- 
-2.51.0
+2.43.0
 
 
