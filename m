@@ -4,62 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75FDFCCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Oct 2025 02:49:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2B22CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Oct 2025 03:00:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=sVAid5GiHMrGx8zuaH+qaXxEgYMJUWhXQXInQwU7vmY=; b=eDQMKFrhgNEM56xhc/yoHqbQrN
-	GruoTKGJyom1VovQ/Mf/WfILq8VQuPbfaWSnNsgvH22yBy5/m+ALifwycaH2qWb4fhEloza9sw6Iz
-	EslvHPx4dArujzq8Pnu6kyVkFI0bj0Rffd+GF/5/7PgmJzoICMOsMJkJdd8l8oJ7EEbRNtjmMHD1S
-	5ep0XOVm4LtgehXA7dN7Mf29WV7NYkRnvEWlmU4kCspwmLTkS7lO7Q0HxnyzK73EWJjDZ+ZJRg5Yw
-	cPGWRjc/zEOXlXIwlDvi9RDEjqdNjYMSRSLaT9gWbJwnrRHPpQ25VUiU1iExaLD7+l3Ph86NI6oEk
-	itP0jc0w==;
+	bh=IvEzWQUAaOjHPdpMdQxvqQ47OP9HAP40IF4mX3YtluQ=; b=jUop/sY1W8J+5wniV1uuMABW8w
+	sXKEpjXcT3Fa+AXnr2NIJ57thBXlHp48qsHf4TzbtEZfuN+aHGNqjkiYjaOPfMOc9tiZYTGPMBgHE
+	YULY7G5qW+sVg/SEYeqz3RS7AxKZ0BTzZKVvhOhICbS3Vvf/41iFuA2AkSSFDLvzzCPyR7TIjMKH7
+	lmtXVC3qvw+DiFqFrFUcvT1LV1hqQ+ESQT9fmfyK6epCTwOhwFTVJuqmH3303bI8GoBSYxFkkEnL5
+	vOBg0YH/A/9aEDBq1dBJZjiNwbDBwhEFdlO9srrl24U1bGMsBKOPzYLenfPr7sveQZan46a/QqRc7
+	C4pSYGEw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7m8l-0000000B1AK-1nbj;
-	Sun, 12 Oct 2025 02:48:55 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v7mJO-0000000B1XB-3H0F;
+	Sun, 12 Oct 2025 02:59:54 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7m8i-0000000B19v-2mjv;
-	Sun, 12 Oct 2025 02:48:53 +0000
+	id 1v7mJL-0000000B1Wn-3VgH;
+	Sun, 12 Oct 2025 02:59:52 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 56101439FB;
-	Sun, 12 Oct 2025 02:48:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id DC476C4CEF4;
-	Sun, 12 Oct 2025 02:48:43 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 34B1B44C97;
+	Sun, 12 Oct 2025 02:59:51 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D10DC4CEF4;
+	Sun, 12 Oct 2025 02:59:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760237331;
-	bh=kPDBhwA9avKqp5qDWVWZtY+bRRHa1f3G/FsLBM160tM=;
+	s=k20201202; t=1760237991;
+	bh=IvEzWQUAaOjHPdpMdQxvqQ47OP9HAP40IF4mX3YtluQ=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=J8jKIF0OStEzqRcUMQ0zCRK8NRv4RTZgAOPEWCn76XP/Bb5XwwkB+PUu0gIovEuJd
-	 LvD6z2G2IUdmJgXQXLifNsS5g/AT6/bxUb/BJaOmTCkvJdWrMXo/8bbZQGWC18Lk87
-	 L3TtE7Jmdv0Hwa5JAH8R9Pr29/WtH64g+d87xHZ9I9SrWbnlNmpG07EEb5JHbPpVQV
-	 T4F6+Gte0HGt7L7nx/O1jkbJ8yj9QWebvWkLwkrIn63LUA8MgH1XW+5YW7uqCoCN+A
-	 N1aM5rG40JxaOVj8ms763QUfEdKGx8i0RvfoI3wVKlSYZpOkp+9ei4ygmluybe72KS
-	 1McB3OM2Z9SHg==
-Message-ID: <9746976a-ade4-4551-920c-ffbb914a4e10@kernel.org>
-Date: Sun, 12 Oct 2025 04:48:41 +0200
+	b=UrfB6O7XiK5fq5J9VkQFVx9DlsWObF9naDdGobkS51OZAz/jsx3R9ihwg0PLnMCZn
+	 JrKUbGanIvovfFOqUpavv8i68LSXB5gYwPhxZQEvgJa3RGqaADbQQ7AjIK8ZETL/AI
+	 k2ksov7/j4uHzLq/D9T2NltgotoXlVkvFworT2mf+35iUUKslWRUBPKWb+f/UxYUtm
+	 pjZgzEcIbrTYbk7whs72knHyaZuiftVsYOq9GBojVzE1FjE3WyTCH6gjtrRMpfcfgt
+	 iSD03Kbjtal01DVcL/7u3l9L+Byxbye1FM8aF/SHnk+m6dkbH6QV/3RD5PHD48okUk
+	 KR4Whw1jdA+Lg==
+Message-ID: <50eb3618-4ce0-44b4-91fb-561207fe7554@kernel.org>
+Date: Sun, 12 Oct 2025 04:59:41 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v9 15/15] arm: dts: airoha: en7523: add SNAND node
-To: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>,
- Matthias Brugger <matthias.bgg@gmail.com>,
+Subject: Re: [PATCH v8 1/2] dt-bindings: mailbox: mediatek,mt8196-vcp-mbox:
+ add mtk vcp-mbox document
+To: =?UTF-8?B?SmppYW4gWmhvdSAo5ZGo5bu6KQ==?= <Jjian.Zhou@mediatek.com>,
+ "jassisinghbrar@gmail.com" <jassisinghbrar@gmail.com>,
+ "robh@kernel.org" <robh@kernel.org>, "krzk+dt@kernel.org"
+ <krzk+dt@kernel.org>, "wenst@chromium.org" <wenst@chromium.org>,
+ "conor+dt@kernel.org" <conor+dt@kernel.org>,
  AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>,
- Ray Liu <ray.liu@airoha.com>, Mark Brown <broonie@kernel.org>,
- Andy Shevchenko <andy@kernel.org>, linux-arm-kernel@lists.infradead.org,
- linux-mediatek@lists.infradead.org, devicetree@vger.kernel.org,
- linux-kernel@vger.kernel.org, linux-spi@vger.kernel.org
-Cc: Andreas Gnau <andreas.gnau@iopsys.eu>
-References: <20251010204500.1625215-1-mikhail.kshevetskiy@iopsys.eu>
- <20251010204500.1625215-16-mikhail.kshevetskiy@iopsys.eu>
- <34899379-9788-4ac8-8b62-e9f47b4d49d9@kernel.org>
- <10802039-ca65-41c0-88fa-51db6d86aabd@iopsys.eu>
+ "matthias.bgg@gmail.com" <matthias.bgg@gmail.com>
+Cc: "linux-arm-kernel@lists.infradead.org"
+ <linux-arm-kernel@lists.infradead.org>,
+ "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
+ "linux-mediatek@lists.infradead.org" <linux-mediatek@lists.infradead.org>,
+ "krzysztof.kozlowski@linaro.org" <krzysztof.kozlowski@linaro.org>,
+ "devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
+ Project_Global_Chrome_Upstream_Group
+ <Project_Global_Chrome_Upstream_Group@mediatek.com>
+References: <20251010091549.21325-1-jjian.zhou@mediatek.com>
+ <20251010091549.21325-2-jjian.zhou@mediatek.com>
+ <9a7d9264fe4914ce58031e08710dfd2453678653.camel@mediatek.com>
 From: Krzysztof Kozlowski <krzk@kernel.org>
 Content-Language: en-US
 Autocrypt: addr=krzk@kernel.org; keydata=
@@ -105,12 +110,13 @@ Autocrypt: addr=krzk@kernel.org; keydata=
  jWt87ecuHlpL3uuQ0ZZNWqHgZoQLXoqC2ZV5KrtKWb/jyiFX/sxSrodALf0zf+tfHv0FZWT2
  zHjUqd0t4njD/UOsuIMOQn4Ig0SdivYPfZukb5cdasKJukG1NOpbW7yRNivaCnfZz6dTawXw
  XRIV/KDsHQiyVxKvN73bThKhONkcX2LWuD928tAR6XMM2G5ovxLe09vuOzzfTWQDsm++9UKF a/A=
-In-Reply-To: <10802039-ca65-41c0-88fa-51db6d86aabd@iopsys.eu>
+In-Reply-To: <9a7d9264fe4914ce58031e08710dfd2453678653.camel@mediatek.com>
 Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251011_194852_771506_5C01EF2F 
-X-CRM114-Status: GOOD (  16.38  )
+X-CRM114-CacheID: sfid-20251011_195951_937288_E8DE0AB3 
+X-CRM114-Status: UNSURE (   7.43  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -125,46 +131,26 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 11/10/2025 07:01, Mikhail Kshevetskiy wrote:
-> On 11.10.2025 02:42, Krzysztof Kozlowski wrote:
->> On 10/10/2025 22:45, Mikhail Kshevetskiy wrote:
->>> Add SNAND node to enable support of attached SPI-NAND on the EN7523 SoC.
->>>
->>> Signed-off-by: Mikhail Kshevetskiy <mikhail.kshevetskiy@iopsys.eu>
->>> ---
->>>  arch/arm/boot/dts/airoha/en7523.dtsi | 21 +++++++++++++++++++++
->>>  1 file changed, 21 insertions(+)
->>>
->>> diff --git a/arch/arm/boot/dts/airoha/en7523.dtsi b/arch/arm/boot/dts/airoha/en7523.dtsi
->>> index b523a868c4ad..78e351eb787a 100644
->>> --- a/arch/arm/boot/dts/airoha/en7523.dtsi
->>> +++ b/arch/arm/boot/dts/airoha/en7523.dtsi
->>> @@ -203,4 +203,25 @@ pcie_intc1: interrupt-controller {
->>>  			#interrupt-cells = <1>;
->>>  		};
->>>  	};
->>> +
->>> +	spi_ctrl: spi@1fa10000 {
->>> +		compatible = "airoha,en7581-snand";
->> NAK, now I found this... Respond to comments instead of ignoring them.
+On 11/10/2025 08:51, Jjian Zhou (周建) wrote:
+> On Fri, 2025-10-10 at 17:15 +0800, Jjian Zhou wrote:
+>> The MTK VCP mailbox enables the SoC to communicate with the VCP by
+>> passing
+>> messages through 64 32-bit wide registers. It has 32 interrupt
+>> vectors in
+>> either direction for signalling purposes.
 >>
->> Three versions within few hours, that's not acceptable. Outside of the
->> merge window the expectation is minimum 24h difference. Within merge
->> window this is just spamming.
-> 
-> 
-> I already lost any hope to merge this to linux-3.18, so no problem.
-> 
-> Could you and Rob explain me this compatible issue? I got a feeling that
-> Rob telling me to keep "airoha,en7581-snand" compatible while you are
-> telling the opposite. As for me the use of "airoha,en7523-snand" or
-> maybe "airoha,en75xx-snand" for both en7523 & en7581 chips is the best.
-> 
-> Is there any policy? Could you provide a link?
+>> This adds a binding for Mediatek VCP mailbox.
+>>
+>> Signed-off-by: Jjian Zhou <jjian.zhou@mediatek.com>
+>> Reviewed-by: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
+>> Reviewed-by: Chen-Yu Tsai <wenst@chromium.org>
+> I forgot to add "AngeloGioacchino Del Regno <
+> angelogioacchino.delregno@collabora.com>".
+> Do I need to resubmit it?
 
-The policy is described in writing bindings. I also explained it in
-greater details in my recent OSSEU introductory talk. You need two
-compatibles.
+Yes.
+
+You also should use b4, so you won't be making such mistakes.
 
 Best regards,
 Krzysztof
