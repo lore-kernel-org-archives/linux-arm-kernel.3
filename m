@@ -4,89 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D7EF9CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Oct 2025 12:33:54 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF926CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Sun, 12 Oct 2025 13:27:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=pFLLYdbkRgAZWnhHmXH7fo0GfkcQe5REoGIKDLet53o=; b=MlS0g2HLmw6NMZXNNn7PDNRMPu
-	1JaKjDX+57Eb8YUZkXdT0rUcgxM554YkUGMh/f8b/GJ2JKhTkft53GAEkI4+/Lz2OHuHkP2hwVqtX
-	BWS/Zf4E4OsTvN2DMi9TB9cAlHBzAtn4xDD4hfoaNvWcrKVGKSRhGWfjag6t8iYn45XWOftUjJ/aR
-	GzhcB17gsKq8P/Uwc82H+jTRLpuB+gBSQEwjIhV2FslRXSUVbOO1H1b3/uAk+D85Kf3DN6UKK/TUU
-	jUquKf6ruUDnmUkXvtIc2RdTS3+Noyc83Gqc4F5f81zthwMkrqMvNoAeyy/IVIQuXf8KlVeQ7CH21
-	8nlIHW/g==;
+	Content-Type:In-Reply-To:From:Subject:References:Cc:To:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=yVG8ADOPDzqUmkywmgv9dc2B90UlYkCVvSg1ciAYIFg=; b=qx6mY80CKEYSQsI04cP4h4Hih2
+	VskL+7zwMP7bvyhM/ELmyvjvn85vN8hTe04oLWG1VgjTRyt60lAVKjl9tCJKpA5dYPn1Pgxvn8fI7
+	nyvIenoTA2ToW07qIyFA+yZMN8/o4wuYCB3evWeiwdwrGB4Z+TBDFcllwH/WwlZSxE+qFHQB/rJBD
+	9u++wMR9fLeJAaaBFRq9/nn934QN6OIBwkTqqzzxwVvvB98nlCC8KV3WsBpMxAbFTo3SWsXhdYofl
+	4SLNzSkLiRYmQGcxLacw5fTXHQlxr0KCXhal2BfkHvfqyHNYdTuRN42vWe1z5tq8eO2yBFxLyalSB
+	u0xotiJg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7vGk-0000000BLGn-3Npa;
-	Sun, 12 Oct 2025 12:33:46 +0000
-Received: from mail-ej1-x635.google.com ([2a00:1450:4864:20::635])
+	id 1v7w6s-0000000BN69-2btF;
+	Sun, 12 Oct 2025 13:27:38 +0000
+Received: from mout.web.de ([212.227.17.11])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v7vGh-0000000BLFz-3b2l
+	id 1v7w6q-0000000BN5G-1fHH
 	for linux-arm-kernel@lists.infradead.org;
-	Sun, 12 Oct 2025 12:33:45 +0000
-Received: by mail-ej1-x635.google.com with SMTP id a640c23a62f3a-b54f55a290cso440639566b.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Oct 2025 05:33:43 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760272422; x=1760877222; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=pFLLYdbkRgAZWnhHmXH7fo0GfkcQe5REoGIKDLet53o=;
-        b=SEQnLyaotrcdkH5RNe5v6W+D+ASEdbxs8zAxjSNla9d2DVmhdbmluYomHR8ZmGxp2e
-         p7zA54BwXlfhsOPPzzMcyjcr1RhPyK44wP1SiqApg3quYgiT/YtalR611y9jw3fEcMHa
-         aJsGuDsPg7H7e3w9QL0ybV+WSj3ScnZvi1YKxUgfARPUt2mE3PutN6/9PDM2J1bMaCWP
-         UVOsPeY9FTiK+qmaHDajkS/17R4ZJ9y2SC23dep5S4ieT+Kb8TAHNKWj+Oqdp5R9Cm++
-         KF2wFIIQFxbFevVX8qm3tWZCsUlUEv98Fs+ud2MNPtlN1m8CA5ekpvwAGvYLEGJYg27a
-         OX9A==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760272422; x=1760877222;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=pFLLYdbkRgAZWnhHmXH7fo0GfkcQe5REoGIKDLet53o=;
-        b=NH3Ep5IkD9o9svCKMizWHvFAAUt6I7kseucZuzSEU7hFhBqm/OTZBg16cJAALTov/H
-         3JbsiiVQmJ0UETnqlch98DAqPzFUEcB9VAHOFAB/8EFrGCtgloL4OQWYrtg8QgpFjZWy
-         b8WBqk3CHobPoZkhil6vVvItacEQN4lLMfRVuWNyzhb+cuyxDRy2ICvtMDjD+rYfvQLs
-         0mva4VSD616JJ1O7iq3bezWVsA5N1GBcDJKurka/kplR9M81fV+aHYwuj/zRw5ER6oax
-         4jUcPX6kAv5HOMMTPnIU8XHtH6iqv5fn58UWEGiZaXQC16SxftVKE4klBbfuZidsqNzk
-         W6xQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUqcYAjE+sZ0lFFx1mAMyLR+dhqZ7ttDNvvj/wNO+vFxhPcGBKJbN5yTr45ch6KayTIKVA4dyw30il8RdfCJpIs@lists.infradead.org
-X-Gm-Message-State: AOJu0YzFreZNqAlU7tZBntueHbs2Me/lm7UdYykmodjY4UNhANZxiaax
-	Ks1rIpD4V2l5N5gHKsiZMcpqFgYHT0gvubyGOOeNVy1UwwWZkySBH5g9
-X-Gm-Gg: ASbGncuKWVclA7jcrkbL0FoeBVbhVkWoxIIi/ba0GpAphyEHjxKmfuzfz0dJEK5p2sZ
-	rZkFLHZ+pk8BK4XWC4p2Q+v9mNF+Y4pFn4i8eokyPm2HNNT+GNLn2mPb3jZ0dNBd8VNHxl5n/PR
-	8wtjTFP8i4CuoApPBiIXFQwt8kVcWKTLDjs5ord+auysnHbDgbeojHgISxdP8/SwkjY8pkG82CF
-	mmwXpa9TdaJ1u56isMeEY/drwsqv2umOSCr3YjkeYPhJWg2ZBXTFbJ+1UBUc62MUrAxnqKOXtUd
-	kGKO4vqWbcoNe/eNX52K15dMXNaLha08vP3FVchgHsAQf2bimDB7c5hhpk9nP7Zcxwa2Svzb2yh
-	TBSCRNACaHwAwv0jMRooH55zHHvvbQ0sTotiHYKI+uXacmmi7Tb5KMlEEdnSR9kjJYaKyVunQMk
-	aU
-X-Google-Smtp-Source: AGHT+IFAjyDvaV3oWT4PWZK+4NQ4+mKhqPinNjTBXV2nObp2QaUZEx9ZFWF36Ui7VatYnmT32IIKmg==
-X-Received: by 2002:a17:906:f989:b0:b57:1f86:b30f with SMTP id a640c23a62f3a-b571f86b72amr448630366b.24.1760272421798;
-        Sun, 12 Oct 2025 05:33:41 -0700 (PDT)
-Received: from HomePC (89-67-214-154.dynamic.play.pl. [89.67.214.154])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b55d8c12a8esm708449266b.42.2025.10.12.05.33.40
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Oct 2025 05:33:41 -0700 (PDT)
-From: Andrey Leonchikov <andreil499@gmail.com>
-To: devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org
-Cc: Andrey Leonchikov <andreil499@gmail.com>,
-	robh@kernel.org,
-	krzk+dt@kernel.org,
-	conor+dt@kernel.org,
-	heiko@sntech.de
-Subject: [PATCH v2] arm64: dts: rockchip: Fix PCIe power enable pin for BTT CB2 and Pi2
-Date: Sun, 12 Oct 2025 14:33:36 +0200
-Message-ID: <20251012123338.344271-1-andreil499@gmail.com>
-X-Mailer: git-send-email 2.51.0
+	Sun, 12 Oct 2025 13:27:37 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=web.de;
+	s=s29768273; t=1760275594; x=1760880394; i=markus.elfring@web.de;
+	bh=yVG8ADOPDzqUmkywmgv9dc2B90UlYkCVvSg1ciAYIFg=;
+	h=X-UI-Sender-Class:Message-ID:Date:MIME-Version:To:Cc:References:
+	 Subject:From:In-Reply-To:Content-Type:Content-Transfer-Encoding:
+	 cc:content-transfer-encoding:content-type:date:from:message-id:
+	 mime-version:reply-to:subject:to;
+	b=uVgynvdxLKobuK46q24Dep5yA0kbVnCiMyB0iFSBftMOhXlZZbPa+Q7Q8SL+1DXL
+	 KoNvsuYS+4wpVBAeO6GNn9kKyCFOeoM39REJ/7QtDFCB1UaxddjMyyxxmMlW13e80
+	 cyBigF+AvQNY3ht+KYW+4el19RVKdgKk8jcw5LWcqvcfvceHW5DTmrgbmSJPybqV+
+	 sXuDHcSFqbtVkOPv4l7n7as1s97dV5KbvVRh3ntC6DZJHRLK3v15fzw8X5uQf2eN7
+	 1DUfLs5SDBO9p1V6DwEZ0ZC2Y/ALuWVJWBrKuIqB+4lwCh0sBgmK3tgVQ0fv8/Qr2
+	 +S2+XDv5pabcZinjxg==
+X-UI-Sender-Class: 814a7b36-bfc1-4dae-8640-3722d8ec6cd6
+Received: from [192.168.178.29] ([94.31.69.235]) by smtp.web.de (mrweb106
+ [213.165.67.124]) with ESMTPSA (Nemesis) id 1MNfU1-1urnDm441j-00VjQA; Sun, 12
+ Oct 2025 15:26:34 +0200
+Message-ID: <0aea408f-f6d7-4e2d-8cee-1801ad7f3139@web.de>
+Date: Sun, 12 Oct 2025 15:26:20 +0200
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+To: Li RongQing <lirongqing@baidu.com>, linux-doc@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, netdev@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-aspeed@lists.ozlabs.org,
+ wireguard@lists.zx2c4.com, Andrew Jeffery <andrew@codeconstruct.com.au>,
+ Andrew Morton <akpm@linux-foundation.org>,
+ Anshuman Khandual <anshuman.khandual@arm.com>, Arnd Bergmann
+ <arnd@arndb.de>, David Hildenbrand <david@redhat.com>,
+ Feng Tang <feng.tang@linux.alibaba.com>, Florian Westphal <fw@strlen.de>,
+ Jakub Kicinski <kuba@kernel.org>, "Jason A . Donenfeld" <Jason@zx2c4.com>,
+ Joel Granados <joel.granados@kernel.org>, Joel Stanley <joel@jms.id.au>,
+ Jonathan Corbet <corbet@lwn.net>, Kees Cook <kees@kernel.org>,
+ Lance Yang <lance.yang@linux.dev>, "Liam R . Howlett"
+ <Liam.Howlett@oracle.com>, Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+ Masami Hiramatsu <mhiramat@kernel.org>,
+ "Paul E . McKenney" <paulmck@kernel.org>,
+ Pawan Gupta <pawan.kumar.gupta@linux.intel.com>,
+ Petr Mladek <pmladek@suse.com>, Phil Auld <pauld@redhat.com>,
+ Randy Dunlap <rdunlap@infradead.org>, Russell King <linux@armlinux.org.uk>,
+ Shuah Khan <shuah@kernel.org>, Simon Horman <horms@kernel.org>,
+ Stanislav Fomichev <sdf@fomichev.me>, Steven Rostedt <rostedt@goodmis.org>
+Cc: LKML <linux-kernel@vger.kernel.org>, kernel-janitors@vger.kernel.org
+References: <20251012115035.2169-1-lirongqing@baidu.com>
+Subject: Re: [PATCH v3] hung_task: Panic after fixed number of hung tasks
+Content-Language: en-GB, de-DE
+From: Markus Elfring <Markus.Elfring@web.de>
+In-Reply-To: <20251012115035.2169-1-lirongqing@baidu.com>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: quoted-printable
+X-Provags-ID: V03:K1:WAgp8h3DyF6g11AayvlQAbFiTVzjoFCtdKXHQo068coehoUT01P
+ bW6tgArZAVON6B1QS/KDDP2llblnKalEayJyP8SUrAkR49Edq95sn6phJexJn8o27fA/S0y
+ 1cIqFOnqVLrsmWwTO+jLfK/uCP4ll9phmEtknMatXpyd6vM5267T2cBLBfCQ7rQmSBpkzAc
+ Y/rAKFr/N7Lq0QmKzb1Xw==
+UI-OutboundReport: notjunk:1;M01:P0:4M4KDQe0V1M=;DELwcmNw3ZKCxN2ao5uzkogf/bG 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 RXGoA==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251012_053343_899751_BCF9311B 
-X-CRM114-Status: GOOD (  10.91  )
+X-CRM114-CacheID: sfid-20251012_062736_726437_2A8C7938 
+X-CRM114-Status: UNSURE (   8.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -101,30 +100,35 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Fix typo into regulator GPIO definition. With current
- definition - PCIe don't up. Valid definition have on
- "pinctrl" section, "pcie_drv" (gpio4, RK_PB1).
+=E2=80=A6
+> This patch extends the =E2=80=A6
 
-Fixes: bfbc663d2733a ("arm64: dts: rockchip: Add BigTreeTech CB2 and Pi2")
-Signed-off-by: Andrey Leonchikov <andreil499@gmail.com>
----
- arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+Will another imperative wording approach become more helpful for an improv=
+ed
+change description?
+https://git.kernel.org/pub/scm/linux/kernel/git/torvalds/linux.git/tree/Do=
+cumentation/process/submitting-patches.rst?h=3Dv6.17#n94
 
-diff --git a/arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi b/arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi
-index 7f578c50b4ad..f74590af7e33 100644
---- a/arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi
-+++ b/arch/arm64/boot/dts/rockchip/rk3566-bigtreetech-cb2.dtsi
-@@ -120,7 +120,7 @@ vcc3v3_pcie: regulator-vcc3v3-pcie {
- 		compatible = "regulator-fixed";
- 		regulator-name = "vcc3v3_pcie";
- 		enable-active-high;
--		gpios = <&gpio0 RK_PB1 GPIO_ACTIVE_HIGH>;
-+		gpios = <&gpio4 RK_PB1 GPIO_ACTIVE_HIGH>;
- 		pinctrl-names = "default";
- 		pinctrl-0 = <&pcie_drv>;
- 		regulator-always-on;
--- 
-2.51.0
 
+=E2=80=A6
+> +++ b/kernel/hung_task.c
+=E2=80=A6
+@@ -229,9 +232,11 @@ static void check_hung_task(struct task_struct *t, un=
+signed long timeout)
+=E2=80=A6
+>  	trace_sched_process_hang(t);
+> =20
+> -	if (sysctl_hung_task_panic) {
+> +	if (sysctl_hung_task_panic &&
+> +			(total_hung_task >=3D sysctl_hung_task_panic)) {
+=E2=80=A6
+
+I suggest to use the following source code variant instead.
+
+	if (sysctl_hung_task_panic && total_hung_task >=3D sysctl_hung_task_panic=
+) {
+
+
+Regards,
+Markus
 
