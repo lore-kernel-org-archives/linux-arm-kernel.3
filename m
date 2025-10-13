@@ -4,58 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75061CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 13:00:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BBD46CCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 13:21:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-Id:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=pbAgovax0sVGK1N7GfNseBEyyzfgb1wBBr0+EzcxSRY=; b=LIyXizVh1oiNhvCoZxyvDh7W92
-	0Xim3djVUDwa/J2R7qf+qTX9c19JItnQfijAxJHlQ1pRTi9K68vo4IIbv5M6yN+dqwPTfnzzGxWH0
-	+8/Nj9dSoH8qWmqXGYLVPpEiUHH72boaHVJsrQsjsQB/5NkWVRSAuQpwU7Vs+zwutEmz6UXUVX3C5
-	iVOZ0dduY1sxwEqLwstfu/imSgVsIsi56kpCgIQxBGtxx4KxAMXFHFxdofjOdlcVBaYb7qIlGl8f9
-	uz10aEZrjR6JO0boc1TW0hgCvQrRaOD6EuzvSvg0qZwqBClB4/5qYrJpJ/HMmG/dJyNypE/S+re1M
-	gIzeNC0w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Go6dZDillkE7ZYEa8i+61rrCqPsVJA3sA1UCW5TWE8w=; b=BGz01QlQ3bUKL55Xx+MmukhO2y
+	RzZ62ALEqo5WE155ROO6HGdVkRg+Dw9HRN3ybzZT5BLWB0uSmgDUawRmiXRAJTNIVkB4T0CA/e+v6
+	UvbNwaVtAtCrv+kDeOoaWrllzu2L4ugxrfQ9wN5+4x8dmbbw0MXE5H78gA36RC8fJfh/si/3hm1BP
+	skC8xMEH9WitT14ISjKEwQ/JzQFVLjaj/F6Hipoufrc6Pm2479huOjG2TDY9JsbuQqWl71NU6MDqI
+	W6GkRT8j/kiw3UDvvMNVH3njYGRWvzu0yneGH/PPvDrTA2NAatSXpehHOM7M0BZkaIqt4Xb9pKUW6
+	qIWmLkDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8IA5-0000000DBSV-3Ak5;
-	Mon, 13 Oct 2025 13:00:25 +0000
-Received: from mail-m49197.qiye.163.com ([45.254.49.197])
+	id 1v8IUY-0000000DDE6-2FSj;
+	Mon, 13 Oct 2025 13:21:34 +0000
+Received: from server.couthit.com ([162.240.164.96])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8IA2-0000000DBRx-0OK7;
-	Mon, 13 Oct 2025 13:00:24 +0000
-Received: from localhost.localdomain (unknown [116.25.94.88])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 25bc09e05;
-	Mon, 13 Oct 2025 21:00:17 +0800 (GMT+08:00)
-From: Chukun Pan <amadeus@jmu.edu.cn>
-To: jjm2473@gmail.com
-Cc: amadeus@jmu.edu.cn,
-	conor+dt@kernel.org,
-	devicetree@vger.kernel.org,
-	heiko@sntech.de,
-	krzk+dt@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
+	id 1v8IUX-0000000DDB1-0efR
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Oct 2025 13:21:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=couthit.com
+	; s=default; h=Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject
+	:Cc:To:From:Sender:Reply-To:Content-Type:Content-ID:Content-Description:
+	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
+	In-Reply-To:References:List-Id:List-Help:List-Unsubscribe:List-Subscribe:
+	List-Post:List-Owner:List-Archive;
+	bh=Go6dZDillkE7ZYEa8i+61rrCqPsVJA3sA1UCW5TWE8w=; b=pi7OzHtWaoPTtUbxjGhS4RJQSb
+	mf20QGptUwt7hzhoRvxnW9/CRC5cnAMX4etuBKdCVgsr2Vw1Hz/Q9U79r6p2TxLH9TDge88Wewe+m
+	hx0k4cZbdBi+GuHdnrHSl4bjVeTO4l1uXuAg+iXGngnb7JZKfGAGIoipKBoWMW3a1Hl4deuwu/VX+
+	pTMgydDbFtqZxfR/jYxlUPmcVthGt9XTH5GgrlIEoq/aTUSdWTCyH3FoujIYxC54uSE+XtVXBNeKG
+	Kn0KSJeeq80896B21Zp/6/QkoSdfeV8CUbQtyrnKwzelg1yT1MVOqAlVUwgoaSB38osjzssrKX7NC
+	hn5s1Qfg==;
+Received: from [122.175.9.182] (port=32887 helo=cypher.couthit.local)
+	by server.couthit.com with esmtpa (Exim 4.98.1)
+	(envelope-from <parvathi@couthit.com>)
+	id 1v8ITn-00000004Tvv-2UOs;
+	Mon, 13 Oct 2025 09:20:48 -0400
+From: Parvathi Pudi <parvathi@couthit.com>
+To: linux@armlinux.org.uk,
+	ardb@kernel.org,
+	ebiggers@kernel.org,
+	krzysztof.kozlowski@linaro.org,
+	claudiu.beznea@tuxon.dev,
+	arnd@arndb.de,
+	geert+renesas@glider.be,
+	tiwai@suse.de,
+	lumag@kernel.org,
+	kory.maincent@bootlin.com,
+	parvathi@couthit.com,
+	kuninori.morimoto.gx@renesas.com,
+	Ryan.Wanner@microchip.com,
+	andre.draszik@linaro.org,
+	prabhakar.mahadev-lad.rj@bp.renesas.com,
+	twoerner@gmail.com
+Cc: linux-arm-kernel@lists.infradead.org,
 	linux-kernel@vger.kernel.org,
-	linux-rockchip@lists.infradead.org
-Subject: Re: [PATCH v5 3/3] arm64: dts: rockchip: add LinkEase EasePi R1
-Date: Mon, 13 Oct 2025 21:00:10 +0800
-Message-Id: <20251013130010.143271-1-amadeus@jmu.edu.cn>
-X-Mailer: git-send-email 2.25.1
-In-Reply-To: <CAP_9mL5=GmtJF3nSbfX6gRzPc=fAMrTOfMuOLyWFwq5D4OYUFw@mail.gmail.com>
-References: <CAP_9mL5=GmtJF3nSbfX6gRzPc=fAMrTOfMuOLyWFwq5D4OYUFw@mail.gmail.com>
+	danishanwar@ti.com,
+	pratheesh@ti.com,
+	prajith@ti.com,
+	vigneshr@ti.com,
+	praneeth@ti.com,
+	srk@ti.com,
+	rogerq@ti.com,
+	krishna@couthit.com,
+	mohan@couthit.com,
+	pmohan@couthit.com,
+	basharath@couthit.com
+Subject: [PATCH] arm: multi_v7_defconfig: Enable TI_PRUSS and TI_PRUETH kernel modules
+Date: Mon, 13 Oct 2025 18:50:25 +0530
+Message-ID: <20251013132025.1436138-1-parvathi@couthit.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-HM-Tid: 0a99dda846df03a2kunmd8d8089cbf42
-X-HM-MType: 10
-X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFITzdXWS1ZQUlXWQ8JGhUIEh9ZQVlDQhhCVklJSxoYTU5DQ0tMTVYeHw5VEwETFhoSFy
-	QUDg9ZV1kYEgtZQVlKSk1VSU5VQk9VQ0NZV1kWGg8SFR0UWUFZT0tIVUpLSUJNS0pVSktLVUtZBg
-	++
+X-AntiAbuse: This header was added to track abuse, please include it with any abuse report
+X-AntiAbuse: Primary Hostname - server.couthit.com
+X-AntiAbuse: Original Domain - lists.infradead.org
+X-AntiAbuse: Originator/Caller UID/GID - [47 12] / [47 12]
+X-AntiAbuse: Sender Address Domain - couthit.com
+X-Get-Message-Sender-Via: server.couthit.com: authenticated_id: parvathi@couthit.com
+X-Authenticated-Sender: server.couthit.com: parvathi@couthit.com
+X-Source: 
+X-Source-Args: 
+X-Source-Dir: 
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_060022_295592_CF5C4205 
-X-CRM114-Status: UNSURE (   5.89  )
+X-CRM114-CacheID: sfid-20251013_062133_215926_B00D7B5D 
+X-CRM114-Status: UNSURE (   4.09  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -71,37 +108,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+The Programmable Real-time Unit and Industrial Communication Subsystem
+Megabit (ICSSM) is a microcontroller subsystem in TI SoCs such as
+AM57x, AM437x, and AM335x. It provides real-time processing
+capabilities for industrial communication and custom peripheral interfaces.
 
-> +&pinctrl {
-> +	gmac0 {
-> +		eth_phy0_reset_pin: eth-phy0-reset-pin {
-> +			rockchip,pins = <2 RK_PD3 RK_FUNC_GPIO &pcfg_pull_up>;
-> +		};
-> +	};
+Currently, IDKs based on AM57x, AM437x, and AM335x use the ICSSM driver
+for PRU Ethernet functionality.
 
-Leave a blank line.
+This patch enables TI_PRUSS and TI_PRUETH as kernel modules for AM57x,
+AM437x and AM335x SoCs.
 
-> +	gmac1 {
-> +		eth_phy1_reset_pin: eth-phy1-reset-pin {
-> +			rockchip,pins = <2 RK_PD1 RK_FUNC_GPIO &pcfg_pull_up>;
-> +		};
-> +	};
+Reviewed-by: Mohan Reddy Putluru <pmohan@couthit.com>
+Signed-off-by: Parvathi Pudi <parvathi@couthit.com>
+---
+ arch/arm/configs/multi_v7_defconfig | 2 ++
+ 1 file changed, 2 insertions(+)
 
-> +	gpio-leds {
-> +		status_led_pin: status-led-pin {
-> +			rockchip,pins =
+diff --git a/arch/arm/configs/multi_v7_defconfig b/arch/arm/configs/multi_v7_defconfig
+index 12f706e2ded5..7f1fa9dd88c9 100644
+--- a/arch/arm/configs/multi_v7_defconfig
++++ b/arch/arm/configs/multi_v7_defconfig
+@@ -281,6 +281,8 @@ CONFIG_TI_CPSW_SWITCHDEV=y
+ CONFIG_TI_CPTS=y
+ CONFIG_TI_KEYSTONE_NETCP=y
+ CONFIG_TI_KEYSTONE_NETCP_ETHSS=y
++CONFIG_TI_PRUSS=m
++CONFIG_TI_PRUETH=m
+ CONFIG_XILINX_EMACLITE=y
+ CONFIG_SFP=m
+ CONFIG_BROADCOM_PHY=y
+-- 
+2.43.0
 
-No line break required here.
-
-> +				<2 RK_PD7 RK_FUNC_GPIO &pcfg_pull_none>;
-> +		};
-> +	};
-
-> VBUS on usb2phy0_otg is floating, this USB port only works on
-> device (peripheral) mode.
-> phy-supply is optional, so this should be fine, right?
-
-Yes, if there is no log like this:
-supply phy not found, using dummy regulator
 
