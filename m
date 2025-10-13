@@ -4,96 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EB60BCCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 20:29:21 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C835DCCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 20:32:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Lt6afCrReoA0JetcvxGjdIUfBcXG8UG+CLV9XrNIQkA=; b=nxSjjOmA7l1bRZ7B9NvT7/4TsC
-	JjrTOchgYeCFT5gJ4DwStt8hPC8W2O8l77H3N1vYOTDbIyvTEH1OXAtx6EH5Yib8Zm9KIiGXMx1kf
-	5BX3h35fhLlaBGD1kYpisWKMbHjy/LdXd+dsIXvXmMUkfYL09ljrOFYz1L7Uo1io27qv7sByON5sk
-	EQxVpEKUpM33BXa+MmfI7OhWKGhksNb+mIN9uXhiooWXbephEGrYm4asrdUCaQQe+nBvXah14QT8X
-	KkYc1FP6+VfjL/ZCUdjp8ix3QbXQEc33w556eU0PoGIep/jaJR3WaljCD2AQB9mUwEmp1yGB2miCv
-	sutIN54Q==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nDleYTDsTpmd/c215HAnx8R/DyyOeWflleynV7veSrk=; b=q5es1rFfn/KlumBY5fWyZmT8N7
+	KMjJAEpQw1JrpaTYJt80Ooq+1Qxo3axPsQO0ve5fxzeab/3ZJNPIoQFOR7XT6jHI0vs+Zxs/jElGD
+	gHMMFEPh1y/i7KrG/2Kicsas2tBYWwg996dibTDTjU8bBaEHdAzLULgVuymFY2NVQm8kaWuPOfru0
+	HrLeMlT/N5xmw8xqbLU4D97g05WeUe0ayFBdsvNoGsEy4ROr0VYsq4FOzVeFUeCX2T/OlrYChsvHN
+	glVw7eSZRS2K/KTPpEtqmeOMwiST9coJ5NBod1BKzIghciy+w194H0a/Pe97k1c2I+7ChWTnHszlo
+	uP1CBqBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8PAP-0000000EMRL-33G1;
-	Mon, 13 Oct 2025 20:29:13 +0000
-Received: from mail-io1-xd30.google.com ([2607:f8b0:4864:20::d30])
+	id 1v8PD8-0000000EMl6-0tRT;
+	Mon, 13 Oct 2025 20:32:02 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8PAM-0000000EMQB-3QQj
+	id 1v8PD6-0000000EMky-42kR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 20:29:12 +0000
-Received: by mail-io1-xd30.google.com with SMTP id ca18e2360f4ac-9032edd72c1so542142339f.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 13:29:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=ventanamicro.com; s=google; t=1760387350; x=1760992150; darn=lists.infradead.org;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date:from:to
-         :cc:subject:date:message-id:reply-to;
-        bh=Lt6afCrReoA0JetcvxGjdIUfBcXG8UG+CLV9XrNIQkA=;
-        b=pXlTm2/NMtGwk4tu6pdXKq+6L0LqpaQFXzTYlH2emQBMHhYiGLopmw9qyieIqgZQih
-         4vfSpkQhrlngxMyKLBw6obK4YCfFjS4G4yU1CekQr0YKUgKgAH3qZjXE/wTaa3crBrSI
-         NtcOSctzqqzAVrcMjThBY/PLYZPmIHwxJ5CjBpnSyDG3y5+cFBreVnH0ltzktKMEQRir
-         abQtHVtAgp6aYmus3HWU5aZuK29XkeWR0KFKYy/QFyUW7Kro3S8sFD593uIViqMLU8hn
-         /m+xyQ4AkP4ByiaoiVepNv5aMQ2FIldgtJWbLHEr5Sox4exCzkYQrJWcDWqDG4+QQvkm
-         snBA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760387350; x=1760992150;
-        h=in-reply-to:content-transfer-encoding:content-disposition
-         :mime-version:references:message-id:subject:cc:to:from:date
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=Lt6afCrReoA0JetcvxGjdIUfBcXG8UG+CLV9XrNIQkA=;
-        b=fgVwT4qgpWpWCuKWXHa+tJ6RsqU6sgc/9yPdLX3yy3Ucg6cGuL8RIxr/P5KK2ykgXf
-         QPPyAq+1seLIRdea9jLNoKuqtsYjlLCym1IJ8mgbv7vJ0K7FR7jgclpHDGgFYOmV78aq
-         pduHH1HywoxvO/uGcwvnLv9KaTYHCELAQXLZkDud8QdazmRT3zDkLeg80V51AzcTEGGw
-         oTBDkTxUDV4uofjBi9xhrDl3r1aLn/UMfmNrXVIF7MmweNhHcRippKwcPkgIVzU2Lrjf
-         KYurMg4C1vZMyu6Gbr+HMNzAcb7zNVZ+WgHheZGlcsjp7EgV+HmHQGBhWFge5tLHiDck
-         E/Dw==
-X-Forwarded-Encrypted: i=1; AJvYcCUAa52gqTV9p/vmmnj/+J7rHS0zPQNdBh6t/wpJ42yArNkpi5FjYtwZa2qwYjNrqn7WF5NT3bi66zVPVv/f/OU6@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx1QjzL3gwfoD2MvJkLIGM8wNqNr/DKcH097QHaxE4ETFgvQTgS
-	3PVBT1VezNzGvmm9H8hPpQ4Y34oFd0ivwRlF6BSbM8IQ+dQBmVXUnKL5qAM+WbRu0cKDvOhNuBw
-	vuqxFJdk=
-X-Gm-Gg: ASbGncvX6tJbmgtIPrawiM+soZoJVxbArxO8q6XoPwGPlASsvQDTxTbWMHNPKYkIy2E
-	yHrWnBfLq136mX+wSeBzBN9f4YRt2DGC/FneTwvC7Bw8R05KijsCDQTQMzzYjsKcmKihPVdsdrH
-	BiDrelQnNaLPQG8o9AgDv4XcHPla1VH0s3vr962ZQAcPSGQeYYfWFEwcpM0FAMq7kXECW2xG/aa
-	G+rDgIvCfefek6F8vh3fe+qtkj0sSot7+pbYluhPWZhD9wOsK2z+abOehTI09NgNE8wDkqDPd2n
-	6LT9M0apAHnmE+edbcmA19G9ZXaYByOBW7x9ZmbuNKXd9OH9KmxJktk03s/D9ILbrEhGFSZ7xkQ
-	i2mh/DROFgaKM/8S6yAv9w1QMVGd5Rtr9QuqKepSZxWo=
-X-Google-Smtp-Source: AGHT+IFAEeOFIgQZsxlTo4ZFQ5S1ZlK+bDlxrvpTDcY38SUWGb8pL41ejoZdXoSRHGQSxWChB02oUg==
-X-Received: by 2002:a05:6602:6d14:b0:926:a24b:dce5 with SMTP id ca18e2360f4ac-93bd18a2e74mr2738341339f.8.1760387349638;
-        Mon, 13 Oct 2025 13:29:09 -0700 (PDT)
-Received: from localhost ([140.82.166.162])
-        by smtp.gmail.com with ESMTPSA id ca18e2360f4ac-93e25a97830sm418857239f.23.2025.10.13.13.29.08
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Oct 2025 13:29:09 -0700 (PDT)
-Date: Mon, 13 Oct 2025 15:29:08 -0500
-From: Andrew Jones <ajones@ventanamicro.com>
-To: =?utf-8?B?Q2zDqW1lbnQgTMOpZ2Vy?= <cleger@rivosinc.com>
-Cc: Paul Walmsley <pjw@kernel.org>, 
-	Paul Walmsley <paul.walmsley@sifive.com>, Palmer Dabbelt <palmer@dabbelt.com>, 
-	linux-riscv@lists.infradead.org, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, Himanshu Chauhan <hchauhan@ventanamicro.com>, 
-	Anup Patel <apatel@ventanamicro.com>, Xu Lu <luxu.kernel@bytedance.com>, 
-	Atish Patra <atishp@atishpatra.org>, =?utf-8?B?QmrDtnJuIFTDtnBlbA==?= <bjorn@rivosinc.com>, 
-	Yunhui Cui <cuiyunhui@bytedance.com>
-Subject: Re: [PATCH v7 0/5] riscv: add support for SBI Supervisor Software
- Events
-Message-ID: <20251013-c5eb76e005d982fa4c8ce2bc@orel>
-References: <20250908181717.1997461-1-cleger@rivosinc.com>
- <86817f9a-c601-81e8-b95b-0f2396275f95@kernel.org>
- <628d357c-f462-4dc8-92f2-99006b73e0c7@rivosinc.com>
+	Mon, 13 Oct 2025 20:32:01 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id F26D5602DC;
+	Mon, 13 Oct 2025 20:31:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 55EEFC4CEE7;
+	Mon, 13 Oct 2025 20:31:51 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760387518;
+	bh=ysWVB1PH5yXaIm1/mguGEwYLxAYgw7ocXVK3fheEVQI=;
+	h=From:To:Cc:Subject:Date:From;
+	b=LBF2yNcUR6yjfrW50PCgHGc8AHAvBLQ9lrvJqA2WCQ37FrvKozfK4ptrCYuj1AVqK
+	 z6xLAVCLuoIDZvrgr+0C+SCMd8qYe8A7C/Cf3X++Q67H89ylB379pqJbdfHeMTCE1N
+	 KZf/I96mcxhrmHyctiuPatpj08zxohCD7+/aastyPBh1gSgRXhWXSZIaTY86mC93OK
+	 KUAndnd+7NuK52jdhGUE2upP207tMgConuEtCVlypo9CFV2FAxTXtjRHDRb3FjhLQX
+	 nDcM2xCjsiQV94+ABdYO/QPLEZKj8pdbSvjFzcU+/jqMNtaEDRurospUsKN1F/Xx3H
+	 tw5a0zfkpfrcg==
+From: Frederic Weisbecker <frederic@kernel.org>
+To: LKML <linux-kernel@vger.kernel.org>
+Cc: Frederic Weisbecker <frederic@kernel.org>,
+	"David S . Miller" <davem@davemloft.net>,
+	Danilo Krummrich <dakr@kernel.org>,
+	Johannes Weiner <hannes@cmpxchg.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	"Rafael J . Wysocki" <rafael@kernel.org>,
+	Ingo Molnar <mingo@redhat.com>,
+	Jens Axboe <axboe@kernel.dk>,
+	linux-block@vger.kernel.org,
+	cgroups@vger.kernel.org,
+	Michal Koutny <mkoutny@suse.com>,
+	Shakeel Butt <shakeel.butt@linux.dev>,
+	Simon Horman <horms@kernel.org>,
+	Waiman Long <longman@redhat.com>,
+	Phil Auld <pauld@redhat.com>,
+	linux-pci@vger.kernel.org,
+	Muchun Song <muchun.song@linux.dev>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Eric Dumazet <edumazet@google.com>,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Vlastimil Babka <vbabka@suse.cz>,
+	Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+	Marco Crivellari <marco.crivellari@suse.com>,
+	Will Deacon <will@kernel.org>,
+	Roman Gushchin <roman.gushchin@linux.dev>,
+	Michal Hocko <mhocko@suse.com>,
+	Lai Jiangshan <jiangshanlai@gmail.com>,
+	linux-mm@kvack.org,
+	Gabriele Monaco <gmonaco@redhat.com>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Tejun Heo <tj@kernel.org>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Paolo Abeni <pabeni@redhat.com>,
+	netdev@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	Jakub Kicinski <kuba@kernel.org>
+Subject: [PATCH 00/33 v3] cpuset/isolation: Honour kthreads preferred affinity
+Date: Mon, 13 Oct 2025 22:31:13 +0200
+Message-ID: <20251013203146.10162-1-frederic@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=iso-8859-1
-Content-Disposition: inline
 Content-Transfer-Encoding: 8bit
-In-Reply-To: <628d357c-f462-4dc8-92f2-99006b73e0c7@rivosinc.com>
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_132910_880475_15DC67ED 
-X-CRM114-Status: GOOD (  13.75  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,20 +100,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 13, 2025 at 08:53:01AM +0200, Clément Léger wrote:
-...
->  I would have prefer a bit more reviews and testing before going through
-> since SSE can be quite intrusive at execution time (even though the
-> classic IRQ path should not be impacted, I expect mostly feedback/bugs
-> from the SSE handling path itself). We'll see in a few days if people
-> find such problems.
+Hi,
 
-I've been planning to compare this series with the code we merged into
-kvm-unit-tests since the kvm-unit-tests series is where I put the effort
-into reviewing wrt the spec, etc. On a skim of this series I see several
-similarities with the kvm-unit-tests code so I should try to actually do
-that comparison exercise, but I'm not sure when I'll get the time...
+The kthread code was enhanced lately to provide an infrastructure which
+manages the preferred affinity of unbound kthreads (node or custom
+cpumask) against housekeeping constraints and CPU hotplug events.
+
+One crucial missing piece is cpuset: when an isolated partition is
+created, deleted, or its CPUs updated, all the unbound kthreads in the
+top cpuset are affine to _all_ the non-isolated CPUs, possibly breaking
+their preferred affinity along the way
+
+Solve this with performing the kthreads affinity update from cpuset to
+the kthreads consolidated relevant code instead so that preferred
+affinities are honoured.
+
+The dispatch of the new cpumasks to workqueues and kthreads is performed
+by housekeeping, as per the nice Tejun's suggestion.
+
+As a welcome side effect, HK_TYPE_DOMAIN then integrates both the set
+from isolcpus= and cpuset isolated partitions. Housekeeping cpumasks are
+now modifyable with specific synchronization. A big step toward making
+nohz_full= also mutable through cpuset in the future.
+
+Changes since v2:
+
+* Keep static key (peterz)
+
+* Handle PCI work flush
+
+* Comment why RCU is held until PCI work is queued (Waiman)
+
+* Add new tags
+
+* Add CONFIG_LOCKDEP ifdeffery (Waiman)
+
+* Rename workqueue_unbound_exclude_cpumask() to workqueue_unbound_housekeeping_update()
+  and invert the parameter (Waiman)
+  
+* Fix a few changelogs that used to mention that HK_TYPE_KERNEL_NOISE
+  must depend on HK_TYPE_DOMAIN. It's strongly advised but not mandatory (Waiman)
+  
+* Cherry-pick latest version of "cgroup/cpuset: Fail if isolated and nohz_full don't leave any housekeeping"
+  (Waiman and Gabriele)
+
+git://git.kernel.org/pub/scm/linux/kernel/git/frederic/linux-dynticks.git
+	kthread/core-v3
+
+HEAD: 4ba707cdced479592e9f461e1944b7fa6f75910f
 
 Thanks,
-drew
+	Frederic
+---
+
+Frederic Weisbecker (32):
+      PCI: Prepare to protect against concurrent isolated cpuset change
+      cpu: Revert "cpu/hotplug: Prevent self deadlock on CPU hot-unplug"
+      memcg: Prepare to protect against concurrent isolated cpuset change
+      mm: vmstat: Prepare to protect against concurrent isolated cpuset change
+      sched/isolation: Save boot defined domain flags
+      cpuset: Convert boot_hk_cpus to use HK_TYPE_DOMAIN_BOOT
+      driver core: cpu: Convert /sys/devices/system/cpu/isolated to use HK_TYPE_DOMAIN_BOOT
+      net: Keep ignoring isolated cpuset change
+      block: Protect against concurrent isolated cpuset change
+      cpu: Provide lockdep check for CPU hotplug lock write-held
+      cpuset: Provide lockdep check for cpuset lock held
+      sched/isolation: Convert housekeeping cpumasks to rcu pointers
+      cpuset: Update HK_TYPE_DOMAIN cpumask from cpuset
+      sched/isolation: Flush memcg workqueues on cpuset isolated partition change
+      sched/isolation: Flush vmstat workqueues on cpuset isolated partition change
+      PCI: Flush PCI probe workqueue on cpuset isolated partition change
+      cpuset: Propagate cpuset isolation update to workqueue through housekeeping
+      cpuset: Remove cpuset_cpu_is_isolated()
+      sched/isolation: Remove HK_TYPE_TICK test from cpu_is_isolated()
+      PCI: Remove superfluous HK_TYPE_WQ check
+      kthread: Refine naming of affinity related fields
+      kthread: Include unbound kthreads in the managed affinity list
+      kthread: Include kthreadd to the managed affinity list
+      kthread: Rely on HK_TYPE_DOMAIN for preferred affinity management
+      sched: Switch the fallback task allowed cpumask to HK_TYPE_DOMAIN
+      sched/arm64: Move fallback task cpumask to HK_TYPE_DOMAIN
+      kthread: Honour kthreads preferred affinity after cpuset changes
+      kthread: Comment on the purpose and placement of kthread_affine_node() call
+      kthread: Add API to update preferred affinity on kthread runtime
+      kthread: Document kthread_affine_preferred()
+      genirq: Correctly handle preferred kthreads affinity
+      doc: Add housekeeping documentation
+
+Gabriele Monaco (1):
+      cgroup/cpuset: Fail if isolated and nohz_full don't leave any housekeeping
+
+ Documentation/cpu_isolation/housekeeping.rst | 111 +++++++++++++++
+ arch/arm64/kernel/cpufeature.c               |  18 ++-
+ block/blk-mq.c                               |   6 +-
+ drivers/base/cpu.c                           |   2 +-
+ drivers/pci/pci-driver.c                     |  71 +++++++---
+ include/linux/cpu.h                          |   4 +
+ include/linux/cpuhplock.h                    |   1 +
+ include/linux/cpuset.h                       |   8 +-
+ include/linux/kthread.h                      |   2 +
+ include/linux/memcontrol.h                   |   4 +
+ include/linux/mmu_context.h                  |   2 +-
+ include/linux/pci.h                          |   3 +
+ include/linux/percpu-rwsem.h                 |   1 +
+ include/linux/sched/isolation.h              |   7 +-
+ include/linux/vmstat.h                       |   2 +
+ include/linux/workqueue.h                    |   2 +-
+ init/Kconfig                                 |   1 +
+ kernel/cgroup/cpuset.c                       | 134 +++++++++++++-----
+ kernel/cpu.c                                 |  42 +++---
+ kernel/irq/manage.c                          |  47 ++++---
+ kernel/kthread.c                             | 195 +++++++++++++++++++--------
+ kernel/sched/isolation.c                     | 137 +++++++++++++++----
+ kernel/sched/sched.h                         |   4 +
+ kernel/workqueue.c                           |  17 ++-
+ mm/memcontrol.c                              |  25 +++-
+ mm/vmstat.c                                  |  15 ++-
+ net/core/net-sysfs.c                         |   2 +-
+ 27 files changed, 647 insertions(+), 216 deletions(-)
 
