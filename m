@@ -4,57 +4,105 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8F73ECCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 10:18:59 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7984CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 10:55:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=JLiA3SxJf+5kqzmUAQRqg4ufl8ckV2JQJp6D5yFrBmk=; b=fLZDwG8agCFZXbGQEx2XDj9Slf
-	x2eZ4Y1q06nXZA2JW9nQ9QhDuxReiYRkbNbz5k2YWR07szs9fQmCFCbEkva7VC+OuYJrh58iwmP9e
-	y3xpDRagNHMZaUZpHWxa80dN8IOmOpUnxIssmlN8OsHgmVRQze3wfkzq7+JRMyUfLrtg6TfzX9RRj
-	FzXaIOC0bKDDP+rObwbS/53dhuKfSEEM007XMdjf/TSe7t948/PZpFrGifUbm5oTXVcO3ZRB8uG+6
-	Jb8TR8UknRI+8uCna3J7LllDoOGs9SDTKcc9An4dUOYstetImPijciyh+kuwUtbHZijxUKNWK+SIc
-	Oi7Klb4A==;
+	bh=m2qCIr0Vg+72UJ/RHHKOtvC9WajyJhmh1FGzsier6oU=; b=GkjYYkFGeov3mHODTAfEGwR2B6
+	YLLem07l1Yuq1aQs0dJ7dyr9OHCmPVm7CL9FfN+JHLDKwr0jBjZGRXTqUNCwJqyp4QDyk8DbA7nNP
+	b5DBo88kVxgQsSjym/k2ovnymCu61fVovkDTF/BlWVCdKTlElGfudC6mmdAWqiRipkWs908r2Qrua
+	6+ZHTtlcIQR8qaHZcVH2j49LQEykwLY6vAASqfmfJiNb6Zew2J5rNTGFjcAcpnY2F9POcxsI5NkLB
+	rtMDd1csy+gMAnkXSkKkmD3XvFZX6w9EcjrGs+H9JUm6vA9EJq8tq7qjS8UYKeOQxCX/KII4PW8dN
+	EiaUKzmQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Fdm-0000000CtIJ-2ojv;
-	Mon, 13 Oct 2025 10:18:54 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v8GCl-0000000Cwpd-1kex;
+	Mon, 13 Oct 2025 10:55:03 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Fdl-0000000CtHl-15D8
+	id 1v8GCi-0000000Cwmv-39A4
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 10:18:53 +0000
+	Mon, 13 Oct 2025 10:55:01 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 6E5F0611DF;
-	Mon, 13 Oct 2025 10:18:51 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id EB8F4C4CEFE;
-	Mon, 13 Oct 2025 10:18:48 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 61BB543CBF;
+	Mon, 13 Oct 2025 10:55:00 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09B25C4CEE7;
+	Mon, 13 Oct 2025 10:55:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760350731;
-	bh=ouuqUBDWHlhYA/UeSBYZG7v0qdrIikgKeIsUG354HMU=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=a6V6XmT8AMmRZZZjj2K4xW3xsCtRTlPQe7+ISoXf1jIQEH1gwGfqLRnYn4ZuVlldt
-	 2aLtgi4gPMC+zQIQXSdOaEB5WC12V2nVf6nSVYTzfF2aiK7HAyu2ZseeMS9SXfgwUn
-	 7+ywyxXqdM+hwoVzZBzUut5uvpgLItDxre++xuX347u3G6P7vjZtoSAkfZRX00IXt/
-	 edKxQo8yBatMkh27B14Eja+/yFHtK4K0UydSWCAHer8YqK5i01rLTPvOrFdt9UfSFe
-	 XuUsDjrV+gnqENRIpcTlP0hil9vHzVcG8H2sGQ9zbwv0PZQgsixp74DLgxBUN3G9ee
-	 k9epFFO3Si0gw==
-Date: Mon, 13 Oct 2025 12:18:46 +0200
-From: Lorenzo Pieralisi <lpieralisi@kernel.org>
-To: linux-kernel@vger.kernel.org, Thomas Gleixner <tglx@linutronix.de>
-Cc: linux-arm-kernel@lists.infradead.org, devicetree@vger.kernel.org,
-	Sascha Bischoff <sascha.bischoff@arm.com>,
-	Rob Herring <robh@kernel.org>, Marc Zyngier <maz@kernel.org>
-Subject: Re: [PATCH] irqchip/gic-v5: Add PCI bus msi-parent property handling
-Message-ID: <aOzSBlTUdN6sLQds@lpieralisi>
-References: <20250922142610.80200-1-lpieralisi@kernel.org>
-MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250922142610.80200-1-lpieralisi@kernel.org>
+	s=k20201202; t=1760352900;
+	bh=hDtDBPq7mpQu59X1/KQKeSG4qGjdGKZLxJrvhsMtr8s=;
+	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
+	b=uv1CRgQHUG5FCeSMmKXhInPfYnrb1p1wekfU4umGXqr7isPVVwiPFyxcc7xmk9Kie
+	 gsWVRFinc1T3GBcTJnY3Ku6zRxwPviuItaPs2QgnczDleixks3ocMtO7S3DPUyjzFP
+	 gHtWsXZkZ9tL4hDYs1WKKbeee6PAwGDSF8oLpGEmqScG+he0WEzT6bt/Edh6eXG9iX
+	 k/Zbm6yIuQ/lxdInD30PuoKQ5YTKVrO/21+pmsuLa8CSfcF7eq7KWZwMH9NdB3wN8r
+	 ER8PmXbSaz+oZ26t2JCuIIk7L5qfbf1kg0RqRWltR+D6+rm2pN2R7ucQucD+6yesd9
+	 rE6u+6llNL+oQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1v8GCf-0000000DU5W-12CP;
+	Mon, 13 Oct 2025 10:54:57 +0000
+Date: Mon, 13 Oct 2025 11:54:56 +0100
+Message-ID: <867bwzxe9r.wl-maz@kernel.org>
+From: Marc Zyngier <maz@kernel.org>
+To: Peter Maydell <peter.maydell@linaro.org>
+Cc: salil.mehta@opnsrc.net,
+	linux-kernel@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	salil.mehta@huawei.com,
+	jonathan.cameron@huawei.com,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	mark.rutland@arm.com,
+	james.morse@arm.com,
+	sudeep.holla@arm.com,
+	lpieralisi@kernel.org,
+	jean-philippe@linaro.org,
+	tglx@linutronix.de,
+	oliver.upton@linux.dev,
+	richard.henderson@linaro.org,
+	andrew.jones@linux.dev,
+	mst@redhat.com,
+	david@redhat.com,
+	philmd@linaro.org,
+	ardb@kernel.org,
+	borntraeger@linux.ibm.com,
+	alex.bennee@linaro.org,
+	gustavo.romero@linaro.org,
+	npiggin@gmail.com,
+	linux@armlinux.org.uk,
+	karl.heubaum@oracle.com,
+	miguel.luis@oracle.com,
+	darren@os.amperecomputing.com,
+	ilkka@os.amperecomputing.com,
+	vishnu@os.amperecomputing.com,
+	gankulkarni@os.amperecomputing.com,
+	wangyanan55@huawei.com,
+	wangzhou1@hisilicon.com,
+	linuxarm@huawei.com
+Subject: Re: [RFC PATCH] KVM: arm64: vgic-v3: Cache ICC_CTLR_EL1 and allow lockless read when ready
+In-Reply-To: <CAFEAcA8=yhQ-ygoA-fqxzwg69OkdW2nBM0O9X3Lmww4eXuVMWA@mail.gmail.com>
+References: <20251008201955.3919537-1-salil.mehta@opnsrc.net>
+	<86v7koxk1z.wl-maz@kernel.org>
+	<CAFEAcA8=yhQ-ygoA-fqxzwg69OkdW2nBM0O9X3Lmww4eXuVMWA@mail.gmail.com>
+User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
+ FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
+ (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
+MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
+Content-Type: text/plain; charset=US-ASCII
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: peter.maydell@linaro.org, salil.mehta@opnsrc.net, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, salil.mehta@huawei.com, jonathan.cameron@huawei.com, will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, james.morse@arm.com, sudeep.holla@arm.com, lpieralisi@kernel.org, jean-philippe@linaro.org, tglx@linutronix.de, oliver.upton@linux.dev, richard.henderson@linaro.org, andrew.jones@linux.dev, mst@redhat.com, david@redhat.com, philmd@linaro.org, ardb@kernel.org, borntraeger@linux.ibm.com, alex.bennee@linaro.org, gustavo.romero@linaro.org, npiggin@gmail.com, linux@armlinux.org.uk, karl.heubaum@oracle.com, miguel.luis@oracle.com, darren@os.amperecomputing.com, ilkka@os.amperecomputing.com, vishnu@os.amperecomputing.com, gankulkarni@os.amperecomputing.com, wangyanan55@huawei.com, wangzhou1@hisilicon.com, linuxarm@huawei.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251013_035500_869717_3BF20E49 
+X-CRM114-Status: GOOD (  32.67  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,102 +117,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Sep 22, 2025 at 04:26:10PM +0200, Lorenzo Pieralisi wrote:
-> In some legacy platforms the MSI controller for a PCI host bridge is
-> identified by an msi-parent property whose phandle points at an MSI
-> controller node with no #msi-cells property, that implicitly
-> means #msi-cells == 0.
+On Mon, 13 Oct 2025 09:42:58 +0100,
+Peter Maydell <peter.maydell@linaro.org> wrote:
 > 
-> For such platforms, mapping a device ID and retrieving the MSI controller
-> node becomes simply a matter of checking whether in the device hierarchy
-> there is an msi-parent property pointing at an MSI controller node with
-> such characteristics.
+> On Thu, 9 Oct 2025 at 14:48, Marc Zyngier <maz@kernel.org> wrote:
+> >
+> > On Wed, 08 Oct 2025 21:19:55 +0100,
+> > salil.mehta@opnsrc.net wrote:
+> > >
+> > > From: Salil Mehta <salil.mehta@huawei.com>
+> > >
+> > > [A rough illustration of the problem and the probable solution]
+> > >
+> > > Userspace reads of ICC_CTLR_EL1 via KVM device attributes currently takes a slow
+> > > path that may acquire all vCPU locks. Under workloads that exercise userspace
+> > > PSCI CPU_ON flows or frequent vCPU resets, this can cause vCPU lock contention
+> > > in KVM and, in the worst cases, -EBUSY returns to userspace.
+> > >
+> > > When PSCI CPU_ON and CPU_OFF calls are handled entirely in KVM, these operations
+> > > are executed under KVM vCPU locks in the host kernel (EL1) and appear atomic to
+> > > other vCPU threads. In this context, system register accesses are serialized
+> > > under KVM vCPU locks, ensuring atomicity with respect to other vCPUs. After
+> > > SMCCC filtering was introduced, PSCI CPU_ON and CPU_OFF calls can now exit to
+> > > userspace (QEMU). During the handling of PSCI CPU_ON call in userspace, a
+> > > cpu_reset() is exerted which reads ICC_CTLR_EL1 through KVM device attribute
+> > > IOCTLs. To avoid transient inconsistency and -EBUSY errors, QEMU is forced to
+> > > pause all vCPUs before issuing these IOCTLs.
+> >
+> > I'm going to repeat in public what I already said in private.
+> >
+> > Why does QEMU need to know this? I don't see how this is related to
+> > PSCI, and outside of save/restore, there is no reason why QEMU should
+> > poke at this. If QEMU needs fixing, please fix QEMU.
 > 
-> Add a helper function to its_v5_pci_msi_prepare() to check the msi-parent
-> property in addition to msi-map and retrieve the MSI controller node (with
-> a 1:1 ID deviceID-IN<->deviceID-OUT mapping) to provide support for
-> deviceID mapping and MSI controller node retrieval for such platforms.
-> 
-> Fixes: 57d72196dfc8 ("irqchip/gic-v5: Add GICv5 ITS support")
-> Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-> Cc: Sascha Bischoff <sascha.bischoff@arm.com>
-> Cc: Thomas Gleixner <tglx@linutronix.de>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Marc Zyngier <maz@kernel.org>
-> ---
-> Follow-up to [1] in that it is a fix and too risky to fix generic OF code at
-> this stage of development since it might affect other platforms.
-> 
-> Apply a fix to GIC ITS v5 MSI parent code - follow-up will clean up
-> the msi-parent parsing in the kernel tree.
-> 
-> [1] https://lore.kernel.org/lkml/20250916091858.257868-1-lpieralisi@kernel.org/
+> I don't know the background here, but generally speaking,
+> when we do a CPU reset that includes writing all the CPU state
+> of the "this is freshly reset from userspace's point of view" vcpu
+> back to the kernel. More generally, userspace should be able to
+> read and write sysregs for a vcpu any time it likes, and not
+> arbitrarily get back -EBUSY. What does the kernel expect
+> userspace to do with an errno like that?
 
-Hi Thomas,
+The main issue here is that GICv3 is modelled as a device, just like
+GICv2, and that all the sysregs that are relevant to the GIC have the
+same status as the MMIO registers: they can only be accessed when the
+vcpus are not running.
 
-just asking you please to ignore this patch, I will carry on fixing the issue
-with the core OF approach in [1] above, sorry for the noise, it is better
-to fix it in generic OF code rather than a temporary plaster as this one.
+These sysregs are not visible through the normal ONE_REG API, and
+therefore not subjected to the "do whatever you want" rule.
+
+Should we have done something else when the GICv3 save/restore API was
+introduced and agreed upon with the QEMU people? Probably. Can we
+change it now? Probably not. The only thing we could relax is the
+scope of the lock when accessing a sysreg, so that we only mandate
+that the targeted vcpu is not running instead of the whole VM.
+
+And finally, if you object to this API, why should we do for GICv5,
+which is so far implemented by following the exact same principles?
 
 Thanks,
-Lorenzo
 
->  drivers/irqchip/irq-gic-its-msi-parent.c | 34 ++++++++++++++++++++++--
->  1 file changed, 32 insertions(+), 2 deletions(-)
-> 
-> diff --git a/drivers/irqchip/irq-gic-its-msi-parent.c b/drivers/irqchip/irq-gic-its-msi-parent.c
-> index eb1473f1448a..198fb4e9a22d 100644
-> --- a/drivers/irqchip/irq-gic-its-msi-parent.c
-> +++ b/drivers/irqchip/irq-gic-its-msi-parent.c
-> @@ -101,6 +101,33 @@ static int its_pci_msi_prepare(struct irq_domain *domain, struct device *dev,
->  	return msi_info->ops->msi_prepare(domain->parent, dev, nvec, info);
->  }
->  
-> +static int its_v5_get_msi_parent(struct device *dev, struct device_node **msi_np)
-> +{
-> +	struct of_phandle_args out_msi;
-> +	struct device *parent_dev;
-> +	int ret;
-> +
-> +	/*
-> +	 * Walk up the device parent links looking for one with a
-> +	 *  "msi-parent" property.
-> +	 */
-> +	for (parent_dev = dev; parent_dev; parent_dev = parent_dev->parent) {
-> +		ret = of_parse_phandle_with_optional_args(parent_dev->of_node, "msi-parent",
-> +							  "#msi-cells",
-> +							  0, &out_msi);
-> +		if (!ret) {
-> +			if (!out_msi.args_count) {
-> +				/* Return with a node reference held */
-> +				*msi_np = out_msi.np;
-> +				return 0;
-> +			}
-> +			of_node_put(out_msi.np);
-> +		}
-> +	}
-> +
-> +	return -ENODEV;
-> +}
-> +
->  static int its_v5_pci_msi_prepare(struct irq_domain *domain, struct device *dev,
->  				  int nvec, msi_alloc_info_t *info)
->  {
-> @@ -117,8 +144,11 @@ static int its_v5_pci_msi_prepare(struct irq_domain *domain, struct device *dev,
->  	pdev = to_pci_dev(dev);
->  
->  	rid = pci_msi_map_rid_ctlr_node(pdev, &msi_node);
-> -	if (!msi_node)
-> -		return -ENODEV;
-> +	if (!msi_node) {
-> +		ret = its_v5_get_msi_parent(&pdev->dev, &msi_node);
-> +		if (ret)
-> +			return ret;
-> +	}
->  
->  	ret = its_translate_frame_address(msi_node, &pa);
->  	if (ret)
-> -- 
-> 2.48.0
-> 
+	M.
+
+-- 
+Without deviation from the norm, progress is not possible.
 
