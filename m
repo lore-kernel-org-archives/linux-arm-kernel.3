@@ -4,69 +4,116 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7DA2CCCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 22:35:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id DC7C6CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 22:35:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=jkjYWJRZ8BxtAqiUXkln222K7WFG+8n4AKa+Z11rdx4=; b=qc+QKsjyZSPF53eQTlYTJb0wHI
-	I/3Cok8fRAVPYn5rQdVw6K97nm6/0iYCy/7gz7HwwrkAFMzrIBWj5UhtR5A9kK9a2MJpfTjstLYFt
-	5caVTaGB2X5mPlhoFaHErVeD7gV/mdTHcDxE6S0r68EEOVMZ630T/iciGGJebDFcuq2RwGyOOfCjc
-	41xR52wYFf6fjmPf9kqdh13eIeW1TU9pAQEFbvLB9HgC+sPgjodjK8G5azxwoGfA00QzSwZnUqf7j
-	RflzE2j7oENXbdgounTS4Fw7Ey9Y0rtrOLGcU4AkKyff7oxe1jADIAg+T8rNz19+51hss+mT2d9Z2
-	j8xL5bFg==;
+	bh=gtxL+uYHTrxBSaf2VJ6n4z+smdSSDd5JBl8pS6dLFSc=; b=JnKNXa1xDliczJPP1RMntTx+5x
+	dDjRTq2xxzxYm8X9rRnmdgpeLsxoxluNBSj4jJjjpTbd4eqtPQMb89jdMc1iQf+TnnbJVf59yNs87
+	Rws8o5qylLy6yu9/uoXpkAio7VbhjOQQxfT7h51YnJ2XGzA1fUCBbiu+dv920Daz+ukMDJ1Uz8Yuj
+	BDGtnqpE31dg3SyLlmpyzT6yUQymGFdugR0NsCHOV9dk8abKW4YCXXSLsWgLjXvzqP9vQpLUNUOfS
+	gmqfBEZrA8ItXvXtcXMc6kKJcGox6VDV+a1wfX4Gntp/5f8ghmq0x5JYW8tMOHLphCerNAD2j/Fox
+	GcP9kB5w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8R8h-0000000Ehy6-2e7F;
-	Mon, 13 Oct 2025 22:35:35 +0000
-Received: from relay.smtp-ext.broadcom.com ([192.19.166.231])
+	id 1v8R8p-0000000Ei0o-3vK9;
+	Mon, 13 Oct 2025 22:35:43 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8R8e-0000000EhxV-409l
+	id 1v8R8o-0000000Ei01-35PE
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 13 Oct 2025 22:35:42 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:MIME-Version:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=gtxL+uYHTrxBSaf2VJ6n4z+smdSSDd5JBl8pS6dLFSc=; b=l+UHxMq1LIDks94fKMkabwQAxy
+	iRDIVebyleJ98XLecHP1o7c93ECkIwRISkC5X434c1alA1otPHw6TueUiqAjfrwijC+tkJiHWBeWC
+	zOVaWVAnzLmuDSLDTlVb5j0PXzvWW+ATdhsP5Hk2tMYAfxsX/0bBIbe9zU/q4JxbnigfAYhPuZ7tX
+	Fg8FqAUvAzLxAJZTVYQ/z8YG0v9lt9coDM5PF0x72KhW+36PXWXwjyJMlNRMbdKF5TNgisRgNsJQ1
+	+nV3q02JwBIEmUUs0IYi83DGjgNMpJvLDGv/rc4QOVec5XXvMfvbV7pjXdmkFEKZwlLO9JL5pAM8l
+	l4KY8cQw==;
+Received: from mail-pf1-x42c.google.com ([2607:f8b0:4864:20::42c])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v8R8l-00000004hyh-0SCR
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 22:35:34 +0000
-Received: from mail-lvn-it-01.broadcom.com (mail-lvn-it-01.lvn.broadcom.net [10.36.132.253])
-	by relay.smtp-ext.broadcom.com (Postfix) with ESMTP id AEB8DC0000EE;
-	Mon, 13 Oct 2025 15:35:30 -0700 (PDT)
-DKIM-Filter: OpenDKIM Filter v2.11.0 relay.smtp-ext.broadcom.com AEB8DC0000EE
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=broadcom.com;
-	s=dkimrelay; t=1760394930;
-	bh=y8kvHBT5GSm5R27fl479Rj//1SH77XIhCp7ul1dMu5A=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=VbfFnw/KGSBEly/Jt8Zdog1d26I3LQo2BUV3++o5yEFOPdxJ9rw1euz7hPbMAh8UM
-	 ekVjVpxYNtW+Gc1ySzxjJ3baSmWdoWKR74+BXLMQeUO+xPw/uTbHFLf8S+Msh6CE40
-	 lhurU9YxgY1TMIEKP7kOq5WmVVKf3fIHvzQ5GRME=
-Received: from fainelli-desktop.igp.broadcom.net (fainelli-desktop.dhcp.broadcom.net [10.67.48.245])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mail-lvn-it-01.broadcom.com (Postfix) with ESMTPSA id 7E8361800051E;
-	Mon, 13 Oct 2025 15:35:30 -0700 (PDT)
-From: Florian Fainelli <florian.fainelli@broadcom.com>
-To: bcm-kernel-feedback-list@broadcom.com,
-	=?iso-8859-2?q?Rafa=B3_Mi=B3ecki?= <zajec5@gmail.com>,
-	Florian Fainelli <florian.fainelli@broadcom.com>
-Cc: Florian Fainelli <f.fainelli@gmail.com>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	linux-arm-kernel@lists.infradead.org,
-	devicetree@vger.kernel.org,
-	=?iso-8859-2?q?Rafa=B3_Mi=B3ecki?= <rafal@milecki.pl>
-Subject: Re: [PATCH] ARM: dts: BCM53573: Fix address of Luxul XAP-1440's Ethernet PHY
-Date: Mon, 13 Oct 2025 15:35:30 -0700
-Message-ID: <20251013223530.2518756-1-florian.fainelli@broadcom.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251002194852.13929-1-zajec5@gmail.com>
-References: <20251002194852.13929-1-zajec5@gmail.com>
+	Mon, 13 Oct 2025 22:35:41 +0000
+Received: by mail-pf1-x42c.google.com with SMTP id d2e1a72fcca58-77f1f29a551so6039297b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 15:35:38 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1760394932; x=1760999732; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=gtxL+uYHTrxBSaf2VJ6n4z+smdSSDd5JBl8pS6dLFSc=;
+        b=SVuSbYgVtbXkeJB4q0tGYrQg4G4twDwyf6C/PSlo/slHP8ibn9YVtSJsFNgKWRJ+K/
+         90Nw8tRgDsSp/65sdRY49FBt4ZTMAdUZ1uWYpDMASVxmtYGhrqYgpaBRKZqwvuI1ZFVu
+         XGNJUBsrtakzMY7qeQOmUib5nnjx5ySaNjHOU=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760394932; x=1760999732;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=gtxL+uYHTrxBSaf2VJ6n4z+smdSSDd5JBl8pS6dLFSc=;
+        b=YbMrJWo+W82xdAGLkcp9DseZagRmzJL3LmperUQ4NrtnY/vm8TsYUBPxdwfOIlGYa7
+         lThHH2CaU7DwuzsU40AkaltDjXxaggO1CMKqGvI7Vl0/olHVCi6kdGQpn01qs7WbzZyw
+         XFwhcj1tZBICFbqqQblaTwL8+6bfE9iNyo87FCQOr7PAgO7vOGBZ5jRj4tDvfzC+vEFc
+         RI6JLj5nWxD79ZRb0Ibu03HxyUhMok2bLhQxtx+sg/ZoDyxnNQ2PvAMsmirKjFpduC21
+         h+PW3MZ19BMUJlhMy9rs++qk35vsxWyWw1p9SJNyCjfx7JhS/AEeKS4LvRD8WpuejqyB
+         i+PA==
+X-Forwarded-Encrypted: i=1; AJvYcCUC8PSgEkKWeVl4wKU2eYaYI1DNz/EU671Se/pmibtJFVfRLUzfkHuN3S03jde48XOdypVckYVSxfeMmKF0KYNk@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyf7Z35f4DAmuw1+Auk2KDn1VMwAar6Qd0nqWGaW0jJztfyt8VA
+	s+d0LxJLKn9rvxSxk2U7LpEiLjw77EVr8pbJAFNWOYr+u65zH65Pm+y1KDxcJRc1mKB1nPi1Qjt
+	lkiE=
+X-Gm-Gg: ASbGncsciJwWHpdcQmLt1NJ5ozg9D5/o5MoXisJQlqvbZz9CT2DJBBfHD+XFVIIa8KT
+	ApF0ytAXGF4LpykYF0lLLrTyGkV4hVQbQIbm0GbGH5tsGrFyBpJuaqtUHQUpPDkQzA5N0mZF/jw
+	jGqeb1OpAIpdCk9QyS0yd6BHXlnRgq80zwDeN312ml9qX0ZZWy8JM8WBOFS5wHm0yVgxAOon6Ax
+	588vpkjl1whDn1kpnlS6TKfp13gfnQR03A/SVzD8sLKRYQrZFYz3/NIsCV8c6mXrenh7wwa+fcM
+	MYe7kCPAXBP6QshzJWqG/NJ6Ka/qGPjsSbwMAQzb7Y2mibEY6isgJfY1ajAQ7HyWnsrgDM9i8D6
+	JTsBOO1rYtKz5cZuNh0GslHqIieMDeLTe2N5fAjBwXmis1VFgsDBeImZZWfjXzSnw87a/6J9/yN
+	4KvL291vY6iuQVTmdPUy0=
+X-Google-Smtp-Source: AGHT+IFvZJZ/zS3xlUaN47EQIWRaEm0mZg1Dg4GMyI0dSMSGmy1lkDt3WWGhvKah5vsI45s+amer6g==
+X-Received: by 2002:a05:6a20:430e:b0:248:4d59:93d5 with SMTP id adf61e73a8af0-32da84edde1mr30232472637.55.1760394931793;
+        Mon, 13 Oct 2025 15:35:31 -0700 (PDT)
+Received: from mail-pl1-f174.google.com (mail-pl1-f174.google.com. [209.85.214.174])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7992b065c40sm12775656b3a.10.2025.10.13.15.35.29
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 13 Oct 2025 15:35:31 -0700 (PDT)
+Received: by mail-pl1-f174.google.com with SMTP id d9443c01a7336-27c369f8986so43134895ad.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 15:35:29 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCVtB64K4QL24pewlkH4B3ujfWo5oQkPHRj6EpCvnK0YzT8axXztOFEpM+3en+y2JkdMdK0BtVHdyDCGZMGsU4FB@lists.infradead.org
+X-Received: by 2002:a17:902:ebc5:b0:267:bd8d:19e with SMTP id
+ d9443c01a7336-290273799f8mr248133945ad.22.1760394928761; Mon, 13 Oct 2025
+ 15:35:28 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 8bit
+References: <20251009032838.63060-1-cuiyunhui@bytedance.com> <20251009032838.63060-3-cuiyunhui@bytedance.com>
+In-Reply-To: <20251009032838.63060-3-cuiyunhui@bytedance.com>
+From: Doug Anderson <dianders@chromium.org>
+Date: Mon, 13 Oct 2025 15:35:16 -0700
+X-Gmail-Original-Message-ID: <CAD=FV=XRp9=5yxR3Q1UhJhBS-wm59yssozKi55W7HGk+S94AjQ@mail.gmail.com>
+X-Gm-Features: AS18NWD-PlH4jDf4beOYtPWdSx7chQ77jPK1vKggaxR4OltLXyHgtJF5jyN2qPw
+Message-ID: <CAD=FV=XRp9=5yxR3Q1UhJhBS-wm59yssozKi55W7HGk+S94AjQ@mail.gmail.com>
+Subject: Re: [PATCH v3 2/2] riscv: add HARDLOCKUP_DETECTOR_PERF support
+To: Yunhui Cui <cuiyunhui@bytedance.com>
+Cc: akpm@linux-foundation.org, alex@ghiti.fr, anup@brainfault.org, 
+	aou@eecs.berkeley.edu, atish.patra@linux.dev, catalin.marinas@arm.com, 
+	johannes@sipsolutions.net, lihuafei1@huawei.com, mark.rutland@arm.com, 
+	masahiroy@kernel.org, maz@kernel.org, mingo@kernel.org, 
+	nicolas.schier@linux.dev, palmer@dabbelt.com, paul.walmsley@sifive.com, 
+	suzuki.poulose@arm.com, thorsten.blum@linux.dev, wangjinchao600@gmail.com, 
+	will@kernel.org, yangyicong@hisilicon.com, zhanjie9@hisilicon.com, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+	linux-perf-users@vger.kernel.org, linux-riscv@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_153533_038479_234C421A 
-X-CRM114-Status: UNSURE (   9.08  )
+X-CRM114-CacheID: sfid-20251013_233539_382874_1A069E7B 
+X-CRM114-Status: UNSURE (   9.90  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -82,18 +129,18 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Florian Fainelli <f.fainelli@gmail.com>
+Hi,
 
-On Thu,  2 Oct 2025 21:48:52 +0200, Rafał Miłecki <zajec5@gmail.com> wrote:
-> From: Rafał Miłecki <rafal@milecki.pl>
-> 
-> Luxul XAP-1440 has BCM54210E PHY at address 25.
-> 
-> Fixes: 44ad82078069 ("ARM: dts: BCM53573: Fix Ethernet info for Luxul devices")
-> Signed-off-by: Rafał Miłecki <rafal@milecki.pl>
+On Wed, Oct 8, 2025 at 8:29=E2=80=AFPM Yunhui Cui <cuiyunhui@bytedance.com>=
+ wrote:
+>
+> Enable the HARDLOCKUP_DETECTOR_PERF function based on RISC-V SSE.
+>
+> Signed-off-by: Yunhui Cui <cuiyunhui@bytedance.com>
 > ---
+>  arch/riscv/Kconfig           |  4 ++++
+>  drivers/perf/riscv_pmu_sbi.c | 10 ++++++++++
+>  2 files changed, 14 insertions(+)
 
-Applied to https://github.com/Broadcom/stblinux/commits/devicetree/fixes, thanks!
---
-Florian
+Reviewed-by: Douglas Anderson <dianders@chromium.org>
 
