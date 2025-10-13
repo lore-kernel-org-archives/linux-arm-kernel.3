@@ -4,98 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C75CCCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 12:48:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09713CCD18C
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 12:49:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ME8ir36ArdJeQ8VOuoWbknt4FySWcug96E0ZWizlwFA=; b=pvx+/xAZV+lS4Pk5n2Pnq+PE7N
-	c65L41Pg/sfLPDUNGxqF4lplAGOLB1S/58HFqgkvXcpR2sAI59pKDueHCS30YZ5Z7j0/7rjrIzkBs
-	GbrassVbINe9wADrCwmtGzV1W5vgoS9TfaOfxczqG359HXEWnQp54OfD/JhzmUB5/B3uGqXgXiHCy
-	BObWqI2LsyfuqHZJNZGBQIoj3ox9UhDsRora1vsXgXqrwvGEBFhtU5stot4Q5UExt80I23J64eO7b
-	NK+rIEEMmsgFeTNZPkriMYmODl7wpfvOIkCH5VrNLIw3cQSQaBCOQf5NVbPNlUDoker5gLWFoXj1O
-	LssyWqXA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=k3MQLLai5Lv1jjJP3MPQy569OXhdTSwstmrfUBxF72w=; b=r4IDrVoVMDYOZBmfPBCXH1gtEM
+	yTFzcxXqbB5qMJkFN57wnyz8bYxPt5QM8ZYt29+bSrXS0G7EOSWnuP+urW9VbcM2kNN5OCx4pyVPD
+	wF9gtkJbCXKZpiuJ+wdMTKizlts24B7HUWmGiyNcrqUEF0gnv/6D82+Nk6cbyNkv/SowF32UsCmJB
+	OV6jFdqMruAgiJmyMzYTJGH/CofIb3nqRvQYtgRhAkcOnN9DfCItNU451KNim4IFvjExQDol/ju4R
+	CimW47OmwTCST1oXtFHlux1xO7k3NeIr3whWmgnhk2ljjxiD4POivqZ7qVTzLJS8k8CzKIkqq/5ek
+	sUMvM6SA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8HyH-0000000D9lA-2DNQ;
-	Mon, 13 Oct 2025 12:48:13 +0000
-Received: from mail-ed1-x52f.google.com ([2a00:1450:4864:20::52f])
+	id 1v8Hzn-0000000DA8l-3pqG;
+	Mon, 13 Oct 2025 12:49:47 +0000
+Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8HyF-0000000D9kf-3AX5
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 12:48:13 +0000
-Received: by mail-ed1-x52f.google.com with SMTP id 4fb4d7f45d1cf-63bc12a5608so625495a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 05:48:10 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760359690; x=1760964490; darn=lists.infradead.org;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :from:to:cc:subject:date:message-id:reply-to;
-        bh=ME8ir36ArdJeQ8VOuoWbknt4FySWcug96E0ZWizlwFA=;
-        b=W3dxZ4pu6SJRlNZHybBCgLjx109/MYQhjAtwiNjFqo8AYpWNhR2HXg6U6pvHnqdy2K
-         5D9Sn2SOWotcEtUQV1mmvPGVMih3KRbUzT2/WUexz+fS3dF95pNxmrxjP8919sJOvY2h
-         iw2ho385c22Ia98PvWzY6a5EXIISBer/vS0TTv1S1rye70Oto++Ph+tIDWR7TLDYAYd1
-         /yO3dA4ha7vqxFhFbafnz36zafEr70E0OU8D56b8wWcCTg/C/GH7Qefq4LFsxogTLG2B
-         0zRophTWmxF48kj0swQMNCQvZXXn4rbP+LuRtO0clI8cnCkpWGK+2owi7Nu31grlStWd
-         jxuw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760359690; x=1760964490;
-        h=content-transfer-encoding:in-reply-to:from:content-language
-         :references:cc:to:subject:user-agent:mime-version:date:message-id
-         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
-        bh=ME8ir36ArdJeQ8VOuoWbknt4FySWcug96E0ZWizlwFA=;
-        b=t5Mea8r5J6pHtpqd3qXeEZVhcCPKmRWwsPrglnpxHcc3r5Mbfok5w3CzR3Ff/eiicI
-         MoWCh23gFcOKaiEWci13iHp7im26+fr6S7bPar0ziAjMzct1sG55uSsi4LEE4OdTQ5hy
-         KIoWTcWWc1rlFER/J6xgGF8RH85J9nQeDb9oazLaz0K3yb0oydVk6t9xjrTNy8Q8KIzM
-         /UTdvImunSCf4E/4cjpwG7XYJNfTMnnhBCSfwV5xltixXN7pdPwDA9BasWesOLgQmU5Z
-         iGfLdd7QGh0O87zV9ll1zDc33+opSyncYzbG97cEIB2IKMaNMt+S13jldDZt8nKrEFSO
-         VEAA==
-X-Forwarded-Encrypted: i=1; AJvYcCXd9dUBMM+/gcBMRVSWGLorOMPPUtBBHa6SbRU0NB5OVCMcJ7AKSdUPkL0mNnnPNgY5FQEom8zCkne1H8ICpYrw@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz+vdbTw1NjbRhzyEmPaD3Y+U1PLQV20YrL8aOtzHMXLSWh+M2u
-	d3XsYm4kjR3KEPT1KCrCVtvf/adXJ4Db2KeQO0EHp8qCXgtnT0yaihsC
-X-Gm-Gg: ASbGncs0LXnDdqovvx1WyUzvCb5Z3sCdgmMMwej0saQplMKydXhLBuk8BiFo2AIvkbc
-	RKprjoVMtSskFhzFWse56oeZsr1eSe7mwO7sHWT/5xGbgHQCouRsauFhW3QMWcnofU6pP0kfMF5
-	BFweT2c0fyoEn09E/zdlsThQVqP5WjVeMadXoda+XCtEKlH8qcHvL2bnkqMKn/483wTKzTdL3yl
-	9kEHirEsbkVVxRgI6qV9MuVJ+Sggm18cmUgZ8ZoQglOwicqd3U2aQ/Zx/uN+OaTcSdi1sX6ReRI
-	A0S3gDNjW6eh64Le8jJpdn0bxJEKPT6uODnmi5VVdxNXGvPAvIsyhb5EItTZ8oLrfC0Fn1eKcwQ
-	MLb1O49eRm4ErwSIoXkfi9w/GgbmEHoQuu0GzPjgxHbgMIQUnG8RuT92B4e5iuxoFjdebSYKEU3
-	OPXBDB
-X-Google-Smtp-Source: AGHT+IGhsH9Jko1f8FqT4pidOms6fn00pFogStN/Ol9Z3CUMb20PsGcKDB/1u9de4k8QmAJ4VfkJ0A==
-X-Received: by 2002:a17:906:4a85:b0:b55:c35e:e533 with SMTP id a640c23a62f3a-b55c35ee5d6mr1063241366b.12.1760359689360;
-        Mon, 13 Oct 2025 05:48:09 -0700 (PDT)
-Received: from [192.168.4.55] ([92.120.5.12])
-        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b55d5cacba7sm916644566b.5.2025.10.13.05.48.07
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Oct 2025 05:48:08 -0700 (PDT)
-Message-ID: <1ad36baf-83af-4ab7-9f47-dd7f74d4749f@gmail.com>
-Date: Mon, 13 Oct 2025 15:48:07 +0300
+	id 1v8Hzk-0000000DA7e-3buY;
+	Mon, 13 Oct 2025 12:49:46 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
+	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
+	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
+	bh=k3MQLLai5Lv1jjJP3MPQy569OXhdTSwstmrfUBxF72w=; b=IYz8hkJVfaP2cX4h8ZURsZZ4uF
+	mKPN5lEiMWdLhGTGvlXkhhNTiX+V6ElB7rt+ErxHq2nWwSTGUKFpoF5Sg8Idcuf2MJi8Wa+grVvW4
+	Fed16y9coFyDw/QXXQYs5I7htwlZLIz/reIUDsDX5TKjYWKtZ2aMJAkBzBIOvKjoAbMjkMvr15Tcl
+	G590Viuqb+Xm6YMY7lweG+QjqEaz64p3KHCxQif1U5l8J3fgTigZ7luXotO5sKO/ECOtF2AeOXf7y
+	nap9IUSzUxu1McVNIdhRmwT8/b6UD27i34sKNFzmVJy7CewBcJhCyubeppnsLP12nSJ7f2tsJ7x8e
+	Mb1NJa8Q==;
+Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:48894)
+	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <linux@armlinux.org.uk>)
+	id 1v8HzP-000000001zZ-0kKg;
+	Mon, 13 Oct 2025 13:49:23 +0100
+Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
+	(envelope-from <linux@shell.armlinux.org.uk>)
+	id 1v8HzH-000000000Le-1ZYr;
+	Mon, 13 Oct 2025 13:49:15 +0100
+Date: Mon, 13 Oct 2025 13:49:15 +0100
+From: "Russell King (Oracle)" <linux@armlinux.org.uk>
+To: Liangbin Lian <jjm2473@gmail.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
+	heiko@sntech.de, quentin.schulz@cherry.de,
+	kever.yang@rock-chips.com, naoki@radxa.com, honyuenkwun@gmail.com,
+	inindev@gmail.com, ivan8215145640@gmail.com,
+	neil.armstrong@linaro.org, mani@kernel.org, dsimic@manjaro.org,
+	pbrobinson@gmail.com, alchark@gmail.com, didi.debian@cknow.org,
+	jbx6244@gmail.com, andrew@lunn.ch, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v5 3/3] arm64: dts: rockchip: add LinkEase EasePi R1
+Message-ID: <aOz1SzpzGLDQjiYQ@shell.armlinux.org.uk>
+References: <20251009084416.45542-1-jjm2473@gmail.com>
+ <20251009084416.45542-4-jjm2473@gmail.com>
+ <aOe_0EufouURu7R2@shell.armlinux.org.uk>
+ <CAP_9mL4MfzagxiMD1VdOu=jBuN_XsOrvPQT=XTVgu2+G=+nD9A@mail.gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 3/7] dt-bindings: clock: document 8ULP's SIM LPAV
-To: Krzysztof Kozlowski <krzk@kernel.org>
-Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
- Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
- <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
- <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
- Fabio Estevam <festevam@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>,
- linux-clk@vger.kernel.org, imx@lists.linux.dev, devicetree@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- Pengutronix Kernel Team <kernel@pengutronix.de>
-References: <20250804155407.285353-1-laurentiumihalcea111@gmail.com>
- <20250804155407.285353-4-laurentiumihalcea111@gmail.com>
- <20250805-stereotyped-precise-vicugna-1c78ff@kuoka>
-Content-Language: en-US
-From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
-In-Reply-To: <20250805-stereotyped-precise-vicugna-1c78ff@kuoka>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+Content-Type: text/plain; charset=utf-8
+Content-Disposition: inline
+Content-Transfer-Encoding: 8bit
+In-Reply-To: <CAP_9mL4MfzagxiMD1VdOu=jBuN_XsOrvPQT=XTVgu2+G=+nD9A@mail.gmail.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_054811_843043_FF039D43 
-X-CRM114-Status: GOOD (  21.74  )
+X-CRM114-CacheID: sfid-20251013_054944_897294_CF129820 
+X-CRM114-Status: GOOD (  28.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -110,139 +88,92 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On Fri, Oct 10, 2025 at 11:20:08AM +0800, Liangbin Lian wrote:
+> Russell King (Oracle) <linux@armlinux.org.uk> 于2025年10月9日周四 21:59写道：
+> >
+> > On Thu, Oct 09, 2025 at 04:44:16PM +0800, Liangbin Lian wrote:
+> > > +&gmac0 {
+> > > +     phy-mode = "rgmii-id";
+> > > +     clock_in_out = "input";
+> > ...
+> > > +&gmac1 {
+> > > +     phy-mode = "rgmii-id";
+> > > +     clock_in_out = "input";
+> >
+> > I am fine with what is being proposed here, but I think this
+> > clock_in_out property needs fixing. The description for it is thus:
+> >
+> >   clock_in_out:
+> >     description:
+> >       For RGMII, it must be "input", means main clock(125MHz)
+> >       is not sourced from SoC's PLL, but input from PHY.
+> >       For RMII, "input" means PHY provides the reference clock(50MHz),
+> >       "output" means GMAC provides the reference clock.
+> >     $ref: /schemas/types.yaml#/definitions/string
+> >     enum: [input, output]
+> >     default: input
+> >
+> > The problems that I have here are:
+> >
+> > 1) the description states that the only possible value for this when in
+> >    RGMII mode is "input" which is reasonable, because it's due to the
+> >    RGMII specification. The driver code is perfectly able to determine
+> >    whether RGMII has been specified, and set bsp_priv->clock_input
+> >    itself, relieving DT of this need.
+> >
+> > 2) bsp_priv->clock_input is only used in gmac_clk_enable() when calling
+> >    the SoC specific set_clock_selection() method. Only RK3528, RK3576,
+> >    and RK3588 populate this method. Every other SoC supported by this
+> >    driver still requires the property:
+...
+> >   clock_in_out:
+> >     description:
+> >       For RGMII, it must be "input"
+> 
+> This description does not match the actual situation,
+> there are many dts using 'output':
+> https://elixir.bootlin.com/linux/v6.17/source/arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dts#L235
+> https://elixir.bootlin.com/linux/v6.17/source/arch/arm64/boot/dts/rockchip/rk3568-evb1-v10.dts#L241
+> https://elixir.bootlin.com/linux/v6.17/source/arch/arm64/boot/dts/rockchip/rk3568-fastrhino-r68s.dts#L33
+> https://elixir.bootlin.com/linux/v6.17/source/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts#L78
 
-On 8/5/2025 10:03 AM, Krzysztof Kozlowski wrote:
-> On Mon, Aug 04, 2025 at 11:54:03AM -0400, Laurentiu Mihalcea wrote:
->> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->>
->> Add documentation for i.MX8ULP's SIM LPAV module.
->>
->> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->> ---
->>  .../bindings/clock/fsl,imx8ulp-sim-lpav.yaml  | 69 +++++++++++++++++++
->>  1 file changed, 69 insertions(+)
->>  create mode 100644 Documentation/devicetree/bindings/clock/fsl,imx8ulp-sim-lpav.yaml
->>
->> diff --git a/Documentation/devicetree/bindings/clock/fsl,imx8ulp-sim-lpav.yaml b/Documentation/devicetree/bindings/clock/fsl,imx8ulp-sim-lpav.yaml
->> new file mode 100644
->> index 000000000000..ef44f50921f8
->> --- /dev/null
->> +++ b/Documentation/devicetree/bindings/clock/fsl,imx8ulp-sim-lpav.yaml
->> @@ -0,0 +1,69 @@
->> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
->> +%YAML 1.2
->> +---
->> +$id: http://devicetree.org/schemas/clock/fsl,imx8ulp-sim-lpav.yaml#
->> +$schema: http://devicetree.org/meta-schemas/core.yaml#
->> +
->> +title: NXP i.MX8ULP LPAV System Integration Module (SIM)
->> +
->> +maintainers:
->> +  - Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
->> +
->> +description:
->> +  The i.MX8ULP LPAV subsystem contains a block control module known as
->> +  SIM LPAV, which offers functionalities such as clock gating or reset
->> +  line assertion/de-assertion.
->> +
->> +properties:
->> +  compatible:
->> +    items:
->> +      - enum:
->> +          - fsl,imx8ulp-sim-lpav
->> +      - const: syscon
-> Why is this syscon?
+For all of the above, whether it is "input" or "output" has no effect
+as these are all rk3568, and rk3568 does not implement the
+set_clock_selection() method.
 
+static const struct rk_gmac_ops rk3568_ops = {
+        .set_phy_intf_sel = rk3568_set_phy_intf_sel,
+        .set_to_rgmii = rk3568_set_to_rgmii,
+        .set_to_rmii = rk3568_set_to_rmii,
+        .set_speed = rk_set_clk_mac_speed,
+        .regs_valid = true,
+        .regs = {
+                0xfe2a0000, /* gmac0 */
+                0xfe010000, /* gmac1 */
+                0x0, /* sentinel */
+        },
+};
 
-because of the MUX child's progamming model (i.e. "mmio-mux") which needs a syscon parent.
+I'm going to propose:
 
-will get rid of this by using "reg-mux" instead. There shouldn't be a need for syscon anyways.
+1) that the driver should only print an error if "clock_in_out" is
+missing _and_ the SoC implements the required function.
 
+2) that the driver should print a non-fatal error if this property is
+specified in DT _and_ the SoC does not implement the function to
+discourage its use.
 
->
->> +
->> +  reg:
->> +    maxItems: 1
->> +
->> +  clocks:
->> +    maxItems: 3
->> +
->> +  clock-names:
->> +    items:
->> +      - const: lpav_bus
->> +      - const: hifi_core
->> +      - const: hifi_plat
->> +
->> +  '#clock-cells':
->> +    const: 1
->> +    description: clock ID
-> Drop description, redundant. Look how other bindings write this.
+3) [tr]x_delay should not print an error for non-RGMII phy interface
+modes.
 
+I consider it a bug that a driver prints errors for properties that
+have not been specified that it does not actually require. By doing
+so, it encourages people to add useless properties to their DT
+description that will never ever be used (e.g. because they are not
+relevant for hardware the operating mode that the board is setup
+for.)
 
-ACK. Very sorry for the easily avoidable mistakes.
-
-
->
->> +
->> +  '#reset-cells':
->> +    const: 1
->> +    description: reset ID
-> Ditto
->
->> +
->> +  mux-controller:
->> +    $ref: /schemas/mux/reg-mux.yaml#
->> +
->> +required:
->> +  - compatible
->> +  - reg
->> +  - clocks
->> +  - clock-names
->> +  - '#clock-cells'
-> reset cells and mux controller.
-
-
-I'd say the mux-controller child can stay optional since the driver allows it?
-
-
-As for "#reset-cells": unless CONFIG_RESET_CONTROLLER is enabled, the driver allows
-
-this property to not be specified. The whole idea was to try and make the driver more
-
-flexible in case, for whatever reason, people wouldn't want/need the reset controller bit.
-
-In hindsight, I think this decision makes writing the binding a bit more awkward (since the
-
-optionality of this property depends on the value of CONFIG_RESET_CONTROLLER) so maybe
-
-we'd just be better off with having this property mandatory and modifying the driver to remove
-
-the aforementioned flexibility?
-
-
->
->
->
->> +
->> +additionalProperties: false
->> +
->> +examples:
->> +  - |
->> +    #include <dt-bindings/clock/imx8ulp-clock.h>
->> +
->> +    clock-controller@2da50000 {
->> +        compatible = "fsl,imx8ulp-sim-lpav", "syscon";
->> +        reg = <0x2da50000 0x10000>;
->> +        clocks = <&cgc2 IMX8ULP_CLK_LPAV_BUS_DIV>,
->> +                 <&cgc2 IMX8ULP_CLK_HIFI_DIVCORE>,
->> +                 <&cgc2 IMX8ULP_CLK_HIFI_DIVPLAT>;
->> +        clock-names = "lpav_bus", "hifi_core", "hifi_plat";
->> +        #clock-cells = <1>;
->> +        #reset-cells = <1>;
-> Incomplete node - missing properties/child. Post complete binding and
-> complete example.
->
-> Best regards,
-> Krzysztof
->
+-- 
+RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
