@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC390CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 20:32:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 24909CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 20:33:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Jo8Wdjvj3YfXYEEpEI+fQEmDmOtHAHT+I0W8XkKzZIw=; b=2jZDiEMNZGTBGl2I71xbQkxwW2
-	nnUECYzPBZ1ToATJ/jyxdfc4EWLG63SvJl1dBvAnEkMsU3dZ5bZS+CxpbAoH9EJNU4mTj6jch0rkb
-	r5zX7ovGM/Eg+Zkscrbige+wHuyBueNoyZAw6l8wKvlIC4gjEKym+J1XiM9sX8TdXgNXeI0pVE6vk
-	pHSHIEQeetNL1faX+YIE1BWAXcymTlZyzuhzq9k5Xn4NRZ6cuBBQj4ZjHJU0vQyumySw/lGC6hEjw
-	fyCIFXfe4jsEnSJX9Cf+IM5jfq1gR4bV3SPR+nWcktAPuUVYBTrg/ACHjUBx2v6GrZSnH+4TOPCT0
-	Of8Q092w==;
+	bh=yoVNNJWFcsz+37Hp69s5AIX1N8gKdXmTdzj10XYNSkE=; b=WZFHzYERK1jmZmJbwIBSacFpAO
+	PyTx0yzvVvt5XSf2MpvS3QP4gRHQKszQhDxTULbZglbFEwsHv9KMC9fJ2feX08mamJBBd8xdRkCkZ
+	Bt2W2vGIfMZyCyJScyQwmmnpw8oeq+uIjeVJHZh7o0Wx6R18JLKvJ+9aLXRgg6cCDdAOpuKiUM/Hg
+	r0LiBbkgnSSyMbp1kOUTkxBaWTpUg4qwu0n62RXzabyfjquplfjlTEgf7eRVy1R4ebFX9zKN+/5Mi
+	m9SV7z3wA1DKBFsA0f97zzIxz+GIG22ejzMDc9qdl9TlUGS4PkHKeGp3qpCj/BDzE/M/0U/OkJpG4
+	RRw5GZBg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8PDr-0000000ENF3-3OZo;
-	Mon, 13 Oct 2025 20:32:47 +0000
+	id 1v8PE7-0000000ENSf-0ZQq;
+	Mon, 13 Oct 2025 20:33:03 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8PDq-0000000ENCr-2Dnd
+	id 1v8PE6-0000000ENRd-1ekq
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 20:32:46 +0000
+	Mon, 13 Oct 2025 20:33:02 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id E7F60602DC;
-	Mon, 13 Oct 2025 20:32:45 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4A89C4CEF8;
-	Mon, 13 Oct 2025 20:32:37 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id CB1CC604A5;
+	Mon, 13 Oct 2025 20:33:01 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 1133AC4CEE7;
+	Mon, 13 Oct 2025 20:32:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760387565;
-	bh=4bRWbV0YuzmDy1B/sRgCWln6RMh7KL9GReKc3Nnqm6c=;
+	s=k20201202; t=1760387581;
+	bh=27i30BHoqn/BGY6ARghdzM2ne1ZlXRlOL17r9Y9xQIc=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=uhGBkZi9MnxwjOJytxqClEHKzOENZfbkLSvQ1M4jP6Ka7W01jMwLORp33hXCTK/0F
-	 lpF3bG3AY7QGUgYRotUsYLwasL8N1/87VeZZFTtlK/hw1DZyy+/hqdCPqRGd4jTz3G
-	 PX1K9DMq5s229QMH06atQ5/UI6Kuz0UkIuw0GW+jCbCav8mNJfoDkzNQnR8LUaUsfb
-	 DNroVXWCOkC4MrF3I0FPBreVOB6lcD+LSqvld84xyUr8SbcgH5A54O4RB3ZlCNJs8G
-	 EQQfG/Di4fw9Y5LjFyLO6+KN8H3lRJPpw5aqjBqr7RCC+btrcBwDa+wITykTmbgLJ9
-	 72q3ebLomqdRw==
+	b=Vj29vz4RtllKnPy0syNL8X4XKS9GnmMDyBglO6Mvs6AEqCeZ4A+cRIUSI0tGlwCnt
+	 PwUyOwph9MHmEq6tkTfGZGSvXXFyEsGFisJCfaVfwvBHZVnXfIfMaXWlKxWZjTE+Mu
+	 rSl4X5CTj0dVqyEdrRXnHJ/jjLtpcY6M4DNR+jUkcuNxlbRGf3uy7rprC9AdoCyGub
+	 79TKLcYUo5gwQtgWbpOo1+XqMdIVKz9H2zaKpX8ZL8CyntIp0I8zGsNiORh4ym2ER1
+	 c6fod11QySs2FyOLX+I23bb9hrrBYQ9+A8Gg/eaBRyzxa3nxAr2gXIWWjKdt36l3SW
+	 g9YRWWVX733VQ==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
@@ -80,9 +80,9 @@ Cc: Frederic Weisbecker <frederic@kernel.org>,
 	linux-mm@kvack.org,
 	linux-pci@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH 06/33] cpuset: Convert boot_hk_cpus to use HK_TYPE_DOMAIN_BOOT
-Date: Mon, 13 Oct 2025 22:31:19 +0200
-Message-ID: <20251013203146.10162-7-frederic@kernel.org>
+Subject: [PATCH 08/33] net: Keep ignoring isolated cpuset change
+Date: Mon, 13 Oct 2025 22:31:21 +0200
+Message-ID: <20251013203146.10162-9-frederic@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251013203146.10162-1-frederic@kernel.org>
 References: <20251013203146.10162-1-frederic@kernel.org>
@@ -102,68 +102,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-boot_hk_cpus is an ad-hoc copy of HK_TYPE_DOMAIN_BOOT. Remove it and use
-the official version.
+RPS cpumask can be overriden through sysfs/syctl. The boot defined
+isolated CPUs are then excluded from that cpumask.
+
+However HK_TYPE_DOMAIN will soon integrate cpuset isolated
+CPUs updates and the RPS infrastructure needs more thoughts to be able
+to propagate such changes and synchronize against them.
+
+Keep handling only what was passed through "isolcpus=" for now.
 
 Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
-Reviewed-by: Phil Auld <pauld@redhat.com>
 ---
- kernel/cgroup/cpuset.c | 22 +++++++---------------
- 1 file changed, 7 insertions(+), 15 deletions(-)
+ net/core/net-sysfs.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
-index 52468d2c178a..8595f1eadf23 100644
---- a/kernel/cgroup/cpuset.c
-+++ b/kernel/cgroup/cpuset.c
-@@ -81,12 +81,6 @@ static cpumask_var_t	subpartitions_cpus;
-  */
- static cpumask_var_t	isolated_cpus;
- 
--/*
-- * Housekeeping (HK_TYPE_DOMAIN) CPUs at boot
-- */
--static cpumask_var_t	boot_hk_cpus;
--static bool		have_boot_isolcpus;
--
- /* List of remote partition root children */
- static struct list_head remote_children;
- 
-@@ -1686,15 +1680,16 @@ static void remote_cpus_update(struct cpuset *cs, struct cpumask *xcpus,
-  * @new_cpus: cpu mask
-  * Return: true if there is conflict, false otherwise
-  *
-- * CPUs outside of boot_hk_cpus, if defined, can only be used in an
-+ * CPUs outside of HK_TYPE_DOMAIN_BOOT, if defined, can only be used in an
-  * isolated partition.
-  */
- static bool prstate_housekeeping_conflict(int prstate, struct cpumask *new_cpus)
+diff --git a/net/core/net-sysfs.c b/net/core/net-sysfs.c
+index ca878525ad7c..07624b682b08 100644
+--- a/net/core/net-sysfs.c
++++ b/net/core/net-sysfs.c
+@@ -1022,7 +1022,7 @@ static int netdev_rx_queue_set_rps_mask(struct netdev_rx_queue *queue,
+ int rps_cpumask_housekeeping(struct cpumask *mask)
  {
--	if (!have_boot_isolcpus)
-+	if (!housekeeping_enabled(HK_TYPE_DOMAIN_BOOT))
- 		return false;
- 
--	if ((prstate != PRS_ISOLATED) && !cpumask_subset(new_cpus, boot_hk_cpus))
-+	if ((prstate != PRS_ISOLATED) &&
-+	    !cpumask_subset(new_cpus, housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT)))
- 		return true;
- 
- 	return false;
-@@ -3824,12 +3819,9 @@ int __init cpuset_init(void)
- 
- 	BUG_ON(!alloc_cpumask_var(&cpus_attach, GFP_KERNEL));
- 
--	have_boot_isolcpus = housekeeping_enabled(HK_TYPE_DOMAIN);
--	if (have_boot_isolcpus) {
--		BUG_ON(!alloc_cpumask_var(&boot_hk_cpus, GFP_KERNEL));
--		cpumask_copy(boot_hk_cpus, housekeeping_cpumask(HK_TYPE_DOMAIN));
--		cpumask_andnot(isolated_cpus, cpu_possible_mask, boot_hk_cpus);
--	}
-+	if (housekeeping_enabled(HK_TYPE_DOMAIN_BOOT))
-+		cpumask_andnot(isolated_cpus, cpu_possible_mask,
-+			       housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT));
- 
- 	return 0;
- }
+ 	if (!cpumask_empty(mask)) {
+-		cpumask_and(mask, mask, housekeeping_cpumask(HK_TYPE_DOMAIN));
++		cpumask_and(mask, mask, housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT));
+ 		cpumask_and(mask, mask, housekeeping_cpumask(HK_TYPE_WQ));
+ 		if (cpumask_empty(mask))
+ 			return -EINVAL;
 -- 
 2.51.0
 
