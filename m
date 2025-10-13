@@ -4,172 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 97CF0CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 18:27:22 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 37216CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 18:27:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=XHtz7e0/bpTkJd8pSNSWsGKce6NOL8si36V30BLoans=; b=hy9gU8DHFbVqnq1WJ1+hAI7T/3
-	A5PLYGci1JmXj6+0wYMqdkjQfiudiW2zpmhvan2gLAbjZtauCDtxaAOxuG2VnkyPVRG5rOrNnH9mm
-	yh6fZ/CA9Td1u9CYPhuSru/N1ssp+xznVMGFOkr5itDsPTGXnBauiDxxwbsY3f6GDLNiUanJ4kHXd
-	rgZcahkfa2jK4Bjk6K9HCuO5KtjGCb12HLRmOJ7tS6WG/xkQ2AnLujGNrI9PzwWL/sChx5ZTEt344
-	bU2W42MgiU/GVeaM9G/oaDo+ZIo9+TjvggStPohWDusoxO+/lwo/0ILXu4i73VJvOo666LXZIp+nf
-	eBOUM/GQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
+	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=eaBZI2EWWkLqL7CQXE8pSIRgIGnvAMtLV08xF4/y/pc=; b=181nre2ZsJRGf0iA03bHbPkUeb
+	1w1OSxBC+rfvrSSL8TtY80FMRv9DuxAIE400uy3HPtBsqtctzTWBLl2nLTbuL9IhQUD/5ViT2xaOo
+	3xg1eEmGUzBLaH8tA2tT2Pi6RK+x38/ty/GkWcP4Z8UqBrRGMO/9emIFxyijQaq/6IV4QeZmlY3SQ
+	GNhNqzpBtDVyrxSNR0PED6Lsq9myPBA2+jtp68492r1ue+ynIlzeBBqX6Zu76IHv8chrASxcmCWLC
+	519Hb0J3iVKPxuVTfFWkhxyYVb2EAFlh7bRmPpRa0e5fgfqHWCpjCQlHmRogVa2R6rNUnI+1QTDV/
+	pvFUbP4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8NGN-0000000E9Js-3itu;
-	Mon, 13 Oct 2025 18:27:15 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v8NGn-0000000E9Qo-0XYX;
+	Mon, 13 Oct 2025 18:27:41 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8NGM-0000000E9Jc-2NSe
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 13 Oct 2025 18:27:14 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=MIME-Version:In-Reply-To:Content-Type:
-	References:Message-ID:Subject:Cc:To:From:Date:Sender:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description;
-	bh=XHtz7e0/bpTkJd8pSNSWsGKce6NOL8si36V30BLoans=; b=duF2KGUB5/dGDzO5two+AABAc2
-	dmtlK6SS8jHHQquk7qKNmTrJqQmyszC8Vk9Mqkx8LlVEe+pmgMVVgUfvvY8zu+YwmkzBY51Y/Lc0r
-	TULLoEAdnSM94BAhT83lsInVsGURnVxVA581UAbp1jwzPO7ET4mocx2J4Y5/meVIyqil0MIWbyHVk
-	3hORMz+qbifht35+Ic1em/JaGKkVpwzjOQ1X6Q4Rn0b54bHvsnCsv9qSbk9ZYEaCYxei/ylEjIl42
-	fOJIAAMlLFQ+sKt9wa4mJbqZzFj17hseSqXOP6iEWK+zMgpkjvni+nSNy+jgpcfc5KWol64dngII4
-	2HAmwr3A==;
-Received: from mail-westeuropeazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c201::3] helo=AS8PR04CU009.outbound.protection.outlook.com)
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8NGF-00000004Xtn-2UQh
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 18:27:11 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=tSyti1Nb1eDFnXCVjd31ugo9ADXn3EVMUyBXJ9a8E5JprF1qAAJnTFQuME7IthpWmyP3C4RKl6144dLnC6e1oryOqm/pwAzWK5T4cXQsuLGxncuq+I8tPI2D5AeUfbD0sflEFdgfrBYF+bJuIGlNzcqQxdiYCrM1JCHB67gNMEXjTVwp5YIF3rd97GNYtQ5FVlcX5c+UHqeeplPfcbnE7QV2BorWF2n9Q/HgkYRjVYWmZWJonYaRBdoYpK+y3erTth7rynVj/uazs7AEZnA00WHOy9ithYxa9LcdjHqnnDNl8GLYXqMBdXsQ4Bd1PSQdyjB1lHUEjZJ9GVTv7jpwdw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=XHtz7e0/bpTkJd8pSNSWsGKce6NOL8si36V30BLoans=;
- b=OuNsLAqbxxSh8fDZOJOeAOCUBgBtQFA6iPb7dPXuE+EwCZDnVq2+a6dAw9pRH9ULbhlj1xcEyknEwswOUDwgahdkBPren17JxjmbfkvaJPpsyvg64xsl3KgSd3/BRfpJK2qGYqBJnJ7wxp1GHoW7Poi7DMP/VAdw2cgQbgkQ+ODUTsNYsnb8F+64xEvXRt/upFsMFY0NqUuDyJu26fI2t2B0dzpFIKvOBogJhpRESAByX+jwLXbFgZ5zdWkpXeJ9OKs9dk+dx0LipBlC+HhN05Ku213sPv1genXZLjUWuYPIkBZDrqJHYhPdcaORcPZSugg8mYrQcipji2Y1AjgJ/w==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=XHtz7e0/bpTkJd8pSNSWsGKce6NOL8si36V30BLoans=;
- b=ZOtmp4B7PSy6YhCYoDIKzz+Zo+LDTjt4iOEGTrJ48Djr2JwWGYArUeno4uG+l9Gd4vt3thP1aGX6wIuazR7ok9eH114Yl33DCcYBBSbpgwPKyqcXXi7j3TisyKgpQVQBiVICmDBjm8SiiJobIREh8A8+sXNQn/iCofhbwhpwU+gMMi2UC12u9OBcZw0g/rhfKzUWnxcnKuPglmLIO4UInXkAddRHaBDAxMZZLO1C1iOVG/iBzDn1Ds2Y3afF+Of1qFxNEaQhZuFv1QiCbKGCRfnnZuzGETQN4jaP/fsTxcebR8aO/6x/TRfaieg9f3yGjnNkgjyccoJLlikUGbkQfQ==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS4PR04MB9621.eurprd04.prod.outlook.com (2603:10a6:20b:4ff::22)
- by AS1PR04MB9383.eurprd04.prod.outlook.com (2603:10a6:20b:4d9::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.13; Mon, 13 Oct
- 2025 18:26:56 +0000
-Received: from AS4PR04MB9621.eurprd04.prod.outlook.com
- ([fe80::a84d:82bf:a9ff:171e]) by AS4PR04MB9621.eurprd04.prod.outlook.com
- ([fe80::a84d:82bf:a9ff:171e%4]) with mapi id 15.20.9203.009; Mon, 13 Oct 2025
- 18:26:56 +0000
-Date: Mon, 13 Oct 2025 14:26:48 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: dri-devel@lists.freedesktop.org, Abel Vesa <abelvesa@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Liu Ying <victor.liu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>,
-	Peng Fan <peng.fan@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org
-Subject: Re: [PATCH 10/39] drm/imx: dc: ed: Pass struct
- dc_ed_subdev_match_data via OF match data
-Message-ID: <aO1EaAcArCszx71F@lizhi-Precision-Tower-5810>
-References: <20251011170213.128907-1-marek.vasut@mailbox.org>
- <20251011170213.128907-11-marek.vasut@mailbox.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251011170213.128907-11-marek.vasut@mailbox.org>
-X-ClientProxiedBy: PH8P221CA0066.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:349::6) To AS4PR04MB9621.eurprd04.prod.outlook.com
- (2603:10a6:20b:4ff::22)
+	id 1v8NGi-0000000E9Mz-2QLk;
+	Mon, 13 Oct 2025 18:27:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1760380054;
+	bh=OjaGnhE1YRzI2qBgANQtDB/wf08RvwFcWVWJPhZ0r10=;
+	h=From:Date:Subject:References:In-Reply-To:To:Cc:From;
+	b=ZIqy/f8ce4ey+q3DZT67PAKC/UwrixfEUUM07CRPJek6JmOoGgTwfLQzDm7m5mVja
+	 +pMCZBEl9vP02G+okq+d8hMrdb/WSDxtpkYenyZPVVrWvVrtvQz9HSegQoohsIifwk
+	 d43hcco9H2/7TpY0BVluOtzcuDJqB8QG+q22bM4npU/ebSW7YEUoDLnf67kdoPRjnS
+	 w3uybTj0qfh416d7nAz4sBSfxACk10BihSsV3O58u0Urln8T/uJeC2z7v3pxTiB2D1
+	 rDthK7mpF9n4HZmS8Vt1d6YgvURfFEKvq4hhL67/9sqxDl53Qb1BsXdT6AedoCVdKB
+	 fRrJRk7Q+/sMg==
+Received: from localhost (unknown [82.79.138.145])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange ECDHE (prime256v1) server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: cristicc)
+	by bali.collaboradmins.com (Postfix) with UTF8SMTPSA id 71C4A17E1292;
+	Mon, 13 Oct 2025 20:27:34 +0200 (CEST)
+From: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+Date: Mon, 13 Oct 2025 21:27:19 +0300
+Subject: [PATCH v2 2/2] drm/rockchip: vop2: Support setting custom
+ background color
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4PR04MB9621:EE_|AS1PR04MB9383:EE_
-X-MS-Office365-Filtering-Correlation-Id: 1090a3e5-6793-41f6-3fad-08de0a861736
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|7416014|52116014|19092799006|366016|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?U+4mINm2/BHPMYsTWNZwOdtyciJ2IA7CJ6y9x/by7HT/Xlgd1a9Bmt2gu36Z?=
- =?us-ascii?Q?yxQdyglcjnkI30S1XZP+HiGvJh7/b6lgB30Xr70olruZRQ4adTXaKlCaLFpu?=
- =?us-ascii?Q?LRAWWfQVzfxG6IvepYxH72q8xLLAGPFjbhzyRHbWqsB9C7rrCt6FZ+rmpisq?=
- =?us-ascii?Q?T5EKgMHl3yWMoAnG05ATRm4trHLepQESneuxtqqJfsyip8qh49zL5ZpTqNyg?=
- =?us-ascii?Q?vX1iJYg95/J7c5XnT8T3Bg5qx6mZ4S5Ob1RfinP9wFo9n4ceYITkpj8u8stS?=
- =?us-ascii?Q?KDhkj91VEGxMw3vVLmqa0LN6v4v9BkBXKl4oQNmMrKtwzriDXBu0G6MmLvPj?=
- =?us-ascii?Q?IctOj1XCmKhFXjdnSQLXact/qDsqpbVWUNuoEDc1Fvy1Dw6ZLFQNAOOtO3MP?=
- =?us-ascii?Q?UsnpIenvCYGlNSb82wjwnvK6iUlAxLf8qtLGqY6auutATagmjSUzUv0YtXNY?=
- =?us-ascii?Q?LuM8JfCsi69bSWVCVHJBWGlBXdr5tcetxWnsWGtlYMLt0o8IzhutCCJhJcob?=
- =?us-ascii?Q?XYzMNrGW2pfrlfw2WyNQm7FUHANbAtyJB67NXgF+MdB6zAQG+judN3iY/yxv?=
- =?us-ascii?Q?DfMuNKCQ9OPcrid7nh9IeBe4Xa67J6LOUX6DvtdBqHSA7xcv1UJusNe40bZX?=
- =?us-ascii?Q?5IjbgnoqMsXDPYWdObVWp9VrpdS5pjvKiAG6/CZhb2iqKy6HNMeHXOXWj6Yp?=
- =?us-ascii?Q?vQ59uetziDo2QwP/oLbEFH5nI4FtYGOE7sFbtEmH96eLPZnbSdP+JQ5QdUDj?=
- =?us-ascii?Q?V3RVmQflUFstZNKZFRnwvbsuBYF1m5n9UlFW5i62dXmOOEeFjnsclMmvbSpr?=
- =?us-ascii?Q?yjZIjoIqaOog8+VGSFwNykXvmkNFuhP4G3sll4pQ1E9OLWR4pXKqB6fUEzin?=
- =?us-ascii?Q?Mw6QowOzyJpFqqZ74mtwPaFe+QZy/R9UOrZH6FRvs/+puaId8GyeIBenQzR0?=
- =?us-ascii?Q?G44Pz2zRL7Xb6rlL14b66TToHeskd2jwUBR9xmBrFRQ4LNvD55mMwiAkG1Dn?=
- =?us-ascii?Q?4MLJMoSS+Fq96uJjVOnlQ5cGL3UTGhimKlQIJh2iedjZ6mF+BL8CmQGNfwUw?=
- =?us-ascii?Q?gk+36ZpFJ4/GsKqxsEhS/MfzHSUvaz0DgGzl0nKjdVLVUMLdDucSNTovRcRf?=
- =?us-ascii?Q?TrOfA0NpPmcoISJ8Ut1wWH4W7E4Q7vzCOkCv3DJhdLJIGjHgYNsJ84C9VuvW?=
- =?us-ascii?Q?mivEOhlGbM4+sNGv7daJ3UTWJWarTdx7Mi1VEbyx38x+KxoSgSBT5jJPQZna?=
- =?us-ascii?Q?bRMRg15KVTDHpkfu+1gFtFvgVVEi8BR11dtwASyE7hYQ3b+IRlWdnSH0aQKM?=
- =?us-ascii?Q?9pLl6PCy5n+vO7Ae5zwDGkM9Ssa6bMxaciwbyStcqUK2ZDIu/UPjPCAS6zuG?=
- =?us-ascii?Q?NcN1IskbrMFWAlHqiPZRUFMugi94Xg+AGcI69rR+Xd16dyxqlYmIS6rWEDcm?=
- =?us-ascii?Q?Er3U2tQAaX/15kVBaTL1OWviWSqOcBRq3mpAnmL7OkqBC8UMKbaIyHH0kOlK?=
- =?us-ascii?Q?yQSdx9u019BQidPszD07M3to+tck3ZKaOGWZ?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9621.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(376014)(7416014)(52116014)(19092799006)(366016)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?56kZ8gqYU2n9+UtDiA0YraYPclMPNXfd6VURfG80eLKKUWdodgZZu1/7+UE7?=
- =?us-ascii?Q?lAcLZWfTAb2jfUOp6zvvvTYKYC4z6PXzCX/8KHTE/NuoV8bkWSS43oh8wlT5?=
- =?us-ascii?Q?eCMHQogtkhI68+2mgZyBSojuSpYWcfqgv+nKtsAnwQXo/pYAabpfUpGT8F55?=
- =?us-ascii?Q?xY0lj/tBv5fnWzUsSZc/9EuJ8mm4DY3wGM8v5/uNNFEaztgkRQYtQlmHZTGQ?=
- =?us-ascii?Q?S82FPAqBu9lTsUGPpjRTzNydQlNz91pfhzpGNZhDFuLmpZcRrUxQ6D/SaESY?=
- =?us-ascii?Q?K9O+S1/Q0RVvC3/s6s0Kvot+5yek4hvQBboueUK03OZAx2s+h4Y+uefMl9HB?=
- =?us-ascii?Q?vasZk4zoOAX7z8pPLOUDEIKbpb6JN7Vu7UmYSjroL9C6R4K817dWPsZzvWvA?=
- =?us-ascii?Q?oug69Tc8Ez45ICU9K4ZGOfCyB0shrq4bWUQhkQAPTWaqFdI+o6V6jf03cJqR?=
- =?us-ascii?Q?hFCAtwSkslZUSW960BSqT3B4e0CSBn7ZFCfG+wwmSTXmf1NR3REiDg9snxs2?=
- =?us-ascii?Q?V1U09tVROL59lcuZ3whPoZOe6SuhyspE9FIxLB4fRzvqSpoG5ck9pAs3uZTV?=
- =?us-ascii?Q?moxGNqjHlPSHS1LYzzMRX9p/3KHlkR2wjJaTZ8C97ekyQ9gCM38xxLvbEnJd?=
- =?us-ascii?Q?8tC/PL/KvtcVDzUCy9Wier8b7dwC3OILZFHVNq1+fOQco5NR3gja+14sjJfW?=
- =?us-ascii?Q?NZDz/GIojnXW+eQyyoc1RyoqafyGmt3+c8lRaRXRLbZwVA/+iuYgye9mhX7N?=
- =?us-ascii?Q?sWE8X4pszdk90k2kpLQL5UCaYRcpnxsBErvNnuTpTnrAJVY2sGPZUSCFVnqM?=
- =?us-ascii?Q?xjp2O6+HNQc7sQ010YklhN4JYGRWqZkgvO4okTwnH/Ho6h9H3CzjgCYNMV19?=
- =?us-ascii?Q?IXYuBnxJ1v5OyEpX8EhLXMb+La/1SWFAkZxf6lnU7ky0ljlZYEdnfjdW/pVw?=
- =?us-ascii?Q?371HBZp+WIpPt4ArIROlgOoEjROyk4klhvSe5oOV6+jiPDexKxeXrsdHWpRD?=
- =?us-ascii?Q?rRbf1iNgPWNibk5ZHOE4egvxXgeK93byu7jJYJF5YupKG4KDev0yO/NUjJW7?=
- =?us-ascii?Q?DqrMzeuSqmuPHMyZrVE7SyG8XvdxL+C9ENqlC67lwUfG6EtMQnFKv1cj5dGD?=
- =?us-ascii?Q?zHe6LONrfCupBvvEUlc1xjHKFOA1GwjB5lkGTtRr3T3ZSGKxhasjEGF2pb6f?=
- =?us-ascii?Q?1eRvnBkcsah6cNeeVEHB56q5YWyKSJy9FOuUmwpLrzkwiOndQ9SYcRweJAdh?=
- =?us-ascii?Q?8ezQ1vWtC8zr4dET9d5rigbZu/4g8NlTHfRPHf252jvVhe1vtocwEg387WMq?=
- =?us-ascii?Q?egheVuJGbPGRsZ5pneoxqvbkGow5pJNCnzow0a8g/hlJTrjJDemroyszVRcD?=
- =?us-ascii?Q?IMoaQQM0j+4QZ0DJUTBDGvDk+IOKV4NXBeVlB2WVUBCLWL4NXWUKNjthyDLO?=
- =?us-ascii?Q?ky7V+8TZWfgTDe8313hUDGTQPYhFhup0ydgrniv8aJ3Ns+a5asJQfvOeeR5E?=
- =?us-ascii?Q?kaVxBEUeVsaPq6j04Swsol/aYoRhOdoNV00ealONx471xlpQKhrMipPn6P2o?=
- =?us-ascii?Q?9I3HsCUX+0xMv0KQmChvvL7hCoco5A7G2Pp+KUyj?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 1090a3e5-6793-41f6-3fad-08de0a861736
-X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9621.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2025 18:26:56.7118
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: 1mA8nnCWYNBPLRRoobJYvXTj3vOvSs7Jx+rCLw0aCC5GK36Nw9e00tSQ/H7kM5T/LQuJfuJ+wVx3nu6IpwCspQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS1PR04MB9383
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251013-rk3588-bgcolor-v2-2-25cc3810ba8c@collabora.com>
+References: <20251013-rk3588-bgcolor-v2-0-25cc3810ba8c@collabora.com>
+In-Reply-To: <20251013-rk3588-bgcolor-v2-0-25cc3810ba8c@collabora.com>
+To: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Sandy Huang <hjc@rock-chips.com>, 
+ =?utf-8?q?Heiko_St=C3=BCbner?= <heiko@sntech.de>, 
+ Andy Yan <andy.yan@rock-chips.com>
+Cc: Robert Mader <robert.mader@collabora.com>, kernel@collabora.com, 
+ dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_192707_964342_F9D923AC 
-X-CRM114-Status: GOOD (  26.74  )
+X-CRM114-CacheID: sfid-20251013_112736_767663_444CD5BB 
+X-CRM114-Status: GOOD (  12.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -184,140 +80,86 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 11, 2025 at 06:51:25PM +0200, Marek Vasut wrote:
-> Introduce struct dc_ed_subdev_match_data which describes the differences
-> between i.MX8QXP and i.MX95, which in this case is src_sels mapping and
-> address space offsets, and pass it as OF match data into the driver, so
-> the driver can use the match data to apply correct src_sels value to the
-> IP registers on each SoC. This is a preparatory patch for i.MX95 addition.
-> No functional change.
->
-> Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
-> ---
-> Cc: Abel Vesa <abelvesa@kernel.org>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Fabio Estevam <festevam@gmail.com>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
-> Cc: Liu Ying <victor.liu@nxp.com>
-> Cc: Lucas Stach <l.stach@pengutronix.de>
-> Cc: Peng Fan <peng.fan@nxp.com>
-> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Shawn Guo <shawnguo@kernel.org>
-> Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> Cc: devicetree@vger.kernel.org
-> Cc: dri-devel@lists.freedesktop.org
-> Cc: imx@lists.linux.dev
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-clk@vger.kernel.org
-> ---
->  drivers/gpu/drm/imx/dc/dc-ed.c | 24 +++++++++++++++++++-----
->  drivers/gpu/drm/imx/dc/dc-pe.h |  1 +
->  2 files changed, 20 insertions(+), 5 deletions(-)
->
-> diff --git a/drivers/gpu/drm/imx/dc/dc-ed.c b/drivers/gpu/drm/imx/dc/dc-ed.c
-> index 2fdd22a903dec..63dcad30ecced 100644
-> --- a/drivers/gpu/drm/imx/dc/dc-ed.c
-> +++ b/drivers/gpu/drm/imx/dc/dc-ed.c
-> @@ -9,6 +9,7 @@
->  #include <linux/mod_devicetable.h>
->  #include <linux/module.h>
->  #include <linux/platform_device.h>
-> +#include <linux/property.h>
->  #include <linux/regmap.h>
->
->  #include "dc-drv.h"
-> @@ -35,7 +36,12 @@
->  #define CONTROL			0xc
->  #define  GAMMAAPPLYENABLE	BIT(0)
->
-> -static const struct dc_subdev_info dc_ed_info[] = {
-> +struct dc_ed_subdev_match_data {
-> +	const enum dc_link_id		*src_sels;
-> +	const struct dc_subdev_info	*info;
-> +};
-> +
-> +static const struct dc_subdev_info dc_ed_info_imx8qxp[] = {
->  	{ .reg_start = 0x56180980, .id = 0, },
->  	{ .reg_start = 0x56180a00, .id = 1, },
->  	{ .reg_start = 0x561809c0, .id = 4, },
-> @@ -106,7 +112,7 @@ static const struct regmap_config dc_ed_cfg_regmap_config = {
->  	.max_register = CONTROL,
->  };
->
-> -static const enum dc_link_id src_sels[] = {
-> +static const enum dc_link_id src_sels_imx8qxp[] = {
->  	LINK_ID_NONE,
->  	LINK_ID_CONSTFRAME0,
->  	LINK_ID_CONSTFRAME1,
-> @@ -119,6 +125,11 @@ static const enum dc_link_id src_sels[] = {
->  	LINK_ID_LAST	/* sentinel */
->  };
->
-> +static const struct dc_ed_subdev_match_data dc_ed_match_data_imx8qxp = {
-> +	.src_sels = src_sels_imx8qxp,
-> +	.info = dc_ed_info_imx8qxp,
-> +};
-> +
->  static inline void dc_ed_pec_enable_shden(struct dc_ed *ed)
->  {
->  	regmap_write_bits(ed->reg_pec, PIXENGCFG_STATIC, SHDEN, SHDEN);
-> @@ -144,8 +155,8 @@ void dc_ed_pec_src_sel(struct dc_ed *ed, enum dc_link_id src)
->  {
->  	int i = 0;
->
-> -	while (src_sels[i] != LINK_ID_LAST) {
-> -		if (src_sels[i++] == src) {
-> +	while (ed->src_sels[i] != LINK_ID_LAST) {
-> +		if (ed->src_sels[i++] == src) {
->  			regmap_write(ed->reg_pec, PIXENGCFG_DYNAMIC, src);
->  			return;
->  		}
-> @@ -192,6 +203,8 @@ void dc_ed_init(struct dc_ed *ed)
->
->  static int dc_ed_bind(struct device *dev, struct device *master, void *data)
->  {
-> +	const struct dc_ed_subdev_match_data *dc_ed_match_data = device_get_match_data(dev);
-> +	const struct dc_subdev_info *dc_ed_info = dc_ed_match_data->info;
->  	struct platform_device *pdev = to_platform_device(dev);
->  	struct dc_drm_device *dc_drm = data;
->  	struct resource *res_pec;
-> @@ -227,6 +240,7 @@ static int dc_ed_bind(struct device *dev, struct device *master, void *data)
->  		return ed->irq_shdload;
->
->  	ed->dev = dev;
-> +	ed->src_sels = dc_ed_match_data->src_sels;
->
->  	id = dc_subdev_get_id(dc_ed_info, res_pec);
->  	if (id < 0) {
-> @@ -274,7 +288,7 @@ static void dc_ed_remove(struct platform_device *pdev)
->  }
->
->  static const struct of_device_id dc_ed_dt_ids[] = {
-> -	{ .compatible = "fsl,imx8qxp-dc-extdst" },
-> +	{ .compatible = "fsl,imx8qxp-dc-extdst", .data = &dc_ed_match_data_imx8qxp },
->  	{ /* sentinel */ }
->  };
->  MODULE_DEVICE_TABLE(of, dc_ed_dt_ids);
-> diff --git a/drivers/gpu/drm/imx/dc/dc-pe.h b/drivers/gpu/drm/imx/dc/dc-pe.h
-> index 1e1e04cc39d4b..7928f947b0cef 100644
-> --- a/drivers/gpu/drm/imx/dc/dc-pe.h
-> +++ b/drivers/gpu/drm/imx/dc/dc-pe.h
-> @@ -56,6 +56,7 @@ struct dc_ed {
->  	struct regmap *reg_pec;
->  	struct regmap *reg_cfg;
->  	int irq_shdload;
-> +	const enum dc_link_id *src_sels;
+The Rockchip VOP2 display controller allows configuring the background
+color of each video output port.
 
-Pointer to dc_ed_subdev_match_data, in case need more data in future.
+Since a previous patch introduced the BACKGROUND_COLOR CRTC property,
+which defaults to solid black, take it into account when programming the
+hardware.
 
-Frank
+Note that only the 10 least significant bits of each color component are
+used, as this is the maximum precision allowed by the display
+controller.  Moreover, the alpha component is not supported at all,
+hence ignored.
 
->  };
->
->  struct dc_lb {
-> --
-> 2.51.0
->
+Signed-off-by: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
+---
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.c | 13 ++++++++++++-
+ drivers/gpu/drm/rockchip/rockchip_drm_vop2.h |  4 ++++
+ 2 files changed, 16 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+index b50927a824b4..a2589840b1df 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.c
+@@ -1548,6 +1548,7 @@ static void vop2_post_config(struct drm_crtc *crtc)
+ 	struct vop2_video_port *vp = to_vop2_video_port(crtc);
+ 	struct vop2 *vop2 = vp->vop2;
+ 	struct drm_display_mode *mode = &crtc->state->adjusted_mode;
++	u64 bgcolor = crtc->state->background_color;
+ 	u16 vtotal = mode->crtc_vtotal;
+ 	u16 hdisplay = mode->crtc_hdisplay;
+ 	u16 hact_st = mode->crtc_htotal - mode->crtc_hsync_start;
+@@ -1593,7 +1594,11 @@ static void vop2_post_config(struct drm_crtc *crtc)
+ 		vop2_vp_write(vp, RK3568_VP_POST_DSP_VACT_INFO_F1, val);
+ 	}
+ 
+-	vop2_vp_write(vp, RK3568_VP_DSP_BG, 0);
++	/* Background color is programmed with 10 bits of precision */
++	val = FIELD_PREP(RK3568_VP_DSP_BG__DSP_BG_RED, DRM_ARGB64_GETR_BPC(bgcolor, 10));
++	val |= FIELD_PREP(RK3568_VP_DSP_BG__DSP_BG_GREEN, DRM_ARGB64_GETG_BPC(bgcolor, 10));
++	val |= FIELD_PREP(RK3568_VP_DSP_BG__DSP_BG_BLUE, DRM_ARGB64_GETB_BPC(bgcolor, 10));
++	vop2_vp_write(vp, RK3568_VP_DSP_BG, val);
+ }
+ 
+ static int us_to_vertical_line(struct drm_display_mode *mode, int us)
+@@ -1972,6 +1977,10 @@ static int vop2_crtc_state_dump(struct drm_crtc *crtc, struct seq_file *s)
+ 		   drm_get_bus_format_name(vcstate->bus_format));
+ 	seq_printf(s, "\toutput_mode[%x]", vcstate->output_mode);
+ 	seq_printf(s, " color_space[%d]\n", vcstate->color_space);
++	seq_printf(s, "\tbackground color (10bpc): r=0x%x g=0x%x b=0x%x\n",
++		   DRM_ARGB64_GETR_BPC(cstate->background_color, 10),
++		   DRM_ARGB64_GETG_BPC(cstate->background_color, 10),
++		   DRM_ARGB64_GETB_BPC(cstate->background_color, 10));
+ 	seq_printf(s, "    Display mode: %dx%d%s%d\n",
+ 		   mode->hdisplay, mode->vdisplay, interlaced ? "i" : "p",
+ 		   drm_mode_vrefresh(mode));
+@@ -2461,6 +2470,8 @@ static int vop2_create_crtcs(struct vop2 *vop2)
+ 			return dev_err_probe(drm->dev, ret,
+ 					     "crtc init for video_port%d failed\n", i);
+ 
++		drm_crtc_attach_background_color_property(&vp->crtc);
++
+ 		drm_crtc_helper_add(&vp->crtc, &vop2_crtc_helper_funcs);
+ 		if (vop2->lut_regs) {
+ 			const struct vop2_video_port_data *vp_data = &vop2_data->vp[vp->id];
+diff --git a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
+index 9124191899ba..37722652844a 100644
+--- a/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
++++ b/drivers/gpu/drm/rockchip/rockchip_drm_vop2.h
+@@ -658,6 +658,10 @@ enum dst_factor_mode {
+ #define RK3588_VP_CLK_CTRL__DCLK_OUT_DIV		GENMASK(3, 2)
+ #define RK3588_VP_CLK_CTRL__DCLK_CORE_DIV		GENMASK(1, 0)
+ 
++#define RK3568_VP_DSP_BG__DSP_BG_RED			GENMASK(29, 20)
++#define RK3568_VP_DSP_BG__DSP_BG_GREEN			GENMASK(19, 10)
++#define RK3568_VP_DSP_BG__DSP_BG_BLUE			GENMASK(9, 0)
++
+ #define RK3568_VP_POST_SCL_CTRL__VSCALEDOWN		BIT(1)
+ #define RK3568_VP_POST_SCL_CTRL__HSCALEDOWN		BIT(0)
+ 
+
+-- 
+2.51.0
+
 
