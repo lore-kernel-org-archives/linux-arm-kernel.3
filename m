@@ -4,82 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4D4ECCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 14:09:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1C809CCD18D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 14:18:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=yQ8FYvA5L7Rd1/8SnoqEIBFo/+rZMYNDTX9eU0Sh4HI=; b=adMCSOt0RJ62rOcIQcNKL7oScU
-	+lL+XDtlhdepfIhlTkDh9yMrsMSrfCQunMUR7uqXnEtu2YLbv3P3ah/v4GPGj8LNSiHJF+YiN1p8Y
-	2aSiKvHF15zr0OANeEf4VHlLiXLpphpUKWmmat8ftuXb8rcJRkLVcGdELajmUA/MZ6VkUXzCpjzqb
-	XEnFv/gmW/zpf5Zwv2TYcbMgFAAE+i1NLt0x06P7ns+gQ//gT7t/Zotu6W0lbh5MmezQHwLqXX/Dk
-	HhPivyXjip0FFwdAd7xBToWTAJipjwxE18MGum1xg28AONyvEvqcYdNGly3pwKkFvnrEAWU1i+vXT
-	vCEzolDw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=vyXrVVygqMhn5Bif81+tF99rIVbrn5Q3omrjq9+Xlzs=; b=NXKA6FxyH8P+miVo3X5M96gXko
+	5GxMT4CjGFYeYmvl3cV/u9/Ip2KzUqDTmwKh+y16maBhAXiicAkIZAa8WVvVpfb4rVK8ds0T+l04r
+	fW5wBFAE2xMv/jxKipeeRJceyIbTfAWQ50odgRtD/qLh8wCcULOI7R8sSzZa55WQdnPAboM71QgRm
+	zTMXL0tfuNt5pSrCi47s2T54GkmJRRkStiddUfdrl/CsosY3OGg/XB7JSZhkngep4n9T85GAx2bo8
+	kCVhhbZdDjHLmooewBbwQ1sMtC2Dbw5GB5dwqlThubiwnjueYDk3WT0QBFjwtd8U7b7cjiydEhECD
+	vfyya+wA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8JF7-0000000DJon-3G3I;
-	Mon, 13 Oct 2025 14:09:41 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v8JNX-0000000DMzc-2uSa;
+	Mon, 13 Oct 2025 14:18:23 +0000
+Received: from mx-relay50-hz3.antispameurope.com ([94.100.134.239])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8JF5-0000000DJo3-2nc7
+	id 1v8JNS-0000000DMyt-3fXO
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 14:09:40 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 85493417CF
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 14:09:38 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D689C19422
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 14:09:38 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760364578;
-	bh=z15tpTrBW83KAZNHEtZD1R+Eafynq/cwxlwzlacByEA=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=ZW9BBm+RDZVXSC16M5XPZ1SNTDzkAinZVNEEu1scGxpHEzH0Ihz6imSnyg6O6CuTe
-	 WkMZ+A5OesyoAhmCOsp78i/7axOWTRRoZqTpUEm6odKL3eYMJotEi3nGKygqklmUI7
-	 hAlN5zB9tQEoBW5SL10UuMKf8c42Vgo4tn9b0Kh+7LrDSU48VnuxEyBW3TKwuKT8eI
-	 YsPaN3bFdZ6ZvOUnhNnnGY2MQAN48TP9rOmcSMGNxfpkJOlJ8u+aqC/niIvJwsw7RT
-	 yCTUe40+mst5BRbJmF1wZ0+oeUxnZ3wQbIpPGBVcBf45/5sdLo5F35/4rjNmH3JObR
-	 ltyx7mJvcnRBA==
-Received: by mail-ed1-f41.google.com with SMTP id 4fb4d7f45d1cf-631df7b2dffso1121703a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 07:09:38 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCXwCoBVS+bzxZC7d6iKzaBHHyI454ozi3S5l9lWENtyvNDY0AKIysfR3/G2/DyVm4mMzmrISt4tQgZHj5EqV88b@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz2Ad7HbTSIjdEzOJ6ABe5/NLSwc3PRSkU5vZCZlZKjjp3lX1K2
-	PoLyNZKsCX2FeECT5P+f7hzIYTEvLiEpQuUowZwl38RMfy7l9JFYw9+0hfyJL9JwdWJR+Rg9U0N
-	9w7eoAt5PFtvMymgo8OKPI7GkXZi/DQQ=
-X-Google-Smtp-Source: AGHT+IGIKmx1BchY0pXNFGB9InPUsy11nkEwRUNkdw0dz8PMMYgsxJ499uv1kM2Bm0HVTHpzS82ofc5CbUu9I//1Cng=
-X-Received: by 2002:aa7:d785:0:b0:633:14bb:dcb1 with SMTP id
- 4fb4d7f45d1cf-639bb13500dmr18155251a12.11.1760364576745; Mon, 13 Oct 2025
- 07:09:36 -0700 (PDT)
+	Mon, 13 Oct 2025 14:18:22 +0000
+ARC-Authentication-Results: i=1; mx-gate50-hz3.hornetsecurity.com 1; spf=pass
+ reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com
+ smtp.helo=hmail-p-smtp01-out04-hz1.hornetsecurity.com; dmarc=pass
+ header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=vyXrVVygqMhn5Bif81+tF99rIVbrn5Q3omrjq9+Xlzs=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1760365087;
+ b=ERo+fY0tN26mCNmYlk2MMFIDzATvD5ENrRlOP60OnkYRPaGJx1lDKdaZSZwt6IDc+PmX16pv
+ 5dqS/N2g1l8ermFLrgdUVfQwwh/6NgYcFzMQTsPmNDQaVBsxNszLRqm9Rsf+HgnhGfrlvKK1oyZ
+ fS0udZp4O0mH21UegpDzA+suP4KmmjOQlQuFrWR5cCDA42KPeHVVO11BgHigEwzRVcTlz6NbSwO
+ ziUUpV6XK14sVGrJfKMOxBtu8X1h/HL6dLLns+aH6/6j3b0VNtxjtNbf7HA/ABwpyGyMG9mfix1
+ raiVzGDCSqPeZuqLStWx4x7BW2fdf5L78LKptRUHZ7Rxw==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1760365087;
+ b=HtEiMZdNbPbufsQCtmyf9IJedNmwNU/FPeJPz34M3adGJBBlTpmbn3owzC0cUdJNcGB8xR06
+ 6aob16QI5R4awlCIkBHI9m1Y36nW8146ksBckXxUbSfJCQOX6U3oO3/0Ho9/Rx/1uOWWAn6JfVK
+ x+q98ONHSSpMqJ8T5VsY7l1EqrH4MdeaU2U4fqSQoN3ofCEw9TCOxVNOk7FWlfuRbkicaKk2IE5
+ 7dp6sOW9l7doZWDYtYW7ML1YSXDJM+zHxoIKj7feccpLjuMU/T1VIj0CT/cf1xGHbpOFy+X9DoT
+ Nz7eXdjVTsO97kwAYXra1kpNzkFQy1SwLEfK2M9OM4mYw==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay50-hz3.antispameurope.com;
+ Mon, 13 Oct 2025 16:18:06 +0200
+Received: from steina-w.localnet (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: alexander.stein@ew.tq-group.com)
+	by hmail-p-smtp01-out04-hz1.hornetsecurity.com (Postfix) with ESMTPSA id 43C43220CFE;
+	Mon, 13 Oct 2025 16:17:57 +0200 (CEST)
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Lizhi Hou <lizhi.hou@amd.com>, Brian Xu <brian.xu@amd.com>,
+ Raj Kumar Rampelli <raj.kumar.rampelli@amd.com>,
+ Vinod Koul <vkoul@kernel.org>, Michal Simek <michal.simek@amd.com>,
+ anthony@amarulasolutions.com
+Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, Anthony Brandon <anthony@amarulasolutions.com>,
+ Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Subject: Re: [PATCH v4] dmaengine: xilinx: xdma: Fix regmap max_register
+Date: Mon, 13 Oct 2025 16:17:56 +0200
+Message-ID: <2389383.ElGaqSPkdT@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20250903-xdma-max-reg-v4-1-894721175025@amarulasolutions.com>
+References: <20250903-xdma-max-reg-v4-1-894721175025@amarulasolutions.com>
 MIME-Version: 1.0
-References: <20250928085506.4471-1-yangtiezhu@loongson.cn> <CAMj1kXG8Wi+THa2SeLxiDT=+t_TKx0AL4H-azZO4DNJvyyv96g@mail.gmail.com>
- <CAAhV-H7xOf8DEwOrNh+GQGHktOT4Ljp+7SqutGvvDZp6GLXJrA@mail.gmail.com>
- <CAMj1kXG=EFkRAMkvKMSjPixoGqU-tZXVoRkJJ6Wcnzs3x52X6Q@mail.gmail.com>
- <CAMj1kXHWe2uGY3S1NJ6mckqD4n116rPmaOzw3_Qbvxyjh7ECMw@mail.gmail.com>
- <fec0c03d-9d8c-89a3-886a-1adc22e59b66@loongson.cn> <CAMj1kXFLyBbRL+pAAQ6be6dxqFPiyw_Ug8qNQWaicZQ235HE=A@mail.gmail.com>
- <8091e8fa-3483-af39-2f7a-e4eb62b0944f@loongson.cn> <CAAhV-H4+UGLSkbjHbq9MerWfxnq0a13x+uzNfTsCoe1UxjbWsg@mail.gmail.com>
- <CAMj1kXH-rK0bRyHXdJ-crAyMyvJHApH0WR7_8Qd8vrSPBLK+yg@mail.gmail.com>
- <0c9b8e6a-96a6-91d4-946f-2109f48a529b@loongson.cn> <CAAhV-H41m96fvEWG5NqAE=tykPjyzt=50CseJDeCqdG-c_WMrQ@mail.gmail.com>
- <CAMj1kXEs5=VRi_rJwgHUrQWos-27PBbr3c4fYnmkV8Ahi8HZgw@mail.gmail.com>
- <CAAhV-H7HN128du-b1Rk_9qbYBq7gMSwo0s31909N4pTou6wzew@mail.gmail.com> <CAMj1kXGvSnCMRVCW7eAxgLRWMEV3QRj3Dqg3PmZchZJNpnLK9w@mail.gmail.com>
-In-Reply-To: <CAMj1kXGvSnCMRVCW7eAxgLRWMEV3QRj3Dqg3PmZchZJNpnLK9w@mail.gmail.com>
-From: Huacai Chen <chenhuacai@kernel.org>
-Date: Mon, 13 Oct 2025 22:09:25 +0800
-X-Gmail-Original-Message-ID: <CAAhV-H4UKdso0BokAqvjYeBLr-jbjFAaQX4z=1ztpBamqrOEEg@mail.gmail.com>
-X-Gm-Features: AS18NWB3mSCepPt1etTJs4X35a5tkxvZPNilre683PYaU3Xj0J0E-YjIBVuCFt4
-Message-ID: <CAAhV-H4UKdso0BokAqvjYeBLr-jbjFAaQX4z=1ztpBamqrOEEg@mail.gmail.com>
-Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Tiezhu Yang <yangtiezhu@loongson.cn>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="us-ascii"
+X-cloud-security-sender: alexander.stein@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay50-hz3.antispameurope.com with 4clfZY5vRpz2nH1K
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: ce6e0c546d8b9a92df42d712c97e6124
+X-cloud-security: scantime:2.191
+DKIM-Signature: a=rsa-sha256;
+ bh=vyXrVVygqMhn5Bif81+tF99rIVbrn5Q3omrjq9+Xlzs=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1760365086; v=1;
+ b=Bik8Dq4QV4fuQ0pbFBBbEWAeXink59b7SAP3fak4vpgCj7BF7IvgRClUV8vOjWE9WwS0XeCe
+ jKHigVwFcXol9CcV7cqODS2RQ5kNKXGlUJHauBd1WH9wc4VdWqSlCa6r8CcerjbbJnnCg8+4A7U
+ I9NTnjW4lVYcmKBMQUusBGbOhQxM8EmzleGyoMkMlVKCHtcdr36so0a2D9N8e/6u2V8iT/mUkXZ
+ 0sG2tG5x0o1tEkVD3BMmfETAmVKs5XVOW0xN1Cx8qfH6zln6A7/NKLpn8cYZI1AHQaW07AaEZmM
+ RVEC79fBTelqeKdW6LhP//m+KP0qXRTUPyGQtqK/vUGtg==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_070939_748508_CA0A25D6 
-X-CRM114-Status: GOOD (  47.73  )
+X-CRM114-CacheID: sfid-20251013_071819_165074_BC4133CA 
+X-CRM114-Status: GOOD (  22.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -94,150 +108,103 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 11, 2025 at 11:59=E2=80=AFPM Ard Biesheuvel <ardb@kernel.org> w=
-rote:
->
-> On Sat, 11 Oct 2025 at 08:01, Huacai Chen <chenhuacai@kernel.org> wrote:
-> >
-> > On Sat, Oct 11, 2025 at 10:48=E2=80=AFPM Ard Biesheuvel <ardb@kernel.or=
-g> wrote:
-> > >
-> > > On Sat, 11 Oct 2025 at 00:43, Huacai Chen <chenhuacai@kernel.org> wro=
-te:
-> > > >
-> > > > On Sat, Oct 11, 2025 at 3:29=E2=80=AFPM Tiezhu Yang <yangtiezhu@loo=
-ngson.cn> wrote:
-> > > > >
-> > > > > On 2025/10/11 =E4=B8=8A=E5=8D=8811:40, Ard Biesheuvel wrote:
-> > > > > > On Fri, 10 Oct 2025 at 19:54, Huacai Chen <chenhuacai@kernel.or=
-g> wrote:
-> > > > > >>
-> > > > > >> On Sat, Oct 11, 2025 at 9:13=E2=80=AFAM Tiezhu Yang <yangtiezh=
-u@loongson.cn> wrote:
-> > > > > >>>
-> > > > > >>> On 2025/10/11 =E4=B8=8A=E5=8D=8812:25, Ard Biesheuvel wrote:
-> > > > > >>> ...
-> > > > > >>>> Why do we need both (1) and (2)?
-> > > > > >>>
-> > > > > >>> Not both, either (1) or (2).
-> > > > > >>> Which one do you prefer? Or any other suggestions?
-> > > > > >>>
-> > > > > >>> Taking all of the considerations in balance, we should decide
-> > > > > >>> what is the proper way.
-> > > > > >> As a summary, there are three methods:
-> > > > > >> (1) Only link libstub with vmlinux.o during the final vmlinux =
-link.
-> > > > > >> (2) Remove the attribute __noreturn for real_kernel_entry() an=
-d add while (1).
-> > > > > >> (3) Ignore "__efistub_" prefix in objtool.
-> > > > > >>
-> > > > > >> Josh prefers method (1), I prefer method (3) but also accept m=
-ethod
-> > > > > >> (1) if it is not only specific to loongarch.
-> > > > > >>
-> > > > > >
-> > > > > > This is a false positive warning in objtool, which complains ab=
-out a
-> > > > > > function that falls through, even though that can never happen =
-in
-> > > > > > reality.
-> > > > > >
-> > > > > > To me, it is not acceptable to modify how vmlinux.o is construc=
-ted
-> > > > > > also for other architectures, in order to hide some of its cons=
-tituent
-> > > > > > parts from objtool, which do not use objtool to begin with.
-> > > > > >
-> > > > > >
-> > > > > > If you are not willing to fix objtool, I suggest fixing the loo=
-ngarch
-> > > > > > code like this:
-> > > > >
-> > > > > Thank you.
-> > > > >
-> > > > > > --- a/drivers/firmware/efi/libstub/loongarch.c
-> > > > > > +++ b/drivers/firmware/efi/libstub/loongarch.c
-> > > > > > @@ -10,7 +10,7 @@
-> > > > > >   #include "efistub.h"
-> > > > > >   #include "loongarch-stub.h"
-> > > > > >
-> > > > > > -typedef void __noreturn (*kernel_entry_t)(bool efi, unsigned l=
-ong cmdline,
-> > > > > > +typedef void (*kernel_entry_t)(bool efi, unsigned long cmdline=
-,
-> > > > > >                                            unsigned long systab=
-);
-> > > > > >
-> > > > > >   efi_status_t check_platform_features(void)
-> > > > > > @@ -81,4 +81,6 @@
-> > > > > >
-> > > > > >          real_kernel_entry(true, (unsigned long)cmdline_ptr,
-> > > > > >                            (unsigned long)efi_system_table);
-> > > > > > +
-> > > > > > +       return EFI_LOAD_ERROR;
-> > > > > >   }
-> > > > >
-> > > > > I tested the above changes, the falls through objtool warning can
-> > > > > be fixed because efi_boot_kernel() ends with a return instruction=
-,
-> > > > > I think this is reasonable.
-> > > > >
-> > > > > efi_boot_kernel() has a return value, there are "return status" i=
-n
-> > > > > other parts of efi_boot_kernel(), it should also return at the en=
-d
-> > > > > of efi_boot_kernel() in theory, although we should never get here=
-.
-> > > > >
-> > > > > If there are more comments, please let me know.
-> > > > I still don't want LoongArch to be a special case, which means
-> > > > efi_boot_kernel() in fdt.c, jump_kernel_func in riscv.c and
-> > > > enter_kernel in arm64.c should also be modified.
-> > > >
-> > >
-> > > You have made LoongArch a special case by adding objtool support,
-> > > which  arm64 and RISC-V do not have.
-> > >
-> > > So NAK to changing arm64 and RISC-V as well.
-> > Hmmm, I want to know whether this problem is an objtool issue or an
-> > efistub issue in essence. If it is an objtool issue, we should fix
-> > objtool and don't touch efistub. If it is an efistub issue, then we
-> > should modify efistub (but not specific to LoongArch, when RISC-V and
-> > ARM64 add objtool they will meet the same issue).
-> >
->
-> It is an objtool issue in essence.
->
-> The generated code looks like this
->
-> 9000000001743080: ff b7 fe 57   bl      -332 <__efistub_kernel_entry_addr=
-ess>
-> 9000000001743084: 26 03 c0 28   ld.d    $a2, $s2, 0
-> 9000000001743088: 87 00 15 00   move    $a3, $a0
-> 900000000174308c: 04 04 80 03   ori     $a0, $zero, 1
-> 9000000001743090: c5 02 15 00   move    $a1, $fp
-> 9000000001743094: e1 00 00 4c   jirl    $ra, $a3, 0
->
-> 9000000001743098 <__efistub_exit_boot_func>:
-> 9000000001743098: 63 c0 ff 02   addi.d  $sp, $sp, -16
->
-> There is nothing wrong with this code, given that the indirect call is
-> to a __noreturn function, and so the fact that it falls through into
-> __efistub_exit_boot_func() is not a problem.
->
-> Even though the compiler does nothing wrong here, it would be nice if
-> it would emit some kind of UD or BRK instruction after such a call, if
-> only to make the backtrace more reliable. But the code is fine, and
-> objtool simply does not have the information it needs to determine
-> that the indirect call is of a variety that never returns.
-So the best way is to fix the objtool?
+Am Mittwoch, 3. September 2025, 10:56:13 CEST schrieb Anthony Brandon via B4 Relay:
+> From: Anthony Brandon <anthony@amarulasolutions.com>
+> 
+> The max_register field is assigned the size of the register memory
+> region instead of the offset of the last register.
+> The result is that reading from the regmap via debugfs can cause
+> a segmentation fault:
+> 
+> tail /sys/kernel/debug/regmap/xdma.1.auto/registers
+> Unable to handle kernel paging request at virtual address ffff800082f70000
+> Mem abort info:
+>   ESR = 0x0000000096000007
+>   EC = 0x25: DABT (current EL), IL = 32 bits
+>   SET = 0, FnV = 0
+>   EA = 0, S1PTW = 0
+>   FSC = 0x07: level 3 translation fault
+> [...]
+> Call trace:
+>  regmap_mmio_read32le+0x10/0x30
+>  _regmap_bus_reg_read+0x74/0xc0
+>  _regmap_read+0x68/0x198
+>  regmap_read+0x54/0x88
+>  regmap_read_debugfs+0x140/0x380
+>  regmap_map_read_file+0x30/0x48
+>  full_proxy_read+0x68/0xc8
+>  vfs_read+0xcc/0x310
+>  ksys_read+0x7c/0x120
+>  __arm64_sys_read+0x24/0x40
+>  invoke_syscall.constprop.0+0x64/0x108
+>  do_el0_svc+0xb0/0xd8
+>  el0_svc+0x38/0x130
+>  el0t_64_sync_handler+0x120/0x138
+>  el0t_64_sync+0x194/0x198
+> Code: aa1e03e9 d503201f f9400000 8b214000 (b9400000)
+> ---[ end trace 0000000000000000 ]---
+> note: tail[1217] exited with irqs disabled
+> note: tail[1217] exited with preempt_count 1
+> Segmentation fault
+> 
+> Fixes: 17ce252266c7 ("dmaengine: xilinx: xdma: Add xilinx xdma driver")
+> Signed-off-by: Anthony Brandon <anthony@amarulasolutions.com>
+> Reviewed-by: Lizhi Hou <lizhi.hou@amd.com>
+> Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
 
->
-> So I don't mind fixing it in the code, but only for LoongArch, given
-> that the problem does not exist on arm64 or RISC-V.
-You believe this problem won't exist even if they add objtool support
-(because their objtool will be sane)?
+Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+
+> ---
+> Changes in v4:
+> - Reorder Reviewed-by
+> - Link to v3: https://lore.kernel.org/r/20250902-xdma-max-reg-v3-1-5fa37b8d2b15@amarulasolutions.com
+> 
+> Changes in v3:
+> - Add Fixes tag
+> - Link to v2: https://lore.kernel.org/r/20250901-xdma-max-reg-v2-1-fa3723a718cd@amarulasolutions.com
+> 
+> Changes in v2:
+> - Define new constant XDMA_MAX_REG_OFFSET and use that.
+> - Link to v1: https://lore.kernel.org/r/20250901-xdma-max-reg-v1-1-b6a04561edb1@amarulasolutions.com
+> ---
+>  drivers/dma/xilinx/xdma-regs.h | 1 +
+>  drivers/dma/xilinx/xdma.c      | 2 +-
+>  2 files changed, 2 insertions(+), 1 deletion(-)
+> 
+> diff --git a/drivers/dma/xilinx/xdma-regs.h b/drivers/dma/xilinx/xdma-regs.h
+> index 6ad08878e93862b770febb71b8bc85e66813428e..70bca92621aa41b0367d1e236b3e276344a26320 100644
+> --- a/drivers/dma/xilinx/xdma-regs.h
+> +++ b/drivers/dma/xilinx/xdma-regs.h
+> @@ -9,6 +9,7 @@
+>  
+>  /* The length of register space exposed to host */
+>  #define XDMA_REG_SPACE_LEN	65536
+> +#define XDMA_MAX_REG_OFFSET	(XDMA_REG_SPACE_LEN - 4)
+>  
+>  /*
+>   * maximum number of DMA channels for each direction:
+> diff --git a/drivers/dma/xilinx/xdma.c b/drivers/dma/xilinx/xdma.c
+> index 0d88b1a670e142dac90d09c515809faa2476a816..5ecf8223c112e468c79ce635398ba393a535b9e0 100644
+> --- a/drivers/dma/xilinx/xdma.c
+> +++ b/drivers/dma/xilinx/xdma.c
+> @@ -38,7 +38,7 @@ static const struct regmap_config xdma_regmap_config = {
+>  	.reg_bits = 32,
+>  	.val_bits = 32,
+>  	.reg_stride = 4,
+> -	.max_register = XDMA_REG_SPACE_LEN,
+> +	.max_register = XDMA_MAX_REG_OFFSET,
+>  };
+>  
+>  /**
+> 
+> ---
+> base-commit: b320789d6883cc00ac78ce83bccbfe7ed58afcf0
+> change-id: 20250901-xdma-max-reg-1649c6459358
+> 
+> Best regards,
+> 
 
 
-Huacai
+
+
 
