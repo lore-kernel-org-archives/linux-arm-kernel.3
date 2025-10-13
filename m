@@ -4,70 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC7FBCCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 06:43:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 98123CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 06:52:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=t+kQn+l8NiDpU6SXgOx9uxgsvDw/42sI1GnBIfHgYJM=; b=Knp9DdtB5MxlO7HXeIaG/uOyLT
-	p8u+k8ld4P0tYJ91OFkvnvllZiYViHi7RTZnxQeZdtaC6ur7WgE0LDBGPy6VVEYpV7f2AI4SE65Jk
-	hES7mEhLYsLrcPLrBry/a+AekNdbzCb3eTThbQooNEEHK/n3MhCcSpRgeDBv/iB3G4HSvp1Px15TC
-	FimUOsCQJzsBkCO3mZYim6TBJF48b7a8GYMWppuA47sSF1hNz5He/yvXCdkC060kZQeIJg0edbWzv
-	NCbGZ/dv7/TLY6T/TJJflA6uNpIoiJbpXVcYf8aIDLNCbs7q84Gjz8rwSyYDUD+bBQGz61ONTWeCt
-	0s1RmyrQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:Content-Type:
+	Content-Transfer-Encoding:Message-ID:Date:Subject:Cc:To:From:Reply-To:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=5Tx2oDxYMSTja/sPErrZ8DfLx5X4lvxg2ZpEQxtWMpw=; b=BajcuSqQUdmtDgud7dhfGBtz3J
+	Wu/Sy7bTB0YqtS1uKWkCowXDWSlJNyQ1gkrYwYdJdcbE0IswgYtEa76dAU1m5g7Fe5VorO1Y9FTKx
+	5rtkoy9uvWl9BriplBlTB27UxjQWvGwvX6z0gvQ5CAeOAcIzJDpfgEPNIeC+YCJZ3dowIk4rlhGI5
+	XOPKNYRHpLaX1SukUiX9/9p8vJFJoQRSCR4gOButE7Av+TKNnLsO3MQV3Vl9MSi+5nyAd6zwegBow
+	Osybf2gSiexihl6B9zx6BddFKYpvCYR8aB+/pwtbGmfr6f3OCQ/r/IsaKWmwYYRtHbg/E1cyRCtuD
+	5F7gAjzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8CHG-0000000CQDK-1hvR;
-	Mon, 13 Oct 2025 06:43:26 +0000
-Received: from canpmsgout09.his.huawei.com ([113.46.200.224])
+	id 1v8CPY-0000000CQr2-38PE;
+	Mon, 13 Oct 2025 06:52:00 +0000
+Received: from mail-centralusazlp170110009.outbound.protection.outlook.com ([2a01:111:f403:c111::9] helo=DM5PR21CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8CHD-0000000CQBv-2HhF
+	id 1v8CPW-0000000CQqH-2TSu
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 06:43:25 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=t+kQn+l8NiDpU6SXgOx9uxgsvDw/42sI1GnBIfHgYJM=;
-	b=aDD8GUUOo7J4GGh/PfNuwch4LNYMaSdXOXUG5aoAR+1gaa2qiX1XEz8mlaFPTjr2FC0n+iLA8
-	BAz1gD8BF70nCt6k4GcNjEsQ99SJ7uhSv6kKfrUvNe19APR3368XZ1+WX1QD/hm2AAaxeffIHaW
-	ETsw4b0yuUOSU8QzlFWxdYY=
-Received: from mail.maildlp.com (unknown [172.19.88.214])
-	by canpmsgout09.his.huawei.com (SkyGuard) with ESMTPS id 4clSTQ3gMhz1cyQv;
-	Mon, 13 Oct 2025 14:42:50 +0800 (CST)
-Received: from dggemv706-chm.china.huawei.com (unknown [10.3.19.33])
-	by mail.maildlp.com (Postfix) with ESMTPS id 7B2C91A016C;
-	Mon, 13 Oct 2025 14:43:09 +0800 (CST)
-Received: from kwepemq200012.china.huawei.com (7.202.194.183) by
- dggemv706-chm.china.huawei.com (10.3.19.33) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 13 Oct 2025 14:43:09 +0800
-Received: from huawei.com (10.175.112.208) by kwepemq200012.china.huawei.com
- (7.202.194.183) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.1544.11; Mon, 13 Oct
- 2025 14:43:08 +0800
-From: Wang Wensheng <wangwensheng4@huawei.com>
-To: <will@kernel.org>, <robin.murphy@arm.com>, <joro@8bytes.org>,
-	<jgg@ziepe.ca>, <nicolinc@nvidia.com>, <kevin.tian@intel.com>,
-	<praan@google.com>, <baolu.lu@linux.intel.com>,
-	<linux-arm-kernel@lists.infradead.org>, <iommu@lists.linux.dev>,
-	<linux-kernel@vger.kernel.org>
-CC: <chenjun102@huawei.com>, <wangwensheng4@huawei.com>
-Subject: [RFC PATCH] iommu/arm-smmu-v3: Defer shutdown to syscore_ops
-Date: Mon, 13 Oct 2025 14:35:29 +0800
-Message-ID: <20251013063529.108949-1-wangwensheng4@huawei.com>
-X-Mailer: git-send-email 2.22.0
-MIME-Version: 1.0
+	Mon, 13 Oct 2025 06:52:00 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=dbRBGnD3sIkxC+EeS+Ywbu8iaV6SBiGDD7qnG91ziXMQZGUggnH9xrW/CEkePDQN/AipLPtPk44AKkZ7osuv6s8ML9fv/BRfaySBQSoa6L4cVibe689iHfHKjJZwN/gVoeRkg7a+7aOayKG0t11aTn+RAHU3ax+hiQU8hDHXsaNjX6sbgGWYDG8ICA95tdVa7ZJ1GObLf0jJmLqBKIXrtHvTcnl4MbyOnb9bBfH4GLt63fXEvP0TJ1Nuue3pisMtd9mPh/hGO4NynBJjjhs0/8TN62yDvHGC8S4paYiI/tTwCpcFuHjoHxw68hBCaZ99H4N6DtN0frsoY0GiWp2Nsg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=5Tx2oDxYMSTja/sPErrZ8DfLx5X4lvxg2ZpEQxtWMpw=;
+ b=OSpT7KG//kJWaLiH5qcUkiOwx2G+cREW4CovwntzueUTkXkgbOQ6LX9Xvb39G8RF9+HJYmP5HYaPmIeNDaJMmCT1/cENuHRnYwFcxsdps3veZ/QLMhA1HCJmk5mpsPRXge6fP1cOFoyVLk3cB1mX/n6uzuW/p5+ErVGBjYwILDcohhNGJz9U+EcFwufrA3RTb0yZ4C5U2SHHVJwYKWXziOuoSdyJup6CvDoQZvjQCittc7sRFq9G+98HTeDiJbdNCudzehDDYZQ2wuuACSP4EY9QKAIDFpz1MZeYGRea2dbl4BY5RqWovA26xisuM91s+781DgW77mYwu06OG9xLsQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=os.amperecomputing.com; dmarc=pass action=none
+ header.from=os.amperecomputing.com; dkim=pass
+ header.d=os.amperecomputing.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+ d=os.amperecomputing.com; s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=5Tx2oDxYMSTja/sPErrZ8DfLx5X4lvxg2ZpEQxtWMpw=;
+ b=pgLKtdLuiYyRVOc0SxcSzqy0orI/lpQdsapyiu6hgj6zVU5a0HKiVSqU7pruDjcPUNLNgFqVeJ21LpxGZLE9eDImqGNjRfnjpHgzKUTWXTG5/rvXNaFI29B93jypCLgCx+Fjoa4xjQjtfcOYEYDyPLAJ/JaCUcvdC2RFfZ1nbRI=
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=os.amperecomputing.com;
+Received: from SJ2PR01MB8101.prod.exchangelabs.com (2603:10b6:a03:4f6::10) by
+ SA1PR01MB6717.prod.exchangelabs.com (2603:10b6:806:1a4::24) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9203.10; Mon, 13 Oct 2025 06:51:45 +0000
+Received: from SJ2PR01MB8101.prod.exchangelabs.com
+ ([fe80::292:6d9c:eb9a:95c9]) by SJ2PR01MB8101.prod.exchangelabs.com
+ ([fe80::292:6d9c:eb9a:95c9%4]) with mapi id 15.20.9203.009; Mon, 13 Oct 2025
+ 06:51:45 +0000
+From: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
+To: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Cc: maz@kernel.org,
+	oliver.upton@linux.dev,
+	will@kernel.org,
+	catalin.marinas@arm.com,
+	suzuki.poulose@arm.com,
+	joey.gouly@arm.com,
+	yuzenghui@huawei.com,
+	darren@os.amperecomputing.com,
+	cl@gentwo.org,
+	scott@os.amperecomputing.com,
+	gankulkarni@os.amperecomputing.com,
+	gklkml16@gmail.com
+Subject: [PATCH v2] KVM: arm64: nv: Optimize unmapping of shadow S2-MMU tables
+Date: Sun, 12 Oct 2025 23:51:25 -0700
+Message-ID: <20251013065125.767779-1-gankulkarni@os.amperecomputing.com>
+X-Mailer: git-send-email 2.51.0
 Content-Transfer-Encoding: 8bit
 Content-Type: text/plain
-X-Originating-IP: [10.175.112.208]
-X-ClientProxiedBy: kwepems500002.china.huawei.com (7.221.188.17) To
- kwepemq200012.china.huawei.com (7.202.194.183)
+X-ClientProxiedBy: CYZPR10CA0018.namprd10.prod.outlook.com
+ (2603:10b6:930:8a::29) To SJ2PR01MB8101.prod.exchangelabs.com
+ (2603:10b6:a03:4f6::10)
+MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: SJ2PR01MB8101:EE_|SA1PR01MB6717:EE_
+X-MS-Office365-Filtering-Correlation-Id: ebb97b3f-d0c2-467b-6228-08de0a24f92b
+X-MS-Exchange-AtpMessageProperties: SA
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|366016|376014|7416014|1800799024|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?bP/Up97vUY/f1+0L6jIxzuiv07zgRt/SjBCeX0XwDjLTi0WYaEAR8t9rZTup?=
+ =?us-ascii?Q?R783sp8XrS1a7iugoY+Z7sX8iCqBC/kyhXDLrS0TfC3qzeO01M8nKSCbwcbR?=
+ =?us-ascii?Q?Zqev4UDwZaWDYD97ERplItxW5XcS0+T7FYRMf3MG0KfJWsu6lrSwnNg342+4?=
+ =?us-ascii?Q?arp+9mZEUu6VChr8RnscklHCiDG2kvpL9qqWugR9K2kK7gJ8JL23ZIACytOv?=
+ =?us-ascii?Q?MU03L8qQfQGcd1LRrkw0zD9y+WuooHHjR5I64uPdG+Lr+FkPdyeHq2id81dl?=
+ =?us-ascii?Q?hXsVnpeJRAHiWPf5r7fWSj/dwrPpdUiezLCf9ZvIeWD9mxgBzm1kVOugpFab?=
+ =?us-ascii?Q?v6xy1KgH5jWEf9PQNuCf7kMzDnhqDja4tUGL98BiyLwWwV7klbmRVsvWXO53?=
+ =?us-ascii?Q?PxMZfM7zJaGQmuErGMoE7O5R8+41fx/ZYKcQeD0C7esu1aGNB3mSS8VygEeg?=
+ =?us-ascii?Q?H0aEka/gbF41SmlHAIjIOKWaFTL0dC2YjRAvrQonX5roVfhjtQ888rP9JlMq?=
+ =?us-ascii?Q?qXRS3jZtW31WK993heA5SfjIXa1+lff/peW8SxRcNMmoQwK1gEggaDReMwNq?=
+ =?us-ascii?Q?XO1TG+EO+WM7gD/X7QOPUkn0mMi0CV8Qd0beyHt6y7h7jCg2tHjvCBETJ8XS?=
+ =?us-ascii?Q?Fit3qphbWQOEq76Iuslaeq0ciM348+2vaAJfq5+0vAsmLkliGAMdcGXGMdnt?=
+ =?us-ascii?Q?NGV2vxhtmeUKhPHFtKhXbXi6yORT/GXvdMJG9yNJ9YhEvMkkjdWWTN0CDwEm?=
+ =?us-ascii?Q?RgKgMSZLu/otg9d3hptlpzXZM+7Z9hCiH5PR+9IrIyxbwOWdsOVVdAUkQAb0?=
+ =?us-ascii?Q?JLGv9nREy1j5BU/7Z+oVztsNtE4fa0w0kyRfPmUXoJuC1eWay/F1JaSjInRZ?=
+ =?us-ascii?Q?RcKSoHFA0sjfK3HqXarXz6YUzXZJ4jvF8ZejPuZv0REDJRrlXDWVSWet9Pkm?=
+ =?us-ascii?Q?F88nLGbQlN3/hi5XyEV8Eeq/FQK3Je0jkuYvIDADLDv2FbGiPoy+DWHSA4d+?=
+ =?us-ascii?Q?ORvgUbe8SU/dkjCG7/DRDqj6KOiWBhq085+ksHP+ODXfw0hAFH68VYkjBmJ9?=
+ =?us-ascii?Q?gKF5oexLsNmdttMoJN77rUKJhotRVq/beMFIoV0xlK5/S/zDapz5PmH93U7y?=
+ =?us-ascii?Q?aLlvEK7fdoef15e2n8ItAak2PgQWB5ltRJh4VYjOF3TDUZ4pzOv0RBmqFFAL?=
+ =?us-ascii?Q?LsWcdyYEItuie9muajMcpbvVCHgStN33Zn/mbF/NWO1rhY2MEvyX7bYL7wkv?=
+ =?us-ascii?Q?o2mioUolg6BPP0b4FIxZnjJC7ZqjqhEtFPnqWfcljzxwAIPQdI81yELf+Sp3?=
+ =?us-ascii?Q?eY4eV+Y6iqIfVqapF9GJJhlYdqF9CJ6a7+UKJ/vxV+Wgxxfv1q4RGvEfwAkX?=
+ =?us-ascii?Q?HZ+X+03KP0Ivj/ZZY/ZEilk4JdHI1M7eqLUho5HuiJNSmc5rJNPqROcjzcS0?=
+ =?us-ascii?Q?Jy7rsvBnbE7M8SMm6tmXaXaKoFH/QpFKFX0ZxXe9g6i03KCfv3zwrl37431e?=
+ =?us-ascii?Q?hKDM6nTb3VzbIc/ucBZexGl3jfn0S/C9kjxa?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:SJ2PR01MB8101.prod.exchangelabs.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(366016)(376014)(7416014)(1800799024)(38350700014);DIR:OUT;SFP:1102;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?4+g/oFDA5fn10J6SylMRkkelS6ew864W+egtXeP6OziUAT3Y9ZYeq6ex5doF?=
+ =?us-ascii?Q?IC825DhARzU/q1A7/Y0djj+q5RgDK3o8WJko3jmSp1AXf0sQ/+uesSjvggGr?=
+ =?us-ascii?Q?R2t2P1VRgscF1fsmrunPcZC7/NXKARMVZv3/ZzQCIPnvYpYdCAGvi4NCcnqi?=
+ =?us-ascii?Q?aYlt5YjTHwC01RzXZpP9eQqsRE4tHOOTQgDkoo46/b2/XK6mvJ0CtpsxOhxS?=
+ =?us-ascii?Q?VLkIxPCjM+RQRD0gm/gULXnH/cY+dOEJVJaoXzuvW6MMYQJgOJ2WRCFG+XYZ?=
+ =?us-ascii?Q?GpmDi1tNvLwd0qDpxXcNicnTFSg7gxRv9/MR7+dppoI74vptqLsgebLRgepn?=
+ =?us-ascii?Q?+D/tB44O49+PTilweUHsZq7368qGLkH1A3qnCOYXrFLkyvQFRmY/JlocXrZk?=
+ =?us-ascii?Q?5hmVYNUV/QM6HHQn5A3y+wnVMWMHzzoqYeuYqkOpJRU/NBZqAuc8wUYwGtPC?=
+ =?us-ascii?Q?D1o74UbwRJc/htfnalVXf+wbFYByjf9qRe+twJXW3SfZszSAif4tSvETiDsa?=
+ =?us-ascii?Q?N0HSMY/ZY1VBPGlP5clz52dU+kkvnNn/PMhwAxF67ZiNCeX+4YkpW26xO+Sy?=
+ =?us-ascii?Q?8I6DDmc9SLsrkfIRlBJNffVEZZohHpWeeDFplGLMJHn8LXcQbgXdd0+Kz19N?=
+ =?us-ascii?Q?yw8XIkx8gYpoVZ7nzMz2NQ9ZOgi48qsyWYV6w0ElwiSKmRv3TlW+AC+36iLk?=
+ =?us-ascii?Q?sxs2tRynQxX28TXuk5WXQ61sf1aNL3M8dqkG1E6CQiRcC0JchwuoKgoJt9ru?=
+ =?us-ascii?Q?l25YLmBHMsAyVxAEpB+bni+m2N6fjkM7CxPEr6NadCPCs4Bm5/8mMshGR8+P?=
+ =?us-ascii?Q?+2qHD2jf0QUpnUr+zYmaxS/ULQHAptLZ7LqDQonfaBGTt8PYxyvPXxTwYB78?=
+ =?us-ascii?Q?pR9JiibUock8AexwriBfRwXWuqWAyU4dt30NPoST3SzrCeaxkxvyOQ5SJnd+?=
+ =?us-ascii?Q?lPwXqO8nrr+38HaaE2O4Fy+M5pAtkLPOWTk/OALSI5Y4eLGsD6t0yqiTGqXw?=
+ =?us-ascii?Q?anXKJwVKvdURiNcl1al9dtFVIbB1FqPOCNlh9j4qXhvzncvYXRpMTMawQ4Ml?=
+ =?us-ascii?Q?Iz/DcW4HA/P9xZaxUDTRH4UTJJQynaIlDCN2MivLffAsCrUnwjueMoBmYhs0?=
+ =?us-ascii?Q?dQ8WU1ED0a7nQwh8BAaJPrTz2R4FYin4DyKI1uDt2tm0PaBVaRSwGcoDv5rW?=
+ =?us-ascii?Q?+UUJi5m6mc3WKJNg8Zs94LVWmAwz9w9FjnMZx38lGHU3ynvk+t3hq4+3HlCY?=
+ =?us-ascii?Q?KdS4h09/Wsrg6rQdHbsAANiXsnSCMT4vra4gybqJI+IKxEmUSK0uhhemNDgT?=
+ =?us-ascii?Q?MSA1ieC8S+McqJK5zW608HtaJhZGYgTZaux7K48t+QCoVPTUL3CIYeeB5q3I?=
+ =?us-ascii?Q?l9E1F/U2PGr8ZA16Vs6jufauajbfch3t3hB+eOT2yCYvhKEc/u/QmBOyUtm8?=
+ =?us-ascii?Q?9tGNpWqKKIFUUHj4pZp/NgpBtTrFXhFptszN4NIkqH62fCBa8ay2Yxn5P737?=
+ =?us-ascii?Q?5I0xrxTQyCiD31IeBq+nrEfKPpdH9kicM8LNrqEk8akQrmgEDDzO6bmQ2C1f?=
+ =?us-ascii?Q?nkofrfA0gLqTv/KAL/YXTUAN7RZmC+Nw10weRnRKy3kTFBd0jzGs7rLRJSaS?=
+ =?us-ascii?Q?JnzFv6HEJyZzSJOU5VKrxLo=3D?=
+X-OriginatorOrg: os.amperecomputing.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ebb97b3f-d0c2-467b-6228-08de0a24f92b
+X-MS-Exchange-CrossTenant-AuthSource: SJ2PR01MB8101.prod.exchangelabs.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2025 06:51:45.0789
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 3bc2b170-fd94-476d-b0ce-4229bdc904a7
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: 986ehxvTCOkc7SJAQ/AjfMIqK9s+vkE1ev9oVe6zLkg2bFvkGOJMtSbw6D5mjLhrfjHoL2Hf94yW6hjYGbX/3yiX5X5gzHIsSyYbyuusqaSASe1L+mGbPkWNMNBMPFk/
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SA1PR01MB6717
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251012_234324_222325_3A499001 
-X-CRM114-Status: GOOD (  20.07  )
+X-CRM114-CacheID: sfid-20251012_235158_801506_2D7D49A7 
+X-CRM114-Status: GOOD (  16.81  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,191 +170,312 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-We meet several softlockup while shutdown or reboot the system. The
-kernel log is here:
+As of commit ec14c272408a ("KVM: arm64: nv: Unmap/flush shadow
+stage 2 page tables"), an unmap of a canonical IPA range mapped at L1
+triggers invalidation in L1 S2-MMU and in all active shadow (L2) S2-MMU
+tables. Because there is no direct mapping to locate the corresponding
+shadow IPAs, the code falls back to a full S2-MMU page-table walk and
+invalidation across the entire L1 address space.
 
-[  126.487508] arm-smmu-v3 a8000000.camera_smmu_controller0: CMD_SYNC timeout at 0x000001a3 [hwprod 0x000001a4, hwcons 0x00000016]
-[  126.487675] (4375,3191)[drv_camera][hicam_buf] isp_smmu_cleanup_iova_dom cluster_id=0 unmap, key=0x0000000000000000, iova=0x0000000000000000, size=49152
-[  127.300458] rcu: INFO: rcu_sched detected stalls on CPUs/tasks:
-[  127.300464] rcu: 	3-...0: (8 ticks this GP) idle=086/1/0x4000000000000000 softirq=25646/25646 fqs=2475
-[  127.300466] rcu: 	(detected by 0, t=5252 jiffies, g=30897, q=752)
-[  127.300470] Sending NMI from CPU 0 to CPUs 3:
-[  127.556735] arm-smmu-v3 a8000000.camera_smmu_controller0: CMD_SYNC timeout at 0x000001b0 [hwprod 0x000001b1, hwcons 0x00000016]
-[  127.556966] (4375,3191)[drv_camera][hicam_buf] isp_smmu_cleanup_iova_dom cluster_id=0 unmap, key=0x0000000000000000, iova=0x0000000000000000, size=49152
-[  128.626066] arm-smmu-v3 a8000000.camera_smmu_controller0: CMD_SYNC timeout at 0x000001bd [hwprod 0x000001be, hwcons 0x00000016]
-[  128.626232] (4375,3191)[drv_camera][hicam_buf] isp_smmu_cleanup_iova_dom cluster_id=0 unmap, key=0x0000000000000000, iova=0x0000000000000000, size=49152
-...
-[  132.903350] watchdog: BUG: soft lockup - CPU#7 stuck for 23s! [dds_discovery:3191]
-...
-[  132.903564] Call trace:
-[  132.903566]  arm_smmu_cmdq_issue_cmdlist+0x560/0x6c8
-[  132.903568]  __arm_smmu_tlb_inv_range.isra.41+0x160/0x20c
-[  132.903570]  arm_smmu_tlb_inv_range_domain+0x90/0x164
-[  132.903572]  arm_smmu_iotlb_sync+0x3c/0x50
-[  132.903576]  iommu_unmap+0x88/0xc0
-[  132.903589]  isp_smmu_do_iommu_unmap.isra.6+0x5c/0x128 [drv_hicam_buf]
-[  132.903594]  isp_smmu_unmap_iova+0x128/0x2f4 [drv_hicam_buf]
-[  132.903598]  isp_smmu_cleanup_iova_dom+0xf0/0x1c8 [drv_hicam_buf]
-[  132.903602]  hicambuf_check_and_ummap_remain_buffer+0x90/0xa0 [drv_hicam_buf]
-[  132.903609]  himdcisp_release+0x1d0/0x228 [drv_himdcisp]
-[  132.903615]  __fput+0xa4/0x2cc
-[  132.903617]  ____fput+0x20/0x30
-[  132.903620]  task_work_run+0x120/0x198
-[  132.903623]  do_exit+0x444/0xd20
-[  132.903625]  do_group_exit+0x40/0x140
-[  132.903628]  get_signal+0x21c/0xab0
-[  132.903630]  do_notify_resume+0x380/0x4a8
+For 4K pages this causes roughly 256K loop iterations (about 8M for
+64K pages) per unmap, which can severely impact performance on large
+systems and even cause soft lockups during NV (L1/L2) boots with many
+CPUs and large memory. It also causes long delays during L1 reboot.
 
-The direct reason for this softlockup is that the driver want to access
-the smmu device after it has been shutdown. Here the driver call the
-iommu_unmap() a few times and get CMD_SYNC timeout, cost one second a
-time, then the cpu where the driver runs on get stuck. There is another
-case where a process that was bound to several smmu devices is exiting,
-then the process would access the smmu devices through mmu_notifer
-callbacks and get the similar stuck.
+This patch adds a maple-tree-based lookup that records canonical-IPA to
+shadow-IPA mappings whenever a page is mapped into any shadow (L2)
+table. On unmap, the lookup is used to target only those shadow IPAs
+which are fully or partially mapped in shadow S2-MMU tables, avoiding
+a full-address-space walk and unnecessary unmap/flush operations.
 
-[   93.161307] Call trace:
-[   93.161309]  arm_smmu_cmdq_issue_cmdlist+0x58c/0x948
-[   93.161313]  __arm_smmu_cmdq_issue_cmd+0x60/0xb0
-[   93.161316]  arm_smmu_tlb_inv_asid+0x6c/0x98
-[   93.161321]  arm_smmu_mm_release+0x70/0xd4
-[   93.161325]  __mmu_notifier_release+0x88/0x268
-[   93.161332]  exit_mmap+0x374/0x4b4
-[   93.161339]  mmput+0x7c/0x1c4
-[   93.161346]  xsmem_release+0x6a8/0x91c [xsmem]
-[   93.161364]  __fput+0x21c/0x340
-[   93.161369]  ____fput+0x20/0x30
-[   93.161371]  task_work_run+0x104/0x1a0
-[   93.161377]  do_exit+0x4c0/0xe60
-[   93.161382]  do_group_exit+0x38/0x138
+The lookup is updated on map/unmap operations so entries remain
+consistent with shadow table state. Use it during unmap to invalidate
+only affected shadow IPAs, avoiding unnecessary CPU work and reducing
+latency when shadow mappings are sparse.
 
-Normally the reboot/shutdown command would kill all the process before
-calling into kernel. But the user process may not exit in time, so the
-process could run on the reboot_cpu while the reboot/shutdown command
-running on another cpu run into kernel and shutdown smmu devices. Then
-the process runs on the reboot_cpu would get stcuk and block the
-reboot/shutdown command in migrate_to_reboot_cpu(). Move the shutdown
-for smmu to syscore_ops to solve the issue. Because syscore_ops
-would be called after migrate_to_reboot_cpu() and even another process
-would access smmu device in other cpus after smmu shutdown, it cannot
-block the reboot process.
-
-Signed-off-by: Wang Wensheng <wangwensheng4@huawei.com>
+Reviewed-by: Christoph Lameter (Ampere) <cl@gentwo.org>
+Signed-off-by: Ganapatrao Kulkarni <gankulkarni@os.amperecomputing.com>
 ---
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c | 39 ++++++++++++++++-----
- drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h |  2 ++
- 2 files changed, 32 insertions(+), 9 deletions(-)
 
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-index 2a8b46b948f0..cf43ea249f22 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.c
-@@ -29,6 +29,7 @@
- #include <linux/string_choices.h>
- #include <kunit/visibility.h>
- #include <uapi/linux/iommufd.h>
-+#include <linux/syscore_ops.h>
- 
- #include "arm-smmu-v3.h"
- #include "../../dma-iommu.h"
-@@ -38,6 +39,9 @@ module_param(disable_msipolling, bool, 0444);
- MODULE_PARM_DESC(disable_msipolling,
- 	"Disable MSI-based polling for CMD_SYNC completion.");
- 
-+static LIST_HEAD(smmu_device_list);
-+static DEFINE_MUTEX(smmu_device_lock);
+Changes since v1:
+		Rebased to 6.18-rc1.
+		Fixed alignment issue while adding the shadow ipa range
+		to lookup.	
+
+Changes since RFC v1:
+		Added maple tree based lookup and updated with review
+		comments from [1].
+
+[1] https://lkml.indiana.edu/2403.0/03801.html
+
+ arch/arm64/include/asm/kvm_host.h   |   3 +
+ arch/arm64/include/asm/kvm_nested.h |   9 +++
+ arch/arm64/kvm/mmu.c                |  17 ++--
+ arch/arm64/kvm/nested.c             | 120 ++++++++++++++++++++++++++--
+ 4 files changed, 138 insertions(+), 11 deletions(-)
+
+diff --git a/arch/arm64/include/asm/kvm_host.h b/arch/arm64/include/asm/kvm_host.h
+index b763293281c8..e774681c6ba4 100644
+--- a/arch/arm64/include/asm/kvm_host.h
++++ b/arch/arm64/include/asm/kvm_host.h
+@@ -227,6 +227,9 @@ struct kvm_s2_mmu {
+ 	 * >0: Somebody is actively using this.
+ 	 */
+ 	atomic_t refcnt;
 +
- static const struct iommu_ops arm_smmu_ops;
- static struct iommu_dirty_ops arm_smmu_dirty_ops;
- 
-@@ -4835,6 +4839,9 @@ static int arm_smmu_device_probe(struct platform_device *pdev)
- 		goto err_free_sysfs;
- 	}
- 
-+	scoped_guard(mutex, &smmu_device_lock)
-+		list_add(&smmu->list_node, &smmu_device_list);
-+
- 	return 0;
- 
- err_free_sysfs:
-@@ -4850,6 +4857,8 @@ static void arm_smmu_device_remove(struct platform_device *pdev)
- {
- 	struct arm_smmu_device *smmu = platform_get_drvdata(pdev);
- 
-+	scoped_guard(mutex, &smmu_device_lock)
-+		list_del(&smmu->list_node);
- 	iommu_device_unregister(&smmu->iommu);
- 	iommu_device_sysfs_remove(&smmu->iommu);
- 	arm_smmu_device_disable(smmu);
-@@ -4857,23 +4866,36 @@ static void arm_smmu_device_remove(struct platform_device *pdev)
- 	ida_destroy(&smmu->vmid_map);
- }
- 
--static void arm_smmu_device_shutdown(struct platform_device *pdev)
--{
--	struct arm_smmu_device *smmu = platform_get_drvdata(pdev);
--
--	arm_smmu_device_disable(smmu);
--}
--
- static const struct of_device_id arm_smmu_of_match[] = {
- 	{ .compatible = "arm,smmu-v3", },
- 	{ },
++	/* For IPA to shadow IPA lookup */
++	struct maple_tree nested_mmu_mt;
  };
- MODULE_DEVICE_TABLE(of, arm_smmu_of_match);
  
-+static void arm_smmu_shutdown(void)
-+{
-+	struct arm_smmu_device *smmu;
-+
-+	guard(mutex)(&smmu_device_lock);
-+	list_for_each_entry(smmu, &smmu_device_list, list_node)
-+		arm_smmu_device_disable(smmu);
-+}
-+
-+static struct syscore_ops arm_smmu_syscore_ops = {
-+	.shutdown = arm_smmu_shutdown,
+ struct kvm_arch_memory_slot {
+diff --git a/arch/arm64/include/asm/kvm_nested.h b/arch/arm64/include/asm/kvm_nested.h
+index f7c06a840963..5b7c4e7ed18f 100644
+--- a/arch/arm64/include/asm/kvm_nested.h
++++ b/arch/arm64/include/asm/kvm_nested.h
+@@ -69,6 +69,8 @@ extern void kvm_init_nested(struct kvm *kvm);
+ extern int kvm_vcpu_init_nested(struct kvm_vcpu *vcpu);
+ extern void kvm_init_nested_s2_mmu(struct kvm_s2_mmu *mmu);
+ extern struct kvm_s2_mmu *lookup_s2_mmu(struct kvm_vcpu *vcpu);
++extern int add_to_shadow_ipa_lookup(struct kvm_pgtable *pgt, u64 shadow_ipa, u64 ipa,
++		u64 size);
+ 
+ union tlbi_info;
+ 
+@@ -95,6 +97,12 @@ struct kvm_s2_trans {
+ 	u64 desc;
+ };
+ 
++struct shadow_ipa_map {
++	u64 shadow_ipa;
++	u64 ipa;
++	u64 size;
 +};
 +
- static void arm_smmu_driver_unregister(struct platform_driver *drv)
+ static inline phys_addr_t kvm_s2_trans_output(struct kvm_s2_trans *trans)
  {
- 	arm_smmu_sva_notifier_synchronize();
- 	platform_driver_unregister(drv);
-+	unregister_syscore_ops(&arm_smmu_syscore_ops);
-+}
+ 	return trans->output;
+@@ -132,6 +140,7 @@ extern int kvm_s2_handle_perm_fault(struct kvm_vcpu *vcpu,
+ extern int kvm_inject_s2_fault(struct kvm_vcpu *vcpu, u64 esr_el2);
+ extern void kvm_nested_s2_wp(struct kvm *kvm);
+ extern void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block);
++extern void kvm_nested_s2_unmap_range(struct kvm *kvm, u64 ipa, u64 size, bool may_block);
+ extern void kvm_nested_s2_flush(struct kvm *kvm);
+ 
+ unsigned long compute_tlb_inval_range(struct kvm_s2_mmu *mmu, u64 val);
+diff --git a/arch/arm64/kvm/mmu.c b/arch/arm64/kvm/mmu.c
+index 7cc964af8d30..27c120556e1b 100644
+--- a/arch/arm64/kvm/mmu.c
++++ b/arch/arm64/kvm/mmu.c
+@@ -1872,6 +1872,10 @@ static int user_mem_abort(struct kvm_vcpu *vcpu, phys_addr_t fault_ipa,
+ 		ret = KVM_PGT_FN(kvm_pgtable_stage2_map)(pgt, fault_ipa, vma_pagesize,
+ 					     __pfn_to_phys(pfn), prot,
+ 					     memcache, flags);
 +
-+static int arm_smmu_driver_register(struct platform_driver *drv)
-+{
-+	register_syscore_ops(&arm_smmu_syscore_ops);
-+	return platform_driver_register(drv);
++		/* Add to lookup, if canonical IPA range mapped to shadow mmu */
++		if (nested)
++			add_to_shadow_ipa_lookup(pgt, fault_ipa, ipa, vma_pagesize);
+ 	}
+ 
+ out_unlock:
+@@ -2094,14 +2098,15 @@ int kvm_handle_guest_abort(struct kvm_vcpu *vcpu)
+ 
+ bool kvm_unmap_gfn_range(struct kvm *kvm, struct kvm_gfn_range *range)
+ {
++	gpa_t start = range->start << PAGE_SHIFT;
++	gpa_t end = (range->end - range->start) << PAGE_SHIFT;
++	bool may_block = range->may_block;
++
+ 	if (!kvm->arch.mmu.pgt)
+ 		return false;
+ 
+-	__unmap_stage2_range(&kvm->arch.mmu, range->start << PAGE_SHIFT,
+-			     (range->end - range->start) << PAGE_SHIFT,
+-			     range->may_block);
+-
+-	kvm_nested_s2_unmap(kvm, range->may_block);
++	__unmap_stage2_range(&kvm->arch.mmu, start, end, may_block);
++	kvm_nested_s2_unmap_range(kvm, start, end, may_block);
+ 	return false;
  }
  
- static struct platform_driver arm_smmu_driver = {
-@@ -4884,9 +4906,8 @@ static struct platform_driver arm_smmu_driver = {
- 	},
- 	.probe	= arm_smmu_device_probe,
- 	.remove = arm_smmu_device_remove,
--	.shutdown = arm_smmu_device_shutdown,
- };
--module_driver(arm_smmu_driver, platform_driver_register,
-+module_driver(arm_smmu_driver, arm_smmu_driver_register,
- 	      arm_smmu_driver_unregister);
+@@ -2386,7 +2391,7 @@ void kvm_arch_flush_shadow_memslot(struct kvm *kvm,
  
- MODULE_DESCRIPTION("IOMMU API for ARM architected SMMUv3 implementations");
-diff --git a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-index ae23aacc3840..1bb952e99676 100644
---- a/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-+++ b/drivers/iommu/arm/arm-smmu-v3/arm-smmu-v3.h
-@@ -805,6 +805,8 @@ struct arm_smmu_device {
+ 	write_lock(&kvm->mmu_lock);
+ 	kvm_stage2_unmap_range(&kvm->arch.mmu, gpa, size, true);
+-	kvm_nested_s2_unmap(kvm, true);
++	kvm_nested_s2_unmap_range(kvm, gpa, size, true);
+ 	write_unlock(&kvm->mmu_lock);
+ }
  
- 	struct rb_root			streams;
- 	struct mutex			streams_mutex;
+diff --git a/arch/arm64/kvm/nested.c b/arch/arm64/kvm/nested.c
+index 7a045cad6bdf..3a7035e7526a 100644
+--- a/arch/arm64/kvm/nested.c
++++ b/arch/arm64/kvm/nested.c
+@@ -7,6 +7,7 @@
+ #include <linux/bitfield.h>
+ #include <linux/kvm.h>
+ #include <linux/kvm_host.h>
++#include <linux/maple_tree.h>
+ 
+ #include <asm/fixmap.h>
+ #include <asm/kvm_arm.h>
+@@ -725,6 +726,7 @@ void kvm_init_nested_s2_mmu(struct kvm_s2_mmu *mmu)
+ 	mmu->tlb_vttbr = VTTBR_CNP_BIT;
+ 	mmu->nested_stage2_enabled = false;
+ 	atomic_set(&mmu->refcnt, 0);
++	mt_init_flags(&mmu->nested_mmu_mt, MM_MT_FLAGS);
+ }
+ 
+ void kvm_vcpu_load_hw_mmu(struct kvm_vcpu *vcpu)
+@@ -1067,6 +1069,99 @@ void kvm_nested_s2_wp(struct kvm *kvm)
+ 	kvm_invalidate_vncr_ipa(kvm, 0, BIT(kvm->arch.mmu.pgt->ia_bits));
+ }
+ 
++/*
++ * Store range of canonical IPA mapped to a nested stage 2 mmu table.
++ * Canonical IPA used as pivot in maple tree for the lookup later
++ * while IPA unmap/flush.
++ */
++int add_to_shadow_ipa_lookup(struct kvm_pgtable *pgt, u64 shadow_ipa,
++		u64 ipa, u64 size)
++{
++	struct kvm_s2_mmu *mmu;
++	struct shadow_ipa_map *entry;
++	unsigned long start, end;
++	int ret;
 +
-+	struct list_head		list_node;
- };
++	start = ALIGN_DOWN(ipa, size);
++	end = start + size;
++	mmu = pgt->mmu;
++
++	entry = kzalloc(sizeof(struct shadow_ipa_map), GFP_KERNEL_ACCOUNT);
++
++	if (!entry)
++		return -ENOMEM;
++
++	entry->ipa = start;
++	entry->shadow_ipa = ALIGN_DOWN(shadow_ipa, size);
++	entry->size = size;
++	ret = mtree_store_range(&mmu->nested_mmu_mt, start, end - 1, entry,
++			  GFP_KERNEL_ACCOUNT);
++	if (ret) {
++		kfree(entry);
++		WARN_ON(ret);
++	}
++
++	return ret;
++}
++
++static void nested_mtree_erase(struct maple_tree *mt, unsigned long start,
++		unsigned long size)
++{
++	void *entry = NULL;
++
++	MA_STATE(mas, mt, start, start + size - 1);
++
++	mtree_lock(mt);
++	entry = mas_erase(&mas);
++	mtree_unlock(mt);
++	kfree(entry);
++}
++
++static void nested_mtree_erase_and_unmap_all(struct kvm_s2_mmu *mmu,
++		unsigned long start, unsigned long end, bool may_block)
++{
++	struct shadow_ipa_map *entry;
++
++	mt_for_each(&mmu->nested_mmu_mt, entry, start, kvm_phys_size(mmu)) {
++		kvm_stage2_unmap_range(mmu, entry->shadow_ipa, entry->size,
++				may_block);
++		kfree(entry);
++	}
++
++	mtree_destroy(&mmu->nested_mmu_mt);
++	mt_init_flags(&mmu->nested_mmu_mt, MM_MT_FLAGS);
++}
++
++void kvm_nested_s2_unmap_range(struct kvm *kvm, u64 ipa, u64 size,
++		bool may_block)
++{
++	int i;
++	struct shadow_ipa_map *entry;
++
++	lockdep_assert_held_write(&kvm->mmu_lock);
++
++	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
++		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
++		unsigned long start = ipa;
++		unsigned long end = ipa + size;
++
++		if (!kvm_s2_mmu_valid(mmu))
++			continue;
++
++		do {
++			entry = mt_find(&mmu->nested_mmu_mt, &start, end - 1);
++			if (!entry)
++				break;
++
++			kvm_stage2_unmap_range(mmu, entry->shadow_ipa,
++							entry->size, may_block);
++			start = entry->ipa + entry->size;
++			nested_mtree_erase(&mmu->nested_mmu_mt, entry->ipa,
++							entry->size);
++		} while (start < end);
++	}
++}
++
+ void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block)
+ {
+ 	int i;
+@@ -1076,8 +1171,10 @@ void kvm_nested_s2_unmap(struct kvm *kvm, bool may_block)
+ 	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+ 		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
  
- struct arm_smmu_stream {
+-		if (kvm_s2_mmu_valid(mmu))
+-			kvm_stage2_unmap_range(mmu, 0, kvm_phys_size(mmu), may_block);
++		if (!kvm_s2_mmu_valid(mmu))
++			continue;
++
++		nested_mtree_erase_and_unmap_all(mmu, 0, kvm_phys_size(mmu), may_block);
+ 	}
+ 
+ 	kvm_invalidate_vncr_ipa(kvm, 0, BIT(kvm->arch.mmu.pgt->ia_bits));
+@@ -1091,9 +1188,14 @@ void kvm_nested_s2_flush(struct kvm *kvm)
+ 
+ 	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+ 		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
++		struct shadow_ipa_map *entry;
++		unsigned long start = 0;
+ 
+-		if (kvm_s2_mmu_valid(mmu))
+-			kvm_stage2_flush_range(mmu, 0, kvm_phys_size(mmu));
++		if (!kvm_s2_mmu_valid(mmu))
++			continue;
++
++		mt_for_each(&mmu->nested_mmu_mt, entry, start, kvm_phys_size(mmu))
++			kvm_stage2_flush_range(mmu, entry->shadow_ipa, entry->size);
+ 	}
+ }
+ 
+@@ -1104,8 +1206,16 @@ void kvm_arch_flush_shadow_all(struct kvm *kvm)
+ 	for (i = 0; i < kvm->arch.nested_mmus_size; i++) {
+ 		struct kvm_s2_mmu *mmu = &kvm->arch.nested_mmus[i];
+ 
+-		if (!WARN_ON(atomic_read(&mmu->refcnt)))
++		if (!WARN_ON(atomic_read(&mmu->refcnt))) {
++			struct shadow_ipa_map *entry;
++			unsigned long start = 0;
++
+ 			kvm_free_stage2_pgd(mmu);
++
++			mt_for_each(&mmu->nested_mmu_mt, entry, start, kvm_phys_size(mmu))
++				kfree(entry);
++			mtree_destroy(&mmu->nested_mmu_mt);
++		}
+ 	}
+ 	kvfree(kvm->arch.nested_mmus);
+ 	kvm->arch.nested_mmus = NULL;
 -- 
-2.22.0
+2.48.1
 
 
