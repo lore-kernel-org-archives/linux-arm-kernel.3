@@ -4,126 +4,168 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C02A0CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 20:55:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC3D2CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 21:00:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:From:References:Cc:To:
+	Subject:Date:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=h8b2DwudIexdSRYipqQ13kewJ4gE/3CuV6C5IduoJwc=; b=VpA7i2tgBSwMHbdQ0wS4cPsX+S
-	cvd4bKPgRiRkJ6p9UMd8BS412/lb76plmPQZWa/p9enTMEY1iYTTG7TDb2rSr8Y14nTQitnL8vVjB
-	Q51zURjEzrCCUfhSFCahXunrlwQwTAJ75D5iQ1anTOlYbb/qQAH79AclqILbdFsob9THkc1n5mVDa
-	ZgyvzoWquHRHVHzWNZb6KRHO/h24DykMQnF1Ahf8jEL1ydN1TGCEePOUD6DXP60CF3f2aNNwVW2VG
-	0af/i9Qt/c0cJZwKPWRHiXiDKE8Jyh+Hjob6Rds7GbCepeMvEbNvLhl7KlLWhxrJV8g3Gmkz8kzfm
-	IH8ccJkg==;
+	bh=gFXG4CsQR3kgZRrXEGJc+IMNnO8d7UapazHMjbrnu/0=; b=uCu2AigHSu1/WnQo9CfXkGc6ql
+	3KPyd0kpCYHxFXwSPEBfng60VjWEGri+4+MOslbEcJgYZKmRlz9cPVlM+X5tAD2z4HVchrKtvNfrO
+	6q83ngzfSFXnKEhl8kA9dH8YwZctn7NrLBU/kj1/YyykJrgA1p2ffLLb1zaLrLWf/2C2IgimFM/Ol
+	C8tJUyrog4Wo64YQdCaA/DACOatYOsb1QUGswWz2sSDX5BMw9ilNfSG+bym+a2fGhGl45FR8bEnXb
+	x05bE+5JerXumnDtRzlk0s+Uhtbb3JNtyPudVa1z480Y0e4FmlP0LWR+V3HeU3GlAB6jz78Q6B9VY
+	IP9VulGQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Pa7-0000000EVOn-3A27;
-	Mon, 13 Oct 2025 20:55:47 +0000
-Received: from mx0b-0031df01.pphosted.com ([205.220.180.131])
+	id 1v8PeC-0000000EVuY-1XDx;
+	Mon, 13 Oct 2025 21:00:00 +0000
+Received: from mail-westus3azlp170120001.outbound.protection.outlook.com ([2a01:111:f403:c107::1] helo=PH8PR06CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Pa4-0000000EVN7-2SdY
+	id 1v8Pe8-0000000EVt6-2z4R
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 20:55:46 +0000
-Received: from pps.filterd (m0279869.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59DHD8FK002361
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 20:55:43 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-type:date:from:in-reply-to:message-id:mime-version
-	:references:subject:to; s=qcppdkim1; bh=h8b2DwudIexdSRYipqQ13kew
-	J4gE/3CuV6C5IduoJwc=; b=IXcIkoB5lrzUNaD+HgdJcATWOkoQEcKeijyYxvoD
-	CpeyXaCk6w8+tWGSjAMZkwZPw21qV3u1O1ltWg3VKydAx41BIaj7yET94j763QQv
-	8I/Z2cRYqYJmZn5/9eQ44X518qWYT5ZOFYKy3uNI51mU8RGIcH5aJXPaF6WalADn
-	CQvvpW+LgmFNa3+Kd6KgxOEkAEfo7BF8PvuLAhkdz7sjsigzp91+nUOOWeZRs5Ur
-	hTq6JnBjke4ZYvn2gSX73qtSxdXDOyfUBOxqavidkmAIGZY60iZgEHSDfa3UaFJw
-	+67xrf28nPjY7xEv2qBa52P21z2FZ4jz6ZD12F4OiNNcoA==
-Received: from mail-qk1-f200.google.com (mail-qk1-f200.google.com [209.85.222.200])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49qfdk64kp-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 20:55:43 +0000 (GMT)
-Received: by mail-qk1-f200.google.com with SMTP id af79cd13be357-87561645c1cso2591666285a.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 13:55:43 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760388943; x=1760993743;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=h8b2DwudIexdSRYipqQ13kewJ4gE/3CuV6C5IduoJwc=;
-        b=TyW9Kl4OAUntCxk6fEgyLm+YzBmZ6KL9EyquoblfTZJAhCeiRj/Qcmxt8praW7uX75
-         UJjAlyfySIeYtYG3PS5SXLecZPc0uJ0yrduaT/ZYvvef4uG2hb3HH8yVNviwSeARagLJ
-         Vwq2gbdoyJSY7qZDJQUPFQKRcyFBpIvUW5w+1+JvvWTnq7ryisHzrc+PiWGfHPYN/lKr
-         dLyeekLUQzpZRVnpWklDSnqk40DVWWdvQHnCvG6vsGLe1wslkH2VCIwH5pP7jG82g6S1
-         l+iFUDL4sJNsc4jmrZGjthD9113sXqWywH4p0XJmvjW8BAi0wktIwtbJUmLr/dvryqP/
-         8Smw==
-X-Forwarded-Encrypted: i=1; AJvYcCUs303kA3XsKYeS33nAp5bu96prZ0apI8naGsFF17xmBAghGw+146GJTp0YwbFSkEPYZ/bF6n41098hKQWK7kba@lists.infradead.org
-X-Gm-Message-State: AOJu0YwjNNIueJZ5u4MYdXgn+thup69m1BDDO3KDGbcid23QQaQs8qWX
-	Uc+UZLTUjpeI1pHRVoc4MBC5Ohh0hri7JmPBWVqW0TVTGE0xYMXqWYxB1xxMN7z21ufHGansZLx
-	lGCWI/Clfu3aq5cvaeWQSxZKc1VI3bLIvzNFxZJlz7BqAo0WWty+j3lKd3gZdVkfFe6oKPy2dDC
-	bVgw==
-X-Gm-Gg: ASbGncus8r+6Jq5knkLZyCOgNrqc47QZKfCg7IQmMK07pfkf3J7bzx3ZbwBYCGKpgZL
-	WemKjCvI0kSFTuAbgiCdHLRao99Yzq+0QQE32GKO2yt5T/XJmgOLgp/X7/qgsBowW9lIa5GT83q
-	tath6g7SvKByOsbo4UzlFHAmuowNkNFsgBkuVepYnzyPH3tr5uFM+uG/9fo8WiKvoxExWF8hGEb
-	R5ozNqbromtZ/s82E3FoUy28F6yIa6t7GOS1mes+NfYHFlTzRnXKYqOKp/bCkMqglkfTG4mL3/R
-	+4ABjAPdpxISGGedRsGixNveUm3Wbuj4xaD3K+JSHMT5kxcYHHWgXaLhAlX6xC87Yohvk0pUty3
-	+i/BOBNJNGjPsjtu8GY8OzAESkvW5QdteGbxwNVY2UvMpiP1PKsE1
-X-Received: by 2002:a05:620a:40ca:b0:850:95d4:db01 with SMTP id af79cd13be357-88352f83c1cmr2928836585a.21.1760388942664;
-        Mon, 13 Oct 2025 13:55:42 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEp6cEaL5p5bxM9BKec5c/+vKMAwKsA7FMuN565mKfxMvwbeeumVcMSCt/OjDjFwBqiUk+E3g==
-X-Received: by 2002:a05:620a:40ca:b0:850:95d4:db01 with SMTP id af79cd13be357-88352f83c1cmr2928833585a.21.1760388942214;
-        Mon, 13 Oct 2025 13:55:42 -0700 (PDT)
-Received: from umbar.lan (2001-14ba-a0c3-3a00-264b-feff-fe8b-be8a.rev.dnainternet.fi. [2001:14ba:a0c3:3a00:264b:feff:fe8b:be8a])
-        by smtp.gmail.com with ESMTPSA id 2adb3069b0e04-590881f8c6csm4493487e87.28.2025.10.13.13.55.41
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Oct 2025 13:55:41 -0700 (PDT)
-Date: Mon, 13 Oct 2025 23:55:39 +0300
-From: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>
-To: Cristian Ciocaltea <cristian.ciocaltea@collabora.com>
-Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-        Maxime Ripard <mripard@kernel.org>,
-        Thomas Zimmermann <tzimmermann@suse.de>,
-        David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
-        Sandy Huang <hjc@rock-chips.com>,
-        Heiko =?utf-8?Q?St=C3=BCbner?= <heiko@sntech.de>,
-        Andy Yan <andy.yan@rock-chips.com>,
-        Robert Mader <robert.mader@collabora.com>, kernel@collabora.com,
-        dri-devel@lists.freedesktop.org, linux-kernel@vger.kernel.org,
-        linux-arm-kernel@lists.infradead.org,
-        linux-rockchip@lists.infradead.org,
-        Matt Roper <matthew.d.roper@intel.com>
-Subject: Re: [PATCH v2 0/2] Introduce BACKGROUND_COLOR DRM CRTC property
-Message-ID: <x33zabb5un2boben6r4qp3vvrgca5s37gmseespdwwbajumdxx@mcxe6or5p63m>
-References: <20251013-rk3588-bgcolor-v2-0-25cc3810ba8c@collabora.com>
+	Mon, 13 Oct 2025 20:59:59 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=ZIJElUZY+6Vz7ngoaF7v4r/bUH2QpNAHMzSDNd5UWk1O0HqPtCpmeAKXW6jCZ+OR/nzEveVY6FRj+mirtEQw4p1025aRlcw3YXDHK6T50DwwSIa+pwnwobxx3lTswvHpSridk1TbkHlnha7L0GKqrwmyNjVt0h0dxk9mKCPEU0aUhipdZ6245V6bqhvXBB/BIdF7FGk4Jn+96sxT7amyRSsqvrqtWxrHWqTYJJmco5EDW2hVuveoDzb5vKMYF/jPWj0sZhLRhteOhRwfvOYq7RvcIIt5D9QjPnZrTXbfrppSL8YpYzgnyGZZt+UraVxhsCelFLKeyed7LXlm65ltSA==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gFXG4CsQR3kgZRrXEGJc+IMNnO8d7UapazHMjbrnu/0=;
+ b=eAgKX55iZBSEZtX0h9iGf3eo7kI5w+ddhZs4+S/ARdJEiVPsfepkAHsaRRVqNvu1FmMneCOcEX2TVsgflZJXot22JrMSIe2EUHuuXrPSTq9Mwr8jwzh067eKNTs3knvoGjEBK9xpPZ/YladB5L6dKR9tIedQSOVXUdHYPopuLx/o9Cbhgab1li8RC03Y5vudhRDV94zbBnM1JgEvGNWAdqbwrzqOSyVP8dMIYCQ0Kxn8rpLzM9UHmkgTKuAHjiEPxAiVT5KgXPnb6O6PhMNVTBSkKK/O2coFzmrBmcz4djzYqh213wS/jRh3f5jPbfJ1AfgA+4ZUMsdvTrv6gRI27A==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nvidia.com; dmarc=pass action=none header.from=nvidia.com;
+ dkim=pass header.d=nvidia.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=Nvidia.com;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=gFXG4CsQR3kgZRrXEGJc+IMNnO8d7UapazHMjbrnu/0=;
+ b=ADX15JPfE3HdkOCTb8ukpd43dhJDMtpeX7AWD+5DZzO4CJXH18sh/kpts0rA/S6wmQIYkE+qjJvrR5PX54tzyHatAsjHvbxEoh5t7YTzkND6j4fSaS4hZMSBSQe+MIMOrg2uwFgOo+/Nk2qx/yvnDJHijUtKwzszvL7KBw2Na/2ZEljLWqppD/NG/85qBKsjs2Uh60BHcqgnY14VySoPGx8J+2wysIMZRJfW1VYkrKtMmAosd8nE0aOIbLW+rN5k1ASpt9q2jy5cQrn9wICIFn7i4XQ71P7l7APaSsvu5SdxE4Vs4ZaPhK7+gLo1n8JcPzTVvJql/m3M12eNJUpyDg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nvidia.com;
+Received: from DS0PR12MB7704.namprd12.prod.outlook.com (2603:10b6:8:138::22)
+ by SN7PR12MB6929.namprd12.prod.outlook.com (2603:10b6:806:263::11) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.13; Mon, 13 Oct
+ 2025 20:59:40 +0000
+Received: from DS0PR12MB7704.namprd12.prod.outlook.com
+ ([fe80::e85e:e922:a750:e68b]) by DS0PR12MB7704.namprd12.prod.outlook.com
+ ([fe80::e85e:e922:a750:e68b%3]) with mapi id 15.20.9203.009; Mon, 13 Oct 2025
+ 20:59:40 +0000
+Message-ID: <b8a138ca-9a5b-46e1-8d10-b6d31230f485@nvidia.com>
+Date: Mon, 13 Oct 2025 13:59:37 -0700
+User-Agent: Mozilla Thunderbird
+Subject: Re: [RFC PATCH 1/3] firmware: smccc: LFA: use smcc 1.2
+Content-Language: en-US
+To: Andre Przywara <andre.przywara@arm.com>
+Cc: salman.nabi@arm.com, lpieralisi@kernel.org, mark.rutland@arm.com,
+ sudeep.holla@arm.com, ardb@kernel.org, chao.gao@intel.com,
+ linux-arm-kernel@lists.infradead.org, linux-coco@lists.linux.dev,
+ linux-kernel@vger.kernel.org, sdonthineni@nvidia.com, vsethi@nvidia.com,
+ vwadekar@nvidia.com
+References: <20251008190907.181412-1-vvidwans@nvidia.com>
+ <20251008190907.181412-2-vvidwans@nvidia.com>
+ <20251011010251.50c8be14@minigeek.lan>
+From: Vedashree Vidwans <vvidwans@nvidia.com>
+In-Reply-To: <20251011010251.50c8be14@minigeek.lan>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-ClientProxiedBy: SJ0PR13CA0227.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c1::22) To DS0PR12MB7704.namprd12.prod.outlook.com
+ (2603:10b6:8:138::22)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251013-rk3588-bgcolor-v2-0-25cc3810ba8c@collabora.com>
-X-Proofpoint-ORIG-GUID: Oq-VBi6NLOHnRUOlUTT8Qs3LknUFpblh
-X-Authority-Analysis: v=2.4 cv=MrNfKmae c=1 sm=1 tr=0 ts=68ed674f cx=c_pps
- a=hnmNkyzTK/kJ09Xio7VxxA==:117 a=xqWC_Br6kY4A:10 a=kj9zAlcOel0A:10
- a=x6icFKpwvdMA:10 a=VwQbUJbxAAAA:8 a=COk6AnOGAAAA:8 a=6rgqHx4lmTWDBTbEgdMA:9
- a=CjuIK1q_8ugA:10 a=PEH46H7Ffwr30OY-TuGO:22 a=TjNXssC_j7lpFel5tvFf:22
-X-Proofpoint-GUID: Oq-VBi6NLOHnRUOlUTT8Qs3LknUFpblh
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDExMDAxOCBTYWx0ZWRfX0PJtvh5lEiVK
- thllZ05nNYZcDCdakqj0aFPyTCyT8cON3hHpyAFcgh3BVJOM0w9dCdlHegQ7+XAUZFt2p3BlNkz
- /nhz1kn8JY+F1QjoA/Ghkft8CqdMHiU9Z2XmEi5L2tiOUl+XavFwcqUADzbymcPC/o7ux+/my5k
- sPx1XSCITunwfQafGrFfGPze5tu/K85k/piOEEPrmEAy11uMHl6OESBijhnfviMs5I0Y2zrHL7t
- /QcGghS3GONevEWsrq90YzOw4krbD7KQempGa47hZtMbDJ9iGfSkv+0Uc+9kxI/DJ6PpS4grvgE
- a8eAv6O9AawY7g+W2IzwCv4xbma4yhqT0CRPExZZGKIdxrTriDAkFFeUi7k0LUswu1oy1LHbwfS
- AOoIA8hoYztHk0l5ICKgabcRZzpHGQ==
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-13_07,2025-10-13_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- spamscore=0 bulkscore=0 clxscore=1015 adultscore=0 phishscore=0
- impostorscore=0 priorityscore=1501 malwarescore=0 lowpriorityscore=0
- suspectscore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2510020000
- definitions=main-2510110018
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DS0PR12MB7704:EE_|SN7PR12MB6929:EE_
+X-MS-Office365-Filtering-Correlation-Id: 890d1c3a-9ddc-4486-941d-08de0a9b6d51
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|376014|7416014;
+X-Microsoft-Antispam-Message-Info: =?utf-8?B?YUw3akx5NWcxaHhjWURZMU51VUVEZi9lMjZVL2g0NzdXWG1CeEZtaXdkYklY?=
+ =?utf-8?B?NXBCcjQyUnFuRU5pMzBtOXRqYzRFWXRuUXE1bDF6ZDQ1L1JFZ09RNVBNcEYz?=
+ =?utf-8?B?YlZHMmlRRitVS0ZDN0dVcHRjcVRXZkc3U3dsQnBkYnlJbE5hQk04U2xpRUd6?=
+ =?utf-8?B?M1BYU09WRkdiOStSdFVmVkhkVVNWVEk3em03ZGpDWkdweVR6ZEhDOG1pNUMz?=
+ =?utf-8?B?U01iY2lnUmlVWTNVM242a2E1Z3ZRS1pxZm9kK0JnRHRESVBWbEpmdlpDZnhm?=
+ =?utf-8?B?eTFyeXN4cTM4NmJKcDhNSEhLY0FJR1kwai9UemY5aEpTdzdOSi8wM0xCQkJY?=
+ =?utf-8?B?Q3hwcUVJdlBsVGpvY1RLY1JsU3VhaEw0QjRHSEMwbkxjeUltaXFVWjc0VnUz?=
+ =?utf-8?B?R0MxekFhdXI2MW8rcFAvU1VnRkszeFdwR2RQLzA3RXJhMG5hY1RTUDBZNTda?=
+ =?utf-8?B?MmV0VFE1RnJ4bXpOQWxKOUpUajhjbTFTd0YvMEtHTW5GbkhNMnVaa1UvV29U?=
+ =?utf-8?B?V24xWTlXd3JzS21TR0dIamJBQWtCRDcyNXBnK2QyYjJ2YlNtRDBKaTRnR2s2?=
+ =?utf-8?B?UGdvMDd5RXJESGxnMFBhRjBrdHVYL0JJa0NDOFNoT3ZBejFmNitFYy9reWZG?=
+ =?utf-8?B?N2duUmNEUFZMS1F4dHRuM1NRaHFwUGJHY0lMYkcwL1FNTXgvbTZxUittdXV2?=
+ =?utf-8?B?TGl4aWd0czVnTGd2WXMzTWxYWEFMaHJNUVp6ZjJ1bktzdXExeTc2Z1RldDh1?=
+ =?utf-8?B?cWNvNmM2cmIxUnVCM2t0UUQ1VGpQY2oxOFBPR1Uza1dqYUIwb0NIOTJUTmxQ?=
+ =?utf-8?B?RUd3T3dQYklxNUx4Vk1qa2lpcTM5a0YvRElpTTUyUWxualR4WXZRZ1BzVXBn?=
+ =?utf-8?B?NVdrNUNEdWVrWEM3aG5XdnM3UTFtYzZCcUlrcHpIU0UvQU5nWlFGQlhsR2VC?=
+ =?utf-8?B?QjhNUmJUNzBMMTJCTWxuaUpmZDNRZjNNRFNKNGwrTnFnTU1xbFUyMTVKMDJr?=
+ =?utf-8?B?ajVXRWFsRHlZdkJ5akhzTmp0dWtzaWM2Uk11Vk02S3o0R2xhT0tyNnZTeU1J?=
+ =?utf-8?B?dkNKbUt0ZTBMSzBITytiT3B1enVhcG9TVlVoRDZIVkZxcUoxUHZrTTIwZHpV?=
+ =?utf-8?B?NUtCeUhmcGtLK1g0V3FaVEtQQkxJNDd0YVRaYy9vVnNrc2NCaVhVY1dvMXNZ?=
+ =?utf-8?B?eVFXM2tsQ2YwdXhOSlVqVzF0KzFWaDJ5bS9tRnlDc2dsRHBnRjlITWt5blU2?=
+ =?utf-8?B?anpvZFo1Y1hhV2tyZEtmNGNsSGlYaEpFeGRwdnVIdTVMdWRNN3ovQmlVcUg3?=
+ =?utf-8?B?R0FoUW15L3p3VEF5OWZ0eVdpY1ltck9XL2dLSzM2Q1pkTjRNZ3JyeWlITlFh?=
+ =?utf-8?B?SHFiR2lNb3hOMzg1WEFPN1o1R1dwaDlBK1RoM2RwUTVWb21PWi9NU21EMG9z?=
+ =?utf-8?B?ejQ5Z3hGRS9XQytndHVlcVB2Q1FvNVJYRzRFaloyZmNaVGIxeWk3d0tYRFd6?=
+ =?utf-8?B?a0hKdm16UmZXVlR0Sm1yVDZyUTVOSGZsRG5PK3VSYzQ1K1Q3czVvdy9OUFpp?=
+ =?utf-8?B?VHNYa3FXbG5YRkwyMXNFcWdrN1RLQk5ZTHBYVGF3MjZFdVNaMFpYZjIrK25m?=
+ =?utf-8?B?RXIyb2M5TDQ1V3JRMlBBZkRJOUUyWjg3VlplUEVuUTI0TldlWXVnYjlYQm1T?=
+ =?utf-8?B?bkQ2M1JLejZnZlhNdTJORGtRdThZejRBZUVobnIwcW9yWEkyY1R6aW1XYTRk?=
+ =?utf-8?B?eTNvOHJQRVo0TDd0YTljNVRRZFE1Z2w4U2p1dmU0QWMwV3ZsYXlBcWs1UVJU?=
+ =?utf-8?B?dU9PbDE4NlRoakJXS3kyRjhCL1RFYnU3S3FiRmcwY1BCK25qZEdUeFhqU1Vr?=
+ =?utf-8?B?SVkxejF3SEswTWhMVUZlcUx6bEUycmJyQTloU3N4U0FabkZHS0Nia20xT1Fs?=
+ =?utf-8?Q?4cQ25McGS7q+OtqCc1SBxkpbKHieYFCv?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DS0PR12MB7704.namprd12.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(376014)(7416014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?utf-8?B?aVdwRHFvWnpjRXhOeHM2OXdKbWZETGxKTkk1akwvMmhDVnZ6dWVjMkplblpR?=
+ =?utf-8?B?U3NtRkZZWVQycVNZTG4zRmdOU2VmdTNka0IxV1g2N3RiNGQvMHVNaTNXQUQv?=
+ =?utf-8?B?NnNDam5HRXNKNStEYnlJVWxFQ0xVUXlKQTNERWxpUUZnRno1MStNMXRNTG0x?=
+ =?utf-8?B?U1QzOUNONTZvUEpoRkJwanRGR3E4L0hmMGxNUmYzOEVHbWJOOFRzdmwzRW12?=
+ =?utf-8?B?TWt5aGRXZThZU2Z4V2xwQVo2MGJXdC85dyttdCtITDhRcUNTdFdxVm9ZWkQx?=
+ =?utf-8?B?QXM2S3hWTy9lcVJsWHdUQ1JnTFhWSlFoQnYrd25CVXh2WTNQQm5yMllJVGRB?=
+ =?utf-8?B?NWxCRTZYUTdEKzlwR2FYaFNVNjVlVXlJbnltbEFtd211YXBSNmJBaDk2UVlD?=
+ =?utf-8?B?QWxLQnIvTWVjOXBBeFdZSVVNdzRveDUzVzkyWTVEZzMxQVU2V0Ewbkl4UkIy?=
+ =?utf-8?B?OHRHaURKYktIVFJWdGhCcTdROXgxL205Y096VFlweUdMQkRlZzZZdFh3OG82?=
+ =?utf-8?B?am1VeExyQzFVcmNJOFV5ZFhxTjZUcElwZ1dEWVl3ZnRIejE5ZktyVFQvdk5O?=
+ =?utf-8?B?cys3MnpXN0dJR0dzeDN2ZFgyV2Mvbkt1cWNmTmw1V3VaaUtHRk93REtnMFpC?=
+ =?utf-8?B?MW9FRVZoNHdGczlaQnVOQWtHQWF1UklOZTlFV2RYSHVjKzVoNDQrWFVUUFIx?=
+ =?utf-8?B?aGJ5ZlpGUldRVkpkSWRLdjBWN0lLdzlsenZERUZSM1ljQ2FUc0FIUm41enhO?=
+ =?utf-8?B?WGtGUGFXaDcvaFFGRmc4YWdkUGI5OERDYmpLdUdyMlkyQVpkQmx6UUhpalRI?=
+ =?utf-8?B?eEhQdEo3THVSdENOV2s0Ukk0bXlwUDJORXpYM1dQNXVsRXpRbG9VQzBpQ3dX?=
+ =?utf-8?B?dW1CSERESkRFVnEwNkRtTjQ2Mkc4OFNPVm5JMDRKcFZQaGlSTFc3MWZMaU5x?=
+ =?utf-8?B?cS8xOFVVZWMrZVczc0NITVFWSnd6TFpzUVlzRU1WRDNvbzJ6SHF6d1NoeUdi?=
+ =?utf-8?B?d2k1SzZuQmJhSW1jRmxqL0xkWlZOTk95ZndnandKdEVac1NOemF6eXBUcnAy?=
+ =?utf-8?B?T3F5Mytmd0tZdlNjek9mQ0xRbzFMWU9mLzBEcjd6WDkydjk3dXRsL0d4YmRM?=
+ =?utf-8?B?TzEwZzFEREJ6T3ROUHBFSXFjU0VtbmVwQUQ1RDBNZCtkRFVLNUlGbEZ2VS9R?=
+ =?utf-8?B?QzNLZ0pvVXJwbUV1UFVjTDhja096dFZtZndLT0dXZTZZaUtDcXhNYStNYzFn?=
+ =?utf-8?B?MWc3T01KRWo1dkhpbTNPRGNxUzg0YkhtVTMyZ3pXcFdOQkJVYjFiK3ROeUlK?=
+ =?utf-8?B?UFVhMm8rdVp5YkdxZExlQTl0MWJSWHFFNDFwOXV2eTFCaWRGc284YklGMXR5?=
+ =?utf-8?B?ZlBuNUdGU3I4eEJpb0JyZndPaHJZdWtYNXdwWnVxbW1jczVIS0hST1pnY0Q4?=
+ =?utf-8?B?N0N4V2RwZ05kUk5ranJEdmxqdWVUdFZyQjVqZFczbllUU1pEbUpXQW81d1hO?=
+ =?utf-8?B?NkR1aFhQeGhVYUl6N0JOdk52OThpWEUyZUt5MjFySUxMZVd2aW5TcWhUa20x?=
+ =?utf-8?B?Vkd0VnhVd0lKMXJiOTFNa005d1grYTlxemVIUkRHZ05oL3BSblNadGZTQnNQ?=
+ =?utf-8?B?Zyt5SUMzS29TZ1dvNXhUbDkxN0IvVWZCaTkxaWdJYjlZVUNnMVg2RGlGYldI?=
+ =?utf-8?B?RERNcHE1VmtTck5JZGlzZjd0OVRnQU5mTER0QUd6UG0xVnJCVktuUjJoSXQ5?=
+ =?utf-8?B?MEM2NEVlWWh5dXM1ZXphd29LSjVjWXVDZ0ZEWE50Ukgwd1ZJTS9EN3RHYmps?=
+ =?utf-8?B?M0F4ZVhrVzk3QUhxOU1saGZ2TS9KbUxHSGltdUlqSithdWozUm5CWlZjZ1Iz?=
+ =?utf-8?B?V2FiS0lRUlk2WjJ5b3pzVlVJanU5MWc4YmJDNjg1a3oyVkhpcS9hU0FQd09x?=
+ =?utf-8?B?ZEswcjhuN0Mzb3RDc1BjdTJoVDhRc1pPQWF5RlpOYUZtNU5PZFk1SHI1T2ZZ?=
+ =?utf-8?B?b0ZjWjdXYU1mYk5WRkNVSHlIQUNlcnphcU5MbWp5MEZzWmxISDRBVDdndU1B?=
+ =?utf-8?B?THczWThaam84eldxcXlySXhyVS9GMUM2RE9lYWhKQkgvNW1kQlIxZXNmVE00?=
+ =?utf-8?Q?9a4e9Zsgf6f/VjMGk2RMod0wv?=
+X-OriginatorOrg: Nvidia.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 890d1c3a-9ddc-4486-941d-08de0a9b6d51
+X-MS-Exchange-CrossTenant-AuthSource: DS0PR12MB7704.namprd12.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2025 20:59:40.5183
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 43083d15-7273-40c1-b7db-39efd9ccc17a
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: gTD98wFty9rmkPK1j+YE5BirqmAowgry5OfpuMuuWb8ll6ldh6l7jm+LsO26kq+OiP4f5Pu9eM5QKvL7Xdp2KA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: SN7PR12MB6929
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_135544_739842_B63E4211 
-X-CRM114-Status: GOOD (  17.15  )
+X-CRM114-CacheID: sfid-20251013_135957_794128_124E8677 
+X-CRM114-Status: GOOD (  26.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -138,29 +180,200 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 13, 2025 at 09:27:17PM +0300, Cristian Ciocaltea wrote:
-> Some display controllers can be hardware-configured to present non-black
-> colors for pixels which are not covered by any plane (or are exposed
-> through transparent regions of higher planes).
+On 10/10/25 17:02, Andre Przywara wrote:
+> External email: Use caution opening links or attachments
 > 
-> The first patch of the series introduces the BACKGROUND_COLOR DRM
-> property that can be attached to a CRTC via a dedicated helper function.
-> A 64-bit ARGB color value format is also defined and can be manipulated
-> with the help of a few utility macros.
+> 
+> On Wed, 8 Oct 2025 19:09:05 +0000
+> Vedashree Vidwans <vvidwans@nvidia.com> wrote:
+> 
+> Hi Vedashree,
+> 
+>> Update driver to use SMCCC 1.2+ version as mentioned in the LFA spec.
+> 
+> ah, right, good catch, one call is using x4, so this must be the v1.2
+> calling convention.
+> 
+> Just one small thing below...
+> 
+>> Signed-off-by: Vedashree Vidwans <vvidwans@nvidia.com>
+>> ---
+>>   drivers/firmware/smccc/lfa_fw.c | 80 +++++++++++++++++++++++----------
+>>   1 file changed, 56 insertions(+), 24 deletions(-)
+>>
+>> diff --git a/drivers/firmware/smccc/lfa_fw.c b/drivers/firmware/smccc/lfa_fw.c
+>> index 1f333237271d8..49f7feb6a211b 100644
+>> --- a/drivers/firmware/smccc/lfa_fw.c
+>> +++ b/drivers/firmware/smccc/lfa_fw.c
+>> @@ -117,9 +117,13 @@ static struct kobject *lfa_dir;
+>>
+>>   static int get_nr_lfa_components(void)
+>>   {
+>> -     struct arm_smccc_res res = { 0 };
+>> +     struct arm_smccc_1_2_regs args = { 0 };
+>> +     struct arm_smccc_1_2_regs res = { 0 };
+> 
+>>
+>> -     arm_smccc_1_1_invoke(LFA_1_0_FN_GET_INFO, 0x0, &res);
+>> +     args.a0 = LFA_1_0_FN_GET_INFO;
+>> +     args.a1 = 0; /* lfa_info_selector = 0 */
+>> +
+>> +     arm_smccc_1_2_invoke(&args, &res);
+> 
+> I wonder if we can share the same struct for both request and reply?
+>          arm_smccc_1_2_invoke(&args, &args);
+> 
+> Looks like a lot of stack space used for just a few registers.
+> Same for the other occasions where we just do the smc once.
+> 
+> Cheers,
+> Andre.
+> 
+Thank you for the suggestion.
+Yes, I think using same struct for arguments and results should work.
 
+Regards,
+Veda>>        if (res.a0 != LFA_SUCCESS)
+>>                return res.a0;
+>>
+>> @@ -129,20 +133,23 @@ static int get_nr_lfa_components(void)
+>>   static int call_lfa_activate(void *data)
+>>   {
+>>        struct image_props *attrs = data;
+>> -     struct arm_smccc_res res = { 0 };
+>> +     struct arm_smccc_1_2_regs args = { 0 };
+>> +     struct arm_smccc_1_2_regs res = { 0 };
+>> +
+>> +     args.a0 = LFA_1_0_FN_ACTIVATE;
+>> +     args.a1 = attrs->fw_seq_id; /* fw_seq_id under consideration */
+>> +     /*
+>> +      * As we do not support updates requiring a CPU reset (yet),
+>> +      * we pass 0 in args.a3 and args.a4, holding the entry point and context
+>> +      * ID respectively.
+>> +      * We want to force CPU rendezvous if either cpu_rendezvous or
+>> +      * cpu_rendezvous_forced is set. The flag value is flipped as
+>> +      * it is called skip_cpu_rendezvous in the spec.
+>> +      */
+>> +     args.a2 = !(attrs->cpu_rendezvous_forced || attrs->cpu_rendezvous);
+>>
+>>        do {
+>> -             /*
+>> -              * As we do not support updates requiring a CPU reset (yet),
+>> -              * we pass 0 in x3 and x4, holding the entry point and context
+>> -              * ID respectively.
+>> -              * We want to force CPU rendezvous if either cpu_rendezvous or
+>> -              * cpu_rendezvous_forced is set. The flag value is flipped as
+>> -              * it is called skip_cpu_rendezvous in the spec.
+>> -              */
+>> -             arm_smccc_1_1_invoke(LFA_1_0_FN_ACTIVATE, attrs->fw_seq_id,
+>> -                     !(attrs->cpu_rendezvous_forced || attrs->cpu_rendezvous),
+>> -                     0, 0, &res);
+>> +             arm_smccc_1_2_invoke(&args, &res);
+>>        } while (res.a0 == 0 && res.a1 == 1);
+>>
+>>        return res.a0;
+>> @@ -150,7 +157,8 @@ static int call_lfa_activate(void *data)
+>>
+>>   static int activate_fw_image(struct image_props *attrs)
+>>   {
+>> -     struct arm_smccc_res res = { 0 };
+>> +     struct arm_smccc_1_2_regs args = { 0 };
+>> +     struct arm_smccc_1_2_regs res = { 0 };
+>>        int ret;
+>>
+>>        /*
+>> @@ -159,8 +167,10 @@ static int activate_fw_image(struct image_props *attrs)
+>>         * LFA_PRIME/ACTIVATE will need to be called again.
+>>         * res.a1 will become 0 once the prime/activate process completes.
+>>         */
+>> +     args.a0 = LFA_1_0_FN_PRIME;
+>> +     args.a1 = attrs->fw_seq_id; /* fw_seq_id under consideration */
+>>        do {
+>> -             arm_smccc_1_1_invoke(LFA_1_0_FN_PRIME, attrs->fw_seq_id, &res);
+>> +             arm_smccc_1_2_invoke(&args, &res);
+>>                if (res.a0 != LFA_SUCCESS) {
+>>                        pr_err("LFA_PRIME failed: %s\n",
+>>                                lfa_error_strings[-res.a0]);
+>> @@ -211,13 +221,16 @@ static ssize_t activation_pending_show(struct kobject *kobj,
+>>   {
+>>        struct image_props *attrs = container_of(attr, struct image_props,
+>>                                         image_attrs[LFA_ATTR_ACT_PENDING]);
+>> -     struct arm_smccc_res res = { 0 };
+>> +     struct arm_smccc_1_2_regs args = { 0 };
+>> +     struct arm_smccc_1_2_regs res = { 0 };
+>>
+>>        /*
+>>         * Activation pending status can change anytime thus we need to update
+>>         * and return its current value
+>>         */
+>> -     arm_smccc_1_1_invoke(LFA_1_0_FN_GET_INVENTORY, attrs->fw_seq_id, &res);
+>> +     args.a0 = LFA_1_0_FN_GET_INVENTORY;
+>> +     args.a1 = attrs->fw_seq_id;
+>> +     arm_smccc_1_2_invoke(&args, &res);
+>>        if (res.a0 == LFA_SUCCESS)
+>>                attrs->activation_pending = !!(res.a3 & BIT(1));
+>>
+>> @@ -298,9 +311,12 @@ static ssize_t cancel_store(struct kobject *kobj, struct kobj_attribute *attr,
+>>   {
+>>        struct image_props *attrs = container_of(attr, struct image_props,
+>>                                                 image_attrs[LFA_ATTR_CANCEL]);
+>> -     struct arm_smccc_res res = { 0 };
+>> +     struct arm_smccc_1_2_regs args = { 0 };
+>> +     struct arm_smccc_1_2_regs res = { 0 };
+>>
+>> -     arm_smccc_1_1_invoke(LFA_1_0_FN_CANCEL, attrs->fw_seq_id, &res);
+>> +     args.a0 = LFA_1_0_FN_CANCEL;
+>> +     args.a1 = attrs->fw_seq_id;
+>> +     arm_smccc_1_2_invoke(&args, &res);
+>>
+>>        /*
+>>         * When firmware activation is called with "skip_cpu_rendezvous=1",
+>> @@ -395,14 +411,17 @@ static int create_fw_inventory(char *fw_uuid, int seq_id, u32 image_flags)
+>>
+>>   static int create_fw_images_tree(void)
+>>   {
+>> -     struct arm_smccc_res res = { 0 };
+>> +     struct arm_smccc_1_2_regs args = { 0 };
+>> +     struct arm_smccc_1_2_regs res = { 0 };
+>>        struct uuid_regs image_uuid;
+>>        char image_id_str[40];
+>>        int ret, num_of_components;
+>>
+>>        num_of_components = get_nr_lfa_components();
+>> +     args.a0 = LFA_1_0_FN_GET_INVENTORY;
+>>        for (int i = 0; i < num_of_components; i++) {
+>> -             arm_smccc_1_1_invoke(LFA_1_0_FN_GET_INVENTORY, i, &res);
+>> +             args.a1 = i; /* fw_seq_id under consideration */
+>> +             arm_smccc_1_2_invoke(&args, &res);
+>>                if (res.a0 == LFA_SUCCESS) {
+>>                        image_uuid.uuid_lo = res.a1;
+>>                        image_uuid.uuid_hi = res.a2;
+>> @@ -420,10 +439,23 @@ static int create_fw_images_tree(void)
+>>
+>>   static int __init lfa_init(void)
+>>   {
+>> -     struct arm_smccc_res res = { 0 };
+>> +     struct arm_smccc_1_2_regs args = { 0 };
+>> +     struct arm_smccc_1_2_regs res = { 0 };
+>>        int err;
+>>
+>> -     arm_smccc_1_1_invoke(LFA_1_0_FN_GET_VERSION, &res);
+>> +     /* LFA requires SMCCC version >= 1.2 */
+>> +     if (arm_smccc_get_version() < ARM_SMCCC_VERSION_1_2) {
+>> +             pr_err("Not supported with SMCCC version %u", arm_smccc_get_version());
+>> +             return -ENODEV;
+>> +     }
+>> +
+>> +     if (arm_smccc_1_1_get_conduit() == SMCCC_CONDUIT_NONE) {
+>> +             pr_err("Invalid SMCCC conduit");
+>> +             return -ENODEV;
+>> +     }
+>> +
+>> +     args.a0 = LFA_1_0_FN_GET_VERSION;
+>> +     arm_smccc_1_2_invoke(&args, &res);
+>>        if (res.a0 == -LFA_NOT_SUPPORTED) {
+>>                pr_err("Arm Live Firmware activation(LFA): no firmware agent found\n");
+>>                return -ENODEV;
+> 
 
-Please provide IGT tests. I'd at least check that using the
-BACKGROUND_COLOR results in the same CRC as then one when there is a
-plane covering the whole screen.
-
-Additional note. I see a value in having the CRTC property for the
-background colour. However it might be more flexible to reuse old
-proposal for solid fill planes ([1]) and instead implement the lowest
-Z-order plane supporting only solid fill colour as an image source.
-
-[1] https://lore.kernel.org/dri-devel/20231027-solid-fill-v7-0-780188bfa7b2@quicinc.com/
-
--- 
-With best wishes
-Dmitry
 
