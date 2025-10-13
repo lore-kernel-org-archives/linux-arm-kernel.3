@@ -4,156 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3CCE2CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 18:57:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 94F7CCCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 18:59:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vuzeDJ5ZEVJwvRAFqw3kCowvvPCKsK5XEBgpiz3Qj70=; b=Lp5aMWQKMdlTgkhutWLjd90hM5
-	NDS+HJU0FIxLuEAWTC3ZFtzURoLUgZOcOephZOSZtDiMAjjGk6ZSHlaWpdXgPKgYBdeX9RXAKRPGS
-	zI7Xpc5US2E3isiiQ4ExjOdEhfzKoWhjPBw1gyF0o8TtsBAnz3hgcrdT6mC7IEo8vY06bnArUGNnd
-	4vItDESDKXWFDhXtOg9WJvFisynHZ1MrEaYA5y18f9SoN0TRnqpiDJPdNDH0slIsrinuFucOIf0vk
-	HAIJEXF38nlwiYLO6ZwPoZ3RMGboA0wHbAciVGZlDzv0VPKeo1aMfRWtASjyZSHR0cwjMw2rqEALb
-	plE1Cyiw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:From:
+	Subject:Message-ID:Mime-Version:Date:Reply-To:Content-Transfer-Encoding:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=3zyOsXjgR2slTOTUParrmMvaOPp3Y8R1z3YFebNy+kY=; b=BrQO891Ku12O6Wyz+Sxw5DrK8t
+	wllDM8dGIv278PZzbMSU0bwgZKnYKhRfF882e3cYjIwWNBo2ybk/22mEu2g33iaYQoDL2uCvWaiFw
+	J7Id5Jo2Cnbqhxolnm0/RsxaSpieaWY6PnhDyj9CRqBdLKoN+WSL1J1Va5Lw5S0p69t0PnizSmPPP
+	5BZ1FDEvOcV+t+bjwuVc6woRuyCkxvpLoue1Cv4SnVD5RvjF48Tse+ye8ZSlV57Sc687VHzGNGuZR
+	rGhyep7oOfKDEJHoeBvyOVYeMqVXcPaPXwplKq98ctrP3JPxgaHlWgmRfA0sjlN6hOmJydCSpAKUY
+	Ke2YpMWA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Njn-0000000ECwo-0BBy;
-	Mon, 13 Oct 2025 18:57:39 +0000
-Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
+	id 1v8NlI-0000000ED4w-1v5V;
+	Mon, 13 Oct 2025 18:59:12 +0000
+Received: from mail-pj1-x104a.google.com ([2607:f8b0:4864:20::104a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Njj-0000000ECvd-3FvV
+	id 1v8NlG-0000000ED4D-1nen
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 18:57:37 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=nnqogtFMtsYjIlCYJDz1K4uuBe+kxoNIM0fPphpa27gGd0tiZDubemzCiswbnNH4SgQjOlguNViMNKvv5/Zq81dS7oH5/XRL0z0P8uGxq3Qe2vHt7jEArowBNxqCw+cExXM2a3ro2L66fqlIfnuXAKdq6XGn54qjqALBGX7IBeOgYgHj7A2nuy0O3Kw0bh8GMJyDsl9ngC/lHvac0yMN/eUk9BWjiTLt6I1gMghRsdP2iS+WJev3R0eltShysmXdeL4jkH4mBtH0FUS/K+PooiyseA2lu0QPPvmliVbhBoGbWE2DNnptFVpSEMzv+B9o/4aXRXkWjtmflz0eNSfK/w==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=vuzeDJ5ZEVJwvRAFqw3kCowvvPCKsK5XEBgpiz3Qj70=;
- b=HpAs1KNeyk9+iKclZSGlWXyk4GFbkZZFte+ceSCqWXEnVFsCgw9Xfb6VGNXZxEs2D+h+OyPBAMxhjBDPCRbLw+pX/Kj2ATHHFncFsyZsuWxRCUCbkvdeHe2mEFconcO3VtRkQzSpQFvs8pP4Uwbyo6sDuiO7J8kGwIH4dIYbFMl/5T9S897TXrzp8Vu9OnR1ENau7RB2ZNWlQST5T6qgoTM0c1GDHv5tL8N9zQb289ee6sDYYsu+somQi+jhObqHayuFv8Xmnt0/igFGstHPOIqKBSS4DbGqQpQ+AwFh8bnFIICTQEYj9BfHHfC9LhKQmNRM9tnb2QBCMADSJhEo6Q==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=vuzeDJ5ZEVJwvRAFqw3kCowvvPCKsK5XEBgpiz3Qj70=;
- b=SKV8h0BdQ0uTIHgGLSSC3EaieDWN2+EdzatRc6D558wU0xfaycDrFd4RYXj8MRKX4Kim/v+xOWpPkUUH8oP1hZurnXSpmGEp9zxjmKKeBlaihk049J/D3Kqsa0SjRdFNlaTX4CRhQAwZ5QOERPTt2oHf3U6HMaRE9uXhv0xNCRcgaAAxEAtgiIaUXvj4P9MuSLmArttMoDg4Ep7wdNhR5ia5h86bNCWUB0Rr1AFx6yS6LS1XoIAoG+JySvhS7qoP144cI2Kv5wjIVvkFifZd3cwtO74EStjYnx/j78y05KWTQ2dIbF4ucw2X+VkQk3vlmXUhEUiiDHFwn0Ovm9lfOA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS4PR04MB9621.eurprd04.prod.outlook.com (2603:10a6:20b:4ff::22)
- by DB9PR04MB9577.eurprd04.prod.outlook.com (2603:10a6:10:304::22) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.12; Mon, 13 Oct
- 2025 18:57:29 +0000
-Received: from AS4PR04MB9621.eurprd04.prod.outlook.com
- ([fe80::a84d:82bf:a9ff:171e]) by AS4PR04MB9621.eurprd04.prod.outlook.com
- ([fe80::a84d:82bf:a9ff:171e%4]) with mapi id 15.20.9203.009; Mon, 13 Oct 2025
- 18:57:29 +0000
-Date: Mon, 13 Oct 2025 14:57:20 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: dri-devel@lists.freedesktop.org, Abel Vesa <abelvesa@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Liu Ying <victor.liu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>,
-	Peng Fan <peng.fan@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org
-Subject: Re: [PATCH 25/39] dt-bindings: display: bridge: Document NXP i.MX95
- pixel interleaver support
-Message-ID: <aO1LkIAfErQhQ58j@lizhi-Precision-Tower-5810>
-References: <20251011170213.128907-1-marek.vasut@mailbox.org>
- <20251011170213.128907-26-marek.vasut@mailbox.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251011170213.128907-26-marek.vasut@mailbox.org>
-X-ClientProxiedBy: PH8P221CA0036.NAMP221.PROD.OUTLOOK.COM
- (2603:10b6:510:346::25) To AS4PR04MB9621.eurprd04.prod.outlook.com
- (2603:10a6:20b:4ff::22)
-MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4PR04MB9621:EE_|DB9PR04MB9577:EE_
-X-MS-Office365-Filtering-Correlation-Id: 9ad29ac3-f2a9-470b-7726-08de0a8a5b8a
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|19092799006|52116014|7416014|376014|1800799024|366016|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?JCohEdUWcoVZIHQGnVIupfhbEjvEAtXSyX8v70DOGicJnk3UYXZ057FbbxtH?=
- =?us-ascii?Q?ihWVy16ujmxSZvN+XCOHQOhiQAuh8YD+2vVDFDkzpMTA/Y+xtF+k91JDz9ML?=
- =?us-ascii?Q?YTwyj/8XGe1il4hxxS7z03d0wYvaYmAaZP6e6N8ftoT2zJTrLhWqtL8h6/J1?=
- =?us-ascii?Q?6YzV5ZwNCU/y3FPfFnQDnbD/uM2sNe8xRZfXQ3dDeneLnUpwet2H3k4kDvVJ?=
- =?us-ascii?Q?en1YTZirjwBnk9FZ/VclAScbvmIth7tLXoRRiP50ll0aaxAYRyFaPUWdBYar?=
- =?us-ascii?Q?CWeEUpdwEZf4EW3UwQQ34XvYTFvOnC+iBQiWstmq9NNwz5eNEDXFNPg6+JOx?=
- =?us-ascii?Q?Zky+VJV+lyrHFHnu075XBIr1l76Hwdek3lsyuoYvO8yxYWxMRsQ1XEA4VjDU?=
- =?us-ascii?Q?Ak4Jhl2lf7ATxiXRKCGP2e1i8NTTXD4TysilE4BpjwVsyvG+JcWP3S1QNpf1?=
- =?us-ascii?Q?DNLzXY60WfTVqq4HN4U66U1F19De0LiY1cqZxH2X2APSr+LmHEAXxnZQnjuT?=
- =?us-ascii?Q?N+5zKMbe8HzonXsp8/8VlGKYj26+FZzVPysKzgDq4tHXFmj/dOTULjWRjv5q?=
- =?us-ascii?Q?MQWFm8FStty80Usg1secQWtScgPzdEwiRjN6/9Z6qRQv/f9dV+ArJYrH6tU5?=
- =?us-ascii?Q?UwzhYmLYh/qCaO+IT65wfQYNLTcb3ib49uwQvHTHZXP8h22tM+O4iVt7uUCM?=
- =?us-ascii?Q?GGTaU422nnfYJOjqi5UyqPG9QsYedR1KOGUvz3D7MgL+BWW0KThK04wKIKap?=
- =?us-ascii?Q?+ciAwQP/CLR85P4ZDkbBoXYhMTl3e6hdnKEoRgpCudqbD5m7LmpsHFKhKm3m?=
- =?us-ascii?Q?KtJUFA5zlqAdTn9mP9eCa54FrEW5m5eLtz4A5t5psEATEEWSeYXthCHuMYDZ?=
- =?us-ascii?Q?QS4eu+f5USbd/u/eojpC03iA6kbIRM5abdYr0yXNsW1rfTNrardb7EB9mF91?=
- =?us-ascii?Q?C1IKugLi0IANgzBxYzrk2DW3zlkzutfERQUuhb6S/i+MG6uRfbkbcQdANwC7?=
- =?us-ascii?Q?3vMncavwhfcqmNrhKmlZEY4Tl1ViV0o+OlWUAbQ2TT6T+m2AbMoVo/7PMHRw?=
- =?us-ascii?Q?6aldi6jbApKV5KZDVfxpBQDrcmiRifQ2+Jq4SonD7uGI0SOClo8Okqlx11VW?=
- =?us-ascii?Q?4N+1lE4yvxnxCpMLxFIkN9j/3kbWOy9/wyRRRRyotZlG586DWU3OxXitBALY?=
- =?us-ascii?Q?H5e5ekEheYPCwYNFy9rbnoZbblc191yDogjCl4/iAGKfQbtdXv8thHqfEPr2?=
- =?us-ascii?Q?UKVQ2ewybMb5b9iHswwCp/Cw2achLoY/Gp+Vvy2W32BYNUVvOFlTZ56ONvwI?=
- =?us-ascii?Q?5DexN5649FQv2HYymQSawKpsAlcoAC9a7uuDVmkbXQh4lRkNoZMTS0po7O6t?=
- =?us-ascii?Q?mPcTYBx3VsuABy9XuHduNcD/L9EGyX5a14pBYMq6LHc/drSQxCV6Hdz2Agyv?=
- =?us-ascii?Q?YXxie0NJdxLe0dS/hEIFwKbjU3+QIFBZNbM8aq/ROZfC4UzfyOwuog=3D=3D?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9621.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(19092799006)(52116014)(7416014)(376014)(1800799024)(366016)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?m3/9lKK6/HDvisoWSJqV06HfiQfVwR3u83yUHuOjE/qbH5JMFFQ7QJvXEpXA?=
- =?us-ascii?Q?dbFmEsjhuYgMuRt5a/TwfSgLuH/ycSZ2CABVVTYwmEhv6KIs7hSDdzQvaEja?=
- =?us-ascii?Q?tF+aCoDKrHAKryeyOeNpGLwp2xtdU3/HdaY9pYQzQT/FTQJFGKRjndTWqb51?=
- =?us-ascii?Q?RtiZTFOLtYaabak2tHfLz1Q4ayX4kuipxVOGC0QXdeE9t7OPz65dWfx2ztOa?=
- =?us-ascii?Q?I9H+zQ33/ahCMh57IRril8Rb3Nvl/6/UIbbSNZzw8uTiwS+DQo8pdB6/ya6E?=
- =?us-ascii?Q?FiqelYbx+/OpZe6ewIF1hfGLxB/LBFDw5htSeHhi+0Zlg/DgqCPUaafvcu2f?=
- =?us-ascii?Q?ULb3oRUoI0tn+JqY7caK9MbwJH3NcSX72YgY3TsuCjY/rhne+VJdK5zcwB8Z?=
- =?us-ascii?Q?dmrYmBP0KkEbqDvHuXNO91OHjzvRLzIPXXx4mmEjEkxOS5ujdU1CD/qyoEWF?=
- =?us-ascii?Q?G0mH2FEZYZPtZWF82Snw61BgqheT+/aS+z+JRBXjSMouet8oKRSVGBeEi6Nh?=
- =?us-ascii?Q?5kAuL3PutPMaJAQ7KrxpjATySdvRh+gp6oxUiTg6nb+VkmK5SCYzdY71PrPn?=
- =?us-ascii?Q?EtnqDoS+Epj19RwFnWYqGuxwQZZM0/M+V63dHOyWmLBouavCZ99/Aa7/3I9U?=
- =?us-ascii?Q?YuSZXIGZ/jPNz+TcDPlN/V8OynDZ9fZmkMyQU1RjgN7l0bmjeoJWE0wxsN1f?=
- =?us-ascii?Q?N3H15wmDyFWuR71TaAtOwfpY4C5nr9ABekZK4v9gh4/RkqDBF1Gx2f0oh4Rm?=
- =?us-ascii?Q?BPBp2HmXWyDcHUKJRiGj72UV9ThLen8AxetNMAlT8GcJqB1LOrfEuHHl+/c/?=
- =?us-ascii?Q?ecr2l/02vpdGknBsaI3AdMMNuLxaO6RQkw6vhpVOPeP2n3YYxhuUuPdbb0MP?=
- =?us-ascii?Q?9/MMs/d7rMlku6saoNmYD0ZzKGfJqEyWy4TxCyXgvTtBV3M0aSby8YujGxyB?=
- =?us-ascii?Q?uKvVSNV2F5yvvno3rlI8a2ldayWV1/E209BqMD3zYViF/rmxomndgdC2mVbi?=
- =?us-ascii?Q?G6f7wIK6vcWp7j0kTT1WuBAFpsq8Sg2WCXzhZXBaA9s5R9mlPFi/WOBhLTs8?=
- =?us-ascii?Q?1nOtmZ695MZiTNLhK+9vCo9AxCmn5oXw6NpNnOYSzc2ovQ/GrQObSN+n5fZN?=
- =?us-ascii?Q?5kQOusnuU6mlIauFDWZb6SkUknr+CCgOCu39CTGwhosDAErRheybccHft9AQ?=
- =?us-ascii?Q?JRdnN3WXapiECNHPeS4u59HQgguG2vWshUg3e6Mb4mXdOTPO3ZW+32y57i6f?=
- =?us-ascii?Q?eaiufRfYRrdwNrQ9X6SmzVX0NuXFsAWbzVjPYFB/gpzwudq19EPkpU7cadqH?=
- =?us-ascii?Q?r6W859AqNJNOrQ3IR/ngVZOhN6pa3oClUZaje2csmEr7v4BJPCrwZEgn9Fgl?=
- =?us-ascii?Q?+KPkZTDLsvqsaWUeM+JRFCNrj1GPh9KfF97+b/aHqAxU/mMOflnDQ5v3qH6U?=
- =?us-ascii?Q?5NJHxb2LYtjGHdhxvG2Yd0wXPws5qqUhzaEKjcIUXMrbIwhZ6q4KeNX3kJav?=
- =?us-ascii?Q?DRXTt73aCD/8ESF95ncP1n2f7o2A0v3oNxbDWLhEc7tRVbF+oDnmKsmAsvMB?=
- =?us-ascii?Q?jGZGl4dS6WzFcMptMvEgAeC39vdwK55T0UCnhOqt?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 9ad29ac3-f2a9-470b-7726-08de0a8a5b8a
-X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9621.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2025 18:57:29.3325
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: zZVOU5p1hnvLHRG4c5FZHQu9vMY70rZKkb96hqhgyDrtK6DzlXUlMpd3y/2yEElHfnYz2QHFCOIRbpLcq7weoQ==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DB9PR04MB9577
+	Mon, 13 Oct 2025 18:59:11 +0000
+Received: by mail-pj1-x104a.google.com with SMTP id 98e67ed59e1d1-32ee4998c50so8728231a91.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 11:59:08 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=google.com; s=20230601; t=1760381948; x=1760986748; darn=lists.infradead.org;
+        h=cc:to:from:subject:message-id:mime-version:date:from:to:cc:subject
+         :date:message-id:reply-to;
+        bh=3zyOsXjgR2slTOTUParrmMvaOPp3Y8R1z3YFebNy+kY=;
+        b=J6s+1sagPnzRFqA97S8x5H6p+xtuz7UTLXLR/lWYoKKkMphHsH4F7zxbTZAY0MPR3M
+         DmwbvfkWSuk8WMrZBLJXOVuFtr6uec9o/rc/67ytbYAFec1k5z0rYYoGnGotAvoL+M80
+         zbnAPAf9h0ab3mSwijT85uYFwJFlZMehE4MEdOt80eaH3tDvEQVuzlz6NZ6sR4p4ehEb
+         kKIaQ6AH8RTb2nTklWy5E4Y3RN9wJyysrC1iTpUdEqnGss3Uub4zc1nCWbJuhEgMOvBE
+         fAXJBttZFNWj5pZKZWYvd213LIMRbojwhrB6nujfiV3fl4x4n37cGGEw8a+5hDe0iixk
+         1n1w==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760381948; x=1760986748;
+        h=cc:to:from:subject:message-id:mime-version:date:x-gm-message-state
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=3zyOsXjgR2slTOTUParrmMvaOPp3Y8R1z3YFebNy+kY=;
+        b=sYwpX7HlSGQZkPO6jWrlDgh/YUFHmBUFZllMHW1NCJuoxRz4R6IDdD3JtNlpLOOw7I
+         ldhqn+fOxOSBYG7r6fRJonfT2e/dSe5AMTzI0oTnmc3rLpFcFbSmKXQiZCfuC0wa1FaJ
+         NZbFEfJfmYqIL0IChQUnxrOzdld/944cMQltmJERFkvSWoEt7z5/nDUCuZRWxJ8SyyI2
+         V30H5MGlg9qiHfAWftqj01laXnHT0sXpIy2QhOFJZejSfIxCdEcEdNtqPE62b6qrl5L0
+         UgMjJvBIJINu3dASFh1/KqgZbUnJF8jVKrv10PDdEgIpjdfqDZ+30zT+Pu+M89kgFGew
+         wE4g==
+X-Forwarded-Encrypted: i=1; AJvYcCX40tXSHD3XWGljPoOG7gVyZANNWzSgLckKXGQsAFW1Z7xbNeafKemVvNm5JnA+VLDXn51i1yuiXnPiDqw2iHtU@lists.infradead.org
+X-Gm-Message-State: AOJu0YzzdxeRsJvFejgumtKdhHW9zMxSBZLnpZvE3c4GjbHu4tjB6uO7
+	82dAfiSP+9K/vYLLS7rsHX9WJ2gcsKelGPNPt4/2m0ziYhlNOREwNC8z94hUfD80gUTy5+9cdR5
+	9PsN/IPRIJ9+bhg==
+X-Google-Smtp-Source: AGHT+IFQCZ0F3mAV98Keda3BZRrx76PXArL7t60ZigncnYG4BTa+6j6T70pbIysH6cLO49q77f6O/f7NZYgb1A==
+X-Received: from pjbkw19.prod.google.com ([2002:a17:90b:2213:b0:330:8c66:4984])
+ (user=jiaqiyan job=prod-delivery.src-stubby-dispatcher) by
+ 2002:a17:90b:3e82:b0:339:a4ef:c8b9 with SMTP id 98e67ed59e1d1-33b5127ac7fmr33043099a91.17.1760381947731;
+ Mon, 13 Oct 2025 11:59:07 -0700 (PDT)
+Date: Mon, 13 Oct 2025 18:59:00 +0000
+Mime-Version: 1.0
+X-Mailer: git-send-email 2.51.0.760.g7b8bcc2412-goog
+Message-ID: <20251013185903.1372553-1-jiaqiyan@google.com>
+Subject: [PATCH v4 0/3] VMM can handle guest SEA via KVM_EXIT_ARM_SEA
+From: Jiaqi Yan <jiaqiyan@google.com>
+To: maz@kernel.org, oliver.upton@linux.dev
+Cc: duenwen@google.com, rananta@google.com, jthoughton@google.com, 
+	vsethi@nvidia.com, jgg@nvidia.com, joey.gouly@arm.com, suzuki.poulose@arm.com, 
+	yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, 
+	pbonzini@redhat.com, corbet@lwn.net, shuah@kernel.org, kvm@vger.kernel.org, 
+	kvmarm@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-kernel@vger.kernel.org, linux-doc@vger.kernel.org, 
+	linux-kselftest@vger.kernel.org, Jiaqi Yan <jiaqiyan@google.com>
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_115735_816826_1A844EDA 
-X-CRM114-Status: GOOD (  18.04  )
+X-CRM114-CacheID: sfid-20251013_115910_494446_323A39B4 
+X-CRM114-Status: GOOD (  20.70  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,138 +92,119 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 11, 2025 at 06:51:40PM +0200, Marek Vasut wrote:
-> Document NXP i.MX95 pixel interleaver bridge support.
->
-> Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
-> ---
-> Cc: Abel Vesa <abelvesa@kernel.org>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Fabio Estevam <festevam@gmail.com>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
-> Cc: Liu Ying <victor.liu@nxp.com>
-> Cc: Lucas Stach <l.stach@pengutronix.de>
-> Cc: Peng Fan <peng.fan@nxp.com>
-> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Shawn Guo <shawnguo@kernel.org>
-> Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> Cc: devicetree@vger.kernel.org
-> Cc: dri-devel@lists.freedesktop.org
-> Cc: imx@lists.linux.dev
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-clk@vger.kernel.org
-> ---
->  .../bridge/fsl,imx95-pixel-interleaver.yaml   | 85 +++++++++++++++++++
->  1 file changed, 85 insertions(+)
->  create mode 100644 Documentation/devicetree/bindings/display/bridge/fsl,imx95-pixel-interleaver.yaml
->
-> diff --git a/Documentation/devicetree/bindings/display/bridge/fsl,imx95-pixel-interleaver.yaml b/Documentation/devicetree/bindings/display/bridge/fsl,imx95-pixel-interleaver.yaml
-> new file mode 100644
-> index 0000000000000..6a0647f060a02
-> --- /dev/null
-> +++ b/Documentation/devicetree/bindings/display/bridge/fsl,imx95-pixel-interleaver.yaml
-> @@ -0,0 +1,85 @@
-> +# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-> +%YAML 1.2
-> +---
-> +$id: http://devicetree.org/schemas/display/bridge/fsl,imx95-pixel-interleaver.yaml#
-> +$schema: http://devicetree.org/meta-schemas/core.yaml#
-> +
-> +title: Freescale i.MX95 Display Pixel Interleaver
-> +
-> +maintainers:
-> +  - Liu Ying <victor.liu@nxp.com>
-> +  - Marek Vasut <marek.vasut@mailbox.org>
-> +
-> +description: |
+Problem
+=======
 
-Needn't |
+When host APEI is unable to claim a synchronous external abort (SEA)
+during guest abort, today KVM directly injects an asynchronous SError
+into the VCPU then resumes it. The injected SError usually results in
+unpleasant guest kernel panic.
 
-> +  The Freescale i.MX95 Display Pixel Interleaver receives and processes
-> +  2 input display streams from the display controller and routes those
-> +  to 3 pixel link output ports. The interleaver is capable of YUV444 to
-> +  YUV422 conversion and pixel interleaving.
-> +
-> +properties:
-> +  compatible:
-> +    const: fsl,imx95-pixel-interleaver
-> +
-> +  reg:
-> +    maxItems: 1
-> +
-> +  clocks:
-> +    maxItems: 1
-> +
-> +  fsl,syscon:
-> +    $ref: /schemas/types.yaml#/definitions/phandle
-> +    description: |
-> +      A phandle which points to Control and Status Registers (CSR) module.
+One of the major situation of guest SEA is when VCPU consumes recoverable
+uncorrected memory error (UER), which is not uncommon at all in modern
+datacenter servers with large amounts of physical memory. Although SError
+and guest panic is sufficient to stop the propagation of corrupted memory,
+there is room to recover from an UER in a more graceful manner.
 
-Need justify why not standard interface such as clock, phy, reset ...
+Proposed Solution
+=================
 
-> +
-> +  ports:
-> +    $ref: /schemas/graph.yaml#/properties/ports
-> +
-> +    properties:
-> +      port@0:
-> +        $ref: /schemas/graph.yaml#/properties/port
+The idea is, we can replay the SEA to the faulting VCPU. If the memory
+error consumption or the fault that cause SEA is not from guest kernel,
+the blast radius can be limited to the poison-consuming guest process,
+while the VM can keep running.
 
-video-interfaces.yaml?
+In addition, instead of doing under the hood without involving userspace,
+there are benefits to redirect the SEA to VMM:
 
-> +        description: The pixel link input port node from upstream video source.
-> +
-> +      port@1:
-> +        $ref: /schemas/graph.yaml#/properties/port
-> +        description: The pixel link output port node to downstream bridge.
-> +
-> +    required:
-> +      - port@0
-> +      - port@1
-> +
-> +required:
-> +  - compatible
-> +  - fsl,syscon
-> +  - ports
-> +
-> +additionalProperties: false
-> +
-> +examples:
-> +  - |
-> +    bridge@4b0d0000 {
-> +        compatible = "fsl,imx95-pixel-interleaver";
-> +        reg = <0x4b0d0000 0x50>;
-> +        clocks = <&scmi_clk 0>;
-> +        fsl,syscon = <&dispmix_csr>;
-> +
-> +        ports {
-> +            #address-cells = <1>;
-> +            #size-cells = <0>;
-> +
-> +            port@0 {
-> +                reg = <0>;
-> +
-> +                pixel_interleaver_disp0_to_dpu_disp0: endpoint {
+- VM customers care about the disruptions caused by memory errors, and
+  VMM usually has the responsibility to start the process of notifying
+  the customers of memory error events in their VMs. For example some
+  cloud provider emits a critical log in their observability UI [1], and
+  provides a playbook for customers on how to mitigate disruptions to
+  their workloads.
 
-example needn't label pixel_interleaver_disp0_to_dpu_disp0
+- VMM can protect future memory error consumption by unmapping the poisoned
+  pages from stage-2 page table with KVM userfault [2], or by splitting the
+  memslot that contains the poisoned pages.
 
-Frank
-> +                    remote-endpoint = <&dpu_disp0_to_pixel_interleaver_disp0>;
-> +                };
-> +            };
-> +
-> +            port@1 {
-> +                reg = <1>;
-> +
-> +                pixel_interleaver_disp0_to_display_pixel_link0: endpoint {
-> +                    remote-endpoint = <&display_pixel_link0_to_pixel_interleaver_disp0>;
-> +                };
-> +            };
-> +        };
-> +    };
-> --
-> 2.51.0
->
+- VMM can keep track of SEA events in the VM. When VMM thinks the status
+  on the host or the VM is bad enough, e.g. number of distinct SEAs
+  exceeds a threshold, it can restart the VM on another healthy host.
+
+- Behavior parity with x86 architecture. When machine check exception
+  (MCE) is caused by VCPU, kernel or KVM signals userspace SIGBUS to
+  let VMM either recover from the MCE, or terminate itself with VM.
+  The prior RFC proposes to implement SIGBUS on arm64 as well, but
+  Marc preferred KVM exit over signal [3]. However, implementation
+  aside, returning SEA to VMM is on par with returning MCE to VMM.
+
+Once SEA is redirected to VMM, among other actions, VMM is encouraged
+to inject external aborts into the faulting VCPU.
+
+New UAPIs
+=========
+
+This patchset introduces following userspace-visible changes to empower
+VMM to control what happens for SEA on guest memory:
+
+- KVM_CAP_ARM_SEA_TO_USER. While taking SEA, if userspace has enabled
+  this new capability at VM creation, and the SEA is not owned by kernel
+  allocated memory, instead of injecting SError, return KVM_EXIT_ARM_SEA
+  to userspace.
+
+- KVM_EXIT_ARM_SEA. This is the VM exit reason VMM gets. The details
+  about the SEA is provided in arm_sea as much as possible, including
+  sanitized ESR value at EL2, faulting guest virtual and physical
+  addresses if available.
+
+* From v3 [4]
+  - Rebased on commit 3a8660878839 ("Linux 6.18-rc1").
+  - In selftest, print a message if GVA or GPA expects to be valid.
+
+* From v2 [5]:
+  - Rebased on "[PATCH] KVM: arm64: nv: Handle SEAs due to VNCR redirection" [6]
+    and kvmarm/next commit 7b8346bd9fce6 ("KVM: arm64: Don't attempt vLPI
+    mappings when vPE allocation is disabled")
+  - Took the host_owns_sea implementation from Oliver [7, 8].
+  - Excluded the guest SEA injection patches.
+  - Updated selftest.
+
+* From v1 [9]:
+  - Rebased on commit 4d62121ce9b5 ("KVM: arm64: vgic-debug: Avoid
+    dereferencing NULL ITE pointer").
+  - Sanitize ESR_EL2 before reporting it to userspace.
+  - Do not do KVM_EXIT_ARM_SEA when SEA is caused by memory allocated to
+    stage-2 translation table.
+
+[1] https://cloud.google.com/solutions/sap/docs/manage-host-errors
+[2] https://lore.kernel.org/kvm/20250109204929.1106563-1-jthoughton@google.com
+[3] https://lore.kernel.org/kvm/86pljbqqh0.wl-maz@kernel.org
+[4] https://lore.kernel.org/kvmarm/20250731205844.1346839-1-jiaqiyan@google.com
+[5] https://lore.kernel.org/kvm/20250604050902.3944054-1-jiaqiyan@google.com
+[6] https://lore.kernel.org/kvmarm/20250729182342.3281742-1-oliver.upton@linux.dev
+[7] https://lore.kernel.org/kvm/aHFohmTb9qR_JG1E@linux.dev
+[8] https://lore.kernel.org/kvm/aHK-DPufhLy5Dtuk@linux.dev
+[9] https://lore.kernel.org/kvm/20250505161412.1926643-1-jiaqiyan@google.com
+
+Jiaqi Yan (3):
+  KVM: arm64: VM exit to userspace to handle SEA
+  KVM: selftests: Test for KVM_EXIT_ARM_SEA
+  Documentation: kvm: new UAPI for handling SEA
+
+ Documentation/virt/kvm/api.rst                |  61 ++++
+ arch/arm64/include/asm/kvm_host.h             |   2 +
+ arch/arm64/kvm/arm.c                          |   5 +
+ arch/arm64/kvm/mmu.c                          |  68 +++-
+ include/uapi/linux/kvm.h                      |  10 +
+ tools/arch/arm64/include/asm/esr.h            |   2 +
+ tools/testing/selftests/kvm/Makefile.kvm      |   1 +
+ .../testing/selftests/kvm/arm64/sea_to_user.c | 331 ++++++++++++++++++
+ tools/testing/selftests/kvm/lib/kvm_util.c    |   1 +
+ 9 files changed, 480 insertions(+), 1 deletion(-)
+ create mode 100644 tools/testing/selftests/kvm/arm64/sea_to_user.c
+
+-- 
+2.51.0.760.g7b8bcc2412-goog
+
 
