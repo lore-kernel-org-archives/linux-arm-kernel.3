@@ -4,96 +4,92 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DB19CCD18E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 15:56:14 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A50ECCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 16:00:05 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YBeBnLojRUp+3BGjW9hqqMrpXMlk2wEyeaFT1Bjf2RU=; b=x4fkbxYNR+uZZ4HDBOgdL5wt40
-	ibvLrTe15MnzLBJsLngSin3WP1f1FVyzzQ0//4KMvLqpSQqgG39rWUjeEyrJGgw6jH52dZRGM4Tkk
-	/xk6OgtkTmfgj+QBeM7hwyU49+Z59Oc5vWWhkQXQmNE3eFzzUhFuSvUXWxTaghI6nKsJ3AHG0Cvp0
-	VpbyN4zr98FfpC2gjmbp7gO1aQnDg2Kq8i87lo76oyuJHj2R4P7khsfwmPIVy3LaqV3PKGdLahFIB
-	VGwpeSbCmnLooOI+DKgfkkLlorRUy2aAlb9Hbwlv8RdHdKFC/dUZM1JVBA10R3mAeSc1gtPUOAnU8
-	75nx9+lA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=F9tnRL1o3FmzbH3rPOyKULKn/hk3zU9MNzUIZBbOh80=; b=f5ljTPEsksWp+KDiHbGyA2nU3q
+	PJNulQTmRIoyhAu5gvPAyA5fAq6tjHwRDa8pCelZeMyERgcDoFxbX942+HK2fBzn6nFVQ5aOVKS6a
+	09PdPezxANFLzS9rozv+TdN/YT5Y17PSBaDLkHbaKbIiUcbmDMbfxk8HlYfRapdKuQGghHZKVi8bx
+	F/mzg0g5p9PtHSclsjTmDVoeKZSbrm3ARJehjVpZZQ8QlJqEYv1Qxa63UG/GmO6P35OkQwSMmxCf8
+	b/wQh8GPrc8K9cjrKTEFwra4ThsJFGHrVnlLwuhnf7RgGtXdycDu2H3m8RxvzzkpchifHtqPKkGHK
+	UR45sH9Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Ku8-0000000Dm4C-3hqj;
-	Mon, 13 Oct 2025 15:56:08 +0000
-Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
+	id 1v8Kxq-0000000DmZL-0wmu;
+	Mon, 13 Oct 2025 15:59:58 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Ku3-0000000Dm14-1s2A
+	id 1v8Kxp-0000000DmYz-0Dsh
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 13 Oct 2025 15:59:57 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
+	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
+	Sender:Reply-To:Content-ID:Content-Description;
+	bh=F9tnRL1o3FmzbH3rPOyKULKn/hk3zU9MNzUIZBbOh80=; b=a3Z/BJnMY/dpnUiU/HS5Whaxys
+	QJ+o7tQrrdHCeHkQFS2XtLxAQMjUSMj66LKTty9A8VWTqNPZ15hXAsdTq2mFri6Wh8lEwLQXIp7Nz
+	J297HIqI5YkzVmN+4C4aTS4PRDRX1THBFsytePyP/cGuZEcAyUG+xYg+VBCTlFMinlP35/6oYMcI/
+	FBnB1mmVq4TLNIXmeULhYf5Agzqth0ABr5xTaJ3Ia/EjAmBsFu+8IS6v+8rNWsx6zg4JJQmQRVMnn
+	/lUxahawfGx90NTNHKb53wwNLj2UWG780tkoxXycZFCThUFrtt4fej9walEp5eDrwhp9jpZv+QzoD
+	+43UbBCg==;
+Received: from smtpout-04.galae.net ([185.171.202.116])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v8Kxk-00000004RiO-3V97
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 15:56:07 +0000
-Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-634cef434beso8430358a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 08:56:02 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=chromium.org; s=google; t=1760370961; x=1760975761; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=YBeBnLojRUp+3BGjW9hqqMrpXMlk2wEyeaFT1Bjf2RU=;
-        b=RQYjIkw3xVMkjDVkj92mub5nPkI1SgnWA9l0umHkwevRJkQ7y9eDrrNdNAwOPgTHqh
-         cl8AB++Vamf74lGyIfRMOMqijLU7P4nzCXNYUBP9NxcFgJ8f1lwKbrUH4wDWiKQUNYUw
-         SQjQHmt9Zw+TiSgeKKBZFp+fs6Zrvf+E6OfF4=
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760370961; x=1760975761;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=YBeBnLojRUp+3BGjW9hqqMrpXMlk2wEyeaFT1Bjf2RU=;
-        b=C8KYhD8RMqpU9c9rVViTtDCp9hp8zsj6UK0yC47YRr4NRUip36U70hz7RfoVDJO5q3
-         7GzcIXJ08CVsQPBs4iNqIu8HYrjb8mi3DueLx2gfJbx/NRFS3mGeN5bXYbU1AQnjnIFN
-         4BznfDcT/uuAWNxwm6JByLhnJ9BkgcEC+gV8RPlRoao5Rg8bCCfSCzzFU4GAjcU4xzwK
-         klkSYMQQwJnaYzp2lSl1yuPoZBd0QAc9sdlb1sPo8Gr8Y9vAXulLj5xWepg63iOejvPI
-         MoMLibg3rrprpMR+h7rEPfCzT2S74obEg1OkBVJ/gL94I9ZOuoRVhH3Xbxt4R3OrE+Ug
-         jrdA==
-X-Forwarded-Encrypted: i=1; AJvYcCUKE1+UWbR4okV+bi5lhJtffP8mIIgx8TDRlL5rlQUCH+jwxfe6RydKU9Pl6QziD9n/OVHIpC7B6qDStWP4Ii+w@lists.infradead.org
-X-Gm-Message-State: AOJu0YwGFDB3eLW27mcCWUtyQ5DIbbvjyfHhKbKvX0KUSge5kLu5RBIZ
-	l1qrRlsomUEosNfyIDnw7iy47YbyPye/VmlvcAamMCbZkK9YtA/sLS/8vhrrCK9Exd7YjcvJHxc
-	o0yir7r4+
-X-Gm-Gg: ASbGncsyg4D1qQlYmbZjSj4SOzn0yCoc4xociaB48seWaTR43wM/i7ZaD7TMUB3B22e
-	+wHRPC8HkS0OunrkPFf8lq3ESmfgihj7gL3MqOeP0dpboDf/54qL/KG3jr1nFtV8RzWA2iEKd89
-	TvNk2tQLh+qgVvwa8BP+Q5ShKdyHwg88iT4V+o/R9ksRX1o2RdJs7neLs5lpyIvov0BFbLC+2bi
-	+9fGd4pTmTgyi559dG4LR1dyxR4PlTIcKohyRRo5WyXAMps0f8sPIclq6NsvmfiGBB2lcP4Wlv8
-	MtXAKoJbDyyoyKjM/tKPQKvFdJiWtzLXv6cVYlZUb9dkAaab6w3DSUb1q0p054O//CzpwnRlsYP
-	+iRL08nd7omEjolhk4sx0f8Y631Ak/+agkDHO81KLES0ROuQ/RtfzFto3/K6yXkitV7Pp+obM7F
-	61Y+9r98+xMe1Jbw==
-X-Google-Smtp-Source: AGHT+IFo2V8kA9niIDNUYQWasmLbNB9Fc+MRbirtpckpezESVMpOl3tgF+b0cYShypf6LvVmcoqb8A==
-X-Received: by 2002:a17:907:8e07:b0:b3e:c99b:c77f with SMTP id a640c23a62f3a-b4f4310366cmr2608793266b.24.1760370961417;
-        Mon, 13 Oct 2025 08:56:01 -0700 (PDT)
-Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com. [209.85.208.45])
-        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-63a52b0f42esm9101358a12.12.2025.10.13.08.56.01
-        for <linux-arm-kernel@lists.infradead.org>
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Mon, 13 Oct 2025 08:56:01 -0700 (PDT)
-Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-636535e4b1aso8586531a12.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 08:56:01 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCWkK4E6sTm8caGic8EyjnOdybwCcJBdsbM0JQS91rCGOA+8vsRCjjMfAJc8YRH53qKnyZGr7POF8Xkc+vZNPyiJ@lists.infradead.org
-X-Received: by 2002:a05:6512:1329:b0:581:bdb8:6df9 with SMTP id
- 2adb3069b0e04-5905e1ffebamr6390861e87.10.1760370468172; Mon, 13 Oct 2025
- 08:47:48 -0700 (PDT)
+	Mon, 13 Oct 2025 15:59:55 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 8E361C093B0;
+	Mon, 13 Oct 2025 15:59:31 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 663A66067B;
+	Mon, 13 Oct 2025 15:59:50 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id F18D3102F2273;
+	Mon, 13 Oct 2025 17:59:32 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1760371189; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding:content-language:in-reply-to:references;
+	bh=F9tnRL1o3FmzbH3rPOyKULKn/hk3zU9MNzUIZBbOh80=;
+	b=iTUvBUFvI/itbMlmJ0x0WrNzyi3QeiZvBxNdzyILfJ7IH3MWnWJYdtUDDzRm/s1Oe50Qsx
+	S50pmM6ZNqZ/t4QvTvRlAE5J968iQN3WpJ8KeQ7Sei/efTMN/EXd4tY9drQHat9TNT63LT
+	kJ1dQGrfmrjAuJJ+vZAX9+tkap3RpYHzUGZ/ia9xXCZch8QszvcJrPkyu1TE15dECyKWgF
+	igGuZWbbLVAo95qPbdNjUPGGTBhxylCrwmu3DL+6HkZFc/5pR+xyxrgq+U6odYq+7yaR3t
+	xJR/eJjTd9DVWPwo4sMzBwBIaRuZeK2fWtLndnSXGUsnJyQl9MZi6mBjU7SVBQ==
+Message-ID: <7293f682-7ba7-420c-9997-eec0d5cb09e1@bootlin.com>
+Date: Mon, 13 Oct 2025 17:59:31 +0200
 MIME-Version: 1.0
-References: <20251013-dts-v1-1-5731ed92684a@chromium.org> <aO0eLbLCGLKf6sF+@lizhi-Precision-Tower-5810>
-In-Reply-To: <aO0eLbLCGLKf6sF+@lizhi-Precision-Tower-5810>
-From: Ricardo Ribalda <ribalda@chromium.org>
-Date: Mon, 13 Oct 2025 17:47:35 +0200
-X-Gmail-Original-Message-ID: <CANiDSCu2hdaO5r8v_GcCksepy58AJFsuLb-xxz3WYOUknvKLwg@mail.gmail.com>
-X-Gm-Features: AS18NWCpy9_8RtaLxButea2qoJBXTdgqbhebqmgYPmIE7BU8dSEVQ_qnVy1gyYw
-Message-ID: <CANiDSCu2hdaO5r8v_GcCksepy58AJFsuLb-xxz3WYOUknvKLwg@mail.gmail.com>
-Subject: Re: [PATCH] dt-bindings: media: fsl,imx6q-vdoa: Remove redundant quote
-To: Frank Li <Frank.li@nxp.com>
-Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
-	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
-	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
-	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org, 
-	devicetree@vger.kernel.org, imx@lists.linux.dev, 
-	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2 15/15] arm64: dts: allwinner: h616: add NAND controller
+To: =?UTF-8?Q?Jernej_=C5=A0krabec?= <jernej.skrabec@gmail.com>,
+ Miquel Raynal <miquel.raynal@bootlin.com>,
+ Richard Weinberger <richard@nod.at>, Vignesh Raghavendra <vigneshr@ti.com>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+ Samuel Holland <samuel@sholland.org>
+Cc: =?UTF-8?Q?Uwe_Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
+ Wentao Liang <vulab@iscas.ac.cn>, Johan Hovold <johan@kernel.org>,
+ Maxime Ripard <mripard@kernel.org>,
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+ linux-mtd@lists.infradead.org, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+ linux-kernel@vger.kernel.org
+References: <20251013152645.1119308-1-richard.genoud@bootlin.com>
+ <20251013152645.1119308-16-richard.genoud@bootlin.com>
+ <2800174.mvXUDI8C0e@jernej-laptop>
+From: Richard GENOUD <richard.genoud@bootlin.com>
+Content-Language: en-US, fr
+Organization: Bootlin
+In-Reply-To: <2800174.mvXUDI8C0e@jernej-laptop>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_085603_521773_A9445433 
-X-CRM114-Status: GOOD (  21.59  )
+X-CRM114-CacheID: sfid-20251013_165953_577571_6AA5BF3E 
+X-CRM114-Status: GOOD (  15.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,58 +104,108 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Frank
+Le 13/10/2025 à 17:43, Jernej Škrabec a écrit :
+> Dne ponedeljek, 13. oktober 2025 ob 17:26:45 Srednjeevropski poletni čas je Richard Genoud napisal(a):
+>> The H616 has a NAND controller quite similar to the A10/A23 ones, but
+>> with some register differences, more clocks (for ECC and MBUS), more ECC
+>> strengths, so this requires a new compatible string.
+>>
+>> Add the NAND controller node and pins in the device tree.
+>>
+>> Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
+>> ---
+>>   .../arm64/boot/dts/allwinner/sun50i-h616.dtsi | 51 +++++++++++++++++++
+>>   1 file changed, 51 insertions(+)
+>>
+>> diff --git a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
+>> index ceedae9e399b..bb53c6c63836 100644
+>> --- a/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
+>> +++ b/arch/arm64/boot/dts/allwinner/sun50i-h616.dtsi
+>> @@ -304,6 +304,42 @@ mmc2_pins: mmc2-pins {
+>>   				bias-pull-up;
+>>   			};
+>>   
+>> +			/omit-if-no-ref/
+>> +			nand_pins: nand-pins {
+>> +				pins = "PC0", "PC1", "PC2", "PC5", "PC8", "PC9",
+>> +				       "PC10", "PC11", "PC12", "PC13", "PC14",
+>> +				       "PC15", "PC16";
+>> +				function = "nand0";
+>> +			};
+>> +
+>> +			/omit-if-no-ref/
+>> +			nand_cs0_pin: nand-cs0-pin {
+>> +				pins = "PC4";
+>> +				function = "nand0";
+>> +				bias-pull-up;
+>> +			};
+>> +
+>> +			/omit-if-no-ref/
+>> +			nand_cs1_pin: nand-cs1-pin {
+>> +				pins = "PC3";
+>> +				function = "nand0";
+>> +				bias-pull-up;
+>> +			};
+>> +
+>> +			/omit-if-no-ref/
+>> +			nand_rb0_pin: nand-rb0-pin {
+>> +				pins = "PC6";
+>> +				function = "nand0";
+>> +				bias-pull-up;
+>> +			};
+>> +
+>> +			/omit-if-no-ref/
+>> +			nand_rb1_pin: nand-rb1-pin {
+>> +				pins = "PC7";
+>> +				function = "nand0";
+>> +				bias-pull-up;
+>> +			};
+>> +
+>>   			/omit-if-no-ref/
+>>   			spi0_pins: spi0-pins {
+>>   				pins = "PC0", "PC2", "PC4";
+>> @@ -377,6 +413,21 @@ iommu: iommu@30f0000 {
+>>   			#iommu-cells = <1>;
+>>   		};
+>>   
+>> +		nfc: nand-controller@4011000 {
+>> +			compatible = "allwinner,sun50i-h616-nand-controller";
+>> +			reg = <0x04011000 0x1000>;
+>> +			interrupts = <GIC_SPI 34 IRQ_TYPE_LEVEL_HIGH>;
+>> +			clocks = <&ccu CLK_BUS_NAND>, <&ccu CLK_NAND0>,
+>> +				<&ccu CLK_NAND1>, <&ccu CLK_MBUS_NAND>;
+>> +			clock-names = "ahb", "mod", "ecc", "mbus";
+>> +			resets = <&ccu RST_BUS_NAND>;
+>> +			reset-names = "ahb";
+>> +			dmas = <&dma 10>;
+>> +			dma-names = "rxtx";
+>> +			#address-cells = <1>;
+>> +			#size-cells = <0>;
+>> +		};
+> 
+> Sorry, forgot to mention. This should be marked as disabled, as most of
+> the boards don't have NAND connected.
+arg! of course, I forgot that.
 
-On Mon, 13 Oct 2025 at 17:43, Frank Li <Frank.li@nxp.com> wrote:
->
-> On Mon, Oct 13, 2025 at 02:52:20PM +0000, Ricardo Ribalda wrote:
-> > Latest dts-ci complains about this:
-> > ./Documentation/devicetree/bindings/media/fsl,imx6q-vdoa.yaml:19:12: [error] string value is redundantly quoted with any quotes (quoted-strings)
-> >
-> > Fix it to make our CI happy.
-> >
-> > Signed-off-by: Ricardo Ribalda <ribalda@chromium.org>
-> > ---
->
-> Thank you fix it. I have posted at
->
-> https://lore.kernel.org/imx/20250925193546.305036-1-Frank.Li@nxp.com/
+Thanks!
 
-Sorry, I missed that one :)
-
-
-
->
-> Frank
->
-> >  Documentation/devicetree/bindings/media/fsl,imx6q-vdoa.yaml | 2 +-
-> >  1 file changed, 1 insertion(+), 1 deletion(-)
-> >
-> > diff --git a/Documentation/devicetree/bindings/media/fsl,imx6q-vdoa.yaml b/Documentation/devicetree/bindings/media/fsl,imx6q-vdoa.yaml
-> > index 511ac0d67a7f2360afe22b81d76644575081089b..988a5b3a62bdebeda6b922a986b9ac93d0933e51 100644
-> > --- a/Documentation/devicetree/bindings/media/fsl,imx6q-vdoa.yaml
-> > +++ b/Documentation/devicetree/bindings/media/fsl,imx6q-vdoa.yaml
-> > @@ -16,7 +16,7 @@ maintainers:
-> >
-> >  properties:
-> >    compatible:
-> > -    const: "fsl,imx6q-vdoa"
-> > +    const: fsl,imx6q-vdoa
-> >
-> >    reg:
-> >      maxItems: 1
-> >
-> > ---
-> > base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
-> > change-id: 20251013-dts-83ce7f7b9e54
-> >
-> > Best regards,
-> > --
-> > Ricardo Ribalda <ribalda@chromium.org>
-> >
-
+> 
+> Best regards,
+> Jernej
+> 
+>> +
+>>   		mmc0: mmc@4020000 {
+>>   			compatible = "allwinner,sun50i-h616-mmc",
+>>   				     "allwinner,sun50i-a100-mmc";
+>>
+> 
+> 
+> 
+> 
 
 
 -- 
-Ricardo Ribalda
+Richard Genoud, Bootlin
+Embedded Linux and Kernel engineering
+https://bootlin.com
 
