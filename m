@@ -4,70 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id AB209CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 19:43:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A3629CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 19:45:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
 	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ixwFdgEDV1vu1vzeg2qqQRwOw909mWVq2oy7W8xBU8Q=; b=D+xkE7cdxCUm4gCDqtx6VQLJvj
-	kAwlMp9zk+UrZowE6n7MLafGdfHBwTV5J9XbCgJJdd3T2YYubIMCR/IFAzA4m7l7ZCqgkPxDR7Kjz
-	xCzfkAECFQFasAIvhRAtZQTYFhWNuYZMfBlySIVVtQQfCMAgVp1reFMxJOLCuk+2X5y1wZYMzYSS5
-	v+TE+/4l48Xb3bv1MV4PRk4jijkuS9gWUHv9vzhP/0+c7m2w2oDwb6aezGCXilIpiYUbiDVtHA7rK
-	XGnG7VpSPxjWXZkdKlqzxkHEpqy1ao0flvSr3Ve1nNA8KrOWqks/ZL7/6y8s9B+RKtEhOkaAl9+Or
-	tWq3qYCg==;
+	bh=hf9btgSWK/Fh7HJ99MmONogRFhImn99uTs6Mvz39UYE=; b=IFZBhXqIBw2wf7+urw4QnERmKk
+	PMtOy4UsTo0VVye9ghQbUUsvt4SMUzuoE682nWB3v+ubsMBLmXoepSw8djCHHsU7/mfQYTkrioRQ+
+	dMzDeidYyY9uiTZqOfpix0jJNOF4IMwMXlSGT/eaHrdk7HFVo4y00e3BIZgEwGjTHcMpfaQ90hOdm
+	g0+7ZLGVNQ6aZUrRQpHgkwSrnnb9l02wzSiNPNT49wn0NDvOWGP8i1ca4mwY5zGz7vgzogCbvdtqd
+	2kecYdIjklnY2J8sP4OL7IK7Bzf+hFLbpX1jLd4ObUD4hYuSQPXlc4hpNjIVn+axIMTDDGq1Reb76
+	JFp8R2Uw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8ORg-0000000EJSG-1ftn;
-	Mon, 13 Oct 2025 19:43:00 +0000
+	id 1v8OTX-0000000EJbJ-1MWd;
+	Mon, 13 Oct 2025 19:44:55 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8ORf-0000000EJSA-2vk7
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 19:42:59 +0000
+	id 1v8OTV-0000000EJaa-35n4;
+	Mon, 13 Oct 2025 19:44:53 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id DD61161DB4;
-	Mon, 13 Oct 2025 19:42:28 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 151EBC4CEF8;
-	Mon, 13 Oct 2025 19:42:24 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EE7D360503;
+	Mon, 13 Oct 2025 19:44:52 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id F1C21C4CEFE;
+	Mon, 13 Oct 2025 19:44:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760384548;
-	bh=ixwFdgEDV1vu1vzeg2qqQRwOw909mWVq2oy7W8xBU8Q=;
+	s=k20201202; t=1760384692;
+	bh=E6/pf/UHO5d8TA7le9I1V6YxxiNG8tLSd+VRH9o46Yo=;
 	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=nqxEukwIUDgo85pIstDgdKdZE+8YzI57ha+0WdxwRe9i2ov5PZOK2WtAwViW6mIRW
-	 hkceeBaoWdDZNZ4v4FG17UGNiK4029Aispld2PGhF3CXts8gLz+OwSCFxyBzI5wh7q
-	 dipFaT8oNyEK2VonPte6vulHKxLAo+qXp4R30GKLVlGqeYoOEQ6cwkOkFA2noNhXWO
-	 fHOay3Ul5BE50A0Ay29/98aleZN8tsJOjy1OftGqkz8NULfFTAx1TuIfe1bH2WnYgG
-	 H6kb55VjmmQ9TpNNcQs/HWh+oE5cm0lRCS7pRlkb7Z0l7nW6Ln/WEGnYdry8I77vMg
-	 2RzaaOTTEdgvA==
-Date: Mon, 13 Oct 2025 20:42:22 +0100
+	b=id2g8kpeBR5QwQ6e0kXWljvUjTPSpyKdsb8J1BeAPFmyzUOGXSq6fs4e34eWqemi0
+	 pED7RGJj7jmCfeuzJqxoaBGNiMrbw0JjlmQnGKfFg8fL4WoW5OjHCeKpmgka7jlVW0
+	 Zlo6mcresiBg4OWQNhLXjIQ8SBWRX7eNTqA4gYRfgabt8CGCmRe8o+jV410mN8T3x2
+	 KvctzSks6htq+3ZSw7K6mbTxlKBUY7/eKaICyrtXfSqxit5K5qCMngjJBv8e1tPBOk
+	 qiRtX43mzj80iJqBWR1WdEqjgXUih6KELbeoiU4CqrjjFOWctVZV14jHDaT6Le/yIA
+	 FxtB/0qGW3BEQ==
+Date: Mon, 13 Oct 2025 20:44:46 +0100
 From: Conor Dooley <conor@kernel.org>
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-Cc: linux-arm-kernel@lists.infradead.org, Adam Ford <aford173@gmail.com>,
-	Conor Dooley <conor+dt@kernel.org>,
-	David Airlie <airlied@gmail.com>,
-	Frank Binns <frank.binns@imgtec.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
+To: Richard Genoud <richard.genoud@bootlin.com>
+Cc: Miquel Raynal <miquel.raynal@bootlin.com>,
+	Richard Weinberger <richard@nod.at>,
+	Vignesh Raghavendra <vigneshr@ti.com>,
+	Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
-	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
-	Magnus Damm <magnus.damm@gmail.com>,
-	Matt Coster <matt.coster@imgtec.com>,
-	Maxime Ripard <mripard@kernel.org>, Rob Herring <robh@kernel.org>,
-	Simona Vetter <simona@ffwll.ch>,
-	Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
-	dri-devel@lists.freedesktop.org, linux-renesas-soc@vger.kernel.org
-Subject: Re: [PATCH 1/3] dt-bindings: gpu: img,powervr-rogue: Document GX6250
- GPU in Renesas R-Car M3-W/M3-W+
-Message-ID: <20251013-antiquely-unflawed-acba8cd30277@spud>
-References: <20251013190210.142436-1-marek.vasut+renesas@mailbox.org>
+	Conor Dooley <conor+dt@kernel.org>, Chen-Yu Tsai <wens@csie.org>,
+	Jernej Skrabec <jernej.skrabec@gmail.com>,
+	Samuel Holland <samuel@sholland.org>,
+	Uwe =?iso-8859-1?Q?Kleine-K=F6nig?= <u.kleine-koenig@baylibre.com>,
+	Wentao Liang <vulab@iscas.ac.cn>, Johan Hovold <johan@kernel.org>,
+	Maxime Ripard <mripard@kernel.org>,
+	Thomas Petazzoni <thomas.petazzoni@bootlin.com>,
+	linux-mtd@lists.infradead.org, devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev,
+	linux-kernel@vger.kernel.org
+Subject: Re: [PATCH v2 14/15] dt-bindings: mtd: sunxi: Add H616 compatible
+Message-ID: <20251013-parrot-sandpaper-4e31d2d1a6b3@spud>
+References: <20251013152645.1119308-1-richard.genoud@bootlin.com>
+ <20251013152645.1119308-15-richard.genoud@bootlin.com>
 MIME-Version: 1.0
 Content-Type: multipart/signed; micalg=pgp-sha512;
-	protocol="application/pgp-signature"; boundary="POmQqzPbtUQG0SRW"
+	protocol="application/pgp-signature"; boundary="5/wzhoHrgV6FnNRe"
 Content-Disposition: inline
-In-Reply-To: <20251013190210.142436-1-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20251013152645.1119308-15-richard.genoud@bootlin.com>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -83,23 +83,138 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
---POmQqzPbtUQG0SRW
+--5/wzhoHrgV6FnNRe
 Content-Type: text/plain; charset=us-ascii
 Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Acked-by: Conor Dooley <conor.dooley@microchip.com>
-pw-bot: not-applicable
+On Mon, Oct 13, 2025 at 05:26:44PM +0200, Richard Genoud wrote:
+> The H616 NAND controller is quite different from the A10 and A23 ones,
+> some registers offset changed, and some new one are introduced.
+> Also, the DMA handling is different (it uses chained descriptors)
+>=20
+> So, introduce a new compatible to represent this version of the IP.
+>=20
+> Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
+> ---
+>  .../mtd/allwinner,sun4i-a10-nand.yaml         | 57 ++++++++++++++++---
+>  1 file changed, 48 insertions(+), 9 deletions(-)
+>=20
+> diff --git a/Documentation/devicetree/bindings/mtd/allwinner,sun4i-a10-na=
+nd.yaml b/Documentation/devicetree/bindings/mtd/allwinner,sun4i-a10-nand.ya=
+ml
+> index 054b6b8bf9b9..4b82de9fae17 100644
+> --- a/Documentation/devicetree/bindings/mtd/allwinner,sun4i-a10-nand.yaml
+> +++ b/Documentation/devicetree/bindings/mtd/allwinner,sun4i-a10-nand.yaml
+> @@ -6,9 +6,6 @@ $schema: http://devicetree.org/meta-schemas/core.yaml#
+> =20
+>  title: Allwinner A10 NAND Controller
+> =20
+> -allOf:
+> -  - $ref: nand-controller.yaml
+> -
+>  maintainers:
+>    - Chen-Yu Tsai <wens@csie.org>
+>    - Maxime Ripard <mripard@kernel.org>
+> @@ -18,6 +15,8 @@ properties:
+>      enum:
+>        - allwinner,sun4i-a10-nand
+>        - allwinner,sun8i-a23-nand-controller
+> +      - allwinner,sun50i-h616-nand-controller
+> +
+>    reg:
+>      maxItems: 1
+> =20
+> @@ -25,14 +24,12 @@ properties:
+>      maxItems: 1
+> =20
+>    clocks:
+> -    items:
+> -      - description: Bus Clock
+> -      - description: Module Clock
+> +    minItems: 2
+> +    maxItems: 4
+> =20
+>    clock-names:
+> -    items:
+> -      - const: ahb
+> -      - const: mod
+> +    minItems: 2
+> +    maxItems: 4
 
---POmQqzPbtUQG0SRW
+The clock descriptions and names should remain out here, with your new
+min/max constraints, since they're identical at indices 0 and 1 to for
+both types of device. The if/then should only set the min to 4 for the
+new device and the max to 2 for the existing ones.
+
+Cheers,
+Conor.
+
+pw-bot: changes-requested
+
+> =20
+>    resets:
+>      maxItems: 1
+> @@ -85,6 +82,48 @@ required:
+> =20
+>  unevaluatedProperties: false
+> =20
+> +allOf:
+> +  - $ref: nand-controller.yaml
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - allwinner,sun4i-a10-nand
+> +              - allwinner,sun8i-a23-nand-controller
+> +    then:
+> +      properties:
+> +        clocks:
+> +          items:
+> +            - description: Bus Clock
+> +            - description: Module Clock
+> +        clock-names:
+> +          items:
+> +            - const: ahb
+> +            - const: mod
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            enum:
+> +              - allwinner,sun50i-h616-nand-controller
+> +    then:
+> +      properties:
+> +        clocks:
+> +          items:
+> +            - description: Bus Clock
+> +            - description: Module Clock
+> +            - description: ECC Clock
+> +            - description: MBus Clock
+> +        clock-names:
+> +          items:
+> +            - const: ahb
+> +            - const: mod
+> +            - const: ecc
+> +            - const: mbus
+> +
+>  examples:
+>    - |
+>      #include <dt-bindings/interrupt-controller/arm-gic.h>
+
+--5/wzhoHrgV6FnNRe
 Content-Type: application/pgp-signature; name="signature.asc"
 
 -----BEGIN PGP SIGNATURE-----
 
-iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaO1WHgAKCRB4tDGHoIJi
-0md2AP93sXHNI+r51S7+e52a5fQ3zBG8dz6mP6G+x+3DQmyQeQEA+pvsrxIei9Rf
-epAILOGpCNuTKgdzwuz6M74yE/by1AY=
-=/GHk
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaO1WrgAKCRB4tDGHoIJi
+0r4LAQDT8m+TkP4HrMMysI/Hu7Y+VtRgvMLmFVew9qCn3J+QbAD7BhGtjw9fUtP4
+VHnuq+fhXnIRGUy0ntVx+tS+PGfOtgI=
+=gy6j
 -----END PGP SIGNATURE-----
 
---POmQqzPbtUQG0SRW--
+--5/wzhoHrgV6FnNRe--
 
