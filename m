@@ -4,55 +4,79 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E9F78CCD18D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 16:14:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B087CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 16:25:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:References:Cc:To:From:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=f97NhFDEFoxMcLEFYKT7lRE//uUk8nnYDe1AjsrSSAU=; b=EXo+SGoQlyg0hWq2M53O55YXAk
-	GLc8hbmz+Vtu3nJdBlGdBUDaw8XGYjHQmZxYnjyBDOuBiLqZpRL8tLKehIGW6P0kKKSTKVdO2Wjvv
-	soCJD/idcPCrdYEkcNyIwbmby3lXblkH3dVegl98D7A5eUo29dEQA0oh8CS3BGXSyV2TTkkWnHgF/
-	UL0wznRR/noo+Iz+GkvlggG2w65IlYm3ijbeUzx8aGf7iyskQlPTpDu6XhamIRxpGfrFZcTs4ECeL
-	36YjiJi/dCVgora+T+x1CRSCR9DlVRSaLC9AXEw4TZWBqtUDQwaQagBAvxR2nJZvXIePfqoRy3s03
-	MCmVFDBQ==;
+	bh=XIAnYj3DsbpzMjwoJ0ze2gZXcXKKCVY1BDuyjjnWQmY=; b=ARWaZBDFOGjo4/zsxCvVn7s/pb
+	VBIaYP6CJx6MSK8WMV0eDbX2KlFjEjyDDnRtSHbhLQC9XQ6IOsFLT+Pm4Me5MJC8XgXYqbN3hwoqD
+	ZsDsH5x2P5yYi20utlFpI5pwChDSDW14Zj1FDE0ZeSltbuwDckug0Hc9pZ2L1BI+iuPhEVEb9DEgV
+	s8qtQ9ZAvpcTW1fmOtXCahg9NSQjk7rZtdOiM0PVDhdl8HzCH782TVE++0hyta/r96JXKSjV0JW6I
+	IzeIH4Ua68DMU/oRSxKK2QQXfDIfkTvdeVHt5hLJ946sBRhu193oaT2SVNyekbUdqgKa494dIpWMn
+	/lem3Wvw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8LBl-0000000DpiA-1bEt;
-	Mon, 13 Oct 2025 16:14:21 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8LBi-0000000Dph2-2pmb
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 16:14:20 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 4741F113E;
-	Mon, 13 Oct 2025 09:14:09 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 2BD2D3F738;
-	Mon, 13 Oct 2025 09:14:16 -0700 (PDT)
-Message-ID: <75f13087-80fa-45cb-9327-aa85522203e0@arm.com>
-Date: Mon, 13 Oct 2025 17:14:14 +0100
+	id 1v8LMd-0000000DrrA-3zir;
+	Mon, 13 Oct 2025 16:25:35 +0000
+Received: from 004.mia.mailroute.net ([199.89.3.7])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v8LMa-0000000Drou-3I7j;
+	Mon, 13 Oct 2025 16:25:34 +0000
+Received: from localhost (localhost [127.0.0.1])
+	by 004.mia.mailroute.net (Postfix) with ESMTP id 4cljPd4RYWzm0yT2;
+	Mon, 13 Oct 2025 16:25:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=acm.org; h=
+	content-transfer-encoding:content-type:content-type:in-reply-to
+	:from:from:content-language:references:subject:subject
+	:user-agent:mime-version:date:date:message-id:received:received;
+	 s=mr01; t=1760372723; x=1762964724; bh=XIAnYj3DsbpzMjwoJ0ze2gZX
+	cXKKCVY1BDuyjjnWQmY=; b=ILM36MU2MgkgaHM9E0Gy42lzYVus9Lfc1vkB3nsk
+	tZU53eixYjoUtk6uZS+2mvycAAsU9Ath1C2XiLpV5FY4qGqLoFoeazbHEWq8zntM
+	J/Kk++KP/vHo5ZhvFEibVRplAHPJHGT5sp/c8lVeZQwIYYUtOD+SrkCoA0O+7/90
+	NL5YKk86wNlu/xvBZShQeVD9tqDGwdZ1Wtl0bxsuyW2CtYoTleGM3CuU6fvP9dPg
+	6ky4MCP/knppEnsNRBxmUEWRo4BK4VdUjzFUoYE1jX+D509OAfzKVybfEYVLSExf
+	3aY22m5BfNh3MNtQiywFlgJBqtbZTUYMxKYRmM0g9QmgHg==
+X-Virus-Scanned: by MailRoute
+Received: from 004.mia.mailroute.net ([127.0.0.1])
+ by localhost (004.mia [127.0.0.1]) (mroute_mailscanner, port 10029) with LMTP
+ id kU_6DtTk9V3t; Mon, 13 Oct 2025 16:25:23 +0000 (UTC)
+Received: from [100.119.48.131] (unknown [104.135.180.219])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: bvanassche@acm.org)
+	by 004.mia.mailroute.net (Postfix) with ESMTPSA id 4cljPQ1R8Szm0yV5;
+	Mon, 13 Oct 2025 16:25:13 +0000 (UTC)
+Message-ID: <6a2068cc-1d4b-4a80-8a71-e491643a6c57@acm.org>
+Date: Mon, 13 Oct 2025 09:25:12 -0700
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] KVM: arm64: selftests: Sync ID_AA64PFR1, MPIDR, CLIDR in
- guest
-From: Ben Horgan <ben.horgan@arm.com>
-To: Zenghui Yu <zenghui.yu@linux.dev>, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
- suzuki.poulose@arm.com
-References: <20251012154352.61133-1-zenghui.yu@linux.dev>
- <25a19af8-2026-45b6-8d0f-42c371c8ff95@arm.com>
+Subject: Re: [PATCH v2 0/2] *** Remove UFS_DEVICE_QUIRK_DELAY_AFTER_LPM quirk
+ ***
+To: "Bao D. Nguyen" <quic_nguyenb@quicinc.com>, quic_cang@quicinc.com,
+ quic_nitirawa@quicinc.com, avri.altman@wdc.com, peter.wang@mediatek.com,
+ adrian.hunter@intel.com, martin.petersen@oracle.com
+Cc: linux-scsi@vger.kernel.org, Matthias Brugger <matthias.bgg@gmail.com>,
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+ "open list:ARM/Mediatek SoC support:Keyword:mediatek"
+ <linux-kernel@vger.kernel.org>,
+ "moderated list:ARM/Mediatek SoC support:Keyword:mediatek"
+ <linux-arm-kernel@lists.infradead.org>,
+ "moderated list:ARM/Mediatek SoC support:Keyword:mediatek"
+ <linux-mediatek@lists.infradead.org>
+References: <cover.1760039554.git.quic_nguyenb@quicinc.com>
 Content-Language: en-US
-In-Reply-To: <25a19af8-2026-45b6-8d0f-42c371c8ff95@arm.com>
-Content-Type: text/plain; charset=UTF-8
+From: Bart Van Assche <bvanassche@acm.org>
+In-Reply-To: <cover.1760039554.git.quic_nguyenb@quicinc.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_091418_752414_4DF795AC 
-X-CRM114-Status: GOOD (  13.36  )
+X-CRM114-CacheID: sfid-20251013_092532_901751_489E686B 
+X-CRM114-Status: GOOD (  13.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -67,59 +91,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
+On 10/9/25 1:10 PM, Bao D. Nguyen wrote:
+> Multiple ufs device manufacturers request support for the
+> UFS_DEVICE_QUIRK_DELAY_AFTER_LPM quirk in the Qualcomm's platform driver.
+> After checking further with the major UFS manufacturers engineering teams
+> such as Samsung, Kioxia, SK Hynix and Micron, all the manufacturers require
+> this quirk. Since the quirk is needed by all the ufs device manufacturers,
+> remove the quirk in the ufs core driver and implement a universal delay
+> for all the ufs devices.
+> 
+> In addition to verifying with the public device's datasheets, the ufs
+> device manufacturer's engineering teams confirmed the required vcc
+> power-off time for the devices is a minimum of 1ms before vcc can be
+> powered on again. The existing 5ms delay implemented in the ufs core
+> driver seems too conservative, so replace the hard coded 5ms delay with a
+> variable default to 5ms setting and allow the platform drivers
+> to override this setting as needed to improve the system resume latency.
 
+For both patches:
 
-On 10/13/25 13:20, Ben Horgan wrote:
-> Hi Zenghui,
-> 
-> On 10/12/25 16:43, Zenghui Yu wrote:
->> We forgot to sync several registers (ID_AA64PFR1, MPIDR, CLIDR) in guest to
->> make sure that the guest had seen the written value.
->>
->> Add them to the list.
->>
->> Signed-off-by: Zenghui Yu <zenghui.yu@linux.dev>
->> ---
->>  tools/testing/selftests/kvm/arm64/set_id_regs.c | 3 +++
->>  1 file changed, 3 insertions(+)
->>
->> diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
->> index 8ff1e853f7f8..5e24f77868b5 100644
->> --- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
->> +++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
->> @@ -249,11 +249,14 @@ static void guest_code(void)
->>  	GUEST_REG_SYNC(SYS_ID_AA64ISAR2_EL1);
->>  	GUEST_REG_SYNC(SYS_ID_AA64ISAR3_EL1);
->>  	GUEST_REG_SYNC(SYS_ID_AA64PFR0_EL1);
->> +	GUEST_REG_SYNC(SYS_ID_AA64PFR1_EL1);
->>  	GUEST_REG_SYNC(SYS_ID_AA64MMFR0_EL1);
->>  	GUEST_REG_SYNC(SYS_ID_AA64MMFR1_EL1);
->>  	GUEST_REG_SYNC(SYS_ID_AA64MMFR2_EL1);
->>  	GUEST_REG_SYNC(SYS_ID_AA64MMFR3_EL1);
->>  	GUEST_REG_SYNC(SYS_ID_AA64ZFR0_EL1);
->> +	GUEST_REG_SYNC(SYS_MPIDR_EL1);
->> +	GUEST_REG_SYNC(SYS_CLIDR_EL1);
-> 
-> Why did you choose this position in the list for these 2?
-> 
->>  	GUEST_REG_SYNC(SYS_CTR_EL0);
->>  	GUEST_REG_SYNC(SYS_MIDR_EL1);
->>  	GUEST_REG_SYNC(SYS_REVIDR_EL1);
-> 
-> Looks good to me.
-> 
-> Reviewed-By: Ben Horgan <ben.horgan@arm.com>
-> Thanks,
-> 
-> Ben
-> 
-
-On running this, I note test_guest_reg_read() doesn't announce its
-presence. How about adding a ksft_test_result_pass("%s\n", __func__) and
-bumping the number of tests?
-
-Thanks,
-
-Ben
+Reviewed-by: Bart Van Assche <bvanassche@acm.org>
 
 
