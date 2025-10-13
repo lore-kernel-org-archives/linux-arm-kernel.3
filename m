@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 852A5CCD18C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 20:34:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E5826CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 20:34:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=10keMiS8qwnTJkswuq5i4SwbI1paFXAodwClvCrPA30=; b=wxrvRlA5Yz50gNO4plXLZ95L77
-	+i6oD126eRrP1GINFeIH3v7mYw3jsm6Ek/CMmgGIFMsC0N0JZvM04c1BolTYmXpiPuWH0jLifBLDw
-	KII+ybmu+uapv2YmzFE6G4gYgQ5fSwRMTACDoK2xufYhqwzwn6wxYvnxtiAlZVd8shgQ0LmX7brFC
-	2b0YoPZOrvY9dz/TnxzFOdFWbZy3/6GerTOF8H3RR96XA/2ysOSGhj9KUYwc2Kfqb+VstXvMYGjfo
-	oL4as8fRef6ZcB8ZKdKzd2iaXAvW4ZQVUgy9mZb4qEVxuceho3cDWqWDrWDWi47Xp+9dBeMmOF1sh
-	FAjxX39Q==;
+	bh=sJyY9iiPaITFRDOTyIUc/nGpefxbz5qQ8u5Ctbbjk4w=; b=tgwHPvaKckankob5/YU5Rur6Ng
+	30YxFgH7/chvZVxsYVj2Cm/4JwtChCWc0FLaPRXBkZ8HicT3iV6EKezIYzwlJfN+dJNue6T4GPUw8
+	vJxrqEHRLGTY2z3uLUSXEEYLoCR686S/3x3movXSthZ5xdxb/S9rL+N0RqMvxCG/LeC2t+Dhdz7sB
+	R4fVXflsymrbbYVPC+uoOV/kQvPoNlqEuPodtYlKHNb4hNW8xp4uF0dEGqxE05K9YM42Sw0k50xnh
+	3qbFZ4auJmzh8tKpq2WvKY3qPLNrkXcnx8BBeveCCZP0MB7hixIN+PkDPUH51EBUOpSWtaHanKtf2
+	3Vwhq/0w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8PFB-0000000EOR4-1oiV;
-	Mon, 13 Oct 2025 20:34:09 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v8PFF-0000000EOUz-3ULt;
+	Mon, 13 Oct 2025 20:34:13 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8PF7-0000000EOMY-069Y
+	id 1v8PFE-0000000EOTJ-1q3M
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 20:34:06 +0000
+	Mon, 13 Oct 2025 20:34:12 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id B1FC6447F8;
-	Mon, 13 Oct 2025 20:34:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id B5955C4CEE7;
-	Mon, 13 Oct 2025 20:33:57 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id BCF8861E1B;
+	Mon, 13 Oct 2025 20:33:41 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D2E1FC4CEE7;
+	Mon, 13 Oct 2025 20:33:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760387644;
-	bh=o4l8LMgsNHHUM0/Jh25qtae1vINpxJpXhs+PkYrtNTs=;
+	s=k20201202; t=1760387621;
+	bh=mOrMHInwUUAF5x2TPu0KohmBJDCPDZeedSNBGf5P0qs=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=eoVNEAS36xD6hmGovDKl25N4XYXfuPH2mDvvfnGysV1HjcwGw8klL7ELr4gHa81GU
-	 5r3u1sWGdjELbWd/dSeEHPlmW4+wuJ2Xs4UNSPWB8nTwmCVQaUJtXrgDz/nB0freXe
-	 3tpJriXdtKqbtfZxu7/80lv84G7u7HAI/nuyfaZkxi80aS8Jn8PJ+gVwnJ3m3HmF8C
-	 a6caYiVSvhke0XynsLWLdBi13Ff5LnBt6d6uWQPq3Qm6SXeBj1zvodrY1RXWAsliv9
-	 oji1ZvDSMzmdYgwWlFmdnniAxIBWP4O0FhcoWE7F5am7FqRTXpqti2+Oo6hCrtF592
-	 x+z4QIWYfrLHQ==
+	b=kMPyVftYiGwonaPxPkSe84brMb9jqYboCwHd2zZBPRDl08dCi7W9fE2s2bthYnXhd
+	 sumWJ+6bP3nbIGMrekCn/4W0sfHr/ZjeJqracwuQnQZtgB0r8+ROWsq6904EhhmAJz
+	 lYhFT7jbWsj8yiFQ9tWF3MRKSvUn29nSSC6k9CZUmDsbtednhzyAjB/ypOW2I2fxDM
+	 0HwfUM3M36s1BBQZiiZIkw4s2Z8YOmSjMugkiJIGNXGi0yn6c+xcd06HDEvL9Oao85
+	 CB+af609sbR8m1MH9ROYKIki0Ke9Od/QppZoiPx17IV5O6heaqv8H11HIHNsJ/wiVc
+	 h7ERmhn8Bw7ew==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
@@ -80,17 +80,15 @@ Cc: Frederic Weisbecker <frederic@kernel.org>,
 	linux-mm@kvack.org,
 	linux-pci@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH 16/33] PCI: Flush PCI probe workqueue on cpuset isolated partition change
-Date: Mon, 13 Oct 2025 22:31:29 +0200
-Message-ID: <20251013203146.10162-17-frederic@kernel.org>
+Subject: [PATCH 13/33] cpuset: Update HK_TYPE_DOMAIN cpumask from cpuset
+Date: Mon, 13 Oct 2025 22:31:26 +0200
+Message-ID: <20251013203146.10162-14-frederic@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251013203146.10162-1-frederic@kernel.org>
 References: <20251013203146.10162-1-frederic@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_133405_127699_955C3566 
-X-CRM114-Status: GOOD (  18.47  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,115 +103,186 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The HK_TYPE_DOMAIN housekeeping cpumask is now modifyable at runtime. In
-order to synchronize against PCI probe works and make sure that no
-asynchronous probing is still pending or executing on a newly made
-isolated CPU, the housekeeping susbsystem must flush the PCI probe
-works.
+Until now, HK_TYPE_DOMAIN used to only include boot defined isolated
+CPUs passed through isolcpus= boot option. Users interested in also
+knowing the runtime defined isolated CPUs through cpuset must use
+different APIs: cpuset_cpu_is_isolated(), cpu_is_isolated(), etc...
 
-However the PCI probe works can't be flushed easily since they are
-queued to the main per-CPU workqueue pool.
+There are many drawbacks to that approach:
 
-Solve this with creating a PCI probe specific pool and provide and use
-the appropriate flushing API.
+1) Most interested subsystems want to know about all isolated CPUs, not
+  just those defined on boot time.
+
+2) cpuset_cpu_is_isolated() / cpu_is_isolated() are not synchronized with
+  concurrent cpuset changes.
+
+3) Further cpuset modifications are not propagated to subsystems
+
+Solve 1) and 2) and centralize all isolated CPUs within the
+HK_TYPE_DOMAIN housekeeping cpumask.
+
+Subsystems can rely on RCU to synchronize against concurrent changes.
+
+The propagation mentioned in 3) will be handled in further patches.
 
 Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
 ---
- drivers/pci/pci-driver.c | 17 ++++++++++++++++-
- include/linux/pci.h      |  3 +++
- kernel/sched/isolation.c |  2 ++
- 3 files changed, 21 insertions(+), 1 deletion(-)
+ include/linux/sched/isolation.h |  2 +
+ kernel/cgroup/cpuset.c          |  2 +
+ kernel/sched/isolation.c        | 75 ++++++++++++++++++++++++++++++---
+ kernel/sched/sched.h            |  1 +
+ 4 files changed, 74 insertions(+), 6 deletions(-)
 
-diff --git a/drivers/pci/pci-driver.c b/drivers/pci/pci-driver.c
-index 7b74d22b20f7..ac86aaec8bcf 100644
---- a/drivers/pci/pci-driver.c
-+++ b/drivers/pci/pci-driver.c
-@@ -337,6 +337,8 @@ static int local_pci_probe(struct drv_dev_and_id *ddi)
- 	return 0;
+diff --git a/include/linux/sched/isolation.h b/include/linux/sched/isolation.h
+index da22b038942a..94d5c835121b 100644
+--- a/include/linux/sched/isolation.h
++++ b/include/linux/sched/isolation.h
+@@ -32,6 +32,7 @@ extern const struct cpumask *housekeeping_cpumask(enum hk_type type);
+ extern bool housekeeping_enabled(enum hk_type type);
+ extern void housekeeping_affine(struct task_struct *t, enum hk_type type);
+ extern bool housekeeping_test_cpu(int cpu, enum hk_type type);
++extern int housekeeping_update(struct cpumask *mask, enum hk_type type);
+ extern void __init housekeeping_init(void);
+ 
+ #else
+@@ -59,6 +60,7 @@ static inline bool housekeeping_test_cpu(int cpu, enum hk_type type)
+ 	return true;
  }
  
-+static struct workqueue_struct *pci_probe_wq;
-+
- struct pci_probe_arg {
- 	struct drv_dev_and_id *ddi;
- 	struct work_struct work;
-@@ -407,7 +409,11 @@ static int pci_call_probe(struct pci_driver *drv, struct pci_dev *dev,
- 		cpu = cpumask_any_and(cpumask_of_node(node),
- 				      wq_domain_mask);
- 		if (cpu < nr_cpu_ids) {
--			schedule_work_on(cpu, &arg.work);
-+			struct workqueue_struct *wq = pci_probe_wq;
-+
-+			if (WARN_ON_ONCE(!wq))
-+				wq = system_percpu_wq;
-+			queue_work_on(cpu, wq, &arg.work);
- 			rcu_read_unlock();
- 			flush_work(&arg.work);
- 			error = arg.ret;
-@@ -425,6 +431,11 @@ static int pci_call_probe(struct pci_driver *drv, struct pci_dev *dev,
- 	return error;
++static inline int housekeeping_update(struct cpumask *mask, enum hk_type type) { return 0; }
+ static inline void housekeeping_init(void) { }
+ #endif /* CONFIG_CPU_ISOLATION */
+ 
+diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
+index aa1ac7bcf2ea..b04a4242f2fa 100644
+--- a/kernel/cgroup/cpuset.c
++++ b/kernel/cgroup/cpuset.c
+@@ -1403,6 +1403,8 @@ static void update_unbound_workqueue_cpumask(bool isolcpus_updated)
+ 
+ 	ret = workqueue_unbound_exclude_cpumask(isolated_cpus);
+ 	WARN_ON_ONCE(ret < 0);
++	ret = housekeeping_update(isolated_cpus, HK_TYPE_DOMAIN);
++	WARN_ON_ONCE(ret < 0);
  }
  
-+void pci_probe_flush_workqueue(void)
-+{
-+	flush_workqueue(pci_probe_wq);
-+}
-+
  /**
-  * __pci_device_probe - check if a driver wants to claim a specific PCI device
-  * @drv: driver to call to check if it wants the PCI device
-@@ -1760,6 +1771,10 @@ static int __init pci_driver_init(void)
- {
- 	int ret;
- 
-+	pci_probe_wq = alloc_workqueue("sync_wq", WQ_PERCPU, 0);
-+	if (!pci_probe_wq)
-+		return -ENOMEM;
-+
- 	ret = bus_register(&pci_bus_type);
- 	if (ret)
- 		return ret;
-diff --git a/include/linux/pci.h b/include/linux/pci.h
-index d1fdf81fbe1e..3281c235b895 100644
---- a/include/linux/pci.h
-+++ b/include/linux/pci.h
-@@ -1175,6 +1175,7 @@ struct pci_bus *pci_create_root_bus(struct device *parent, int bus,
- 				    struct pci_ops *ops, void *sysdata,
- 				    struct list_head *resources);
- int pci_host_probe(struct pci_host_bridge *bridge);
-+void pci_probe_flush_workqueue(void);
- int pci_bus_insert_busn_res(struct pci_bus *b, int bus, int busmax);
- int pci_bus_update_busn_res_end(struct pci_bus *b, int busmax);
- void pci_bus_release_busn_res(struct pci_bus *b);
-@@ -2037,6 +2038,8 @@ static inline int pci_has_flag(int flag) { return 0; }
- _PCI_NOP_ALL(read, *)
- _PCI_NOP_ALL(write,)
- 
-+static inline void pci_probe_flush_workqueue(void) { }
-+
- static inline struct pci_dev *pci_get_device(unsigned int vendor,
- 					     unsigned int device,
- 					     struct pci_dev *from)
 diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
-index 5cd3d98a2663..b1eea5440484 100644
+index b46c20b5437f..95d69c2102f6 100644
 --- a/kernel/sched/isolation.c
 +++ b/kernel/sched/isolation.c
-@@ -8,6 +8,7 @@
-  *
-  */
- #include <linux/sched/isolation.h>
-+#include <linux/pci.h>
- #include "sched.h"
+@@ -29,18 +29,48 @@ static struct housekeeping housekeeping;
  
- enum hk_flags {
-@@ -144,6 +145,7 @@ int housekeeping_update(struct cpumask *mask, enum hk_type type)
+ bool housekeeping_enabled(enum hk_type type)
+ {
+-	return !!(housekeeping.flags & BIT(type));
++	return !!(READ_ONCE(housekeeping.flags) & BIT(type));
+ }
+ EXPORT_SYMBOL_GPL(housekeeping_enabled);
  
- 	synchronize_rcu();
++static bool housekeeping_dereference_check(enum hk_type type)
++{
++	if (IS_ENABLED(CONFIG_LOCKDEP) && type == HK_TYPE_DOMAIN) {
++		/* Cpuset isn't even writable yet? */
++		if (system_state <= SYSTEM_SCHEDULING)
++			return true;
++
++		/* CPU hotplug write locked, so cpuset partition can't be overwritten */
++		if (IS_ENABLED(CONFIG_HOTPLUG_CPU) && lockdep_is_cpus_write_held())
++			return true;
++
++		/* Cpuset lock held, partitions not writable */
++		if (IS_ENABLED(CONFIG_CPUSETS) && lockdep_is_cpuset_held())
++			return true;
++
++		return false;
++	}
++
++	return true;
++}
++
++static inline struct cpumask *housekeeping_cpumask_dereference(enum hk_type type)
++{
++	return rcu_dereference_check(housekeeping.cpumasks[type],
++				     housekeeping_dereference_check(type));
++}
++
+ const struct cpumask *housekeeping_cpumask(enum hk_type type)
+ {
++	const struct cpumask *mask = NULL;
++
+ 	if (static_branch_unlikely(&housekeeping_overridden)) {
+-		if (housekeeping.flags & BIT(type)) {
+-			return rcu_dereference_check(housekeeping.cpumasks[type], 1);
+-		}
++		if (READ_ONCE(housekeeping.flags) & BIT(type))
++			mask = housekeeping_cpumask_dereference(type);
+ 	}
+-	return cpu_possible_mask;
++	if (!mask)
++		mask = cpu_possible_mask;
++	return mask;
+ }
+ EXPORT_SYMBOL_GPL(housekeeping_cpumask);
  
-+	pci_probe_flush_workqueue();
- 	mem_cgroup_flush_workqueue();
- 	vmstat_flush_workqueue();
+@@ -80,12 +110,45 @@ EXPORT_SYMBOL_GPL(housekeeping_affine);
  
+ bool housekeeping_test_cpu(int cpu, enum hk_type type)
+ {
+-	if (housekeeping.flags & BIT(type))
++	if (READ_ONCE(housekeeping.flags) & BIT(type))
+ 		return cpumask_test_cpu(cpu, housekeeping_cpumask(type));
+ 	return true;
+ }
+ EXPORT_SYMBOL_GPL(housekeeping_test_cpu);
+ 
++int housekeeping_update(struct cpumask *mask, enum hk_type type)
++{
++	struct cpumask *trial, *old = NULL;
++
++	if (type != HK_TYPE_DOMAIN)
++		return -ENOTSUPP;
++
++	trial = kmalloc(sizeof(*trial), GFP_KERNEL);
++	if (!trial)
++		return -ENOMEM;
++
++	cpumask_andnot(trial, housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT), mask);
++	if (!cpumask_intersects(trial, cpu_online_mask)) {
++		kfree(trial);
++		return -EINVAL;
++	}
++
++	if (!housekeeping.flags)
++		static_branch_enable(&housekeeping_overridden);
++
++	if (!(housekeeping.flags & BIT(type)))
++		old = housekeeping_cpumask_dereference(type);
++	else
++		WRITE_ONCE(housekeeping.flags, housekeeping.flags | BIT(type));
++	rcu_assign_pointer(housekeeping.cpumasks[type], trial);
++
++	synchronize_rcu();
++
++	kfree(old);
++
++	return 0;
++}
++
+ void __init housekeeping_init(void)
+ {
+ 	enum hk_type type;
+diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+index 0c0ef8999fd6..8fac8aa451c6 100644
+--- a/kernel/sched/sched.h
++++ b/kernel/sched/sched.h
+@@ -30,6 +30,7 @@
+ #include <linux/context_tracking.h>
+ #include <linux/cpufreq.h>
+ #include <linux/cpumask_api.h>
++#include <linux/cpuset.h>
+ #include <linux/ctype.h>
+ #include <linux/file.h>
+ #include <linux/fs_api.h>
 -- 
 2.51.0
 
