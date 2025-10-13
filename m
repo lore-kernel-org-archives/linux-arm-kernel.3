@@ -4,103 +4,100 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 38345CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 15:49:16 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 25FF6CCD192
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 15:49:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BeAFLN0HOs+5tCV60lxEz2c6X5B0Jjgl2YbcdH5SmlI=; b=LxByBp8N1XrMl3MGEBgEwvgyd5
-	LQcXWkZdo9yYaxJ8OqIYa8hMecx2vRNDDdrYaAjUDGmLixG15DNJyhBNnT0dOb98S7G86AXDdnge2
-	hK2LTD25eP9EP50mnfz9sC1w4h9RuQ0a/MVNZ6Qs/u5hEdmD02oIohK7epl4Sjpd0PJilw3lbqj2G
-	FXtSzq7qyrFTLN5QzRyOALGCrsLpD03lToBIZp90o44HIaCuGebK9lXEGFU+UoVZtXNVays/ZiJ0k
-	U8NDLFfU2r6cbKkTl5bm8ooxdQ0d3bflPZ1YzIZkOmTx8yhPuvK38Bb+NGKMyNXa9aLQ2g1VrqbYR
-	H7Ni8mJA==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
+	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=edgJ+UnzHfu+Kla+0Dy39eOF/WXmrxnMu3maKbz+O2c=; b=AMPmcrpBiAkadsDrdcnI27WWzJ
+	Jbq8TC+hUKcNA3aBY/dR+Jn/+xw19+BjjCo9x7IAjciq9qNXxsVeEKltd9qmYSMyDuYO7KDPGS7Ft
+	SAYQSQkdeApBhGvrD6TZ85wyjANk4QmzIly8dn4pWYa0s3mGfSAv1qvxl0USHz+5UqQlx2EdIDSQA
+	Lg07PQy5SjQf1mrwFBPKAjN/LTOA1DRRA6twEIm5YY+uQxoWgrAO8tcL4K4xEqsQC9icugzgMcEhW
+	2IJalaH1T+Mutoq7iQHt5gzAToRVrZ3XekoScaoTzJ14waHvZr+sHntZwGBbvnxGcdZR2+pl1mz+j
+	GbZHyErw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8KnK-0000000Dkse-3NXX;
-	Mon, 13 Oct 2025 15:49:06 +0000
-Received: from sinmsgout01.his.huawei.com ([119.8.177.36])
+	id 1v8Knn-0000000Dl0b-0USA;
+	Mon, 13 Oct 2025 15:49:35 +0000
+Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8KnI-0000000DkrB-17Rz
+	id 1v8Knl-0000000Dl0C-3bXk
+	for linux-arm-kernel@bombadil.infradead.org;
+	Mon, 13 Oct 2025 15:49:34 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
+	d=infradead.org; s=desiato.20200630; h=Reply-To:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:Sender:
+	Content-ID:Content-Description:In-Reply-To:References;
+	bh=edgJ+UnzHfu+Kla+0Dy39eOF/WXmrxnMu3maKbz+O2c=; b=coHbTFlRe4lwi8dggJ/ma5xxPN
+	5s5xTjCLl4+KXoq+icZlN8hxycXOH7UU4iRxAfqjitARpwcucPvWWgA1YrnP/mrnAVWxL2960Bkh3
+	lTdBgmHBo8zL5qAEaMSNbpOdILc8r8q7RR4kuGIp8hxJTluLmQ63Zv9DvpvyrN3xDbijmDpaMIxK4
+	yVbXkWUtCB7RhfKsaiAxys1C2J6fXyhiJ3li2x5YDja7szV+ZSAMmBoVB9dD0X360GYGjPxCso8PI
+	J4R2PbvUnAlOeLbizXUZjc/rSbepwRv1lzyeezuTwjvzBRmnm9iUPvq6o7xlfmxYVwVC7OOUzdA1J
+	gH/RBXdQ==;
+Received: from sea.source.kernel.org ([172.234.252.31])
+	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v8Knh-00000004RCZ-0qUm
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 15:49:06 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=BeAFLN0HOs+5tCV60lxEz2c6X5B0Jjgl2YbcdH5SmlI=;
-	b=6azost/neUBFyasolyvueOW3ezr/HVuKQSWVJC5dlpp1Rwki1y/gC+AGnVm+QICpAHEJnEjXN
-	n6PqowqVmk6k+wi4Ac6NNgtGcS1XowlUcKIrdABA2ZDec13IvrLXkC9GGhANU+kwDxxbpLQV0Et
-	LmplXVbhQHxqFDz1hsvgFek=
-Received: from frasgout.his.huawei.com (unknown [172.18.146.36])
-	by sinmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4clhbF2084z1P7VC;
-	Mon, 13 Oct 2025 23:48:41 +0800 (CST)
-Received: from mail.maildlp.com (unknown [172.18.186.31])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4clhZC472cz6GBlT;
-	Mon, 13 Oct 2025 23:47:47 +0800 (CST)
-Received: from dubpeml100005.china.huawei.com (unknown [7.214.146.113])
-	by mail.maildlp.com (Postfix) with ESMTPS id 41DB6140277;
-	Mon, 13 Oct 2025 23:48:43 +0800 (CST)
-Received: from dubpeml500004.china.huawei.com (7.214.147.1) by
- dubpeml100005.china.huawei.com (7.214.146.113) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Mon, 13 Oct 2025 16:48:42 +0100
-Received: from dubpeml500004.china.huawei.com ([7.214.147.1]) by
- dubpeml500004.china.huawei.com ([7.214.147.1]) with mapi id 15.02.1544.011;
- Mon, 13 Oct 2025 16:48:42 +0100
-From: Salil Mehta <salil.mehta@huawei.com>
-To: Marc Zyngier <maz@kernel.org>, "salil.mehta@opnsrc.net"
-	<salil.mehta@opnsrc.net>
-CC: "linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, Jonathan Cameron
-	<jonathan.cameron@huawei.com>, "will@kernel.org" <will@kernel.org>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>, "mark.rutland@arm.com"
-	<mark.rutland@arm.com>, "james.morse@arm.com" <james.morse@arm.com>,
-	"sudeep.holla@arm.com" <sudeep.holla@arm.com>, "lpieralisi@kernel.org"
-	<lpieralisi@kernel.org>, "jean-philippe@linaro.org"
-	<jean-philippe@linaro.org>, "tglx@linutronix.de" <tglx@linutronix.de>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>, "peter.maydell@linaro.org"
-	<peter.maydell@linaro.org>, "richard.henderson@linaro.org"
-	<richard.henderson@linaro.org>, "andrew.jones@linux.dev"
-	<andrew.jones@linux.dev>, "mst@redhat.com" <mst@redhat.com>,
-	"david@redhat.com" <david@redhat.com>, "philmd@linaro.org"
-	<philmd@linaro.org>, "ardb@kernel.org" <ardb@kernel.org>,
-	"borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>,
-	"alex.bennee@linaro.org" <alex.bennee@linaro.org>,
-	"gustavo.romero@linaro.org" <gustavo.romero@linaro.org>, "npiggin@gmail.com"
-	<npiggin@gmail.com>, "linux@armlinux.org.uk" <linux@armlinux.org.uk>,
-	"karl.heubaum@oracle.com" <karl.heubaum@oracle.com>, "miguel.luis@oracle.com"
-	<miguel.luis@oracle.com>, "darren@os.amperecomputing.com"
-	<darren@os.amperecomputing.com>, "ilkka@os.amperecomputing.com"
-	<ilkka@os.amperecomputing.com>, "vishnu@os.amperecomputing.com"
-	<vishnu@os.amperecomputing.com>, "gankulkarni@os.amperecomputing.com"
-	<gankulkarni@os.amperecomputing.com>, "wangyanan (Y)"
-	<wangyanan55@huawei.com>, "Wangzhou (B)" <wangzhou1@hisilicon.com>, Linuxarm
-	<linuxarm@huawei.com>
-Subject: RE: [RFC PATCH] KVM: arm64: vgic-v3: Cache ICC_CTLR_EL1 and allow
- lockless read when ready
-Thread-Topic: [RFC PATCH] KVM: arm64: vgic-v3: Cache ICC_CTLR_EL1 and allow
- lockless read when ready
-Thread-Index: AQHcOJEPLIyaftchIkq5VYDgYw17SLS5xPAAgAZ0ydA=
-Date: Mon, 13 Oct 2025 15:48:42 +0000
-Message-ID: <2b7b73f47e3a4a9a8b21e581cc44ad4f@huawei.com>
-References: <20251008201955.3919537-1-salil.mehta@opnsrc.net>
- <86v7koxk1z.wl-maz@kernel.org>
-In-Reply-To: <86v7koxk1z.wl-maz@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.202.67.200]
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	Mon, 13 Oct 2025 15:49:31 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 750FE48989;
+	Mon, 13 Oct 2025 15:49:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id 4A1A7C4CEE7;
+	Mon, 13 Oct 2025 15:49:25 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760370565;
+	bh=YIPVFumAT9DHDl+3NSoby0+v8/FmUF2QL269vIj3vhQ=;
+	h=From:Date:Subject:To:Cc:Reply-To:From;
+	b=ksgnG4GBbWOJxeQTzloKur8JW68127xr+1JOQt2hPE+McNJnuJ+vigSYO/NGqTW2w
+	 f01RstPL41vUb+C9ZjqdFjR0oa008euBoOvMXr8FIrAwb6TdgQG+T5MM/0pwRMQASJ
+	 bkw1A1cZpREPjEl9LVFdjs0WWSAiCfpqsil/Cfvl03tqsP2vjCQztNiga/1/phGsKj
+	 RDTIqI74YxENgYrZ/lUn6Vos1x51zE5dzV0sEofnoX7CVSV7EA7ISAQfDIFqrFqsdu
+	 dyztcLd3MXLEfhFQcyf91Lzgu0GzhLdw7b+pfhy/K4Kh940lQbiWqaEmcGDfTya++a
+	 KV2YoVZ7LSjjA==
+Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
+	by smtp.lore.kernel.org (Postfix) with ESMTP id 361EDCCD18E;
+	Mon, 13 Oct 2025 15:49:25 +0000 (UTC)
+From: Anthony Brandon via B4 Relay <devnull+anthony.amarulasolutions.com@kernel.org>
+Date: Mon, 13 Oct 2025 17:48:49 +0200
+Subject: [PATCH v5] dmaengine: xilinx: xdma: Fix regmap max_register
 MIME-Version: 1.0
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251013-xdma-max-reg-v5-1-83efeedce19d@amarulasolutions.com>
+X-B4-Tracking: v=1; b=H4sIAGAf7WgC/33OSw6CMBCA4auYrq1h+uDhynsYFwOt0ASoaYFgC
+ Hd3cGVIZPlPZr7MwqINzkZ2PS0s2MlF53sKfT6xqsG+ttwZaiYSoZMiAT6bDnmHMw+25pCqokq
+ VLqTOGZ28gn26+cvdH9SNi4MP768+wTb9A03AgZcpJkqnYE0JN+wwjC1G344D/RQvle/YZk7iy
+ BHkPFFmQmIGeWUOHPnriJ0jydEbVOZGlKAPHPXryJ2jyMkLlQmATNPKH2dd1w9iAz6ziwEAAA=
+ =
+X-Change-ID: 20250901-xdma-max-reg-1649c6459358
+To: Lizhi Hou <lizhi.hou@amd.com>, Brian Xu <brian.xu@amd.com>, 
+ Raj Kumar Rampelli <raj.kumar.rampelli@amd.com>, 
+ Vinod Koul <vkoul@kernel.org>, Michal Simek <michal.simek@amd.com>, 
+ Sonal Santan <sonal.santan@amd.com>, Max Zhen <max.zhen@amd.com>
+Cc: dmaengine@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-kernel@vger.kernel.org, 
+ Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>, 
+ Alexander Stein <alexander.stein@ew.tq-group.com>, 
+ Anthony Brandon <anthony@amarulasolutions.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3329;
+ i=anthony@amarulasolutions.com; h=from:subject:message-id;
+ bh=zm9B3BfNwF6YoIlqBfCv8ID8sIfD6lc0Mod18hncI6s=;
+ b=owGbwMvMwCUWIi5b4HjluATjabUkhoy38i3rlObXltcKZGfnZTPlh9lcYd6vyn/49ZLII2Z7V
+ zfmbuLqKGVhEONikBVTZCnXkef1UK4rV5r5xBhmDisTyBAGLk4BmIjSK0aG74I+Eye1VMtoRaSf
+ vfenvyH4HtOzP/dPvvCf3pkzt2STEcP/ml6O2V2P+g8ziN2LO621z2pZv9of2R0yt3/ofpY4s72
+ eDwA=
+X-Developer-Key: i=anthony@amarulasolutions.com; a=openpgp;
+ fpr=772C1F0D48237E772299E43354171D7041D4C718
+X-Endpoint-Received: by B4 Relay for anthony@amarulasolutions.com/default
+ with auth_id=505
+X-Original-From: Anthony Brandon <anthony@amarulasolutions.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_084904_978168_DC4186C7 
-X-CRM114-Status: GOOD (  19.33  )
+X-CRM114-CacheID: sfid-20251013_164929_829615_7D38C5EA 
+X-CRM114-Status: GOOD (  13.90  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -112,86 +109,107 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
+Reply-To: anthony@amarulasolutions.com
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-HI Marc,
+From: Anthony Brandon <anthony@amarulasolutions.com>
 
-> From: Marc Zyngier <maz@kernel.org>
-> Sent: Thursday, October 9, 2025 2:49 PM
-> To: salil.mehta@opnsrc.net
+The max_register field is assigned the size of the register memory
+region instead of the offset of the last register.
+The result is that reading from the regmap via debugfs can cause
+a segmentation fault:
+
+tail /sys/kernel/debug/regmap/xdma.1.auto/registers
+Unable to handle kernel paging request at virtual address ffff800082f70000
+Mem abort info:
+  ESR = 0x0000000096000007
+  EC = 0x25: DABT (current EL), IL = 32 bits
+  SET = 0, FnV = 0
+  EA = 0, S1PTW = 0
+  FSC = 0x07: level 3 translation fault
 [...]
+Call trace:
+ regmap_mmio_read32le+0x10/0x30
+ _regmap_bus_reg_read+0x74/0xc0
+ _regmap_read+0x68/0x198
+ regmap_read+0x54/0x88
+ regmap_read_debugfs+0x140/0x380
+ regmap_map_read_file+0x30/0x48
+ full_proxy_read+0x68/0xc8
+ vfs_read+0xcc/0x310
+ ksys_read+0x7c/0x120
+ __arm64_sys_read+0x24/0x40
+ invoke_syscall.constprop.0+0x64/0x108
+ do_el0_svc+0xb0/0xd8
+ el0_svc+0x38/0x130
+ el0t_64_sync_handler+0x120/0x138
+ el0t_64_sync+0x194/0x198
+Code: aa1e03e9 d503201f f9400000 8b214000 (b9400000)
+---[ end trace 0000000000000000 ]---
+note: tail[1217] exited with irqs disabled
+note: tail[1217] exited with preempt_count 1
+Segmentation fault
 
->=20
-> On Wed, 08 Oct 2025 21:19:55 +0100,
-> salil.mehta@opnsrc.net wrote:
-> >
-> > From: Salil Mehta <salil.mehta@huawei.com>
-> >
-> > [A rough illustration of the problem and the probable solution]
-> >
-> > Userspace reads of ICC_CTLR_EL1 via KVM device attributes currently
-> > takes a slow path that may acquire all vCPU locks. Under workloads
-> > that exercise userspace PSCI CPU_ON flows or frequent vCPU resets,
-> > this can cause vCPU lock contention in KVM and, in the worst cases, -EB=
-USY
-> returns to userspace.
-> >
-> > When PSCI CPU_ON and CPU_OFF calls are handled entirely in KVM, these
-> > operations are executed under KVM vCPU locks in the host kernel (EL1)
-> > and appear atomic to other vCPU threads. In this context, system
-> > register accesses are serialized under KVM vCPU locks, ensuring
-> > atomicity with respect to other vCPUs. After SMCCC filtering was
-> > introduced, PSCI CPU_ON and CPU_OFF calls can now exit to userspace
-> > (QEMU). During the handling of PSCI CPU_ON call in userspace, a
-> > cpu_reset() is exerted which reads ICC_CTLR_EL1 through KVM device
-> > attribute IOCTLs. To avoid transient inconsistency and -EBUSY errors,
-> > QEMU is forced to pause all vCPUs before issuing these IOCTLs.
->=20
-> I'm going to repeat in public what I already said in private.
->=20
-> Why does QEMU need to know this? I don't see how this is related to PSCI,
-> and outside of save/restore, there is no reason why QEMU should poke at
-> this. If QEMU needs fixing, please fix QEMU.
+Fixes: 17ce252266c7 ("dmaengine: xilinx: xdma: Add xilinx xdma driver")
+Reviewed-by: Lizhi Hou <lizhi.hou@amd.com>
+Reviewed-by: Radhey Shyam Pandey <radhey.shyam.pandey@amd.com>
+Reviewed-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+Signed-off-by: Anthony Brandon <anthony@amarulasolutions.com>
+---
+Changes in v5:
+- Update Reviewed-by
+- Link to v4: https://lore.kernel.org/r/20250903-xdma-max-reg-v4-1-894721175025@amarulasolutions.com
+
+Changes in v4:
+- Reorder Reviewed-by
+- Link to v3: https://lore.kernel.org/r/20250902-xdma-max-reg-v3-1-5fa37b8d2b15@amarulasolutions.com
+
+Changes in v3:
+- Add Fixes tag
+- Link to v2: https://lore.kernel.org/r/20250901-xdma-max-reg-v2-1-fa3723a718cd@amarulasolutions.com
+
+Changes in v2:
+- Define new constant XDMA_MAX_REG_OFFSET and use that.
+- Link to v1: https://lore.kernel.org/r/20250901-xdma-max-reg-v1-1-b6a04561edb1@amarulasolutions.com
+---
+ drivers/dma/xilinx/xdma-regs.h | 1 +
+ drivers/dma/xilinx/xdma.c      | 2 +-
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/drivers/dma/xilinx/xdma-regs.h b/drivers/dma/xilinx/xdma-regs.h
+index 6ad08878e93862b770febb71b8bc85e66813428e..70bca92621aa41b0367d1e236b3e276344a26320 100644
+--- a/drivers/dma/xilinx/xdma-regs.h
++++ b/drivers/dma/xilinx/xdma-regs.h
+@@ -9,6 +9,7 @@
+ 
+ /* The length of register space exposed to host */
+ #define XDMA_REG_SPACE_LEN	65536
++#define XDMA_MAX_REG_OFFSET	(XDMA_REG_SPACE_LEN - 4)
+ 
+ /*
+  * maximum number of DMA channels for each direction:
+diff --git a/drivers/dma/xilinx/xdma.c b/drivers/dma/xilinx/xdma.c
+index 0d88b1a670e142dac90d09c515809faa2476a816..5ecf8223c112e468c79ce635398ba393a535b9e0 100644
+--- a/drivers/dma/xilinx/xdma.c
++++ b/drivers/dma/xilinx/xdma.c
+@@ -38,7 +38,7 @@ static const struct regmap_config xdma_regmap_config = {
+ 	.reg_bits = 32,
+ 	.val_bits = 32,
+ 	.reg_stride = 4,
+-	.max_register = XDMA_REG_SPACE_LEN,
++	.max_register = XDMA_MAX_REG_OFFSET,
+ };
+ 
+ /**
+
+---
+base-commit: 52ba76324a9d7c39830c850999210a36ef023cde
+change-id: 20250901-xdma-max-reg-1649c6459358
+
+Best regards,
+-- 
+Anthony Brandon <anthony@amarulasolutions.com>
 
 
-Sure, and I did not disagree with it earlier but because I was not fully su=
-re
-so I refrained from replying prematurely here.=20
-
-
->=20
-> Honestly, I don't see why the kernel should even care about this, and I h=
-ave
-> no intention of adopting anything of the sort for something that has all =
-the
-> hallmarks of a userspace bug.
-
-
-I understand your point. So the probable solutions for the problem mentione=
-d
-in the patch could be:
-
-1. Remove the KVM device access of ICC_CTLR_EL1 system register during CPU
-    reset and only sync with KVM during migration at source & destination?
-2. if 1 is not acceptable then cache in user space.=20
-3.  This KVM shadow register change=20
-
-IIUC, you've hinted at 1st as the solution. We've discussed 2 as well and a=
-s I
-understand you don't have much apprehensions about it? And last point 3,
-is of course totally rejected.
-
-Hope I got it right?
-
-Many thanks!
-
-Best regards
-Salil.
-
->=20
-> 	M.
->=20
-> --
-> Without deviation from the norm, progress is not possible.
 
