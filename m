@@ -4,108 +4,112 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8ECA7CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 00:26:33 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2792CCCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 00:56:27 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=WBN2M9cMiE7Nv+ckCsZbOUgyHJWNUYkdtLKpVQjtD08=; b=mejtHW3luMW2/wGrCHbrT6i6Jt
-	d/hrmeqgFKjV3DmfNC14ru7b45pzzrmLkqfj/dDVzz7ZIwjOMNxmhH6tiErAWeH1tIfHxCwJFbrqI
-	sQ0rtvJfVf0ocW9jb8iuPqlMc424csf/jbiiocUlsTMwbM1+HoQq6G4z5C6SM/P1PyoI+RGm5YxBs
-	EUz4HIAPqAthy1kqc6wJrni9Y4K8gbL0BYpg4vZ3F11GSRg69HWaP707Nc7AL1NWeokcDz8OZPA5G
-	zSKuuHz2QDe4UCyoRts9X1o7n/QHdyB4HNZuqWROnYjSIZ5NTIpPg7tBj/UlpPh1slfG9TxACfeOx
-	lDID08sA==;
+	bh=O3vrH34UrAByOQpbxIHwyMAUQ47NxiaiWiGY79nIAZY=; b=SMikkofXHlQehjUiO7Y7rlvvPP
+	cWd0tmxGAigussxzMwmRfLMpHBhc0wrj9z/qschb8IbtyM/QgiPCe2ZHw+BLdT0VygtwIDVJXUGVn
+	h5j3kumKufDdPB/eIieq3QtSovcJaiik6rV3fEkKTrXuB5mYuRjYkhoQ/8/kuYwg0AarYmvybY3EQ
+	Kv+WIKXt6/4CckpRE74+0V/GFfN87aUanRn6NoFx96eDoQ5Kx9XA+qGnY/KdxJzNWYjSiFbwDkYCN
+	ElcwKwQNxof+jSOcIfVMq4r0bnZJVg6Dp+gSBADzJMFiLVByhwA3QRDNFNNAaRSpKF/ZYh8E9WAmr
+	30pVUJDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v86OR-0000000BzNk-2Ag0;
-	Mon, 13 Oct 2025 00:26:27 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v86rJ-0000000C0J7-3h77;
+	Mon, 13 Oct 2025 00:56:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v86OQ-0000000BzNM-2J2W
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 13 Oct 2025 00:26:26 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=WBN2M9cMiE7Nv+ckCsZbOUgyHJWNUYkdtLKpVQjtD08=; b=oxVYFq54t0Q39s+LVxeEJJqHFA
-	iW081qUsbHAch9bsJk2phZrLADJ0lxlQ3FZRSGkTRqs778feyvkhYO7UT5ZQxsOXG1JZp7N98Txrw
-	05iZgiU/evcZ2Lqs96TA44gZQBQ1ocX5IFqHmOnhPT0EFLzsRYK1ztbcUXe3iGNzbfXH8I7D+PPTn
-	aDkBn1zawh78l2CGNmIRrig1CalAGZd4+HWBjV0ggaHR53wx3WboV5gdB6gKctfU5xVfu19GSeHYY
-	l1e3vAej8Tkxnu+q2Ykio/uTxuOtSbCnblCxxDEKB0G9MQnB8a5XbIoAi2qAsvSWcBAhF500EQRE0
-	ezOpUzeA==;
-Received: from mail-pl1-x62d.google.com ([2607:f8b0:4864:20::62d])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v86O6-00000003x1r-32my
+	id 1v86rH-0000000C0Im-0PIo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 00:26:13 +0000
-Received: by mail-pl1-x62d.google.com with SMTP id d9443c01a7336-26e81c17d60so8370565ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Oct 2025 17:26:04 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760315162; x=1760919962; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=WBN2M9cMiE7Nv+ckCsZbOUgyHJWNUYkdtLKpVQjtD08=;
-        b=qZHhyqhZvt8h6ZROrZRZupLrK+QLh4LGE/iilyqlutvnd0go/zaoNnw+F0hHMPuhr8
-         8wOKbhu3NnLIuxTaw5ypTixd/rT3w2dXxYKtY/3s7Tfqu+K8jEn4Fuaiw7N6gA3x5q7A
-         PyVoDpD6B1OHFAM1MG8rVY/3oKuK1laa/ez++D0+GSTVYM7Zabf46kdOdvTxDnZLEtMQ
-         w/43xqDjJ5kQtAWDrZyZOx44Gr/LMTLtI4HNUf+uPzqUwRWtLv8NHY1tzkmVFPI4gNL8
-         J2jEpSbHTe6VFJb4qS/rHJ17nlbRSZjucx7dQhcgOmXcLb+X0ZU3z6mU4fzTaoFoY5FX
-         Grlg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760315162; x=1760919962;
-        h=content-transfer-encoding:mime-version:date:message-id:subject
-         :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=WBN2M9cMiE7Nv+ckCsZbOUgyHJWNUYkdtLKpVQjtD08=;
-        b=av7wOmNWoRttgWMhinIwZ2Y1ZNJXDoZ4ukINfAh8b6PhS6zgCChtYertFujRGwBfdP
-         8EXiOr3FTJr9dOvdUXinH2l9fH4zNtwlz9V4devHr0D0AzZ9hCCgXlgZuQErF62yTzmg
-         meAZklrjuW43HpVLFllGQAmgZE1A1eLtXyiK8Ffpmlv4TdLPFpG9q0HCev5m2KnwcrJJ
-         89zHdX634uRGwrruBuVZd/h1SYuem8ly993tD0AK1LiCSPSiZ9+Z64drVPTXUrUoeEPj
-         Hhgq41cWy4DCsZHctuqvHU03nx2520R9ByX7vaigL1bWwZB7wxDyZQuKxxQiqhLM4q5L
-         vXcQ==
-X-Forwarded-Encrypted: i=1; AJvYcCUkcQs2q8IN8HjuKGHqMAsa04tLVC2WzW7GnylHikHR1c5HWiWn05+kLVwVvZZ6XWTdBfBk5XxrdzK1xnRi4z12@lists.infradead.org
-X-Gm-Message-State: AOJu0YwQpAr4KsEx1k85QWOsGBMdgawGLhdN3ZJvm1Dy1IOnoqWkHzjR
-	LO+wDvGtISJKDDXRbnLZDpWWW5ibVC+C1tCBtSXghSxwnuVac6Jk9AKw1M8oyhtshhY=
-X-Gm-Gg: ASbGncvC87W3QDRHubSc/mPX0AeYl9qMKIi2V6vxjkgrH/LN8Q6aSkhatuv4mPLP3RM
-	oyW9iG5ZPwzvyHKg26CC9638mdK0nX80Sn+InaRwbWudQwmVQaJOPmamca5VA3lpN8YzsWkeq7A
-	/KLqQzAtbweNYLrdfx7GKdQzKtGvFH/dY0GafswiBafXjaTqLTJ0+UtuPQMPVsDzIPmwqZgXRKy
-	NUaaXhOtfIMl5vIlfepbGvLDjMgChi8SYo9I3em8j3JWp2Pu6NYSPCktRySnkCaMvWstmqU++6n
-	T1DjUMtsomAXbm6XVVP7yq/V6y6Rt/AAFnENbuEmi7SFsLSw4qFV+8EHekEeMaWv1ql6nigNaSA
-	1Tm31KasUdMS4eK9xlvnD+Qrp7dkfGPbViV9WtnsfkWZNt31LCJ63fp95Hmbxon1HHUI/7SsSaZ
-	fPgvE27A==
-X-Google-Smtp-Source: AGHT+IEwIgW8gINldWjknWYV8MJ0j1jUN7u37O93AJbcBBhfRalcRq5iqyc2MYvjmSLv9qtnZvLvRw==
-X-Received: by 2002:a05:6a20:9383:b0:2df:b68d:f7e with SMTP id adf61e73a8af0-32da8461710mr14706065637.5.1760315162189;
-        Sun, 12 Oct 2025 17:26:02 -0700 (PDT)
-Received: from [127.0.1.1] ([121.134.152.93])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7992d096740sm9624862b3a.38.2025.10.12.17.25.57
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Oct 2025 17:26:01 -0700 (PDT)
-From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
- Kaustabh Chakraborty <kauschluss@disroot.org>
-Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org
-In-Reply-To: <20250928-exynos7870-dt-fixes-v1-6-a40e77a73f16@disroot.org>
-References: <20250928-exynos7870-dt-fixes-v1-0-a40e77a73f16@disroot.org>
- <20250928-exynos7870-dt-fixes-v1-6-a40e77a73f16@disroot.org>
-Subject: Re: (subset) [PATCH 6/7] arm64: dts: exynos7870-j6lte: add
- bus-width to mmc0 node
-Message-Id: <176031515743.11660.18346080313426927067.b4-ty@linaro.org>
-Date: Mon, 13 Oct 2025 02:25:57 +0200
+	Mon, 13 Oct 2025 00:56:16 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 6C9B745535;
+	Mon, 13 Oct 2025 00:56:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 80BB8C4CEE7;
+	Mon, 13 Oct 2025 00:56:10 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760316974;
+	bh=8AH/YAwV6Ow+rah0ODKB3C0tyUjbxu/O2GLHtVd/hYg=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=ucrJpZ1cKQQUNXnCR892h16VSVOjkH12PYPW5eVq4FTVxbfCcSs6lTth7sRuaEwaR
+	 9DDhIJt7cipJ2GZGRchNdoKo8DjAUMRxkPauPIirVrG+p5YcudBOi2yvfQfgFmdmop
+	 djXvAoEm5RWg6yB+9ytJxcB0llCU7M23XocpWPt8py6ifjcphIm2HGNe2jSQDWP5+J
+	 r5eV1AEI7vwjnGbnHjqkPZDVbMlT83RhUmSPIy1ZGU4DEVa/4W37k7LFf7IRqDTOhL
+	 zTQIcDn/YFfZ9vr/hDkDGsGQpuu4TBlqs3x9OMLVWgqkaKmu3gwbyh1WsNdOwkuqxP
+	 DrHHNryzw8MUg==
+Message-ID: <7e537b24-486d-4060-aa75-d69e95966aaf@kernel.org>
+Date: Mon, 13 Oct 2025 02:56:07 +0200
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v3 3/7] dt-bindings: soc: samsung: Add Exynos990 USI
+ compatible
+To: Denzeel Oliva <wachiturroxd150@gmail.com>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>,
+ Sam Protsenko <semen.protsenko@linaro.org>,
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
+ Jiri Slaby <jirislaby@kernel.org>, Andi Shyti <andi.shyti@kernel.org>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org,
+ linux-serial@vger.kernel.org, linux-i2c@vger.kernel.org
+References: <20250917-perics-add-usinodes-v3-0-a3629e4666ef@gmail.com>
+ <20250917-perics-add-usinodes-v3-3-a3629e4666ef@gmail.com>
+From: Krzysztof Kozlowski <krzk@kernel.org>
+Content-Language: en-US
+Autocrypt: addr=krzk@kernel.org; keydata=
+ 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 a/A=
+In-Reply-To: <20250917-perics-add-usinodes-v3-3-a3629e4666ef@gmail.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_012610_938378_62125A09 
-X-CRM114-Status: UNSURE (   8.70  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251012_175615_184137_852672F5 
+X-CRM114-Status: GOOD (  10.69  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -120,24 +124,27 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Sun, 28 Sep 2025 22:13:57 +0530, Kaustabh Chakraborty wrote:
-> Add the bus-width property in &mmc0 node. The Exynos DWMMC driver
-> assumes bus width to be 8 if not present in devicetree, so at least with
-> respect to the Linux kernel, this doesn't introduce any functional
-> changes. But other drivers referring to it may not. Either way, without
-> the bus-width property the hardware description remains incomplete.
+On 17/09/2025 23:04, Denzeel Oliva wrote:
+> Add samsung,exynos990-usi compatible string to the
+> Universal Serial Interface (USI) bindings.
 > 
+> Signed-off-by: Denzeel Oliva <wachiturroxd150@gmail.com>
+> ---
+>  Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml | 1 +
+>  1 file changed, 1 insertion(+)
 > 
-> [...]
+> diff --git a/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml b/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml
+> index c694926e56ef991965153b94d704fd53addb5cbe..4a719cea81f9d3c3b5296ba2d45b05dd014a1d9d 100644
+> --- a/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml
+> +++ b/Documentation/devicetree/bindings/soc/samsung/exynos-usi.yaml
+> @@ -39,6 +39,7 @@ properties:
+>                - samsung,exynos2200-usi
+>                - samsung,exynosautov9-usi
+>                - samsung,exynosautov920-usi
+> +              - samsung,exynos990-usi
 
-Applied, thanks!
-
-[6/7] arm64: dts: exynos7870-j6lte: add bus-width to mmc0 node
-      https://git.kernel.org/krzk/linux/c/9e3e37939362ba110c341cae09acaf000c0edb34
+Keep the order, numbers were before "auto" part.
 
 Best regards,
--- 
-Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-
+Krzysztof
 
