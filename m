@@ -4,62 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0A583CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 19:12:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AF24ACCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 19:13:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=CCegg8OCQ09/W2oaGM7D4N+IiSYDNuC4qv1W6zA0zd8=; b=Ry2Y4vwjGf0+NjOHc/WyaSAtiJ
-	n+h8ubu8694PNRHZUEZrD514uhxYgqEt0U73koOeSy6EXAsg9eD5WONqlufNjG49dbhx9PdqATM7G
-	xwzaPIupYRlYPFxyR1XGitgaEdZdhXk1CJo7ZgRQ/a3TZXGH7aSYgtfRQxgPdtOwvCkrlb7F5GXWZ
-	KLdhwNOR7QMWB96CffnIZSIVlUrJ1kpWHZzvjSTtyFU02cDUTPvYjSK1LhhPzwtONeoUHNBrKWWKn
-	44bTorvzh3W/LWVlklWVBPobNx/9EhvLiI7DX842kKARdr084cQWkBq4+bi1P/H8rA0MR29N3Ecrq
-	eCJAi+hQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qCreO+m1GdEZdPEca3rio4sx2Qok+Y0/kzMaM2zlpbY=; b=HFrRzUWH2BZEeDsJdFvsCZg+Hn
+	8BvX06L6peei756/gFnu0+GWKj4lfxsfKmu7eVMqnwB1KnYIaSIALus88El3+AJvfTISIYb7K5B6h
+	OktaL21YgtXrxcq3v13KsjYgQ1wPDnSQUN390uXBidwxQoCZuLKSYETNXQItgtTQsFELCfZIR93kF
+	6i/Ot0O5EjHcKzMMhvMOoGp4REzW0SxC2MHOB6T2v74QoWvq0mH2+ZSbqiwh8Swf0s08tPJxMMUPn
+	Kwqkng0juXKUyi0VB7jhjYi8FxNTgOMclkYHSu+3wqZar7msle9dVsZhct+Yo7pAPwGzIImcCAW1G
+	UrIJn7Sg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8NyN-0000000EFxL-0aY6;
-	Mon, 13 Oct 2025 19:12:43 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
+	id 1v8NzD-0000000EGGe-2Bpx;
+	Mon, 13 Oct 2025 19:13:35 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8NyK-0000000EFvv-2E7T
+	id 1v8NzB-0000000EGF5-1yqJ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 19:12:41 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 3577E4662A;
-	Mon, 13 Oct 2025 19:12:40 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id CD86EC116D0;
-	Mon, 13 Oct 2025 19:12:39 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760382760;
-	bh=BExf5fk0DyeNynHM+enUNSLiZYcDSXeiOTkv5qJUqtM=;
-	h=From:To:Cc:Subject:Date:From;
-	b=CsKbZj3WA3mNPW3bT9XR3pQo6+3yiBpa5f7CSuXWwhTPc+Sc4T04aH7oYud4YOEcL
-	 NioxwaxGBBdVSi1RlnuWuZaTakzsvfjYAOherRzUrLqT2oX70QVyeLzykewRXuPEjW
-	 HSr5Zhlu0VLxX0pRjVgfQe8Y7xxhPjeiNUgRH+k+qJhfKXkoIGgUxK4xZELSTl6xt+
-	 wNbqWfHDdkP9VooL0786vCHNNjC0ZKb5/HtbQyepKl01LpeC/Zgw3Cj++WUdMmhnGA
-	 LCtDR8bTExdkPlpG2E6CHwKYMBRSw6/ZhRbkrM4rwTN9o8/CPGqhyEQUici4KNvyZl
-	 2u0HxpapmsD2g==
-From: "Rob Herring (Arm)" <robh@kernel.org>
-To: Linus Walleij <linus.walleij@linaro.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Mon, 13 Oct 2025 19:13:34 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=sWk04IU2j/n89E05vOA7NlDGRUjkPd8Gs0Fu950So5IlPZO1ruM5fMAtiIOkEYghZRE9kpnqKfPPeeohwhAMNG4KkQagCBMYe6eB94M4acXhr+6y7t/PuNW+QKY1lhTw0TbNaf1eOMm8BT5uPnfgEu0Gfgpcee0HZWV72WWiYs0GfDgyvAMCPJKfeXy9TtQPZiSYDdcYKO6lsjJrtT1UvIGmJU+obrrFtD0+6g4ifzAv4/6OAsiav/pn+pvTHPKSqHGhMUpSQOPNmoxijINcvFetRiM18041VzZRAgMSFW/w2PHVZo0fLGS7JeuKumrlniPXYM+k2OBvrG7vEfBjXQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=qCreO+m1GdEZdPEca3rio4sx2Qok+Y0/kzMaM2zlpbY=;
+ b=wI/4K+Pz0a/jex7QZlS6bi+VDcWYXWcs6AWBtlsO4vzs9lFOYnNkiBK/hMmvGns11DVtIJ5DoekgRY3WKqABJ+wLqRNp8gqyAjxCxGn9srgtobHy77zg78h14XgcJpKz6ujfYHj8DQFbRHp72A8UWFzi1YWJviVP3tZIaZuUzsDUVKSpkv5TkuoknxZs25aMFi6voRtQtO0cOy34bLuAV0IwkZH5Wboe0OKHjbX/l2whlKxCYH0uNfXycJQB64Q6Kqor3g114zjdgyhLpmFTmvOIb1+geqoeIUWacTD+u5uuZ/X8Ua6AjYPxTBl5DcqCQB08swWQMnVa0ijVDTwzAw==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=qCreO+m1GdEZdPEca3rio4sx2Qok+Y0/kzMaM2zlpbY=;
+ b=fXP96Lu6j0DInYjLymStaQJDMbSLtPa1pb8N7m0iwfiILt/KSGNwmSL2RJvfi37Yd5L8s455kk+W7Cv7h+B9SwtYhqktS1AY+NHrKibFuTm4p0DW7NXoqQohNtGydW9sttMSJvWzhHjIwqJZ6GGjG4IuZHn4pZxjWtUJXZ4cN/TS4GcBZv8LxrhDU0IBOXuwTT6r/dQGBQwkJIX7JovYVVu3PHW5aplgEmTE5CVGckDdZKT8kGZ/7gVqPGErmO94Ecy0L6Gdd5dheYkyQf1g21RvhlSYj77OKqlBYP5Qdrc6v7ttHpzltz6gJN0RPXU2WWGaan8lXpl1Gkc2z3GV7g==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS4PR04MB9621.eurprd04.prod.outlook.com (2603:10a6:20b:4ff::22)
+ by PA4PR04MB9486.eurprd04.prod.outlook.com (2603:10a6:102:2a3::16) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.12; Mon, 13 Oct
+ 2025 19:13:28 +0000
+Received: from AS4PR04MB9621.eurprd04.prod.outlook.com
+ ([fe80::a84d:82bf:a9ff:171e]) by AS4PR04MB9621.eurprd04.prod.outlook.com
+ ([fe80::a84d:82bf:a9ff:171e%4]) with mapi id 15.20.9203.009; Mon, 13 Oct 2025
+ 19:13:28 +0000
+Date: Mon, 13 Oct 2025 15:13:21 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: dri-devel@lists.freedesktop.org, Abel Vesa <abelvesa@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>
-Cc: linux-gpio@vger.kernel.org,
-	devicetree@vger.kernel.org,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org
-Subject: [PATCH] dt-bindings: pinctrl: Convert bitmain,bm1880-pinctrl to DT schema
-Date: Mon, 13 Oct 2025 14:12:33 -0500
-Message-ID: <20251013191235.4139259-1-robh@kernel.org>
-X-Mailer: git-send-email 2.51.0
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Liu Ying <victor.liu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>,
+	Peng Fan <peng.fan@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org
+Subject: Re: [PATCH 29/39] dt-bindings: display: bridge: Document Freescale
+ i.MX95 MIPI DSI
+Message-ID: <aO1PUWA8CxEN9mHp@lizhi-Precision-Tower-5810>
+References: <20251011170213.128907-1-marek.vasut@mailbox.org>
+ <20251011170213.128907-30-marek.vasut@mailbox.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251011170213.128907-30-marek.vasut@mailbox.org>
+X-ClientProxiedBy: CH2PR19CA0017.namprd19.prod.outlook.com
+ (2603:10b6:610:4d::27) To AS4PR04MB9621.eurprd04.prod.outlook.com
+ (2603:10a6:20b:4ff::22)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS4PR04MB9621:EE_|PA4PR04MB9486:EE_
+X-MS-Office365-Filtering-Correlation-Id: ef8de6b4-641d-428d-0469-08de0a8c9709
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|7416014|52116014|7053199007|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?+sXnTUFIfVAHNiXvmzRnoB4onBf78CTkRurGLMrqrnikShW9hVKdjDHpo1fG?=
+ =?us-ascii?Q?iqDxGDROkqlmVQ0IMBmudPZlk44Omp5ZII0oniwFn++md6YqELu8AjUIDvMm?=
+ =?us-ascii?Q?N68TprCiCNlkQv5DBtm2yu65203TDd0NFB0yUF5Oku9MR7LIHFP/uQizD1Af?=
+ =?us-ascii?Q?Z58Lc31MKlrnlcBBrpDkwAFNA4N8DzO82KhQnvUU+rja5z7RCjRvtKPj0hq4?=
+ =?us-ascii?Q?7R27a1WPI1Y3XacDRKM3X7UD4leHfmHDmiu2x3uHuLJRv+/oypWxbc22PzSS?=
+ =?us-ascii?Q?YVzZM8Ma2DUKySxTTFaG1R5zYpOhLn4po5BRdYWMWOViK0I+97GVh7b11vu6?=
+ =?us-ascii?Q?JoCRqYti+Fobpg/9EW2E2hi1GIxWNB62LbTiwpy7XQEuOu2oQHLiYdURYdAe?=
+ =?us-ascii?Q?D80vZTdjP3rU0+3HM8fRVRrb7Kd0aBsdG2dUjJ992phi2yASVHyQXXALGyFt?=
+ =?us-ascii?Q?60ovxMHXPNVbMrgCHT+4lz3VhwSwUAwpxSIViZTUvd3gnJW9ZrX2Sl6KfSKZ?=
+ =?us-ascii?Q?IIGw8Qr8Fdkr+ZM+82thpfwq5lSTr1OQlgV/kkstOsyR9lmT8iH+b8CF/Fj4?=
+ =?us-ascii?Q?4DuMu5X5bsd6kdqRcH3Tljm4TqZpF1m+mee2XmrhmFCbKbf6rGbtTTFiDop+?=
+ =?us-ascii?Q?dD9GBA90IvzNi2ilDo5XM3iO0uXReXi9J1DOss56an1Ztn36fZX32xs29Oev?=
+ =?us-ascii?Q?og8HQwl/PkbYOtOkjAjaucdFB9mHjV+Avy+6t1uU10JSajlYv3o2Me8eEezP?=
+ =?us-ascii?Q?G1COYsiWXa3T9OVmvdYY6uZQZVQ92ID0fAx20FKwP/fX58mKuJO2oepnH1io?=
+ =?us-ascii?Q?hHrGsJbxnxe6cwNtKHM3M60McwgoIhPd8Ibjf8S2NCJ7X5pqh/I/C4vV5uRG?=
+ =?us-ascii?Q?FiGWCDkWr4ON9NavZ3cePeS17dybC2iQDRIeNEfkZnb25FBZH7ef8LaEqqF5?=
+ =?us-ascii?Q?5CAwC9JLF/DhQUqrq8I5yuDnxqNChsml1Yl0kNmf9S54YzSqtMCa4ix/Fue3?=
+ =?us-ascii?Q?gTeIukFO2GHnUYRqXa/CoeOrqXGpLS+ln1cNjSf4KCpa5nuhRoSpbYz4rIug?=
+ =?us-ascii?Q?L7vE7/S5uwBxIizgQZlb5u4y8vYSr7asEFTz1te9ofapErUBMt8e3mN6OYmh?=
+ =?us-ascii?Q?+7LDQvs6rFv0xuv/wqFmyxOGsMr+6tXW2UxRWf3WXJEiEq2lZ35rOKjycs00?=
+ =?us-ascii?Q?Owvo+hCSpkV+gUjNl1kdPZkEF7RGTWLD5WbdA8T+S7Z8jOp//qyxMAKpRxlf?=
+ =?us-ascii?Q?8llHgIB+OF61jrUUMIaBa8EAS15vY7VMIodI4rLPYX9wsrvGsXBNEwsTXx5h?=
+ =?us-ascii?Q?/qikCM9RCU3ZHK6JLLItKGJBl2ccZaTUuAiNtfr4Yt9Ny56VN+weZ1zcuk+B?=
+ =?us-ascii?Q?UELPalFOv//Ks7T3NytSVhYWweu5aFOIAOpUaimS1r+/dpWk8n8+gNLzHorO?=
+ =?us-ascii?Q?Ruu5YaHdU9C/UG40FclqvI5f1RGs2RDWps7IiipDv9UxLqC0pDCpDQJ2i1Qo?=
+ =?us-ascii?Q?iZOqPyh+gO7kb/r1oG+ssMvoBT9j0NY2n5rp?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9621.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(7416014)(52116014)(7053199007)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?btplG7rgk/ftO1c4yVLKaFIU3qgjXgILVFz88cYwEG5lWuxGdUXyM/6XdlTk?=
+ =?us-ascii?Q?mqGf1v7CVl2gKJ6WTen3MFaV6DPH1jjDTMh1hbPrftGCaVyqFrJUgTU8V9Z9?=
+ =?us-ascii?Q?eyEFYDbto/kp1+AqReUiPtdT8A7BzTIlKmzgsapQb65Lf7tswcTh4v8gAkpS?=
+ =?us-ascii?Q?pdji4RdTh5/pkSTA8fUBVaoH8Hyml+3dXMMDPZLGG6BYVRIUzMhw+7VD1fH+?=
+ =?us-ascii?Q?cs7UPV/ThxJXoh4+lMp+i0xA4fohcUwaLB2t0HWsZbyYU5tiTBbUjXmaW22d?=
+ =?us-ascii?Q?m4+E9aYgxDHmUFQwzAuXP1wDe2LhljRnNLAfZDeaLwKnlLqMQonrrrVRWTmS?=
+ =?us-ascii?Q?eghN0lThPuUmWXMu4AEbdQfK4MTTS/fSIF3G71dLYmFY/D8U75hWl2i6QDsO?=
+ =?us-ascii?Q?RsVFgQiCew7LUAir31KjSw/Tn4R5CjqMonRBGgC1Ml+osnw9RQr4+I9KD9I1?=
+ =?us-ascii?Q?alR+ZwFWVGBhLi14ZtU5j3mRAFTWyoR5dKyUKs4JgoBLmVH7PSbTYgJrwlfF?=
+ =?us-ascii?Q?fxsIM0ydfjcl7L/zz1BxWJhS2hY6D1vytiwcR2l09PiRdVPvYq0NbXfqEikN?=
+ =?us-ascii?Q?WWx4xQjwb7E+M3U1chwC/ajqpCYE1+qRoPfgePhQz8jJyWTIcn/RmE10CrWX?=
+ =?us-ascii?Q?yw08mHtfMT7agPab6VG2wvzz6KzS7oxHpLUnclY58JRLdRhSrbgmn/3gbPfN?=
+ =?us-ascii?Q?Ue0OC+UHiln6+7Et/jcfRYPMSDA0BGYJzM4uyqlP9EIcjxHw6Uv19Gdfh6Gz?=
+ =?us-ascii?Q?UR/FG1/s4kS5vQvLlpwySE1vwsILolbea/dpPyy2j9pHwhEPCrgKXqRYZCm7?=
+ =?us-ascii?Q?3vrYanGPjETBkGV1+3gbhZQy12ns15IBMidD/RJR3bRMwMlIGpWWYKnt2Tsq?=
+ =?us-ascii?Q?amkqnk/NAHhEqacychZGHT700n4OdRfjstRNSS4EhlL7mdp/XRBnjUN40YzM?=
+ =?us-ascii?Q?ULteO/E8BIndYIgH/RhVNbRl8lyxdihOU4KuNcInFxeWc0eTPE+PfmFUrurI?=
+ =?us-ascii?Q?sZtHIxn7O9qRlzGDVgjwreD+wyb1zvEXzdhdeDsRbMgjmT4yY9c76sW09sSV?=
+ =?us-ascii?Q?wCFoSOOi09gLrUsjNCThD5O/buXPfjknAicCqHHPhjgkOEiWDjg8bRPLZ9HW?=
+ =?us-ascii?Q?QSA/B90o6N8XoCD8LFhqxOj0nOvT4HYhewsz7X2glPUAu3kaS2NbuBcUjk6W?=
+ =?us-ascii?Q?QwLdhGoXiJqUq9aW5dgZ8RVY6+Fal/zW5KVgb3l0m/niwcI5uWES6agLLGea?=
+ =?us-ascii?Q?Hm6QqZurv3Xa/cRSEAmJ+HxorY5f4gnIjNu/2eCyJ7bWrfiUxjNUYR580nMT?=
+ =?us-ascii?Q?N3WbFDs6yEfA5xz0eCgMHB0jv5az5pjIx4ncaOo+fM1Fa9Zvdi6eCne2N5Ns?=
+ =?us-ascii?Q?7yDc37mCXpMEPFYuwmxdXNykkMmIc3dEXzC8tymHJwouTOhmixJsDGK0iRwo?=
+ =?us-ascii?Q?dzzIeq7Vz/8uMaz1AIWvW0JMfL5pXc8jVm54diFm/efgCq+/W/L+TARlQ8JJ?=
+ =?us-ascii?Q?n+nTFQMEaZ32XYlSPIVWa8mfavisIECQNupGz+R+OI79DTySFxbXNP7UjSHt?=
+ =?us-ascii?Q?2N7nee6UCVsEz/OiTKI=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ef8de6b4-641d-428d-0469-08de0a8c9709
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9621.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2025 19:13:28.1895
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: KCuY4Ec+GfKBAWbHomewNJlrFxZ0lFVJYfoyTFSJBz2Eh4JsAy17fhONTrpDoXUvOFa19dgXsGgjobfaZB7/KQ==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA4PR04MB9486
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_121240_614493_8BE8D9E7 
-X-CRM114-Status: GOOD (  18.99  )
+X-CRM114-CacheID: sfid-20251013_121333_511539_CA6EBBE3 
+X-CRM114-Status: GOOD (  18.15  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -74,302 +169,121 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Convert the bitmain,bm1880-pinctrl binding to DT schema format. It's a
-straight-forward conversion.
+On Sat, Oct 11, 2025 at 06:51:44PM +0200, Marek Vasut wrote:
+> Freescale i.MX95 SoC embeds a Synopsys Designware MIPI DSI host
+> controller and a Synopsys Designware MIPI DPHY. Unlike the i.MX93
+> PHY, the i.MX95 PHY uses more syscon interfaces to configure the
+> PHY.
 
-Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
----
- .../pinctrl/bitmain,bm1880-pinctrl.txt        | 126 -----------------
- .../pinctrl/bitmain,bm1880-pinctrl.yaml       | 132 ++++++++++++++++++
- MAINTAINERS                                   |   2 +-
- 3 files changed, 133 insertions(+), 127 deletions(-)
- delete mode 100644 Documentation/devicetree/bindings/pinctrl/bitmain,bm1880-pinctrl.txt
- create mode 100644 Documentation/devicetree/bindings/pinctrl/bitmain,bm1880-pinctrl.yaml
+Any common driver for Synopsys Designware MIPI DSI, suppose many vendor
+use this IP?
 
-diff --git a/Documentation/devicetree/bindings/pinctrl/bitmain,bm1880-pinctrl.txt b/Documentation/devicetree/bindings/pinctrl/bitmain,bm1880-pinctrl.txt
-deleted file mode 100644
-index 4980776122cc..000000000000
---- a/Documentation/devicetree/bindings/pinctrl/bitmain,bm1880-pinctrl.txt
-+++ /dev/null
-@@ -1,126 +0,0 @@
--Bitmain BM1880 Pin Controller
--
--This binding describes the pin controller found in the BM1880 SoC.
--
--Required Properties:
--
--- compatible:   Should be "bitmain,bm1880-pinctrl"
--- reg:          Offset and length of pinctrl space in SCTRL.
--
--Please refer to pinctrl-bindings.txt in this directory for details of the
--common pinctrl bindings used by client devices, including the meaning of the
--phrase "pin configuration node".
--
--The pin configuration nodes act as a container for an arbitrary number of
--subnodes. Each of these subnodes represents some desired configuration for a
--pin, a group, or a list of pins or groups. This configuration for BM1880 SoC
--includes pinmux and various pin configuration parameters, such as pull-up,
--slew rate etc...
--
--Each configuration node can consist of multiple nodes describing the pinmux
--options. The name of each subnode is not important; all subnodes should be
--enumerated and processed purely based on their content.
--
--The following generic properties as defined in pinctrl-bindings.txt are valid
--to specify in a pinmux subnode:
--
--Required Properties:
--
--- pins:           An array of strings, each string containing the name of a pin.
--                  Valid values for pins are:
--
--                  MIO0 - MIO111
--
--- groups:         An array of strings, each string containing the name of a pin
--                  group. Valid values for groups are:
--
--                  nand_grp, spi_grp, emmc_grp, sdio_grp, eth0_grp, pwm0_grp,
--                  pwm1_grp, pwm2_grp, pwm3_grp, pwm4_grp, pwm5_grp, pwm6_grp,
--                  pwm7_grp, pwm8_grp, pwm9_grp, pwm10_grp, pwm11_grp, pwm12_grp,
--                  pwm13_grp, pwm14_grp, pwm15_grp, pwm16_grp, pwm17_grp,
--                  pwm18_grp, pwm19_grp, pwm20_grp, pwm21_grp, pwm22_grp,
--                  pwm23_grp, pwm24_grp, pwm25_grp, pwm26_grp, pwm27_grp,
--                  pwm28_grp, pwm29_grp, pwm30_grp, pwm31_grp, pwm32_grp,
--                  pwm33_grp, pwm34_grp, pwm35_grp, pwm36_grp, i2c0_grp,
--                  i2c1_grp, i2c2_grp, i2c3_grp, i2c4_grp, uart0_grp, uart1_grp,
--                  uart2_grp, uart3_grp, uart4_grp, uart5_grp, uart6_grp,
--                  uart7_grp, uart8_grp, uart9_grp, uart10_grp, uart11_grp,
--                  uart12_grp, uart13_grp, uart14_grp, uart15_grp, gpio0_grp,
--                  gpio1_grp, gpio2_grp, gpio3_grp, gpio4_grp, gpio5_grp,
--                  gpio6_grp, gpio7_grp, gpio8_grp, gpio9_grp, gpio10_grp,
--                  gpio11_grp, gpio12_grp, gpio13_grp, gpio14_grp, gpio15_grp,
--                  gpio16_grp, gpio17_grp, gpio18_grp, gpio19_grp, gpio20_grp,
--                  gpio21_grp, gpio22_grp, gpio23_grp, gpio24_grp, gpio25_grp,
--                  gpio26_grp, gpio27_grp, gpio28_grp, gpio29_grp, gpio30_grp,
--                  gpio31_grp, gpio32_grp, gpio33_grp, gpio34_grp, gpio35_grp,
--                  gpio36_grp, gpio37_grp, gpio38_grp, gpio39_grp, gpio40_grp,
--                  gpio41_grp, gpio42_grp, gpio43_grp, gpio44_grp, gpio45_grp,
--                  gpio46_grp, gpio47_grp, gpio48_grp, gpio49_grp, gpio50_grp,
--                  gpio51_grp, gpio52_grp, gpio53_grp, gpio54_grp, gpio55_grp,
--                  gpio56_grp, gpio57_grp, gpio58_grp, gpio59_grp, gpio60_grp,
--                  gpio61_grp, gpio62_grp, gpio63_grp, gpio64_grp, gpio65_grp,
--                  gpio66_grp, gpio67_grp, eth1_grp, i2s0_grp, i2s0_mclkin_grp,
--                  i2s1_grp, i2s1_mclkin_grp, spi0_grp
--
--- function:       An array of strings, each string containing the name of the
--                  pinmux functions. The following are the list of pinmux
--                  functions available:
--
--                  nand, spi, emmc, sdio, eth0, pwm0, pwm1, pwm2, pwm3, pwm4,
--                  pwm5, pwm6, pwm7, pwm8, pwm9, pwm10, pwm11, pwm12, pwm13,
--                  pwm14, pwm15, pwm16, pwm17, pwm18, pwm19, pwm20, pwm21, pwm22,
--                  pwm23, pwm24, pwm25, pwm26, pwm27, pwm28, pwm29, pwm30, pwm31,
--                  pwm32, pwm33, pwm34, pwm35, pwm36, i2c0, i2c1, i2c2, i2c3,
--                  i2c4, uart0, uart1, uart2, uart3, uart4, uart5, uart6, uart7,
--                  uart8, uart9, uart10, uart11, uart12, uart13, uart14, uart15,
--                  gpio0, gpio1, gpio2, gpio3, gpio4, gpio5, gpio6, gpio7, gpio8,
--                  gpio9, gpio10, gpio11, gpio12, gpio13, gpio14, gpio15, gpio16,
--                  gpio17, gpio18, gpio19, gpio20, gpio21, gpio22, gpio23,
--                  gpio24, gpio25, gpio26, gpio27, gpio28, gpio29, gpio30,
--                  gpio31, gpio32, gpio33, gpio34, gpio35, gpio36, gpio37,
--                  gpio38, gpio39, gpio40, gpio41, gpio42, gpio43, gpio44,
--                  gpio45, gpio46, gpio47, gpio48, gpio49, gpio50, gpio51,
--                  gpio52, gpio53, gpio54, gpio55, gpio56, gpio57, gpio58,
--                  gpio59, gpio60, gpio61, gpio62, gpio63, gpio64, gpio65,
--                  gpio66, gpio67, eth1, i2s0, i2s0_mclkin, i2s1, i2s1_mclkin,
--                  spi0
--
--Optional Properties:
--
--- bias-disable:  No arguments. Disable pin bias.
--- bias-pull-down: No arguments. The specified pins should be configured as
--                  pull down.
--- bias-pull-up:   No arguments. The specified pins should be configured as
--                  pull up.
--- input-schmitt-enable: No arguments: Enable schmitt trigger for the specified
--                  pins
--- input-schmitt-disable: No arguments: Disable schmitt trigger for the specified
--                  pins
--- slew-rate:      Integer. Sets slew rate for the specified pins.
--                  Valid values are:
--                  <0>  - Slow
--                  <1>  - Fast
--- drive-strength: Integer. Selects the drive strength for the specified
--                  pins in mA.
--                  Valid values are:
--                  <4>
--                  <8>
--                  <12>
--                  <16>
--                  <20>
--                  <24>
--                  <28>
--                  <32>
--
--Example:
--        pinctrl: pinctrl@400 {
--                compatible = "bitmain,bm1880-pinctrl";
--                reg = <0x400 0x120>;
--
--                pinctrl_uart0_default: uart0-default {
--                        pinmux {
--                                groups = "uart0_grp";
--                                function = "uart0";
--                        };
--                };
--        };
-diff --git a/Documentation/devicetree/bindings/pinctrl/bitmain,bm1880-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/bitmain,bm1880-pinctrl.yaml
-new file mode 100644
-index 000000000000..542be9870838
---- /dev/null
-+++ b/Documentation/devicetree/bindings/pinctrl/bitmain,bm1880-pinctrl.yaml
-@@ -0,0 +1,132 @@
-+# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
-+%YAML 1.2
-+---
-+$id: http://devicetree.org/schemas/pinctrl/bitmain,bm1880-pinctrl.yaml#
-+$schema: http://devicetree.org/meta-schemas/core.yaml#
-+
-+title: Bitmain BM1880 Pin Controller
-+
-+maintainers:
-+  - Manivannan Sadhasivam <manivannan.sadhasivam@linaro.org>
-+
-+properties:
-+  compatible:
-+    const: bitmain,bm1880-pinctrl
-+
-+  reg:
-+    maxItems: 1
-+
-+additionalProperties:
-+  description: A pin configuration node.
-+  type: object
-+  additionalProperties: false
-+
-+  properties:
-+    pinmux:
-+      type: object
-+      description: Pin multiplexing parameters.
-+      allOf:
-+        - $ref: /schemas/pinctrl/pincfg-node.yaml#
-+        - $ref: /schemas/pinctrl/pinmux-node.yaml#
-+      additionalProperties: false
-+
-+      properties:
-+        pins:
-+          items:
-+            pattern: '^MIO[0-9]+$'
-+
-+        groups:
-+          items:
-+            enum: [
-+              nand_grp, spi_grp, emmc_grp, sdio_grp, eth0_grp, pwm0_grp,
-+              pwm1_grp, pwm2_grp, pwm3_grp, pwm4_grp, pwm5_grp, pwm6_grp,
-+              pwm7_grp, pwm8_grp, pwm9_grp, pwm10_grp, pwm11_grp, pwm12_grp,
-+              pwm13_grp, pwm14_grp, pwm15_grp, pwm16_grp, pwm17_grp,
-+              pwm18_grp, pwm19_grp, pwm20_grp, pwm21_grp, pwm22_grp,
-+              pwm23_grp, pwm24_grp, pwm25_grp, pwm26_grp, pwm27_grp,
-+              pwm28_grp, pwm29_grp, pwm30_grp, pwm31_grp, pwm32_grp,
-+              pwm33_grp, pwm34_grp, pwm35_grp, pwm36_grp, i2c0_grp,
-+              i2c1_grp, i2c2_grp, i2c3_grp, i2c4_grp, uart0_grp, uart1_grp,
-+              uart2_grp, uart3_grp, uart4_grp, uart5_grp, uart6_grp,
-+              uart7_grp, uart8_grp, uart9_grp, uart10_grp, uart11_grp,
-+              uart12_grp, uart13_grp, uart14_grp, uart15_grp, gpio0_grp,
-+              gpio1_grp, gpio2_grp, gpio3_grp, gpio4_grp, gpio5_grp,
-+              gpio6_grp, gpio7_grp, gpio8_grp, gpio9_grp, gpio10_grp,
-+              gpio11_grp, gpio12_grp, gpio13_grp, gpio14_grp, gpio15_grp,
-+              gpio16_grp, gpio17_grp, gpio18_grp, gpio19_grp, gpio20_grp,
-+              gpio21_grp, gpio22_grp, gpio23_grp, gpio24_grp, gpio25_grp,
-+              gpio26_grp, gpio27_grp, gpio28_grp, gpio29_grp, gpio30_grp,
-+              gpio31_grp, gpio32_grp, gpio33_grp, gpio34_grp, gpio35_grp,
-+              gpio36_grp, gpio37_grp, gpio38_grp, gpio39_grp, gpio40_grp,
-+              gpio41_grp, gpio42_grp, gpio43_grp, gpio44_grp, gpio45_grp,
-+              gpio46_grp, gpio47_grp, gpio48_grp, gpio49_grp, gpio50_grp,
-+              gpio51_grp, gpio52_grp, gpio53_grp, gpio54_grp, gpio55_grp,
-+              gpio56_grp, gpio57_grp, gpio58_grp, gpio59_grp, gpio60_grp,
-+              gpio61_grp, gpio62_grp, gpio63_grp, gpio64_grp, gpio65_grp,
-+              gpio66_grp, gpio67_grp, eth1_grp, i2s0_grp, i2s0_mclkin_grp,
-+              i2s1_grp, i2s1_mclkin_grp, spi0_grp
-+            ]
-+
-+        function:
-+          items:
-+            enum: [
-+              nand, spi, emmc, sdio, eth0, pwm0, pwm1, pwm2, pwm3, pwm4,
-+              pwm5, pwm6, pwm7, pwm8, pwm9, pwm10, pwm11, pwm12, pwm13,
-+              pwm14, pwm15, pwm16, pwm17, pwm18, pwm19, pwm20, pwm21, pwm22,
-+              pwm23, pwm24, pwm25, pwm26, pwm27, pwm28, pwm29, pwm30, pwm31,
-+              pwm32, pwm33, pwm34, pwm35, pwm36, i2c0, i2c1, i2c2, i2c3,
-+              i2c4, uart0, uart1, uart2, uart3, uart4, uart5, uart6, uart7,
-+              uart8, uart9, uart10, uart11, uart12, uart13, uart14, uart15,
-+              gpio0, gpio1, gpio2, gpio3, gpio4, gpio5, gpio6, gpio7, gpio8,
-+              gpio9, gpio10, gpio11, gpio12, gpio13, gpio14, gpio15, gpio16,
-+              gpio17, gpio18, gpio19, gpio20, gpio21, gpio22, gpio23,
-+              gpio24, gpio25, gpio26, gpio27, gpio28, gpio29, gpio30,
-+              gpio31, gpio32, gpio33, gpio34, gpio35, gpio36, gpio37,
-+              gpio38, gpio39, gpio40, gpio41, gpio42, gpio43, gpio44,
-+              gpio45, gpio46, gpio47, gpio48, gpio49, gpio50, gpio51,
-+              gpio52, gpio53, gpio54, gpio55, gpio56, gpio57, gpio58,
-+              gpio59, gpio60, gpio61, gpio62, gpio63, gpio64, gpio65,
-+              gpio66, gpio67, eth1, i2s0, i2s0_mclkin, i2s1, i2s1_mclkin,
-+              spi0
-+            ]
-+
-+        bias-disable: true
-+        bias-pull-down: true
-+        bias-pull-up: true
-+        input-schmitt-enable: true
-+        input-schmitt-disable: true
-+
-+        slew-rate:
-+          description: >
-+            Sets slew rate. Valid values: 0 = Slow, 1 = Fast.
-+          enum: [0, 1]
-+
-+        drive-strength:
-+          enum: [4, 8, 12, 16, 20, 24, 28, 32]
-+
-+      oneOf:
-+        - required:
-+            - pins
-+        - required:
-+            - groups
-+
-+      required:
-+        - function
-+
-+required:
-+  - compatible
-+  - reg
-+
-+examples:
-+  - |
-+    pinctrl@400 {
-+        compatible = "bitmain,bm1880-pinctrl";
-+        reg = <0x400 0x120>;
-+
-+        uart0-default {
-+            pinmux {
-+                groups = "uart0_grp";
-+                function = "uart0";
-+            };
-+        };
-+    };
-diff --git a/MAINTAINERS b/MAINTAINERS
-index 04193ceb9365..e72a9e529625 100644
---- a/MAINTAINERS
-+++ b/MAINTAINERS
-@@ -2529,7 +2529,7 @@ L:	linux-arm-kernel@lists.infradead.org (moderated for non-subscribers)
- S:	Maintained
- F:	Documentation/devicetree/bindings/arm/bitmain.yaml
- F:	Documentation/devicetree/bindings/clock/bitmain,bm1880-clk.yaml
--F:	Documentation/devicetree/bindings/pinctrl/bitmain,bm1880-pinctrl.txt
-+F:	Documentation/devicetree/bindings/pinctrl/bitmain,bm1880-pinctrl.yaml
- F:	arch/arm64/boot/dts/bitmain/
- F:	drivers/clk/clk-bm1880.c
- F:	drivers/pinctrl/pinctrl-bm1880.c
--- 
-2.51.0
+>
+> Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
+> ---
+> Cc: Abel Vesa <abelvesa@kernel.org>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Fabio Estevam <festevam@gmail.com>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
+> Cc: Liu Ying <victor.liu@nxp.com>
+> Cc: Lucas Stach <l.stach@pengutronix.de>
+> Cc: Peng Fan <peng.fan@nxp.com>
+> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Shawn Guo <shawnguo@kernel.org>
+> Cc: Thomas Zimmermann <tzimmermann@suse.de>
+> Cc: devicetree@vger.kernel.org
+> Cc: dri-devel@lists.freedesktop.org
+> Cc: imx@lists.linux.dev
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-clk@vger.kernel.org
+> ---
+>  .../display/bridge/fsl,imx93-mipi-dsi.yaml    | 48 +++++++++++++++++--
+>  1 file changed, 43 insertions(+), 5 deletions(-)
+>
+> diff --git a/Documentation/devicetree/bindings/display/bridge/fsl,imx93-mipi-dsi.yaml b/Documentation/devicetree/bindings/display/bridge/fsl,imx93-mipi-dsi.yaml
+> index d6e51d0cf5464..388301c4f95c1 100644
+> --- a/Documentation/devicetree/bindings/display/bridge/fsl,imx93-mipi-dsi.yaml
+> +++ b/Documentation/devicetree/bindings/display/bridge/fsl,imx93-mipi-dsi.yaml
+> @@ -14,12 +14,11 @@ description: |
+>    Designware MIPI DPHY embedded in Freescale i.MX93 SoC.  Some configurations
+>    and extensions to them are controlled by i.MX93 media blk-ctrl.
+>
+> -allOf:
+> -  - $ref: snps,dw-mipi-dsi.yaml#
+> -
+>  properties:
+>    compatible:
+> -    const: fsl,imx93-mipi-dsi
+> +    enum:
+> +      - fsl,imx93-mipi-dsi
+> +      - fsl,imx95-mipi-dsi
+>
+>    clocks:
+>      items:
+> @@ -46,13 +45,52 @@ properties:
+>        controller and MIPI DPHY PLL related configurations through PLL SoC
+>        interface.
+>
+> +  fsl,disp-master-csr:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description:
+> +      i.MX95 Display Master CSR is a syscon which includes registers to
+> +      control DSI clock settings, clock gating, and pixel link select.
 
+why not go through standard phy interface?
+
+> +
+> +  fsl,disp-stream-csr:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description:
+> +      i.MX95 Display Stream CSR is a syscon which includes configuration
+> +      and status registers for the DSI host.
+
+why not go through standard phy interface?
+
+Frank
+> +
+> +  fsl,mipi-combo-phy-csr:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description:
+> +      i.MX95 Display Stream CSR is a syscon which configuration and status
+> +      registers for the MIPI Tx DPHY module in the Camera domain.
+> +
+>    power-domains:
+>      maxItems: 1
+>
+> +allOf:
+> +  - $ref: snps,dw-mipi-dsi.yaml#
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: fsl,imx93-mipi-dsi
+> +    then:
+> +      required:
+> +        - fsl,media-blk-ctrl
+> +
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: fsl,imx95-mipi-dsi
+> +    then:
+> +      required:
+> +        - fsl,disp-master-csr
+> +        - fsl,disp-stream-csr
+> +        - fsl,mipi-combo-phy-csr
+> +
+>  required:
+>    - compatible
+>    - interrupts
+> -  - fsl,media-blk-ctrl
+>    - power-domains
+>
+>  unevaluatedProperties: false
+> --
+> 2.51.0
+>
 
