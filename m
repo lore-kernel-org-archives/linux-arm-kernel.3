@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EEDC2CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 20:32:44 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id BC390CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 20:32:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8/t2AG3xG0QVui5ui1EwN8zCpXl8fZ1kSfy4ToXG8/o=; b=BjsiCxJzm4f/81L8MpDuIBhIcF
-	WbEuY8VXWtpuvYe/TBfG87+7FK8H4imUmUyiY8/+mUCkSbMMEm4uPzXlNCa4eCdbFBhvNIBFQcXpy
-	z9lw9IudYfpX+IZwliq4JfyEqScFagUPEhnKRIdYekYEvGRnqFm+4yo5RgMKFLA9TwvLbQZg9Aom0
-	2tt4bM7NTxgti/ZDMTlvp1sstcAgw/DOH6sF4cMHZSCgxZNs4GRp+wP+LWVA7A9JL76m32Fsr2Hkc
-	FgNNO2WBoCgeHfeb9Q4IQfYYjVoIu/RRQfJqfbo7Vn6u+Lg59df3t2jlARi7ShVgCxRuoGJ1i/ELu
-	Sw4kFXHQ==;
+	bh=Jo8Wdjvj3YfXYEEpEI+fQEmDmOtHAHT+I0W8XkKzZIw=; b=2jZDiEMNZGTBGl2I71xbQkxwW2
+	nnUECYzPBZ1ToATJ/jyxdfc4EWLG63SvJl1dBvAnEkMsU3dZ5bZS+CxpbAoH9EJNU4mTj6jch0rkb
+	r5zX7ovGM/Eg+Zkscrbige+wHuyBueNoyZAw6l8wKvlIC4gjEKym+J1XiM9sX8TdXgNXeI0pVE6vk
+	pHSHIEQeetNL1faX+YIE1BWAXcymTlZyzuhzq9k5Xn4NRZ6cuBBQj4ZjHJU0vQyumySw/lGC6hEjw
+	fyCIFXfe4jsEnSJX9Cf+IM5jfq1gR4bV3SPR+nWcktAPuUVYBTrg/ACHjUBx2v6GrZSnH+4TOPCT0
+	Of8Q092w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8PDi-0000000EN5W-40IM;
-	Mon, 13 Oct 2025 20:32:38 +0000
+	id 1v8PDr-0000000ENF3-3OZo;
+	Mon, 13 Oct 2025 20:32:47 +0000
 Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8PDh-0000000EN4C-1yIn
+	id 1v8PDq-0000000ENCr-2Dnd
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 20:32:37 +0000
+	Mon, 13 Oct 2025 20:32:46 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CEEB3604A3;
-	Mon, 13 Oct 2025 20:32:06 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 11323C116D0;
-	Mon, 13 Oct 2025 20:31:58 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id E7F60602DC;
+	Mon, 13 Oct 2025 20:32:45 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A4A89C4CEF8;
+	Mon, 13 Oct 2025 20:32:37 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760387526;
-	bh=zlG/yixTMUrq/Me+zY5s7AwbStMjq2n8GY4MrtLKvUY=;
+	s=k20201202; t=1760387565;
+	bh=4bRWbV0YuzmDy1B/sRgCWln6RMh7KL9GReKc3Nnqm6c=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=hcHqvX7RhhCKOAaYLpIuftFbUJV/a3dNOvnAi/tkoDar/BahbUCmucimX5UI0fxTC
-	 VgSSfOKqr2yd02Yz1JYY2977DD/zstadpa+3DhSIRMrm1l+12HN1J5IxJHYBESdo/l
-	 veQRkowFpPH56YNrE/7CHKTSbIbxtOkceqAtRUA5tPja8bwftjEvBAvcvTduJZO1dj
-	 DMorYmBMwWVoWCwfMtQb6wee3WRgC5gJ4zHnTrUARWJbLbCU1erpheaBhPInUskwLw
-	 q5bCeE2hZ1NbavDZyHY99mP2rH4AVVo/xLqzHlDz85GKyJ65mWA5AizA2ddpsQIvoI
-	 RA31HBv9njIVA==
+	b=uhGBkZi9MnxwjOJytxqClEHKzOENZfbkLSvQ1M4jP6Ka7W01jMwLORp33hXCTK/0F
+	 lpF3bG3AY7QGUgYRotUsYLwasL8N1/87VeZZFTtlK/hw1DZyy+/hqdCPqRGd4jTz3G
+	 PX1K9DMq5s229QMH06atQ5/UI6Kuz0UkIuw0GW+jCbCav8mNJfoDkzNQnR8LUaUsfb
+	 DNroVXWCOkC4MrF3I0FPBreVOB6lcD+LSqvld84xyUr8SbcgH5A54O4RB3ZlCNJs8G
+	 EQQfG/Di4fw9Y5LjFyLO6+KN8H3lRJPpw5aqjBqr7RCC+btrcBwDa+wITykTmbgLJ9
+	 72q3ebLomqdRw==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
@@ -80,9 +80,9 @@ Cc: Frederic Weisbecker <frederic@kernel.org>,
 	linux-mm@kvack.org,
 	linux-pci@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH 01/33] PCI: Prepare to protect against concurrent isolated cpuset change
-Date: Mon, 13 Oct 2025 22:31:14 +0200
-Message-ID: <20251013203146.10162-2-frederic@kernel.org>
+Subject: [PATCH 06/33] cpuset: Convert boot_hk_cpus to use HK_TYPE_DOMAIN_BOOT
+Date: Mon, 13 Oct 2025 22:31:19 +0200
+Message-ID: <20251013203146.10162-7-frederic@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251013203146.10162-1-frederic@kernel.org>
 References: <20251013203146.10162-1-frederic@kernel.org>
@@ -102,117 +102,68 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-HK_TYPE_DOMAIN will soon integrate cpuset isolated partitions and
-therefore be made modifyable at runtime. Synchronize against the cpumask
-update using RCU.
-
-The RCU locked section includes both the housekeeping CPU target
-election for the PCI probe work and the work enqueue.
-
-This way the housekeeping update side will simply need to flush the
-pending related works after updating the housekeeping mask in order to
-make sure that no PCI work ever executes on an isolated CPU. This part
-will be handled in a subsequent patch.
+boot_hk_cpus is an ad-hoc copy of HK_TYPE_DOMAIN_BOOT. Remove it and use
+the official version.
 
 Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+Reviewed-by: Phil Auld <pauld@redhat.com>
 ---
- drivers/pci/pci-driver.c | 47 ++++++++++++++++++++++++++++++++--------
- 1 file changed, 38 insertions(+), 9 deletions(-)
+ kernel/cgroup/cpuset.c | 22 +++++++---------------
+ 1 file changed, 7 insertions(+), 15 deletions(-)
 
-diff --git a/drivers/pci/pci-driver.c b/drivers/pci/pci-driver.c
-index 302d61783f6c..7b74d22b20f7 100644
---- a/drivers/pci/pci-driver.c
-+++ b/drivers/pci/pci-driver.c
-@@ -302,9 +302,8 @@ struct drv_dev_and_id {
- 	const struct pci_device_id *id;
- };
+diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
+index 52468d2c178a..8595f1eadf23 100644
+--- a/kernel/cgroup/cpuset.c
++++ b/kernel/cgroup/cpuset.c
+@@ -81,12 +81,6 @@ static cpumask_var_t	subpartitions_cpus;
+  */
+ static cpumask_var_t	isolated_cpus;
  
--static long local_pci_probe(void *_ddi)
-+static int local_pci_probe(struct drv_dev_and_id *ddi)
+-/*
+- * Housekeeping (HK_TYPE_DOMAIN) CPUs at boot
+- */
+-static cpumask_var_t	boot_hk_cpus;
+-static bool		have_boot_isolcpus;
+-
+ /* List of remote partition root children */
+ static struct list_head remote_children;
+ 
+@@ -1686,15 +1680,16 @@ static void remote_cpus_update(struct cpuset *cs, struct cpumask *xcpus,
+  * @new_cpus: cpu mask
+  * Return: true if there is conflict, false otherwise
+  *
+- * CPUs outside of boot_hk_cpus, if defined, can only be used in an
++ * CPUs outside of HK_TYPE_DOMAIN_BOOT, if defined, can only be used in an
+  * isolated partition.
+  */
+ static bool prstate_housekeeping_conflict(int prstate, struct cpumask *new_cpus)
  {
--	struct drv_dev_and_id *ddi = _ddi;
- 	struct pci_dev *pci_dev = ddi->dev;
- 	struct pci_driver *pci_drv = ddi->drv;
- 	struct device *dev = &pci_dev->dev;
-@@ -338,6 +337,19 @@ static long local_pci_probe(void *_ddi)
+-	if (!have_boot_isolcpus)
++	if (!housekeeping_enabled(HK_TYPE_DOMAIN_BOOT))
+ 		return false;
+ 
+-	if ((prstate != PRS_ISOLATED) && !cpumask_subset(new_cpus, boot_hk_cpus))
++	if ((prstate != PRS_ISOLATED) &&
++	    !cpumask_subset(new_cpus, housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT)))
+ 		return true;
+ 
+ 	return false;
+@@ -3824,12 +3819,9 @@ int __init cpuset_init(void)
+ 
+ 	BUG_ON(!alloc_cpumask_var(&cpus_attach, GFP_KERNEL));
+ 
+-	have_boot_isolcpus = housekeeping_enabled(HK_TYPE_DOMAIN);
+-	if (have_boot_isolcpus) {
+-		BUG_ON(!alloc_cpumask_var(&boot_hk_cpus, GFP_KERNEL));
+-		cpumask_copy(boot_hk_cpus, housekeeping_cpumask(HK_TYPE_DOMAIN));
+-		cpumask_andnot(isolated_cpus, cpu_possible_mask, boot_hk_cpus);
+-	}
++	if (housekeeping_enabled(HK_TYPE_DOMAIN_BOOT))
++		cpumask_andnot(isolated_cpus, cpu_possible_mask,
++			       housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT));
+ 
  	return 0;
  }
- 
-+struct pci_probe_arg {
-+	struct drv_dev_and_id *ddi;
-+	struct work_struct work;
-+	int ret;
-+};
-+
-+static void local_pci_probe_callback(struct work_struct *work)
-+{
-+	struct pci_probe_arg *arg = container_of(work, struct pci_probe_arg, work);
-+
-+	arg->ret = local_pci_probe(arg->ddi);
-+}
-+
- static bool pci_physfn_is_probed(struct pci_dev *dev)
- {
- #ifdef CONFIG_PCI_IOV
-@@ -362,34 +374,51 @@ static int pci_call_probe(struct pci_driver *drv, struct pci_dev *dev,
- 	dev->is_probed = 1;
- 
- 	cpu_hotplug_disable();
--
- 	/*
- 	 * Prevent nesting work_on_cpu() for the case where a Virtual Function
- 	 * device is probed from work_on_cpu() of the Physical device.
- 	 */
- 	if (node < 0 || node >= MAX_NUMNODES || !node_online(node) ||
- 	    pci_physfn_is_probed(dev)) {
--		cpu = nr_cpu_ids;
-+		error = local_pci_probe(&ddi);
- 	} else {
- 		cpumask_var_t wq_domain_mask;
-+		struct pci_probe_arg arg = { .ddi = &ddi };
-+
-+		INIT_WORK_ONSTACK(&arg.work, local_pci_probe_callback);
- 
- 		if (!zalloc_cpumask_var(&wq_domain_mask, GFP_KERNEL)) {
- 			error = -ENOMEM;
- 			goto out;
- 		}
-+
-+		/*
-+		 * The target election and the enqueue of the work must be within
-+		 * the same RCU read side section so that when the workqueue pool
-+		 * is flushed after a housekeeping cpumask update, further readers
-+		 * are guaranteed to queue the probing work to the appropriate
-+		 * targets.
-+		 */
-+		rcu_read_lock();
- 		cpumask_and(wq_domain_mask,
- 			    housekeeping_cpumask(HK_TYPE_WQ),
- 			    housekeeping_cpumask(HK_TYPE_DOMAIN));
- 
- 		cpu = cpumask_any_and(cpumask_of_node(node),
- 				      wq_domain_mask);
-+		if (cpu < nr_cpu_ids) {
-+			schedule_work_on(cpu, &arg.work);
-+			rcu_read_unlock();
-+			flush_work(&arg.work);
-+			error = arg.ret;
-+		} else {
-+			rcu_read_unlock();
-+			error = local_pci_probe(&ddi);
-+		}
-+
- 		free_cpumask_var(wq_domain_mask);
-+		destroy_work_on_stack(&arg.work);
- 	}
--
--	if (cpu < nr_cpu_ids)
--		error = work_on_cpu(cpu, local_pci_probe, &ddi);
--	else
--		error = local_pci_probe(&ddi);
- out:
- 	dev->is_probed = 0;
- 	cpu_hotplug_enable();
 -- 
 2.51.0
 
