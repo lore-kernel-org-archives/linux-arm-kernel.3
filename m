@@ -4,67 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EED5FCCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 12:17:36 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FF17CCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 12:20:43 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:To:From:Reply-To:Cc:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=Du1q0d8iaqBmjtERDybGAzIfy4R227O66LOdBibIRSM=; b=2zBAvtvD2+iRfDy22/pljIZgsK
-	qf4X1O6diuWrJyMOrsc9Hnkx1SfPMROHJRKx21fTI2uEJqBrSac7OMUBRAw5J7mdQ4ckA1pvudfR+
-	SnaTV/NTrIWftCu6xtHt5Ue88fRzzGO7VBFwNLVNIcITYhq769n8ivA/SAKFHSfUnbaMO+fCdEk/p
-	uhtXq7TG0otGPWRTxnkgklm33cuRmRkpKheNFeDa3PyE6QhgR3lsb1hpSnJA8NbpaJ/NXHoDRpc5j
-	MQPCsnrqWHKumDNIGpFIvUQSa9vnD/EUrS8E2w2aDPS50gWfD4wHlfWGVeZnts4DjA8wdYZVMsnBc
-	5FikcgTg==;
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=D5ir6e1ly7uyYMLlaJ5GUbqIWgqprqQSkOVcsXR2tCo=; b=yK3hUuW4CjRYtaIxfPdwznsx6/
+	U1RNyjE72RteEdbAQMwusfZCnzcUBtGdKkegPSh4b1lasbsdLwfLnPU0FBjOmUzBbm7f+tZF36vd0
+	zQ2MKQ+tVT8s5ZJlWtd3Xm9fiikLrncHVFw2fzBymKQUepGUKAj5r0ggeoUYvsLuit63CpID7U/xX
+	7SESwAusTLjnUUP7VQLQ+XuuVK0wojvwLNmpwapebbMJsw5E7DgaON03X6Of3NuJcS9nVr9/C5Npy
+	hf/6QaydIB5503YYl3ifID98X/J62zTF2tI4BPukRWUCUdw84+kAq0VKnpUHoBYePnsQA4f24dccL
+	PkFve58g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8HUZ-0000000D6ZT-4189;
-	Mon, 13 Oct 2025 12:17:31 +0000
-Received: from mail.andi.de1.cc ([2a02:c205:3004:2154::1])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8HUX-0000000D6Yp-2osx
+	id 1v8HXa-0000000D6wA-0CIH;
+	Mon, 13 Oct 2025 12:20:38 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v8HXX-0000000D6ud-0NCE
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 12:17:30 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=kemnade.info; s=20220719; h=From:Sender:Reply-To:Cc:Content-ID:
-	Content-Description:Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc
-	:Resent-Message-ID:In-Reply-To:References;
-	bh=Du1q0d8iaqBmjtERDybGAzIfy4R227O66LOdBibIRSM=; b=21iEEdtVLyqas0aNnOcZjTKntt
-	ZNA7ATosy4Fr6Ptu7q5SB4+t+eicCNXHJtqyfeYwxRoU5FnflligZ51sejMPaKdzk7NVPwkhIxwxA
-	vdrXQY5vAyFZ9aPw7t3pFxRVFynn9TRaYZoQNcFN1dmejBRSw1Q3h6nEGVXT3Z0TNHcpujngvKX+8
-	CcmbN5LB4WKGPNrbopZ82KmBlp8t1OSJT9ElcwYu4b/s25OK0HbUxi1oY+HkK3Yx8Uqka8AAj3wGa
-	efh3upEJn4JIyBOPIFoG7PWpNN60yLLCMi2rFh3cr8+V7yVLMFI3g0ilK3aBO4oVMTdKZyjzAEUeK
-	jNnkhKxg==;
-From: Andreas Kemnade <andreas@kemnade.info>
-To: linux@armlinux.org.uk,
-	shawnguo@kernel.org,
-	s.hauer@pengutronix.de,
-	kernel@pengutronix.de,
-	festevam@gmail.com,
-	ebiggers@google.com,
-	ardb@kernel.org,
-	dario.binacchi@amarulasolutions.com,
-	martin.petersen@oracle.com,
-	andreas@kemnade.info,
-	alexander.stein@ew.tq-group.com,
-	stefan.eichenberger@toradex.com,
-	lukas.bulwahn@redhat.com,
-	tytso@mit.edu,
-	linux-arm-kernel@lists.infradead.org,
-	imx@lists.linux.dev,
-	linux-kernel@vger.kernel.org
-Subject: [PATCH] arm: imx_v6_v7_defconfig: enable ext4 directly
-Date: Mon, 13 Oct 2025 14:17:09 +0200
-Message-ID: <20251013121709.104546-1-andreas@kemnade.info>
-X-Mailer: git-send-email 2.47.3
+	Mon, 13 Oct 2025 12:20:36 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7DA97113E;
+	Mon, 13 Oct 2025 05:20:23 -0700 (PDT)
+Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6A4993F738;
+	Mon, 13 Oct 2025 05:20:30 -0700 (PDT)
+Message-ID: <25a19af8-2026-45b6-8d0f-42c371c8ff95@arm.com>
+Date: Mon, 13 Oct 2025 13:20:29 +0100
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH] KVM: arm64: selftests: Sync ID_AA64PFR1, MPIDR, CLIDR in
+ guest
+To: Zenghui Yu <zenghui.yu@linux.dev>, kvmarm@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org
+Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
+ suzuki.poulose@arm.com
+References: <20251012154352.61133-1-zenghui.yu@linux.dev>
+From: Ben Horgan <ben.horgan@arm.com>
+Content-Language: en-US
+In-Reply-To: <20251012154352.61133-1-zenghui.yu@linux.dev>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_051729_707516_256195E5 
-X-CRM114-Status: UNSURE (   7.62  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251013_052035_172872_B7F5DA0A 
+X-CRM114-Status: GOOD (  12.46  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,34 +66,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-In former times, ext4 was enabled implicitely by enabling ext3 but with
-the ext3 fs gone, it does not get enabled, which lets devices fail to
-mount root on non-initrd based boots with an ext4 root.
+Hi Zenghui,
 
-Fixes: d6ace46c82fd ("ext4: remove obsolete EXT3 config options")
-Signed-off-by: Andreas Kemnade <andreas@kemnade.info>
----
- arch/arm/configs/imx_v6_v7_defconfig | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+On 10/12/25 16:43, Zenghui Yu wrote:
+> We forgot to sync several registers (ID_AA64PFR1, MPIDR, CLIDR) in guest to
+> make sure that the guest had seen the written value.
+> 
+> Add them to the list.
+> 
+> Signed-off-by: Zenghui Yu <zenghui.yu@linux.dev>
+> ---
+>  tools/testing/selftests/kvm/arm64/set_id_regs.c | 3 +++
+>  1 file changed, 3 insertions(+)
+> 
+> diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
+> index 8ff1e853f7f8..5e24f77868b5 100644
+> --- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
+> +++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
+> @@ -249,11 +249,14 @@ static void guest_code(void)
+>  	GUEST_REG_SYNC(SYS_ID_AA64ISAR2_EL1);
+>  	GUEST_REG_SYNC(SYS_ID_AA64ISAR3_EL1);
+>  	GUEST_REG_SYNC(SYS_ID_AA64PFR0_EL1);
+> +	GUEST_REG_SYNC(SYS_ID_AA64PFR1_EL1);
+>  	GUEST_REG_SYNC(SYS_ID_AA64MMFR0_EL1);
+>  	GUEST_REG_SYNC(SYS_ID_AA64MMFR1_EL1);
+>  	GUEST_REG_SYNC(SYS_ID_AA64MMFR2_EL1);
+>  	GUEST_REG_SYNC(SYS_ID_AA64MMFR3_EL1);
+>  	GUEST_REG_SYNC(SYS_ID_AA64ZFR0_EL1);
+> +	GUEST_REG_SYNC(SYS_MPIDR_EL1);
+> +	GUEST_REG_SYNC(SYS_CLIDR_EL1);
 
-diff --git a/arch/arm/configs/imx_v6_v7_defconfig b/arch/arm/configs/imx_v6_v7_defconfig
-index 9a57763a8d38a..0d55056c6f821 100644
---- a/arch/arm/configs/imx_v6_v7_defconfig
-+++ b/arch/arm/configs/imx_v6_v7_defconfig
-@@ -436,9 +436,9 @@ CONFIG_EXT2_FS=y
- CONFIG_EXT2_FS_XATTR=y
- CONFIG_EXT2_FS_POSIX_ACL=y
- CONFIG_EXT2_FS_SECURITY=y
--CONFIG_EXT3_FS=y
--CONFIG_EXT3_FS_POSIX_ACL=y
--CONFIG_EXT3_FS_SECURITY=y
-+CONFIG_EXT4_FS=y
-+CONFIG_EXT4_FS_POSIX_ACL=y
-+CONFIG_EXT4_FS_SECURITY=y
- CONFIG_QUOTA=y
- CONFIG_QUOTA_NETLINK_INTERFACE=y
- CONFIG_AUTOFS_FS=y
--- 
-2.47.3
+Why did you choose this position in the list for these 2?
+
+>  	GUEST_REG_SYNC(SYS_CTR_EL0);
+>  	GUEST_REG_SYNC(SYS_MIDR_EL1);
+>  	GUEST_REG_SYNC(SYS_REVIDR_EL1);
+
+Looks good to me.
+
+Reviewed-By: Ben Horgan <ben.horgan@arm.com>
+Thanks,
+
+Ben
 
 
