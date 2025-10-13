@@ -4,95 +4,157 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A2EDCCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 16:49:06 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id AE714CCD18D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 16:49:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=w6lzTshIWy3JM+cSfZr7xkLn0E7l8XLqxjY9wcBsXSk=; b=sWXuhCXPmI4gyQi6gO6tWRVwZk
-	6mtPg9H9nIYwnirCSoxGoHGtEwQ7PRKs5KUU6khUwidwYaprvjZuoxiQsw37A86A+NDEkz1TXsJ/d
-	RzgQCN86brCngblD7VevHFpwJpBQ12GyVj9z0/s94nTF6K5aJN0y8s/qpbg7EAqJWLYU7Ngts2VIg
-	O2L+/LHVp/YHocZZYjXp/WmZ5rbvASWlCJPjenqrvfJ5dxh4W3pQpTDcV/cCe/TxFHJ6MwV9gwd7y
-	e+nnUQAI26FN84cT0tdQ2PS8Nqct7s7Js98cOMw+x0ok/iNGpD4Mnjx/0+su7uC958ctMFtLcIbGy
-	A7fZ5hAw==;
+	bh=yiq5O/wv/Vh9vl9iFRuI6H8xyEesFiCQ9wPcLjy/jGE=; b=FYnMvcAmskWP9fNscCyu4KSfRR
+	d9tElJPaO9vXwx2rUUBrW0uhwXUVwDBEbX8L6d+jBiMO6G8jHrDgk5BNZ9zj6/ez8QjZErvrPk7GY
+	srS2JOAgZp3qsaLvFbE295kz76caSv8XhD97AFU5sJopIGi8wcGai/7n5vICpi0/bKt01yNgy2R6K
+	lSX8mfxyKc8prGBlOxHbjLCT0wGPAVFwExs1DDiCheVmnADA8ezmMWZIGmmJpineK91bLIEJRM39y
+	kbtQZ4cRZs0DFmuQlIkAronVLEJGgg0VjHJXyeeoXjR2ToHYcKfIoa9mdIaa4j4lImlx8OsyxHwah
+	eXeEVJzQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8LjI-0000000Dv88-0FEF;
-	Mon, 13 Oct 2025 16:49:00 +0000
-Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
+	id 1v8Lk8-0000000DvLJ-1m3v;
+	Mon, 13 Oct 2025 16:49:52 +0000
+Received: from mail-swedencentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c202::7] helo=GVXPR05CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8LjF-0000000Dv7O-3aFw
+	id 1v8Lk5-0000000DvJR-1qDN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 16:48:59 +0000
-Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-71d5fb5e34cso61507857b3.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 09:48:57 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760374137; x=1760978937; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=w6lzTshIWy3JM+cSfZr7xkLn0E7l8XLqxjY9wcBsXSk=;
-        b=RTtyq26kvZlR/MkfUieeeyHCedFFRKEI5bbWrR1uaJbIdR8EUHQ7QXK7cRUszqzLIx
-         rbf80TAhUrhrzw/Udjy0mfb02lmPwNoyxEiKLfNLAjXmD5a24ncvc02BsHVpPsTfqnX2
-         cmDXnwcjv0iy+PEhfeXsn4NBPcYkdLzDcat0SYW3g9OX9+aUKkbNDIhCALERMWFWar30
-         wfRcf0wUMKVW6JW4BOEUCYI0KXtnat947ja6fz1ossoyr3kJSBg7odDcFbV5X3N04Xkr
-         /XqedtUA1loXLMAfdX5YQTVLA+GGA42aVHe/qrDPeVFKKMIYMRAksYJI9u0+yAOufdPa
-         kcTg==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760374137; x=1760978937;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=w6lzTshIWy3JM+cSfZr7xkLn0E7l8XLqxjY9wcBsXSk=;
-        b=OZRmwFDGG7sjuAsHFPDy2WU2nhsb568dURmmEDCq9B20gi+9IcWFFKIJhG+jXzwTuA
-         56w1CP1uVqDYM5gdUme6Mnx1Cz+nSaddgN0+RhCkBgMnVdwv+9KqzXD6cDoTNYj5xUgf
-         rOMTmfAVlJIltcV07GrVwxiAedgBB7dIDiUWV0FXXbx+NHAsPeX1p/WyJM/z0zR9hOCI
-         nyR9dF6Mz7Poc4ARPN9Pvi1sgUEMmG5U1Q6kFMDv7NTFBnOoPNXTk10r64OAJ9QiXAdN
-         S0Lm1Q0MBR93eGyXkCwaUzhzDQehmDJXDwJIF7CDTQKjNox5aTNbfiOzMczzxvsA9ugz
-         pbmA==
-X-Forwarded-Encrypted: i=1; AJvYcCVXlgAUGT7623JhWet1yonWSI8Ygx3UPHOM3g8k8aqZ+TKyr2R8nxPYoPAqIg4YAVbQBLH1PN64Pp4XxkESE2eF@lists.infradead.org
-X-Gm-Message-State: AOJu0YwInZiFJ6ft37gdgst0NrdjxH/oTMz/eEvT4boCYQ4gmKal7YON
-	56cuYa2hvIcfQQAWV7FlfkhICMoyWK9JXRdElGHb1DxnEC9FBYGrDgn7nRetCQSs1Vt90HoIxKy
-	w9dYnDAfGCjqvz3x1IOp/twwfNXJm/PGpPHghMz+Ygw==
-X-Gm-Gg: ASbGncv7yQXOGFqopTUnjVj9xCXu+1rhBIjQU6NglePFWB0bVBtcc7ONyuHYzeUTIhg
-	O1P5MiJStx7PJHcZY/B8tXyiZYechQjnS7V4kdYfyZUn/cYHA286seifkXnO/bfyE9jTrGHc6x5
-	tfWvSiQkfMt5HX8T5JmtGIHNwqziklEsD4xiirdz7wBM8j+dXSDyLKG3KN9IUK+Z7EWsEEYt6mi
-	buZjBfCB4GO6oFgVNB5acSCAAtSMkZeMNeXH5WRmw==
-X-Google-Smtp-Source: AGHT+IHqmHzAaVDHnow33cvgGG6Z5YF743Jj5ieEa2OjQWYWO3V5SRTF9BXUMfG7UGOBqyiISijlbKOAc4g+hB8SDas=
-X-Received: by 2002:a53:ca52:0:b0:63c:dd26:34e with SMTP id
- 956f58d0204a3-63cdd260c73mr10670160d50.21.1760374136718; Mon, 13 Oct 2025
- 09:48:56 -0700 (PDT)
+	Mon, 13 Oct 2025 16:49:50 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=c+ygpIG5Z1Us6PlCrFy6DQeMkpPXq3UkOySKKJTlEHlCvzVR/EI9Lkssohi5rb2tC6mu2s94lOlHemu3rrqJdZt55f8UoQplb3WICLYA8VA6v8gT+CI+dJbkDK6vGPPo363a+jOFNdWtUlZpFRS8pbuc6eVc8U1+Xxe0zBZrVEFy48K4VRt0nqiVh9Onmza3fdhY4f5S3JUB0wa+V230VPSMZyX+kzGp8rZsFy8IJx5niKKxEs1onpbZPT9u+LjRZDiN/3d6CBSdj0vjjTx9JXvxLZaFHE/AKqgIUkpvsFvVb/9AwhXsw3JCLrixeaGMN0jTt318+jh3kiNDKqeb6Q==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=yiq5O/wv/Vh9vl9iFRuI6H8xyEesFiCQ9wPcLjy/jGE=;
+ b=rDBsHoiH8xeuPKyo76P4Uy9e7rC9/58MR56omDa5qKEGGvRekpePDpnZsRt+TaXgggPJhJqtmLq1riWA34Yc4TEjj7ptLnGoLqpV4r8qmB+LXBKqzimJpQOZ+hfb09cwuP5mJQ7/HTXZtSdLGFpry40VX5ECrKU3YcGX60L2zRw7tt7cWMLCdrB/VJak73ZwzHvaBXPyV3PsLGHXfPOw3tMDPDC4cD9X2KUE/9yct+nXWqDRryDsGoKwXONGG3nMpqSou4mM5ea0B0pTUkebrR1xaMz5YDRuDUy0XA21XRSUQ6ZvASaAOKI+GtLPocTWg4X5Z0xcv0IorLfN9rjtUQ==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=yiq5O/wv/Vh9vl9iFRuI6H8xyEesFiCQ9wPcLjy/jGE=;
+ b=neFJ31bPNkP8sjAVMAq/3jOUOAEnHbVJ3ceDuYQneTrpISNTaDBuOcdJEZjwwayxlXUwnHvfdCgjH9FDUbcGderFwuYu2tcQXm4jTWu0Vd03FxV91i+1YoTshr0fHX/GB+QYq3U8T4uyi8M5fnZIToIcKNfogwPWnPKoy3ssUaAqOACgktCONy4ZO9vuRs02RMdSZgQXqaYoWNNotQfLfia7BhpaOOhuufsx22yDdAQtP/YOYUmABuviUDgT6D087TqVBGqUpYcNPCSBcvQwOoQ07f4S8N12NJ2nKgSCOkYn8dMs+4yR14ifEer4PdLLC4W721JPkaD8rpEwg/RnGQ==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from AS4PR04MB9621.eurprd04.prod.outlook.com (2603:10a6:20b:4ff::22)
+ by PAXPR04MB9304.eurprd04.prod.outlook.com (2603:10a6:102:2b6::20) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.12; Mon, 13 Oct
+ 2025 16:49:38 +0000
+Received: from AS4PR04MB9621.eurprd04.prod.outlook.com
+ ([fe80::a84d:82bf:a9ff:171e]) by AS4PR04MB9621.eurprd04.prod.outlook.com
+ ([fe80::a84d:82bf:a9ff:171e%4]) with mapi id 15.20.9203.009; Mon, 13 Oct 2025
+ 16:49:38 +0000
+Date: Mon, 13 Oct 2025 12:49:29 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Marek Vasut <marek.vasut@mailbox.org>
+Cc: dri-devel@lists.freedesktop.org, Abel Vesa <abelvesa@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Fabio Estevam <festevam@gmail.com>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
+	Liu Ying <victor.liu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>,
+	Peng Fan <peng.fan@nxp.com>,
+	Pengutronix Kernel Team <kernel@pengutronix.de>,
+	Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-clk@vger.kernel.org
+Subject: Re: [PATCH 03/39] dt-bindings: display: imx: Document i.MX95 Display
+ Controller processing units
+Message-ID: <aO0tmUWA5H0J80Ov@lizhi-Precision-Tower-5810>
+References: <20251011170213.128907-1-marek.vasut@mailbox.org>
+ <20251011170213.128907-4-marek.vasut@mailbox.org>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251011170213.128907-4-marek.vasut@mailbox.org>
+X-ClientProxiedBy: PH2PEPF0000385B.namprd17.prod.outlook.com
+ (2603:10b6:518:1::69) To AS4PR04MB9621.eurprd04.prod.outlook.com
+ (2603:10a6:20b:4ff::22)
 MIME-Version: 1.0
-References: <20251008201955.3919537-1-salil.mehta@opnsrc.net>
- <86v7koxk1z.wl-maz@kernel.org> <CAFEAcA8=yhQ-ygoA-fqxzwg69OkdW2nBM0O9X3Lmww4eXuVMWA@mail.gmail.com>
- <867bwzxe9r.wl-maz@kernel.org>
-In-Reply-To: <867bwzxe9r.wl-maz@kernel.org>
-From: Peter Maydell <peter.maydell@linaro.org>
-Date: Mon, 13 Oct 2025 17:48:44 +0100
-X-Gm-Features: AS18NWCAS9w1mC8fOxNHNg9CQTZ_Zo0jkRVSjMdF_vJRpxD-dkzMerf3nH7E2I4
-Message-ID: <CAFEAcA8FhgcaM_OsHKB3+3Z7B_oZJqU4LHX_j9p-ZQrHfWGX7g@mail.gmail.com>
-Subject: Re: [RFC PATCH] KVM: arm64: vgic-v3: Cache ICC_CTLR_EL1 and allow
- lockless read when ready
-To: Marc Zyngier <maz@kernel.org>
-Cc: salil.mehta@opnsrc.net, linux-kernel@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, salil.mehta@huawei.com, 
-	jonathan.cameron@huawei.com, will@kernel.org, catalin.marinas@arm.com, 
-	mark.rutland@arm.com, james.morse@arm.com, sudeep.holla@arm.com, 
-	lpieralisi@kernel.org, jean-philippe@linaro.org, tglx@linutronix.de, 
-	oliver.upton@linux.dev, richard.henderson@linaro.org, andrew.jones@linux.dev, 
-	mst@redhat.com, david@redhat.com, philmd@linaro.org, ardb@kernel.org, 
-	borntraeger@linux.ibm.com, alex.bennee@linaro.org, gustavo.romero@linaro.org, 
-	npiggin@gmail.com, linux@armlinux.org.uk, karl.heubaum@oracle.com, 
-	miguel.luis@oracle.com, darren@os.amperecomputing.com, 
-	ilkka@os.amperecomputing.com, vishnu@os.amperecomputing.com, 
-	gankulkarni@os.amperecomputing.com, wangyanan55@huawei.com, 
-	wangzhou1@hisilicon.com, linuxarm@huawei.com
-Content-Type: text/plain; charset="UTF-8"
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: AS4PR04MB9621:EE_|PAXPR04MB9304:EE_
+X-MS-Office365-Filtering-Correlation-Id: 3cca731d-e6d0-4eaf-e80b-08de0a787f3f
+X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|7416014|52116014|38350700014|7053199007;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?GqeO4zRp13pGsHeDa7r9nxj3RLnxrJEktl8hejtvE9kbG9MRGrclzpxUIVQj?=
+ =?us-ascii?Q?sG0k2UVy/9mfbxIJBpjaKWTv6qV/K0rUSRZeFQayODumwgH2WO69uTCTCmtc?=
+ =?us-ascii?Q?f8nMUVDGr8ydpiGCuT88YeIXAJlPU5AqpdmvPZWkJ7Ipp/HjG+kMYvvjV4WX?=
+ =?us-ascii?Q?YWbjWi6xTS0L/Pc1UP5btXEu5l6qrT01AJWqZLEz70OJ/fwc3Mp7AKXzzjSL?=
+ =?us-ascii?Q?Tl4xOGSOntLaqgphvdQ/YIzo73JMtkejAyInLDeVLmyuEFHzp3j2mgB1gBrJ?=
+ =?us-ascii?Q?KEPpj/AV6GoyIqYC0u4DeXG2055B/0I1obZeG+sHnfpv5wN9sXHYJHQ/gwfT?=
+ =?us-ascii?Q?eOCCJPaAqOSQ61cP/IYuJI16r8CvHKOV+ZoyugphDdVAVWGCT6kDUbRpGoXN?=
+ =?us-ascii?Q?N5mYWTBYSdpQvqqz5aGwChKJpo0KlWXjd4jn1wopHEYgOqxAjjSnprTabTqo?=
+ =?us-ascii?Q?6VSK4ZyYEBRjKwX/HIs+GagaEaJBlAhy/fZDm62u+yiuimnNTlNW+/DjcNfo?=
+ =?us-ascii?Q?HnyTPtmYUUFxiXhNqZXL08CXhZMPYWJABBpCKuIDr97wPfW7BTC+pkY+0l7A?=
+ =?us-ascii?Q?2G8Eh05GmHBd6j6a3FIa79YFUSkCn9JraF1L99Uv1mvNy8JJqmmYQpBoiPSD?=
+ =?us-ascii?Q?KnuBKKKMhvj3QurLwIHI23wV+hA0hWxR3cC+WMxrpakj81Gj4mEA48pwt71H?=
+ =?us-ascii?Q?1PssFzo8o1DJulCGdMe2WIgXTTQ+aJCBJrJaoemcMdR0OSQfZvxFleveBu7H?=
+ =?us-ascii?Q?pBXrRKkdg5DghffJKtw6gxnutoUasRNqqcnSPi3tL3JKKN0UiRrOvJ9eeKNT?=
+ =?us-ascii?Q?FLN5vVWPEzSyR+233kwWlsU34u7AYw4PjFZSpCBbPAd7BLbVa0LxXVR91m18?=
+ =?us-ascii?Q?l+rVrh4dpqVlYSR86S4UN74SVBSXTOzNHusfyBBVmo29/jAKnMUDziPfr0df?=
+ =?us-ascii?Q?1y1B9OtgiPqKpTRQEwmATpKXxHiQZvha+xOCPxpvMu6Dlw+PRQD2S9EmN1v9?=
+ =?us-ascii?Q?vb5y2WD9BXcQhflIKHRFXiZsukMBccLO4ZqlEx59JUKy5MUIHkGkk04Mp8L2?=
+ =?us-ascii?Q?6P3rsUjB4zcAHxBn4ra4SwGngdfwOrV2AzkrL1PQ6MrJ7cEVLiT4dIMyasn1?=
+ =?us-ascii?Q?V1Tz92dIdvbiOLrJNc4RZDr7qHDgXa2j8dQWq74w1C5ku2eFsXCxezwD61Xp?=
+ =?us-ascii?Q?CZDwDZ1YYCph8d7lfiwtTz1QsNQsenogvYF+lRSpi8euhxuCbZyv8dHytDdK?=
+ =?us-ascii?Q?ej680bWhjvFPQaJjXHr4ixygEkyc5JkBXMRbzgLcyYaC7bO0DBuEV4YmRfxB?=
+ =?us-ascii?Q?XFdgG73U8ohSIpwNxcjRf983+iCJrBt6msvlbkmWZ1MtW9eBZbocbMLueCje?=
+ =?us-ascii?Q?S2w4YKKG+O+VJWSQmlmewJjH1JsRpxz+cV8q90POb6qnlTFjBt64OgMYupHa?=
+ =?us-ascii?Q?0uWJd/Bwv+yj0NTxmAKnuFb+JhplMsdhWZJX8rSbO90s3rshfrx/HCYSd8Of?=
+ =?us-ascii?Q?1lPjJI5FGVDqydifAmj6suai7ogaDRJxtLHi?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9621.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(7416014)(52116014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?ZdKD1GxlxG4Ml8W82tbYqK8mvOt+bQFY+1UZZ1srxcf8T/kzpdS4rsuF+YgE?=
+ =?us-ascii?Q?yOv5ooWWTuhtxYg/2uy076Im+HdAMTpG0hh4YXCUOgppmarTkZoxXDF4luHL?=
+ =?us-ascii?Q?PbZk2iF9ePLfFkVSutqn5vKTXkTgimcuycd4JXVghitni4mORTFyBhP7Q+GS?=
+ =?us-ascii?Q?HyhqnvH+Whhor02GbD5mpT7NhUv8L7O5MyZRnRue+UAke5gMxQL9QImDa6b3?=
+ =?us-ascii?Q?hCZAPFfH3SdIdrnnK7vMGaexLyVXPB84AEr3viXDEeY1Tx0pCPlnAm44hDd1?=
+ =?us-ascii?Q?791ct5OXY4sK7bsn8D9IIa1ncH4J+hddqqTUJp06DZnU1q4IsPB6CVWfgSEL?=
+ =?us-ascii?Q?uRw0+nKlg1tnCIbAOiImgfPflIJk267oIwI70MZpRLcaBTdXKwQva8d17sMV?=
+ =?us-ascii?Q?6jh8/clu1XWUL6C093RBcoyDlaXC1dvGbYMRvtjzql7APzKlJ/VF7bUTT5n3?=
+ =?us-ascii?Q?mlxvMSxXq3mIngwzS1N43VepZg9wuVGgXC6zTpf4L/saaMEshEpZR8reRj/p?=
+ =?us-ascii?Q?10TgntWU++uAk1N/+CuQUR19o4aYPYyC5Ip9Ou3nVsNfaxt3nwoSDk3MB/Za?=
+ =?us-ascii?Q?XoMkEzZgQpVex4zH+JSkapw4pEX8eQ3KcVSl9ie76RS9hsaOJ983RwrSXXwz?=
+ =?us-ascii?Q?/T6EvaVQe2ufAP6NNbp9Za1eHLw+rLCLWqzHfmspN/eS9Yf/Nf91gKu4fPAh?=
+ =?us-ascii?Q?+53xFpo7asOYktZIj/KjSG6rZLYMCo0F4FITgUa+452UdDKIkxZG1UvQyqfh?=
+ =?us-ascii?Q?GgWVuF9gSj7ScpiNfOue5Fnn2nJ9IzKCMH6C3869xnVUHZ4lNBOySBcntkn+?=
+ =?us-ascii?Q?+EJgdxN91KKD/ByaRUAoor79WOztIkqU4cpIfjdpkB4ZnBli7ZU4Hxf5hvJO?=
+ =?us-ascii?Q?+AwdmIjFBRwmQxkm0WiULUnxBpJFcSyR3hOB9WkMs4FGG/94eMnuBtkDtF+c?=
+ =?us-ascii?Q?FF5O7QtVowOOMdp3ZowNfwf+Rk/0yLF1SOloIthuzKKLdYKX2hbybfhaszvY?=
+ =?us-ascii?Q?6CaTRxEW/nVbKUT9qX6mFlSQl1THSBhuWHaxPQyIs5J/yoyVxEGXQTV4uitM?=
+ =?us-ascii?Q?gJQpKjx8c5+TEcJO4QEIf6ZuKqnA5II+qhmAoIKLCIpZWDmeYB8Ib6udVtUn?=
+ =?us-ascii?Q?pwBYTjFU19JKH9OuBHjBxcnRMv4gk+52+0ZFvlJm93LrUr5gHVKPiuPXMtvq?=
+ =?us-ascii?Q?n1uEOUny6zIqXYCw2fh420GQO3WSEm+sbJgnwcW0QBiI7x3BydjqYrHIM0LM?=
+ =?us-ascii?Q?ZZ1+jNKudgefMMO2sFzpGSOrniDZdJqLLsYryjG7FmmbZ/epceIG9cK5b5iJ?=
+ =?us-ascii?Q?A1uXC2+6Fh5dK4DPElvhw6sskxykPd8ctYBG/0XGv+eCa7feQt86x/o2viS3?=
+ =?us-ascii?Q?V2Hx4hvz4+3P0U64MdEGKRstEQm5LCRoewVaIIgl4p9lE0xe9nOOpFgQNzQD?=
+ =?us-ascii?Q?gwbcE9OSOz7aEvF0M65aPaGXEmw/l4NxTSwqzR3PrNCT4m59Y4CalRwBFSZf?=
+ =?us-ascii?Q?QYG1OetqmlCMG4LXPCKIHQPW5k7jt0sY2f3UDOmPX6UpOuDUJzm9+H2EtMgr?=
+ =?us-ascii?Q?XfKWIb4YlcDKcpju3BEiq7jr3OO5uzUwSrPsgNBr?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 3cca731d-e6d0-4eaf-e80b-08de0a787f3f
+X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9621.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2025 16:49:38.7699
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: nbJAZYchIlAF2MJQyaGigiFVm/u//1FNoFFjV19RgtGCbmU1tumH8kf2zEKnay4iMY1HL/OPNcCv2Pd1UH85LA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXPR04MB9304
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_094857_918845_10CD2529 
-X-CRM114-Status: GOOD (  43.74  )
+X-CRM114-CacheID: sfid-20251013_094949_633560_C652E7CA 
+X-CRM114-Status: GOOD (  16.51  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,100 +169,334 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 13 Oct 2025 at 11:55, Marc Zyngier <maz@kernel.org> wrote:
+On Sat, Oct 11, 2025 at 06:51:18PM +0200, Marek Vasut wrote:
+> Freescale i.MX95 Display Controller is implemented as construction set of
+> building blocks with unified concept and standardized interfaces. Document
+> all new processing units present in i.MX95.
 >
-> On Mon, 13 Oct 2025 09:42:58 +0100,
-> Peter Maydell <peter.maydell@linaro.org> wrote:
-> >
-> > On Thu, 9 Oct 2025 at 14:48, Marc Zyngier <maz@kernel.org> wrote:
-> > >
-> > > On Wed, 08 Oct 2025 21:19:55 +0100,
-> > > salil.mehta@opnsrc.net wrote:
-> > > >
-> > > > From: Salil Mehta <salil.mehta@huawei.com>
-> > > >
-> > > > [A rough illustration of the problem and the probable solution]
-> > > >
-> > > > Userspace reads of ICC_CTLR_EL1 via KVM device attributes currently takes a slow
-> > > > path that may acquire all vCPU locks. Under workloads that exercise userspace
-> > > > PSCI CPU_ON flows or frequent vCPU resets, this can cause vCPU lock contention
-> > > > in KVM and, in the worst cases, -EBUSY returns to userspace.
-> > > >
-> > > > When PSCI CPU_ON and CPU_OFF calls are handled entirely in KVM, these operations
-> > > > are executed under KVM vCPU locks in the host kernel (EL1) and appear atomic to
-> > > > other vCPU threads. In this context, system register accesses are serialized
-> > > > under KVM vCPU locks, ensuring atomicity with respect to other vCPUs. After
-> > > > SMCCC filtering was introduced, PSCI CPU_ON and CPU_OFF calls can now exit to
-> > > > userspace (QEMU). During the handling of PSCI CPU_ON call in userspace, a
-> > > > cpu_reset() is exerted which reads ICC_CTLR_EL1 through KVM device attribute
-> > > > IOCTLs. To avoid transient inconsistency and -EBUSY errors, QEMU is forced to
-> > > > pause all vCPUs before issuing these IOCTLs.
-> > >
-> > > I'm going to repeat in public what I already said in private.
-> > >
-> > > Why does QEMU need to know this? I don't see how this is related to
-> > > PSCI, and outside of save/restore, there is no reason why QEMU should
-> > > poke at this. If QEMU needs fixing, please fix QEMU.
-> >
-> > I don't know the background here, but generally speaking,
-> > when we do a CPU reset that includes writing all the CPU state
-> > of the "this is freshly reset from userspace's point of view" vcpu
-> > back to the kernel. More generally, userspace should be able to
-> > read and write sysregs for a vcpu any time it likes, and not
-> > arbitrarily get back -EBUSY. What does the kernel expect
-> > userspace to do with an errno like that?
+> Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
+> ---
+> Cc: Abel Vesa <abelvesa@kernel.org>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: Fabio Estevam <festevam@gmail.com>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
+> Cc: Liu Ying <victor.liu@nxp.com>
+> Cc: Lucas Stach <l.stach@pengutronix.de>
+> Cc: Peng Fan <peng.fan@nxp.com>
+> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Shawn Guo <shawnguo@kernel.org>
+> Cc: Thomas Zimmermann <tzimmermann@suse.de>
+> Cc: devicetree@vger.kernel.org
+> Cc: dri-devel@lists.freedesktop.org
+> Cc: imx@lists.linux.dev
+> Cc: linux-arm-kernel@lists.infradead.org
+> Cc: linux-clk@vger.kernel.org
+> ---
+>  .../imx/fsl,imx8qxp-dc-constframe.yaml        |  4 +-
+>  .../imx/fsl,imx8qxp-dc-display-engine.yaml    | 45 +++++++++++++---
+>  .../display/imx/fsl,imx8qxp-dc-extdst.yaml    |  4 +-
+>  .../display/imx/fsl,imx8qxp-dc-fetchunit.yaml |  1 +
+>  .../display/imx/fsl,imx8qxp-dc-framegen.yaml  | 13 ++++-
+>  .../imx/fsl,imx8qxp-dc-layerblend.yaml        |  4 +-
+>  .../imx/fsl,imx8qxp-dc-pixel-engine.yaml      | 52 +++++++++++++++---
+>  .../display/imx/fsl,imx8qxp-dc-tcon.yaml      |  5 +-
+>  .../bindings/display/imx/fsl,imx8qxp-dc.yaml  | 53 ++++++++++++++++---
+>  9 files changed, 153 insertions(+), 28 deletions(-)
 >
-> The main issue here is that GICv3 is modelled as a device, just like
-> GICv2, and that all the sysregs that are relevant to the GIC have the
-> same status as the MMIO registers: they can only be accessed when the
-> vcpus are not running.
+> diff --git a/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-constframe.yaml b/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-constframe.yaml
+> index 94f6785636085..3a585b3b9a789 100644
+> --- a/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-constframe.yaml
+> +++ b/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-constframe.yaml
+> @@ -18,7 +18,9 @@ maintainers:
 >
-> These sysregs are not visible through the normal ONE_REG API, and
-> therefore not subjected to the "do whatever you want" rule.
-
-Ah, I'd forgotten that. But the cpuif registers are still
-per-cpu, and they do still need to be reset on vcpu reset,
-and that might still happen for a single vcpu when the VM
-as a whole is still running.
-
-That said, QEMU's current code for this could be refactored
-to avoid the reset-time read of ICC_CTLR_EL1 from the kernel.
-We do this so we can set the userspace struct field for this
-register to the right value. But we could ask the kernel for
-that value once on VM startup since it's not going to change mid-run.
-
-That would bring ICC_CTLR_EL1 into line with the other cpuif
-registers, where QEMU assumes it knows what the kernel's
-reset value of them is (mostly "0") and doesn't bother to ask.
-This is different from how we handle ONE_REG sysregs, where
-I'm pretty sure we do ask the kernel the value of all of them
-on a vcpu reset. (And then write the values back again, which
-is a bit silly but nobody's ever said it was a performance
-problem for them :-))
-
-> Should we have done something else when the GICv3 save/restore API was
-> introduced and agreed upon with the QEMU people? Probably. Can we
-> change it now? Probably not. The only thing we could relax is the
-> scope of the lock when accessing a sysreg, so that we only mandate
-> that the targeted vcpu is not running instead of the whole VM.
+...
 >
-> And finally, if you object to this API, why should we do for GICv5,
-> which is so far implemented by following the exact same principles?
+>      properties:
+>        compatible:
+> -        const: fsl,imx8qxp-dc-framegen
+> +        enum:
+> +          - fsl,imx8qxp-dc-framegen
+> +          - fsl,imx95-dc-framegen
+>
+>    "^gammacor@[0-9a-f]+$":
+>      type: object
+> @@ -90,13 +102,15 @@ patternProperties:
+>        compatible:
+>          const: fsl,imx8qxp-dc-signature
+>
+> -  "^tcon@[0-9a-f]+$":
+> +  "^tcon(@[0-9a-f]+)?$":
 
-I don't object to the API inherently (I don't care whether we
-do these register reads via a dev ioctl or something else,
-from userspace's point of view it's just "do some syscall,
-get a value") -- I'm just objecting to the kernel's
-implementation of it where it might return EBUSY :-)
+why here allow no address unit tcon?
 
-(Also, if the kernel had failed EINVAL unconditionally for
-an attempt to do this on a not-stopped VM then we'd probably
-have found this mismatch in understanding about how the
-API should work years ago. "Mostly works but sometimes fails
-EBUSY" is the worst of all worlds.)
+Frank
 
-I haven't yet got as far as thinking about the KVM interface
-for GICv5 yet...
+>      type: object
+>      additionalProperties: true
+>
+>      properties:
+>        compatible:
+> -        const: fsl,imx8qxp-dc-tcon
+> +        enum:
+> +          - fsl,imx8qxp-dc-tcon
+> +          - fsl,imx95-dc-tcon
+>
+...
+> diff --git a/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-framegen.yaml b/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-framegen.yaml
+> index 9d1dc3a9de90e..dd83ac669478b 100644
+> --- a/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-framegen.yaml
+> +++ b/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-framegen.yaml
+> @@ -16,18 +16,27 @@ maintainers:
+>
+>  properties:
+>    compatible:
+> -    const: fsl,imx8qxp-dc-framegen
+> +    enum:
+> +      - fsl,imx8qxp-dc-framegen
+> +      - fsl,imx95-dc-framegen
+>
+>    reg:
+>      maxItems: 1
+>
+>    clocks:
+> -    maxItems: 1
+> +    minItems: 1
+> +    maxItems: 6
+> +
+> +  clock-names:
+> +    minItems: 1
+> +    maxItems: 6
+>
+>    interrupts:
+> +    minItems: 6
+>      maxItems: 8
+>
+>    interrupt-names:
+> +    minItems: 6
 
--- PMM
+Need if branch to keep the same restriction for exited compatible string
+
+>      items:
+>        - const: int0
+>        - const: int1
+> diff --git a/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-layerblend.yaml b/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-layerblend.yaml
+> index 2a6ab8a0ed7fc..6565b7acf47e4 100644
+> --- a/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-layerblend.yaml
+> +++ b/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-layerblend.yaml
+> @@ -13,7 +13,9 @@ maintainers:
+>
+>  properties:
+>    compatible:
+> -    const: fsl,imx8qxp-dc-layerblend
+> +    enum:
+> +      - fsl,imx8qxp-dc-layerblend
+> +      - fsl,imx95-dc-layerblend
+>
+>    reg:
+>      maxItems: 2
+...
+> diff --git a/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-pixel-engine.yaml b/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-pixel-engine.yaml
+> index 633443a6cc380..2d0ee83e30b25 100644
+> --- a/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-pixel-engine.yaml
+> +++ b/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-pixel-engine.yaml
+> @@ -17,19 +17,28 @@ maintainers:
+>
+>  properties:
+>    compatible:
+> -    const: fsl,imx8qxp-dc-pixel-engine
+> +    oneOf:
+> +      - const: fsl,imx8qxp-dc-pixel-engine
+> +      - items:
+> +          - const: fsl,imx95-dc-pixel-engine
+> +          - const: fsl,imx8qxp-dc-pixel-engine
+>
+>    reg:
+>      maxItems: 1
+>
+>    clocks:
+> -    maxItems: 1
+> +    minItems: 1
+> +    maxItems: 2
+> +
+> +  clock-names:
+> +    minItems: 1
+> +    maxItems: 2
+>
+>    "#address-cells":
+> -    const: 1
+> +    enum: [1, 2]
+>
+>    "#size-cells":
+> -    const: 1
+> +    enum: [1, 2]
+>
+>    ranges: true
+>
+...
+>
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: fsl,imx95-dc-pixel-engine
+> +    then:
+> +      properties:
+> +        "#address-cells":
+> +          const: 2
+> +        "#size-cells":
+> +          const: 2
+> +    else:
+> +      properties:
+> +        "#address-cells":
+> +          const: 1
+> +        "#size-cells":
+> +          const: 1
+
+
+Need keep the same restriction for clocks and clock-names.
+
+> +
+>  additionalProperties: false
+>
+>  examples:
+> diff --git a/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-tcon.yaml b/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-tcon.yaml
+> index 7a3b77ea92c73..1f935b342f461 100644
+> --- a/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-tcon.yaml
+> +++ b/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc-tcon.yaml
+> @@ -15,7 +15,9 @@ maintainers:
+>
+>  properties:
+>    compatible:
+> -    const: fsl,imx8qxp-dc-tcon
+> +    enum:
+> +      - fsl,imx8qxp-dc-tcon
+> +      - fsl,imx95-dc-tcon
+>
+>    reg:
+>      maxItems: 1
+> @@ -26,7 +28,6 @@ properties:
+>
+>  required:
+>    - compatible
+> -  - reg
+>    - port
+>
+>  additionalProperties: false
+> diff --git a/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc.yaml b/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc.yaml
+> index 0a72f9f0b5fda..1e8f559acb4de 100644
+> --- a/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc.yaml
+> +++ b/Documentation/devicetree/bindings/display/imx/fsl,imx8qxp-dc.yaml
+> @@ -48,13 +48,20 @@ maintainers:
+>
+>  properties:
+>    compatible:
+> -    const: fsl,imx8qxp-dc
+> +    enum:
+> +      - fsl,imx8qxp-dc
+> +      - fsl,imx95-dc
+>
+>    reg:
+>      maxItems: 1
+>
+>    clocks:
+> -    maxItems: 1
+> +    minItems: 1
+> +    maxItems: 6
+> +
+> +  clock-names:
+> +    minItems: 1
+> +    maxItems: 6
+>
+>    resets:
+>      maxItems: 2
+> @@ -68,10 +75,15 @@ properties:
+>      maxItems: 1
+>
+>    "#address-cells":
+> -    const: 1
+> +    enum: [1, 2]
+>
+>    "#size-cells":
+> -    const: 1
+> +    enum: [1, 2]
+> +
+> +  fsl,syscon:
+> +    $ref: /schemas/types.yaml#/definitions/phandle
+> +    description: |
+> +      A phandle which points to Control and Status Registers (CSR) module.
+
+Why need this one? is it possible to abstract it to standard interface,
+like phy, clock, reset ...
+
+Frank
+>
+>    ranges: true
+>
+> @@ -90,7 +102,9 @@ patternProperties:
+>
+>      properties:
+>        compatible:
+> -        const: fsl,imx8qxp-dc-display-engine
+> +        enum:
+> +          - fsl,imx8qxp-dc-display-engine
+> +          - fsl,imx95-dc-display-engine
+>
+>    "^interrupt-controller@[0-9a-f]+$":
+>      type: object
+> @@ -98,7 +112,9 @@ patternProperties:
+>
+>      properties:
+>        compatible:
+> -        const: fsl,imx8qxp-dc-intc
+> +        enum:
+> +          - fsl,imx8qxp-dc-intc
+> +          - fsl,imx95-dc-intc
+>
+>    "^pixel-engine@[0-9a-f]+$":
+>      type: object
+> @@ -106,7 +122,11 @@ patternProperties:
+>
+>      properties:
+>        compatible:
+> -        const: fsl,imx8qxp-dc-pixel-engine
+> +        oneOf:
+> +          - const: fsl,imx8qxp-dc-pixel-engine
+> +          - items:
+> +              - const: fsl,imx95-dc-pixel-engine
+> +              - const: fsl,imx8qxp-dc-pixel-engine
+>
+>    "^pmu@[0-9a-f]+$":
+>      type: object
+> @@ -125,6 +145,25 @@ required:
+>    - "#size-cells"
+>    - ranges
+>
+> +allOf:
+> +  - if:
+> +      properties:
+> +        compatible:
+> +          contains:
+> +            const: fsl,imx95-dc
+> +    then:
+> +      properties:
+> +        "#address-cells":
+> +          const: 2
+> +        "#size-cells":
+> +          const: 2
+> +    else:
+> +      properties:
+> +        "#address-cells":
+> +          const: 1
+> +        "#size-cells":
+> +          const: 1
+> +
+>  additionalProperties: false
+>
+>  examples:
+> --
+> 2.51.0
+>
 
