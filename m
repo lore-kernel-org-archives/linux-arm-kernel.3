@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 771ABCCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 20:33:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B0815CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 20:33:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bRoWUlFhAwhp2cFv9PQzQntX9r9EON1eUpq3Tj44Lhk=; b=M4PDLyNokSGCt6urJwqUKJG4an
-	WS7d8ZN4x8mWlpHVDPvMoP+CLlTFQhwRGh+eLz6CSVhSVn2LaEXHtAXl0yPguu3HI9Dgrv32/Rwiq
-	atuedJswRd+PXEM8ENcUp1qwL2Px4u7V6+K3xWAIiOcM11hWV5h6vht3h6w3Yglvb8frD08Yj2AVF
-	4MKrFspYxOjXmBcOHbavUK9TAWyAdx3T9FlRAqIrmLD83ulaMXSGRgbtyPgVk0OJqi3iFBiM7JsoO
-	lBMyJVzcuhUxOTE2GpqxYKvqEF7JTvRPiooFUHufdXFiZt+J+IB7v+KC2dcTzCvKts/wdpyB+r2o7
-	oieMyPpw==;
+	bh=0VelxAYQGPxzFRKppVbzVPDcRe9JLicWTRb3EEwT2w4=; b=byxBLm3Pku6x0AbZNPn7XXuzmj
+	+vONoTcPfeDimGoKDPQh7d5q9hqB6ghGyMvzXJliNmBhz+6OQPRcsxWlszAIVimovO7y0QXA436eA
+	Is8weeG9tvN6ckNd2fQZkXNchrldEm5XZ6DlbYXRxqu4gq4M8R+92KAjlDzPXBu6Clz3D7RyRUnMD
+	Z77fMSXmhTkYwe/AEz6VuHAwJcIZnKic+hmshVGYS7aeXLeIO4eOaKj7+PcbGeKMBr51jzJtiFtbz
+	l8j1uv7oVqx892r9jhnjyi2Wrz31tMbVf+sL4PrzGbUW82gxPGGUhNS7P7izgtI8/80XQj7i0om6u
+	xFLkw1PQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8PEX-0000000ENsg-12xa;
-	Mon, 13 Oct 2025 20:33:29 +0000
+	id 1v8PEu-0000000EOBI-2Z2s;
+	Mon, 13 Oct 2025 20:33:52 +0000
 Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8PEU-0000000ENod-0CCo
+	id 1v8PEr-0000000EO9C-3SM2
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 20:33:27 +0000
+	Mon, 13 Oct 2025 20:33:50 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id A5FDB48BA6;
-	Mon, 13 Oct 2025 20:33:25 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9228C4CEF8;
-	Mon, 13 Oct 2025 20:33:17 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id 6F77948BCA;
+	Mon, 13 Oct 2025 20:33:49 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D11E6C116C6;
+	Mon, 13 Oct 2025 20:33:41 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760387605;
-	bh=VdxniS9PgPy7NwhH2qd2yJdMmQz1qplz7zrJIak9Kiw=;
+	s=k20201202; t=1760387629;
+	bh=9oNpqgYjTcFMTbPZgxvfSlFc0ojQ77K/A/hD7MumAUQ=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=OYkHhfUXI/oYa4SUYC3drRS/xQcuPGvoJ7NPAlL+RYkd7LDKQhVy66GIv8GRNnfq1
-	 vta4/PExq+fjEPabx2OflvbpD8ELoJfqDDnIQfTM11ITuobQsbRQNXofNlQKL61YhW
-	 x/NThH0eYDAZ9ccNisPSMap9HlbAI08z9DDWViQ3Lk5zSF3JuRqgNhutW4TnyAJ8jv
-	 Nf59vwv9i4Rvsim9ENbglJi+KEKcK8aPqG1Zxpcx5Z/h8MD+MSx2OCYq64txa1+r7L
-	 MiEYtaDzQewyIhShh6A2JbjtLxzvRTq4ZVb5PTnXWtdVlTZLWCINQsN5Q3TdoH9Nnp
-	 ucj4kQYQMMMCQ==
+	b=lcJiOQaxzRbm/vnW/7YplQp1SHR/EYlMBi81fjw8+ud9d0xJzG/M5ydBd35kgDQby
+	 MGqZa1++jHkG6de3/IShSXu/VPNz255mdDROulIq+v6Msd8lxXjl5Zb0UU1z8IA47e
+	 u6UfgSZdJL9zfVNfvzwCazayfzsHaagNZ8IfWgHaJNYwwnscuTLrgjDyCNihTr+akx
+	 w+H3pKN0hhDNQa+5kpthY11CkItIJJx8FHnkJgmoyYikqWxZnes+oPl9WfT239ZviD
+	 2FAqBS3l3+R+gy+jLzqrv5oDUAFlF0mcRVnV6DrqPx+70lF5/NxORiMhMXicUM8yH1
+	 LMYrBX6aQoFiw==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
@@ -80,18 +80,17 @@ Cc: Frederic Weisbecker <frederic@kernel.org>,
 	linux-mm@kvack.org,
 	linux-pci@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH 11/33] cpuset: Provide lockdep check for cpuset lock held
-Date: Mon, 13 Oct 2025 22:31:24 +0200
-Message-ID: <20251013203146.10162-12-frederic@kernel.org>
+Subject: [PATCH 14/33] sched/isolation: Flush memcg workqueues on cpuset isolated partition change
+Date: Mon, 13 Oct 2025 22:31:27 +0200
+Message-ID: <20251013203146.10162-15-frederic@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251013203146.10162-1-frederic@kernel.org>
 References: <20251013203146.10162-1-frederic@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_133326_115434_4F1435C5 
-X-CRM114-Status: GOOD (  10.42  )
+X-CRM114-CacheID: sfid-20251013_133349_906535_A4BB495B 
+X-CRM114-Status: GOOD (  16.27  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -106,51 +105,118 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-cpuset modifies partitions, including isolated, while holding the cpuset
-mutex.
+The HK_TYPE_DOMAIN housekeeping cpumask is now modifyable at runtime. In
+order to synchronize against memcg workqueue to make sure that no
+asynchronous draining is still pending or executing on a newly made
+isolated CPU, the housekeeping susbsystem must flush the memcg
+workqueues.
 
-This means that holding the cpuset mutex is safe to synchronize against
-housekeeping cpumask changes.
+However the memcg workqueues can't be flushed easily since they are
+queued to the main per-CPU workqueue pool.
 
-Provide a lockdep check to validate that.
+Solve this with creating a memcg specific pool and provide and use the
+appropriate flushing API.
 
+Acked-by: Shakeel Butt <shakeel.butt@linux.dev>
 Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
 ---
- include/linux/cpuset.h | 2 ++
- kernel/cgroup/cpuset.c | 7 +++++++
- 2 files changed, 9 insertions(+)
+ include/linux/memcontrol.h |  4 ++++
+ kernel/sched/isolation.c   |  2 ++
+ kernel/sched/sched.h       |  1 +
+ mm/memcontrol.c            | 12 +++++++++++-
+ 4 files changed, 18 insertions(+), 1 deletion(-)
 
-diff --git a/include/linux/cpuset.h b/include/linux/cpuset.h
-index 2ddb256187b5..051d36fec578 100644
---- a/include/linux/cpuset.h
-+++ b/include/linux/cpuset.h
-@@ -18,6 +18,8 @@
- #include <linux/mmu_context.h>
- #include <linux/jump_label.h>
- 
-+extern bool lockdep_is_cpuset_held(void);
-+
- #ifdef CONFIG_CPUSETS
- 
- /*
-diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
-index 8595f1eadf23..aa1ac7bcf2ea 100644
---- a/kernel/cgroup/cpuset.c
-+++ b/kernel/cgroup/cpuset.c
-@@ -279,6 +279,13 @@ void cpuset_full_unlock(void)
- 	cpus_read_unlock();
+diff --git a/include/linux/memcontrol.h b/include/linux/memcontrol.h
+index 873e510d6f8d..001200df63cf 100644
+--- a/include/linux/memcontrol.h
++++ b/include/linux/memcontrol.h
+@@ -1074,6 +1074,8 @@ static inline u64 cgroup_id_from_mm(struct mm_struct *mm)
+ 	return id;
  }
  
-+#ifdef CONFIG_LOCKDEP
-+bool lockdep_is_cpuset_held(void)
-+{
-+	return lockdep_is_held(&cpuset_mutex);
-+}
-+#endif
++void mem_cgroup_flush_workqueue(void);
 +
- static DEFINE_SPINLOCK(callback_lock);
+ extern int mem_cgroup_init(void);
+ #else /* CONFIG_MEMCG */
  
- void cpuset_callback_lock_irq(void)
+@@ -1481,6 +1483,8 @@ static inline u64 cgroup_id_from_mm(struct mm_struct *mm)
+ 	return 0;
+ }
+ 
++static inline void mem_cgroup_flush_workqueue(void) { }
++
+ static inline int mem_cgroup_init(void) { return 0; }
+ #endif /* CONFIG_MEMCG */
+ 
+diff --git a/kernel/sched/isolation.c b/kernel/sched/isolation.c
+index 95d69c2102f6..9ec365dea921 100644
+--- a/kernel/sched/isolation.c
++++ b/kernel/sched/isolation.c
+@@ -144,6 +144,8 @@ int housekeeping_update(struct cpumask *mask, enum hk_type type)
+ 
+ 	synchronize_rcu();
+ 
++	mem_cgroup_flush_workqueue();
++
+ 	kfree(old);
+ 
+ 	return 0;
+diff --git a/kernel/sched/sched.h b/kernel/sched/sched.h
+index 8fac8aa451c6..8bfc0b4b133f 100644
+--- a/kernel/sched/sched.h
++++ b/kernel/sched/sched.h
+@@ -44,6 +44,7 @@
+ #include <linux/lockdep_api.h>
+ #include <linux/lockdep.h>
+ #include <linux/memblock.h>
++#include <linux/memcontrol.h>
+ #include <linux/minmax.h>
+ #include <linux/mm.h>
+ #include <linux/module.h>
+diff --git a/mm/memcontrol.c b/mm/memcontrol.c
+index 1033e52ab6cf..1aa14e543f35 100644
+--- a/mm/memcontrol.c
++++ b/mm/memcontrol.c
+@@ -95,6 +95,8 @@ static bool cgroup_memory_nokmem __ro_after_init;
+ /* BPF memory accounting disabled? */
+ static bool cgroup_memory_nobpf __ro_after_init;
+ 
++static struct workqueue_struct *memcg_wq __ro_after_init;
++
+ static struct kmem_cache *memcg_cachep;
+ static struct kmem_cache *memcg_pn_cachep;
+ 
+@@ -1975,7 +1977,7 @@ static void schedule_drain_work(int cpu, struct work_struct *work)
+ {
+ 	guard(rcu)();
+ 	if (!cpu_is_isolated(cpu))
+-		schedule_work_on(cpu, work);
++		queue_work_on(cpu, memcg_wq, work);
+ }
+ 
+ /*
+@@ -5092,6 +5094,11 @@ void mem_cgroup_sk_uncharge(const struct sock *sk, unsigned int nr_pages)
+ 	refill_stock(memcg, nr_pages);
+ }
+ 
++void mem_cgroup_flush_workqueue(void)
++{
++	flush_workqueue(memcg_wq);
++}
++
+ static int __init cgroup_memory(char *s)
+ {
+ 	char *token;
+@@ -5134,6 +5141,9 @@ int __init mem_cgroup_init(void)
+ 	cpuhp_setup_state_nocalls(CPUHP_MM_MEMCQ_DEAD, "mm/memctrl:dead", NULL,
+ 				  memcg_hotplug_cpu_dead);
+ 
++	memcg_wq = alloc_workqueue("memcg", 0, 0);
++	WARN_ON(!memcg_wq);
++
+ 	for_each_possible_cpu(cpu) {
+ 		INIT_WORK(&per_cpu_ptr(&memcg_stock, cpu)->work,
+ 			  drain_local_memcg_stock);
 -- 
 2.51.0
 
