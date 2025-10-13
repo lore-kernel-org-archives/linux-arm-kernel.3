@@ -4,37 +4,37 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C28C7CCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 01:15:42 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4EE6FCCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 01:26:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cvq/ACMwX3OnpD71UH1+PwfyZlhDdznUFw1/2vndRWE=; b=RiybChygStVavQz7t5G/A40suc
-	CpJBrHuTWXXRcy1Snb168maunh+RInGWJu288Wo3dZ2Z5Qxc6PVX5x9ChGEzwEBgesaGEneyOOMfS
-	Op7XMfxCPlFQ/hLMA8t1m6dZ/wIGXOmSqeRABoHEdA9J9+O61QAtkHELakn1kQsOPTF1OqyiL7KFy
-	rvUDyOVYUX2+xSJC9Tct8DRwTJEOVfpigSf4v+/NjTTYNfYSECG/5V1YoqKOw9mY6flkOyrZcyk+F
-	07Q+nvkk1nzm9pwQBgr1RX408/vT44IZ5LbA6X5+WB22pa0JnLFg+hI3xlG1lfKnyq0Kvu+8s4DX8
-	pR0QCGwA==;
+	bh=fuqk83w9a4EPvpdBlyDSD5SKGCTTCoHWM86zwqZCw0g=; b=v2wlSv4rbI64VEzFISrsfKb00U
+	lO3L2d6zrFN8Sb6FeuX6A8VhXNJnybcmI5AuMaHy1KaLkLPXuVW5QXB93VQLPaXIZ8uyt/fOjhXSW
+	re+pVTm3gT0rU+VBWcC3AN7GUigD5pDptpdGy9PTgoG4ApaeHJnfRs87OvCRq8e/CD5jskrYtofXc
+	9XChqwAZRBlCm97A9+S0CNdCLxTKR4hwbZYa1H+p7ek6w0BBc5h6y7aOesj63pxl09bD2a7k6CFtO
+	4FrYltVGjwWbMwE2VTr8ZPAbwsdU4GfFK9189p8SSfMEySr5qdIXFzCCtUigfi1vMNsYFYg8cPsBA
+	NLUHJ72w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v879x-0000000C2cl-1Lba;
-	Mon, 13 Oct 2025 01:15:33 +0000
-Received: from mail-m49205.qiye.163.com ([45.254.49.205])
+	id 1v87KP-0000000C3Ed-2H1W;
+	Mon, 13 Oct 2025 01:26:21 +0000
+Received: from mail-m2454.xmail.ntesmail.com ([45.195.24.54])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v879t-0000000C2bb-3jhj;
-	Mon, 13 Oct 2025 01:15:31 +0000
+	id 1v87KL-0000000C3Dv-2r5v;
+	Mon, 13 Oct 2025 01:26:19 +0000
 Received: from [127.0.0.1] (unknown [58.22.7.114])
-	by smtp.qiye.163.com (Hmail) with ESMTP id 25a39ad8a;
-	Mon, 13 Oct 2025 09:15:19 +0800 (GMT+08:00)
-Message-ID: <83281501-8957-4ca1-8e0e-0b72ddd74b43@rock-chips.com>
-Date: Mon, 13 Oct 2025 09:15:13 +0800
+	by smtp.qiye.163.com (Hmail) with ESMTP id 25a3ed459;
+	Mon, 13 Oct 2025 09:26:12 +0800 (GMT+08:00)
+Message-ID: <08eb7560-c13e-462f-8110-d4ce5ccbd687@rock-chips.com>
+Date: Mon, 13 Oct 2025 09:26:06 +0800
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v5 3/8] phy: rockchip: phy-rockchip-typec: Add
- typec_mux/typec_switch support
+Subject: Re: [PATCH v5 6/8] drm/rockchip: cdn-dp: Add multiple bridges to
+ support PHY port selection
 To: Dmitry Baryshkov <dmitry.baryshkov@oss.qualcomm.com>,
  Chaoyi Chen <kernel@airkyi.com>
 Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
@@ -57,26 +57,26 @@ Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
  linux-phy@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
  linux-rockchip@lists.infradead.org, dri-devel@lists.freedesktop.org
 References: <20251011033233.97-1-kernel@airkyi.com>
- <20251011033233.97-4-kernel@airkyi.com>
- <xbblw4jfte7re2pyroanvzqv4ddwhxbgcui5ubpnw7rwuo4s4d@gkph7jqzf33o>
+ <20251011033233.97-7-kernel@airkyi.com>
+ <qzcdulyj2enho7l6vyvad7ln46zk2u4z7rnsjv2nv4tbw5j6jf@6oenbixoh3sp>
 Content-Language: en-US
 From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
-In-Reply-To: <xbblw4jfte7re2pyroanvzqv4ddwhxbgcui5ubpnw7rwuo4s4d@gkph7jqzf33o>
+In-Reply-To: <qzcdulyj2enho7l6vyvad7ln46zk2u4z7rnsjv2nv4tbw5j6jf@6oenbixoh3sp>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
-X-HM-Tid: 0a99db22dcf303abkunm0713f548f8facb
+X-HM-Tid: 0a99db2cd45d03abkunmd42693ddf9445f
 X-HM-MType: 1
 X-HM-Spam-Status: e1kfGhgUHx5ZQUpXWQgPGg8OCBgUHx5ZQUlOS1dZFg8aDwILHllBWSg2Ly
-	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGU0dQ1YaGklOTEIaHR4YH0xWFRQJFh
-	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpPSE
-	xVSktLVUpCS0tZBg++
+	tZV1koWUFDSUNOT01LS0k3V1ktWUFJV1kPCRoVCBIfWUFZGk5OSFYaSBpPTk4ZHU9LGRlWFRQJFh
+	oXVRMBExYaEhckFA4PWVdZGBILWUFZTkNVSUlVTFVKSk9ZV1kWGg8SFR0UWUFZT0tIVUpLSEpOTE
+	9VSktLVUpCS0tZBg++
 DKIM-Signature: a=rsa-sha256;
-	b=Bxg8VLDz1S1QU32Fy2HDcfvislNrJJ0uqNay+meHZQFma6Tad3Sto7NFGOCh3TqmeUBj54gnStcWhE8/KozzYBg4GvmPcV4rMFPnEgs/h30WSTTKCT8WXZx4iN3GJGmO7W3qhPHRjXv3jiF2QOrzKOBxLX8bcko/TH9ZA5Yh5p8=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
-	bh=cvq/ACMwX3OnpD71UH1+PwfyZlhDdznUFw1/2vndRWE=;
+	b=EjyvMPU4l/juR5E7grt0CDa5nAksLXwJ5VSyMK4ffKvPTbojA4mjkwPvG9E+LubLTvHczH6SqzFYhEB9ekfkeIedmR4w5LZG5VwNHPHKQ5/NM7D6BnAM/RoIfnxSquUFCRfpnaYi3kjHcivb3UnSRd+GM0AzJFrS5OviHmcdjQI=; s=default; c=relaxed/relaxed; d=rock-chips.com; v=1;
+	bh=fuqk83w9a4EPvpdBlyDSD5SKGCTTCoHWM86zwqZCw0g=;
 	h=date:mime-version:subject:message-id:from;
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251012_181530_476638_94380E3D 
-X-CRM114-Status: GOOD (  21.13  )
+X-CRM114-CacheID: sfid-20251012_182618_295998_F98549C7 
+X-CRM114-Status: GOOD (  37.35  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,125 +91,195 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/12/2025 12:57 AM, Dmitry Baryshkov wrote:
+On 10/12/2025 2:52 AM, Dmitry Baryshkov wrote:
 
-> On Sat, Oct 11, 2025 at 11:32:28AM +0800, Chaoyi Chen wrote:
+> On Sat, Oct 11, 2025 at 11:32:31AM +0800, Chaoyi Chen wrote:
 >> From: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 >>
->> This patch add support for Type-C Port Controller Manager. Each PHY
->> will register typec_mux and typec_switch when external Type-C
->> controller is present. Type-C events are handled by TCPM without
->> extcon.
+>> The RK3399 has two USB/DP combo PHY and one CDN-DP controller. And
+>> the CDN-DP can be switched to output to one of the PHYs. If both ports
+>> are plugged into DP, DP will select the first port for output.
 >>
->> The extcon device should still be supported.
+>> This patch adds support for multiple bridges, enabling users to flexibly
+>> select the output port. For each PHY port, a separate encoder and bridge
+>> are registered.
+>>
+>> The change is based on the DRM AUX HPD bridge, rather than the
+>> extcon approach. This requires the DT to correctly describe the
+>> connections between the first bridge in bridge chain and DP
+>> controller. For example, the bridge chain may be like this:
+>>
+>> PHY aux birdge -> fsa4480 analog audio switch bridge ->
+>> onnn,nb7vpq904m USB reminder bridge -> USB-C controller AUX HPD bridge
+>>
+>> In this case, the connection relationships among the PHY aux bridge
+>> and the DP contorller need to be described in DT.
+>>
+>> In addition, the cdn_dp_parse_hpd_bridge_dt() will parses it and
+>> determines whether to register one or two bridges.
+>>
+>> Since there is only one DP controller, only one of the PHY ports can
+>> output at a time. The key is how to switch between different PHYs,
+>> which is handled by cdn_dp_switch_port() and cdn_dp_enable().
+>>
+>> There are two cases:
+>>
+>> 1. Neither bridge is enabled. In this case, both bridges can
+>> independently read the EDID, and the PHY port may switch before
+>> reading the EDID.
+>>
+>> 2. One bridge is already enabled. In this case, other bridges are not
+>> allowed to read the EDID. So we will try to return the cached EDID.
+>>
+>> Since the scenario of two ports plug in at the same time is rare,
+>> I don't have a board which support two TypeC connector to test this.
+>> Therefore, I tested forced switching on a single PHY port, as well as
+>> output using a fake PHY port alongside a real PHY port.
 >>
 >> Signed-off-by: Chaoyi Chen <chaoyi.chen@rock-chips.com>
 >> ---
 >>
->> (no changes since v5)
+>> Changes in v5:
+>> - By parsing the HPD bridge chain, set the connector's of_node to the
+>> of_node corresponding to the USB-C connector.
+>> - Return EDID cache when other port is already enabled.
 >>
->> Changes in v4:
->> - Remove notify DP HPD state by USB/DP PHY.
+>>   drivers/gpu/drm/rockchip/Kconfig       |   2 +
+>>   drivers/gpu/drm/rockchip/cdn-dp-core.c | 355 +++++++++++++++++++++----
+>>   drivers/gpu/drm/rockchip/cdn-dp-core.h |  24 +-
+>>   3 files changed, 324 insertions(+), 57 deletions(-)
 >>
->> (no changes since v3)
->>
->> Changes in v2:
->> - Fix compile error when CONFIG_TYPEC is not enabled.
->> - Notify DP HPD state by USB/DP PHY.
->>
->>   drivers/phy/rockchip/phy-rockchip-typec.c | 365 +++++++++++++++++++++-
->>   1 file changed, 349 insertions(+), 16 deletions(-)
->>
->> @@ -850,6 +998,72 @@ static int tcphy_get_mode(struct rockchip_typec_phy *tcphy)
->>   	return mode;
->>   }
->>   
->> +#if IS_ENABLED(CONFIG_TYPEC)
->> +static int tcphy_orien_sw_set(struct typec_switch_dev *sw,
->> +			      enum typec_orientation orien)
->> +{
->> +	struct rockchip_typec_phy *tcphy = typec_switch_get_drvdata(sw);
+>> diff --git a/drivers/gpu/drm/rockchip/Kconfig b/drivers/gpu/drm/rockchip/Kconfig
+>> index faf50d872be3..7472ec923cfd 100644
+>> --- a/drivers/gpu/drm/rockchip/Kconfig
+>> +++ b/drivers/gpu/drm/rockchip/Kconfig
+>> @@ -55,6 +55,8 @@ config ROCKCHIP_CDN_DP
+>>   	select DRM_DISPLAY_HELPER
+>>   	select DRM_BRIDGE_CONNECTOR
+>>   	select DRM_DISPLAY_DP_HELPER
+>> +	select DRM_AUX_BRIDGE
+>> +	select DRM_AUX_HPD_BRIDGE
+> You are not using them in this driver, so this is not correct. Please
+> declare Kconfig dependencies for the drivers that actually call the API,
+> otherwise the LKP or somebody else can get compile errors because this
+> driver wasn't selected.
+
+Thanks for the clarification. Will fix in v6.
+
+
+>
+>>   	help
+>>   	  This selects support for Rockchip SoC specific extensions
+>>   	  for the cdn DP driver. If you want to enable Dp on
+> [...]
+>
 >> +
->> +	mutex_lock(&tcphy->lock);
+>> +	/*
+>> +	 *
+>> +	 * &dp_out {
+>> +	 *	dp_controller_output0: endpoint@0 {
+>> +	 * 		remote-endpoint = <&dp_phy0_in>
+>> +	 * 	};
+>> +	 *
+>> +	 * 	dp_controller_output1: endpoint@1 {
+>> +	 * 		remote-endpoint = <&dp_phy1_in>
+>> +	 * 	};
+>> +	 * };
+>> +	 *
+>> +	 * &tcphy0_dp {
+>> +	 * 	port {
+>> +	 * 		tcphy0_typec_dp: endpoint@0 {
+>> +	 * 			reg = <0>;
+>> +	 * 			remote-endpoint = <&usbc0_dp>;
+>> +	 * 		};
+>> +	 *
+>> +	 * 		dp_phy0_in: endpoint@1 {
+>> +	 * 			reg = <1>;
+>> +	 * 			remote-endpoint = <&dp_controller_output0>;
+>> +	 * 		};
+>> +	 * 	};
+>> +	 * };
+>> +	 *
+>> +	 * &tcphy1_dp {
+>> +	 * 	...
+>> +	 * };
+>> +	 *
+>> +	 */
 >> +
->> +	if (orien == TYPEC_ORIENTATION_NONE) {
->> +		tcphy->new_mode = MODE_DISCONNECT;
->> +		goto unlock_ret;
+>> +	/* One endpoint may correspond to one HPD bridge. */
+>> +	for_each_of_graph_port_endpoint(port, dp_ep) {
+>> +		struct device_node *phy_bridge_node __free(device_node) =
+>> +			of_graph_get_remote_port_parent(dp_ep);
+>> +
+>> +		bridge = of_drm_find_bridge(phy_bridge_node);
+>> +		if (!bridge) {
+>> +			ret = -EPROBE_DEFER;
+>> +			goto out;
+>> +		}
+>> +
+>> +		dp->hpd_bridge_valid = true;
+>> +		dp->hpd_bridge_list[count].bridge = bridge;
+>> +		dp->hpd_bridge_list[count].parent = dp;
+>> +		dp->hpd_bridge_list[count].id = count;
+> This looks misnamed. They are not necessarily HPD bridges. There can be
+> a random chain between your controller and the actual output / connector
+> /etc.
+
+Yes, and more precisely, this should be `pervious_bridge_list` . Will fix in v6.
+
+
+
+>
+>> +		count++;
 >> +	}
 >> +
->> +	tcphy->flip = (orien == TYPEC_ORIENTATION_REVERSE) ? true : false;
->> +	tcphy->new_mode = MODE_DFP_USB;
-> Carrying over unanswered(!) comment from the previous series:
->
-> I don't think it is correct. Orientation defines only the cable (plug)
-> orientation. You should be getting the mux events for the mode
-> selection.
-
-Sorry for that, I forgot to modify this part. Will fix in v6.
-
-
->
->> +
->> +unlock_ret:
->> +	mutex_unlock(&tcphy->lock);
->> +	return 0;
+>> +out:
+>> +	dp->bridge_count = count ? count : 1;
+>> +	return ret;
 >> +}
 >> +
->> +static void udphy_orien_switch_unregister(void *data)
+>> +static int cdn_dp_bind(struct device *dev, struct device *master, void *data)
 >> +{
->> +	struct rockchip_typec_phy *tcphy = data;
->> +
->> +	typec_switch_unregister(tcphy->sw);
->> +}
->> +
->> @@ -1037,6 +1251,89 @@ static const struct phy_ops rockchip_dp_phy_ops = {
->>   	.owner		= THIS_MODULE,
->>   };
->>   
->> +#if IS_ENABLED(CONFIG_TYPEC)
->> +static int tcphy_typec_mux_set(struct typec_mux_dev *mux, struct typec_mux_state *state)
->> +{
->> +	struct rockchip_typec_phy *tcphy = typec_mux_get_drvdata(mux);
->> +	struct typec_displayport_data *data;
->> +	int hpd = 0;
->> +
->> +	mutex_lock(&tcphy->lock);
->> +
->> +	switch (state->mode) {
->> +	case TYPEC_STATE_SAFE:
->> +		fallthrough;
->> +	case TYPEC_STATE_USB:
->> +		tcphy->new_mode = MODE_DFP_USB;
->> +		phy_set_bus_width(tcphy->phys[TYPEC_PHY_DP], 0);
->> +		break;
->> +	case TYPEC_DP_STATE_C:
->> +	case TYPEC_DP_STATE_E:
-> You need to check that altmode->svid is DP before checking for these
-> modes.
+>> +	struct cdn_dp_device *dp = dev_get_drvdata(dev);
+>> +	struct drm_bridge *bridge, *hpd_bridge;
+>> +	struct drm_encoder *encoder;
+>> +	struct cdn_dp_port *port;
+>> +	struct drm_device *drm_dev = data;
+>> +	struct cdn_dp_bridge *bridge_list;
+> Why is it bridge_list?
 
-Okay, will fix in v6.
+Maybe it's still a naming issue. There may be multiple struct cdn_dp_bridge that will eventually be added to a list. It might be better to rename it to `dp_bridge`
+
 
 
 >
->> +		tcphy->new_mode = MODE_DFP_DP;
->> +		data = state->data;
->> +		hpd = !!(data->status & DP_STATUS_HPD_STATE);
->> +		phy_set_bus_width(tcphy->phys[TYPEC_PHY_DP], hpd ? 4 : 0);
->> +		break;
->> +	case TYPEC_DP_STATE_D:
->> +		tcphy->new_mode = MODE_DFP_DP | MODE_DFP_USB;
->> +		data = state->data;
->> +		hpd = !!(data->status & DP_STATUS_HPD_STATE);
->> +		phy_set_bus_width(tcphy->phys[TYPEC_PHY_DP], hpd ? 2 : 0);
->> +		break;
->> +	default:
->> +		break;
+>> +	int ret, i;
+>> +
+>> +	ret = cdn_dp_parse_dt(dp);
+>> +	if (ret < 0)
+>> +		return ret;
+>> +
+>> +	ret = cdn_dp_parse_hpd_bridge_dt(dp);
+>> +	if (ret)
+>> +		return ret;
+>> +
+>> +	dp->drm_dev = drm_dev;
+>> +	dp->connected = false;
+>> +	dp->active = false;
+>> +	dp->active_port = -1;
+>> +	dp->fw_loaded = false;
+>> +
+>> +	for (i = 0; i < dp->bridge_count; i++) {
+>> +		bridge_list = devm_drm_bridge_alloc(dev, struct cdn_dp_bridge, bridge,
+>> +						    &cdn_dp_bridge_funcs);
+>> +		if (IS_ERR(bridge_list))
+>> +			return PTR_ERR(bridge_list);
+>> +		bridge_list->id = i;
+>> +		bridge_list->parent = dp;
+>> +		if (!dp->hpd_bridge_valid)
+>> +			bridge_list->connected = true;
+>> +		dp->bridge_list[i] = bridge_list;
 >> +	}
->> +
->> +	mutex_unlock(&tcphy->lock);
->> +
->> +	return 0;
->> +}
 >> +
 
 -- 
