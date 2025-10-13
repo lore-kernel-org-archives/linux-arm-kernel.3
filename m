@@ -4,70 +4,60 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1B901CCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 09:36:15 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 966F8CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 09:37:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rOUmeS/QvtFRR7+dm90Jc3uTofnKDDv1LFlOq0Z/uCE=; b=wXtid+OY/h+Jz2XW6HKmllyqx2
-	TtyRIj0xbtRNnTi6YNECZorE1COabOW+rcO+Et/AKI5Cl0/Fouyoz0+5d/OiJn7mrmLH3/KjvqU7h
-	eluKbi3CTiwIrIJijKf52KiReEngF2i/qKOLs0eASK1GRNjwxEF1vW3CZWFkSaxDcLeUme8wRCDW1
-	LTHd9RMqWNUfc683gQlubVgfzegs0dcv5zZy0LRYfTofyA99Qvw9k0l8GyhkVoR5ORWsow+9lTL40
-	k/wGpfPItujDQwofKCs3AYFgA0d40OxTlDVfdrpj/6vFguaf0onV590kLhNuFpbx9S1pXVKo+TZT5
-	DNA2X2MA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=DudOMLsQRV+n263ygkOCjNo/TpYnVuRGxN7vn/o0BCU=; b=vc+sNJkNJ0ZGR0Sz/8MjJckcEU
+	/Vvm2mO7X3bzxOTRTqRKkU58Azo9vQklamD5ag2+5MEcXj7scDfZDRlXFp6gZQHgVMhJnZrRRcwuX
+	zKCY5pi0j0EtjAK6GT0ennKMk5N7dyadMIYbY2Fr9xcKmYEBst0+Xo5o59s+6IQi9kSmSNh21CIl9
+	cdmLll3i0cfD3E2rQwUhN9J2bkoJPdfiuUlV/gowuEtlGzaSdjxkbvcyZFRQgjZwPvsZFe2uHEqx9
+	uNTneNwM16LWj/CLEqAQP+Azj35ytyCgbSTr4uoSiljnSNx8AahmxLwKRVd3BGb7qigDi5+CytwLN
+	oTkVSFdw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8EyP-0000000ClDp-0kju;
-	Mon, 13 Oct 2025 09:36:09 +0000
-Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
+	id 1v8EzE-0000000ClTe-14tT;
+	Mon, 13 Oct 2025 09:37:00 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8EyK-0000000ClAb-1GkV;
-	Mon, 13 Oct 2025 09:36:06 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1760348162;
-	bh=k2yftSbq+5d+v9hZZrUZktEn1hoBtyA2dFQC4cr/uzE=;
-	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
-	b=dv3pEdxu2vwyeVkQ3uYW/Xkgw6f4rVrXZ2/e5titZmBsPGB0wfX1Abc2SzgXQqXPE
-	 VZ3ayJqC4O40Ec+4hATCsL/fsZtxxw8qniZdfbpR64KvAMslE+sAIadjsqQ2IGkUqB
-	 vgex6Ydq27I3RGhkkYmIG3cNRtnd7E/euA9/cQ8UmBDlri5QyiYfcYbb5sMk9FzTmw
-	 v4jvMjpeVoJ32fCqlY0SZu4qzkfopOcmT2kdMqFxmRFLwSAy+2obbRv3C2nQoCIHa9
-	 NRNSs4PvfvyuZ1APkUU1xiGJRqfgju01vwTdNGI0ZAKInBKBaU1JF0pg8UMZo5Guzm
-	 kaztYa9qVaieQ==
-Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 6621E17E048E;
-	Mon, 13 Oct 2025 11:36:01 +0200 (CEST)
-From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Matthias Brugger <matthias.bgg@gmail.com>, 
- Sean Wang <sean.wang@mediatek.com>, devicetree@vger.kernel.org, 
- linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-mediatek@lists.infradead.org, Macpaul Lin <macpaul.lin@mediatek.com>
-Cc: Bear Wang <bear.wang@mediatek.com>, Pablo Sun <pablo.sun@mediatek.com>, 
- Ramax Lo <ramax.lo@mediatek.com>, Macpaul Lin <macpaul@gmail.com>, 
- MediaTek Chromebook Upstream <Project_Global_Chrome_Upstream_Group@mediatek.com>, 
- Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-In-Reply-To: <20250918121751.229554-1-macpaul.lin@mediatek.com>
-References: <20250918121751.229554-1-macpaul.lin@mediatek.com>
-Subject: Re: (subset) [PATCH v4 1/4] dt-bindings: arm64: mediatek: add
- mt8395-evk-ufs board
-Message-Id: <176034816136.21517.14207599704800072414.b4-ty@collabora.com>
-Date: Mon, 13 Oct 2025 11:36:01 +0200
+	id 1v8EzC-0000000ClTR-32a9;
+	Mon, 13 Oct 2025 09:36:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 12079611A3;
+	Mon, 13 Oct 2025 09:36:58 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E215EC4CEFE;
+	Mon, 13 Oct 2025 09:36:55 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760348217;
+	bh=Yn7TjBfBuD0cTKnd++PHp7G1b/Ur34AI7puSNAOld80=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=n6NvnqACa97Q5EohDysILSyqPs2pPG8bBTEgVxKXb7GRMJFkAK4Tvs2H3jAQMmOxo
+	 5QETZF33oLTnRK2QXovE7gy6jQY5BFwrK2v15NpwI1jalM9WXNOAAZrdApBmWga8B/
+	 47REY+apf591ZtewkgH4WjoA7hvR/5pzeX1XLXEUKHMDzcjzTmHLz38KNscoednQJq
+	 8M7fN5eJCcZKsIY9zrAOeDcepo2hnEI3nCO2PvCbSCXdxToNoE3SyOw3exEuD7mAz/
+	 +rZJp0VeQ9avfdO19WODybyFrwk7faBRvxR1lPVbz3TKbjpOx4dg+xduOXvjX93ysz
+	 VWTr63UmwYmrA==
+Date: Mon, 13 Oct 2025 10:36:53 +0100
+From: Simon Horman <horms@kernel.org>
+To: Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: Andrew Lunn <andrew+netdev@lunn.ch>,
+	"David S. Miller" <davem@davemloft.net>,
+	Eric Dumazet <edumazet@google.com>,
+	Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-mediatek@lists.infradead.org, netdev@vger.kernel.org
+Subject: Re: [PATCH net v2] net: airoha: Take into account out-of-order tx
+ completions in airoha_dev_xmit()
+Message-ID: <aOzINXtv-gu50mJ7@horms.kernel.org>
+References: <20251012-airoha-tx-busy-queue-v2-1-a600b08bab2d@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.3
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_023604_515104_38FC52B0 
-X-CRM114-Status: UNSURE (   7.10  )
-X-CRM114-Notice: Please train this message.
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <20251012-airoha-tx-busy-queue-v2-1-a600b08bab2d@kernel.org>
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,23 +72,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 18 Sep 2025 20:17:47 +0800, Macpaul Lin wrote:
-> Add a compatible string for the MediaTek mt8395-evk-ufs board.
-> This board is the origin Genio 1200 EVK already mounted two main storages,
-> one is eMMC, and the other is UFS. The system automatically prioritizes
-> between eMMC and UFS via BROM detection, so user could not use both storage
-> types simultaneously. As a result, mt8395-evk-ufs must be treated as a
-> separate board.
+On Sun, Oct 12, 2025 at 11:19:44AM +0200, Lorenzo Bianconi wrote:
+> Completion napi can free out-of-order tx descriptors if hw QoS is
+> enabled and packets with different priority are queued to same DMA ring.
+> Take into account possible out-of-order reports checking if the tx queue
+> is full using circular buffer head/tail pointer instead of the number of
+> queued packets.
 > 
-> [...]
+> Fixes: 23020f0493270 ("net: airoha: Introduce ethernet support for EN7581 SoC")
+> Suggested-by: Simon Horman <horms@kernel.org>
+> Signed-off-by: Lorenzo Bianconi <lorenzo@kernel.org>
+> ---
+> Changes in v2:
+> - Fix corner case when the queue is full
+> - Link to v1: https://lore.kernel.org/r/20251010-airoha-tx-busy-queue-v1-1-9e1af5d06104@kernel.org
 
-Applied to v6.18-next/defconfig, thanks!
+Thanks for the update.
 
-[4/4] arm64: defconfig: Enable UFS support for MediaTek Genio 1200 EVK UFS board
-      commit: b59a508c1f5fdb3fdc690edebe815d59b04491d0
-
-Cheers,
-Angelo
-
-
+Reviewed-by: Simon Horman <horms@kernel.org>
 
