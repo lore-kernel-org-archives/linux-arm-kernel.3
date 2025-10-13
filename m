@@ -4,76 +4,99 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09713CCD18C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 12:49:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 1932BCCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 12:53:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k3MQLLai5Lv1jjJP3MPQy569OXhdTSwstmrfUBxF72w=; b=r4IDrVoVMDYOZBmfPBCXH1gtEM
-	yTFzcxXqbB5qMJkFN57wnyz8bYxPt5QM8ZYt29+bSrXS0G7EOSWnuP+urW9VbcM2kNN5OCx4pyVPD
-	wF9gtkJbCXKZpiuJ+wdMTKizlts24B7HUWmGiyNcrqUEF0gnv/6D82+Nk6cbyNkv/SowF32UsCmJB
-	OV6jFdqMruAgiJmyMzYTJGH/CofIb3nqRvQYtgRhAkcOnN9DfCItNU451KNim4IFvjExQDol/ju4R
-	CimW47OmwTCST1oXtFHlux1xO7k3NeIr3whWmgnhk2ljjxiD4POivqZ7qVTzLJS8k8CzKIkqq/5ek
-	sUMvM6SA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RGTQzqOpqmdFB4gV3HPPWK1ZwdyzuxlpeMip3GTHBhA=; b=kgr0f15UbpynLwLbVJ5LqMuapB
+	R9NdNKk27tF4z+hOXFSw9OUwARNSObvfkUx4PLNzLYKwK+iyLyj1U5Edc1XTAneKbESdUhXrdOxSH
+	c+mGYkTgxI/QKqzetfRLb/4QM+uGNrf3+CEoytMptRuRqbJSDjXMXcwm46RrKMtF6bpQZkV/q7K/F
+	eCyrY3PprCorP7yBBkxYcMTV2cOEfZ/+ljOBWRlGPgc4lW3CEKOB0Z6AtutC5ZDLx/SK+EoYH1zSg
+	9X16JxXVI+AHMtB/yqZZFXNTacpBaszLF+lhLUrk4/gLuJAf9Y54wKAOQE/SMJiwD82ATyemOhyJr
+	9MOqcNZQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Hzn-0000000DA8l-3pqG;
-	Mon, 13 Oct 2025 12:49:47 +0000
-Received: from pandora.armlinux.org.uk ([2001:4d48:ad52:32c8:5054:ff:fe00:142])
+	id 1v8I2o-0000000DAey-2eHs;
+	Mon, 13 Oct 2025 12:52:54 +0000
+Received: from mail-ej1-x62d.google.com ([2a00:1450:4864:20::62d])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Hzk-0000000DA7e-3buY;
-	Mon, 13 Oct 2025 12:49:46 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=armlinux.org.uk; s=pandora-2019; h=Sender:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Id:
-	List-Help:List-Unsubscribe:List-Subscribe:List-Post:List-Owner:List-Archive;
-	bh=k3MQLLai5Lv1jjJP3MPQy569OXhdTSwstmrfUBxF72w=; b=IYz8hkJVfaP2cX4h8ZURsZZ4uF
-	mKPN5lEiMWdLhGTGvlXkhhNTiX+V6ElB7rt+ErxHq2nWwSTGUKFpoF5Sg8Idcuf2MJi8Wa+grVvW4
-	Fed16y9coFyDw/QXXQYs5I7htwlZLIz/reIUDsDX5TKjYWKtZ2aMJAkBzBIOvKjoAbMjkMvr15Tcl
-	G590Viuqb+Xm6YMY7lweG+QjqEaz64p3KHCxQif1U5l8J3fgTigZ7luXotO5sKO/ECOtF2AeOXf7y
-	nap9IUSzUxu1McVNIdhRmwT8/b6UD27i34sKNFzmVJy7CewBcJhCyubeppnsLP12nSJ7f2tsJ7x8e
-	Mb1NJa8Q==;
-Received: from shell.armlinux.org.uk ([fd8f:7570:feb6:1:5054:ff:fe00:4ec]:48894)
-	by pandora.armlinux.org.uk with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <linux@armlinux.org.uk>)
-	id 1v8HzP-000000001zZ-0kKg;
-	Mon, 13 Oct 2025 13:49:23 +0100
-Received: from linux by shell.armlinux.org.uk with local (Exim 4.98.2)
-	(envelope-from <linux@shell.armlinux.org.uk>)
-	id 1v8HzH-000000000Le-1ZYr;
-	Mon, 13 Oct 2025 13:49:15 +0100
-Date: Mon, 13 Oct 2025 13:49:15 +0100
-From: "Russell King (Oracle)" <linux@armlinux.org.uk>
-To: Liangbin Lian <jjm2473@gmail.com>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org,
-	heiko@sntech.de, quentin.schulz@cherry.de,
-	kever.yang@rock-chips.com, naoki@radxa.com, honyuenkwun@gmail.com,
-	inindev@gmail.com, ivan8215145640@gmail.com,
-	neil.armstrong@linaro.org, mani@kernel.org, dsimic@manjaro.org,
-	pbrobinson@gmail.com, alchark@gmail.com, didi.debian@cknow.org,
-	jbx6244@gmail.com, andrew@lunn.ch, devicetree@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org, linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v5 3/3] arm64: dts: rockchip: add LinkEase EasePi R1
-Message-ID: <aOz1SzpzGLDQjiYQ@shell.armlinux.org.uk>
-References: <20251009084416.45542-1-jjm2473@gmail.com>
- <20251009084416.45542-4-jjm2473@gmail.com>
- <aOe_0EufouURu7R2@shell.armlinux.org.uk>
- <CAP_9mL4MfzagxiMD1VdOu=jBuN_XsOrvPQT=XTVgu2+G=+nD9A@mail.gmail.com>
+	id 1v8I2n-0000000DAee-0UGV
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Oct 2025 12:52:54 +0000
+Received: by mail-ej1-x62d.google.com with SMTP id a640c23a62f3a-b3dbf11fa9eso690714166b.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 05:52:52 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1760359971; x=1760964771; darn=lists.infradead.org;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :from:to:cc:subject:date:message-id:reply-to;
+        bh=RGTQzqOpqmdFB4gV3HPPWK1ZwdyzuxlpeMip3GTHBhA=;
+        b=Iqe7jQ/cyeGqmogmcwVx+E+ifeNa+diu06lxkxjO/iu+rQ2IylUF/rvH/cq0bUwR9P
+         8HXUtmpKqOlC4oAAD21ytQCZSKR6ofe4OCCdPckWjTSOY/yQztE9Gt0fEC1VbCRLbs0U
+         Ijqor9zUCOO4Mya9sdUg6SXZ54QVKGSikLg/ihHdf3jeYhq3AxukP6O9AfJZEmHzBxu9
+         GLgQAeookNSp6vm/Nzi6iU7YtSqign7GfG5cd8YuZbAAnBvHXvMRacuAO3QlzxakiSpf
+         YN31bEBGkwM4YQHFnwXl3KsU6NUHxZDMARmS0Sd86CL9+bOYsSeQuoKtdalcGUWKWWXm
+         WTuw==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760359971; x=1760964771;
+        h=content-transfer-encoding:in-reply-to:from:content-language
+         :references:cc:to:subject:user-agent:mime-version:date:message-id
+         :x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=RGTQzqOpqmdFB4gV3HPPWK1ZwdyzuxlpeMip3GTHBhA=;
+        b=Ch81VuJukQS0tZxuC3jr2LbyuUggNxeLOYWB4xBsYvh9so8Ll/d01jAclpFXVUbZ88
+         U20MiB9HUQFjqbhe+GY/B5Kwy0v4cNqkAfMXHGhyEMn9FB7jFfSFCqe4Ovm/l09BUSo7
+         oZ3JPCAiosfqF24zpPylpU8DsztFSAfUa0pQ2dRvQpr+u7PIEpQB7cVxdbFqXVCO1Ejk
+         ruUqD3MHQjGFAnfvX5Ls1d4QMwsRMCC1CjBty+TGrl8bks2dQ3zohG3mRB/Vpa9fHQm9
+         5ryhW/ERe0mRB+CbhYpN9TzicQSnsISEBwfcedvl8U9T5FxgoAPpEhWTMJdUv23FIuO4
+         UU5w==
+X-Forwarded-Encrypted: i=1; AJvYcCWwZGc+wdv4d5mcpH4ozF5JcuLKCXMu9JsZZrYTF3FpWLRv2rsnvIUcOBRo0tfDnePbwZnDuG2Fr/3WmF356/4k@lists.infradead.org
+X-Gm-Message-State: AOJu0YzPt3MphjQUAcDoedV+ss9cjMpeYik4fbZ2aOSJnOSgLbGEHRKh
+	ntA7UJ1TIqk6Yu7M3UvW/iUOlfAErTDo2bZnZ4hlBDonC0iEL68xX0yU
+X-Gm-Gg: ASbGnctvjX9BqfjN5mpY1EB50ncAHo5uGbEtwBerOhmKx1z9T+UxX1Z2fvfJcqUIB/q
+	MUp4C5QK+v0peMcM1FLUhCakkOEpWCjnqMPqGE3FMtSCkM/wg6zUqt58dcvvCSJQRS2nNH/AjWf
+	USIlRIcmjLKQGdViV3tBbsz2+0seCNyZ9tQp9XRcgClVt22gKnC2brtw8hl5ZW20iKQDIZpnivx
+	rnPFiSmH0KFgMz7AX9jur85n2NG5otpuVyE+hUPTjRKNXRgwlGsZsgxEx6oDNTQKsTm1jjvd7ml
+	szjCZEABrHH6HgJYLkAmzBX8hJi0MihVQzjLmFiegVBUy7bIClY8pMh1Kg0elTa96sBUvxeJU9n
+	nfWxJjSK6TzBx+Lt/yvZ9O4D1JoQGI9r1es7Vx+gZPgE6EAXbnKxBFW5YchsV7Mkop952/BFG3b
+	SpMUTM
+X-Google-Smtp-Source: AGHT+IFmmG7MUY5yB4mZ2FFQqWGfn+1ow8HKXXWlks0nW+FmPuADWQrKCGGjfAyKnyrLWQQf+T1dkg==
+X-Received: by 2002:a17:907:7290:b0:b45:a03f:d172 with SMTP id a640c23a62f3a-b50acc2f5bemr2364136766b.57.1760359970930;
+        Mon, 13 Oct 2025 05:52:50 -0700 (PDT)
+Received: from [192.168.4.55] ([92.120.5.12])
+        by smtp.gmail.com with ESMTPSA id a640c23a62f3a-b55d95257c8sm920389866b.77.2025.10.13.05.52.49
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 13 Oct 2025 05:52:50 -0700 (PDT)
+Message-ID: <27b2e692-ecff-483f-bb88-392f6ce87574@gmail.com>
+Date: Mon, 13 Oct 2025 15:52:49 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAP_9mL4MfzagxiMD1VdOu=jBuN_XsOrvPQT=XTVgu2+G=+nD9A@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH 2/7] dt-bindings: clock: imx8ulp: add SIM LPAV clock gate
+ ID definitions
+To: Krzysztof Kozlowski <krzk@kernel.org>
+Cc: Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd
+ <sboyd@kernel.org>, Rob Herring <robh@kernel.org>,
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley
+ <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Fabio Estevam <festevam@gmail.com>, Philipp Zabel <p.zabel@pengutronix.de>,
+ linux-clk@vger.kernel.org, imx@lists.linux.dev, devicetree@vger.kernel.org,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
+ Pengutronix Kernel Team <kernel@pengutronix.de>
+References: <20250804155407.285353-1-laurentiumihalcea111@gmail.com>
+ <20250804155407.285353-3-laurentiumihalcea111@gmail.com>
+ <20250805-natural-vulture-of-glamour-5fac8d@kuoka>
+Content-Language: en-US
+From: Laurentiu Mihalcea <laurentiumihalcea111@gmail.com>
+In-Reply-To: <20250805-natural-vulture-of-glamour-5fac8d@kuoka>
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_054944_897294_CF129820 
-X-CRM114-Status: GOOD (  28.12  )
+X-CRM114-CacheID: sfid-20251013_055253_195615_C1437E1B 
+X-CRM114-Status: GOOD (  14.40  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,92 +111,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Fri, Oct 10, 2025 at 11:20:08AM +0800, Liangbin Lian wrote:
-> Russell King (Oracle) <linux@armlinux.org.uk> 于2025年10月9日周四 21:59写道：
-> >
-> > On Thu, Oct 09, 2025 at 04:44:16PM +0800, Liangbin Lian wrote:
-> > > +&gmac0 {
-> > > +     phy-mode = "rgmii-id";
-> > > +     clock_in_out = "input";
-> > ...
-> > > +&gmac1 {
-> > > +     phy-mode = "rgmii-id";
-> > > +     clock_in_out = "input";
-> >
-> > I am fine with what is being proposed here, but I think this
-> > clock_in_out property needs fixing. The description for it is thus:
-> >
-> >   clock_in_out:
-> >     description:
-> >       For RGMII, it must be "input", means main clock(125MHz)
-> >       is not sourced from SoC's PLL, but input from PHY.
-> >       For RMII, "input" means PHY provides the reference clock(50MHz),
-> >       "output" means GMAC provides the reference clock.
-> >     $ref: /schemas/types.yaml#/definitions/string
-> >     enum: [input, output]
-> >     default: input
-> >
-> > The problems that I have here are:
-> >
-> > 1) the description states that the only possible value for this when in
-> >    RGMII mode is "input" which is reasonable, because it's due to the
-> >    RGMII specification. The driver code is perfectly able to determine
-> >    whether RGMII has been specified, and set bsp_priv->clock_input
-> >    itself, relieving DT of this need.
-> >
-> > 2) bsp_priv->clock_input is only used in gmac_clk_enable() when calling
-> >    the SoC specific set_clock_selection() method. Only RK3528, RK3576,
-> >    and RK3588 populate this method. Every other SoC supported by this
-> >    driver still requires the property:
-...
-> >   clock_in_out:
-> >     description:
-> >       For RGMII, it must be "input"
-> 
-> This description does not match the actual situation,
-> there are many dts using 'output':
-> https://elixir.bootlin.com/linux/v6.17/source/arch/arm64/boot/dts/rockchip/rk3568-bpi-r2-pro.dts#L235
-> https://elixir.bootlin.com/linux/v6.17/source/arch/arm64/boot/dts/rockchip/rk3568-evb1-v10.dts#L241
-> https://elixir.bootlin.com/linux/v6.17/source/arch/arm64/boot/dts/rockchip/rk3568-fastrhino-r68s.dts#L33
-> https://elixir.bootlin.com/linux/v6.17/source/arch/arm64/boot/dts/rockchip/rk3568-nanopi-r5s.dts#L78
 
-For all of the above, whether it is "input" or "output" has no effect
-as these are all rk3568, and rk3568 does not implement the
-set_clock_selection() method.
+On 8/5/2025 10:02 AM, Krzysztof Kozlowski wrote:
+> On Mon, Aug 04, 2025 at 11:54:02AM -0400, Laurentiu Mihalcea wrote:
+>> From: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>>
+>> Add ID definitions for the clock gates managed by the SIM LPAV module.
+>>
+>> Signed-off-by: Laurentiu Mihalcea <laurentiu.mihalcea@nxp.com>
+>> ---
+>>  include/dt-bindings/clock/imx8ulp-clock.h | 7 +++++++
+>>  1 file changed, 7 insertions(+)
+> This is part of bindings patch.
 
-static const struct rk_gmac_ops rk3568_ops = {
-        .set_phy_intf_sel = rk3568_set_phy_intf_sel,
-        .set_to_rgmii = rk3568_set_to_rgmii,
-        .set_to_rmii = rk3568_set_to_rmii,
-        .set_speed = rk_set_clk_mac_speed,
-        .regs_valid = true,
-        .regs = {
-                0xfe2a0000, /* gmac0 */
-                0xfe010000, /* gmac1 */
-                0x0, /* sentinel */
-        },
-};
 
-I'm going to propose:
+ACK. Again, sorry for the easily avoidable mistakes.....
 
-1) that the driver should only print an error if "clock_in_out" is
-missing _and_ the SoC implements the required function.
 
-2) that the driver should print a non-fatal error if this property is
-specified in DT _and_ the SoC does not implement the function to
-discourage its use.
+>
+>
+>> diff --git a/include/dt-bindings/clock/imx8ulp-clock.h b/include/dt-bindings/clock/imx8ulp-clock.h
+>> index 827404fadf5c..ebebb4831761 100644
+>> --- a/include/dt-bindings/clock/imx8ulp-clock.h
+>> +++ b/include/dt-bindings/clock/imx8ulp-clock.h
+>> @@ -255,4 +255,11 @@
+>>  
+>>  #define IMX8ULP_CLK_PCC5_END		56
+>>  
+>> +/* LPAV SIM */
+>> +#define IMX8ULP_CLK_SIM_LPAV_HIFI_CORE		0
+>> +#define IMX8ULP_CLK_SIM_LPAV_HIFI_PBCLK		1
+>> +#define IMX8ULP_CLK_SIM_LPAV_HIFI_PLAT		2
+>> +
+>> +#define IMX8ULP_CLK_SIM_LPAV_END		3
+> Drop. Not a binding (see other discussions for many SoCs why).
 
-3) [tr]x_delay should not print an error for non-RGMII phy interface
-modes.
 
-I consider it a bug that a driver prints errors for properties that
-have not been specified that it does not actually require. By doing
-so, it encourages people to add useless properties to their DT
-description that will never ever be used (e.g. because they are not
-relevant for hardware the operating mode that the board is setup
-for.)
+these definitions are being used by the clock driver we're introducing here
 
--- 
-RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+
+>
+> Best regards,
+> Krzysztof
+>
 
