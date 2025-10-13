@@ -4,157 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0D17CCCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 18:59:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C6D9CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 19:02:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=cclUZCokfzkWX/My7pclPq7I3xvSQ4vcLg2ABHvrnHU=; b=iBRay2qfwv/0XDUO1Dq6m4iVVz
-	Z+o5kxabITq/b5b0peMLYjrnopm/AdYOvRnvrU8l2ljzXdLlpKPiXvSQeluR2y3fPZ9/qcUjTexaq
-	hXB3QkmtUf8MnL7I9NL8aFBR6zoxb1fIAHNVQl6gTfZyxc95LKkpTZoZ+huxVST5SNl893mc6GG94
-	2pY/LYf/xlAq0Qd7JH5iJPvJOtnFgMPj0Qr1dPDTaatTaYhvJctqquK++e5u3oD+KGQ76l7PA4pPS
-	pDUJUF3A7EPsy5iszRM4yArn8T4gG1NS/U+4U1rx4rknVN3JjkoLuLEc1wRorRyqKIqZx/OtBNjoP
-	cptGsgWQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=RgEGPlNUK43rhNDXnUBKVU3d22Z0I72vU1ZHl0FA+5M=; b=mQRZH9pg2oXXD14+7U7+z96O6U
+	nly20wTflNn70dRXtJ//yaIYyTXoBzBEqoLPuUiRS+EafhxpKqAnoD0UWMrO2d92Lpy4nnb73Lwcz
+	458FWzEMwZ/ppTVSsVlRaXzI/LzMlVmYui1zvr3XCPEkzy1XfYyP8SzprLF0A8z2JIgC0aVM0+81L
+	tIwc3ZHnjVd6IYB3g9wgvNTWWyoMx5YChWl0azarNyp1w13hGgrCB0gI+nVksS7EnF49d69hAgefB
+	2T8MQIaxovQ7jy83EGzrk4JnMhGL4HC70XhrvYf+HwpAGL2LIMo9dAgitBntBXaofXpWSSoJwNl29
+	vRttDq6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Nlj-0000000EDOu-3j0w;
-	Mon, 13 Oct 2025 18:59:39 +0000
-Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
+	id 1v8Nog-0000000EEW0-1bhQ;
+	Mon, 13 Oct 2025 19:02:42 +0000
+Received: from mout-p-102.mailbox.org ([80.241.56.152])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Nli-0000000EDMO-0mc4
+	id 1v8Nod-0000000EEUp-1dkN
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 18:59:39 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=lVfCYFtryA/uWLS/pr2oaaY0SuZp8xzWs9vEGy6vDGtA3I9OkNj4Kk/V9NzjSTRmKOQqHLAPkdt/8vGvV0pqKYgPJ02qGWLluyPXkecKzH1TlHgbyxisPm8FVw+oIUkh5Z/gFMc3pOyKzblI7gZzsTyK1BoUdc2DcV4cvS+kupUBAzMRuA4bjy99V0Zjx3x0NhQtYPSxGgb2SHEl6qM3bBr80aapTlrYGBFXTg/pEKT52od64jArkZHBqEX/3zw26MmYogReRkKW/Oes0bL3dVDBM6UasrKXFUUkQ4gKBEG6b4gTmh23NVK9odPPZHZRu1s9R0YL1YvlyUC/KeYyAQ==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=cclUZCokfzkWX/My7pclPq7I3xvSQ4vcLg2ABHvrnHU=;
- b=Kuwro+Q7Y22j+UWlSnx68Yf6DDpu5O1YabQn5k0KL6hFoWixQgQtczaEVFsCxr5qVaVyrF+OhdvOKGMXs8lgJiaJtHK3wmQklL8TPe8ONahXftPhP02SGVnfI9J7GH7DY4sQgIbz8M8KBnkNemWmjQXdU28zUmklr7tu8Ty9olgcgJt+U8Nxk6pmPIlOFIwjdK+Kgd/0Uzn1TCqGwkxKaY4K+wNjwmWJh1MMoNF0/8cqDzHW51FnwLB6eKWOLjrNFhvQ/Y5LIo9b35rvv4G1FYTtPRITyuyFIJb9DoJF1+CMGIzIvzhn0RmdeKD5xh7CEMOgKZvg/2zkDD1/+M+5rQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=cclUZCokfzkWX/My7pclPq7I3xvSQ4vcLg2ABHvrnHU=;
- b=jel2ETphH51iATkZvHV/5EFNu9ACQKn1O2bE36eBXxGVGs4l4xDmFJ+BaWT1LkRl6dDlShpqXf7MOHY2g/NEAoULsitZ7jyiM3bcbaVZuBMGzy5m+oJYK27iYp10ySuNzek+zNWvtdyWWj3zPsWk69U2y8HvEYGYyo7RY34kdW4FMwn/kVueh4IZH/XANmomhEMcdtxH30xItVliLa7jkQXpGQrTzeLXX3i+i0ZRs3HM0oD/UeFNIjodu20X7041pA3yPORCpv7reWQfplaVFMTrBxlWVcKQs0hXT7dbBw1Znnk473WiM3uxEva6GaJriWec8IykUwnvy01thU/ioA==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS4PR04MB9621.eurprd04.prod.outlook.com (2603:10a6:20b:4ff::22)
- by DUZPR04MB9948.eurprd04.prod.outlook.com (2603:10a6:10:4dd::16) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.13; Mon, 13 Oct
- 2025 18:43:59 +0000
-Received: from AS4PR04MB9621.eurprd04.prod.outlook.com
- ([fe80::a84d:82bf:a9ff:171e]) by AS4PR04MB9621.eurprd04.prod.outlook.com
- ([fe80::a84d:82bf:a9ff:171e%4]) with mapi id 15.20.9203.009; Mon, 13 Oct 2025
- 18:43:59 +0000
-Date: Mon, 13 Oct 2025 14:43:51 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: dri-devel@lists.freedesktop.org, Abel Vesa <abelvesa@kernel.org>,
+	Mon, 13 Oct 2025 19:02:40 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4clmtz3sgXz9v10;
+	Mon, 13 Oct 2025 21:02:35 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1760382155;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RgEGPlNUK43rhNDXnUBKVU3d22Z0I72vU1ZHl0FA+5M=;
+	b=NEU6NP0VJ9Uar8v/MJPQNoOOq9sDmy69JNJOHp54Bz9j337NYDY1p6UYICf7Zs52rROYxK
+	TT3obK2au2EDzWVl/PbyqPi15kU4sDN8DrWlen6o98qkFUhPChs4YWaWZ0C6P/W3Z0F+4e
+	ax692jpLk7DxslQY5lQyYbkhaWaC1WqEIKNuh25Qy/d/44XCV7rfOZz2QUNv4jjqcZlYlo
+	BXZ/aFSFMTAH3FHk8q1WTDVDSs7CoAbB4NGLL7svApHvNcPrTtFchyfQTadPMybg7h36Fe
+	ADOkcixHfRgE8kF/POquVEukjfxbJ1C+lxIbpg3WPlQYFT+cVBgjDZ9n4ujSLg==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b="h/YTL95m";
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1760382153;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=RgEGPlNUK43rhNDXnUBKVU3d22Z0I72vU1ZHl0FA+5M=;
+	b=h/YTL95mjqwfTRKo/7x3jZWSAxBUUgW5yAvJUbyE+Sf1551P+mzDlADqtkPnIKKZMSjUpA
+	Kkv8FWIH6UFHPFS59z08Hx/S4ar1Fngn+Y2NXQsKT+xD/mfPmhPS28Lo1RF0rWprgwuThs
+	4RF6X9q2vYAy/6m7V3FseKhgcJkUZJE14I6dUNoZ82NxGjhqXCur4rLKQCBRsSEpqJgU75
+	kY+z2AeH8/oON5BC8TSH9UgzEbB2hf2NiZ1Mx8YnfF6NAUxtMDueHRWNiDqU3DqJMjSGIB
+	Fti0WkrSXFfhA+jcstSUTaC4UN2liBpx2lh3gST/bxgKN8AR5/7Fn2RZ8Bb+3A==
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Adam Ford <aford173@gmail.com>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
+	David Airlie <airlied@gmail.com>,
+	Frank Binns <frank.binns@imgtec.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Liu Ying <victor.liu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>,
-	Peng Fan <peng.fan@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org
-Subject: Re: [PATCH 15/39] drm/imx: dc: fu: Pass struct
- dc_fu_subdev_match_data via OF match data
-Message-ID: <aO1IZ+DfqrzXz4rW@lizhi-Precision-Tower-5810>
-References: <20251011170213.128907-1-marek.vasut@mailbox.org>
- <20251011170213.128907-16-marek.vasut@mailbox.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251011170213.128907-16-marek.vasut@mailbox.org>
-X-ClientProxiedBy: PH7P220CA0060.NAMP220.PROD.OUTLOOK.COM
- (2603:10b6:510:32b::29) To AS4PR04MB9621.eurprd04.prod.outlook.com
- (2603:10a6:20b:4ff::22)
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Matt Coster <matt.coster@imgtec.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Simona Vetter <simona@ffwll.ch>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH 2/3] arm64: dts: renesas: r8a77960: Add GX6250 GPU node
+Date: Mon, 13 Oct 2025 21:01:18 +0200
+Message-ID: <20251013190210.142436-2-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20251013190210.142436-1-marek.vasut+renesas@mailbox.org>
+References: <20251013190210.142436-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4PR04MB9621:EE_|DUZPR04MB9948:EE_
-X-MS-Office365-Filtering-Correlation-Id: 43dd4071-b77f-4e00-ff2e-08de0a8878f4
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|7416014|52116014|376014|366016|1800799024|19092799006|7053199007|38350700014;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?WD7njMvBMgZ5m6R8kJsBhZnp3ahaIf9Slstl5sUny4+ticRliLy+Xj52yW+E?=
- =?us-ascii?Q?6h+oYzlr7fnddRdp72FdodUpzTW6U16rhTFSo/xAdyo8/4B9rfmntT4HjLwu?=
- =?us-ascii?Q?ndZKTRMZUuErX2zmNkHPWQrsOjS4/IwdVF1bMu9gUHBieRO396ktx3JFCx9v?=
- =?us-ascii?Q?OeYaccrjrUvy4UPqqU5Eqrid5ajAhE80rg6tuRm3i7bitONdC+4WbYpbafHH?=
- =?us-ascii?Q?XygPQUELAnROhW7zm2JkAH5aeaOYf8ClfW1hMi9cG+DxDIm65jpN226kKOYc?=
- =?us-ascii?Q?/N3Vn/z7ewvnORzrjT1sOmHM7kCClr5YyAUGbUHKaO6B0OI7U9l5Omll/Nql?=
- =?us-ascii?Q?iBlduWHWApBgoOUj/39IlnFMjrG3h4ZywDM6OwSc6pTjTeT5u/+74feRfS2d?=
- =?us-ascii?Q?htlm6xM4+P0nNfy2Fsv8O15AnrVk0eeEmKAAbAPRne5PHhP3//NHo5umKSjE?=
- =?us-ascii?Q?Uw0+zIP17eAfgeCKhhmArT2YbmuuxhOYaEMZK4Ja7ziC5cMRcGUG4H7LsT1s?=
- =?us-ascii?Q?b1XdjLBTifVMkqQ3193OKlwptyBt84rqkMotBJVafz6YhBstCbLrI1q0fay8?=
- =?us-ascii?Q?HZjEDVUNkwMPxHlZtuWsWvukuc4x+XrC1QI5G9/dlczZarAJsli6o/WYNUqJ?=
- =?us-ascii?Q?BiWHAxPRV79nu15xahmmhytrC78b9Aok5xwzkcDUHfoaB4ZL6GqRCXWbwIkU?=
- =?us-ascii?Q?XCiyQzbTdevuw9ORt8c7wuO2JEk0MQcUbeTM7eSArHPWrO54pMPWrw7jm5RL?=
- =?us-ascii?Q?EvsbU4KDJO8c/sSw6pGcyNe95yc8DgYbpzmE3CQduz73Wc71d//N3/3i0qAz?=
- =?us-ascii?Q?hhr8AfMHGaFwc+Ci5lDXX4YuZFBOGJC8f8x84ho8JIqOV3jHsuvTwgKFT5tt?=
- =?us-ascii?Q?0nfaZPftSxo3dJyB5+4wHhfOjVN/TyqqUFv3iDwCw4gooRR6k41cWdkLroJQ?=
- =?us-ascii?Q?RgNQYQFlucJK9eVqMVYFPQf9fhjEedMXbq/9N6CvFIXitMtd/botyGYLfbiV?=
- =?us-ascii?Q?twnWj8MuN/kKfdaShyhRsCex5rz+99O3dUmwCL08R3DpP6QDGYLyKD0WDLXT?=
- =?us-ascii?Q?+xAPXxk1Q5/1ltGnOOpvJby4Sgfjdz/fmZ3JdkThsjT8Uv4yi2Eq2BXMKuQi?=
- =?us-ascii?Q?F0WG9+vDvrjlVqzLiO66eEge7FSRF169LCo8WaO1jBCGkKsp1aeic3ighkce?=
- =?us-ascii?Q?zXxvzeEjySTZdJTNNAtiVg7EVkRXzZZnyKHlcXiQ9PTQ5aZujR9yFvm99mt1?=
- =?us-ascii?Q?/IvbS7rkEIJhbRtL6NsgME0GXIt7XU/46dam0imP74lQTonA5HByrCPvVoGU?=
- =?us-ascii?Q?mJGze/xTqhRBtsIVLGkAnvGLxPda3UjknmJOeg8YbFO2/4A6uw8lz70G6iY5?=
- =?us-ascii?Q?K8zZrNcqPZvsvm4WkfkIUs7AXjhGvitYnSpQHFQP3q/PJCdaVhL9Ins9so1n?=
- =?us-ascii?Q?0lsTNfZp+hmcG1M7Px8+ohgeloTCfAhKkefBe6ySwGqvohdwg3tMd/T5IXL9?=
- =?us-ascii?Q?DpZ+t+umrM1gs8S6xtfIt+kEgLrC5wnFHhjO?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9621.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(7416014)(52116014)(376014)(366016)(1800799024)(19092799006)(7053199007)(38350700014);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?QthykxPbY17eq5lDWkUdRqH8tBRR0D7rXXysu2VBk9wi0f1Nl0NzDpbwPtTD?=
- =?us-ascii?Q?KmkgEDKc7abEyLm22DpVVjmrk49N4Ge5Byf+MDuRh4HSeqZLrIbSZdYK+ObU?=
- =?us-ascii?Q?wRi9q8wl6VorlKf6P0X9KdqpN+ijon0S6TOfwpLZeuiAZCsA6bUbj6Um+PGp?=
- =?us-ascii?Q?bjurYgqd9R5DKGdOYQxtmAsVumGzRwORWWi0tCCIM9N8ZwxROFDxBgUmW+3s?=
- =?us-ascii?Q?0hcICYG2tLZ/XpwjaPXXQDi5AWvl+eP/fmwTSiUrPhBNs/ZbYjYoj35AVtL3?=
- =?us-ascii?Q?tkLDqwgVayOqLQLvm2kf15pwtmrDITQQT5w1iRsTNmoK9mlnN6n/94rTLXyZ?=
- =?us-ascii?Q?MGREBgUdeHvGz19W3YlS4yK/zaDs2r8lvdVI8Mg4qzHYTiO8didWaqL2DwwJ?=
- =?us-ascii?Q?etzb1gI4rJyVoq19KydOc7y3Gp/TFBLMujeGiBGHNgOppbU8T9KhqZupF6z9?=
- =?us-ascii?Q?sMVjVo4Amdj3zSstgNzXt4kkmkToqcJNppE1MZnmX3mo4eORpHzZIvIuKaMY?=
- =?us-ascii?Q?WRemSvhLIOn12oWFtqUjzcvxLv+wnR/uSAdyYEoEtVZAHDJ044VN+E+NwjGi?=
- =?us-ascii?Q?q4A12KUM/YtfAU+VxN1T8E4NbvcD6BXFwHXpguHa2mbWqtPqPwvOAyxGH40x?=
- =?us-ascii?Q?wkDUioKkP+TnQ5yw0IpFg6tExTWUuhd6B3Z5K7uLlLh0W+hzcKGT6KxX4XVz?=
- =?us-ascii?Q?2jZ4xtDlJV6WzKRpEDQI5pH+yiak4pj0BGoJnZduU+D2x/N1vVa0CFFIpkMr?=
- =?us-ascii?Q?uZN5hJDyXEi5P6zhWWr5JdLm7SyKkzRcUxgbhhCs8gUWhm5FkarUMTX+1BMF?=
- =?us-ascii?Q?RuXy4ShOKRmy5NGF5dI0ciZFa+OmTmyfnLSKSDCVzg1jPrksCgB9o2chzv1+?=
- =?us-ascii?Q?kVRUh3mn94Vk7TKugo5K466udQpZAgvIhFkSuBdnLpl14rO0NmcYzxGZb6W4?=
- =?us-ascii?Q?MQtzhcAXjOHTfF911qigQWEPCRX/UwRPCCu3AlZi0U3L9ClWsfHospRtokcR?=
- =?us-ascii?Q?JJo8RO/8J8/EKNavQVargE77ZOT811AqeiHPjQe19TTlZxGcXflgAQ3PWH2e?=
- =?us-ascii?Q?PcbGhGFbmp69juZM9kf/tuokPFFfQBpGJV9oH0Oa453b2PKYPPQCf2mRGvlx?=
- =?us-ascii?Q?wsktboPxj0kHJDa3A3A4fGQ8IJ94n9G5fsKpa4rAtV/IJr3H6mekd03VhNMC?=
- =?us-ascii?Q?+1heJVUsyehzZjdtq3AsW8sLhY9QYFEMKZ02/UYaI9YjQfjxprFkYYmQioEn?=
- =?us-ascii?Q?1Qs/qWGzsSjjyaPTBTT/FN+f7PbLo0lU4tIchT3udL9ci9EhdcfS7crTF+2n?=
- =?us-ascii?Q?zJjyGQDc7YtvEDo61/MuWH47NmKT9VpLIJD43aGR32hxsMP9gT38cUhBBxmj?=
- =?us-ascii?Q?H4kTtyKE/cewWcfKVmr/SqLVzFIEhNxFM9CjHY8vbFA6V15MMtK+pRxlurFF?=
- =?us-ascii?Q?bCbmed9JBOG1uJ4989oDM1RFrUSlpMvsERaGfoN82Bd+UuwATMaAbgcgCzdz?=
- =?us-ascii?Q?ekAGsUsil5ty0JHS0gNPy5pHMbqUxDDxuTq6ZdLfMZadSxVZ9uY6aahMUuTc?=
- =?us-ascii?Q?3WZpkcck2oZ8QPzrG9g=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: 43dd4071-b77f-4e00-ff2e-08de0a8878f4
-X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9621.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2025 18:43:59.5861
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: MvO4fJfEILkuGz5BL1RKCoIoAMXJVniY1cKXhP0RhiVlhfjZq9CqjMr7XLCjmAG66zav2kWL3DcsG1irghQw1Q==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DUZPR04MB9948
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: 0b0558fdda1c0b00138
+X-MBO-RS-META: 5rj5rxchy4bzmxkt8mwszpzp5iyyk97c
+X-Rspamd-Queue-Id: 4clmtz3sgXz9v10
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_115938_376980_307946AA 
-X-CRM114-Status: GOOD (  24.45  )
+X-CRM114-CacheID: sfid-20251013_120239_569638_620FFAA3 
+X-CRM114-Status: UNSURE (   8.55  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -169,175 +108,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 11, 2025 at 06:51:30PM +0200, Marek Vasut wrote:
-> Introduce struct dc_fu_subdev_match_data which describes the differences
-> between i.MX8QXP and i.MX95, which in this case register offsets as well
-> as address space offsets, and pass it as OF match data into the driver, so
-> the driver can use the match data to correctly access registers on each SoC.
-> This is a preparatory patch for i.MX95 addition. No functional change.
->
-> Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
-> ---
+Describe Imagination Technologies PowerVR Rogue GX6250 BNVC 4.45.2.58
+present in Renesas R-Car R8A77960 M3-W SoC.
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
+Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+---
+Cc: Adam Ford <aford173@gmail.com>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: David Airlie <airlied@gmail.com>
+Cc: Frank Binns <frank.binns@imgtec.com>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+Cc: Magnus Damm <magnus.damm@gmail.com>
+Cc: Matt Coster <matt.coster@imgtec.com>
+Cc: Maxime Ripard <mripard@kernel.org>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Simona Vetter <simona@ffwll.ch>
+Cc: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: devicetree@vger.kernel.org
+Cc: dri-devel@lists.freedesktop.org
+Cc: linux-renesas-soc@vger.kernel.org
+---
+ arch/arm64/boot/dts/renesas/r8a77960.dtsi | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-> Cc: Abel Vesa <abelvesa@kernel.org>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Fabio Estevam <festevam@gmail.com>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
-> Cc: Liu Ying <victor.liu@nxp.com>
-> Cc: Lucas Stach <l.stach@pengutronix.de>
-> Cc: Peng Fan <peng.fan@nxp.com>
-> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Shawn Guo <shawnguo@kernel.org>
-> Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> Cc: devicetree@vger.kernel.org
-> Cc: dri-devel@lists.freedesktop.org
-> Cc: imx@lists.linux.dev
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-clk@vger.kernel.org
-> ---
->  drivers/gpu/drm/imx/dc/dc-fl.c | 61 +++++++++++++++++++++++-----------
->  1 file changed, 41 insertions(+), 20 deletions(-)
->
-> diff --git a/drivers/gpu/drm/imx/dc/dc-fl.c b/drivers/gpu/drm/imx/dc/dc-fl.c
-> index a76825dc75fe1..53647e3a395b4 100644
-> --- a/drivers/gpu/drm/imx/dc/dc-fl.c
-> +++ b/drivers/gpu/drm/imx/dc/dc-fl.c
-> @@ -15,8 +15,6 @@
->  #include "dc-drv.h"
->  #include "dc-fu.h"
->
-> -#define FRAC_OFFSET			0x28
-> -
->  #define BURSTBUFFERMANAGEMENT		0xc
->  #define BASEADDRESS			0x10
->  #define SOURCEBUFFERATTRIBUTES		0x14
-> @@ -28,35 +26,55 @@
->  #define CLIPWINDOWDIMENSIONS		0x2c
->  #define CONSTANTCOLOR			0x30
->  #define LAYERPROPERTY			0x34
-> -#define FRAMEDIMENSIONS			0x150
-> +#define FRAMEDIMENSIONS_IMX8QXP		0x150
->
->  struct dc_fl {
->  	struct dc_fu fu;
->  };
->
-> -static const struct dc_subdev_info dc_fl_info[] = {
-> +struct dc_fl_subdev_match_data {
-> +	const struct regmap_config	*regmap_config;
-> +	unsigned int			reg_offset_bbm;
-> +	unsigned int			reg_offset_base;
-> +	unsigned int			reg_offset_rest;
-> +	unsigned int			reg_framedimensions;
-> +	unsigned int			reg_frac_offset;
-> +	const struct dc_subdev_info	*info;
-> +};
-> +
-> +static const struct dc_subdev_info dc_fl_info_imx8qxp[] = {
->  	{ .reg_start = 0x56180ac0, .id = 0, },
->  	{ /* sentinel */ },
->  };
->
-> -static const struct regmap_range dc_fl_regmap_ranges[] = {
-> -	regmap_reg_range(STATICCONTROL, FRAMEDIMENSIONS),
-> +static const struct regmap_range dc_fl_regmap_ranges_imx8qxp[] = {
-> +	regmap_reg_range(STATICCONTROL, FRAMEDIMENSIONS_IMX8QXP),
->  };
->
-> -static const struct regmap_access_table dc_fl_regmap_access_table = {
-> -	.yes_ranges = dc_fl_regmap_ranges,
-> -	.n_yes_ranges = ARRAY_SIZE(dc_fl_regmap_ranges),
-> +static const struct regmap_access_table dc_fl_regmap_access_table_imx8qxp = {
-> +	.yes_ranges = dc_fl_regmap_ranges_imx8qxp,
-> +	.n_yes_ranges = ARRAY_SIZE(dc_fl_regmap_ranges_imx8qxp),
->  };
->
-> -static const struct regmap_config dc_fl_cfg_regmap_config = {
-> +static const struct regmap_config dc_fl_cfg_regmap_config_imx8qxp = {
->  	.name = "cfg",
->  	.reg_bits = 32,
->  	.reg_stride = 4,
->  	.val_bits = 32,
->  	.fast_io = true,
-> -	.wr_table = &dc_fl_regmap_access_table,
-> -	.rd_table = &dc_fl_regmap_access_table,
-> -	.max_register = FRAMEDIMENSIONS,
-> +	.wr_table = &dc_fl_regmap_access_table_imx8qxp,
-> +	.rd_table = &dc_fl_regmap_access_table_imx8qxp,
-> +	.max_register = FRAMEDIMENSIONS_IMX8QXP,
-> +};
-> +
-> +static const struct dc_fl_subdev_match_data dc_fl_match_data_imx8qxp = {
-> +	.regmap_config = &dc_fl_cfg_regmap_config_imx8qxp,
-> +	.reg_offset_bbm = 0,
-> +	.reg_offset_base = 0,
-> +	.reg_offset_rest = 0,
-> +	.reg_framedimensions = FRAMEDIMENSIONS_IMX8QXP,
-> +	.reg_frac_offset = 0x28,
-> +	.info = dc_fl_info_imx8qxp,
->  };
->
->  static void dc_fl_set_fmt(struct dc_fu *fu, enum dc_fu_frac frac,
-> @@ -99,9 +117,11 @@ static void dc_fl_set_ops(struct dc_fu *fu)
->
->  static int dc_fl_bind(struct device *dev, struct device *master, void *data)
->  {
-> +	const struct dc_fl_subdev_match_data *dc_fl_match_data = device_get_match_data(dev);
-> +	const struct dc_subdev_info *dc_fl_info = dc_fl_match_data->info;
->  	struct platform_device *pdev = to_platform_device(dev);
->  	struct dc_drm_device *dc_drm = data;
-> -	unsigned int off_base, off_regs;
-> +	unsigned int off, off_base, off_regs;
->  	struct resource *res_pec;
->  	void __iomem *base_cfg;
->  	struct dc_fl *fl;
-> @@ -121,7 +141,7 @@ static int dc_fl_bind(struct device *dev, struct device *master, void *data)
->  		return PTR_ERR(base_cfg);
->
->  	fu->reg_cfg = devm_regmap_init_mmio(dev, base_cfg,
-> -					    &dc_fl_cfg_regmap_config);
-> +					    dc_fl_match_data->regmap_config);
->  	if (IS_ERR(fu->reg_cfg))
->  		return PTR_ERR(fu->reg_cfg);
->
-> @@ -134,9 +154,10 @@ static int dc_fl_bind(struct device *dev, struct device *master, void *data)
->  	fu->link_id = LINK_ID_FETCHLAYER0;
->  	fu->id = DC_FETCHUNIT_FL0;
->  	for (i = 0; i < DC_FETCHUNIT_FRAC_NUM; i++) {
-> -		off_base = i * FRAC_OFFSET;
-> +		off = i * dc_fl_match_data->reg_frac_offset;
-> +		off_base = off + dc_fl_match_data->reg_offset_base;
->  		fu->reg_baseaddr[i]		  = BASEADDRESS + off_base;
-> -		off_regs = i * FRAC_OFFSET;
-> +		off_regs = off + dc_fl_match_data->reg_offset_rest;
->  		fu->reg_sourcebufferattributes[i] = SOURCEBUFFERATTRIBUTES + off_regs;
->  		fu->reg_sourcebufferdimension[i]  = SOURCEBUFFERDIMENSION + off_regs;
->  		fu->reg_colorcomponentbits[i]     = COLORCOMPONENTBITS + off_regs;
-> @@ -147,8 +168,8 @@ static int dc_fl_bind(struct device *dev, struct device *master, void *data)
->  		fu->reg_constantcolor[i]	  = CONSTANTCOLOR + off_regs;
->  		fu->reg_layerproperty[i]	  = LAYERPROPERTY + off_regs;
->  	}
-> -	fu->reg_burstbuffermanagement = BURSTBUFFERMANAGEMENT;
-> -	fu->reg_framedimensions = FRAMEDIMENSIONS;
-> +	fu->reg_burstbuffermanagement = BURSTBUFFERMANAGEMENT + dc_fl_match_data->reg_offset_bbm;
-> +	fu->reg_framedimensions = dc_fl_match_data->reg_framedimensions;
->  	snprintf(fu->name, sizeof(fu->name), "FetchLayer%d", id);
->
->  	dc_fl_set_ops(fu);
-> @@ -180,7 +201,7 @@ static void dc_fl_remove(struct platform_device *pdev)
->  }
->
->  static const struct of_device_id dc_fl_dt_ids[] = {
-> -	{ .compatible = "fsl,imx8qxp-dc-fetchlayer" },
-> +	{ .compatible = "fsl,imx8qxp-dc-fetchlayer", .data = &dc_fl_match_data_imx8qxp },
->  	{ /* sentinel */ }
->  };
->  MODULE_DEVICE_TABLE(of, dc_fl_dt_ids);
-> --
-> 2.51.0
->
+diff --git a/arch/arm64/boot/dts/renesas/r8a77960.dtsi b/arch/arm64/boot/dts/renesas/r8a77960.dtsi
+index 6d039019905de..4f7b2e838c026 100644
+--- a/arch/arm64/boot/dts/renesas/r8a77960.dtsi
++++ b/arch/arm64/boot/dts/renesas/r8a77960.dtsi
+@@ -2565,6 +2565,18 @@ gic: interrupt-controller@f1010000 {
+ 			resets = <&cpg 408>;
+ 		};
+ 
++		gpu: gpu@fd000000 {
++			compatible = "renesas,r8a77960-gpu",
++				     "img,img-gx6250",
++				     "img,img-rogue";
++			reg = <0 0xfd000000 0 0x40000>;
++			interrupts = <GIC_SPI 119 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&cpg CPG_MOD 112>;
++			clock-names = "core";
++			power-domains = <&sysc R8A7796_PD_3DG_B>;
++			resets = <&cpg 112>;
++		};
++
+ 		pciec0: pcie@fe000000 {
+ 			compatible = "renesas,pcie-r8a7796",
+ 				     "renesas,pcie-rcar-gen3";
+-- 
+2.51.0
+
 
