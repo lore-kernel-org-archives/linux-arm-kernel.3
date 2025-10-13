@@ -4,72 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 41BE8CCD18E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 15:55:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4DB19CCD18E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 15:56:14 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Cc:List-Subscribe:
-	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:To:From:Reply-To:Content-Type:Content-ID:Content-Description:
-	Resent-Date:Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:
-	List-Owner; bh=wVWnS0RcSrifKORRkaxSlEBfAdbDlyJkXOwnKgyyCWE=; b=r0VppuYpL4MUSL
-	dYGtOa+OqHog4YWh7VJyyaehficEh70YMNriLC7Oq64lRcEbf/c6IO8Z3o6uccQ4C0DjD8ZNkDC1Z
-	v0kvbJ5dy6n7RF76yztkUaDovEHmx+WRVXT9HrLvF0mLO8uLBB0/FpkwNU2xXS+/Dg7/S4oI4t+2g
-	c2IlrmixuUOViuGT9tYWFkDEwKLB2KlhsU/7b0d1ocJtFhuEbgh2o0Ple+PnCLaRjbTEA21Iqgq4W
-	Os+BIBz+v+sM1wT3jIZDxIuLw3oybPVXMNao93GffiaosVRxi0qke9Tz/fOv7jRp2zUDFrhZRTYnN
-	MIPGbysJVRNbgo0MPLsQ==;
+	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=YBeBnLojRUp+3BGjW9hqqMrpXMlk2wEyeaFT1Bjf2RU=; b=x4fkbxYNR+uZZ4HDBOgdL5wt40
+	ibvLrTe15MnzLBJsLngSin3WP1f1FVyzzQ0//4KMvLqpSQqgG39rWUjeEyrJGgw6jH52dZRGM4Tkk
+	/xk6OgtkTmfgj+QBeM7hwyU49+Z59Oc5vWWhkQXQmNE3eFzzUhFuSvUXWxTaghI6nKsJ3AHG0Cvp0
+	VpbyN4zr98FfpC2gjmbp7gO1aQnDg2Kq8i87lo76oyuJHj2R4P7khsfwmPIVy3LaqV3PKGdLahFIB
+	VGwpeSbCmnLooOI+DKgfkkLlorRUy2aAlb9Hbwlv8RdHdKFC/dUZM1JVBA10R3mAeSc1gtPUOAnU8
+	75nx9+lA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Ktg-0000000DltZ-1wRP;
-	Mon, 13 Oct 2025 15:55:40 +0000
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
+	id 1v8Ku8-0000000Dm4C-3hqj;
+	Mon, 13 Oct 2025 15:56:08 +0000
+Received: from mail-ed1-x52a.google.com ([2a00:1450:4864:20::52a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Ktd-0000000Dlse-309K
+	id 1v8Ku3-0000000Dm14-1s2A
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 15:55:38 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1760370936;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=wVWnS0RcSrifKORRkaxSlEBfAdbDlyJkXOwnKgyyCWE=;
-	b=Wr0XILPrG6efWVPsQFrqzO0zfu2JJ0xRuU4+OJoUK2/xqFjXCV2a6OSP3Mn6q7HSQIJxcl
-	kR+hyiaZdJhZVRIiEEfoi1Bce7A3YEk8WljkdqkeMgCKSIEqfMGyaJltgnjzowcDsKZFHO
-	dL2zg0aUDD22xcwPx2yIp78fGR0Dn3c=
-Received: from mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com
- (ec2-54-186-198-63.us-west-2.compute.amazonaws.com [54.186.198.63]) by
- relay.mimecast.com with ESMTP with STARTTLS (version=TLSv1.3,
- cipher=TLS_AES_256_GCM_SHA384) id us-mta-104-hoQr19x9MGeShnhZzexXCg-1; Mon,
- 13 Oct 2025 11:54:05 -0400
-X-MC-Unique: hoQr19x9MGeShnhZzexXCg-1
-X-Mimecast-MFC-AGG-ID: hoQr19x9MGeShnhZzexXCg_1760370842
-Received: from mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com [10.30.177.4])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (2048 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mx-prod-mc-04.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTPS id D86331954105;
-	Mon, 13 Oct 2025 15:54:01 +0000 (UTC)
-Received: from chopper.lan (unknown [10.22.81.1])
-	by mx-prod-int-01.mail-002.prod.us-west-2.aws.redhat.com (Postfix) with ESMTP id 9BC8E30002D0;
-	Mon, 13 Oct 2025 15:53:56 +0000 (UTC)
-From: Lyude Paul <lyude@redhat.com>
-To: rust-for-linux@vger.kernel.org,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Boqun Feng <boqun.feng@gmail.com>,
-	linux-kernel@vger.kernel.org,
-	Daniel Almeida <daniel.almeida@collabora.com>
-Subject: [PATCH v13 04/17] preempt: Introduce __preempt_count_{sub, add}_return()
-Date: Mon, 13 Oct 2025 11:48:06 -0400
-Message-ID: <20251013155205.2004838-5-lyude@redhat.com>
-In-Reply-To: <20251013155205.2004838-1-lyude@redhat.com>
-References: <20251013155205.2004838-1-lyude@redhat.com>
+	Mon, 13 Oct 2025 15:56:07 +0000
+Received: by mail-ed1-x52a.google.com with SMTP id 4fb4d7f45d1cf-634cef434beso8430358a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 08:56:02 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=chromium.org; s=google; t=1760370961; x=1760975761; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=YBeBnLojRUp+3BGjW9hqqMrpXMlk2wEyeaFT1Bjf2RU=;
+        b=RQYjIkw3xVMkjDVkj92mub5nPkI1SgnWA9l0umHkwevRJkQ7y9eDrrNdNAwOPgTHqh
+         cl8AB++Vamf74lGyIfRMOMqijLU7P4nzCXNYUBP9NxcFgJ8f1lwKbrUH4wDWiKQUNYUw
+         SQjQHmt9Zw+TiSgeKKBZFp+fs6Zrvf+E6OfF4=
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760370961; x=1760975761;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=YBeBnLojRUp+3BGjW9hqqMrpXMlk2wEyeaFT1Bjf2RU=;
+        b=C8KYhD8RMqpU9c9rVViTtDCp9hp8zsj6UK0yC47YRr4NRUip36U70hz7RfoVDJO5q3
+         7GzcIXJ08CVsQPBs4iNqIu8HYrjb8mi3DueLx2gfJbx/NRFS3mGeN5bXYbU1AQnjnIFN
+         4BznfDcT/uuAWNxwm6JByLhnJ9BkgcEC+gV8RPlRoao5Rg8bCCfSCzzFU4GAjcU4xzwK
+         klkSYMQQwJnaYzp2lSl1yuPoZBd0QAc9sdlb1sPo8Gr8Y9vAXulLj5xWepg63iOejvPI
+         MoMLibg3rrprpMR+h7rEPfCzT2S74obEg1OkBVJ/gL94I9ZOuoRVhH3Xbxt4R3OrE+Ug
+         jrdA==
+X-Forwarded-Encrypted: i=1; AJvYcCUKE1+UWbR4okV+bi5lhJtffP8mIIgx8TDRlL5rlQUCH+jwxfe6RydKU9Pl6QziD9n/OVHIpC7B6qDStWP4Ii+w@lists.infradead.org
+X-Gm-Message-State: AOJu0YwGFDB3eLW27mcCWUtyQ5DIbbvjyfHhKbKvX0KUSge5kLu5RBIZ
+	l1qrRlsomUEosNfyIDnw7iy47YbyPye/VmlvcAamMCbZkK9YtA/sLS/8vhrrCK9Exd7YjcvJHxc
+	o0yir7r4+
+X-Gm-Gg: ASbGncsyg4D1qQlYmbZjSj4SOzn0yCoc4xociaB48seWaTR43wM/i7ZaD7TMUB3B22e
+	+wHRPC8HkS0OunrkPFf8lq3ESmfgihj7gL3MqOeP0dpboDf/54qL/KG3jr1nFtV8RzWA2iEKd89
+	TvNk2tQLh+qgVvwa8BP+Q5ShKdyHwg88iT4V+o/R9ksRX1o2RdJs7neLs5lpyIvov0BFbLC+2bi
+	+9fGd4pTmTgyi559dG4LR1dyxR4PlTIcKohyRRo5WyXAMps0f8sPIclq6NsvmfiGBB2lcP4Wlv8
+	MtXAKoJbDyyoyKjM/tKPQKvFdJiWtzLXv6cVYlZUb9dkAaab6w3DSUb1q0p054O//CzpwnRlsYP
+	+iRL08nd7omEjolhk4sx0f8Y631Ak/+agkDHO81KLES0ROuQ/RtfzFto3/K6yXkitV7Pp+obM7F
+	61Y+9r98+xMe1Jbw==
+X-Google-Smtp-Source: AGHT+IFo2V8kA9niIDNUYQWasmLbNB9Fc+MRbirtpckpezESVMpOl3tgF+b0cYShypf6LvVmcoqb8A==
+X-Received: by 2002:a17:907:8e07:b0:b3e:c99b:c77f with SMTP id a640c23a62f3a-b4f4310366cmr2608793266b.24.1760370961417;
+        Mon, 13 Oct 2025 08:56:01 -0700 (PDT)
+Received: from mail-ed1-f45.google.com (mail-ed1-f45.google.com. [209.85.208.45])
+        by smtp.gmail.com with ESMTPSA id 4fb4d7f45d1cf-63a52b0f42esm9101358a12.12.2025.10.13.08.56.01
+        for <linux-arm-kernel@lists.infradead.org>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Mon, 13 Oct 2025 08:56:01 -0700 (PDT)
+Received: by mail-ed1-f45.google.com with SMTP id 4fb4d7f45d1cf-636535e4b1aso8586531a12.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 08:56:01 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCWkK4E6sTm8caGic8EyjnOdybwCcJBdsbM0JQS91rCGOA+8vsRCjjMfAJc8YRH53qKnyZGr7POF8Xkc+vZNPyiJ@lists.infradead.org
+X-Received: by 2002:a05:6512:1329:b0:581:bdb8:6df9 with SMTP id
+ 2adb3069b0e04-5905e1ffebamr6390861e87.10.1760370468172; Mon, 13 Oct 2025
+ 08:47:48 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-Scanned-By: MIMEDefang 3.4.1 on 10.30.177.4
+References: <20251013-dts-v1-1-5731ed92684a@chromium.org> <aO0eLbLCGLKf6sF+@lizhi-Precision-Tower-5810>
+In-Reply-To: <aO0eLbLCGLKf6sF+@lizhi-Precision-Tower-5810>
+From: Ricardo Ribalda <ribalda@chromium.org>
+Date: Mon, 13 Oct 2025 17:47:35 +0200
+X-Gmail-Original-Message-ID: <CANiDSCu2hdaO5r8v_GcCksepy58AJFsuLb-xxz3WYOUknvKLwg@mail.gmail.com>
+X-Gm-Features: AS18NWCpy9_8RtaLxButea2qoJBXTdgqbhebqmgYPmIE7BU8dSEVQ_qnVy1gyYw
+Message-ID: <CANiDSCu2hdaO5r8v_GcCksepy58AJFsuLb-xxz3WYOUknvKLwg@mail.gmail.com>
+Subject: Re: [PATCH] dt-bindings: media: fsl,imx6q-vdoa: Remove redundant quote
+To: Frank Li <Frank.li@nxp.com>
+Cc: Mauro Carvalho Chehab <mchehab@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, linux-media@vger.kernel.org, 
+	devicetree@vger.kernel.org, imx@lists.linux.dev, 
+	linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_085537_866030_12396006 
-X-CRM114-Status: GOOD (  14.21  )
+X-CRM114-CacheID: sfid-20251013_085603_521773_A9445433 
+X-CRM114-Status: GOOD (  21.59  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -81,144 +105,61 @@ List-Post: <mailto:linux-arm-kernel@lists.infradead.org>
 List-Help: <mailto:linux-arm-kernel-request@lists.infradead.org?subject=help>
 List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
  <mailto:linux-arm-kernel-request@lists.infradead.org?subject=subscribe>
-Cc: Juergen Christ <jchrist@linux.ibm.com>, "open list:S390 ARCHITECTURE" <linux-s390@vger.kernel.org>, "maintainer:X86 ARCHITECTURE 32-BIT AND 64-BIT" <x86@kernel.org>, "open list:GENERIC INCLUDE/ASM HEADER FILES" <linux-arch@vger.kernel.org>, Arnd Bergmann <arnd@arndb.de>, Vasily Gorbik <gor@linux.ibm.com>, Catalin Marinas <catalin.marinas@arm.com>, Heiko Carstens <hca@linux.ibm.com>, Dave Hansen <dave.hansen@linux.intel.com>, Uros Bizjak <ubizjak@gmail.com>, Brian Gerst <brgerst@gmail.com>, Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Sven Schnelle <svens@linux.ibm.com>, "H. Peter Anvin" <hpa@zytor.com>, Alexander Gordeev <agordeev@linux.ibm.com>, Christian Borntraeger <borntraeger@linux.ibm.com>, Will Deacon <will@kernel.org>, Jinjie Ruan <ruanjinjie@huawei.com>, "moderated list:ARM64 PORT AARCH64 ARCHITECTURE" <linux-arm-kernel@lists.infradead.org>
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Boqun Feng <boqun.feng@gmail.com>
+Hi Frank
 
-In order to use preempt_count() to tracking the interrupt disable
-nesting level, __preempt_count_{add,sub}_return() are introduced, as
-their name suggest, these primitives return the new value of the
-preempt_count() after changing it. The following example shows the usage
-of it in local_interrupt_disable():
+On Mon, 13 Oct 2025 at 17:43, Frank Li <Frank.li@nxp.com> wrote:
+>
+> On Mon, Oct 13, 2025 at 02:52:20PM +0000, Ricardo Ribalda wrote:
+> > Latest dts-ci complains about this:
+> > ./Documentation/devicetree/bindings/media/fsl,imx6q-vdoa.yaml:19:12: [error] string value is redundantly quoted with any quotes (quoted-strings)
+> >
+> > Fix it to make our CI happy.
+> >
+> > Signed-off-by: Ricardo Ribalda <ribalda@chromium.org>
+> > ---
+>
+> Thank you fix it. I have posted at
+>
+> https://lore.kernel.org/imx/20250925193546.305036-1-Frank.Li@nxp.com/
 
-	// increase the HARDIRQ_DISABLE bit
-	new_count = __preempt_count_add_return(HARDIRQ_DISABLE_OFFSET);
+Sorry, I missed that one :)
 
-	// if it's the first-time increment, then disable the interrupt
-	// at hardware level.
-	if (new_count & HARDIRQ_DISABLE_MASK == HARDIRQ_DISABLE_OFFSET) {
-		local_irq_save(flags);
-		raw_cpu_write(local_interrupt_disable_state.flags, flags);
-	}
 
-Having these primitives will avoid a read of preempt_count() after
-changing preempt_count() on certain architectures.
 
-Signed-off-by: Boqun Feng <boqun.feng@gmail.com>
+>
+> Frank
+>
+> >  Documentation/devicetree/bindings/media/fsl,imx6q-vdoa.yaml | 2 +-
+> >  1 file changed, 1 insertion(+), 1 deletion(-)
+> >
+> > diff --git a/Documentation/devicetree/bindings/media/fsl,imx6q-vdoa.yaml b/Documentation/devicetree/bindings/media/fsl,imx6q-vdoa.yaml
+> > index 511ac0d67a7f2360afe22b81d76644575081089b..988a5b3a62bdebeda6b922a986b9ac93d0933e51 100644
+> > --- a/Documentation/devicetree/bindings/media/fsl,imx6q-vdoa.yaml
+> > +++ b/Documentation/devicetree/bindings/media/fsl,imx6q-vdoa.yaml
+> > @@ -16,7 +16,7 @@ maintainers:
+> >
+> >  properties:
+> >    compatible:
+> > -    const: "fsl,imx6q-vdoa"
+> > +    const: fsl,imx6q-vdoa
+> >
+> >    reg:
+> >      maxItems: 1
+> >
+> > ---
+> > base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+> > change-id: 20251013-dts-83ce7f7b9e54
+> >
+> > Best regards,
+> > --
+> > Ricardo Ribalda <ribalda@chromium.org>
+> >
 
----
-V10:
-* Add commit message I forgot
-* Rebase against latest pcpu_hot changes
-V11:
-* Remove CONFIG_PROFILE_ALL_BRANCHES workaround from
-  __preempt_count_add_return()
 
- arch/arm64/include/asm/preempt.h | 18 ++++++++++++++++++
- arch/s390/include/asm/preempt.h  | 10 ++++++++++
- arch/x86/include/asm/preempt.h   | 10 ++++++++++
- include/asm-generic/preempt.h    | 14 ++++++++++++++
- 4 files changed, 52 insertions(+)
 
-diff --git a/arch/arm64/include/asm/preempt.h b/arch/arm64/include/asm/preempt.h
-index 932ea4b620428..0dd8221d1bef7 100644
---- a/arch/arm64/include/asm/preempt.h
-+++ b/arch/arm64/include/asm/preempt.h
-@@ -55,6 +55,24 @@ static inline void __preempt_count_sub(int val)
- 	WRITE_ONCE(current_thread_info()->preempt.count, pc);
- }
- 
-+static inline int __preempt_count_add_return(int val)
-+{
-+	u32 pc = READ_ONCE(current_thread_info()->preempt.count);
-+	pc += val;
-+	WRITE_ONCE(current_thread_info()->preempt.count, pc);
-+
-+	return pc;
-+}
-+
-+static inline int __preempt_count_sub_return(int val)
-+{
-+	u32 pc = READ_ONCE(current_thread_info()->preempt.count);
-+	pc -= val;
-+	WRITE_ONCE(current_thread_info()->preempt.count, pc);
-+
-+	return pc;
-+}
-+
- static inline bool __preempt_count_dec_and_test(void)
- {
- 	struct thread_info *ti = current_thread_info();
-diff --git a/arch/s390/include/asm/preempt.h b/arch/s390/include/asm/preempt.h
-index 6ccd033acfe52..5ae366e26c57d 100644
---- a/arch/s390/include/asm/preempt.h
-+++ b/arch/s390/include/asm/preempt.h
-@@ -98,6 +98,16 @@ static __always_inline bool should_resched(int preempt_offset)
- 	return unlikely(READ_ONCE(get_lowcore()->preempt_count) == preempt_offset);
- }
- 
-+static __always_inline int __preempt_count_add_return(int val)
-+{
-+	return val + __atomic_add(val, &get_lowcore()->preempt_count);
-+}
-+
-+static __always_inline int __preempt_count_sub_return(int val)
-+{
-+	return __preempt_count_add_return(-val);
-+}
-+
- #define init_task_preempt_count(p)	do { } while (0)
- /* Deferred to CPU bringup time */
- #define init_idle_preempt_count(p, cpu)	do { } while (0)
-diff --git a/arch/x86/include/asm/preempt.h b/arch/x86/include/asm/preempt.h
-index 578441db09f0b..1220656f3370b 100644
---- a/arch/x86/include/asm/preempt.h
-+++ b/arch/x86/include/asm/preempt.h
-@@ -85,6 +85,16 @@ static __always_inline void __preempt_count_sub(int val)
- 	raw_cpu_add_4(__preempt_count, -val);
- }
- 
-+static __always_inline int __preempt_count_add_return(int val)
-+{
-+	return raw_cpu_add_return_4(__preempt_count, val);
-+}
-+
-+static __always_inline int __preempt_count_sub_return(int val)
-+{
-+	return raw_cpu_add_return_4(__preempt_count, -val);
-+}
-+
- /*
-  * Because we keep PREEMPT_NEED_RESCHED set when we do _not_ need to reschedule
-  * a decrement which hits zero means we have no preempt_count and should
-diff --git a/include/asm-generic/preempt.h b/include/asm-generic/preempt.h
-index 51f8f3881523a..c8683c046615d 100644
---- a/include/asm-generic/preempt.h
-+++ b/include/asm-generic/preempt.h
-@@ -59,6 +59,20 @@ static __always_inline void __preempt_count_sub(int val)
- 	*preempt_count_ptr() -= val;
- }
- 
-+static __always_inline int __preempt_count_add_return(int val)
-+{
-+	*preempt_count_ptr() += val;
-+
-+	return *preempt_count_ptr();
-+}
-+
-+static __always_inline int __preempt_count_sub_return(int val)
-+{
-+	*preempt_count_ptr() -= val;
-+
-+	return *preempt_count_ptr();
-+}
-+
- static __always_inline bool __preempt_count_dec_and_test(void)
- {
- 	/*
 -- 
-2.51.0
-
+Ricardo Ribalda
 
