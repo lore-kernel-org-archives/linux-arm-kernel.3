@@ -4,61 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 655A9CCD18A
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 08:03:18 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3415ECCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 08:09:26 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=A6fRW6+cZDH7hUoH+xw53liH1veCcgR0fqqxFP5c5FI=; b=hVWGujR8gZjiFeGXrJnG/B8SSP
-	IesDH9nl5cUmUE3oyiVsG304U9ADTnuXXhmw4bJcUqdCzd9E9Ugco3zEwq2G8B8X/nn+NZCVy/atb
-	+htj8ObjE21kTTYKutUfAUHFUPYCYYuzTko+LbQnMRPYIyMlSFw4phnfAO49JfkOCX25oI5LGpzLi
-	uVvdtldosUNTv/bMQNhCtKdz/ekrlxLiCSmxtsT3Mu0xi7463MYVW+7LtEaYNg6qY5k6VJsjSWZtH
-	8l5NDjhe5jSOoFI7wwflLsEYjAMQsaEMfdCVcU+C/Hx73f2UJkfu7UhsZF6hiW7hLxPFl0Gq8eDpu
-	Q6Z05B1g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=sdNXNRoS+5obGezYMX6in2BIt6z98naqeGeF7fAvmjM=; b=hezB87shgpRetKZVzZhGttd38o
+	E1JIkPrgThVCWQXYkGisyrAXPBqEvBZj8b0Pbn/tSAghOqYDhfeY8Nt+0t0DYac+50pKPFB4Ke2+9
+	T7ykOuOZh/QFnmgZWQxtZa0c+7hSm0ahj4Btlv8aPgy9THWtSyV+CxXbpEh66aYU42Cqe+yG9e95H
+	CHXcOJ9b9/Q+DnGun74SHe76ajOEKANxYgA5M9AVJcd984gRtMd9ef0xF+kC9jGkI5z6lff5kBq8h
+	MQ89jz7tHkWJksC48LlubarxgAyf/zkWqxdI8tcaSuunr1gCyPcqZMrdAAdOQCeIbjAZe6nu61lOR
+	cu4Vk3Bg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8DWS-0000000CXys-1bsm;
-	Mon, 13 Oct 2025 08:03:12 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8DWP-0000000CXwT-2yJv
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 08:03:11 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 454FD12FC;
-	Mon, 13 Oct 2025 01:03:01 -0700 (PDT)
-Received: from a079125.blr.arm.com (a079125.arm.com [10.164.21.37])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 256AE3F738;
-	Mon, 13 Oct 2025 01:03:04 -0700 (PDT)
-From: Linu Cherian <linu.cherian@arm.com>
-To: Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	Andrew Morton <akpm@linux-foundation.org>,
-	Ryan Roberts <ryan.roberts@arm.com>,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
-	Kevin Brodsky <kevin.brodsky@arm.com>,
-	Zhenhua Huang <quic_zhenhuah@quicinc.com>,
-	Dev Jain <dev.jain@arm.com>,
-	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
-	Yang Shi <yang@os.amperecomputing.com>,
-	Linu Cherian <linu.cherian@arm.com>
-Subject: [PATCH v2 2/2] arm64/mm: Rename try_pgd_pgtable_alloc_init_mm
-Date: Mon, 13 Oct 2025 13:32:20 +0530
-Message-ID: <20251013080220.2027757-3-linu.cherian@arm.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251013080220.2027757-1-linu.cherian@arm.com>
-References: <20251013080220.2027757-1-linu.cherian@arm.com>
+	id 1v8DcN-0000000CYsa-3Aq9;
+	Mon, 13 Oct 2025 08:09:19 +0000
+Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v8DcL-0000000CYru-0Zbb;
+	Mon, 13 Oct 2025 08:09:18 +0000
+ARC-Seal: i=1; a=rsa-sha256; t=1760342947; cv=none; 
+	d=zohomail.com; s=zohoarc; 
+	b=XtYIluVBt05d6VWLeeqyGlauf7EmfDvfIA1NMnXYEac85XGv6jy0zKx0CNxwMzkwMFC9JQnGUgArf/afT7x/NY3SdyD23gbpDIQMK9OTl10FEZ+62jW3w+fJhanyHAXJFR3gDRQttkm0E9eSY7JJCMDeIqO4yx0aoDGtqllkWeE=
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
+	t=1760342947; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:MIME-Version:Message-ID:Subject:Subject:To:To:Message-Id:Reply-To; 
+	bh=sdNXNRoS+5obGezYMX6in2BIt6z98naqeGeF7fAvmjM=; 
+	b=HcVoYQ62292xKzqdt6s3a2slw7CXdQofAhBNEE2TRu+V3+g8sOgJPuKy00Dh5F73zgevbztoaTpmVdPAfJsQurTkNSniNOwV20nsTwwTCwl13/xnk+RYyyUNS99DgBZocie+Lheug2kpAGEmMxTWQVEm4QsA0lUldYl12PsrP/U=
+ARC-Authentication-Results: i=1; mx.zohomail.com;
+	dkim=pass  header.i=collabora.com;
+	spf=pass  smtp.mailfrom=nicolas.frattaroli@collabora.com;
+	dmarc=pass header.from=<nicolas.frattaroli@collabora.com>
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1760342947;
+	s=zohomail; d=collabora.com; i=nicolas.frattaroli@collabora.com;
+	h=From:From:Date:Date:Subject:Subject:MIME-Version:Content-Type:Content-Transfer-Encoding:Message-Id:Message-Id:To:To:Cc:Cc:Reply-To;
+	bh=sdNXNRoS+5obGezYMX6in2BIt6z98naqeGeF7fAvmjM=;
+	b=SXHEWoqUhpZhNrwLO0cW3JneA34qnVFjJhJQzqzaghhS6TDYo5P24LLstuHHngjy
+	f/+R42qu1eY3Cd/HgJ4L9wpYF64GPS2LyU4xs/319HqCfJt2qPqsGnArksKxtV85Lzy
+	8S9QVOYf5mptfy69uLm5S2NED0pNYzbQXv3ay92M=
+Received: by mx.zohomail.com with SMTPS id 1760342945538119.53598149326228;
+	Mon, 13 Oct 2025 01:09:05 -0700 (PDT)
+From: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+Date: Mon, 13 Oct 2025 10:09:01 +0200
+Subject: [PATCH] mailbox: mtk-gpueb: Add missing 'static' to mailbox ops
+ struct
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+Message-Id: <20251013-mt8196-gpueb-mbox-fix-v1-1-d7de0cb20c36@collabora.com>
+X-B4-Tracking: v=1; b=H4sIAJyz7GgC/yWMQQ6DIBBFr0Jm3WlAKhGv0rgQOloWiAU0TYx37
+ 6Qu/uK95L8DCuVABXpxQKY9lJAWBnUT4N/jMhOGFzM0smmVVBpj7ZQ1OK8bOYwufXEKPDJey1Z
+ b+5iAv2sm1v/uc7g402fjfL0kuLEQ+hRjqL3YzV11mL2C4Tx/WUB7m5QAAAA=
+X-Change-ID: 20251013-mt8196-gpueb-mbox-fix-fe6c3053994f
+To: Jassi Brar <jassisinghbrar@gmail.com>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, 
+ AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+ Chia-I Wu <olvaffe@gmail.com>
+Cc: linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, kernel@collabora.com, 
+ kernel test robot <lkp@intel.com>, 
+ Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_010309_796234_269C359C 
-X-CRM114-Status: UNSURE (   9.11  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251013_010917_236869_DB9662C8 
+X-CRM114-Status: GOOD (  10.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -73,48 +84,41 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-With BUG_ON in pgd_pgtable_alloc_init_mm moved up to higher layer,
-gfp flags is the only difference between try_pgd_pgtable_alloc_init_mm
-and pgd_pgtable_alloc_init_mm. Hence rename the "try" version
-to pgd_pgtable_alloc_init_mm_gfp.
+mtk_gpueb_mbox_ops should be declared static. However, due to its const
+nature, this specifier was missed, as it compiled fine without it and
+with no warning by the compiler.
 
-Signed-off-by: Linu Cherian <linu.cherian@arm.com>
+arc-linux-gcc (GCC) 12.5.0 doesn't seem to like it however, so add the
+static to fix that.
+
+Reported-by: kernel test robot <lkp@intel.com>
+Closes: https://lore.kernel.org/oe-kbuild-all/202510100629.3nGvrhEU-lkp@intel.com/
+Fixes: dbca0eabb821 ("mailbox: add MediaTek GPUEB IPI mailbox")
+Signed-off-by: Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 ---
- arch/arm64/mm/mmu.c | 6 +++---
- 1 file changed, 3 insertions(+), 3 deletions(-)
+ drivers/mailbox/mtk-gpueb-mailbox.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-index 34602339c1bf..ede591346196 100644
---- a/arch/arm64/mm/mmu.c
-+++ b/arch/arm64/mm/mmu.c
-@@ -559,7 +559,7 @@ static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm, gfp_t gfp,
+diff --git a/drivers/mailbox/mtk-gpueb-mailbox.c b/drivers/mailbox/mtk-gpueb-mailbox.c
+index 925bcf21f650..f6d2beccd91b 100644
+--- a/drivers/mailbox/mtk-gpueb-mailbox.c
++++ b/drivers/mailbox/mtk-gpueb-mailbox.c
+@@ -200,7 +200,7 @@ static bool mtk_gpueb_mbox_last_tx_done(struct mbox_chan *chan)
+ 	return !(readl(ch->ebm->mbox_ctl + GPUEB_MBOX_CTL_TX_STS) & BIT(ch->num));
  }
  
- static phys_addr_t
--try_pgd_pgtable_alloc_init_mm(enum pgtable_type pgtable_type, gfp_t gfp)
-+pgd_pgtable_alloc_init_mm_gfp(enum pgtable_type pgtable_type, gfp_t gfp)
- {
- 	return __pgd_pgtable_alloc(&init_mm, gfp, pgtable_type);
- }
-@@ -594,7 +594,7 @@ static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp, bool to_cont)
- 	pte_t *ptep;
- 	int i;
- 
--	pte_phys = try_pgd_pgtable_alloc_init_mm(TABLE_PTE, gfp);
-+	pte_phys = pgd_pgtable_alloc_init_mm_gfp(TABLE_PTE, gfp);
- 	if (pte_phys == INVALID_PHYS_ADDR)
- 		return -ENOMEM;
- 	ptep = (pte_t *)phys_to_virt(pte_phys);
-@@ -639,7 +639,7 @@ static int split_pud(pud_t *pudp, pud_t pud, gfp_t gfp, bool to_cont)
- 	pmd_t *pmdp;
- 	int i;
- 
--	pmd_phys = try_pgd_pgtable_alloc_init_mm(TABLE_PMD, gfp);
-+	pmd_phys = pgd_pgtable_alloc_init_mm_gfp(TABLE_PMD, gfp);
- 	if (pmd_phys == INVALID_PHYS_ADDR)
- 		return -ENOMEM;
- 	pmdp = (pmd_t *)phys_to_virt(pmd_phys);
+-const struct mbox_chan_ops mtk_gpueb_mbox_ops = {
++static const struct mbox_chan_ops mtk_gpueb_mbox_ops = {
+ 	.send_data = mtk_gpueb_mbox_send_data,
+ 	.startup = mtk_gpueb_mbox_startup,
+ 	.shutdown = mtk_gpueb_mbox_shutdown,
+
+---
+base-commit: cb6649f6217c0331b885cf787f1d175963e2a1d2
+change-id: 20251013-mt8196-gpueb-mbox-fix-fe6c3053994f
+
+Best regards,
 -- 
-2.43.0
+Nicolas Frattaroli <nicolas.frattaroli@collabora.com>
 
 
