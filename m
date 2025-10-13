@@ -4,156 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E2B4ACCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 19:11:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B5AFECCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 19:12:23 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
-	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m55es6l+LYF6S0Jje+xbCrfaLt4nGGP0DMpluekt8Fc=; b=xel3SLV+5Gsv8JlFzhGeEsEji6
-	5IQSup8fpRKxGHCO3BliyMLr/YEzTIVGaaUzvd+LFLLXquGts3EsDaRGNhtx36npYmarw3JZQ3jJk
-	zS0ASP8cc6l8MDW1b/YNGt7jaWA26BoJ8iWL3NChayWNKlDDrIsW0NeSi6RwXLxnq8JQgb7jvOETi
-	ei7GdfOGKleghcJISRXeyZ9V7lzmo2Jq51x0iR8OLl1v9os/xhRp/PPZ4WRSQmqLl7jW4Qh+psJnF
-	Z4VHO16MJCxXgMl2EQxzkRbYxl0zd2qy+Rdrhov88hz8MbOqmuOWqOVUsFb5XXa44FaztKHsU//Q9
-	tnKVcpKA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=6fbb999n+zv3HgdvpUlLTxa2cVOH+l+Y3DZJFu9LoEU=; b=S0AyVxmZIGluIB8CMztHuG0Kyb
+	eq5fmT+IsdBtLRVnvFETSlxKCDBgga/OaFR7zp7HIBDRWEDJFRfrptC5bIsBpD5XXaWJEgF37BIBB
+	vd7q4RZnaRDLDlsE0CcC+Kym15Tk3EIP/E1hJPrwBZqaQ4GFPjIIUkdctX0GugBVBOWdGwvK7/80V
+	ph+v31AonHwdKKegJfDw9dYH/Pn+bLwxFW3y94CodJW2O6M9sBZK+l6DNuP+WiH23ssZwFdoRH9FM
+	0aKBO8iryHkj0t2sBNEJZGTiKPeymAf78m6heGeI82TvNvBGzajvmIUpRqtVZqvG7RjFhtC7mV20P
+	u3Yr+6ag==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Nwp-0000000EFY6-305R;
-	Mon, 13 Oct 2025 19:11:07 +0000
-Received: from mail-francesouthazlp170110003.outbound.protection.outlook.com ([2a01:111:f403:c207::3] helo=MRWPR03CU001.outbound.protection.outlook.com)
+	id 1v8Nxx-0000000EFku-2aAQ;
+	Mon, 13 Oct 2025 19:12:17 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Nwn-0000000EFXO-2yxl
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 19:11:06 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=WWgDDN65OiL8FAxBqPhp5L3bS4CUHghZbTeTuvPtOXEp+/FD13efaKhDDDT8d90IYacA5aED4xDp9qWYSCCQ+AQBZrRkDoe3CeEQ7OBDH0S8RA5O/iBOx0W4kZNi5Vv6hKj+gAfPvVPwjpJ++Einch0727DEJWk6UgJ8dVXJ8SkzlW5FDf7SteJyfngRWppWl217bev0d8lSnAm/lNu8KOJfxSwtPEHCEAa46rNHNWigPzqqKXUIM4KxjcQPX2u8uwU15BsCyivriPPl4a5CrxwKw+fRl/+cN5UZrQs+xDdKaxTt+1q6hZRlVOOoz2/sdGYkHa5UEm4lXTitiBCJhw==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=m55es6l+LYF6S0Jje+xbCrfaLt4nGGP0DMpluekt8Fc=;
- b=rEQ8XlqEyKDXG+PpFdh6V2PDP44O+pMkG/7eCUU7gJgkJtrX5qvRUxRbaf31jwZ3EIJBF/dca13sdbY0YOibnsUeE7v3gw8YL47CgKDHEXLkG2DkU/CdLyvrqD0Rf95f0cNlxq0nbfCQcXXrsfDAAaUtQIv+oSGzAOicOOzwQ3F8QK1CDp3O5GUkIZEu4fPlbaUcLxuAJfyVM3eTCNUTfYFg/xtA/SG427ceZ+Taj9sQuJlQeIS/AArtjTaPlCxXOVNDG28/+Xb2/UW0UVL3B/ELqlYZajoMVeqUcwvE1vNsrLu6sk8r1/t4CwZMv1VWtq6GAz9ReeyOg2huqiejOQ==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
- smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
- header.d=nxp.com; arc=none
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=m55es6l+LYF6S0Jje+xbCrfaLt4nGGP0DMpluekt8Fc=;
- b=VHEUVrUoDzfJKDV64zrGRNAoSBfmFUKobi3u/Rs3YIpgF2K86Tg1mvOfEpXWMXSRYhpI8txEgKjlX85FjmRbXsBJdTf2q/VGSV1HGZRf7AuGB3YgJtJ9TtcjIWnzVxom8hzPj3YbwM2yVTR5msgq9ko64DVjfGX4o6TKrMKLXDUsStE/MHhbbeofgEndQk1qR8KoeagloPplE7p7pNfZCjMKeQScrBLgc5mQ5h/0iQHRcL5Nw+g55uTZEFK7dPVFfXZ5vztFqT3brygMMGrOyTARupxO737AYy1/4tD1Dh5rFYrxflv06ZkyB9di92+o8so+Q/ZNagCsXz1YLVbG4g==
-Authentication-Results: dkim=none (message not signed)
- header.d=none;dmarc=none action=none header.from=nxp.com;
-Received: from AS4PR04MB9621.eurprd04.prod.outlook.com (2603:10a6:20b:4ff::22)
- by GVXPR04MB9758.eurprd04.prod.outlook.com (2603:10a6:150:110::12) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.12; Mon, 13 Oct
- 2025 19:11:00 +0000
-Received: from AS4PR04MB9621.eurprd04.prod.outlook.com
- ([fe80::a84d:82bf:a9ff:171e]) by AS4PR04MB9621.eurprd04.prod.outlook.com
- ([fe80::a84d:82bf:a9ff:171e%4]) with mapi id 15.20.9203.009; Mon, 13 Oct 2025
- 19:11:00 +0000
-Date: Mon, 13 Oct 2025 15:10:51 -0400
-From: Frank Li <Frank.li@nxp.com>
-To: Marek Vasut <marek.vasut@mailbox.org>
-Cc: dri-devel@lists.freedesktop.org, Liu Ying <victor.liu@nxp.com>,
-	Sandor Yu <Sandor.yu@nxp.com>, Abel Vesa <abelvesa@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
+	id 1v8Nxu-0000000EFk9-2WBf;
+	Mon, 13 Oct 2025 19:12:15 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 3BCE9418D8;
+	Mon, 13 Oct 2025 19:12:14 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id D4ED9C4CEE7;
+	Mon, 13 Oct 2025 19:12:13 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760382734;
+	bh=TBuH5vfsNCCAmDPCeWRAxDm4BbVIYflZ5xFMniHdeRw=;
+	h=From:To:Cc:Subject:Date:From;
+	b=GeAjggwadD0hUfrz+hVoo9cGVGHlWIjz83HDogezRJxItXPov7MnrywPR7DGjZZ9k
+	 40iQ1tnran1H6Q7g4OCxQ1SKDC6xnshSNZ3cxr234Xo9mRFeEBxWdGmBjk0R2vyY+3
+	 7UesxTP9MhkOHlv/Euy3LKnp7PfMAYlGGV0ylCvIjOF1+tRoyi0h5tyLiU5or4ubXT
+	 fsC+luveEd7EjMx8/KjniMINxJ9764CE8OOg5KVxh+4qCi11iNzX23zyJjXs9Uh6wc
+	 yDeLa4FgM4ToyN3hqiFUQinud5bwuTWKesRAkBfKMPZRlaBLMFuCaWXd+QrsiVDLBa
+	 +VZl5EX1ihnDw==
+From: "Rob Herring (Arm)" <robh@kernel.org>
+To: =?UTF-8?q?Andreas=20F=C3=A4rber?= <afaerber@suse.de>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	Linus Walleij <linus.walleij@linaro.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Lucas Stach <l.stach@pengutronix.de>, Peng Fan <peng.fan@nxp.com>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Thomas Zimmermann <tzimmermann@suse.de>, devicetree@vger.kernel.org,
-	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org
-Subject: Re: [PATCH 28/39] drm/bridge: imx: Add NXP i.MX95 pixel link support
-Message-ID: <aO1Ou/vP/geiKkUS@lizhi-Precision-Tower-5810>
-References: <20251011170213.128907-1-marek.vasut@mailbox.org>
- <20251011170213.128907-29-marek.vasut@mailbox.org>
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251011170213.128907-29-marek.vasut@mailbox.org>
-X-ClientProxiedBy: PH7PR17CA0043.namprd17.prod.outlook.com
- (2603:10b6:510:323::9) To AS4PR04MB9621.eurprd04.prod.outlook.com
- (2603:10a6:20b:4ff::22)
+	Conor Dooley <conor+dt@kernel.org>
+Cc: linux-arm-kernel@lists.infradead.org,
+	linux-actions@lists.infradead.org,
+	linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: [PATCH] dt-bindings: pinctrl: Convert actions,s700-pinctrl to DT schema
+Date: Mon, 13 Oct 2025 14:12:05 -0500
+Message-ID: <20251013191207.4135075-1-robh@kernel.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: AS4PR04MB9621:EE_|GVXPR04MB9758:EE_
-X-MS-Office365-Filtering-Correlation-Id: e21173fe-062d-4d49-fca0-08de0a8c3eab
-X-LD-Processed: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635,ExtAddr
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|366016|19092799006|376014|7416014|52116014|38350700014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?mMxf3B48FyixKsRaCJHfITZjKQWV6YuTzSCkk4/PmF6Dgo4uoIYmqli7278l?=
- =?us-ascii?Q?oI+LEEZZsS/dEP9Qig/fYwoRbv9Py6z/jsNMDi0AEgIuhOzNcl9AdbEd8jrD?=
- =?us-ascii?Q?6+DUgw6SyXzhTmvu1i/vW4YlZr/lHeEsqOvlkCRL9TxYfHSKSJlPir2gze1e?=
- =?us-ascii?Q?gU5n2qyqct9Xyj0ggWW7xiT9YnS5kp0UhtENN4N4HmNs5oWbHJyMvH6NZ2aQ?=
- =?us-ascii?Q?tm0MHpNIF0fU439xySj7/OZ3NqIArWwXdcTu3mEXPhl+miABsFUjoRYN04r0?=
- =?us-ascii?Q?YEbDEF/J2ZJC5bZQ/QEMfz7nEvv2elxuTKluXQ6P/g6+Z4va62dRuvj38WNi?=
- =?us-ascii?Q?O5dJUWLK8oLXJlOA/LeneVURRG2XY70uhPwh7g9eACghSagWmO+7u8OMmFNk?=
- =?us-ascii?Q?lZUIzO7+exhPDNMfR9KYEYNNjakycehUsIPysIoMCnL24Wye0iV6JlZe0e0/?=
- =?us-ascii?Q?J3Vy1Aurotsr+3s2XHFLd0nL2V2HRFt4ooiOr36iqyZ1l1I/dZmSwLY4JVDl?=
- =?us-ascii?Q?P53L2SmndZ70gqo+nTKDhivSvz71jO7zjvUyMtQNuTnVgwQ0VKXyy+DJfT3i?=
- =?us-ascii?Q?kR+vQAH/DCVPmXYIAhcLfEvgED1G58RVNWgoG7qf4on38qrfZAzytPPVFLIF?=
- =?us-ascii?Q?YNOF0w01AyQADm6DIsEGaGIRMwQd58+yAhMReJourOL1uq+RK3VE16vT+xCc?=
- =?us-ascii?Q?S5qkJ5Fjq0npJ9Q5GP6EReQmqLzaMfUpFzUKiBSx1XUckJVVDQBxJp8HXLyL?=
- =?us-ascii?Q?WYG2llTGnHqbXxp28JKIfZ5ZJQaW8xcIcDOgTLOdxDeYkOJRNUuqEHPPLvWg?=
- =?us-ascii?Q?FS0FyXKNawHnGol+qI3ZehVIbXUF0ioktD4UILuDiJLnbQqHhD8pN1aT0P6o?=
- =?us-ascii?Q?Pju6td2v+hLZB0WXxkCUeFsqud6B2+L7PXCWQ+2Pp4dN/aU9YP+52nm7kb6X?=
- =?us-ascii?Q?3emQ3sgCUtRH5NdKIvKIGecwGUC3P+z9e0vdWuzYGXYdVZoOPGiEB7HVSnXs?=
- =?us-ascii?Q?eBPJe27OIOstcjlKboQT94KGjzrGHc8KeGG4k0V6wqHnwDWLqPqyi8Q80hw4?=
- =?us-ascii?Q?kANpezBaKsPp5vop9NOQ9QzzPu53aMuG7VfEfN2d4Ps87EtNEjcKb+OogkZD?=
- =?us-ascii?Q?4UvbEh5mWe2PBOlx/lha8KB3M/XyoqoSRmMfCoXGWoQYT59IZnVANI7oO07/?=
- =?us-ascii?Q?qMLf7nbPk2yQGeSJEz8HCwhoXD1F4PLGCFdwk7kGKpG720lI7S/cpKGda2oF?=
- =?us-ascii?Q?McHUCC21FQQju2qRx7c4P4Dp5WDRhHdfgQFopO0J3XjhWBzXZgsVL/tUkRGp?=
- =?us-ascii?Q?aJ5TTUJDN2FUTQWdGAvBZsQSpSVDdil7puVrjg3VjdI21zc6rIlj2hboAPy4?=
- =?us-ascii?Q?j5pMCqU1IXOUkd5dVZoBza8q0Dne43le81GWzst9SYfGDFb/KnpaNkiAvwJm?=
- =?us-ascii?Q?bwGAtdGQ119AWmmR024I4vyz1YO5aYdvuVfmaCNSTMLG3WYzblL4NGd3TwMa?=
- =?us-ascii?Q?R/jxgOHSe1NeQZWinuyraFsQm6tvNWNozpnG?=
-X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:AS4PR04MB9621.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(366016)(19092799006)(376014)(7416014)(52116014)(38350700014)(7053199007);DIR:OUT;SFP:1101;
-X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
-X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?eALhMCE6eanG5+fThPaa/DYE56h8EvcMIPFWzBZLWhVkdIgiJSwPT3/z5uN2?=
- =?us-ascii?Q?NhvwmK1XMAzzpL742Dest4GCIIKzYor+HUiLud3V95OOKdI0T2HSK+PW7Do9?=
- =?us-ascii?Q?/GZ1gzRiqdz3sCqxdcVzOJMz4ijAOGB9eK4Ix0U200k/PORVKN0LMm9eOJcM?=
- =?us-ascii?Q?dKqH3DydNDSNUub7VHTa0ZXUIByeChXZptViyXc6RkBDhDUS+Y+1qrF7hXBH?=
- =?us-ascii?Q?R9srR/un9JJBDzkYRlZR23Nytptl+IVDAs54qM3IS5bV6WTkUjMaUNQGLINj?=
- =?us-ascii?Q?M2gV5BN1pMwPKMOsmtseSfijlHjpbcbGPqVMFnEKx07fHIR09Dj9UA8sK2k9?=
- =?us-ascii?Q?+4vGhyFqLu8nr1l6W/QWl6HBH7OtrUhZln+iYxjqsTWewXAuIbtMmP+JlJEw?=
- =?us-ascii?Q?5e/thSZrv5GZMzPYM26bGsSJn82tmVqDXPYDwOjwTGXC2rH7L1he9vPPYBTF?=
- =?us-ascii?Q?GfR3O/i6epchraBhopuQAYDtfnrxLAB4bEQzC1lBMFiPKVIUx+7PlBQCE9e2?=
- =?us-ascii?Q?9R88vFL6mmpD/oR8WjFKGPa+uKwHTb0RMJINXwFZLLC4XcJ1XaiYN2Nst2Mc?=
- =?us-ascii?Q?6XasSs+YBidMHQghymadvavEQxtG9EajcN56Up//RldLF+150Wgod4qEiEVb?=
- =?us-ascii?Q?7PkYIKYG6Htc68YJZLew6+dAcUltrr65MSNZ6U50JVAD3Rlo3Tmkj1wCoUjI?=
- =?us-ascii?Q?RllxSHswPE6389suXOcOVj8dhTkhOQwRuOezsBiJMe/V9SWgAKg9V1nyiez0?=
- =?us-ascii?Q?ezF2Tt1f9rwTXkYRIdKTyRgpBq6esJe4B3ZmYs5ZKXvOjPRT9nErZYaxo4tM?=
- =?us-ascii?Q?fXi2OtqeZrli/44/wyNQ1NkYYRQH83qrKV+bSdAFGUFuajiD98QJfiVk4k6J?=
- =?us-ascii?Q?KMldpKF6dGfwmNM+RmjV2GS1c03ZIHhaA9xsptwDJpjFL9MEJIhirgcOHYe4?=
- =?us-ascii?Q?mvnqSM5dROGPIxnh2Ud/kX1EElC6F62RqCHh1sWVbpdSxtiLp/nCZFZDqbrk?=
- =?us-ascii?Q?mu1CJukxVgOfUBO3d0DaK1DJkLAbHwht4iffIDIUNKVvcrsJVopft0Z30AtZ?=
- =?us-ascii?Q?KXXpbNten4HlWq3PGkgdd8mTOYgXRfyp61hk2hqzAQUW8Fhp7Z6qsI2wIsm3?=
- =?us-ascii?Q?p1OkyKG20HiqZhWwdZTe7AxuBC52B0oGUf8nGxDL8ZEXuSUU9rrPuIGyuwII?=
- =?us-ascii?Q?8QbNqblccwlHzUri8/uzLmY44ODTv48gZiFhj/qjiyh6APlCOo0GI6TOwKU2?=
- =?us-ascii?Q?S1ML/a9oRQ8DaVHI7lm6fJ+SsKwoJ1ODQ9kiOH7SvE+a7N2z+CDkqpRIWRZv?=
- =?us-ascii?Q?7PnDa0sNAvUrkvDfusUB2jM6pO8BT4329fBbgSOwwSpTDrSCRvzq9usNTts+?=
- =?us-ascii?Q?KkQlhPwXM6BDCHAmVWzg6UmZb/ZTPSoRTytbPqg6s2NGyq48EhPsRv03TVX+?=
- =?us-ascii?Q?xWn2KTVsmbpvBTE5G9OMoyectT+X1DW0QCKSMXMW3h+YoouRFKu2mn3L9T2b?=
- =?us-ascii?Q?UVmSKkM1b+w5c2dIM4/TBics1emU4hoMqsSJha7paBp0SJV2SfiY0lIW7827?=
- =?us-ascii?Q?uVN49edLNWjXrhQNAfU=3D?=
-X-OriginatorOrg: nxp.com
-X-MS-Exchange-CrossTenant-Network-Message-Id: e21173fe-062d-4d49-fca0-08de0a8c3eab
-X-MS-Exchange-CrossTenant-AuthSource: AS4PR04MB9621.eurprd04.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Internal
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 13 Oct 2025 19:10:59.9732
- (UTC)
-X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
-X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
-X-MS-Exchange-CrossTenant-MailboxType: HOSTED
-X-MS-Exchange-CrossTenant-UserPrincipalName: cZZFmOsIAH1e1hXMxB5h7OshPHukNb0ol6RvuZunZIgaJymybR7CInttnnlUUWChJfPzTqwvzRhfADLU3DfJ1A==
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: GVXPR04MB9758
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_121105_931923_616637DF 
-X-CRM114-Status: GOOD (  24.62  )
+X-CRM114-CacheID: sfid-20251013_121214_701859_6C0BFDF4 
+X-CRM114-Status: GOOD (  20.98  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -168,266 +75,404 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Sat, Oct 11, 2025 at 06:51:43PM +0200, Marek Vasut wrote:
-> From: Liu Ying <victor.liu@nxp.com>
->
-> Add NXP i.MX95 pixel link bridge support.
->
-> Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
-> Signed-off-by: Liu Ying <victor.liu@nxp.com>
-> Reviewed-by: Sandor Yu <Sandor.yu@nxp.com>
-> ---
-> Cc: Abel Vesa <abelvesa@kernel.org>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: Fabio Estevam <festevam@gmail.com>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
-> Cc: Liu Ying <victor.liu@nxp.com>
-> Cc: Lucas Stach <l.stach@pengutronix.de>
-> Cc: Peng Fan <peng.fan@nxp.com>
-> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Shawn Guo <shawnguo@kernel.org>
-> Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> Cc: devicetree@vger.kernel.org
-> Cc: dri-devel@lists.freedesktop.org
-> Cc: imx@lists.linux.dev
-> Cc: linux-arm-kernel@lists.infradead.org
-> Cc: linux-clk@vger.kernel.org
-> ---
->  drivers/gpu/drm/bridge/imx/Kconfig            |   9 +
->  drivers/gpu/drm/bridge/imx/Makefile           |   1 +
->  drivers/gpu/drm/bridge/imx/imx95-pixel-link.c | 184 ++++++++++++++++++
->  3 files changed, 194 insertions(+)
->  create mode 100644 drivers/gpu/drm/bridge/imx/imx95-pixel-link.c
->
-> diff --git a/drivers/gpu/drm/bridge/imx/Kconfig b/drivers/gpu/drm/bridge/imx/Kconfig
-> index 3e1b1d825d7bf..8baa335deac49 100644
-> --- a/drivers/gpu/drm/bridge/imx/Kconfig
-> +++ b/drivers/gpu/drm/bridge/imx/Kconfig
-> @@ -97,4 +97,13 @@ config DRM_IMX95_PIXEL_INTERLEAVER
->  	  Choose this to enable pixel interleaver found in NXP i.MX95
->  	  processors.
->
-> +config DRM_IMX95_PIXEL_LINK
-> +	tristate "NXP i.MX95 display pixel link"
-> +	depends on OF && MFD_SYSCON
-> +	select DRM_KMS_HELPER
-> +	select REGMAP_MMIO
-> +	help
-> +	  Choose this to enable display pixel link found in NXP i.MX95
-> +	  processors.
-> +
->  endif # ARCH_MXC || COMPILE_TEST
-> diff --git a/drivers/gpu/drm/bridge/imx/Makefile b/drivers/gpu/drm/bridge/imx/Makefile
-> index 583054c70f002..b6b2e1bc8d4bd 100644
-> --- a/drivers/gpu/drm/bridge/imx/Makefile
-> +++ b/drivers/gpu/drm/bridge/imx/Makefile
-> @@ -9,3 +9,4 @@ obj-$(CONFIG_DRM_IMX8QXP_PIXEL_LINK) += imx8qxp-pixel-link.o
->  obj-$(CONFIG_DRM_IMX8QXP_PIXEL_LINK_TO_DPI) += imx8qxp-pxl2dpi.o
->  obj-$(CONFIG_DRM_IMX93_MIPI_DSI) += imx93-mipi-dsi.o
->  obj-$(CONFIG_DRM_IMX95_PIXEL_INTERLEAVER) += imx95-pixel-interleaver.o
-> +obj-$(CONFIG_DRM_IMX95_PIXEL_LINK) += imx95-pixel-link.o
-> diff --git a/drivers/gpu/drm/bridge/imx/imx95-pixel-link.c b/drivers/gpu/drm/bridge/imx/imx95-pixel-link.c
-> new file mode 100644
-> index 0000000000000..747d2d77b59ef
-> --- /dev/null
-> +++ b/drivers/gpu/drm/bridge/imx/imx95-pixel-link.c
-> @@ -0,0 +1,184 @@
-> +// SPDX-License-Identifier: GPL-2.0+
-> +
-> +/*
-> + * Copyright 2023 NXP
-> + */
-> +
-> +#include <linux/bits.h>
-> +#include <linux/media-bus-format.h>
-> +#include <linux/mfd/syscon.h>
-> +#include <linux/module.h>
-> +#include <linux/of.h>
-> +#include <linux/of_graph.h>
-> +#include <linux/platform_device.h>
-> +#include <linux/regmap.h>
-> +
-> +#include <drm/drm_atomic_state_helper.h>
-> +#include <drm/drm_bridge.h>
-> +
-> +#define CTRL		0x8
+Convert the actions,s700-pinctrl binding to DT schema format. It's a
+straight-forward conversion.
 
-register name too short
+Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
+---
+ .../bindings/pinctrl/actions,s700-pinctrl.txt | 170 ---------------
+ .../pinctrl/actions,s700-pinctrl.yaml         | 204 ++++++++++++++++++
+ 2 files changed, 204 insertions(+), 170 deletions(-)
+ delete mode 100644 Documentation/devicetree/bindings/pinctrl/actions,s700-pinctrl.txt
+ create mode 100644 Documentation/devicetree/bindings/pinctrl/actions,s700-pinctrl.yaml
 
-> +#define  PL_VALID(n)	BIT(1 + 4 * (n))
-> +#define  PL_ENABLE(n)	BIT(4 * (n))
-> +
-> +#define OUT_ENDPOINTS	2
-> +
-> +#define DRIVER_NAME	"imx95-pixel-link"
-> +
-> +struct imx95_pixel_link_bridge {
-> +	struct drm_bridge bridge;
-> +	struct drm_bridge *next_bridge;
-> +	struct device *dev;
-> +	struct regmap *regmap;
-> +	u8 stream_id;
-> +};
-> +
-> +static int imx95_pixel_link_bridge_attach(struct drm_bridge *bridge,
-> +					  struct drm_encoder *encoder,
-> +					  enum drm_bridge_attach_flags flags)
-> +{
-> +	struct imx95_pixel_link_bridge *pl = bridge->driver_private;
-> +
-> +	if (!(flags & DRM_BRIDGE_ATTACH_NO_CONNECTOR)) {
-> +		dev_err(pl->dev, "do not support creating a drm_connector\n");
-> +		return -EINVAL;
-> +	}
-> +
-> +	return drm_bridge_attach(encoder, pl->next_bridge, bridge,
-> +				 DRM_BRIDGE_ATTACH_NO_CONNECTOR);
-> +}
-> +
-> +static void imx95_pixel_link_bridge_disable(struct drm_bridge *bridge)
-> +{
-> +	struct imx95_pixel_link_bridge *pl = bridge->driver_private;
-> +	unsigned int id = pl->stream_id;
-> +
-> +	regmap_update_bits(pl->regmap, CTRL, PL_ENABLE(id), 0);
-> +	regmap_update_bits(pl->regmap, CTRL, PL_VALID(id), 0);
-> +}
-> +
-> +static void imx95_pixel_link_bridge_enable(struct drm_bridge *bridge)
-> +{
-> +	struct imx95_pixel_link_bridge *pl = bridge->driver_private;
-> +	unsigned int id = pl->stream_id;
-> +
-> +	regmap_update_bits(pl->regmap, CTRL, PL_VALID(id), PL_VALID(id));
-> +	regmap_update_bits(pl->regmap, CTRL, PL_ENABLE(id), PL_ENABLE(id));
-> +}
-> +
-> +static u32 *
-> +imx95_pixel_link_bridge_atomic_get_input_bus_fmts(struct drm_bridge *bridge,
-> +						  struct drm_bridge_state *bridge_state,
-> +						  struct drm_crtc_state *crtc_state,
-> +						  struct drm_connector_state *conn_state,
-> +						  u32 output_fmt,
-> +						  unsigned int *num_input_fmts)
-> +{
-> +	u32 *input_fmts;
-> +
-> +	if (output_fmt != MEDIA_BUS_FMT_RGB888_1X36_CPADLO &&
-> +	    output_fmt != MEDIA_BUS_FMT_FIXED)
-> +		return NULL;
-> +
-> +	*num_input_fmts = 1;
-> +
-> +	input_fmts = kmalloc(sizeof(*input_fmts), GFP_KERNEL);
-> +	if (!input_fmts)
-> +		return NULL;
-> +
-> +	input_fmts[0] = MEDIA_BUS_FMT_RGB888_1X24;
-> +
-> +	return input_fmts;
-> +}
-> +
-> +static const struct drm_bridge_funcs imx95_pixel_link_bridge_funcs = {
-> +	.atomic_duplicate_state	= drm_atomic_helper_bridge_duplicate_state,
-> +	.atomic_destroy_state	= drm_atomic_helper_bridge_destroy_state,
-> +	.atomic_reset		= drm_atomic_helper_bridge_reset,
-> +	.attach			= imx95_pixel_link_bridge_attach,
-> +	.disable		= imx95_pixel_link_bridge_disable,
-> +	.enable			= imx95_pixel_link_bridge_enable,
-> +	.atomic_get_input_bus_fmts =
-> +				imx95_pixel_link_bridge_atomic_get_input_bus_fmts,
-> +};
-> +
-> +static int imx95_pixel_link_bridge_probe(struct platform_device *pdev)
-> +{
-> +	struct device *dev = &pdev->dev;
-> +	struct device_node *remote, *np = dev->of_node;
-> +	struct imx95_pixel_link_bridge *pl;
-> +	int i, ret;
-> +
-> +	pl = devm_drm_bridge_alloc(dev, struct imx95_pixel_link_bridge, bridge,
-> +				   &imx95_pixel_link_bridge_funcs);
-> +	if (IS_ERR(pl))
-> +		return PTR_ERR(pl);
-> +
-> +	pl->dev = dev;
-> +	platform_set_drvdata(pdev, pl);
-> +
-> +	pl->regmap = syscon_regmap_lookup_by_phandle(np, "fsl,syscon");
-> +	if (IS_ERR(pl->regmap))
-> +		return dev_err_probe(dev, PTR_ERR(pl->regmap), "failed to get regmap\n");
-> +
-> +	ret = of_property_read_u8(np, "fsl,dc-stream-id", &pl->stream_id);
-> +	if (ret)
-> +		return dev_err_probe(dev, ret, "failed to get stream index\n");
-> +
-> +	pl->bridge.driver_private = pl;
-> +	pl->bridge.of_node = of_graph_get_port_by_id(np, 0);
-> +	if (!pl->bridge.of_node)
-> +		return dev_err_probe(dev, -ENODEV, "failed to get port@0\n");
-> +	of_node_put(pl->bridge.of_node);
+diff --git a/Documentation/devicetree/bindings/pinctrl/actions,s700-pinctrl.txt b/Documentation/devicetree/bindings/pinctrl/actions,s700-pinctrl.txt
+deleted file mode 100644
+index d13ff82f8518..000000000000
+--- a/Documentation/devicetree/bindings/pinctrl/actions,s700-pinctrl.txt
++++ /dev/null
+@@ -1,170 +0,0 @@
+-Actions Semi S700 Pin Controller
+-
+-This binding describes the pin controller found in the S700 SoC.
+-
+-Required Properties:
+-
+-- compatible:   Should be "actions,s700-pinctrl"
+-- reg:          Should contain the register base address and size of
+-		the pin controller.
+-- clocks:       phandle of the clock feeding the pin controller
+-- gpio-controller: Marks the device node as a GPIO controller.
+-- gpio-ranges: Specifies the mapping between gpio controller and
+-               pin-controller pins.
+-- #gpio-cells: Should be two. The first cell is the gpio pin number
+-		and the second cell is used for optional parameters.
+-- interrupt-controller: Marks the device node as an interrupt controller.
+-- #interrupt-cells: Specifies the number of cells needed to encode an
+-		interrupt.  Shall be set to 2.  The first cell
+-		defines the interrupt number, the second encodes
+-		the trigger flags described in
+-		bindings/interrupt-controller/interrupts.txt
+-- interrupts: The interrupt outputs from the controller. There is one GPIO
+-              interrupt per GPIO bank. The number of interrupts listed depends
+-              on the number of GPIO banks on the SoC. The interrupts must be
+-              ordered by bank, starting with bank 0.
+-
+-Please refer to pinctrl-bindings.txt in this directory for details of the
+-common pinctrl bindings used by client devices, including the meaning of the
+-phrase "pin configuration node".
+-
+-The pin configuration nodes act as a container for an arbitrary number of
+-subnodes. Each of these subnodes represents some desired configuration for a
+-pin, a group, or a list of pins or groups. This configuration can include the
+-mux function to select on those group(s), and various pin configuration
+-parameters, such as pull-up, drive strength, etc.
+-
+-PIN CONFIGURATION NODES:
+-
+-The name of each subnode is not important; all subnodes should be enumerated
+-and processed purely based on their content.
+-
+-Each subnode only affects those parameters that are explicitly listed. In
+-other words, a subnode that lists a mux function but no pin configuration
+-parameters implies no information about any pin configuration parameters.
+-Similarly, a pin subnode that describes a pullup parameter implies no
+-information about e.g. the mux function.
+-
+-Pinmux functions are available only for the pin groups while pinconf
+-parameters are available for both pin groups and individual pins.
+-
+-The following generic properties as defined in pinctrl-bindings.txt are valid
+-to specify in a pin configuration subnode:
+-
+-Required Properties:
+-
+-- pins:		An array of strings, each string containing the name of a pin.
+-		These pins are used for selecting the pull control and schmitt
+-		trigger parameters. The following are the list of pins
+-		available:
+-
+-		eth_txd0, eth_txd1, eth_txd2, eth_txd3, eth_txen, eth_rxer,
+-		eth_crs_dv, eth_rxd1, eth_rxd0, eth_rxd2, eth_rxd3, eth_ref_clk,
+-		eth_mdc, eth_mdio, sirq0, sirq1, sirq2, i2s_d0, i2s_bclk0,
+-		i2s_lrclk0, i2s_mclk0, i2s_d1, i2s_bclk1, i2s_lrclk1, i2s_mclk1,
+-		pcm1_in, pcm1_clk, pcm1_sync, pcm1_out, ks_in0, ks_in1, ks_in2,
+-		ks_in3, ks_out0, ks_out1, ks_out2, lvds_oep, lvds_oen, lvds_odp,
+-		lvds_odn, lvds_ocp, lvds_ocn, lvds_obp, lvds_obn, lvds_oap,
+-		lvds_oan, lvds_eep, lvds_een, lvds_edp, lvds_edn, lvds_ecp,
+-		lvds_ecn, lvds_ebp, lvds_ebn, lvds_eap, lvds_ean, lcd0_d18,
+-		lcd0_d2, dsi_dp3, dsi_dn3, dsi_dp1, dsi_dn1, dsi_cp, dsi_cn,
+-		dsi_dp0, dsi_dn0, dsi_dp2, dsi_dn2, sd0_d0, sd0_d1, sd0_d2,
+-		sd0_d3, sd1_d0, sd1_d1, sd1_d2, sd1_d3, sd0_cmd, sd0_clk,
+-		sd1_cmd, sd1_clk, spi0_ss, spi0_miso, uart0_rx, uart0_tx,
+-		uart2_rx, uart2_tx, uart2_rtsb, uart2_ctsb, uart3_rx, uart3_tx,
+-		uart3_rtsb, uart3_ctsb, i2c0_sclk, i2c0_sdata, i2c1_sclk,
+-		i2c1_sdata, i2c2_sdata, csi_dn0, csi_dp0, csi_dn1, csi_dp1,
+-		csi_cn, csi_cp, csi_dn2, csi_dp2, csi_dn3, csi_dp3,
+-		sensor0_pclk, sensor0_ckout, dnand_d0, dnand_d1, dnand_d2,
+-		dnand_d3, dnand_d4, dnand_d5, dnand_d6, dnand_d7, dnand_wrb,
+-		dnand_rdb, dnand_rdbn, dnand_dqs, dnand_dqsn, dnand_rb0,
+-		dnand_ale, dnand_cle, dnand_ceb0, dnand_ceb1, dnand_ceb2,
+-		dnand_ceb3, porb, clko_25m, bsel, pkg0, pkg1, pkg2, pkg3
+-
+-- groups:       An array of strings, each string containing the name of a pin
+-                group. These pin groups are used for selecting the pinmux
+-                functions.
+-		rgmii_txd23_mfp, rgmii_rxd2_mfp, rgmii_rxd3_mfp, lcd0_d18_mfp,
+-		rgmii_txd01_mfp, rgmii_txd0_mfp, rgmii_txd1_mfp, rgmii_txen_mfp,
+-		rgmii_rxen_mfp, rgmii_rxd1_mfp, rgmii_rxd0_mfp, rgmii_ref_clk_mfp,
+-		i2s_d0_mfp, i2s_pcm1_mfp, i2s0_pcm0_mfp, i2s1_pcm0_mfp,
+-		i2s_d1_mfp, ks_in2_mfp, ks_in1_mfp, ks_in0_mfp, ks_in3_mfp,
+-		ks_out0_mfp, ks_out1_mfp, ks_out2_mfp, lvds_o_pn_mfp, dsi_dn0_mfp,
+-		dsi_dp2_mfp, lcd0_d2_mfp, dsi_dp3_mfp, dsi_dn3_mfp, dsi_dp0_mfp,
+-		lvds_ee_pn_mfp, uart2_rx_tx_mfp, spi0_i2c_pcm_mfp, dsi_dnp1_cp_d2_mfp,
+-		dsi_dnp1_cp_d17_mfp, lvds_e_pn_mfp, dsi_dn2_mfp, uart2_rtsb_mfp,
+-		uart2_ctsb_mfp, uart3_rtsb_mfp, uart3_ctsb_mfp, sd0_d0_mfp, sd0_d1_mfp,
+-		sd0_d2_d3_mfp, sd1_d0_d3_mfp, sd0_cmd_mfp, sd0_clk_mfp, sd1_cmd_mfp,
+-		uart0_rx_mfp, clko_25m_mfp, csi_cn_cp_mfp, sens0_ckout_mfp, uart0_tx_mfp,
+-		i2c0_mfp, csi_dn_dp_mfp, sen0_pclk_mfp, pcm1_in_mfp, pcm1_clk_mfp,
+-		pcm1_sync_mfp, pcm1_out_mfp, dnand_data_wr_mfp, dnand_acle_ce0_mfp,
+-		nand_ceb2_mfp, nand_ceb3_mfp
+-
+-		These pin groups are used for selecting the drive strength
+-		parameters.
+-
+-		sirq_drv, rgmii_txd23_drv, rgmii_rxd23_drv, rgmii_txd01_txen_drv,
+-		rgmii_rxer_drv, rgmii_crs_drv, rgmii_rxd10_drv, rgmii_ref_clk_drv,
+-		smi_mdc_mdio_drv, i2s_d0_drv, i2s_bclk0_drv, i2s3_drv, i2s13_drv,
+-		pcm1_drv, ks_in_drv, ks_out_drv, lvds_all_drv, lcd_d18_d2_drv,
+-		dsi_all_drv, sd0_d0_d3_drv, sd0_cmd_drv, sd0_clk_drv, spi0_all_drv,
+-		uart0_rx_drv, uart0_tx_drv, uart2_all_drv, i2c0_all_drv, i2c12_all_drv,
+-		sens0_pclk_drv, sens0_ckout_drv, uart3_all_drv
+-
+-- function:	An array of strings, each string containing the name of the
+-		pinmux functions. These functions can only be selected by
+-		the corresponding pin groups. The following are the list of
+-		pinmux functions available:
+-
+-		nor, eth_rgmii, eth_sgmii, spi0, spi1, spi2, spi3, seNs0, sens1,
+-		uart0, uart1, uart2, uart3, uart4, uart5, uart6, i2s0, i2s1,
+-		pcm1, pcm0, ks, jtag, pwm0, pwm1, pwm2, pwm3, pwm4, pwm5, p0,
+-		sd0, sd1, sd2, i2c0, i2c1, i2c2, i2c3, dsi, lvds, usb30,
+-		clko_25m, mipi_csi, nand, spdif, sirq0, sirq1, sirq2, bt, lcd0
+-
+-Optional Properties:
+-
+-- bias-pull-down: No arguments. The specified pins should be configured as
+-		pull down.
+-- bias-pull-up:   No arguments. The specified pins should be configured as
+-		pull up.
+-- input-schmitt-enable: No arguments: Enable schmitt trigger for the specified
+-		pins
+-- input-schmitt-disable: No arguments: Disable schmitt trigger for the specified
+-		pins
+-- drive-strength: Integer. Selects the drive strength for the specified
+-		pins in mA.
+-		Valid values are:
+-		<2>
+-		<4>
+-		<8>
+-		<12>
+-
+-Example:
+-
+-	pinctrl: pinctrl@e01b0000 {
+-		compatible = "actions,s700-pinctrl";
+-		reg = <0x0 0xe01b0000 0x0 0x1000>;
+-		clocks = <&cmu CLK_GPIO>;
+-		gpio-controller;
+-		gpio-ranges = <&pinctrl 0 0 136>;
+-		#gpio-cells = <2>;
+-		interrupt-controller;
+-		#interrupt-cells = <2>;
+-                interrupts = <GIC_SPI 36 IRQ_TYPE_LEVEL_HIGH>,
+-                             <GIC_SPI 37 IRQ_TYPE_LEVEL_HIGH>,
+-                             <GIC_SPI 38 IRQ_TYPE_LEVEL_HIGH>,
+-                             <GIC_SPI 39 IRQ_TYPE_LEVEL_HIGH>,
+-                             <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>;
+-
+-		uart3-default: uart3-default {
+-			pinmux {
+-				groups = "uart3_rtsb_mfp", "uart3_ctsb_mfp";
+-				function = "uart3";
+-			};
+-			pinconf {
+-				groups = "uart3_all_drv";
+-				drive-strength = <2>;
+-			};
+-		};
+-	};
+diff --git a/Documentation/devicetree/bindings/pinctrl/actions,s700-pinctrl.yaml b/Documentation/devicetree/bindings/pinctrl/actions,s700-pinctrl.yaml
+new file mode 100644
+index 000000000000..9597b983c332
+--- /dev/null
++++ b/Documentation/devicetree/bindings/pinctrl/actions,s700-pinctrl.yaml
+@@ -0,0 +1,204 @@
++# SPDX-License-Identifier: (GPL-2.0-only OR BSD-2-Clause)
++%YAML 1.2
++---
++$id: http://devicetree.org/schemas/pinctrl/actions,s700-pinctrl.yaml#
++$schema: http://devicetree.org/meta-schemas/core.yaml#
++
++title: Actions Semi S700 Pin Controller
++
++maintainers:
++  - Manivannan Sadhasivam <mani@kernel.org>
++
++properties:
++  compatible:
++    const: actions,s700-pinctrl
++
++  reg:
++    maxItems: 1
++
++  clocks:
++    maxItems: 1
++
++  gpio-controller: true
++
++  gpio-line-names:
++    maxItems: 136
++
++  gpio-ranges: true
++
++  '#gpio-cells':
++    const: 2
++
++  interrupt-controller: true
++
++  '#interrupt-cells':
++    const: 2
++
++  interrupts:
++    maxItems: 5
++    description:
++      The interrupt outputs from the controller. There is one GPIO interrupt per
++      GPIO bank. The interrupts must be ordered by bank, starting with
++      bank 0.
++
++additionalProperties:
++  type: object
++  description: Pin configuration subnode
++  additionalProperties: false
++
++  properties:
++    pinmux:
++      description: Configure pin multiplexing.
++      type: object
++      $ref: /schemas/pinctrl/pinmux-node.yaml#
++      additionalProperties: false
++
++      properties:
++        groups:
++          items:
++            enum: [
++              rgmii_txd23_mfp, rgmii_rxd2_mfp, rgmii_rxd3_mfp, lcd0_d18_mfp,
++              rgmii_txd01_mfp, rgmii_txd0_mfp, rgmii_txd1_mfp, rgmii_txen_mfp,
++              rgmii_rxen_mfp, rgmii_rxd1_mfp, rgmii_rxd0_mfp, rgmii_ref_clk_mfp,
++              i2c1_dummy, i2c2_dummy, i2s_d0_mfp, i2s_pcm1_mfp, i2s0_pcm0_mfp, i2s1_pcm0_mfp,
++              i2s_d1_mfp, ks_in2_mfp, ks_in1_mfp, ks_in0_mfp, ks_in3_mfp,
++              ks_out0_mfp, ks_out1_mfp, ks_out2_mfp, lvds_o_pn_mfp, dsi_dn0_mfp,
++              dsi_dp2_mfp, lcd0_d2_mfp, dsi_dp3_mfp, dsi_dn3_mfp, dsi_dp0_mfp,
++              lvds_ee_pn_mfp, uart2_rx_tx_mfp, spi0_i2c_pcm_mfp,
++              dsi_dnp1_cp_d2_mfp, dsi_dnp1_cp_d17_mfp, lvds_e_pn_mfp,
++              dsi_dn2_mfp, uart2_rtsb_mfp, uart2_ctsb_mfp, uart3_rtsb_mfp,
++              uart3_ctsb_mfp, sd0_d0_mfp, sd0_d1_mfp, sd0_d2_d3_mfp,
++              sd1_d0_d3_mfp, sd0_cmd_mfp, sd0_clk_mfp, sd1_cmd_mfp,
++              uart0_rx_mfp, clko_25m_mfp, csi_cn_cp_mfp, sens0_ckout_mfp,
++              uart0_tx_mfp, i2c0_mfp, csi_dn_dp_mfp, sen0_pclk_mfp, pcm1_in_mfp,
++              pcm1_clk_mfp, pcm1_sync_mfp, pcm1_out_mfp, dnand_data_wr_mfp,
++              dnand_acle_ce0_mfp, nand_ceb2_mfp, nand_ceb3_mfp
++            ]
++
++        function:
++          items:
++            enum: [
++              nor, eth_rgmii, eth_sgmii, spi0, spi1, spi2, spi3, seNs0, sens1,
++              uart0, uart1, uart2, uart3, uart4, uart5, uart6, i2s0, i2s1, pcm1,
++              pcm0, ks, jtag, pwm0, pwm1, pwm2, pwm3, pwm4, pwm5, p0, sd0, sd1,
++              sd2, i2c0, i2c1, i2c2, i2c3, dsi, lvds, usb30, clko_25m, mipi_csi,
++              nand, spdif, sirq0, sirq1, sirq2, bt, lcd0
++            ]
++
++      required:
++        - groups
++        - function
++
++    pinconf:
++      description: Configure pin-specific parameters.
++      type: object
++      allOf:
++        - $ref: /schemas/pinctrl/pincfg-node.yaml#
++        - $ref: /schemas/pinctrl/pinmux-node.yaml#
++      additionalProperties: false
++
++      properties:
++        groups:
++          items:
++            enum: [
++              sirq_drv, rgmii_txd23_drv, rgmii_rxd23_drv, rgmii_txd01_txen_drv,
++              rgmii_rxer_drv, rgmii_crs_drv, rgmii_rxd10_drv, rgmii_ref_clk_drv,
++              smi_mdc_mdio_drv, i2s_d0_drv, i2s_bclk0_drv, i2s3_drv, i2s13_drv,
++              pcm1_drv, ks_in_drv, ks_out_drv, lvds_all_drv, lcd_d18_d2_drv,
++              dsi_all_drv, sd0_d0_d3_drv, sd0_cmd_drv, sd0_clk_drv,
++              spi0_all_drv, uart0_rx_drv, uart0_tx_drv, uart2_all_drv,
++              i2c0_all_drv, i2c12_all_drv, sens0_pclk_drv, sens0_ckout_drv,
++              uart3_all_drv
++            ]
++
++        pins:
++          items:
++            enum: [
++              eth_txd0, eth_txd1, eth_txd2, eth_txd3, eth_txen, eth_rxer,
++              eth_crs_dv, eth_rxd1, eth_rxd0, eth_rxd2, eth_rxd3, eth_ref_clk,
++              eth_mdc, eth_mdio, sirq0, sirq1, sirq2, i2s_d0, i2s_bclk0,
++              i2s_lrclk0, i2s_mclk0, i2s_d1, i2s_bclk1, i2s_lrclk1, i2s_mclk1,
++              pcm1_in, pcm1_clk, pcm1_sync, pcm1_out, ks_in0, ks_in1, ks_in2,
++              ks_in3, ks_out0, ks_out1, ks_out2, lvds_oep, lvds_oen, lvds_odp,
++              lvds_odn, lvds_ocp, lvds_ocn, lvds_obp, lvds_obn, lvds_oap,
++              lvds_oan, lvds_eep, lvds_een, lvds_edp, lvds_edn, lvds_ecp,
++              lvds_ecn, lvds_ebp, lvds_ebn, lvds_eap, lvds_ean, lcd0_d18,
++              lcd0_d2, dsi_dp3, dsi_dn3, dsi_dp1, dsi_dn1, dsi_cp, dsi_cn,
++              dsi_dp0, dsi_dn0, dsi_dp2, dsi_dn2, sd0_d0, sd0_d1, sd0_d2,
++              sd0_d3, sd1_d0, sd1_d1, sd1_d2, sd1_d3, sd0_cmd, sd0_clk, sd1_cmd,
++              sd1_clk, spi0_ss, spi0_miso, uart0_rx, uart0_tx, uart2_rx,
++              uart2_tx, uart2_rtsb, uart2_ctsb, uart3_rx, uart3_tx, uart3_rtsb,
++              uart3_ctsb, i2c0_sclk, i2c0_sdata, i2c1_sclk, i2c1_sdata,
++              i2c2_sclk, i2c2_sdata, csi_dn0, csi_dp0, csi_dn1, csi_dp1, csi_cn, csi_cp,
++              csi_dn2, csi_dp2, csi_dn3, csi_dp3, sensor0_pclk, sensor0_ckout,
++              dnand_d0, dnand_d1, dnand_d2, dnand_d3, dnand_d4, dnand_d5,
++              dnand_d6, dnand_d7, dnand_wrb, dnand_rdb, dnand_rdbn, dnand_dqs,
++              dnand_dqsn, dnand_rb0, dnand_ale, dnand_cle, dnand_ceb0,
++              dnand_ceb1, dnand_ceb2, dnand_ceb3, porb, clko_25m, bsel, pkg0,
++              pkg1, pkg2, pkg3
++            ]
++
++        bias-pull-down:
++          type: boolean
++
++        bias-pull-up:
++          type: boolean
++
++        drive-strength:
++          description: Selects the drive strength for the specified pins in mA.
++          enum: [2, 4, 8, 12]
++
++        input-schmitt-enable: true
++        input-schmitt-disable: true
++
++      oneOf:
++        - required:
++            - groups
++        - required:
++            - pins
++
++  anyOf:
++    - required: [ pinmux ]
++    - required: [ pinconf ]
++
++required:
++  - compatible
++  - reg
++  - clocks
++  - gpio-controller
++  - gpio-ranges
++  - '#gpio-cells'
++  - interrupt-controller
++  - '#interrupt-cells'
++  - interrupts
++
++examples:
++  - |
++    #include <dt-bindings/interrupt-controller/arm-gic.h>
++
++    pinctrl: pinctrl@e01b0000 {
++        compatible = "actions,s700-pinctrl";
++        reg = <0xe01b0000 0x1000>;
++        clocks = <&cmu 1>;
++        gpio-controller;
++        gpio-ranges = <&pinctrl 0 0 136>;
++        #gpio-cells = <2>;
++        interrupt-controller;
++        #interrupt-cells = <2>;
++        interrupts = <GIC_SPI 36 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 37 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 38 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 39 IRQ_TYPE_LEVEL_HIGH>,
++                     <GIC_SPI 40 IRQ_TYPE_LEVEL_HIGH>;
++
++        uart3-default {
++            pinmux {
++                groups = "uart3_rtsb_mfp", "uart3_ctsb_mfp";
++                function = "uart3";
++            };
++            pinconf {
++                groups = "uart3_all_drv";
++                drive-strength = <2>;
++            };
++        };
++    };
+-- 
+2.51.0
 
-this put should be in driver remove function.
-
-> +
-> +	for (i = 0; i < OUT_ENDPOINTS; i++) {
-> +		remote = of_graph_get_remote_node(np, 1, i);
-> +		if (!remote) {
-> +			dev_dbg(dev, "no remote node for port@1 ep%u\n", i);
-> +			continue;
-> +		}
-> +
-> +		pl->next_bridge = of_drm_find_bridge(remote);
-> +		if (!pl->next_bridge) {
-> +			dev_dbg(dev, "failed to find next bridge for port@1 ep%u\n", i);
-> +			of_node_put(remote);
-> +			return -EPROBE_DEFER;
-> +		}
-> +
-> +		of_node_put(remote);
-> +
-> +		drm_bridge_add(&pl->bridge);
-> +
-> +		return 0;
-> +	}
-> +
-> +	return -EINVAL;
-> +}
-> +
-> +static void imx95_pixel_link_bridge_remove(struct platform_device *pdev)
-> +{
-> +	struct imx95_pixel_link_bridge *pl = platform_get_drvdata(pdev);
-> +
-> +	drm_bridge_remove(&pl->bridge);
-> +}
-> +
-> +static const struct of_device_id imx95_pixel_link_bridge_dt_ids[] = {
-> +	{ .compatible = "fsl,imx95-dc-pixel-link", },
-> +	{ /* sentinel */ }
-> +};
-> +MODULE_DEVICE_TABLE(of, imx95_pixel_link_bridge_dt_ids);
-> +
-> +static struct platform_driver imx95_pixel_link_bridge_driver = {
-> +	.probe	= imx95_pixel_link_bridge_probe,
-> +	.remove	= imx95_pixel_link_bridge_remove,
-> +	.driver	= {
-> +		.of_match_table = imx95_pixel_link_bridge_dt_ids,
-> +		.name = DRIVER_NAME,
-> +	},
-> +};
-> +
-> +module_platform_driver(imx95_pixel_link_bridge_driver);
-> +
-> +MODULE_DESCRIPTION("i.MX95 display pixel link bridge driver");
-> +MODULE_AUTHOR("NXP Semiconductor");
-> +MODULE_LICENSE("GPL v2");
-> +MODULE_ALIAS("platform:" DRIVER_NAME);
-
-Drop
-
-> --
-> 2.51.0
->
 
