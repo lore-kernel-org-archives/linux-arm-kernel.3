@@ -4,63 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8C6D9CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 19:02:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 09986CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 19:02:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=RgEGPlNUK43rhNDXnUBKVU3d22Z0I72vU1ZHl0FA+5M=; b=mQRZH9pg2oXXD14+7U7+z96O6U
-	nly20wTflNn70dRXtJ//yaIYyTXoBzBEqoLPuUiRS+EafhxpKqAnoD0UWMrO2d92Lpy4nnb73Lwcz
-	458FWzEMwZ/ppTVSsVlRaXzI/LzMlVmYui1zvr3XCPEkzy1XfYyP8SzprLF0A8z2JIgC0aVM0+81L
-	tIwc3ZHnjVd6IYB3g9wgvNTWWyoMx5YChWl0azarNyp1w13hGgrCB0gI+nVksS7EnF49d69hAgefB
-	2T8MQIaxovQ7jy83EGzrk4JnMhGL4HC70XhrvYf+HwpAGL2LIMo9dAgitBntBXaofXpWSSoJwNl29
-	vRttDq6w==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=qg44q0VVpNZ3OyYCRjYUw+XIcf+qYUx8J25GphoeznQ=; b=m/rsKeTIi8CLO94zn2stVD698/
+	5DzQAL/KuOB8zbJOlQeKnSOrX8yQdFG6imrWeSm4Njm55VVLFtKdAYETEBDaX97a66qIjvkuqN0ZY
+	2kC/K/XzHCV5y/mswnmbM/44iTk99D7vCZf7Ll5ozNHrUl/AnEzu1CigeFompMyU2/KPJcdMmw84i
+	/b08mkc1oLRZt73kmbRpC2oO/KU2otFnQjWenuWuM+4R0E/59lwAIsJojXZtGrM6iqyOczFmxsdub
+	aE4uYGD34t9O3fC6uHxNv+jiM2mNIUrsoXQogxRZ7uxyf3NaZXfgCl0xNIaPhbEOeWXYeHGbKe4yN
+	1VCtExWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Nog-0000000EEW0-1bhQ;
+	id 1v8Nog-0000000EEW4-2n6F;
 	Mon, 13 Oct 2025 19:02:42 +0000
-Received: from mout-p-102.mailbox.org ([80.241.56.152])
+Received: from mout-p-202.mailbox.org ([80.241.56.172])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Nod-0000000EEUp-1dkN
+	id 1v8Nod-0000000EEUo-22mn
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 19:02:40 +0000
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
+	Mon, 13 Oct 2025 19:02:41 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [10.196.197.202])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4clmtz3sgXz9v10;
-	Mon, 13 Oct 2025 21:02:35 +0200 (CEST)
+	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4clmtv5glTz9t0S;
+	Mon, 13 Oct 2025 21:02:31 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1760382155;
+	t=1760382151;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RgEGPlNUK43rhNDXnUBKVU3d22Z0I72vU1ZHl0FA+5M=;
-	b=NEU6NP0VJ9Uar8v/MJPQNoOOq9sDmy69JNJOHp54Bz9j337NYDY1p6UYICf7Zs52rROYxK
-	TT3obK2au2EDzWVl/PbyqPi15kU4sDN8DrWlen6o98qkFUhPChs4YWaWZ0C6P/W3Z0F+4e
-	ax692jpLk7DxslQY5lQyYbkhaWaC1WqEIKNuh25Qy/d/44XCV7rfOZz2QUNv4jjqcZlYlo
-	BXZ/aFSFMTAH3FHk8q1WTDVDSs7CoAbB4NGLL7svApHvNcPrTtFchyfQTadPMybg7h36Fe
-	ADOkcixHfRgE8kF/POquVEukjfxbJ1C+lxIbpg3WPlQYFT+cVBgjDZ9n4ujSLg==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b="h/YTL95m";
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=qg44q0VVpNZ3OyYCRjYUw+XIcf+qYUx8J25GphoeznQ=;
+	b=Qy2Rxf6Xekle6nc5iX9/WQPMEXyGRW4RxX3U/jO9SMR+Ns7rHt+cB0Pkq0Kkoxt6ELP8Kp
+	ERbilmOrkdv8MIjOqvGEWOlmhzj1kfk5hr70RC2Uzg4KEYWPMp0yHL9+rn/czUXS5HzJoF
+	eFKVRYfNrXvHJWrzopf3SxfwDurQNv2dmmORkfFXgu3EiK90DyDUg1EBammkgu6OcZiSIs
+	GahENHa3jaSs5BezXNS8LW2VrB+V3tjC9LD5BPifBJfBK2gauUwj7JXkmFOa/f3u/DaJDY
+	cCe/RtVGX6ITwoN1VTiwNJ8TV+UkVatn19pprYbDrXe20/4WvWW6rbc5vxEUzg==
 From: Marek Vasut <marek.vasut+renesas@mailbox.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1760382153;
+	t=1760382149;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=RgEGPlNUK43rhNDXnUBKVU3d22Z0I72vU1ZHl0FA+5M=;
-	b=h/YTL95mjqwfTRKo/7x3jZWSAxBUUgW5yAvJUbyE+Sf1551P+mzDlADqtkPnIKKZMSjUpA
-	Kkv8FWIH6UFHPFS59z08Hx/S4ar1Fngn+Y2NXQsKT+xD/mfPmhPS28Lo1RF0rWprgwuThs
-	4RF6X9q2vYAy/6m7V3FseKhgcJkUZJE14I6dUNoZ82NxGjhqXCur4rLKQCBRsSEpqJgU75
-	kY+z2AeH8/oON5BC8TSH9UgzEbB2hf2NiZ1Mx8YnfF6NAUxtMDueHRWNiDqU3DqJMjSGIB
-	Fti0WkrSXFfhA+jcstSUTaC4UN2liBpx2lh3gST/bxgKN8AR5/7Fn2RZ8Bb+3A==
+	 content-transfer-encoding:content-transfer-encoding;
+	bh=qg44q0VVpNZ3OyYCRjYUw+XIcf+qYUx8J25GphoeznQ=;
+	b=UIcur+N0qOo/kizLBR9bNsH5j4FBVb9HQ8eNT+uzmc4V3YOVoephjiLCaxvmZRn3uOJoNW
+	GbQIN2A3FJQAeHwihmv6Gs17h8P6ezOqF85TmliPwa6ARmM4JD8kPdl7ikkNcHim4DSiBH
+	i0JION5Vr89i4/z8DcY+PNFa2JBpXMkfY/ieFPOe4ziPeGCVKU7CSc/P1b642Qx1qAy3vk
+	zWUBw4tNdFxKWKyjSEtCkM4d2jpSk8P6Fa6l5j7XvMutn6DnW8WW4m2r6RdqU6mKFAEX+a
+	FMJR+5FVaoREc1CpKkmo9uDd30EPsWHnFUXU5a44+2JNy/IJBIH8oQJ0rWfvWA==
 To: linux-arm-kernel@lists.infradead.org
 Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	Adam Ford <aford173@gmail.com>,
@@ -80,19 +75,16 @@ Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
 	devicetree@vger.kernel.org,
 	dri-devel@lists.freedesktop.org,
 	linux-renesas-soc@vger.kernel.org
-Subject: [PATCH 2/3] arm64: dts: renesas: r8a77960: Add GX6250 GPU node
-Date: Mon, 13 Oct 2025 21:01:18 +0200
-Message-ID: <20251013190210.142436-2-marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20251013190210.142436-1-marek.vasut+renesas@mailbox.org>
-References: <20251013190210.142436-1-marek.vasut+renesas@mailbox.org>
+Subject: [PATCH 1/3] dt-bindings: gpu: img,powervr-rogue: Document GX6250 GPU in Renesas R-Car M3-W/M3-W+
+Date: Mon, 13 Oct 2025 21:01:17 +0200
+Message-ID: <20251013190210.142436-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
-X-MBO-RS-ID: 0b0558fdda1c0b00138
-X-MBO-RS-META: 5rj5rxchy4bzmxkt8mwszpzp5iyyk97c
-X-Rspamd-Queue-Id: 4clmtz3sgXz9v10
+X-MBO-RS-ID: 87dbecb418ff6fbe859
+X-MBO-RS-META: cnajsto9a5ybxf448khspd6zh4y7sud1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_120239_569638_620FFAA3 
-X-CRM114-Status: UNSURE (   8.55  )
+X-CRM114-CacheID: sfid-20251013_120239_669227_AE74B2A8 
+X-CRM114-Status: UNSURE (   7.10  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -108,8 +100,8 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Describe Imagination Technologies PowerVR Rogue GX6250 BNVC 4.45.2.58
-present in Renesas R-Car R8A77960 M3-W SoC.
+Document Imagination Technologies PowerVR Rogue GX6250 BNVC 4.45.2.58
+present in Renesas R-Car R8A77960 M3-W and R8A77961 M3-W+ SoC.
 
 Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 ---
@@ -131,32 +123,29 @@ Cc: devicetree@vger.kernel.org
 Cc: dri-devel@lists.freedesktop.org
 Cc: linux-renesas-soc@vger.kernel.org
 ---
- arch/arm64/boot/dts/renesas/r8a77960.dtsi | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+See https://gitlab.freedesktop.org/imagination/linux-firmware/-/issues/13
+for related userspace bits.
+---
+ .../devicetree/bindings/gpu/img,powervr-rogue.yaml          | 6 ++++++
+ 1 file changed, 6 insertions(+)
 
-diff --git a/arch/arm64/boot/dts/renesas/r8a77960.dtsi b/arch/arm64/boot/dts/renesas/r8a77960.dtsi
-index 6d039019905de..4f7b2e838c026 100644
---- a/arch/arm64/boot/dts/renesas/r8a77960.dtsi
-+++ b/arch/arm64/boot/dts/renesas/r8a77960.dtsi
-@@ -2565,6 +2565,18 @@ gic: interrupt-controller@f1010000 {
- 			resets = <&cpg 408>;
- 		};
- 
-+		gpu: gpu@fd000000 {
-+			compatible = "renesas,r8a77960-gpu",
-+				     "img,img-gx6250",
-+				     "img,img-rogue";
-+			reg = <0 0xfd000000 0 0x40000>;
-+			interrupts = <GIC_SPI 119 IRQ_TYPE_LEVEL_HIGH>;
-+			clocks = <&cpg CPG_MOD 112>;
-+			clock-names = "core";
-+			power-domains = <&sysc R8A7796_PD_3DG_B>;
-+			resets = <&cpg 112>;
-+		};
-+
- 		pciec0: pcie@fe000000 {
- 			compatible = "renesas,pcie-r8a7796",
- 				     "renesas,pcie-rcar-gen3";
+diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+index c87d7bece0ecd..c9680a2560114 100644
+--- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
++++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
+@@ -13,6 +13,12 @@ maintainers:
+ properties:
+   compatible:
+     oneOf:
++      - items:
++          - enum:
++              - renesas,r8a77960-gpu
++              - renesas,r8a77961-gpu
++          - const: img,img-gx6250
++          - const: img,img-rogue
+       - items:
+           - enum:
+               - ti,am62-gpu
 -- 
 2.51.0
 
