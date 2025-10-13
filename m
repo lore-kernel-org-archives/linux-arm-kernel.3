@@ -4,72 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 04BF7CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 01:01:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3A636CCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 01:01:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CeD0ycGia2aeOxgxjZnlT8Vbvac6TmHq5j7KmcNWbBg=; b=BchncHVxv45IdTEOf5GDgj2cFi
-	DN+rb/QcFwFhT/ZNaK+L7IhxhNK0cLRxiYP5GkljgRuH5XIV1w6V2xn+dV02O1J10dVdWJS6ku6v8
-	qQUI21U2ppc79cB+aL4QhBG1gt+NDja3V0c+/J+9jeKbhoVLXlfU/wHeOrUBA8wQSAeU0Sv4TQFgw
-	V3MSrIEumXijtYBgJsEcPVGKZSgFk53gNK4F8TKj0xR7zRHkNBEdk6u+ZvjVerImpbh+In8XlW4sq
-	o1mlFuBbGGKpjO5/MDxy2qwdJPfautNeSBnXLvGqWat/aC3+U5BGJG/TNwD2u3IAPPL/YptmE8S5S
-	IR9zNFmA==;
+	bh=LUCP4LKA1bDFYppqppgto8MgAIuMCRJ1Lo8b0QTm/8I=; b=dodK9w1ngv6GuGcwU2l3MKUFUR
+	AIeOzcm9svNobpUmO+udNfiBxtEzRJHv97MUEYIDlQMl2/sc966nDmE2LRcWb8vnzdLhaerZytJn/
+	/EHvNJAAW9M51QeY3lqEuP4na4dlKFu+vHLleI/3O7SnzaE3Und31t08Q+kXsQ0MATQx3zGUttS3k
+	vlqEDVJrLdbUS0jNYhiEnAdOgCFI8BrZRxLxA1VxjFpiywmRdQDpdv1ejo+HH+pYVHae5sa+NBSb0
+	KsmDaqJODUQPPiYB8avSqhXQcz1NkNj6EDt1Oj5wfPwL+CyjRa+s2xnfSyqZZJfmtlnMq/Lf6lE1E
+	x562HqlQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v86wR-0000000C0cr-2zlY;
-	Mon, 13 Oct 2025 01:01:35 +0000
-Received: from mail-pg1-f169.google.com ([209.85.215.169])
+	id 1v86wX-0000000C0fJ-0qNU;
+	Mon, 13 Oct 2025 01:01:41 +0000
+Received: from mail-pf1-x42b.google.com ([2607:f8b0:4864:20::42b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v86wO-0000000C0ac-3lBT
+	id 1v86wU-0000000C0eB-2oYx
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 01:01:34 +0000
-Received: by mail-pg1-f169.google.com with SMTP id 41be03b00d2f7-b62e55af64aso136807a12.1
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Oct 2025 18:01:32 -0700 (PDT)
+	Mon, 13 Oct 2025 01:01:39 +0000
+Received: by mail-pf1-x42b.google.com with SMTP id d2e1a72fcca58-781254d146eso236822b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Oct 2025 18:01:38 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760317292; x=1760922092; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1760317298; x=1760922098; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=CeD0ycGia2aeOxgxjZnlT8Vbvac6TmHq5j7KmcNWbBg=;
-        b=NThbvT5WWkWi6PXNklH/nMNA25uVoDpNCJT9h3L+KR1PVlDzRJBniFwf68P69OwZuv
-         kTgglfvY0kDMEY5rcGEfHYuVXG+8b31d4gIABV07AhZ0WYX+PRkKZXL8akNYZewf0J2O
-         vdhv75R1rtFH498Bvdu2LnvQT9wp8dJbLjDLNUxeCzjff4hjL/xqYBkkOepKzSt4MDdv
-         5QtxBggvhDw2prm160UGb/oKNNbw7kydR/ZmslqZDSwK/YXTucOQ0zILgjgOjD6d/Cce
-         uV2nC2Y8auvJM73B6iqv9DHjT9QvyxXCrcGKUO7UGvy9eLc+P+UswrVodamktW+C17X3
-         4lzA==
+        bh=LUCP4LKA1bDFYppqppgto8MgAIuMCRJ1Lo8b0QTm/8I=;
+        b=n1SnI4CaflbjeFmKqxL0WcteyDLtVZg0P5fFxYshSlHMfBxtAFW+bTcPjLgLIknXfJ
+         hZfQm9QrNAvHDEW91Kkq5OeJaY5iKRQ4pAcxaIgPbpUmUEnaV8jDm89+iQH1GsQ8FhWr
+         Yodpl3VptOICrwnbf6er1A3Gr4x4I8rLk3Qap72Q5aqLTHk4ib2R+UUBpjXQGLSPc9kf
+         NBtyhW0amW2RKnNqsyxGAWi2o53g39kE+aVy/FwYvW0qcEZiA5UIjLJUfjGoaq+aq5yF
+         zlMeis/yZn1SJL2j9xPM3HN6RvkO7sRH+pYYM68NOzRipeCyyuNCtsHUA6hGA+3xyzlQ
+         P1yw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760317292; x=1760922092;
+        d=1e100.net; s=20230601; t=1760317298; x=1760922098;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=CeD0ycGia2aeOxgxjZnlT8Vbvac6TmHq5j7KmcNWbBg=;
-        b=em9OHlw3V6ck8U5vcL6pobFIZwsO2jUm4UmYt2MDr8UUo4Fo4I2OH7Zj+nbyNtf7HJ
-         nkVU7z3y3syuNKiAvD8K29sRIw4LC5vXmpzXCU4VC7ISfm4iAdFj4HdoejaOg1+pN7FQ
-         3bhgfE05WSeSyql3FkQdX6TaQqeEKVlFwAzAIqfGIzwr/NU4Y+UXOsnP/hg03tWTt6/C
-         L2wB7IFvBup+pQEBrvtMDBx7x3CzMCVV7TwTAmQjiI7ahO/k6nIqxNavIxv4BNlWIt1P
-         Q/UsrbCzQSQajsh6huxcI/oA1C1q5AwiA4mmYROg4+Dv7mJzFoqoPujnbsBMjN6Lz61q
-         7r9w==
-X-Forwarded-Encrypted: i=1; AJvYcCWBU9LL2x5+MdlX65tH58EJb8ZR5aoE79PMLRFkOwtOJ9AZVKsh2X+O//vWa35BYpHwO6GBvb73TUw3/zH4ymaI@lists.infradead.org
-X-Gm-Message-State: AOJu0YyFcRNd1blqxYw1e1JaRva3nJyBYxUK1QH/44ziVfnTtQ+g+Es6
-	g2m7dsg5icsM1KLiMixVUZ3uWgRxBsuuwmPPH1Z7HogYB9MwPyERV21h28emS/mG6ks=
-X-Gm-Gg: ASbGnct8s3zF4nvFfSb2HA3YFLw33ZWYyWr9dog3M1zqmS9v/28G6A+GrThelvDBvRR
-	6wWaCqdk12WrXDBzY0U9s7nHtTcXCJfIHkbq5OQGz+usgxT8wwOfUiRsID1sSeEUtLt1zFcI9SQ
-	MoMIF67082p2S7kdxC1sxYm5595HgDW85DTjgAWzmpkTPXIUtKaAPP1tdpAwsLOb0FcIRgADjCj
-	57awlv0Nyal5dgzAbuKfOTIGcBeLxnLRwBTnFyztKWZy2AQTQqiIa0LrxHDR7i+AhTvvRYGcVoF
-	oC8BN9/ZuAAmaHaR95Dclyju7nB1baaXaLP3/Rheij00cFUh50evRW+0HA9mTiFo6UT/ZBQ0OCC
-	PjZmDshJlYYR2so/JJK0k+kM8ElJf6clE8iRw1bHtBCtTVH9q1GrvE6wx49lGBfkVaMOPDmAGHN
-	Zhp5zURg==
-X-Google-Smtp-Source: AGHT+IHOaxNaAYL/G3bBHEMSSdgsFReOlc8/uFblf96ArsJ9WQV3cPQ/wzrsOXueFnV0tG611gnucQ==
-X-Received: by 2002:a05:6a20:9383:b0:2df:b68d:f7e with SMTP id adf61e73a8af0-32da8461710mr14755652637.5.1760317291935;
-        Sun, 12 Oct 2025 18:01:31 -0700 (PDT)
+        bh=LUCP4LKA1bDFYppqppgto8MgAIuMCRJ1Lo8b0QTm/8I=;
+        b=HdKd2rQPwc1Fh1DWsoPKmwLT3tVwnNykwL/KTIexYj4yYO60/d8Y8AuvJau3lwJhqm
+         RcdrKnRyyed96w7oBx7nzYdA5zPE1A9k6pspnM0wNCA9WTWufCFuC6FkS4rK3ZSU/2qv
+         VPI2wVIwXiyrIv1JiIFGwJOgu/yB3KJOexjel1aOADjl+KP7vBGwXISGPeHun6WtxKjE
+         OYGbODh1Cq/dz9l/qFNTEJV7O2qam8Z2n11xmBNmshxlfEW76dInucTsFvLWRH9r4kab
+         52/yBSeYC6ekkah08wy64YAZJgP+5OXp749BAdP16o9Y3c3oANINA/SEJHgiK5wLk9RK
+         8N0A==
+X-Forwarded-Encrypted: i=1; AJvYcCWhLyPZIOVNE8nngxs1IeINLSlZDnpHETCIOiwp0/wNmXuT+lGureHSqond+YYmVsbmnqjHocVqDJx8nTV0xLmG@lists.infradead.org
+X-Gm-Message-State: AOJu0YykIowxpgpeIVAPa4e6e4kKDMoYzWLXbqSqecKt8lLOlqrZOfme
+	clozY1Nz9PdKHROraWvcUtkjwIz9kfMAAHX16LcqHNRJKjo5a9HH2JKrzlPEW8qONLE=
+X-Gm-Gg: ASbGncuXJMIP6Eg/RUiDLn+hjWvVLUUYohxNSdkQiSwexJvsZAiK/ltvly2lnWZK4mb
+	iqBKGqM+h1uBtw10fNQzyX4ryuuF9Zll0UhYrHosO/Pni7pLDbrwTynKlAx8UnyW1f4O8qDfo/y
+	U3jS7sk+/oDLfY5Bx/RZgZKKdu8qyXdfKomBdFq/qK9Mz2u0nUNZJIQbKJG3pOjJnnEaKpq+xc9
+	UtbbrZiDFw7M+Spoj1WY2Jqidr2tSyiXgHsiS1IOIqRtoDPNzsz+EcsqwcopFbbj4yQ09ZcAiFG
+	xXzsVdQ7HHFNl7/8raH4IqJtCJ1rASmT9/a1D46OQVGup2qmsHF2p1QMagl3+N1a+A6v+oGcdV4
+	Qt1TqRG2lKtfYRUOI7T6D+Dtfqgv4rmaO7zY9fcdD5NeXhGF1/57oevGMHGrLlS6Tz1KgZVw=
+X-Google-Smtp-Source: AGHT+IE1B9hR89kcu5D4i0PCjI7kQyz2poCnY9xOFDtLABQiwPAkgeCMqEBV5hkmUp72wJBiyTt0Ng==
+X-Received: by 2002:a05:6a00:b50:b0:793:1b79:ee5c with SMTP id d2e1a72fcca58-79387c173d0mr11494869b3a.6.1760317297843;
+        Sun, 12 Oct 2025 18:01:37 -0700 (PDT)
 Received: from [127.0.1.1] ([121.134.152.93])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7992d0e2ab3sm9512805b3a.64.2025.10.12.18.01.27
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7992d0e2ab3sm9512805b3a.64.2025.10.12.18.01.32
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Oct 2025 18:01:31 -0700 (PDT)
+        Sun, 12 Oct 2025 18:01:37 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
 To: krzk@kernel.org, s.nawrocki@samsung.com, cw00.choi@samsung.com, 
  alim.akhtar@samsung.com, mturquette@baylibre.com, sboyd@kernel.org, 
@@ -79,21 +78,21 @@ Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org,
  devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
  linux-kernel@vger.kernel.org, chandan.vn@samsung.com, 
  dev.tailor@samsung.com, karthik.sun@samsung.com
-In-Reply-To: <20250915095401.3699849-2-raghav.s@samsung.com>
-References: <20250915095401.3699849-1-raghav.s@samsung.com>
- <CGME20250915094512epcas5p223e2eb264967508527f478eb2200be83@epcas5p2.samsung.com>
- <20250915095401.3699849-2-raghav.s@samsung.com>
-Subject: Re: (subset) [PATCH v2 1/3] dt-bindings: clock: exynosautov920:
- add m2m clock definitions
-Message-Id: <176031728689.32330.1215080941311408154.b4-ty@linaro.org>
-Date: Mon, 13 Oct 2025 03:01:26 +0200
+In-Reply-To: <20250925130457.3476803-2-raghav.s@samsung.com>
+References: <20250925130457.3476803-1-raghav.s@samsung.com>
+ <CGME20250925125616epcas5p37346312c6a788a5398212f671d8a369d@epcas5p3.samsung.com>
+ <20250925130457.3476803-2-raghav.s@samsung.com>
+Subject: Re: (subset) [PATCH 1/3] dt-bindings: clock: exynosautov920: add
+ mfc clock definitions
+Message-Id: <176031729214.32330.12498017940011083883.b4-ty@linaro.org>
+Date: Mon, 13 Oct 2025 03:01:32 +0200
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251012_180132_967169_7BD0700D 
-X-CRM114-Status: UNSURE (   5.72  )
+X-CRM114-CacheID: sfid-20251012_180138_733430_AEC94358 
+X-CRM114-Status: UNSURE (   5.63  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -110,15 +109,15 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Mon, 15 Sep 2025 15:23:59 +0530, Raghav Sharma wrote:
-> Add device tree clock binding definitions for CMU_M2M
+On Thu, 25 Sep 2025 18:34:55 +0530, Raghav Sharma wrote:
+> Add device tree clock binding definitions for CMU_MFC
 > 
 > 
 
 Applied, thanks!
 
-[1/3] dt-bindings: clock: exynosautov920: add m2m clock definitions
-      https://git.kernel.org/krzk/linux/c/4914c17a76047ccbde24397cf9d406558183d756
+[1/3] dt-bindings: clock: exynosautov920: add mfc clock definitions
+      https://git.kernel.org/krzk/linux/c/0b94201e327471d034d81cf5fd2131a5529eea19
 
 Best regards,
 -- 
