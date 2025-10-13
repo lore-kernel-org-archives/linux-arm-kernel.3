@@ -4,91 +4,82 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 297E5CCD18E
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 14:07:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4D4ECCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 14:09:47 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=B3fxFMnHvhHYZxkU89prvgFn6OmHBSMeJm9YGzPYMJU=; b=x8FohZtmSbvasm3E4JAo+LTMGB
-	b67kMYmWsdfGW+rekX/V5vIknX5L+Ua35XOWtSiBP0oiTfPVdCtbG9yi/SWTP0LWCW4Fk7ZJnDVGu
-	6dvYBd7e5bErWWQItn98bAmHIbssZ946PDJIv4gg7lHQ53otOURwkt9msAlljW5dwS5CblcuZM6t7
-	4biR1o1j4Au6raW5QMP3fWQMe1bBPujV2xQt+hufzCsllsg+PxP4FK52YxTGr4j5naUJcexy2X761
-	PeKFC8uBawNPc7kysBVzzBGmQlddjoe6V2MDY3qW4esIv615C+1/znM1zW7BheVHfFX7SsxwXBBHa
-	XbhEqx6w==;
+	bh=yQ8FYvA5L7Rd1/8SnoqEIBFo/+rZMYNDTX9eU0Sh4HI=; b=adMCSOt0RJ62rOcIQcNKL7oScU
+	+lL+XDtlhdepfIhlTkDh9yMrsMSrfCQunMUR7uqXnEtu2YLbv3P3ah/v4GPGj8LNSiHJF+YiN1p8Y
+	2aSiKvHF15zr0OANeEf4VHlLiXLpphpUKWmmat8ftuXb8rcJRkLVcGdELajmUA/MZ6VkUXzCpjzqb
+	XEnFv/gmW/zpf5Zwv2TYcbMgFAAE+i1NLt0x06P7ns+gQ//gT7t/Zotu6W0lbh5MmezQHwLqXX/Dk
+	HhPivyXjip0FFwdAd7xBToWTAJipjwxE18MGum1xg28AONyvEvqcYdNGly3pwKkFvnrEAWU1i+vXT
+	vCEzolDw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8JCp-0000000DJQl-1Lva;
-	Mon, 13 Oct 2025 14:07:19 +0000
-Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
+	id 1v8JF7-0000000DJon-3G3I;
+	Mon, 13 Oct 2025 14:09:41 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8JCm-0000000DJPN-100i
+	id 1v8JF5-0000000DJo3-2nc7
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 14:07:17 +0000
-Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-85a4ceb4c3dso518494685a.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 07:07:15 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760364435; x=1760969235; darn=lists.infradead.org;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=B3fxFMnHvhHYZxkU89prvgFn6OmHBSMeJm9YGzPYMJU=;
-        b=IRpERlXeN4wCouQlBIn+th7qvjqEOezOw+wDu0bj7qvULXwBS1Gr3Qvx1IhzE3z6mP
-         2qaE4ytIDY+QD9qnJzSwaadTuTMns/jvTPeXAdVF702POsJ03N5B87yfOBvJ6fLUC0/9
-         DqUUOwDDhGodOY6kklnXlW6ptwJGRF0Uw3QJ+NunD52z5g3n+4xGWX2sedtTaIFUU8ag
-         MT+u9ekgRfcBDCo2uq6mwPN7fHwv7/WK3gSM9HkQLCAtMd3d0N8h7upgdHT0Oj23u099
-         LVfxq4nZQqurJWuGxXtgz/VvJOeeHxapy7gJHnCEFH2rkRWEvtsxbW8bseJmU42835BY
-         Y06Q==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760364435; x=1760969235;
-        h=content-transfer-encoding:cc:to:subject:message-id:date:from
-         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=B3fxFMnHvhHYZxkU89prvgFn6OmHBSMeJm9YGzPYMJU=;
-        b=AO4Kk6bZtu/tOaAun/KxrWdEy3QGS396WeONgY0kLa3ymk+957hdwict3hlkXJX17J
-         C1rJW8ClXlTj6T84H1h3uOi4jlGkn5M+eGxWB8Vh2bFny+9+Hcp5/cqXHjfjYeIh60fv
-         /a8d2UUV+73ftO7wce0KruBmkOGle9+po0xBFUifHKhodu4Oj7ORF+RbPdrKVH9mrAyh
-         bhOwHuOsHDZleJeGuYvl5hP/TX2Zu57bvRcT2YC5RMoI+1rKYoiBh4r94iNnSI51I46h
-         kzgPxnfUQmrH57HmfFk4/rD0284/u6doN12If1iUeCmUKv55CncTTb2h8zvSiy3xC1fU
-         cWgg==
-X-Forwarded-Encrypted: i=1; AJvYcCUbxNw1406UMFPaWq4l5kpElgmarSSCsOnv6yP7Mth92bkzhFVHyDr+m8qYlFxXJGD3HWQ9htEMxzIrqT7qTzBC@lists.infradead.org
-X-Gm-Message-State: AOJu0Yz1TkpOFc1LF7c+Nvzx8t0iNM796OyKFFv0FvnV3fs0K/AvBqpL
-	PtN9uAMpDtxs137nsmMkIKkYQZV7Jag3tN+c77tQ12DsBMMUGNlC+G3mn0U6PtRfUsXWivz57Wy
-	Nl10mS2SjTzj2mLYcoXXUuFcUz/7x0XQ=
-X-Gm-Gg: ASbGnctgKmAb6GuxoC0+WrVXJK/vBANZDNspR86BKAGllEYcYIG7hLYloUBg1G0oY+E
-	GIHpjccs7JHezrbzomlSohqvScCHx7jEHO34j6Oe+r27IPrDGvdZQ4YZfnxvscFrcBe/gyJTt/S
-	WIfK+o3qFtQGiWGFvqsYWy2W1ohkqQbEXoGln9YMr1kYb+IG8sDOu2xilZjcjm7dNqv1D6gsIXA
-	nCShgQCN3QT/poYK/lSiMRevwuHCJt5g7BJeg==
-X-Google-Smtp-Source: AGHT+IFJyxN0Hv1Y4GUd/peF3juYf0BASxuDUqSk2KfDDUExhxmcAVmPSatg4At2Xmntps9WxQl2SPNothq8SpuZzXY=
-X-Received: by 2002:a05:622a:4c6:b0:4b5:eb7b:2789 with SMTP id
- d75a77b69052e-4e6ead4825emr307845311cf.49.1760364434713; Mon, 13 Oct 2025
- 07:07:14 -0700 (PDT)
+	Mon, 13 Oct 2025 14:09:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id 85493417CF
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 14:09:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5D689C19422
+	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 14:09:38 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760364578;
+	bh=z15tpTrBW83KAZNHEtZD1R+Eafynq/cwxlwzlacByEA=;
+	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
+	b=ZW9BBm+RDZVXSC16M5XPZ1SNTDzkAinZVNEEu1scGxpHEzH0Ihz6imSnyg6O6CuTe
+	 WkMZ+A5OesyoAhmCOsp78i/7axOWTRRoZqTpUEm6odKL3eYMJotEi3nGKygqklmUI7
+	 hAlN5zB9tQEoBW5SL10UuMKf8c42Vgo4tn9b0Kh+7LrDSU48VnuxEyBW3TKwuKT8eI
+	 YsPaN3bFdZ6ZvOUnhNnnGY2MQAN48TP9rOmcSMGNxfpkJOlJ8u+aqC/niIvJwsw7RT
+	 yCTUe40+mst5BRbJmF1wZ0+oeUxnZ3wQbIpPGBVcBf45/5sdLo5F35/4rjNmH3JObR
+	 ltyx7mJvcnRBA==
+Received: by mail-ed1-f41.google.com with SMTP id 4fb4d7f45d1cf-631df7b2dffso1121703a12.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 07:09:38 -0700 (PDT)
+X-Forwarded-Encrypted: i=1; AJvYcCXwCoBVS+bzxZC7d6iKzaBHHyI454ozi3S5l9lWENtyvNDY0AKIysfR3/G2/DyVm4mMzmrISt4tQgZHj5EqV88b@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz2Ad7HbTSIjdEzOJ6ABe5/NLSwc3PRSkU5vZCZlZKjjp3lX1K2
+	PoLyNZKsCX2FeECT5P+f7hzIYTEvLiEpQuUowZwl38RMfy7l9JFYw9+0hfyJL9JwdWJR+Rg9U0N
+	9w7eoAt5PFtvMymgo8OKPI7GkXZi/DQQ=
+X-Google-Smtp-Source: AGHT+IGIKmx1BchY0pXNFGB9InPUsy11nkEwRUNkdw0dz8PMMYgsxJ499uv1kM2Bm0HVTHpzS82ofc5CbUu9I//1Cng=
+X-Received: by 2002:aa7:d785:0:b0:633:14bb:dcb1 with SMTP id
+ 4fb4d7f45d1cf-639bb13500dmr18155251a12.11.1760364576745; Mon, 13 Oct 2025
+ 07:09:36 -0700 (PDT)
 MIME-Version: 1.0
-References: <20251009084416.45542-1-jjm2473@gmail.com> <20251009084416.45542-4-jjm2473@gmail.com>
- <aOe_0EufouURu7R2@shell.armlinux.org.uk> <CAP_9mL4MfzagxiMD1VdOu=jBuN_XsOrvPQT=XTVgu2+G=+nD9A@mail.gmail.com>
- <aOz1SzpzGLDQjiYQ@shell.armlinux.org.uk>
-In-Reply-To: <aOz1SzpzGLDQjiYQ@shell.armlinux.org.uk>
-From: Liangbin Lian <jjm2473@gmail.com>
-Date: Mon, 13 Oct 2025 22:07:02 +0800
-X-Gm-Features: AS18NWC2KWpOjrIZRCNJ-njN7lopgvdR9BZGhK7C99VWUiJOF3JdegyR1Tmc-SU
-Message-ID: <CAP_9mL6x=p169y026nNycZsHK6UMHqJ+o-M_k0MqnvpB2fPzJg@mail.gmail.com>
-Subject: Re: [PATCH v5 3/3] arm64: dts: rockchip: add LinkEase EasePi R1
-To: "Russell King (Oracle)" <linux@armlinux.org.uk>
-Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, 
-	quentin.schulz@cherry.de, kever.yang@rock-chips.com, naoki@radxa.com, 
-	honyuenkwun@gmail.com, inindev@gmail.com, ivan8215145640@gmail.com, 
-	neil.armstrong@linaro.org, mani@kernel.org, dsimic@manjaro.org, 
-	pbrobinson@gmail.com, alchark@gmail.com, didi.debian@cknow.org, 
-	jbx6244@gmail.com, andrew@lunn.ch, devicetree@vger.kernel.org, 
-	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
-	linux-kernel@vger.kernel.org
+References: <20250928085506.4471-1-yangtiezhu@loongson.cn> <CAMj1kXG8Wi+THa2SeLxiDT=+t_TKx0AL4H-azZO4DNJvyyv96g@mail.gmail.com>
+ <CAAhV-H7xOf8DEwOrNh+GQGHktOT4Ljp+7SqutGvvDZp6GLXJrA@mail.gmail.com>
+ <CAMj1kXG=EFkRAMkvKMSjPixoGqU-tZXVoRkJJ6Wcnzs3x52X6Q@mail.gmail.com>
+ <CAMj1kXHWe2uGY3S1NJ6mckqD4n116rPmaOzw3_Qbvxyjh7ECMw@mail.gmail.com>
+ <fec0c03d-9d8c-89a3-886a-1adc22e59b66@loongson.cn> <CAMj1kXFLyBbRL+pAAQ6be6dxqFPiyw_Ug8qNQWaicZQ235HE=A@mail.gmail.com>
+ <8091e8fa-3483-af39-2f7a-e4eb62b0944f@loongson.cn> <CAAhV-H4+UGLSkbjHbq9MerWfxnq0a13x+uzNfTsCoe1UxjbWsg@mail.gmail.com>
+ <CAMj1kXH-rK0bRyHXdJ-crAyMyvJHApH0WR7_8Qd8vrSPBLK+yg@mail.gmail.com>
+ <0c9b8e6a-96a6-91d4-946f-2109f48a529b@loongson.cn> <CAAhV-H41m96fvEWG5NqAE=tykPjyzt=50CseJDeCqdG-c_WMrQ@mail.gmail.com>
+ <CAMj1kXEs5=VRi_rJwgHUrQWos-27PBbr3c4fYnmkV8Ahi8HZgw@mail.gmail.com>
+ <CAAhV-H7HN128du-b1Rk_9qbYBq7gMSwo0s31909N4pTou6wzew@mail.gmail.com> <CAMj1kXGvSnCMRVCW7eAxgLRWMEV3QRj3Dqg3PmZchZJNpnLK9w@mail.gmail.com>
+In-Reply-To: <CAMj1kXGvSnCMRVCW7eAxgLRWMEV3QRj3Dqg3PmZchZJNpnLK9w@mail.gmail.com>
+From: Huacai Chen <chenhuacai@kernel.org>
+Date: Mon, 13 Oct 2025 22:09:25 +0800
+X-Gmail-Original-Message-ID: <CAAhV-H4UKdso0BokAqvjYeBLr-jbjFAaQX4z=1ztpBamqrOEEg@mail.gmail.com>
+X-Gm-Features: AS18NWB3mSCepPt1etTJs4X35a5tkxvZPNilre683PYaU3Xj0J0E-YjIBVuCFt4
+Message-ID: <CAAhV-H4UKdso0BokAqvjYeBLr-jbjFAaQX4z=1ztpBamqrOEEg@mail.gmail.com>
+Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
+To: Ard Biesheuvel <ardb@kernel.org>
+Cc: Tiezhu Yang <yangtiezhu@loongson.cn>, Josh Poimboeuf <jpoimboe@kernel.org>, 
+	loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
+	linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, 
+	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_070716_313998_5C249256 
-X-CRM114-Status: GOOD (  34.97  )
+X-CRM114-CacheID: sfid-20251013_070939_748508_CA0A25D6 
+X-CRM114-Status: GOOD (  47.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -103,109 +94,150 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Russell King (Oracle) <linux@armlinux.org.uk> =E4=BA=8E2025=E5=B9=B410=E6=
-=9C=8813=E6=97=A5=E5=91=A8=E4=B8=80 20:49=E5=86=99=E9=81=93=EF=BC=9A
+On Sat, Oct 11, 2025 at 11:59=E2=80=AFPM Ard Biesheuvel <ardb@kernel.org> w=
+rote:
 >
-> On Fri, Oct 10, 2025 at 11:20:08AM +0800, Liangbin Lian wrote:
-> > Russell King (Oracle) <linux@armlinux.org.uk> =E4=BA=8E2025=E5=B9=B410=
-=E6=9C=889=E6=97=A5=E5=91=A8=E5=9B=9B 21:59=E5=86=99=E9=81=93=EF=BC=9A
-> > >
-> > > On Thu, Oct 09, 2025 at 04:44:16PM +0800, Liangbin Lian wrote:
-> > > > +&gmac0 {
-> > > > +     phy-mode =3D "rgmii-id";
-> > > > +     clock_in_out =3D "input";
-> > > ...
-> > > > +&gmac1 {
-> > > > +     phy-mode =3D "rgmii-id";
-> > > > +     clock_in_out =3D "input";
-> > >
-> > > I am fine with what is being proposed here, but I think this
-> > > clock_in_out property needs fixing. The description for it is thus:
-> > >
-> > >   clock_in_out:
-> > >     description:
-> > >       For RGMII, it must be "input", means main clock(125MHz)
-> > >       is not sourced from SoC's PLL, but input from PHY.
-> > >       For RMII, "input" means PHY provides the reference clock(50MHz)=
-,
-> > >       "output" means GMAC provides the reference clock.
-> > >     $ref: /schemas/types.yaml#/definitions/string
-> > >     enum: [input, output]
-> > >     default: input
-> > >
-> > > The problems that I have here are:
-> > >
-> > > 1) the description states that the only possible value for this when =
-in
-> > >    RGMII mode is "input" which is reasonable, because it's due to the
-> > >    RGMII specification. The driver code is perfectly able to determin=
-e
-> > >    whether RGMII has been specified, and set bsp_priv->clock_input
-> > >    itself, relieving DT of this need.
-> > >
-> > > 2) bsp_priv->clock_input is only used in gmac_clk_enable() when calli=
-ng
-> > >    the SoC specific set_clock_selection() method. Only RK3528, RK3576=
-,
-> > >    and RK3588 populate this method. Every other SoC supported by this
-> > >    driver still requires the property:
-> ...
-> > >   clock_in_out:
-> > >     description:
-> > >       For RGMII, it must be "input"
+> On Sat, 11 Oct 2025 at 08:01, Huacai Chen <chenhuacai@kernel.org> wrote:
 > >
-> > This description does not match the actual situation,
-> > there are many dts using 'output':
-> > https://elixir.bootlin.com/linux/v6.17/source/arch/arm64/boot/dts/rockc=
-hip/rk3568-bpi-r2-pro.dts#L235
-> > https://elixir.bootlin.com/linux/v6.17/source/arch/arm64/boot/dts/rockc=
-hip/rk3568-evb1-v10.dts#L241
-> > https://elixir.bootlin.com/linux/v6.17/source/arch/arm64/boot/dts/rockc=
-hip/rk3568-fastrhino-r68s.dts#L33
-> > https://elixir.bootlin.com/linux/v6.17/source/arch/arm64/boot/dts/rockc=
-hip/rk3568-nanopi-r5s.dts#L78
+> > On Sat, Oct 11, 2025 at 10:48=E2=80=AFPM Ard Biesheuvel <ardb@kernel.or=
+g> wrote:
+> > >
+> > > On Sat, 11 Oct 2025 at 00:43, Huacai Chen <chenhuacai@kernel.org> wro=
+te:
+> > > >
+> > > > On Sat, Oct 11, 2025 at 3:29=E2=80=AFPM Tiezhu Yang <yangtiezhu@loo=
+ngson.cn> wrote:
+> > > > >
+> > > > > On 2025/10/11 =E4=B8=8A=E5=8D=8811:40, Ard Biesheuvel wrote:
+> > > > > > On Fri, 10 Oct 2025 at 19:54, Huacai Chen <chenhuacai@kernel.or=
+g> wrote:
+> > > > > >>
+> > > > > >> On Sat, Oct 11, 2025 at 9:13=E2=80=AFAM Tiezhu Yang <yangtiezh=
+u@loongson.cn> wrote:
+> > > > > >>>
+> > > > > >>> On 2025/10/11 =E4=B8=8A=E5=8D=8812:25, Ard Biesheuvel wrote:
+> > > > > >>> ...
+> > > > > >>>> Why do we need both (1) and (2)?
+> > > > > >>>
+> > > > > >>> Not both, either (1) or (2).
+> > > > > >>> Which one do you prefer? Or any other suggestions?
+> > > > > >>>
+> > > > > >>> Taking all of the considerations in balance, we should decide
+> > > > > >>> what is the proper way.
+> > > > > >> As a summary, there are three methods:
+> > > > > >> (1) Only link libstub with vmlinux.o during the final vmlinux =
+link.
+> > > > > >> (2) Remove the attribute __noreturn for real_kernel_entry() an=
+d add while (1).
+> > > > > >> (3) Ignore "__efistub_" prefix in objtool.
+> > > > > >>
+> > > > > >> Josh prefers method (1), I prefer method (3) but also accept m=
+ethod
+> > > > > >> (1) if it is not only specific to loongarch.
+> > > > > >>
+> > > > > >
+> > > > > > This is a false positive warning in objtool, which complains ab=
+out a
+> > > > > > function that falls through, even though that can never happen =
+in
+> > > > > > reality.
+> > > > > >
+> > > > > > To me, it is not acceptable to modify how vmlinux.o is construc=
+ted
+> > > > > > also for other architectures, in order to hide some of its cons=
+tituent
+> > > > > > parts from objtool, which do not use objtool to begin with.
+> > > > > >
+> > > > > >
+> > > > > > If you are not willing to fix objtool, I suggest fixing the loo=
+ngarch
+> > > > > > code like this:
+> > > > >
+> > > > > Thank you.
+> > > > >
+> > > > > > --- a/drivers/firmware/efi/libstub/loongarch.c
+> > > > > > +++ b/drivers/firmware/efi/libstub/loongarch.c
+> > > > > > @@ -10,7 +10,7 @@
+> > > > > >   #include "efistub.h"
+> > > > > >   #include "loongarch-stub.h"
+> > > > > >
+> > > > > > -typedef void __noreturn (*kernel_entry_t)(bool efi, unsigned l=
+ong cmdline,
+> > > > > > +typedef void (*kernel_entry_t)(bool efi, unsigned long cmdline=
+,
+> > > > > >                                            unsigned long systab=
+);
+> > > > > >
+> > > > > >   efi_status_t check_platform_features(void)
+> > > > > > @@ -81,4 +81,6 @@
+> > > > > >
+> > > > > >          real_kernel_entry(true, (unsigned long)cmdline_ptr,
+> > > > > >                            (unsigned long)efi_system_table);
+> > > > > > +
+> > > > > > +       return EFI_LOAD_ERROR;
+> > > > > >   }
+> > > > >
+> > > > > I tested the above changes, the falls through objtool warning can
+> > > > > be fixed because efi_boot_kernel() ends with a return instruction=
+,
+> > > > > I think this is reasonable.
+> > > > >
+> > > > > efi_boot_kernel() has a return value, there are "return status" i=
+n
+> > > > > other parts of efi_boot_kernel(), it should also return at the en=
+d
+> > > > > of efi_boot_kernel() in theory, although we should never get here=
+.
+> > > > >
+> > > > > If there are more comments, please let me know.
+> > > > I still don't want LoongArch to be a special case, which means
+> > > > efi_boot_kernel() in fdt.c, jump_kernel_func in riscv.c and
+> > > > enter_kernel in arm64.c should also be modified.
+> > > >
+> > >
+> > > You have made LoongArch a special case by adding objtool support,
+> > > which  arm64 and RISC-V do not have.
+> > >
+> > > So NAK to changing arm64 and RISC-V as well.
+> > Hmmm, I want to know whether this problem is an objtool issue or an
+> > efistub issue in essence. If it is an objtool issue, we should fix
+> > objtool and don't touch efistub. If it is an efistub issue, then we
+> > should modify efistub (but not specific to LoongArch, when RISC-V and
+> > ARM64 add objtool they will meet the same issue).
+> >
 >
-> For all of the above, whether it is "input" or "output" has no effect
-> as these are all rk3568, and rk3568 does not implement the
-> set_clock_selection() method.
+> It is an objtool issue in essence.
 >
-> static const struct rk_gmac_ops rk3568_ops =3D {
->         .set_phy_intf_sel =3D rk3568_set_phy_intf_sel,
->         .set_to_rgmii =3D rk3568_set_to_rgmii,
->         .set_to_rmii =3D rk3568_set_to_rmii,
->         .set_speed =3D rk_set_clk_mac_speed,
->         .regs_valid =3D true,
->         .regs =3D {
->                 0xfe2a0000, /* gmac0 */
->                 0xfe010000, /* gmac1 */
->                 0x0, /* sentinel */
->         },
-> };
+> The generated code looks like this
 >
-> I'm going to propose:
+> 9000000001743080: ff b7 fe 57   bl      -332 <__efistub_kernel_entry_addr=
+ess>
+> 9000000001743084: 26 03 c0 28   ld.d    $a2, $s2, 0
+> 9000000001743088: 87 00 15 00   move    $a3, $a0
+> 900000000174308c: 04 04 80 03   ori     $a0, $zero, 1
+> 9000000001743090: c5 02 15 00   move    $a1, $fp
+> 9000000001743094: e1 00 00 4c   jirl    $ra, $a3, 0
 >
-> 1) that the driver should only print an error if "clock_in_out" is
-> missing _and_ the SoC implements the required function.
+> 9000000001743098 <__efistub_exit_boot_func>:
+> 9000000001743098: 63 c0 ff 02   addi.d  $sp, $sp, -16
 >
-> 2) that the driver should print a non-fatal error if this property is
-> specified in DT _and_ the SoC does not implement the function to
-> discourage its use.
+> There is nothing wrong with this code, given that the indirect call is
+> to a __noreturn function, and so the fact that it falls through into
+> __efistub_exit_boot_func() is not a problem.
 >
-> 3) [tr]x_delay should not print an error for non-RGMII phy interface
-> modes.
->
-> I consider it a bug that a driver prints errors for properties that
-> have not been specified that it does not actually require. By doing
-> so, it encourages people to add useless properties to their DT
-> description that will never ever be used (e.g. because they are not
-> relevant for hardware the operating mode that the board is setup
-> for.)
->
-> --
-> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
-> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
+> Even though the compiler does nothing wrong here, it would be nice if
+> it would emit some kind of UD or BRK instruction after such a call, if
+> only to make the backtrace more reliable. But the code is fine, and
+> objtool simply does not have the information it needs to determine
+> that the indirect call is of a variety that never returns.
+So the best way is to fix the objtool?
 
-I will remove clock_in_out, its default value is 'input'.
-After removing it, there will only be an error log, which will not
-affect the function.
+>
+> So I don't mind fixing it in the code, but only for LoongArch, given
+> that the problem does not exist on arm64 or RISC-V.
+You believe this problem won't exist even if they add objtool support
+(because their objtool will be sane)?
+
+
+Huacai
 
