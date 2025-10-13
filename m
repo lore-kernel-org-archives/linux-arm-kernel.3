@@ -4,88 +4,91 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2C75ECCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 14:03:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 297E5CCD18E
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 14:07:25 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
-	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=BSsfnjXFCg6rG3NcR1UlA7/Xq7/GSJvjS3osS5RyZYU=; b=0dldpvdddIsvApGVimDkoaBCIy
-	gRE1l49eDZi/QXcueZvmDYFQ09lFMd49FQ14KA2hgqbdH0DbbHhzeskCCDKOx59ar+vNJtZ4i27Yc
-	SH3ust+OuQ4NnF3BGDQQDAxXkX8EOqPSWKi3MBhsfY0g+ddcZ8sFbveVLyXjn4v2bzDyGyCwkEzhs
-	8xgvoynorG+DtBpzIm3ME8oFVYJ4Kv1WIRKL3VSGqWkUeLp08of4VqcWV46zXA3hebgiK/mmBtc+K
-	YCfcBQwltwioZPu+KOo24LfgIyUZhe1AJn2oBXXa6Uwg4FigmmM/6tEt5X2Pn0jtcg86qSyKNyj4G
-	BWAv7S2g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=B3fxFMnHvhHYZxkU89prvgFn6OmHBSMeJm9YGzPYMJU=; b=x8FohZtmSbvasm3E4JAo+LTMGB
+	b67kMYmWsdfGW+rekX/V5vIknX5L+Ua35XOWtSiBP0oiTfPVdCtbG9yi/SWTP0LWCW4Fk7ZJnDVGu
+	6dvYBd7e5bErWWQItn98bAmHIbssZ946PDJIv4gg7lHQ53otOURwkt9msAlljW5dwS5CblcuZM6t7
+	4biR1o1j4Au6raW5QMP3fWQMe1bBPujV2xQt+hufzCsllsg+PxP4FK52YxTGr4j5naUJcexy2X761
+	PeKFC8uBawNPc7kysBVzzBGmQlddjoe6V2MDY3qW4esIv615C+1/znM1zW7BheVHfFX7SsxwXBBHa
+	XbhEqx6w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8J90-0000000DIbE-0hBR;
-	Mon, 13 Oct 2025 14:03:22 +0000
-Received: from mail-ed1-x530.google.com ([2a00:1450:4864:20::530])
+	id 1v8JCp-0000000DJQl-1Lva;
+	Mon, 13 Oct 2025 14:07:19 +0000
+Received: from mail-qk1-x72f.google.com ([2607:f8b0:4864:20::72f])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8J8v-0000000DIZY-3Q8n
+	id 1v8JCm-0000000DJPN-100i
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 14:03:18 +0000
-Received: by mail-ed1-x530.google.com with SMTP id 4fb4d7f45d1cf-62fb48315ddso5934653a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 07:03:17 -0700 (PDT)
+	Mon, 13 Oct 2025 14:07:17 +0000
+Received: by mail-qk1-x72f.google.com with SMTP id af79cd13be357-85a4ceb4c3dso518494685a.3
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 07:07:15 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760364196; x=1760968996; darn=lists.infradead.org;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:from:to:cc:subject:date:message-id:reply-to;
-        bh=BSsfnjXFCg6rG3NcR1UlA7/Xq7/GSJvjS3osS5RyZYU=;
-        b=I7W9M/Lbs4zJRr6ueHAUG/ussUkECwKo5mLOgJXxFHaSUKzBja2urUAlQVLWxMK0jj
-         PSEs2HawN3Bfgz4sw2QyfbRWJPIWl6wqDkx4S8ZieARCcd9W/mk7KdLVe+uK4rMDl3UF
-         vLdt2qERd1RR+PsKKynSfynczkmDl0WaEM2pTHb7yTGfa3NQXtqMUtaZ2n1E9JvmX1yP
-         +YWo0NqhWKOXSLgxWKr3+DURLqzAwLOspq3cMh2kjiL6YHJL69dW2+yPxQqBVGkq34Sy
-         t6lUGV5GaFDS47j7auM+3r2w0rrPdcMULYRaGw3Na83vhGk1O5m3zUtYhbim5vpcOcnA
-         41UA==
+        d=gmail.com; s=20230601; t=1760364435; x=1760969235; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=B3fxFMnHvhHYZxkU89prvgFn6OmHBSMeJm9YGzPYMJU=;
+        b=IRpERlXeN4wCouQlBIn+th7qvjqEOezOw+wDu0bj7qvULXwBS1Gr3Qvx1IhzE3z6mP
+         2qaE4ytIDY+QD9qnJzSwaadTuTMns/jvTPeXAdVF702POsJ03N5B87yfOBvJ6fLUC0/9
+         DqUUOwDDhGodOY6kklnXlW6ptwJGRF0Uw3QJ+NunD52z5g3n+4xGWX2sedtTaIFUU8ag
+         MT+u9ekgRfcBDCo2uq6mwPN7fHwv7/WK3gSM9HkQLCAtMd3d0N8h7upgdHT0Oj23u099
+         LVfxq4nZQqurJWuGxXtgz/VvJOeeHxapy7gJHnCEFH2rkRWEvtsxbW8bseJmU42835BY
+         Y06Q==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760364196; x=1760968996;
-        h=cc:to:subject:message-id:date:from:in-reply-to:references
-         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=BSsfnjXFCg6rG3NcR1UlA7/Xq7/GSJvjS3osS5RyZYU=;
-        b=g+yuCB5f3y6d49HDJ4qUFKKmRN4mmLyiavrTiPdwgdXtwyZ9xWw/d8fg4WHNi1uq+N
-         1tnaY+R+ZoKff5HDajQnXamNe+nkOCt0aCSFrodUsEBHIPkM94HQTBKY1gssWaxEdmDd
-         RqDXR5DOwq0S7Lsw1E7/OLBR8kyt7g4A5Qqk4G3xH2d6I/Ya8BfUujoU6mHdk+w7WCMa
-         kbgxElNb6ksOnmNGGwNP17571K2QENAQ3GUTAyFplDH6FVVqYmPSlJuhym/bhRDmub1j
-         uVP3sQ/8an2BG8NnVcMH9A6vFU7gqto6S7S58GiyiN4oMY6/smklfXZinX3IMqPO0VI1
-         Q2dA==
-X-Forwarded-Encrypted: i=1; AJvYcCVRFpoiZUU4MvGu7FAz4/KEmALMd0EpVTxCalqmfFGhtdQmcgsRdxoM1gNChTNwLP7GPC1As2sFvSYGL67sXajc@lists.infradead.org
-X-Gm-Message-State: AOJu0Yw257HdcFbxvdQ6DfkfXTuiGFYpyQsUi8T1ecV1zA9FTUJa54Qf
-	ZUfnMQXmWhDJL6ZB/j37DTIcsvY1i2u8qO1JeibXEfNHALkAsNWsfbtOguV7p8vYN+pkEQzLgie
-	pWxjGy3Zx5qsHtRR/c86tY5DEGGRZfJs=
-X-Gm-Gg: ASbGncu3o9QV0hm/RB4ZDL70wVc2u+L+kNfbm37C/lgV5OqVNwMyuKDkqLGeO4vP171
-	sLvM5BEmQCe0o+EItPdZ8J9ETiN0u5OXa347ASPB0HEtSOkhDRT6nHfFcBSVe6rXYG1TN2vEpMs
-	R/upM5yjxpUqHkNHQohaq87TJUqRy6y2JKgvQI5DeJMGDWPPVSeJB4RHeBdDKPirGJhOWyyOeNt
-	hwh09DGuXyubkRYMpKQ0RY63bS+wDUNHVg=
-X-Google-Smtp-Source: AGHT+IG1H5x/3Hw2x99ssho3c2GS311XkT8BwdZCay2Lc0xiXSDo5L8TJutYi6w3Oy++gD7LUBz2wwFZk5Y65Fe3Ir4=
-X-Received: by 2002:a17:906:af19:b0:b55:d205:f40e with SMTP id
- a640c23a62f3a-b55d205f96cmr1243656866b.33.1760364195682; Mon, 13 Oct 2025
- 07:03:15 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1760364435; x=1760969235;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=B3fxFMnHvhHYZxkU89prvgFn6OmHBSMeJm9YGzPYMJU=;
+        b=AO4Kk6bZtu/tOaAun/KxrWdEy3QGS396WeONgY0kLa3ymk+957hdwict3hlkXJX17J
+         C1rJW8ClXlTj6T84H1h3uOi4jlGkn5M+eGxWB8Vh2bFny+9+Hcp5/cqXHjfjYeIh60fv
+         /a8d2UUV+73ftO7wce0KruBmkOGle9+po0xBFUifHKhodu4Oj7ORF+RbPdrKVH9mrAyh
+         bhOwHuOsHDZleJeGuYvl5hP/TX2Zu57bvRcT2YC5RMoI+1rKYoiBh4r94iNnSI51I46h
+         kzgPxnfUQmrH57HmfFk4/rD0284/u6doN12If1iUeCmUKv55CncTTb2h8zvSiy3xC1fU
+         cWgg==
+X-Forwarded-Encrypted: i=1; AJvYcCUbxNw1406UMFPaWq4l5kpElgmarSSCsOnv6yP7Mth92bkzhFVHyDr+m8qYlFxXJGD3HWQ9htEMxzIrqT7qTzBC@lists.infradead.org
+X-Gm-Message-State: AOJu0Yz1TkpOFc1LF7c+Nvzx8t0iNM796OyKFFv0FvnV3fs0K/AvBqpL
+	PtN9uAMpDtxs137nsmMkIKkYQZV7Jag3tN+c77tQ12DsBMMUGNlC+G3mn0U6PtRfUsXWivz57Wy
+	Nl10mS2SjTzj2mLYcoXXUuFcUz/7x0XQ=
+X-Gm-Gg: ASbGnctgKmAb6GuxoC0+WrVXJK/vBANZDNspR86BKAGllEYcYIG7hLYloUBg1G0oY+E
+	GIHpjccs7JHezrbzomlSohqvScCHx7jEHO34j6Oe+r27IPrDGvdZQ4YZfnxvscFrcBe/gyJTt/S
+	WIfK+o3qFtQGiWGFvqsYWy2W1ohkqQbEXoGln9YMr1kYb+IG8sDOu2xilZjcjm7dNqv1D6gsIXA
+	nCShgQCN3QT/poYK/lSiMRevwuHCJt5g7BJeg==
+X-Google-Smtp-Source: AGHT+IFJyxN0Hv1Y4GUd/peF3juYf0BASxuDUqSk2KfDDUExhxmcAVmPSatg4At2Xmntps9WxQl2SPNothq8SpuZzXY=
+X-Received: by 2002:a05:622a:4c6:b0:4b5:eb7b:2789 with SMTP id
+ d75a77b69052e-4e6ead4825emr307845311cf.49.1760364434713; Mon, 13 Oct 2025
+ 07:07:14 -0700 (PDT)
 MIME-Version: 1.0
-References: <20251013101727.129260-1-linux.amoon@gmail.com>
- <20251013101727.129260-2-linux.amoon@gmail.com> <11a8783345566d5ea6c696ecd007490289ba0b5f.camel@ti.com>
-In-Reply-To: <11a8783345566d5ea6c696ecd007490289ba0b5f.camel@ti.com>
-From: Anand Moon <linux.amoon@gmail.com>
-Date: Mon, 13 Oct 2025 19:32:59 +0530
-X-Gm-Features: AS18NWD3OIfNtpl-KFzVJ14mdZzPNIWP10Za43Y5NpiOwkGmGSbzZ3gomqupFk8
-Message-ID: <CANAwSgTXC0uOwZhZ69viUB3t4-jH+XArP8e4vukDb2zrSgOTuA@mail.gmail.com>
-Subject: Re: [RFC v1 1/2] PCI: j721e: Use devm_clk_get_optional_enabled() to
- get the clock
-To: Siddharth Vadapalli <s-vadapalli@ti.com>
-Cc: Vignesh Raghavendra <vigneshr@ti.com>, Lorenzo Pieralisi <lpieralisi@kernel.org>, 
-	=?UTF-8?Q?Krzysztof_Wilczy=C5=84ski?= <kwilczynski@kernel.org>, 
-	Manivannan Sadhasivam <mani@kernel.org>, Rob Herring <robh@kernel.org>, Bjorn Helgaas <bhelgaas@google.com>, 
-	"open list:PCI DRIVER FOR TI DRA7XX/J721E" <linux-omap@vger.kernel.org>, 
-	"open list:PCI DRIVER FOR TI DRA7XX/J721E" <linux-pci@vger.kernel.org>, 
-	"moderated list:PCI DRIVER FOR TI DRA7XX/J721E" <linux-arm-kernel@lists.infradead.org>, 
-	open list <linux-kernel@vger.kernel.org>
+References: <20251009084416.45542-1-jjm2473@gmail.com> <20251009084416.45542-4-jjm2473@gmail.com>
+ <aOe_0EufouURu7R2@shell.armlinux.org.uk> <CAP_9mL4MfzagxiMD1VdOu=jBuN_XsOrvPQT=XTVgu2+G=+nD9A@mail.gmail.com>
+ <aOz1SzpzGLDQjiYQ@shell.armlinux.org.uk>
+In-Reply-To: <aOz1SzpzGLDQjiYQ@shell.armlinux.org.uk>
+From: Liangbin Lian <jjm2473@gmail.com>
+Date: Mon, 13 Oct 2025 22:07:02 +0800
+X-Gm-Features: AS18NWC2KWpOjrIZRCNJ-njN7lopgvdR9BZGhK7C99VWUiJOF3JdegyR1Tmc-SU
+Message-ID: <CAP_9mL6x=p169y026nNycZsHK6UMHqJ+o-M_k0MqnvpB2fPzJg@mail.gmail.com>
+Subject: Re: [PATCH v5 3/3] arm64: dts: rockchip: add LinkEase EasePi R1
+To: "Russell King (Oracle)" <linux@armlinux.org.uk>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, heiko@sntech.de, 
+	quentin.schulz@cherry.de, kever.yang@rock-chips.com, naoki@radxa.com, 
+	honyuenkwun@gmail.com, inindev@gmail.com, ivan8215145640@gmail.com, 
+	neil.armstrong@linaro.org, mani@kernel.org, dsimic@manjaro.org, 
+	pbrobinson@gmail.com, alchark@gmail.com, didi.debian@cknow.org, 
+	jbx6244@gmail.com, andrew@lunn.ch, devicetree@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, linux-rockchip@lists.infradead.org, 
+	linux-kernel@vger.kernel.org
 Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_070317_869016_33E61052 
-X-CRM114-Status: GOOD (  24.94  )
+X-CRM114-CacheID: sfid-20251013_070716_313998_5C249256 
+X-CRM114-Status: GOOD (  34.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -100,73 +103,109 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Siddharth,
+Russell King (Oracle) <linux@armlinux.org.uk> =E4=BA=8E2025=E5=B9=B410=E6=
+=9C=8813=E6=97=A5=E5=91=A8=E4=B8=80 20:49=E5=86=99=E9=81=93=EF=BC=9A
+>
+> On Fri, Oct 10, 2025 at 11:20:08AM +0800, Liangbin Lian wrote:
+> > Russell King (Oracle) <linux@armlinux.org.uk> =E4=BA=8E2025=E5=B9=B410=
+=E6=9C=889=E6=97=A5=E5=91=A8=E5=9B=9B 21:59=E5=86=99=E9=81=93=EF=BC=9A
+> > >
+> > > On Thu, Oct 09, 2025 at 04:44:16PM +0800, Liangbin Lian wrote:
+> > > > +&gmac0 {
+> > > > +     phy-mode =3D "rgmii-id";
+> > > > +     clock_in_out =3D "input";
+> > > ...
+> > > > +&gmac1 {
+> > > > +     phy-mode =3D "rgmii-id";
+> > > > +     clock_in_out =3D "input";
+> > >
+> > > I am fine with what is being proposed here, but I think this
+> > > clock_in_out property needs fixing. The description for it is thus:
+> > >
+> > >   clock_in_out:
+> > >     description:
+> > >       For RGMII, it must be "input", means main clock(125MHz)
+> > >       is not sourced from SoC's PLL, but input from PHY.
+> > >       For RMII, "input" means PHY provides the reference clock(50MHz)=
+,
+> > >       "output" means GMAC provides the reference clock.
+> > >     $ref: /schemas/types.yaml#/definitions/string
+> > >     enum: [input, output]
+> > >     default: input
+> > >
+> > > The problems that I have here are:
+> > >
+> > > 1) the description states that the only possible value for this when =
+in
+> > >    RGMII mode is "input" which is reasonable, because it's due to the
+> > >    RGMII specification. The driver code is perfectly able to determin=
+e
+> > >    whether RGMII has been specified, and set bsp_priv->clock_input
+> > >    itself, relieving DT of this need.
+> > >
+> > > 2) bsp_priv->clock_input is only used in gmac_clk_enable() when calli=
+ng
+> > >    the SoC specific set_clock_selection() method. Only RK3528, RK3576=
+,
+> > >    and RK3588 populate this method. Every other SoC supported by this
+> > >    driver still requires the property:
+> ...
+> > >   clock_in_out:
+> > >     description:
+> > >       For RGMII, it must be "input"
+> >
+> > This description does not match the actual situation,
+> > there are many dts using 'output':
+> > https://elixir.bootlin.com/linux/v6.17/source/arch/arm64/boot/dts/rockc=
+hip/rk3568-bpi-r2-pro.dts#L235
+> > https://elixir.bootlin.com/linux/v6.17/source/arch/arm64/boot/dts/rockc=
+hip/rk3568-evb1-v10.dts#L241
+> > https://elixir.bootlin.com/linux/v6.17/source/arch/arm64/boot/dts/rockc=
+hip/rk3568-fastrhino-r68s.dts#L33
+> > https://elixir.bootlin.com/linux/v6.17/source/arch/arm64/boot/dts/rockc=
+hip/rk3568-nanopi-r5s.dts#L78
+>
+> For all of the above, whether it is "input" or "output" has no effect
+> as these are all rk3568, and rk3568 does not implement the
+> set_clock_selection() method.
+>
+> static const struct rk_gmac_ops rk3568_ops =3D {
+>         .set_phy_intf_sel =3D rk3568_set_phy_intf_sel,
+>         .set_to_rgmii =3D rk3568_set_to_rgmii,
+>         .set_to_rmii =3D rk3568_set_to_rmii,
+>         .set_speed =3D rk_set_clk_mac_speed,
+>         .regs_valid =3D true,
+>         .regs =3D {
+>                 0xfe2a0000, /* gmac0 */
+>                 0xfe010000, /* gmac1 */
+>                 0x0, /* sentinel */
+>         },
+> };
+>
+> I'm going to propose:
+>
+> 1) that the driver should only print an error if "clock_in_out" is
+> missing _and_ the SoC implements the required function.
+>
+> 2) that the driver should print a non-fatal error if this property is
+> specified in DT _and_ the SoC does not implement the function to
+> discourage its use.
+>
+> 3) [tr]x_delay should not print an error for non-RGMII phy interface
+> modes.
+>
+> I consider it a bug that a driver prints errors for properties that
+> have not been specified that it does not actually require. By doing
+> so, it encourages people to add useless properties to their DT
+> description that will never ever be used (e.g. because they are not
+> relevant for hardware the operating mode that the board is setup
+> for.)
+>
+> --
+> RMK's Patch system: https://www.armlinux.org.uk/developer/patches/
+> FTTP is here! 80Mbps down 10Mbps up. Decent connectivity at last!
 
-Thanks for your review comment
-
-On Mon, 13 Oct 2025 at 16:43, Siddharth Vadapalli <s-vadapalli@ti.com> wrote:
->
-> On Mon, 2025-10-13 at 15:47 +0530, Anand Moon wrote:
-> > Use devm_clk_get_optional_enabled() helper instead of calling
-> > devm_clk_get_optional() and then clk_prepare_enable(). It simplifies
-> > the error handling and makes the code more compact. This changes removes
-> > the unnecessary clk variable and assigns the result of the
-> > devm_clk_get_optional_enabled() call directly to pcie->refclk.
-> > This makes the code more concise and readable without changing the
-> > behavior.
-> >
-> > Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
-> > Signed-off-by: Anand Moon <linux.amoon@gmail.com>
-> > ---
-> >  drivers/pci/controller/cadence/pci-j721e.c | 12 ++----------
-> >  1 file changed, 2 insertions(+), 10 deletions(-)
-> >
-> > diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
-> > index 5bc5ab20aa6d..d6bbd04c615b 100644
-> > --- a/drivers/pci/controller/cadence/pci-j721e.c
-> > +++ b/drivers/pci/controller/cadence/pci-j721e.c
-> > @@ -479,7 +479,6 @@ static int j721e_pcie_probe(struct platform_device *pdev)
-> >       struct cdns_pcie_ep *ep = NULL;
-> >       struct gpio_desc *gpiod;
-> >       void __iomem *base;
-> > -     struct clk *clk;
-> >       u32 num_lanes;
-> >       u32 mode;
-> >       int ret;
-> > @@ -603,18 +602,11 @@ static int j721e_pcie_probe(struct platform_device *pdev)
-> >                       goto err_get_sync;
-> >               }
-> >
-> > -             clk = devm_clk_get_optional(dev, "pcie_refclk");
-> > -             if (IS_ERR(clk)) {
-> > -                     ret = dev_err_probe(dev, PTR_ERR(clk), "failed to get pcie_refclk\n");
-> > -                     goto err_pcie_setup;
-> > -             }
-> > -
-> > -             ret = clk_prepare_enable(clk);
-> > -             if (ret) {
-> > +             pcie->refclk = devm_clk_get_optional_enabled(dev, "pcie_refclk");
-> > +             if (IS_ERR(pcie->refclk)) {
-> >                       dev_err_probe(dev, ret, "failed to enable pcie_refclk\n");
-> >                       goto err_pcie_setup;
->
-> 'err_pcie_setup' returns 'ret' which isn't being updated above.
-> Maybe add:
->                 ret = pcie->refclk;
-> above dev_err_probe(...
-All return values from the dev_err_probe function appear to be missing
-in this file.
-I'll address this in the next revision through a separate patch.
->
-> >               }
-> > -             pcie->refclk = clk;
-> >
-> >               /*
-> >                * Section 2.2 of the PCI Express Card Electromechanical
->
-> Regards,
-> Siddharth.
-
-Thanks
--Anand
+I will remove clock_in_out, its default value is 'input'.
+After removing it, there will only be an error log, which will not
+affect the function.
 
