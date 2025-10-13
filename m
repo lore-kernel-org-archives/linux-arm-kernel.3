@@ -4,101 +4,86 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C335CCD18D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 15:15:52 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9E9E8CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 15:15:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=YCSrMFeSurFqrsJ2giFUs5nVIkyf5eYx9hKkmNRZA3A=; b=mwUWfuL03dn28yoie4s+XUZqL7
-	i3ekEVuVAxVFqjvtO6OAqEsqFk/ArXeju2YJZyCBdr/dzhQd8tQuBtBVKJXYuDHEQi5wESyLIMIRh
-	hJsAo/ygU7AUGW8NSe3ZJ59DpjNgwWLiBJzjDKXjTu/jLhe9F8UT3in5yqEVF6ayZtGChonbP0Ygz
-	LwHcLAJwPQRLLkof+IPjHnoSBzMgw+tsVmHsaCKeGBX8KfR33x8TzLzhRx/B4THa7IUouXJI2sEwF
-	FOa+ZqTce3CEMVi5he89fwESjJj4tvGcqiNKCDVOepbB14IVbrXlsfopGHzKzUOblqWtL0dTPoBKR
-	PuVzxkXA==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=pLYbqQYqmcQY3wJBuAGPh5xSeu4NAXpfmbKzx1y1YyA=; b=JKbcBmFAw0ZS+Evf52+hAuMFBe
+	l0eZBMvoDjsS/2y6LpvaJyicXI4nL2ZhGffWs5QmQl3vw2IM7nIX/PCNrhTXyuutrHDVP9OZlXdnr
+	Pt6cRqszp7WJBXj7XupQ4l5imH4dq9dRmV1NbaQ1rRufjyAYEFZkx+MWTsflp38SvXBLQJuOrpI2Q
+	Cv0q31M6HjjWRCySo1IoFD9SV8l4LSEg8XtwcfmDmpe+FDHRii56OQ9tf/05dUW5fit6yAIP0bD98
+	3ilVrweeQYVgAmbaIpfH/2holwiYebxrdCpBZpZBPOXfHJ7jXiL6NRT3fx7mhOzE1/cbKlwfFVk3N
+	AR3J6+WA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8KH5-0000000Db6S-075b;
+	id 1v8KH5-0000000Db6p-1NmZ;
 	Mon, 13 Oct 2025 15:15:47 +0000
-Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
+Received: from mail-wr1-x42e.google.com ([2a00:1450:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8KH2-0000000Db4z-3DLD
+	id 1v8KH2-0000000Db4u-3xCz
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 15:15:45 +0000
-Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-46b303f7469so27930405e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 08:15:44 -0700 (PDT)
+	Mon, 13 Oct 2025 15:15:46 +0000
+Received: by mail-wr1-x42e.google.com with SMTP id ffacd0b85a97d-3f42b54d1b9so3909107f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 08:15:43 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760368543; x=1760973343; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=YCSrMFeSurFqrsJ2giFUs5nVIkyf5eYx9hKkmNRZA3A=;
-        b=X4KpxotFqcDujTadtZs2FNciQYvKcUrwYQIIakyfSUQgryspl1vMaoTJJCCaKFZ+z7
-         KmWJrZwTbeV3FREjGG3ZbxZJ+TgTJbXlcN0aEBobLE8EFu7v32usCHl3Ksh7mKYUYtmZ
-         T6R6VkP6dmOyrjhE4i/xZGsacl/LHg9PdAB7D5S1H/RE8+IUjVjjSLhvukqPP0Ec9HXq
-         dkK8tvA13F2mP/f+/ORaeCeIeMwZCGEYMxpCu30gUKlsdeBSnihb32QqkSkK8z0f2F9I
-         NxgioNTuZNByNmZJvV/xWfN9b9Q6RwCNRW42zVwUELd2KgFBE1GdOzNn12AvthhXoAF0
-         FRCQ==
+        d=linaro.org; s=google; t=1760368543; x=1760973343; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=pLYbqQYqmcQY3wJBuAGPh5xSeu4NAXpfmbKzx1y1YyA=;
+        b=RP0CsrYjor+Kbv3AHKt7SiNivr0Wy2mVg6ER+IPqfubqjiYrQan2jQf4ZCH90fKSTi
+         nnJtQSMR1soLf0HKA7TUfk1NIwzg1n2995BMhH1k8L07D9VxiGwXJrJA1xzSoolYU1UL
+         OgL/8dTbHzCfF5qMTI3/4tbbZi2iRtmyRCXtj/EVUnaIlNVYXOXlfnYuR+7lhu88ab11
+         yu4rago4VgSP7ScBddWjRGzFU/m7MUvjeVnI+ZnLtxnvGNK/uL4UqKy47T18FW+husYj
+         nZ2S+uA/R48eEWPOZdaZ2K9d4r9bZXLLCzKqMqayIQttLrEo5BjRw+jWKFl+TP0BzuDa
+         boPQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
         d=1e100.net; s=20230601; t=1760368543; x=1760973343;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=YCSrMFeSurFqrsJ2giFUs5nVIkyf5eYx9hKkmNRZA3A=;
-        b=kyHvcq7i7JNePs9FWaCwfho9tVLFUbb0VLXVgbPdkNdSTlGyrYEey1797VK4oDCf+9
-         ZKm9cLCj4SKVXw2YVGrH3883j65ESJe/ppJSCE5dDvPArCdty5eQdCtLB8ws+Jn+ma2U
-         8TfBPZA10ZzeHlLjFKaBnQtL50E97VbpI5sFkBHxCDzEYfqe7G3WkQLwkDB+ptzccpSS
-         8jZ8gHUY79hHlrZGr/QdC/uV1WcXecEKmJNPTOts4t4pLy1oXmsZ9s0zy9Rjr8s3Rfqi
-         lnnNh9HMfQfcIuuJ+HmQyfcjP/df2L+D3/eh+Iu3bMm+JLV2iAImDnuY/CHAPdKnmsBm
-         9AKg==
-X-Forwarded-Encrypted: i=1; AJvYcCXerr2S2Xwp0q3yHW/ZQxhCxnJm4JkTlMYBpVO8b7zM2OteBO14YfsOfP3Gur9CGFQfMGZSA8QN+zzfPHcz/fFg@lists.infradead.org
-X-Gm-Message-State: AOJu0YyAgcK+gGvmA7rvc0YM4maCnKYHH6FAzX4BZ90hUwX/vzZs6VsF
-	j8zVP1ap4ts75woFP60OG66n/69AE43xYFb3w8Df9AT4gQ+LW9ksVVPs
-X-Gm-Gg: ASbGncvQCF3SPToR2sMACOuQ7Bjb/aMYnb0j1WcRTNMZcDm0mITuPvJok64c6oq5uqB
-	Ni4Y/9Arw1KbgC4WIjD/j3PGlLMpQRMUbxfABvQiwHo6wHbFYHKCXPLb4DYLoGzzxkB+4l1M3LB
-	vfOxvRwJvFaszCST6w2gEEq/PZPStxhi8nN5Ux9gBgtj94d0itFnKXnG9bzUINEX6NJZUvzl/uv
-	KW+pjRwBiRMapUXcaVIV0uz27/dHOrczb4Xm9c10PZb13woEhPatSbstXR4CJodn5qhsJ7kW4/+
-	bet4kv4e1241ERbEQyt4cxWwpVzHebYd4VnY02ArKqbdIJpDDM6oB+BS6T2ymHdHbkfjH0aLzFK
-	L0/fknYyCDKddvqTsZYT+XRFhGQa79Csa4OBgXONYTwMxGK/wh/D7CmqhvZJwa3X9o8B5po242q
-	V0RttzhivN4DmEFyc=
-X-Google-Smtp-Source: AGHT+IEt3rxThBLWKGN/jwmns/gxZmIihkaAQISXuC9Iitep8SFGSh4XAnm8RXbIElBPhI6EpEA2fw==
-X-Received: by 2002:a05:600c:8487:b0:45b:79fd:cb3d with SMTP id 5b1f17b1804b1-46fa9b13ab7mr150449805e9.36.1760368542783;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=pLYbqQYqmcQY3wJBuAGPh5xSeu4NAXpfmbKzx1y1YyA=;
+        b=IclAz6ZUQEk4aaT4AtrH2pF8UoSQJ2q6AjRzcEkCQnoj4TMI+F8EzQ1lg+Fx39m6C4
+         rxGj283TEEKKxZvTaHYgFH+PpEJWZLHaz/3mFOCCcRTuLUGQMCXL1TWs2gT+nx4rttKH
+         QTa+7wVZfS7yl1lI7xrAe5PSEwp4SwPfEUxiNV4lqdZ/Wh+2f2GHPTCLLOD5uWKjVryK
+         zRfoh/F/oiVY0r+himok+c1+tTNx90/eEJDHBAzIgruNfJq2b5wmmMj55y5hlw/p3EzI
+         xcQGTYGqK9QlqDsCTaFl/dnuMMG1lNMUZmm1T+feUY27jRqXWgjywQVpQmLV30lLmJvS
+         IXKg==
+X-Gm-Message-State: AOJu0YwP3du+XQz3kvlkRP03fiEXq+ys3rmIAH0UTZdfoHIJMlHCuozK
+	VjkIkAWchSGwWVq1lwp4hGlGwHgVJIFLc31CWyTiMitAb10A40sbJYuv+JNVkGi3+3A=
+X-Gm-Gg: ASbGncsqxRqeiGcoJHpZQRFwDC3NSuJeomf6WK6eywFO1sif7Oy4Pmsb5lMPjS2bMAG
+	+kyUL5zHZIFtAUIpzPUUaYfpjyMRoTLiHyzKrObZPrKz9uy9SnRtN2gU6J2WwpuIxKGtUAtEALs
+	XmYmCBU7AWpupOoCyAayElhXx6nlt+LBtdQLN46MFOJZGwcyZo0lxfoNl++xWyCymy5iUg4el9H
+	gXvVTY9P2iaJ3+SXR/JRmnqyHjD2kAuQlEfh+PpqrtNpviuwuiZFQT3fFjCcGmjdl6h3qWHQrTT
+	Ih1zhkUsT2hT+Rgw1QNyCLYAkEpwAxljlH+uYqQ2oTYbBlX6vvgFpp7T3J+4RbUEfsaiHXwJi5F
+	Dxr3mqQ6YtEOZrV6CISfFDUWYdeUqe/Llx6efsYwQgxYvsnjZlB1VOzXwBWvlj6gvgPrqu+PLl9
+	NAI2WcBL+P9fzA
+X-Google-Smtp-Source: AGHT+IE9zlOlbVnY6c4mqUvwqDeCMMoCYAPViy3XjaJiR1Ci1mNMSZAQ1fXIrojF5Q1nql2O2YXVRQ==
+X-Received: by 2002:a05:6000:26c2:b0:3e1:9b75:f0b8 with SMTP id ffacd0b85a97d-4266e8dc01amr14203715f8f.47.1760368542568;
         Mon, 13 Oct 2025 08:15:42 -0700 (PDT)
-Received: from f4d4888f22f2.ant.amazon.com.com ([15.248.3.91])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46fab36a773sm135545825e9.0.2025.10.13.08.15.41
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 13 Oct 2025 08:15:42 -0700 (PDT)
-From: Jack Thomson <jackabt.amazon@gmail.com>
-To: maz@kernel.org,
-	oliver.upton@linux.dev,
-	pbonzini@redhat.com
-Cc: joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
+Received: from myrica.home (90.149.115.87.dyn.plus.net. [87.115.149.90])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-426ce57cc0esm18856169f8f.6.2025.10.13.08.15.41
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Oct 2025 08:15:41 -0700 (PDT)
+From: Jean-Philippe Brucker <jean-philippe@linaro.org>
+To: catalin.marinas@arm.com,
 	will@kernel.org,
-	shuah@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	isaku.yamahata@intel.com,
-	roypat@amazon.co.uk,
-	kalyazin@amazon.co.uk,
-	jackabt@amazon.com
-Subject: [PATCH v2 3/4] KVM: selftests: Enable pre_fault_memory_test for arm64
-Date: Mon, 13 Oct 2025 16:15:00 +0100
-Message-ID: <20251013151502.6679-4-jackabt.amazon@gmail.com>
-X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20251013151502.6679-1-jackabt.amazon@gmail.com>
-References: <20251013151502.6679-1-jackabt.amazon@gmail.com>
+	steven.price@arm.com,
+	suzuki.poulose@arm.com
+Cc: linux-arm-kernel@lists.infradead.org,
+	Jean-Philippe Brucker <jean-philippe@linaro.org>
+Subject: [PATCH] arm64: mm: Support memory hotplug in a Realm
+Date: Mon, 13 Oct 2025 16:09:39 +0100
+Message-ID: <20251013150938.1428357-2-jean-philippe@linaro.org>
+X-Mailer: git-send-email 2.51.0
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_081544_846256_1BAAE6DF 
-X-CRM114-Status: GOOD (  16.93  )
+X-CRM114-CacheID: sfid-20251013_081545_180765_1CAEA8A1 
+X-CRM114-Status: GOOD (  18.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,170 +98,142 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jack Thomson <jackabt@amazon.com>
+Call the RIPAS change functions when adding and removing memory to/from
+a Realm.
 
-Enable the pre_fault_memory_test to run on arm64 by making it work with
-different guest page sizes and testing multiple guest configurations.
+The host initiates hotplug and the guest uses a range of predefined
+guest-physical addresses to install the new memory blocks. This patch
+then switches the RIPAS of those blocks from EMPTY to RAM. The guest can
+then online the blocks and use them.
 
-Update the test_assert to compare against the UCALL_EXIT_REASON, for
-portability, as arm64 exits with KVM_EXIT_MMIO while x86 uses
-KVM_EXIT_IO.
+Unplug is initiated by the host as well. After offlining the blocks
+the guest removes the mapping, and this patch switches the RIPAS from
+RAM to EMPTY.
 
-Signed-off-by: Jack Thomson <jackabt@amazon.com>
+Signed-off-by: Jean-Philippe Brucker <jean-philippe@linaro.org>
 ---
- tools/testing/selftests/kvm/Makefile.kvm      |  1 +
- .../selftests/kvm/pre_fault_memory_test.c     | 79 ++++++++++++++-----
- 2 files changed, 59 insertions(+), 21 deletions(-)
+To test this with a CCA-enabled host and virtio-mem:
+    $ qemu-system-aarch64
+        -m 1G,maxmem=1T
+        -M confidential-guest-support=rme0 -object rme-guest,id=rme0
+        -object memory-backend-ram,id=mem0,size=1G
+        -device virtio-mem-pci,id=hpm0,memdev=mem0,node=0
+        ...
 
-diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
-index 90f03f00cb04..4db1737fad04 100644
---- a/tools/testing/selftests/kvm/Makefile.kvm
-+++ b/tools/testing/selftests/kvm/Makefile.kvm
-@@ -180,6 +180,7 @@ TEST_GEN_PROGS_arm64 += memslot_perf_test
- TEST_GEN_PROGS_arm64 += mmu_stress_test
- TEST_GEN_PROGS_arm64 += rseq_test
- TEST_GEN_PROGS_arm64 += steal_time
-+TEST_GEN_PROGS_arm64 += pre_fault_memory_test
+Make offlining more likely to succeed:
+    # echo online_movable > /sys/devices/system/memory/auto_online_blocks
+
+Plug and unplug some memory (2M granule)
+    (qemu) qom-set hpm0 requested-size 1G
+    (qemu) qom-set hpm0 requested-size 256M
+
+Or via ACPI hotplug (requires EDK2 with Realm support)
+    (qemu) object_add memory-backend-ram,id=mem1,size=1G
+    (qemu) device_add pc-dimm,id=dimm1,memdev=mem1
+    (qemu) device_del dimm1
+    (qemu) object_del mem1
+---
+ arch/arm64/include/asm/rsi.h |  3 +++
+ arch/arm64/kernel/rsi.c      | 23 +++++++++++++++++++++++
+ arch/arm64/mm/mmu.c          | 11 +++++++++--
+ 3 files changed, 35 insertions(+), 2 deletions(-)
+
+diff --git a/arch/arm64/include/asm/rsi.h b/arch/arm64/include/asm/rsi.h
+index 88b50d660e85a..5ffc7e40a1f32 100644
+--- a/arch/arm64/include/asm/rsi.h
++++ b/arch/arm64/include/asm/rsi.h
+@@ -18,6 +18,9 @@ void __init arm64_rsi_init(void);
  
- TEST_GEN_PROGS_s390 = $(TEST_GEN_PROGS_COMMON)
- TEST_GEN_PROGS_s390 += s390/memop
-diff --git a/tools/testing/selftests/kvm/pre_fault_memory_test.c b/tools/testing/selftests/kvm/pre_fault_memory_test.c
-index 0350a8896a2f..ed9848a8af60 100644
---- a/tools/testing/selftests/kvm/pre_fault_memory_test.c
-+++ b/tools/testing/selftests/kvm/pre_fault_memory_test.c
-@@ -10,19 +10,29 @@
- #include <test_util.h>
- #include <kvm_util.h>
- #include <processor.h>
-+#include <guest_modes.h>
+ bool arm64_rsi_is_protected(phys_addr_t base, size_t size);
  
- /* Arbitrarily chosen values */
--#define TEST_SIZE		(SZ_2M + PAGE_SIZE)
--#define TEST_NPAGES		(TEST_SIZE / PAGE_SIZE)
-+#define TEST_BASE_SIZE		SZ_2M
- #define TEST_SLOT		10
- 
-+/* Storage of test info to share with guest code */
-+struct test_config {
-+	int page_size;
-+	uint64_t test_size;
-+	uint64_t test_num_pages;
-+};
++int arm64_rsi_add_memory(phys_addr_t start, phys_addr_t end);
++int arm64_rsi_remove_memory(phys_addr_t start, phys_addr_t end);
 +
-+struct test_config test_config;
-+
- static void guest_code(uint64_t base_gpa)
+ static inline bool is_realm_world(void)
  {
- 	volatile uint64_t val __used;
-+	struct test_config *config = &test_config;
- 	int i;
- 
--	for (i = 0; i < TEST_NPAGES; i++) {
--		uint64_t *src = (uint64_t *)(base_gpa + i * PAGE_SIZE);
-+	for (i = 0; i < config->test_num_pages; i++) {
-+		uint64_t *src = (uint64_t *)(base_gpa + i * config->page_size);
- 
- 		val = *src;
- 	}
-@@ -63,11 +73,17 @@ static void pre_fault_memory(struct kvm_vcpu *vcpu, u64 gpa, u64 size,
- 					    "KVM_PRE_FAULT_MEMORY", ret, vcpu->vm);
+ 	return static_branch_unlikely(&rsi_present);
+diff --git a/arch/arm64/kernel/rsi.c b/arch/arm64/kernel/rsi.c
+index c64a06f58c0bc..b983b85f03dfb 100644
+--- a/arch/arm64/kernel/rsi.c
++++ b/arch/arm64/kernel/rsi.c
+@@ -138,6 +138,29 @@ static int realm_ioremap_hook(phys_addr_t phys, size_t size, pgprot_t *prot)
+ 	return 0;
  }
  
--static void __test_pre_fault_memory(unsigned long vm_type, bool private)
-+struct test_params {
-+	unsigned long vm_type;
-+	bool private;
-+};
++/*
++ * Convert a range of IPAs from EMPTY to RAM
++ */
++int arm64_rsi_add_memory(phys_addr_t start, phys_addr_t end)
++{
++	if (!is_realm_world())
++		return 0;
 +
-+static void __test_pre_fault_memory(enum vm_guest_mode guest_mode, void *arg)
++	return rsi_set_memory_range_protected(start, end);
++}
++
++/*
++ * Convert a range of IPAs from RAM to EMPTY. The pages will be wiped by
++ * UNDELEGATE before being returned to the host.
++ */
++int arm64_rsi_remove_memory(phys_addr_t start, phys_addr_t end)
++{
++	if (!is_realm_world())
++		return 0;
++
++	return rsi_set_memory_range_shared(start, end);
++}
++
+ void __init arm64_rsi_init(void)
  {
-+	struct test_params *p = arg;
- 	const struct vm_shape shape = {
--		.mode = VM_MODE_DEFAULT,
--		.type = vm_type,
-+		.mode = guest_mode,
-+		.type = p->vm_type,
- 	};
- 	struct kvm_vcpu *vcpu;
- 	struct kvm_run *run;
-@@ -78,10 +94,17 @@ static void __test_pre_fault_memory(unsigned long vm_type, bool private)
- 	uint64_t guest_test_virt_mem;
- 	uint64_t alignment, guest_page_size;
+ 	if (arm_smccc_1_1_get_conduit() != SMCCC_CONDUIT_SMC)
+diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
+index b8d37eb037fcc..095b094e8a82f 100644
+--- a/arch/arm64/mm/mmu.c
++++ b/arch/arm64/mm/mmu.c
+@@ -44,6 +44,7 @@
+ #include <asm/tlbflush.h>
+ #include <asm/pgalloc.h>
+ #include <asm/kfence.h>
++#include <asm/rsi.h>
  
-+	pr_info("Testing guest mode: %s\n", vm_guest_mode_string(guest_mode));
-+
- 	vm = vm_create_shape_with_one_vcpu(shape, &vcpu, guest_code);
+ #define NO_BLOCK_MAPPINGS	BIT(0)
+ #define NO_CONT_MAPPINGS	BIT(1)
+@@ -1874,6 +1875,10 @@ int arch_add_memory(int nid, u64 start, u64 size,
  
--	alignment = guest_page_size = vm_guest_mode_params[VM_MODE_DEFAULT].page_size;
--	guest_test_phys_mem = (vm->max_gfn - TEST_NPAGES) * guest_page_size;
-+	guest_page_size = vm_guest_mode_params[guest_mode].page_size;
-+
-+	test_config.page_size = guest_page_size;
-+	test_config.test_size = TEST_BASE_SIZE + test_config.page_size;
-+	test_config.test_num_pages = vm_calc_num_guest_pages(vm->mode, test_config.test_size);
-+
-+	guest_test_phys_mem = (vm->max_gfn - test_config.test_num_pages) * test_config.page_size;
- #ifdef __s390x__
- 	alignment = max(0x100000UL, guest_page_size);
- #else
-@@ -91,22 +114,31 @@ static void __test_pre_fault_memory(unsigned long vm_type, bool private)
- 	guest_test_virt_mem = guest_test_phys_mem & ((1ULL << (vm->va_bits - 1)) - 1);
+ 	VM_BUG_ON(!mhp_range_allowed(start, size, true));
  
- 	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS,
--				    guest_test_phys_mem, TEST_SLOT, TEST_NPAGES,
--				    private ? KVM_MEM_GUEST_MEMFD : 0);
--	virt_map(vm, guest_test_virt_mem, guest_test_phys_mem, TEST_NPAGES);
--
--	if (private)
--		vm_mem_set_private(vm, guest_test_phys_mem, TEST_SIZE);
--	pre_fault_memory(vcpu, guest_test_phys_mem, SZ_2M, 0);
--	pre_fault_memory(vcpu, guest_test_phys_mem + SZ_2M, PAGE_SIZE * 2, PAGE_SIZE);
--	pre_fault_memory(vcpu, guest_test_phys_mem + TEST_SIZE, PAGE_SIZE, PAGE_SIZE);
-+				    guest_test_phys_mem, TEST_SLOT, test_config.test_num_pages,
-+				    p->private ? KVM_MEM_GUEST_MEMFD : 0);
-+	virt_map(vm, guest_test_virt_mem, guest_test_phys_mem, test_config.test_num_pages);
++	ret = arm64_rsi_add_memory(start, start + size);
++	if (ret)
++		return ret;
 +
-+	if (p->private)
-+		vm_mem_set_private(vm, guest_test_phys_mem, test_config.test_size);
-+	pre_fault_memory(vcpu, guest_test_phys_mem, TEST_BASE_SIZE, 0);
-+	/* Test pre-faulting over an already faulted range */
-+	pre_fault_memory(vcpu, guest_test_phys_mem, TEST_BASE_SIZE, 0);
-+	pre_fault_memory(vcpu, guest_test_phys_mem + TEST_BASE_SIZE,
-+			 test_config.page_size * 2, test_config.page_size);
-+	pre_fault_memory(vcpu, guest_test_phys_mem + test_config.test_size,
-+			 test_config.page_size, test_config.page_size);
+ 	if (force_pte_mapping())
+ 		flags |= NO_BLOCK_MAPPINGS | NO_CONT_MAPPINGS;
  
- 	vcpu_args_set(vcpu, 1, guest_test_virt_mem);
-+
-+	/* Export the shared variables to the guest. */
-+	sync_global_to_guest(vm, test_config);
-+
- 	vcpu_run(vcpu);
+@@ -1885,10 +1890,11 @@ int arch_add_memory(int nid, u64 start, u64 size,
  
- 	run = vcpu->run;
--	TEST_ASSERT(run->exit_reason == KVM_EXIT_IO,
--		    "Wanted KVM_EXIT_IO, got exit reason: %u (%s)",
-+	TEST_ASSERT(run->exit_reason == UCALL_EXIT_REASON,
-+		    "Wanted %s, got exit reason: %u (%s)",
-+		    exit_reason_str(UCALL_EXIT_REASON),
- 		    run->exit_reason, exit_reason_str(run->exit_reason));
+ 	ret = __add_pages(nid, start >> PAGE_SHIFT, size >> PAGE_SHIFT,
+ 			   params);
+-	if (ret)
++	if (ret) {
+ 		__remove_pgd_mapping(swapper_pg_dir,
+ 				     __phys_to_virt(start), size);
+-	else {
++		WARN_ON(arm64_rsi_remove_memory(start, start + size));
++	} else {
+ 		/* Address of hotplugged memory can be smaller */
+ 		max_pfn = max(max_pfn, PFN_UP(start + size));
+ 		max_low_pfn = max_pfn;
+@@ -1904,6 +1910,7 @@ void arch_remove_memory(u64 start, u64 size, struct vmem_altmap *altmap)
  
- 	switch (get_ucall(vcpu, &uc)) {
-@@ -130,7 +162,12 @@ static void test_pre_fault_memory(unsigned long vm_type, bool private)
- 		return;
- 	}
- 
--	__test_pre_fault_memory(vm_type, private);
-+	struct test_params p = {
-+		.vm_type = vm_type,
-+		.private = private,
-+	};
-+
-+	for_each_guest_mode(__test_pre_fault_memory, &p);
+ 	__remove_pages(start_pfn, nr_pages, altmap);
+ 	__remove_pgd_mapping(swapper_pg_dir, __phys_to_virt(start), size);
++	WARN_ON(arm64_rsi_remove_memory(start, start + size));
  }
  
- int main(int argc, char *argv[])
+ /*
+
+base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
 -- 
-2.43.0
+2.51.0
 
 
