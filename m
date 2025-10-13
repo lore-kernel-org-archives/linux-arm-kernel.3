@@ -4,101 +4,93 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8BB81CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 15:15:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 3157DCCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 15:20:33 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mzQnDluOQWqcbRXyu07+4Pf89SEymkI9ph5TfK7+5co=; b=RmR+52fPliEivK+AkEqUZT4DST
-	esc401vCnjSGNXTxCBtMVL3lK853LrgNMkVt7hvEtiZ4VOP4sLS/c55jaP8Fzy0IKC9lzUqsKpg5b
-	Av5+ff2qQ+I7PScpcCwbcHpKKxJmABXHW+yIbI6fwaPzCi47CiacNNwjPTCz/WqFRcHom/DNl4bp1
-	s0YYyrMmI8tv6Tbsxz+gI0R98jzN1nWru1rL1DMPoVIvP5u1jV2ieAPKJRdin89/TeT8CuRF30LR4
-	gE5ZbfevqtK5lsGxSGBXsZ1ReLLMwEoYxfs+uRDRtr7d1GGPOZhjyKnCsckY5IzpSffEeXeRMK5Rt
-	Ilth/Fkw==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=nWw3pYmfnmGvB+YkCO3yexV5qTzE3+kQSnnpQTIm/9c=; b=BvIjB3zRjloVz9MF/JADDQsrXe
+	o2iUw33B9VKEdOAtina2/DgENCvd3EJFGSrX16jOiWEKm4B7Zc6zLkZrQitMdLeLEFoQCNv1yBCeL
+	BuhXtnL72y7zKlyfQooVvNSGiUPu4gI6YElm//noiRPRv1G53a+hrFw9riH0SwuwCF2aHRLXx6VX/
+	Ez61Scd3Bi4Oi1GTELCGUZbNVSC0aKJDfw8rw3QdbZPHWVXlK7s/JD45+y7rDU6xqFEagUUAjLoE/
+	MLPew/f+BllEqM9kwfJK8FWOkdkhiQTdU336kYmLLdmFK5F01iSTZZp15sB6cj3vZOk57ZXEEAJVc
+	i/ERZO3g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8KH9-0000000DbAE-0XpC;
-	Mon, 13 Oct 2025 15:15:51 +0000
-Received: from mail-wm1-x32b.google.com ([2a00:1450:4864:20::32b])
+	id 1v8KLb-0000000DcYe-1tFF;
+	Mon, 13 Oct 2025 15:20:27 +0000
+Received: from mail-pl1-x635.google.com ([2607:f8b0:4864:20::635])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8KH6-0000000Db75-2bFI
+	id 1v8KLY-0000000DcXC-3Q44
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 15:15:49 +0000
-Received: by mail-wm1-x32b.google.com with SMTP id 5b1f17b1804b1-46f53f88e0bso24181275e9.1
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 08:15:48 -0700 (PDT)
+	Mon, 13 Oct 2025 15:20:26 +0000
+Received: by mail-pl1-x635.google.com with SMTP id d9443c01a7336-27ee41e0798so69944815ad.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 08:20:24 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760368547; x=1760973347; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=mzQnDluOQWqcbRXyu07+4Pf89SEymkI9ph5TfK7+5co=;
-        b=hmKw15BwbU680WCbcoBNjMNx8w75GcH1PBMdbry5XukaQqEaYfWMEHWYt0pRp7SsRJ
-         5qMG2Xd8LkWEQxshLAmGII0pfQNYl1ZwLiyFz79MUnW3u0SkzcPP931fHcNmrZLEdtZ9
-         cCO5sJiI8QCDGJbOM9IsodvcOpZGzcQlmHsg7xfIXmOZ8X80Ru2xTBQuddnFZSBwzGgu
-         2XBStDXaNGmMp9J4Fvf0UCjt3qdVLLH4Atm13N8bR5kHvXBFHGm1TaCUPeuQBWHtr9iB
-         IgwrTSkyXVe32EkE7PS6JnggLpw2kxnYlHFdWtpLfedF1k8weatKEVd+8pzq9UXO0FoM
-         X5cw==
+        d=gmail.com; s=20230601; t=1760368824; x=1760973624; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=nWw3pYmfnmGvB+YkCO3yexV5qTzE3+kQSnnpQTIm/9c=;
+        b=XLsBhV3idkhBTNtMuFhDFOrojuDps2CSULcgDvmIdzrhDOEMbIk3xNLpc3M690kDyV
+         oCF/geMNWG+mvLd1FiA6LIcwNbpf8oc4Fwgjsng/wzNMnR2QgADduxaZ8X86h4xkPznr
+         lK1Q7ttF+oxeF2PR69NTfGMv2Zg0jrfUY1oDzm6qXUh867nr6ShwA2DBSa1HOYUocugw
+         yh1B9xU5stj7G6ibuEzD8DTEBtca+qhV9hau7YQQ87lhluDFyyCmkDjbq/5leVR05R4B
+         SpeaIv1rAP8HwtTbZBFbH7etnmXIzjKmcAwTnaTMxAwvgECk3yoAFQqYh87XxDJmarlv
+         Clug==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760368547; x=1760973347;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=mzQnDluOQWqcbRXyu07+4Pf89SEymkI9ph5TfK7+5co=;
-        b=aj+oninpEze8YxqYMC+keyj9X5LTZlgCqM7STp6SR9+6Pm6zXQcYcEjeaoW16n9jlB
-         6o+HJPeFhq/vOnlqgygO9N+iM+DRdqkUaQto0BYWGf9BIKbAeTMYqIanJdSZGQ9rKHEx
-         3ImTzLI69xgcVfhsgyJWs8XNHD8Ak4IaHOYRLgg1jzPrMpPR+CurjX7A4PTtTiXAhxF2
-         /Ab3tSru5M3zSW0Vbc+cIX3JqfWyTD5Wjlu06Jz7RS+pOWn+zznwgZT4FJwIM0Shac1h
-         eOcCq2DmFhV8mb7sF3IizH9+pN3OmHZ5IlUvhx7mNnbAH+pp5H6S/nZuY3olznGU92oG
-         G4Nw==
-X-Forwarded-Encrypted: i=1; AJvYcCX7gnvRsjCt1k+SVSIT/KetrC7UTs8Tz7+MVgZ047zxyjvI+QIMLfZzbWP5eIkAhcdgF8z0cwxMvJs95ZA9EpQu@lists.infradead.org
-X-Gm-Message-State: AOJu0YxxCyjZF5LyWAnK5Y2/qI9kPfBd270SjJq4d9F41bxcDIZoLu82
-	e46GvHsDvkaj0KS8mkpffyHcJHTqsm/q27yxNFkwkgOTPiJch2pG4LCg
-X-Gm-Gg: ASbGncuKv53SmCwf55VGtGZLfQwmUZ1l5ugbXF2bEk7bKqSyDa9ZEdjBW3I8RRsP+X6
-	zayM2ypv7NIur+4jPRoQNzeVeiboKLSfWiyumf0S9vCpOWWJBLW+1whQ5bEtemtOHZXJ86+raO2
-	i1tYA1A9PGVwqybjHLzb3E3YnaWlaMLaeTvaNCJYFM3otcLl7QpjixmJ7ysr1oV585jqav4DRNX
-	f/Gn04uDGg8s0J14eZkOYiW85JOI94kj93dq39ELDt8l3HQFwTaXTE4OxA4/yMyAaaPW2w58a6L
-	SmIFK52K6grFYwReqquHlkMAdjwle7QlAem9/f9RAA3eM7DVV1UmLq6dxPzViGWsTb7VF6SG6wb
-	zMmwRh36losLzPb+lvhLj4JHIWIkbdGiyhBtjAiY45WMKObjFcWaSU9GgU3ZufYeVTuLQMJ1g77
-	D3q8pGVItWSBW0im4Ez3hfIzKO3Q==
-X-Google-Smtp-Source: AGHT+IHgTeXKHH2vcpsvzOcBDeWFCxx7j6NWXF765EtO+25xvlfpvrezTIu3A7FfM3RO5CiMYA9Vog==
-X-Received: by 2002:a05:600c:1e85:b0:46e:39e4:1721 with SMTP id 5b1f17b1804b1-46fa9aa261amr141333095e9.12.1760368546663;
-        Mon, 13 Oct 2025 08:15:46 -0700 (PDT)
-Received: from f4d4888f22f2.ant.amazon.com.com ([15.248.3.91])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46fab36a773sm135545825e9.0.2025.10.13.08.15.45
-        (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 13 Oct 2025 08:15:46 -0700 (PDT)
-From: Jack Thomson <jackabt.amazon@gmail.com>
-To: maz@kernel.org,
-	oliver.upton@linux.dev,
-	pbonzini@redhat.com
-Cc: joey.gouly@arm.com,
-	suzuki.poulose@arm.com,
-	yuzenghui@huawei.com,
-	catalin.marinas@arm.com,
-	will@kernel.org,
-	shuah@kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	linux-kernel@vger.kernel.org,
-	linux-kselftest@vger.kernel.org,
-	isaku.yamahata@intel.com,
-	roypat@amazon.co.uk,
-	kalyazin@amazon.co.uk,
-	jackabt@amazon.com
-Subject: [PATCH v2 4/4] KVM: selftests: Add option for different backing in pre-fault tests
-Date: Mon, 13 Oct 2025 16:15:01 +0100
-Message-ID: <20251013151502.6679-5-jackabt.amazon@gmail.com>
+        d=1e100.net; s=20230601; t=1760368824; x=1760973624;
+        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
+         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=nWw3pYmfnmGvB+YkCO3yexV5qTzE3+kQSnnpQTIm/9c=;
+        b=uhX+HUsmtU8wCjIo5lWpobLOxakltxO86a91ujdDU9L/0AQjl/GCfpBXYvghfknVwf
+         d3athpEV5a4kVFs6tdD/TVjdszE+8ZOwXllhK0YQmnNb+8hy9Y0P4rArF8djrP+DXr6o
+         ekDtSZ4IcbTQUS0JQzBAzEZ803ZHhB0zG5Lt3fSfk1OARRQEGlghM6vDVJTgDSLOpNQH
+         kmmMXyJ32Qj964/zYH48Fsb7Vf8CzI4uhM5qFqpfAJQo6Ra5cvqnbcCBQR4y71OfdVvm
+         EPawjYwItITm5fRvlBwxi8Ehj4PWe5szsul03AwPlJWUCWAroP69YApiXSRAbZx+pI/w
+         S5+g==
+X-Forwarded-Encrypted: i=1; AJvYcCVRiy9tfW6sMubx8T3XhV7nkShvfPT2QSXw/FP6M2REpQISG4Z4azWvk66RtME7wbN+R0s/blqROjnYc6ftbty4@lists.infradead.org
+X-Gm-Message-State: AOJu0YyxjeVePozKQmeiDsy0PzL5GQwnWATk5G9fyJ3e4ywIoMUlLcOR
+	3/hGLXfAgk9R51amiG32BfbWagSpL1oeNJ2C0jAybAZz0QYOL9rufaS8
+X-Gm-Gg: ASbGncvgfORP758+pBfRZiqisY8CFcZ18ibQI/EIjGWOMnnfxFqnaBMF7/vD+bnGi4v
+	BshH9JYRqEcp4wHD/dkH0v8/PQHWQsX3HCdX6FC+sCS8GvZzH7gqNfiq81OOmkg0oI2J2W3G0uQ
+	3Pq1nKVRE9hfEOrA0xvwoqu5h7sAV+9Xd7WgghZwmy4jArd18f6mkg7vMCYKepZLbpMSwbAToDn
+	WXa9/aWEZV/ZaZyXVZcPaSPVxaVwt3x/p60fXwZrR2GJ3WkMXy4DHDZzDBXmH319bm3q07tOvao
+	G6gcJ0YeABFA+VDUsgEhghNHuNGGXxantz4Eg2UyqmIC7SQAgSUugSYSJn0Tuf7hSwRivUXFBfT
+	PAUFkMYqmQ1SOrvvfO5OJjm4phHGS9pkn5IIZsQv7WrCbbIwznw==
+X-Google-Smtp-Source: AGHT+IED5HSARgZp3w1i5vJ/5lba5zHCV8vbpThYRazELMLhgYDV4CSz/po8MO0H+ROXoU4f3DVC/w==
+X-Received: by 2002:a17:903:3b86:b0:28e:7567:3c4b with SMTP id d9443c01a7336-29027373b18mr314146635ad.16.1760368823921;
+        Mon, 13 Oct 2025 08:20:23 -0700 (PDT)
+Received: from rockpi-5b ([45.112.0.108])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29034f05bcasm136560245ad.84.2025.10.13.08.20.19
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Mon, 13 Oct 2025 08:20:23 -0700 (PDT)
+From: Anand Moon <linux.amoon@gmail.com>
+To: Rob Herring <robh@kernel.org>,
+	Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>,
+	Heiko Stuebner <heiko@sntech.de>,
+	Johan Jonker <jbx6244@gmail.com>,
+	Dragan Simic <dsimic@manjaro.org>,
+	Diederik de Haas <didi.debian@cknow.org>,
+	Aurelien Jarno <aurelien@aurel32.net>,
+	devicetree@vger.kernel.org (open list:OPEN FIRMWARE AND FLATTENED DEVICE TREE BINDINGS),
+	linux-arm-kernel@lists.infradead.org (moderated list:ARM/Rockchip SoC support),
+	linux-rockchip@lists.infradead.org (open list:ARM/Rockchip SoC support),
+	linux-kernel@vger.kernel.org (open list)
+Cc: Anand Moon <linux.amoon@gmail.com>
+Subject: [PATCH v1] arm64: dts: rockchip: odroid-m1: Add pinctrl for I2S1 8ch TX path
+Date: Mon, 13 Oct 2025 20:50:03 +0530
+Message-ID: <20251013152011.131118-1-linux.amoon@gmail.com>
 X-Mailer: git-send-email 2.50.1
-In-Reply-To: <20251013151502.6679-1-jackabt.amazon@gmail.com>
-References: <20251013151502.6679-1-jackabt.amazon@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_081548_687161_924BADFF 
-X-CRM114-Status: GOOD (  13.51  )
+X-CRM114-CacheID: sfid-20251013_082024_851800_FB2A28B9 
+X-CRM114-Status: GOOD (  13.16  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -113,100 +105,48 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Jack Thomson <jackabt@amazon.com>
+Enable proper pin multiplexing for the I2S1 8-channel transmit interface by
+adding the default pinctrl configuration which esures correct signal routing
+and avoids pinmux conflicts during audio playback.
 
-Add a -m option to specify different memory backing types for the
-pre-fault tests (e.g., anonymous, hugetlb), allowing testing of the
-pre-fault functionality across different memory configurations.
+Changes fix the error
+[  116.856643] [    T782] rockchip-pinctrl pinctrl: pin gpio1-10 already requested by affinity_hint; cannot claim for fe410000.i2s
+[  116.857567] [    T782] rockchip-pinctrl pinctrl: error -EINVAL: pin-42 (fe410000.i2s)
+[  116.857618] [    T782] rockchip-pinctrl pinctrl: error -EINVAL: could not request pin 42 (gpio1-10) from group i2s1m0-sdi1 on device rockchip-pinctrl
+[  116.857659] [    T782] rockchip-i2s-tdm fe410000.i2s: Error applying setting, reverse things back
 
-Signed-off-by: Jack Thomson <jackabt@amazon.com>
+Fixes: 78f858447cb7 ("arm64: dts: rockchip: Add analog audio on ODROID-M1")
+Cc: Aurelien Jarno <aurelien@aurel32.net>
+Signed-off-by: Anand Moon <linux.amoon@gmail.com>
 ---
- .../selftests/kvm/pre_fault_memory_test.c     | 31 ++++++++++++++++---
- 1 file changed, 26 insertions(+), 5 deletions(-)
+$ aplay -l
+**** List of PLAYBACK Hardware Devices ****
+card 0: HDMI [HDMI], device 0: fe400000.i2s-i2s-hifi i2s-hifi-0 [fe400000.i2s-i2s-hifi i2s-hifi-0]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+card 1: RK817 [Analog RK817], device 0: fe410000.i2s-rk817-hifi rk817-hifi-0 [fe410000.i2s-rk817-hifi rk817-hifi-0]
+  Subdevices: 1/1
+  Subdevice #0: subdevice #0
+---
+ arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/tools/testing/selftests/kvm/pre_fault_memory_test.c b/tools/testing/selftests/kvm/pre_fault_memory_test.c
-index ed9848a8af60..22e2e53945d9 100644
---- a/tools/testing/selftests/kvm/pre_fault_memory_test.c
-+++ b/tools/testing/selftests/kvm/pre_fault_memory_test.c
-@@ -76,6 +76,7 @@ static void pre_fault_memory(struct kvm_vcpu *vcpu, u64 gpa, u64 size,
- struct test_params {
- 	unsigned long vm_type;
- 	bool private;
-+	enum vm_mem_backing_src_type mem_backing_src;
+diff --git a/arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts b/arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts
+index 0f844806ec54..442a2bc43ba8 100644
+--- a/arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts
++++ b/arch/arm64/boot/dts/rockchip/rk3568-odroid-m1.dts
+@@ -482,6 +482,8 @@ &i2s0_8ch {
  };
  
- static void __test_pre_fault_memory(enum vm_guest_mode guest_mode, void *arg)
-@@ -94,7 +95,11 @@ static void __test_pre_fault_memory(enum vm_guest_mode guest_mode, void *arg)
- 	uint64_t guest_test_virt_mem;
- 	uint64_t alignment, guest_page_size;
- 
-+	size_t backing_src_pagesz = get_backing_src_pagesz(p->mem_backing_src);
-+
- 	pr_info("Testing guest mode: %s\n", vm_guest_mode_string(guest_mode));
-+	pr_info("Testing memory backing src type: %s\n",
-+		vm_mem_backing_src_alias(p->mem_backing_src)->name);
- 
- 	vm = vm_create_shape_with_one_vcpu(shape, &vcpu, guest_code);
- 
-@@ -110,10 +115,11 @@ static void __test_pre_fault_memory(enum vm_guest_mode guest_mode, void *arg)
- #else
- 	alignment = SZ_2M;
- #endif
-+	alignment = max(alignment, backing_src_pagesz);
- 	guest_test_phys_mem = align_down(guest_test_phys_mem, alignment);
- 	guest_test_virt_mem = guest_test_phys_mem & ((1ULL << (vm->va_bits - 1)) - 1);
- 
--	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS,
-+	vm_userspace_mem_region_add(vm, p->mem_backing_src,
- 				    guest_test_phys_mem, TEST_SLOT, test_config.test_num_pages,
- 				    p->private ? KVM_MEM_GUEST_MEMFD : 0);
- 	virt_map(vm, guest_test_virt_mem, guest_test_phys_mem, test_config.test_num_pages);
-@@ -155,7 +161,8 @@ static void __test_pre_fault_memory(enum vm_guest_mode guest_mode, void *arg)
- 	kvm_vm_free(vm);
- }
- 
--static void test_pre_fault_memory(unsigned long vm_type, bool private)
-+static void test_pre_fault_memory(unsigned long vm_type, enum vm_mem_backing_src_type backing_src,
-+				  bool private)
- {
- 	if (vm_type && !(kvm_check_cap(KVM_CAP_VM_TYPES) & BIT(vm_type))) {
- 		pr_info("Skipping tests for vm_type 0x%lx\n", vm_type);
-@@ -165,6 +172,7 @@ static void test_pre_fault_memory(unsigned long vm_type, bool private)
- 	struct test_params p = {
- 		.vm_type = vm_type,
- 		.private = private,
-+		.mem_backing_src = backing_src,
- 	};
- 
- 	for_each_guest_mode(__test_pre_fault_memory, &p);
-@@ -174,10 +182,23 @@ int main(int argc, char *argv[])
- {
- 	TEST_REQUIRE(kvm_check_cap(KVM_CAP_PRE_FAULT_MEMORY));
- 
--	test_pre_fault_memory(0, false);
-+	int opt;
-+	enum vm_mem_backing_src_type backing = VM_MEM_SRC_ANONYMOUS;
-+
-+	while ((opt = getopt(argc, argv, "m:")) != -1) {
-+		switch (opt) {
-+		case 'm':
-+			backing = parse_backing_src_type(optarg);
-+			break;
-+		default:
-+			break;
-+		}
-+	}
-+
-+	test_pre_fault_memory(0, backing, false);
- #ifdef __x86_64__
--	test_pre_fault_memory(KVM_X86_SW_PROTECTED_VM, false);
--	test_pre_fault_memory(KVM_X86_SW_PROTECTED_VM, true);
-+	test_pre_fault_memory(KVM_X86_SW_PROTECTED_VM, backing, false);
-+	test_pre_fault_memory(KVM_X86_SW_PROTECTED_VM, backing, true);
- #endif
- 	return 0;
- }
+ &i2s1_8ch {
++	pinctrl-names = "default";
++	pinctrl-0 = <&i2s1m0_sclktx &i2s1m0_lrcktx &i2s1m0_sdi0 &i2s1m0_sdo0>;
+ 	rockchip,trcm-sync-tx-only;
+ 	status = "okay";
+ };
+
+base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
 -- 
-2.43.0
+2.50.1
 
 
