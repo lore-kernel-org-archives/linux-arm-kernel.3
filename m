@@ -4,75 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 02FDBCCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 16:40:28 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6A2EDCCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 16:49:06 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:Cc:To:Subject:
+	Message-ID:Date:From:In-Reply-To:References:MIME-Version:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=dtgke5IIG+N7o7YGoqhF+zbTkrpkk29pKkR8cJvrfW4=; b=mz8AkV3lWOvPz7xNNVvYsUmUnf
-	TRXyeMtavB3h3QF/lujJidAeg9XnS2rXsuKiYQuWfIlzBc8B9c0qXSqYQ68pnWYwnIGXCSb5Q3S6+
-	kABs4kIc7mw/FGhSG+UnxjHw6yYgxjauWXKhAgnu4V18LC03pZ46284BhBAbTykwLw8qaCDwCj8Ea
-	v0GTEzbSI59xCJgUpRX2P4R2d0ANCYlntmmS6nONAqF4ZV0hbrzyWVTavwH7/t2UT4W1vqx0H+eqO
-	e57R3TYe5YQ0yHhTj9eo2qzk2/jEo7ognfAOSKbvanPs1lh05gWksJy7dJs6Xnb9jkFfk99wlNT5o
-	3dJ7E+qg==;
+	bh=w6lzTshIWy3JM+cSfZr7xkLn0E7l8XLqxjY9wcBsXSk=; b=sWXuhCXPmI4gyQi6gO6tWRVwZk
+	6mtPg9H9nIYwnirCSoxGoHGtEwQ7PRKs5KUU6khUwidwYaprvjZuoxiQsw37A86A+NDEkz1TXsJ/d
+	RzgQCN86brCngblD7VevHFpwJpBQ12GyVj9z0/s94nTF6K5aJN0y8s/qpbg7EAqJWLYU7Ngts2VIg
+	O2L+/LHVp/YHocZZYjXp/WmZ5rbvASWlCJPjenqrvfJ5dxh4W3pQpTDcV/cCe/TxFHJ6MwV9gwd7y
+	e+nnUQAI26FN84cT0tdQ2PS8Nqct7s7Js98cOMw+x0ok/iNGpD4Mnjx/0+su7uC958ctMFtLcIbGy
+	A7fZ5hAw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Law-0000000Du0b-05HB;
-	Mon, 13 Oct 2025 16:40:22 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v8LjI-0000000Dv88-0FEF;
+	Mon, 13 Oct 2025 16:49:00 +0000
+Received: from mail-yw1-x1130.google.com ([2607:f8b0:4864:20::1130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Las-0000000Dtyu-1hnR;
-	Mon, 13 Oct 2025 16:40:20 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 35CBF43A06;
-	Mon, 13 Oct 2025 16:40:16 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 01D77C4CEE7;
-	Mon, 13 Oct 2025 16:40:10 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760373616;
-	bh=hs5Dm6BPAEGHFTEY/NVYLFoUg8OkvqoPEabZITp2GSE=;
-	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
-	b=XZSQu07P4SgkBBZjCn0RGnl0R5rV5/5dNJSGZOUAAsLQYCfUrfnNS+2HXe4K3m8l/
-	 KspWTGFqpB6+C8D6h76oWfo9JXkqDf2a34ASBb98qAVwnmZ9Btt2ElduQT2WpPTwww
-	 kmiBHNzSKdUzad5WTPGTAhE4J8bGtJo1Iu5u+uJCq98zd4m34G+qLiBvGhsU7F+Csv
-	 HWvSoO80bQv/kATFT6eHFXH67KQXHE+9CuWPspkyUx+j4KM1t6j5TFunRpv9sPvTbQ
-	 9iKwbP2ZPelsuuF5j7/TZi2mOfSFBbkWV2a2oDkxTMJMYb1C8FClYtFZyuYVCnuH7T
-	 j0FoiJN2A1P0A==
-From: Pratyush Yadav <pratyush@kernel.org>
-To: Pratyush Yadav <pratyush@kernel.org>
-Cc: Breno Leitao <leitao@debian.org>,  Changyuan Lyu
- <changyuanl@google.com>,  rppt@kernel.org,  akpm@linux-foundation.org,
-  linux-kernel@vger.kernel.org,  anthony.yznaga@oracle.com,  arnd@arndb.de,
-  ashish.kalra@amd.com,  benh@kernel.crashing.org,  bp@alien8.de,
-  catalin.marinas@arm.com,  corbet@lwn.net,  dave.hansen@linux.intel.com,
-  devicetree@vger.kernel.org,  dwmw2@infradead.org,  ebiederm@xmission.com,
-  graf@amazon.com,  hpa@zytor.com,  jgowans@amazon.com,
-  kexec@lists.infradead.org,  krzk@kernel.org,
-  linux-arm-kernel@lists.infradead.org,  linux-doc@vger.kernel.org,
-  linux-mm@kvack.org,  luto@kernel.org,  mark.rutland@arm.com,
-  mingo@redhat.com,  pasha.tatashin@soleen.com,  pbonzini@redhat.com,
-  peterz@infradead.org,  robh@kernel.org,  rostedt@goodmis.org,
-  saravanak@google.com,  skinsburskii@linux.microsoft.com,
-  tglx@linutronix.de,  thomas.lendacky@amd.com,  will@kernel.org,
-  x86@kernel.org
-Subject: Re: [PATCH v8 01/17] memblock: add MEMBLOCK_RSRV_KERN flag
-In-Reply-To: <mafs0wm4yluej.fsf@kernel.org> (Pratyush Yadav's message of "Mon,
-	13 Oct 2025 16:59:32 +0200")
-References: <20250509074635.3187114-1-changyuanl@google.com>
-	<20250509074635.3187114-2-changyuanl@google.com>
-	<ef6wfr72set5wa5el3wbbu4yd5tnc4p2rhtjpb5kpmncv3xs5d@i3c5v3ciioi3>
-	<mafs0wm4yluej.fsf@kernel.org>
-Date: Mon, 13 Oct 2025 18:40:09 +0200
-Message-ID: <mafs0h5w2lpqu.fsf@kernel.org>
-User-Agent: Gnus/5.13 (Gnus v5.13)
+	id 1v8LjF-0000000Dv7O-3aFw
+	for linux-arm-kernel@lists.infradead.org;
+	Mon, 13 Oct 2025 16:48:59 +0000
+Received: by mail-yw1-x1130.google.com with SMTP id 00721157ae682-71d5fb5e34cso61507857b3.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 09:48:57 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1760374137; x=1760978937; darn=lists.infradead.org;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:from:to:cc:subject:date:message-id:reply-to;
+        bh=w6lzTshIWy3JM+cSfZr7xkLn0E7l8XLqxjY9wcBsXSk=;
+        b=RTtyq26kvZlR/MkfUieeeyHCedFFRKEI5bbWrR1uaJbIdR8EUHQ7QXK7cRUszqzLIx
+         rbf80TAhUrhrzw/Udjy0mfb02lmPwNoyxEiKLfNLAjXmD5a24ncvc02BsHVpPsTfqnX2
+         cmDXnwcjv0iy+PEhfeXsn4NBPcYkdLzDcat0SYW3g9OX9+aUKkbNDIhCALERMWFWar30
+         wfRcf0wUMKVW6JW4BOEUCYI0KXtnat947ja6fz1ossoyr3kJSBg7odDcFbV5X3N04Xkr
+         /XqedtUA1loXLMAfdX5YQTVLA+GGA42aVHe/qrDPeVFKKMIYMRAksYJI9u0+yAOufdPa
+         kcTg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760374137; x=1760978937;
+        h=cc:to:subject:message-id:date:from:in-reply-to:references
+         :mime-version:x-gm-message-state:from:to:cc:subject:date:message-id
+         :reply-to;
+        bh=w6lzTshIWy3JM+cSfZr7xkLn0E7l8XLqxjY9wcBsXSk=;
+        b=OZRmwFDGG7sjuAsHFPDy2WU2nhsb568dURmmEDCq9B20gi+9IcWFFKIJhG+jXzwTuA
+         56w1CP1uVqDYM5gdUme6Mnx1Cz+nSaddgN0+RhCkBgMnVdwv+9KqzXD6cDoTNYj5xUgf
+         rOMTmfAVlJIltcV07GrVwxiAedgBB7dIDiUWV0FXXbx+NHAsPeX1p/WyJM/z0zR9hOCI
+         nyR9dF6Mz7Poc4ARPN9Pvi1sgUEMmG5U1Q6kFMDv7NTFBnOoPNXTk10r64OAJ9QiXAdN
+         S0Lm1Q0MBR93eGyXkCwaUzhzDQehmDJXDwJIF7CDTQKjNox5aTNbfiOzMczzxvsA9ugz
+         pbmA==
+X-Forwarded-Encrypted: i=1; AJvYcCVXlgAUGT7623JhWet1yonWSI8Ygx3UPHOM3g8k8aqZ+TKyr2R8nxPYoPAqIg4YAVbQBLH1PN64Pp4XxkESE2eF@lists.infradead.org
+X-Gm-Message-State: AOJu0YwInZiFJ6ft37gdgst0NrdjxH/oTMz/eEvT4boCYQ4gmKal7YON
+	56cuYa2hvIcfQQAWV7FlfkhICMoyWK9JXRdElGHb1DxnEC9FBYGrDgn7nRetCQSs1Vt90HoIxKy
+	w9dYnDAfGCjqvz3x1IOp/twwfNXJm/PGpPHghMz+Ygw==
+X-Gm-Gg: ASbGncv7yQXOGFqopTUnjVj9xCXu+1rhBIjQU6NglePFWB0bVBtcc7ONyuHYzeUTIhg
+	O1P5MiJStx7PJHcZY/B8tXyiZYechQjnS7V4kdYfyZUn/cYHA286seifkXnO/bfyE9jTrGHc6x5
+	tfWvSiQkfMt5HX8T5JmtGIHNwqziklEsD4xiirdz7wBM8j+dXSDyLKG3KN9IUK+Z7EWsEEYt6mi
+	buZjBfCB4GO6oFgVNB5acSCAAtSMkZeMNeXH5WRmw==
+X-Google-Smtp-Source: AGHT+IHqmHzAaVDHnow33cvgGG6Z5YF743Jj5ieEa2OjQWYWO3V5SRTF9BXUMfG7UGOBqyiISijlbKOAc4g+hB8SDas=
+X-Received: by 2002:a53:ca52:0:b0:63c:dd26:34e with SMTP id
+ 956f58d0204a3-63cdd260c73mr10670160d50.21.1760374136718; Mon, 13 Oct 2025
+ 09:48:56 -0700 (PDT)
 MIME-Version: 1.0
-Content-Type: text/plain
+References: <20251008201955.3919537-1-salil.mehta@opnsrc.net>
+ <86v7koxk1z.wl-maz@kernel.org> <CAFEAcA8=yhQ-ygoA-fqxzwg69OkdW2nBM0O9X3Lmww4eXuVMWA@mail.gmail.com>
+ <867bwzxe9r.wl-maz@kernel.org>
+In-Reply-To: <867bwzxe9r.wl-maz@kernel.org>
+From: Peter Maydell <peter.maydell@linaro.org>
+Date: Mon, 13 Oct 2025 17:48:44 +0100
+X-Gm-Features: AS18NWCAS9w1mC8fOxNHNg9CQTZ_Zo0jkRVSjMdF_vJRpxD-dkzMerf3nH7E2I4
+Message-ID: <CAFEAcA8FhgcaM_OsHKB3+3Z7B_oZJqU4LHX_j9p-ZQrHfWGX7g@mail.gmail.com>
+Subject: Re: [RFC PATCH] KVM: arm64: vgic-v3: Cache ICC_CTLR_EL1 and allow
+ lockless read when ready
+To: Marc Zyngier <maz@kernel.org>
+Cc: salil.mehta@opnsrc.net, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org, salil.mehta@huawei.com, 
+	jonathan.cameron@huawei.com, will@kernel.org, catalin.marinas@arm.com, 
+	mark.rutland@arm.com, james.morse@arm.com, sudeep.holla@arm.com, 
+	lpieralisi@kernel.org, jean-philippe@linaro.org, tglx@linutronix.de, 
+	oliver.upton@linux.dev, richard.henderson@linaro.org, andrew.jones@linux.dev, 
+	mst@redhat.com, david@redhat.com, philmd@linaro.org, ardb@kernel.org, 
+	borntraeger@linux.ibm.com, alex.bennee@linaro.org, gustavo.romero@linaro.org, 
+	npiggin@gmail.com, linux@armlinux.org.uk, karl.heubaum@oracle.com, 
+	miguel.luis@oracle.com, darren@os.amperecomputing.com, 
+	ilkka@os.amperecomputing.com, vishnu@os.amperecomputing.com, 
+	gankulkarni@os.amperecomputing.com, wangyanan55@huawei.com, 
+	wangzhou1@hisilicon.com, linuxarm@huawei.com
+Content-Type: text/plain; charset="UTF-8"
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_094018_484261_AA0715F4 
-X-CRM114-Status: GOOD (  20.12  )
+X-CRM114-CacheID: sfid-20251013_094857_918845_10CD2529 
+X-CRM114-Status: GOOD (  43.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,151 +107,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 13 2025, Pratyush Yadav wrote:
-
-> On Fri, Oct 10 2025, Breno Leitao wrote:
+On Mon, 13 Oct 2025 at 11:55, Marc Zyngier <maz@kernel.org> wrote:
 >
->> Hello Chanyuan, Mike,
->>
->> On Fri, May 09, 2025 at 12:46:19AM -0700, Changyuan Lyu wrote:
->>> --- a/mm/memblock.c
->>> +++ b/mm/memblock.c
->>> @@ -492,7 +492,7 @@ static int __init_memblock memblock_double_array(struct memblock_type *type,
->>>  	 * needn't do it
->>>  	 */
->>>  	if (!use_slab)
->>> -		BUG_ON(memblock_reserve(addr, new_alloc_size));
->>> +		BUG_ON(memblock_reserve_kern(addr, new_alloc_size));
->>>  
->>>  	/* Update slab flag */
->>>  	*in_slab = use_slab;
->>> @@ -642,7 +642,7 @@ static int __init_memblock memblock_add_range(struct memblock_type *type,
->>>  #ifdef CONFIG_NUMA
->>>  			WARN_ON(nid != memblock_get_region_node(rgn));
->>>  #endif
->>> -			WARN_ON(flags != rgn->flags);
->>> +			WARN_ON(flags != MEMBLOCK_NONE && flags != rgn->flags);
->>
->> I am hitting some sporadic warnings at early boot on a production kernel
->> (6.16). Unfortunately this issue is not easily reproduce for me to test on
->> upstream.
->>
->> 	09:14:44  BIOS-provided physical RAM map:
->> 	09:14:44  BIOS-e820: [mem 0x0000000000000000-0x000000000009ffff] usable
->> 	09:14:44  BIOS-e820: [mem 0x00000000000a0000-0x00000000000fffff] reserved
->> 	09:14:44  BIOS-e820: [mem 0x0000000000100000-0x0000000064cb7fff] usable
->> 	09:14:44  BIOS-e820: [mem 0x0000000064cb8000-0x0000000064dc3fff] reserved
->> 	09:14:44  BIOS-e820: [mem 0x0000000064dc4000-0x0000000065b13fff] usable
->> 	09:14:44  BIOS-e820: [mem 0x0000000065b14000-0x0000000065b61fff] reserved
->> 	09:14:44  BIOS-e820: [mem 0x0000000065b62000-0x0000000065ed0fff] usable
->> 	09:14:44  BIOS-e820: [mem 0x0000000065ed1000-0x0000000065f2bfff] reserved
->> 	09:14:44  BIOS-e820: [mem 0x0000000065f2c000-0x0000000066621fff] usable
->> 	09:14:44  BIOS-e820: [mem 0x0000000066622000-0x0000000066630fff] reserved
->> 	09:14:44  BIOS-e820: [mem 0x0000000066631000-0x0000000068107fff] usable
->> 	09:14:44  BIOS-e820: [mem 0x0000000068108000-0x000000006819dfff] ACPI data
->> 	09:14:44  BIOS-e820: [mem 0x000000006819e000-0x000000006a48cfff] usable
->> 	09:14:44  BIOS-e820: [mem 0x000000006a48d000-0x000000006c58cfff] reserved
->> 	09:14:44  BIOS-e820: [mem 0x000000006c58d000-0x000000006c5dcfff] ACPI data
->> 	09:14:44  BIOS-e820: [mem 0x000000006c5dd000-0x000000006cfdcfff] ACPI NVS
->> 	09:14:44  BIOS-e820: [mem 0x000000006cfdd000-0x000000006e9fcfff] reserved
->> 	09:14:44  BIOS-e820: [mem 0x000000006e9fd000-0x000000006fffffff] usable
->> 	09:14:44  BIOS-e820: [mem 0x0000000070000000-0x000000008fffffff] reserved
->> 	09:14:44  BIOS-e820: [mem 0x00000000fd000000-0x00000000fe7fffff] reserved
->> 	09:14:44  BIOS-e820: [mem 0x00000000fed20000-0x00000000fed44fff] reserved
->> 	09:14:44  BIOS-e820: [mem 0x00000000ff000000-0x00000000ffffffff] reserved
->> 	09:14:44  BIOS-e820: [mem 0x0000000100000000-0x000000107fff655f] usable
->> 	09:14:44  BIOS-e820: [mem 0x000000107fff6560-0x000000107fff656f] type 128
->> 	09:14:44  BIOS-e820: [mem 0x000000107fff6570-0x000000107fffffff] usable
->> 	09:14:44  random: crng init done
->> 	09:14:44  ------------[ cut here ]------------
->> 	09:14:44 WARNING: CPU: 0 PID: 0 at mm/memblock.c:668 memblock_add_range (mm/memblock.c:668)
->> 	09:14:44  Modules linked in:
->> 	09:14:44  Tainted: [S]=CPU_OUT_OF_SPEC
->> 	09:14:44 RIP: 0010:memblock_add_range (mm/memblock.c:668)
->> 	09:14:44 Code: 28 80 3c 01 00 0f 84 04 fd ff ff 4c 89 ef e8 6c 77 09 00 e9 f7 fc ff ff 0f 0b 83 7c 24 1c 00 0f 85 9c fd ff ff e9 c5 fd ff ff <0f> 0b e9 be fd ff ff 44 89 f1 80 e1 07 80 c1 03 38 c1 0f 8c 6b fd
->> 	All code
->> 	========
->> 	0:    28 80 3c 01 00 0f        sub    %al,0xf00013c(%rax)
->> 	6:    84 04 fd ff ff 4c 89     test   %al,-0x76b30001(,%rdi,8)
->> 	d:    ef                       out    %eax,(%dx)
->> 	e:    e8 6c 77 09 00           call   0x9777f
->> 	13:    e9 f7 fc ff ff           jmp    0xfffffffffffffd0f
->> 	18:    0f 0b                    ud2
->> 	1a:    83 7c 24 1c 00           cmpl   $0x0,0x1c(%rsp)
->> 	1f:    0f 85 9c fd ff ff        jne    0xfffffffffffffdc1
->> 	25:    e9 c5 fd ff ff           jmp    0xfffffffffffffdef
->> 	2a:*    0f 0b                    ud2            <-- trapping instruction
->> 	2c:    e9 be fd ff ff           jmp    0xfffffffffffffdef
->> 	31:    44 89 f1                 mov    %r14d,%ecx
->> 	34:    80 e1 07                 and    $0x7,%cl
->> 	37:    80 c1 03                 add    $0x3,%cl
->> 	3a:    38 c1                    cmp    %al,%cl
->> 	3c:    0f                       .byte 0xf
->> 	3d:    8c 6b fd                 mov    %gs,-0x3(%rbx)
->>
->> 	Code starting with the faulting instruction
->> 	===========================================
->> 	0:    0f 0b                    ud2
->> 	2:    e9 be fd ff ff           jmp    0xfffffffffffffdc5
->> 	7:    44 89 f1                 mov    %r14d,%ecx
->> 	a:    80 e1 07                 and    $0x7,%cl
->> 	d:    80 c1 03                 add    $0x3,%cl
->> 	10:    38 c1                    cmp    %al,%cl
->> 	12:    0f                       .byte 0xf
->> 	13:    8c 6b fd                 mov    %gs,-0x3(%rbx)
->> 	09:14:44  RSP: 0000:ffffffff85e07d48 EFLAGS: 00010083 ORIG_RAX: 0000000000000000
->> 	09:14:44  RAX: 0000000000000020 RBX: 0000000000001c00 RCX: dffffc0000000000
->> 	09:14:44  RDX: 000000000009f000 RSI: 000000000009d000 RDI: ffffffff8685ebf8
->> 	09:14:44  RBP: 0000000000000002 R08: 0000000000000020 R09: 0000000000000000
->> 	09:14:44  R10: ffffffffff200570 R11: fffffbffffe400b2 R12: 000000000009d000
->> 	09:14:44  R13: 0000000000100000 R14: ffffffff8edf5ce4 R15: ffffffff8edf5ce0
->> 	09:14:44  FS:  0000000000000000(0000) GS:0000000000000000(0000) knlGS:0000000000000000
->> 	09:14:44  CR2: ffff888059e2dff8 CR3: 000000005bc1d000 CR4: 00000000000000b0
->> 	09:14:44  Call Trace:
->> 	09:14:44   <TASK>
->> 	09:14:44 ? __memblock_reserve (mm/memblock.c:936)
->> 	09:14:44 ? add_early_ima_buffer (arch/x86/kernel/setup.c:413)
->> 	09:14:44 ? parse_setup_data (arch/x86/kernel/setup.c:500)
->> 	09:14:44 ? setup_arch (arch/x86/kernel/setup.c:245 arch/x86/kernel/setup.c:958)
->> 	09:14:44 ? start_kernel (init/main.c:922)
->> 	09:14:44 ? x86_64_start_reservations (arch/x86/kernel/ebda.c:57)
->> 	09:14:44 ? x86_64_start_kernel (arch/x86/kernel/head64.c:231)
->> 	09:14:44 ? common_startup_64 (arch/x86/kernel/head_64.S:419)
->> 	09:14:44   </TASK>
->> 	....
->> 	Memory: 49640988K/66772816K available (54946K kernel code, 19058K rwdata, 22636K rodata, 2940K init, 120968K bss, 10650188K reserved, 6291456K cma-reserved)
->>
->> So, there is a memory override, and I am curious about it. Do you think it
+> On Mon, 13 Oct 2025 09:42:58 +0100,
+> Peter Maydell <peter.maydell@linaro.org> wrote:
+> >
+> > On Thu, 9 Oct 2025 at 14:48, Marc Zyngier <maz@kernel.org> wrote:
+> > >
+> > > On Wed, 08 Oct 2025 21:19:55 +0100,
+> > > salil.mehta@opnsrc.net wrote:
+> > > >
+> > > > From: Salil Mehta <salil.mehta@huawei.com>
+> > > >
+> > > > [A rough illustration of the problem and the probable solution]
+> > > >
+> > > > Userspace reads of ICC_CTLR_EL1 via KVM device attributes currently takes a slow
+> > > > path that may acquire all vCPU locks. Under workloads that exercise userspace
+> > > > PSCI CPU_ON flows or frequent vCPU resets, this can cause vCPU lock contention
+> > > > in KVM and, in the worst cases, -EBUSY returns to userspace.
+> > > >
+> > > > When PSCI CPU_ON and CPU_OFF calls are handled entirely in KVM, these operations
+> > > > are executed under KVM vCPU locks in the host kernel (EL1) and appear atomic to
+> > > > other vCPU threads. In this context, system register accesses are serialized
+> > > > under KVM vCPU locks, ensuring atomicity with respect to other vCPUs. After
+> > > > SMCCC filtering was introduced, PSCI CPU_ON and CPU_OFF calls can now exit to
+> > > > userspace (QEMU). During the handling of PSCI CPU_ON call in userspace, a
+> > > > cpu_reset() is exerted which reads ICC_CTLR_EL1 through KVM device attribute
+> > > > IOCTLs. To avoid transient inconsistency and -EBUSY errors, QEMU is forced to
+> > > > pause all vCPUs before issuing these IOCTLs.
+> > >
+> > > I'm going to repeat in public what I already said in private.
+> > >
+> > > Why does QEMU need to know this? I don't see how this is related to
+> > > PSCI, and outside of save/restore, there is no reason why QEMU should
+> > > poke at this. If QEMU needs fixing, please fix QEMU.
+> >
+> > I don't know the background here, but generally speaking,
+> > when we do a CPU reset that includes writing all the CPU state
+> > of the "this is freshly reset from userspace's point of view" vcpu
+> > back to the kernel. More generally, userspace should be able to
+> > read and write sysregs for a vcpu any time it likes, and not
+> > arbitrarily get back -EBUSY. What does the kernel expect
+> > userspace to do with an errno like that?
 >
-> Yeah, it seems IMA is reserving a region that overlaps a region reserved
-> by something else that doesn't use memblock_reserve_kern().
+> The main issue here is that GICv3 is modelled as a device, just like
+> GICv2, and that all the sysregs that are relevant to the GIC have the
+> same status as the MMIO registers: they can only be accessed when the
+> vcpus are not running.
 >
->> would be useful to expand this warning to dump more information about the
->> issue? (only compiled tested)
->>
->> 	if (flags != MEMBLOCK_NONE && flags != rgn->flags) {
->> 		pr_warn("memblock: Flag mismatch at region [%pa-%pa]\n",
->> 			&rgn->base, &rend);
->> 		pr_warn("  Existing region flags: %#x\n", rgn->flags);
->> 		pr_warn("  New range flags: %#x\n", flags);
->> 		pr_warn("  New range: [%pa-%pa]\n", &base, &end);
->> 		WARN_ON_ONCE(1);
->> 	}
+> These sysregs are not visible through the normal ONE_REG API, and
+> therefore not subjected to the "do whatever you want" rule.
+
+Ah, I'd forgotten that. But the cpuif registers are still
+per-cpu, and they do still need to be reset on vcpu reset,
+and that might still happen for a single vcpu when the VM
+as a whole is still running.
+
+That said, QEMU's current code for this could be refactored
+to avoid the reset-time read of ICC_CTLR_EL1 from the kernel.
+We do this so we can set the userspace struct field for this
+register to the right value. But we could ask the kernel for
+that value once on VM startup since it's not going to change mid-run.
+
+That would bring ICC_CTLR_EL1 into line with the other cpuif
+registers, where QEMU assumes it knows what the kernel's
+reset value of them is (mostly "0") and doesn't bother to ask.
+This is different from how we handle ONE_REG sysregs, where
+I'm pretty sure we do ask the kernel the value of all of them
+on a vcpu reset. (And then write the values back again, which
+is a bit silly but nobody's ever said it was a performance
+problem for them :-))
+
+> Should we have done something else when the GICv3 save/restore API was
+> introduced and agreed upon with the QEMU people? Probably. Can we
+> change it now? Probably not. The only thing we could relax is the
+> scope of the lock when accessing a sysreg, so that we only mandate
+> that the targeted vcpu is not running instead of the whole VM.
 >
-> I suppose this would be useful. I think enabling memblock debug prints
-> would also be helpful (using the "memblock=debug" commandline parameter)
-> if it doesn't impact your production environment too much.
+> And finally, if you object to this API, why should we do for GICv5,
+> which is so far implemented by following the exact same principles?
 
-Actually, I think "memblock=debug" is going to be the more useful thing
-since it would also show what function allocated the overlapping range
-and the flags it was allocated with.
+I don't object to the API inherently (I don't care whether we
+do these register reads via a dev ioctl or something else,
+from userspace's point of view it's just "do some syscall,
+get a value") -- I'm just objecting to the kernel's
+implementation of it where it might return EBUSY :-)
 
-On my qemu VM with KVM, this results in around 70 prints from memblock.
-So it adds a bit of extra prints but nothing that should be too
-disrupting I think. Plus, only at boot so the worst thing you get is
-slightly slower boot times.
+(Also, if the kernel had failed EINVAL unconditionally for
+an attempt to do this on a not-stopped VM then we'd probably
+have found this mismatch in understanding about how the
+API should work years ago. "Mostly works but sometimes fails
+EBUSY" is the worst of all worlds.)
 
--- 
-Regards,
-Pratyush Yadav
+I haven't yet got as far as thinking about the KVM interface
+for GICv5 yet...
+
+-- PMM
 
