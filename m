@@ -4,75 +4,74 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D5A8BCCD18D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 14:56:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46140CCD18D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 14:59:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
 	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0U6kFGimkqum2GFBGCMz+lQcGUUrU07CQbrnu3JOJdk=; b=UAFjJGiYYUzGQzjXdRue5DrdyD
-	xekotCMNpR7zpaaKsreUUyWoMc3LSiyCYd0T1pG/SDzKFnmT2iVqsz9dr2Ctc9gaQfKln03f7LwVi
-	L3RMdy9MCBP3mtMbnxtrrLgzUZ+fhv7/8lMiJ4fdJxX64hs8+043jDunfENDlwnWRpsTjYVBGyh3L
-	Erwle7eCh2t6009nYcOEwLiAJNGYnmJjRjVyOT+zguTQZTrWX0IPUu1IQd0jaaw6bkPRguYfvXyVs
-	GYEDZYSTOJGgIYDupS6xRMrC1E7jEchzbDVtU5DOat7rTQ/mICwdnt+sw/gfufsM9kM4MX78N9LNH
-	9VAjuhUA==;
+	bh=91rYI2vMdFaeelqR6EO7cjHmJcFvcuwMoHwsL+HZWMA=; b=R3c4NdibIobIIWoSEyAKn9XK/j
+	dWi0dyigC/t4Gx2FdsoMW1tnwnLc9ckagZSf65uRrLIMmWFqtBx40ruEmLsCCwEeFNq4ncoX6obF8
+	6QEuuJynpxrbdMK0pHxLKJU71qPtJqZFTk/P9QalSwvGjnop3K9WucU0KAlddkhR6zga4Zrbkqwlz
+	fwwKkxKY/YIe9SJY0q7160msIHIye3TAF7QFucaIpBgEHEy/EsvU00Cj/fFdxtCfvyfWLKRhhWDN1
+	+8VYiOd5FykKV4CyVrhgwSxXl5YJMxhCkHSNwqyBEzKlgTMRYPIeAPd/oLlqnxns9rynFZAmZpxNG
+	fPeyDbyg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8JyE-0000000DWj5-3FRR;
-	Mon, 13 Oct 2025 14:56:18 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1v8K1W-0000000DXW8-0A2a;
+	Mon, 13 Oct 2025 14:59:42 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8JyC-0000000DWhq-2uIz
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 14:56:17 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=0U6kFGimkqum2GFBGCMz+lQcGUUrU07CQbrnu3JOJdk=; b=I9+6rhSnHziVfbSBw3fbS6Gb9Z
-	/4rGeaA/cv5ok3Ql3ezORHK0h0fNw3DrM7mWEYnOstI/MLbwvX0eAU1gv8aoc1hR/7jsMt21mgIbW
-	6myA59Xad8mIMXgKha2c+G1bEuTqz8Xkwzn0b9eewhOTWYWnPN/d0ajj24U8uKeTJGs0=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1v8Jy6-00Anad-BJ; Mon, 13 Oct 2025 16:56:10 +0200
-Date: Mon, 13 Oct 2025 16:56:10 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Shenwei Wang <shenwei.wang@nxp.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	dl-linux-imx <linux-imx@nxp.com>
-Subject: Re: [PATCH v3 3/4] gpio: imx-rpmsg: add imx-rpmsg GPIO driver
-Message-ID: <f5b15eeb-a183-40bc-993a-49736739c0f5@lunn.ch>
-References: <20251009222716.394806-1-shenwei.wang@nxp.com>
- <20251009222716.394806-4-shenwei.wang@nxp.com>
- <eb99d9a8-eb96-445d-899a-6e1d9b6f6c69@lunn.ch>
- <PAXPR04MB9185A829534963B22D1C49FD89EFA@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <6025be80-7007-48bb-bdd1-c8198e951400@lunn.ch>
- <PAXPR04MB918524EAA74F72D64AE0ACA489EAA@PAXPR04MB9185.eurprd04.prod.outlook.com>
+	id 1v8K1T-0000000DXUX-0MHH;
+	Mon, 13 Oct 2025 14:59:40 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id AB6C1404E2;
+	Mon, 13 Oct 2025 14:59:38 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 87EC5C4CEE7;
+	Mon, 13 Oct 2025 14:59:33 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760367578;
+	bh=Q4amGCgEx94K8om8pN467kDbQql6OA0eh29fHknE5Fw=;
+	h=From:To:Cc:Subject:In-Reply-To:References:Date:From;
+	b=WTk8n4FzwfU+JNjoGVR3OOl9hk+bHZHl0+w5GZRjNYV4kcGnUqw90e8JkiIMYKBVG
+	 NcRsWksnrwcNhPIi5h+FE6/w7V49pHEpvBJWDcfp0XXxUphNZwlLcwqTdOS2Xv5h7H
+	 Ul0xhpRLHAp0v3U+9tWebDkckBTJyEpUQ7VkzJRTjJ7rMvZEqDE56NUEyhKX1KF1zu
+	 LtNnj2IWLDizfR5k0EAVLhiypzbKxwaeEPrWlIC63tsQcyvoiy5YWWAZ6X69XXqsee
+	 FAkG/CwJmqtbCg+OysuPgKOrseEsQDQlXtHMNhTe2lx3PAI0wJ8StKBXuFCzGviqs2
+	 SmK2gwrIbAo8g==
+From: Pratyush Yadav <pratyush@kernel.org>
+To: Breno Leitao <leitao@debian.org>
+Cc: Changyuan Lyu <changyuanl@google.com>,  rppt@kernel.org,
+  akpm@linux-foundation.org,  linux-kernel@vger.kernel.org,
+  anthony.yznaga@oracle.com,  arnd@arndb.de,  ashish.kalra@amd.com,
+  benh@kernel.crashing.org,  bp@alien8.de,  catalin.marinas@arm.com,
+  corbet@lwn.net,  dave.hansen@linux.intel.com,
+  devicetree@vger.kernel.org,  dwmw2@infradead.org,  ebiederm@xmission.com,
+  graf@amazon.com,  hpa@zytor.com,  jgowans@amazon.com,
+  kexec@lists.infradead.org,  krzk@kernel.org,
+  linux-arm-kernel@lists.infradead.org,  linux-doc@vger.kernel.org,
+  linux-mm@kvack.org,  luto@kernel.org,  mark.rutland@arm.com,
+  mingo@redhat.com,  pasha.tatashin@soleen.com,  pbonzini@redhat.com,
+  peterz@infradead.org,  robh@kernel.org,  rostedt@goodmis.org,
+  saravanak@google.com,  skinsburskii@linux.microsoft.com,
+  tglx@linutronix.de,  thomas.lendacky@amd.com,  will@kernel.org,
+  x86@kernel.org
+Subject: Re: [PATCH v8 01/17] memblock: add MEMBLOCK_RSRV_KERN flag
+In-Reply-To: <ef6wfr72set5wa5el3wbbu4yd5tnc4p2rhtjpb5kpmncv3xs5d@i3c5v3ciioi3>
+	(Breno Leitao's message of "Fri, 10 Oct 2025 02:33:59 -0700")
+References: <20250509074635.3187114-1-changyuanl@google.com>
+	<20250509074635.3187114-2-changyuanl@google.com>
+	<ef6wfr72set5wa5el3wbbu4yd5tnc4p2rhtjpb5kpmncv3xs5d@i3c5v3ciioi3>
+Date: Mon, 13 Oct 2025 16:59:32 +0200
+Message-ID: <mafs0wm4yluej.fsf@kernel.org>
+User-Agent: Gnus/5.13 (Gnus v5.13)
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <PAXPR04MB918524EAA74F72D64AE0ACA489EAA@PAXPR04MB9185.eurprd04.prod.outlook.com>
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_075616_730523_62A06DBB 
-X-CRM114-Status: UNSURE (   9.94  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251013_075939_165269_5CE6BF67 
+X-CRM114-Status: GOOD (  17.36  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,21 +86,140 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> > Maybe Documentation/admin-guide/gpio-rpmsg.rst would be better.  You should
-> > also document how to handle features the device does not support. e.g. i _think_
-> > your hardware supports all 4 interrupt types. But maybe other hardware needs to
-> > return something meaning -EOPNOTSUP?
-> > 
-> 
-> That should be one type of the error return code in the out field of REPLY message. 
-> The return code of 0 means success, and the others are error codes. 
+On Fri, Oct 10 2025, Breno Leitao wrote:
 
-You need to be careful of architecture code:
+> Hello Chanyuan, Mike,
+>
+> On Fri, May 09, 2025 at 12:46:19AM -0700, Changyuan Lyu wrote:
+>> --- a/mm/memblock.c
+>> +++ b/mm/memblock.c
+>> @@ -492,7 +492,7 @@ static int __init_memblock memblock_double_array(struct memblock_type *type,
+>>  	 * needn't do it
+>>  	 */
+>>  	if (!use_slab)
+>> -		BUG_ON(memblock_reserve(addr, new_alloc_size));
+>> +		BUG_ON(memblock_reserve_kern(addr, new_alloc_size));
+>>  
+>>  	/* Update slab flag */
+>>  	*in_slab = use_slab;
+>> @@ -642,7 +642,7 @@ static int __init_memblock memblock_add_range(struct memblock_type *type,
+>>  #ifdef CONFIG_NUMA
+>>  			WARN_ON(nid != memblock_get_region_node(rgn));
+>>  #endif
+>> -			WARN_ON(flags != rgn->flags);
+>> +			WARN_ON(flags != MEMBLOCK_NONE && flags != rgn->flags);
+>
+> I am hitting some sporadic warnings at early boot on a production kernel
+> (6.16). Unfortunately this issue is not easily reproduce for me to test on
+> upstream.
+>
+> 	09:14:44  BIOS-provided physical RAM map:
+> 	09:14:44  BIOS-e820: [mem 0x0000000000000000-0x000000000009ffff] usable
+> 	09:14:44  BIOS-e820: [mem 0x00000000000a0000-0x00000000000fffff] reserved
+> 	09:14:44  BIOS-e820: [mem 0x0000000000100000-0x0000000064cb7fff] usable
+> 	09:14:44  BIOS-e820: [mem 0x0000000064cb8000-0x0000000064dc3fff] reserved
+> 	09:14:44  BIOS-e820: [mem 0x0000000064dc4000-0x0000000065b13fff] usable
+> 	09:14:44  BIOS-e820: [mem 0x0000000065b14000-0x0000000065b61fff] reserved
+> 	09:14:44  BIOS-e820: [mem 0x0000000065b62000-0x0000000065ed0fff] usable
+> 	09:14:44  BIOS-e820: [mem 0x0000000065ed1000-0x0000000065f2bfff] reserved
+> 	09:14:44  BIOS-e820: [mem 0x0000000065f2c000-0x0000000066621fff] usable
+> 	09:14:44  BIOS-e820: [mem 0x0000000066622000-0x0000000066630fff] reserved
+> 	09:14:44  BIOS-e820: [mem 0x0000000066631000-0x0000000068107fff] usable
+> 	09:14:44  BIOS-e820: [mem 0x0000000068108000-0x000000006819dfff] ACPI data
+> 	09:14:44  BIOS-e820: [mem 0x000000006819e000-0x000000006a48cfff] usable
+> 	09:14:44  BIOS-e820: [mem 0x000000006a48d000-0x000000006c58cfff] reserved
+> 	09:14:44  BIOS-e820: [mem 0x000000006c58d000-0x000000006c5dcfff] ACPI data
+> 	09:14:44  BIOS-e820: [mem 0x000000006c5dd000-0x000000006cfdcfff] ACPI NVS
+> 	09:14:44  BIOS-e820: [mem 0x000000006cfdd000-0x000000006e9fcfff] reserved
+> 	09:14:44  BIOS-e820: [mem 0x000000006e9fd000-0x000000006fffffff] usable
+> 	09:14:44  BIOS-e820: [mem 0x0000000070000000-0x000000008fffffff] reserved
+> 	09:14:44  BIOS-e820: [mem 0x00000000fd000000-0x00000000fe7fffff] reserved
+> 	09:14:44  BIOS-e820: [mem 0x00000000fed20000-0x00000000fed44fff] reserved
+> 	09:14:44  BIOS-e820: [mem 0x00000000ff000000-0x00000000ffffffff] reserved
+> 	09:14:44  BIOS-e820: [mem 0x0000000100000000-0x000000107fff655f] usable
+> 	09:14:44  BIOS-e820: [mem 0x000000107fff6560-0x000000107fff656f] type 128
+> 	09:14:44  BIOS-e820: [mem 0x000000107fff6570-0x000000107fffffff] usable
+> 	09:14:44  random: crng init done
+> 	09:14:44  ------------[ cut here ]------------
+> 	09:14:44 WARNING: CPU: 0 PID: 0 at mm/memblock.c:668 memblock_add_range (mm/memblock.c:668)
+> 	09:14:44  Modules linked in:
+> 	09:14:44  Tainted: [S]=CPU_OUT_OF_SPEC
+> 	09:14:44 RIP: 0010:memblock_add_range (mm/memblock.c:668)
+> 	09:14:44 Code: 28 80 3c 01 00 0f 84 04 fd ff ff 4c 89 ef e8 6c 77 09 00 e9 f7 fc ff ff 0f 0b 83 7c 24 1c 00 0f 85 9c fd ff ff e9 c5 fd ff ff <0f> 0b e9 be fd ff ff 44 89 f1 80 e1 07 80 c1 03 38 c1 0f 8c 6b fd
+> 	All code
+> 	========
+> 	0:    28 80 3c 01 00 0f        sub    %al,0xf00013c(%rax)
+> 	6:    84 04 fd ff ff 4c 89     test   %al,-0x76b30001(,%rdi,8)
+> 	d:    ef                       out    %eax,(%dx)
+> 	e:    e8 6c 77 09 00           call   0x9777f
+> 	13:    e9 f7 fc ff ff           jmp    0xfffffffffffffd0f
+> 	18:    0f 0b                    ud2
+> 	1a:    83 7c 24 1c 00           cmpl   $0x0,0x1c(%rsp)
+> 	1f:    0f 85 9c fd ff ff        jne    0xfffffffffffffdc1
+> 	25:    e9 c5 fd ff ff           jmp    0xfffffffffffffdef
+> 	2a:*    0f 0b                    ud2            <-- trapping instruction
+> 	2c:    e9 be fd ff ff           jmp    0xfffffffffffffdef
+> 	31:    44 89 f1                 mov    %r14d,%ecx
+> 	34:    80 e1 07                 and    $0x7,%cl
+> 	37:    80 c1 03                 add    $0x3,%cl
+> 	3a:    38 c1                    cmp    %al,%cl
+> 	3c:    0f                       .byte 0xf
+> 	3d:    8c 6b fd                 mov    %gs,-0x3(%rbx)
+>
+> 	Code starting with the faulting instruction
+> 	===========================================
+> 	0:    0f 0b                    ud2
+> 	2:    e9 be fd ff ff           jmp    0xfffffffffffffdc5
+> 	7:    44 89 f1                 mov    %r14d,%ecx
+> 	a:    80 e1 07                 and    $0x7,%cl
+> 	d:    80 c1 03                 add    $0x3,%cl
+> 	10:    38 c1                    cmp    %al,%cl
+> 	12:    0f                       .byte 0xf
+> 	13:    8c 6b fd                 mov    %gs,-0x3(%rbx)
+> 	09:14:44  RSP: 0000:ffffffff85e07d48 EFLAGS: 00010083 ORIG_RAX: 0000000000000000
+> 	09:14:44  RAX: 0000000000000020 RBX: 0000000000001c00 RCX: dffffc0000000000
+> 	09:14:44  RDX: 000000000009f000 RSI: 000000000009d000 RDI: ffffffff8685ebf8
+> 	09:14:44  RBP: 0000000000000002 R08: 0000000000000020 R09: 0000000000000000
+> 	09:14:44  R10: ffffffffff200570 R11: fffffbffffe400b2 R12: 000000000009d000
+> 	09:14:44  R13: 0000000000100000 R14: ffffffff8edf5ce4 R15: ffffffff8edf5ce0
+> 	09:14:44  FS:  0000000000000000(0000) GS:0000000000000000(0000) knlGS:0000000000000000
+> 	09:14:44  CR2: ffff888059e2dff8 CR3: 000000005bc1d000 CR4: 00000000000000b0
+> 	09:14:44  Call Trace:
+> 	09:14:44   <TASK>
+> 	09:14:44 ? __memblock_reserve (mm/memblock.c:936)
+> 	09:14:44 ? add_early_ima_buffer (arch/x86/kernel/setup.c:413)
+> 	09:14:44 ? parse_setup_data (arch/x86/kernel/setup.c:500)
+> 	09:14:44 ? setup_arch (arch/x86/kernel/setup.c:245 arch/x86/kernel/setup.c:958)
+> 	09:14:44 ? start_kernel (init/main.c:922)
+> 	09:14:44 ? x86_64_start_reservations (arch/x86/kernel/ebda.c:57)
+> 	09:14:44 ? x86_64_start_kernel (arch/x86/kernel/head64.c:231)
+> 	09:14:44 ? common_startup_64 (arch/x86/kernel/head_64.S:419)
+> 	09:14:44   </TASK>
+> 	....
+> 	Memory: 49640988K/66772816K available (54946K kernel code, 19058K rwdata, 22636K rodata, 2940K init, 120968K bss, 10650188K reserved, 6291456K cma-reserved)
+>
+> So, there is a memory override, and I am curious about it. Do you think it
 
-https://elixir.bootlin.com/linux/v6.17.1/A/ident/EOPNOTSUPP
+Yeah, it seems IMA is reserving a region that overlaps a region reserved
+by something else that doesn't use memblock_reserve_kern().
 
-Notice how ENOPNOTSUPP can be 45, 122, 223, or 95. Returning EL2NSYNC
-or EDQUOT to user space is going to cause confusion...
+> would be useful to expand this warning to dump more information about the
+> issue? (only compiled tested)
+>
+> 	if (flags != MEMBLOCK_NONE && flags != rgn->flags) {
+> 		pr_warn("memblock: Flag mismatch at region [%pa-%pa]\n",
+> 			&rgn->base, &rend);
+> 		pr_warn("  Existing region flags: %#x\n", rgn->flags);
+> 		pr_warn("  New range flags: %#x\n", flags);
+> 		pr_warn("  New range: [%pa-%pa]\n", &base, &end);
+> 		WARN_ON_ONCE(1);
+> 	}
 
-       Andrew
+I suppose this would be useful. I think enabling memblock debug prints
+would also be helpful (using the "memblock=debug" commandline parameter)
+if it doesn't impact your production environment too much.
+
+-- 
+Regards,
+Pratyush Yadav
 
