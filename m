@@ -4,54 +4,87 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FF17CCA476
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 12:20:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6FDECCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 12:24:58 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=D5ir6e1ly7uyYMLlaJ5GUbqIWgqprqQSkOVcsXR2tCo=; b=yK3hUuW4CjRYtaIxfPdwznsx6/
-	U1RNyjE72RteEdbAQMwusfZCnzcUBtGdKkegPSh4b1lasbsdLwfLnPU0FBjOmUzBbm7f+tZF36vd0
-	zQ2MKQ+tVT8s5ZJlWtd3Xm9fiikLrncHVFw2fzBymKQUepGUKAj5r0ggeoUYvsLuit63CpID7U/xX
-	7SESwAusTLjnUUP7VQLQ+XuuVK0wojvwLNmpwapebbMJsw5E7DgaON03X6Of3NuJcS9nVr9/C5Npy
-	hf/6QaydIB5503YYl3ifID98X/J62zTF2tI4BPukRWUCUdw84+kAq0VKnpUHoBYePnsQA4f24dccL
-	PkFve58g==;
+	bh=ri1nfMxiQBO4KBesq7BXBzulmGX4m0aO13eZuQEBwas=; b=uYLrdpijtyvz+7PU3mTpxyOEWJ
+	hURKgiZVJiHWrQy+0LYFMdDWOG5gSvDh557e4ZMftCXyWHYeeCsC/dm8NN7CzTw1LCf7jPX2z51C3
+	5mkUYDaRkVJWmzXIdbhveGGpb+Kx2UcOxvF2z7I3ZQc4s8ADSH1Jf2G0SOgwDEq72aqsXWbBcuyj9
+	uloSwodey9WBo4Pj1MQvc8f3vWFQiyh6doGLySeAaHNq0ezaNN6/hFp4rCm8P18tNWcCRUWedCBEo
+	sdvfKc/HSLqmMn3dWe44kjEw12qtyWcOU7ncZegKPXKIj56q0FP01W4gwNKP83ceJ6lINXyteh4V+
+	rPBi3d9w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8HXa-0000000D6wA-0CIH;
-	Mon, 13 Oct 2025 12:20:38 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8HXX-0000000D6ud-0NCE
+	id 1v8Hbf-0000000D7L6-3wHL;
+	Mon, 13 Oct 2025 12:24:51 +0000
+Received: from fllvem-ot03.ext.ti.com ([198.47.19.245])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v8Hbc-0000000D7KJ-3KH6
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 12:20:36 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 7DA97113E;
-	Mon, 13 Oct 2025 05:20:23 -0700 (PDT)
-Received: from [10.1.196.46] (e134344.arm.com [10.1.196.46])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 6A4993F738;
-	Mon, 13 Oct 2025 05:20:30 -0700 (PDT)
-Message-ID: <25a19af8-2026-45b6-8d0f-42c371c8ff95@arm.com>
-Date: Mon, 13 Oct 2025 13:20:29 +0100
+	Mon, 13 Oct 2025 12:24:50 +0000
+Received: from fllvem-sh04.itg.ti.com ([10.64.41.54])
+	by fllvem-ot03.ext.ti.com (8.15.2/8.15.2) with ESMTP id 59DCOHts819446;
+	Mon, 13 Oct 2025 07:24:17 -0500
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
+	s=ti-com-17Q1; t=1760358257;
+	bh=ri1nfMxiQBO4KBesq7BXBzulmGX4m0aO13eZuQEBwas=;
+	h=Date:Subject:To:CC:References:From:In-Reply-To;
+	b=vi+kvkAZ5nS/O7iiVbdUigRSBJAt7vLc69XxGWip5mV4v0pNaF9I0iqrJKm8GsLvG
+	 Gkd8uHellZFBbNj3Tf6vvnzeAcKa5hzYbLxKlWzMebIuGI553X+Z2DS826U0q/2Ot1
+	 rAQILyHV6Ls+QPuHlAHa8uLOuwtEVicV+Z+Gaq20=
+Received: from DFLE103.ent.ti.com (dfle103.ent.ti.com [10.64.6.24])
+	by fllvem-sh04.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 59DCOGMD2951310
+	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-SHA256 bits=128 verify=FAIL);
+	Mon, 13 Oct 2025 07:24:16 -0500
+Received: from DFLE204.ent.ti.com (10.64.6.62) by DFLE103.ent.ti.com
+ (10.64.6.24) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256_P256) id 15.1.2507.55; Mon, 13
+ Oct 2025 07:24:16 -0500
+Received: from lelvem-mr05.itg.ti.com (10.180.75.9) by DFLE204.ent.ti.com
+ (10.64.6.62) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
+ Transport; Mon, 13 Oct 2025 07:24:16 -0500
+Received: from [172.24.233.14] (shark.dhcp.ti.com [172.24.233.14])
+	by lelvem-mr05.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59DCOCkV2045134;
+	Mon, 13 Oct 2025 07:24:12 -0500
+Message-ID: <88b11fb5-91c0-4ab2-9e63-a4d2b745468b@ti.com>
+Date: Mon, 13 Oct 2025 17:54:11 +0530
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] KVM: arm64: selftests: Sync ID_AA64PFR1, MPIDR, CLIDR in
- guest
-To: Zenghui Yu <zenghui.yu@linux.dev>, kvmarm@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org
-Cc: maz@kernel.org, oliver.upton@linux.dev, joey.gouly@arm.com,
- suzuki.poulose@arm.com
-References: <20251012154352.61133-1-zenghui.yu@linux.dev>
-From: Ben Horgan <ben.horgan@arm.com>
+Subject: Re: [PATCH v2] driver core: fw_devlink: Don't warn about sync_state()
+ pending
+To: Ulf Hansson <ulf.hansson@linaro.org>,
+        Saravana Kannan
+	<saravanak@google.com>,
+        "Rafael J . Wysocki" <rafael@kernel.org>,
+        Greg
+ Kroah-Hartman <gregkh@linuxfoundation.org>,
+        <linux-pm@vger.kernel.org>
+CC: Geert Uytterhoeven <geert@linux-m68k.org>,
+        Nicolas Frattaroli
+	<nicolas.frattaroli@collabora.com>,
+        Heiko Stuebner <heiko@sntech.de>,
+        Sebastian Reichel <sebastian.reichel@collabora.com>,
+        Diederik de Haas
+	<didi.debian@cknow.org>,
+        Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>,
+        Jon Hunter <jonathanh@nvidia.com>,
+        <linux-arm-kernel@lists.infradead.org>, <linux-kernel@vger.kernel.org>
+References: <20251007094312.590819-1-ulf.hansson@linaro.org>
 Content-Language: en-US
-In-Reply-To: <20251012154352.61133-1-zenghui.yu@linux.dev>
-Content-Type: text/plain; charset=UTF-8
+From: Sebin Francis <sebin.francis@ti.com>
+In-Reply-To: <20251007094312.590819-1-ulf.hansson@linaro.org>
+Content-Type: text/plain; charset="UTF-8"; format=flowed
 Content-Transfer-Encoding: 7bit
+X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_052035_172872_B7F5DA0A 
-X-CRM114-Status: GOOD (  12.46  )
+X-CRM114-CacheID: sfid-20251013_052449_036511_34029588 
+X-CRM114-Status: GOOD (  22.74  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -66,47 +99,54 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Zenghui,
+Hi,
 
-On 10/12/25 16:43, Zenghui Yu wrote:
-> We forgot to sync several registers (ID_AA64PFR1, MPIDR, CLIDR) in guest to
-> make sure that the guest had seen the written value.
+On 07/10/25 15:13, Ulf Hansson wrote:
+> Due to the wider deployment of the ->sync_state() support, for PM domains
+> for example, we are receiving reports about the sync_state() pending
+> message that is being logged in fw_devlink_dev_sync_state(). In particular
+> as it's printed at the warning level, which is questionable.
 > 
-> Add them to the list.
+> Even if it certainly is useful to know that the ->sync_state() condition
+> could not be met, there may be nothing wrong with it. For example, a driver
+> may be built as module and are still waiting to be initialized/probed. For
+> this reason let's move to the info level for now.
 > 
-> Signed-off-by: Zenghui Yu <zenghui.yu@linux.dev>
+> Reported-by: Geert Uytterhoeven <geert@linux-m68k.org>
+> Reported-by: Sebin Francis <sebin.francis@ti.com>
+> Reported-by: Diederik de Haas <didi.debian@cknow.org>
+> Reported-by: Jon Hunter <jonathanh@nvidia.com>
+> Reviewed-by: Tomi Valkeinen <tomi.valkeinen@ideasonboard.com>
+> Signed-off-by: Ulf Hansson <ulf.hansson@linaro.org>
 > ---
->  tools/testing/selftests/kvm/arm64/set_id_regs.c | 3 +++
->  1 file changed, 3 insertions(+)
+
+Reviewed-by: Sebin Francis <sebin.francis@ti.com>
+Tested-by: Sebin Francis <sebin.francis@ti.com>
+
+-- Sebin
+
 > 
-> diff --git a/tools/testing/selftests/kvm/arm64/set_id_regs.c b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-> index 8ff1e853f7f8..5e24f77868b5 100644
-> --- a/tools/testing/selftests/kvm/arm64/set_id_regs.c
-> +++ b/tools/testing/selftests/kvm/arm64/set_id_regs.c
-> @@ -249,11 +249,14 @@ static void guest_code(void)
->  	GUEST_REG_SYNC(SYS_ID_AA64ISAR2_EL1);
->  	GUEST_REG_SYNC(SYS_ID_AA64ISAR3_EL1);
->  	GUEST_REG_SYNC(SYS_ID_AA64PFR0_EL1);
-> +	GUEST_REG_SYNC(SYS_ID_AA64PFR1_EL1);
->  	GUEST_REG_SYNC(SYS_ID_AA64MMFR0_EL1);
->  	GUEST_REG_SYNC(SYS_ID_AA64MMFR1_EL1);
->  	GUEST_REG_SYNC(SYS_ID_AA64MMFR2_EL1);
->  	GUEST_REG_SYNC(SYS_ID_AA64MMFR3_EL1);
->  	GUEST_REG_SYNC(SYS_ID_AA64ZFR0_EL1);
-> +	GUEST_REG_SYNC(SYS_MPIDR_EL1);
-> +	GUEST_REG_SYNC(SYS_CLIDR_EL1);
-
-Why did you choose this position in the list for these 2?
-
->  	GUEST_REG_SYNC(SYS_CTR_EL0);
->  	GUEST_REG_SYNC(SYS_MIDR_EL1);
->  	GUEST_REG_SYNC(SYS_REVIDR_EL1);
-
-Looks good to me.
-
-Reviewed-By: Ben Horgan <ben.horgan@arm.com>
-Thanks,
-
-Ben
-
+> Changes in v2:
+> 	- Due to discussions on v1 and because the default Kconfig is to use the
+> 	FW_DEVLINK_SYNC_STATE_STRICT, I suggest that for now it may be best to
+> 	keep the warning level for the "Timed out.." print and only change the
+> 	"sync_state pending..." message.
+> 
+> ---
+>   drivers/base/core.c | 2 +-
+>   1 file changed, 1 insertion(+), 1 deletion(-)
+> 
+> diff --git a/drivers/base/core.c b/drivers/base/core.c
+> index d22d6b23e758..c62e428b95b0 100644
+> --- a/drivers/base/core.c
+> +++ b/drivers/base/core.c
+> @@ -1784,7 +1784,7 @@ static int fw_devlink_dev_sync_state(struct device *dev, void *data)
+>   		return 0;
+>   
+>   	if (fw_devlink_sync_state == FW_DEVLINK_SYNC_STATE_STRICT) {
+> -		dev_warn(sup, "sync_state() pending due to %s\n",
+> +		dev_info(sup, "sync_state() pending due to %s\n",
+>   			 dev_name(link->consumer));
+>   		return 0;
+>   	}
 
