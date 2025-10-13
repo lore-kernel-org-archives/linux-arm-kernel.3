@@ -4,59 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EC225CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 09:30:35 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 965B6CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 09:32:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bpxs6MG6i1wVYZKx/xNF8eO6+1SI/XGl9zOQyfci3W0=; b=C1brMinQj5GA6ztKPG3typ12x/
-	t0eA0ho/Daq2BAwdeL9dvY6sU3ySDftQOkn+VX/tE8MrC2nJoYax63xXyaSpJ+LCORcmYhBguN7YD
-	VeMXmkHEohMNmMFQUxinL8sSB6ZJXxn0K9zrV+MQXpLWUoca20SGgTy9Z8EJpRQyVHhG5tW87X0CR
-	jTVSq9doYt1NptpksGLuZxBmMOqboP2ayDMk1SKtdqN0RBkI+ucA/c27hk44o/9NG44OEH531O6AS
-	JwmW8GjexohVXZMPkmEfYyKJqI23S7q6drmWUzMGX8FgUqiIDZG/wlzz2p4/BJ/Eghor2z94L0Eyk
-	8bLVkRqA==;
+	bh=RomrXBxa/0J0s0xCsFH109XZq08Sm+LyevRYIDaVrII=; b=hOYCZZrSXNhbPv5CnRaQbo5Eox
+	y3LbNbung5mkil3PbA/B17eWThbkLXyvyNiqdCJITksZp/aNx6kql0Wou6o2PKvdiXSXVCKnPoj1/
+	bHZjqpZdiYXGu7bEjWa5yW2eBLLvmavAx2fQIUcEBdi6EaRMjrDs6alOtsTj6G9Y0tnHTD2ccIcGb
+	jYhbRjq3c3DdrQyY+8eD/yy6gnzJa7dvIfDfpk29s2qupwuVSL+3u+POYw7F9cBtGP3xj3tpxkepj
+	rqqvzJYoi2MTquFvezjo1pu/ma0iXRdGtAZgdp8dDc7rgUVmrsxRWSfkg2t3AnScbgAgIPBDJoF54
+	4WW1fw4A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Esv-0000000Ck8Q-3IQz;
-	Mon, 13 Oct 2025 09:30:29 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Est-0000000Ck83-2NHr
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 09:30:28 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id C69D212FC;
-	Mon, 13 Oct 2025 02:30:18 -0700 (PDT)
-Received: from [10.57.83.188] (unknown [10.57.83.188])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4F2BA3F6A8;
-	Mon, 13 Oct 2025 02:30:23 -0700 (PDT)
-Message-ID: <80156b07-245b-4668-9ad0-bb88cae5e85a@arm.com>
-Date: Mon, 13 Oct 2025 10:30:20 +0100
+	id 1v8Eua-0000000CkJY-207l;
+	Mon, 13 Oct 2025 09:32:12 +0000
+Received: from bali.collaboradmins.com ([148.251.105.195])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v8EuY-0000000CkIn-0qfX;
+	Mon, 13 Oct 2025 09:32:11 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1760347927;
+	bh=gJp0KJN5JsnAs44g7Qv8Flla0ZPEoI3EDaHQ5Ie/TbE=;
+	h=From:To:Cc:In-Reply-To:References:Subject:Date:From;
+	b=oWA4MZYBiGExivnYMXUDxTPU+xKdquwfvIIDwrBYfG+KGl9zWe9TAn80ESph/rNit
+	 +wn9QGLV+81ZMhtsp9Mq1T0uxX3r2eInBu0BCsFGY2M9ZBE8fnwTonMf2Bt+HufGpZ
+	 UHqRfvVxkV/Cet+U/y+oqGUxKMJTamPfdtk2SOuh+QZfAV6JxaHjGnTYA5VfbPfeWn
+	 QzvQtrbMTRUSijnDknZ0Nl+HzQ56kRKoL9z2/r1BQNjyv/AYqzKXOQAAcXypfxozmQ
+	 WfQWASb+hJiB264YsedQBiHVjcGBbhEZrnnLKGurpispFL+zUGJ9Fo7qGUBWM3JObN
+	 CTu6ShfYITw+w==
+Received: from IcarusMOD.eternityproject.eu (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	(Authenticated sender: kholk11)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 847BF17E0023;
+	Mon, 13 Oct 2025 11:32:05 +0200 (CEST)
+From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
+To: kernel@collabora.com, Michael Turquette <mturquette@baylibre.com>, 
+ Stephen Boyd <sboyd@kernel.org>, Rob Herring <robh@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Matthias Brugger <matthias.bgg@gmail.com>, Ikjoon Jang <ikjn@chromium.org>, 
+ Enric Balletbo i Serra <eballetbo@kernel.org>, 
+ Chen-Yu Tsai <wenst@chromium.org>, Weiyi Lu <weiyi.lu@mediatek.com>, 
+ Eugen Hristev <eugen.hristev@linaro.org>, 
+ Liam Girdwood <lgirdwood@gmail.com>, Mark Brown <broonie@kernel.org>, 
+ Julien Massot <jmassot@collabora.com>, Sean Wang <sean.wang@kernel.org>, 
+ Linus Walleij <linus.walleij@linaro.org>, 
+ Julien Massot <julien.massot@collabora.com>
+Cc: linux-clk@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-mediatek@lists.infradead.org, linux-sound@vger.kernel.org, 
+ linux-gpio@vger.kernel.org
+In-Reply-To: <20250826-mtk-dtb-warnings-v3-0-20e89886a20e@collabora.com>
+References: <20250826-mtk-dtb-warnings-v3-0-20e89886a20e@collabora.com>
+Subject: Re: (subset) [PATCH v3 0/6] MediaTek devicetree/bindings warnings
+ sanitization second round
+Message-Id: <176034792547.20821.16275876241287095581.b4-ty@collabora.com>
+Date: Mon, 13 Oct 2025 11:32:05 +0200
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v2 2/2] arm64/mm: Rename try_pgd_pgtable_alloc_init_mm
-Content-Language: en-GB
-To: Linu Cherian <linu.cherian@arm.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
- Kevin Brodsky <kevin.brodsky@arm.com>,
- Zhenhua Huang <quic_zhenhuah@quicinc.com>, Dev Jain <dev.jain@arm.com>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
- Yang Shi <yang@os.amperecomputing.com>
-References: <20251013080220.2027757-1-linu.cherian@arm.com>
- <20251013080220.2027757-3-linu.cherian@arm.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20251013080220.2027757-3-linu.cherian@arm.com>
-Content-Type: text/plain; charset=UTF-8
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_023027_646732_9571A00E 
-X-CRM114-Status: GOOD (  13.91  )
+X-CRM114-CacheID: sfid-20251013_023210_402905_07CC7148 
+X-CRM114-Status: UNSURE (   9.34  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -71,57 +88,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 13/10/2025 09:02, Linu Cherian wrote:
-> With BUG_ON in pgd_pgtable_alloc_init_mm moved up to higher layer,
-> gfp flags is the only difference between try_pgd_pgtable_alloc_init_mm
-> and pgd_pgtable_alloc_init_mm. Hence rename the "try" version
-> to pgd_pgtable_alloc_init_mm_gfp.
+On Tue, 26 Aug 2025 09:39:33 +0200, Julien Massot wrote:
+> This patch series continues the effort to address Device Tree validation
+> warnings for MediaTek platforms, with a focus on MT8183. It follows the
+> initial cleanup series by Angelo
+> (https://www.spinics.net/lists/kernel/msg5780177.html).
 > 
-> Signed-off-by: Linu Cherian <linu.cherian@arm.com>
-
-One nit below, but either way:
-
-Reviewed-by: Ryan Roberts <ryan.roberts@arm.com>
-
-> ---
->  arch/arm64/mm/mmu.c | 6 +++---
->  1 file changed, 3 insertions(+), 3 deletions(-)
+> The patches in this set eliminate several of the remaining warnings by
+> improving or converting DT bindings to DT schema, adding missing properties,
+> and updating device tree files accordingly.
 > 
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index 34602339c1bf..ede591346196 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -559,7 +559,7 @@ static phys_addr_t __pgd_pgtable_alloc(struct mm_struct *mm, gfp_t gfp,
->  }
->  
->  static phys_addr_t
-> -try_pgd_pgtable_alloc_init_mm(enum pgtable_type pgtable_type, gfp_t gfp)
-> +pgd_pgtable_alloc_init_mm_gfp(enum pgtable_type pgtable_type, gfp_t gfp)
->  {
->  	return __pgd_pgtable_alloc(&init_mm, gfp, pgtable_type);
->  }
+> [...]
 
-nit: Given this renaming, it might be clearer for pgd_pgtable_alloc_init_mm() to
-call pgd_pgtable_alloc_init_mm_gfp() instead of calling __pgd_pgtable_alloc()
-directly?
+Applied to v6.18-next/dts64, thanks!
 
-> @@ -594,7 +594,7 @@ static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp, bool to_cont)
->  	pte_t *ptep;
->  	int i;
->  
-> -	pte_phys = try_pgd_pgtable_alloc_init_mm(TABLE_PTE, gfp);
-> +	pte_phys = pgd_pgtable_alloc_init_mm_gfp(TABLE_PTE, gfp);
->  	if (pte_phys == INVALID_PHYS_ADDR)
->  		return -ENOMEM;
->  	ptep = (pte_t *)phys_to_virt(pte_phys);
-> @@ -639,7 +639,7 @@ static int split_pud(pud_t *pudp, pud_t pud, gfp_t gfp, bool to_cont)
->  	pmd_t *pmdp;
->  	int i;
->  
-> -	pmd_phys = try_pgd_pgtable_alloc_init_mm(TABLE_PMD, gfp);
-> +	pmd_phys = pgd_pgtable_alloc_init_mm_gfp(TABLE_PMD, gfp);
->  	if (pmd_phys == INVALID_PHYS_ADDR)
->  		return -ENOMEM;
->  	pmdp = (pmd_t *)phys_to_virt(pmd_phys);
+[4/6] arm64: dts: mt8183: Rename nodes to match audiosys DT schema
+      commit: 872fa3ea0c0e4602e4775d0fbe84ed3d6aa60e67
+
+Cheers,
+Angelo
+
 
 
