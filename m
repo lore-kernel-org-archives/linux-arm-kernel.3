@@ -4,80 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A609ACCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 20:51:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 670DDCCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 20:52:02 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=6DDgLAiuTXzY8R6BOnFwxchMXmp9+zPBlIoePYb2/ig=; b=gdc7/jj3tin305pTVpxlXZw/Tg
-	dUfeS2wOZBH4YTpBHGNxP5otek0+3WTdfKRQELsMm8KmIhI337ONtnnXLIel2WNXR2L5mX9/ZTLGb
-	7oj4tMHsJ7QEvGX/YJHox3lyZYqNf/cEW+qztsTpI3IfWFs9e6z6TGp6w5iQMzoi6k6BuVeKa8xF3
-	hfBB9eCAYqko//PjDqHg2ChWGfbL5Gfh0QEnmJfQwK1X0o8wcWUQPf1QzQoUNzu1LU8hiaJWKhJuY
-	j55uz/rloQ/rLK0b7H0U26bC5SQ8ds+9bEpbfCUY6wuSxpdiUvshkIhIzzPK3P6ks/dkBtPUJAkut
-	bwWuY/fA==;
+	bh=LcidvqHM0DTpowb0GHOMB/24jrUCyn/KdoJtskIHTFY=; b=aAwjlV+lGYu/FuTCCJJOpdCJHq
+	g+Vj1wsmwsZeJ9HnloOs64Cwch2JlzZlv8bhIynL4f26np0u2A7qIjfCHM011ZIBYKGSvfqXJMavp
+	Ls44WM2c6D5TA1l7l8wlR0Bg6ctxX1MwgREWyIlMtPo+xgCtT1KQznuvIU3Ylu+QlGg7ZkAybjnxE
+	BZeS/fACh4Q1vHu2wsrnKIKLR5T4z4XZi1E+xXX62sdbOvAreyHqhAULGNqLjI8nUNr2Cekjz4bj/
+	bv0A4f22Zm811dDLoU+VjM/dbmIdy/vZGc8gi8pB1jreYgtHG5gQFhFAwygnshIyv3ZCmiGEy8y6v
+	OY4M5TnQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8PWK-0000000ETgM-0tE5;
-	Mon, 13 Oct 2025 20:51:52 +0000
-Received: from mail-wm1-x329.google.com ([2a00:1450:4864:20::329])
+	id 1v8PWN-0000000ETqE-2C44;
+	Mon, 13 Oct 2025 20:51:55 +0000
+Received: from mail-wr1-x42a.google.com ([2a00:1450:4864:20::42a])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8PWH-0000000ETeD-332i
+	id 1v8PWL-0000000ETgE-0R4c
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 20:51:50 +0000
-Received: by mail-wm1-x329.google.com with SMTP id 5b1f17b1804b1-46fc5e54cceso9869675e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 13:51:49 -0700 (PDT)
+	Mon, 13 Oct 2025 20:51:54 +0000
+Received: by mail-wr1-x42a.google.com with SMTP id ffacd0b85a97d-3f0308469a4so2471412f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 13:51:52 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760388708; x=1760993508; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1760388711; x=1760993511; darn=lists.infradead.org;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=6DDgLAiuTXzY8R6BOnFwxchMXmp9+zPBlIoePYb2/ig=;
-        b=fMq/pC4As4D7VrBOoXJ9zLnk16zTkh/V4JbC1/X4r8tRmUy1+WuhtYFpR37Dk/nkZX
-         if6gjE/qiGn+FgL9wvod8+SKMWodD+94wcTlztCG1/4r/377ZltK0CVTa0bXGWORE/ho
-         mijr4IwyWvh1ymkMzqPI9qJbwmOtkB6GpRHPqBA4d4KwGBLG/PkvjWVMrU3/HF2Z9G5C
-         TAAxmOKbZXuDbvYtBAtb5Su7TFP+JIhsOvL9l1tQpVobVgsAmpxwxISOwN7gC9nZa5kK
-         GdIeF0T7fFWUF7O1zF1WDx8LmFST3I93IaV6uoBYWVq9MZTM94wi5GVx6d2JCLFjW/Ba
-         gdxA==
+        bh=LcidvqHM0DTpowb0GHOMB/24jrUCyn/KdoJtskIHTFY=;
+        b=dxAYgUSnl6yC0HtMFP5cMHKnxsd0LDEOTGr5iPejfxmpKkIutCycRvwpwr8lQlt8HB
+         vYWHnZNKWmodjusmIBuaFhySjH7eKne2TuvzR6y/vfGHPYfAoJuwGgkrznPhc1uM/JuL
+         /w6VKgAjnyn/GmAvFy+0LXhqXzG1UHCVddhvmxyBfW8+ATHuZST5ElrjyXXpl3ntOSxR
+         kvaKB57fwC0kGY37orzB5JXrIl7A+EmrFTI0FOgzeW6jf1P0lYeAHQ5pZA4gOJb9q51+
+         vR7oolSi+9xlneyVoM4RknHLsCLO3F1g7rg++zzSPw64TMNrcQjIGpA5awwsJ2A8JUy/
+         qGaA==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760388708; x=1760993508;
+        d=1e100.net; s=20230601; t=1760388711; x=1760993511;
         h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
          :mime-version:subject:date:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=6DDgLAiuTXzY8R6BOnFwxchMXmp9+zPBlIoePYb2/ig=;
-        b=wiKbz9zYDWdP6BjEpfEsFv0eN8jmWvfWfGWhDORKyBp6A2KXKMJX4pDemgma/UjjEb
-         QCocC88+46GsDJ+6zBKZQ9ok5XOqD5PcyxC/b0H/aNnDsomn6ctqRu1xjCbyVKZh3S06
-         9hSnG4+48ZY2vt/d4LqcxvoCgh61HCmoKoh/ia/Ntv3HtzSrbV9tSJszKZ+eMh+iq/yR
-         ZGi8eeHPeTq3tiSl4BIEq1RtW4JMFxeXEcasuKYh04vVZkN+93duoDqSrvOdv6ubrsD9
-         Ydcor0zNO5QMWO3Vub9kwJNQ1gkDbiQIInmQEC9mFbGmjzMw/XRhmqU8wZKXZ/dL2GAD
-         rl0Q==
-X-Forwarded-Encrypted: i=1; AJvYcCVtDFQ39YX4OZ/6XREXDP7MC4HkTzM3pGt0fQjsUSXj+Kisgw8GxPM3gP4Qat47zYPyBUnxXqCoIIpXB8K9S8Gb@lists.infradead.org
-X-Gm-Message-State: AOJu0YyRtBU5F4PczRp4Isp75r4saOtvQ92n+9V0a90lkSQJ3vf/FEw6
-	FzNT9Qdh3SWgxSYkQDQmGkmorVEFdV4ZA6nmyxr6sFplDuoYh5WI6nLDgn97x0hXxaI=
-X-Gm-Gg: ASbGnculH5a9ZwAFL4ClwclnV5oa0J+XB7zxYYvtTndaIo44iJrKWZao3W3R060lz/K
-	49SeuSY/wPzrPLXP6lyoWbcooC3gtPMhz22bIiNl21X4rF9pzWbVnsqHsFiJdPh2/m/kbn9oaM4
-	7+dloVHWM9WihhSRwY3SKygDAOYRMvzGduigZr6xS0benexZCGxvVcmFGSBzpvrt2zNB11V3wOj
-	LlCbtIQl7qcBuow6fRZ4qJZhzsNN16S5rummENsZ8EF/uOMD4UwyP0ScPrPnpXzcs/gjcAHekk/
-	rPmFqJlIxt4kXxBQSAR0xUKpR6HG9N4x2GwaL9NlN0090J54xyPnvl9f+bWcbRUP6v/jr7dSYvF
-	t3QxLtLffd61lWlepvB8hu0sqgDp0CMuMlrIUhQegrGrLTQ/fWFupfj/ScZVfJ2av805tt1od3V
-	mQ2wOLsafI5A==
-X-Google-Smtp-Source: AGHT+IELN9yhf47V0yQ/Ag6le4K4Ap2z1yQxwUo/woxIruFIJKIX9OJVJMb+D4gfvG/a7yKD5FReRA==
-X-Received: by 2002:a05:600c:540d:b0:46e:32f5:2d4b with SMTP id 5b1f17b1804b1-46fa9b19f3emr157010075e9.37.1760388708141;
-        Mon, 13 Oct 2025 13:51:48 -0700 (PDT)
+        bh=LcidvqHM0DTpowb0GHOMB/24jrUCyn/KdoJtskIHTFY=;
+        b=OwJ0ANZhj3DDx7pJ2ujgEOwVEdkDosGBhxXr/XXAADBBD3aboLp+PNSSKc/JbMwyIU
+         gLEvazI+Xp/H/pVjuA8rK851yDS8vMsTagLGmjjXSgORBXsF7LXMRb05c53FpYzBFiXl
+         ge62J1JmhHq931e2vmj+pmZ48jsNyuoW4BBissLaAL/j7Zbs7Fnprzcl3/zq/kJAmAvn
+         7usAKzDjRx6kAt7Ije/9W5yZetxerj234EaPJu2HDpd3wCDa8U9KErXRViStseYUiBls
+         vZcY4hx3VhD6GB9b9dCXOihb7151bpnTQPye/fHXsyaeN1snaZ3Nn6EkE1bcKokdRAWq
+         jhZg==
+X-Forwarded-Encrypted: i=1; AJvYcCVyhoWiofSnftEFMsXcdrxJLRxyKWUxiTb/X1C16tHBGf6atpJAd4EoP8iaM+AR4dT9/3bh/V0zRssmYHbZTFsN@lists.infradead.org
+X-Gm-Message-State: AOJu0Yyh/DmsJia/Xdr7r57ZLSoVdPLOaxd3jStHhGFxWowX5B+OLjdq
+	N+lPoxR4JSSAHucVPRdG0x2Kn+7vyoW8kizuNFanQg4xKCPZoeUQ7Dntg6yUATNMzQQ=
+X-Gm-Gg: ASbGncv61DFu+7xuJmZsGKJZYgdhPJ0N9bEPs/b/twl7pO/f08uluXfciI2GNjV4sTf
+	7+bjjlNBdqSofKMpX097H1bvB40LGufv+1Ir8V6VfmmEWkrts74OPlmE/y+psYETBDFoiLB3awO
+	9vFX991uts34q/48ct09lJ9r/yufUVfk3UVk0JaQ7f905OXktg8O62v5NxTftoIxswpLAqL96i8
+	Xz89Gws66jbWuuNjxT98JTZUvFWvnVqYEuK6ipfKTRqfUFPtZWfEDSOM6AI/DIGIC57WvG7LXkn
+	zYAgdCXg9YC3gTVcWBzqGzVSF3au4bIh9eRmQla4Hsyq1SZfyNIjen2DKipeMVuaA6Kj7+FBTkG
+	hMBDOy8+sgNIRSJNA4seiZ23ZYn1xNik3d5OSg/6pY3K53PmBqYrOrKHxgbhxx6oGkyuyydMhQS
+	DaE7yVktRf7g==
+X-Google-Smtp-Source: AGHT+IGR7na4kqfqbnnRja9gaL+GPCruM+aq2vYMgg3ZztoY/GsoH+Vl1WubHAu4JJbPtq9P4Dwh1g==
+X-Received: by 2002:a05:6000:2010:b0:3e8:ee5d:f31e with SMTP id ffacd0b85a97d-42667177f63mr13981151f8f.25.1760388711219;
+        Mon, 13 Oct 2025 13:51:51 -0700 (PDT)
 Received: from gpeter-l.roam.corp.google.com ([145.224.67.171])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46fab3e3206sm133512615e9.4.2025.10.13.13.51.46
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46fab3e3206sm133512615e9.4.2025.10.13.13.51.48
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Oct 2025 13:51:47 -0700 (PDT)
+        Mon, 13 Oct 2025 13:51:49 -0700 (PDT)
 From: Peter Griffin <peter.griffin@linaro.org>
-Date: Mon, 13 Oct 2025 21:51:32 +0100
-Subject: [PATCH 3/9] arm64: dts: exynos: gs101: add sysreg_misc and
- sysreg_hsi0 nodes
+Date: Mon, 13 Oct 2025 21:51:33 +0100
+Subject: [PATCH 4/9] arm64: dts: exynos: gs101: fix clock module unit reg
+ sizes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20251013-automatic-clocks-v1-3-72851ee00300@linaro.org>
+Message-Id: <20251013-automatic-clocks-v1-4-72851ee00300@linaro.org>
 References: <20251013-automatic-clocks-v1-0-72851ee00300@linaro.org>
 In-Reply-To: <20251013-automatic-clocks-v1-0-72851ee00300@linaro.org>
 To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
@@ -95,27 +95,26 @@ Cc: Will McVicker <willmcvicker@google.com>,
  Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
  kernel-team@android.com, Peter Griffin <peter.griffin@linaro.org>
 X-Mailer: b4 0.14.2
-X-Developer-Signature: v=1; a=openpgp-sha256; l=1436;
+X-Developer-Signature: v=1; a=openpgp-sha256; l=3223;
  i=peter.griffin@linaro.org; h=from:subject:message-id;
- bh=HHhcCaMHTmvzw7CLfISLI4i5MO1lY0C65c6w0STPYPU=;
- b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBo7WZYm77RM/chRNqrctG1CL2KsrX4TP79II7qR
- R3dx+knfF6JAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCaO1mWAAKCRDO6LjWAjRy
- utatEACGzMI7+hTvOKj04raOT4wlY2U+PRycjfuwd+1VMl0oIAbw3TC/BR0ikypgLW9GWBz524R
- fqNhVFX0FvtX9bZYy/DT1/jWQgFweq1++m4ei9OGJUvw0F2svuRkzavreEkhwJTHPI8Mh6Bvq7a
- +scuI9cEB93BBxm3d2NwGUYjKiw6ORSFWd01j53P+H38XTql0mL0Gfy/wbTQv3hrlFU0KdFUmxl
- g1f/e64ZDx+yle2K/p8cpPUpLMjjSetpeMsrVGOaCW38m3VnMADs2fux6kkClx8JJAaEORkocki
- ECM++yXPexJ8pNSa8PemcY1TD4VHEnEkudMjMBRChWc4sjduGoW5Lkq7ZzRT3Q3yFNp59J3MXBu
- MaWJGJDvC1X5qhcr2BTwUGWCB3TAs6+LY2YDibxlQqHyLofpeMibhSER0Gmc48n3jyTZBdY9TpZ
- 25wvMBJKP2kCKSg6KhS1YqLRfiHSnLoroU8chpZKolUjsFHyOcFsxM01eu46ybegt0EWuQeJ5vO
- NjlmWPuuxTroAFCqnNbaxaZqbSjvGoDm7pmxCBaFViSDrL0h/4h2pb1N8pbLIoBBUoiu7lydBqk
- A0ZgWq5uP88ZVFSXZzjqlb1/i/tk78rYlVf/dZS9rzz2mcKxavpOFtS2+PgzNJplMYRp78pF3hd
- mUu54unij+I1hjw==
+ bh=HcBB/oM5Ltz/b5+IlSDZKmKzoXnPjplO+rzlk0nxCpU=;
+ b=owEBbQKS/ZANAwAKAc7ouNYCNHK6AcsmYgBo7WZYfzLRdL8VJOj7ItKK0VzjwnPjmQkF16AAH
+ EN/3nR0woKJAjMEAAEKAB0WIQQO/I5vVXh1DVa1SfzO6LjWAjRyugUCaO1mWAAKCRDO6LjWAjRy
+ uoxdD/44noFGVAg6H/7t8IFFPSjfN+O063aUxB39GsQU6dPSmhatkdJzGV8lDDFiiYjGFaqPh0I
+ IuZJX11glmxeVQx9aDqlgiBbHSsm+Xy91xkNhkB/KiTxCywWz4m+NBcY/x3/2bF4UkKSC/1Xwgm
+ XPLBWejL5wGuXpcWfTIcouVM/rn6wV1alCTTovdVfDaNNv8p+FL0lNAp++yZ0ds1cZsy5pM+yTi
+ yMDQvEaI2SxuM7+zrrg1424YtvrWlGQQDUpRV1YoR+Z+v6mVvZ9/WLUJDasiTD23mKjXAyRyHgE
+ AngzcWNnqWf0/Rdn95v4cnEfG62y5MHNIJSyNSGAURkAWT1PAg1/KbaoGBYcxTVG7cy3vY65cBN
+ 5azh4Egd/9JJBmiz3Uu9zu1TQ7El2hXtUEDYS1/l8cO+uh4PbZ3M1nuJRnjEtISs7RVA2d4a770
+ gVeeMgK03WU2FjN1oxD3D5V0ImspjGS5GbqMnc5qsGJ2ke4oqyq0E70BjhTCuT/lWjq1YIKF5fc
+ xHH4r2EGa1yJBXGwFqu4Exsahn+QcKRg6qsAcOVsRm5XWqK0ChbTG2FRiPAhDHkhIvQq7RsdDxj
+ Vt4MF09WvjQje8CY/aUrzvj4EdLctignBH+l9lz8ZZhJJ+Ftv91R9PTobZp5MRV4ehYmvC0Q/Li
+ ViqnyfmXgo8kBQw==
 X-Developer-Key: i=peter.griffin@linaro.org; a=openpgp;
  fpr=0EFC8E6F5578750D56B549FCCEE8B8D6023472BA
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_135149_788997_0B4E86FC 
-X-CRM114-Status: UNSURE (   9.93  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251013_135153_177881_139507DB 
+X-CRM114-Status: GOOD (  10.97  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -130,44 +129,88 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add syscon DT node for the hsi0 and misc sysreg controllers. These will be
-referenced by their respective CMU nodes in future patchs.
+The memory map lists each clock module unit as having a size of
+0x10000. Additionally there are some undocumented registers in this region
+that need to be used for automatic clock gating mode. Some of those
+registers also need to be saved/restored on suspend & resume.
 
+Fixes: 86124c76683e ("arm64: dts: exynos: gs101: enable cmu-hsi2 clock controller")
+Fixes: 4982a4a2092e ("arm64: dts: exynos: gs101: enable cmu-hsi0 clock controller")
+Fixes: 7d66d98b5bf3 ("arm64: dts: exynos: gs101: enable cmu-peric1 clock controller")
+Fixes: e62c706f3aa0 ("arm64: dts: exynos: gs101: enable cmu-peric0 clock controller")
+Fixes: ea89fdf24fd9 ("arm64: dts: exynos: google: Add initial Google gs101 SoC support")
 Signed-off-by: Peter Griffin <peter.griffin@linaro.org>
 ---
- arch/arm64/boot/dts/exynos/google/gs101.dtsi | 12 ++++++++++++
- 1 file changed, 12 insertions(+)
+ arch/arm64/boot/dts/exynos/google/gs101.dtsi | 14 +++++++-------
+ 1 file changed, 7 insertions(+), 7 deletions(-)
 
 diff --git a/arch/arm64/boot/dts/exynos/google/gs101.dtsi b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-index 31c99526470d0bb946d498f7546e70c84ed4845b..d1e3226da6472bb9db766926100a6b9855d7a30c 100644
+index d1e3226da6472bb9db766926100a6b9855d7a30c..1ae965e456665bf05aa1b08269b5dd66b46d200b 100644
 --- a/arch/arm64/boot/dts/exynos/google/gs101.dtsi
 +++ b/arch/arm64/boot/dts/exynos/google/gs101.dtsi
-@@ -295,6 +295,12 @@ cmu_misc: clock-controller@10010000 {
- 			clock-names = "bus", "sss";
- 		};
+@@ -288,7 +288,7 @@ soc: soc@0 {
  
-+		sysreg_misc: syscon@10030000 {
-+			compatible = "google,gs101-misc-sysreg", "syscon";
-+			reg = <0x10030000 0x10000>;
-+			clocks = <&cmu_misc CLK_GOUT_MISC_SYSREG_MISC_PCLK>;
-+		};
-+
- 		timer@10050000 {
- 			compatible = "google,gs101-mct",
- 				     "samsung,exynos4210-mct";
-@@ -1277,6 +1283,12 @@ cmu_hsi0: clock-controller@11000000 {
- 				      "usbdpdbg";
- 		};
+ 		cmu_misc: clock-controller@10010000 {
+ 			compatible = "google,gs101-cmu-misc";
+-			reg = <0x10010000 0x8000>;
++			reg = <0x10010000 0x10000>;
+ 			#clock-cells = <1>;
+ 			clocks = <&cmu_top CLK_DOUT_CMU_MISC_BUS>,
+ 				 <&cmu_top CLK_DOUT_CMU_MISC_SSS>;
+@@ -371,7 +371,7 @@ ppi_cluster2: interrupt-partition-2 {
  
-+		sysreg_hsi0: syscon@11020000 {
-+			compatible = "google,gs101-hsi0-sysreg", "syscon";
-+			reg = <0x11020000 0x10000>;
-+			clocks = <&cmu_hsi0 CLK_GOUT_HSI0_SYSREG_HSI0_PCLK>;
-+		};
-+
- 		usbdrd31_phy: phy@11100000 {
- 			compatible = "google,gs101-usb31drd-phy";
- 			reg = <0x11100000 0x0200>,
+ 		cmu_peric0: clock-controller@10800000 {
+ 			compatible = "google,gs101-cmu-peric0";
+-			reg = <0x10800000 0x4000>;
++			reg = <0x10800000 0x10000>;
+ 			#clock-cells = <1>;
+ 			clocks = <&ext_24_5m>,
+ 				 <&cmu_top CLK_DOUT_CMU_PERIC0_BUS>,
+@@ -917,7 +917,7 @@ spi_14: spi@10a20000 {
+ 
+ 		cmu_peric1: clock-controller@10c00000 {
+ 			compatible = "google,gs101-cmu-peric1";
+-			reg = <0x10c00000 0x4000>;
++			reg = <0x10c00000 0x10000>;
+ 			#clock-cells = <1>;
+ 			clocks = <&ext_24_5m>,
+ 				 <&cmu_top CLK_DOUT_CMU_PERIC1_BUS>,
+@@ -1271,7 +1271,7 @@ spi_13: spi@10d60000 {
+ 
+ 		cmu_hsi0: clock-controller@11000000 {
+ 			compatible = "google,gs101-cmu-hsi0";
+-			reg = <0x11000000 0x4000>;
++			reg = <0x11000000 0x10000>;
+ 			#clock-cells = <1>;
+ 
+ 			clocks = <&ext_24_5m>,
+@@ -1344,7 +1344,7 @@ pinctrl_hsi1: pinctrl@11840000 {
+ 
+ 		cmu_hsi2: clock-controller@14400000 {
+ 			compatible = "google,gs101-cmu-hsi2";
+-			reg = <0x14400000 0x4000>;
++			reg = <0x14400000 0x10000>;
+ 			#clock-cells = <1>;
+ 			clocks = <&ext_24_5m>,
+ 				 <&cmu_top CLK_DOUT_CMU_HSI2_BUS>,
+@@ -1407,7 +1407,7 @@ ufs_0_phy: phy@14704000 {
+ 
+ 		cmu_apm: clock-controller@17400000 {
+ 			compatible = "google,gs101-cmu-apm";
+-			reg = <0x17400000 0x8000>;
++			reg = <0x17400000 0x10000>;
+ 			#clock-cells = <1>;
+ 
+ 			clocks = <&ext_24_5m>;
+@@ -1509,7 +1509,7 @@ pinctrl_gsacore: pinctrl@17a80000 {
+ 
+ 		cmu_top: clock-controller@1e080000 {
+ 			compatible = "google,gs101-cmu-top";
+-			reg = <0x1e080000 0x8000>;
++			reg = <0x1e080000 0x10000>;
+ 			#clock-cells = <1>;
+ 
+ 			clocks = <&ext_24_5m>;
 
 -- 
 2.51.0.760.g7b8bcc2412-goog
