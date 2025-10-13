@@ -4,74 +4,64 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CD7CDCCD18D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 13:42:25 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B73EACCD18D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 13:59:18 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:References:In-Reply-To:Date:Cc:To:From
-	:Subject:Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=gDpPd5UzOQn8zDPGA7FYXf9y+izfyQBl4gvsqPled8k=; b=SsTKJcvoiqERLjrYyfza8T5uJf
-	GWfOlUf3W/7JqxkqY1sP3o31ZF65+qxvg1mUIUDNHVsng2NgYO6zxdm/QB9M6pt26v2G+YZFeiBU7
-	gka039mMYxKqOEPKZFStS2NWb/LBbgaeo+Z5CJbWZneLcoVSDtgPyVdhslDclYE5nN4KzEbXnSEw2
-	EPD8KG5A/RlMWVya59V0MHfNdSpZUMBx56///PJ2Q/kCf3VUlVkUFjl5M1t+Ef+XqLW2YjZPPIuz5
-	c0bdm/BZ8S6mIgHEa9j3/p6js5xys+diXVZLX0Hgj8Q9o294+oU6N0BED9XVFXvQr1/Mi9zh+9HQa
-	/dketJUA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=YZt7y+C27rWuT01oK5a48gIrXwMOpRzW5GVP+yN2dSU=; b=bA7q7Xyggieq6S
+	MupcuvkkLnMPatgC8g3uXEdELPAm0wJ6LoCTEEFdl517buT/BKEBf1Yt+YGPx5X1IOPjmSGQV/ICn
+	lnqBMNWspFgrpEerfKutxrr5HiNpkgZZtpOrIXbsPWrUQWTSorg7GtgAdkOQU+A8bgNo6Xo9fpLNt
+	l1sNvJyCRDnF5w7VoyQgNZFfw2Iby32+gx+iPgn+B2zwo/4Pmgg3RtImn+AthqMOhjeuYytX7Yph1
+	uGtXxCbpqPoXNJ57ZM58Ob2NlGK0Cx7i4gkEVIUEjnOZ7K5ISr9Y6+yVUi1Zz7xQlCeOk05V/HQ/p
+	8IsNHpigQTBKMroE1rMQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Iod-0000000DFjn-0JUo;
-	Mon, 13 Oct 2025 13:42:19 +0000
-Received: from sender4-pp-f112.zoho.com ([136.143.188.112])
+	id 1v8J4y-0000000DHrF-0YIC;
+	Mon, 13 Oct 2025 13:59:12 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8IoX-0000000DFcO-3I3Z;
-	Mon, 13 Oct 2025 13:42:16 +0000
-ARC-Seal: i=1; a=rsa-sha256; t=1760362921; cv=none; 
-	d=zohomail.com; s=zohoarc; 
-	b=XIXkd09YTcHrxyEMy3Q47jCyFRdZdGg7DG/PawiO9mFO9t3j+QNvOECuDBMMf8OY8ZecH6Aig5NBab5wViVuE0Xn4ifoDV6O7Ax6Nva+yk0jiGWzm3gj/Fm8UclkzUuOPXIUskYCj4TPy913l7BWPkcwu8Ubxc2+qm9woMBl+CU=
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=zohomail.com; s=zohoarc; 
-	t=1760362921; h=Content-Type:Content-Transfer-Encoding:Cc:Cc:Date:Date:From:From:In-Reply-To:MIME-Version:Message-ID:References:Subject:Subject:To:To:Message-Id:Reply-To; 
-	bh=gDpPd5UzOQn8zDPGA7FYXf9y+izfyQBl4gvsqPled8k=; 
-	b=KZLBIJiEBTseT5PnJagP7TnThgzIguQKMRE+d5O1+q+QCFVGTiwXQ7MKaj5tBtz/rPPAieZ32iPp0WxsefkdUqLbzruXbNT/nkWwufQh6jE8OZB7ca0gBgoHL1q2vCZ8f4kBi7PAAhNztBrYalYB0i3yGtgms1G8fqfan5tO1jQ=
-ARC-Authentication-Results: i=1; mx.zohomail.com;
-	dkim=pass  header.i=collabora.com;
-	spf=pass  smtp.mailfrom=sjoerd@collabora.com;
-	dmarc=pass header.from=<sjoerd@collabora.com>
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; t=1760362921;
-	s=zohomail; d=collabora.com; i=sjoerd@collabora.com;
-	h=Message-ID:Subject:Subject:From:From:To:To:Cc:Cc:Date:Date:In-Reply-To:References:Content-Type:Content-Transfer-Encoding:MIME-Version:Message-Id:Reply-To;
-	bh=gDpPd5UzOQn8zDPGA7FYXf9y+izfyQBl4gvsqPled8k=;
-	b=hjT4mlMZjMIWKVYikSKVmQYnNeZ5wGoair2n5QNpespSgO7wN5w1rrNzg0r9x4xs
-	s9GP8XPPyEtfMZnBIE7gL6+eaSd5d1nOCTwK4OXYRh/mwjSu8vtFZXHtK/w2sqfmsAF
-	BBJD9gPU7RSQCmYYPl7sa9/uXQrEsTMpEfG/k36M=
-Received: by mx.zohomail.com with SMTPS id 1760362918105978.3996948303734;
-	Mon, 13 Oct 2025 06:41:58 -0700 (PDT)
-Message-ID: <a2eae87efe46ebf397bcec3580eb9bc152b80846.camel@collabora.com>
-Subject: Re: [PATCH v3 04/10] pmdomain: mediatek: Refactor bus protection
- regmaps retrieval
-From: Sjoerd Simons <sjoerd@collabora.com>
-To: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
-	linux-mediatek@lists.infradead.org
-Cc: robh@kernel.org, conor+dt@kernel.org, mbrugger@suse.com, 
-	y.oudjana@protonmail.com, =?ISO-8859-1?Q?N=EDcolas?= "F. R. A. Prado"	
- <nfraprado@collabora.com>, linux-pm@vger.kernel.org,
- ulf.hansson@linaro.org, 	linux-kernel@vger.kernel.org,
- devicetree@vger.kernel.org, 	mandyjh.liu@mediatek.com,
- lihongbo22@huawei.com, wenst@chromium.org, 	matthias.bgg@gmail.com,
- krzk+dt@kernel.org, kernel@collabora.com, 
-	linux-arm-kernel@lists.infradead.org
-Date: Mon, 13 Oct 2025 15:41:49 +0200
-In-Reply-To: <20250805074746.29457-5-angelogioacchino.delregno@collabora.com>
-References: <20250805074746.29457-1-angelogioacchino.delregno@collabora.com>
-	 <20250805074746.29457-5-angelogioacchino.delregno@collabora.com>
-Content-Type: text/plain; charset="UTF-8"
-Content-Transfer-Encoding: quoted-printable
-User-Agent: Evolution 3.56.2-5 
+	id 1v8J4x-0000000DHr1-1Axi;
+	Mon, 13 Oct 2025 13:59:11 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 82294612A8;
+	Mon, 13 Oct 2025 13:59:10 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id A1A45C4CEE7;
+	Mon, 13 Oct 2025 13:59:09 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760363950;
+	bh=OQF+uf4SEvxYvmb15IWXMVY/5y/3pewqBdXN6tQkC3E=;
+	h=From:Subject:Date:To:Cc:From;
+	b=AQqCuYviYzysF6VFw8wkJCpJZyED/68w5OqTamcwnD8W5K5DbDVqXZJMEw8NTGfLF
+	 a4d0BW2V9f4/ydg4/aJfUI//r1Wi1Lc6dmRFlIi45SG+HY5LBimIH4rVtTG0OYAkzo
+	 6YJzoOIm7nB3Jr40jzeHR6h1lcT1e56pFUeqfaRnwfn6lw2r2ZYu3Ftoyedjg0X6oI
+	 nBJ95LN4uXtUcMmMQRd38ng+bZXBVVd8mBwBFWGGn9uIcS26nVNsxqTKkaufmXFB4l
+	 dV9MN4sGeVyuhJRAUlfOVIFtV5v/28o1C64gviMETafaD6M0f5MlRyraX8aQJqMioa
+	 Lg5KPq0udO5Fg==
+From: Lorenzo Bianconi <lorenzo@kernel.org>
+Subject: [PATCH net-next v3 0/3] net: airoha: npu: Introduce support for
+ Airoha 7583 NPU
+Date: Mon, 13 Oct 2025 15:58:48 +0200
+Message-Id: <20251013-airoha-npu-7583-v3-0-00f748b5a0c7@kernel.org>
 MIME-Version: 1.0
-X-ZohoMailClient: External
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_064213_916421_A2CF6476 
-X-CRM114-Status: GOOD (  11.35  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAJgF7WgC/3XNTQrCMBCG4auUWRvJf6sr7yEuQjppg5KURINSe
+ nfTrhRx+X4wz8yQMXnMcGxmSFh89jHUELsG7GjCgMT3tYFTruiBa2J8iqMhYXqQVnWCaIGSCcq
+ 0lhbq1ZTQ+ecmni+1R5/vMb22B4Wt63+rMEKJlC0q5L2jXX+6Ygp428c0wIoV/gm0vwCvADLuj
+ FXWInNfwLIsb/u+z6XwAAAA
+X-Change-ID: 20250926-airoha-npu-7583-63e41301664c
+To: Andrew Lunn <andrew+netdev@lunn.ch>, 
+ "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
+ Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Lorenzo Bianconi <lorenzo@kernel.org>
+Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
+ linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
+X-Mailer: b4 0.14.2
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -86,28 +76,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hey,
+Introduce support for Airoha 7583 SoC NPU.
 
-On Tue, 2025-08-05 at 09:47 +0200, AngeloGioacchino Del Regno wrote:
-> In preparation to add support for new generation SoCs like MT8196,
-> MT6991 and other variants, which require to set bus protection on
-> different busses than the ones found on legacy chips, and to also
-> simplify and reduce memory footprint of this driver, refactor the
-> mechanism to retrieve and use the bus protection regmaps.
->=20
-> This is done by removing the three pointers to struct regmap from
-> struct scpsys_domain (allocated for each power domain) and moving
-> them to the main struct scpsys (allocated per driver instance) as
-> an array of pointers to regmap named **bus_prot.
+---
+Changes in v3:
+- Rebase on top of net-next
+- Link to v2: https://lore.kernel.org/r/20250927-airoha-npu-7583-v2-0-e12fac5cce1f@kernel.org
 
-Trying to boot v6.18.0-rc1 on a Genio 700 EVK using the arm64 defconfig,
-ends up hanging at boot (seemingly when probing MTU3 and/or mmc, but that=
-=C2=A0
-might be a red herring).=C2=A0
+Changes in v2:
+- Introduce airoha_npu_soc_data struct and generalize firmware load
+- Link to v1: https://lore.kernel.org/r/20250926-airoha-npu-7583-v1-0-447e5e2df08d@kernel.org
 
-Either reverting this patch *or* having CONFIG_MTK_MMSYS builtin rather
-then a module seems to solve that.=20
+---
+Lorenzo Bianconi (3):
+      dt-bindings: net: airoha: npu: Add AN7583 support
+      net: airoha: npu: Add airoha_npu_soc_data struct
+      net: airoha: npu: Add 7583 SoC support
 
---=20
-Sjoerd Simons <sjoerd@collabora.com>
+ .../devicetree/bindings/net/airoha,en7581-npu.yaml |  1 +
+ drivers/net/ethernet/airoha/airoha_npu.c           | 93 ++++++++++++++++------
+ 2 files changed, 68 insertions(+), 26 deletions(-)
+---
+base-commit: 18a7e218cfcdca6666e1f7356533e4c988780b57
+change-id: 20250926-airoha-npu-7583-63e41301664c
+
+Best regards,
+-- 
+Lorenzo Bianconi <lorenzo@kernel.org>
+
 
