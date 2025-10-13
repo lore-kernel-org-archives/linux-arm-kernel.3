@@ -4,78 +4,95 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 7EB7CCCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 19:14:39 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 42D2BCCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 19:15:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=tmCRu08IgcbJZYrB4NvC6vwyUprgkKxjzkV72squNuc=; b=trTn3/tNwWfRnSy954Efps7UxL
-	r6rxFUX4jprnMQ9LTf1zJVYB7CMWVW3HxRq1fvfnWTpfYpBDszYJV7beCg9VDhDe6QnHAY5TGTeur
-	Bb+8KbI5Jr47uk2F7oKVA0aqeowhK5ktjvPYvMZRKgGcEWEcy/tQBfzQw7StsA4lyO2PZ7BO+pmPs
-	RDyC4HrWiR7XQWa13NvyU8i9teYHxmAf+H5Ds/6ulq7gN3nQotpNnAlvTQ1XqOBrhmtkVDLqs3iBt
-	aukwjSm2wngW4qBLFgDmKlXzk03kv/IgV0lebkkasRKaZ9tIBx1vwxa5X/F4msUG8TkY08ADtCFBD
-	/x+sHfzg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=lUtG4fYV8VOSGqWxFEwkf8RZ2UUyckF4MGl1rId8mkE=; b=xXwhr8YbiuGPeKnNG+iPNw8vAh
+	/yOTtdTFlL8rvKSQRRCfs0Nhy77D5c2AJiUlD2tvqoNHbvTaZfwm7KIAiX6BFeqX1Z8wDTUTSPcol
+	nG6Xt80qk9/87nbP/jjgal38WwhnbjBZfeYrtqWspCSo5fkmQWrejFmBu3/wJ3bFaRD58PAC+9DGY
+	c+ndRlJvoDTWwpw+jlssFnNBhLmkxl6R4QJpKJAkQacJrNVnhssDdyI0on4yWFhjMs8nMRvXjcnff
+	KPSn4DByzWTi3W1EKjru4Z6oTZOyqNYLYnbPEMGzjHI6IH0V3cAT3fHpVj02Mt4C4yc+Zt3n1X6L4
+	BX6FTPtA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8O09-0000000EGQc-2FT4;
-	Mon, 13 Oct 2025 19:14:33 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1v8O0n-0000000EGY7-3ghc;
+	Mon, 13 Oct 2025 19:15:13 +0000
+Received: from mout-p-102.mailbox.org ([2001:67c:2050:0:465::102])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8O07-0000000EGQ3-1riw
+	id 1v8O0l-0000000EGXZ-1ybp
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 19:14:32 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=tmCRu08IgcbJZYrB4NvC6vwyUprgkKxjzkV72squNuc=; b=Ji5cP4PmaexINKz39ahA6TAIpz
-	50wm9RqjP8VbK6gc2PRWy8EuSIV3+2GEZa2kPTaX5lq5yJmK6+TQgbbMRaWmS11w2LdV6bC/qacjz
-	hXU/yNC+NkSysM5yXd1QYmvMz5WNjsaEnUTZIEhjJvZxpsY4lsy6CPm1Z3CoLbzPfoa0=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1v8Nzz-00ApOd-E3; Mon, 13 Oct 2025 21:14:23 +0200
-Date: Mon, 13 Oct 2025 21:14:23 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Shenwei Wang <shenwei.wang@nxp.com>
-Cc: Bjorn Andersson <andersson@kernel.org>,
-	Mathieu Poirier <mathieu.poirier@linaro.org>,
-	Rob Herring <robh@kernel.org>,
+	Mon, 13 Oct 2025 19:15:12 +0000
+Received: from smtp202.mailbox.org (smtp202.mailbox.org [IPv6:2001:67c:2050:b231:465::202])
+	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
+	(No client certificate requested)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4clmv40tFTz9v66;
+	Mon, 13 Oct 2025 21:02:40 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1760382160;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=lUtG4fYV8VOSGqWxFEwkf8RZ2UUyckF4MGl1rId8mkE=;
+	b=BfjCAX4Z97POtyHHN0ws7NpKpAj3ydeg+FDr1G+do4tsnoGU96s8oASvF5Ex3kxIAWqSnE
+	+8VlDFfMLma1cGQonNTu1n9jRDxGavF1YSX8UZrbKaWPgM1grrSU6UOEeU+G9AcqdMVpC7
+	6xR1DsNvBQsKEOLtJT4/0nty4v7TYU+C0X7HqoU6ekpaDTneXferLTPHfjgHfq4Nc+1qZK
+	2CSk1qEydtK0EEuswgvKrK8h/ffnxB+JV5LFiFUWJJ+HfMeWYOHLYWAr33ruqNGPD+TT9f
+	O6Gw+/nKnv1N5XF2GwYoqca4WT+J84e/wFyqiJ8mCn1vfFEina6ldrH1mgXaMA==
+Authentication-Results: outgoing_mbo_mout;
+	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=d2jpN+HF;
+	spf=pass (outgoing_mbo_mout: domain of marek.vasut+renesas@mailbox.org designates 2001:67c:2050:b231:465::202 as permitted sender) smtp.mailfrom=marek.vasut+renesas@mailbox.org
+From: Marek Vasut <marek.vasut+renesas@mailbox.org>
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
+	t=1760382158;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:
+	 content-transfer-encoding:content-transfer-encoding:
+	 in-reply-to:in-reply-to:references:references;
+	bh=lUtG4fYV8VOSGqWxFEwkf8RZ2UUyckF4MGl1rId8mkE=;
+	b=d2jpN+HFFt1TcgyPFzjcLxHZewQqkPEBvQCtbPq3tuisJLc1VNZ4J1IwD57MLOuh9TVcZt
+	LtK2U1W5FjtiDJli6ZrHwIbK8jSQe05oIB0eONyTDpyH4vhph7GBAQoKDu7+jGYbwbuM93
+	efBfNdVQLJM6CDZat/famKSmGRHcbubvmk5yewVUgD4lzm4CQBeadn+Y6myk3M3/59k3PU
+	CMmljowIegQU0IwCUmzrjYtcR9R4Ya1s0WsAykXh6HgY3CPST5lZb1FwPwAjrv0tgLGfLB
+	WcD2R2v3qKKjCM7NLbzaI/HpViECdNuvXggzmabYA/6ux4tipAu6aPE9pR8G/Q==
+To: linux-arm-kernel@lists.infradead.org
+Cc: Marek Vasut <marek.vasut+renesas@mailbox.org>,
+	Adam Ford <aford173@gmail.com>,
+	Conor Dooley <conor+dt@kernel.org>,
+	David Airlie <airlied@gmail.com>,
+	Frank Binns <frank.binns@imgtec.com>,
+	Geert Uytterhoeven <geert+renesas@glider.be>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
-	Sascha Hauer <s.hauer@pengutronix.de>,
-	Linus Walleij <linus.walleij@linaro.org>,
-	Bartosz Golaszewski <brgl@bgdev.pl>,
-	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Fabio Estevam <festevam@gmail.com>, Peng Fan <peng.fan@nxp.com>,
-	"linux-remoteproc@vger.kernel.org" <linux-remoteproc@vger.kernel.org>,
-	"devicetree@vger.kernel.org" <devicetree@vger.kernel.org>,
-	"imx@lists.linux.dev" <imx@lists.linux.dev>,
-	"linux-arm-kernel@lists.infradead.org" <linux-arm-kernel@lists.infradead.org>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	dl-linux-imx <linux-imx@nxp.com>
-Subject: Re: [PATCH v3 3/4] gpio: imx-rpmsg: add imx-rpmsg GPIO driver
-Message-ID: <e124b444-0427-448d-af74-aec22468893a@lunn.ch>
-References: <20251009222716.394806-1-shenwei.wang@nxp.com>
- <20251009222716.394806-4-shenwei.wang@nxp.com>
- <eb99d9a8-eb96-445d-899a-6e1d9b6f6c69@lunn.ch>
- <PAXPR04MB9185A829534963B22D1C49FD89EFA@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <6025be80-7007-48bb-bdd1-c8198e951400@lunn.ch>
- <PAXPR04MB918524EAA74F72D64AE0ACA489EAA@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <f5b15eeb-a183-40bc-993a-49736739c0f5@lunn.ch>
- <PAXPR04MB9185A0A5494A00280F97676C89EAA@PAXPR04MB9185.eurprd04.prod.outlook.com>
- <08a8e0d6-f486-40bd-a2f1-43e33ccde1d2@lunn.ch>
- <PAXPR04MB9185DB2E801B8A2139C7C29089EAA@PAXPR04MB9185.eurprd04.prod.outlook.com>
+	Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>,
+	Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
+	Magnus Damm <magnus.damm@gmail.com>,
+	Matt Coster <matt.coster@imgtec.com>,
+	Maxime Ripard <mripard@kernel.org>,
+	Rob Herring <robh@kernel.org>,
+	Simona Vetter <simona@ffwll.ch>,
+	Thomas Zimmermann <tzimmermann@suse.de>,
+	devicetree@vger.kernel.org,
+	dri-devel@lists.freedesktop.org,
+	linux-renesas-soc@vger.kernel.org
+Subject: [PATCH 3/3] arm64: dts: renesas: r8a77961: Add GX6250 GPU node
+Date: Mon, 13 Oct 2025 21:01:19 +0200
+Message-ID: <20251013190210.142436-3-marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20251013190210.142436-1-marek.vasut+renesas@mailbox.org>
+References: <20251013190210.142436-1-marek.vasut+renesas@mailbox.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <PAXPR04MB9185DB2E801B8A2139C7C29089EAA@PAXPR04MB9185.eurprd04.prod.outlook.com>
+Content-Transfer-Encoding: 8bit
+X-MBO-RS-ID: 5442c9876c26aeb1ea8
+X-MBO-RS-META: 35wuxxwzwhqixksgcga4gmtrfh6d5yib
+X-Rspamd-Queue-Id: 4clmv40tFTz9v66
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_121431_479468_7EB87DEB 
-X-CRM114-Status: UNSURE (   8.96  )
+X-CRM114-CacheID: sfid-20251013_121511_647678_140D94BE 
+X-CRM114-Status: UNSURE (   8.55  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -91,13 +108,56 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-> For instance, if we define the error code as 1 in the return
-> message, the driver will interpret it and just return -EOPNOTSUPP,
-> regardless of the architecture.
+Describe Imagination Technologies PowerVR Rogue GX6250 BNVC 4.45.2.58
+present in Renesas R-Car R8A77961 M3-W+ SoC.
 
-Yes, that is fine. Document the values the return code can take, and
-what the mean. What we don't want is the protocol directly returning
-errno values, because they are architecture specific.
+Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
+---
+Cc: Adam Ford <aford173@gmail.com>
+Cc: Conor Dooley <conor+dt@kernel.org>
+Cc: David Airlie <airlied@gmail.com>
+Cc: Frank Binns <frank.binns@imgtec.com>
+Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+Cc: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+Cc: Magnus Damm <magnus.damm@gmail.com>
+Cc: Matt Coster <matt.coster@imgtec.com>
+Cc: Maxime Ripard <mripard@kernel.org>
+Cc: Rob Herring <robh@kernel.org>
+Cc: Simona Vetter <simona@ffwll.ch>
+Cc: Thomas Zimmermann <tzimmermann@suse.de>
+Cc: devicetree@vger.kernel.org
+Cc: dri-devel@lists.freedesktop.org
+Cc: linux-renesas-soc@vger.kernel.org
+---
+ arch/arm64/boot/dts/renesas/r8a77961.dtsi | 12 ++++++++++++
+ 1 file changed, 12 insertions(+)
 
-     Andrew
+diff --git a/arch/arm64/boot/dts/renesas/r8a77961.dtsi b/arch/arm64/boot/dts/renesas/r8a77961.dtsi
+index 1637b534fc68b..77ed99e8d7b9e 100644
+--- a/arch/arm64/boot/dts/renesas/r8a77961.dtsi
++++ b/arch/arm64/boot/dts/renesas/r8a77961.dtsi
+@@ -2445,6 +2445,18 @@ gic: interrupt-controller@f1010000 {
+ 			resets = <&cpg 408>;
+ 		};
+ 
++		gpu: gpu@fd000000 {
++			compatible = "renesas,r8a77961-gpu",
++				     "img,img-gx6250",
++				     "img,img-rogue";
++			reg = <0 0xfd000000 0 0x40000>;
++			interrupts = <GIC_SPI 119 IRQ_TYPE_LEVEL_HIGH>;
++			clocks = <&cpg CPG_MOD 112>;
++			clock-names = "core";
++			power-domains = <&sysc R8A7796_PD_3DG_B>;
++			resets = <&cpg 112>;
++		};
++
+ 		pciec0: pcie@fe000000 {
+ 			compatible = "renesas,pcie-r8a77961",
+ 				     "renesas,pcie-rcar-gen3";
+-- 
+2.51.0
+
 
