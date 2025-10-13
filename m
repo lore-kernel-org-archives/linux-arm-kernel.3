@@ -4,105 +4,88 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A7984CCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 10:55:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E6C9ECCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 11:08:31 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=m2qCIr0Vg+72UJ/RHHKOtvC9WajyJhmh1FGzsier6oU=; b=GkjYYkFGeov3mHODTAfEGwR2B6
-	YLLem07l1Yuq1aQs0dJ7dyr9OHCmPVm7CL9FfN+JHLDKwr0jBjZGRXTqUNCwJqyp4QDyk8DbA7nNP
-	b5DBo88kVxgQsSjym/k2ovnymCu61fVovkDTF/BlWVCdKTlElGfudC6mmdAWqiRipkWs908r2Qrua
-	6+ZHTtlcIQR8qaHZcVH2j49LQEykwLY6vAASqfmfJiNb6Zew2J5rNTGFjcAcpnY2F9POcxsI5NkLB
-	rtMDd1csy+gMAnkXSkKkmD3XvFZX6w9EcjrGs+H9JUm6vA9EJq8tq7qjS8UYKeOQxCX/KII4PW8dN
-	EiaUKzmQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=ypTR+U6CbcsupTqnlW9WC9v+pxZ9wGorAvOqUL63jvE=; b=AQFoJ8bK2Mwyj0bsr0YOxPeKa7
+	8TvVkGCRpI7zSq8KflHPnU93dufbi7UYb/s8GmyfzP/EaaoYX3Hx+y+VkePc6pqyPLvLaV1jxp1wI
+	6SchEd8uy4dG18GwnANnjjkThkBncVtZlJ66XF+YNBQ4ln+LvJP9RxCDKAToP0XchMwuVe1TGtYqi
+	poT3JY3CANXw4GUbjez+DccuXMHpM/GX2kouYXSndq8Zlb3wq2W82ILCcrFJjUaNAN59qGy4JrkBk
+	YKaQEQmhKnhY76gVCBVZ42TxRAgwNDXu2d9Pc9290MMvoRKw7LP5nmSLTG/p30CEfQMnGRbPsKEY7
+	BmBOkucw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8GCl-0000000Cwpd-1kex;
-	Mon, 13 Oct 2025 10:55:03 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v8GPh-0000000CyxJ-2aUr;
+	Mon, 13 Oct 2025 11:08:25 +0000
+Received: from mail-lj1-x235.google.com ([2a00:1450:4864:20::235])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8GCi-0000000Cwmv-39A4
+	id 1v8GPe-0000000Cywh-2yJo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 10:55:01 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 61BB543CBF;
-	Mon, 13 Oct 2025 10:55:00 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 09B25C4CEE7;
-	Mon, 13 Oct 2025 10:55:00 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760352900;
-	bh=hDtDBPq7mpQu59X1/KQKeSG4qGjdGKZLxJrvhsMtr8s=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=uv1CRgQHUG5FCeSMmKXhInPfYnrb1p1wekfU4umGXqr7isPVVwiPFyxcc7xmk9Kie
-	 gsWVRFinc1T3GBcTJnY3Ku6zRxwPviuItaPs2QgnczDleixks3ocMtO7S3DPUyjzFP
-	 gHtWsXZkZ9tL4hDYs1WKKbeee6PAwGDSF8oLpGEmqScG+he0WEzT6bt/Edh6eXG9iX
-	 k/Zbm6yIuQ/lxdInD30PuoKQ5YTKVrO/21+pmsuLa8CSfcF7eq7KWZwMH9NdB3wN8r
-	 ER8PmXbSaz+oZ26t2JCuIIk7L5qfbf1kg0RqRWltR+D6+rm2pN2R7ucQucD+6yesd9
-	 rE6u+6llNL+oQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1v8GCf-0000000DU5W-12CP;
-	Mon, 13 Oct 2025 10:54:57 +0000
-Date: Mon, 13 Oct 2025 11:54:56 +0100
-Message-ID: <867bwzxe9r.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Peter Maydell <peter.maydell@linaro.org>
-Cc: salil.mehta@opnsrc.net,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	salil.mehta@huawei.com,
-	jonathan.cameron@huawei.com,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	mark.rutland@arm.com,
-	james.morse@arm.com,
-	sudeep.holla@arm.com,
-	lpieralisi@kernel.org,
-	jean-philippe@linaro.org,
-	tglx@linutronix.de,
-	oliver.upton@linux.dev,
-	richard.henderson@linaro.org,
-	andrew.jones@linux.dev,
-	mst@redhat.com,
-	david@redhat.com,
-	philmd@linaro.org,
-	ardb@kernel.org,
-	borntraeger@linux.ibm.com,
-	alex.bennee@linaro.org,
-	gustavo.romero@linaro.org,
-	npiggin@gmail.com,
-	linux@armlinux.org.uk,
-	karl.heubaum@oracle.com,
-	miguel.luis@oracle.com,
-	darren@os.amperecomputing.com,
-	ilkka@os.amperecomputing.com,
-	vishnu@os.amperecomputing.com,
-	gankulkarni@os.amperecomputing.com,
-	wangyanan55@huawei.com,
-	wangzhou1@hisilicon.com,
-	linuxarm@huawei.com
-Subject: Re: [RFC PATCH] KVM: arm64: vgic-v3: Cache ICC_CTLR_EL1 and allow lockless read when ready
-In-Reply-To: <CAFEAcA8=yhQ-ygoA-fqxzwg69OkdW2nBM0O9X3Lmww4eXuVMWA@mail.gmail.com>
-References: <20251008201955.3919537-1-salil.mehta@opnsrc.net>
-	<86v7koxk1z.wl-maz@kernel.org>
-	<CAFEAcA8=yhQ-ygoA-fqxzwg69OkdW2nBM0O9X3Lmww4eXuVMWA@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: peter.maydell@linaro.org, salil.mehta@opnsrc.net, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, salil.mehta@huawei.com, jonathan.cameron@huawei.com, will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, james.morse@arm.com, sudeep.holla@arm.com, lpieralisi@kernel.org, jean-philippe@linaro.org, tglx@linutronix.de, oliver.upton@linux.dev, richard.henderson@linaro.org, andrew.jones@linux.dev, mst@redhat.com, david@redhat.com, philmd@linaro.org, ardb@kernel.org, borntraeger@linux.ibm.com, alex.bennee@linaro.org, gustavo.romero@linaro.org, npiggin@gmail.com, linux@armlinux.org.uk, karl.heubaum@oracle.com, miguel.luis@oracle.com, darren@os.amperecomputing.com, ilkka@os.amperecomputing.com, vishnu@os.amperecomputing.com, gankulkarni@os.amperecomputing.com, wangyanan55@huawei.com, wangzhou1@hisilicon.com, linuxarm@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Mon, 13 Oct 2025 11:08:24 +0000
+Received: by mail-lj1-x235.google.com with SMTP id 38308e7fff4ca-367874aeeacso43311751fa.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 04:08:22 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1760353700; x=1760958500; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=ypTR+U6CbcsupTqnlW9WC9v+pxZ9wGorAvOqUL63jvE=;
+        b=Vc0NXzqtyK35G3NRnETv/xKg4KuQVbCA6593BbP3rqhP95EiKyWOVUazfUN0N//MCP
+         0Klox/fbdVpMjbfLKcaCIIDKPWzzXTR6L2taN97dnlCacDgYrgYSNQukqTqmOdPJ35zA
+         dcnrzYs8OT5nTIhrad+gOFfrUqv1iFxENLdz/oYfKTX3eY34+30xSszv6MQVSCXagZpT
+         2ccq0WOAbdnt3yybG7AT7lg/mOv9kYLP+H8KBNbqCHMgKYFBe2oS495ecRtehOhK1ITP
+         KqRZ1uGKvskKX2lsBfpmE1FAg0d2DDLWHrLbMbiXlWQkBM5QOjoPygfVvF5k755GAo6t
+         PdeA==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760353700; x=1760958500;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=ypTR+U6CbcsupTqnlW9WC9v+pxZ9wGorAvOqUL63jvE=;
+        b=ZxoXl8pkpZnHq4s9FCjELtVT/dPufV40Ed6Q/PKOOdKlLI4v3nPzHiyr+bXu/fQhsq
+         XRjzdwKAqxmy+dq9fhfHNotWZtlL4Q7La4VQ33IBCEKvlrh2/ljSY8TA+N/Rkv0+Hg9t
+         IzHk17m0b1cB/60vN56KxW4qG9zV/amxgbr+aj8xffvC4P05LUjnFwIBMDBScDXfcDJL
+         7bXRswKCoChwSQlpZ/WhljzDjBrvGV598NNk3POw+gYLcTj0PEEDDM7z9Gi1dmC3bK6F
+         uh2SYrgvs2C2jHsD5P6jtQwKDl+B71BVX1525Bth9a4qFSfBzfRjr5mS3V8xSpi71/De
+         TK4Q==
+X-Forwarded-Encrypted: i=1; AJvYcCUvhXLiIJJkV1bLGdIyOkYSzX4b0eWy/IGU0inzp/hX/K6ZaopckNJCM6LJZqMGEqhCe1BH3ZJVO3LJ6II1xaaY@lists.infradead.org
+X-Gm-Message-State: AOJu0YywgicYNfTCpBRF5dp9a2GWW4fTQ2brpcCzpfRaeZK7LaSFIcbf
+	v5nPKMabk5IQJtTWb2AGKGeGGlGzhQYHWLAjQonkWmAF3zqphPLDgk6yL+IFqBnUguG/anmS7ak
+	4zQZh7lT8CnvzSJQIrRX4osLNyW1Hqoe3jK9ZKMb8TA==
+X-Gm-Gg: ASbGncsXivNbRyyxLDDr0djvs0LdTBREs2a52UtagwlEnzB0tisTZssfMs37U14LPee
+	ntQo+jPpCCmAwWiDikPONeynbeLF/Nv2PgsT1wW0eGaH/0nLT1dcRzkXkqRVeP9Te8/635ivNDZ
+	X0vfX4mfXgjnGLYp/Mgu67tzulpIPVCfwOlpn+YKGg/kp+8x4w3UJifSvo7F8vcAXQaiv2aYjhH
+	nkA97TIz3gvfHpVFl7SSgFm7l2T1Q==
+X-Google-Smtp-Source: AGHT+IHtdCLd+4uJh0pbUlnFA7Qzu/sxrXL4iOF6wbwTfZv7XTlOSlg+VqyDSfbt690MZKi6vF6Z3aq6/nvgRVaOgQc=
+X-Received: by 2002:a05:651c:546:b0:372:9f0c:2158 with SMTP id
+ 38308e7fff4ca-37609d927d0mr46661901fa.16.1760353700507; Mon, 13 Oct 2025
+ 04:08:20 -0700 (PDT)
+MIME-Version: 1.0
+References: <20251003-fix-mt8196-pinctrl-regnames-v1-1-4d22031140f0@collabora.com>
+In-Reply-To: <20251003-fix-mt8196-pinctrl-regnames-v1-1-4d22031140f0@collabora.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Mon, 13 Oct 2025 13:08:09 +0200
+X-Gm-Features: AS18NWCm49dSzl3HawLMJssUJLSTrG4CpecVW6MUgTtkI6_u-J70Cy8bMmd9g7s
+Message-ID: <CACRpkdZvJ3jvoxi4H-PL307up1nrvL5hNAtWTrwZGwNW+i8Lyg@mail.gmail.com>
+Subject: Re: [PATCH] pinctrl: mediatek: mt8196: align register base names to
+ dt-bindings ones
+To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+Cc: Sean Wang <sean.wang@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>, 
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>, 
+	Cathy Xu <ot_cathy.xu@mediatek.com>, Guodong Liu <guodong.liu@mediatek.com>, 
+	kernel@collabora.com, linux-mediatek@lists.infradead.org, 
+	linux-gpio@vger.kernel.org, linux-kernel@vger.kernel.org, 
+	linux-arm-kernel@lists.infradead.org
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_035500_869717_3BF20E49 
-X-CRM114-Status: GOOD (  32.67  )
+X-CRM114-CacheID: sfid-20251013_040822_755269_D623ED45 
+X-CRM114-Status: GOOD (  10.24  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -117,68 +100,22 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 13 Oct 2025 09:42:58 +0100,
-Peter Maydell <peter.maydell@linaro.org> wrote:
-> 
-> On Thu, 9 Oct 2025 at 14:48, Marc Zyngier <maz@kernel.org> wrote:
-> >
-> > On Wed, 08 Oct 2025 21:19:55 +0100,
-> > salil.mehta@opnsrc.net wrote:
-> > >
-> > > From: Salil Mehta <salil.mehta@huawei.com>
-> > >
-> > > [A rough illustration of the problem and the probable solution]
-> > >
-> > > Userspace reads of ICC_CTLR_EL1 via KVM device attributes currently takes a slow
-> > > path that may acquire all vCPU locks. Under workloads that exercise userspace
-> > > PSCI CPU_ON flows or frequent vCPU resets, this can cause vCPU lock contention
-> > > in KVM and, in the worst cases, -EBUSY returns to userspace.
-> > >
-> > > When PSCI CPU_ON and CPU_OFF calls are handled entirely in KVM, these operations
-> > > are executed under KVM vCPU locks in the host kernel (EL1) and appear atomic to
-> > > other vCPU threads. In this context, system register accesses are serialized
-> > > under KVM vCPU locks, ensuring atomicity with respect to other vCPUs. After
-> > > SMCCC filtering was introduced, PSCI CPU_ON and CPU_OFF calls can now exit to
-> > > userspace (QEMU). During the handling of PSCI CPU_ON call in userspace, a
-> > > cpu_reset() is exerted which reads ICC_CTLR_EL1 through KVM device attribute
-> > > IOCTLs. To avoid transient inconsistency and -EBUSY errors, QEMU is forced to
-> > > pause all vCPUs before issuing these IOCTLs.
-> >
-> > I'm going to repeat in public what I already said in private.
-> >
-> > Why does QEMU need to know this? I don't see how this is related to
-> > PSCI, and outside of save/restore, there is no reason why QEMU should
-> > poke at this. If QEMU needs fixing, please fix QEMU.
-> 
-> I don't know the background here, but generally speaking,
-> when we do a CPU reset that includes writing all the CPU state
-> of the "this is freshly reset from userspace's point of view" vcpu
-> back to the kernel. More generally, userspace should be able to
-> read and write sysregs for a vcpu any time it likes, and not
-> arbitrarily get back -EBUSY. What does the kernel expect
-> userspace to do with an errno like that?
+On Fri, Oct 3, 2025 at 4:01=E2=80=AFPM Louis-Alexis Eyraud
+<louisalexis.eyraud@collabora.com> wrote:
 
-The main issue here is that GICv3 is modelled as a device, just like
-GICv2, and that all the sysregs that are relevant to the GIC have the
-same status as the MMIO registers: they can only be accessed when the
-vcpus are not running.
+> The mt8196-pinctrl driver requires to probe that a device tree uses
+> in the device node the same names than mt8196_pinctrl_register_base_names
+> array. But they are not matching the required ones in the
+> "mediatek,mt8196-pinctrl" dt-bindings, leading to possible dtbs check
+> issues.
+> So, align all mt8196_pinctrl_register_base_names entries on dt-bindings
+> ones.
+>
+> Fixes: f7a29377c253 ("pinctrl: mediatek: Add pinctrl driver on mt8196")
+> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
 
-These sysregs are not visible through the normal ONE_REG API, and
-therefore not subjected to the "do whatever you want" rule.
+Patch applied for fixes.
 
-Should we have done something else when the GICv3 save/restore API was
-introduced and agreed upon with the QEMU people? Probably. Can we
-change it now? Probably not. The only thing we could relax is the
-scope of the lock when accessing a sysreg, so that we only mandate
-that the targeted vcpu is not running instead of the whole VM.
-
-And finally, if you object to this API, why should we do for GICv5,
-which is so far implemented by following the exact same principles?
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
+Yours,
+Linus Walleij
 
