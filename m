@@ -4,46 +4,45 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id EA0D2CCD18D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 15:27:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9FAB2CCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 15:27:50 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+2C6Y7QvX0FPwTw070QW7rXZAP/U111s0G+dQuIpjU4=; b=Fw4d6AijSAJGRet0AZU3+9qCpb
-	rneR9T0KCQwY+YHm+8iPO4yGtgWw+ZhbjIClXZ2JhtfDCmkdXWYYWdLQHg4Gcb0vtvDigy/MNvez4
-	0B6v0KVLXclD9FQO8JQrvOG1znCl10Ljto+V6aYKRGXmvDGU8lSpqslzz0j2soayrJXuHz9XNOrKi
-	94VajXDHUCl7ducOhGwSDodkPftHj6575q6SklpfXgE6zrBxU7QOLqJ28oiXg/qpXp96SXQjI5pza
-	Ceb2dvC6KOqoSxLYr2QkjFMWAE+vZC5xDWkkQZEAbLHRmRA8EVxKeR3SLHCnZR349kbuy4Drgn79O
-	mJ4CSWSQ==;
+	bh=tFIp35uHTqcsmvS0r9Kp5zCwmOEmNlNll/p8ijKVjUE=; b=vxkwQUm/QTpDJgZnDHTLJDUs47
+	xPcEMPK/Kp4z4dK5BcBokyGuq8LDi42JxgoRA6AS//FSy8i/Jlekheq0ioxwvBqq5SQredv1ai7zo
+	gw7dnwUxgVNnJJEvFmaJR2FuvQpT6jgHWkfb9d2HjQz5jSY4N3rnKuSajS9L+JjH7u355HoortHps
+	kPhy8YHFA7cyeIMVmWozqHxOxlIy38BhKletCwPwLRwraevPRxEzwFXOp+//cSuRuM2gIAd5tNFel
+	wXpR0kvTgXeFhDhIW5dP627p3m75KrZi+UlAzltI06SHP5ODjIgTKwwLzmZO1zYzrzUzfCIs8d2p0
+	9THmZD/Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8KSX-0000000DeCX-2ZId;
-	Mon, 13 Oct 2025 15:27:37 +0000
+	id 1v8KSc-0000000DeKV-2wy2;
+	Mon, 13 Oct 2025 15:27:42 +0000
 Received: from smtpout-04.galae.net ([185.171.202.116])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8KST-0000000De6E-3eW1
-	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 15:27:35 +0000
+	id 1v8KSZ-0000000DeD7-2PCK;
+	Mon, 13 Oct 2025 15:27:41 +0000
 Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
-	by smtpout-04.galae.net (Postfix) with ESMTPS id 00B5FC093B1;
-	Mon, 13 Oct 2025 15:27:13 +0000 (UTC)
+	by smtpout-04.galae.net (Postfix) with ESMTPS id 6F01DC093AE;
+	Mon, 13 Oct 2025 15:27:18 +0000 (UTC)
 Received: from mail.galae.net (mail.galae.net [212.83.136.155])
-	by smtpout-01.galae.net (Postfix) with ESMTPS id E987B6067B;
-	Mon, 13 Oct 2025 15:27:31 +0000 (UTC)
-Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id DD8BB102F226E;
-	Mon, 13 Oct 2025 17:27:28 +0200 (CEST)
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 62C306067B;
+	Mon, 13 Oct 2025 15:27:37 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 6ECE0102F2272;
+	Mon, 13 Oct 2025 17:27:33 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
-	t=1760369250; h=from:subject:date:message-id:to:cc:mime-version:
+	t=1760369255; h=from:subject:date:message-id:to:cc:mime-version:
 	 content-transfer-encoding:in-reply-to:references;
-	bh=+2C6Y7QvX0FPwTw070QW7rXZAP/U111s0G+dQuIpjU4=;
-	b=SUoSskjXqGjUJ44lWbsBZyewVY3yJhY1PWe6JpAVZ48Qe9fTjfuLBUOLF5Gm0mlGA3nDph
-	77nQ4xzTAEdJ3IcI7D15nMVGtcb2VhRKlRZNPjpGLka7i/68HqR24sEzKaJSaWSgFhSG37
-	wcsF/a8Kfdxvbt529MB2D3hFP1YmrPmJ+fnEicAetJgrVRIiMWVYlI1AJB6926TjsOeCst
-	+HEb2LOicOWufqGIPcqwXpXWwm6McJQzEZjJ2dzpwQqLJiSCLzgWm12/bvqVTQ8hR782ln
-	4cpHqxZ7jqoSQCo6eWe+9SbHO0oIcYL4k7Hkl1iJJW7/u9zkRn6MdrA6xlFNaw==
+	bh=tFIp35uHTqcsmvS0r9Kp5zCwmOEmNlNll/p8ijKVjUE=;
+	b=UwRrx0fZDu564tcgIAHIPHDkw8cVWaoQByE87eSGNddA6EtD1UELRUXpwrjTraQgqR1Huw
+	6WJ+nDY7aSFQ3bbZWpWDgw7A+gPEqI4Qa+AWFdVQlhVLkHVS4YI2UNNLI+xOdTTpyko1jj
+	/6T2immgCmavYAkOQvRVBlM8sDEOZAUXUroFUWxh/E7K0uDHhVh53IRLDgTZXMRqXgmjxM
+	P8ZqLVJNjTGsJZb0FEh+pc2fcE8oB1KFTX9Tbfp37IwQegD3lZOpTPEiF9ITx6C9eOVnj8
+	Bj96/pUzQSd+0g2mHInpdamU7Li5C4DU+qR303+op+AwKxz5aEDoUaNJLhr9sQ==
 From: Richard Genoud <richard.genoud@bootlin.com>
 To: Miquel Raynal <miquel.raynal@bootlin.com>,
 	Richard Weinberger <richard@nod.at>,
@@ -65,9 +64,9 @@ Cc: =?UTF-8?q?Uwe=20Kleine-K=C3=B6nig?= <u.kleine-koenig@baylibre.com>,
 	linux-sunxi@lists.linux.dev,
 	linux-kernel@vger.kernel.org,
 	Richard Genoud <richard.genoud@bootlin.com>
-Subject: [PATCH v2 03/15] mtd: rawnand: sunxi: introduce reg_ecc_err_cnt in sunxi_nfc_caps
-Date: Mon, 13 Oct 2025 17:26:33 +0200
-Message-ID: <20251013152645.1119308-4-richard.genoud@bootlin.com>
+Subject: [PATCH v2 05/15] mtd: rawnand: sunxi: rework pattern found registers
+Date: Mon, 13 Oct 2025 17:26:35 +0200
+Message-ID: <20251013152645.1119308-6-richard.genoud@bootlin.com>
 X-Mailer: git-send-email 2.47.3
 In-Reply-To: <20251013152645.1119308-1-richard.genoud@bootlin.com>
 References: <20251013152645.1119308-1-richard.genoud@bootlin.com>
@@ -75,8 +74,8 @@ MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_082734_089570_FC9256C4 
-X-CRM114-Status: GOOD (  11.56  )
+X-CRM114-CacheID: sfid-20251013_082739_993635_D16EB7FD 
+X-CRM114-Status: GOOD (  14.50  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -91,68 +90,152 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The H6/H616 ECC_ERR_CNT register is not at the same offset as the
-A10/A23 one, so move its offset into sunxi_nfc_caps
+On H6/H616, the register ECC_PAT_FOUND is at its own address, and not
+part of ECC status register.
+So, introduce the pattern found register offset in sunxi_nfc_caps, along
+with its mask.
+
+Also, introduce a non compile-time field_get() because FIELD_GET() and
+u32_get_bits() don't work with non compile-time constant.
+https://lore.kernel.org/lkml/cover.1739540679.git.geert+renesas@glider.be/
 
 No functional change.
 
 Signed-off-by: Richard Genoud <richard.genoud@bootlin.com>
 ---
- drivers/mtd/nand/raw/sunxi_nand.c | 9 +++++++--
- 1 file changed, 7 insertions(+), 2 deletions(-)
+ drivers/mtd/nand/raw/sunxi_nand.c | 36 ++++++++++++++++++++++++++-----
+ 1 file changed, 31 insertions(+), 5 deletions(-)
 
 diff --git a/drivers/mtd/nand/raw/sunxi_nand.c b/drivers/mtd/nand/raw/sunxi_nand.c
-index d3b17d54f04c..0285e4d0ca7f 100644
+index 8f5d8df19e33..4cfb5d3e9c06 100644
 --- a/drivers/mtd/nand/raw/sunxi_nand.c
 +++ b/drivers/mtd/nand/raw/sunxi_nand.c
-@@ -46,7 +46,8 @@
- #define NFC_REG_ECC_CTL		0x0034
- #define NFC_REG_ECC_ST		0x0038
- #define NFC_REG_DEBUG		0x003C
--#define NFC_REG_ECC_ERR_CNT(x)	((0x0040 + (x)) & ~0x3)
-+#define NFC_REG_A10_ECC_ERR_CNT	0x0040
-+#define NFC_REG_ECC_ERR_CNT(nfc, x)	((nfc->caps->reg_ecc_err_cnt + (x)) & ~0x3)
- #define NFC_REG_USER_DATA(x)	(0x0050 + ((x) * 4))
- #define NFC_REG_SPARE_AREA	0x00A0
- #define NFC_REG_PAT_ID		0x00A4
-@@ -212,6 +213,7 @@ static inline struct sunxi_nand_chip *to_sunxi_nand(struct nand_chip *nand)
-  * @has_mdma:		Use mbus dma mode, otherwise general dma
-  *			through MBUS on A23/A33 needs extra configuration.
+@@ -29,6 +29,9 @@
+ #include <linux/iopoll.h>
+ #include <linux/reset.h>
+ 
++/* non compile-time field get */
++#define field_get(_mask, _reg) (((_reg) & (_mask)) >> (ffs(_mask) - 1))
++
+ #define NFC_REG_CTL		0x0000
+ #define NFC_REG_ST		0x0004
+ #define NFC_REG_INT		0x0008
+@@ -150,7 +153,13 @@
+ /* define bit use in NFC_ECC_ST */
+ #define NFC_ECC_ERR(x)		BIT(x)
+ #define NFC_ECC_ERR_MSK		GENMASK(15, 0)
+-#define NFC_ECC_PAT_FOUND(x)	BIT(x + 16)
++
++/*
++ * define bit use in NFC_REG_PAT_FOUND
++ * For A10/A23, NFC_REG_PAT_FOUND == NFC_ECC_ST register
++ */
++#define NFC_ECC_PAT_FOUND_MSK(nfc) (nfc->caps->pat_found_mask)
++
+ #define NFC_ECC_ERR_CNT(b, x)	(((x) >> (((b) % 4) * 8)) & 0xff)
+ 
+ #define NFC_DEFAULT_TIMEOUT_MS	1000
+@@ -216,6 +225,8 @@ static inline struct sunxi_nand_chip *to_sunxi_nand(struct nand_chip *nand)
   * @reg_io_data:	I/O data register
-+ * @reg_ecc_err_cnt:	ECC error counter register
+  * @reg_ecc_err_cnt:	ECC error counter register
+  * @reg_user_data:	User data register
++ * @reg_pat_found:	Data Pattern Status Register
++ * @pat_found_mask:	ECC_PAT_FOUND mask in NFC_REG_PAT_FOUND register
   * @dma_maxburst:	DMA maxburst
   * @ecc_strengths:	Available ECC strengths array
   * @nstrengths:		Size of @ecc_strengths
-@@ -219,6 +221,7 @@ static inline struct sunxi_nand_chip *to_sunxi_nand(struct nand_chip *nand)
- struct sunxi_nfc_caps {
- 	bool has_mdma;
+@@ -225,6 +236,8 @@ struct sunxi_nfc_caps {
  	unsigned int reg_io_data;
-+	unsigned int reg_ecc_err_cnt;
+ 	unsigned int reg_ecc_err_cnt;
+ 	unsigned int reg_user_data;
++	unsigned int reg_pat_found;
++	unsigned int pat_found_mask;
  	unsigned int dma_maxburst;
  	const u8 *ecc_strengths;
  	unsigned int nstrengths;
-@@ -790,7 +793,7 @@ static int sunxi_nfc_hw_ecc_correct(struct nand_chip *nand, u8 *data, u8 *oob,
- 		return 0;
- 	}
- 
--	tmp = readl(nfc->regs + NFC_REG_ECC_ERR_CNT(step));
-+	tmp = readl(nfc->regs + NFC_REG_ECC_ERR_CNT(nfc, step));
- 
- 	return NFC_ECC_ERR_CNT(step, tmp);
+@@ -766,7 +779,8 @@ static void sunxi_nfc_hw_ecc_update_stats(struct nand_chip *nand,
  }
-@@ -2177,6 +2180,7 @@ static const u8 sunxi_ecc_strengths_a10[] = {
  
- static const struct sunxi_nfc_caps sunxi_nfc_a10_caps = {
+ static int sunxi_nfc_hw_ecc_correct(struct nand_chip *nand, u8 *data, u8 *oob,
+-				    int step, u32 status, bool *erased)
++				    int step, u32 status, u32 pattern_found,
++				    bool *erased)
+ {
+ 	struct sunxi_nfc *nfc = to_sunxi_nfc(nand->controller);
+ 	struct nand_ecc_ctrl *ecc = &nand->ecc;
+@@ -777,7 +791,7 @@ static int sunxi_nfc_hw_ecc_correct(struct nand_chip *nand, u8 *data, u8 *oob,
+ 	if (status & NFC_ECC_ERR(step))
+ 		return -EBADMSG;
+ 
+-	if (status & NFC_ECC_PAT_FOUND(step)) {
++	if (pattern_found & BIT(step)) {
+ 		u8 pattern;
+ 
+ 		if (unlikely(!(readl(nfc->regs + NFC_REG_PAT_ID) & 0x1))) {
+@@ -811,6 +825,7 @@ static int sunxi_nfc_hw_ecc_read_chunk(struct nand_chip *nand,
+ 	struct sunxi_nfc *nfc = to_sunxi_nfc(nand->controller);
+ 	struct nand_ecc_ctrl *ecc = &nand->ecc;
+ 	int raw_mode = 0;
++	u32 pattern_found;
+ 	bool erased;
+ 	int ret;
+ 
+@@ -838,8 +853,12 @@ static int sunxi_nfc_hw_ecc_read_chunk(struct nand_chip *nand,
+ 
+ 	*cur_off = oob_off + ecc->bytes + 4;
+ 
++	pattern_found = readl(nfc->regs + nfc->caps->reg_pat_found);
++	pattern_found = field_get(NFC_ECC_PAT_FOUND_MSK(nfc), pattern_found);
++
+ 	ret = sunxi_nfc_hw_ecc_correct(nand, data, oob_required ? oob : NULL, 0,
+ 				       readl(nfc->regs + NFC_REG_ECC_ST),
++				       pattern_found,
+ 				       &erased);
+ 	if (erased)
+ 		return 1;
+@@ -920,7 +939,7 @@ static int sunxi_nfc_hw_ecc_read_chunks_dma(struct nand_chip *nand, uint8_t *buf
+ 	unsigned int max_bitflips = 0;
+ 	int ret, i, raw_mode = 0;
+ 	struct scatterlist sg;
+-	u32 status, wait;
++	u32 status, pattern_found, wait;
+ 
+ 	ret = sunxi_nfc_wait_cmd_fifo_empty(nfc);
+ 	if (ret)
+@@ -961,6 +980,8 @@ static int sunxi_nfc_hw_ecc_read_chunks_dma(struct nand_chip *nand, uint8_t *buf
+ 		return ret;
+ 
+ 	status = readl(nfc->regs + NFC_REG_ECC_ST);
++	pattern_found = readl(nfc->regs + nfc->caps->reg_pat_found);
++	pattern_found = field_get(NFC_ECC_PAT_FOUND_MSK(nfc), pattern_found);
+ 
+ 	for (i = 0; i < nchunks; i++) {
+ 		int data_off = i * ecc->size;
+@@ -971,7 +992,8 @@ static int sunxi_nfc_hw_ecc_read_chunks_dma(struct nand_chip *nand, uint8_t *buf
+ 
+ 		ret = sunxi_nfc_hw_ecc_correct(nand, randomized ? data : NULL,
+ 					       oob_required ? oob : NULL,
+-					       i, status, &erased);
++					       i, status, pattern_found,
++					       &erased);
+ 
+ 		/* ECC errors are handled in the second loop. */
+ 		if (ret < 0)
+@@ -2185,6 +2207,8 @@ static const struct sunxi_nfc_caps sunxi_nfc_a10_caps = {
  	.reg_io_data = NFC_REG_A10_IO_DATA,
-+	.reg_ecc_err_cnt = NFC_REG_A10_ECC_ERR_CNT,
+ 	.reg_ecc_err_cnt = NFC_REG_A10_ECC_ERR_CNT,
+ 	.reg_user_data = NFC_REG_A10_USER_DATA,
++	.reg_pat_found = NFC_REG_ECC_ST,
++	.pat_found_mask = GENMASK(31, 16),
  	.dma_maxburst = 4,
  	.ecc_strengths = sunxi_ecc_strengths_a10,
  	.nstrengths = ARRAY_SIZE(sunxi_ecc_strengths_a10),
-@@ -2185,6 +2189,7 @@ static const struct sunxi_nfc_caps sunxi_nfc_a10_caps = {
- static const struct sunxi_nfc_caps sunxi_nfc_a23_caps = {
- 	.has_mdma = true,
+@@ -2195,6 +2219,8 @@ static const struct sunxi_nfc_caps sunxi_nfc_a23_caps = {
  	.reg_io_data = NFC_REG_A23_IO_DATA,
-+	.reg_ecc_err_cnt = NFC_REG_A10_ECC_ERR_CNT,
+ 	.reg_ecc_err_cnt = NFC_REG_A10_ECC_ERR_CNT,
+ 	.reg_user_data = NFC_REG_A10_USER_DATA,
++	.reg_pat_found = NFC_REG_ECC_ST,
++	.pat_found_mask = GENMASK(31, 16),
  	.dma_maxburst = 8,
  	.ecc_strengths = sunxi_ecc_strengths_a10,
  	.nstrengths = ARRAY_SIZE(sunxi_ecc_strengths_a10),
