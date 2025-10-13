@@ -4,140 +4,104 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 96BC1CCD18C
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 05:50:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5A502CCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 05:59:10 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
-	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
-	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0M8aFuc/Mt4pPM0F4HGxyoaCM32GJ3Ozi/GdicAL7h0=; b=D/dSLdbGguEUXgUU57zSUY9hWO
-	EFZ01ewOqbuvia9PUYlg8aPD8d3L8WdUGSlliVviuXXTmPhe5yVv6D2z6JKyR6AMaC9CXN0jf0FVv
-	hFR1zbW2zoHQH/fWxk/p4/QY8Yk6H8a9Je2NeHHQkv4Lm5dqZLJJ9EfOvjRh/c9rZxX/uJr9Pa1UE
-	gmfFS6UFPH/s1n++UJLF/pdUmOMRwpLn7n3GYzJHe/DFLYt5A1f8Drlmg2hqN9Dn3b8kjEfpHcI91
-	YhWHB5YQaMHAnb1Lvl+8VWAsJ8P0TR3j09qMJKOQ8WJH//jSbm6Emd8d6uuXrRyodMaW2a6skPkeO
-	mnXqxSTQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
+	:Subject:Cc:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=qVaz1zwGuDSR6vm0lLRYYp/IrSSmnl0g1UxK/5AowGY=; b=FDyllZLyxy6/geX2uWSd+VKHJw
+	KV40zflq/2y2Ha2oWlQVxXEkaic+WlMwcAOV4Z+WTctA/TfOKs+n6e1MXLHRkCGNQf8Q6JH6nBlXn
+	Q7gxJ11vaO/PO/S0+RNq+U6gbGK+qmd4H/t3szjWfpd0rfVGodQKbEDoxQOY+ptl47cIgbDchIsOO
+	8nOoensFY3Xbs0xOnDCNvxfR2e01RRxDWADRO/gcrxFbCJSEDNzkU0CL8orDmqoCGzFOtLck9kRgK
+	q0uo3ImHVAJOGiVutWPjyS75jgFdIZCWI4chp9y1svU+AsYYfOE3CgmAWAXkknvRcWDVu9ecfRVFw
+	4n829WDg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8BRy-0000000CIX9-3i2m;
-	Mon, 13 Oct 2025 05:50:26 +0000
-Received: from mx0a-0031df01.pphosted.com ([205.220.168.131])
+	id 1v8BaI-0000000CJzU-3qKK;
+	Mon, 13 Oct 2025 05:59:02 +0000
+Received: from mx-relay58-hz1.antispameurope.com ([94.100.133.229])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8BRw-0000000CIUQ-0dBL
+	id 1v8BaC-0000000CJy4-2378
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 05:50:25 +0000
-Received: from pps.filterd (m0279864.ppops.net [127.0.0.1])
-	by mx0a-0031df01.pphosted.com (8.18.1.2/8.18.1.2) with ESMTP id 59D2n7HY022230
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 05:50:24 GMT
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=qualcomm.com; h=
-	cc:content-transfer-encoding:content-type:date:from:in-reply-to
-	:message-id:mime-version:references:subject:to; s=qcppdkim1; bh=
-	0M8aFuc/Mt4pPM0F4HGxyoaCM32GJ3Ozi/GdicAL7h0=; b=MxD+DjPqYW0HvzNf
-	qaiS5tAQtkO+rNzRf/QPa582C5tfg34zPuedcH0eUQbQDhw7p9Bs9uoYbOsMBokG
-	lJxA3Rl2YjZeKSvoTeTuysaGJYNYo8VL2EpEvsdYHfwh5rbng08Bvc3Y+rIVi2Em
-	j/oEIWdAUPuOhnXmUJxz6336lyXJHdlrEHLmol64oRU5TybKfRuFYvCCh0IQQKCG
-	scW47yaAZA/mXs8s/xz7pHhfdR2oekAhUrngtadRIaZ+xDUnRyM1Gd27IMBlghbY
-	wOVW/XXNXNXoVCXNEef/FbAuuEqU46CeEOVKfbEXYf9A2Be5PzQh2DYBwbm4Q7dL
-	xLq49g==
-Received: from mail-pf1-f199.google.com (mail-pf1-f199.google.com [209.85.210.199])
-	by mx0a-0031df01.pphosted.com (PPS) with ESMTPS id 49qgdfu9yh-1
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES128-GCM-SHA256 bits=128 verify=NOT)
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 05:50:23 +0000 (GMT)
-Received: by mail-pf1-f199.google.com with SMTP id d2e1a72fcca58-76e2ea9366aso6246965b3a.2
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Oct 2025 22:50:23 -0700 (PDT)
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760334623; x=1760939423;
-        h=cc:to:in-reply-to:references:message-id:content-transfer-encoding
-         :mime-version:subject:date:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=0M8aFuc/Mt4pPM0F4HGxyoaCM32GJ3Ozi/GdicAL7h0=;
-        b=HFracNBY+pSg6+14x8NXfq/ySESvP8nD5neKIvFoMIMRinpTq1RYc4EQjV5bRTIuai
-         5uNKCIMUNBMU2ewGATr0eI94+fctVfLbiQx6ciGabu7hKl9JdwaJ/0tpgf5cOO32hp6u
-         1pM/eShTR3S795pgs1SvfvBvAKAT0VkopJqR+HE8VK0ixVkvh6zIx15BZ+bg/msk/l9D
-         NrWTHi7LRkgz+gJvYv/0ZZAAja9SS1UKCQVt/mHtg8NCNGw9YNeT4jvTk7NvZ5FBEk9j
-         H/2pYnnrFCOLJO93zZaFhjUV81rit6Q0yzClbocOu7DxBX78GgZIF2UDAeVdn8WYx4hv
-         Qgbg==
-X-Forwarded-Encrypted: i=1; AJvYcCVsod3NwHEws5bzVGump2R2uJvU1Y4bEK9/8Nph88Q7D9QGbWx3a6dtL/xRoz5qZmWoUcHFgZEaOo1HGbcbuhnR@lists.infradead.org
-X-Gm-Message-State: AOJu0YyMnaMjVrUQ7Fc+XCpKTusTFpmcVK5an8+s/UqH5+bgr3WNjQOS
-	DcZodnMUpILmdkccU5IrEVFnp+Eu9rDZ8/TclnZvPPd27/OSNPZzSHBMxeqVOUuHdxpAFYihuyh
-	bkqzQ2n7NkSXl9ZKkiicdVB5JtEhtskunKQXag+G7Xjg+wzb3K6Jm0wMXq5SxlghUZpcZ+jbvxh
-	fhQw==
-X-Gm-Gg: ASbGncvxlcEpFL7yYka2WiaOMnd30kmr1rZeguULwMT4bQSbAfrSPXkopep58ENrBHP
-	9iBLcy4HUcThslCwNihknfdU/jmZ08UjgFkuPiHW0TLz4pcAnJtZR3pkqQ7cnJ7tizq3WxlRMGR
-	O1/LduT2c2Y8IAow9l5Ws97bbl0m22GLeEJ1WFU/Osgfje/IOji1qNS6mdEWM8OKgfvzzW4rhJL
-	rU0gD8VpDJRme0zgkD5OxSy1bSuaubLfmkmi27t7ItJa7ye0SZe+TwncJYb539aDAU6XACaKmb5
-	Ri/jQsiqJvTR2butYt5Jo/P2OFtRxX9bY4NBuVoupgI0I2dH52uJzLdWs91oaF5eR+b1A2lKOnY
-	Ul8nsrwgJBiafKbRsVZFWbDgDKNE=
-X-Received: by 2002:aa7:88c8:0:b0:77f:143d:eff2 with SMTP id d2e1a72fcca58-79387c191fcmr24271684b3a.28.1760334622725;
-        Sun, 12 Oct 2025 22:50:22 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IEhxqXXmp9aEfaNdrdawUKaKA995gCx4boRuFrdQ2UN7/P23mvgjKwBh/cZOO4Q72gPOn4TVA==
-X-Received: by 2002:aa7:88c8:0:b0:77f:143d:eff2 with SMTP id d2e1a72fcca58-79387c191fcmr24271663b3a.28.1760334622267;
-        Sun, 12 Oct 2025 22:50:22 -0700 (PDT)
-Received: from jiegan-gv.ap.qualcomm.com (tpe-colo-wan-fw-bordernet.qualcomm.com. [103.229.16.4])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7992d0e1336sm10129898b3a.59.2025.10.12.22.50.17
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Oct 2025 22:50:21 -0700 (PDT)
-From: Jie Gan <jie.gan@oss.qualcomm.com>
-Date: Mon, 13 Oct 2025 13:49:18 +0800
-Subject: [PATCH v7 9/9] arm64: dts: qcom: lemans: Add interrupts to CTCU
- device
+	Mon, 13 Oct 2025 05:59:00 +0000
+ARC-Authentication-Results: i=1; mx-gate58-hz1.hornetsecurity.com 1; spf=pass
+ reason=mailfrom (ip=94.100.132.6, headerfrom=ew.tq-group.com)
+ smtp.mailfrom=ew.tq-group.com
+ smtp.helo=hmail-p-smtp01-out04-hz1.hornetsecurity.com; dmarc=pass
+ header.from=ew.tq-group.com orig.disposition=pass
+ARC-Message-Signature: a=rsa-sha256;
+ bh=qVaz1zwGuDSR6vm0lLRYYp/IrSSmnl0g1UxK/5AowGY=; c=relaxed/relaxed;
+ d=hornetsecurity.com; h=from:to:date:subject:mime-version:; i=1; s=hse1;
+ t=1760335114;
+ b=GEC2EhwTC6PBfrD4ughUEi8UphPpnDRmOV67RN8WS5G/Q385+oIRywvXeV/b20Cg/WMMH2MO
+ bRhmJOBVA3LGsRiOQ0yXBsupuX3qPtKoXMhhsIlo+GKxg1rsTrpfna7Bp61OGnfR2lpk1lMN/s/
+ fPn3gwt5nadmm6Q+FPIt5ez0EHSo+7pNvkvmW3JWmaZfLGHhECY2M46zA+Nf7G4nwBIkYeWSBxF
+ oRkYNIi96l/MYWHFcKkx+pQFmpj0wLYqA8d+4u3/7I/jV/zSyvwdFt+WrzHDXxJUAiG/niXVN4n
+ DH/Cja/BGaYzWoNB/d87BWIHjlFYozB2Gh6OEpxZBh44g==
+ARC-Seal: a=rsa-sha256; cv=none; d=hornetsecurity.com; i=1; s=hse1;
+ t=1760335114;
+ b=eElKH+NhfT+9aBMcVWI/XVS5bnP3uymVP7B9I7gRmUXDvKA7VRhQby24UsrPYJjEOXnLEDgP
+ Gr7MXlQis3BRWnJcAwz8jra0zuWGH8VMW6CM7ryma+jhN45xrXlPL+io7plJTJg4ATq48GUPVFi
+ umbYsCCVhMHxfghyA1hTXIp0c7hVxLbXiMAVKodnbiAXk/FuOC5734Oc+m1mfXWMVpaUN6s5jix
+ 78vXh0Brk+4e4+ZFHgGKMxppqrivV1M4RIP9ccRAzvZ/TF6Vp7tN9jhKJHMW+5UaML0Ik03OYlD
+ Q0FJ4DnyG1MyHJMT4U0dvE4Rmwvo1zX6z9BKUjSnlqAUw==
+Received: from he-nlb01-hz1.hornetsecurity.com ([94.100.132.6]) by mx-relay58-hz1.antispameurope.com;
+ Mon, 13 Oct 2025 07:58:34 +0200
+Received: from steina-w.localnet (host-82-135-125-110.customer.m-online.net [82.135.125.110])
+	(Authenticated sender: alexander.stein@ew.tq-group.com)
+	by hmail-p-smtp01-out04-hz1.hornetsecurity.com (Postfix) with ESMTPSA id DC35522054B;
+	Mon, 13 Oct 2025 07:58:12 +0200 (CEST)
+From: Alexander Stein <alexander.stein@ew.tq-group.com>
+To: Vinod Koul <vkoul@kernel.org>, Kishon Vijay Abraham I <kishon@kernel.org>,
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+ Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+ Sascha Hauer <s.hauer@pengutronix.de>,
+ Pengutronix Kernel Team <kernel@pengutronix.de>,
+ Fabio Estevam <festevam@gmail.com>, Li Jun <jun.li@nxp.com>,
+ Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>,
+ Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>,
+ linux-arm-kernel@lists.infradead.org
+Cc: linux-phy@lists.infradead.org, devicetree@vger.kernel.org,
+ imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+ linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org,
+ Xu Yang <xu.yang_2@nxp.com>, Frank Li <Frank.Li@nxp.com>,
+ Xu Yang <xu.yang_2@nxp.com>
+Subject: Re: [PATCH v2 3/4] phy: fsl-imx8mq-usb: support alternate reference clock
+Date: Mon, 13 Oct 2025 07:58:12 +0200
+Message-ID: <2805917.mvXUDI8C0e@steina-w>
+Organization: TQ-Systems GmbH
+In-Reply-To: <20251010-usb-phy-alt-clk-support-v2-3-af4b78bb4ae8@nxp.com>
+References: <20251010-usb-phy-alt-clk-support-v2-0-af4b78bb4ae8@nxp.com>
+ <20251010-usb-phy-alt-clk-support-v2-3-af4b78bb4ae8@nxp.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-Message-Id: <20251013-enable-byte-cntr-for-ctcu-v7-9-e1e8f41e15dd@oss.qualcomm.com>
-References: <20251013-enable-byte-cntr-for-ctcu-v7-0-e1e8f41e15dd@oss.qualcomm.com>
-In-Reply-To: <20251013-enable-byte-cntr-for-ctcu-v7-0-e1e8f41e15dd@oss.qualcomm.com>
-To: Suzuki K Poulose <suzuki.poulose@arm.com>,
-        Mike Leach <mike.leach@linaro.org>,
-        James Clark <james.clark@linaro.org>,
-        Alexander Shishkin <alexander.shishkin@linux.intel.com>,
-        Rob Herring <robh@kernel.org>,
-        Krzysztof Kozlowski <krzk+dt@kernel.org>,
-        Conor Dooley <conor+dt@kernel.org>,
-        Tingwei Zhang <tingwei.zhang@oss.qualcomm.com>,
-        Yuanfang Zhang <yuanfang.zhang@oss.qualcomm.com>,
-        Mao Jinlong <jinlong.mao@oss.qualcomm.com>,
-        Jie Gan <quic_jiegan@quicinc.com>,
-        Bjorn Andersson <andersson@kernel.org>,
-        Konrad Dybcio <konradybcio@kernel.org>
-Cc: coresight@lists.linaro.org, linux-arm-kernel@lists.infradead.org,
-        linux-kernel@vger.kernel.org, linux-arm-msm@vger.kernel.org,
-        devicetree@vger.kernel.org, Jie Gan <jie.gan@oss.qualcomm.com>,
-        Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-X-Mailer: b4 0.14.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1760334568; l=820;
- i=jie.gan@oss.qualcomm.com; s=20250909; h=from:subject:message-id;
- bh=puH6v1Vw8fFe9wl3mkMKP3E/RzmfB2TkYXSNm520xS4=;
- b=lCVal94BR6nfoZj9iRzi5oLBXkX2bW2qsDWgbK4ssNwarQ8S6PvoWe1Jr5TdL3CN6BcepOykS
- LOZCdkfTNQtDl9LIWvUXgPqM3VB0GER4lNl226C2t3sSICX49l8WMez
-X-Developer-Key: i=jie.gan@oss.qualcomm.com; a=ed25519;
- pk=3LxxUZRPCNkvPDlWOvXfJNqNO4SfGdy3eghMb8puHuk=
-X-Proofpoint-Spam-Details-Enc: AW1haW4tMjUxMDExMDAyNSBTYWx0ZWRfX+DBAmnxhRSQZ
- wl9R5wwARg4d4tBfgKaRwAvAoCO/NhLo+vqQi4stF0pU2sr/A1YTV6PxDskHJJnxdXB7S5Z6n0g
- 4wDCTG9sP89ESF6sxYkQVxAhrDLYgCNN+NzF7tMOf8XEkbvbbuUN/sa6wfLEfRP+g1vA372sa7p
- d1F69wo4RFKCIy0+bHPkcK5dgsYyioldom05WgWrMcUh4uTBhZnGW/kxaJb/gYhPPAoo6tG9vRc
- 87I6SV/2Mp0d+l473SF7mEn3dgrj1/gePCFx1127eKN3+fSXII2GTSDZjQgBpxI/++MrbcMFLZ+
- RjexjqqCrh+up7wNz7DM6o7lQb1uBkCB1Rl2essft6Eqzhup9LyCgNNlKSE7ZmtUEgcgkrX+t0X
- PahP0lVV6mbI4K6VrbWa/OPCUM95uQ==
-X-Proofpoint-GUID: Cqohj-Hd3PU0cGz7-P-3Dhz5sjaJqpN8
-X-Proofpoint-ORIG-GUID: Cqohj-Hd3PU0cGz7-P-3Dhz5sjaJqpN8
-X-Authority-Analysis: v=2.4 cv=J4ynLQnS c=1 sm=1 tr=0 ts=68ec931f cx=c_pps
- a=WW5sKcV1LcKqjgzy2JUPuA==:117 a=nuhDOHQX5FNHPW3J6Bj6AA==:17
- a=IkcTkHD0fZMA:10 a=x6icFKpwvdMA:10 a=EUspDBNiAAAA:8 a=gBkj9RZkAcI1HbXH1KoA:9
- a=QEXdDO2ut3YA:10 a=OpyuDcXvxspvyRM73sMx:22
-X-Proofpoint-Virus-Version: vendor=baseguard
- engine=ICAP:2.0.293,Aquarius:18.0.1117,Hydra:6.1.9,FMLib:17.12.80.40
- definitions=2025-10-13_02,2025-10-06_01,2025-03-28_01
-X-Proofpoint-Spam-Details: rule=outbound_notspam policy=outbound score=0
- impostorscore=0 lowpriorityscore=0 priorityscore=1501 adultscore=0
- bulkscore=0 suspectscore=0 clxscore=1015 phishscore=0 spamscore=0
- malwarescore=0 classifier=typeunknown authscore=0 authtc= authcc=
- route=outbound adjust=0 reason=mlx scancount=1 engine=8.19.0-2510020000
- definitions=main-2510110025
+Content-Transfer-Encoding: 7Bit
+Content-Type: text/plain; charset="us-ascii"
+X-cloud-security-sender: alexander.stein@ew.tq-group.com
+X-cloud-security-recipient: linux-arm-kernel@lists.infradead.org
+X-cloud-security-crypt: load encryption module
+X-cloud-security-Mailarchiv: E-Mail archived for: alexander.stein@ew.tq-group.com
+X-cloud-security-Mailarchivtype: outbound
+X-cloud-security-Virusscan: CLEAN
+X-cloud-security-disclaimer: This E-Mail was scanned by E-Mailservice on mx-relay58-hz1.antispameurope.com with 4clRTy0D7HzQkxm
+X-cloud-security-connect: he-nlb01-hz1.hornetsecurity.com[94.100.132.6], TLS=1, IP=94.100.132.6
+X-cloud-security-Digest: 7d5dfab00112230566df6a60cb391a85
+X-cloud-security: scantime:2.228
+DKIM-Signature: a=rsa-sha256;
+ bh=qVaz1zwGuDSR6vm0lLRYYp/IrSSmnl0g1UxK/5AowGY=; c=relaxed/relaxed;
+ d=ew.tq-group.com;
+ h=content-type:mime-version:subject:from:to:message-id:date; s=hse1;
+ t=1760335114; v=1;
+ b=noHwEuiYVWSbXiwBqK06r6q2AgJbB4UVGebYigC24RjaYxVeZR2Km4EL0LLFIjpDEN+36GJ4
+ 1pOCxsUMynKF8cL+793KsKAPRZTjCRhN1vZq9k3ifYMJfkjLKsoBDgltwmrL1rHCIZ5VF2+O1ig
+ 8ct5zvjK2O0kPq/5J6eN/XOKQb+1Xk/xp158j5GsfpPEMBjo+ocEUaI0XwJ/iqzvMrGsUKsrsNF
+ o5xKubqwY3ZoWz0csoOyZW7CuIuLgEQIWEu+die3TtSa72RvS9VARkoT/qxao55DIXS9uHkmCWF
+ kV1boanJhDfuNGZJxkdYxYRpV5HKsyyslDnz1uLM7HB5Q==
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251012_225024_339945_A9F19C3B 
-X-CRM114-Status: GOOD (  12.60  )
+X-CRM114-CacheID: sfid-20251012_225856_789464_5D6C7753 
+X-CRM114-Status: GOOD (  22.55  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -152,32 +116,101 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add interrupts to enable byte-cntr function for TMC ETR devices.
+Am Freitag, 10. Oktober 2025, 13:01:12 CEST schrieb Xu Yang:
+> This phy supports both 24MHz and 100MHz clock inputs. By default it's
+> using XTAL 24MHz and the 100MHz clock is a alternate reference clock.
+> Add supports to use alternate reference clock in case 24MHz clock
+> can't work well.
 
-Reviewed-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
-Signed-off-by: Jie Gan <jie.gan@oss.qualcomm.com>
----
- arch/arm64/boot/dts/qcom/lemans.dtsi | 5 +++++
- 1 file changed, 5 insertions(+)
+This driver supports imx8mx and imx8mp as well. Do these SoC also support
+the alternative clock?
 
-diff --git a/arch/arm64/boot/dts/qcom/lemans.dtsi b/arch/arm64/boot/dts/qcom/lemans.dtsi
-index cf685cb186ed..9e4dbf7c4a11 100644
---- a/arch/arm64/boot/dts/qcom/lemans.dtsi
-+++ b/arch/arm64/boot/dts/qcom/lemans.dtsi
-@@ -2776,6 +2776,11 @@ ctcu@4001000 {
- 			clocks = <&aoss_qmp>;
- 			clock-names = "apb";
- 
-+			interrupts = <GIC_SPI 270 IRQ_TYPE_EDGE_RISING>,
-+				     <GIC_SPI 262 IRQ_TYPE_EDGE_RISING>;
-+			interrupt-names = "etr0",
-+					  "etr1";
-+
- 			in-ports {
- 				#address-cells = <1>;
- 				#size-cells = <0>;
+Best regards
+Alexander
 
--- 
-2.34.1
+> 
+> Reviewed-by: Frank Li <Frank.Li@nxp.com>
+> Signed-off-by: Xu Yang <xu.yang_2@nxp.com>
+> 
+> ---
+> Changes in v2:
+>  - add Rb tag
+> ---
+>  drivers/phy/freescale/phy-fsl-imx8mq-usb.c | 23 +++++++++++++++++++++--
+>  1 file changed, 21 insertions(+), 2 deletions(-)
+> 
+> diff --git a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+> index b94f242420fc733cd75abef8ba1cd4f59ac18eb5..ad8a55012e42f2c15496955d00c6d5fd85c5beb2 100644
+> --- a/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+> +++ b/drivers/phy/freescale/phy-fsl-imx8mq-usb.c
+> @@ -16,6 +16,7 @@
+>  #define PHY_CTRL0_REF_SSP_EN		BIT(2)
+>  #define PHY_CTRL0_FSEL_MASK		GENMASK(10, 5)
+>  #define PHY_CTRL0_FSEL_24M		0x2a
+> +#define PHY_CTRL0_FSEL_100M		0x27
+>  
+>  #define PHY_CTRL1			0x4
+>  #define PHY_CTRL1_RESET			BIT(0)
+> @@ -108,6 +109,7 @@ struct tca_blk {
+>  struct imx8mq_usb_phy {
+>  	struct phy *phy;
+>  	struct clk *clk;
+> +	struct clk *alt_clk;
+>  	void __iomem *base;
+>  	struct regulator *vbus;
+>  	struct tca_blk *tca;
+> @@ -582,7 +584,8 @@ static int imx8mp_usb_phy_init(struct phy *phy)
+>  	/* USB3.0 PHY signal fsel for 24M ref */
+>  	value = readl(imx_phy->base + PHY_CTRL0);
+>  	value &= ~PHY_CTRL0_FSEL_MASK;
+> -	value |= FIELD_PREP(PHY_CTRL0_FSEL_MASK, PHY_CTRL0_FSEL_24M);
+> +	value |= FIELD_PREP(PHY_CTRL0_FSEL_MASK, imx_phy->alt_clk ?
+> +			    PHY_CTRL0_FSEL_100M : PHY_CTRL0_FSEL_24M);
+>  	writel(value, imx_phy->base + PHY_CTRL0);
+>  
+>  	/* Disable alt_clk_en and use internal MPLL clocks */
+> @@ -626,13 +629,24 @@ static int imx8mq_phy_power_on(struct phy *phy)
+>  	if (ret)
+>  		return ret;
+>  
+> -	return clk_prepare_enable(imx_phy->clk);
+> +	ret = clk_prepare_enable(imx_phy->clk);
+> +	if (ret)
+> +		return ret;
+> +
+> +	ret = clk_prepare_enable(imx_phy->alt_clk);
+> +	if (ret) {
+> +		clk_disable_unprepare(imx_phy->clk);
+> +		return ret;
+> +	}
+> +
+> +	return ret;
+>  }
+>  
+>  static int imx8mq_phy_power_off(struct phy *phy)
+>  {
+>  	struct imx8mq_usb_phy *imx_phy = phy_get_drvdata(phy);
+>  
+> +	clk_disable_unprepare(imx_phy->alt_clk);
+>  	clk_disable_unprepare(imx_phy->clk);
+>  	regulator_disable(imx_phy->vbus);
+>  
+> @@ -681,6 +695,11 @@ static int imx8mq_usb_phy_probe(struct platform_device *pdev)
+>  		return PTR_ERR(imx_phy->clk);
+>  	}
+>  
+> +	imx_phy->alt_clk = devm_clk_get_optional(dev, "alt");
+> +	if (IS_ERR(imx_phy->alt_clk))
+> +		return dev_err_probe(dev, PTR_ERR(imx_phy->alt_clk),
+> +				    "Failed to get alt clk\n");
+> +
+>  	imx_phy->base = devm_platform_ioremap_resource(pdev, 0);
+>  	if (IS_ERR(imx_phy->base))
+>  		return PTR_ERR(imx_phy->base);
+> 
+> 
+
+
+
 
 
