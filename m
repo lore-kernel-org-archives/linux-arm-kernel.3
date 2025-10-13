@@ -4,44 +4,44 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DB0F2CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 20:33:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 771ABCCD183
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 20:33:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=ldfXdTVU47tWvWbMJyiK3+mGtcCL/Gxcx9lBUXcC8dg=; b=WSIGJGHcIK74gfPylkC68zjqsM
-	a0t4ai0YmAjAZHuvjzc6WfRlMzofpmAt+kKJ9IgykBOTPXIr7YoR6h7fah0Jt2warHL8tZGDI1Zyz
-	FDec7G5LFk0XvkZDXaujGSjpNrg4deI5+q1Z4FqTHIyDQOkdrvvo2qBTZ8o4aQYju9voYGMrj6Z5a
-	3XwXtmrohY1V8v/YGy0l1wgFGUIIBaoXFr68otvUzQ9NYqrWZyT2w/H7zbKCRdI3abp3C1Zqnrloa
-	Z4Hh6vEaHguksR2khbi0s746T0Lvu+1OA0ReNOhfwTQe5KPqJvlpXOM/xOkmZbuESiLETwz6QkMlD
-	Dn2tTX5A==;
+	bh=bRoWUlFhAwhp2cFv9PQzQntX9r9EON1eUpq3Tj44Lhk=; b=M4PDLyNokSGCt6urJwqUKJG4an
+	WS7d8ZN4x8mWlpHVDPvMoP+CLlTFQhwRGh+eLz6CSVhSVn2LaEXHtAXl0yPguu3HI9Dgrv32/Rwiq
+	atuedJswRd+PXEM8ENcUp1qwL2Px4u7V6+K3xWAIiOcM11hWV5h6vht3h6w3Yglvb8frD08Yj2AVF
+	4MKrFspYxOjXmBcOHbavUK9TAWyAdx3T9FlRAqIrmLD83ulaMXSGRgbtyPgVk0OJqi3iFBiM7JsoO
+	lBMyJVzcuhUxOTE2GpqxYKvqEF7JTvRPiooFUHufdXFiZt+J+IB7v+KC2dcTzCvKts/wdpyB+r2o7
+	oieMyPpw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8PET-0000000ENoq-3rOJ;
-	Mon, 13 Oct 2025 20:33:25 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v8PEX-0000000ENsg-12xa;
+	Mon, 13 Oct 2025 20:33:29 +0000
+Received: from sea.source.kernel.org ([172.234.252.31])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8PES-0000000ENn3-2OdT
+	id 1v8PEU-0000000ENod-0CCo
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 20:33:24 +0000
+	Mon, 13 Oct 2025 20:33:27 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F225A604A3;
-	Mon, 13 Oct 2025 20:32:53 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 04DA5C19421;
-	Mon, 13 Oct 2025 20:32:45 +0000 (UTC)
+	by sea.source.kernel.org (Postfix) with ESMTP id A5FDB48BA6;
+	Mon, 13 Oct 2025 20:33:25 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id E9228C4CEF8;
+	Mon, 13 Oct 2025 20:33:17 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760387573;
-	bh=SYoV9ZciDsKT7uyTlAb1HvnL9v8aWR3nKq+oz55/MdA=;
+	s=k20201202; t=1760387605;
+	bh=VdxniS9PgPy7NwhH2qd2yJdMmQz1qplz7zrJIak9Kiw=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=SvIsRv9DHqgbXBzvpjJTe7iEFRLA18aRBTMlRtj5wqnG/51QXuySKukS7AMR1v1GC
-	 FkXGEBk2tv1t6TfODfXIT/oK7UvglAp3/umQXh5OU6vrG9zxktFrPaPA3Zd/6jVQcI
-	 1RqEghZtT6djE55z9v8Jdp4Mginxrl+0hAgMOvd9++mVSgE4x4YknNkQL+tfyrPTKY
-	 /2enoQvkZAF+OadcgWiKg5RsUcilyPY0krUK7vjyb02VImGJRVuEYv90kp2IGmDlXY
-	 4LIlrxscD6lhRPh1JaN2JXlrxbFu/xN2x7GJqVngJiEgBzXVF1vsU2c8ETObaBfZkR
-	 hDeq9X1hFCWnA==
+	b=OYkHhfUXI/oYa4SUYC3drRS/xQcuPGvoJ7NPAlL+RYkd7LDKQhVy66GIv8GRNnfq1
+	 vta4/PExq+fjEPabx2OflvbpD8ELoJfqDDnIQfTM11ITuobQsbRQNXofNlQKL61YhW
+	 x/NThH0eYDAZ9ccNisPSMap9HlbAI08z9DDWViQ3Lk5zSF3JuRqgNhutW4TnyAJ8jv
+	 Nf59vwv9i4Rvsim9ENbglJi+KEKcK8aPqG1Zxpcx5Z/h8MD+MSx2OCYq64txa1+r7L
+	 MiEYtaDzQewyIhShh6A2JbjtLxzvRTq4ZVb5PTnXWtdVlTZLWCINQsN5Q3TdoH9Nnp
+	 ucj4kQYQMMMCQ==
 From: Frederic Weisbecker <frederic@kernel.org>
 To: LKML <linux-kernel@vger.kernel.org>
 Cc: Frederic Weisbecker <frederic@kernel.org>,
@@ -80,14 +80,18 @@ Cc: Frederic Weisbecker <frederic@kernel.org>,
 	linux-mm@kvack.org,
 	linux-pci@vger.kernel.org,
 	netdev@vger.kernel.org
-Subject: [PATCH 07/33] driver core: cpu: Convert /sys/devices/system/cpu/isolated to use HK_TYPE_DOMAIN_BOOT
-Date: Mon, 13 Oct 2025 22:31:20 +0200
-Message-ID: <20251013203146.10162-8-frederic@kernel.org>
+Subject: [PATCH 11/33] cpuset: Provide lockdep check for cpuset lock held
+Date: Mon, 13 Oct 2025 22:31:24 +0200
+Message-ID: <20251013203146.10162-12-frederic@kernel.org>
 X-Mailer: git-send-email 2.51.0
 In-Reply-To: <20251013203146.10162-1-frederic@kernel.org>
 References: <20251013203146.10162-1-frederic@kernel.org>
 MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251013_133326_115434_4F1435C5 
+X-CRM114-Status: GOOD (  10.42  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -102,28 +106,51 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Make sure /sys/devices/system/cpu/isolated only prints what was passed
-through the isolcpus= parameter before HK_TYPE_DOMAIN will also
-integrate cpuset isolated partitions.
+cpuset modifies partitions, including isolated, while holding the cpuset
+mutex.
+
+This means that holding the cpuset mutex is safe to synchronize against
+housekeeping cpumask changes.
+
+Provide a lockdep check to validate that.
 
 Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
 ---
- drivers/base/cpu.c | 2 +-
- 1 file changed, 1 insertion(+), 1 deletion(-)
+ include/linux/cpuset.h | 2 ++
+ kernel/cgroup/cpuset.c | 7 +++++++
+ 2 files changed, 9 insertions(+)
 
-diff --git a/drivers/base/cpu.c b/drivers/base/cpu.c
-index fa0a2eef93ac..050f87d5b8d4 100644
---- a/drivers/base/cpu.c
-+++ b/drivers/base/cpu.c
-@@ -291,7 +291,7 @@ static ssize_t print_cpus_isolated(struct device *dev,
- 		return -ENOMEM;
+diff --git a/include/linux/cpuset.h b/include/linux/cpuset.h
+index 2ddb256187b5..051d36fec578 100644
+--- a/include/linux/cpuset.h
++++ b/include/linux/cpuset.h
+@@ -18,6 +18,8 @@
+ #include <linux/mmu_context.h>
+ #include <linux/jump_label.h>
  
- 	cpumask_andnot(isolated, cpu_possible_mask,
--		       housekeeping_cpumask(HK_TYPE_DOMAIN));
-+		       housekeeping_cpumask(HK_TYPE_DOMAIN_BOOT));
- 	len = sysfs_emit(buf, "%*pbl\n", cpumask_pr_args(isolated));
++extern bool lockdep_is_cpuset_held(void);
++
+ #ifdef CONFIG_CPUSETS
  
- 	free_cpumask_var(isolated);
+ /*
+diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
+index 8595f1eadf23..aa1ac7bcf2ea 100644
+--- a/kernel/cgroup/cpuset.c
++++ b/kernel/cgroup/cpuset.c
+@@ -279,6 +279,13 @@ void cpuset_full_unlock(void)
+ 	cpus_read_unlock();
+ }
+ 
++#ifdef CONFIG_LOCKDEP
++bool lockdep_is_cpuset_held(void)
++{
++	return lockdep_is_held(&cpuset_mutex);
++}
++#endif
++
+ static DEFINE_SPINLOCK(callback_lock);
+ 
+ void cpuset_callback_lock_irq(void)
 -- 
 2.51.0
 
