@@ -4,80 +4,161 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5E210CCD18D
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 14:37:11 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 75D11CCD18D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 14:45:09 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
-	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Rllp487CNRUGxpj2xQnb4nSRNe+sjzCyjATcNRq2GrI=; b=5C1BBjIuXQlBA19ZfTE9SqQ/Uj
-	Ch3l3HqgQBAx5cPlO/q8DYrIx72wsO7QSf+3PFn+8bqkQVMy2r8Xg2JfbhwNotcydltmJOo0qefum
-	P+o9ECf93fGqiCWhFBvVAo/NUcyAUNvSqqV0jHACbc46Dwn80iLGipWYTMikUTDycmfMY7A0vpjBT
-	RUbAqlnBcimdNb4S991c6Fo2SIPNYKT1Bydw4qI0oHmW93F0bNdRlqlxTs7PATYSebUS1eO0j9Kql
-	s7sxRiHTqEqFrLNmk76Hi6zDcffZL5YcyLfNZnwJhoMDjHfiq54leGsa4BVFiZWa7kyLENNVv546G
-	hWcnBGOQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=XfnJvV/JW4vNNhHwbRog+rZUQt4HSZqoZkMOUGsqSS8=; b=yz9299fTj2VR/zeqSwjjRRLpCc
+	9Dz97w0iF+WuhmrBpAlKg4e7XG8VV40rQkyJc3dNGZZhTcfRppCq2NzlOwmagcR9xgfsWes5j3xlF
+	yGmACoeGvf1zOnM6+yW7YtcxUpqTBPWRcP/yBPVZ6u/kU3QX2mvwJyVjAhcOiwj/iYysndx9Cq45T
+	xwG6mKuxeuamvm7VG7eec3MAPnPWlAEXbADOSiOvyjY9wFBpKvF+Bh7AJ4n5YiJGk0fVsCfHs75xy
+	dC01QdpZ7w+8Zhg+hhUIxAHvSidC2MyTOzcmcWkNJMgK6Twwvgx2yoWBWjOekarYZEtWuep+6MZ1k
+	BeoHsxcw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Jfc-0000000DRxp-3uZb;
-	Mon, 13 Oct 2025 14:37:04 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
+	id 1v8JnI-0000000DTbj-0ZLh;
+	Mon, 13 Oct 2025 14:45:00 +0000
+Received: from mail-northeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c200::1] helo=DB3PR0202CU003.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Jfb-0000000DRxH-1KYI
+	id 1v8JnF-0000000DTYS-0woB
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 14:37:03 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id AC224613F5
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 14:37:02 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 5AFF3C16AAE
-	for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 14:37:02 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760366222;
-	bh=PYNJouYZOnK80Bm/nJhe6SqANkwVgSKIenFusl8KFig=;
-	h=References:In-Reply-To:From:Date:Subject:To:Cc:From;
-	b=Kukn3Z9Nzn2a5qoTTWwJ/2BFDGKq6Hd6Tyj77mRtqIMsChRoV1cxnS/z77xrFAS9k
-	 cy1DZbQFvPz+hBnECAVPg3R1xpsKtHqdJma1tUnQTElIHCBJsyUpX863yzITiXff8r
-	 lpeDt7yn8JTEw8cyTK9DA11L+pfaC5PtKGiLf2fuYEnZO8WtaLR+bXkKoTtCduyn/G
-	 U1eK1K/+BayvVHa4olVwlsDCDIRO3/Xp1ZoKj1RihdUp8oGunNXC3he2yXtcQxyj9Q
-	 zP1Yvvy/Td63mI2NJ+oO8kIfaltgxJlP+V5ZYAUHVJGn/usPYFHB+/lH7fUIoF3ZIC
-	 cV2yUCSycTDfQ==
-Received: by mail-lf1-f42.google.com with SMTP id 2adb3069b0e04-57992ba129eso5353153e87.3
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 07:37:02 -0700 (PDT)
-X-Forwarded-Encrypted: i=1; AJvYcCVHTDsxdG83JcT5uVMl48UA1Yvgg+SSIwelaRikVGNjaz9DwWPc25xle/IS02K7cXyzCWskofBFuLeLLkwUNYgw@lists.infradead.org
-X-Gm-Message-State: AOJu0YzONI5scwtsRVm3wLriHYOhQF2AOxGsOPYRPwLD9FnIyDpDXtx/
-	gbTwT8GfK2XfxhtV0mhsg9ISjN+6rWF11CT1SntUmxwmfiApiOwI69+nYhKv2WjLDs92ZDSEeRl
-	nKFmHcPI+iG/19stmmsizEWbRNIPspyw=
-X-Google-Smtp-Source: AGHT+IGEEOZ9VfTQ6ngkF8TFWCWZsUsks3HYpMtK+pRGdVEaBkbYcmJuOavvMnwfEbP13CKVvY+U//cKRiULxIVuvpc=
-X-Received: by 2002:a05:6512:3d23:b0:58b:189:871e with SMTP id
- 2adb3069b0e04-5906dc12463mr5914777e87.3.1760366220623; Mon, 13 Oct 2025
- 07:37:00 -0700 (PDT)
-MIME-Version: 1.0
-References: <20250928085506.4471-1-yangtiezhu@loongson.cn> <CAMj1kXG8Wi+THa2SeLxiDT=+t_TKx0AL4H-azZO4DNJvyyv96g@mail.gmail.com>
- <CAAhV-H7xOf8DEwOrNh+GQGHktOT4Ljp+7SqutGvvDZp6GLXJrA@mail.gmail.com>
- <CAMj1kXG=EFkRAMkvKMSjPixoGqU-tZXVoRkJJ6Wcnzs3x52X6Q@mail.gmail.com>
- <CAMj1kXHWe2uGY3S1NJ6mckqD4n116rPmaOzw3_Qbvxyjh7ECMw@mail.gmail.com>
- <fec0c03d-9d8c-89a3-886a-1adc22e59b66@loongson.cn> <CAMj1kXFLyBbRL+pAAQ6be6dxqFPiyw_Ug8qNQWaicZQ235HE=A@mail.gmail.com>
- <8091e8fa-3483-af39-2f7a-e4eb62b0944f@loongson.cn> <CAAhV-H4+UGLSkbjHbq9MerWfxnq0a13x+uzNfTsCoe1UxjbWsg@mail.gmail.com>
- <CAMj1kXH-rK0bRyHXdJ-crAyMyvJHApH0WR7_8Qd8vrSPBLK+yg@mail.gmail.com>
- <0c9b8e6a-96a6-91d4-946f-2109f48a529b@loongson.cn> <CAAhV-H41m96fvEWG5NqAE=tykPjyzt=50CseJDeCqdG-c_WMrQ@mail.gmail.com>
- <CAMj1kXEs5=VRi_rJwgHUrQWos-27PBbr3c4fYnmkV8Ahi8HZgw@mail.gmail.com>
- <CAAhV-H7HN128du-b1Rk_9qbYBq7gMSwo0s31909N4pTou6wzew@mail.gmail.com>
- <CAMj1kXGvSnCMRVCW7eAxgLRWMEV3QRj3Dqg3PmZchZJNpnLK9w@mail.gmail.com> <CAAhV-H4UKdso0BokAqvjYeBLr-jbjFAaQX4z=1ztpBamqrOEEg@mail.gmail.com>
-In-Reply-To: <CAAhV-H4UKdso0BokAqvjYeBLr-jbjFAaQX4z=1ztpBamqrOEEg@mail.gmail.com>
-From: Ard Biesheuvel <ardb@kernel.org>
-Date: Mon, 13 Oct 2025 16:36:49 +0200
-X-Gmail-Original-Message-ID: <CAMj1kXEXDC_oq4aWbkR5dqYBix2d1xJEdaj-v747e1nOA0Q_Yg@mail.gmail.com>
-X-Gm-Features: AS18NWAv9gA3fJmZoOCeAqGMe6vicknpLFzEFxHn_UczaDtdwwo0A8kcuivI9jM
-Message-ID: <CAMj1kXEXDC_oq4aWbkR5dqYBix2d1xJEdaj-v747e1nOA0Q_Yg@mail.gmail.com>
-Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
-To: Huacai Chen <chenhuacai@kernel.org>
-Cc: Tiezhu Yang <yangtiezhu@loongson.cn>, Josh Poimboeuf <jpoimboe@kernel.org>, 
-	loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, 
-	linux-kbuild@vger.kernel.org, linux-kernel@vger.kernel.org
-Content-Type: text/plain; charset="UTF-8"
+	Mon, 13 Oct 2025 14:44:58 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=QNieYQBeaMo/b71d3fba8z5ci3s8j3MWKArfi3tbGE3gD0b8EktUjRqn890Au3y30cRD1ugdC3EX02WQZXWShkn1G+o6qCEQyuQxIOyU8I4KAHT7EAPGn9xY3qGUtQ8zUa4ZpqvA/AhXrNK2HhrFgBaCPOOQI8VN3QojG1eztrgtghKdBBVFPe8ZfbT23knm8E7rrwi7t4H3v0cNs1IqlPy7k6v1sYboFSjXIBmkC1WFQoR7PM8G35SNODAcdejC+MR+/yG1qKQ8ZJzVkszVn96mKs80PEyc5tKEA5RUj90iy6PaSbA60g6EDorSnhIB+VA/r9XPhC2tOmj8AGSp+g==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=XfnJvV/JW4vNNhHwbRog+rZUQt4HSZqoZkMOUGsqSS8=;
+ b=VzoGf2ezyzfZbe2MB8caKV9VbH45T5YGJrJNgiRJFro6XuAHXM6+nxObwZUJqXLpvrKT5wEM3SNFu1dj9xVHYS8mETBeCr6h09s5hqxRA7RcwtUWrG385zZfJVm9+Yu2vxuYJMWsbth4DcNmvgSBMMVv/spmjqXpc9LvH+uFyE8TIP9k/1Z7hxLMp44DowikyHfhD6S5O/JVytbbYOjg+fJML383k/IfsnaYq0PJu2UxlipKzRVyLSQrZ7fgk5gxY00/igwwCQRmt6mB4FOpX4wd32s16S8Gnzv7EVLfbew+jyJyAdPU9sjNG/WrAVfvrWKFYv9xnuFTrBfE+0Mt5w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=XfnJvV/JW4vNNhHwbRog+rZUQt4HSZqoZkMOUGsqSS8=;
+ b=fNXjZy5jQwvKXDNVveWbiU6RlA/EULALTcdLcC2RcNSSi5U6gzTHm81o32ZbPKPbCqHJT5cy9btx+yhB3VnrsYqYgiJmZU5txslgNbUI1YSe5zr/CFvg33IQ99tc9fMat/eH2GYVSMtjdNSN9rHiHeVkMByL+MA7uCyQOTOdoYeiPoh/P8EggOQqa/LI2ptu/ll3I+ie3VbzSd4KmtLoK+nR/zj2U80Ih3WlVoFM+9YX9ly90bk/9MWPUmkju4Nflgr9mQ2aIn/UV9m0XuL6AyRQFavpq3vPzMSUr2Uh0BBtLeAZIOBWrIBkIQc6OPraEHCu2moUCe1GvTLB62x3Hg==
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com (2603:10a6:102:231::11)
+ by DU7PR04MB11090.eurprd04.prod.outlook.com (2603:10a6:10:5b0::21) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.12; Mon, 13 Oct
+ 2025 14:44:43 +0000
+Received: from PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::21bf:975e:f24d:1612]) by PAXPR04MB9185.eurprd04.prod.outlook.com
+ ([fe80::21bf:975e:f24d:1612%4]) with mapi id 15.20.9203.009; Mon, 13 Oct 2025
+ 14:44:43 +0000
+From: Shenwei Wang <shenwei.wang@nxp.com>
+To: Andrew Lunn <andrew@lunn.ch>
+CC: Bjorn Andersson <andersson@kernel.org>, Mathieu Poirier
+	<mathieu.poirier@linaro.org>, Rob Herring <robh@kernel.org>, Krzysztof
+ Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, Shawn Guo
+	<shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Linus Walleij
+	<linus.walleij@linaro.org>, Bartosz Golaszewski <brgl@bgdev.pl>, Pengutronix
+ Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Peng
+ Fan <peng.fan@nxp.com>, "linux-remoteproc@vger.kernel.org"
+	<linux-remoteproc@vger.kernel.org>, "devicetree@vger.kernel.org"
+	<devicetree@vger.kernel.org>, "imx@lists.linux.dev" <imx@lists.linux.dev>,
+	"linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, dl-linux-imx <linux-imx@nxp.com>
+Subject: Re: [PATCH v3 3/4] gpio: imx-rpmsg: add imx-rpmsg GPIO driver
+Thread-Topic: [PATCH v3 3/4] gpio: imx-rpmsg: add imx-rpmsg GPIO driver
+Thread-Index: AQHcPE/p8HZNFd5djE+JoBVj7U1Crg==
+Date: Mon, 13 Oct 2025 14:44:43 +0000
+Message-ID: <PAXPR04MB918524EAA74F72D64AE0ACA489EAA@PAXPR04MB9185.eurprd04.prod.outlook.com>
+References: <20251009222716.394806-1-shenwei.wang@nxp.com>
+ <20251009222716.394806-4-shenwei.wang@nxp.com>
+ <eb99d9a8-eb96-445d-899a-6e1d9b6f6c69@lunn.ch>
+ <PAXPR04MB9185A829534963B22D1C49FD89EFA@PAXPR04MB9185.eurprd04.prod.outlook.com>
+ <6025be80-7007-48bb-bdd1-c8198e951400@lunn.ch>
+In-Reply-To: <6025be80-7007-48bb-bdd1-c8198e951400@lunn.ch>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+authentication-results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+x-ms-publictraffictype: Email
+x-ms-traffictypediagnostic: PAXPR04MB9185:EE_|DU7PR04MB11090:EE_
+x-ms-office365-filtering-correlation-id: ad94c062-b5e5-4f4c-aef3-08de0a670c00
+x-ms-exchange-senderadcheck: 1
+x-ms-exchange-antispam-relay: 0
+x-microsoft-antispam: BCL:0;ARA:13230040|376014|366016|1800799024|7416014|19092799006|38070700021;
+x-microsoft-antispam-message-info: =?us-ascii?Q?hiJVi6Pmyzt7K9lhbXehxnr7gNWGj8oy26p0ITALR2RT0GT9GjG69NltTbJH?=
+ =?us-ascii?Q?H8oRC5BKxoTlhJB37QxL1vysJzP8uM2AjsX2Wnn9YkzO7uAke/VzmZYcpajj?=
+ =?us-ascii?Q?sJzZXj3s4i394//AP2KNHHyw5lswnsL1xgZ4r/GK171Z/mfBbzRvKqtve5wN?=
+ =?us-ascii?Q?qtdt4lr90T1NL6/48eDzOAWlqEdLd8COG+WOA15p+mZzeJhh2s6v8bFL4SNO?=
+ =?us-ascii?Q?sNM3Zq6N1sgn1SnJwtKC3347fY2uy2ZQs/O4oo3Ef3OMPEq+xB+UL6lFm3wt?=
+ =?us-ascii?Q?NjuQnx++PnO3T2wgCWG3viVyLkn0zFnNIRERndLzbGJv+MIoWftu/oz5vRP6?=
+ =?us-ascii?Q?O/MRaLhNkXhQ65fjI+pDFZFCK6X7D2ZuT2fpuBqFoWuAhnoIgdAv471rhrn2?=
+ =?us-ascii?Q?fXkMwBJP8GyChsf+w4M9/Kg4OlNhaL0gpk6blaO4V73P8hv8shwJPC315Aq9?=
+ =?us-ascii?Q?b0iAHKuHlOtR6dQpCuAEdJzEi3s+MnWRFxQVI/yuKS9L96sTo+WAaQ3Q/gzk?=
+ =?us-ascii?Q?JSvdQ1U5cljw9y+KQwqcf+KtaVtPpOeAPKaPyaEbJdmUfcpfmdwWJ6Z/YRHI?=
+ =?us-ascii?Q?N0yEjpwycH3nuM/hyKdKoS3thARb1KYTnJ5rV3oDQRAQL7Dl7Lf5GYPtsmEX?=
+ =?us-ascii?Q?4Rg8FSs88TqgW8ZN2klfXkKZIPRlvNZnecMJr7B4Bp2NekHQntkYlGfXk2gx?=
+ =?us-ascii?Q?2anvdK/xbEc/P3HmrWg+w3uEttfQNWSjZGszJFH0xUeCCC+PqVTuFhUw2bcg?=
+ =?us-ascii?Q?U370fvCPOI7ts3pSmMpKm+pG/yxoI1g6tdDCvnhKlLDUTzmUQCytteDY+UEW?=
+ =?us-ascii?Q?0gQaBAt0HDCZ8L4NYsYnhpRWmDlXHF8iOwLRySERHrjuB4tSU9DLV+AcsZxl?=
+ =?us-ascii?Q?Mcp2N5fkTExycYH4HAhucGT4woRUnIz2afqeTfkn4Sr9gRetVTgaAwoMZdRo?=
+ =?us-ascii?Q?PUCneofZK2tOZukc6ipUBXVe6/3y36gfftJ6yyI/k7HU4HIyjgoKnF0nVfPN?=
+ =?us-ascii?Q?fHVTPuL4QsiP11rFprQ3YFFAu/xkPMs8zWpvYxOfJc0CNwqhfJb4fkoKx5Ap?=
+ =?us-ascii?Q?lw8gPi3zouPQQcRVq+pVFofbOm+n51eYg/O+0xKWgNiFzvyN3zZKlRJKqBTg?=
+ =?us-ascii?Q?JV5gRhRGyBlxAQci8JwBrZhc5aENNI3dX3Mpl/VviR64ancfx7q8qtWTZLQn?=
+ =?us-ascii?Q?lUGWTMCk7zwLa8Sin/eKvEq4B6zBv6hvmOeIhDxCH5L80d4s+x+hqBP9B9ne?=
+ =?us-ascii?Q?6QVtPaXz+nmZlcjdJUuYkvbQ2mtAKszwqbL2qC0dY/xuzWXWNFKRNJ+fByv+?=
+ =?us-ascii?Q?prbZISp12+59k1t0jARit0EhbP0oa661HaCHcjyt3wXbKUyfHER+0+Gw9KFO?=
+ =?us-ascii?Q?pzF68XUXz/czxP3N3Cz2mSdvBdap7+WKY+j7uqQY0EgkCDgxlaad9bz/BtoH?=
+ =?us-ascii?Q?F7psVvQwXxUj2mCMV8ahvOvG+dj83yBHIYMMkRVhzHFTknGJ2ErwYpA0TQ16?=
+ =?us-ascii?Q?YwMty3woo9MR3NjsKu/qUu3BAp0EMfX2qnSp?=
+x-forefront-antispam-report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB9185.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(366016)(1800799024)(7416014)(19092799006)(38070700021);DIR:OUT;SFP:1101;
+x-ms-exchange-antispam-messagedata-chunkcount: 1
+x-ms-exchange-antispam-messagedata-0: =?us-ascii?Q?r1ZnffElCxA+5cMf9COllk0MJ0usxNQMIIbenaTuCFhOoWPQ5iODUzAsboix?=
+ =?us-ascii?Q?FLv70T9V+NL9KCryljXhM6zU6jfbXqbCwg6vxQdIm6sUOxICIZo7BhsMn0aO?=
+ =?us-ascii?Q?42sRyflcSl/J3ZLGhNr/sI4bEtU7plT2ShpZyTP4wme5RibJbq/1vgqlwvBL?=
+ =?us-ascii?Q?rkIanZTl3BW7QB1dNKP2xZI4pThEBcS7E8gb7HmeUpTH6jab3ja0fwLuSW7N?=
+ =?us-ascii?Q?DVZI+5F9tTss+61w1sZJTlvtD/w7QV6DrMx7PLjDpo2iCUds7mrI/Ph0sxAv?=
+ =?us-ascii?Q?qjx4Md6DMaGbvcIC/JOpn6ehEiw2mSPsu+XtL5CHE5oqCG25eWFYf0CA+BSW?=
+ =?us-ascii?Q?TleLodF9uDCe3nmXwzBvrsVZiqqcFKZy0nIXbP4e5uSIZAl7v/vdErfRukZ/?=
+ =?us-ascii?Q?HDDj04ZsDMu1ZYh9lSEgpWmO8Ctvi2OT7OazpPtYXVYyrYdA1bmvK6nZrXwx?=
+ =?us-ascii?Q?S7YPVYf/1nwblzI4BsLF/dQa47APSIP0TEzqNp04IEyJNwO0fyuEVl7FgEs0?=
+ =?us-ascii?Q?LD/XaqkYISBqPugiEUFKRUlHsxshhvvLdNr+27LZCg+UOFvTAEW17xMg7Uq9?=
+ =?us-ascii?Q?Kf2ecD6Sl/7KHoZ0s1I7IgjghmY1InFsklMutflsjzM61dKNXqbX/KdYjZBf?=
+ =?us-ascii?Q?0GKDEIxzW9/sSQKwTThsEi6cSoOHMTrkGc8h9yvi0HG9PZSjWbLfEycv6rSH?=
+ =?us-ascii?Q?fT5MpZJ+V0gbSKHWb7L95xR6g8q3rP+tldlXW1wcvrHBq6YvjKEbkF21vquD?=
+ =?us-ascii?Q?1Tr7TpcixpyVN15HWFXktEoEjfcui/aBLASBhT3uMyP76b+4o+m6/CUm5J+X?=
+ =?us-ascii?Q?2WRTbv/Cujcv27qzIwKZnPDT0iZ2uL8QaRzg2BF36rUmpRoS9z32wYFLn8Vy?=
+ =?us-ascii?Q?IG8+nNQNounYehNzGdwgO4FhqV/NDO5CEyc/uFAfwSK4rbo+TePhGcUsG+Ip?=
+ =?us-ascii?Q?fyB0Ok2U0oFVdW7BwfPuwLUvANi5kaSq0IIQixEi4/xWQfGZ9BkChftjnUKN?=
+ =?us-ascii?Q?iF+smQm6/oJE+uUh72hqfPRA5PEG+u++N4XQfWk/+YRzBMlfG3BW5LnqkOt4?=
+ =?us-ascii?Q?1Vn1LgAtANZIIT6eqMDf27p5+etE7ruc09Ze6xXCSkl6duyjw3nHJDtaUOd0?=
+ =?us-ascii?Q?Y2Zvodnle288ZKVY1zbVym1+9RosLcsU2EkI4LUIui0QnkMNudjtPHkHkyHr?=
+ =?us-ascii?Q?KTac6kapmgrIV1MwiAJyvuUd00baoSn9Yf3PTT9kAKA1+f7laXzTu/DpMeCQ?=
+ =?us-ascii?Q?A0ec0bo1+U6CLhYwNPJa7CKSGTD9sq6dLIKhQZndRAFRSg9yJmeiu3SlmTYX?=
+ =?us-ascii?Q?1LV39/VRfqgEIADZ0g1vN94kkhfkFC7gdKT7kIZ5TXAI8jc994qmLE9LOd33?=
+ =?us-ascii?Q?RkFDCTkAp1+mlejTvSETtZV4Dve0twKDPgTJGCAsIPX7h5iPOsHs2bfC9lxo?=
+ =?us-ascii?Q?j7TEqMTiHySzmp85soDEe7PzPkW1J8bizANlc1kO9LuDImWm1QJnLeUj9QMf?=
+ =?us-ascii?Q?oM8GGgjLqIxKypdLBOcKmKltMzr/i0g44gTeinK26nrsXRvXeK9mZqifC5FQ?=
+ =?us-ascii?Q?oK8nJBA4t4sscGOzHas=3D?=
+Content-Type: text/plain; charset="us-ascii"
 Content-Transfer-Encoding: quoted-printable
+MIME-Version: 1.0
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB9185.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: ad94c062-b5e5-4f4c-aef3-08de0a670c00
+X-MS-Exchange-CrossTenant-originalarrivaltime: 13 Oct 2025 14:44:43.2030
+ (UTC)
+X-MS-Exchange-CrossTenant-fromentityheader: Hosted
+X-MS-Exchange-CrossTenant-id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-mailboxtype: HOSTED
+X-MS-Exchange-CrossTenant-userprincipalname: XbdZRHxLqre8pqbdOCHosgigWW80x+Ci63BeJgZVScJt7sc0qZcYZLrdarMExawryVLJrLTUVxtk+h8ztrJ/3g==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: DU7PR04MB11090
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251013_074457_715058_7E20FE27 
+X-CRM114-Status: GOOD (  24.71  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -92,164 +173,90 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 13 Oct 2025 at 16:09, Huacai Chen <chenhuacai@kernel.org> wrote:
->
-> On Sat, Oct 11, 2025 at 11:59=E2=80=AFPM Ard Biesheuvel <ardb@kernel.org>=
- wrote:
-> >
-> > On Sat, 11 Oct 2025 at 08:01, Huacai Chen <chenhuacai@kernel.org> wrote=
-:
-> > >
-> > > On Sat, Oct 11, 2025 at 10:48=E2=80=AFPM Ard Biesheuvel <ardb@kernel.=
-org> wrote:
-> > > >
-> > > > On Sat, 11 Oct 2025 at 00:43, Huacai Chen <chenhuacai@kernel.org> w=
-rote:
-> > > > >
-> > > > > On Sat, Oct 11, 2025 at 3:29=E2=80=AFPM Tiezhu Yang <yangtiezhu@l=
-oongson.cn> wrote:
-> > > > > >
-> > > > > > On 2025/10/11 =E4=B8=8A=E5=8D=8811:40, Ard Biesheuvel wrote:
-> > > > > > > On Fri, 10 Oct 2025 at 19:54, Huacai Chen <chenhuacai@kernel.=
-org> wrote:
-> > > > > > >>
-> > > > > > >> On Sat, Oct 11, 2025 at 9:13=E2=80=AFAM Tiezhu Yang <yangtie=
-zhu@loongson.cn> wrote:
-> > > > > > >>>
-> > > > > > >>> On 2025/10/11 =E4=B8=8A=E5=8D=8812:25, Ard Biesheuvel wrote=
-:
-> > > > > > >>> ...
-> > > > > > >>>> Why do we need both (1) and (2)?
-> > > > > > >>>
-> > > > > > >>> Not both, either (1) or (2).
-> > > > > > >>> Which one do you prefer? Or any other suggestions?
-> > > > > > >>>
-> > > > > > >>> Taking all of the considerations in balance, we should deci=
-de
-> > > > > > >>> what is the proper way.
-> > > > > > >> As a summary, there are three methods:
-> > > > > > >> (1) Only link libstub with vmlinux.o during the final vmlinu=
-x link.
-> > > > > > >> (2) Remove the attribute __noreturn for real_kernel_entry() =
-and add while (1).
-> > > > > > >> (3) Ignore "__efistub_" prefix in objtool.
-> > > > > > >>
-> > > > > > >> Josh prefers method (1), I prefer method (3) but also accept=
- method
-> > > > > > >> (1) if it is not only specific to loongarch.
-> > > > > > >>
-> > > > > > >
-> > > > > > > This is a false positive warning in objtool, which complains =
-about a
-> > > > > > > function that falls through, even though that can never happe=
-n in
-> > > > > > > reality.
-> > > > > > >
-> > > > > > > To me, it is not acceptable to modify how vmlinux.o is constr=
-ucted
-> > > > > > > also for other architectures, in order to hide some of its co=
-nstituent
-> > > > > > > parts from objtool, which do not use objtool to begin with.
-> > > > > > >
-> > > > > > >
-> > > > > > > If you are not willing to fix objtool, I suggest fixing the l=
-oongarch
-> > > > > > > code like this:
-> > > > > >
-> > > > > > Thank you.
-> > > > > >
-> > > > > > > --- a/drivers/firmware/efi/libstub/loongarch.c
-> > > > > > > +++ b/drivers/firmware/efi/libstub/loongarch.c
-> > > > > > > @@ -10,7 +10,7 @@
-> > > > > > >   #include "efistub.h"
-> > > > > > >   #include "loongarch-stub.h"
-> > > > > > >
-> > > > > > > -typedef void __noreturn (*kernel_entry_t)(bool efi, unsigned=
- long cmdline,
-> > > > > > > +typedef void (*kernel_entry_t)(bool efi, unsigned long cmdli=
-ne,
-> > > > > > >                                            unsigned long syst=
-ab);
-> > > > > > >
-> > > > > > >   efi_status_t check_platform_features(void)
-> > > > > > > @@ -81,4 +81,6 @@
-> > > > > > >
-> > > > > > >          real_kernel_entry(true, (unsigned long)cmdline_ptr,
-> > > > > > >                            (unsigned long)efi_system_table);
-> > > > > > > +
-> > > > > > > +       return EFI_LOAD_ERROR;
-> > > > > > >   }
-> > > > > >
-> > > > > > I tested the above changes, the falls through objtool warning c=
-an
-> > > > > > be fixed because efi_boot_kernel() ends with a return instructi=
-on,
-> > > > > > I think this is reasonable.
-> > > > > >
-> > > > > > efi_boot_kernel() has a return value, there are "return status"=
- in
-> > > > > > other parts of efi_boot_kernel(), it should also return at the =
-end
-> > > > > > of efi_boot_kernel() in theory, although we should never get he=
-re.
-> > > > > >
-> > > > > > If there are more comments, please let me know.
-> > > > > I still don't want LoongArch to be a special case, which means
-> > > > > efi_boot_kernel() in fdt.c, jump_kernel_func in riscv.c and
-> > > > > enter_kernel in arm64.c should also be modified.
-> > > > >
-> > > >
-> > > > You have made LoongArch a special case by adding objtool support,
-> > > > which  arm64 and RISC-V do not have.
-> > > >
-> > > > So NAK to changing arm64 and RISC-V as well.
-> > > Hmmm, I want to know whether this problem is an objtool issue or an
-> > > efistub issue in essence. If it is an objtool issue, we should fix
-> > > objtool and don't touch efistub. If it is an efistub issue, then we
-> > > should modify efistub (but not specific to LoongArch, when RISC-V and
-> > > ARM64 add objtool they will meet the same issue).
-> > >
-> >
-> > It is an objtool issue in essence.
-> >
-> > The generated code looks like this
-> >
-> > 9000000001743080: ff b7 fe 57   bl      -332 <__efistub_kernel_entry_ad=
-dress>
-> > 9000000001743084: 26 03 c0 28   ld.d    $a2, $s2, 0
-> > 9000000001743088: 87 00 15 00   move    $a3, $a0
-> > 900000000174308c: 04 04 80 03   ori     $a0, $zero, 1
-> > 9000000001743090: c5 02 15 00   move    $a1, $fp
-> > 9000000001743094: e1 00 00 4c   jirl    $ra, $a3, 0
-> >
-> > 9000000001743098 <__efistub_exit_boot_func>:
-> > 9000000001743098: 63 c0 ff 02   addi.d  $sp, $sp, -16
-> >
-> > There is nothing wrong with this code, given that the indirect call is
-> > to a __noreturn function, and so the fact that it falls through into
-> > __efistub_exit_boot_func() is not a problem.
-> >
-> > Even though the compiler does nothing wrong here, it would be nice if
-> > it would emit some kind of UD or BRK instruction after such a call, if
-> > only to make the backtrace more reliable. But the code is fine, and
-> > objtool simply does not have the information it needs to determine
-> > that the indirect call is of a variety that never returns.
-> So the best way is to fix the objtool?
->
-
-I think the best solution is to fix the compiler, and ensure that call
-instructions are always followed by some undefined or debug/break
-opcode. This works around this problem, but it also ensures that the
-return address does not point to the wrong function, which may cause
-confusion in backtraces.
 
 
+> -----Original Message-----
+> From: Andrew Lunn <andrew@lunn.ch>
+> Sent: Friday, October 10, 2025 2:32 PM
+> To: Shenwei Wang <shenwei.wang@nxp.com>
+> Cc: Bjorn Andersson <andersson@kernel.org>; Mathieu Poirier
+> <mathieu.poirier@linaro.org>; Rob Herring <robh@kernel.org>; Krzysztof
+> Kozlowski <krzk+dt@kernel.org>; Conor Dooley <conor+dt@kernel.org>; Shawn
+> Guo <shawnguo@kernel.org>; Sascha Hauer <s.hauer@pengutronix.de>; Linus
+> Walleij <linus.walleij@linaro.org>; Bartosz Golaszewski <brgl@bgdev.pl>;
+> Pengutronix Kernel Team <kernel@pengutronix.de>; Fabio Estevam
+> <festevam@gmail.com>; Peng Fan <peng.fan@nxp.com>; linux-
+> remoteproc@vger.kernel.org; devicetree@vger.kernel.org; imx@lists.linux.d=
+ev;
+> linux-arm-kernel@lists.infradead.org; linux-kernel@vger.kernel.org; dl-li=
+nux-imx
+> <linux-imx@nxp.com>
+> Subject: [EXT] Re: [PATCH v3 3/4] gpio: imx-rpmsg: add imx-rpmsg GPIO dri=
+ver
+> > The only platform-specific part is the message format exchanged between
+> Linux and the remote processors.
+> > As long as the remote processor follows the same message protocol, the =
+driver
+> should work as expected.
 > >
-> > So I don't mind fixing it in the code, but only for LoongArch, given
-> > that the problem does not exist on arm64 or RISC-V.
-> You believe this problem won't exist even if they add objtool support
-> (because their objtool will be sane)?
->
+> > Here's the layout of the message packets:
+> >
+> > +--------+--------+--------+--------+--------+----------------+--------=
++--------+----------
+> -----+---------------+
+> > |0x00    |0x01    |0x02    |0x03    |0x04    |0x05..0x09      |0x0A    =
+|0x0B    |0x0C
+> |0x0D           |
+> > |cate    |major   |minor   |type    |cmd     |reserved[5]     |pin_idx
+> |port_idx|out:{evt/rc/v} |in:{wkup/val}  |
+> > +--------+--------+--------+--------+--------+----------------+--------=
++--------+----------
+> -----+---------------+
+> >
+> > Cate (Category field ): can be GPIO /I2C/PMIC/AUDIO ... etc Major :
+> > Major version number
+> > Minor: Minor version number
+> > Type (Message Type): Can be SETUP / REPLY /NOTIFY for GPIO category
+> > Cmd (Command): Can be Input INIT / Output INIT / Input GET for GPIO
+> > category
+> > Pin_idx: The GPIO line index
+> > Port_idx: The GPIO controller index
+> >
+> > For Out packet:
+> >       if it is OUPUT INIT, the out field value is the gpio output level=
+.
+> >       If it is INPUT INIT, the out filed is 0.
+> >
+> > For In packet:
+> >       If it is a REPLY message, the out field is return code. 0 means s=
+uccess.
+> >       If it is a REPLY of INPUT GET, the in field is the value of GPIO =
+line level.
+> >       If it is an NOTIFY type of message, it simulates an interrupt eve=
+nt from the
+> remote processor.
+> >
+> > I can add above comments in the commit log or the beginning of the driv=
+er
+> source file.
+>=20
+> Maybe Documentation/admin-guide/gpio-rpmsg.rst would be better.  You shou=
+ld
+> also document how to handle features the device does not support. e.g. i =
+_think_
+> your hardware supports all 4 interrupt types. But maybe other hardware ne=
+eds to
+> return something meaning -EOPNOTSUP?
+>=20
 
-It depends on the compiler.
+That should be one type of the error return code in the out field of REPLY =
+message.=20
+The return code of 0 means success, and the others are error codes.=20
+
+I will add a gpio-rpmsg.rst file in the next patches.=20
+
+Thanks,
+Shenwei
+
+>         Andrew
 
