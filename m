@@ -4,72 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4F52FCCD183
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 15:15:49 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 9C335CCD18D
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 15:15:52 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
 	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=GDn63HL1kwJS/kY3r585sacU2JfuR+fJZeZdcH4A9XQ=; b=X8qBJZiyFjyNxue1LYAzk62485
-	EELHpff7BI3vhOrZmeeWGUHuy+vNBuMO+LyqPVi2muQBOcY7EN4YuACQhVwsyA1AIiNWXEb1ZxvOZ
-	VM1js6uouDYsKcYJERR+LaKVGS83GTQ5t3wGef7K1xxuae4M39n/Z9drapxNPfyykQovZFNepM2WD
-	JbXtS1EBVfiruH5z0+G5/2TQUgr954rtqUlaaF+RLksiNd4URrawvmRQxKpsgBmS9QOzNUSebPlJF
-	7d+KA0jElF2j1I7vnQH/SEMshn1Hv6SGya8XiU1seOleZNWFCbyxsw/fGnooH8/bgLKM0uLcSC+OH
-	IymW7aug==;
+	bh=YCSrMFeSurFqrsJ2giFUs5nVIkyf5eYx9hKkmNRZA3A=; b=mwUWfuL03dn28yoie4s+XUZqL7
+	i3ekEVuVAxVFqjvtO6OAqEsqFk/ArXeju2YJZyCBdr/dzhQd8tQuBtBVKJXYuDHEQi5wESyLIMIRh
+	hJsAo/ygU7AUGW8NSe3ZJ59DpjNgwWLiBJzjDKXjTu/jLhe9F8UT3in5yqEVF6ayZtGChonbP0Ygz
+	LwHcLAJwPQRLLkof+IPjHnoSBzMgw+tsVmHsaCKeGBX8KfR33x8TzLzhRx/B4THa7IUouXJI2sEwF
+	FOa+ZqTce3CEMVi5he89fwESjJj4tvGcqiNKCDVOepbB14IVbrXlsfopGHzKzUOblqWtL0dTPoBKR
+	PuVzxkXA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8KH1-0000000Db50-36lj;
-	Mon, 13 Oct 2025 15:15:43 +0000
-Received: from mail-wm1-x335.google.com ([2a00:1450:4864:20::335])
+	id 1v8KH5-0000000Db6S-075b;
+	Mon, 13 Oct 2025 15:15:47 +0000
+Received: from mail-wm1-x330.google.com ([2a00:1450:4864:20::330])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8KGy-0000000Db3X-32EY
+	id 1v8KH2-0000000Db4z-3DLD
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 15:15:41 +0000
-Received: by mail-wm1-x335.google.com with SMTP id 5b1f17b1804b1-46e2e6a708fso26777125e9.0
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 08:15:40 -0700 (PDT)
+	Mon, 13 Oct 2025 15:15:45 +0000
+Received: by mail-wm1-x330.google.com with SMTP id 5b1f17b1804b1-46b303f7469so27930405e9.1
+        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 08:15:44 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760368539; x=1760973339; darn=lists.infradead.org;
+        d=gmail.com; s=20230601; t=1760368543; x=1760973343; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=GDn63HL1kwJS/kY3r585sacU2JfuR+fJZeZdcH4A9XQ=;
-        b=XmmOL5B6TU2aFGxHQT9YMR1ls48NFHrXDuD7G0jeQfMBIFNEdhyWmDTvJZnRtTZYes
-         mN7RPKko5AgGJg1xKsp19CJP8uBMBHHvTRz+0erCBVLrcAlmABDVPhVENZRZRhV68+FN
-         4K3IbSvuXJvcV+LuZ1THDCxObTWGKtYktg7fTL9088/QrqqRJE75dbkD4Y9mGETC6ocv
-         N52tPt0SMZVbWjdvKjGH7tdINP2c4YHDNnREhhhvXyXeh0pVqPxXp6S+4EWT5UkwVv99
-         zPYG9U6uwmbNTo5MxfQzx7E908YLLL0GI/6KlM7ewGq683b0H0JYNv9O2qumDEXpPjxS
-         x4Hw==
+        bh=YCSrMFeSurFqrsJ2giFUs5nVIkyf5eYx9hKkmNRZA3A=;
+        b=X4KpxotFqcDujTadtZs2FNciQYvKcUrwYQIIakyfSUQgryspl1vMaoTJJCCaKFZ+z7
+         KmWJrZwTbeV3FREjGG3ZbxZJ+TgTJbXlcN0aEBobLE8EFu7v32usCHl3Ksh7mKYUYtmZ
+         T6R6VkP6dmOyrjhE4i/xZGsacl/LHg9PdAB7D5S1H/RE8+IUjVjjSLhvukqPP0Ec9HXq
+         dkK8tvA13F2mP/f+/ORaeCeIeMwZCGEYMxpCu30gUKlsdeBSnihb32QqkSkK8z0f2F9I
+         NxgioNTuZNByNmZJvV/xWfN9b9Q6RwCNRW42zVwUELd2KgFBE1GdOzNn12AvthhXoAF0
+         FRCQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760368539; x=1760973339;
+        d=1e100.net; s=20230601; t=1760368543; x=1760973343;
         h=content-transfer-encoding:mime-version:references:in-reply-to
          :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=GDn63HL1kwJS/kY3r585sacU2JfuR+fJZeZdcH4A9XQ=;
-        b=FR7jyF8jj77dyDH0Q4QxiWZkzJZ2C5QNadbBKIq0aZUMQ4UbvCmGGRMnJO9O8NfHZI
-         PXW8A2C3gQLcGGgeRXvfEcAORRIU5evuPx54cnhwqoJJ+NF4G1vCk3iVUbJGUKAONfYe
-         H+eH1V62bCrcB9m/2TIExjA6eJVauC8z8aSTf7jlClB5B+SD0ePZDNMP6kTSO6kqr+y3
-         XgwZJavYEnO6DVW0sxsUrpPBaOA3UlZ4O6AKz422nX/JSK8Uoz4BfUf/uTaVscr07MDY
-         OQVGZNFSMJrXvBW96OKFqkhHE+GCmKri62DvDWex9hp689TlBSnUJNaikOImGQ/uz/NL
-         IIZw==
-X-Forwarded-Encrypted: i=1; AJvYcCX3SRPnLDAE4XDD59kg3AX+2cFVlgWv4lSrRogGg24pW9jCdUz0NuctTEj/6tR06yvVyELbIpWYVDShymC7yXsb@lists.infradead.org
-X-Gm-Message-State: AOJu0YzwM416KSHy0XRlXQSs1kN78yWLUXaqoH9nl99S01086w6q1EGM
-	z6GYxOcfKqy6xxnrsqJM/4gnRCRJd1ttSLqkIrpqC1DFWT63x/UN4PNe
-X-Gm-Gg: ASbGncuEt5zSdeMskn6KTaLjn2AMMdCwefCHSidAGR0D4bK0Mz8JAemPequbNN4pI4t
-	PCDKI4wzbzPMYacPe4IupAMrluk3IiTAiXmj+aJZw+46rs9CqLaKoExVJaaEegIDfjDnZ+2rN4Q
-	F3hDt50A/mAPwY5rHokvKJVmLARPJCJd8vv5bMb1P9bH37CA3ahKdxrcGKjp33G+FytyL5pcx7M
-	SGaisrQGebYoFNq125iy5qBoYZGHqsHq1+Z2hVrIsGK+Pw2GttzvQT4CJ0U30Peafa+T6D3GyEY
-	a2NoaSL53QyU2CYsxhCPQVE8zXlTs15uxx9/gm2wa1ApvaVOGzJ3bfSH1r/Qq0yqmDdB6mnJo5l
-	Blh8Fzr0omes2To+GA22A9FuFDvpjLG9QxyNLm0T9BUGWCzfi7HYSce9mD/xWB9/1va+GHU+RdC
-	lTJCMm
-X-Google-Smtp-Source: AGHT+IGwJqj5PmL4e2MI1le7nNOJW+jd0SIfBCswYBmaCJKr1jrFAghd2jBuPptFtHUN4Hmx6R2roQ==
-X-Received: by 2002:a05:600c:4752:b0:46e:49fb:4776 with SMTP id 5b1f17b1804b1-46fa9a9f05emr138719385e9.11.1760368538589;
-        Mon, 13 Oct 2025 08:15:38 -0700 (PDT)
+        bh=YCSrMFeSurFqrsJ2giFUs5nVIkyf5eYx9hKkmNRZA3A=;
+        b=kyHvcq7i7JNePs9FWaCwfho9tVLFUbb0VLXVgbPdkNdSTlGyrYEey1797VK4oDCf+9
+         ZKm9cLCj4SKVXw2YVGrH3883j65ESJe/ppJSCE5dDvPArCdty5eQdCtLB8ws+Jn+ma2U
+         8TfBPZA10ZzeHlLjFKaBnQtL50E97VbpI5sFkBHxCDzEYfqe7G3WkQLwkDB+ptzccpSS
+         8jZ8gHUY79hHlrZGr/QdC/uV1WcXecEKmJNPTOts4t4pLy1oXmsZ9s0zy9Rjr8s3Rfqi
+         lnnNh9HMfQfcIuuJ+HmQyfcjP/df2L+D3/eh+Iu3bMm+JLV2iAImDnuY/CHAPdKnmsBm
+         9AKg==
+X-Forwarded-Encrypted: i=1; AJvYcCXerr2S2Xwp0q3yHW/ZQxhCxnJm4JkTlMYBpVO8b7zM2OteBO14YfsOfP3Gur9CGFQfMGZSA8QN+zzfPHcz/fFg@lists.infradead.org
+X-Gm-Message-State: AOJu0YyAgcK+gGvmA7rvc0YM4maCnKYHH6FAzX4BZ90hUwX/vzZs6VsF
+	j8zVP1ap4ts75woFP60OG66n/69AE43xYFb3w8Df9AT4gQ+LW9ksVVPs
+X-Gm-Gg: ASbGncvQCF3SPToR2sMACOuQ7Bjb/aMYnb0j1WcRTNMZcDm0mITuPvJok64c6oq5uqB
+	Ni4Y/9Arw1KbgC4WIjD/j3PGlLMpQRMUbxfABvQiwHo6wHbFYHKCXPLb4DYLoGzzxkB+4l1M3LB
+	vfOxvRwJvFaszCST6w2gEEq/PZPStxhi8nN5Ux9gBgtj94d0itFnKXnG9bzUINEX6NJZUvzl/uv
+	KW+pjRwBiRMapUXcaVIV0uz27/dHOrczb4Xm9c10PZb13woEhPatSbstXR4CJodn5qhsJ7kW4/+
+	bet4kv4e1241ERbEQyt4cxWwpVzHebYd4VnY02ArKqbdIJpDDM6oB+BS6T2ymHdHbkfjH0aLzFK
+	L0/fknYyCDKddvqTsZYT+XRFhGQa79Csa4OBgXONYTwMxGK/wh/D7CmqhvZJwa3X9o8B5po242q
+	V0RttzhivN4DmEFyc=
+X-Google-Smtp-Source: AGHT+IEt3rxThBLWKGN/jwmns/gxZmIihkaAQISXuC9Iitep8SFGSh4XAnm8RXbIElBPhI6EpEA2fw==
+X-Received: by 2002:a05:600c:8487:b0:45b:79fd:cb3d with SMTP id 5b1f17b1804b1-46fa9b13ab7mr150449805e9.36.1760368542783;
+        Mon, 13 Oct 2025 08:15:42 -0700 (PDT)
 Received: from f4d4888f22f2.ant.amazon.com.com ([15.248.3.91])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46fab36a773sm135545825e9.0.2025.10.13.08.15.37
+        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46fab36a773sm135545825e9.0.2025.10.13.08.15.41
         (version=TLS1_3 cipher=TLS_CHACHA20_POLY1305_SHA256 bits=256/256);
-        Mon, 13 Oct 2025 08:15:38 -0700 (PDT)
+        Mon, 13 Oct 2025 08:15:42 -0700 (PDT)
 From: Jack Thomson <jackabt.amazon@gmail.com>
 To: maz@kernel.org,
 	oliver.upton@linux.dev,
@@ -88,17 +88,17 @@ Cc: joey.gouly@arm.com,
 	roypat@amazon.co.uk,
 	kalyazin@amazon.co.uk,
 	jackabt@amazon.com
-Subject: [PATCH v2 2/4] KVM: selftests: Fix unaligned mmap allocations
-Date: Mon, 13 Oct 2025 16:14:59 +0100
-Message-ID: <20251013151502.6679-3-jackabt.amazon@gmail.com>
+Subject: [PATCH v2 3/4] KVM: selftests: Enable pre_fault_memory_test for arm64
+Date: Mon, 13 Oct 2025 16:15:00 +0100
+Message-ID: <20251013151502.6679-4-jackabt.amazon@gmail.com>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20251013151502.6679-1-jackabt.amazon@gmail.com>
 References: <20251013151502.6679-1-jackabt.amazon@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_081540_786644_768A1CFD 
-X-CRM114-Status: GOOD (  14.54  )
+X-CRM114-CacheID: sfid-20251013_081544_846256_1BAAE6DF 
+X-CRM114-Status: GOOD (  16.93  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -115,58 +115,167 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Jack Thomson <jackabt@amazon.com>
 
-When creating a VM using mmap with huge pages, and the memory amount does
-not align with the underlying page size. The stored mmap_size value does
-not account for the fact that mmap will automatically align the length
-to a multiple of the underlying page size. During the teardown of the
-test, munmap is used. However, munmap requires the length to be a
-multiple of the underlying page size.
+Enable the pre_fault_memory_test to run on arm64 by making it work with
+different guest page sizes and testing multiple guest configurations.
 
-Update the vm_mem_add method to ensure the mmap_size is aligned to the
-underlying page size.
+Update the test_assert to compare against the UCALL_EXIT_REASON, for
+portability, as arm64 exits with KVM_EXIT_MMIO while x86 uses
+KVM_EXIT_IO.
 
 Signed-off-by: Jack Thomson <jackabt@amazon.com>
 ---
- tools/testing/selftests/kvm/lib/kvm_util.c | 12 +++++-------
- 1 file changed, 5 insertions(+), 7 deletions(-)
+ tools/testing/selftests/kvm/Makefile.kvm      |  1 +
+ .../selftests/kvm/pre_fault_memory_test.c     | 79 ++++++++++++++-----
+ 2 files changed, 59 insertions(+), 21 deletions(-)
 
-diff --git a/tools/testing/selftests/kvm/lib/kvm_util.c b/tools/testing/selftests/kvm/lib/kvm_util.c
-index c3f5142b0a54..b106fbed999c 100644
---- a/tools/testing/selftests/kvm/lib/kvm_util.c
-+++ b/tools/testing/selftests/kvm/lib/kvm_util.c
-@@ -1051,7 +1051,6 @@ void vm_mem_add(struct kvm_vm *vm, enum vm_mem_backing_src_type src_type,
- 	/* Allocate and initialize new mem region structure. */
- 	region = calloc(1, sizeof(*region));
- 	TEST_ASSERT(region != NULL, "Insufficient Memory");
--	region->mmap_size = mem_size;
+diff --git a/tools/testing/selftests/kvm/Makefile.kvm b/tools/testing/selftests/kvm/Makefile.kvm
+index 90f03f00cb04..4db1737fad04 100644
+--- a/tools/testing/selftests/kvm/Makefile.kvm
++++ b/tools/testing/selftests/kvm/Makefile.kvm
+@@ -180,6 +180,7 @@ TEST_GEN_PROGS_arm64 += memslot_perf_test
+ TEST_GEN_PROGS_arm64 += mmu_stress_test
+ TEST_GEN_PROGS_arm64 += rseq_test
+ TEST_GEN_PROGS_arm64 += steal_time
++TEST_GEN_PROGS_arm64 += pre_fault_memory_test
  
+ TEST_GEN_PROGS_s390 = $(TEST_GEN_PROGS_COMMON)
+ TEST_GEN_PROGS_s390 += s390/memop
+diff --git a/tools/testing/selftests/kvm/pre_fault_memory_test.c b/tools/testing/selftests/kvm/pre_fault_memory_test.c
+index 0350a8896a2f..ed9848a8af60 100644
+--- a/tools/testing/selftests/kvm/pre_fault_memory_test.c
++++ b/tools/testing/selftests/kvm/pre_fault_memory_test.c
+@@ -10,19 +10,29 @@
+ #include <test_util.h>
+ #include <kvm_util.h>
+ #include <processor.h>
++#include <guest_modes.h>
+ 
+ /* Arbitrarily chosen values */
+-#define TEST_SIZE		(SZ_2M + PAGE_SIZE)
+-#define TEST_NPAGES		(TEST_SIZE / PAGE_SIZE)
++#define TEST_BASE_SIZE		SZ_2M
+ #define TEST_SLOT		10
+ 
++/* Storage of test info to share with guest code */
++struct test_config {
++	int page_size;
++	uint64_t test_size;
++	uint64_t test_num_pages;
++};
++
++struct test_config test_config;
++
+ static void guest_code(uint64_t base_gpa)
+ {
+ 	volatile uint64_t val __used;
++	struct test_config *config = &test_config;
+ 	int i;
+ 
+-	for (i = 0; i < TEST_NPAGES; i++) {
+-		uint64_t *src = (uint64_t *)(base_gpa + i * PAGE_SIZE);
++	for (i = 0; i < config->test_num_pages; i++) {
++		uint64_t *src = (uint64_t *)(base_gpa + i * config->page_size);
+ 
+ 		val = *src;
+ 	}
+@@ -63,11 +73,17 @@ static void pre_fault_memory(struct kvm_vcpu *vcpu, u64 gpa, u64 size,
+ 					    "KVM_PRE_FAULT_MEMORY", ret, vcpu->vm);
+ }
+ 
+-static void __test_pre_fault_memory(unsigned long vm_type, bool private)
++struct test_params {
++	unsigned long vm_type;
++	bool private;
++};
++
++static void __test_pre_fault_memory(enum vm_guest_mode guest_mode, void *arg)
+ {
++	struct test_params *p = arg;
+ 	const struct vm_shape shape = {
+-		.mode = VM_MODE_DEFAULT,
+-		.type = vm_type,
++		.mode = guest_mode,
++		.type = p->vm_type,
+ 	};
+ 	struct kvm_vcpu *vcpu;
+ 	struct kvm_run *run;
+@@ -78,10 +94,17 @@ static void __test_pre_fault_memory(unsigned long vm_type, bool private)
+ 	uint64_t guest_test_virt_mem;
+ 	uint64_t alignment, guest_page_size;
+ 
++	pr_info("Testing guest mode: %s\n", vm_guest_mode_string(guest_mode));
++
+ 	vm = vm_create_shape_with_one_vcpu(shape, &vcpu, guest_code);
+ 
+-	alignment = guest_page_size = vm_guest_mode_params[VM_MODE_DEFAULT].page_size;
+-	guest_test_phys_mem = (vm->max_gfn - TEST_NPAGES) * guest_page_size;
++	guest_page_size = vm_guest_mode_params[guest_mode].page_size;
++
++	test_config.page_size = guest_page_size;
++	test_config.test_size = TEST_BASE_SIZE + test_config.page_size;
++	test_config.test_num_pages = vm_calc_num_guest_pages(vm->mode, test_config.test_size);
++
++	guest_test_phys_mem = (vm->max_gfn - test_config.test_num_pages) * test_config.page_size;
  #ifdef __s390x__
- 	/* On s390x, the host address must be aligned to 1M (due to PGSTEs) */
-@@ -1060,6 +1059,11 @@ void vm_mem_add(struct kvm_vm *vm, enum vm_mem_backing_src_type src_type,
- 	alignment = 1;
- #endif
+ 	alignment = max(0x100000UL, guest_page_size);
+ #else
+@@ -91,22 +114,31 @@ static void __test_pre_fault_memory(unsigned long vm_type, bool private)
+ 	guest_test_virt_mem = guest_test_phys_mem & ((1ULL << (vm->va_bits - 1)) - 1);
  
-+	alignment = max(backing_src_pagesz, alignment);
-+	region->mmap_size = align_up(mem_size, alignment);
-+
-+	TEST_ASSERT_EQ(guest_paddr, align_up(guest_paddr, backing_src_pagesz));
-+
- 	/*
- 	 * When using THP mmap is not guaranteed to returned a hugepage aligned
- 	 * address so we have to pad the mmap. Padding is not needed for HugeTLB
-@@ -1067,12 +1071,6 @@ void vm_mem_add(struct kvm_vm *vm, enum vm_mem_backing_src_type src_type,
- 	 * page size.
- 	 */
- 	if (src_type == VM_MEM_SRC_ANONYMOUS_THP)
--		alignment = max(backing_src_pagesz, alignment);
+ 	vm_userspace_mem_region_add(vm, VM_MEM_SRC_ANONYMOUS,
+-				    guest_test_phys_mem, TEST_SLOT, TEST_NPAGES,
+-				    private ? KVM_MEM_GUEST_MEMFD : 0);
+-	virt_map(vm, guest_test_virt_mem, guest_test_phys_mem, TEST_NPAGES);
 -
--	TEST_ASSERT_EQ(guest_paddr, align_up(guest_paddr, backing_src_pagesz));
--
--	/* Add enough memory to align up if necessary */
--	if (alignment > 1)
- 		region->mmap_size += alignment;
+-	if (private)
+-		vm_mem_set_private(vm, guest_test_phys_mem, TEST_SIZE);
+-	pre_fault_memory(vcpu, guest_test_phys_mem, SZ_2M, 0);
+-	pre_fault_memory(vcpu, guest_test_phys_mem + SZ_2M, PAGE_SIZE * 2, PAGE_SIZE);
+-	pre_fault_memory(vcpu, guest_test_phys_mem + TEST_SIZE, PAGE_SIZE, PAGE_SIZE);
++				    guest_test_phys_mem, TEST_SLOT, test_config.test_num_pages,
++				    p->private ? KVM_MEM_GUEST_MEMFD : 0);
++	virt_map(vm, guest_test_virt_mem, guest_test_phys_mem, test_config.test_num_pages);
++
++	if (p->private)
++		vm_mem_set_private(vm, guest_test_phys_mem, test_config.test_size);
++	pre_fault_memory(vcpu, guest_test_phys_mem, TEST_BASE_SIZE, 0);
++	/* Test pre-faulting over an already faulted range */
++	pre_fault_memory(vcpu, guest_test_phys_mem, TEST_BASE_SIZE, 0);
++	pre_fault_memory(vcpu, guest_test_phys_mem + TEST_BASE_SIZE,
++			 test_config.page_size * 2, test_config.page_size);
++	pre_fault_memory(vcpu, guest_test_phys_mem + test_config.test_size,
++			 test_config.page_size, test_config.page_size);
  
- 	region->fd = -1;
+ 	vcpu_args_set(vcpu, 1, guest_test_virt_mem);
++
++	/* Export the shared variables to the guest. */
++	sync_global_to_guest(vm, test_config);
++
+ 	vcpu_run(vcpu);
+ 
+ 	run = vcpu->run;
+-	TEST_ASSERT(run->exit_reason == KVM_EXIT_IO,
+-		    "Wanted KVM_EXIT_IO, got exit reason: %u (%s)",
++	TEST_ASSERT(run->exit_reason == UCALL_EXIT_REASON,
++		    "Wanted %s, got exit reason: %u (%s)",
++		    exit_reason_str(UCALL_EXIT_REASON),
+ 		    run->exit_reason, exit_reason_str(run->exit_reason));
+ 
+ 	switch (get_ucall(vcpu, &uc)) {
+@@ -130,7 +162,12 @@ static void test_pre_fault_memory(unsigned long vm_type, bool private)
+ 		return;
+ 	}
+ 
+-	__test_pre_fault_memory(vm_type, private);
++	struct test_params p = {
++		.vm_type = vm_type,
++		.private = private,
++	};
++
++	for_each_guest_mode(__test_pre_fault_memory, &p);
+ }
+ 
+ int main(int argc, char *argv[])
 -- 
 2.43.0
 
