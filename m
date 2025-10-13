@@ -4,57 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7E54CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 07:53:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 36D94CCA476
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 08:03:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FJXT1xI3v37y2AY37i2OD+8feP3/HvD7NTqxseZjEsg=; b=R4ffln9De2v+LZN/0b3UpLDyP4
-	pO4sp9wdlEYiMVZALIacohbNTauJwV9m0lfsa8/DYK5NdTCM2N0+ikGrWbE/N7dwkhEUI5hHLnGWi
-	1cljl936J4i74ud2ypZRiI45is5BMHE1oCXNQladRxvxH3CS35Gkx0BZXgqLxdhJOXDjysg4lYLqB
-	zBTgXBUzx2j3I855wiYwsB9wkcJyr6s/7HONQiLdqwmFuixa22ZryeONr8+KB9Dr7QjFhJV5/xYC6
-	lAc9/vg0lhsC7Xlg6k9md58UPNNUCUhS3e6T/TfaGoFeM7/lv2GGoQiFyYKXkV2WCuTCLP1hKJBT1
-	TidhWnOg==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=gAc4ALuWz7da2AJB9gNh/HEjHuaJPJgeDEOGrHIOKdw=; b=R2EADDCSC8l6dmVt8pYwgr8vC0
+	0clMf5dSCyxEHvJ2BvfTvqFzWTBvmfmmelmBfQovYNS2arUwpURziY+/AeOANtpc28KpdffJtpZPH
+	9Z6uLqp4hTTYvYU+V4BjBPTTGa8ERev4M5g0WYXSixv9RgQ9reehbuHim2Q+14CT4DasQS1S2za6b
+	gz60ottuLl1GWbuhmuqfPghmTT+eQ+61RS1aoi1O9r7lKJuH9832TWr3CFEYpHTWenDy7LjuWcW5E
+	s5NO+MbVLp2s4RZtgHlyaY1+VjmjPclu4YlgSwSpwY63qdh16a+As8OrBmPi/hO3VDnxs47zOm3+L
+	irGB/Fsw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8DMt-0000000CWsi-0sFv;
-	Mon, 13 Oct 2025 07:53:19 +0000
-Received: from tor.source.kernel.org ([172.105.4.254])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8DMr-0000000CWsa-3uaN
+	id 1v8DWN-0000000CXuj-185Y;
+	Mon, 13 Oct 2025 08:03:07 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v8DWK-0000000CXsT-21CZ
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 07:53:17 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id C2E1E60EDF;
-	Mon, 13 Oct 2025 07:53:15 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 54617C4CEE7;
-	Mon, 13 Oct 2025 07:53:15 +0000 (UTC)
-Received: from wens.tw (localhost [127.0.0.1])
-	by wens.tw (Postfix) with ESMTP id D4A8E5FA42;
-	Mon, 13 Oct 2025 15:53:12 +0800 (CST)
-From: Chen-Yu Tsai <wens@csie.org>
-To: Andrew Lunn <andrew+netdev@lunn.ch>, 
- "David S. Miller" <davem@davemloft.net>, Eric Dumazet <edumazet@google.com>, 
- Jakub Kicinski <kuba@kernel.org>, Paolo Abeni <pabeni@redhat.com>, 
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Jernej Skrabec <jernej@kernel.org>, 
- Samuel Holland <samuel@sholland.org>, Chen-Yu Tsai <wens@kernel.org>
-Cc: netdev@vger.kernel.org, devicetree@vger.kernel.org, 
- linux-arm-kernel@lists.infradead.org, linux-sunxi@lists.linux.dev, 
- linux-kernel@vger.kernel.org, Andre Przywara <andre.przywara@arm.com>
-In-Reply-To: <20250923140247.2622602-1-wens@kernel.org>
-References: <20250923140247.2622602-1-wens@kernel.org>
-Subject: Re: (subset) [PATCH net-next v7 0/6] net: stmmac: Add support for
- Allwinner A523 GMAC200
-Message-Id: <176034199282.234636.10650174207490097271.b4-ty@csie.org>
-Date: Mon, 13 Oct 2025 15:53:12 +0800
+	Mon, 13 Oct 2025 08:03:06 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id B7E9712FC;
+	Mon, 13 Oct 2025 01:02:51 -0700 (PDT)
+Received: from a079125.blr.arm.com (a079125.arm.com [10.164.21.37])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPA id 93C713F738;
+	Mon, 13 Oct 2025 01:02:55 -0700 (PDT)
+From: Linu Cherian <linu.cherian@arm.com>
+To: Catalin Marinas <catalin.marinas@arm.com>,
+	Will Deacon <will@kernel.org>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Ryan Roberts <ryan.roberts@arm.com>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org
+Cc: Anshuman Khandual <anshuman.khandual@arm.com>,
+	Kevin Brodsky <kevin.brodsky@arm.com>,
+	Zhenhua Huang <quic_zhenhuah@quicinc.com>,
+	Dev Jain <dev.jain@arm.com>,
+	Lorenzo Stoakes <lorenzo.stoakes@oracle.com>,
+	Yang Shi <yang@os.amperecomputing.com>,
+	Linu Cherian <linu.cherian@arm.com>
+Subject: [PATCH v2 0/2] arm64/mm: prevent panic on -ENOMEM in arch_add_memory()
+Date: Mon, 13 Oct 2025 13:32:18 +0530
+Message-ID: <20251013080220.2027757-1-linu.cherian@arm.com>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 7bit
-X-Mailer: b4 0.14.2
+Content-Transfer-Encoding: 8bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251013_010304_584618_37B033DA 
+X-CRM114-Status: GOOD (  11.21  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -69,29 +70,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 23 Sep 2025 22:02:40 +0800, Chen-Yu Tsai wrote:
-> From: Chen-Yu Tsai <wens@csie.org>
-> 
-> Hi everyone,
-> 
-> This is v7 of my Allwinner A523 GMAC200 support series. This is based on
-> next-20250922.
-> 
-> [...]
+arch_add_memory() acts as a means to hotplug memory into a system. It
+invokes __create_pgd_mapping() which further unwinds to call
+pgtable_alloc(). Initially, this path was only invoked during early boot
+and therefore it made sense to BUG_ON() in case pgtable_alloc() failed.
+Now however, we risk running into a kernel crash if we try to hotplug
+memory into a system that is already extremely tight on available
+memory. This is undesirable and hence __create_pgd_mapping() and it's
+helpers are reworked to be able to propagate the error from
+pgtable_alloc() allowing the system to fail gracefully.
 
-Applied to sunxi/dt-for-6.19 in local tree, thanks!
+Keeping in mind that it is still essential to BUG_ON()/panic if
+pgtable_alloc() encounters failure at the time of boot, a wrapper is
+created around __create_pgd_mapping() which is designed to panic() if
+it encounters a non-zero return value. This wrapper is then invoked from
+the init functions instead of __create_pgd_mapping(), thereby keeping the
+original functionality intact.
 
-[3/6] arm64: dts: allwinner: a523: Add GMAC200 ethernet controller
-      commit: 460a71b5642a60574809032f0a21afff0f942474
-[4/6] arm64: dts: allwinner: a527: cubie-a5e: Enable second Ethernet port
-      commit: 7076938d20d22d5f75641f417f11edeee192e3cf
-[5/6] arm64: dts: allwinner: t527: avaota-a1: enable second Ethernet port
-      commit: 2e5d147ba90e887271297f69721d2d88122c7c4f
-[6/6] arm64: dts: allwinner: t527: orangepi-4a: Enable Ethernet port
-      commit: a3606e8a7819534026b46e2b8c7b0e156e292f13
+This theoretical bug was identified by Ryan Roberts<ryan.roberts@arm.com>
+as a part of code review of the following series[1].
 
-Best regards,
+[1] https://lore.kernel.org/linux-arm-kernel/20250304222018.615808-4-yang@os.amperecomputing.com/
+
+
+Changelog
+
+v2:
+* With cleanup merged as part of, "arm64: mm: Move KPTI helpers to mmu.c"
+  changes in patch 2(v1) got much simplified and squashed to patch 1 itself.
+* Patch 2 now does a trivial renaming for better readability 
+* Make use of INVALID_PHYS_ADDR for error checks instead of 0.  
+* Do early function return where we do not have any
+  common cleanup in return path
+* Remove redundant variable initialization
+* Changed BUG_ON to panic
+* Renamed ___create_pgd_mapping to early_create_pgd_mapping  
+
+This series is now rebased to linux-6.18-rc1.
+
+I will be taking the stewardship for this patch series, as Chaitanya
+has left Arm.
+
+Thanks,
+Linu Cherian.
+
+Chaitanya S Prakash (1):
+  arm64/mm: Allow __create_pgd_mapping() to propagate pgtable_alloc()
+    errors
+
+Linu Cherian (1):
+  arm64/mm: Rename try_pgd_pgtable_alloc_init_mm
+
+ arch/arm64/mm/mmu.c | 208 ++++++++++++++++++++++++++++----------------
+ 1 file changed, 132 insertions(+), 76 deletions(-)
+
 -- 
-Chen-Yu Tsai <wens@csie.org>
+2.43.0
 
 
