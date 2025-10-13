@@ -4,111 +4,96 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 0330ACCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 01:02:10 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10390CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Mon, 13 Oct 2025 01:02:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=+xGmBxaIsrwhsJmTSFTSbNR3poI1XoEoSNvgqP8h3X4=; b=FysDfpQeY/TWRStdmBj2mm6AO6
-	7+ZM/eShmAyIkqhpCIs0HLw5oe4d9k/y/g/nnTvSjSkxN4QeKntVMJ205pm5RIW03uNZYYigOgMDc
-	h2Tmu7zJPFBSEC4A92HIIcAGLjvQV5tFlYz47FjEkHznZ7xLDkJ7amdaZ0oV2rLm9IBfMuGAVDkzS
-	BuMG3wKrej8cknaCSyiV+bCijmNs+5b8ByuwQ7xwDwtb1vWQcX3xLMa6rSXMFqQSVaskTTVj/k57E
-	ITEIlqpO2O9aLKAJYsQxKHDhW+iWYvZ8Xt7QfgutSA++nOSZedTY7lhZLd+KTvKL0smbBnSRiu7lK
-	CMOVWU4w==;
+	bh=8h7DDrA7j+9540Tqy/6NV+bqJw0DCMI3GYZXvoLWyYk=; b=Y/Nu5Z4Rnc0Axxgxf0dGnwNYIR
+	WL9iWEDSvQc+1GH41APfESRI9QH04E+XrOBYUzmg4YeGil/oTICTovCFZqlz/lI7s7A35d5qc8If1
+	1Ymn6qp4I1bUg1l0Y6YfjNRp+pIm3peseN7pF8rZJS6L+Y4H9UWph9GXG+uOnnhfzolc1lcEC8fJa
+	pEUYw1rbdxS2bPbBBtgM/gyU9UJ6wyGm7CYY6atrD2qsIDPMRhEoivjuVJhoe/SbX82oOiolQByyS
+	G9rr+1NNzEyjXY2pFNF8pDppTldBNiJuutx35Cmx04mBn50KzPG1KSDwhXC+0enPpFXwEKaO7yGpC
+	Or19mcvA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v86wt-0000000C0od-4BS4;
-	Mon, 13 Oct 2025 01:02:04 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v86x1-0000000C0sn-0SQA;
+	Mon, 13 Oct 2025 01:02:11 +0000
+Received: from mail-pf1-x433.google.com ([2607:f8b0:4864:20::433])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v86ws-0000000C0nL-3Hwp
-	for linux-arm-kernel@bombadil.infradead.org;
-	Mon, 13 Oct 2025 01:02:02 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:MIME-Version:Date:Message-Id:Subject:References:In-Reply-To:Cc:To:From:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=+xGmBxaIsrwhsJmTSFTSbNR3poI1XoEoSNvgqP8h3X4=; b=DJdDKdcNBM8TCRhq4MDHBMpdo+
-	ceAQlLVX89hWqDn78CiZLL1GeiCCafCUfINphnJXqDziYQmefm6dQiylzsgU+5atqyEPdT/1QlEWQ
-	GV+VdfkXsmC1kq1SGXJn8BPlRFI+n61kbZETSwMadPPjMNi9i/bx0mHiXr9ElbchfibAFl2eona9h
-	BXdMJiFpPwKViFMPcZMqoWaWsjOEUizvdHXt/kBsSk7PVRHSDCWY4ykGmlGPdTWoxuOF07n/d/JgV
-	gepFXq9CZukHgDsWbQRewIIK+dLveLyPkki5UpoFX+iPdTzmbbABtJd+/cksnDINftHw4VPqhulSm
-	Io5jg1Uw==;
-Received: from mail-pj1-x1035.google.com ([2607:f8b0:4864:20::1035])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v86wi-00000003yDy-1uBb
+	id 1v86wy-0000000C0qV-19KX
 	for linux-arm-kernel@lists.infradead.org;
-	Mon, 13 Oct 2025 01:01:57 +0000
-Received: by mail-pj1-x1035.google.com with SMTP id 98e67ed59e1d1-339a7744495so396423a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Oct 2025 18:01:51 -0700 (PDT)
+	Mon, 13 Oct 2025 01:02:09 +0000
+Received: by mail-pf1-x433.google.com with SMTP id d2e1a72fcca58-781254d146eso236835b3a.1
+        for <linux-arm-kernel@lists.infradead.org>; Sun, 12 Oct 2025 18:02:08 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760317310; x=1760922110; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1760317327; x=1760922127; darn=lists.infradead.org;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=+xGmBxaIsrwhsJmTSFTSbNR3poI1XoEoSNvgqP8h3X4=;
-        b=tukAza/7LD9psz7hol07gNNA4eH8MaO90KdvtRYhZw/+0yHNkdbbcJo9IhhF/Fs0YP
-         Xqz6eUouBhjt33Ncaqk7gc50CKAUbtGBr9teU5/cL8tq1BRjcWQYszdiSOF9gkLzqshq
-         99LBGm0nYvrL+vGNv4/qbvi93XSzOBIfbLfsAeFyP6tR7Ri55yh7UH2IO/egtOUWze8T
-         tUlfSU2aw0A7OKxcD6QUZ4bUb+4SGwouSMv2VWq6P3Z7eXCyfdnvhVk0Wt0yFiCVpmYE
-         NGQjWXXgC8f+GcSbThs8DSgo9noWCi0m6fdDZvzfJK4WTXZI/cS2IpDSuDcyVw+9DenE
-         LshQ==
+        bh=8h7DDrA7j+9540Tqy/6NV+bqJw0DCMI3GYZXvoLWyYk=;
+        b=cBIfLAMuaae00qoOeCOKOYs4egpuzIEYMKXomOyAjBOeqHTr+T0CUm9xMSSNEedxG+
+         Pf5yvzRtpvMiVvPDtKnNzxEc1lsmy83pau88rdq49Sf8d5nbtRq+3Qi2x3w+v2Ok9zxz
+         EO4tKPG52cd3io955TfmqOUS8miCxcyy/JOuiWKNmelPMUG0ozTJdw4D1efnZO+6aAyq
+         mlcpFTwZbIRQEHwFcvJ0MUniUFZV7n1Wbc3QVPiwRp/eygmrXH1Kig5wLAjcHVPRl8B0
+         eQytU3qL/8vEDZkmq7LDvL9I9vXeEoSNZPaoDs3pNV6OObpmw20iroHt6xstvcFVO3Rl
+         v0xw==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760317310; x=1760922110;
+        d=1e100.net; s=20230601; t=1760317327; x=1760922127;
         h=content-transfer-encoding:mime-version:date:message-id:subject
          :references:in-reply-to:cc:to:from:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=+xGmBxaIsrwhsJmTSFTSbNR3poI1XoEoSNvgqP8h3X4=;
-        b=qEFfBeamsn7xbGXmfFsWTvIl73p4C4Mw/T5hPttKWC18SXtXKvZruVJEITSxwZEuVn
-         4jdJhGea4zzX+Jcvf8ABGyIQgog8Ksznkus7AvWll8W3zzKohYLSe5grnPpKIQilj/sr
-         CjzUuTkrcnrJBq0yn5whSaF2QoJeXb504PLbQAwI74DHWTSE8hb103e7MJhPHft2zQMF
-         Zwt2On8k2i1ssX2M5fCz+GeEzGn/stPz30RHfkRBNL2VaYf6311znoUC3Xqqy1z0nHig
-         L2JQ1lioF3gMApuPn/N1a/Q28NawctlNvz+S4LnqS0HtyFiGkWhtdFz18nTc/jtEKgpG
-         lDcA==
-X-Forwarded-Encrypted: i=1; AJvYcCV6c/7/fyKw6qyf2zIu+weUNG6kEWpW4PyKy1nXD93mJTKDaYT+Q/vHVVNe3+IGZ5zE46lqS6/6ULYf0VnY/SV6@lists.infradead.org
-X-Gm-Message-State: AOJu0YywGQ3Jc6AsTz3D19NLM20+cCVV91VCUoIJUGHNdEo2Uiko9XD3
-	RPdgwOaGcKocDxBVqQ0xgCA+J3hjsrTr/kZkm7WOwV5tWrEnLSTy5kC9RA7RLWIlotY=
-X-Gm-Gg: ASbGncslsKV7kVkRHC5v9F5ZaqEB1wu3rl/GH3sw/QNWQfZVaSg2l0mHFi5tRtG6Zt8
-	Fjb1hk8pdme8u89i4r2K558Xb8g091bvjUH6uybLTuAaMVLgXHTNS+G4+PWJT7I8ETvmnaOoW8X
-	GQBUBRGLqbdGdTs8UYwXeuIvo0yKL4GSZ0FEI9uHrDr8J73r+++4K8ynQmENfnSipBQHFZ9RC0B
-	IJwJULI0zNUkt84iH6XP8IH0esK9SGRnhkiSF55DOxabvL2/mV00+qIBq03V3uzkSmEB1doOlXv
-	pdVMpSbGgAEKPQneYb+n6bjejorM2HbF5pqWvEBLHJlNqkS3nlLxe/1tBYQIRjUrXc//7+ep/yK
-	V1fk1MCXP4jmP/FFQBIQuJJ+rh8O11jSiCbE+gV+rinAuyr9bSURk7MkHng7ORv7hSQA4mY5CHY
-	9KGLFrRA==
-X-Google-Smtp-Source: AGHT+IEdNeiQ4wkmg3jWNQmCnD1QT61xdTtWd43pEBCPOTtLFYBI/MtFdeLT6J/Z75wGvx4fFSNIgw==
-X-Received: by 2002:a17:90b:33d1:b0:330:6ce2:18d5 with SMTP id 98e67ed59e1d1-33b51395750mr14768734a91.6.1760317310483;
-        Sun, 12 Oct 2025 18:01:50 -0700 (PDT)
+        bh=8h7DDrA7j+9540Tqy/6NV+bqJw0DCMI3GYZXvoLWyYk=;
+        b=qxuFQuDOP8bYfmANkoNqv58ByKB0yBjxz1oA9Z60aj8nx5LEUhWlr3diKXCC5FQRmu
+         rfEQ4AAyO9bFOQVd44kU3FdRnJoHCOhoB2ZLulTKzZ8fG6x2SkNZMJfhxiru1pp2whrc
+         rJndHOH8jkBatOUVTnjNPnMlBQxMglhsuYphGbfnN7ZDS/caL5K1l4OW4E80+okRXtnx
+         J1b1GkeYl34FtYx3jaYO6o+8+vr9FNAztjAAY49587xUjCrobLOozC5SUNhOliaEdNyE
+         dS5qpuHjNGpfYSAtIjGW+bVttLKk4zsmuHP3UIMr2a3xKCHgd7GEVMrcB/WQOPK7FRyD
+         Y73A==
+X-Forwarded-Encrypted: i=1; AJvYcCUiHeyMyBfZTLwNTmKvFFa9EzttXCmJAT5ZrBEOpcVV/MHKTqQru+/bfkFaQaQq4FPgFPa8rbfvOPxP4bfFSKrF@lists.infradead.org
+X-Gm-Message-State: AOJu0Yx7wL7BN2pOytf+gXg2NnqX1jBjUJJNjFBGH8GEFJckAISXK6jp
+	u1eFK7lMjLg40sknWRSdJCtC6RygqZA1EEhQuz2yHgoO0QCKs6VurkQ7ZxcBsV8I/ZI=
+X-Gm-Gg: ASbGncuNeDO8e0aaCUKYNn0Dj1/CjW187bM8qVNyBpWW0Us3ujeJTxLHWXVNhODzPxZ
+	e4choZOyVQl3YhmYhWg93H5KBrS+AYPwep6k0pb6l/ojzB/QMCIS7WSIICAY6qlqnyVT0qCWXHO
+	pYjOlQTwj26twX+2tZ0CJc83D7PI7+CfjdQXo5/pLSjkinDVntNszRm/BG8/oHz9zliYqulJham
+	t1HsWMnTVyq2QPOVpPRLupbI2Zd8JXHQi/jEz9BKvto+XXfDlMcF5QJYjCkRJ9wVShhXZekwgeb
+	R/5aDLYtwBrzGTg3IQjBCrGOBZHu9tjSHlypfGPuYbIpKSnJXQuPgmRB0G3NvIKKkuCIPRzaZzs
+	lYH0+TjYMqIMU2ub2TnqlEh1Ssu6Hh/Vv/64zVRIbHgU5EuH1JqxDYs+fHTWheMnh00H/HX8=
+X-Google-Smtp-Source: AGHT+IGnD/2S9vnckWUYx+lQefO8k9+6JLQFNxeCb9U29jbHzHiJy1UtLcBAdXedqp1xT25g8Y9crw==
+X-Received: by 2002:a05:6a00:1705:b0:781:229b:cf82 with SMTP id d2e1a72fcca58-7938762f1fdmr11941331b3a.3.1760317327480;
+        Sun, 12 Oct 2025 18:02:07 -0700 (PDT)
 Received: from [127.0.1.1] ([121.134.152.93])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7992d0e2ab3sm9512805b3a.64.2025.10.12.18.01.44
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7992d0e2ab3sm9512805b3a.64.2025.10.12.18.02.03
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Sun, 12 Oct 2025 18:01:50 -0700 (PDT)
+        Sun, 12 Oct 2025 18:02:07 -0700 (PDT)
 From: Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>
-To: krzk@kernel.org, s.nawrocki@samsung.com, cw00.choi@samsung.com, 
- alim.akhtar@samsung.com, mturquette@baylibre.com, sboyd@kernel.org, 
- robh@kernel.org, conor+dt@kernel.org, sunyeal.hong@samsung.com, 
- shin.son@samsung.com, Raghav Sharma <raghav.s@samsung.com>
-Cc: linux-samsung-soc@vger.kernel.org, linux-clk@vger.kernel.org, 
- devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
- linux-kernel@vger.kernel.org, chandan.vn@samsung.com, 
- dev.tailor@samsung.com, karthik.sun@samsung.com
-In-Reply-To: <20250925130457.3476803-3-raghav.s@samsung.com>
-References: <20250925130457.3476803-1-raghav.s@samsung.com>
- <CGME20250925125620epcas5p359a6c18a13f2a2f895433e4dd241020e@epcas5p3.samsung.com>
- <20250925130457.3476803-3-raghav.s@samsung.com>
-Subject: Re: (subset) [PATCH 2/3] clk: samsung: exynosautov920: add block
- mfc clock support
-Message-Id: <176031730436.32330.1825346216693912031.b4-ty@linaro.org>
-Date: Mon, 13 Oct 2025 03:01:44 +0200
+To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, Alim Akhtar <alim.akhtar@samsung.com>, 
+ Sam Protsenko <semen.protsenko@linaro.org>, 
+ Greg Kroah-Hartman <gregkh@linuxfoundation.org>, 
+ Jiri Slaby <jirislaby@kernel.org>, Andi Shyti <andi.shyti@kernel.org>, 
+ Denzeel Oliva <wachiturroxd150@gmail.com>
+Cc: devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+ linux-samsung-soc@vger.kernel.org, linux-kernel@vger.kernel.org, 
+ Krzysztof Kozlowski <krzk@kernel.org>, linux-serial@vger.kernel.org, 
+ linux-i2c@vger.kernel.org
+In-Reply-To: <20250917-perics-add-usinodes-v3-1-a3629e4666ef@gmail.com>
+References: <20250917-perics-add-usinodes-v3-0-a3629e4666ef@gmail.com>
+ <20250917-perics-add-usinodes-v3-1-a3629e4666ef@gmail.com>
+Subject: Re: (subset) [PATCH v3 1/7] dt-bindings: soc: samsung:
+ exynos-sysreg: Add Exynos990 PERIC0/1 compatibles
+Message-Id: <176031732291.32330.1246219208832468083.b4-ty@linaro.org>
+Date: Mon, 13 Oct 2025 03:02:02 +0200
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
 X-Mailer: b4 0.14.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_020155_625289_1F121688 
-X-CRM114-Status: UNSURE (   6.89  )
+X-CRM114-CacheID: sfid-20251012_180208_324854_F1D771A9 
+X-CRM114-Status: UNSURE (   6.82  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -125,16 +110,16 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 25 Sep 2025 18:34:56 +0530, Raghav Sharma wrote:
-> Add support for CMU_MFC which provides clocks to MFC block, and
-> register the required compatible and cmu_info for the same.
+On Wed, 17 Sep 2025 21:04:21 +0000, Denzeel Oliva wrote:
+> Add compatible strings for Exynos990 PERIC0 and PERIC1 system register
+> controllers.
 > 
 > 
 
 Applied, thanks!
 
-[2/3] clk: samsung: exynosautov920: add block mfc clock support
-      https://git.kernel.org/krzk/linux/c/25e476632cf7135aba11b27e3807a2692a3e5e13
+[1/7] dt-bindings: soc: samsung: exynos-sysreg: Add Exynos990 PERIC0/1 compatibles
+      https://git.kernel.org/krzk/linux/c/ca4bd675ec459bb7bb008f15f5d866c9ce35f4e2
 
 Best regards,
 -- 
