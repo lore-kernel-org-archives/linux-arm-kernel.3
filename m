@@ -4,70 +4,158 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 84773CCD18E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 09:42:47 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 10435CCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 09:43:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=UlR19VloxmkZYXOADDlkd+aY0ZIjgIIeFmIgodBoKgY=; b=GY99fkeDPE/PvBE/yNNuXRNqNd
-	cCdcPvTALL0CF4UFdLwnEWXDflluLao0O1GdI+Pljhlr0H96WTK2qpwc2cRxlsk1ZScCh/81pioAJ
-	RFCHcPixz/A271wLYKpurlKQmuiXphFuzFTLqfBSJdpSH5bkzoImVRN0m9DIbeohdRklRqhZT0hZb
-	cZKbi957R55KPLIcSyH9BO2quwPHEq1vOR7Ev5Kiddm4HI/SYtzXeouW9A8twz9SftSA3/n7ow/Nc
-	quGTADShCEcZdQitPMHoG1bEQlbrw7XqxIKFmUC5WZRQSiBz5YE8AmENtp7uvoqFhoztjlf3MRrkT
-	ipxpym3g==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HLczAIMd6YBgHTyUBd3OaXQeoTevWz+WAYzf75JGUEA=; b=Y7GFTw024hhYVjV1Fg5FPhgKMH
+	HcbOdD+MpW9iX2U6JEpw5EC23dRo0zXdl912pFHsM0eTpOkpo+PQat+32wf8uR0AOABna0vlaN+aH
+	1B4bByb+4S7G667hg0B18swYQrFFmy8T1qq9oqoWYgpxc3bJ4NEtUznGz1aI9bnnGp1/WpdBZhi2p
+	FJRYEpOn6K2P9esppGfp+Wrwhz5oZqJKxPWcN6JYiQrVaCrOVN2we8abn+3PSy6+XguCzSWWKW/IQ
+	v8MrO4SNV5FDOMMt8lmpoPMoFeg3mMkjdSyWiOk3b72bBK1ADiedY1lzlMloQ6/+atOuKRpmKJbEI
+	E74J1Hmw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8bYD-0000000Fn29-3OMO;
-	Tue, 14 Oct 2025 09:42:40 +0000
-Received: from bali.collaboradmins.com ([148.251.105.195])
+	id 1v8bYy-0000000FnIB-04xh;
+	Tue, 14 Oct 2025 09:43:24 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8bY8-0000000FmzM-3q1T;
-	Tue, 14 Oct 2025 09:42:37 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1760434950;
-	bh=fyvsiAplX9W/n9nhtuP7G9+XkvoehypKI7yt/ohUwZw=;
-	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=aWHwgHoxpOOHTADIbwZAPiqXMEHzCSX0jMxP+GwmabX6ehKRbFBkszUVRpwe9kIGe
-	 SEMPr93gS1UOX6deodcJSGBaftl/M2EGulmjX5WV6y51J29p//Ew9DxVchaP3jVzOx
-	 rLcKPQPBsEiBEfw96ML/oAik1RTN3fuSHxZHSoc3VZIcnsgWtKrgPYrqLM6tGXuXBI
-	 mUr740mZplpK5n816s4UYs0nLmBiwmg/hmlRH6bYH8EYHKHve6U45HHAbh0yw4pFKZ
-	 W7jwLyTqSZwikBG8ijce57sjVjqDVWQSTUJSxjUNvphqJvKLGZ3flrspcAAMRHf8+K
-	 3Ae0WhwNvi5ZQ==
-Received: from [10.40.0.100] (185-67-175-126.lampert.tv [185.67.175.126])
-	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	(Authenticated sender: mriesch)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 8678B17E055D;
-	Tue, 14 Oct 2025 11:42:29 +0200 (CEST)
-Message-ID: <b0a802b0-e6b8-4a6f-a65c-ad2d11a7c1f6@collabora.com>
-Date: Tue, 14 Oct 2025 11:42:28 +0200
+	id 1v8bYw-0000000FnH0-06rs
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 14 Oct 2025 09:43:23 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=D5tOdhMRQupU8xbKQe5ucPUJ5YR7RBTcShelOL+5GNbhDgMxJhqk66LHURFN4mtQ5TBeuWthKwePGZnkH1TMIFcDplk1LjoHPHExE+FNIGZZo5SwfAm4ndkDPGZP5eDgctN9ZThMLMMevRE5/P2Og/b9QOy4nVozqAqTI8jN4Q2pwtYkvSlGbhK3bGfWreUeeVpSK6gzdncacAZLRqs8+1lTSwfXJGhTgAimBslFWeLa6DycjlChvRy3fC9j1V9Y5WhxtqW8vMhmb1WVfYg9ORgWVEIv32I/+3y2R+KqCyR11UG8h+7DiiFUd+aWPymK5CNuhs1165szCy8JYEjelQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=HLczAIMd6YBgHTyUBd3OaXQeoTevWz+WAYzf75JGUEA=;
+ b=ujEn6K6DiCODOVVj/1xNv9iXoNNumgqcn/b6p4HLwysbE58AcN183i9T4HDewZDbP/9iichhWTeT4EiXfCYtDZYeeDBJV2b0w2hFEwEVobyJO7EGHLBgK/EcgykR0V1PosF1RqZ1gKyPxCCRRG30dvlR0w5fobdd+c+wtKua/xIltgyHB07k4WLUrDr89W2/8nJ0CERIid5XofADUEnkt3ccrZFzBKAl53EuYHcVC1sMy4croIFLleKNZP6q4xnv3t9dCI7eipW2chsUwaEanAqQWr9DYQAhMKRv29OLErlbikaHz9BJnn+vIXk6hlQU2DrAys/KNTD/2Adt74xddA==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=oss.nxp.com; dmarc=pass action=none header.from=oss.nxp.com;
+ dkim=pass header.d=oss.nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=NXP1.onmicrosoft.com;
+ s=selector1-NXP1-onmicrosoft-com;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=HLczAIMd6YBgHTyUBd3OaXQeoTevWz+WAYzf75JGUEA=;
+ b=v/lAHtBW8xlWQRwMmn5DjggqfV4mLy07Qv5Yp0Cuz7HBMnXOVXbizu9PuSm0TvY9Qu+JMT6ESi7pvX24nIM6nCOSqQlbqo1YdhrWzcwHudJBu7HKqttthjeA7kXgd7wtrpD9SyJfSsEITb7pqtsRVq3OFqMCd6KLXrkuhjtBH8QJeS2qcW1Wa/bGCjAHBI0BeY08eAhUPwtiJRHwJO6kpCtnqaYfvBh6G+yEZK8HnNHQT5sr5oNIN/2tWh93gayHJ6L7+O/fl7/Fa/ptk61q6Ll7Y/Fnz0z5oJDWgrtjFYcZI/3YwLCXiB0m8nOJgC4N9Y+bjM4hvitiCh8YGaBG6Q==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=oss.nxp.com;
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com (2603:10a6:102:1da::15)
+ by GV1PR04MB10656.eurprd04.prod.outlook.com (2603:10a6:150:20e::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.12; Tue, 14 Oct
+ 2025 09:43:13 +0000
+Received: from PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630]) by PAXPR04MB8459.eurprd04.prod.outlook.com
+ ([fe80::165a:30a2:5835:9630%4]) with mapi id 15.20.9203.009; Tue, 14 Oct 2025
+ 09:43:13 +0000
+Date: Tue, 14 Oct 2025 18:55:30 +0800
+From: Peng Fan <peng.fan@oss.nxp.com>
+To: Andrew Davis <afd@ti.com>
+Cc: Peng Fan <peng.fan@nxp.com>, Bjorn Andersson <andersson@kernel.org>,
+	Mathieu Poirier <mathieu.poirier@linaro.org>,
+	Arnaud Pouliquen <arnaud.pouliquen@foss.st.com>,
+	Daniel Baluta <daniel.baluta@nxp.com>,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	linux-remoteproc@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
+	linux-arm-kernel@lists.infradead.org
+Subject: Re: [PATCH v2 4/7] remoteproc: core: Use cleanup.h macros to
+ simplify lock handling
+Message-ID: <20251014105530.GB14479@nxa18884-linux.ap.freescale.net>
+References: <20251010-remoteproc-cleanup-v2-0-7cecf1bfd81c@nxp.com>
+ <20251010-remoteproc-cleanup-v2-4-7cecf1bfd81c@nxp.com>
+ <3b7ab4c5-7dfc-41f9-bf6d-6deabfe97338@ti.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <3b7ab4c5-7dfc-41f9-bf6d-6deabfe97338@ti.com>
+User-Agent: Mutt/1.10.1 (2018-07-13)
+X-ClientProxiedBy: SG2PR02CA0138.apcprd02.prod.outlook.com
+ (2603:1096:4:188::12) To PAXPR04MB8459.eurprd04.prod.outlook.com
+ (2603:10a6:102:1da::15)
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH v7 1/8] media: uapi: Introduce V4L2 generic ISP types
-To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
- Dafna Hirschfeld <dafna@fastmail.com>,
- Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
- Keke Li <keke.li@amlogic.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
- Heiko Stuebner <heiko@sntech.de>, Dan Scally <dan.scally@ideasonboard.com>,
- Sakari Ailus <sakari.ailus@linux.intel.com>,
- Antoine Bouyer <antoine.bouyer@nxp.com>
-Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
- linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
- Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
-References: <20251014-extensible-parameters-validation-v7-0-6628bed5ca98@ideasonboard.com>
- <20251014-extensible-parameters-validation-v7-1-6628bed5ca98@ideasonboard.com>
-Content-Language: en-US
-From: Michael Riesch <michael.riesch@collabora.com>
-In-Reply-To: <20251014-extensible-parameters-validation-v7-1-6628bed5ca98@ideasonboard.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
+X-MS-Exchange-MessageSentRepresentingType: 1
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXPR04MB8459:EE_|GV1PR04MB10656:EE_
+X-MS-Office365-Filtering-Correlation-Id: 908c6331-1814-42d7-5c44-08de0b06179a
+X-MS-Exchange-SharedMailbox-RoutingAgent-Processed: True
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|7416014|52116014|19092799006|366016|376014|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?gbppMRXSS2ucBx2NADDDPGHGU8Hekimnn5gtrAMjK5x5n6VjcjQ5cLkhPvH5?=
+ =?us-ascii?Q?qY9HM1U5xPh6eDjtEMXEMaZJGAIAoH8Srp+XypyxgNL5i+ruTYn7+MGzY/uM?=
+ =?us-ascii?Q?dKhHwtOO6u/W9sIU22AUJ5GxKCAUoCal0Plwmtyi4i9nfg8R/VxGKeeKLpkl?=
+ =?us-ascii?Q?GIyiVeX4fufrHXMF2n9Dc+SZ0ZEwg+LtCAv91V8AEJXwOI/fv+L2dKCH9qqP?=
+ =?us-ascii?Q?wHLuUAwpWpT0nnij6L1ga1yAlIkRuTFeOdcNiPiC63qrxVkCpB9r1bqgU6Bm?=
+ =?us-ascii?Q?DSb/fTeoaGWgxmVXHhjkYtezAMVcKHw8LvzkapSMz9duHxdHIkEVa2828+U6?=
+ =?us-ascii?Q?b/QsXPbGb+0mqQ80YV3fxh4af3yLtC0ztSqagkfQwTEWq80FrkXW0cOKGM5S?=
+ =?us-ascii?Q?GZnmOWefQY9VF8/2sXewYF/sl2o7iUOwtE8sC7iutWwYeO3XrOHSvWqKtWkB?=
+ =?us-ascii?Q?jRwHrP2g/4myt4CzX+K0wV8oKF4EdYCKhkHORo2u2SP+XlQfslml3/h2ywHi?=
+ =?us-ascii?Q?4R+PUn9l5h19AGTdEnn0eWdMr40oCAKTbpywZIrIC0rNenuha4Lea/6hbyaU?=
+ =?us-ascii?Q?ObkZw4fnNftWsR1y7FOdlVAc6twmNxuHM+FdFtgputzhTQ3k3DV8BHOR6Ftg?=
+ =?us-ascii?Q?P8xrqMO+tuFIXWp2qprAHwDt+pfGn1y8FqAPb2F0NFzirmd8tXQsVdbCjTJZ?=
+ =?us-ascii?Q?YPxNI3jpaqNQ6u3hdW6iefalHVM8rXLBFuC7RxtTbfGYuJghFTaFZe/3b+61?=
+ =?us-ascii?Q?mxCWbpirV59JuZ7NwctVhSpE8x2NtL/oLf9bQb2/WEZ7pc8/cmnW3B5yBPF7?=
+ =?us-ascii?Q?0yPGNfYKU8bChr7HJPrEPuJm+OE0PUfnsMRvhjv9LJEYpT8NpOfc8AMuPTI0?=
+ =?us-ascii?Q?ths2rg41w3k2x5dtOw7XRD7oRIDFj6drYbwww+Kbu87o422K9tphWJkE9ivH?=
+ =?us-ascii?Q?fl06jghhCGh9IaegInItZ70siolj/J+XzkPJHb8kn7kGHjqD7T6rzuPFyihU?=
+ =?us-ascii?Q?HN8ejt7Nr4+TLnWT5vcZ74h+5QAOttl7UcmFtojSKnGPL2K4kSL9HEKnj9sL?=
+ =?us-ascii?Q?C8+yojnfTZ48zkhbTGFGpuxLQagoz0uXGtTsJUtjD1CUQ0mKpcjR0Nrku6UV?=
+ =?us-ascii?Q?0m6JuHy+6mQqy2OQWD8GVyuLgauEu8jVpleivxTbDPK+g8YAz9si43yd5Lh+?=
+ =?us-ascii?Q?4nydHkGVf5QLwGzkO9gXFGe2mm8XX69Qq9EKWRGc51RLnsyM0GgyRWxYt1VU?=
+ =?us-ascii?Q?+l58CZBrTf8Jb3uYz4hp6lu7yPP/mHh4ltFAbPy9ZFrnJ8T57J+dJBNseQ9q?=
+ =?us-ascii?Q?xheph0RNDJA+GEX91jVZBfjOraLYWJ2u5D/iJjvQDuoI/93xaEZUN+CgAlZ0?=
+ =?us-ascii?Q?ulnpkr5CVa+8p9mR+sqUt0xu556QkoRhxLkFj3KS1/+0FgZNzrAOIGNBQTUO?=
+ =?us-ascii?Q?zbJN9MkSI5fObd45uxu8rXAzGHv5/D/0BWcDzIVvkm3B5rW034RfDeLspnBB?=
+ =?us-ascii?Q?EZwCKsu2+THFEh5EN7iEsHuQLHJaGKf0TGiJ?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXPR04MB8459.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(1800799024)(7416014)(52116014)(19092799006)(366016)(376014)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?CRREpV6J3I0fDOeVfwkRaE3265sF8HJ/kJRzk2StLfA7lOTYbXOEoZ/qzAdX?=
+ =?us-ascii?Q?ugHl69f3YlPfxi4FPjJ/0vFDCxuXjBX1xqpONHD9ZZTPlJNAHnG+tmAGKvMJ?=
+ =?us-ascii?Q?pt3XGyQogL79UzHYUcBTNDeu2sCSPIU/9Y58dhv2UY0N6rhRW2SsY5FlrQXm?=
+ =?us-ascii?Q?jaVGDLryrTr3PnYy963FSFaprmqVNEFbnHlOWk3Kp4CWGknrDwIbcydS97k8?=
+ =?us-ascii?Q?BbvAsaBipbjNX/RQGpOIW9zrflwTn/dA8cpAUhTPo4YWTEejw2MEUAXyhgaT?=
+ =?us-ascii?Q?P1bLnz+4WX0L1z/cuxPllFkuSygm7h2jQFjuoEFKbVvhEllQmzHmDRazxAA7?=
+ =?us-ascii?Q?7Ny+uSec+L9f7+5wu0fUbt0RWgZiQU8JffRuYVJ86H/lhwd+7LOjcDIq+Nmx?=
+ =?us-ascii?Q?sf3o4zJLumIz0AG6FepvpDGPnMf/omQErkJpDKCjfIXBeOPczogkIhAFggr8?=
+ =?us-ascii?Q?6esAWsxH27+yGK/CTNZRnONc2erFwi++ZecrEbp3Nr8dznL1TNXwxEII5FsW?=
+ =?us-ascii?Q?vaDQwLNKa33E3PYmhSuSAhrOt+jt9jrgDAtK3o09+6OMSoIzMBgij4mAHMoD?=
+ =?us-ascii?Q?K4mn9H2kWDaFK6x3A49nI/PV4fW5GNwsr3ShtVR4H2SJilsSSSEedbLyluP5?=
+ =?us-ascii?Q?zVdiW2c349NqTTWgSdcp3V8e4XP4nLWMnQ4RisyiAojcpEtfw9zzrnA/X1LO?=
+ =?us-ascii?Q?B1lBpV54VQ93EB6o9FeZ3RUi5s9xUT/g31vQAq820Ax/wWv47uk46ImRX46L?=
+ =?us-ascii?Q?QSTPVzCJsQzPpYhlymFj+ArIyHFnp7BdITfLJMW0Qc7T1lVyfgRBN9HulhEY?=
+ =?us-ascii?Q?raq+o49b2Y0Lsa+EqKWYA0EynXMsb9WkddoWlDeJngRKy7DFaVZctPYr7N4T?=
+ =?us-ascii?Q?f5D8bGv+w3eNPSQhGTUl6qpUzf6sYX0+kNcN+rixczAM6ybJRqtCQdLP0VMw?=
+ =?us-ascii?Q?GAKC4Qa6rXeOm20zdrS7EMzzPDKpPnuHEY9W5qYmeEMencyXGgH8YdzO5Pla?=
+ =?us-ascii?Q?WK54E0AexZ9SYT2FoBYXpx2yhu0JTzFiGx0lKyFyD5fOy5BIgF+t3RoVZPoj?=
+ =?us-ascii?Q?7cCVI99Y4Jc/F1UV1tCFByC2DlBDcTn/JN7gYuU0uhZ9z1XrPLg3tuDKP+rs?=
+ =?us-ascii?Q?HPcEpk3YPQd42tZZ3ZE40TGbFySQ2AnyumpOKdkhvlpC5jB8NEHQuyNsQuqg?=
+ =?us-ascii?Q?hC91EDSJye9yCyYNPJ2dclN/3lW3fq34zXzxJWN/sQASvWbDiNrhCSuv0vdQ?=
+ =?us-ascii?Q?7sNJONRQOfkPo/+W69n3GohhUd1/FSHjtqC1gE5o8ZkCGKkbQK8exFnS15XD?=
+ =?us-ascii?Q?9xJhjW1xKpdlNmb4JDyMXGEhIKBpOdJ35n0bDDTQUx4/6YTMFMG+D20MbeOC?=
+ =?us-ascii?Q?qt7D/T0otTMJdOwJmojIlKgZ1sJxW11drS1Pmw9x0pDWoKkcGX6eftN0G5dI?=
+ =?us-ascii?Q?nPsczLC/D7n/wk4xz/ehPt8qZTYEiLQkywMH2qpQbfErXCbsZNKXWXIzBOIr?=
+ =?us-ascii?Q?VWugAfluo+Bkh5H3uwQeSCQNYwRK1SmVGPXipB1N5pLJnnPoBgA/1FzilE5t?=
+ =?us-ascii?Q?DJQvrLNe8NMCVNprOZ1/iETVMRrX2yBm627guoHS?=
+X-OriginatorOrg: oss.nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: 908c6331-1814-42d7-5c44-08de0b06179a
+X-MS-Exchange-CrossTenant-AuthSource: PAXPR04MB8459.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Oct 2025 09:43:13.2337
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: YVMLm4fGkfg2cDNQ4NGMWF4bwmvZYxezrWnTPwXFcrZuo6L0E0kjdS8fgjuLlEPlu5MlfQ1YReJsOEmKk6Q5Gg==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: GV1PR04MB10656
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_024233_280176_6A8A6BA3 
-X-CRM114-Status: GOOD (  32.99  )
+X-CRM114-CacheID: sfid-20251014_024322_122650_FF85BE9D 
+X-CRM114-Status: GOOD (  11.99  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -82,167 +170,34 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi Jacopo,
+Hi Andrew,
 
-Thanks for your efforts!
+Thanks for your reviewing.
 
-On 10/14/25 10:00, Jacopo Mondi wrote:
-> Introduce v4l2-isp.h in the Linux kernel uAPI.
-> 
-> The header includes types for generic ISP configuration parameters
-> and will be extended in the future with support for generic ISP statistics
-> formats.
-> 
-> Generic ISP parameters support is provided by introducing two new
-> types that represent an extensible and versioned buffer of ISP
-> configuration parameters.
-> 
-> The v4l2_params_buffer represents the container for the ISP
-> configuration data block. The generic type is defined with a 0-sized
-> data member that the ISP driver implementations shall properly size
-> according to their capabilities. The v4l2_params_block_header structure
-> represents the header to be prepend to each ISP configuration block.
-> 
-> Signed-off-by: Daniel Scally <dan.scally@ideasonboard.com>
-> Reviewed-by: Daniel Scally <dan.scally@ideasonboard.com>
-> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+On Fri, Oct 10, 2025 at 07:34:13PM -0500, Andrew Davis wrote:
+>On 10/10/25 7:24 AM, Peng Fan wrote:
+>> Replace manual mutex_lock/unlock and error-handling patterns with cleanup.h
+>> macros (ACQUIRE, ACQUIRE_ERR, and scoped_guard) to streamline lock
+>> management. As a result, several goto labels and redundant error paths are
+>> eliminated.
+>> 
+>> -
+>> -	if (rproc->state == RPROC_CRASHED) {
+>> +	scoped_guard(mutex, &rproc->lock) {
+>
+>Not sure this one is worth switching to scoped_guard as is doesn't save
+>us needing the goto out label. Plus it adds indent to a bunch of lines.
 
-Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
+I was thinking to align the usage of cleanup API, avoiding mix the usage
+the cleanup API and direct usage of mutex_lock/unlock API.
 
-Thanks and best regards,
-Michael
+Considering the deadlock report [1], we may need to rethink the lock
+scope in remoteproc_core.c. I gave a look on ->lock, but it is a bit
+vague on which exact entries in rproc it is protecting. 
+Before [1] is fixed, this patch might be dropped.
 
-> ---
->  MAINTAINERS                         |   6 +++
->  include/uapi/linux/media/v4l2-isp.h | 102 ++++++++++++++++++++++++++++++++++++
->  2 files changed, 108 insertions(+)
-> 
-> diff --git a/MAINTAINERS b/MAINTAINERS
-> index 46126ce2f968e4f9260263f1574ee29f5ff0de1c..e9ac834d212f88222437e8d806800b2516d44f01 100644
-> --- a/MAINTAINERS
-> +++ b/MAINTAINERS
-> @@ -26853,6 +26853,12 @@ F:	drivers/media/i2c/vd55g1.c
->  F:	drivers/media/i2c/vd56g3.c
->  F:	drivers/media/i2c/vgxy61.c
->  
-> +V4L2 GENERIC ISP PARAMETERS AND STATISTIC FORMATS
-> +M:	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> +L:	linux-media@vger.kernel.org
-> +S:	Maintained
-> +F:	include/uapi/linux/media/v4l2-isp.h
-> +
->  VF610 NAND DRIVER
->  M:	Stefan Agner <stefan@agner.ch>
->  L:	linux-mtd@lists.infradead.org
-> diff --git a/include/uapi/linux/media/v4l2-isp.h b/include/uapi/linux/media/v4l2-isp.h
-> new file mode 100644
-> index 0000000000000000000000000000000000000000..779168f9058e3bcf6451f681e247d34d95676cc0
-> --- /dev/null
-> +++ b/include/uapi/linux/media/v4l2-isp.h
-> @@ -0,0 +1,102 @@
-> +/* SPDX-License-Identifier: GPL-2.0 WITH Linux-syscall-note */
-> +/*
-> + * Video4Linux2 generic ISP parameters and statistics support
-> + *
-> + * Copyright (C) 2025 Ideas On Board Oy
-> + * Author: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
-> + */
-> +
-> +#ifndef _UAPI_V4L2_ISP_H_
-> +#define _UAPI_V4L2_ISP_H_
-> +
-> +#include <linux/stddef.h>
-> +#include <linux/types.h>
-> +
-> +/**
-> + * enum v4l2_isp_params_version - V4L2 ISP parameters versioning
-> + *
-> + * @V4L2_ISP_PARAMS_VERSION_V0: First version of the V4L2 ISP parameters format
-> + *				(for compatibility)
-> + * @V4L2_ISP_PARAMS_VERSION_V1: First version of the V4L2 ISP parameters format
-> + *
-> + * V0 and V1 are identical in order to support drivers compatible with the V4L2
-> + * ISP parameters format already upstreamed which use either 0 or 1 as their
-> + * versioning identifier. Both V0 and V1 refers to the first version of the
-> + * V4L2 ISP parameters format.
-> + *
-> + * Future revisions of the V4L2 ISP parameters format should start from the
-> + * value of 2.
-> + */
-> +enum v4l2_isp_params_version {
-> +	V4L2_ISP_PARAMS_VERSION_V0 = 0,
-> +	V4L2_ISP_PARAMS_VERSION_V1
-> +};
-> +
-> +#define V4L2_ISP_PARAMS_FL_BLOCK_DISABLE	(1U << 0)
-> +#define V4L2_ISP_PARAMS_FL_BLOCK_ENABLE		(1U << 1)
-> +
-> +/*
-> + * Reserve the first 8 bits for V4L2_ISP_PARAMS_FL_* flag.
-> + *
-> + * Driver-specific flags should be defined as:
-> + * #define DRIVER_SPECIFIC_FLAG0     ((1U << V4L2_ISP_PARAMS_FL_DRIVER_FLAGS(0))
-> + * #define DRIVER_SPECIFIC_FLAG1     ((1U << V4L2_ISP_PARAMS_FL_DRIVER_FLAGS(1))
-> + */
-> +#define V4L2_ISP_PARAMS_FL_DRIVER_FLAGS(n)       ((n) + 8)
-> +
-> +/**
-> + * struct v4l2_isp_params_block_header - V4L2 extensible parameters block header
-> + * @type: The parameters block type (driver-specific)
-> + * @flags: A bitmask of block flags (driver-specific)
-> + * @size: Size (in bytes) of the parameters block, including this header
-> + *
-> + * This structure represents the common part of all the ISP configuration
-> + * blocks. Each parameters block shall embed an instance of this structure type
-> + * as its first member, followed by the block-specific configuration data.
-> + *
-> + * The @type field is an ISP driver-specific value that identifies the block
-> + * type. The @size field specifies the size of the parameters block.
-> + *
-> + * The @flags field is a bitmask of per-block flags V4L2_PARAMS_ISP_FL_* and
-> + * driver-specific flags specified by the driver header.
-> + */
-> +struct v4l2_isp_params_block_header {
-> +	__u16 type;
-> +	__u16 flags;
-> +	__u32 size;
-> +} __attribute__((aligned(8)));
-> +
-> +/**
-> + * struct v4l2_isp_params_buffer - V4L2 extensible parameters configuration
-> + * @version: The parameters buffer version (driver-specific)
-> + * @data_size: The configuration data effective size, excluding this header
-> + * @data: The configuration data
-> + *
-> + * This structure contains the configuration parameters of the ISP algorithms,
-> + * serialized by userspace into a data buffer. Each configuration parameter
-> + * block is represented by a block-specific structure which contains a
-> + * :c:type:`v4l2_isp_params_block_header` entry as first member. Userspace
-> + * populates the @data buffer with configuration parameters for the blocks that
-> + * it intends to configure. As a consequence, the data buffer effective size
-> + * changes according to the number of ISP blocks that userspace intends to
-> + * configure and is set by userspace in the @data_size field.
-> + *
-> + * The parameters buffer is versioned by the @version field to allow modifying
-> + * and extending its definition. Userspace shall populate the @version field to
-> + * inform the driver about the version it intends to use. The driver will parse
-> + * and handle the @data buffer according to the data layout specific to the
-> + * indicated version and return an error if the desired version is not
-> + * supported.
-> + *
-> + * For each ISP block that userspace wants to configure, a block-specific
-> + * structure is appended to the @data buffer, one after the other without gaps
-> + * in between. Userspace shall populate the @data_size field with the effective
-> + * size, in bytes, of the @data buffer.
-> + */
-> +struct v4l2_isp_params_buffer {
-> +	__u32 version;
-> +	__u32 data_size;
-> +	__u8 data[] __counted_by(data_size);
-> +};
-> +
-> +#endif /* _UAPI_V4L2_ISP_H_ */
-> 
+Thanks
+Peng
 
+[1]https://lore.kernel.org/linux-remoteproc/6460478.iFIW2sfyFC@nailgun/T/#u
 
