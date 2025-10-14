@@ -4,75 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8E207CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 18:07:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4081ACCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 18:10:42 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=rIEDzwv7QdB31GWJ+XTDLBa3gIoDkaeLOaqFwxH7huU=; b=3acWamYZKXqtBJTaxLWBamOmi5
-	6c2dczWCCdjmDQzeZvwbmho+7Uyhbs6cCImsXaoQ9f8X6AZ8Qn16gakdqz5sa59ylPwsqGdgL4N00
-	H0AQO69HayO8ASv9/7ydHEVL2oDulfejZ5w/uJ3gKJMflqJiYwZcbXlETgNqFex0r1zcIWEK5EjKH
-	nSgm8hLEEDqYw2kahhK2XzCAGB4/2sh+Fvfs2VcCZdgalTP/xNlPYY2nSodaM7WJqM+xjnp9i1PGp
-	C0rTXTZTIjQ7g9PpcbRDd5XJ29MiKASiczrKKyNSW0RHzgyYdNFTiFR3fpvpRUbbquR2Ep4UPZlGD
-	N1na3RJg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=4Hp58YBIxOjlfnNSmdvsXZHMTX0K0zv6wg6UMas852A=; b=Gxkwux+YR8BF5kRDB48FAUrdsB
+	2KXJcidDrvnSmm0jR57xOzmJBGBUKnOd9fJM9wubGn65IG9gwtvF3Qi8oF9xCeYc8EzkTw4vd30Ji
+	GPRaSsM00XMhPU4fkVsDUkVKqVAp/hbNvyaRB+bJTpBUXmC3zbnO4sAlFIfVSp2WxY6ae4wBgPzZJ
+	Zhf8tnpDCQl7afgxINZpMaoz1IArGOYjsk5sl8b3itThbcIhU6lE/3NUoLYcqurNyOP+obRTHQ8sa
+	en+f3OfSoZzQgRhLWV03fM8YG33mZxkfuWrz1iRRyCL0vfwEM0QL0WyscT20rjnZvT9Dn9qVzuL+P
+	bGDbh0lQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8jQg-0000000H9MD-2BJo;
-	Tue, 14 Oct 2025 18:07:22 +0000
-Received: from gloria.sntech.de ([185.11.138.130])
+	id 1v8jTn-0000000HABH-49uZ;
+	Tue, 14 Oct 2025 18:10:36 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8jQR-0000000H91s-39Yv;
-	Tue, 14 Oct 2025 18:07:09 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
-	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
-	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
-	bh=rIEDzwv7QdB31GWJ+XTDLBa3gIoDkaeLOaqFwxH7huU=; b=oWce2nmHWPWWoNXeYgtzvmVX/+
-	hA0OkoEPV9FKtQomxOXwECRZ1fIRfyBUXTVILAz9OyIqcsolM26xiEC9LcZvtSQtEETvN2s5jNiUM
-	VekHnoxEnHGurZGh5AfbgA8s+SVbjWZaBPsqQWoNX7BSwl0XLeo91KiVqruss+Xu6QC+M0MvUf8qC
-	8St4tVG84On1cTrJtoKvmmiSfX1dQAhqHuOBHOss0ZOuOS2vhX3u0VVy81WXCKQi//XerfUsLlKYC
-	EG+xrbzWwBDMNm2nJppzEw1Z25fwWUbSw3bYKNwX03xfsKuCV6FJKcQvcnl5CJ4g38TQDBOldDlqy
-	nuyMJYSQ==;
-Received: from i53875b75.versanet.de ([83.135.91.117] helo=localhost.localdomain)
-	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.94.2)
-	(envelope-from <heiko@sntech.de>)
-	id 1v8jQC-0001Gj-A8; Tue, 14 Oct 2025 20:06:52 +0200
-From: Heiko Stuebner <heiko@sntech.de>
-To: Andy Yan <andy.yan@rock-chips.com>,
-	Chaoyi Chen <kernel@airkyi.com>
-Cc: Heiko Stuebner <heiko@sntech.de>,
-	Rob Herring <robh@kernel.org>,
+	id 1v8jTl-0000000HAAs-1HbV
+	for linux-arm-kernel@lists.infradead.org;
+	Tue, 14 Oct 2025 18:10:34 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by sea.source.kernel.org (Postfix) with ESMTP id EBE6040AAB;
+	Tue, 14 Oct 2025 18:10:32 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id CFFC1C4CEE7;
+	Tue, 14 Oct 2025 18:10:29 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760465432;
+	bh=BSoSmYgtZ9AesO3u1tMwafkyE42czTGEgpGza7+Fu6M=;
+	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
+	b=aKKRJ/OUsXrUymQ+jPoIkuuywzRbnANEGOkO+8SUH2NBHJhdK3DIWqvEJh7B/xlYh
+	 c9dbXKOmi07TLXV1prDdV+tJYlBPwcpnpsnNDmd6PRakAOQepQGh8gMqOdeFr6U9UJ
+	 jGEjNCeEHQRWHynn2za/1jqV3NS5yVqNDnJdSqpqzRKKh2s/Yrk5EkV2NBy2rHPAbB
+	 3JYHSvpHYnYSOqEP6s3ztEWE5wGCTuSUlOiXjHwn+xZCCvBQ81SZEBMGZ9e26vNUKW
+	 C+dEmmRQ3OF95jC25AhTpbO0J1c8/E+YmAkqkZSN+fyUVV5iIaIevxdSYh+hYZRgm9
+	 8pvR8xuTKQXzw==
+Date: Tue, 14 Oct 2025 19:10:27 +0100
+From: Conor Dooley <conor@kernel.org>
+To: Antonio Borneo <antonio.borneo@foss.st.com>
+Cc: Linus Walleij <linus.walleij@linaro.org>, Rob Herring <robh@kernel.org>,
 	Krzysztof Kozlowski <krzk+dt@kernel.org>,
 	Conor Dooley <conor+dt@kernel.org>,
-	Quentin Schulz <quentin.schulz@cherry.de>,
-	Dragan Simic <dsimic@manjaro.org>,
-	FUKAUMI Naoki <naoki@radxa.com>,
-	Jonas Karlman <jonas@kwiboo.se>,
-	Peter Robinson <pbrobinson@gmail.com>,
-	Chaoyi Chen <chaoyi.chen@rock-chips.com>,
-	Geert Uytterhoeven <geert+renesas@glider.be>,
-	Cristian Ciocaltea <cristian.ciocaltea@collabora.com>,
-	Sebastian Reichel <sebastian.reichel@collabora.com>,
-	devicetree@vger.kernel.org,
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>,
+	Alexandre Torgue <alexandre.torgue@foss.st.com>,
+	Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org,
+	devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+	linux-stm32@st-md-mailman.stormreply.com,
 	linux-arm-kernel@lists.infradead.org,
-	linux-rockchip@lists.infradead.org,
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: dts: rockchip: Enable DisplayPort for rk3588-evb2
-Date: Tue, 14 Oct 2025 20:06:37 +0200
-Message-ID: <176046473179.1662867.6131209694998628350.b4-ty@sntech.de>
-X-Mailer: git-send-email 2.47.2
-In-Reply-To: <20250918062825.194-1-kernel@airkyi.com>
-References: <20250918062825.194-1-kernel@airkyi.com>
+	Christophe Roullier <christophe.roullier@foss.st.com>,
+	Fabien Dessenne <fabien.dessenne@foss.st.com>,
+	Valentin Caron <valentin.caron@foss.st.com>
+Subject: Re: [PATCH v3 09/10] dt-bindings: pinctrl: stm32: Support I/O
+ synchronization parameters
+Message-ID: <20251014-affection-voltage-8b1764273a06@spud>
+References: <20251014140451.1009969-1-antonio.borneo@foss.st.com>
+ <20251014140451.1009969-10-antonio.borneo@foss.st.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+Content-Type: multipart/signed; micalg=pgp-sha512;
+	protocol="application/pgp-signature"; boundary="WUAPWDm9VxqWJrOr"
+Content-Disposition: inline
+In-Reply-To: <20251014140451.1009969-10-antonio.borneo@foss.st.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_110707_825713_92EF3223 
-X-CRM114-Status: UNSURE (   9.47  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251014_111033_413257_E171CDCE 
+X-CRM114-Status: GOOD (  20.54  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -88,18 +85,173 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-On Thu, 18 Sep 2025 14:28:25 +0800, Chaoyi Chen wrote:
-> The rk3588 evb2 board has a full size DisplayPort connector, enable
-> for it.
-> 
-> 
+--WUAPWDm9VxqWJrOr
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+Content-Transfer-Encoding: quoted-printable
 
-Applied, thanks!
+On Tue, Oct 14, 2025 at 04:04:50PM +0200, Antonio Borneo wrote:
+> Document the support of the I/O synchronization parameters:
+> - skew-delay-input;
+> - skew-delay-output;
+> - st,io-sync.
+>=20
+> Forbid 'skew-delay-input' and 'skew-delay-output' to be both
+> present on the same pin.
+> Allow the new properties only with compatibles that support them.
+> Add an example that uses the new properties.
+>=20
+> Co-developed-by: Fabien Dessenne <fabien.dessenne@foss.st.com>
+> Signed-off-by: Fabien Dessenne <fabien.dessenne@foss.st.com>
+> Signed-off-by: Antonio Borneo <antonio.borneo@foss.st.com>
+> ---
+>  .../bindings/pinctrl/st,stm32-pinctrl.yaml    | 98 +++++++++++++++++++
+>  1 file changed, 98 insertions(+)
+>=20
+> diff --git a/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.y=
+aml b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
+> index 2df141ed7222d..0010762127c05 100644
+> --- a/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
+> +++ b/Documentation/devicetree/bindings/pinctrl/st,stm32-pinctrl.yaml
+> @@ -220,12 +220,89 @@ patternProperties:
+>              minimum: 0
+>              maximum: 3
+> =20
+> +          skew-delay-input:
+> +            description: |
+> +              IO synchronization skew rate applied to the input path
+> +              0: No delay
+> +              1: Delay 0.30 ns
+> +              2: Delay 0.50 ns
+> +              3: Delay 0.75 ns
+> +              4: Delay 1.00 ns
+> +              5: Delay 1.25 ns
+> +              6: Delay 1.50 ns
+> +              7: Delay 1.75 ns
+> +              8: Delay 2.00 ns
+> +              9: Delay 2.25 ns
+> +              10: Delay 2.50 ns
+> +              11: Delay 2.75 ns
+> +              12: Delay 3.00 ns
+> +              13: Delay 3.25 ns
+> +            minimum: 0
+> +            maximum: 13
+> +
+> +          skew-delay-output:
+> +            description: |
+> +              IO synchronization latch delay applied to the output path
+> +              0: No delay
+> +              1: Delay 0.30 ns
+> +              2: Delay 0.50 ns
+> +              3: Delay 0.75 ns
+> +              4: Delay 1.00 ns
+> +              5: Delay 1.25 ns
+> +              6: Delay 1.50 ns
+> +              7: Delay 1.75 ns
+> +              8: Delay 2.00 ns
+> +              9: Delay 2.25 ns
+> +              10: Delay 2.50 ns
+> +              11: Delay 2.75 ns
+> +              12: Delay 3.00 ns
+> +              13: Delay 3.25 ns
+> +            minimum: 0
+> +            maximum: 13
 
-[1/1] arm64: dts: rockchip: Enable DisplayPort for rk3588-evb2
-      commit: 134fae98cfbabb7e90b1b2d957fb374408061034
+Same comments here as on the earlier patch. I would like to see times
+used natively.
+pw-bot: changes-requested
 
-Best regards,
--- 
-Heiko Stuebner <heiko@sntech.de>
+> +
+> +          st,io-sync:
+> +            description: |
+> +              IO synchronization through re-sampling or inversion
+> +              0: data or clock GPIO pass-through
+> +              1: clock GPIO inverted
+> +              2: data GPIO re-sampled on clock rising edge
+> +              3: data GPIO re-sampled on clock falling edge
+> +              4: data GPIO re-sampled on both clock edges
+> +            $ref: /schemas/types.yaml#/definitions/uint32
+> +            enum: [0, 1, 2, 3, 4]
+
+I really don't like this kinds of properties that lead to "random"
+numbers in devicetree. I'd much rather see a string list here.
+
+> +
+>          required:
+>            - pinmux
+> =20
+> +        # Not allowed both skew-delay-input and skew-delay-output
+> +        if:
+> +          required:
+> +            - skew-delay-input
+> +        then:
+> +          properties:
+> +            skew-delay-output: false
+> +
+>  allOf:
+>    - $ref: pinctrl.yaml#
+> =20
+> +  - if:
+> +      not:
+> +        properties:
+> +          compatible:
+> +            contains:
+> +              enum:
+> +                - st,stm32mp257-pinctrl
+> +                - st,stm32mp257-z-pinctrl
+> +    then:
+> +      patternProperties:
+> +        '-[0-9]*$':
+> +          patternProperties:
+> +            '^pins':
+> +              properties:
+> +                skew-delay-input: false
+> +                skew-delay-output: false
+> +                st,io-sync: false
+> +
+>  required:
+>    - compatible
+>    - '#address-cells'
+> @@ -306,4 +383,25 @@ examples:
+>                  pinctrl-names =3D "default";
+>      };
+> =20
+> +  - |
+> +    #include <dt-bindings/pinctrl/stm32-pinfunc.h>
+> +    //Example 4 skew-delay and st,io-sync
+> +      pinctrl: pinctrl@44240000 {
+> +              compatible =3D "st,stm32mp257-pinctrl";
+> +              #address-cells =3D <1>;
+> +              #size-cells =3D <1>;
+> +              ranges =3D <0 0x44240000 0xa0400>;
+> +
+> +              eth3_rgmii_pins_a: eth3-rgmii-0 {
+> +                      pins1 {
+> +                              pinmux =3D <STM32_PINMUX('A', 6, AF14)>;
+> +                              st,io-sync =3D <4>;
+> +                      };
+> +                      pins2 {
+> +                              pinmux =3D <STM32_PINMUX('H', 2, AF14)>;
+> +                              skew-delay-output =3D <2>;
+> +                      };
+> +              };
+> +      };
+> +
+>  ...
+> --=20
+> 2.34.1
+>=20
+
+--WUAPWDm9VxqWJrOr
+Content-Type: application/pgp-signature; name="signature.asc"
+
+-----BEGIN PGP SIGNATURE-----
+
+iHUEABYKAB0WIQRh246EGq/8RLhDjO14tDGHoIJi0gUCaO6SEwAKCRB4tDGHoIJi
+0jCsAPwLkMNVF458mbc2zWVRT6LxatpnJfRRuZJlEdA05pbWEAEAz4z8RejXvyPP
+ECXLoXPiLCdURtPzFPKuEqQ4nRt+HQw=
+=CNDr
+-----END PGP SIGNATURE-----
+
+--WUAPWDm9VxqWJrOr--
 
