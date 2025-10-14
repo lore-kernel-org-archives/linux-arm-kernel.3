@@ -4,75 +4,70 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 46483CCD18D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 12:02:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 506C7CCD18D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 12:07:36 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=o/k03sYntLq8Zfi4yO8/asoWJl9UlmpXJOixmGdXcyI=; b=pMkFR0TXAKHJk7luz5ewYSbBBM
-	bP2IZQVCJTAQ75+eonGTTwZUgflAdv9E38MvoIWMT7Xm5T5qO8bsFIPcMryO6/Jxpnaw5ibMcIh++
-	YATIHMBM8hH98jZ3EcWOq2p/IpAhh0h7Drp/ugTjNi4lljSsQZlzZ1QCSdhpyRGQgTV57KsStq5Z+
-	6YFh972ALfFirpu0nLmV0ERvWj6g6Ai4XFcSPYOn53kr7P5FXSOM/pD3lsm4hJebES6z5BALn5x33
-	d9x8XpYir8jjrLU5hgRREMHx/Ns282bcngI8Es/Tj79cr2r8pn8jKX/ZJNrU+ArAN7gqCd7FHgLJq
-	lNwEMmug==;
+	bh=kdhho+h2t5gSVqSBqWrcEXDrIS9/AmcTGdN4eELRIMo=; b=tMMoAjBNOBfmA1zNd85TU/YLGg
+	YvILZva2R9vF2geQUv4IjleCaHebZ6Q1wtJ/WQhiYEveE+hjNA4fezvAxak0PuKo2kBG7+VzKDeAj
+	rroGrHNL0yXqNIrJvTgZfQo6yzzLvyo/q8iL/qfXD0GempKzZPgFlMnNh3lcvEDQdHoHc5BDOjJBJ
+	CK6ik1sWIEzqCiwcsIImHtkI0QTbNojmlD3Wac7d1SPePhpDIiuI/MZ/j1JzqzT9qILZQ85FkBcHL
+	XOLhFr/1rSVYZzI7QLi1IocT9c6A5n0+ucXSacq8SCZmXNSuVgEpwPq+tRJnnf80fO+35YuQuwOLn
+	+FQBmAjA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8djs-0000000GBq5-2lqY;
-	Tue, 14 Oct 2025 12:02:48 +0000
-Received: from mout-p-103.mailbox.org ([80.241.56.161])
+	id 1v8doQ-0000000GCRq-1DgS;
+	Tue, 14 Oct 2025 12:07:30 +0000
+Received: from bali.collaboradmins.com ([2a01:4f8:201:9162::2])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8djp-0000000GBp4-3up0
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 12:02:47 +0000
-Received: from smtp202.mailbox.org (smtp202.mailbox.org [10.196.197.202])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
+	id 1v8doL-0000000GCRR-3Q6J;
+	Tue, 14 Oct 2025 12:07:28 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
+	s=mail; t=1760443643;
+	bh=JmcIbjKLSe1ar0AiJpgb5o/5SVm++VaB0u54HlKmh2E=;
+	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
+	b=D6dhODXVSdMmQTBDLiNuHmSmHr69iHZKNBsH2S0h2WMXfUMJSYXz4CIf3J2zqEVX1
+	 G68VrF9z98s8yoljL9Pcx3bm8uvXs2LN8YeGaOsa9pXNk4rdkBebe4j7Bm3TocsVG8
+	 qYqldPwqiKf8hqUkh2V8t7O8Xzchd2D+8GCz2lK+Y9+qPZYwt5fbJ5Gmd4HbqVZhmE
+	 b4KEo6icrVEtmcyLsJI5ZfSOSu25EH+cwu2bjg0ngjX1rLgKyAInZ7kUkTeIh/lnrN
+	 g5lk3/kSlD4C6cRA1YoRQYFvroXjJF6yJVIuOPA3hB7E14udTD+ljiYTeKm94pniTJ
+	 9y6pgZwdq/Gdw==
+Received: from [10.40.0.100] (185-67-175-126.lampert.tv [185.67.175.126])
+	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4cmCX207CPz9ssn;
-	Tue, 14 Oct 2025 14:02:42 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1760443362;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references;
-	bh=o/k03sYntLq8Zfi4yO8/asoWJl9UlmpXJOixmGdXcyI=;
-	b=aiqICYOzVOtRvf45kCUN9D3ePfh9PDjsWLq321JNC/20zo7IUdO0LnT+lmtSBjy4l0mLfL
-	QBctdxgpYAdDupOqxL527XAV8FmE5GVKUQP+YgvzP7GBsu8vCQDqRTcQM4bz9mK616XeHX
-	SF0kvrHLR7CntlilUs1dyeRIn3RFkey0s3aiTr9dOIQiUfawS6dVLWBMp7SJwIEiEJiY3Y
-	H58vSGv9p9lYxw/qEP4TDKIKHQjWTMr2I8ZDE4J/HNWI4BH7KSStlCqLMo8n/1+fQhRkOm
-	GIJUyKKh8RFSgKM3b6tftTIekpOBxU4y6EL6MGDqlbz/YmJtx5/iVvx9Q/IyvQ==
-Message-ID: <f5d51ead-eae8-430f-b8b3-1ad4b78490ae@mailbox.org>
-Date: Tue, 14 Oct 2025 14:02:37 +0200
+	(Authenticated sender: mriesch)
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id 43CF617E055D;
+	Tue, 14 Oct 2025 14:07:23 +0200 (CEST)
+Message-ID: <fc80e268-e3c7-4320-b8ab-b05a5bd4ff72@collabora.com>
+Date: Tue, 14 Oct 2025 14:07:22 +0200
 MIME-Version: 1.0
-Subject: Re: [PATCH 04/39] drm/imx: dc: Use bulk clock
-To: Frank Li <Frank.li@nxp.com>
-Cc: dri-devel@lists.freedesktop.org, Abel Vesa <abelvesa@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>,
- Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
- Liu Ying <victor.liu@nxp.com>, Lucas Stach <l.stach@pengutronix.de>,
- Peng Fan <peng.fan@nxp.com>, Pengutronix Kernel Team
- <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>,
- Shawn Guo <shawnguo@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- devicetree@vger.kernel.org, imx@lists.linux.dev,
- linux-arm-kernel@lists.infradead.org, linux-clk@vger.kernel.org
-References: <20251011170213.128907-1-marek.vasut@mailbox.org>
- <20251011170213.128907-5-marek.vasut@mailbox.org>
- <aO0utF930vhlJFl8@lizhi-Precision-Tower-5810>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v7 5/8] media: v4l2-core: Introduce v4l2-isp.c
+To: Jacopo Mondi <jacopo.mondi@ideasonboard.com>,
+ Dafna Hirschfeld <dafna@fastmail.com>,
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>,
+ Keke Li <keke.li@amlogic.com>, Mauro Carvalho Chehab <mchehab@kernel.org>,
+ Heiko Stuebner <heiko@sntech.de>, Dan Scally <dan.scally@ideasonboard.com>,
+ Sakari Ailus <sakari.ailus@linux.intel.com>,
+ Antoine Bouyer <antoine.bouyer@nxp.com>
+Cc: linux-kernel@vger.kernel.org, linux-media@vger.kernel.org,
+ linux-rockchip@lists.infradead.org, linux-arm-kernel@lists.infradead.org,
+ Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+References: <20251014-extensible-parameters-validation-v7-0-6628bed5ca98@ideasonboard.com>
+ <20251014-extensible-parameters-validation-v7-5-6628bed5ca98@ideasonboard.com>
 Content-Language: en-US
-From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <aO0utF930vhlJFl8@lizhi-Precision-Tower-5810>
-Content-Type: text/plain; charset=UTF-8; format=flowed
+From: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <20251014-extensible-parameters-validation-v7-5-6628bed5ca98@ideasonboard.com>
+Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 7bit
-X-MBO-RS-ID: 211e7aa255b7d3d8ef5
-X-MBO-RS-META: bkw6rpy7gkkayzw1g5i6hemzbnb81gy6
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_050246_186251_C0CF75EF 
-X-CRM114-Status: GOOD (  16.53  )
+X-CRM114-CacheID: sfid-20251014_050726_291520_C80C04B4 
+X-CRM114-Status: GOOD (  42.95  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,100 +82,304 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 10/13/25 6:54 PM, Frank Li wrote:
-> On Sat, Oct 11, 2025 at 06:51:19PM +0200, Marek Vasut wrote:
->> Switch to bulk clock operations, as many of the blocks present in DC
+Hi Jacopo,
+
+Thanks for your efforts! Looks good to me!
+
+On 10/14/25 10:00, Jacopo Mondi wrote:
+> Add to the V4L2 framework helper functions to support drivers when
+> validating a buffer of V4L2 ISP parameters.
 > 
-> s/operations/API
+> Driver shall use v4l2_isp_params_validate_buffer_size() to verify the
+> size correctness of the data received from userspace, and after having
+> copied the data to a kernel-only memory location, complete the
+> validation by calling v4l2_isp_params_validate_buffer().
 > 
->> use multiple clock on i.MX95. The use of bulk clock operations allows
->> the driver to seamlessly handle one or multiple clock.
->>
->> Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
->> ---
->> Cc: Abel Vesa <abelvesa@kernel.org>
->> Cc: Conor Dooley <conor+dt@kernel.org>
->> Cc: Fabio Estevam <festevam@gmail.com>
->> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
->> Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
->> Cc: Liu Ying <victor.liu@nxp.com>
->> Cc: Lucas Stach <l.stach@pengutronix.de>
->> Cc: Peng Fan <peng.fan@nxp.com>
->> Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
->> Cc: Rob Herring <robh@kernel.org>
->> Cc: Shawn Guo <shawnguo@kernel.org>
->> Cc: Thomas Zimmermann <tzimmermann@suse.de>
->> Cc: devicetree@vger.kernel.org
->> Cc: dri-devel@lists.freedesktop.org
->> Cc: imx@lists.linux.dev
->> Cc: linux-arm-kernel@lists.infradead.org
->> Cc: linux-clk@vger.kernel.org
->> ---
->>   drivers/gpu/drm/imx/dc/dc-drv.c | 14 ++++++++------
->>   drivers/gpu/drm/imx/dc/dc-ic.c  | 14 ++++++++------
->>   drivers/gpu/drm/imx/dc/dc-pe.c  | 12 ++++++------
->>   drivers/gpu/drm/imx/dc/dc-pe.h  |  3 ++-
->>   4 files changed, 24 insertions(+), 19 deletions(-)
->>
->> diff --git a/drivers/gpu/drm/imx/dc/dc-drv.c b/drivers/gpu/drm/imx/dc/dc-drv.c
->> index f108964bf89f4..2717c92aba6c5 100644
->> --- a/drivers/gpu/drm/imx/dc/dc-drv.c
->> +++ b/drivers/gpu/drm/imx/dc/dc-drv.c
->> @@ -31,7 +31,8 @@
->>
->>   struct dc_priv {
->>   	struct drm_device *drm;
->> -	struct clk *clk_cfg;
->> +	struct clk_bulk_data *clk_cfg;
->> +	int clk_cfg_count;
->>   };
->>
->>   DEFINE_DRM_GEM_DMA_FOPS(dc_drm_driver_fops);
->> @@ -163,10 +164,11 @@ static int dc_probe(struct platform_device *pdev)
->>   	if (!priv)
->>   		return -ENOMEM;
->>
->> -	priv->clk_cfg = devm_clk_get(&pdev->dev, NULL);
->> -	if (IS_ERR(priv->clk_cfg))
->> -		return dev_err_probe(&pdev->dev, PTR_ERR(priv->clk_cfg),
->> +	ret = devm_clk_bulk_get_all(&pdev->dev, &priv->clk_cfg);
->> +	if (ret < 0)
->> +		return dev_err_probe(&pdev->dev, ret,
->>   				     "failed to get cfg clock\n");
->> +	priv->clk_cfg_count = ret;
->>
->>   	dev_set_drvdata(&pdev->dev, priv);
->>
->> @@ -201,7 +203,7 @@ static int dc_runtime_suspend(struct device *dev)
->>   {
->>   	struct dc_priv *priv = dev_get_drvdata(dev);
->>
->> -	clk_disable_unprepare(priv->clk_cfg);
->> +	clk_bulk_disable_unprepare(priv->clk_cfg_count, priv->clk_cfg);
->>
->>   	return 0;
->>   }
->> @@ -211,7 +213,7 @@ static int dc_runtime_resume(struct device *dev)
->>   	struct dc_priv *priv = dev_get_drvdata(dev);
->>   	int ret;
->>
->> -	ret = clk_prepare_enable(priv->clk_cfg);
->> +	ret = clk_bulk_prepare_enable(priv->clk_cfg_count, priv->clk_cfg);
->>   	if (ret)
->>   		dev_err(dev, "failed to enable cfg clock: %d\n", ret);
->>
->> diff --git a/drivers/gpu/drm/imx/dc/dc-ic.c b/drivers/gpu/drm/imx/dc/dc-ic.c
->> index a270ae4030cdc..67441b349a7d2 100644
->> --- a/drivers/gpu/drm/imx/dc/dc-ic.c
->> +++ b/drivers/gpu/drm/imx/dc/dc-ic.c
->> @@ -30,7 +30,8 @@
->>
->>   struct dc_ic_data {
->>   	struct regmap		*regs;
->> -	struct clk		*clk_axi;
->> +	struct clk_bulk_data	*clk_axi;
+> Reviewed-by: Daniel Scally <dan.scally@ideasonboard.com>
+> Signed-off-by: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> Reviewed-by: Laurent Pinchart <laurent.pinchart+renesas@ideasonboard.com>
+
+Reviewed-by: Michael Riesch <michael.riesch@collabora.com>
+
+Thanks and best regards,
+Michael
+
+> ---
+>  MAINTAINERS                        |   2 +
+>  drivers/media/v4l2-core/Kconfig    |   4 ++
+>  drivers/media/v4l2-core/Makefile   |   1 +
+>  drivers/media/v4l2-core/v4l2-isp.c | 128 +++++++++++++++++++++++++++++++++++++
+>  include/media/v4l2-isp.h           |  91 ++++++++++++++++++++++++++
+>  5 files changed, 226 insertions(+)
 > 
-> I am not sure if "axi' is good name for bulk clks. Maybe use 'clks'. _axi
-> quite specific to special 'axi' clocks.
-Fixed both, thanks.
+> diff --git a/MAINTAINERS b/MAINTAINERS
+> index 340353334299cd5eebf1f72132b7e91b6f5fdbfe..59ab4a34f72c0430a8d7966942acb2242ad923ca 100644
+> --- a/MAINTAINERS
+> +++ b/MAINTAINERS
+> @@ -26858,6 +26858,8 @@ M:	Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+>  L:	linux-media@vger.kernel.org
+>  S:	Maintained
+>  F:	Documentation/userspace-api/media/v4l/v4l2-isp.rst
+> +F:	drivers/media/v4l2-core/v4l2-isp.c
+> +F:	include/media/v4l2-isp.h
+>  F:	include/uapi/linux/media/v4l2-isp.h
+>  
+>  VF610 NAND DRIVER
+> diff --git a/drivers/media/v4l2-core/Kconfig b/drivers/media/v4l2-core/Kconfig
+> index 331b8e535e5bbf33f22638b2ae8bc764ad5fc407..d50ccac9733cc39a43426ae7e7996dd0b5b45186 100644
+> --- a/drivers/media/v4l2-core/Kconfig
+> +++ b/drivers/media/v4l2-core/Kconfig
+> @@ -82,3 +82,7 @@ config V4L2_CCI_I2C
+>  	depends on I2C
+>  	select REGMAP_I2C
+>  	select V4L2_CCI
+> +
+> +config V4L2_ISP
+> +	tristate
+> +	depends on VIDEOBUF2_CORE
+> diff --git a/drivers/media/v4l2-core/Makefile b/drivers/media/v4l2-core/Makefile
+> index 2177b9d63a8ffc1127c5a70118249a2ff63cd759..329f0eadce994cc1c8580beb435f68fa7e2a7aeb 100644
+> --- a/drivers/media/v4l2-core/Makefile
+> +++ b/drivers/media/v4l2-core/Makefile
+> @@ -29,6 +29,7 @@ obj-$(CONFIG_V4L2_CCI) += v4l2-cci.o
+>  obj-$(CONFIG_V4L2_FLASH_LED_CLASS) += v4l2-flash-led-class.o
+>  obj-$(CONFIG_V4L2_FWNODE) += v4l2-fwnode.o
+>  obj-$(CONFIG_V4L2_H264) += v4l2-h264.o
+> +obj-$(CONFIG_V4L2_ISP) += v4l2-isp.o
+>  obj-$(CONFIG_V4L2_JPEG_HELPER) += v4l2-jpeg.o
+>  obj-$(CONFIG_V4L2_MEM2MEM_DEV) += v4l2-mem2mem.o
+>  obj-$(CONFIG_V4L2_VP9) += v4l2-vp9.o
+> diff --git a/drivers/media/v4l2-core/v4l2-isp.c b/drivers/media/v4l2-core/v4l2-isp.c
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..35f0b701f1729c3c0ccc34b1c89189b179e0b684
+> --- /dev/null
+> +++ b/drivers/media/v4l2-core/v4l2-isp.c
+> @@ -0,0 +1,128 @@
+> +// SPDX-License-Identifier: GPL-2.0-or-later
+> +/*
+> + * Video4Linux2 generic ISP parameters and statistics support
+> + *
+> + * Copyright (C) 2025 Ideas On Board Oy
+> + * Author: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> + */
+> +
+> +#include <media/v4l2-isp.h>
+> +
+> +#include <linux/bitops.h>
+> +#include <linux/device.h>
+> +
+> +#include <media/videobuf2-core.h>
+> +
+> +int v4l2_isp_params_validate_buffer_size(struct device *dev,
+> +					 struct vb2_buffer *vb,
+> +					 size_t max_size)
+> +{
+> +	size_t header_size = offsetof(struct v4l2_isp_params_buffer, data);
+> +	size_t payload_size = vb2_get_plane_payload(vb, 0);
+> +
+> +	/* Payload size can't be greater than the destination buffer size */
+> +	if (payload_size > max_size) {
+> +		dev_dbg(dev, "Payload size is too large: %zu\n", payload_size);
+> +		return -EINVAL;
+> +	}
+> +
+> +	/* Payload size can't be smaller than the header size */
+> +	if (payload_size < header_size) {
+> +		dev_dbg(dev, "Payload size is too small: %zu\n", payload_size);
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL_GPL(v4l2_isp_params_validate_buffer_size);
+> +
+> +int v4l2_isp_params_validate_buffer(struct device *dev, struct vb2_buffer *vb,
+> +				    const struct v4l2_isp_params_buffer *buffer,
+> +				    const struct v4l2_isp_params_block_info *info,
+> +				    size_t num_blocks)
+> +{
+> +	size_t header_size = offsetof(struct v4l2_isp_params_buffer, data);
+> +	size_t payload_size = vb2_get_plane_payload(vb, 0);
+> +	size_t block_offset = 0;
+> +	size_t buffer_size;
+> +
+> +	/*
+> +	 * Currently only the first version of the V4L2 ISP parameters format is
+> +	 * supported. We accept both V0 and V1 to support existing drivers
+> +	 * compatible with V4L2 ISP that use either 0 or 1 as their "first
+> +	 * version" identifiers.
+> +	 */
+> +	if (buffer->version != V4L2_ISP_PARAMS_VERSION_V0 &&
+> +	    buffer->version != V4L2_ISP_PARAMS_VERSION_V1) {
+> +		dev_dbg(dev,
+> +			"Unsupported V4L2 ISP parameters format version: %u\n",
+> +			buffer->version);
+> +		return -EINVAL;
+> +	}
+> +
+> +	/* Validate the size reported in the header */
+> +	buffer_size = header_size + buffer->data_size;
+> +	if (buffer_size != payload_size) {
+> +		dev_dbg(dev, "Data size %zu and payload size %zu are different\n",
+> +			buffer_size, payload_size);
+> +		return -EINVAL;
+> +	}
+> +
+> +	/* Walk the list of ISP configuration blocks and validate them. */
+> +	buffer_size = buffer->data_size;
+> +	while (buffer_size >= sizeof(struct v4l2_isp_params_block_header)) {
+> +		const struct v4l2_isp_params_block_info *block_info;
+> +		const struct v4l2_isp_params_block_header *block;
+> +
+> +		block = (const struct v4l2_isp_params_block_header *)
+> +			(buffer->data + block_offset);
+> +
+> +		if (block->type >= num_blocks) {
+> +			dev_dbg(dev,
+> +				"Invalid block type %u at offset %zu\n",
+> +				block->type, block_offset);
+> +			return -EINVAL;
+> +		}
+> +
+> +		if (block->size > buffer_size) {
+> +			dev_dbg(dev, "Premature end of parameters data\n");
+> +			return -EINVAL;
+> +		}
+> +
+> +		/* It's invalid to specify both ENABLE and DISABLE. */
+> +		if ((block->flags & (V4L2_ISP_PARAMS_FL_BLOCK_ENABLE |
+> +				     V4L2_ISP_PARAMS_FL_BLOCK_DISABLE)) ==
+> +		     (V4L2_ISP_PARAMS_FL_BLOCK_ENABLE |
+> +		     V4L2_ISP_PARAMS_FL_BLOCK_DISABLE)) {
+> +			dev_dbg(dev, "Invalid block flags %x at offset %zu\n",
+> +				block->flags, block_offset);
+> +			return -EINVAL;
+> +		}
+> +
+> +		/*
+> +		 * Match the block reported size against the info provided
+> +		 * one, but allow the block to only contain the header in
+> +		 * case it is going to be disabled.
+> +		 */
+> +		block_info = &info[block->type];
+> +		if (block->size != block_info->size &&
+> +		    (!(block->flags & V4L2_ISP_PARAMS_FL_BLOCK_DISABLE) ||
+> +		    block->size != sizeof(*block))) {
+> +			dev_dbg(dev,
+> +				"Invalid block size %u (expected %zu) at offset %zu\n",
+> +				block->size, block_info->size, block_offset);
+> +			return -EINVAL;
+> +		}
+> +
+> +		block_offset += block->size;
+> +		buffer_size -= block->size;
+> +	}
+> +
+> +	if (buffer_size) {
+> +		dev_dbg(dev, "Unexpected data after the parameters buffer end\n");
+> +		return -EINVAL;
+> +	}
+> +
+> +	return 0;
+> +}
+> +EXPORT_SYMBOL_GPL(v4l2_isp_params_validate_buffer);
+> diff --git a/include/media/v4l2-isp.h b/include/media/v4l2-isp.h
+> new file mode 100644
+> index 0000000000000000000000000000000000000000..8b4695663699e7f176384739cf54ed7fa2c578f8
+> --- /dev/null
+> +++ b/include/media/v4l2-isp.h
+> @@ -0,0 +1,91 @@
+> +/* SPDX-License-Identifier: GPL-2.0-or-later */
+> +/*
+> + * Video4Linux2 generic ISP parameters and statistics support
+> + *
+> + * Copyright (C) 2025 Ideas On Board Oy
+> + * Author: Jacopo Mondi <jacopo.mondi@ideasonboard.com>
+> + */
+> +
+> +#ifndef _V4L2_ISP_H_
+> +#define _V4L2_ISP_H_
+> +
+> +#include <linux/media/v4l2-isp.h>
+> +
+> +struct device;
+> +struct vb2_buffer;
+> +
+> +/**
+> + * v4l2_isp_params_buffer_size - Calculate size of v4l2_isp_params_buffer
+> + * @max_params_size: The total size of the ISP configuration blocks
+> + *
+> + * Users of the v4l2 extensible parameters will have differing sized data arrays
+> + * depending on their specific parameter buffers. Drivers and userspace will
+> + * need to be able to calculate the appropriate size of the struct to
+> + * accommodate all ISP configuration blocks provided by the platform.
+> + * This macro provides a convenient tool for the calculation.
+> + */
+> +#define v4l2_isp_params_buffer_size(max_params_size) \
+> +	(offsetof(struct v4l2_isp_params_buffer, data) + (max_params_size))
+> +
+> +/**
+> + * v4l2_isp_params_validate_buffer_size - Validate a V4L2 ISP buffer sizes
+> + * @dev: the driver's device pointer
+> + * @vb: the videobuf2 buffer
+> + * @max_size: the maximum allowed buffer size
+> + *
+> + * This function performs validation of the size of a V4L2 ISP parameters buffer
+> + * before the driver can access the actual data buffer content.
+> + *
+> + * After the sizes validation, drivers should copy the buffer content to a
+> + * kernel-only memory area to prevent userspace from modifying it,
+> + * before completing validation using v4l2_isp_params_validate_buffer().
+> + *
+> + * The @vb buffer as received from the vb2 .buf_prepare() operation is checked
+> + * against @max_size and it's validated to be large enough to accommodate at
+> + * least one ISP configuration block.
+> + */
+> +int v4l2_isp_params_validate_buffer_size(struct device *dev,
+> +					 struct vb2_buffer *vb,
+> +					 size_t max_size);
+> +
+> +/**
+> + * struct v4l2_isp_params_block_info - V4L2 ISP per-block info
+> + * @size: the block expected size
+> + *
+> + * The v4l2_isp_params_block_info collects information of the ISP configuration
+> + * blocks for validation purposes. It currently only contains the expected
+> + * block size.
+> + *
+> + * Drivers shall prepare a list of block info, indexed by block type, one for
+> + * each supported ISP block and correctly populate them with the expected block
+> + * size.
+> + */
+> +struct v4l2_isp_params_block_info {
+> +	size_t size;
+> +};
+> +
+> +/**
+> + * v4l2_isp_params_validate_buffer - Validate a V4L2 ISP parameters buffer
+> + * @dev: the driver's device pointer
+> + * @vb: the videobuf2 buffer
+> + * @buffer: the V4L2 ISP parameters buffer
+> + * @info: the list of per-block validation info
+> + * @num_blocks: the number of blocks
+> + *
+> + * This function completes the validation of a V4L2 ISP parameters buffer,
+> + * verifying each configuration block correctness before the driver can use
+> + * them to program the hardware.
+> + *
+> + * Drivers should use this function after having validated the correctness of
+> + * the vb2 buffer sizes by using the v4l2_isp_params_validate_buffer_size()
+> + * helper first. Once the buffer size has been validated, drivers should
+> + * perform a copy of the user provided buffer into a kernel-only memory buffer
+> + * to prevent userspace from modifying its content after it has been submitted
+> + * to the driver, and then call this function to complete validation.
+> + */
+> +int v4l2_isp_params_validate_buffer(struct device *dev, struct vb2_buffer *vb,
+> +				    const struct v4l2_isp_params_buffer *buffer,
+> +				    const struct v4l2_isp_params_block_info *info,
+> +				    size_t num_blocks);
+> +
+> +#endif /* _V4L2_ISP_H_ */
+> 
+
 
