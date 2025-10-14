@@ -4,96 +4,76 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id ABD48CCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 11:26:29 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2B272CCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 11:31:32 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=EbYmHynLeWlw8u23NecrRWs1rFP/nnkTB1+gQnuvcng=; b=d3GELbtQFmZ5eW37W8yb4FR+lH
-	p2gF3j0EYquef9YbzX73riIaFm9x7/72hxia+0aflFSb7FwbF78ejzWACedtHm5k2j+Am3WZ3XP8T
-	mYr5CHuWEHvpGWNAOqgfoEBOCv7raZu3cfRuI/3TeTbKtsfDXEbrzoYyOI0rXNSQHDdQMNQFbm3+a
-	UitF6nJC1w/7TosGpbQQzHorc21bvOi1AxLNJyz0eTN1r9QxjD27+q4JbabaFOu3UKHpj1o7CpfFb
-	RSHNj+DSVUFTY+tCT9HWnw7bTgzXb6R8ZP4NM9d6lZjpJRwYFP68829aQQ6UfNeg5fI8pO5ZSh5rg
-	QwWAHOWw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=6p8WMfmPS/2ENAV2cQiuR3uNGwiPH4kh/nqLPv36UjI=; b=Hqqrn1Xm8OzZaz
+	JXbcRm7FuBnsrZzTZNnX5VAq+P95FNO5Qanr9T9pKTO9DgLtewbHBte7Kvvohrd5Li4apOcumpO5V
+	k2SfBsQSQcNTnG88+CK+Mgfc7nKhoCFwHwyIcvAU/fCKuAjKXdUoda2SEgNYO/4lBTeX8YOIWcPFX
+	F4h/9uzskdl0VSG26v4ytCO/WfyWE/LoV29WrLLK5O58Ti0JAkb781XbywZJkoO7V4F7Fsnf5gzME
+	wJAuu4Jj6Ig+IcutgpeolbFzCGxf1f1lsOW/OY40y2+0qg6a7EyjL6RNoW7sktFfBv69V/Cht9q6W
+	i1Ygljbs9sI58+eohTdg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8dAe-0000000G5E1-2Itt;
-	Tue, 14 Oct 2025 11:26:24 +0000
-Received: from mail-wm1-x336.google.com ([2a00:1450:4864:20::336])
+	id 1v8dFV-0000000G6Cl-2w1T;
+	Tue, 14 Oct 2025 11:31:25 +0000
+Received: from smtpout-02.galae.net ([185.246.84.56])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8dAc-0000000G5DS-2BKz
+	id 1v8dFS-0000000G6BC-3WkM
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 11:26:23 +0000
-Received: by mail-wm1-x336.google.com with SMTP id 5b1f17b1804b1-46e37d10ed2so48014295e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 04:26:22 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760441181; x=1761045981; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
-         :message-id:reply-to;
-        bh=EbYmHynLeWlw8u23NecrRWs1rFP/nnkTB1+gQnuvcng=;
-        b=BUN4fKAQmNw7CiGAcpN6NKE920vZbtBaGZbHMBuJFywdCX9CtcQ7hU5DKqJdqOqrQ+
-         oJhWMwQp+b7V13eDxQYAui5rv5g4GgQD8snXNj+pTTsoQOJHuypSpy4mu+dQaaLsRvO6
-         UAzO9CLKtxXNnzWGiG10Mfirh6zzl9uUFCItT1pB+G0hElmvzpkjO/iseg7T3mQsC8ok
-         nAbyNqqp/vT0HIYX/7ZRJ36TvQFg9SOYWTYWBWVXIZ5qkDZBmfaa6XxJGFNhLEM4XMlj
-         OdxeV1gORUDIkU6dIUzEHslbN5JBRS17Z37i85HBNRHyBjjwEn++nPk8tYtXct33Cf5L
-         nVKA==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760441181; x=1761045981;
-        h=content-transfer-encoding:mime-version:references:in-reply-to
-         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=EbYmHynLeWlw8u23NecrRWs1rFP/nnkTB1+gQnuvcng=;
-        b=UJ3a2r+zS6Wf2Y1AkR/sZLWVIADcSfhf+DgUb0e78JONMRu/cxyPriDlxscRlg6Kfd
-         HcVQo3h3jFsEu/xOg6RVoXtY9+iVkRqmMIcldDRxzOEnmtkBOuuiB61A7yjkFUiVayiT
-         NsjmuLph75Uw2sOiVD5XKrfQyCI2cdovnZH7K0OkzmqLNzBWyry0Y3onErZ8KTbc3m5G
-         98WFA3FfA+XxGxZpoXORUSGhMOj0qLEWtCbjGi37vql8rqTBQJgjhQe5J5iYDeZRvTYg
-         jn1DtUJvxZC9UhQ8AihCGgDB0BTFzwRrI30xFKfIJN9aYHHRNuR5+MAUJnSd89BJqdwn
-         aV/A==
-X-Forwarded-Encrypted: i=1; AJvYcCVfMSnBJ2vYujudhWsaa8YjaPHbr1xVOOmQZrJTVVcEVZYzYOpFJCc6mzKJyux0miBbG/3LL4W7ePNCcuV5bh1a@lists.infradead.org
-X-Gm-Message-State: AOJu0YxFYZHl6smu7l/gwqDcRsOgnr/ejPpNBXLv5vVg18K+8JCn+PO/
-	jRZVbYd7U8w2G6mT31/zuixI3QFB/R/mdLSgpTsaMFQwoRJrtJpGKpvT
-X-Gm-Gg: ASbGncsSjzvMCdYbLW36Qb+woU0R9QhGUmhdYJSvWebSboZCQQAxYbwLWVkp9n81A2D
-	A3CGHBLsTXzt0OWp5aWA+sbTNbfk4fEW9cgYwD8nIOFxyRAaDtkFp9CuEmut7Y38a+vJHf/ltTu
-	Kx9uWYbVXVXQ7h8ffXsGGnmiJ9lOzMevfNq444y40LFmbMbm2fJsdNZLDbUuTmXgToDWDmrQial
-	12E/gF9qqdEkq7AEkpMHgGcKSK2GkHBp7MuFFqPnaKzQjyDUcyox6bgDXb3e9ZzRxnsSbycbptr
-	rDdDz/lwfWMiuNhztgAOqTuEWBgY4NQHAIj04r9XAyCg8BAAeAUup82PkpDCVY6VNCLRJBwt1/5
-	00Ts69d9ScV2cXo5Mi3pUTHDV6n7540nKF4ErjiBBSCHJrfCrXQMAscOqwQ==
-X-Google-Smtp-Source: AGHT+IFO2uKjeUaYUKbnwXbbO+Xo/HgCqYDDA6YUTOMYT5kkkih/xh4BWfPVSZJs7SLyBcg2m31Icw==
-X-Received: by 2002:a05:600c:4745:b0:46d:cfc9:1d0f with SMTP id 5b1f17b1804b1-46fa9af30e5mr188941035e9.19.1760441180577;
-        Tue, 14 Oct 2025 04:26:20 -0700 (PDT)
-Received: from vitor-nb (bl19-170-125.dsl.telepac.pt. [2.80.170.125])
-        by smtp.gmail.com with ESMTPSA id 5b1f17b1804b1-46fb492e6ddsm265829845e9.0.2025.10.14.04.26.19
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Oct 2025 04:26:20 -0700 (PDT)
-From: Vitor Soares <ivitro@gmail.com>
-To: Vignesh Raghavendra <vigneshr@ti.com>,
-	Siddharth Vadapalli <s-vadapalli@ti.com>,
-	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	Rob Herring <robh@kernel.org>,
-	Bjorn Helgaas <bhelgaas@google.com>
-Cc: Vitor Soares <vitor.soares@toradex.com>,
-	linux-omap@vger.kernel.org,
-	linux-pci@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	linux-kernel@vger.kernel.org,
-	ivitro@gmail.com
-Subject: [PATCH v1 2/2] PCI: j721e: Add support for optional regulator supplies
-Date: Tue, 14 Oct 2025 12:25:49 +0100
-Message-ID: <20251014112553.398845-3-ivitro@gmail.com>
-X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251014112553.398845-1-ivitro@gmail.com>
-References: <20251014112553.398845-1-ivitro@gmail.com>
+	Tue, 14 Oct 2025 11:31:24 +0000
+Received: from smtpout-01.galae.net (smtpout-01.galae.net [212.83.139.233])
+	by smtpout-02.galae.net (Postfix) with ESMTPS id 7507C1A136A;
+	Tue, 14 Oct 2025 11:31:16 +0000 (UTC)
+Received: from mail.galae.net (mail.galae.net [212.83.136.155])
+	by smtpout-01.galae.net (Postfix) with ESMTPS id 48E46606EC;
+	Tue, 14 Oct 2025 11:31:16 +0000 (UTC)
+Received: from [127.0.0.1] (localhost [127.0.0.1]) by localhost (Mailerdaemon) with ESMTPSA id 16468102F2298;
+	Tue, 14 Oct 2025 13:31:00 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=bootlin.com; s=dkim;
+	t=1760441475; h=from:subject:date:message-id:to:cc:mime-version:content-type:
+	 content-transfer-encoding; bh=6p8WMfmPS/2ENAV2cQiuR3uNGwiPH4kh/nqLPv36UjI=;
+	b=MFJvYsc63DmUpUkpCKHQjuI/RLnMI17jrS5/jJUT8DRfNGXMIzmthheE7w4LzLqwHC3IMm
+	y7R4pOQTiMiChEj5glwZ4fHyPYaJvgdBpIiSzC20ONyWYDFRZbl82IyUUzPJ7EYns56TdV
+	xdFsFSXr25J3Rzqlob7LrEjEVqq2E/SOlv8rQo4yDJKFPFgPV3G92CcrYOhCobjJZaHzgV
+	b9TSxh8rOwq5tgkxjEndTgluNftA6FDVSGmpI50WESXJqZEN9zdayy7LvACxIrIxhHNOIj
+	k34PxeHOYjOX7Ww2NDHhXL7B1Y1DPgf5g1vBaSHuvld4DDIjVqydaF7QFsBruQ==
+From: Luca Ceresoli <luca.ceresoli@bootlin.com>
+Subject: [PATCH 0/2] drm/imx: parallel-display: fix drm/panel/panel-simple
+ v6.17 WARNING regression
+Date: Tue, 14 Oct 2025 13:30:50 +0200
+Message-Id: <20251014-drm-bridge-alloc-imx-ipuv3-v1-0-a1bb1dcbff50@bootlin.com>
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 7bit
+X-B4-Tracking: v=1; b=H4sIAGo07mgC/x3MSQqAMAxA0atI1gZsnahXERfaphpwIkURine3u
+ Hx8+BECCVOALosgdHPgY09QeQZ2GfeZkF0y6ELXqlAVOtlwEnapjOt6WOTtQT6vu0QztUb7pjb
+ WG0iDU8jz88/74X0/M86X3mwAAAA=
+X-Change-ID: 20251014-drm-bridge-alloc-imx-ipuv3-9b792f659cf9
+To: Ernest Van Hoecke <ernestvanhoecke@gmail.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>, 
+ Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+ Pengutronix Kernel Team <kernel@pengutronix.de>, 
+ Fabio Estevam <festevam@gmail.com>
+Cc: Hui Pu <Hui.Pu@gehealthcare.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ dri-devel@lists.freedesktop.org, imx@lists.linux.dev, 
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
+ Luca Ceresoli <luca.ceresoli@bootlin.com>
+X-Mailer: b4 0.14.2
+X-Last-TLS-Session-Version: TLSv1.3
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_042622_578224_3A6A2927 
-X-CRM114-Status: GOOD (  18.83  )
+X-CRM114-CacheID: sfid-20251014_043123_004983_7A3619A5 
+X-CRM114-Status: UNSURE (   6.97  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,68 +88,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: Vitor Soares <vitor.soares@toradex.com>
+This series fixes the WARNING regressions reported by Ernest [0] and due to
+the missing conversion of the DRM_IMX driver to the new
+devm_drm_bridge_alloc() API.
 
-Some boards require external regulators to power PCIe endpoints.
-Add support for optional 1.5V, 3.3V, and 12V supplies, which may be
-defined in the device tree as vpcie1v5-supply, vpcie3v3-supply, and
-vpcie12v-supply.
+The second patch also adds drm_bridge_add(), which is a good practice and
+proposed to become mandatory [1].
 
-Use devm_regulator_get_enable_optional() to obtain and enable each
-supply, so it will be automatically disabled when the driver is
-removed.
+[0] https://lore.kernel.org/all/hlf4wdopapxnh4rekl5s3kvoi6egaga3lrjfbx6r223ar3txri@3ik53xw5idyh/
+[1] https://lore.kernel.org/lkml/20251003-b4-drm-bridge-alloc-add-before-attach-v1-0-92fb40d27704@bootlin.com/
 
-Signed-off-by: Vitor Soares <vitor.soares@toradex.com>
+Signed-off-by: Luca Ceresoli <luca.ceresoli@bootlin.com>
 ---
- drivers/pci/controller/cadence/pci-j721e.c | 13 +++++++++++++
- 1 file changed, 13 insertions(+)
+Luca Ceresoli (2):
+      drm/imx: parallel-display: convert to devm_drm_bridge_alloc() API
+      drm/imx: parallel-display: add the bridge before attaching it
 
-diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
-index 5bc5ab20aa6d..f29ce2aef04e 100644
---- a/drivers/pci/controller/cadence/pci-j721e.c
-+++ b/drivers/pci/controller/cadence/pci-j721e.c
-@@ -21,6 +21,7 @@
- #include <linux/platform_device.h>
- #include <linux/pm_runtime.h>
- #include <linux/regmap.h>
-+#include <linux/regulator/consumer.h>
- 
- #include "../../pci.h"
- #include "pcie-cadence.h"
-@@ -467,6 +468,10 @@ static const struct of_device_id of_j721e_pcie_match[] = {
- };
- MODULE_DEVICE_TABLE(of, of_j721e_pcie_match);
- 
-+static const char * const j721e_pcie_supplies[] = {
-+	"vpcie12v", "vpcie3v3", "vpcie1v5"
-+};
-+
- static int j721e_pcie_probe(struct platform_device *pdev)
- {
- 	struct device *dev = &pdev->dev;
-@@ -480,6 +485,7 @@ static int j721e_pcie_probe(struct platform_device *pdev)
- 	struct gpio_desc *gpiod;
- 	void __iomem *base;
- 	struct clk *clk;
-+	unsigned int i;
- 	u32 num_lanes;
- 	u32 mode;
- 	int ret;
-@@ -565,6 +571,13 @@ static int j721e_pcie_probe(struct platform_device *pdev)
- 	if (irq < 0)
- 		return irq;
- 
-+	for (i = 0; i < ARRAY_SIZE(j721e_pcie_supplies); i++) {
-+		ret = devm_regulator_get_enable_optional(dev, j721e_pcie_supplies[i]);
-+		if (ret < 0 && ret != -ENODEV)
-+			return dev_err_probe(dev, ret, "can't enable regulator %s\n",
-+					     j721e_pcie_supplies[i]);
-+	}
-+
- 	dev_set_drvdata(dev, pcie);
- 	pm_runtime_enable(dev);
- 	ret = pm_runtime_get_sync(dev);
+ drivers/gpu/drm/imx/ipuv3/parallel-display.c | 18 +++++++++---------
+ 1 file changed, 9 insertions(+), 9 deletions(-)
+---
+base-commit: 48a710760e10a4f36e11233a21860796ba204b1e
+change-id: 20251014-drm-bridge-alloc-imx-ipuv3-9b792f659cf9
+
+Best regards,
 -- 
-2.51.0
+Luca Ceresoli <luca.ceresoli@bootlin.com>
 
 
