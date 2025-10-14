@@ -4,94 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 93143CCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 13:29:45 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4D1ECCD195
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 13:30:07 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=5OyVUTCl3mA/IpHFPIB2uENQCkK3x5bzk0a2B6mBcQ4=; b=EjKMkMXFqx7SYso6I4kQ2nrK3/
-	uYaSYWszb/7P8Upbi2GePe8tEL2AjvHI375xVUf9Eau3K5dJnNRJ/g+fBGL0W0mdpdk+hqXhyT9ZR
-	5QFPgeUtzE5XOso6rz44MVlUmBQ7YQh9pvO0puONJJ0/6jA9eqY1yhy4q7k8RRlBXbPEdqdwQpZc3
-	lR14oLNXVFgSZOc8XVrBQl7jvxKFrwHzBML0ReRx1v5o3YP/rKG9I3+VT13rH8OZagfFaNSlOL0aC
-	/+iR8NIl55srjGGfAAgGlJyASeLbJa5u8fKQKfLPNGqFPjW4fLv6KHyLfF/2dDTDclRMmN/+nYqFc
-	To9uqrEA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=HscI8uJJkavBO317OukE/wWvBCiAPC54YchJtUy46Ro=; b=MJ7I6+T8t4GAYkJWMkkR0oRrRU
+	dN6iBYEkaC57sxJ5bwgBVqfSj8KnhMuSTMfDctPqEDGRiMshFS4+Yj1kbXazmkpk3rg21GXNHP7lx
+	2zJGSqy58cs4rnkxSChjZDx63qOtoe5FXQLriy19SPkqC1o/V9rkT1W8WVPEjsCVuPjhlrs3HpCyC
+	g2Zvdq1uF0G7W1LmNiW8jtZvkvLCaH2q2UtuOfoHIMn8Y/y8JLrSQxaPHW5DsJKhKtJXi71MoDtx4
+	nvVJVTK63PrIWEbcWMNoNqwAka6epH+gITmcgikcG5vOmjmZtkM8WgpzoVtCAgsdCyLnr3jh6q12C
+	Zc+6zjSQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8f5t-0000000GUY3-1O4l;
-	Tue, 14 Oct 2025 13:29:37 +0000
-Received: from dggsgout11.his.huawei.com ([45.249.212.51])
+	id 1v8f6F-0000000GUgO-2vp9;
+	Tue, 14 Oct 2025 13:29:59 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8f5q-0000000GUUo-1pK0
+	id 1v8f6E-0000000GUfe-19Pn
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 13:29:36 +0000
-Received: from mail.maildlp.com (unknown [172.19.93.142])
-	by dggsgout11.his.huawei.com (SkyGuard) with ESMTPS id 4cmFRM4QFQzYQtpy
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 21:28:47 +0800 (CST)
-Received: from mail02.huawei.com (unknown [10.116.40.75])
-	by mail.maildlp.com (Postfix) with ESMTP id ABCE01A0F09
-	for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 21:29:28 +0800 (CST)
-Received: from [10.67.111.176] (unknown [10.67.111.176])
-	by APP2 (Coremail) with SMTP id Syh0CgBnCUI3UO5o6+FkAQ--.29891S2;
-	Tue, 14 Oct 2025 21:29:28 +0800 (CST)
-Message-ID: <b94f6159-a280-4890-a02a-f19ff808de5b@huaweicloud.com>
-Date: Tue, 14 Oct 2025 21:29:25 +0800
+	Tue, 14 Oct 2025 13:29:58 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id 899D7603E6;
+	Tue, 14 Oct 2025 13:29:27 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13F9CC4CEF1;
+	Tue, 14 Oct 2025 13:29:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760448567;
+	bh=QiXQnftXW1d9rJAEQ6KtRkpR9BslCCYM3ivIwvsJqxc=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=TAnMWUCif1YonqEkAVnuSFvB9eNbrhifuqgaBBrwMBTNteapV79Ueu7vp+yHXBisi
+	 SUhbbM0TkJ53cHe0D250faJ4U46BzFgIeW3W38IjcKeDy+s7Oxh4QYn8eVXglp4OfK
+	 Fm/IeSQy1df0UevAGeU37JHvhsH11HP4s9S3wsDaHSwmgT34LLIGEb56gON944mhHh
+	 Wd5XlZWektTvp3MFajwCEgx9oSoY6CSa8a57zGLTcsRPBVxC40URyj4dAxD+vjGV5K
+	 MNvnqlRVKZiM6b/XkcoKgwQzpJmImqeFGUCN/tFyHSvDVzhFb4pUbWOTTxdgeomfBs
+	 4bAA1Tnn51M6A==
+Date: Tue, 14 Oct 2025 08:29:25 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 11/33] cpuset: Provide lockdep check for cpuset lock held
-To: Frederic Weisbecker <frederic@kernel.org>,
- LKML <linux-kernel@vger.kernel.org>
-Cc: =?UTF-8?Q?Michal_Koutn=C3=BD?= <mkoutny@suse.com>,
- Andrew Morton <akpm@linux-foundation.org>,
- Bjorn Helgaas <bhelgaas@google.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Danilo Krummrich
- <dakr@kernel.org>, "David S . Miller" <davem@davemloft.net>,
- Eric Dumazet <edumazet@google.com>, Gabriele Monaco <gmonaco@redhat.com>,
- Greg Kroah-Hartman <gregkh@linuxfoundation.org>,
- Ingo Molnar <mingo@redhat.com>, Jakub Kicinski <kuba@kernel.org>,
- Jens Axboe <axboe@kernel.dk>, Johannes Weiner <hannes@cmpxchg.org>,
- Lai Jiangshan <jiangshanlai@gmail.com>,
- Marco Crivellari <marco.crivellari@suse.com>, Michal Hocko
- <mhocko@suse.com>, Muchun Song <muchun.song@linux.dev>,
- Paolo Abeni <pabeni@redhat.com>, Peter Zijlstra <peterz@infradead.org>,
- Phil Auld <pauld@redhat.com>, "Rafael J . Wysocki" <rafael@kernel.org>,
- Roman Gushchin <roman.gushchin@linux.dev>,
- Shakeel Butt <shakeel.butt@linux.dev>, Simon Horman <horms@kernel.org>,
- Tejun Heo <tj@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
- Vlastimil Babka <vbabka@suse.cz>, Waiman Long <longman@redhat.com>,
- Will Deacon <will@kernel.org>, cgroups@vger.kernel.org,
- linux-arm-kernel@lists.infradead.org, linux-block@vger.kernel.org,
- linux-mm@kvack.org, linux-pci@vger.kernel.org, netdev@vger.kernel.org
-References: <20251013203146.10162-1-frederic@kernel.org>
- <20251013203146.10162-12-frederic@kernel.org>
-Content-Language: en-US
-From: Chen Ridong <chenridong@huaweicloud.com>
-In-Reply-To: <20251013203146.10162-12-frederic@kernel.org>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CM-TRANSID: Syh0CgBnCUI3UO5o6+FkAQ--.29891S2
-X-Coremail-Antispam: 1UD129KBjvJXoW7WFW3Jw18tw15JFWUWw1fXrb_yoW8XFyxpF
-	90krWrG3yFvr4Uua9rGw17ur1vgw4kWF1UKFn8Kr1rXa42vFn2vr1q9FnIqr10q397Gw40
-	qF9xWa1Y9rWDArDanT9S1TB71UUUUU7qnTZGkaVYY2UrUUUUjbIjqfuFe4nvWSU5nxnvy2
-	9KBjDU0xBIdaVrnRJUUUvYb4IE77IF4wAFF20E14v26rWj6s0DM7CY07I20VC2zVCF04k2
-	6cxKx2IYs7xG6rWj6s0DM7CIcVAFz4kK6r1j6r18M28lY4IEw2IIxxk0rwA2F7IY1VAKz4
-	vEj48ve4kI8wA2z4x0Y4vE2Ix0cI8IcVAFwI0_Ar0_tr1l84ACjcxK6xIIjxv20xvEc7Cj
-	xVAFwI0_Gr1j6F4UJwA2z4x0Y4vEx4A2jsIE14v26rxl6s0DM28EF7xvwVC2z280aVCY1x
-	0267AKxVW0oVCq3wAS0I0E0xvYzxvE52x082IY62kv0487Mc02F40EFcxC0VAKzVAqx4xG
-	6I80ewAv7VC0I7IYx2IY67AKxVWUJVWUGwAv7VC2z280aVAFwI0_Jr0_Gr1lOx8S6xCaFV
-	Cjc4AY6r1j6r4UM4x0Y48IcVAKI48JM4IIrI8v6xkF7I0E8cxan2IY04v7MxkF7I0En4kS
-	14v26rWY6Fy7MxAIw28IcxkI7VAKI48JMxC20s026xCaFVCjc4AY6r1j6r4UMI8I3I0E5I
-	8CrVAFwI0_Jr0_Jr4lx2IqxVCjr7xvwVAFwI0_JrI_JrWlx4CE17CEb7AF67AKxVWrXVW8
-	Jr1lIxkGc2Ij64vIr41lIxAIcVC0I7IYx2IY67AKxVWUJVWUCwCI42IY6xIIjxv20xvEc7
-	CjxVAFwI0_Gr0_Cr1lIxAIcVCF04k26cxKx2IYs7xG6r1j6r1xMIIF0xvEx4A2jsIE14v2
-	6r1j6r4UMIIF0xvEx4A2jsIEc7CjxVAFwI0_Gr0_Gr1UYxBIdaVFxhVjvjDU0xZFpf9x07
-	j6a0PUUUUU=
-X-CM-SenderInfo: hfkh02xlgr0w46kxt4xhlfz01xgou0bp/
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_062934_781576_7ABFCC34 
-X-CRM114-Status: GOOD (  16.08  )
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
+ Matt Coster <matt.coster@imgtec.com>, Magnus Damm <magnus.damm@gmail.com>, 
+ Adam Ford <aford173@gmail.com>, Frank Binns <frank.binns@imgtec.com>, 
+ Simona Vetter <simona@ffwll.ch>, 
+ Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
+ dri-devel@lists.freedesktop.org, 
+ Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
+ Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
+ Geert Uytterhoeven <geert+renesas@glider.be>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, David Airlie <airlied@gmail.com>, 
+ linux-arm-kernel@lists.infradead.org
+To: Marek Vasut <marek.vasut+renesas@mailbox.org>
+In-Reply-To: <20251013190210.142436-1-marek.vasut+renesas@mailbox.org>
+References: <20251013190210.142436-1-marek.vasut+renesas@mailbox.org>
+Message-Id: <176044840106.3094437.2331943625522490352.robh@kernel.org>
+Subject: Re: [PATCH 1/3] dt-bindings: gpu: img,powervr-rogue: Document
+ GX6250 GPU in Renesas R-Car M3-W/M3-W+
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,60 +80,179 @@ Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
 
-
-On 2025/10/14 4:31, Frederic Weisbecker wrote:
-> cpuset modifies partitions, including isolated, while holding the cpuset
-> mutex.
+On Mon, 13 Oct 2025 21:01:17 +0200, Marek Vasut wrote:
+> Document Imagination Technologies PowerVR Rogue GX6250 BNVC 4.45.2.58
+> present in Renesas R-Car R8A77960 M3-W and R8A77961 M3-W+ SoC.
 > 
-> This means that holding the cpuset mutex is safe to synchronize against
-> housekeeping cpumask changes.
-> 
-> Provide a lockdep check to validate that.
-> 
-> Signed-off-by: Frederic Weisbecker <frederic@kernel.org>
+> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
 > ---
->  include/linux/cpuset.h | 2 ++
->  kernel/cgroup/cpuset.c | 7 +++++++
->  2 files changed, 9 insertions(+)
+> Cc: Adam Ford <aford173@gmail.com>
+> Cc: Conor Dooley <conor+dt@kernel.org>
+> Cc: David Airlie <airlied@gmail.com>
+> Cc: Frank Binns <frank.binns@imgtec.com>
+> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
+> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
+> Cc: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
+> Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
+> Cc: Magnus Damm <magnus.damm@gmail.com>
+> Cc: Matt Coster <matt.coster@imgtec.com>
+> Cc: Maxime Ripard <mripard@kernel.org>
+> Cc: Rob Herring <robh@kernel.org>
+> Cc: Simona Vetter <simona@ffwll.ch>
+> Cc: Thomas Zimmermann <tzimmermann@suse.de>
+> Cc: devicetree@vger.kernel.org
+> Cc: dri-devel@lists.freedesktop.org
+> Cc: linux-renesas-soc@vger.kernel.org
+> ---
+> See https://gitlab.freedesktop.org/imagination/linux-firmware/-/issues/13
+> for related userspace bits.
+> ---
+>  .../devicetree/bindings/gpu/img,powervr-rogue.yaml          | 6 ++++++
+>  1 file changed, 6 insertions(+)
 > 
-> diff --git a/include/linux/cpuset.h b/include/linux/cpuset.h
-> index 2ddb256187b5..051d36fec578 100644
-> --- a/include/linux/cpuset.h
-> +++ b/include/linux/cpuset.h
-> @@ -18,6 +18,8 @@
->  #include <linux/mmu_context.h>
->  #include <linux/jump_label.h>
->  
-> +extern bool lockdep_is_cpuset_held(void);
-> +
->  #ifdef CONFIG_CPUSETS
->  
->  /*
-> diff --git a/kernel/cgroup/cpuset.c b/kernel/cgroup/cpuset.c
-> index 8595f1eadf23..aa1ac7bcf2ea 100644
-> --- a/kernel/cgroup/cpuset.c
-> +++ b/kernel/cgroup/cpuset.c
-> @@ -279,6 +279,13 @@ void cpuset_full_unlock(void)
->  	cpus_read_unlock();
->  }
->  
-> +#ifdef CONFIG_LOCKDEP
-> +bool lockdep_is_cpuset_held(void)
-> +{
-> +	return lockdep_is_held(&cpuset_mutex);
-> +}
-> +#endif
-> +
->  static DEFINE_SPINLOCK(callback_lock);
->  
->  void cpuset_callback_lock_irq(void)
 
-Is the lockdep_is_cpuset_held function actually being used?
-If CONFIG_LOCKDEP is disabled, compilation would fail with an "undefined reference to
-lockdep_is_cpuset_held" error.
 
--- 
-Best regards,
-Ridong
+My bot found new DTB warnings on the .dts files added or changed in this
+series.
+
+Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
+are fixed by another series. Ultimately, it is up to the platform
+maintainer whether these warnings are acceptable or not. No need to reply
+unless the platform maintainer has comments.
+
+If you already ran DT checks and didn't see these error(s), then
+make sure dt-schema is up to date:
+
+  pip3 install dtschema --upgrade
+
+
+This patch series was applied (using b4) to base:
+ Base: attempting to guess base-commit...
+ Base: tags/next-20251013 (exact match)
+ Base: tags/next-20251013 (use --merge-base to override)
+
+If this is not the correct base, please add 'base-commit' tag
+(or use b4 which does this automatically)
+
+New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/renesas/' for 20251013190210.142436-1-marek.vasut+renesas@mailbox.org:
+
+Lexical error: arch/arm64/boot/dts/renesas/r8a77961.dtsi:2456.27-43 Unexpected 'R8A7796_PD_3DG_B'
+FATAL ERROR: Syntax error parsing input tree
+make[3]: *** [scripts/Makefile.dtbs:132: arch/arm64/boot/dts/renesas/r8a77961-ulcb-kf.dtb] Error 1
+make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/renesas] Error 2
+make[2]: Target 'arch/arm64/boot/dts/renesas/r8a77961-ulcb-kf.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1478: renesas/r8a77961-ulcb-kf.dtb] Error 2
+Lexical error: arch/arm64/boot/dts/renesas/r8a77961.dtsi:2456.27-43 Unexpected 'R8A7796_PD_3DG_B'
+FATAL ERROR: Syntax error parsing input tree
+make[3]: *** [scripts/Makefile.dtbs:132: arch/arm64/boot/dts/renesas/r8a779m3-ulcb-kf.dtb] Error 1
+make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/renesas] Error 2
+make[2]: Target 'arch/arm64/boot/dts/renesas/r8a779m3-ulcb-kf.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1478: renesas/r8a779m3-ulcb-kf.dtb] Error 2
+Lexical error: arch/arm64/boot/dts/renesas/r8a77961.dtsi:2456.27-43 Unexpected 'R8A7796_PD_3DG_B'
+FATAL ERROR: Syntax error parsing input tree
+make[3]: *** [scripts/Makefile.dtbs:132: arch/arm64/boot/dts/renesas/r8a77961-salvator-xs.dtb] Error 1
+make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/renesas] Error 2
+make[2]: Target 'arch/arm64/boot/dts/renesas/r8a77961-salvator-xs.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1478: renesas/r8a77961-salvator-xs.dtb] Error 2
+Lexical error: arch/arm64/boot/dts/renesas/r8a77961.dtsi:2456.27-43 Unexpected 'R8A7796_PD_3DG_B'
+FATAL ERROR: Syntax error parsing input tree
+make[3]: *** [scripts/Makefile.dtbs:132: arch/arm64/boot/dts/renesas/r8a77961-ulcb.dtb] Error 1
+make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/renesas] Error 2
+make[2]: Target 'arch/arm64/boot/dts/renesas/r8a77961-ulcb.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1478: renesas/r8a77961-ulcb.dtb] Error 2
+Lexical error: arch/arm64/boot/dts/renesas/r8a77961.dtsi:2456.27-43 Unexpected 'R8A7796_PD_3DG_B'
+FATAL ERROR: Syntax error parsing input tree
+make[3]: *** [scripts/Makefile.dtbs:132: arch/arm64/boot/dts/renesas/r8a779m3-ulcb.dtb] Error 1
+make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/renesas] Error 2
+make[2]: Target 'arch/arm64/boot/dts/renesas/r8a779m3-ulcb.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1478: renesas/r8a779m3-ulcb.dtb] Error 2
+Lexical error: arch/arm64/boot/dts/renesas/r8a77961.dtsi:2456.27-43 Unexpected 'R8A7796_PD_3DG_B'
+FATAL ERROR: Syntax error parsing input tree
+make[3]: *** [scripts/Makefile.dtbs:132: arch/arm64/boot/dts/renesas/r8a779m3-salvator-xs.dtb] Error 1
+make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/renesas] Error 2
+make[2]: Target 'arch/arm64/boot/dts/renesas/r8a779m3-salvator-xs.dtb' not remade because of errors.
+make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1478: renesas/r8a779m3-salvator-xs.dtb] Error 2
+make: *** [Makefile:248: __sub-make] Error 2
+make: Target 'renesas/r9a07g044c2-smarc.dtb' not remade because of errors.
+make: Target 'renesas/r8a77961-ulcb-kf.dtb' not remade because of errors.
+make: Target 'renesas/r8a77965-ulcb.dtb' not remade because of errors.
+make: Target 'renesas/r8a77965-ulcb-kf.dtb' not remade because of errors.
+make: Target 'renesas/r8a779m1-ulcb.dtb' not remade because of errors.
+make: Target 'renesas/r8a774c0-ek874.dtb' not remade because of errors.
+make: Target 'renesas/r8a774c0-ek874-idk-2121wr.dtb' not remade because of errors.
+make: Target 'renesas/r9a09g077m44-rzt2h-evk.dtb' not remade because of errors.
+make: Target 'renesas/r8a77960-ulcb-kf.dtb' not remade because of errors.
+make: Target 'renesas/r8a77980a-condor-i.dtb' not remade because of errors.
+make: Target 'renesas/r8a774a1-hihope-rzg2m-rev2.dtb' not remade because of errors.
+make: Target 'renesas/r8a779g0-white-hawk.dtb' not remade because of errors.
+make: Target 'renesas/r8a774b1-hihope-rzg2n-rev2-ex.dtb' not remade because of errors.
+make: Target 'renesas/r8a779g2-white-hawk-single.dtb' not remade because of errors.
+make: Target 'renesas/r8a774e1-hihope-rzg2h-ex-idk-1110wr.dtb' not remade because of errors.
+make: Target 'renesas/r9a07g044l2-remi-pi.dtb' not remade because of errors.
+make: Target 'renesas/r8a774a1-hihope-rzg2m-ex-mipi-2.1.dtb' not remade because of errors.
+make: Target 'renesas/r8a774b1-hihope-rzg2n-rev2-ex-idk-1110wr.dtb' not remade because of errors.
+make: Target 'renesas/r8a774c0-ek874-mipi-2.1.dtb' not remade because of errors.
+make: Target 'renesas/r9a07g044l2-smarc.dtb' not remade because of errors.
+make: Target 'renesas/r9a09g056n48-rzv2n-evk.dtb' not remade because of errors.
+make: Target 'renesas/r8a774e1-hihope-rzg2h-ex-mipi-2.1.dtb' not remade because of errors.
+make: Target 'renesas/r8a779m5-salvator-xs.dtb' not remade because of errors.
+make: Target 'renesas/r8a77970-eagle.dtb' not remade because of errors.
+make: Target 'renesas/r8a77980-v3hsk.dtb' not remade because of errors.
+make: Target 'renesas/r8a77951-salvator-xs.dtb' not remade because of errors.
+make: Target 'renesas/r8a77951-ulcb-kf.dtb' not remade because of errors.
+make: Target 'renesas/r8a77965-salvator-xs.dtb' not remade because of errors.
+make: Target 'renesas/r9a09g057h48-kakip.dtb' not remade because of errors.
+make: Target 'renesas/r8a779f4-s4sk.dtb' not remade because of errors.
+make: Target 'renesas/r8a774b1-hihope-rzg2n-ex-mipi-2.1.dtb' not remade because of errors.
+make: Target 'renesas/r8a774b1-hihope-rzg2n-ex.dtb' not remade because of errors.
+make: Target 'renesas/r8a779h0-gray-hawk-single.dtb' not remade because of errors.
+make: Target 'renesas/r8a774c0-cat874.dtb' not remade because of errors.
+make: Target 'renesas/r8a77960-ulcb.dtb' not remade because of errors.
+make: Target 'renesas/r8a77951-ulcb.dtb' not remade because of errors.
+make: Target 'renesas/r8a774a1-hihope-rzg2m-rev2-ex-idk-1110wr.dtb' not remade because of errors.
+make: Target 'renesas/r8a774e1-beacon-rzg2h-kit.dtb' not remade because of errors.
+make: Target 'renesas/r9a09g087m44-rzn2h-evk.dtb' not remade because of errors.
+make: Target 'renesas/r8a779m1-ulcb-kf.dtb' not remade because of errors.
+make: Target 'renesas/r8a774b1-hihope-rzg2n-rev2.dtb' not remade because of errors.
+make: Target 'renesas/r8a77970-v3msk.dtb' not remade because of errors.
+make: Target 'renesas/r8a779m1-salvator-xs.dtb' not remade because of errors.
+make: Target 'renesas/r8a779m3-ulcb-kf.dtb' not remade because of errors.
+make: Target 'renesas/r9a09g047e57-smarc.dtb' not remade because of errors.
+make: Target 'renesas/r9a08g045s33-smarc.dtb' not remade because of errors.
+make: Target 'renesas/r8a77961-salvator-xs.dtb' not remade because of errors.
+make: Target 'renesas/r8a77960-salvator-xs.dtb' not remade because of errors.
+make: Target 'renesas/r8a77960-salvator-x.dtb' not remade because of errors.
+make: Target 'renesas/r8a77990-ebisu.dtb' not remade because of errors.
+make: Target 'renesas/r8a774b1-hihope-rzg2n-ex-idk-1110wr.dtb' not remade because of errors.
+make: Target 'renesas/r8a77980-condor.dtb' not remade because of errors.
+make: Target 'renesas/r9a07g054l2-smarc.dtb' not remade because of errors.
+make: Target 'renesas/r8a779g3-white-hawk-single.dtb' not remade because of errors.
+make: Target 'renesas/r8a779f0-spider.dtb' not remade because of errors.
+make: Target 'renesas/r8a774e1-hihope-rzg2h-ex.dtb' not remade because of errors.
+make: Target 'renesas/r8a779a0-falcon.dtb' not remade because of errors.
+make: Target 'renesas/r8a77965-salvator-x.dtb' not remade because of errors.
+make: Target 'renesas/r8a774e1-hihope-rzg2h.dtb' not remade because of errors.
+make: Target 'renesas/r8a77951-salvator-x.dtb' not remade because of errors.
+make: Target 'renesas/r9a09g011-v2mevk2.dtb' not remade because of errors.
+make: Target 'renesas/r8a774b1-hihope-rzg2n.dtb' not remade because of errors.
+make: Target 'renesas/r8a774b1-beacon-rzg2n-kit.dtb' not remade because of errors.
+make: Target 'renesas/r9a09g057h44-rzv2h-evk.dtb' not remade because of errors.
+make: Target 'renesas/r8a77961-ulcb.dtb' not remade because of errors.
+make: Target 'renesas/r8a774a1-hihope-rzg2m.dtb' not remade because of errors.
+make: Target 'renesas/r8a779h2-gray-hawk-single.dtb' not remade because of errors.
+make: Target 'renesas/r8a77995-draak.dtb' not remade because of errors.
+make: Target 'renesas/r8a774a1-hihope-rzg2m-ex.dtb' not remade because of errors.
+make: Target 'renesas/r8a779m3-ulcb.dtb' not remade because of errors.
+make: Target 'renesas/r8a774a1-hihope-rzg2m-ex-idk-1110wr.dtb' not remade because of errors.
+make: Target 'renesas/r8a779m3-salvator-xs.dtb' not remade because of errors.
+make: Target 'renesas/r9a07g043u11-smarc.dtb' not remade because of errors.
+make: Target 'renesas/r8a779g3-sparrow-hawk.dtb' not remade because of errors.
+make: Target 'renesas/r8a774a1-beacon-rzg2m-kit.dtb' not remade because of errors.
+make: Target 'renesas/r8a774a1-hihope-rzg2m-rev2-ex.dtb' not remade because of errors.
+make: Target 'renesas/r8a779g0-white-hawk-cpu.dtb' not remade because of errors.
+
+
+
+
 
 
