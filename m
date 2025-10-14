@@ -4,106 +4,154 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 608E1CCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 10:24:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id A6DAFCCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 10:27:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
-	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=Vh5INOYQP0yft49aQssY02xWoFcMU1c5Sbi8TM6XaOs=; b=bnbM2kfMrssu463WTwv8xHonYi
-	8RgUW6w6KQBtDnkOp2km1n++h3Rd6npDjqSgFxbU/f7J3HcAF7bNGbBSWCH5qOioo//IlPAkn54o+
-	RC+MepPs6oLME1mUAHTwAGV2frfBfBZclffCuOHe6zAnnQF09ImPTlzHHv7YWxIIyAAr3CoeKvB30
-	ZlP0A9wGHryc+UmKncIJFqNUAFl6iPrMBNca6zgJZx/GxYMkw3CR6gyKtgv1ljbhWuseobMzULUGS
-	kbFit+242fR9GuXg1UceUUhjeiBq0KkDOcOdBgADkmZrFur4zmS63tL4Y9bEJ4B/rBWh6tfSxkDE1
-	DBt9h9Aw==;
+	bh=for+D9Rv29cdYnvaHy5lHDYqVS1UG/3uz5OeYHEv+wo=; b=xu0saw/TF/0DPjm8MzpxaSKuWc
+	FU1D47yjzdL2bWMgS4SLoEOqEda0HpylqV6A4KCidSp1elDWHB2zpPk8LbMUlcAmZl+mUFyEcmY+C
+	vCZj0yYFXeKYF+JpUjxVZvEd9Dmcmk4Mvs6TjxuG0oUFBog1s+wEyBhC2Pqesljlp8NCldQAcRYxf
+	QZY1b1z1Oe9jzxydJJwMxFVmyczVTEYGRop0+Q3/jVF6yAa1tJlyOf4DpyS9uZgYYnkt31VCaEBSc
+	XLcGPBZMuZs4nbhD78UoQDMjA1GUxbI3VW1PgMJ/aRzhbi+ghUDy+w8O9fvCPFd2nhvFPOh7asIjD
+	02RbyCBw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8cCv-0000000FvOR-1yz4;
-	Tue, 14 Oct 2025 10:24:41 +0000
-Received: from sinmsgout01.his.huawei.com ([119.8.177.36])
+	id 1v8cFc-0000000FvrB-3CmW;
+	Tue, 14 Oct 2025 10:27:28 +0000
+Received: from mail-westeuropeazlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c201::1] helo=AM0PR83CU005.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8cCs-0000000FvMt-3dsG
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 10:24:40 +0000
-dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
-	c=relaxed/relaxed; q=dns/txt;
-	h=From;
-	bh=Vh5INOYQP0yft49aQssY02xWoFcMU1c5Sbi8TM6XaOs=;
-	b=hXaF+0jQOjkFtklkuEbL1hYw5gbeFfcy1NuBfdw3AtRUhiDm3waPH4DatEgA00qRRQRshr3M5
-	F0UGIm7xgjERcXLsOOqG+TM9VVO75MOAmgi7udzcYAvD6rSTp4048BaM6/CofJAKWAQRIt5CsbQ
-	ogoJXCgVAcAIKVC7w5GSh0Y=
-Received: from frasgout.his.huawei.com (unknown [172.18.146.37])
-	by sinmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4cm9LZ45jWz1P6hl;
-	Tue, 14 Oct 2025 18:24:22 +0800 (CST)
-Received: from mail.maildlp.com (unknown [172.18.186.231])
-	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cm9HM1MZwz6GDQC;
-	Tue, 14 Oct 2025 18:21:35 +0800 (CST)
-Received: from dubpeml100006.china.huawei.com (unknown [7.214.145.132])
-	by mail.maildlp.com (Postfix) with ESMTPS id A964414037D;
-	Tue, 14 Oct 2025 18:24:24 +0800 (CST)
-Received: from dubpeml500004.china.huawei.com (7.214.147.1) by
- dubpeml100006.china.huawei.com (7.214.145.132) with Microsoft SMTP Server
- (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.2.1544.11; Tue, 14 Oct 2025 11:24:24 +0100
-Received: from dubpeml500004.china.huawei.com ([7.214.147.1]) by
- dubpeml500004.china.huawei.com ([7.214.147.1]) with mapi id 15.02.1544.011;
- Tue, 14 Oct 2025 11:24:24 +0100
-From: Salil Mehta <salil.mehta@huawei.com>
-To: Marc Zyngier <maz@kernel.org>, Peter Maydell <peter.maydell@linaro.org>
-CC: "salil.mehta@opnsrc.net" <salil.mehta@opnsrc.net>,
-	"linux-kernel@vger.kernel.org" <linux-kernel@vger.kernel.org>,
-	"linux-arm-kernel@lists.infradead.org"
-	<linux-arm-kernel@lists.infradead.org>, Jonathan Cameron
-	<jonathan.cameron@huawei.com>, "will@kernel.org" <will@kernel.org>,
-	"catalin.marinas@arm.com" <catalin.marinas@arm.com>, "mark.rutland@arm.com"
-	<mark.rutland@arm.com>, "james.morse@arm.com" <james.morse@arm.com>,
-	"sudeep.holla@arm.com" <sudeep.holla@arm.com>, "lpieralisi@kernel.org"
-	<lpieralisi@kernel.org>, "jean-philippe@linaro.org"
-	<jean-philippe@linaro.org>, "tglx@linutronix.de" <tglx@linutronix.de>,
-	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
-	"richard.henderson@linaro.org" <richard.henderson@linaro.org>,
-	"andrew.jones@linux.dev" <andrew.jones@linux.dev>, "mst@redhat.com"
-	<mst@redhat.com>, "david@redhat.com" <david@redhat.com>, "philmd@linaro.org"
-	<philmd@linaro.org>, "ardb@kernel.org" <ardb@kernel.org>,
-	"borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>,
-	"alex.bennee@linaro.org" <alex.bennee@linaro.org>,
-	"gustavo.romero@linaro.org" <gustavo.romero@linaro.org>, "npiggin@gmail.com"
-	<npiggin@gmail.com>, "linux@armlinux.org.uk" <linux@armlinux.org.uk>,
-	"karl.heubaum@oracle.com" <karl.heubaum@oracle.com>, "miguel.luis@oracle.com"
-	<miguel.luis@oracle.com>, "darren@os.amperecomputing.com"
-	<darren@os.amperecomputing.com>, "ilkka@os.amperecomputing.com"
-	<ilkka@os.amperecomputing.com>, "vishnu@os.amperecomputing.com"
-	<vishnu@os.amperecomputing.com>, "gankulkarni@os.amperecomputing.com"
-	<gankulkarni@os.amperecomputing.com>, "wangyanan (Y)"
-	<wangyanan55@huawei.com>, "Wangzhou (B)" <wangzhou1@hisilicon.com>, Linuxarm
-	<linuxarm@huawei.com>
-Subject: RE: [RFC PATCH] KVM: arm64: vgic-v3: Cache ICC_CTLR_EL1 and allow
- lockless read when ready
-Thread-Topic: [RFC PATCH] KVM: arm64: vgic-v3: Cache ICC_CTLR_EL1 and allow
- lockless read when ready
-Thread-Index: AQHcOJEPLIyaftchIkq5VYDgYw17SLS5xPAAgAXz6gCAACTfAIAAYtoAgAD6VQCAADqV0A==
-Date: Tue, 14 Oct 2025 10:24:23 +0000
-Message-ID: <8b82541b805b4a9293f15740df73eaa8@huawei.com>
-References: <20251008201955.3919537-1-salil.mehta@opnsrc.net>
-	<86v7koxk1z.wl-maz@kernel.org>
-	<CAFEAcA8=yhQ-ygoA-fqxzwg69OkdW2nBM0O9X3Lmww4eXuVMWA@mail.gmail.com>
-	<867bwzxe9r.wl-maz@kernel.org>
-	<CAFEAcA8FhgcaM_OsHKB3+3Z7B_oZJqU4LHX_j9p-ZQrHfWGX7g@mail.gmail.com>
- <864is2x6z9.wl-maz@kernel.org>
-In-Reply-To: <864is2x6z9.wl-maz@kernel.org>
-Accept-Language: en-US
-Content-Language: en-US
-X-MS-Has-Attach: 
-X-MS-TNEF-Correlator: 
-x-originating-ip: [10.202.67.200]
-Content-Type: text/plain; charset="us-ascii"
-Content-Transfer-Encoding: quoted-printable
+	id 1v8cFZ-0000000Fvq1-1ky7;
+	Tue, 14 Oct 2025 10:27:26 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=M58jtAvUHBrRnwpvPm+X+jIlQ1zVeUh+oSJL9xfx+fRDzOwScwCrO9eyANO5sj9x8J8M6WtpuHUeH3OSYIyrM1NCJWEt7DyPlYatFn1RWVT/q/sCjUv5YT6LUxNOO7YlT+1heug4HwDOpAJD+UT84H8RoMaAtQav55lMjMsFlBXgaqj3WA8ygMWDPdJCn/UBbQsosBMS2ynFlJGC0Ae02Di6IIVjTgwDga0JZJUPX002/DaiVKjDKrqOqfbUPgh87ib+wg54MxdhABlD+3fq46Ov6obX2hV1aXYSWlWu/aSUahAoT2CfZYU/C7lr5gQLSARLi5QhhMo9FJbDySoosw==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=for+D9Rv29cdYnvaHy5lHDYqVS1UG/3uz5OeYHEv+wo=;
+ b=T8JwlFw/rkD0SI52oORKOuDcRf1UZCui98LnPyoeqWU6xmUPFcuK7LP5qDr/9JC8ZStu5P+xe5HXrFXKnHBJIUvofFs3MUM+XNcgGAlqWrIMdfqtCtj58Kw6DNx7HhciYAFOwgU6cM5tcGAqkwtgD7K+z/wHrgqwFIYIpSSZM+eX/nSURruTzVKtF/TfDRJHWF2TVD8F03AUsVSp52ENpGr8PwNWSoSp0e2OMvcypEpSZW216JcuY1MLqlMpNiPx+CzwV77nPtF8jaNNmePl1odozWtvxlpzZK+DRRwmwwDGFuDyRkv+VTdacGviXTCwby4vdu3Fs0gu/nVYRgHHEg==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=for+D9Rv29cdYnvaHy5lHDYqVS1UG/3uz5OeYHEv+wo=;
+ b=IqYC+pJJeKnzYmlSA5yPhiCwNgWQ0elUaa7xF5B7wyro7OrB15hzR+Xy2qJ8/jf3Mz554OJ3z0ddgySNDKHQn5QStaGpVBxzTVteMeSD6o2uBsAkJ5WQJmddRq1i+St5mxhQzHoeOSGb0CfYkTF6OA3VTBZEFbTneBOLPM72XRlBErZ0EPnNsrm9OC4LVoOarqrHq4vwbxmii9p842xxyuCqwsFzQV8G5cgh+9dqxsfmoPrmebSKBd5EQHlGixQr3MER3jQEiBTgho874ladF4WpeTeFoK3FZqm8orkhQeHotYPW3eyKYr4/QDxGHHmzxmKfBoGDgRPl3sSwH5fUUg==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com (2603:10a6:10:2e1::11)
+ by AS4PR04MB9243.eurprd04.prod.outlook.com (2603:10a6:20b:4e2::18) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.13; Tue, 14 Oct
+ 2025 10:27:03 +0000
+Received: from DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::c67b:71cd:6338:9dce]) by DU2PR04MB8822.eurprd04.prod.outlook.com
+ ([fe80::c67b:71cd:6338:9dce%4]) with mapi id 15.20.9203.009; Tue, 14 Oct 2025
+ 10:27:02 +0000
+Date: Tue, 14 Oct 2025 18:20:42 +0800
+From: Xu Yang <xu.yang_2@nxp.com>
+To: Alexander Stein <alexander.stein@ew.tq-group.com>
+Cc: Vinod Koul <vkoul@kernel.org>, 
+	Kishon Vijay Abraham I <kishon@kernel.org>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Shawn Guo <shawnguo@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, 
+	Pengutronix Kernel Team <kernel@pengutronix.de>, Fabio Estevam <festevam@gmail.com>, Li Jun <jun.li@nxp.com>, 
+	Abel Vesa <abelvesa@kernel.org>, Peng Fan <peng.fan@nxp.com>, 
+	Michael Turquette <mturquette@baylibre.com>, Stephen Boyd <sboyd@kernel.org>, 
+	linux-arm-kernel@lists.infradead.org, linux-phy@lists.infradead.org, devicetree@vger.kernel.org, 
+	imx@lists.linux.dev, linux-kernel@vger.kernel.org, linux-clk@vger.kernel.org, 
+	Frank Li <Frank.Li@nxp.com>
+Subject: Re: [PATCH v2 3/4] phy: fsl-imx8mq-usb: support alternate reference
+ clock
+Message-ID: <spkl2zc4h2zzzp3c72ln4lorhzmejljjbso26wigifccl6uydv@4wd64dd2iggg>
+References: <20251010-usb-phy-alt-clk-support-v2-0-af4b78bb4ae8@nxp.com>
+ <20251010-usb-phy-alt-clk-support-v2-3-af4b78bb4ae8@nxp.com>
+ <2805917.mvXUDI8C0e@steina-w>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <2805917.mvXUDI8C0e@steina-w>
+X-ClientProxiedBy: SI2PR01CA0006.apcprd01.prod.exchangelabs.com
+ (2603:1096:4:191::14) To DU2PR04MB8822.eurprd04.prod.outlook.com
+ (2603:10a6:10:2e1::11)
 MIME-Version: 1.0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DU2PR04MB8822:EE_|AS4PR04MB9243:EE_
+X-MS-Office365-Filtering-Correlation-Id: da96237a-4b8c-48e7-ea78-08de0b0c372a
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|52116014|376014|7416014|366016|1800799024|19092799006|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?XH2DeHvTlZBpWbmaeNEs0FGt/qCI2PQxkNxDKvN9ggfrdXaAbbuXBehO5O9F?=
+ =?us-ascii?Q?LlWmfg9+YKT2bSz+2uT9Gq1xd8/PaJPaVTG3c7Ts2E0k6YA+E9HnOdqs4r2G?=
+ =?us-ascii?Q?zhhtA0zNDKVu2eYUIih1cDy3UhTFRd5Dtf8iGqqh+WGmbqxe3o2dYmMKTo3n?=
+ =?us-ascii?Q?d/O1JI2MBR6O9KccP34osLmoVMqBz0MnziIFVEIFfLJyGk2QONKS5Zc3EWfP?=
+ =?us-ascii?Q?a0cxApRPbWdQKjMiJ4BaWdznqa75Vd59atHq5yz2O0g5KnA6zFDoV4nY+GV+?=
+ =?us-ascii?Q?2PowPNPyP6IhM4+5DYw6NCCyzUhhCBE5298nFZi817aB4GWrlLIHFNP2Z/mg?=
+ =?us-ascii?Q?vOAOP7R2Wc0keefukFqqGnOTr36724SATLacjxDTvUjbfH9PloNEWlNucPXL?=
+ =?us-ascii?Q?hxBwN9lUo6cMPPDuQrbWp450YqRz8VPwn4qkPajqrbQjRJBFYZVIH4vXQbZL?=
+ =?us-ascii?Q?lyYk1KcTpY3VM43dCK1KRNzxWDGguUsaoIRlz+cjzQxpJ6u1jIIdozP8Vef/?=
+ =?us-ascii?Q?XtdaqD+eWs6DN0zwHk/c7SFZNumXCh2Nlk8kkIU5xDxVp6aQRbuuC8PrUBYt?=
+ =?us-ascii?Q?f1/1CPHkBjQozHchonSgC/EpUDdJ6+BVvhXHcET3f+KqwEe4QjmZKMyStm3K?=
+ =?us-ascii?Q?Mc1rtMaV/P/L00XX9gbvmolDnAMtZvm1zC3IO9bVhjMsfkOQR6n9+W6xTQbU?=
+ =?us-ascii?Q?jbw4YlWUbT9KqZCKcTtLtdpSEExhwf57cNnYbVVQHDqlBY8HvE1ovkoX/AOb?=
+ =?us-ascii?Q?Qix5w0KfLJSVFA4N0aOvRBFP7/hpSAf9+0ksAuY+WMtWoGRfnnDckg+rJBKZ?=
+ =?us-ascii?Q?cXg055ov4q2Rnlwv6a7xCPt64xfm4Bdempz8yWMGz0hi8nUrqIZF6hVbRqG+?=
+ =?us-ascii?Q?ooYNCgKO7STFJUqnVbyml0NmynRtTcJFeodWgF5kTkutfbTATrY0Tn8WyrZD?=
+ =?us-ascii?Q?mrVeNur8PcveazS9kBlUIdLJJNklt9IAhCNAAgjDPjIaFMeCpg3fSJ8aDq7x?=
+ =?us-ascii?Q?GvR6B923xhhtjyfNumo5EbXwaXiRlAVmPHERnpI69MZmIKYNGcZGK4YoNIpt?=
+ =?us-ascii?Q?bMSFo0zLbW1qRqEULHlVBrXxjiRgWuMnL1oEDGPzdeFleLvjALQ6RZ/TrDlu?=
+ =?us-ascii?Q?KLQfr16SinUIYqVQJyegaxo0V5fqcXo3QcLTpT8yAEIQD1yTCfWtDo5hf8KS?=
+ =?us-ascii?Q?DyKVWzRhVZzIBc/n/46zN+b/xgPNHnc2MZgdm7OLNQIuIWWsC3sciMAYzIDh?=
+ =?us-ascii?Q?2XFhFEcJiPypYmXHYU6Ao2FAEvMIiXN6NnSV2F5jcUeOvJVsVAzJmegbcG+B?=
+ =?us-ascii?Q?FWti/8hvwBpZxb4ReUnhrudTQPSeLzNDfIfLzVMIGze5LkZ4M1mlZTle4T3X?=
+ =?us-ascii?Q?AdVkIAe+79lUqE5dyQimhDWN2EIVcxcb5xoga66TcPp96bJbmnlZSjS0bDQD?=
+ =?us-ascii?Q?F1JA2/I+/uejqbNSkcNkeSV/D6rN5Rn5WtafoQDsMTiHmJ5N10nggGj3uqYE?=
+ =?us-ascii?Q?DlRzZcl/vRJzN0ey8tJAY0SBgRzXYWd9gmXL?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:DU2PR04MB8822.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(52116014)(376014)(7416014)(366016)(1800799024)(19092799006)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?zw9NxPkCdlScvGsscK1e6iZ7NSm7gKY56RVDKuRMPtUb804DvCE3gK9qZ3vW?=
+ =?us-ascii?Q?IZt6GeoTyA8DtETX8VNYfOosr4sYkPb8aWrop7mwDwmlNffEDwLoOr8EGsP1?=
+ =?us-ascii?Q?o9ev9qhsFRtHS3Qe5dbwJY8Lp3WObzdqAue+s665gJargqg+RZ+pVIHrlv85?=
+ =?us-ascii?Q?aE4OzX2+djUt7COh4mq714oEtATdfsNtg8yJDylktJRhWKtgQa+5nvgZRx6B?=
+ =?us-ascii?Q?FsToRSNSDqLihek/FkNSSZsbGPFr9u7SoUVRR2UISiZeBZIGIWN06QtAgDYr?=
+ =?us-ascii?Q?zulOTWJW9N/gyexq1rA8npGZERr8Xo1cP0nYT1VqAobEllXqPHApd52ig9Ux?=
+ =?us-ascii?Q?aw2UXnzo6yzrad+ZN43gwW07spOQS5aAiMbbaMkESSTu7zXeY019wChtvmrx?=
+ =?us-ascii?Q?7qG7vjGw2UXIJBsYSZKCBiO+Jde+GP7w0lKn8iTsTydoCJw704txWNRbIS+x?=
+ =?us-ascii?Q?Y1TNfCtn1zn6fjZ9nwlvVWq8wcgSYE7fmkcGtTz7Dgm/E83U9n1gZaTw64mG?=
+ =?us-ascii?Q?n3q9SNOXr0va5TtKGcOB/BGfEBdqdkAeXJ2Tz7cfov+dCEEO8K8JhKBnwmkD?=
+ =?us-ascii?Q?/kv/n9JGBE6E519ebBvZHVBHMU5nlLGdaCft+6Rji2X7Ob9zgmO30Tt77hOU?=
+ =?us-ascii?Q?Q4Lwpp3wBopa+cUrdaxsVK4cYsO19deMihIf1+AhuUX+UtzMFvyeEr5Tzdg/?=
+ =?us-ascii?Q?AtnLrzq7QFO6wL0GKBOq3nn4s3zWGNQ7/s/IhOA0LL1IFgupW6LG5pw19BRz?=
+ =?us-ascii?Q?tviXVgLrHz4UR5Wo2OgVPQqR1+ONTKjCKCldsQjuJVYX6i4v8IHy1tQsZpLw?=
+ =?us-ascii?Q?eXRFwsQAUwxHcodhPzmNRI8PwJLFatgyOtMgjoY5Crb627zRlbcEmqhWFRMF?=
+ =?us-ascii?Q?fZctyhHsKnnDBdckpshvXx4Xk/PdoXTOv/TsyYO/tZaCCH9RPNs8TeRjI9bV?=
+ =?us-ascii?Q?CLvn1a2LtphOHsFGh/T3O8mBR3T0Ap6swacnXYzCGu4YcdjAsLUkJa+39Dto?=
+ =?us-ascii?Q?WfWBozpSloJ2xNaRMabL4hSfE+/YER+RNplj7a4E+mWST/WPGbK2hjWSbR2Y?=
+ =?us-ascii?Q?r5K62c+ZMBUvsIi4Lx1Isvj1XWh/qonEqR4LhdQ79PsM1uqjH6TOLFaqI8LB?=
+ =?us-ascii?Q?yaRJeJHuCGJV4EEsaK/B+U5KDWELVcR1220cF6q4PbcdeWC8TqB69elC9Xhi?=
+ =?us-ascii?Q?drU36ksGrFj2pXJ/KYZ82684n1at+YssnQXTx45URSb3R985OJeiMjhGmnUz?=
+ =?us-ascii?Q?/jhpUtgSPaS6kCExcLFG0SQ9A1G6B2SIkaeWpYz0fXNX6nZ/gXMtXvMDcYcZ?=
+ =?us-ascii?Q?d5NsG/8bvNRuCYaNlVQLtxNFI7g+P4Cy5Azl2fC8OosP4kH8khO2h9hK0yhz?=
+ =?us-ascii?Q?HNUqjbPiHdiQdfwOAaJdZ/Pdx3imesnqBqNByVT2EhYPmGmDYR1q/li4uF4f?=
+ =?us-ascii?Q?haEeySjYjxAAPOucLdmDVP4q62NjGheQs79ytY+Zwy1ObpTuGkzWZld9WoTx?=
+ =?us-ascii?Q?MUGtTCxs/t6P9NO/mzLwi0FgFCjgOiIFEPlMBRtQiWv02JHYTOroLFcMlwYy?=
+ =?us-ascii?Q?94/glndJrbupxcy7kvysoBmF1cOFTPIJjqHE1Www?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: da96237a-4b8c-48e7-ea78-08de0b0c372a
+X-MS-Exchange-CrossTenant-AuthSource: DU2PR04MB8822.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Oct 2025 10:27:02.8552
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: kL5xTcMPxGpj9f5rc7RZf1fqn9aOWjoBi8FD3GbrE/Zde2n8+sSMGCYtc6aMQmCeyYbtca8zfgztbMhHNWHSKA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: AS4PR04MB9243
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_032439_646290_9180C737 
-X-CRM114-Status: GOOD (  55.50  )
+X-CRM114-CacheID: sfid-20251014_032725_458056_5699D424 
+X-CRM114-Status: GOOD (  10.66  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -118,166 +166,25 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-HI Marc,
+On Mon, Oct 13, 2025 at 07:58:12AM +0200, Alexander Stein wrote:
+> Am Freitag, 10. Oktober 2025, 13:01:12 CEST schrieb Xu Yang:
+> > This phy supports both 24MHz and 100MHz clock inputs. By default it's
+> > using XTAL 24MHz and the 100MHz clock is a alternate reference clock.
+> > Add supports to use alternate reference clock in case 24MHz clock
+> > can't work well.
+> 
+> This driver supports imx8mx and imx8mp as well. Do these SoC also support
+> the alternative clock?
 
-> From: Marc Zyngier <maz@kernel.org>
-> Sent: Tuesday, October 14, 2025 8:45 AM
-> To: Peter Maydell <peter.maydell@linaro.org>
->=20
-> On Mon, 13 Oct 2025 17:48:44 +0100,
-> Peter Maydell <peter.maydell@linaro.org> wrote:
-> >
-> > On Mon, 13 Oct 2025 at 11:55, Marc Zyngier <maz@kernel.org> wrote:
-> > >
-> > > On Mon, 13 Oct 2025 09:42:58 +0100,
-> > > Peter Maydell <peter.maydell@linaro.org> wrote:
-> > > >
-> > > > On Thu, 9 Oct 2025 at 14:48, Marc Zyngier <maz@kernel.org> wrote:
-> > > > >
-> > > > > On Wed, 08 Oct 2025 21:19:55 +0100, salil.mehta@opnsrc.net
-> > > > > wrote:
-> > > > > >
-> > > > > > From: Salil Mehta <salil.mehta@huawei.com>
-> > > > > >
-> > > > > > [A rough illustration of the problem and the probable
-> > > > > > solution]
-> > > > > >
-> > > > > > Userspace reads of ICC_CTLR_EL1 via KVM device attributes
-> > > > > > currently takes a slow path that may acquire all vCPU locks.
-> > > > > > Under workloads that exercise userspace PSCI CPU_ON flows or
-> > > > > > frequent vCPU resets, this can cause vCPU lock contention in KV=
-M
-> and, in the worst cases, -EBUSY returns to userspace.
-> > > > > >
-> > > > > > When PSCI CPU_ON and CPU_OFF calls are handled entirely in
-> > > > > > KVM, these operations are executed under KVM vCPU locks in the
-> > > > > > host kernel (EL1) and appear atomic to other vCPU threads. In
-> > > > > > this context, system register accesses are serialized under
-> > > > > > KVM vCPU locks, ensuring atomicity with respect to other
-> > > > > > vCPUs. After SMCCC filtering was introduced, PSCI CPU_ON and
-> > > > > > CPU_OFF calls can now exit to userspace (QEMU). During the
-> > > > > > handling of PSCI CPU_ON call in userspace, a
-> > > > > > cpu_reset() is exerted which reads ICC_CTLR_EL1 through KVM
-> > > > > > device attribute IOCTLs. To avoid transient inconsistency and
-> > > > > > -EBUSY errors, QEMU is forced to pause all vCPUs before issuing
-> these IOCTLs.
-> > > > >
-> > > > > I'm going to repeat in public what I already said in private.
-> > > > >
-> > > > > Why does QEMU need to know this? I don't see how this is related
-> > > > > to PSCI, and outside of save/restore, there is no reason why
-> > > > > QEMU should poke at this. If QEMU needs fixing, please fix QEMU.
-> > > >
-> > > > I don't know the background here, but generally speaking, when we
-> > > > do a CPU reset that includes writing all the CPU state of the
-> > > > "this is freshly reset from userspace's point of view" vcpu back
-> > > > to the kernel. More generally, userspace should be able to read
-> > > > and write sysregs for a vcpu any time it likes, and not
-> > > > arbitrarily get back -EBUSY. What does the kernel expect userspace
-> > > > to do with an errno like that?
-> > >
-> > > The main issue here is that GICv3 is modelled as a device, just like
-> > > GICv2, and that all the sysregs that are relevant to the GIC have
-> > > the same status as the MMIO registers: they can only be accessed
-> > > when the vcpus are not running.
-> > >
-> > > These sysregs are not visible through the normal ONE_REG API, and
-> > > therefore not subjected to the "do whatever you want" rule.
-> >
-> > Ah, I'd forgotten that. But the cpuif registers are still per-cpu, and
-> > they do still need to be reset on vcpu reset, and that might still
-> > happen for a single vcpu when the VM as a whole is still running.
-> >
-> > That said, QEMU's current code for this could be refactored to avoid
-> > the reset-time read of ICC_CTLR_EL1 from the kernel.
-> > We do this so we can set the userspace struct field for this register
-> > to the right value. But we could ask the kernel for that value once on
-> > VM startup since it's not going to change mid-run.
->=20
-> The reset value is indeed cast in stone once the GIC has been created.
->=20
-> > That would bring ICC_CTLR_EL1 into line with the other cpuif
-> > registers, where QEMU assumes it knows what the kernel's reset value
-> > of them is (mostly "0") and doesn't bother to ask.
-> > This is different from how we handle ONE_REG sysregs, where I'm pretty
-> > sure we do ask the kernel the value of all of them on a vcpu reset.
-> > (And then write the values back again, which is a bit silly but
-> > nobody's ever said it was a performance problem for them :-))
-> >
-> > > Should we have done something else when the GICv3 save/restore API
-> > > was introduced and agreed upon with the QEMU people? Probably. Can
-> > > we change it now? Probably not. The only thing we could relax is the
-> > > scope of the lock when accessing a sysreg, so that we only mandate
-> > > that the targeted vcpu is not running instead of the whole VM.
-> > >
-> > > And finally, if you object to this API, why should we do for GICv5,
-> > > which is so far implemented by following the exact same principles?
-> >
-> > I don't object to the API inherently (I don't care whether we do these
-> > register reads via a dev ioctl or something else, from userspace's
-> > point of view it's just "do some syscall, get a value") -- I'm just
-> > objecting to the kernel's implementation of it where it might return
-> > EBUSY :-)
->=20
-> To me, EBUSY has a clear meaning: you're otherwise using the resource, an=
-d
-> you need to relinquish it first, while EINVAL indicates that the kernel d=
-oesn't
-> understand what you want.
->=20
-> As I said, I'm happy to look at reducing the locking to only the target v=
-cpu in
-> the case of a sysreg being accessed, but EBUSY will stay.
+imx8mp support the alternative clock too. Note that for imx8mp,
+GPR_REG0.USB_PHY_REF_CLK_SEL needs also to be set if alternative clock is
+necessary. However, it's not implemented for now. 
 
+Thanks,
+Xu Yang
 
-I forgot to mention that we also saw once the issue of -EBUSY happening whe=
-n
-userspace GICv3 ITS resets during guest reboot and it calls KVM_DEV_ARM_ITS=
-_CTRL_RESET.
-
-File: kvm/vgic/vgic-its.c
-
-static int vgic_its_ctrl(struct kvm *kvm, struct vgic_its *its, u64 attr)
-{
-[...]
-	mutex_lock(&kvm->lock);
-
-	if (kvm_trylock_all_vcpus(kvm)) {
-		mutex_unlock(&kvm->lock);
-		return -EBUSY;
-	}
-
-	mutex_lock(&kvm->arch.config_lock);
-	mutex_lock(&its->its_lock);
-
-	switch (attr) {
-	case KVM_DEV_ARM_ITS_CTRL_RESET:
-		vgic_its_reset(kvm, its);
-		break;
-[...]
-}
-
-
-Best regards
-Salil.
-
->=20
-> >
-> > (Also, if the kernel had failed EINVAL unconditionally for an attempt
-> > to do this on a not-stopped VM then we'd probably have found this
-> > mismatch in understanding about how the API should work years ago.
-> > "Mostly works but sometimes fails EBUSY" is the worst of all worlds.)
-> >
-> > I haven't yet got as far as thinking about the KVM interface for GICv5
-> > yet...
->=20
-> I guess that for the time being, we'll assume that GICv3 is the reference=
-.
->=20
-> Thanks,
->=20
-> 	M.
->=20
-> --
-> Without deviation from the norm, progress is not possible.
+> 
+> Best regards
+> Alexander
+> 
 
