@@ -4,145 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E0E37CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 17:20:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id EF88ACCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 17:37:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Message-ID:Date:To:Cc:From:
+	Subject:References:In-Reply-To:Content-Transfer-Encoding:MIME-Version:
+	Content-Type:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=0bcvAB+5He8MflbuoyZON8kOEYwUFMPDQDn+j2h0ypg=; b=Nx9Yh13haXWa8c9/egPsmZRAU5
-	SGng27cEHxdoTvEw5p51QPHaWFVI80uFogQPE/K8UZoI9CZDCIe8xAjF4z5vaxMwil5cC6lTDXl91
-	/oeo9Qa7vcaeMVHyghNASdvx+SaG8XyIWFrHirN1NEJ8s347V/LTzmRe5wcNqhfWcx8mHWbz2dPsY
-	UeG96xMSfTSmWJOjc6Lc2CeVK5AnF242EH/PdUbjXfO3w30E/pYd1XmXcWLACR4IMtffLHynLsXAM
-	RzgF5/CanP/Bpc2PLR6bP35oiUya3Cj0rIt6BXsdSzfrg8OtbBvJdGgCYrawHWK+kP0anAc7/Wmg/
-	Uc4a3RZg==;
+	bh=UEjPypUORKhRws139RZAuUi3dI0fiBWn7RnjShoZxVY=; b=KI2uV5QWVdns5jZOs4HiETuqSq
+	jF4JNmCY0yGLT6ExG4WEqdBkjn+yGxc7mfpMHlNuypiQ8g6O7jeo+mLh0QQH1+3+jeZZsGBRgVdCX
+	VQfSCrmw4bZjt2BV7gtGB2gtVzCWCvPvX2mw9/s2CZx4BkV36FVt/wx6RVZN0GhKfCZvxMwXInEXS
+	IT+2g0p/0rcKVre3hAm4ILaLvjwvibT2t+g0QzIVcJSjnuo/8iVUuCrzqmf9dXqyHlivHFfcG1Niz
+	NzvolugRGcky2pdiUFTbc80aSeldzOGpkbbvHOmDxJfezcTmRKL8kV/XMxnus7vucpksYdsuJJjPo
+	2rSPTJEg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8ign-0000000H4e8-1NGO;
-	Tue, 14 Oct 2025 17:19:57 +0000
-Received: from mail-eastus2azlp170100001.outbound.protection.outlook.com ([2a01:111:f403:c110::1] helo=BN1PR04CU002.outbound.protection.outlook.com)
+	id 1v8ixq-0000000H5gp-2TMg;
+	Tue, 14 Oct 2025 17:37:34 +0000
+Received: from perceval.ideasonboard.com ([213.167.242.64])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8igk-0000000H4cY-3Hnv
+	id 1v8ixn-0000000H5fr-1SmC
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 17:19:56 +0000
-ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
- b=YZ2nDfGze8DnRxReU5oyndZ2U8GRx3MuXzNGn3sMq8lZXJVquqSvCmhg/z9nuO+bzkscJdC+2D5QRKEjiMqxaS8ZjfhQN1Y8iYZi6X5y9U/bHbOTLrIYeHfL+zS5YUxUDm5h7unGxDKZGftNwiLV0NYBFR7E8tVGkAsR5657HGVWONtpBu5Zjjy/aqc2RSOdiu16ZnPSM0L534my/pUn3qQpymY6ki06uCOD3AixMUGIE0Hl8VEsdk0rjLDtlvwEV6zx9Qa2pylhmgksuUlXzU1DTNtpIxzMq4bYBc8KrWsCjOwwkR22hisxv3RX9zCoQJl3smiVVB9JTW0J3EZu/g==
-ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
- s=arcselector10001;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
- bh=0bcvAB+5He8MflbuoyZON8kOEYwUFMPDQDn+j2h0ypg=;
- b=I+vxBQRmSVcElSDScVtPNCkleT1bygLfjZa1TTJHtI/Yv8fFAoLyK4zNuYRmfXf4oFreKjq7VQGtlx0XOOT4A4fsG3SDHs4rADIpSIYGQZMheUzfZ8bhYevLUanFuFsFGJ8yXgGb8jI450ApQFH+S6W0amIyLOcHIRdiCuZRCiFcVbozlzUHSbDnP4qszeG+66IrExcP8OObyppgteHPjzLzn5CJz4YbV+VNIG117raApleMmuz3Xw0CNMGEFrhro5NSBKtdmUHOW5q9YOTMqB7xx/pb6Gq1a25//rXw3sXHZQ1jD31uocQGgHPvv/UC40pui+eDnUJckQMD4pwANw==
-ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass (sender ip is
- 165.204.84.17) smtp.rcpttodomain=ew.tq-group.com smtp.mailfrom=amd.com;
- dmarc=pass (p=quarantine sp=quarantine pct=100) action=none
- header.from=amd.com; dkim=none (message not signed); arc=none (0)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=amd.com; s=selector1;
- h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
- bh=0bcvAB+5He8MflbuoyZON8kOEYwUFMPDQDn+j2h0ypg=;
- b=unEG4D0Qe/Elv3CFXauMH8Q6fTSg8DyUqDnnZkmIbZZ5k+Kmx65ysdv6AR7lF1OI0xSZGORNEz5r4CWOJF5BXVDq6MKuVGaSZQn1CsuyXv/lFW7+hizFCk0mbXHkOO1XbEPioZ+1nvz+LxKgIE1I55fYTm2AImDUULC51yjSSCE=
-Received: from BLAPR03CA0099.namprd03.prod.outlook.com (2603:10b6:208:32a::14)
- by DS0PR12MB6607.namprd12.prod.outlook.com (2603:10b6:8:d1::13) with
- Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9228.10; Tue, 14 Oct
- 2025 17:19:46 +0000
-Received: from BL02EPF0001A0FC.namprd03.prod.outlook.com
- (2603:10b6:208:32a:cafe::6d) by BLAPR03CA0099.outlook.office365.com
- (2603:10b6:208:32a::14) with Microsoft SMTP Server (version=TLS1_3,
- cipher=TLS_AES_256_GCM_SHA384) id 15.20.9203.13 via Frontend Transport; Tue,
- 14 Oct 2025 17:19:45 +0000
-X-MS-Exchange-Authentication-Results: spf=pass (sender IP is 165.204.84.17)
- smtp.mailfrom=amd.com; dkim=none (message not signed)
- header.d=none;dmarc=pass action=none header.from=amd.com;
-Received-SPF: Pass (protection.outlook.com: domain of amd.com designates
- 165.204.84.17 as permitted sender) receiver=protection.outlook.com;
- client-ip=165.204.84.17; helo=satlexmb08.amd.com; pr=C
-Received: from satlexmb08.amd.com (165.204.84.17) by
- BL02EPF0001A0FC.mail.protection.outlook.com (10.167.242.103) with Microsoft
- SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
- 15.20.9228.7 via Frontend Transport; Tue, 14 Oct 2025 17:19:45 +0000
-Received: from satlexmb08.amd.com (10.181.42.217) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Tue, 14 Oct
- 2025 10:19:44 -0700
-Received: from [172.19.71.207] (10.180.168.240) by satlexmb08.amd.com
- (10.181.42.217) with Microsoft SMTP Server id 15.2.2562.17 via Frontend
- Transport; Tue, 14 Oct 2025 10:19:44 -0700
-Message-ID: <264a9596-b602-19ec-ff63-0e687a818f8d@amd.com>
-Date: Tue, 14 Oct 2025 10:19:43 -0700
+	Tue, 14 Oct 2025 17:37:32 +0000
+Received: from pendragon.ideasonboard.com (cpc89244-aztw30-2-0-cust6594.18-1.cable.virginm.net [86.31.185.195])
+	by perceval.ideasonboard.com (Postfix) with ESMTPSA id 1B5A1741;
+	Tue, 14 Oct 2025 19:35:48 +0200 (CEST)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=ideasonboard.com;
+	s=mail; t=1760463348;
+	bh=HiHxgPNFAWSB/iS1Eg4H0inrzfOnWi/it/DJfDndziA=;
+	h=In-Reply-To:References:Subject:From:Cc:To:Date:From;
+	b=q9jTq4a6Wd81pLyp1VGc5fLh85ad6D3pNvVulfbdw6nNHMFfwQHZ+9YodjLIwb/tf
+	 OFUJHqcDSVDA1RGICzlwOuLLW8Jd6hpeXuJzD5A1yLJzUAHXvb1WykyTG/aJt3UuBv
+	 yDqmkZJeiY5Z5R4V1MVbHtD4AkP2IQSy9vXuIVUs=
+Content-Type: text/plain; charset="utf-8"
 MIME-Version: 1.0
-User-Agent: Mozilla/5.0 (X11; Linux x86_64; rv:91.0) Gecko/20100101
- Thunderbird/91.11.0
-Subject: Re: [PATCH 1/1] dmaengine: xilinx: xdma: Add regmap register ranges
-Content-Language: en-US
-To: Alexander Stein <alexander.stein@ew.tq-group.com>, Brian Xu
-	<brian.xu@amd.com>, Raj Kumar Rampelli <raj.kumar.rampelli@amd.com>, "Vinod
- Koul" <vkoul@kernel.org>, Michal Simek <michal.simek@amd.com>
-CC: <dmaengine@vger.kernel.org>, <linux-arm-kernel@lists.infradead.org>,
-	<linux-kernel@vger.kernel.org>
-References: <20251014055034.274596-1-alexander.stein@ew.tq-group.com>
-From: Lizhi Hou <lizhi.hou@amd.com>
-In-Reply-To: <20251014055034.274596-1-alexander.stein@ew.tq-group.com>
-Content-Type: text/plain; charset="UTF-8"; format=flowed
-Content-Transfer-Encoding: 7bit
-X-EOPAttributedMessage: 0
-X-MS-PublicTrafficType: Email
-X-MS-TrafficTypeDiagnostic: BL02EPF0001A0FC:EE_|DS0PR12MB6607:EE_
-X-MS-Office365-Filtering-Correlation-Id: 6d2978eb-fb3a-41e3-e53c-08de0b45debf
-X-MS-Exchange-SenderADCheck: 1
-X-MS-Exchange-AntiSpam-Relay: 0
-X-Microsoft-Antispam: BCL:0;ARA:13230040|82310400026|1800799024|36860700013|376014|7053199007;
-X-Microsoft-Antispam-Message-Info: =?utf-8?B?QjIzOUtFWkp2T0tja25kWkQ2WmNXZmtLS2ZYbGtVSXkyWlZYOEdOSnVDUk94?=
- =?utf-8?B?TGQ3YThIYjl0OXp0MFAyeHBpVGFjRFVtYU81Rko5ZnNQQ01iR2pDdHBIZGx6?=
- =?utf-8?B?ZzFQdkllb3JOZXE0SmdZVVlmTkZ0VFhrWnAwRjJISWE1eGUzczJpZ01SNmRu?=
- =?utf-8?B?UDJscFY4Q250QXlBN2VKZHRwN0hpRFBvMXd4czNMOXAvUzZwVXBtMlAzTWRM?=
- =?utf-8?B?cEFmSk5RM1RkNXNsaThLclNEVFY3Uk1EVWo3NEdGUW11eXlZcFNyYkF1NC9s?=
- =?utf-8?B?Qm5RV0dKcXd1d2doTzJ1VHIwU2VzdE9UN2VGajR5L2E0VlBrNitDdGVwR3JL?=
- =?utf-8?B?OTJmNWdvdnFST3I1S0dRSnZUVVJHbEN2U2NWRnlkYktNTE1lakRsYWxpTkNM?=
- =?utf-8?B?Z0Y2UXc2YzFmU0FlQkxxZkFKZm5IbE5JSlEwemVKSFVlZ2R2c1Z4c0VQeURs?=
- =?utf-8?B?OFArdmR3VzVkRWRTTi83anJtcS9BQllqVXRuMUFrd05DVjlsbDlzWDl6aTZV?=
- =?utf-8?B?eEZ0ZFM5alBoYk92R2x4am9uWThwRFlVUTVwSkNqWE9SV0E2dnpJaWJIT2kz?=
- =?utf-8?B?M0gxb2dmMDVMbk9jV0QvYnlBNnBlQlZ4dWRLWmdGUEFKWGFUTCt0b1N6WWVK?=
- =?utf-8?B?TEJOeGdEelFqYjhvcWVkRXltdFVXaG5ka1d2dHlKOUJXaHN4M1dJc3I3MkQw?=
- =?utf-8?B?OEpPMHYyWWl3emgyZlR1a1RRYS9TVmhTSHVoZEJtS1Rrc2pqS1VxZFVUcTdJ?=
- =?utf-8?B?Ri91TWw5YWhFOHlSZEhKTUNGb3lBWjNiamlNN2o2K1FyM282Sk56TXNkVUZ5?=
- =?utf-8?B?NkpEeFh4T1hoMStoNEtJcU5ybXJaa1hxK0tyajErSmNJS0c5MEpzZ2c5QWhQ?=
- =?utf-8?B?eDBJRWd5dFNlUjFyejh2WEZIQ2dTbWlPazB1OXVPQUcraXl4Q21xaExKUDhJ?=
- =?utf-8?B?NUlMcitQR0lnUUZJb1FMQ3hxOUNXd1pXZmlYS1ExTTFLSWU0L2laTi9HM2lM?=
- =?utf-8?B?aDVQZXNXYm1JSWJDODZJQ2xtcjdWWjZHdldyOUI1ZDFBUG9iVnN6elBtdk4v?=
- =?utf-8?B?VXpCeElNN2VWU0VDaStTQ2pPa3YrdGw4VW1Rc1ZqbDgzbkhOVUVwUHI1ekpP?=
- =?utf-8?B?TjRMa2Q4aTBXL3paaGl0bjdvalhWcXVmMkJPOFpQcElOUmJTUUtub2llTFB1?=
- =?utf-8?B?cHlWRldjc29MaktOemRCcnZ5WS9haVphRGpBd2haT0d4OThvejBCS092L1ZV?=
- =?utf-8?B?M3Y0V05kRzhJc085bzBQWk1LY2RVaUMyc3ZHc2gybkRZWkQzOUg2R0JyUFUy?=
- =?utf-8?B?clVzc0hyL1hHcW11eEJnK2FYNU1idXU4U1FUZVRKQXRHUWlyV21QT3dQalMv?=
- =?utf-8?B?RzdjTDJXSHZIM1EvN29OVEZJUFNSdWJRSnhrY05GN2NWMmFZS2FyWWVyV05n?=
- =?utf-8?B?ZzFiNEUwVjBWK2J3U2d5Rlh3V1NFTHNoakhQVDlFT21heHQ0MVdEVW5LSUF5?=
- =?utf-8?B?MTFWWnpVRS84dnBpWkw2bFNvYWlzMU9SeVMxcVNFKy8vUStyMnk2Sjk4UVhI?=
- =?utf-8?B?RWVnV2x6Q01XREM0dW1ibnpWNEE1L0UwRlJxaVRhZUx3WWszUUpUaFg0SU94?=
- =?utf-8?B?eXZYLzZMMG5lNVhQUEszZDlKK3BCcWF1VktQbStscTk5T2pxMmhGZy9BS2M0?=
- =?utf-8?B?K1FDdEZiMHRZSFdDcnRjeCtDOXZKNEg2NzBzc2hDWjQ5eU5rS0hIdGM5L3BV?=
- =?utf-8?B?QXBmMGpZMFU2eStpU3lwRVhWbWxSdDczOTFVQVNveWVybXJoWEt5c2Q2d2p3?=
- =?utf-8?B?elZOYU83M1kya0tZNG8yd1FsTm9Qd2RyRkE1Z2lDMGVmVnZ6Q0wvaHExUHdD?=
- =?utf-8?B?R1oySlQ2QmhnRk52VVJTRkhnd2NHTFhmNW8xb1o5R2dnL1dHTHhVSm1YclhY?=
- =?utf-8?B?SWZXVWVyZlo0cnZTOWUrZTJyem01MUV5NXFndURpQlowVXZTZzZqV211MG9P?=
- =?utf-8?B?NDJJd2xNNTM5bEFCNWVzTE42cFhWSEZ5OUwrcnRQL1NLeXJWZjUrMktnbFQ5?=
- =?utf-8?B?VkgzMlhLbk5vWTcrRjRqdEYwV0RiRlREZDRteldaWXUxdWRiZ255OVFpNkpQ?=
- =?utf-8?Q?wO5E=3D?=
-X-Forefront-Antispam-Report: CIP:165.204.84.17;CTRY:US;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:satlexmb08.amd.com;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(82310400026)(1800799024)(36860700013)(376014)(7053199007);DIR:OUT;SFP:1101;
-X-OriginatorOrg: amd.com
-X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Oct 2025 17:19:45.0513
- (UTC)
-X-MS-Exchange-CrossTenant-Network-Message-Id: 6d2978eb-fb3a-41e3-e53c-08de0b45debf
-X-MS-Exchange-CrossTenant-Id: 3dd8961f-e488-4e60-8e11-a82d994e183d
-X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=3dd8961f-e488-4e60-8e11-a82d994e183d;Ip=[165.204.84.17];Helo=[satlexmb08.amd.com]
-X-MS-Exchange-CrossTenant-AuthSource: BL02EPF0001A0FC.namprd03.prod.outlook.com
-X-MS-Exchange-CrossTenant-AuthAs: Anonymous
-X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
-X-MS-Exchange-Transport-CrossTenantHeadersStamped: DS0PR12MB6607
+Content-Transfer-Encoding: quoted-printable
+In-Reply-To: <20250916144710.1285650-1-kieran.bingham@ideasonboard.com>
+References: <20250916144710.1285650-1-kieran.bingham@ideasonboard.com>
+Subject: Re: [PATCH] arm64: dts: freescale: debix-som-a-bmb-08: Enable HDMI output
+From: Kieran Bingham <kieran.bingham@ideasonboard.com>
+Cc: Shawn Guo <shawnguo2@yeah.net>, Marco Felsch <m.felsch@pengutronix.de>
+To: Conor Dooley <conor+dt@kernel.org>, Fabio Estevam <festevam@gmail.com>, Krzysztof Kozlowski <krzk+dt@kernel.org>, Pengutronix Kernel Team <kernel@pengutronix.de>, Rob Herring <robh@kernel.org>, Sascha Hauer <s.hauer@pengutronix.de>, Shawn Guo <shawnguo@kernel.org>, devicetree@vger.kernel.org, imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Date: Tue, 14 Oct 2025 18:37:23 +0100
+Message-ID: <176046344348.1246375.13335893574135284814@ping.linuxembedded.co.uk>
+User-Agent: alot/0.9.1
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_101954_847344_E2F15B62 
-X-CRM114-Status: GOOD (  17.81  )
+X-CRM114-CacheID: sfid-20251014_103731_527721_CD1749F1 
+X-CRM114-Status: GOOD (  13.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -157,127 +66,122 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Reviewed-by: Lizhi Hou <lizhi.hou@amd.com>
+Hi All,
 
-On 10/13/25 22:50, Alexander Stein wrote:
-> The XDMA bar is 64KiB, way too much for debugfs dump. Add register range
-> definitions for all defined registers in PG195. As this is PCIe memory
-> range all readable registers are marked as volatile.
->
-> Signed-off-by: Alexander Stein <alexander.stein@ew.tq-group.com>
+Quoting Kieran Bingham (2025-09-16 15:47:09)
+> Enable the HDMI output on the Debix SOM A board, using the HDMI encoder
+> present in the i.MX8MP SoC.
+>=20
+> Enable and configure all nodes required for the HDMI port usage.
+>=20
+> Signed-off-by: Kieran Bingham <kieran.bingham@ideasonboard.com>
+
+One review tag at https://lore.kernel.org/all/20250925171744.5eyhqjlqp7skes=
+qi@pengutronix.de/
+
+Could anyone be able to review / collect / apply this one please?
+
+--
+Regards
+
+Kieran
+
+
 > ---
-> Although the change itself is independent, this patch context depends on
-> [1].
->
-> [1] https://lore.kernel.org/all/20251013-xdma-max-reg-v5-1-83efeedce19d@amarulasolutions.com/
->
->   drivers/dma/xilinx/xdma.c | 89 +++++++++++++++++++++++++++++++++++++++
->   1 file changed, 89 insertions(+)
->
-> diff --git a/drivers/dma/xilinx/xdma.c b/drivers/dma/xilinx/xdma.c
-> index 5ecf8223c112e..3d9e92bbc9bb0 100644
-> --- a/drivers/dma/xilinx/xdma.c
-> +++ b/drivers/dma/xilinx/xdma.c
-> @@ -33,12 +33,101 @@
->   #include "../virt-dma.h"
->   #include "xdma-regs.h"
->   
-> +static const struct regmap_range xdma_wr_ranges[] = {
-> +	/* H2C channel registers */
-> +	regmap_reg_range(0x0004, 0x000c),
-> +	regmap_reg_range(0x0040, 0x0040),
-> +	regmap_reg_range(0x0088, 0x0098),
-> +	regmap_reg_range(0x00c0, 0x00c0),
-> +	/* C2H channel registers */
-> +	regmap_reg_range(0x1004, 0x100c),
-> +	regmap_reg_range(0x1040, 0x1040),
-> +	regmap_reg_range(0x1088, 0x1098),
-> +	regmap_reg_range(0x10c0, 0x10c0),
-> +	/* IRQ Block registers */
-> +	regmap_reg_range(0x2004, 0x2018),
-> +	regmap_reg_range(0x2080, 0x208c),
-> +	regmap_reg_range(0x20a0, 0x20a4),
-> +	/* Config Block registers */
-> +	regmap_reg_range(0x301c, 0x301c),
-> +	regmap_reg_range(0x3040, 0x3044),
-> +	regmap_reg_range(0x3060, 0x3060),
-> +	/* H2C SGDMA registers */
-> +	regmap_reg_range(0x4080, 0x408c),
-> +	/* C2H SGDMA registers */
-> +	regmap_reg_range(0x5080, 0x508c),
-> +	/* SGDMA Common registers */
-> +	regmap_reg_range(0x6010, 0x6018),
-> +	regmap_reg_range(0x6020, 0x6028),
-> +	/* MSI-X Vector Table and PBA */
-> +	regmap_reg_range(0x8000, 0x81fc),
-> +	regmap_reg_range(0x8fe0, 0x8fe0),
-> +};
-> +static const struct regmap_range xdma_rd_ranges[] = {
-> +	/* H2C channel registers */
-> +	regmap_reg_range(0x0000, 0x0004),
-> +	regmap_reg_range(0x0040, 0x004c),
-> +	regmap_reg_range(0x0088, 0x0090),
-> +	regmap_reg_range(0x00c0, 0x00d0),
-> +	/* C2H channel registers */
-> +	regmap_reg_range(0x1000, 0x1004),
-> +	regmap_reg_range(0x1040, 0x104c),
-> +	regmap_reg_range(0x1088, 0x1090),
-> +	regmap_reg_range(0x10c0, 0x10d0),
-> +	/* IRQ Block registers */
-> +	regmap_reg_range(0x2000, 0x2004),
-> +	regmap_reg_range(0x2010, 0x2010),
-> +	regmap_reg_range(0x2040, 0x204c),
-> +	regmap_reg_range(0x2080, 0x208c),
-> +	regmap_reg_range(0x20a0, 0x20a4),
-> +	/* Config Block registers */
-> +	regmap_reg_range(0x3000, 0x301c),
-> +	regmap_reg_range(0x3040, 0x3044),
-> +	regmap_reg_range(0x3060, 0x3060),
-> +	/* H2C SGDMA registers */
-> +	regmap_reg_range(0x4000, 0x4000),
-> +	regmap_reg_range(0x4080, 0x408c),
-> +	/* C2H SGDMA registers */
-> +	regmap_reg_range(0x5000, 0x5000),
-> +	regmap_reg_range(0x5080, 0x508c),
-> +	/* SGDMA Common registers */
-> +	regmap_reg_range(0x6000, 0x6000),
-> +	regmap_reg_range(0x6010, 0x6010),
-> +	regmap_reg_range(0x6020, 0x6020),
-> +	/* MSI-X Vector Table and PBA */
-> +	regmap_reg_range(0x8000, 0x81fc),
-> +	regmap_reg_range(0x8fe0, 0x8fe0),
-> +};
-> +static const struct regmap_range xdma_precious_ranges[] = {
-> +	/* H2C channel registers */
-> +	regmap_reg_range(0x0044, 0x0044),
-> +	/* C2H channel registers */
-> +	regmap_reg_range(0x1044, 0x1044),
-> +};
-> +static const struct regmap_access_table xdma_wr_table = {
-> +	.yes_ranges = xdma_wr_ranges,
-> +	.n_yes_ranges = ARRAY_SIZE(xdma_wr_ranges),
-> +};
-> +static const struct regmap_access_table xdma_rd_table = {
-> +	.yes_ranges = xdma_rd_ranges,
-> +	.n_yes_ranges = ARRAY_SIZE(xdma_rd_ranges),
-> +};
-> +static const struct regmap_access_table xdma_precious_table = {
-> +	.yes_ranges = xdma_precious_ranges,
-> +	.n_yes_ranges = ARRAY_SIZE(xdma_precious_ranges),
+>=20
+> This replicates 4880ee1c9046 ("arm64: dts: imx8mp-debix-model-a: Enable
+> HDMI output") to support the Debix SOM as well.
+>=20
+>=20
+>  .../freescale/imx8mp-debix-som-a-bmb-08.dts   | 47 +++++++++++++++++++
+>  1 file changed, 47 insertions(+)
+>=20
+> diff --git a/arch/arm64/boot/dts/freescale/imx8mp-debix-som-a-bmb-08.dts =
+b/arch/arm64/boot/dts/freescale/imx8mp-debix-som-a-bmb-08.dts
+> index d241db3743a9..04619a722906 100644
+> --- a/arch/arm64/boot/dts/freescale/imx8mp-debix-som-a-bmb-08.dts
+> +++ b/arch/arm64/boot/dts/freescale/imx8mp-debix-som-a-bmb-08.dts
+> @@ -22,6 +22,18 @@ chosen {
+>                 stdout-path =3D &uart2;
+>         };
+> =20
+> +       hdmi-connector {
+> +               compatible =3D "hdmi-connector";
+> +               label =3D "hdmi";
+> +               type =3D "a";
+> +
+> +               port {
+> +                       hdmi_connector_in: endpoint {
+> +                               remote-endpoint =3D <&hdmi_tx_out>;
+> +                       };
+> +               };
+> +       };
+> +
+>         reg_baseboard_vdd3v3: regulator-baseboard-vdd3v3 {
+>                 compatible =3D "regulator-fixed";
+>                 regulator-min-microvolt =3D <3300000>;
+> @@ -222,6 +234,28 @@ flash: flash@0 {
+>         };
+>  };
+> =20
+> +&hdmi_pvi {
+> +       status =3D "okay";
 > +};
 > +
->   /* mmio regmap config for all XDMA registers */
->   static const struct regmap_config xdma_regmap_config = {
->   	.reg_bits = 32,
->   	.val_bits = 32,
->   	.reg_stride = 4,
->   	.max_register = XDMA_MAX_REG_OFFSET,
-> +	.wr_table = &xdma_wr_table,
-> +	.rd_table = &xdma_rd_table,
-> +	.volatile_table = &xdma_rd_table,
-> +	.precious_table = &xdma_precious_table,
-> +	.cache_type = REGCACHE_NONE,
->   };
->   
->   /**
+> +&hdmi_tx {
+> +       pinctrl-names =3D "default";
+> +       pinctrl-0 =3D <&pinctrl_hdmi>;
+> +       status =3D "okay";
+> +
+> +       ports {
+> +               port@1 {
+> +                       hdmi_tx_out: endpoint {
+> +                               remote-endpoint =3D <&hdmi_connector_in>;
+> +                       };
+> +               };
+> +       };
+> +};
+> +
+> +&hdmi_tx_phy {
+> +       status =3D "okay";
+> +};
+> +
+>  &i2c4 {
+>         expander0: gpio@20 {
+>                 compatible =3D "nxp,pca9535";
+> @@ -276,6 +310,10 @@ ethmac2: mac-address@c {
+>         };
+>  };
+> =20
+> +&lcdif3 {
+> +       status =3D "okay";
+> +};
+> +
+>  &snvs_pwrkey {
+>         status =3D "okay";
+>  };
+> @@ -430,6 +468,15 @@ MX8MP_IOMUXC_NAND_DATA03__FLEXSPI_A_DATA03      0x82
+>                 >;
+>         };
+> =20
+> +       pinctrl_hdmi: hdmigrp {
+> +               fsl,pins =3D <
+> +                       MX8MP_IOMUXC_HDMI_DDC_SCL__HDMIMIX_HDMI_SCL     0=
+x1c3
+> +                       MX8MP_IOMUXC_HDMI_DDC_SDA__HDMIMIX_HDMI_SDA     0=
+x1c3
+> +                       MX8MP_IOMUXC_HDMI_HPD__HDMIMIX_HDMI_HPD         0=
+x19
+> +                       MX8MP_IOMUXC_HDMI_CEC__HDMIMIX_HDMI_CEC         0=
+x19
+> +               >;
+> +       };
+> +
+>         pinctrl_i2c1: i2c1grp {
+>                 fsl,pins =3D <
+>                         MX8MP_IOMUXC_I2C1_SCL__I2C1_SCL                 0=
+x400001c2
+> --=20
+> 2.50.1
+>
 
