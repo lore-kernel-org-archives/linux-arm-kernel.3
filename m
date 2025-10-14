@@ -4,84 +4,80 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 39910CCD192
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 13:19:32 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id B551DCCD192
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 13:21:57 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=n3kisYYJrLUrT8e3FZu19lB3U1OVttftZK5ZY8XI5SE=; b=wMwjr6rcIpAihayeIHGzJCJo3p
-	RoeiJ3Enpad9LVJuZaE+wFaOTbdW7ShB0P3iROpBjIAK//DPGvAw19k5KSscK44SDRDDe2hjWOkhy
-	SnJbRj4xxUo1S/aSrIBnLtBGSaL61nROqqr2gR7EjeA9w+7XvfskdRcl7RDk//jN73Xn1b5s6FPo4
-	id/puzRTRIgnqmuI7Ep6AKRkTyUuMXdDm1NGyXjre23x9Kel/H3tNk0YYOBZXqfkQeYRcea0/qdAo
-	B10rEkTkHLZ4u5VbFPSgVYjIiru9+BDbQmzx2jjGSzX2CFCltIqhVJOVLf5SJ/qSBp2bof6ZVmP6/
-	yO95hUzA==;
+	bh=CWNyQpTWJZMvNzHiUEkZt8AFGUCv42v6ziQQlkYhwTw=; b=rpBZ0TfzikUQirgfX9rsPxSuVw
+	14hRsuJw86/FGjPcFqN9GtmTVGUo/4/Op62aCFOmTEsAHUONzYvEk/K3vWaYPWihqM63Ta7lUZ7Ob
+	UaRfV2kLdS7nTxF6tND2/1O+WyStfT+/xfieTXUlZJzsK1kFacDYY8Vl2c4CS+HJwrUD2QvGlTXbs
+	Ykq+B4mExoOr4DnmpsYZJb3mg6jiL/TpQ9t/jwJ9tv7+3lxZbGgx8jSbCJUriWf8X1VgXeJxqkUl7
+	VYiTSC38cUM1O3lADs3rz+IYsvPBtxEPjNslBDPAOzLbnT1WDCZpFdIQMrgwWe9nCreziKrQCbY4/
+	VRIi2iRQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8ew2-0000000GSFo-02hv;
-	Tue, 14 Oct 2025 13:19:26 +0000
+	id 1v8eyN-0000000GSmt-28Hx;
+	Tue, 14 Oct 2025 13:21:51 +0000
 Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8ew0-0000000GSFH-1yyh;
-	Tue, 14 Oct 2025 13:19:24 +0000
+	id 1v8eyM-0000000GSmS-2fd2;
+	Tue, 14 Oct 2025 13:21:50 +0000
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
 	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
 	Sender:Reply-To:Content-ID:Content-Description;
-	bh=n3kisYYJrLUrT8e3FZu19lB3U1OVttftZK5ZY8XI5SE=; b=fwx9wouZVT6j0L4gNXYf7V+3tw
-	p+jPMsEaMEi/AJZPl0Gka0nYsEy8yRDWtd6cpx7SercQzoqI9bqPcWUviZ7wcS7PHXgZ6KaJ8z+tn
-	J4JYepjJJ4xTO8y+MTYVJmbaRPEmoZwKme88gXFDjo7nDm0bNNvR6XxdUOs+2jQvsf/Ijn27JLr8U
-	7/+XGifsMCeLXYSfQ0/AgstpF76bUZ4R4Uh2QaJ8/5BSsCyHwSkXAAFxPLHJTy7cFYzPiZ/oGqzxq
-	gD2VXF9KJ9pMlUsQiiBuhzXzxEMFKYfLL8pmJO9U2RZrMuo4/uWa9jN11STJ88RWoSz64EK2OZjLE
-	YVENgX6g==;
+	bh=CWNyQpTWJZMvNzHiUEkZt8AFGUCv42v6ziQQlkYhwTw=; b=c3fZCyRxDB2DJeSxljSeIDnvfA
+	tRS+AXduDd0GdPaZQvvaTf4gVxSzOs08cY1KwAUqqLwFkYQXNgsp/1cCZnqgw2F4UWuysI0SMp7BO
+	sO/HkllDu1crPpRgQ890mYOMZ8IWofJpdNQv2aTEO7TBw8RhTwm9T7ZYqJgHLoMvs+Lf64N7v7DzE
+	nM1KTSNIGdMLTKoiON1r92iIloaRcfPoqqyyNKczABlndhS0YW4lZtWLAKeIykW0VhKruAsdnG0dX
+	I+MU+JyQ8xU3D1VaMGygHwRkQ2SZUxA3VPTPeB6nW0B/txQuw3JQ1kdTZcJuu2EkyRlPcLYB2g/Ef
+	9pIBjJWQ==;
 Received: from bali.collaboradmins.com ([148.251.105.195])
 	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8evx-00000005Byt-0oId;
-	Tue, 14 Oct 2025 13:19:23 +0000
+	id 1v8eyJ-00000005C9v-0bvn;
+	Tue, 14 Oct 2025 13:21:49 +0000
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=collabora.com;
-	s=mail; t=1760447951;
-	bh=gQxUDGegM8VkIfBkYPZWqsIF3HBSy2cYwjYwHQ7pvC8=;
+	s=mail; t=1760448105;
+	bh=zCgNIkIe81eviywn2khOOfKzvpgqFCye5+tn1JB2k8U=;
 	h=Date:Subject:To:Cc:References:From:In-Reply-To:From;
-	b=iK/ZnFL+jXF169b5rN3F52mi251gRInDD9/xPQ8/C9/7szD2G5wZAyninheV9MaQu
-	 TFC4rTb07gkWxiROZwPNoItAa0pJ58kyvKCfij1PcgT4B566aZQB2IEmBf+xiTJ3Wc
-	 uid6RwjuflaJfoDEVo+iBxLmpcdxskvWTq90NAjmOhDg9B2dfF51VN+vztqZE4zYbg
-	 2q0QA3ArZvEVNyaacL9iqwD0hWJMChnnm4ZnB4kUzjk3qh12k01GXXiJ/9W3y/jF9b
-	 241yHy8DfmaFSaW0O8HfDH1ssOJvSZvfOMIPdvHO4qjTksbj8MTM9+WeyCpX3pYAkT
-	 t6Gtjycqa9LUQ==
+	b=FDLpWcw0QdVM7FZLv7GALWkFRQzRz88Rz/7SCz38RKgob7fEVhvcWSuo/lCAJJJg9
+	 uCYNCecDlFyuYrFMeQDRbTtSOCUXJ0r9p2wd1jIXqUbKVKm9FC58046YYpOmE6LS4s
+	 3FBi3WNJATGPXHWd+rp5QNHTBptH6vNr+XsvbonXtkyjYnso06FwSg6lN2/zzUMHkx
+	 F5pqMIX/ZLulBNiVmXsyj8uhEVaHhc1rIhBz6BhjDAYX98SiQwvGwC3cm5RU1spxGG
+	 yWk5JP5TnJkvcwcYRWjtovbL+zgHKB1Q5mO7VlMAiibduOMXzioEtvLn6EQGJa/SnX
+	 ustCBjyvJeQRQ==
 Received: from [192.168.1.100] (2-237-20-237.ip236.fastwebnet.it [2.237.20.237])
 	(using TLSv1.3 with cipher TLS_AES_128_GCM_SHA256 (128/128 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits))
+	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
 	(Authenticated sender: kholk11)
-	by bali.collaboradmins.com (Postfix) with ESMTPSA id 2924B17E003B;
-	Tue, 14 Oct 2025 15:19:11 +0200 (CEST)
-Message-ID: <831f714b-f27a-4a3d-b256-e170ff0d65a4@collabora.com>
-Date: Tue, 14 Oct 2025 15:19:10 +0200
+	by bali.collaboradmins.com (Postfix) with ESMTPSA id BFBFF17E003B;
+	Tue, 14 Oct 2025 15:21:44 +0200 (CEST)
+Message-ID: <4e0d5f72-c35c-4c04-b0a0-dfcd5cb9ca59@collabora.com>
+Date: Tue, 14 Oct 2025 15:21:44 +0200
 MIME-Version: 1.0
 User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH 1/3] dt-bindings: gpu: mali-bifrost: Add compatible for
- MT8365 SoC
-To: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>,
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>,
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>,
- David Airlie <airlied@gmail.com>, Simona Vetter <simona@ffwll.ch>,
- Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
- Conor Dooley <conor+dt@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>
-Cc: kernel@collabora.com, dri-devel@lists.freedesktop.org,
- devicetree@vger.kernel.org, linux-kernel@vger.kernel.org,
+Subject: Re: [PATCH v3] wifi: mt76: Use of_reserved_mem_region_to_resource()
+ for "memory-region"
+To: "Rob Herring (Arm)" <robh@kernel.org>, Felix Fietkau <nbd@nbd.name>,
+ Lorenzo Bianconi <lorenzo@kernel.org>, Ryder Lee <ryder.lee@mediatek.com>,
+ Shayne Chen <shayne.chen@mediatek.com>, Sean Wang <sean.wang@mediatek.com>,
+ Matthias Brugger <matthias.bgg@gmail.com>
+Cc: linux-wireless@vger.kernel.org, linux-kernel@vger.kernel.org,
  linux-arm-kernel@lists.infradead.org, linux-mediatek@lists.infradead.org
-References: <20250813-mt8365-enable-gpu-v1-0-46c44c6c1566@collabora.com>
- <20250813-mt8365-enable-gpu-v1-1-46c44c6c1566@collabora.com>
+References: <20250813214917.897113-1-robh@kernel.org>
 From: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
 Content-Language: en-US
-In-Reply-To: <20250813-mt8365-enable-gpu-v1-1-46c44c6c1566@collabora.com>
+In-Reply-To: <20250813214917.897113-1-robh@kernel.org>
 Content-Type: text/plain; charset=UTF-8; format=flowed
 Content-Transfer-Encoding: 7bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_141921_558896_58C220EB 
-X-CRM114-Status: UNSURE (   6.67  )
+X-CRM114-CacheID: sfid-20251014_142147_442796_DC7EBCAF 
+X-CRM114-Status: UNSURE (   5.11  )
 X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
@@ -97,18 +93,13 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Il 13/08/25 11:25, Louis-Alexis Eyraud ha scritto:
-> Add a compatible for the MediaTek MT8365 SoC, that has an integrated
-> ARM Mali G52 MC1 GPU and compatible with arm,mali-bifrost.
+Il 13/08/25 23:49, Rob Herring (Arm) ha scritto:
+> Use the newly added of_reserved_mem_region_to_resource() function to
+> handle "memory-region" properties.
 > 
-> Signed-off-by: Louis-Alexis Eyraud <louisalexis.eyraud@collabora.com>
+> Signed-off-by: Rob Herring (Arm) <robh@kernel.org>
 
 Reviewed-by: AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>
-
-P.S.: Can anyone pick this so that I can pick the devicetree commits? :-)
-
-Cheers,
-Angelo
 
 
 
