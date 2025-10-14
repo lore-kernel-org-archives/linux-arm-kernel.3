@@ -4,67 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E4D1ECCD195
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 13:30:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 8A891CCD192
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 13:44:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
-	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
-	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=HscI8uJJkavBO317OukE/wWvBCiAPC54YchJtUy46Ro=; b=MJ7I6+T8t4GAYkJWMkkR0oRrRU
-	dN6iBYEkaC57sxJ5bwgBVqfSj8KnhMuSTMfDctPqEDGRiMshFS4+Yj1kbXazmkpk3rg21GXNHP7lx
-	2zJGSqy58cs4rnkxSChjZDx63qOtoe5FXQLriy19SPkqC1o/V9rkT1W8WVPEjsCVuPjhlrs3HpCyC
-	g2Zvdq1uF0G7W1LmNiW8jtZvkvLCaH2q2UtuOfoHIMn8Y/y8JLrSQxaPHW5DsJKhKtJXi71MoDtx4
-	nvVJVTK63PrIWEbcWMNoNqwAka6epH+gITmcgikcG5vOmjmZtkM8WgpzoVtCAgsdCyLnr3jh6q12C
-	Zc+6zjSQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=usQROcgrtVOvzODeP+1/ScXY4pMsSqL1oEBvU3RwOH0=; b=zcAD8Y6WuLJ6ZzsCT0T6ESHaap
+	wRfyELurhQwLOeUOtO8xJvnn5efvsw7u16Qdy/z7MNK5HAsGixO2/nBbD5IuIBK8vWn2TExvir5xN
+	zmmw3kbIyWGXJK0/JURQ1ee+DEt7YupND/IdXgAYcY3c8WFPsRkhRHj8qthZYchmT9xMSBE3Fna2A
+	7GQ+CKVikHHoIO7QsIDuYHLZ7kfMTLB8OMIuKtJOy07oOwhM4ITS1bw4VssxmcIBtxT26TtAlC7zY
+	OUqGNt9JgA4TklLGq1FuKAlUisVDFULbcVDq6ZovfnUnOhATy/NPNjInpBq1i5futA65zqYTkyBBG
+	p8QtU30w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8f6F-0000000GUgO-2vp9;
-	Tue, 14 Oct 2025 13:29:59 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8f6E-0000000GUfe-19Pn
+	id 1v8fJr-0000000GWN3-43TH;
+	Tue, 14 Oct 2025 13:44:04 +0000
+Received: from foss.arm.com ([217.140.110.172])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v8fJo-0000000GWMQ-2Ffs
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 13:29:58 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id 899D7603E6;
-	Tue, 14 Oct 2025 13:29:27 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 13F9CC4CEF1;
-	Tue, 14 Oct 2025 13:29:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760448567;
-	bh=QiXQnftXW1d9rJAEQ6KtRkpR9BslCCYM3ivIwvsJqxc=;
-	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
-	b=TAnMWUCif1YonqEkAVnuSFvB9eNbrhifuqgaBBrwMBTNteapV79Ueu7vp+yHXBisi
-	 SUhbbM0TkJ53cHe0D250faJ4U46BzFgIeW3W38IjcKeDy+s7Oxh4QYn8eVXglp4OfK
-	 Fm/IeSQy1df0UevAGeU37JHvhsH11HP4s9S3wsDaHSwmgT34LLIGEb56gON944mhHh
-	 Wd5XlZWektTvp3MFajwCEgx9oSoY6CSa8a57zGLTcsRPBVxC40URyj4dAxD+vjGV5K
-	 MNvnqlRVKZiM6b/XkcoKgwQzpJmImqeFGUCN/tFyHSvDVzhFb4pUbWOTTxdgeomfBs
-	 4bAA1Tnn51M6A==
-Date: Tue, 14 Oct 2025 08:29:25 -0500
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
+	Tue, 14 Oct 2025 13:44:02 +0000
+Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 2E7DB1A9A;
+	Tue, 14 Oct 2025 06:43:51 -0700 (PDT)
+Received: from [10.57.7.84] (unknown [10.57.7.84])
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id EE97E3F66E;
+	Tue, 14 Oct 2025 06:43:56 -0700 (PDT)
+Message-ID: <86ca3918-4992-41a2-894f-f1fd8ce4121f@arm.com>
+Date: Tue, 14 Oct 2025 14:43:53 +0100
 MIME-Version: 1.0
-From: "Rob Herring (Arm)" <robh@kernel.org>
-Cc: linux-renesas-soc@vger.kernel.org, devicetree@vger.kernel.org, 
- Matt Coster <matt.coster@imgtec.com>, Magnus Damm <magnus.damm@gmail.com>, 
- Adam Ford <aford173@gmail.com>, Frank Binns <frank.binns@imgtec.com>, 
- Simona Vetter <simona@ffwll.ch>, 
- Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>, 
- dri-devel@lists.freedesktop.org, 
- Maarten Lankhorst <maarten.lankhorst@linux.intel.com>, 
- Maxime Ripard <mripard@kernel.org>, Thomas Zimmermann <tzimmermann@suse.de>, 
- Geert Uytterhoeven <geert+renesas@glider.be>, 
- Conor Dooley <conor+dt@kernel.org>, 
- Krzysztof Kozlowski <krzk+dt@kernel.org>, David Airlie <airlied@gmail.com>, 
- linux-arm-kernel@lists.infradead.org
-To: Marek Vasut <marek.vasut+renesas@mailbox.org>
-In-Reply-To: <20251013190210.142436-1-marek.vasut+renesas@mailbox.org>
-References: <20251013190210.142436-1-marek.vasut+renesas@mailbox.org>
-Message-Id: <176044840106.3094437.2331943625522490352.robh@kernel.org>
-Subject: Re: [PATCH 1/3] dt-bindings: gpu: img,powervr-rogue: Document
- GX6250 GPU in Renesas R-Car M3-W/M3-W+
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v5 4/4] iommu/io-pgtable-arm-selftests: Use KUnit
+To: Mostafa Saleh <smostafa@google.com>, iommu@lists.linux.dev,
+ linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
+Cc: will@kernel.org, joro@8bytes.org, jgg@ziepe.ca, praan@google.com,
+ Jason Gunthorpe <jgg@nvidia.com>
+References: <20250929155001.3287719-1-smostafa@google.com>
+ <20250929155001.3287719-5-smostafa@google.com>
+From: Robin Murphy <robin.murphy@arm.com>
+Content-Language: en-GB
+In-Reply-To: <20250929155001.3287719-5-smostafa@google.com>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251014_064400_735401_A8F19110 
+X-CRM114-Status: GOOD (  29.62  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,180 +66,297 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-On Mon, 13 Oct 2025 21:01:17 +0200, Marek Vasut wrote:
-> Document Imagination Technologies PowerVR Rogue GX6250 BNVC 4.45.2.58
-> present in Renesas R-Car R8A77960 M3-W and R8A77961 M3-W+ SoC.
+On 2025-09-29 4:49 pm, Mostafa Saleh wrote:
+> Integrate the selftests as part of kunit.
 > 
-> Signed-off-by: Marek Vasut <marek.vasut+renesas@mailbox.org>
-> ---
-> Cc: Adam Ford <aford173@gmail.com>
-> Cc: Conor Dooley <conor+dt@kernel.org>
-> Cc: David Airlie <airlied@gmail.com>
-> Cc: Frank Binns <frank.binns@imgtec.com>
-> Cc: Geert Uytterhoeven <geert+renesas@glider.be>
-> Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-> Cc: Kuninori Morimoto <kuninori.morimoto.gx@renesas.com>
-> Cc: Maarten Lankhorst <maarten.lankhorst@linux.intel.com>
-> Cc: Magnus Damm <magnus.damm@gmail.com>
-> Cc: Matt Coster <matt.coster@imgtec.com>
-> Cc: Maxime Ripard <mripard@kernel.org>
-> Cc: Rob Herring <robh@kernel.org>
-> Cc: Simona Vetter <simona@ffwll.ch>
-> Cc: Thomas Zimmermann <tzimmermann@suse.de>
-> Cc: devicetree@vger.kernel.org
-> Cc: dri-devel@lists.freedesktop.org
-> Cc: linux-renesas-soc@vger.kernel.org
-> ---
-> See https://gitlab.freedesktop.org/imagination/linux-firmware/-/issues/13
-> for related userspace bits.
-> ---
->  .../devicetree/bindings/gpu/img,powervr-rogue.yaml          | 6 ++++++
->  1 file changed, 6 insertions(+)
+> Now instead of the test only being run at boot, it can run:
 > 
+> - With CONFIG_IOMMU_IO_PGTABLE_LPAE_KUNIT_TEST=y
+>    It will automatically run at boot as before.
+> 
+> - Otherwise with CONFIG_IOMMU_IO_PGTABLE_KUNIT_TEST=m:
+>    1) on module load:
+>       Once the module load the self test will run
+>       # modprobe io-pgtable-arm-selftests
+> 
+>    2) debugfs
+>       With CONFIG_KUNIT_DEBUGFS=y You can run the test with
+>       # echo 1 > /sys/kernel/debug/kunit/io-pgtable-arm-test/run
+> 
+>    3) Using kunit.py
+>       You can also use the helper script which uses Qemu in the background
+> 
+>       # ./tools/testing/kunit/kunit.py run --build_dir build_kunit_arm64 --arch arm64 \
+>         --make_options LLVM=1 --kunitconfig ./kunit/kunitconfig
+>        [18:01:09] ============= io-pgtable-arm-test (1 subtest) ==============
+>        [18:01:09] [PASSED] arm_lpae_do_selftests
+>        [18:01:09] =============== [PASSED] io-pgtable-arm-test ===============
+>        [18:01:09] ============================================================
+> 
+> Suggested-by: Jason Gunthorpe <jgg@ziepe.ca>
+> Reviewed-by: Jason Gunthorpe <jgg@nvidia.com>
+> Reviewed-by: Pranjal Shrivastava <praan@google.com>
+> Signed-off-by: Mostafa Saleh <smostafa@google.com>
+> ---
+>   drivers/iommu/Kconfig                    | 11 ++--
+>   drivers/iommu/Makefile                   |  2 +-
+>   drivers/iommu/io-pgtable-arm-selftests.c | 82 +++++++++++++-----------
+>   3 files changed, 51 insertions(+), 44 deletions(-)
+> 
+> diff --git a/drivers/iommu/Kconfig b/drivers/iommu/Kconfig
+> index 553522ef3ca9..d50685433347 100644
+> --- a/drivers/iommu/Kconfig
+> +++ b/drivers/iommu/Kconfig
+> @@ -40,12 +40,13 @@ config IOMMU_IO_PGTABLE_LPAE
+>   	  sizes at both stage-1 and stage-2, as well as address spaces
+>   	  up to 48-bits in size.
+>   
+> -config IOMMU_IO_PGTABLE_LPAE_SELFTEST
+> -	tristate "LPAE selftests"
+> -	depends on IOMMU_IO_PGTABLE_LPAE
+> +config IOMMU_IO_PGTABLE_LPAE_KUNIT_TEST
+> +	tristate "KUnit tests for LPAE"
+> +	depends on IOMMU_IO_PGTABLE_LPAE && KUNIT
+> +	default KUNIT_ALL_TESTS
+>   	help
+> -	  Enable self-tests for LPAE page table allocator. This performs
+> -	  a series of page-table consistency checks during boot.
+> +	  Enable kunit tests for LPAE page table allocator. This performs
+> +	  a series of page-table consistency checks.
+>   
+>   	  If unsure, say N here.
+>   
+> diff --git a/drivers/iommu/Makefile b/drivers/iommu/Makefile
+> index 5250a2eea13f..ac3851570303 100644
+> --- a/drivers/iommu/Makefile
+> +++ b/drivers/iommu/Makefile
+> @@ -12,7 +12,7 @@ obj-$(CONFIG_IOMMU_DMA) += dma-iommu.o
+>   obj-$(CONFIG_IOMMU_IO_PGTABLE) += io-pgtable.o
+>   obj-$(CONFIG_IOMMU_IO_PGTABLE_ARMV7S) += io-pgtable-arm-v7s.o
+>   obj-$(CONFIG_IOMMU_IO_PGTABLE_LPAE) += io-pgtable-arm.o
+> -obj-$(CONFIG_IOMMU_IO_PGTABLE_LPAE_SELFTEST) += io-pgtable-arm-selftests.o
+> +obj-$(CONFIG_IOMMU_IO_PGTABLE_LPAE_KUNIT_TEST) += io-pgtable-arm-selftests.o
+>   obj-$(CONFIG_IOMMU_IO_PGTABLE_DART) += io-pgtable-dart.o
+>   obj-$(CONFIG_IOMMU_IOVA) += iova.o
+>   obj-$(CONFIG_OF_IOMMU)	+= of_iommu.o
+> diff --git a/drivers/iommu/io-pgtable-arm-selftests.c b/drivers/iommu/io-pgtable-arm-selftests.c
+> index 32c6a5c7af53..b61849a8a685 100644
+> --- a/drivers/iommu/io-pgtable-arm-selftests.c
+> +++ b/drivers/iommu/io-pgtable-arm-selftests.c
+> @@ -6,7 +6,8 @@
+>    *
+>    * Author: Will Deacon <will.deacon@arm.com>
+>    */
+> -#include <linux/device/faux.h>
+> +#include <kunit/device.h>
+> +#include <kunit/test.h>
+>   #include <linux/io-pgtable.h>
+>   #include <linux/kernel.h>
+>   
+> @@ -47,13 +48,14 @@ static void arm_lpae_dump_ops(struct io_pgtable_ops *ops)
+>   		cfg->pgsize_bitmap, cfg->ias, cfg->oas);
+>   }
+>   
+> -#define __FAIL(ops, i)	({						\
+> -		WARN(1, "selftest: test failed for fmt idx %d\n", (i));	\
+> -		arm_lpae_dump_ops(ops);					\
+> -		-EFAULT;						\
+> +#define __FAIL(test, ops, i)	({						\
+> +		KUNIT_FAIL(test, "");						\
+> +		kunit_err(test, "selftest: test failed for fmt idx %d\n", (i));	\
 
+This looks suspect - AFAICS open-coded kunit_err() is intended for test 
+infrastucture errors (like the allocation in the next hunk below), while 
+for an actual test report message it seems it should just be:
 
-My bot found new DTB warnings on the .dts files added or changed in this
-series.
+	KUNIT_FAIL(test, "selftest: test failed for fmt idx %d\n", (i));
 
-Some warnings may be from an existing SoC .dtsi. Or perhaps the warnings
-are fixed by another series. Ultimately, it is up to the platform
-maintainer whether these warnings are acceptable or not. No need to reply
-unless the platform maintainer has comments.
+> +		arm_lpae_dump_ops(ops);						\
+> +		-EFAULT;							\
+>   })
+>   
+> -static int arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
+> +static int arm_lpae_run_tests(struct kunit *test, struct io_pgtable_cfg *cfg)
+>   {
+>   	static const enum io_pgtable_fmt fmts[] = {
+>   		ARM_64_LPAE_S1,
+> @@ -69,7 +71,7 @@ static int arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
+>   		cfg_cookie = cfg;
+>   		ops = alloc_io_pgtable_ops(fmts[i], cfg, cfg);
+>   		if (!ops) {
+> -			pr_err("selftest: failed to allocate io pgtable ops\n");
+> +			kunit_err(test, "selftest: failed to allocate io pgtable ops\n");
+>   			return -ENOMEM;
+>   		}
+>   
+> @@ -78,13 +80,13 @@ static int arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
+>   		 * Empty page tables shouldn't provide any translations.
+>   		 */
+>   		if (ops->iova_to_phys(ops, 42))
+> -			return __FAIL(ops, i);
+> +			return __FAIL(test, ops, i);
+>   
+>   		if (ops->iova_to_phys(ops, SZ_1G + 42))
+> -			return __FAIL(ops, i);
+> +			return __FAIL(test, ops, i);
+>   
+>   		if (ops->iova_to_phys(ops, SZ_2G + 42))
+> -			return __FAIL(ops, i);
+> +			return __FAIL(test, ops, i);
+>   
+>   		/*
+>   		 * Distinct mappings of different granule sizes.
+> @@ -97,16 +99,16 @@ static int arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
+>   					   IOMMU_READ | IOMMU_WRITE |
+>   					   IOMMU_NOEXEC | IOMMU_CACHE,
+>   					   GFP_KERNEL, &mapped))
+> -				return __FAIL(ops, i);
+> +				return __FAIL(test, ops, i);
+>   
+>   			/* Overlapping mappings */
+>   			if (!ops->map_pages(ops, iova, iova + size, size, 1,
+>   					    IOMMU_READ | IOMMU_NOEXEC,
+>   					    GFP_KERNEL, &mapped))
+> -				return __FAIL(ops, i);
+> +				return __FAIL(test, ops, i);
+>   
+>   			if (ops->iova_to_phys(ops, iova + 42) != (iova + 42))
+> -				return __FAIL(ops, i);
+> +				return __FAIL(test, ops, i);
+>   
+>   			iova += SZ_1G;
+>   		}
+> @@ -117,18 +119,18 @@ static int arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
+>   			size = 1UL << j;
+>   
+>   			if (ops->unmap_pages(ops, iova, size, 1, NULL) != size)
+> -				return __FAIL(ops, i);
+> +				return __FAIL(test, ops, i);
+>   
+>   			if (ops->iova_to_phys(ops, iova + 42))
+> -				return __FAIL(ops, i);
+> +				return __FAIL(test, ops, i);
+>   
+>   			/* Remap full block */
+>   			if (ops->map_pages(ops, iova, iova, size, 1,
+>   					   IOMMU_WRITE, GFP_KERNEL, &mapped))
+> -				return __FAIL(ops, i);
+> +				return __FAIL(test, ops, i);
+>   
+>   			if (ops->iova_to_phys(ops, iova + 42) != (iova + 42))
+> -				return __FAIL(ops, i);
+> +				return __FAIL(test, ops, i);
+>   
+>   			iova += SZ_1G;
+>   		}
+> @@ -144,11 +146,11 @@ static int arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
+>   				   IOMMU_READ | IOMMU_WRITE |
+>   				   IOMMU_NOEXEC | IOMMU_CACHE,
+>   				   GFP_KERNEL, &mapped))
+> -			return __FAIL(ops, i);
+> +			return __FAIL(test, ops, i);
+>   		if (mapped != size)
+> -			return __FAIL(ops, i);
+> +			return __FAIL(test, ops, i);
+>   		if (ops->unmap_pages(ops, iova, size, 1, NULL) != size)
+> -			return __FAIL(ops, i);
+> +			return __FAIL(test, ops, i);
+>   
+>   		free_io_pgtable_ops(ops);
+>   	}
+> @@ -156,7 +158,7 @@ static int arm_lpae_run_tests(struct io_pgtable_cfg *cfg)
+>   	return 0;
+>   }
+>   
+> -static int arm_lpae_do_selftests(void)
+> +static void arm_lpae_do_selftests(struct kunit *test)
+>   {
+>   	static const unsigned long pgsize[] = {
+>   		SZ_4K | SZ_2M | SZ_1G,
+> @@ -169,18 +171,19 @@ static int arm_lpae_do_selftests(void)
+>   	};
+>   
+>   	int i, j, k, pass = 0, fail = 0;
+> -	struct faux_device *dev;
+> +	struct device *dev;
+>   	struct io_pgtable_cfg cfg = {
+>   		.tlb = &dummy_tlb_ops,
+>   		.coherent_walk = true,
+>   		.quirks = IO_PGTABLE_QUIRK_NO_WARN,
+>   	};
+>   
+> -	dev = faux_device_create("io-pgtable-test", NULL, 0);
+> -	if (!dev)
+> -		return -ENOMEM;
+> +	dev = kunit_device_register(test, "io-pgtable-test");
+> +	KUNIT_EXPECT_NOT_ERR_OR_NULL(test, dev);
 
-If you already ran DT checks and didn't see these error(s), then
-make sure dt-schema is up to date:
+Conversely, this is infrastructure, not an actual test of expected 
+io-pgtable behaviour, so I think just:
 
-  pip3 install dtschema --upgrade
+	cfg.iommu_dev = kunit_device_register(test, "io-pgtable-test");
+	if (IS_ERR(cfg.iommu_dev))
+		return;
 
+(it doesn't return NULLs either)
 
-This patch series was applied (using b4) to base:
- Base: attempting to guess base-commit...
- Base: tags/next-20251013 (exact match)
- Base: tags/next-20251013 (use --merge-base to override)
+Otherwise, there's clearly scope for plenty more follow-up work 
+streamlining and breaking the whole thing up into KUnit idioms, pulling 
+the v7s test in, etc... However as a first step to at least set things 
+firmly on the right KUnit-shaped path, I agree this seems enough for now.
 
-If this is not the correct base, please add 'base-commit' tag
-(or use b4 which does this automatically)
+Thanks,
+Robin.
 
-New warnings running 'make CHECK_DTBS=y for arch/arm64/boot/dts/renesas/' for 20251013190210.142436-1-marek.vasut+renesas@mailbox.org:
-
-Lexical error: arch/arm64/boot/dts/renesas/r8a77961.dtsi:2456.27-43 Unexpected 'R8A7796_PD_3DG_B'
-FATAL ERROR: Syntax error parsing input tree
-make[3]: *** [scripts/Makefile.dtbs:132: arch/arm64/boot/dts/renesas/r8a77961-ulcb-kf.dtb] Error 1
-make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/renesas] Error 2
-make[2]: Target 'arch/arm64/boot/dts/renesas/r8a77961-ulcb-kf.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1478: renesas/r8a77961-ulcb-kf.dtb] Error 2
-Lexical error: arch/arm64/boot/dts/renesas/r8a77961.dtsi:2456.27-43 Unexpected 'R8A7796_PD_3DG_B'
-FATAL ERROR: Syntax error parsing input tree
-make[3]: *** [scripts/Makefile.dtbs:132: arch/arm64/boot/dts/renesas/r8a779m3-ulcb-kf.dtb] Error 1
-make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/renesas] Error 2
-make[2]: Target 'arch/arm64/boot/dts/renesas/r8a779m3-ulcb-kf.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1478: renesas/r8a779m3-ulcb-kf.dtb] Error 2
-Lexical error: arch/arm64/boot/dts/renesas/r8a77961.dtsi:2456.27-43 Unexpected 'R8A7796_PD_3DG_B'
-FATAL ERROR: Syntax error parsing input tree
-make[3]: *** [scripts/Makefile.dtbs:132: arch/arm64/boot/dts/renesas/r8a77961-salvator-xs.dtb] Error 1
-make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/renesas] Error 2
-make[2]: Target 'arch/arm64/boot/dts/renesas/r8a77961-salvator-xs.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1478: renesas/r8a77961-salvator-xs.dtb] Error 2
-Lexical error: arch/arm64/boot/dts/renesas/r8a77961.dtsi:2456.27-43 Unexpected 'R8A7796_PD_3DG_B'
-FATAL ERROR: Syntax error parsing input tree
-make[3]: *** [scripts/Makefile.dtbs:132: arch/arm64/boot/dts/renesas/r8a77961-ulcb.dtb] Error 1
-make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/renesas] Error 2
-make[2]: Target 'arch/arm64/boot/dts/renesas/r8a77961-ulcb.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1478: renesas/r8a77961-ulcb.dtb] Error 2
-Lexical error: arch/arm64/boot/dts/renesas/r8a77961.dtsi:2456.27-43 Unexpected 'R8A7796_PD_3DG_B'
-FATAL ERROR: Syntax error parsing input tree
-make[3]: *** [scripts/Makefile.dtbs:132: arch/arm64/boot/dts/renesas/r8a779m3-ulcb.dtb] Error 1
-make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/renesas] Error 2
-make[2]: Target 'arch/arm64/boot/dts/renesas/r8a779m3-ulcb.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1478: renesas/r8a779m3-ulcb.dtb] Error 2
-Lexical error: arch/arm64/boot/dts/renesas/r8a77961.dtsi:2456.27-43 Unexpected 'R8A7796_PD_3DG_B'
-FATAL ERROR: Syntax error parsing input tree
-make[3]: *** [scripts/Makefile.dtbs:132: arch/arm64/boot/dts/renesas/r8a779m3-salvator-xs.dtb] Error 1
-make[2]: *** [scripts/Makefile.build:556: arch/arm64/boot/dts/renesas] Error 2
-make[2]: Target 'arch/arm64/boot/dts/renesas/r8a779m3-salvator-xs.dtb' not remade because of errors.
-make[1]: *** [/home/rob/proj/linux-dt-testing/Makefile:1478: renesas/r8a779m3-salvator-xs.dtb] Error 2
-make: *** [Makefile:248: __sub-make] Error 2
-make: Target 'renesas/r9a07g044c2-smarc.dtb' not remade because of errors.
-make: Target 'renesas/r8a77961-ulcb-kf.dtb' not remade because of errors.
-make: Target 'renesas/r8a77965-ulcb.dtb' not remade because of errors.
-make: Target 'renesas/r8a77965-ulcb-kf.dtb' not remade because of errors.
-make: Target 'renesas/r8a779m1-ulcb.dtb' not remade because of errors.
-make: Target 'renesas/r8a774c0-ek874.dtb' not remade because of errors.
-make: Target 'renesas/r8a774c0-ek874-idk-2121wr.dtb' not remade because of errors.
-make: Target 'renesas/r9a09g077m44-rzt2h-evk.dtb' not remade because of errors.
-make: Target 'renesas/r8a77960-ulcb-kf.dtb' not remade because of errors.
-make: Target 'renesas/r8a77980a-condor-i.dtb' not remade because of errors.
-make: Target 'renesas/r8a774a1-hihope-rzg2m-rev2.dtb' not remade because of errors.
-make: Target 'renesas/r8a779g0-white-hawk.dtb' not remade because of errors.
-make: Target 'renesas/r8a774b1-hihope-rzg2n-rev2-ex.dtb' not remade because of errors.
-make: Target 'renesas/r8a779g2-white-hawk-single.dtb' not remade because of errors.
-make: Target 'renesas/r8a774e1-hihope-rzg2h-ex-idk-1110wr.dtb' not remade because of errors.
-make: Target 'renesas/r9a07g044l2-remi-pi.dtb' not remade because of errors.
-make: Target 'renesas/r8a774a1-hihope-rzg2m-ex-mipi-2.1.dtb' not remade because of errors.
-make: Target 'renesas/r8a774b1-hihope-rzg2n-rev2-ex-idk-1110wr.dtb' not remade because of errors.
-make: Target 'renesas/r8a774c0-ek874-mipi-2.1.dtb' not remade because of errors.
-make: Target 'renesas/r9a07g044l2-smarc.dtb' not remade because of errors.
-make: Target 'renesas/r9a09g056n48-rzv2n-evk.dtb' not remade because of errors.
-make: Target 'renesas/r8a774e1-hihope-rzg2h-ex-mipi-2.1.dtb' not remade because of errors.
-make: Target 'renesas/r8a779m5-salvator-xs.dtb' not remade because of errors.
-make: Target 'renesas/r8a77970-eagle.dtb' not remade because of errors.
-make: Target 'renesas/r8a77980-v3hsk.dtb' not remade because of errors.
-make: Target 'renesas/r8a77951-salvator-xs.dtb' not remade because of errors.
-make: Target 'renesas/r8a77951-ulcb-kf.dtb' not remade because of errors.
-make: Target 'renesas/r8a77965-salvator-xs.dtb' not remade because of errors.
-make: Target 'renesas/r9a09g057h48-kakip.dtb' not remade because of errors.
-make: Target 'renesas/r8a779f4-s4sk.dtb' not remade because of errors.
-make: Target 'renesas/r8a774b1-hihope-rzg2n-ex-mipi-2.1.dtb' not remade because of errors.
-make: Target 'renesas/r8a774b1-hihope-rzg2n-ex.dtb' not remade because of errors.
-make: Target 'renesas/r8a779h0-gray-hawk-single.dtb' not remade because of errors.
-make: Target 'renesas/r8a774c0-cat874.dtb' not remade because of errors.
-make: Target 'renesas/r8a77960-ulcb.dtb' not remade because of errors.
-make: Target 'renesas/r8a77951-ulcb.dtb' not remade because of errors.
-make: Target 'renesas/r8a774a1-hihope-rzg2m-rev2-ex-idk-1110wr.dtb' not remade because of errors.
-make: Target 'renesas/r8a774e1-beacon-rzg2h-kit.dtb' not remade because of errors.
-make: Target 'renesas/r9a09g087m44-rzn2h-evk.dtb' not remade because of errors.
-make: Target 'renesas/r8a779m1-ulcb-kf.dtb' not remade because of errors.
-make: Target 'renesas/r8a774b1-hihope-rzg2n-rev2.dtb' not remade because of errors.
-make: Target 'renesas/r8a77970-v3msk.dtb' not remade because of errors.
-make: Target 'renesas/r8a779m1-salvator-xs.dtb' not remade because of errors.
-make: Target 'renesas/r8a779m3-ulcb-kf.dtb' not remade because of errors.
-make: Target 'renesas/r9a09g047e57-smarc.dtb' not remade because of errors.
-make: Target 'renesas/r9a08g045s33-smarc.dtb' not remade because of errors.
-make: Target 'renesas/r8a77961-salvator-xs.dtb' not remade because of errors.
-make: Target 'renesas/r8a77960-salvator-xs.dtb' not remade because of errors.
-make: Target 'renesas/r8a77960-salvator-x.dtb' not remade because of errors.
-make: Target 'renesas/r8a77990-ebisu.dtb' not remade because of errors.
-make: Target 'renesas/r8a774b1-hihope-rzg2n-ex-idk-1110wr.dtb' not remade because of errors.
-make: Target 'renesas/r8a77980-condor.dtb' not remade because of errors.
-make: Target 'renesas/r9a07g054l2-smarc.dtb' not remade because of errors.
-make: Target 'renesas/r8a779g3-white-hawk-single.dtb' not remade because of errors.
-make: Target 'renesas/r8a779f0-spider.dtb' not remade because of errors.
-make: Target 'renesas/r8a774e1-hihope-rzg2h-ex.dtb' not remade because of errors.
-make: Target 'renesas/r8a779a0-falcon.dtb' not remade because of errors.
-make: Target 'renesas/r8a77965-salvator-x.dtb' not remade because of errors.
-make: Target 'renesas/r8a774e1-hihope-rzg2h.dtb' not remade because of errors.
-make: Target 'renesas/r8a77951-salvator-x.dtb' not remade because of errors.
-make: Target 'renesas/r9a09g011-v2mevk2.dtb' not remade because of errors.
-make: Target 'renesas/r8a774b1-hihope-rzg2n.dtb' not remade because of errors.
-make: Target 'renesas/r8a774b1-beacon-rzg2n-kit.dtb' not remade because of errors.
-make: Target 'renesas/r9a09g057h44-rzv2h-evk.dtb' not remade because of errors.
-make: Target 'renesas/r8a77961-ulcb.dtb' not remade because of errors.
-make: Target 'renesas/r8a774a1-hihope-rzg2m.dtb' not remade because of errors.
-make: Target 'renesas/r8a779h2-gray-hawk-single.dtb' not remade because of errors.
-make: Target 'renesas/r8a77995-draak.dtb' not remade because of errors.
-make: Target 'renesas/r8a774a1-hihope-rzg2m-ex.dtb' not remade because of errors.
-make: Target 'renesas/r8a779m3-ulcb.dtb' not remade because of errors.
-make: Target 'renesas/r8a774a1-hihope-rzg2m-ex-idk-1110wr.dtb' not remade because of errors.
-make: Target 'renesas/r8a779m3-salvator-xs.dtb' not remade because of errors.
-make: Target 'renesas/r9a07g043u11-smarc.dtb' not remade because of errors.
-make: Target 'renesas/r8a779g3-sparrow-hawk.dtb' not remade because of errors.
-make: Target 'renesas/r8a774a1-beacon-rzg2m-kit.dtb' not remade because of errors.
-make: Target 'renesas/r8a774a1-hihope-rzg2m-rev2-ex.dtb' not remade because of errors.
-make: Target 'renesas/r8a779g0-white-hawk-cpu.dtb' not remade because of errors.
-
-
-
-
-
+> +	if (IS_ERR_OR_NULL(dev))
+> +		return;
+>   
+> -	cfg.iommu_dev = &dev->dev;
+> +	cfg.iommu_dev = dev;
+>   
+>   	for (i = 0; i < ARRAY_SIZE(pgsize); ++i) {
+>   		for (j = 0; j < ARRAY_SIZE(address_size); ++j) {
+> @@ -189,9 +192,9 @@ static int arm_lpae_do_selftests(void)
+>   				cfg.pgsize_bitmap = pgsize[i];
+>   				cfg.ias = address_size[k];
+>   				cfg.oas = address_size[j];
+> -				pr_info("selftest: pgsize_bitmap 0x%08lx, IAS %u OAS %u\n",
+> -					pgsize[i], cfg.ias, cfg.oas);
+> -				if (arm_lpae_run_tests(&cfg))
+> +				kunit_info(test, "selftest: pgsize_bitmap 0x%08lx, IAS %u OAS %u\n",
+> +					   pgsize[i], cfg.ias, cfg.oas);
+> +				if (arm_lpae_run_tests(test, &cfg))
+>   					fail++;
+>   				else
+>   					pass++;
+> @@ -199,17 +202,20 @@ static int arm_lpae_do_selftests(void)
+>   		}
+>   	}
+>   
+> -	pr_info("selftest: completed with %d PASS %d FAIL\n", pass, fail);
+> -	faux_device_destroy(dev);
+> -
+> -	return fail ? -EFAULT : 0;
+> +	kunit_info(test, "selftest: completed with %d PASS %d FAIL\n", pass, fail);
+>   }
+>   
+> -static void arm_lpae_exit_selftests(void)
+> -{
+> -}
+> +static struct kunit_case io_pgtable_arm_test_cases[] = {
+> +	KUNIT_CASE(arm_lpae_do_selftests),
+> +	{},
+> +};
+> +
+> +static struct kunit_suite io_pgtable_arm_test = {
+> +	.name = "io-pgtable-arm-test",
+> +	.test_cases = io_pgtable_arm_test_cases,
+> +};
+> +
+> +kunit_test_suite(io_pgtable_arm_test);
+>   
+> -subsys_initcall(arm_lpae_do_selftests);
+> -module_exit(arm_lpae_exit_selftests);
+>   MODULE_DESCRIPTION("io-pgtable-arm library selftest");
+>   MODULE_LICENSE("GPL");
 
