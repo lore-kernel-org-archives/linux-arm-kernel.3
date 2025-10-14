@@ -4,52 +4,75 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 76C7CCCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 08:43:56 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 545DBCCD18E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 08:49:34 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1gYCE6nAYGsVm7cTeIShV2vLwnNtrBFIhKxS0/Lhzy0=; b=zY2zc5RkFqZhR7EGtiyGjJB5E+
-	7DhJZKr4MbWfQQ210lS493ZReEpdsuHdjL7+DmPrlijbMzWV/Gt6PZCVBPM/9XBnTnwDWwh0TIuV/
-	mXTsYVkTAeAi0Q2mf3vK4mcZUbN1oLSfAo+aHVCxzJToaIuUZ35uVUK2t1Tx+l+MEFv6qSKnpMpiH
-	Fb90tWPwYmT1uh5dxy7jUeqgGX1MpRkQ47pPUySUO0whixHlaPKuLo8jwYdI4bQyXt5CF+QH0gEg6
-	gFT4SPY/Dodu9DgTlo/NGDjjyVWNzZE1+i8wSbeeCqEnMfNj03wdxSrNsF6ibroIr7/rohjU/WQO5
-	hSE2XWFw==;
+	bh=8yF5an8vPwKISsVSZz7CHZXrwqqq4VnMfISpZHg7iVk=; b=4RYbsIGe+k2QruIUdf/eWPwCwg
+	6joED1sU93ohJAPEwaQUODtk/NLZf9R0oUR3Z9yxIHO5z3Jy5nTzBJU88G8Ld5VpRnLRK60bqbQZc
+	37HalpmmyO01utd2yci3c8HQZgQ8MgbWlLhEbS8W/R2V0MSqOVTJTV8r4ZNZZCCjQRb/HsSNwOOlt
+	GUpywvDygNxXT9jjIC5fdMAWEVDW0PYjO6QvYgYSSpWMqZiM1IoMYIE2HLTi9rb8g901n6ZHjjIpx
+	A7L8IlPsxioRRwjJP0e+YrzbobxXPLUX9n8inEeXiW9x9p9rWUpQdYiXA3xpuhPf/KT7kv5n6Sge6
+	MsBZpl2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8adK-0000000FeYu-13hP;
-	Tue, 14 Oct 2025 08:43:50 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8adH-0000000FeYX-421s
+	id 1v8ain-0000000FfP5-00LK;
+	Tue, 14 Oct 2025 08:49:29 +0000
+Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v8ail-0000000FfOs-3k28
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 08:43:49 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 1D6A61A9A;
-	Tue, 14 Oct 2025 01:43:39 -0700 (PDT)
-Received: from [10.57.83.223] (unknown [10.57.83.223])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id D4CFD3F6A8;
-	Tue, 14 Oct 2025 01:43:45 -0700 (PDT)
-Message-ID: <91f6da2f-1968-4c23-a534-20b463463faf@arm.com>
-Date: Tue, 14 Oct 2025 09:43:43 +0100
+	Tue, 14 Oct 2025 08:49:27 +0000
+Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
+	by tor.source.kernel.org (Postfix) with ESMTP id F1CC762227;
+	Tue, 14 Oct 2025 08:49:26 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AF8DC4CEF9;
+	Tue, 14 Oct 2025 08:49:26 +0000 (UTC)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
+	s=k20201202; t=1760431766;
+	bh=C7JuaamqYjTY8yKNBk8DAaYNefNASMvcLoZIKSBAuJ0=;
+	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
+	b=PLqbpLL1+Oo1r/vYSggD+Gynz+O1HTnN3Ih9MriG3qxEBLKsfdJJ4YpwUiF4m7fzs
+	 5ukz4smjDbUyHkGXfQGCg/mNL7AvE74QgnpsDidNa2YbM/ygwNuunF0OB2Je3tHEBn
+	 O+WOimzFFYMKdcDYTC7YFX2ajKyn2Rswue4pcWxWgOvjaFPgk5PjaxL4W7nPck3hUs
+	 TFbZoa4LKe8DLGtnrwntVo7EJByt1La91uB7pPTljp4zR5k1ehOoLNTcoy+eBzH5yI
+	 fxB1o5SrAczaPGjIgISdKP+kdqp8Csr8ifmjh7KXWO1HEAf8Rddz27iIFp6gk5G5JN
+	 K9MVoU9KZAVVQ==
+Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
+	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.98.2)
+	(envelope-from <maz@kernel.org>)
+	id 1v8aii-0000000Dms5-1mLR;
+	Tue, 14 Oct 2025 08:49:24 +0000
+From: Marc Zyngier <maz@kernel.org>
+To: linux-arm-kernel@lists.infradead.org,
+	kvmarm@lists.linux.dev,
+	Marc Zyngier <maz@kernel.org>
+Cc: Joey Gouly <joey.gouly@arm.com>,
+	Suzuki K Poulose <suzuki.poulose@arm.com>,
+	Oliver Upton <oliver.upton@linux.dev>,
+	Zenghui Yu <yuzenghui@huawei.com>,
+	Will Deacon <will@kernel.org>,
+	Catalin Marinas <catalin.marinas@arm.com>,
+	Mark Rutland <mark.rutland@arm.com>,
+	Jan Kotas <jank@cadence.com>
+Subject: Re: [PATCH] arm64: Revamp HCR_EL2.E2H RES1 detection
+Date: Tue, 14 Oct 2025 09:49:20 +0100
+Message-ID: <176043175100.977560.12584294473093983228.b4-ty@kernel.org>
+X-Mailer: git-send-email 2.47.3
+In-Reply-To: <20251009121239.29370-1-maz@kernel.org>
+References: <20251009121239.29370-1-maz@kernel.org>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH] arm64: mm: show direct mapping use in /proc/meminfo
-Content-Language: en-GB
-To: Yang Shi <yang@os.amperecomputing.com>, cl@gentwo.org,
- catalin.marinas@arm.com, will@kernel.org
-Cc: linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org
-References: <20251013235118.3072941-1-yang@os.amperecomputing.com>
-From: Ryan Roberts <ryan.roberts@arm.com>
-In-Reply-To: <20251013235118.3072941-1-yang@os.amperecomputing.com>
-Content-Type: text/plain; charset=UTF-8
-Content-Transfer-Encoding: 7bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_014348_081812_E4A7473F 
-X-CRM114-Status: GOOD (  34.32  )
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+X-SA-Exim-Connect-IP: 185.219.108.64
+X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, jank@cadence.com
+X-SA-Exim-Mail-From: maz@kernel.org
+X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -64,262 +87,30 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14/10/2025 00:51, Yang Shi wrote:
-> Since commit a166563e7ec3 ("arm64: mm: support large block mapping when
-> rodata=full"), the direct mapping may be split on some machines instead
-> keeping static since boot. It makes more sense to show the direct mapping
-> use in /proc/meminfo than before.
-
-It's possible to divine this information from
-/sys/kernel/debug/kernel_page_tables. Dev even has a script to post-process that
-to provide summary stats on how much memory is mapped by each block size.
-
-Admittedly, this file is in debugfs and is not usually enabled for production
-builds, but Dev's patch Commit fa93b45fd397 ("arm64: Enable vmalloc-huge with
-ptdump"), merged for v6.18-rc1 gives us a path to enabling by default I think?
-
-But I can see the benefits of having this easily available, and I notice that
-other arches are already doing this. So I guess it makes sense to be consistent.
-
-> This patch will make /proc/meminfo show the direct mapping use like the
-> below (4K base page size):
-> DirectMap4K:	   94792 kB
-> DirectMap64K:	  134208 kB
-> DirectMap2M:	 1173504 kB
-> DirectMap32M:	 5636096 kB
-> DirectMap1G:	529530880 kB
-
-nit: x86, s390 and powerpc use a lower case "k" for DirectMap4k; perhaps we
-should follow suit? (despite being ugly). Although I think that's usually used
-to denote base-10 (i.e. 1000 bytes)? That's not the case here, we want base-2.
-
+On Thu, 09 Oct 2025 13:12:39 +0100, Marc Zyngier wrote:
+> We currently have two ways to identify CPUs that only implement FEAT_VHE
+> and not FEAT_E2H0:
 > 
-> Although just the machines which support BBML2_NOABORT can split the
-> direct mapping, show it on all machines regardless of BBML2_NOABORT so
-> that the users have consistent view in order to avoid confusion.
+> - either they advertise it via ID_AA64MMFR4_EL1.E2H0,
+> - or the HCR_EL2.E2H bit is RAO/WI
 > 
-> Signed-off-by: Yang Shi <yang@os.amperecomputing.com>
-> ---
->  arch/arm64/mm/mmu.c | 93 ++++++++++++++++++++++++++++++++++++++++++++-
->  1 file changed, 91 insertions(+), 2 deletions(-)
+> However, there is a third category of "cpus" that fall between these
+> two cases: on CPUs that do not implement FEAT_FGT, it is IMPDEF whether
+> an access to ID_AA64MMFR4_EL1 can trap to EL2 when the register value
+> is zero.
 > 
-> diff --git a/arch/arm64/mm/mmu.c b/arch/arm64/mm/mmu.c
-> index b8d37eb037fc..e5da0f521e58 100644
-> --- a/arch/arm64/mm/mmu.c
-> +++ b/arch/arm64/mm/mmu.c
-> @@ -29,6 +29,7 @@
->  #include <linux/mm_inline.h>
->  #include <linux/pagewalk.h>
->  #include <linux/stop_machine.h>
-> +#include <linux/proc_fs.h>
->  
->  #include <asm/barrier.h>
->  #include <asm/cputype.h>
-> @@ -51,6 +52,17 @@
->  
->  DEFINE_STATIC_KEY_FALSE(arm64_ptdump_lock_key);
->  
-> +enum direct_map_type {
-> +	PTE,
-> +	CONT_PTE,
-> +	PMD,
-> +	CONT_PMD,
-> +	PUD,
-> +	NR_DIRECT_MAP_TYPE,
-> +};
-> +
-> +unsigned long direct_map_cnt[NR_DIRECT_MAP_TYPE];
+> [...]
 
-I wonder if it would be cleaner to store this in bytes rather than blocks? Then
-in the code you can just add PAGE_SIZE, CONT_PTE_SIZE, PMD_SIZE, etc as
-appropriate, then the reporting function becomes simpler; everything is just
-shifted by 10 to get kB; no need for the shift array.
+Applied to fixes, thanks!
 
-> +
->  u64 kimage_voffset __ro_after_init;
->  EXPORT_SYMBOL(kimage_voffset);
->  
-> @@ -171,6 +183,60 @@ static void init_clear_pgtable(void *table)
->  	dsb(ishst);
->  }
->  
-> +void arch_report_meminfo(struct seq_file *m)
-> +{
-> +	char *size[NR_DIRECT_MAP_TYPE];
-> +	unsigned int shift[NR_DIRECT_MAP_TYPE];
-> +
-> +#if defined(CONFIG_ARM64_4K_PAGES)
-> +	size[PTE] = "4K";
-> +	size[CONT_PTE] = "64K";
-> +	size[PMD] = "2M";
-> +	size[CONT_PMD] = "32M";
-> +	size[PUD] = "1G";
-> +
-> +	shift[PTE] = 2;
-> +	shift[CONT_PTE] = 6;
-> +	shift[PMD] = 11;
-> +	shift[CONT_PMD] = 15;
-> +	shift[PUD] = 20;
-> +#elif defined(CONFIG_ARM64_16K_PAGES)
-> +	size[PTE] = "16K";
-> +	size[CONT_PTE] = "2M";
-> +	size[PMD] = "32M";
-> +	size[CONT_PMD] = "1G";
-> +
-> +	shift[PTE] = 4;
-> +	shift[CONT_PTE] = 11;
-> +	shift[PMD] = 15;
-> +	shift[CONT_PMD] = 20;
-> +#elif defined(CONFIG_ARM64_64K_PAGES)
-> +	size[PTE] = "64K";
-> +	size[CONT_PTE] = "2M";
-> +	size[PMD] = "512M";
-> +	size[CONT_PMD] = "16G";
-> +
-> +	shift[PTE] = 6;
-> +	shift[CONT_PTE] = 11;
-> +	shift[PMD] = 19;
-> +	shift[CONT_PMD] = 24;
-> +#endif
+[1/1] arm64: Revamp HCR_EL2.E2H RES1 detection
+      commit: ca88ecdce5f51874a7c151809bd2c936ee0d3805
 
-The ifdeffery is quite ugly. I think we can get rid of the shift array as per
-above. I was hoping there might be a kernel function that we could pass
-PAGE_SIZE, PMD_SIZE, etc to and it would give us an appropriate string but I
-can't find anything. I guess keping the ifdef for size[] is the most pragmatic.
+Cheers,
 
-> +
-> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
-> +			size[PTE], direct_map_cnt[PTE] << shift[PTE]);
-> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
-> +			size[CONT_PTE],
-> +			direct_map_cnt[CONT_PTE] << shift[CONT_PTE]);
-> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
-> +			size[PMD], direct_map_cnt[PMD] << shift[PMD]);
-> +	seq_printf(m, "DirectMap%s:	%8lu kB\n",
-> +			size[CONT_PMD],
-> +			direct_map_cnt[CONT_PMD] << shift[CONT_PMD]);
-> +	if (pud_sect_supported())
-> +		seq_printf(m, "DirectMap%s:	%8lu kB\n",
-> +			size[PUD], direct_map_cnt[PUD] << shift[PUD]);
-> +}
-> +
->  static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
->  		     phys_addr_t phys, pgprot_t prot)
->  {
-> @@ -183,6 +249,9 @@ static void init_pte(pte_t *ptep, unsigned long addr, unsigned long end,
->  		 */
->  		__set_pte_nosync(ptep, pfn_pte(__phys_to_pfn(phys), prot));
->  
-> +		if (!(pgprot_val(prot) & PTE_CONT))
-> +			direct_map_cnt[PTE]++;
+	M.
+-- 
+Without deviation from the norm, progress is not possible.
 
-If adding size in bytes, you could just always add PAGE_SIZE here, but select
-the bucket based on PTE_CONT?
-
-> +
->  		/*
->  		 * After the PTE entry has been populated once, we
->  		 * only allow updates to the permission attributes.
-> @@ -229,8 +298,10 @@ static void alloc_init_cont_pte(pmd_t *pmdp, unsigned long addr,
->  
->  		/* use a contiguous mapping if the range is suitably aligned */
->  		if ((((addr | next | phys) & ~CONT_PTE_MASK) == 0) &&
-> -		    (flags & NO_CONT_MAPPINGS) == 0)
-> +		    (flags & NO_CONT_MAPPINGS) == 0) {
->  			__prot = __pgprot(pgprot_val(prot) | PTE_CONT);
-> +			direct_map_cnt[CONT_PTE]++;
-
-Then you don't need this.
-
-> +		}
->  
->  		init_pte(ptep, addr, next, phys, __prot);
->  
-> @@ -262,6 +333,9 @@ static void init_pmd(pmd_t *pmdp, unsigned long addr, unsigned long end,
->  		    (flags & NO_BLOCK_MAPPINGS) == 0) {
->  			pmd_set_huge(pmdp, phys, prot);
->  
-> +			if (!(pgprot_val(prot) & PTE_CONT))
-> +				direct_map_cnt[PMD]++;
-
-Same here...
-
-> +
->  			/*
->  			 * After the PMD entry has been populated once, we
->  			 * only allow updates to the permission attributes.
-> @@ -317,8 +391,10 @@ static void alloc_init_cont_pmd(pud_t *pudp, unsigned long addr,
->  
->  		/* use a contiguous mapping if the range is suitably aligned */
->  		if ((((addr | next | phys) & ~CONT_PMD_MASK) == 0) &&
-> -		    (flags & NO_CONT_MAPPINGS) == 0)
-> +		    (flags & NO_CONT_MAPPINGS) == 0) {
->  			__prot = __pgprot(pgprot_val(prot) | PTE_CONT);
-> +			direct_map_cnt[CONT_PMD]++;
-
-Then this can go too.
-
-> +		}
->  
->  		init_pmd(pmdp, addr, next, phys, __prot, pgtable_alloc, flags);
->  
-> @@ -368,6 +444,7 @@ static void alloc_init_pud(p4d_t *p4dp, unsigned long addr, unsigned long end,
->  		    (flags & NO_BLOCK_MAPPINGS) == 0) {
->  			pud_set_huge(pudp, phys, prot);
->  
-> +			direct_map_cnt[PUD]++;
->  			/*
->  			 * After the PUD entry has been populated once, we
->  			 * only allow updates to the permission attributes.
-> @@ -532,9 +609,13 @@ static void split_contpte(pte_t *ptep)
->  {
->  	int i;
->  
-> +	direct_map_cnt[CONT_PTE]--;
-> +
->  	ptep = PTR_ALIGN_DOWN(ptep, sizeof(*ptep) * CONT_PTES);
->  	for (i = 0; i < CONT_PTES; i++, ptep++)
->  		__set_pte(ptep, pte_mknoncont(__ptep_get(ptep)));
-> +
-> +	direct_map_cnt[PTE] += CONT_PTES;
->  }
->  
->  static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp, bool to_cont)
-> @@ -559,8 +640,10 @@ static int split_pmd(pmd_t *pmdp, pmd_t pmd, gfp_t gfp, bool to_cont)
->  	if (to_cont)
->  		prot = __pgprot(pgprot_val(prot) | PTE_CONT);
->  
-> +	direct_map_cnt[PMD]--;
->  	for (i = 0; i < PTRS_PER_PTE; i++, ptep++, pfn++)
->  		__set_pte(ptep, pfn_pte(pfn, prot));
-> +	direct_map_cnt[CONT_PTE] += PTRS_PER_PTE / CONT_PTES;
->  
->  	/*
->  	 * Ensure the pte entries are visible to the table walker by the time
-> @@ -576,9 +659,13 @@ static void split_contpmd(pmd_t *pmdp)
->  {
->  	int i;
->  
-> +	direct_map_cnt[CONT_PMD]--;
-> +
->  	pmdp = PTR_ALIGN_DOWN(pmdp, sizeof(*pmdp) * CONT_PMDS);
->  	for (i = 0; i < CONT_PMDS; i++, pmdp++)
->  		set_pmd(pmdp, pmd_mknoncont(pmdp_get(pmdp)));
-> +
-> +	direct_map_cnt[PMD] += CONT_PMDS;
->  }
->  
->  static int split_pud(pud_t *pudp, pud_t pud, gfp_t gfp, bool to_cont)
-> @@ -604,8 +691,10 @@ static int split_pud(pud_t *pudp, pud_t pud, gfp_t gfp, bool to_cont)
->  	if (to_cont)
->  		prot = __pgprot(pgprot_val(prot) | PTE_CONT);
->  
-> +	direct_map_cnt[PUD]--;
->  	for (i = 0; i < PTRS_PER_PMD; i++, pmdp++, pfn += step)
->  		set_pmd(pmdp, pfn_pmd(pfn, prot));
-> +	direct_map_cnt[CONT_PMD] += PTRS_PER_PMD/CONT_PMDS;
->  
->  	/*
->  	 * Ensure the pmd entries are visible to the table walker by the time
 
 
