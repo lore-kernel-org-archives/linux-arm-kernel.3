@@ -4,64 +4,67 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 517B2CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 12:08:48 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CF83CCCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 12:23:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=mW5/QLinbAfVE5ha1MwCMCncckpC/haHYS4j6AucDUM=; b=AxmLW5v+2nWERivNIpee4BupLN
-	NxG/VdpAJvx9RfZsag71Ra+6HfdvAdPHy7aRzHBTfZczWlJt9v5k3Yt+eZZYNdTeu40o2W1YIjjI5
-	Cgvqj8eRiVLj1k4LbE7P4UJ6cA0a6bw646XsPrB9YoiTn84/v2Ke55xn+LWu/Vkyzcuj433Dv932a
-	KTA4NYMjQioSvTKsooSWosqq/zS5qpmszZPRavATX/GfEHBNFbkDJmWy0sVjtQp7tHKM/h+HEQMRt
-	zRqpKpFvhYVpmY12Ogamk7YiHU07B5Ni2UaJ/jWCM8DQ+wDnvpuSfGu090IymLIg2G4a48qGl5rfV
-	nEF53gcQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
+	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=A2wa4K0qWIFLcAnfmzypd+kDyosnJxyDAY3/uLjy03g=; b=y/acM5v7+KowqUDi4B8B8h7IoS
+	c91d6AahfASKJG6zpGE7z4RUvAumI4Y8aisrQG3Jz+Y/VuDWEDqPg9Or5SDpETeK/tr4ZNQfJBkfg
+	wbdlcfFqqh0w9FiPCza1JY1gGVIOEOuFCvWK5CvZw/C+t3CN9yoeS/pElvFfJ4iMuz6wGSPPQZFIs
+	lpel77XvBed+fPnYnDetSGgDOQO6bZ0RQGMm8xWYlOooJyvYRt1IOZSyLDuWXZP0Ex8tbvSo23twr
+	3tG5eBB1uTCaFoBBXYVYq6dSxCwSi7pXh/CW9Co/x3T9Rvk2kwykdTqowemCl1dzSgVWnzO+iUui1
+	pI9sE2Zw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8dpa-0000000GChF-2WMx;
-	Tue, 14 Oct 2025 12:08:42 +0000
-Received: from vps0.lunn.ch ([156.67.10.101])
+	id 1v8e43-0000000GF11-0xxb;
+	Tue, 14 Oct 2025 12:23:39 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8dpY-0000000GCgN-2DlU
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 12:08:41 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=lunn.ch;
-	s=20171124; h=In-Reply-To:Content-Disposition:Content-Type:MIME-Version:
-	References:Message-ID:Subject:Cc:To:From:Date:From:Sender:Reply-To:Subject:
-	Date:Message-ID:To:Cc:MIME-Version:Content-Type:Content-Transfer-Encoding:
-	Content-ID:Content-Description:Content-Disposition:In-Reply-To:References;
-	bh=mW5/QLinbAfVE5ha1MwCMCncckpC/haHYS4j6AucDUM=; b=CaQ79jPNVv0wPdoAWonJgGYDDJ
-	gN1JXn/Rp/A1HbhvqmmaPtJDfQsExftP0rQlILsYHlyIGaFfzwj5gZmNvoZ3u+6PA6ZcL8uQm1z1U
-	PFBjUFwUsrZYhAfYS3amge6/P9iVXqJ1LHl8qp+glaxGfsSXFr4Dnx0cueO2rGMbB0ZY=;
-Received: from andrew by vps0.lunn.ch with local (Exim 4.94.2)
-	(envelope-from <andrew@lunn.ch>)
-	id 1v8dpC-00AuCb-Ud; Tue, 14 Oct 2025 14:08:18 +0200
-Date: Tue, 14 Oct 2025 14:08:18 +0200
-From: Andrew Lunn <andrew@lunn.ch>
-To: Tao Ren <rentao.bupt@gmail.com>
-Cc: Guenter Roeck <linux@roeck-us.net>, Rob Herring <robh@kernel.org>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-	Tao Ren <taoren@meta.com>
-Subject: Re: [PATCH v4 11/13] ARM: dts: aspeed: facebook-fuji: Include
- facebook-fuji-data64.dts
-Message-ID: <ea64d3c1-e517-4bd8-9a2e-56432f286347@lunn.ch>
-References: <20250728055618.61616-1-rentao.bupt@gmail.com>
- <20250728055618.61616-12-rentao.bupt@gmail.com>
- <79ddc7b9-ef26-4959-9a16-aa4e006eb145@roeck-us.net>
- <aO2kLyxGlGt12sKD@fedora>
+	id 1v8e40-0000000GF0S-3ZCw;
+	Tue, 14 Oct 2025 12:23:38 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=A2wa4K0qWIFLcAnfmzypd+kDyosnJxyDAY3/uLjy03g=; b=DaOYctO2Ib9IIYYgqETAyF2zIt
+	0+gdutChlJDPIJbn0lIc0SwMbpflnjgYWoOc7FgRiawhAQkz3x9py/RpPBWx2KjwC06eTD7fneq09
+	bJp8jk4J3cRK3O0DZ32q6J+QQnBtn7Yuch+Q5V6lLihMBGmKAPfrwfQwJwNJSINqraC9zCmT40rC0
+	AdvyMhuGPULRwEJ7U7cWltvUNxOa67xECIx+3RpFdtsy+6jYWsUbO04FuEhB+0FBHrauAfDjxX6Az
+	8eX0hhGCHsZm3ry0U70sKnfyLUXe2QZoTMr6f0tpaMuvj2+vMOCYW47xmewnSGd8YFn+YzsGaDYuT
+	cy3bAg7A==;
+Received: from i53875b75.versanet.de ([83.135.91.117] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1v8e3s-0007Hl-IL; Tue, 14 Oct 2025 14:23:28 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: robh@kernel.org,
+	WeiHao Li <cn.liweihao@gmail.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	hjc@rock-chips.com,
+	andy.yan@rock-chips.com,
+	krzk+dt@kernel.org,
+	conor+dt@kernel.org,
+	devicetree@vger.kernel.org,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org,
+	linux-clk@vger.kernel.org,
+	linux-kernel@vger.kernel.org
+Subject: Re: (subset) [PATCH v2 0/8] drm/rockchip: Add MIPI DSI support for RK3368
+Date: Tue, 14 Oct 2025 14:23:18 +0200
+Message-ID: <176044455977.1550590.10827811203766869968.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20250905025632.222422-1-cn.liweihao@gmail.com>
+References: <20250905025632.222422-1-cn.liweihao@gmail.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <aO2kLyxGlGt12sKD@fedora>
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_050840_566238_7FAA8EBF 
-X-CRM114-Status: GOOD (  26.44  )
+X-CRM114-CacheID: sfid-20251014_052336_910547_CE1AE2CE 
+X-CRM114-Status: GOOD (  11.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -76,69 +79,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 13, 2025 at 06:15:27PM -0700, Tao Ren wrote:
-> Hi Guenter,
-> 
-> On Mon, Oct 13, 2025 at 05:20:57PM -0700, Guenter Roeck wrote:
-> > Hi,
-> > 
-> > On Sun, Jul 27, 2025 at 10:56:13PM -0700, rentao.bupt@gmail.com wrote:
-> > > From: Tao Ren <rentao.bupt@gmail.com>
-> > > 
-> > > Include "facebook-fuji-data64.dts" in facebook-fuji dts to avoid
-> > > duplicated code.
-> > > 
-> > > Fuji-data64 and Fuji are identical except the BMC flash layout.
-> > > 
-> > > Signed-off-by: Tao Ren <rentao.bupt@gmail.com>
-> > 
-> > With this patch in the mainline kernel, the Ethernet interface I use for
-> > testing does not come online when loading fuji-bmc in qemu.
-> > 
-> > Reverting this patch fixes the problem.
-> > 
-> > Looking into this patch,
-> > 
-> > > -
-> > > -#include <dt-bindings/leds/common.h>
-> > > -#include "ast2600-facebook-netbmc-common.dtsi"
-> > > +#include "aspeed-bmc-facebook-fuji-data64.dts"
-> > >  
-> > ...
-> > > -&mac3 {
-> > > -	status = "okay";
-> > > -	phy-mode = "rgmii";
-> > > -	phy-handle = <&ethphy3>;
-> > > -	pinctrl-names = "default";
-> > > -	pinctrl-0 = <&pinctrl_rgmii4_default>;
-> > > -};
-> > 
-> > I don't see this in aspeed-bmc-facebook-fuji-data64.dts, meaning that
-> > interface is now disabled. Adding it back in fixes the problem.
-> > Also, MAC3 is explicitly enabled for fuji-bmc in qemu.
-> > 
-> > Was the interface disabled on purpose ?
-> > 
-> > Thanks,
-> > Guenter
-> 
-> The mac3 interface was removed in the latest patch (v4) per Andrew Lunn's
-> feedback, because the rgmii setting is incorrect.
-> 
-> I was planning to add mac3 back as soon as rgmii support is properly
-> handled in aspeed mac driver, but kindly let me know if you have other
-> suggestions.
 
-If it is already in mainline, i don't care too much if it is wrong. We
-don't want to cause regressions.
+On Fri, 05 Sep 2025 10:56:24 +0800, WeiHao Li wrote:
+> This series adds MIPI DSI support for the Rockchip RK3368 SoC, enabling
+> native display connectivity through the MIPI DSI host controller and
+> PHY. The changes span multiple subsystems, including clock control,
+> DRM/VOP integration, DSI controller binding.
+> 
+> Key changes:
+>  - Update dw-mipi-dsi-rockchip driver to preperly handle RK3368 dsi
+>    initialization.
+>  - Add missing lut_size of vop_data for RK3368.
+>  - Add missing clock ID SCLK_MIPIDSI_24M to the RK3368 CRU driver,
+>    which is required for enabling the 24MHz reference clock.
+>  - Add MIPI DSI node to rk3368.dtsi with correct clocks, resets,
+>    and register mappings.
+>  - Add dt-bindings document.
+> 
+> [...]
 
-I only object when adding new nodes which are wrong. If we keep adding
-broken nodes, there is no incentive to fix the broken driver to do the
-correct thing. Not that me NACKing nodes for the last year or more has
-actually made anybody care enough to fix the issue. It seems like
-developers are happy to have BMCs without Ethernet in mainline, which
-i find odd. There does appear to be sufficient information out there
-that anybody could fix this, not just aspeed.
+Applied, thanks!
 
-	Andrew
+[1/8] drm/rockchip: dsi: Add support for RK3368
+      commit: 6dd6949c76afbec037a66e6b9bcb6e2c5dee933e
+[2/8] drm/rockchip: vop: add lut_size for RK3368 vop_data
+      commit: 8e944ab8196e421f20386f51c5ffc43baa145932
+[8/8] dt-bindings: display: rockchip,dw-mipi-dsi: Document RK3368 DSI
+      commit: 2b756d321bf9f4e93437198d212c6ccec137b295
+
+
+Moved patch8 (dt-binding) in front of patch1 (driver addition)
+
+
+Best regards,
+-- 
+Heiko Stuebner <heiko@sntech.de>
 
