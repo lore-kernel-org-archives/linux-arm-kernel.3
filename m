@@ -4,53 +4,107 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id C7992CCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 09:46:53 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 023DFCCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 09:51:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:
+	Content-Transfer-Encoding:Content-Type:In-Reply-To:References:Message-ID:Date
+	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=1WSnuST7YxbfcQO2X5aXhitt+4Q/5PMGB2+Lss9eAxI=; b=fgCcHnUzICQPeClgLoWebEptOF
-	o35FalINA91FZLv7maYyDC74HTZBMQsZiOuDhlcVVs5lO2h5+kwmsqLI0pa3rzs6YYtIYGZYlq0XN
-	ZpZL2PZTpGTQBpqPpTt7fFsq0iHj3nbsak2Y3gOWEuo6cOw/npH2/p0nkXhbs8etGVS3OxmKt9zUk
-	gNXXxka2LDmDOSjiKm08EqkvTVpqLWufKoRid3pOU52EdYEs4NR1IRtlz6pYHMSSLpk7V5R1dKKhz
-	LrURUZMcojVnOCME2933rKhFVa7pe92zB4RO9mf8r68+XVpvnvoMujyFRLPHTdYG0ovx2u3ZiGErN
-	+Bk4kWRw==;
+	bh=7DHLx6gsuw+MXIuw6hDpegzNkV1LsoIxv5qrvoARnmU=; b=unj3JmKL/S4Y6ooaNa/5ALI4Jm
+	1cqHAbVVwkcyB72Uyaahxji1LkyA/NRFIEWinxgrJVzlbFIF11P9cVhXGdLfvwpUG7DRFQChH23oD
+	scG22BJIuyk98wvZDmKFlp3DUbxnGzUABLcuk6kQ8znzM8UhuF9qgwEPQOwcix0xqOeIY14B7mA5g
+	jgCo20fqJ6n41tKxTfsJFd0I46Pi1B2WLlgCIBANBZ2GR3GcTECxvH5MRbrJhMA6BRCFG5PJPllWC
+	ln9TwL2oRR77b4p9H7VHvfD2o2eE9TWl5yFZ5qPV9iH/XekgU66Z7WuVTfCJSB1NvvzaBWqo7cuH4
+	qvhA4qYQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8bcF-0000000FoLo-3KZs;
-	Tue, 14 Oct 2025 09:46:47 +0000
-Received: from foss.arm.com ([217.140.110.172])
-	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8bcD-0000000FoJn-3RgO
+	id 1v8bgP-0000000FpOW-3932;
+	Tue, 14 Oct 2025 09:51:05 +0000
+Received: from sinmsgout01.his.huawei.com ([119.8.177.36])
+	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v8bgN-0000000FpMS-0RJd
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 09:46:46 +0000
-Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 443291A9A;
-	Tue, 14 Oct 2025 02:46:35 -0700 (PDT)
-Received: from J2N7QTR9R3.cambridge.arm.com (usa-sjc-imap-foss1.foss.arm.com [10.121.207.14])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 4329B3F66E;
-	Tue, 14 Oct 2025 02:46:42 -0700 (PDT)
-Date: Tue, 14 Oct 2025 10:46:37 +0100
-From: Mark Rutland <mark.rutland@arm.com>
-To: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-Cc: linux-arm-kernel@lists.infradead.org,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>, stable@vger.kernel.org
-Subject: Re: [PATCH v2] arm64: debug: always unmask interrupts in
- el0_softstp()
-Message-ID: <aO4b_Ubig2FXowLa@J2N7QTR9R3.cambridge.arm.com>
-References: <20251013174317.74791-1-ada.coupriediaz@arm.com>
- <20251014092536.18831-1-ada.coupriediaz@arm.com>
+	Tue, 14 Oct 2025 09:51:05 +0000
+dkim-signature: v=1; a=rsa-sha256; d=huawei.com; s=dkim;
+	c=relaxed/relaxed; q=dns/txt;
+	h=From;
+	bh=7DHLx6gsuw+MXIuw6hDpegzNkV1LsoIxv5qrvoARnmU=;
+	b=MDf0Qu7UfP2f//YbJLYeLhU9sclJ2y8TGGm5NyR0RQUISYZkoFU57VPrFik1/pOP1UZZpKnQm
+	k3TLHogJFyWf89ynVK2X2V6n7qaaJXrmbWzmp9ILZM+HLcET8tK76p4ZjPhrmYnLB/L2SiILXyd
+	h5EntZF618TjDuBvpC51l8M=
+Received: from frasgout.his.huawei.com (unknown [172.18.146.36])
+	by sinmsgout01.his.huawei.com (SkyGuard) with ESMTPS id 4cm8br13LQz1P6hy;
+	Tue, 14 Oct 2025 17:50:47 +0800 (CST)
+Received: from mail.maildlp.com (unknown [172.18.186.31])
+	by frasgout.his.huawei.com (SkyGuard) with ESMTP id 4cm8Zm0sscz6K6mZ;
+	Tue, 14 Oct 2025 17:49:52 +0800 (CST)
+Received: from dubpeml100006.china.huawei.com (unknown [7.214.145.132])
+	by mail.maildlp.com (Postfix) with ESMTPS id 31B7E1402E9;
+	Tue, 14 Oct 2025 17:50:50 +0800 (CST)
+Received: from dubpeml500004.china.huawei.com (7.214.147.1) by
+ dubpeml100006.china.huawei.com (7.214.145.132) with Microsoft SMTP Server
+ (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.2.1544.11; Tue, 14 Oct 2025 10:50:49 +0100
+Received: from dubpeml500004.china.huawei.com ([7.214.147.1]) by
+ dubpeml500004.china.huawei.com ([7.214.147.1]) with mapi id 15.02.1544.011;
+ Tue, 14 Oct 2025 10:50:49 +0100
+From: Salil Mehta <salil.mehta@huawei.com>
+To: Peter Maydell <peter.maydell@linaro.org>, Salil Mehta
+	<salil.mehta@opnsrc.net>
+CC: Marc Zyngier <maz@kernel.org>, "linux-kernel@vger.kernel.org"
+	<linux-kernel@vger.kernel.org>, "linux-arm-kernel@lists.infradead.org"
+	<linux-arm-kernel@lists.infradead.org>, Jonathan Cameron
+	<jonathan.cameron@huawei.com>, "will@kernel.org" <will@kernel.org>,
+	"catalin.marinas@arm.com" <catalin.marinas@arm.com>, "mark.rutland@arm.com"
+	<mark.rutland@arm.com>, "james.morse@arm.com" <james.morse@arm.com>,
+	"sudeep.holla@arm.com" <sudeep.holla@arm.com>, "lpieralisi@kernel.org"
+	<lpieralisi@kernel.org>, "jean-philippe@linaro.org"
+	<jean-philippe@linaro.org>, "tglx@linutronix.de" <tglx@linutronix.de>,
+	"oliver.upton@linux.dev" <oliver.upton@linux.dev>,
+	"richard.henderson@linaro.org" <richard.henderson@linaro.org>,
+	"andrew.jones@linux.dev" <andrew.jones@linux.dev>, "mst@redhat.com"
+	<mst@redhat.com>, "david@redhat.com" <david@redhat.com>, "philmd@linaro.org"
+	<philmd@linaro.org>, "ardb@kernel.org" <ardb@kernel.org>,
+	"borntraeger@linux.ibm.com" <borntraeger@linux.ibm.com>,
+	"alex.bennee@linaro.org" <alex.bennee@linaro.org>,
+	"gustavo.romero@linaro.org" <gustavo.romero@linaro.org>, "npiggin@gmail.com"
+	<npiggin@gmail.com>, "linux@armlinux.org.uk" <linux@armlinux.org.uk>,
+	"karl.heubaum@oracle.com" <karl.heubaum@oracle.com>, "miguel.luis@oracle.com"
+	<miguel.luis@oracle.com>, "darren@os.amperecomputing.com"
+	<darren@os.amperecomputing.com>, "ilkka@os.amperecomputing.com"
+	<ilkka@os.amperecomputing.com>, "vishnu@os.amperecomputing.com"
+	<vishnu@os.amperecomputing.com>, "gankulkarni@os.amperecomputing.com"
+	<gankulkarni@os.amperecomputing.com>, "wangyanan (Y)"
+	<wangyanan55@huawei.com>, "Wangzhou (B)" <wangzhou1@hisilicon.com>, Linuxarm
+	<linuxarm@huawei.com>
+Subject: RE: [RFC PATCH] KVM: arm64: vgic-v3: Cache ICC_CTLR_EL1 and allow
+ lockless read when ready
+Thread-Topic: [RFC PATCH] KVM: arm64: vgic-v3: Cache ICC_CTLR_EL1 and allow
+ lockless read when ready
+Thread-Index: AQHcOJEPLIyaftchIkq5VYDgYw17SLS5xPAAgAXz6gCAACTfAIAAYtoAgACrjQCAAGycAIAAEwzg
+Date: Tue, 14 Oct 2025 09:50:49 +0000
+Message-ID: <6ef5f8d7b52b4eee8dbf9186046e920c@huawei.com>
+References: <20251008201955.3919537-1-salil.mehta@opnsrc.net>
+ <86v7koxk1z.wl-maz@kernel.org>
+ <CAFEAcA8=yhQ-ygoA-fqxzwg69OkdW2nBM0O9X3Lmww4eXuVMWA@mail.gmail.com>
+ <867bwzxe9r.wl-maz@kernel.org>
+ <CAFEAcA8FhgcaM_OsHKB3+3Z7B_oZJqU4LHX_j9p-ZQrHfWGX7g@mail.gmail.com>
+ <CAJ7pxebGOj5Z1iW6VPjzj73eY1hZFjS5uXMkee8XCm09DtFcKQ@mail.gmail.com>
+ <CAFEAcA8VL4wE2w9PegPD_AVSKCZzzzx-jFru7dDOq4Tz5xs76A@mail.gmail.com>
+In-Reply-To: <CAFEAcA8VL4wE2w9PegPD_AVSKCZzzzx-jFru7dDOq4Tz5xs76A@mail.gmail.com>
+Accept-Language: en-US
+Content-Language: en-US
+X-MS-Has-Attach: 
+X-MS-TNEF-Correlator: 
+x-originating-ip: [10.202.67.200]
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: base64
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20251014092536.18831-1-ada.coupriediaz@arm.com>
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_024645_986259_10DD4F22 
-X-CRM114-Status: GOOD (  26.22  )
+X-CRM114-CacheID: sfid-20251014_025103_969352_1C947314 
+X-CRM114-Status: GOOD (  26.53  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,92 +119,39 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 14, 2025 at 10:25:36AM +0100, Ada Couprie Diaz wrote:
-> EL0 exception handlers should always call `exit_to_user_mode()` with
-> interrupts unmasked.
-> When handling a completed single-step, we skip the if block and
-> `local_daif_restore(DAIF_PROCCTX)` never gets called,
-> which ends up calling `exit_to_user_mode()` with interrupts masked.
->
-> This is broken if pNMI is in use, as `do_notify_resume()` will try
-> to enable interrupts, but `local_irq_enable()` will only change the PMR,
-> leaving interrupts masked via DAIF.
-
-I think we might want to spell thius out a bit more, e.g.
-
-| We intend that EL0 exception handlers unmask all DAIF exceptions
-| before calling exit_to_user_mode().
-|
-| When completing single-step of a suspended breakpoint, we do not call
-| local_daif_restore(DAIF_PROCCTX) before calling exit_to_user_mode(),
-| leaving all DAIF exceptions masked.
-|
-| When pseudo-NMIs are not in use this is benign.
-|
-| When pseudo-NMIs are in use, this is unsound. At this point interrupts
-| are masked by both DAIF.IF and PMR_EL1, and subsequent irq flag
-| manipulation may not work correctly. For example, a subsequent
-| local_irq_enable() within exit_to_user_mode_loop() will only unmask
-| interrupts via PMR_EL1 (leaving those masked via DAIF.IF), and
-| anything depending on interrupts being unmasked (e.g. delivery of
-| signals) will not work correctly.
-|
-| This can by detected by CONFIG_ARM64_DEBUG_PRIORITY_MASKING.
-
-With or without that, this looks good to me, so:
-
-Acked-by: Mark Rutland <mark.rutland@arm.com>
-
-Mark.
-
-> Move the call to `try_step_suspended_breakpoints()` outside of the check
-> so that interrupts can be unmasked even if we don't call the step handler.
-> 
-> Fixes: 0ac7584c08ce ("arm64: debug: split single stepping exception entry")
-> Cc: <stable@vger.kernel.org> # 6.17
-> Signed-off-by: Ada Couprie Diaz <ada.coupriediaz@arm.com>
-> ----
-> This was already broken in a similar fashion in kernels prior to v6.17,
-> as `local_daif_restore()` was called _after_ the debug handlers, with some
-> calling `send_user_sigtrap()` which would unmask interrupts via PMR
-> while leaving them masked by DAIF.
-> 
-> v2: Add missing semicolon so that the patch compiles.
-> My mistake for rushing a fix late, apologies.
-> ---
->  arch/arm64/kernel/entry-common.c | 8 +++++---
->  1 file changed, 5 insertions(+), 3 deletions(-)
-> 
-> diff --git a/arch/arm64/kernel/entry-common.c b/arch/arm64/kernel/entry-common.c
-> index 2b0c5925502e..8473fe4791bc 100644
-> --- a/arch/arm64/kernel/entry-common.c
-> +++ b/arch/arm64/kernel/entry-common.c
-> @@ -832,6 +832,7 @@ static void noinstr el0_breakpt(struct pt_regs *regs, unsigned long esr)
->  
->  static void noinstr el0_softstp(struct pt_regs *regs, unsigned long esr)
->  {
-> +	bool step_done;
->  	if (!is_ttbr0_addr(regs->pc))
->  		arm64_apply_bp_hardening();
->  
-> @@ -842,10 +843,11 @@ static void noinstr el0_softstp(struct pt_regs *regs, unsigned long esr)
->  	 * If we are stepping a suspended breakpoint there's nothing more to do:
->  	 * the single-step is complete.
->  	 */
-> -	if (!try_step_suspended_breakpoints(regs)) {
-> -		local_daif_restore(DAIF_PROCCTX);
-> +	step_done = try_step_suspended_breakpoints(regs);
-> +	local_daif_restore(DAIF_PROCCTX);
-> +	if (!step_done)
->  		do_el0_softstep(esr, regs);
-> -	}
-> +
->  	exit_to_user_mode(regs);
->  }
->  
-> 
-> base-commit: 449d48b1b99fdaa076166e200132705ac2bee711
-> -- 
-> 2.43.0
-> 
+SGkgUGV0ZXIsDQoNCj4gRnJvbTogUGV0ZXIgTWF5ZGVsbCA8cGV0ZXIubWF5ZGVsbEBsaW5hcm8u
+b3JnPg0KPiBTZW50OiBUdWVzZGF5LCBPY3RvYmVyIDE0LCAyMDI1IDEwOjMxIEFNDQo+IA0KPiBP
+biBUdWUsIDE0IE9jdCAyMDI1IGF0IDA0OjAyLCBTYWxpbCBNZWh0YSA8c2FsaWwubWVodGFAb3Bu
+c3JjLm5ldD4gd3JvdGU6DQo+ID4gT24gTW9uLCBPY3QgMTMsIDIwMjUgYXQgNDo0OOKAr1BNIFBl
+dGVyIE1heWRlbGwNCj4gPHBldGVyLm1heWRlbGxAbGluYXJvLm9yZz4gd3JvdGU6DQo+ID4gPiBU
+aGF0IHNhaWQsIFFFTVUncyBjdXJyZW50IGNvZGUgZm9yIHRoaXMgY291bGQgYmUgcmVmYWN0b3Jl
+ZCB0byBhdm9pZA0KPiA+ID4gdGhlIHJlc2V0LXRpbWUgcmVhZCBvZiBJQ0NfQ1RMUl9FTDEgZnJv
+bSB0aGUga2VybmVsLg0KPiA+ID4gV2UgZG8gdGhpcyBzbyB3ZSBjYW4gc2V0IHRoZSB1c2Vyc3Bh
+Y2Ugc3RydWN0IGZpZWxkIGZvciB0aGlzDQo+ID4gPiByZWdpc3RlciB0byB0aGUgcmlnaHQgdmFs
+dWUuIEJ1dCB3ZSBjb3VsZCBhc2sgdGhlIGtlcm5lbCBmb3IgdGhhdA0KPiA+ID4gdmFsdWUgb25j
+ZSBvbiBWTSBzdGFydHVwIHNpbmNlIGl0J3Mgbm90IGdvaW5nIHRvIGNoYW5nZSBtaWQtcnVuLg0K
+PiA+ID4NCj4gPiA+IFRoYXQgd291bGQgYnJpbmcgSUNDX0NUTFJfRUwxIGludG8gbGluZSB3aXRo
+IHRoZSBvdGhlciBjcHVpZg0KPiA+ID4gcmVnaXN0ZXJzLCB3aGVyZSBRRU1VIGFzc3VtZXMgaXQg
+a25vd3Mgd2hhdCB0aGUga2VybmVsJ3MgcmVzZXQgdmFsdWUNCj4gPiA+IG9mIHRoZW0gaXMgKG1v
+c3RseSAiMCIpIGFuZCBkb2Vzbid0IGJvdGhlciB0byBhc2suDQo+ID4gPiBUaGlzIGlzIGRpZmZl
+cmVudCBmcm9tIGhvdyB3ZSBoYW5kbGUgT05FX1JFRyBzeXNyZWdzLCB3aGVyZSBJJ20NCj4gPiA+
+IHByZXR0eSBzdXJlIHdlIGRvIGFzayB0aGUga2VybmVsIHRoZSB2YWx1ZSBvZiBhbGwgb2YgdGhl
+bSBvbiBhIHZjcHUNCj4gPiA+IHJlc2V0LiAoQW5kIHRoZW4gd3JpdGUgdGhlIHZhbHVlcyBiYWNr
+IGFnYWluLCB3aGljaCBpcyBhIGJpdCBzaWxseQ0KPiA+ID4gYnV0IG5vYm9keSdzIGV2ZXIgc2Fp
+ZCBpdCB3YXMgYSBwZXJmb3JtYW5jZSBwcm9ibGVtIGZvciB0aGVtIDotKSkNCj4gPg0KPiA+DQo+
+ID4gVGhpcyBpcyBlZmZlY3RpdmVseSB3aGF0IHRoZSBtZW50aW9uZWQgcGF0Y2ggaW4gdGhlIGNv
+bW1pdC1sb2cgaXMgZG9pbmcuDQo+ID4gUGFzdGluZyBoZXJlIGFnYWluOg0KPiA+DQo+ID4gaHR0
+cHM6Ly9sb3JlLmtlcm5lbC5vcmcvcWVtdS1kZXZlbC8yMDI1MTAwMTAxMDEyNy4zMDkyNjMxLTIy
+LXNhbGlsLm1laA0KPiA+IHRhQG9wbnNyYy5uZXQvDQo+IA0KPiBObywgdGhhdCBpcyBub3Qgd2hh
+dCBJIGhhdmUgaW4gbWluZC4gV2hhdCBJIG1lYW4gaXMgdGhhdCB3ZSBjYW4ganVzdCByZWFkIHRo
+ZQ0KPiBJQ0NfQ1RMUl9FTDEgdmFsdWUgb25jZSBvbiBzdGFydHVwIChpbiBvdXIgcmVhbGl6ZSBt
+ZXRob2QsIEkgdGhpbmspIGFuZCB0aGVuDQo+IHVzZSB0aGF0IHZhbHVlIGluIHJlc2V0LiBUaGF0
+IHNob3VsZCBub3QgcmVxdWlyZSBhbnkgb2YgdGhhdCBtYWNoaW5lcnkgdG8NCj4gcGF1c2UgdGhl
+IFZNIGFuZCBrZWVwIHJldHJ5aW5nLg0KDQoNCkluZGVlZCBhbmQgdGhhdOKAmXMgd2hhdCBJIGRp
+ZCBpbml0aWFsbHkgYW5kIGhhZCBmZXRjaGVkIHRoZSB2YWx1ZSBvbmNlIGluIEdJQ3YzDQpyZWFs
+aXplIGJ1dCBpdCBodW5nIHRoZSBWTSBpbml0aWFsaXphdGlvbiBsZWcgZHVyaW5nIGFjY2Vzcy4N
+Cg0KQlRXLCBjYW4gd2Ugc2FmZWx5IGFzc3VtZSB0aGF0IHZhbHVlIG9mIHRoaXMgcmVnaXN0ZXIg
+d2lsbCBiZSBzYW1lIGFjcm9zcyBhbGwNCnZDUFVzIChpLmUuIGlzIGp1c3QgZm9yIFNNUCBjYXNl
+IGFuZCBpZ25vcmUgaGV0ZXJvZ2Vub3VzKT8gDQoNCg0KQmVzdCByZWdhcmRzDQpTYWxpbA0KDQoN
+Cj4gDQo+IC0tIFBNTQ0K
 
