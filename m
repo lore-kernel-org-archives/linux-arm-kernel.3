@@ -4,67 +4,63 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2AE21CCD18E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 22:48:58 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 89A85CCD18E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 23:00:03 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
 	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FHlhZz30G+oPXKlMo7Vd7HYzgPOgmXmlwRn9QC9amKE=; b=RAOnqpo4UXM6cg61OkW/Wz2qYT
-	+cURn90EwHiZTBnQ1FGVNa+GHmWmwag1elUGtpRxJAQpbp9iAdwGyAoYNUa7n0lOScuzlmZo4MEKz
-	FVOBSDAdemA0Ew7QHNu20PROrzU2XDLGgQxThb4mYlFrC2yc77JJrNtKsWD7W0+LgulQTSWjkvnyj
-	RkENaSNQAS7gyhK4YU+3fuG8aQtJf/LAarboooEAP5mysq3Tpp5SttfRw5Tfk1VS7SlYKRb6pA1NX
-	H+3f6oDtpC3HGrZRN1IPZwZi1f88FJcw9mO73clWDOoH5paQEUvQzOmhu7Aq42xCdVOymZV5PZP+U
-	10qaoiVg==;
+	bh=4hfowH2iHudGa0LkdrtS84kdcHbiN+9po/FhXQJzKNc=; b=ocMSMRsXQebtntEQlLo84YKB0f
+	bs1XRX//HFnDF+vF/SB+iUxeb2n1g7m14FLrBS9R35zaE/aMh7VhA95Q/9FQVVXwbg9itPemA0gez
+	uZHkYF+T9dunzeLudu70bLDLsQJeAH3072dP3flTFDh9LeDUANRGhtcU5uvA421S8z5T7rtbZUP+u
+	kLQQUmQ8tQNZFFQPtNfAEALYRjIQ2cLL3Ir1OMIuoU3CkS00hXr/MAA+Kl4DdsX0vQnXUMrH2Cef4
+	30fkTILvsssyuNr51KnYNovoSSVYy9gN2z6FE3P3u5fLYQrXBs36ylkpPT/onqp313GnCc0ZmlRJi
+	Y4ZVkjlA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8np5-0000000HaHo-2MIZ;
-	Tue, 14 Oct 2025 22:48:51 +0000
-Received: from mout-p-202.mailbox.org ([2001:67c:2050:0:465::202])
+	id 1v8nzo-0000000Hawt-2pDo;
+	Tue, 14 Oct 2025 22:59:56 +0000
+Received: from mout-p-102.mailbox.org ([2001:67c:2050:0:465::102])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8np3-0000000HaHS-05gu
+	id 1v8nzm-0000000HawZ-16uK
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 22:48:50 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
+	Tue, 14 Oct 2025 22:59:55 +0000
+Received: from smtp102.mailbox.org (smtp102.mailbox.org [10.196.197.102])
 	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
 	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
 	(No client certificate requested)
-	by mout-p-202.mailbox.org (Postfix) with ESMTPS id 4cmTsV6MYxz9t5k;
-	Wed, 15 Oct 2025 00:48:46 +0200 (CEST)
+	by mout-p-102.mailbox.org (Postfix) with ESMTPS id 4cmV6J1LRGz9tvJ;
+	Wed, 15 Oct 2025 00:59:52 +0200 (CEST)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1760482126;
+	t=1760482792;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=FHlhZz30G+oPXKlMo7Vd7HYzgPOgmXmlwRn9QC9amKE=;
-	b=i7DMKfZaCHhy6Ue6SLAd1jUSVgPzlJhy3sA3s8QsHCwBggGTP3+k7LJOmr0+2bNuaqqK7K
-	6/ZoXdyIjM6s2AGpgSiTFaG2w9Vm7xSdfpSNIzN7a+dCSWs5HRJpXQxltXI6eOrYbo5eH9
-	2RI1KmYdgwwb8qVFTxyC98XVDGN8d7cTfxcnDs54Cvm/FxpRhsR/ieqfigYFG+3nyz2uKP
-	NULDU1CCio2t5FawwqDFLDDHBR3lKKYUrRGGMFtuM28IDx3MSko02+fmolWtZFwZSB2dF1
-	8tb8CwnW5HZcQVjuCL/A/dbbJJvMKIGRxdfcfd47OxaUzVL6XH2dsAhcH/mb6Q==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=uMIQKtfC;
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut@mailbox.org designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=marek.vasut@mailbox.org
-Message-ID: <f4e1897c-7073-4ab0-92b3-6f7d69382825@mailbox.org>
+	bh=4hfowH2iHudGa0LkdrtS84kdcHbiN+9po/FhXQJzKNc=;
+	b=lDEcy0IlAKe7LED+HzIzOHqp7CRKXKALzRrQvDKmrcT+wSLI8n83tfSuSjmrDfFXpayuFZ
+	D/To6s3CvThP/7sijhPgJ0EAXtGCAvTCiKU0hr6VoOZ2EXwEd+pirxb2DYcmsWOwxuzKe7
+	v2fyfqfHItH+5h09GPlqQAPfuAxAu2azo2UqNy56zXTOW4MqPFdpitQ2Xxx4iE9aNGqlC8
+	nb8nbZLPr4IhuTRN8T7YfzqaTccW2zL4BslS3CNut000rO3wDjAN+VZeuR/mrLzeHKRzKc
+	ypTa4p2sU3wR40taTxUJFxAGHWs3Yr4evv0CtGzFYK5qYoB/fC8RKzR3INpzsw==
+Message-ID: <e93779e7-026b-4b48-9d9b-dfef3d953749@mailbox.org>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1760482125;
+	t=1760482790;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=FHlhZz30G+oPXKlMo7Vd7HYzgPOgmXmlwRn9QC9amKE=;
-	b=uMIQKtfCGG1QVuhZosUesFSgN8z3mFM1dpPrbyvTRPc+tVUjjDFzs2qqVAsEHfkSbiNkUB
-	1aJLdmOBdD8fXl/NjtFqtq9bEWJcfiGZbxCrBk7nFGNVlEpw2NPn7uQUWARKkLMhx7E7S+
-	GDRRLx8WCJMRwffDu/2O9VuKqS8RBLZ1FP9a333ozS+2681szR6D0GkJO2RBc8Ic3Jky4k
-	OEtwiKkhlB5gLnFJJiaD0Y9K06dDTTWMR4gKN+k/y+TVP2HBofRYKKu3Kke3LSsTqbMEiI
-	2OesG8YuK+EyCbxl80UH+MMHT+Ef49ggX5tVySfi/XR8Up8bMk/wNgPgBGTXQw==
-Date: Wed, 15 Oct 2025 00:48:39 +0200
+	bh=4hfowH2iHudGa0LkdrtS84kdcHbiN+9po/FhXQJzKNc=;
+	b=xUVFUheZfugfP5J1pOCixDTQUpRLR9ZwawCcYGvcbW0pX3TvbJAVoSQR0l//+64oGR/MuC
+	blIqT6PMlEMDE32pIZjKikeZZZ6Esi+Tluf4fTwEaEqODCW8cHnbbowg5IEy5Pol3VmG/t
+	wJdllMmbnaVfbRqAKkNHWe9SxD7JNhKUw1Iq4FYbKsa0Bd/x04aPTN5wXuX/CIicFhqQY2
+	NXckdpuJlHBs606HssIwzgcfZWsjPuVfR2lY02+kbvVV2raxdD0+jRTlQzkqilhKH6y4h/
+	TS/wUVguGXKs4890cebtTyZCBWI10ZFHQBYEgCllVDjVFIe98h00NosUuw2sug==
+Date: Wed, 15 Oct 2025 00:59:45 +0200
 MIME-Version: 1.0
-Subject: Re: [PATCH 1/3] dt-bindings: gpu: img,powervr-rogue: Document GX6250
- GPU in Renesas R-Car M3-W/M3-W+
+Subject: Re: [PATCH 2/3] arm64: dts: renesas: r8a77960: Add GX6250 GPU node
 To: Matt Coster <Matt.Coster@imgtec.com>,
  Marek Vasut <marek.vasut+renesas@mailbox.org>
 Cc: Adam Ford <aford173@gmail.com>, Conor Dooley <conor+dt@kernel.org>,
@@ -84,18 +80,18 @@ Cc: Adam Ford <aford173@gmail.com>, Conor Dooley <conor+dt@kernel.org>,
  <linux-arm-kernel@lists.infradead.org>,
  "linux-renesas-soc@vger.kernel.org" <linux-renesas-soc@vger.kernel.org>
 References: <20251013190210.142436-1-marek.vasut+renesas@mailbox.org>
- <c65950f5-010a-4d5d-88d9-60697eeddb46@imgtec.com>
+ <20251013190210.142436-2-marek.vasut+renesas@mailbox.org>
+ <d4ec2cc2-882a-4842-ad8c-42033ceb2bc7@imgtec.com>
 Content-Language: en-US
 From: Marek Vasut <marek.vasut@mailbox.org>
-In-Reply-To: <c65950f5-010a-4d5d-88d9-60697eeddb46@imgtec.com>
+In-Reply-To: <d4ec2cc2-882a-4842-ad8c-42033ceb2bc7@imgtec.com>
 Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: qqjtj8tec66ps6d13g3ze4r8g9pktzqa
-X-MBO-RS-ID: b86a5c819d17da8554f
-X-Rspamd-Queue-Id: 4cmTsV6MYxz9t5k
+Content-Transfer-Encoding: 7bit
+X-MBO-RS-META: ya4auwctb7mmsqbrry9umriad1d3o4wa
+X-MBO-RS-ID: 34d82dfc4b4fa9568db
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_154849_229372_70812094 
-X-CRM114-Status: GOOD (  21.11  )
+X-CRM114-CacheID: sfid-20251014_155954_449429_EB8D8E27 
+X-CRM114-Status: GOOD (  20.44  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -114,94 +110,54 @@ On 10/14/25 1:52 PM, Matt Coster wrote:
 
 Hello Matt,
 
->> diff --git a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
->> index c87d7bece0ecd..c9680a2560114 100644
->> --- a/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
->> +++ b/Documentation/devicetree/bindings/gpu/img,powervr-rogue.yaml
->> @@ -13,6 +13,12 @@ maintainers:
->>   properties:
->>     compatible:
->>       oneOf:
->> +      - items:
->> +          - enum:
->> +              - renesas,r8a77960-gpu
->> +              - renesas,r8a77961-gpu
+>> +++ b/arch/arm64/boot/dts/renesas/r8a77960.dtsi
+>> @@ -2565,6 +2565,18 @@ gic: interrupt-controller@f1010000 {
+>>   			resets = <&cpg 408>;
+>>   		};
+>>   
+>> +		gpu: gpu@fd000000 {
+>> +			compatible = "renesas,r8a77960-gpu",
+>> +				     "img,img-gx6250",
+>> +				     "img,img-rogue";
+>> +			reg = <0 0xfd000000 0 0x40000>;
+>> +			interrupts = <GIC_SPI 119 IRQ_TYPE_LEVEL_HIGH>;
+>> +			clocks = <&cpg CPG_MOD 112>;
+>> +			clock-names = "core";
+>> +			power-domains = <&sysc R8A7796_PD_3DG_B>;
 > 
-> I think this can just be renesas,r8a7796-gpu; most of the devices in the
-> dts for these SoCs appear to use the same pattern and the GPU is the
-> same in both.
-
-Not really, the 77960 and 77961 are different SoCs, that is why they 
-each have different specific compatible. Of course, most drivers match 
-on fallback compatible, since the IPs are mostly identical, see this:
-
-$ git grep compatible.*7796 arch/arm64/boot/dts/renesas/r8a77961.dtsi
-arch/arm64/boot/dts/renesas/r8a77961.dtsi:      compatible = 
-"renesas,r8a77961";
-arch/arm64/boot/dts/renesas/r8a77961.dtsi: 
-compatible = "renesas,r8a77961-wdt",
-arch/arm64/boot/dts/renesas/r8a77961.dtsi: 
-compatible = "renesas,gpio-r8a77961",
-...
-
-$  git grep compatible.*7796 arch/arm64/boot/dts/renesas/r8a77960.dtsi
-arch/arm64/boot/dts/renesas/r8a77960.dtsi:      compatible = 
-"renesas,r8a7796";
-arch/arm64/boot/dts/renesas/r8a77960.dtsi: 
-compatible = "renesas,r8a7796-wdt",
-arch/arm64/boot/dts/renesas/r8a77960.dtsi: 
-compatible = "renesas,gpio-r8a7796",
-arch/arm64/boot/dts/renesas/r8a77960.dtsi: 
-compatible = "renesas,gpio-r8a7796",
-
-I can turn the first entry into renesas,r8a7796-gpu to be consistent 
-with the legacy 7796 name for 77960.
-
-Geert ?
-
->> +          - const: img,img-gx6250
->> +          - const: img,img-rogue
->>         - items:
->>             - enum:
->>                 - ti,am62-gpu
+> My comments here apply to the other dts patch (P3/3) as well since the
+> integration appears to be identical between the two SoCs.
 > 
-> You also need to add img,img-gx6250 to the appropriate conditional
-> blocks below here for the number of power domains (in this case, 2) and
-> clocks (that's more complicated).
+> There are two power domains on this GPU and the SoC exposes both of
+> them; no reason to fall back to the single-domain scheme here.
 > 
-> These older GPUs always require three clocks (core, mem and sys), but
-> it's not immediately clear from the Renesas TRM how these are hooked up.
-> I can see three "clocks" connected (fig 23.2 in my copy, clock details
-> from fig 8.1b):
+> I know the sysc driver declares the dependency of _B on _A, but the dts
+> shouldn't rely on that, so can we have:
+> 
+>     power-domains = <&sysc R8A7796_PD_3DG_A>, <&sysc R8A7796_PD_3DG_B>;
+>     power-domain-names = "a", "b";
 
-Which revision of the RM is that ? There should be some Rev.M.NP at the 
-bottom of each page.
+Both SoCs fixed in V2 , which I will post in a few days , thanks !
 
->   - Clock ZGφ: Appears to be a core clock for the GPU (3DGE). That would
->     make it our "core" clock.
+>> +			resets = <&cpg 112>;
+> 
+> Is this a reset line? Is it a clock?
 
-This should be 600-700 MHz clock on M3-W , so that sounds like a GPU 
-core clock.
+This is a reset line. The MSTP controls both clocks and resets, but this 
+particular phandle describes reset control.
 
->   - Clock S2D1φ: Appears to be a core clock used on the AXI bus, making
->     it our "sys" clock.
+> I see this pattern used throughout
+> the Renesas dts, but I'm just thinking how this will interact with the
+> powervr driver. The reset line is optional since some hardware
+> integrations manage it for us during the power-up/down sequences, which
+> appears to be the case here with the MSTP control (from my brief dig
+> through the Renesas TRM).
 
-This should be 400 MHz AXI clock, but wouldn't that make it "mem" clock 
-? I think this might be the clock which drives the AXI bus, used by the 
-GPU to access data in DRAM ?
+As far as I can tell, the pvr_power.c toggles the IP reset after the IP 
+clock were already enabled, so the IP should be correctly reset. What 
+kind of problem do you expect ?
 
->   - MSTP ST112: Appears to be a whole module on/off control of some
->     description, and definitely doesn't align with the missing "mem"
->     clock.
-
-Maybe this is the "sys" clock, since it toggles the register interface 
-clock on/off ?
-
-> Do you have any further insights as to how Renesas have wired things up?
-
-Please see above, maybe that helps a bit ?
-
--- 
-Best regards,
-Marek Vasut
+> Related, see my comments on the bindings patch (P1/3) about how clocks
+> are wired up in this SoC.
+I tried to reply to that one, hopefully it makes some sense.
 
