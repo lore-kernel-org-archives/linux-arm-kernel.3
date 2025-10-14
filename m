@@ -4,93 +4,153 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id A8C00CCD18E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 21:58:31 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6F2A4CCD18E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 22:01:53 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=ECD6YD/9cVcme/PryDiEd6/cZXsWx2lAl+ZUZ5W8UlA=; b=R9CFaniuYaGJDz5Qy357H16J8W
-	a2bBrIhI6GEaijSXBFN12YKcqGQa4GJCjjFQQULHKzcSnm+tgOm6tcjEWXXMdD+qr5mh5BcWw8OB7
-	1pbHpYGoFuiUDXZTCd1AKT+05qUUSDdLWAps9rCWP4hP1ogjj9yKzsnqH1OsYtyETbzDe/jpnR3y4
-	XOFOuItmMdiLTARJPdw3PVjmCY4ASlE6QVYA9RVVMO+7YOMsVES/RCmc0wcQqasdlQFMv/UEJTjTM
-	t5hGpiQBCtHTFk12Kk1RtPacVifx8ArTozVnWm8Uf6lfb1Ma/rMSfFcF86UI/qSaqc7ZNWwqlcBH/
-	NTsxIoMw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:MIME-Version:In-Reply-To:
+	Content-Type:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=gnMmvrNYmskI7u+aocAyQD6qSSVVYtjInY2fv2qrow0=; b=OxNuS4NGI0Y/R+GkfB6mDYS9FO
+	wA9g5aPMThcSylJE16NkdZudrC3EL7eFPjsJmnjoMkvyKL8ROCGX87MgkyobuNXngn9AciTrRr8uP
+	MtBudmrI8KIXWk6az/MHpUcpI5JOt6lSDii7dpfxV0B7w8o0t59Uq9dqNuemmE6T8zz/vBRw3Viwf
+	yhj7XVVOPfkXYbmgqdFSW7XpBpb/9sj/cQdfv/CD+ye5+0/C9GOUOyjRq7escX28C/dPJ1eDt8mLf
+	3fwMpTnvfuxCYH2zuzZkb/jUlXar1a4K+o9Tpu1wA/rreguyKdvhud03y11x4uBYyq9K7WkiZyVjy
+	CIQNgmWQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8n2I-0000000HV1i-0mXe;
-	Tue, 14 Oct 2025 21:58:26 +0000
-Received: from mout-p-103.mailbox.org ([2001:67c:2050:0:465::103])
+	id 1v8n5X-0000000HVdY-1P5p;
+	Tue, 14 Oct 2025 22:01:47 +0000
+Received: from mail-norwayeastazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20f::7] helo=OSPPR02CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8n2F-0000000HV0u-3ZBa
+	id 1v8n5U-0000000HVd8-18K7
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 21:58:25 +0000
-Received: from smtp102.mailbox.org (smtp102.mailbox.org [IPv6:2001:67c:2050:b231:465::102])
-	(using TLSv1.3 with cipher TLS_AES_256_GCM_SHA384 (256/256 bits)
-	 key-exchange X25519 server-signature RSA-PSS (4096 bits) server-digest SHA256)
-	(No client certificate requested)
-	by mout-p-103.mailbox.org (Postfix) with ESMTPS id 4cmSlL1cmMz9tBF;
-	Tue, 14 Oct 2025 23:58:22 +0200 (CEST)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1760479102;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=ECD6YD/9cVcme/PryDiEd6/cZXsWx2lAl+ZUZ5W8UlA=;
-	b=pBEikIK+wtwvSAqqpRB732i7/omGwXf3d8SQ7CVldrydsdHvoqgWetmcCdNvHntoC/qvxC
-	HZVzvzeMhylPrn5x7LYs4TaBXBOpZdDD3tU0j1AbgJLzhYV+7eiDFSbdu/1dD1VlgyFwrX
-	JYOvJtCqEr1AJ5PVpYcXMlK6TotJU45tGTbYa9sQRXDEBxLCh43IrwLHMlJKu+eICECpny
-	jBJAuULpendajw2tvPrMn1CjCywAU26dnA4aI4xOsnFb9z9EAa+ijWG5NlkQQ2M1KnVChJ
-	st/Qx6XMVAffMDLjg/o7Rc3FC2ROrtJ0DJY7+ZO2RGbkaqvpLHVmfQ9JV/y9ww==
-Authentication-Results: outgoing_mbo_mout;
-	dkim=pass header.d=mailbox.org header.s=mail20150812 header.b=snsRmcIz;
-	spf=pass (outgoing_mbo_mout: domain of marek.vasut@mailbox.org designates 2001:67c:2050:b231:465::102 as permitted sender) smtp.mailfrom=marek.vasut@mailbox.org
-From: Marek Vasut <marek.vasut@mailbox.org>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=mailbox.org; s=mail20150812;
-	t=1760479100;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:
-	 content-transfer-encoding:content-transfer-encoding;
-	bh=ECD6YD/9cVcme/PryDiEd6/cZXsWx2lAl+ZUZ5W8UlA=;
-	b=snsRmcIzhz2zONjehPba451aEJcwqxKk4vdTuE8eRF93uf8/e8n10U24xledVckHrAkY9V
-	2g7L/Bwax9Mw7U8o6HCRoujAIZgDr103EavOTseOJsorQywzQPja580Y25jD5dKlCezjmy
-	RnE6AJM588ZmGtqv34Ndt2JQblXhNHz/SxmRVMNEV+nHMzKNEO1k40bMNc1SlOcPFDzl0H
-	oY1qoc1csonb6QOtku1oiK3njoTIjbvaygxFWHwxU2Oop3MfZpGXBQIrBAfqRWi2Qgv6ZQ
-	HFEJ56WiiXw8VDJooazjnuEmcyqP04L/OqXkxUiqnGUE2oeIuknggKVdwHFzdw==
-To: dri-devel@lists.freedesktop.org
-Cc: Marek Vasut <marek.vasut@mailbox.org>,
-	Frank Li <Frank.Li@nxp.com>,
-	Abel Vesa <abelvesa@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>,
-	Fabio Estevam <festevam@gmail.com>,
-	Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Laurent Pinchart <Laurent.pinchart@ideasonboard.com>,
-	Liu Ying <victor.liu@nxp.com>,
-	Lucas Stach <l.stach@pengutronix.de>,
-	Peng Fan <peng.fan@nxp.com>,
+	Tue, 14 Oct 2025 22:01:46 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TRAun1sgKIqAiAZpErFBiU+UgHakNkhfgokA8vz2NMyXYuokigXPJ/lWb5O9fViGN9OUiT2bZqQO901d7GbEnUHxbr+05hbmbJASdgZD4tKVYIyUiNIR0kjKGrzx2MFkLymgFybhEZ22CtNemJgs8gwWxcwIBc0qgc9qYgrWz6ncKVM+7PHqL6I4ZhFGYgMYRGQkRRqq9BjLjLexl5c28U7Clle2qs7T5JkvJK1OmC1R9adBvzx5R6MTyrwAnd3NiL1nd6/WVvZopHuXz8qF41BXEMIwwjpgZyYY7oH1cUmL3HIL2G23UBHxW3xpysUcb25xiHXHw5lvdJ/Rj0qYqQ==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=gnMmvrNYmskI7u+aocAyQD6qSSVVYtjInY2fv2qrow0=;
+ b=C8zC/C4UiIQAcoL1vtyb7l3DsoRwUNbIPp0ncXckddUXb9HH/Lc81Ja46+luM5ueDKf3MHIvJxTUOBckK+3/jxJZTXcpy1E5Qywy7SiUAjmzCyft5JnfnZZMclB9gTKdqNFUKUiUsnYaEvX1w42KOt2a791b3HUniaZYwULrmTXDRS/G2UUNnfi8JLnUzSFMtfnIS6w+sYMl/TWZwVBXbLwTnuATAWE1/DS5NjBLqwXk8MrxUj2soe9MBSzWRJcKNo6G37jNje/dQzX/tmx35ok8v94LQ/yHhDsaxmo06oTZ0aYbOqZeBWhOPlFWVwAhYcSiM6zEJP1/HpL23Xgt/w==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=pass
+ smtp.mailfrom=nxp.com; dmarc=pass action=none header.from=nxp.com; dkim=pass
+ header.d=nxp.com; arc=none
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=nxp.com; s=selector1;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=gnMmvrNYmskI7u+aocAyQD6qSSVVYtjInY2fv2qrow0=;
+ b=iMEinAJ27unKlDD8bBRzD0I4TrkxiPh6rD88bTiKlSPRTOTqyKvaaAqHOsDM2I3ZVtvamx5uc+aCOLbzFW9KM9gd4RKWblBLS/3eeof9yA6Yhy4cfPG3vMuIeIAobnL7saQ6Q6rzxynYdJgMc/g9d3NxLgXgGVX/oJJfAiJzVAsy7BQnl4/Rf12DsvrJuaRIVEnEX1JmoazUNSDbTdCTp+6CEirGBFZNXOchzEQc4Gh7C2ER1lw1ui8hL8JPNjK9ZnqfK64pBGs6f9VIHwcjOwiV6sUeGcl12ODG5Hrj1ESWKGskXeavVsf1gQhvx1hOsUlLFC52UU+w7xqx9BGG+A==
+Authentication-Results: dkim=none (message not signed)
+ header.d=none;dmarc=none action=none header.from=nxp.com;
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com (2603:10a6:102:23f::21)
+ by PA2PR04MB10346.eurprd04.prod.outlook.com (2603:10a6:102:423::10) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.12; Tue, 14 Oct
+ 2025 22:01:37 +0000
+Received: from PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15]) by PAXSPRMB0053.eurprd04.prod.outlook.com
+ ([fe80::504f:2a06:4579:5f15%6]) with mapi id 15.20.9203.009; Tue, 14 Oct 2025
+ 22:01:37 +0000
+Date: Tue, 14 Oct 2025 18:01:28 -0400
+From: Frank Li <Frank.li@nxp.com>
+To: Marek Vasut <marex@nabladev.com>
+Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
+	Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>,
+	Sascha Hauer <s.hauer@pengutronix.de>,
 	Pengutronix Kernel Team <kernel@pengutronix.de>,
-	Rob Herring <robh@kernel.org>,
-	Shawn Guo <shawnguo@kernel.org>,
-	Thomas Gleixner <tglx@linutronix.de>,
-	Thomas Zimmermann <tzimmermann@suse.de>,
-	devicetree@vger.kernel.org,
-	imx@lists.linux.dev,
-	linux-arm-kernel@lists.infradead.org,
-	linux-clk@vger.kernel.org
-Subject: [PATCH v2] dt-bindings: interrupt-controller: fsl,irqsteer: Add i.MX95 support
-Date: Tue, 14 Oct 2025 23:57:15 +0200
-Message-ID: <20251014215801.51331-1-marek.vasut@mailbox.org>
+	Fabio Estevam <festevam@gmail.com>,
+	Christoph Niedermaier <cniedermaier@dh-electronics.com>,
+	Marek Vasut <marex@denx.de>, devicetree@vger.kernel.org,
+	imx@lists.linux.dev, linux-arm-kernel@lists.infradead.org,
+	linux-kernel@vger.kernel.org, kernel@dh-electronics.com
+Subject: Re: [PATCH 1/8] ARM: dts: imx: add power-supply for lcd panel
+Message-ID: <aO7IOCdq013j3rre@lizhi-Precision-Tower-5810>
+References: <20251014-imx6_dts_clean_2-v1-0-508b36e5a3fd@nxp.com>
+ <20251014-imx6_dts_clean_2-v1-1-508b36e5a3fd@nxp.com>
+ <ddc44948-4816-452f-8b78-b1dfe44d507b@nabladev.com>
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
+In-Reply-To: <ddc44948-4816-452f-8b78-b1dfe44d507b@nabladev.com>
+X-ClientProxiedBy: SJ0PR13CA0150.namprd13.prod.outlook.com
+ (2603:10b6:a03:2c6::35) To PAXSPRMB0053.eurprd04.prod.outlook.com
+ (2603:10a6:102:23f::21)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-X-MBO-RS-META: wjwkupjez7okptt7rcxc4om87i55xhh8
-X-MBO-RS-ID: 96a075b7f644b75232d
-X-Rspamd-Queue-Id: 4cmSlL1cmMz9tBF
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: PAXSPRMB0053:EE_|PA2PR04MB10346:EE_
+X-MS-Office365-Filtering-Correlation-Id: f6b74ff3-e6d7-48af-8611-08de0b6d3f24
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|376014|52116014|7416014|19092799006|1800799024|366016|38350700014;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?C3v4u0NYy//4mxXsVG2tRCg4zjJ63sEHAxV/sW9w0X1E0ZS+K8YvIEt1RFHH?=
+ =?us-ascii?Q?PdN67vXmSqDqDSlwP0tCLSoeY0z8PUnPi0GcUFnVaTVG5g/O88Cbce2JCZL1?=
+ =?us-ascii?Q?mnisXp/qOF/mKcJoy9SLpsWoq07Wc6fkNgdwFxoia2ksoctxKzD4sctZ/9Du?=
+ =?us-ascii?Q?t1sLxlQL8CUrQFOZ778CT6H6ZOZM5CGSWaiC6TE6KlBuDQJH4pRYLiuZEy7H?=
+ =?us-ascii?Q?uBAwxu2Tgjy3Mzvz3jIl8Ji2IHOmZzKZa1zlEVIR3Mgjb+wfBmJyiyDjGKz1?=
+ =?us-ascii?Q?klEvyO3y3mOIY2xQJj3NxHsVE6BmVMwhuVxo5qBIPCk8OLgN0Qk761kMoYS1?=
+ =?us-ascii?Q?1njFy0784U1MBxIESvTZfiAL2jdgJswXM1ukmrhTHqxBHMaSUpfSN9ZoowHB?=
+ =?us-ascii?Q?saXp1OM1rax4EmteLCrwFR4gerxJ9vLgO8LgzTrfAa/4IxrTB2C15RuzwW3p?=
+ =?us-ascii?Q?TNIxQeiTvfKTqQtKBdmnz1Cghzfzyk0Ztd/PSCiYf0c5F13PkRWi/KbnxpIO?=
+ =?us-ascii?Q?IXmIq/7MD2cokUeTD76js9fhDK2fFKfXn5THR6Yk4NsmBKQvGjknQ30jppS4?=
+ =?us-ascii?Q?YWykl4vWbpwY5LdxadxaQI6OmH9Of3cvo9rQFlHlvLN/6Zde/9yfrchUPfsZ?=
+ =?us-ascii?Q?ITd75PeBhPAS5C4L0l8CVcU0rwFR1zz3vXYLwopqT7hbsIfPQTscZbjpRBjG?=
+ =?us-ascii?Q?X+kDXkmIF7/9Czvww3UIAfa7ji3PD2Wjdc9tniz6XbEYJSfEcqfHv5Hb+nT+?=
+ =?us-ascii?Q?r/1C2/qLaSoGJqWJh4HHLj7I+un2BakrgkJshBcEfxMQ2Y7kWpLZZqRZaRCN?=
+ =?us-ascii?Q?/os+Uq+X1H4Ng3su+sRsSpvXA8FquFip601P9D0WAyWRKrA02DolQNtdDuzF?=
+ =?us-ascii?Q?HUWUWu6+zit79npAbXNqS+JRlQhHyH3/uO4AgWCub315cZDJsZRxyK0ScMB8?=
+ =?us-ascii?Q?Xzueegx4L/gS+XH8u883/iB4ooh0Ma/PbPHq5re84GDkgyiyJDOpj92IWFC4?=
+ =?us-ascii?Q?B1jHG2/abeleH4qH3Y8wOtCWPTIpyO3K8+ah/u5gznbKOEBMB/TOgEM2LFBV?=
+ =?us-ascii?Q?4cuh/ZIOM6jwPCYW5N6BsmrI8NRKasvNRcBJlaTu23xuUm6EkZUbkMZdPCPN?=
+ =?us-ascii?Q?bAdi5hGbtUMTUN4QyyQQt+YF4H5AiBWYxQClPPfsVJeuHX/TtdEQtfatt0zN?=
+ =?us-ascii?Q?I2alksxx/j8RQTVYqSkblE6PbK1vBZBmNJGS1n23ZUMsyLsskISjq7VxqsXo?=
+ =?us-ascii?Q?vaqIwGzS2CfIbe5V1mV98MSTADvkwZ5kJfNdGIZYUit6CwT+ZzpgCvHpi/NT?=
+ =?us-ascii?Q?kxYUB2VboSfAyD+wim4VrRirgBljGwvbDWvLohOAdjll/yAeI+4k+hqyx1lF?=
+ =?us-ascii?Q?xDji5Qk1vITgqa3VrQV7KZ9750uQSHSARBD9FfJP9VkmCsQFzRSPXbc0wiV7?=
+ =?us-ascii?Q?TwaJdEFVcH0Ha4FrVGNhnB0WOQ8KewfgfUZxEA/K2LYrhNCDCXlMDlUxlfGq?=
+ =?us-ascii?Q?+ZWdIdKOwVpYE6Lyg3YTUKdtzGRuEOg83iPS?=
+X-Forefront-Antispam-Report: CIP:255.255.255.255;CTRY:;LANG:en;SCL:1;SRV:;IPV:NLI;SFV:NSPM;H:PAXSPRMB0053.eurprd04.prod.outlook.com;PTR:;CAT:NONE;SFS:(13230040)(376014)(52116014)(7416014)(19092799006)(1800799024)(366016)(38350700014);DIR:OUT;SFP:1101;
+X-MS-Exchange-AntiSpam-MessageData-ChunkCount: 1
+X-MS-Exchange-AntiSpam-MessageData-0: =?us-ascii?Q?JqYQvmlQ2gvo9acDAf0DzjDVqHAaLhobx5dOpTOtFZoas7sVZENWSll8QAQd?=
+ =?us-ascii?Q?Dm47zswz0Gz2PdUDeVdNqig0V549ae9fMK7q4taIQHjBzJiv6YfOetn1ZnbU?=
+ =?us-ascii?Q?Azb1ww4S/BDDxHxdznKZe47HxMRliq/49AH36LOj9fq/Sv2JWyBbQAEk72oC?=
+ =?us-ascii?Q?eO+A2Ijr4nY9mNX79cJLXVksLHicYODKvzjopCo9QcSzIo2K/tTMc6RGJoI/?=
+ =?us-ascii?Q?ObFYidXH7twaCnogCDCFzp3z3cdyjdy7JWUnrUeY/i4Yx05hgP/uWDTZ5hAz?=
+ =?us-ascii?Q?yuNLuYjZag7p9DVVhYS5ZBPn/NRC9hfdtc6fmn/G9crICRq4JI7lurRNeY5R?=
+ =?us-ascii?Q?SE3BPms0GjMyiAExP9VkLrL6VZCFc1jass92o0AlG0b/1Bw5d4+l/DRPSUB2?=
+ =?us-ascii?Q?YhwMy2BHiQY25IdweI20pCmdRDpiP1IJvpuOqp0n84j7UdFeoEhi7opZCN2U?=
+ =?us-ascii?Q?qiU6UpPXyzodx74dhmGVQyXvtAeI9L7Y8JcfzCwSAweQP8e8r5QpSgoWKXYN?=
+ =?us-ascii?Q?oXBJC0Eq1w1BM8pXLCUV+K0+7k8yw59l6WGAI6cK37iyvuAvpfEcxk2cWdh3?=
+ =?us-ascii?Q?2yPgaqsWlDma4qLwQcsSW5dJRlWQ42gUKuprT2IODxaxInLj0u7y8/6VAah8?=
+ =?us-ascii?Q?W9ljHFJHSfoxJ2LYbHlo5SmQ6nDDfGPS/qUohyBDH2yJKPC3rvY8Rv2bOl5H?=
+ =?us-ascii?Q?ICianX0HOJp8IXeH9cdziw8MvqHOHFBdPA414etzWUYhlpmW/eIUq1KajCww?=
+ =?us-ascii?Q?Y/FsXAnEjNdm3FCoK4sF5G/kAO/u9cUwa2URl6XGArGXq2akDkaGPG4T5U3L?=
+ =?us-ascii?Q?eQa3kqYvIaVfsdcKEZ1PkwD6ZSol4Tfrs5JatRhle07nHTkr7OiMy7Rw6adB?=
+ =?us-ascii?Q?E0hUOOivZnsHYtWzWIFAUpwgvQJ0oebGo3gbKrlXyBgv0Autmx9z91W6OgEy?=
+ =?us-ascii?Q?ZSj2K7biGmK0QFpRJQ9YRbjfTGwIFrvBRvgUmQp/FF31TkrtiKin/ApDO+Yq?=
+ =?us-ascii?Q?0lg11T2wxkkmYgSuowpJnl+ERr4lsp5TtEYLdNhdozWlIup1I2Ma6Lk9CCdq?=
+ =?us-ascii?Q?3vMUoBzOVJGdtwb0UpUGUb1TCuvNNeFEQP+UIwB3BjIV2KQxoE3zVxEthbhz?=
+ =?us-ascii?Q?iF0qG9mcenLsl0pOahZoTLaD7ViRII4XxLZy29YjbO+GARY9rlIUiUuisutO?=
+ =?us-ascii?Q?DkA36KJ4fVE7/rlgWSbepJn4whUV83O5Q2U1RHr+2tcwvc/eOYx44stPoqXi?=
+ =?us-ascii?Q?If5YhG58LeK1Z+bb5KAO5zy21puxrzutbcBSP1qunp4gS8UYlFPubspm1sF/?=
+ =?us-ascii?Q?PoCiRtpPWGpThaBFVAuUi4vWGJ7ZZocEk4aJpTtLASA/haHiZB4w/qWctGwJ?=
+ =?us-ascii?Q?FmatdAmjpbROFEvda+ugaSRzTQGUSxEmpaZI2E1AYXvZB6O8LOO1Ctl7PFXK?=
+ =?us-ascii?Q?PMdn5E8PCLWmEQHfbc3x94n17519fKCBkJqG48H2i7iLBCNi3K+EaBmtsfEp?=
+ =?us-ascii?Q?xYqQXpWa8g1kTRw7upLlTDWggCNrKUTyLouMO4iwvN8av1CZz7vQvUefEyvm?=
+ =?us-ascii?Q?MfkkyYNsF43Bf24aPb8=3D?=
+X-OriginatorOrg: nxp.com
+X-MS-Exchange-CrossTenant-Network-Message-Id: f6b74ff3-e6d7-48af-8611-08de0b6d3f24
+X-MS-Exchange-CrossTenant-AuthSource: PAXSPRMB0053.eurprd04.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Internal
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Oct 2025 22:01:37.2931
+ (UTC)
+X-MS-Exchange-CrossTenant-FromEntityHeader: Hosted
+X-MS-Exchange-CrossTenant-Id: 686ea1d3-bc2b-4c6f-a92c-d99c5c301635
+X-MS-Exchange-CrossTenant-MailboxType: HOSTED
+X-MS-Exchange-CrossTenant-UserPrincipalName: OEHaJK1xRwNYfkgGpmeRuX6OQVYUY3qJVwNRvQvuQuBm1lq+5FI8JnzQItjP3zvVrMR8u3l988ks/dIQssDywA==
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PA2PR04MB10346
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_145824_031995_F0CE1DAE 
-X-CRM114-Status: UNSURE (   8.60  )
-X-CRM114-Notice: Please train this message.
+X-CRM114-CacheID: sfid-20251014_150144_762374_3D99CEE6 
+X-CRM114-Status: GOOD (  14.38  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -105,57 +165,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add compatible string "fsl,imx95-irqsteer" for the i.MX95 chip, which is
-backward compatible with "fsl,imx-irqsteer".
+On Tue, Oct 14, 2025 at 10:46:56PM +0200, Marek Vasut wrote:
+> On 10/14/25 9:38 PM, Frank Li wrote:
+> > Add power-supply for lcd panel to fix below CHECK_DTBS warnings:
+> >    arch/arm/boot/dts/nxp/imx/imx6q-evi.dtb: panel (sharp,lq101k1ly04): 'power-supply' is a required property
+>
+> ...
+>
+> > diff --git a/arch/arm/boot/dts/nxp/imx/imx6ull-dhcom-pdk2.dts b/arch/arm/boot/dts/nxp/imx/imx6ull-dhcom-pdk2.dts
+> > index b29713831a74489e8cc0e651c18a40d85f9f9113..04e570d76e42cd67a38e0f3b2301598f712e6bd4 100644
+> > --- a/arch/arm/boot/dts/nxp/imx/imx6ull-dhcom-pdk2.dts
+> > +++ b/arch/arm/boot/dts/nxp/imx/imx6ull-dhcom-pdk2.dts
+> > @@ -199,7 +199,7 @@ touchscreen@38 {
+> >   		reg = <0x38>;
+> >   		interrupt-parent = <&gpio5>;
+> >   		interrupts = <4 IRQ_TYPE_EDGE_FALLING>; /* GPIO E */
+> > -		power-supply = <&reg_panel_3v3>;
+> > +		vcc-supply = <&reg_panel_3v3>;
+> This looks like a different kind of change ?
 
-Reviewed-by: Frank Li <Frank.Li@nxp.com>
-Signed-off-by: Marek Vasut <marek.vasut@mailbox.org>
----
-Cc: Abel Vesa <abelvesa@kernel.org>
-Cc: Conor Dooley <conor+dt@kernel.org>
-Cc: Fabio Estevam <festevam@gmail.com>
-Cc: Krzysztof Kozlowski <krzk+dt@kernel.org>
-Cc: Laurent Pinchart <Laurent.pinchart@ideasonboard.com>
-Cc: Liu Ying <victor.liu@nxp.com>
-Cc: Lucas Stach <l.stach@pengutronix.de>
-Cc: Peng Fan <peng.fan@nxp.com>
-Cc: Pengutronix Kernel Team <kernel@pengutronix.de>
-Cc: Rob Herring <robh@kernel.org>
-Cc: Shawn Guo <shawnguo@kernel.org>
-Cc: Thomas Gleixner <tglx@linutronix.de>
-Cc: Thomas Zimmermann <tzimmermann@suse.de>
-Cc: devicetree@vger.kernel.org
-Cc: dri-devel@lists.freedesktop.org
-Cc: imx@lists.linux.dev
-Cc: linux-arm-kernel@lists.infradead.org
-Cc: linux-clk@vger.kernel.org
----
-V2: Add RB from Frank
----
- .../devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml  | 2 ++
- 1 file changed, 2 insertions(+)
+It is touchscreen, It needs sperate patch fix it to align
+edt-ft5x06.yaml.
 
-diff --git a/Documentation/devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml b/Documentation/devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml
-index c49688be10581..5c768c1e159c1 100644
---- a/Documentation/devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml
-+++ b/Documentation/devicetree/bindings/interrupt-controller/fsl,irqsteer.yaml
-@@ -20,6 +20,7 @@ properties:
-               - fsl,imx8qm-irqsteer
-               - fsl,imx8qxp-irqsteer
-               - fsl,imx94-irqsteer
-+              - fsl,imx95-irqsteer
-           - const: fsl,imx-irqsteer
- 
-   reg:
-@@ -87,6 +88,7 @@ allOf:
-               - fsl,imx8mp-irqsteer
-               - fsl,imx8qm-irqsteer
-               - fsl,imx8qxp-irqsteer
-+              - fsl,imx95-irqsteer
-     then:
-       required:
-         - power-domains
--- 
-2.51.0
+Frank
 
 
