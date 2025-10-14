@@ -4,92 +4,133 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id DCEE8CCD185
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 00:21:12 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id D3CA0CCD185
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 00:23:49 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:Content-Type:
-	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=FapHoBZSBBgkeAPgfh0/hnIRZ5RySUGbBwY1QHLC79Q=; b=pqjxHg8kHu8vePnb+iGmL4Jtbd
-	Kp9aGvaWw0JUFo2rQxvGyBy10YkWwd232lPajoWK+Dptp7uAVwrXAanFGfHIwwlqr5luNDJwOJatJ
-	mg1yVhSGbfvQnkeNRgMN5W3sBFkqIy902sGvJKWWfbFv5sPaYzZW7VhSGGQF7LQErXNCvIYGLx3tw
-	7t8WR3Fg+AGw88XdsVUPJK7uiMdfaQ35/GuLGCWFSuVduU9NkEtHyuZwHpjh9RfUFrJBiox8I4/22
-	abHQUzEPNpwsNuwzEfQEATYDyZp2lMxnRSlYV6+c3N+fc9852mrG3s+lJ6q3c9m2Khg4S5lg6KkSz
-	Rnxpz0tg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
+	Content-Transfer-Encoding:MIME-Version:Message-ID:Date:Subject:CC:To:From:
+	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
+	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=1Po+sPg3iRBdm/xK4kD4qr72SMpV78K/Gr58Q9zZ4UE=; b=nggMNQ+LxKx22NbBUt1d/BmCwQ
+	MpeWPSni4w71AtlGWIEu90fxqUEvZIZCTLVXeKyADcH1wX4Qdsgix2QqZUUFluYBfir14AiW3Kea0
+	c+TLV1uyCzGodAfJa8ObkGPlkdrNU0is3hdHV91coPbpI6wiHX+W8/ImgisBWc73f57Ep6yJA0RTm
+	vitVsOrC7GERP1cTDhaqR9M7gQV2HgUsluCh4ftbuTowrBQriLE6hntNBSoYPPcf/BRPzmEPF5gO9
+	zgj4ZvCcUjEoQhwRfvPdWbnKtU2lQT6n0895E5/2DFtX1jZCfmR53wdmkzc57z2cDcr306AS6e0X0
+	6EyRSU4w==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Smk-0000000EpSU-0fZz;
-	Tue, 14 Oct 2025 00:21:02 +0000
-Received: from mail-pg1-x52e.google.com ([2607:f8b0:4864:20::52e])
+	id 1v8SpJ-0000000Epmx-2ydM;
+	Tue, 14 Oct 2025 00:23:41 +0000
+Received: from mail-francecentralazlp170130007.outbound.protection.outlook.com ([2a01:111:f403:c20a::7] helo=PA4PR04CU001.outbound.protection.outlook.com)
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8Smi-0000000EpS8-0pzq
+	id 1v8SpG-0000000Epmc-082A
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 00:21:01 +0000
-Received: by mail-pg1-x52e.google.com with SMTP id 41be03b00d2f7-b67684e2904so2616352a12.2
-        for <linux-arm-kernel@lists.infradead.org>; Mon, 13 Oct 2025 17:20:59 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760401259; x=1761006059; darn=lists.infradead.org;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=FapHoBZSBBgkeAPgfh0/hnIRZ5RySUGbBwY1QHLC79Q=;
-        b=hTOkyHORYv4deeaHLBoqn+9tH33//lUYW7twvydScZABXjBdBHkuPZrqvtOtRS7N1z
-         G69Z/5zTO0l3HjG41kNKOvMXGSqwNwx7F2hgq0d83r/SKAs1n1T72wlYZG0DqC2KHJYe
-         t60Aa9hDiq3UJt78+kSWxhfW8y8YQkjc8Ypue9B1nlUB0ak244hPWFkfat9fxmZbdyxl
-         aY7uOlm9EuqINYhaijivPhzEf0jLRx1WHAosT+2ncOS3TKSL7Js2Kd0FPBjDwE6GyH5S
-         8aoZi1bzDtS4JbxEaUFDWUZYth3G3NPzUeI7WTNuOPyi2Zl9bVb6vEI9URuc6dIyyApu
-         bRPw==
-X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760401259; x=1761006059;
-        h=in-reply-to:content-disposition:mime-version:references:message-id
-         :subject:cc:to:from:date:sender:x-gm-message-state:from:to:cc
-         :subject:date:message-id:reply-to;
-        bh=FapHoBZSBBgkeAPgfh0/hnIRZ5RySUGbBwY1QHLC79Q=;
-        b=c5NAm+BUCKNdM7VlZpFM5UROXLoYnzQFRtqbP7MVOVYs01Ke6qi5TvnKziAo737Zyy
-         9JdXn8A/EZBcA5PtDmibFgVELaV0gkyEUou/x56ZBlL6M55/kwdJvLdOv91B5cpY/AgI
-         EG0Vucf6pbr5qIxp3wWLUtIrpa1UruPvrXP4qfAOXRQAYKDQULmjiz6iAxKl+U4SKVg6
-         mA4RcM28yUXYyoUft3SuuvQOPIX/pCkxEwtFW5vuaM4Y+0ByZpbOzXT3CeuksC0enVqb
-         2SrQuvGbCs82ifO94OrA1n9me2kvXUqx2oQLejUjSCvVuN3ThKDMdlR2psl9G840W0pn
-         eyIg==
-X-Forwarded-Encrypted: i=1; AJvYcCWMN0ZPxQVXPFhf2oVZOoZnMKy9jYG9b3qIunbQ+82FbtqwehW5sdoV3eD0Oe03c2C9idbLto5k/FZxJdwvDH7E@lists.infradead.org
-X-Gm-Message-State: AOJu0YyQZ+Y2AxDu6pBVWmh2hyDxxNubfGvjofRbNyezaE3LFu570Zgq
-	ibuzVG4QrUAliuVtrVfyEvHaDfEi3B9wHyugg73RnLPNcb1eRBfPNvNh
-X-Gm-Gg: ASbGncsECIbyjhLzwC1uU3yXYVqUkKNGOEXXOEDVqJkDO44ygEkOCGeMYxJQ5Q5xwZh
-	mv5lY7d68qVd7MLq6AiVmyhV2nV1k38HwHYoIZp61GACatLeaX5/qkFwgZzAcOrQdIfCldQ5HR1
-	yM7IHc1pxtGyFv+3LbhWasLVmdhyCQPfMf3yLQzcF3Rbe8hq2v7WYF6bKtMZncnBSwfDXnj798m
-	EdCsoexkL8cQl7MqgnqC+y7hYva4jGd4wWLJGYdfKpXMHMCPzOdyuTyJElxvyIQ70V6DC/qA0jB
-	pGuYe1XWZdnFrQdqWLdsKLNHewMfoWzVj3cTCVjWRo0T5aBaD+Jus/o+T5xRtji+ZL3O4xEWELm
-	cVMvHCt/9/CCjym6EVNtLN3MR8BS64vVgxE/95oyiE5VVhT9sznL8hEVvlTSmJHSO
-X-Google-Smtp-Source: AGHT+IF8IIF9dA+nUndexMgc/HlI7FOKBRCbLWHhmSyCq1fdJ7LM7JOtkUdL7gTzQp9WcaLBJmQIJw==
-X-Received: by 2002:a17:903:8cc:b0:27d:69cc:990 with SMTP id d9443c01a7336-29027402f43mr305469345ad.49.1760401258830;
-        Mon, 13 Oct 2025 17:20:58 -0700 (PDT)
-Received: from server.roeck-us.net ([2600:1700:e321:62f0:da43:aeff:fecc:bfd5])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29034de6c7bsm145479255ad.3.2025.10.13.17.20.58
-        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Mon, 13 Oct 2025 17:20:58 -0700 (PDT)
-Date: Mon, 13 Oct 2025 17:20:57 -0700
-From: Guenter Roeck <linux@roeck-us.net>
-To: rentao.bupt@gmail.com
-Cc: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>,
-	Conor Dooley <conor+dt@kernel.org>, Joel Stanley <joel@jms.id.au>,
-	Andrew Jeffery <andrew@codeconstruct.com.au>,
-	devicetree@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
-	linux-aspeed@lists.ozlabs.org, linux-kernel@vger.kernel.org,
-	Andrew Lunn <andrew@lunn.ch>, Tao Ren <taoren@meta.com>
-Subject: Re: [PATCH v4 11/13] ARM: dts: aspeed: facebook-fuji: Include
- facebook-fuji-data64.dts
-Message-ID: <79ddc7b9-ef26-4959-9a16-aa4e006eb145@roeck-us.net>
-References: <20250728055618.61616-1-rentao.bupt@gmail.com>
- <20250728055618.61616-12-rentao.bupt@gmail.com>
+	Tue, 14 Oct 2025 00:23:40 +0000
+ARC-Seal: i=1; a=rsa-sha256; s=arcselector10001; d=microsoft.com; cv=none;
+ b=TjmW25r5juOuDFN9PS1iFTFPJ04eAc7o5a6tt+eEHYyWVNeEhsZEhrwEASrXpg36R5bs52VMGqHIPckJLZd9lWgTsbhZL+EO5mEnEjViX4uYid6zddKawxSNJTnaN4m2BWBD9WwRFWLZfX0QPe+6fnCATC7zjz1AUvc5TVDB3nns+6cq90fEQr/NIVWJ/AUZdKpCPSAuSzbPcYeukOsN3wnbuN6UMp+OzAnbI5nd/M9rG+2VKyCLNOaOJsXssUAwZn0CW2N+CJe4kiFy3FqUgHXPdaGawLl5K+UnqPnX8srdgB6T4U/JKFM74uAhxv4ZwGDVcnmPliI5CNBDgB6Tzg==
+ARC-Message-Signature: i=1; a=rsa-sha256; c=relaxed/relaxed; d=microsoft.com;
+ s=arcselector10001;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-AntiSpam-MessageData-ChunkCount:X-MS-Exchange-AntiSpam-MessageData-0:X-MS-Exchange-AntiSpam-MessageData-1;
+ bh=1Po+sPg3iRBdm/xK4kD4qr72SMpV78K/Gr58Q9zZ4UE=;
+ b=Qsu6F8kH/FD1wHZ6hg3bPH1DFx/XPKNcO+FtimajTBx4DrxidKZRaT6wuT+ArH14HuZ3tzLLOZ1LHtYl4ao5x8azP1PK+ZZ3+K+490nzEccnahHG1wzEji8sUcKs/rIxDRFfwYGyT4XrJASj2P46XofiSVMz9XyPTuNBOkJT2jU87jzLUMOK9G4oIf8LDnHLdR7gLL05xTF/8/OTRTwA2CCffw0nzOq4EVn6J7IIMuMyXf1ZxYL1Hw897K1gAfA4EE3sSkYGn2SbG6aX5auuIC2sOK/KG92eynOQxTWisRtsTA/S2xlI0DVN9Yn1buYM8dvGOAAuRVX6uq1+cY7n+Q==
+ARC-Authentication-Results: i=1; mx.microsoft.com 1; spf=softfail (sender ip
+ is 91.26.50.189) smtp.rcpttodomain=ti.com smtp.mailfrom=phytec.de; dmarc=fail
+ (p=quarantine sp=quarantine pct=100) action=quarantine header.from=phytec.de;
+ dkim=none (message not signed); arc=none (0)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=phytec.de;
+ s=selector2;
+ h=From:Date:Subject:Message-ID:Content-Type:MIME-Version:X-MS-Exchange-SenderADCheck;
+ bh=1Po+sPg3iRBdm/xK4kD4qr72SMpV78K/Gr58Q9zZ4UE=;
+ b=pu86x6Ah+QQQcifxypCgMxZmCAOIsNfw08s8U2ql0XOp5CKKh8SfCsoA2bI0a18+A20JJGV8rri+IH4pgHNAG5XTvnYi+Tg2Czw95NgwtD5wPp3j0+ZJK15sSjrmpRiNe2eKIGHB6tGDxjWT6baptaHLiy6uVh2PWbCgkMO06nbThzMnBCn5g1C1NBC6uLPtnbEPIAJVgqoMK3sPnVzQIte9p9ENVvl3htL8BTbbVopqUT1djqmdVXvlKEFM60d3c7EyUyNNucOja/tnoH5CE+Me595CdeZRiW32oxQlSN91DP6bGJegw/H1vHKr7iWw77HHe11xNThmlEaEmu/bpw==
+Received: from DB8PR04CA0026.eurprd04.prod.outlook.com (2603:10a6:10:110::36)
+ by PAXP195MB1167.EURP195.PROD.OUTLOOK.COM (2603:10a6:102:19a::23) with
+ Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.20.9203.13; Tue, 14 Oct
+ 2025 00:23:31 +0000
+Received: from DB5PEPF00014B9D.eurprd02.prod.outlook.com
+ (2603:10a6:10:110:cafe::d4) by DB8PR04CA0026.outlook.office365.com
+ (2603:10a6:10:110::36) with Microsoft SMTP Server (version=TLS1_3,
+ cipher=TLS_AES_256_GCM_SHA384) id 15.20.9203.12 via Frontend Transport; Tue,
+ 14 Oct 2025 00:23:31 +0000
+X-MS-Exchange-Authentication-Results: spf=softfail (sender IP is 91.26.50.189)
+ smtp.mailfrom=phytec.de; dkim=none (message not signed)
+ header.d=none;dmarc=fail action=quarantine header.from=phytec.de;
+Received-SPF: SoftFail (protection.outlook.com: domain of transitioning
+ phytec.de discourages use of 91.26.50.189 as permitted sender)
+Received: from Postix.phytec.de (91.26.50.189) by
+ DB5PEPF00014B9D.mail.protection.outlook.com (10.167.8.164) with Microsoft
+ SMTP Server (version=TLS1_2, cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id
+ 15.20.9228.7 via Frontend Transport; Tue, 14 Oct 2025 00:23:30 +0000
+Received: from lws-haller-privat.attlocal.net (172.25.39.212) by
+ Postix.phytec.de (172.25.0.11) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.17; Tue, 14 Oct
+ 2025 02:23:27 +0200
+From: Dominik Haller <d.haller@phytec.de>
+To: Nishanth Menon <nm@ti.com>, Vignesh Raghavendra <vigneshr@ti.com>, "Tero
+ Kristo" <kristo@kernel.org>, Rob Herring <robh@kernel.org>, "Krzysztof
+ Kozlowski" <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>
+CC: <upstream@lists.phytec.de>, Dominik Haller <d.haller@phytec.de>,
+	<linux-arm-kernel@lists.infradead.org>, <devicetree@vger.kernel.org>,
+	<linux-kernel@vger.kernel.org>
+Subject: [PATCH] arm64: dts: ti: k3-am68-phycore-som: Add pmic label
+Date: Mon, 13 Oct 2025 17:22:40 -0700
+Message-ID: <20251014002240.85045-1-d.haller@phytec.de>
+X-Mailer: git-send-email 2.43.0
 MIME-Version: 1.0
-Content-Type: text/plain; charset=us-ascii
-Content-Disposition: inline
-In-Reply-To: <20250728055618.61616-12-rentao.bupt@gmail.com>
+Content-Transfer-Encoding: 8bit
+Content-Type: text/plain
+X-Originating-IP: [172.25.39.212]
+X-ClientProxiedBy: Postix.phytec.de (172.25.0.11) To Postix.phytec.de
+ (172.25.0.11)
+X-EOPAttributedMessage: 0
+X-MS-PublicTrafficType: Email
+X-MS-TrafficTypeDiagnostic: DB5PEPF00014B9D:EE_|PAXP195MB1167:EE_
+X-MS-Office365-Filtering-Correlation-Id: 2478cdbb-d526-4647-d6d4-08de0ab7e6ee
+X-MS-Exchange-SenderADCheck: 1
+X-MS-Exchange-AntiSpam-Relay: 0
+X-Microsoft-Antispam: BCL:0;ARA:13230040|1800799024|376014|36860700013|82310400026;
+X-Microsoft-Antispam-Message-Info: =?us-ascii?Q?Thqw6ZV4XQxhh7CXebNVjDCSt04zcjWwMx6/TJnwTGBrgLvvQzMRefzihta9?=
+ =?us-ascii?Q?DV6K+Tm3gMdO7OmaV0CYfYcRCRadEwylzBk82ou51bGECkMrWmDXTNgo9dpQ?=
+ =?us-ascii?Q?TSSyo0ryTl8lTyZmaSWfkKyl35ItFiDiu97J8lkkLYMJIMR8Dy1G7rqXIDUg?=
+ =?us-ascii?Q?2H4EzjJFRlFE+iTrkeUE9ZfJm9OeJB+Id1ALz+nj8touVvXQP3Nr6RSPHmuL?=
+ =?us-ascii?Q?Wl7KVeWvltqhAxfmKxivpdyJ1XJvRrYiupF/hNdL/VkJPDFW0gLalR+cy1/a?=
+ =?us-ascii?Q?SdT1mZQHbrVDDJXMgGjGrmC6DcPpYhJYVL6+E+K+m0XkTLtqsWerxD1vUbNQ?=
+ =?us-ascii?Q?HVRgrU+LHJc+vvbOZgKEjwcTEF5FYUadqvjOAz11SxrfkZKyYmIgwpj5tCqN?=
+ =?us-ascii?Q?fKnWOGFwVuVNy/9/aXHcPPHo6NV9NuhWSvOP2Hug4EQGK2/Y4IjkvFhxfE0Z?=
+ =?us-ascii?Q?IcEvMXgftpKUuEGZNShER+5HXQNpmwkxTRSr1XiOlrA8ou+Su9R9avhHLnBP?=
+ =?us-ascii?Q?wKzGWVg8jlxvuzLTRXIGpnGdBEAxo8Rsi6KrufypeJfLXMtyR+9Q+8jznRnW?=
+ =?us-ascii?Q?QL1eEC1toecfmY0hFrCSK3JP4/nbt4IuVwUBFRvnfNz7/tSWIEaoQn+jU0c9?=
+ =?us-ascii?Q?rwjWE1Qg6U8QstLfgW+XzM4Csg0dH2cbGryO3pU5XU0XoX+xKUdBtsRgQQjN?=
+ =?us-ascii?Q?LshufxkbydMi+A6WdccL5lDNTQZ9JnMExBdQkHOgnV6R4ia0T1GPotn94X+Z?=
+ =?us-ascii?Q?YBh435dknk7I39IsR46nzH+/9SkekrZwu8RVqEtlag8M3YD2rI7iwHJGXlIO?=
+ =?us-ascii?Q?dj3I/1hEPQuANzsxtTXdFZAIfgQJymFr0n3XOELE6yvuf2dIdNrTJbAkwWIs?=
+ =?us-ascii?Q?AA7IjCWy4jyR9ujrcrNv6oCV/jRbKgqgGlqrd5D7xmsZY57636B2XGV6nD+D?=
+ =?us-ascii?Q?CG2WoQzH31apGtltaaxT2PyvMNugd0EDgqUll0vbEUA/zVNdgf45B22lG/VH?=
+ =?us-ascii?Q?ddYBCTwQi9vUb9nFTrqoi8314+YJNhDXXsziNtSQIWa/Zbn1Ful+6A78i7BY?=
+ =?us-ascii?Q?ac/E7A/cK2FDLKhWDKOw3RqU31nddfCetA4Ix55uehgGUMrepN+Q/wxKiz32?=
+ =?us-ascii?Q?lBdVVellqHhrSfximW/QX7jmAqQ4sXu40Krx8/OW8RH0wpxataxjGb0BnkxX?=
+ =?us-ascii?Q?QX1jBwkFuPwo/YDl7Kc/gaN7kcRNb/EBIEo8gm9cE0gP4w7G22T6xmnjEuHa?=
+ =?us-ascii?Q?UkyCUXah5sk+YigyZADf6iazZ4n0mW//Kj/mTri0T706vC6u1eD79hfyYOcY?=
+ =?us-ascii?Q?RUPJPOeLdEVU0OW+JOEB7XZM1WizPBh0C4BqtbhRsIDpD8OM/WZaW9UICwoC?=
+ =?us-ascii?Q?rPNNK0yXdRw//nLlAv58VUVFluZqDapqR5KqNg+Q8L7oLcpTjr3Pq2XJDhwn?=
+ =?us-ascii?Q?otVp/x4b5q0uq2SufvmL4VJOh3bOOLnmmBLcpHHjht4bVD3Og/GbxTaL6EP/?=
+ =?us-ascii?Q?cPNNUHXnlQXSW9jBP49hniuMFyxl51CJc///ZR3muP2HG8XLCJEPAVMuAkT+?=
+ =?us-ascii?Q?yyY003BJX1Gmi/EN3FM=3D?=
+X-Forefront-Antispam-Report: CIP:91.26.50.189;CTRY:DE;LANG:en;SCL:1;SRV:;IPV:CAL;SFV:NSPM;H:Postix.phytec.de;PTR:InfoDomainNonexistent;CAT:NONE;SFS:(13230040)(1800799024)(376014)(36860700013)(82310400026);DIR:OUT;SFP:1102;
+X-OriginatorOrg: phytec.de
+X-MS-Exchange-CrossTenant-OriginalArrivalTime: 14 Oct 2025 00:23:30.2145
+ (UTC)
+X-MS-Exchange-CrossTenant-Network-Message-Id: 2478cdbb-d526-4647-d6d4-08de0ab7e6ee
+X-MS-Exchange-CrossTenant-Id: e609157c-80e2-446d-9be3-9c99c2399d29
+X-MS-Exchange-CrossTenant-OriginalAttributedTenantConnectingIp: TenantId=e609157c-80e2-446d-9be3-9c99c2399d29;Ip=[91.26.50.189];Helo=[Postix.phytec.de]
+X-MS-Exchange-CrossTenant-AuthSource: DB5PEPF00014B9D.eurprd02.prod.outlook.com
+X-MS-Exchange-CrossTenant-AuthAs: Anonymous
+X-MS-Exchange-CrossTenant-FromEntityHeader: HybridOnPrem
+X-MS-Exchange-Transport-CrossTenantHeadersStamped: PAXP195MB1167
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_172100_282566_AE61B385 
-X-CRM114-Status: GOOD (  14.72  )
+X-CRM114-CacheID: sfid-20251013_172338_786026_CBFC85B4 
+X-CRM114-Status: GOOD (  10.08  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,45 +145,28 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Hi,
+Add a label to the pmic node which is necessary to configure the pmic
+esm in the spl devicetree.
 
-On Sun, Jul 27, 2025 at 10:56:13PM -0700, rentao.bupt@gmail.com wrote:
-> From: Tao Ren <rentao.bupt@gmail.com>
-> 
-> Include "facebook-fuji-data64.dts" in facebook-fuji dts to avoid
-> duplicated code.
-> 
-> Fuji-data64 and Fuji are identical except the BMC flash layout.
-> 
-> Signed-off-by: Tao Ren <rentao.bupt@gmail.com>
+Signed-off-by: Dominik Haller <d.haller@phytec.de>
+---
+ arch/arm64/boot/dts/ti/k3-am68-phycore-som.dtsi | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
 
-With this patch in the mainline kernel, the Ethernet interface I use for
-testing does not come online when loading fuji-bmc in qemu.
+diff --git a/arch/arm64/boot/dts/ti/k3-am68-phycore-som.dtsi b/arch/arm64/boot/dts/ti/k3-am68-phycore-som.dtsi
+index adef02bd8040..10a7eddcae4d 100644
+--- a/arch/arm64/boot/dts/ti/k3-am68-phycore-som.dtsi
++++ b/arch/arm64/boot/dts/ti/k3-am68-phycore-som.dtsi
+@@ -258,7 +258,7 @@ vdd_cpu_avs: regulator@40 {
+ 		bootph-pre-ram;
+ 	};
+ 
+-	pmic@48 {
++	pmic: pmic@48 {
+ 		compatible = "ti,tps6594-q1";
+ 		reg = <0x48>;
+ 		system-power-controller;
+-- 
+2.43.0
 
-Reverting this patch fixes the problem.
-
-Looking into this patch,
-
-> -
-> -#include <dt-bindings/leds/common.h>
-> -#include "ast2600-facebook-netbmc-common.dtsi"
-> +#include "aspeed-bmc-facebook-fuji-data64.dts"
->  
-...
-> -&mac3 {
-> -	status = "okay";
-> -	phy-mode = "rgmii";
-> -	phy-handle = <&ethphy3>;
-> -	pinctrl-names = "default";
-> -	pinctrl-0 = <&pinctrl_rgmii4_default>;
-> -};
-
-I don't see this in aspeed-bmc-facebook-fuji-data64.dts, meaning that
-interface is now disabled. Adding it back in fixes the problem.
-Also, MAC3 is explicitly enabled for fuji-bmc in qemu.
-
-Was the interface disabled on purpose ?
-
-Thanks,
-Guenter
 
