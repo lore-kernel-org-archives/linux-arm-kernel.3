@@ -4,70 +4,71 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id B2682CCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 11:32:51 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 2DAFFCCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 11:32:59 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
-	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
-	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=h0C3j15Yugc04L5diekbYBCyapTdq2v/4isDBpQOj5g=; b=cOwxMq2UyBed/NXJAn02aBoKf6
-	6Pfulb5r5O6MpAA2QTqHj0ZkLC7HtnIZTXw5dV3OorIv10vcG1JjDdrVtepSekAHtoo4XqP9Nv5bx
-	NSwe57R7KqvBfBkk5/4/71O1xibbaMe4Z5thIlRSDFp4LMzk0DSsPjbtfEsBV0UMxrTCuroC5Newt
-	HATv5Eskx++Ju1ZWwa/9wI1DbokLjwnDrN/Kcfp+mI/s1Zcp+p7FaMocfHmPT2HL9b/QmOcejgVrl
-	AJCtyfXfLKOCHfwhb5cW/pVOWU71x+Z6IQkrxynUlLPliXz4+VT7k9ofzW0trxud21sT2/jn+MTYV
-	cVsZrzWw==;
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=CBUWIXVuX9TSH7iwZbReBbw9Y6KDyRcjsjDA5QvkLIc=; b=td+w1JP80Qik23PLVvrCqMXE2S
+	uTiKixrvWdpGOhGHFhKhbgt81ixT9qOjUxwz2zPn63MKa1WonyZE6owgPAPy7/+j1pxZ6hWMHtnu6
+	aEaqCKJotf1vlF0mpFCxGED66xUUgkh+VwY6vxIyppAKJSNXyf+w9CzPUXJzbXVMsroiBBpI+FOvZ
+	GZqwwHDqPeFIUmj6vYDdXUtaFC5U7W6n55Cu0MUFWqkcYQxBNBq9XMeOVG+jgcxAoW6jKSiliGGFM
+	+Y1q8dtGkXZCwG3MHiNbDqC/aICLviwVzfmlCvwF7hgIY8lTNYCDqJ5KT5w59pBWMOfC+Z8cTsZsk
+	zY54IsNg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8dGn-0000000G6qN-2v0m;
-	Tue, 14 Oct 2025 11:32:45 +0000
-Received: from mail-pj1-x102e.google.com ([2607:f8b0:4864:20::102e])
+	id 1v8dGu-0000000G6tI-4A0A;
+	Tue, 14 Oct 2025 11:32:52 +0000
+Received: from mail-pf1-x42e.google.com ([2607:f8b0:4864:20::42e])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8dGl-0000000G6pY-2zvB
+	id 1v8dGs-0000000G6rr-39Bf
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 11:32:45 +0000
-Received: by mail-pj1-x102e.google.com with SMTP id 98e67ed59e1d1-32eb45ab7a0so5595994a91.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 04:32:43 -0700 (PDT)
+	Tue, 14 Oct 2025 11:32:51 +0000
+Received: by mail-pf1-x42e.google.com with SMTP id d2e1a72fcca58-782bfd0a977so4396087b3a.3
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 04:32:50 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760441562; x=1761046362; darn=lists.infradead.org;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=h0C3j15Yugc04L5diekbYBCyapTdq2v/4isDBpQOj5g=;
-        b=hfAVmKVnRPu3UCrY1l0fdTAz41vd+z7Nop8QuiSQv4nEQ0V0kp9Z8F4yi1/vjtES2N
-         4Jv/hyIflZ31Efv2sysE9sFc41hIxzXsLj37J19Lr8PwSs7NKOiESFkL6tWD6NzWxwyl
-         /AuBdW4saqb8uFTChhx3897hHdF0HmW/CJtEsZQ3ELDKu9OyQf0i2ME+fPxpe8wfOfgL
-         P58XR3n8huDu5ZJw0WCxHxrGlkFbBN5ZJ3DDWI1A2uUzVPaCsOxVaUt8zIx0uU+OvpYE
-         05J1OczN3UoUDv/byRjMDiIuWDTLtU6Y56vkqjF+MeN6bijCWZX9RlWfJzBs6/+mHPKN
-         8jyw==
+        d=gmail.com; s=20230601; t=1760441570; x=1761046370; darn=lists.infradead.org;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=CBUWIXVuX9TSH7iwZbReBbw9Y6KDyRcjsjDA5QvkLIc=;
+        b=eNjaguGqgg0M0pxI8MGdPjEes8gyB9Ziold4gNrwJevMUYCO7O4XbZpSK9IqX4lXiS
+         Zp6r9q6KrTmEqk25XcXSlTSO5rEzGumq1FQu9LnVlhS1/2DsxCFBh6fFaECXE1NAHDzL
+         vyDx1wK9FhGwx6o5sAEpDFIN+0FqnF8G5llHoeqi+pq7R3WOmXYcDKMnLXNUcXMU1aQt
+         Jc3D4RTbEbwbL82PbShiyeEPnRYGcBK0p4WobFh4u995yjyIm0soJr74TeMKjgqk5jdH
+         gcZJ790C1ju4wvNsn865RsFXMyeRhqmt6aFKXPiHamJA4prifENjZd/ebiIR5HYZEU83
+         TJrg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760441562; x=1761046362;
-        h=content-transfer-encoding:mime-version:message-id:date:subject:cc
-         :to:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=h0C3j15Yugc04L5diekbYBCyapTdq2v/4isDBpQOj5g=;
-        b=nqu6z9Uj+D17a1RUuklxSS0HLM0ze0sD/DKSbZJmV5zre0Q7uRxYfKY3/rUHhrHmK3
-         z0KpW/N/13U7XQtH4bKbZuhCQe9o5LgTwlxBh/0abNbQsnnCdE8jDNxO8Y5RqZ58Vaed
-         eV0Jv5R+NKyo+B9svX2HLjoWlCkAF/A9DjeLjgn0U2KfEMwt6metfmqBCep/Tsnz2HBJ
-         z/yf4jsVAW5nKKCBKuDMbbR2mQTF0OmPBxlmjqNLHdv5P9NKZP5DsJSSGwwQRQSobW2P
-         fyE5u60w7SjtWkDlcDefA9rKmUJh+LFfhGx7BpyWmQjsk1zcKSIvIUghrC8uuQsHEpUm
-         kwfA==
-X-Forwarded-Encrypted: i=1; AJvYcCXgiGEzUtokYX8qNvEZuSVSGfckGWfoK17S9OErsB94AMbPBhpCXcZloxCvuHoIp2oP4VRq/MPPHBss67wXGel5@lists.infradead.org
-X-Gm-Message-State: AOJu0YzR/xZb4itCbru1iOwrWhXh/hf8nsFw5dBveKhwa77ZeVs2mvu5
-	7T1ZdMZKJyvr+vj8BPgOWTRBA4etuX/iu/kGO6R60/LPsEyg2X1HmyhU
-X-Gm-Gg: ASbGncvuxucAU2LOVJuBOHhkEjrAe7WmyYv0DUdUAYLQovRBDYRkRDlQsZbmiNBLeof
-	/4Y8TZBxYYtealcemqf9Y8KLD21xKY5FAy9zu/zwEIRyuLT8eulrIdWnbcQ42Ql+0jHt5+xqRTf
-	fMsab1WfzZouDOxso84AfEAL5Jxv2FUoRg9pDyINrXJDJ9iz6u1yCvlJ3b3qlmhZ0DasQPMdsCi
-	xhvPVkCiiDDyaxtXG3hlL9j1eU48WcMEPAVuSDebB3X9a4FUYQ1UVMOZVuGTI5HnuLy0TiPIx7o
-	M4qPtxc+K5Xo3J6s+jbto55WmAEH65WxQygX3Q8glIQPsVWWJOiRBhALbcC5113UpipcZYQT7hx
-	DkRL9o8oW+8GT9/NuQM4LlXtRwZJL3CsJVi6jGic=
-X-Google-Smtp-Source: AGHT+IFOXw7annfzhh83UINHXYFo00qKcPjKDkiEC3wElyWcHBIp7o3ZfuqFZw3zUefrPIrk44z91w==
-X-Received: by 2002:a17:90b:1652:b0:32d:d4fa:4c3 with SMTP id 98e67ed59e1d1-33b513cd9damr31858712a91.31.1760441562336;
-        Tue, 14 Oct 2025 04:32:42 -0700 (PDT)
+        d=1e100.net; s=20230601; t=1760441570; x=1761046370;
+        h=content-transfer-encoding:mime-version:references:in-reply-to
+         :message-id:date:subject:cc:to:from:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=CBUWIXVuX9TSH7iwZbReBbw9Y6KDyRcjsjDA5QvkLIc=;
+        b=rYfMVBn8/sgU7bz8fOifV9VLuR1wyXKJ9OizS+ckrZeP4GQ915pEF4L3bJNW7iUF/I
+         70MhnnzRjwzkaNJGRkTOTuontrK/26CNssBLiieJKc01g1WUFFOmHtro8by29Dt5y8Yb
+         FOPZYlugym6DsMNvmJssBr23yW5JqDX5bwbRnbh4I1qmrN/XJF00nlyLMpzWtH+umlof
+         q40PYavoPsm4QK56O9afpSIu1tVUqjn3fGTZRcyoNf1Rmi/YRT6a+tIhRogMXvhtNGDl
+         S4ct7vYcgQbtxwmhhzbc1pmgjxu9aJe9srjwA/BNf0gbuOwPYikVqdz0dH6YpDVLEbPa
+         tY4g==
+X-Forwarded-Encrypted: i=1; AJvYcCXt/c+BIN5L+1iGzMNOu+bqt3WmVnj44qkFNhaHRdvEwnyD4+oFwxLd9MDPTDehNgBKTQG7Ygs+sLkeub6L7MDx@lists.infradead.org
+X-Gm-Message-State: AOJu0YwXZwf3s8OrLJ1KbjQjF20nUAGOlLGKu/CTQHbs++kvo/M0jAZu
+	TFMEFQJ4evLWXvgeV4WtiotlUAPdegTTSK6ivkhJDcbfJUgZBpDohgo6
+X-Gm-Gg: ASbGnctlfC5//Yo99UaMPeF2YUb5XC+RNBKcoQFPK03pMJEubkBa344P0kZ2JdaLtum
+	4cjCIq6mZv9ftg1VUh7kswcYjkmivPtgVgC+UVBpjwq2OCO0PQoTnBk3jq8aJE+u49WFMJrSYAE
+	mrGRc9RXkA1a+rcimGJaplWIkE1rcZQVmpScGMopwFq0+igwhJ9Zk1GwxsyalUTm+ENrknAQkut
+	mHLEpqRj9LG/bn6bbBXzhqWk00heYkeDBjDxVeELQF0gYdcHghcjCiqZ6ywPslylmBqMzv7LinZ
+	rsS9zzfNzurX3D+rdu6fqMdncsCFMGeYRDHYRrHdvxvkM3dec4LTW/4MMBc7z05qmUN9oBVBnOt
+	/bsyQddD6R1f5zuGUN2rUO1aBuCc+u1vcYlzZfGo=
+X-Google-Smtp-Source: AGHT+IHUZvlwK/tHfChIoy9WwwPnZcMKeQjitVT4QrngVrm6V72sz77ULhr0gyxke52yNoTSgqWuAA==
+X-Received: by 2002:a05:6a00:c8c:b0:77f:6971:c590 with SMTP id d2e1a72fcca58-79387d0f36amr26600669b3a.22.1760441569783;
+        Tue, 14 Oct 2025 04:32:49 -0700 (PDT)
 Received: from rockpi-5b ([45.112.0.108])
-        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7992d0965c3sm14871383b3a.52.2025.10.14.04.32.38
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7992d0965c3sm14871383b3a.52.2025.10.14.04.32.45
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Oct 2025 04:32:41 -0700 (PDT)
+        Tue, 14 Oct 2025 04:32:49 -0700 (PDT)
 From: Anand Moon <linux.amoon@gmail.com>
 To: Vignesh Raghavendra <vigneshr@ti.com>,
 	Siddharth Vadapalli <s-vadapalli@ti.com>,
@@ -81,15 +82,17 @@ To: Vignesh Raghavendra <vigneshr@ti.com>,
 	linux-arm-kernel@lists.infradead.org (moderated list:PCI DRIVER FOR TI DRA7XX/J721E),
 	linux-kernel@vger.kernel.org (open list)
 Cc: Anand Moon <linux.amoon@gmail.com>
-Subject: [PATCH v1 0/3] PCI: j721e: A couple of cleanups
-Date: Tue, 14 Oct 2025 17:02:26 +0530
-Message-ID: <20251014113234.44418-1-linux.amoon@gmail.com>
+Subject: [PATCH v1 1/3] PCI: j721e: Propagate dev_err_probe return value
+Date: Tue, 14 Oct 2025 17:02:27 +0530
+Message-ID: <20251014113234.44418-2-linux.amoon@gmail.com>
 X-Mailer: git-send-email 2.50.1
+In-Reply-To: <20251014113234.44418-1-linux.amoon@gmail.com>
+References: <20251014113234.44418-1-linux.amoon@gmail.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_043243_759781_69D97F04 
-X-CRM114-Status: GOOD (  10.86  )
+X-CRM114-CacheID: sfid-20251014_043250_791563_8D927FDC 
+X-CRM114-Status: GOOD (  14.82  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -104,34 +107,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Refactor the J721e probe function to use devres helpers for resource
-management. This replaces manual clock handling with
-devm_clk_get_optional_enabled() and assigns the reset GPIO directly
-to the struct members, eliminating unnecessary local variables.
+Ensure that the return value from dev_err_probe() is consistently assigned
+back to ret in all error paths within j721e_pcie_probe(). This ensures
+the original error code are propagation for debugging.
 
-These patches have been compile-tested only, as I do not have access
-to the hardware for runtime verification.
+Cc: Siddharth Vadapalli <s-vadapalli@ti.com>
+Signed-off-by: Anand Moon <linux.amoon@gmail.com>
+---
+v1: new patch in this series
+---
+ drivers/pci/controller/cadence/pci-j721e.c | 12 ++++++------
+ 1 file changed, 6 insertions(+), 6 deletions(-)
 
-Changes
-   Add new patch for dev_err_probe return.
-   dropped unsesary clk_disable_unprepare as its handle by
-   devm_clk_get_optional_enabled.
-    
-RFC v1: https://lore.kernel.org/all/20251013101727.129260-1-linux.amoon@gmail.com/
-
-Thanks
--Anand
-
-Anand Moon (3):
-  PCI: j721e: Propagate dev_err_probe return value
-  PCI: j721e: Use devm_clk_get_optional_enabled() to get the clock
-  PCI: j721e: Use inline reset GPIO assignment and drop local variable
-
- drivers/pci/controller/cadence/pci-j721e.c | 39 ++++++++--------------
- 1 file changed, 14 insertions(+), 25 deletions(-)
-
-
-base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
+diff --git a/drivers/pci/controller/cadence/pci-j721e.c b/drivers/pci/controller/cadence/pci-j721e.c
+index 5bc5ab20aa6d..9c7bfa77a66e 100644
+--- a/drivers/pci/controller/cadence/pci-j721e.c
++++ b/drivers/pci/controller/cadence/pci-j721e.c
+@@ -569,20 +569,20 @@ static int j721e_pcie_probe(struct platform_device *pdev)
+ 	pm_runtime_enable(dev);
+ 	ret = pm_runtime_get_sync(dev);
+ 	if (ret < 0) {
+-		dev_err_probe(dev, ret, "pm_runtime_get_sync failed\n");
++		ret = dev_err_probe(dev, ret, "pm_runtime_get_sync failed\n");
+ 		goto err_get_sync;
+ 	}
+ 
+ 	ret = j721e_pcie_ctrl_init(pcie);
+ 	if (ret < 0) {
+-		dev_err_probe(dev, ret, "j721e_pcie_ctrl_init failed\n");
++		ret = dev_err_probe(dev, ret, "j721e_pcie_ctrl_init failed\n");
+ 		goto err_get_sync;
+ 	}
+ 
+ 	ret = devm_request_irq(dev, irq, j721e_pcie_link_irq_handler, 0,
+ 			       "j721e-pcie-link-down-irq", pcie);
+ 	if (ret < 0) {
+-		dev_err_probe(dev, ret, "failed to request link state IRQ %d\n", irq);
++		ret = dev_err_probe(dev, ret, "failed to request link state IRQ %d\n", irq);
+ 		goto err_get_sync;
+ 	}
+ 
+@@ -599,7 +599,7 @@ static int j721e_pcie_probe(struct platform_device *pdev)
+ 
+ 		ret = cdns_pcie_init_phy(dev, cdns_pcie);
+ 		if (ret) {
+-			dev_err_probe(dev, ret, "Failed to init phy\n");
++			ret = dev_err_probe(dev, ret, "Failed to init phy\n");
+ 			goto err_get_sync;
+ 		}
+ 
+@@ -611,7 +611,7 @@ static int j721e_pcie_probe(struct platform_device *pdev)
+ 
+ 		ret = clk_prepare_enable(clk);
+ 		if (ret) {
+-			dev_err_probe(dev, ret, "failed to enable pcie_refclk\n");
++			ret = dev_err_probe(dev, ret, "failed to enable pcie_refclk\n");
+ 			goto err_pcie_setup;
+ 		}
+ 		pcie->refclk = clk;
+@@ -638,7 +638,7 @@ static int j721e_pcie_probe(struct platform_device *pdev)
+ 	case PCI_MODE_EP:
+ 		ret = cdns_pcie_init_phy(dev, cdns_pcie);
+ 		if (ret) {
+-			dev_err_probe(dev, ret, "Failed to init phy\n");
++			ret = dev_err_probe(dev, ret, "Failed to init phy\n");
+ 			goto err_get_sync;
+ 		}
+ 
 -- 
 2.50.1
 
