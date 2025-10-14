@@ -4,95 +4,130 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 546D3CCD18D
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 12:57:04 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F216ACCD18D
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 12:58:20 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:Message-Id:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:From:
-	Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender
-	:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
-	bh=o38gmX36PyqmjEq1ZTvcb122z3x4XvhpJiBBsGOOwy4=; b=I2JxKweJ0pKdaF2O19scH1p6oZ
-	mOkcJT15hJehO4qnhR3RsJ6g/MQPEoeRPs2myFzkf0D87x8YCsO4f2Kr6zzsvxfLwv8liKuPt3X8v
-	e/hR1vyrC7HNZPSHXl2DF4jqSYlB1wvwBSKM1LkitOc+bdHIfa9yw2fEgtuJ9KQp0sKY+xfIwAnlt
-	FYadpf5pKmcfPYsQd++lwa+LkrXrRzbAo/g4KpI6fAJuX+45TnDkIvXi6O3sQT/gYomrBY6RzI9nk
-	cY2/yFTrWaYYrZ0k77aMIrHk9XJciC+6rHUqUFfp4DYTEdNmRuMDyGT877zNVb3V0uyXNays//8P1
-	VRUD6nnw==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:In-Reply-To:
+	MIME-Version:References:Message-ID:Subject:Cc:To:From:Date:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=o+P2Dsj3XLhA6fMrQYgh8OLSwYB2MUOQP3SbJkXqJVA=; b=qvdp0H57epIMz03FG1I/is6Aiz
+	37FxsexWMTAwAPfdoPJd4FgOD3vbHdtv2sjBdu3qJGyxu/QdNwww6c1SpvxmuffeCP+amLNhnPYde
+	fmQn/5TS5Z384eZGjla/n2G9S3++pwQW7Kqa0U4MnVfi/JwAEtyuvLSYLQ71RxXT+fVseAGBPm3Cb
+	79etVwGvaDzpfiMj+YWZyFLrhw7PtfwL4W4Ynppak1dpZIg9pTdPzgkcLMj0TI9zaZrArWy0lcmLl
+	ZiB52rxorakNH3kGJiEbUZVkBkw2BJ/M1K4Kd/zvYZScQLbZV4qfGYOnGypXJdDjIrZ1xLzFRiYnR
+	Vu0zVTAg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8eaH-0000000GKGn-2VON;
-	Tue, 14 Oct 2025 12:56:57 +0000
-Received: from mail-pl1-x62a.google.com ([2607:f8b0:4864:20::62a])
+	id 1v8ebV-0000000GKSH-2KW3;
+	Tue, 14 Oct 2025 12:58:13 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8eaF-0000000GKFe-0a69
+	id 1v8ebR-0000000GKQm-33QA
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 12:56:57 +0000
-Received: by mail-pl1-x62a.google.com with SMTP id d9443c01a7336-2681660d604so58466885ad.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 05:56:54 -0700 (PDT)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=gmail.com; s=20230601; t=1760446614; x=1761051414; darn=lists.infradead.org;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:from:to:cc:subject:date:message-id:reply-to;
-        bh=o38gmX36PyqmjEq1ZTvcb122z3x4XvhpJiBBsGOOwy4=;
-        b=NuWNdN7V81t3/AdOkJzotvS022BrVjdF+ZsmwyCX0E5ENKk64WWoeqKU1nnM09ZJhq
-         pgyxQkCF1HZK42uop+1GegFkBjLJup7NIbZJYWtO7TG4MTE7EYRQgnRAdk9NV7Bax8hV
-         GoR5d/Gi+U9AK71M8erTvkmdtyzIJP6gsNgvxDRi0DsoinZArZ0r/uJR7mHohL2PVXeD
-         TxZWiylZbAe08/5g2P3c2F8zuC+e6MBdUSoGxr4Lsr1a5bsZrJR/diUXi1rYvZK6+wCx
-         7dVINjG5HbKbaXnbfa1YMyUSmP4i9ySxzCqDwaw5woNSjSxiLf8es5kPh7u0ay1a8WgT
-         4tOg==
+	Tue, 14 Oct 2025 12:58:12 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1760446688;
+	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
+	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
+	 in-reply-to:in-reply-to:references:references;
+	bh=o+P2Dsj3XLhA6fMrQYgh8OLSwYB2MUOQP3SbJkXqJVA=;
+	b=F25wjcbomtI84IuH63y3uCwMe59HV5IiwauKpiD0sHsUdXIpr1gs8FLbLTlt7g7NNTucDn
+	pxXrgcizjcEAVg5AzEb65bkVPcHPq0tEww1Mu2shf//a/rTUEZQSXBZS3zxgeS0OdkZFag
+	2sqexAC7GHWcCfQQUcgenQ5DS7xbtiM=
+Received: from mail-wr1-f70.google.com (mail-wr1-f70.google.com
+ [209.85.221.70]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-636-cJ0KbBOhPFe580MdHKrKEw-1; Tue, 14 Oct 2025 08:58:07 -0400
+X-MC-Unique: cJ0KbBOhPFe580MdHKrKEw-1
+X-Mimecast-MFC-AGG-ID: cJ0KbBOhPFe580MdHKrKEw_1760446686
+Received: by mail-wr1-f70.google.com with SMTP id ffacd0b85a97d-3ece0fd841cso4237158f8f.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 05:58:07 -0700 (PDT)
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760446614; x=1761051414;
-        h=cc:to:message-id:content-transfer-encoding:mime-version:subject
-         :date:from:x-gm-message-state:from:to:cc:subject:date:message-id
-         :reply-to;
-        bh=o38gmX36PyqmjEq1ZTvcb122z3x4XvhpJiBBsGOOwy4=;
-        b=r1/7nE+aaR9c3FUEmvXea9wgKmE6lB88B7faC5aj35fm8FxynT90PHicyGi6iRbVTz
-         sQg0P9UJ0w6PGi85CCnouKPEJtdxQWDjybBW/B+3+gGYTY4GJ3hjpmngtBLDZe6AKrE2
-         2ODSrcQZqj2mqeXi3nexJo3N0nHppfyl1LmeQECSmQVG81VlKI7M6HgJEBaXw9Xnv8lA
-         SH9Wz84Db8xNadIRlO2IrYJTMA0DCC1IM1tBCuDjOIGmTPw0cxbTcrk9PciZQ8EOa9yl
-         26lk7rR42wDNOgzoeLmnuUkoYyLH8NdoBHorJAjSia92CpEox/TtRvDgLLYRiUgNI+Mb
-         FpxA==
-X-Forwarded-Encrypted: i=1; AJvYcCWMfvsFLn4JSKPG30gFLhenKHK0/+M2HBp/KufPCVXVI3myl55W7eflxUiXMp69xilQXyUwbPH9KefD4leFWRxL@lists.infradead.org
-X-Gm-Message-State: AOJu0YwW983QZ5M4ph2IascPoDhXMLfYDies6WU9kuIR6eB0gWiNhEYN
-	NOffFCrRMzOkaxzoMT1EsUPjb1FCe+ipGzEIH1GVHbIkV3AUUgMDzBwm2PNbY61wuB0=
-X-Gm-Gg: ASbGncvHNUTjXMqiYJz/U/ttdnMW/SSEWWF4MREVZyJzPzE2HKQ/JoqXM5fmURiOVDq
-	03mZo1Ndh7/QrNCcnUlycB5UWZQqkfVBZNJuF4fJEJmBlfouHdoPixLbup405xIwPRBePmRT9hu
-	9bHw531EVPsBUfZqoJqYZQaz93DvHViAEpNUSE8LI5ZSWPji5+mO3IqppuboT0VmMGrG+OiMtkz
-	iDA60zikQWr6cEP0ydycA2Hpjr8MQ8j5dPZW8YqKB9VYc4+wKflkB4OO7duiZhsFLb0FIjCKmUi
-	rTOrsxKGZuAY7mslbCPmL1IHO0TN4GLrOr/hTzabFpSB7V/mpR+7o3zC+klreow1Y/fybkCKQyQ
-	jRpFdrdeaKeRvwOBTDwZgFV1VkJ0/PWd56RjGDp52k1D9Gd8I4mhCq0SW2Ffj1llo5x9euetHGD
-	4=
-X-Google-Smtp-Source: AGHT+IFFPt+m448T/uVhH/uFa4IYkTCQ7dJj+PBX8yKsxeuPCGTRZrXD06eMiOSktRMiwnrCyjS6iw==
-X-Received: by 2002:a17:903:2351:b0:269:a23e:9fd7 with SMTP id d9443c01a7336-29027262689mr366784675ad.26.1760446613904;
-        Tue, 14 Oct 2025 05:56:53 -0700 (PDT)
-Received: from joaog-nb.corp.toradex.com ([67.159.246.222])
-        by smtp.gmail.com with ESMTPSA id d9443c01a7336-29034f3ab2fsm163919985ad.105.2025.10.14.05.56.49
+        d=1e100.net; s=20230601; t=1760446686; x=1761051486;
+        h=in-reply-to:content-disposition:mime-version:references:message-id
+         :subject:cc:to:from:date:x-gm-message-state:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=o+P2Dsj3XLhA6fMrQYgh8OLSwYB2MUOQP3SbJkXqJVA=;
+        b=IjjGBnafAPHyicUhRtH3TR9+LbBeRp9lP6GQHHmzkGJSIId8fZ73RH7u5sIO77Ky5I
+         CPDuFfCE1wUMKeIsh1/1xFjT5dIcxu+pbmvV/N8txyKD6XlbqU6RVKuKiJ1At+XRJdQn
+         flM3RY1sz1ar/8jLT/AW8pBZvchEuxSLNaU1Z0Om/ucFxs6ML8gmp7jzmV5RfOAn7Lv9
+         6Q9j3N1TVJ47HnKU3qaot6El8dnRR5qaO5tz7zSXKlyBNnrVHEF3MYTNKsHbnJ2uitWa
+         LbHqKqUIa2BrkZvu+mjrpMoWvpf+/bvYDAkwO9DJe+xCx1w2ivfv+R6ClLDGDqDjKMqb
+         4uMw==
+X-Forwarded-Encrypted: i=1; AJvYcCV9iqL34jcGT44j5JCn+yUqnjOHq4l4ELoWqCvVqe9jKNp69IJfgkLCfPEpNxSDqvWmJWvznnAg4+XBjo2/bumv@lists.infradead.org
+X-Gm-Message-State: AOJu0Yw4mWnwvj8r8DxNKTvZHxchb5PjagoZrq6/fnhPflywPiobi1mX
+	89uurXRm0L2v5sUKUvv4aKrwbEhu+Zo5Tym7TTQ0MhPwpDbNHtNFcDH/0uG4CvE7K3HjXLFNOu8
+	kd8tcsBBO5VX7sXVK5PGhmp59scUN7WIpys+5ED2jtszhXcYUOLLFIgJP5PpPjtscPyUtlFMlhc
+	Ip
+X-Gm-Gg: ASbGnctUibjc/gkxdJZc83FEOuYQtiPsgwnALJBql2WE02dpx578Q4NW2nPuT6uKAb3
+	PrZ295GGthimLc0LOuDrW9mkJJDR3uOp3dk2d8nt7shGUH4rcx118F6dyD/5+EJ2Wx0VVMAkbP5
+	rn71LReQUsFyLrSAqCgEI2rmY5KdMW/JVNW2y74zOLc5jCry+RyLDNn2YCjtEp04DKsuyAQGj5Z
+	SGBd+gdr82HsCepqrSgN87D1tulZKfZmhOiUDLG4g0zwzU//CdbZ2q27pEWpB4WnNSF3BlY0HKv
+	8pxBX0CozBrBacaxD6V54R61O406uuvsi3Je0uvz9LX+e3t7QImEXGAD9PmOv+2dPF/ozo3e
+X-Received: by 2002:a05:6000:1888:b0:401:c52f:62de with SMTP id ffacd0b85a97d-42666ac39fdmr14487403f8f.12.1760446686034;
+        Tue, 14 Oct 2025 05:58:06 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IHAh3YZ5oKpPdr7WASiDkPJn2IILu8/Rh+37A13TS4n2FwBRRVC0ByNWYf0Uu33Aqxt+5Ldeg==
+X-Received: by 2002:a05:6000:1888:b0:401:c52f:62de with SMTP id ffacd0b85a97d-42666ac39fdmr14487377f8f.12.1760446685024;
+        Tue, 14 Oct 2025 05:58:05 -0700 (PDT)
+Received: from jlelli-thinkpadt14gen4.remote.csb ([176.206.13.103])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-426ce582abcsm23624651f8f.17.2025.10.14.05.58.02
         (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
-        Tue, 14 Oct 2025 05:56:53 -0700 (PDT)
-From: =?utf-8?q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?= <jpaulo.silvagoncalves@gmail.com>
-Date: Tue, 14 Oct 2025 09:56:43 -0300
-Subject: [PATCH v1] arm64: dts: imx8-ss-img: Avoid gpio0_mipi_csi GPIOs
- being deferred
+        Tue, 14 Oct 2025 05:58:04 -0700 (PDT)
+Date: Tue, 14 Oct 2025 14:58:01 +0200
+From: Juri Lelli <juri.lelli@redhat.com>
+To: Valentin Schneider <vschneid@redhat.com>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
+	x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+	loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+	linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org,
+	Thomas Gleixner <tglx@linutronix.de>,
+	Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>,
+	Dave Hansen <dave.hansen@linux.intel.com>,
+	"H. Peter Anvin" <hpa@zytor.com>, Andy Lutomirski <luto@kernel.org>,
+	Peter Zijlstra <peterz@infradead.org>,
+	Arnaldo Carvalho de Melo <acme@kernel.org>,
+	Josh Poimboeuf <jpoimboe@kernel.org>,
+	Paolo Bonzini <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>,
+	Frederic Weisbecker <frederic@kernel.org>,
+	"Paul E. McKenney" <paulmck@kernel.org>,
+	Jason Baron <jbaron@akamai.com>,
+	Steven Rostedt <rostedt@goodmis.org>,
+	Ard Biesheuvel <ardb@kernel.org>,
+	Sami Tolvanen <samitolvanen@google.com>,
+	"David S. Miller" <davem@davemloft.net>,
+	Neeraj Upadhyay <neeraj.upadhyay@kernel.org>,
+	Joel Fernandes <joelagnelf@nvidia.com>,
+	Josh Triplett <josh@joshtriplett.org>,
+	Boqun Feng <boqun.feng@gmail.com>,
+	Uladzislau Rezki <urezki@gmail.com>,
+	Mathieu Desnoyers <mathieu.desnoyers@efficios.com>,
+	Mel Gorman <mgorman@suse.de>,
+	Andrew Morton <akpm@linux-foundation.org>,
+	Masahiro Yamada <masahiroy@kernel.org>,
+	Han Shen <shenhan@google.com>, Rik van Riel <riel@surriel.com>,
+	Jann Horn <jannh@google.com>,
+	Dan Carpenter <dan.carpenter@linaro.org>,
+	Oleg Nesterov <oleg@redhat.com>,
+	Clark Williams <williams@redhat.com>,
+	Yair Podemsky <ypodemsk@redhat.com>,
+	Marcelo Tosatti <mtosatti@redhat.com>,
+	Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
+Subject: Re: [PATCH v6 00/29] context_tracking,x86: Defer some IPIs until a
+ user->kernel transition
+Message-ID: <aO5I2WGtXqSPYFmH@jlelli-thinkpadt14gen4.remote.csb>
+References: <20251010153839.151763-1-vschneid@redhat.com>
 MIME-Version: 1.0
-Content-Type: text/plain; charset="utf-8"
-Content-Transfer-Encoding: 8bit
-Message-Id: <20251014-imx8-gpio-csi-deferred-probe-v1-1-62dd1b949731@toradex.com>
-X-B4-Tracking: v=1; b=H4sIAIpI7mgC/x3MQQrDIBAF0KuEWXdAUwxNr1K6sPpNZtEoIwQh5
- O6RLN/mHVShgkrv4SDFLlXy1mEfA4XVbwtYYjeNZnTWmJnl3168FMkcqnBEgioiF80/MJCm4Cb
- /dN5TL4oiSbv7D+2Wvud5AVmyznRyAAAA
-X-Change-ID: 20251009-imx8-gpio-csi-deferred-probe-eef6c56a35aa
-To: Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
- Conor Dooley <conor+dt@kernel.org>, Shawn Guo <shawnguo@kernel.org>, 
- Sascha Hauer <s.hauer@pengutronix.de>, 
- Pengutronix Kernel Team <kernel@pengutronix.de>, 
- Fabio Estevam <festevam@gmail.com>, Frank Li <Frank.Li@nxp.com>
-Cc: devicetree@vger.kernel.org, imx@lists.linux.dev, 
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org, 
- =?utf-8?q?Jo=C3=A3o_Paulo_Gon=C3=A7alves?= <joao.goncalves@toradex.com>
-X-Mailer: b4 0.14.2
+In-Reply-To: <20251010153839.151763-1-vschneid@redhat.com>
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: ZrN7WnEuhjjKoPRrMDR51SpHpE8WOOPTugR4Nbn1_Jc_1760446686
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain; charset=us-ascii
+Content-Disposition: inline
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_055655_184115_DFADA023 
-X-CRM114-Status: GOOD (  10.79  )
+X-CRM114-CacheID: sfid-20251014_055809_836473_49AE3913 
+X-CRM114-Status: GOOD (  19.91  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,48 +142,61 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-From: João Paulo Gonçalves <joao.goncalves@toradex.com>
+Hello,
 
-The gpio0_mipi_csi DT nodes are enabled by default, but they are
-dependent on the irqsteer_csi nodes, which are not enabled. This causes
-the gpio0_mipi_csi GPIOs to be probe deferred. Since these GPIOs can be
-used independently of the CSI controller, enable irqsteer_csi by default
-too to prevent them from being deferred and to ensure they work out of
-the box.
+On 10/10/25 17:38, Valentin Schneider wrote:
 
-Fixes: 2217f8243714 ("arm64: dts: imx8: add capture controller for i.MX8's img subsystem")
-Signed-off-by: João Paulo Gonçalves <joao.goncalves@toradex.com>
----
- arch/arm64/boot/dts/freescale/imx8-ss-img.dtsi | 2 --
- 1 file changed, 2 deletions(-)
+...
 
-diff --git a/arch/arm64/boot/dts/freescale/imx8-ss-img.dtsi b/arch/arm64/boot/dts/freescale/imx8-ss-img.dtsi
-index 2cf0f7208350a416d77b11140279d2f66f41498f..a72b2f1c4a1b2ef26196c810b33ecfdebdbc1675 100644
---- a/arch/arm64/boot/dts/freescale/imx8-ss-img.dtsi
-+++ b/arch/arm64/boot/dts/freescale/imx8-ss-img.dtsi
-@@ -67,7 +67,6 @@ irqsteer_csi0: irqsteer@58220000 {
- 		power-domains = <&pd IMX_SC_R_CSI_0>;
- 		fsl,channel = <0>;
- 		fsl,num-irqs = <32>;
--		status = "disabled";
- 	};
- 
- 	gpio0_mipi_csi0: gpio@58222000 {
-@@ -144,7 +143,6 @@ irqsteer_csi1: irqsteer@58240000 {
- 		power-domains = <&pd IMX_SC_R_CSI_1>;
- 		fsl,channel = <0>;
- 		fsl,num-irqs = <32>;
--		status = "disabled";
- 	};
- 
- 	gpio0_mipi_csi1: gpio@58242000 {
+> Performance
+> +++++++++++
+> 
+> Tested by measuring the duration of 10M `syscall(SYS_getpid)` calls on
+> NOHZ_FULL CPUs, with rteval (hackbench + kernel compilation) running on the
+> housekeeping CPUs:
+> 
+> o Xeon E5-2699:   base avg 770ns,  patched avg 1340ns (74% increase)
+> o Xeon E7-8890:   base avg 1040ns, patched avg 1320ns (27% increase)
+> o Xeon Gold 6248: base avg 270ns,  patched avg 273ns  (.1% increase)
+> 
+> I don't get that last one, I did spend a ridiculous amount of time making sure
+> the flush was being executed, and AFAICT yes, it was. What I take out of this is
+> that it can be a pretty massive increase in the entry overhead (for NOHZ_FULL
+> CPUs), and that's something I want to hear thoughts on
+> 
+> Noise
+> +++++
+> 
+> Xeon E5-2699 system with SMToff, NOHZ_FULL, isolated CPUs.
+> RHEL10 userspace.
+> 
+> Workload is using rteval (kernel compilation + hackbench) on housekeeping CPUs
+> and a dummy stay-in-userspace loop on the isolated CPUs. The main invocation is:
+> 
+> $ trace-cmd record -e "ipi_send_cpumask" -f "cpumask & CPUS{$ISOL_CPUS}" \
+> 	           -e "ipi_send_cpu"     -f "cpu & CPUS{$ISOL_CPUS}" \
+> 		   rteval --onlyload --loads-cpulist=$HK_CPUS \
+> 		   --hackbench-runlowmem=True --duration=$DURATION
+> 
+> This only records IPIs sent to isolated CPUs, so any event there is interference
+> (with a bit of fuzz at the start/end of the workload when spawning the
+> processes). All tests were done with a duration of 6 hours.
+> 
+> v6.17
+> o ~5400 IPIs received, so about ~200 interfering IPI per isolated CPU
+> o About one interfering IPI just shy of every 2 minutes
+> 
+> v6.17 + patches
+> o Zilch!
 
----
-base-commit: 3a8660878839faadb4f1a6dd72c3179c1df56787
-change-id: 20251009-imx8-gpio-csi-deferred-probe-eef6c56a35aa
+Nice. :)
 
-Best regards,
--- 
-João Paulo Gonçalves <joao.goncalves@toradex.com>
+About performance, can we assume housekeeping CPUs are not affected by
+the change (they don't seem to use the trick anyway) or do we want/need
+to collect some numbers on them as well just in case (maybe more
+throughput oriented)?
+
+Thanks,
+Juri
 
 
