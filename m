@@ -4,77 +4,120 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 66B9ACCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 10:59:43 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4737CCCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 11:03:08 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=bEvM+uhGgelsYNE930lxc/ZO1r9l2srRhYCoY59fvZI=; b=BmBs+yuznH73exV/VGBU+ka1JP
-	8S3y6NiH9p5IC2Skrw68i/sM1Uhv7bdhY11KbP2pjZzL5Pcnp3rxUhriRkiiuNiq7+p2sIMLKj+iq
-	vk9VLmBcsWCVe7EoibQHUxoQxjRFXZz8Lcb+6ePSNpiepoDNvKWdvSoGkqfayigjTpqK5Pi/lCgmf
-	n9GhJXr/lt6gfz51X1dW51Kob9J+hcCqxvgIrig8tRSt9MRUBP8EiP9XTT51qpJSEZbd5zetRUE6z
-	npFBoVvZCQC5fSeByBAo83ohrAtdJ7AfoIdW2CdKMyvDuhOAy1kNK3OAltDgEHqGpIDHrXcDSpnAp
-	jeNU+Wow==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
+	Message-ID:Date:References:In-Reply-To:Subject:Cc:To:From:Reply-To:
+	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=s2r/L8/q4C9e2I164NDxUGdYhK/0nvlG6dMGzaNBqVg=; b=pa3l8GJoHqW0Sh1aOxO6Js7gnP
+	n5mZewDd5AIBH9X4DWQnEh9nlw3g5UJW46HwuuC7hBTxeNtbc5jSGyPvJ19bZFlxQwylCKsWO+u7B
+	EuA76He2yogssFcepsHZVtS3egahNVdJ0WGCGaJZ2huuDA9zMF84dgPiL6DLKSYNc7/P32KIQS/oU
+	HlCsn4Xoelac09RdbjhhjYgv7UTJnA9mYbJNCnYYXiPMJeyNisVZZhO1Ol9aq40qJIEmQL9bCpBoe
+	m3aoj4qtwErD4WjVsDPgxubTF5FnZ+I3/4P0jxJyJM2mG0xzWeIU5OkA4+Cmf637fBa+8qP9YqN6q
+	1Hd56n0A==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8cki-0000000FzIn-19Gs;
-	Tue, 14 Oct 2025 10:59:36 +0000
-Received: from out-180.mta0.migadu.com ([91.218.175.180])
+	id 1v8co2-0000000G0G3-1i91;
+	Tue, 14 Oct 2025 11:03:02 +0000
+Received: from us-smtp-delivery-124.mimecast.com ([170.10.133.124])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8ckf-0000000FzIC-1LDB
+	id 1v8cnz-0000000G0Di-1Njv
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 10:59:34 +0000
-Message-ID: <3acdcd15-7e52-4a9a-9492-a434ed609dcc@linux.dev>
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linux.dev; s=key1;
-	t=1760439559;
+	Tue, 14 Oct 2025 11:03:00 +0000
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
+	s=mimecast20190719; t=1760439777;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=bEvM+uhGgelsYNE930lxc/ZO1r9l2srRhYCoY59fvZI=;
-	b=BiR+m8sacQLfJamWviP0aUJZSo9wnpjGz6QYPqt/6NI9DNz9xzTtXzaORvGO75k6ieWkbU
-	ejrTjgascTaQ7moGN5ndS+DY7Tu/xY5mjJ4yJdKB476LoOWOBTkmiB8iYkbkn8w6lCrro9
-	LY1hD72GCumzUMDh8YXWz5v0H039po4=
-Date: Tue, 14 Oct 2025 18:59:07 +0800
+	bh=s2r/L8/q4C9e2I164NDxUGdYhK/0nvlG6dMGzaNBqVg=;
+	b=e83mDdrqUjDTuwZOBUhrBr3TEQ/TkIV8qTEniGUfnpBREMz0qkkI/uMbWOP4Dgm+hIdaNX
+	3moPEZQkkSVDIOsXJulDC95g9GeF0uOMCE/NtlX2T1xrFCJhz6UsRK8B9MFTOQy6Nw9qvD
+	X4lXGxiqvUIynZmtSwM0Hy9XFEWA4EI=
+Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
+ [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
+ (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
+ us-mta-564-R64Bnk9XNAq9GgeYn1KsYQ-1; Tue, 14 Oct 2025 07:02:55 -0400
+X-MC-Unique: R64Bnk9XNAq9GgeYn1KsYQ-1
+X-Mimecast-MFC-AGG-ID: R64Bnk9XNAq9GgeYn1KsYQ_1760439775
+Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-46e47d14dceso29786905e9.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 04:02:55 -0700 (PDT)
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760439774; x=1761044574;
+        h=mime-version:message-id:date:references:in-reply-to:subject:cc:to
+         :from:x-gm-message-state:from:to:cc:subject:date:message-id:reply-to;
+        bh=s2r/L8/q4C9e2I164NDxUGdYhK/0nvlG6dMGzaNBqVg=;
+        b=OO3FjHWf+Mk5UDOeoFn4rt4fpcJEOHZYj448Pl/Zsczp69uooq5ie9hf7VQoSJ0DqZ
+         VDPwXHDwJD6/vWYbXAgfWewvFIKfplcvn2CE2TzCEp8RkAMlZ2uamLyIswjZUNDopZwT
+         0+3eSgy+dCAbjdBLAUPAPoHXxmDmrSWVdQbWamp3K34+OdMXxpnCUAqXvvT3PyFx9UKJ
+         gqUoMPnFcU6BRqLdmekxjZ5UfGCzkEfLswV/n6GsfrXOMLFEhxaDQwIzQe42FiHfFQky
+         cRxN2KNkgwHwZvKSUv5/lXCgwHu3Cb6c9gRkSLb16FUQnsGkFTMU2AoWYV1btJQnGoxm
+         iveQ==
+X-Forwarded-Encrypted: i=1; AJvYcCU+NcXf81zT4xg6aRPUcTfO/bcaCZdG1RYWlDJGESjRXEBDckJXbfzQrynxdWT2ukO/SNJTfa6oLyYYw/F8YQM0@lists.infradead.org
+X-Gm-Message-State: AOJu0YyIBMYHasFgbk/Vdx38ceihP9ABYyavTutsEICmTAa+lE1t+O0k
+	g12eJyNHU61VraokAlD77GQuDhYVyI7BpszZSAXGoMtVy1+ujzc9+1O2LjEj4Jqp8ymvHTALsXA
+	B+D/srNE1df86IfgqPEDZcfJmPfFz8uc7SlMEYr1Nctz3SI2ujTef9hvevQxpmqABwuYFVmroju
+	yA
+X-Gm-Gg: ASbGnct5zbQwJ0w/wGzun3FYyRzAd1nSWY5rae4tItYv6gkbIWO3EbAK5SjJvxWlm55
+	4PbU7NFrxBHu4CTU4e7GNJyUIJLblmmqKHLYxm3Sld+8QNe3i6+HyQXUxtfwBf83PC5tzMIgHC0
+	xw42vhH7DeEyTpeMEPtITJ6HzskH5yJYMx3t3ONqiZgPph+Uqn1KnYQ0NaT5ImjWRa/wqkeTGpC
+	DlWkRj9KiNzLKcMJbkG3l9JW41zvHZ+Fxo3X8RR7UU8P3qt/zibjwR/8fYOAACyqmKB2KpobdYD
+	dkwLnN393bNQLPK6XOHCgmZvQ1iKISFMCKXJG8RZhzXgoFiUU34H4vSiQxfezPe3ivqgapVRHLh
+	h+LqtIyOB75CagoGYPzYywtRWgg==
+X-Received: by 2002:a05:600c:4752:b0:46e:3dad:31ea with SMTP id 5b1f17b1804b1-46fa9af8fb0mr181929145e9.17.1760439774545;
+        Tue, 14 Oct 2025 04:02:54 -0700 (PDT)
+X-Google-Smtp-Source: AGHT+IGCodl08uTX0ubswP5nTiGxebtIpD1Qw4JnrqS3e+W7M5qhx4w6eQs0AuIjitoXX5t0l6/vwQ==
+X-Received: by 2002:a05:600c:4752:b0:46e:3dad:31ea with SMTP id 5b1f17b1804b1-46fa9af8fb0mr181928825e9.17.1760439774097;
+        Tue, 14 Oct 2025 04:02:54 -0700 (PDT)
+Received: from vschneid-thinkpadt14sgen2i.remote.csb (213-44-135-146.abo.bbox.fr. [213.44.135.146])
+        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-426f2f72e18sm1737515f8f.0.2025.10.14.04.02.51
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Oct 2025 04:02:52 -0700 (PDT)
+From: Valentin Schneider <vschneid@redhat.com>
+To: Sean Christopherson <seanjc@google.com>
+Cc: linux-kernel@vger.kernel.org, linux-mm@kvack.org, rcu@vger.kernel.org,
+ x86@kernel.org, linux-arm-kernel@lists.infradead.org,
+ loongarch@lists.linux.dev, linux-riscv@lists.infradead.org,
+ linux-arch@vger.kernel.org, linux-trace-kernel@vger.kernel.org, Josh
+ Poimboeuf <jpoimboe@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Ingo Molnar <mingo@redhat.com>, Borislav Petkov <bp@alien8.de>, Dave
+ Hansen <dave.hansen@linux.intel.com>, "H. Peter Anvin" <hpa@zytor.com>,
+ Andy Lutomirski <luto@kernel.org>, Peter Zijlstra <peterz@infradead.org>,
+ Arnaldo Carvalho de Melo <acme@kernel.org>, Paolo Bonzini
+ <pbonzini@redhat.com>, Arnd Bergmann <arnd@arndb.de>, Frederic Weisbecker
+ <frederic@kernel.org>, "Paul E. McKenney" <paulmck@kernel.org>, Jason
+ Baron <jbaron@akamai.com>, Steven Rostedt <rostedt@goodmis.org>, Ard
+ Biesheuvel <ardb@kernel.org>, Sami Tolvanen <samitolvanen@google.com>,
+ "David S. Miller" <davem@davemloft.net>, Neeraj Upadhyay
+ <neeraj.upadhyay@kernel.org>, Joel Fernandes <joelagnelf@nvidia.com>, Josh
+ Triplett <josh@joshtriplett.org>, Boqun Feng <boqun.feng@gmail.com>,
+ Uladzislau Rezki <urezki@gmail.com>, Mathieu Desnoyers
+ <mathieu.desnoyers@efficios.com>, Mel Gorman <mgorman@suse.de>, Andrew
+ Morton <akpm@linux-foundation.org>, Masahiro Yamada
+ <masahiroy@kernel.org>, Han Shen <shenhan@google.com>, Rik van Riel
+ <riel@surriel.com>, Jann Horn <jannh@google.com>, Dan Carpenter
+ <dan.carpenter@linaro.org>, Oleg Nesterov <oleg@redhat.com>, Juri Lelli
+ <juri.lelli@redhat.com>, Clark Williams <williams@redhat.com>, Yair
+ Podemsky <ypodemsk@redhat.com>, Marcelo Tosatti <mtosatti@redhat.com>,
+ Daniel Wagner <dwagner@suse.de>, Petr Tesarik <ptesarik@suse.com>
+Subject: Re: [PATCH v6 19/29] KVM: VMX: Mark vmx_l1d_should flush and
+ vmx_l1d_flush_cond keys as allowed in .noinstr
+In-Reply-To: <aO2S3oZwOW_UgAci@google.com>
+References: <20251010153839.151763-1-vschneid@redhat.com>
+ <20251010153839.151763-20-vschneid@redhat.com>
+ <aO2S3oZwOW_UgAci@google.com>
+Date: Tue, 14 Oct 2025 13:02:50 +0200
+Message-ID: <xhsmhwm4xpwyt.mognet@vschneid-thinkpadt14sgen2i.remote.csb>
 MIME-Version: 1.0
-Subject: Re: [PATCH][v3] hung_task: Panic after fixed number of hung tasks
-To: lirongqing <lirongqing@baidu.com>, Petr Mladek <pmladek@suse.com>
-Cc: wireguard@lists.zx2c4.com, linux-arm-kernel@lists.infradead.org,
- "Liam R . Howlett" <Liam.Howlett@oracle.com>, linux-doc@vger.kernel.org,
- David Hildenbrand <david@redhat.com>, Randy Dunlap <rdunlap@infradead.org>,
- Stanislav Fomichev <sdf@fomichev.me>, linux-aspeed@lists.ozlabs.org,
- Andrew Jeffery <andrew@codeconstruct.com.au>, Joel Stanley <joel@jms.id.au>,
- Russell King <linux@armlinux.org.uk>,
- Lorenzo Stoakes <lorenzo.stoakes@oracle.com>, Shuah Khan <shuah@kernel.org>,
- Steven Rostedt <rostedt@goodmis.org>, Jonathan Corbet <corbet@lwn.net>,
- Joel Granados <joel.granados@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>, Phil Auld <pauld@redhat.com>,
- linux-kernel@vger.kernel.org, linux-kselftest@vger.kernel.org,
- Masami Hiramatsu <mhiramat@kernel.org>, Jakub Kicinski <kuba@kernel.org>,
- Pawan Gupta <pawan.kumar.gupta@linux.intel.com>,
- Simon Horman <horms@kernel.org>,
- Anshuman Khandual <anshuman.khandual@arm.com>,
- Florian Westphal <fw@strlen.de>, netdev@vger.kernel.org,
- Kees Cook <kees@kernel.org>, Arnd Bergmann <arnd@arndb.de>,
- "Paul E . McKenney" <paulmck@kernel.org>,
- Feng Tang <feng.tang@linux.alibaba.com>,
- "Jason A . Donenfeld" <Jason@zx2c4.com>
-References: <20251012115035.2169-1-lirongqing@baidu.com>
- <588c1935-835f-4cab-9679-f31c1e903a9a@linux.dev>
- <aO4boXFaIb0_Wiif@pathway.suse.cz>
-Content-Language: en-US
-X-Report-Abuse: Please report any abuse attempt to abuse@migadu.com and include these headers.
-From: Lance Yang <lance.yang@linux.dev>
-In-Reply-To: <aO4boXFaIb0_Wiif@pathway.suse.cz>
-Content-Type: text/plain; charset=UTF-8; format=flowed
-Content-Transfer-Encoding: 7bit
-X-Migadu-Flow: FLOW_OUT
+X-Mimecast-Spam-Score: 0
+X-Mimecast-MFC-PROC-ID: rqB8jNDsWXPRdmDNsRQuRgW1qHDyxYLtVfnNsgDQHyM_1760439775
+X-Mimecast-Originator: redhat.com
+Content-Type: text/plain
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_035933_532786_0D6CEC3E 
-X-CRM114-Status: GOOD (  20.66  )
+X-CRM114-CacheID: sfid-20251014_040259_435371_026B9570 
+X-CRM114-Status: GOOD (  15.73  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -89,66 +132,47 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-
-
-On 2025/10/14 17:45, Petr Mladek wrote:
-> On Tue 2025-10-14 13:23:58, Lance Yang wrote:
->> Thanks for the patch!
+On 13/10/25 17:01, Sean Christopherson wrote:
+> On Fri, Oct 10, 2025, Valentin Schneider wrote:
+>> Later commits will cause objtool to warn about static keys being used in
+>> .noinstr sections in order to safely defer instruction patching IPIs
+>> targeted at NOHZ_FULL CPUs.
 >>
->> I noticed the implementation panics only when N tasks are detected
->> within a single scan, because total_hung_task is reset for each
->> check_hung_uninterruptible_tasks() run.
-> 
-> Great catch!
-> 
-> Does it make sense?
-> Is is the intended behavior, please?
-> 
->> So some suggestions to align the documentation with the code's
->> behavior below :)
-> 
->> On 2025/10/12 19:50, lirongqing wrote:
->>> From: Li RongQing <lirongqing@baidu.com>
->>>
->>> Currently, when 'hung_task_panic' is enabled, the kernel panics
->>> immediately upon detecting the first hung task. However, some hung
->>> tasks are transient and the system can recover, while others are
->>> persistent and may accumulate progressively.
-> 
-> My understanding is that this patch wanted to do:
-> 
->     + report even temporary stalls
->     + panic only when the stall was much longer and likely persistent
-> 
-> Which might make some sense. But the code does something else.
+>> These keys are used in .noinstr code, and can be modified at runtime
+>> (/proc/kernel/vmx* write). However it is not expected that they will be
+>> flipped during latency-sensitive operations, and thus shouldn't be a source
+>> of interference wrt the text patching IPI.
+>>
+>> Mark it to let objtool know not to warn about it.
+>
+> Can you elaborate in the changelog on what will happen if the key is toggle?
+> IIUC, smp_text_poke_batch_finish() will force IPIs if noinstr code is being
+> patched.
 
-Cool. Sounds good to me!
+Right!
 
-> 
->>> --- a/kernel/hung_task.c
->>> +++ b/kernel/hung_task.c
->>> @@ -229,9 +232,11 @@ static void check_hung_task(struct task_struct *t, unsigned long timeout)
->>>    	 */
->>>    	sysctl_hung_task_detect_count++;
->>> +	total_hung_task = sysctl_hung_task_detect_count - prev_detect_count;
->>>    	trace_sched_process_hang(t);
->>> -	if (sysctl_hung_task_panic) {
->>> +	if (sysctl_hung_task_panic &&
->>> +			(total_hung_task >= sysctl_hung_task_panic)) {
->>>    		console_verbose();
->>>    		hung_task_show_lock = true;
->>>    		hung_task_call_panic = true;
-> 
-> I would expect that this patch added another counter, similar to
-> sysctl_hung_task_detect_count. It would be incremented only
-> once per check when a hung task was detected. And it would
-> be cleared (reset) when no hung task was found.
+> Even just a small footnote like this:
+>
+>   Note, smp_text_poke_batch_finish() never defers IPIs if noinstr code is
+>   being patched, i.e. this is purely about silencing objtool warnings.
+>
+> to make it clear that there's no bug/race being introduced.
 
-Much cleaner. We could add an internal counter for that, yeah. No need
-to expose it to userspace ;)
+Good point. How about:
 
-Petr's suggestion seems to align better with the goal of panicking on
-persistent hangs, IMHO. Panic after N consecutive checks with hung tasks.
+"""
+Later commits will cause objtool to warn about static keys being used in
+.noinstr sections in order to safely defer instruction patching IPIs
+targeted at NOHZ_FULL CPUs.
 
-@RongQing does that work for you?
+The VMX keys are used in .noinstr code, and can be modified at runtime
+(/proc/kernel/vmx* write). However it is not expected that they will be
+flipped during latency-sensitive operations, and thus shouldn't be a source
+of interference for NOHZ_FULL CPUs wrt the text patching IPI.
+
+Note, smp_text_poke_batch_finish() never defers IPIs if noinstr code is
+being patched, i.e. this is purely to tell objtool we're okay with updates
+to that key causing IPIs and to silence the associated objtool warning.
+"""
+
 
