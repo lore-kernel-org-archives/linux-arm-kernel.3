@@ -4,87 +4,90 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 05C4ACCD184
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 19:17:41 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 439E8CCD18E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 19:33:38 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
 	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=9u2xhRjxMY0OHfkeZgBaJjHDhZQq+aqtFfr5uDFVIn8=; b=2vp45jMHhKJ8qiUKYYct1sitCk
-	gtDymFL1rz4dAJmpRCwOE23RqblByYhZ/IHWYA9W2eRDxg4XWauhK2qKP8nyQ54Knr9ASYq6muaCM
-	nxNnyWlJC+xKf+HjYouHtdxWZo4VAh0veZ3A5mZ9O3t1mkjvMC13kHTYNYy9LHmakQKZ+1Zy3nOvJ
-	3orvKL+gDGQ8YPteZN7oqp6YtrVi4jDtQeXX446dGX0rBTaI4oY5Mdlc86jBWuK80RhojgIL87kgW
-	oZOvdKwn3BKiw5YraFyefVc25kzZ291+0BYc2MeViSGbq8KU5H+2aYyoYkPJsIcHWLAURDokE6jeq
-	qvmmNlZg==;
+	bh=5ARDdDrOQu66S70j2Pcr0PW3/0XEEAOGuC2dcR/3tLc=; b=R2pXM468mNAqa14p5jEw5vagMJ
+	s2ZbjOTWXY2S+hIyy33uwjIVE4y1N9ugGprdVJGfCpS/ih0N+nz4rHmP7v6dkDCx5G+QZ67WDVp+d
+	8tru+tX8izfIDRjKYOEtcjImcSLFsw4a0KUl0u5nn1OydjybW9bgCBfJCsma+ag3X/3IAuYWrH/n3
+	Z3m/eMdssOHdabeai3orn7ffP/L0JNd6hW8lvG2/81zFDtBQw7MluZ5xFzAI7MPzO46tdBqKSOivs
+	qQ5CeA4gMhPxeFRouFG7d9g/ZEthJkzlsfCLKCg7ddHuxN05UwLT/MwYxe81/TJkrexjdKrOhwc4S
+	9nuyYOLg==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8kWd-0000000HFfA-3Eze;
-	Tue, 14 Oct 2025 19:17:35 +0000
-Received: from mail-lf1-x132.google.com ([2a00:1450:4864:20::132])
+	id 1v8km3-0000000HGjl-2e2Z;
+	Tue, 14 Oct 2025 19:33:31 +0000
+Received: from mail-yx1-xb12b.google.com ([2607:f8b0:4864:20::b12b])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8kWa-0000000HFeY-3TZj
+	id 1v8km0-0000000HGjK-1xkX
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 19:17:33 +0000
-Received: by mail-lf1-x132.google.com with SMTP id 2adb3069b0e04-57da66e0dc9so5833795e87.0
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 12:17:32 -0700 (PDT)
+	Tue, 14 Oct 2025 19:33:30 +0000
+Received: by mail-yx1-xb12b.google.com with SMTP id 956f58d0204a3-6353e91a04aso6126291d50.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 12:33:28 -0700 (PDT)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=linaro.org; s=google; t=1760469451; x=1761074251; darn=lists.infradead.org;
+        d=linaro.org; s=google; t=1760470407; x=1761075207; darn=lists.infradead.org;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:from:to:cc:subject:date
          :message-id:reply-to;
-        bh=9u2xhRjxMY0OHfkeZgBaJjHDhZQq+aqtFfr5uDFVIn8=;
-        b=KxfNJaY+XNQjawxCufsRcFfTcdag1xf2KzQQvwoemqC1gWokhs7yH5DVEdrFNX0pQA
-         LEvkQWXvBBamquZAmgqQOe9aMgEMDCrISflV/5Hb1HKxfNSiYnQhKziTElK6MB4fCJDQ
-         K5y2PXgqmrT+7dNoBBouVbRUGxiW7dQa52RGg0JxcxJ5ksJpr60Rupa5/C/XfVgLiy6d
-         ii/ZXX1mU2KabGh0h1QCz+xyhKMs7fr5bMZ0qATsL/05+Svq9RdKV4q/mRPnVgmfkOku
-         xWkw0udUTPPJNfsUR33F2GZBZGtSIfyGBaDDFksHra1XW2w0XLWcX/Pxt24bVUGjD+Rb
-         39BQ==
+        bh=5ARDdDrOQu66S70j2Pcr0PW3/0XEEAOGuC2dcR/3tLc=;
+        b=jKVVHOfc1JbDjyi52Q7sRn1rR+pffQ6iGN2gdivok84M9PuZYGX1YpmVyA48KE2di6
+         6PpdPSb0auuKd0DUlKIizg4aVA/JtTmp+AnExcXdMEBQSYZmNI6hyxFbhQVpqPxleQTD
+         kfGLTv0euFSba7kBxtFhW0SigPP9neQ27UOqIvm8wYQJsiTc2L+GRomSozudoyVO4g9R
+         KKUKlCHkqpXYFVRPHvbpRL+4b/KLaR51P3/PYenPLaJvgEidnYzZAVOoon+HmkLSTe/N
+         WFjW/zIJSyGdW2eS+F/ja8c2O7/byPRITf6pc/TZZUA3fk0S6S23FUTqR5mwBxchQfF2
+         2drQ==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760469451; x=1761074251;
+        d=1e100.net; s=20230601; t=1760470407; x=1761075207;
         h=content-transfer-encoding:cc:to:subject:message-id:date:from
          :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
          :subject:date:message-id:reply-to;
-        bh=9u2xhRjxMY0OHfkeZgBaJjHDhZQq+aqtFfr5uDFVIn8=;
-        b=kNlaVWI68tQvTehUHHXARruwe79fJQ+3Fn7HlVFJdhogkPOaE4Qn1lv96nUxHKc/6Z
-         TMwWv9IGjlTval2tlSJQfqrpz2DrZmi60xqPEmBvtSH0qs5HunyM1vShtusZ64H1KAtI
-         RuILZbBVEuD7K6T2qAlCxx0UBywzcJffL0p0UA5y0NxR57s2Tb/akMQvXlCAuw0ZULTf
-         4OJJvJi2He8zHQYSMjFl8K+CLVMsvIdcQZoktpy1R/tuIapz3kOdqA7et+HP8S0fjgps
-         4t8l1WzTfxah02ZA7k0Uy0zTeim6zIIJPVD8H3Ubfcn/bm3UQVhHrZiC+INnRy4exxGW
-         K5MQ==
-X-Forwarded-Encrypted: i=1; AJvYcCX44Q42nWDcD897DeeF8vbsi3Fae5hoZbnofJt1vxmxpiHy1rg9MtvSFgyLX/G9yNjAZAB+lMT+3hYJYtGWgV9Q@lists.infradead.org
-X-Gm-Message-State: AOJu0Yx+StSudbTSM6vY4SGnYs2ayEVK9bxNUkiJk8nfQKj/UukFKNNJ
-	htN54UDZQkIkn/NIZqVVPOMbhpyVA0q0ZM0ELiqdSaQdG/9DnGZHP5WAaS+DGMaW5lQINyYclLC
-	Sws1awScqx/JZz0YPCqtBcHW1IiTEpfbaMrsHuJvU8g==
-X-Gm-Gg: ASbGncugxJ9TjK3hWgEi56BwC/Q/NEGr8QLyxqZz2OqUoKgpw1dyfvFl4IjZbXwOgTy
-	OrfEB8/2SrvJZqu9fMbHBNvKZgq06f72wx7fGQf+vncLDGmNR7VBqaNHmDAu3lyTYK/H09xqgLb
-	V3uB8MFu+fdjG92g1CLlaTIg96lqoPT5beJhwaLJKr4iYiQVOxrSTVHMiztRYKqMxVHP9/U6XDQ
-	raTUHSXn2+1oIzHcIk1CKZjT/7Ajg==
-X-Google-Smtp-Source: AGHT+IEGUS4Gd3DOiYb0CWjdPtTrv4xdAxyOe7Tv+OqMwGviA724GimvTCnIrTO1U+O4G506e5yK1WmR/GzoIGF6mSU=
-X-Received: by 2002:a05:6512:3d23:b0:58b:189:871e with SMTP id
- 2adb3069b0e04-5906dc12463mr7452727e87.3.1760469450698; Tue, 14 Oct 2025
- 12:17:30 -0700 (PDT)
+        bh=5ARDdDrOQu66S70j2Pcr0PW3/0XEEAOGuC2dcR/3tLc=;
+        b=UEPbkxbsVEf8aynI7tXhhHKLGtSr21w7t0XSzyWO+R2seHzZfwAYD7nuBYuTWZHFzx
+         1zKiJXKD30oQgGsAarcV6wAyeqjJvJn6G+Nv+U4mYnOQnUnHQG7hSwaPUD59nAgL7/gD
+         HGjU89vgAlNKp1me4xtZmIDrO3Qj5pdN2GVVVy8Llna+R39X2WLoQCIPpD0OwjBbjb66
+         hcdZC2L6qYPF92naUbFUSbitdXDKtMMu8RIgxmZXxRIPRaseRnrYFiaQz2MldXBQitMr
+         +MH0SM14gemyhJvBsWAX4O3dFA2k7ozImPcViEypjgnNeo/ItNvvPwo+wXC20N1S0y/g
+         4JIw==
+X-Forwarded-Encrypted: i=1; AJvYcCWdcYFb7/3DQL2ZobLxt5F5zaatdimlRgqOM/aOu9K0EWRsw0ZW7ufsfDz8m+KdxTN3d71jCUpKvQAKUw2Ni5DA@lists.infradead.org
+X-Gm-Message-State: AOJu0YzgaZ+Ctopk01XrLe9GbALbS1TspcP3ocIll8d6AkC7N0ue73nx
+	7v7qJyLx6YJWyGkbQgBDsqdzpu+NuAB86sptF8Sgn3yp1aEzhPG3zMQkxT1fR9uMzj0Ex4ldb14
+	hMRnmGY18sNWVFff8eCCAFo9qghM2HbGcmBRplQQU5A==
+X-Gm-Gg: ASbGnctJHkAq6nCmY/ZEm8MynSbyY/Bt5fyWiDRqrw3iw2YpGz1hx3MBKyAEoFtIYba
+	1MdjUFGBUkxNVlvHzv0ApEqAzSwiBiwdy3OdJFIT99Fosd8HY/gy09epINeVbPaKyLnVSjnd6yf
+	LniKuFR70JWcOGdzCZLL2e/KNpxNoZo5tJqzWAw2/b9ruKFTesu2QoMVuk2RhZQEQeY9AzH5A1j
+	QVKh60PV4AbIyvGWVUrUKhmvX4WFA==
+X-Google-Smtp-Source: AGHT+IEUUPaRH5+Gxizt81iSypGUspUlnjKY5P6YXyV0VyPOzdQrWUfDr4OvmwdgxbP2fD1h3jeRBtg0eMKmQu2V+ic=
+X-Received: by 2002:a05:690c:6204:b0:77e:5eb8:278c with SMTP id
+ 00721157ae682-780e16fc173mr396492737b3.46.1760470407083; Tue, 14 Oct 2025
+ 12:33:27 -0700 (PDT)
 MIME-Version: 1.0
-References: <20251014015712.2922237-1-gary.yang@cixtech.com>
- <20251014015712.2922237-2-gary.yang@cixtech.com> <CACRpkda-2BNj+Pt2kS9u_bbr41bsWGRGDqNd3EXVnys-xSqg0g@mail.gmail.com>
- <20251014-backyard-parted-572627bfc540@spud>
-In-Reply-To: <20251014-backyard-parted-572627bfc540@spud>
+References: <20251014140451.1009969-1-antonio.borneo@foss.st.com>
+ <20251014140451.1009969-3-antonio.borneo@foss.st.com> <20251014-barbecue-crewman-717fe614daa6@spud>
+In-Reply-To: <20251014-barbecue-crewman-717fe614daa6@spud>
 From: Linus Walleij <linus.walleij@linaro.org>
-Date: Tue, 14 Oct 2025 21:17:19 +0200
-X-Gm-Features: AS18NWAUmIlF_t1r_m5_roptigL3TJ5IfhnwTJl60nwKQLpHKJKzA9shz3gKjcE
-Message-ID: <CACRpkdYX+Hz+LPvSq4vO2Y_JtruokSui-+CvB8dGua0p+FL9Qw@mail.gmail.com>
-Subject: Re: [PATCH v3 1/3] dt-bindings: pinctrl: Add cix,sky1-pinctrl
+Date: Tue, 14 Oct 2025 21:33:14 +0200
+X-Gm-Features: AS18NWDBmcyoyPtVx855p7YCo6bUFy5LEzs_BFgLFYqVzycznaj08XFuSAiE18s
+Message-ID: <CACRpkdZT20cdH+G6Gjw8PopAkir+gGgMtRR4pkjnXFrmDkdfog@mail.gmail.com>
+Subject: Re: [PATCH v3 02/10] dt-bindings: pincfg-node: Add properties 'skew-delay-{in,out}put'
 To: Conor Dooley <conor@kernel.org>
-Cc: Gary Yang <gary.yang@cixtech.com>, robh@kernel.org, krzk+dt@kernel.org, 
-	conor+dt@kernel.org, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
-	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
-	cix-kernel-upstream@cixtech.com
+Cc: Antonio Borneo <antonio.borneo@foss.st.com>, Rob Herring <robh@kernel.org>, 
+	Krzysztof Kozlowski <krzk+dt@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+	Maxime Coquelin <mcoquelin.stm32@gmail.com>, Alexandre Torgue <alexandre.torgue@foss.st.com>, 
+	Bartosz Golaszewski <brgl@bgdev.pl>, linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-stm32@st-md-mailman.stormreply.com, 
+	linux-arm-kernel@lists.infradead.org, 
+	Christophe Roullier <christophe.roullier@foss.st.com>, 
+	Fabien Dessenne <fabien.dessenne@foss.st.com>, Valentin Caron <valentin.caron@foss.st.com>
 Content-Type: text/plain; charset="UTF-8"
 Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_121732_895770_03D14E85 
-X-CRM114-Status: GOOD (  13.32  )
+X-CRM114-CacheID: sfid-20251014_123328_752278_9DE1E403 
+X-CRM114-Status: GOOD (  20.45  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -99,39 +102,73 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, Oct 14, 2025 at 7:58=E2=80=AFPM Conor Dooley <conor@kernel.org> wro=
+On Tue, Oct 14, 2025 at 8:04=E2=80=AFPM Conor Dooley <conor@kernel.org> wro=
 te:
+> On Tue, Oct 14, 2025 at 04:04:43PM +0200, Antonio Borneo wrote:
 
-
-> > > +          drive-strength:
-> > > +            description:
-> > > +              Can support 15 levels, from DS_LEVEL1 to DS_LEVEL15.
-> > > +              defined as macros in arch/arm64/boot/dts/cix/sky1-pinf=
-unc.h.
-
-(side note to Gary: drop the reference to the arch/arm64 etc
-sky1-pinfunc.h file,
-this is Linux-specific and U-Boot and BSD will be confused)
-
-> Isn't this wrong?
-> drive-strength is in mA but you're just shoving register values in here.
+> > +  skew-delay-input:
+> > +    $ref: /schemas/types.yaml#/definitions/uint32
+> > +    description:
+> > +      this affects the expected clock skew on input pins.
+> > +      Typically indicates how many double-inverters are used to
+> > +      delay the signal.
+>
+> This property seems to be temporal, I would expect to see a unit of time
+> mentioned here, otherwise it'll totally inconsistent in use between
+> devices, and also a standard unit suffix in the property name.
 > pw-bot: changes-requested
 
-That's right, Gary do you think you can add a mA->strength value
-translation table into the driver and let this be configured in mA?
+Don't blame the messenger, the existing property skew-delay
+says:
 
-> >       type: object
-> >       $ref: /schemas/pinctrl/pinmux-node.yaml
-> >       $ref: /schemas/pinctrl/pincfg-node.yaml
-> >       additionalProperties: false
-> >
-> > Something like this, I never get this right before actually testcompili=
-ng...
->
-> spacemit,k1-pinctrl has a node of this type, that can be copied from
-> Gary. Essentially, you need an allOf: for the two references.
+  skew-delay:
+    $ref: /schemas/types.yaml#/definitions/uint32
+    description:
+      this affects the expected clock skew on input pins
+      and the delay before latching a value to an output
+      pin. Typically indicates how many double-inverters are
+      used to delay the signal.
 
-Neat, thanks Conor!
+This in turn comes from the original
+Documentation/devicetree/bindings/pinctrl/pinctrl-bindings.txt
+document, which in turn comes from this commit:
+
+commit e0e1e39de490a2d9b8a173363ccf2415ddada871
+Author: Linus Walleij <linus.walleij@linaro.org>
+Date:   Sat Oct 28 15:37:17 2017 +0200
+
+    pinctrl: Add skew-delay pin config and bindings
+
+    Some pin controllers (such as the Gemini) can control the
+    expected clock skew and output delay on certain pins with a
+    sub-nanosecond granularity. This is typically done by shunting
+    in a number of double inverters in front of or behind the pin.
+    Make it possible to configure this with a generic binding.
+
+    Cc: devicetree@vger.kernel.org
+    Acked-by: Rob Herring <robh@kernel.org>
+    Acked-by: Hans Ulli Kroll <ulli.kroll@googlemail.com>
+    Signed-off-by: Linus Walleij <linus.walleij@linaro.org>
+
+So by legacy skew-delay is a custom format, usually the number of
+(double) inverters.
+
+I don't recall the reason for this way of defining things, but one reason
+could be that the skew-delay incurred by two inverters is very
+dependent on the production node of the silicon, and can be
+nanoseconds or picoseconds, these days mostly picoseconds.
+Example: Documentation/devicetree/bindings/net/adi,adin.yaml
+
+Antonio, what do you say? Do you have the actual skew picosecond
+values for the different settings so we could define this as
+
+skew-delay-input-ps:
+skew-delay-output-ps:
+
+and translate it to the right register values in the driver?
+
+If we have the proper data this could be a good time to add this
+ISO unit to these two props.
 
 Yours,
 Linus Walleij
