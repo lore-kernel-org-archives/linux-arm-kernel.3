@@ -4,67 +4,94 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 556DBCCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 16:48:07 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 28053CCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 16:50:46 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:In-Reply-To:
-	Content-Transfer-Encoding:Content-Type:MIME-Version:References:Message-ID:
-	Subject:Cc:To:From:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=PXlU2MkvUQX1/3iyqxXB7dFdeRQ53Wq/EIkRPiFDjBw=; b=orgTTqceIZ+lzy8SU9cFvueQ5v
-	Ii7WirVmXeIXyqsLGpwoMuwCME5AQH7oL52FSQju72lajdKEguqK6Camw/udoTPiLSU34qsKlZO93
-	Z4Qz+SRYpxjnS9YRO500OEAR6L/4iK/Aw83vzejeb5/QiPUaAvORA3GoOtTVj4/n41mfhWJfRMCvc
-	PjKVVvYOyJzUGZ1CvgEmAsv3jrsIQlOgtQYwGJ4mYhm8W59NoiXgyiN4tL5k6Vm7zRYWXbxP79gR/
-	ft5CXGVEI40npXvQkuUkDa2yJqIg0k7ll3LYH0Bz6joeeiMCrAzQSzdjEbXYk1Z71PV5NaZFFyHyV
-	jcxkZ45w==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:CC:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=Hu289ulcjdhzLLjVVVbG3pIUzUH7uYAXzZ5B+3z00fQ=; b=Ij8LrP0g+QWkOpf6YYgz/5V7Fa
+	xauzfXobV7PkI3rdXbkIUsEEJaSpe9DYEr8uXa0C1XcsVanlWLR2jW+Za0xTwd+uFBnF2yuIWVPFZ
+	hB2uC8eWA3W3BsbUwPONfNQFrbJlktYew4l2JfrtWfoZuly8ZaVZ3uqZ4KApNoshg+Dp4SKa4IIHQ
+	qBrez3JMXd7Z8kyLcOh0O3FxWRcXpfGC9E7WuVRshxUzu9ZO5yfamjhSFZNqgEDtfyUrXepLSsRMN
+	kKEzrP9VGjPSIhldVVNovEjeyT5JmFNXFQWihVp36VP37Yzz72FZ+BJQrbkYDsCje8ZmPAsHhH0RG
+	iKroZ0BQ==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8iBs-0000000H1oS-3eqA;
-	Tue, 14 Oct 2025 16:48:00 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v8iEO-0000000H2JW-31PT;
+	Tue, 14 Oct 2025 16:50:36 +0000
+Received: from mx01.omp.ru ([90.154.21.10])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8iBr-0000000H1oH-3e7y;
-	Tue, 14 Oct 2025 16:48:00 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id CC5D962366;
-	Tue, 14 Oct 2025 16:47:58 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9F4FBC4CEF9;
-	Tue, 14 Oct 2025 16:47:57 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760460478;
-	bh=l8eLRFVMqE9fpiqrKqMylM/MEdNRiawD7W1mbhHYUUA=;
-	h=Date:From:To:Cc:Subject:References:In-Reply-To:From;
-	b=eGSA3pgaOhHGfOTcRgObQgFAXRmOW61i/dlmHQrwQtYq+xQu+Ft19yt6twH4meYJQ
-	 pWh4Zv2yemKHxTklIE0SZgp3LMws95vKHPuayVyCrSzSO/TuzlIKgKlN/9AzmSYXI+
-	 VDWj2WvV3uEOaZ0+mpeTKD3MLGvDFT3ttd2kKoAg8mFv263krvh8pHzQF2S8h0d4ww
-	 mm+3rI11mjJHFue72xqUgh8qpTfrAldmagVOJzzCXqrhyFjsfIqCa5+MRQvPB9RG+W
-	 jCXWH/AKVd0lxrKcHaX4aoIX3SXFgHU9WqNVNS2owUSOkfqBwuBB2vnN+AirnG+X8m
-	 oq6U4gwpx/A1w==
-Date: Tue, 14 Oct 2025 09:47:55 -0700
-From: Josh Poimboeuf <jpoimboe@kernel.org>
-To: Ard Biesheuvel <ardb@kernel.org>
-Cc: Huacai Chen <chenhuacai@kernel.org>, 
-	Tiezhu Yang <yangtiezhu@loongson.cn>, loongarch@lists.linux.dev, linux-arm-kernel@lists.infradead.org, 
-	linux-riscv@lists.infradead.org, linux-efi@vger.kernel.org, linux-kbuild@vger.kernel.org, 
-	linux-kernel@vger.kernel.org
-Subject: Re: [PATCH v2] efistub: Only link libstub to final vmlinux
-Message-ID: <rhnei6wovxmoqs36wdysomfsul3faxtmgde73wrrqdt3qo3b2j@akd7vzne76rq>
-References: <8091e8fa-3483-af39-2f7a-e4eb62b0944f@loongson.cn>
- <CAAhV-H4+UGLSkbjHbq9MerWfxnq0a13x+uzNfTsCoe1UxjbWsg@mail.gmail.com>
- <CAMj1kXH-rK0bRyHXdJ-crAyMyvJHApH0WR7_8Qd8vrSPBLK+yg@mail.gmail.com>
- <0c9b8e6a-96a6-91d4-946f-2109f48a529b@loongson.cn>
- <CAAhV-H41m96fvEWG5NqAE=tykPjyzt=50CseJDeCqdG-c_WMrQ@mail.gmail.com>
- <CAMj1kXEs5=VRi_rJwgHUrQWos-27PBbr3c4fYnmkV8Ahi8HZgw@mail.gmail.com>
- <CAAhV-H7HN128du-b1Rk_9qbYBq7gMSwo0s31909N4pTou6wzew@mail.gmail.com>
- <CAMj1kXGvSnCMRVCW7eAxgLRWMEV3QRj3Dqg3PmZchZJNpnLK9w@mail.gmail.com>
- <CAAhV-H4UKdso0BokAqvjYeBLr-jbjFAaQX4z=1ztpBamqrOEEg@mail.gmail.com>
- <CAMj1kXEXDC_oq4aWbkR5dqYBix2d1xJEdaj-v747e1nOA0Q_Yg@mail.gmail.com>
+	id 1v8iEJ-0000000H2GW-2weF;
+	Tue, 14 Oct 2025 16:50:34 +0000
+Received: from [192.168.2.104] (213.87.128.219) by msexch01.omp.ru
+ (10.188.4.12) with Microsoft SMTP Server (version=TLS1_2,
+ cipher=TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384) id 15.2.1258.12; Tue, 14 Oct
+ 2025 19:50:16 +0300
+Message-ID: <25e098b2-d786-437c-ad92-eccb90b148f7@omp.ru>
+Date: Tue, 14 Oct 2025 19:50:16 +0300
 MIME-Version: 1.0
-Content-Type: text/plain; charset=utf-8
-Content-Disposition: inline
-Content-Transfer-Encoding: 8bit
-In-Reply-To: <CAMj1kXEXDC_oq4aWbkR5dqYBix2d1xJEdaj-v747e1nOA0Q_Yg@mail.gmail.com>
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v2] serial: 8250_mtk: correct max baud rate in
+ set_termios() method
+To: Fedor Pchelkin <pchelkin@ispras.ru>
+CC: Greg Kroah-Hartman <gregkh@linuxfoundation.org>, Jiri Slaby
+	<jirislaby@kernel.org>, Matthias Brugger <matthias.bgg@gmail.com>,
+	AngeloGioacchino Del Regno <angelogioacchino.delregno@collabora.com>,
+	<linux-serial@vger.kernel.org>, <linux-kernel@vger.kernel.org>,
+	<linux-arm-kernel@lists.infradead.org>, <linux-mediatek@lists.infradead.org>,
+	<lvc-project@linuxtesting.org>, Eddie Huang <eddie.huang@mediatek.com>, Long
+ Cheng <long.cheng@mediatek.com>
+References: <3eb40848-3bec-42ca-845b-c66d4b53cedc@omp.ru>
+ <20251014130050-5cdb9e464558d609872d38cc-pchelkin@ispras>
+Content-Language: en-US
+From: Sergey Shtylyov <s.shtylyov@omp.ru>
+Organization: Open Mobile Platform
+In-Reply-To: <20251014130050-5cdb9e464558d609872d38cc-pchelkin@ispras>
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: 7bit
+X-Originating-IP: [213.87.128.219]
+X-ClientProxiedBy: msexch01.omp.ru (10.188.4.12) To msexch01.omp.ru
+ (10.188.4.12)
+X-KSE-ServerInfo: msexch01.omp.ru, 9
+X-KSE-AntiSpam-Interceptor-Info: scan successful
+X-KSE-AntiSpam-Version: 6.1.1, Database issued on: 10/14/2025 16:35:15
+X-KSE-AntiSpam-Status: KAS_STATUS_NOT_DETECTED
+X-KSE-AntiSpam-Method: none
+X-KSE-AntiSpam-Rate: 0
+X-KSE-AntiSpam-Info: Lua profiles 197067 [Oct 14 2025]
+X-KSE-AntiSpam-Info: Version: 6.1.1.11
+X-KSE-AntiSpam-Info: Envelope from: s.shtylyov@omp.ru
+X-KSE-AntiSpam-Info: LuaCore: 71 0.3.71
+ ee78c3da48e828d2b9b16d6d0b31328b8b240a3c
+X-KSE-AntiSpam-Info: {rep_avail}
+X-KSE-AntiSpam-Info: {Tracking_arrow_text}
+X-KSE-AntiSpam-Info: {Tracking_uf_ne_domains}
+X-KSE-AntiSpam-Info: {Tracking_from_domain_doesnt_match_to}
+X-KSE-AntiSpam-Info: omp.ru:7.1.1;d41d8cd98f00b204e9800998ecf8427e.com:7.1.1;213.87.128.219:7.1.2;127.0.0.199:7.1.2
+X-KSE-AntiSpam-Info: {Tracking_References_header}
+X-KSE-AntiSpam-Info: FromAlignment: s
+X-KSE-AntiSpam-Info: ApMailHostAddress: 213.87.128.219
+X-KSE-AntiSpam-Info: Rate: 0
+X-KSE-AntiSpam-Info: Status: not_detected
+X-KSE-AntiSpam-Info: Method: none
+X-KSE-AntiSpam-Info: Auth:dmarc=temperror header.from=omp.ru;spf=temperror
+ smtp.mailfrom=omp.ru;dkim=none
+X-KSE-Antiphishing-Info: Clean
+X-KSE-Antiphishing-ScanningType: Heuristic
+X-KSE-Antiphishing-Method: None
+X-KSE-Antiphishing-Bases: 10/14/2025 16:39:00
+X-KSE-Antivirus-Interceptor-Info: scan successful
+X-KSE-Antivirus-Info: Clean, bases: 10/14/2025 3:29:00 PM
+X-KSE-Attachment-Filter-Triggered-Rules: Clean
+X-KSE-Attachment-Filter-Triggered-Filters: Clean
+X-KSE-BulkMessagesFiltering-Scan-Result: InTheLimit
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251014_095031_967251_FBB5D825 
+X-CRM114-Status: UNSURE (   8.05  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -79,68 +106,33 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, Oct 13, 2025 at 04:36:49PM +0200, Ard Biesheuvel wrote:
-> On Mon, 13 Oct 2025 at 16:09, Huacai Chen <chenhuacai@kernel.org> wrote:
-> > On Sat, Oct 11, 2025 at 11:59 PM Ard Biesheuvel <ardb@kernel.org> wrote:
-> > > It is an objtool issue in essence.
-> > >
-> > > The generated code looks like this
-> > >
-> > > 9000000001743080: ff b7 fe 57   bl      -332 <__efistub_kernel_entry_address>
-> > > 9000000001743084: 26 03 c0 28   ld.d    $a2, $s2, 0
-> > > 9000000001743088: 87 00 15 00   move    $a3, $a0
-> > > 900000000174308c: 04 04 80 03   ori     $a0, $zero, 1
-> > > 9000000001743090: c5 02 15 00   move    $a1, $fp
-> > > 9000000001743094: e1 00 00 4c   jirl    $ra, $a3, 0
-> > >
-> > > 9000000001743098 <__efistub_exit_boot_func>:
-> > > 9000000001743098: 63 c0 ff 02   addi.d  $sp, $sp, -16
-> > >
-> > > There is nothing wrong with this code, given that the indirect call is
-> > > to a __noreturn function, and so the fact that it falls through into
-> > > __efistub_exit_boot_func() is not a problem.
-> > >
-> > > Even though the compiler does nothing wrong here, it would be nice if
-> > > it would emit some kind of UD or BRK instruction after such a call, if
-> > > only to make the backtrace more reliable. But the code is fine, and
-> > > objtool simply does not have the information it needs to determine
-> > > that the indirect call is of a variety that never returns.
-> > So the best way is to fix the objtool?
-> >
+On 10/14/25 1:07 PM, Fedor Pchelkin wrote:
+
+>> Mediatek MT798x datasheets (that I was able to get my hands on) claim
+
+   Thank you, Fedor, BTW! :-)
+
+>> the maximum supported baud rate to be 3 Mbps, while commit 81bb549fdf14
+>> ("serial: 8250_mtk: support big baud rate.") claimed it to be 4 Mbps --
 > 
-> I think the best solution is to fix the compiler, and ensure that call
-> instructions are always followed by some undefined or debug/break
-> opcode. This works around this problem, but it also ensures that the
-> return address does not point to the wrong function, which may cause
-> confusion in backtraces.
+> At least MT7987A datasheet claims to support up to 4 Mbps, so I think 4 Mbps
+> should be chosen for the upper limit.
 
-I think the compiler folks will say that's working as designed.  The
-whole point of __noreturn is to eliminate unecessary code after the
-call.
+   FTR, this SoC doesn't seem to be supported by the mainline kernel (looking
+at Linus' repo, at least).
+   I think, we should "parametrize" the max (and maybe even min?) baud rate
+adding more specific compatibles to mtk8250_of_match[] (and probably setting
+this parameter to 4 Mbps for the existing entry)...
 
-Unwinders are already designed to handle that case anyway.
+> + added the authors of 81bb549fdf14 ("serial: 8250_mtk: support big baud rate.")
+> to Cc.
 
-If you don't want to optimize out the code after the call then just
-remove the __noreturn annotation from the function pointer.
+  Just noticed that the author of this "wonderful" patch didn't even sign off
+on it. "Excellent" work! :-/
 
-> > > So I don't mind fixing it in the code, but only for LoongArch, given
-> > > that the problem does not exist on arm64 or RISC-V.
-> > You believe this problem won't exist even if they add objtool support
-> > (because their objtool will be sane)?
-> >
-> 
-> It depends on the compiler.
+> --
+> Fedor
 
-I don't think so, all compilers do this...
+MBR, Sergey
 
-My suggestion (which prompted this v2 patch) was to move the libstub
-code out of vmlinux.o (but still keep it in vmlinux), to make it
-consistent with what x86 already does.
-
-The idea is that libstub code doesn't belong in vmlinux.o because it's
-not a part of the kernel proper, and doesn't need to be validated or
-modified by objtool for any reason.
-
--- 
-Josh
 
