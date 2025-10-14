@@ -4,35 +4,35 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 12222CCD18E
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 413E4CCD184
 	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 11:55:40 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
-	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=xj2HrinRWLbPUs09ELs/QzC1m6nqJVLgGKSvJltJOuo=; b=OVfAf6QwnJ1pTvpK0sW2V7YgEh
-	vevcEYUZdc6aX9QuKPT5R+krQdQgvMFlHXArHs0r4zgbjmf25iRJFbtMPn7JNz+OaKFBVR26r1ULN
-	8lPhjfMFCbzfrHOCT4ClRkc8N3A7pBRYgmkhbRDRnBTKAdnP3jK5ZLf3OqJ8MTshfpZlCDYpyHTuE
-	eCHNA6+roufg02QfDWgW+mD42JwVbR+JdHxT+d8c0oDXnNQvGcdYXmG8Hax0+y8Q50+ArOdgZwxAL
-	DFUgRJEfz5JSEMDETt2yvwo2l4Pl3wFAyVWQfI1QdAKGrMdQigGybHfw3GCFhBQdckbMUHveuZxzJ
-	LGnWG52g==;
+	MIME-Version:Message-ID:Date:Subject:Cc:To:From:Reply-To:Content-Type:
+	Content-ID:Content-Description:Resent-Date:Resent-From:Resent-Sender:
+	Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:List-Owner;
+	bh=Z2c7eM6Ds2gAOqsPDhTp1USd8qy6LleULOSGP9SWB9c=; b=nzmoA+ndaVMlEQbBWpoxJOjkOE
+	NK3WBgr1cx0Q4nNxfaimBANT+O68oLM/qdWF67XzJ+RsbXEi+cz0ker38ycZxcsL/8hkw2ftvJbkz
+	UbtG8/I9TZykzNEGxKYFaoo+eM34ZBagrefbxKDDIR+VkAevQ9wp04cTyO4uc7wd1q1My7Kzh9b0C
+	Qq7WlGQxazQs179VizdoM7pIXVxCf8E2Sy+bpNVD7vjGE9VJfzKV2MDfaau3goR7Th0UYkK33ay+I
+	7WM/zFdk8vRHc94TLCxKV36elPt8annn2JxVhbEyz9wzWQK/nsW168X0G0wPxbep8seYeNPKQdFZy
+	tlb3TV5g==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8dcs-0000000GAcF-0jzd;
+	id 1v8dcs-0000000GAcX-23tF;
 	Tue, 14 Oct 2025 11:55:34 +0000
 Received: from foss.arm.com ([217.140.110.172])
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8dcq-0000000GAak-0swp
+	id 1v8dcq-0000000GAal-12fI
 	for linux-arm-kernel@lists.infradead.org;
 	Tue, 14 Oct 2025 11:55:33 +0000
 Received: from usa-sjc-imap-foss1.foss.arm.com (unknown [10.121.207.14])
-	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id D8E531BB2;
-	Tue, 14 Oct 2025 04:55:21 -0700 (PDT)
+	by usa-sjc-mx-foss1.foss.arm.com (Postfix) with ESMTP id 562CE1A9A;
+	Tue, 14 Oct 2025 04:55:20 -0700 (PDT)
 Received: from pluto.guest.local (usa-sjc-mx-foss1.foss.arm.com [172.31.20.19])
-	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 8FC733F6A8;
-	Tue, 14 Oct 2025 04:55:28 -0700 (PDT)
+	by usa-sjc-imap-foss1.foss.arm.com (Postfix) with ESMTPSA id 0537B3F6A8;
+	Tue, 14 Oct 2025 04:55:26 -0700 (PDT)
 From: Cristian Marussi <cristian.marussi@arm.com>
 To: linux-kernel@vger.kernel.org,
 	linux-arm-kernel@lists.infradead.org,
@@ -40,17 +40,15 @@ To: linux-kernel@vger.kernel.org,
 Cc: sudeep.holla@arm.com,
 	philip.radford@arm.com,
 	Cristian Marussi <cristian.marussi@arm.com>
-Subject: [PATCH 2/3] include: trace: Fix inflight count helper on failed initialization
-Date: Tue, 14 Oct 2025 12:53:45 +0100
-Message-ID: <20251014115346.2391418-2-cristian.marussi@arm.com>
+Subject: [PATCH 1/3] firmware: arm_scmi: Account for failed debug initialization
+Date: Tue, 14 Oct 2025 12:53:44 +0100
+Message-ID: <20251014115346.2391418-1-cristian.marussi@arm.com>
 X-Mailer: git-send-email 2.51.0
-In-Reply-To: <20251014115346.2391418-1-cristian.marussi@arm.com>
-References: <20251014115346.2391418-1-cristian.marussi@arm.com>
 MIME-Version: 1.0
 Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_045532_292695_58E336B2 
-X-CRM114-Status: GOOD (  11.69  )
+X-CRM114-CacheID: sfid-20251014_045532_363685_D5578E4C 
+X-CRM114-Status: GOOD (  15.02  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -65,68 +63,197 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-Add a check to the scmi_inflight_count() helper to catch the condition
-when the SCMI debug subsystem as a whole failed initialization.
+When the SCMI debug subsystem fails to initialize the related debug root
+will be missing and the underlying descriptor will be NULL.
 
-Fixes: f8e656382b4a ("include: trace:  Add tracepoint support for inflight xfer count")
+Address this fault condition in the SCMI debug helpers that account for
+metrics counters.
+
+Fixes: 0b3d48c4726e ("firmware: arm_scmi: Track basic SCMI communication debug metrics")
 Signed-off-by: Cristian Marussi <cristian.marussi@arm.com>
 ---
- drivers/firmware/arm_scmi/common.h | 8 +++++---
- drivers/firmware/arm_scmi/driver.c | 7 +++++--
- 2 files changed, 10 insertions(+), 5 deletions(-)
+ drivers/firmware/arm_scmi/common.h | 24 ++++++++++++++--
+ drivers/firmware/arm_scmi/driver.c | 44 ++++++++++--------------------
+ 2 files changed, 35 insertions(+), 33 deletions(-)
 
 diff --git a/drivers/firmware/arm_scmi/common.h b/drivers/firmware/arm_scmi/common.h
-index 21c0b95027c6..7c35c95fddba 100644
+index 07b9e629276d..21c0b95027c6 100644
 --- a/drivers/firmware/arm_scmi/common.h
 +++ b/drivers/firmware/arm_scmi/common.h
-@@ -333,10 +333,12 @@ static inline void scmi_inc_count(struct scmi_debug_info *dbg, int stat)
- 	}
- }
+@@ -309,10 +309,28 @@ enum debug_counters {
+ 	SCMI_DEBUG_COUNTERS_LAST
+ };
  
--static inline void scmi_dec_count(atomic_t *arr, int stat)
-+static inline void scmi_dec_count(struct scmi_debug_info *dbg, int stat)
+-static inline void scmi_inc_count(atomic_t *arr, int stat)
++/**
++ * struct scmi_debug_info  - Debug common info
++ * @top_dentry: A reference to the top debugfs dentry
++ * @name: Name of this SCMI instance
++ * @type: Type of this SCMI instance
++ * @is_atomic: Flag to state if the transport of this instance is atomic
++ * @counters: An array of atomic_c's used for tracking statistics (if enabled)
++ */
++struct scmi_debug_info {
++	struct dentry *top_dentry;
++	const char *name;
++	const char *type;
++	bool is_atomic;
++	atomic_t counters[SCMI_DEBUG_COUNTERS_LAST];
++};
++
++static inline void scmi_inc_count(struct scmi_debug_info *dbg, int stat)
  {
 -	if (IS_ENABLED(CONFIG_ARM_SCMI_DEBUG_COUNTERS))
--		atomic_dec(&arr[stat]);
+-		atomic_inc(&arr[stat]);
 +	if (IS_ENABLED(CONFIG_ARM_SCMI_DEBUG_COUNTERS)) {
 +		if (dbg)
-+			atomic_dec(&dbg->counters[stat]);
++			atomic_inc(&dbg->counters[stat]);
 +	}
  }
  
- enum scmi_bad_msg {
+ static inline void scmi_dec_count(atomic_t *arr, int stat)
 diff --git a/drivers/firmware/arm_scmi/driver.c b/drivers/firmware/arm_scmi/driver.c
-index 56419285c0bf..1cd15412024c 100644
+index bd56a877fdfc..56419285c0bf 100644
 --- a/drivers/firmware/arm_scmi/driver.c
 +++ b/drivers/firmware/arm_scmi/driver.c
-@@ -594,7 +594,7 @@ scmi_xfer_inflight_register_unlocked(struct scmi_xfer *xfer,
- 	/* Set in-flight */
- 	set_bit(xfer->hdr.seq, minfo->xfer_alloc_table);
- 	hash_add(minfo->pending_xfers, &xfer->node, xfer->hdr.seq);
--	scmi_inc_count(info->dbg->counters, XFERS_INFLIGHT);
-+	scmi_inc_count(info->dbg, XFERS_INFLIGHT);
+@@ -115,22 +115,6 @@ struct scmi_protocol_instance {
  
- 	xfer->pending = true;
- }
-@@ -803,7 +803,7 @@ __scmi_xfer_put(struct scmi_xfers_info *minfo, struct scmi_xfer *xfer)
- 			hash_del(&xfer->node);
- 			xfer->pending = false;
+ #define ph_to_pi(h)	container_of(h, struct scmi_protocol_instance, ph)
  
--			scmi_dec_count(info->dbg->counters, XFERS_INFLIGHT);
-+			scmi_dec_count(info->dbg, XFERS_INFLIGHT);
- 		}
- 		hlist_add_head(&xfer->node, &minfo->free_xfers);
+-/**
+- * struct scmi_debug_info  - Debug common info
+- * @top_dentry: A reference to the top debugfs dentry
+- * @name: Name of this SCMI instance
+- * @type: Type of this SCMI instance
+- * @is_atomic: Flag to state if the transport of this instance is atomic
+- * @counters: An array of atomic_c's used for tracking statistics (if enabled)
+- */
+-struct scmi_debug_info {
+-	struct dentry *top_dentry;
+-	const char *name;
+-	const char *type;
+-	bool is_atomic;
+-	atomic_t counters[SCMI_DEBUG_COUNTERS_LAST];
+-};
+-
+ /**
+  * struct scmi_info - Structure representing a SCMI instance
+  *
+@@ -1034,7 +1018,7 @@ scmi_xfer_command_acquire(struct scmi_chan_info *cinfo, u32 msg_hdr)
+ 		spin_unlock_irqrestore(&minfo->xfer_lock, flags);
+ 
+ 		scmi_bad_message_trace(cinfo, msg_hdr, MSG_UNEXPECTED);
+-		scmi_inc_count(info->dbg->counters, ERR_MSG_UNEXPECTED);
++		scmi_inc_count(info->dbg, ERR_MSG_UNEXPECTED);
+ 
+ 		return xfer;
  	}
-@@ -3407,6 +3407,9 @@ int scmi_inflight_count(const struct scmi_handle *handle)
- 	if (IS_ENABLED(CONFIG_ARM_SCMI_DEBUG_COUNTERS)) {
- 		struct scmi_info *info = handle_to_scmi_info(handle);
+@@ -1062,7 +1046,7 @@ scmi_xfer_command_acquire(struct scmi_chan_info *cinfo, u32 msg_hdr)
+ 			msg_type, xfer_id, msg_hdr, xfer->state);
  
-+		if (!info->dbg)
-+			return 0;
-+
- 		return atomic_read(&info->dbg->counters[XFERS_INFLIGHT]);
+ 		scmi_bad_message_trace(cinfo, msg_hdr, MSG_INVALID);
+-		scmi_inc_count(info->dbg->counters, ERR_MSG_INVALID);
++		scmi_inc_count(info->dbg, ERR_MSG_INVALID);
+ 
+ 		/* On error the refcount incremented above has to be dropped */
+ 		__scmi_xfer_put(minfo, xfer);
+@@ -1107,7 +1091,7 @@ static void scmi_handle_notification(struct scmi_chan_info *cinfo,
+ 			PTR_ERR(xfer));
+ 
+ 		scmi_bad_message_trace(cinfo, msg_hdr, MSG_NOMEM);
+-		scmi_inc_count(info->dbg->counters, ERR_MSG_NOMEM);
++		scmi_inc_count(info->dbg, ERR_MSG_NOMEM);
+ 
+ 		scmi_clear_channel(info, cinfo);
+ 		return;
+@@ -1123,7 +1107,7 @@ static void scmi_handle_notification(struct scmi_chan_info *cinfo,
+ 	trace_scmi_msg_dump(info->id, cinfo->id, xfer->hdr.protocol_id,
+ 			    xfer->hdr.id, "NOTI", xfer->hdr.seq,
+ 			    xfer->hdr.status, xfer->rx.buf, xfer->rx.len);
+-	scmi_inc_count(info->dbg->counters, NOTIFICATION_OK);
++	scmi_inc_count(info->dbg, NOTIFICATION_OK);
+ 
+ 	scmi_notify(cinfo->handle, xfer->hdr.protocol_id,
+ 		    xfer->hdr.id, xfer->rx.buf, xfer->rx.len, ts);
+@@ -1183,10 +1167,10 @@ static void scmi_handle_response(struct scmi_chan_info *cinfo,
+ 	if (xfer->hdr.type == MSG_TYPE_DELAYED_RESP) {
+ 		scmi_clear_channel(info, cinfo);
+ 		complete(xfer->async_done);
+-		scmi_inc_count(info->dbg->counters, DELAYED_RESPONSE_OK);
++		scmi_inc_count(info->dbg, DELAYED_RESPONSE_OK);
  	} else {
- 		return 0;
+ 		complete(&xfer->done);
+-		scmi_inc_count(info->dbg->counters, RESPONSE_OK);
++		scmi_inc_count(info->dbg, RESPONSE_OK);
+ 	}
+ 
+ 	if (IS_ENABLED(CONFIG_ARM_SCMI_RAW_MODE_SUPPORT)) {
+@@ -1296,7 +1280,7 @@ static int scmi_wait_for_reply(struct device *dev, const struct scmi_desc *desc,
+ 					"timed out in resp(caller: %pS) - polling\n",
+ 					(void *)_RET_IP_);
+ 				ret = -ETIMEDOUT;
+-				scmi_inc_count(info->dbg->counters, XFERS_RESPONSE_POLLED_TIMEOUT);
++				scmi_inc_count(info->dbg, XFERS_RESPONSE_POLLED_TIMEOUT);
+ 			}
+ 		}
+ 
+@@ -1321,7 +1305,7 @@ static int scmi_wait_for_reply(struct device *dev, const struct scmi_desc *desc,
+ 					    "RESP" : "resp",
+ 					    xfer->hdr.seq, xfer->hdr.status,
+ 					    xfer->rx.buf, xfer->rx.len);
+-			scmi_inc_count(info->dbg->counters, RESPONSE_POLLED_OK);
++			scmi_inc_count(info->dbg, RESPONSE_POLLED_OK);
+ 
+ 			if (IS_ENABLED(CONFIG_ARM_SCMI_RAW_MODE_SUPPORT)) {
+ 				scmi_raw_message_report(info->raw, xfer,
+@@ -1336,7 +1320,7 @@ static int scmi_wait_for_reply(struct device *dev, const struct scmi_desc *desc,
+ 			dev_err(dev, "timed out in resp(caller: %pS)\n",
+ 				(void *)_RET_IP_);
+ 			ret = -ETIMEDOUT;
+-			scmi_inc_count(info->dbg->counters, XFERS_RESPONSE_TIMEOUT);
++			scmi_inc_count(info->dbg, XFERS_RESPONSE_TIMEOUT);
+ 		}
+ 	}
+ 
+@@ -1420,13 +1404,13 @@ static int do_xfer(const struct scmi_protocol_handle *ph,
+ 	    !is_transport_polling_capable(info->desc)) {
+ 		dev_warn_once(dev,
+ 			      "Polling mode is not supported by transport.\n");
+-		scmi_inc_count(info->dbg->counters, SENT_FAIL_POLLING_UNSUPPORTED);
++		scmi_inc_count(info->dbg, SENT_FAIL_POLLING_UNSUPPORTED);
+ 		return -EINVAL;
+ 	}
+ 
+ 	cinfo = idr_find(&info->tx_idr, pi->proto->id);
+ 	if (unlikely(!cinfo)) {
+-		scmi_inc_count(info->dbg->counters, SENT_FAIL_CHANNEL_NOT_FOUND);
++		scmi_inc_count(info->dbg, SENT_FAIL_CHANNEL_NOT_FOUND);
+ 		return -EINVAL;
+ 	}
+ 	/* True ONLY if also supported by transport. */
+@@ -1461,19 +1445,19 @@ static int do_xfer(const struct scmi_protocol_handle *ph,
+ 	ret = info->desc->ops->send_message(cinfo, xfer);
+ 	if (ret < 0) {
+ 		dev_dbg(dev, "Failed to send message %d\n", ret);
+-		scmi_inc_count(info->dbg->counters, SENT_FAIL);
++		scmi_inc_count(info->dbg, SENT_FAIL);
+ 		return ret;
+ 	}
+ 
+ 	trace_scmi_msg_dump(info->id, cinfo->id, xfer->hdr.protocol_id,
+ 			    xfer->hdr.id, "CMND", xfer->hdr.seq,
+ 			    xfer->hdr.status, xfer->tx.buf, xfer->tx.len);
+-	scmi_inc_count(info->dbg->counters, SENT_OK);
++	scmi_inc_count(info->dbg, SENT_OK);
+ 
+ 	ret = scmi_wait_for_message_response(cinfo, xfer);
+ 	if (!ret && xfer->hdr.status) {
+ 		ret = scmi_to_linux_errno(xfer->hdr.status);
+-		scmi_inc_count(info->dbg->counters, ERR_PROTOCOL);
++		scmi_inc_count(info->dbg, ERR_PROTOCOL);
+ 	}
+ 
+ 	if (info->desc->ops->mark_txdone)
 -- 
 2.51.0
 
