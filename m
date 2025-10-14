@@ -4,84 +4,78 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 6D446CCD193
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 16:33:20 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id F0A2BCCD193
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 16:35:30 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Subject:Message-Id:
+	References:In-Reply-To:To:Cc:From:MIME-Version:Content-Transfer-Encoding:
+	Content-Type:Date:Reply-To:Content-ID:Content-Description:Resent-Date:
 	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=CdlQeaWFqgjoLLTVm0QXQcmVGZkX2Fw5iTA4/9UiG0I=; b=AZA2ek8hp511CdvGhf8yh5cyAX
-	O8xyauyqI8ZJ7wZYRLQ3gSNaOZ51HZFNA/AP0X5AbukV/z+iEclqvdtLrkjEqiB4MPgPydQ6QanhW
-	ZeT5+Frmk1GuhBpLDps6byEGCKTFLu1I8Y46Pdc9spzYs8mVdpSBS95oWgGk5v5T+065cuS4tXFX2
-	3u04zPCF4PRWovCRfr32BtBth8CWZP0IlSxLKeMV8e5rGI6Mmawr1FiYMB/3uQNYaUFjhkLW5eS3b
-	Q95+5fdoQC0P1NX/u6LipNy7wqqLXOP2yh3Ov5t+Tx68R+7+sxehNb0oSnfX6jXZCm+E0l23NRFtb
-	zcBKvH7w==;
+	bh=SBGY97HAd1q52SJ8bUP/fH1QADYZQUX/ixXaP9nn4RU=; b=KG3pgOr/p4SJzGDN0B4CZBHT/8
+	mWb2KpuaSTmvLmJgbSUQOUWg9LBBmoOw6addAl0PDlETSmxAEJB4oa6IEvW9xo23WKun+QMahCr+x
+	uFM9/ZUaXwJNgOeRmvpOryq1ToJHUN7+fqDpj7rYyzBOcecV0ze1ttkc5W7ypMHHAt6p6P5O3+uxS
+	lzRgj02QXPPxvcaw8RAgZNa/YFZx4WgbK4cI0Jn8QP9SVNTRtxKeCi5j9UZXidlPAQIahxXVYLSSn
+	tLTeKEOzy047YaVATOmL6SIh+S7IvQ8Gx/yd7sTA9Hhl9GeYSF4lFnA0J/jr3VdMmFQbNF6WMd8TM
+	s1cgB8qw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8hxT-0000000GzqO-3EYA;
-	Tue, 14 Oct 2025 16:33:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v8hzf-0000000H04Y-39A0;
+	Tue, 14 Oct 2025 16:35:23 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8hxR-0000000Gzpm-02CC
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 16:33:06 +0000
+	id 1v8hzd-0000000H04G-3Pcj;
+	Tue, 14 Oct 2025 16:35:21 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 9C14043240;
-	Tue, 14 Oct 2025 16:33:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 6FDD7C4CEE7;
-	Tue, 14 Oct 2025 16:33:04 +0000 (UTC)
+	by tor.source.kernel.org (Postfix) with ESMTP id EF91462363;
+	Tue, 14 Oct 2025 16:35:19 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 70A6EC116D0;
+	Tue, 14 Oct 2025 16:35:19 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760459584;
-	bh=D+E6b9xuGUDEplIh1+X+xjW+DVXmn5cvE2zLqdeGK1k=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=O4ezOjIVbLFTb9tq+/Dr/a2j7f4BA2HY0JYIUAnrPtdYTSNXQxoIvuePdc3hCzNzX
-	 qV5RBijVRxO+hLbM7OFjz+kQjPWJINKwwAjuiutVbE9YL59nVf1rHTs+aZL0VuHSFM
-	 bocWF5sy8cj1t3y53QZRObhG6TB9IqvQu2wPRdrXInvfvZMByI8/PhV/Bf9U3TMkVE
-	 2jB+6U4MyZs/SFgcsHOPFD9aZGcVDykYoJ7QzYEOQhbYdSnCCvESZursC5sGFpaA60
-	 z4ynFNxQYsD6MhtfdGmMtcKpn9M5mxcqxyOyvv6b3oRHntQ5RrCRSZ0FN6SKEFvFvC
-	 2Gn4vKPLQ9I1A==
-Received: from 82-132-221-186.dab.02.net ([82.132.221.186] helo=lobster-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1v8hxN-0000000DwIE-3qph;
-	Tue, 14 Oct 2025 16:33:02 +0000
-Date: Tue, 14 Oct 2025 17:32:56 +0100
-Message-ID: <87frblxx3b.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Kunkun Jiang <jiangkunkun@huawei.com>
-Cc: Oliver Upton <oliver.upton@linux.dev>,
-	Joey
- Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Will Deacon <will@kernel.org>,
-	"moderated list:KERNEL VIRTUAL MACHINE FOR ARM64 (KVM/arm64)"
-	<linux-arm-kernel@lists.infradead.org>,
-	"open list:KERNEL VIRTUAL MACHINE FOR\
- ARM64 (KVM/arm64)" <kvmarm@lists.linux.dev>,
-	open list
-	<linux-kernel@vger.kernel.org>,
-	"wanghaibin.wang@huawei.com"
-	<wanghaibin.wang@huawei.com>
-Subject: Re: [Question] Received vtimer interrupt but ISTATUS is 0
-In-Reply-To: <14b30b59-12bb-fc69-8447-aae86fcafcd1@huawei.com>
-References: <14b30b59-12bb-fc69-8447-aae86fcafcd1@huawei.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 82.132.221.186
-X-SA-Exim-Rcpt-To: jiangkunkun@huawei.com, oliver.upton@linux.dev, joey.gouly@arm.com, suzuki.poulose@arm.com, yuzenghui@huawei.com, catalin.marinas@arm.com, will@kernel.org, linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, linux-kernel@vger.kernel.org, wanghaibin.wang@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_093305_118521_BEC5B887 
-X-CRM114-Status: GOOD (  37.82  )
+	s=k20201202; t=1760459719;
+	bh=V3BQixyVjuCVkkOX9feEiagJYME1UtbGBfo11YpVI/0=;
+	h=Date:From:Cc:To:In-Reply-To:References:Subject:From;
+	b=ojsQW/wsHQ8jynUNzpnd2dKZgcAMGpab2GTVTWiEdNnE3tCNaOCznQ0ByVLG6yLDZ
+	 ChBBU5oEzfvFBaocmngkn3Q1IOtgVjmt75SNrMpU2/dGbBKNKi9PILsj3gR02d+T2b
+	 mgn22uychOKORC3/yDleOSCYKFj1qQ6P1QGjq9oj5gBe0X1V9+JycL8em+nkQhMf2b
+	 K3ZdqIDAO6k9VxdecdTB8mC+7dkNlDd+1NXid2gS99Zvyj+qzdxZgp5gE65C6GVg9F
+	 /2rmXbQ7+88nse4PHnSdBGnXyNA6mGVbmfWm4u02lm0BU6O8RUadZSqGQeEpZHxoPZ
+	 YmMxhGczgsNkw==
+Date: Tue, 14 Oct 2025 11:35:18 -0500
+Content-Type: text/plain; charset="utf-8"
+Content-Transfer-Encoding: 8bit
+MIME-Version: 1.0
+From: "Rob Herring (Arm)" <robh@kernel.org>
+Cc: Sakari Ailus <sakari.ailus@linux.intel.com>, 
+ Heiko Stuebner <heiko@sntech.de>, devicetree@vger.kernel.org, 
+ Kever Yang <kever.yang@rock-chips.com>, 
+ linux-arm-kernel@lists.infradead.org, 
+ Sebastian Reichel <sebastian.reichel@collabora.com>, 
+ Alexander Shiyan <eagle.alexander923@gmail.com>, 
+ Mehdi Djait <mehdi.djait@linux.intel.com>, Rob Herring <robh+dt@kernel.org>, 
+ Collabora Kernel Team <kernel@collabora.com>, 
+ Mauro Carvalho Chehab <mchehab@kernel.org>, 
+ Markus Elfring <Markus.Elfring@web.de>, linux-media@vger.kernel.org, 
+ linux-rockchip@lists.infradead.org, 
+ Laurent Pinchart <laurent.pinchart@ideasonboard.com>, 
+ Thomas Petazzoni <thomas.petazzoni@bootlin.com>, 
+ Val Packett <val@packett.cool>, linux-kernel@vger.kernel.org, 
+ Bryan O'Donoghue <bryan.odonoghue@linaro.org>, 
+ Nicolas Dufresne <nicolas.dufresne@collabora.com>, 
+ =?utf-8?q?Th=C3=A9o_Lebrun?= <theo.lebrun@bootlin.com>, 
+ Paul Kocialkowski <paulk@sys-base.io>, 
+ Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Gerald Loacker <gerald.loacker@wolfvision.net>, 
+ Bryan O'Donoghue <bod@kernel.org>, Conor Dooley <conor+dt@kernel.org>, 
+ Maxime Chevallier <maxime.chevallier@bootlin.com>, 
+ Philipp Zabel <p.zabel@pengutronix.de>
+To: Michael Riesch <michael.riesch@collabora.com>
+In-Reply-To: <20240220-rk3568-vicap-v12-5-c6dbece6bb98@collabora.com>
+References: <20240220-rk3568-vicap-v12-0-c6dbece6bb98@collabora.com>
+ <20240220-rk3568-vicap-v12-5-c6dbece6bb98@collabora.com>
+Message-Id: <176045970552.4162088.13140212466799720724.robh@kernel.org>
+Subject: Re: [PATCH v12 05/18] media: dt-bindings: add rockchip rk3568 mipi
+ csi-2 receiver
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,139 +90,53 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Tue, 14 Oct 2025 15:45:37 +0100,
-Kunkun Jiang <jiangkunkun@huawei.com> wrote:
+
+On Tue, 14 Oct 2025 15:01:51 +0200, Michael Riesch wrote:
+> Add documentation for the Rockchip RK3568 MIPI CSI-2 Receiver.
 > 
-> Hi all,
+> Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
+> Reviewed-by: Bryan O'Donoghue <bod@kernel.org>
+> Reviewed-by: Rob Herring (Arm) <robh@kernel.org>
+> Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
+> ---
+>  .../bindings/media/rockchip,rk3568-mipi-csi.yaml   | 146 +++++++++++++++++++++
+>  MAINTAINERS                                        |   6 +
+>  2 files changed, 152 insertions(+)
 > 
-> I'm having a very strange problem that can be simplified to a vtimer
-> interrupt being received but ISTATUS is 0. Why dose this happen?
-> According to analysis, it may be the timer condition is met and the
-> interrupt is generated. Maybe some actions(cancel timer?) are done in
-> the VM, ISTATUS becomes 0 and he hardware needs to clear the
-> interrupt. But the clear command is sent too slowly, the OS has
-> already read the ICC_IAR_EL1. So hypervisor executed
-> kvm_arch_timer_handler but ISTATUS is 0.
 
-If what you describe is accurate, and that the HW takes so long to
-retire the timer interrupt that we cannot trust having taken an
-interrupt, how long until we can trust that what we have is actually
-correct?
+My bot found errors running 'make dt_binding_check' on your patch:
 
-Given that it takes a full exit from the guest before we can handle
-the interrupt, I am rather puzzled that you observe this sort of bad
-behaviours on modern HW. You either have an insanely fast CPU with a
-very slow GIC, or a very bizarre machine (a bit like a ThunderX -- not
-a compliment).
+yamllint warnings/errors:
 
-How does it work when context-switching from a vcpu that has a pending
-timer interrupt to one that doesn't? Do you also see spurious
-interrupts?
+dtschema/dtc warnings/errors:
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/slimbus/slimbus.example.dtb: slim@28080000 (qcom,slim-ngd-v1.5.0): 'audio-codec@1,0' does not match any of the regexes: '^pinctrl-[0-9]+$', '^slim@[0-9a-f]+$'
+	from schema $id: http://devicetree.org/schemas/slimbus/qcom,slim-ngd.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/slimbus/slimbus.example.dtb: slim@28080000 (qcom,slim-ngd-v1.5.0): #address-cells: 1 was expected
+	from schema $id: http://devicetree.org/schemas/slimbus/qcom,slim-ngd.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/slimbus/slimbus.example.dtb: slim@28080000 (qcom,slim-ngd-v1.5.0): 'dmas' is a required property
+	from schema $id: http://devicetree.org/schemas/slimbus/qcom,slim-ngd.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/slimbus/slimbus.example.dtb: slim@28080000 (qcom,slim-ngd-v1.5.0): 'dma-names' is a required property
+	from schema $id: http://devicetree.org/schemas/slimbus/qcom,slim-ngd.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.example.dtb: csi@fdfb0000 (rockchip,rk3568-mipi-csi): interrupt-names:0: 'err1' was expected
+	from schema $id: http://devicetree.org/schemas/media/rockchip,rk3568-mipi-csi.yaml#
+/builds/robherring/dt-review-ci/linux/Documentation/devicetree/bindings/media/rockchip,rk3568-mipi-csi.example.dtb: csi@fdfb0000 (rockchip,rk3568-mipi-csi): interrupt-names:1: 'err2' was expected
+	from schema $id: http://devicetree.org/schemas/media/rockchip,rk3568-mipi-csi.yaml#
 
-> The code flow is as follows:
-> kvm_arch_timer_handler
->     ->if (kvm_timer_should_fire)
->         ->the value of SYS_CNTV_CTL is 0b001(ISTATUS=0,IMASK=0,ENABLE=1)
->     ->return IRQ_HANDLED
-> 
-> Because ISTATUS is 0, kvm_timer_update_irq will not be executed to
-> inject this interrupt into the VM. Since EOImode is 1 and the vtimer
-> interrupt has IRQD_FORWARDED_TO_VCPU flag, hypervisor will not write
-> ICC_DIR_EL1 to deactivate the interrupt. This interrupt remains in
-> active state, blocking subsequent interrupt from being
-> process. Fortunately, in kvm_timer_vcpu_load it will be determined
-> again whether an interrupt needs to be injected into the VM. But the
-> delay will definitely increase.
+doc reference errors (make refcheckdocs):
 
-Right, so you are at most a context switch away from your next
-interrupt, just like in the !vcpu case. While not ideal, that's not
-fatal.
+See https://patchwork.ozlabs.org/project/devicetree-bindings/patch/20240220-rk3568-vicap-v12-5-c6dbece6bb98@collabora.com
 
-> 
-> What I want to discuss is the solution to this problem. My solution is
-> to add a deactivation action:
-> diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-> index dbd74e4885e2..46baba531d51 100644
-> --- a/arch/arm64/kvm/arch_timer.c
-> +++ b/arch/arm64/kvm/arch_timer.c
-> @@ -228,8 +228,13 @@ static irqreturn_t kvm_arch_timer_handler(int
-> irq, void *dev_id)
->         else
->                 ctx = map.direct_ptimer;
-> 
-> -       if (kvm_timer_should_fire(ctx))
-> +       if (kvm_timer_should_fire(ctx)) {
->                 kvm_timer_update_irq(vcpu, true, ctx);
-> +       } else {
-> +               struct vgic_irq *irq;
-> +               irq = vgic_get_vcpu_irq(vcpu, timer_irq(timer_ctx));
-> +               gic_write_dir(irq->hwintid);
-> +       }
-> 
->         if (userspace_irqchip(vcpu->kvm) &&
->             !static_branch_unlikely(&has_gic_active_state))
-> 
-> If you have any new ideas or other solutions to this problem, please
-> let me know.
+The base for the series is generally the latest rc1. A different dependency
+should be noted in *this* patch.
 
-That's not right.
+If you already ran 'make dt_binding_check' and didn't see the above
+error(s), then make sure 'yamllint' is installed and dt-schema is up to
+date:
 
-For a start, this is GICv3 specific, and will break on everything
-else. Also, why the round-trip via the vgic_irq when you already have
-the interrupt number that has fired *as a parameter*?
+pip3 install dtschema --upgrade
 
-Finally, this breaks with NV, as you could have switched between EL1
-and EL2 timers, and since you cannot trust you are in the correct
-interrupt context (interrupt firing out of context), you can't trust
-irq->hwintid either, as the mappings will have changed.
+Please check and re-submit after running the above command yourself. Note
+that DT_SCHEMA_FILES can be set to your schema file to speed up checking
+your schema. However, it must be unset to test all examples with your schema.
 
-Something like the patchlet below should do the trick, but I'm
-definitely not happy about this sort of sorry hacks.
-
-	M.
-
-diff --git a/arch/arm64/kvm/arch_timer.c b/arch/arm64/kvm/arch_timer.c
-index dbd74e4885e24..3db7c6bdffbc0 100644
---- a/arch/arm64/kvm/arch_timer.c
-+++ b/arch/arm64/kvm/arch_timer.c
-@@ -206,6 +206,13 @@ static void soft_timer_cancel(struct hrtimer *hrt)
- 	hrtimer_cancel(hrt);
- }
- 
-+static void set_timer_irq_phys_active(struct arch_timer_context *ctx, bool active)
-+{
-+	int r;
-+	r = irq_set_irqchip_state(ctx->host_timer_irq, IRQCHIP_STATE_ACTIVE, active);
-+	WARN_ON(r);
-+}
-+
- static irqreturn_t kvm_arch_timer_handler(int irq, void *dev_id)
- {
- 	struct kvm_vcpu *vcpu = *(struct kvm_vcpu **)dev_id;
-@@ -230,6 +237,8 @@ static irqreturn_t kvm_arch_timer_handler(int irq, void *dev_id)
- 
- 	if (kvm_timer_should_fire(ctx))
- 		kvm_timer_update_irq(vcpu, true, ctx);
-+	else
-+		set_timer_irq_phys_active(ctx, false);
- 
- 	if (userspace_irqchip(vcpu->kvm) &&
- 	    !static_branch_unlikely(&has_gic_active_state))
-@@ -659,13 +668,6 @@ static void timer_restore_state(struct arch_timer_context *ctx)
- 	local_irq_restore(flags);
- }
- 
--static inline void set_timer_irq_phys_active(struct arch_timer_context *ctx, bool active)
--{
--	int r;
--	r = irq_set_irqchip_state(ctx->host_timer_irq, IRQCHIP_STATE_ACTIVE, active);
--	WARN_ON(r);
--}
--
- static void kvm_timer_vcpu_load_gic(struct arch_timer_context *ctx)
- {
- 	struct kvm_vcpu *vcpu = ctx->vcpu;
-
--- 
-Jazz isn't dead. It just smells funny.
 
