@@ -4,72 +4,68 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id E453DCCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 09:59:13 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5610DCCD184
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 09:59:16 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
-	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:
+	Reply-To:Content-Type:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=k8XTtnAloymFsZu+9YfFFFgE7V8uPq5CDpA674L6UNk=; b=4Qx/N6abyaMzlmaZH8KNVv7pSG
-	IOOL3ia54wOsAY466rcdzdxo50+rVfLXBo1t2SkGdTWZ5qw5UQ9XxliwhH/0wFO91H8uxHlFM9Kzg
-	Fh1L0CWLGBRD/AEWx8wztyGIb/gD5v1rl4gEce9mGiSFw8Ox/t3YsSXQ6DMyKmj2ByV3xl5kPkk9N
-	9G06GLKmzZYdySlGGVdEayrxiD8U+m5Z5ldgPz4mw6HupiI11YOjKjC94DdeRpBfS+UmvhgN95Th+
-	WpJowsYHCUfescguBLAQLImXmCsnY8kdiNFLpSvHkT3ZGlGXfla+ImChTKdXDkjY1q3I3cvR5AsO9
-	dD0yl87Q==;
+	bh=aHbOxRU2BJi930H5SNvBDj61NPlCXWvifwPorlZ5OgU=; b=xT9XuoNVHMykzgEI5mdVtQuJdq
+	hE84I/4yetX7zFgqhU0Ssst3PGNtUeAfe1ohEph6mW9uQkiSzoNhuHw8fxjGBe0v031FHvZpTUwVD
+	xKENdMwWojrn8eRqjCeoTVsCkUyI+zRUd0M/TAkVefG1f53YnuRq28OolmxlpkcqTMNf74H7UjcJY
+	6Gnh3lQMIpghl0GBylV+UuP2Uv3ekdffFljwVsv+J1X2VoLa7hs5De3T1fCcVsjm0nTr6Rd0GOSBz
+	5BNgPaQ7n0RqkHGrrw05o080cJUYNH4oa3XPdcxVGll+eUxoHGpG6apQvX0sPXnI43sEiPgxYeOV4
+	f29om9Yw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8boC-0000000FqT0-0Bqv;
-	Tue, 14 Oct 2025 09:59:08 +0000
-Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
+	id 1v8boE-0000000FqUv-1TsL;
+	Tue, 14 Oct 2025 09:59:10 +0000
+Received: from tor.source.kernel.org ([172.105.4.254])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8bo9-0000000FqRA-0Guh
+	id 1v8boD-0000000FqUB-3l8m
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 09:59:06 +0000
+	Tue, 14 Oct 2025 09:59:10 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id 962F044EE5;
+	by tor.source.kernel.org (Postfix) with ESMTP id 1DF3661415;
+	Tue, 14 Oct 2025 09:59:09 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPSA id 075D9C4CEE7;
 	Tue, 14 Oct 2025 09:59:04 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id AD593C4CEFE;
-	Tue, 14 Oct 2025 09:59:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760435944;
-	bh=web6L5TPZtt08mmDaVYY7W2Sw34M19ouNiW4LSSozIA=;
+	s=k20201202; t=1760435948;
+	bh=Y0bEX5hkAWRJGif5UBaJSI/DJMYF6LpNlNLgCxXcdQ8=;
 	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=CW4Fk7su9ktygG9em7DYneoB5NZEhF1lHm6qbCu+Glsy/c/BN3c30aeBMbgwEv/RE
-	 kFmBrCAtgTDaHTponbit3MU91WvDRrIHFX1BtJb1jWWm87OV3le2lgbeziOMfMtJ3n
-	 WxSy3lnCrhiys6R0E1RsOdaKAXnK2MjvD42z5rzMLq1oESvB8QoDro5vDjqXpgEROP
-	 HpgGtvLuiBn/UM1140634Z74Avx+Cv5N0WfRGEQO664AyP062nmzcPgLMkiF/x56mQ
-	 CAIv9U4TZRomqdQ3tTakBkJcKPjCdjKypYs9mc04vRR8VnviUETrfFkCaDrfT1651z
-	 ZOS6VC270CVnA==
+	b=OgAAaxiVcgTmp+m3JLTe9FVIKnHuVzIyx7Zd6lxzOOsRxgW/1jR+2UWkpI+lcgQ6V
+	 JlSRhEOKj6zTUaNJ5Kmqh6lGuXNMdrvEhycEn4LVjlCWPg6db+whgEjKao8qeDGPYE
+	 7iETeBDpoqKAYQPqksB+k5aNRuOcrO08Uoz8inrI6l1rhq90hn0XotgXYPhRNpz7Ne
+	 KqFbmn/fOWSGwzhT1ymEnGGg4+E5J2gnelPEofdRnhqOu+GD9J4GRyn07uHAJx+WIT
+	 zBxnNaP2PB4gCZOJ0+vDCnv81jPJ2BanIy+TF93TE1s5Qps/gH+rbjufpGJT4GX6zy
+	 H8EZYZg9jknmA==
 From: Lorenzo Pieralisi <lpieralisi@kernel.org>
 To: linux-kernel@vger.kernel.org
 Cc: linux-arm-kernel@lists.infradead.org,
 	devicetree@vger.kernel.org,
 	linux-pci@vger.kernel.org,
 	Lorenzo Pieralisi <lpieralisi@kernel.org>,
-	Scott Branden <sbranden@broadcom.com>,
-	Bjorn Helgaas <bhelgaas@google.com>,
-	Rob Herring <robh@kernel.org>,
-	Ray Jui <rjui@broadcom.com>,
-	Manivannan Sadhasivam <mani@kernel.org>,
-	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>,
 	Sascha Bischoff <sascha.bischoff@arm.com>,
 	Thomas Gleixner <tglx@linutronix.de>,
+	Rob Herring <robh@kernel.org>,
 	Frank Li <Frank.Li@nxp.com>,
-	Marc Zyngier <maz@kernel.org>
-Subject: [PATCH v2 3/4] PCI: iproc: Implement MSI controller node detection with of_msi_xlate()
-Date: Tue, 14 Oct 2025 11:58:44 +0200
-Message-ID: <20251014095845.1310624-4-lpieralisi@kernel.org>
+	Marc Zyngier <maz@kernel.org>,
+	Scott Branden <sbranden@broadcom.com>,
+	Bjorn Helgaas <bhelgaas@google.com>,
+	Ray Jui <rjui@broadcom.com>,
+	Manivannan Sadhasivam <mani@kernel.org>,
+	=?UTF-8?q?Krzysztof=20Wilczy=C5=84ski?= <kwilczynski@kernel.org>
+Subject: [PATCH v2 4/4] irqchip/gic-its: Rework platform MSI deviceID detection
+Date: Tue, 14 Oct 2025 11:58:45 +0200
+Message-ID: <20251014095845.1310624-5-lpieralisi@kernel.org>
 X-Mailer: git-send-email 2.50.1
 In-Reply-To: <20251014095845.1310624-1-lpieralisi@kernel.org>
 References: <20251014095845.1310624-1-lpieralisi@kernel.org>
 MIME-Version: 1.0
-Content-Type: text/plain; charset=UTF-8
 Content-Transfer-Encoding: 8bit
-X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_025905_155984_276D69E4 
-X-CRM114-Status: GOOD (  15.63  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -84,73 +80,151 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-The functionality implemented in the iproc driver in order to detect an
-OF MSI controller node is now fully implemented in of_msi_xlate().
+Current code retrieving platform devices MSI devID in the GIC ITS MSI
+parent helpers suffers from some minor issues:
 
-Replace the current msi-map/msi-parent parsing code with of_msi_xlate().
+- It leaks a struct device_node reference
+- It triggers an excessive WARN_ON on wrong of_phandle_args count detection
+- It is duplicated between GICv3 and GICv5 for no good reason
+- It does not use the OF phandle iterator code that simplifies
+  the msi-parent property parsing
 
-Since of_msi_xlate() is also a deviceID mapping API, pass in a fictitious
-0 as deviceID - the driver only requires detecting the OF MSI controller
-node not the deviceID mapping per-se (of_msi_xlate() return value is
-ignored for the same reason).
+Implement a helper function that addresses the full set of issues in one go
+by consolidating GIC v3 and v5 code and converting the msi-parent parsing
+loop to the more modern OF phandle iterator API, fixing the
+struct device_node reference leak in the process.
 
 Signed-off-by: Lorenzo Pieralisi <lpieralisi@kernel.org>
-Cc: Scott Branden <sbranden@broadcom.com>
-Cc: Bjorn Helgaas <bhelgaas@google.com>
+Cc: Sascha Bischoff <sascha.bischoff@arm.com>
+Cc: Thomas Gleixner <tglx@linutronix.de>
 Cc: Rob Herring <robh@kernel.org>
-Cc: Ray Jui <rjui@broadcom.com>
-Cc: Manivannan Sadhasivam <mani@kernel.org>
-Cc: "Krzysztof Wilczyński" <kwilczynski@kernel.org>
+Cc: Frank Li <Frank.Li@nxp.com>
+Cc: Marc Zyngier <maz@kernel.org>
 ---
- drivers/pci/controller/pcie-iproc.c | 22 +++++-----------------
- 1 file changed, 5 insertions(+), 17 deletions(-)
+ drivers/irqchip/irq-gic-its-msi-parent.c | 98 ++++++++----------------
+ 1 file changed, 33 insertions(+), 65 deletions(-)
 
-diff --git a/drivers/pci/controller/pcie-iproc.c b/drivers/pci/controller/pcie-iproc.c
-index 22134e95574b..ccf71993ea35 100644
---- a/drivers/pci/controller/pcie-iproc.c
-+++ b/drivers/pci/controller/pcie-iproc.c
-@@ -17,6 +17,7 @@
- #include <linux/irqchip/arm-gic-v3.h>
- #include <linux/platform_device.h>
- #include <linux/of_address.h>
-+#include <linux/of_irq.h>
- #include <linux/of_pci.h>
- #include <linux/of_platform.h>
- #include <linux/phy/phy.h>
-@@ -1337,29 +1338,16 @@ static int iproc_pcie_msi_steer(struct iproc_pcie *pcie,
+diff --git a/drivers/irqchip/irq-gic-its-msi-parent.c b/drivers/irqchip/irq-gic-its-msi-parent.c
+index eb1473f1448a..a65f762b7dd4 100644
+--- a/drivers/irqchip/irq-gic-its-msi-parent.c
++++ b/drivers/irqchip/irq-gic-its-msi-parent.c
+@@ -142,83 +142,51 @@ static int its_v5_pci_msi_prepare(struct irq_domain *domain, struct device *dev,
+ #define its_v5_pci_msi_prepare	NULL
+ #endif /* !CONFIG_PCI_MSI */
  
- static int iproc_pcie_msi_enable(struct iproc_pcie *pcie)
+-static int of_pmsi_get_dev_id(struct irq_domain *domain, struct device *dev,
+-				  u32 *dev_id)
++static int __of_pmsi_get_dev_id(struct irq_domain *domain, struct device *dev, u32 *dev_id,
++				phys_addr_t *pa, bool is_v5)
  {
--	struct device_node *msi_node;
-+	struct device_node *msi_node = NULL;
- 	int ret;
+-	int ret, index = 0;
++	struct of_phandle_iterator it;
++	uint32_t args;
++	int ret;
  
- 	/*
- 	 * Either the "msi-parent" or the "msi-map" phandle needs to exist
- 	 * for us to obtain the MSI node.
- 	 */
+ 	/* Suck the DeviceID out of the msi-parent property */
+-	do {
+-		struct of_phandle_args args;
++	of_for_each_phandle(&it, ret, dev->of_node, "msi-parent", "#msi-cells", -1) {
++		/* GICv5 ITS domain matches the MSI controller node parent */
++		struct device_node *np __free(device_node) = is_v5 ? of_get_parent(it.node)
++							     : of_node_get(it.node);
+ 
+-		ret = of_parse_phandle_with_args(dev->of_node,
+-						 "msi-parent", "#msi-cells",
+-						 index, &args);
+-		if (args.np == irq_domain_get_of_node(domain)) {
+-			if (WARN_ON(args.args_count != 1))
+-				return -EINVAL;
+-			*dev_id = args.args[0];
+-			break;
++		if (np == irq_domain_get_of_node(domain)) {
++			if (of_phandle_iterator_args(&it, &args, 1) != 1) {
++				dev_warn(dev, "Bogus msi-parent property\n");
++				ret = -EINVAL;
++			}
++
++			if (!ret && is_v5)
++				ret = its_translate_frame_address(it.node, pa);
++
++			if (!ret)
++				*dev_id = args;
++
++			of_node_put(it.node);
++			return ret;
+ 		}
+-		index++;
+-	} while (!ret);
 -
--	msi_node = of_parse_phandle(pcie->dev->of_node, "msi-parent", 0);
--	if (!msi_node) {
--		const __be32 *msi_map = NULL;
--		int len;
--		u32 phandle;
+-	if (ret) {
+-		struct device_node *np = NULL;
 -
--		msi_map = of_get_property(pcie->dev->of_node, "msi-map", &len);
--		if (!msi_map)
--			return -ENODEV;
+-		ret = of_map_id(dev->of_node, dev->id, "msi-map", "msi-map-mask", &np, dev_id);
+-		if (np)
+-			of_node_put(np);
+ 	}
+ 
+-	return ret;
++	struct device_node *msi_ctrl __free(device_node) = NULL;
++
++	return of_map_id(dev->of_node, dev->id, "msi-map", "msi-map-mask", &msi_ctrl, dev_id);
++}
++
++static int of_pmsi_get_dev_id(struct irq_domain *domain, struct device *dev,
++			      u32 *dev_id)
++{
++	return __of_pmsi_get_dev_id(domain, dev, dev_id, NULL, false);
+ }
+ 
+ static int of_v5_pmsi_get_msi_info(struct irq_domain *domain, struct device *dev,
+ 				   u32 *dev_id, phys_addr_t *pa)
+ {
+-	int ret, index = 0;
+-	/*
+-	 * Retrieve the DeviceID and the ITS translate frame node pointer
+-	 * out of the msi-parent property.
+-	 */
+-	do {
+-		struct of_phandle_args args;
 -
--		phandle = be32_to_cpup(msi_map + 1);
--		msi_node = of_find_node_by_phandle(phandle);
--		if (!msi_node)
--			return -ENODEV;
+-		ret = of_parse_phandle_with_args(dev->of_node,
+-						 "msi-parent", "#msi-cells",
+-						 index, &args);
+-		if (ret)
+-			break;
+-		/*
+-		 * The IRQ domain fwnode is the msi controller parent
+-		 * in GICv5 (where the msi controller nodes are the
+-		 * ITS translate frames).
+-		 */
+-		if (args.np->parent == irq_domain_get_of_node(domain)) {
+-			if (WARN_ON(args.args_count != 1))
+-				return -EINVAL;
+-			*dev_id = args.args[0];
+-
+-			ret = its_translate_frame_address(args.np, pa);
+-			if (ret)
+-				return -ENODEV;
+-			break;
+-		}
+-		index++;
+-	} while (!ret);
+-
+-	if (ret) {
+-		struct device_node *np = NULL;
+-
+-		ret = of_map_id(dev->of_node, dev->id, "msi-map", "msi-map-mask", &np, dev_id);
+-		if (np) {
+-			ret = its_translate_frame_address(np, pa);
+-			of_node_put(np);
+-		}
 -	}
-+	of_msi_xlate(pcie->dev, &msi_node, 0);
-+	if (!msi_node)
-+		return -ENODEV;
+-
+-	return ret;
++	return __of_pmsi_get_dev_id(domain, dev, dev_id, pa, true);
+ }
  
- 	/*
- 	 * Certain revisions of the iProc PCIe controller require additional
+ int __weak iort_pmsi_get_dev_id(struct device *dev, u32 *dev_id)
 -- 
 2.50.1
 
