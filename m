@@ -4,75 +4,72 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 545DBCCD18E
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 08:49:34 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 5F554CCD18E
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 08:51:13 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
 	Content-Type:MIME-Version:References:In-Reply-To:Message-ID:Date:Subject:Cc:
 	To:From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=8yF5an8vPwKISsVSZz7CHZXrwqqq4VnMfISpZHg7iVk=; b=4RYbsIGe+k2QruIUdf/eWPwCwg
-	6joED1sU93ohJAPEwaQUODtk/NLZf9R0oUR3Z9yxIHO5z3Jy5nTzBJU88G8Ld5VpRnLRK60bqbQZc
-	37HalpmmyO01utd2yci3c8HQZgQ8MgbWlLhEbS8W/R2V0MSqOVTJTV8r4ZNZZCCjQRb/HsSNwOOlt
-	GUpywvDygNxXT9jjIC5fdMAWEVDW0PYjO6QvYgYSSpWMqZiM1IoMYIE2HLTi9rb8g901n6ZHjjIpx
-	A7L8IlPsxioRRwjJP0e+YrzbobxXPLUX9n8inEeXiW9x9p9rWUpQdYiXA3xpuhPf/KT7kv5n6Sge6
-	MsBZpl2Q==;
+	bh=GOKTEzxthTTOyJo5wyYsOApQpBkoR2xVJ5lgMd5eWf0=; b=pUzLqt7NHR7fET3p7ajlHYAHNQ
+	+ysMQ//LztYPZ/x2ncntsm7l2XedDaqtpS8Q/f8dI04tqY6j9tt4krv/HXKAozYdWlnJfmdnDT7RQ
+	ZTCtCB+ErBjTeMesCYtZ+ExHMPKnF0DoVrdVjRUPPOL6AXARO9wCMfJ6BURq/Px/GiqqhuYmOJBi3
+	TvvwEBMVUI31fgB4JKCm6VcmQHBkb841tU5KUeMm5+467Yd3JZDE8TxTOSyG0uRJ2SINPBZDFOwDn
+	3bzgXUuRjDNok2FFf20cyIme2iKou6nsVZ2Kn4h4PP57w2Zw2O6cJUeVp3Xb4GZkaLPVzrPTQGXZp
+	dGhsDNKw==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8ain-0000000FfP5-00LK;
-	Tue, 14 Oct 2025 08:49:29 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v8akK-0000000Ffcb-1gCe;
+	Tue, 14 Oct 2025 08:51:04 +0000
+Received: from gloria.sntech.de ([185.11.138.130])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8ail-0000000FfOs-3k28
-	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 08:49:27 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id F1CC762227;
-	Tue, 14 Oct 2025 08:49:26 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 9AF8DC4CEF9;
-	Tue, 14 Oct 2025 08:49:26 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760431766;
-	bh=C7JuaamqYjTY8yKNBk8DAaYNefNASMvcLoZIKSBAuJ0=;
-	h=From:To:Cc:Subject:Date:In-Reply-To:References:From;
-	b=PLqbpLL1+Oo1r/vYSggD+Gynz+O1HTnN3Ih9MriG3qxEBLKsfdJJ4YpwUiF4m7fzs
-	 5ukz4smjDbUyHkGXfQGCg/mNL7AvE74QgnpsDidNa2YbM/ygwNuunF0OB2Je3tHEBn
-	 O+WOimzFFYMKdcDYTC7YFX2ajKyn2Rswue4pcWxWgOvjaFPgk5PjaxL4W7nPck3hUs
-	 TFbZoa4LKe8DLGtnrwntVo7EJByt1La91uB7pPTljp4zR5k1ehOoLNTcoy+eBzH5yI
-	 fxB1o5SrAczaPGjIgISdKP+kdqp8Csr8ifmjh7KXWO1HEAf8Rddz27iIFp6gk5G5JN
-	 K9MVoU9KZAVVQ==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=valley-girl.lan)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1v8aii-0000000Dms5-1mLR;
-	Tue, 14 Oct 2025 08:49:24 +0000
-From: Marc Zyngier <maz@kernel.org>
-To: linux-arm-kernel@lists.infradead.org,
-	kvmarm@lists.linux.dev,
-	Marc Zyngier <maz@kernel.org>
-Cc: Joey Gouly <joey.gouly@arm.com>,
-	Suzuki K Poulose <suzuki.poulose@arm.com>,
-	Oliver Upton <oliver.upton@linux.dev>,
-	Zenghui Yu <yuzenghui@huawei.com>,
-	Will Deacon <will@kernel.org>,
-	Catalin Marinas <catalin.marinas@arm.com>,
-	Mark Rutland <mark.rutland@arm.com>,
-	Jan Kotas <jank@cadence.com>
-Subject: Re: [PATCH] arm64: Revamp HCR_EL2.E2H RES1 detection
-Date: Tue, 14 Oct 2025 09:49:20 +0100
-Message-ID: <176043175100.977560.12584294473093983228.b4-ty@kernel.org>
-X-Mailer: git-send-email 2.47.3
-In-Reply-To: <20251009121239.29370-1-maz@kernel.org>
-References: <20251009121239.29370-1-maz@kernel.org>
+	id 1v8akH-0000000Ffc9-3hPK;
+	Tue, 14 Oct 2025 08:51:02 +0000
+DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed; d=sntech.de;
+	s=gloria202408; h=Content-Transfer-Encoding:Content-Type:MIME-Version:
+	References:In-Reply-To:Message-ID:Date:Subject:Cc:To:From:Reply-To;
+	bh=GOKTEzxthTTOyJo5wyYsOApQpBkoR2xVJ5lgMd5eWf0=; b=Wggg5Hg2zrlFhRN75mqTEvO8h8
+	0Eo4dwBq3NohXRqW/1cPCAKRZx001JFprEkea5bCzEL6bRfKdXhthD2wIUi0FWTn+hQs1+Z4BGnuf
+	TVYE8i318rFNhU2EIN5uQurWG7DUnmIPkgKog23Dr0Yid45W9LbzxrYBAI5xG87XnDOtRcaZYK0OP
+	q23gfnpn99lJiYA9dJmK1Swd/l8lsTuyOCytHEodg/UZu39NrqRwnVInjZoQYqiwF7AYEmWqcIZd2
+	Aug2ylh/JR6Zywai6wDhUaBaLXCnI+s7iteXTF5YSUpffwyD4PS9jaR7XfW6rHjUEcbgaNWXbLn5S
+	s3dVqvDw==;
+Received: from i53875b75.versanet.de ([83.135.91.117] helo=localhost.localdomain)
+	by gloria.sntech.de with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+	(Exim 4.94.2)
+	(envelope-from <heiko@sntech.de>)
+	id 1v8ajr-0005hQ-Gr; Tue, 14 Oct 2025 10:50:35 +0200
+From: Heiko Stuebner <heiko@sntech.de>
+To: christianshewitt@gmail.com,
+	robh@kernel.org,
+	s.hauer@pengutronix.de,
+	dri-devel@lists.freedesktop.org,
+	simona@ffwll.ch,
+	airlied@gmail.com,
+	tzimmermann@suse.de,
+	mripard@kernel.org,
+	hjc@rock-chips.com,
+	andy.yan@rock-chips.com,
+	maarten.lankhorst@linux.intel.com,
+	Michael Riesch <michael.riesch@collabora.com>,
+	Alok Tiwari <alok.a.tiwari@oracle.com>
+Cc: Heiko Stuebner <heiko@sntech.de>,
+	linux-arm-kernel@lists.infradead.org,
+	linux-rockchip@lists.infradead.org
+Subject: Re: [PATCH v2] drm/rockchip: vop2: use correct destination rectangle height check
+Date: Tue, 14 Oct 2025 10:50:25 +0200
+Message-ID: <176043181223.1370357.8939972845329921599.b4-ty@sntech.de>
+X-Mailer: git-send-email 2.47.2
+In-Reply-To: <20251012142005.660727-1-alok.a.tiwari@oracle.com>
+References: <20251012142005.660727-1-alok.a.tiwari@oracle.com>
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: linux-arm-kernel@lists.infradead.org, kvmarm@lists.linux.dev, maz@kernel.org, joey.gouly@arm.com, suzuki.poulose@arm.com, oliver.upton@linux.dev, yuzenghui@huawei.com, will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, jank@cadence.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251014_015101_934632_C0D5C814 
+X-CRM114-Status: UNSURE (   8.71  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -87,30 +84,21 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Thu, 09 Oct 2025 13:12:39 +0100, Marc Zyngier wrote:
-> We currently have two ways to identify CPUs that only implement FEAT_VHE
-> and not FEAT_E2H0:
+
+On Sun, 12 Oct 2025 07:20:01 -0700, Alok Tiwari wrote:
+> The vop2_plane_atomic_check() function incorrectly checks
+> drm_rect_width(dest) twice instead of verifying both width and height.
+> Fix the second condition to use drm_rect_height(dest) so that invalid
+> destination rectangles with height < 4 are correctly rejected.
 > 
-> - either they advertise it via ID_AA64MMFR4_EL1.E2H0,
-> - or the HCR_EL2.E2H bit is RAO/WI
 > 
-> However, there is a third category of "cpus" that fall between these
-> two cases: on CPUs that do not implement FEAT_FGT, it is IMPDEF whether
-> an access to ID_AA64MMFR4_EL1 can trap to EL2 when the register value
-> is zero.
-> 
-> [...]
 
-Applied to fixes, thanks!
+Applied, thanks!
 
-[1/1] arm64: Revamp HCR_EL2.E2H RES1 detection
-      commit: ca88ecdce5f51874a7c151809bd2c936ee0d3805
+[1/1] drm/rockchip: vop2: use correct destination rectangle height check
+      commit: 7f38a1487555604bc4e210fa7cc9b1bce981c40e
 
-Cheers,
-
-	M.
+Best regards,
 -- 
-Without deviation from the norm, progress is not possible.
-
-
+Heiko Stuebner <heiko@sntech.de>
 
