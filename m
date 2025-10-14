@@ -4,54 +4,54 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id CC646CCD192
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 13:02:55 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id C2436CCD196
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 13:03:00 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:Reply-To:List-Subscribe:
 	List-Help:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:
 	References:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:
 	Subject:Date:From:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=zTigBHzivYHW42aBP5JfT3vnHCceMIQ7pDEXCoTLL+g=; b=Il0vnbOAtEEIS3TZxz/WWnzmjo
-	X7bzePY58LVsq0sFgNRhQbjvbPlNcGcfsg6VqohoNX6mFPziG9OUozeURD9QcHn5K4mVzNeKyZoRX
-	846X5t8kDOwQnc+VPG3npdBR5uCUuEx/cEmRvtZ0A+HswrVq08vGUf5pKcwBYXdlQIPLdxXwlhh54
-	idwwiCgll+Ffuh5MBB6ceQjlKBAZckPTXtMky057FI9euBBENwMIF3hCdx78GBwvHyr78HbL0MD5s
-	UuKAzMD4KpyDseDBFi0HiI2ViEfXXHJ+Q8EECq/QROkBpXXsdVIkM+YcfQtcMwebV4PRWJcdSF/W2
-	yDb8FL+A==;
+	bh=ndwvHJZgEp73CKCUJKruBXld8wg+3BKsVUYYnB7fxps=; b=GnN5neQ3hzUX3x+9U8eP65jrSu
+	vq/kqb92v1mi5wtZRNQQcJwYNNLuYEHSj5nfmvAKgA8lZPIQOAXpof4wDL7hzB3CGPY19AYFjesIl
+	Xfz5LIpqm+pT1dGROrOnE7leBl5evjCPxenbBNdGtVqTa2Qftsf4+MCcR8ox52QyDb41XAP1mePcb
+	MZxA6QNcd86YJZwZ9NHggwjReRWLzto4hDU6OPwBPgPBdAaQu+SC9IwKqiZOUG56ZjVnuhCZETjxj
+	SIs45SgKNSQ+jCsCjwsE9iaGUxwT43XrSVTiVOOu/jS3ljxk3rXFFKtnqP+TgEIHHTjuWan0qhDOO
+	n9y0gaUA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8efx-0000000GLTO-2FYK;
-	Tue, 14 Oct 2025 13:02:49 +0000
-Received: from tor.source.kernel.org ([2600:3c04:e001:324:0:1991:8:25])
+	id 1v8efy-0000000GLVe-3ckd;
+	Tue, 14 Oct 2025 13:02:50 +0000
+Received: from sea.source.kernel.org ([2600:3c0a:e001:78e:0:1991:8:25])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8efv-0000000GLQo-1nCw;
-	Tue, 14 Oct 2025 13:02:47 +0000
+	id 1v8efu-0000000GLPX-30mk;
+	Tue, 14 Oct 2025 13:02:48 +0000
 Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by tor.source.kernel.org (Postfix) with ESMTP id D8170628AB;
+	by sea.source.kernel.org (Postfix) with ESMTP id 1C9EB48DCB;
 	Tue, 14 Oct 2025 13:02:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPS id 9DCACC113D0;
-	Tue, 14 Oct 2025 13:02:46 +0000 (UTC)
+Received: by smtp.kernel.org (Postfix) with ESMTPS id CE783C116C6;
+	Tue, 14 Oct 2025 13:02:45 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760446966;
-	bh=YADDeCmq5uePnzFDn+9evtVAHH2fPQHvEnKepdXqNFc=;
+	s=k20201202; t=1760446965;
+	bh=5S76H0gCqRW35R4vrZQiDQSDEFyCSQxzI3LegANS2nk=;
 	h=From:Date:Subject:References:In-Reply-To:To:Cc:Reply-To:From;
-	b=fIkdWmAslne8xy5vQ3qxxdqAyjg0V6QmRdP76Sc6KT+PTuankczjeG6gz0qr0cIrH
-	 TWHgCrLQhxEgHqZTVULmgQlECcuhu8FvBstWAsVQL7MObCsYUQImVvi5Dr9AzpxNGS
-	 OIqyqzxIBCNESs5nvBuhAn1lHRcJgFONruOlxYjsiR2AEZhSQjAgOOz/FQAR2FMnNF
-	 gsTod5XbRFU3H7fU1CSfMoa38wSsUGG357kW63JQoP+ARtKROlTntUhDVnLQJIvl3s
-	 RQAMzgQZJN4QQxDSI09G/5bTu6b46mSNW3iwQHYLPTpELoryeTTLNqJBn9F0CXrDkt
-	 gxXtp8P23RqPA==
+	b=CrxoD/nlJXm/Jpkh8yip/NUw7tCYFatSDGiHTUPg19fQ2cQ/cbmfJAOGbVXJqrbpj
+	 BKhFe2KTsNa/CM4AMcMi0dBG3VEs1qt14Rt0EnMbIp1eLHkFgapnFe8H8jX7WcstVZ
+	 CZ9MzdeMyGKLqoUrnNqzuOi0xk7SmxkcIABqBUBSVuDJ1+9MKZB4KwBXk41dPD7XWe
+	 uawb61Cv7ypY84o2fSB6CvqESxWOxvMAQBFOAv4dl7gmuMrj0Pc9xz91x+pZbIJrQO
+	 Ak4igh//E746rMTupAOCfZEUmGMgcHGteLFgKex36mJLOKSGsOWXWpLuB5W9UgJY7Q
+	 T1LeMFbA+v3zA==
 Received: from aws-us-west-2-korg-lkml-1.web.codeaurora.org (localhost.localdomain [127.0.0.1])
-	by smtp.lore.kernel.org (Postfix) with ESMTP id 949B4CCD193;
-	Tue, 14 Oct 2025 13:02:46 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTP id BD385CCD192;
+	Tue, 14 Oct 2025 13:02:45 +0000 (UTC)
 From: Michael Riesch via B4 Relay <devnull+michael.riesch.collabora.com@kernel.org>
-Date: Tue, 14 Oct 2025 15:01:59 +0200
-Subject: [PATCH v12 13/18] arm64: defconfig: enable rockchip camera
- interface and mipi csi-2 receiver
+Date: Tue, 14 Oct 2025 15:01:48 +0200
+Subject: [PATCH v12 02/18] media: dt-bindings: video-interfaces: add
+ defines for sampling modes
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
-Message-Id: <20240220-rk3568-vicap-v12-13-c6dbece6bb98@collabora.com>
+Message-Id: <20240220-rk3568-vicap-v12-2-c6dbece6bb98@collabora.com>
 References: <20240220-rk3568-vicap-v12-0-c6dbece6bb98@collabora.com>
 In-Reply-To: <20240220-rk3568-vicap-v12-0-c6dbece6bb98@collabora.com>
 To: Mehdi Djait <mehdi.djait@linux.intel.com>, 
@@ -80,16 +80,19 @@ Cc: linux-media@vger.kernel.org, devicetree@vger.kernel.org,
  Michael Riesch <michael.riesch@collabora.com>, 
  Michael Riesch <michael.riesch@collabora.com>
 X-Mailer: b4 0.12.0
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1760446963; l=894;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1760446963; l=1010;
  i=michael.riesch@collabora.com; s=20250410; h=from:subject:message-id;
- bh=qagheTrOUgm9PAts7S1syhcsrJaB5GYArNSZ52aSGoY=;
- b=i2/6TtnjEwY1XwBiRdryuM+1Z73ergSV/uElfYkRbLrWDg6uQatqmbwNuh2xrqwYn2La5I27O
- wNcfoQWJhAZBgUNN3jnii7uFFnUC4yutN7qCVGHuUh6d1psEoXVcTAx
+ bh=Uz74OJ3MrVHSpMmLIY3bphZ6CO+aAi3TjYd87Bbmoq0=;
+ b=S6l4EkrJymJMkCqMYOvVmlaVyv7iZCMKa2qpnVRktsH6EjiPq75UG+CV8vUZqr2SgI4OlA4U7
+ tvZuMd+7wqJD9LjMvNnrA3kADYuLGuOtuIaUsmeDZjHZqzHnPhtipvf
 X-Developer-Key: i=michael.riesch@collabora.com; a=ed25519;
  pk=+MWX1fffLFZtTPG/I6XdYm/+OSvpRE8D9evQaWbiN04=
 X-Endpoint-Received: by B4 Relay for michael.riesch@collabora.com/20250410
  with auth_id=371
 X-Original-From: Michael Riesch <michael.riesch@collabora.com>
+X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
+X-CRM114-CacheID: sfid-20251014_060246_851097_46D6654F 
+X-CRM114-Status: GOOD (  10.12  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -107,29 +110,30 @@ Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.i
 
 From: Michael Riesch <michael.riesch@collabora.com>
 
-The Rockchip Camera Interface (CIF) and the Rockchip MIPI CSI-2 Receiver
-are featured in many Rockchip SoCs in different variations.
-Enable the drivers for them in the default configuration.
+Add defines for the pixel clock sampling modes (rising edge, falling edge,
+dual edge) for parallel video interfaces.
+This avoids hardcoded constants in device tree sources.
 
-Reviewed-by: Bryan O'Donoghue <bryan.odonoghue@linaro.org>
+Acked-by: Rob Herring <robh@kernel.org>
+Signed-off-by: Michael Riesch <michael.riesch@wolfvision.net>
 Signed-off-by: Michael Riesch <michael.riesch@collabora.com>
 ---
- arch/arm64/configs/defconfig | 2 ++
- 1 file changed, 2 insertions(+)
+ include/dt-bindings/media/video-interfaces.h | 4 ++++
+ 1 file changed, 4 insertions(+)
 
-diff --git a/arch/arm64/configs/defconfig b/arch/arm64/configs/defconfig
-index e3a2d37bd104..86e39240979a 100644
---- a/arch/arm64/configs/defconfig
-+++ b/arch/arm64/configs/defconfig
-@@ -883,6 +883,8 @@ CONFIG_VIDEO_RENESAS_FCP=m
- CONFIG_VIDEO_RENESAS_FDP1=m
- CONFIG_VIDEO_RENESAS_VSP1=m
- CONFIG_VIDEO_RCAR_DRIF=m
-+CONFIG_VIDEO_ROCKCHIP_CIF=m
-+CONFIG_VIDEO_ROCKCHIP_CSI=m
- CONFIG_VIDEO_ROCKCHIP_RGA=m
- CONFIG_VIDEO_SAMSUNG_EXYNOS_GSC=m
- CONFIG_VIDEO_SAMSUNG_S5P_JPEG=m
+diff --git a/include/dt-bindings/media/video-interfaces.h b/include/dt-bindings/media/video-interfaces.h
+index 88b9d05d8075..0b19c9b2e627 100644
+--- a/include/dt-bindings/media/video-interfaces.h
++++ b/include/dt-bindings/media/video-interfaces.h
+@@ -20,4 +20,8 @@
+ #define MEDIA_BUS_CSI2_CPHY_LINE_ORDER_CAB	4
+ #define MEDIA_BUS_CSI2_CPHY_LINE_ORDER_CBA	5
+ 
++#define MEDIA_PCLK_SAMPLE_FALLING_EDGE		0
++#define MEDIA_PCLK_SAMPLE_RISING_EDGE		1
++#define MEDIA_PCLK_SAMPLE_DUAL_EDGE		2
++
+ #endif /* __DT_BINDINGS_MEDIA_VIDEO_INTERFACES_H__ */
 
 -- 
 2.39.5
