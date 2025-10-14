@@ -4,84 +4,85 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 14A9ECCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 10:57:23 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id CABDECCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 10:57:35 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:
-	Content-Transfer-Encoding:MIME-Version:References:In-Reply-To:Message-ID:Date
-	:Subject:CC:To:From:Reply-To:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=eefmzOzDRguFWe58LmJOHPY5HHwFLQ8o9LWD18ibBRM=; b=du3E19SBl/X/C74HUDdNm0eQS1
-	2TXf+7Uhyr2rQfUWUWeYjwFxVt8Zr2jRU4ddFJeItMIKrDAl3nLYoGJK9HvFyrSaCvwWWXo2UAExL
-	djXTjX+XKS+X0CPxR35EvhomEAH6GnAs/pQmicjyrQU9lZ4MPDMFLlJ89g933DZqCct/TGm9EsVZo
-	e8XBs/dkDR41sXzsD8cplqdKYRhvufqGJ+KgwBFZj+N2EHUX40jHFNBTOYYXGgUcnlHYaU5WYPLGh
-	+M/yWej7hWU8HO5XjMK5sp7GmNcitBmkMLGXncPNB+DwOm5IwZCay59hywyIf6hgTjIDcJwtNFV3o
-	bSCLzsEQ==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:Cc:To:Subject:Message-ID:Date:From:In-Reply-To:References:
+	MIME-Version:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=bGzolF9q1IpbbklG5j2EadJMhIpSSosnmlJzCW1vwdk=; b=G0CzaGpo5CYZv7li0gqcvqSwxg
+	bM1s7t85iqMQ6GYhYvAsoZwfXKHU1IA8VwMYKaXdNBNqpxnQcjznLiAGqcw1ts5jtPMHoH9qMJFZN
+	smw1AUaK+OXXRnPBd6OMEqSr3IVWUSEk2w/PkBdw2/sSjeD9/zN3K29VsKV5qEoMkl0TEhedKW9la
+	2Iu/gecXoCLkYLPubELRgSNxt4iSeZqSbKg3SXhK8kYVOAxAR0KTldptdsHYeBP6deKi322Y0Pg1X
+	PmZqpufFGOE1RLL0gkc7X/SXu91GbwKw2bXSDCzq0IgUkHXHkypJ4yz2G9VTpUuYxwcZa0GEKkrV/
+	wBQFMhPA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8ciP-0000000FyIM-1bcf;
-	Tue, 14 Oct 2025 10:57:13 +0000
-Received: from lelvem-ot02.ext.ti.com ([198.47.23.235])
+	id 1v8cif-0000000FyVQ-47bt;
+	Tue, 14 Oct 2025 10:57:29 +0000
+Received: from mail-yw1-x1129.google.com ([2607:f8b0:4864:20::1129])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8ciM-0000000FyE7-0IWu
+	id 1v8cie-0000000FyTy-0hg9
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 10:57:11 +0000
-Received: from fllvem-sh03.itg.ti.com ([10.64.41.86])
-	by lelvem-ot02.ext.ti.com (8.15.2/8.15.2) with ESMTP id 59EAuVW81574224;
-	Tue, 14 Oct 2025 05:56:31 -0500
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=ti.com;
-	s=ti-com-17Q1; t=1760439391;
-	bh=eefmzOzDRguFWe58LmJOHPY5HHwFLQ8o9LWD18ibBRM=;
-	h=From:To:CC:Subject:Date:In-Reply-To:References;
-	b=MzNf5KuDeeWOsbfC01VLTCjrnVz3dxyyJQMbIN1M1c6njvA0008KHHxCpVPE9vaSH
-	 pEdatVXz4V7JSQ8gF7FMIw4yaC/y/GGDnYqFR5Qw+SAEkX62NafPFJjqCqzSdEXQci
-	 ApcvlLZoVmAUoKwVHkarx2rCMZtM+W/e0QwLBejs=
-Received: from DLEE212.ent.ti.com (dlee212.ent.ti.com [157.170.170.114])
-	by fllvem-sh03.itg.ti.com (8.18.1/8.18.1) with ESMTPS id 59EAuVeD1005239
-	(version=TLSv1.2 cipher=ECDHE-RSA-AES256-GCM-SHA384 bits=256 verify=FAIL);
-	Tue, 14 Oct 2025 05:56:31 -0500
-Received: from DLEE206.ent.ti.com (157.170.170.90) by DLEE212.ent.ti.com
- (157.170.170.114) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20; Tue, 14 Oct
- 2025 05:56:30 -0500
-Received: from fllvem-mr07.itg.ti.com (10.64.41.89) by DLEE206.ent.ti.com
- (157.170.170.90) with Microsoft SMTP Server (version=TLS1_2,
- cipher=TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384) id 15.2.2562.20 via Frontend
- Transport; Tue, 14 Oct 2025 05:56:30 -0500
-Received: from lelv0854.itg.ti.com (lelv0854.itg.ti.com [10.181.64.140])
-	by fllvem-mr07.itg.ti.com (8.18.1/8.18.1) with ESMTP id 59EAuUPQ2934595;
-	Tue, 14 Oct 2025 05:56:30 -0500
-Received: from localhost (meghana-pc.dhcp.ti.com [10.24.69.13] (may be forged))
-	by lelv0854.itg.ti.com (8.14.7/8.14.7) with ESMTP id 59EAuTRI010682;
-	Tue, 14 Oct 2025 05:56:30 -0500
-From: Meghana Malladi <m-malladi@ti.com>
-To: <horms@kernel.org>, <namcao@linutronix.de>, <jacob.e.keller@intel.com>,
-        <m-malladi@ti.com>, <christian.koenig@amd.com>,
-        <sumit.semwal@linaro.org>, <sdf@fomichev.me>,
-        <john.fastabend@gmail.com>, <hawk@kernel.org>, <daniel@iogearbox.net>,
-        <ast@kernel.org>, <pabeni@redhat.com>, <kuba@kernel.org>,
-        <edumazet@google.com>, <davem@davemloft.net>, <andrew+netdev@lunn.ch>
-CC: <linaro-mm-sig@lists.linaro.org>, <dri-devel@lists.freedesktop.org>,
-        <linux-media@vger.kernel.org>, <bpf@vger.kernel.org>,
-        <linux-kernel@vger.kernel.org>, <netdev@vger.kernel.org>,
-        <linux-arm-kernel@lists.infradead.org>, <srk@ti.com>,
-        Vignesh Raghavendra
-	<vigneshr@ti.com>,
-        Roger Quadros <rogerq@kernel.org>, <danishanwar@ti.com>
-Subject: [PATCH net-next v3 4/6] net: ti: icssg-prueth: Make emac_run_xdp function independent of page
-Date: Tue, 14 Oct 2025 16:26:10 +0530
-Message-ID: <20251014105613.2808674-5-m-malladi@ti.com>
-X-Mailer: git-send-email 2.43.0
-In-Reply-To: <20251014105613.2808674-1-m-malladi@ti.com>
-References: <20251014105613.2808674-1-m-malladi@ti.com>
+	Tue, 14 Oct 2025 10:57:29 +0000
+Received: by mail-yw1-x1129.google.com with SMTP id 00721157ae682-7815092cd22so4160657b3.2
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 03:57:27 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=linaro.org; s=google; t=1760439447; x=1761044247; darn=lists.infradead.org;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:from:to:cc:subject:date
+         :message-id:reply-to;
+        bh=bGzolF9q1IpbbklG5j2EadJMhIpSSosnmlJzCW1vwdk=;
+        b=SXarK4YEDNwsjWMiwmjGIaO3A1rWEiK3iwfa36hSczRXECIDKmMq83eW5gerxeo5Y5
+         ISv6z4cNEoudw3Lt/yXzf2ux2GCt89BmPOb14I/aWgrr0SFeLUg/xpOcV03CsuzdXzuj
+         AfyuEGOZBJW3WoJtmB1krQkU3vQX03X0DkyfjcL7vK8bBzpFUwvOsWp8TWgDzDRqUYUd
+         Vx1W+n/b1zzKZ5J4oxV1Q1fev6VKOc6BPm8eTYHjNu1PK0bYsvYwyiO6wJiC15GDV2t/
+         rUPpWDXxVye1gTJ3/F/y0LScozb+caWi0ReEUwpY97fH2EBdj39HAPb8zImr6S7Rkkrh
+         X0Bg==
+X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=1e100.net; s=20230601; t=1760439447; x=1761044247;
+        h=content-transfer-encoding:cc:to:subject:message-id:date:from
+         :in-reply-to:references:mime-version:x-gm-message-state:from:to:cc
+         :subject:date:message-id:reply-to;
+        bh=bGzolF9q1IpbbklG5j2EadJMhIpSSosnmlJzCW1vwdk=;
+        b=B8wqJ7H0ILitAHTCguf3oaBPAaTUI/sFzhrOjSDBHNTdi6pIRMAVEcl22BgYbYx2l1
+         k+yAKP7cj2zi2M6kEw8Cf8rdGwsradZBU02qhViwY6qytms20sLBe6wn9AhRWOALVOPg
+         MnwSFA88/51eSpZZFX/yppbt/Cz+Ku6+m+lyZjj7p+O57Ni6AL5j/3WsvRtLoQ/k+X0E
+         aOgFb2VI06j/nEsYYXlTCpK4fs6OlCCCW611Tj9ga8L1Td7GIxmmj+zIPOqcy67U7x7a
+         erHUAz7JGaE1Scie4tlmH9pR5DaaWhv3+PFTXtcmjdgdBQrF7LaRZgF7B42hh9CoL04Q
+         f4pw==
+X-Forwarded-Encrypted: i=1; AJvYcCXZGCsShJ9daByd6b87tkO3J30c2R9r7sLSo9BeJC5O9KtJjob7/xMlsjEQhRDLxKHNwj/Kd6jPUrtEQzyWGBd/@lists.infradead.org
+X-Gm-Message-State: AOJu0YwBMhcN6jpNQCjBz6f/CS82pULGhcVVfXa0m0N89sB8VVHsbuM1
+	F1dCCNonIdgGZUXS58kLL0CwPwabjeEtiErOwjLz+BXXp1VnWq6RdB/kD8b9LqUi4FTEN5Bmjvl
+	KbRzbtqFGKzN/xlx1hmRIlMXoch+KZ9/bfM2kvac6vw==
+X-Gm-Gg: ASbGncs78cWVrvcl/4O9gZYKwLP/w2dIBWIsQ/KlknlM1ttdiKsuH0vjKeMa0J7ZTFY
+	zAZ/UlGWiMx8CqDfGMI85qfeY+ENvgxjbZF9Id+xxah9nmvVvvexi2JSPDyPe5OyFu47AxIHR5E
+	wSOmil/nYmstS40uimtT/RRGbXmMp2PzX2dTCCtM+Y4vi9YdpyVslJ5nTIHx2fH36e9ebbM+Fhp
+	kYR5jElyzueB9fXcZ/fnStRz1phrhAVEvnZBtip
+X-Google-Smtp-Source: AGHT+IEgeGSPp5tZrYwz7LuhOGgC2QQoV6jKld35rrrEDILk6KVu5XlJczlMevH7xUUTupvZG733g6Xg/DOqB7cpoSI=
+X-Received: by 2002:a53:d649:0:b0:636:d3f9:6418 with SMTP id
+ 956f58d0204a3-63ccb864da8mr16445847d50.22.1760439446953; Tue, 14 Oct 2025
+ 03:57:26 -0700 (PDT)
 MIME-Version: 1.0
-Content-Transfer-Encoding: 8bit
-Content-Type: text/plain
-X-C2ProcessedOrg: 333ef613-75bf-4e12-a4b1-8e3623f5dcea
+References: <20251014015712.2922237-1-gary.yang@cixtech.com> <20251014015712.2922237-3-gary.yang@cixtech.com>
+In-Reply-To: <20251014015712.2922237-3-gary.yang@cixtech.com>
+From: Linus Walleij <linus.walleij@linaro.org>
+Date: Tue, 14 Oct 2025 12:57:11 +0200
+X-Gm-Features: AS18NWAM1tuEn3mlDY7wbHC5_VT-EX1J8T4IWs4ITMBNmXaEI1pGIgOsxThjx3c
+Message-ID: <CACRpkdaXW-BFM=HvqLiSY-Mkmhso2ETmkZzOX328aSadUEBdSQ@mail.gmail.com>
+Subject: Re: [PATCH v3 2/3] pinctrl: cix: Add pin-controller support for sky1
+To: Gary Yang <gary.yang@cixtech.com>
+Cc: robh@kernel.org, krzk+dt@kernel.org, conor+dt@kernel.org, 
+	linux-gpio@vger.kernel.org, devicetree@vger.kernel.org, 
+	linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, 
+	cix-kernel-upstream@cixtech.com
+Content-Type: text/plain; charset="UTF-8"
+Content-Transfer-Encoding: quoted-printable
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_035710_229742_F5534067 
-X-CRM114-Status: GOOD (  18.82  )
+X-CRM114-CacheID: sfid-20251014_035728_220272_83D85514 
+X-CRM114-Status: GOOD (  18.29  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -96,150 +97,87 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-emac_run_xdp function runs xdp program, at a given hook point
-in the Rx path of the driver in NAPI context and returns
-XDP return codes. In zero copy mode the driver receives
-packets using UMEM frames instead of pages (native XDP).
-Decouple the usage of page in this function.
+Hi Gary,
 
-Signed-off-by: Meghana Malladi <m-malladi@ti.com>
----
- drivers/net/ethernet/ti/icssg/icssg_common.c | 26 ++++++++++++--------
- drivers/net/ethernet/ti/icssg/icssg_prueth.c |  3 ++-
- drivers/net/ethernet/ti/icssg/icssg_prueth.h |  9 +++++--
- 3 files changed, 25 insertions(+), 13 deletions(-)
+this looks very nice, as long as we finish the bindings we can
+soon merge this I hope.
 
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_common.c b/drivers/net/ethernet/ti/icssg/icssg_common.c
-index b526f246ecb9..bc6dc7bf3f6a 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_common.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_common.c
-@@ -647,15 +647,15 @@ void emac_rx_timestamp(struct prueth_emac *emac,
-  * emac_xmit_xdp_frame - transmits an XDP frame
-  * @emac: emac device
-  * @xdpf: data to transmit
-- * @page: page from page pool if already DMA mapped
-  * @q_idx: queue id
-+ * @buff_type: Type of buffer to be transmitted
-  *
-  * Return: XDP state
-  */
- u32 emac_xmit_xdp_frame(struct prueth_emac *emac,
- 			struct xdp_frame *xdpf,
--			struct page *page,
--			unsigned int q_idx)
-+			unsigned int q_idx,
-+			enum prueth_tx_buff_type buff_type)
- {
- 	struct cppi5_host_desc_t *first_desc;
- 	struct net_device *ndev = emac->ndev;
-@@ -663,6 +663,7 @@ u32 emac_xmit_xdp_frame(struct prueth_emac *emac,
- 	struct prueth_tx_chn *tx_chn;
- 	dma_addr_t desc_dma, buf_dma;
- 	struct prueth_swdata *swdata;
-+	struct page *page;
- 	u32 *epib;
- 	int ret;
- 
-@@ -679,7 +680,12 @@ u32 emac_xmit_xdp_frame(struct prueth_emac *emac,
- 		return ICSSG_XDP_CONSUMED;	/* drop */
- 	}
- 
--	if (page) { /* already DMA mapped by page_pool */
-+	if (buff_type == PRUETH_TX_BUFF_TYPE_XDP_TX) { /* already DMA mapped by page_pool */
-+		page = virt_to_head_page(xdpf->data);
-+		if (unlikely(!page)) {
-+			netdev_err(ndev, "xdp tx: failed to get page from xdpf\n");
-+			goto drop_free_descs;
-+		}
- 		buf_dma = page_pool_get_dma_addr(page);
- 		buf_dma += xdpf->headroom + sizeof(struct xdp_frame);
- 	} else { /* Map the linear buffer */
-@@ -734,13 +740,11 @@ EXPORT_SYMBOL_GPL(emac_xmit_xdp_frame);
-  * emac_run_xdp - run an XDP program
-  * @emac: emac device
-  * @xdp: XDP buffer containing the frame
-- * @page: page with RX data if already DMA mapped
-  * @len: Rx descriptor packet length
-  *
-  * Return: XDP state
-  */
--static u32 emac_run_xdp(struct prueth_emac *emac, struct xdp_buff *xdp,
--			struct page *page, u32 *len)
-+static u32 emac_run_xdp(struct prueth_emac *emac, struct xdp_buff *xdp, u32 *len)
- {
- 	struct net_device *ndev = emac->ndev;
- 	struct netdev_queue *netif_txq;
-@@ -767,7 +771,8 @@ static u32 emac_run_xdp(struct prueth_emac *emac, struct xdp_buff *xdp,
- 		q_idx = cpu % emac->tx_ch_num;
- 		netif_txq = netdev_get_tx_queue(ndev, q_idx);
- 		__netif_tx_lock(netif_txq, cpu);
--		result = emac_xmit_xdp_frame(emac, xdpf, page, q_idx);
-+		result = emac_xmit_xdp_frame(emac, xdpf, q_idx,
-+					     PRUETH_TX_BUFF_TYPE_XDP_TX);
- 		__netif_tx_unlock(netif_txq);
- 		if (result == ICSSG_XDP_CONSUMED) {
- 			ndev->stats.tx_dropped++;
-@@ -792,7 +797,8 @@ static u32 emac_run_xdp(struct prueth_emac *emac, struct xdp_buff *xdp,
- 		fallthrough; /* handle aborts by dropping packet */
- 	case XDP_DROP:
- 		ndev->stats.rx_dropped++;
--		page_pool_recycle_direct(emac->rx_chns.pg_pool, page);
-+		page_pool_recycle_direct(emac->rx_chns.pg_pool,
-+					 virt_to_head_page(xdp->data));
- 		return ICSSG_XDP_CONSUMED;
- 	}
- }
-@@ -861,7 +867,7 @@ static int emac_rx_packet(struct prueth_emac *emac, u32 flow_id, u32 *xdp_state)
- 		xdp_init_buff(&xdp, PAGE_SIZE, &rx_chn->xdp_rxq);
- 		xdp_prepare_buff(&xdp, pa, PRUETH_HEADROOM, pkt_len, false);
- 
--		*xdp_state = emac_run_xdp(emac, &xdp, page, &pkt_len);
-+		*xdp_state = emac_run_xdp(emac, &xdp, &pkt_len);
- 		if (*xdp_state != ICSSG_XDP_PASS)
- 			goto requeue;
- 		headroom = xdp.data - xdp.data_hard_start;
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.c b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-index 78778f0e8f4a..296034ab6c67 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-+++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.c
-@@ -1177,7 +1177,8 @@ static int emac_xdp_xmit(struct net_device *dev, int n, struct xdp_frame **frame
- 	__netif_tx_lock(netif_txq, cpu);
- 	for (i = 0; i < n; i++) {
- 		xdpf = frames[i];
--		err = emac_xmit_xdp_frame(emac, xdpf, NULL, q_idx);
-+		err = emac_xmit_xdp_frame(emac, xdpf, q_idx,
-+					  PRUETH_TX_BUFF_TYPE_XDP_NDO);
- 		if (err != ICSSG_XDP_TX) {
- 			ndev->stats.tx_dropped++;
- 			break;
-diff --git a/drivers/net/ethernet/ti/icssg/icssg_prueth.h b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-index 90b3e9c9e148..74a0e5ed2a47 100644
---- a/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-+++ b/drivers/net/ethernet/ti/icssg/icssg_prueth.h
-@@ -154,6 +154,11 @@ enum prueth_swdata_type {
- 	PRUETH_SWDATA_XSK,
- };
- 
-+enum prueth_tx_buff_type {
-+	PRUETH_TX_BUFF_TYPE_XDP_TX,
-+	PRUETH_TX_BUFF_TYPE_XDP_NDO,
-+};
-+
- struct prueth_swdata {
- 	enum prueth_swdata_type type;
- 	union prueth_data {
-@@ -502,8 +507,8 @@ void prueth_put_cores(struct prueth *prueth, int slice);
- u64 icssg_ts_to_ns(u32 hi_sw, u32 hi, u32 lo, u32 cycle_time_ns);
- u32 emac_xmit_xdp_frame(struct prueth_emac *emac,
- 			struct xdp_frame *xdpf,
--			struct page *page,
--			unsigned int q_idx);
-+			unsigned int q_idx,
-+			enum prueth_tx_buff_type buff_type);
- void prueth_rx_cleanup(void *data, dma_addr_t desc_dma);
- void prueth_tx_cleanup(void *data, dma_addr_t desc_dma);
- int prueth_xsk_wakeup(struct net_device *ndev, u32 qid, u32 flags);
--- 
-2.43.0
+Some small comments!
 
+On Tue, Oct 14, 2025 at 3:57=E2=80=AFAM Gary Yang <gary.yang@cixtech.com> w=
+rote:
+
+
+> There are two pin-controllers on Cix Sky1 platform.
+> one is used under S0 state, the other is used under S0 and S5 state.
+>
+> Signed-off-by: Gary Yang <gary.yang@cixtech.com>
+(...)
+
+> +config PINCTRL_SKY1
+> +       tristate "Cix Sky1 pinctrl driver"
+> +       depends on ARCH_CIX
+
+Maybe depends on ARCH_CIX || COMPILE_TEST so we
+get some compile testing in the test farms and also a test
+on the rest of the dependencies.
+
+(Makes the bots complain so we can fix all such things!)
+
+> +#include <linux/device.h>
+> +#include <linux/err.h>
+> +#include <linux/init.h>
+> +#include <linux/io.h>
+> +#include <linux/module.h>
+> +#include <linux/of.h>
+> +#include <linux/of_device.h>
+> +#include <linux/of_address.h>
+> +#include <linux/pinctrl/machine.h>
+
+Do you really need <linux/pinctrl/machine.h>?
+
+Another thing you might want to consider is whether the
+designware GPIO will use this pin controller as
+"back-end" for the GPIOs using gpio-ranges in the
+GPIO controller nodes, for example (I just made this up):
+
+gpio-ranges =3D <&pinctrl1 0 20 10>, <&pinctrl2 10 50 20>;
+
+Then you might want to implement the GPIO
+accelerator operations in struct pinmux_ops, i.e. these:
+
+ * @gpio_request_enable: requests and enables GPIO on a certain pin.
+ *      Implement this only if you can mux every pin individually as GPIO. =
+The
+ *      affected GPIO range is passed along with an offset(pin number) into=
+ that
+ *      specific GPIO range - function selectors and pin groups are orthogo=
+nal
+ *      to this, the core will however make sure the pins do not collide.
+ * @gpio_disable_free: free up GPIO muxing on a certain pin, the reverse of
+ *      @gpio_request_enable
+ * @gpio_set_direction: Since controllers may need different configurations
+ *      depending on whether the GPIO is configured as input or output,
+ *      a direction selector function may be implemented as a backing
+ *      to the GPIO controllers that need pin muxing.
+ * @strict: do not allow simultaneous use of the same pin for GPIO and anot=
+her
+ *      function. Check both gpio_owner and mux_owner strictly before appro=
+ving
+ *      the pin request.
+
+And nowadays it is also worth considering using:
+
+        bool (*function_is_gpio) (struct pinctrl_dev *pctldev,
+                                  unsigned int selector);
+
+To make the pinctrl core awara of a certain function selector being the
+GPIO function (which makes the accelerated functions work much better
+with the strict mode).
+
+This can all be added later in separate patches, but this is a good time
+to make sure nothing stands in the way of doing this.
+
+Yours,
+Linus Walleij
 
