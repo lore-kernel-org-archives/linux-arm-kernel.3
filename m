@@ -4,58 +4,58 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id BCE21CCD18C
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 06:49:26 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 08892CCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 06:49:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
 	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:In-Reply-To:References
 	:Message-Id:Content-Transfer-Encoding:Content-Type:MIME-Version:Subject:Date:
 	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
 	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=vpEp5M7NzfQSiFH2jKL570Ai1wZvStN2XYEWzJ3d1nM=; b=yCW5m2yXeH7+mb7MatXDkUIusC
-	BugJQrBcei6E8TII2OdN49tVGNcPiDFqjSGGCl0ukd7aiW/Wr17glqK17TnNI9o+dJjcWPfC3d1o1
-	Av4dlNCFWIFK2Ais9MUXj8+rOeHq0ruJ5BseiGRm0wcGSFPTQTsARYqYwXu1bG/AAm7pcN3uSQ+WC
-	9kOxa0Om6LDvKOqhIcanpM2JizAWuwLVCe34RX5WBcFb+APPWX27yiBOuibtX5Qk0XCKv9hOoWnUt
-	VlbzKV104jP4paC5ULNXnW0o+cm5zOB7zp5jwbe+gqfiDdGmVcR0YxzD5yUFnVpNnWciy/gOqRx/E
-	kgSwiFWA==;
+	bh=nYjHCuW3ZXlc6zM24pgVvQhnKhBaDHM/f7Xd1AFH00Q=; b=L/b1LFE8TZUEJmdJDfnzP7zyOm
+	1Owir5VH3TEPz3hR4iPYOiZmOiGh3qZIBBNXl7rRmvZN+xfg8XUJAAs55xuEhigff3FC27IPiF+cb
+	vFA85I+xlw/pVXhpmYf733AYc5cVRO0gQGolPVkp35aUd5IDe2f1PViGMnvSRzL6SY4scRRZrjrkC
+	q9t7FrHgJ3H2yEe0k+ldWifq1X2sPtFgq+07nCOMAEx/SA1aXEljco7Kld759R4jGWbSvB6sWPCoK
+	PceBMwbnc4MA7KTYjmsylQIkUTiMl9FRcFvovWhcwJ9jb5XBKBxdgRUKNZJ22fp0DrSdV5RR/Ia5Y
+	VgmmnT8Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8YqS-0000000FJVu-0fL2;
-	Tue, 14 Oct 2025 06:49:16 +0000
-Received: from galois.linutronix.de ([193.142.43.55])
+	id 1v8YqP-0000000FJTb-2M0g;
+	Tue, 14 Oct 2025 06:49:13 +0000
+Received: from galois.linutronix.de ([2a0a:51c0:0:12e:550::1])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8YqM-0000000FJQG-1JvH
+	id 1v8YqM-0000000FJQJ-11ew
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 06:49:12 +0000
+	Tue, 14 Oct 2025 06:49:11 +0000
 From: =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
 DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020; t=1760424547;
+	s=2020; t=1760424548;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=vpEp5M7NzfQSiFH2jKL570Ai1wZvStN2XYEWzJ3d1nM=;
-	b=AbS1ivXKSxxKvhGecPLcRSNUEWEuw9fn6U9T3JexzRDy4JP8ptlcSanCYF7zLa7B67+Fvx
-	vWnzFZpxNxM35GWpLIGZRc6nT8e15qKJ03J0cCqPobHZ10bRDU/JD56SGgEXedarEiedw0
-	UmgAgk0wbFazDmiJ/4I1Psqpi57GDcTb2aDqLWjaCwXFbhwedWiRm8Dv/sUI0ZAnVA0DJy
-	DKzMrqyjpZb62iR/9tN73/HrfsZyr3QuaxXpuQG1x9YgTtIOXEuBtSM+husw4mfA1Xxamw
-	XrpoFznq3OcrLyOV/jN2QbdxFGXTjcVXOHEVMFjepXBXGWwPZ/TOQ/hdp0hORw==
+	bh=nYjHCuW3ZXlc6zM24pgVvQhnKhBaDHM/f7Xd1AFH00Q=;
+	b=MAjI36Y283+dXlEtxfAzdph4Pel6t8l6YGuCTP11JXsg6aRhE3b1AGwDIAlpF+lyqIfx9C
+	s+cjFOIjmmGXokhUxf3My7SWWEQIZDhoFAdnbPXThWMEhyjkFHw1AkRTSkrGb2Xnfw0vYM
+	b+v1yG8xrAgrkauiQ01otJY+jwE6oBiXwGa1qssi9iN3J94OQZyLobIrdOroNzi729VPPY
+	kyyXhR+GDsc7mJPRD/qfgNDcL7W4mjs+UQiEX1Jy1T/gpmYw5uXtaiE4UHJoS1pRy0eL7h
+	m7CWx7ZIxnNb+nQQGhN6wwJU2/zMncnoNLl2+CKasi6iBnZzIyyI3Vaa8nl9TA==
 DKIM-Signature: v=1; a=ed25519-sha256; c=relaxed/relaxed; d=linutronix.de;
-	s=2020e; t=1760424547;
+	s=2020e; t=1760424548;
 	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
 	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
 	 content-transfer-encoding:content-transfer-encoding:
 	 in-reply-to:in-reply-to:references:references;
-	bh=vpEp5M7NzfQSiFH2jKL570Ai1wZvStN2XYEWzJ3d1nM=;
-	b=J46V6TKs5EP3v7C7yqoHXUbYqQbF+JHtlmqZ3FKeLekr9GW27Um+kEL7iiE8relpRw5k4T
-	qT89+dQndZVSw0Aw==
-Date: Tue, 14 Oct 2025 08:48:47 +0200
-Subject: [PATCH v4 01/35] selftests: vDSO: vdso_test_correctness: Handle
- different tv_usec types
+	bh=nYjHCuW3ZXlc6zM24pgVvQhnKhBaDHM/f7Xd1AFH00Q=;
+	b=JUFmi/+tfhZ3CvW1S/ZCTu9YNZePfk1cYGvLNKTIafHWUzOiKAJXrC7eqzNJ9w6d/YqwDg
+	2RqTYE9cSuJamaCA==
+Date: Tue, 14 Oct 2025 08:48:48 +0200
+Subject: [PATCH v4 02/35] arm64: vDSO: getrandom: Explicitly include
+ asm/alternative.h
 MIME-Version: 1.0
 Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 8bit
-Message-Id: <20251014-vdso-sparc64-generic-2-v4-1-e0607bf49dea@linutronix.de>
+Message-Id: <20251014-vdso-sparc64-generic-2-v4-2-e0607bf49dea@linutronix.de>
 References: <20251014-vdso-sparc64-generic-2-v4-0-e0607bf49dea@linutronix.de>
 In-Reply-To: <20251014-vdso-sparc64-generic-2-v4-0-e0607bf49dea@linutronix.de>
 To: Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>, 
@@ -84,16 +84,17 @@ Cc: linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org,
  linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev, 
  linux-mips@vger.kernel.org, linux-s390@vger.kernel.org, 
  =?utf-8?q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>
-X-Developer-Signature: v=1; a=ed25519-sha256; t=1760424546; l=1636;
+X-Developer-Signature: v=1; a=ed25519-sha256; t=1760424546; l=1038;
  i=thomas.weissschuh@linutronix.de; s=20240209; h=from:subject:message-id;
- bh=xwlcFnQEXqQ5ZW5NFBVaIG/RI+shPsghmy7vrrzmGh4=;
- b=qHfqnjpjjXV61eOxYf7edKHo0slWvZ5SYsA/BifGNprPJAD8Khq30C50W+CTRD32kGW8dw5tZ
- hV7nr3UKiEeCeSt/ajtTzQxWm4toVPCt96lvMzDcV9Vp8mhorWE8oeH
+ bh=/RM2+eho8hCHlVVsxMDHxgwRFdNnaqJNQrWh/y7GNvw=;
+ b=rjBCL/3dN6qPvUJmeUf+7JAVFBhUTYgdMTkfrSYQKsl+OmAQA2K02NnEfLgFpDeniiYgrvOsH
+ uAKOAyqPBSxAYX8qmNwl563gDjmeysj+ss0ST5F/ep57HRa/GwRbvHk
 X-Developer-Key: i=thomas.weissschuh@linutronix.de; a=ed25519;
  pk=pfvxvpFUDJV2h2nY0FidLUml22uGLSjByFbM6aqQQws=
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251013_234910_495338_A505C5F4 
-X-CRM114-Status: GOOD (  10.80  )
+X-CRM114-CacheID: sfid-20251013_234910_458887_04C4C833 
+X-CRM114-Status: UNSURE (   8.84  )
+X-CRM114-Notice: Please train this message.
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -108,39 +109,32 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On SPARC the field tv_usec of 'struct timespec' is not a 'long int', but
-only a regular int. In this case the format string is incorrect and will
-trigger compiler warnings.
+The call to alternative_has_cap_likely(ARM64_HAS_FPSIMD) requires symbols
+from asm/alternative.h. Currently this header is included transitively, but
+that transitive inclusion is about to go away.
 
-Avoid the warnings by casting to 'long long', similar to how it is done for
-the tv_sec and what the other similar selftests are doing.
+Explicitly include the header.
 
 Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
 Tested-by: Andreas Larsson <andreas@gaisler.com>
 Reviewed-by: Andreas Larsson <andreas@gaisler.com>
 ---
- tools/testing/selftests/vDSO/vdso_test_correctness.c | 8 ++++----
- 1 file changed, 4 insertions(+), 4 deletions(-)
+ arch/arm64/kernel/vdso/vgetrandom.c | 2 ++
+ 1 file changed, 2 insertions(+)
 
-diff --git a/tools/testing/selftests/vDSO/vdso_test_correctness.c b/tools/testing/selftests/vDSO/vdso_test_correctness.c
-index da651cf53c6ca4242085de109c7fc57bd807297c..5229fcaae8194d51b2cdffdbae59f00cfaeb96dc 100644
---- a/tools/testing/selftests/vDSO/vdso_test_correctness.c
-+++ b/tools/testing/selftests/vDSO/vdso_test_correctness.c
-@@ -412,10 +412,10 @@ static void test_gettimeofday(void)
- 		return;
- 	}
+diff --git a/arch/arm64/kernel/vdso/vgetrandom.c b/arch/arm64/kernel/vdso/vgetrandom.c
+index 832fe195292b34e2029f593ea170347c98e06dac..0aef124c90899dc0c8956b0f32f54992aa3acf0b 100644
+--- a/arch/arm64/kernel/vdso/vgetrandom.c
++++ b/arch/arm64/kernel/vdso/vgetrandom.c
+@@ -2,6 +2,8 @@
  
--	printf("\t%llu.%06ld %llu.%06ld %llu.%06ld\n",
--	       (unsigned long long)start.tv_sec, start.tv_usec,
--	       (unsigned long long)vdso.tv_sec, vdso.tv_usec,
--	       (unsigned long long)end.tv_sec, end.tv_usec);
-+	printf("\t%llu.%06lld %llu.%06lld %llu.%06lld\n",
-+	       (unsigned long long)start.tv_sec, (long long)start.tv_usec,
-+	       (unsigned long long)vdso.tv_sec, (long long)vdso.tv_usec,
-+	       (unsigned long long)end.tv_sec, (long long)end.tv_usec);
+ #include <uapi/asm-generic/errno.h>
  
- 	if (!tv_leq(&start, &vdso) || !tv_leq(&vdso, &end)) {
- 		printf("[FAIL]\tTimes are out of sequence\n");
++#include <asm/alternative.h>
++
+ typeof(__cvdso_getrandom) __kernel_getrandom;
+ 
+ ssize_t __kernel_getrandom(void *buffer, size_t len, unsigned int flags, void *opaque_state, size_t opaque_len)
 
 -- 
 2.51.0
