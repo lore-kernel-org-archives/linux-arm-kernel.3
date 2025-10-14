@@ -4,107 +4,89 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id 4E1C3CCD187
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 07:45:01 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id 849FCCCD187
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 07:50:48 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Type:MIME-Version:
-	References:In-Reply-To:Subject:Cc:To:From:Message-ID:Date:Reply-To:
-	Content-Transfer-Encoding:Content-ID:Content-Description:Resent-Date:
-	Resent-From:Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=G48HKJVzL8dTW4kaeY/LLaqNNNbhyIm3tvzX/esIS8Q=; b=POJxdezb646aN8S9EkmgKPEt8D
-	W5eYi+3TZYXXDbqwuapqP3/MVjPCRJxa6FtM2vurBYWOLAYak10QLpBOpLukmrR+FRMNn+IvN/N94
-	MQbpvBH6UF7D7c9BGqP5m4zmV2OJjS2Su70jU+RpvgPtLn26QKzB+O0q8FMZ+T0ESEvx5NYQPzHb2
-	mATLmzH+3GzuL8+Yj6AxjjqmJH8bMLGvz69wl2tbGrda9mo/uNbIDuwkg66J402auOIW9rTgpU7t8
-	dnOZorkoqdOuhuhcr4GI68ts/tRtuE9x9COMRfv7hmAJzG8BvbU7pdmmW7SK5efBzl7EN1VKL4ySR
-	qb65lSAg==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
+	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
+	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
+	bh=+Os7HR6JQUdBawvUGgI4692f6aW7iR3C+BgP6bkMD2A=; b=A4f3XYJWfy1lUpzR1K6z7/h5Dl
+	8AvWVCikMXarxYIRDP4AcD243H3vhuIKIyysSgb9ROuCuQtTSS1p8/BDyqv2LOByyV1mA917+TxSi
+	HdNZ3hGJqc0sNmOAkyXaeMrFZt5WmmqEYRqi203qIDKX6RejWP7orVUhDCgWwCiEQrbBTnetiUnZV
+	6lKLZZEUJcFaZ/xeyd/mir/Pe0r3m6w0fiIjmg35NHcC0O0o4El2POTQ7ujXL9LglRqDYIUUte/JD
+	n5sO2WpBvEae6Y/f6h6mpERAlDW1OUTgFhT4JgOYh+NCbkpxY0YHCZg+lyJ1hEJSrjD2m+qzanwvQ
+	hOjLRX2Q==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8ZiH-0000000FUTW-0beQ;
-	Tue, 14 Oct 2025 07:44:53 +0000
-Received: from sea.source.kernel.org ([172.234.252.31])
-	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8ZiE-0000000FUSw-2OpP
+	id 1v8Znr-0000000FVCI-3wTq;
+	Tue, 14 Oct 2025 07:50:39 +0000
+Received: from pegase2.c-s.fr ([93.17.235.10])
+	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
+	id 1v8Znp-0000000FVAp-01NF
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 07:44:51 +0000
-Received: from smtp.kernel.org (transwarp.subspace.kernel.org [100.75.92.58])
-	by sea.source.kernel.org (Postfix) with ESMTP id ED5A8450CE;
-	Tue, 14 Oct 2025 07:44:46 +0000 (UTC)
-Received: by smtp.kernel.org (Postfix) with ESMTPSA id 73D51C4CEE7;
-	Tue, 14 Oct 2025 07:44:46 +0000 (UTC)
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/simple; d=kernel.org;
-	s=k20201202; t=1760427886;
-	bh=GEkGrg3Y0VhrFhcKMRkq11hTlEvauEQquaSWcnzJ2As=;
-	h=Date:From:To:Cc:Subject:In-Reply-To:References:From;
-	b=knN0Nlal0qGpn0gVor3cxe/sP0hRTASA/uIaFLJk46TcHV+pVlOchbu6SjRGOqipg
-	 4WR2WFQSiayBmptuiRmAxZrnN0bZBFeRBQ4lMb7tNl9BkoNumTYm/2lpFPTe5Vldxa
-	 0/k8086WoVNPqYR7h3xBYqHsBmkc6fC28D27qcmFEWW/k4o7wIChCNsJcuCekXqXnq
-	 gaXjCtDMrJCMvYQalZ19hkyfzbgoWrC2McKT7M/X/g/IFYuuxVL2d8KgGbwacBskpi
-	 OfH3tRbcN5EUowOP+dV8EcbQPGQ4SjO1lO0VCCM5HFYgLa6wpXWTGrKfB/YgnHT0lo
-	 i37S9spB2Xl4g==
-Received: from sofa.misterjones.org ([185.219.108.64] helo=goblin-girl.misterjones.org)
-	by disco-boy.misterjones.org with esmtpsa  (TLS1.3) tls TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-	(Exim 4.98.2)
-	(envelope-from <maz@kernel.org>)
-	id 1v8Zi7-0000000Dlpg-1i61;
-	Tue, 14 Oct 2025 07:44:43 +0000
-Date: Tue, 14 Oct 2025 08:44:42 +0100
-Message-ID: <864is2x6z9.wl-maz@kernel.org>
-From: Marc Zyngier <maz@kernel.org>
-To: Peter Maydell <peter.maydell@linaro.org>
-Cc: salil.mehta@opnsrc.net,
-	linux-kernel@vger.kernel.org,
-	linux-arm-kernel@lists.infradead.org,
-	salil.mehta@huawei.com,
-	jonathan.cameron@huawei.com,
-	will@kernel.org,
-	catalin.marinas@arm.com,
-	mark.rutland@arm.com,
-	james.morse@arm.com,
-	sudeep.holla@arm.com,
-	lpieralisi@kernel.org,
-	jean-philippe@linaro.org,
-	tglx@linutronix.de,
-	oliver.upton@linux.dev,
-	richard.henderson@linaro.org,
-	andrew.jones@linux.dev,
-	mst@redhat.com,
-	david@redhat.com,
-	philmd@linaro.org,
-	ardb@kernel.org,
-	borntraeger@linux.ibm.com,
-	alex.bennee@linaro.org,
-	gustavo.romero@linaro.org,
-	npiggin@gmail.com,
-	linux@armlinux.org.uk,
-	karl.heubaum@oracle.com,
-	miguel.luis@oracle.com,
-	darren@os.amperecomputing.com,
-	ilkka@os.amperecomputing.com,
-	vishnu@os.amperecomputing.com,
-	gankulkarni@os.amperecomputing.com,
-	wangyanan55@huawei.com,
-	wangzhou1@hisilicon.com,
-	linuxarm@huawei.com
-Subject: Re: [RFC PATCH] KVM: arm64: vgic-v3: Cache ICC_CTLR_EL1 and allow lockless read when ready
-In-Reply-To: <CAFEAcA8FhgcaM_OsHKB3+3Z7B_oZJqU4LHX_j9p-ZQrHfWGX7g@mail.gmail.com>
-References: <20251008201955.3919537-1-salil.mehta@opnsrc.net>
-	<86v7koxk1z.wl-maz@kernel.org>
-	<CAFEAcA8=yhQ-ygoA-fqxzwg69OkdW2nBM0O9X3Lmww4eXuVMWA@mail.gmail.com>
-	<867bwzxe9r.wl-maz@kernel.org>
-	<CAFEAcA8FhgcaM_OsHKB3+3Z7B_oZJqU4LHX_j9p-ZQrHfWGX7g@mail.gmail.com>
-User-Agent: Wanderlust/2.15.9 (Almost Unreal) SEMI-EPG/1.14.7 (Harue)
- FLIM-LB/1.14.9 (=?UTF-8?B?R29qxY0=?=) APEL-LB/10.8 EasyPG/1.0.0 Emacs/30.1
- (aarch64-unknown-linux-gnu) MULE/6.0 (HANACHIRUSATO)
-MIME-Version: 1.0 (generated by SEMI-EPG 1.14.7 - "Harue")
-Content-Type: text/plain; charset=US-ASCII
-X-SA-Exim-Connect-IP: 185.219.108.64
-X-SA-Exim-Rcpt-To: peter.maydell@linaro.org, salil.mehta@opnsrc.net, linux-kernel@vger.kernel.org, linux-arm-kernel@lists.infradead.org, salil.mehta@huawei.com, jonathan.cameron@huawei.com, will@kernel.org, catalin.marinas@arm.com, mark.rutland@arm.com, james.morse@arm.com, sudeep.holla@arm.com, lpieralisi@kernel.org, jean-philippe@linaro.org, tglx@linutronix.de, oliver.upton@linux.dev, richard.henderson@linaro.org, andrew.jones@linux.dev, mst@redhat.com, david@redhat.com, philmd@linaro.org, ardb@kernel.org, borntraeger@linux.ibm.com, alex.bennee@linaro.org, gustavo.romero@linaro.org, npiggin@gmail.com, linux@armlinux.org.uk, karl.heubaum@oracle.com, miguel.luis@oracle.com, darren@os.amperecomputing.com, ilkka@os.amperecomputing.com, vishnu@os.amperecomputing.com, gankulkarni@os.amperecomputing.com, wangyanan55@huawei.com, wangzhou1@hisilicon.com, linuxarm@huawei.com
-X-SA-Exim-Mail-From: maz@kernel.org
-X-SA-Exim-Scanned: No (on disco-boy.misterjones.org); SAEximRunCond expanded to false
+	Tue, 14 Oct 2025 07:50:38 +0000
+Received: from localhost (mailhub4.si.c-s.fr [172.26.127.67])
+	by localhost (Postfix) with ESMTP id 4cm5lc3Hnjz9sST;
+	Tue, 14 Oct 2025 09:42:20 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from pegase2.c-s.fr ([172.26.127.65])
+	by localhost (pegase2.c-s.fr [127.0.0.1]) (amavisd-new, port 10024)
+	with ESMTP id dfjcQFiX-ub0; Tue, 14 Oct 2025 09:42:20 +0200 (CEST)
+Received: from messagerie.si.c-s.fr (messagerie.si.c-s.fr [192.168.25.192])
+	by pegase2.c-s.fr (Postfix) with ESMTP id 4cm5lc2Gfnz9sRy;
+	Tue, 14 Oct 2025 09:42:20 +0200 (CEST)
+Received: from localhost (localhost [127.0.0.1])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 358268B768;
+	Tue, 14 Oct 2025 09:42:20 +0200 (CEST)
+X-Virus-Scanned: amavisd-new at c-s.fr
+Received: from messagerie.si.c-s.fr ([127.0.0.1])
+	by localhost (messagerie.si.c-s.fr [127.0.0.1]) (amavisd-new, port 10023)
+	with ESMTP id zsFJORiQt4Vt; Tue, 14 Oct 2025 09:42:20 +0200 (CEST)
+Received: from [192.168.235.99] (unknown [192.168.235.99])
+	by messagerie.si.c-s.fr (Postfix) with ESMTP id 4DA788B763;
+	Tue, 14 Oct 2025 09:42:18 +0200 (CEST)
+Message-ID: <6942ea07-e6fa-4a5e-a003-0c7ee5e0c936@csgroup.eu>
+Date: Tue, 14 Oct 2025 09:42:17 +0200
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+Subject: Re: [PATCH v4 06/35] powerpc/vdso/gettimeofday: Explicitly include
+ vdso/time32.h
+To: =?UTF-8?Q?Thomas_Wei=C3=9Fschuh?= <thomas.weissschuh@linutronix.de>,
+ Andy Lutomirski <luto@kernel.org>, Thomas Gleixner <tglx@linutronix.de>,
+ Vincenzo Frascino <vincenzo.frascino@arm.com>, Arnd Bergmann
+ <arnd@arndb.de>, "David S. Miller" <davem@davemloft.net>,
+ Andreas Larsson <andreas@gaisler.com>, Nick Alcock <nick.alcock@oracle.com>,
+ John Stultz <jstultz@google.com>, Stephen Boyd <sboyd@kernel.org>,
+ John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>,
+ Shuah Khan <shuah@kernel.org>, Catalin Marinas <catalin.marinas@arm.com>,
+ Will Deacon <will@kernel.org>, Theodore Ts'o <tytso@mit.edu>,
+ "Jason A. Donenfeld" <Jason@zx2c4.com>, Russell King
+ <linux@armlinux.org.uk>, Madhavan Srinivasan <maddy@linux.ibm.com>,
+ Michael Ellerman <mpe@ellerman.id.au>, Nicholas Piggin <npiggin@gmail.com>,
+ Huacai Chen <chenhuacai@kernel.org>, WANG Xuerui <kernel@xen0n.name>,
+ Thomas Bogendoerfer <tsbogend@alpha.franken.de>,
+ Heiko Carstens <hca@linux.ibm.com>, Vasily Gorbik <gor@linux.ibm.com>,
+ Alexander Gordeev <agordeev@linux.ibm.com>,
+ Christian Borntraeger <borntraeger@linux.ibm.com>,
+ Sven Schnelle <svens@linux.ibm.com>,
+ Nagarathnam Muthusamy <nagarathnam.muthusamy@oracle.com>,
+ Shannon Nelson <sln@onemain.com>
+Cc: linux-kernel@vger.kernel.org, sparclinux@vger.kernel.org,
+ linux-kselftest@vger.kernel.org, linux-arm-kernel@lists.infradead.org,
+ linuxppc-dev@lists.ozlabs.org, loongarch@lists.linux.dev,
+ linux-mips@vger.kernel.org, linux-s390@vger.kernel.org
+References: <20251014-vdso-sparc64-generic-2-v4-0-e0607bf49dea@linutronix.de>
+ <20251014-vdso-sparc64-generic-2-v4-6-e0607bf49dea@linutronix.de>
+From: Christophe Leroy <christophe.leroy@csgroup.eu>
+Content-Language: fr-FR
+In-Reply-To: <20251014-vdso-sparc64-generic-2-v4-6-e0607bf49dea@linutronix.de>
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 8bit
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_004450_653464_CA40A65C 
-X-CRM114-Status: GOOD (  56.59  )
+X-CRM114-CacheID: sfid-20251014_005037_207781_8F73171B 
+X-CRM114-Status: GOOD (  11.80  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -119,122 +101,37 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On Mon, 13 Oct 2025 17:48:44 +0100,
-Peter Maydell <peter.maydell@linaro.org> wrote:
+
+
+Le 14/10/2025 à 08:48, Thomas Weißschuh a écrit :
+> The usage of 'struct old_timespec32' requires vdso/time32.h. Currently
+> this header is included transitively, but that transitive inclusion is
+> about to go away.
 > 
-> On Mon, 13 Oct 2025 at 11:55, Marc Zyngier <maz@kernel.org> wrote:
-> >
-> > On Mon, 13 Oct 2025 09:42:58 +0100,
-> > Peter Maydell <peter.maydell@linaro.org> wrote:
-> > >
-> > > On Thu, 9 Oct 2025 at 14:48, Marc Zyngier <maz@kernel.org> wrote:
-> > > >
-> > > > On Wed, 08 Oct 2025 21:19:55 +0100,
-> > > > salil.mehta@opnsrc.net wrote:
-> > > > >
-> > > > > From: Salil Mehta <salil.mehta@huawei.com>
-> > > > >
-> > > > > [A rough illustration of the problem and the probable solution]
-> > > > >
-> > > > > Userspace reads of ICC_CTLR_EL1 via KVM device attributes currently takes a slow
-> > > > > path that may acquire all vCPU locks. Under workloads that exercise userspace
-> > > > > PSCI CPU_ON flows or frequent vCPU resets, this can cause vCPU lock contention
-> > > > > in KVM and, in the worst cases, -EBUSY returns to userspace.
-> > > > >
-> > > > > When PSCI CPU_ON and CPU_OFF calls are handled entirely in KVM, these operations
-> > > > > are executed under KVM vCPU locks in the host kernel (EL1) and appear atomic to
-> > > > > other vCPU threads. In this context, system register accesses are serialized
-> > > > > under KVM vCPU locks, ensuring atomicity with respect to other vCPUs. After
-> > > > > SMCCC filtering was introduced, PSCI CPU_ON and CPU_OFF calls can now exit to
-> > > > > userspace (QEMU). During the handling of PSCI CPU_ON call in userspace, a
-> > > > > cpu_reset() is exerted which reads ICC_CTLR_EL1 through KVM device attribute
-> > > > > IOCTLs. To avoid transient inconsistency and -EBUSY errors, QEMU is forced to
-> > > > > pause all vCPUs before issuing these IOCTLs.
-> > > >
-> > > > I'm going to repeat in public what I already said in private.
-> > > >
-> > > > Why does QEMU need to know this? I don't see how this is related to
-> > > > PSCI, and outside of save/restore, there is no reason why QEMU should
-> > > > poke at this. If QEMU needs fixing, please fix QEMU.
-> > >
-> > > I don't know the background here, but generally speaking,
-> > > when we do a CPU reset that includes writing all the CPU state
-> > > of the "this is freshly reset from userspace's point of view" vcpu
-> > > back to the kernel. More generally, userspace should be able to
-> > > read and write sysregs for a vcpu any time it likes, and not
-> > > arbitrarily get back -EBUSY. What does the kernel expect
-> > > userspace to do with an errno like that?
-> >
-> > The main issue here is that GICv3 is modelled as a device, just like
-> > GICv2, and that all the sysregs that are relevant to the GIC have the
-> > same status as the MMIO registers: they can only be accessed when the
-> > vcpus are not running.
-> >
-> > These sysregs are not visible through the normal ONE_REG API, and
-> > therefore not subjected to the "do whatever you want" rule.
+> Explicitly include the header.
 > 
-> Ah, I'd forgotten that. But the cpuif registers are still
-> per-cpu, and they do still need to be reset on vcpu reset,
-> and that might still happen for a single vcpu when the VM
-> as a whole is still running.
+> Signed-off-by: Thomas Weißschuh <thomas.weissschuh@linutronix.de>
+> Tested-by: Andreas Larsson <andreas@gaisler.com>
+> Reviewed-by: Andreas Larsson <andreas@gaisler.com>
+
+Reviewed-by: Christophe Leroy <christophe.leroy@csgroup.eu>
+
+> ---
+>   arch/powerpc/include/asm/vdso/gettimeofday.h | 1 +
+>   1 file changed, 1 insertion(+)
 > 
-> That said, QEMU's current code for this could be refactored
-> to avoid the reset-time read of ICC_CTLR_EL1 from the kernel.
-> We do this so we can set the userspace struct field for this
-> register to the right value. But we could ask the kernel for
-> that value once on VM startup since it's not going to change mid-run.
-
-The reset value is indeed cast in stone once the GIC has been created.
-
-> That would bring ICC_CTLR_EL1 into line with the other cpuif
-> registers, where QEMU assumes it knows what the kernel's
-> reset value of them is (mostly "0") and doesn't bother to ask.
-> This is different from how we handle ONE_REG sysregs, where
-> I'm pretty sure we do ask the kernel the value of all of them
-> on a vcpu reset. (And then write the values back again, which
-> is a bit silly but nobody's ever said it was a performance
-> problem for them :-))
->
-> > Should we have done something else when the GICv3 save/restore API was
-> > introduced and agreed upon with the QEMU people? Probably. Can we
-> > change it now? Probably not. The only thing we could relax is the
-> > scope of the lock when accessing a sysreg, so that we only mandate
-> > that the targeted vcpu is not running instead of the whole VM.
-> >
-> > And finally, if you object to this API, why should we do for GICv5,
-> > which is so far implemented by following the exact same principles?
+> diff --git a/arch/powerpc/include/asm/vdso/gettimeofday.h b/arch/powerpc/include/asm/vdso/gettimeofday.h
+> index ab3df12c8d947ed3a5b0b173567ca8469afbf2d6..b2f0e971076acaea8bc70107fc0f5b2d23e0b312 100644
+> --- a/arch/powerpc/include/asm/vdso/gettimeofday.h
+> +++ b/arch/powerpc/include/asm/vdso/gettimeofday.h
+> @@ -8,6 +8,7 @@
+>   #include <asm/barrier.h>
+>   #include <asm/unistd.h>
+>   #include <uapi/linux/time.h>
+> +#include <vdso/time32.h>
+>   
+>   #define VDSO_HAS_CLOCK_GETRES		1
+>   
 > 
-> I don't object to the API inherently (I don't care whether we
-> do these register reads via a dev ioctl or something else,
-> from userspace's point of view it's just "do some syscall,
-> get a value") -- I'm just objecting to the kernel's
-> implementation of it where it might return EBUSY :-)
 
-To me, EBUSY has a clear meaning: you're otherwise using the resource,
-and you need to relinquish it first, while EINVAL indicates that the
-kernel doesn't understand what you want.
-
-As I said, I'm happy to look at reducing the locking to only the
-target vcpu in the case of a sysreg being accessed, but EBUSY will
-stay.
-
-> 
-> (Also, if the kernel had failed EINVAL unconditionally for
-> an attempt to do this on a not-stopped VM then we'd probably
-> have found this mismatch in understanding about how the
-> API should work years ago. "Mostly works but sometimes fails
-> EBUSY" is the worst of all worlds.)
-> 
-> I haven't yet got as far as thinking about the KVM interface
-> for GICv5 yet...
-
-I guess that for the time being, we'll assume that GICv3 is the
-reference.
-
-Thanks,
-
-	M.
-
--- 
-Without deviation from the norm, progress is not possible.
 
