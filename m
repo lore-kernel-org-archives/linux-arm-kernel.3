@@ -4,185 +4,110 @@ X-Spam-Checker-Version: SpamAssassin 3.4.0 (2014-02-07) on
 Received: from bombadil.infradead.org (bombadil.infradead.org [198.137.202.133])
 	(using TLSv1.2 with cipher ECDHE-RSA-AES256-GCM-SHA384 (256/256 bits))
 	(No client certificate requested)
-	by smtp.lore.kernel.org (Postfix) with ESMTPS id D73CACCD192
-	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 14:59:05 +0000 (UTC)
+	by smtp.lore.kernel.org (Postfix) with ESMTPS id E7F1ACCD192
+	for <linux-arm-kernel@archiver.kernel.org>; Tue, 14 Oct 2025 15:04:29 +0000 (UTC)
 DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
 	d=lists.infradead.org; s=bombadil.20210309; h=Sender:List-Subscribe:List-Help
-	:List-Post:List-Archive:List-Unsubscribe:List-Id:Content-Transfer-Encoding:
-	Content-Type:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:
-	Message-ID:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
-	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:List-Owner;
-	bh=AYVbINRSmFk2th/S/4+k/CpnsMJciemy/4mjE5VYBng=; b=WnLuqyadhmRIbDeCxfN4Nmrxfg
-	wXGaQz/Gf7iBrFYwCnnnGHprL7zSpPefZJ+FonGPZtI71Jevzo1hx3mx1HO2mZTiYkeHZxRStDQ2K
-	6eGAPpYPpjtGzfsd3S3EAjpiRPbZiX7VOGNVeVSmYcrRUPb1o0ovzJrMHHUjXBoFQaPEZwyclx5y0
-	NiQ85RMHYLkz2EXKzcQziVbCn/VtfVY9CCbatWn5pSQxFcPykunVjLHL42FJtRH5pb5jpcARc+c5Y
-	eGn9SJUmZHDFDgRVU7QJmF/oZ5wyVpFBGYy62B403j3a+n3O4gx6nDD4kbh2q+ZSgiIl2auCLDiB6
-	75mArznA==;
+	:List-Post:List-Archive:List-Unsubscribe:List-Id:Cc:To:
+	Content-Transfer-Encoding:Content-Type:MIME-Version:Message-Id:Date:Subject:
+	From:Reply-To:Content-ID:Content-Description:Resent-Date:Resent-From:
+	Resent-Sender:Resent-To:Resent-Cc:Resent-Message-ID:In-Reply-To:References:
+	List-Owner; bh=8imCO2VyYcb1j5phQLrLVVRIepCgCLAAPrEPMDTG34Y=; b=mw0z9r7vxIly07
+	B3nA3JjmsU7gt7WqHtb4n0oLJ2FagwMELHXCCvQji/zSHICL5VS7czRAJCEByb/7u+MegXppBP8mb
+	Gb7WUvpKahRX/A9vYcOwhDTFoAJH4bx6A/du/MTPbpJgW926i2CAJU0OCiZzpo77WU8yeMgpF4nGa
+	EKV44703iT+inEtCjZtVqKEvbD5NOF/qi4DJAThpnhayI8HunWP+gbzDDv5uR9E5FGemj9eAEx+yr
+	FwlXLtR91L5KOXQTSgD+kVaST+szhCCn3VgIkPDB+xhMFEErchMJ2PyEC7uR9o8GrggLwlNaV9n2N
+	DqL+FOJ/7JeVPct2PHfA==;
 Received: from localhost ([::1] helo=bombadil.infradead.org)
 	by bombadil.infradead.org with esmtp (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8gUN-0000000Ghbk-3Ypy;
-	Tue, 14 Oct 2025 14:58:59 +0000
-Received: from desiato.infradead.org ([2001:8b0:10b:1:d65d:64ff:fe57:4e05])
+	id 1v8gZa-0000000GiYl-3n1e;
+	Tue, 14 Oct 2025 15:04:22 +0000
+Received: from mail-pj1-x1034.google.com ([2607:f8b0:4864:20::1034])
 	by bombadil.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8gUL-0000000Ghba-3SOu
-	for linux-arm-kernel@bombadil.infradead.org;
-	Tue, 14 Oct 2025 14:58:58 +0000
-DKIM-Signature: v=1; a=rsa-sha256; q=dns/txt; c=relaxed/relaxed;
-	d=infradead.org; s=desiato.20200630; h=Content-Transfer-Encoding:Content-Type
-	:In-Reply-To:From:References:Cc:To:Subject:MIME-Version:Date:Message-ID:
-	Sender:Reply-To:Content-ID:Content-Description;
-	bh=AYVbINRSmFk2th/S/4+k/CpnsMJciemy/4mjE5VYBng=; b=kZ6TkblAM3+VJiaCO6KQ6QU2+i
-	/yAkZdL5UWj+pVq3odktZZEoUFXdmk6JTO46m78SMMteptrEbpudK4klBExAlFrNzAS3QvXeB3Hge
-	ZP1GM1tCJp3f1Jl1bWW/uzSZQLTUsU5vjeHlt8JOuM3U1uyEkZm+9SiXWNyM8vdG/wOl/lVXkBBAg
-	LCtpAWXFSnkRHHkFsk3zqkWx8wsm8zzc+as6aXGdwSc3FAENAiDr7j1y4xNhT2YoF6fKGVr2lxI87
-	+bO+0mT17kBC7fkKQxshEc7WiwUckUvNG9CNXpFwAC52mAGjfsJaO0YTe38UhsLfgkt003huHC/si
-	3HmB0bAQ==;
-Received: from us-smtp-delivery-124.mimecast.com ([170.10.129.124])
-	by desiato.infradead.org with esmtps (Exim 4.98.2 #2 (Red Hat Linux))
-	id 1v8gUF-00000005GFS-3Sfm
+	id 1v8gZY-0000000GiY1-3Snk
 	for linux-arm-kernel@lists.infradead.org;
-	Tue, 14 Oct 2025 14:58:56 +0000
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1760453928;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=AYVbINRSmFk2th/S/4+k/CpnsMJciemy/4mjE5VYBng=;
-	b=gLO7rds4P1DT5e9vFNGD5mS7dTT2hdBTjPH7tYEp/YVo6EqBrMDrdqMCXIcgZ1ynwV62zp
-	gJRJ2/jsclRKjmnFIm2UUzJIrsa0aEmfnyTFqB08ixdrwhjgWK4JHsUSIHn3qn8GdQaZ6o
-	NICgjVqe7jow/i3wOotQOGv7D0MmRTA=
-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed; d=redhat.com;
-	s=mimecast20190719; t=1760453928;
-	h=from:from:reply-to:subject:subject:date:date:message-id:message-id:
-	 to:to:cc:cc:mime-version:mime-version:content-type:content-type:
-	 content-transfer-encoding:content-transfer-encoding:
-	 in-reply-to:in-reply-to:references:references:autocrypt:autocrypt;
-	bh=AYVbINRSmFk2th/S/4+k/CpnsMJciemy/4mjE5VYBng=;
-	b=gLO7rds4P1DT5e9vFNGD5mS7dTT2hdBTjPH7tYEp/YVo6EqBrMDrdqMCXIcgZ1ynwV62zp
-	gJRJ2/jsclRKjmnFIm2UUzJIrsa0aEmfnyTFqB08ixdrwhjgWK4JHsUSIHn3qn8GdQaZ6o
-	NICgjVqe7jow/i3wOotQOGv7D0MmRTA=
-Received: from mail-wm1-f72.google.com (mail-wm1-f72.google.com
- [209.85.128.72]) by relay.mimecast.com with ESMTP with STARTTLS
- (version=TLSv1.3, cipher=TLS_AES_256_GCM_SHA384) id
- us-mta-489-4YoxhiEzPC2ZpsBcvS-VuA-1; Tue, 14 Oct 2025 10:58:47 -0400
-X-MC-Unique: 4YoxhiEzPC2ZpsBcvS-VuA-1
-X-Mimecast-MFC-AGG-ID: 4YoxhiEzPC2ZpsBcvS-VuA_1760453926
-Received: by mail-wm1-f72.google.com with SMTP id 5b1f17b1804b1-46e36686ca1so50626805e9.2
-        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 07:58:47 -0700 (PDT)
+	Tue, 14 Oct 2025 15:04:22 +0000
+Received: by mail-pj1-x1034.google.com with SMTP id 98e67ed59e1d1-3322e63602eso7311187a91.0
+        for <linux-arm-kernel@lists.infradead.org>; Tue, 14 Oct 2025 08:04:19 -0700 (PDT)
+DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
+        d=gmail.com; s=20230601; t=1760454259; x=1761059059; darn=lists.infradead.org;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:from:to:cc:subject:date:message-id:reply-to;
+        bh=8imCO2VyYcb1j5phQLrLVVRIepCgCLAAPrEPMDTG34Y=;
+        b=ADt567g6pMuxn4tJujPAkORvy+UlMeHHzP+Qaq/mfC9azbuyG3khywLucT6284Gj7n
+         6mn/jEbOSLBFV1VS24++iqwrtvmeJW8lhTw2HrZ2APKbztUHF4b5LPjieqMt/ofhHFq6
+         3A3o8K475yawZ8Qe4bGTQb6uLLlp/znLeRL+cY5yB/v/YCAnAhi3ar9yTzS0s0MHVIzY
+         GM2Pb92bBS1xs/cjYiJ2fD5DezogR22+UHzc3Q77ugCjGijCb4wQfznOESpAm3UCF+Ry
+         u1pliTCuk20XAvylBxus8yHWAfCpdsoTF3kF8Qedkbu6aBcUG3alP1h6bOYkxIq7C81I
+         g5Dg==
 X-Google-DKIM-Signature: v=1; a=rsa-sha256; c=relaxed/relaxed;
-        d=1e100.net; s=20230601; t=1760453926; x=1761058726;
-        h=content-transfer-encoding:in-reply-to:autocrypt:content-language
-         :from:references:cc:to:subject:user-agent:mime-version:date
-         :message-id:x-gm-message-state:from:to:cc:subject:date:message-id
+        d=1e100.net; s=20230601; t=1760454259; x=1761059059;
+        h=cc:to:content-transfer-encoding:mime-version:message-id:date
+         :subject:from:x-gm-message-state:from:to:cc:subject:date:message-id
          :reply-to;
-        bh=AYVbINRSmFk2th/S/4+k/CpnsMJciemy/4mjE5VYBng=;
-        b=gm3Zz/DomOfEUiPcxt3JRkInIxL+DEIFgp7xObfRpWBFgl1/mMdwbbafhw5n4Ru/7O
-         hTP+KeP9YJSLsEH/LstR0XWiqCXuHsVaD0l93wGPncHxlAgU2BgsR9ouROGrBq4u9lfv
-         lPeoGpIuaN+ozDFilBaH6i3s3kU1AIpXBiFIix16XyYiJRfvUGcp83/T703Wd96OLvMh
-         dSIp3Uc3WToh8INzVP9ktFaQEJ8mrgV19nT4MX2E/kn2Puz8VoBnubtRnGMtPIQtBjWP
-         +nSCruDybU2HORO6Lt+TOo578sYb/w6VsQ8cCYBVBTnUCxU0oGSxSRgMc0gyU/mndWNp
-         rxYg==
-X-Forwarded-Encrypted: i=1; AJvYcCX97cBlSHIMcYc80aH9fdJGI1F64JiP0sfdTJRzsPR+AnJCGZ4bPBAgNtdY3LkLyb0+k2tCo57Mr674iBGzsPFN@lists.infradead.org
-X-Gm-Message-State: AOJu0YweWmMomrPVXEoLuSU8jWgc597bK0sjhOvdsVb770+nRQvc+UVt
-	xxa225uqdA+Sjx2fUFO7zogZMJlpG3YPfwpv5oQndS8lW/4zlgT0kzd00eDXqU7M3cJyuSprJ+1
-	JgK/lCjnsGtWbnc+WYcTC/MRJs24pSAqjn+vWnn892AXm6rfyvjossYUf9OdC1YDxUO41MWi86m
-	bY
-X-Gm-Gg: ASbGncsXDr/RHR+HkIQYqv3URrE0hnWS3H4sUZeREqwdexLSOSeQWLliiWn5LWs1Qzv
-	2gtiaGPHeSCvdPM5shoMPyQdeAdHv7Gl7oiIzdS9x4FCoUiAfsmBeyAVQKaPXvd41oNWltjQirp
-	tUvUjEWrLDXurjzZgNglBPn39gi6R1F8XtTBOCj7yyrfy82ymbaonJM4IqdQVCv9HJ52OSzgCTv
-	FlA2/amxmeQUQpSm4Mgqf3L0PzA6B/ZvrEPfu4Bq4yrBZW91UJYWL2OWjnzE7AQWkzLbBCtl2u+
-	4mmCDSJBOSWnv07C326Zr7RLKXVxRiCiFnaV5uqOIcv5vyed1Dl6aUxv52lYToaqei4w2bAfjQ=
-	=
-X-Received: by 2002:a05:600c:4688:b0:45c:b540:763d with SMTP id 5b1f17b1804b1-46fa9b18258mr188890455e9.33.1760453926213;
-        Tue, 14 Oct 2025 07:58:46 -0700 (PDT)
-X-Google-Smtp-Source: AGHT+IF8kReNouh/FMllDhZL1/LjU5H2+MzwpSXXqIoRDT/EXSsokN8bUOOMTMa3S5ppFayGgVWyaA==
-X-Received: by 2002:a05:600c:4688:b0:45c:b540:763d with SMTP id 5b1f17b1804b1-46fa9b18258mr188890205e9.33.1760453925803;
-        Tue, 14 Oct 2025 07:58:45 -0700 (PDT)
-Received: from ?IPV6:2a09:80c0:192:0:5dac:bf3d:c41:c3e7? ([2a09:80c0:192:0:5dac:bf3d:c41:c3e7])
-        by smtp.gmail.com with ESMTPSA id ffacd0b85a97d-426ce5e13b6sm24159844f8f.44.2025.10.14.07.58.44
-        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
-        Tue, 14 Oct 2025 07:58:45 -0700 (PDT)
-Message-ID: <313d2c86-d13e-4f79-b977-81a43d685cf6@redhat.com>
-Date: Tue, 14 Oct 2025 16:58:44 +0200
+        bh=8imCO2VyYcb1j5phQLrLVVRIepCgCLAAPrEPMDTG34Y=;
+        b=rqRdLALGx0ffjdrF1fF4DXMlc0gTtso40WX7y7ASZS8LPUOwHEHJsEnjTTCFkgPiSt
+         00uipv1UzlqEnnFU0rGWkcmdR6nE3qPSL+ruM5QqsGk2u6zVv9lsdodmT04Tp83FF05K
+         Q7VB6lxCmPMeVVO0lCDNJLMV57PdpMau4dKKpkrYyKUsjWq+MYozsV0k+nqqSEgTDOP+
+         AEcd8z5RpZYCYoPH440RzZ6yNm+vSLq4EqZ1zfkADCgTS2QSuY9FsbcleJ0bxrWrE+h9
+         tsIMhcBhRiPtBM/h18JSNv1yoWrXKzOXnm1CzaDw8SBxXGnd1lwBB27PwzrYC2yPjmc+
+         sj9Q==
+X-Forwarded-Encrypted: i=1; AJvYcCVe6+JXNuswbwSj+/3dUfoKUAHpcIRwaqdWgbw99YJiVVeZubiKn5Mgmas5Y1vLwIud7DJPdIQo5yXv+PSY25bD@lists.infradead.org
+X-Gm-Message-State: AOJu0YwTSRkHTicCN8TZK2Pev+4LBI5CvQUgp+6unNjFBN4rN5Ts4XGs
+	29TVOHnVwmt4yp45VraIjx4/PmrPVkRqoxfeBl9ajmYKAdfVUZvOZ62f
+X-Gm-Gg: ASbGncvcLbJhiSUcogTOaY+X5f/6rhtybt8Rr3ONvMNPT7va0fDYIBeILcIQX48lZ9i
+	1maYvYNKRIGdTYBcs5pIA5pU8MbJtEdAXez0LQUxWzbrvAkN5isPjVd72peQyDHgGlKL2xzhbPY
+	QElz8H4sND/bHYX4RrOvaNAEWs9EQN3o17XbhkXfe2PzyFCpURMf0yOeFlP68r3+zutlsK4AlWt
+	jq1dJRtTdTzXUnnX+F/LNYNOvWxhvLTf5WnFGZci5PV9a3UTcldZPfMFvVPielIAGphLXvzGkOv
+	KRY+XdnGAvqixkvUeExLgQwnybFiMfEx9wuiDvRKNgj8nkr3txu5/AZyvBXjIQzba2WpJXqAsOZ
+	pU0RYv4z2yXl+mt5h982GP7hAbPWUVk+l+uCqV746Vtr9YSp2pCiLHg==
+X-Google-Smtp-Source: AGHT+IE+ErcXbwTZcmHrpt9vXdMDhxxBi8n4fGgsjBr4Oe2R65kjMNzjkJiv6etQPJqpr8mgUcHrpg==
+X-Received: by 2002:a17:90b:4fcc:b0:33b:6612:67ee with SMTP id 98e67ed59e1d1-33b6612716fmr19725254a91.26.1760454259092;
+        Tue, 14 Oct 2025 08:04:19 -0700 (PDT)
+Received: from [127.0.1.1] ([59.188.211.98])
+        by smtp.googlemail.com with ESMTPSA id 98e67ed59e1d1-33b61a1d3cfsm16258161a91.2.2025.10.14.08.04.15
+        (version=TLS1_3 cipher=TLS_AES_256_GCM_SHA384 bits=256/256);
+        Tue, 14 Oct 2025 08:04:18 -0700 (PDT)
+From: Nick Chan <towinchenmi@gmail.com>
+Subject: [PATCH RESEND v8 00/21] drivers/perf: apple_m1: Add Apple A7-A11,
+ T2 SoC support
+Date: Tue, 14 Oct 2025 23:02:33 +0800
+Message-Id: <20251014-apple-cpmu-v8-0-3f94d4a2a285@gmail.com>
 MIME-Version: 1.0
-User-Agent: Mozilla Thunderbird
-Subject: Re: [PATCH -v2 1/2] mm: add spurious fault fixing support for huge
- pmd
-To: Lorenzo Stoakes <lorenzo.stoakes@oracle.com>
-Cc: Huang Ying <ying.huang@linux.alibaba.com>,
- Catalin Marinas <catalin.marinas@arm.com>, Will Deacon <will@kernel.org>,
- Andrew Morton <akpm@linux-foundation.org>, Vlastimil Babka <vbabka@suse.cz>,
- Zi Yan <ziy@nvidia.com>, Baolin Wang <baolin.wang@linux.alibaba.com>,
- Ryan Roberts <ryan.roberts@arm.com>, Yang Shi <yang@os.amperecomputing.com>,
- "Christoph Lameter (Ampere)" <cl@gentwo.org>, Dev Jain <dev.jain@arm.com>,
- Barry Song <baohua@kernel.org>, Anshuman Khandual
- <anshuman.khandual@arm.com>, Yicong Yang <yangyicong@hisilicon.com>,
- Kefeng Wang <wangkefeng.wang@huawei.com>,
- Kevin Brodsky <kevin.brodsky@arm.com>,
- Yin Fengwei <fengwei_yin@linux.alibaba.com>,
- linux-arm-kernel@lists.infradead.org, linux-kernel@vger.kernel.org,
- linux-mm@kvack.org
-References: <20251013092038.6963-1-ying.huang@linux.alibaba.com>
- <20251013092038.6963-2-ying.huang@linux.alibaba.com>
- <4c453dcc-2837-4f1a-905b-3462270f5e31@lucifer.local>
- <2861a35d-4f8e-4ee1-bd11-b915580c9ce3@redhat.com>
- <86bb70dd-2602-48f3-a683-5ec62b37fd46@lucifer.local>
-From: David Hildenbrand <david@redhat.com>
-Autocrypt: addr=david@redhat.com; keydata=
- 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
- qIws/H2t
-In-Reply-To: <86bb70dd-2602-48f3-a683-5ec62b37fd46@lucifer.local>
-X-Mimecast-Spam-Score: 0
-X-Mimecast-MFC-PROC-ID: _cngVswaMr7wW_owpLOvkyf9NlHwNVIVvwr6qdVVHmA_1760453926
-X-Mimecast-Originator: redhat.com
-Content-Language: en-US
-Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Type: text/plain; charset="utf-8"
 Content-Transfer-Encoding: 7bit
+To: Will Deacon <will@kernel.org>, Mark Rutland <mark.rutland@arm.com>, 
+ Rob Herring <robh@kernel.org>, Krzysztof Kozlowski <krzk+dt@kernel.org>, 
+ Conor Dooley <conor+dt@kernel.org>, 
+ Catalin Marinas <catalin.marinas@arm.com>, Janne Grunau <j@jannau.net>, 
+ Alyssa Rosenzweig <alyssa@rosenzweig.io>, Neal Gompa <neal@gompa.dev>, 
+ Sven Peter <sven@kernel.org>
+Cc: Marc Zyngier <maz@kernel.org>, linux-arm-kernel@lists.infradead.org, 
+ linux-perf-users@vger.kernel.org, devicetree@vger.kernel.org, 
+ asahi@lists.linux.dev, linux-kernel@vger.kernel.org, 
+ Nick Chan <towinchenmi@gmail.com>, 
+ Krzysztof Kozlowski <krzysztof.kozlowski@linaro.org>, 
+ Ivaylo Ivanov <ivo.ivanov.ivanov1@gmail.com>
+X-Mailer: b4 0.14.2
+X-Developer-Signature: v=1; a=openpgp-sha256; l=4373; i=towinchenmi@gmail.com;
+ h=from:subject:message-id; bh=+LAKu174f1xhSbC2VdiHkWIZYXz3wYKQPJAQC4FzNig=;
+ b=owEBbQKS/ZANAwAKAQHKCLemxQgkAcsmYgBo7mZpudLIC0ztBCR7veCzHpSumy3IXrkXmK+WF
+ shTYDMipyeJAjMEAAEKAB0WIQRLUnh4XJes95w8aIMBygi3psUIJAUCaO5maQAKCRABygi3psUI
+ JBpbD/9zBv/huVKZJ8IpyeFgjJjZmiHx/3KJRuMcQFwhivibfox60KC8x+1heW/D3HwX4LW/Czj
+ xQugtm39kAArMmFQc+zz+yKSM+HdmHS5ay3cgBiL/MZngarp6b2NtWJkPrbTrphEMWpJGRGFKNy
+ H7k8Pq09SArzR2ByrdW5JsZeg3Y1t9LFozaTKcS5TxxjN2/14UGlH72Cdi2t4m90ejluBVqJAWm
+ llDdiqoz42+8ws6PE5JIW9/oo3J5MbE82arkjAwoVSnamu6uG4OM3zdrYRFk3e6VLrgx5PxVlIq
+ EKf2LP/Ei9QKvoF2Eg458VIOTHWeXeqrcIwlFl6Xnc7Ohq7SKVe+Sif2xRrHDsV4fDKsagSL93B
+ XTGEdpjbFus7FPdei2OZWjr5CK8d22frrttrMPd52UBR7Ln0C83jI9oJpwKpYIm9grGe/Lvy5h5
+ CqPcKEOiI/qoGK5jR63J61ZRgEtnHxbGXvtSY831JqpndFQbeBnfbAjvA7N/dG4BWbxn7Rzj+lT
+ sy/eQB1W12OfV/bW3Kt7PLCHGF+42BGc2/Xt07HFVpPQLriHeWlF0AbhCPp+HOLnwzKSET8JSZF
+ 0gu5+lTvn/Wo2B9JazUvGpS0FMpQVizhOoBtWdNceYsYcGQRuhxL1IEFS1AIxI4mw/0Y8OQtoc2
+ QyxW5EWmFHVV3WQ==
+X-Developer-Key: i=towinchenmi@gmail.com; a=openpgp;
+ fpr=4B5278785C97ACF79C3C688301CA08B7A6C50824
 X-CRM114-Version: 20100106-BlameMichelson ( TRE 0.8.0 (BSD) ) MR-646709E3 
-X-CRM114-CacheID: sfid-20251014_155853_696189_1889BB52 
-X-CRM114-Status: GOOD (  13.76  )
+X-CRM114-CacheID: sfid-20251014_080420_887706_5B0F6F63 
+X-CRM114-Status: GOOD (  15.19  )
 X-BeenThere: linux-arm-kernel@lists.infradead.org
 X-Mailman-Version: 2.1.34
 Precedence: list
@@ -197,47 +122,100 @@ List-Subscribe: <http://lists.infradead.org/mailman/listinfo/linux-arm-kernel>,
 Sender: "linux-arm-kernel" <linux-arm-kernel-bounces@lists.infradead.org>
 Errors-To: linux-arm-kernel-bounces+linux-arm-kernel=archiver.kernel.org@lists.infradead.org
 
-On 14.10.25 16:49, Lorenzo Stoakes wrote:
-> On Tue, Oct 14, 2025 at 04:38:05PM +0200, David Hildenbrand wrote:
->>
->>>
->>> 		/* Skip spurious TLB flush for retried page fault */
->>> 		if (vmf->flags & FAULT_FLAG_TRIED)
->>> 			goto unlock;
->>> 		/*
->>> 		 * This is needed only for protection faults but the arch code
->>> 		 * is not yet telling us if this is a protection fault or not.
->>> 		 * This still avoids useless tlb flushes for .text page faults
->>> 		 * with threads.
->>> 		 */
->>> 		if (vmf->flags & FAULT_FLAG_WRITE)
->>> 			flush_tlb_fix_spurious_fault(vmf->vma, vmf->address,
->>> 						     vmf->pte);
->>>
->>>
->>> So I don't see why it's so egregious to have the equivalent here, or actually
->>> ideally to abstract the code entirely.
->>
->> Let's definitely not duplicate such comments whereby one instance will end
->> up bitrotting.
-> 
-> We're duplicating the code in two places, how would that bitrot happen exactly?
+This series adds support for the CPU PMU in the older Apple A7-A11, T2
+SoCs. These PMUs may have a different event layout, less counters, or
+deliver their interrupts via IRQ instead of a FIQ. Since some of those
+older SoCs support 32-bit EL0, counting for 32-bit EL0 also need to
+be enabled by the driver where applicable.
 
-Often we adjust/fix comments to make scenarios/conditions clearer or 
-extend them to cover some new conditions.
+Patch 1 adds the DT bindings.
+Patch 2-7 prepares the driver to allow adding support for those
+older SoCs.
+Patch 8-12 adds support for the older SoCs.
+Patch 13-21 are the DT changes.
 
-So even without any code changes people will just ignore to update other 
-comments.
+Signed-off-by: Nick Chan <towinchenmi@gmail.com>
+---
+Changes in v8:
+- Rebased on top of v6.17-rc1
+- Collect Ivaylo's Tested-by
+- Drop #define PMCR1_COUNT_A64_EL3_0_7
+- Reword reason to not initialize PMUv3 remap in EL1
+- Link to v7: https://lore.kernel.org/r/20250510-apple-cpmu-v7-0-bd505cb6c520@gmail.com
 
-Code you can at least test with the hope to find inconsistencies.
+Changes in v7:
+- Fix a W=1 compile warning in apple_pmu_get_event_idx() as appearently using GENMASK()
+in a function prototype causes a warning in GCC.
+- Link to v6: https://lore.kernel.org/r/20250407-apple-cpmu-v6-0-ae8c2f225c1f@gmail.com
 
-So copying rather large comments is usually never the answer :)
+Changes in v6:
+- Rebased on top of v6.15-rc1 (Conflict with FEAT_PMUv3 support for KVM on Apple Hardware)
+- Add patch to skip initialization of PMUv3 remap in EL1 even though not strictly needed
+- Include DT patches
+- Link to v5: https://lore.kernel.org/r/20250228-apple-cpmu-v5-0-9e124cd28ed4@gmail.com
 
-Well, just like copying larger chunks of code, agreed.
+Changes in v5:
+- Slightly change "drivers/perf: apple_m1: Add Apple A11 Support", to keep things in
+chronological order.
+- Link to v4: https://lore.kernel.org/r/20250214-apple-cpmu-v4-0-ffca0e45147e@gmail.com
 
+Changes in v4:
+- Support per-implementation event attr group
+- Fix Apple A7 event attr groups
+- Link to v3: https://lore.kernel.org/r/20250213-apple-cpmu-v3-0-be7f8aded81f@gmail.com
+
+Changes in v3:
+- Configure PMC8 and PMC9 for 32-bit EL0
+- Remove redundant _common suffix from shared functions
+- Link to v2: https://lore.kernel.org/r/20250213-apple-cpmu-v2-0-87b361932e88@gmail.com
+
+Changes in v2:
+- Remove unused flags parameter from apple_pmu_init_common()
+- Link to v1: https://lore.kernel.org/r/20250212-apple-cpmu-v1-0-f8c7f2ac1743@gmail.com
+
+---
+Nick Chan (21):
+      dt-bindings: arm: pmu: Add Apple A7-A11 SoC CPU PMU compatibles
+      drivers/perf: apple_m1: Only init PMUv3 remap when EL2 is available
+      drivers/perf: apple_m1: Support per-implementation event tables
+      drivers/perf: apple_m1: Support a per-implementation number of counters
+      drivers/perf: apple_m1: Support configuring counters for 32-bit EL0
+      drivers/perf: apple_m1: Support per-implementation PMU startup
+      drivers/perf: apple_m1: Support per-implementation event attr group
+      drivers/perf: apple_m1: Add Apple A7 support
+      drivers/perf: apple_m1: Add Apple A8/A8X support
+      drivers/perf: apple_m1: Add A9/A9X support
+      drivers/perf: apple_m1: Add Apple A10/A10X/T2 Support
+      drivers/perf: apple_m1: Add Apple A11 Support
+      arm64: dts: apple: s5l8960x: Add CPU PMU nodes
+      arm64: dts: apple: t7000: Add CPU PMU nodes
+      arm64: dts: apple: t7001: Add CPU PMU nodes
+      arm64: dts: apple: s800-0-3: Add CPU PMU nodes
+      arm64: dts: apple: s8001: Add CPU PMU nodes
+      arm64: dts: apple: t8010: Add CPU PMU nodes
+      arm64: dts: apple: t8011: Add CPU PMU nodes
+      arm64: dts: apple: t8012: Add CPU PMU nodes
+      arm64: dts: apple: t8015: Add CPU PMU nodes
+
+ Documentation/devicetree/bindings/arm/pmu.yaml |   6 +
+ arch/arm64/boot/dts/apple/s5l8960x.dtsi        |   8 +
+ arch/arm64/boot/dts/apple/s800-0-3.dtsi        |   8 +
+ arch/arm64/boot/dts/apple/s8001.dtsi           |   8 +
+ arch/arm64/boot/dts/apple/t7000.dtsi           |   8 +
+ arch/arm64/boot/dts/apple/t7001.dtsi           |   9 +
+ arch/arm64/boot/dts/apple/t8010.dtsi           |   8 +
+ arch/arm64/boot/dts/apple/t8011.dtsi           |   9 +
+ arch/arm64/boot/dts/apple/t8012.dtsi           |   8 +
+ arch/arm64/boot/dts/apple/t8015.dtsi           |  24 +
+ arch/arm64/include/asm/apple_m1_pmu.h          |   2 +
+ drivers/perf/apple_m1_cpu_pmu.c                | 807 +++++++++++++++++++++++--
+ 12 files changed, 870 insertions(+), 35 deletions(-)
+---
+base-commit: 8f5ae30d69d7543eee0d70083daf4de8fe15d585
+change-id: 20250211-apple-cpmu-5a5a3da39483
+
+Best regards,
 -- 
-Cheers
-
-David / dhildenb
+Nick Chan <towinchenmi@gmail.com>
 
 
